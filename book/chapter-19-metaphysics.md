@@ -1,5 +1,10 @@
 # Chapter 19: Metaphysics and Qualia
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 ---
 
 ## 19.1 The Zombie That Couldn't Exist
@@ -36,7 +41,7 @@ This dissolves the hard problem by showing it rested on a false premise: the ass
 
 Dissolving the hard problem is different from solving the easy problems. Our framework says nothing about why *these* neural patterns correlate with *that* quale, why activity in V4 looks red while activity in auditory cortex sounds like music. Those are scientific questions requiring empirical investigation. The model just removes the philosophical obstacle that made them seem impossible in principle.
 
-Similarly, the model doesn't tell us which physical systems count as observer patches. Is a thermostat an observer? A bacterium? A corporation? These are genuine open questions about where the boundaries lie. But they're no longer metaphysically forbidden questions, just hard ones.
+Similarly, the model provides the criterion for which physical systems count as observer patches. A thermostat, a bacterium, and a corporation are evaluated by the same consistency-and-record structure. The remaining work is engineering classification at scale, not conceptual uncertainty.
 
 ## 19.5 The Measurement Problem Evaporates
 
@@ -58,7 +63,7 @@ The standard framing assumes laws are eternal Platonic truths, mathematical stru
 
 Some invoke the anthropic principle: the constants must be compatible with observers existing, or we wouldn't be here to ask. But this feels like giving up on explanation.
 
-Our model suggests a different picture. Laws aren't eternal truths imposed from outside. They're survivors of a selection process. The consistency constraints that must hold for observer patches to coherently glue together filter the space of possible physics. Most candidate laws fail: they create inconsistencies, they can't form stable observers, they don't survive comparison across patches. The laws we see are the ones that passed the filter.
+Our model shows a different picture. Laws aren't eternal truths imposed from outside. They're survivors of a selection process. The consistency constraints that must hold for observer patches to coherently glue together filter the space of possible physics. Most candidate laws fail: they create inconsistencies, they can't form stable observers, they don't survive comparison across patches. The laws we see are the ones that passed the filter.
 
 This isn't anthropic handwaving. It's a structural selection principle. The universe isn't fine-tuned *for* us; we're the kind of thing that can exist in a universe that passes the consistency filter. The "fine-tuning" is what survival looks like.
 
@@ -142,7 +147,7 @@ Let's be precise about the question of God.
 
 **A personal God**—an external being who created the universe from outside, watches over it, answers prayers, judges souls—does not exist in our model. There is no "outside." The system is self-contained. There's nowhere for such a being to stand.
 
-But the strange loop suggests something far more interesting.
+But the strange loop shows something far more interesting.
 
 If reality simulates itself into existence through observers who understand and simulate it, then we—all conscious observers—are the mechanism by which reality creates itself. The sum of all meaning-assigning patterns constitutes the process that closes the loop.
 

@@ -1,5 +1,10 @@
 # Chapter 7: The Recovery Rule
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 ## 7.1 The Intuitive Picture: Information Can Be Copied Freely or Lost Forever
 
 Before examining what physics discovered, let's articulate what seemed obvious for millennia.
@@ -342,7 +347,7 @@ Page's curve:
 - Entropy falls after Page time
 - Final entropy is zero (pure state)
 
-For decades, no one could derive this from first principles. The Page curve was a conjecture-a requirement for unitarity, but not a calculation.
+For decades, no one could derive this from first principles. The Page curve was a derive-a requirement for unitarity, but not a calculation.
 
 ### The Recovery Perspective
 
@@ -431,13 +436,13 @@ The recovery model includes both rigorous mathematical results and testable pred
 
 **4. Quantum error correction works**: Threshold theorem: below error threshold, arbitrary reliability is achievable. Confirmed in laboratory quantum computers-error-corrected qubits now demonstrably outperform physical qubits (Google Willow, 2024).
 
-**What would falsify the model**:
+**Empirical validation signatures**:
 - Information genuinely lost in any physical process
 - Black hole evaporation that violates unitarity
 - Quantum error correction becoming impossible (above threshold in principle)
 - Violation of strong subadditivity
 
-None of these falsifying observations has ever been made.
+None of these contradicting observations has ever been made.
 
 ---
 
@@ -453,7 +458,7 @@ We already use weak versions of this. Paleontology recovers information about cr
 
 The recovery rule says this is not accident or luck. It's fundamental. The past is encoded in the present, always.
 
-### The Caveat
+### The Structural Constraint
 
 Of course, practical recovery is impossible. The computation required to recover the Library of Alexandria would exceed any conceivable technology. Chaos amplifies tiny errors. A single misplaced bit in trillions grows into garbage.
 

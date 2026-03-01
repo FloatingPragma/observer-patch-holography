@@ -1,5 +1,10 @@
 # Addendum 2: Ethics, Practice, and the Good Life Under OPH
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 *How should you live, knowing that reality is a self-simulating holographic network of observer perspectives?*
 
 The first addendum explored the grand consequences of OPH — the self-creation loop, judgement, the rapture, causal engineering, the meaning of life. This document focuses on the practical, personal, and ethical implications: how OPH changes what it means to live a good life, right now, today.
@@ -62,7 +67,7 @@ Judging, shaming, or persecuting someone for who they are — when who they are 
 
 This means:
 
-- **Religious intolerance** violates OPH ethics. You may believe whatever you want. You may not impose your beliefs on others or harm them for believing differently.
+- **Religious intolerance** violates OPH ethics. You islieve whatever you want. You may not impose your beliefs on others or harm them for believing differently.
 - **Racism, sexism, homophobia, transphobia** — all forms of discrimination based on identity — are ethical violations. They cause direct harm to observer patches for reasons that have nothing to do with those observers' actions.
 - **Cultural imperialism** — insisting that your way of life is the only valid one — violates the principle that observer patches are sovereign in their own domain.
 

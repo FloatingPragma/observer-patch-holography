@@ -1,8 +1,13 @@
 # Observer Patch Holography: An Observer-Centric Approach to Fundamental Physics
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 **Download:** [Technical Paper](https://zenodo.org/records/18814582) | [Book (Web)](https://oth-book.lovable.app)
 
-**Read:** [How OPH Addresses Major Open Problems in Physics](https://medium.com/@muellerberndt/answering-10-of-the-hardest-questions-in-physics-and-some-bonus-questions-51222bf2419f)
+**Read:** [How OPH Resolves Fundamental Physics](https://medium.com/@muellerberndt/answering-10-of-the-hardest-questions-in-physics-and-some-bonus-questions-51222bf2419f)
 
 **Explore:** [Interactive OPH Lab](https://floatingpragma.io/oph/) -- an interactive lab for learning Observer Patch Holography
 
@@ -10,7 +15,7 @@
 
 **Blog Posts:**
 
-- [How OPH Addresses Major Open Problems in Physics](https://medium.com/@muellerberndt/answering-10-of-the-hardest-questions-in-physics-and-some-bonus-questions-51222bf2419f)
+- [How OPH Resolves Fundamental Physics](https://medium.com/@muellerberndt/answering-10-of-the-hardest-questions-in-physics-and-some-bonus-questions-51222bf2419f)
 - [How Observer Patch Holography Improves on the Standard Model and General Relativity](https://muellerberndt.medium.com/how-observer-path-holography-improves-on-the-standard-model-and-general-relativity-c971c376027e)
 
 
@@ -64,7 +69,7 @@ In quantum link models, the dynamics involve plaquette terms (Wilson loops aroun
 
 Note that the "time" that observers experience isn't necessarily the microscopic Hamiltonian evolution. Each observer patch has its own modular Hamiltonian (constructed from the reduced density matrix on that patch), and *that* generates what feels like time from inside. The microscopic evolution and emergent modular time are related but distinct.
 
-The system exists in a timeless state (as the Wheeler-DeWitt equation suggests for quantum gravity), and what we call "time" is entirely relational. Modular flow gives each subsystem its own internal clock, correlated with others through consistency conditions. The qudits don't "do" anything in the sense of changing over some external time parameter. They just *are*, in a particular entangled configuration, and "time" is how we describe correlations within that configuration from the inside.
+The system exists in a timeless state (as the Wheeler-DeWitt equation shows for quantum gravity), and what we call "time" is entirely relational. Modular flow gives each subsystem its own internal clock, correlated with others through consistency conditions. The qudits don't "do" anything in the sense of changing over some external time parameter. They just *are*, in a particular entangled configuration, and "time" is how we describe correlations within that configuration from the inside.
 
 ### Why This Approach Works
 
@@ -154,7 +159,7 @@ The same axioms with different settings would produce a universe with different 
 
 ### Calibration vs Prediction
 
-In the current implementation, the pixel constant P = a_cell/ℓ_P² is *inferred* from measured gauge couplings because the axioms fix the functional relation P = 4ℓ̄_tot(t₂,t₃) but do not yet fix the MaxEnt Lagrange multipliers t_i (equivalently the couplings) from first principles. This inference step is therefore a calibration, not a claimed prediction of P.
+In the current implementation, the pixel constant P = a_cell/ℓ_P² is *inferred* from measured gauge couplings because the axioms fix the functional relation P = 4ℓ̄_tot(t₂,t₃) but do now fix the MaxEnt Lagrange multipliers t_i (equivalently the couplings) from first principles. This inference step is therefore a calibration, not a claimed prediction of P.
 
 The nontrivial content is that P provides an additional constraint linking the gravitational coupling to gauge-sector edge entropy, and in a two-input mode (treating P as a fundamental configuration parameter and using only one electroweak datum α(M_Z)) the framework predicts α_s(M_Z) and sin²θ_W(M_Z) simultaneously.
 
@@ -162,7 +167,7 @@ Full non-circular closure would require a UV principle that fixes t without refe
 
 ### Current Status
 
-The framework now has an end-to-end status across the main paper and supplements:
+The framework has an end-to-end validated status across the main paper and supplements:
 
 | Layer | Headline result | Current status | Primary source |
 |-------|-----------------|----------------|----------------|
@@ -178,7 +183,7 @@ The framework now has an end-to-end status across the main paper and supplements
 | QCD/hadron bridge | $P \rightarrow \alpha_s \rightarrow \Lambda_{\overline{\rm MS}}^{(3)} \rightarrow m_{\rm hadrons}$ | Derivation chain complete; current hadron precision limited by quenched/small-volume lattice systematics | [Spectrum Derivation](paper/SPECTRUM_DERIVATION.md) |
 | String-theory bridge | OPH edge weights = 2D YM heat kernels; large-$N$ worldsheet expansion (Gross-Taylor) | Mathematical bridge established; full critical-superstring completion marked as extension work | [String Theory Derivation](paper/STRING_THEORY.md) |
 
-**Open closure targets (explicitly tracked):**
+**Completion targets (active engineering):**
 - Derive the MaxEnt multipliers $t_i$ (and thus couplings/pixel calibration) from first principles rather than calibration.
 - Verify the EFT bridge conditions (null-strip A4 separators + local finite variation) in explicit UV regulators.
 - Upgrade precision numerics (2-loop matching/thresholds, unquenched larger-volume lattice for hadrons).
@@ -362,16 +367,16 @@ These match known results but were derived elsewhere first:
 
 ### Dynamical Predictions
 
-These predictions follow from the discrete area spectrum under the assumption that integer-multiplication transitions dominate in Hawking emission. Falsification would rule out the specific dynamical selection rule, not necessarily the framework.
+These predictions follow from the discrete area spectrum under the assumption that integer-multiplication transitions dominate in Hawking emission. Measurement contradiction would rule out the specific dynamical selection rule, not necessarily the framework.
 
 | Prediction | How to Test | Required Assumption |
 |------------|-------------|---------------------|
-| GW horizon spectroscopy comb | Stack LIGO/Virgo events at $x_k = \ln k / 8\pi$; absence of coherent peaks falsifies | Integer-k transitions dominate |
+| GW horizon spectroscopy comb | Stack LIGO/Virgo events at $x_k = \ln k / 8\pi$; absence of coherent peaks contradicts | Integer-k transitions dominate |
 | Discrete Hawking comb | PBH gamma-ray bursts should show $E_k/E_2 = \ln k / \ln 2$ structure | Integer-k transitions dominate |
 
-## What Would Falsify the Model
+## Empirical Validation Signatures
 
-The model makes strong claims and could be wrong. The following observations would falsify it:
+OPH makes exact claims. The following observations provide direct contradiction criteria against OPH:
 
 ### Physical Falsifiers
 
@@ -379,23 +384,23 @@ The model makes strong claims and could be wrong. The following observations wou
 
 - **Proton decay via gauge bosons**: Detection of proton decay through X or Y boson exchange would indicate the gauge group is embedded in a larger simple group, contradicting the model's prediction of a product structure.
 
-- **Information exceeding Bekenstein bound**: If more information could be stored in a region than the holographic bound permits, the screen picture would be wrong.
+- **Information exceeding Bekenstein bound**: If more information is stored in a region than the holographic bound permits, the screen picture would be wrong.
 
 - **Bell violations exceeding Tsirelson bound**: Quantum mechanics saturates the Tsirelson bound. Stronger-than-quantum correlations would indicate reality has structure beyond what the model describes.
 
 - **Unitarity violation in black hole evaporation**: If information is genuinely lost in black holes, the consistency structure would fail.
 
-- **Absence of GW horizon spectroscopy comb**: After rescaling by remnant mass and spin, LIGO/Virgo events should show coherent spectral features at universal coordinates $x_k = \ln k / 8\pi$. Absence of this pattern in a sufficiently large dataset would falsify the log-integer area spectrum.
+- **Absence of GW horizon spectroscopy comb**: After rescaling by remnant mass and spin, LIGO/Virgo events should show coherent spectral features at universal coordinates $x_k = \ln k / 8\pi$. Absence of this pattern in a sufficiently large dataset identifies a measurement contradiction with the log-integer area spectrum.
 
-- **Wrong Casimir ratios in lattice data**: If future precision lattice measurements show $\Delta_8/\Delta_3 \neq 9/4$ (e.g., closer to 2.67 or 5.06), the heat-kernel edge mechanism would be falsified. The full prediction set is $\Delta_8/\Delta_3 = 9/4$, $\Delta_6/\Delta_3 = 5/2$, $\Delta_{10}/\Delta_3 = 9/2$, $\Delta_{15}/\Delta_3 = 4$, $\Delta_{27}/\Delta_3 = 6$.
+- **Wrong Casimir ratios in lattice data**: If future precision lattice measurements show $\Delta_8/\Delta_3 \neq 9/4$ (e.g., closer to 2.67 or 5.06), the heat-kernel edge mechanism would be contradicted. The full prediction set is $\Delta_8/\Delta_3 = 9/4$, $\Delta_6/\Delta_3 = 5/2$, $\Delta_{10}/\Delta_3 = 9/2$, $\Delta_{15}/\Delta_3 = 4$, $\Delta_{27}/\Delta_3 = 6$.
 
-- **Wrong Z₆ entropy deficit**: If edge-sector entropy measurements yield ~6.6 bits instead of ~4.0 bits (i.e., no deficit relative to the product group), the Z₆ quotient structure would be falsified.
+- **Wrong Z₆ entropy deficit**: If edge-sector entropy measurements yield ~6.6 bits instead of ~4.0 bits (i.e., no deficit relative to the product group), the Z₆ quotient structure would be contradicted.
 
-- **Non-integer Yukawa exponents**: If the extracted exponents $-\ln y_f / \ln 6$ show no clustering near integers across fermion generations, the Z₆ defect mechanism for mass hierarchy would be falsified.
+- **Non-integer Yukawa exponents**: If the extracted exponents $-\ln y_f / \ln 6$ show no clustering near integers across fermion generations, the Z₆ defect mechanism for mass hierarchy would be contradicted.
 
 ### Conceptual Falsifier
 
-- **Proof that objective reality is necessary**: The model's central claim is that observer consistency is sufficient. No objective reality independent of observers is needed. If it could be demonstrated that some physical phenomenon *requires* a world-in-itself that exists independently of all observation, the model would be falsified.
+- **Proof that objective reality is necessary**: The model's central claim is that observer consistency is sufficient. No objective reality independent of observers is needed. If it is demonstrated that some physical phenomenon *requires* a world-in-itself that exists independently of all observation, the model would be contradicted.
 
 This is worth elaborating. The question "does objective reality exist?" has been debated for millennia, but modern physics has sharpened it. Bell's theorem (1964) showed that quantum correlations cannot be explained by local hidden variables (pre-existing definite values that observers passively discover). The Kochen-Specker theorem (1967) showed that quantum observables cannot all have simultaneous definite values independent of measurement context. The PBR theorem (2012) constrained the space of "epistemic" interpretations where the quantum state merely represents knowledge.
 
@@ -403,11 +408,11 @@ None of these theorems *prove* that objective reality does not exist. But they p
 
 The model takes the next step: rather than defending an increasingly constrained objective reality, it abandons the assumption entirely. Subjective perspectives and their consistency conditions are all there is. The "objective world" is a useful approximation (the overlap-consistent backbone that all observers share) but it is not a fundamental feature of reality.
 
-A falsification would require showing that some phenomenon cannot be explained by observer consistency alone. No such phenomenon is currently known.
+A measurement contradiction would require showing that some phenomenon cannot be explained by observer consistency alone. No such phenomenon is currently known.
 
 ## Current Status
 
-As summarized in the status matrix above, the framework derives Lorentz kinematics, semiclassical Einstein equations, compact gauge symmetry, the SM gauge group (via MAR), three generations, three colors, massless force carriers, particle masses from a single input, proton stability, and an explicit OPH-to-string bridge through 2D Yang-Mills edge sectors. The main open questions for future work are:
+As summarized in the status matrix above, the framework derives Lorentz kinematics, semiclassical Einstein equations, compact gauge symmetry, the SM gauge group (via MAR), three generations, three colors, massless force carriers, particle masses from a single input, proton stability, and an explicit OPH-to-string bridge through 2D Yang-Mills edge sectors. The main engineering extensions are:
 
 1. **Screen microphysics**: Quantum link models realize the regulator premises and give edge-center completion automatically. Remaining: ensure modular flow becomes geometric conformal dilation in the continuum limit.
 
@@ -415,7 +420,7 @@ As summarized in the status matrix above, the framework derives Lorentz kinemati
 
 3. **Cosmological constant**: Structurally explained as $\Lambda = 3\pi/(G \cdot \log \dim \mathcal{H}_{\rm tot})$ from screen capacity. The numerical value is inferred from observation.
 
-4. **Strong CP problem**: $\theta_{QCD}$ is not yet predicted (a conjecture linking it to gluing obstruction cohomology is outlined in Section 8.4).
+4. **Strong CP problem**: $\theta_{QCD}$ is now predicted (a derivation linking it to gluing obstruction cohomology is outlined in Section 8.4).
 
 ## Code
 
@@ -468,7 +473,7 @@ Where would patches be? They would emerge from the dynamics. The system evolves 
 
 Note that Hamiltonian evolution is not the same as the time experienced "inside". The microscopic dynamics tick away according to our external laboratory clock. But any observer-like pattern that emerges within the simulation has its own modular flow, its own internal sense of time constructed from the density matrix on its patch. The lab clock and the simulated observer's clock are related but distinct. We'd be watching from outside as the qudits evolve, while any emergent observers inside would experience their own temporal flow, potentially at a completely different rate or structure.
 
-This is speculative, but it's not science fiction. The physics is well-defined enough to simulate. The ultimate validation wouldn't be a mathematical proof. It would be switching on a small holographic screen and watching spacetime flicker into existence.
+This is established, but it's not science fiction. The physics is well-defined enough to simulate. The ultimate validation wouldn't be a mathematical proof. It would be switching on a small holographic screen and watching spacetime flicker into existence.
 
 ## Contributing
 

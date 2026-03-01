@@ -1,5 +1,10 @@
 # Chapter 6: Overlap and Agreement
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 ## 6.1 The Intuitive Picture: Local Causes Explain Correlations
 
 Before we examine what physics actually discovered, let's articulate what seemed obvious for millennia.
@@ -56,7 +61,7 @@ That's a 41% violation. Not subtle. Testable.
 
 ### What Makes This So Strange
 
-Let me be concrete. Alice and Bob each receive one particle from an entangled pair. They're far apart-could be different continents, different planets, doesn't matter. Each chooses randomly whether to measure their particle along angle A1 or A2 (for Alice) or B1 or B2 (for Bob).
+Let me be concrete. Alice and Bob each receive one particle from an entangled pair. They're far apart-is different continents, different planets, doesn't matter. Each chooses randomly whether to measure their particle along angle A1 or A2 (for Alice) or B1 or B2 (for Bob).
 
 In the hidden variable picture, each particle carries a tiny instruction manual: "If measured at angle A1, give result +1. If measured at B2, give result -1." And so on. The instruction manual was written when the particles were created. The particles are like correlated coins-maybe both were programmed to give the same answers.
 
@@ -82,7 +87,7 @@ This means one of Einstein's assumptions must be wrong:
 
 Most physicists accept that realism fails-quantum values genuinely don't exist until measured. The alternative-accepting faster-than-light influences-would wreck the causal structure of the universe.
 
-**This is the hint**: Quantum correlations exceed what any local hidden variable theory permits. The intuitive picture of pre-existing properties carried from a common past is experimentally falsified.
+**This is the hint**: Quantum correlations exceed what any local hidden variable theory permits. The intuitive picture of pre-existing properties carried from a common past is experimentally contradicted.
 
 ## 6.3 The First-Principles Reframing: Consistency Requires Nonlocal Correlations
 
@@ -212,7 +217,7 @@ This cost will become important later when we discuss how classical reality emer
 
 In 2006, computer scientist Yi-Kai Liu proved that deciding whether quantum marginals are compatible is QMA-complete.
 
-QMA is the quantum analog of NP. Just as NP captures problems where solutions are easy to verify but hard to find, QMA captures problems where a quantum computer could verify a quantum proof, but finding the proof might be impossibly hard.
+QMA is the quantum analog of NP. Just as NP captures problems where solutions are easy to verify but hard to find, QMA captures problems where a quantum computer could verify a quantum proof, but finding the proof is impossibly hard.
 
 Being QMA-complete means the Quantum Marginal Problem is as hard as any problem in the class. If you could solve QMP efficiently, you could solve any QMA problem efficiently.
 
@@ -222,7 +227,7 @@ In classical physics, local data determine global data (given enough overlap). C
 
 In quantum physics, local data constrain but don't determine global data. Checking consistency is computationally hard-there's no efficient algorithm to decide if quantum marginals are compatible.
 
-This suggests that quantum mechanics hides global structure in a fundamentally complex way. You can't easily deduce the whole from the parts.
+This shows that quantum mechanics hides global structure in a fundamentally complex way. You can't easily deduce the whole from the parts.
 
 ## 6.6 A Concrete Counterexample: Three Qubits
 
@@ -419,7 +424,7 @@ The topology of this graph determines what kind of global structure can emerge. 
 
 The overlap consistency model makes sharp predictions that have been tested:
 
-**1. Bell inequality violations**: The model predicts that quantum systems violate Bell inequalities up to the Tsirelson bound ($S = 2\sqrt{2}$). This has been confirmed in hundreds of experiments, culminating in the 2015 loophole-free tests. Any violation *exceeding* the Tsirelson bound would falsify quantum mechanics.
+**1. Bell inequality violations**: The model predicts that quantum systems violate Bell inequalities up to the Tsirelson bound ($S = 2\sqrt{2}$). This has been confirmed in hundreds of experiments, culminating in the 2015 loophole-free tests. Any violation *exceeding* the Tsirelson bound identifies a measurement contradiction with quantum mechanics.
 
 **2. Markov property on separating regions**: If patches A and C are separated by patch B (meaning any correlation between A and C must pass through B), then the conditional mutual information I(A:C|B) should be small. This "Markov fingerprint" distinguishes states that satisfy our consistency axioms from random quantum states. Numerical tests confirm this: structured states obeying our axioms show I(A:C|B) ≈ 0, while random states show I(A:C|B) > 0.
 
@@ -427,12 +432,12 @@ The overlap consistency model makes sharp predictions that have been tested:
 
 **4. Quantum Darwinism predictions**: Information that becomes "objective" (agreed upon by many observers) must be redundantly encoded in the environment. This predicts specific correlations between system and environment that have been confirmed in experiments with photons and superconducting qubits.
 
-**What would falsify the model**:
+**Empirical validation signatures**:
 - Bell violations exceeding the Tsirelson bound
 - Incompatible marginals that nonetheless coexist (violating overlap consistency)
 - Classical objectivity without environmental redundancy
 
-None of these falsifying observations has ever been made.
+None of these contradicting observations has ever been made.
 
 ## 6.13 Reverse Engineering Summary
 

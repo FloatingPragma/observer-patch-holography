@@ -1,5 +1,10 @@
 # Chapter 4: Entropy on the Edge
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 ## 4.1 The Irreversibility Puzzle
 
 Here's what seems obvious: if you know the rules perfectly, you should be able to run them backward.
@@ -34,7 +39,7 @@ But Clausius's entropy was phenomenological-it described what happens without ex
 
 ### Boltzmann's Counting
 
-Boltzmann was born in Vienna in 1844. He spent his career defending the atomic hypothesis against opponents who thought atoms were mere fictions. In 1906, he took his own life. Three years later, experiments confirmed atoms beyond doubt.
+Boltzmann was born in Vienna in 1844. He spent his career defending the atomic principle against opponents who thought atoms were mere fictions. In 1906, he took his own life. Three years later, experiments confirmed atoms beyond doubt.
 
 Boltzmann looked at heat and saw a counting problem.
 
@@ -74,9 +79,9 @@ Boltzmann's answer: the arrow of time is not in the laws. It is in the initial c
 
 The universe started in a very low-entropy state. Given that starting point, entropy almost certainly increases. If the universe had started in equilibrium, it would stay there-no arrow of time, no memory, no observers.
 
-## 4.3 The Past Hypothesis
+## 4.3 The Past principle
 
-This idea-that the arrow of time traces back to a special beginning-is called the **Past Hypothesis**.
+This idea-that the arrow of time traces back to a special beginning-is called the **Past principle**.
 
 ### What Low Entropy Means for the Early Universe
 
@@ -106,13 +111,13 @@ We exist in a brief window when entropy is high enough for complexity but low en
 
 **The hint**: The microscopic laws are time-symmetric. Irreversibility is statistical, not fundamental. The arrow traces to the low-entropy initial condition.
 
-**The reframing**: Here is where our model offers something surprising. The Past Hypothesis is usually taken as a brute fact-an unexplained initial condition. But consistency constraints *select* for low-entropy beginnings.
+**The reframing**: Here is where our model offers something surprising. The Past principle is usually taken as a brute fact-an unexplained initial condition. But consistency constraints *select* for low-entropy beginnings.
 
 Consider: for observers to exist at all, they must be able to form consistent records. Records require entropy gradients-you can only write information by pushing entropy somewhere else. A universe in thermal equilibrium has no observers, no records, no consistency-checking, no reality in the sense we've been developing.
 
 The MaxEnt principle tells us to assign the maximum-entropy state *given our constraints*. But what are the constraints? If one of them is "observers exist to apply MaxEnt," then equilibrium states are ruled out by construction. The very act of asking "what state should I assign?" presupposes a questioner embedded in an entropy gradient.
 
-This doesn't derive the specific low entropy of the Big Bang from pure logic. But it does suggest that the Past Hypothesis is not an arbitrary input-it's a consistency requirement. A universe with observers checking for consistency must have started far from equilibrium. The low-entropy past is the price of the consistency-building present.
+This doesn't derive the specific low entropy of the Big Bang from pure logic. But it does suggest that the Past principle is not an arbitrary input-it's a consistency requirement. A universe with observers checking for consistency must have started far from equilibrium. The low-entropy past is the price of the consistency-building present.
 
 ## 4.4 Information is Physical
 
@@ -300,7 +305,7 @@ The entropy model includes both mathematical results and testable predictions:
 
 **Testable predictions**:
 
-**1. Second Law holds statistically**: Entropy increases in isolated systems with overwhelming probability. Any genuine violation would falsify statistical mechanics. No violation has ever been observed in a properly isolated system.
+**1. Second Law holds statistically**: Entropy increases in isolated systems with overwhelming probability. Any genuine violation identifies a measurement contradiction with statistical mechanics. No violation has ever been observed in a properly isolated system.
 
 **2. Black hole entropy equals A/4**: The Bekenstein-Hawking formula S_BH = A/(4ℓ_P²) is confirmed by string theory microstate counting (Strominger-Vafa 1996), loop quantum gravity calculations, and consistency with the generalized second law.
 
@@ -308,13 +313,13 @@ The entropy model includes both mathematical results and testable predictions:
 
 **4. Area law for ground state entanglement**: Low-energy states of local Hamiltonians have entanglement scaling with boundary area, not volume. Confirmed in countless condensed matter and lattice QCD calculations.
 
-**What would falsify the model**:
+**Empirical validation signatures**:
 - Genuine Second Law violation (not fluctuation)
 - Black hole entropy not proportional to area
 - Information loss in black hole evaporation (unitarity violation)
 - Ground states with volume-law entanglement in local theories
 
-None of these falsifying observations has ever been made.
+None of these contradicting observations has ever been made.
 
 ---
 
@@ -339,9 +344,9 @@ Let's trace the logic explicitly.
 3. Entanglement patterns on the screen determine both entropy and geometry
 4. The consistency process-making observations agree-costs energy and generates entropy
 5. The arrow of time is a necessary condition for observers to exist at all
-6. The Past Hypothesis is not an arbitrary input-it's selected by consistency constraints
+6. The Past principle is not an arbitrary input-it's selected by consistency constraints
 
-The universe had to start in a special state for any of this to work. But this isn't an unexplained miracle. Consistency constraints require observers, observers require records, records require entropy gradients, and entropy gradients require a low-entropy past. The model doesn't just explain why the Past Hypothesis is necessary-it suggests the Past Hypothesis is itself a consequence of observer-based consistency.
+The universe had to start in a special state for any of this to work. But this isn't an unexplained miracle. Consistency constraints require observers, observers require records, records require entropy gradients, and entropy gradients require a low-entropy past. The model doesn't just explain why the Past principle is necessary-it shows the Past principle is itself a consequence of observer-based consistency.
 
 ## 4.11 Summary: The Entropy Budget
 

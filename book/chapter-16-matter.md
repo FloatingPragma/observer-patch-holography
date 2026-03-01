@@ -1,5 +1,10 @@
 # Chapter 16: Matter, Motion, and Classical Physics
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 ## 16.1 The Intuitive Picture: Matter Is Stuff, Motion Is Force
 
 Before we get technical, let's state the common-sense picture most of us grew

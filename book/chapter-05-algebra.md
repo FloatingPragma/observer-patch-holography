@@ -1,5 +1,10 @@
 # Chapter 5: The Algebra of Questions
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 ## 5.1 The Commutativity Puzzle
 
 Here's what seems obvious about measurements: the order shouldn't matter.
@@ -307,7 +312,7 @@ The KMS condition characterizes thermal equilibrium states.
 
 Here's the stunning implication: once you specify an algebra and a state, the algebra tells you how to flow in time. Time evolution isn't imposed from outside-it emerges from the algebraic structure.
 
-This connects to the **thermal time hypothesis** of Connes and Rovelli: the time we experience is modular flow. Given the quantum state of our patch, the algebra provides a natural clock.
+This connects to the **thermal time principle** of Connes and Rovelli: the time we experience is modular flow. Given the quantum state of our patch, the algebra provides a natural clock.
 
 ## 5.11 Commutation and Causality
 

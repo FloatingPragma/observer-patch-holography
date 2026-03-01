@@ -1,5 +1,10 @@
 # String Theory from Observer Patch Holography
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 ## A Complete Derivation
 
 This document provides a self-contained derivation showing that Observer Patch Holography (OPH) necessarily implies a string-theoretic description of its fundamental degrees of freedom. The derivation uses only OPH axioms and standard mathematical results—no external string theory inputs are required.

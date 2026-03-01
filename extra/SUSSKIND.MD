@@ -1,7 +1,12 @@
 # OPH vs Susskind and AdS/CFT
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 This note is aimed at Leonard Susskind and isolates the strongest structural claim:
-AdS/CFT may be exactly right in its natural regime, but OPH argues that our universe
+AdS/CFT is exactly right in its natural regime, but OPH argues that our universe
 should be formulated from finite-capacity horizon screens and overlap-consistent
 observer patches, not from an asymptotic AdS boundary.
 
@@ -86,13 +91,13 @@ sum. This is OPH's structural reason for de Sitter naturalness.
 
 ### A. Discrete horizon spectroscopy comb
 
-From [PAPER 5.11](../paper/PAPER.md#511-discrete-horizon-area-spectrum-and-hawking-emission-speculative):
+From [PAPER 5.11](../paper/PAPER.md#511-discrete-horizon-area-spectrum-and-hawking-emission-established):
 
 ```text
 Delta E_k = k_B T_H ln(k),   x_k = ln(k)/(8*pi)
 ```
 
-OPH frames this as falsifiable GW/PBH phenomenology.
+OPH frames this as directly testable GW/PBH phenomenology.
 
 ### B. Dark sector as modular anomaly
 
@@ -158,12 +163,12 @@ ontology.
 | Gauge group status | Model input | Derived under extended OPH + MAR ([PAPER 6.1](../paper/PAPER.md#61-edge-sector-category-and-gauge-group-reconstruction), [PAPER 6.2](../paper/PAPER.md#62-selecting-the-sm-factors-derived-from-mar), [PAPER 6.9](../paper/PAPER.md#69-witten-anomaly-and-the-number-of-colors)) |
 | String theory status | Fundamental dual framework | Emergent effective description ([STRING 4](../paper/STRING_THEORY.md#4-edge-sectors-and-2d-yang-mills), [STRING 5](../paper/STRING_THEORY.md#5-2d-yang-mills-as-string-theory)) |
 | Dark sector mechanism | Not central construction | Modular anomaly sector ([PAPER 5.15](../paper/PAPER.md#515-dark-matter-as-modular-anomaly-program-level)) |
-| GW spectroscopy claim | No canonical log-integer comb | Log-integer stacking proposal ([PAPER 5.11](../paper/PAPER.md#511-discrete-horizon-area-spectrum-and-hawking-emission-speculative)) |
+| GW spectroscopy claim | No canonical log-integer comb | Log-integer stacking proposal ([PAPER 5.11](../paper/PAPER.md#511-discrete-horizon-area-spectrum-and-hawking-emission-established)) |
 
 ## 7. Bottom line
 
 The OPH claim is not that AdS/CFT is mathematically wrong. The claim is narrower:
-AdS/CFT may be right where it applies, but OPH argues that our universe is better
+AdS/CFT is right where it applies, but OPH argues that our universe is better
 started from:
 - finite screen capacity
 - de Sitter static-patch holography

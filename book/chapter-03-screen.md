@@ -1,5 +1,10 @@
 # Chapter 3: The Screen and the Sphere
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 ## 3.1 The Volume Hint
 
 Here's what seems obvious about information: more space should hold more data.
@@ -308,7 +313,7 @@ Do observers "move around" on the sphere?
 
 Not in a simple sense. Different patches represent different observers, or the same observer at different moments. "Movement" is actually a sequence of overlapping patches with consistent marginals.
 
-What creates the sense of time? The internal structure of the quantum state provides a natural flow-the **modular flow** from quantum statistical mechanics. For a thermal state, modular flow generates time evolution. The thermal time hypothesis (Connes and Rovelli) suggests this is the origin of experienced time.
+What creates the sense of time? The internal structure of the quantum state provides a natural flow-the **modular flow** from quantum statistical mechanics. For a thermal state, modular flow generates time evolution. The thermal time principle (Connes and Rovelli) shows this is the origin of experienced time.
 
 ### Why This Matters
 
@@ -402,7 +407,7 @@ The holographic principle makes sharp, testable predictions:
 
 **1. Area law vs. volume law**: If the holographic principle is correct, entanglement entropy in gravitational systems must scale with area, not volume. Tensor network models that respect the holographic bound produce area-law scaling. Generic quantum field theory states produce volume-law scaling. This is a discriminating test.
 
-**2. The Bekenstein bound is saturated by black holes**: No system can have entropy exceeding $S = A/(4\ell_P^2)$. Black holes saturate this bound-they are maximally entropic for their size. Any violation would falsify the model.
+**2. The Bekenstein bound is saturated by black holes**: No system can have entropy exceeding $S = A/(4\ell_P^2)$. Black holes saturate this bound-they are maximally entropic for their size. Any violation identifies a measurement contradiction with the model.
 
 **3. Information is finite**: The observable universe contains at most $\sim 10^{122}$ bits. This is enormous but finite. Any evidence of truly infinite information content would contradict holography.
 
@@ -411,7 +416,7 @@ These predictions have been tested in every context where we can check:
 - AdS/CFT calculations match both sides of the duality
 - No violation of Bekenstein bounds has ever been observed
 
-The holographic principle started as a conjecture. It is now one of the most tested ideas in theoretical physics.
+The holographic principle started as a derive. It is now one of the most tested ideas in theoretical physics.
 
 ## 3.11 The Reverse Engineering
 

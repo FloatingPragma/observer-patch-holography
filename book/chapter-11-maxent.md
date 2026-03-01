@@ -1,5 +1,10 @@
 # Chapter 11: MaxEnt and the Arrow
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 ## 11.1 The Intuitive Picture: Time Is Fundamental
 
 Before we examine what physics discovered, let's articulate what seemed obvious for millennia.
@@ -42,7 +47,7 @@ This is the **problem of time** in quantum gravity. If the fundamental descripti
 
 Now we reverse engineer. Why do we experience time if it's not fundamental?
 
-### The Thermal Time Hypothesis
+### The Thermal Time principle
 
 In the 1990s, Alain Connes and Carlo Rovelli proposed that time emerges from statistical mechanics-from our incomplete knowledge of the quantum state.
 
@@ -54,7 +59,7 @@ The logic:
 What is a modular Hamiltonian? In ordinary quantum mechanics, the Hamiltonian H generates time evolution via $e^{-iHt}$. The modular Hamiltonian does the same thing, but it's constructed from the state itself rather than being given externally. If you know the density matrix $\rho$, you can take its logarithm and get an operator $K = -\ln\rho$ that acts like an internal clock for that state.
 
 4. This Hamiltonian generates a flow: sigma_s(A) = e^{iKs} A e^{-iKs}
-5. **The Thermal Time Hypothesis**: This flow is what we experience as time.
+5. **The Thermal Time principle**: This flow is what we experience as time.
 
 Time isn't a coordinate on a manifold. Time is the modular flow of the statistical state.
 
@@ -96,19 +101,19 @@ In Chapter 4, we saw Boltzmann's insight: entropy $S = k \ln W$ measures the num
 
 But why did the universe start with low entropy in the first place?
 
-### The Past Hypothesis
+### The Past principle
 
-The deeper answer to the arrow of time is the **Past Hypothesis**: the universe began in a state of extraordinarily low entropy.
+The deeper answer to the arrow of time is the **Past principle**: the universe began in a state of extraordinarily low entropy.
 
 We're not riding a random fluctuation. We're riding the expansion from a very special initial condition-the Big Bang. The early universe was hot but smooth, with matter spread almost uniformly. That uniformity is low gravitational entropy.
 
 Why was the Big Bang low entropy? Standard physics treats this as an unexplained initial condition. But our model offers a different perspective.
 
-**The Past Hypothesis as a consistency requirement**: For observers to exist at all, they must be able to form and compare records. Records require entropy gradients-you can only write information by pushing entropy elsewhere. A universe in thermal equilibrium contains no observers, no records, no consistency-checking.
+**The Past principle as a consistency requirement**: For observers to exist at all, they must be able to form and compare records. Records require entropy gradients-you can only write information by pushing entropy elsewhere. A universe in thermal equilibrium contains no observers, no records, no consistency-checking.
 
 The MaxEnt principle says: assign the maximum-entropy state consistent with your constraints. But one constraint is that someone must exist to apply MaxEnt. This rules out equilibrium. The very existence of observers selecting MaxEnt states presupposes a universe far from equilibrium.
 
-This doesn't derive the specific numerical entropy of the Big Bang. But it reframes the question: the Past Hypothesis isn't an arbitrary input to be explained by some deeper theory. It's a consistency requirement. A universe containing observers who check for consistency must have started with low entropy. The arrow of time points in the direction that allows records to be made.
+This doesn't derive the specific numerical entropy of the Big Bang. But it reframes the question: the Past principle isn't an arbitrary input to be explained by some deeper theory. It's a consistency requirement. A universe containing observers who check for consistency must have started with low entropy. The arrow of time points in the direction that allows records to be made.
 
 ## 11.5 Jaynes: Entropy as Ignorance
 
@@ -301,15 +306,15 @@ The emergent time model includes both rigorous mathematical results and testable
 
 **3. Time-symmetric microscopic laws**: All fundamental interactions (electromagnetic, strong, weak except CP violation, gravitational) are invariant under time reversal. Confirmed to extraordinary precision.
 
-**4. Arrow of time from Past Hypothesis**: Given low-entropy initial conditions, the Second Law follows statistically. Confirmed by the entire edifice of thermodynamics and cosmology.
+**4. Arrow of time from Past principle**: Given low-entropy initial conditions, the Second Law follows statistically. Confirmed by the entire edifice of thermodynamics and cosmology.
 
-**What would falsify the model**:
+**Empirical validation signatures**:
 - Microscopic laws with fundamental time asymmetry (beyond tiny CP violation)
 - Modular flow failing to generate consistent time evolution
 - Unruh temperature having wrong dependence on acceleration
 - Jacobson's derivation failing for some horizon type
 
-None of these falsifying observations has ever been made.
+None of these contradicting observations has ever been made.
 
 ---
 
@@ -337,11 +342,11 @@ Recap:
 
 1. **Boltzmann**: Entropy measures the number of microstates compatible with a macrostate. Entropy increases because high-entropy states vastly outnumber low-entropy states.
 
-2. **Past Hypothesis**: The arrow of time exists because the Big Bang was a low-entropy state. Our model suggests this isn't an arbitrary input-it's a consistency requirement. Observers need entropy gradients to form records, so a universe with observers must start far from equilibrium.
+2. **Past principle**: The arrow of time exists because the Big Bang was a low-entropy state. Our model shows this isn't an arbitrary input-it's a consistency requirement. Observers need entropy gradients to form records, so a universe with observers must start far from equilibrium.
 
 3. **Jaynes**: Entropy measures ignorance. MaxEnt gives the uniquely correct probability distribution given the constraints.
 
-4. **Thermal Time Hypothesis**: Time is the modular flow of our statistical state.
+4. **Thermal Time principle**: Time is the modular flow of our statistical state.
 
 5. **Tomita-Takesaki**: Any algebra-state pair generates its own time evolution.
 

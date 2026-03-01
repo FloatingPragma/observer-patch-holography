@@ -1,5 +1,10 @@
 # Chapter 9: Entanglement Builds Space
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 ## 9.1 The Intuitive Picture: Space Is a Stage
 
 Before we examine what physics discovered, let's articulate what seemed obvious for millennia.
@@ -92,7 +97,7 @@ Einstein concluded the particles must have had definite spins all along-"hidden 
 
 ### Bell's Breakthrough
 
-In 1964, John Bell proved that Einstein's intuition could be tested. If particles have hidden variables, the correlations must satisfy certain constraints-the **Bell inequality**:
+In 1964, John Bell proved that Einstein's intuition is tested. If particles have hidden variables, the correlations must satisfy certain constraints-the **Bell inequality**:
 
 $$|S| \leq 2$$
 
@@ -128,7 +133,7 @@ Imagine "super-quantum" correlations that saturate the algebraic maximum of S = 
 
 The Tsirelson bound S = 2sqrt(2) is the maximum allowed by quantum mechanics. It's strong enough to violate classical limits but weak enough to preserve causality and computational complexity.
 
-This suggests a deep connection: **quantum correlations are precisely as strong as consistency allows**. Classical is too weak-it fails certain consistency tests. Super-quantum is too strong-it violates causality. Quantum sits at the sweet spot.
+This shows a deep connection: **quantum correlations are precisely as strong as consistency allows**. Classical is too weak-it fails certain consistency tests. Super-quantum is too strong-it violates causality. Quantum sits at the sweet spot.
 
 In our model, this connects to overlap consistency. When patches on the S^2 screen overlap, observers must agree on shared observables. The correlations needed to maintain this agreement across all possible overlaps require exactly quantum mechanics-not classical, not super-quantum.
 
@@ -254,13 +259,13 @@ The entanglement-geometry correspondence makes sharp, testable predictions:
 
 **5. Entanglement wedge reconstruction**: Bulk operators in the entanglement wedge can be reconstructed from boundary data. This has been verified in toy models and provides a concrete test of the holographic dictionary.
 
-**What would falsify the model**:
+**Empirical validation signatures**:
 - Violation of the RT formula in any AdS/CFT calculation
 - Ground states with volume-law entanglement
 - Black hole evaporation violating unitarity (information loss)
 - Bulk physics that cannot be reconstructed from boundary entanglement
 
-None of these falsifying observations has ever been made.
+None of these contradicting observations has ever been made.
 
 ## 9.12 Reverse Engineering Summary
 

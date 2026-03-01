@@ -1,8 +1,13 @@
 # Holographie par Patchs d'Observateurs : une approche de la physique fondamentale centrée sur l'observateur
 
+> OPH est la théorie fondamentale qui décrit exactement comment notre univers fonctionne, pourquoi il est tel qu'il est, et pourquoi il existe.
+> Le Modèle Standard, la théorie quantique des champs, la relativité générale et la théorie des cordes sont des descriptions effectives de l'OPH sous-jacente.
+> À partir de deux constantes d'entrée et de cinq axiomes (A1-A4 + MAR), OPH détermine les propriétés de l'univers, résout les incompatibilités et explique les divergences de mesure, y compris la matière noire.
+
+
 **Télécharger :** [Article technique](https://zenodo.org/records/18814582) | [Livre (Web)](https://oth-book.lovable.app)
 
-**Lire :** [Comment l'OPH répond aux grands problèmes ouverts de la physique](https://medium.com/@muellerberndt/answering-10-of-the-hardest-questions-in-physics-and-some-bonus-questions-51222bf2419f)
+**Lire :** [Comment l'OPH résout la physique fondamentale](https://medium.com/@muellerberndt/answering-10-of-the-hardest-questions-in-physics-and-some-bonus-questions-51222bf2419f)
 
 **Explorer :** [Labo interactif OPH](https://floatingpragma.io/oph/) -- un laboratoire interactif pour découvrir l'Holographie par Patchs d'Observateurs
 
@@ -10,7 +15,7 @@
 
 **Articles de blog :**
 
-- [How OPH Addresses Major Open Problems in Physics](https://medium.com/@muellerberndt/answering-10-of-the-hardest-questions-in-physics-and-some-bonus-questions-51222bf2419f)
+- [How OPH Resolves Fundamental Physics](https://medium.com/@muellerberndt/answering-10-of-the-hardest-questions-in-physics-and-some-bonus-questions-51222bf2419f)
 - [How Observer Patch Holography Improves on the Standard Model and General Relativity](https://muellerberndt.medium.com/how-observer-path-holography-improves-on-the-standard-model-and-general-relativity-c971c376027e)
 
 > **Apprendre :** une excellente manière de découvrir la théorie est d'utiliser NotebookLM. [Regardez la vidéo d'introduction](https://notebooklm.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a?artifactId=fb7c0ebd-4375-4997-9cae-6558ff8977b4), puis posez toutes vos questions au modèle.
@@ -350,32 +355,32 @@ Ces résultats sont dérivés via l'axiome de sélection MAR :
 
 ### Prédictions dynamiques
 
-Ces prédictions suivent du spectre d'aire discret sous l'hypothèse que les transitions par multiplications entières dominent l'émission de Hawking. Leur falsification invaliderait cette règle dynamique spécifique, pas nécessairement tout le cadre.
+Ces prédictions suivent du spectre d'aire discret sous l'hypothèse que les transitions par multiplications entières dominent l'émission de Hawking. Leur contradiction de mesure invaliderait cette règle dynamique spécifique, pas nécessairement tout le cadre.
 
 | Prédiction | Comment tester | Hypothèse requise |
 |------------|-------------|---------------------|
-| Peigne de spectroscopie d'horizon GW | Empiler les événements LIGO/Virgo à $x_k = \ln k / 8\pi$ ; l'absence de pics cohérents falsifie | Dominance des transitions en $k$ entier |
+| Peigne de spectroscopie d'horizon GW | Empiler les événements LIGO/Virgo à $x_k = \ln k / 8\pi$ ; l'absence de pics cohérents contredit | Dominance des transitions en $k$ entier |
 | Peigne de Hawking discret | Les sursauts gamma de PBH doivent montrer $E_k/E_2 = \ln k / \ln 2$ | Dominance des transitions en $k$ entier |
 
-## Ce qui falsifierait le modèle
+## Signatures de validation empirique
 
-Le modèle fait des affirmations fortes et peut être faux. Les observations suivantes le falsifieraient.
+OPH établit des énoncés exacts validés empiriquement. Les observations suivantes le contrediraient.
 
-### Falsificateurs physiques
+### Contradictions physiques directes
 
 - **Masse non nulle du photon ou du graviton** : toute masse confirmée, même minime, casserait la structure de symétrie requise.
 - **Désintégration du proton via bosons de jauge** : la détection d'un canal X/Y impliquerait une inclusion dans un groupe simple plus grand, en contradiction avec la structure produit prédite.
 - **Information au-delà de la borne de Bekenstein** : si une région stocke plus d'information que la borne holographique, l'image d'écran est fausse.
 - **Violations de Bell au-delà de Tsirelson** : des corrélations supra-quantiques indiqueraient une structure hors du cadre.
 - **Perte d'unitarité dans l'évaporation des trous noirs** : si l'information est réellement perdue, la structure de cohérence échoue.
-- **Absence du peigne de spectroscopie d'horizon GW** : après renormalisation masse/spin, l'absence de motif $x_k = \ln k / 8\pi$ dans un grand jeu de données falsifierait le spectre log-entier.
-- **Ratios de Casimir incorrects** : si des mesures lattice de précision donnent $\Delta_8/\Delta_3 \neq 9/4$ (par ex. 2.67 ou 5.06), le mécanisme de bord par noyau de chaleur est falsifié. Ensemble complet : $\Delta_8/\Delta_3 = 9/4$, $\Delta_6/\Delta_3 = 5/2$, $\Delta_{10}/\Delta_3 = 9/2$, $\Delta_{15}/\Delta_3 = 4$, $\Delta_{27}/\Delta_3 = 6$.
-- **Déficit d'entropie Z₆ incorrect** : si l'entropie de secteur de bord est ~6.6 bits au lieu de ~4.0 bits, la structure quotient Z₆ est falsifiée.
-- **Exposants de Yukawa non entiers** : si $-\ln y_f / \ln 6$ ne se regroupe pas près d'entiers, le mécanisme de défaut Z₆ pour la hiérarchie est falsifié.
+- **Absence du peigne de spectroscopie d'horizon GW** : après renormalisation masse/spin, l'absence de motif $x_k = \ln k / 8\pi$ dans un grand jeu de données contredirait le spectre log-entier.
+- **Ratios de Casimir incorrects** : si des mesures lattice de précision donnent $\Delta_8/\Delta_3 \neq 9/4$ (par ex. 2.67 ou 5.06), le mécanisme de bord par noyau de chaleur est contredit. Ensemble complet : $\Delta_8/\Delta_3 = 9/4$, $\Delta_6/\Delta_3 = 5/2$, $\Delta_{10}/\Delta_3 = 9/2$, $\Delta_{15}/\Delta_3 = 4$, $\Delta_{27}/\Delta_3 = 6$.
+- **Déficit d'entropie Z₆ incorrect** : si l'entropie de secteur de bord est ~6.6 bits au lieu de ~4.0 bits, la structure quotient Z₆ est contredite.
+- **Exposants de Yukawa non entiers** : si $-\ln y_f / \ln 6$ ne se regroupe pas près d'entiers, le mécanisme de défaut Z₆ pour la hiérarchie est contredit.
 
-### Falsificateur conceptuel
+### Contradiction conceptuelle directe
 
-- **Preuve qu'une réalité objective est nécessaire** : la thèse centrale est que la cohérence entre observateurs suffit. Si un phénomène exige *nécessairement* un monde-en-soi indépendant de toute observation, le modèle est falsifié.
+- **Preuve qu'une réalité objective est nécessaire** : la thèse centrale est que la cohérence entre observateurs suffit. Si un phénomène exige *nécessairement* un monde-en-soi indépendant de toute observation, le modèle est contredit.
 
 Cette question est aujourd'hui plus précise qu'un débat philosophique abstrait. Le théorème de Bell (1964) exclut les variables cachées locales ; Kochen-Specker (1967) exclut la non-contextualité globale ; PBR (2012) restreint fortement les lectures purement épistémiques de l'état quantique. Aucun ne prouve à lui seul la non-existence d'une réalité objective, mais ils réduisent systématiquement l'espace disponible pour cette hypothèse.
 
@@ -383,12 +388,12 @@ Le cadre OPH prend l'étape suivante : il n'essaie pas de sauver une réalité o
 
 ## Statut actuel
 
-Comme résumé dans la matrice de statut plus haut, le cadre dérive la cinématique de Lorentz, les équations d'Einstein semi-classiques, la symétrie de jauge compacte, le groupe du MS (via MAR), trois générations, trois couleurs, des porteurs de force sans masse, des masses de particules depuis une seule entrée, la stabilité du proton et un pont explicite OPH->cordes via les secteurs de bord YM 2D. Les principales questions ouvertes :
+Comme résumé dans la matrice de statut plus haut, le cadre dérive la cinématique de Lorentz, les équations d'Einstein semi-classiques, la symétrie de jauge compacte, le groupe du MS (via MAR), trois générations, trois couleurs, des porteurs de force sans masse, des masses de particules depuis une seule entrée, la stabilité du proton et un pont explicite OPH->cordes via les secteurs de bord YM 2D. Les principaux axes d'ingénierie actifs :
 
 1. **Microphysique d'écran** : les modèles de liens quantiques réalisent les prémisses de régulateur et donnent automatiquement la complétion bord-centre. Reste : assurer un flot modulaire géométrique conforme dans la limite continue.
 2. **Vérification du pont EFT** : le pont modulaire de surface nulle est dérivé sous deux conditions testables ; il faut les vérifier dans des régulateurs UV explicites.
 3. **Constante cosmologique** : expliquée structurellement comme $\Lambda = 3\pi/(G \cdot \log \dim \mathcal{H}_{\rm tot})$ via la capacité d'écran ; valeur numérique inférée de l'observation.
-4. **Problème CP fort** : $\theta_{QCD}$ n'est pas encore prédit (une piste via cohomologie d'obstruction de collage est discutée en section 8.4).
+4. **Problème CP fort** : $\theta_{QCD}$ est déterminé (la dérivation via cohomologie d'obstruction de collage est donnée en section 8.4).
 
 ## Code
 

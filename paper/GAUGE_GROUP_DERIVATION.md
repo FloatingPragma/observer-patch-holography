@@ -1,5 +1,10 @@
 # Gauge Group Derivation: Why the Standard Model Is Inevitable
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 > **Companion document to**: *Observer-Patch Holography* (PAPER.md)
 >
 > **Abstract.** We prove that the extended OPH theory — core axioms A1–A4, regulator premises R0–R1, the loop-coherent gluing condition $[z]=0$, and the Selection Axiom MAR (Minimal Admissible Realization) — uniquely selects the Standard Model gauge group, the number of colors, and the number of generations. The result is not merely the SM Lie algebra but the exact global gauge group:

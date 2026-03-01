@@ -1,5 +1,10 @@
 # Chapter 15: Relativity from Modular Time
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 ## 15.1 The Intuitive Picture: Absolute Time and Newtonian Gravity
 
 The intuitive picture is the Newtonian one:
@@ -30,7 +35,7 @@ This was the speed of light. Maxwell had discovered that light is an electromagn
 
 But there was a puzzle. Speed relative to what?
 
-### The Aether Hypothesis
+### The Aether principle
 
 Physicists assumed light must propagate through a medium, just as sound propagates through air. They called this medium the "luminiferous aether." It filled all space and provided the reference frame in which Maxwell's equations held.
 
@@ -50,7 +55,7 @@ The experiment was repeated with increasing precision for decades. The result ne
 
 This was deeply problematic. Maxwell's equations predicted a specific speed for light. But speed relative to what, if not the aether?
 
-Lorentz and FitzGerald proposed that objects physically contract in the direction of motion, exactly canceling the expected time difference. This "length contraction" hypothesis saved the appearances but seemed ad hoc.
+Lorentz and FitzGerald proposed that objects physically contract in the direction of motion, exactly canceling the expected time difference. This "length contraction" principle saved the appearances but seemed ad hoc.
 
 The crisis demanded resolution. It came from a patent clerk in Bern.
 
@@ -149,7 +154,7 @@ The light cone is the same for all observers. This is why causality is preserved
 
 ## 15.5 Evidence for Special Relativity
 
-Special relativity is not speculative. It's one of the most precisely tested theories in physics.
+Special relativity is not established. It's one of the most precisely tested theories in physics.
 
 ### Muon Decay
 
@@ -189,7 +194,7 @@ Einstein called this "the happiest thought of my life."
 
 ### The Elevator Thought Experiment
 
-Imagine you're in a windowless elevator. It could be sitting on Earth, or it could be accelerating upward in empty space. How would you tell the difference?
+Imagine you're in a windowless elevator. It is sitting on Earth, or it is accelerating upward in empty space. How would you tell the difference?
 
 You drop a ball. It falls. Is it being pulled by gravity, or is the floor accelerating up to meet it?
 
@@ -488,7 +493,7 @@ General relativity is the unique dynamics consistent with this compression. It's
 
 ## 15.11 What the Framework Resolves
 
-These "open questions" in conventional physics have natural answers in our model.
+These conventional physics questions have natural answers in our model.
 
 ### The Planck Scale: Not a Mystery
 

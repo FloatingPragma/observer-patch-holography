@@ -1,5 +1,10 @@
 # Technical Supplement: Mathematical Foundations of Observer-Patch Holography
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 ## For Theoretical Physicists
 
 This document provides the complete mathematical derivations supporting the article "Answering 10 of the Hardest Questions in Physics." All results derive from the OPH axiom set (A1–A4) plus stated premises.

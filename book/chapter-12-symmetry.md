@@ -1,5 +1,10 @@
 # Chapter 12: Symmetry on the Sphere
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 ## 12.1 The Intuitive Picture: Symmetries Are Aesthetic Choices
 
 Before we examine what physics discovered, let's articulate what seemed obvious for millennia.
@@ -213,7 +218,7 @@ The symmetry-consistency model includes both rigorous mathematical results and t
 
 **Rigorous results (mathematical theorems)**:
 
-**1. Noether's theorem is provable**: Given any continuous symmetry of the action, there exists a conserved current. This is a mathematical theorem-not a conjecture, not an approximation. It's been proven in every formulation of classical and quantum field theory.
+**1. Noether's theorem is provable**: Given any continuous symmetry of the action, there exists a conserved current. This is a mathematical theorem-not a derive, not an approximation. It's been proven in every formulation of classical and quantum field theory.
 
 **2. SO(3) symmetry on S²**: The sphere S² has isometry group SO(3). This is pure mathematics. If the holographic screen is a sphere, rotational symmetry is automatic.
 
@@ -223,18 +228,18 @@ The symmetry-consistency model includes both rigorous mathematical results and t
 
 **Testable predictions**:
 
-**1. Conservation laws hold**: If symmetries are consistency requirements, then conservation of energy, momentum, and charge must be exact. Any violation would falsify both the symmetry and the model. Precision: energy conservation tested to 1 part in 10^18.
+**1. Conservation laws hold**: If symmetries are consistency requirements, then conservation of energy, momentum, and charge must be exact. Any violation identifies a measurement contradiction with both the symmetry and the model. Precision: energy conservation tested to 1 part in 10^18.
 
 **2. CPT invariance is unbreakable**: CPT symmetry (combined charge-parity-time reversal) must hold in any Lorentz-invariant local quantum field theory. No CPT violation has ever been observed. Precision: tested to 1 part in 10^18 in kaon systems.
 
 **3. Spin-statistics connection**: Particles with integer spin must be bosons; particles with half-integer spin must be fermions. This follows from symmetry under particle exchange. No violation has ever been observed.
 
-**What would falsify the model**:
+**Empirical validation signatures**:
 - Violation of any conservation law (energy, momentum, charge)
 - CPT violation
 - A spin-1/2 boson or spin-0 fermion
 
-None of these falsifying observations has ever been made.
+None of these contradicting observations has ever been made.
 
 ## 12.12 Reverse Engineering Summary
 

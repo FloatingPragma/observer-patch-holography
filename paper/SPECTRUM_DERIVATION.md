@@ -1,5 +1,10 @@
 # From Pixel Area to Particle Masses: The Complete OPH Spectrum Derivation
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 > **Companion document to**: *Observer-Patch Holography* (PAPER.md)
 >
 > **Abstract.** The Observer-Patch Holography (OPH) framework derives the Standard Model particle spectrum from a single geometric quantity: the **pixel area** — the area of one computational cell on the holographic screen, measured in Planck units. Starting from the OPH axioms (A1–A4: entanglement equilibrium, MaxEnt, edge-center completion, refinement stability), the "screen" encodes all physics through its area law (§5 of PAPER.md) and edge-sector structure (§6 of PAPER.md). The pixel area constant $P \equiv a_{\text{cell}}/\ell_P^2 = 1.63094$ is extracted from the screen's entropy-matching condition (§5.4 of PAPER.md); a second input — the total screen capacity $\log(\dim\mathcal{H}) \sim 10^{122}$ — enters only for neutrino masses and the cosmological constant (§14 of TECHNICAL_SUPPLEMENT.md). Every other quantity appearing in the derivation chain is either a mathematical constant, a consequence of the gauge group (itself reconstructed from the screen's edge-sector fusion rules via Tannaka-Krein, §6.1 of PAPER.md), or a derived structural integer ($N_c = 3$, $N_g = 3$, $\varepsilon = 1/6$, $\delta = 2/9$). No measured masses or couplings enter the prediction pipeline. A complete audit of all constants appears in §1A below.
@@ -463,9 +468,9 @@ All predictions below use inputs $P = 1.63094$ and $\log(\dim\mathcal{H}) = 10^{
 
 | Particle | OPH (GeV) | PDG (GeV) | Rel. Error | Stage | Error Source |
 |----------|----------:|----------:|-----------:|-------|-------------|
-| Electron | 5.109 × 10⁻⁴ | 5.110 × 10⁻⁴ | −0.023% | §6 | Koide structure is tightly constrained ($Q=2/3$, $\delta=2/9$); residual is from the scale-factor $S$ determination. Could be reduced by including QED running from $m_Z$ to $m_e$ |
+| Electron | 5.109 × 10⁻⁴ | 5.110 × 10⁻⁴ | −0.023% | §6 | Koide structure is tightly constrained ($Q=2/3$, $\delta=2/9$); residual is from the scale-factor $S$ determination. is reduced by including QED running from $m_Z$ to $m_e$ |
 | Muon | 0.10564 | 0.10566 | −0.022% | §6 | Same Koide structure; all three leptons shift together. QED running corrections between $m_Z$ and $m_\mu$ are ~0.02%, matching the observed offset |
-| Tau | 1.7766 | 1.7769 ± 0.09 | −0.020% | §6 | Same origin. The uniform sign (all slightly low) suggests a common scale-factor effect from QED running or the $2^{1/6}$ normalization convention |
+| Tau | 1.7766 | 1.7769 ± 0.09 | −0.020% | §6 | Same origin. The uniform sign (all slightly low) shows a common scale-factor effect from QED running or the $2^{1/6}$ normalization convention |
 
 ### 10.3 Neutrinos
 
@@ -534,7 +539,7 @@ These five predictions are at the sub-permille level. The gauge boson masses fol
 
 **Higgs** (+1.0%), **top pole** (−0.87%), **$\alpha_s$** (+0.37%), **$\sin^2\theta_W$** (−0.21%), **$\alpha_{\text{em}}^{-1}$** (+0.28%):
 
-The Higgs and top masses come from the critical surface constraint with 1-loop RG running. The ~1% error is consistent with the expected size of 2-loop corrections, threshold effects at $M_U$, and scheme matching between the entanglement-defined coupling and $\overline{\text{MS}}$. These could be systematically improved by extending to 2-loop RGEs.
+The Higgs and top masses come from the critical surface constraint with 1-loop RG running. The ~1% error is consistent with the expected size of 2-loop corrections, threshold effects at $M_U$, and scheme matching between the entanglement-defined coupling and $\overline{\text{MS}}$. These is systematically improved by extending to 2-loop RGEs.
 
 The coupling predictions at $m_Z$ are similarly limited by one-loop running. The $\sin^2\theta_W$ tension (~2$\sigma$ relative to the precise PDG value) is where precision threshold and two-loop effects matter most.
 

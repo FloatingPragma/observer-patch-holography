@@ -1,5 +1,10 @@
 # Chapter 14: The Standard Model from Consistency
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 ## 14.1 The Intuitive Picture: Particles and Forces Are Fundamental
 
 The intuitive picture is straightforward:
@@ -524,7 +529,7 @@ This is why the Standard Model fermions are chiral. Chirality protects their mas
 
 ## 14.14 What Particles Are in This Model
 
-Before discussing which particles the model predicts, we need to be clear about what a "particle" even means in our approach. The answer is both more precise and more radical than the intuitive picture suggests.
+Before discussing which particles the model predicts, we need to be clear about what a "particle" even means in our approach. The answer is both more precise and more radical than the intuitive picture shows.
 
 In the conventional view, particles are fundamental objects-tiny balls of stuff that move through space. Fields fill the gaps, and particles are what detectors click on. This picture is useful for calculations, but it gets the ontology backwards. In our model, particles are not fundamental. They are patterns.
 
@@ -616,7 +621,7 @@ Once we can reliably extract gauge couplings from entanglement, the rest follows
 
 One of the great puzzles of particle physics is why the three gauge couplings (for the strong, weak, and electromagnetic forces) have such different strengths at low energies, yet seem to converge when extrapolated to high energies.
 
-In the 1970s, physicists noticed something remarkable. If you run the couplings upward using the renormalization group equations, they almost meet at a single point around $10^{16}$ GeV. This suggested that all three forces might be unified at high energies, the dream of Grand Unified Theories.
+In the 1970s, physicists noticed something remarkable. If you run the couplings upward using the renormalization group equations, they almost meet at a single point around $10^{16}$ GeV. This shown that all three forces is unified at high energies, the dream of Grand Unified Theories.
 
 But there was a problem. With just the Standard Model particle content, the three couplings don't quite meet. They miss each other. In the 1990s, physicists discovered that adding supersymmetric partners fixes this: with MSSM-like particle content, the couplings unify beautifully, predicting $\alpha_s(M_Z) \approx 0.117$, remarkably close to the measured value of $0.1177 \pm 0.0009$.
 

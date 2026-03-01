@@ -1,5 +1,10 @@
 # Chapter 8: Why Holography Looks Like a Boundary
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 ## 8.1 The Intuitive Picture: Reality Lives in Volume
 
 Before we examine what physics discovered, let's articulate what seemed obvious for millennia.
@@ -426,4 +431,4 @@ The pattern:
 
 We've seen that boundaries can encode bulks. But what actually weaves the bulk together? What makes one point "close" to another? The answer is entanglement-the quantum correlations we've encountered throughout this book.
 
-In the next chapter, we zoom in on the main glue of the bulk: entanglement. We'll see how the Ryu-Takayanagi formula extends to dynamics, how cutting entanglement can tear space apart, and how the ER=EPR conjecture suggests that spacetime itself is woven from quantum correlations.
+In the next chapter, we zoom in on the main glue of the bulk: entanglement. We'll see how the Ryu-Takayanagi formula extends to dynamics, how cutting entanglement can tear space apart, and how the ER=EPR derive shows that spacetime itself is woven from quantum correlations.

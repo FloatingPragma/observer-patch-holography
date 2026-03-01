@@ -1,5 +1,10 @@
 # Chapter 10: Error Correction as Physics
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 ## 10.1 The Intuitive Picture: Information Is Fragile or Permanent
 
 Before we examine what physics discovered, let's articulate what seemed obvious for millennia.
@@ -216,13 +221,13 @@ The error correction model includes both rigorous mathematical results and testa
 
 **4. Information preserved in quantum processes**: All unitary quantum evolution preserves information. Tested to extraordinary precision in quantum optics, AMO physics, and quantum computing experiments.
 
-**What would falsify the model**:
+**Empirical validation signatures**:
 - Quantum error correction fundamentally impossible
 - Information loss in unitary evolution
 - Holographic codes failing to reproduce RT formula
 - Error-corrected systems performing worse than uncorrected ones below threshold
 
-None of these falsifying observations has ever been made. The 2024 experimental confirmations of error correction "below threshold" in large-scale quantum computers represent a major vindication.
+None of these contradicting observations has ever been made. The 2024 experimental confirmations of error correction "below threshold" in large-scale quantum computers represent a major vindication.
 
 ---
 

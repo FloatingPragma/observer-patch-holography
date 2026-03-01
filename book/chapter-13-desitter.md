@@ -1,5 +1,10 @@
 # Chapter 13: The de Sitter Patch
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 ## 13.1 The Intuitive Picture: The Universe Is Static or Decelerating
 
 Before we examine what physics discovered, let's articulate what seemed obvious for millennia.
@@ -184,7 +189,7 @@ The smooth, empty appearance of the de Sitter vacuum is actually maximally scram
 
 String theory has difficulty producing stable de Sitter vacua.
 
-The **swampland conjectures** suggest that stable de Sitter vacua may be impossible in consistent quantum gravity. If true, our universe is slowly rolling down a potential hill.
+The **swampland derives** suggest that stable de Sitter vacua is impossible in consistent quantum gravity. If true, our universe is slowly rolling down a potential hill.
 
 Even if de Sitter vacua exist, why is Lambda so small (10^{-122} in Planck units)?
 
@@ -214,13 +219,13 @@ The picture so far:
 
 6. **Maximum Scrambling**: De Sitter saturates the chaos bound; information thermalizes as fast as quantum mechanics allows.
 
-7. **Swampland and Anthropics**: The small value of Lambda may be selected anthropically or dynamically determined.
+7. **Swampland and Anthropics**: The small value of Lambda is selected anthropically or dynamically determined.
 
 ## 13.10 Dark Matter Without Dark Particles
 
 There's another cosmic mystery we haven't addressed: dark matter. Galaxies rotate too fast. Galaxy clusters hold together too tightly. The cosmic microwave background fluctuations require extra gravitational pull. The standard explanation: invisible particles that interact gravitationally but not electromagnetically.
 
-But our model suggests something different.
+But our model shows something different.
 
 ### The Modular Anomaly
 

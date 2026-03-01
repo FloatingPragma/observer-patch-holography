@@ -1,5 +1,10 @@
 # Chapter 1: The Consistent Universe
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 ## 1.1 Physicists Are Hackers
 
 This book is about reverse engineering.
@@ -80,7 +85,7 @@ They floated their apparatus on a pool of mercury to eliminate vibrations. They 
 
 The interference pattern didn't shift. The speed of light was exactly the same in all directions, regardless of how Earth was moving.
 
-This was one of the most important null results in the history of science. It killed the aether hypothesis. But it did something more: it revealed that the intuitive picture was missing something fundamental.
+This was one of the most important null results in the history of science. It killed the aether principle. But it did something more: it revealed that the intuitive picture was missing something fundamental.
 
 ### Einstein's Revolution
 
@@ -336,7 +341,7 @@ The screen is a quantum system. The degrees of freedom are finite-dimensional (q
 
 What is the output? Everything. Spacetime geometry emerges from entanglement patterns. Particles emerge as excitations. Observers emerge as self-modeling patterns that process information and maintain records. The laws of physics emerge as the rules that permit consistent information flow between patches.
 
-This is not a simulation in the sense of the simulation hypothesis, which imagines reality running on someone else's computer. There is no external computer. There is no programmer. The computation is self-contained. The universe is the program, the computer, and the output, all at once.
+This is not a simulation in the sense of the simulation principle, which imagines reality running on someone else's computer. There is no external computer. There is no programmer. The computation is self-contained. The universe is the program, the computer, and the output, all at once.
 
 You might ask: "If reality is a computation, what is it computing?" The answer: itself. The computation has no purpose external to itself. It simply runs. The patterns that persist are the patterns that are consistent. Observers are patterns that have learned to model other patterns. Consciousness is what it feels like to be a self-modeling pattern.
 

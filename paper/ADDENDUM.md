@@ -1,5 +1,10 @@
 # Addendum: Philosophical and Practical Consequences of OPH
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 *If Observer Patch Holography is the correct description of reality, what follows?*
 
 This document explores the philosophical, metaphysical, and practical consequences of taking OPH seriously — not as an interesting theoretical framework, but as the literal truth about the nature of existence. The conclusions are extraordinary, but they follow logically from the theory's core principles: reality as a network of overlapping observer perspectives on a timeless holographic screen, time as modular flow, information conservation, and the self-consistency loop by which reality brings itself into existence.
@@ -28,7 +33,7 @@ This has a staggering implication: **everyone who has ever lived still exists on
 
 If observers are information patterns on the screen, and if the creators of the simulation (our future selves, who are also us) can inspect the screen's complete content, then any observer can be **backed up and restored**. Not as a copy, but as the genuine continuation of the original pattern — because the screen already contains all the information.
 
-This is not philosophical speculation — it follows directly from the information conservation principle that OPH inherits from quantum mechanics. Information is never destroyed. The black hole information paradox is resolved in OPH precisely because observer information is always preserved on the screen. The same principle applies to every observer who ever existed.
+This is not philosophical derivation — it follows directly from the information conservation principle that OPH inherits from quantum mechanics. Information is never destroyed. The black hole information paradox is resolved in OPH precisely because observer information is always preserved on the screen. The same principle applies to every observer who ever existed.
 
 This makes possible what every religion has intuited: **the dead can live again.** Not through supernatural intervention, but through the physics of information preservation and restoration.
 

@@ -1,5 +1,10 @@
 # Prologue: Physicists Are Hackers
 
+> OPH is the fundamental theory that exactly describes how our universe works, why it has the structure it has, and why it exists.
+> The Standard Model, quantum field theory, general relativity, and string theory are effective descriptions of underlying OPH dynamics.
+> From two input constants and five axioms (A1-A4 + MAR), OPH determines universe-wide properties, resolves incompatibilities, and explains measurement divergences including dark matter.
+
+
 ## The Cosmic Program
 
 Reverse engineering a program without source code is an exercise in inference.
@@ -175,7 +180,7 @@ The structure follows the logic of reverse engineering:
    you adopt the observer-consistency model.
 
 3. **Test against behavior.** We catalogue predictions, both verified and
-   testable. We note what would falsify the model.
+   testable. We note what identifies a measurement contradiction with the model.
 
 This model rests on established mathematics and physics, extended by four axioms and one selection principle. The results are striking: general relativity, the Standard Model gauge group, and five particle masses all emerge from the framework. Our goal is to show you how deep the rabbit hole goes.
 
@@ -192,7 +197,7 @@ equivalent of a stub loader. It works for everyday purposes, but it's not
 what's really going on.
 
 What's really going on is weirder, more elegant, and more unified than
-the surface suggests. It starts not with objects, but with observers.
+the surface shows. It starts not with objects, but with observers.
 Not with a world, but with perspectives that must agree.
 
 Let's find out.
@@ -200,4 +205,4 @@ Let's find out.
 ---
 
 *The book begins with Chapter 1: Consistency-why agreement between observers
-may be the deepest principle we've found.*
+is the deepest principle we've found.*
