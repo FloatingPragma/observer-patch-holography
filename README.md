@@ -17,6 +17,11 @@ From this starting point (plus entropy and Markov constraints), OPH treats space
 - **PDF (main paper):** [Observers are all you need](paper/observers_are_all_you_need.pdf)
 - **LaTeX source:** [observers_are_all_you_need.tex](paper/observers_are_all_you_need.tex)
 
+**Recovering Relativity and Standard Model Structure from Observer-Overlap Consistency** is the submission-focused compact paper. It concentrates the falsifiable core of OPH: Lorentz kinematics, Einstein dynamics, exact Standard Model gauge structure, hypercharges, three colors, three generations, the two-input parameter economy, and the strongest quantitative branches.
+
+- **PDF (compact submission paper):** [Recovering Relativity and Standard Model Structure from Observer-Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)
+- **LaTeX source:** [recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex)
+
 **Reality as a Consensus Protocol** is a companion CS paper that presents the computational spine of OPH as a standalone theorem package. It proves that objective physical law is the unique fixed point of a distributed reconciliation protocol between observer patches, that topology can obstruct global consistency (with particles as stable defects), that gauge symmetry is implementation hiding, and that classical records form an eventually consistent CRDT layer.
 
 - **PDF:** [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)
