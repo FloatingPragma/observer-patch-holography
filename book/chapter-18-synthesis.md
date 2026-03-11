@@ -191,7 +191,7 @@ Equivalently, there exists a recovery map from AB to ABC with error controlled b
 1. **MaxEnt selection**: local states are chosen by maximum entropy given constraints.
 2. **Rotational symmetry + refinement**: constraints are SO(3)-invariant and patch nets admit a collar refinement limit.
 3. **Euclidean regularity**: modular flow near smooth cuts has a regular Euclidean continuation with period 2 pi.
-4. **Gauge-as-gluing and obstruction data**: overlap identifications form a redundancy; loop defects live in a 2-group cocycle, with the central case as a simple truncation. Edge-sector fusion reconstructs a compact gauge group.
+4. **Gauge-as-gluing and obstruction data**: overlap identifications form a redundancy; loop defects live in a 2-group cocycle, with the central case as a simple truncation. A refinement-stable category of transportable edge sectors then reconstructs a compact gauge group.
 5. **ExtEFT and UV limits**: a low-energy EFT limit exists (for SM contact)
    and either (a) a null-surface modular route yields local stress-energy
    densities from additivity and half-sided inclusion, or (b) a UV CFT regime
@@ -205,12 +205,12 @@ Under explicit assumptions (Markov locality, MaxEnt, modular covariance, Euclide
 
 1. **Lorentz kinematics** from geometric modular flow on caps
 2. **Semiclassical Einstein equations** via entanglement equilibrium
-3. **Compact gauge symmetry** reconstructed from edge-sector fusion via Tannaka-Krein
+3. **Compact gauge symmetry** reconstructed from a refinement-stable transportable edge-sector category via Tannaka-Krein/DR
 4. **Masslessness of gauge bosons and the graviton** from emergent gauge/diffeomorphism invariance
 
 The photon and graviton are forced by the axiom chain, not postulated. Once gauge-as-gluing yields a gauge group and entanglement equilibrium yields dynamical geometry, gauge invariance forbids mass terms. These are symmetry-protected zeros.
 
-The EFT bridge (null-surface modular additivity) is derived from A1-A4 under two testable conditions. The gauge group reconstruction yields a compact group; the Selection Axiom MAR then uniquely determines the Standard Model gauge group $SU(3) \times SU(2) \times U(1)/\mathbb{Z}_6$, with $N_c = 3$ colors and $N_g = 3$ generations.
+The EFT bridge (null-surface modular additivity) is derived from A1-A4 under two testable conditions. The gauge group reconstruction yields a compact group; the Selection Axiom MAR then uniquely determines the Standard Model gauge group $SU(3) \times SU(2) \times U(1)/\mathbb{Z}_6$ within the connected Lie admissible class once one connected abelian charge factor is included, with $N_c = 3$ colors and $N_g = 3$ generations.
 
 ### Two Fundamental Parameters: The Configuration of Reality
 
@@ -280,8 +280,8 @@ The Hilbert space is finite-dimensional. The second fundamental parameter, **scr
 
 ## 18.8 The Remaining Frontier
 
-The framework derives the Standard Model gauge group, particle masses from a single input, Einstein's equations, and proton stability. The main engineering deliverables are well-scoped:
-geometric modular flow on caps (BW$_{S^2}$) is derived from Markov + symmetry + refinement assumptions, and the next steps are concrete. Non-central loop defects are classified by a 2-group cocycle; in the EFT limit this becomes anomaly cancellation and fixes hypercharges. What remains is to compute those classes in concrete models and to derive the Lagrange multiplier $t$ from UV microphysics.
+The framework derives the Standard Model gauge group, particle masses from a single input, scaling-limit semiclassical Einstein dynamics, and proton stability. The main engineering deliverables are well-scoped:
+geometric modular flow on caps (BW$_{S^2}$) is derived from Markov + symmetry + refinement assumptions, and the next steps are concrete. Non-central loop defects are classified by a 2-group cocycle; in the EFT limit this obstruction data is structurally analogous to anomaly cancellation, while hypercharges are fixed by the separate anomaly/Yukawa analysis once the SM gauge structure is in place. What remains is to compute those classes in concrete models and to derive the Lagrange multiplier $t$ from UV microphysics.
 
 **Progress on numerical predictions.** The extraction of gauge couplings from
 edge-sector probabilities has been validated numerically in 2D gauge models.

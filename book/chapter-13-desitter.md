@@ -108,8 +108,9 @@ The Gibbons-Hawking theorem gives us all three for de Sitter horizons. In our
 model this supplies the calibration for the area term and
 the temperature normalization. Combined with geometric modular flow on caps
 (derived under Markov + MaxEnt + symmetry + refinement) and entanglement
-equilibrium, this establishes Einstein's equations as a consequence of
-observer-patch consistency on the holographic screen.
+equilibrium in the same scaling regime, this establishes semiclassical
+Einstein dynamics as a consequence of observer-patch consistency on the
+holographic screen.
 
 ## 13.5 The Problem of Time in De Sitter
 
@@ -216,15 +217,15 @@ The picture so far:
 
 7. **Swampland and Anthropics**: The small value of Lambda is selected anthropically or dynamically determined.
 
-## 13.10 Dark Matter Without Dark Particles
+## 13.10 Dark Sector as a Modular-Anomaly Branch
 
 There's another cosmic mystery we haven't addressed: dark matter. Galaxies rotate too fast. Galaxy clusters hold together too tightly. The cosmic microwave background fluctuations require extra gravitational pull. The standard explanation: invisible particles that interact gravitationally but not electromagnetically.
 
-But our model shows something different.
+Our framework suggests a different, program-level branch.
 
 ### The Modular Anomaly
 
-In Chapter 11, we saw that the Einstein equation emerges from entanglement equilibrium. But that derivation assumed perfect Markov structure-perfect recoverability across patch overlaps.
+In Chapter 11, we saw that the semiclassical Einstein equation emerges from an entanglement-equilibrium argument in the scaling regime. But that derivation assumed perfect Markov structure-perfect recoverability across patch overlaps.
 
 In reality, the Markov condition is only approximate. There's a correction term:
 
@@ -244,7 +245,7 @@ The anomalous term $T_{00}^{\text{anom}}$ is "dark" by construction:
 - It gravitates (appears on the right side of Einstein's equation)
 - It doesn't couple electromagnetically (it's not made of charged particles)
 
-This is exactly what "dark matter" means observationally.
+This gives the anomaly sector the right structural profile for a dark component.
 
 ### The Acceleration Scale
 
@@ -264,23 +265,23 @@ $$a_0^{(\text{OPH})} \approx 1.03 \times 10^{-10} \text{ m/s}^2$$
 
 This is within 15% of the empirical MOND acceleration scale $a_0 \sim 1.2 \times 10^{-10}$ $\text{m/s}^2$ that fits galaxy rotation curves.
 
-### What This Predicts
+### What This Branch Suggests
 
 If the modular anomaly is what we're calling "dark matter," then:
 
-**Flat rotation curves emerge naturally.** In the deep IR regime where $g < a_0$, the effective gravitational acceleration becomes:
+**A MOND-like scaling can emerge.** In the deep IR regime where $g < a_0$, the effective gravitational acceleration can take the form:
 
 $$g_{\text{obs}} \approx \sqrt{a_0 \cdot g_b}$$
 
 where $g_b$ is the Newtonian acceleration from baryons. For a galaxy, this gives $v \propto r^0$-flat rotation curves.
 
-**The Baryonic Tully-Fisher relation is fixed.** The asymptotic rotation velocity satisfies:
+**The Baryonic Tully-Fisher relation has the right available scale.** The asymptotic rotation velocity would satisfy:
 
 $$V^4 = G \cdot M_b \cdot a_0^{(\text{OPH})}$$
 
 This is the observed Tully-Fisher relation, with the normalization determined by screen capacity.
 
-**No new particles required.** The "dark matter" is an effective correction to gravity at large scales, not a new species of particle. It's what finite screen capacity looks like in the Newtonian limit.
+**No new particles are required in this branch.** The "dark matter" would be an effective correction to gravity at large scales, not a new species of particle.
 
 ### The Status
 
@@ -295,7 +296,7 @@ What we're assuming additionally:
 - That $T_{00}^{\text{anom}}$ dominates galaxy-scale phenomenology
 - That the deep-IR limit organizes into MOND-like scaling
 
-But if this interpretation is correct, it would be remarkable: the same finite screen capacity that gives us the cosmological constant also gives us "dark matter"-not as a particle, but as an IR modification of gravity from modular imperfections.
+But if this interpretation is correct, it would be remarkable: the same finite screen capacity that gives us the cosmological constant would also generate a dark-sector acceleration scale-not as a particle, but as an IR modification of gravity from modular imperfections.
 
 ### Falsifiability
 

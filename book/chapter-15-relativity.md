@@ -277,7 +277,7 @@ This modular flow is what the observer experiences as time.
 
 ### Geometric Modular Flow on Caps
 
-Consider a cap C on the sphere S^2. In our model, under the right conditions, modular flow becomes geometric.
+Consider a cap C on the sphere S^2. In our model, in the refinement/scaling regime and under the right conditions, modular flow becomes geometric.
 
 The conditions are:
 - Markov structure in the collar around the cap boundary (Assumption F)
@@ -301,7 +301,7 @@ The conformal group of the sphere is isomorphic to the Lorentz group.
 
 Moebius transformations of the complex plane (which is the Riemann sphere S^2) are exactly Lorentz transformations of the celestial sphere that a relativistic observer sees.
 
-Lorentz kinematics is not assumed. It emerges from the requirement that modular clocks on overlapping patches must be compatible.
+Lorentz kinematics is not assumed. It emerges in that same scaling-limit regime from the requirement that modular clocks on overlapping patches must be compatible.
 
 ### Why There Is No Privileged Reference Frame
 
@@ -405,7 +405,7 @@ The null-surface modular bridge (Route 2) is derived from A1-A4 under two testab
 
 ### The Einstein Equation
 
-Combining the entropy variation with the geometric identity for area variation at fixed volume:
+Combining the entropy variation with the geometric identity for area variation at fixed volume, one obtains the semiclassical Einstein equation in the same local scaling regime:
 
 $$\delta A\big|_{V} = -\frac{\Omega_{d-2} \ell^d}{d^2-1}(G_{00} + \Lambda g_{00})$$
 
@@ -520,9 +520,9 @@ There's no "information paradox" because the paradox assumes information can be 
 
 The detailed dynamics of how information gets scrambled and unscrambled on the screen is complex. But there's no paradox, no violation of unitarity. The screen evolution is unitary by construction.
 
-## 15.12 Dark Matter: Information Deficits That Gravitate
+## 15.12 Dark Sector: A Program-Level Modular-Anomaly Branch
 
-One of the most dramatic successes of our framework is its explanation of dark matter—without invoking new particles.
+This is not a closed theorem on the same footing as Lorentz kinematics or the semiclassical Einstein derivation. It is a structurally motivated phenomenology branch.
 
 ### The Problem
 
@@ -532,11 +532,11 @@ The standard response: dark matter particles. Some new, weakly interacting parti
 
 An alternative: modify gravity (MOND). At low accelerations, perhaps gravity behaves differently. This explains galaxy rotation curves remarkably well, but struggles with galaxy clusters and the Bullet Cluster.
 
-### The OPH Solution
+### The OPH Branch
 
-Our framework provides a third option: **there is extra gravitational pull, but it comes from imperfect information, not particles**.
+Our framework suggests a third option: **there may be extra gravitational pull coming from imperfect information, not particles**.
 
-Recall that we derive Einstein's equations from entanglement equilibrium. In a perfect world, information on one side of a boundary would be perfectly recoverable from the boundary itself (the Markov condition). In that limit, you get pure Einstein gravity.
+Recall that we derive the semiclassical Einstein equation from entanglement equilibrium in the scaling regime. In a perfect world, information on one side of a boundary would be perfectly recoverable from the boundary itself (the Markov condition). In that limit, you get pure Einstein gravity.
 
 But the real world isn't perfect. There's always some residual correlation that can't be captured by the boundary alone. This **Markov imperfection** appears as an extra term in Einstein's equations.
 
@@ -549,39 +549,21 @@ The anomaly sector is dark by construction:
 - It doesn't interact with normal matter except through gravity
 - It's collisionless (no self-interaction that would cause clumping)
 
-This is exactly what we call dark matter—but it's not a particle. It's a feature of how emergent spacetime works.
+This gives the anomaly sector the right structural profile for a dark component, but it is not yet a closed dark-matter theorem.
 
 ### The MOND Scale
 
-OTH connects this anomaly to the cosmological constant Λ. The only available large-scale length is the de Sitter radius. From this, we derive:
+OPH connects this anomaly to the cosmological constant Λ. The only available large-scale length is the de Sitter radius. From this, the branch singles out:
 
 $$a_0 = \frac{15}{8\pi^2} c^2 \sqrt{\frac{\Lambda}{3}} \approx 1.0 \times 10^{-10} \text{ m/s}^2$$
 
-This is almost exactly the observed MOND acceleration scale. The "coincidence" between galaxy dynamics and cosmology isn't a coincidence—they're connected through the information structure of the universe.
+This is close to the observed MOND acceleration scale. The point of the branch is that galaxy-scale phenomenology and cosmology could be connected through the information structure of the universe.
 
 At high accelerations ($g \gg a_0$), standard gravity dominates. At low accelerations ($g \ll a_0$), the anomaly term becomes important, and gravity transitions to MOND-like behavior: $g \sim \sqrt{a_0 \cdot g_b}$ where $g_b$ is the Newtonian prediction from baryons.
 
-### Galaxies vs. Clusters
+### What Remains Open
 
-The framework naturally explains why MOND works better for galaxies than clusters:
-
-**In galaxies**: The anomaly "polarizes" around baryons, creating tight correlations between baryonic and total gravitational fields. This is why the radial acceleration relation (RAR) is so tight for galaxies.
-
-**In clusters**: There's also a "dust-like" component that behaves like collisionless dark matter. This explains why clusters need more dark matter than MOND predicts from baryons alone.
-
-### The Bullet Cluster
-
-The Bullet Cluster was considered a death blow to modified gravity theories. Two galaxy clusters collided; the gas (most of the baryonic mass) got stuck in the middle due to friction, but gravitational lensing shows the mass concentrated on the outsides, with the galaxies.
-
-If dark matter is just modified gravity locked to baryons, this shouldn't happen.
-
-But in our framework, the anomaly sector is collisionless. During a merger, the gas shocks and slows down, but the anomaly component sails through with the galaxies. The lensing mass separates from the gas—exactly as observed.
-
-This is a key prediction: the anomaly sector behaves dynamically like collisionless dark matter, even though it isn't particles.
-
-### What Remains to Derive
-
-The framework derives that the anomaly term must gravitate, gives the MOND-like scaling, and fixes the dynamics as dust-like and collisionless. The cosmological abundance depends on the integrated Markov defect across the universe's history—a quantity that can in principle be computed from the screen structure.
+The branch suggests why MOND-like galaxy scaling and a collisionless dark component could coexist, but the detailed cluster phenomenology, Bullet-Cluster behavior, and cosmological abundance are still open derivation targets. What is currently established is narrower: the anomaly term gravitates, the de Sitter scale supplies a natural IR acceleration scale, and a dark-sector interpretation is structurally available.
 
 ## 15.14 Reverse Engineering Summary
 
@@ -614,6 +596,6 @@ Gravity emerges from entanglement equilibrium. The equilibrium condition comes f
 
 Newton's absolute time and space were beautiful ideas that served humanity well for two centuries. But they were always approximations. The deeper truth is that time and space are not the stage on which physics happens. They emerge from the physics itself.
 
-We now have the stage: emergent spacetime with Lorentz kinematics and Einstein dynamics. We've seen how both spacetime (this chapter) and particles (Chapter 14) emerge from the screen. But what exactly IS matter in this model? How do the classical concepts of particles, energy, and motion relate to the deeper quantum structure?
+We now have the stage: emergent spacetime with Lorentz kinematics and scaling-limit semiclassical Einstein dynamics. We've seen how both spacetime (this chapter) and particles (Chapter 14) emerge from the screen. But what exactly IS matter in this model? How do the classical concepts of particles, energy, and motion relate to the deeper quantum structure?
 
 That's the question of **Chapter 16: Matter, Motion, and Classical Physics**.
