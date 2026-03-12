@@ -1,6 +1,6 @@
 # Observer Patch Holography: An Observer-Centric Approach to Fundamental Physics
 
-> OPH is an observer-centric framework for fundamental physics. From one calibrated constant (the pixel area), structural axioms (A1-A4 + MAR), and one cosmological input (screen capacity), OPH derives the Standard Model gauge group, particle mass hierarchy, and key quantitative outputs. The Standard Model, general relativity, and string theory emerge as effective descriptions of the underlying structure.
+> OPH is an observer-centric framework for fundamental physics. In the current implementation it uses two external inputs (pixel area and screen capacity) together with structural axioms and explicit scaling/regularity premises. OPH develops a conditional scaling-limit gravity branch, conditional compact gauge reconstruction with Standard Model closure under extended MAR, and a quantitative program whose outputs are separated into calibration checks, independent Higgs/top outputs, and weaker phenomenological continuations. The Standard Model, general relativity, and string-theoretic worldsheet descriptions emerge as effective sectors of the underlying structure.
 
 **French version:** [README_FR.md](README_FR.md) -- translated by Martin S.
 
@@ -23,7 +23,7 @@ From this starting point (plus entropy and Markov constraints), OPH treats space
 - **PDF (main paper):** [Observers are all you need](paper/observers_are_all_you_need.pdf)
 - **LaTeX source:** [observers_are_all_you_need.tex](paper/observers_are_all_you_need.tex)
 
-**Recovering Relativity and Standard Model Structure from Observer-Overlap Consistency** is the submission-focused compact paper. It concentrates the falsifiable core of OPH: Lorentz kinematics, Einstein dynamics, exact Standard Model gauge structure, hypercharges, three colors, three generations, the two-input parameter economy, and the strongest quantitative branches.
+**Recovering Relativity and Standard Model Structure from Observer-Overlap Consistency** is the submission-focused compact paper. It concentrates the falsifiable core of OPH: Lorentz kinematics, the conditional scaling-limit Einstein branch, Standard Model gauge closure under the extended MAR admissibility package, hypercharges, three colors, three generations, the two-input parameter economy, and the strongest quantitative branches.
 
 - **PDF (compact submission paper):** [Recovering Relativity and Standard Model Structure from Observer-Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)
 - **LaTeX source:** [recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex)
@@ -132,7 +132,7 @@ The following infographic shows how the entire framework flows from two paramete
 
 *From axioms to reality: how overlap consistency derives all of physics.*
 
-> **Particle Spectrum Derivation**: The complete derivation from pixel area to particle masses — with comparison against PDG data and a full audit of every constant — is documented in **[the spectrum derivation source](paper/tex_fragments/SPECTRUM_DERIVATION.tex)**. Outputs are classified by epistemic status: gauge couplings and EW boson masses are calibration-sector consistency checks; charged lepton masses (< 0.04% from parameter-free Koide structure), Higgs and top masses (~1% from critical surface condition) are genuine predictions.
+> **Particle Spectrum Derivation**: The complete derivation from pixel area to particle masses — with comparison against PDG data and a full audit of every constant — is documented in **[the spectrum derivation source](paper/tex_fragments/SPECTRUM_DERIVATION.tex)**. Outputs are classified by epistemic status: gauge couplings and EW boson masses are calibration-sector consistency checks; Higgs and top masses (~1% from the critical-surface condition) are the main independent quantitative outputs; charged-lepton masses (< 0.04% from Koide structure) remain a sharper but weaker phenomenological continuation because their final exponent assignment uses an additional discrete-selection step.
 
 ## The Fundamental Parameters
 
@@ -148,7 +148,7 @@ The geometric area of a single computational element on the holographic screen. 
 | In SI units | $a_{\text{cell}} \approx 4.26 \times 10^{-70}$ m^2 | Physical area per pixel |
 | Pixel "side" | $\sqrt{a_{\text{cell}}} \approx 2.06 \times 10^{-35}$ m | Resolution scale |
 
-**What it determines:** Newton's constant (via $G_{\text{nat}} = a_{\text{cell}}/4\bar{\ell}$ in natural units where $G_{\text{nat}} = \ell_P^2$), Planck scale, all gauge couplings, all particle masses.
+**What it determines:** Newton's constant (via $G_{\text{nat}} = a_{\text{cell}}/4\bar{\ell}$ in natural units where $G_{\text{nat}} = \ell_P^2$), the Planck scale, the gauge-coupling calibration sector, and the scale used by the independent Higgs/top branch plus downstream mass continuations.
 
 ### 2. Screen Capacity: $\log(\dim \mathcal{H}) \sim 10^{122}$
 
@@ -240,7 +240,7 @@ These results follow from the absence of a privileged "third-party" frame. There
 
 4. *QNEC/Focusing*: Derived internally via relative entropy monotonicity.
 
-5. *Entanglement equilibrium* leads to Einstein equations via the Jacobson mechanism (1995, 2016).
+5. *Entanglement equilibrium* leads to a conditional scaling-limit Einstein branch via the Jacobson mechanism (1995, 2016).
 
 The remaining explicit assumptions are MaxEnt and Euclidean regularity (for 2pi normalization).
 
@@ -432,7 +432,7 @@ A measurement contradiction would require showing that some phenomenon cannot be
 
 ## Current Status
 
-As summarized in the status matrix above, the framework derives Lorentz kinematics, semiclassical Einstein equations, compact gauge symmetry, the SM gauge group (via MAR), three generations, three colors, massless force carriers, particle masses from a single input, proton stability, and an explicit OPH-to-string bridge through 2D Yang-Mills edge sectors. The main engineering extensions are:
+As summarized in the status matrix above, the framework derives Lorentz kinematics, a conditional semiclassical Einstein branch, compact gauge symmetry, the SM gauge group (via MAR), three generations, three colors, massless force carriers, a two-input quantitative particle-physics program, proton stability, and an explicit OPH-to-string bridge through 2D Yang-Mills edge sectors. The main engineering extensions are:
 
 1. **Screen microphysics**: Quantum link models realize the regulator premises and give edge-center completion automatically. Remaining: ensure modular flow becomes geometric conformal dilation in the continuum limit.
 

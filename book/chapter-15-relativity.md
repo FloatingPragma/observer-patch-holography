@@ -423,7 +423,7 @@ Here's the distinctive contribution of our framework: Different observers throug
 
 $$G_{ab} + \Lambda g_{ab} = 8\pi G \langle T_{ab} \rangle$$
 
-So patch consistency promotes the rest-frame first-variation relation to a tensor equation. But the scalar relation itself comes from MaxEnt + the EFT bridge, not from patch consistency.
+This should be read as the semiclassical tensor equation obtained from the first-variation relation in the local Lorentzian scaling regime. Patch consistency promotes the rest-frame relation, but the scalar relation itself comes from MaxEnt plus the EFT bridge, not from patch consistency alone, and the null-stress identification should be read as a target regularity property of the intended EFT phase rather than a literal fixed-cutoff theorem.
 
 ### The Derivation Chain
 
@@ -432,21 +432,21 @@ The derivation chain for the scaling-limit Einstein branch in OPH proceeds as:
 ```
 MaxEnt (Assumption B)
     → δS_gen = 0 (entanglement equilibrium)
-    → Null-surface modular bridge (connects modular energy to stress tensor)
+    → Conditional null-surface modular bridge (connects modular energy to stress tensor in the scaling regime)
     → δ(G_00 + Λg_00) = 8πG δT_00 in each rest frame
-    → Patch consistency promotes to tensor equation
-    → G_ab = 8πG T_ab
+    → Patch consistency promotes to tensor equation in the scaling regime
+    → G_ab + Λg_ab = 8πG T_ab
 ```
 
-MaxEnt + Jacobson's thermodynamic insight provide the scalar equation. Our framework provides the *reason* for MaxEnt (it's how nature selects among overlap-consistent states) and uses patch consistency to promote the result to the full tensor equation.
+MaxEnt + Jacobson's thermodynamic insight provide the scalar equation. Our framework provides the *reason* for MaxEnt (it's how nature selects among overlap-consistent states) and uses patch consistency to promote the result to the full tensor equation once the scaling-limit bridge assumptions are in place.
 
 ### Classical Mechanics from Emergent GR
 
-Once the Einstein equation is established, classical mechanics follows automatically.
+Once the semiclassical Einstein branch is established, classical mechanics follows automatically in the same regime.
 
-**Conservation laws.** The contracted Bianchi identity is geometric: $\nabla^a G_{ab} = 0$. Combined with the Einstein equation, this implies stress-energy conservation: $\nabla^a T_{ab} = 0$. Energy and momentum are conserved not because we postulate them, but because the geometry demands it.
+**Conservation laws.** The contracted Bianchi identity is geometric: $\nabla^a G_{ab} = 0$. Combined with the Einstein equation in the scaling regime, this implies stress-energy conservation: $\nabla^a T_{ab} = 0$. Energy and momentum are conserved not because we postulate them, but because the geometry demands it.
 
-**Geodesic motion.** For pressureless matter ("dust"), $T^{ab} = \rho u^a u^b$. Conservation gives $\nabla_a(\rho u^a u^b) = 0$. Working this out yields the geodesic equation: $u^a \nabla_a u^b = 0$. Free particles follow the straightest paths through curved spacetime. This is not an additional postulate. It follows from the Einstein equation.
+**Geodesic motion.** For pressureless matter ("dust"), $T^{ab} = \rho u^a u^b$. Conservation gives $\nabla_a(\rho u^a u^b) = 0$. Working this out yields the geodesic equation: $u^a \nabla_a u^b = 0$. Free particles follow the straightest paths through curved spacetime. This is not an additional postulate. It follows from the Einstein equation in the same effective regime.
 
 **Newton's laws.** In the weak-field, slow-motion limit, the Einstein equation reduces to Newton's gravitational law: $\nabla^2 \Phi = 4\pi G \rho$. Geodesic motion becomes $\ddot{\mathbf{x}} = -\nabla \Phi$. This is Newton's second law with gravitational force.
 
@@ -583,7 +583,7 @@ Einstein discovered special relativity by thinking about light and motion. We ca
 
 **What requires additional assumptions:**
 
-- The scalar Einstein equation in each frame (requires MaxEnt + EFT bridge)
+- The scalar Einstein relation in each frame (requires MaxEnt + EFT bridge)
 - The specific form of the stress tensor (requires UV completion)
 
 Einstein discovered general relativity by thinking about falling elevators. We can connect this to our framework: Einstein's equation emerges when entanglement entropy is stationary. But this stationarity comes from MaxEnt selection, not from patch consistency alone. Jacobson showed this connection in 1995; our framework provides a reason *why* entropy should be stationary (MaxEnt) and uses patch consistency to promote the result to a tensor equation.
@@ -592,7 +592,7 @@ Einstein discovered general relativity by thinking about falling elevators. We c
 
 The speed of light isn't a random constant. It's the conversion factor between information flow on the screen and emergent geometry in the bulk. This follows from patch consistency.
 
-Gravity emerges from entanglement equilibrium. The equilibrium condition comes from MaxEnt; the tensor character comes from patch consistency; the connection to stress-energy follows from null-surface modular flow.
+Gravity emerges from entanglement equilibrium. The equilibrium condition comes from MaxEnt; the tensor character comes from patch consistency; the connection to stress-energy follows from null-surface modular flow in the intended scaling-limit EFT regime.
 
 Newton's absolute time and space were beautiful ideas that served humanity well for two centuries. But they were always approximations. The deeper truth is that time and space are not the stage on which physics happens. They emerge from the physics itself.
 

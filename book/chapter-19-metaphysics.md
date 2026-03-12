@@ -121,7 +121,7 @@ The tests remain:
 - Can quantum structure be derived as a consistency constraint?
 - Can the dimensionality of spacetime be forced rather than assumed?
 - Can dynamics arise from synchronization pressure?
-- Can the pixel area (the model's one free parameter) be predicted from first principles, or must it remain an empirical input?
+- Can the pixel area and screen-capacity inputs of the current implementation be derived or replaced from first principles, or must they remain empirical inputs?
 
 If those fail, the model fails, and the philosophical picture with it. Beautiful coherence is necessary but not sufficient.
 

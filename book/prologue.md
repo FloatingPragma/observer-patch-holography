@@ -121,11 +121,11 @@ work out the consequences, the results are extraordinary:
 
 - **A conditional scaling-limit Einstein branch** emerges from entanglement equilibrium on the screen
 - **The Standard Model gauge structure** SU(3) x SU(2) x U(1)/Z₆ is derived rather than assumed under the extended MAR admissibility package
-- **Three charged lepton masses** (electron, muon, tau) are genuine predictions at sub-permille accuracy from parameter-free Koide structure; W and Z boson masses are calibration-sector consistency checks
+- **The quantitative program** is organized around two external inputs in the current implementation: W and Z boson masses are calibration-sector consistency checks, Higgs/top are the main independent quantitative outputs, and the charged-lepton branch is a sharper but weaker phenomenological continuation
 - **A dark-sector branch** becomes structurally available from modular anomalies, not new particles
 - **Why anything exists at all** is answered: reality is a self-simulating strange loop
 
-No other framework in physics derives all of this from one calibrated particle-physics constant, one cosmological input, and structural axioms.
+No other framework in physics organizes all of this around two external inputs, structural axioms, and an explicit separation between theorem-level structure, calibration checks, independent outputs, and weaker continuations.
 
 Once you make this shift, strange features of reality start making sense.
 The "weird" behaviors of physics-the ones that seem bizarre or paradoxical
@@ -161,7 +161,7 @@ This book reverse engineers reality from first principles.
 We start with a minimal assumption: observers exist, they have bounded
 access to information, and they must agree where their observations overlap.
 
-This framework uses one calibrated particle-physics constant: the pixel area $P \approx 1.63$, the geometric size of a single computational element on the holographic screen in Planck units. At cosmological scale it uses one additional configuration input: the total screen capacity, inferred from the observed cosmological constant. Everything else — Newton's constant, particle masses, and the effective structure of spacetime — follows from the axioms or from stated structural conditions. Three charged lepton masses are predicted to sub-permille accuracy from parameter-free Koide structure. The Higgs and top masses are predicted at ~1% from an independent critical surface condition. The Standard Model gauge structure is derived under the extended MAR admissibility package.
+In the current implementation this framework uses two external inputs: the pixel area $P \approx 1.63$, the geometric size of a single computational element on the holographic screen in Planck units, and the total screen capacity inferred from the observed cosmological constant. Everything else — Newton's constant, the gauge structure, and the effective spacetime branch — follows from the axioms or from stated structural conditions. Gauge couplings and EW boson masses are calibration-sector consistency checks. The Higgs and top masses are the main independent quantitative outputs from an independent critical-surface condition. The charged-lepton, flavor, neutrino, and related mass branches are retained with weaker phenomenological or downstream numerical status. The Standard Model gauge structure is derived under the extended MAR admissibility package.
 
 From this starting point, we derive constraints. We show how the mathematical
 structures of quantum mechanics and relativity emerge from consistency
@@ -182,7 +182,7 @@ The structure follows the logic of reverse engineering:
 3. **Test against behavior.** We catalogue predictions, both verified and
    testable. We note what identifies a measurement contradiction with the model.
 
-This model rests on established mathematics and physics, extended by four axioms and one selection principle. The results are striking: scaling-limit semiclassical gravity, the Standard Model gauge structure, and the particle mass spectrum all emerge from the framework — with charged lepton masses predicted to sub-permille accuracy and the Higgs and top masses to ~1%. Our goal is to show you how deep the rabbit hole goes.
+This model rests on established mathematics and physics, extended by four axioms and one selection principle. The results are striking: a conditional scaling-limit gravity branch, the Standard Model gauge structure, and a quantitative particle-physics program all emerge from the framework. Within that program, charged-lepton masses remain a sharp but weaker continuation, while the Higgs and top masses are the main independent quantitative outputs at ~1%. Our goal is to show you how deep the rabbit hole goes.
 
 ## Let's Go
 

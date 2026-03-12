@@ -162,7 +162,7 @@ Here is the high-level chain we use later:
    generator local near cap boundaries.
 2. **Symmetry and regularity** force that local modular flow to be geometric.
 3. Geometric modular flow gives **Lorentz kinematics** on the screen.
-4. **Entanglement equilibrium** plus a local stress tensor yields the Einstein equation.
+4. **Entanglement equilibrium** plus a local stress tensor yields the conditional scaling-limit Einstein branch.
    The stress tensor can be introduced via a UV CFT limit on small caps, or
    built internally from null-surface modular additivity and half-sided
    inclusions.

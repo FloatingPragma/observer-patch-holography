@@ -638,13 +638,13 @@ But Super-Kamiokande has been watching for proton decay since 1996. The current 
 
 Our model takes a different path. The gauge group isn't embedded in anything larger. Tannaka-Krein reconstruction builds the gauge group directly from edge-sector fusion rules, yielding the *product* structure:
 
-$$G = \mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$$
+$$G_{\mathrm{phys}} = \mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1) / \mathbb{Z}_6$$
 
 There's no larger group. No X and Y bosons. No leptoquark generators. Unification happens geometrically (all three couplings share a common "diffusion time" on the edge) rather than algebraically through group embedding.
 
 The prediction is stark: **gauge-mediated proton decay is forbidden**. That is the theorem-level statement.
 
-This is a unique experimental signature. Standard SUSY GUTs predict *both* precision unification *and* proton decay. Our model predicts unification *without* proton decay. If Hyper-Kamiokande continues to see null results while precision measurements continue to favor unified couplings, that would be strong evidence for geometric rather than algebraic unification.
+This is a unique experimental signature. Standard SUSY GUTs predict *both* precision unification *and* proton decay. Our model predicts unification *without* gauge-mediated proton decay because the full connected gauge group has only the product-group adjoint content and no mixed leptoquark generators. If Hyper-Kamiokande continues to see null results while precision measurements continue to favor unified couplings, that would be strong evidence for geometric rather than algebraic unification.
 
 ## 14.20 What the Model Explains
 
@@ -658,7 +658,7 @@ Let's step back and see what the framework actually accounts for.
 
 **Gauge-mediated proton decay.** Gauge-mediated proton decay is forbidden. The gauge group is a product, not embedded in a larger simple group, so no leptoquark generators exist. Current experimental limits ($\tau_p > 10^{34}$ years) are consistent with this prediction.
 
-**Particle masses.** The framework derives the particle-physics branch from a single calibrated constant: the pixel area $P = 1.63094$. Gauge couplings and EW boson masses (W, Z) are calibration-sector consistency checks. Three charged lepton masses (electron, muon, tau) are genuine predictions at sub-permille accuracy from parameter-free Koide structure. The Higgs and top quark masses are genuine predictions at ~1% from the critical surface condition. The fermion mass hierarchy reduces to discrete Z₆ defect charges; quark masses reproduce the correct hierarchy as a texture-pattern output but still have larger individual errors from missing scheme matching. The neutrino branch is presently only an order-of-magnitude capacity estimate. See `paper/tex_fragments/SPECTRUM_DERIVATION.tex` for the complete derivation chain and epistemic classification.
+**Particle masses.** In the current implementation the particle-physics branch uses two external inputs: the pixel area $P = 1.63094$ and the total screen capacity in the cosmological/neutrino branch. Gauge couplings and EW boson masses (W, Z) are calibration-sector consistency checks. The Higgs and top quark masses are the main independent quantitative outputs at ~1% from the critical surface condition. The charged-lepton branch remains a sharp phenomenological continuation from Koide structure, but its final exponent assignment uses an additional discrete-selection step, so it is weaker in logical status than the Higgs/top branch. The fermion mass hierarchy reduces to discrete Z₆ defect charges; quark masses reproduce the correct hierarchy as a texture-pattern output but still have larger individual errors from missing scheme matching. The neutrino branch is presently only an order-of-magnitude capacity estimate. See `paper/tex_fragments/SPECTRUM_DERIVATION.tex` for the complete derivation chain and epistemic classification.
 
 ## 14.21 The Big Picture
 
@@ -668,7 +668,7 @@ The photon and graviton are particles the theory *forces* upon us. The photon ex
 
 The quarks and leptons aren't arbitrary. Their charges are fixed by the requirement that reality be self-consistent. The generations aren't accidental: the admissible window is $3 \le N_g \le 5$, and MAR selects the minimal viable value. Chirality isn't a quirk; it's the only way to keep fermions light without fine tuning.
 
-The Selection Axiom MAR provides the selector inside the admissible class. Within the connected Lie sector package with one connected abelian charge factor, it picks the Standard Model gauge structure and leaves the realized hypercharge lattice, color count, and generation count as discrete structural outputs. From a single pixel area, through gauge reconstruction, anomaly analysis, and refinement stability, the framework derives the specific particles, forces, and masses we observe.
+The Selection Axiom MAR provides the selector inside the admissible class. Within the connected Lie sector package with one connected abelian charge factor, it picks the Standard Model gauge structure and leaves the realized hypercharge lattice, color count, and generation count as discrete structural outputs. From gauge reconstruction, anomaly analysis, refinement stability, and the current two-input quantitative package, the framework derives the specific particles, forces, and mass branches we observe while keeping their epistemic status explicit.
 
 We've now seen how particles emerge from the screen as stable patterns that transform under emergent symmetries. But how does spacetime itself emerge? How does Einstein's relativity fit into this picture?
 
