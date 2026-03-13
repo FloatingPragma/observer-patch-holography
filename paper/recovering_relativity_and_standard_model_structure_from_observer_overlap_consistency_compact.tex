@@ -99,66 +99,59 @@ is recovered in the bosonic compact-gauge branch once the extended MAR admissibi
 
 \section{Results at a Glance}
 
-The following table lists the principal results emphasized in this paper.
+This section is the master status ledger for the compact note. The canonical five-axiom basis, the two external continuous inputs, and the technical-premise labels used below are fixed in Section~\ref{sec:premise-ledger}. Each row names a node in the reconstruction program, records its immediate OPH-side parents, separates imported standard mathematics from extra non-axiom physical premises or external inputs, and states the resulting claim tier. A row should not be read as a five-axiom consequence unless the extra-load columns are empty; in practice almost every nontrivial branch below uses stated technical premises or realized-branch assumptions in addition to the canonical five-axiom package.
 
 \begingroup
-\footnotesize
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}p{0.16\textwidth}>{\raggedright\arraybackslash}p{0.16\textwidth}>{\raggedright\arraybackslash}p{0.20\textwidth}@{}}
-\caption{Principal achievements of the framework.}\\
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.05\textwidth}>{\raggedright\arraybackslash}p{0.16\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}p{0.13\textwidth}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.13\textwidth}@{}}
+\caption{Master dependency checklist for the compact OPH program.}\\
 \toprule
-Problem & Result & Logical status & Validation tier & Mechanism \\
+Node & Output & Immediate OPH ingredients & Standard mathematics used & Extra non-axiom physical premises / external inputs & Claim tier \\
 \midrule
 \endhead
 \bottomrule
 \endfoot
-Objectivity of law & Unique schedule-independent normal form & theorem & structural theorem & Asynchronous confluence of overlap repair \\
-Lorentz kinematics & $\Conf^+(S^2)\cong\mathrm{SO}^+(3,1)$ in the geometric modular phase & conditional classification theorem & scaling-limit theorem & Geometric modular flow on caps in the assumed geometric phase \\
-Einstein dynamics & Jacobson-type first-variation relation with tensor upgrade & conditional theorem + corollary & conditional scaling-limit theorem & Fixed-cap generalized-entropy stationarity, d=4 small-ball bridge, and null modular / null-stress premises \\
-Gauge structure & $(\SU(3)\times\SU(2)\times\U(1))/\Gamma$, fixed later to $\mathbb Z_6$ & theorem/corollary chain & conditional structural theorem & Refinement-stable bosonic edge-sector reconstruction plus extended MAR admissibility \\
-Charge lattice & Exact Standard Model hypercharges on the realized matter package & theorem & structural theorem on the realized branch & Anomaly cancellation and Yukawa invariance \\
-Discrete matter content & $N_c=3$, $N_g=3$ on the realized MAR-admissible branch & corollary chain & structural theorem & CKM CP capability, anomaly constraints, admissibility, and MAR \\
-Parameter economy & Two external continuous configuration inputs in the current quantitative implementation & implementation fact & current quantitative implementation & Pixel area and screen capacity only at the present numerical level \\
-Unification sector & MSSM-like coupling evolution without light superpartners & supplement-backed numerical reduction & calibration sector & Edge-sector beta-function shifts and supplement-backed matching conventions \\
-Electroweak scale & $v$, $m_W$, gauge couplings & supplement-backed numerical reduction & calibration sector & Pixel constraint and self-consistent fixed point \\
-Higgs and top & $m_H \approx 126.5$ GeV, $m_t \approx 171.1$ GeV & supplement-backed numerical branch & independent quantitative & Critical surface $\lambda=\beta_\lambda=0$ at $M_U$ plus supplement-backed transport \\
-Charged leptons and Koide & $Q=2/3$, $\delta=2/9$, sub-permille lepton masses & semi-empirical continuation & phenomenological continuation & $\mathbb Z_3$ holonomy plus a $\mathbb Z_6$-motivated suppression ansatz \\
-Cosmological constant from capacity & $\Lambda=3\pi/(G N_{\mathrm{scr}})$ & corollary & derived reduction & Global screen-capacity identification \\
-Neutrino scale from $N_{\mathrm{scr}}$ & capacity-branch neutrino estimate & derived reduction & order-of-magnitude estimate & Global screen capacity \\
-Dark matter phenomenology & MOND-like acceleration scale from modular anomaly & program corollary & program-level phenomenology & Imperfect Markovity in collar modular flow \\
-Baryogenesis scale & $\varepsilon^{12}=6^{-12}$ in the observed range & program corollary & program-level phenomenology & $\mathbb Z_6$ suppression and electroweak topology \\
-Edge-sector fingerprints & conditional $\mathbb Z_6$ center-label entropy and exact $\SU(3)$ Casimir ratios & program corollary & program-level phenomenology & Quotient-label ansatz and heat-kernel spectrum \\
-Black-hole spectroscopy & Finite-window logarithmic horizon template & conditional phenomenology & program-level phenomenology & Discrete horizon area counting \\
-String-theory sector & 2D Yang-Mills and worldsheet expansion from edge heat kernel & effective-description corollary & program-level phenomenology & Open-edge weights and large-$N_{\mathrm{edge}}$ reorganization \\
-No gauge-mediated proton decay and no GUT monopoles & $\tau_p^{(\mathrm{gauge})}=\infty$ and no simple-group breaking sector & corollary & structural theorem & Product gauge structure, no $X/Y$ bosons, no simple-group breaking \\
+\textbf{D1} & Unique schedule-independent normal form (Theorem~\ref{thm:confluence}) & overlap-consistency problem on a finite patch net & Newman's lemma for terminating locally confluent rewrite systems & finite state spaces, termination, and local confluence & structural theorem \\
+\textbf{D2} & Collar Markov/entropy split and \(G\)-dictionary setup (Theorem~\ref{thm:markovcollar}, Propositions~\ref{prop:approxrecover}, \ref{prop:splice}, \ref{prop:gensplit}, Definition~\ref{def:newton}) & Axioms~\ref{ax:screen}--\ref{ax:entropy} & HJPW Markov structure theorem; Petz and Fawzi--Renner recovery theory & exact block-factorized identities require exact Markovity or an explicitly stated idealized limit; the \(A/(4G)\) step is the coarse-grained dictionary of Definition~\ref{def:newton} & structural lemma/proposition layer \\
+\textbf{D3} & Lorentz branch \(\Conf^+(S^2)\cong \mathrm{SO}^+(3,1)\) (Theorem~\ref{thm:bw}, Corollary~\ref{cor:lorentz}) & Axioms~\ref{ax:screen}--\ref{ax:entropy} & Bisognano--Wichmann modular geometry; conformal-group classification & T4, T5, and T8 of Assumption~\ref{ass:technical} & conditional scaling-limit theorem \\
+\textbf{D4} & Null modular bridge to \(T_{kk}\) (Propositions~\ref{prop:nullec}, \ref{prop:n3}; Corollaries~\ref{cor:n1}, \ref{cor:n2}; Lemmas~\ref{lem:density}, \ref{lem:translation}; Theorem~\ref{thm:stress}) & D2+D3 and Axioms~\ref{ax:screen}--\ref{ax:entropy} & Borchers--Wiesbrock half-sided modular inclusion; distributional differentiation on half-lines & T1--T3, T6, T8, and the relativistic null-stress identification premise & conditional bridge theorem \\
+\textbf{D5} & Jacobson-type Einstein branch (Lemma~\ref{lem:smallball}, Theorem~\ref{thm:einstein}, Corollary~\ref{cor:einstein}) & D3+D4 and Axioms~\ref{ax:screen}--\ref{ax:entropy} & Jacobson small-ball first law; null-to-tensor reconstruction modulo a metric term & T9 fixed-cap stationarity; locally Lorentzian \(d=4\) scaling regime; small-ball constancy assumptions & conditional scaling-limit theorem/corollary \\
+\textbf{D6} & Capacity branch for \(\Lambda\) and the associated neutrino estimate (Proposition~\ref{prop:lambda}, Corollary~\ref{cor:lambda}) & D5 leaves a \(+\Lambda g_{ab}\) ambiguity & de Sitter entropy relation and dimensional analysis & external input \(N_{\mathrm{scr}}\) and the screen-capacity identification & input-dependent corollary / estimate \\
+\textbf{D7} & Compact gauge reconstruction (Theorem~\ref{thm:compactgauge}) & Axioms~\ref{ax:screen}--\ref{ax:entropy} & Doplicher--Roberts / Tannaka reconstruction & T7 and T10--T12; rigid symmetric bosonic refinement-stable sector colimit with fiber functor & conditional structural theorem \\
+\textbf{D8} & Product gauge structure up to finite quotient (Lemmas~\ref{lem:mincontent}--\ref{lem:commutant}, Theorem~\ref{thm:sm}) & D7 + Axiom~\ref{ax:mar} & compact Lie representation classification; Schur's lemma & connected positive-dimensional Lie admissible class; one connected abelian factor; faithful action on the minimal coupled carrier; vanishing obstruction \( [z]=0 \) & realized-branch theorem \\
+\textbf{D9} & Realized Standard Model quotient, hypercharges, \(N_c=3\), \(N_g=3\), and product-group corollaries (Theorem~\ref{thm:hypercharge}, Corollaries~\ref{cor:ng}, \ref{cor:nc}, Proposition~\ref{prop:z6}) & D8 & anomaly-cancellation algebra; Witten global-anomaly argument; CKM CP counting & realized one-generation chiral matter plus one Higgs package; asymptotic-freedom and MAR admissibility premises & realized-branch theorem/corollary chain \\
+\textbf{D10} & Gauge/electroweak numerical closure of the present implementation & D9 + external input \(P\) & RG evolution and matching conventions supplied in the supplement & pixel constraint; edge heat-kernel closure; supplement-backed beta-function and threshold conventions & calibration sector \\
+\textbf{D11} & Higgs/top critical-surface branch & D10 & RG transport and pole-mass conversion supplied in the supplement & critical-surface condition \(\lambda=\beta_\lambda=0\) at \(M_U\); no new continuous fit once D10 is fixed & supplement-backed quantitative branch \\
+\textbf{D12} & Charged-lepton/Koide, texture, dark-sector, baryogenesis, black-hole, and string continuations & various subsets of D6, D9, D10, and D11 & branch-specific EFT and phenomenological manipulations & additional ans\"atze such as the uniform \(\mathbb Z_6\) center-label ensemble, discrete texture choices, dark-sector response assumptions, or discrete-horizon assumptions & phenomenological continuation / program-level branch \\
 \end{longtable}
 \endgroup
 
-The same OPH framework is used to obtain the overlap fixed point, the gravity chain, the gauge reconstruction, and the quantitative spectrum, but not all outputs have the same logical status. The compact note therefore keeps structural theorems, scaling-limit branches, calibration checks, and phenomenological continuations distinct.
+Nodes D1--D9 are the structural reconstruction program. Nodes D10--D11 are the current supplement-backed numerical implementation. Node D12 collects downstream continuations that are intentionally not advertised as theorem-level consequences of the five axioms alone. The only external continuous inputs are \(N_{\mathrm{scr}}\) in D6 and \(P\) in D10, together with descendants built from those branches.
+\section{Five Axioms, Two External Continuous Inputs in the Current Quantitative Implementation, and Technical Premises}\label{sec:premise-ledger}
 
-\section{Five Axioms, Two External Continuous Inputs in the Current Quantitative Implementation, and Technical Premises}
-
-This section is the authoritative premise ledger for the compact note. The OPH basis used below is exactly the five core axioms, the two external continuous inputs of the current quantitative implementation, and the theorem-local technical premises collected afterward. Older A1--A4 / B / MX / LR / R0--R1 packaging is retained elsewhere only as shorthand for pieces of this canonical package, not as a competing axiom basis.
+This section is the authoritative premise ledger and dependency map for the compact note. The OPH basis used below is exactly the five core axioms, the two external continuous inputs of the current quantitative implementation, and the theorem-local technical premises collected afterward. Older A1--A4 / B / MX / LR / R0--R1 packaging is retained elsewhere only as shorthand for pieces of this canonical package, not as a competing axiom basis.
 
 The formulation uses two external continuous configuration inputs in the current quantitative implementation:
 \begin{align}
 P &\equiv a_{\mathrm{cell}}/\ell_P^2 = 1.63094,\\
 N_{\mathrm{scr}} &\equiv \log \dim \mathcal H_{\mathrm{tot}} \sim 10^{122}.
 \end{align}
-In the current implementation, $P$ is calibrated from the gauge sector and $N_{\mathrm{scr}}$ is inferred from the observed cosmological constant. The first sets the particle-physics scale. The second enters the cosmological-capacity branch and a separate order-of-magnitude neutrino estimate.
+In the current implementation, \(P\) is calibrated from the gauge sector and \(N_{\mathrm{scr}}\) is inferred from the observed cosmological constant. The first sets the particle-physics scale. The second enters the cosmological-capacity branch and a separate order-of-magnitude neutrino estimate.
 
 \begin{axiom}[Screen Net]\label{ax:screen}
-Physical data is organized on a horizon screen $S^2$ carrying a net of local algebras
+Physical data is organized on a horizon screen \(S^2\) carrying a net of local algebras
 \[
 P \longmapsto \mathcal A(P)
 \]
-for connected patches $P\subset S^2$, with isotony
+for connected patches \(P\subset S^2\), with isotony
 \[
 P\subset Q \implies \mathcal A(P)\subset \mathcal A(Q).
 \]
 \end{axiom}
 
 \begin{axiom}[Overlap Consistency]\label{ax:overlap}
-For overlapping patches $P_1\cap P_2\neq\varnothing$, the local states induced on the shared algebra agree:
+For overlapping patches \(P_1\cap P_2\neq\varnothing\), the local states induced on the shared algebra agree:
 \[
 \omega_{P_1}|_{\mathcal A(P_1\cap P_2)}
 =
@@ -175,11 +168,11 @@ A generalized entropy functional exists on caps,
 \[
 S_{\mathrm{gen}}(C)=S_{\mathrm{bulk}}(C)+\langle L_C\rangle,
 \]
-where $L_C$ is a positive edge-center entropy functional. In the semiclassical scaling branch, its leading coarse-grained contribution is identified with $A(\partial C)/(4G)$. The functional obeys quantum focusing on null generators, and collar tripartitions have small conditional mutual information with controlled recovery maps \cite{LiebRuskai,Petz86,Petz88,FawziRenner}.
+where \(L_C\) is a positive edge-center entropy functional. In the semiclassical scaling branch, its leading coarse-grained contribution is identified with \(A(\partial C)/(4G)\). The functional obeys quantum focusing on null generators, and collar tripartitions have small conditional mutual information with controlled recovery maps \cite{LiebRuskai,Petz86,Petz88,FawziRenner}.
 \end{axiom}
 
 \begin{axiom}[Minimal Admissible Realization]\label{ax:mar}
-Among realized sector packages $\mathfrak S$ consisting of the connected Lie gauge-sector image relevant in the low-energy EFT, its admissible light chiral matter content, and one Higgs doublet, and which are loop-coherent, anomaly-free, refinement-stable with light chiral matter, single-Higgs Yukawa-completable with one connected abelian charge factor acting nontrivially on the coupled carrier, intrinsically CP-capable, and weak-sector UV-completable, the realized package is the lexicographically minimal one under
+Among realized sector packages \(\mathfrak S\) consisting of the connected Lie gauge-sector image relevant in the low-energy EFT, its admissible light chiral matter content, and one Higgs doublet, and which are loop-coherent, anomaly-free, refinement-stable with light chiral matter, single-Higgs Yukawa-completable with one connected abelian charge factor acting nontrivially on the coupled carrier, intrinsically CP-capable, and weak-sector UV-completable, the realized package is the lexicographically minimal one under
 \[
 C(\mathfrak S)=\bigl(\chi_{\mathrm{cpl}},\,N_{\mathrm{nonab}},\,N_c,\,N_g\bigr).
 \]
@@ -193,12 +186,12 @@ The continuum reductions additionally use:
 \item finite-velocity quasi-local propagation at the UV scale;
 \item quantitative collar-mixing / endpoint-Lipschitz control for null-interval modular Hamiltonians on bounded intervals;
 \item cap isotropy / geometric modular action around the entangling circle in the refinement-scaling regime;
-\item Euclidean modular regularity, fixing the angular period to $2\pi$;
+\item Euclidean modular regularity, fixing the angular period to \(2\pi\);
 \item a standard half-sided modular inclusion premise for the null half-line blow-up algebras;
-\item vanishing gluing obstruction $[z]=0$ whenever global sector transportability is invoked;
+\item vanishing gluing obstruction \([z]=0\) whenever global sector transportability is invoked;
 \item all Lorentz/null-modular/Einstein statements are claims about a controlled refinement/scaling limit of the regulator net, not literal exactness at fixed finite cutoff;
 \item fixed-cap generalized-entropy stationarity for the admissible first-variation class used in the Jacobson branch;
-\item symmetric braiding in the $3+1$D EFT branch;
+\item symmetric braiding in the \(3+1\)D EFT branch;
 \item a bosonic Tannakian fiber-functor premise, or else an explicit super-Tannakian fork;
 \item whenever compact gauge reconstruction is invoked, the sector category means the refinement-stable directed colimit of transportable edge sectors with objectwise finite-dimensional fibers, not the block list of one fixed cutoff algebra.
 \end{enumerate}
@@ -213,32 +206,42 @@ The five axioms fix the OPH core, but the compact note's conditional reconstruct
 \end{remark}
 
 \begin{remark}[Log convention]
-Unless an explicit base is written, logarithms and entropies in this compact note use natural logs (nats). Base-2 logarithms are written as $\log_2$ and quoted in bits.
+Unless an explicit base is written, logarithms and entropies in this compact note use natural logs (nats). Base-2 logarithms are written as \(\log_2\) and quoted in bits.
 \end{remark}
 
-\subsection*{Dependency Ledger}
+\subsection*{Authoritative dependency DAG}
+
+The table below is the authoritative dependency map for the compact note. The ``Immediate OPH ingredients'' column records only parents internal to the OPH program. Imported standard mathematics and extra non-axiom physical premises or external inputs are stated separately rather than hidden inside the word ``derived.''
 
 \begingroup
-\footnotesize
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.34\textwidth}>{\raggedright\arraybackslash}p{0.18\textwidth}>{\raggedright\arraybackslash}p{0.38\textwidth}@{}}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.06\textwidth}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}p{0.13\textwidth}>{\raggedright\arraybackslash}p{0.21\textwidth}>{\raggedright\arraybackslash}p{0.12\textwidth}@{}}
 \toprule
-Claim & Status & Additional ingredients beyond the five axioms \\
+Node & Compact theorem labels and output & Immediate OPH ingredients & Standard mathematics used & Extra non-axiom physical premises / external inputs & Status \\
 \midrule
-Unique schedule-independent normal form & theorem & finite patch net, termination, local confluence \\
-Lorentz group on the screen net & conditional scaling-limit theorem & cap isotropy / geometric modular phase together with Euclidean modular regularity in Assumption~\ref{ass:technical} \\
-Einstein equation & conditional scaling-limit theorem & admissible first variations, fixed-cap generalized-entropy stationarity, exact-or-controlled null-strip Markov premise, half-sided modular inclusion premise or its scaling-limit blow-up corollary, localized generalized entropy, d=4 small-ball first law, scaling-limit null-stress identification, null-to-tensor upgrade \\
-Compact gauge reconstruction & conditional scaling-limit theorem & refinement-stable bosonic symmetric sector colimit, transportability, finite-fiber premises, symmetric braiding, and bosonic fiber functor in Assumption~\ref{ass:technical} \\
-Exact Standard Model quotient & theorem / corollary chain & MAR selector, connected abelian admissibility premise, anomaly analysis, hypercharge lattice, global transportability, and vanishing obstruction on the realized branch \\
-Two-input quantitative implementation & implementation fact & no extra ingredients, but the continuous inputs are external in the current quantitative implementation \\
-Gauge and electroweak closure in one-input mode & supplement-backed calibration sector & pixel constraint, edge heat-kernel closure, and supplement-backed beta-function / matching conventions \\
-Higgs/top branch and flavor continuations & mixed quantitative / phenomenological & critical-surface boundary condition for Higgs/top with supplement-backed transport; discrete holonomy data and a $\mathbb Z_6$-motivated ansatz for the flavor continuation \\
-Dark-sector, baryogenesis, and spectroscopy branches & program / corollary & sector-specific phenomenological continuation of the core structure \\
+\endhead
 \bottomrule
-\end{tabular}
+\endfoot
+\textbf{D1} & Theorem~\ref{thm:confluence}: unique normal form and schedule independence & overlap-consistency problem on a finite patch net & Newman's lemma for terminating locally confluent rewrite systems & finite state spaces, termination, and local confluence & structural theorem \\
+\textbf{D2} & Theorem~\ref{thm:markovcollar}, Propositions~\ref{prop:approxrecover}, \ref{prop:splice}, \ref{prop:gensplit}, Definition~\ref{def:newton}: collar Markov/entropy layer & Axioms~\ref{ax:screen}--\ref{ax:entropy} & HJPW Markov structure theorem; Petz and Fawzi--Renner recovery theory & exact Markov identities require exact Markovity or an explicitly stated idealized recoverability limit; the \(A/(4G)\) identification is the coarse-grained dictionary of Definition~\ref{def:newton} & structural lemma/proposition layer \\
+\textbf{D3} & Theorem~\ref{thm:bw}, Corollary~\ref{cor:lorentz}: geometric modular flow and Lorentz branch & Axioms~\ref{ax:screen}--\ref{ax:entropy} & Bisognano--Wichmann modular geometry; \(\Conf^+(S^2)\cong \mathrm{SO}^+(3,1)\) & T4, T5, and T8 of Assumption~\ref{ass:technical} & conditional scaling-limit theorem \\
+\textbf{D4} & Propositions~\ref{prop:nullec}, \ref{prop:n3}; Corollaries~\ref{cor:n1}, \ref{cor:n2}; Lemmas~\ref{lem:density}, \ref{lem:translation}; Theorem~\ref{thm:stress}: null modular bridge to \(T_{kk}\) & D2+D3 and Axioms~\ref{ax:screen}--\ref{ax:entropy} & Borchers--Wiesbrock half-sided modular inclusion; distributional differentiation on half-lines & T1--T3, T6, T8, and the relativistic null-stress identification premise & conditional bridge theorem \\
+\textbf{D5} & Lemma~\ref{lem:smallball}, Theorem~\ref{thm:einstein}, Corollary~\ref{cor:einstein}: Jacobson-type Einstein branch & D3+D4 and Axioms~\ref{ax:screen}--\ref{ax:entropy} & Jacobson small-ball first law; Lemma~\ref{lem:nullreconstruct} for the null-to-tensor upgrade modulo a metric term & T9 fixed-cap stationarity; locally Lorentzian \(d=4\) scaling regime; small-ball constancy assumptions & conditional scaling-limit theorem/corollary \\
+\textbf{D6} & Proposition~\ref{prop:lambda}, Corollary~\ref{cor:lambda}: capacity branch for \(\Lambda\), plus the separate neutrino estimate & D5, which already leaves the \(+\Lambda g_{ab}\) ambiguity & de Sitter entropy relation and dimensional analysis & external input \(N_{\mathrm{scr}}\) and the screen-capacity identification & input-dependent corollary / estimate \\
+\textbf{D7} & Theorem~\ref{thm:compactgauge}: compact gauge reconstruction & Axioms~\ref{ax:screen}--\ref{ax:entropy} & Doplicher--Roberts / Tannaka reconstruction & T7 and T10--T12; rigid symmetric bosonic refinement-stable sector colimit with fiber functor & conditional structural theorem \\
+\textbf{D8} & Lemmas~\ref{lem:mincontent}--\ref{lem:commutant}, Theorem~\ref{thm:sm}: product gauge structure up to finite quotient & D7 + Axiom~\ref{ax:mar} & compact Lie representation classification; Schur's lemma & connected positive-dimensional Lie admissible class; one connected abelian factor; faithful action on the minimal coupled carrier; vanishing obstruction \( [z]=0 \) & realized-branch theorem \\
+\textbf{D9} & Theorem~\ref{thm:hypercharge}, Corollaries~\ref{cor:ng}, \ref{cor:nc}, Proposition~\ref{prop:z6}: realized Standard Model quotient, hypercharges, \(N_c=3\), \(N_g=3\), and product-group corollaries & D8 & anomaly-cancellation algebra; Witten global-anomaly argument; CKM CP counting & realized one-generation chiral matter plus one Higgs package; asymptotic-freedom and MAR admissibility premises & realized-branch theorem/corollary chain \\
+\textbf{D10} & quantitative gauge/electroweak closure of Section~7 & D9 + external input \(P\) & RG evolution and matching conventions supplied in the supplement & pixel constraint; edge heat-kernel closure; supplement-backed beta-function and threshold conventions & calibration sector \\
+\textbf{D11} & Higgs/top subsection of Section~7 & D10 & RG transport and pole-mass conversion supplied in the supplement & critical-surface condition \(\lambda=\beta_\lambda=0\) at \(M_U\); no new continuous fit once D10 is fixed & supplement-backed quantitative branch \\
+\textbf{D12} & Sections~8--10 program continuations & various subsets of D6, D9, D10, and D11 & branch-specific EFT and phenomenological manipulations & additional ans\"atze such as the uniform \(\mathbb Z_6\) center-label ensemble, texture choices, dark-sector response assumptions, or discrete-horizon assumptions & phenomenological continuation / program-level branch \\
+\end{longtable}
 \endgroup
 
+No theorem in the compact note is meant to hide standard mathematical imports or extra physical premises inside the phrase ``from the axioms.'' The authoritative unpacking of every such claim is the dependency DAG above. The only rows that use the two external continuous inputs are D6, D10, the separate order-of-magnitude neutrino estimate attached to D6, and downstream branches built from them.
+
 \begin{theorem}[Summary theorem for the conditional reconstruction package]\label{thm:master}
-Assume Axioms~\ref{ax:screen}--\ref{ax:entropy}, Axiom~\ref{ax:mar}, Assumption~\ref{ass:technical}, and the hypotheses of Theorems~\ref{thm:confluence}, \ref{thm:bw}, \ref{thm:stress}, \ref{thm:einstein}, \ref{thm:compactgauge}, \ref{thm:sm}, and \ref{thm:hypercharge}, together with Corollaries~\ref{cor:ng}, \ref{cor:nc}, and Proposition~\ref{prop:z6}. Then, in the controlled refinement/scaling regime singled out by Assumption~\ref{ass:technical}:
+This theorem packages nodes D1--D9 of the authoritative dependency DAG above; it does not erase any of the extra premises already listed there. Assume Axioms~\ref{ax:screen}--\ref{ax:entropy}, Axiom~\ref{ax:mar}, Assumption~\ref{ass:technical}, and the hypotheses of Theorems~\ref{thm:confluence}, \ref{thm:bw}, \ref{thm:stress}, \ref{thm:einstein}, \ref{thm:compactgauge}, \ref{thm:sm}, and \ref{thm:hypercharge}, together with Corollaries~\ref{cor:ng}, \ref{cor:nc}, and Proposition~\ref{prop:z6}. Then, in the controlled refinement/scaling regime singled out by Assumption~\ref{ass:technical}:
 \begin{enumerate}[label=(\roman*),leftmargin=2em]
 \item overlap repair admits a unique schedule-independent normal form;
 \item cap modular flow is geometric in the assumed modular phase and yields the connected Lorentz group
@@ -253,9 +256,9 @@ G_{ab}+\Lambda g_{ab}=8\pi G\,\langle T_{ab}\rangle;
 \[
 \frac{\SU(3)\times\SU(2)\times\U(1)}{\Gamma}
 \]
-for some finite central subgroup $\Gamma$.
+for some finite central subgroup \(\Gamma\).
 \end{enumerate}
-After the hypercharge lattice, generation-count, color-count, and trivial-action quotient steps, the finite quotient is fixed to $\Gamma=\mathbb Z_6$, so the realized gauge structure on the realized MAR-admissible branch is
+After the hypercharge lattice, generation-count, color-count, and trivial-action quotient steps, the finite quotient is fixed to \(\Gamma=\mathbb Z_6\), so the realized gauge structure on the realized MAR-admissible branch is
 \[
 \frac{\SU(3)\times\SU(2)\times\U(1)}{\mathbb Z_6},
 \qquad
@@ -270,6 +273,8 @@ with the exact Standard Model hypercharge lattice on the realized matter package
 Items (i)--(iii) are collected from Theorem~\ref{thm:confluence}, Corollary~\ref{cor:lorentz}, Theorem~\ref{thm:einstein}, and Corollary~\ref{cor:einstein}. The compact gauge reconstruction is Theorem~\ref{thm:compactgauge}; the product gauge structure up to finite quotient is Theorem~\ref{thm:sm}; and the final identification of the exact Standard Model quotient is Theorem~\ref{thm:hypercharge} together with Corollaries~\ref{cor:ng}, \ref{cor:nc}, and Proposition~\ref{prop:z6}.
 \end{proof}
 
+Theorem~\ref{thm:master} therefore packages only the structural and conditional branches D1--D9. The quantitative calibration sector, Higgs/top branch, and phenomenological continuations remain outside its scope.
+
 \subsection*{Usually Postulated Elsewhere, Derived Here}
 
 \begingroup
@@ -280,16 +285,15 @@ Structure & Common treatment & OPH treatment \\
 \midrule
 Lorentz kinematics & background symmetry or starting axiom & conditional scaling-limit branch from geometric modular flow on screen caps \\
 Einstein dynamics & fundamental field equation & conditional first-variation relation with tensor upgrade from generalized entropy, null modular data, and entanglement equilibrium \\
-Gauge group & model input & conditional compact group reconstruction from edge sectors; exact SM quotient selected by admissibility \\
-Hypercharge lattice & matter-assignment input & solved from anomaly cancellation and Yukawa invariance \\
-Color and generation count & empirical input & fixed by anomaly, CP capability, asymptotic freedom, and minimality \\
-Flavor hierarchy unit & model-dependent small parameter & phenomenological ansatz $\varepsilon=1/6$ motivated by a uniform $\mathbb Z_6$ center-label ensemble \\
-Koide phase & phenomenological fit & continuation tied to the previously fixed discrete data as $\delta=2/9$ \\
-Cosmological constant & local vacuum-energy puzzle & global screen-capacity term \\
+Gauge group & model input & conditional compact group reconstruction from edge sectors; exact SM quotient selected on the realized MAR-admissible branch \\
+Hypercharge lattice & matter-assignment input & solved from anomaly cancellation and Yukawa invariance on the realized one-generation chiral matter plus one-Higgs package \\
+Color and generation count & empirical input & fixed on the realized MAR-admissible branch by anomaly, CP capability, asymptotic freedom, and minimality \\
+Flavor hierarchy unit & model-dependent small parameter & phenomenological ansatz \(\varepsilon=1/6\) motivated by a uniform \(\mathbb Z_6\) center-label ensemble \\
+Koide phase & phenomenological fit & continuation ansatz tied to the previously fixed discrete data as \(\delta=2/9\) \\
+Cosmological constant & local vacuum-energy puzzle & global screen-capacity term after the input-dependent capacity identification \\
 \bottomrule
 \end{tabular}
 \endgroup
-
 \section{Observer-Overlap Consistency as a Fixed-Point Problem}
 
 The discrete overlap problem is the mathematical skeleton of the framework.

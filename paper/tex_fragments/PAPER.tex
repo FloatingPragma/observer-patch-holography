@@ -210,42 +210,72 @@ External mathematical inputs: SSA and recovery theorems (Petz 1986, 1988; Fawzi 
   \(\delta\): collar width around a cap boundary.
 \end{itemize}
 
-\subsubsection{1.6 Summary: Premise ledger and compatibility map}\label{16-summary-complete-axiom-set}
+\subsubsection{1.6 Summary: Premise ledger, compatibility map, and dependency DAG}\label{16-summary-complete-axiom-set}
 
-For reference, the manuscript has one authoritative premise ledger: the five canonical axioms above, the two external inputs \(P\) and \(N_{\mathrm{scr}}\) when a quantitative branch uses them, and the theorem-local technical premises declared in Section 1.4. Historical labels are retained below only as a compatibility map for later sections.
+For reference, the manuscript has one authoritative premise ledger: the five canonical axioms above, the two external inputs \(P\) and \(N_{\mathrm{scr}}\) only when a quantitative or capacity branch actually uses them, and the theorem-local technical premises declared in Section 1.4. Historical labels are retained below only as a compatibility map for later sections; they no longer define a competing axiom basis.
 
 {\def\LTcaptype{none}
-\begin{longtable}[]{@{}>{\RaggedRight\arraybackslash}p{0.18\textwidth}>{\RaggedRight\arraybackslash}p{0.34\textwidth}>{\RaggedRight\arraybackslash}p{0.22\textwidth}>{\RaggedRight\arraybackslash}p{0.18\textwidth}@{}}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.16\textwidth}>{\RaggedRight\arraybackslash}p{0.76\textwidth}@{}}
 \toprule\noalign{}
-Item & Present meaning & Typical use & Status \\
+Item & Meaning, typical use, and status \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Canonical 1 & Screen Net & global net structure & axiom \\
-Canonical 2 & Overlap Consistency & compatibility on overlaps & axiom \\
-Canonical 3 & Local MaxEnt and Refinement Stability & state selection and RG stability & axiom \\
-Canonical 4 & Recoverable Generalized Entropy & focusing plus recoverability structure & axiom \\
-Canonical 5 & Minimal Admissible Realization (MAR) & selection on admissible gauge branches & axiom \\
-\(P\) & pixel area \(a_{\mathrm{cell}}/\ell_P^2\) & quantitative particle-physics scale & external input \\
-\(N_{\mathrm{scr}}\) & total screen capacity & cosmological-capacity branch & external input \\
-\textbf{A1}, \textbf{A2} & Screen Net, Overlap Consistency & older proof shorthand & legacy shorthand \\
-\textbf{B}, \textbf{I} & regulator-scale MaxEnt clause and refinement-stability clause of Canonical 3 & Sections 2, 4, 6 & theorem-local shorthand \\
-\textbf{A3} & Recoverable Generalized Entropy & gravity/focusing discussions & legacy shorthand \\
-\textbf{A4}, \textbf{F}, \textbf{MX} & recoverability and collar/null-strip control hypotheses used under Canonical 4 & Sections 2 and 5 & theorem-local shorthand / premise \\
-\textbf{R0}, \textbf{R1} & type-I regulator and boundary gauge invariants & EC and gauge reconstruction & technical premise \\
-\textbf{LR} & Lieb-Robinson locality at the UV scale & modular-locality control & technical premise \\
-\textbf{D}, \textbf{E}, \([z]=0\) & gluing, central-defect, and transportability hypotheses & gauge branch & technical premise \\
-\textbf{G} & Euclidean regularity & BW/KMS normalization & technical premise \\
+Canonical 1 & Screen Net; use: global net structure; status: axiom. \\
+Canonical 2 & Overlap Consistency; use: compatibility on overlaps; status: axiom. \\
+Canonical 3 & Local MaxEnt and Refinement Stability; use: state selection and RG stability; status: axiom. \\
+Canonical 4 & Recoverable Generalized Entropy; use: focusing plus recoverability structure; status: axiom. \\
+Canonical 5 & Minimal Admissible Realization (MAR); use: selection on admissible gauge branches; status: axiom. \\
+\(P\) & Pixel area \(a_{\mathrm{cell}}/\ell_P^2\); use: quantitative particle-physics scale; status: external input. \\
+\(N_{\mathrm{scr}}\) & Total screen capacity; use: cosmological-capacity branch; status: external input. \\
+\textbf{A1}, \textbf{A2} & Screen Net and Overlap Consistency; use: older proof shorthand; status: legacy shorthand. \\
+\textbf{B}, \textbf{I} & Regulator-scale MaxEnt clause and refinement-stability clause of Canonical 3; use: Sections 2, 4, and 6; status: theorem-local shorthand. \\
+\textbf{A3} & Recoverable Generalized Entropy; use: gravity and focusing discussions; status: legacy shorthand. \\
+\textbf{A4}, \textbf{F}, \textbf{MX} & Recoverability and collar/null-strip control hypotheses used under Canonical 4; use: Sections 2 and 5; status: theorem-local shorthand / premise. \\
+\textbf{R0}, \textbf{R1} & Type-I regulator and boundary gauge invariants; use: EC and gauge reconstruction; status: technical premise. \\
+\textbf{LR} & Lieb-Robinson locality at the UV scale; use: modular-locality control; status: technical premise. \\
+\textbf{D}, \textbf{E}, \([z]=0\) & Gluing, central-defect, and transportability hypotheses; use: gauge branch; status: technical premise. \\
+\textbf{G} & Euclidean regularity; use: BW/KMS normalization; status: technical premise. \\
 \end{longtable}
 }
 
 Derived shorthands used later include Theorem A5 (approximate modular covariance) and the EFT-bridge labels N1--N3. These are consequences or packaged hypotheses inside the technical program; none of them replace the canonical five axioms.
 
-With this ledger, every theorem has a declared premise list, every external result is cited, and the manuscript no longer treats the historical shorthand package as a competing axiom basis.
+\textbf{Master dependency map.} The completion program is organized into the following documentary nodes, mirrored in the compact note and in the supplement. The point of the table is not to maximize the number of claims called ``derived.'' It is to make explicit which results use the canonical axioms alone, which import standard mathematics, and which still rest on extra physical premises or external inputs.
+
+\begingroup
+\scriptsize
+{\def\LTcaptype{none}
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}[]{@{}>{\RaggedRight\arraybackslash}p{0.07\textwidth}>{\RaggedRight\arraybackslash}p{0.18\textwidth}>{\RaggedRight\arraybackslash}p{0.13\textwidth}>{\RaggedRight\arraybackslash}p{0.13\textwidth}>{\RaggedRight\arraybackslash}p{0.17\textwidth}>{\RaggedRight\arraybackslash}p{0.12\textwidth}@{}}
+\toprule\noalign{}
+Node & Main-manuscript output & Immediate OPH ingredients & Standard mathematics used & Extra physical premises / external inputs & Claim tier \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{D1} & Theorem 3.1: normal-form/objectivity statement & overlap-consistency setup on finite patch nets & Newman's lemma & finite patch net, termination, and local confluence & structural theorem \\
+\textbf{D2} & Section 2.3 and \S5.4: EC/Markov collar and generalized-entropy split & Canonical 1--4 plus R0/R1 when invoked & HJPW; Petz; Fawzi--Renner & exact-Markov or idealized recoverability hypotheses when exact identities are used; coarse-grained \(A/(4G)\) dictionary & structural lemma/proposition layer \\
+\textbf{D3} & Theorems 4.2--4.3: geometric modular flow and Lorentz branch & Canonical 1--4 & Bisognano--Wichmann modular geometry; conformal-group classification & scaling-limit geometric modular phase, Euclidean regularity, and modular-locality premises & conditional scaling-limit theorem \\
+\textbf{D4} & Section 5.2: null modular bridge & D2+D3 & Borchers--Wiesbrock and endpoint differentiation & null-strip control, half-sided inclusion, and relativistic null-stress premise & conditional bridge theorem \\
+\textbf{D5} & Theorem 5.1: Einstein branch & D3+D4 & Jacobson small-ball mathematics; null-to-tensor reconstruction modulo a metric term & fixed-cap stationarity and the locally Lorentzian \(d=4\) scaling regime & conditional scaling-limit theorem \\
+\textbf{D6} & capacity/\(\Lambda\) reduction statements & D5 leaves \(+\Lambda g_{ab}\) undetermined & de Sitter entropy relation and dimensional analysis & external input \(N_{\mathrm{scr}}\) and the screen-capacity identification & input-dependent corollary / estimate \\
+\textbf{D7} & Theorem 6.1: compact gauge reconstruction & Canonical 1--4 & Doplicher--Roberts / Tannaka reconstruction & rigid symmetric bosonic colimit, transportability, and fiber-functor premises & conditional structural theorem \\
+\textbf{D8} & Section 6.2: product gauge structure up to finite quotient & D7 + Canonical 5 (MAR) & compact Lie representation classification; Schur's lemma & connected admissible class, one connected abelian factor, and \([z]=0\) & realized-branch theorem \\
+\textbf{D9} & Theorem 6.13, Proposition 6.9, Theorem 6.14, Proposition 6.6: hypercharge lattice, \(N_c=3\), \(N_g=3\), and \(\mathbb Z_6\) quotient & D8 & anomaly algebra; Witten anomaly; CKM CP counting & realized one-generation/one-Higgs package and MAR admissibility premises & realized-branch theorem/corollary chain \\
+\textbf{D10} & Sections 6.17--6.19 quantitative gauge/electroweak closure & D9 + \(P\) & RG running and matching conventions recorded in the supplement & pixel closure and supplement-backed threshold conventions & calibration sector \\
+\textbf{D11} & Section 6.22 Higgs/top critical-surface branch & D10 & supplement-backed RG transport & critical-surface condition \(\lambda=\beta_\lambda=0\) at the matching scale & supplement-backed quantitative branch \\
+\textbf{D12} & downstream flavor, dark-sector, baryogenesis, spectroscopy, and string branches & various subsets of D6, D9, D10, and D11 & branch-specific EFT and phenomenological manipulations & explicit additional ans\"atze & phenomenological continuation / program branch \\
+\end{longtable}
+}
+\endgroup
+
+Historical shorthand never replaces this ledger. In particular, D3--D5 are scaling-limit branches rather than fixed-cutoff matrix-algebra theorems; D7--D9 are realized-branch structural outputs in the bosonic internal-gauge sector; D10--D11 are the present supplement-backed numerical implementation; and D12 remains phenomenological.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
 \subsection{2. Information-Theoretic Tools}\label{2-information-theoretic-tools}
 
 \subsubsection{2.1 Strong subadditivity and Markov states}\label{21-strong-subadditivity-and-markov-states}
@@ -4165,170 +4195,50 @@ The following questions remain for future work:
 
 \subsection{8. Critical Evaluation}\label{8-critical-evaluation}
 
-\subsubsection{8.1 Classification of results}\label{81-classification-of-results}
+\subsubsection{8.1 Classification of results and remaining dependence}\label{81-classification-of-results}
 
-\textbf{Genuinely derived from axioms:}
+The point of this section is not to maximize the number of claims called ``derived.'' It is to state exactly which node of the program has been proved, which standard mathematics is imported, and which extra physical premises or external inputs remain load-bearing. The documentary node labels D1--D12 match the compact note and the ledger in Section~\ref{16-summary-complete-axiom-set}.
 
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Photon mass = 0}: Assumption D (gauge-as-gluing) → gauge invariance → no mass term
-\item
-  \textbf{Graviton mass = 0}: Entanglement equilibrium → diffeomorphism invariance → no mass term
-\item
-  \textbf{Gluon mass = 0}: Same as photon (gauge-as-gluing for SU(3))
-\item
-  \textbf{Lorentz group}: canonical OPH package + F/G/H technical premises → BW → Conf(S²) ≅ SO(3,1)
-\item
-  \textbf{CPT invariance}: Lorentz kinematics + locality → CPT theorem
-\item
-  \textbf{Charge conservation}: Unbroken U(1)\_em gauge symmetry
-\item
-  \textbf{Newton\textquotesingle s constant formula}: G = a\_cell / (4 \={ℓ}(t)) from edge entropy density (Section 5.4)
-\item
-  \textbf{Discrete area spectrum}: Log-integer area eigenvalues from edge sectors (Section 5.11); this remains stable
-\item
-  \textbf{Discrete Hawking/GW comb}: The specific comb pattern ΔE\_k = k\_B T\_H ln(k) follows if integer-multiplication transitions dominate; generic transitions would give a denser log-rational spectrum
-\end{itemize}
-
-\textbf{Derived given assumed matter content:}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Hypercharges (exact rationals)}: SM matter content assumed
-\item
-  \textbf{Charge quantization}: Z₆ quotient from realized spectrum
-\item
-  \textbf{Z₆ congruence rule}: SM global group structure
-\item
-  \textbf{Conditional Z₆ center-label entropy scale \(\approx \log_2 6\) bits}: uniform sixfold center-label ansatz on quotient sectors
-\item
-  \textbf{Yukawa hierarchy y\_f ∝ 6\^{}\{-n\_f\}}: Z₆ defect suppression with integer charges
-\end{itemize}
-
-\textbf{Precision validations against existing data:}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Strong coupling}: α\_s(M\_Z) ≈ 0.1175 vs PDG 0.1177 ± 0.0009 (within 1σ)
-\item
-  \textbf{Weak mixing angle}: sin²θ\_W ≈ 0.2311 vs PDG \^{s}²\_Z = 0.23122 ± 0.00006 (MS-bar, \textasciitilde2σ)
-\item
-  \textbf{Z₆ charge quantization}: PDG bounds confirm \textbar q\_p + q\_e\textbar/e \textless{} 10⁻²¹, fractional charge abundance \textless{} 10⁻²²/nucleon, CMS excludes fractionally charged particles to 640 GeV (Section 6.12)
-\item
-  \textbf{Casimir log-gap ratios}: Lattice SU(3) data (Bali, hep-lat/0006022) confirms ratios 9/4, 5/2, 4, 9/2, 6 at percent-level precision (Section 8.1)
-\item
-  \textbf{Photon mass}: PDG bound m\_γ \textless{} 10⁻¹⁸ eV confirms exact zero
-\item
-  \textbf{Graviton mass}: PDG bound m\_g \textless{} 1.76 × 10⁻²³ eV confirms exact zero
-\end{itemize}
-
-\textbf{Derived under the extended gauge-selection package \(T_{\mathrm{ext}}\) (canonical five axioms + explicit transportability + gauge-reconstruction hypotheses):}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Product gauge group}: Derived from minimal coupled carrier \(\mathbb{C}^3 \otimes \mathbb{C}^2\) under MAR
-\item
-  \textbf{SM global gauge group \(SU(3) \times SU(2) \times U(1)/\mathbb{Z}_6\)}: MAR + admissibility (Part II of this manuscript)
-\item
-  \textbf{N\_c = 3}: Witten anomaly + MAR minimality (Theorem 6.14)
-\item
-  \textbf{N\_g = 3}: CP + asymptotic freedom + MAR minimality (Proposition 6.9)
-\item
-  \textbf{No gauge-mediated proton decay}: product group from MAR
-\item
-  \textbf{No magnetic monopoles}: Product group structure (no GUT-scale symmetry breaking)
-\end{itemize}
-
-\textbf{Consistency checks (not novel predictions):}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{α\_s(M\_Z) ≈ 0.117 with MSSM spectrum}: MSSM GUT analyses (1990s)
-\item
-  \textbf{sin²θ\_W(M\_U) = 3/8}: Georgi and Glashow (1974)
-\item
-  \textbf{Witten anomaly constraint}: Witten (1982)
-\item
-  \textbf{GIM mechanism (no tree-level FCNC)}: Glashow, Iliopoulos, Maiani (1970)
-\end{itemize}
-
-The framework\textquotesingle s contribution to unification physics is: (1) a \emph{mechanism} for why couplings unify (geometric unification via shared edge diffusion), (2) a derivation of MSSM-like beta shifts from Z₆ quotient + Peter-Weyl structure (Sections 6.17, 6.23), achieving Δb ≈ (2.49, 4.17, 4.01) vs MSSM (2.5, 4.17, 4.0) with \textless1\% error, and (3) a product gauge group that forbids proton decay.
-
-\textbf{Sharpest near-term precision target: Casimir log-gap ratios.}
-
-The most decisive precision test currently available within the framework requires no UV completion, no scheme matching, and no free parameters. The heat-kernel law (Section 6.13, Theorem 6.20) predicts exact rational ratios of Casimir log-gaps:
-
-Δ\_R₁ / Δ\_R₂ = C₂(R₁) / C₂(R₂) (exact, parameter-free)
-
-where Δ\_R = ln(p₀/d₀) − ln(p\_R/d\_R) = t C₂(R).
-
-The headline SU(3) prediction is:
-
-\textbf{Δ₈/Δ₃ = 9/4 = 2.25} (adjoint/fundamental ratio)
-
-This is the nonabelian analog of the Z₅ golden-ratio-squared test (φ² ≈ 2.618), which has already been validated to 0.04\% precision. The SU(3) ratio directly stress-tests the framework\textquotesingle s core claim that gauge couplings are encoded in edge-sector probabilities via a Laplacian/Casimir heat kernel.
-
-Alternative weightings give different ratios:
-
-\begin{itemize}
-\tightlist
-\item
-  exp(−t C₂²) would give (9/16) = 5.0625
-\item
-  exp(−t √C₂) would give √(9/4) = 1.5
-\item
-  Dimension-only weighting would give 8/3 ≈ 2.67
-\end{itemize}
-
-So 2.25 is not a "generic" number one stumbles into. Checking this ratio to 10⁻³ relative accuracy in lattice SU(3) edge-sector measurements would provide strong evidence that the heat-kernel mechanism operates as predicted.
-
-\textbf{Validation against lattice QCD static potentials.}
-
-The Casimir-scaling structure has been tested in lattice SU(3) gauge theory. Bali (\href{https://arxiv.org/abs/hep-lat/0006022}{hep-lat/0006022}) computed static potentials for multiple representations and reported continuum-extrapolated ratios. At \(r/r_0 = 0.73\):
-
-{\def\LTcaptype{none} % do not increment counter
-\begin{longtable}[]{@{}>{\RaggedRight\arraybackslash}p{0.240\textwidth}>{\RaggedRight\arraybackslash}p{0.240\textwidth}>{\RaggedRight\arraybackslash}p{0.240\textwidth}>{\RaggedRight\arraybackslash}p{0.240\textwidth}@{}}
+\begingroup
+\scriptsize
+{\def\LTcaptype{none}
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}[]{@{}>{\RaggedRight\arraybackslash}p{0.07\textwidth}>{\RaggedRight\arraybackslash}p{0.22\textwidth}>{\RaggedRight\arraybackslash}p{0.15\textwidth}>{\RaggedRight\arraybackslash}p{0.20\textwidth}>{\RaggedRight\arraybackslash}p{0.11\textwidth}@{}}
 \toprule\noalign{}
-Ratio & OPH Prediction & Lattice (Bali) & Deviation \\
+Node & Representative outputs in this manuscript & Standard mathematics used & Extra physical premises / external inputs still required & Present claim tier \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Δ₈/Δ₃ & 2.250 & 2.24(02) & −0.4\% \\
-Δ₆/Δ₃ & 2.500 & 2.50(03) & 0.0\% \\
-Δ₁₅/Δ₃ & 4.000 & 3.97(08) & −0.8\% \\
-Δ₁₀/Δ₃ & 4.500 & 4.45(11) & −1.1\% \\
-Δ₂₇/Δ₃ & 6.000 & 6.21(15) & +3.5\% \\
+\textbf{D1} & Theorem 3.1 schedule-independent normal form & Newman's lemma & finite patch net, termination, and local confluence & structural theorem \\
+\textbf{D2} & EC decomposition, exact/approximate Markov collar, and generalized-entropy split & HJPW; Petz; Fawzi--Renner & R0/R1 or explicit recoverability control; coarse-grained \(A/(4G)\) dictionary & structural lemma/proposition layer \\
+\textbf{D3} & Theorems 4.2--4.3 Lorentz branch & Bisognano--Wichmann modular geometry; conformal-group classification & scaling-limit geometric modular phase, Euclidean regularity, and modular-locality premises & conditional scaling-limit theorem \\
+\textbf{D4} & Section 5.2 null modular bridge & Borchers--Wiesbrock; distribution theory for half-line differentiation & null-strip control, half-sided inclusion, and the relativistic null-stress identification premise & conditional bridge theorem \\
+\textbf{D5} & Theorem 5.1 Einstein branch and its symmetry corollaries inside the derived GR regime & Jacobson small-ball mathematics; null-to-tensor upgrade modulo a metric term & fixed-cap stationarity and the locally Lorentzian \(d=4\) scaling regime & conditional scaling-limit theorem \\
+\textbf{D6} & capacity/\(\Lambda\) statements and the separate capacity-based neutrino estimate & de Sitter entropy relation and dimensional analysis & external input \(N_{\mathrm{scr}}\) and the screen-capacity identification & input-dependent corollary / estimate \\
+\textbf{D7} & Theorem 6.1 compact gauge reconstruction & Doplicher--Roberts / Tannaka reconstruction & bosonic symmetric refinement-stable colimit, transportability, and fiber-functor premises & conditional structural theorem \\
+\textbf{D8} & product gauge structure up to finite quotient under MAR & compact Lie representation classification; Schur's lemma & MAR, connected admissible class, one connected abelian factor, and \([z]=0\) & realized-branch theorem \\
+\textbf{D9} & realized \(\SU(3)\times\SU(2)\times\U(1)/\mathbb Z_6\), exact hypercharges, \(N_c=3\), \(N_g=3\), and no gauge-mediated proton decay as a product-group corollary & anomaly algebra; Witten anomaly; CKM CP counting & realized one-generation/one-Higgs package and MAR admissibility premises & realized-branch theorem/corollary chain \\
+\textbf{D10} & gauge/electroweak numerical closure of the present implementation & RG running and matching conventions & external input \(P\), pixel closure, and supplement-backed threshold conventions & calibration sector \\
+\textbf{D11} & Higgs/top critical-surface branch & supplement-backed RG transport and pole-mass conversion & critical-surface condition \(\lambda=\beta_\lambda=0\) at the matching scale; no new continuous fit once D10 is fixed & supplement-backed quantitative branch \\
+\textbf{D12} & Koide/charged leptons, textures, dark-sector, baryogenesis, spectroscopy, and string/worldsheet continuations & branch-specific EFT and phenomenological manipulations & explicit additional ans\"atze beyond D6, D9, D10, or D11 & phenomenological continuation / program branch \\
 \end{longtable}
 }
+\endgroup
 
-Over the range 0.46 ≤ r/r₀ ≤ 1.84, the RMS deviations from Casimir scaling are: \textbf{8}: 1.35\%, \textbf{6}: 2.03\%, \textbf{15}: 2.49\%. Higher representations show larger scatter due to string-breaking effects and statistics, but the overall pattern confirms Casimir scaling at the percent level.
+Three reading rules follow from this ledger.
 
-This is not a fit; the ratios 9/4, 5/2, 4, 9/2, 6 are exact predictions from the heat-kernel law with no adjustable parameters. The lattice data validates the mechanism to the precision achievable with current methods.
-
-\textbf{Gravity-sector precision ceiling.}
-
-The gravity predictions are symmetry-protected exact zeros that experiments have pushed to extraordinary precision:
-
-\begin{itemize}
-\tightlist
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
 \item
-  \textbf{(c\_GW − c)/c}: Model predicts = 0 exactly. Bound: {[}−3×10⁻¹⁵, +7×10⁻¹⁶{]}
+  The strongest outputs are D1--D9. These are the structural or realized-branch claims that the manuscript is prepared to defend at theorem/corollary level once all stated premises are included.
 \item
-  \textbf{Graviton mass}: Model predicts = 0 exactly. Bound: ≤ 1.76×10⁻²³ eV/c²
+  The current implementation's two external continuous inputs enter only at D6 and D10, together with descendants built from those branches. They do not enter the product-group, hypercharge, color-count, or generation-count chain.
 \item
-  \textbf{Dipolar radiation}: Model predicts none. Bound: δ\^{p}₋₂ ∈ {[}−4×10⁻⁶, 2×10⁻⁵{]}
-\item
-  \textbf{GW polarizations}: Model predicts tensor only. Pure non-tensor disfavored
-\end{itemize}
+  Symmetry-protected exact zeros such as the masslessness of the photon, gluons, and graviton, together with the absence of gauge-mediated proton decay, are corollaries inside D5 or D9. They are not separate axiom-only nodes.
+\end{enumerate}
 
-These bounds already nail the exact-zero predictions to 10⁻¹⁵ fractional accuracy. The framework provides internal error control: matching this precision requires I(A:C\textbar B) ≲ 10⁻³¹, which is achievable via the exponential MX decay with δ/ξ \textasciitilde{} a few hundred.
-
+Nothing in D12 should be cited as theorem-level unless and until its extra ans\"atze are replaced by proved premises.
 \subsubsection{8.2 Structural assessment}\label{82-structural-assessment}
 
 \begin{itemize}
