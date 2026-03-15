@@ -506,7 +506,7 @@ We must distinguish two questions:
 
 **Question A: Why does what exists have THIS SHAPE?**
 
-This our model addresses comprehensively. Given that something exists, consistency requirements force it to have the structure we observe—3D space, quantum mechanics, gravity, time, symmetries. The shape isn't arbitrary; it's forced by internal consistency.
+This is what our model aims to address comprehensively. Given that something exists, consistency requirements force it to have the structure we observe—3D space, quantum mechanics, gravity, time, symmetries. The shape isn't arbitrary; it's forced by internal consistency.
 
 **Question B: Why does ANYTHING exist at all?**
 

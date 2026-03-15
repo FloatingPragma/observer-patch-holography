@@ -327,7 +327,7 @@ That is a meaningful challenge. But it is a very different challenge from the bl
 >
 > The Failure: A discrete lattice of information patches inherently violates Lorentz Invariance at high energies. If the 'Screen' has a fixed pixel density, then a boosted observer (moving near light speed) would perceive a 'length contraction' of those pixels, changing the entropy count (S).
 >
-> If S changes based on the observer's velocity, your 'Overlap Consistency' fails unless you can prove your framework is Background Independent. Currently, your math seems to 'force' the Gravitational Constant (G) by plugging in the Planck length rather than deriving it as a purely emergent property of the information overlap. Without a proof of Lorentz Invariance across moving patches, the framework cannot recover the Einstein Field Equations,it only recovers a Newtonian approximation."
+> If S changes based on the observer's velocity, your 'Overlap Consistency' fails unless you can prove your framework is Background Independent. Currently, your math seems to 'force' the Gravitational Constant (G) by plugging in the Planck length rather than deriving it as a purely emergent property of the information overlap. Without a proof of Lorentz Invariance across moving patches, the framework cannot recover the Einstein Field Equations, it only recovers a Newtonian approximation."
 
 ### Short answer
 

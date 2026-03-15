@@ -213,7 +213,7 @@ The symmetry-consistency model includes both rigorous mathematical results and t
 
 **Rigorous results (mathematical theorems)**:
 
-**1. Noether's theorem is provable**: Given any continuous symmetry of the action, there exists a conserved current. This is a mathematical theorem-not a derive, not an approximation. It's been proven in every formulation of classical and quantum field theory.
+**1. Noether's theorem is rigorous**: Given any continuous symmetry of the action, there exists a conserved current. This is a mathematical theorem, not a heuristic or an approximation. It's been proven in every formulation of classical and quantum field theory.
 
 **2. SO(3) symmetry on S²**: The sphere S² has isometry group SO(3). This is pure mathematics. If the holographic screen is a sphere, rotational symmetry is automatic.
 

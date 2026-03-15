@@ -40,7 +40,7 @@ The shadows on the wall are 2D projections of 3D objects. The prisoners think th
 
 ### The Physics
 
-In 1993, Gerard 't Hooft proposed the holographic principle. He showed that the maximum information content of any region of space scales with the *surface area* of its boundary, not its volume. Leonard Susskind developed this into a precise derive: everything that happens in a volume of space can be described by data on its boundary.
+In 1993, Gerard 't Hooft proposed the holographic principle. He showed that the maximum information content of any region of space scales with the *surface area* of its boundary, not its volume. Leonard Susskind developed this into a more precise formulation: everything that happens in a volume of space can be described by data on its boundary.
 
 The 3D world is like a hologram-it looks solid and three-dimensional, but the information that creates it lives on a 2D surface.
 
@@ -94,7 +94,7 @@ Zeno was reverse-engineering the need for discrete structure, 2,500 years before
 
 The ancient Skeptics asked a devastating question: how do you know your perceptions match reality?
 
-Pyrrho of Elis (c. 360-270 BCE) traveled to India with Alexander the Great's army. He encountered philosophers who practiced radical suspension of judgment. Pyrrho brought this idea back to Greece and founded the Skeptic school. His followers developed systematic arguments showing that for any claim about reality, equally strong arguments is made for the opposite. The only rational response, they concluded, was *epoché*—suspension of judgment about how things really are.
+Pyrrho of Elis (c. 360-270 BCE) traveled to India with Alexander the Great's army. He encountered philosophers who practiced radical suspension of judgment. Pyrrho brought this idea back to Greece and founded the Skeptic school. His followers developed systematic arguments showing that for any claim about reality, equally strong arguments are made for the opposite. The only rational response, they concluded, was *epoché*—suspension of judgment about how things really are.
 
 ### The Honey Argument
 
@@ -148,7 +148,7 @@ The intuitive picture starts with the world and adds observers as passive witnes
 
 Descartes' hint: **the observer is the one fixed point**.
 
-You cannot start with the world because you is wrong about the world. You can only start with your own experience-your "patch" of data. Everything else must be inferred from there.
+You cannot start with the world because you may be wrong about the world. You can only start with your own experience-your "patch" of data. Everything else must be inferred from there.
 
 ### The Physics
 
