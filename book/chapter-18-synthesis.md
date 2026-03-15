@@ -408,13 +408,13 @@ obstructions).
 
 ### Technical Frontier
 
-These results are established within the framework; the frontier lies in tightening the derivations:
+These results are developed within the framework; the frontier lies in tightening the derivations:
 
 **Quantum correlations required by consistency**: We show quantum mechanics works for overlap consistency. Whether it's uniquely required (vs classical or super-quantum correlations) is an active research question—the evidence strongly favors uniqueness.
 
 **BW$_{S^2}$ and branch selection**: Geometric modular flow on caps is now proved on the OPH geometric branch, with collar localization and \(2\pi\) normalization handled inside that theorem. The open frontier is to show that OPH itself forces or robustly selects that branch in concrete UV realizations.
 
-**Entanglement equilibrium**: Stationarity of S_gen at fixed cap size follows from MaxEnt selection. The internal justification is that MaxEnt is how nature selects among overlap-consistent states.
+**Entanglement equilibrium**: Stationarity of S_gen at fixed cap size follows from MaxEnt selection. As noted in Chapter 15, this selection rule is an additional assumption rather than something forced by patch consistency alone.
 
 **Focusing input (QNEC/QFC)**: The null-deformation version of the argument uses QNEC/QFC as established physics—a well-tested input, not an assumption.
 
@@ -436,7 +436,7 @@ These results are established within the framework; the frontier lies in tighten
 
 **None of these contradicting observations has ever been made.**
 
-The convergence is striking: every test we can perform confirms the model. Every major discovery in 20th and 21st century physics points toward observer-centric, information-theoretic, holographic structure.
+The convergence is striking: no listed contradiction has ever been made. Many major discoveries in 20th and 21st century physics are compatible with observer-centric, information-theoretic, holographic structure.
 
 ## 18.10 The Seven Fundamental Questions
 
