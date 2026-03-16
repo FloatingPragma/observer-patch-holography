@@ -354,7 +354,7 @@ These predictions have been tested experimentally or computationally:
 | Top pole mass m_t ≈ 171.1 GeV | Measured: 172.6 GeV | 0.9% low; supplement-backed D11 reconstruction with UV-synchronized transport and low-scale matching |
 | Strong coupling α_s(M_Z) ≈ 0.1183 | PDG: 0.1179 | Calibration-sector consistency check |
 | Weak mixing angle sin²θ_W ≈ 0.23119 | PDG: 0.23122 | Calibration-sector consistency check |
-| QCD scale Λ_MS ≈ 195 MeV | PDG: 213 ± 8 MeV | ~10% low (from Dynkin-index β) |
+| QCD scale Λ_MSbar^(5) ≈ 214 MeV | PDG: 213 ± 8 MeV | Calibration/downstream consistency check in the current implementation (scheme + thresholds as in the spectrum codepath) |
 
 ### Derived from Axioms + Assumptions
 
