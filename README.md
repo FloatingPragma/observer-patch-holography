@@ -290,7 +290,7 @@ These results follow from the absence of a privileged "third-party" frame. There
 
 5. *Entanglement equilibrium* leads to a conditional scaling-limit Einstein branch via the Jacobson mechanism (1995, 2016).
 
-The remaining explicit assumptions are MaxEnt, the OPH Bisognano--Wichmann geometric-branch/scaling-limit premises behind the BW step, and the EFT-bridge conditions listed above. That BW branch premise supplies the standard cap-preserving conformal dilation directly; the paper no longer claims a selector-free uniqueness theorem inside the cap stabilizer.
+The remaining explicit assumptions are MaxEnt, the OPH Bisognano--Wichmann geometric-branch/scaling-limit premises behind the BW step, and the EFT-bridge conditions listed above. In this formulation, the BW branch premise supplies the standard cap-preserving conformal dilation, while the BW theorem fixes its modular normalization and controlled collar remainder on that branch.
 
 ### Particles and Forces
 

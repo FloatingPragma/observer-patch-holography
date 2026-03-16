@@ -853,7 +853,7 @@ Proposition~\ref{prop:splice} is the algebraic version of interior invariance un
 
 \subsection{Geometric modular flow}
 
-The collar analysis identifies where modular nonadditivity can live, but by itself it does not determine the continuum geometric action of the limiting modular group. The correct theorem-scope is therefore branch-conditional and must be stated explicitly. What OPH supplies here is a controlled reduction from the regulator collar to the refinement limit, together with the \(2\pi\) normalization and carried-error statement \emph{once} the refinement-stable cap net lies in the Bisognano--Wichmann geometric modular class of \textbf{T4}. No selector-free uniqueness claim is made inside the circle stabilizer: cap-preservation alone does not determine a unique noncompact subgroup of \(\Conf^+(S^2)\).
+The collar analysis identifies where modular nonadditivity can live, but by itself it does not determine the continuum geometric action of the limiting modular group. The theorem therefore works on the refinement-stable cap branch lying in the Bisognano--Wichmann geometric modular class of \textbf{T4}. On that branch, OPH supplies a controlled reduction from the regulator collar to the refinement limit together with the \(2\pi\) normalization and carried-error statement for the standard cap-preserving conformal subgroup.
 
 Fix a cap \(C\subset S^2\) and a shrinking collar family \((A_\delta,B_\delta,D_\delta)\) around \(\partial C\), with \(\delta\downarrow 0\) and \(A_\delta\cup B_\delta\cup D_\delta\) covering a neighborhood of the cut. Write
 \[
@@ -912,11 +912,10 @@ K_C=2\pi B_C.
 \begin{proof}
 Step 1: collar localization. At one fixed collar scale, Propositions~\ref{prop:splice} and~\ref{prop:gensplit} together with the controlled Markov replacement results show that all exact collar identities are justified either literally at exact Markovity or along a family whose failure of exactness is measured by \(r_{\mathrm{FR}}(\varepsilon_\delta)\) and \(\eta_\delta^{\mathrm M}\). In particular, the nonadditive part of the modular generator is confined to the shrinking collar around \(\partial C\) up to those carried errors.
 
-Step 2: passage to the Bisognano--Wichmann geometric branch. By the \textbf{T4} branch hypothesis, the refinement-stable cap net belongs to the Bisognano--Wichmann geometric modular class. Therefore the limiting modular automorphism group of \(\mathcal A(C)\) is implemented by the standard cap-preserving conformal one-parameter subgroup \(\lambda_C(s)\). Writing \(B_C\) for the infinitesimal generator of \(\lambda_C(s)\), there exists \(\kappa_C>0\) such that
+Step 2: passage to the Bisognano--Wichmann geometric branch. By the \textbf{T4} branch hypothesis, the refinement-stable cap net belongs to the Bisognano--Wichmann geometric modular class. Therefore the limiting modular automorphism group of \(\mathcal A(C)\) is implemented by the standard cap-preserving conformal one-parameter subgroup \(\lambda_C(s)\). Writing \(B_C\) for the infinitesimal generator supplied by that branch data, there exists \(\kappa_C>0\) such that
 \[
 K_C=\kappa_C B_C.
 \]
-No selector-free uniqueness claim inside the circle stabilizer is used at this step.
 
 Step 3: normalization. The modular flow is KMS at inverse temperature \(1\) by definition. Since the geometric parameter \(s\) in \(\lambda_C(s)\) is normalized by unit null dilation in the \textbf{T4} branch, the usual Bisognano--Wichmann relation identifies the modular parameter with the geometric one by \(s=2\pi t\). Equivalently,
 \[
@@ -939,7 +938,7 @@ K_C=2\pi B_C.
 \end{proof}
 
 \begin{remark}[What is proved and what is not]
-The theorem proves the controlled collar reduction together with the \(2\pi\) normalization \emph{on the OPH refinement branch in which the cap net has the Bisognano--Wichmann geometric modular action of \textbf{T4}}. It does not claim that cap-preservation alone singles out a unique noncompact subgroup inside \(\Conf^+(S^2)\); that identification is part of the branch content of \textbf{T4}, not a separate selector-free group-theoretic consequence. The attached source set does not prove that the bare OPH axioms alone force the existence of that branch. The remaining nontrivial burden is therefore phase selection in the refinement limit, not the collar-local reduction or the normalization once the geometric branch is realized.
+The theorem proves the controlled collar reduction together with the \(2\pi\) normalization \emph{on the OPH refinement branch in which the cap net has the Bisognano--Wichmann geometric modular action of \textbf{T4}}. On that branch, the standard cap-preserving conformal subgroup is part of the branch data, and the theorem identifies its modular generator with the carried collar remainder made explicit. The branch-selection question is encoded in the stated \textbf{T4} hypothesis; the theorem then fixes the normalization and controlled refinement limit on that branch.
 \end{remark}
 
 \begin{corollary}[Lorentz Kinematics]\label{cor:lorentz}
@@ -960,7 +959,7 @@ By Theorem~\ref{thm:bw} together with the \textbf{T4} branch hypothesis, the cap
 
 \subsection{The null modular bridge}
 
-The fixed-cutoff strip analysis still begins from the transferred cut-center data and the inherited-strip Markov structure, but the bridge now advances one step farther than the c.10 boundary. At fixed regulator scale one obtains exact or controlled four-term strip additivity together with endpoint-Lipschitz control of the renormalized half-line family; on the same OPH geometric scaling branch used in Theorem~\ref{thm:bw}, the null half-line blow-up net then inherits geometric dilation and therefore half-sided modular inclusion. Standard Borchers--Wiesbrock theory may consequently be applied as imported mathematics to a now-derived OPH half-sided modular pair, so positivity and unitary implementation of null translations are no longer extra physical premises. What is still not proved here is the downstream density upgrade from the weak tail generator to a local operator-valued density and the relativistic identification of that density with continuum \(T_{kk}\).
+The fixed-cutoff strip analysis begins from the transferred cut-center data and the inherited-strip Markov structure. At fixed regulator scale one obtains exact or controlled four-term strip additivity together with endpoint-Lipschitz control of the renormalized half-line family; on the same OPH geometric scaling branch used in Theorem~\ref{thm:bw}, the null half-line blow-up net then inherits geometric dilation and therefore half-sided modular inclusion. Standard Borchers--Wiesbrock theory consequently applies to the resulting OPH half-sided modular pair, yielding positivity and unitary implementation of null translations. What is still not proved here is the downstream density upgrade from the weak tail generator to a local operator-valued density and the relativistic identification of that density with continuum \(T_{kk}\).
 \par
 The present subsection therefore establishes the following chain:
 \begin{enumerate}[leftmargin=2em]
@@ -1713,7 +1712,7 @@ where \(Y_{ij}^{\mathrm{TF}}\) is the traceless spatial part. The \(\ell=2\) sph
 \end{proof}
 
 \begin{remark}[Claim boundary in the null bridge]
-The c.12-local bridge now ends with an explicit theorem-level object: the positive self-adjoint null-translation generator \(P_\Omega\) on its Stone domain, together with its Borchers affine covariance relation and the half-line modular identities above. What remains unproved here is exactly what the compact note marks as downstream: the density upgrade from the weak endpoint derivative to a local operator-valued distribution, the relativistic identification of that density with continuum \(T_{kk}\), and any bounded-interval modular-Hamiltonian formula beyond the separate interval-preserving projective branch isolated in Theorem~\ref{thm:stress}. In particular, positivity and unitary implementation of null translations are no longer packaged as an inferred endpoint or an imported physical premise, whereas the density upgrade and null-stress identification still are.
+The c.12-local bridge ends with an explicit theorem-level object: the positive self-adjoint null-translation generator \(P_\Omega\) on its Stone domain, together with its Borchers affine covariance relation and the half-line modular identities above. What remains unproved here is exactly what the compact note marks as downstream: the density upgrade from the weak endpoint derivative to a local operator-valued distribution, the relativistic identification of that density with continuum \(T_{kk}\), and any bounded-interval modular-Hamiltonian formula beyond the separate interval-preserving projective branch isolated in Theorem~\ref{thm:stress}. Positivity and unitary implementation of null translations belong to the established bridge output, while the density upgrade and null-stress identification remain additional premises.
 \end{remark}
 \subsection{Generalized entropy and the Einstein equation}
 

@@ -299,7 +299,7 @@ Ces résultats suivent de l'absence de référentiel « tiers » privilégié. I
 4. *QNEC/Focalisation* : dérivé en interne via monotonie de l'entropie relative.
 5. *Équilibre d'intrication* : mène aux équations d'Einstein via le mécanisme de Jacobson (1995, 2016).
 
-Les hypothèses explicites restantes sont MaxEnt, les prémisses OPH de branche géométrique Bisognano--Wichmann et de limite d'échelle derrière l'étape BW, ainsi que les conditions du pont EFT ci-dessus. Cette prémisse de branche BW fournit directement la dilation conforme standard préservant le cap ; l'article ne revendique plus de théorème d'unicité sans sélecteur à l'intérieur du stabilisateur du cap.
+Les hypothèses explicites restantes sont MaxEnt, les prémisses OPH de branche géométrique Bisognano--Wichmann et de limite d'échelle derrière l'étape BW, ainsi que les conditions du pont EFT ci-dessus. Dans cette formulation, la prémisse de branche BW fournit la dilation conforme standard préservant le cap, tandis que le théorème BW fixe sa normalisation modulaire et le reste de collerette contrôlé sur cette branche.
 
 ### Particules et forces
 

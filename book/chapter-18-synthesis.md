@@ -199,7 +199,7 @@ Equivalently, there exists a recovery map from AB to ABC with error controlled b
    null-stress premises yield local stress-energy densities, or (b) a UV CFT regime
    controls local modular Hamiltonians on small caps.
 
-Under these inputs, Lorentz kinematics is recovered conditionally on the OPH geometric branch for caps. In the synchronized paper ledger, BW$_{S^2}$ is now a theorem on that branch rather than a separate Euclidean-regularity assumption; what remains external is branch selection plus the null-bridge package. The remaining GR and SM chains proceed only under those stated assumptions.
+Under these inputs, Lorentz kinematics is recovered conditionally on the OPH geometric branch for caps. On that branch, BW$_{S^2}$ identifies cap modular flow with the standard cap-preserving conformal dilations and fixes their \(2\pi\) normalization. Branch selection and the null-bridge package remain explicit assumptions, and the GR and SM chains proceed under those stated inputs.
 
 ## 18.6 What the Model Yields (Under Stated Assumptions)
 
@@ -212,7 +212,7 @@ Under explicit assumptions (Markov/recoverability, a refinement-stable MaxEnt br
 
 The photon and graviton are forced by the axiom chain, not postulated. Once gauge-as-gluing yields a gauge group and entanglement equilibrium yields dynamical geometry, gauge invariance forbids mass terms. These are symmetry-protected zeros.
 
-The EFT bridge (null-surface modular additivity) remains conditional, but its assumption burden is now cleaner. The MaxEnt branch supplies the quasi-local propagation and endpoint control internally, and the fixed-cutoff bridge now reaches the derived positive null-translation stage without importing those controls or half-sided inclusion as separate premises. The remaining extra gravity-side burdens are the downstream density-upgrade and null-stress identification steps for the intended EFT phase. The gauge group reconstruction yields a compact group; within the connected Lie admissible class, and once one connected abelian charge factor is included, MAR fixes the Standard Model gauge quotient $SU(3) \times SU(2) \times U(1)/\mathbb{Z}_6$ and $N_c = 3$ colors. The same admissibility package plus the CP/UV window then fixes $N_g = 3$ generations.
+The EFT bridge (null-surface modular additivity) remains conditional. The MaxEnt branch supplies the quasi-local propagation and endpoint control internally, and the fixed-cutoff bridge reaches the derived positive null-translation stage without separate propagation, endpoint-control, or half-sided-inclusion premises. The remaining extra gravity-side burdens are the downstream density-upgrade and null-stress identification steps for the intended EFT phase. The gauge group reconstruction yields a compact group; within the connected Lie admissible class, and once one connected abelian charge factor is included, MAR fixes the Standard Model gauge quotient $SU(3) \times SU(2) \times U(1)/\mathbb{Z}_6$ and $N_c = 3$ colors. The same admissibility package plus the CP/UV window then fixes $N_g = 3$ generations.
 
 ### Two Fundamental Parameters: The Configuration of Reality
 
@@ -282,7 +282,7 @@ The Hilbert space is finite-dimensional. The second fundamental parameter, **scr
 
 ## 18.8 The Remaining Frontier
 
-The framework derives the Standard Model gauge group, a two-input quantitative program with calibration checks, a supplement-backed Higgs/top branch that adds no further continuous fit once the gauge trajectory and scale-setting branch are fixed, and weaker charged-lepton/flavor/neutrino continuations, the conditional scaling-limit Einstein branch, and the absence of gauge-mediated proton decay. The main engineering deliverables are well-scoped: geometric modular flow on caps (BW$_{S^2}$) is now proved on the OPH geometric branch, while the next tasks are to force or verify that branch in concrete UV models. Non-central loop defects are classified by a 2-group cocycle; in the EFT limit this obstruction data is structurally analogous to anomaly cancellation, while hypercharges are fixed by the separate anomaly/Yukawa analysis once the SM gauge structure is in place. What remains is to compute those classes in concrete models and to derive the Lagrange multiplier $t$ from UV microphysics.
+The framework derives the Standard Model gauge group, a two-input quantitative program with calibration checks, a supplement-backed Higgs/top branch that adds no further continuous fit once the gauge trajectory and scale-setting branch are fixed, and weaker charged-lepton/flavor/neutrino continuations, the conditional scaling-limit Einstein branch, and the absence of gauge-mediated proton decay. The main engineering deliverables are well-scoped: geometric modular flow on caps (BW$_{S^2}$) is established on the OPH geometric branch, while the next tasks are to force or verify that branch in concrete UV models. Non-central loop defects are classified by a 2-group cocycle; in the EFT limit this obstruction data is structurally analogous to anomaly cancellation, while hypercharges are fixed by the separate anomaly/Yukawa analysis once the SM gauge structure is in place. What remains is to compute those classes in concrete models and to derive the Lagrange multiplier $t$ from UV microphysics.
 
 **Progress on numerical predictions.** The extraction of gauge couplings from
 edge-sector probabilities has been validated numerically in 2D gauge models.
@@ -388,9 +388,9 @@ Some crucial results come from established physics that we apply to our model:
 **Modular Hamiltonians for balls**: In CFT vacua, the modular Hamiltonian for a
 ball is a local stress-tensor charge generated by a conformal Killing flow. We
 use this in the small-cap, UV-CFT regime to relate modular energy to $T_{ab}$.
-An alternative internal route now reaches exact-or-controlled null-strip
+An alternative internal route reaches exact-or-controlled null-strip
 additivity, a weak tail generator, and a derived positive null-translation
-stage without any separate propagation, endpoint-control, or half-sided-inclusion assumption, because those controls and the half-sided modular pair are supplied inside the synchronized bridge. Turning that data into a local null energy density
+stage without any separate propagation, endpoint-control, or half-sided-inclusion premise, because those controls and the half-sided modular pair are supplied inside the synchronized bridge. Turning that data into a local null energy density
 $T_{kk}$ still requires the downstream density-upgrade and null-stress
 premises rather than following automatically from the fixed-cutoff bridge.
 
@@ -415,7 +415,7 @@ These results are developed within the framework; the frontier lies in tightenin
 
 **Quantum correlations required by consistency**: We show quantum mechanics works for overlap consistency. Whether it's uniquely required (vs classical or super-quantum correlations) is an active research question—the evidence strongly favors uniqueness.
 
-**BW$_{S^2}$ and branch selection**: Geometric modular flow on caps is now proved on the OPH geometric branch, with collar localization and \(2\pi\) normalization handled inside that theorem. The open frontier is to show that OPH itself forces or robustly selects that branch in concrete UV realizations.
+**BW$_{S^2}$ and branch selection**: Geometric modular flow on caps is established on the OPH geometric branch, with collar localization and \(2\pi\) normalization handled inside that theorem. The open frontier is to show that OPH itself forces or robustly selects that branch in concrete UV realizations.
 
 **Entanglement equilibrium**: Stationarity of S_gen at fixed cap size follows from MaxEnt selection. As noted in Chapter 15, this selection rule is an additional assumption rather than something forced by patch consistency alone.
 
