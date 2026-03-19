@@ -87,8 +87,7 @@ Lorsqu'une mise à niveau ou un audit touche plusieurs articles, commencez toujo
 Dans l'ensemble actuel des articles, l'OPH sépare explicitement les affirmations par statut :
 sorties structurelles sans paramètre (chaîne Lorentz/jauge/quotient, réseau d'hypercharges sur le
 paquet de matière réalisé, $N_g=3$ puis $N_c=3$ sur la branche MAR réalisée, zéros protégés par
-symétrie, stabilité du proton), contrôles de cohérence du secteur calibré ($\alpha_i(m_Z)$,
-$\sin^2\theta_W$, $v$, $m_W$), branche quantitative principale adossée à des suppléments
+symétrie, stabilité du proton), contrôles de cohérence du secteur calibré ($\alpha_i(m_{Z,\rm run})$, $\sin^2\theta_W(m_{Z,\rm run})$, $v$, $m_W$), branche quantitative principale adossée à des suppléments
 ($m_H$, $m_t$), et continuations phénoménologiques ou numériques en aval plus faibles (Koide /
 leptons chargés, textures de quarks, neutrinos, hadrons, matière noire,
 baryogenèse).
@@ -486,12 +485,12 @@ Le cadre OPH prend l'étape suivante : il n'essaie pas de sauver une réalité o
 
 ## Statut actuel
 
-Comme résumé dans la matrice de statut plus haut, le cadre établit aujourd'hui une cinématique de Lorentz conditionnelle, une branche semi-classique d'Einstein conditionnelle, une symétrie de jauge compacte, le groupe du MS (via MAR), trois générations, trois couleurs, des porteurs de force sans masse, un programme quantitatif à deux entrées avec distinction explicite entre calibration et sorties indépendantes, la stabilité du proton, ainsi qu'un pont explicite OPH->cordes via les secteurs de bord YM 2D. Les principaux axes d'ingénierie actifs :
+Comme résumé dans la matrice de statut plus haut, le cadre établit aujourd'hui une cinématique de Lorentz conditionnelle, une branche semi-classique d'Einstein conditionnelle, une symétrie de jauge compacte, le groupe du MS (via MAR), trois générations, trois couleurs, des porteurs de force sans masse, un programme quantitatif à deux entrées avec distinction explicite entre calibration et sorties indépendantes, la stabilité du proton, ainsi qu'une route OPH->cordes au niveau continuation via les secteurs de bord YM 2D. Les principaux axes d'ingénierie actifs :
 
 1. **Microphysique d'écran** : les modèles de liens quantiques réalisent les prémisses de régulateur et donnent automatiquement la complétion bord-centre. Reste : forcer ou vérifier la sélection de la branche modulaire géométrique OPH dans la limite continue.
 2. **Vérification du pont EFT** : le pont modulaire de surface nulle est dérivé sous deux conditions testables ; il faut les vérifier dans des régulateurs UV explicites.
 3. **Constante cosmologique** : expliquée structurellement comme $\Lambda = 3\pi/(G \cdot \log \dim \mathcal{H}_{\rm tot})$ via la capacité d'écran ; valeur numérique inférée de l'observation.
-4. **Problème CP fort** : $\theta_{QCD}$ est déterminé (la dérivation via cohomologie d'obstruction de collage est donnée en section 8.4).
+4. **Problème CP fort** : une route d'obstruction de collage est esquissée, mais $\theta_{QCD}$ reste une proposition au niveau continuation plutôt qu'une prédiction du noyau récupéré.
 
 ## Code
 

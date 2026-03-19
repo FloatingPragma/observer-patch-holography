@@ -492,7 +492,7 @@ A measurement contradiction would require showing that some phenomenon cannot be
 
 ## Current Status
 
-As summarized in the status matrix above, the framework derives Lorentz kinematics, a conditional semiclassical Einstein branch, compact gauge symmetry, the SM gauge group (via MAR), three generations, three colors, massless force carriers, a two-input quantitative particle-physics program, proton stability, and an explicit OPH-to-string bridge through 2D Yang-Mills edge sectors. The main engineering extensions are:
+As summarized in the status matrix above, the framework derives Lorentz kinematics, a conditional semiclassical Einstein branch, compact gauge symmetry, the SM gauge group (via MAR), three generations, three colors, massless force carriers, a two-input quantitative particle-physics program, proton stability, and a continuation-level OPH-to-string route through 2D Yang-Mills edge sectors. The main engineering extensions are:
 
 1. **Screen microphysics**: Quantum link models realize the regulator premises and give edge-center completion automatically. Remaining: force or verify selection of the OPH geometric modular branch in the continuum limit.
 
@@ -500,7 +500,7 @@ As summarized in the status matrix above, the framework derives Lorentz kinemati
 
 3. **Cosmological constant**: Structurally explained as $\Lambda = 3\pi/(G \cdot \log \dim \mathcal{H}_{\rm tot})$ from screen capacity. The numerical value is inferred from observation.
 
-4. **Strong CP problem**: $\theta_{QCD}$ is now predicted (a derivation linking it to gluing obstruction cohomology is outlined in Section 8.4).
+4. **Strong CP problem**: a gluing-obstruction route is outlined, but $\theta_{QCD}$ remains a continuation-level proposal rather than a recovered-core prediction.
 
 ## Code
 
