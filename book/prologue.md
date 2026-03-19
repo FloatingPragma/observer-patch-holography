@@ -138,7 +138,7 @@ observer to define one. Why does measurement affect outcomes? Because "measureme
 is just observer patches comparing notes. Why does time dilate? Because different
 observers have different internal clocks, and relativity is the consistency
 condition between them. Why can't you explain consciousness from physics?
-Because you're trying to derive the inside from the outside-but there is no
+Because you're trying to derive the inside from the outside, but there is no
 outside.
 
 Long-standing philosophical puzzles dissolve too. The hard problem of

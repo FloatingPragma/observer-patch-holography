@@ -80,7 +80,7 @@ Non-commutativity creates a tension between local freedom and global consistency
 
 ### The Stern-Gerlach Experiment
 
-In 1922, Otto Stern and Walther Gerlach sent a beam of silver atoms through a non-uniform magnetic field. Classical physics predicted the beam would spread out in a continuous smear. Instead, it split into exactly two beams-spin up and spin down.
+In 1922, Otto Stern and Walther Gerlach sent a beam of silver atoms through a non-uniform magnetic field. Classical physics predicted the beam would spread out in a continuous smear. Instead, it split into exactly two beams: spin up and spin down.
 
 This was shocking. Atomic magnetic moments are quantized-they take only discrete values.
 

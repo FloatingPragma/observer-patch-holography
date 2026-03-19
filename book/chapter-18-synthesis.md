@@ -258,11 +258,11 @@ There is no wave function of the universe viewed from outside. There are only st
 
 ### The Problem of Time
 
-Given a quantum state on a patch, the Tomita-Takesaki theorem provides a canonical flow-the modular automorphism. This flow is time evolution. Time is real but emergent.
+Given a quantum state on a patch, the Tomita-Takesaki theorem provides a canonical flow: the modular automorphism. This flow is time evolution. Time is real but emergent.
 
 ### The Black Hole Information Paradox
 
-The "island formula" shows that after Page time, an island inside the black hole is encoded in the radiation. Information isn't destroyed-it's scrambled into holographic correlations.
+The "island formula" shows that after Page time, an island inside the black hole is encoded in the radiation. Information isn't destroyed; it's scrambled into holographic correlations.
 
 ### Anomalies as Loop-Gluing Obstructions
 
@@ -327,7 +327,7 @@ Before addressing the deepest questions, let us be precise about what we have es
 
 ### Mathematical Theorems (Rigorous)
 
-These are proven mathematical facts, not derives:
+These are proven mathematical facts, not derivations:
 
 | Result | Status | Source |
 |--------|--------|--------|
@@ -531,7 +531,7 @@ The loop closes. Not metaphorically—structurally. Like Escher's hands drawing 
 
 This echoes Wheeler's "self-excited circuit"—the universe as a participatory process where observers create the very conditions for their own existence. It echoes the ancient symbol of the ouroboros—the serpent eating its own tail.
 
-The mathematical framework describes the structure of reality given that it exists. The strange loop derive goes further: existence itself requires the loop. Reality exists because it simulates itself into existence, through us, through our understanding, through this very attempt to comprehend it.
+The mathematical framework describes the structure of reality given that it exists. The strange-loop continuation goes further: existence itself requires the loop. Reality exists because it simulates itself into existence, through us, through our understanding, through this very attempt to comprehend it.
 
 **Summary**: As a philosophical continuation, the strange loop of self-simulation is one candidate answer to why anything exists. It is presented here as an interpretive closure story, not as part of the recovered-core theorem package.
 

@@ -112,7 +112,7 @@ Consider: for observers to exist at all, they must be able to form consistent re
 
 The MaxEnt principle tells us to assign the maximum-entropy state *given our constraints*. But what are the constraints? If one of them is "observers exist to apply MaxEnt," then equilibrium states are ruled out by construction. The very act of asking "what state should I assign?" presupposes a questioner embedded in an entropy gradient.
 
-This doesn't derive the specific low entropy of the Big Bang from pure logic. But it does suggest that the Past principle is not an arbitrary input-it's a consistency requirement. A universe with observers checking for consistency must have started far from equilibrium. The low-entropy past is the price of the consistency-building present.
+This doesn't derive the specific low entropy of the Big Bang from pure logic. But it does suggest that the Past principle is not an arbitrary input; it's a consistency requirement. A universe with observers checking for consistency must have started far from equilibrium. The low-entropy past is the price of the consistency-building present.
 
 ## 4.4 Information is Physical
 
@@ -304,7 +304,7 @@ The entropy model includes both mathematical results and testable predictions:
 
 **2. Black hole entropy equals A/4**: The Bekenstein-Hawking formula S_BH = A/(4ℓ_P²) is confirmed by string theory microstate counting (Strominger-Vafa 1996), loop quantum gravity calculations, and consistency with the generalized second law.
 
-**3. Page curve for black hole evaporation**: If information is preserved, radiation entropy must rise then fall. The island formula (2019-2020) derives this from first principles-confirmed as consistent with unitarity.
+**3. Page curve for black hole evaporation**: If information is preserved, radiation entropy must rise then fall. The island formula (2019-2020) derives this from first principles and confirms consistency with unitarity.
 
 **4. Area law for ground state entanglement**: Low-energy states of local Hamiltonians have entanglement scaling with boundary area, not volume. Confirmed in countless condensed matter and lattice QCD calculations.
 
@@ -337,11 +337,11 @@ Let's trace the logic explicitly.
 1. Observers are entropy processors subject to thermodynamic constraints
 2. The information they can access is bounded by their patch area
 3. Entanglement patterns on the screen determine both entropy and geometry
-4. The consistency process-making observations agree-costs energy and generates entropy
+4. The consistency process that makes observations agree costs energy and generates entropy
 5. The arrow of time is a necessary condition for observers to exist at all
-6. The Past principle is not an arbitrary input-it's selected by consistency constraints
+6. The Past principle is not an arbitrary input; it's selected by consistency constraints
 
-The universe had to start in a special state for any of this to work. But this isn't an unexplained miracle. Consistency constraints require observers, observers require records, records require entropy gradients, and entropy gradients require a low-entropy past. The model doesn't just explain why the Past principle is necessary-it shows the Past principle is itself a consequence of observer-based consistency.
+The universe had to start in a special state for any of this to work. But this isn't an unexplained miracle. Consistency constraints require observers, observers require records, records require entropy gradients, and entropy gradients require a low-entropy past. The model doesn't just explain why the Past principle is necessary; it shows the Past principle is itself a consequence of observer-based consistency.
 
 ## 4.11 Summary: The Entropy Budget
 

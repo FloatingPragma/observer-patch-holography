@@ -250,7 +250,7 @@ The entanglement-geometry correspondence makes sharp, testable predictions:
 
 **3. Subadditivity and strong subadditivity**: If entanglement = geometry, then entropy inequalities become geometric constraints. Strong subadditivity $S(AB) + S(BC) \geq S(B) + S(ABC)$ constrains which bulk geometries can exist. These inequalities are provably satisfied by any quantum state.
 
-**4. Page curve and islands**: The model predicts that black hole evaporation follows the Page curve-entropy rises then falls. Recent island calculations (2019-2020) confirmed this in explicit models, resolving the information paradox.
+**4. Page curve and islands**: The model predicts that black hole evaporation follows the Page curve: entropy rises then falls. Recent island calculations (2019-2020) confirmed this in explicit models, resolving the information paradox.
 
 **5. Entanglement wedge reconstruction**: Bulk operators in the entanglement wedge can be reconstructed from boundary data. This has been verified in toy models and provides a concrete test of the holographic dictionary.
 
