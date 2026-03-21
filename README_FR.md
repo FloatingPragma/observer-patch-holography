@@ -110,6 +110,7 @@ Si vous voulez le parcours le plus accessible pour entrer dans l'OPH, utilisez e
 - **Cours video tiers, chapitre par chapitre :** [Playlist OPH de Sriharsha Karamchati sur YouTube](https://www.youtube.com/playlist?list=PLff0tYtg64Egc2sTtKgThcPRNRdR6i83O)
 - **Carte interactive de derivation :** [OPH Lab sur oph-lab.floatingpragma.io](https://oph-lab.floatingpragma.io)
 - **Questions de suivi guidees :** [NotebookLM](https://notebooklm.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a?artifactId=fb7c0ebd-4375-4997-9cae-6558ff8977b4)
+- **Perspective pratique (EN) :** [Applications pratiques potentielles de l'OPH](extra/PRACTICAL_APPLICATIONS.md)
 
 ## Expériences IBM Quantum
 

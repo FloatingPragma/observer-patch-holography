@@ -103,6 +103,7 @@ If you want the easiest path into OPH, use the book, the video course, the lab, 
 - **Third-party chapter-by-chapter video course:** [Sriharsha Karamchati's OPH playlist on YouTube](https://www.youtube.com/playlist?list=PLff0tYtg64Egc2sTtKgThcPRNRdR6i83O)
 - **Interactive derivation map:** [OPH Lab at oph-lab.floatingpragma.io](https://oph-lab.floatingpragma.io)
 - **Guided follow-up questions:** [NotebookLM notebook](https://notebooklm.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a?artifactId=fb7c0ebd-4375-4997-9cae-6558ff8977b4)
+- **Practical outlook:** [Potential practical applications of OPH](extra/PRACTICAL_APPLICATIONS.md)
 
 ## IBM Quantum Experiments
 
