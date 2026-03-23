@@ -141,7 +141,7 @@
 \OPHPaperReleaseBanner
 
 \begin{abstract}
-Observer-Patch Holography (OPH) is a mathematical reconstruction program that starts from a simple requirement: overlapping local observer descriptions on a holographic screen must agree where they overlap. From that starting point, we develop conditional routes toward general relativity, toward reconstruction of the Standard Model gauge structure, toward a first-principles particle-mass program, and toward string/worldsheet descriptions emerging from the same underlying framework. The strongest present structural result is recovery of the Standard Model gauge structure on the stated gauge branch, while the gravity, mass, and string branches still require additional assumptions. We also report early IBM Quantum Cloud benchmarks of OPH-motivated reduced sectors that match the predicted recoverability ordering and exact-ratio patterns on real hardware, providing preliminary experimental support for the local OPH picture. At the interpretive level, we also give a compact conditional fixed-point argument: if the OPH emergence map closes continuously on a nonempty compact convex admissible state space, then Schauder's theorem yields a fixed point, showing that OPH is mathematically compatible with the strange-loop hypothesis. Throughout, theorem-level results, conditional branches, quantitative continuations, experimental benchmarks, and interpretive material are kept explicitly distinct.
+Observer-Patch Holography (OPH) is a mathematical reconstruction program that starts from a simple requirement: overlapping local observer descriptions on a holographic screen must agree where they overlap. From that starting point, we develop conditional routes toward general relativity, toward reconstruction of the Standard Model gauge structure, toward a first-principles particle-mass program, and toward string/worldsheet descriptions emerging from the same underlying framework. We also report early IBM Quantum Cloud benchmarks of OPH-motivated reduced sectors that match the predicted recoverability ordering and exact-ratio patterns on real hardware, providing preliminary experimental support for the local OPH picture. Finally, we prove a conditional strange-loop theorem: if the OPH emergence map closes continuously on a nonempty compact convex admissible state space, then Schauder's fixed-point theorem yields a self-consistent fixed point, so an OPH universe can realize a timeless self-referential causal structure. Throughout, theorem-level results, conditional branches, quantitative continuations, experimental benchmarks, and interpretive material are kept explicitly distinct.
 \end{abstract}
 
 \tableofcontents
@@ -169,8 +169,8 @@ Observer-Patch Holography (OPH) is a mathematical reconstruction program that st
 \clearpage
 \part{Interpretive Epilogue: Strange Loop Hypothesis}
 
-\section{Interpretive Status, Dependencies, and Conditional Fixed-Point Compatibility}
-This part is an interpretive epilogue. It is not part of the Phase-I recovered core, not part of the D10--D11 supplement-backed implementation, and not a theorem derived from the OPH axioms. What is added here is only a compact compatibility result: if the OPH closure map can be realized as a continuous self-map of a nonempty compact convex admissible state space, then a fixed point exists. This does not establish that OPH itself has already supplied those premises, and it does not prove uniqueness or stability for the resulting loop.
+\section{Interpretive Status, Dependencies, and the Conditional Strange-Loop Theorem}
+This part is an interpretive epilogue. It is not part of the Phase-I recovered core, not part of the D10--D11 supplement-backed implementation, and not a theorem derived from the OPH axioms. What is added here is only a compact conditional strange-loop theorem: if the OPH closure map can be realized as a continuous self-map of a nonempty compact convex admissible state space, then a fixed point exists. This does not establish that OPH itself has already supplied those premises, and it does not prove uniqueness or stability for the resulting loop.
 
 To upgrade this compatibility statement to an internal OPH existence-and-stability theorem, one would need at least the following additional ingredients inside OPH itself:
 \begin{enumerate}
@@ -179,7 +179,7 @@ To upgrade this compatibility statement to an internal OPH existence-and-stabili
 \item a proof that the relevant admissible sector is nonempty, compact, convex, and invariant under \(\Phi\), or some alternative fixed-point hypothesis strong enough to invoke a concrete theorem such as Banach, Schauder, or an invariant-compact-set argument;
 \item a physically meaningful stability notion showing that the relevant observer/record structures persist under perturbations of the underlying OPH data.
 \end{enumerate}
-The compatibility theorem below isolates the missing OPH-side work. In particular, the paper does not presently define a theorem-usable \(\mathcal X\), does not prove that observer formation and simulation/reconstruction close to a continuous self-map on a nonempty compact convex admissible sector, and does not establish uniqueness criteria or Lyapunov-type stability estimates for \(\Phi\). These are the explicit blockers that keep the strange-loop idea outside the scientific core.
+The conditional strange-loop theorem below isolates the missing OPH-side work. In particular, the paper does not presently define a theorem-usable \(\mathcal X\), does not prove that observer formation and simulation/reconstruction close to a continuous self-map on a nonempty compact convex admissible sector, and does not establish uniqueness criteria or Lyapunov-type stability estimates for \(\Phi\). These are the explicit blockers that keep the strange-loop idea outside the scientific core.
 Let $\mathcal{X}$ denote the space of overlap-consistent OPH state-and-law configurations. Define the effective emergence map
 \[
 \Phi:\mathcal{X}\to\mathcal{X},
@@ -197,8 +197,8 @@ The strange-loop closure condition is the schematic fixed-point requirement
 \]
 This closure is logical and structural rather than dynamical. It does not require a preferred external time parameter.
 
-\paragraph{Theorem (Conditional fixed-point compatibility).}
-Suppose \(\mathcal X\) can be realized as a nonempty compact convex subset of a Banach space and that the OPH emergence map \(\Phi:\mathcal X\to\mathcal X\) is continuous. Then there exists \(x_\star\in\mathcal X\) with \(\Phi(x_\star)=x_\star\). Hence, under these closure hypotheses, OPH is mathematically compatible with the strange-loop hypothesis.
+\paragraph{Theorem (Conditional strange-loop theorem).}
+Suppose \(\mathcal X\) can be realized as a nonempty compact convex subset of a Banach space and that the OPH emergence map \(\Phi:\mathcal X\to\mathcal X\) is continuous. Then there exists \(x_\star\in\mathcal X\) with \(\Phi(x_\star)=x_\star\). Hence, under these closure hypotheses, OPH admits a self-consistent fixed point, i.e.\ a timeless self-referential causal structure of the strange-loop type.
 
 \begin{proof}
 This is an immediate application of Schauder's fixed-point theorem to the continuous self-map \(\Phi:\mathcal X\to\mathcal X\). The resulting fixed point \(x_\star\) is a self-consistent OPH loop.
@@ -259,7 +259,7 @@ Dark matter phenomenology & Phase III deferred continuation & Modular-anomaly re
 Baryon asymmetry scale & Phase III deferred continuation & Suppression-counting estimates are not a substitute for a derived out-of-equilibrium mechanism. \\
 Three generations and Koide structure & Mixed: Phase I / Phase III & \(N_g=3\) is recovered on the realized MAR-admissible branch; Koide and charged-lepton fits require extra flavor ans\"atze. \\
 String/worldsheet reorganization & Phase III deferred continuation & Requires a controlled large-\(N_{\mathrm{edge}}\) regime distinct from the physical color rank \(N_c=3\). \\
-Why anything exists / strange-loop closure & Interpretive epilogue only & Part~VI records a conditional fixed-point compatibility theorem: if the OPH emergence map closes as a continuous self-map on a nonempty compact convex admissible state space, Schauder yields a fixed point. What remains missing is an OPH-internal construction of that state space and self-map, together with uniqueness and stability. \\
+Why anything exists / strange-loop closure & Interpretive epilogue only & Part~VI records a conditional strange-loop theorem: if the OPH emergence map closes as a continuous self-map on a nonempty compact convex admissible state space, Schauder yields a self-consistent fixed point. What remains missing is an OPH-internal construction of that state space and self-map, together with uniqueness and stability. \\
 \end{longtable}
 
 \section{Standalone Status}
