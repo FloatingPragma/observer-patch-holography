@@ -42,7 +42,7 @@ package that can fail.
 \section{Project Charter}
 
 \textbf{Status.} Extra side paper. Not part of the compact recovered core. Not yet part of the
-release-critical OPH theorem stack.
+current OPH theorem stack.
 
 \textbf{Purpose.}
 \begin{enumerate}[leftmargin=2em]
@@ -1366,7 +1366,7 @@ failing to distinguish removable mismatch from a persistent external fault sourc
 
 \subsection{Reading rule for the validation package}
 
-Even a full \texttt{phase1-architecture-pass} would not prove the OPH continuum branch, would
+Even a full phase-1 architecture pass would not prove the OPH continuum branch, would
 not prove the final repair law, and would not identify a unique UV completion. It would only
 show that the fixed-cutoff architecture claimed in this note has been instantiated concretely
 enough to measure and debug. Conversely, failure is informative. A failed gate tells the
@@ -1483,21 +1483,20 @@ That is the intended asymmetry of this section: imported OPH structure is treate
 the finite reference architecture is treated as new phase-1 scaffolding; and every bridge from
 that scaffolding to later theorem packages remains explicitly open.
 
-\section{Relation Back to the Existing Completion Tree}
+\section{Relation to Later OPH Theorem Packages}
 
 This side paper sits \emph{upstream} of several completion-tree leaves, but it does not by
 itself close any of them. Its role is to make the finite-cutoff objects concrete enough that
 later task-specific papers can stop talking in placeholders and start proving or testing
 statements about explicit regulated data.
 
-For the current microphysics completion workflow, the task-specific subsections below are also
-the temporary audit surface for the mapped leaf tasks. Audit happens here first, and the compact,
-consensus, and observer papers absorb the approved merge only after that audit is complete.
+The subsections below explain, in public-facing terms, which later OPH theorem packages this
+reference architecture is meant to support and which burdens still remain open.
 
-\subsection{What it feeds now for \texttt{papers.compact.e.24}}\label{sec:microphysics-feeds-e24}
+\subsection{Heat-kernel / Casimir-weight package}
 
-The task \texttt{papers.compact.e.24} asks for the edge heat-kernel / Casimir law to be proved
-from OPH microphysics. This note feeds that task now in the following limited sense.
+The edge heat-kernel / Casimir-weight package still has to be proved from OPH microphysics. This
+note supports that later package only in the following limited sense.
 \begin{enumerate}[leftmargin=2em]
 \item It supplies concrete finite screen microphysics candidates---first $\mathbb Z_2$, then
 $S_3$, and later quantum-link style extensions---on which collar sectors are explicit observables
@@ -1514,11 +1513,10 @@ universality, and does \emph{not} establish that this reference architecture is 
 unique OPH microphysics. It provides the regulated measurement surface, not the quantitative
 derivation.
 
-\subsection{What it feeds now for \texttt{papers.reality.a.01}}\label{sec:microphysics-feeds-a01}
+\subsection{Consensus-embedding package}
 
-The task \texttt{papers.reality.a.01} asks for the finite patch-net model of the consensus paper
-to be embedded into the OPH regulator. This note feeds that task now by making the finite patch
-net explicit rather than schematic.
+The finite patch-net model of the consensus paper still has to be embedded into the OPH regulator.
+This note supports that later package by making the finite patch net explicit rather than schematic.
 \begin{enumerate}[leftmargin=2em]
 \item It identifies the regulated patch net: a cellulated screen with explicit local Hilbert
 spaces, physical subspace projectors, patch regions, overlap collars, and shared observable
@@ -1550,7 +1548,7 @@ paper, does \emph{not} derive the repair law from OPH recovery dynamics, and doe
 prove the fixed-point hypotheses later needed in the consensus lane. Termination, local
 confluence, gauge covariance, and refinement-limit lift remain later tasks.
 
-\subsection{What it feeds now for \texttt{papers.observers.b.03}}\label{sec:microphysics-feeds-b03}
+\subsection{Measurement / Born-rule package}
 
 The task \texttt{papers.observers.b.03} asks for the measurement/Born-rule package to be closed.
 This note only feeds its input objects; it does not close the package.
@@ -1573,7 +1571,7 @@ Born rule, and does \emph{not} identify collapse with conditioning beyond phase-
 language. It feeds the measurement package with explicit regulated observables, not with
 finished theorems.
 
-\subsection{What it feeds now for \texttt{papers.observers.e.18}}\label{sec:microphysics-feeds-e18}
+\subsection{Observer-continuation package}
 
 The task \texttt{papers.observers.e.18} asks for observer continuation / backup to be formalized
 as a theorem package. This note again supplies only the fixed-cutoff interface on which that
@@ -1594,19 +1592,17 @@ bounds, does \emph{not} state an identity criterion for ``same observer,'' and d
 show that repair plus records is sufficient for continuation or backup. It gives the candidate
 checkpoint variables and interfaces, not the continuation theorem.
 
-\subsection{Completion-tree status after this note}
+\subsection{Program status after this note}
 
 The correct completion-tree reading is therefore narrow.
 \begin{enumerate}[leftmargin=2em]
-\item This note \emph{feeds} \texttt{papers.compact.e.24}, \texttt{papers.reality.a.01},
-\texttt{papers.observers.b.03}, and \texttt{papers.observers.e.18} by replacing abstract
-placeholders with explicit fixed-cutoff objects.
+\item This note feeds the later heat-kernel, consensus-embedding, measurement, and
+observer-continuation packages by replacing abstract placeholders with explicit fixed-cutoff
+objects.
 \item This note does \emph{not} mark any of those leaves complete.
-\item The remaining proof burden stays with the later leaf tasks themselves: the weight-law
-derivation in \texttt{papers.compact.e.24}, the repair-law theorem chain beginning at
-\texttt{papers.reality.a.02}, the measurement/Born-rule closure in
-\texttt{papers.observers.b.03}, and the continuation/backup formalization in
-\texttt{papers.observers.e.18}.
+\item The remaining proof burden stays with those later theorem packages themselves: the
+weight-law derivation, the repair-law theorem chain, the measurement/Born-rule closure, and the
+continuation/backup formalization.
 \end{enumerate}
 
 That is exactly the intended role of an extra phase-1 side paper in the tree: it supplies a
