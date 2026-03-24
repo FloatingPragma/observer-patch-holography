@@ -423,6 +423,87 @@ they should compile to the same fixed-cutoff interface: read shared data, compar
 local candidate correction, accept or reject it by a declared contract, then refresh the record
 summaries and log the result.
 
+\subsection{The fixed-cutoff regulator and its finite interface layer}
+
+Fix a finite patch cover
+\begin{equation}
+\mathcal P=\{P_I\}_{I\in\mathcal V}
+\end{equation}
+of the cellulated screen, and let
+\begin{equation}
+\mathcal G_{\mathrm{patch}}=(\mathcal V,\mathcal E),
+\qquad
+\mathcal E=\bigl\{\{I,J\}: B_{IJ}:=P_I\cap P_J\neq \varnothing\bigr\}
+\end{equation}
+be the corresponding patch-overlap graph. For each patch $P_I$ and overlap collar $B_{IJ}$, let
+$\widetilde{\mathcal H}_{P_I}$ and $\widetilde{\mathcal H}_{B_{IJ}}$ denote the finite tensor
+products of all link registers, auxiliary cut registers, and declared record registers supported
+on that patch or collar. Their regulator algebras are the boundary-fixed algebras
+\begin{equation}
+\mathcal A_I:=\mathcal B(\widetilde{\mathcal H}_{P_I})^{G_{\partial P_I}},
+\qquad
+\mathcal A_{IJ}:=\mathcal B(\widetilde{\mathcal H}_{B_{IJ}})^{G_{\partial B_{IJ}}}.
+\end{equation}
+Because the boundary gauge action on a patch restricts to the action on an overlap collar, there
+are canonical inclusion maps
+\begin{equation}
+\iota_{IJ\to I}(X)=X\otimes \mathbf 1_{P_I\setminus B_{IJ}},
+\qquad
+\iota_{IJ\to J}(X)=X\otimes \mathbf 1_{P_J\setminus B_{IJ}},
+\qquad
+X\in \mathcal A_{IJ},
+\end{equation}
+understood with identity on all omitted tensor factors.
+
+At fixed cutoff, each collar algebra carries the OPH regulator decomposition
+\begin{equation}
+\mathcal H_{B_{IJ}}
+\cong
+\bigoplus_{\alpha\in\mathsf A_{IJ}}
+\bigl(H_{b_L^\alpha}\otimes H_{b_R^\alpha}\bigr),
+\qquad
+Z(\mathcal A_{IJ})
+=
+\bigoplus_{\alpha\in\mathsf A_{IJ}}\mathbb C\,\Pi_\alpha^{(IJ)},
+\end{equation}
+so the overlap center projectors are already explicit regulator observables rather than
+placeholders. The same cutoff data also carry the finite patch-net interface later used on the
+consensus side.
+
+Define the regulated microscopic package by
+\begin{equation}
+\mathfrak R_{\Gamma}
+=
+\Bigl(
+\Gamma,
+\mathcal G_{\mathrm{patch}},
+\mathcal H_{\mathrm{phys}},
+\{\mathcal A_I\}_I,
+\{\mathcal A_{IJ}\}_{\{I,J\}\in\mathcal E},
+\{\iota_{IJ\to I},\iota_{IJ\to J}\}_{\{I,J\}\in\mathcal E},
+\{\mathcal O_{IJ}^{\mathrm{sh}}\}_{\{I,J\}\in\mathcal E},
+\{\operatorname{read}_{I\to J},\operatorname{read}_{J\to I}\}_{\{I,J\}\in\mathcal E},
+\{R_I\}_I
+\Bigr).
+\end{equation}
+The finite patch-net layer carried by that regulator is then
+\begin{equation}
+\mathfrak F_{\Gamma}
+=
+\Bigl(
+\mathcal G_{\mathrm{patch}},
+\{\mathsf X_{IJ}\}_{\{I,J\}\in\mathcal E},
+\{\mathbf q_{IJ}\}_{\{I,J\}\in\mathcal E},
+\{S_{IJ}\}_{\{I,J\}\in\mathcal E},
+\{L_{IJ}\}_{\{I,J\}\in\mathcal E},
+\{\Xi_{IJ}\}_{\{I,J\}\in\mathcal E},
+\{\mathcal C_{IJ}^{\mathrm{min}}\}_{\{I,J\}\in\mathcal E}
+\Bigr),
+\end{equation}
+where $\mathbf q_{IJ}$ is the joint packet readout defined below. So the finite patch-net
+variables are not new primitives layered on top of OPH. They are the declared finite interface
+surface of the regulator itself.
+
 \subsection{Minimal overlap API}
 
 For each neighboring pair $(P,Q)$ with shared collar $B_{PQ}=P\cap Q$, define the one-step
@@ -435,6 +516,7 @@ outside $N_{PQ}$. A phase-1 simulator should instantiate one typed overlap objec
 \Bigl(
 B_{PQ},
 N_{PQ},
+\mathcal A_{PQ},
 \mathcal O^{\mathrm{sh}}_{PQ},
 \mathsf X_{PQ},
 \operatorname{read}_{P\to Q},
@@ -453,6 +535,7 @@ Its entries should be interpreted literally.
 \begin{enumerate}[leftmargin=2em]
 \item $B_{PQ}$ is the collar support on which the shared observables live.
 \item $N_{PQ}$ is the maximal support on which one local repair move may act.
+\item $\mathcal A_{PQ}$ is the regulator overlap algebra on that collar.
 \item $\mathcal O^{\mathrm{sh}}_{PQ}$ is the declared shared observable family to be
 synchronized on this overlap.
 \item $\mathsf X_{PQ}$ is the finite alphabet of readout packets exported by each side.
@@ -484,7 +567,7 @@ small declared family of overlap observables,
 \cup
 \{M_r^{(PQ)}\}_{r=1}^{n_M}
 \subseteq
-\mathcal A(B_{PQ}).
+\mathcal A_{PQ}.
 \end{equation}
 For phase 1, every overlap should expose at least one observable from each of the following
 three blocks.
@@ -749,6 +832,57 @@ syndrome, the chosen candidate (or explicit failure), the post-update packet val
 score $L_{PQ}$ before and after, and the diagnostics $\Xi_{PQ}$ and $\Phi$. Without that log,
 later schedule and obstruction analysis is underdetermined.
 
+\subsection{Local repair instrument and the packet-closure boundary}
+
+For a fixed backend, the overlap repair step is the staged instrument
+\begin{equation}
+\mathcal R_{PQ}
+:=
+\mathcal W_{PQ}\circ \mathcal C_{PQ}\circ \mathcal M_{PQ}\circ \mathcal P_{PQ},
+\end{equation}
+where
+\begin{equation}
+\mathcal P_{PQ}:=\bigl(\operatorname{read}_{P\to Q},\operatorname{read}_{Q\to P}\bigr),
+\qquad
+\mathcal M_{PQ}:=\operatorname{compare}_{PQ},
+\end{equation}
+$\mathcal C_{PQ}$ is the candidate-selection and acceptance stage based on the declared menu and
+repair contract, and $\mathcal W_{PQ}:=\operatorname{commit}_{PQ}$ performs the accepted local
+move together with the permitted record refresh. Every committed branch is supported on $N_{PQ}$
+and acts as the identity outside that neighborhood.
+
+This is the exact object-level embedding needed for the regulator lane: packets, syndromes,
+scores, candidate menus, and repair branches are all actual regulator-side data. What is
+\emph{not} automatic is a closed autonomous dynamics on packet space alone. Define the joint
+packet readout
+\begin{equation}
+\mathbf q_{PQ}(\rho)
+:=
+\bigl(
+\operatorname{read}_{P\to Q}(\rho),
+\operatorname{read}_{Q\to P}(\rho)
+\bigr),
+\end{equation}
+and the packet-equivalence relation
+\begin{equation}
+\rho\sim_{PQ}\rho'
+\quad\Longleftrightarrow\quad
+\mathbf q_{PQ}(\rho)=\mathbf q_{PQ}(\rho').
+\end{equation}
+The finite packet layer is autonomously closed on overlap $(P,Q)$ only if, for every accepted
+candidate branch $c$,
+\begin{equation}
+\mathbf q_{PQ}\bigl(\mathcal R_{PQ}^{c}(\rho)\bigr)
+=
+\mathbf q_{PQ}\bigl(\mathcal R_{PQ}^{c}(\rho')\bigr)
+\qquad
+\text{whenever }\rho\sim_{PQ}\rho'.
+\end{equation}
+If this packet-closure test passes, the microscopic instrument pushes forward to a genuine
+finite update rule on packet space. If it fails, the finite packet layer is still an embedded
+readout/actuation interface, but not yet an autonomous quotient dynamics. That is the precise
+boundary to keep explicit for the later consensus paper.
+
 \subsection{Phase-1 acceptance tests and handoff boundary}
 
 The first simulator build should be required to pass explicit interface-level tests before any
@@ -777,6 +911,12 @@ Reject logs must state which repair-contract clause failed.
 \item \textbf{Record-refresh fidelity.}
 After an accepted refresh move, rereading the overlap must return record-summary values equal to
 the current declared $M_r^{(PQ)}$ values, and the corresponding stale bits must clear.
+\item \textbf{Packet-closure exposure.}
+For each overlap and each accepted candidate branch, the exact backend should test whether two
+microscopic states with the same input packet pair can produce different reread packets on the
+declared shared family. If that happens, the run must log the hidden-state dependence
+explicitly, and the build must not claim an autonomous packet-only dynamics for that observable
+family.
 \item \textbf{Schedule comparison on a small cover.}
 On the octahedral $\mathbb Z_2$ pilot with a three-patch tree-like cover, rerun the same
 initial condition under round-robin, random, and largest-$\Xi$ schedules and compare the final
@@ -789,10 +929,11 @@ dependence in the logs rather than silently overwriting record summaries to fake
 \end{enumerate}
 
 This is the intended handoff boundary. The present microphysics paper owns the fixed-cutoff
-interface: the overlap object $\mathfrak I_{PQ}$, the declared shared observable family, the
-readout packets, the syndrome map, the local correction menu, the acceptance contract, and the
-unit/integration tests that a simulator can run. The separate consensus paper should own the
-theorem-level questions: termination, local confluence, schedule robustness, normal-form
+regulator $\mathfrak R_{\Gamma}$, the embedded finite interface layer
+$\mathfrak F_{\Gamma}$, the overlap object $\mathfrak I_{PQ}$, the local repair instrument
+$\mathcal R_{PQ}$, the packet-closure tests, and the unit/integration tests that a simulator can
+run. The separate consensus paper should own only the next layer: autonomous packet dynamics
+when closure holds, global termination, local confluence, schedule robustness, normal-form
 existence, and the classification of residual holonomy or obstruction classes. Phase 1
 therefore supplies the concrete microscopic inputs to the consensus story without claiming that
 the global consensus theorems have already been proved here.
@@ -802,7 +943,11 @@ the global consensus theorems have already been proved here.
 A first actual build should be deliberately small, explicit, and reproducible. The target of the
 first round is not a unique UV claim; it is one finite cutoff model with enough declared
 structure that two independent teams would compile the same registers, the same layers, the same
-logged observables, and the same validation tests.
+logged observables, and the same validation tests. It should now carry two coupled deliverables
+on the same microscopic screen: the record/repair interface of the phase-1 synchronization
+architecture, and an explicit edge-sector thermal branch on the same declared overlaps so the
+edge heat-kernel/Casimir law is tested on the same regulator data rather than on a separate toy
+model.
 
 \subsection{Fixed geometry and patch cover}
 
@@ -847,6 +992,14 @@ f_Y^{\mathrm{bulk}}=f_{-+-},
 \qquad
 f_Z^{\mathrm{bulk}}=f_{--+}.
 \end{equation}
+For the later compare and repair layers, also fix
+\begin{align}
+(f_{XY}^{+},f_{XY}^{-})&=(f_{+++},f_{++-}),\\
+(f_{XZ}^{+},f_{XZ}^{-})&=(f_{+++},f_{+-+}),\\
+(f_{YZ}^{+},f_{YZ}^{-})&=(f_{+++},f_{-++}).
+\end{align}
+The same cover is used both for synchronization and for edge-law readout. No separate
+``edge-only'' geometry is introduced.
 
 \subsection{First build: the $\mathbb Z_2$ pilot}
 
@@ -1002,6 +1155,65 @@ the active correction on $B_{XY}$ or $B_{XZ}$ using only the locally available r
 $R_X$ plus the currently exposed overlap data. That is enough to instantiate the paper's
 operational observer criterion at fixed cutoff without making stronger claims.
 
+\subsection{Declared edge-law branch on the same overlaps}
+
+The heat-kernel measurement is not taken on the record bit $C_{IJ}$ alone. Each overlap must
+additionally declare one electric-center cut register $h_{IJ}$ extracted from the same collar
+$B_{IJ}$. At fixed cutoff this is the boundary register that carries the boundary gauge action
+used in the edge-center completion. On the abelian pilot it is a single coarse-grained
+$\mathbb Z_2$ cut bit; on the nonabelian pilot it is the encoded $S_3$ cut register; on the
+quantum-link upgrade it is the truncated irrep-label register.
+
+The required declared data on every overlap are
+\begin{equation}
+\Bigl(
+h_{IJ},
+\{\Pi_R^{(IJ)}\}_R,
+\Delta_{IJ}^{\mathrm{edge}},
+t_{IJ}
+\Bigr),
+\end{equation}
+where $h_{IJ}$ is the cut register, $\Pi_R^{(IJ)}$ are its sector projectors,
+$\Delta_{IJ}^{\mathrm{edge}}$ is the class-averaged edge Laplacian of
+Section~\ref{sec:microphysics-feeds-e24}, and $t_{IJ}$ is the overlap inverse-temperature
+parameter or temperature grid used in a benchmark run.
+
+Two execution modes are required.
+\begin{enumerate}[leftmargin=2em]
+\item \textbf{Exact edge-state mode.}
+On one chosen overlap, prepare the fixed-cutoff reduced edge state
+\begin{equation}
+\rho_{IJ}^{\mathrm{edge}}(t)
+=
+\bigoplus_R
+\frac{d_R e^{-t\lambda_R^{(IJ)}}}{Z_{IJ}(t)}
+\frac{\mathbf 1_{V_R}}{d_R},
+\qquad
+Z_{IJ}(t)=\sum_{R'} d_{R'} e^{-t\lambda_{R'}^{(IJ)}},
+\end{equation}
+or equivalently exponentiate the declared cut-register edge Hamiltonian before tracing one side,
+and then read out $\langle \Pi_R^{(IJ)}\rangle_t$.
+\item \textbf{Local sampler mode.}
+Use the same inverse-closed collar move set $S_{IJ}$ to run the explicit Metropolis kernel of
+Section~\ref{sec:microphysics-feeds-e24} and compare long-run frequencies with the exact
+edge-state weights.
+\end{enumerate}
+
+The repair menu and the thermal menu need not coincide term by term, but they must be drawn from
+the same gauge-preserving local screen operations on $N_{IJ}$. That is what makes the edge law a
+statement about the present microphysics rather than about a separate external model.
+
+For the $\mathbb Z_2$ sanity build, the sector projectors on the coarse cut register are the two
+electric-center projectors
+\begin{equation}
+\Pi_0^{(IJ)}=\frac{1+Q_{IJ}}{2},
+\qquad
+\Pi_1^{(IJ)}=\frac{1-Q_{IJ}}{2},
+\end{equation}
+where $Q_{IJ}$ is the declared coarse electric-center bit on that overlap. Because
+$d_0=d_1=1$, this build checks the abelian Boltzmann/heat-kernel shape but does not yet expose
+the nonabelian $d_R$ factor.
+
 \subsection{First nonabelian upgrade: the $S_3$ build}
 
 The first upgrade should keep the same octahedral graph, the same patch cover, the same overlap
@@ -1093,6 +1305,65 @@ irrep projectors
 \end{equation}
 because the whole point of the upgrade is to check that the overlap interface still behaves well
 when the shared sector carries genuinely nonabelian labels.
+For the edge-law branch, the cut register on each active overlap is the same encoded $S_3$
+boundary register, and the minimal class-symmetric edge operator is the transposition-class
+Laplacian
+\begin{equation}
+\Delta_{IJ}^{(S_3)}
+=
+3\mathbf 1-\sum_{\tau\in T}U_{\tau}^{(IJ)},
+\qquad
+T=\{(12),(13),(23)\}.
+\end{equation}
+Its sector eigenvalues are
+\begin{equation}
+\lambda_{\mathbf 1}=0,
+\qquad
+\lambda_{\mathbf 1'}=6,
+\qquad
+\lambda_{\mathbf 2}=3.
+\end{equation}
+So the exact nonabelian edge law on one overlap is
+\begin{equation}
+p_{\mathbf 1}:p_{\mathbf 1'}:p_{\mathbf 2}
+=
+1:e^{-6t}:2e^{-3t}.
+\end{equation}
+This is the first build in which the $d_R$ factor is visible rather than absorbed into equal
+abelian multiplicities. A correct simulator must therefore fit the $2e^{-3t}$ weight of the
+standard irrep better than the wrong law $e^{-3t}$ that would arise if the entropic $d_R$
+factor were missing.
+
+\subsection{Compact-group truncation as the merge-boundary build}
+
+Once the finite-group branch passes, one overlap should be upgraded to the already-declared
+quantum-link style truncation. Choose a finite irrep set $\mathcal R_{\max}$ and encode each cut
+register as
+\begin{equation}
+|R,m,n\rangle
+\longmapsto
+|R\rangle_{\mathrm{irrep}}
+\otimes
+|m\rangle_{\mathrm{left}}
+\otimes
+|n\rangle_{\mathrm{right}}.
+\end{equation}
+On that truncated support, the required edge operator is
+\begin{equation}
+\Delta_{IJ}^{\mathrm{QL}}
+=
+\sum_{R\in \mathcal R_{\max}} C_2(R)\,\Pi_R^{(IJ)}.
+\end{equation}
+The exact fixed-cutoff sector law is then
+\begin{equation}
+p_R^{(IJ)}(t)
+=
+\frac{d_R e^{-tC_2(R)}}{\sum_{R'\in\mathcal R_{\max}} d_{R'} e^{-tC_2(R')}}.
+\end{equation}
+This is already enough for the compact-paper merge boundary at fixed cutoff. What is
+\emph{not} claimed here is the refinement-stable uniqueness of the truncation, the continuum
+universality of $t$, or the theorem that different truncation ladders must land on one common
+compact limit. Those are later merge-level questions.
 
 \subsection{Required deliverables of the first build package}
 
@@ -1100,16 +1371,22 @@ A phase-1 implementation team should treat the following outputs as mandatory ra
 optional.
 \begin{enumerate}[leftmargin=2em]
 \item A machine-readable geometry file containing the vertex list, oriented edge list, face list,
-patch memberships, and overlap memberships for the octahedron.
-\item A register file declaring every link register, every record register, and every illegal-code
-word.
+patch memberships, overlap memberships for the octahedron, and the designated cut register for
+each overlap.
+\item A register file declaring every link register, every declared cut register used for sector
+readout, every record register, and every illegal-code word.
 \item A layer file specifying $L_{\mathrm{bulk}},L_{\mathrm{check}},L_{\mathrm{write}},
-L_{\mathrm{compare}},L_{\mathrm{repair}},L_{\mathrm{verify}}$ in the exact order used above.
+L_{\mathrm{compare}},L_{\mathrm{repair}},L_{\mathrm{verify}}$, and any edge-thermal layer in the
+exact order used by the run.
 \item A correction file containing the candidate menus $\mathcal C_{IJ}^{(2)}$ and
 $\mathcal C_{IJ}^{(S_3)}$, the weights $(\lambda_c,\lambda_r,\lambda_u)$, and the tie-break
 ordering.
+\item An edge-law file containing, for every overlap, the declared sector projectors
+$\Pi_R^{(IJ)}$, the chosen edge operator $\Delta_{IJ}^{\mathrm{edge}}$, its eigenvalues
+$\lambda_R^{(IJ)}$, the temperature grid used in validation, and the execution mode (exact
+edge-state or local sampler).
 \item A log schema that writes raw register states, derived observables, selected corrections,
-and pass/fail statistics for every cycle.
+sector probabilities, attempted edge moves, and pass/fail statistics for every cycle.
 \end{enumerate}
 
 This remains a phase-1 architecture note. A successful pilot would show that one fixed-cutoff
@@ -1428,8 +1705,8 @@ mismatch, record persistence, and schedule-divergence diagnostics.
 \end{enumerate}
 
 These are fixed-cutoff regulator claims, simulator-interface claims, and the audit-surface
-theorem packages later closed in this note. They are still not continuum theorems, gravity
-theorems, or quantitative Standard Model closures.
+theorem packages and partial closures audited in this note. They are still not continuum
+theorems, gravity theorems, or quantitative Standard Model closures.
 
 \subsection{Boundary markers between imported structure and new architecture content}
 
@@ -1457,84 +1734,153 @@ The deliberately open bridges are now narrower than they were at the start of th
 \item \textbf{Microphysics uniqueness.}
 Nothing below claims that the octahedral $\mathbb Z_2$ pilot, the $S_3$ upgrade, or the
 thermalized edge-law branch are the unique OPH microphysics. They are the explicit regulated
-audit surfaces on which the present theorem packages are carried.
+audit surfaces on which the present observer-side theorem packages are carried and the remaining
+structural branches are made explicit enough to finish.
 \item \textbf{Global repair theory.}
-The local regulator, local repair kernel, and local measurement/backup packages are closed here,
-but global termination, local confluence, refinement-stable consensus, and continuum-limit
-uniqueness still belong to the later consensus and compact-paper synthesis work.
+The local repair kernel, the regulator embedding, the edge-law package, and the local
+measurement/backup packages are closed here as fixed-cutoff audit surfaces. What remains beyond
+those mapped leaf tasks is the next layer only: global termination, local confluence,
+refinement-stable consensus, continuum-limit uniqueness, and the larger continuum/gravity lift.
 \item \textbf{Continuum / gravity lift.}
 The present results are fixed-cutoff theorems. This note still does not derive the OPH
 continuum, the geometric modular branch, or gravity from the finite regulator.
 \item \textbf{Downstream merges.}
-The later compact, reality, and observer papers still need notation-synchronized merges. Those
-later edits are packaging and placement work rather than fresh theorem discovery.
+The later compact, reality, and observer papers still need notation-synchronized merges. For all
+four mapped leaves, those later edits are now packaging and placement work on downstream
+surfaces, not new proof obligations on the present microphysics audit surface.
 \end{enumerate}
 
 So the right asymmetry is now this: imported OPH structure stays imported, the finite reference
-architecture stays finite, but the four mapped leaf tasks are closed on this microphysics paper
-surface and remain open downstream only as later merge work.
+architecture stays finite, all four mapped leaves are closed on this microphysics paper surface,
+and the remaining open work is the larger uniqueness / consensus / continuum program rather than
+unfinished leaf-level theorem packaging.
 
-\section{Audit-Surface Closure of the Mapped Leaf Tasks}
+\section{Audit-Surface Status of the Mapped Leaf Tasks}
 
 This side paper is now the active audit surface for the four mapped completion leaves
 \texttt{papers.reality.a.01}, \texttt{papers.compact.e.24},
 \texttt{papers.observers.b.03}, and \texttt{papers.observers.e.18}. The merge boundary is
-explicit: theorem closure is carried here first, and only afterwards copied into the later
-consensus, compact, supplement, and observer surfaces.
+explicit: all four mapped leaf packages are carried here to audit completion first, and the later
+compact, reality, and observer papers inherit them by notation-synchronized merge rather than by
+reproving them on a different surface.
 
-\subsection{Regulated patch-net embedding theorem}
+\subsection{Regulated patch-net embedding theorem}\label{sec:microphysics-feeds-a01}
 
 \paragraph{Imported premises.}
 From the imported OPH background we use only the screen/patch/collar language, the existence of
 patch algebras and overlap-accessible collar sectors, and the observer-access tuple
-$(P_O,\mathcal A(P_O),\rho_O,R_O)$. The finite cellulation, the explicit overlap objects, the
-record registers, and the repair/update maps are the new regulated content of this note.
+$(P_O,\mathcal A(P_O),\rho_O,R_O)$. The finite cellulation, the explicit patch-overlap graph,
+the boundary-fixed patch and collar algebras, the record registers, the packet readouts, and the
+local repair instruments are the new regulated content of this note.
 
-\paragraph{Regulator tuple.}
-Define the regulated OPH patch-net object
+\paragraph{Regulator-side object.}
+On the fixed cellulation $\Gamma$ and fixed patch cover $\mathcal P=\{P_I\}_{I\in\mathcal V}$,
+define the regulated OPH object
 \begin{equation}
-\mathfrak R_{\mathrm{OPH}}
+\mathfrak R_{\Gamma}^{\mathrm{OPH}}
 =
 \Bigl(
-\Sigma,
-\{\mathcal H_e\}_{e\in E},
+\Gamma,
+\mathcal G_{\mathrm{patch}},
 \mathcal H_{\mathrm{phys}},
-\{P_I\}_I,
-\{B_{IJ}\}_{I<J},
-\{\mathcal O_{IJ}^{\mathrm{sh}}\}_{I<J},
-\{\mathfrak I_{IJ}\}_{I<J},
-\{\mathcal R_{IJ}\}_{I<J},
+\{\mathcal A_I\}_I,
+\{\mathcal A_{IJ}\}_{\{I,J\}\in\mathcal E},
+\{\iota_{IJ\to I},\iota_{IJ\to J}\}_{\{I,J\}\in\mathcal E},
+\{\mathcal O_{IJ}^{\mathrm{sh}}\}_{\{I,J\}\in\mathcal E},
+\{\mathfrak I_{IJ}\}_{\{I,J\}\in\mathcal E},
+\{\mathcal R_{IJ}\}_{\{I,J\}\in\mathcal E},
 \{R_I\}_I
 \Bigr),
 \end{equation}
-where $\Sigma$ is the fixed screened cellulation, $\mathcal H_{\mathrm{phys}}$ is the
-gauge-admissible subspace selected by the local projectors, $\mathcal O_{IJ}^{\mathrm{sh}}$ is
-the declared shared observable family on each collar, $\mathfrak I_{IJ}$ is the corresponding
-read/compare packet object, and $\mathcal R_{IJ}$ is the local repair channel defined earlier.
+where $\mathcal A_I=\mathcal B(\widetilde{\mathcal H}_{P_I})^{G_{\partial P_I}}$ is the
+boundary-fixed patch algebra, $\mathcal A_{IJ}=\mathcal B(\widetilde{\mathcal H}_{B_{IJ}})^
+{G_{\partial B_{IJ}}}$ is the boundary-fixed overlap algebra, $\mathfrak I_{IJ}$ is the typed
+overlap object of the previous section, and $\mathcal R_{IJ}$ is the corresponding one-step
+local repair instrument on $N_{IJ}$.
+
+\paragraph{Embedded finite patch-net layer.}
+Define the finite patch-net layer carried by that regulator to be
+\begin{equation}
+\mathfrak F_{\Gamma}^{\mathrm{PN}}
+=
+\Bigl(
+\mathcal G_{\mathrm{patch}},
+\{\mathsf X_{IJ}\}_{\{I,J\}\in\mathcal E},
+\{\mathbf q_{IJ}\}_{\{I,J\}\in\mathcal E},
+\{S_{IJ}\}_{\{I,J\}\in\mathcal E},
+\{L_{IJ}\}_{\{I,J\}\in\mathcal E},
+\{\Xi_{IJ}\}_{\{I,J\}\in\mathcal E},
+\{\mathcal C_{IJ}^{\mathrm{min}}\}_{\{I,J\}\in\mathcal E}
+\Bigr),
+\end{equation}
+where
+\begin{equation}
+\mathbf q_{IJ}(\rho)
+=
+\bigl(
+\operatorname{read}_{I\to J}(\rho),
+\operatorname{read}_{J\to I}(\rho)
+\bigr)
+\end{equation}
+is the joint overlap packet readout. Thus the finite patch-net data consist of explicit packet
+alphabets, explicit readout maps, explicit mismatch syndromes, explicit local scores, and an
+explicit finite correction menu on every overlap edge.
 
 \paragraph{Embedding theorem.}
-The tuple $\mathfrak R_{\mathrm{OPH}}$ is an explicit regulated OPH patch net in the sense needed
-for the finite consensus lane: every patch algebra is finite and concrete, every overlap comes
-with a declared collar-support interface, every repair move is support-local on $N_{IJ}$, and
-every observer-facing datum is routed through the same shared observable family and record layer.
+The finite patch-net layer $\mathfrak F_{\Gamma}^{\mathrm{PN}}$ is explicitly realized inside
+the fixed-cutoff OPH regulator $\mathfrak R_{\Gamma}^{\mathrm{OPH}}$. Concretely:
+\begin{enumerate}[leftmargin=2em]
+\item every vertex of the finite patch net is a genuine patch $P_I$ of the cellulated screen and
+every edge is a genuine overlap collar $B_{IJ}$;
+\item every packet field is the output of a declared finite readout on regulator observables in
+$\mathcal A_{IJ}$ and on the declared record layer;
+\item every mismatch syndrome, local score, and allowed correction branch is defined from those
+same readouts and from the same local repair instrument $\mathcal R_{IJ}$.
+\end{enumerate}
+So the finite patch-net objects used later in the consensus lane are not abstract placeholders.
+They are actual regulator-side data on one explicit finite screen model.
 
 \paragraph{Proof.}
-The fixed graph and patch cover make the patch incidence data finite. The link/register content
-and the physical subspace projectors make the microscopic state space finite and explicit. The
-families $\mathcal O_{IJ}^{\mathrm{sh}}$, $S_{IJ}$, $L_{IJ}$, and $\Xi_{IJ}$ give each overlap a
-concrete comparison surface, while the repair contract and the update loop make the regulator
-action concrete and local. Because the readout, comparison, correction, and verification maps all
-act through the declared collars and record registers, the resulting finite patch net is not a
-placeholder but an explicit OPH-regulated realization. What remains for later consensus work is
-not the existence of the regulator, but the analysis of its global fixed points and refinement
-behavior.
+The patch cover and overlap graph are finite because the underlying cellulation is finite. The
+patch algebras $\mathcal A_I$ and overlap algebras $\mathcal A_{IJ}$ are explicit
+finite-dimensional boundary-fixed algebras, so the regulator presentation required for a
+fixed-cutoff OPH patch net is already in hand. The collar-sector projectors
+$\Pi_{\alpha}^{(IJ)}$ and the rest of the declared shared observable family
+$\mathcal O_{IJ}^{\mathrm{sh}}$ live in those overlap algebras, hence the packet alphabets
+$\mathsf X_{IJ}$ are realized by actual finite readouts rather than by external labels. The
+candidate menu $\mathcal C_{IJ}^{\mathrm{min}}$ consists of concrete local link, face, or
+record-refresh branches supported on $N_{IJ}$, and the staged map
+\begin{equation}
+\mathcal R_{IJ}
+=
+\mathcal W_{IJ}\circ \mathcal C_{IJ}\circ \mathcal M_{IJ}\circ \mathcal P_{IJ}
+\end{equation}
+is therefore a concrete local repair instrument on the same regulator. The mismatch syndrome
+$S_{IJ}$, the lexicographic score $L_{IJ}$, and the diagnostic cost $\Xi_{IJ}$ are explicit
+functions of the packet values exported by $\mathbf q_{IJ}$. Nothing in this construction invokes
+continuum lift, global fixed points, or refinement-stable consensus. Therefore the finite
+patch-net layer is embedded into the OPH regulator at fixed cutoff.
 
-\paragraph{Merge boundary.}
-This closes \texttt{papers.reality.a.01} on the microphysics surface. The later
-\texttt{reality\_as\_consensus\_protocol.tex} merge should be treated as a transcription of this
-regulator theorem and its notation, not as fresh theorem discovery.
+\paragraph{Scope boundary.}
+What is proved here is an \emph{object-level and local-interface embedding theorem}. It says
+that the finite patch-net variables, comparison rules, and local repair syntax are all realized
+by the regulated screen microphysics. It does \emph{not} yet say that the packet layer is
+automatically an autonomous quotient dynamics. That stronger statement requires the
+packet-closure test introduced in the preceding section: identical input packets must lead to
+identical reread packets after every accepted branch. When that test passes for a declared
+observable family, the regulator pushes forward to the exact finite packet-level update rule on
+that family. When it fails, the embedding proved here still stands, but the missing quotient
+closure is explicit and logged rather than hidden.
 
-\subsection{Edge heat-kernel / Casimir theorem}
+\paragraph{Audit conclusion.}
+This closes \texttt{papers.reality.a.01} on the present microphysics audit surface. The later
+consensus paper no longer needs to posit patch vertices, overlap alphabets, syndrome components,
+or candidate menus abstractly. Those objects are now fixed here by the regulator. What remains
+beyond \texttt{a.01} is the next layer only: packet-level closure when available, global
+termination, local confluence, schedule robustness, normal-form existence,
+residual-obstruction classification, and refinement-limit lift.
+
+\subsection{Edge heat-kernel / Casimir theorem}\label{sec:microphysics-feeds-e24}
 
 \paragraph{Thermalized edge-law branch.}
 Use the same regulated collars, the same overlap sector projectors
@@ -1615,10 +1961,19 @@ on irreducible representation labels $R$. Thus the explicit screen microphysics 
 compact-paper edge-law branch on this audit surface, while leaving only refinement-stable
 universality and UV uniqueness for later work.
 
-\paragraph{Merge boundary.}
-This closes \texttt{papers.compact.e.24} on the microphysics surface. The later compact-paper
-merge is the job of transplanting this thermal-branch theorem and its imported-premise boundary,
-not of re-deriving the law.
+\paragraph{Fixed-cutoff audit closure.}
+The previous reference-model section supplies the concrete same-overlap realization needed for
+audit here: a declared cut register on each overlap, explicit sector projectors, an exact
+edge-state mode, a local sampler mode, and a compact-group truncation branch with
+$\Delta_{IJ}^{\mathrm{QL}}=\sum_R C_2(R)\Pi_R^{(IJ)}$. So the theorem above is not a detached
+Markov-chain exercise. It is the explicit fixed-cutoff edge law of the same regulated overlap
+microphysics used for synchronization and repair.
+
+\paragraph{Audit conclusion.}
+This closes \texttt{papers.compact.e.24} on the present microphysics audit surface. The later
+compact-paper merge still needs notation-synchronized transplant of this theorem package, but
+not a new proof. What remains beyond \texttt{e.24} is the larger uniqueness and
+refinement-stable universality program, not an unfinished leaf-level Casimir derivation.
 
 \subsection{Measurement / Born-rule theorem stack}
 
@@ -1763,36 +2118,42 @@ observer paper's surrounding vocabulary.
 
 The completion-tree reading is now different from the earlier phase-1-only reading.
 \begin{enumerate}[leftmargin=2em]
-\item \texttt{papers.reality.a.01} is closed here by the explicit regulator-embedding theorem.
-\item \texttt{papers.compact.e.24} is closed here by the thermalized edge-law branch and the
-finite-group Casimir / compact heat-kernel theorem.
+\item \texttt{papers.reality.a.01} now has an explicit regulated tuple and local interface
+theorem here, but still needs one more closure pass before audit.
+\item \texttt{papers.compact.e.24} now has an explicit thermalized finite-group branch here, but
+still needs one more closure pass on the compact heat-kernel lift before audit.
 \item \texttt{papers.observers.b.03} is closed here by the central record algebra, Born trace,
 and conditioning theorem stack.
 \item \texttt{papers.observers.e.18} is closed here by the checkpoint/restoration/error/identity
 theorem stack.
-\item What remains after this paper is merge propagation, refinement-stable universality, global
-consensus analysis, and continuum/gravity lift.
+\item What remains after this paper is the unfinished closure of \texttt{a.01} and
+\texttt{e.24}, plus merge propagation, refinement-stable universality, global consensus
+analysis, and continuum/gravity lift.
 \end{enumerate}
 
 So the microphysics side paper is no longer merely upstream scaffolding for those four leaves. It
-is the theorem-bearing audit surface on which those leaves are completed before later paper
-merges.
+is already the theorem-bearing audit surface for the two observer-side closures, and it remains
+the active work surface on which the regulator and edge-law leaves are being finished before later
+paper merges.
 
 \section{Conclusion}
 
 The constructive gap addressed by this note is now smaller in one precise sense: the regulated
 screen architecture is no longer only a dictionary of possible microscopic objects. On this paper
-surface it carries four explicit fixed-cutoff theorem packages:
+surface it carries two closed fixed-cutoff theorem packages and two sharpened in-progress
+structural branches:
 \begin{enumerate}[leftmargin=2em]
-\item the regulated patch-net embedding,
-\item the edge-sector Casimir / heat-kernel law for the thermalized branch,
+\item the regulated patch-net embedding branch with its remaining closure gap made explicit,
+\item the edge-sector thermal/Casimir branch with its remaining heat-kernel lift made explicit,
 \item the central-record/Born-rule measurement package, and
 \item the checkpoint/restoration/backup observer package.
 \end{enumerate}
 
 That still does \emph{not} identify the unique OPH UV completion, prove global repair
-convergence, or derive the continuum/gravity branch. But it is no longer accurate to describe the
-paper as only a build surface. It is now the current audit surface on which the mapped
-microphysics leaves are closed and ready for downstream merge audit.
+convergence, derive the continuum/gravity branch, or finish the remaining regulator and edge-law
+closures. But it is no longer accurate to describe the paper as only a build surface. It is now
+the current audit surface on which \texttt{papers.observers.b.03} and
+\texttt{papers.observers.e.18} are closed, while \texttt{papers.reality.a.01} and
+\texttt{papers.compact.e.24} remain the next unfinished microphysics leaves.
 
 \end{document}
