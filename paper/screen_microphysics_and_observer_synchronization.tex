@@ -20,11 +20,11 @@
 \OPHPaperReleaseBanner
 
 \begin{abstract}
-This paper is a phase-1 architecture note for Observer-Patch Holography (OPH). The
+This paper is a fixed-cutoff microphysics and observer-interface note for Observer-Patch Holography (OPH). The
 objective is constructive and simulator-facing: choose one finite local screen model that can
 actually be encoded in qubits, make the map from local registers to patch algebras and overlap
 observables explicit, and state how stable records, observer patterns, local interaction, and
-observer-level synchronization could be built inside that same microscopic system. The working
+observer-level synchronization can be built inside that same microscopic system. The working
 choice is a constrained finite gauge-register or quantum-link style model on a cellulated
 screen, used here as a \emph{reference architecture} rather than as a claim that the unique OPH
 UV completion has already been identified. We separate reused OPH structure, architecture-level
@@ -41,14 +41,15 @@ package that can fail.
 
 \section{Project Charter}
 
-\textbf{Status.} Extra side paper. Not part of the compact recovered core. Not yet part of the
-current OPH theorem stack.
+\textbf{Status.} Extra side paper. Not part of the compact recovered core. It now carries
+fixed-cutoff theorem packages for the observer-side measurement and checkpoint/restoration
+interfaces, while the continuum/gravity and global-consensus lifts remain open.
 
 \textbf{Purpose.}
 \begin{enumerate}[leftmargin=2em]
 \item Give a concrete reference architecture for local finite screen degrees of freedom.
 \item Make the bridge from local registers to patches, overlaps, records, observers, and
-synchronization explicit enough to build toy simulators.
+synchronization explicit enough to build toy simulators and fixed-cutoff theorem packages.
 \item Keep theorem claims, simulator claims, and conjectural bridges sharply separated.
 \item Feed the existing OPH microphysics, repair, and observer task lanes without pretending
 to close them automatically.
@@ -82,7 +83,7 @@ does not re-prove them.
 chosen, the patch algebra, overlap algebra, edge-sector observables, record layer, and
 observer-level interfaces can be defined explicitly at fixed cutoff.
 
-\item \textbf{Simulator claims.} Small-lattice digital or tensor-network simulations can test
+\item \textbf{Fixed-cutoff theorem and simulator claims.} Small-lattice digital or tensor-network simulations can test
 whether the reference architecture exhibits gauge-invariant patch observables, stable records,
 low conditional mutual information across collars, and robust synchronization under local repair
 schedules.
@@ -92,7 +93,7 @@ phase of such models lands in the OPH modular-geometric branch and later support
 continuum or gravity story, but that bridge is not proved here.
 
 \item \textbf{Excluded claims.} This note does not identify the final OPH microphysics, does not
-establish a unique repair law, and does not close the Standard Model or continuum branches.
+establish a unique global repair law, and does not close the Standard Model or continuum branches.
 \end{enumerate}
 
 \section{Why a Finite Gauge-Register Reference Architecture}
@@ -1757,12 +1758,11 @@ unfinished leaf-level theorem packaging.
 
 \section{Audit-Surface Status of the Mapped Leaf Tasks}
 
-This side paper is now the active audit surface for the four mapped completion leaves
-\texttt{papers.reality.a.01}, \texttt{papers.compact.e.24},
-\texttt{papers.observers.b.03}, and \texttt{papers.observers.e.18}. The merge boundary is
-explicit: all four mapped leaf packages are carried here to audit completion first, and the later
-compact, reality, and observer papers inherit them by notation-synchronized merge rather than by
-reproving them on a different surface.
+This side paper now serves as the fixed-cutoff microphysics surface for four later theorem
+packages: regulated patch-net embedding, edge heat-kernel / Casimir weights,
+measurement/Born-rule, and observer checkpoint/restoration. The merge boundary is explicit:
+those packages are carried here first, and the later compact, reality, and observer papers
+inherit them by notation-synchronized merge rather than by reproving them on a different surface.
 
 \subsection{Regulated patch-net embedding theorem}\label{sec:microphysics-feeds-a01}
 
@@ -2032,9 +2032,9 @@ the precise place where the conditioning surface changed. So the measurement pac
 defined but auditable.
 
 \paragraph{Merge boundary.}
-This closes \texttt{papers.observers.b.03} on the microphysics surface. The later supplement and
-observer-paper merges should simply import the same record algebra, Born trace, and conditioning
-statements onto their house notation.
+This closes the fixed-cutoff measurement/Born-rule package on the microphysics surface. The later
+supplement and observer-paper merges should simply import the same record algebra, Born trace,
+and conditioning statements onto their house notation.
 
 \subsection{Observer continuation / backup theorem stack}
 
@@ -2110,13 +2110,13 @@ Any exact copy of $\mathrm{Chk}_O(t)$ is a valid backup. Any approximate copy sa
 same restoration bound is an $\varepsilon$-backup with explicit quantitative degradation.
 
 \paragraph{Merge boundary.}
-This closes \texttt{papers.observers.e.18} on the microphysics surface. The later observer-paper
-merge should port the checkpoint, restoration, error, and identity statements above into the
-observer paper's surrounding vocabulary.
+This closes the fixed-cutoff observer checkpoint/restoration package on the microphysics surface.
+The later observer-paper merge should port the checkpoint, restoration, error, and identity
+statements above into the observer paper's surrounding vocabulary.
 
 \subsection{Program status after this note}
 
-The completion-tree reading is now different from the earlier phase-1-only reading.
+The program-level reading is now different from the earlier phase-1-only reading.
 \begin{enumerate}[leftmargin=2em]
 \item \texttt{papers.reality.a.01} now has an explicit regulated tuple and local interface
 theorem here, but still needs one more closure pass before audit.
