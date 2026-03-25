@@ -960,6 +960,13 @@ yields the MOND/RAR form: \[g_{\text{obs}} \approx g_b + \sqrt{a_0 g_b}\]
 
 \section{Proton Stability and Spin}\label{10-proton-stability-and-spin}
 
+This section separates three distinct claim types that were too compressed in older drafts:
+\begin{enumerate}
+\item \textbf{Structural output already closed on the realized D8--D9 branch:} the realized low-energy gauge group is a product up to finite quotient, so the adjoint contains no mixed \(X,Y\)-type gauge bosons and therefore no \emph{gauge-mediated} proton-decay channel of simple-GUT type.
+\item \textbf{QCD/EFT-dependent hadron claims:} any finite proton-lifetime estimate beyond that gauge-channel exclusion, and any statement about the proton spin decomposition, require explicit operator matching, renormalization conventions, and nonperturbative hadronic matrix elements.
+\item \textbf{Still-open completion burden:} the present supplement does not yet contain the nonperturbative light-quark/hadron completion needed to turn those QCD-dependent statements into derived OPH outputs.
+\end{enumerate}
+
 \subsection{Sector Factorization and Product Group}\label{101-sector-factorization-and-product-group}
 
 \textbf{Theorem 10.1 (Factorization Equivalence):} \[\text{Factorizing edge weights} \Leftrightarrow \text{Additive boundary Laplacian} \Leftrightarrow \text{Product gauge group}\]
@@ -972,22 +979,42 @@ Under the extended theory \(T_{\mathrm{ext}}\), the explicit MAR selector picks 
 
 \subsection{No Leptoquarks, No Gauge Proton Decay}\label{102-no-leptoquarks-no-gauge-proton-decay}
 
-\textbf{Corollary 10.2:} With product gauge group, the adjoint representation of the full connected gauge group is \[(8,1,0) \oplus (1,3,0) \oplus (1,1,0)\]
+\textbf{Corollary 10.2 (structural D8--D9 consequence only):} With product gauge group, the adjoint representation of the full connected gauge group is \[(8,1,0) \oplus (1,3,0) \oplus (1,1,0)\]
 
 equivalently, the adjoint of the derived gauge group is
 \[
 (8,1,0) \oplus (1,3,0).
 \]
 
-No gauge generators in mixed representations \((3,2,\pm 5/6)\) (the SU(5) \(X,Y\) bosons). Hence: \[\tau_p^{(\text{gauge})} = \infty\]
+There are therefore no gauge generators in mixed representations \((3,2,\pm 5/6)\), i.e.\ no simple-GUT \(X,Y\) bosons on the realized OPH branch. The structural claim is exactly
+\[
+\tau_p^{(\text{gauge})} = \infty,
+\]
+meaning that the gauge-boson proton-decay channel is absent.
+
+\textbf{What is not proved here.} This does \emph{not} establish full proton stability, and it does not justify the stronger shorthand \(\tau_p=\infty\). Scalar-mediated or higher-dimensional baryon-violating operators, RG transport of those operators from a UV completion, and the hadronic matrix elements entering exclusive proton-decay rates are all outside the present structural argument. Those steps are EFT/QCD-dependent and remain open in the current supplement. The electroweak baryon-violating counting discussed in Section~\ref{11-baryogenesis} is a separate high-temperature/topological issue rather than a zero-temperature proton-stability theorem.
 
 \subsection{Proton Spin Fraction}\label{103-proton-spin-fraction}
 
-\textbf{Casimir Equilibration Ansatz:} Spin sharing between quarks and gluons equilibrates according to coupling strength: \[\Delta\Sigma \approx \frac{C_F}{C_F + C_A}\]
+\textbf{Structural content already fixed.} On the realized D8--D9 branch the color factor is \(\mathrm{SU}(3)\), so the relevant Casimirs are
+\[
+C_F=\frac43,\qquad C_A=3.
+\]
+That is the full structural OPH input currently available for proton-spin bookkeeping.
 
-For SU(3): \(C_F = 4/3\), \(C_A = 3\): \[\Delta\Sigma = \frac{4/3}{4/3 + 3} = \frac{4}{13} \approx 0.308\]
+\textbf{QCD-dependent continuation ansatz.} If one adds the phenomenological ansatz that quark/gluon spin sharing equilibrates according to the color Casimirs, then
+\[
+\Delta\Sigma \approx \frac{C_F}{C_F + C_A}.
+\]
 
-Compare to lattice: \(\Delta\Sigma \approx 0.286\) (within 8\%).
+For \(\mathrm{SU}(3)\) this gives
+\[
+\Delta\Sigma = \frac{4/3}{4/3 + 3} = \frac{4}{13} \approx 0.308.
+\]
+
+Compared to the representative lattice benchmark \(\Delta\Sigma \approx 0.286\), this lands within about \(8\%\). But the displayed value is only a deferred continuation benchmark, not a theorem. The observable \(\Delta\Sigma\) is factorization-scheme and scale dependent and, in QCD, depends on the polarized axial-current matrix element together with gluon-spin and orbital-angular-momentum contributions.
+
+\textbf{Still open.} A first-principles OPH derivation of proton spin would require the nonperturbative light-quark/hadron completion of Phase I plus an explicit map from OPH data to renormalized proton matrix elements. Until that exists, the \(4/13\) estimate should be read only as a QCD-dependent continuation ansatz.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -1211,7 +1238,7 @@ This appendix does not extend the theorem-level list. It records every non-core 
 \item \textbf{Phase II input-dependent corollary (D6):} the capacity relation for \(\Lambda\) and the associated order-of-magnitude capacity / neutrino estimate.
 \item \textbf{Phase II calibration sector (D10):} gauge/electroweak closure of the D10 branch, including the associated beta-shift comparison.
 \item \textbf{Phase II secondary quantitative branch (D11):} the Higgs/top critical-surface branch once the D10 trajectory and the extra critical-surface condition are imposed.
-\item \textbf{Phase III deferred continuations (D12 and beyond):} charged-lepton/Koide, texture, neutrino mass/mixing constructions beyond the D6 estimate, dark-sector, baryogenesis, black-hole spectroscopy, string/worldsheet, proton-spin, and other downstream fits.
+\item \textbf{Phase III deferred continuations (D12 and beyond):} charged-lepton/Koide, texture, neutrino mass/mixing constructions beyond the D6 estimate, dark-sector, baryogenesis, black-hole spectroscopy, string/worldsheet, proton-spin, and any proton-lifetime estimate beyond the structural exclusion of gauge-mediated decay.
 \end{enumerate}
 
 These failures localize by tier: item 4 retracts the corresponding continuation only; item 3 challenges D11; item 2 challenges D10; item 1 challenges the screen-capacity identification only. None of them erases the recovered core D1--D5 plus D7--D9 by itself.
@@ -1223,7 +1250,7 @@ These failures localize by tier: item 4 retracts the corresponding continuation 
 \item extend the compact-gauge reconstruction from the bosonic internal-gauge branch to the fermionic/super-Tannakian chiral branch while preserving the D7--D9 Standard Model structural chain;
 \item derive or independently fix the external continuous inputs $P$ and $N_{\mathrm{scr}}$, and complete a fully auditable D10--D11 numerical pipeline with explicit running, threshold, and matching conventions;
 \item separate the D6 capacity relation from flavor-style add-ons by deciding exactly which neutrino or cosmological continuations survive without additional ans\"atze;
-\item only after items 1--4 are secured, reopen the Phase-III continuations: charged-lepton/Koide structure, texture exponents, dark-sector response laws, baryogenesis, black-hole spectroscopy, string/worldsheet reorganization, proton-spin bookkeeping, and any similar late-stage continuation such as strong-CP proposals.
+\item only after items 1--4 are secured, reopen the Phase-III continuations: charged-lepton/Koide structure, texture exponents, dark-sector response laws, baryogenesis, black-hole spectroscopy, string/worldsheet reorganization, proton-spin bookkeeping, proton-lifetime estimates beyond the structural gauge-channel exclusion, and any similar late-stage continuation such as strong-CP proposals.
 \end{enumerate}
 
 Interpretive strange-loop / existence narratives sit below that ledger entirely. They are philosophical continuations, not appendix-backed theorem or benchmark claims. This supplement does not define a theorem-usable configuration space for a global emergence map, prove that observer formation and reconstruction close to an internal self-map on such a space, or supply the compactness/contractivity/stability premises needed for an existence or stability theorem.
@@ -1241,7 +1268,7 @@ Quantity / branch & OPH Value & Observed & Status \\
 \bottomrule\noalign{}
 \endlastfoot
 \(a_0\) (dark-sector continuation) & \(1.03 \times 10^{-10}\) m/s\textsuperscript{2} & \(1.2 \times 10^{-10}\) m/s\textsuperscript{2} & deferred continuation benchmark \\
-\(\Delta\Sigma\) (spin continuation) & 0.308 & 0.29 \ensuremath{\pm} 0.03 & deferred continuation benchmark \\
+\(\Delta\Sigma\) (spin continuation; QCD-dependent ansatz) & 0.308 & 0.29 \ensuremath{\pm} 0.03 & deferred continuation benchmark \\
 \(\eta_B\) (baryogenesis estimate) & \(4.6 \times 10^{-10}\) & \(6.1 \times 10^{-10}\) & deferred continuation benchmark \\
 Koide \(Q\) (flavor continuation) & 2/3 & 0.666664 & deferred continuation benchmark \\
 Koide \(\delta\) (flavor continuation) & 2/9 & 0.222225 & deferred continuation benchmark \\
