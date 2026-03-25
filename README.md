@@ -96,7 +96,7 @@ These are rebuttals to common objections to OPH.
 
 We model reality as a network of subjective perspectives that must agree where they overlap. Concretely, we start with observer patches on a 2D holographic screen. Each patch represents a perspective with its own local data. Where patches overlap, their descriptions must agree. On the OPH interpretation, "objective reality" is the overlap-consistent backbone shared across those perspectives rather than an assumed primitive.
 
-Lorentz invariance exists because different observers must have consistent descriptions. Gauge symmetry exists because overlapping patches must identify shared observables. Conservation laws exist because the same quantities must be conserved across all perspectives. The laws are not imposed from outside. They are the conditions that make agreement possible.
+In OPH, Lorentz structure, gauge structure, and conservation laws are treated as consistency requirements among overlapping descriptions rather than as primitives added by hand. On the current claim ladder, the Lorentz/gravity and gauge branches still depend on the stated scaling-limit and reconstruction premises, but the program's organizing idea is that physical law is recovered from agreement constraints rather than imposed externally.
 
 The model rests on four core concepts:
 
@@ -110,9 +110,9 @@ The model rests on four core concepts:
 
 ### Reality from Computation
 
-Think of the screen as a gauge-invariant quantum system on a 2-sphere. It resembles a quantum cellular automaton, but with important structure. At each point on the triangulated sphere sit finite-dimensional quantum systems (qudits), coupled by gauge constraints at every vertex. Not all configurations are physical; only those satisfying Gauss's law survive.
+In the current constructive reference architecture, the screen is modeled as a gauge-invariant quantum system on a 2-sphere. It resembles a quantum cellular automaton, but with important structure: finite-dimensional local systems sit on a cellulated screen and are coupled by gauge constraints. Not all configurations are physical; only those satisfying the gauge constraints survive.
 
-**Observer patches** are subsystems defined by boundary-gauge-invariant algebras. Each patch is a computational thread: a connected region where an observer can ask questions and get answers. The algebra $\mathcal{A}(R)$ defines what that observer can measure, namely the operators invariant under boundary gauge transformations.
+Within that reference architecture, **observer patches** are subsystems defined by boundary-gauge-invariant algebras. Each patch is a computational thread: a connected region where an observer can ask questions and get answers. The algebra $\mathcal{A}(R)$ defines what that observer can measure, namely the operators invariant under boundary gauge transformations.
 
 **Overlap consistency** is automatic. Where two patches intersect, they access the same gauge-invariant observables. Both observers are reading the same underlying data, just from different angles. The gauge redundancy at boundaries is what makes gluing non-trivial and gives rise to the "edge modes" that carry geometric information.
 
@@ -134,25 +134,25 @@ The guiding move of OPH is to treat locality, Lorentz structure, gauge structure
 
 ## The Axioms
 
-The entire framework rests on four core axioms plus one selection axiom:
+The entire framework rests on five core axioms:
 
 | Label | Name | Content |
 |-------|------|---------|
 | **A1** | Screen net | Observable algebras live on a closed 2D surface $S^2$ |
 | **A2** | Overlap consistency | Where patches share a region, their descriptions agree |
-| **A3** | Generalized entropy | $S_{\rm gen} = S_{\rm bulk} + \langle L_C \rangle$ satisfies strong subadditivity |
-| **A4** | Local Markov | Conditional mutual information decays across collars |
-| **MAR** | Minimal Admissible Realization | Among admissible sectors, Nature realizes the lexicographically minimal one |
+| **A3** | Local MaxEnt and Refinement Stability | The realized branch is selected by a finite local MaxEnt family that persists under refinement |
+| **A4** | Recoverable Generalized Entropy | $S_{\rm gen} = S_{\rm bulk} + \langle L_C \rangle$ with recoverability/collar control on the stated branch |
+| **A5** | Minimal Admissible Realization | Among admissible sectors, Nature realizes the lexicographically minimal one |
 
-Additional structural assumptions (MaxEnt, the controlled scaling-limit and OPH geometric-branch premises, exponential mixing) are detailed in the [main paper source](paper/tex_fragments/PAPER.tex).
+Additional theorem-local technical premises and scaling-limit branch assumptions are detailed in the compact note and synchronized main paper.
 
 ## The Prediction Chain
 
-The following infographic summarizes the current OPH reconstruction program from two parameters and four axioms toward effective physics:
+The following infographic summarizes the current OPH reconstruction program from two parameters and five axioms toward effective physics:
 
 ![OPH Prediction Chain](assets/prediction-chain.svg)
 
-*From axioms to effective physics: the current OPH reconstruction program.*
+*From axioms to effective physics: the current OPH reconstruction program. The embedded infographic should be regenerated before release because it still uses older axiom shorthand.*
 
 > **Particle Spectrum Derivation**: The repository-backed derivation from pixel area to the particle-mass program, together with comparisons against PDG data and audit checks, is documented in **[the spectrum derivation source](paper/tex_fragments/SPECTRUM_DERIVATION.tex)**.
 
