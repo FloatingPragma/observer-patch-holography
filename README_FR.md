@@ -33,6 +33,15 @@ Les lois de la physique sont les règles de cohérence qui rendent cet accord in
 - **Émergence feuille d'univers / cordes :** l'OPH relie le même cadre sous-jacent à des descriptions de type feuille d'univers / théorie des cordes au lieu d'en faire un second jeu d'axiomes de départ.
 - **Indices sur matériel réel :** les premiers benchmarks IBM Quantum Cloud reproduisent sur matériel réel l'ordre de récupérabilité et les motifs de rapports exacts prédits pour les secteurs réduits.
 
+## Objectifs du programme
+
+À l'état final visé, l'OPH cherche à :
+
+- **Retrouver complètement la relativité générale :** dériver le secteur gravitationnel jusqu'à la description d'Einstein à basse énergie, y compris la branche cosmologique.
+- **Retrouver complètement le Modèle Standard :** dériver la structure réalisée du Modèle Standard, ses interactions et son secteur effectif basse énergie à partir du cadre OPH lui-même.
+- **Retrouver complètement le zoo précis des particules :** dériver de premiers principes le spectre observé des quarks, leptons, neutrinos, hadrons, ainsi que les masses et mélanges associés, au lieu de les traiter comme des entrées.
+- **Retrouver complètement la structure cordes / feuille d'univers :** montrer comment les descriptions de type théorie des cordes et feuille d'univers émergent comme continuation du même substrat de recouvrement entre observateurs, et non comme un second système d'axiomes.
+
 ## Articles
 
 **Observers are all you need** est l'article technique principal. Il donne l'énoncé le plus large du programme OPH, de ses branches de dérivation actuelles et de la surface actuelle de benchmarks IBM Quantum Cloud. Il fournit aussi l'ossature théorématique du résultat strange loop de l'OPH : dans ce cadre, l'univers est une structure causale intemporelle auto-référentielle où la reconstruction par les observateurs et les contraintes informationnelles se referment en une unique boucle de cohérence.
@@ -168,7 +177,7 @@ Les hypothèses structurelles supplémentaires (MaxEnt, prémisses de limite d'�
 
 ## La chaîne de prédictions
 
-L'infographie suivante résume le squelette dérivationnel visé par OPH, depuis le paquet d'axiomes, les constantes primaires et les hypothèses de pont explicites jusqu'à l'état final recherché :
+L'infographie suivante résume l'ensemble de la chaîne de dérivation visée par l'OPH, depuis le paquet d'axiomes et les constantes primaires, à travers les hypothèses de pont et les grandes branches théorématiques, jusqu'à l'état final recherché :
 
 <a href="assets/prediction-chain.svg"><img src="assets/prediction-chain.svg" alt="Poster DAG complet de dérivation OPH" width="1200"></a>
 

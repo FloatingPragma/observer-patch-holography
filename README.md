@@ -49,7 +49,16 @@ $$
 \sum_i \frac{c_i}{M_*^{\Delta_i-4}}\mathcal O_i.
 $$
 
-This displayed action is the intended IR target of the program, not a separate theorem-level headline claim that every coupling of a final unified bulk action has already been derived. In the current claim ledger, the recovered core remains the conditional Einstein branch plus the realized Standard Model structural chain; the $\Lambda$ relation sits in the separate input-dependent D6 layer, and D10--D11 remain secondary quantitative branches.
+Informally, this equation says what a completed low-energy OPH world should look like once the reconstruction is fully spelled out. The first term is gravity, with spacetime curvature and the cosmological-constant contribution. The second term is the realized Standard Model sector: gauge fields, matter fields, and their interactions. The final sum collects higher-energy corrections that should become small at ordinary scales. In other words, the displayed action is the compact "all known low-energy physics plus controlled corrections" target that the OPH derivation DAG is trying to recover from the observer-overlap framework.
+
+## Program Goals
+
+At full completion, OPH aims to:
+
+- **Fully recover general relativity:** derive the gravitational sector all the way down to the familiar low-energy Einstein description, including the cosmological branch.
+- **Fully recover the Standard Model:** derive the realized Standard Model structure, interactions, and low-energy effective sector from the OPH framework itself.
+- **Fully recover the precise particle zoo:** derive the observed spectrum of quarks, leptons, neutrinos, hadrons, and related masses and mixings from first principles rather than treating them as inputs.
+- **Fully recover string/worldsheet structure:** show how string-theoretic and worldsheet descriptions emerge as a continuation of the same observer-overlap substrate rather than as a separate axiom system.
 
 ## Papers
 
@@ -170,7 +179,7 @@ Additional theorem-local technical premises and scaling-limit branch assumptions
 
 ## The Prediction Chain
 
-The following infographic summarizes the planned OPH derivation skeleton from the five axioms and supporting bridge premises toward the intended end-state, while marking which branches are recovered core, implementation-backed, or active completion lanes:
+The following infographic summarizes the full planned OPH derivation chain, from the five axioms and primary inputs through the bridge premises and major theorem branches to the intended end-state, while marking which lanes are recovered core, implementation-backed, or active completion work:
 
 <a href="assets/prediction-chain.svg"><img src="assets/prediction-chain.svg" alt="OPH full derivation DAG poster" width="1200"></a>
 
