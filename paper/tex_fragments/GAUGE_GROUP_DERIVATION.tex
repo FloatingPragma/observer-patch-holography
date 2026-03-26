@@ -64,7 +64,7 @@ This is an internal constraint on the sector structure, not an external physical
 
 \subsection{Admissibility Conditions}\label{2-admissibility-conditions}
 
-An \textbf{OPH-realizable gauge sector package} \(\mathfrak S = (G, \text{matter content})\) consists of a compact gauge group \(G\) reconstructed via Tannaka-Krein from the refinement-stable edge-sector category (Theorem 6.1) together with its associated chiral matter spectrum. A sector package \(\mathfrak S\) is \textbf{admissible} if it satisfies all of the following conditions:
+An \textbf{OPH-realizable gauge sector package} \(\mathfrak S = (G, \text{matter content})\) consists of a compact gauge group \(G\) reconstructed via Tannaka-Krein from the refinement-stable edge-sector category (Theorem 6.1) together with an \emph{admitted} low-energy chiral matter spectrum on which the reconstructed group acts. In this fragment the bosonic Tannaka/DR step reconstructs only the compact gauge group. The chiral matter package and its Yukawa-capable realization are additional realized-branch inputs rather than outputs of the bosonic reconstruction theorem. A sector package \(\mathfrak S\) is \textbf{admissible} if it satisfies all of the following conditions:
 
 \subsubsection{(i) Loop-coherent / transportable}\label{i-loop-coherent--transportable}
 
@@ -154,11 +154,11 @@ Lexicographic minimality means: first minimize \(\chi_{\mathrm{cpl}}\); among ti
 
 \subsection{Main Theorem}\label{4-main-theorem}
 
-\textbf{Theorem (Standard Model closure under extended admissibility).} Under the extended gauge-selection package \(T_{\mathrm{ext}}\), together with the refinement-stable reconstruction hypotheses of Theorem 6.1:
+\textbf{Theorem (Conditional Standard Model branch under extended admissibility).} Under the extended gauge-selection package \(T_{\mathrm{ext}}\), together with the refinement-stable reconstruction hypotheses of Theorem 6.1 and an admissible imported chiral/Yukawa-completable matter package on the realized branch:
 
 \[G_{\mathrm{phys}} = \frac{SU(3) \times SU(2) \times U(1)}{\mathbb{Z}_6}, \qquad N_g = 3, \qquad N_c = 3.\]
 
-The realized counting chain is sequential rather than joint: the CP/UV admissibility window and MAR first select \(N_g = 3\), and Witten's \(\mathrm{SU}(2)\) anomaly parity then fixes \(N_c = 3\).
+The compact group reconstruction itself is the bosonic DR/Tannaka statement of Theorem 6.1. The hypercharge, counting, and quotient statements below are conditional on the admitted chiral matter package rather than outputs of bosonic reconstruction alone. Within that admitted package, the realized counting chain is sequential rather than joint: the CP/UV admissibility window and MAR first select \(N_g = 3\), and Witten's \(\mathrm{SU}(2)\) anomaly parity then fixes \(N_c = 3\).
 
 \emph{The proof is given in \S{}5--\S{}7 below.}
 
@@ -346,7 +346,7 @@ Asymptotic freedom requires \(b_{SU(2)} > 0\):
 
 \[N_g(N_c + 1) < \frac{43}{2}.\]
 
-Since the color-type role forces \(N_c \ge 3\), one has \(N_c + 1 \ge 4\). Therefore \(4N_g < \frac{43}{2}\), so \(N_g \leq 5\).
+Since the color-type role forces \(N_c \ge 3\), one has \(N_c + 1 \ge 4\). Therefore \(4N_g < \frac{43}{2}\), so \(N_g \leq 5\). This step uses only the lower bound \(N_c \ge 3\) coming from the admitted color-type role, not the later sharp value \(N_c = 3\).
 
 Combining: \(3 \leq N_g \leq 5\).
 
@@ -399,12 +399,12 @@ The gauge-sector chain established in this fragment is:
 
 \(+ \; [z]=0\) \(\xrightarrow{\text{Prop 6.1a}}\) DHR transportable, global gauge symmetry
 
-\(+ \;\text{apply MAR on the admissible class}\) \(\xrightarrow{\text{Thm (this doc)}}\) connected SM factors with the realized chain \(N_g = 3\) then \(N_c = 3\), and \(G_{\mathrm{phys}} = SU(3) \times SU(2) \times U(1)/\mathbb{Z}_6\)
+\(+ \;\text{apply MAR on the admissible class with an imported chiral/Yukawa package}\) \(\xrightarrow{\text{Thm (this doc)}}\) connected SM factors with the realized chain \(N_g = 3\) then \(N_c = 3\), and \(G_{\mathrm{phys}} = SU(3) \times SU(2) \times U(1)/\mathbb{Z}_6\)
 
 \(\xrightarrow{\text{Thm 6.13}}\) hypercharges fixed \(\xrightarrow{\text{Cor.}}\) no gauge-mediated proton decay
 \end{quote}
 
-Under \(T_{\mathrm{ext}}\), the following are all derived results:
+Under \(T_{\mathrm{ext}}\) together with the admitted chiral/Yukawa-completable matter package, the following are the conditional realized-branch results:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}

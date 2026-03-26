@@ -47,7 +47,7 @@ N_g=3,
 \qquad
 N_c=3,
 \]
-together with the exact rational hypercharge lattice for the realized one-generation Standard Model chiral matter package with one Higgs doublet. The realized counting chain is sequential rather than joint: on the realized MAR-admissible branch, the asymptotic-freedom/CP-capability window and minimal admissibility yield \(N_g=3\), and then Witten's \(\SU(2)\) anomaly parity constraint together with the same realized-branch selector yield \(N_c=3\). The two external continuous inputs of the present implementation are the pixel area
+once an admitted one-generation Standard Model chiral matter package with one Higgs doublet is supplied on the realized branch. On that admitted matter branch, anomaly constraints and Yukawa invariance fix the exact rational hypercharge lattice, and the admissibility window fixes the realized pair \((N_g,N_c)=(3,3)\). These D8--D9 statements are conditional realized-branch consequences, not outputs of bosonic gauge reconstruction alone. The two external continuous inputs of the present implementation are the pixel area
 \[
 P \equiv a_{\mathrm{cell}}/\ell_P^2 = 1.63094
 \]
@@ -88,7 +88,7 @@ The results emphasized in this paper are ordered below by a combination of impac
 \frac{\SU(3)\times\SU(2)\times\U(1)}{\mathbb Z_6}
 \]
 is recovered in the bosonic compact-gauge branch once the extended MAR admissibility package is imposed.
-\item On the realized one-generation chiral matter plus one-Higgs package, anomaly constraints and Yukawa invariance fix the hypercharge lattice, and on the realized MAR-admissible branch the counting chain yields \(N_g=3\) and then, using Witten's \(\SU(2)\) anomaly parity constraint, \(N_c=3\).
+\item On an admitted one-generation chiral matter plus one-Higgs package, anomaly constraints and Yukawa invariance fix the hypercharge lattice, and the same admitted realized branch fixes the pair \((N_g,N_c)=(3,3)\) through the CP/UV admissibility window, MAR, and Witten's \(\SU(2)\) anomaly parity constraint.
 \item The current quantitative implementation uses two external continuous configuration inputs, $P$ and $N_{\mathrm{scr}}$.
 \item The Higgs/top critical-surface branch adds no extra continuous fit once the gauge trajectory and scale-setting branch are fixed, while the charged-lepton/Koide continuation uses extra phenomenological structure beyond the core theorem package.
 \item A separate input-dependent capacity corollary ties the cosmological-constant branch to global screen capacity rather than local vacuum energy.
@@ -101,11 +101,11 @@ is recovered in the bosonic compact-gauge branch once the extended MAR admissibi
 
 This section is the authoritative status ledger for the compact note and the sync rule for mirrored summary surfaces. The three-phase boundary used throughout is
 \[
-\text{Phase I}=(D1\text{--}D5)\cup(D7\text{--}D9),\qquad
+\text{Phase I}=(D1\text{--}D5)\cup D7,\qquad
 \text{Phase II}=D6\cup D10\cup D11,\qquad
 \text{Phase III}=D12.
 \]
-Phase I is the recovered-core claim set. Phase II contains the separate input-dependent capacity corollary and the current supplement-backed numerical implementation. Phase III collects deferred continuations. The canonical five-axiom basis, the two external continuous inputs, and the technical-premise labels used below are fixed in Section~\ref{sec:premise-ledger}. Each row names a node in the reconstruction program, records its immediate OPH-side parents, separates imported standard mathematics from extra non-axiom physical premises or external inputs, and states the resulting claim tier.
+Phase I is the recovered-core claim set. D8--D9 are recorded below as further conditional realized-branch consequences once the admitted one-generation chiral/Yukawa package is supplied on the realized branch. Phase II contains the separate input-dependent capacity corollary and the current supplement-backed numerical implementation. Phase III collects deferred continuations. The canonical five-axiom basis, the two external continuous inputs, and the technical-premise labels used below are fixed in Section~\ref{sec:premise-ledger}. Each row names a node in the reconstruction program, records its immediate OPH-side parents, separates imported standard mathematics from extra non-axiom physical premises or external inputs, and states the resulting claim tier.
 
 \begingroup
 \scriptsize
@@ -125,15 +125,15 @@ Node & Output & Immediate OPH ingredients & Standard mathematics used & Extra no
 \textbf{D5} & Jacobson-type Einstein branch: rest-frame relation plus conditional tensor upgrade (Lemma~\ref{lem:smallball}, Theorem~\ref{thm:einstein}, Corollary~\ref{cor:einstein}) & D3+D4 and Axioms~\ref{ax:screen}--\ref{ax:entropy} & Jacobson small-ball first law; null-to-tensor reconstruction modulo a metric term & T9 fixed-cap stationarity; locally Lorentzian \(d=4\) scaling regime; small-ball constancy assumptions; D4 carried remainder negligible at order \(\ell^4\); all local directions/reference states for the tensor upgrade & Phase I conditional scaling-limit theorem/corollary \\
 \textbf{D6} & Capacity branch for \(\Lambda\) and the separate order-of-magnitude neutrino estimate (Proposition~\ref{prop:lambda}, Corollary~\ref{cor:lambda}) & D5 leaves a \(+\Lambda g_{ab}\) ambiguity & de Sitter entropy relation and dimensional analysis & external input \(N_{\mathrm{scr}}\) and the screen-capacity identification & Phase II input-dependent corollary / estimate \\
 \textbf{D7} & Compact gauge reconstruction (Theorem~\ref{thm:compactgauge}) & Axioms~\ref{ax:screen}--\ref{ax:entropy} & Doplicher--Roberts / Tannaka reconstruction & T7 and T10--T11 together with the directed-colimit/fiber clause of T12; the refinement-stable qualifier on that colimit is supplied internally by Axiom~\ref{ax:maxent} & Phase I conditional structural theorem \\
-\textbf{D8} & Product gauge structure up to finite quotient (Lemmas~\ref{lem:mincontent}--\ref{lem:commutant}, Theorem~\ref{thm:sm}) & D7 + Axiom~\ref{ax:mar} & compact Lie representation classification; Schur's lemma & connected positive-dimensional Lie admissible class; one connected abelian factor; faithful action on the minimal coupled carrier; vanishing obstruction \([z]=0\) & Phase I realized-branch theorem \\
-\textbf{D9} & Realized Standard Model quotient, hypercharges, the counting chain \(N_g=3\) then \(N_c=3\), and product-group corollaries (Theorem~\ref{thm:hypercharge}, Corollaries~\ref{cor:ng}, \ref{cor:nc}, Proposition~\ref{prop:z6}) & D8 & anomaly-cancellation algebra; Witten global-anomaly argument; CKM CP counting & realized one-generation chiral matter plus one Higgs package; asymptotic-freedom and MAR admissibility premises & Phase I realized-branch theorem/corollary chain \\
+\textbf{D8} & Product gauge structure up to finite quotient on the admitted chiral matter branch (Lemmas~\ref{lem:mincontent}--\ref{lem:commutant}, Theorem~\ref{thm:sm}) & D7 + Axiom~\ref{ax:mar} & compact Lie representation classification; Schur's lemma & connected positive-dimensional Lie admissible class; one connected abelian factor; faithful action on the minimal coupled carrier; vanishing obstruction \([z]=0\); admitted chiral/Yukawa-capable matter data & Phase I conditional realized-branch theorem \\
+\textbf{D9} & Realized Standard Model quotient, hypercharges, the realized pair \((N_g,N_c)=(3,3)\), and product-group corollaries on that admitted matter branch (Theorem~\ref{thm:hypercharge}, Corollaries~\ref{cor:ng}, \ref{cor:nc}, Proposition~\ref{prop:z6}) & D8 & anomaly-cancellation algebra; Witten global-anomaly argument; CKM CP counting & realized one-generation chiral matter plus one Higgs package; asymptotic-freedom and MAR admissibility premises & Phase I conditional realized-branch theorem/corollary chain \\
 \textbf{D10} & Gauge/electroweak numerical closure of the current supplement-backed implementation & D9 + external input \(P\) & RG evolution and matching conventions supplied in the supplement & pixel constraint; edge heat-kernel closure; supplement-backed beta-function and threshold conventions & Phase II calibration sector \\
 \textbf{D11} & Higgs/top critical-surface branch of the current supplement-backed implementation & D10 & RG transport and pole-mass conversion supplied in the supplement & critical-surface condition \(\lambda=\beta_\lambda=0\) at \(M_U\), plus the UV synchronization scale \(\mu_{\mathrm{sync}}\) used in the D11 transport; no new continuous fit once D10 is fixed & Phase II supplement-backed quantitative branch \\
 \textbf{D12} & Charged-lepton/Koide, texture, dark-sector, baryogenesis, black-hole spectroscopy, proton-spin, proton-lifetime estimates beyond the gauge-channel exclusion, conditional string/worldsheet reorganizations, conjectural critical-superstring extensions, and other continuations & various subsets of D6, D9, D10, and D11 & branch-specific EFT and phenomenological manipulations & additional ans\"atze such as the uniform \(\mathbb Z_6\) center-label ensemble, discrete texture choices, dark-sector response assumptions, discrete-horizon assumptions, or extra worldsheet/CFT premises & Phase III phenomenological continuation / program-level branch \\
 \end{longtable}
 \endgroup
 
-Accordingly, the recovered-core structural program of the compact note is D1--D5 together with D7--D9. D6 is the separate Phase-II input-dependent corollary; D10--D11 are the current Phase-II supplement-backed numerical implementation; and D12 is the Phase-III continuation layer. The only external continuous inputs are \(N_{\mathrm{scr}}\) in D6 and \(P\) in D10, together with descendants built from those branches.
+Accordingly, the recovered-core structural program of the compact note is D1--D5 together with D7. D8--D9 are further conditional realized-branch consequences once the admitted one-generation chiral/Yukawa package is supplied. D6 is the separate Phase-II input-dependent corollary; D10--D11 are the current Phase-II supplement-backed numerical implementation; and D12 is the Phase-III continuation layer. The only external continuous inputs are \(N_{\mathrm{scr}}\) in D6 and \(P\) in D10, together with descendants built from those branches.
 \section{Five Axioms, Two External Continuous Inputs in the Current Quantitative Implementation, and Technical Premises}\label{sec:premise-ledger}
 
 This section is the authoritative premise ledger and dependency map for the compact note. The OPH basis used below is exactly the five core axioms, the two external continuous inputs of the current quantitative implementation, and the theorem-local technical premises collected afterward. Older A1--A4 / B / MX / LR / R0--R1 packaging is retained elsewhere only as shorthand for pieces of this canonical package, not as a competing axiom basis. In the present version, the local finite-constraint MaxEnt/refinement branch already internalizes the quasi-local propagation and refinement-stability control that older packaging sometimes carried as separate regularity language, Theorem~\ref{thm:bw} fixes the cap generator and its \(2\pi\) normalization on the OPH Bisognano--Wichmann geometric branch without adding any separate cap-isotropy selector, and Corollary~\ref{cor:n2} derives the null half-sided modular pair inside the synchronized bridge. What remains genuinely theorem-external is the scaling-limit scope clause, the geometric-branch selection burden, the density-upgrade burden, fixed-cap stationarity, the bosonic/fiber-functor fork, the relativistic null-stress identification premise, and the vanishing obstruction premise where invoked.
@@ -271,8 +271,8 @@ Node & Compact theorem labels and output & Immediate OPH ingredients & Standard 
 \textbf{D5} & Lemma~\ref{lem:smallball}, Theorem~\ref{thm:einstein}, Corollary~\ref{cor:einstein}: Jacobson-type Einstein branch via a rest-frame relation plus conditional tensor upgrade & D3+D4 and Axioms~\ref{ax:screen}--\ref{ax:entropy} & Jacobson small-ball first law; Lemma~\ref{lem:nullreconstruct} for the null-to-tensor upgrade modulo a metric term & T9 fixed-cap stationarity; locally Lorentzian \(d=4\) scaling regime; small-ball constancy assumptions; D4 carried remainder negligible at order \(\ell^4\); all local directions/reference states for the tensor upgrade & conditional scaling-limit theorem/corollary \\
 \textbf{D6} & Proposition~\ref{prop:lambda}, Corollary~\ref{cor:lambda}: capacity branch for \(\Lambda\), plus the separate neutrino estimate & D5, which already leaves the \(+\Lambda g_{ab}\) ambiguity & de Sitter entropy relation and dimensional analysis & external input \(N_{\mathrm{scr}}\) and the screen-capacity identification & input-dependent corollary / estimate \\
 \textbf{D7} & Theorem~\ref{thm:compactgauge}: compact gauge reconstruction & Axioms~\ref{ax:screen}--\ref{ax:entropy} & Doplicher--Roberts / Tannaka reconstruction & T7 and T10--T11 together with the directed-colimit/fiber clause of T12; the refinement-stable qualifier on that colimit is supplied internally by Axiom~\ref{ax:maxent} & conditional structural theorem \\
-\textbf{D8} & Lemmas~\ref{lem:mincontent}--\ref{lem:commutant}, Theorem~\ref{thm:sm}: product gauge structure up to finite quotient & D7 + Axiom~\ref{ax:mar} & compact Lie representation classification; Schur's lemma & connected positive-dimensional Lie admissible class; one connected abelian factor; faithful action on the minimal coupled carrier; vanishing obstruction \( [z]=0 \) & realized-branch theorem \\
-\textbf{D9} & Theorem~\ref{thm:hypercharge}, Corollaries~\ref{cor:ng}, \ref{cor:nc}, Proposition~\ref{prop:z6}: realized Standard Model quotient, hypercharges, the counting chain \(N_g=3\) then \(N_c=3\), and product-group corollaries & D8 & anomaly-cancellation algebra; Witten global-anomaly argument; CKM CP counting & realized one-generation chiral matter plus one Higgs package; asymptotic-freedom and MAR admissibility premises & realized-branch theorem/corollary chain \\
+\textbf{D8} & Lemmas~\ref{lem:mincontent}--\ref{lem:commutant}, Theorem~\ref{thm:sm}: product gauge structure up to finite quotient on the admitted chiral matter branch & D7 + Axiom~\ref{ax:mar} & compact Lie representation classification; Schur's lemma & connected positive-dimensional Lie admissible class; one connected abelian factor; faithful action on the minimal coupled carrier; vanishing obstruction \( [z]=0 \); admitted chiral/Yukawa-capable matter data & conditional realized-branch theorem \\
+\textbf{D9} & Theorem~\ref{thm:hypercharge}, Corollaries~\ref{cor:ng}, \ref{cor:nc}, Proposition~\ref{prop:z6}: realized Standard Model quotient, hypercharges, the realized pair \((N_g,N_c)=(3,3)\), and product-group corollaries on that admitted matter branch & D8 & anomaly-cancellation algebra; Witten global-anomaly argument; CKM CP counting & realized one-generation chiral matter plus one Higgs package; asymptotic-freedom and MAR admissibility premises & conditional realized-branch theorem/corollary chain \\
 \textbf{D10} & quantitative gauge/electroweak closure of Section~7 & D9 + external input \(P\) & RG evolution and matching conventions supplied in the supplement & pixel constraint; edge heat-kernel closure; supplement-backed beta-function and threshold conventions & calibration sector \\
 \textbf{D11} & Higgs/top subsection of Section~7 & D10 & RG transport and pole-mass conversion supplied in the supplement & critical-surface condition \(\lambda=\beta_\lambda=0\) at \(M_U\), plus the UV synchronization scale \(\mu_{\mathrm{sync}}\) used in the D11 transport; no new continuous fit once D10 is fixed & supplement-backed quantitative branch \\
 \textbf{D12} & Sections~8--10 program continuations, including proton-spin and non-gauge proton-lifetime estimates together with the string/worldsheet branch & various subsets of D6, D9, D10, and D11 & branch-specific EFT and phenomenological manipulations & additional ans\"atze such as the uniform \(\mathbb Z_6\) center-label ensemble, texture choices, dark-sector response assumptions, discrete-horizon assumptions, or extra worldsheet/CFT premises & phenomenological continuation / program-level branch \\
@@ -303,7 +303,7 @@ G_{ab}+\Lambda g_{ab}=8\pi G\,\langle T_{ab}\rangle;
 \]
 for some finite central subgroup \(\Gamma\).
 \end{enumerate}
-After the hypercharge lattice, generation-count, color-count, and trivial-action quotient steps, the finite quotient is fixed to \(\Gamma=\mathbb Z_6\), so the realized gauge structure on the realized MAR-admissible branch is
+After the hypercharge lattice, generation-count, color-count, and trivial-action quotient steps on the admitted one-generation matter package, the finite quotient is fixed to \(\Gamma=\mathbb Z_6\), so the realized gauge structure on that admitted MAR-admissible branch is
 \[
 \frac{\SU(3)\times\SU(2)\times\U(1)}{\mathbb Z_6},
 \qquad
@@ -311,14 +311,14 @@ N_g=3,
 \qquad
 N_c=3,
 \]
-with the exact Standard Model hypercharge lattice on the realized matter package. Here the realized-branch counting chain is sequential: the asymptotic-freedom/CP-capability window and minimal admissibility first yield \(N_g=3\), and then Witten's \(\SU(2)\) anomaly parity constraint together with the same realized-branch selector yield \(N_c=3\).
+with the exact Standard Model hypercharge lattice on that realized matter package. These D8--D9 statements are conditional on the admitted chiral/Yukawa package rather than on bosonic gauge reconstruction alone. Here the realized-branch fixing is sequential: the asymptotic-freedom/CP-capability window and minimal admissibility first yield \(N_g=3\), and then Witten's \(\SU(2)\) anomaly parity constraint together with the same realized-branch selector yield \(N_c=3\).
 \end{theorem}
 
 \begin{proof}
 Items (i)--(iii) are collected from Theorem~\ref{thm:confluence}, Corollary~\ref{cor:lorentz}, Theorem~\ref{thm:einstein}, and Corollary~\ref{cor:einstein}. The compact gauge reconstruction is Theorem~\ref{thm:compactgauge}; the product gauge structure up to finite quotient is Theorem~\ref{thm:sm}; and the final identification of the exact Standard Model quotient is Theorem~\ref{thm:hypercharge} together with Corollaries~\ref{cor:ng}, \ref{cor:nc}, and Proposition~\ref{prop:z6}.
 \end{proof}
 
-Theorem~\ref{thm:master} therefore packages only the recovered relativity-plus-Standard-Model core: D1--D5 together with D7--D9. The D6 capacity relation is a separate input-dependent corollary; the quantitative calibration sector, Higgs/top branch, and phenomenological continuations remain outside its scope.
+Theorem~\ref{thm:master} therefore packages only the recovered relativity-plus-bosonic-gauge core: D1--D5 together with D7. The further D8--D9 Standard Model quotient, hypercharge, and counting statements are conditional realized-branch consequences once the admitted one-generation chiral/Yukawa package is supplied. The D6 capacity relation is a separate input-dependent corollary; the quantitative calibration sector, Higgs/top branch, and phenomenological continuations remain outside its scope.
 
 \subsection*{Usually Postulated Elsewhere, Recovered or Continued Here with Explicit Status}
 
@@ -2129,7 +2129,7 @@ The quantitative sector is not uniform. The paper uses four categories.
 \begin{enumerate}[leftmargin=2em]
 \item \textbf{Calibration-sector consistency checks.} These are algebraically entangled with the determination of $P$ from the gauge sector. They include $v$, the gauge couplings at $m_Z$, and tree-level electroweak masses.
 \item \textbf{Independent quantitative outputs.} These use additional structural conditions and add no further continuous fit once the gauge trajectory and scale-setting branch are fixed. In the compact note this category is the Higgs/top critical-surface branch.
-\item \textbf{Parameter-free structural outputs.} These include the gauge quotient, the exact hypercharge lattice on the realized matter package, and the realized counting chain $N_g=3$ then $N_c=3$ on the MAR-admissible branch.
+\item \textbf{Conditional realized-branch structural outputs.} These include the gauge quotient, the exact hypercharge lattice on the admitted realized matter package, and the realized pair $(N_g,N_c)=(3,3)$ on that MAR-admissible branch.
 \item \textbf{Phenomenological continuations.} These include the charged-lepton/Koide construction, quark textures, baryogenesis, dark-sector phenomenology, and any use of the $\mathbb Z_6$ suppression factor as a flavor or entropy ansatz.
 \end{enumerate}
 
@@ -2314,7 +2314,7 @@ $m_t^{\mathrm{pole}}$ & $171.1~\mathrm{GeV}$ & $172.6~\mathrm{GeV}$ & independen
 
 \section{Phenomenological Flavor Continuations}
 
-Theorem~\ref{thm:master} packages the compact note's recovered core: the D1--D5 relativity chain together with the D7--D9 Standard Model structural chain. D6 is a separate input-dependent capacity corollary, and D10--D11 are supplement-backed numerical branches of the current implementation. Nothing in the present section is part of that recovered core. The role of the section is only to record which flavor ideas have been explored and exactly why they remain outside the proved package.
+Theorem~\ref{thm:master} packages the compact note's recovered core: the D1--D5 relativity chain together with D7 bosonic gauge reconstruction. D8--D9 record further conditional realized-branch Standard Model structure once the admitted one-generation chiral/Yukawa package is supplied. D6 is a separate input-dependent capacity corollary, and D10--D11 are supplement-backed numerical branches of the current implementation. Nothing in the present section is part of that recovered core. The role of the section is only to record which flavor ideas have been explored and exactly why they remain outside the proved package.
 
 \subsection{The $\mathbb Z_6$ suppression parameter}\label{subsec:z6-suppression}
 
@@ -2465,7 +2465,7 @@ Tier & Representative outputs & What would actually falsify the tier \\
 \endhead
 \bottomrule
 \endfoot
-Phase I recovered core (Theorem~\ref{thm:master}; D1--D5, D7--D9) & Confluence of overlap repair, conditional Lorentz kinematics, the conditional Jacobson-type Einstein branch in the stated scaling regime, compact gauge reconstruction in the bosonic branch, the realized Standard Model quotient chain, the exact hypercharge lattice on the realized matter package, the realized counting chain \(N_g=3\) then \(N_c=3\), and the product-group consequence of no gauge-mediated proton decay & A mathematical failure in the derivation chain, or data that require a different realized gauge quotient, different realized hypercharges, a different color or generation count on the admissible branch, or gauge-mediated proton decay \\
+Phase I recovered core (Theorem~\ref{thm:master}; D1--D5, D7, plus conditional D8--D9) & Confluence of overlap repair, conditional Lorentz kinematics, the conditional Jacobson-type Einstein branch in the stated scaling regime, compact gauge reconstruction in the bosonic branch, and the further realized Standard Model quotient chain, exact hypercharge lattice, realized pair \((N_g,N_c)=(3,3)\), and no-gauge-mediated-proton-decay corollary only once the admitted one-generation chiral/Yukawa package is supplied on the realized branch & A mathematical failure in the derivation chain, or data that require a different realized gauge quotient, different realized hypercharges, a different color or generation count on the admitted branch, or gauge-mediated proton decay \\
 Phase II input-dependent corollary (D6) & \(\Lambda=\frac{3\pi}{G N_{\mathrm{scr}}}\) once the screen-capacity identification is made, together with the separate order-of-magnitude neutrino estimate tied to the same capacity input & Failure of the screen-capacity identification or of the specific global capacity relation. Such a failure would not by itself erase the recovered core \\
 Phase II current implementation: calibration sector (D10) & Pixel-closure gauge/electroweak consistency, \(\alpha_i(m_Z)\), \(\alpha_{\mathrm{em}}^{-1}(m_Z)\), \(\sin^2\theta_W(m_Z)\), \(v\), and tree-level electroweak masses & Failure of the supplement-backed closure of the present implementation once \(P\) and the printed running/matching conventions are imposed \\
 Phase II current implementation: secondary quantitative branch (D11) & Higgs/top critical-surface branch & Failure of the extra critical-surface condition or of the supplement-backed RG transport used in that branch; such a failure does not by itself erase the recovered core \\
@@ -2492,7 +2492,7 @@ N_g=3,
 \qquad
 N_c=3,
 \]
-with the exact one-generation hypercharge lattice. Here the realized counting chain is sequential: the CP/UV admissibility window and minimal admissibility yield \(N_g=3\), and Witten's \(\SU(2)\) anomaly parity with that realized generation count yields \(N_c=3\).
+with the exact one-generation hypercharge lattice on the admitted matter package. Here the realized counting chain is sequential: the CP/UV admissibility window and minimal admissibility yield \(N_g=3\), and Witten's \(\SU(2)\) anomaly parity with that realized generation count yields \(N_c=3\).
 \[
 Y_Q=\frac16,\qquad
 Y_L=-\frac12,\qquad
@@ -2577,9 +2577,9 @@ The framework is strongest where the outputs are discrete or structurally rigid:
 \begin{enumerate}[leftmargin=2em]
 \item the Lorentz branch inside the assumed geometric modular phase;
 \item the conditional scaling-limit Einstein branch under fixed-cap stationarity and the null-stress premise;
-\item the Standard Model gauge quotient chain;
-\item exact hypercharges on the realized one-generation matter package with one Higgs doublet;
-\item the realized counting chain \(N_g=3\) then \(N_c=3\) on the realized MAR-admissible branch;
+\item the Standard Model gauge quotient chain on the admitted realized matter branch;
+\item exact hypercharges on the admitted one-generation matter package with one Higgs doublet;
+\item the realized pair \((N_g,N_c)=(3,3)\) on that admitted MAR-admissible branch;
 \item the compact two-input economy of the present quantitative implementation, kept explicit as a secondary layer rather than as part of Phase I.
 \end{enumerate}
 
@@ -2593,7 +2593,7 @@ Topics intentionally excluded from the present formulation include simulation na
 
 \section{Conclusion}
 
-Observer-Patch Holography starts from overlap consistency of observer patches and yields, within one framework, several effective structures usually treated separately in modern fundamental physics. The compact note supports a unique schedule-independent normal form for overlap repair, a conditional Lorentz branch in the assumed geometric modular phase, a conditional Jacobson-type Einstein branch under fixed-cap stationarity and the null-stress premise, the Standard Model gauge quotient with exact hypercharges on the realized matter package under the extended MAR admissibility package in the bosonic internal-gauge branch, the realized counting chain \(N_g=3\) then \(N_c=3\) on that branch, a current two-input quantitative implementation whose supplement-backed Higgs/top branch is secondary to the recovered core, and a separate input-dependent cosmological-capacity corollary. It also records several phenomenological continuations whose present status is weaker and is labeled as such in the text.
+Observer-Patch Holography starts from overlap consistency of observer patches and yields, within one framework, several effective structures usually treated separately in modern fundamental physics. The compact note supports a unique schedule-independent normal form for overlap repair, a conditional Lorentz branch in the assumed geometric modular phase, a conditional Jacobson-type Einstein branch under fixed-cap stationarity and the null-stress premise, compact gauge reconstruction in the bosonic internal-gauge branch, and further realized Standard Model quotient, hypercharge, and counting consequences only once the admitted one-generation chiral/Yukawa package is supplied under the extended MAR admissibility package. It also records a current two-input quantitative implementation whose supplement-backed Higgs/top branch is secondary to the recovered core, a separate input-dependent cosmological-capacity corollary, and several phenomenological continuations whose present status is weaker and is labeled as such in the text.
 
 Accordingly, the framework functions as a candidate underlying theory from which general relativity and the Standard Model may arise as effective descriptions once the stated scaling-limit and categorical premises are realized. The next technical tasks are sharper quantitative control, a fuller fermionic gauge branch, and explicit UV completions that land in the required modular/geometric phase.
 
