@@ -408,8 +408,15 @@ These follow from our axioms plus stated additional assumptions:
 | Gauge coupling extraction $g_{\mathrm{ent}}^2 = t/2\pi$ | Edge-sector probabilities + Laplacian eigenvalues $\lambda_q = 4\sin^2(\pi q/n)$ |
 | $\Delta b \approx (2.49, 4.38, 3.97)$ from Peter-Weyl | Heat-kernel at $t_U \approx 1.64$ + $N_{\text{eff}} = d \cdot p$ (entropy sees one index, loops see both) |
 | Electroweak scale from transmutation | Refinement stability (no unprotected relevant scalar) + pixel scale + β_EW = N_c + 1 = 4 |
-| Yukawa hierarchy y_f ∝ 6^{-n_f} | Z₆ quotient + defect entropy cost ln 6 + integer charges |
 | Top Yukawa y_t ≈ 1 | MaxEnt/refinement stability selects least-suppressed channel |
+
+### Deferred flavor continuation
+
+This item is not part of the proved/corollary summary block above. It belongs to the current D12 flavor continuation and remains non-core.
+
+| Continuation item | Current status |
+| --- | --- |
+| Flavor-hierarchy continuation y_f ∝ 6^{-n_f} | Uses the Z₆ quotient together with a uniform center-label ansatz, defect-entropy bookkeeping, and integer texture choices |
 
 ### Key Physical Arguments We Inherit
 

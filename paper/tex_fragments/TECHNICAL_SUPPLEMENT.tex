@@ -1060,11 +1060,15 @@ Generic phases violate this \(\Rightarrow\) CP violation is generic in OPH.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\section{Generation Structure and Yukawa Hierarchy}\label{12-generation-structure-and-yukawa-hierarchy}
+\section{Generation Structure and Flavor Continuations}\label{12-generation-structure-and-yukawa-hierarchy}
 
-\subsection{Why Three Generations}\label{121-why-three-generations}
+This section separates one imported structural result from several continuation-level flavor constructions. The realized counting chain \(N_g = 3\) belongs to the proved D9 package and is not re-derived here. By contrast, the \(\mathbb Z_6\)-based Yukawa suppression rule, the integer texture assignments, the charged-lepton fit, the Koide ratio/phase identification, and the RK completion below all require extra flavor ans\"atze and are not part of the recovered core.
 
-\textbf{Theorem 12.1 (N\_g = 3 Selection):}
+The missing blockers for any future promotion are explicit: the present supplement does not derive a unique flavor measure forcing a uniform \(\mathbb Z_6\) ensemble, does not prove the map from defect data to Yukawa suppression \(y\sim 6^{-n}\), does not derive the circulant generation-space ansatz, does not supply a theorem-level selector for the final exponent assignments, and does not close the scheme/running/matching problem needed to turn these flavor constructions into derived masses.
+
+\subsection{Imported structural corollary: three generations}\label{121-why-three-generations}
+
+\textbf{Imported D9 corollary (realized counting chain).}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1077,13 +1081,16 @@ Generic phases violate this \(\Rightarrow\) CP violation is generic in OPH.
   \textbf{Minimality selects N\_g = 3:} Extra generations introduce unconstrained relevant deformations
 \end{enumerate}
 
-\subsection{Yukawa as Defect-Mediated Overlap}\label{122-yukawa-as-defect-mediated-overlap}
+\subsection{Deferred flavor continuation: defect-mediated Yukawa ansatz}\label{122-yukawa-as-defect-mediated-overlap}
 
-\textbf{Theorem 12.2:} If a Yukawa coupling requires \(n\) units of \(\mathbb{Z}_6\) defect insertion: \[y \propto \langle D^n \rangle = 6^{-n}\]
+\textbf{Continuation ansatz 12.2.} If one assumes that each unit of \(\mathbb{Z}_6\) defect insertion contributes one factor of \(6^{-1}\), then
+\[
+y \propto \langle D^n \rangle = 6^{-n}.
+\]
 
-The suppression factor is fixed by topology, not tuned.
+This is not a structural corollary of the D9 chain. It adds the extra flavor ansatz that the proved quotient data feed directly into a uniform defect-suppression law.
 
-\subsection{The Yukawa Spectrum}\label{123-the-yukawa-spectrum}
+\subsection{Texture benchmark table}\label{123-the-yukawa-spectrum}
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}>{\RaggedRight\arraybackslash}p{0.240\textwidth}>{\RaggedRight\arraybackslash}p{0.240\textwidth}>{\RaggedRight\arraybackslash}p{0.240\textwidth}>{\RaggedRight\arraybackslash}p{0.240\textwidth}@{}}
@@ -1105,9 +1112,9 @@ Fermion & Yukawa & \(n = -\ln y / \ln 6\) & Nearest integer \\
 \end{longtable}
 }
 
-The base-6 logarithm lands near integers across the spectrum.
+As a continuation benchmark, the base-6 logarithm lands near integers across the charged-fermion spectrum. The integer assignments themselves still depend on extra texture choices, scheme conventions, and running/matching assumptions.
 
-\subsection{Deterministic Completion (RK Hamiltonian)}\label{124-deterministic-completion-rk-hamiltonian}
+\subsection{Conjectural deterministic completion (RK Hamiltonian)}\label{124-deterministic-completion-rk-hamiltonian}
 
 Define configuration weight: \[w(\mathcal{C}) = \exp\left(-t \sum_{\text{plaquettes}} C_2(R_p)\right) \times 6^{-n_D(\mathcal{C})}\]
 
@@ -1115,11 +1122,15 @@ The Rokhsar-Kivelson ground state: \[|\Psi\rangle = \frac{1}{\sqrt{Z}} \sum_{\ma
 
 is the unique ground state of a frustration-free parent Hamiltonian, replacing MaxEnt ensemble with a deterministic pure state.
 
+This RK construction is an optional toy completion of the continuation ansatz rather than a proved OPH corollary.
+
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\section{The Koide Formula}\label{13-the-koide-formula}
+\section{Koide and Charged-Lepton Continuation}\label{13-the-koide-formula}
 
-\subsection{Numerical Verification}\label{131-numerical-verification}
+Nothing in this section belongs to the recovered structural chain. The circulant generation-space model, the mode-balance condition \(Q=2/3\), the phase choice \(\delta=2/9\), and the charged-lepton fits are all continuation-level flavor inputs layered on top of the already fixed discrete data \(N_g=3\), \(N_c=3\), and the \(\mathbb Z_6\) quotient.
+
+\subsection{Numerical continuation benchmark}\label{131-numerical-verification}
 
 Using PDG masses:
 
@@ -1135,11 +1146,14 @@ Using PDG masses:
 
 \[Q = \frac{m_e + m_\mu + m_\tau}{(\sqrt{m_e} + \sqrt{m_\mu} + \sqrt{m_\tau})^2} = 0.6666644645\]
 
-Compare to \(2/3 = 0.6666666667\). Difference: \(2.2 \times 10^{-6}\) (within 1\ensuremath{\sigma}).
+Compare to \(2/3 = 0.6666666667\). Difference: \(2.2 \times 10^{-6}\) (within 1\ensuremath{\sigma}). This numerical proximity should be read as a continuation benchmark, not as a recovered-core output.
 
 \subsection{\texorpdfstring{\(Z_3\) Holonomy Parameterization}{Z3 Holonomy Parameterization}}\label{132-zux2083-holonomy-parameterization}
 
-\textbf{Theorem 13.1:} The minimal Hermitian circulant on generation space: \[\Phi = a \cdot I + b \cdot P + b^* \cdot P^2\]
+\textbf{Circulant ansatz.} Consider the minimal Hermitian circulant on generation space:
+\[
+\Phi = a \cdot I + b \cdot P + b^* \cdot P^2
+\]
 
 with \(P\) the cyclic shift, has eigenvalues: \[\lambda_k = a + 2|b|\cos\left(\delta + \frac{2\pi k}{3}\right)\]
 
@@ -1147,15 +1161,21 @@ where \(\delta = \arg(b)\).
 
 \subsection{Why Q = 2/3}\label{133-why-q--23}
 
-\textbf{Theorem 13.2:} With \(r_k = \lambda_k\) (root masses): \[Q = \frac{\sum_k r_k^2}{(\sum_k r_k)^2} = \frac{1 + 2(|b|/a)^2}{3}\]
+\textbf{Ansatz consequence.} Within this circulant model, with \(r_k = \lambda_k\) (root masses),
+\[
+Q = \frac{\sum_k r_k^2}{(\sum_k r_k)^2} = \frac{1 + 2(|b|/a)^2}{3}.
+\]
 
 Setting \(Q = 2/3\): \[|b|/a = \frac{1}{\sqrt{2}}\]
 
-This is the "balanced" configuration where singlet and charged modes have equal norm.
+Choosing \(Q = 2/3\) therefore corresponds to a balanced mode assignment inside the ansatz. That choice is not fixed by the structural OPH chain alone.
 
 \subsection{The Koide Phase from OPH}\label{134-the-koide-phase-from-oph}
 
-\textbf{Proposition 13.3:} The holonomy phase: \[\delta_{\text{OPH}} = \frac{\beta_{\text{EW}} \cdot Y_Q}{N_g} = \frac{(N_c + 1)}{2N_c \cdot N_g}\]
+\textbf{Continuation formula.} If one further ties the Koide phase to the already fixed discrete data through
+\[
+\delta_{\text{OPH}} = \frac{\beta_{\text{EW}} \cdot Y_Q}{N_g} = \frac{(N_c + 1)}{2N_c \cdot N_g},
+\]
 
 With \(N_c = 3\), \(N_g = 3\): \[\delta_{\text{OPH}} = \frac{4}{18} = \frac{2}{9} = 0.2222...\]
 
