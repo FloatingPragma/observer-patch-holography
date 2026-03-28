@@ -2161,11 +2161,11 @@ This is extremely small, but achievable: with a macroscopic boundary (\(|\partia
 
 This is the concrete path from "axioms about screens" to "precision GR predictions with quantitative error control."
 
-\subsubsection{Dark matter as modular anomaly (program-level)}\label{515-dark-matter-as-modular-anomaly-program-level}
+\subsubsection{Dark-sector continuation from the modular anomaly (future-work benchmark)}\label{515-dark-matter-as-modular-anomaly-program-level}
 
-This subsection is a program-level continuation, not a recovered-core or Phase-II theorem. The formulas below record the normalization estimate obtained if the modular-anomaly term dominates the relevant deep-IR phenomenology; the dark-matter identification and RAR-like scaling law remain additional assumptions.
+This subsection is explicit future work, not a recovered-core or Phase-II theorem. The formulas below record the benchmark scale obtained if one adds a specific deep-IR response ansatz on top of the modular-anomaly term; neither the observational dark-matter identification nor MOND/RAR-like dynamics are derived in the present paper.
 
-The modular anomaly term \(T_{ab}^{\mathrm{anom}}\) derived in Section 5.9 provides a natural candidate for what is observationally interpreted as dark matter, without introducing new particle species.
+The modular anomaly term \(T_{ab}^{\mathrm{anom}}\) derived in Section 5.9 supplies one structural ingredient for a possible dark-sector continuation, without introducing new particle species.
 
 \textbf{The identification.} The anomalous stress-energy contribution
 
@@ -2174,7 +2174,7 @@ The modular anomaly term \(T_{ab}^{\mathrm{anom}}\) derived in Section 5.9 provi
 = \frac{15}{8\pi^2} \cdot \frac{\delta \langle K_C^{\mathrm{(anom)}} \rangle}{\ell^4}
 \]
 
-is "dark" by construction: it arises from information-theoretic/gravitational structure (modular Markov imperfections), not from Standard Model fields. It gravitates but does not couple electromagnetically. This is precisely what "dark matter" means observationally.
+is "dark" by construction: it arises from information-theoretic/gravitational structure (modular Markov imperfections), not from Standard Model fields. It gravitates but does not couple electromagnetically. These properties explain why the term is explored as a dark-sector ingredient, but they do not by themselves close the observational identification.
 
 \textbf{Connection to the cosmological constant.} The framework makes \(\Lambda\) a global capacity parameter:
 
@@ -2184,9 +2184,9 @@ is "dark" by construction: it arises from information-theoretic/gravitational st
 r_{dS} = \sqrt{\frac{3}{\Lambda}}.
 \]
 
-This introduces an unavoidable IR length scale \(r_{dS}\). Galaxy "dark matter" phenomenology is an IR phenomenon-it appears when accelerations are small and distances are large.
+This introduces an unavoidable IR length scale \(r_{dS}\). Any galaxy-scale continuation built from the anomaly term would therefore be an IR phenomenon, appearing only when accelerations are small and distances are large.
 
-\textbf{Emergent acceleration scale.} In the Newtonian/weak-field regime, any IR modification from \(T_{00}^{\mathrm{anom}}\) must:
+\textbf{Continuation-level acceleration benchmark.} If one assumes the relevant deep-IR response is controlled only by \(r_{dS}\), \(c\), and the fixed anomaly prefactor, then the benchmark scale must:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2199,7 +2199,7 @@ This introduces an unavoidable IR length scale \(r_{dS}\). Galaxy "dark matter" 
   Carry non-tunable coefficients from the derivation
 \end{enumerate}
 
-The anomaly enters with prefactor \(\frac{15}{8\pi^2}\). The natural acceleration scale constructible from \((\Lambda, c)\) with this coefficient is:
+The anomaly enters with prefactor \(\frac{15}{8\pi^2}\). The corresponding benchmark acceleration scale constructible from \((\Lambda, c)\) is:
 
 \[
 \boxed{
@@ -2226,15 +2226,15 @@ a_0^{\mathrm{(OPH)}} \approx 1.03 \times 10^{-10} \text{ m/s}^2
 }
 \]
 
-For comparison, observational fits to galaxy regularities (RAR/MDAR/MOND phenomenology) quote \(a_0 \sim 1.2 \times 10^{-10}\) m/s\(^2\). The prediction lands within 15\% without introducing a new free parameter beyond screen capacity/\(\Lambda\).
+For comparison, observational fits to galaxy regularities (RAR/MDAR/MOND phenomenology) quote \(a_0 \sim 1.2 \times 10^{-10}\) m/s\(^2\). This numerical proximity is the benchmark motivating the continuation; it is not yet a derived prediction of galaxy dynamics.
 
-\textbf{Phenomenological consequences.} If \(T_{00}^{\mathrm{anom}}\) sources the inferred dark matter, the Newtonian limit becomes:
+\textbf{One illustrative continuation ansatz.} If one further assumes that \(T_{00}^{\mathrm{anom}}\) is the dominant deep-IR source and that the response organizes into a MOND/RAR-like law, the Newtonian limit could be written as:
 
 \[
 \nabla^2 \Phi = 4\pi G (\rho_b + \rho_{\mathrm{anom}}),
 \]
 
-i.e., baryons plus an effective extra density. The radial acceleration relation (RAR) takes the form:
+i.e., baryons plus an effective extra density. Under the same extra ansatz the radial acceleration relation (RAR) could be written as:
 
 \[
 g_{\mathrm{obs}} \approx g_b + \sqrt{a_0 \cdot g_b},
@@ -2242,7 +2242,7 @@ g_{\mathrm{obs}} \approx g_b + \sqrt{a_0 \cdot g_b},
 g_{\mathrm{DM}} := g_{\mathrm{obs}} - g_b \approx \sqrt{a_0 \cdot g_b}.
 \]
 
-With \(a_0 = a_0^{\mathrm{(OPH)}}\) fixed, this predicts:
+With \(a_0 = a_0^{\mathrm{(OPH)}}\) fixed, that same ansatz would imply:
 
 \textbf{(i) Baryonic Tully-Fisher relation.}
 
@@ -2269,7 +2269,7 @@ i.e., inferred dark mass grows linearly with radius, producing flat rotation cur
 \approx 0.25 \text{ kg/m}^2 \approx 120 \, M_\odot/\text{pc}^2.
 \]
 
-This is in the range of observed central halo surface densities.
+This lies in the range of observed central halo surface densities, but again only as a continuation-level benchmark rather than a derived halo theorem.
 
 \textbf{Status.} What is grounded in the framework developed here:
 
@@ -2279,24 +2279,27 @@ This is in the range of observed central halo surface densities.
   The modular anomaly term exists with fixed coefficient \(\frac{15}{8\pi^2}\)
 \item
   \(\Lambda\) and \(r_{dS}\) are determined by screen capacity
-\item
-  The anomaly acts as "effective extra gravity" in the Newtonian limit
 \end{itemize}
 
-What is an additional assumption (derivation target):
+What remains missing for theorem-level closure:
 
 \begin{itemize}
 \tightlist
 \item
-  That \(T_{00}^{\mathrm{anom}}\) is the dominant source of galaxy-scale "dark matter" phenomenology
+  A controlled nonrelativistic limit from the anomaly term to galaxy observables
 \item
-  That in the deep IR the anomaly organizes into RAR-like scaling with normalization inherited from the \(\frac{15}{8\pi^2}\) prefactor
+  A derived response law selecting the MOND/RAR functional rather than alternative IR behavior
+\item
+  Lensing, cluster, and Bullet-Cluster phenomenology
+\item
+  Cosmological abundance and structure-formation checks
+\item
+  Environment-dependence and stability control
 \end{itemize}
 
-This is best viewed as a \textbf{program-level derivation target} (like the \(\theta_{\mathrm{QCD}}\) program in Section 8.4): the framework contains the natural ingredients, and the precise prediction follows if those ingredients dominate the relevant phenomenology.
+This is best viewed as an explicit \textbf{future-work continuation}: the framework contains structural ingredients and an IR benchmark, but the precise galaxy-scale continuation has not yet been derived from the OPH core.
 
-\textbf{Falsifiability.} The prediction \(a_0^{\mathrm{(OPH)}} \approx 1.03 \times
-10^{-10}\) m/s\(^2\) is sharp. If galaxy data definitively require a different value (say, \(a_0 > 1.5 \times 10^{-10}\) m/s\(^2\)), or if the RAR normalization varies systematically with environment in ways incompatible with a universal \(\Lambda\)-derived scale, this interpretation would be contradicted.
+\textbf{Falsifiability.} If later work cannot supply the missing derivation steps, or if any resulting continuation is incompatible with galaxy, lensing, cluster, Bullet-Cluster, or cosmological data, then the modular-anomaly dark-sector continuation retracts. The recovered OPH core does not.
 
 \subsubsection{De Sitter holography: static patch vs boundary-at-infinity}\label{516-de-sitter-holography-static-patch-vs-boundary-at-infinity}
 

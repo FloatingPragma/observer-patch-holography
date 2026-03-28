@@ -132,7 +132,7 @@ work out the consequences, the results are extraordinary:
 
 - **A conditional scaling-limit Einstein branch** emerges from entanglement equilibrium on the screen
 - **The Standard Model gauge structure** SU(3) x SU(2) x U(1)/Z₆ is derived rather than assumed under the MAR admissibility package
-- **A dark-sector branch** becomes structurally available from modular anomalies, not new particles
+- **A dark-sector continuation** is explored through modular anomalies, but MOND/RAR-scale phenomenology remains future work rather than a recovered-core result
 - **Why anything exists at all** is addressed through an interpretive strange-loop lane: the universe is treated as a self-referential timeless causal structure supported by OPH's state-and-law habitat, while the stronger closure-map and stability questions remain open
 
 No other framework in physics organizes all of this around structural axioms, explicit claim tiers, and a public separation between theorem-level structure, input-dependent corollaries, and weaker continuations.

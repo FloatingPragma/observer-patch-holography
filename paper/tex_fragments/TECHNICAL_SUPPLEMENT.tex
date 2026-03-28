@@ -909,9 +909,9 @@ Together with Proposition~8.2 and Theorem~8.3, this makes the intended theoremat
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\section{Dark Matter as Modular Anomaly}\label{9-dark-matter-as-modular-anomaly}
+\section{Dark-Sector Continuation from the Modular Anomaly}\label{9-dark-matter-as-modular-anomaly}
 
-Sections 9--13 mix two kinds of material: (i) brief reminders of upstream structural results proved elsewhere in the OPH authority ladder, and (ii) genuinely downstream benchmark branches. Only the latter --- dark-sector response laws, proton-spin bookkeeping, baryogenesis estimates, and Yukawa/Koide-style continuations beyond the proved structural core --- should be read here as Phase-III / deferred-continuation material unless a subsection explicitly states otherwise.
+Sections 9--13 mix two kinds of material: (i) brief reminders of upstream structural results proved elsewhere in the OPH authority ladder, and (ii) genuinely downstream benchmark branches. Only the latter --- dark-sector response laws, proton-spin bookkeeping, baryogenesis estimates, and Yukawa/Koide-style continuations beyond the proved structural core --- should be read here as Phase-III / deferred-continuation material unless a subsection explicitly states otherwise. For the dark-sector branch, the imported OPH ingredients are narrower than older rhetoric sometimes suggested: Section~9.2 supplies an anomalous stress-energy term with fixed coefficient, and D6 supplies the de Sitter scale once the screen-capacity input is made. A closed galaxy/cluster phenomenology package is still missing, so this section is explicit future work rather than theorem-level closure.
 
 \subsection{The Modular Additivity Defect}\label{91-the-modular-additivity-defect}
 
@@ -944,21 +944,30 @@ The coefficient \(15/(8\pi^2)\) comes from inverting the \(d=4\) geometric integ
   \textbf{Effectively classical:} Central structure implies classical labels
 \end{enumerate}
 
-\subsection{The MOND Acceleration Scale}\label{94-the-mond-acceleration-scale}
+\subsection{Acceleration-Scale Benchmark for the Continuation}\label{94-the-mond-acceleration-scale}
 
-\textbf{Corollary 9.2 (program-level):} The unique IR acceleration scale available to the modular-anomaly branch from \(\Lambda\) is \[a_0^{(\text{OPH})} := \frac{15}{8\pi^2} c^2 \sqrt{\frac{\Lambda}{3}} = \frac{15}{8\pi^2} \frac{c^2}{r_{dS}}\]
+If one tentatively identifies the imported D6 de Sitter scale with the only IR scale available to a modular-anomaly continuation, then a natural acceleration benchmark is \[a_0^{(\text{OPH})} := \frac{15}{8\pi^2} c^2 \sqrt{\frac{\Lambda}{3}} = \frac{15}{8\pi^2} \frac{c^2}{r_{dS}}\]
 
-\textbf{Numerical evaluation:} \[a_0^{(\text{OPH})} \approx 1.03 \times 10^{-10} \text{ m/s}^2\]
+\textbf{Numerical benchmark:} \[a_0^{(\text{OPH})} \approx 1.03 \times 10^{-10} \text{ m/s}^2\]
 
-Compare to observed: \(a_0^{(\text{obs})} \approx 1.2 \times 10^{-10}\) m/s\(^2\) (within 15\%).
+This lands near the empirical MOND scale \(a_0^{(\text{obs})} \approx 1.2 \times 10^{-10}\) m/s\(^2\), which is why the continuation is worth tracking. It does not yet derive galaxy dynamics, a MOND/RAR law, or an observational dark-matter identification from the OPH core.
 
-\subsection{Polarization Response (MOND-like Scaling)}\label{95-polarization-response-mond-like-scaling}
+\subsection{Illustrative MOND/RAR Ansatz and Open Completion Burden}\label{95-polarization-response-mond-like-scaling}
 
-\textbf{Uniqueness argument:} In the deep-IR regime, the only scales are \(a_0\) and \(g_b\) (Newtonian baryonic acceleration). Dimensional analysis + scale invariance forces: \[g_{\text{anom}} \propto \sqrt{a_0 \cdot g_b}\]
+A MOND/RAR-style response such as \[g_{\text{obs}} \approx g_b + \sqrt{a_0 g_b}\]
+or the cubic polarization functional \[S_{\text{pol}}[\varphi] = \int d^3x \left[-\frac{1}{12\pi G a_0}|\nabla\varphi|^3 - \rho_b \varphi\right]\]
+can be used as phenomenological bookkeeping for the continuation, but neither expression is derived from the OPH axioms or from the current D6/D9 stack alone.
 
-The cubic polarization functional: \[S_{\text{pol}}[\varphi] = \int d^3x \left[-\frac{1}{12\pi G a_0}|\nabla\varphi|^3 - \rho_b \varphi\right]\]
+What remains missing is a closed dark-sector dynamics package:
+\begin{enumerate}
+\item a controlled nonrelativistic limit linking \(T_{ab}^{\text{anom}}\) to galaxy observables;
+\item a derived source/response law selecting the MOND/RAR functional rather than alternative IR behavior;
+\item lensing, cluster, and Bullet-Cluster phenomenology;
+\item cosmological abundance and structure-formation checks;
+\item environment-dependence and stability bounds.
+\end{enumerate}
 
-yields the MOND/RAR form: \[g_{\text{obs}} \approx g_b + \sqrt{a_0 g_b}\]
+Accordingly the modular-anomaly dark-sector branch is explicit future work, not a theorem-level closure.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 

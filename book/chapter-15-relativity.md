@@ -561,13 +561,13 @@ OPH connects this anomaly to the cosmological constant Λ. The only available la
 
 $$a_0 = \frac{15}{8\pi^2} c^2 \sqrt{\frac{\Lambda}{3}} \approx 1.0 \times 10^{-10} \text{ m/s}^2$$
 
-This is close to the observed MOND acceleration scale. The point of the branch is that galaxy-scale phenomenology and cosmology could be connected through the information structure of the universe.
+This lands near the empirical MOND acceleration scale. That numerical proximity motivates the continuation, but it does not yet derive a galaxy law.
 
-At high accelerations ($g \gg a_0$), standard gravity dominates. At low accelerations ($g \ll a_0$), the anomaly term becomes important, and gravity transitions to MOND-like behavior: $g \sim \sqrt{a_0 \cdot g_b}$ where $g_b$ is the Newtonian prediction from baryons.
+A MOND-like interpolation such as $g \sim \sqrt{a_0 \cdot g_b}$ at low acceleration can be used as a continuation ansatz, where $g_b$ is the Newtonian prediction from baryons. The repo does not currently derive that interpolation from the OPH core.
 
 ### What Remains Open
 
-The branch suggests why MOND-like galaxy scaling and a collisionless dark component could coexist, but the detailed cluster phenomenology, Bullet-Cluster behavior, and cosmological abundance are still open derivation targets. What is currently established is narrower: the anomaly term gravitates, the de Sitter scale supplies a natural IR acceleration scale, and a dark-sector interpretation is structurally available.
+The branch suggests one possible way MOND-like galaxy scaling and a collisionless dark component could coexist, but the detailed galaxy response law, lensing sector, cluster phenomenology, Bullet-Cluster behavior, cosmological abundance, and environment dependence are still open derivation targets. What is currently established is narrower: the anomaly term contributes additional gravitational stress, the de Sitter scale supplies an IR acceleration benchmark, and a dark-sector interpretation remains a future-work continuation rather than a theorem-level result.
 
 ## 15.14 Reverse Engineering Summary
 

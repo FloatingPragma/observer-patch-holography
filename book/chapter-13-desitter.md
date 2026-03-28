@@ -255,7 +255,7 @@ $$r_{dS} = \sqrt{\frac{3}{\Lambda}} \approx 1.66 \times 10^{26} \text{ m}$$
 
 Galaxy rotation anomalies are an IR phenomenon-they appear at large distances where accelerations are tiny. Any modification from the modular anomaly must be controlled by this scale.
 
-The natural acceleration scale, carrying the anomaly coefficient, is:
+A continuation-level acceleration benchmark, carrying the anomaly coefficient, is:
 
 $$a_0^{(\text{OPH})} = \frac{15}{8\pi^2} \cdot \frac{c^2}{r_{dS}}$$
 
@@ -263,44 +263,47 @@ Plugging in numbers:
 
 $$a_0^{(\text{OPH})} \approx 1.03 \times 10^{-10} \text{ m/s}^2$$
 
-This is within 15% of the empirical MOND acceleration scale $a_0 \sim 1.2 \times 10^{-10}$ $\text{m/s}^2$ that fits galaxy rotation curves.
+This lands near the empirical MOND acceleration scale $a_0 \sim 1.2 \times 10^{-10}$ $\text{m/s}^2$ that fits galaxy rotation curves, which is why the branch is interesting. But this proximity is not yet a derived galaxy-dynamics result.
 
-### What This Branch Suggests
+### What This Continuation Benchmarks
 
-If the modular anomaly is what we're calling "dark matter," then:
+One possible continuation ansatz is to identify the modular anomaly with part of the inferred dark sector. Under that extra ansatz:
 
-**A MOND-like scaling can emerge.** In the deep IR regime where $g < a_0$, the effective gravitational acceleration can take the form:
+**A MOND-like scaling could be postulated.** In the deep IR regime where $g < a_0$, one might write the effective gravitational acceleration as:
 
 $$g_{\text{obs}} \approx \sqrt{a_0 \cdot g_b}$$
 
-where $g_b$ is the Newtonian acceleration from baryons. For a galaxy, this gives $v \propto r^0$-flat rotation curves.
+where $g_b$ is the Newtonian acceleration from baryons. For a galaxy, this would give $v \propto r^0$-flat rotation curves in the ansatz.
 
-**The Baryonic Tully-Fisher relation has the right available scale.** The asymptotic rotation velocity would satisfy:
+**The Baryonic Tully-Fisher relation becomes a benchmark target.** The asymptotic rotation velocity would then satisfy:
 
 $$V^4 = G \cdot M_b \cdot a_0^{(\text{OPH})}$$
 
-This is the observed Tully-Fisher relation, with the normalization determined by screen capacity.
+This is the observed Tully-Fisher relation, with the normalization benchmark determined by screen capacity.
 
-**No new particles are required in this branch.** The "dark matter" would be an effective correction to gravity at large scales, not a new species of particle.
+**No new particles are required at the level of the ansatz.** The "dark matter" would be an effective correction to gravity at large scales, not a new species of particle.
 
 ### The Status
 
-This is a **program-level prediction**, not a proven derivation. What we have:
+This is a **future-work continuation**, not a proven derivation. What we have:
 
 - The modular anomaly term exists with a fixed coefficient
 - The de Sitter scale $r_{dS}$ is determined by screen capacity
 - The combination gives an acceleration scale in the right ballpark
 
-What we're assuming additionally:
+What remains missing:
 
-- That $T_{00}^{\text{anom}}$ dominates galaxy-scale phenomenology
-- That the deep-IR limit organizes into MOND-like scaling
+- A controlled nonrelativistic reduction from the anomaly term to galaxy and lensing observables
+- A derived source/response law selecting the MOND-like scaling rather than alternative IR behavior
+- Cluster and Bullet-Cluster phenomenology
+- Cosmological abundance and structure-formation analysis
+- Environment-dependence and stability checks
 
-But if this interpretation is correct, it would be remarkable: the same finite screen capacity that gives us the cosmological constant would also generate a dark-sector acceleration scale-not as a particle, but as an IR modification of gravity from modular imperfections.
+So the current claim is narrower: the same finite screen capacity that gives us the cosmological constant also supplies an IR benchmark scale for a possible dark-sector continuation. The continuation itself is still open.
 
-### Falsifiability
+### What A Future Closure Would Need To Face
 
-The prediction is sharp: $a_0^{(\text{OPH})} \approx 1.03 \times 10^{-10}$ $\text{m/s}^2$. If galaxy data definitively require a substantially different value, or if the acceleration scale varies with environment in ways incompatible with a universal $\Lambda$-derived scale, this interpretation fails.
+Any later closure would need to explain whether an acceleration scale near $a_0^{(\text{OPH})} \approx 1.03 \times 10^{-10}$ $\text{m/s}^2$ can coexist with galaxy, lensing, cluster, Bullet-Cluster, and cosmological data. At present the branch remains open.
 
 ---
 
