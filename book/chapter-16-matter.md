@@ -44,6 +44,11 @@ Think of the screen as a high-resolution, quantum information canvas. Most
 patterns are noisy and ephemeral. Some are stable: they survive overlap
 consistency, persist under modular time, and can be tracked across patches.
 Those stable patterns are what we call **particles**.
+That ontological statement should not be confused with a claim that the full
+quantitative particle zoo is already uniformly theorem-closed in OPH. The
+current public particle-status surface remains tiered across structural,
+calibration, secondary quantitative, continuation, and execution-bound rows
+as summarized in Chapter 14.
 
 The key reframing is:
 
