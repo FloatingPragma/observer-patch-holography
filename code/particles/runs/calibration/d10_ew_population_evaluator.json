@@ -1,0 +1,204 @@
+{
+  "admissible_family_points": {
+    "source_point_A": {
+      "eta_EW": 0.001970385566344652,
+      "quintet": {
+        "MW_pole": 80.46544871360979,
+        "MZ_pole": 91.70107406716765,
+        "alpha_em_eff_inv": 128.44241441342285,
+        "sin2w_eff": 0.23003669147715428,
+        "v_report": 246.76711732749683
+      },
+      "sigma_EW": 0.0
+    },
+    "source_point_B": {
+      "eta_EW": 0.022147000871961295,
+      "quintet": {
+        "MW_pole": 80.38629169244275,
+        "MZ_pole": 91.18290444674243,
+        "alpha_em_eff_inv": 132.88025754903566,
+        "sin2w_eff": 0.22279220809210554,
+        "v_report": 246.76711732749683
+      },
+      "sigma_EW": -0.022147000871961295
+    }
+  },
+  "alpha_u_from_seed": 0.04112498041477453,
+  "alpha_u_from_seed_formula": "8*pi*tau_seed / log(alphaY_mz / alpha2_mz)",
+  "artifact": "oph_d10_ew_population_evaluator",
+  "candidate_exactness_verdict": "demoted_shell_restriction_of_closed_current_carrier",
+  "candidate_population_functional_formula_basis": "J_pop_EW_candidate_basis(u_EW,n_EW) = (u_EW - 1)^2 + (((u_EW - n_EW) / (1 - beta_EW)) - eta_star_compact)^2",
+  "candidate_population_functional_formula_sigma_eta": "J_pop_EW_candidate(sigma_EW,eta_EW) = (sigma_EW + eta_EW)^2 + (eta_EW - eta_star_compact)^2",
+  "candidate_population_functional_origin": "compact_source_defect_to_current_hypercharge_only_mass_slice",
+  "candidate_population_functional_relation_to_J_pop_EW": "J_pop_EW restricted to Pi_WW = 0 and det(Pi_AZ_block) = 0",
+  "candidate_population_functional_status": "demoted_shell_restriction",
+  "candidate_population_functional_values": {
+    "A": 0.00041097822447090307,
+    "B": 0.0,
+    "delta_B_minus_A": -0.00041097822447090307
+  },
+  "candidate_selected_population_basis_point": {
+    "n_EW": 0.9897798047502109,
+    "u_EW": 1.0
+  },
+  "candidate_selected_population_point": {
+    "eta_EW": 0.022147000871961295,
+    "sigma_EW": -0.022147000871961295,
+    "tau_2": 0.0,
+    "tau_Y": -0.04429400174392259
+  },
+  "candidate_selected_quintet": {
+    "MW_pole": 80.38629169244275,
+    "MZ_pole": 91.18290444674243,
+    "alpha_em_eff_inv": 132.88025754903566,
+    "sin2w_eff": 0.22279220809210554,
+    "v_report": 246.76711732749683
+  },
+  "candidate_selected_transport_entries": {
+    "Pi_AA": -0.03407380649413349,
+    "Pi_AZ": 0.018661215267864417,
+    "Pi_WW": 0.0,
+    "Pi_ZZ": -0.0102201952497891
+  },
+  "candidate_selector_formula": "argmin_{p in C_D10} ((sigma_EW + eta_EW)^2 + (eta_EW - eta_star_compact)^2)",
+  "eta_source": 0.02214700087196129,
+  "eta_source_formula": "alpha_u_from_seed * beta_EW",
+  "evaluator_contract": {
+    "carrier_basis": "(u_EW, n_EW)",
+    "carrier_domain": "(sigma_EW, eta_EW)",
+    "selection_forbidden_inputs": [
+      "reference_W",
+      "reference_Z",
+      "reference_alpha_em_inv",
+      "reference_sin2_thetaW"
+    ],
+    "selection_output": "one unique admissible point on the existing reopened two-scalar carrier"
+  },
+  "generated_utc": "2026-03-29T06:39:01Z",
+  "notes": [
+    "The reopened two-scalar D10 carrier is already minimal and the carrier-level selector is now closed on current data.",
+    "J_pop_EW selects the same hypercharge-only point that was previously only recorded as a compact shell candidate, so that shell is now demoted to a restriction of the full carrier functional.",
+    "The remaining D10 gap is no longer carrier selection but exact electroweak closure beyond the current selected carrier point.",
+    "No reference-fit W/Z slice is consumed anywhere in this evaluator."
+  ],
+  "object_id": "EWGaugeSourceTransportPairPopulationEvaluator_D10",
+  "obstruction_witness_pair": {
+    "A": {
+      "eta_EW": 0.001970385566344652,
+      "n_EW": 1.0010611100702254,
+      "sigma_EW": 0.0,
+      "u_EW": 1.0019703855663447
+    },
+    "B": {
+      "eta_EW": 0.022147000871961295,
+      "n_EW": 0.9897798047502109,
+      "sigma_EW": -0.022147000871961295,
+      "u_EW": 1.0
+    },
+    "delta_basis_B_minus_A": {
+      "n_EW": -0.011281305320014407,
+      "u_EW": -0.001970385566344652
+    },
+    "delta_quintet_B_minus_A": {
+      "MW_pole": -0.07915702116703471,
+      "MZ_pole": -0.5181696204252262,
+      "alpha_em_eff_inv": 4.437843135612809,
+      "sin2w_eff": -0.007244483385048739
+    }
+  },
+  "population_atomic_quartet": {
+    "alpha_em_inv_formula": "1/(alpha2_mz * u_EW) + 1/((alphaY_mz + alpha2_mz) * n_EW - alpha2_mz * u_EW)",
+    "mW_formula": "v_inherited * sqrt(pi * alpha2_mz * u_EW)",
+    "mZ_formula": "v_inherited * sqrt(pi * (alphaY_mz + alpha2_mz) * n_EW)",
+    "sin2_thetaW_formula": "1 - alpha2_mz * u_EW / ((alphaY_mz + alpha2_mz) * n_EW)"
+  },
+  "population_basis": {
+    "beta_EW": 0.5385291530498766,
+    "beta_EW_formula": "(alpha2_mz - alphaY_mz) / (alpha2_mz + alphaY_mz)",
+    "n_EW_formula": "1 + sigma_EW + beta_EW * eta_EW",
+    "u_EW_formula": "1 + sigma_EW + eta_EW"
+  },
+  "population_driven_quintet": {
+    "MW_pole": 80.38629169244275,
+    "MZ_pole": 91.18290444674243,
+    "alpha_em_eff_inv": 132.88025754903566,
+    "sin2w_eff": 0.22279220809210554,
+    "v_report": 246.76711732749683
+  },
+  "population_functional_basis_domain": "(u_EW, n_EW)",
+  "population_functional_domain": "(sigma_EW, eta_EW)",
+  "population_functional_formula_basis": "J_pop_EW_basis(u_EW,n_EW) = (u_EW - 1)^2 + (sigma(u_EW,n_EW)^2 - eta(u_EW,n_EW)^2)^2 + (sigma(u_EW,n_EW) + eta_source)^2",
+  "population_functional_formula_sigma_eta": "J_pop_EW(sigma_EW,eta_EW) = (sigma_EW + eta_EW)^2 + (sigma_EW^2 - eta_EW^2)^2 + (sigma_EW + eta_source)^2",
+  "population_functional_formula_transport": "J_pop_EW = Pi_WW^2 + (Pi_AA*Pi_ZZ - Pi_AZ^2)^2 + (0.5*(Pi_AA + Pi_ZZ) + eta_source)^2",
+  "population_functional_origin": "rank_one_trace_anchored_source_shell",
+  "population_functional_status": "closed",
+  "population_functional_symbol": "J_pop_EW",
+  "population_functional_values": {
+    "A": 0.000494372081975893,
+    "B": 1.2037062152420224e-35,
+    "delta_B_minus_A": -0.000494372081975893
+  },
+  "population_minimality_certificate": {
+    "det_d_u_n_d_sigma_eta_formula": "beta_EW - 1",
+    "determinant": -0.4614708469501234,
+    "determinant_nonzero": true,
+    "third_scalar_needed": false
+  },
+  "population_reconstruction": {
+    "eta_EW_formula": "(u_EW - n_EW) / (1 - beta_EW)",
+    "sigma_EW_formula": "(n_EW - 1 - beta_EW * (u_EW - 1)) / (1 - beta_EW)"
+  },
+  "population_selector_formula": "selected_population_point = argmin_{p in C_D10} J_pop_EW(p)",
+  "population_selector_obstructed": false,
+  "population_selector_rule": "selected_population_point = argmin_{p in C_D10} J_pop_EW(p)",
+  "population_selector_separation_requirement": "J_pop_EW(A) != J_pop_EW(B)",
+  "population_selector_uniqueness_requirement": "argmin is a singleton",
+  "predictive_population_point": {
+    "eta_EW": 0.02214700087196129,
+    "sigma_EW": -0.02214700087196129,
+    "tau_2": 0.0,
+    "tau_Y": -0.04429400174392258
+  },
+  "predictive_promotion_allowed": false,
+  "proof_status": "population_functional_closed_on_current_carrier",
+  "quartet_injectivity_certificate": {
+    "eta_EW_from_basis": "(u_EW - n_EW) / (1 - beta_EW)",
+    "injective_on_current_family": true,
+    "n_EW_from_mass_pair": "mZ^2 / (pi * v_inherited^2 * (alphaY_mz + alpha2_mz))",
+    "sigma_EW_from_basis": "(n_EW - 1 - beta_EW * (u_EW - 1)) / (1 - beta_EW)",
+    "u_EW_from_mass_pair": "mW^2 / (pi * v_inherited^2 * alpha2_mz)"
+  },
+  "required_extra_invariant_symbol": null,
+  "required_extra_object": null,
+  "required_extra_object_contract": null,
+  "selected_population_basis_point": {
+    "n_EW": 0.9897798047502109,
+    "u_EW": 1.0
+  },
+  "selected_population_point": {
+    "eta_EW": 0.02214700087196129,
+    "sigma_EW": -0.02214700087196129,
+    "tau_2": 0.0,
+    "tau_Y": -0.04429400174392258
+  },
+  "selected_quintet": {
+    "MW_pole": 80.38629169244275,
+    "MZ_pole": 91.18290444674243,
+    "alpha_em_eff_inv": 132.88025754903566,
+    "sin2w_eff": 0.22279220809210554,
+    "v_report": 246.76711732749683
+  },
+  "selected_transport_entries": {
+    "Pi_AA": -0.03407380649413348,
+    "Pi_AZ": 0.018661215267864417,
+    "Pi_WW": 0.0,
+    "Pi_ZZ": -0.010220195249789099
+  },
+  "selector_formula": "selected_population_point = argmin_{p in C_D10} J_pop_EW(p)",
+  "smallest_constructive_missing_object": null,
+  "source_transport_pair_artifact": "oph_d10_ew_source_transport_pair",
+  "source_transport_readout_artifact": "oph_d10_ew_source_transport_readout",
+  "status": "closed_current_carrier",
+  "strict_obstruction_status": null,
+  "strict_obstruction_theorem": null
+}

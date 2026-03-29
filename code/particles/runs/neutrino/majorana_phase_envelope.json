@@ -1,0 +1,68 @@
+{
+  "collective_projector_phase_stable": true,
+  "delta_m21_sq_bounds_gev2": {
+    "max": 9.62541040878508e-25,
+    "min": 0.0
+  },
+  "delta_m31_sq_bounds_gev2": {
+    "max": 1.0595172246077544e-24,
+    "min": 1.557124826569896e-25
+  },
+  "delta_sigma_radius_gev": 3.73091307184548e-13,
+  "gap_vs_radius_certificate": {
+    "delta_h_radius_gev2": 4.143730700225407e-24,
+    "delta_sigma_radius_gev": 3.73091307184548e-13,
+    "ordering_gap_test_passes": false,
+    "projector_gap_seed_gev2": 1.1102230246251565e-16,
+    "projector_gap_test_passes": true,
+    "real_seed_gaps_gev": [
+      4.0389678347315804e-28,
+      1.91429206011187e-13
+    ]
+  },
+  "inputs": {
+    "family_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/family_response_tensor.json",
+    "lift_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_holonomy_lift.json",
+    "majorana_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/forward_majorana_matrix.json",
+    "scale_anchor_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/neutrino_scale_anchor.json"
+  },
+  "mass_bounds_gev": [
+    {
+      "index": 1,
+      "max": 2.448310491895263e-12,
+      "min": 2.3269048295601224e-12
+    },
+    {
+      "index": 2,
+      "max": 2.525277633589767e-12,
+      "min": 2.39864484476272e-12
+    },
+    {
+      "index": 3,
+      "max": 2.5900740507739074e-12,
+      "min": 2.479906600535877e-12
+    }
+  ],
+  "notes": [
+    "This is the compulsory honesty-check surface for phase dependence in the neutrino lane.",
+    "Ordering or splitting outputs are not phase-certified unless the gap-vs-radius certificate passes."
+  ],
+  "ordering_phase_stable": false,
+  "ordering_samples": [
+    "inverted_like_collective_dominance",
+    "normal_like_collective_dominance",
+    "undetermined"
+  ],
+  "phase_mode": "residual_envelope",
+  "sample_count": 1089,
+  "sample_grid_per_axis": 33,
+  "selector_reference": {
+    "energy_majorana": 0.0004780375609296871,
+    "psi12": 0.5853814255968639,
+    "psi23": 0.5853814255968639,
+    "psi31": 0.5853814255968639,
+    "selector": "least_distortion",
+    "status": "candidate_only"
+  },
+  "status": "residual_phase_envelope"
+}

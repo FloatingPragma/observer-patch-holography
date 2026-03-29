@@ -1,0 +1,69 @@
+{
+  "artifact": "oph_neutrino_same_label_scalar_certificate",
+  "base_mu_nu": 0.02671877920542088,
+  "builder_facing_exact_object": "centered_log_pullback_class_[log_q_e]",
+  "certificate_residuals": {
+    "max_projector_identity_residual": null
+  },
+  "compression_status": "proof_facing_compression_defined_values_open",
+  "defect_e": {
+    "psi12": null,
+    "psi23": null,
+    "psi31": null
+  },
+  "eta_e": {
+    "psi12": null,
+    "psi23": null,
+    "psi31": null
+  },
+  "exact_downstream_factorization_object": "same_label_scalar_certificate_(gap_e,overlap_sq_e)_mod_common_scale",
+  "gap_e": {
+    "psi12": null,
+    "psi23": null,
+    "psi31": null
+  },
+  "generated_utc": "2026-03-28T15:42:44Z",
+  "insufficient_for_pmns_or_public_flavor_rows": true,
+  "mu_e": {
+    "psi12": null,
+    "psi23": null,
+    "psi31": null
+  },
+  "notes": [
+    "The scalar certificate contract is fixed, but the live same-label overlap/gap/defect scalars are not yet populated on all realized arrows.",
+    "Once those scalars are emitted, the downstream intrinsic neutrino mass-eigenstate branch factors through this certificate without needing the raw matrix payloads."
+  ],
+  "proof_status": "shell_waiting_live_same_label_scalars",
+  "q_e": {
+    "psi12": null,
+    "psi23": null,
+    "psi31": null
+  },
+  "rank_e": {
+    "psi12": null,
+    "psi23": null,
+    "psi31": null
+  },
+  "realized_same_label_arrows": [
+    "psi12",
+    "psi23",
+    "psi31"
+  ],
+  "same_label": {
+    "psi12": null,
+    "psi23": null,
+    "psi31": null
+  },
+  "same_label_overlap_sq": {
+    "psi12": null,
+    "psi23": null,
+    "psi31": null
+  },
+  "smallest_constructive_missing_object": "realized_arrow_pullback_from_flavor_gap_and_defect_certificates",
+  "source_artifacts": [
+    "oph_realized_same_label_gap_defect_readback"
+  ],
+  "source_kind": "same_label_pullback_shell",
+  "source_path": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/realized_same_label_gap_defect_readback.json",
+  "sufficient_for_intrinsic_mass_eigenstates": false
+}

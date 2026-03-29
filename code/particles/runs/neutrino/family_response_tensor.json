@@ -1,0 +1,172 @@
+{
+  "C_nu_hat_real": [
+    [
+      0.9417329721810422,
+      0.02913351390947865,
+      0.02913351390947865
+    ],
+    [
+      0.02913351390947865,
+      0.9417329721810422,
+      0.02913351390947865
+    ],
+    [
+      0.02913351390947865,
+      0.02913351390947865,
+      0.9417329721810422
+    ]
+  ],
+  "Delta_nu": [
+    [
+      0.6083996388477089,
+      -0.30419981942385466,
+      -0.30419981942385466
+    ],
+    [
+      -0.30419981942385466,
+      0.6083996388477089,
+      -0.30419981942385466
+    ],
+    [
+      -0.30419981942385466,
+      -0.30419981942385466,
+      0.6083996388477089
+    ]
+  ],
+  "E_nu": [
+    [
+      1.0,
+      0.030936066560360288,
+      0.030936066560360288
+    ],
+    [
+      0.030936066560360288,
+      1.0,
+      0.030936066560360288
+    ],
+    [
+      0.030936066560360288,
+      0.030936066560360288,
+      1.0
+    ]
+  ],
+  "K_core_directed": [
+    [
+      1.0,
+      0.05311785044622235,
+      0.004481291694225777
+    ],
+    [
+      0.05311785044622235,
+      1.0,
+      0.035209057540632735
+    ],
+    [
+      0.004481291694225777,
+      0.035209057540632735,
+      1.0
+    ]
+  ],
+  "K_core_majorana_sym": [
+    [
+      1.0,
+      0.030936066560360288,
+      0.030936066560360288
+    ],
+    [
+      0.030936066560360288,
+      1.0,
+      0.030936066560360288
+    ],
+    [
+      0.030936066560360288,
+      0.030936066560360288,
+      1.0
+    ]
+  ],
+  "S_nu": [
+    [
+      -0.0,
+      3.475832573129149,
+      3.475832573129149
+    ],
+    [
+      3.475832573129149,
+      -0.0,
+      3.475832573129149
+    ],
+    [
+      3.475832573129149,
+      3.475832573129149,
+      -0.0
+    ]
+  ],
+  "artifact": "oph_neutrino_family_response",
+  "collective_mode_overlap": 1.061872133120721,
+  "edge_amplitude_isotropy_certificate": {
+    "closed": true,
+    "spread": 0.0,
+    "tolerance": 1e-30
+  },
+  "edge_amplitudes": {
+    "a12": 0.030936066560360288,
+    "a23": 0.030936066560360288,
+    "a31": 0.030936066560360288
+  },
+  "family_symmetry_certificate": {
+    "reason": "equal_edge_amplitudes",
+    "s3_equivariant_data": true
+  },
+  "gap_certificate": {
+    "min_gap": 3.3306690738754696e-16,
+    "stable": false
+  },
+  "generated_utc": "2026-03-27T13:18:50Z",
+  "labels": [
+    "f1",
+    "f2",
+    "f3"
+  ],
+  "majorana_normalization_diag": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "notes": [
+    "This artifact builds the real symmetric Majorana response from the sector-response object.",
+    "The complex Majorana phase lift stays separate until the congruence-gauge theorem closes.",
+    "Unique-edge amplitudes and the weighted edge norm are exported for the residual-envelope theorem burden."
+  ],
+  "phase_status": "unresolved",
+  "projector_gap_seed": 1.1102230246251565e-16,
+  "rank_lower_bound": 3,
+  "source_artifacts": {
+    "scale_anchor": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/neutrino_scale_anchor.json",
+    "sector_response": "/Users/muellerberndt/Projects/oph-meta/particles/runs/flavor/sector_transport_pushforward.json"
+  },
+  "status": "real_majorana_response",
+  "u_normalization": 1.061872133120721,
+  "u_projector": [
+    [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.3333333333333333
+    ],
+    [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.3333333333333333
+    ],
+    [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.3333333333333333
+    ]
+  ],
+  "u_vector": [
+    0.5773502691896258,
+    0.5773502691896258,
+    0.5773502691896258
+  ],
+  "weighted_edge_norm_sq": 0.0028711206426811258
+}

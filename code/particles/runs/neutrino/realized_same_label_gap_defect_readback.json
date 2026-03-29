@@ -1,0 +1,82 @@
+{
+  "artifact": "oph_realized_same_label_gap_defect_readback",
+  "base_mu_nu": 0.02671877920542088,
+  "complete_by_arrow": {
+    "psi12": false,
+    "psi23": false,
+    "psi31": false
+  },
+  "defect_e": {
+    "psi12": null,
+    "psi23": null,
+    "psi31": null
+  },
+  "derived_q_e": {
+    "psi12": null,
+    "psi23": null,
+    "psi31": null
+  },
+  "eta_e": {
+    "psi12": null,
+    "psi23": null,
+    "psi31": null
+  },
+  "eta_e_rule": "eta_e = 0.5 * ((log g_e + log d_e) - mean_f(log g_f + log d_f))",
+  "gap_e": {
+    "psi12": null,
+    "psi23": null,
+    "psi31": null
+  },
+  "generated_utc": "2026-03-26T06:26:00Z",
+  "kernel_choice": "1-cos",
+  "metadata": {
+    "note": "This artifact is now the exact builder-facing shell for the realized-arrow pullback bundle. The downstream neutrino chain is fixed once builder-grade gap_e and defect_e values are populated on the realized same-label arrows."
+  },
+  "missing_fields_by_arrow": {
+    "psi12": [
+      "gap_e",
+      "defect_e"
+    ],
+    "psi23": [
+      "gap_e",
+      "defect_e"
+    ],
+    "psi31": [
+      "gap_e",
+      "defect_e"
+    ]
+  },
+  "mu_e": {
+    "psi12": null,
+    "psi23": null,
+    "psi31": null
+  },
+  "mu_e_rule": "mu_e = base_mu_nu * exp(delta_e) / mean_f(exp(delta_f))",
+  "neutrino_only_isotropy_obstruction": true,
+  "payload_status": "reduced_to_strict_smallest_missing_object",
+  "proof_status": "candidate_only",
+  "q_e": {
+    "psi12": null,
+    "psi23": null,
+    "psi31": null
+  },
+  "q_e_rule": "q_e = sqrt(gap_e * defect_e)",
+  "q_mean": null,
+  "q_spread": null,
+  "realized_same_label_arrows": [
+    "psi12",
+    "psi23",
+    "psi31"
+  ],
+  "same_label_defect_rule": "d_e = 0.5 * ||P_head(e) - L_e P_tail(e) L_e^*||_HS^2 = 1 - overlap_sq_e",
+  "same_label_overlap_sq": {
+    "psi12": null,
+    "psi23": null,
+    "psi31": null
+  },
+  "same_label_readback_origin": "realized_arrow_pullback_from_flavor_gap_and_defect_certificates",
+  "selector_center": "principal_equal_split",
+  "smallest_constructive_missing_object": "realized_arrow_pullback_from_flavor_gap_and_defect_certificates",
+  "strict_smallest_exact_missing_object": "realized_arrow_pullback_from_flavor_gap_and_defect_certificates",
+  "upstream_exact_clause": "same_label_overlap_nonzero_on_realized_refinement_arrows"
+}

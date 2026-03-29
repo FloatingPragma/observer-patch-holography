@@ -1,0 +1,37 @@
+{
+  "artifact": "oph_charged_absolute_scale_transport_gap_identity",
+  "gamma_min_common": 0.30236566025890826,
+  "generated_utc": "2026-03-29T06:39:03Z",
+  "identity_formula": "gamma_min_common = theorem_gap_gamma",
+  "identity_residual": 0.0,
+  "lane_context": {
+    "next_single_residual_object_after_eta": "sigma_source_support_extension_total_log_per_side",
+    "remaining_lane_frontier": "eta_source_support_extension_log_per_side",
+    "why_not_closure": "The current-family absolute-scale coordinate is cleaner, but charged hierarchy closure still depends first on the same-carrier eta-then-sigma support pair."
+  },
+  "notes": [
+    "This is a current-family identity, not a recovered-core charged-lepton mass theorem.",
+    "It removes one source of arbitrariness from the typed absolute-scale restore candidate by identifying the subtracted common gap with the emitted transport-gap scalar."
+  ],
+  "parent_artifacts": {
+    "charged_shared_absolute_scale_writeback": "charged_shared_absolute_scale_writeback",
+    "lepton_shared_absolute_scale_binding": "lepton_shared_absolute_scale_binding",
+    "overlap_edge_transport_cocycle": "oph_overlap_edge_transport_cocycle"
+  },
+  "proof_status": "current_family_gap_identity_closed_hierarchy_still_open",
+  "public_promotion_allowed": false,
+  "scope": "current_family_only",
+  "theorem_gap_gamma": 0.30236566025890826,
+  "typed_restore_formulas": {
+    "g_e_effective_candidate": "exp(mu_e_absolute_log_candidate)",
+    "g_e_effective_candidate_alt": "stored_shared_absolute_scale_raw * exp(-theorem_gap_gamma)",
+    "mu_e_absolute_log_candidate": "log(stored_shared_absolute_scale_raw) - theorem_gap_gamma",
+    "mu_e_absolute_log_seed": "log(stored_shared_absolute_scale_raw)"
+  },
+  "typed_restore_values": {
+    "g_e_effective_candidate": 0.6822819838027987,
+    "mu_e_absolute_log_candidate": -0.38231224060567365,
+    "mu_e_absolute_log_seed": -0.07994658034676537,
+    "stored_shared_absolute_scale_raw": 0.9231656602589082
+  }
+}

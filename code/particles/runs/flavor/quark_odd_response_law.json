@@ -1,0 +1,183 @@
+{
+  "Delta_Phi_q": [
+    [
+      0.0,
+      0.36859806829415914,
+      0.177272971261707
+    ],
+    [
+      -0.36859806829415914,
+      0.0,
+      0.020537722280319606
+    ],
+    [
+      -0.177272971261707,
+      -0.020537722280319606,
+      0.0
+    ]
+  ],
+  "Delta_S_q": [
+    [
+      0.0,
+      0.20624196900447375,
+      0.034806034601383956
+    ],
+    [
+      0.20624196900447375,
+      0.0,
+      0.23369766089500627
+    ],
+    [
+      0.034806034601383956,
+      0.23369766089500627,
+      0.0
+    ]
+  ],
+  "Delta_logD_left_q": [
+    0.5145239897595888,
+    -0.06917969610212979,
+    -0.44534429365745903
+  ],
+  "Delta_logD_right_q": [
+    -0.5145239897595888,
+    0.06917969610212979,
+    0.44534429365745903
+  ],
+  "Xi_q_imag": [
+    [
+      0.0,
+      0.36859806829415914,
+      0.177272971261707
+    ],
+    [
+      -0.36859806829415914,
+      0.0,
+      0.020537722280319606
+    ],
+    [
+      -0.177272971261707,
+      -0.020537722280319606,
+      0.0
+    ]
+  ],
+  "Xi_q_real": [
+    [
+      0.5145239897595888,
+      0.20624196900447375,
+      0.034806034601383956
+    ],
+    [
+      0.20624196900447375,
+      -0.06917969610212979,
+      0.23369766089500627
+    ],
+    [
+      0.034806034601383956,
+      0.23369766089500627,
+      -0.44534429365745903
+    ]
+  ],
+  "artifact": "oph_quark_odd_response_law",
+  "budget_neutral": true,
+  "charged_dirac_odd_deformation_form": {
+    "artifact": "oph_charged_dirac_odd_deformation_form",
+    "hidden_normalization_free": true,
+    "odd_scalar_slot_present": false,
+    "proof_status": "candidate_only",
+    "quark_zero_odd_scalar_corollary": "closed"
+  },
+  "coefficient_free": true,
+  "cone_choice": "seed_admissibility_tangent_cone",
+  "degenerate_placeholder_fallback_used": false,
+  "delta_logg_q": 0.0,
+  "delta_logg_q_status": "closed_zero_corollary",
+  "diag_laplacian": [
+    [
+      0.004843400587137189,
+      -0.004809171469360565,
+      -3.422911777662352e-05
+    ],
+    [
+      -0.004809171469360565,
+      0.006922164568838986,
+      -0.0021129930994784212
+    ],
+    [
+      -3.422911777662352e-05,
+      -0.0021129930994784212,
+      0.002147222217255045
+    ]
+  ],
+  "edge_weights": {
+    "12": 0.004809171469360565,
+    "13": 3.422911777662352e-05,
+    "23": 0.0021129930994784212
+  },
+  "generated_utc": "2026-03-26T07:21:19Z",
+  "kappa": 1.0,
+  "kappa_max_admissible": 6.934955573215182,
+  "lift_constants": null,
+  "lift_parameterization_kind": "single_kappa_signed_projector_ray",
+  "metadata": {
+    "note": "Explicit odd-response-law boundary for the quark lane. The current constructive candidate is the single-kappa signed projector ray on the shape-only odd codomain, with the dual covector taken from the shared-seed pullback Hilbert-Schmidt form. The common charged norm remains a separate shared-law question."
+  },
+  "orientation_fixed": true,
+  "projector_covariant": true,
+  "projector_split_coefficients": [
+    0.7943923487582518,
+    -0.23377770181325852,
+    -0.5606146469449932
+  ],
+  "proof_status": "candidate_only",
+  "response_map_id": "projector_witness_pullback_riesz_candidate",
+  "shared_charged_response_seed": {
+    "Phi_ch": [
+      [
+        0.0,
+        0.5853814255968638,
+        -0.5853814255968638
+      ],
+      [
+        -0.5853814255968638,
+        0.0,
+        0.5853814255968638
+      ],
+      [
+        0.5853814255968638,
+        -0.5853814255968638,
+        0.0
+      ]
+    ],
+    "S_ch": [
+      [
+        0.0,
+        2.9352422406300493,
+        5.407843949508826
+      ],
+      [
+        2.9352422406300493,
+        0.0,
+        3.346451912983049
+      ],
+      [
+        5.407843949508826,
+        3.346451912983049,
+        0.0
+      ]
+    ],
+    "g_ch_candidate": 0.9231656602589083,
+    "logD_ch_left": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "logD_ch_right": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "seed_kind": "averaged_u_d_candidate"
+  },
+  "shared_scalarization_law_status": "candidate_only",
+  "upstream_missing_object": "oph_charged_dirac_odd_deformation_form"
+}

@@ -1,0 +1,50 @@
+{
+  "MW_formula": "v_inherited * sqrt(pi * alpha2_mz * (1 + tau2_tree_exact))",
+  "MZ_formula": "v_inherited * sqrt(pi * (alphaY_mz * (1 + tau_Y) + alpha2_mz * (1 + tau2_tree_exact)))",
+  "artifact": "oph_d10_ew_exact_wz_coordinate_beyond_single_tree_identity",
+  "carrier_basis_scalar": {
+    "alpha2_mz": 0.03377843630219015,
+    "alphaY_mz": 0.010131601067241624,
+    "beta_EW": 0.5385291530498766,
+    "beta_EW_formula": "(alpha2_mz - alphaY_mz) / (alpha2_mz + alphaY_mz)",
+    "v_inherited": 246.76711732749683
+  },
+  "completion_kind": "strictly_smaller_coordinate_beneath_exact_wz_completion",
+  "coordinate_kind": "charged_leg_post_transport_mass_coordinate",
+  "coordinate_symbol": "tau2_tree_exact",
+  "current_carrier_obstruction_artifact": "oph_d10_ew_tau2_current_carrier_obstruction",
+  "depends_on_object": "EWFiberwisePopulationTreeLaw_D10",
+  "direct_tau2_emission_blocked": true,
+  "eta_from_coordinate_formula": "(eta_source + tau2_tree_exact + 2*tau2_tree_exact^3) / (1 + 4*tau2_tree_exact^2)",
+  "eta_from_u_n_formula": "(u_EW - n_EW) / (1 - beta_EW)",
+  "fiberwise_population_tree_law_artifact": "oph_d10_ew_fiberwise_population_tree_law_beneath_single_tree_identity",
+  "fiberwise_population_tree_law_status": "closed_smaller_primitive",
+  "generated_utc": "2026-03-29T06:39:02Z",
+  "minimal_extra_scalar_or_invariant": "delta_n_tree_exact",
+  "minimality_certificate": {
+    "current_selected_tau2": 0.0,
+    "one_scalar_suffices_after_single_tree_identity": false,
+    "why_one_scalar_suffices_after_single_tree_identity": "the current one-variable carrier moves W and Z with the same local sign, so one extra neutral scalar is required beyond tau2_tree_exact",
+    "why_zero_extra_scalars_fail": "any downstream object preserving tau2=0 leaves MW fixed at the current public D10 value",
+    "zero_extra_scalars_fail": true
+  },
+  "n_EW_formula": "1 + (alphaY_mz * tau_Y + alpha2_mz * tau2_tree_exact) / (alphaY_mz + alpha2_mz)",
+  "next_residual_object_if_open": "delta_n_tree_exact",
+  "notes": [
+    "The selected current carrier closes the split exact law but freezes the charged-leg factor at tau2 = 0.",
+    "The emitted fiberwise tree law isolates tau2_tree_exact as the charged-leg mover on the current carrier.",
+    "The current-carrier obstruction shows that exact W/Z closure still needs one extra neutral scalar delta_n_tree_exact beyond direct tau2 emission.",
+    "Once tau2_tree_exact and delta_n_tree_exact are both emitted, W and Z move independently on the exact mass-pair surface."
+  ],
+  "object_id": "EWExactWZCoordinateBeyondSingleTreeIdentity_D10",
+  "population_evaluator_artifact": "oph_d10_ew_population_evaluator",
+  "proof_status": "no_single_tau2_on_closed_current_carrier_can_hit_exact_W_and_exact_Z",
+  "selected_current_tau2": 0.0,
+  "sigma_from_coordinate_formula": "(2*tau2_tree_exact^3 - eta_source) / (1 + 4*tau2_tree_exact^2)",
+  "sigma_from_u_n_formula": "(n_EW - 1 - beta_EW * (u_EW - 1)) / (1 - beta_EW)",
+  "source_transport_pair_artifact": "oph_d10_ew_source_transport_pair",
+  "status": "open_current_carrier_insufficient",
+  "tau2_tree_exact": null,
+  "tauY_from_single_tree_identity_formula": "-(tau2_tree_exact + 2*eta_source) / (1 + 4*tau2_tree_exact^2)",
+  "u_EW_formula": "1 + tau2_tree_exact"
+}

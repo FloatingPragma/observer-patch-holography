@@ -1,0 +1,225 @@
+{
+  "U_e_left": {
+    "imag": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "real": [
+      [
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0,
+        0.0
+      ]
+    ]
+  },
+  "U_e_right": {
+    "imag": [
+      [
+        -0.0,
+        -0.0,
+        -0.0
+      ],
+      [
+        -0.0,
+        -0.0,
+        -0.0
+      ],
+      [
+        -0.0,
+        -0.0,
+        -0.0
+      ]
+    ],
+    "real": [
+      [
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0,
+        0.0
+      ]
+    ]
+  },
+  "Y_e": {
+    "imag": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "real": [
+      [
+        0.5522083874717677,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.2133081180984448,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.15764915468869578
+      ]
+    ]
+  },
+  "Y_e_shape": {
+    "imag": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "real": [
+      [
+        0.5981682500158173,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.23106158220683928,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.17077016777734344
+      ]
+    ]
+  },
+  "absolute_scale_closed": false,
+  "artifact": "oph_forward_charged_leptons",
+  "basis_contract": {
+    "labels": [
+      "f1",
+      "f2",
+      "f3"
+    ],
+    "orientation_preserved": false
+  },
+  "channel_norm": {
+    "beta_e_by_refinement": [
+      {
+        "refinement": "refinement_limit_candidate",
+        "value": 0.3333333333333333
+      },
+      {
+        "refinement": "snapshot",
+        "value": 0.3333333333333333
+      }
+    ],
+    "channel_norm_closed": false,
+    "charged_budget_total_by_refinement": [
+      {
+        "refinement": "refinement_limit_candidate",
+        "value": 2.769496980776725
+      },
+      {
+        "refinement": "snapshot",
+        "value": 2.769496980776725
+      }
+    ],
+    "closure_route": "shared_charged_budget",
+    "g_e": null,
+    "g_e_by_refinement": [
+      {
+        "refinement": "refinement_limit_candidate",
+        "value": 0.9231656602589082
+      },
+      {
+        "refinement": "snapshot",
+        "value": 0.9231656602589082
+      }
+    ],
+    "g_e_candidate": 0.9231656602589082,
+    "proof_status": "shared_budget_only",
+    "scale_scope": "shared_charged_budget",
+    "shared_budget_key": "charged_dirac_budget",
+    "shared_budget_share_e": 0.3333333333333333,
+    "shared_scale_binding_artifact": "lepton_shared_absolute_scale_binding",
+    "shared_scale_binding_g_e": 0.9231656602589082,
+    "shared_scale_binding_status": "current_family_writeback_complete"
+  },
+  "closure_state": "shared_writeback_current_family",
+  "generated_utc": "2026-03-26T06:23:47Z",
+  "labels": [
+    "f1",
+    "f2",
+    "f3"
+  ],
+  "metadata": {
+    "channel_norm_artifact": "oph_lepton_channel_norm",
+    "closure_route": "shared_charged_budget",
+    "note": "Current-family ordered charged-lepton shape readout built from the populated common-refinement eigenvalue triple. This is a local post-writeback consumer candidate, not full charged-lepton closure.",
+    "shared_scale_binding_artifact": "lepton_shared_absolute_scale_binding"
+  },
+  "shape_closed": true,
+  "singular_values_abs": [
+    0.15764915468869578,
+    0.2133081180984448,
+    0.5522083874717677
+  ],
+  "singular_values_shape": [
+    0.17077016777734344,
+    0.23106158220683928,
+    0.5981682500158173
+  ],
+  "source_mode": "explicit_shape_matrix",
+  "theorem_status": "shared_writeback_current_family"
+}

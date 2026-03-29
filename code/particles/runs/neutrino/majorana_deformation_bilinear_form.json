@@ -1,0 +1,84 @@
+{
+  "ambient_metric_class_3x3": [
+    [
+      0.000957040214227042,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.000957040214227042,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.000957040214227042
+    ]
+  ],
+  "ambient_metric_class_parameters": {
+    "a": 0.000957040214227042,
+    "b": 0.0,
+    "class": "aI_3 + bJ_3"
+  },
+  "ambient_phase_basis": [
+    "psi12",
+    "psi23",
+    "psi31"
+  ],
+  "artifact": "oph_majorana_deformation_bilinear_form",
+  "general_branch_weight_formula": "(n_i n_j E_ij)^2",
+  "general_branch_weights": {
+    "psi12": 0.000957040214227042,
+    "psi23": 0.000957040214227042,
+    "psi31": 0.000957040214227042
+  },
+  "generated_utc": "2026-03-27T13:18:50Z",
+  "isotropic_branch_rigidity": true,
+  "law_closure_scope": "local_quadratic_germ_closed",
+  "longitudinal_piece_on_residual_plane_2x2": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0
+    ]
+  ],
+  "notes": [
+    "On the current isotropic branch, any S3-equivariant positive bilinear form restricts to the unique residual class proportional to [[2,1],[1,2]].",
+    "The remaining OPH-only burden is no longer the local quadratic class itself; it is the intrinsic scalar evaluator that upgrades the action germ to an exact scaled/finite-angle OPH action."
+  ],
+  "oph_origin_status": "missing_scalar_evaluator",
+  "proof_status": "local_quadratic_germ_closed",
+  "residual_basis_order": [
+    "b1=(1,-1,0)",
+    "b2=(1,0,-1)"
+  ],
+  "residual_metric_class_2x2": [
+    [
+      0.001914080428454084,
+      0.000957040214227042
+    ],
+    [
+      0.000957040214227042,
+      0.001914080428454084
+    ]
+  ],
+  "scale_anchor_gev": 2.4617526608923523e-12,
+  "selector_law_target": "w_e*sin(psi_e)=lambda on psi12+psi23+psi31=Omega_012",
+  "source_artifacts": {
+    "family": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/family_response_tensor.json",
+    "hessian": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_overlap_defect_hessian.json",
+    "lift": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_holonomy_lift.json",
+    "scale_anchor": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/neutrino_scale_anchor.json"
+  },
+  "upstream_overlap_defect_hessian": {
+    "artifact": "oph_majorana_overlap_defect_hessian",
+    "oph_origin_status": "missing_scalar_evaluator",
+    "oph_scalar_action_kind": "local_quadratic_action_germ",
+    "proof_status": "local_quadratic_germ_closed",
+    "upstream_missing_object": "oph_majorana_overlap_defect_scalar_evaluator"
+  }
+}

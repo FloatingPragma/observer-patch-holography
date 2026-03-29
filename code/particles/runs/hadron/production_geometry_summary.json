@@ -1,0 +1,142 @@
+{
+  "artifact": "oph_hadron_production_geometry_summary",
+  "ensembles": [
+    {
+      "L": 146,
+      "T": 291,
+      "aLambda_msbar3": 0.0550900879921322,
+      "am_l": 0.0006102960868244135,
+      "am_s": 0.015092225267604455,
+      "beta": 7.321687687371745,
+      "correlator_arrays_required_from_backend": [
+        "pi_iso",
+        "N_iso_direct",
+        "N_iso_exchange"
+      ],
+      "correlator_bytes_float64_backend_dump": 27936,
+      "correlator_scalar_count_backend_dump": 3492,
+      "ensemble_id": "qcd_2p1_seed_n0",
+      "family_index": 0,
+      "n_cfg": 2,
+      "n_src_per_cfg": 2,
+      "notes": [
+        "Correlator dump size is tiny compared with gauge-field generation/storage.",
+        "Raw gauge estimate is naive and backend-independent; actual storage may differ with compression/checkpointing."
+      ],
+      "raw_gauge_bytes_all_cfg_naive": 1043287575552,
+      "raw_gauge_bytes_per_cfg_naive": 521643787776,
+      "sites_per_cfg": 905631576,
+      "source_coordinates": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          73,
+          73,
+          73,
+          145
+        ]
+      ],
+      "total_sites_all_cfg": 1811263152
+    },
+    {
+      "L": 291,
+      "T": 581,
+      "aLambda_msbar3": 0.0275450439960661,
+      "am_l": 0.00030514804341220676,
+      "am_s": 0.0075461126338022275,
+      "beta": 7.6377249048488185,
+      "correlator_arrays_required_from_backend": [
+        "pi_iso",
+        "N_iso_direct",
+        "N_iso_exchange"
+      ],
+      "correlator_bytes_float64_backend_dump": 55776,
+      "correlator_scalar_count_backend_dump": 6972,
+      "ensemble_id": "qcd_2p1_seed_n1",
+      "family_index": 1,
+      "n_cfg": 2,
+      "n_src_per_cfg": 2,
+      "notes": [
+        "Correlator dump size is tiny compared with gauge-field generation/storage.",
+        "Raw gauge estimate is naive and backend-independent; actual storage may differ with compression/checkpointing."
+      ],
+      "raw_gauge_bytes_all_cfg_naive": 16493300756352,
+      "raw_gauge_bytes_per_cfg_naive": 8246650378176,
+      "sites_per_cfg": 14317101351,
+      "source_coordinates": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          145,
+          145,
+          145,
+          290
+        ]
+      ],
+      "total_sites_all_cfg": 28634202702
+    },
+    {
+      "L": 581,
+      "T": 1162,
+      "aLambda_msbar3": 0.01377252199803305,
+      "am_l": 0.00015257402170610338,
+      "am_s": 0.0037730563169011137,
+      "beta": 7.953762122325891,
+      "correlator_arrays_required_from_backend": [
+        "pi_iso",
+        "N_iso_direct",
+        "N_iso_exchange"
+      ],
+      "correlator_bytes_float64_backend_dump": 111552,
+      "correlator_scalar_count_backend_dump": 13944,
+      "ensemble_id": "qcd_2p1_seed_n2",
+      "family_index": 2,
+      "n_cfg": 2,
+      "n_src_per_cfg": 2,
+      "notes": [
+        "Correlator dump size is tiny compared with gauge-field generation/storage.",
+        "Raw gauge estimate is naive and backend-independent; actual storage may differ with compression/checkpointing."
+      ],
+      "raw_gauge_bytes_all_cfg_naive": 262534875773184,
+      "raw_gauge_bytes_per_cfg_naive": 131267437886592,
+      "sites_per_cfg": 227894857442,
+      "source_coordinates": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          290,
+          290,
+          290,
+          581
+        ]
+      ],
+      "total_sites_all_cfg": 455789714884
+    }
+  ],
+  "generated_utc": "2026-03-29T03:08:44Z",
+  "manifest_artifact": "oph_hadron_production_backend_manifest",
+  "receipt_artifact": "runtime_schedule_receipt_N_therm_and_N_sep",
+  "storage_formula": {
+    "formula": "4 links/site * 9 complex/link * 16 bytes/complex = 576 bytes/site (naive full double-complex storage, no compression)",
+    "raw_gauge_bytes_per_site_naive": 576
+  },
+  "totals": {
+    "n_ensembles": 3,
+    "total_cfg": 6,
+    "total_correlator_bytes_float64_backend_dump": 195264,
+    "total_raw_gauge_bytes_all_cfg_naive": 280071464105088,
+    "total_sites_all_cfg": 486235180738
+  }
+}

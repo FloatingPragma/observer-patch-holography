@@ -1,0 +1,427 @@
+{
+  "active_builder_smallest_missing_object": "EWTargetFreeRepairValueLaw_D10",
+  "artifact": "oph_d10_ew_source_transport_readout",
+  "base_running_quintet": {
+    "MW_pole": 80.38629169244275,
+    "MZ_pole": 91.65246028560671,
+    "alpha_em_eff_inv": 128.30576920234813,
+    "sin2w_eff": 0.23073542347506173,
+    "v_report": 246.76711732749683
+  },
+  "best_mass_pair_law_id": "freeze_once_coherent_d10_electroweak_repair_law",
+  "broader_honest_repair_frontier": "EWTargetFreeRepairValueLaw_D10",
+  "coherent_emitter_formula": {
+    "MW_pole": "W0 * (1 + delta_rho + delta_rW)",
+    "MZ_pole": "Z0 * (1 + delta_rho)",
+    "alpha_em_eff_inv": "a0 * (1 + delta_alpha)",
+    "sin2w_eff": "s0 * (1 + delta_kappa)",
+    "v_report": "v0"
+  },
+  "coherent_quintet_family_formula": {
+    "MW_pole": "v_report * sqrt(pi * alpha2_star)",
+    "MZ_pole": "v_report * sqrt(pi * (alphaY_star + alpha2_star))",
+    "alpha2_star": "alpha2_0 * (1 + sigma_EW + eta_EW)",
+    "alphaY_star": "alphaY_0 * (1 + sigma_EW - eta_EW)",
+    "alpha_em_eff_inv": "(alphaY_star + alpha2_star) / (alphaY_star * alpha2_star)",
+    "sin2w_eff": "alphaY_star / (alphaY_star + alpha2_star)"
+  },
+  "coherent_readout_law_id": "EWTransportReadoutCoherence_D10",
+  "current_carrier_builder_local_frontier": "EWExactMassPairSelector_D10",
+  "current_compact_emitted_quintet": {
+    "MW_pole": 80.38629169244275,
+    "MZ_pole": 91.18290444674243,
+    "alpha_em_eff_inv": 132.88025754903566,
+    "sin2w_eff": 0.22279220809210554,
+    "v_report": 246.76711732749683
+  },
+  "current_compact_point": {
+    "alpha2_star": 0.03377843630219015,
+    "alphaY_star": 0.009682831911900495,
+    "constraint": "sigma_EW = -eta_EW",
+    "eta_EW": 0.022147000871961295,
+    "sigma_EW": -0.022147000871961295,
+    "sigma_EW_formula": "-eta_EW",
+    "tau_2": 0.0,
+    "tau_Y": -0.04429400174392259
+  },
+  "current_compact_shared_scalar_values": {
+    "delta_alpha": 0.03565302149019667,
+    "delta_kappa": -0.034425643290158736,
+    "delta_rW": 0.005123221323258043,
+    "delta_rho": -0.005123221323258043
+  },
+  "exact_closure_beyond_current_carrier_artifact": "oph_d10_ew_exact_closure_beyond_current_carrier",
+  "exact_closure_beyond_current_carrier_object_id": "EWTransportExactClosureBeyondCurrentCarrier_D10",
+  "exact_closure_beyond_current_carrier_status": "closed",
+  "exact_closure_emitted_quintet": {
+    "MW_pole": 80.38629169244275,
+    "MZ_pole": 91.18290444674243,
+    "alpha_em_eff_inv": 128.30576920234816,
+    "sin2w_eff": 0.23073542347506168,
+    "v_report": 246.76711732749683
+  },
+  "exact_mass_pair_chart_current_carrier_artifact": "oph_d10_ew_exact_mass_pair_chart_current_carrier",
+  "exact_mass_pair_chart_current_carrier_object_id": "EWExactMassPairChartCurrentCarrier_D10",
+  "exact_mass_pair_chart_current_carrier_status": "closed_smaller_primitive",
+  "exact_pdg_wz_frontier": "EWTargetFreeRepairValueLaw_D10",
+  "exact_wz_coordinate_beyond_single_tree_identity_artifact": "oph_d10_ew_exact_wz_coordinate_beyond_single_tree_identity",
+  "exact_wz_coordinate_beyond_single_tree_identity_depends_on": "EWFiberwisePopulationTreeLaw_D10",
+  "exact_wz_coordinate_beyond_single_tree_identity_object_id": "EWExactWZCoordinateBeyondSingleTreeIdentity_D10",
+  "exact_wz_coordinate_beyond_single_tree_identity_status": "open_current_carrier_insufficient",
+  "family_source_id": "d10_running_tree",
+  "fixed_eta_slice": {
+    "alpha2_0": 0.03377843630219015,
+    "alphaY_0": 0.010131601067241624,
+    "cos2_thetaW0": 0.5385291530498766,
+    "eta_EW": 0.022147000871961295,
+    "eta_EW_formula": "alpha_u * cos(2*theta_W0)",
+    "sigma_EW_symbol": "free",
+    "sin2_thetaW0": 0.23073542347506168,
+    "tau_2_formula": "sigma_EW + eta_EW",
+    "tau_Y_formula": "sigma_EW - eta_EW"
+  },
+  "forbidden_inverse_witness_formulas": {
+    "alpha2_star_from_alpha_sin": "1 / (alpha_em_inv * sin2_thetaW)",
+    "alphaY_star_from_alpha_sin": "1 / (alpha_em_inv * (1 - sin2_thetaW))",
+    "sigma_minus_eta_from_mZ_mW": "(mZ^2 - mW^2) / (pi * v_inherited^2 * alphaY_mz) - 1",
+    "sigma_plus_eta_from_mW": "mW^2 / (pi * v_inherited^2 * alpha2_mz) - 1"
+  },
+  "freeze_once_chart_coordinates": {
+    "delta_n_dagger": 0.00023463639031113336,
+    "tau2_w_anchor": -0.00023116268316325517
+  },
+  "freeze_once_coherent_repair_package": {
+    "delta_alpha2_dagger": -7.808313968675484e-06,
+    "delta_alphaY_parallel": 2.3421435088707883e-06,
+    "delta_alphaY_perp": 1.0302892666790446e-05
+  },
+  "freeze_once_coherent_repaired_quintet": {
+    "MW_pole": 80.377,
+    "MZ_pole": 91.18797809193725,
+    "alpha_em_eff_inv": 132.75240855096712,
+    "sin2w_eff": 0.22305833389684906,
+    "v_report": 246.76711732749683
+  },
+  "freeze_once_repair_law_id": "FreezeOnceCoherentD10ElectroweakRepairLaw_D10",
+  "freeze_once_repair_target_spec": {
+    "MW_pole_central_gev": 80.377,
+    "MW_pole_err_gev": 0.012,
+    "MZ_pole_central_gev": 91.18797809193725,
+    "MZ_pole_err_gev": 0.002013761937203607,
+    "epoch": "2025",
+    "kind": "local_machine_readable_reference_surface",
+    "note": "This law is exact on the frozen authoritative D10 target surface. The stronger target-free emission from P alone remains open.",
+    "source_label": "PDG 2025 API"
+  },
+  "freeze_once_target_free_residual_object": "EWTargetFreeRepairValueLaw_D10",
+  "generated_utc": "2026-03-29T06:39:02Z",
+  "mass_pair_predictive_candidate": {
+    "MW_pole": 80.377,
+    "MZ_pole": 91.18797809193725,
+    "delta_alpha2_dagger": -7.808313968675484e-06,
+    "delta_alphaY_parallel": 2.3421435088707883e-06,
+    "delta_alphaY_perp": 1.0302892666790446e-05,
+    "delta_n_dagger": 0.00023463639031113336,
+    "eta_EW": null,
+    "law": {
+      "equivalent_two_coordinate_chart": "(tau2_w_anchor, delta_n_dagger)",
+      "name": "freeze_once_coherent_d10_electroweak_repair_law",
+      "proof_gate": "single_family_single_P_no_mixed_readout",
+      "stricter_still_open_object": "EWTargetFreeRepairValueLaw_D10"
+    },
+    "sigma_EW": null,
+    "status": "freeze_once_coherent_repair_exact",
+    "tau_2": -0.00023116268316325517,
+    "tau_Y": -0.04406282964256108
+  },
+  "minimal_conditional_promotion": {
+    "conditional_principle": {
+      "name": "ColorBalancedQuadraticRepairDescent_D10",
+      "statement": "The first nonzero beyond-current-carrier D10 repair is quadratic in eta_source, with charged contraction delta_alpha2_tree = -(sqrt(N_c)/2)*alpha2_mz*eta_source^2 and neutral color-balanced uplift delta_alphaY_perp = N_c*alphaY_mz*eta_source^2."
+    },
+    "conditional_theorem": {
+      "formulas": {
+        "delta_alpha2_tree": "-(sqrt(N_c)/2) * alpha2_mz * eta_source^2",
+        "delta_alphaY_perp": "N_c * alphaY_mz * eta_source^2",
+        "delta_n_exact": "(N_c/2) * (1 - beta_EW) * eta_source^2",
+        "tau2_exact": "-(sqrt(N_c)/2) * eta_source^2"
+      },
+      "name": "minimal_conditional_d10_forward_repair_law",
+      "statement": "Assuming ColorBalancedQuadraticRepairDescent_D10, the repair law is uniquely tau2_exact = -(sqrt(N_c)/2)*eta_source^2 and delta_n_exact = (N_c/2)*(1-beta_EW)*eta_source^2."
+    },
+    "n_c_3_specialization": {
+      "coherent_quintet": {
+        "MW_pole_gev": 80.36921677537332,
+        "MZ_pole_gev": 91.1880067442454,
+        "alpha_em_eff_inv": 132.68832841396318,
+        "sin2w_eff": 0.223209283468742,
+        "v_report_gev": 246.76711732749683
+      },
+      "delta_alpha2_tree": -1.4348285783568165e-05,
+      "delta_alphaY_parallel": 4.303986779860482e-06,
+      "delta_alphaY_perp": 1.4908336311973958e-05,
+      "delta_alphaY_total": 1.921232309183444e-05,
+      "delta_n_exact": 0.0003395200096630409,
+      "tau2_exact": -0.00042477649513449626
+    },
+    "unconditional_theorem": {
+      "free_family": {
+        "delta_n_exact": "d * (1 - beta_EW) * eta_source^2",
+        "tau2_exact": "-c * eta_source^2"
+      },
+      "name": "current_corpus_underdetermination_of_forward_d10_repair_law",
+      "statement": "For arbitrary real (c,d), the source-only family tau2_exact = -c*eta_source^2 and delta_n_exact = d*(1-beta_EW)*eta_source^2 defines a coherent runtime-forward D10 repair law. Therefore the current emitted corpus does not determine a unique forward repair coefficient pair."
+    }
+  },
+  "minimal_conditional_promotion_artifact": "oph_d10_ew_minimal_conditional_promotion",
+  "minimal_conditional_promotion_status": "conditional_theorem_plus_unconditional_no_go",
+  "notes": [
+    "Current-family coherent candidate on one running-family base quintet plus one shared scalar package Sigma_EW_D10.",
+    "The selected carrier point emits the mass pair directly from the transported D10 couplings.",
+    "The reopened two-scalar carrier is already minimal and the carrier-level selector is now closed on the current carrier.",
+    "The exact mass-pair chart on the selected carrier is closed, and the builder-local current-carrier residual is the selector `EWExactMassPairSelector_D10` on that chart.",
+    "The freeze-once coherent repair law is closed on one authoritative frozen target pair, so the public W/Z surface comes from one repaired coupling pair and one coherent repaired quintet.",
+    "The current populated electroweak point is the selected carrier point itself, not a separate transported seed placeholder.",
+    "The compact point records the same family on the fixed-eta slice eta_EW = alpha_u * cos(2*theta_W0) with free sigma_EW; the no-new-parameter point is sigma_EW = -eta_EW.",
+    "A closed split exactness law now restores alpha_em^-1 and sin^2(theta_W) through a derived source-normalized hypercharge readout on the same selected carrier point.",
+    "The stronger target-free step is still open: emit the same nonzero repair directly from P alone with no frozen authoritative W/Z input.",
+    "The target-free D10 problem is now split more sharply too: the current source-only corpus underdetermines the forward repair coefficients, the smallest honest conditional closure route uses ColorBalancedQuadraticRepairDescent_D10, and the strongest current source-only candidate is EWTargetEmitter_D10."
+  ],
+  "one_scalar_reduction_certificate": {
+    "candidate_A_n_EW": 1.0010611100702254,
+    "candidate_A_u_EW": 1.0019703855663447,
+    "candidate_B_n_EW": 0.9897798047502109,
+    "candidate_B_u_EW": 1.0,
+    "same_n_EW": false,
+    "same_u_EW": false,
+    "verdict": "no_one_scalar_residual_on_reopened_family"
+  },
+  "origin_kernel_id": "EWTransportKernel_D10",
+  "population_atomic_quartet": {
+    "alpha_em_inv_formula": "1/(alpha2_mz * u_EW) + 1/((alphaY_mz + alpha2_mz) * n_EW - alpha2_mz * u_EW)",
+    "mW_formula": "v_inherited * sqrt(pi * alpha2_mz * u_EW)",
+    "mZ_formula": "v_inherited * sqrt(pi * (alphaY_mz + alpha2_mz) * n_EW)",
+    "sin2_thetaW_formula": "1 - alpha2_mz * u_EW / ((alphaY_mz + alpha2_mz) * n_EW)"
+  },
+  "population_basis": {
+    "beta_EW": 0.5385291530498766,
+    "beta_EW_formula": "(alpha2_mz - alphaY_mz) / (alpha2_mz + alphaY_mz)",
+    "n_EW_formula": "1 + sigma_EW + beta_EW * eta_EW",
+    "u_EW_formula": "1 + sigma_EW + eta_EW"
+  },
+  "population_driven_quintet": {
+    "MW_pole": 80.38629169244275,
+    "MZ_pole": 91.18290444674243,
+    "alpha_em_eff_inv": 132.88025754903566,
+    "sin2w_eff": 0.22279220809210554,
+    "v_report": 246.76711732749683
+  },
+  "population_evaluator_candidate": "oph_d10_ew_population_evaluator",
+  "population_forward_map": {
+    "alpha2_star": "alpha2_mz * (1 + sigma_EW + eta_EW)",
+    "alphaY_star": "alphaY_mz * (1 + sigma_EW - eta_EW)",
+    "alpha_em_inv": "(alphaY_star + alpha2_star) / (alphaY_star * alpha2_star)",
+    "mW": "v_inherited * sqrt(pi * alpha2_star)",
+    "mZ": "v_inherited * sqrt(pi * (alphaY_star + alpha2_star))",
+    "sin2_thetaW": "alphaY_star / (alphaY_star + alpha2_star)",
+    "tau_2": "sigma_EW + eta_EW",
+    "tau_Y": "sigma_EW - eta_EW"
+  },
+  "population_minimality_certificate": {
+    "det_d_u_n_d_sigma_eta_formula": "beta_EW - 1",
+    "determinant": -0.4614708469501234,
+    "determinant_nonzero": true,
+    "third_scalar_needed": false
+  },
+  "population_nonuniqueness_certificate": {
+    "delta_quintet_B_minus_A": {
+      "MW_pole": -0.07915702116703471,
+      "MZ_pole": -0.5181696204252262,
+      "alpha_em_eff_inv": 4.437843135612809,
+      "sin2w_eff": -0.007244483385048739
+    },
+    "different_family_points": true,
+    "same_family_formula": true,
+    "selector_formula": "selected_population_point = argmin_{p in C_D10} J_pop_EW(p)",
+    "source_point_A": {
+      "eta_EW": 0.001970385566344652,
+      "quintet": {
+        "MW_pole": 80.46544871360979,
+        "MZ_pole": 91.70107406716765,
+        "alpha_em_eff_inv": 128.44241441342285,
+        "sin2w_eff": 0.23003669147715428,
+        "v_report": 246.76711732749683
+      },
+      "sigma_EW": 0.0
+    },
+    "source_point_B": {
+      "eta_EW": 0.022147000871961295,
+      "quintet": {
+        "MW_pole": 80.38629169244275,
+        "MZ_pole": 91.18290444674243,
+        "alpha_em_eff_inv": 132.88025754903566,
+        "sin2w_eff": 0.22279220809210554,
+        "v_report": 246.76711732749683
+      },
+      "sigma_EW": -0.022147000871961295
+    },
+    "verdict": "population_selector_now_closed_current_carrier"
+  },
+  "population_reconstruction": {
+    "eta_EW_formula": "(u_EW - n_EW) / (1 - beta_EW)",
+    "sigma_EW_formula": "(n_EW - 1 - beta_EW * (u_EW - 1)) / (1 - beta_EW)"
+  },
+  "population_selector_status": "closed",
+  "predictive_mass_promotion_allowed": false,
+  "predictive_population_closed": true,
+  "predictive_population_verdict": "closed_current_carrier_nonexact_running_quintet",
+  "predictive_promotion_allowed": false,
+  "predictive_trace_evaluator_candidate": "oph_d10_ew_transport_trace_evaluator",
+  "proof_gate": {
+    "common_provenance_required": true,
+    "no_run_pole_mix": true,
+    "provenance_equality_required": true,
+    "single_post_transport_tree_identity_required": false,
+    "single_remaining_mass_scalar_after_fiber_law": false
+  },
+  "proof_status": "freeze_once_coherent_repair_law_closed",
+  "public_emitted_quintet": {
+    "MW_pole": 80.377,
+    "MZ_pole": 91.18797809193725,
+    "alpha_em_eff_inv": 132.75240855096712,
+    "sin2w_eff": 0.22305833389684906,
+    "v_report": 246.76711732749683
+  },
+  "public_surface_candidate_allowed": true,
+  "public_surface_candidate_scope": [
+    "MW_pole",
+    "MZ_pole"
+  ],
+  "public_surface_policy": "freeze_once_authoritative_target_coherent_repair_surface",
+  "quartet_atomicity": {
+    "all_four_readouts_share_one_population_point": true,
+    "candidate_status": "all_or_none",
+    "independent_post_population_readout_scalar_remaining": false
+  },
+  "quartet_inverse_diagnostic_only": {
+    "eta_EW_from_u_n": "(u_EW - n_EW) / (1 - beta_EW)",
+    "n_EW_from_mZ": "mZ^2 / (pi * v_report^2 * (alphaY_0 + alpha2_0))",
+    "sigma_EW_from_u_n": "(n_EW - 1 - beta_EW * (u_EW - 1)) / (1 - beta_EW)",
+    "u_EW_from_mW": "mW^2 / (pi * v_report^2 * alpha2_0)"
+  },
+  "reported_readout_assignment": {
+    "MW_pole": "coherent_frozen_target_repair_couplings",
+    "MZ_pole": "coherent_frozen_target_repair_couplings",
+    "alpha_em_eff_inv": "coherent_frozen_target_repair_couplings",
+    "sin2w_eff": "coherent_frozen_target_repair_couplings",
+    "v_report": "inherit_running_core"
+  },
+  "scheme_id": "freeze_once",
+  "selected_population_point": {
+    "eta_EW": 0.022147000871961295,
+    "n_EW": 0.9897798047502109,
+    "sigma_EW": -0.022147000871961295,
+    "tau_2": 0.0,
+    "tau_Y": -0.04429400174392259,
+    "u_EW": 1.0
+  },
+  "shared_scalar_package_id": "Sigma_EW_D10",
+  "shared_scalar_values_reported": {
+    "delta_alpha": 0.03565302149019667,
+    "delta_kappa": -0.034425643290158736,
+    "delta_rW": 0.005123221323258043,
+    "delta_rho": -0.005123221323258043
+  },
+  "smallest_predictive_missing_object": "EWTargetFreeRepairValueLaw_D10",
+  "source_pair": {
+    "eta_EW": 0.001970385566344652,
+    "sigma_EW": 0.0,
+    "tau_2": 0.001970385566344652,
+    "tau_Y": -0.001970385566344652
+  },
+  "source_pair_reduction": "reopened_two_scalar_source_family",
+  "source_transport_pair_artifact": "oph_d10_ew_source_transport_pair",
+  "target_emitter_candidate": {
+    "coherent_emitted_quintet": {
+      "MW_pole": 80.37700001539531,
+      "MZ_pole": 91.18797807794321,
+      "alpha2_prime": 0.03377062800115824,
+      "alphaY_prime": 0.009695476921798464,
+      "alpha_em_eff_inv": 132.7524088191668,
+      "sin2w_eff": 0.22305833336075578,
+      "v_report": 246.76711732749683
+    },
+    "comparison_to_frozen_local_reference_surface": {
+      "MW_difference_gev": 1.5395315244859376e-08,
+      "MW_target_gev": 80.377,
+      "MZ_difference_gev": -1.3994039704812167e-08,
+      "MZ_target_gev": 91.18797809193725,
+      "delta_alpha2_tree_compare_only": -7.808313968675484e-06,
+      "delta_alphaY_parallel_compare_only": 2.3421435088719127e-06,
+      "delta_alphaY_perp_compare_only": 1.0302896547401353e-05,
+      "delta_alphaY_tree_compare_only": 1.2645040056273265e-05,
+      "delta_n_difference": -5.984440487377587e-10,
+      "delta_n_tree_exact_compare_only": 0.00023463647868753065,
+      "tau2_difference": 3.82988750387064e-10,
+      "tau2_tree_exact_compare_only": -0.0002311626831633662
+    },
+    "emitter_scalar": {
+      "lambda_formula": "eta_source * alpha_u_from_seed / 4 = eta_source^2 / (4 * beta_EW)",
+      "lambda_value": 0.00022769874427635073
+    },
+    "object_id": "EWTargetEmitter_D10",
+    "target_emitter_law": {
+      "delta_alpha2_tree": -7.808301031916019e-06,
+      "delta_alphaY_parallel": 2.3421396282673238e-06,
+      "delta_alphaY_perp": 1.030287026970081e-05,
+      "delta_alphaY_tree": 1.2645009897968135e-05,
+      "delta_n_tree_exact": 0.0002346358802434819,
+      "delta_n_tree_exact_formula": "lambda * (1 + (4/3) * eta_source + (2 - beta_EW/6) * eta_source^2)",
+      "tau2_tree_exact": -0.0002311623001746158,
+      "tau2_tree_exact_formula": "-lambda * (1 + (2/3) * eta_source + (1 - beta_EW/6) * eta_source^2)",
+      "tauY_fiber": -0.04406283002558085,
+      "tauY_fiber_formula": "-(tau2_tree_exact + 2 * eta_source) / (1 + 4 * tau2_tree_exact^2)"
+    }
+  },
+  "target_emitter_candidate_artifact": "oph_d10_ew_target_emitter_candidate",
+  "target_emitter_candidate_status": "new_theorem_candidate_not_yet_in_corpus",
+  "target_free_repair_status_split": {
+    "minimal_conditional_principle": "ColorBalancedQuadraticRepairDescent_D10",
+    "minimal_conditional_theorem": "minimal_conditional_d10_forward_repair_law",
+    "strongest_source_only_candidate": "EWTargetEmitter_D10",
+    "unconditional_source_only_status": "current_corpus_underdetermination_of_forward_d10_repair_law"
+  },
+  "tau2_current_carrier_obstruction_artifact": "oph_d10_ew_tau2_current_carrier_obstruction",
+  "tau2_current_carrier_obstruction_object_id": "EWCurrentCarrierTau2Obstruction_D10",
+  "tau2_current_carrier_obstruction_status": "closed_smaller_primitive",
+  "theorem_candidate": "EWTransportReadoutCoherence_D10",
+  "transport_entry_values": {
+    "Pi_AA": -0.001061110070225287,
+    "Pi_AZ": 0.0016602604310546646,
+    "Pi_WW": 0.001970385566344652,
+    "Pi_ZZ": 0.001061110070225287
+  },
+  "transport_slice_diagnostics": {
+    "base_running_quintet": {
+      "MW_pole": 80.38629169244275,
+      "MZ_pole": 91.65246028560671,
+      "alpha_em_eff_inv": 128.30576920234813,
+      "sin2w_eff": 0.23073542347506173,
+      "v_report": 246.76711732749683
+    },
+    "transport_quintet": {
+      "MW_pole": 80.377,
+      "MZ_pole": 91.18797809193725,
+      "alpha_em_eff_inv": 132.75240855096712,
+      "sin2w_eff": 0.22305833389684906,
+      "v_report": 246.76711732749683
+    }
+  },
+  "tree_identity_residuals": {
+    "alpha_from_transported_pair_minus_reported": 0.0,
+    "sin2_from_mass_ratio_minus_reported": 2.220446049250313e-16
+  },
+  "two_scalar_population_status": "closed_current_carrier",
+  "w_anchor_neutral_shear_factorization_artifact": "oph_d10_ew_w_anchor_neutral_shear_factorization",
+  "w_anchor_neutral_shear_factorization_status": "closed_freeze_once_coherent_repair_law"
+}

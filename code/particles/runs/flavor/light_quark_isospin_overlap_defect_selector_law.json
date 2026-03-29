@@ -1,0 +1,37 @@
+{
+  "B_ord": [
+    -1.0,
+    0.0,
+    1.0
+  ],
+  "Delta_ud_overlap": null,
+  "artifact": "oph_light_quark_isospin_overlap_defect_selector_law",
+  "beta_d_diag_B_source": null,
+  "beta_d_diag_B_source_formula": "-Delta_ud_overlap / 2",
+  "beta_u_diag_B_source": null,
+  "beta_u_diag_B_source_formula": "Delta_ud_overlap / 2",
+  "generated_utc": "2026-03-28T16:00:23Z",
+  "next_single_residual_object": "Delta_ud_overlap",
+  "notes": [
+    "This is the honest D12 continuation-level selector law for light-quark isospin splitting.",
+    "It does not override the recovered-core no-go: the selector value itself is still open and therefore not promotable as a recovered-core nonzero pure-B source selector.",
+    "Once Delta_ud_overlap is emitted on the honest D12 route, the light-sector pure-B payload pair and tau pair follow algebraically on the ordered three-point family."
+  ],
+  "odd_budget_neutrality_formula": "beta_u_diag_B_source + beta_d_diag_B_source = 0",
+  "proof_status": "selector_law_closed_value_open",
+  "recovered_core_no_go_for_nonzero_light_quark_pure_b_selector": true,
+  "recovered_core_promotion_allowed": false,
+  "scope": "D12_continuation_only",
+  "selector_equivalence_formula": "Delta_ud_overlap = beta_u_diag_B_source - beta_d_diag_B_source",
+  "selector_scalar_name": "Delta_ud_overlap",
+  "source_artifact": "oph_family_excitation_diagonal_common_gap_shift_source_readback",
+  "source_readback_d_log_per_side": null,
+  "source_readback_d_log_per_side_formula": "(-Delta_ud_overlap / 2) * B_ord",
+  "source_readback_u_log_per_side": null,
+  "source_readback_u_log_per_side_formula": "(Delta_ud_overlap / 2) * B_ord",
+  "status": "closed_smaller_primitive",
+  "tau_d_log_per_side": null,
+  "tau_d_log_per_side_formula": "beta_d_diag_B_source",
+  "tau_u_log_per_side": null,
+  "tau_u_log_per_side_formula": "beta_u_diag_B_source"
+}

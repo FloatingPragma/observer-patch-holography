@@ -1,0 +1,262 @@
+{
+  "C_e_hat": {
+    "C_e_hat_matrix": {
+      "imag": [
+        [
+          0.0,
+          -2.508974120220076e-13,
+          2.508974120220076e-13
+        ],
+        [
+          2.508974120220076e-13,
+          0.0,
+          -2.508974120220076e-13
+        ],
+        [
+          -2.508974120220076e-13,
+          2.508974120220076e-13,
+          0.0
+        ]
+      ],
+      "real": [
+        [
+          0.3333333333333333,
+          2.1945751240677606e-13,
+          2.1945751240677606e-13
+        ],
+        [
+          2.1945751240677606e-13,
+          0.3333333333333333,
+          2.1945751240677606e-13
+        ],
+        [
+          2.1945751240677606e-13,
+          2.1945751240677606e-13,
+          0.3333333333333333
+        ]
+      ]
+    },
+    "K_e_plus": [
+      [
+        1.0,
+        1.000000000000001e-12,
+        1.000000000000001e-12
+      ],
+      [
+        1.000000000000001e-12,
+        1.0,
+        1.000000000000001e-12
+      ],
+      [
+        1.000000000000001e-12,
+        1.000000000000001e-12,
+        1.0
+      ]
+    ],
+    "Omega_e": {
+      "012": -2.556425414950355,
+      "021": 2.556425414950355
+    },
+    "Phi_e": [
+      [
+        0.0,
+        -0.8521418049834516,
+        0.8521418049834516
+      ],
+      [
+        0.8521418049834516,
+        0.0,
+        -0.8521418049834516
+      ],
+      [
+        -0.8521418049834516,
+        0.8521418049834516,
+        0.0
+      ]
+    ],
+    "S_e": [
+      [
+        0.0,
+        27.631021115928547,
+        27.631021115928547
+      ],
+      [
+        27.631021115928547,
+        0.0,
+        27.631021115928547
+      ],
+      [
+        27.631021115928547,
+        27.631021115928547,
+        0.0
+      ]
+    ],
+    "trace_normalization": 3.0
+  },
+  "absolute_scale_closed": false,
+  "artifact": "oph_lepton_channel_tensor",
+  "channel": "L-H-E",
+  "channel_norm_required": true,
+  "family_projectors": [
+    {
+      "imag": [
+        [
+          0.0,
+          0.35722507281469923,
+          0.17475462350921778
+        ],
+        [
+          -0.35722507281469923,
+          -1.0743117835643881e-18,
+          0.02115993532939276
+        ],
+        [
+          -0.17475462350921778,
+          -0.021159935329392764,
+          -5.4559259034045815e-19
+        ]
+      ],
+      "real": [
+        [
+          0.7289562396065167,
+          0.1919788230394956,
+          0.050736976302276984
+        ],
+        [
+          0.1919788230394956,
+          0.2256179619669269,
+          0.09900067271779538
+        ],
+        [
+          0.050736976302276984,
+          0.09900067271779538,
+          0.04542579842655652
+        ]
+      ]
+    },
+    {
+      "imag": [
+        [
+          0.0,
+          -0.35321711982049214,
+          -0.18211149936179805
+        ],
+        [
+          0.35321711982049214,
+          7.465416937067342e-18,
+          -0.024887449967925985
+        ],
+        [
+          0.18211149936179805,
+          0.024887449967925995,
+          1.888606889361881e-18
+        ]
+      ],
+      "real": [
+        [
+          0.267404997439915,
+          -0.1648855187383942,
+          -0.10385277348419145
+        ],
+        [
+          -0.1648855187383942,
+          0.5682375777515369,
+          0.3045893625732586
+        ],
+        [
+          -0.10385277348419145,
+          0.3045893625732586,
+          0.1643574248085485
+        ]
+      ]
+    },
+    {
+      "imag": [
+        [
+          0.0,
+          -0.004007952994207265,
+          0.007356875852580152
+        ],
+        [
+          0.004007952994207265,
+          -1.6520883623903342e-18,
+          0.0037275146385332553
+        ],
+        [
+          -0.007356875852580152,
+          -0.003727514638533257,
+          4.146513853264671e-18
+        ]
+      ],
+      "real": [
+        [
+          0.0036387629535686687,
+          -0.027093304301101545,
+          0.053115797181914406
+        ],
+        [
+          -0.027093304301101545,
+          0.20614446028153638,
+          -0.4035900352910539
+        ],
+        [
+          0.053115797181914406,
+          -0.4035900352910539,
+          0.7902167767648952
+        ]
+      ]
+    }
+  ],
+  "generated_utc": "2026-03-25T05:50:39Z",
+  "labels": [
+    "f1",
+    "f2",
+    "f3"
+  ],
+  "metadata": {
+    "note": "Replace this template with an OPH-derived transport kernel across refinements. The intended theorem burden is conjugacy-Riesz persistence of the three-projector split.",
+    "observable_artifact": "oph_flavor_observable",
+    "sector_response_artifact": "oph_sector_response_object",
+    "transport_artifact": "oph_family_transport_kernel"
+  },
+  "phase_normal_form_certificate": {
+    "normal_form_available": false,
+    "phase_can_be_demoted_for_singular_spectrum": false,
+    "status": "open"
+  },
+  "projector_basis_provenance": {
+    "observable_artifact": "oph_flavor_observable",
+    "orientation_preserved": true,
+    "sector_response_artifact": "oph_sector_response_object"
+  },
+  "residual_burden": "lepton_channel_norm_g_e",
+  "sector_response_summary": {
+    "functoriality_certificate": {
+      "conjugation_class_stable": true,
+      "projector_order_preserved": true
+    },
+    "normalization_class": "scalar_only",
+    "positive_kernel_kind": "directed_family_kernel",
+    "raw_channel_norm_by_refinement": [
+      {
+        "refinement": "snapshot",
+        "status": "candidate_only",
+        "value": 0.9231656602589082
+      },
+      {
+        "refinement": "refinement_limit_candidate",
+        "status": "candidate_only",
+        "value": 0.9231656602589082
+      }
+    ],
+    "raw_channel_norm_candidate": 0.9231656602589082,
+    "scale_scope_candidate": "shared_budget_only",
+    "shared_budget_key": "charged_dirac_budget",
+    "symmetry_type": "dirac"
+  },
+  "shape_closed": false,
+  "spectral_gaps": [
+    0.9511878042862792,
+    0.30236566025890826
+  ]
+}

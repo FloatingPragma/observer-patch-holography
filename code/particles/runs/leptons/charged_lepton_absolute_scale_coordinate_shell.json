@@ -1,0 +1,14 @@
+{
+  "artifact": "oph_charged_lepton_absolute_scale_coordinate_shell",
+  "conversion_formula": "g_e_linear_candidate = exp(mu_e_absolute_log_candidate)",
+  "g_e_linear_candidate": null,
+  "generated_utc": "2026-03-28T15:42:44Z",
+  "mu_e_absolute_log_candidate": null,
+  "next_single_residual_object": "mu_e_absolute_log_candidate",
+  "notes": [
+    "The charged absolute-scale lane must not subtract log gaps directly from a linear scale.",
+    "Any future charged absolute-scale emitter should produce either mu_e_absolute_log_candidate or g_e_linear_candidate and convert exactly once."
+  ],
+  "proof_status": "coordinate_shell_only_values_open",
+  "representation_consistency_closed": true
+}

@@ -1,0 +1,62 @@
+{
+  "artifact": "oph_charged_sector_local_support_extension_completion_law",
+  "centered_extension_formula": "E_e_log_centered_ext = (sigma_source_support_extension_total_log_per_side / 2) * linear_basis_vector_centered + kappa_ext * extension_basis_vector_centered",
+  "current_sigma_source_total_log_per_side_readback": 1.2535534645451876,
+  "diagnostic_candidate_status": "eta_candidate_only_total_span_still_open",
+  "diagnostic_eta_source_support_extension_log_per_side_candidate": -0.809613811928119,
+  "diagnostic_kappa_ext_candidate": -0.5529360485635166,
+  "e_ext_formula": "g_active_candidate * exp(e_log_centered_ext)",
+  "e_log_centered_ext_formula": "-((3 + x2) * sigma_source_support_extension_total_log_per_side - eta_source_support_extension_log_per_side) / 6",
+  "eta_source_support_extension_log_per_side": null,
+  "extension_basis_vector_centered": [
+    0.2440347951122107,
+    -0.4880695902244214,
+    0.2440347951122107
+  ],
+  "g_active_candidate": 0.9231656602589082,
+  "gamma21_log_per_side_ext_formula": "((1 + x2) * sigma_source_support_extension_total_log_per_side - eta_source_support_extension_log_per_side) / 2",
+  "gamma32_log_per_side_ext_formula": "((1 - x2) * sigma_source_support_extension_total_log_per_side + eta_source_support_extension_log_per_side) / 2",
+  "generated_utc": "2026-03-29T06:39:03Z",
+  "kappa_ext": null,
+  "kappa_ext_formula": "eta_source_support_extension_log_per_side / (2 * (1 - x2^2))",
+  "linear_basis_vector_centered": [
+    -0.8274712215106104,
+    -0.34505755697877927,
+    1.1725287784893896
+  ],
+  "mu_ext_formula": "g_active_candidate * exp(mu_log_centered_ext)",
+  "mu_log_centered_ext_formula": "(x2 * sigma_source_support_extension_total_log_per_side - eta_source_support_extension_log_per_side) / 3",
+  "mu_source_log_per_side": 0.6207999999999999,
+  "next_residual_after_debug_eta_promotion": "sigma_source_support_extension_total_log_per_side",
+  "next_single_residual_object": "eta_source_support_extension_log_per_side",
+  "notes": [
+    "The same-support ordered package is exhausted, so exact charged closure requires the full two-scalar support-extension family rather than more same-support tuning.",
+    "The live residual order on that family is first eta_source_support_extension_log_per_side and then sigma_source_support_extension_total_log_per_side.",
+    "The rigid eta candidate remains diagnostic-only and is not promoted into the emitted scalar slots."
+  ],
+  "ordered_family_coordinate": [
+    -1.0,
+    -0.5175863354681689,
+    1.0
+  ],
+  "predictive_promotion_allowed": false,
+  "proof_status": "two_scalar_support_extension_completion_law_closed_source_scalars_open",
+  "shape_singular_values_ext_formula": "exp(E_e_log_centered_ext)",
+  "sigma_source_support_extension_total_log_per_side": null,
+  "singular_values_abs_ext_formula": "g_active_candidate * exp(E_e_log_centered_ext)",
+  "smallest_constructive_missing_object": "eta_source_support_extension_log_per_side",
+  "source_artifacts": {
+    "current_support_obstruction_certificate": "oph_charged_sector_local_current_support_obstruction_certificate",
+    "minimal_source_support_extension_emitter": "oph_charged_sector_local_minimal_source_support_extension_emitter",
+    "ordered_package_value_law": "oph_charged_sector_local_ordered_package_value_law",
+    "shared_absolute_scale_binding": "lepton_shared_absolute_scale_binding"
+  },
+  "source_side_ordered_package_log_per_side_ext_formula": {
+    "r1": "mu_source_log_per_side - ((3 + x2) * sigma_source_support_extension_total_log_per_side - eta_source_support_extension_log_per_side) / 6",
+    "r2": "mu_source_log_per_side + (x2 * sigma_source_support_extension_total_log_per_side - eta_source_support_extension_log_per_side) / 3",
+    "r3": "mu_source_log_per_side + ((3 - x2) * sigma_source_support_extension_total_log_per_side + eta_source_support_extension_log_per_side) / 6"
+  },
+  "support_extension_denominator": 1.4642087706732643,
+  "tau_ext_formula": "g_active_candidate * exp(tau_log_centered_ext)",
+  "tau_log_centered_ext_formula": "((3 - x2) * sigma_source_support_extension_total_log_per_side + eta_source_support_extension_log_per_side) / 6"
+}

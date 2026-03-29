@@ -1,0 +1,68 @@
+{
+  "certification_status": "selector_law_closed_standard_math",
+  "collective_mode_dominance": [
+    6.517295104635923e-30,
+    6.283663321022361e-34,
+    0.9999999999999998
+  ],
+  "collective_projector_phase_stable": true,
+  "delta_m21_sq_bounds_gev2": {
+    "max": 9.62541040878508e-25,
+    "min": 0.0
+  },
+  "delta_m21_sq_gev2": 2.204051907791789e-39,
+  "delta_m31_sq_bounds_gev2": {
+    "max": 1.0595172246077544e-24,
+    "min": 1.557124826569896e-25
+  },
+  "delta_m31_sq_gev2": 9.54986497185585e-25,
+  "gap_vs_radius_certificate": {
+    "delta_h_radius_gev2": 4.143730700225407e-24,
+    "delta_sigma_radius_gev": 3.73091307184548e-13,
+    "ordering_gap_test_passes": false,
+    "projector_gap_seed_gev2": 1.1102230246251565e-16,
+    "projector_gap_test_passes": true,
+    "real_seed_gaps_gev": [
+      4.0389678347315804e-28,
+      1.91429206011187e-13
+    ]
+  },
+  "majorana_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/forward_majorana_matrix.json",
+  "mass_bounds_gev": [
+    {
+      "index": 1,
+      "max": 2.448310491895263e-12,
+      "min": 2.3269048295601224e-12
+    },
+    {
+      "index": 2,
+      "max": 2.525277633589767e-12,
+      "min": 2.39864484476272e-12
+    },
+    {
+      "index": 3,
+      "max": 2.5900740507739074e-12,
+      "min": 2.479906600535877e-12
+    }
+  ],
+  "masses_gev_sorted": [
+    2.39864484476272e-12,
+    2.3986448447627204e-12,
+    2.5900740507739074e-12
+  ],
+  "notes": [
+    "Ordering_real_seed is a report-only spectral output until the phase-envelope or selector certificate closes.",
+    "The complex Majorana phase theorem remains separate from this real-first splitting surface."
+  ],
+  "ordering_phase_certified": "normal_like_collective_dominance",
+  "ordering_real_seed": "normal_like_collective_dominance",
+  "ordering_theorem_status": "selector_law_certified",
+  "phase_certificate_source": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_phase_pullback_metric.json",
+  "phase_law_certificate_source": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_phase_pullback_metric.json",
+  "phase_mode": "canonical_selector",
+  "projector_certificate_source": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_holonomy_lift.json",
+  "selector_law_certified": true,
+  "selector_point_certified": true,
+  "splitting_ratio_r": 2.3079403889869556e-15,
+  "status": "blind_forward_splittings"
+}

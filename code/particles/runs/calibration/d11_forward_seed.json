@@ -1,0 +1,63 @@
+{
+  "artifact": "oph_d11_forward_seed",
+  "closure_state": "forward_seed_open_waiting_certificate",
+  "compare_only_blocks": [
+    "diagnostic_required_to_current_refs",
+    "legacy_diagnostic_readback",
+    "center_witness_forward_consequence"
+  ],
+  "core": {
+    "lambda_core_mt": 0.13164915,
+    "mH_core_gev": 126.62263,
+    "mt_pole_core_gev": 170.26125,
+    "y_t_core_mt": 0.92046435
+  },
+  "diagnostic_literals_forbidden": true,
+  "forward_seed_object": "sigma_D11_HT",
+  "forward_seed_promotion_certificate": null,
+  "generated_utc": "2026-03-28T06:44:43Z",
+  "kappa_HT": 1.7777777777777777,
+  "mass_readout": {
+    "jacobian": {
+      "d_mH_d_lambda": 480.0,
+      "d_mt_pole_d_y_t": 184.97
+    },
+    "mH_formula": "mH_core_gev + d_mH_d_lambda * delta_lambda_mt",
+    "mH_gev": 125.21892206026347,
+    "mt_pole_formula": "mt_pole_core_gev + d_mt_pole_d_y_t * delta_y_t_mt",
+    "mt_pole_gev": 172.38864559527133
+  },
+  "notes": [
+    "Compact D11 forward seed extracted from the current critical-surface artifact.",
+    "This artifact now emits one reference-free compact seed law from the D10 gauge core: sigma_D11_HT = alpha_u * cos(2*theta_W0) / sqrt(pi).",
+    "The resulting one-scalar chain sigma_D11_HT -> Theta_D11_HT -> (m_t, m_H) is a forward candidate and no longer depends on the diagnostic delta_y_t / delta_lambda readback values.",
+    "No larger Higgs/top family is missing here; the remaining work is promotion/certification of this one compact seed, not a wider Higgs/top residual program."
+  ],
+  "predictive_promotion_allowed": false,
+  "promotion_certificate_artifact": null,
+  "public_surface_candidate_allowed": true,
+  "public_surface_candidate_scope": [
+    "mH_gev",
+    "mt_pole_gev"
+  ],
+  "public_surface_policy": "best_available_reference_free_forward_seed_candidate",
+  "seed_certificate_id": "D11SeedCommonProvenanceCertificate",
+  "seed_equality_law": "delta_y_t_mt / y_t_core_mt = -(9/16) * delta_lambda_mt / lambda_core_mt = sigma_D11_HT",
+  "seed_status": "predictive_forward_law_candidate",
+  "sigma_D11_HT": 0.012495107198783639,
+  "smallest_predictive_missing_object": "forward_seed_promotion_certificate",
+  "source_artifact": "oph_d11_critical_surface_readout",
+  "source_predictive_status": "reference_free_compact_seed_law",
+  "source_seed_law": {
+    "alpha2_mz": 0.03377843630219015,
+    "alphaY_mz": 0.010131601067241624,
+    "alpha_u": 0.04112498041477454,
+    "cos2_theta_W0": 0.5385291530498766,
+    "cos2_theta_W0_formula": "(alpha2_mz - alphaY_mz) / (alpha2_mz + alphaY_mz)",
+    "sigma_D11_HT_formula": "alpha_u * cos(2*theta_W0) / sqrt(pi)"
+  },
+  "theta_from_seed": {
+    "delta_lambda_mt": -0.0029243915411177723,
+    "delta_y_t_mt": 0.011501300725908704
+  }
+}

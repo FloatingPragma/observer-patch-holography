@@ -1,0 +1,26 @@
+{
+  "available_correlator_scalars": {
+    "C_p_0": 4.56117689090172,
+    "C_p_1": 6.834564025936621,
+    "C_pi_0": 2.1608660672650513,
+    "C_pi_1": 1.5559243373956326,
+    "C_rho_0": 2.1166057361841273,
+    "C_rho_1": 1.5126151906629257
+  },
+  "available_scalar_channels": {
+    "nucleon_local": 4.265961839479414,
+    "pi": null,
+    "rho_local": 0.3962939728500584
+  },
+  "dimensionless_ratios": {
+    "nucleon_over_pi": null,
+    "rho_over_pi": null
+  },
+  "lane_status": "smoke",
+  "limitations": [
+    "Reference artifact exposes scalar channel outputs, not raw time-slice correlator arrays.",
+    "No real effective-mass or fit-window scan is possible from this payload alone.",
+    "Use this artifact for systematics bookkeeping and channel availability only."
+  ],
+  "source_run_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/hadron/sweeps/quenched_debug_sweep-20260324T152643Z/entries/beta57_l4_t8_seed0.json"
+}

@@ -1,0 +1,79 @@
+{
+  "E_d_log_exact": [
+    -3.260540130101604,
+    -0.2701412025229759,
+    3.53068133262458
+  ],
+  "E_u_log_exact": [
+    -5.888737130993507,
+    0.4902862458678261,
+    5.39845088512568
+  ],
+  "artifact": "oph_quark_current_family_exact_readout",
+  "g_d": 0.1224989720863351,
+  "g_u": 0.7796501962057191,
+  "generated_utc": "2026-03-26T08:37:24Z",
+  "notes": [
+    "This current-family exact witness uses the already-fixed simple three-point ordered spectrum and promotes only the sector-even quadratic readout coefficients.",
+    "It does not reopen a richer ray family or add a third scalar beyond the compact sector-mean split."
+  ],
+  "ordered_coordinate_x": [
+    -1.0,
+    -0.5175863354681689,
+    1.0
+  ],
+  "predicted_singular_values_d": [
+    0.004700000000000004,
+    0.09350000000000003,
+    4.182999999999995
+  ],
+  "predicted_singular_values_u": [
+    0.00216,
+    1.273,
+    172.35235532883112
+  ],
+  "proof_status": "current_family_exact_witness",
+  "quadratic_basis": {
+    "linear": [
+      -0.8274712215106104,
+      -0.34505755697877927,
+      1.1725287784893896
+    ],
+    "quadratic_centered": [
+      0.2440347951122107,
+      -0.4880695902244214,
+      0.2440347951122107
+    ]
+  },
+  "quadratic_coefficients_d": {
+    "linear": 3.395610731363092,
+    "quadratic": -1.847154502040493
+  },
+  "quadratic_coefficients_u": {
+    "linear": 5.643594008059593,
+    "quadratic": -4.994474262877307
+  },
+  "reference_targets_d": [
+    0.0047,
+    0.0935,
+    4.183
+  ],
+  "reference_targets_u": [
+    0.00216,
+    1.273,
+    172.3523553288312
+  ],
+  "sector_mean_split_artifact": "oph_quark_sector_mean_split",
+  "smallest_constructive_missing_object": "quark_quadratic_readout_theorem",
+  "target_centered_log_d": [
+    -3.2605401301016044,
+    -0.2701412025229759,
+    3.530681332624581
+  ],
+  "target_centered_log_u": [
+    -5.888737130993507,
+    0.49028624586782643,
+    5.39845088512568
+  ],
+  "theorem_scope": "current_family_only"
+}

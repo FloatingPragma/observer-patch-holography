@@ -1,0 +1,52 @@
+{
+  "B_ord": [
+    -1.0,
+    0.0,
+    1.0
+  ],
+  "E_d_log_lifted_formula": "E_d_log + tau_d_log_per_side * B_ord",
+  "E_u_log_lifted_formula": "E_u_log + tau_u_log_per_side * B_ord",
+  "artifact": "oph_family_excitation_diagonal_gap_shift_map",
+  "audit_only_best_fit": {
+    "tau_d_best_fit": 0.08831017354133808,
+    "tau_u_best_fit": 0.05214018144630117
+  },
+  "base_surface": {
+    "E_d_log": [
+      -1.5817974645909918,
+      -0.1413050708180164,
+      1.7231025354090082
+    ],
+    "E_u_log": [
+      -2.914764357228376,
+      0.23902871445675228,
+      2.6757356427716235
+    ],
+    "sigma_d_total_log_per_side": 3.3049,
+    "sigma_u_total_log_per_side": 5.5905
+  },
+  "gamma21_d_base": 1.4404923937729754,
+  "gamma21_d_lifted_formula": "gamma21_d_base + tau_d_log_per_side",
+  "gamma21_u_base": 3.1537930716851283,
+  "gamma21_u_lifted_formula": "gamma21_u_base + tau_u_log_per_side",
+  "gamma32_d_base": 1.8644076062270245,
+  "gamma32_d_lifted_formula": "gamma32_d_base + tau_d_log_per_side",
+  "gamma32_u_base": 2.4367069283148712,
+  "gamma32_u_lifted_formula": "gamma32_u_base + tau_u_log_per_side",
+  "generated_utc": "2026-03-27T16:49:29Z",
+  "notes": [
+    "This is the smallest next family after the current closed quadratic surface is exhausted.",
+    "It does not reopen the old four-gap branch; it adds one diagonal gap-shift slot per sector.",
+    "Best-fit tau values from the audit remain diagnostic-only and must not be promoted into the predictive builder."
+  ],
+  "predictive_promotion_allowed": false,
+  "proof_status": "next_family_declared_after_current_surface_obstruction",
+  "sigma_d_effective_total_log_per_side_formula": "sigma_d_total_log_per_side + 2 * tau_d_log_per_side",
+  "sigma_u_effective_total_log_per_side_formula": "sigma_u_total_log_per_side + 2 * tau_u_log_per_side",
+  "smallest_constructive_missing_object": "oph_family_excitation_diagonal_gap_shift_emitter",
+  "surface_exhausted": true,
+  "surface_obstruction_artifact": "oph_quark_current_family_exactness_audit",
+  "surface_origin_artifact": "oph_family_excitation_spread_map",
+  "tau_d_log_per_side": null,
+  "tau_u_log_per_side": null
+}

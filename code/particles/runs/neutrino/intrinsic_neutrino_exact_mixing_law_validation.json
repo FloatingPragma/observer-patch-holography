@@ -1,0 +1,150 @@
+{
+  "artifact": "oph_intrinsic_neutrino_exact_mixing_law_validation",
+  "base_parameters": {
+    "a_diag_gev": 2.4617526608923523e-12,
+    "atm_centroid_gap_isotropic_gev2": 9.549864971855835e-25,
+    "mc2_isotropic_gev2": 6.708483588492355e-24,
+    "md2_isotropic_gev2": 5.7534970913067715e-24,
+    "omega_cycle_rad": 1.7561442767905913,
+    "phi_equal_split_rad": 0.5853814255968638,
+    "rho_offdiag_gev": 7.615694417250985e-14
+  },
+  "centroid_gap_actual_gev2": 9.513517330231692e-25,
+  "centroid_gap_is_first_order_invariant": true,
+  "centroid_gap_isotropic_gev2": 9.549864971855835e-25,
+  "centroid_gap_pred_quadratic_gev2": 9.512712810370318e-25,
+  "centroid_gap_shift_actual_gev2": -3.634764162414328e-27,
+  "centroid_gap_shift_pred_quadratic_gev2": -3.715216148551711e-27,
+  "centroid_gap_shift_rel_error_quadratic": 0.02213403195984628,
+  "collective_vector_actual_aligned": {
+    "imag": [
+      -0.001271952053455615,
+      0.00041287465518207616,
+      0.0009774799069015457
+    ],
+    "real": [
+      0.5936025430818778,
+      0.5721205926817817,
+      0.5659605149493195
+    ]
+  },
+  "collective_vector_overlap_from_delta": 0.9999943034804484,
+  "collective_vector_overlap_from_eta": 0.999993272108924,
+  "collective_vector_prediction_from_delta": {
+    "imag": [
+      0.0013522904030488841,
+      -0.00040776440899578095,
+      -0.0009445259940531051
+    ],
+    "real": [
+      0.5933325169016982,
+      0.5723761615665726,
+      0.5659851296340845
+    ]
+  },
+  "collective_vector_prediction_from_eta": {
+    "imag": [
+      0.0012802156414733945,
+      -0.00032989574042427324,
+      -0.0009503199010491211
+    ],
+    "real": [
+      0.5924840845563907,
+      0.573313053053696,
+      0.5659258801772745
+    ]
+  },
+  "delta_actual": {
+    "psi12": -0.08980924025974019,
+    "psi23": 0.12858108138157798,
+    "psi31": -0.03877184112183796
+  },
+  "delta_m31_actual_gev2": 9.79802338860023e-25,
+  "delta_m31_pred_corrected_from_eta_gev2": 9.774579307789877e-25,
+  "delta_m31_pred_corrected_gev2": 9.786001407843479e-25,
+  "delta_m31_rel_error_corrected": 0.001226980206103375,
+  "delta_m31_rel_error_corrected_from_eta": 0.0023927357468475872,
+  "delta_m32_actual_gev2": 9.229011271863155e-25,
+  "delta_m32_pred_corrected_from_eta_gev2": 9.25084631295076e-25,
+  "delta_m32_pred_corrected_gev2": 9.239424212897158e-25,
+  "delta_m32_rel_error_corrected": 0.0011282834885844673,
+  "delta_m32_rel_error_corrected_from_eta": 0.0023659133621577177,
+  "delta_pred_from_eta_linear": {
+    "psi12": -0.09035862354528108,
+    "psi23": 0.12172587680945099,
+    "psi31": -0.03136725326416991
+  },
+  "doublet_rotation_tan2theta_delta": 1.0758498187667143,
+  "doublet_rotation_tan2theta_eta_linear": 0.9781950675111125,
+  "eta_payload": {
+    "psi12": 0.13631072512014578,
+    "psi23": -0.18362987264261327,
+    "psi31": 0.0473191475224675
+  },
+  "generated_utc": "2026-03-28T12:20:40Z",
+  "mc_scaling_check": [
+    {
+      "eta_norm_scale": 0.001,
+      "mean_collective_vector_overlap": 1.0,
+      "mean_rel_error_centroid_quadratic": 4.3986200202930246e-12,
+      "mean_rel_error_dm31_corrected": 1.6257020388805673e-08,
+      "mean_rel_error_solar_eta_linear": 0.0003213322140309631,
+      "min_collective_vector_overlap": 0.9999999999999997
+    },
+    {
+      "eta_norm_scale": 0.003,
+      "mean_collective_vector_overlap": 0.9999999999999984,
+      "mean_rel_error_centroid_quadratic": 1.1730785320699143e-10,
+      "mean_rel_error_dm31_corrected": 1.4460956494178576e-07,
+      "mean_rel_error_solar_eta_linear": 0.0009530151379848143,
+      "min_collective_vector_overlap": 0.9999999999999981
+    },
+    {
+      "eta_norm_scale": 0.01,
+      "mean_collective_vector_overlap": 0.999999999999801,
+      "mean_rel_error_centroid_quadratic": 4.3599200267338305e-09,
+      "mean_rel_error_dm31_corrected": 1.6135733672675006e-06,
+      "mean_rel_error_solar_eta_linear": 0.00318542442553626,
+      "min_collective_vector_overlap": 0.9999999999997984
+    },
+    {
+      "eta_norm_scale": 0.03,
+      "mean_collective_vector_overlap": 0.9999999999839072,
+      "mean_rel_error_centroid_quadratic": 1.2194493932417586e-07,
+      "mean_rel_error_dm31_corrected": 1.5104346552901788e-05,
+      "mean_rel_error_solar_eta_linear": 0.009941959656615759,
+      "min_collective_vector_overlap": 0.9999999999832919
+    },
+    {
+      "eta_norm_scale": 0.1,
+      "mean_collective_vector_overlap": 0.9999999980228456,
+      "mean_rel_error_centroid_quadratic": 4.41619652640135e-06,
+      "mean_rel_error_dm31_corrected": 0.00016560237749474105,
+      "mean_rel_error_solar_eta_linear": 0.032426260942401995,
+      "min_collective_vector_overlap": 0.9999999977668442
+    }
+  ],
+  "notes": [
+    "This validation corrects the earlier atmospheric statement: ordered Delta m31^2 and Delta m32^2 move linearly once the solar pair splits.",
+    "The first-order invariant atmospheric object is the collective-to-doublet-centroid gap, not the ordered Delta m31^2 row.",
+    "The collective singular-vector deformation law is already highly accurate on the weighted demo and becomes asymptotically exact near the isotropic point."
+  ],
+  "ordered_atmospheric_shift_is_linear": true,
+  "selector_actual_from_matrix": {
+    "psi12": 0.4955721853371236,
+    "psi23": 0.7139625069784418,
+    "psi31": 0.5466095844750258
+  },
+  "selector_payload_solution": {
+    "psi12": 0.4955721853371235,
+    "psi23": 0.7139625069784418,
+    "psi31": 0.5466095844750257
+  },
+  "sigma_actual": 0.13191423928513749,
+  "sigma_eta": 0.19068236351198528,
+  "solar_split_actual_gev2": 5.690121167370743e-26,
+  "solar_split_pred_linear_from_delta_gev2": 5.465771949463209e-26,
+  "solar_split_pred_linear_from_eta_gev2": 5.237329948391173e-26,
+  "solar_split_rel_error_from_delta_linear": 0.03942784543746369,
+  "solar_split_rel_error_from_eta_linear": 0.07957496961155106
+}

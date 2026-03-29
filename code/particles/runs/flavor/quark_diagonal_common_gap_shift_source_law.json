@@ -1,0 +1,43 @@
+{
+  "B_ord": [
+    -1.0,
+    0.0,
+    1.0
+  ],
+  "B_ord_norm_sq": 2.0,
+  "artifact": "oph_family_excitation_diagonal_common_gap_shift_source_law",
+  "delta_E_d_diag_log_per_side_source": null,
+  "delta_E_u_diag_log_per_side_source": null,
+  "delta_gamma21_d_log_per_side": null,
+  "delta_gamma21_d_log_per_side_formula": "tau_d_log_per_side",
+  "delta_gamma21_u_log_per_side": null,
+  "delta_gamma21_u_log_per_side_formula": "tau_u_log_per_side",
+  "delta_gamma32_d_log_per_side": null,
+  "delta_gamma32_d_log_per_side_formula": "tau_d_log_per_side",
+  "delta_gamma32_u_log_per_side": null,
+  "delta_gamma32_u_log_per_side_formula": "tau_u_log_per_side",
+  "delta_sigma_d_diag_total_log_per_side": null,
+  "delta_sigma_d_diag_total_log_per_side_formula": "2 * tau_d_log_per_side",
+  "delta_sigma_u_diag_total_log_per_side": null,
+  "delta_sigma_u_diag_total_log_per_side_formula": "2 * tau_u_log_per_side",
+  "equal_gap_residual_d": null,
+  "equal_gap_residual_d_formula": "delta_E_d_diag_log_per_side_source - tau_d_log_per_side * B_ord",
+  "equal_gap_residual_u": null,
+  "equal_gap_residual_u_formula": "delta_E_u_diag_log_per_side_source - tau_u_log_per_side * B_ord",
+  "generated_utc": "2026-03-27T16:49:29Z",
+  "input_kind": "closed_current_surface_plus_diagonal_B_mode",
+  "normalized_coordinate_x2": -0.5175863354681689,
+  "notes": [
+    "This artifact fixes the source-side law beneath the quark diagonal gap-shift shells.",
+    "The present invariants already fix the pure-B source-readback law; they do not yet emit the odd projector values that carry that law."
+  ],
+  "output_kind": "sector_diagonal_common_gap_shift_source_readback",
+  "predictive_promotion_allowed": false,
+  "proof_status": "source_law_closed_waiting_J_B_source_pair",
+  "smallest_constructive_missing_object": "J_B_source_u_and_J_B_source_d",
+  "source_artifact": "oph_family_excitation_diagonal_gap_shift_map",
+  "tau_d_formula": "dot(delta_E_d_diag_log_per_side_source, B_ord) / B_ord_norm_sq",
+  "tau_d_log_per_side": null,
+  "tau_u_formula": "dot(delta_E_u_diag_log_per_side_source, B_ord) / B_ord_norm_sq",
+  "tau_u_log_per_side": null
+}

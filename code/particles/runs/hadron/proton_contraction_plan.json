@@ -1,0 +1,45 @@
+{
+  "artifact": "N_iso.full_baryon_contractions",
+  "channel_scope": "isospin_symmetric_N_iso",
+  "color_antisymmetrization": "epsilon_sink_times_epsilon_source",
+  "contraction_rules": {
+    "direct": "Gd = Sc * trace(Gamma @ Sb @ GammaB @ Sa.T)",
+    "exchange": "Gx = Sca @ GammaB.T @ Sb.T @ Gamma.T @ Sac",
+    "full": "Gfull = Gd - Gx"
+  },
+  "deliverables": [
+    "raw contraction tensors or npz reference",
+    "full parity-projected N_iso correlator sequence",
+    "direct-minus-exchange bookkeeping",
+    "fit-ready metadata"
+  ],
+  "formula_id": "N_local_Cgamma5_direct_minus_exchange",
+  "notes": [
+    "This artifact closes the direct-minus-exchange contraction rule for the isospin-symmetric nucleon channel.",
+    "What remains open is sequence population on seeded unquenched ensembles, not the algebraic contraction identity itself."
+  ],
+  "objective": "upgrade the stable-channel N_iso readout from direct-term-only to full baryon contractions",
+  "operator_formula": "sum_x eps^{abc}(u^T C gamma5 d)u",
+  "output_sequences": [
+    "corr_direct_t",
+    "corr_exchange_t",
+    "corr_t",
+    "am_eff_t"
+  ],
+  "parity_projector": "(1+gamma_0)/2",
+  "predictive_promotion_allowed": false,
+  "promotion_gate": "StableChannelForwardWindowConvergence",
+  "proof_status": "formula_closed",
+  "required_tensors": [
+    "Q[:,:,a,ap]",
+    "Q[:,:,b,bp]",
+    "Q[:,:,c,cp]",
+    "Q[:,:,c,ap]",
+    "Q[:,:,a,cp]"
+  ],
+  "status": "formula_closed",
+  "wick_terms": [
+    "direct",
+    "exchange"
+  ]
+}

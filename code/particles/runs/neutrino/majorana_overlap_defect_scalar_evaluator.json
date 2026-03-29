@@ -1,0 +1,196 @@
+{
+  "all_triangle_phases_one_certificate": false,
+  "ambient_hessian_match": "mu_nu*I3_in_edge_basis",
+  "ambient_witness_formula": "0.5*mu_nu*||z(psi)-1||^2_edge",
+  "arrow_overlap_phase_definition": "theta_uv_e = arg(<r_e_star(v),U_vu_e(r_e_star(u))>)",
+  "artifact": "oph_majorana_overlap_defect_scalar_evaluator",
+  "bounded_scalar_range_if_closed": {
+    "lower": 0.0,
+    "upper": 0.1603126752325253
+  },
+  "bundle_descent_candidate_id": "selector_centered_unitary_common_refinement_descent_on_edge_bundle",
+  "bundle_descent_gate_if_closed": "promotion_gate_for_xi\u00b1eta_and_xi\u00b1i_eta_cleared",
+  "bundle_descent_status": "candidate_only",
+  "bundle_displacement_symbol": "xi = Xi_nu(psi) = s(psi) - s_star",
+  "complex_quadraticity_equation": "Q_nu(xi+i*eta)+Q_nu(xi-i*eta)=2*Q_nu(xi)+2*Q_nu(eta)",
+  "conjugation_action": "z_e -> conjugate(z_e)",
+  "cubic_freedom_status_if_closed": "eliminated_exactly",
+  "cubic_kill_mechanism": "Hermitian displacement depends only on Re(z_e), so odd I3 terms vanish",
+  "defect_weight_rule": "mu_e = base_mu_nu * exp(delta_e) / mean_f(exp(delta_f))",
+  "defect_weighted_mu_e_family_candidate_id": "oph_defect_weighted_majorana_edge_weight_family",
+  "defect_weighted_mu_e_family_role": "breaks isotropic 1_2 near_degeneracy while preserving the centered edge-norm route",
+  "defect_weighted_mu_e_family_status": "candidate_only",
+  "defect_weighted_mu_e_normalizer_candidate": "oph_same_label_overlap_defect_weight_normalizer",
+  "direct_sum_transport_equation": "T_vu = direct_sum_e U_vu_e",
+  "direct_sum_weight_matrix": [
+    [
+      0.02671877920542088,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.02671877920542088,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.02671877920542088
+    ]
+  ],
+  "domain": "affine_majorana_lift",
+  "edge_bundle_model": "E_nu = direct_sum_e L_e",
+  "edge_character_definition": "z_e(psi)=<s_e_star,s_e(psi)> in U(1)",
+  "edge_line_model": "L_e = ell_i tensor conjugate(ell_j)",
+  "edge_transport_cocycle_equation": "U_wv_e o U_vu_e = U_wu_e",
+  "edge_transport_kind": "unitary_complex_linear",
+  "edge_transport_normalization": "<r_e_star(v),U_vu_e(r_e_star(u))> in R_{>0}",
+  "edge_weights": {
+    "psi12": 0.02671877920542088,
+    "psi23": 0.02671877920542088,
+    "psi31": 0.02671877920542088
+  },
+  "exact_remaining_ingredient": "selector-centered phase cocycle triviality for same-label edge transport",
+  "fallback_family_if_not_closed": "sum_e mu_e*Phi(z_e), Phi(z)=Phi(conj(z)), Phi(1)=0, second jet fixed",
+  "family_conditions": [
+    "G(0)=0",
+    "G'(0)=0",
+    "G''(0)=1",
+    "G(-x)=G(x)"
+  ],
+  "finite_angle_exactness_status": "pending_edge_character_norm_theorem",
+  "finite_angle_exactness_status_if_closed": "closed_on_current_isotropic_branch",
+  "forced_bundle_norm_formula": "Q_nu(xi)=0.5*sum_e mu_e*abs(xi_e)^2",
+  "forced_phase_formula": "S_nu(psi)=sum_e mu_e*(1-cos(psi_e-psi_e_star))",
+  "forced_residual_formula": "0.02671877920542087975*(3-cos(u+v)-cos(u)-cos(v))",
+  "formula_affine_candidate": "sum_e mu_e*(1-cos(psi_e-psi_e_star))",
+  "formula_family": "S_G(psi)=sum_e mu_e*G(psi_e-psi_e_star)",
+  "formula_residual_candidate": "0.0267187792054208798*(3-cos(u+v)-cos(u)-cos(v))",
+  "generated_utc": "2026-03-25T23:51:12Z",
+  "hessian_anchor_matrix_3x3": [
+    [
+      0.026718779205420883,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.026718779205420883,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.026718779205420883
+    ]
+  ],
+  "hessian_anchor_residual_2x2": [
+    [
+      0.053437558410841766,
+      0.026718779205420883
+    ],
+    [
+      0.026718779205420883,
+      0.053437558410841766
+    ]
+  ],
+  "hessian_recovery_certificate": {
+    "matches_action_germ": true,
+    "residual_hessian_2x2": [
+      [
+        0.053437558410841766,
+        0.026718779205420883
+      ],
+      [
+        0.026718779205420883,
+        0.053437558410841766
+      ]
+    ],
+    "status": "closed"
+  },
+  "intrinsic_generator_formula": "0.5*sum_e mu_e*abs(z_e(psi)-1)^2",
+  "intrinsic_witness_kind": "centered_edge_character_norm_defect",
+  "invariant_ring_obstruction": {
+    "cubic_elimination_condition": "exact bundle quadraticity on selector-centered displacement domain",
+    "cubic_elimination_status": "exact_if_condition_adopted",
+    "cubic_freedom_eliminated": false,
+    "cubic_invariant": "I3(u,v)=u*v*(u+v)",
+    "quadratic_invariant": "I2(u,v)=u^2+u*v+v^2",
+    "reduced_invariant_family": "F(I2,I3^2)",
+    "status": "open"
+  },
+  "longitudinal_null_vector": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "mu_nu": 0.02671877920542088,
+  "naive_uncentered_cubic_coeff": 0.0016047225727754176,
+  "naive_uncentered_formula_ruled_out": true,
+  "next_forward_object": "defect_weighted_mu_e_family",
+  "nonisotropic_formula_status": "open_centered_family_only",
+  "norm_identification_formula": "S_nu(psi)=0.5*||s(psi)-s_star||^2_{diag(mu_e)}",
+  "normalization_witness": "edge_coefficient_hessian_match",
+  "normalization_witness_status": "local_quadratic_match_only",
+  "normalized_lift_definition": "U_vu_e_norm = exp(-i*theta_uv_e) * U_vu_e",
+  "normalized_reference_transport_identity": "<r_e_star(v),U_vu_e_norm(r_e_star(u))> in R_{>0}",
+  "normalized_triangle_phase_identity": "Theta_uvw_e_norm = 1",
+  "notes": [
+    "This boundary now carries the strongest centered constructive candidate compatible with the closed local quadratic action germ: a chordal/cosine evaluator centered at the actual equal-split selector point.",
+    "The current sharp origin candidate is the Hermitian displacement norm of a centered OPH Majorana edge-character functor.",
+    "The strongest current closure route is the selector-centered unitary common-refinement descent theorem on the direct-sum edge bundle, with phase-cocycle triviality treated as an explicit normalized-lift coboundary statement.",
+    "The current local witness hint for overlap nonvanishing is not a theorem yet, but it is expected to live in the same gap/defect fields already exported by the flavor artifacts.",
+    "The smallest exact missing clause beneath that route is now same-label overlap nonvanishing on realized refinement arrows; if it closes, the normalized triangle phases can be forced to one and the residual S3-cubic freedom disappears exactly.",
+    "Numerically, the current remaining defect is the exact 1-2 near-degeneracy induced by isotropic mu_nu, so the next forward object is a defect-weighted mu_e family rather than another isotropic re-evaluation."
+  ],
+  "oph_origin_status": "candidate_formula_not_yet_intrinsic_theorem",
+  "origin_object_candidate": "oph_affine_majorana_edge_character_functor",
+  "origin_object_role": "realizes centered Majorana overlap phases as unitary edge characters on transported Hermitian lines",
+  "overlap_nonvanishing_status": "candidate_only",
+  "overlap_nonvanishing_witness_hint": "gap_and_defect_fields_from_flavor_artifacts",
+  "parent_theorem_id": "oph_majorana_scalar_from_centered_edge_norm",
+  "phase_coboundary_identity": "Theta_uvw_e = d theta_e(u,v,w)",
+  "phase_cocycle_triviality_candidate_id": "selector_overlap_phase_coboundary_trivializes_same_label_edge_transport",
+  "phase_cocycle_triviality_status": "candidate_only",
+  "phase_triviality_proof_mode": "selector_overlap_phase_coboundary",
+  "polarization_formula": "H_nu(xi,eta)=0.5*(Q_nu(xi+eta)-Q_nu(xi-eta)+i*Q_nu(xi+i*eta)-i*Q_nu(xi-i*eta))",
+  "presentation_independence_status": "pending_theorem",
+  "presentation_independence_status_if_closed": "closed",
+  "promotion_gate": "close_only_if_bundle_descent_is_defined_for_xi\u00b1eta_and_xi\u00b1i_eta",
+  "proof_status": "candidate_only",
+  "quadraticity_clause_status": "pending_bundle_parallelogram_identity",
+  "quadraticity_clause_status_if_closed": "closed",
+  "quadraticity_domain": "selector_centered_common_refinement_edge_bundle",
+  "quadraticity_equation": "Q_nu(xi+eta)+Q_nu(xi-eta)=2*Q_nu(xi)+2*Q_nu(eta)",
+  "raw_lift_kind": "arbitrary_unitary_same_label_lifts",
+  "raw_triangle_phase_definition": "Theta_uvw_e = theta_wv_e + theta_vu_e - theta_wu_e",
+  "remaining_numerical_defect": "exact_1_2_near_degeneracy_from_isotropic_mu_nu",
+  "remaining_theorem_object": "oph_majorana_scalar_from_centered_edge_norm",
+  "required_overlap_certificate": "same_label_overlap_nonzero_on_realized_refinement_arrows",
+  "selector_center": "principal_equal_split",
+  "selector_centered_reference_kind": "normalized_edge_reference_ray",
+  "selector_origin_residual": {
+    "u": 0.0,
+    "v": 0.0
+  },
+  "selector_point_absolute": {
+    "psi12": -0.11954668174349829,
+    "psi23": -0.11954668174349829,
+    "psi31": -0.11954668174349829
+  },
+  "selector_reference_section": "principal_equal_split",
+  "smaller_exact_missing_clause_id": "same_label_overlap_nonzero_on_realized_refinement_arrows",
+  "smallest_exact_missing_clause": "same_label_overlap_nonzero_on_realized_refinement_arrows",
+  "source_artifacts": {
+    "action_germ": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_overlap_defect_action_germ.json",
+    "hessian": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_overlap_defect_hessian.json"
+  },
+  "strictly_smaller_missing_clause_if_not_closed": "same_label_overlap_nonzero_on_realized_refinement_arrows",
+  "sublemma_candidate_id": "selector_centered_quadraticity_polarization_law_on_edge_bundle",
+  "theorem_candidate_id": "oph_majorana_scalar_from_centered_edge_norm",
+  "transport_source": "projective_line_lift_readout_of_centered_generation_bundle_branch_generator",
+  "well_defined_difference_formula": "[u,x] - [v,y] := [w,T_wu(x)-T_wv(y)]",
+  "well_defined_i_formula": "i*[u,x] := [u,i*x]",
+  "well_defined_sum_formula": "[u,x] + [v,y] := [w,T_wu(x)+T_wv(y)]"
+}

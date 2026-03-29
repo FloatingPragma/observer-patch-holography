@@ -1,0 +1,64 @@
+{
+  "artifact": "oph_d11_forward_seed_promotion_certificate",
+  "certificate_id": "forward_seed_promotion_certificate",
+  "diagnostic_center_equality_claimed": false,
+  "discharges_legacy_sidecar_object_on_live_forward_path": "D11FixedRayWedgeVanishing",
+  "discharges_seed_certificate_id": "D11SeedCommonProvenanceCertificate",
+  "fixed_ray_wedge_vanishing_certificate": {
+    "kappa_HT": 1.7777777777777777,
+    "name": "D11FixedRayWedgeVanishing",
+    "proof_mode": "exact_forward_factorization",
+    "status": "closed_on_forward_seed",
+    "wedge_formula": "kappa_HT * lambda_core_mt * delta_y_t_mt + y_t_core_mt * delta_lambda_mt",
+    "wedge_value": 0.0
+  },
+  "forward_normalized_readback": {
+    "coordinates": {
+      "pi_lambda": 0.012495107198783639,
+      "pi_y": 0.012495107198783639
+    },
+    "decomposition": {
+      "eta_HT": 0.0,
+      "sigma_shared": 0.012495107198783639,
+      "w_HT": 0.0
+    }
+  },
+  "forward_path_closed": true,
+  "forward_seed_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/calibration/d11_forward_seed.json",
+  "generated_utc": "2026-03-28T06:44:43Z",
+  "mass_readout_consequence": {
+    "mH_formula": "mH_core_gev + d_mH_d_lambda * delta_lambda_mt",
+    "mH_gev": 125.21892206026347,
+    "mt_pole_formula": "mt_pole_core_gev + d_mt_pole_d_y_t * delta_y_t_mt",
+    "mt_pole_gev": 172.38864559527133
+  },
+  "next_single_residual_object": null,
+  "notes": [
+    "This certificate closes the live D11 forward seed without reopening the legacy diagnostic sidecar.",
+    "The exact fixed-ray factorization is proven on the emitted one-scalar forward seed sigma_D11_HT.",
+    "The public Higgs/top rows are therefore supported by the live forward seed path rather than by a witness-only sidecar."
+  ],
+  "predictive_promotion_allowed": true,
+  "promoted_seed_object": "sigma_D11_HT",
+  "promotion_status": "closed",
+  "proof_scope": "live_forward_path_only",
+  "proof_status": "forward_seed_promotion_closed",
+  "seed_equality_certificate": {
+    "law": "delta_y_t_mt / y_t_core_mt = -(9/16) * delta_lambda_mt / lambda_core_mt = sigma_D11_HT",
+    "residual_abs": 0.0,
+    "status": "closed_on_forward_seed"
+  },
+  "sigma_D11_HT": 0.012495107198783639,
+  "smallest_predictive_missing_object": null,
+  "source_forward_seed_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/calibration/d11_forward_seed.json",
+  "status": "closed",
+  "theta_formula": {
+    "delta_lambda_mt": "-(16/9) * sigma_D11_HT * lambda_core_mt",
+    "delta_y_t_mt": "sigma_D11_HT * y_t_core_mt"
+  },
+  "theta_from_seed": {
+    "delta_lambda_mt": -0.0029243915411177723,
+    "delta_y_t_mt": 0.011501300725908704
+  },
+  "theta_symbol": "Theta_D11_HT(mu_t)"
+}

@@ -1,0 +1,25 @@
+version: 1
+as_of: "2026-03-24"
+ensembles:
+  - id: dyn_pilot_a008_phys
+    lane_status: pilot
+    source_artifact: null
+    nf: "2+1 or 2+1+1"
+    beta: null
+    L: null
+    T: null
+    pion_mass_mev: 135
+    lattice_spacing_fm: 0.08
+    notes:
+      - "Planning placeholder for first dynamical stable-hadron pilot"
+  - id: dyn_pilot_a0068_phys
+    lane_status: pilot
+    source_artifact: null
+    nf: "2+1 or 2+1+1"
+    beta: null
+    L: null
+    T: null
+    pion_mass_mev: 135
+    lattice_spacing_fm: 0.068
+    notes:
+      - "Planning placeholder for continuum-pair pilot"

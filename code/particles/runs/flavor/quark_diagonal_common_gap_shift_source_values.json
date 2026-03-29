@@ -1,0 +1,45 @@
+{
+  "B_ord": [
+    -1.0,
+    0.0,
+    1.0
+  ],
+  "Q_ord": [
+    0.2440347951122107,
+    -0.4880695902244214,
+    0.2440347951122107
+  ],
+  "artifact": "oph_family_excitation_diagonal_common_gap_shift_source_values",
+  "beta_d_diag_B_source": null,
+  "beta_u_diag_B_source": null,
+  "delta_E_d_diag_log_per_side_source": null,
+  "delta_E_d_diag_log_per_side_source_formula": "beta_d_diag_B_source * B_ord",
+  "delta_E_u_diag_log_per_side_source": null,
+  "delta_E_u_diag_log_per_side_source_formula": "beta_u_diag_B_source * B_ord",
+  "generated_utc": "2026-03-27T16:49:29Z",
+  "mean_annihilator_d": null,
+  "mean_annihilator_d_formula": "0.0",
+  "mean_annihilator_u": null,
+  "mean_annihilator_u_formula": "0.0",
+  "notes": [
+    "This artifact derives the B-mode source values from the closed pure-B source-readback law when the beta-pair exists.",
+    "The predictive gap is the emitted pure-B payload pair beneath this derived shell; the odd projector outputs are algebraic consequences of that payload."
+  ],
+  "predictive_promotion_allowed": false,
+  "proof_status": "source_values_shell_waiting_pure_B_payload_pair",
+  "pure_B_mode_certificate_d": null,
+  "pure_B_mode_certificate_d_formula": "true",
+  "pure_B_mode_certificate_u": null,
+  "pure_B_mode_certificate_u_formula": "true",
+  "quadratic_annihilator_d": null,
+  "quadratic_annihilator_d_formula": "0.0",
+  "quadratic_annihilator_u": null,
+  "quadratic_annihilator_u_formula": "0.0",
+  "smallest_constructive_missing_object": "source_readback_u_log_per_side_and_source_readback_d_log_per_side",
+  "source_artifact": "oph_family_excitation_diagonal_common_gap_shift_source_emission",
+  "source_emission_artifact": "oph_family_excitation_diagonal_common_gap_shift_source_emission",
+  "source_emission_status": "source_emission_waiting_pure_B_payload_pair",
+  "source_law_artifact": "oph_family_excitation_diagonal_common_gap_shift_source_law",
+  "source_readback_artifact": "oph_family_excitation_diagonal_common_gap_shift_source_readback",
+  "source_readback_status": "source_readback_law_closed_waiting_pure_B_payload_pair"
+}

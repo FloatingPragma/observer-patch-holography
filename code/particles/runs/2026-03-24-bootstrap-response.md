@@ -1,0 +1,1 @@
+I’m starting from the repo’s actual boundary—especially the D10/D11/D12 split—and reconciling the live code/audit mismatch so the closure memo reflects implementation reality with strict claim-tier separation.

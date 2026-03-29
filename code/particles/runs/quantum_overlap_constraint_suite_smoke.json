@@ -1,0 +1,114 @@
+{
+  "generated_at": "2026-03-24T13:20:06.492773+00:00",
+  "results": [
+    {
+      "counts": {
+        "000": 64
+      },
+      "homogeneous_fraction": 1.0,
+      "layers": 1,
+      "n_qubits": 3,
+      "shots": 64,
+      "state_overlap": 1.0,
+      "theta": 0.0,
+      "top_counts": [
+        {
+          "bitstring": "000",
+          "shots": 64
+        }
+      ]
+    },
+    {
+      "counts": {
+        "000": 60,
+        "111": 4
+      },
+      "homogeneous_fraction": 1.0,
+      "layers": 1,
+      "n_qubits": 3,
+      "shots": 64,
+      "state_overlap": 0.9241989072233124,
+      "theta": 0.5,
+      "top_counts": [
+        {
+          "bitstring": "000",
+          "shots": 60
+        },
+        {
+          "bitstring": "111",
+          "shots": 4
+        }
+      ]
+    },
+    {
+      "counts": {
+        "000": 64
+      },
+      "homogeneous_fraction": 1.0,
+      "layers": 2,
+      "n_qubits": 3,
+      "shots": 64,
+      "state_overlap": 1.0,
+      "theta": 0.0,
+      "top_counts": [
+        {
+          "bitstring": "000",
+          "shots": 64
+        }
+      ]
+    },
+    {
+      "counts": {
+        "000": 58,
+        "001": 3,
+        "010": 1,
+        "111": 2
+      },
+      "homogeneous_fraction": 0.9375,
+      "layers": 2,
+      "n_qubits": 3,
+      "shots": 64,
+      "state_overlap": 0.8920865172788179,
+      "theta": 0.5,
+      "top_counts": [
+        {
+          "bitstring": "000",
+          "shots": 58
+        },
+        {
+          "bitstring": "001",
+          "shots": 3
+        },
+        {
+          "bitstring": "111",
+          "shots": 2
+        },
+        {
+          "bitstring": "010",
+          "shots": 1
+        }
+      ]
+    }
+  ],
+  "seed": 7,
+  "shots": 64,
+  "suite": "quantum_overlap_constraint",
+  "summary": {
+    "best_homogeneity": 1.0,
+    "best_overlap": 1.0,
+    "points": 4
+  },
+  "sweep": {
+    "layers": [
+      1,
+      2
+    ],
+    "n_qubits": [
+      3
+    ],
+    "thetas": [
+      0.0,
+      0.5
+    ]
+  }
+}

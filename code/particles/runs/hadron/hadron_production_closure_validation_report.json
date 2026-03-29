@@ -1,0 +1,81 @@
+{
+  "all_channels_ok": false,
+  "artifact": "oph_hadron_closure_validation_report",
+  "closure_grade": "execution_incomplete",
+  "ensembles": {
+    "qcd_2p1_seed_n0": {
+      "N_iso": {
+        "am_ground_candidate_finite": false,
+        "forward_window_limit_exists": false,
+        "has_cfg_source_corr_t": false,
+        "mass_gev_candidate_finite": false,
+        "published_statistical_error_finite": false,
+        "published_systematics_sigma_sys_finite": false,
+        "selected_forward_window_nonempty": false,
+        "systematics_status": "pending"
+      },
+      "pi_iso": {
+        "am_ground_candidate_finite": false,
+        "forward_window_limit_exists": false,
+        "has_cfg_source_corr_t": false,
+        "mass_gev_candidate_finite": false,
+        "published_statistical_error_finite": false,
+        "published_systematics_sigma_sys_finite": false,
+        "selected_forward_window_nonempty": false,
+        "systematics_status": "pending"
+      }
+    },
+    "qcd_2p1_seed_n1": {
+      "N_iso": {
+        "am_ground_candidate_finite": false,
+        "forward_window_limit_exists": false,
+        "has_cfg_source_corr_t": false,
+        "mass_gev_candidate_finite": false,
+        "published_statistical_error_finite": false,
+        "published_systematics_sigma_sys_finite": false,
+        "selected_forward_window_nonempty": false,
+        "systematics_status": "pending"
+      },
+      "pi_iso": {
+        "am_ground_candidate_finite": false,
+        "forward_window_limit_exists": false,
+        "has_cfg_source_corr_t": false,
+        "mass_gev_candidate_finite": false,
+        "published_statistical_error_finite": false,
+        "published_systematics_sigma_sys_finite": false,
+        "selected_forward_window_nonempty": false,
+        "systematics_status": "pending"
+      }
+    },
+    "qcd_2p1_seed_n2": {
+      "N_iso": {
+        "am_ground_candidate_finite": false,
+        "forward_window_limit_exists": false,
+        "has_cfg_source_corr_t": false,
+        "mass_gev_candidate_finite": false,
+        "published_statistical_error_finite": false,
+        "published_systematics_sigma_sys_finite": false,
+        "selected_forward_window_nonempty": false,
+        "systematics_status": "pending"
+      },
+      "pi_iso": {
+        "am_ground_candidate_finite": false,
+        "forward_window_limit_exists": false,
+        "has_cfg_source_corr_t": false,
+        "mass_gev_candidate_finite": false,
+        "published_statistical_error_finite": false,
+        "published_systematics_sigma_sys_finite": false,
+        "selected_forward_window_nonempty": false,
+        "systematics_status": "pending"
+      }
+    }
+  },
+  "production_dump_present": false,
+  "public_unsuppression_ready": false,
+  "receipt_filled": true,
+  "required_schedule_scalars": {
+    "N_sep": 512,
+    "N_therm": 2048
+  },
+  "smallest_live_residual_object": "backend_correlator_dump.production.json from real production RHMC/HMC execution on the theorem-emitted seeded family"
+}

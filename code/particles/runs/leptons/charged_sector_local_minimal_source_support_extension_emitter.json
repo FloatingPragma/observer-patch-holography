@@ -1,0 +1,88 @@
+{
+  "E_e_log_centered_ext_candidate": [
+    -0.6535753435893852,
+    0.053597222633582686,
+    0.5999781209558025
+  ],
+  "artifact": "oph_charged_sector_local_minimal_source_support_extension_emitter",
+  "candidate_next_single_residual_object": "sigma_source_support_extension_total_log_per_side",
+  "candidate_support_extension_status": "eta_candidate_only_total_span_still_open",
+  "centered_extension_formula": "E_e_log_centered_ext = (sigma_source_total_log_per_side / 2) * linear_basis_vector_centered + kappa_ext * extension_basis_vector_centered",
+  "e_ext_formula": "g_active_candidate * exp(e_log_centered_ext)",
+  "e_log_centered_ext_formula": "-((3 + x2) * sigma_source_total_log_per_side - eta_source_support_extension_log_per_side) / 6",
+  "eta_source_support_extension_candidate_origin": "rigid_ordered_ratio_support_extension_candidate",
+  "eta_source_support_extension_log_per_side": null,
+  "eta_source_support_extension_log_per_side_candidate": -0.809613811928119,
+  "eta_source_support_extension_log_per_side_candidate_formula": "(((1 + x2) - rho_ord_support_extension * (1 - x2)) / (1 + rho_ord_support_extension)) * sigma_source_total_log_per_side",
+  "extension_basis_kind": "canonical_quadratic_ordered_three_point_direction",
+  "extension_basis_vector_centered": [
+    0.2440347951122107,
+    -0.4880695902244214,
+    0.2440347951122107
+  ],
+  "fixed_current_span_certificate": {
+    "endpoint_ratio_fixed_value": 3.502767830009582,
+    "endpoint_ratio_formula": "exp(sigma_source_total_log_per_side)",
+    "endpoint_ratio_invariant_under_eta_only_extension": true,
+    "sigma_source_total_log_per_side_fixed": 1.2535534645451876,
+    "sigma_source_total_log_per_side_formula": "current emitted support span",
+    "why_eta_only_preserves_endpoint_ratio": "the eta-only extension adds +eta/6 to both endpoint centered logs and therefore leaves tau/e unchanged"
+  },
+  "g_active_candidate": 0.9231656602589082,
+  "gamma21_log_per_side_ext_candidate": 0.7071725662229679,
+  "gamma21_log_per_side_ext_formula": "((1 + x2) * sigma_source_total_log_per_side - eta_source_support_extension_log_per_side) / 2",
+  "gamma32_log_per_side_ext_candidate": 0.5463808983222198,
+  "gamma32_log_per_side_ext_formula": "((1 - x2) * sigma_source_total_log_per_side + eta_source_support_extension_log_per_side) / 2",
+  "generated_utc": "2026-03-29T06:39:03Z",
+  "hierarchy_mover_condition": "eta_source_support_extension_log_per_side != 0",
+  "kappa_ext": null,
+  "kappa_ext_candidate": -0.5529360485635166,
+  "kappa_ext_formula": "eta_source_support_extension_log_per_side / (2 * (1 - x2^2))",
+  "linear_basis_vector_centered": [
+    -0.8274712215106104,
+    -0.34505755697877927,
+    1.1725287784893896
+  ],
+  "mu_ext_formula": "g_active_candidate * exp(mu_log_centered_ext)",
+  "mu_log_centered_ext_formula": "(x2 * sigma_source_total_log_per_side - eta_source_support_extension_log_per_side) / 3",
+  "mu_source_log_per_side": 0.6207999999999999,
+  "new_beyond_support_scalar_slots_required": 1,
+  "next_single_residual_object": "eta_source_support_extension_log_per_side",
+  "notes": [
+    "The current-support charged package has collapsed to the linear subray.",
+    "The first honest hierarchy mover is one beyond-support scalar on the canonical quadratic ordered direction.",
+    "At fixed current span, eta-only moves the middle state against a fixed endpoint ratio tau/e = exp(sigma_source_total_log_per_side).",
+    "Once eta_source_support_extension_log_per_side is emitted, every downstream charged gap and centered log is algebraically determined.",
+    "A rigid ordered-ratio support-extension candidate is recorded for debugging because it uses only current-family data, but it is not promoted as closure because the remaining charged mismatch is then dominated by the still-open total spread scalar."
+  ],
+  "ordered_family_coordinate": [
+    -1.0,
+    -0.5175863354681689,
+    1.0
+  ],
+  "predictive_promotion_allowed": false,
+  "proof_status": "minimal_support_extension_formula_closed_source_scalar_open",
+  "rho_ord_current": 0.31788218782492417,
+  "rho_ord_support_extension": 1.2942849363777058,
+  "shape_singular_values_ext_candidate": [
+    0.5201826164436002,
+    1.0550595624506625,
+    1.8220789346088564
+  ],
+  "sigma_source_total_log_per_side": 1.2535534645451876,
+  "singular_values_abs_ext_candidate": [
+    0.4802147285643626,
+    0.9739947575822406,
+    1.682080702712033
+  ],
+  "smallest_constructive_missing_object": "eta_source_support_extension_log_per_side",
+  "source_artifact": "oph_charged_sector_local_current_support_obstruction_certificate",
+  "source_side_ordered_package_log_per_side_ext_candidate": [
+    -0.032775343589385275,
+    0.6743972226335826,
+    1.2207781209558024
+  ],
+  "support_extension_denominator": 1.4642087706732643,
+  "tau_ext_formula": "g_active_candidate * exp(tau_log_centered_ext)",
+  "tau_log_centered_ext_formula": "((3 - x2) * sigma_source_total_log_per_side + eta_source_support_extension_log_per_side) / 6"
+}

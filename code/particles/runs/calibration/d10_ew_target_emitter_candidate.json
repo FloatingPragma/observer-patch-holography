@@ -1,0 +1,70 @@
+{
+  "artifact": "oph_d10_ew_target_emitter_candidate",
+  "basis": {
+    "alpha2_mz": 0.03377843630219015,
+    "alphaY_mz": 0.010131601067241624,
+    "alpha_sum_mz": 0.043910037369431776,
+    "alpha_u_from_seed": 0.04112498041477454,
+    "beta_EW": 0.5385291530498766,
+    "eta_source": 0.022147000871961295,
+    "v_report_gev": 246.76711732749683
+  },
+  "coherent_emitted_quintet": {
+    "MW_pole": 80.37700001539531,
+    "MZ_pole": 91.18797807794321,
+    "alpha2_prime": 0.03377062800115824,
+    "alphaY_prime": 0.009695476921798464,
+    "alpha_em_eff_inv": 132.7524088191668,
+    "sin2w_eff": 0.22305833336075578,
+    "v_report": 246.76711732749683
+  },
+  "comparison_to_frozen_local_reference_surface": {
+    "MW_difference_gev": 1.5395315244859376e-08,
+    "MW_target_gev": 80.377,
+    "MZ_difference_gev": -1.3994039704812167e-08,
+    "MZ_target_gev": 91.18797809193725,
+    "delta_alpha2_tree_compare_only": -7.808313968675484e-06,
+    "delta_alphaY_parallel_compare_only": 2.3421435088719127e-06,
+    "delta_alphaY_perp_compare_only": 1.0302896547401353e-05,
+    "delta_alphaY_tree_compare_only": 1.2645040056273265e-05,
+    "delta_n_difference": -5.984440487377587e-10,
+    "delta_n_tree_exact_compare_only": 0.00023463647868753065,
+    "tau2_difference": 3.82988750387064e-10,
+    "tau2_tree_exact_compare_only": -0.0002311626831633662
+  },
+  "current_selected_carrier": {
+    "MW_pole": 80.38629169244275,
+    "MZ_pole": 91.18290444674243,
+    "alpha2_star": 0.03377843630219015,
+    "alphaY_star": 0.009682831911900495,
+    "alpha_em_eff_inv": 132.88025754903566,
+    "eta_EW": 0.022147000871961295,
+    "sigma_EW": -0.022147000871961295,
+    "sin2w_eff": 0.22279220809210554,
+    "tau_2": 0.0,
+    "tau_Y": -0.04429400174392259,
+    "v_report": 246.76711732749683
+  },
+  "emitter_scalar": {
+    "lambda_formula": "eta_source * alpha_u_from_seed / 4 = eta_source^2 / (4 * beta_EW)",
+    "lambda_value": 0.00022769874427635073
+  },
+  "family_source_id": "d10_running_tree",
+  "generated_utc": "2026-03-29T06:38:57Z",
+  "honesty_note": "This is a newly derived target-emitter candidate using only already-emitted D10 source data; it is not yet stated as a theorem in the current papers.",
+  "object_id": "EWTargetEmitter_D10",
+  "proof_gate": "single_family_single_P_no_mixed_readout",
+  "status": "new_theorem_candidate_not_yet_in_corpus",
+  "target_emitter_law": {
+    "delta_alpha2_tree": -7.808301031916019e-06,
+    "delta_alphaY_parallel": 2.3421396282673238e-06,
+    "delta_alphaY_perp": 1.030287026970081e-05,
+    "delta_alphaY_tree": 1.2645009897968135e-05,
+    "delta_n_tree_exact": 0.0002346358802434819,
+    "delta_n_tree_exact_formula": "lambda * (1 + (4/3) * eta_source + (2 - beta_EW/6) * eta_source^2)",
+    "tau2_tree_exact": -0.0002311623001746158,
+    "tau2_tree_exact_formula": "-lambda * (1 + (2/3) * eta_source + (1 - beta_EW/6) * eta_source^2)",
+    "tauY_fiber": -0.04406283002558085,
+    "tauY_fiber_formula": "-(tau2_tree_exact + 2 * eta_source) / (1 + 4 * tau2_tree_exact^2)"
+  }
+}

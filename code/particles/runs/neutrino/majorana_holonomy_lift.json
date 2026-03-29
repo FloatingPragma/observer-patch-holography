@@ -1,0 +1,122 @@
+{
+  "affine_constraint_matrix": [
+    [
+      1.0,
+      1.0,
+      1.0
+    ]
+  ],
+  "affine_constraint_rhs": [
+    1.7561442767905915
+  ],
+  "artifact": "oph_majorana_holonomy_lift",
+  "balanced_lift_candidate": {
+    "psi12": 0.5853814255968638,
+    "psi23": 0.5853814255968638,
+    "psi31": 0.5853814255968638,
+    "selector": "balanced_cycle_split_candidate_only"
+  },
+  "canonical_lift_closed": true,
+  "canonical_selector_point": {
+    "psi12": 0.5853814255968638,
+    "psi23": 0.5853814255968638,
+    "psi31": 0.5853814255968638,
+    "selector": "principal_equal_split",
+    "status": "closed_equal_split"
+  },
+  "canonical_selector_status": "closed_equal_split",
+  "cycle_constraint": {
+    "equation": "psi12+psi23+psi31=Omega_012",
+    "omega_012": 1.7561442767905915
+  },
+  "edge_weight_isotropy_certificate": {
+    "closed": true,
+    "spread": 0.0,
+    "tolerance": 1e-30
+  },
+  "edge_weights_majorana": {
+    "psi12": 0.000957040214227042,
+    "psi23": 0.000957040214227042,
+    "psi31": 0.000957040214227042
+  },
+  "generated_utc": "2026-03-27T13:18:50Z",
+  "labels": [
+    "f1",
+    "f2",
+    "f3"
+  ],
+  "majorana_phase_obstruction_class": {
+    "closed": false,
+    "kind": "congruence_gauge_affine_plane",
+    "residual_dimension": 2
+  },
+  "notes": [
+    "The neutrino Majorana phase lift is kept separate from the real symmetric amplitude branch.",
+    "Balanced, harmonic, and least-distortion selectors are exported as selector-law candidates.",
+    "On the current isotropic branch, the selector point closes as the principal equal split by S3 symmetry and the affine cycle constraint.",
+    "The least-distortion selector law is not yet promoted beyond candidate status on this branch."
+  ],
+  "phase_space": [
+    "psi12",
+    "psi23",
+    "psi31"
+  ],
+  "phase_status": "residual_affine_plane",
+  "principal_branch_certificate": {
+    "branch": "principal",
+    "closed": true,
+    "range": "(-pi, pi]"
+  },
+  "residual_basis": [
+    {
+      "psi12": 1.0,
+      "psi23": -1.0,
+      "psi31": 0.0
+    },
+    {
+      "psi12": 1.0,
+      "psi23": 0.0,
+      "psi31": -1.0
+    }
+  ],
+  "selector_candidate_psi": {
+    "energy_majorana": 0.0004780375609296871,
+    "psi12": 0.5853814255968639,
+    "psi23": 0.5853814255968639,
+    "psi31": 0.5853814255968639,
+    "selector": "least_distortion",
+    "status": "candidate_only"
+  },
+  "selector_candidates": {
+    "balanced": {
+      "energy_majorana": 0.0004780375609296871,
+      "psi12": 0.5853814255968638,
+      "psi23": 0.5853814255968638,
+      "psi31": 0.5853814255968638,
+      "selector": "balanced"
+    },
+    "harmonic": {
+      "energy_majorana": 0.0004780375609296871,
+      "psi12": 0.5853814255968638,
+      "psi23": 0.5853814255968638,
+      "psi31": 0.5853814255968638,
+      "selector": "harmonic"
+    },
+    "least_distortion": {
+      "energy_majorana": 0.0004780375609296871,
+      "psi12": 0.5853814255968639,
+      "psi23": 0.5853814255968639,
+      "psi31": 0.5853814255968639,
+      "selector": "least_distortion"
+    }
+  },
+  "selector_closure_reason": "s3_fixed_point",
+  "selector_equivalence_class": "principal_equal_split",
+  "selector_family": [
+    "balanced",
+    "harmonic",
+    "least_distortion"
+  ],
+  "selector_law_status": "candidate_only",
+  "symmetry_type": "majorana"
+}

@@ -1,0 +1,91 @@
+{
+  "d10_snapshot_at_p_default": {
+    "alpha1_mz": 0.016886001778736042,
+    "alpha2_mz": 0.03377843630219015,
+    "alpha3_mz": 0.11833722886741345,
+    "alpha_em_mz": 0.007793881804511242,
+    "alpha_u": 0.04112498041477454,
+    "m_w_run": 80.38629169244275,
+    "m_z_pole_stage3": 91.22024007075906,
+    "mu_u": 2.4736039148648396e+16,
+    "mz_run": 91.65246028560671,
+    "n_c": 3,
+    "p": 1.63094,
+    "sin2w_mz": 0.23073542347506173,
+    "v": 246.76711732749683
+  },
+  "generated_at": "2026-03-27T13:35:38.912395+00:00",
+  "grid_points": 401,
+  "iterations": 80,
+  "observables": {
+    "alpha_em_inv_mz": {
+      "current_delta": -0.0042307976518713986,
+      "current_value_at_p_default": 128.30576920234813,
+      "delta_p_from_default": 5.434147398086786e-05,
+      "dp_sensitivity_near_default": 77.85577648036224,
+      "implied_p": 1.630994341473981,
+      "status": "estimated",
+      "target_value": 128.31
+    },
+    "m_w_run": {
+      "current_delta": -0.003708307557246826,
+      "current_value_at_p_default": 80.38629169244275,
+      "delta_p_from_default": -2.115700980409585e-06,
+      "dp_sensitivity_near_default": -1752.7559857221318,
+      "implied_p": 1.6309378842990196,
+      "status": "estimated",
+      "target_value": 80.39
+    },
+    "m_z_pole_stage3": {
+      "current_delta": 0.00024007075906240516,
+      "current_value_at_p_default": 91.22024007075906,
+      "delta_p_from_default": 1.206730686487134e-07,
+      "dp_sensitivity_near_default": -1989.4311288815911,
+      "implied_p": 1.6309401206730687,
+      "status": "estimated",
+      "target_value": 91.22
+    },
+    "mz_run": {
+      "current_delta": 0.0004602856067066341,
+      "current_value_at_p_default": 91.65246028560671,
+      "delta_p_from_default": 2.3027435203104574e-07,
+      "dp_sensitivity_near_default": -1998.8574617798347,
+      "implied_p": 1.630940230274352,
+      "status": "estimated",
+      "target_value": 91.652
+    },
+    "sin2w_mz": {
+      "current_delta": 3.542347506174659e-05,
+      "current_value_at_p_default": 0.23073542347506173,
+      "delta_p_from_default": 0.004667877417201094,
+      "dp_sensitivity_near_default": -0.007588775774447497,
+      "implied_p": 1.6356078774172012,
+      "status": "estimated_out_of_scan_range",
+      "target_value": 0.2307
+    },
+    "v": {
+      "current_delta": -0.002882672503176309,
+      "current_value_at_p_default": 246.76711732749683,
+      "delta_p_from_default": -5.429027567505074e-07,
+      "dp_sensitivity_near_default": -5309.740035885113,
+      "implied_p": 1.6309394570972433,
+      "status": "estimated",
+      "target_value": 246.77
+    }
+  },
+  "p_default": 1.63094,
+  "p_scan_max": 1.63144,
+  "p_scan_min": 1.6304400000000001,
+  "root_refinement_enabled": false,
+  "source_branch": "arXiv/RC1/ancillary/code/particles/particle_masses_paper_d10_d11.py",
+  "summary": {
+    "estimated_count": 6,
+    "exact_single_p_candidate": false,
+    "focus_pair_spreads": {
+      "m_w_run_vs_m_z_pole_stage3": 2.2363740490582984e-06
+    },
+    "implied_p_midpoint": 1.6332728808581103,
+    "implied_p_spread": 0.0046699931181815035,
+    "observable_count": 6
+  }
+}

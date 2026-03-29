@@ -1,0 +1,36 @@
+{
+  "artifact": "charged_shared_absolute_scale_promotion",
+  "generated_utc": "2026-03-26T04:57:22Z",
+  "gluing_norm": 0.0,
+  "mean_witness": {
+    "gap_side_support_status": "proxy_supported_on_current_family",
+    "left_common_mean": 0.6207999999999999,
+    "mean_residual": 0.0,
+    "right_common_mean": 0.6207999999999999,
+    "witness_grade_status": "independent_scalar_readback_complete"
+  },
+  "mean_witness_artifact": "charged_common_refinement_mean_eigenvalue_certificate",
+  "no_reseed": true,
+  "parent_artifact": "oph_charged_budget_transport",
+  "parent_candidate": "charged_common_refinement_sigma_seed_equalizer",
+  "promotion_scope": "current_family_only",
+  "proof_status": "promotion_ready_on_current_family",
+  "sector_equalizer_by_sector": {
+    "d": 0.0,
+    "e": 0.0,
+    "u": 0.0
+  },
+  "sector_share_by_sector": {
+    "d": 0.3333333333333333,
+    "e": 0.3333333333333333,
+    "u": 0.3333333333333333
+  },
+  "shared_budget_total": 2.769496980776725,
+  "sigma_seed_clause": {
+    "left_common": 0.9231656602589082,
+    "residual": 0.0,
+    "right_common": 0.9231656602589082
+  },
+  "smallest_constructive_missing_object": "charged_shared_absolute_scale_writeback",
+  "stored_shared_absolute_scale": 0.9231656602589082
+}

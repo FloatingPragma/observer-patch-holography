@@ -1,0 +1,126 @@
+{
+  "artifact": "oph_defect_weighted_majorana_edge_weight_family",
+  "base_mu_nu": 0.02671877920542088,
+  "canonical_alpha": 0.5,
+  "centered_log_rule": "eta_e = 0.5 * ((log g_e + log d_e) - mean_f(log g_f + log d_f))",
+  "current_delta_m21_sq_gev2": 1.0285575569695016e-38,
+  "current_delta_m31_sq_gev2": 9.61993078639705e-24,
+  "current_doublet_center_gev": 2.5315965563049434e-12,
+  "current_heavy_light_gap_gev": 1.4720158013405985e-12,
+  "defect_log_centered": {
+    "psi12": null,
+    "psi23": null,
+    "psi31": null
+  },
+  "delta_m21_sq_expected_status": "strictly_positive_for_generic_nonconstant_delta",
+  "edge_weights": {
+    "psi12": null,
+    "psi23": null,
+    "psi31": null
+  },
+  "first_order_solar_response_coefficient_gev": 1.0126386225219773e-11,
+  "first_order_solar_response_formula": "delta_m21_sq ~= 4 * m0 * sigma_q",
+  "generated_utc": "2026-03-26T04:57:23Z",
+  "isotropic_limit_recovered": true,
+  "kernel_choice": "1-cos",
+  "majorana_matrix_imag": [
+    [
+      0.0,
+      -5.889728086962775e-14,
+      -5.889728086962775e-14
+    ],
+    [
+      -5.889728086962775e-14,
+      0.0,
+      -5.889728086962775e-14
+    ],
+    [
+      -5.889728086962775e-14,
+      -5.889728086962775e-14,
+      0.0
+    ]
+  ],
+  "majorana_matrix_real": [
+    [
+      3.021233930583966e-12,
+      4.903225859886619e-13,
+      4.903225859886619e-13
+    ],
+    [
+      4.903225859886619e-13,
+      3.021233930583966e-12,
+      4.903225859886619e-13
+    ],
+    [
+      4.903225859886619e-13,
+      4.903225859886619e-13,
+      3.021233930583966e-12
+    ]
+  ],
+  "mean_preserved": true,
+  "neutrino_only_isotropy_obstruction": true,
+  "normalizer_artifact": "oph_same_label_overlap_defect_weight_normalizer",
+  "notes": [
+    "This is the first local mass-moving object that can lift the current 1-2 near-degeneracy without changing the centered selector, kernel choice, or edge-character origin candidate.",
+    "The current forward neutrino bundle is S_3-isotropic, so any same-label scalar readback built only from the neutrino payload is forced to stay edge-constant.",
+    "The best reduced family is a realized-arrow readback of same-label gap and defect witnesses, followed by the canonical raw score q_e = sqrt(gap_e * defect_e), centered-log lift, and mean-preserving mu_e family.",
+    "The current canonical no-new-parameter point is q_e = sqrt(gap_e * defect_e), but the actual next mover is the realized flavor-side same-label gap/defect readback that feeds that rule.",
+    "The exact theorem blocker remains on same-label overlap / edge-bundle normalization, but the smallest spectrum-moving local object is now the realized same-label gap/defect readback beneath the repo-facing log-source wrapper."
+  ],
+  "ordering_expected_status": "normal_like_stable_for_small_defect_anisotropy",
+  "parent_theorem_id": "oph_majorana_scalar_from_centered_edge_norm",
+  "positive_weights": true,
+  "proof_status": "candidate_only",
+  "raw_defect_source": "gap_and_defect_fields_from_flavor_artifacts",
+  "raw_edge_score": {
+    "psi12": null,
+    "psi23": null,
+    "psi31": null
+  },
+  "raw_edge_score_emitter": "oph_same_label_overlap_defect_log_source",
+  "raw_edge_score_family": "q_e(alpha) = gap_e^alpha * defect_e^(1-alpha)",
+  "raw_edge_score_rule": "q_e = sqrt(gap_e * defect_e)",
+  "raw_edge_score_symbol": "q_e > 0",
+  "realized_same_label_arrows": [
+    "psi12",
+    "psi23",
+    "psi31"
+  ],
+  "residual_hessian_formula_2x2": [
+    [
+      "mu12 + mu31",
+      "mu31"
+    ],
+    [
+      "mu31",
+      "mu23 + mu31"
+    ]
+  ],
+  "same_label_defect_rule": "d_e = 0.5 * ||P_head(e) - L_e P_tail(e) L_e^*||_HS^2 = 1 - overlap_sq_e",
+  "same_label_defect_witness": {
+    "psi12": null,
+    "psi23": null,
+    "psi31": null
+  },
+  "same_label_gap_witness": {
+    "psi12": null,
+    "psi23": null,
+    "psi31": null
+  },
+  "same_label_overlap_sq": {
+    "psi12": null,
+    "psi23": null,
+    "psi31": null
+  },
+  "same_label_readback_origin": "realized_arrow_pullback_from_flavor_gap_and_defect_certificates",
+  "selector_center": "principal_equal_split",
+  "selector_point_absolute": {
+    "psi12": -0.11954668174349829,
+    "psi23": -0.11954668174349829,
+    "psi31": -0.11954668174349829
+  },
+  "smallest_constructive_missing_object": "oph_realized_same_label_gap_defect_readback",
+  "strict_repo_missing_object": "oph_same_label_overlap_defect_log_source",
+  "upstream_exact_clause": "same_label_overlap_nonzero_on_realized_refinement_arrows",
+  "weight_rule": "mu_e = base_mu_nu * exp(delta_e) / mean_f(exp(delta_f))"
+}

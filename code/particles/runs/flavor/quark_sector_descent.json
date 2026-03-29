@@ -1,0 +1,250 @@
+{
+  "D_d_left_log": [
+    -0.5145239897595888,
+    0.06917969610212979,
+    0.44534429365745903
+  ],
+  "D_d_right_log": [
+    0.5145239897595888,
+    -0.06917969610212979,
+    -0.44534429365745903
+  ],
+  "D_u_left_log": [
+    0.5145239897595888,
+    -0.06917969610212979,
+    -0.44534429365745903
+  ],
+  "D_u_right_log": [
+    -0.5145239897595888,
+    0.06917969610212979,
+    0.44534429365745903
+  ],
+  "Delta_Phi_q": [
+    [
+      0.0,
+      0.36859806829415914,
+      0.177272971261707
+    ],
+    [
+      -0.36859806829415914,
+      0.0,
+      0.020537722280319606
+    ],
+    [
+      -0.177272971261707,
+      -0.020537722280319606,
+      0.0
+    ]
+  ],
+  "Delta_S_q": [
+    [
+      0.0,
+      0.20624196900447375,
+      0.034806034601383956
+    ],
+    [
+      0.20624196900447375,
+      0.0,
+      0.23369766089500627
+    ],
+    [
+      0.034806034601383956,
+      0.23369766089500627,
+      0.0
+    ]
+  ],
+  "Delta_logD_left_q": [
+    0.5145239897595888,
+    -0.06917969610212979,
+    -0.44534429365745903
+  ],
+  "Delta_logD_right_q": [
+    -0.5145239897595888,
+    0.06917969610212979,
+    0.44534429365745903
+  ],
+  "E_d_log": [
+    -1.5817974645909918,
+    -0.1413050708180164,
+    1.7231025354090082
+  ],
+  "E_u_log": [
+    -2.914764357228376,
+    0.23902871445675228,
+    2.6757356427716235
+  ],
+  "J_B_source_d": null,
+  "J_B_source_u": null,
+  "Phi_d": [
+    [
+      0.0,
+      0.21678335730270465,
+      -0.7626543968585708
+    ],
+    [
+      -0.21678335730270465,
+      0.0,
+      0.5648437033165442
+    ],
+    [
+      0.7626543968585708,
+      -0.5648437033165442,
+      0.0
+    ]
+  ],
+  "Phi_u": [
+    [
+      0.0,
+      0.9539794938910229,
+      -0.4081084543351568
+    ],
+    [
+      -0.9539794938910229,
+      0.0,
+      0.6059191478771834
+    ],
+    [
+      0.4081084543351568,
+      -0.6059191478771834,
+      0.0
+    ]
+  ],
+  "S_d": [
+    [
+      0.0,
+      2.7290002716255755,
+      5.373037914907442
+    ],
+    [
+      2.7290002716255755,
+      0.0,
+      3.1127542520880427
+    ],
+    [
+      5.373037914907442,
+      3.1127542520880427,
+      0.0
+    ]
+  ],
+  "S_u": [
+    [
+      0.0,
+      3.1414842096345232,
+      5.44264998411021
+    ],
+    [
+      3.1414842096345232,
+      0.0,
+      3.580149573878055
+    ],
+    [
+      5.44264998411021,
+      3.580149573878055,
+      0.0
+    ]
+  ],
+  "Xi_q_imag": [
+    [
+      0.0,
+      0.36859806829415914,
+      0.177272971261707
+    ],
+    [
+      -0.36859806829415914,
+      0.0,
+      0.020537722280319606
+    ],
+    [
+      -0.177272971261707,
+      -0.020537722280319606,
+      0.0
+    ]
+  ],
+  "Xi_q_real": [
+    [
+      0.5145239897595888,
+      0.20624196900447375,
+      0.034806034601383956
+    ],
+    [
+      0.20624196900447375,
+      -0.06917969610212979,
+      0.23369766089500627
+    ],
+    [
+      0.034806034601383956,
+      0.23369766089500627,
+      -0.44534429365745903
+    ]
+  ],
+  "artifact": "oph_quark_sector_descent",
+  "b_odd_source_scalar_evaluator_artifact": "oph_quark_diagonal_B_odd_source_scalar_evaluator",
+  "b_odd_source_scalar_evaluator_status": "pure_B_odd_projection_formula_closed_source_values_open",
+  "budget_neutrality_certificate": {
+    "delta_logg_q": 0.0,
+    "status": "closed",
+    "u_plus_d_odd_part_sum": 0.0
+  },
+  "channel_splitter_kind": "odd_projector_resolved_splitter",
+  "coefficient_free": true,
+  "d_raw_channel_norm_candidate": 0.12172551081512113,
+  "degenerate_placeholder_fallback_used": false,
+  "delta_logg_q": 0.0,
+  "delta_logg_q_status": "closed_zero_corollary",
+  "dense_entrywise_amplitude_used": false,
+  "diagonal_gap_shift_artifact": "oph_family_excitation_diagonal_gap_shift_map",
+  "diagonal_gap_shift_emitter_artifact": "oph_family_excitation_diagonal_gap_shift_emitter",
+  "diagonal_gap_shift_emitter_status": "emitter_shell_waiting_scalar_evaluator",
+  "diagonal_gap_shift_scalar_evaluator_artifact": "oph_family_excitation_diagonal_gap_shift_scalar_evaluator",
+  "diagonal_gap_shift_scalar_evaluator_status": "current_family_scalar_law_closed_waiting_source_readback_pair",
+  "diagonal_gap_shift_status": "next_family_declared_after_current_surface_obstruction",
+  "diagonal_gap_shift_tau_map_artifact": "oph_family_excitation_diagonal_gap_shift_tau_map",
+  "diagonal_gap_shift_tau_map_status": "current_family_scalar_law_closed_waiting_source_readback_pair",
+  "even_evaluator_centering_mode": "trace_zero",
+  "even_evaluator_family": "trace_zero_quadratic_on_ordered_branch_generator",
+  "even_excitation_diagonal_gap_shift_candidate": "oph_family_excitation_diagonal_gap_shift_map",
+  "even_excitation_gap_map_candidate": "oph_family_excitation_gap_map",
+  "even_excitation_input_kind": "ordered_branch_generator_spectral_package",
+  "even_excitation_proof_status": "pure_B_source_readback_open",
+  "even_excitation_source_artifact": "oph_family_excitation_spread_map",
+  "even_excitation_source_status": "closed",
+  "even_excitation_spread_map_candidate": "oph_family_excitation_spread_map",
+  "even_excitation_theorem_candidate": "oph_family_excitation_evaluator",
+  "exact_missing_object": "source_readback_u_log_per_side_and_source_readback_d_log_per_side",
+  "g_ch": 0.9231656602589082,
+  "g_d": 0.12172551081512113,
+  "g_u": 0.7797392875757557,
+  "generated_utc": "2026-03-28T16:00:23Z",
+  "hierarchy_driver_status": "candidate_spread_values_populated",
+  "metadata": {
+    "note": "Candidate odd quark-sector descent built from an explicit shared charged response seed plus the separate odd-response-law artifact. The local shape map is explicit and coefficient-free on the current single-kappa ray. The reduced even family is fixed as a trace-zero quadratic on the ordered branch coordinate; when a current-family spread pair is available, the centered even-log profiles are read back directly from the exported spread map. If the next diagonal gap-shift family is later populated, the builder can lift those logs by B_ord without reopening the old larger branch. A compact current-family sector-mean split may refine g_u and g_d without changing those rays. No reference-fit exact-readout artifact is consumed here.",
+    "shared_charged_seed_kind": "averaged_u_d_candidate"
+  },
+  "noncentrality_witness": {
+    "fro_norm": 0.00027640229325291395,
+    "status": "closed"
+  },
+  "ordered_branch_coordinate_formula": "x_a = 2*(lambda_a-lambda_1)/(lambda_3-lambda_1) - 1",
+  "orientation_fixed": true,
+  "projector_split_coefficients": [
+    0.7943923487582518,
+    -0.23377770181325852,
+    -0.5606146469449932
+  ],
+  "proof_status": "odd_splitter_candidate",
+  "quark_descent_proof_status": "closed",
+  "response_map_id": "projector_witness_pullback_riesz_candidate",
+  "sector_distinctness_witness": {
+    "status": "closed",
+    "value": 1.0290479795191776
+  },
+  "sector_mean_split_artifact": "oph_quark_sector_mean_split",
+  "sector_mean_split_status": "closed_current_family_predictive_law",
+  "shared_norm_origin": "oph_quark_sector_mean_split",
+  "shared_norm_status": "closed_current_family_predictive_law",
+  "shared_scalarization_law_status": "candidate_only",
+  "tau_d_log_per_side": null,
+  "tau_u_log_per_side": null,
+  "u_raw_channel_norm_candidate": 0.7797392875757557,
+  "uses_full_projector_algebra": true
+}

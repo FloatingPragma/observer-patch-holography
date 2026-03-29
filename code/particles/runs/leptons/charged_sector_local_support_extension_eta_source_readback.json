@@ -1,0 +1,79 @@
+{
+  "artifact": "oph_charged_sector_local_support_extension_eta_source_readback",
+  "carrier_not_enlarged": true,
+  "centered_log_readback_formula": "(1 - x2) * e_log_centered_ext + (1 + x2) * tau_log_centered_ext - 2 * mu_log_centered_ext",
+  "common_scale_invariant": true,
+  "common_shift_invariant": true,
+  "downstream_sigma_artifact": "oph_charged_sector_local_support_extension_endpoint_ratio_breaker",
+  "e_log_centered_ext_formula": "-((3 + x2) * sigma_source_support_extension_total_log_per_side - eta_source_support_extension_log_per_side) / 6",
+  "eta_equivalence_formula": "eta_source_support_extension_log_per_side = J_mid_e_mu_tau_support_extension",
+  "eta_from_midpoint_defect_formula": "2 * (weighted_midpoint_ext - r2_ext)",
+  "eta_readback_invariant_formula": "(1 - x2) * r1_ext + (1 + x2) * r3_ext - 2 * r2_ext",
+  "eta_readback_invariant_name": "J_mid_e_mu_tau_support_extension",
+  "eta_source_support_extension_log_per_side": null,
+  "eta_zero_on_current_support_certificate": {
+    "current_support_eta_from_centered_logs": 2.7755575615628914e-16,
+    "current_support_eta_from_mass_ratio": 4.440892098500625e-16,
+    "current_support_eta_from_ordered_package": 2.220446049250313e-16,
+    "current_support_midpoint_defect_log_per_side": 1.1102230246251565e-16,
+    "current_support_singular_values_abs": [
+      0.5495880460327794,
+      0.7436233455240957,
+      1.9250793274014453
+    ],
+    "current_support_source_side_ordered_package_log_per_side": [
+      0.102160291731968,
+      0.40452595199087626,
+      1.3557137562771555
+    ],
+    "current_support_weighted_midpoint_log_per_side": 0.4045259519908764
+  },
+  "extension_basis_vector_centered": [
+    0.2440347951122107,
+    -0.4880695902244214,
+    0.2440347951122107
+  ],
+  "g_active_candidate": 0.9231656602589082,
+  "generated_utc": "2026-03-28T08:21:22Z",
+  "linear_basis_vector_centered": [
+    -0.8274712215106104,
+    -0.34505755697877927,
+    1.1725287784893896
+  ],
+  "mass_ratio_readback_formula": "log((e_ext^(1 - x2) * tau_ext^(1 + x2)) / mu_ext^2)",
+  "midpoint_defect_log_per_side_formula": "weighted_midpoint_ext - r2_ext",
+  "mu_log_centered_ext_formula": "(x2 * sigma_source_support_extension_total_log_per_side - eta_source_support_extension_log_per_side) / 3",
+  "mu_source_log_per_side": 0.6207999999999999,
+  "next_single_residual_object_after_eta": "sigma_source_support_extension_total_log_per_side",
+  "notes": [
+    "This isolates the first support-extension scalar itself as a weighted midpoint-defect invariant on the current charged carrier.",
+    "It does not reuse the quarantined rigid eta candidate.",
+    "It is common-shift and common-scale invariant, so it does not depend on the unresolved absolute writeback.",
+    "Once eta_source_support_extension_log_per_side is emitted through this primitive, the only remaining same-carrier residual is sigma_source_support_extension_total_log_per_side via the existing endpoint-ratio breaker."
+  ],
+  "ordered_family_coordinate": [
+    -1.0,
+    -0.5175863354681689,
+    1.0
+  ],
+  "parent_artifacts": {
+    "current_support_value_law": "oph_charged_sector_local_ordered_package_value_law",
+    "endpoint_ratio_breaker": "oph_charged_sector_local_support_extension_endpoint_ratio_breaker",
+    "forward_charged_leptons": "oph_forward_charged_leptons",
+    "minimal_source_support_extension_emitter": "oph_charged_sector_local_minimal_source_support_extension_emitter",
+    "support_extension_completion_law": "oph_charged_sector_local_support_extension_completion_law"
+  },
+  "predictive_promotion_allowed": false,
+  "proof_status": "eta_source_readback_formula_closed_value_open",
+  "shape_ratio_readback_formula": "log((shape_e_ext^(1 - x2) * shape_tau_ext^(1 + x2)) / shape_mu_ext^2)",
+  "smaller_than_full_completion_shell": true,
+  "source_side_ordered_package_log_per_side_ext_formula": {
+    "r1_ext": "mu_source_log_per_side - ((3 + x2) * sigma_source_support_extension_total_log_per_side - eta_source_support_extension_log_per_side) / 6",
+    "r2_ext": "mu_source_log_per_side + (x2 * sigma_source_support_extension_total_log_per_side - eta_source_support_extension_log_per_side) / 3",
+    "r3_ext": "mu_source_log_per_side + ((3 - x2) * sigma_source_support_extension_total_log_per_side + eta_source_support_extension_log_per_side) / 6"
+  },
+  "status": "closed_smaller_primitive",
+  "support_extension_denominator": 1.4642087706732643,
+  "tau_log_centered_ext_formula": "((3 - x2) * sigma_source_support_extension_total_log_per_side + eta_source_support_extension_log_per_side) / 6",
+  "weighted_midpoint_formula": "((1 - x2) * r1_ext + (1 + x2) * r3_ext) / 2"
+}

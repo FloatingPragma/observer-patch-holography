@@ -1,0 +1,53 @@
+{
+  "artifact": "oph_qcd_lambda_msbar3",
+  "borrowed_qft_piece": "perturbative_qcd_running_and_threshold_matching",
+  "generated_utc": "2026-03-27T05:53:37Z",
+  "law_id": "oph_qcd_lambda_msbar3_from_d10_alpha3",
+  "loops": 4,
+  "notes": [
+    "This artifact is a secondary QCD descendant from the live OPH D10 alpha3 closure plus the current reference-free quark thresholds.",
+    "It uses perturbative MS-bar running and simple threshold continuity at m_b and m_c.",
+    "No hadron masses or PDG hadron inputs are used anywhere in this descendant."
+  ],
+  "outputs": {
+    "Lambda_MSbar_3_gev": 0.3344017072821104,
+    "Lambda_MSbar_4_gev": 0.2931998591793124,
+    "Lambda_MSbar_5_gev": 0.21368498327871915,
+    "Lambda_MSbar_gev": 0.3344017072821104
+  },
+  "predictive_promotion_allowed": true,
+  "proof_status": "secondary_quantitative_descendant",
+  "source_artifacts": {
+    "d10_observable_family": "oph_d10_ew_observable_family",
+    "forward_yukawas": "oph_forward_yukawas"
+  },
+  "source_inputs": {
+    "alpha3_mz": 0.11833722886741345,
+    "m_b_threshold_gev": 3.82011787992005,
+    "m_c_threshold_gev": 1.2566920642121726,
+    "mu_source_gev": 91.65246028560671
+  },
+  "threshold_chain": [
+    {
+      "alpha_s": 0.11833722886741345,
+      "lambda_msbar_gev": 0.21368498327871915,
+      "mu_match_gev": 91.65246028560671,
+      "n_f": 5,
+      "role": "source_from_d10_alpha3"
+    },
+    {
+      "alpha_s": 0.23263310763935596,
+      "lambda_msbar_gev": 0.2931998591793124,
+      "mu_match_gev": 3.82011787992005,
+      "n_f": 4,
+      "role": "bottom_threshold_continuity"
+    },
+    {
+      "alpha_s": 0.39250162523681686,
+      "lambda_msbar_gev": 0.3344017072821104,
+      "mu_match_gev": 1.2566920642121726,
+      "n_f": 3,
+      "role": "charm_threshold_continuity"
+    }
+  ]
+}

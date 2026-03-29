@@ -1,0 +1,47 @@
+{
+  "action_formula_residual": "mu_nu*(u^2 + u*v + v^2)",
+  "artifact": "oph_majorana_overlap_defect_action_germ",
+  "candidate_scale_from_edge_coefficients": 0.000957040214227042,
+  "cubic_invariant_obstruction": {
+    "eliminated": false,
+    "formula": "I3(u,v)=u*v*(u+v)",
+    "status": "open"
+  },
+  "domain": "affine_majorana_lift",
+  "edge_coefficients": {
+    "psi12": 0.000957040214227042,
+    "psi23": 0.000957040214227042,
+    "psi31": 0.000957040214227042
+  },
+  "generated_utc": "2026-03-27T13:18:50Z",
+  "hessian_class_residual_2x2": [
+    [
+      2.0,
+      1.0
+    ],
+    [
+      1.0,
+      2.0
+    ]
+  ],
+  "invariant_ring_status": "quadratic_jet_closed_cubic_freedom_open",
+  "notes": [
+    "This artifact closes the local quadratic action germ on the affine Majorana lift, but not the exact scalar evaluator that fixes the scale and finite-angle continuation.",
+    "The exact remaining no-go is the surviving S3-invariant cubic freedom beyond the closed quadratic jet."
+  ],
+  "proof_status": "local_quadratic_germ_closed",
+  "quadratic_invariant_residual": "I2(u,v)=u^2+u*v+v^2",
+  "residual_symmetry_group": "S3_on_A2_reflection_representation",
+  "scale_status": "unresolved_without_scalar_evaluator",
+  "selector_center": "principal_equal_split",
+  "selector_point": {
+    "psi12": 0.0,
+    "psi23": 0.0,
+    "psi31": 0.0
+  },
+  "source_artifacts": {
+    "family": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/family_response_tensor.json",
+    "lift": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_holonomy_lift.json"
+  },
+  "upstream_missing_object": "oph_majorana_overlap_defect_scalar_evaluator"
+}

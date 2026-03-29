@@ -1,0 +1,147 @@
+{
+  "artifact": "oph_quark_d12_mass_branch_and_ckm_residual",
+  "best_honest_one_scalar_mass_point_on_same_family": {
+    "Delta_ud_overlap": 0.14039999999999997,
+    "Lambda_ud_B_transport": 0.14580774897025428,
+    "abs_V_CKM": [
+      [
+        0.9999712911878589,
+        0.007577330096328723,
+        2.9473680306303022e-05
+      ],
+      [
+        0.007577318932071505,
+        0.9999704710842362,
+        0.001281092258113659
+      ],
+      [
+        3.221627276221438e-05,
+        0.0012810262227594864,
+        0.9999991789666279
+      ]
+    ],
+    "jarlskog": 2.83631216685383e-10,
+    "m_d": [
+      0.004689079672221174,
+      0.09160813868480612,
+      4.172490842613352
+    ],
+    "m_u": [
+      0.0021713923963664877,
+      1.2566921764926138,
+      173.2690628822735
+    ],
+    "rms_log_error_vs_reference_targets": 0.01042141570737968,
+    "tau_d_log_per_side": 0.04411865683386919,
+    "tau_u_log_per_side": 0.026081343166130807
+  },
+  "candidate_mass_branch_from_t1_over_5": {
+    "Delta_ud_overlap": 0.13391235422942327,
+    "Lambda_ud_B_transport": 0.13907022029558064,
+    "abs_V_CKM": [
+      [
+        0.9999711211934649,
+        0.007599730282401467,
+        2.9643208226183302e-05
+      ],
+      [
+        0.00759971902545621,
+        0.9999702929711931,
+        0.0012874182854748012
+      ],
+      [
+        3.240091299227056e-05,
+        0.0012873518331854138,
+        0.9999991708373758
+      ]
+    ],
+    "jarlskog": 2.8755912280868794e-10,
+    "m_d": [
+      0.004708229528844486,
+      0.09160827127333702,
+      4.155513989984608
+    ],
+    "m_u": [
+      0.002176632492997213,
+      1.2566921714397312,
+      172.85192993931355
+    ],
+    "rms_log_error_vs_reference_targets": 0.01078398352557181,
+    "tau_d_log_per_side": 0.04208000856170554,
+    "tau_u_log_per_side": 0.024876168553006103
+  },
+  "candidate_selector_value_source": "uploaded_lane5_d12_continuation_t1_over_5_candidate",
+  "ckm_cp_residual_generator": {
+    "abs": [
+      [
+        0.006089365643205592,
+        0.22551569384902148,
+        0.0034726338259466164
+      ],
+      [
+        0.22551569384902181,
+        0.7300472782906459,
+        0.04378977328572517
+      ],
+      [
+        0.0034726338259465543,
+        0.043789773285725316,
+        0.32647424902190986
+      ]
+    ],
+    "definition": "K_CKM = log(U_u_left(candidate) @ V_CKM_target @ U_d_left(candidate)^dagger)",
+    "imag": [
+      [
+        -0.006089365643205592,
+        0.125079076375491,
+        -0.00032968923789641023
+      ],
+      [
+        0.12507907637549118,
+        -0.7300472782906459,
+        0.03965924979263501
+      ],
+      [
+        -0.00032968923789638855,
+        0.0396592497926351,
+        -0.32647424902190986
+      ]
+    ],
+    "off_diagonal_abs": {
+      "12": 0.22551569384902148,
+      "13": 0.0034726338259466164,
+      "23": 0.04378977328572517
+    },
+    "off_diagonal_phase_radians": {
+      "12": 0.5879252061437589,
+      "13": -0.09508244970062685,
+      "23": 2.0086264074397
+    },
+    "real": [
+      [
+        0.0,
+        0.18765008080269954,
+        0.003456948176574812
+      ],
+      [
+        -0.18765008080269982,
+        9.540979117872439e-18,
+        -0.01856577901141209
+      ],
+      [
+        -0.003456948176574752,
+        0.01856577901141225,
+        -3.469446951953614e-18
+      ]
+    ]
+  },
+  "generated_utc": "2026-03-28T12:26:20Z",
+  "notes": [
+    "This artifact records the strongest current D12 continuation candidate for the light-quark split without overriding the recovered-core no-go.",
+    "The mass-side candidate materially improves the light sector, but CKM and CP remain badly under-produced on this one-scalar family.",
+    "The strongest smaller constructive object for CKM/CP is therefore a matrix-valued left-unitary transport generator rather than another scalar selector guess."
+  ],
+  "public_promotion_allowed": false,
+  "status": "diagnostic_only_d12_continuation",
+  "theorem_tier": "D12_continuation_only"
+}

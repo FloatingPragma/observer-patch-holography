@@ -1,0 +1,63 @@
+{
+  "artifact": "oph_charged_sector_local_support_extension_source_scalar_pair_readback",
+  "carrier_not_enlarged": true,
+  "centered_extension_formula": "E_e_log_centered_ext = (sigma_source_support_extension_total_log_per_side / 2) * linear_basis_vector_centered + kappa_ext * extension_basis_vector_centered",
+  "e_ext_formula": "g_active_candidate * exp(e_log_centered_ext)",
+  "e_log_centered_ext_formula": "-((3 + x2) * sigma_source_support_extension_total_log_per_side - eta_source_support_extension_log_per_side) / 6",
+  "endpoint_ratio_breaker_invariant_formula": "log(tau_ext / e_ext)",
+  "endpoint_ratio_formula": "tau_ext / e_ext = exp(sigma_source_support_extension_total_log_per_side)",
+  "eta_equivalence_formula": "eta_source_support_extension_log_per_side = J_mid_e_mu_tau_support_extension",
+  "eta_readback_invariant_name": "J_mid_e_mu_tau_support_extension",
+  "eta_source_support_extension_log_per_side": null,
+  "extension_basis_vector_centered": [
+    0.2440347951122107,
+    -0.4880695902244214,
+    0.2440347951122107
+  ],
+  "g_active_candidate": 0.9231656602589082,
+  "generated_utc": "2026-03-29T06:39:03Z",
+  "linear_basis_vector_centered": [
+    -0.8274712215106104,
+    -0.34505755697877927,
+    1.1725287784893896
+  ],
+  "midpoint_defect_log_per_side_formula": "weighted_midpoint_ext - r2_ext",
+  "mu_ext_formula": "g_active_candidate * exp(mu_log_centered_ext)",
+  "mu_log_centered_ext_formula": "(x2 * sigma_source_support_extension_total_log_per_side - eta_source_support_extension_log_per_side) / 3",
+  "mu_source_log_per_side": 0.6207999999999999,
+  "next_single_residual_object": "eta_source_support_extension_log_per_side",
+  "next_single_residual_object_after_eta": "sigma_source_support_extension_total_log_per_side",
+  "notes": [
+    "This is the smallest same-carrier readback primitive that keeps both charged support-extension source scalars together.",
+    "It closes the invariant formulas for the ordered eta-then-sigma pair without promoting any numerical source values.",
+    "The first residual is still eta_source_support_extension_log_per_side; once eta is emitted, sigma_source_support_extension_total_log_per_side remains as the unique endpoint-ratio breaker on the same carrier."
+  ],
+  "ordered_family_coordinate": [
+    -1.0,
+    -0.5175863354681689,
+    1.0
+  ],
+  "parent_artifacts": {
+    "endpoint_ratio_breaker": "oph_charged_sector_local_support_extension_endpoint_ratio_breaker",
+    "eta_source_readback": "oph_charged_sector_local_support_extension_eta_source_readback",
+    "support_extension_completion_law": "oph_charged_sector_local_support_extension_completion_law"
+  },
+  "proof_status": "source_scalar_pair_readback_formula_closed_values_open",
+  "scalar_order": [
+    "eta_source_support_extension_log_per_side",
+    "sigma_source_support_extension_total_log_per_side"
+  ],
+  "sigma_equivalence_formula": "sigma_source_support_extension_total_log_per_side = J_endpoint_e_tau_support_extension",
+  "sigma_readback_invariant_name": "J_endpoint_e_tau_support_extension",
+  "sigma_source_support_extension_total_log_per_side": null,
+  "smaller_than_full_completion_shell": true,
+  "source_side_ordered_package_log_per_side_ext_formula": {
+    "r1": "mu_source_log_per_side - ((3 + x2) * sigma_source_support_extension_total_log_per_side - eta_source_support_extension_log_per_side) / 6",
+    "r2": "mu_source_log_per_side + (x2 * sigma_source_support_extension_total_log_per_side - eta_source_support_extension_log_per_side) / 3",
+    "r3": "mu_source_log_per_side + ((3 - x2) * sigma_source_support_extension_total_log_per_side + eta_source_support_extension_log_per_side) / 6"
+  },
+  "status": "closed_smaller_primitive",
+  "tau_ext_formula": "g_active_candidate * exp(tau_log_centered_ext)",
+  "tau_log_centered_ext_formula": "((3 - x2) * sigma_source_support_extension_total_log_per_side + eta_source_support_extension_log_per_side) / 6",
+  "weighted_midpoint_formula": "((1 - x2) * r1_ext + (1 + x2) * r3_ext) / 2"
+}

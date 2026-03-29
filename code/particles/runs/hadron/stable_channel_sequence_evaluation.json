@@ -1,0 +1,804 @@
+{
+  "artifact": "oph_hadron_stable_channel_sequence_evaluator",
+  "ensemble_evaluations": [
+    {
+      "N_iso": {
+        "am_eff_t": [],
+        "am_eff_t_candidate_length": 290,
+        "am_eff_t_jk": [],
+        "am_eff_t_stderr": [],
+        "am_ground_candidate": null,
+        "am_ground_candidate_err": null,
+        "am_ground_stat_err": null,
+        "am_ground_sys_err": null,
+        "cfg_source_corr_direct_t": [],
+        "cfg_source_corr_exchange_t": [],
+        "cfg_source_corr_shape": [
+          2,
+          2,
+          291
+        ],
+        "cfg_source_corr_t": [],
+        "convergence_status": "awaiting_measure_evaluation",
+        "corr_direct_t": [],
+        "corr_direct_t_jk": [],
+        "corr_direct_t_stderr": [],
+        "corr_exchange_t": [],
+        "corr_exchange_t_jk": [],
+        "corr_exchange_t_stderr": [],
+        "corr_sign_t": [],
+        "corr_sign_t_jk": [],
+        "corr_t": [],
+        "corr_t_candidate_length": 291,
+        "corr_t_jk": [],
+        "corr_t_stderr": [],
+        "direct_minus_exchange_consistent_t": [],
+        "direct_minus_exchange_residual_t": [],
+        "direct_minus_exchange_residual_t_jk": [],
+        "direct_minus_exchange_residual_t_stderr": [],
+        "forward_certificate_t": [],
+        "forward_window_limit_exists": false,
+        "forward_window_runs": [],
+        "forward_window_t": [],
+        "log_convexity_certified_t": [],
+        "log_convexity_residual_t": [],
+        "log_convexity_residual_t_jk": [],
+        "log_convexity_residual_t_stderr": [],
+        "log_convexity_upper_t": [],
+        "mass_gev_candidate": null,
+        "mirror_suppressed_t": [],
+        "mirror_tail_indicator_t": [],
+        "mirror_tail_indicator_t_jk": [],
+        "mirror_tail_indicator_t_stderr": [],
+        "mirror_to_drift_t": [],
+        "mirror_to_noise_t": [],
+        "monotone_tail_t": [],
+        "plateau_flat_t": [],
+        "plateau_noise_floor_t": [],
+        "published_statistical_error": null,
+        "published_systematics": {
+          "delta_chi": null,
+          "delta_cont": null,
+          "delta_vol": null,
+          "sigma_sys": null,
+          "status": "pending"
+        },
+        "ratio_to_lambda_msbar3_candidate": null,
+        "raw_forward_window_candidate_cardinality": 143,
+        "selected_forward_window": [],
+        "selected_forward_window_cardinality": 0,
+        "sequence_status": "awaiting_measure_evaluation",
+        "sign_stable_t": [],
+        "tail_drop_lower_t": [],
+        "tail_drop_t": [],
+        "tail_drop_t_jk": [],
+        "tail_drop_t_stderr": []
+      },
+      "T": 291,
+      "aLambda_msbar3": 0.0550900879921322,
+      "cfg_ids": [
+        "qcd_2p1_seed_n0__cfg0",
+        "qcd_2p1_seed_n0__cfg1"
+      ],
+      "cfg_source_shape_contract": {
+        "n_cfg": 2,
+        "n_src_per_cfg": 2,
+        "t_extent": 291
+      },
+      "cfg_support_realization_status": "deterministic_sha256_seed_bridge_closed_cfg_arrays_unrealized",
+      "ensemble_id": "qcd_2p1_seed_n0",
+      "family_index": 0,
+      "jk_scheme": {
+        "cfg_axis": "delete-1-config",
+        "resampling": "jackknife",
+        "source_average_inside_cfg": true
+      },
+      "n_cfg": 2,
+      "n_eff_cfg": null,
+      "n_src_per_cfg": 2,
+      "pi_iso": {
+        "am_eff_t": [],
+        "am_eff_t_candidate_length": 290,
+        "am_eff_t_jk": [],
+        "am_eff_t_stderr": [],
+        "am_ground_candidate": null,
+        "am_ground_candidate_err": null,
+        "am_ground_stat_err": null,
+        "am_ground_sys_err": null,
+        "cfg_source_corr_shape": [
+          2,
+          2,
+          291
+        ],
+        "cfg_source_corr_t": [],
+        "convergence_status": "awaiting_measure_evaluation",
+        "corr_t": [],
+        "corr_t_candidate_length": 291,
+        "corr_t_jk": [],
+        "corr_t_stderr": [],
+        "forward_certificate_t": [],
+        "forward_window_limit_exists": false,
+        "forward_window_runs": [],
+        "forward_window_t": [],
+        "log_convexity_certified_t": [],
+        "log_convexity_residual_t": [],
+        "log_convexity_residual_t_jk": [],
+        "log_convexity_residual_t_stderr": [],
+        "log_convexity_upper_t": [],
+        "mass_gev_candidate": null,
+        "mirror_suppressed_t": [],
+        "mirror_tail_indicator_t": [],
+        "mirror_tail_indicator_t_jk": [],
+        "mirror_tail_indicator_t_stderr": [],
+        "mirror_to_drift_t": [],
+        "mirror_to_noise_t": [],
+        "monotone_tail_t": [],
+        "plateau_flat_t": [],
+        "plateau_noise_floor_t": [],
+        "published_statistical_error": null,
+        "published_systematics": {
+          "delta_chi": null,
+          "delta_cont": null,
+          "delta_vol": null,
+          "sigma_sys": null,
+          "status": "pending"
+        },
+        "ratio_to_lambda_msbar3_candidate": null,
+        "raw_forward_window_candidate_cardinality": 143,
+        "selected_forward_window": [],
+        "selected_forward_window_cardinality": 0,
+        "sequence_status": "awaiting_measure_evaluation",
+        "tail_drop_lower_t": [],
+        "tail_drop_t": [],
+        "tail_drop_t_jk": [],
+        "tail_drop_t_stderr": []
+      },
+      "raw_measure_payload_ref": "oph_hadron_stable_channel_cfg_source_measure_payload::qcd_2p1_seed_n0",
+      "source_descriptors_by_cfg": {
+        "qcd_2p1_seed_n0__cfg0": [
+          {
+            "coords": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "kind": "point",
+            "src_id": "s0"
+          },
+          {
+            "coords": [
+              73,
+              73,
+              73,
+              145
+            ],
+            "kind": "point",
+            "src_id": "s1"
+          }
+        ],
+        "qcd_2p1_seed_n0__cfg1": [
+          {
+            "coords": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "kind": "point",
+            "src_id": "s0"
+          },
+          {
+            "coords": [
+              73,
+              73,
+              73,
+              145
+            ],
+            "kind": "point",
+            "src_id": "s1"
+          }
+        ]
+      },
+      "tau_int_cfg": null
+    },
+    {
+      "N_iso": {
+        "am_eff_t": [],
+        "am_eff_t_candidate_length": 580,
+        "am_eff_t_jk": [],
+        "am_eff_t_stderr": [],
+        "am_ground_candidate": null,
+        "am_ground_candidate_err": null,
+        "am_ground_stat_err": null,
+        "am_ground_sys_err": null,
+        "cfg_source_corr_direct_t": [],
+        "cfg_source_corr_exchange_t": [],
+        "cfg_source_corr_shape": [
+          2,
+          2,
+          581
+        ],
+        "cfg_source_corr_t": [],
+        "convergence_status": "awaiting_measure_evaluation",
+        "corr_direct_t": [],
+        "corr_direct_t_jk": [],
+        "corr_direct_t_stderr": [],
+        "corr_exchange_t": [],
+        "corr_exchange_t_jk": [],
+        "corr_exchange_t_stderr": [],
+        "corr_sign_t": [],
+        "corr_sign_t_jk": [],
+        "corr_t": [],
+        "corr_t_candidate_length": 581,
+        "corr_t_jk": [],
+        "corr_t_stderr": [],
+        "direct_minus_exchange_consistent_t": [],
+        "direct_minus_exchange_residual_t": [],
+        "direct_minus_exchange_residual_t_jk": [],
+        "direct_minus_exchange_residual_t_stderr": [],
+        "forward_certificate_t": [],
+        "forward_window_limit_exists": false,
+        "forward_window_runs": [],
+        "forward_window_t": [],
+        "log_convexity_certified_t": [],
+        "log_convexity_residual_t": [],
+        "log_convexity_residual_t_jk": [],
+        "log_convexity_residual_t_stderr": [],
+        "log_convexity_upper_t": [],
+        "mass_gev_candidate": null,
+        "mirror_suppressed_t": [],
+        "mirror_tail_indicator_t": [],
+        "mirror_tail_indicator_t_jk": [],
+        "mirror_tail_indicator_t_stderr": [],
+        "mirror_to_drift_t": [],
+        "mirror_to_noise_t": [],
+        "monotone_tail_t": [],
+        "plateau_flat_t": [],
+        "plateau_noise_floor_t": [],
+        "published_statistical_error": null,
+        "published_systematics": {
+          "delta_chi": null,
+          "delta_cont": null,
+          "delta_vol": null,
+          "sigma_sys": null,
+          "status": "pending"
+        },
+        "ratio_to_lambda_msbar3_candidate": null,
+        "raw_forward_window_candidate_cardinality": 288,
+        "selected_forward_window": [],
+        "selected_forward_window_cardinality": 0,
+        "sequence_status": "awaiting_measure_evaluation",
+        "sign_stable_t": [],
+        "tail_drop_lower_t": [],
+        "tail_drop_t": [],
+        "tail_drop_t_jk": [],
+        "tail_drop_t_stderr": []
+      },
+      "T": 581,
+      "aLambda_msbar3": 0.0275450439960661,
+      "cfg_ids": [
+        "qcd_2p1_seed_n1__cfg0",
+        "qcd_2p1_seed_n1__cfg1"
+      ],
+      "cfg_source_shape_contract": {
+        "n_cfg": 2,
+        "n_src_per_cfg": 2,
+        "t_extent": 581
+      },
+      "cfg_support_realization_status": "deterministic_sha256_seed_bridge_closed_cfg_arrays_unrealized",
+      "ensemble_id": "qcd_2p1_seed_n1",
+      "family_index": 1,
+      "jk_scheme": {
+        "cfg_axis": "delete-1-config",
+        "resampling": "jackknife",
+        "source_average_inside_cfg": true
+      },
+      "n_cfg": 2,
+      "n_eff_cfg": null,
+      "n_src_per_cfg": 2,
+      "pi_iso": {
+        "am_eff_t": [],
+        "am_eff_t_candidate_length": 580,
+        "am_eff_t_jk": [],
+        "am_eff_t_stderr": [],
+        "am_ground_candidate": null,
+        "am_ground_candidate_err": null,
+        "am_ground_stat_err": null,
+        "am_ground_sys_err": null,
+        "cfg_source_corr_shape": [
+          2,
+          2,
+          581
+        ],
+        "cfg_source_corr_t": [],
+        "convergence_status": "awaiting_measure_evaluation",
+        "corr_t": [],
+        "corr_t_candidate_length": 581,
+        "corr_t_jk": [],
+        "corr_t_stderr": [],
+        "forward_certificate_t": [],
+        "forward_window_limit_exists": false,
+        "forward_window_runs": [],
+        "forward_window_t": [],
+        "log_convexity_certified_t": [],
+        "log_convexity_residual_t": [],
+        "log_convexity_residual_t_jk": [],
+        "log_convexity_residual_t_stderr": [],
+        "log_convexity_upper_t": [],
+        "mass_gev_candidate": null,
+        "mirror_suppressed_t": [],
+        "mirror_tail_indicator_t": [],
+        "mirror_tail_indicator_t_jk": [],
+        "mirror_tail_indicator_t_stderr": [],
+        "mirror_to_drift_t": [],
+        "mirror_to_noise_t": [],
+        "monotone_tail_t": [],
+        "plateau_flat_t": [],
+        "plateau_noise_floor_t": [],
+        "published_statistical_error": null,
+        "published_systematics": {
+          "delta_chi": null,
+          "delta_cont": null,
+          "delta_vol": null,
+          "sigma_sys": null,
+          "status": "pending"
+        },
+        "ratio_to_lambda_msbar3_candidate": null,
+        "raw_forward_window_candidate_cardinality": 288,
+        "selected_forward_window": [],
+        "selected_forward_window_cardinality": 0,
+        "sequence_status": "awaiting_measure_evaluation",
+        "tail_drop_lower_t": [],
+        "tail_drop_t": [],
+        "tail_drop_t_jk": [],
+        "tail_drop_t_stderr": []
+      },
+      "raw_measure_payload_ref": "oph_hadron_stable_channel_cfg_source_measure_payload::qcd_2p1_seed_n1",
+      "source_descriptors_by_cfg": {
+        "qcd_2p1_seed_n1__cfg0": [
+          {
+            "coords": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "kind": "point",
+            "src_id": "s0"
+          },
+          {
+            "coords": [
+              145,
+              145,
+              145,
+              290
+            ],
+            "kind": "point",
+            "src_id": "s1"
+          }
+        ],
+        "qcd_2p1_seed_n1__cfg1": [
+          {
+            "coords": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "kind": "point",
+            "src_id": "s0"
+          },
+          {
+            "coords": [
+              145,
+              145,
+              145,
+              290
+            ],
+            "kind": "point",
+            "src_id": "s1"
+          }
+        ]
+      },
+      "tau_int_cfg": null
+    },
+    {
+      "N_iso": {
+        "am_eff_t": [],
+        "am_eff_t_candidate_length": 1161,
+        "am_eff_t_jk": [],
+        "am_eff_t_stderr": [],
+        "am_ground_candidate": null,
+        "am_ground_candidate_err": null,
+        "am_ground_stat_err": null,
+        "am_ground_sys_err": null,
+        "cfg_source_corr_direct_t": [],
+        "cfg_source_corr_exchange_t": [],
+        "cfg_source_corr_shape": [
+          2,
+          2,
+          1162
+        ],
+        "cfg_source_corr_t": [],
+        "convergence_status": "awaiting_measure_evaluation",
+        "corr_direct_t": [],
+        "corr_direct_t_jk": [],
+        "corr_direct_t_stderr": [],
+        "corr_exchange_t": [],
+        "corr_exchange_t_jk": [],
+        "corr_exchange_t_stderr": [],
+        "corr_sign_t": [],
+        "corr_sign_t_jk": [],
+        "corr_t": [],
+        "corr_t_candidate_length": 1162,
+        "corr_t_jk": [],
+        "corr_t_stderr": [],
+        "direct_minus_exchange_consistent_t": [],
+        "direct_minus_exchange_residual_t": [],
+        "direct_minus_exchange_residual_t_jk": [],
+        "direct_minus_exchange_residual_t_stderr": [],
+        "forward_certificate_t": [],
+        "forward_window_limit_exists": false,
+        "forward_window_runs": [],
+        "forward_window_t": [],
+        "log_convexity_certified_t": [],
+        "log_convexity_residual_t": [],
+        "log_convexity_residual_t_jk": [],
+        "log_convexity_residual_t_stderr": [],
+        "log_convexity_upper_t": [],
+        "mass_gev_candidate": null,
+        "mirror_suppressed_t": [],
+        "mirror_tail_indicator_t": [],
+        "mirror_tail_indicator_t_jk": [],
+        "mirror_tail_indicator_t_stderr": [],
+        "mirror_to_drift_t": [],
+        "mirror_to_noise_t": [],
+        "monotone_tail_t": [],
+        "plateau_flat_t": [],
+        "plateau_noise_floor_t": [],
+        "published_statistical_error": null,
+        "published_systematics": {
+          "delta_chi": null,
+          "delta_cont": null,
+          "delta_vol": null,
+          "sigma_sys": null,
+          "status": "pending"
+        },
+        "ratio_to_lambda_msbar3_candidate": null,
+        "raw_forward_window_candidate_cardinality": 579,
+        "selected_forward_window": [],
+        "selected_forward_window_cardinality": 0,
+        "sequence_status": "awaiting_measure_evaluation",
+        "sign_stable_t": [],
+        "tail_drop_lower_t": [],
+        "tail_drop_t": [],
+        "tail_drop_t_jk": [],
+        "tail_drop_t_stderr": []
+      },
+      "T": 1162,
+      "aLambda_msbar3": 0.01377252199803305,
+      "cfg_ids": [
+        "qcd_2p1_seed_n2__cfg0",
+        "qcd_2p1_seed_n2__cfg1"
+      ],
+      "cfg_source_shape_contract": {
+        "n_cfg": 2,
+        "n_src_per_cfg": 2,
+        "t_extent": 1162
+      },
+      "cfg_support_realization_status": "deterministic_sha256_seed_bridge_closed_cfg_arrays_unrealized",
+      "ensemble_id": "qcd_2p1_seed_n2",
+      "family_index": 2,
+      "jk_scheme": {
+        "cfg_axis": "delete-1-config",
+        "resampling": "jackknife",
+        "source_average_inside_cfg": true
+      },
+      "n_cfg": 2,
+      "n_eff_cfg": null,
+      "n_src_per_cfg": 2,
+      "pi_iso": {
+        "am_eff_t": [],
+        "am_eff_t_candidate_length": 1161,
+        "am_eff_t_jk": [],
+        "am_eff_t_stderr": [],
+        "am_ground_candidate": null,
+        "am_ground_candidate_err": null,
+        "am_ground_stat_err": null,
+        "am_ground_sys_err": null,
+        "cfg_source_corr_shape": [
+          2,
+          2,
+          1162
+        ],
+        "cfg_source_corr_t": [],
+        "convergence_status": "awaiting_measure_evaluation",
+        "corr_t": [],
+        "corr_t_candidate_length": 1162,
+        "corr_t_jk": [],
+        "corr_t_stderr": [],
+        "forward_certificate_t": [],
+        "forward_window_limit_exists": false,
+        "forward_window_runs": [],
+        "forward_window_t": [],
+        "log_convexity_certified_t": [],
+        "log_convexity_residual_t": [],
+        "log_convexity_residual_t_jk": [],
+        "log_convexity_residual_t_stderr": [],
+        "log_convexity_upper_t": [],
+        "mass_gev_candidate": null,
+        "mirror_suppressed_t": [],
+        "mirror_tail_indicator_t": [],
+        "mirror_tail_indicator_t_jk": [],
+        "mirror_tail_indicator_t_stderr": [],
+        "mirror_to_drift_t": [],
+        "mirror_to_noise_t": [],
+        "monotone_tail_t": [],
+        "plateau_flat_t": [],
+        "plateau_noise_floor_t": [],
+        "published_statistical_error": null,
+        "published_systematics": {
+          "delta_chi": null,
+          "delta_cont": null,
+          "delta_vol": null,
+          "sigma_sys": null,
+          "status": "pending"
+        },
+        "ratio_to_lambda_msbar3_candidate": null,
+        "raw_forward_window_candidate_cardinality": 579,
+        "selected_forward_window": [],
+        "selected_forward_window_cardinality": 0,
+        "sequence_status": "awaiting_measure_evaluation",
+        "tail_drop_lower_t": [],
+        "tail_drop_t": [],
+        "tail_drop_t_jk": [],
+        "tail_drop_t_stderr": []
+      },
+      "raw_measure_payload_ref": "oph_hadron_stable_channel_cfg_source_measure_payload::qcd_2p1_seed_n2",
+      "source_descriptors_by_cfg": {
+        "qcd_2p1_seed_n2__cfg0": [
+          {
+            "coords": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "kind": "point",
+            "src_id": "s0"
+          },
+          {
+            "coords": [
+              290,
+              290,
+              290,
+              581
+            ],
+            "kind": "point",
+            "src_id": "s1"
+          }
+        ],
+        "qcd_2p1_seed_n2__cfg1": [
+          {
+            "coords": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "kind": "point",
+            "src_id": "s0"
+          },
+          {
+            "coords": [
+              290,
+              290,
+              290,
+              581
+            ],
+            "kind": "point",
+            "src_id": "s1"
+          }
+        ]
+      },
+      "tau_int_cfg": null
+    }
+  ],
+  "forward_window_certificate_family": "oph_hadron_forward_window_certificate_family",
+  "generated_utc": "2026-03-29T06:08:46Z",
+  "measure_evaluation_law_id": "oph_qcd_2p1_stable_channel_cfg_source_jackknife_evaluation",
+  "n_formulae": {
+    "am_eff": "log(|corr_t[t]| / |corr_t[t+1]|)",
+    "cfg_average_inside_cfg": "(1/|C_n|) * sum_cfg ((1/|S_{n,cfg}|) * sum_src (c_dir^{cfg,src}(t) - c_ex^{cfg,src}(t)))",
+    "corr_estimator": "(1/(n_cfg*n_src_per_cfg)) * sum_{cfg,src} (c_dir^{cfg,src}(t) - c_ex^{cfg,src}(t))",
+    "forward_window": "{t : 1 <= t+1 < floor(T/2)}",
+    "log_convexity_residual": "|corr_t[t]|^2 - |corr_t[t-1]|*|corr_t[t+1]|",
+    "mirror_tail_indicator": "exp(-am_eff_t[t] * (T - 2*t))",
+    "tail_drop": "am_eff_t[t] - am_eff_t[t+1]"
+  },
+  "next_single_residual_object_after_cfg_execution": "oph_hadron_stable_channel_sequence_evaluator",
+  "notes": [
+    "The stable-channel evaluation law is fixed at cfg/source jackknife level; this artifact tracks the per-ensemble arrays needed before forward-window convergence can certify masses.",
+    "Once the external runtime schedule receipt is supplied and the executed schedule writes the cfg/source arrays, this evaluator is the next single residual object before forward-window convergence can certify masses.",
+    "Masses remain unset until the realized cfg/source arrays, evaluation arrays, and convergence certificates are populated."
+  ],
+  "pi_formulae": {
+    "am_eff": "log(corr_t[t] / corr_t[t+1])",
+    "cfg_average_inside_cfg": "(1/|C_n|) * sum_cfg ((1/|S_{n,cfg}|) * sum_src c_pi^{cfg,src}(t))",
+    "corr_estimator": "(1/(n_cfg*n_src_per_cfg)) * sum_{cfg,src} c_pi^{cfg,src}(t)",
+    "forward_window": "{t : 1 <= t+1 < floor(T/2)}",
+    "log_convexity_residual": "corr_t[t]^2 - corr_t[t-1]*corr_t[t+1]",
+    "mirror_tail_indicator": "exp(-am_eff_t[t] * (T - 2*t))",
+    "tail_drop": "am_eff_t[t] - am_eff_t[t+1]"
+  },
+  "predictive_promotion_allowed": false,
+  "proof_status": "awaiting_measure_evaluation",
+  "runtime_receipt_artifact": "runtime_schedule_receipt_N_therm_and_N_sep",
+  "smallest_constructive_missing_object": "backend_correlator_dump.production.json from real production RHMC/HMC execution on the theorem-emitted seeded family",
+  "source_artifact": "oph_hadron_stable_channel_cfg_source_measure_payload",
+  "status": "awaiting_measure_evaluation",
+  "support_realization_schedule": {
+    "artifact": "oph_hadron_fixed_schedule_rhmc_hmc_execution",
+    "cfg_realization_formula": "U_{n,c} = K_n^(N_therm + cfg_index*N_sep)(U_cold; seed_{n,c})",
+    "conditional_execution_receipt": {
+      "cfg_source_array_write_shapes": {
+        "N_iso.cfg_source_corr_direct_t": "shape [n_cfg, n_src_per_cfg, t_extent]",
+        "N_iso.cfg_source_corr_exchange_t": "shape [n_cfg, n_src_per_cfg, t_extent]",
+        "N_iso.cfg_source_corr_t": "shape [n_cfg, n_src_per_cfg, t_extent]",
+        "pi_iso.cfg_source_corr_t": "shape [n_cfg, n_src_per_cfg, t_extent]"
+      },
+      "next_single_residual_object_after_execution": "oph_hadron_stable_channel_sequence_evaluator",
+      "stop_time_formula": "t_stop(n,cfg_index) = N_therm + cfg_index*N_sep"
+    },
+    "emission_formulas": {
+      "N_iso.cfg_source_corr_direct_t": "p_N,dir^(n,c,s)(t) = sum_x G_d",
+      "N_iso.cfg_source_corr_exchange_t": "p_N,ex^(n,c,s)(t) = sum_x G_x",
+      "N_iso.cfg_source_corr_t": "p_N^(n,c,s)(t) = p_N,dir^(n,c,s)(t) - p_N,ex^(n,c,s)(t)",
+      "pi_iso.cfg_source_corr_t": "p_pi^(n,c,s)(t) = sum_x Re tr_c,spin[gamma5 S_l(x;s) gamma5 S_l(s;x)]"
+    },
+    "ensemble_schedule": [
+      {
+        "L": 146,
+        "N_iso_cfg_source_corr_shape": [
+          2,
+          2,
+          291
+        ],
+        "T": 291,
+        "aLambda_msbar3": 0.0550900879921322,
+        "am_l": 0.0006102960868244135,
+        "am_s": 0.015092225267604455,
+        "beta": 7.321687687371745,
+        "cfg_ids": [
+          "qcd_2p1_seed_n0__cfg0",
+          "qcd_2p1_seed_n0__cfg1"
+        ],
+        "ensemble_id": "qcd_2p1_seed_n0",
+        "family_index": 0,
+        "n_cfg": 2,
+        "n_src_per_cfg": 2,
+        "pi_iso_cfg_source_corr_shape": [
+          2,
+          2,
+          291
+        ],
+        "trajectory_stop_by_cfg": {
+          "qcd_2p1_seed_n0__cfg0": 2048,
+          "qcd_2p1_seed_n0__cfg1": 2560
+        },
+        "trajectory_stop_by_cfg_formula": {
+          "qcd_2p1_seed_n0__cfg0": "N_therm + 0*N_sep",
+          "qcd_2p1_seed_n0__cfg1": "N_therm + 1*N_sep"
+        },
+        "trajectory_stop_formula": "N_therm + cfg_index*N_sep"
+      },
+      {
+        "L": 291,
+        "N_iso_cfg_source_corr_shape": [
+          2,
+          2,
+          581
+        ],
+        "T": 581,
+        "aLambda_msbar3": 0.0275450439960661,
+        "am_l": 0.00030514804341220676,
+        "am_s": 0.0075461126338022275,
+        "beta": 7.6377249048488185,
+        "cfg_ids": [
+          "qcd_2p1_seed_n1__cfg0",
+          "qcd_2p1_seed_n1__cfg1"
+        ],
+        "ensemble_id": "qcd_2p1_seed_n1",
+        "family_index": 1,
+        "n_cfg": 2,
+        "n_src_per_cfg": 2,
+        "pi_iso_cfg_source_corr_shape": [
+          2,
+          2,
+          581
+        ],
+        "trajectory_stop_by_cfg": {
+          "qcd_2p1_seed_n1__cfg0": 2048,
+          "qcd_2p1_seed_n1__cfg1": 2560
+        },
+        "trajectory_stop_by_cfg_formula": {
+          "qcd_2p1_seed_n1__cfg0": "N_therm + 0*N_sep",
+          "qcd_2p1_seed_n1__cfg1": "N_therm + 1*N_sep"
+        },
+        "trajectory_stop_formula": "N_therm + cfg_index*N_sep"
+      },
+      {
+        "L": 581,
+        "N_iso_cfg_source_corr_shape": [
+          2,
+          2,
+          1162
+        ],
+        "T": 1162,
+        "aLambda_msbar3": 0.01377252199803305,
+        "am_l": 0.00015257402170610338,
+        "am_s": 0.0037730563169011137,
+        "beta": 7.953762122325891,
+        "cfg_ids": [
+          "qcd_2p1_seed_n2__cfg0",
+          "qcd_2p1_seed_n2__cfg1"
+        ],
+        "ensemble_id": "qcd_2p1_seed_n2",
+        "family_index": 2,
+        "n_cfg": 2,
+        "n_src_per_cfg": 2,
+        "pi_iso_cfg_source_corr_shape": [
+          2,
+          2,
+          1162
+        ],
+        "trajectory_stop_by_cfg": {
+          "qcd_2p1_seed_n2__cfg0": 2048,
+          "qcd_2p1_seed_n2__cfg1": 2560
+        },
+        "trajectory_stop_by_cfg_formula": {
+          "qcd_2p1_seed_n2__cfg0": "N_therm + 0*N_sep",
+          "qcd_2p1_seed_n2__cfg1": "N_therm + 1*N_sep"
+        },
+        "trajectory_stop_formula": "N_therm + cfg_index*N_sep"
+      }
+    ],
+    "initial_configuration": "U_cold = 1",
+    "kernel_id": "fixed_schedule_rhmc_hmc",
+    "measure_invariant": "dmu_n(U)",
+    "realized_support_primitive": "executed_fixed_schedule_rhmc_hmc_on_seeded_2p1_family",
+    "required_schedule_scalars": {
+      "N_sep": 512,
+      "N_therm": 2048
+    },
+    "runtime_obstruction_reason": "the deterministic seed law and writeback map are fixed, but N_therm and N_sep are irreducibly external on the present emitted surface",
+    "runtime_obstruction_status": "external_runtime_receipt_filled_backend_arrays_pending",
+    "runtime_receipt_artifact": "runtime_schedule_receipt_N_therm_and_N_sep",
+    "seed_bytes_formula": "seed_{n,c} = bytes.fromhex(cfg_seed_hash_{n,c})",
+    "seed_lookup_path": "ensemble_payloads[*].cfg_realization_contract.cfg_seed_hashes[cfg_id]",
+    "source_artifact": "oph_hadron_stable_channel_cfg_source_measure_payload",
+    "source_lookup_path": "ensemble_payloads[*].source_descriptors_by_cfg[cfg_id]",
+    "source_set_formula": "[[0,0,0,0], [L//2, L//2, L//2, T//2]]",
+    "status": "receipt_filled_waiting_backend_execution",
+    "strict_externality_theorem": "no_predictive_selector_for_schedule_scalars_on_current_surface",
+    "strongest_strictly_smaller_constructive_primitive": "runtime_schedule_receipt_N_therm_and_N_sep",
+    "writeback_targets": {
+      "evaluation_artifact": "particles/runs/hadron/stable_channel_sequence_evaluation.json",
+      "evaluation_fields": [
+        "ensemble_evaluations[*].pi_iso.cfg_source_corr_t",
+        "ensemble_evaluations[*].N_iso.cfg_source_corr_direct_t",
+        "ensemble_evaluations[*].N_iso.cfg_source_corr_exchange_t",
+        "ensemble_evaluations[*].N_iso.cfg_source_corr_t"
+      ],
+      "payload_artifact": "particles/runs/hadron/stable_channel_cfg_source_measure_payload.json",
+      "payload_fields": [
+        "ensemble_payloads[*].pi_iso.cfg_source_corr_t",
+        "ensemble_payloads[*].N_iso.cfg_source_corr_direct_t",
+        "ensemble_payloads[*].N_iso.cfg_source_corr_exchange_t",
+        "ensemble_payloads[*].N_iso.cfg_source_corr_t"
+      ]
+    }
+  },
+  "theorem_candidate": "StableChannelForwardWindowConvergence"
+}

@@ -1,0 +1,744 @@
+{
+  "certification_status": "selector_law_closed_standard_math",
+  "envelope": {
+    "collective_projector_phase_stable": true,
+    "delta_m21_sq_bounds_gev2": {
+      "max": 9.62541040878508e-25,
+      "min": 0.0
+    },
+    "delta_m31_sq_bounds_gev2": {
+      "max": 1.0595172246077544e-24,
+      "min": 1.557124826569896e-25
+    },
+    "delta_sigma_radius_gev": 3.73091307184548e-13,
+    "gap_vs_radius_certificate": {
+      "delta_h_radius_gev2": 4.143730700225407e-24,
+      "delta_sigma_radius_gev": 3.73091307184548e-13,
+      "ordering_gap_test_passes": false,
+      "projector_gap_seed_gev2": 1.1102230246251565e-16,
+      "projector_gap_test_passes": true,
+      "real_seed_gaps_gev": [
+        4.0389678347315804e-28,
+        1.91429206011187e-13
+      ]
+    },
+    "inputs": {
+      "family_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/family_response_tensor.json",
+      "lift_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_holonomy_lift.json",
+      "majorana_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/forward_majorana_matrix.json",
+      "scale_anchor_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/neutrino_scale_anchor.json"
+    },
+    "mass_bounds_gev": [
+      {
+        "index": 1,
+        "max": 2.448310491895263e-12,
+        "min": 2.3269048295601224e-12
+      },
+      {
+        "index": 2,
+        "max": 2.525277633589767e-12,
+        "min": 2.39864484476272e-12
+      },
+      {
+        "index": 3,
+        "max": 2.5900740507739074e-12,
+        "min": 2.479906600535877e-12
+      }
+    ],
+    "notes": [
+      "This is the compulsory honesty-check surface for phase dependence in the neutrino lane.",
+      "Ordering or splitting outputs are not phase-certified unless the gap-vs-radius certificate passes."
+    ],
+    "ordering_phase_stable": false,
+    "ordering_samples": [
+      "inverted_like_collective_dominance",
+      "normal_like_collective_dominance",
+      "undetermined"
+    ],
+    "phase_mode": "residual_envelope",
+    "sample_count": 1089,
+    "sample_grid_per_axis": 33,
+    "selector_reference": {
+      "energy_majorana": 0.0004780375609296871,
+      "psi12": 0.5853814255968639,
+      "psi23": 0.5853814255968639,
+      "psi31": 0.5853814255968639,
+      "selector": "least_distortion",
+      "status": "candidate_only"
+    },
+    "status": "residual_phase_envelope"
+  },
+  "envelope_used": null,
+  "family": {
+    "C_nu_hat_real": [
+      [
+        0.9417329721810422,
+        0.02913351390947865,
+        0.02913351390947865
+      ],
+      [
+        0.02913351390947865,
+        0.9417329721810422,
+        0.02913351390947865
+      ],
+      [
+        0.02913351390947865,
+        0.02913351390947865,
+        0.9417329721810422
+      ]
+    ],
+    "Delta_nu": [
+      [
+        0.6083996388477089,
+        -0.30419981942385466,
+        -0.30419981942385466
+      ],
+      [
+        -0.30419981942385466,
+        0.6083996388477089,
+        -0.30419981942385466
+      ],
+      [
+        -0.30419981942385466,
+        -0.30419981942385466,
+        0.6083996388477089
+      ]
+    ],
+    "E_nu": [
+      [
+        1.0,
+        0.030936066560360288,
+        0.030936066560360288
+      ],
+      [
+        0.030936066560360288,
+        1.0,
+        0.030936066560360288
+      ],
+      [
+        0.030936066560360288,
+        0.030936066560360288,
+        1.0
+      ]
+    ],
+    "K_core_directed": [
+      [
+        1.0,
+        0.05311785044622235,
+        0.004481291694225777
+      ],
+      [
+        0.05311785044622235,
+        1.0,
+        0.035209057540632735
+      ],
+      [
+        0.004481291694225777,
+        0.035209057540632735,
+        1.0
+      ]
+    ],
+    "K_core_majorana_sym": [
+      [
+        1.0,
+        0.030936066560360288,
+        0.030936066560360288
+      ],
+      [
+        0.030936066560360288,
+        1.0,
+        0.030936066560360288
+      ],
+      [
+        0.030936066560360288,
+        0.030936066560360288,
+        1.0
+      ]
+    ],
+    "S_nu": [
+      [
+        -0.0,
+        3.475832573129149,
+        3.475832573129149
+      ],
+      [
+        3.475832573129149,
+        -0.0,
+        3.475832573129149
+      ],
+      [
+        3.475832573129149,
+        3.475832573129149,
+        -0.0
+      ]
+    ],
+    "artifact": "oph_neutrino_family_response",
+    "collective_mode_overlap": 1.061872133120721,
+    "edge_amplitude_isotropy_certificate": {
+      "closed": true,
+      "spread": 0.0,
+      "tolerance": 1e-30
+    },
+    "edge_amplitudes": {
+      "a12": 0.030936066560360288,
+      "a23": 0.030936066560360288,
+      "a31": 0.030936066560360288
+    },
+    "family_symmetry_certificate": {
+      "reason": "equal_edge_amplitudes",
+      "s3_equivariant_data": true
+    },
+    "gap_certificate": {
+      "min_gap": 3.3306690738754696e-16,
+      "stable": false
+    },
+    "generated_utc": "2026-03-27T13:18:50Z",
+    "labels": [
+      "f1",
+      "f2",
+      "f3"
+    ],
+    "majorana_normalization_diag": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "notes": [
+      "This artifact builds the real symmetric Majorana response from the sector-response object.",
+      "The complex Majorana phase lift stays separate until the congruence-gauge theorem closes.",
+      "Unique-edge amplitudes and the weighted edge norm are exported for the residual-envelope theorem burden."
+    ],
+    "phase_status": "unresolved",
+    "projector_gap_seed": 1.1102230246251565e-16,
+    "rank_lower_bound": 3,
+    "source_artifacts": {
+      "scale_anchor": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/neutrino_scale_anchor.json",
+      "sector_response": "/Users/muellerberndt/Projects/oph-meta/particles/runs/flavor/sector_transport_pushforward.json"
+    },
+    "status": "real_majorana_response",
+    "u_normalization": 1.061872133120721,
+    "u_projector": [
+      [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ]
+    ],
+    "u_vector": [
+      0.5773502691896258,
+      0.5773502691896258,
+      0.5773502691896258
+    ],
+    "weighted_edge_norm_sq": 0.0028711206426811258
+  },
+  "lift": {
+    "affine_constraint_matrix": [
+      [
+        1.0,
+        1.0,
+        1.0
+      ]
+    ],
+    "affine_constraint_rhs": [
+      1.7561442767905915
+    ],
+    "artifact": "oph_majorana_holonomy_lift",
+    "balanced_lift_candidate": {
+      "psi12": 0.5853814255968638,
+      "psi23": 0.5853814255968638,
+      "psi31": 0.5853814255968638,
+      "selector": "balanced_cycle_split_candidate_only"
+    },
+    "canonical_lift_closed": true,
+    "canonical_selector_point": {
+      "psi12": 0.5853814255968638,
+      "psi23": 0.5853814255968638,
+      "psi31": 0.5853814255968638,
+      "selector": "principal_equal_split",
+      "status": "closed_equal_split"
+    },
+    "canonical_selector_status": "closed_equal_split",
+    "cycle_constraint": {
+      "equation": "psi12+psi23+psi31=Omega_012",
+      "omega_012": 1.7561442767905915
+    },
+    "edge_weight_isotropy_certificate": {
+      "closed": true,
+      "spread": 0.0,
+      "tolerance": 1e-30
+    },
+    "edge_weights_majorana": {
+      "psi12": 0.000957040214227042,
+      "psi23": 0.000957040214227042,
+      "psi31": 0.000957040214227042
+    },
+    "generated_utc": "2026-03-27T13:18:50Z",
+    "labels": [
+      "f1",
+      "f2",
+      "f3"
+    ],
+    "majorana_phase_obstruction_class": {
+      "closed": false,
+      "kind": "congruence_gauge_affine_plane",
+      "residual_dimension": 2
+    },
+    "notes": [
+      "The neutrino Majorana phase lift is kept separate from the real symmetric amplitude branch.",
+      "Balanced, harmonic, and least-distortion selectors are exported as selector-law candidates.",
+      "On the current isotropic branch, the selector point closes as the principal equal split by S3 symmetry and the affine cycle constraint.",
+      "The least-distortion selector law is not yet promoted beyond candidate status on this branch."
+    ],
+    "phase_space": [
+      "psi12",
+      "psi23",
+      "psi31"
+    ],
+    "phase_status": "residual_affine_plane",
+    "principal_branch_certificate": {
+      "branch": "principal",
+      "closed": true,
+      "range": "(-pi, pi]"
+    },
+    "residual_basis": [
+      {
+        "psi12": 1.0,
+        "psi23": -1.0,
+        "psi31": 0.0
+      },
+      {
+        "psi12": 1.0,
+        "psi23": 0.0,
+        "psi31": -1.0
+      }
+    ],
+    "selector_candidate_psi": {
+      "energy_majorana": 0.0004780375609296871,
+      "psi12": 0.5853814255968639,
+      "psi23": 0.5853814255968639,
+      "psi31": 0.5853814255968639,
+      "selector": "least_distortion",
+      "status": "candidate_only"
+    },
+    "selector_candidates": {
+      "balanced": {
+        "energy_majorana": 0.0004780375609296871,
+        "psi12": 0.5853814255968638,
+        "psi23": 0.5853814255968638,
+        "psi31": 0.5853814255968638,
+        "selector": "balanced"
+      },
+      "harmonic": {
+        "energy_majorana": 0.0004780375609296871,
+        "psi12": 0.5853814255968638,
+        "psi23": 0.5853814255968638,
+        "psi31": 0.5853814255968638,
+        "selector": "harmonic"
+      },
+      "least_distortion": {
+        "energy_majorana": 0.0004780375609296871,
+        "psi12": 0.5853814255968639,
+        "psi23": 0.5853814255968639,
+        "psi31": 0.5853814255968639,
+        "selector": "least_distortion"
+      }
+    },
+    "selector_closure_reason": "s3_fixed_point",
+    "selector_equivalence_class": "principal_equal_split",
+    "selector_family": [
+      "balanced",
+      "harmonic",
+      "least_distortion"
+    ],
+    "selector_law_status": "candidate_only",
+    "symmetry_type": "majorana"
+  },
+  "majorana": {
+    "C_nu_hat_real": [
+      [
+        0.9417329721810422,
+        0.02913351390947865,
+        0.02913351390947865
+      ],
+      [
+        0.02913351390947865,
+        0.9417329721810422,
+        0.02913351390947865
+      ],
+      [
+        0.02913351390947865,
+        0.02913351390947865,
+        0.9417329721810422
+      ]
+    ],
+    "Delta_nu": [
+      [
+        0.6083996388477089,
+        -0.30419981942385466,
+        -0.30419981942385466
+      ],
+      [
+        -0.30419981942385466,
+        0.6083996388477089,
+        -0.30419981942385466
+      ],
+      [
+        -0.30419981942385466,
+        -0.30419981942385466,
+        0.6083996388477089
+      ]
+    ],
+    "U_nu_imag": [
+      [
+        -0.014323324935735161,
+        2.1673682070929833e-19,
+        -0.01875912642458419
+      ],
+      [
+        0.007161662467867617,
+        -0.056481528517398995,
+        -0.01875912642458419
+      ],
+      [
+        0.007161662467867614,
+        0.05648152851739899,
+        -0.018759126424584195
+      ]
+    ],
+    "U_nu_real": [
+      [
+        0.8163709383787827,
+        1.0836841035464916e-19,
+        -0.57704543019516
+      ],
+      [
+        -0.40818546918938914,
+        0.7048473855639518,
+        -0.5770454301951631
+      ],
+      [
+        -0.40818546918938914,
+        -0.7048473855639518,
+        -0.5770454301951632
+      ]
+    ],
+    "ambient_metric_kind": "hilbert_schmidt_frobenius",
+    "certification_status": "selector_law_closed_standard_math",
+    "collective_mode_overlap_by_eigenvector": [
+      6.517295104635923e-30,
+      6.283663321022361e-34,
+      0.9999999999999998
+    ],
+    "eigenvalues_raw_gev": null,
+    "envelope_used": null,
+    "inputs": {
+      "envelope_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_phase_envelope.json",
+      "family_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/family_response_tensor.json",
+      "lift_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_holonomy_lift.json",
+      "pullback_metric_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_phase_pullback_metric.json",
+      "scale_anchor_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/neutrino_scale_anchor.json"
+    },
+    "invariants": {
+      "det_abs": 1.490198351739679e-35,
+      "principal_minors": [
+        2.4617526608923523e-12,
+        6.057969760167917e-24,
+        1.490198351739679e-35
+      ],
+      "trace_h": 1.82154777711059e-23,
+      "trace_real": 7.385257982677057e-12
+    },
+    "law_closure_scope": "standard_math_fixed",
+    "m_star_gev": 2.4617526608923523e-12,
+    "majorana_matrix_imag": [
+      [
+        0.0,
+        4.207803231450853e-14,
+        4.207803231450853e-14
+      ],
+      [
+        4.207803231450853e-14,
+        0.0,
+        4.207803231450853e-14
+      ],
+      [
+        4.207803231450853e-14,
+        4.207803231450853e-14,
+        0.0
+      ]
+    ],
+    "majorana_matrix_real": [
+      [
+        2.4617526608923523e-12,
+        6.347691976012981e-14,
+        6.347691976012981e-14
+      ],
+      [
+        6.347691976012981e-14,
+        2.4617526608923523e-12,
+        6.347691976012981e-14
+      ],
+      [
+        6.347691976012981e-14,
+        6.347691976012981e-14,
+        2.4617526608923523e-12
+      ]
+    ],
+    "majorana_mode": "canonical_selector",
+    "masses_sorted_gev": [
+      2.39864484476272e-12,
+      2.3986448447627204e-12,
+      2.5900740507739074e-12
+    ],
+    "notes": [
+      "The real-seed branch is a surrogate when the Majorana selector is not theorem-closed.",
+      "Canonical-selector output may close as a selector point or, under the pullback-distortion route, as a selector law with explicit scope.",
+      "Residual-envelope mode carries certification metadata rather than claiming a unique complex Majorana matrix."
+    ],
+    "phase_mode": "canonical_selector",
+    "phase_status": "residual_affine_plane",
+    "rank_proxy": 3,
+    "selector_closure_reason": "s3_fixed_point",
+    "selector_law_certified": true,
+    "selector_law_status": "candidate_only",
+    "selector_point_certified": true,
+    "selector_used": "principal_equal_split",
+    "singular_values_raw_gev": [
+      2.39864484476272e-12,
+      2.3986448447627204e-12,
+      2.5900740507739074e-12
+    ],
+    "status": "blind_forward_matrix",
+    "u_nu_left_imag": [
+      [
+        -0.014323324935735161,
+        2.1673682070929833e-19,
+        -0.01875912642458419
+      ],
+      [
+        0.007161662467867617,
+        -0.056481528517398995,
+        -0.01875912642458419
+      ],
+      [
+        0.007161662467867614,
+        0.05648152851739899,
+        -0.018759126424584195
+      ]
+    ],
+    "u_nu_left_real": [
+      [
+        0.8163709383787827,
+        1.0836841035464916e-19,
+        -0.57704543019516
+      ],
+      [
+        -0.40818546918938914,
+        0.7048473855639518,
+        -0.5770454301951631
+      ],
+      [
+        -0.40818546918938914,
+        -0.7048473855639518,
+        -0.5770454301951632
+      ]
+    ]
+  },
+  "phase_certificate_source": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_phase_pullback_metric.json",
+  "phase_mode": "canonical_selector",
+  "pmns": {
+    "majorana_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/forward_majorana_matrix.json",
+    "notes": [
+      "Physical PMNS requires a forward-derived charged-lepton left basis."
+    ],
+    "status": "conditional_blocked"
+  },
+  "pullback_metric": {
+    "ambient_metric_kind": "hilbert_schmidt_frobenius",
+    "artifact": "oph_majorana_phase_pullback_metric",
+    "canonical_law": "pullback_least_distortion",
+    "deformation_form_oph_origin_status": "missing_scalar_evaluator",
+    "deformation_form_status": "local_quadratic_germ_closed",
+    "edge_amplitude_isotropy_certificate": {
+      "closed": true,
+      "spread": 0.0,
+      "tolerance": 1e-30
+    },
+    "edge_weight_isotropy_certificate": {
+      "closed": true,
+      "spread": 0.0,
+      "tolerance": 1e-30
+    },
+    "euler_lagrange_equation": "w_e*sin(psi_e)=lambda on psi12+psi23+psi31=Omega_012",
+    "generated_utc": "2026-03-27T13:18:50Z",
+    "hs_distortion_matches_selector_energy": true,
+    "isotropic_specialization": {
+      "closed": true,
+      "equivalence_class": "principal_equal_split"
+    },
+    "law_closure_scope": "standard_math_fixed",
+    "metric_choice_status": "standard_math_fixed",
+    "missing_upstream_object": "oph_majorana_overlap_defect_scalar_evaluator",
+    "notes": [
+      "This artifact now exports the explicit pullback metric and finite-angle chordal distortion action induced by the current Majorana lift.",
+      "Within the sandbox, the selector law is closed under a standard-math-fixed Hilbert-Schmidt/Frobenius ambient metric choice.",
+      "A stricter OPH-only route would still need the upstream OPH overlap-defect Hessian / scalar deformation action that derives the ambient metric choice itself."
+    ],
+    "phase_action_closed": true,
+    "phase_action_formula": "A_pb(psi)=sum_e w_e*(1-cos(psi_e))",
+    "phase_action_kind": "hs_chordal_distortion",
+    "pullback_metric_residual_basis_2x2": [
+      [
+        2.319952058277913e-26,
+        1.1599760291389565e-26
+      ],
+      [
+        1.1599760291389565e-26,
+        2.319952058277913e-26
+      ]
+    ],
+    "residual_basis_order": [
+      "b1=(1,-1,0)",
+      "b2=(1,0,-1)"
+    ],
+    "selector_equivalence_class": "principal_equal_split",
+    "selector_law_certified": true,
+    "source_artifacts": {
+      "deformation_form": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_deformation_bilinear_form.json",
+      "family": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/family_response_tensor.json",
+      "lift": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_holonomy_lift.json",
+      "scale_anchor": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/neutrino_scale_anchor.json"
+    },
+    "status": "phase_action_closed_standard_math",
+    "strict_oph_only_obstruction_kind": "ambient_metric_not_oph_derived",
+    "weighted_edge_norm_sq": 0.0028711206426811258
+  },
+  "scale_anchor": {
+    "anchors": {
+      "m_star_formula": "v^2 / mu_u",
+      "m_star_gev": 2.4617526608923523e-12
+    },
+    "artifact": "oph_neutrino_scale_anchor",
+    "collective_mode": {
+      "basis": "democratic_rank_one",
+      "u_uT": [
+        [
+          0.3333333333333333,
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        [
+          0.3333333333333333,
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        [
+          0.3333333333333333,
+          0.3333333333333333,
+          0.3333333333333333
+        ]
+      ],
+      "u_vector": [
+        0.5773502691896258,
+        0.5773502691896258,
+        0.5773502691896258
+      ]
+    },
+    "generated_utc": "2026-03-27T13:18:50Z",
+    "inputs": {
+      "alpha_u": 0.04112498041477454,
+      "mu_u_used_gev": 2.4736039148648396e+16,
+      "p": 1.63094,
+      "v_used_gev": 246.76711732749683
+    },
+    "notes": [
+      "This artifact is the active local neutrino scale anchor.",
+      "It uses the current D10 core only: m_star = v^2 / mu_u.",
+      "No legacy predictor surface or imported neutrino mass estimate is used here."
+    ],
+    "proof_status": "derived_from_local_d10_core",
+    "source_artifacts": {
+      "d10_observable_family": "oph_d10_ew_observable_family"
+    },
+    "status": "local_d10_scale_anchor"
+  },
+  "selector_used": "principal_equal_split",
+  "splittings": {
+    "certification_status": "selector_law_closed_standard_math",
+    "collective_mode_dominance": [
+      6.517295104635923e-30,
+      6.283663321022361e-34,
+      0.9999999999999998
+    ],
+    "collective_projector_phase_stable": true,
+    "delta_m21_sq_bounds_gev2": {
+      "max": 9.62541040878508e-25,
+      "min": 0.0
+    },
+    "delta_m21_sq_gev2": 2.204051907791789e-39,
+    "delta_m31_sq_bounds_gev2": {
+      "max": 1.0595172246077544e-24,
+      "min": 1.557124826569896e-25
+    },
+    "delta_m31_sq_gev2": 9.54986497185585e-25,
+    "gap_vs_radius_certificate": {
+      "delta_h_radius_gev2": 4.143730700225407e-24,
+      "delta_sigma_radius_gev": 3.73091307184548e-13,
+      "ordering_gap_test_passes": false,
+      "projector_gap_seed_gev2": 1.1102230246251565e-16,
+      "projector_gap_test_passes": true,
+      "real_seed_gaps_gev": [
+        4.0389678347315804e-28,
+        1.91429206011187e-13
+      ]
+    },
+    "majorana_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/forward_majorana_matrix.json",
+    "mass_bounds_gev": [
+      {
+        "index": 1,
+        "max": 2.448310491895263e-12,
+        "min": 2.3269048295601224e-12
+      },
+      {
+        "index": 2,
+        "max": 2.525277633589767e-12,
+        "min": 2.39864484476272e-12
+      },
+      {
+        "index": 3,
+        "max": 2.5900740507739074e-12,
+        "min": 2.479906600535877e-12
+      }
+    ],
+    "masses_gev_sorted": [
+      2.39864484476272e-12,
+      2.3986448447627204e-12,
+      2.5900740507739074e-12
+    ],
+    "notes": [
+      "Ordering_real_seed is a report-only spectral output until the phase-envelope or selector certificate closes.",
+      "The complex Majorana phase theorem remains separate from this real-first splitting surface."
+    ],
+    "ordering_phase_certified": "normal_like_collective_dominance",
+    "ordering_real_seed": "normal_like_collective_dominance",
+    "ordering_theorem_status": "selector_law_certified",
+    "phase_certificate_source": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_phase_pullback_metric.json",
+    "phase_law_certificate_source": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_phase_pullback_metric.json",
+    "phase_mode": "canonical_selector",
+    "projector_certificate_source": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_holonomy_lift.json",
+    "selector_law_certified": true,
+    "selector_point_certified": true,
+    "splitting_ratio_r": 2.3079403889869556e-15,
+    "status": "blind_forward_splittings"
+  }
+}

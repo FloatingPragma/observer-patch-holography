@@ -1,0 +1,47 @@
+{
+  "artifact": "oph_quark_d12_overlap_transport_law",
+  "best_same_family_mass_point": {
+    "Delta_ud_overlap": 0.14039999999999997,
+    "Lambda_ud_B_transport": 0.14580774897025428,
+    "lambda_minus_sigma_d_tau_d": 0.0,
+    "lambda_minus_sigma_u_tau_u": 2.7755575615628914e-17,
+    "tau_d_log_per_side": 0.04411865683386919,
+    "tau_ratio_minus_sigma_ratio": 2.220446049250313e-16,
+    "tau_sum_half_delta_identity": 1.3877787807814457e-17,
+    "tau_u_log_per_side": 0.026081343166130807
+  },
+  "candidate_branch_from_t1_over_5": {
+    "Delta_ud_overlap": 0.13391235422942327,
+    "Lambda_ud_B_transport": 0.13907022029558064,
+    "lambda_minus_sigma_d_tau_d": 0.0,
+    "lambda_minus_sigma_u_tau_u": 2.7755575615628914e-17,
+    "tau_d_log_per_side": 0.04208000856170554,
+    "tau_ratio_minus_sigma_ratio": 4.440892098500626e-16,
+    "tau_sum_half_delta_identity": 0.0,
+    "tau_u_log_per_side": 0.024876168553006103
+  },
+  "generated_utc": "2026-03-28T16:00:23Z",
+  "input_kind": "closed_spread_totals_plus_one_scalar_overlap_selector",
+  "next_single_residual_object": "Delta_ud_overlap",
+  "notes": [
+    "On the D12 one-scalar overlap family, the odd quark payload pair is not free once the spread totals are fixed.",
+    "The remaining D12 mass-side scalar is therefore Delta_ud_overlap, with tau_u, tau_d, and Lambda all determined affinely from it.",
+    "This does not close the D12 selector value itself, and it does not solve the CKM/CP residual generator."
+  ],
+  "spread_totals": {
+    "sigma_d_total_log_per_side": 3.3049,
+    "sigma_u_total_log_per_side": 5.5905
+  },
+  "status": "closed_smaller_primitive",
+  "strictly_smaller_than": "source_readback_u_log_per_side_and_source_readback_d_log_per_side",
+  "theorem_tier": "D12_continuation_only",
+  "transport_formulas": {
+    "Lambda_from_tau_d": "sigma_d_total_log_per_side * tau_d_log_per_side",
+    "Lambda_from_tau_u": "sigma_u_total_log_per_side * tau_u_log_per_side",
+    "Lambda_ud_B_transport": "sigma_u_total_log_per_side * sigma_d_total_log_per_side * Delta_ud_overlap / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))",
+    "tau_d_log_per_side": "sigma_u_total_log_per_side * Delta_ud_overlap / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))",
+    "tau_d_over_tau_u": "sigma_u_total_log_per_side / sigma_d_total_log_per_side",
+    "tau_u_log_per_side": "sigma_d_total_log_per_side * Delta_ud_overlap / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))",
+    "tau_u_plus_tau_d": "Delta_ud_overlap / 2"
+  }
+}

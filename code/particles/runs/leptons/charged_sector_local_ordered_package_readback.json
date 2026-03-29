@@ -1,0 +1,90 @@
+{
+  "Y_e_shape_emitted": {
+    "imag": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "real": [
+      [
+        0.5953298196540844,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.8055145219716486,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        2.0853021405297327
+      ]
+    ]
+  },
+  "a_e_log_coeff": 0.6267767322725938,
+  "a_e_log_coeff_formula": "(r3 - r1) / 2",
+  "affine_quadratic_reconstruction_residual": [
+    1.1102230246251565e-16,
+    5.551115123125783e-17,
+    0.0
+  ],
+  "artifact": "oph_charged_sector_local_ordered_package_readback",
+  "b_e_log_coeff": 1.5164818663320259e-16,
+  "b_e_log_coeff_formula": "(((1 - x2) * r1 + (1 + x2) * r3) / 2 - r2) / (1 - x2^2)",
+  "centered_source_formula": "[r1 - r_bar, r2 - r_bar, r3 - r_bar]",
+  "current_package_linear_subray_only": true,
+  "eta_e_split_log_per_side_emitted": 2.220446049250313e-16,
+  "eta_e_split_log_per_side_emitted_formula": "2 * (((1 - x2) * r1 + (1 + x2) * r3) / 2 - r2)",
+  "generated_utc": "2026-03-27T08:40:32Z",
+  "input_artifact": "oph_charged_sector_local_ordered_package_source_emission",
+  "input_kind": "sector_local_ordered_package_log_per_side",
+  "notes": [
+    "This artifact reads back the affine-quadratic charged coefficients from the current sector-local ordered package.",
+    "The current package still lands on the linear subray when the midpoint defect vanishes.",
+    "The next remaining charged gap is now the obstruction certificate that shows the current support itself is too small, not another same-support midpoint-defect scalar."
+  ],
+  "ordered_family_coordinate": [
+    -1.0,
+    -0.5175863354681689,
+    1.0
+  ],
+  "output_kind": "charged_affine_quadratic_source_readback",
+  "predictive_promotion_allowed": false,
+  "proof_status": "current_package_readback_closed",
+  "same_support_exhausted": true,
+  "shape_singular_values_emitted": [
+    0.5953298196540844,
+    0.8055145219716486,
+    2.0853021405297327
+  ],
+  "shape_singular_values_emitted_formula": "exp(source_side_ordered_package_centered_log_emitted)",
+  "sigma_e_total_log_per_side_emitted": 1.2535534645451876,
+  "sigma_e_total_log_per_side_emitted_formula": "r3 - r1",
+  "smallest_constructive_missing_object": "oph_charged_sector_local_current_support_obstruction_certificate",
+  "source_side_ordered_package_centered_log_emitted": [
+    -0.5186397082680319,
+    -0.21627404800912364,
+    0.7349137562771556
+  ],
+  "source_side_ordered_package_log_per_side_emitted": [
+    0.102160291731968,
+    0.40452595199087626,
+    1.3557137562771555
+  ],
+  "source_side_ordered_package_mean_log_per_side_emitted": 0.6207999999999999,
+  "source_side_quadratic_midpoint_defect_log_per_side_emitted": 1.1102230246251565e-16
+}

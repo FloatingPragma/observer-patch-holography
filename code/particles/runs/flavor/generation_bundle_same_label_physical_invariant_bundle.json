@@ -1,0 +1,28 @@
+{
+  "artifact": "oph_generation_bundle_same_label_physical_invariant_bundle",
+  "diagonal_phase_bookkeeping": {
+    "chi_diagonal_imag": [
+      -0.006095179275809967,
+      -0.7300387679202932,
+      -0.3260719358139316
+    ]
+  },
+  "full_matrix_artifact": "oph_generation_bundle_same_label_left_transport_candidate",
+  "gauge_convention": "diagonal conjugation chosen so that K_12 and K_23 are real-positive",
+  "generated_utc": "2026-03-28T15:42:44Z",
+  "next_single_residual_object": "same_label_left_transport_physical_invariant_value_laws",
+  "notes": [
+    "This bundle records the gauge-fixed physical CKM/CP shell on the current D12 continuation branch.",
+    "The recorded invariant values come from the current compare-derived continuation analysis and are not promoted as OPH-forward laws."
+  ],
+  "physical_invariant_formula": "K_gf = i diag(chi_1,chi_2,chi_3) + theta_12(E12-E21) + theta_23(E23-E32) + theta_13(e^{i phi_cp} E13 - e^{-i phi_cp} E31)",
+  "physical_invariants": {
+    "phi_cp": -2.6946364809227097,
+    "theta_12": 0.2256228751541542,
+    "theta_13": 0.003473054182841341,
+    "theta_23": 0.04380491981435288
+  },
+  "proof_status": "diagnostic_invariants_written_from_target_ckm_not_OPH_derived",
+  "relative_branch_rigidity": 0.00023461092057035416,
+  "scope": "D12_continuation_only"
+}

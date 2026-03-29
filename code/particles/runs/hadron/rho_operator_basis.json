@@ -1,0 +1,83 @@
+{
+  "anti_cheat": {
+    "local_mass_ansatz_used": false,
+    "measured_rho_mass_used_as_input": false
+  },
+  "artifact": "oph_hadron_rho_operator_basis",
+  "channel": {
+    "elastic_channel": "pi_pi",
+    "name": "rho",
+    "partial_wave": 1,
+    "quantum_numbers": {
+      "I": 1,
+      "JPC": "1--"
+    }
+  },
+  "irreps": [
+    {
+      "frame_d": [
+        0,
+        0,
+        0
+      ],
+      "irrep": "T1u"
+    },
+    {
+      "frame_d": [
+        0,
+        0,
+        1
+      ],
+      "irrep": "A1"
+    },
+    {
+      "frame_d": [
+        1,
+        1,
+        0
+      ],
+      "irrep": "A1"
+    }
+  ],
+  "moving_frames": [
+    {
+      "d": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "d": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "d": [
+        1,
+        1,
+        0
+      ]
+    }
+  ],
+  "next_outputs": [
+    "basis description",
+    "finite-volume level extraction inputs",
+    "Luescher-fit-ready metadata"
+  ],
+  "operator_ids": [
+    "V_local",
+    "pipi_d000_T1u",
+    "pipi_d001_A1",
+    "pipi_d110_A1"
+  ],
+  "operators": [
+    "local vector interpolator",
+    "two-pion operators in moving frames",
+    "irrep-resolved operator sets"
+  ],
+  "status": "candidate_only",
+  "target": "rho resonance via pi-pi finite-volume spectra"
+}

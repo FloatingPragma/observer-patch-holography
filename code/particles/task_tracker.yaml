@@ -1,0 +1,881 @@
+version: 1
+as_of: "2026-03-29"
+goal: "full particle zoo at high precision from calibrated P plus OPH axioms/theorem chain"
+stages:
+  - id: stage-0
+    title: "Harden the claim surface"
+    status: active
+    success_rule: "No mixed-stage leakage; machine-readable claim tags exist; frozen forward/compare split exists."
+    tasks:
+      - id: particles.audit.01-split-stage5-charged-vs-neutrino
+        title: "Split Stage-5 charged outputs from Stage-6 neutrino outputs"
+        status: completed
+        owner_lane: local_code
+        depends_on: []
+      - id: particles.audit.02-machine-readable-claim-ledger
+        title: "Add machine-readable claim ledger and sync it with code/paper surfaces"
+        status: completed
+        owner_lane: local_docs
+        depends_on: []
+      - id: particles.validation.01-frozen-forward-blind-harness
+        title: "Separate forward prediction artifacts from compare-only validation"
+        status: completed
+        owner_lane: local_code
+        depends_on: []
+      - id: particles.parallel.01-two-worker-profile-isolation-smoke-test
+        title: "Prove same-host worker profile isolation before parallel Pro use"
+        status: completed
+        owner_lane: local_infra
+        depends_on: []
+      - id: particles.parallel.02-sign-in-worker-profiles-and-run-two-lane-dry-batch
+        title: "Sign in worker-local ChatGPT profiles and run a two-lane real-model dry batch"
+        status: ready
+        owner_lane: local_infra
+        depends_on: ["particles.parallel.01-two-worker-profile-isolation-smoke-test"]
+      - id: particles.parallel.03-add-particles-batch-launcher
+        title: "Add a /particles-native parallel Pro batch launcher and first-wave manifests"
+        status: completed
+        owner_lane: local_infra
+        depends_on: ["particles.parallel.01-two-worker-profile-isolation-smoke-test"]
+      - id: particles.parallel.04-launch-first-hard-theorem-batch
+        title: "Launch the first two-lane hard-theorem Pro batch"
+        status: in_progress
+        owner_lane: pro_paper
+        depends_on:
+          [
+            "particles.parallel.02-sign-in-worker-profiles-and-run-two-lane-dry-batch",
+            "particles.parallel.03-add-particles-batch-launcher"
+          ]
+      - id: particles.parallel.05-expand-to-five-worker-closure-bundle-fanout
+        title: "Expand the closure-bundle program to five workers with one sidecar exactness lane"
+        status: completed
+        owner_lane: local_infra
+        depends_on: ["particles.parallel.04-launch-first-hard-theorem-batch"]
+      - id: particles.quantum.01-establish-particles-quantum-env
+        title: "Establish a dedicated particles quantum environment"
+        status: completed
+        owner_lane: local_infra
+        depends_on: []
+      - id: particles.quantum.02-run-local-aer-smoke
+        title: "Run the local Aer smoke simulation"
+        status: completed
+        owner_lane: local_sim
+        depends_on: ["particles.quantum.01-establish-particles-quantum-env"]
+      - id: particles.quantum.03-probe-ibm-runtime-connectivity
+        title: "Probe IBM Runtime connectivity when credentials are available"
+        status: blocked
+        owner_lane: ibm_runtime
+        depends_on: ["particles.quantum.01-establish-particles-quantum-env"]
+      - id: particles.quantum.04-overlap-constraint-toy-suite
+        title: "Build a local Aer overlap/constraint toy suite under /particles"
+        status: completed
+        owner_lane: local_sim
+        depends_on: ["particles.quantum.02-run-local-aer-smoke"]
+      - id: particles.quantum.05-noise-and-backend-screening
+        title: "Add local noise and IBM-backend screening for toy circuits"
+        status: pending
+        owner_lane: ibm_runtime
+        depends_on: ["particles.quantum.04-overlap-constraint-toy-suite"]
+      - id: particles.hadron.01-sandbox-reference-hadron-runner
+        title: "Create a /particles-native hadron sandbox wrapper for the quenched reference lane"
+        status: completed
+        owner_lane: local_sim
+        depends_on: ["particles.parallel.03-add-particles-batch-launcher"]
+      - id: particles.reporting.01-build-results-status-table
+        title: "Build a regenerable full tracked particle status table under /particles"
+        status: completed
+        owner_lane: local_docs
+        depends_on:
+          [
+            "particles.audit.02-machine-readable-claim-ledger",
+            "particles.hadron.01-sandbox-reference-hadron-runner"
+          ]
+      - id: particles.audit.03-consolidate-final-wave-findings-against-tier-ledger
+        title: "Consolidate final-wave findings against the OPH tier ledger and local particle surfaces"
+        status: completed
+        owner_lane: local_docs
+        depends_on: ["particles.reporting.01-build-results-status-table"]
+      - id: particles.audit.04-open-multi-instance-architecture-rescue-audit
+        title: "Open a multi-instance Pro architecture rescue audit for the particle-spectrum program"
+        status: completed
+        owner_lane: pro_paper
+        depends_on: ["particles.audit.03-consolidate-final-wave-findings-against-tier-ledger"]
+  - id: stage-1
+    title: "Stabilize D10 and D11"
+    status: active
+    success_rule: "One auditable D10/D11 forward path with declared RG/matching ingredients."
+    tasks:
+      - id: particles.calibration.01-add-implied-p-consistency-audit
+        title: "Add an implied-P consistency audit for the D10 calibration branch"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["stage-0"]
+      - id: particles.calibration.02-separate-p-resolution-from-d10-transport-mismatch
+        title: "Separate decimal precision in P from D10 transport and matching inconsistency"
+        status: in_progress
+        owner_lane: local_code
+        depends_on: ["particles.calibration.01-add-implied-p-consistency-audit"]
+      - id: particles.calibration.03-freeze-unrounded-calibration-observable-spec
+        title: "Freeze the unrounded D10 calibration observable and scheme specification"
+        status: pending
+        owner_lane: local_docs
+        depends_on: ["particles.calibration.02-separate-p-resolution-from-d10-transport-mismatch"]
+      - id: particles.calibration.04-push-single-p-exact-ew-closure-branch
+        title: "Push an honest single-P D10 electroweak repair branch for W/Z/alpha_em/sin^2(theta_W)/v"
+        status: in_progress
+        owner_lane: pro_paper
+        depends_on:
+          [
+            "particles.calibration.02-separate-p-resolution-from-d10-transport-mismatch",
+            "papers.compact.e.28-make-the-higgs-top-critical-surface-fully-rigorous"
+          ]
+      - id: particles.calibration.05-export-d10-ew-observable-family-artifact
+        title: "Export the exact D10 running-family observable artifact and isolate the common EW transport kernel burden"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.calibration.02-separate-p-resolution-from-d10-transport-mismatch"]
+      - id: particles.calibration.06-add-ew-transport-kernel-boundary
+        title: "Add the common D10 electroweak transport-kernel boundary and the smaller readout-coherence clause"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.calibration.05-export-d10-ew-observable-family-artifact"]
+      - id: particles.calibration.07-add-family-purity-readout-gate
+        title: "Encode the D10 family-purity readout criterion and coherence witness so mixed W/Z reporting is mechanically rejected"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.calibration.06-add-ew-transport-kernel-boundary"]
+      - id: particles.calibration.08-reduce-readout-coherence-to-provenance-equality
+        title: "Reduce electroweak readout coherence to common provenance equality of the four correction scalars"
+        status: in_progress
+        owner_lane: pro_paper
+        depends_on: ["particles.calibration.07-add-family-purity-readout-gate"]
+      - id: particles.calibration.09-add-scalar-provenance-witness-fields
+        title: "Add explicit scalar provenance and common-witness fields beneath D10 readout coherence"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.calibration.08-reduce-readout-coherence-to-provenance-equality"]
+      - id: particles.calibration.10-certify-current-carrier-wz-obstruction
+        title: "Certify that the closed current D10 carrier does not emit the exact PDG W/Z pair"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.calibration.09-add-scalar-provenance-witness-fields"]
+      - id: particles.calibration.11-open-d10-repair-branch-beyond-current-carrier
+        title: "Open the D10 repair branch beyond the current selected carrier / selector shell"
+        status: in_progress
+        owner_lane: pro_paper
+        depends_on: ["particles.calibration.10-certify-current-carrier-wz-obstruction"]
+      - id: particles.calibration.12-add-tree-identity-primitive-beneath-repair-branch
+        title: "Add the coherent tree-identity primitive beneath the broader D10 repair branch"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.calibration.11-open-d10-repair-branch-beyond-current-carrier"]
+      - id: papers.compact.e.28-make-the-higgs-top-critical-surface-fully-rigorous
+        title: "Make the Higgs/top critical surface fully rigorous"
+        status: completed
+        owner_lane: pro_paper
+        depends_on: ["stage-0"]
+      - id: particles.calibration.13-freeze-d10-target-spec-and-record-unique-repair-point
+        title: "Record the frozen-target uniqueness diagnostic on the D10 repair chart so exact W/Z closure is phrased as a value-law problem, not a chart-search problem"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.calibration.12-add-tree-identity-primitive-beneath-repair-branch"]
+      - id: particles.calibration.14-factor-d10-repair-branch-through-w-anchor-and-neutral-shear
+        title: "Factor the frozen-target D10 repair chart into an exact W anchor plus one neutral-shear scalar"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.calibration.13-freeze-d10-target-spec-and-record-unique-repair-point"]
+      - id: particles.calibration.15-record-target-free-d10-underdetermination-and-minimal-conditional-theorem
+        title: "Record the source-only D10 underdetermination theorem together with the minimal conditional repair theorem"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.calibration.14-factor-d10-repair-branch-through-w-anchor-and-neutral-shear"]
+      - id: particles.calibration.16-record-source-only-d10-target-emitter-candidate
+        title: "Record the strongest current source-only D10 target-emitter candidate beneath the open target-free repair law"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.calibration.15-record-target-free-d10-underdetermination-and-minimal-conditional-theorem"]
+  - id: stage-2
+    title: "Derive the Yukawa excitation dictionary"
+    status: active
+    success_rule: "Flavor excitation labels are fixed before comparison and not chosen by closeness to experiment."
+    tasks:
+      - id: papers.compact.e.29-derive-the-yukawa-excitation-dictionary
+        title: "Derive the blind Yukawa / excitation dictionary"
+        status: in_progress
+        owner_lane: pro_paper
+        depends_on: ["stage-1"]
+      - id: particles.microphysics.01-bridge-edge-statistics-to-yukawa-dictionary
+        title: "Bridge edge statistics to the Yukawa dictionary if e29 stalls"
+        status: in_progress
+        owner_lane: pro_microphysics
+        depends_on: ["stage-1"]
+      - id: particles.flavor.05-derive-suppression-phase-tensors-artifact
+        title: "Derive sandbox suppression and phase tensors from the flavor observable artifact"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.01-define-overlap-flavor-observable-artifact"]
+      - id: particles.flavor.08-normalize-family-transport-kernel-artifact
+        title: "Normalize a refinement-indexed family transport-kernel artifact"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.microphysics.01-bridge-edge-statistics-to-yukawa-dictionary"]
+      - id: particles.flavor.09-upgrade-flavor-observable-reducer
+        title: "Upgrade the flavor-observable reducer to emit projectors, gaps, and stability checks"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.08-normalize-family-transport-kernel-artifact"]
+      - id: particles.flavor.06-export-flavor-dictionary-artifact
+        title: "Export a blind flavor-dictionary artifact for downstream flavor and neutrino lanes"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.09-upgrade-flavor-observable-reducer", "particles.flavor.05-derive-suppression-phase-tensors-artifact"]
+      - id: particles.flavor.07-add-flavor-dictionary-disambiguation-guard
+        title: "Add a guard against choosing flavor labels by experimental identity"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.06-export-flavor-dictionary-artifact"]
+      - id: particles.flavor.10-derive-sector-transport-pushforward-artifact
+        title: "Derive a common sector-transport pushforward artifact from the family observable"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.09-upgrade-flavor-observable-reducer"]
+      - id: particles.flavor.11-add-transport-kernel-persistence-guard
+        title: "Add a persistence guard for projector count, spectral gaps, and cycle orientation"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.10-derive-sector-transport-pushforward-artifact"]
+      - id: particles.flavor.12-add-sector-pushforward-functoriality-guard
+        title: "Add a functoriality guard for the sector response object"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.10-derive-sector-transport-pushforward-artifact"]
+      - id: particles.flavor.13-add-sector-residual-factorization-guard
+        title: "Add a guard against free entrywise residual amplitudes in sector response objects"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.10-derive-sector-transport-pushforward-artifact"]
+      - id: particles.flavor.16-upgrade-family-transport-kernel-to-conjugacy-candidate
+        title: "Upgrade the family transport kernel to emit conjugacy defects and gap certificates"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.08-normalize-family-transport-kernel-artifact"]
+      - id: particles.flavor.17-upgrade-flavor-observable-to-persistent-spectral-triple
+        title: "Upgrade the flavor observable to a persistent-spectral-triple candidate"
+        status: completed
+        owner_lane: local_code
+        depends_on:
+          [
+            "particles.flavor.09-upgrade-flavor-observable-reducer",
+            "particles.flavor.16-upgrade-family-transport-kernel-to-conjugacy-candidate"
+          ]
+      - id: particles.flavor.20-derive-overlap-edge-transport-cocycle-artifact
+        title: "Derive the overlap-edge transport cocycle artifact behind conjugacy-Riesz persistence"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.16-upgrade-family-transport-kernel-to-conjugacy-candidate"]
+      - id: particles.flavor.21-add-conjugacy-riesz-and-edge-cocycle-guards
+        title: "Add explicit defect/gap, non-placeholder edge, cocycle provenance, and certificate-completeness guards"
+        status: completed
+        owner_lane: local_code
+        depends_on:
+          [
+            "particles.flavor.20-derive-overlap-edge-transport-cocycle-artifact",
+            "particles.flavor.17-upgrade-flavor-observable-to-persistent-spectral-triple"
+          ]
+  - id: stage-3
+    title: "Replace Koide-assisted charged-lepton fitting"
+    status: active
+    success_rule: "Charged leptons come from the forward dictionary plus declared standard-QFT completion only."
+    tasks:
+      - id: papers.compact.e.30-replace-koide-assisted-lepton-fitting-with-a-theorem
+        title: "Derive the charged same-carrier support pair (eta then sigma) without Koide import"
+        status: in_progress
+        owner_lane: pro_paper
+        depends_on: ["papers.compact.e.29-derive-the-yukawa-excitation-dictionary"]
+      - id: particles.leptons.13-add-support-extension-source-scalar-pair-readback
+        title: "Add the smaller charged support-extension source-scalar pair readback beneath the full completion shell"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.leptons.12-add-refinement-and-shared-budget-guards"]
+      - id: particles.leptons.01-build-forward-charged-lepton-pipeline
+        title: "Build the blind charged-lepton matrix pipeline from the shared flavor dictionary"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.06-export-flavor-dictionary-artifact"]
+      - id: particles.leptons.02-export-blind-forward-artifact
+        title: "Export a blind charged-lepton artifact before any compare surface"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.leptons.01-build-forward-charged-lepton-pipeline"]
+      - id: particles.leptons.03-add-no-koide-import-guard
+        title: "Add a guard against reintroducing Koide-assisted fitting"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.leptons.02-export-blind-forward-artifact"]
+      - id: particles.leptons.04-derive-lepton-descent-tensor
+        title: "Derive a charged-lepton descent tensor from the shared flavor pushforward"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.10-derive-sector-transport-pushforward-artifact"]
+      - id: particles.leptons.05-add-experiment-label-matching-guard
+        title: "Add a guard against experiment-led charged-lepton label matching"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.leptons.04-derive-lepton-descent-tensor"]
+      - id: particles.leptons.06-add-qed-ew-completion-artifact
+        title: "Add a declared QED/EW completion artifact after the frozen charged-lepton matrix"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.leptons.04-derive-lepton-descent-tensor"]
+      - id: particles.leptons.07-derive-lepton-channel-norm-artifact
+        title: "Add the charged-lepton channel-norm artifact boundary"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.leptons.04-derive-lepton-descent-tensor"]
+      - id: particles.leptons.08-split-shape-from-absolute-scale
+        title: "Split charged-lepton shape artifacts from absolute-scale artifacts"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.leptons.07-derive-lepton-channel-norm-artifact"]
+      - id: particles.leptons.09-add-channel-norm-not-fit-guard
+        title: "Add a guard against post-hoc charged-lepton channel-norm matching"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.leptons.07-derive-lepton-channel-norm-artifact"]
+      - id: particles.leptons.10-guard-ratio-only-from-promotion
+        title: "Block charged-lepton completion from promoting non-absolute artifacts"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.leptons.08-split-shape-from-absolute-scale"]
+      - id: particles.leptons.11-track-shared-budget-vs-local-scale
+        title: "Track shared-budget-only versus sector-local charged-lepton scale states"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.leptons.07-derive-lepton-channel-norm-artifact"]
+      - id: particles.leptons.12-add-refinement-and-shared-budget-guards
+        title: "Add refinement-limit and shared-budget guards for the charged-lepton norm lane"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.leptons.11-track-shared-budget-vs-local-scale"]
+      - id: particles.flavor.14-derive-charged-budget-pushforward-artifact
+        title: "Derive a shared charged-budget transport artifact from the sector response object"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.10-derive-sector-transport-pushforward-artifact"]
+      - id: particles.flavor.15-add-charged-budget-partition-and-isolation-guards
+        title: "Add partition-invariance and sector-isolation guards for the shared charged budget"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.14-derive-charged-budget-pushforward-artifact"]
+      - id: particles.leptons.13-add-shared-budget-closure-route
+        title: "Allow the charged-lepton lane to represent shared-budget closure separately from sector-local closure"
+        status: completed
+        owner_lane: local_code
+        depends_on:
+          [
+            "particles.flavor.14-derive-charged-budget-pushforward-artifact",
+            "particles.leptons.12-add-refinement-and-shared-budget-guards"
+          ]
+      - id: particles.flavor.18-add-shared-budget-closure-certificates
+        title: "Add scalarization, refinement-limit, and reconstruction certificates to the shared charged budget"
+        status: completed
+        owner_lane: local_code
+        depends_on:
+          [
+            "particles.flavor.14-derive-charged-budget-pushforward-artifact",
+            "particles.flavor.15-add-charged-budget-partition-and-isolation-guards"
+          ]
+      - id: particles.flavor.22-universalize-charged-scalarization-law-metadata-and-guards
+        title: "Track the universal charged scalarization law over u+d+e and guard its label-blind closure surface"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.18-add-shared-budget-closure-certificates"]
+      - id: particles.flavor.36-reduce-common-refinement-gluing-to-seed-rigidity
+        title: "Reduce the charged common-refinement gluing burden to ordered common-refinement seed rigidity"
+        status: completed
+        owner_lane: local_code
+        depends_on:
+          [
+            "particles.flavor.22-universalize-charged-scalarization-law-metadata-and-guards",
+            "particles.flavor.14-derive-charged-budget-pushforward-artifact"
+          ]
+      - id: particles.flavor.37-reduce-seed-rigidity-to-mean-and-gap-invariance
+        title: "Reduce the charged seed-rigidity proof burden to mean-eigenvalue and min-gap invariance"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.36-reduce-common-refinement-gluing-to-seed-rigidity"]
+      - id: particles.flavor.39-add-mean-gap-invariance-witness-fields
+        title: "Add explicit mean-eigenvalue / min-gap invariance witness fields and next-subclause tracking to the shared charged budget"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.37-reduce-seed-rigidity-to-mean-and-gap-invariance"]
+      - id: particles.flavor.41-add-mean-side-vs-gap-side-support-fields
+        title: "Add explicit support asymmetry between the mean side and gap side of the charged seed law"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.39-add-mean-gap-invariance-witness-fields"]
+      - id: particles.leptons.14-add-eta-source-readback-primitive
+        title: "Add the charged eta source-readback primitive beneath the support-extension shell"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.41-add-mean-side-vs-gap-side-support-fields"]
+      - id: particles.leptons.15-track-support-completion-as-eta-then-sigma
+        title: "Track charged support completion explicitly as eta readback first and sigma second"
+        status: in_progress
+        owner_lane: pro_paper
+        depends_on: ["particles.leptons.14-add-eta-source-readback-primitive"]
+      - id: particles.leptons.16-record-d12-charged-continuation-bridge
+        title: "Record the strongest D12 charged continuation bridge explicitly, including the near-exact centered-log shape closure and the remaining absolute-scale gap"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.leptons.13-add-shared-budget-closure-route"]
+      - id: particles.leptons.17-fix-charged-absolute-scale-type-mismatch-and-shell
+        title: "Fix the charged absolute-scale linear-vs-log type mismatch and emit the typed absolute-scale coordinate shell"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.leptons.16-record-d12-charged-continuation-bridge"]
+      - id: particles.leptons.18-record-exact-charged-waiting-set
+        title: "Record the exact charged waiting set as C_hat_e plus the common-refinement transport equalizer, with eta/sigma demoted to downstream invariants"
+        status: completed
+        owner_lane: local_docs
+        depends_on: ["particles.leptons.17-fix-charged-absolute-scale-type-mismatch-and-shell"]
+      - id: particles.flavor.25-add-hermitian-descendant-riesz-margin-and-cocycle-origin-flags
+        title: "Add the lifted Hermitian-descendant Riesz margin plus explicit cocycle-origin closure flags"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.20-derive-overlap-edge-transport-cocycle-artifact"]
+      - id: particles.flavor.26-add-true-edge-cocycle-and-riesz-margin-guards
+        title: "Add guards for true edge-cocycle closure claims and the direct Hermitian-descendant Riesz margin"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.25-add-hermitian-descendant-riesz-margin-and-cocycle-origin-flags"]
+      - id: particles.flavor.29-add-overlap-edge-line-lift-artifact
+        title: "Add the overlap-edge line-lift artifact boundary upstream of the cocycle readback"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.25-add-hermitian-descendant-riesz-margin-and-cocycle-origin-flags"]
+      - id: particles.flavor.30-add-overlap-edge-line-lift-guard
+        title: "Add a guard that forbids silently promoting raw-entry readback to a closed edge-line origin"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.29-add-overlap-edge-line-lift-artifact"]
+      - id: particles.flavor.33-add-generation-bundle-branch-generator-artifact
+        title: "Add the centered generation-bundle branch-generator artifact upstream of the line-lift readout"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.29-add-overlap-edge-line-lift-artifact"]
+      - id: particles.flavor.34-recast-line-lift-as-generator-readout
+        title: "Recast the projective line-lift as a readout of the centered generation-bundle branch generator"
+        status: completed
+        owner_lane: local_code
+        depends_on:
+          [
+            "particles.flavor.33-add-generation-bundle-branch-generator-artifact",
+            "particles.flavor.30-add-overlap-edge-line-lift-guard"
+          ]
+      - id: particles.flavor.35-add-branch-generator-promotion-certificates
+        title: "Add canonicality, noncentrality, and defect-vs-gap promotion certificates to the generation-bundle operator artifact"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.33-add-generation-bundle-branch-generator-artifact"]
+      - id: particles.flavor.38-add-actual-generator-transfer-bridge
+        title: "Add the central-split / commutator-control bridge from the proxy operator to the actual compressed branch generator"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.35-add-branch-generator-promotion-certificates"]
+      - id: particles.flavor.40-add-commutator-transfer-margin-fields
+        title: "Add explicit commutator-residual and promotion-margin fields beneath the actual-generator transfer bridge"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.38-add-actual-generator-transfer-bridge"]
+      - id: particles.flavor.42-add-zero-or-quadratic-transfer-claims
+        title: "Add the first-order vanishing and quadratic factorization claims beneath the commutator-transfer bridge"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.40-add-commutator-transfer-margin-fields"]
+  - id: stage-4
+    title: "Derive quarks, CKM, and CP"
+    status: active
+    success_rule: "No CKM import, no texture shopping, no hidden order-one coefficients, and no recovered-core overclaim for light-quark isospin splitting."
+    tasks:
+      - id: papers.compact.e.31-derive-quark-textures-ckm-mixing-and-cp-from-overlap-defects
+        title: "Derive quark textures, CKM, and CP from overlap defects on the honest D12 continuation tier"
+        status: in_progress
+        owner_lane: pro_paper
+        depends_on: ["papers.compact.e.29-derive-the-yukawa-excitation-dictionary"]
+      - id: particles.flavor.01-define-overlap-flavor-observable-artifact
+        title: "Define a sandbox artifact boundary for the OPH flavor observable"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["papers.compact.e.29-derive-the-yukawa-excitation-dictionary"]
+      - id: particles.flavor.02-build-forward-yukawa-matrix-pipeline
+        title: "Build the sandbox forward Yukawa matrix pipeline"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.01-define-overlap-flavor-observable-artifact"]
+      - id: particles.flavor.03-add-no-ckm-import-guard
+        title: "Add a guard against reintroducing hardcoded CKM-angle imports"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.02-build-forward-yukawa-matrix-pipeline"]
+      - id: particles.flavor.04-export-blind-forward-artifact
+        title: "Export blind forward flavor artifacts before compare surfaces"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.02-build-forward-yukawa-matrix-pipeline"]
+      - id: particles.flavor.19-block-quark-placeholder-promotion
+        title: "Block silent promotion of cloned or fallback quark Yukawa placeholders"
+        status: completed
+        owner_lane: local_code
+        depends_on:
+          [
+            "particles.flavor.02-build-forward-yukawa-matrix-pipeline",
+            "particles.flavor.17-upgrade-flavor-observable-to-persistent-spectral-triple"
+          ]
+      - id: particles.flavor.23-derive-quark-sector-descent-artifact
+        title: "Derive the odd projector-resolved quark sector-descent artifact Xi_q"
+        status: completed
+        owner_lane: local_code
+        depends_on:
+          [
+            "particles.flavor.20-derive-overlap-edge-transport-cocycle-artifact",
+            "particles.flavor.18-add-shared-budget-closure-certificates"
+          ]
+      - id: particles.flavor.24-add-quark-descent-witness-guards
+        title: "Add projector-action, no-entrywise-amplitude, nonclone, neutrality, and noncentrality guards for quark descent"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.23-derive-quark-sector-descent-artifact"]
+      - id: particles.flavor.27-split-quark-odd-response-law-boundary
+        title: "Split the odd quark response law into its own artifact boundary upstream of sector descent"
+        status: completed
+        owner_lane: local_code
+        depends_on:
+          [
+            "particles.flavor.23-derive-quark-sector-descent-artifact",
+            "particles.flavor.22-universalize-charged-scalarization-law-metadata-and-guards"
+          ]
+      - id: particles.flavor.28-add-degenerate-splitter-fallback-guard
+        title: "Add a guard that demotes theorem status when the odd quark splitter falls back to a degenerate placeholder"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.27-split-quark-odd-response-law-boundary"]
+      - id: particles.flavor.31-add-charged-dirac-odd-deformation-form-artifact
+        title: "Add the charged odd deformation-form boundary upstream of the quark odd response law"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.27-split-quark-odd-response-law-boundary"]
+      - id: particles.flavor.32-add-odd-response-normalization-and-zero-scalar-guards
+        title: "Add guards against hidden normalization and premature zero-odd-scalar corollary promotion in the quark response law"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.31-add-charged-dirac-odd-deformation-form-artifact"]
+      - id: particles.flavor.43-certify-core-no-go-for-light-quark-pure-b-selector
+        title: "Certify that no nonzero light-quark pure-B source selector is available at recovered-core tier"
+        status: completed
+        owner_lane: local_docs
+        depends_on: ["particles.flavor.32-add-odd-response-normalization-and-zero-scalar-guards"]
+      - id: particles.flavor.44-open-d12-light-quark-isospin-selector-branch
+        title: "Open the D12 light-quark isospin-breaking selector / overlap-defect scalar branch"
+        status: in_progress
+        owner_lane: pro_paper
+        depends_on: ["particles.flavor.43-certify-core-no-go-for-light-quark-pure-b-selector"]
+      - id: particles.flavor.45-add-d12-light-quark-selector-law-shell
+        title: "Add the D12 light-quark isospin selector-law shell beneath the builder-facing pure-B payload pair"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.44-open-d12-light-quark-isospin-selector-branch"]
+      - id: particles.flavor.46-record-d12-quark-mass-branch-and-ckm-residual
+        title: "Record the strongest current D12 quark mass candidate together with the matrix-valued CKM/CP residual generator"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.45-add-d12-light-quark-selector-law-shell"]
+      - id: particles.flavor.47-scalarize-d12-even-quark-transport
+        title: "Reduce the D12 even quark transport residual to the single centered scalar eta_Q_centered"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.46-record-d12-quark-mass-branch-and-ckm-residual"]
+      - id: particles.flavor.48-record-gauge-fixed-d12-physical-invariant-shell
+        title: "Record the gauge-fixed D12 physical invariant shell for the same-label left-transport generator"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.47-scalarize-d12-even-quark-transport"]
+      - id: particles.flavor.49-build-scalarized-d12-quark-continuation-bundle
+        title: "Assemble the two-scalar D12 quark mass branch and physical-invariant CKM shell into one diagnostic continuation bundle"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.48-record-gauge-fixed-d12-physical-invariant-shell"]
+      - id: particles.flavor.50-record-same-family-d12-selector-value-law
+        title: "Record the same-family D12 selector/value-law specialization Delta_ud_overlap = t1/5 and eta_Q_centered = -((1-x2^2)/27) t1"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.49-build-scalarized-d12-quark-continuation-bundle"]
+  - id: stage-5
+    title: "Close the neutrino sector"
+    status: active
+    success_rule: "Forward neutrino outputs reproduce the relevant scale and splitting structure without PMNS import."
+    tasks:
+      - id: papers.compact.e.32-derive-neutrino-masses-from-screen-capacity-as-a-theorem
+        title: "Derive neutrino masses from screen capacity as a theorem"
+        status: in_progress
+        owner_lane: pro_paper
+        depends_on: ["papers.compact.e.29-derive-the-yukawa-excitation-dictionary"]
+      - id: particles.e.32b-close-neutrino-splittings-and-mixing
+        title: "Close neutrino splittings and mixing"
+        status: in_progress
+        owner_lane: pro_neutrino
+        depends_on: ["papers.compact.e.32-derive-neutrino-masses-from-screen-capacity-as-a-theorem"]
+      - id: particles.neutrino.01-derive-capacity-sector-anchor
+        title: "Build the neutrino capacity-sector anchor artifact"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["papers.compact.e.32-derive-neutrino-masses-from-screen-capacity-as-a-theorem"]
+      - id: particles.neutrino.02-add-family-response-tensor-artifact
+        title: "Add the neutrino family-response tensor artifact boundary"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.neutrino.01-derive-capacity-sector-anchor"]
+      - id: particles.neutrino.03-build-forward-majorana-pipeline
+        title: "Build the blind forward Majorana-matrix pipeline"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.neutrino.02-add-family-response-tensor-artifact"]
+      - id: particles.neutrino.04-build-splittings-and-ordering-surface
+        title: "Build the blind splittings and ordering surface"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.neutrino.03-build-forward-majorana-pipeline"]
+      - id: particles.neutrino.05-add-no-import-guards
+        title: "Add PMNS and oscillation no-import guards"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.neutrino.04-build-splittings-and-ordering-surface"]
+      - id: particles.neutrino.06-add-majorana-lift-boundary
+        title: "Add an explicit Majorana-lift artifact boundary fed by the sector response object"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.neutrino.02-add-family-response-tensor-artifact", "particles.flavor.10-derive-sector-transport-pushforward-artifact"]
+      - id: particles.neutrino.07-thread-sector-response-into-majorana-builder
+        title: "Thread the sector-response object and Majorana lift into the forward neutrino matrix builder"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.neutrino.06-add-majorana-lift-boundary"]
+      - id: particles.neutrino.08-build-majorana-phase-envelope-artifact
+        title: "Build the residual Majorana phase-envelope honesty-check artifact"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.neutrino.07-thread-sector-response-into-majorana-builder"]
+      - id: particles.neutrino.09-add-majorana-selector-and-envelope-guards
+        title: "Add zero-phase, selector, and phase-envelope promotion guards"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.neutrino.08-build-majorana-phase-envelope-artifact"]
+      - id: particles.neutrino.10-close-canonical-majorana-selector
+        title: "Close the canonical selector point on the current isotropic Majorana branch"
+        status: completed
+        owner_lane: pro_neutrino
+        depends_on: ["particles.neutrino.08-build-majorana-phase-envelope-artifact"]
+      - id: particles.neutrino.11-derive-majorana-phase-pullback-metric
+        title: "Derive the Majorana phase pullback metric needed to close the selector law"
+        status: completed
+        owner_lane: pro_neutrino
+        depends_on: ["particles.neutrino.10-close-canonical-majorana-selector"]
+      - id: particles.neutrino.12-add-selector-point-vs-law-gates
+        title: "Add explicit selector-point versus selector-law promotion gates"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.neutrino.10-close-canonical-majorana-selector"]
+      - id: particles.neutrino.13-add-pullback-action-and-metric-guards
+        title: "Add HS-distortion, finite-difference, and selector-law guards for the pullback-metric route"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.neutrino.11-derive-majorana-phase-pullback-metric"]
+      - id: particles.neutrino.14-close-oph-only-ambient-metric-choice
+        title: "Close the OPH-only ambient metric / deformation bilinear form for the Majorana selector law"
+        status: in_progress
+        owner_lane: pro_neutrino
+        depends_on: ["particles.neutrino.11-derive-majorana-phase-pullback-metric"]
+      - id: particles.neutrino.15-derive-majorana-deformation-bilinear-form-artifact
+        title: "Derive the OPH-only deformation-bilinear-form artifact for the Majorana selector law"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.neutrino.11-derive-majorana-phase-pullback-metric"]
+      - id: particles.neutrino.16-add-oph-only-ambient-metric-guards
+        title: "Add isotropic-rigidity and OPH-only promotion guards for the deformation-form route"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.neutrino.15-derive-majorana-deformation-bilinear-form-artifact"]
+      - id: particles.neutrino.17-add-overlap-defect-hessian-artifact
+        title: "Add the upstream overlap-defect Hessian artifact boundary for the OPH-only Majorana route"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.neutrino.15-derive-majorana-deformation-bilinear-form-artifact"]
+      - id: particles.neutrino.18-add-overlap-defect-hessian-guards
+        title: "Add guards that tie the overlap-defect Hessian to the deformation-form class and forbid Frobenius primitivization"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.neutrino.17-add-overlap-defect-hessian-artifact"]
+      - id: particles.neutrino.19-add-overlap-defect-action-germ-artifact
+        title: "Add the local quadratic overlap-defect action-germ artifact upstream of the exact scalar evaluator"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.neutrino.17-add-overlap-defect-hessian-artifact"]
+      - id: particles.neutrino.20-add-action-germ-scale-gates
+        title: "Add guards that keep the local action germ from silently promoting to an exact scaled evaluator"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.neutrino.19-add-overlap-defect-action-germ-artifact"]
+      - id: particles.neutrino.21-add-quadraticity-polarization-sublemma-surface
+        title: "Add the selector-centered quadraticity / polarization sublemma surface beneath the exact scalar evaluator"
+        status: completed
+        owner_lane: local_code
+        depends_on:
+          [
+            "particles.neutrino.19-add-overlap-defect-action-germ-artifact",
+            "particles.neutrino.17-add-overlap-defect-hessian-artifact"
+          ]
+      - id: particles.neutrino.22-add-bundle-descent-candidate-fields
+        title: "Add the selector-centered unitary bundle-descent candidate and the smaller phase-cocycle-triviality clause"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.neutrino.21-add-quadraticity-polarization-sublemma-surface"]
+      - id: particles.neutrino.23-reduce-phase-cocycle-route-to-overlap-nonvanishing
+        title: "Reduce the phase-cocycle route to the overlap-nonvanishing certificate on realized same-label refinement arrows"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.neutrino.22-add-bundle-descent-candidate-fields"]
+      - id: particles.neutrino.24-close-same-label-overlap-nonvanishing-certificate
+        title: "Close the same-label overlap-nonvanishing certificate needed to normalize the edge lifts"
+        status: in_progress
+        owner_lane: pro_neutrino
+        depends_on: ["particles.neutrino.23-reduce-phase-cocycle-route-to-overlap-nonvanishing"]
+      - id: particles.neutrino.25-add-overlap-nonvanishing-witness-hint
+        title: "Record the current local witness hint for overlap nonvanishing from the exported flavor gap/defect fields"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.neutrino.23-reduce-phase-cocycle-route-to-overlap-nonvanishing"]
+      - id: particles.neutrino.26-add-intrinsic-exact-eta-map
+        title: "Add the exact intrinsic neutrino eta-chain artifact that closes the principal-branch selector and depressed-cubic spectrum once eta is given"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.neutrino.25-add-overlap-nonvanishing-witness-hint"]
+      - id: particles.neutrino.27-add-intrinsic-mixing-law-validation
+        title: "Add the corrected intrinsic neutrino mixing-law validation, including the centroid-gap invariant and collective-mode deformation law"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.neutrino.26-add-intrinsic-exact-eta-map"]
+      - id: particles.neutrino.28-add-same-label-scalar-certificate
+        title: "Compress the proof-facing same-label pullback data to the scalar certificate actually consumed by the intrinsic eta-chain"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.neutrino.27-add-intrinsic-mixing-law-validation"]
+      - id: particles.neutrino.29-build-intrinsic-mass-eigenstate-bundle-from-scalar-certificate
+        title: "Build the exact intrinsic neutrino mass-eigenstate bundle from the same-label scalar certificate"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.neutrino.28-add-same-label-scalar-certificate"]
+      - id: particles.neutrino.30-record-exact-blocker-audit
+        title: "Record the exact neutrino blocker audit: isotropic no-go, live same-label scalar certificate, and shared charged-lepton left basis"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.neutrino.29-build-intrinsic-mass-eigenstate-bundle-from-scalar-certificate"]
+  - id: stage-6
+    title: "Hadron branch (deferred, execution-bound)"
+    status: deferred
+    note: "Deferred from the active exact-spectrum closure program because honest progress from the current state requires real production unquenched execution and systematics, not more local theorem work."
+    success_rule: "Simulation-dependent stable-channel hadron pipeline with executed production dump plus declared continuum, volume, chiral, and statistics budgets on the seeded 2+1 QED-off branch."
+    tasks:
+      - id: papers.compact.e.33-close-the-nonperturbative-qcd-hadron-branch
+        title: "Close the nonperturbative QCD hadron branch with executed unquenching and declared systematics"
+        status: deferred
+        owner_lane: pro_hadron
+        depends_on: ["papers.compact.e.31-derive-quark-textures-ckm-mixing-and-cp-from-overlap-defects"]
+      - id: particles.e.33a-unquench-hadron-branch-and-publish-systematics
+        title: "Unquench hadron branch and publish systematics"
+        status: deferred
+        owner_lane: local_hpc
+        depends_on: ["papers.compact.e.33-close-the-nonperturbative-qcd-hadron-branch"]
+      - id: particles.hadron.06-classify-runtime-receipt-as-execution-systematics-contract
+        title: "Classify the hadron runtime receipt as the final execution-and-systematics contract"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.hadron.03-add-hadron-systematics-dashboard"]
+      - id: particles.hadron.02-add-manifest-driven-debug-sweep
+        title: "Add a manifest-driven hadron debug sweep under /particles"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.hadron.01-sandbox-reference-hadron-runner"]
+      - id: particles.hadron.03-add-hadron-systematics-dashboard
+        title: "Add hadron systematics reporting and dashboard surfaces"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.hadron.02-add-manifest-driven-debug-sweep"]
+      - id: particles.hadron.04-add-baryon-and-rho-scaffolding
+        title: "Add sandbox scaffolding for full proton contractions and rho scattering"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.hadron.02-add-manifest-driven-debug-sweep"]
+      - id: particles.hadron.05-guard-demo-lane-from-promotion
+        title: "Add a guard that keeps the current hadron demo lane from silent promotion"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.hadron.03-add-hadron-systematics-dashboard"]
+      - id: particles.hadron.06-run-first-manifest-debug-sweep
+        title: "Run the first manifest-driven hadron debug sweep"
+        status: completed
+        owner_lane: local_sim
+        depends_on: ["particles.hadron.02-add-manifest-driven-debug-sweep"]
+      - id: particles.hadron.07-record-surrogate-execution-bridge-status
+        title: "Record the surrogate HMC/RHMC execution bridge explicitly so the remaining hadron blocker is production runtime/systematics rather than theorem-shell ambiguity"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.hadron.06-classify-runtime-receipt-as-execution-systematics-contract"]
+      - id: particles.hadron.08-record-production-geometry-and-backend-dump-frontier
+        title: "Record the production geometry summary and reduce the live hadron residual to the backend correlator dump boundary"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.hadron.07-record-surrogate-execution-bridge-status"]
+      - id: particles.hadron.09-refresh-execution-bound-audit-and-systematics-surfaces
+        title: "Refresh the hadron audit, receipt, evaluator, and status surfaces so they consistently point at the production backend dump frontier"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.hadron.08-record-production-geometry-and-backend-dump-frontier"]
+      - id: particles.hadron.10-implement-production-backend-dump-runner-and-writeback
+        title: "Implement the production backend dump runner, receipt fill-in, cfg/source writeback, and closure validator path for pi_iso and N_iso"
+        status: ready
+        owner_lane: local_hpc
+        depends_on: ["particles.hadron.09-refresh-execution-bound-audit-and-systematics-surfaces"]
+      - id: particles.hadron.11-validate-production-dump-and-publish-stable-channel-systematics
+        title: "Validate the production backend dump and publish stable-channel statistical and continuum/volume/chiral systematics"
+        status: pending
+        owner_lane: local_hpc
+        depends_on: ["particles.hadron.10-implement-production-backend-dump-runner-and-writeback"]
+  - id: stage-7
+    title: "Integrated release gate"
+    status: pending
+    success_rule: "Every in-scope non-hadron sector is inside one frozen forward ledger; no in-scope claimed sector remains continuation or open."
+    tasks:
+      - id: particles.release.01-full-zoo-ledger-and-blind-validation
+        title: "Freeze the full-zoo ledger and run blind validation"
+        status: pending
+        owner_lane: release
+        depends_on:
+          [
+            "papers.compact.e.28-make-the-higgs-top-critical-surface-fully-rigorous",
+            "papers.compact.e.30-replace-koide-assisted-lepton-fitting-with-a-theorem",
+            "papers.compact.e.31-derive-quark-textures-ckm-mixing-and-cp-from-overlap-defects",
+            "particles.e.32b-close-neutrino-splittings-and-mixing"
+          ]
+parallelizable_lanes:
+  - lane: pro_paper
+    note: "Paper/derivation tasks can run in parallel only if target spans are disjoint."
+  - lane: pro_neutrino
+    note: "Can run after the flavor dictionary stabilizes."
+  - lane: pro_hadron
+    note: "Can overlap with neutrino work once quark-sector dependencies are fixed."
+  - lane: local_code
+    note: "Best immediate acceleration lane; no browser bottleneck."
+  - lane: local_sim
+    note: "Quantum toy work and hadron sandbox runs can progress in /particles without touching canonical code."
+  - lane: ibm_runtime
+    note: "Keep this narrow: connectivity, backend screening, and later small toy probes only."

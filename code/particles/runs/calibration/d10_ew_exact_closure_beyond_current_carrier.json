@@ -1,0 +1,71 @@
+{
+  "artifact": "oph_d10_ew_exact_closure_beyond_current_carrier",
+  "completion_kind": "selected_current_carrier_plus_source_normalized_hypercharge_readout",
+  "derived_readout_compensator": {
+    "equivalent_formulas": [
+      "alphaY_mz / alphaY_star_selected",
+      "1 / (1 + sigma_selected - eta_selected)"
+    ],
+    "formula": "1 / (1 + tau_Y_selected)",
+    "kind": "derived_not_free",
+    "symbol": "chi_Y_EW",
+    "value": 1.0463468910153835
+  },
+  "exact_forward_map": {
+    "MW_pole": "v_inherited * sqrt(pi * alpha2_star_selected)",
+    "MZ_pole": "v_inherited * sqrt(pi * (alphaY_star_selected + alpha2_star_selected))",
+    "alpha_em_eff_inv": "(alphaY_readout_exact + alpha2_readout_exact) / (alphaY_readout_exact * alpha2_readout_exact)",
+    "sin2w_eff": "alphaY_readout_exact / (alphaY_readout_exact + alpha2_readout_exact)"
+  },
+  "exact_outputs": {
+    "MW_pole": 80.38629169244275,
+    "MZ_pole": 91.18290444674243,
+    "alpha_em_eff_inv": 128.30576920234816,
+    "sin2w_eff": 0.23073542347506168,
+    "v_report": 246.76711732749683
+  },
+  "exact_readout_couplings": {
+    "alpha2_readout_exact": 0.03377843630219015,
+    "alphaY_readout_exact": 0.010131601067241624
+  },
+  "exactness_surface_kind": "split_mass_neutral_readout",
+  "extra_invariant_required": false,
+  "generated_utc": "2026-03-29T06:39:01Z",
+  "minimal_carrier_enlargement_required": false,
+  "minimality_certificate": {
+    "one_derived_hypercharge_compensator_suffices": true,
+    "remaining_nonexact_outputs_under_old_readout": [
+      "alpha_em_eff_inv",
+      "sin2w_eff"
+    ],
+    "remaining_outputs_factor_through_single_neutral_scalar": true,
+    "selected_carrier_already_closed": true
+  },
+  "notes": [
+    "The selected carrier point remains the transported mass source for W and Z.",
+    "The neutral readout closes by restoring the source-normalized hypercharge leg through a derived compensator rather than a new free invariant.",
+    "This closes split exactness on the existing carrier without enlarging the carrier or fitting reference observables."
+  ],
+  "object_id": "EWTransportExactClosureBeyondCurrentCarrier_D10",
+  "population_evaluator_artifact": "oph_d10_ew_population_evaluator",
+  "proof_status": "closed_on_existing_selected_carrier_via_source_normalized_hypercharge_readout",
+  "selected_population_point": {
+    "eta_EW": 0.02214700087196129,
+    "sigma_EW": -0.02214700087196129,
+    "tau_2": 0.0,
+    "tau_Y": -0.04429400174392258
+  },
+  "source_slots": {
+    "alpha2_mz": 0.03377843630219015,
+    "alphaY_mz": 0.010131601067241624,
+    "v_inherited": 246.76711732749683
+  },
+  "source_transport_pair_artifact": "oph_d10_ew_source_transport_pair",
+  "source_transport_readout_artifact": "oph_d10_ew_source_transport_readout",
+  "status": "closed",
+  "stronger_residual_object": "EWSinglePostTransportTreeIdentity_D10",
+  "transported_mass_couplings": {
+    "alpha2_star_selected": 0.03377843630219015,
+    "alphaY_star_selected": 0.009682831911900495
+  }
+}

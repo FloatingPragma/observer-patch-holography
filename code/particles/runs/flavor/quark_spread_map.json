@@ -1,0 +1,166 @@
+{
+  "E_d_log": [
+    -1.5817974645909918,
+    -0.1413050708180164,
+    1.7231025354090082
+  ],
+  "E_d_log_closed_formula": "E_d_log + kappa_d_log_per_side * Q_ord",
+  "E_u_log": [
+    -2.914764357228376,
+    0.23902871445675228,
+    2.6757356427716235
+  ],
+  "E_u_log_closed_formula": "E_u_log + kappa_u_log_per_side * Q_ord",
+  "active_candidate_emission": {
+    "E_d_log": [
+      -1.5817974645909918,
+      -0.1413050708180164,
+      1.7231025354090082
+    ],
+    "E_u_log": [
+      -2.914764357228376,
+      0.23902871445675228,
+      2.6757356427716235
+    ],
+    "leading_symmetric_log_readback_d": [
+      0.20560519780026582,
+      0.8682244013631706,
+      5.60188156696718
+    ],
+    "leading_symmetric_log_readback_u": [
+      0.054216805326105066,
+      1.270015003851168,
+      14.523029672639039
+    ],
+    "sigma_d_total_log_per_side": 3.3049,
+    "sigma_u_total_log_per_side": 5.5905,
+    "status": "closed"
+  },
+  "artifact": "oph_family_excitation_spread_map",
+  "coefficient_recovery": {
+    "a_q": "(gamma21_q + gamma32_q)/2",
+    "b_q": "((1 + x2)*gamma32_q - (1 - x2)*gamma21_q) / (2*(1 - x2^2))"
+  },
+  "delta_gap_pair_d": {
+    "gamma21_log_per_side": "-(1 - x2^2) * kappa_d_log_per_side",
+    "gamma32_log_per_side": "+(1 - x2^2) * kappa_d_log_per_side"
+  },
+  "delta_gap_pair_u": {
+    "gamma21_log_per_side": "-(1 - x2^2) * kappa_u_log_per_side",
+    "gamma32_log_per_side": "+(1 - x2^2) * kappa_u_log_per_side"
+  },
+  "diagnostic_sigma_witness_pair": {
+    "E_d_log": [
+      -1.5817974645909918,
+      -0.14130507081801635,
+      1.7231025354090082
+    ],
+    "E_u_log": [
+      -2.914764357228376,
+      0.23902871445675222,
+      2.6757356427716235
+    ],
+    "leading_symmetric_log_readback_d": [
+      0.20560519780026582,
+      0.8682244013631706,
+      5.60188156696718
+    ],
+    "leading_symmetric_log_readback_u": [
+      0.054216805326105066,
+      1.270015003851168,
+      14.523029672639039
+    ],
+    "sigma_d_total_log_per_side": 3.3049,
+    "sigma_u_total_log_per_side": 5.5905
+  },
+  "even_profile_rays": {
+    "formula_kind": "centered_trace_zero_ordered_three_point_rays",
+    "v_d": [
+      -0.4786218840482289,
+      -0.042756231903542136,
+      0.5213781159517711
+    ],
+    "v_u": [
+      -0.5213781159517711,
+      0.042756231903542136,
+      0.4786218840482289
+    ]
+  },
+  "gap_pair_d": {
+    "gamma21_log_per_side": 1.4404923937729754,
+    "gamma32_log_per_side": 1.8644076062270245
+  },
+  "gap_pair_u": {
+    "gamma21_log_per_side": 3.1537930716851283,
+    "gamma32_log_per_side": 2.4367069283148712
+  },
+  "gap_to_E_formula": {
+    "e1": "-(2*gamma21_q + gamma32_q)/3",
+    "e2": "(gamma21_q - gamma32_q)/3",
+    "e3": "(gamma21_q + 2*gamma32_q)/3"
+  },
+  "generated_utc": "2026-03-28T16:00:23Z",
+  "input_kind": "ordered_branch_generator_spectral_package",
+  "kappa_d_log_per_side": null,
+  "kappa_u_log_per_side": null,
+  "linear_coefficient_readout": {
+    "a_d": 1.65245,
+    "a_u": 2.79525,
+    "b_d": -0.8787379869628015,
+    "b_u": -2.4659410762474976,
+    "endpoint_span_formula": "sigma_q = E_q_log[2] - E_q_log[0]",
+    "sigma_d_formula": "2 * a_d",
+    "sigma_u_formula": "2 * a_u"
+  },
+  "mean_surface_preserved_under_quadratic_residual": true,
+  "mean_surface_readback": {
+    "eta_ud_readback": 1.1427999999999998,
+    "mean_denominator": 2.026389321714338,
+    "mean_surface_log_ratio_d": -2.02604010010697,
+    "mean_surface_log_ratio_u": -0.16884908152236133,
+    "sigma_seed_ud_readback": 4.447699999999999,
+    "skew_denominator": 0.6153378885446816
+  },
+  "metadata": {
+    "note": "The spread map now prefers the inverse affine readback from the closed current-family mean surface. When that mean surface is present, the spread-emitter lane is theorem-fed rather than diagnostic-seeded. The remaining exactness audit is isolated to the unique trace-zero quadratic residual basis Q_ord on the same ordered three-point surface; otherwise it falls back to the older reference-free candidate route.",
+    "odd_response_artifact": "oph_quark_odd_response_law",
+    "sector_mean_split_artifact": "oph_quark_sector_mean_split"
+  },
+  "normalized_coordinate_x2": -0.5175863354681689,
+  "ordered_family_eigenvalues": [
+    -0.5186397082680319,
+    -0.21627404800912356,
+    0.7349137562771554
+  ],
+  "ordered_spectral_gaps": {
+    "delta21": 0.3023656602589083,
+    "delta32": 0.9511878042862789
+  },
+  "parameterization_kind": "sector_total_spread_primary",
+  "predictive_promotion_allowed": true,
+  "proof_status": "exact_reduced_family_on_simple_ordered_three_point_spectrum",
+  "quadratic_residual_basis_formula": "Q_ord = ctr(X_ord^2)",
+  "quadratic_residual_basis_vector": [
+    0.2440347951122107,
+    -0.4880695902244214,
+    0.2440347951122107
+  ],
+  "reopen_larger_family_under_quadratic_residual": false,
+  "residual_exactness_missing_object": "oph_current_family_quadratic_surface_obstruction_certificate",
+  "rho_ord": 1.2942849363777058,
+  "rho_ord_reciprocal": 0.7726273959416415,
+  "shared_norm_origin": "oph_quark_sector_mean_split",
+  "shared_norm_value": 0.9231656602589082,
+  "sigma_d_total_log_per_side": 3.3049,
+  "sigma_formula": {
+    "eta_ud_readback": "(1 - x2^2 - x2^2 / (1 + rho_ord)) * (ell_u - ell_d)",
+    "sigma_d_total_log_per_side": "sigma_seed_ud_readback - eta_ud_readback",
+    "sigma_seed_ud_readback": "-(1 + rho_ord - x2^2) * (ell_u + ell_d)",
+    "sigma_u_total_log_per_side": "sigma_seed_ud_readback + eta_ud_readback"
+  },
+  "sigma_source_kind": "theorem_grade_mean_surface_readback",
+  "sigma_u_total_log_per_side": 5.5905,
+  "smallest_constructive_missing_object": null,
+  "spread_emitter_status": "closed",
+  "spread_preserved_under_quadratic_residual": true
+}

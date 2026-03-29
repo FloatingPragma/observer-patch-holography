@@ -1,0 +1,496 @@
+{
+  "active_builder_smallest_missing_object": "source_readback_u_log_per_side_and_source_readback_d_log_per_side",
+  "artifact": "oph_quark_current_family_exactness_audit",
+  "b_mode_amplitude_blindness_audit": {
+    "B_ord": [
+      -1.0,
+      0.0,
+      1.0
+    ],
+    "Q_ord": [
+      0.2440347951122107,
+      -0.4880695902244214,
+      0.2440347951122107
+    ],
+    "dot_B_ord_Q_ord": 0.0,
+    "mean_annihilator_is_identically_zero_on_B_mode": true,
+    "quadratic_annihilator_is_identically_zero_on_B_mode": true,
+    "sum_B_ord": 0.0
+  },
+  "b_mode_odd_projector_evaluator": {
+    "J_B_formula": "dot(v, B_ord) / B_ord_norm_sq",
+    "artifact": "oph_quark_diagonal_B_odd_source_scalar_evaluator",
+    "predictive_J_B_source_law_status": "missing",
+    "proof_status": "pure_B_odd_projection_formula_closed_source_values_open",
+    "smallest_constructive_missing_object": "source_readback_u_log_per_side_and_source_readback_d_log_per_side"
+  },
+  "broader_honest_frontier": "oph_light_quark_isospin_overlap_defect_selector_law",
+  "centered_ray_fit": {
+    "current_centered_log_d": [
+      -3.1662395259357763,
+      -0.28212206377195725,
+      3.448361589707733
+    ],
+    "current_centered_log_u": [
+      -5.830538285468568,
+      0.4781689177105508,
+      5.352369367758016
+    ],
+    "residual_d": [
+      -0.09430060416582853,
+      0.0119808612489809,
+      0.08231974291684763
+    ],
+    "residual_norm_d": 0.12574849922048173,
+    "residual_norm_u": 0.07521596575869428,
+    "residual_u": [
+      -0.058198845524938925,
+      0.012117328157275509,
+      0.046081517367663416
+    ],
+    "target_centered_log_d": [
+      -3.260540130101605,
+      -0.27014120252297635,
+      3.5306813326245807
+    ],
+    "target_centered_log_u": [
+      -5.888737130993507,
+      0.4902862458678263,
+      5.39845088512568
+    ]
+  },
+  "current_candidate": {
+    "geom_mean_d": 0.12147092940968814,
+    "geom_mean_u": 0.7790453689075855,
+    "singular_values_d": [
+      0.005121438948009003,
+      0.0916111424053981,
+      3.82011787992005
+    ],
+    "singular_values_u": [
+      0.002287663517422587,
+      1.2566920642121726,
+      164.4626302858475
+    ]
+  },
+  "current_family_forward_values_gev": {
+    "b": 3.82011787992005,
+    "c": 1.2566920642121726,
+    "d": 0.005121438948009003,
+    "s": 0.0916111424053981,
+    "t": 164.4626302858475,
+    "u": 0.002287663517422587
+  },
+  "current_family_reference_values_gev": {
+    "b": 4.183,
+    "c": 1.273,
+    "d": 0.0047,
+    "s": 0.0935,
+    "t": 172.3523553288312,
+    "u": 0.00216
+  },
+  "d12_isospin_selector_law": {
+    "artifact": "oph_light_quark_isospin_overlap_defect_selector_law",
+    "next_single_residual_object": "Delta_ud_overlap",
+    "odd_budget_neutrality_formula": "beta_u_diag_B_source + beta_d_diag_B_source = 0",
+    "proof_status": "selector_law_closed_value_open",
+    "scope": "D12_continuation_only",
+    "selector_equivalence_formula": "Delta_ud_overlap = beta_u_diag_B_source - beta_d_diag_B_source",
+    "selector_scalar_name": "Delta_ud_overlap",
+    "status": "closed_smaller_primitive"
+  },
+  "d12_mass_branch_and_ckm_residual": {
+    "artifact": "oph_quark_d12_mass_branch_and_ckm_residual",
+    "best_honest_one_scalar_mass_point_on_same_family": {
+      "Delta_ud_overlap": 0.14039999999999997,
+      "Lambda_ud_B_transport": 0.14580774897025428,
+      "abs_V_CKM": [
+        [
+          0.9999712911878589,
+          0.007577330096328723,
+          2.9473680306303022e-05
+        ],
+        [
+          0.007577318932071505,
+          0.9999704710842362,
+          0.001281092258113659
+        ],
+        [
+          3.221627276221438e-05,
+          0.0012810262227594864,
+          0.9999991789666279
+        ]
+      ],
+      "jarlskog": 2.83631216685383e-10,
+      "m_d": [
+        0.004689079672221174,
+        0.09160813868480612,
+        4.172490842613352
+      ],
+      "m_u": [
+        0.0021713923963664877,
+        1.2566921764926138,
+        173.2690628822735
+      ],
+      "rms_log_error_vs_reference_targets": 0.01042141570737968,
+      "tau_d_log_per_side": 0.04411865683386919,
+      "tau_u_log_per_side": 0.026081343166130807
+    },
+    "candidate_mass_branch_from_t1_over_5": {
+      "Delta_ud_overlap": 0.13391235422942327,
+      "Lambda_ud_B_transport": 0.13907022029558064,
+      "abs_V_CKM": [
+        [
+          0.9999711211934649,
+          0.007599730282401467,
+          2.9643208226183302e-05
+        ],
+        [
+          0.00759971902545621,
+          0.9999702929711931,
+          0.0012874182854748012
+        ],
+        [
+          3.240091299227056e-05,
+          0.0012873518331854138,
+          0.9999991708373758
+        ]
+      ],
+      "jarlskog": 2.8755912280868794e-10,
+      "m_d": [
+        0.004708229528844486,
+        0.09160827127333702,
+        4.155513989984608
+      ],
+      "m_u": [
+        0.002176632492997213,
+        1.2566921714397312,
+        172.85192993931355
+      ],
+      "rms_log_error_vs_reference_targets": 0.01078398352557181,
+      "tau_d_log_per_side": 0.04208000856170554,
+      "tau_u_log_per_side": 0.024876168553006103
+    },
+    "ckm_cp_residual_generator_off_diagonal_abs": {
+      "12": 0.22551569384902148,
+      "13": 0.0034726338259466164,
+      "23": 0.04378977328572517
+    },
+    "status": "diagnostic_only_d12_continuation",
+    "theorem_tier": "D12_continuation_only"
+  },
+  "d12_one_scalar_specialization": {
+    "artifact": "oph_quark_d12_one_scalar_specialization",
+    "diagnostic_mass_point": {
+      "m_d_GeV": [
+        0.004708229528844486,
+        0.09160827127333702,
+        4.155513989984608
+      ],
+      "m_u_GeV": [
+        0.002176632492997213,
+        1.2566921714397312,
+        172.85192993931355
+      ],
+      "rms_log_error_vs_reference_targets": 0.01078398352557181
+    },
+    "mass_side_object_count_reduction": {
+      "broader_mass_side_value_laws": [
+        "Delta_ud_overlap_value_law",
+        "eta_Q_centered_value_law"
+      ],
+      "same_family_diagnostic_specialization": [
+        "t1_value_law"
+      ]
+    },
+    "next_single_residual_object": "t1_value_law",
+    "proof_status": "diagnostic_one_scalar_specialization_not_OPH_derived",
+    "scalar_name": "t1",
+    "specialization_formulas": {
+      "Delta_ud_overlap": "t1 / 5",
+      "Lambda_ud_B_transport": "sigma_u_total_log_per_side * sigma_d_total_log_per_side * (t1 / 5) / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))",
+      "eta_Q_centered": "-((1 - x2^2) / 27) * t1",
+      "kappa_Q": "-t1 / 54",
+      "quadratic_even_log_formula_direct": "((-((1 - x2^2) / 27) * t1) / 6) * (1, -2, 1)",
+      "tau_d_log_per_side": "sigma_u_total_log_per_side * (t1 / 5) / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))",
+      "tau_u_log_per_side": "sigma_d_total_log_per_side * (t1 / 5) / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))"
+    },
+    "specialization_values": {
+      "Delta_ud_overlap": 0.13391235422942327,
+      "Lambda_ud_B_transport": 0.13907022029558064,
+      "eta_Q_centered": -0.018155152181872827,
+      "kappa_Q": -0.012399292058279932,
+      "t1": 0.6695617711471163,
+      "tau_d_log_per_side": 0.04208000856170554,
+      "tau_u_log_per_side": 0.024876168553006103,
+      "x2": -0.5175863354681689
+    }
+  },
+  "d12_overlap_transport_law": {
+    "artifact": "oph_quark_d12_overlap_transport_law",
+    "candidate_branch_from_t1_over_5": {
+      "Delta_ud_overlap": 0.13391235422942327,
+      "Lambda_ud_B_transport": 0.13907022029558064,
+      "lambda_minus_sigma_d_tau_d": 0.0,
+      "lambda_minus_sigma_u_tau_u": 2.7755575615628914e-17,
+      "tau_d_log_per_side": 0.04208000856170554,
+      "tau_ratio_minus_sigma_ratio": 4.440892098500626e-16,
+      "tau_sum_half_delta_identity": 0.0,
+      "tau_u_log_per_side": 0.024876168553006103
+    },
+    "next_single_residual_object": "Delta_ud_overlap",
+    "status": "closed_smaller_primitive",
+    "theorem_tier": "D12_continuation_only",
+    "transport_formulas": {
+      "Lambda_from_tau_d": "sigma_d_total_log_per_side * tau_d_log_per_side",
+      "Lambda_from_tau_u": "sigma_u_total_log_per_side * tau_u_log_per_side",
+      "Lambda_ud_B_transport": "sigma_u_total_log_per_side * sigma_d_total_log_per_side * Delta_ud_overlap / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))",
+      "tau_d_log_per_side": "sigma_u_total_log_per_side * Delta_ud_overlap / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))",
+      "tau_d_over_tau_u": "sigma_u_total_log_per_side / sigma_d_total_log_per_side",
+      "tau_u_log_per_side": "sigma_d_total_log_per_side * Delta_ud_overlap / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))",
+      "tau_u_plus_tau_d": "Delta_ud_overlap / 2"
+    }
+  },
+  "d12_quadratic_even_transport_scalar": {
+    "artifact": "oph_quark_quadratic_even_transport_scalar",
+    "next_single_residual_object": "eta_Q_centered_value_law",
+    "proof_status": "scalarized_transport_shape_closed_value_open",
+    "quadratic_even_log_formula_direct": "(eta_Q_centered / 6) * (1, -2, 1)",
+    "same_t1_candidate": {
+      "eta_Q_centered": -0.018155152181872827,
+      "eta_Q_centered_formula": "2 * (1 - x2^2) * (-t1 / 54) = -((1 - x2^2) / 27) * t1",
+      "kappa_Q": -0.012399292058279932,
+      "kappa_Q_formula": "-t1 / 54",
+      "t1": 0.6695617711471163
+    }
+  },
+  "d12_same_label_physical_invariant_bundle": {
+    "artifact": "oph_generation_bundle_same_label_physical_invariant_bundle",
+    "next_single_residual_object": "same_label_left_transport_physical_invariant_value_laws",
+    "physical_invariants": {
+      "phi_cp": -2.6946364809227097,
+      "theta_12": 0.2256228751541542,
+      "theta_13": 0.003473054182841341,
+      "theta_23": 0.04380491981435288
+    },
+    "proof_status": "diagnostic_invariants_written_from_target_ckm_not_OPH_derived"
+  },
+  "d12_scalarized_continuation_bundle": {
+    "artifact": "oph_quark_scalarized_continuation_bundle",
+    "honest_remaining_value_laws": [
+      "Delta_ud_overlap_value_law",
+      "eta_Q_centered_value_law",
+      "quark_exact_mean_split_value_law_or_carrier_repair",
+      "same_label_left_transport_physical_invariant_value_laws"
+    ],
+    "mass_side": {
+      "B_ord": [
+        -1.0,
+        0.0,
+        1.0
+      ],
+      "Q_ord": [
+        0.2440347951122107,
+        -0.4880695902244214,
+        0.2440347951122107
+      ],
+      "Q_ord_formula": "((1 - x2^2) / 3) * (1, -2, 1)",
+      "best_exact_mean_specialization": {
+        "Delta_ud_overlap": 0.14049991320632976,
+        "Lambda_ud_B_transport": 0.1459115105066314,
+        "alpha_d": 1.008463281557513,
+        "alpha_u": 1.0007763698011345,
+        "eta_Q_centered": -0.018104730181494357,
+        "kappa_Q": -0.01236485571191432,
+        "m_d_GeV": [
+          0.004700052692857295,
+          0.09350445861546268,
+          4.182753646232867
+        ],
+        "m_u_GeV": [
+          0.0021599234039183404,
+          1.272939334772138,
+          172.36668155105923
+        ],
+        "rms_log_mass_error": 5.2130513964914564e-05,
+        "tau_d_log_per_side": 0.04415005310497486,
+        "tau_u_log_per_side": 0.026099903498190035
+      },
+      "best_theorem_mean_surface": {
+        "Delta_ud_overlap": 0.14049998075678738,
+        "Lambda_ud_B_transport": 0.14591158065891177,
+        "eta_Q_centered": -0.0181047533864264,
+        "kappa_Q": -0.012364871560017752,
+        "m_d_GeV": [
+          0.004660608415841266,
+          0.09271974673707856,
+          4.147651052785027
+        ],
+        "m_u_GeV": [
+          0.002158247734638124,
+          1.2719518494594315,
+          172.23296806851607
+        ],
+        "rms_log_mass_error": 0.005984702111797554,
+        "tau_d_log_per_side": 0.04415007433172313,
+        "tau_u_log_per_side": 0.026099916046670564
+      },
+      "eta_Q_projector_formula_from_centered_residual": "v1 - 2*v2 + v3",
+      "kappa_Q_formula_from_eta_Q": "eta_Q_centered / (2 * (1 - x2^2))",
+      "odd_transport_formula": "(sigma_u_total_log_per_side * sigma_d_total_log_per_side / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))) * Delta_ud_overlap",
+      "odd_transport_scalar_name": "Lambda_ud_B_transport",
+      "quadratic_even_log_formula_direct": "(eta_Q_centered / 6) * (1, -2, 1)",
+      "quadratic_scalar_name": "eta_Q_centered",
+      "same_t1_candidate": {
+        "Delta_ud_overlap": 0.13391235422942327,
+        "Delta_ud_overlap_formula": "t1 / 5",
+        "eta_Q_centered": -0.018155152181872827,
+        "eta_Q_centered_formula": "2 * (1 - x2^2) * kappa_Q = -((1 - x2^2) / 27) * t1",
+        "exact_mean_rms": 0.0027768355284593363,
+        "kappa_Q_formula": "-t1 / 54",
+        "t1": 0.6695617711471163,
+        "theorem_mean_rms": 0.006597329560808134
+      },
+      "selector_scalar_name": "Delta_ud_overlap",
+      "tau_d_formula": "(Delta_ud_overlap / 2) * sigma_u_total_log_per_side / (sigma_u_total_log_per_side + sigma_d_total_log_per_side)",
+      "tau_u_formula": "(Delta_ud_overlap / 2) * sigma_d_total_log_per_side / (sigma_u_total_log_per_side + sigma_d_total_log_per_side)",
+      "x2": -0.5175863354681689
+    },
+    "mixing_side": {
+      "full_matrix_artifact": "oph_generation_bundle_same_label_physical_invariant_bundle",
+      "gauge_fixed_physical_decomposition": {
+        "chi_diagonal_imag": [
+          -0.006095179275809967,
+          -0.7300387679202932,
+          -0.3260719358139316
+        ],
+        "phi_cp": -2.6946364809227097,
+        "theta_12": 0.2256228751541542,
+        "theta_13": 0.003473054182841341,
+        "theta_23": 0.04380491981435288
+      },
+      "physical_invariant_formula": "K_gf = i diag(chi_1,chi_2,chi_3) + theta_12(E12-E21) + theta_23(E23-E32) + theta_13(e^{i phi_cp} E13 - e^{-i phi_cp} E31)",
+      "relative_branch_rigidity": 0.00023461092057035416,
+      "same_label_generator_formula": "V_CKM = U_u^dagger @ exp(K_CKM) @ U_d"
+    },
+    "proof_status": "scalarized_bundle_not_OPH_derived"
+  },
+  "diagnostic_fit_promotion_allowed": false,
+  "diagnostic_fit_source": "particle_reference_values.json",
+  "diagnostic_only_tau_best_fit": {
+    "tau_d_best_fit": 0.08831017354133808,
+    "tau_u_best_fit": 0.05214018144630117
+  },
+  "diagonal_gap_shift_audit": {
+    "B_ord": [
+      -1.0,
+      0.0,
+      1.0
+    ],
+    "residual_d_after_best_diagonal_shift": [
+      0.0,
+      1.734723475976807e-18,
+      0.0
+    ],
+    "residual_u_after_best_diagonal_shift": [
+      0.0,
+      1.734723475976807e-18,
+      0.0
+    ],
+    "tau_d_best_fit": 0.08831017354133808,
+    "tau_u_best_fit": 0.05214018144630117
+  },
+  "generated_utc": "2026-03-28T16:00:23Z",
+  "mean_split_audit": {
+    "current_log_shift_d": -2.0281337286007872,
+    "current_log_shift_u": -0.16973941452778685,
+    "eta_ud": 1.1427999999999998,
+    "exact_two_scalar_mean_fit": {
+      "A_exact": 0.24604508012720572,
+      "B_exact": 0.8097404243402008,
+      "exact_fit_singular_values_d": [
+        0.005164783127805616,
+        0.09238647329738038,
+        3.8524486131207025
+      ],
+      "exact_fit_singular_values_u": [
+        0.0022894395902926714,
+        1.2576677219801524,
+        164.59031410541652
+      ],
+      "formula": "log(g_u/g_ch) = -(A_exact * sigma_seed_ud - B_exact * eta_ud), log(g_d/g_ch) = -(A_exact * sigma_seed_ud + B_exact * eta_ud)",
+      "g_d_exact_fit": 0.1224989720863351,
+      "g_u_exact_fit": 0.7796501962057191
+    },
+    "shared_norm_value": 0.9231656602589082,
+    "sigma_seed_ud": 4.447699999999999,
+    "target_log_shift_d": -2.019706059817754,
+    "target_log_shift_u": -0.16896334594579154
+  },
+  "notes": [
+    "The current local quark rays are already close to the measured centered log profiles.",
+    "The compact current-family sector-mean law is closed on the emitted spread package.",
+    "The spread emitter is now read back from the closed mean surface rather than seeded diagnostically.",
+    "The unique quadratic residual basis Q_ord isolates the only same-surface skew mode left on the ordered three-point family.",
+    "Projecting the residual onto Q_ord only slightly reduces the mismatch, and the leftover is exactly a diagonal gap-shift pattern [-tau, 0, +tau].",
+    "That means the family shell and pure-B source-readback law are already known; on the active builder path the missing predictive step is the emitted pure-B payload pair, not another larger quark family.",
+    "The March 28, 2026 final-wave consolidation also establishes a tier boundary: a nonzero light-quark pure-B selector is not available at recovered-core tier in the uploaded corpus.",
+    "The broader honest repair frontier is therefore a D12 light-quark isospin-breaking selector / overlap-defect scalar, even though the active local builder still waits first on the pure-B payload pair.",
+    "The D12 selector-law shell is now explicit on disk: one continuation-level overlap-defect scalar `Delta_ud_overlap` would fix the light-sector pure-B payload pair by odd-budget neutrality, but that selector value is still open and not recovered-core promotable.",
+    "The D12 overlap transport law is now explicit too: once the spread totals are fixed, the odd payload pair collapses to one scalar `Delta_ud_overlap` with tau_u = sigma_d * Delta / (2 (sigma_u + sigma_d)), tau_d = sigma_u * Delta / (2 (sigma_u + sigma_d)), and Lambda = sigma_u sigma_d * Delta / (2 (sigma_u + sigma_d)).",
+    "A stronger D12 continuation mass-side candidate is now explicit too: the one-scalar point Delta_ud_overlap = t1/5 gives (u,c,t) = (0.002176632493, 1.256692171439, 172.851929939314) GeV and (d,s,b) = (0.004708229529, 0.091608271273, 4.155513989985) GeV with RMS log-mass error about 1.08e-02, but CKM/CP still needs a matrix-valued left-unitary transport generator K_CKM rather than another scalar tweak.",
+    "The quadratic even transport is scalarized too: once the ordered-family carrier is fixed, the even residual collapses to one centered scalar eta_Q_centered with direct log formula (eta_Q_centered / 6) * (1,-2,1).",
+    "The strongest current D12 continuation bundle reduces the mass side to two value laws, Delta_ud_overlap and eta_Q_centered, while the mixing side reduces to the gauge-fixed physical invariants of the same-label left-transport generator.",
+    "There is also a stricter same-family diagnostic specialization: on the current candidate branch both mass-side continuation scalars collapse to one scalar t1, with Delta_ud_overlap = t1/5 and eta_Q_centered = -((1 - x2^2) / 27) * t1. That specialization is explicit on disk, but t1 itself is still not OPH-derived."
+  ],
+  "predictive_J_B_source_law_status": "missing",
+  "quadratic_residual_audit": {
+    "Q_ord": [
+      0.2440347951122107,
+      -0.4880695902244214,
+      0.2440347951122107
+    ],
+    "kappa_d_best_fit": -0.024547444645080074,
+    "kappa_u_best_fit": -0.024827050076411818,
+    "mean_surface_preserved": true,
+    "residual_d_after_best_quadratic_fit": [
+      -0.08831017354133808,
+      1.734723475976807e-18,
+      0.08831017354133808
+    ],
+    "residual_norm_d_after_best_quadratic_fit": 0.12488944511768196,
+    "residual_norm_u_after_best_quadratic_fit": 0.07373735174595314,
+    "residual_u_after_best_quadratic_fit": [
+      -0.05214018144630117,
+      1.734723475976807e-18,
+      0.05214018144630117
+    ],
+    "spread_preserved": true
+  },
+  "recovered_core_no_go_basis": "March 28, 2026 final-wave consolidation against the OPH tier ledger in the uploaded corpus",
+  "recovered_core_no_go_for_nonzero_light_quark_pure_b_selector": true,
+  "reference_targets": {
+    "geom_mean_d": 0.12249897208633512,
+    "geom_mean_u": 0.7796501962057191,
+    "singular_values_d": [
+      0.0047,
+      0.0935,
+      4.183
+    ],
+    "singular_values_u": [
+      0.00216,
+      1.273,
+      172.3523553288312
+    ]
+  },
+  "scope": "current_family_only",
+  "smallest_constructive_missing_object": "source_readback_u_log_per_side_and_source_readback_d_log_per_side",
+  "smallest_exact_obstruction": "the diagonal B-mode shell is fixed, but the active quark builder still waits on the emitted tau-pair because the current mean and quadratic invariants are blind to that B-mode amplitude",
+  "source_readback_payload_kind": "pure_B_light_sector_payload_pair",
+  "spread_emitter_audit": {
+    "sigma_d_total_log_per_side": 3.3049,
+    "sigma_source_kind": "theorem_grade_mean_surface_readback",
+    "sigma_u_total_log_per_side": 5.5905,
+    "spread_emitter_status": "closed"
+  }
+}

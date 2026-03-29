@@ -1,0 +1,226 @@
+{
+  "artifact": "backend_correlator_dump.production",
+  "dry_run": false,
+  "ensembles": {
+    "qcd_2p1_seed_n0": {
+      "L": 146,
+      "T": 291,
+      "aLambda_msbar3": 0.0550900879921322,
+      "am_l": 0.0006102960868244135,
+      "am_s": 0.015092225267604455,
+      "beta": 7.321687687371745,
+      "cfgs": {
+        "qcd_2p1_seed_n0__cfg0": {
+          "sources": {
+            "src0": {
+              "N_iso_direct": null,
+              "N_iso_exchange": null,
+              "coord": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "expected_t_extent": 291,
+              "pi_iso": null
+            },
+            "src1": {
+              "N_iso_direct": null,
+              "N_iso_exchange": null,
+              "coord": [
+                73,
+                73,
+                73,
+                145
+              ],
+              "expected_t_extent": 291,
+              "pi_iso": null
+            }
+          },
+          "trajectory_stop": null
+        },
+        "qcd_2p1_seed_n0__cfg1": {
+          "sources": {
+            "src0": {
+              "N_iso_direct": null,
+              "N_iso_exchange": null,
+              "coord": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "expected_t_extent": 291,
+              "pi_iso": null
+            },
+            "src1": {
+              "N_iso_direct": null,
+              "N_iso_exchange": null,
+              "coord": [
+                73,
+                73,
+                73,
+                145
+              ],
+              "expected_t_extent": 291,
+              "pi_iso": null
+            }
+          },
+          "trajectory_stop": null
+        }
+      },
+      "ensemble_id": "qcd_2p1_seed_n0",
+      "family_index": 0
+    },
+    "qcd_2p1_seed_n1": {
+      "L": 291,
+      "T": 581,
+      "aLambda_msbar3": 0.0275450439960661,
+      "am_l": 0.00030514804341220676,
+      "am_s": 0.0075461126338022275,
+      "beta": 7.6377249048488185,
+      "cfgs": {
+        "qcd_2p1_seed_n1__cfg0": {
+          "sources": {
+            "src0": {
+              "N_iso_direct": null,
+              "N_iso_exchange": null,
+              "coord": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "expected_t_extent": 581,
+              "pi_iso": null
+            },
+            "src1": {
+              "N_iso_direct": null,
+              "N_iso_exchange": null,
+              "coord": [
+                145,
+                145,
+                145,
+                290
+              ],
+              "expected_t_extent": 581,
+              "pi_iso": null
+            }
+          },
+          "trajectory_stop": null
+        },
+        "qcd_2p1_seed_n1__cfg1": {
+          "sources": {
+            "src0": {
+              "N_iso_direct": null,
+              "N_iso_exchange": null,
+              "coord": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "expected_t_extent": 581,
+              "pi_iso": null
+            },
+            "src1": {
+              "N_iso_direct": null,
+              "N_iso_exchange": null,
+              "coord": [
+                145,
+                145,
+                145,
+                290
+              ],
+              "expected_t_extent": 581,
+              "pi_iso": null
+            }
+          },
+          "trajectory_stop": null
+        }
+      },
+      "ensemble_id": "qcd_2p1_seed_n1",
+      "family_index": 1
+    },
+    "qcd_2p1_seed_n2": {
+      "L": 581,
+      "T": 1162,
+      "aLambda_msbar3": 0.01377252199803305,
+      "am_l": 0.00015257402170610338,
+      "am_s": 0.0037730563169011137,
+      "beta": 7.953762122325891,
+      "cfgs": {
+        "qcd_2p1_seed_n2__cfg0": {
+          "sources": {
+            "src0": {
+              "N_iso_direct": null,
+              "N_iso_exchange": null,
+              "coord": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "expected_t_extent": 1162,
+              "pi_iso": null
+            },
+            "src1": {
+              "N_iso_direct": null,
+              "N_iso_exchange": null,
+              "coord": [
+                290,
+                290,
+                290,
+                581
+              ],
+              "expected_t_extent": 1162,
+              "pi_iso": null
+            }
+          },
+          "trajectory_stop": null
+        },
+        "qcd_2p1_seed_n2__cfg1": {
+          "sources": {
+            "src0": {
+              "N_iso_direct": null,
+              "N_iso_exchange": null,
+              "coord": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "expected_t_extent": 1162,
+              "pi_iso": null
+            },
+            "src1": {
+              "N_iso_direct": null,
+              "N_iso_exchange": null,
+              "coord": [
+                290,
+                290,
+                290,
+                581
+              ],
+              "expected_t_extent": 1162,
+              "pi_iso": null
+            }
+          },
+          "trajectory_stop": null
+        }
+      },
+      "ensemble_id": "qcd_2p1_seed_n2",
+      "family_index": 2
+    }
+  },
+  "generated_utc": "2026-03-28T08:20:12Z",
+  "manifest_artifact": "oph_hadron_production_backend_manifest",
+  "notes": [
+    "This is a shape/provenance skeleton only.",
+    "Replace every null array payload with real backend-emitted values before ingestion."
+  ],
+  "production_execution": true,
+  "receipt_artifact": "runtime_schedule_receipt_N_therm_and_N_sep",
+  "surrogate_execution": false,
+  "tiny_geometry_pilot": false
+}

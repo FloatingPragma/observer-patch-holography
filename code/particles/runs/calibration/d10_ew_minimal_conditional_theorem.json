@@ -1,0 +1,56 @@
+{
+  "artifact": "oph_d10_ew_minimal_conditional_promotion",
+  "basis": {
+    "alpha2_mz": 0.03377843630219015,
+    "alphaY_mz": 0.010131601067241624,
+    "beta_EW": 0.5385291530498766,
+    "eta_source": 0.022147000871961295,
+    "v_inherited_gev": 246.76711732749683
+  },
+  "conditional_principle": {
+    "name": "ColorBalancedQuadraticRepairDescent_D10",
+    "statement": "The first nonzero beyond-current-carrier D10 repair is quadratic in eta_source, with charged contraction delta_alpha2_tree = -(sqrt(N_c)/2)*alpha2_mz*eta_source^2 and neutral color-balanced uplift delta_alphaY_perp = N_c*alphaY_mz*eta_source^2."
+  },
+  "conditional_theorem": {
+    "formulas": {
+      "delta_alpha2_tree": "-(sqrt(N_c)/2) * alpha2_mz * eta_source^2",
+      "delta_alphaY_perp": "N_c * alphaY_mz * eta_source^2",
+      "delta_n_exact": "(N_c/2) * (1 - beta_EW) * eta_source^2",
+      "tau2_exact": "-(sqrt(N_c)/2) * eta_source^2"
+    },
+    "name": "minimal_conditional_d10_forward_repair_law",
+    "statement": "Assuming ColorBalancedQuadraticRepairDescent_D10, the repair law is uniquely tau2_exact = -(sqrt(N_c)/2)*eta_source^2 and delta_n_exact = (N_c/2)*(1-beta_EW)*eta_source^2."
+  },
+  "generated_utc": "2026-03-29T06:38:57Z",
+  "n_c_3_specialization": {
+    "coherent_quintet": {
+      "MW_pole_gev": 80.36921677537332,
+      "MZ_pole_gev": 91.1880067442454,
+      "alpha_em_eff_inv": 132.68832841396318,
+      "sin2w_eff": 0.223209283468742,
+      "v_report_gev": 246.76711732749683
+    },
+    "delta_alpha2_tree": -1.4348285783568165e-05,
+    "delta_alphaY_parallel": 4.303986779860482e-06,
+    "delta_alphaY_perp": 1.4908336311973958e-05,
+    "delta_alphaY_total": 1.921232309183444e-05,
+    "delta_n_exact": 0.0003395200096630409,
+    "tau2_exact": -0.00042477649513449626
+  },
+  "notes": [
+    "This artifact does not claim that the conditional principle is already proved by the present OPH corpus.",
+    "It records the sharpest current split beneath the open target-free D10 repair problem.",
+    "The remaining theorem burden is to derive the color-balanced quadratic repair principle from upstream OPH structure or replace it with a stronger target-free OPH emitter law."
+  ],
+  "realized_color_count": 3,
+  "source_artifact": "oph_d10_ew_source_transport_pair",
+  "status": "conditional_theorem_plus_unconditional_no_go",
+  "unconditional_theorem": {
+    "free_family": {
+      "delta_n_exact": "d * (1 - beta_EW) * eta_source^2",
+      "tau2_exact": "-c * eta_source^2"
+    },
+    "name": "current_corpus_underdetermination_of_forward_d10_repair_law",
+    "statement": "For arbitrary real (c,d), the source-only family tau2_exact = -c*eta_source^2 and delta_n_exact = d*(1-beta_EW)*eta_source^2 defines a coherent runtime-forward D10 repair law. Therefore the current emitted corpus does not determine a unique forward repair coefficient pair."
+  }
+}

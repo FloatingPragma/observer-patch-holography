@@ -1,0 +1,235 @@
+{
+  "E_e_log_centered": [
+    -0.518639708268032,
+    -0.21627404800912373,
+    0.7349137562771557
+  ],
+  "U_e_left": {
+    "imag": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "real": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "U_e_right": {
+    "imag": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "real": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "Y_e": {
+    "imag": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "real": [
+      [
+        0.5495880460327794,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.7436233455240957,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.9250793274014453
+      ]
+    ]
+  },
+  "Y_e_shape": {
+    "imag": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "real": [
+      [
+        0.5953298196540843,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.8055145219716485,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        2.0853021405297327
+      ]
+    ]
+  },
+  "absolute_scale_closed": false,
+  "artifact": "oph_forward_charged_leptons",
+  "basis_contract": {
+    "labels": null,
+    "orientation_preserved": false
+  },
+  "channel_norm": {
+    "beta_e_by_refinement": [
+      {
+        "refinement": "refinement_limit_candidate",
+        "value": 0.3333333333333333
+      },
+      {
+        "refinement": "snapshot",
+        "value": 0.3333333333333333
+      }
+    ],
+    "channel_norm_closed": false,
+    "charged_budget_total_by_refinement": [
+      {
+        "refinement": "refinement_limit_candidate",
+        "value": 2.769496980776725
+      },
+      {
+        "refinement": "snapshot",
+        "value": 2.769496980776725
+      }
+    ],
+    "closure_route": "shared_charged_budget",
+    "g_e": null,
+    "g_e_by_refinement": [
+      {
+        "refinement": "refinement_limit_candidate",
+        "value": 0.9231656602589082
+      },
+      {
+        "refinement": "snapshot",
+        "value": 0.9231656602589082
+      }
+    ],
+    "g_e_candidate": 0.9231656602589082,
+    "proof_status": "shared_budget_only",
+    "scale_scope": "shared_charged_budget",
+    "shared_budget_key": "charged_dirac_budget",
+    "shared_budget_share_e": 0.3333333333333333,
+    "shared_scale_binding_artifact": "lepton_shared_absolute_scale_binding",
+    "shared_scale_binding_candidate_status": "partial_common_log_restore_only",
+    "shared_scale_binding_g_e": 0.9231656602589082,
+    "shared_scale_binding_g_e_effective_candidate": 0.6822819838027987,
+    "shared_scale_binding_gamma_min_common": 0.30236566025890826,
+    "shared_scale_binding_mu_common_log": -0.38231224060567365,
+    "shared_scale_binding_status": "current_family_writeback_complete"
+  },
+  "closure_state": "support_extension_missing",
+  "eta_e_rigid_fallback": -0.809613811928119,
+  "eta_e_split_log_per_side": 2.220446049250313e-16,
+  "generated_utc": "2026-03-29T06:39:02Z",
+  "hierarchy_mode": "two_scalar_ordered_gap_pair_candidate",
+  "hierarchy_split_missing": false,
+  "labels": null,
+  "metadata": {
+    "active_hierarchy_blocker": "eta_source_support_extension_log_per_side",
+    "channel_norm_artifact": "oph_lepton_channel_norm",
+    "closure_route": "shared_charged_budget",
+    "input_artifact": "oph_lepton_log_spectrum_readout",
+    "note": "Current-family charged-lepton hierarchy on the ordered three-point family. The upstream ordered package is explicit; the remaining charged gap sits in the source-side value law on top of that package.",
+    "shape_contract": "two_scalar_ordered_gap_pair_plus_common_shift",
+    "shared_scale_binding_artifact": "lepton_shared_absolute_scale_binding"
+  },
+  "shape_closed": true,
+  "shape_log_shift_e": 0.0,
+  "shape_shift_missing": false,
+  "singular_values_abs": [
+    0.5495880460327794,
+    0.7436233455240957,
+    1.9250793274014453
+  ],
+  "singular_values_shape": [
+    0.5953298196540843,
+    0.8055145219716485,
+    2.0853021405297327
+  ],
+  "source_mode": "ordered_ratio_readout",
+  "theorem_status": "support_extension_missing"
+}

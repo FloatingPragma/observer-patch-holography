@@ -1,0 +1,107 @@
+{
+  "artifact": "oph_quark_scalarized_continuation_bundle",
+  "generated_utc": "2026-03-28T15:42:53Z",
+  "honest_remaining_value_laws": [
+    "Delta_ud_overlap_value_law",
+    "eta_Q_centered_value_law",
+    "quark_exact_mean_split_value_law_or_carrier_repair",
+    "same_label_left_transport_physical_invariant_value_laws"
+  ],
+  "mass_side": {
+    "B_ord": [
+      -1.0,
+      0.0,
+      1.0
+    ],
+    "Q_ord": [
+      0.2440347951122107,
+      -0.4880695902244214,
+      0.2440347951122107
+    ],
+    "Q_ord_formula": "((1 - x2^2) / 3) * (1, -2, 1)",
+    "best_exact_mean_specialization": {
+      "Delta_ud_overlap": 0.14049991320632976,
+      "Lambda_ud_B_transport": 0.1459115105066314,
+      "alpha_d": 1.008463281557513,
+      "alpha_u": 1.0007763698011345,
+      "eta_Q_centered": -0.018104730181494357,
+      "kappa_Q": -0.01236485571191432,
+      "m_d_GeV": [
+        0.004700052692857295,
+        0.09350445861546268,
+        4.182753646232867
+      ],
+      "m_u_GeV": [
+        0.0021599234039183404,
+        1.272939334772138,
+        172.36668155105923
+      ],
+      "rms_log_mass_error": 5.2130513964914564e-05,
+      "tau_d_log_per_side": 0.04415005310497486,
+      "tau_u_log_per_side": 0.026099903498190035
+    },
+    "best_theorem_mean_surface": {
+      "Delta_ud_overlap": 0.14049998075678738,
+      "Lambda_ud_B_transport": 0.14591158065891177,
+      "eta_Q_centered": -0.0181047533864264,
+      "kappa_Q": -0.012364871560017752,
+      "m_d_GeV": [
+        0.004660608415841266,
+        0.09271974673707856,
+        4.147651052785027
+      ],
+      "m_u_GeV": [
+        0.002158247734638124,
+        1.2719518494594315,
+        172.23296806851607
+      ],
+      "rms_log_mass_error": 0.005984702111797554,
+      "tau_d_log_per_side": 0.04415007433172313,
+      "tau_u_log_per_side": 0.026099916046670564
+    },
+    "eta_Q_projector_formula_from_centered_residual": "v1 - 2*v2 + v3",
+    "kappa_Q_formula_from_eta_Q": "eta_Q_centered / (2 * (1 - x2^2))",
+    "odd_transport_formula": "(sigma_u_total_log_per_side * sigma_d_total_log_per_side / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))) * Delta_ud_overlap",
+    "odd_transport_scalar_name": "Lambda_ud_B_transport",
+    "quadratic_even_log_formula_direct": "(eta_Q_centered / 6) * (1, -2, 1)",
+    "quadratic_scalar_name": "eta_Q_centered",
+    "same_t1_candidate": {
+      "Delta_ud_overlap": 0.13391235422942327,
+      "Delta_ud_overlap_formula": "t1 / 5",
+      "eta_Q_centered": -0.018155152181872827,
+      "eta_Q_centered_formula": "2 * (1 - x2^2) * kappa_Q = -((1 - x2^2) / 27) * t1",
+      "exact_mean_rms": 0.0027768355284593363,
+      "kappa_Q_formula": "-t1 / 54",
+      "t1": 0.6695617711471163,
+      "theorem_mean_rms": 0.006597329560808134
+    },
+    "selector_scalar_name": "Delta_ud_overlap",
+    "tau_d_formula": "(Delta_ud_overlap / 2) * sigma_u_total_log_per_side / (sigma_u_total_log_per_side + sigma_d_total_log_per_side)",
+    "tau_u_formula": "(Delta_ud_overlap / 2) * sigma_d_total_log_per_side / (sigma_u_total_log_per_side + sigma_d_total_log_per_side)",
+    "x2": -0.5175863354681689
+  },
+  "mixing_side": {
+    "full_matrix_artifact": "oph_generation_bundle_same_label_physical_invariant_bundle",
+    "gauge_fixed_physical_decomposition": {
+      "chi_diagonal_imag": [
+        -0.006095179275809967,
+        -0.7300387679202932,
+        -0.3260719358139316
+      ],
+      "phi_cp": -2.6946364809227097,
+      "theta_12": 0.2256228751541542,
+      "theta_13": 0.003473054182841341,
+      "theta_23": 0.04380491981435288
+    },
+    "physical_invariant_formula": "K_gf = i diag(chi_1,chi_2,chi_3) + theta_12(E12-E21) + theta_23(E23-E32) + theta_13(e^{i phi_cp} E13 - e^{-i phi_cp} E31)",
+    "relative_branch_rigidity": 0.00023461092057035416,
+    "same_label_generator_formula": "V_CKM = U_u^dagger @ exp(K_CKM) @ U_d"
+  },
+  "notes": [
+    "The D12 quark mass branch reduces to two scalar laws, Delta_ud_overlap and eta_Q_centered, once the current ordered-family carrier is fixed.",
+    "The CKM/CP side reduces to gauge-fixed physical invariants, but their values are still compare-derived rather than OPH-emitted.",
+    "This bundle is diagnostic only and does not alter the live public quark rows."
+  ],
+  "proof_status": "scalarized_bundle_not_OPH_derived",
+  "scope": "D12_continuation_only"
+}

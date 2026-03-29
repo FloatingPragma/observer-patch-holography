@@ -1,0 +1,106 @@
+{
+  "artifact": "oph_d10_ew_observable_family",
+  "charged_transport": {
+    "kind": "none_for_running_family",
+    "status": "not_applied"
+  },
+  "coherence_witness": {
+    "mixed_sources_detected": true,
+    "running_mass_ratio_residual": -2.7755575615628914e-17,
+    "stage3_mass_ratio_residual": -0.007307137258840274
+  },
+  "core_source": {
+    "alpha1_mz": 0.016886001778736042,
+    "alpha2_mz": 0.03377843630219015,
+    "alpha3_mz": 0.11833722886741345,
+    "alpha_u": 0.04112498041477454,
+    "mu_u": 2.4736039148648396e+16,
+    "mz_run": 91.65246028560671,
+    "p": 1.63094,
+    "v": 246.76711732749683
+  },
+  "generated_utc": "2026-03-29T06:39:01Z",
+  "generator_keys_unrounded": [
+    "p",
+    "mu_u",
+    "alpha_u",
+    "mz_run",
+    "v",
+    "alpha1_mz",
+    "alpha2_mz",
+    "alpha3_mz"
+  ],
+  "generator_values_unrounded": {
+    "alpha1_mz": 0.016886001778736042,
+    "alpha2_mz": 0.03377843630219015,
+    "alpha3_mz": 0.11833722886741345,
+    "alpha_u": 0.04112498041477454,
+    "mu_u": 2.4736039148648396e+16,
+    "mz_run": 91.65246028560671,
+    "p": 1.63094,
+    "v": 246.76711732749683
+  },
+  "identity_residuals": {
+    "alpha1_fixed_point_residual": 0.0,
+    "alpha2_fixed_point_residual": 0.0,
+    "alpha3_fixed_point_residual": 0.0,
+    "alpha_em_from_alpha1_alpha2": 0.0,
+    "mw_from_v_alpha2": 0.0,
+    "mz_fixed_point_residual": 0.0,
+    "sin2_from_alpha1_alpha2": 0.0,
+    "v_fixed_point_residual": 0.0
+  },
+  "mixed_family_residuals": {
+    "mz_stage3_surrogate_residual": 0.0,
+    "sin2_from_mass_ratio_running_minus_reported": -2.7755575615628914e-17,
+    "sin2_from_mass_ratio_stage3_minus_reported": -0.007307137258840274
+  },
+  "mixed_reporting_surface": {
+    "alpha_em_row_current_source": "d10_running_tree",
+    "exact_missing_transport_object_for_pole_family": "EWTransportKernel_D10",
+    "family_purity_violation": true,
+    "mixed_scheme": true,
+    "sin2w_row_current_source": "d10_running_tree",
+    "stage3_surrogate_kind": "delta_rho_stage3_z_only",
+    "w_row_current_source": "d10_running_tree",
+    "z_row_current_source": "stage3_pole_surrogate"
+  },
+  "neutral_transport": {
+    "kind": "none_for_running_family",
+    "status": "not_applied"
+  },
+  "notes": [
+    "This artifact freezes the exact single-P running electroweak family that the current D10 code already realizes algebraically.",
+    "It should be treated separately from any pole/effective reporting surface.",
+    "The current W/Z mismatch is a mixed-family reporting defect rather than a single-P precision defect: W, alpha_em, and sin^2(theta_W) already live on the running family while Z is still reported from a Stage-3 Z-only surrogate.",
+    "If a pole/effective family is required, the remaining exact missing object is one common EWTransportKernel_D10 rather than more digits of P."
+  ],
+  "observable_family_id": "d10_running_tree",
+  "p": 1.63094,
+  "promotion_gate": {
+    "common_origin_certified": true,
+    "descendant_targets_only": [
+      "m_w_run",
+      "m_z_run",
+      "alpha_em_inv_mz",
+      "sin2w_mz",
+      "v"
+    ],
+    "exact_missing_transport_object_for_pole_family": "EWTransportKernel_D10",
+    "family_purity_readout_criterion": "all_running_or_all_common_pole_effective",
+    "mixed_scheme": false,
+    "smaller_exact_missing_clause": "EWTransportReadoutCoherence_D10"
+  },
+  "reported_outputs": {
+    "alpha_em_inv_mz": 128.30576920234813,
+    "m_w_run": 80.38629169244275,
+    "m_z_run": 91.65246028560671,
+    "sin2w_mz": 0.23073542347506173,
+    "v": 246.76711732749683
+  },
+  "stage3_surrogate_transport": {
+    "delta_rho_stage3": 0.009498860966469166,
+    "kind": "delta_rho_stage3_z_only",
+    "status": "outside_common_family"
+  }
+}

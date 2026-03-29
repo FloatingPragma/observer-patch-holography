@@ -1,0 +1,62 @@
+{
+  "artifact": "oph_quark_d12_one_scalar_specialization",
+  "consistency_checks": {
+    "delta_matches_overlap_candidate": true,
+    "eta_matches_quadratic_candidate": true,
+    "kappa_matches_quadratic_candidate": true,
+    "transport_identity_tau_ratio": true,
+    "transport_identity_tau_sum_half_delta": true
+  },
+  "diagnostic_mass_point": {
+    "m_d_GeV": [
+      0.004708229528844486,
+      0.09160827127333702,
+      4.155513989984608
+    ],
+    "m_u_GeV": [
+      0.002176632492997213,
+      1.2566921714397312,
+      172.85192993931355
+    ],
+    "rms_log_error_vs_reference_targets": 0.01078398352557181
+  },
+  "generated_utc": "2026-03-28T16:00:23Z",
+  "mass_side_object_count_reduction": {
+    "broader_mass_side_value_laws": [
+      "Delta_ud_overlap_value_law",
+      "eta_Q_centered_value_law"
+    ],
+    "same_family_diagnostic_specialization": [
+      "t1_value_law"
+    ]
+  },
+  "next_single_residual_object": "t1_value_law",
+  "notes": [
+    "This artifact does not claim that t1 is already OPH-emitted.",
+    "It records that the strongest same-family D12 diagnostic specialization collapses both mass-side continuation scalars to one parameter t1.",
+    "CKM/CP still requires a matrix-valued same-label left-transport value law even on this one-scalar specialization branch."
+  ],
+  "proof_status": "diagnostic_one_scalar_specialization_not_OPH_derived",
+  "public_promotion_allowed": false,
+  "scalar_name": "t1",
+  "scope": "D12_continuation_only",
+  "specialization_formulas": {
+    "Delta_ud_overlap": "t1 / 5",
+    "Lambda_ud_B_transport": "sigma_u_total_log_per_side * sigma_d_total_log_per_side * (t1 / 5) / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))",
+    "eta_Q_centered": "-((1 - x2^2) / 27) * t1",
+    "kappa_Q": "-t1 / 54",
+    "quadratic_even_log_formula_direct": "((-((1 - x2^2) / 27) * t1) / 6) * (1, -2, 1)",
+    "tau_d_log_per_side": "sigma_u_total_log_per_side * (t1 / 5) / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))",
+    "tau_u_log_per_side": "sigma_d_total_log_per_side * (t1 / 5) / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))"
+  },
+  "specialization_values": {
+    "Delta_ud_overlap": 0.13391235422942327,
+    "Lambda_ud_B_transport": 0.13907022029558064,
+    "eta_Q_centered": -0.018155152181872827,
+    "kappa_Q": -0.012399292058279932,
+    "t1": 0.6695617711471163,
+    "tau_d_log_per_side": 0.04208000856170554,
+    "tau_u_log_per_side": 0.024876168553006103,
+    "x2": -0.5175863354681689
+  }
+}

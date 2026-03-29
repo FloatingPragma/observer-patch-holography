@@ -1,0 +1,89 @@
+{
+  "artifact": "oph_d10_ew_transport_trace_evaluator",
+  "current_family_anchor": {
+    "compact_emitted_quintet": {
+      "MW_pole": 80.38629169244275,
+      "MZ_pole": 91.18290444674243,
+      "alpha_em_eff_inv": 132.88025754903566,
+      "sin2w_eff": 0.22279220809210554,
+      "v_report": 246.76711732749683
+    },
+    "compact_point": {
+      "alpha2_star": 0.03377843630219015,
+      "alphaY_star": 0.009682831911900495,
+      "constraint": "sigma_EW = -eta_EW",
+      "eta_EW": 0.022147000871961295,
+      "sigma_EW": -0.022147000871961295,
+      "sigma_EW_formula": "-eta_EW",
+      "tau_2": 0.0,
+      "tau_Y": -0.04429400174392259
+    },
+    "readout_artifact": "oph_d10_ew_source_transport_readout",
+    "source_pair_artifact": "oph_d10_ew_source_transport_pair"
+  },
+  "diagnostic_only": true,
+  "family_source_id": "d10_running_tree",
+  "fixed_eta_slice": {
+    "alpha2_0": 0.03377843630219015,
+    "alphaY_0": 0.010131601067241624,
+    "cos2_thetaW0": 0.5385291530498766,
+    "eta_EW": 0.022147000871961295,
+    "sin2_thetaW0": 0.23073542347506168,
+    "v_report": 246.76711732749683
+  },
+  "generated_utc": "2026-03-27T15:01:07Z",
+  "insufficiency_certificate": {
+    "forbidden_live_inverse_witnesses": [
+      "sigma_from_mW",
+      "sigma_from_mZ",
+      "sigma_from_alpha_em_inv",
+      "sigma_from_sin2_thetaW"
+    ],
+    "running_alpha_conflicts_with_near_coherent_mass_pair": true,
+    "running_weak_angle_outside_slice_image": true,
+    "sigma_not_selected_by_current_family": true,
+    "tree_identity_holds_for_all_sigma": true
+  },
+  "notes": [
+    "The fixed-eta one-sigma family is coherent but underdetermined as a predictive D10 closure branch.",
+    "The running weak-angle target lies outside the fixed-eta one-sigma slice image, with alpha_em^-1 also drifting away from the near-coherent W/Z sigma.",
+    "This artifact is diagnostic only: the carrier-level selector and split exact neutral closure are already closed, and the live D10 gap is now the stronger unsplit post-transport tree identity.",
+    "No inverse witness from W, Z, alpha_em^-1, or sin^2(theta_W) is permitted here."
+  ],
+  "object_id": "EWTransportTraceEvaluator_D10",
+  "origin_kernel_id": "EWTransportKernel_D10",
+  "quintet_from_sigma": {
+    "alpha2_star": "alpha2_0 * (1 + sigma_EW + eta_EW)",
+    "alphaY_star": "alphaY_0 * (1 + sigma_EW - eta_EW)",
+    "alpha_em_inv": "(alphaY_star + alpha2_star) / (alphaY_star * alpha2_star)",
+    "mW": "v_report * sqrt(pi * alpha2_star)",
+    "mZ": "v_report * sqrt(pi * (alphaY_star + alpha2_star))",
+    "sin2_thetaW": "alphaY_star / (alphaY_star + alpha2_star)"
+  },
+  "scheme_id": "freeze_once",
+  "shared_scalar_image_from_sigma": {
+    "delta_alpha": "((1/(alphaY_0*(1 + sigma_EW - eta_EW)) + 1/(alpha2_0*(1 + sigma_EW + eta_EW))) / (1/alphaY_0 + 1/alpha2_0)) - 1",
+    "delta_kappa": "((1 + sigma_EW - eta_EW) / (1 + sigma_EW + cos2_thetaW0 * eta_EW)) - 1",
+    "delta_rW": "sqrt(1 + sigma_EW + eta_EW) - sqrt(1 + sigma_EW + cos2_thetaW0 * eta_EW)",
+    "delta_rho": "sqrt(1 + sigma_EW + cos2_thetaW0 * eta_EW) - 1"
+  },
+  "sigma_mode": {
+    "formula_from_W_entry": "Pi_WW - eta_EW",
+    "formula_from_source_pair": "0.5 * (tau_Y + tau_2)",
+    "formula_from_transport_trace": "0.5 * (Pi_AA + Pi_ZZ)",
+    "physical_domain": "sigma_EW > eta_EW - 1",
+    "role": "common_trace_mode",
+    "symbol": "sigma_EW"
+  },
+  "smaller_live_object": "EWSinglePostTransportTreeIdentity_D10",
+  "smallest_constructive_missing_object": "EWSinglePostTransportTreeIdentity_D10",
+  "status": "open",
+  "transport_entries_from_sigma": {
+    "Pi_AA": "sigma_EW - cos2_thetaW0 * eta_EW",
+    "Pi_AZ": "2 * sin(theta_W0) * cos(theta_W0) * eta_EW",
+    "Pi_WW": "sigma_EW + eta_EW",
+    "Pi_ZZ": "sigma_EW + cos2_thetaW0 * eta_EW",
+    "tau_2": "sigma_EW + eta_EW",
+    "tau_Y": "sigma_EW - eta_EW"
+  }
+}

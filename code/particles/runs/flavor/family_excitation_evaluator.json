@@ -1,0 +1,127 @@
+{
+  "artifact": "oph_family_excitation_evaluator",
+  "centering_mode": "trace_zero",
+  "diagnostic_forward_consequence": {
+    "singular_values_d": [
+      0.03884097,
+      0.69477844,
+      28.971755
+    ],
+    "singular_values_u": [
+      0.00270846,
+      1.48784982,
+      194.714124
+    ]
+  },
+  "diagnostic_required_gap_ratio_d": 0.7726273959416415,
+  "diagnostic_required_gap_ratio_u": 1.2942849363777058,
+  "diagnostic_witness_E_d_log": [
+    -1.5817974645909918,
+    -0.14130507081801635,
+    1.7231025354090082
+  ],
+  "diagnostic_witness_E_u_log": [
+    -2.914764357228376,
+    0.23902871445675222,
+    2.6757356427716235
+  ],
+  "diagnostic_witness_coeffs_d": {
+    "linear": 1.65245,
+    "quadratic": -0.8787379869628015
+  },
+  "diagnostic_witness_coeffs_u": {
+    "linear": 2.79525,
+    "quadratic": -2.4659410762474976
+  },
+  "diagnostic_witness_gap_pair_d": {
+    "gamma21_log_per_side": 1.4404923937729754,
+    "gamma32_log_per_side": 1.8644076062270245
+  },
+  "diagnostic_witness_gap_pair_u": {
+    "gamma21_log_per_side": 3.1537930716851283,
+    "gamma32_log_per_side": 2.4367069283148712
+  },
+  "diagnostic_witness_sigma_d": 3.3049,
+  "diagnostic_witness_sigma_u": 5.5905,
+  "family_coordinate_kind": "affine_normalized_ordered_branch_coordinate",
+  "family_coordinate_x": [
+    -1.0,
+    -0.5175863354681689,
+    1.0
+  ],
+  "gap_pair_d": {
+    "gamma21_log_per_side": null,
+    "gamma32_log_per_side": null
+  },
+  "gap_pair_reduction": {
+    "coefficient_recovery": {
+      "a_q": "(gamma21_q + gamma32_q)/2",
+      "b_q": "((1 + x2)*gamma32_q - (1 - x2)*gamma21_q) / (2*(1 - x2^2))"
+    },
+    "eigenvalue_recovery": {
+      "e1": "-(2*gamma21_q + gamma32_q)/3",
+      "e2": "(gamma21_q - gamma32_q)/3",
+      "e3": "(gamma21_q + 2*gamma32_q)/3"
+    },
+    "gamma21_q": "E_q,2 - E_q,1",
+    "gamma32_q": "E_q,3 - E_q,2"
+  },
+  "gap_pair_u": {
+    "gamma21_log_per_side": null,
+    "gamma32_log_per_side": null
+  },
+  "gap_pair_value_count_required": 2,
+  "generated_utc": "2026-03-26T13:33:03Z",
+  "input_kind": "ordered_branch_generator_spectral_package",
+  "live_blocker": "quark_spread_map_missing",
+  "log_insertion_convention": "add_E_q_log_to_both_left_and_right_diagonal_logs",
+  "next_live_mover": "ordered_spectrum_to_two_spread_emitter",
+  "notes": [
+    "The smallest reduced live family is not a free three-weight projector ansatz but the exact quadratic family forced by a simple ordered three-point spectrum plus trace-zero centering.",
+    "The ordered package already fixes the canonical ratio law rho_ord, so the four-gap map reduces constructively to a two-spread emitter sigma_u and sigma_d.",
+    "Under the current factorized forward builder, actual quark mass movement now depends only on emitting those two sector-total spreads; the gap pairs, quadratic coefficients, and centered E_q_log vectors are then deterministic readback.",
+    "The diagnostic witness gap pairs and coefficients are reference-facing only; they show the hierarchy the missing spread map would generate without being promoted to theorem status."
+  ],
+  "ordered_family_eigenvalues": [
+    -0.5186397082680319,
+    -0.21627404800912356,
+    0.7349137562771554
+  ],
+  "ordered_spectral_gaps": [
+    0.3023656602589083,
+    0.9511878042862789
+  ],
+  "parameterization_kind": "sector_total_spread_primary",
+  "promotion_blocker_cleared": "quark_even_excitation_evaluator_missing",
+  "proof_status": "exact_reduced_family_on_simple_ordered_three_point_spectrum",
+  "quadratic_even_family_closed": true,
+  "quadratic_family_formula": "E_q_log = ctr(a_q * X_ord + b_q * X_ord^2)",
+  "quadratic_polynomial_coeffs_d": {
+    "linear": null,
+    "quadratic": null
+  },
+  "quadratic_polynomial_coeffs_u": {
+    "linear": null,
+    "quadratic": null
+  },
+  "ratio_law_status": "closed_from_ordered_branch_generator_spectral_package",
+  "reduced_primary_object": "oph_family_excitation_spread_map",
+  "rho_ord": 1.2942849363777058,
+  "rho_ord_reciprocal": 0.7726273959416415,
+  "shared_norm_origin": "oph_quark_sector_mean_split",
+  "shared_norm_value": 0.9231656602589082,
+  "smallest_constructive_missing_object": "oph_family_excitation_spread_map",
+  "spread_map": {
+    "gap_pair_d": {
+      "gamma21_log_per_side": "sigma_d / (1 + rho_ord)",
+      "gamma32_log_per_side": "rho_ord * sigma_d / (1 + rho_ord)"
+    },
+    "gap_pair_u": {
+      "gamma21_log_per_side": "rho_ord * sigma_u / (1 + rho_ord)",
+      "gamma32_log_per_side": "sigma_u / (1 + rho_ord)"
+    },
+    "sigma_d_total_log_per_side": null,
+    "sigma_u_total_log_per_side": null
+  },
+  "theorem_candidate": "every self-adjoint trace-zero sector-even evaluator diagonal in the ordered projector algebra on a simple three-point spectrum is quadratic in X_ord"
+}

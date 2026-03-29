@@ -1,0 +1,107 @@
+{
+  "E_e_log_centered": [
+    -0.518639708268032,
+    -0.21627404800912373,
+    0.7349137562771557
+  ],
+  "Y_e_shape": {
+    "imag": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "real": [
+      [
+        0.5953298196540843,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.8055145219716485,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        2.0853021405297327
+      ]
+    ]
+  },
+  "artifact": "oph_lepton_log_spectrum_readout",
+  "centered_shape_formula": "E_e_log_centered = [-(2*gamma21+gamma32)/3, (gamma21-gamma32)/3, (gamma21+2*gamma32)/3]",
+  "consumer_builder": "build_forward_charged_leptons.py",
+  "current_family_eigenvalues_sorted": [
+    0.102160291731968,
+    0.40452595199087626,
+    1.3557137562771555
+  ],
+  "current_mean_eigenvalue": 0.6207999999999999,
+  "diagonal_emitter_rule": "Y_e_shape = diag(exp(shape_log_shift_e + E_e_log_centered))",
+  "eta_e_rigid_fallback": -0.809613811928119,
+  "eta_e_split_log_per_side": 2.220446049250313e-16,
+  "excitation_gap_map_artifact": "oph_charged_lepton_excitation_gap_map",
+  "excitation_gap_map_status": "current_support_value_law_closed_same_support_exhausted",
+  "expected_closure_state": "absolute_scale_pending",
+  "gap_pair_e": {
+    "gamma21_log_per_side": 0.30236566025890826,
+    "gamma32_log_per_side": 0.9511878042862794
+  },
+  "gap_pair_formula_rigid_fallback": {
+    "eta_e_rigid_fallback": "(((1 + x2) - rho_ord * (1 - x2)) / (1 + rho_ord)) * sigma_e_total_log_per_side",
+    "gamma21_log_per_side": "((1 + x2) * sigma_e_total_log_per_side - eta_e_rigid_fallback) / 2",
+    "gamma32_log_per_side": "((1 - x2) * sigma_e_total_log_per_side + eta_e_rigid_fallback) / 2"
+  },
+  "gap_pair_formula_two_scalar": {
+    "gamma21_log_per_side": "((1 + x2) * sigma_e_total_log_per_side - eta_e_split_log_per_side) / 2",
+    "gamma32_log_per_side": "((1 - x2) * sigma_e_total_log_per_side + eta_e_split_log_per_side) / 2"
+  },
+  "generated_utc": "2026-03-29T06:39:02Z",
+  "hierarchy_mode": "two_scalar_ordered_gap_pair_candidate",
+  "metadata": {
+    "note": "Current-family charged-lepton hierarchy on the ordered three-point family. The upstream ordered package is explicit; the remaining charged gap sits in the source-side value law on top of that package."
+  },
+  "ordered_family_coordinate": [
+    -1.0,
+    -0.5175863354681689,
+    1.0
+  ],
+  "parent_artifact": "charged_common_refinement_mean_eigenvalue_certificate",
+  "predictive_promotion_allowed": false,
+  "proof_status": "current_family_ordered_package_readback_candidate",
+  "quadratic_basis_vector": [
+    0.2440347951122107,
+    -0.4880695902244214,
+    0.2440347951122107
+  ],
+  "quadratic_coeff_recovery": {
+    "a_e": "(gamma21_log_per_side + gamma32_log_per_side) / 2",
+    "b_e": "((1 + x2) * gamma32_log_per_side - (1 - x2) * gamma21_log_per_side) / (2 * (1 - x2^2))"
+  },
+  "rho_ord": 1.2942849363777058,
+  "shape_closed": true,
+  "shape_log_shift_e": 0.0,
+  "shape_singular_values": [
+    0.5953298196540843,
+    0.8055145219716485,
+    2.0853021405297327
+  ],
+  "sigma_e_total_log_per_side": 1.2535534645451876,
+  "smallest_constructive_missing_object": "eta_source_support_extension_log_per_side",
+  "source_ordered_package_artifact": "oph_charged_sector_local_ordered_package_source_emission",
+  "source_package_value_law_artifact": "oph_charged_sector_local_ordered_package_value_law",
+  "source_package_value_law_status": "current_support_value_law_closed_same_support_exhausted",
+  "theorem_scope": "current_family_only"
+}

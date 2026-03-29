@@ -1,0 +1,302 @@
+{
+  "actual_generator_transfer_candidate": {
+    "actual_generator_centering_rule": "K_actual_centered = K_actual - tr(K_actual)/3 * I",
+    "actual_generator_promotion_margin_if_bound_closed": "reuse_proxy_simple_spectrum_and_riesz_margin",
+    "actual_proxy_centered_residual_kind": "compression_descendant_commutator",
+    "bridge_strategy": "control the compression-descendant commutator after the central split",
+    "candidate_id": "centered_branch_generator_commutator_transfer",
+    "central_split_rule": "K_actual = K_centered + c*I with the central term removed before comparison",
+    "descended_commutator_control_mode": "exact_zero_or_uniform_quadratic",
+    "desired_outcome": "commutator vanishes exactly or is uniformly quadratic-small on realized refinement arrows",
+    "first_order_residual_after_central_split": "vanishes_if_commutator_zero",
+    "quadratic_factorization_claim": "all surviving centered P->P corrections factor through P->Q->P",
+    "quadratic_residual_bound_candidate": "||[C_actual_centered,C_proxy_centered]|| <= O(defect^2)",
+    "smaller_exact_missing_clause": "compression_descendant_commutator_vanishes_or_is_uniformly_quadratic_small_after_central_split",
+    "status": "candidate_only",
+    "transfer_if_closed_effect": "proxy_defect_vs_gap_estimate_lifts_to_actual_generator"
+  },
+  "artifact": "oph_intrinsic_generation_bundle_branch_generator",
+  "boundary_action_kind": "compact_unitary_groupoid_or_central_extension",
+  "branch_generator_kind": "compressed_hermitian_descendant_proxy",
+  "canonicality_certificate": {
+    "canonicality_mode": "up_to_refinement_conjugacy_and_objectwise_u1_projectivization",
+    "carrier_kind": "persistent_charged_generation_multiplicity_bundle",
+    "exact_markov_required": false,
+    "line_lift_is_readout_of": "oph_intrinsic_generation_bundle_branch_generator",
+    "realized_generation_count": 3,
+    "same_label_only": true
+  },
+  "carrier_dimension": 3,
+  "carrier_kind": "persistent_charged_generation_multiplicity_bundle",
+  "centered_compressed_branch_generator": {
+    "imag": [
+      [
+        0.0,
+        0.34099999999999997,
+        0.16399999999999998
+      ],
+      [
+        -0.34099999999999997,
+        0.0,
+        0.019
+      ],
+      [
+        -0.16399999999999998,
+        -0.019,
+        0.0
+      ]
+    ],
+    "real": [
+      [
+        0.476,
+        0.1908,
+        0.0322
+      ],
+      [
+        0.1908,
+        -0.06400000000000006,
+        0.2162
+      ],
+      [
+        0.0322,
+        0.2162,
+        -0.41200000000000003
+      ]
+    ]
+  },
+  "centering_rule": "K_gen - tr(K_gen)/3 * I",
+  "charged_block_projector_kind": "same_label_sector_block",
+  "compressed_branch_generator": {
+    "imag": [
+      [
+        0.0,
+        0.34099999999999997,
+        0.16399999999999998
+      ],
+      [
+        -0.34099999999999997,
+        0.0,
+        0.019
+      ],
+      [
+        -0.16399999999999998,
+        -0.019,
+        0.0
+      ]
+    ],
+    "real": [
+      [
+        1.0968,
+        0.1908,
+        0.0322
+      ],
+      [
+        0.1908,
+        0.5568,
+        0.2162
+      ],
+      [
+        0.0322,
+        0.2162,
+        0.20879999999999999
+      ]
+    ]
+  },
+  "current_proxy_kind": "compressed_hermitian_descendant_proxy",
+  "family_projectors_by_label": [
+    {
+      "label": "f1",
+      "projector": {
+        "imag": [
+          [
+            0.0,
+            0.3572250728146993,
+            0.1747546235092178
+          ],
+          [
+            -0.3572250728146993,
+            9.523526260877158e-19,
+            0.021159935329392796
+          ],
+          [
+            -0.1747546235092178,
+            -0.0211599353293928,
+            6.186764485295255e-19
+          ]
+        ],
+        "real": [
+          [
+            0.7289562396065165,
+            0.19197882303949565,
+            0.050736976302276984
+          ],
+          [
+            0.19197882303949565,
+            0.22561796196692704,
+            0.09900067271779545
+          ],
+          [
+            0.050736976302276984,
+            0.09900067271779545,
+            0.04542579842655656
+          ]
+        ]
+      }
+    },
+    {
+      "label": "f2",
+      "projector": {
+        "imag": [
+          [
+            0.0,
+            -0.35321711982049186,
+            -0.18211149936179793
+          ],
+          [
+            0.35321711982049186,
+            -3.920425846755476e-19,
+            -0.024887449967925846
+          ],
+          [
+            0.18211149936179793,
+            0.024887449967925853,
+            -4.190586800974711e-18
+          ]
+        ],
+        "real": [
+          [
+            0.2674049974399148,
+            -0.16488551873839408,
+            -0.10385277348419128
+          ],
+          [
+            -0.16488551873839408,
+            0.5682375777515365,
+            0.3045893625732583
+          ],
+          [
+            -0.10385277348419128,
+            0.3045893625732583,
+            0.1643574248085484
+          ]
+        ]
+      }
+    },
+    {
+      "label": "f3",
+      "projector": {
+        "imag": [
+          [
+            0.0,
+            -0.004007952994207264,
+            0.007356875852580176
+          ],
+          [
+            0.004007952994207264,
+            -4.695967115292973e-19,
+            0.0037275146385330775
+          ],
+          [
+            -0.007356875852580176,
+            -0.003727514638533072,
+            4.301522461400955e-18
+          ]
+        ],
+        "real": [
+          [
+            0.0036387629535686644,
+            -0.027093304301101514,
+            0.05311579718191436
+          ],
+          [
+            -0.027093304301101514,
+            0.20614446028153618,
+            -0.40359003529105364
+          ],
+          [
+            0.05311579718191436,
+            -0.40359003529105364,
+            0.7902167767648948
+          ]
+        ]
+      }
+    }
+  ],
+  "generated_utc": "2026-03-25T14:54:49Z",
+  "generation_bundle_projector_kind": "realized_ng_equals_3_bundle",
+  "latest_refinement_level": 1,
+  "metadata": {
+    "note": "This artifact promotes the flavor origin from a vague missing transport functor to a concrete centered compressed branch-generator candidate on the realized three-generation charged bundle. The standard Kato/Riesz persistence shell is now explicit on the current proxy; the remaining OPH-only burden is proving that the actual compressed branch generator satisfies the same defect-vs-gap estimate, with the current constructive bridge being a central split plus compression-descendant commutator control where the first surviving residual vanishes when the descended commutator vanishes and otherwise is treated as uniformly quadratic through P->Q->P factorization.",
+    "transport_artifact": "oph_family_transport_kernel"
+  },
+  "noncentrality_certificate": {
+    "eigenvalues": [
+      0.7349137562771554,
+      -0.21627404800912356,
+      -0.5186397082680317
+    ],
+    "is_scalar_multiple_identity": false,
+    "selfadjoint": true,
+    "spectral_span": 1.2535534645451871,
+    "trace_free": true,
+    "trace_square": 0.8558598399999999
+  },
+  "operator_theorem_candidate": "oph_generation_bundle_branch_generator_splitting",
+  "persistent_gap_certificate": {
+    "base_min_gap": 0.3023656602589082,
+    "conjugacy_defect_sup": 0.03162277660168382,
+    "conservative_gap_lower_bound": 0.23912010705554057,
+    "defect_gap_ratio": 0.10458455029121369,
+    "projector_order_preserved": true,
+    "riesz_bound_passes": true
+  },
+  "projective_readout_certificate": {
+    "family_labels": [
+      "f1",
+      "f2",
+      "f3"
+    ],
+    "same_label_overlap_amplitudes": [
+      0.9971698845725937,
+      0.9959502888149423,
+      0.9987517128757214
+    ]
+  },
+  "promotion_gate": {
+    "exact_missing_ingredient": "OPH proof that the actual compressed branch generator satisfies the same defect-vs-gap estimate as the current proxy",
+    "exact_transfer_bridge": "central split plus compression-descendant commutator control",
+    "proof_status": "candidate_only",
+    "smaller_exact_missing_clause": "compression_descendant_commutator_vanishes_or_is_uniformly_quadratic_small_after_central_split"
+  },
+  "proof_status": "candidate_only",
+  "readout_status": "line_lift_is_downstream_serialization",
+  "realized_generation_count": 3,
+  "remaining_missing_theorem": "oph_generation_bundle_branch_generator_splitting",
+  "schur_diagonal_pairing_certificate": {
+    "exact_markov_required": false,
+    "same_label_only": true
+  },
+  "selfadjoint": true,
+  "simple_spectrum_certificate": {
+    "eigenvalues": [
+      0.7349137562771554,
+      -0.21627404800912356,
+      -0.5186397082680317
+    ],
+    "min_gap": 0.3023656602589082,
+    "projector_order_preserved": true,
+    "simple_spectrum": true,
+    "spectral_gaps": [
+      0.9511878042862789,
+      0.3023656602589082
+    ],
+    "uniform_gap_candidate": true
+  },
+  "source_chain": [
+    "ax:maxent",
+    "internal_refinement_directed_system",
+    "prop:regulatedrealization",
+    "thm:markovcollar",
+    "thm:master_ng_equals_3"
+  ]
+}

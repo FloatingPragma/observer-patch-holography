@@ -1,0 +1,95 @@
+profile_id: oph_reference_backend_v1
+scope:
+  branch: seeded_2p1_qed_off
+  targets: [pi_iso, N_iso]
+
+gauge_action:
+  id: wilson_plaquette
+  formula: beta * sum_p(1 - ReTr(U_p)/3)
+  isotropic: true
+  boundary_conditions:
+    x: periodic
+    y: periodic
+    z: periodic
+    t: periodic
+
+fermions:
+  id: clover_wilson
+  c_sw: 1.0
+  preconditioning: even_odd
+  light_sector:
+    flavors: [u, d]
+    degeneracy: 2
+    mass_symbol: am_l
+    algorithm: hmc
+    pseudofermion_action: phi^dagger (Q_l^dagger Q_l)^(-1) phi
+  strange_sector:
+    flavors: [s]
+    degeneracy: 1
+    mass_symbol: am_s
+    algorithm: rhmc
+    target_operator: (Q_s^dagger Q_s)^(-1/2)
+    rational_approximation:
+      order: 12
+      lambda_min: 1.0e-6
+      lambda_max: 25.0
+      coefficients_recorded_in_manifest: true
+
+integrator:
+  id: omelyan_2mn_single_timescale
+  lambda: 0.1931833275037836
+  trajectory_length: 1.0
+  n_steps: 16
+  momentum_refresh: gaussian_each_trajectory
+  metropolis_accept_reject: true
+
+solvers:
+  dirac_solver:
+    id: cg_normal_eq_eo
+    precision: float64
+    force_residual_tolerance: 1.0e-8
+    measurement_residual_tolerance: 1.0e-12
+    max_iterations: 20000
+
+boundary_conditions:
+  gauge:
+    x: periodic
+    y: periodic
+    z: periodic
+    t: periodic
+  fermion:
+    x: periodic
+    y: periodic
+    z: periodic
+    t: anti_periodic
+
+sources:
+  construction: local_point
+  gauge_fixing: none
+  source_smearing: none
+  sink_smearing: none
+  stochastic_noise: none
+  coordinates_from_receipt_payload: true
+
+contractions:
+  pion:
+    operator: gamma5_connected_light_pseudoscalar
+    export_channel: pi_iso
+    zero_momentum_projection: true
+    real_projection: true
+  nucleon:
+    interpolator: epsilon(u^T C gamma5 d)u
+    parity_projector: (1 + gamma4) / 2
+    export_channels: [N_iso_direct, N_iso_exchange]
+    subtraction_in_repo: N_iso_direct - N_iso_exchange
+    zero_momentum_projection: true
+    real_projection: true
+
+export:
+  format: manifest_plus_hdf5
+  manifest_file: backend_run_manifest.json
+  correlator_store: correlators.h5
+  dataset_layout: /ensembles/{ensemble_id}/cfgs/{cfg_id}/sources/{src_id}/{channel}
+  dtype: float64_le
+  units: lattice_units
+  arrays_per_source: [pi_iso, N_iso_direct, N_iso_exchange]

@@ -1,0 +1,44 @@
+{
+  "MW_formula": "v_inherited * sqrt(pi * alpha2_mz * (1 + tau2_tree_exact))",
+  "MZ_fiber_formula": "v_inherited * sqrt(pi * (alphaY_mz + alpha2_mz) * n_EW_fiber)",
+  "artifact": "oph_d10_ew_tau2_current_carrier_obstruction",
+  "beta_EW": 0.5385291530498766,
+  "coordinate_symbol": "tau2_tree_exact",
+  "current_point": {
+    "MW_pole": 80.38629169244275,
+    "MZ_pole": 91.18290444674243
+  },
+  "diagnostic_only": true,
+  "direction_obstruction": {
+    "W_current_minus_exact_sign": "positive",
+    "Z_current_minus_exact_sign": "negative",
+    "single_tau2_possible": false
+  },
+  "eta_source": 0.02214700087196129,
+  "fiberwise_population_tree_law_artifact": "oph_d10_ew_fiberwise_population_tree_law_beneath_single_tree_identity",
+  "fiberwise_tauY_formula": "-(tau2_tree_exact + 2*eta_source) / (1 + 4*tau2_tree_exact^2)",
+  "generated_utc": "2026-03-29T06:39:02Z",
+  "local_affine_germ": {
+    "MW_relative_formula": "1 + 0.5 * tau2_tree_exact + O(tau2_tree_exact^2)",
+    "MZ_relative_formula": "1 + (beta_EW / (2 * n0)) * tau2_tree_exact + O(tau2_tree_exact^2)",
+    "n0_formula": "1 - (1 - beta_EW) * eta_source"
+  },
+  "minimal_extra_scalar_or_invariant": {
+    "definition_formula": "n_EW_exact = n_EW_fiber + delta_n_tree_exact",
+    "equivalent_source_scalar": "delta_tauY_tree_exact",
+    "equivalent_tauY_formula": "tauY_exact = fiberwise_tauY + ((alphaY_mz + alpha2_mz) / alphaY_mz) * delta_n_tree_exact",
+    "symbol": "delta_n_tree_exact"
+  },
+  "n0": 0.9897798047502109,
+  "n_EW_fiber_formula": "1 + (alphaY_mz * fiberwise_tauY + alpha2_mz * tau2_tree_exact) / (alphaY_mz + alpha2_mz)",
+  "next_single_residual_object": "delta_n_tree_exact",
+  "object_id": "EWCurrentCarrierTau2Obstruction_D10",
+  "population_evaluator_artifact": "oph_d10_ew_population_evaluator",
+  "proof_status": "no_single_tau2_on_closed_current_carrier_can_hit_exact_W_and_exact_Z",
+  "reference_targets": {
+    "MW_pole": 80.377,
+    "MZ_pole": 91.18797809193725
+  },
+  "status": "closed_smaller_primitive",
+  "strictly_smaller_than": "tau2_tree_exact"
+}

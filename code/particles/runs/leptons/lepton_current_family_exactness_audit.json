@@ -1,0 +1,272 @@
+{
+  "absolute_scale_gap_identity": {
+    "artifact": "oph_charged_absolute_scale_transport_gap_identity",
+    "identity_formula": "gamma_min_common = theorem_gap_gamma",
+    "identity_residual": 0.0,
+    "proof_status": "current_family_gap_identity_closed_hierarchy_still_open",
+    "typed_restore_formulas": {
+      "g_e_effective_candidate": "exp(mu_e_absolute_log_candidate)",
+      "g_e_effective_candidate_alt": "stored_shared_absolute_scale_raw * exp(-theorem_gap_gamma)",
+      "mu_e_absolute_log_candidate": "log(stored_shared_absolute_scale_raw) - theorem_gap_gamma",
+      "mu_e_absolute_log_seed": "log(stored_shared_absolute_scale_raw)"
+    },
+    "typed_restore_values": {
+      "g_e_effective_candidate": 0.6822819838027987,
+      "mu_e_absolute_log_candidate": -0.38231224060567365,
+      "mu_e_absolute_log_seed": -0.07994658034676537,
+      "stored_shared_absolute_scale_raw": 0.9231656602589082
+    }
+  },
+  "active_readout_contract": {
+    "eta_e_rigid_fallback": -0.809613811928119,
+    "eta_e_split_log_per_side": 2.220446049250313e-16,
+    "hierarchy_mode": "two_scalar_ordered_gap_pair_candidate",
+    "rho_ord": 1.2942849363777058,
+    "shape_log_shift_e": 0.0,
+    "sigma_e_total_log_per_side": 1.2535534645451876,
+    "smallest_constructive_missing_object": "eta_source_support_extension_log_per_side"
+  },
+  "artifact": "oph_lepton_current_family_exactness_audit",
+  "candidate_residual_object_if_rigid_eta_promoted": "sigma_source_support_extension_total_log_per_side",
+  "centered_hierarchy_audit": {
+    "current_centered_log": [
+      -0.518639708268032,
+      -0.2162740480091237,
+      0.7349137562771557
+    ],
+    "current_gap_pair": {
+      "eta_e_split_log_per_side_diagnostic": -0.809613811928119,
+      "gamma21_log_per_side": 0.30236566025890826,
+      "gamma32_log_per_side": 0.9511878042862794,
+      "rho_gap_ratio": 0.31788218782492417
+    },
+    "current_sigma_total_log_per_side": 1.2535534645451878,
+    "ratio_invariant_under_common_shift": true,
+    "residual": [
+      -3.976570400540048,
+      1.052662699607032,
+      2.923907700933015
+    ],
+    "residual_norm": 5.04682545301208,
+    "target_centered_log": [
+      -4.49521010880808,
+      0.8363886515979084,
+      3.6588214572101707
+    ],
+    "target_gap_pair": {
+      "eta_e_split_log_per_side": -6.729581272340888,
+      "gamma21_log_per_side": 5.3315987604059885,
+      "gamma32_log_per_side": 2.8224328056122623,
+      "rho_gap_ratio": 1.8890082165302142
+    },
+    "target_sigma_total_log_per_side": 8.15403156601825
+  },
+  "charged_d12_continuation_followup": {
+    "artifact": "oph_charged_d12_continuation_followup",
+    "centered_log_residual_norm": 2.1278651760358518e-05,
+    "d12_continuation_assumptions": {
+      "A1_uniform_Z6_center_label_ensemble": "epsilon = 1/6",
+      "A2_balanced_circulant_branch": "|b|/a = 1/sqrt(2)",
+      "A3_oph_phase_choice": "delta = 2/9",
+      "scale_free_normalization_for_ratio_invariants": "a = 1"
+    },
+    "eta_source_support_extension_log_per_side": -6.729586682888832,
+    "g_e_compare_only_needed_for_exact_absolute_masses": 0.04577885783568762,
+    "sigma_source_support_extension_total_log_per_side": 8.154061112725994,
+    "status": "diagnostic_only_d12_continuation",
+    "theorem_tier": "D12_continuation_only"
+  },
+  "common_shift_audit": {
+    "best_common_scale": 0.04958899556862701,
+    "best_common_shift": -3.003986333402356,
+    "best_common_shift_fit": [
+      0.02725351917928988,
+      0.036875534785921975,
+      0.09546275023576574
+    ],
+    "relative_errors_after_best_shift": [
+      52.33380661406424,
+      -0.6509927905722724,
+      -0.9462766581685692
+    ],
+    "shape_log_shift_formula": "common additive shift on E_e_log_centered"
+  },
+  "current_candidate": {
+    "closure_state": "support_extension_missing",
+    "shape_shift_missing": false,
+    "singular_values_abs": [
+      0.5495880460327794,
+      0.7436233455240957,
+      1.9250793274014453
+    ]
+  },
+  "current_package_readback": {
+    "a_e_log_coeff": 0.6267767322725938,
+    "artifact": "oph_charged_sector_local_ordered_package_readback",
+    "b_e_log_coeff": 1.5164818663320259e-16,
+    "current_package_linear_subray_only": true,
+    "proof_status": "current_package_readback_closed",
+    "same_support_exhausted": true,
+    "source_side_quadratic_midpoint_defect_log_per_side_emitted": 1.1102230246251565e-16
+  },
+  "current_support_obstruction_certificate": {
+    "artifact": "oph_charged_sector_local_current_support_obstruction_certificate",
+    "current_support_linear_subray_only": true,
+    "proof_status": "current_support_obstruction_certificate_closed",
+    "same_support_exhausted": true,
+    "same_support_transverse_coeff_closed": true,
+    "smallest_constructive_missing_object": "oph_charged_sector_local_minimal_source_support_extension_emitter"
+  },
+  "exact_waiting_set": {
+    "mandatory_package_a": {
+      "id": "charged_sector_response_pushforward_to_C_hat_e",
+      "immediate_downstream_effect": "Once C_hat_e exists, eta and sigma become charged spectral invariants rather than independent primitive theorem objects.",
+      "linked_issue": "papers.compact.e.29-derive-the-yukawa-excitation-dictionary",
+      "summary": "Derive the quotient-natural charged sector-response / declaration functor that emits the unique charged color-singlet three-family excitation operator C_hat_e from the shared OPH flavor dictionary."
+    },
+    "mandatory_package_b": {
+      "id": "charged_common_refinement_transport_equalizer",
+      "immediate_downstream_effect": "This is the honest absolute-scale bridge from the shared charged evaluator descent to the physical scale g_e.",
+      "linked_issue": "papers.compact.e.30-replace-koide-assisted-lepton-fitting-with-a-theorem",
+      "summary": "Derive the common-refinement transport equalizer under ordered_common_refinement_seed_rigidity so the charged absolute-scale lane upgrades from shared_budget_only to theorem-grade."
+    },
+    "optional_package_c": {
+      "id": "charged_holonomy_bridge_for_legacy_delta_2_over_9",
+      "required_only_if": "legacy_continuation_bridge_kept_as_theorem_grade",
+      "summary": "Retain a charged holonomy bridge only if the older delta = 2/9 D12 benchmark is kept as a theorem-grade bridge instead of a diagnostic continuation."
+    }
+  },
+  "generated_utc": "2026-03-29T06:39:03Z",
+  "notes": [
+    "The current charged-lepton builder now exposes the two-scalar ordered-gap family in formula form plus one common shift.",
+    "A common shift rescales all three masses together and cannot fix a large hierarchy mismatch.",
+    "The current emitted sigma_e is far too small to reproduce the electron-tau spread even if eta_e is optimized on top of it.",
+    "The ordered support and affine-quadratic parameterization are already fixed, and on the current support the midpoint-defect emitter closes to zero.",
+    "The current-support obstruction certificate is now on disk, and the next charged mover is the minimal support-extension emitter on the canonical quadratic ordered direction.",
+    "The full two-scalar support-extension completion law is now explicit on disk; the live same-carrier primitive is the eta source-readback, followed by the sigma endpoint-ratio breaker.",
+    "The stronger same-carrier source-scalar pair readback is also now explicit on disk, collecting those eta and sigma invariants into one ordered primitive beneath the full completion shell.",
+    "At theorem level, eta and sigma are no longer the deepest honest waiting set. The live builder still exposes eta then sigma as the first same-carrier residuals, but the paper-facing exact burden is to derive the charged sector-response functor C_hat_e and then the common-refinement transport equalizer for the absolute scale.",
+    "The eta-only extension acts at fixed current span, so it preserves the endpoint ratio tau/e and can only move the middle state against that fixed endpoint pair.",
+    "A rigid eta candidate can be written from the current ordered-gap ratio alone, but it lands far from the charged targets; the remaining charged burden then shifts to the still-open total source span.",
+    "A D12 continuation bridge is now explicit too: under the extra assumptions A1-A3 it emits eta = -6.729586682888832 and sigma = 8.154061112725994, with centered-log residual norm about 2.13e-05 against charged references, but the required absolute scale remains compare-only and therefore nonpromotable.",
+    "The current-family absolute-scale restore candidate is also cleaner now: the common gap subtracted from log(g_e_raw) matches the emitted overlap-edge theorem gap gamma on the current family, so mu_e_absolute_log_candidate = log(g_e_raw) - gamma_gap is explicit even though the charged hierarchy still remains blocked first on eta then sigma."
+  ],
+  "ordered_gap_ratio_current": 0.31788218782492417,
+  "ordered_gap_ratio_reference": 1.8890082165302142,
+  "reference_targets": {
+    "singular_values_abs": [
+      0.0005109989499999999,
+      0.10565837550000001,
+      1.77693246513409
+    ]
+  },
+  "same_support_obstruction_audit": {
+    "best_same_sigma_two_scalar_residual_norm": 4.879374858980876,
+    "ordered_gap_ratio_current": 0.31788218782492417,
+    "ordered_gap_ratio_reference": 1.8890082165302142,
+    "same_support_exhausted": true,
+    "sigma_support_gap": 6.9004781014730625
+  },
+  "scope": "current_family_only",
+  "sigma_support_gap": 6.9004781014730625,
+  "smallest_constructive_missing_object": "eta_source_support_extension_log_per_side",
+  "smallest_exact_obstruction": "the current ordered package is explicitly read back and its midpoint defect closes to zero on the present support, so the same-support family is exhausted and still fails to reproduce the charged hierarchy",
+  "support_extension_candidate_audit": {
+    "candidate_next_single_residual_object": "sigma_source_support_extension_total_log_per_side",
+    "candidate_status": "eta_candidate_only_total_span_still_open",
+    "eta_source_support_extension_log_per_side_candidate": -0.809613811928119,
+    "kappa_ext_candidate": -0.5529360485635166,
+    "relative_errors_against_reference": [
+      938.7567814265815,
+      8.218339322113092,
+      -0.053379497692333175
+    ],
+    "shape_singular_values_ext_candidate": [
+      0.5201826164436002,
+      1.0550595624506625,
+      1.8220789346088564
+    ],
+    "singular_values_abs_ext_candidate": [
+      0.4802147285643626,
+      0.9739947575822406,
+      1.682080702712033
+    ]
+  },
+  "support_extension_completion_law": {
+    "artifact": "oph_charged_sector_local_support_extension_completion_law",
+    "eta_source_support_extension_log_per_side": null,
+    "next_residual_after_debug_eta_promotion": "sigma_source_support_extension_total_log_per_side",
+    "next_single_residual_object": "eta_source_support_extension_log_per_side",
+    "proof_status": "two_scalar_support_extension_completion_law_closed_source_scalars_open",
+    "sigma_source_support_extension_total_log_per_side": null,
+    "smallest_constructive_missing_object": "eta_source_support_extension_log_per_side"
+  },
+  "support_extension_emitter": {
+    "artifact": "oph_charged_sector_local_minimal_source_support_extension_emitter",
+    "candidate_next_single_residual_object": "sigma_source_support_extension_total_log_per_side",
+    "candidate_support_extension_status": "eta_candidate_only_total_span_still_open",
+    "eta_source_support_extension_log_per_side_candidate": -0.809613811928119,
+    "extension_basis_kind": "canonical_quadratic_ordered_three_point_direction",
+    "fixed_current_span_certificate": {
+      "endpoint_ratio_fixed_value": 3.502767830009582,
+      "endpoint_ratio_formula": "exp(sigma_source_total_log_per_side)",
+      "endpoint_ratio_invariant_under_eta_only_extension": true,
+      "sigma_source_total_log_per_side_fixed": 1.2535534645451876,
+      "sigma_source_total_log_per_side_formula": "current emitted support span",
+      "why_eta_only_preserves_endpoint_ratio": "the eta-only extension adds +eta/6 to both endpoint centered logs and therefore leaves tau/e unchanged"
+    },
+    "new_beyond_support_scalar_slots_required": 1,
+    "proof_status": "minimal_support_extension_formula_closed_source_scalar_open",
+    "smallest_constructive_missing_object": "eta_source_support_extension_log_per_side"
+  },
+  "support_extension_endpoint_ratio_breaker": {
+    "artifact": "oph_charged_sector_local_support_extension_endpoint_ratio_breaker",
+    "endpoint_ratio_breaker_invariant_name": "J_endpoint_e_tau_support_extension",
+    "precondition_residual_object": "eta_source_support_extension_log_per_side",
+    "proof_status": "endpoint_ratio_breaker_formula_closed_scalar_open",
+    "smallest_constructive_missing_object_within_primitive": "sigma_source_support_extension_total_log_per_side",
+    "status": "closed_smaller_primitive"
+  },
+  "support_extension_eta_source_readback": {
+    "artifact": "oph_charged_sector_local_support_extension_eta_source_readback",
+    "downstream_sigma_artifact": "oph_charged_sector_local_support_extension_endpoint_ratio_breaker",
+    "eta_equivalence_formula": "eta_source_support_extension_log_per_side = J_mid_e_mu_tau_support_extension",
+    "eta_readback_invariant_name": "J_mid_e_mu_tau_support_extension",
+    "next_single_residual_object_after_eta": "sigma_source_support_extension_total_log_per_side",
+    "proof_status": "eta_source_readback_formula_closed_value_open",
+    "status": "closed_smaller_primitive"
+  },
+  "support_extension_source_scalar_pair_readback": {
+    "artifact": "oph_charged_sector_local_support_extension_source_scalar_pair_readback",
+    "eta_readback_invariant_name": "J_mid_e_mu_tau_support_extension",
+    "next_single_residual_object": "eta_source_support_extension_log_per_side",
+    "next_single_residual_object_after_eta": "sigma_source_support_extension_total_log_per_side",
+    "proof_status": "source_scalar_pair_readback_formula_closed_values_open",
+    "scalar_order": [
+      "eta_source_support_extension_log_per_side",
+      "sigma_source_support_extension_total_log_per_side"
+    ],
+    "sigma_readback_invariant_name": "J_endpoint_e_tau_support_extension",
+    "status": "closed_smaller_primitive"
+  },
+  "two_scalar_on_current_sigma_audit": {
+    "best_centered_log_on_current_sigma": [
+      -1.044971058071548,
+      0.8363886515979088,
+      0.20858240647363954
+    ],
+    "best_gap_pair_on_current_sigma": {
+      "gamma21_log_per_side": 1.881359709669457,
+      "gamma32_log_per_side": -0.6278062451242692
+    },
+    "eta_e_best_fit_on_current_sigma": -3.157988098821097,
+    "eta_e_rigid_fallback": -0.809613811928119,
+    "residual_after_best_eta_on_current_sigma": [
+      -3.450239050736532,
+      -3.3306690738754696e-16,
+      3.4502390507365313
+    ],
+    "residual_norm_after_best_eta_on_current_sigma": 4.879374858980876,
+    "sigma_e_total_log_per_side_current": 1.2535534645451878
+  }
+}

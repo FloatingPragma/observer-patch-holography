@@ -32,7 +32,7 @@ From this starting point (plus entropy and Markov constraints), OPH treats space
 - **The fixed-cutoff core is explicit.** The collar package is constructive and interacting at fixed cutoff, and the topological branch is closed on the ordinary, central-defect, and genuinely noncentral higher-gauge branches.
 - **There is a disciplined relativity/gravity route.** OPH derives schedule-independent overlap consistency and develops a conditional Lorentz/null-modular/Einstein branch under an explicit scaling-limit premise ledger.
 - **There is a disciplined gauge route.** OPH develops a conditional compact-gauge reconstruction route and, on the realized branch, recovers the Standard Model quotient \(\SU(3)\times\SU(2)\times\U(1)/\mathbb Z_6\) together with the realized hypercharge/counting chain.
-- **The particle branch has moved beyond pure structure.** Structural massless carriers are fixed; the electroweak and Higgs/top stages emit quantitative rows; the wider quark, lepton, neutrino, and hadron sectors remain openly status-split rather than silently promoted.
+- **The particle branch has moved beyond pure structure.** Structural massless carriers are fixed; the electroweak and Higgs/top stages emit quantitative rows; the wider quark, lepton, and neutrino sectors remain openly status-split rather than silently promoted, while hadrons are explicitly execution-bound rather than claimed as paper-derived outputs.
 - **Measurement and observers are part of the theorem surface.** OPH now has fixed-cutoff record, Born-Luders, checkpoint/restoration, and observer-interface packages rather than treating observers as pure interpretation.
 - **The microphysics side is concrete enough to simulate.** The screen-microphysics paper gives a finite reference architecture with explicit registers, overlap observables, records, repair moves, and synchronization tests.
 - **The worldsheet/string lane is integrated but not oversold.** OPH relates the edge-sector heat-kernel theorem to a continuation-level worldsheet reorganization while keeping that branch outside the recovered core.
@@ -46,7 +46,7 @@ particle spectrum is finished.
 
 - **Exact structural outputs already on the current surface:** photon, gluons, graviton.
 - **Current strongest quantitative rows:** \(W\) boson and \(Z\) boson on the electroweak calibration stage, plus the Higgs boson and top quark on the Higgs/top critical stage.
-- **Still unfinished:** the broader quark family remains continuation-level, and charged leptons, flavor-labeled neutrinos, and hadrons remain open closure fronts.
+- **Still unfinished:** the broader quark family remains continuation-level; charged leptons and flavor-labeled neutrinos remain open theorem/closure fronts; and hadrons are execution-bound because promotable rows require real nonperturbative production computation and systematics rather than theorem-only completion.
 
 As a program target, OPH aims to recover the familiar low-energy effective-action form from a compact axiom set, explicit bridge premises, and minimal external inputs:
 
@@ -85,7 +85,7 @@ At full completion, OPH aims to:
 - **PDF (compact submission paper):** [Recovering Relativity and Standard Model Structure from Observer-Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)
 - **LaTeX source:** [recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex)
 
-**Deriving the Particle Zoo from Observer Consistency** is the particle-spectrum status paper. It asks how far one shared calibration scale can be pushed through the observed spectrum, records the current bosonic/Higgs-top/quark outputs, and keeps the charged-lepton, neutrino, and hadron frontiers explicit.
+**Deriving the Particle Zoo from Observer Consistency** is the particle-spectrum status paper. It asks how far one shared calibration scale can be pushed through the observed spectrum, records the current bosonic/Higgs-top/quark outputs, keeps the charged-lepton and neutrino theorem frontiers explicit, and marks hadrons as execution-bound rather than paper-derived output rows.
 
 - **PDF:** [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)
 - **LaTeX source:** [deriving_the_particle_zoo_from_observer_consistency.tex](paper/deriving_the_particle_zoo_from_observer_consistency.tex)

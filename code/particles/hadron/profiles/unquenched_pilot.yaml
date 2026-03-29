@@ -1,0 +1,32 @@
+profile_name: unquenched_pilot
+description: >
+  Placeholder schema for the first dynamical-ensemble analysis lane. This is a
+  planning surface only; it is not executed by the current quenched runner.
+execution_mode: external_analysis
+target_order:
+  - m_pi
+  - m_N_isospin_symmetric
+  - rho_resonance
+  - p_minus_n_with_qcd_qed
+ensembles:
+  - id: dyn_pilot_a008_phys
+    lane_status: pilot
+    nf: "2+1 or 2+1+1"
+    lattice_spacing_fm: 0.08
+    spatial_extent_fm: 5.0
+    pion_mass_mev: 135
+    purpose: "physical-point stable-hadron pilot"
+  - id: dyn_pilot_a0068_phys
+    lane_status: pilot
+    nf: "2+1 or 2+1+1"
+    lattice_spacing_fm: 0.068
+    spatial_extent_fm: 5.0
+    pion_mass_mev: 135
+    purpose: "continuum-pair stable-hadron pilot"
+  - id: dyn_pilot_rho_aux
+    lane_status: pilot
+    nf: "2+1"
+    lattice_spacing_fm: 0.06
+    spatial_extent_fm: 5.0
+    pion_mass_mev: 220
+    purpose: "rho scattering auxiliary point"

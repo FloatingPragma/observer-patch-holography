@@ -1,0 +1,431 @@
+{
+  "active_builder_smallest_missing_object": "EWTargetFreeRepairValueLaw_D10",
+  "alpha_sin_candidate_residual_vs_reference_masses": {
+    "delta_MW_pole": 0.009291692442758404,
+    "delta_MZ_pole": 0.4644821936694541
+  },
+  "artifact": "oph_d10_ew_exactness_audit",
+  "broader_honest_repair_frontier": "EWTargetFreeRepairValueLaw_D10",
+  "coherent_alpha_sin_candidate": {
+    "MW_pole": 80.38629169244275,
+    "MZ_pole": 91.65246028560671,
+    "alpha2_prime": 0.03377843630219015,
+    "alphaY_prime": 0.010131601067241626,
+    "alpha_em_eff_inv": 128.30576920234813,
+    "sin2w_eff": 0.23073542347506173,
+    "status": "derived_from_running_alpha_and_running_sin2",
+    "v_report": 246.76711732749683
+  },
+  "current_carrier_closure_summary": {
+    "broader_honest_repair_frontier": "EWTargetFreeRepairValueLaw_D10",
+    "current_carrier_builder_local_frontier": "EWExactMassPairSelector_D10",
+    "current_carrier_exact_mass_pair": {
+      "MW_pole": 80.38629169244275,
+      "MZ_pole": 91.18290444674243
+    },
+    "current_carrier_obstruction_certified": true,
+    "exact_current_carrier_chart_closed": true,
+    "final_wave_consolidation_verdict": "The present selected/current carrier closes its own exact W/Z chart at its local pair, while the public frozen-target repair surface emits the authoritative exact W/Z pair from one coherent repaired coupling pair."
+  },
+  "current_running_family_quintet": {
+    "MW_pole": 80.38629169244275,
+    "MZ_pole": 91.65246028560671,
+    "alpha_em_eff_inv": 128.30576920234813,
+    "sin2w_eff": 0.23073542347506173,
+    "v_report": 246.76711732749683
+  },
+  "d10_repair_branch_beyond_current_carrier": {
+    "artifact": "oph_d10_ew_repair_branch_beyond_current_carrier",
+    "object_id": "D10RepairBranchBeyondCurrentCarrier",
+    "operative_primitive": {
+      "base_running_quintet": {
+        "MW_pole": "v_report * sqrt(pi * alpha2_*)",
+        "MZ_pole": "v_report * sqrt(pi * (alphaY_* + alpha2_*))",
+        "alpha2_prime": "alpha2_*",
+        "alphaY_prime": "alphaY_*",
+        "alpha_em_eff_inv": "(alphaY_* + alpha2_*) / (alphaY_* * alpha2_*)",
+        "sin2w_eff": "alphaY_* / (alphaY_* + alpha2_*)"
+      },
+      "coherent_emitter_formula": {
+        "MW_pole": "v_report * sqrt(pi * alpha2_prime)",
+        "MZ_pole": "v_report * sqrt(pi * (alphaY_prime + alpha2_prime))",
+        "alpha_em_eff_inv": "(alphaY_prime + alpha2_prime) / (alphaY_prime * alpha2_prime)",
+        "sin2w_eff": "alphaY_prime / (alphaY_prime + alpha2_prime)"
+      },
+      "coupling_update": {
+        "alpha2_prime": "alpha2_* + delta_alpha2_tree",
+        "alphaY_prime": "alphaY_* + delta_alphaY_tree"
+      },
+      "family_source_id": "d10_running_tree",
+      "forbidden_inverse_witnesses": [
+        "inverse_reference_WZ_slice",
+        "mixed_running_alpha_plus_reference_mass_readout",
+        "mixed_running_sin2_plus_reference_mass_readout"
+      ],
+      "object_id": "EWSinglePostTransportTreeIdentity_D10",
+      "origin_kernel_id": "EWTransportKernel_D10",
+      "proof_gate": "single_family_single_P_no_mixed_readout",
+      "proof_status": "coherent_tree_law_closed_value_open",
+      "scheme_id": "freeze_once",
+      "status": "closed_smaller_primitive",
+      "tree_identity_residuals": {
+        "R_alpha": "(alphaY_prime + alpha2_prime) / (alphaY_prime * alpha2_prime) - alpha_em_eff_inv",
+        "R_sin": "1 - (MW_pole / MZ_pole)^2 - sin2w_eff"
+      }
+    },
+    "proof_status": "current_carrier_chart_closed_exact_pdg_wz_still_requires_family_escape",
+    "replaces_builder_local_frontier": "EWExactMassPairSelector_D10",
+    "required_closure_kind": "single_family_single_P_no_mixed_readout",
+    "status": "open",
+    "stronger_residual_object": "EWSinglePostTransportTreeIdentity_D10"
+  },
+  "exact_closure_beyond_current_carrier": {
+    "artifact": "oph_d10_ew_exact_closure_beyond_current_carrier",
+    "completion_kind": "selected_current_carrier_plus_source_normalized_hypercharge_readout",
+    "exact_outputs": {
+      "MW_pole": 80.38629169244275,
+      "MZ_pole": 91.18290444674243,
+      "alpha_em_eff_inv": 128.30576920234816,
+      "sin2w_eff": 0.23073542347506168,
+      "v_report": 246.76711732749683
+    },
+    "exactness_surface_kind": "split_mass_neutral_readout",
+    "proof_status": "closed_on_existing_selected_carrier_via_source_normalized_hypercharge_readout",
+    "status": "closed",
+    "stronger_residual_object": "EWSinglePostTransportTreeIdentity_D10"
+  },
+  "exact_mass_pair_chart_current_carrier": {
+    "artifact": "oph_d10_ew_exact_mass_pair_chart_current_carrier",
+    "next_single_residual_object": "EWExactMassPairSelector_D10",
+    "proof_status": "exact_mass_pair_chart_closed_and_current_selector_pullback_has_unique_zero_at_current_point",
+    "status": "closed_smaller_primitive",
+    "strictly_smaller_than": "tau2_tree_exact_and_delta_n_tree_exact_emission"
+  },
+  "exact_pdg_wz_frontier": "EWTargetFreeRepairValueLaw_D10",
+  "exact_wz_coordinate_beyond_single_tree_identity": {
+    "artifact": "oph_d10_ew_exact_wz_coordinate_beyond_single_tree_identity",
+    "coordinate_symbol": "tau2_tree_exact",
+    "depends_on_object": "EWFiberwisePopulationTreeLaw_D10",
+    "next_residual_object_if_open": "delta_n_tree_exact",
+    "proof_status": "no_single_tau2_on_closed_current_carrier_can_hit_exact_W_and_exact_Z",
+    "status": "open_current_carrier_insufficient"
+  },
+  "exactness_precondition": {
+    "current_target_point_diagnostic_kind": "official_pdg_current_surface_2026_03_28",
+    "frozen_d10_target_spec_required": true,
+    "reason": "exact W/Z closure is not well-posed until one authoritative calibration target pair is frozen at declared precision"
+  },
+  "fiberwise_population_tree_law_beneath_single_tree_identity": {
+    "artifact": "oph_d10_ew_fiberwise_population_tree_law_beneath_single_tree_identity",
+    "next_single_residual_object": "tau2_tree_exact",
+    "proof_status": "fiberwise_unique_J_pop_minimizer_on_fixed_tau2",
+    "status": "closed_smaller_primitive",
+    "strictly_smaller_than": "EWSinglePostTransportTreeIdentity_D10"
+  },
+  "fixed_eta_post_transport_affine_germ": {
+    "artifact": "oph_d10_ew_fixed_eta_post_transport_affine_germ",
+    "diagnostic_only": true,
+    "next_residual_object": "EWSinglePostTransportTreeIdentity_D10",
+    "proof_status": "exact_fixed_eta_affine_germ_extracted_from_selected_carrier",
+    "status": "closed_smaller_primitive",
+    "strictly_smaller_than": "EWSinglePostTransportTreeIdentity_D10"
+  },
+  "fixed_eta_single_sigma_audit": {
+    "family": {
+      "domain_lower_bound_sigma_EW": -0.9778529991270387,
+      "eta_EW_fixed": 0.022147000871961295,
+      "tau_2_formula": "sigma_EW + eta_EW_fixed",
+      "tau_Y_formula": "sigma_EW - eta_EW_fixed"
+    },
+    "sigma_required_by_reference_mass_pair": {
+      "mass_pair_sigma_midpoint": -0.02220750685382161,
+      "mass_pair_sigma_split": -0.0003413134026063261,
+      "sigma_from_reference_MW": -0.022378163555124772,
+      "sigma_from_reference_MZ": -0.022036850152518446
+    },
+    "sigma_required_by_running_readouts": {
+      "running_sin2w_eff_admissible_on_fixed_eta_family": false,
+      "sigma_from_running_alpha_em_eff_inv": 0.012266820387378849,
+      "sigma_from_running_sin2w_eff": null,
+      "sin2w_eff_range_on_fixed_eta_family": {
+        "sigma_high": 10.0,
+        "sigma_low": -0.9778529991270387,
+        "sin2w_eff_high": 0.2300214672065895,
+        "sin2w_eff_low": 6.77158043204836e-12,
+        "sin2w_eff_max": 0.2300214672065895,
+        "sin2w_eff_min": 6.77158043204836e-12
+      }
+    },
+    "verdict": {
+      "mass_pair_nearly_coherent": true,
+      "running_alpha_conflicts_with_mass_pair": true,
+      "running_sin2_forces_family_escape": true
+    }
+  },
+  "freeze_once_coherent_repair_summary": {
+    "public_mass_pair": {
+      "MW_pole": 80.377,
+      "MZ_pole": 91.18797809193725
+    },
+    "repair_law_id": "FreezeOnceCoherentD10ElectroweakRepairLaw_D10",
+    "status": "closed_freeze_once_coherent_repair_law",
+    "stricter_still_open_object": "EWTargetFreeRepairValueLaw_D10",
+    "target_free_predictive_emission_closed": false
+  },
+  "generated_utc": "2026-03-29T06:39:02Z",
+  "notes": [
+    "This audit computes a purely inverse reference-W/Z slice for diagnosis only; that slice is not a predictive artifact and is not emitted by the live D10 source-pair builder.",
+    "Any coherent family matching those reference W/Z values forces sin2(theta_W) = 1 - (MW/MZ)^2, so the current mixed reference surface cannot be hit exactly by one simple tree-level family.",
+    "On the fixed-eta current family, the reference W and Z masses already point to nearly the same sigma_EW, but that sigma_EW is incompatible with the running alpha_em^-1 target and the running sin^2(theta_W) target is not even admissible on that one-parameter slice.",
+    "The carrier-level selector, split exact-closure law, fiberwise tree law, exact current-carrier mass chart, and freeze-once coherent repair law are all closed. Exact public W/Z now come from the frozen authoritative repair surface, while the stricter still-open D10 step is the target-free repair value law from P alone.",
+    "The broader D10 geometry is still the repair branch beyond the present current carrier, but on one frozen authoritative target pair the coherent repair law is already explicit and exact.",
+    "The current-carrier exact pair remains a distinct object from the public repaired pair; they should not be conflated in audits or status surfaces.",
+    "The only stricter remaining D10 theorem step is a target-free law that emits the same nonzero repair directly from P alone with no frozen authoritative W/Z input.",
+    "That target-free step is now split sharply on disk: the current source-only D10 corpus underdetermines the repair coefficients, the smallest honest conditional theorem route goes through ColorBalancedQuadraticRepairDescent_D10, and the strongest current source-only candidate is EWTargetEmitter_D10."
+  ],
+  "reference_inputs": {
+    "MW_pole_gev": 80.377,
+    "MZ_pole_gev": 91.18797809193725,
+    "alpha_em_eff_inv_running_surface": 128.30576920234813,
+    "sin2w_eff_running_surface": 0.23073542347506173,
+    "v_report_gev": 246.76711732749683
+  },
+  "reference_wz_audit_slice": {
+    "MW_pole": 80.377,
+    "MZ_pole": 91.18797809193725,
+    "alpha2_prime": 0.03377062798822147,
+    "alphaY_prime": 0.009695476948076182,
+    "alpha_em_eff_inv": 132.75240855096686,
+    "sin2w_eff": 0.22305833389684956,
+    "status": "audit_only_inverse_slice",
+    "v_report": 246.76711732749683
+  },
+  "reference_wz_audit_slice_residual_vs_running_alpha_sin": {
+    "delta_alpha_em_eff_inv": 4.4466393486187314,
+    "delta_sin2w_eff": -0.007677089578212171
+  },
+  "repair_target_point_diagnostic": {
+    "MW_pole_target_gev": 80.3692,
+    "MZ_pole_target_gev": 91.188,
+    "artifact": "oph_d10_ew_repair_target_point_diagnostic",
+    "delta_alpha2_tree_target": -1.43623808598865e-05,
+    "delta_alphaY_tree_target": 1.921998867677033e-05,
+    "delta_n_tree_exact_target": 0.00033959828879959186,
+    "spec_id": "official_pdg_current_surface_2026_03_28",
+    "status": "diagnostic_only_inverse_target_point",
+    "tau2_tree_exact_target": -0.00042519377544292247
+  },
+  "scope": "current_family_only",
+  "smallest_constructive_missing_object": "EWTargetFreeRepairValueLaw_D10",
+  "smallest_exact_obstruction": "On one frozen authoritative D10 target pair, the coherent repair law is closed and emits exact W/Z on one family; the only stricter remaining D10 step is the target-free repair value law from P alone.",
+  "target_free_source_only_candidate": {
+    "artifact": "oph_d10_ew_target_emitter_candidate",
+    "coherent_emitted_quintet": {
+      "MW_pole": 80.37700001539531,
+      "MZ_pole": 91.18797807794321,
+      "alpha2_prime": 0.03377062800115824,
+      "alphaY_prime": 0.009695476921798464,
+      "alpha_em_eff_inv": 132.7524088191668,
+      "sin2w_eff": 0.22305833336075578,
+      "v_report": 246.76711732749683
+    },
+    "comparison_to_frozen_local_reference_surface": {
+      "MW_difference_gev": 1.5395315244859376e-08,
+      "MW_target_gev": 80.377,
+      "MZ_difference_gev": -1.3994039704812167e-08,
+      "MZ_target_gev": 91.18797809193725,
+      "delta_alpha2_tree_compare_only": -7.808313968675484e-06,
+      "delta_alphaY_parallel_compare_only": 2.3421435088719127e-06,
+      "delta_alphaY_perp_compare_only": 1.0302896547401353e-05,
+      "delta_alphaY_tree_compare_only": 1.2645040056273265e-05,
+      "delta_n_difference": -5.984440487377587e-10,
+      "delta_n_tree_exact_compare_only": 0.00023463647868753065,
+      "tau2_difference": 3.82988750387064e-10,
+      "tau2_tree_exact_compare_only": -0.0002311626831633662
+    },
+    "emitter_scalar": {
+      "lambda_formula": "eta_source * alpha_u_from_seed / 4 = eta_source^2 / (4 * beta_EW)",
+      "lambda_value": 0.00022769874427635073
+    },
+    "object_id": "EWTargetEmitter_D10",
+    "status": "new_theorem_candidate_not_yet_in_corpus",
+    "target_emitter_law": {
+      "delta_alpha2_tree": -7.808301031916019e-06,
+      "delta_alphaY_parallel": 2.3421396282673238e-06,
+      "delta_alphaY_perp": 1.030287026970081e-05,
+      "delta_alphaY_tree": 1.2645009897968135e-05,
+      "delta_n_tree_exact": 0.0002346358802434819,
+      "delta_n_tree_exact_formula": "lambda * (1 + (4/3) * eta_source + (2 - beta_EW/6) * eta_source^2)",
+      "tau2_tree_exact": -0.0002311623001746158,
+      "tau2_tree_exact_formula": "-lambda * (1 + (2/3) * eta_source + (1 - beta_EW/6) * eta_source^2)",
+      "tauY_fiber": -0.04406283002558085,
+      "tauY_fiber_formula": "-(tau2_tree_exact + 2 * eta_source) / (1 + 4 * tau2_tree_exact^2)"
+    }
+  },
+  "target_free_source_only_underdetermination": {
+    "artifact": "oph_d10_ew_minimal_conditional_promotion",
+    "conditional_principle": {
+      "name": "ColorBalancedQuadraticRepairDescent_D10",
+      "statement": "The first nonzero beyond-current-carrier D10 repair is quadratic in eta_source, with charged contraction delta_alpha2_tree = -(sqrt(N_c)/2)*alpha2_mz*eta_source^2 and neutral color-balanced uplift delta_alphaY_perp = N_c*alphaY_mz*eta_source^2."
+    },
+    "conditional_theorem": {
+      "formulas": {
+        "delta_alpha2_tree": "-(sqrt(N_c)/2) * alpha2_mz * eta_source^2",
+        "delta_alphaY_perp": "N_c * alphaY_mz * eta_source^2",
+        "delta_n_exact": "(N_c/2) * (1 - beta_EW) * eta_source^2",
+        "tau2_exact": "-(sqrt(N_c)/2) * eta_source^2"
+      },
+      "name": "minimal_conditional_d10_forward_repair_law",
+      "statement": "Assuming ColorBalancedQuadraticRepairDescent_D10, the repair law is uniquely tau2_exact = -(sqrt(N_c)/2)*eta_source^2 and delta_n_exact = (N_c/2)*(1-beta_EW)*eta_source^2."
+    },
+    "n_c_3_specialization": {
+      "coherent_quintet": {
+        "MW_pole_gev": 80.36921677537332,
+        "MZ_pole_gev": 91.1880067442454,
+        "alpha_em_eff_inv": 132.68832841396318,
+        "sin2w_eff": 0.223209283468742,
+        "v_report_gev": 246.76711732749683
+      },
+      "delta_alpha2_tree": -1.4348285783568165e-05,
+      "delta_alphaY_parallel": 4.303986779860482e-06,
+      "delta_alphaY_perp": 1.4908336311973958e-05,
+      "delta_alphaY_total": 1.921232309183444e-05,
+      "delta_n_exact": 0.0003395200096630409,
+      "tau2_exact": -0.00042477649513449626
+    },
+    "status": "conditional_theorem_plus_unconditional_no_go",
+    "unconditional_theorem": {
+      "free_family": {
+        "delta_n_exact": "d * (1 - beta_EW) * eta_source^2",
+        "tau2_exact": "-c * eta_source^2"
+      },
+      "name": "current_corpus_underdetermination_of_forward_d10_repair_law",
+      "statement": "For arbitrary real (c,d), the source-only family tau2_exact = -c*eta_source^2 and delta_n_exact = d*(1-beta_EW)*eta_source^2 defines a coherent runtime-forward D10 repair law. Therefore the current emitted corpus does not determine a unique forward repair coefficient pair."
+    }
+  },
+  "target_freeze_and_subobject_split": {
+    "artifact": "oph_d10_ew_target_freeze_and_subobject_split",
+    "status": "closed_freeze_once_subobject_split",
+    "subobject_split": {
+      "charged_anchor_object": "EWChargedAnchorLaw_D10",
+      "current_frozen_target_values": {
+        "delta_alpha2_dagger": -7.808313968675484e-06,
+        "delta_alpha2_tree": -7.808313968675484e-06,
+        "delta_alphaY_parallel": 2.3421435088707883e-06,
+        "delta_alphaY_perp": 1.0302892666790446e-05,
+        "delta_n_dagger": 0.00023463639031113336,
+        "delta_n_tree_exact": 0.00023463639031113336,
+        "tau2_w_anchor": -0.00023116268316325517
+      },
+      "neutral_shear_object": "EWNeutralShearLaw_D10"
+    },
+    "target_freeze_required": true
+  },
+  "tau2_current_carrier_obstruction": {
+    "artifact": "oph_d10_ew_tau2_current_carrier_obstruction",
+    "next_single_residual_object": "delta_n_tree_exact",
+    "proof_status": "no_single_tau2_on_closed_current_carrier_can_hit_exact_W_and_exact_Z",
+    "status": "closed_smaller_primitive",
+    "strictly_smaller_than": "tau2_tree_exact"
+  },
+  "tree_level_identity_audit": {
+    "identity_residual_on_mixed_reference_surface": 0.007677089578212476,
+    "mass_ratio_sin2_from_reference_WZ": 0.22305833389684926,
+    "required_identity": "sin2w_eff = 1 - (MW_pole / MZ_pole)^2 on one coherent family",
+    "running_surface_sin2": 0.23073542347506173
+  },
+  "w_anchor_neutral_shear_box_dominance": {
+    "artifact": "oph_d10_ew_w_anchor_neutral_shear_box_dominance",
+    "bounds": {
+      "delta_MZ_after_exact_W_anchor_mev": [
+        1.388386266697239,
+        20.22660220146122
+      ],
+      "delta_alphaY_parallel": [
+        -6.826941583483183e-07,
+        5.366844521303444e-06
+      ],
+      "delta_alphaY_perp": [
+        1.3235505888408134e-06,
+        1.92809083393621e-05
+      ],
+      "delta_n_tree_exact": [
+        3.014232435525575e-05,
+        0.0004391002489281554
+      ],
+      "fiber_parallel_share_of_total": [
+        -1.0652840883935129,
+        0.2579197577499231
+      ],
+      "neutral_shear_share_of_total": [
+        0.7420802422500768,
+        2.0652840883935126
+      ]
+    },
+    "status": "diagnostic_compare_only",
+    "verdict": {
+      "delta_MZ_after_exact_W_anchor_positive_everywhere": true,
+      "neutral_shear_dominates_total_hypercharge_repair_everywhere": true
+    }
+  },
+  "w_anchor_neutral_shear_factorization": {
+    "artifact": "oph_d10_ew_w_anchor_neutral_shear_factorization",
+    "central_target_point": {
+      "MW_target_gev": 80.377,
+      "MZ_fiber_after_exact_W_anchor_gev": 91.17717018044121,
+      "MZ_target_gev": 91.18797809193725,
+      "alpha2_dagger": 0.033770627988221474,
+      "alpha2_star": 0.03377843630219015,
+      "alphaY_dagger": 0.009695476948076156,
+      "alphaY_star": 0.009682831911900495,
+      "alpha_em_eff_inv_dagger": 132.75240855096712,
+      "coeff_delta_alphaY_perp_per_gev_delta_MZ": 0.0009532732267988105,
+      "coeff_delta_n_per_gev_delta_MZ": 0.02170968835163044,
+      "delta_MZ_after_exact_W_anchor_gev": 0.010807911496044653,
+      "delta_MZ_after_exact_W_anchor_mev": 10.807911496044653,
+      "delta_alpha2_dagger": -7.808313968675484e-06,
+      "delta_alpha2_tree": -7.808313968675484e-06,
+      "delta_alphaY_parallel": 2.3421435088707883e-06,
+      "delta_alphaY_perp": 1.0302892666790446e-05,
+      "delta_alphaY_total": 1.2645036175661233e-05,
+      "delta_n_dagger": 0.00023463639031113336,
+      "delta_n_tree_exact": 0.00023463639031113336,
+      "fiber_parallel_share_of_total": 0.18522236522967583,
+      "n_fiber_dagger": 0.9896553190793422,
+      "neutral_shear_share_of_total": 0.8147776347703242,
+      "sin2w_eff_dagger": 0.22305833389684906,
+      "tau2_w_anchor": -0.00023116268316325517,
+      "tauY_fiber_dagger": -0.04406282964256108
+    },
+    "coherent_repaired_quintet": {
+      "MW_pole": 80.377,
+      "MZ_pole": 91.18797809193725,
+      "alpha_em_eff_inv": 132.75240855096712,
+      "sin2w_eff": 0.22305833389684906,
+      "v_report": 246.76711732749683
+    },
+    "conclusion": {
+      "meaning": "On the frozen authoritative D10 target surface, the exact repair package and coherent repaired quintet are fully emitted.",
+      "still_compare_only": false,
+      "stricter_still_open_object": "EWTargetFreeRepairValueLaw_D10",
+      "stricter_still_open_statement": "Emit the same nonzero repair directly from P alone with no frozen target input."
+    },
+    "exact_missing_law": {
+      "kind": "freeze_once_authoritative_target_repair",
+      "object_id": "FreezeOnceCoherentD10ElectroweakRepairLaw_D10",
+      "proof_gate": "single_family_single_P_no_mixed_readout",
+      "status": "closed",
+      "stricter_still_open_object": "EWTargetFreeRepairValueLaw_D10"
+    },
+    "new_smaller_primitive": {
+      "depends_on": [
+        "EWSinglePostTransportTreeIdentity_D10",
+        "oph_d10_target_spec_freeze"
+      ],
+      "meaning": "Once the target pair is frozen, exact D10 repair factors into an exact W anchor plus one remaining neutral-shear scalar.",
+      "proposed_object_id": "EWAnchoredNeutralShearPrimitive_D10",
+      "strictly_smaller_than": "D10RepairBranchBeyondCurrentCarrier"
+    },
+    "status": "closed_freeze_once_coherent_repair_law"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "Y_e_shape": {
+    "imag": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "real": [
+      [
+        0.5981682500158173,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.23106158220683928,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.17077016777734344
+      ]
+    ]
+  },
+  "artifact": "oph_lepton_ordered_shape_readout",
+  "center_rule": "delta_e = current_family_eigenvalues - mean(current_family_eigenvalues)",
+  "consumer_builder": "build_forward_charged_leptons.py",
+  "current_family_eigenvalues": [
+    1.3557137562771555,
+    0.40452595199087626,
+    0.102160291731968
+  ],
+  "delta_e": [
+    0.7349137562771556,
+    -0.21627404800912364,
+    -0.5186397082680319
+  ],
+  "expected_closure_state": "shared_writeback_current_family",
+  "expected_singular_values_shape_sorted": [
+    0.17077016777734344,
+    0.23106158220683928,
+    0.5981682500158173
+  ],
+  "generated_utc": "2026-03-26T10:41:03Z",
+  "labels": [
+    "f1",
+    "f2",
+    "f3"
+  ],
+  "metadata": {
+    "note": "Current-family ordered charged-lepton softmax readout built from the populated common-refinement eigenvalue triple. This is diagnostic-only: the centered-softmax primitive is too weak to carry the observed charged hierarchy and should not be promoted as a predictive mass consumer."
+  },
+  "parent_artifact": "charged_shared_absolute_scale_writeback",
+  "predictive_promotion_allowed": false,
+  "proof_status": "diagnostic_only_softmax_consumer",
+  "shape_closed": true,
+  "shape_rule": "shape_weights_i = exp(delta_e_i) / sum_j exp(delta_e_j)",
+  "shape_weights_current_order": [
+    0.5981682500158173,
+    0.23106158220683928,
+    0.17077016777734344
+  ],
+  "source_mean_artifact": "charged_common_refinement_mean_eigenvalue_certificate",
+  "theorem_scope": "shared_budget_only",
+  "writeback_scope": "current_family_only"
+}

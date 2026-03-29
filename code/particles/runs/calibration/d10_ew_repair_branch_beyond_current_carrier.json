@@ -1,0 +1,68 @@
+{
+  "artifact": "oph_d10_ew_repair_branch_beyond_current_carrier",
+  "builder_local_frontier": "EWExactMassPairSelector_D10",
+  "current_carrier_chart_artifact": "oph_d10_ew_exact_mass_pair_chart_current_carrier",
+  "current_carrier_chart_status": "closed_smaller_primitive",
+  "current_carrier_exact_mass_pair": {
+    "MW_pole": 80.377,
+    "MZ_pole": 91.18797809193725
+  },
+  "current_carrier_tau2_obstruction_artifact": "oph_d10_ew_tau2_current_carrier_obstruction",
+  "current_carrier_tau2_obstruction_status": "closed_smaller_primitive",
+  "generated_utc": "2026-03-29T06:39:02Z",
+  "notes": [
+    "The present selected/current carrier closes its own exact W/Z chart.",
+    "The builder-local next object on that chart is `EWExactMassPairSelector_D10`.",
+    "The strongest strictly smaller constructive primitive beneath the broader repair branch is `EWSinglePostTransportTreeIdentity_D10`.",
+    "Exact PDG W/Z should still be treated as a broader D10 repair problem beyond the present current carrier rather than as a hidden selector rename on the same carrier."
+  ],
+  "object_id": "D10RepairBranchBeyondCurrentCarrier",
+  "operative_primitive": {
+    "base_running_quintet": {
+      "MW_pole": "v_report * sqrt(pi * alpha2_*)",
+      "MZ_pole": "v_report * sqrt(pi * (alphaY_* + alpha2_*))",
+      "alpha2_prime": "alpha2_*",
+      "alphaY_prime": "alphaY_*",
+      "alpha_em_eff_inv": "(alphaY_* + alpha2_*) / (alphaY_* * alpha2_*)",
+      "sin2w_eff": "alphaY_* / (alphaY_* + alpha2_*)"
+    },
+    "coherent_emitter_formula": {
+      "MW_pole": "v_report * sqrt(pi * alpha2_prime)",
+      "MZ_pole": "v_report * sqrt(pi * (alphaY_prime + alpha2_prime))",
+      "alpha_em_eff_inv": "(alphaY_prime + alpha2_prime) / (alphaY_prime * alpha2_prime)",
+      "sin2w_eff": "alphaY_prime / (alphaY_prime + alpha2_prime)"
+    },
+    "coupling_update": {
+      "alpha2_prime": "alpha2_* + delta_alpha2_tree",
+      "alphaY_prime": "alphaY_* + delta_alphaY_tree"
+    },
+    "family_source_id": "d10_running_tree",
+    "forbidden_inverse_witnesses": [
+      "inverse_reference_WZ_slice",
+      "mixed_running_alpha_plus_reference_mass_readout",
+      "mixed_running_sin2_plus_reference_mass_readout"
+    ],
+    "object_id": "EWSinglePostTransportTreeIdentity_D10",
+    "origin_kernel_id": "EWTransportKernel_D10",
+    "proof_gate": "single_family_single_P_no_mixed_readout",
+    "proof_status": "coherent_tree_law_closed_value_open",
+    "scheme_id": "freeze_once",
+    "status": "closed_smaller_primitive",
+    "tree_identity_residuals": {
+      "R_alpha": "(alphaY_prime + alpha2_prime) / (alphaY_prime * alpha2_prime) - alpha_em_eff_inv",
+      "R_sin": "1 - (MW_pole / MZ_pole)^2 - sin2w_eff"
+    }
+  },
+  "proof_status": "current_carrier_chart_closed_exact_pdg_wz_still_requires_family_escape",
+  "replaces_builder_local_frontier": "EWExactMassPairSelector_D10",
+  "required_closure_kind": "single_family_single_P_no_mixed_readout",
+  "status": "open",
+  "stronger_residual_object": "EWSinglePostTransportTreeIdentity_D10",
+  "target_scope": [
+    "MW_pole",
+    "MZ_pole",
+    "alpha_em_eff_inv",
+    "sin2w_eff",
+    "v_report"
+  ]
+}

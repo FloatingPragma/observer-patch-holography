@@ -1,0 +1,67 @@
+{
+  "description": "Debug-only quenched sweep for correlator plumbing, scale-setting trends, and artifact generation. This manifest is explicitly not a closure candidate.\n",
+  "output_root": "particles/runs/hadron/sweeps",
+  "profile_name": "quenched_debug_sweep",
+  "runs": [
+    {
+      "L": 4,
+      "T": 8,
+      "beta": 5.7,
+      "c_flow": 0.3,
+      "eps_flow": 0.01,
+      "every": 5,
+      "id": "beta57_l4_t8_seed0",
+      "kappas": "0.120,0.125",
+      "kind": "quenched_reference",
+      "nf": 0,
+      "seed": 0,
+      "sweeps": 30,
+      "tags": [
+        "smoke",
+        "demo",
+        "quenched"
+      ],
+      "therm": 10
+    },
+    {
+      "L": 6,
+      "T": 12,
+      "beta": 5.9,
+      "c_flow": 0.3,
+      "eps_flow": 0.01,
+      "every": 5,
+      "id": "beta59_l6_t12_seed1",
+      "kappas": "0.118,0.122,0.126",
+      "kind": "quenched_reference",
+      "nf": 0,
+      "seed": 1,
+      "sweeps": 40,
+      "tags": [
+        "smoke",
+        "debug",
+        "quenched"
+      ],
+      "therm": 20
+    },
+    {
+      "L": 8,
+      "T": 16,
+      "beta": 6.1,
+      "c_flow": 0.3,
+      "eps_flow": 0.01,
+      "every": 5,
+      "id": "beta61_l8_t16_seed2",
+      "kappas": "0.116,0.120,0.124",
+      "kind": "quenched_reference",
+      "nf": 0,
+      "seed": 2,
+      "sweeps": 50,
+      "tags": [
+        "debug",
+        "diagnostic",
+        "quenched"
+      ],
+      "therm": 20
+    }
+  ]
+}

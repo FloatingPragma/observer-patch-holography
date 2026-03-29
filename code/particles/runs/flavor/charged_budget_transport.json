@@ -1,0 +1,429 @@
+{
+  "B_by_sector_by_refinement": {
+    "d": [
+      {
+        "refinement": "refinement_limit_candidate",
+        "value": 0.9231656602589082
+      },
+      {
+        "refinement": "snapshot",
+        "value": 0.9231656602589082
+      }
+    ],
+    "e": [
+      {
+        "refinement": "refinement_limit_candidate",
+        "value": 0.9231656602589082
+      },
+      {
+        "refinement": "snapshot",
+        "value": 0.9231656602589082
+      }
+    ],
+    "u": [
+      {
+        "refinement": "refinement_limit_candidate",
+        "value": 0.9231656602589082
+      },
+      {
+        "refinement": "snapshot",
+        "value": 0.9231656602589082
+      }
+    ]
+  },
+  "B_ch_by_refinement": [
+    {
+      "refinement": "refinement_limit_candidate",
+      "value": 2.769496980776725
+    },
+    {
+      "refinement": "snapshot",
+      "value": 2.769496980776725
+    }
+  ],
+  "artifact": "oph_charged_budget_transport",
+  "beta_by_sector_by_refinement": {
+    "d": [
+      {
+        "refinement": "refinement_limit_candidate",
+        "value": 0.3333333333333333
+      },
+      {
+        "refinement": "snapshot",
+        "value": 0.3333333333333333
+      }
+    ],
+    "e": [
+      {
+        "refinement": "refinement_limit_candidate",
+        "value": 0.3333333333333333
+      },
+      {
+        "refinement": "snapshot",
+        "value": 0.3333333333333333
+      }
+    ],
+    "u": [
+      {
+        "refinement": "refinement_limit_candidate",
+        "value": 0.3333333333333333
+      },
+      {
+        "refinement": "snapshot",
+        "value": 0.3333333333333333
+      }
+    ]
+  },
+  "budget_certificate": {
+    "direct_sum_additivity_closed": false,
+    "partition_invariance_closed": true,
+    "reconstruction_identity_closed": true,
+    "refinement_limit_closed": false,
+    "samples": 2,
+    "status": "candidate_stream"
+  },
+  "charged_dirac_scalarization_certificate": {
+    "additivity_scope": "canonical_charged_direct_sum_submonoid",
+    "artifact": "charged_dirac_common_refinement_gluing_certificate",
+    "budget_shape_separation": {
+      "budget_inputs_only": [
+        "family_eigenvalues",
+        "spectral_gaps",
+        "canonical_sector_embeddings"
+      ],
+      "forbidden_downstream_inputs": [
+        "g_e",
+        "Delta_S_q",
+        "Delta_Phi_q",
+        "Delta_logD_left_q",
+        "Delta_logD_right_q",
+        "delta_logg_q"
+      ]
+    },
+    "candidate_id": "charged_common_refinement_sigma_seed_equalizer",
+    "common_scalarization_law_missing": true,
+    "conjugation_invariant": true,
+    "current_family_seed_data": {
+      "family_eigenvalues": [
+        1.3557137562771555,
+        0.40452595199087626,
+        0.102160291731968
+      ],
+      "seed_value": 0.9231656602589082,
+      "spectral_gaps": [
+        0.9511878042862792,
+        0.30236566025890826
+      ]
+    },
+    "current_proxy_support": {
+      "current_min_gap": 0.30236566025890826,
+      "projector_order_preserved": false,
+      "same_label_only": true,
+      "selfadjoint": true,
+      "simple_spectrum": true,
+      "trace_free": true
+    },
+    "decomposition_independence_status": "candidate_only",
+    "decomposition_independence_witness_status": "common_refinement_witness_missing",
+    "direct_sum_additivity_closed": false,
+    "equalizer_formula": "E_s(X,X') = sigma_seed(pi_s X') - sigma_seed(pi_s X)",
+    "equalizer_norm_formula": "E_glue = |E_u| + |E_d| + |E_e|",
+    "evaluator_kind": "intrinsic_monoidal_scalar_evaluator",
+    "exact_blocking_clause": "ordered_common_refinement_seed_rigidity",
+    "family_eigenvalues": [
+      1.3557137562771555,
+      0.40452595199087626,
+      0.102160291731968
+    ],
+    "family_eigenvalues_current": [
+      1.3557137562771555,
+      0.40452595199087626,
+      0.102160291731968
+    ],
+    "functional_equalizer_closed": false,
+    "gap_side_support_status": "proxy_supported_on_current_family",
+    "generator_kind": "centered_compressed_generation_bundle_branch_generator",
+    "generatorwise_reduction_status": "common_refinement_only_missing",
+    "generatorwise_status": {
+      "common_refinement": {
+        "d": "candidate_only",
+        "e": "candidate_only",
+        "u": "candidate_only"
+      },
+      "conjugation": {
+        "d": "closed_on_current_metadata",
+        "e": "closed_on_current_metadata",
+        "u": "closed_on_current_metadata"
+      },
+      "pre_normal_form_equivalence": {
+        "d": "closed_on_current_metadata",
+        "e": "closed_on_current_metadata",
+        "u": "closed_on_current_metadata"
+      }
+    },
+    "gluing_certificate_status": "missing",
+    "gluing_collapse_condition": "Delta_mean = 0 together with the proxy-supported min-gap side",
+    "gluing_norm_formula": "abs(E_u) + abs(E_d) + abs(E_e)",
+    "immediate_promotion_targets": [
+      "functional_equalizer_closed",
+      "decomposition_independence_status",
+      "proof_status",
+      "g_e",
+      "g_ch"
+    ],
+    "label_blindness_candidate": true,
+    "label_blindness_status": "candidate_only",
+    "law_id": "charged_dirac_scalarization_law",
+    "law_scope": "direct_sum_u_plus_d_plus_e_pre_normal_form_canonical_decomposable_subfamily",
+    "law_status": "candidate_only",
+    "mean_clause": {
+      "left_common": null,
+      "residual": null,
+      "right_common": null,
+      "witness_kind": "charged_common_refinement_mean_eigenvalue_certificate"
+    },
+    "mean_eigenvalue_current": 0.6207999999999999,
+    "mean_gap_invariance_candidate": {
+      "candidate_id": "common_refinement_mean_and_min_gap_invariance",
+      "mean_formula": "mean(family_eigenvalues)",
+      "min_gap_formula": "min(spectral_gaps)",
+      "status": "candidate_only"
+    },
+    "mean_side_support_status": "tightest_remaining_clause",
+    "mean_witness_artifact": "charged_common_refinement_mean_eigenvalue_certificate",
+    "mean_witness_formula": "Delta_mean(X,X';rho) = mean(family_eigenvalues(X^rho)) - mean(family_eigenvalues(X'^rho))",
+    "min_gap_clause": {
+      "left_common": null,
+      "residual": null,
+      "right_common": null,
+      "witness_kind": "ordered_min_gap_transport_certificate"
+    },
+    "minimal_missing_bridge_object": "charged_dirac_common_refinement_gluing_certificate",
+    "minimal_missing_witness": "charged_common_refinement_mean_eigenvalue_certificate",
+    "presentation_equalizer_kind": "sector_projected_sigma_seed_equalizer",
+    "quotient_equivalence": [
+      "conjugation",
+      "common_refinement",
+      "pre_normal_form_equivalence"
+    ],
+    "quotient_generators": [
+      "conjugation",
+      "common_refinement",
+      "pre_normal_form_equivalence"
+    ],
+    "refinement_pair": {
+      "common": "common_refinement_candidate",
+      "left": "snapshot",
+      "right": "refinement_limit_candidate"
+    },
+    "refinement_stable_candidate": true,
+    "remaining_theorem_object": "charged_dirac_scalarization_law",
+    "restriction_formula": "Sigma_ch(i_s R_s) = sigma_seed(R_s)",
+    "sampled_sector_shares": {
+      "d": {
+        "refinement_limit_candidate": 0.3333333333333333,
+        "snapshot": 0.3333333333333333
+      },
+      "e": {
+        "refinement_limit_candidate": 0.3333333333333333,
+        "snapshot": 0.3333333333333333
+      },
+      "u": {
+        "refinement_limit_candidate": 0.3333333333333333,
+        "snapshot": 0.3333333333333333
+      }
+    },
+    "sampled_sector_values": {
+      "d": {
+        "refinement_limit_candidate": 0.9231656602589082,
+        "snapshot": 0.9231656602589082
+      },
+      "e": {
+        "refinement_limit_candidate": 0.9231656602589082,
+        "snapshot": 0.9231656602589082
+      },
+      "u": {
+        "refinement_limit_candidate": 0.9231656602589082,
+        "snapshot": 0.9231656602589082
+      }
+    },
+    "sampled_total_budget": 2.769496980776725,
+    "scope": "charged_dirac_response_class",
+    "sector_certificates": {
+      "d": {
+        "conjugation_invariant": true,
+        "defined_before_sector_local_normal_form": true,
+        "functional_kind": "charged_dirac_scalarization_candidate",
+        "partition_additivity_candidate": true,
+        "refinement_limit_candidate": true,
+        "status": "candidate_only"
+      },
+      "e": {
+        "conjugation_invariant": true,
+        "defined_before_sector_local_normal_form": true,
+        "functional_kind": "charged_dirac_scalarization_candidate",
+        "partition_additivity_candidate": true,
+        "refinement_limit_candidate": true,
+        "status": "candidate_only"
+      },
+      "u": {
+        "conjugation_invariant": true,
+        "defined_before_sector_local_normal_form": true,
+        "functional_kind": "charged_dirac_scalarization_candidate",
+        "partition_additivity_candidate": true,
+        "refinement_limit_candidate": true,
+        "status": "candidate_only"
+      }
+    },
+    "sector_embeddings": {
+      "d": "i_d",
+      "e": "i_e",
+      "u": "i_u"
+    },
+    "sector_equalizer_formula": "E_s = sigma_seed(pi_s X_right_common) - sigma_seed(pi_s X_left_common)",
+    "sector_isolation_required_for_base_closure": false,
+    "sector_projections": {
+      "d": "pi_d",
+      "e": "pi_e",
+      "u": "pi_u"
+    },
+    "sector_restriction_compatibility_closed": false,
+    "seed_defect_formula": "abs(mean_left-mean_right) + abs(min_gap_left-min_gap_right)",
+    "seed_formula": "sigma_seed = mean(family_eigenvalues) + min(spectral_gaps)",
+    "seed_rigidity_reduction": [
+      "mean_eigenvalue_invariance",
+      "min_gap_invariance"
+    ],
+    "seed_source": "common_family_spectral_package",
+    "seed_value": 0.9231656602589082,
+    "seed_value_current": 0.9231656602589082,
+    "sigma_seed_clause": {
+      "left_common": null,
+      "residual": null,
+      "right_common": null
+    },
+    "smaller_exact_missing_clause": "common_refinement_preserves_mean_eigenvalue_and_min_gap",
+    "spectral_gaps": [
+      0.9511878042862792,
+      0.30236566025890826
+    ],
+    "spectral_gaps_current": [
+      0.9511878042862792,
+      0.30236566025890826
+    ],
+    "status": "candidate_only",
+    "strict_next_clause": "charged_common_refinement_mean_eigenvalue_certificate",
+    "strictly_smaller_next_subclause": "common_refinement_preserves_mean_eigenvalue",
+    "telescoping_descent_proof_mode": "generator_chain",
+    "transport_kind": "projective_polar_riesz_same_label_eigenline_transport",
+    "transported_ordered_spectral_package_evidence_status": "serialization_only_not_independent_witness",
+    "transported_ordered_spectral_package_left_at_common": {
+      "family_eigenvalues": [
+        1.3557137562771555,
+        0.40452595199087626,
+        0.102160291731968
+      ],
+      "seed_value": 0.9231656602589082,
+      "spectral_gaps": [
+        0.9511878042862792,
+        0.30236566025890826
+      ]
+    },
+    "transported_ordered_spectral_package_right_at_common": {
+      "family_eigenvalues": [
+        1.3557137562771555,
+        0.40452595199087626,
+        0.102160291731968
+      ],
+      "seed_value": 0.9231656602589082,
+      "spectral_gaps": [
+        0.9511878042862792,
+        0.30236566025890826
+      ]
+    },
+    "universal_formula": "Sigma_ch(sum_s i_s R_s) = sum_s sigma_seed(R_s)",
+    "witness_kind": "common_refinement_transport_equalizer"
+  },
+  "closure_route": "shared_charged_budget",
+  "g_by_sector_by_refinement": {
+    "d": [
+      {
+        "refinement": "refinement_limit_candidate",
+        "value": 0.9231656602589082
+      },
+      {
+        "refinement": "snapshot",
+        "value": 0.9231656602589082
+      }
+    ],
+    "e": [
+      {
+        "refinement": "refinement_limit_candidate",
+        "value": 0.9231656602589082
+      },
+      {
+        "refinement": "snapshot",
+        "value": 0.9231656602589082
+      }
+    ],
+    "u": [
+      {
+        "refinement": "refinement_limit_candidate",
+        "value": 0.9231656602589082
+      },
+      {
+        "refinement": "snapshot",
+        "value": 0.9231656602589082
+      }
+    ]
+  },
+  "generated_utc": "2026-03-25T23:51:12Z",
+  "labels": [
+    "f1",
+    "f2",
+    "f3"
+  ],
+  "metadata": {
+    "note": "Shared charged-sector budget artifact. The current constructive candidate is the charged_common_refinement_sigma_seed_equalizer: the monoidal completion of the common family spectral seed sigma_seed = mean(family_eigenvalues) + min(spectral_gaps) on the canonical decomposable charged direct-sum family. The generatorwise descent has now reduced the remaining base theorem burden to ordered common-refinement seed rigidity, with the strict next constructive witness being charged_common_refinement_mean_eigenvalue_certificate while the min-gap side is already proxy-supported on the current family. The left/right spectral packages remain explicitly marked as serialization-only rather than independent evidence.",
+    "sector_response_artifact": "oph_sector_response_object"
+  },
+  "partition_invariance_certificate": {
+    "refinement_stable": true,
+    "samples": 2,
+    "share_sum_to_one": true,
+    "status": "candidate_stream"
+  },
+  "proof_status": "shared_budget_only",
+  "reconstruction_identity_certificate": {
+    "holds_by_sector": {
+      "d": true,
+      "e": true,
+      "u": true
+    },
+    "holds_for_all_common_refinements": true,
+    "status": "closed"
+  },
+  "refinement_limit_certificate": {
+    "refinement_stable": true,
+    "samples": 2,
+    "status": "candidate_stream"
+  },
+  "sector_isolation_witness_by_sector": {
+    "d": {
+      "sector_local_closed": false,
+      "status": "unavailable",
+      "value": null
+    },
+    "e": {
+      "sector_local_closed": false,
+      "status": "unavailable",
+      "value": null
+    },
+    "u": {
+      "sector_local_closed": false,
+      "status": "unavailable",
+      "value": null
+    }
+  },
+  "shared_budget_key": "charged_dirac_budget"
+}

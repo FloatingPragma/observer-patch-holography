@@ -1,0 +1,63 @@
+{
+  "artifact": "charged_shared_absolute_scale_writeback_bundle",
+  "generated_utc": "2026-03-28T15:42:44Z",
+  "lepton_binding_artifact": "lepton_shared_absolute_scale_binding",
+  "quark_binding_artifact": "quark_shared_absolute_norm_binding",
+  "writeback": {
+    "artifact": "charged_shared_absolute_scale_writeback",
+    "common_log_restore_candidate": {
+      "candidate_status": "partial_common_log_restore_only",
+      "effective_scale_formula": "exp(log(stored_shared_absolute_scale_raw) - gamma_min_common)",
+      "g_e_linear_seed": 0.9231656602589082,
+      "gamma_min_common": 0.30236566025890826,
+      "mu_common_log": -0.38231224060567365,
+      "mu_e_absolute_log_candidate": -0.38231224060567365,
+      "mu_e_absolute_log_seed": -0.07994658034676537,
+      "shared_absolute_scale_effective": 0.6822819838027987,
+      "why_not_closure": "This fixes the linear-vs-log type mismatch in the restore candidate, but it does not fix the remaining charged-lepton hierarchy/open-value burden."
+    },
+    "generated_utc": "2026-03-28T15:42:44Z",
+    "gluing_norm": 0.0,
+    "immediate_consumer_bindings": [
+      "lepton_shared_absolute_scale_binding",
+      "quark_shared_absolute_norm_binding"
+    ],
+    "mean_witness": {
+      "gap_side_support_status": "proxy_supported_on_current_family",
+      "left_common_mean": 0.6207999999999999,
+      "mean_residual": 0.0,
+      "right_common_mean": 0.6207999999999999,
+      "witness_grade_status": "independent_scalar_readback_complete"
+    },
+    "metadata": {
+      "no_reseed": true,
+      "note": "Current-family writeback of the stored shared charged absolute scale. This unblocks the lepton absolute-scale input and pins the shared quark absolute norm without promoting the outer shared-budget route to a global theorem. A later partial memo also suggested a common-log restore candidate after the centered-log consumer; that candidate is recorded here for auditability but is not promoted as charged-lepton closure.",
+      "promotion_scope": "current_family_only"
+    },
+    "parent_artifact": "charged_shared_absolute_scale_promotion",
+    "parent_candidate": "charged_common_refinement_sigma_seed_equalizer",
+    "proof_status": "current_family_writeback_complete",
+    "remaining_mass_mover": "oph_family_excitation_spread_map",
+    "sector_equalizer_by_sector": {
+      "d": 0.0,
+      "e": 0.0,
+      "u": 0.0
+    },
+    "sector_share_by_sector": {
+      "d": 0.3333333333333333,
+      "e": 0.3333333333333333,
+      "u": 0.3333333333333333
+    },
+    "shared_budget_total": 2.769496980776725,
+    "sigma_seed_clause": {
+      "left_common": 0.9231656602589082,
+      "residual": 0.0,
+      "right_common": 0.9231656602589082
+    },
+    "stored_shared_absolute_scale": 0.9231656602589082,
+    "stored_shared_absolute_scale_log_seed": -0.07994658034676537,
+    "stored_shared_absolute_scale_raw": 0.9231656602589082,
+    "theorem_scope": "shared_budget_only",
+    "writeback_scope": "current_family_only"
+  }
+}

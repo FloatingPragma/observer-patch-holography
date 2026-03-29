@@ -1,0 +1,406 @@
+{
+  "active_readout_family_id": "d10_running_tree",
+  "active_readout_reason": "fallback_until_common_readout_certified",
+  "active_readout_selector_candidate_id": "EWActiveReadoutSelector_D10",
+  "active_readout_selector_status": "candidate_only",
+  "artifact": "oph_d10_ew_transport_kernel",
+  "base_quintet_running": {
+    "MW_pole": 80.38629169244275,
+    "MZ_pole": 91.65246028560671,
+    "alpha_em_eff_inv": 128.30576920234813,
+    "sin2w_eff": 0.23073542347506173,
+    "v_report": 246.76711732749683
+  },
+  "base_quintet_source_path": {
+    "MW_pole": "reported_outputs.m_w_run",
+    "MZ_pole": "reported_outputs.m_z_run",
+    "alpha_em_eff_inv": "reported_outputs.alpha_em_inv_mz",
+    "sin2w_eff": "reported_outputs.sin2w_mz",
+    "v_report": "reported_outputs.v"
+  },
+  "charged_transport": {
+    "basis": [
+      "W"
+    ],
+    "entries": [
+      "Pi_WW"
+    ],
+    "proof_status": "candidate_only"
+  },
+  "coherence_witness": {
+    "mixed_sources_detected": true,
+    "mixed_stage3_mass_ratio_residual": -0.007307137258840274,
+    "running_mass_ratio_residual": -2.7755575615628914e-17,
+    "stage3_mass_ratio_residual": -0.007307137258840274
+  },
+  "coherent_output_quintet": {
+    "MW_pole": 80.38629169244275,
+    "MZ_pole": 91.65246028560671,
+    "alpha_em_eff_inv": 128.30576920234813,
+    "sin2w_eff": 0.23073542347506173,
+    "v_report": 246.76711732749683
+  },
+  "coherent_quintet_when_running_family": {
+    "W": 80.38629169244275,
+    "Z": 91.65246028560671,
+    "alpha_em_inv": 128.30576920234813,
+    "sin2w": 0.23073542347506173,
+    "v": 246.76711732749683
+  },
+  "common_provenance_witness": {
+    "all_equal_family_source_id": true,
+    "all_equal_origin_kernel_id": true,
+    "all_equal_scheme_id": true,
+    "shared_source": {
+      "family_source_id": "d10_running_tree",
+      "origin_kernel_id": "EWTransportKernel_D10",
+      "scheme_id": "freeze_once"
+    }
+  },
+  "core_source_ref": {
+    "generator_keys_unrounded": [
+      "p",
+      "mu_u",
+      "alpha_u",
+      "mz_run",
+      "v",
+      "alpha1_mz",
+      "alpha2_mz",
+      "alpha3_mz"
+    ],
+    "generator_values_unrounded": {
+      "alpha1_mz": 0.016886001778736042,
+      "alpha2_mz": 0.03377843630219015,
+      "alpha3_mz": 0.11833722886741345,
+      "alpha_u": 0.04112498041477454,
+      "mu_u": 2.4736039148648396e+16,
+      "mz_run": 91.65246028560671,
+      "p": 1.63094,
+      "v": 246.76711732749683
+    }
+  },
+  "current_emission_status": "zero_benchmark_only__frozen_nonzero_calibration_candidate_available",
+  "derived_readouts": {
+    "delta_alpha_from": [
+      "Pi_AA",
+      "Pi_AZ"
+    ],
+    "delta_kappa_from": [
+      "Pi_AA",
+      "Pi_AZ",
+      "Pi_ZZ"
+    ],
+    "delta_rW_from": [
+      "Pi_WW",
+      "Pi_AA",
+      "Pi_AZ",
+      "Pi_ZZ"
+    ],
+    "delta_rho_from": [
+      "Pi_WW",
+      "Pi_ZZ"
+    ]
+  },
+  "emitter_family": {
+    "delta_alpha_formula": "alpha_em_eff_inv / a0 - 1",
+    "delta_kappa_formula": "sin2w_eff / s0 - 1",
+    "delta_rW_formula": "MW_pole / W0 - MZ_pole / Z0",
+    "delta_rho_formula": "MZ_pole / Z0 - 1",
+    "inverse_readout": {
+      "MW_pole": "W0 * (1 + delta_rho + delta_rW)",
+      "MZ_pole": "Z0 * (1 + delta_rho)",
+      "alpha_em_eff_inv": "a0 * (1 + delta_alpha)",
+      "sin2w_eff": "s0 * (1 + delta_kappa)",
+      "v_report": "v0"
+    },
+    "kind": "zero_normalized_affine_relative_emitter"
+  },
+  "external_nonzero_quartet_image_test": {
+    "status": "fails_exact_image_test_on_current_branch",
+    "why": "the stored external quartet is not the image of a single coherent D10 source-pair on the current branch"
+  },
+  "family_purity_gate": {
+    "common_readout_certified": false,
+    "independently_rounded_targets_forbidden": true,
+    "no_run_pole_mix": true,
+    "orphan_scalar_corrections_forbidden": true,
+    "z_only_surrogate_forbidden": true
+  },
+  "family_source_artifact": "oph_d10_ew_observable_family",
+  "family_source_id": "d10_running_tree",
+  "first_nonzero_oph_seed_trial": {
+    "coherent_output_quintet": {
+      "MW_pole": 80.46544871360979,
+      "MZ_pole": 91.70107406716765,
+      "alpha_em_eff_inv": 128.44241441342285,
+      "sin2w_eff": 0.23003669147715428,
+      "v_report": 246.76711732749683
+    },
+    "name": "centered_log_gauge_split",
+    "tau_2": 0.001970385566344652,
+    "tau_Y": -0.001970385566344652,
+    "tau_seed": -0.001970385566344652,
+    "transport_entry_values": {
+      "Pi_AA": -0.001061110070225287,
+      "Pi_AZ": 0.0016602604310546646,
+      "Pi_WW": 0.001970385566344652,
+      "Pi_ZZ": 0.001061110070225287
+    }
+  },
+  "frozen_nonzero_calibration_candidate": {
+    "coherent_output_quintet": {
+      "MW_pole": 80.3692,
+      "MZ_pole": 91.188,
+      "alpha_em_eff_inv": 127.93,
+      "sin2w_eff": 0.23161,
+      "v_report": 246.76711732749683
+    },
+    "common_provenance_fields": {
+      "family_source_id": "d10_running_tree",
+      "origin_kernel_id": "EWTransportKernel_D10",
+      "scheme_id": "freeze_once"
+    },
+    "mass_ratio_residual": -0.008400507156556741,
+    "not_yet_oph_only_reason": "transport_entry_preimage_unpopulated",
+    "observable_quartet": {
+      "MW_pole_gev": 80.3692,
+      "MZ_pole_gev": 91.188,
+      "alpha_em_eff_inv": 127.93,
+      "sin2w_eff": 0.23161
+    },
+    "shared_scalar_values": {
+      "delta_alpha": -0.0029287007488767447,
+      "delta_kappa": 0.003790386893206321,
+      "delta_rW": 0.004855005362024878,
+      "delta_rho": -0.0050676248532702806
+    },
+    "source_kind": "frozen_external_calibration_readout",
+    "status": "calibration_readout_candidate_not_oph_only",
+    "transport_support_required": [
+      "Pi_AA",
+      "Pi_AZ",
+      "Pi_ZZ",
+      "Pi_WW"
+    ]
+  },
+  "generated_utc": "2026-03-26T11:57:34Z",
+  "kernel_id": "EWTransportKernel_D10",
+  "neutral_transport": {
+    "basis": [
+      "A",
+      "Z"
+    ],
+    "entries": [
+      "Pi_AA",
+      "Pi_AZ",
+      "Pi_ZZ"
+    ],
+    "proof_status": "candidate_only"
+  },
+  "next_live_mover": "populated_shared_scalar_package",
+  "notes": [
+    "This artifact is the exact boundary for any pole/effective electroweak family built on top of the current exact D10 running-family core.",
+    "The selector phase is already behind this lane: until one coherent pole/effective family is certified, the active public quintet should remain the running-family quintet instead of mixing W_run with a Stage-3 Z-only surrogate.",
+    "The next live mover is the populated shared scalar package Sigma_EW_D10 with one zero-normalized readout family beneath EWTransportKernel_D10 rather than another per-observable family split.",
+    "The running-family base quintet is now exported explicitly so a future populated Sigma_EW_D10 package can read directly from one fixed running source rather than a partially implicit benchmark.",
+    "The smallest constructive object beneath the public package boundary is now the zero-normalized affine relative emitter EWSharedScalarEmitter_D10.",
+    "At the current honest boundary, the actually emitted scalar tuple is the zero benchmark Sigma_EW_D10 = (0,0,0,0), which keeps the coherent emitted quintet equal to the running-family quintet until the first non-zero populated package is justified.",
+    "A frozen non-zero calibration-readout candidate is now recorded on the same emitter formulas, but it is not promoted to OPH-only status because the local transport-entry preimage on (Pi_AA, Pi_AZ, Pi_ZZ, Pi_WW) is still unpopulated.",
+    "Any non-zero future scalar package must still be emitted on the same fixed running-family base quintet and the same transport-entry support (Pi_AA, Pi_AZ, Pi_ZZ, Pi_WW).",
+    "The four-entry A/Z/W shell is no longer the smallest exact source-side object; beneath it the reduced missing source is the D10 gauge source transport pair Tau_EW_D10 = (tau_Y, tau_2).",
+    "The strict smallest live missing object is therefore the source-side pair EWGaugeSourceTransportPair_D10 rather than the full Pi-shell itself.",
+    "The current source-pair artifact now records the simplest honest augmentation beyond the tested anti-diagonal seed: the two-scalar family (sigma_EW, eta_EW) on that same pair together with its first nonzero OPH seed trial.",
+    "The smaller exact missing clause is EWTransportReadoutCoherence_D10: either W, Z, alpha_em, and sin^2(theta_W) all stay on the running family or all move together to one common pole/effective family with one shared kernel and scheme.",
+    "Inside that criterion, the strictly smaller exact subclause is EWScalarProvenanceEquality_D10: delta_alpha, delta_kappa, delta_rho, and delta_rW must expose one common family source, one frozen scheme, and one origin kernel.",
+    "A singleton Z-only surrogate is formally non-promotable under this artifact."
+  ],
+  "observable_family_id": "d10_pole_effective",
+  "observable_quartet": [
+    "W",
+    "Z",
+    "alpha_em",
+    "sin2w"
+  ],
+  "post_selector_missing_object": "EWSharedScalarReadoutPackage_D10",
+  "promotion_gate": {
+    "common_readout_certified": false,
+    "independently_rounded_targets_forbidden": true,
+    "mixed_scheme": false,
+    "no_orphan_scalar_corrections": true,
+    "populated_shared_scalar_package_required": true,
+    "provenance_equality_required": true,
+    "smaller_exact_missing_clause": "EWTransportReadoutCoherence_D10",
+    "strictly_smaller_next_subclause": "EWScalarProvenanceEquality_D10",
+    "z_only_surrogate_forbidden": true
+  },
+  "provenance_equality_fields": [
+    "family_source_id",
+    "scheme_id",
+    "origin_kernel_id"
+  ],
+  "quartet_source_lock": {
+    "W": "d10_running_tree",
+    "Z": "d10_running_tree",
+    "alpha_em": "d10_running_tree",
+    "sin2w": "d10_running_tree",
+    "v": "d10_running_tree"
+  },
+  "readout_assignments": {
+    "MW_pole": {
+      "origin_kernel_id": "EWTransportKernel_D10",
+      "via": [
+        "delta_rW",
+        "delta_rho"
+      ],
+      "zero_normalized": true
+    },
+    "MZ_pole": {
+      "origin_kernel_id": "EWTransportKernel_D10",
+      "via": [
+        "delta_rho"
+      ],
+      "zero_normalized": true
+    },
+    "alpha_em_eff_inv": {
+      "origin_kernel_id": "EWTransportKernel_D10",
+      "via": [
+        "delta_alpha"
+      ],
+      "zero_normalized": true
+    },
+    "sin2w_eff": {
+      "origin_kernel_id": "EWTransportKernel_D10",
+      "via": [
+        "delta_kappa"
+      ],
+      "zero_normalized": true
+    },
+    "v_report": {
+      "kind": "inherit_running_core"
+    }
+  },
+  "readout_coherence_clause_id": "EWTransportReadoutCoherence_D10",
+  "reported_outputs": {
+    "MW_pole": "derived",
+    "MZ_pole": "derived",
+    "alpha_em_eff_inv": "derived",
+    "sin2w_eff": "derived",
+    "v_report": {
+      "kind": "inherit_running_core"
+    }
+  },
+  "scalar_provenance": {
+    "delta_alpha": {
+      "family_source_id": "d10_running_tree",
+      "origin_kernel_id": "EWTransportKernel_D10",
+      "scheme_id": "freeze_once"
+    },
+    "delta_kappa": {
+      "family_source_id": "d10_running_tree",
+      "origin_kernel_id": "EWTransportKernel_D10",
+      "scheme_id": "freeze_once"
+    },
+    "delta_rW": {
+      "family_source_id": "d10_running_tree",
+      "origin_kernel_id": "EWTransportKernel_D10",
+      "scheme_id": "freeze_once"
+    },
+    "delta_rho": {
+      "family_source_id": "d10_running_tree",
+      "origin_kernel_id": "EWTransportKernel_D10",
+      "scheme_id": "freeze_once"
+    }
+  },
+  "scheme_id": "freeze_once",
+  "selector_rule": {
+    "if_common_readout_certified": "d10_pole_effective",
+    "if_not_common_readout_certified": "d10_running_tree"
+  },
+  "shared_scalar_emitter_candidate": "EWSharedScalarEmitter_D10",
+  "shared_scalar_package": {
+    "common_provenance_required": true,
+    "symbol": "Sigma_EW_D10 = (delta_alpha, delta_kappa, delta_rho, delta_rW)",
+    "zero_normalization_rule": "F_i(0; x) = x for every electroweak readout row"
+  },
+  "shared_scalar_package_id": "Sigma_EW_D10",
+  "shared_scalar_package_theorem_candidate": "EWSharedScalarReadoutPackage_D10",
+  "shared_scalar_readout_map_status": "candidate_only",
+  "shared_scalar_values": {
+    "delta_alpha": 0.0,
+    "delta_kappa": 0.0,
+    "delta_rW": 0.0,
+    "delta_rho": 0.0
+  },
+  "smallest_populated_missing_object": "EWSharedScalarReadoutPackage_D10",
+  "source_pair_first_nonzero_trial": {
+    "coherent_output_quintet": {
+      "MW_pole": 80.46544871360979,
+      "MZ_pole": 91.70107406716765,
+      "alpha_em_eff_inv": 128.44241441342285,
+      "sin2w_eff": 0.23003669147715428,
+      "v_report": 246.76711732749683
+    },
+    "name": "centered_log_gauge_split",
+    "tau_2": 0.001970385566344652,
+    "tau_Y": -0.001970385566344652,
+    "tau_seed": -0.001970385566344652,
+    "transport_entry_values": {
+      "Pi_AA": -0.001061110070225287,
+      "Pi_AZ": 0.0016602604310546646,
+      "Pi_WW": 0.001970385566344652,
+      "Pi_ZZ": 0.001061110070225287
+    }
+  },
+  "source_pair_population_status": "candidate_only",
+  "source_pair_special_slices": {
+    "common_scale_slice": {
+      "constraint": "eta_EW = 0.0"
+    },
+    "current_one_seed_slice": {
+      "eta_EW": 0.001970385566344652,
+      "sigma_EW": 0.0
+    },
+    "zero_benchmark": {
+      "eta_EW": 0.0,
+      "sigma_EW": 0.0
+    }
+  },
+  "source_pair_two_scalar_family": {
+    "eta_EW_symbol": "0.5 * (tau_2 - tau_Y)",
+    "sigma_EW_symbol": "0.5 * (tau_Y + tau_2)",
+    "tau_2_formula": "sigma_EW + eta_EW",
+    "tau_Y_formula": "sigma_EW - eta_EW"
+  },
+  "source_transport_pair": {
+    "alpha2_mz": 0.03377843630219015,
+    "alphaY_mz": 0.010131601067241624,
+    "v_inherited": 246.76711732749683
+  },
+  "source_transport_pair_artifact": "oph_d10_ew_source_transport_pair",
+  "source_transport_pair_symbol": "Tau_EW_D10 = (tau_Y, tau_2)",
+  "strict_missing_object_beneath_transport_entry_preimage": "EWGaugeSourceTransportPair_D10",
+  "transport_entry_values": {
+    "Pi_AA": null,
+    "Pi_AZ": null,
+    "Pi_WW": null,
+    "Pi_ZZ": null
+  },
+  "transport_source_entries": {
+    "charged": [
+      "Pi_WW"
+    ],
+    "neutral": [
+      "Pi_AA",
+      "Pi_AZ",
+      "Pi_ZZ"
+    ]
+  },
+  "zero_scalar_benchmark": {
+    "W": 80.38629169244275,
+    "Z": 91.65246028560671,
+    "alpha_em_inv": 128.30576920234813,
+    "rule": "R_EW_D10(Q_run_D10, 0) = Q_run_D10",
+    "sin2w": 0.23073542347506173,
+    "v": 246.76711732749683
+  }
+}

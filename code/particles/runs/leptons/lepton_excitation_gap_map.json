@@ -1,0 +1,105 @@
+{
+  "E_e_log_centered_emitted": [
+    -0.5186397082680319,
+    -0.21627404800912364,
+    0.7349137562771556
+  ],
+  "E_e_log_centered_emitted_formula": [
+    "-(2*gamma21_log_per_side_emitted + gamma32_log_per_side_emitted)/3",
+    "(gamma21_log_per_side_emitted - gamma32_log_per_side_emitted)/3",
+    "(gamma21_log_per_side_emitted + 2*gamma32_log_per_side_emitted)/3"
+  ],
+  "Y_e_shape_emitted": {
+    "imag": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "real": [
+      [
+        0.5953298196540844,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.8055145219716486,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        2.0853021405297327
+      ]
+    ]
+  },
+  "Y_e_shape_formula": "diag(exp(E_e_log_centered_emitted))",
+  "a_e_log_coeff": 0.6267767322725938,
+  "artifact": "oph_charged_lepton_excitation_gap_map",
+  "b_e_log_coeff": 1.5164818663320259e-16,
+  "carrier_family_status": "closed",
+  "centered_linear_quadratic_formula": "E_e_log_centered_emitted = a_e_log_coeff * L_ord + b_e_log_coeff * Q_ord",
+  "coefficient_recovery": {
+    "a_e_log_coeff": "sigma_e_total_log_per_side_emitted / 2",
+    "b_e_log_coeff": "eta_e_split_log_per_side_emitted / (2 * (1 - x2^2))"
+  },
+  "downstream_targets": [
+    "oph_lepton_log_spectrum_readout",
+    "oph_forward_charged_leptons"
+  ],
+  "eta_e_split_log_per_side_emitted": 2.220446049250313e-16,
+  "eta_e_split_log_per_side_emitted_formula": "2 * (1 - x2^2) * b_e_log_coeff",
+  "gamma21_log_per_side_emitted": 0.30236566025890826,
+  "gamma21_log_per_side_emitted_formula": "((1 + x2) * sigma_e_total_log_per_side_emitted - eta_e_split_log_per_side_emitted) / 2",
+  "gamma32_log_per_side_emitted": 0.9511878042862794,
+  "gamma32_log_per_side_emitted_formula": "((1 - x2) * sigma_e_total_log_per_side_emitted + eta_e_split_log_per_side_emitted) / 2",
+  "generated_utc": "2026-03-27T11:32:09Z",
+  "input_kind": "ordered_branch_generator_spectral_package",
+  "linear_basis_vector_centered": [
+    -0.8274712215106104,
+    -0.34505755697877927,
+    1.1725287784893896
+  ],
+  "notes": [
+    "The ordered three-point support and the centered affine-quadratic parameterization are fixed.",
+    "This artifact carries the current source-side value shell when the sector-local ordered package is available.",
+    "No fitted charged masses are consumed here."
+  ],
+  "ordered_family_coordinate": [
+    -1.0,
+    -0.5175863354681689,
+    1.0
+  ],
+  "parent_artifact": "charged_common_refinement_mean_eigenvalue_certificate",
+  "proof_status": "current_support_value_law_closed_same_support_exhausted",
+  "quadratic_basis_vector": [
+    0.2440347951122107,
+    -0.4880695902244214,
+    0.2440347951122107
+  ],
+  "rho_ord": 1.2942849363777058,
+  "shape_singular_values_emitted": [
+    0.5953298196540844,
+    0.8055145219716486,
+    2.0853021405297327
+  ],
+  "shape_singular_values_emitted_formula": "exp(E_e_log_centered_emitted)",
+  "sigma_e_total_log_per_side_emitted": 1.2535534645451876,
+  "sigma_e_total_log_per_side_emitted_formula": "2 * a_e_log_coeff",
+  "smallest_constructive_missing_object": "eta_source_support_extension_log_per_side",
+  "source_side_ordered_package_value_law_artifact": "oph_charged_sector_local_ordered_package_value_law",
+  "source_side_ordered_package_value_law_status": "current_support_value_law_closed_same_support_exhausted",
+  "theorem_scope": "current_family_only"
+}

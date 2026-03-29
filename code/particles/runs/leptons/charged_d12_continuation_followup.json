@@ -1,0 +1,88 @@
+{
+  "artifact": "oph_charged_d12_continuation_followup",
+  "compare_only_shape_check_against_reference_masses": {
+    "centered_log_residual": [
+      -1.3126283164410779e-05,
+      -3.294141413423546e-06,
+      1.6420424579610682e-05
+    ],
+    "centered_log_residual_norm": 2.1278651760358518e-05,
+    "continuation_centered_logs": [
+      -4.495223235091244,
+      0.836385357456495,
+      3.6588378776347503
+    ],
+    "g_e_compare_only_needed_for_exact_absolute_masses": 0.04577885783568762,
+    "log_shift_needed_relative_to_current_g_active_candidate": -3.003986333402356,
+    "mean_scale_ratio": 0.049588995568627,
+    "reference_centered_logs": [
+      -4.49521010880808,
+      0.8363886515979084,
+      3.6588214572101707
+    ],
+    "reference_masses": {
+      "e": 0.0005109989499999999,
+      "mu": 0.10565837550000001,
+      "tau": 1.77693246513409
+    },
+    "shape_to_reference_scale_ratios": {
+      "e": 0.04577945874588238,
+      "mu": 0.04577900863796747,
+      "tau": 0.04577810613357685
+    }
+  },
+  "current_theorem_lane_status": {
+    "channel_norm_proof_status": "shared_budget_only",
+    "current_g_active_candidate": 0.9231656602589082,
+    "forward_closure_state": "support_extension_missing",
+    "next_single_residual_object": "eta_source_support_extension_log_per_side",
+    "next_single_residual_object_after_eta": "sigma_source_support_extension_total_log_per_side"
+  },
+  "d12_continuation_assumptions": {
+    "A1_uniform_Z6_center_label_ensemble": "epsilon = 1/6",
+    "A2_balanced_circulant_branch": "|b|/a = 1/sqrt(2)",
+    "A3_oph_phase_choice": "delta = 2/9",
+    "scale_free_normalization_for_ratio_invariants": "a = 1"
+  },
+  "d12_continuation_pair": {
+    "E_e_log_centered_emitted": [
+      -4.495223235091244,
+      0.836385357456495,
+      3.6588378776347503
+    ],
+    "a": 1.0,
+    "abs_b": 0.7071067811865475,
+    "delta": 0.2222222222222222,
+    "eta_source_support_extension_log_per_side": -6.729586682888832,
+    "gamma21_log_per_side": 5.33160859254774,
+    "gamma32_log_per_side": 2.822452520178255,
+    "kappa_ext": -4.59605680397234,
+    "roots_sorted": {
+      "r_e": 0.040349908219207475,
+      "r_mu": 0.5802119201475368,
+      "r_tau": 2.3794381716332555
+    },
+    "shape_singular_values_emitted": [
+      0.011162188544790551,
+      2.3080092523535067,
+      38.816207467149106
+    ],
+    "sigma_source_support_extension_total_log_per_side": 8.154061112725994,
+    "x2": -0.5175863354681689
+  },
+  "generated_utc": "2026-03-28T12:20:38Z",
+  "immediate_followup_required": {
+    "absolute_scale_gap": "upgrade channel norm from shared_budget_only to shared_budget_closed or sector_local_closed so g_e is emitted on the charged lane",
+    "core_theorem_gap": "derive or replace A1-A3 if charged leptons are to become recovered-core outputs",
+    "live_scalar_gap": "eta_source_support_extension_log_per_side then sigma_source_support_extension_total_log_per_side",
+    "paper_status_decision": "either keep the live theorem lane open or add an explicit D12 continuation theorem/corollary with A1-A3 marked as extra assumptions"
+  },
+  "notes": [
+    "This artifact records the strongest current charged-lepton D12 continuation bridge.",
+    "It is not theorem-grade OPH closure because the continuation assumptions A1-A3 are extra assumptions and the charged absolute scale g_e is still compare-only here.",
+    "The charged public rows should remain suppressed until the same-carrier eta/sigma pair and the charged absolute scale are emitted on the live theorem lane."
+  ],
+  "public_promotion_allowed": false,
+  "status": "diagnostic_only_d12_continuation",
+  "theorem_tier": "D12_continuation_only"
+}

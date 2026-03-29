@@ -1,0 +1,139 @@
+{
+  "artifact": "runtime_schedule_receipt_N_therm_and_N_sep",
+  "completion_mode": "execution_and_systematics_contract",
+  "execution_and_systematics_contract": {
+    "execution_receipt_required_before_public_hadron_rows": true,
+    "provenance_contract": {
+      "required_execution_fields": [
+        "required_schedule_scalars.N_therm",
+        "required_schedule_scalars.N_sep",
+        "execution_contract.ensemble_schedule[*].trajectory_stop_by_cfg",
+        "execution_contract.writeback_targets"
+      ],
+      "required_publication_fields": [
+        "stable_channel_sequence_evaluation.ensemble_evaluations[*].pi_iso.published_systematics",
+        "stable_channel_sequence_evaluation.ensemble_evaluations[*].pi_iso.published_statistical_error",
+        "stable_channel_sequence_evaluation.ensemble_evaluations[*].N_iso.published_systematics",
+        "stable_channel_sequence_evaluation.ensemble_evaluations[*].N_iso.published_statistical_error"
+      ]
+    },
+    "published_systematics_required_after_execution": true,
+    "runtime_inputs_are_external": true,
+    "statistical_contract": {
+      "effective_cfg_count_formula": "n_eff_cfg = n_cfg / (2 * tau_int_cfg)",
+      "sigma_stat_formula": "JKstderr(am_ground_X)"
+    },
+    "systematics_contract": {
+      "required_components": [
+        "delta_cont",
+        "delta_vol",
+        "delta_chi"
+      ],
+      "sigma_sys_formula": "sqrt(delta_cont^2 + delta_vol^2 + delta_chi^2)"
+    }
+  },
+  "execution_artifact": "oph_hadron_fixed_schedule_rhmc_hmc_execution",
+  "execution_contract": {
+    "cfg_realization_formula": "U_{n,c} = K_n^(N_therm + cfg_index*N_sep)(U_cold; seed_{n,c})",
+    "emission_formulas": {
+      "N_iso.cfg_source_corr_direct_t": "p_N,dir^(n,c,s)(t) = sum_x G_d",
+      "N_iso.cfg_source_corr_exchange_t": "p_N,ex^(n,c,s)(t) = sum_x G_x",
+      "N_iso.cfg_source_corr_t": "p_N^(n,c,s)(t) = p_N,dir^(n,c,s)(t) - p_N,ex^(n,c,s)(t)",
+      "pi_iso.cfg_source_corr_t": "p_pi^(n,c,s)(t) = sum_x Re tr_c,spin[gamma5 S_l(x;s) gamma5 S_l(s;x)]"
+    },
+    "ensemble_schedule": [
+      {
+        "cfg_ids": [
+          "qcd_2p1_seed_n0__cfg0",
+          "qcd_2p1_seed_n0__cfg1"
+        ],
+        "ensemble_id": "qcd_2p1_seed_n0",
+        "n_src_per_cfg": 2,
+        "t_extent": 291,
+        "trajectory_stop_by_cfg": {
+          "qcd_2p1_seed_n0__cfg0": 2048,
+          "qcd_2p1_seed_n0__cfg1": 2560
+        },
+        "trajectory_stop_by_cfg_formula": {
+          "qcd_2p1_seed_n0__cfg0": "N_therm + 0*N_sep",
+          "qcd_2p1_seed_n0__cfg1": "N_therm + 1*N_sep"
+        }
+      },
+      {
+        "cfg_ids": [
+          "qcd_2p1_seed_n1__cfg0",
+          "qcd_2p1_seed_n1__cfg1"
+        ],
+        "ensemble_id": "qcd_2p1_seed_n1",
+        "n_src_per_cfg": 2,
+        "t_extent": 581,
+        "trajectory_stop_by_cfg": {
+          "qcd_2p1_seed_n1__cfg0": 2048,
+          "qcd_2p1_seed_n1__cfg1": 2560
+        },
+        "trajectory_stop_by_cfg_formula": {
+          "qcd_2p1_seed_n1__cfg0": "N_therm + 0*N_sep",
+          "qcd_2p1_seed_n1__cfg1": "N_therm + 1*N_sep"
+        }
+      },
+      {
+        "cfg_ids": [
+          "qcd_2p1_seed_n2__cfg0",
+          "qcd_2p1_seed_n2__cfg1"
+        ],
+        "ensemble_id": "qcd_2p1_seed_n2",
+        "n_src_per_cfg": 2,
+        "t_extent": 1162,
+        "trajectory_stop_by_cfg": {
+          "qcd_2p1_seed_n2__cfg0": 2048,
+          "qcd_2p1_seed_n2__cfg1": 2560
+        },
+        "trajectory_stop_by_cfg_formula": {
+          "qcd_2p1_seed_n2__cfg0": "N_therm + 0*N_sep",
+          "qcd_2p1_seed_n2__cfg1": "N_therm + 1*N_sep"
+        }
+      }
+    ],
+    "initial_configuration": "U_cold = 1",
+    "kernel_id": "fixed_schedule_rhmc_hmc",
+    "next_single_residual_object_after_execution": "oph_hadron_stable_channel_sequence_evaluator",
+    "seed_bytes_formula": "seed_{n,c} = bytes.fromhex(cfg_seed_hash_{n,c})",
+    "seed_lookup_path": "ensemble_payloads[*].cfg_realization_contract.cfg_seed_hashes[cfg_id]",
+    "source_lookup_path": "ensemble_payloads[*].source_descriptors_by_cfg[cfg_id]",
+    "source_set_formula": "[[0,0,0,0], [L//2, L//2, L//2, T//2]]",
+    "stop_time_formula": "t_stop(n,cfg_index) = N_therm + cfg_index*N_sep",
+    "writeback_targets": {
+      "evaluation_artifact": "particles/runs/hadron/stable_channel_sequence_evaluation.json",
+      "evaluation_fields": [
+        "ensemble_evaluations[*].pi_iso.cfg_source_corr_t",
+        "ensemble_evaluations[*].N_iso.cfg_source_corr_direct_t",
+        "ensemble_evaluations[*].N_iso.cfg_source_corr_exchange_t",
+        "ensemble_evaluations[*].N_iso.cfg_source_corr_t"
+      ],
+      "payload_artifact": "particles/runs/hadron/stable_channel_cfg_source_measure_payload.json",
+      "payload_fields": [
+        "ensemble_payloads[*].pi_iso.cfg_source_corr_t",
+        "ensemble_payloads[*].N_iso.cfg_source_corr_direct_t",
+        "ensemble_payloads[*].N_iso.cfg_source_corr_exchange_t",
+        "ensemble_payloads[*].N_iso.cfg_source_corr_t"
+      ]
+    }
+  },
+  "execution_input_provenance": {
+    "schedule_scalars_source": "external_runtime_input",
+    "trajectory_stop_derivation": "execution_contract.stop_time_formula"
+  },
+  "generated_utc": "2026-03-29T06:08:46Z",
+  "notes": [
+    "This receipt is the final honest bridge between theorem-side hadron preparation and executed runtime/systematics work.",
+    "It does not emit N_therm or N_sep itself; those remain external execution inputs on the present hadron surface.",
+    "Once the receipt is filled and execution is performed, the next work is measure writeback, published statistical errors, and declared continuum/volume/chiral systematics rather than another theorem-only selector search."
+  ],
+  "receipt_kind": "non_theorem_external_runtime_receipt",
+  "required_schedule_scalars": {
+    "N_sep": 512,
+    "N_therm": 2048
+  },
+  "source_artifact": "oph_hadron_stable_channel_cfg_source_measure_payload",
+  "status": "receipt_filled_waiting_backend_dump"
+}

@@ -1,0 +1,117 @@
+{
+  "artifact": "oph_forward_neutrino_closure_bundle",
+  "bundle_descent_candidate_id": "selector_centered_unitary_common_refinement_descent_on_edge_bundle",
+  "certification_status": "selector_law_closed_standard_math",
+  "closure_tier": "selector_law_standard_math_forward",
+  "collective_mode_dominance": [
+    6.517295104635923e-30,
+    6.283663321022361e-34,
+    0.9999999999999998
+  ],
+  "delta_m21_sq_gev2": 2.204051907791789e-39,
+  "delta_m31_sq_gev2": 9.54986497185585e-25,
+  "formula_affine_candidate": "sum_e mu_e*(1-cos(psi_e-psi_e_star))",
+  "generated_utc": "2026-03-27T13:18:51Z",
+  "majorana_matrix_imag": [
+    [
+      0.0,
+      4.207803231450853e-14,
+      4.207803231450853e-14
+    ],
+    [
+      4.207803231450853e-14,
+      0.0,
+      4.207803231450853e-14
+    ],
+    [
+      4.207803231450853e-14,
+      4.207803231450853e-14,
+      0.0
+    ]
+  ],
+  "majorana_matrix_real": [
+    [
+      2.4617526608923523e-12,
+      6.347691976012981e-14,
+      6.347691976012981e-14
+    ],
+    [
+      6.347691976012981e-14,
+      2.4617526608923523e-12,
+      6.347691976012981e-14
+    ],
+    [
+      6.347691976012981e-14,
+      6.347691976012981e-14,
+      2.4617526608923523e-12
+    ]
+  ],
+  "masses_gev_sorted": [
+    2.39864484476272e-12,
+    2.3986448447627204e-12,
+    2.5900740507739074e-12
+  ],
+  "norm_identification_formula": "S_nu(psi)=0.5*||s(psi)-s_star||^2_{diag(mu_e)}",
+  "notes": [
+    "This wrapper promotes the current centered selector-law branch to the forward-usable neutrino sandbox surface under standard-math certification while keeping OPH-only promotion blocked behind the overlap certificate.",
+    "The live forward numerical defect remains the exact 1-2 near-degeneracy from isotropic mu_nu, so the next mass-moving object is still the defect-weighted mu_e family.",
+    "Flavor-labeled neutrino rows in the public table remain qualitative until the shared charged-lepton left basis and PMNS orientation close."
+  ],
+  "oph_only_promotion_gate": {
+    "overlap_nonvanishing_status": "candidate_only",
+    "overlap_nonvanishing_witness_hint": "gap_and_defect_fields_from_flavor_artifacts",
+    "proof_status": "candidate_only",
+    "quadraticity_clause_status": "pending_bundle_parallelogram_identity"
+  },
+  "ordering_phase_certified": "normal_like_collective_dominance",
+  "phase_certificate_source": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_phase_pullback_metric.json",
+  "phase_mode": "canonical_selector",
+  "pmns_status": "blocked_pending_shared_charged_lepton_left_basis",
+  "projector_certificate_source": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_holonomy_lift.json",
+  "required_overlap_certificate": "same_label_overlap_nonzero_on_realized_refinement_arrows",
+  "selector_center": "principal_equal_split",
+  "selector_law_certified": true,
+  "selector_point_absolute": {
+    "psi12": -0.11954668174349829,
+    "psi23": -0.11954668174349829,
+    "psi31": -0.11954668174349829
+  },
+  "selector_point_certified": true,
+  "splitting_ratio_r": 2.3079403889869556e-15,
+  "sublemma_candidate_id": "selector_centered_quadraticity_polarization_law_on_edge_bundle",
+  "theorem_candidate_id": "oph_majorana_scalar_from_centered_edge_norm",
+  "u_nu_left_imag": [
+    [
+      -0.014323324935735161,
+      2.1673682070929833e-19,
+      -0.01875912642458419
+    ],
+    [
+      0.007161662467867617,
+      -0.056481528517398995,
+      -0.01875912642458419
+    ],
+    [
+      0.007161662467867614,
+      0.05648152851739899,
+      -0.018759126424584195
+    ]
+  ],
+  "u_nu_left_real": [
+    [
+      0.8163709383787827,
+      1.0836841035464916e-19,
+      -0.57704543019516
+    ],
+    [
+      -0.40818546918938914,
+      0.7048473855639518,
+      -0.5770454301951631
+    ],
+    [
+      -0.40818546918938914,
+      -0.7048473855639518,
+      -0.5770454301951632
+    ]
+  ]
+}

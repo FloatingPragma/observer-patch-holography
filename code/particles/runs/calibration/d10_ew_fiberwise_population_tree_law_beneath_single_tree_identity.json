@@ -1,0 +1,47 @@
+{
+  "MW_formula": "v_inherited * sqrt(pi * alpha2_mz * (1 + tau2_tree_exact))",
+  "MZ_formula": "v_inherited * sqrt(pi * (alphaY_mz * (1 + tau_Y) + alpha2_mz * (1 + tau2_tree_exact)))",
+  "anchor_point": {
+    "eta_EW": 0.022147000871961295,
+    "sigma_EW": -0.022147000871961295,
+    "tau2_tree_exact": 0.0,
+    "tau_Y": -0.04429400174392259
+  },
+  "artifact": "oph_d10_ew_fiberwise_population_tree_law_beneath_single_tree_identity",
+  "carrier_basis_scalar": {
+    "alpha2_mz": 0.03377843630219015,
+    "alphaY_mz": 0.010131601067241624,
+    "beta_EW": 0.5385291530498766,
+    "beta_EW_formula": "(alpha2_mz - alphaY_mz) / (alpha2_mz + alphaY_mz)",
+    "v_inherited": 246.76711732749683
+  },
+  "coordinate_symbol": "tau2_tree_exact",
+  "derived_from_artifacts": [
+    "oph_d10_ew_population_evaluator",
+    "oph_d10_ew_exact_wz_coordinate_beyond_single_tree_identity"
+  ],
+  "eta_formula": "(eta_source + tau2_tree_exact + 2*tau2_tree_exact^3) / (1 + 4*tau2_tree_exact^2)",
+  "eta_from_coordinate_formula": "0.5 * (tau2_tree_exact - tau_Y)",
+  "eta_source": 0.022147000871961295,
+  "eta_source_formula": "alpha_u_from_seed * beta_EW",
+  "fiber_population_functional_formula": "J_pop_EW(tauY,tau2) = tau2^2 + (tauY*tau2)^2 + (0.5*(tauY + tau2) + eta_source)^2",
+  "fiber_second_derivative_formula": "1/2 + 2*tau2_tree_exact^2",
+  "fiber_stationarity_formula": "(1 + 4*tau2_tree_exact^2)*tau_Y + tau2_tree_exact + 2*eta_source = 0",
+  "generated_utc": "2026-03-29T06:39:02Z",
+  "n_EW_formula": "1 + (alphaY_mz * tau_Y + alpha2_mz * tau2_tree_exact) / (alphaY_mz + alpha2_mz)",
+  "next_single_residual_object": "tau2_tree_exact",
+  "notes": [
+    "The fixed-tau2 fibers of J_pop_EW have a unique tauY minimizer.",
+    "This removes the placeholder unsplit tree law without inventing tau2_tree_exact.",
+    "Exact W and exact Z become a one-variable forward law on the existing carrier once this primitive is emitted."
+  ],
+  "object_id": "EWFiberwisePopulationTreeLaw_D10",
+  "proof_status": "fiberwise_unique_J_pop_minimizer_on_fixed_tau2",
+  "sigma_formula": "(2*tau2_tree_exact^3 - eta_source) / (1 + 4*tau2_tree_exact^2)",
+  "sigma_from_coordinate_formula": "0.5 * (tau_Y + tau2_tree_exact)",
+  "status": "closed_smaller_primitive",
+  "strictly_smaller_than": "EWSinglePostTransportTreeIdentity_D10",
+  "tauY_formula": "-(tau2_tree_exact + 2*eta_source) / (1 + 4*tau2_tree_exact^2)",
+  "tree_law_symbol": "Phi_EW_fiber",
+  "u_EW_formula": "1 + tau2_tree_exact"
+}

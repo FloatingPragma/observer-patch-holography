@@ -1,0 +1,55 @@
+{
+  "artifact": "oph_charged_sector_local_ordered_package_source_emission",
+  "current_family_eigenvalues": [
+    1.3557137562771555,
+    0.40452595199087626,
+    0.102160291731968
+  ],
+  "generated_utc": "2026-03-27T10:40:04Z",
+  "left_common_family_eigenvalues": [
+    1.3557137562771555,
+    0.40452595199087626,
+    0.102160291731968
+  ],
+  "notes": [
+    "This artifact exposes the current charged ordered package directly from the common-refinement eigenvalue package.",
+    "It provides the upstream ordered package without adding a larger charged carrier family."
+  ],
+  "ordered_family_coordinate": [
+    -1.0,
+    -0.5175863354681689,
+    1.0
+  ],
+  "ordering_permutation": [
+    2,
+    1,
+    0
+  ],
+  "predictive_promotion_allowed": false,
+  "proof_status": "current_family_source_emission_closed",
+  "readout_formulas": {
+    "mean_log": "sum(source_side_ordered_package_log_per_side_emitted) / 3",
+    "ordered_package": "sort(current_family_eigenvalues)",
+    "unordered_package": "current_family_eigenvalues"
+  },
+  "rho_ord": 1.2942849363777058,
+  "right_common_family_eigenvalues": [
+    1.3557137562771555,
+    0.40452595199087626,
+    0.102160291731968
+  ],
+  "smallest_constructive_missing_object": "oph_charged_sector_local_ordered_package_value_law",
+  "source_artifact": "charged_common_refinement_mean_eigenvalue_certificate",
+  "source_package_origin": "common_refinement_eigenvalue_readout",
+  "source_side_ordered_package_log_per_side_emitted": [
+    0.102160291731968,
+    0.40452595199087626,
+    1.3557137562771555
+  ],
+  "source_side_ordered_package_mean_log_per_side_emitted": 0.6207999999999999,
+  "source_side_unordered_package_log_per_side_emitted": [
+    1.3557137562771555,
+    0.40452595199087626,
+    0.102160291731968
+  ]
+}

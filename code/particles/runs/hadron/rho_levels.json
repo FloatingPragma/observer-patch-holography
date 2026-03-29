@@ -1,0 +1,96 @@
+{
+  "anti_cheat": {
+    "local_rho_effective_mass_promoted": false,
+    "measured_rho_mass_used_as_input": false
+  },
+  "artifact": "oph_hadron_rho_scattering_levels",
+  "basis_source": "/Users/muellerberndt/Projects/oph-meta/particles/runs/hadron/rho_operator_basis.json",
+  "basis_status": "candidate_only",
+  "channel": {
+    "elastic_channel": "pi_pi",
+    "name": "rho",
+    "partial_wave": 1,
+    "quantum_numbers": {
+      "I": 1,
+      "JPC": "1--"
+    }
+  },
+  "declared_chain": [
+    "E_n(L,P,irrep)",
+    "E_cm",
+    "k2",
+    "q2",
+    "Luescher_phi",
+    "delta1"
+  ],
+  "irreps": [
+    {
+      "frame_d": [
+        0,
+        0,
+        0
+      ],
+      "irrep": "T1u"
+    },
+    {
+      "frame_d": [
+        0,
+        0,
+        1
+      ],
+      "irrep": "A1"
+    },
+    {
+      "frame_d": [
+        1,
+        1,
+        0
+      ],
+      "irrep": "A1"
+    }
+  ],
+  "level_point_schema": {
+    "derived_fields": [
+      "E_cm_gev",
+      "k_gev",
+      "q",
+      "phi_luescher",
+      "delta1_rad"
+    ],
+    "required_fields": [
+      "frame_d",
+      "irrep",
+      "E_lab_gev"
+    ]
+  },
+  "level_points": [],
+  "moving_frames": [
+    {
+      "d": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "d": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "d": [
+        1,
+        1,
+        0
+      ]
+    }
+  ],
+  "notes": [
+    "No finite-volume spectrum has been extracted yet.",
+    "Populate this artifact after generalized-eigenvalue / spectrum extraction work exists.",
+    "The rho closure observable starts from pi-pi finite-volume levels, not a local rho effective mass."
+  ],
+  "status": "candidate_only"
+}

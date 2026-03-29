@@ -1,0 +1,41 @@
+{
+  "MW_pole_target_gev": 80.3692,
+  "MZ_pole_target_gev": 91.188,
+  "alpha2_prime_target": 0.03376407392133026,
+  "alphaY_prime_target": 0.009702051900577265,
+  "alpha_em_eff_inv_target": 132.6882593415432,
+  "artifact": "oph_d10_ew_repair_target_point_diagnostic",
+  "carrier_basis_scalar": {
+    "alpha2_mz": 0.03377843630219015,
+    "alpha2_star": 0.03377843630219015,
+    "alphaY_mz": 0.010131601067241624,
+    "alphaY_star": 0.009682831911900495,
+    "beta_EW": 0.5385291530498766,
+    "eta_source": 0.022147000871961295,
+    "v_inherited": 246.76711732749683
+  },
+  "delta_alpha2_tree_target": -1.43623808598865e-05,
+  "delta_alphaY_tree_target": 1.921998867677033e-05,
+  "delta_n_tree_exact_target": 0.00033959828879959186,
+  "description": "Current official PDG-like target pair used for D10 exactness audits.",
+  "formulas": {
+    "delta_alpha2_tree_target": "alpha2_mz * tau2_tree_exact_target",
+    "delta_alphaY_tree_target": "alphaY_mz * (8*eta_source*tau2^2 - tau2)/(1+4*tau2^2) + (alphaY_mz + alpha2_mz) * delta_n_tree_exact_target",
+    "delta_n_tree_exact_target": "MZ_target^2 / (pi * v_inherited^2 * (alphaY_mz + alpha2_mz)) - n_EW_fiber(tau2_tree_exact_target)",
+    "n_EW_fiber": "1 + (beta_EW*tau2 + 2*(1+beta_EW)*tau2^3 - (1-beta_EW)*eta_source) / (1 + 4*tau2^2)",
+    "tau2_tree_exact_target": "MW_target^2 / (pi * v_inherited^2 * alpha2_mz) - 1"
+  },
+  "generated_utc": "2026-03-29T06:38:08Z",
+  "notes": [
+    "This artifact is intentionally diagnostic only. It does not derive the target point from OPH.",
+    "Once the D10 target specification is frozen, the repair chart determines one unique target point.",
+    "The missing predictive object is still the OPH repair value law that emits this point without inverse fitting."
+  ],
+  "object_id": "EWRepairTargetPointDiagnostic_D10",
+  "sin2w_eff_target": 0.22320949284344313,
+  "source_kind": "official_pdg_listing_surface",
+  "spec_id": "official_pdg_current_surface_2026_03_28",
+  "status": "diagnostic_only_inverse_target_point",
+  "tau2_tree_exact_target": -0.00042519377544292247,
+  "v_report_target_gev": 246.76711732749683
+}

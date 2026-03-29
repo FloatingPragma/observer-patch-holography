@@ -1,0 +1,42 @@
+{
+  "common_blockers": {
+    "baryon_path_not_full_contractions": 1,
+    "low_statistics": 1,
+    "quenched": 1,
+    "rho_not_resonance_extracted": 1,
+    "tiny_debug_volume": 1
+  },
+  "promotion_verdict": "debug_only",
+  "run_count": 1,
+  "runs": [
+    {
+      "blockers": [
+        "quenched",
+        "tiny_debug_volume",
+        "low_statistics",
+        "rho_not_resonance_extracted",
+        "baryon_path_not_full_contractions"
+      ],
+      "lane_status": "smoke",
+      "path": "/Users/muellerberndt/Projects/oph-meta/particles/runs/hadron/sweeps/quenched_debug_sweep-20260324T152643Z/entries/beta57_l4_t8_seed0.json",
+      "summary": {
+        "L": 4.0,
+        "T": 8.0,
+        "am_p_chiral": 4.265961839479414,
+        "am_pi_chiral": null,
+        "am_rho_chiral": 0.3962939728500584,
+        "n_meas": 6.0,
+        "nf": 0.0
+      }
+    }
+  ],
+  "status_counts": {
+    "smoke": 1
+  },
+  "target_order": [
+    "m_pi",
+    "m_N_isospin_symmetric",
+    "rho_resonance",
+    "p_minus_n_with_qcd_qed"
+  ]
+}

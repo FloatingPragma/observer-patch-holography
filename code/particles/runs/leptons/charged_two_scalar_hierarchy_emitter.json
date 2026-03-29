@@ -1,0 +1,36 @@
+{
+  "E_e_log_centered_emitted_formula": [
+    "-(2*gamma21_log_per_side_emitted + gamma32_log_per_side_emitted)/3",
+    "(gamma21_log_per_side_emitted - gamma32_log_per_side_emitted)/3",
+    "(gamma21_log_per_side_emitted + 2*gamma32_log_per_side_emitted)/3"
+  ],
+  "artifact": "oph_charged_current_family_two_scalar_hierarchy_emitter",
+  "diagonal_emitter_rule": "Y_e_shape = diag(exp(E_e_log_centered_emitted))",
+  "eta_e_split_log_per_side_emitted": null,
+  "frozen_sigma_branch_impossible": true,
+  "gamma21_log_per_side_emitted_formula": "((1 + x2) * sigma_e_total_log_per_side_emitted - eta_e_split_log_per_side_emitted) / 2",
+  "gamma32_log_per_side_emitted_formula": "((1 - x2) * sigma_e_total_log_per_side_emitted + eta_e_split_log_per_side_emitted) / 2",
+  "generated_utc": "2026-03-27T01:13:08Z",
+  "hierarchy_emitter_status": "missing_joint_emission",
+  "impossibility_certificate": {
+    "centered_residual_norm_after_best_eta_on_current_sigma": 4.879374858980876,
+    "centered_residual_norm_current": 4.972669569390737,
+    "sigma_e_total_log_per_side_current": 1.2535534645451878,
+    "sigma_e_total_log_per_side_target": 8.15403156601825
+  },
+  "notes": [
+    "The charged lane now needs the upstream excitation-gap map that emits the two sector-even coefficients together.",
+    "The current sigma-only branch is explicitly marked impossible as an exact charged-hierarchy branch.",
+    "Any diagnostic eta values remain quarantined in the audit and are not promoted here."
+  ],
+  "ordered_family_coordinate": [
+    -1.0,
+    -0.5175863354681689,
+    1.0
+  ],
+  "rho_ord": 1.2942849363777058,
+  "sigma_e_total_log_per_side_emitted": null,
+  "smallest_constructive_missing_object": "oph_charged_lepton_excitation_gap_map",
+  "theorem_scope": "current_family_only",
+  "upstream_predictive_object": "oph_charged_lepton_excitation_gap_map"
+}

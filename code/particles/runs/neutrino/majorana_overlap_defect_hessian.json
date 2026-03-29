@@ -1,0 +1,78 @@
+{
+  "ambient_hessian_3x3": [
+    [
+      0.000957040214227042,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.000957040214227042,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.000957040214227042
+    ]
+  ],
+  "ambient_phase_basis": [
+    "psi12",
+    "psi23",
+    "psi31"
+  ],
+  "artifact": "oph_majorana_overlap_defect_hessian",
+  "candidate_scale_from_edge_coefficients": 0.000957040214227042,
+  "edge_coefficients": {
+    "psi12": 0.000957040214227042,
+    "psi23": 0.000957040214227042,
+    "psi31": 0.000957040214227042
+  },
+  "generated_utc": "2026-03-27T13:18:50Z",
+  "isotropic_branch_status": "local_quadratic_germ_closed",
+  "longitudinal_null_certificate": {
+    "drops_on_residual_plane": true,
+    "status": "closed",
+    "vector": [
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "nonisotropic_formula_status": "open",
+  "notes": [
+    "This artifact now records the local quadratic action-germ/Hessian class on the affine Majorana lift.",
+    "The remaining OPH-only burden is the intrinsic scalar evaluator that fixes the exact scale and finite-angle/nonisotropic continuation."
+  ],
+  "oph_origin_status": "missing_scalar_evaluator",
+  "oph_scalar_action_kind": "local_quadratic_action_germ",
+  "primitive_metric_source": "oph_overlap_defect_candidate",
+  "proof_status": "local_quadratic_germ_closed",
+  "residual_basis_order": [
+    "b1=(1,-1,0)",
+    "b2=(1,0,-1)"
+  ],
+  "residual_hessian_2x2": [
+    [
+      0.001914080428454084,
+      0.000957040214227042
+    ],
+    [
+      0.000957040214227042,
+      0.001914080428454084
+    ]
+  ],
+  "selector_point": {
+    "psi12": 0.5853814255968638,
+    "psi23": 0.5853814255968638,
+    "psi31": 0.5853814255968638,
+    "selector": "principal_equal_split",
+    "status": "closed_equal_split"
+  },
+  "source_artifacts": {
+    "action_germ": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_overlap_defect_action_germ.json",
+    "family": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/family_response_tensor.json",
+    "lift": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_holonomy_lift.json"
+  },
+  "upstream_missing_object": "oph_majorana_overlap_defect_scalar_evaluator"
+}

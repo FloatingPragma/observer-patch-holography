@@ -1,0 +1,37 @@
+{
+  "Q_ord": [
+    0.2440347951122107,
+    -0.4880695902244214,
+    0.2440347951122107
+  ],
+  "Q_ord_formula": "((1 - x2^2) / 3) * (1, -2, 1)",
+  "artifact": "oph_quark_quadratic_even_transport_scalar",
+  "current_carrier_audit_lift_seed": {
+    "Delta_ud_overlap": 0.14042767914755594,
+    "eta_Q_centered": -0.018073642054692307,
+    "kappa_Q": -0.012343623680372975,
+    "source": "current-carrier audit lift"
+  },
+  "eta_Q_centered_name": "eta_Q_centered",
+  "eta_Q_projector_formula": "v1 - 2*v2 + v3",
+  "generated_utc": "2026-03-28T15:42:44Z",
+  "kappa_Q_formula": "eta_Q_centered / (2 * (1 - x2^2))",
+  "next_single_residual_object": "eta_Q_centered_value_law",
+  "notes": [
+    "The D12 even quark residual on the ordered family collapses to one centered scalar eta_Q_centered.",
+    "The values recorded here are continuation-level diagnostics only and are not promoted as OPH-forward outputs."
+  ],
+  "one_minus_x2_squared": 0.7321043853366321,
+  "proof_status": "scalarized_transport_shape_closed_value_open",
+  "quadratic_even_log_formula_direct": "(eta_Q_centered / 6) * (1, -2, 1)",
+  "quadratic_even_log_formula_via_Q_ord": "(eta_Q_centered / (2 * (1 - x2^2))) * Q_ord",
+  "same_t1_candidate": {
+    "eta_Q_centered": -0.018155152181872827,
+    "eta_Q_centered_formula": "2 * (1 - x2^2) * (-t1 / 54) = -((1 - x2^2) / 27) * t1",
+    "kappa_Q": -0.012399292058279932,
+    "kappa_Q_formula": "-t1 / 54",
+    "t1": 0.6695617711471163
+  },
+  "scope": "D12_continuation_only",
+  "x2": -0.5175863354681689
+}

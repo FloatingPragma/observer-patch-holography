@@ -1,0 +1,191 @@
+{
+  "C_nu_hat_real": [
+    [
+      0.9417329721810422,
+      0.02913351390947865,
+      0.02913351390947865
+    ],
+    [
+      0.02913351390947865,
+      0.9417329721810422,
+      0.02913351390947865
+    ],
+    [
+      0.02913351390947865,
+      0.02913351390947865,
+      0.9417329721810422
+    ]
+  ],
+  "Delta_nu": [
+    [
+      0.6083996388477089,
+      -0.30419981942385466,
+      -0.30419981942385466
+    ],
+    [
+      -0.30419981942385466,
+      0.6083996388477089,
+      -0.30419981942385466
+    ],
+    [
+      -0.30419981942385466,
+      -0.30419981942385466,
+      0.6083996388477089
+    ]
+  ],
+  "U_nu_imag": [
+    [
+      -0.014323324935735161,
+      2.1673682070929833e-19,
+      -0.01875912642458419
+    ],
+    [
+      0.007161662467867617,
+      -0.056481528517398995,
+      -0.01875912642458419
+    ],
+    [
+      0.007161662467867614,
+      0.05648152851739899,
+      -0.018759126424584195
+    ]
+  ],
+  "U_nu_real": [
+    [
+      0.8163709383787827,
+      1.0836841035464916e-19,
+      -0.57704543019516
+    ],
+    [
+      -0.40818546918938914,
+      0.7048473855639518,
+      -0.5770454301951631
+    ],
+    [
+      -0.40818546918938914,
+      -0.7048473855639518,
+      -0.5770454301951632
+    ]
+  ],
+  "ambient_metric_kind": "hilbert_schmidt_frobenius",
+  "certification_status": "selector_law_closed_standard_math",
+  "collective_mode_overlap_by_eigenvector": [
+    6.517295104635923e-30,
+    6.283663321022361e-34,
+    0.9999999999999998
+  ],
+  "eigenvalues_raw_gev": null,
+  "envelope_used": null,
+  "inputs": {
+    "envelope_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_phase_envelope.json",
+    "family_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/family_response_tensor.json",
+    "lift_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_holonomy_lift.json",
+    "pullback_metric_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_phase_pullback_metric.json",
+    "scale_anchor_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/neutrino_scale_anchor.json"
+  },
+  "invariants": {
+    "det_abs": 1.490198351739679e-35,
+    "principal_minors": [
+      2.4617526608923523e-12,
+      6.057969760167917e-24,
+      1.490198351739679e-35
+    ],
+    "trace_h": 1.82154777711059e-23,
+    "trace_real": 7.385257982677057e-12
+  },
+  "law_closure_scope": "standard_math_fixed",
+  "m_star_gev": 2.4617526608923523e-12,
+  "majorana_matrix_imag": [
+    [
+      0.0,
+      4.207803231450853e-14,
+      4.207803231450853e-14
+    ],
+    [
+      4.207803231450853e-14,
+      0.0,
+      4.207803231450853e-14
+    ],
+    [
+      4.207803231450853e-14,
+      4.207803231450853e-14,
+      0.0
+    ]
+  ],
+  "majorana_matrix_real": [
+    [
+      2.4617526608923523e-12,
+      6.347691976012981e-14,
+      6.347691976012981e-14
+    ],
+    [
+      6.347691976012981e-14,
+      2.4617526608923523e-12,
+      6.347691976012981e-14
+    ],
+    [
+      6.347691976012981e-14,
+      6.347691976012981e-14,
+      2.4617526608923523e-12
+    ]
+  ],
+  "majorana_mode": "canonical_selector",
+  "masses_sorted_gev": [
+    2.39864484476272e-12,
+    2.3986448447627204e-12,
+    2.5900740507739074e-12
+  ],
+  "notes": [
+    "The real-seed branch is a surrogate when the Majorana selector is not theorem-closed.",
+    "Canonical-selector output may close as a selector point or, under the pullback-distortion route, as a selector law with explicit scope.",
+    "Residual-envelope mode carries certification metadata rather than claiming a unique complex Majorana matrix."
+  ],
+  "phase_mode": "canonical_selector",
+  "phase_status": "residual_affine_plane",
+  "rank_proxy": 3,
+  "selector_closure_reason": "s3_fixed_point",
+  "selector_law_certified": true,
+  "selector_law_status": "candidate_only",
+  "selector_point_certified": true,
+  "selector_used": "principal_equal_split",
+  "singular_values_raw_gev": [
+    2.39864484476272e-12,
+    2.3986448447627204e-12,
+    2.5900740507739074e-12
+  ],
+  "status": "blind_forward_matrix",
+  "u_nu_left_imag": [
+    [
+      -0.014323324935735161,
+      2.1673682070929833e-19,
+      -0.01875912642458419
+    ],
+    [
+      0.007161662467867617,
+      -0.056481528517398995,
+      -0.01875912642458419
+    ],
+    [
+      0.007161662467867614,
+      0.05648152851739899,
+      -0.018759126424584195
+    ]
+  ],
+  "u_nu_left_real": [
+    [
+      0.8163709383787827,
+      1.0836841035464916e-19,
+      -0.57704543019516
+    ],
+    [
+      -0.40818546918938914,
+      0.7048473855639518,
+      -0.5770454301951631
+    ],
+    [
+      -0.40818546918938914,
+      -0.7048473855639518,
+      -0.5770454301951632
+    ]
+  ]
+}

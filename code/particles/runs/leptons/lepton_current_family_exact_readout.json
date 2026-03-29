@@ -1,0 +1,83 @@
+{
+  "Y_e_shape_exact": {
+    "imag": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "real": [
+      [
+        0.011162335063799739,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        2.3080168552748908,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        38.815570093774944
+      ]
+    ]
+  },
+  "artifact": "oph_lepton_current_family_exact_readout",
+  "centered_eigenvalues": [
+    0.7349137562771556,
+    -0.21627404800912364,
+    -0.5186397082680319
+  ],
+  "centered_log_shape_exact": [
+    -4.495210108808081,
+    0.8363886515979087,
+    3.6588214572101716
+  ],
+  "current_family_eigenvalues": [
+    1.3557137562771555,
+    0.40452595199087626,
+    0.102160291731968
+  ],
+  "g_e_exact_fit": 0.04577885783568762,
+  "generated_utc": "2026-03-26T08:37:24Z",
+  "notes": [
+    "Current-family exact witness on the same ordered charged eigenvalue triple.",
+    "This promotes the smallest quadratic readout on the current family instead of relying on the old softmax consumer."
+  ],
+  "predicted_singular_values_abs": [
+    0.0005109989499999994,
+    0.10565837550000004,
+    1.7769324651340912
+  ],
+  "proof_status": "current_family_exact_witness",
+  "quadratic_basis_centered": [
+    0.2548116158320651,
+    -0.2385121494910807,
+    -0.016299466340984226
+  ],
+  "quadratic_coefficients": {
+    "linear": -7.148145507945773,
+    "quadratic": 2.9749835162602136
+  },
+  "reference_targets": [
+    0.0005109989499999999,
+    0.10565837550000001,
+    1.77693246513409
+  ],
+  "smallest_constructive_missing_object": "charged_quadratic_shape_readout_theorem",
+  "source_artifact": "oph_lepton_ordered_shape_readout",
+  "theorem_scope": "current_family_only"
+}

@@ -1,0 +1,60 @@
+{
+  "ambient_metric_kind": "hilbert_schmidt_frobenius",
+  "artifact": "oph_majorana_phase_pullback_metric",
+  "canonical_law": "pullback_least_distortion",
+  "deformation_form_oph_origin_status": "missing_scalar_evaluator",
+  "deformation_form_status": "local_quadratic_germ_closed",
+  "edge_amplitude_isotropy_certificate": {
+    "closed": true,
+    "spread": 0.0,
+    "tolerance": 1e-30
+  },
+  "edge_weight_isotropy_certificate": {
+    "closed": true,
+    "spread": 0.0,
+    "tolerance": 1e-30
+  },
+  "euler_lagrange_equation": "w_e*sin(psi_e)=lambda on psi12+psi23+psi31=Omega_012",
+  "generated_utc": "2026-03-27T13:18:50Z",
+  "hs_distortion_matches_selector_energy": true,
+  "isotropic_specialization": {
+    "closed": true,
+    "equivalence_class": "principal_equal_split"
+  },
+  "law_closure_scope": "standard_math_fixed",
+  "metric_choice_status": "standard_math_fixed",
+  "missing_upstream_object": "oph_majorana_overlap_defect_scalar_evaluator",
+  "notes": [
+    "This artifact now exports the explicit pullback metric and finite-angle chordal distortion action induced by the current Majorana lift.",
+    "Within the sandbox, the selector law is closed under a standard-math-fixed Hilbert-Schmidt/Frobenius ambient metric choice.",
+    "A stricter OPH-only route would still need the upstream OPH overlap-defect Hessian / scalar deformation action that derives the ambient metric choice itself."
+  ],
+  "phase_action_closed": true,
+  "phase_action_formula": "A_pb(psi)=sum_e w_e*(1-cos(psi_e))",
+  "phase_action_kind": "hs_chordal_distortion",
+  "pullback_metric_residual_basis_2x2": [
+    [
+      2.319952058277913e-26,
+      1.1599760291389565e-26
+    ],
+    [
+      1.1599760291389565e-26,
+      2.319952058277913e-26
+    ]
+  ],
+  "residual_basis_order": [
+    "b1=(1,-1,0)",
+    "b2=(1,0,-1)"
+  ],
+  "selector_equivalence_class": "principal_equal_split",
+  "selector_law_certified": true,
+  "source_artifacts": {
+    "deformation_form": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_deformation_bilinear_form.json",
+    "family": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/family_response_tensor.json",
+    "lift": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_holonomy_lift.json",
+    "scale_anchor": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/neutrino_scale_anchor.json"
+  },
+  "status": "phase_action_closed_standard_math",
+  "strict_oph_only_obstruction_kind": "ambient_metric_not_oph_derived",
+  "weighted_edge_norm_sq": 0.0028711206426811258
+}

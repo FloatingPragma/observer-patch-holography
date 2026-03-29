@@ -1,0 +1,94 @@
+{
+  "available_correlator_arrays": {
+    "am_eff_p_0_t": [
+      1.653087674645009,
+      0.39546331447843336,
+      0.11587680127921147
+    ],
+    "am_eff_p_1_t": [
+      0.6683475556052485,
+      0.1402489653195654,
+      0.08360604830741901
+    ],
+    "am_eff_pi_0_t": [
+      1.001282877853826,
+      0.11706244924567749,
+      -0.11920075616913559
+    ],
+    "am_eff_pi_1_t": [
+      0.370986180106676,
+      0.011811818461320725,
+      -0.02900234945249635
+    ],
+    "am_eff_rho_0_t": [
+      1.0234262638293705,
+      0.1196992162079313,
+      -0.11843379352551413
+    ],
+    "am_eff_rho_1_t": [
+      0.4347231794161111,
+      0.02234216571553199,
+      -0.027181039557538846
+    ],
+    "corr_p_0_t": [
+      -274.1239128361556,
+      -52.483171016504535,
+      -35.34048715724321,
+      -31.473705474197544
+    ],
+    "corr_p_1_t": [
+      -1437.1477226115537,
+      -736.6170307508959,
+      -640.2246684357326,
+      -588.8745135042087
+    ],
+    "corr_pi_0_t": [
+      62.89379224134334,
+      23.107669801902446,
+      20.55495722262617,
+      23.157133958151412
+    ],
+    "corr_pi_1_t": [
+      267.83523410342866,
+      184.82063481285877,
+      182.65040941302254,
+      188.02526539662756
+    ],
+    "corr_rho_0_t": [
+      61.96248766900245,
+      22.26693628724698,
+      19.754941929049735,
+      22.2387770214456
+    ],
+    "corr_rho_1_t": [
+      231.57290832906696,
+      149.93045950722106,
+      146.61783177056776,
+      150.65771220885475
+    ]
+  },
+  "available_correlator_scalars": {
+    "C_p_0": 783213.7742971084,
+    "C_p_1": 277762.60767467844,
+    "C_pi_0": 231841.78998522708,
+    "C_pi_1": 23393.26703566528,
+    "C_rho_0": 237063.89815263674,
+    "C_rho_1": 44248.58462310682
+  },
+  "available_scalar_channels": {
+    "nucleon_local": 0.13762385416262052,
+    "pi": null,
+    "rho_local": 0.02134076011158708
+  },
+  "dimensionless_ratios": {
+    "nucleon_over_pi": null,
+    "rho_over_pi": null
+  },
+  "lane_status": "smoke",
+  "limitations": [
+    "Reference artifact exposes raw time-slice correlator arrays and effective-mass sequences.",
+    "Sequence-level inspection is now possible from this payload alone.",
+    "Use this artifact for systematics bookkeeping and channel availability only."
+  ],
+  "source_run_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/hadron/quenched-reference-20260324T131847Z.json"
+}

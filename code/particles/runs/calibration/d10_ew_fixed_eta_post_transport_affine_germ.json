@@ -1,0 +1,44 @@
+{
+  "alpha2_mz": 0.03377843630219015,
+  "alphaY_mz": 0.010131601067241624,
+  "artifact": "oph_d10_ew_fixed_eta_post_transport_affine_germ",
+  "beta_EW": 0.5385291530498766,
+  "beta_EW_formula": "(alpha2_mz - alphaY_mz) / (alpha2_mz + alphaY_mz)",
+  "diagnostic_only": true,
+  "eta_tree_anchor": 0.02214700087196129,
+  "eta_tree_anchor_formula": "alpha_u_from_seed * beta_EW",
+  "forward_probe_family": {
+    "MW_formula": "v_inherited * sqrt(pi * alpha2_mz * (1 + tau2_probe))",
+    "MZ_formula": "v_inherited * sqrt(pi * (alphaY_mz * (1 + tau2_probe - 2 * eta_tree_anchor) + alpha2_mz * (1 + tau2_probe)))",
+    "alpha2_star_formula": "alpha2_mz * (1 + tau2_probe)",
+    "alphaY_star_formula": "alphaY_mz * (1 + tau2_probe - 2 * eta_tree_anchor)",
+    "eta_EW_formula": "eta_tree_anchor",
+    "n_EW_formula": "1 + (alphaY_mz * (tau2_probe - 2 * eta_tree_anchor) + alpha2_mz * tau2_probe) / (alphaY_mz + alpha2_mz)",
+    "parameter_symbol": "tau2_probe",
+    "sigma_EW_formula": "tau2_probe - eta_tree_anchor",
+    "tau_2_formula": "tau2_probe",
+    "tau_Y_formula": "tau2_probe - 2 * eta_tree_anchor",
+    "u_EW_formula": "1 + tau2_probe"
+  },
+  "generated_utc": "2026-03-27T15:59:09Z",
+  "next_residual_object": "EWSinglePostTransportTreeIdentity_D10",
+  "notes": [
+    "This affine germ is the strongest exact smaller primitive visible on the selected carrier without promoting the open unsplit tree identity.",
+    "At tau2_probe = 0 it reproduces the selected public W/Z pair exactly.",
+    "Full electroweak exactness remains open because the fixed-eta affine germ is only diagnostic, not the final tree identity."
+  ],
+  "object_id": "EWFixedEtaPostTransportAffineGerm_D10",
+  "population_evaluator_artifact": "oph_d10_ew_population_evaluator",
+  "proof_status": "exact_fixed_eta_affine_germ_extracted_from_selected_carrier",
+  "selected_anchor_point": {
+    "eta_EW": 0.02214700087196129,
+    "sigma_EW": -0.02214700087196129,
+    "tau_2": 0.0,
+    "tau_Y": -0.04429400174392258
+  },
+  "source_transport_pair_artifact": "oph_d10_ew_source_transport_pair",
+  "status": "closed_smaller_primitive",
+  "strictly_smaller_than": "EWSinglePostTransportTreeIdentity_D10",
+  "v_inherited": 246.76711732749683,
+  "why_not_promoted": "fixed_eta_slice_remains_diagnostic_and_nonexact_for_full_electroweak_target_surface"
+}

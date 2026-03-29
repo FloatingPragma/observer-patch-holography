@@ -1,0 +1,236 @@
+{
+  "U_d_left": {
+    "imag": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.002230963662481418,
+        -0.21821585316257053,
+        -0.004788450338296169
+      ],
+      [
+        -7.992710064185835e-05,
+        0.0035157029435659384,
+        -0.6673475026189314
+      ]
+    ],
+    "real": [
+      [
+        0.9999477255784763,
+        0.01022456688478143,
+        -6.589727605605017e-05
+      ],
+      [
+        -0.009978093617904632,
+        0.9758342801133381,
+        -0.0013529140629434666
+      ],
+      [
+        -1.307593063475302e-05,
+        -0.003520972741481165,
+        -0.7447298481816883
+      ]
+    ]
+  },
+  "U_u_left": {
+    "imag": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.002709446007237897,
+        -0.8172227475246927,
+        -0.0030234216884088773
+      ],
+      [
+        -2.851578123387707e-05,
+        0.0035631844650491134,
+        -0.39600801006718733
+      ]
+    ],
+    "real": [
+      [
+        0.9999945025957451,
+        0.0033155692659657043,
+        -4.217500440706494e-05
+      ],
+      [
+        -0.0019108572152370911,
+        0.5763013888287716,
+        -0.0018858978107496593
+      ],
+      [
+        -3.862868717268916e-05,
+        -2.9650165394407987e-05,
+        -0.9182401409732842
+      ]
+    ]
+  },
+  "V_CKM": {
+    "imag": [
+      [
+        2.2774767510083167e-05,
+        -0.002227227166761761,
+        1.735789696977045e-05
+      ],
+      [
+        -0.006868568662563404,
+        0.6717283139151586,
+        -0.0011918259384535654
+      ],
+      [
+        3.383874475023795e-05,
+        -0.001260701648837252,
+        0.31787121976519717
+      ]
+    ],
+    "real": [
+      [
+        0.9999673426336566,
+        0.007768622386644882,
+        -2.848786411803628e-05
+      ],
+      [
+        -0.00425847192454229,
+        0.7407521417262595,
+        0.0007775249104760823
+      ],
+      [
+        1.3558337718190906e-05,
+        0.0006598555693645784,
+        0.94813282905829
+      ]
+    ]
+  },
+  "Y_d": {
+    "imag": [
+      [
+        0.0,
+        0.0001702070771548159,
+        -0.00017210075470507514
+      ],
+      [
+        -0.0005469859783704457,
+        0.0,
+        0.009676391121772843
+      ],
+      [
+        0.001173582898993218,
+        -0.020532689151483752,
+        0.0
+      ]
+    ],
+    "real": [
+      [
+        0.005145763060390336,
+        0.0007728102052765961,
+        0.00018011279907902293
+      ],
+      [
+        0.002483541538307436,
+        0.09175834687326959,
+        0.015269244547061455
+      ],
+      [
+        0.0012282183262425249,
+        0.03240036992276522,
+        3.81987763874871
+      ]
+    ]
+  },
+  "Y_u": {
+    "imag": [
+      [
+        0.0,
+        0.003393168226828414,
+        -0.0027538842503975675
+      ],
+      [
+        -0.0010558611537056885,
+        0.0,
+        0.3325445452538477
+      ],
+      [
+        0.0004038449761584164,
+        -0.15671746947261356,
+        0.0
+      ]
+    ],
+    "real": [
+      [
+        0.002292013989960925,
+        0.002406144338900564,
+        0.006369067976591737
+      ],
+      [
+        0.0007487263135281124,
+        1.2576712128007081,
+        0.47995796850927086
+      ],
+      [
+        0.0009339957206940332,
+        0.2261886395417246,
+        164.46135583543406
+      ]
+    ]
+  },
+  "artifact": "oph_forward_yukawas",
+  "certification_status": "placeholder_unpromotable",
+  "commutator_invariant": {
+    "det_abs": 1.5690162565944403,
+    "det_imag": 1.5690162565944403,
+    "fro_norm": 794.0698627686396
+  },
+  "degenerate_placeholder_fallback_used": false,
+  "delta_logg_q_status": "closed_zero_corollary",
+  "dense_entrywise_amplitude_used": false,
+  "forward_certified": false,
+  "generated_utc": "2026-03-28T16:00:23Z",
+  "jarlskog": 3.8133260918360656e-10,
+  "metadata": {
+    "note": "This artifact stays a sandbox placeholder until the quark descent law closes. The exact reduced even family is already fixed on the current spectrum class; if a current-family spread pair is populated, the builder now emits a real hierarchy candidate, but it remains non-promotable until the spread emitter itself is theorem-fed. Factorized-only mode is allowed, and dense entrywise amplitudes are not promotable in certified quark mode.",
+    "shared_charged_seed_kind": "averaged_u_d_candidate"
+  },
+  "noncentrality_witness": {
+    "fro_norm": 0.00027640229325291395,
+    "status": "closed"
+  },
+  "predictive_promotion_allowed": false,
+  "promotion_blockers": [
+    "quark_even_excitation_candidate_only",
+    "quark_source_mode_unresolved",
+    "quark_b_odd_source_values_open"
+  ],
+  "public_surface_candidate_allowed": true,
+  "public_surface_candidate_scope": [
+    "m_u",
+    "m_d",
+    "m_s",
+    "m_c",
+    "m_b"
+  ],
+  "public_surface_candidate_status": "best_available_reference_free_current_family_candidate",
+  "quark_descent_proof_status": "closed",
+  "sector_mean_split_artifact": "oph_quark_sector_mean_split",
+  "sector_mean_split_status": "closed_current_family_predictive_law",
+  "shared_scalarization_law_status": "candidate_only",
+  "singular_values_d": [
+    0.005121438948009003,
+    0.0916111424053981,
+    3.82011787992005
+  ],
+  "singular_values_u": [
+    0.002287663517422587,
+    1.2566920642121726,
+    164.4626302858475
+  ],
+  "source_mode": "factorized_descent",
+  "template_amplitude_fallback_used": false,
+  "up_down_sector_distinct": true,
+  "uses_full_projector_algebra": true
+}

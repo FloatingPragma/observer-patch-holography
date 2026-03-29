@@ -1,0 +1,61 @@
+{
+  "artifact": "oph_charged_dirac_odd_deformation_form",
+  "budget_neutral_shape_only": true,
+  "codomain": "Sym_off(3) + so(3) + R0^3",
+  "covector_origin": "same_form_dual_of_projector_witness",
+  "deformation_form_kind": "shared_seed_pullback_hs",
+  "diag_laplacian": [
+    [
+      0.004843400587137189,
+      -0.004809171469360565,
+      -3.422911777662352e-05
+    ],
+    [
+      -0.004809171469360565,
+      0.006922164568838986,
+      -0.0021129930994784212
+    ],
+    [
+      -3.422911777662352e-05,
+      -0.0021129930994784212,
+      0.002147222217255045
+    ]
+  ],
+  "domain": "shared_charged_dirac_shape_class",
+  "edge_weights": {
+    "12": 0.004809171469360565,
+    "13": 3.422911777662352e-05,
+    "23": 0.0021129930994784212
+  },
+  "generated_utc": "2026-03-26T07:21:18Z",
+  "global_scale_family": {
+    "kappa_canonical": 1.0,
+    "kappa_max_admissible": 6.934955573215182,
+    "kind": "single_kappa_ray"
+  },
+  "hidden_normalization_free": true,
+  "lift_constants": null,
+  "normalization_rule": "unit_projector_witness",
+  "notes": [
+    "This artifact isolates the odd quark shape-map burden from the quark response builder. The current constructive candidate is the shared-seed pullback Hilbert-Schmidt form on the explicit odd quotient basis, with no independent odd scalar slot and no per-block lift constants.",
+    "The odd codomain has no independent odd scalar slot on the current theorem design, so delta_logg_q=0 is a quotient corollary of the odd-form closure rather than a separate local quark theorem."
+  ],
+  "odd_scalar_slot_present": false,
+  "odd_under_u_d_exchange": true,
+  "projector_equivariant": true,
+  "proof_status": "candidate_only",
+  "quark_zero_odd_scalar_corollary": "closed",
+  "quotient_basis": [
+    "sym12",
+    "sym13",
+    "sym23",
+    "so12",
+    "so13",
+    "so23",
+    "diag_t0_a",
+    "diag_t0_b"
+  ],
+  "riesz_map_kind": "same_form_dual_on_odd_quotient",
+  "shared_scalarization_law_status": "candidate_only",
+  "upstream_missing_object": "oph_charged_dirac_odd_deformation_form"
+}

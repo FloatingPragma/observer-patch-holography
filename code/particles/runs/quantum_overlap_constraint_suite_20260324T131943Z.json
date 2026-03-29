@@ -1,0 +1,119 @@
+{
+  "generated_at": "2026-03-24T13:19:43.269087+00:00",
+  "results": [
+    {
+      "counts": {
+        "000": 128
+      },
+      "homogeneous_fraction": 1.0,
+      "layers": 1,
+      "n_qubits": 3,
+      "shots": 128,
+      "state_overlap": 1.0,
+      "theta": 0.0,
+      "top_counts": [
+        {
+          "bitstring": "000",
+          "shots": 128
+        }
+      ]
+    },
+    {
+      "counts": {
+        "000": 120,
+        "010": 1,
+        "111": 7
+      },
+      "homogeneous_fraction": 0.9921875,
+      "layers": 1,
+      "n_qubits": 3,
+      "shots": 128,
+      "state_overlap": 0.9241989072233124,
+      "theta": 0.5,
+      "top_counts": [
+        {
+          "bitstring": "000",
+          "shots": 120
+        },
+        {
+          "bitstring": "111",
+          "shots": 7
+        },
+        {
+          "bitstring": "010",
+          "shots": 1
+        }
+      ]
+    },
+    {
+      "counts": {
+        "000": 128
+      },
+      "homogeneous_fraction": 1.0,
+      "layers": 2,
+      "n_qubits": 3,
+      "shots": 128,
+      "state_overlap": 1.0,
+      "theta": 0.0,
+      "top_counts": [
+        {
+          "bitstring": "000",
+          "shots": 128
+        }
+      ]
+    },
+    {
+      "counts": {
+        "000": 117,
+        "001": 5,
+        "010": 3,
+        "111": 3
+      },
+      "homogeneous_fraction": 0.9375,
+      "layers": 2,
+      "n_qubits": 3,
+      "shots": 128,
+      "state_overlap": 0.8920865172788179,
+      "theta": 0.5,
+      "top_counts": [
+        {
+          "bitstring": "000",
+          "shots": 117
+        },
+        {
+          "bitstring": "001",
+          "shots": 5
+        },
+        {
+          "bitstring": "010",
+          "shots": 3
+        },
+        {
+          "bitstring": "111",
+          "shots": 3
+        }
+      ]
+    }
+  ],
+  "seed": 7,
+  "shots": 128,
+  "suite": "quantum_overlap_constraint",
+  "summary": {
+    "best_homogeneity": 1.0,
+    "best_overlap": 1.0,
+    "points": 4
+  },
+  "sweep": {
+    "layers": [
+      1,
+      2
+    ],
+    "n_qubits": [
+      3
+    ],
+    "thetas": [
+      0.0,
+      0.5
+    ]
+  }
+}

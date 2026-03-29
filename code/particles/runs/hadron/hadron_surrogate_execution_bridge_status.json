@@ -1,0 +1,43 @@
+{
+  "artifact": "oph_hadron_surrogate_execution_bridge_status",
+  "generated_utc": "2026-03-29T03:08:44Z",
+  "honest_remaining_physical_blockers": [
+    "production unquenched RHMC/HMC on SU(3) gauge fields",
+    "real Dirac solves and baryon contractions",
+    "production autocorrelation/statistics studies",
+    "production continuum / finite-volume / chiral systematics"
+  ],
+  "notes": [
+    "This artifact records the strongest current hadron execution bridge, but it is surrogate-only and not promotable.",
+    "The surrogate bridge is useful because it closes the runtime-receipt -> writeback -> evaluation -> convergence -> systematics path on the emitted schema.",
+    "Public hadron rows remain blocked on replacing the surrogate kernel with production unquenched execution and production systematics."
+  ],
+  "public_promotion_allowed": false,
+  "runtime_receipt_frozen": {
+    "N_sep": 512,
+    "N_therm": 2048
+  },
+  "status": "surrogate_hmc_execution_bridge_complete",
+  "surrogate_completion_scope": [
+    "non-null runtime receipt",
+    "executed cfg/source writeback on the seeded 2+1 family",
+    "populated published_statistical_error",
+    "populated published_systematics",
+    "forward-window convergence from realized arrays"
+  ],
+  "surrogate_error_summary": {
+    "all_six_channel_limits_exist": true,
+    "worst_abs_error_gev_vs_reference": 6.255606831506721e-05,
+    "worst_rel_error_vs_reference": 0.0004634578345753951
+  },
+  "surrogate_execution": true,
+  "surrogate_finest_ensemble": {
+    "N_iso_forward_window_limit_exists": true,
+    "N_iso_mass_gev_candidate": 0.9389602105777344,
+    "aLambda_msbar3": 0.0550900879921322,
+    "ensemble_id": "qcd_2p1_seed_n0",
+    "pi_iso_forward_window_limit_exists": true,
+    "pi_iso_mass_gev_candidate": 0.13503938383599978
+  },
+  "theorem_tier": "diagnostic_execution_bridge_only"
+}

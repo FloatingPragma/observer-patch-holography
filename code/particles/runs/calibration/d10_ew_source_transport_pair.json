@@ -1,0 +1,226 @@
+{
+  "alpha_u_from_seed": 0.04112498041477454,
+  "alpha_u_from_seed_formula": "8*pi*tau_seed / log(alphaY_mz / alpha2_mz)",
+  "artifact": "oph_d10_ew_source_transport_pair",
+  "base_running_reported_outputs": {
+    "alpha_em_inv_mz": 128.30576920234813,
+    "m_w_run": 80.38629169244275,
+    "m_z_run": 91.65246028560671,
+    "sin2w_mz": 0.23073542347506173,
+    "v": 246.76711732749683
+  },
+  "compact_hypercharge_only_mass_slice": {
+    "coherent_output_quintet": {
+      "MW_pole": 80.38629169244275,
+      "MZ_pole": 91.18290444674243,
+      "alpha_em_eff_inv": 132.88025754903566,
+      "sin2w_eff": 0.22279220809210554,
+      "v_report": 246.76711732749683
+    },
+    "eta_EW": 0.022147000871961295,
+    "law": {
+      "compact_constraint": "tau_2 = 0",
+      "eta_EW_formula": "alpha_u * cos(2*theta_W0)",
+      "sigma_EW_formula": "-eta_EW",
+      "tau_2_formula": "sigma_EW + eta_EW",
+      "tau_Y_formula": "sigma_EW - eta_EW"
+    },
+    "name": "hypercharge_only_compact_mass_law",
+    "sigma_EW": -0.022147000871961295,
+    "tau_2": 0.0,
+    "tau_Y": -0.04429400174392259,
+    "transport_entry_values": {
+      "Pi_AA": -0.03407380649413349,
+      "Pi_AZ": 0.018661215267864417,
+      "Pi_WW": 0.0,
+      "Pi_ZZ": -0.0102201952497891
+    }
+  },
+  "eta_source": 0.022147000871961295,
+  "eta_source_formula": "alpha_u_from_seed * beta_EW",
+  "external_nonzero_quartet_image_test": {
+    "status": "fails_exact_image_test_on_current_branch",
+    "why": "the stored external quartet is not the image of a single coherent D10 source-pair on the current branch"
+  },
+  "family_coordinates": {
+    "eta_EW_symbol": "0.5 * (tau_2 - tau_Y)",
+    "sigma_EW_symbol": "0.5 * (tau_Y + tau_2)",
+    "tau_2_formula": "sigma_EW + eta_EW",
+    "tau_Y_formula": "sigma_EW - eta_EW"
+  },
+  "first_nonzero_oph_seed_trial": {
+    "coherent_output_quintet": {
+      "MW_pole": 80.46544871360979,
+      "MZ_pole": 91.70107406716765,
+      "alpha_em_eff_inv": 128.44241441342285,
+      "sin2w_eff": 0.23003669147715428,
+      "v_report": 246.76711732749683
+    },
+    "name": "centered_log_gauge_split",
+    "tau_2": 0.001970385566344652,
+    "tau_Y": -0.001970385566344652,
+    "tau_seed": -0.001970385566344652,
+    "transport_entry_values": {
+      "Pi_AA": -0.001061110070225287,
+      "Pi_AZ": 0.0016602604310546646,
+      "Pi_WW": 0.001970385566344652,
+      "Pi_ZZ": 0.001061110070225287
+    }
+  },
+  "forbidden_inverse_witness_formulas": {
+    "alpha2_star_from_alpha_sin": "1 / (alpha_em_inv * sin2_thetaW)",
+    "alphaY_star_from_alpha_sin": "1 / (alpha_em_inv * (1 - sin2_thetaW))",
+    "sigma_minus_eta_from_mZ_mW": "(mZ^2 - mW^2) / (pi * v_inherited^2 * alphaY_mz) - 1",
+    "sigma_plus_eta_from_mW": "mW^2 / (pi * v_inherited^2 * alpha2_mz) - 1"
+  },
+  "generated_utc": "2026-03-29T06:39:01Z",
+  "notes": [
+    "The reopened two-scalar source pair is already a complete minimal carrier for the coherent D10 quartet; no third scalar is needed on this family.",
+    "The carrier-level selector is now closed on the current two-scalar family via J_pop_EW, with selected point sigma_EW = -eta_source and eta_EW = eta_source.",
+    "The live D10 gap is no longer carrier selection or split exact closure, but the unsplit post-transport tree identity that would emit the mass-moving exact W/Z coordinate.",
+    "The current one-seed family is the sigma_EW = 0 slice. The missing common scalar sigma_EW supplies the diagonal/common-scale motion that the anti-diagonal eta_EW slice alone cannot provide.",
+    "The simplest mass-moving compact slice on the same family keeps the charged source fixed (tau_2 = 0) and transports only hypercharge with eta_EW = alpha_u * cos(2*theta_W0). This is recorded separately as a reference-free W/Z mass candidate, not a full electroweak quintet closure.",
+    "No reference-fit W/Z slice is emitted here. This artifact stays predictive-only and records only the OPH seed family plus its first nonzero source-side trial."
+  ],
+  "one_scalar_reduction_certificate": {
+    "candidate_A_n_EW": 1.0010611100702254,
+    "candidate_A_u_EW": 1.0019703855663447,
+    "candidate_B_n_EW": 0.9897798047502109,
+    "candidate_B_u_EW": 1.0,
+    "same_n_EW": false,
+    "same_u_EW": false,
+    "verdict": "no_one_scalar_residual_on_reopened_family"
+  },
+  "population_atomic_quartet": {
+    "alpha_em_inv_formula": "1/(alpha2_mz * u_EW) + 1/((alphaY_mz + alpha2_mz) * n_EW - alpha2_mz * u_EW)",
+    "mW_formula": "v_inherited * sqrt(pi * alpha2_mz * u_EW)",
+    "mZ_formula": "v_inherited * sqrt(pi * (alphaY_mz + alpha2_mz) * n_EW)",
+    "sin2_thetaW_formula": "1 - alpha2_mz * u_EW / ((alphaY_mz + alpha2_mz) * n_EW)"
+  },
+  "population_basis": {
+    "beta_EW": 0.5385291530498766,
+    "beta_EW_formula": "(alpha2_mz - alphaY_mz) / (alpha2_mz + alphaY_mz)",
+    "n_EW_formula": "1 + sigma_EW + beta_EW * eta_EW",
+    "u_EW_formula": "1 + sigma_EW + eta_EW"
+  },
+  "population_evaluator_object": "EWGaugeSourceTransportPairPopulationEvaluator_D10",
+  "population_forward_map": {
+    "alpha2_star": "alpha2_mz * (1 + sigma_EW + eta_EW)",
+    "alphaY_star": "alphaY_mz * (1 + sigma_EW - eta_EW)",
+    "alpha_em_inv": "(alphaY_star + alpha2_star) / (alphaY_star * alpha2_star)",
+    "mW": "v_inherited * sqrt(pi * alpha2_star)",
+    "mZ": "v_inherited * sqrt(pi * (alphaY_star + alpha2_star))",
+    "sin2_thetaW": "alphaY_star / (alphaY_star + alpha2_star)",
+    "tau_2": "sigma_EW + eta_EW",
+    "tau_Y": "sigma_EW - eta_EW"
+  },
+  "population_functional_symbol": "J_pop_EW",
+  "population_minimality_certificate": {
+    "det_d_u_n_d_sigma_eta_formula": "beta_EW - 1",
+    "determinant": -0.4614708469501234,
+    "determinant_nonzero": true,
+    "third_scalar_needed": false
+  },
+  "population_nonuniqueness_certificate": {
+    "delta_quintet_B_minus_A": {
+      "MW_pole": -0.07915702116703471,
+      "MZ_pole": -0.5181696204252262,
+      "alpha_em_eff_inv": 4.437843135612809,
+      "sin2w_eff": -0.007244483385048739
+    },
+    "different_family_points": true,
+    "same_family_formula": true,
+    "selector_formula": "selected_population_point = argmin_{p in C_D10} J_pop_EW(p)",
+    "source_point_A": {
+      "eta_EW": 0.001970385566344652,
+      "quintet": {
+        "MW_pole": 80.46544871360979,
+        "MZ_pole": 91.70107406716765,
+        "alpha_em_eff_inv": 128.44241441342285,
+        "sin2w_eff": 0.23003669147715428,
+        "v_report": 246.76711732749683
+      },
+      "sigma_EW": 0.0
+    },
+    "source_point_B": {
+      "eta_EW": 0.022147000871961295,
+      "quintet": {
+        "MW_pole": 80.38629169244275,
+        "MZ_pole": 91.18290444674243,
+        "alpha_em_eff_inv": 132.88025754903566,
+        "sin2w_eff": 0.22279220809210554,
+        "v_report": 246.76711732749683
+      },
+      "sigma_EW": -0.022147000871961295
+    },
+    "verdict": "population_selector_now_closed_current_carrier"
+  },
+  "population_reconstruction": {
+    "eta_EW_formula": "(u_EW - n_EW) / (1 - beta_EW)",
+    "sigma_EW_formula": "(n_EW - 1 - beta_EW * (u_EW - 1)) / (1 - beta_EW)"
+  },
+  "population_selector_formula": "selected_population_point = argmin_{p in C_D10} J_pop_EW(p)",
+  "population_selector_status": "closed",
+  "predictive_population_closed": true,
+  "predictive_population_point": {
+    "eta_EW": 0.022147000871961295,
+    "n_EW": 0.9897798047502109,
+    "sigma_EW": -0.022147000871961295,
+    "tau_2": 0.0,
+    "tau_Y": -0.04429400174392259,
+    "u_EW": 1.0
+  },
+  "predictive_population_verdict": "closed_current_carrier_nonexact_running_quintet",
+  "proof_gates": {
+    "exact_closure": false,
+    "external_quartet_image_test": "must_pass",
+    "provenance_equality": "must_pass",
+    "two_scalar_source_population_required": false
+  },
+  "pushforward_shell": {
+    "Pi_AA": "sigma_EW + (sin^2(theta_W0) - cos^2(theta_W0)) * eta_EW",
+    "Pi_AZ": "2 * sin(theta_W0) * cos(theta_W0) * eta_EW",
+    "Pi_WW": "sigma_EW + eta_EW",
+    "Pi_ZZ": "sigma_EW + (cos^2(theta_W0) - sin^2(theta_W0)) * eta_EW"
+  },
+  "seed_family": {
+    "constraint": "tau_Y + tau_2 = 0",
+    "name": "centered_log_gauge_split",
+    "tau_2_formula": "-tau_seed",
+    "tau_Y_formula": "tau_seed",
+    "tau_seed_formula": "(alpha_u / (8*pi)) * log(alphaY_mz / alpha2_mz)"
+  },
+  "smallest_constructive_missing_object": "EWSinglePostTransportTreeIdentity_D10",
+  "source_pair": {
+    "alpha2_mz": 0.03377843630219015,
+    "alphaY_mz": 0.010131601067241624,
+    "v_inherited": 246.76711732749683
+  },
+  "source_pair_symbol": "Tau_EW_D10 = (tau_Y, tau_2)",
+  "source_slots": {
+    "alpha2_mz": 0.03377843630219015,
+    "alphaY_mz": 0.010131601067241624,
+    "v_inherited": 246.76711732749683
+  },
+  "special_slices": {
+    "common_scale_slice": {
+      "constraint": "eta_EW = 0.0"
+    },
+    "current_one_seed_slice": {
+      "eta_EW": 0.001970385566344652,
+      "sigma_EW": 0.0
+    },
+    "zero_benchmark": {
+      "eta_EW": 0.0,
+      "sigma_EW": 0.0
+    }
+  },
+  "status": "selected_two_scalar_family",
+  "strict_missing_object_beneath_transport_entry_preimage": "EWGaugeSourceTransportPair_D10",
+  "two_scalar_population_status": "closed_current_carrier",
+  "updated_couplings": {
+    "alpha2_prime": "alpha2_mz * (1 + sigma_EW + eta_EW)",
+    "alphaY_prime": "alphaY_mz * (1 + sigma_EW - eta_EW)",
+    "v_prime": "v_inherited"
+  }
+}

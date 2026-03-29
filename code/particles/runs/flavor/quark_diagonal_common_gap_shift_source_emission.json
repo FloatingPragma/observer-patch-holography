@@ -1,0 +1,49 @@
+{
+  "B_mode_residual_d": null,
+  "B_mode_residual_d_formula": "[0.0, 0.0, 0.0]",
+  "B_mode_residual_u": null,
+  "B_mode_residual_u_formula": "[0.0, 0.0, 0.0]",
+  "B_ord": [
+    -1.0,
+    0.0,
+    1.0
+  ],
+  "B_ord_norm_sq": 2.0,
+  "J_B_source_d": null,
+  "J_B_source_d_formula": "J_B(source_readback_d_log_per_side)",
+  "J_B_source_u": null,
+  "J_B_source_u_formula": "J_B(source_readback_u_log_per_side)",
+  "Q_ord": [
+    0.2440347951122107,
+    -0.4880695902244214,
+    0.2440347951122107
+  ],
+  "artifact": "oph_family_excitation_diagonal_common_gap_shift_source_emission",
+  "beta_d_diag_B_source": null,
+  "beta_d_diag_B_source_formula": "dot(source_readback_d_log_per_side, B_ord) / B_ord_norm_sq",
+  "beta_u_diag_B_source": null,
+  "beta_u_diag_B_source_formula": "dot(source_readback_u_log_per_side, B_ord) / B_ord_norm_sq",
+  "generated_utc": "2026-03-27T16:49:29Z",
+  "non_inverse_fit_certificate": {
+    "reference_values_consumed": false,
+    "status": "required"
+  },
+  "notes": [
+    "This artifact is now a derived projection layer on top of the closed pure-B source-readback law.",
+    "The current mean and quadratic annihilators are blind to the B-mode amplitude, so the predictive gap sits first in the emitted pure-B payload pair beneath this projection."
+  ],
+  "pdg_independence_certificate": {
+    "reference_values_consumed": false,
+    "status": "required"
+  },
+  "predictive_promotion_allowed": false,
+  "proof_status": "source_emission_waiting_pure_B_payload_pair",
+  "smallest_constructive_missing_object": "source_readback_u_log_per_side_and_source_readback_d_log_per_side",
+  "source_artifact": "oph_family_excitation_diagonal_common_gap_shift_source_law",
+  "source_emission_closed_formula": "B_mode_residual_u == 0 and B_mode_residual_d == 0",
+  "source_emission_status": "source_readback_law_closed_waiting_pure_B_payload_pair",
+  "source_readback_artifact": "oph_family_excitation_diagonal_common_gap_shift_source_readback",
+  "source_readback_d_log_per_side": null,
+  "source_readback_status": "source_readback_law_closed_waiting_pure_B_payload_pair",
+  "source_readback_u_log_per_side": null
+}

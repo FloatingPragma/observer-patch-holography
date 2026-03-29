@@ -1,0 +1,316 @@
+{
+  "artifact": "oph_hadron_full_unquenched_correlator",
+  "channel_payloads": {
+    "N_iso": {
+      "am_eff_t": [],
+      "am_ground": null,
+      "contraction_rules": {
+        "direct": "Gd = Sc * trace(Gamma @ Sb @ GammaB @ Sa.T)",
+        "exchange": "Gx = Sca @ GammaB.T @ Sb.T @ Gamma.T @ Sac",
+        "full": "Gfull = Gd - Gx"
+      },
+      "corr_direct_t": [],
+      "corr_exchange_t": [],
+      "corr_t": [],
+      "correlator_formula": "C_N^(e)(t) = C_direct^(e)(t) - C_exchange^(e)(t)",
+      "effective_mass_formula": "am_eff_N(t)=log(|C_N(t)|/|C_N(t+1)|)",
+      "ensemble_id": "qcd_2p1_seed_n0",
+      "kind": "direct_minus_exchange_baryon_two_point",
+      "mass_gev": null,
+      "mass_rule": "mass_gev = ratio_to_lambda_msbar3 * Lambda_MSbar_3_gev",
+      "operator_formula": "sum_x eps^{abc}(u^T C gamma5 d)u",
+      "operator_id": "N_local_Cgamma5",
+      "parity_projector": "(1+gamma_0)/2",
+      "ratio_to_lambda_msbar3": null,
+      "target_promoted_fields": [
+        "corr_direct_t",
+        "corr_exchange_t",
+        "corr_t",
+        "am_eff_t",
+        "am_ground",
+        "ratio_to_lambda_msbar3",
+        "mass_gev"
+      ]
+    },
+    "pi_iso": {
+      "am_eff_t": [],
+      "am_ground": null,
+      "corr_t": [],
+      "correlator_formula": "C_pi^(e)(t) = sum_x <P^a(x,t) P^{a\\dagger}(0)>_{mu_e}",
+      "effective_mass_formula": "am_eff_pi(t)=log(C_pi(t)/C_pi(t+1))",
+      "ensemble_id": "qcd_2p1_seed_n0",
+      "kind": "zero_momentum_two_point",
+      "mass_gev": null,
+      "mass_rule": "mass_gev = ratio_to_lambda_msbar3 * Lambda_MSbar_3_gev",
+      "operator_formula": "sum_x qbar gamma5 tau^a q",
+      "operator_id": "P_local_isovector",
+      "ratio_to_lambda_msbar3": null,
+      "target_promoted_fields": [
+        "corr_t",
+        "am_eff_t",
+        "am_ground",
+        "ratio_to_lambda_msbar3",
+        "mass_gev"
+      ]
+    },
+    "rho_scattering": {
+      "aE_cm": [],
+      "aE_lab": [],
+      "ak": [],
+      "correlation_matrices": {},
+      "delta1_rad": [],
+      "elastic_channel": "pi_pi",
+      "existing_scaffolding_inputs": {
+        "level_point_schema": {
+          "derived_fields": [
+            "E_cm_gev",
+            "k_gev",
+            "q",
+            "phi_luescher",
+            "delta1_rad"
+          ],
+          "required_fields": [
+            "frame_d",
+            "irrep",
+            "E_lab_gev"
+          ]
+        },
+        "rho_levels_artifact": "oph_hadron_rho_scattering_levels",
+        "rho_operator_basis_artifact": "oph_hadron_rho_operator_basis"
+      },
+      "irreps": [
+        {
+          "frame_d": [
+            0,
+            0,
+            0
+          ],
+          "irrep": "T1u"
+        },
+        {
+          "frame_d": [
+            0,
+            0,
+            1
+          ],
+          "irrep": "A1"
+        },
+        {
+          "frame_d": [
+            1,
+            1,
+            0
+          ],
+          "irrep": "A1"
+        }
+      ],
+      "kind": "correlation_matrix_family",
+      "matrix_formula": "C_ij^(e,d,Lambda)(t) = <O_i^(d,Lambda)(t) O_j^(d,Lambda)dagger(0)>_{mu_e}",
+      "operator_ids": [
+        "V_local",
+        "pipi_d000_T1u",
+        "pipi_d001_A1",
+        "pipi_d110_A1"
+      ],
+      "principal_correlators": {},
+      "q": [],
+      "target_promoted_fields": [
+        "correlation_matrices",
+        "principal_correlators",
+        "aE_lab",
+        "aE_cm",
+        "ak",
+        "q",
+        "delta1_rad"
+      ]
+    }
+  },
+  "dimensionless_mass_ratios": {
+    "rho_l": 0.011078146887541261,
+    "rho_l_formula": "(m_u_gev + m_d_gev) / (2 * Lambda_MSbar_3_gev)",
+    "rho_s": 0.27395536688487193,
+    "rho_s_formula": "m_s_gev / Lambda_MSbar_3_gev"
+  },
+  "ensemble_family": [
+    {
+      "L": 146,
+      "T": 291,
+      "aLambda_msbar3": 0.0550900879921322,
+      "am_l": 0.0006102960868244135,
+      "am_s": 0.015092225267604455,
+      "beta": 7.321687687371745,
+      "ensemble_id": "qcd_2p1_seed_n0",
+      "family_index": 0,
+      "population_status": "seeded_predictive_unquenched_candidate",
+      "sequence_targets": {
+        "N_iso": [
+          "corr_direct_t",
+          "corr_exchange_t",
+          "corr_t",
+          "am_eff_t"
+        ],
+        "pi_iso": [
+          "corr_t",
+          "am_eff_t"
+        ]
+      },
+      "stable_channel_sequence_population_status": "awaiting_sequence_population"
+    },
+    {
+      "L": 291,
+      "T": 581,
+      "aLambda_msbar3": 0.0275450439960661,
+      "am_l": 0.00030514804341220676,
+      "am_s": 0.0075461126338022275,
+      "beta": 7.6377249048488185,
+      "ensemble_id": "qcd_2p1_seed_n1",
+      "family_index": 1,
+      "population_status": "seeded_predictive_unquenched_candidate",
+      "sequence_targets": {
+        "N_iso": [
+          "corr_direct_t",
+          "corr_exchange_t",
+          "corr_t",
+          "am_eff_t"
+        ],
+        "pi_iso": [
+          "corr_t",
+          "am_eff_t"
+        ]
+      },
+      "stable_channel_sequence_population_status": "awaiting_sequence_population"
+    },
+    {
+      "L": 581,
+      "T": 1162,
+      "aLambda_msbar3": 0.01377252199803305,
+      "am_l": 0.00015257402170610338,
+      "am_s": 0.0037730563169011137,
+      "beta": 7.953762122325891,
+      "ensemble_id": "qcd_2p1_seed_n2",
+      "family_index": 2,
+      "population_status": "seeded_predictive_unquenched_candidate",
+      "sequence_targets": {
+        "N_iso": [
+          "corr_direct_t",
+          "corr_exchange_t",
+          "corr_t",
+          "am_eff_t"
+        ],
+        "pi_iso": [
+          "corr_t",
+          "am_eff_t"
+        ]
+      },
+      "stable_channel_sequence_population_status": "awaiting_sequence_population"
+    }
+  ],
+  "generated_utc": "2026-03-29T03:08:44Z",
+  "light_mass_rule": "m_l=(m_u+m_d)/2",
+  "measure_formula": "dmu_e(U)=Z_e^{-1} exp(-S_g(U;beta_e)) det D_l(U;am_l^(e))^2 det D_s(U;am_s^(e)) dU",
+  "missing_physics": [
+    "stable_channel_sequence_population",
+    "stable_channel_forward_window_convergence",
+    "finite_volume_control",
+    "rho_finite_volume_spectrum_extraction"
+  ],
+  "next_missing_object": "stable_channel_sequence_population",
+  "next_theorem_after_population": "StableChannelForwardWindowConvergence",
+  "notes": [
+    "This artifact is an upstream 2+1-flavor QCD measure pushforward that feeds the hadron readouts.",
+    "It does not promote hadron masses; it defines the unquenched correlator payloads that must become real before the stable and rho readouts can be predictive.",
+    "The producer-side seed is derived in Lambda-units from the OPH quark descendants and the local Lambda_MSbar^(3) descendant.",
+    "The next stable-channel gate after seeding is sequence population and then convergence, not another schema change."
+  ],
+  "population_contract": {
+    "ensemble_family_law": {
+      "L_n": "ceil(lambdaL_target / aLambda_msbar3_n)",
+      "T_n": "ceil(lambdaT_target / aLambda_msbar3_n)",
+      "aLambda_msbar3_n": "aLambda_seed * 2**(-n)",
+      "am_l_n": "aLambda_msbar3_n * rho_l",
+      "am_s_n": "aLambda_msbar3_n * rho_s",
+      "beta_n": "oph_beta_from_aLambda_msbar3(aLambda_msbar3_n)",
+      "family_index": "n = 0,1,2,..."
+    },
+    "family_targets": {
+      "aLambda_seed": 0.0550900879921322,
+      "aLambda_seed_formula": "sqrt(rho_l * rho_s)",
+      "beta_formula": "6 + (9 / (2*pi^2)) * log(1 / aLambda_msbar3_n)",
+      "lambdaL_target": 8.0,
+      "lambdaL_target_formula": "8",
+      "lambdaT_target": 16.0,
+      "lambdaT_target_formula": "16",
+      "qed_off": true,
+      "sea_flavors": "2+1"
+    },
+    "lambda_msbar3_rule": "oph_qcd_lambda_msbar3_from_d10_alpha3",
+    "lambda_msbar3_source_artifact": "oph_qcd_lambda_msbar3",
+    "law_id": "oph_qcd_2p1_lambda_ratio_ensemble_population",
+    "measure_formula": "dmu_n(U)=Z_n^{-1} exp(-S_g(U;beta_n)) det D_l(U;am_l_n)^2 det D_s(U;am_s_n) dU",
+    "per_ensemble_sequence_contract": {
+      "N_iso": {
+        "am_eff_formula": "am_eff_N^(n)(t) = log(|C_N^(n)(t)| / |C_N^(n)(t+1)|)",
+        "corr_direct_formula": "C_N,dir^(n)(t)",
+        "corr_exchange_formula": "C_N,ex^(n)(t)",
+        "corr_formula": "C_N^(n)(t) = C_N,dir^(n)(t) - C_N,ex^(n)(t)"
+      },
+      "pi_iso": {
+        "am_eff_formula": "am_eff_pi^(n)(t) = log(C_pi^(n)(t) / C_pi^(n)(t+1))",
+        "corr_formula": "C_pi^(n)(t) = sum_x <P^a(x,t) P^{a\\dagger}(0)>_{mu_n}"
+      }
+    },
+    "qcd_descendants": {
+      "m_d_gev": "singular_values_d[0]",
+      "m_l_gev": "(m_u_gev + m_d_gev) / 2",
+      "m_s_gev": "singular_values_d[1]",
+      "m_u_gev": "singular_values_u[0]",
+      "rho_l": "m_l_gev / Lambda_MSbar_3_gev",
+      "rho_s": "m_s_gev / Lambda_MSbar_3_gev"
+    },
+    "quark_source_artifact": "oph_forward_yukawas",
+    "seed_status": "populated_from_lambda_ratio_law",
+    "sequence_emission": {
+      "N_iso": [
+        "corr_direct_t",
+        "corr_exchange_t",
+        "corr_t",
+        "am_eff_t"
+      ],
+      "pi_iso": [
+        "corr_t",
+        "am_eff_t"
+      ]
+    },
+    "status": "predictive_ensemble_seeded_candidate"
+  },
+  "predictive_input_status": {
+    "Lambda_MSbar_3_gev": "consumed_from_secondary_qcd_descendant",
+    "quark_masses": "consumed_from_reference_free_forward_yukawas_candidate"
+  },
+  "predictive_inputs_only": true,
+  "predictive_promotion_allowed": false,
+  "producer_law_id": "oph_qcd_2p1_unquenched_measure_pushforward",
+  "proof_status": "candidate_only",
+  "qcd_inputs": {
+    "Lambda_MSbar_3_gev": 0.3344017072821104,
+    "m_d_gev": 0.005121438948009003,
+    "m_l_gev": 0.003704551232715795,
+    "m_s_gev": 0.0916111424053981,
+    "m_u_gev": 0.002287663517422587
+  },
+  "qed_off": true,
+  "readout_consumers": {
+    "rho_scattering_levels": "oph_hadron_rho_scattering_levels",
+    "stable_channel_groundstate_readout": "oph_hadron_stable_channel_groundstate_readout"
+  },
+  "sea_flavor_target": "2+1_unquenched",
+  "source_artifacts": {
+    "forward_yukawas": "oph_forward_yukawas",
+    "proton_contraction_plan": "N_iso.full_baryon_contractions",
+    "qcd_lambda_msbar3": "oph_qcd_lambda_msbar3",
+    "rho_levels": "oph_hadron_rho_scattering_levels",
+    "rho_operator_basis": "oph_hadron_rho_operator_basis"
+  },
+  "status": "predictive_ensemble_seeded_candidate",
+  "theorem_scope": "stable_channels_plus_rho_scattering_inputs"
+}

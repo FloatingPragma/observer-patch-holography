@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://oph.local/schemas/hadron/backend_run_manifest.schema.json",
+  "title": "OPH hadron raw backend export manifest",
+  "type": "object",
+  "required": [
+    "artifact",
+    "format_version",
+    "profile_id",
+    "backend",
+    "files",
+    "ensembles"
+  ],
+  "properties": {
+    "artifact": {
+      "const": "oph_hadron_backend_raw_export"
+    },
+    "format_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "profile_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "backend": {
+      "type": "object",
+      "required": [
+        "family",
+        "name",
+        "version",
+        "git_commit",
+        "run_id",
+        "build_id",
+        "machine"
+      ],
+      "properties": {
+        "family": {"type": "string"},
+        "name": {"type": "string"},
+        "version": {"type": "string"},
+        "git_commit": {"type": "string"},
+        "run_id": {"type": "string"},
+        "build_id": {"type": "string"},
+        "machine": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "physics": {
+      "type": "object"
+    },
+    "solvers": {
+      "type": "object"
+    },
+    "integrator": {
+      "type": "object"
+    },
+    "boundary_conditions": {
+      "type": "object"
+    },
+    "sources": {
+      "type": "object"
+    },
+    "contractions": {
+      "type": "object"
+    },
+    "files": {
+      "type": "object",
+      "required": ["correlators_hdf5"],
+      "properties": {
+        "correlators_hdf5": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "ensembles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["ensemble_id", "cfgs"],
+        "properties": {
+          "ensemble_id": {"type": "string"},
+          "cfgs": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["cfg_id", "sources"],
+              "properties": {
+                "cfg_id": {"type": "string"},
+                "trajectory_stop": {
+                  "type": ["integer", "null"]
+                },
+                "sources": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "required": ["src_id", "coord", "datasets"],
+                    "properties": {
+                      "src_id": {"type": "string"},
+                      "coord": {
+                        "type": "array",
+                        "minItems": 4,
+                        "maxItems": 4,
+                        "items": {"type": "integer"}
+                      },
+                      "datasets": {
+                        "type": "object",
+                        "required": ["pi_iso", "N_iso_direct", "N_iso_exchange"],
+                        "properties": {
+                          "pi_iso": {"type": "string"},
+                          "N_iso_direct": {"type": "string"},
+                          "N_iso_exchange": {"type": "string"}
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "additionalProperties": true
+                  }
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

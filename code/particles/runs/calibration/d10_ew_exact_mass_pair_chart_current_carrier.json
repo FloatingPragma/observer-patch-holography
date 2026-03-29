@@ -1,0 +1,71 @@
+{
+  "artifact": "oph_d10_ew_exact_mass_pair_chart_current_carrier",
+  "carrier_basis_scalar": {
+    "alpha2_mz": 0.03377843630219015,
+    "alphaY_mz": 0.010131601067241624,
+    "beta_EW": 0.5385291530498766,
+    "beta_EW_formula": "(alpha2_mz - alphaY_mz) / (alpha2_mz + alphaY_mz)",
+    "eta_source": 0.022147000871961295,
+    "eta_source_formula": "selected_population_point.eta_EW",
+    "kappa_n_to_tauY": 4.333968252205028,
+    "kappa_n_to_tauY_formula": "(alphaY_mz + alpha2_mz) / alphaY_mz",
+    "v_inherited": 246.76711732749683
+  },
+  "coordinate_symbols": {
+    "charged_leg": "tau2_tree_exact",
+    "neutral_leg": "delta_n_tree_exact"
+  },
+  "current_selector_pullback": {
+    "formula": "tau2_tree_exact^2 * (1 + (2 * eta_source + tau2_tree_exact)^2 + 4 * tau2_tree_exact^2) / (1 + 4 * tau2_tree_exact^2) + (kappa_n_to_tauY^2 / 4) * (1 + 4 * tau2_tree_exact^2) * delta_n_tree_exact^2",
+    "nonnegative": true,
+    "symbol": "J_pop_EW_pullback",
+    "verdict": "current_closed_selector_cannot_emit_nonzero_exact_mass_pair",
+    "zero_set": {
+      "delta_n_tree_exact": 0.0,
+      "tau2_tree_exact": 0.0
+    }
+  },
+  "derived_from_artifacts": [
+    "oph_d10_ew_population_evaluator",
+    "oph_d10_ew_fiberwise_population_tree_law_beneath_single_tree_identity",
+    "oph_d10_ew_tau2_current_carrier_obstruction",
+    "oph_d10_ew_exact_wz_coordinate_beyond_single_tree_identity"
+  ],
+  "exact_mass_pair_chart": {
+    "MW_formula": "v_inherited * sqrt(pi * alpha2_mz * (1 + tau2_tree_exact))",
+    "MZ_formula": "v_inherited * sqrt(pi * (alphaY_mz + alpha2_mz) * (n_EW_fiber + delta_n_tree_exact))",
+    "eta_exact_formula": "(eta_source + tau2_tree_exact + 2*tau2_tree_exact^3) / (1 + 4*tau2_tree_exact^2) - 0.5 * kappa_n_to_tauY * delta_n_tree_exact",
+    "n_EW_exact_formula": "n_EW_fiber + delta_n_tree_exact",
+    "n_EW_fiber_expanded_formula": "1 + (beta_EW * tau2_tree_exact + 2 * (1 + beta_EW) * tau2_tree_exact^3 - (1 - beta_EW) * eta_source) / (1 + 4 * tau2_tree_exact^2)",
+    "n_EW_fiber_formula": "1 + (alphaY_mz * tau_Y + alpha2_mz * tau2_tree_exact) / (alphaY_mz + alpha2_mz)",
+    "sigma_exact_formula": "(2*tau2_tree_exact^3 - eta_source) / (1 + 4*tau2_tree_exact^2) + 0.5 * kappa_n_to_tauY * delta_n_tree_exact",
+    "tauY_exact_formula": "tauY_fiber + kappa_n_to_tauY * delta_n_tree_exact",
+    "tauY_fiber_formula": "-(tau2_tree_exact + 2*eta_source) / (1 + 4*tau2_tree_exact^2)",
+    "u_EW_exact_formula": "1 + tau2_tree_exact"
+  },
+  "generated_utc": "2026-03-29T06:39:02Z",
+  "local_bijectivity_certificate": {
+    "dMW_ddelta_n_formula": "0",
+    "dMW_dtau2_formula": "MW_formula / (2 * (1 + tau2_tree_exact))",
+    "dMZ_ddelta_n_formula": "MZ_formula / (2 * (n_EW_fiber + delta_n_tree_exact))",
+    "dMZ_dtau2_formula": "MZ_formula * d_n_EW_fiber_dtau2 / (2 * (n_EW_fiber + delta_n_tree_exact))",
+    "d_n_EW_fiber_dtau2_formula": "(alphaY_mz * d_tauY_fiber_dtau2 + alpha2_mz) / (alphaY_mz + alpha2_mz)",
+    "d_tauY_fiber_dtau2_formula": "(-1 + 4 * tau2_tree_exact^2 + 16 * eta_source * tau2_tree_exact) / (1 + 4 * tau2_tree_exact^2)^2",
+    "determinant_formula": "pi * v_inherited^2 * sqrt(alpha2_mz * (alphaY_mz + alpha2_mz)) / (4 * sqrt((1 + tau2_tree_exact) * (n_EW_fiber + delta_n_tree_exact)))",
+    "third_coordinate_needed": false
+  },
+  "next_single_residual_object": "EWExactMassPairSelector_D10",
+  "notes": [
+    "The exact current-carrier W/Z chart is two-dimensional on (tau2_tree_exact, delta_n_tree_exact).",
+    "No third coordinate or broader carrier is needed for exact mass-pair closure on this chart.",
+    "The current closed selector pulls back to a nonnegative scalar with a unique zero at the current point, so the next residual object is a selector on this chart rather than another coordinate."
+  ],
+  "object_id": "EWExactMassPairChartCurrentCarrier_D10",
+  "proof_status": "exact_mass_pair_chart_closed_and_current_selector_pullback_has_unique_zero_at_current_point",
+  "selected_current_point": {
+    "delta_n_tree_exact": 0.0,
+    "tau2_tree_exact": 0.0
+  },
+  "status": "closed_smaller_primitive",
+  "strictly_smaller_than": "tau2_tree_exact_and_delta_n_tree_exact_emission"
+}

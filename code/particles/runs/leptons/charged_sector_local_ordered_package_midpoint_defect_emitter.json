@@ -1,0 +1,43 @@
+{
+  "affine_midpoint_log_per_side_emitted": 0.4045259519908764,
+  "artifact": "oph_charged_sector_local_ordered_package_midpoint_defect_emitter",
+  "b_e_log_coeff_emitted": 1.5164818663320259e-16,
+  "carrier_centered_rank": 1,
+  "collapse_proven": true,
+  "delta_midpoint_log_per_side_emitted": 1.1102230246251565e-16,
+  "delta_midpoint_zero_on_current_support": true,
+  "delta_midpoint_zero_tolerance": 1e-15,
+  "eta_source_split_log_per_side_emitted": 2.220446049250313e-16,
+  "generated_utc": "2026-03-27T09:40:53Z",
+  "midpoint_defect_emitter_closed": true,
+  "midpoint_formulas": {
+    "b_e": "eta / (2 * (1 - x2^2))",
+    "delta_mid": "m_aff - r2",
+    "eta": "2 * delta_mid",
+    "m_aff": "((1 - x2) * r1 + (1 + x2) * r3) / 2"
+  },
+  "mu_source_log_per_side_emitted": 0.6207999999999999,
+  "next_single_residual_object": "oph_charged_sector_local_current_support_obstruction_certificate",
+  "notes": [
+    "The midpoint-defect emitter is already derivable on the current support and closes to zero there.",
+    "No same-support transverse charged mover remains on the current ordered package.",
+    "The remaining charged gap is no longer a same-support midpoint defect, but the obstruction certificate showing the present support cannot reproduce the charged hierarchy."
+  ],
+  "ordered_family_coordinate": [
+    -1.0,
+    -0.5175863354681689,
+    1.0
+  ],
+  "predictive_promotion_allowed": false,
+  "proof_status": "current_support_midpoint_defect_emitter_closed",
+  "same_support_transverse_coeff_closed": true,
+  "sigma_source_total_log_per_side_emitted": 1.2535534645451876,
+  "smallest_constructive_missing_object": null,
+  "source_artifact": "oph_charged_sector_local_ordered_package_value_law",
+  "source_package_formula": "r_ord = mu*1 + (sigma/2)*L_ord + b_e*Q_ord",
+  "source_side_ordered_package_log_per_side_emitted": [
+    0.102160291731968,
+    0.40452595199087626,
+    1.3557137562771555
+  ]
+}

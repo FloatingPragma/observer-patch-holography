@@ -1,0 +1,78 @@
+{
+  "B_mode_residual_d": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "B_mode_residual_d_formula": "[0.0, 0.0, 0.0]",
+  "B_mode_residual_u": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "B_mode_residual_u_formula": "[0.0, 0.0, 0.0]",
+  "B_ord": [
+    -1.0,
+    0.0,
+    1.0
+  ],
+  "B_ord_norm_sq": 2.0,
+  "J_B_endpoint_formula": "(v[2] - v[0]) / 2",
+  "J_B_formula": "dot(v, B_ord) / B_ord_norm_sq",
+  "J_B_functional_kind": "pure_B_odd_point_separating_projection",
+  "J_B_on_B_ord": 1.0,
+  "J_B_on_Q_ord": 0.0,
+  "J_B_on_center_vector": 0.0,
+  "J_B_source_d": null,
+  "J_B_source_d_formula": "J_B(source_readback_d_log_per_side)",
+  "J_B_source_u": null,
+  "J_B_source_u_formula": "J_B(source_readback_u_log_per_side)",
+  "artifact": "oph_family_excitation_diagonal_common_gap_shift_source_readback",
+  "beta_d_diag_B_source": null,
+  "beta_d_diag_B_source_formula": "(source_readback_d_log_per_side[2] - source_readback_d_log_per_side[0]) / 2",
+  "beta_u_diag_B_source": null,
+  "beta_u_diag_B_source_formula": "(source_readback_u_log_per_side[2] - source_readback_u_log_per_side[0]) / 2",
+  "derived_scalar_pair_after_payload_emission": "J_B_source_u_and_J_B_source_d",
+  "first_data_bearing_primitive_beneath_scalar_pair": "source_readback_u_log_per_side_and_source_readback_d_log_per_side",
+  "generated_utc": "2026-03-28T08:21:23Z",
+  "next_single_residual_object": "source_readback_u_log_per_side_and_source_readback_d_log_per_side",
+  "notes": [
+    "The source-readback law is closed: the minimal pure-B readback is uniquely [-beta, 0, +beta] on B_ord = [-1, 0, 1].",
+    "The first data-bearing primitive beneath the odd scalar pair is the emitted pure-B payload pair source_readback_u_log_per_side and source_readback_d_log_per_side.",
+    "The remaining quark gap is the emitted pure-B payload pair itself; once that payload exists, the odd projector values J_B_source_u and J_B_source_d follow algebraically from its endpoints."
+  ],
+  "payload_pair_status": "open_waiting_value_emission",
+  "predictive_promotion_allowed": false,
+  "proof_status": "source_readback_law_closed_waiting_pure_B_payload_pair",
+  "pure_B_source_certificate_d": 0.0,
+  "pure_B_source_certificate_d_formula": "0.0",
+  "pure_B_source_certificate_u": 0.0,
+  "pure_B_source_certificate_u_formula": "0.0",
+  "smallest_constructive_missing_object": "source_readback_u_log_per_side_and_source_readback_d_log_per_side",
+  "source_artifact": "oph_family_excitation_diagonal_common_gap_shift_source_law",
+  "source_payload_constraints": {
+    "center_entry": 0.0,
+    "endpoint_sum": 0.0,
+    "pure_B_residual": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "source_payload_kind": "pure_B_odd_source_readback_pair",
+  "source_payload_shape": [
+    3
+  ],
+  "source_readback_center_residual_d": 0.0,
+  "source_readback_center_residual_d_formula": "0.0",
+  "source_readback_center_residual_u": 0.0,
+  "source_readback_center_residual_u_formula": "0.0",
+  "source_readback_d_log_per_side": null,
+  "source_readback_d_log_per_side_formula": "beta_d_diag_B_source * B_ord",
+  "source_readback_endpoint_residual_d": 0.0,
+  "source_readback_endpoint_residual_d_formula": "0.0",
+  "source_readback_endpoint_residual_u": 0.0,
+  "source_readback_endpoint_residual_u_formula": "0.0",
+  "source_readback_u_log_per_side": null,
+  "source_readback_u_log_per_side_formula": "beta_u_diag_B_source * B_ord"
+}

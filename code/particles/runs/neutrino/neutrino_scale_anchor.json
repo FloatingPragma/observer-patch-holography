@@ -1,0 +1,49 @@
+{
+  "anchors": {
+    "m_star_formula": "v^2 / mu_u",
+    "m_star_gev": 2.4617526608923523e-12
+  },
+  "artifact": "oph_neutrino_scale_anchor",
+  "collective_mode": {
+    "basis": "democratic_rank_one",
+    "u_uT": [
+      [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ]
+    ],
+    "u_vector": [
+      0.5773502691896258,
+      0.5773502691896258,
+      0.5773502691896258
+    ]
+  },
+  "generated_utc": "2026-03-27T13:18:50Z",
+  "inputs": {
+    "alpha_u": 0.04112498041477454,
+    "mu_u_used_gev": 2.4736039148648396e+16,
+    "p": 1.63094,
+    "v_used_gev": 246.76711732749683
+  },
+  "notes": [
+    "This artifact is the active local neutrino scale anchor.",
+    "It uses the current D10 core only: m_star = v^2 / mu_u.",
+    "No legacy predictor surface or imported neutrino mass estimate is used here."
+  ],
+  "proof_status": "derived_from_local_d10_core",
+  "source_artifacts": {
+    "d10_observable_family": "oph_d10_ew_observable_family"
+  },
+  "status": "local_d10_scale_anchor"
+}

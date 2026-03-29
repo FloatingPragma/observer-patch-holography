@@ -1,0 +1,22 @@
+{
+  "channels": {
+    "nucleon_local": {
+      "estimate": 4.265961839479414,
+      "fit_quality": "not_available_from_scalar_payload"
+    },
+    "pi": {
+      "estimate": null,
+      "fit_quality": "not_available_from_scalar_payload"
+    },
+    "rho_local": {
+      "estimate": 0.3962939728500584,
+      "fit_quality": "not_available_from_scalar_payload"
+    }
+  },
+  "fit_mode": "scalar_passthrough",
+  "notes": [
+    "This summary is a bookkeeping surface, not a correlated-fit result.",
+    "Promote to real fit-window scans only after raw correlator arrays are stored."
+  ],
+  "source_extracted_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/hadron/extracted/beta57_l4_t8_seed0.two_point.json"
+}

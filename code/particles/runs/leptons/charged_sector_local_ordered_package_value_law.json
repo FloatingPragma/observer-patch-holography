@@ -1,0 +1,53 @@
+{
+  "affine_midpoint_log_per_side_readback": 0.4045259519908764,
+  "artifact": "oph_charged_sector_local_ordered_package_value_law",
+  "b_e_log_coeff_readback": 1.5164818663320259e-16,
+  "carrier_centered_rank": 1,
+  "collapse_proven": true,
+  "current_package_linear_subray_only": true,
+  "delta_midpoint_log_per_side_readback": 1.1102230246251565e-16,
+  "delta_midpoint_zero_on_current_support": true,
+  "delta_midpoint_zero_tolerance": 1e-15,
+  "entry_formulas": {
+    "r1": "mu - ((3 + x2)*sigma - eta)/6",
+    "r2": "mu + (x2*sigma - eta)/3",
+    "r3": "mu + ((3 - x2)*sigma + eta)/6"
+  },
+  "eta_source_split_log_per_side_readback": 2.220446049250313e-16,
+  "generated_utc": "2026-03-28T06:44:43Z",
+  "linear_basis_vector_centered": [
+    -0.8274712215106104,
+    -0.34505755697877927,
+    1.1725287784893896
+  ],
+  "midpoint_defect_emitter_closed": true,
+  "mu_source_log_per_side_readback": 0.6207999999999999,
+  "next_single_residual_object": "oph_charged_sector_local_current_support_obstruction_certificate",
+  "notes": [
+    "This artifact consolidates the ordered-package value shell on the fixed charged carrier.",
+    "On the current support the midpoint defect closes to zero, so the centered package collapses to the linear subray.",
+    "The remaining charged gap is now the obstruction certificate showing the current support is too small, not another same-support midpoint-defect scalar."
+  ],
+  "ordered_family_coordinate": [
+    -1.0,
+    -0.5175863354681689,
+    1.0
+  ],
+  "predictive_promotion_allowed": false,
+  "predictive_value_law_closed": false,
+  "proof_status": "current_support_value_law_closed_same_support_exhausted",
+  "quadratic_basis_vector": [
+    0.2440347951122107,
+    -0.4880695902244214,
+    0.2440347951122107
+  ],
+  "sigma_source_total_log_per_side_readback": 1.2535534645451876,
+  "smallest_constructive_missing_object": "oph_charged_sector_local_current_support_obstruction_certificate",
+  "source_artifact": "oph_charged_sector_local_ordered_package_source_emission",
+  "source_package_formula": "r_ord = mu*1 + (sigma/2)*L_ord + (eta/(2*(1-x2^2)))*Q_ord",
+  "source_side_ordered_package_log_per_side_emitted": [
+    0.102160291731968,
+    0.40452595199087626,
+    1.3557137562771555
+  ]
+}

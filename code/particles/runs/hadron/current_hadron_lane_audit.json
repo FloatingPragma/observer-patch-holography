@@ -1,0 +1,144 @@
+{
+  "artifact": "oph_current_hadron_lane_audit",
+  "current_frontier": [
+    "stable_channel_sequence_evaluation",
+    "stable_channel_cfg_source_measure_payload"
+  ],
+  "generated_utc": "2026-03-29T06:08:47Z",
+  "latest_external_hints": [
+    {
+      "source": "e131_hadron_binding_emitter_push.response.md",
+      "summary": "The minimal hadron closure object is a stable-channel ground-state readout for pi_iso and N_iso built from fixed color-singlet Euclidean two-point functions, with rho deferred to a later scattering readout."
+    },
+    {
+      "source": "e132_hadron_resonance_unquenching_push.response.md",
+      "summary": "The smallest hadron closure move is the jump to a full unquenched correlator together with finite-volume resonance and spectrum readout."
+    },
+    {
+      "source": "e145_hadron_exactness_bundle_push.response.md",
+      "summary": "The next missing object is an explicit full unquenched correlator feeding pi_iso, N_iso direct-minus-exchange, and rho-channel correlation matrices."
+    },
+    {
+      "source": "e152_hadron_stable_convergence_push.response.md",
+      "summary": "After the full unquenched correlator exists, the stable-channel theorem payload is convergence of the long-time log-ratio readouts for pi_iso and N_iso, which then promotes am_ground, ratio_to_lambda_msbar3, and mass_gev."
+    },
+    {
+      "source": "e154_hadron_unquenched_producer_push.response.md",
+      "summary": "The producer must run in the upstream direction: declare a predictive-only 2+1-flavor QCD measure pushforward on OPH quark/QCD descendants, then let stable-channel and rho readouts consume that correlator family."
+    },
+    {
+      "source": "e158_hadron_unquenched_ensemble_population_push.response.md",
+      "summary": "The next producer-side bridge is a Lambda-based 2+1 ensemble-population law: consume Lambda_MSbar^(3) plus OPH quark descendants, form rho_l/rho_s, and refine a predictive unquenched ensemble family in Lambda-units before stable-channel convergence."
+    },
+    {
+      "source": "e170_hadron_sequence_emission_or_obstruction_push.response.md",
+      "summary": "The stable-channel sequence-emission law is already fixed by the seeded 2+1 measure, the stable-channel operator rule, and the closed nucleon direct-minus-exchange contraction; the remaining local step is evaluation of per-ensemble sequences before convergence."
+    },
+    {
+      "source": "e174_hadron_groundstate_convergence_push.response.md",
+      "summary": "The correct finite-T theorem is StableChannelForwardWindowConvergence; the real next local object is the sequence evaluator that emits corr_t, am_eff_t, and forward-window certificates."
+    }
+  ],
+  "minimal_closure_frontier": [
+    "full_unquenched_correlator",
+    "stable_channel_sequence_population",
+    "stable_channel_sequence_evaluation",
+    "stable_channel_groundstate_readout",
+    "finite_volume_resonance_and_spectrum_readout"
+  ],
+  "notes": [
+    "Exact quark masses are not sufficient by themselves because hadron masses depend dominantly on nonperturbative QCD binding energy.",
+    "The current hadron pipeline is anchored on the unquenched correlator producer, the stable-channel readout, and the rho scattering readout.",
+    "The ensemble seed is now fixed from Lambda_MSbar^(3) and the quark descendants; the sequence-emission and jackknife evaluation laws are fixed too, so the next local move is executing the fixed RHMC/HMC support schedule and writing the resulting per-ensemble stable-channel cfg/source payload arrays.",
+    "The runtime receipt `(N_therm, N_sep)` is the emitted execution-and-systematics contract. With that contract explicit, the first honest live residual object is the production backend correlator dump on the seeded 2+1 family.",
+    "A separate surrogate HMC/RHMC execution bridge is now recorded too: it closes the receipt/writeback/evaluation/convergence/systematics path on the emitted schema, but it is diagnostic only and does not replace production unquenched execution.",
+    "The runtime receipt should now be treated as an execution-and-systematics contract: once it is filled, the honest remaining work is executed unquenching, array writeback, and published continuum/volume/chiral/statistical budgets.",
+    "After the evaluator is populated, the next stable-channel theorem is forward-window convergence of the ground-state extraction.",
+    "The public table should stay suppressed until that pipeline emits stable-channel masses on its own path."
+  ],
+  "pipeline_classification": {
+    "blockers": [
+      "stable_channel_sequence_evaluation",
+      "stable_channel_cfg_source_measure_payload",
+      "StableChannelForwardWindowConvergence",
+      "finite_volume_resonance_and_spectrum_readout"
+    ],
+    "current_frontier": [
+      "stable_channel_sequence_evaluation",
+      "stable_channel_cfg_source_measure_payload"
+    ],
+    "lane_status": "assembly_in_progress",
+    "smallest_constructive_missing_object": "backend_correlator_dump.production.json from real production RHMC/HMC execution on the theorem-emitted seeded family",
+    "summary": {
+      "cfg_source_payload_status": "law_closed_waiting_measure_realization",
+      "contraction_plan_status": "formula_closed",
+      "full_unquenched_status": "predictive_ensemble_seeded_candidate",
+      "lambda_msbar3_status": "consumed_from_secondary_qcd_descendant",
+      "next_missing_object": "backend_correlator_dump.production.json from real production RHMC/HMC execution on the theorem-emitted seeded family",
+      "population_status": "predictive_ensemble_seeded_candidate",
+      "production_closure_grade": "execution_incomplete",
+      "production_geometry_summary_artifact": "oph_hadron_production_geometry_summary",
+      "sequence_evaluation_status": "awaiting_measure_evaluation",
+      "sequence_population_status": "law_closed_waiting_measure_evaluation",
+      "stable_theorem_after_population": "StableChannelForwardWindowConvergence",
+      "surrogate_execution_bridge_status": "surrogate_hmc_execution_bridge_complete"
+    }
+  },
+  "production_geometry_summary": {
+    "artifact": "oph_hadron_production_geometry_summary",
+    "totals": {
+      "n_ensembles": 3,
+      "total_cfg": 6,
+      "total_correlator_bytes_float64_backend_dump": 195264,
+      "total_raw_gauge_bytes_all_cfg_naive": 280071464105088,
+      "total_sites_all_cfg": 486235180738
+    }
+  },
+  "promotion_gate": "StableChannelForwardWindowConvergence",
+  "promotion_verdict": "suppress_from_public_surface",
+  "public_status_surface_policy": {
+    "include_hadrons_by_default": false,
+    "reason": "hadron_pipeline_not_closed"
+  },
+  "recommended_next_predictive_artifact": {
+    "name": "backend_correlator_dump.production.json",
+    "scope": [
+      "pi_iso",
+      "N_iso"
+    ],
+    "why": "The sequence-emission, cfg/source jackknife law, runtime receipt, and frozen execution schema are all explicit, so the next productive move is the real backend correlator dump on the seeded 2+1 family before forward-window convergence and production systematics."
+  },
+  "reference_targets_gev": {
+    "neutral_pion": 0.13497682776768472,
+    "neutron": 0.93956542052,
+    "proton": 0.93827208816,
+    "rho_770_0": 0.7752611563582926
+  },
+  "smallest_constructive_missing_object": "backend_correlator_dump.production.json from real production RHMC/HMC execution on the theorem-emitted seeded family",
+  "smallest_missing_theorem_after_full_unquenched": "StableChannelForwardWindowConvergence",
+  "strict_missing_program": [
+    "nonperturbative_hadron_closure_law",
+    "backend_correlator_dump.production.json from real production RHMC/HMC execution on the theorem-emitted seeded family",
+    "StableChannelForwardWindowConvergence",
+    "rho_resonance_extraction"
+  ],
+  "surrogate_execution_bridge": {
+    "artifact": "oph_hadron_surrogate_execution_bridge_status",
+    "public_promotion_allowed": false,
+    "status": "surrogate_hmc_execution_bridge_complete",
+    "surrogate_error_summary": {
+      "all_six_channel_limits_exist": true,
+      "worst_abs_error_gev_vs_reference": 6.255606831506721e-05,
+      "worst_rel_error_vs_reference": 0.0004634578345753951
+    },
+    "surrogate_execution": true,
+    "surrogate_finest_ensemble": {
+      "N_iso_forward_window_limit_exists": true,
+      "N_iso_mass_gev_candidate": 0.9389602105777344,
+      "aLambda_msbar3": 0.0550900879921322,
+      "ensemble_id": "qcd_2p1_seed_n0",
+      "pi_iso_forward_window_limit_exists": true,
+      "pi_iso_mass_gev_candidate": 0.13503938383599978
+    }
+  }
+}
