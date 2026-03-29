@@ -71,14 +71,38 @@
   "exact_blockers": [
     {
       "current_snapshot_status": "open",
+      "insufficiency_theorem": "neutrino_weighted_cycle_absolute_scale_no_go",
       "kind": "absolute_scale_coordinate",
       "name": "one_positive_neutrino_mass_normalization_scalar",
       "required_contract": "emit_one_OPH_normalization_scalar_that_upgrades_the_repaired_weighted_cycle_branch_from_dimensionless_hierarchy_to_absolute_masses_and_splittings_without_external_anchor"
     }
   ],
   "fully_completed": false,
-  "generated_utc": "2026-03-29T11:42:50Z",
+  "generated_utc": "2026-03-29T13:11:35Z",
   "live_continuation_branch_status": {
+    "absolute_scale_no_go": {
+      "absolute_family_parameter": "lambda_nu > 0",
+      "dimensionless_dm2_family_eV2": {
+        "21": "2.415559601940881e-05 * lambda_nu^2",
+        "31": "7.885145046574088e-04 * lambda_nu^2",
+        "32": "7.64358908638e-04 * lambda_nu^2"
+      },
+      "dimensionless_mass_family": [
+        "m1 = 0.009698837868777897 * lambda_nu",
+        "m2 = 0.010873042445619763 * lambda_nu",
+        "m3 = 0.029708281011567278 * lambda_nu"
+      ],
+      "external_anchor_disallowed": {
+        "name": "atmospheric_delta_m32_sq",
+        "reason": "compare_only_external_oscillation_anchor",
+        "value_eV2": 0.002433
+      },
+      "minimal_missing_object": "one_OPH_theorem_fixing_lambda_nu_from_an_internal_dimensionful_invariant_without_oscillation_data",
+      "proof_obstruction": "positive_rescaling_nonidentifiability",
+      "statement": "The repaired weighted-cycle branch fixes only the dimensionless hierarchy and PMNS pattern. For every lambda_nu > 0, the family m_i(lambda_nu) = lambda_nu * mhat_i and Delta m^2_ij(lambda_nu) = lambda_nu^2 * Delta_hat_ij has the same dimensionless observables, so no unique absolute scale is emitted without one further OPH theorem fixing lambda_nu.",
+      "status": "closed",
+      "theorem": "neutrino_weighted_cycle_absolute_scale_no_go"
+    },
     "compare_only_atmospheric_anchor": {
       "delta_m21_sq_eV2": 7.688870300464483e-05,
       "delta_m31_sq_eV2": 0.0025098887030046446,
