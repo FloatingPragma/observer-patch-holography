@@ -352,7 +352,7 @@ Classical objectivity is quantum redundancy. The facts everyone agrees on are th
 
 Let's step back and consider the big picture.
 
-We've been building toward a radical view of reality. There is no single, global "state of the universe." Reality is a **sheaf**-a mathematical structure where local data are glued together by consistency conditions.
+We've been building toward a radical view of reality. There is no single, global "state of the universe." A useful mathematical analogy is a sheaf-like gluing picture in which local data are stitched together by consistency conditions.
 
 ### The Internet Analogy
 
@@ -369,7 +369,7 @@ This is philosophically similar to:
 - **QBism** (Chris Fuchs, David Mermin): the wavefunction represents an agent's beliefs, not an objective state
 - **Copenhagen interpretation**: refusing to assign a quantum state to the universe itself
 
-What we're adding is a precise mathematical model. The consistency conditions aren't vague-they're exact equations. The overlap constraints can be computed. The marginal problem can (in principle) be solved.
+What we're adding is a precise mathematical model. The consistency conditions are not meant here as vague metaphors-they can be written explicitly, even though the global gluing problem remains nontrivial.
 
 ### Transitivity and Networks
 
@@ -413,7 +413,7 @@ The patches form a graph:
 - Nodes are patches (observers)
 - Edges connect patches that overlap
 
-The topology of this graph determines what kind of global structure can emerge. Loops in the graph create constraints. If the graph is simply connected (no loops), local consistency automatically gives global consistency. If there are loops, you need to check that going around each loop is consistent.
+The topology of this graph determines what kind of global structure can emerge. Loops in the graph create constraints. On tree-like covers, local consistency is much easier to promote toward global structure, but in the quantum setting that still depends on the relevant compatibility hypotheses. If there are loops, you need to check that going around each loop is consistent.
 
 ## 6.12 Testable Predictions and Verified Results
 
@@ -466,7 +466,7 @@ Put differently: Bell violations are the universe's compression algorithm for ma
 
 7. **Quantum Darwinism**: Classical objectivity emerges when quantum information gets redundantly copied into the environment, making it accessible through multiple overlapping channels.
 
-8. **Reality as a Sheaf**: Reality isn't a single global state but a collection of local states glued together by consistency conditions-like the internet, not like a centralized database.
+8. **Reality as a Sheaf-Like Gluing Picture**: Reality isn't a single global state but a collection of local states glued together by consistency conditions-like the internet, not like a centralized database.
 
 ---
 
