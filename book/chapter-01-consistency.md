@@ -19,11 +19,11 @@ There is a second through-line running alongside the “reverse engineering” t
 
 That sounds abstract. Let me unpack it.
 
-The universe isn't a stage on which events unfold. It's more like a vast, self-interpreting program. The "code" is quantum information on a holographic boundary. The "execution" is performed by observers - patterns within that information that read, interpret, and act on other patterns. Observers are not outside the data; they are data that has become self-modeling and meaning-making. There's no external computer running this program, no programmer who wrote it. The computation IS the reality. The computer is part of what's being computed.
+The universe isn't a stage on which events unfold. In the OPH picture, it is more like a vast, self-interpreting program. The "code" is quantum information on a holographic boundary. The "execution" is performed by observers - patterns within that information that read, interpret, and act on other patterns. Observers are not outside the data; they are data that has become self-modeling and meaning-making. There is no external computer running this program, no programmer who wrote it. OPH treats computation as a candidate organizing picture for reality, with the computer part of what is being described.
 
 And the structure of this computation-the laws of physics, the geometry of space, the flow of time-isn't arbitrary. It's forced by a single requirement: different observers, looking at overlapping regions, must get consistent answers.
 
-This sounds like philosophy, but it's actually physics. And it is the deepest physics there is.
+This sounds like philosophy, but it is meant as a physics program: a candidate deep-structure picture that OPH tries to make concrete.
 
 ## 1.2 The Intuitive Picture
 
@@ -345,7 +345,7 @@ You might ask: "If reality is a computation, what is it computing?" The answer: 
 
 This view dissolves many traditional puzzles. "Why is there something rather than nothing?" becomes "Why does the computation run?" which is not a meaningful question, any more than asking why 2+2=4. The computation runs because it is self-consistent. It does not need an external cause.
 
-"What is the universe made of?" becomes "What is the substrate of the computation?" which has a precise answer: finite-dimensional quantum systems on a 2D surface, constrained by gauge invariance, selected by maximum entropy. This is not metaphor. It is the technical specification.
+"What is the universe made of?" becomes, within OPH, "What substrate best realizes the computational picture?" The current construction answers: finite-dimensional quantum systems on a 2D surface, constrained by gauge invariance and selected by maximum entropy. This is the concrete technical realization studied in the present program, not yet a uniquely established final ontology.
 
 ## 1.13 The Reverse Engineering Ahead
 

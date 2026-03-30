@@ -118,8 +118,8 @@ compare notes and find they agree?
 
 ## The Shift
 
-This book explores a conceptual shift: **subjective realities are all there
-is.**
+This book explores a conceptual shift: **observer-relative perspectives are
+primary, and objectivity is reconstructed from consistency across them.**
 
 This does not mean solipsism, or that "anything goes," or that "reality is
 whatever you want it to be." Consistency across perspectives
