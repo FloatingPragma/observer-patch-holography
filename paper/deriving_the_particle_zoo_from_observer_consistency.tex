@@ -2162,6 +2162,37 @@ for the full \(\pi_{\mathrm{iso}}\), \(N_{\mathrm{iso,dir}}\), and \(N_{\mathrm{
 payload on the present schedule. So the live hadron residual is not the analysis schema but the
 actual backend correlator dump from real production execution.
 
+\subsection{Operational reading of the remaining computation}
+
+It is useful to separate the lightweight analysis layer from the expensive numerical layer.
+Informally, the repository-side control plane is already present: the seeded ensemble family, the
+deterministic cfg/source contract, the export manifest, the jackknife evaluator, the forward-window
+selector, and the publication-budget schema are all explicit. The missing step is therefore not
+another bookkeeping script but the physical generation of dynamical gauge configurations and
+measured correlator arrays on the fixed \(N_f=2+1\), QED-off branch.
+
+Technically, the remaining production computation is the standard lattice-QCD stable-channel
+workflow on the emitted family: run unquenched RHMC/HMC for the three seeded ensembles; for each
+realized cfg and fixed source solve the clover-improved Wilson light/strange systems; construct the
+zero-momentum \(\pi_{\mathrm{iso}}\), \(N_{\mathrm{iso,dir}}\), and \(N_{\mathrm{iso,ex}}\)
+two-point sequences; write the backend bundle; convert that bundle into the repo-side production
+dump; then let the existing jackknife and forward-window machinery emit
+\(a m_{X,\mathrm{ground}}\), \(R_X\), \(m_X[\mathrm{GeV}]\), and the published
+\(\sigma_{\mathrm{stat}}\), \(\delta_{\mathrm{cont}}\), \(\delta_{\mathrm{vol}}\), and
+\(\delta_{\chi}\) fields. In that sense the hadron lane is analysis-complete but
+execution-incomplete.
+
+The engineering burden is therefore asymmetric. Local execution is sufficient for manifest
+generation, surrogate validation, and downstream readout tests, because those stages operate on a
+tiny correlator payload. The physical branch is different: the dominant cost is upstream
+gauge-field generation and Dirac solves, not the final analysis dump. So the honest deployment
+target is a multi-node HPC cluster or cloud HPC allocation rather than a laptop or ordinary
+workstation. As an operational estimate, a backend adapter and first real stable-channel pilot dump
+are a week-scale software task, whereas publishable \(\pi_{\mathrm{iso}}/N_{\mathrm{iso}}\)
+systematics are month-scale numerical work and depend strongly on the available allocation, solver
+quality, and whether one stays on the current stable-channel branch or also opens the later
+\(\rho\)-scattering and isospin-breaking program.
+
 \subsection{Stable-channel correlators, effective masses, and forward windows}
 
 The pion stable channel is
