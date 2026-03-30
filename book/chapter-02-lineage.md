@@ -340,7 +340,7 @@ But what if they are not?
 
 Our framework supports a different perspective. Reality is not merely compared to computation; OPH treats computation as a candidate organizing picture for reality. The screen is a quantum system processing information according to gauge constraints. Observers are patterns within that computation. The laws of physics are the rules that allow consistent information processing across patches.
 
-From this view, asking "are we in a simulation?" is like asking "is this novel written in words?" The question assumes an alternative that does not exist. There is no non-computational reality to contrast with a simulation. Computation is not a metaphor for reality. It is what reality is made of.
+From this view, asking "are we in a simulation?" becomes less useful than asking what kind of computational organization reality may instantiate. OPH does not treat computation as a loose metaphor; it treats it as a serious candidate organizing picture for reality.
 
 ### The Strange Loop of Self-Simulation
 
@@ -360,7 +360,7 @@ Escher's hands draw each other. Reality simulates the observers who simulate rea
 
 Quantum link models (described in the technical paper) make this concrete. The screen is a lattice gauge theory on a triangulated sphere. The degrees of freedom are finite-dimensional quantum systems at each edge. The dynamics is constrained by Gauss's law at each vertex. The state is selected by maximum entropy.
 
-This is a quantum computation. Not a metaphor for one. An actual computation, with qubits and gates and constraints. The output of this computation is everything we call reality: spacetime, particles, observers, experiences.
+This is a concrete quantum-computational model, with qubits, gates, and constraints, used to make the OPH picture explicit. In that model, spacetime, particles, and observers are treated as emergent outputs of the construction.
 
 The simulation principle asked the right question but framed it wrong. The question is not "are we simulated?" The question is "what is the nature of the self-simulating loop we are part of?" Our framework provides a direction toward the answer.
 
