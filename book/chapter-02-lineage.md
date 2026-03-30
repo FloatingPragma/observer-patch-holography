@@ -84,7 +84,7 @@ Modern physics has found two hints that spacetime is not continuous.
 
 First, the holographic bound strongly suggests finite information capacity. That does not by itself prove a literal spacetime lattice, but it pushes against naive continuum intuition and motivates Planck-scale cutoff pictures.
 
-Second, quantum mechanics already quantizes other continuous quantities. Energy comes in discrete packets (photons). Angular momentum comes in units of $\hbar/2$. If space and time are also quantized, Zeno's paradoxes dissolve.
+Second, quantum mechanics already quantizes other continuous quantities. Energy comes in discrete packets (photons). Angular momentum is quantized in discrete $\hbar$-scaled units, with spin-$1/2$ as one familiar example. If space and time are also quantized, Zeno's paradoxes dissolve.
 
 In finite-cutoff pictures of the OPH type, you do not need to traverse infinitely many intervals because the description is discretized below the cutoff.
 
