@@ -1,6 +1,6 @@
 {
   "artifact": "oph_neutrino_absolute_attachment_scaffold",
-  "generated_utc": "2026-03-30T09:26:19Z",
+  "generated_utc": "2026-03-30T14:20:54Z",
   "status": "minimal_constructive_extension",
   "public_promotion_allowed": false,
   "exact_missing_object": "neutrino_weighted_cycle_absolute_attachment",
@@ -12,20 +12,23 @@
     "statement": "The repaired weighted-cycle branch emits only a scale-free normal form, while the live D10 neutrino scale anchor emits only the isotropic amplitude scale m_star. No emitted theorem presently attaches that dimensionful anchor to the repaired weighted-cycle normal form, so lambda_nu cannot be emitted from the current corpus.",
     "direct_attachment_diagnostic": {
       "absolute_dm2_eV2": {
-        "21": 1.527225828934854e-10,
-        "31": 5.123746892444374e-09,
-        "32": 4.971024309550889e-09
+        "21": 1.527334062343988e-10,
+        "31": 5.124344319620905e-09,
+        "32": 4.971610913386506e-09
       },
       "absolute_masses_eV": [
-        2.492665688393888e-05,
-        2.7821948283739995e-05,
-        7.579633972596561e-05
+        2.4928449626369908e-05,
+        2.7823748974731296e-05,
+        7.58008701823097e-05
       ],
       "candidate_rule": "lambda_nu = m_star_eV",
-      "compare_only_atmospheric_shortfall_factor": 489436.35124162387,
+      "compare_only_atmospheric_shortfall_factor": 490384.31254454516,
       "m_star_eV": 0.0024617526608923523,
       "status": "diagnostic_only_nonpromotable"
-    }
+    },
+    "current_candidate_interface_artifact": "oph_majorana_overlap_defect_scalar_evaluator",
+    "exact_next_theorem_object": "oph_same_label_overlap_defect_weight_normalizer",
+    "strictly_smaller_missing_clause": "selector_overlap_phase_coboundary_trivializes_same_label_edge_transport"
   },
   "extension_contract": {
     "input_objects": [
@@ -44,7 +47,29 @@
       "m_i = lambda_nu * mhat_i",
       "Delta m^2_ij = lambda_nu^2 * Delta_hat_ij"
     ],
-    "bridge_statement": "Attach the internal D10 amplitude sector to the weighted-cycle scale-free normal form without reusing external oscillation anchors."
+    "bridge_statement": "Attach the internal D10 amplitude sector to the weighted-cycle scale-free normal form without reusing external oscillation anchors.",
+    "current_theorem_stack": [
+      {
+        "id": "selector_overlap_phase_coboundary_trivializes_same_label_edge_transport",
+        "role": "selector-centered phase-cocycle triviality gate beneath the attachment route",
+        "status": "open_clause"
+      },
+      {
+        "id": "oph_same_label_overlap_defect_weight_normalizer",
+        "role": "normalized attachment section that converts the centered edge-norm scalar data into the positive bridge factor F_nu",
+        "status": "candidate_only"
+      },
+      {
+        "id": "oph_majorana_scalar_from_centered_edge_norm",
+        "role": "parent finite-angle centered edge-norm theorem furnishing the scalar side of the attachment route",
+        "status": "candidate_only"
+      },
+      {
+        "id": "neutrino_weighted_cycle_absolute_attachment",
+        "role": "absolute-attachment theorem upgrading the weighted-cycle normal form to absolute masses and splittings",
+        "status": "open"
+      }
+    ]
   },
   "theorem_object_context": {
     "name": "p_nu_gamma_eps_midpoint_law",

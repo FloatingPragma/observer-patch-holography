@@ -1,6 +1,6 @@
 {
   "artifact": "oph_uv_bw_internalization_scaffold",
-  "generated_utc": "2026-03-30T09:22:09Z",
+  "generated_utc": "2026-03-30T13:20:19Z",
   "status": "minimal_constructive_extension",
   "public_promotion_allowed": false,
   "current_boundary": "T1_plus_T3_external_scaling_limit_branch",
@@ -31,6 +31,7 @@
     "status": "open_split_after_candidate_projective_route",
     "remaining_object": "canonical_scaling_cap_pair_realization_from_transported_cap_marginals",
     "follow_on_object": "independent_bw_rigidity_on_realized_limit",
+    "dominant_pressure_point": "scaling_limit_cap_pair_extraction",
     "remaining_objects": [
       "canonical_scaling_cap_pair_realization_from_transported_cap_marginals",
       "independent_bw_rigidity_on_realized_limit"
@@ -64,6 +65,7 @@
   },
   "notes": [
     "This scaffold promotes the UV/BW extension route to a canonical local artifact without claiming current-corpus closure.",
+    "The current pressure point is the first object, not the symbolic rigidity calculation: the realized scaling-limit cap pair is still missing.",
     "The symbolic test certifies the rigidity shape of the ordered cut-pair argument, but not the existence of the realized scaling-limit cap pair.",
     "The correct target is an automorphism theorem on the realized scaling-limit cap pair; no type-I survival is assumed."
   ],

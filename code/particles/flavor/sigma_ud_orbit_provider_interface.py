@@ -25,7 +25,10 @@ class CKMTuple:
 class OrbitElement:
     sigma_id: str
     canonical_token: CanonicalToken
-    ckm: CKMTuple
+    U_u_left: object
+    U_d_left: object
+    V_CKM: object
+    ckm_invariants: CKMTuple
 
 
 class SigmaUDOrbitProvider(Protocol):
@@ -34,21 +37,24 @@ class SigmaUDOrbitProvider(Protocol):
             "Current local corpus does not expose finite Sigma_ud representatives."
         )
 
-    def evaluate_relative_sheet_ckm(self, token: CanonicalToken) -> CKMTuple:
+    def evaluate_relative_sheet(self, token: CanonicalToken) -> OrbitElement:
         raise NotImplementedError(
-            "Current local corpus does not expose a sigma -> CKM evaluator."
+            "Current local corpus does not expose a same-label left-handed sigma -> CKM evaluator."
         )
 
 
 def build_sigma_ud_orbit(provider: SigmaUDOrbitProvider) -> list[OrbitElement]:
     orbit: list[OrbitElement] = []
     for idx, token in enumerate(provider.enumerate_relative_sheets_d12()):
+        evaluation = provider.evaluate_relative_sheet(token)
         orbit.append(
             OrbitElement(
-                sigma_id=f"sigma_{idx}",
-                canonical_token=token,
-                ckm=provider.evaluate_relative_sheet_ckm(token),
+                sigma_id=evaluation.sigma_id or f"sigma_{idx}",
+                canonical_token=evaluation.canonical_token,
+                U_u_left=evaluation.U_u_left,
+                U_d_left=evaluation.U_d_left,
+                V_CKM=evaluation.V_CKM,
+                ckm_invariants=evaluation.ckm_invariants,
             )
         )
     return orbit
-

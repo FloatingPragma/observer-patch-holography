@@ -41,6 +41,7 @@ def build_artifact(anchor_section: dict[str, Any], transfer_extension: dict[str,
         "public_promotion_allowed": False,
         "extension_kind": "determinant_line_section",
         "exact_missing_object": "charged_determinant_line_section",
+        "possible_smaller_missing_object": "charged_determinant_line_trivialization_or_metric_compatibility",
         "upstream_prerequisites": {
             "promotion_theorem": "oph_generation_bundle_branch_generator_splitting",
             "promotion_effect": "theorem_grade_C_hat_e",
@@ -72,6 +73,7 @@ def build_artifact(anchor_section: dict[str, Any], transfer_extension: dict[str,
         "notes": [
             "This is a constructive extension route, not a theorem hidden in the current corpus.",
             "Promoting C_hat_e^cand is still upstream and necessary, but the determinant-line section is the first object that can realize the affine common-shift breaker geometrically.",
+            "If a determinant-line section still fails to become canonical on the live refinement family, the smaller exact missing object is a refinement-stable determinant-line trivialization or equivalent metric-compatibility theorem for that line bundle.",
         ],
     }
 

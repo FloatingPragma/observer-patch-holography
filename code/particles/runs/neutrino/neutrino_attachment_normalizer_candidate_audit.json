@@ -1,0 +1,340 @@
+{
+  "artifact": "oph_neutrino_attachment_normalizer_candidate_audit",
+  "best_overall_symmetric_candidate": {
+    "complexity": 2,
+    "exponents": [
+      -0.5,
+      -1.0
+    ],
+    "formula": "ratio_hat^-0.5 * sum_defect^-1",
+    "keys": [
+      "ratio_hat",
+      "sum_defect"
+    ],
+    "relative_error": 0.0023582863351464638,
+    "value": 701.9267211277783
+  },
+  "best_simple_symmetric_candidate": {
+    "complexity": 2,
+    "exponents": [
+      -0.5,
+      -1.0
+    ],
+    "formula": "ratio_hat^-0.5 * sum_defect^-1",
+    "keys": [
+      "ratio_hat",
+      "sum_defect"
+    ],
+    "relative_error": 0.0023582863351464638,
+    "value": 701.9267211277783
+  },
+  "generated_utc": "2026-03-30T14:27:07Z",
+  "hard_guard": {
+    "reason": "Any candidate normalizer extracted here is a local search clue beneath the attachment route. It does not bypass the exact positive-rescaling no-go or emit lambda_nu without the missing attachment theorem.",
+    "status": "do_not_promote"
+  },
+  "invariant_pool": {
+    "D_nu": 1.127883690210334,
+    "eps": 0.10458455029121368,
+    "gamma": 0.30236566025890826,
+    "p_nu": 1.395092021318097,
+    "prod_defect": 1.4306806100966178e-08,
+    "prod_gap": 0.09234241373425899,
+    "prod_q": 3.634728336741605e-05,
+    "ratio_hat": 0.030721110097966534,
+    "sum_defect": 0.008128113736742382,
+    "sum_gap": 1.5706478772884154,
+    "sum_mu": 0.0028711206426811258,
+    "sum_mu_defect": 8.451282463660135e-06,
+    "sum_mu_eta2": 0.0004222519359222219,
+    "sum_mu_gap": 0.001775687781055727,
+    "sum_mu_q": 0.00011617570784349524,
+    "sum_q": 0.10705742784590543
+  },
+  "public_promotion_allowed": false,
+  "search_family": {
+    "exponents": [
+      -3.0,
+      -2.0,
+      -1.0,
+      -0.5,
+      0.5,
+      1.0,
+      2.0,
+      3.0
+    ],
+    "kind": "symmetric_one_or_two_factor_monomials",
+    "objective": "minimize relative error to F_nu_star"
+  },
+  "status": "compare_only_normalizer_search",
+  "target_bridge_factor": {
+    "name": "F_nu_star",
+    "source": "weighted_least_squares_compare_only_bridge_factor",
+    "value": 700.275271524102
+  },
+  "top_single_factor_candidates": [
+    {
+      "complexity": 1,
+      "exponents": [
+        -3.0
+      ],
+      "formula": "sum_q^-3",
+      "keys": [
+        "sum_q"
+      ],
+      "relative_error": 0.16380654401028927,
+      "value": 814.9849436083321
+    },
+    {
+      "complexity": 1,
+      "exponents": [
+        -1.0
+      ],
+      "formula": "sum_mu_gap^-1",
+      "keys": [
+        "sum_mu_gap"
+      ],
+      "relative_error": 0.19579901038029995,
+      "value": 563.162066365887
+    },
+    {
+      "complexity": 1,
+      "exponents": [
+        -3.0
+      ],
+      "formula": "eps^-3",
+      "keys": [
+        "eps"
+      ],
+      "relative_error": 0.24832770584133737,
+      "value": 874.1730231591018
+    },
+    {
+      "complexity": 1,
+      "exponents": [
+        -1.0
+      ],
+      "formula": "sum_mu^-1",
+      "keys": [
+        "sum_mu"
+      ],
+      "relative_error": 0.5026297921611844,
+      "value": 348.2960573423256
+    },
+    {
+      "complexity": 1,
+      "exponents": [
+        -0.5
+      ],
+      "formula": "sum_mu_defect^-0.5",
+      "keys": [
+        "sum_mu_defect"
+      ],
+      "relative_error": 0.5087869447110099,
+      "value": 343.98435566868125
+    },
+    {
+      "complexity": 1,
+      "exponents": [
+        -2.0
+      ],
+      "formula": "ratio_hat^-2",
+      "keys": [
+        "ratio_hat"
+      ],
+      "relative_error": 0.5130643539860825,
+      "value": 1059.561551321044
+    },
+    {
+      "complexity": 1,
+      "exponents": [
+        -0.5
+      ],
+      "formula": "prod_q^-0.5",
+      "keys": [
+        "prod_q"
+      ],
+      "relative_error": 0.7631380878188427,
+      "value": 165.86853986637792
+    },
+    {
+      "complexity": 1,
+      "exponents": [
+        -3.0
+      ],
+      "formula": "prod_gap^-3",
+      "keys": [
+        "prod_gap"
+      ],
+      "relative_error": 0.8135416843204254,
+      "value": 1269.9783954077632
+    },
+    {
+      "complexity": 1,
+      "exponents": [
+        -1.0
+      ],
+      "formula": "sum_defect^-1",
+      "keys": [
+        "sum_defect"
+      ],
+      "relative_error": 0.8243122676389923,
+      "value": 123.02977448255837
+    },
+    {
+      "complexity": 1,
+      "exponents": [
+        -2.0
+      ],
+      "formula": "prod_gap^-2",
+      "keys": [
+        "prod_gap"
+      ],
+      "relative_error": 0.8325331834621584,
+      "value": 117.27287042231401
+    }
+  ],
+  "top_two_factor_candidates": [
+    {
+      "complexity": 2,
+      "exponents": [
+        -0.5,
+        -1.0
+      ],
+      "formula": "ratio_hat^-0.5 * sum_defect^-1",
+      "keys": [
+        "ratio_hat",
+        "sum_defect"
+      ],
+      "relative_error": 0.0023582863351464638,
+      "value": 701.9267211277783
+    },
+    {
+      "complexity": 2,
+      "exponents": [
+        0.5,
+        -3.0
+      ],
+      "formula": "gamma^0.5 * prod_gap^-3",
+      "keys": [
+        "gamma",
+        "prod_gap"
+      ],
+      "relative_error": 0.0027735806922541515,
+      "value": 698.3330015517397
+    },
+    {
+      "complexity": 2,
+      "exponents": [
+        -3.0,
+        -0.5
+      ],
+      "formula": "eps^-3 * sum_gap^-0.5",
+      "keys": [
+        "eps",
+        "sum_gap"
+      ],
+      "relative_error": 0.003931528405437741,
+      "value": 697.5221194024793
+    },
+    {
+      "complexity": 2,
+      "exponents": [
+        0.5,
+        -1.0
+      ],
+      "formula": "sum_gap^0.5 * sum_mu_gap^-1",
+      "keys": [
+        "sum_gap",
+        "sum_mu_gap"
+      ],
+      "relative_error": 0.007868841386158646,
+      "value": 705.7856265623743
+    },
+    {
+      "complexity": 2,
+      "exponents": [
+        -3.0,
+        0.5
+      ],
+      "formula": "ratio_hat^-3 * sum_mu_eta2^0.5",
+      "keys": [
+        "ratio_hat",
+        "sum_mu_eta2"
+      ],
+      "relative_error": 0.012060138535582209,
+      "value": 708.7206883117251
+    },
+    {
+      "complexity": 2,
+      "exponents": [
+        -0.5,
+        -3.0
+      ],
+      "formula": "p_nu^-0.5 * sum_q^-3",
+      "keys": [
+        "p_nu",
+        "sum_q"
+      ],
+      "relative_error": 0.014675305366622699,
+      "value": 689.9985180737912
+    },
+    {
+      "complexity": 2,
+      "exponents": [
+        0.5,
+        -1.0
+      ],
+      "formula": "prod_q^0.5 * sum_mu_defect^-1",
+      "keys": [
+        "prod_q",
+        "sum_mu_defect"
+      ],
+      "relative_error": 0.018695929051692477,
+      "value": 713.3675683171713
+    },
+    {
+      "complexity": 2,
+      "exponents": [
+        -3.0,
+        -2.0
+      ],
+      "formula": "eps^-3 * D_nu^-2",
+      "keys": [
+        "eps",
+        "D_nu"
+      ],
+      "relative_error": 0.018704117949457078,
+      "value": 687.1772402484271
+    },
+    {
+      "complexity": 2,
+      "exponents": [
+        1.0,
+        -1.0
+      ],
+      "formula": "gamma * sum_mu_eta2^-1",
+      "keys": [
+        "gamma",
+        "sum_mu_eta2"
+      ],
+      "relative_error": 0.022567596976880048,
+      "value": 716.0788016247332
+    },
+    {
+      "complexity": 2,
+      "exponents": [
+        2.0,
+        -1.0
+      ],
+      "formula": "D_nu^2 * sum_mu_gap^-1",
+      "keys": [
+        "D_nu",
+        "sum_mu_gap"
+      ],
+      "relative_error": 0.023041464628897584,
+      "value": 716.4106394234162
+    }
+  ],
+  "working_observation": "The live attachment-normalizer surface has a simple symmetric clue: the best two-factor candidate on the current branch is close to an inverse defect-sum times inverse square-root hierarchy ratio. This is compare-only research output and not a theorem-grade lambda_nu law."
+}

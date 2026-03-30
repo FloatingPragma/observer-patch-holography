@@ -7,7 +7,7 @@
   },
   "exact_missing_object": "charged_determinant_line_section",
   "extension_kind": "determinant_line_section",
-  "generated_utc": "2026-03-30T06:43:02Z",
+  "generated_utc": "2026-03-30T13:20:19Z",
   "hard_rejections": {
     "common_shift_invariant_functionals": "cannot emit A_ch because they satisfy F(logm + c*(1,1,1)) = F(logm)",
     "d12_compare_only_target": {
@@ -36,8 +36,10 @@
   },
   "notes": [
     "This is a constructive extension route, not a theorem hidden in the current corpus.",
-    "Promoting C_hat_e^cand is still upstream and necessary, but the determinant-line section is the first object that can realize the affine common-shift breaker geometrically."
+    "Promoting C_hat_e^cand is still upstream and necessary, but the determinant-line section is the first object that can realize the affine common-shift breaker geometrically.",
+    "If a determinant-line section still fails to become canonical on the live refinement family, the smaller exact missing object is a refinement-stable determinant-line trivialization or equivalent metric-compatibility theorem for that line bundle."
   ],
+  "possible_smaller_missing_object": "charged_determinant_line_trivialization_or_metric_compatibility",
   "public_promotion_allowed": false,
   "section_contract": {
     "charged_anchor_readout": "A_ch = (1/3) * s_det(det Y_e)",

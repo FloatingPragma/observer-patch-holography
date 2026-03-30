@@ -53,6 +53,8 @@ def build_payload(
         )
         / float(compare_fit["reference_central_values"]["delta_m32_sq_sigma_eV2"]),
     }
+    phase_clause = scalar_evaluator["strictly_smaller_missing_clause_if_not_closed"]
+    normalizer_id = scalar_evaluator["attachment_normalizer_candidate_id"]
     return {
         "artifact": "oph_neutrino_lambda_nu_bridge_candidate",
         "generated_utc": _timestamp(),
@@ -65,12 +67,36 @@ def build_payload(
             "m_star_gev": scale_anchor["anchors"]["m_star_gev"],
             "m_star_eV": m_star_eV,
         },
-        "exact_missing_interface_object": "oph_majorana_overlap_defect_scalar_evaluator",
+        "current_candidate_interface_artifact": "oph_majorana_overlap_defect_scalar_evaluator",
+        "exact_next_theorem_object": normalizer_id,
+        "strictly_smaller_missing_clause": phase_clause,
         "bridge_ansatz": "lambda_nu = m_star_eV * F_nu",
         "where_F_nu_should_come_from": (
-            "The exact finite-angle Majorana overlap-defect scalar evaluator on the selected "
-            "weighted-cycle / midpoint branch."
+            "A normalized same-label overlap-defect weight section built on top of the finite-angle "
+            "Majorana overlap-defect scalar evaluator on the selected weighted-cycle / midpoint branch."
         ),
+        "bridge_interface_theorem_stack": [
+            {
+                "id": phase_clause,
+                "status": "open_clause",
+                "role": "selector-centered phase-cocycle triviality gate beneath the attachment route",
+            },
+            {
+                "id": normalizer_id,
+                "status": "candidate_only",
+                "role": "normalized attachment section that converts the centered edge-norm scalar data into the positive bridge factor F_nu",
+            },
+            {
+                "id": scalar_evaluator["remaining_theorem_object"],
+                "status": scalar_evaluator["proof_status"],
+                "role": "parent finite-angle centered edge-norm theorem furnishing the scalar side of the attachment route",
+            },
+            {
+                "id": "neutrino_weighted_cycle_absolute_attachment",
+                "status": "open",
+                "role": "absolute-attachment theorem upgrading the weighted-cycle normal form to absolute masses and splittings",
+            },
+        ],
         "why_this_is_the_sharpest_local_candidate": [
             "The weighted-cycle theorem object closes the dimensionless branch only.",
             "The scale anchor closes only the isotropic dimensionful amplitude m_star.",
@@ -84,7 +110,7 @@ def build_payload(
         "target_free_closed_form_candidates": [
             {
                 "name": "gamma_over_sqrt_ratio_hat",
-                "status": "compare_only_local_candidate_not_promoted",
+                "status": "exactly_refuted_as_theorem_grade_absolute_scale_law",
                 "formula": "lambda_nu = gamma / sqrt(Delta_hat_21 / Delta_hat_32)",
                 "equivalent_statement": "Delta m21^2 = gamma^2 * Delta_hat_32",
                 "lambda_nu": lambda_closed_form,
@@ -93,9 +119,9 @@ def build_payload(
                     key: lambda_closed_form**2 * float(val) for key, val in delta_hat.items()
                 },
                 "residual_sigma": residuals,
-                "why_not_promoted": (
-                    "This closed-form law is numerically strong on the live emitted invariants, but the current corpus does not yet derive it "
-                    "as a theorem-grade attachment law for the weighted-cycle absolute family."
+                "proof_obstruction": "positive_rescaling_nonidentifiability",
+                "why_refuted": (
+                    "gamma and Delta_hat_21 / Delta_hat_32 are orbit invariants on the positive-rescaling family, so no theorem-grade absolute-scale law can be a function of those invariants alone."
                 ),
             }
         ],
@@ -114,14 +140,15 @@ def build_payload(
             },
         },
         "next_theorem_if_this_route_is_right": {
-            "id": "oph_majorana_scalar_from_centered_edge_norm",
-            "current_status": scalar_evaluator["proof_status"],
-            "promotion_gate": scalar_evaluator["promotion_gate"],
-            "smallest_missing_clause": scalar_evaluator["smallest_exact_missing_clause"],
+            "id": normalizer_id,
+            "current_status": "candidate_only",
+            "promotion_gate": scalar_evaluator["phase_cocycle_triviality_candidate_id"],
+            "smallest_missing_clause": phase_clause,
         },
         "notes": [
             "This bridge candidate does not claim lambda_nu is already emitted.",
             "It packages the strongest current local interface between the emitted D10 amplitude scale and the emitted weighted-cycle theorem object.",
+            "The closed-form gamma-over-sqrt-ratio numerology is retained only as a refuted compare-only audit target; it is incompatible with the exact positive-rescaling no-go.",
         ],
     }
 

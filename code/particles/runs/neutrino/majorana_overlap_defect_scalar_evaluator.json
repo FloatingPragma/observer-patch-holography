@@ -4,6 +4,8 @@
   "ambient_witness_formula": "0.5*mu_nu*||z(psi)-1||^2_edge",
   "arrow_overlap_phase_definition": "theta_uv_e = arg(<r_e_star(v),U_vu_e(r_e_star(u))>)",
   "artifact": "oph_majorana_overlap_defect_scalar_evaluator",
+  "attachment_normalizer_candidate_id": "oph_same_label_overlap_defect_weight_normalizer",
+  "attachment_normalizer_status": "candidate_only",
   "bounded_scalar_range_if_closed": {
     "lower": 0.0,
     "upper": 0.0057422412853622515
@@ -67,7 +69,7 @@
   "formula_affine_candidate": "sum_e mu_e*(1-cos(psi_e-psi_e_star))",
   "formula_family": "S_G(psi)=sum_e mu_e*G(psi_e-psi_e_star)",
   "formula_residual_candidate": "0.000957040214227041961*(3-cos(u+v)-cos(u)-cos(v))",
-  "generated_utc": "2026-03-30T09:26:30Z",
+  "generated_utc": "2026-03-30T14:27:08Z",
   "hessian_anchor_matrix_3x3": [
     [
       0.000957040214227042,
@@ -140,14 +142,14 @@
     "This boundary now carries the strongest centered constructive candidate compatible with the closed local quadratic action germ: a chordal/cosine evaluator centered at the actual equal-split selector point.",
     "The current sharp origin candidate is the Hermitian displacement norm of a centered OPH Majorana edge-character functor.",
     "The strongest current closure route is the selector-centered unitary common-refinement descent theorem on the direct-sum edge bundle, with phase-cocycle triviality treated as an explicit normalized-lift coboundary statement.",
-    "The current local witness hint for overlap nonvanishing is not a theorem yet, but it is expected to live in the same gap/defect fields already exported by the flavor artifacts.",
-    "The smallest exact missing clause beneath that route is now same-label overlap nonvanishing on realized refinement arrows; if it closes, the normalized triangle phases can be forced to one and the residual S3-cubic freedom disappears exactly.",
+    "The overlap-nonvanishing subclause is already discharged by the live same-label gap/defect readback exported from flavor-side certificates.",
+    "The sharp live theorem gate is now selector-centered phase-cocycle triviality for same-label edge transport; once that closes, the normalized overlap-defect weight normalizer becomes the direct attachment object beneath the scalar route.",
     "Numerically, the current remaining defect is the exact 1-2 near-degeneracy induced by isotropic mu_nu, so the next forward object is a defect-weighted mu_e family rather than another isotropic re-evaluation."
   ],
   "oph_origin_status": "candidate_formula_not_yet_intrinsic_theorem",
   "origin_object_candidate": "oph_affine_majorana_edge_character_functor",
   "origin_object_role": "realizes centered Majorana overlap phases as unitary edge characters on transported Hermitian lines",
-  "overlap_nonvanishing_status": "candidate_only",
+  "overlap_nonvanishing_status": "closed_from_live_flavor_readback",
   "overlap_nonvanishing_witness_hint": "gap_and_defect_fields_from_flavor_artifacts",
   "parent_theorem_id": "oph_majorana_scalar_from_centered_edge_norm",
   "phase_coboundary_identity": "Theta_uvw_e = d theta_e(u,v,w)",
@@ -168,6 +170,7 @@
   "remaining_numerical_defect": "exact_1_2_near_degeneracy_from_isotropic_mu_nu",
   "remaining_theorem_object": "oph_majorana_scalar_from_centered_edge_norm",
   "required_overlap_certificate": "same_label_overlap_nonzero_on_realized_refinement_arrows",
+  "required_overlap_certificate_status": "closed_from_live_flavor_readback",
   "selector_center": "principal_equal_split",
   "selector_centered_reference_kind": "normalized_edge_reference_ray",
   "selector_origin_residual": {
@@ -180,13 +183,13 @@
     "psi31": 0.5853814255968638
   },
   "selector_reference_section": "principal_equal_split",
-  "smaller_exact_missing_clause_id": "same_label_overlap_nonzero_on_realized_refinement_arrows",
-  "smallest_exact_missing_clause": "same_label_overlap_nonzero_on_realized_refinement_arrows",
+  "smaller_exact_missing_clause_id": "selector_overlap_phase_coboundary_trivializes_same_label_edge_transport",
+  "smallest_exact_missing_clause": "selector_overlap_phase_coboundary_trivializes_same_label_edge_transport",
   "source_artifacts": {
     "action_germ": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/majorana_overlap_defect_action_germ.json",
     "hessian": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/majorana_overlap_defect_hessian.json"
   },
-  "strictly_smaller_missing_clause_if_not_closed": "same_label_overlap_nonzero_on_realized_refinement_arrows",
+  "strictly_smaller_missing_clause_if_not_closed": "selector_overlap_phase_coboundary_trivializes_same_label_edge_transport",
   "sublemma_candidate_id": "selector_centered_quadraticity_polarization_law_on_edge_bundle",
   "theorem_candidate_id": "oph_majorana_scalar_from_centered_edge_norm",
   "transport_source": "projective_line_lift_readout_of_centered_generation_bundle_branch_generator",

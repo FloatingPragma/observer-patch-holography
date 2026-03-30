@@ -12,6 +12,7 @@ from datetime import datetime, timezone
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 DEFAULT_ACTION_GERM = ROOT / "particles" / "runs" / "neutrino" / "majorana_overlap_defect_action_germ.json"
 DEFAULT_HESSIAN = ROOT / "particles" / "runs" / "neutrino" / "majorana_overlap_defect_hessian.json"
+DEFAULT_READBACK = ROOT / "particles" / "runs" / "neutrino" / "realized_same_label_gap_defect_readback.json"
 DEFAULT_OUT = ROOT / "particles" / "runs" / "neutrino" / "majorana_overlap_defect_scalar_evaluator.json"
 
 
@@ -23,15 +24,22 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Build the Majorana scalar-evaluator boundary artifact.")
     parser.add_argument("--action-germ", default=str(DEFAULT_ACTION_GERM))
     parser.add_argument("--hessian", default=str(DEFAULT_HESSIAN))
+    parser.add_argument("--readback", default=str(DEFAULT_READBACK))
     parser.add_argument("--output", default=str(DEFAULT_OUT))
     args = parser.parse_args()
 
     action_germ = json.loads(pathlib.Path(args.action_germ).read_text(encoding="utf-8"))
     hessian = json.loads(pathlib.Path(args.hessian).read_text(encoding="utf-8"))
+    readback_path = pathlib.Path(args.readback)
+    readback = json.loads(readback_path.read_text(encoding="utf-8")) if readback_path.exists() else {}
+    readback_complete = readback.get("payload_status") == "complete_from_live_flavor_artifacts"
     edge_weights = dict(action_germ.get("edge_coefficients", {}))
     mu_nu = float(next(iter(edge_weights.values()), 0.0))
     selector_absolute = dict(hessian.get("selector_point", {}))
     selector_residual = dict(action_germ.get("selector_point", {}))
+    overlap_clause = "same_label_overlap_nonzero_on_realized_refinement_arrows"
+    phase_clause = "selector_overlap_phase_coboundary_trivializes_same_label_edge_transport"
+    overlap_status = "closed_from_live_flavor_readback" if readback_complete else "candidate_only"
 
     payload = {
         "artifact": "oph_majorana_overlap_defect_scalar_evaluator",
@@ -51,8 +59,8 @@ def main() -> int:
         "phase_cocycle_triviality_candidate_id": "selector_overlap_phase_coboundary_trivializes_same_label_edge_transport",
         "phase_cocycle_triviality_status": "candidate_only",
         "phase_triviality_proof_mode": "selector_overlap_phase_coboundary",
-        "smaller_exact_missing_clause_id": "same_label_overlap_nonzero_on_realized_refinement_arrows",
-        "overlap_nonvanishing_status": "candidate_only",
+        "smaller_exact_missing_clause_id": phase_clause,
+        "overlap_nonvanishing_status": overlap_status,
         "overlap_nonvanishing_witness_hint": "gap_and_defect_fields_from_flavor_artifacts",
         "selector_center": action_germ.get("selector_center", "principal_equal_split"),
         "selector_point_absolute": {
@@ -71,7 +79,8 @@ def main() -> int:
         "selector_centered_reference_kind": "normalized_edge_reference_ray",
         "raw_lift_kind": "arbitrary_unitary_same_label_lifts",
         "edge_transport_normalization": "<r_e_star(v),U_vu_e(r_e_star(u))> in R_{>0}",
-        "required_overlap_certificate": "same_label_overlap_nonzero_on_realized_refinement_arrows",
+        "required_overlap_certificate": overlap_clause,
+        "required_overlap_certificate_status": overlap_status,
         "edge_transport_kind": "unitary_complex_linear",
         "arrow_overlap_phase_definition": "theta_uv_e = arg(<r_e_star(v),U_vu_e(r_e_star(u))>)",
         "raw_triangle_phase_definition": "Theta_uvw_e = theta_wv_e + theta_vu_e - theta_wu_e",
@@ -92,6 +101,8 @@ def main() -> int:
         "defect_weighted_mu_e_family_candidate_id": "oph_defect_weighted_majorana_edge_weight_family",
         "defect_weighted_mu_e_family_status": "candidate_only",
         "defect_weighted_mu_e_normalizer_candidate": "oph_same_label_overlap_defect_weight_normalizer",
+        "attachment_normalizer_candidate_id": "oph_same_label_overlap_defect_weight_normalizer",
+        "attachment_normalizer_status": "candidate_only",
         "defect_weight_rule": "mu_e = base_mu_nu * exp(delta_e) / mean_f(exp(delta_f))",
         "defect_weighted_mu_e_family_role": "breaks isotropic 1_2 near_degeneracy while preserving the centered edge-norm route",
         "intrinsic_witness_kind": "centered_edge_character_norm_defect",
@@ -162,16 +173,20 @@ def main() -> int:
         "naive_uncentered_cubic_coeff": 0.0016047225727754176,
         "cubic_kill_mechanism": "Hermitian displacement depends only on Re(z_e), so odd I3 terms vanish",
         "exact_remaining_ingredient": "selector-centered phase cocycle triviality for same-label edge transport",
-        "smallest_exact_missing_clause": "same_label_overlap_nonzero_on_realized_refinement_arrows",
-        "strictly_smaller_missing_clause_if_not_closed": "same_label_overlap_nonzero_on_realized_refinement_arrows",
+        "smallest_exact_missing_clause": phase_clause,
+        "strictly_smaller_missing_clause_if_not_closed": phase_clause,
         "fallback_family_if_not_closed": "sum_e mu_e*Phi(z_e), Phi(z)=Phi(conj(z)), Phi(1)=0, second jet fixed",
         "remaining_theorem_object": "oph_majorana_scalar_from_centered_edge_norm",
         "notes": [
             "This boundary now carries the strongest centered constructive candidate compatible with the closed local quadratic action germ: a chordal/cosine evaluator centered at the actual equal-split selector point.",
             "The current sharp origin candidate is the Hermitian displacement norm of a centered OPH Majorana edge-character functor.",
             "The strongest current closure route is the selector-centered unitary common-refinement descent theorem on the direct-sum edge bundle, with phase-cocycle triviality treated as an explicit normalized-lift coboundary statement.",
-            "The current local witness hint for overlap nonvanishing is not a theorem yet, but it is expected to live in the same gap/defect fields already exported by the flavor artifacts.",
-            "The smallest exact missing clause beneath that route is now same-label overlap nonvanishing on realized refinement arrows; if it closes, the normalized triangle phases can be forced to one and the residual S3-cubic freedom disappears exactly.",
+            (
+                "The overlap-nonvanishing subclause is already discharged by the live same-label gap/defect readback exported from flavor-side certificates."
+                if readback_complete
+                else "The current local witness hint for overlap nonvanishing is not a theorem yet, but it is expected to live in the same gap/defect fields already exported by the flavor artifacts."
+            ),
+            "The sharp live theorem gate is now selector-centered phase-cocycle triviality for same-label edge transport; once that closes, the normalized overlap-defect weight normalizer becomes the direct attachment object beneath the scalar route.",
             "Numerically, the current remaining defect is the exact 1-2 near-degeneracy induced by isotropic mu_nu, so the next forward object is a defect-weighted mu_e family rather than another isotropic re-evaluation.",
         ],
     }

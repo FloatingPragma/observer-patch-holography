@@ -29,8 +29,8 @@
       "forbidden_feedback": "compare_only_anchor_must_not_feed_back_into_theorem_state_or_lambda_nu_emission"
     }
   },
-  "generated_utc": "2026-03-30T09:26:30Z",
-  "next_breaking_contract": "neutrino_weighted_cycle_absolute_amplitude_bridge",
+  "generated_utc": "2026-03-30T14:27:07Z",
+  "next_breaking_contract": "neutrino_weighted_cycle_absolute_attachment",
   "no_hidden_discrete_branch": {
     "closed_discrete_witnesses": [
       "shape_closed_scale_invariant_left_basis",
@@ -70,7 +70,8 @@
           "allowed_formula": "lambda_nu_cmp = sqrt(Delta m32^2_anchor / Delta_hat_32)",
           "forbidden_feedback": "compare_only_anchor_must_not_feed_back_into_theorem_state_or_lambda_nu_emission"
         },
-        "minimal_missing_object": "neutrino_weighted_cycle_absolute_amplitude_bridge",
+        "immediate_theorem_gate": "selector_overlap_phase_coboundary_trivializes_same_label_edge_transport",
+        "minimal_missing_object": "neutrino_weighted_cycle_absolute_attachment",
         "proof_obstruction": "positive_rescaling_nonidentifiability",
         "scale_free_dm2_normal_form_eV2": {
           "21": 2.520259180367675e-05,
@@ -86,6 +87,7 @@
           "normalization_convention": "internal_weighted_cycle_branch_normal_form",
           "notation": "m_hat"
         },
+        "sharper_attachment_object": "oph_same_label_overlap_defect_weight_normalizer",
         "statement": "The repaired weighted-cycle branch fixes only the dimensionless hierarchy and PMNS pattern. For every lambda_nu > 0, the family m_i(lambda_nu) = lambda_nu * mhat_i and Delta m^2_ij(lambda_nu) = lambda_nu^2 * Delta_hat_ij has the same dimensionless observables, so no unique absolute scale is emitted without one further OPH theorem fixing lambda_nu.",
         "status": "closed",
         "symbolic_absolute_outputs": {

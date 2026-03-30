@@ -9,6 +9,7 @@
     "script": "score_quark_sigma_ud_orbit_against_ckm_shell.py",
     "status": "compare_only_only"
   },
+  "concrete_provider_scaffold": "code/particles/flavor/sigma_ud_orbit_provider.py",
   "debug_compare_shell_ranking": {
     "kind": "ckm_log_shell_loss",
     "promotable": false,
@@ -29,7 +30,8 @@
     "ckm_invariants"
   ],
   "exact_missing_object": "sigma_ud_orbit",
-  "generated_utc": "2026-03-30T05:00:52Z",
+  "exact_missing_solver_interface": "sigma_ud_orbit_provider_interface",
+  "generated_utc": "2026-03-30T14:26:53Z",
   "input_contract": {
     "must_not_use": [
       "CKM target fitting inside the theorem artifact",
@@ -46,6 +48,8 @@
     "This scaffold exists to make the missing finite solver object explicit.",
     "The current D12 sheet is transport-closed but wrong-branch; same-sheet changes cannot move CKM invariants to the physical shell.",
     "Branch selection is discrete here. A continuous scalar cannot replace orbit exposure.",
+    "On the current live corpus the more immediate implementation gap is the orbit provider itself: no same-label left-handed Sigma_ud enumerator or sigma-to-CKM evaluator is emitted yet.",
+    "The provider interface has been widened to the full left-handed evaluation schema expected by this artifact; what is still missing is a real implementation that can populate those fields from emitted same-label transport data.",
     "If elements is empty, the artifact records the honest frontier rather than inventing Sigma_ud.",
     "If elements are supplied, the debug ranking remains comparison-only and cannot be promoted."
   ],

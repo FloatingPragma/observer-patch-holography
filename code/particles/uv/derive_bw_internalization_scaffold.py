@@ -47,6 +47,7 @@ def build_artifact() -> dict[str, object]:
         "status": "open_split_after_candidate_projective_route",
         "remaining_object": "canonical_scaling_cap_pair_realization_from_transported_cap_marginals",
         "follow_on_object": "independent_bw_rigidity_on_realized_limit",
+        "dominant_pressure_point": "scaling_limit_cap_pair_extraction",
         "remaining_objects": [
             "canonical_scaling_cap_pair_realization_from_transported_cap_marginals",
             "independent_bw_rigidity_on_realized_limit",
@@ -131,6 +132,7 @@ def build_artifact() -> dict[str, object]:
         "public_status_boundary": boundary,
         "notes": [
             "This scaffold promotes the UV/BW extension route to a canonical local artifact without claiming current-corpus closure.",
+            "The current pressure point is the first object, not the symbolic rigidity calculation: the realized scaling-limit cap pair is still missing.",
             "The symbolic test certifies the rigidity shape of the ordered cut-pair argument, but not the existence of the realized scaling-limit cap pair.",
             "The correct target is an automorphism theorem on the realized scaling-limit cap pair; no type-I survival is assumed.",
         ],

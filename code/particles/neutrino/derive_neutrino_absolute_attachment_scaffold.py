@@ -17,6 +17,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
 BRIDGE_JSON = ROOT / "particles" / "runs" / "neutrino" / "neutrino_weighted_cycle_absolute_amplitude_bridge.json"
+BRIDGE_CANDIDATE_JSON = ROOT / "particles" / "runs" / "neutrino" / "neutrino_lambda_nu_bridge_candidate.json"
 THEOREM_OBJECT_JSON = ROOT / "particles" / "runs" / "neutrino" / "neutrino_weighted_cycle_theorem_object.json"
 DEFAULT_OUT = ROOT / "particles" / "runs" / "neutrino" / "neutrino_absolute_attachment_scaffold.json"
 
@@ -29,7 +30,7 @@ def _load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def build_artifact(bridge: dict[str, Any], theorem_object: dict[str, Any]) -> dict[str, Any]:
+def build_artifact(bridge: dict[str, Any], bridge_candidate: dict[str, Any], theorem_object: dict[str, Any]) -> dict[str, Any]:
     diagnostic = dict(bridge["direct_scale_anchor_attachment_diagnostic"])
     return {
         "artifact": "oph_neutrino_absolute_attachment_scaffold",
@@ -44,6 +45,9 @@ def build_artifact(bridge: dict[str, Any], theorem_object: dict[str, Any]) -> di
         "current_no_go": {
             "statement": bridge["no_go_statement"],
             "direct_attachment_diagnostic": diagnostic,
+            "current_candidate_interface_artifact": bridge_candidate.get("current_candidate_interface_artifact"),
+            "exact_next_theorem_object": bridge_candidate.get("exact_next_theorem_object"),
+            "strictly_smaller_missing_clause": bridge_candidate.get("strictly_smaller_missing_clause"),
         },
         "extension_contract": {
             "input_objects": [
@@ -66,6 +70,7 @@ def build_artifact(bridge: dict[str, Any], theorem_object: dict[str, Any]) -> di
                 "Attach the internal D10 amplitude sector to the weighted-cycle scale-free normal "
                 "form without reusing external oscillation anchors."
             ),
+            "current_theorem_stack": bridge_candidate.get("bridge_interface_theorem_stack", []),
         },
         "theorem_object_context": {
             "name": theorem_object["theorem_object"]["name"],
@@ -78,14 +83,16 @@ def build_artifact(bridge: dict[str, Any], theorem_object: dict[str, Any]) -> di
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build the neutrino absolute-attachment scaffold.")
     parser.add_argument("--bridge", type=Path, default=BRIDGE_JSON)
+    parser.add_argument("--bridge-candidate", type=Path, default=BRIDGE_CANDIDATE_JSON)
     parser.add_argument("--theorem-object", type=Path, default=THEOREM_OBJECT_JSON)
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
     args = parser.parse_args()
 
     bridge = _load_json(args.bridge)
+    bridge_candidate = _load_json(args.bridge_candidate)
     theorem_object = _load_json(args.theorem_object)
     args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text(json.dumps(build_artifact(bridge, theorem_object), indent=2) + "\n", encoding="utf-8")
+    args.out.write_text(json.dumps(build_artifact(bridge, bridge_candidate, theorem_object), indent=2) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":

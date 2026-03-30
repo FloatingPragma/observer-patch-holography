@@ -108,6 +108,8 @@ def main() -> int:
         "status": "missing_solver_side_orbit" if not elements else "candidate_orbit_elements_supplied",
         "public_promotion_allowed": False,
         "exact_missing_object": "sigma_ud_orbit",
+        "exact_missing_solver_interface": "sigma_ud_orbit_provider_interface",
+        "concrete_provider_scaffold": "code/particles/flavor/sigma_ud_orbit_provider.py",
         "orbit_kind": "finite_relative_sheet_orbit",
         "branch_key": ["D12", "sigma_ud"],
         "selector_status": (
@@ -164,6 +166,8 @@ def main() -> int:
             "This scaffold exists to make the missing finite solver object explicit.",
             "The current D12 sheet is transport-closed but wrong-branch; same-sheet changes cannot move CKM invariants to the physical shell.",
             "Branch selection is discrete here. A continuous scalar cannot replace orbit exposure.",
+            "On the current live corpus the more immediate implementation gap is the orbit provider itself: no same-label left-handed Sigma_ud enumerator or sigma-to-CKM evaluator is emitted yet.",
+            "The provider interface has been widened to the full left-handed evaluation schema expected by this artifact; what is still missing is a real implementation that can populate those fields from emitted same-label transport data.",
             "If elements is empty, the artifact records the honest frontier rather than inventing Sigma_ud.",
             "If elements are supplied, the debug ranking remains comparison-only and cannot be promoted.",
         ],

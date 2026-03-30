@@ -22,6 +22,11 @@ stages:
         status: completed
         owner_lane: local_code
         depends_on: ["particles.audit.02-machine-readable-claim-ledger"]
+      - id: particles.audit.04-record-cross-lane-lost-lift-diagnosis
+        title: "Record the shared open-lane failure mode as premature quotienting, wrong-branch emission, or missing attachment objects so solver work avoids pseudo-repairs"
+        status: completed
+        owner_lane: local_docs
+        depends_on: ["particles.audit.03-add-uv-bw-internalization-scaffold"]
       - id: particles.validation.01-frozen-forward-blind-harness
         title: "Separate forward prediction artifacts from compare-only validation"
         status: completed
@@ -486,6 +491,15 @@ stages:
             "particles.leptons.18-record-exact-charged-waiting-set",
             "particles.leptons.21-add-charged-absolute-anchor-section-scaffold"
           ]
+      - id: particles.leptons.23-sharpen-determinant-line-to-canonical-lift
+        title: "Audit whether the determinant-line section itself still needs a refinement-stable trivialization or metric-compatibility theorem before A_ch can be emitted canonically"
+        status: in_progress
+        owner_lane: pro_paper
+        depends_on:
+          [
+            "particles.leptons.20-derive-determinant-normalization-transport-theorem",
+            "particles.leptons.22-record-central-split-transfer-extension-route"
+          ]
       - id: particles.flavor.25-add-hermitian-descendant-riesz-margin-and-cocycle-origin-flags
         title: "Add the lifted Hermitian-descendant Riesz margin plus explicit cocycle-origin closure flags"
         status: completed
@@ -686,11 +700,29 @@ stages:
         status: completed
         owner_lane: local_code
         depends_on: ["particles.flavor.54-add-quark-sigma-ud-orbit-scaffold"]
+      - id: particles.flavor.57-expose-sigma-ud-orbit-provider-interface
+        title: "Expose the same-label left-handed sigma_ud orbit provider / sigma-to-CKM evaluator so the empty orbit scaffold becomes a real finite solver object"
+        status: in_progress
+        owner_lane: local_code
+        depends_on:
+          [
+            "particles.flavor.54-add-quark-sigma-ud-orbit-scaffold",
+            "particles.flavor.55-add-local-basis-orbit-diagnostic-exclusion"
+          ]
+      - id: particles.flavor.58-widen-orbit-provider-schema
+        title: "Widen the sigma_ud orbit provider scaffold to emit full left-handed sheet evaluations and add a concrete provider stub matching the declared orbit schema"
+        status: completed
+        owner_lane: local_code
+        depends_on: ["particles.flavor.57-expose-sigma-ud-orbit-provider-interface"]
       - id: particles.flavor.53-derive-selected-branch-quark-mass-scale-law
         title: "Derive the intrinsic mass-side scale law on the selected quark branch after the discrete CKM branch selector is fixed"
         status: pending
         owner_lane: pro_paper
-        depends_on: ["particles.flavor.52-emit-quark-relative-sheet-selector"]
+        depends_on:
+          [
+            "particles.flavor.52-emit-quark-relative-sheet-selector",
+            "particles.flavor.57-expose-sigma-ud-orbit-provider-interface"
+          ]
   - id: stage-5
     title: "Close the neutrino sector"
     status: active
@@ -911,7 +943,11 @@ stages:
         title: "Close the finite-angle Majorana overlap-defect scalar evaluator that would attach the D10 amplitude sector to the weighted-cycle branch and emit lambda_nu"
         status: in_progress
         owner_lane: pro_neutrino
-        depends_on: ["particles.neutrino.37-record-lambda-nu-bridge-candidate"]
+        depends_on:
+          [
+            "particles.neutrino.37-record-lambda-nu-bridge-candidate",
+            "particles.neutrino.40-close-realized-gap-defect-readback"
+          ]
       - id: particles.neutrino.37-add-absolute-attachment-scaffold
         title: "Add the machine-readable neutrino absolute-attachment scaffold so lambda_nu is tracked as an internal attachment theorem from the D10 amplitude sector to the weighted-cycle normal form"
         status: completed
@@ -923,10 +959,36 @@ stages:
         owner_lane: local_code
         depends_on: ["particles.neutrino.37-add-absolute-attachment-scaffold"]
       - id: particles.neutrino.39-add-target-free-lambda-nu-candidate
-        title: "Record the strongest current target-free closed-form lambda_nu candidate from live emitted invariants while keeping it compare-only until a theorem-grade attachment law exists"
+        title: "Audit and refute tempting target-free closed-form lambda_nu numerology when it conflicts with the exact positive-rescaling no-go"
         status: completed
         owner_lane: local_code
         depends_on: ["particles.neutrino.38-record-lambda-nu-bridge-candidate"]
+      - id: particles.neutrino.40-close-realized-gap-defect-readback
+        title: "Close the realized same-label gap/defect readback from live flavor overlap and spectral-gap certificates so the remaining neutrino gap is the scalar attachment theorem itself"
+        status: completed
+        owner_lane: local_code
+        depends_on:
+          [
+            "particles.neutrino.19-add-overlap-defect-action-germ-artifact",
+            "particles.neutrino.37-add-absolute-attachment-scaffold"
+          ]
+      - id: particles.neutrino.41-sharpen-normalized-attachment-section
+        title: "Track the normalized overlap-defect weight section as the smaller attachment object beneath lambda_nu, with selector-centered phase-cocycle triviality as the immediate theorem gate"
+        status: in_progress
+        owner_lane: local_code
+        depends_on:
+          [
+            "particles.neutrino.38-close-majorana-overlap-defect-scalar-evaluator",
+            "particles.neutrino.40-close-realized-gap-defect-readback"
+          ]
+      - id: particles.neutrino.42-audit-simple-attachment-normalizers
+        title: "Audit simple compare-only attachment normalizers built from the live overlap/defect invariants so the smaller lambda_nu search surface is explicit on disk"
+        status: completed
+        owner_lane: local_code
+        depends_on:
+          [
+            "particles.neutrino.41-sharpen-normalized-attachment-section"
+          ]
   - id: stage-6
     title: "Hadron branch (deferred, execution-bound)"
     status: deferred

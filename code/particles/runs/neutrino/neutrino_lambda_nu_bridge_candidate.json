@@ -1,11 +1,34 @@
 {
   "artifact": "oph_neutrino_lambda_nu_bridge_candidate",
   "bridge_ansatz": "lambda_nu = m_star_eV * F_nu",
+  "bridge_interface_theorem_stack": [
+    {
+      "id": "selector_overlap_phase_coboundary_trivializes_same_label_edge_transport",
+      "role": "selector-centered phase-cocycle triviality gate beneath the attachment route",
+      "status": "open_clause"
+    },
+    {
+      "id": "oph_same_label_overlap_defect_weight_normalizer",
+      "role": "normalized attachment section that converts the centered edge-norm scalar data into the positive bridge factor F_nu",
+      "status": "candidate_only"
+    },
+    {
+      "id": "oph_majorana_scalar_from_centered_edge_norm",
+      "role": "parent finite-angle centered edge-norm theorem furnishing the scalar side of the attachment route",
+      "status": "candidate_only"
+    },
+    {
+      "id": "neutrino_weighted_cycle_absolute_attachment",
+      "role": "absolute-attachment theorem upgrading the weighted-cycle normal form to absolute masses and splittings",
+      "status": "open"
+    }
+  ],
   "compare_only_bridge_factor": {
     "F_nu_star": 700.275271524102,
     "interpretation": "If the bridge ansatz is correct, the theorem-grade evaluator would have to emit this positive dimensionless factor on the current branch.",
     "lambda_nu_weighted_fit": 1.7239045130315727
   },
+  "current_candidate_interface_artifact": "oph_majorana_overlap_defect_scalar_evaluator",
   "current_dimensionless_theorem_object": "p_nu_gamma_eps_midpoint_law",
   "dimensionful_anchor": {
     "formula": "v^2 / mu_u",
@@ -13,17 +36,18 @@
     "m_star_gev": 2.4617526608923523e-12,
     "name": "m_star"
   },
-  "exact_missing_interface_object": "oph_majorana_overlap_defect_scalar_evaluator",
-  "generated_utc": "2026-03-30T09:26:30Z",
+  "exact_next_theorem_object": "oph_same_label_overlap_defect_weight_normalizer",
+  "generated_utc": "2026-03-30T14:27:07Z",
   "next_theorem_if_this_route_is_right": {
     "current_status": "candidate_only",
-    "id": "oph_majorana_scalar_from_centered_edge_norm",
-    "promotion_gate": "close_only_if_bundle_descent_is_defined_for_xi\u00b1eta_and_xi\u00b1i_eta",
-    "smallest_missing_clause": "same_label_overlap_nonzero_on_realized_refinement_arrows"
+    "id": "oph_same_label_overlap_defect_weight_normalizer",
+    "promotion_gate": "selector_overlap_phase_coboundary_trivializes_same_label_edge_transport",
+    "smallest_missing_clause": "selector_overlap_phase_coboundary_trivializes_same_label_edge_transport"
   },
   "notes": [
     "This bridge candidate does not claim lambda_nu is already emitted.",
-    "It packages the strongest current local interface between the emitted D10 amplitude scale and the emitted weighted-cycle theorem object."
+    "It packages the strongest current local interface between the emitted D10 amplitude scale and the emitted weighted-cycle theorem object.",
+    "The closed-form gamma-over-sqrt-ratio numerology is retained only as a refuted compare-only audit target; it is incompatible with the exact positive-rescaling no-go."
   ],
   "public_promotion_allowed": false,
   "ruled_out_shortcuts": {
@@ -41,6 +65,7 @@
     }
   },
   "status": "candidate_interface_not_promoted",
+  "strictly_smaller_missing_clause": "selector_overlap_phase_coboundary_trivializes_same_label_edge_transport",
   "target_free_closed_form_candidates": [
     {
       "delta_m_sq_eV2": {
@@ -57,15 +82,16 @@
         0.05311825379153701
       ],
       "name": "gamma_over_sqrt_ratio_hat",
+      "proof_obstruction": "positive_rescaling_nonidentifiability",
       "residual_sigma": {
         "21": 0.052342198938890104,
         "32": 0.16926613126411194
       },
-      "status": "compare_only_local_candidate_not_promoted",
-      "why_not_promoted": "This closed-form law is numerically strong on the live emitted invariants, but the current corpus does not yet derive it as a theorem-grade attachment law for the weighted-cycle absolute family."
+      "status": "exactly_refuted_as_theorem_grade_absolute_scale_law",
+      "why_refuted": "gamma and Delta_hat_21 / Delta_hat_32 are orbit invariants on the positive-rescaling family, so no theorem-grade absolute-scale law can be a function of those invariants alone."
     }
   ],
-  "where_F_nu_should_come_from": "The exact finite-angle Majorana overlap-defect scalar evaluator on the selected weighted-cycle / midpoint branch.",
+  "where_F_nu_should_come_from": "A normalized same-label overlap-defect weight section built on top of the finite-angle Majorana overlap-defect scalar evaluator on the selected weighted-cycle / midpoint branch.",
   "why_this_is_the_sharpest_local_candidate": [
     "The weighted-cycle theorem object closes the dimensionless branch only.",
     "The scale anchor closes only the isotropic dimensionful amplitude m_star.",

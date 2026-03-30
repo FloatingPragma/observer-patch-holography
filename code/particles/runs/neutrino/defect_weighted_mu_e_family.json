@@ -20,7 +20,7 @@
   },
   "first_order_solar_response_coefficient_gev": 9.594579379050882e-12,
   "first_order_solar_response_formula": "delta_m21_sq ~= 4 * m0 * sigma_q",
-  "generated_utc": "2026-03-30T00:40:07Z",
+  "generated_utc": "2026-03-30T14:27:05Z",
   "isotropic_limit_recovered": true,
   "kernel_choice": "1-cos",
   "majorana_matrix_imag": [
@@ -65,7 +65,8 @@
     "The current forward neutrino bundle is S_3-isotropic, so any same-label scalar readback built only from the neutrino payload is forced to stay edge-constant.",
     "The best reduced family is a realized-arrow readback of same-label gap and defect witnesses, followed by the canonical raw score q_e = sqrt(gap_e * defect_e), centered-log lift, and mean-preserving mu_e family.",
     "The current canonical no-new-parameter point is q_e = sqrt(gap_e * defect_e), but the actual next mover is the realized flavor-side same-label gap/defect readback that feeds that rule.",
-    "The exact theorem blocker remains on same-label overlap / edge-bundle normalization, but the smallest spectrum-moving local object is now the realized same-label gap/defect readback beneath the repo-facing log-source wrapper."
+    "The exact theorem blocker remains on same-label overlap / edge-bundle normalization.",
+    "On the live corpus the realized same-label gap/defect readback is already complete from flavor-side certificates, so this family no longer treats that readback as the next missing constructive object."
   ],
   "ordering_expected_status": "normal_like_stable_for_small_defect_anisotropy",
   "parent_theorem_id": "oph_majorana_scalar_from_centered_edge_norm",
@@ -86,6 +87,7 @@
     "psi23",
     "psi31"
   ],
+  "realized_same_label_gap_defect_readback_status": "complete_from_live_flavor_artifacts",
   "residual_hessian_formula_2x2": [
     [
       "mu12 + mu31",
@@ -119,8 +121,8 @@
     "psi23": 0.5853814255968638,
     "psi31": 0.5853814255968638
   },
-  "smallest_constructive_missing_object": "oph_realized_same_label_gap_defect_readback",
-  "strict_repo_missing_object": "oph_same_label_overlap_defect_log_source",
+  "smallest_constructive_missing_object": null,
+  "strict_repo_missing_object": null,
   "upstream_exact_clause": "same_label_overlap_nonzero_on_realized_refinement_arrows",
   "weight_rule": "mu_e = base_mu_nu * exp(delta_e) / mean_f(exp(delta_f))"
 }

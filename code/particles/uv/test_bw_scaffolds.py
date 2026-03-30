@@ -31,6 +31,9 @@ def test_scaling_limit_cap_pair_extraction_scaffold() -> None:
     payload = _run(EXTRACTION)
     assert payload["artifact"] == "oph_bw_scaling_limit_cap_pair_extraction_scaffold"
     assert payload["exact_missing_object"] == "scaling_limit_cap_pair_extraction"
+    assert payload["precise_missing_object_name"] == "canonical_scaling_cap_pair_realization_from_transported_cap_marginals"
+    assert payload["theorem_contract_name"] == "conditional_scaling_limit_cap_pair_extraction_theorem"
+    assert "projectively_compatible_transported_cap_marginal_family" in payload["missing_input_witnesses"]
     assert payload["follow_on_object"]["id"] == "ordered_null_cut_pair_rigidity"
 
 

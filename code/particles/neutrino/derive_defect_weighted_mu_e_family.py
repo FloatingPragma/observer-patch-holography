@@ -12,6 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_SCALAR = ROOT / "particles" / "runs" / "neutrino" / "majorana_overlap_defect_scalar_evaluator.json"
 DEFAULT_FORWARD = ROOT / "particles" / "runs" / "neutrino" / "forward_neutrino_closure_bundle.json"
+DEFAULT_READBACK = ROOT / "particles" / "runs" / "neutrino" / "realized_same_label_gap_defect_readback.json"
 DEFAULT_OUT = ROOT / "particles" / "runs" / "neutrino" / "defect_weighted_mu_e_family.json"
 
 
@@ -23,15 +24,21 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Build the defect-weighted mu_e family artifact.")
     parser.add_argument("--scalar", default=str(DEFAULT_SCALAR))
     parser.add_argument("--forward", default=str(DEFAULT_FORWARD))
+    parser.add_argument("--readback", default=str(DEFAULT_READBACK))
     parser.add_argument("--output", default=str(DEFAULT_OUT))
     args = parser.parse_args()
 
     scalar = json.loads(Path(args.scalar).read_text(encoding="utf-8"))
     forward = json.loads(Path(args.forward).read_text(encoding="utf-8"))
+    readback_path = Path(args.readback)
+    readback = json.loads(readback_path.read_text(encoding="utf-8")) if readback_path.exists() else {}
     masses = [float(x) for x in forward.get("masses_gev_sorted", [])]
     m0 = sum(masses[:2]) / 2.0 if len(masses) >= 2 else None
     heavy_light_gap = (masses[2] - m0) if len(masses) >= 3 and m0 is not None else None
     mu_nu = float(scalar.get("mu_nu", 0.0))
+    readback_complete = readback.get("payload_status") == "complete_from_live_flavor_artifacts"
+    smallest_constructive_missing = None if readback_complete else "oph_realized_same_label_gap_defect_readback"
+    strict_repo_missing_object = None if readback_complete else "oph_same_label_overlap_defect_log_source"
 
     artifact = {
         "artifact": "oph_defect_weighted_majorana_edge_weight_family",
@@ -39,8 +46,11 @@ def main() -> int:
         "parent_theorem_id": scalar.get("theorem_candidate_id"),
         "upstream_exact_clause": scalar.get("required_overlap_certificate"),
         "normalizer_artifact": "oph_same_label_overlap_defect_weight_normalizer",
-        "smallest_constructive_missing_object": "oph_realized_same_label_gap_defect_readback",
-        "strict_repo_missing_object": "oph_same_label_overlap_defect_log_source",
+        "realized_same_label_gap_defect_readback_status": (
+            readback.get("payload_status") if readback else "missing_readback_artifact"
+        ),
+        "smallest_constructive_missing_object": smallest_constructive_missing,
+        "strict_repo_missing_object": strict_repo_missing_object,
         "raw_edge_score_emitter": "oph_same_label_overlap_defect_log_source",
         "selector_center": scalar.get("selector_center"),
         "selector_point_absolute": scalar.get("selector_point_absolute"),
@@ -86,7 +96,13 @@ def main() -> int:
             "The current forward neutrino bundle is S_3-isotropic, so any same-label scalar readback built only from the neutrino payload is forced to stay edge-constant.",
             "The best reduced family is a realized-arrow readback of same-label gap and defect witnesses, followed by the canonical raw score q_e = sqrt(gap_e * defect_e), centered-log lift, and mean-preserving mu_e family.",
             "The current canonical no-new-parameter point is q_e = sqrt(gap_e * defect_e), but the actual next mover is the realized flavor-side same-label gap/defect readback that feeds that rule.",
-            "The exact theorem blocker remains on same-label overlap / edge-bundle normalization, but the smallest spectrum-moving local object is now the realized same-label gap/defect readback beneath the repo-facing log-source wrapper.",
+            "The exact theorem blocker remains on same-label overlap / edge-bundle normalization.",
+            (
+                "On the live corpus the realized same-label gap/defect readback is already complete from flavor-side certificates, "
+                "so this family no longer treats that readback as the next missing constructive object."
+                if readback_complete
+                else "The smallest spectrum-moving local object is still the realized same-label gap/defect readback beneath the repo-facing log-source wrapper."
+            ),
         ],
     }
 

@@ -17,4 +17,10 @@ def test_neutrino_absolute_attachment_scaffold_contract() -> None:
     assert payload["status"] == "minimal_constructive_extension"
     assert payload["exact_missing_object"] == "neutrino_weighted_cycle_absolute_attachment"
     assert payload["equivalent_scalar"]["name"] == "lambda_nu"
+    assert payload["current_no_go"]["current_candidate_interface_artifact"] == "oph_majorana_overlap_defect_scalar_evaluator"
+    assert payload["current_no_go"]["exact_next_theorem_object"] == "oph_same_label_overlap_defect_weight_normalizer"
+    assert payload["current_no_go"]["strictly_smaller_missing_clause"] == "selector_overlap_phase_coboundary_trivializes_same_label_edge_transport"
     assert payload["extension_contract"]["must_emit"].startswith("lambda_nu")
+    stack = payload["extension_contract"]["current_theorem_stack"]
+    assert stack[0]["id"] == "selector_overlap_phase_coboundary_trivializes_same_label_edge_transport"
+    assert stack[1]["id"] == "oph_same_label_overlap_defect_weight_normalizer"

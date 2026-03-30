@@ -25,8 +25,8 @@ def main() -> int:
     if payload.get("sublemma_candidate_id") != "selector_centered_quadraticity_polarization_law_on_edge_bundle":
         print("Majorana scalar evaluator is missing the sharpened quadraticity sublemma id", file=sys.stderr)
         return 1
-    if payload.get("smallest_exact_missing_clause") != "same_label_overlap_nonzero_on_realized_refinement_arrows":
-        print("Majorana scalar evaluator did not reduce the gap to the overlap-nonvanishing clause beneath phase-cocycle triviality", file=sys.stderr)
+    if payload.get("smallest_exact_missing_clause") != "selector_overlap_phase_coboundary_trivializes_same_label_edge_transport":
+        print("Majorana scalar evaluator did not reduce the gap to the phase-cocycle triviality gate beneath the attachment route", file=sys.stderr)
         return 1
     if payload.get("remaining_theorem_object") != "oph_majorana_scalar_from_centered_edge_norm":
         print("Majorana scalar evaluator still points at the broader theorem object", file=sys.stderr)
