@@ -289,7 +289,7 @@ When these hold, the BW$_{S^2}$ theorem identifies the modular Hamiltonian with 
 
 $$K_C = 2\pi B_C$$
 
-This is the Bisognano-Wichmann result adapted to the sphere. In the synchronized paper ledger, the remaining burden is selecting the geometric branch in the scaling limit, not adding a separate Euclidean-regularity premise by hand once that branch is realized.
+This is the Bisognano-Wichmann result adapted to the sphere. In the synchronized paper ledger, the remaining burden is the continuum lift itself: exhibiting an explicit microscopic refinement whose scaling limit lands in the geometric modular phase, not adding some separate Euclidean-regularity premise by hand once that branch is realized.
 
 ### Conformal Symmetry Is Lorentz Symmetry
 

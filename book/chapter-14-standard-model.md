@@ -547,7 +547,7 @@ The most important synchronization point for this chapter is that OPH does **not
 | Higgs/top stage | Secondary quantitative | Higgs boson and top quark are emitted on the closed one-scalar forward seed |
 | Quark family | Continuation | Continuation-level rows are emitted for up, down, strange, charm, and bottom; CKM/CP is closed on the current quark sheet, but that sheet is a strict no-go for the physical quark branch, so the next object is the finite same-label left-handed orbit together with the provider/evaluator that exposes it, and only then a discrete selector and mass-side scale law |
 | Charged leptons | Continuation gap | No promoted charged-lepton masses yet; the centered hierarchy is fixed, but the remaining route is \(\widehat C_e\) promotion, then a refinement-stable uncentered trace lift, then the determinant-line anchor |
-| Flavor-labeled neutrinos | Continuation gap | No promoted flavor rows yet; the weighted-cycle branch lands in the observed PMNS/hierarchy window, the normalized same-label overlap-defect weight section is already closed, and the remaining attachment gap is the residual bridge scalar \(B_\nu\) plus one positive absolute normalization scalar before absolute masses and absolute \(\Delta m^2\) become theorem-grade |
+| Flavor-labeled neutrinos | Continuation gap | No promoted flavor rows yet; the weighted-cycle branch lands in the observed PMNS/hierarchy window, and one overall positive normalization scalar remains open before absolute masses and absolute \(\Delta m^2\) become theorem-grade |
 | Hadrons | Execution-bound | No paper-derived hadron masses yet; real production correlator dumps and production systematics are still required |
 
 ## 14.15 Why the Photon Is Inevitable
@@ -676,7 +676,7 @@ Let's step back and see what the framework actually accounts for.
 
 **Gauge-mediated proton decay.** Gauge-mediated proton decay is forbidden. The gauge group is a product, not embedded in a larger simple group, so no leptoquark generators exist. Current experimental limits ($\tau_p > 10^{34}$ years) are consistent with this prediction.
 
-**The open frontier.** Charged leptons and flavor-labeled neutrinos do not yet have promoted public rows, and hadron masses remain outside the paper-derived surface because the remaining work is operational rather than purely symbolic: real nonperturbative production computation and systematics control are still required.
+**The open frontier.** Charged leptons still lack their absolute normalization, flavor-labeled neutrinos still lack one remaining overall normalization scalar, and hadron masses remain outside the paper-derived surface because the remaining work is operational rather than purely symbolic: real nonperturbative production computation and systematics control are still required.
 
 ## 14.21 The Big Picture
 
