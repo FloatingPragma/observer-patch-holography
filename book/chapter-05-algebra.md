@@ -263,9 +263,9 @@ In finite-dimensional language, this is equality of reduced density matrices on 
 
 ### The Question Budget
 
-Observers cannot ask infinitely many questions. Every measurement costs energy and time. In the holographic setting used here, maximum accessible information scales with boundary area.
+Observers cannot ask infinitely many questions. Every measurement costs energy and time. In the holographic setting used here, maximum accessible information scales with patch area.
 
-A patch with boundary area A can support at most about A/(4ℓ_P²) bits of information-the effective Hilbert space dimension is bounded by $e^{A/4\ell_P^2}$.
+A patch with area A can support at most about A/(4ℓ_P²) bits of information-the effective Hilbert space dimension is bounded by $e^{A/4\ell_P^2}$.
 
 ## 5.9 Type Classification
 
