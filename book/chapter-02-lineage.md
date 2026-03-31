@@ -34,7 +34,7 @@ The prisoners represent the intuitive picture. They believe they are seeing real
 
 ### The Hint
 
-Plato's hint: **what we perceive is a lower-dimensional projection of something deeper**.
+Plato's hint: **what we perceive can be an appearance generated from a deeper level of organization**.
 
 The shadows on the wall are 2D projections of 3D objects. The prisoners think they live in a 2D world of shadows. They don't realize the information comes from a higher-dimensional source.
 
@@ -46,7 +46,7 @@ The 3D world is like a hologram-it looks solid and three-dimensional, but the in
 
 $$S_{max} = \frac{A}{4\ell_P^2}$$
 
-This is Plato's Cave made physical. We are the prisoners. The 3D world we perceive is the shadows. The holographic screen is the "real" level-where the data actually lives.
+This is not a literal one-to-one dimensional match to Plato's Cave, but it resonates with the same structural idea: the world we perceive can be an appearance reconstructed from a deeper bookkeeping layer.
 
 Plato was not doing modern holographic physics, but his cave analogy resonates strikingly with later projection-based pictures.
 
