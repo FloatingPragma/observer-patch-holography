@@ -408,7 +408,7 @@
   <rect x="846" y="522" width="134" height="28" rx="14" fill="rgb(255 255 255 / 0.03)" stroke="#d4b56e" opacity="1" />
   <text x="860" y="541" fill="#d4b56e" font-size="14" font-family="JetBrains Mono, monospace" font-weight="700" letter-spacing="2" opacity="1">AXIOM</text>
   <rect x="848" y="806" width="183.6" height="3" rx="1.5" fill="#d4b56e" opacity="0.88" />
-  <text x="854" y="588" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">A3 Local MaxEnt</text>
+  <text x="854" y="588" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">A3 Local MAR</text>
   <text x="854" y="621" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">+ Refinement</text>
   <text x="854" y="654" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Stability</text>
   <text x="854" y="701" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">finite local</text>
@@ -650,7 +650,7 @@
   <rect x="196" y="1747" width="134" height="28" rx="14" fill="rgb(255 255 255 / 0.03)" stroke="#4ee7ff" opacity="1" />
   <text x="210" y="1766" fill="#4ee7ff" font-size="15" font-family="JetBrains Mono, monospace" font-weight="700" letter-spacing="2" opacity="1">THEOREM</text>
   <rect x="198" y="1919" width="227.2" height="3" rx="1.5" fill="#4ee7ff" opacity="0.82" />
-  <text x="204" y="1819" fill="#f4f7fb" font-size="30" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Local Gibbs / MaxEnt Selector</text>
+  <text x="204" y="1819" fill="#f4f7fb" font-size="30" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Local Gibbs / MAR Selector</text>
   <text x="204" y="1872" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">local constraints imply Gibbs form</text>
   <text x="204" y="1904" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">heat-kernel-ready edge weighting</text>
 </g>
@@ -832,7 +832,7 @@
   <rect x="198" y="3041" width="227.2" height="3" rx="1.5" fill="#4ee7ff" opacity="0.82" />
   <text x="204" y="2909" fill="#f4f7fb" font-size="30" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Theorem 6.20 Heat-Kernel Law</text>
   <text x="204" y="2962" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">p_R(t) proportional to d_R exp(-t C2(R))</text>
-  <text x="204" y="2994" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">edge-sector weights from MaxEnt + gauge</text>
+  <text x="204" y="2994" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">edge-sector weights from MAR + gauge</text>
   <text x="204" y="3026" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">structure</text>
 </g>
 <g filter="url(#panelShadow)">
@@ -995,7 +995,7 @@
   <text x="4430" y="2856" fill="#ff8f97" font-size="15" font-family="JetBrains Mono, monospace" font-weight="700" letter-spacing="2" opacity="1">COMPLETION</text>
   <rect x="4418" y="3009" width="316.8" height="3" rx="1.5" fill="#ff8f97" opacity="0.82" />
   <text x="4424" y="2909" fill="#f4f7fb" font-size="30" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Actual OPH Closure Map Phi</text>
-  <text x="4424" y="2962" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">overlap repair + MaxEnt reprojection + recoverability</text>
+  <text x="4424" y="2962" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">overlap repair + MAR reprojection + recoverability</text>
   <text x="4424" y="2994" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">internal self-map on the OPH habitat</text>
 </g>
 <g filter="url(#panelShadow)">
