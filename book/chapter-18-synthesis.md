@@ -287,7 +287,7 @@ The Hilbert space is finite-dimensional. The second fundamental parameter, **scr
 
 ## 18.8 The Remaining Frontier
 
-The core picture has definite physical content. The framework recovers the Standard Model gauge group, three generations, three colors, massless photon/gluons/graviton, and the absence of gauge-mediated proton decay. On top of that, it has a full exact non-hadron output lane on disk: exact `W/Z` on the frozen-repair surface, an exact Higgs inverse slice, exact same-family charged and quark witnesses, and an exact compare-only neutrino adapter on the explicit positive selector segment. The remaining difficult jobs are to finish the charged-lepton theorem lane, bring flavor mixing onto a fully physical quark branch after the negative local selector closure to `sigma_ref` with `intrinsic_scale_law_D12` next on the emitted D12 mass ray, derive the reduced neutrino bridge-correction invariant `C_nu` that would fix the absolute neutrino scale, and land the production backend bundle plus the nonperturbative work needed for hadrons. On the gravity side, the big open task is to derive the smooth geometric spacetime limit from an explicit microscopic screen model instead of treating it as the right branch of the theory.
+The core picture has definite physical content. The framework recovers the Standard Model gauge group, three generations, three colors, massless photon/gluons/graviton, and the absence of gauge-mediated proton decay. On top of that, it has a full exact non-hadron output lane on disk: exact `W/Z` on the frozen-repair surface, an exact Higgs inverse slice, an exact same-family charged witness with its affine coordinate closed on the fixed witness, an exact same-family quark witness on the selected `sigma_ref` sheet, and an exact compare-only neutrino adapter on the explicit positive selector segment. The remaining difficult jobs are to finish the charged-lepton theorem lane, bring flavor mixing onto a fully physical quark branch after the negative local selector closure to `sigma_ref` with `quark_d12_t1_value_law` next on the emitted D12 mass ray and `intrinsic_scale_law_D12` retained as the derived wrapper, derive the reduced neutrino bridge-correction invariant `C_nu` that would fix the absolute neutrino scale, and land the production backend bundle plus the nonperturbative work needed for hadrons. On the gravity side, the big open task is to derive the smooth geometric spacetime limit from an explicit microscopic screen model instead of treating it as the right branch of the theory.
 
 **Progress on numerical predictions.** The extraction of gauge couplings from
 edge-sector probabilities has been validated numerically in 2D gauge models.
@@ -314,7 +314,7 @@ a consequence of Peter-Weyl structure plus the distinction between entropy
 The main open directions are:
 
 1. **Screen microphysics**: What exactly are the degrees of freedom on S²?
-2. **Finish the particle story**: complete charged-lepton masses, finish the physical quark flavor-mixing branch after the current negative `sigma_ref` selector closure, derive the reduced neutrino bridge-correction invariant `C_nu`, and push hadrons through the backend-bundle gate into full nonperturbative computation.
+2. **Finish the particle story**: complete charged-lepton masses, finish the physical quark flavor-mixing branch after the negative `sigma_ref` selector closure, derive the reduced neutrino bridge-correction invariant `C_nu`, and push hadrons through the backend-bundle gate into full nonperturbative computation.
 3. **Dynamics and gravity**: Can local horizon thermodynamics be made fully internal?
 4. **Cosmology**: What fixes Λ and the initial low‑entropy condition?
 5. **Numerical predictions**: Implement SU(2)/SU(3) quantum link models and
@@ -390,8 +390,8 @@ For the book, the particle story looks like this:
 | Structural carriers | Photon, gluons, and graviton are exact zeros. | Theorem-grade structural exactness. |
 | Electroweak exact sidecar | Exact frozen-repair `W/Z` pair. | Compare-only beneath the target-free D10 theorem. |
 | Higgs exact sidecar | Exact Higgs inverse slice. | Compare-only inverse slice, not the forward theorem row. |
-| Charged exact witness | Exact same-family `(e, μ, τ)` triple. | Same-family-only; the theorem lane runs through `C_hat_e^{cand}` and then `mu_phys(Y_e)`. |
-| Quark exact witness | Exact same-family `(u, d, s, c, b, t)` sextet. | Same-family-only; the physical branch runs through `intrinsic_scale_law_D12` on the emitted D12 mass ray. |
+| Charged exact witness | Exact same-family `(e, μ, τ)` triple, with the affine coordinate closed on that fixed witness. | Same-family-only; the theorem lane runs through `C_hat_e^{cand}` and then `mu_phys(Y_e)`. |
+| Quark exact witness | Exact same-family `(u, d, s, c, b, t)` sextet on the selected `sigma_ref` sheet. | Same-family-only, with the selected-sheet exact readout closed on that scope; the physical branch runs through `quark_d12_t1_value_law` on the emitted D12 mass ray, with `intrinsic_scale_law_D12` as the derived wrapper. |
 | Neutrino exact adapter | Exact compare-only `(m1, m2, m3)` and exact representative central splittings. | The theorem lane runs through `C_nu`. |
 | Hardest frontier | Hadrons. | Still compute-bound behind the production backend bundle. |
 

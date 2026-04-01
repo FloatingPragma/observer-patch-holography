@@ -24,7 +24,7 @@
     "proof_status": "pure_B_odd_projection_formula_closed_source_values_open",
     "smallest_constructive_missing_object": "source_readback_u_log_per_side_and_source_readback_d_log_per_side"
   },
-  "broader_honest_frontier": "intrinsic_scale_law_D12",
+  "broader_honest_frontier": "quark_d12_t1_value_law",
   "centered_ray_fit": {
     "current_centered_log_d": [
       -3.1662395259357763,
@@ -196,7 +196,7 @@
       "ray_parameter": "ray_modulus",
       "unresolved_coordinate": "ray_modulus"
     },
-    "next_exact_missing_object": "intrinsic_scale_law_D12",
+    "next_exact_missing_object": "quark_d12_t1_value_law",
     "proof_status": "same_family_mass_ray_emitted_modulus_open",
     "same_family_ray": {
       "ordered_family_coordinate_x2": -0.5175863354681689,
@@ -221,18 +221,26 @@
   "d12_mass_side_underdetermination_theorem": {
     "artifact": "oph_quark_d12_mass_side_underdetermination_theorem",
     "minimal_new_theorem": {
-      "id": "intrinsic_scale_law_D12",
-      "must_emit": "intrinsic_scale_law_D12",
+      "derived_wrapper": {
+        "derived_from": "quark_d12_t1_value_law",
+        "id": "intrinsic_scale_law_D12",
+        "meaning": "the induced mass-side wrapper on D12_ud_mass_ray after t1 is fixed intrinsically"
+      },
+      "id": "quark_d12_t1_value_law",
+      "identifies": "ray_modulus = t1",
+      "must_emit": "quark_d12_t1_value_law",
       "must_not_use_ckm_cp": true,
       "must_not_use_target_masses": true,
+      "scalar_name": "t1",
       "then_emits": [
+        "t1",
         "ray_modulus",
         "Delta_ud_overlap",
         "eta_Q_centered"
       ],
       "unique_intersection_with": "D12_ud_mass_ray"
     },
-    "next_exact_missing_object": "intrinsic_scale_law_D12",
+    "next_exact_missing_object": "quark_d12_t1_value_law",
     "proof_status": "same_family_mass_ray_emitted_intrinsic_scale_open",
     "same_family_ray": {
       "ordered_family_coordinate_x2": -0.5175863354681689,
@@ -254,7 +262,7 @@
       "ray_name": "D12_ud_mass_ray",
       "ray_parameter": "ray_modulus"
     },
-    "theorem_statement": "On the present same-family D12 continuation branch, the mass-side deformation already emits the one-parameter ray D12_ud_mass_ray. Equivalently eta_Q_centered = -(5 * (1 - x2^2) / 27) * Delta_ud_overlap along that ray. The current OPH chain still does not emit a theorem-grade intrinsic scale-fixing law that would select one unique point on it."
+    "theorem_statement": "On the present same-family D12 continuation branch, the mass-side deformation already emits the one-parameter ray D12_ud_mass_ray. Equivalently eta_Q_centered = -(5 * (1 - x2^2) / 27) * Delta_ud_overlap along that ray. The current OPH chain still does not emit the target-free one-scalar law that would fix t1 = ray_modulus and therefore select one unique point on it."
   },
   "d12_one_scalar_specialization": {
     "artifact": "oph_quark_d12_one_scalar_specialization",
@@ -478,7 +486,7 @@
   },
   "d12_same_label_physical_invariant_bundle": {
     "artifact": "oph_generation_bundle_same_label_physical_invariant_bundle",
-    "next_single_residual_object": "intrinsic_scale_law_D12",
+    "next_single_residual_object": "quark_d12_t1_value_law",
     "physical_invariants": {
       "jarlskog": 2.875591228134216e-10,
       "phi_cp": 1.7011978493658404,
@@ -491,7 +499,7 @@
   "d12_scalarized_continuation_bundle": {
     "artifact": "oph_quark_scalarized_continuation_bundle",
     "honest_remaining_value_laws": [
-      "intrinsic_scale_law_D12",
+      "quark_d12_t1_value_law",
       "quark_exact_mean_split_value_law_or_carrier_repair"
     ],
     "mass_side": {
@@ -618,7 +626,7 @@
     "tau_d_best_fit": 0.08831017354133808,
     "tau_u_best_fit": 0.05214018144630117
   },
-  "generated_utc": "2026-04-01T08:06:28Z",
+  "generated_utc": "2026-04-01T16:12:52Z",
   "mean_split_audit": {
     "current_log_shift_d": -2.0281337286007872,
     "current_log_shift_u": -0.16973941452778685,
@@ -653,16 +661,16 @@
     "Projecting the residual onto Q_ord only slightly reduces the mismatch, and the leftover is exactly a diagonal gap-shift pattern [-tau, 0, +tau].",
     "That means the family shell and pure-B source-readback law are already known; on the active builder path the missing predictive step is the emitted pure-B payload pair, not another larger quark family.",
     "The March 28, 2026 final-wave consolidation also establishes a tier boundary: a nonzero light-quark pure-B selector is not available at recovered-core tier in the uploaded corpus.",
-    "The broader honest repair frontier has therefore moved past the discrete selector: on the emitted local solver surface sigma_ud closes to sigma_ref, and the next exact D12 object is the intrinsic scale law on the selected mass ray, even though the active local builder still waits first on the pure-B payload pair.",
+    "The broader repair frontier has therefore moved past the discrete selector: on the emitted local solver surface sigma_ud closes to sigma_ref, and the next exact D12 object is the one-scalar value law quark_d12_t1_value_law on the selected mass ray, with intrinsic_scale_law_D12 retained only as the derived wrapper, even though the active local builder still waits first on the pure-B payload pair.",
     "The D12 selector-law shell remains explicit on disk: one continuation-level overlap-defect scalar `Delta_ud_overlap` would fix the light-sector pure-B payload pair by odd-budget neutrality, but the emitted local branch selector now closes trivially to sigma_ref rather than opening a new physical CKM branch.",
     "The D12 overlap transport law is now explicit too: once the spread totals are fixed, the odd payload pair collapses to one scalar `Delta_ud_overlap` with tau_u = sigma_d * Delta / (2 (sigma_u + sigma_d)), tau_d = sigma_u * Delta / (2 (sigma_u + sigma_d)), and Lambda = sigma_u sigma_d * Delta / (2 (sigma_u + sigma_d)).",
     "A stronger D12 continuation sample point is now explicit too: the retained same-family point with t1_sample = ray_modulus = 0.6695617711471163 gives (u,c,t) = (0.002176632493, 1.256692171439, 172.851929939314) GeV and (d,s,b) = (0.004708229529, 0.091608271273, 4.155513989985) GeV with RMS log-mass error about 1.08e-02, and the CKM/CP lane closes on that same branch because the forward Yukawa step already emits the same-label transport unitary V_CKM^fwd = U_u^dagger U_d and its principal logarithm.",
-    "The current D12 sheet is now known to be a strict no-go for the physical CKM shell: the emitted local same-label left-handed orbit closes to sigma_ref, but that selected singleton is just the current D12 reference sheet, so the exact next object is the intrinsic D12 scale law rather than another branch selector.",
+    "The current D12 sheet is now known to be a strict no-go for the physical CKM shell: the emitted local same-label left-handed orbit closes to sigma_ref, but that selected singleton is just the current D12 reference sheet, so the exact next object is quark_d12_t1_value_law rather than another branch selector.",
     "The quadratic even transport is scalarized too: once the ordered-family carrier is fixed, the even residual collapses to one centered scalar eta_Q_centered with direct log formula (eta_Q_centered / 6) * (1,-2,1).",
     "The strongest current D12 continuation bundle reduces the mass side to two value laws, Delta_ud_overlap and eta_Q_centered, while the mixing side is closed by the gauge-fixed physical invariants of the forward same-label left-transport generator.",
     "There is also a stricter same-family diagnostic specialization: on the current sample branch both mass-side continuation scalars collapse to one ray coordinate, with Delta_ud_overlap = ray_modulus / 5 and eta_Q_centered = -((1 - x2^2) / 27) * ray_modulus. That specialization is explicit on disk, but the retained numerical point is sample-only rather than OPH-emitted.",
-    "The same-family D12 mass ray is now an explicit emitted object on disk: D12_ud_mass_ray = { ray_modulus * (1/5, -((1 - x2^2) / 27)) }, and the remaining exact scalar burden is the intrinsic scale law on that emitted ray.",
-    "The mass-side theorem boundary remains sharp too: with D12_ud_mass_ray emitted, the next exact missing object is intrinsic_scale_law_D12 rather than another larger mass-side carrier."
+    "The same-family D12 mass ray is now an explicit emitted object on disk: D12_ud_mass_ray = { ray_modulus * (1/5, -((1 - x2^2) / 27)) }, and the remaining primitive exact scalar burden is quark_d12_t1_value_law, with intrinsic_scale_law_D12 retained as the derived wrapper.",
+    "The mass-side theorem boundary remains sharp too: with D12_ud_mass_ray emitted, the next exact missing object is quark_d12_t1_value_law rather than another larger mass-side carrier."
   ],
   "predictive_J_B_source_law_status": "missing",
   "quadratic_residual_audit": {

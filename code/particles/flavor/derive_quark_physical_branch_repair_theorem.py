@@ -243,7 +243,7 @@ def main() -> int:
                 else "open_distinct_relative_sheet_or_uniqueness_theorem_missing"
             ),
             "smallest_remaining_object": (
-                "intrinsic_scale_law_D12"
+                "quark_d12_t1_value_law"
                 if selector_value is not None
                 else (
                     "one additional non-reference same-label left-handed relative-sheet evaluation, or an intrinsic uniqueness theorem proving the emitted reference singleton is the full orbit"
@@ -253,7 +253,7 @@ def main() -> int:
             ),
             "selected_sigma": selector_value,
             "next_exact_object_after_orbit_closure": (
-                "intrinsic_scale_law_D12" if selector_value is not None else None
+                "quark_d12_t1_value_law" if selector_value is not None else None
             ),
             "selection_rule_kind": "ckm_log_shell_loss",
             "selection_rule": {

@@ -6,7 +6,8 @@ from __future__ import annotations
 
 CMI_COMPONENT = "epsilon_{n,m,delta} = I(A_{m,delta}:D_{m,delta}|B_{m,delta})_{omega_{n->m}} -> 0"
 FAITHFUL_COMPONENT = (
-    "exists lambda_bar_{m,delta} > 0 with lambda_{*,n,m,delta} >= lambda_bar_{m,delta} eventually"
+    "exists lambda_bar_{m,delta} > 0 and N_{m,delta} such that for all n >= N_{m,delta} "
+    "and every X in Xi^{mod}_{m,delta}, rho_{n->m,X} >= lambda_bar_{m,delta} * 1"
 )
 EXACT_MARKOV_FORMULA = "delta^M_{m,delta}(epsilon_{n,m,delta}) -> 0"
 CONSTRUCTIVE_RECOVERY_FORMULA = "r_FR(epsilon_{n,m,delta}) -> 0"
@@ -22,6 +23,32 @@ EXACT_MARKOV_WITNESS_ID = "fixed_local_collar_exact_markov_modulus_vanishing"
 CONSTRUCTIVE_RECOVERY_ID = "constructive_recovery_remainder_vanishing"
 FAITHFUL_MODULAR_DEFECT_ID = "fixed_local_collar_faithful_modular_defect_vanishing"
 CARRIED_SCHEDULE_ID = "vanishing_carried_collar_schedule_on_fixed_local_collars"
+COMPARISON_REFERENCE_FLOOR_TRANSFER_ID = "exact_markov_reference_eventual_common_floor_transfer"
+
+
+def build_comparison_reference_floor_transfer(
+    *,
+    exact_markov_artifact: str,
+    spectral_floor_artifact: str,
+) -> dict[str, object]:
+    return {
+        "id": COMPARISON_REFERENCE_FLOOR_TRANSFER_ID,
+        "requires_exact_markov_artifact": exact_markov_artifact,
+        "requires_spectral_floor_artifact": spectral_floor_artifact,
+        "statement": (
+            "On one fixed local collar model, if the modular-transport marginals satisfy "
+            "rho_{n->m,X} >= lambda_bar_{m,delta} * 1 eventually for every X in Xi^{mod}_{m,delta} "
+            "and the exact-Markov replacements satisfy "
+            "||rho_X - sigma_{n,m,delta,X}||_1 <= delta^M_{m,delta}(epsilon_{n,m,delta}) -> 0, then "
+            "for all sufficiently large n the comparison marginals also satisfy "
+            "sigma_{n,m,delta,X} >= (lambda_bar_{m,delta} / 2) * 1."
+        ),
+        "why_this_is_enough": (
+            "No separate spectral-floor hypothesis on the exact-Markov comparison family is needed "
+            "before applying the modular-transport estimate."
+        ),
+        "status_on_fill": "exact_markov_reference_common_floor_closed",
+    }
 
 
 def build_local_obligation_ledger(

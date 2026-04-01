@@ -12,6 +12,7 @@ from bw_collar_honesty import (
     CARRIED_SCHEDULE_FORMULA,
     CMI_COMPONENT,
     FAITHFUL_COMPONENT,
+    build_comparison_reference_floor_transfer,
     build_local_honesty_gate,
     build_local_obligation_ledger,
     build_schedule_term_frontier,
@@ -30,8 +31,8 @@ EXACT_MARKOV_MODULUS = ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_coll
 FAITHFUL_MODULAR_DEFECT = (
     ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_collar_faithful_modular_defect_scaffold.json"
 )
-SPECTRAL_FLOOR = (
-    ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_collar_eventual_spectral_floor_scaffold.json"
+COMMON_FLOOR = (
+    ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_collar_modular_transport_common_floor_scaffold.json"
 )
 
 
@@ -97,7 +98,11 @@ def build_payload() -> dict[str, object]:
             CMI_COMPONENT,
             FAITHFUL_COMPONENT,
         ],
-        "single_live_missing_clause_artifact": _artifact_ref(SPECTRAL_FLOOR),
+        "single_live_missing_clause_artifact": _artifact_ref(COMMON_FLOOR),
+        "single_live_missing_clause_closure_lemma": build_comparison_reference_floor_transfer(
+            exact_markov_artifact=_artifact_ref(EXACT_MARKOV_MODULUS),
+            spectral_floor_artifact=_artifact_ref(COMMON_FLOOR),
+        ),
         "markov_side_status": "latent_from_epsilon_to_zero",
         "faithfulness_side_status": "open",
         "intermediate_witness_chain": [
@@ -194,9 +199,10 @@ def build_payload() -> dict[str, object]:
             "The local quotient/prelimit transported cap-local system can already be packaged from the current corpus at the reference-chart and asymptotic transport-equivalence level.",
             "The compactness/extraction theorem itself is not the missing proof; the current remaining blocker is the two-term carried-collar emitted frontier beneath the derived eta schedule.",
             "The carried schedule itself is now recorded as theorem-generated from those two term witnesses: r_FR(epsilon_{n,m,delta}) -> 0 and 4 * lambda_{*,n,m,delta}^{-1} * delta^M_{m,delta}(epsilon_{n,m,delta}) -> 0.",
-            "That combined schedule reduces one level lower to a fixed-local-collar Markov/faithfulness datum: collarwise CMI vanishing plus an eventual positive lower spectral bound.",
+            "That combined schedule reduces one level lower to a fixed-local-collar Markov/faithfulness datum: collarwise CMI vanishing plus an eventual common floor on the finite modular-transport family.",
             "Inside that raw datum, the constructive recovery witness, the exact-Markov comparison modulus, and the faithful modular-defect term are now split as separate lower local scaffolds.",
-            "On the current branch the only nonlatent lower input still outside the emitted chain is the eventual fixed-local-collar spectral floor feeding the faithful modular-defect term; the recovery/Markov side is already latent once epsilon_{n,m,delta} -> 0.",
+            "No separate exact-Markov-reference spectral input remains hidden below the faithful modular-defect term: on one fixed collar model, the eventual floor for the transported marginals transfers to the exact-Markov comparison marginals once delta^M -> 0.",
+            "On the current branch the only nonlatent lower input still outside the emitted chain is the eventual fixed-local-collar modular-transport common floor feeding the faithful modular-defect term; the recovery/Markov side is already latent once epsilon_{n,m,delta} -> 0.",
             "The artifact now also carries a machine-readable honesty gate so prelimit transport packaging cannot be mistaken for the missing emitted collar schedule.",
             "It does not by itself prove the BW automorphism law.",
         ],

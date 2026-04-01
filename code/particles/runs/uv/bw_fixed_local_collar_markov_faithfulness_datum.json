@@ -9,7 +9,7 @@
     "for_fixed_models": "every fixed local collar model (m, delta)",
     "must_emit": [
       "epsilon_{n,m,delta} = I(A_{m,delta}:D_{m,delta}|B_{m,delta})_{omega_{n->m}} -> 0",
-      "exists lambda_bar_{m,delta} > 0 with lambda_{*,n,m,delta} >= lambda_bar_{m,delta} eventually"
+      "exists lambda_bar_{m,delta} > 0 and N_{m,delta} such that for all n >= N_{m,delta} and every X in Xi^{mod}_{m,delta}, rho_{n->m,X} >= lambda_bar_{m,delta} * 1"
     ],
     "must_not_assume": [
       "a pre-existing scaling-limit cap pair",
@@ -32,12 +32,12 @@
       "formula": "4 * lambda_{*,n,m,delta}^{-1} * delta^M_{m,delta}(epsilon_{n,m,delta}) -> 0",
       "id": "fixed_local_collar_faithful_modular_defect_vanishing"
     },
-    "faithfulness_component": "exists lambda_bar_{m,delta} > 0 with lambda_{*,n,m,delta} >= lambda_bar_{m,delta} eventually",
+    "faithfulness_component": "exists lambda_bar_{m,delta} > 0 and N_{m,delta} such that for all n >= N_{m,delta} and every X in Xi^{mod}_{m,delta}, rho_{n->m,X} >= lambda_bar_{m,delta} * 1",
     "markov_component": "epsilon_{n,m,delta} = I(A_{m,delta}:D_{m,delta}|B_{m,delta})_{omega_{n->m}} -> 0"
   },
   "exact_missing_object": "fixed_local_collar_markov_faithfulness_datum",
   "faithfulness_side_status": "open",
-  "generated_utc": "2026-04-01T08:06:52Z",
+  "generated_utc": "2026-04-01T16:13:04Z",
   "honesty_gate": {
     "closure_artifact": "code/particles/runs/uv/bw_carried_collar_schedule_scaffold.json",
     "derived_witness_chain": [
@@ -71,7 +71,7 @@
     "promotion_rule": "No theorem promotion is honest until the carried-collar schedule itself is emitted on every fixed local collar model.",
     "required_raw_inputs": [
       "epsilon_{n,m,delta} = I(A_{m,delta}:D_{m,delta}|B_{m,delta})_{omega_{n->m}} -> 0",
-      "exists lambda_bar_{m,delta} > 0 with lambda_{*,n,m,delta} >= lambda_bar_{m,delta} eventually"
+      "exists lambda_bar_{m,delta} > 0 and N_{m,delta} such that for all n >= N_{m,delta} and every X in Xi^{mod}_{m,delta}, rho_{n->m,X} >= lambda_bar_{m,delta} * 1"
     ],
     "status": "open"
   },
@@ -100,7 +100,7 @@
       ]
     },
     {
-      "formula": "exists lambda_bar_{m,delta} > 0 with lambda_{*,n,m,delta} >= lambda_bar_{m,delta} eventually",
+      "formula": "exists lambda_bar_{m,delta} > 0 and N_{m,delta} such that for all n >= N_{m,delta} and every X in Xi^{mod}_{m,delta}, rho_{n->m,X} >= lambda_bar_{m,delta} * 1",
       "id": "collarwise_faithfulness_input",
       "kind": "raw_input",
       "status": "open_until_emitted_on_every_fixed_model",
@@ -156,7 +156,7 @@
   "public_promotion_allowed": false,
   "raw_components": {
     "collarwise_conditional_mutual_information": "epsilon_{n,m,delta} = I(A_{m,delta}:D_{m,delta}|B_{m,delta})_{omega_{n->m}}",
-    "eventual_positive_lower_spectral_bound": "exists lambda_bar_{m,delta} > 0 with lambda_{*,n,m,delta} >= lambda_bar_{m,delta} eventually"
+    "eventual_positive_lower_spectral_bound": "exists lambda_bar_{m,delta} > 0 and N_{m,delta} such that for all n >= N_{m,delta} and every X in Xi^{mod}_{m,delta}, rho_{n->m,X} >= lambda_bar_{m,delta} * 1"
   },
   "role": "Package the smaller fixed-local-collar datum whose emission implies the carried-collar vanishing schedule needed for scaling-limit cap-pair extraction.",
   "schedule_term_frontier": {
@@ -184,13 +184,22 @@
     "status_on_fill": "carried_collar_schedule_closed",
     "why_this_sharpens_the_frontier": "The carried-collar schedule is no longer treated as an independent primitive solver target; the actual emitted frontier is the two-term pair that generates it."
   },
-  "single_live_missing_clause_artifact": "code/particles/runs/uv/bw_fixed_local_collar_eventual_spectral_floor_scaffold.json",
+  "single_live_missing_clause_artifact": "code/particles/runs/uv/bw_fixed_local_collar_modular_transport_common_floor_scaffold.json",
+  "single_live_missing_clause_closure_lemma": {
+    "id": "exact_markov_reference_eventual_common_floor_transfer",
+    "requires_exact_markov_artifact": "code/particles/runs/uv/bw_fixed_local_collar_exact_markov_modulus_scaffold.json",
+    "requires_spectral_floor_artifact": "code/particles/runs/uv/bw_fixed_local_collar_modular_transport_common_floor_scaffold.json",
+    "statement": "On one fixed local collar model, if the modular-transport marginals satisfy rho_{n->m,X} >= lambda_bar_{m,delta} * 1 eventually for every X in Xi^{mod}_{m,delta} and the exact-Markov replacements satisfy ||rho_X - sigma_{n,m,delta,X}||_1 <= delta^M_{m,delta}(epsilon_{n,m,delta}) -> 0, then for all sufficiently large n the comparison marginals also satisfy sigma_{n,m,delta,X} >= (lambda_bar_{m,delta} / 2) * 1.",
+    "status_on_fill": "exact_markov_reference_common_floor_closed",
+    "why_this_is_enough": "No separate spectral-floor hypothesis on the exact-Markov comparison family is needed before applying the modular-transport estimate."
+  },
   "status": "minimal_raw_datum_extension",
   "why_this_is_the_sharpest_lower_object": [
     "The carried-collar witness is still one level too coarse for the live frontier because it bundles two distinct collarwise controls into one schedule.",
     "This datum separates those two raw inputs: collarwise Markovness and eventual collarwise faithfulness.",
     "Within the Markov side, the constructive recovery witness and the exact-Markov comparison modulus are now exposed as separate lower local scaffolds and become latent once epsilon_{n,m,delta} -> 0.",
-    "The single nonlatent lower clause on the live branch is the eventual collarwise spectral floor feeding the faithful modular-defect term.",
+    "The single nonlatent lower clause on the live branch is the eventual modular-transport common floor feeding the faithful modular-defect term.",
+    "No additional comparison-state faithfulness input is hiding below that clause: once the spectral floor and exact-Markov modulus are paired on one fixed collar model, the exact-Markov comparison marginals inherit the same floor up to a factor of 1/2 at late stages.",
     "Once that faithfulness-side clause is supplied, the remaining UV blocker rises back through the faithful modular-defect witness to the derived carried-collar schedule and then immediately to cap-pair extraction."
   ]
 }

@@ -43,8 +43,8 @@ L'OPH est un programme de reconstruction. Espace-temps, structure de jauge, part
 | Porteurs structurels | `m_photon = m_gluon = m_graviton = 0` | exactitude structurelle de rang théorème |
 | Sidecar électrofaible | `W = 80.377 GeV`, `Z = 91.18797809193725 GeV` | surface de réparation gelée exacte |
 | Sidecar Higgs | `H = 125.1995304097179 GeV` | tranche inverse compare-only exacte |
-| Témoin chargé | `(e, mu, tau) = (0.00051099895, 0.1056583755, 1.7769324651340912) GeV` | témoin exact de même famille |
-| Témoin quark | `(u, d, s, c, b, t) = (0.00216, 0.00470, 0.0935, 1.273, 4.183, 172.3523553288311) GeV` | témoin exact de même famille |
+| Témoin chargé | `(e, mu, tau) = (0.00051099895, 0.1056583755, 1.7769324651340912) GeV` | témoin exact sur une chaîne de lecture quadratique fermée à trois points |
+| Témoin quark | `(u, d, s, c, b, t) = (0.00216, 0.00470, 0.0935, 1.273, 4.183, 172.3523553288311) GeV` | témoin exact sur une chaîne de lecture quadratique fermée à trois points |
 | Adaptateur neutrino | `(m1, m2, m3) = (0.01745663295, 0.01948419960, 0.05308139066) eV` avec `Δm21²`, `Δm31²`, `Δm32²` exacts | adaptateur exact compare-only |
 
 **Pile de dérivation des particules**
@@ -68,7 +68,7 @@ L'OPH est un programme de reconstruction. Espace-temps, structure de jauge, part
 
 ### Résumé bref des écarts restants
 
-Les écarts restants sont étroits et explicites : les leptons chargés attendent `C_hat_e^{cand}` et `mu_phys(Y_e)`, les quarks attendent `intrinsic_scale_law_D12` sur le rayon de masse D12 sélectionné, les neutrinos attendent `C_nu`, et les hadrons attendent le bundle backend de production et les systématiques complètes.
+Les écarts restants sont étroits et explicites : les leptons chargés attendent `C_hat_e^{cand}` et `mu_phys(Y_e)`, les quarks attendent la loi scalaire `quark_d12_t1_value_law` sur le rayon de masse D12 sélectionné, avec `intrinsic_scale_law_D12` comme enveloppe dérivée, les neutrinos attendent `C_nu`, et les hadrons attendent le bundle backend de production et les systématiques complètes.
 
 ## Articles
 

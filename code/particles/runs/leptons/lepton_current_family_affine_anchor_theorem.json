@@ -1,0 +1,52 @@
+{
+  "artifact": "oph_lepton_current_family_affine_anchor_theorem",
+  "centered_log_shape_exact": [
+    -4.495210108808081,
+    0.8363886515979087,
+    3.6588214572101716
+  ],
+  "current_family_affine_anchor": {
+    "formula": "(1/3) * log(det(Y_e_current_family)) = mean(log(m_e), log(m_mu), log(m_tau))",
+    "name": "A_ch_current_family",
+    "value": -3.083932913749122
+  },
+  "current_family_determinant": {
+    "formula": "det(Y_e_current_family) = m_e * m_mu * m_tau",
+    "value": 9.593892745848369e-05
+  },
+  "current_family_geometric_mean": {
+    "formula": "exp(A_ch_current_family)",
+    "name": "g_e_current_family",
+    "value": 0.0457788578356876
+  },
+  "do_not_claim_now": [
+    "theorem-grade A_ch on the live charged theorem lane",
+    "theorem-grade mu_phys(Y_e) on the live charged theorem lane"
+  ],
+  "exact_fit_residuals_abs": [
+    0.0,
+    -2.7755575615628914e-17,
+    -6.661338147750939e-16
+  ],
+  "generated_utc": "2026-04-01T16:12:57Z",
+  "notes": [
+    "This closes the exact same-family affine coordinate on the target-anchored charged witness.",
+    "It does not promote the theorem-grade charged absolute lane, which remains behind C_hat_e^{cand} promotion and the descended scalar mu_phys(Y_e)."
+  ],
+  "predicted_singular_values_abs": [
+    0.0005109989499999994,
+    0.10565837550000004,
+    1.7769324651340912
+  ],
+  "proof_status": "closed_current_family_affine_anchor",
+  "public_promotion_allowed": false,
+  "reconstructed_from_affine_anchor": [
+    0.0005109989499999994,
+    0.10565837550000001,
+    1.7769324651340905
+  ],
+  "supporting_exact_readout_artifact": "oph_lepton_current_family_exact_readout",
+  "supporting_quadratic_readout_theorem": "oph_lepton_current_family_quadratic_readout_theorem",
+  "theorem_scope": "current_family_only",
+  "theorem_statement": "On the fixed exact same-family charged witness, the unique affine coordinate is A_ch^(cf) = (1/3) log det(Y_e^(cf)) = mean(log m_i). Equivalently g_e^(cf) = exp(A_ch^(cf)), and the exact charged triple is recovered by m_i = exp(A_ch^(cf) + ell_i^ctr) from the centered log shape."
+}

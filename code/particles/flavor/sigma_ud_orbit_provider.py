@@ -428,7 +428,7 @@ def build_sigma_ud_provider_frontier(path: Path = LOCAL_BASIS_ORBIT_JSON) -> dic
                 "selection_reason": uniqueness["selection_reason"],
                 "scope": uniqueness["scope"],
             },
-            "next_exact_object_after_orbit_closure": "intrinsic_scale_law_D12",
+            "next_exact_object_after_orbit_closure": "quark_d12_t1_value_law",
             "already_local_diagnostic_orbit_available": bool(diagnostic.get("available")),
             "already_local_diagnostic_orbit_artifact": diagnostic.get("artifact"),
             "transport_frame_diagnostic_orbit_available": bool(transport_frame.get("available")),

@@ -30,7 +30,7 @@
     "projectively_compatible_transported_cap_marginal_family",
     "asymptotic_transport_equivalence_certificate"
   ],
-  "generated_utc": "2026-04-01T08:06:52Z",
+  "generated_utc": "2026-04-01T16:13:04Z",
   "next_exact_object": {
     "id": "canonical_scaling_cap_pair_realization_from_transported_cap_marginals",
     "remaining_witness": "vanishing_carried_collar_schedule_on_fixed_local_collars"
@@ -129,7 +129,7 @@
     "promotion_rule": "No theorem promotion is honest until the carried-collar schedule itself is emitted on every fixed local collar model.",
     "required_raw_inputs": [
       "epsilon_{n,m,delta} = I(A_{m,delta}:D_{m,delta}|B_{m,delta})_{omega_{n->m}} -> 0",
-      "exists lambda_bar_{m,delta} > 0 with lambda_{*,n,m,delta} >= lambda_bar_{m,delta} eventually"
+      "exists lambda_bar_{m,delta} > 0 and N_{m,delta} such that for all n >= N_{m,delta} and every X in Xi^{mod}_{m,delta}, rho_{n->m,X} >= lambda_bar_{m,delta} * 1"
     ],
     "status": "open"
   },
@@ -145,7 +145,7 @@
       ]
     },
     {
-      "formula": "exists lambda_bar_{m,delta} > 0 with lambda_{*,n,m,delta} >= lambda_bar_{m,delta} eventually",
+      "formula": "exists lambda_bar_{m,delta} > 0 and N_{m,delta} such that for all n >= N_{m,delta} and every X in Xi^{mod}_{m,delta}, rho_{n->m,X} >= lambda_bar_{m,delta} * 1",
       "id": "collarwise_faithfulness_input",
       "kind": "raw_input",
       "status": "open_until_emitted_on_every_fixed_model",
@@ -238,7 +238,7 @@
     "artifact": "code/particles/runs/uv/bw_fixed_local_collar_markov_faithfulness_datum.json",
     "components": [
       "epsilon_{n,m,delta} = I(A_{m,delta}:D_{m,delta}|B_{m,delta})_{omega_{n->m}} -> 0",
-      "exists lambda_bar_{m,delta} > 0 with lambda_{*,n,m,delta} >= lambda_bar_{m,delta} eventually"
+      "exists lambda_bar_{m,delta} > 0 and N_{m,delta} such that for all n >= N_{m,delta} and every X in Xi^{mod}_{m,delta}, rho_{n->m,X} >= lambda_bar_{m,delta} * 1"
     ],
     "id": "fixed_local_collar_markov_faithfulness_datum",
     "role": "raw fixed-local-collar datum that implies the eta schedule once emitted"

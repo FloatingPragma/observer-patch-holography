@@ -31,14 +31,19 @@ def test_bw_internalization_scaffold_contract() -> None:
     boundary = payload["public_status_boundary"]
     assert boundary["remaining_object"] == "canonical_scaling_cap_pair_realization_from_transported_cap_marginals"
     assert boundary["follow_on_object"] == "independent_bw_rigidity_on_realized_limit"
-    assert boundary["dominant_pressure_point"] == "eventual_fixed_local_collar_spectral_floor_for_transported_marginals"
+    assert boundary["dominant_pressure_point"] == "eventual_fixed_local_collar_common_floor_on_modular_transport_marginals"
     assert boundary["candidate_extension_status"] == "constructive_prelimit_system_two_lower_emitted_witnesses_still_missing"
     assert (
         boundary["remaining_missing_emitted_witness_artifact"]
         == "code/particles/runs/uv/bw_carried_collar_schedule_scaffold.json"
     )
     assert boundary["single_live_missing_clause_artifact"] == (
-        "code/particles/runs/uv/bw_fixed_local_collar_eventual_spectral_floor_scaffold.json"
+        "code/particles/runs/uv/bw_fixed_local_collar_modular_transport_common_floor_scaffold.json"
+    )
+    closure_lemma = boundary["single_live_missing_clause_closure_lemma"]
+    assert closure_lemma["id"] == "exact_markov_reference_eventual_common_floor_transfer"
+    assert closure_lemma["requires_exact_markov_artifact"] == (
+        "code/particles/runs/uv/bw_fixed_local_collar_exact_markov_modulus_scaffold.json"
     )
     assert boundary["markov_side_status"] == "latent_from_epsilon_to_zero"
     assert boundary["faithfulness_side_status"] == "open"
@@ -65,14 +70,14 @@ def test_bw_internalization_scaffold_contract() -> None:
     assert "code/particles/uv/derive_bw_fixed_local_collar_exact_markov_modulus_scaffold.py" in boundary[
         "canonical_code_scaffolds"
     ]
-    assert "code/particles/uv/derive_bw_fixed_local_collar_eventual_spectral_floor_scaffold.py" in boundary[
+    assert "code/particles/uv/derive_bw_fixed_local_collar_modular_transport_common_floor_scaffold.py" in boundary[
         "canonical_code_scaffolds"
     ]
     assert "code/particles/uv/derive_bw_carried_collar_schedule_scaffold.py" in boundary["canonical_code_scaffolds"]
     assert "code/particles/runs/uv/bw_fixed_local_collar_constructive_recovery_scaffold.json" in boundary[
         "canonical_artifacts"
     ]
-    assert "code/particles/runs/uv/bw_fixed_local_collar_eventual_spectral_floor_scaffold.json" in boundary[
+    assert "code/particles/runs/uv/bw_fixed_local_collar_modular_transport_common_floor_scaffold.json" in boundary[
         "canonical_artifacts"
     ]
     assert "code/particles/runs/uv/bw_carried_collar_schedule_scaffold.json" in boundary["canonical_artifacts"]

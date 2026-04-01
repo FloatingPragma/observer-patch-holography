@@ -28,7 +28,7 @@ def test_sigma_ud_orbit_closes_to_reference_singleton_by_uniqueness_theorem() ->
     assert payload["provider_frontier"]["already_local_diagnostic_orbit_available"] is True
     assert payload["provider_frontier"]["transport_frame_diagnostic_orbit_available"] is True
     assert payload["provider_frontier"]["smallest_missing_runtime_object"] is None
-    assert payload["next_exact_object_after_orbit_closure"] == "intrinsic_scale_law_D12"
+    assert payload["next_exact_object_after_orbit_closure"] == "quark_d12_t1_value_law"
     assert len(payload["elements"]) == 1
     element = payload["elements"][0]
     assert element["sigma_id"] == "sigma_ref"

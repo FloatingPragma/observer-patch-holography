@@ -140,10 +140,13 @@ def build_artifact(repair: dict[str, Any], orbit: dict[str, Any]) -> dict[str, A
         "debug_best_candidate": debug_ranked[0] if debug_ranked else None,
         "debug_best_candidate_promotable": False,
         "next_after_selection": {
-            "id": "intrinsic_scale_law_D12",
-            "must_emit": "intrinsic_scale_law_D12",
+            "id": "quark_d12_t1_value_law",
+            "must_emit": "quark_d12_t1_value_law",
+            "scalar_name": "t1",
+            "identifies": "ray_modulus = t1",
             "unique_intersection_with": "D12_ud_mass_ray",
-            "then_emits": ["ray_modulus", "Delta_ud_overlap", "eta_Q_centered"],
+            "then_emits": ["t1", "ray_modulus", "Delta_ud_overlap", "eta_Q_centered"],
+            "derived_wrapper": "intrinsic_scale_law_D12",
             "must_not_use_target_masses": True,
             "must_not_use_ckm_cp": True,
         },
@@ -164,7 +167,7 @@ def build_artifact(repair: dict[str, Any], orbit: dict[str, Any]) -> dict[str, A
                 else "A singleton reference-sheet orbit element is still not enough unless the solver also emits an intrinsic uniqueness witness."
             ),
             (
-                "The next exact theorem-side quark object is therefore intrinsic_scale_law_D12 on the emitted D12_ud_mass_ray."
+                "The next exact theorem-side quark object is therefore quark_d12_t1_value_law on the emitted D12_ud_mass_ray, with intrinsic_scale_law_D12 retained only as the derived wrapper."
                 if sigma_value is not None
                 else "Once a theorem-grade orbit witness exists, rerunning this script will emit sigma_ud directly."
             ),

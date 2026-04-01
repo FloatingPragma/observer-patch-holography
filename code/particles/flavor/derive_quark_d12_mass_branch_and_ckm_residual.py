@@ -329,13 +329,13 @@ def main() -> int:
         },
         "remaining_open_objects": (
             [
-                "intrinsic_scale_law_D12",
+                "quark_d12_t1_value_law",
                 "quark_exact_mean_split_value_law_or_carrier_repair",
             ]
             if selector_value is not None
             else [
                 "quark_relative_sheet_selector",
-                "intrinsic_scale_law_D12",
+                "quark_d12_t1_value_law",
                 "quark_exact_mean_split_value_law_or_carrier_repair",
             ]
         ),
@@ -349,7 +349,7 @@ def main() -> int:
             "But the current D12 sheet is not the physical quark branch: the selector is already fixed to sigma_ref on the emitted same-label left-handed solver surface, while the current theorem-grade rigidity result is only same-sheet rephasing rigidity and does not prove CKM rigidity under ray_modulus motion on D12_ud_mass_ray. The emitted angles on this sheet still undershoot the comparison shell substantially.",
             "The only finite local scan on disk is a same-sheet Delta_ud_overlap scan against reference targets; it is comparison-only and cannot be repurposed as a Sigma_ud orbit scan.",
             (
-                "The solver-side same-label left-handed orbit now closes to the singleton sigma_ref, so the exact next object is the intrinsic scale law on D12_ud_mass_ray; that selected branch still inherits the current CKM-shell no-go."
+                "The solver-side same-label left-handed orbit now closes to the singleton sigma_ref, so the exact next object is the one-scalar value law quark_d12_t1_value_law on D12_ud_mass_ray; the larger intrinsic_scale_law_D12 wrapper is derived from that scalar, and the selected branch still inherits the current CKM-shell no-go."
                 if selector_value is not None
                 else "The exact next object is therefore one discrete quark_relative_sheet_selector; mass-side scale fixing on the selected branch remains a separate issue after that branch shift."
             ),

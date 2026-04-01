@@ -68,7 +68,7 @@ OPH is a reconstruction program for fundamental physics. Spacetime, gauge struct
 
 ### Brief gap summary
 
-The remaining particle gaps are narrow and explicit: charged leptons wait on `C_hat_e^{cand}` and `mu_phys(Y_e)`, quarks wait on `intrinsic_scale_law_D12` on the selected D12 mass ray, neutrinos wait on `C_nu`, and hadrons wait on the production backend bundle plus full production systematics.
+The remaining particle gaps are narrow and explicit: charged leptons wait on `C_hat_e^{cand}` and `mu_phys(Y_e)`, quarks wait on the one-scalar law `quark_d12_t1_value_law` on the selected D12 mass ray with `intrinsic_scale_law_D12` as the derived wrapper, neutrinos wait on `C_nu`, and hadrons wait on the production backend bundle plus full production systematics.
 
 ## Papers
 

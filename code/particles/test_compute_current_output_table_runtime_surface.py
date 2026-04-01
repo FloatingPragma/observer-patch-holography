@@ -29,10 +29,12 @@ def test_runtime_surface_preserves_repaired_neutrino_rows_and_canonical_refs(tmp
 
     payload = json.loads((current_dir / "results_status.json").read_text(encoding="utf-8"))
     exact_nonhadron = json.loads((current_dir / "exact_nonhadron_masses.json").read_text(encoding="utf-8"))
+    exact_fit_surface = json.loads((current_dir / "exact_fits_only.json").read_text(encoding="utf-8"))
     active = payload["surface_state"]["active_local_public_candidates"]
     uv = payload["premise_boundaries"]["uv_bw_internalization"]
     markdown = (current_dir / "RESULTS_STATUS.md").read_text(encoding="utf-8")
     exact_entries = {entry["particle_id"]: entry for entry in exact_nonhadron["entries"]}
+    exact_fit_entries = {entry["id"]: entry for entry in exact_fit_surface["entries"]}
 
     assert active["neutrino_repaired_branch"] is True
     assert payload["comparison_rows"]
@@ -49,5 +51,20 @@ def test_runtime_surface_preserves_repaired_neutrino_rows_and_canonical_refs(tmp
     )
     assert "## Neutrino Oscillation Comparison" in markdown
     assert exact_nonhadron["status"] == "exact_output_lane_closed_nonhadron_only"
+    assert exact_fit_surface["artifact"] == "oph_exact_fits_only_surface"
     assert exact_entries["top_quark"]["mass_gev"] == pytest.approx(172.3523553288312, abs=1.0e-12)
     assert exact_entries["bottom_quark"]["mass_gev"] == pytest.approx(4.182999999999994, abs=1.0e-15)
+    assert (
+        exact_entries["bottom_quark"]["supporting_scope_closure_artifact"]
+        == "code/particles/runs/flavor/quark_current_family_selected_sheet_closure.json"
+    )
+    assert (
+        exact_entries["electron"]["supporting_scope_closure_artifact"]
+        == "code/particles/runs/leptons/lepton_current_family_affine_anchor_theorem.json"
+    )
+    assert exact_fit_entries["charged_current_family_exact_witness"]["supporting_scope_closure_artifact"] == (
+        "code/particles/runs/leptons/lepton_current_family_affine_anchor_theorem.json"
+    )
+    assert exact_fit_entries["quark_current_family_exact_witness"]["supporting_scope_closure_artifact"] == (
+        "code/particles/runs/flavor/quark_current_family_selected_sheet_closure.json"
+    )

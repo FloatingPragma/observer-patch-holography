@@ -18,7 +18,7 @@
   "derived_missing_witness": "vanishing_carried_collar_schedule_on_fixed_local_collars",
   "derived_missing_witness_artifact": "code/particles/runs/uv/bw_carried_collar_schedule_scaffold.json",
   "exact_missing_object": "vanishing_carried_collar_schedule_on_fixed_local_collars",
-  "generated_utc": "2026-04-01T04:53:52Z",
+  "generated_utc": "2026-04-01T16:10:37Z",
   "honesty_gate": {
     "closure_artifact": "code/particles/runs/uv/bw_carried_collar_schedule_scaffold.json",
     "derived_witness_chain": [
@@ -47,7 +47,7 @@
     "promotion_rule": "No theorem promotion is honest until the carried-collar schedule itself is emitted on every fixed local collar model.",
     "required_raw_inputs": [
       "epsilon_{n,m,delta} = I(A_{m,delta}:D_{m,delta}|B_{m,delta})_{omega_{n->m}} -> 0",
-      "exists lambda_bar_{m,delta} > 0 with lambda_{*,n,m,delta} >= lambda_bar_{m,delta} eventually"
+      "exists lambda_bar_{m,delta} > 0 and N_{m,delta} such that for all n >= N_{m,delta} and every X in Xi^{mod}_{m,delta}, rho_{n->m,X} >= lambda_bar_{m,delta} * 1"
     ],
     "status": "open"
   },
@@ -56,7 +56,7 @@
     "This scaffold does not claim the schedule is already emitted on the live corpus.",
     "It records the exact witness contract consumed by scaling-limit cap-pair extraction so solver work no longer jumps directly from the raw datum to the extraction theorem.",
     "The carried-collar witness is theorem-generated from the two term witnesses recorded here, so it should no longer be treated as an independent primitive solver target.",
-    "On the current branch, the only nonlatent lower side condition still outside the emitted chain is the eventual fixed-local-collar spectral floor recorded by the linked faithfulness-side artifact.",
+    "On the current branch, the only nonlatent lower side condition still outside the emitted chain is the eventual fixed-local-collar modular-transport common floor recorded by the linked faithfulness-side artifact.",
     "The honesty gate records exactly which lower witnesses are still insufficient on their own, preventing premature promotion from one-sided local control."
   ],
   "obligation_ledger": [
@@ -71,7 +71,7 @@
       ]
     },
     {
-      "formula": "exists lambda_bar_{m,delta} > 0 with lambda_{*,n,m,delta} >= lambda_bar_{m,delta} eventually",
+      "formula": "exists lambda_bar_{m,delta} > 0 and N_{m,delta} such that for all n >= N_{m,delta} and every X in Xi^{mod}_{m,delta}, rho_{n->m,X} >= lambda_bar_{m,delta} * 1",
       "id": "collarwise_faithfulness_input",
       "kind": "raw_input",
       "status": "open_until_emitted_on_every_fixed_model",
@@ -145,7 +145,7 @@
     "reduction_theorem": "For each fixed local collar model, the eta_{n,m,delta} vanishing schedule follows once the collarwise conditional mutual information vanishes and the faithful lower spectral bound is eventually uniform.",
     "required_raw_components": [
       "epsilon_{n,m,delta} = I(A_{m,delta}:D_{m,delta}|B_{m,delta})_{omega_{n->m}} -> 0",
-      "exists lambda_bar_{m,delta} > 0 with lambda_{*,n,m,delta} >= lambda_bar_{m,delta} eventually"
+      "exists lambda_bar_{m,delta} > 0 and N_{m,delta} such that for all n >= N_{m,delta} and every X in Xi^{mod}_{m,delta}, rho_{n->m,X} >= lambda_bar_{m,delta} * 1"
     ],
     "status_on_fill": "carried_collar_schedule_closed"
   },
@@ -172,7 +172,7 @@
       "role": "faithfulness_weighted_modular_term"
     }
   ],
-  "single_live_missing_clause_artifact": "code/particles/runs/uv/bw_fixed_local_collar_eventual_spectral_floor_scaffold.json",
+  "single_live_missing_clause_artifact": "code/particles/runs/uv/bw_fixed_local_collar_modular_transport_common_floor_scaffold.json",
   "smaller_raw_datum": "fixed_local_collar_markov_faithfulness_datum",
   "smaller_raw_datum_artifact": "code/particles/runs/uv/bw_fixed_local_collar_markov_faithfulness_datum.json",
   "status": "minimal_emitted_witness_extension",
@@ -206,7 +206,7 @@
     "This witness is the exact emitted schedule the extraction theorem consumes; it is smaller than cap-pair extraction but larger than the raw collarwise datum.",
     "The fixed-local-collar Markov/faithfulness datum remains the sharpest lower object because it isolates the two raw controls before they are assembled into one vanishing schedule.",
     "The exact-Markov comparison witness and faithful modular-defect term now expose the two lower local substeps inside that reduction.",
-    "The only nonlatent lower input beneath this derived schedule is the eventual collarwise spectral floor feeding the faithful modular-defect side; the recovery/Markov side is already latent once epsilon_{n,m,delta} -> 0.",
+    "The only nonlatent lower input beneath this derived schedule is the eventual modular-transport common floor feeding the faithful modular-defect side; the recovery/Markov side is already latent once epsilon_{n,m,delta} -> 0.",
     "Once this schedule is emitted, the first UV exact object left is cap-pair extraction itself."
   ]
 }

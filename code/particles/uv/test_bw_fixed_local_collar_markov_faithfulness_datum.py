@@ -30,7 +30,15 @@ def test_bw_fixed_local_collar_markov_faithfulness_datum() -> None:
     assert must_emit[0].startswith("epsilon_{n,m,delta} = I(")
     assert "lambda_bar_{m,delta}" in must_emit[1]
     assert payload["single_live_missing_clause_artifact"].endswith(
-        "bw_fixed_local_collar_eventual_spectral_floor_scaffold.json"
+        "bw_fixed_local_collar_modular_transport_common_floor_scaffold.json"
+    )
+    closure_lemma = payload["single_live_missing_clause_closure_lemma"]
+    assert closure_lemma["id"] == "exact_markov_reference_eventual_common_floor_transfer"
+    assert closure_lemma["requires_exact_markov_artifact"].endswith(
+        "bw_fixed_local_collar_exact_markov_modulus_scaffold.json"
+    )
+    assert closure_lemma["requires_spectral_floor_artifact"].endswith(
+        "bw_fixed_local_collar_modular_transport_common_floor_scaffold.json"
     )
     assert payload["markov_side_status"] == "latent_from_epsilon_to_zero"
     assert payload["faithfulness_side_status"] == "open"

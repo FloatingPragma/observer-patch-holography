@@ -357,7 +357,7 @@ def main() -> int:
         "recovered_core_no_go_basis": "March 28, 2026 final-wave consolidation against the OPH tier ledger in the uploaded corpus",
         "active_builder_smallest_missing_object": "source_readback_u_log_per_side_and_source_readback_d_log_per_side",
         "broader_honest_frontier": (
-            "intrinsic_scale_law_D12"
+            "quark_d12_t1_value_law"
             if physical_branch_repair is not None
             and ((physical_branch_repair.get("minimal_branch_shift_repair_theorem") or {}).get("selected_value") is not None)
             else "quark_relative_sheet_selector"
@@ -390,7 +390,7 @@ def main() -> int:
             "That means the family shell and pure-B source-readback law are already known; on the active builder path the missing predictive step is the emitted pure-B payload pair, not another larger quark family.",
             "The March 28, 2026 final-wave consolidation also establishes a tier boundary: a nonzero light-quark pure-B selector is not available at recovered-core tier in the uploaded corpus.",
             (
-                "The broader honest repair frontier has therefore moved past the discrete selector: on the emitted local solver surface sigma_ud closes to sigma_ref, and the next exact D12 object is the intrinsic scale law on the selected mass ray, even though the active local builder still waits first on the pure-B payload pair."
+                "The broader repair frontier has therefore moved past the discrete selector: on the emitted local solver surface sigma_ud closes to sigma_ref, and the next exact D12 object is the one-scalar value law quark_d12_t1_value_law on the selected mass ray, with intrinsic_scale_law_D12 retained only as the derived wrapper, even though the active local builder still waits first on the pure-B payload pair."
                 if physical_branch_repair is not None
                 and ((physical_branch_repair.get("minimal_branch_shift_repair_theorem") or {}).get("selected_value") is not None)
                 else "The broader honest repair frontier is therefore a D12 light-quark isospin-breaking selector / overlap-defect scalar, even though the active local builder still waits first on the pure-B payload pair."
@@ -412,7 +412,7 @@ def main() -> int:
                 else "No D12 quark mass-branch followup is attached to this audit."
             ),
             (
-                "The current D12 sheet is now known to be a strict no-go for the physical CKM shell: the emitted local same-label left-handed orbit closes to sigma_ref, but that selected singleton is just the current D12 reference sheet, so the exact next object is the intrinsic D12 scale law rather than another branch selector."
+                "The current D12 sheet is now known to be a strict no-go for the physical CKM shell: the emitted local same-label left-handed orbit closes to sigma_ref, but that selected singleton is just the current D12 reference sheet, so the exact next object is quark_d12_t1_value_law rather than another branch selector."
                 if physical_branch_repair is not None
                 and ((physical_branch_repair.get("minimal_branch_shift_repair_theorem") or {}).get("selected_value") is not None)
                 else (
@@ -437,12 +437,12 @@ def main() -> int:
                 else "No one-scalar D12 same-family specialization is attached to this audit."
             ),
             (
-                "The same-family D12 mass ray is now an explicit emitted object on disk: D12_ud_mass_ray = { ray_modulus * (1/5, -((1 - x2^2) / 27)) }, and the remaining exact scalar burden is the intrinsic scale law on that emitted ray."
+                "The same-family D12 mass ray is now an explicit emitted object on disk: D12_ud_mass_ray = { ray_modulus * (1/5, -((1 - x2^2) / 27)) }, and the remaining primitive exact scalar burden is quark_d12_t1_value_law, with intrinsic_scale_law_D12 retained as the derived wrapper."
                 if d12_mass_ray is not None
                 else "No explicit emitted D12 mass-ray object is attached to this audit yet."
             ),
             (
-                "The mass-side theorem boundary remains sharp too: with D12_ud_mass_ray emitted, the next exact missing object is intrinsic_scale_law_D12 rather than another larger mass-side carrier."
+                "The mass-side theorem boundary remains sharp too: with D12_ud_mass_ray emitted, the next exact missing object is quark_d12_t1_value_law rather than another larger mass-side carrier."
                 if mass_side_underdetermination is not None
                 else "No explicit D12 mass-side underdetermination theorem is attached to this audit yet."
             ),

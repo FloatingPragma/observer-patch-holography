@@ -18,16 +18,20 @@
     "repair_theorem_artifact": "quark_physical_branch_repair_theorem.json",
     "solver_artifact": "quark_sigma_ud_orbit.json"
   },
-  "generated_utc": "2026-04-01T04:33:58Z",
+  "generated_utc": "2026-04-01T16:12:52Z",
   "id": "quark_relative_sheet_selector",
   "must_not_use_compare_fit_masses": true,
   "must_not_use_same_sheet_rephasing": true,
   "next_after_selection": {
-    "id": "intrinsic_scale_law_D12",
-    "must_emit": "intrinsic_scale_law_D12",
+    "derived_wrapper": "intrinsic_scale_law_D12",
+    "id": "quark_d12_t1_value_law",
+    "identifies": "ray_modulus = t1",
+    "must_emit": "quark_d12_t1_value_law",
     "must_not_use_ckm_cp": true,
     "must_not_use_target_masses": true,
+    "scalar_name": "t1",
     "then_emits": [
+      "t1",
       "ray_modulus",
       "Delta_ud_overlap",
       "eta_Q_centered"
@@ -38,7 +42,7 @@
     "The local same-label left-handed selector is now theorem-emitted on the current solver surface and its unique value is sigma_ref.",
     "This script refuses to convert compare-only CKM-shell ranking into a theorem-grade selection.",
     "That emitted value is a negative closure: sigma_ref is the current D12 reference sheet, so the physical CKM-shell no-go survives unchanged on the selected branch.",
-    "The next exact theorem-side quark object is therefore intrinsic_scale_law_D12 on the emitted D12_ud_mass_ray."
+    "The next exact theorem-side quark object is therefore quark_d12_t1_value_law on the emitted D12_ud_mass_ray, with intrinsic_scale_law_D12 retained only as the derived wrapper."
   ],
   "quark_relative_sheet_selector": {
     "carrier": "Sigma_ud",

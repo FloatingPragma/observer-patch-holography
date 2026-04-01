@@ -58,6 +58,8 @@ def build_artifact(shape_payload: dict, references: dict) -> dict:
         "generated_utc": _timestamp(),
         "proof_status": "current_family_exact_witness",
         "theorem_scope": "current_family_only",
+        "readout_chain_status": "closed_within_current_family_scope",
+        "supporting_readout_theorem": "oph_lepton_current_family_quadratic_readout_theorem",
         "source_artifact": shape_payload.get("artifact"),
         "current_family_eigenvalues": eigenvalues.tolist(),
         "centered_eigenvalues": centered.tolist(),
@@ -72,9 +74,9 @@ def build_artifact(shape_payload: dict, references: dict) -> dict:
         "predicted_singular_values_abs": predicted,
         "reference_targets": target,
         "exact_fit_residuals_abs": [predicted[idx] - target[idx] for idx in range(3)],
-        "smallest_constructive_missing_object": "charged_quadratic_shape_readout_theorem",
+        "smallest_constructive_missing_object": None,
         "notes": [
-            "Current-family exact witness on the same ordered charged eigenvalue triple.",
+            "Current-family exact witness on the same ordered charged eigenvalue triple with a closed quadratic readout theorem.",
             "This promotes the smallest quadratic readout on the current family instead of relying on the old softmax consumer.",
         ],
     }

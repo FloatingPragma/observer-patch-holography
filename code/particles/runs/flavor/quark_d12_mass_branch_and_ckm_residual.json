@@ -131,13 +131,13 @@
       ]
     }
   },
-  "generated_utc": "2026-04-01T08:06:32Z",
+  "generated_utc": "2026-04-01T16:12:54Z",
   "notes": [
     "This artifact records the strongest current D12 continuation sample point for the light-quark split without overriding the recovered-core no-go.",
     "On the D12 continuation branch the CKM/CP lane closes honestly once the forward Yukawa step is reached, because the same-label transport unitary is already V_CKM^fwd = U_u^dagger U_d.",
     "But the current D12 sheet is not the physical quark branch: the selector is already fixed to sigma_ref on the emitted same-label left-handed solver surface, while the current theorem-grade rigidity result is only same-sheet rephasing rigidity and does not prove CKM rigidity under ray_modulus motion on D12_ud_mass_ray. The emitted angles on this sheet still undershoot the comparison shell substantially.",
     "The only finite local scan on disk is a same-sheet Delta_ud_overlap scan against reference targets; it is comparison-only and cannot be repurposed as a Sigma_ud orbit scan.",
-    "The solver-side same-label left-handed orbit now closes to the singleton sigma_ref, so the exact next object is the intrinsic scale law on D12_ud_mass_ray; that selected branch still inherits the current CKM-shell no-go."
+    "The solver-side same-label left-handed orbit now closes to the singleton sigma_ref, so the exact next object is the one-scalar value law quark_d12_t1_value_law on D12_ud_mass_ray; the larger intrinsic_scale_law_D12 wrapper is derived from that scalar, and the selected branch still inherits the current CKM-shell no-go."
   ],
   "physical_branch_status": "current_d12_sheet_is_strict_no_go_for_physical_ckm_shell",
   "physical_ckm_comparison_shell": {
@@ -167,7 +167,7 @@
     "sigma_id": "sigma_ref"
   },
   "remaining_open_objects": [
-    "intrinsic_scale_law_D12",
+    "quark_d12_t1_value_law",
     "quark_exact_mean_split_value_law_or_carrier_repair"
   ],
   "same_label_transport_generator": {

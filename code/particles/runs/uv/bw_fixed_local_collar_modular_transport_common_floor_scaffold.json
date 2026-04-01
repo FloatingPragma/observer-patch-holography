@@ -1,0 +1,32 @@
+{
+  "artifact": "oph_bw_fixed_local_collar_modular_transport_common_floor_scaffold",
+  "comparison_reference_floor_transfer": {
+    "id": "exact_markov_reference_eventual_common_floor_transfer",
+    "requires_exact_markov_artifact": "code/particles/runs/uv/bw_fixed_local_collar_exact_markov_modulus_scaffold.json",
+    "requires_spectral_floor_artifact": "code/particles/runs/uv/bw_fixed_local_collar_modular_transport_common_floor_scaffold.json",
+    "statement": "On one fixed local collar model, if the modular-transport marginals satisfy rho_{n->m,X} >= lambda_bar_{m,delta} * 1 eventually for every X in Xi^{mod}_{m,delta} and the exact-Markov replacements satisfy ||rho_X - sigma_{n,m,delta,X}||_1 <= delta^M_{m,delta}(epsilon_{n,m,delta}) -> 0, then for all sufficiently large n the comparison marginals also satisfy sigma_{n,m,delta,X} >= (lambda_bar_{m,delta} / 2) * 1.",
+    "status_on_fill": "exact_markov_reference_common_floor_closed",
+    "why_this_is_enough": "No separate spectral-floor hypothesis on the exact-Markov comparison family is needed before applying the modular-transport estimate."
+  },
+  "contract": {
+    "for_fixed_models": "every fixed local collar model (m, delta)",
+    "must_emit": "exists lambda_bar_{m,delta} > 0 and N_{m,delta} such that for all n >= N_{m,delta} and every X in Xi^{mod}_{m,delta}, rho_{n->m,X} >= lambda_bar_{m,delta} * 1",
+    "relevant_family": "Xi^{mod}_{m,delta}"
+  },
+  "exact_missing_object": "eventual_fixed_local_collar_common_floor_on_modular_transport_marginals",
+  "generated_utc": "2026-04-01T16:10:36Z",
+  "meaning": "Along the realized refinement chain, the finitely many modular-transport marginals used by the faithful modular-defect estimate stay uniformly faithful with one common collarwise eigenvalue floor bounded away from zero.",
+  "notes": [
+    "This clause is smaller than an all-marginal transported spectral floor because the faithful modular-defect proof only consumes the finite family Xi^{mod}_{m,delta}.",
+    "It does not by itself emit the carried-collar schedule or the scaling-limit cap pair.",
+    "When paired with the exact-Markov modulus witness, this same floor transfers to the exact-Markov comparison marginals on sufficiently late stages, so no second comparison-state spectral input remains hidden below the faithful modular-defect step."
+  ],
+  "public_promotion_allowed": false,
+  "role": "Package the sole nonlatent faithfulness-side clause beneath the fixed-local-collar faithful modular-defect witness, restricted to the finite modular-transport family that the proof actually consumes.",
+  "status": "minimal_faithfulness_side_extension",
+  "unlocks": [
+    "fixed_local_collar_faithful_modular_defect_vanishing",
+    "vanishing_carried_collar_schedule_on_fixed_local_collars",
+    "canonical_scaling_cap_pair_realization_from_transported_cap_marginals"
+  ]
+}

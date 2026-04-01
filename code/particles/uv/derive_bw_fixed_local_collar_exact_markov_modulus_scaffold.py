@@ -26,6 +26,10 @@ def _load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _artifact_ref(path: Path) -> str:
+    return f"code/{path.relative_to(ROOT).as_posix()}"
+
+
 def build_payload(raw_datum: dict[str, Any]) -> dict[str, Any]:
     cmi_component = raw_datum["contract"]["must_emit"][0]
     faithful_component = raw_datum["contract"]["must_emit"][1]
@@ -58,7 +62,7 @@ def build_payload(raw_datum: dict[str, Any]) -> dict[str, Any]:
             "must_not_assume": raw_datum["contract"]["must_not_assume"],
         },
         "feeds_follow_on_modular_defect": {
-            "artifact": str(FAITHFUL_MODULAR_DEFECT),
+            "artifact": _artifact_ref(FAITHFUL_MODULAR_DEFECT),
             "formula": "4 * lambda_{*,n,m,delta}^{-1} * delta^M_{m,delta}(epsilon_{n,m,delta}) -> 0",
             "still_needs_side_condition": faithful_component,
         },

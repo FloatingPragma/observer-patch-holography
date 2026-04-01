@@ -28,8 +28,8 @@ EXACT_MARKOV_MODULUS = ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_coll
 FAITHFUL_MODULAR_DEFECT = (
     ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_collar_faithful_modular_defect_scaffold.json"
 )
-SPECTRAL_FLOOR = (
-    ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_collar_eventual_spectral_floor_scaffold.json"
+COMMON_FLOOR = (
+    ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_collar_modular_transport_common_floor_scaffold.json"
 )
 DEFAULT_OUT = ROOT / "particles" / "runs" / "uv" / "bw_carried_collar_schedule_scaffold.json"
 
@@ -68,7 +68,7 @@ def build_payload(
         "parent_extraction_object": extraction_scaffold["precise_missing_object_name"],
         "smaller_raw_datum": raw_datum["exact_missing_object"],
         "smaller_raw_datum_artifact": _artifact_ref(RAW_DATUM),
-        "single_live_missing_clause_artifact": _artifact_ref(SPECTRAL_FLOOR),
+        "single_live_missing_clause_artifact": _artifact_ref(COMMON_FLOOR),
         "role": (
             "Package the exact carried-collar vanishing schedule that sits directly above the fixed-local-collar "
             "Markov/faithfulness datum and directly below scaling-limit cap-pair extraction."
@@ -139,7 +139,7 @@ def build_payload(
             "This witness is the exact emitted schedule the extraction theorem consumes; it is smaller than cap-pair extraction but larger than the raw collarwise datum.",
             "The fixed-local-collar Markov/faithfulness datum remains the sharpest lower object because it isolates the two raw controls before they are assembled into one vanishing schedule.",
             "The exact-Markov comparison witness and faithful modular-defect term now expose the two lower local substeps inside that reduction.",
-            "The only nonlatent lower input beneath this derived schedule is the eventual collarwise spectral floor feeding the faithful modular-defect side; the recovery/Markov side is already latent once epsilon_{n,m,delta} -> 0.",
+            "The only nonlatent lower input beneath this derived schedule is the eventual modular-transport common floor feeding the faithful modular-defect side; the recovery/Markov side is already latent once epsilon_{n,m,delta} -> 0.",
             "Once this schedule is emitted, the first UV exact object left is cap-pair extraction itself.",
         ],
         "promotion_boundary": {
@@ -158,7 +158,7 @@ def build_payload(
             "This scaffold does not claim the schedule is already emitted on the live corpus.",
             "It records the exact witness contract consumed by scaling-limit cap-pair extraction so solver work no longer jumps directly from the raw datum to the extraction theorem.",
             "The carried-collar witness is theorem-generated from the two term witnesses recorded here, so it should no longer be treated as an independent primitive solver target.",
-            "On the current branch, the only nonlatent lower side condition still outside the emitted chain is the eventual fixed-local-collar spectral floor recorded by the linked faithfulness-side artifact.",
+            "On the current branch, the only nonlatent lower side condition still outside the emitted chain is the eventual fixed-local-collar modular-transport common floor recorded by the linked faithfulness-side artifact.",
             "The honesty gate records exactly which lower witnesses are still insufficient on their own, preventing premature promotion from one-sided local control.",
         ],
     }

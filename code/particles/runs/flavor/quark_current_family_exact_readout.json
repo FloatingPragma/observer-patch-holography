@@ -34,9 +34,9 @@
   "g_d_candidate_from_mean_split": 0.12172551081512113,
   "g_u": 0.7796501962057188,
   "g_u_candidate_from_mean_split": 0.7797392875757557,
-  "generated_utc": "2026-04-01T08:06:27Z",
+  "generated_utc": "2026-04-01T16:12:52Z",
   "notes": [
-    "This current-family exact witness uses the already-fixed simple three-point ordered spectrum and promotes only the sector-even quadratic readout coefficients.",
+    "This current-family exact witness uses the fixed ordered three-point quark carrier and the closed quadratic readout theorem on that carrier.",
     "It does not reopen a richer ray family or add a third scalar beyond the compact sector-mean split.",
     "The exact witness uses the geometric means implied by the current-family reference targets; the mean-split candidate scales are retained separately for audit and residual reporting only."
   ],
@@ -76,6 +76,7 @@
     "linear": 5.643594008059593,
     "quadratic": -4.994474262877307
   },
+  "readout_chain_status": "closed_within_current_family_scope",
   "reference_targets_d": [
     0.0047,
     0.0935,
@@ -87,7 +88,8 @@
     172.3523553288312
   ],
   "sector_mean_split_artifact": "oph_quark_sector_mean_split",
-  "smallest_constructive_missing_object": "quark_quadratic_readout_theorem",
+  "smallest_constructive_missing_object": null,
+  "supporting_readout_theorem": "oph_quark_current_family_quadratic_readout_theorem",
   "target_centered_log_d": [
     -3.2605401301016044,
     -0.2701412025229759,

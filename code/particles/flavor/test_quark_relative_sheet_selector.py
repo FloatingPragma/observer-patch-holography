@@ -48,7 +48,7 @@ def test_reference_singleton_orbit_emits_sigma_ref_when_uniqueness_theorem_close
         assert payload["branch_key_after_repair"] == ["D12", "sigma_ref"]
         assert payload["debug_best_candidate"]["sigma_id"] == "sigma_ref"
         assert payload["debug_best_candidate_promotable"] is False
-        assert payload["next_after_selection"]["id"] == "intrinsic_scale_law_D12"
+        assert payload["next_after_selection"]["id"] == "quark_d12_t1_value_law"
 
 
 def test_theorem_witness_selects_exactly_one_sigma() -> None:

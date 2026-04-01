@@ -175,7 +175,7 @@ def main() -> int:
             )
         ),
         "next_exact_object_after_orbit_closure": (
-            "intrinsic_scale_law_D12" if singleton_closed else None
+            "quark_d12_t1_value_law" if singleton_closed else None
         ),
         "selected_sigma": (
             singleton_uniqueness.get("selected_sigma") if singleton_closed else None

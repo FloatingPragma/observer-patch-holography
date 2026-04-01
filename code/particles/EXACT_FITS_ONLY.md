@@ -1,6 +1,6 @@
 # Exact Fits Only
 
-Generated: `2026-04-01T06:07:34Z`
+Generated: `2026-04-01T16:10:37Z`
 
 This surface lists only exact target-matching diagnostic fits currently on disk. It is narrower than `RESULTS_STATUS.md` and does not promote any compare-only or current-family witness into theorem-grade OPH output.
 
@@ -39,7 +39,7 @@ This surface lists only exact target-matching diagnostic fits currently on disk.
 - Promotable: `false`
 - Source artifact: `code/particles/runs/leptons/lepton_current_family_exact_readout.json`
 - Max absolute residual: `1.1102230246251565e-15`
-- Note: Exact on the current ordered charged eigenvalue triple, but theorem scope is `current_family_only` and the live charged theorem lane still does not emit a theorem-grade absolute anchor.
+- Note: Exact on the current ordered charged eigenvalue triple, with a closed ordered-three-point readout theorem inside `current_family_only`, and with the scoped affine coordinate `A_ch_current_family` closed on that same exact family. The live charged theorem lane still does not emit a theorem-grade absolute anchor.
 
 | Observable | Value | Reference |
 | --- | ---: | ---: |
@@ -54,7 +54,7 @@ This surface lists only exact target-matching diagnostic fits currently on disk.
 - Promotable: `false`
 - Source artifact: `code/particles/runs/flavor/quark_current_family_exact_readout.json`
 - Max absolute residual: `1.1368683772161603e-13`
-- Note: Exact on the current ordered three-point quark family witness, but theorem scope is `current_family_only`; it does not resolve the wrong-branch D12 CKM no-go or emit `intrinsic_scale_law_D12`.
+- Note: Exact on the current ordered three-point quark family witness, with the internal same-family quadratic readout closed on the fixed carrier and the selected-sheet exact closure packaged on `sigma_ref`; theorem scope remains `current_family_only`, so it does not resolve the wrong-branch D12 CKM no-go or emit `quark_d12_t1_value_law`.
 
 | Observable | Value | Reference |
 | --- | ---: | ---: |

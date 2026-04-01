@@ -14,7 +14,7 @@ OPH-derived inputs: the one-scalar D12 specialization and the current D12
 mass-branch diagnostic.
 
 Output: one exact emitted object ``D12_ud_mass_ray`` with unresolved coordinate
-``ray_modulus`` and the honest next object ``intrinsic_scale_law_D12``.
+``ray_modulus`` and the smaller next object ``quark_d12_t1_value_law``.
 """
 
 from __future__ import annotations
@@ -73,8 +73,9 @@ def main() -> int:
             "already emits the one-parameter ray D12_ud_mass_ray with "
             "(Delta_ud_overlap, eta_Q_centered) = ray_modulus * "
             "(1/5, -((1 - x2^2) / 27)). "
-            "The unresolved coordinate is the intrinsic normalization ray_modulus, "
-            "so the next exact object is the intrinsic scale law on this emitted ray."
+            "The emitted ray already identifies its unresolved coordinate with one scalar, "
+            "ray_modulus = t1, so the next exact object is the one-scalar value law on this "
+            "emitted ray. The larger intrinsic_scale_law_D12 wrapper is derived from that scalar."
         ),
         "emitted_object": {
             "id": "D12_ud_mass_ray",
@@ -105,10 +106,20 @@ def main() -> int:
         "sample_same_family_point": sample_same_family_point,
         "sample_same_family_mass_point": sample_same_family_mass_point,
         "diagnostic_compare_only_best_same_family_point": comparison_only_best_same_family_point,
-        "next_exact_missing_object": "intrinsic_scale_law_D12",
+        "next_exact_missing_object": "quark_d12_t1_value_law",
+        "t1_value_law_contract": {
+            "id": "quark_d12_t1_value_law",
+            "must_emit": "quark_d12_t1_value_law",
+            "scalar_name": "t1",
+            "identifies": "ray_modulus = t1",
+            "unique_intersection_with": "D12_ud_mass_ray",
+            "then_emits": ["t1", "ray_modulus", "Delta_ud_overlap", "eta_Q_centered"],
+            "must_not_use_target_masses": True,
+            "must_not_use_ckm_cp": True,
+        },
         "intrinsic_scale_law_contract": {
             "id": "intrinsic_scale_law_D12",
-            "must_emit": "intrinsic_scale_law_D12",
+            "derived_from": "quark_d12_t1_value_law",
             "unique_intersection_with": "D12_ud_mass_ray",
             "then_emits": ["ray_modulus", "Delta_ud_overlap", "eta_Q_centered"],
             "must_not_use_target_masses": True,
@@ -117,7 +128,7 @@ def main() -> int:
         "notes": [
             "This artifact is the exact emitted same-family D12 mass object, not a compare-only point fit.",
             "The retained numerical same-family point is still sample-only; it witnesses one point on the emitted ray but does not fix ray_modulus intrinsically.",
-            "The current D12 branch can therefore be discussed cleanly in two stages: the ray is emitted, and the remaining exact scalar burden is the intrinsic scale law on that ray.",
+            "The current D12 branch can therefore be discussed cleanly in three layers: the ray is emitted, the primitive open object is the one-scalar value law quark_d12_t1_value_law, and intrinsic_scale_law_D12 is the derived wrapper on top of that scalar.",
         ],
     }
 

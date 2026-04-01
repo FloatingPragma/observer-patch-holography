@@ -41,7 +41,7 @@ def test_quark_physical_branch_repair_theorem_marks_current_d12_sheet_as_no_go()
     assert "left-handed" in payload["minimal_solver_extension"]["definition"]
     assert payload["minimal_solver_extension"]["currently_emitted_reference_sheet_count"] == 1
     assert payload["minimal_solver_extension"]["status"] == "closed_to_reference_singleton"
-    assert payload["minimal_solver_extension"]["next_exact_object_after_orbit_closure"] == "intrinsic_scale_law_D12"
+    assert payload["minimal_solver_extension"]["next_exact_object_after_orbit_closure"] == "quark_d12_t1_value_law"
     assert payload["physical_shell_mismatch"]["undershoot_factors"]["theta_12"] > 1.0
     assert payload["current_sheet_invariants"]["jarlskog_fraction_of_max_allowed_by_current_angles"] > 0.9
     assert "ray_modulus motion" in payload["theorem_statement"]

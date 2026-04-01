@@ -19,11 +19,11 @@
   },
   "exact_missing_object": "fixed_local_collar_exact_markov_modulus_vanishing",
   "feeds_follow_on_modular_defect": {
-    "artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_fixed_local_collar_faithful_modular_defect_scaffold.json",
+    "artifact": "code/particles/runs/uv/bw_fixed_local_collar_faithful_modular_defect_scaffold.json",
     "formula": "4 * lambda_{*,n,m,delta}^{-1} * delta^M_{m,delta}(epsilon_{n,m,delta}) -> 0",
-    "still_needs_side_condition": "exists lambda_bar_{m,delta} > 0 with lambda_{*,n,m,delta} >= lambda_bar_{m,delta} eventually"
+    "still_needs_side_condition": "exists lambda_bar_{m,delta} > 0 and N_{m,delta} such that for all n >= N_{m,delta} and every X in Xi^{mod}_{m,delta}, rho_{n->m,X} >= lambda_bar_{m,delta} * 1"
   },
-  "generated_utc": "2026-04-01T04:53:50Z",
+  "generated_utc": "2026-04-01T16:10:37Z",
   "notes": [
     "This scaffold does not claim the exact-Markov modulus witness is already emitted on the live corpus.",
     "It is strictly smaller than the fixed-local-collar Markov/faithfulness datum because it removes the spectral-floor side condition.",

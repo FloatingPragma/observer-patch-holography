@@ -65,91 +65,109 @@
       "exact_kind": "exact_target_anchored_current_family_witness",
       "label": "Electron",
       "mass_gev": 0.0005109989499999994,
-      "note": "Exact current-family charged-lepton witness.",
+      "note": "Exact current-family charged-lepton witness on a closed ordered-three-point readout chain, with the scoped affine coordinate A_ch_current_family closed on the same exact family.",
       "particle_id": "electron",
       "promotable": false,
       "scope": "current_family_only",
-      "source_artifact": "code/particles/runs/leptons/lepton_current_family_exact_readout.json"
+      "source_artifact": "code/particles/runs/leptons/lepton_current_family_exact_readout.json",
+      "supporting_scope_closure_artifact": "code/particles/runs/leptons/lepton_current_family_affine_anchor_theorem.json",
+      "supporting_theorem_artifact": "code/particles/runs/leptons/lepton_current_family_quadratic_readout_theorem.json"
     },
     {
       "exact_kind": "exact_target_anchored_current_family_witness",
       "label": "Muon",
       "mass_gev": 0.10565837550000004,
-      "note": "Exact current-family charged-lepton witness.",
+      "note": "Exact current-family charged-lepton witness on a closed ordered-three-point readout chain, with the scoped affine coordinate A_ch_current_family closed on the same exact family.",
       "particle_id": "muon",
       "promotable": false,
       "scope": "current_family_only",
-      "source_artifact": "code/particles/runs/leptons/lepton_current_family_exact_readout.json"
+      "source_artifact": "code/particles/runs/leptons/lepton_current_family_exact_readout.json",
+      "supporting_scope_closure_artifact": "code/particles/runs/leptons/lepton_current_family_affine_anchor_theorem.json",
+      "supporting_theorem_artifact": "code/particles/runs/leptons/lepton_current_family_quadratic_readout_theorem.json"
     },
     {
       "exact_kind": "exact_target_anchored_current_family_witness",
       "label": "Tau",
       "mass_gev": 1.7769324651340912,
-      "note": "Exact current-family charged-lepton witness.",
+      "note": "Exact current-family charged-lepton witness on a closed ordered-three-point readout chain, with the scoped affine coordinate A_ch_current_family closed on the same exact family.",
       "particle_id": "tau",
       "promotable": false,
       "scope": "current_family_only",
-      "source_artifact": "code/particles/runs/leptons/lepton_current_family_exact_readout.json"
+      "source_artifact": "code/particles/runs/leptons/lepton_current_family_exact_readout.json",
+      "supporting_scope_closure_artifact": "code/particles/runs/leptons/lepton_current_family_affine_anchor_theorem.json",
+      "supporting_theorem_artifact": "code/particles/runs/leptons/lepton_current_family_quadratic_readout_theorem.json"
     },
     {
       "exact_kind": "exact_target_anchored_current_family_witness",
       "label": "Up Quark",
       "mass_gev": 0.0021599999999999996,
-      "note": "Exact current-family quark witness on the local quark branch.",
+      "note": "Exact current-family quark witness on the selected sigma_ref sheet, with the selected-sheet exact readout chain closed on current_family_only.",
       "particle_id": "up_quark",
       "promotable": false,
       "scope": "current_family_only",
-      "source_artifact": "code/particles/runs/flavor/quark_current_family_exact_readout.json"
+      "source_artifact": "code/particles/runs/flavor/quark_current_family_exact_readout.json",
+      "supporting_scope_closure_artifact": "code/particles/runs/flavor/quark_current_family_selected_sheet_closure.json",
+      "supporting_theorem_artifact": "code/particles/runs/flavor/quark_current_family_quadratic_readout_theorem.json"
     },
     {
       "exact_kind": "exact_target_anchored_current_family_witness",
       "label": "Charm Quark",
       "mass_gev": 1.2729999999999995,
-      "note": "Exact current-family quark witness on the local quark branch.",
+      "note": "Exact current-family quark witness on the selected sigma_ref sheet, with the selected-sheet exact readout chain closed on current_family_only.",
       "particle_id": "charm_quark",
       "promotable": false,
       "scope": "current_family_only",
-      "source_artifact": "code/particles/runs/flavor/quark_current_family_exact_readout.json"
+      "source_artifact": "code/particles/runs/flavor/quark_current_family_exact_readout.json",
+      "supporting_scope_closure_artifact": "code/particles/runs/flavor/quark_current_family_selected_sheet_closure.json",
+      "supporting_theorem_artifact": "code/particles/runs/flavor/quark_current_family_quadratic_readout_theorem.json"
     },
     {
       "exact_kind": "exact_target_anchored_current_family_witness",
       "label": "Top Quark",
       "mass_gev": 172.3523553288311,
-      "note": "Exact current-family quark witness on the local quark branch.",
+      "note": "Exact current-family quark witness on the selected sigma_ref sheet, with the selected-sheet exact readout chain closed on current_family_only.",
       "particle_id": "top_quark",
       "promotable": false,
       "scope": "current_family_only",
-      "source_artifact": "code/particles/runs/flavor/quark_current_family_exact_readout.json"
+      "source_artifact": "code/particles/runs/flavor/quark_current_family_exact_readout.json",
+      "supporting_scope_closure_artifact": "code/particles/runs/flavor/quark_current_family_selected_sheet_closure.json",
+      "supporting_theorem_artifact": "code/particles/runs/flavor/quark_current_family_quadratic_readout_theorem.json"
     },
     {
       "exact_kind": "exact_target_anchored_current_family_witness",
       "label": "Down Quark",
       "mass_gev": 0.004700000000000002,
-      "note": "Exact current-family quark witness on the local quark branch.",
+      "note": "Exact current-family quark witness on the selected sigma_ref sheet, with the selected-sheet exact readout chain closed on current_family_only.",
       "particle_id": "down_quark",
       "promotable": false,
       "scope": "current_family_only",
-      "source_artifact": "code/particles/runs/flavor/quark_current_family_exact_readout.json"
+      "source_artifact": "code/particles/runs/flavor/quark_current_family_exact_readout.json",
+      "supporting_scope_closure_artifact": "code/particles/runs/flavor/quark_current_family_selected_sheet_closure.json",
+      "supporting_theorem_artifact": "code/particles/runs/flavor/quark_current_family_quadratic_readout_theorem.json"
     },
     {
       "exact_kind": "exact_target_anchored_current_family_witness",
       "label": "Strange Quark",
       "mass_gev": 0.09349999999999999,
-      "note": "Exact current-family quark witness on the local quark branch.",
+      "note": "Exact current-family quark witness on the selected sigma_ref sheet, with the selected-sheet exact readout chain closed on current_family_only.",
       "particle_id": "strange_quark",
       "promotable": false,
       "scope": "current_family_only",
-      "source_artifact": "code/particles/runs/flavor/quark_current_family_exact_readout.json"
+      "source_artifact": "code/particles/runs/flavor/quark_current_family_exact_readout.json",
+      "supporting_scope_closure_artifact": "code/particles/runs/flavor/quark_current_family_selected_sheet_closure.json",
+      "supporting_theorem_artifact": "code/particles/runs/flavor/quark_current_family_quadratic_readout_theorem.json"
     },
     {
       "exact_kind": "exact_target_anchored_current_family_witness",
       "label": "Bottom Quark",
       "mass_gev": 4.182999999999994,
-      "note": "Exact current-family quark witness on the local quark branch.",
+      "note": "Exact current-family quark witness on the selected sigma_ref sheet, with the selected-sheet exact readout chain closed on current_family_only.",
       "particle_id": "bottom_quark",
       "promotable": false,
       "scope": "current_family_only",
-      "source_artifact": "code/particles/runs/flavor/quark_current_family_exact_readout.json"
+      "source_artifact": "code/particles/runs/flavor/quark_current_family_exact_readout.json",
+      "supporting_scope_closure_artifact": "code/particles/runs/flavor/quark_current_family_selected_sheet_closure.json",
+      "supporting_theorem_artifact": "code/particles/runs/flavor/quark_current_family_quadratic_readout_theorem.json"
     },
     {
       "exact_kind": "exact_two_observable_compare_only_segment_adapter",
@@ -183,6 +201,6 @@
     }
   ],
   "excluded_lane": "hadrons_compute_bound",
-  "generated_utc": "2026-04-01T06:12:48Z",
+  "generated_utc": "2026-04-01T16:10:37Z",
   "status": "exact_output_lane_closed_nonhadron_only"
 }

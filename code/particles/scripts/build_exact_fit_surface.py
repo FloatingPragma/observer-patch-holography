@@ -21,6 +21,8 @@ EW_EXACT_JSON = ROOT / "particles" / "runs" / "calibration" / "d10_ew_w_anchor_n
 D11_EXACT_JSON = ROOT / "particles" / "runs" / "calibration" / "d11_reference_exact_adapter.json"
 CHARGED_JSON = ROOT / "particles" / "runs" / "leptons" / "lepton_current_family_exact_readout.json"
 QUARK_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_current_family_exact_readout.json"
+CHARGED_AFFINE_JSON = ROOT / "particles" / "runs" / "leptons" / "lepton_current_family_affine_anchor_theorem.json"
+QUARK_CLOSURE_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_current_family_selected_sheet_closure.json"
 NEUTRINO_JSON = ROOT / "particles" / "runs" / "neutrino" / "neutrino_compare_only_scale_fit.json"
 NEUTRINO_TWO_PARAMETER_JSON = ROOT / "particles" / "runs" / "neutrino" / "neutrino_two_parameter_exact_adapter.json"
 DEFAULT_MD_OUT = ROOT / "particles" / "EXACT_FITS_ONLY.md"
@@ -50,6 +52,8 @@ def build_entries() -> list[dict[str, Any]]:
     d11_exact = _load_json(D11_EXACT_JSON)
     charged = _load_json(CHARGED_JSON)
     quark = _load_json(QUARK_JSON)
+    charged_affine = _load_json(CHARGED_AFFINE_JSON)
+    quark_closure = _load_json(QUARK_CLOSURE_JSON)
     neutrino = _load_json(NEUTRINO_JSON)
     neutrino_two_parameter = _load_json(NEUTRINO_TWO_PARAMETER_JSON)
 
@@ -126,10 +130,12 @@ def build_entries() -> list[dict[str, Any]]:
             },
             "max_abs_residual": _max_abs(charged["exact_fit_residuals_abs"]),
             "source_artifact": _repo_ref(CHARGED_JSON),
+            "supporting_scope_closure_artifact": _repo_ref(CHARGED_AFFINE_JSON),
             "note": (
-                "Exact on the current ordered charged eigenvalue triple, but theorem scope is "
-                "`current_family_only` and the live charged theorem lane still does not emit "
-                "a theorem-grade absolute anchor."
+                "Exact on the current ordered charged eigenvalue triple, with a closed ordered-three-point "
+                "readout theorem inside `current_family_only`, and with the scoped affine coordinate "
+                "`A_ch_current_family` closed on that same exact family. The live charged theorem lane still "
+                "does not emit a theorem-grade absolute anchor."
             ),
         },
         {
@@ -161,10 +167,12 @@ def build_entries() -> list[dict[str, Any]]:
                 _max_abs(quark["exact_fit_residuals_d"]),
             ),
             "source_artifact": _repo_ref(QUARK_JSON),
+            "supporting_scope_closure_artifact": _repo_ref(QUARK_CLOSURE_JSON),
             "note": (
-                "Exact on the current ordered three-point quark family witness, but theorem scope is "
-                "`current_family_only`; it does not resolve the wrong-branch D12 CKM no-go or emit "
-                "`intrinsic_scale_law_D12`."
+                "Exact on the current ordered three-point quark family witness, with the internal same-family "
+                "quadratic readout closed on the fixed carrier and the selected-sheet exact closure packaged on "
+                "`sigma_ref`; theorem scope remains `current_family_only`, so it does not resolve the wrong-branch "
+                "D12 CKM no-go or emit `quark_d12_t1_value_law`."
             ),
         },
         {

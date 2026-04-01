@@ -15,6 +15,8 @@ from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 
+from bw_collar_honesty import build_comparison_reference_floor_transfer
+
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_OUT = ROOT / "particles" / "runs" / "uv" / "bw_internalization_scaffold.json"
@@ -28,8 +30,8 @@ EXACT_MARKOV_MODULUS = ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_coll
 FAITHFUL_MODULAR_DEFECT = (
     ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_collar_faithful_modular_defect_scaffold.json"
 )
-SPECTRAL_FLOOR = (
-    ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_collar_eventual_spectral_floor_scaffold.json"
+COMMON_FLOOR = (
+    ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_collar_modular_transport_common_floor_scaffold.json"
 )
 
 
@@ -64,7 +66,7 @@ def build_artifact() -> dict[str, object]:
         "status": "open_split_after_candidate_projective_route",
         "remaining_object": "canonical_scaling_cap_pair_realization_from_transported_cap_marginals",
         "follow_on_object": "independent_bw_rigidity_on_realized_limit",
-        "dominant_pressure_point": "eventual_fixed_local_collar_spectral_floor_for_transported_marginals",
+        "dominant_pressure_point": "eventual_fixed_local_collar_common_floor_on_modular_transport_marginals",
         "filled_contract_witnesses": [
             "reference_cap_local_test_system",
             "projectively_compatible_transported_cap_marginal_family",
@@ -98,11 +100,15 @@ def build_artifact() -> dict[str, object]:
             "on every fixed local collar model, then the carried-collar schedule follows by termwise "
             "addition of the two nonnegative remainders."
         ),
-        "smallest_exact_blocker": "eventual_fixed_local_collar_spectral_floor_for_transported_marginals",
+        "smallest_exact_blocker": "eventual_fixed_local_collar_common_floor_on_modular_transport_marginals",
         "smallest_exact_blocker_formula": (
-            "exists lambda_bar_{m,delta} > 0 with lambda_{*,n,m,delta} >= lambda_bar_{m,delta} eventually"
+            "exists lambda_bar_{m,delta} > 0 and N_{m,delta} such that for all n >= N_{m,delta} and every X in Xi^{mod}_{m,delta}, rho_{n->m,X} >= lambda_bar_{m,delta} * 1"
         ),
-        "single_live_missing_clause_artifact": _artifact_ref(SPECTRAL_FLOOR),
+        "single_live_missing_clause_artifact": _artifact_ref(COMMON_FLOOR),
+        "single_live_missing_clause_closure_lemma": build_comparison_reference_floor_transfer(
+            exact_markov_artifact=_artifact_ref(EXACT_MARKOV_MODULUS),
+            spectral_floor_artifact=_artifact_ref(COMMON_FLOOR),
+        ),
         "markov_side_status": "latent_from_epsilon_to_zero",
         "faithfulness_side_status": "open",
         "smallest_exact_blocker_unlocks": [
@@ -146,8 +152,10 @@ def build_artifact() -> dict[str, object]:
             "The compactness/extraction step itself is not the missing proof. The live extraction input is the derived "
             "carried-collar schedule on fixed local collar models, and on the local-Gibbs plus exponential-mixing pullback "
             "branch the constructive-recovery / exact-Markov side is already latent once epsilon -> 0 on each fixed collar "
-            "model. The only nonlatent lower input still external to the emitted chain is the eventual positive lower spectral "
-            "bound feeding the faithful modular-defect term. Without that clause, neither the faithful modular-defect witness, "
+            "model. The only nonlatent lower input still external to the emitted chain is the eventual modular-transport common "
+            "floor feeding the faithful modular-defect term; no second comparison-state spectral clause is missing because the "
+            "exact-Markov reference inherits the same eventual floor once the exact-Markov modulus goes to zero on that fixed model. "
+            "Without that clause, neither the faithful modular-defect witness, "
             "nor the carried-collar schedule, nor the canonical scaling-limit cap-pair realization is promoted."
         ),
         "statement": (
@@ -165,7 +173,7 @@ def build_artifact() -> dict[str, object]:
         ),
         "candidate_extension_status": "constructive_prelimit_system_two_lower_emitted_witnesses_still_missing",
         "candidate_extension_route": (
-            "Step 1: close the sole nonlatent lower input by emitting the eventual fixed-local-collar spectral floor "
+            "Step 1: close the sole nonlatent lower input by emitting the eventual fixed-local-collar modular-transport common floor "
             "for transported marginals on every fixed collar model. On the local-Gibbs plus exponential-mixing pullback "
             "branch, that closes the faithfulness-weighted modular term once epsilon -> 0, while the recovery/Markov side "
             "is already latent from that same epsilon-control; the carried-collar schedule and then the scaling-limit cap-pair "
@@ -179,6 +187,7 @@ def build_artifact() -> dict[str, object]:
             "code/particles/uv/derive_bw_fixed_local_collar_markov_faithfulness_datum.py",
             "code/particles/uv/derive_bw_fixed_local_collar_constructive_recovery_scaffold.py",
             "code/particles/uv/derive_bw_fixed_local_collar_exact_markov_modulus_scaffold.py",
+            "code/particles/uv/derive_bw_fixed_local_collar_modular_transport_common_floor_scaffold.py",
             "code/particles/uv/derive_bw_fixed_local_collar_eventual_spectral_floor_scaffold.py",
             "code/particles/uv/derive_bw_fixed_local_collar_faithful_modular_defect_scaffold.py",
             "code/particles/uv/derive_bw_carried_collar_schedule_scaffold.py",
@@ -190,6 +199,7 @@ def build_artifact() -> dict[str, object]:
             "code/particles/runs/uv/bw_fixed_local_collar_markov_faithfulness_datum.json",
             "code/particles/runs/uv/bw_fixed_local_collar_constructive_recovery_scaffold.json",
             "code/particles/runs/uv/bw_fixed_local_collar_exact_markov_modulus_scaffold.json",
+            "code/particles/runs/uv/bw_fixed_local_collar_modular_transport_common_floor_scaffold.json",
             "code/particles/runs/uv/bw_fixed_local_collar_eventual_spectral_floor_scaffold.json",
             "code/particles/runs/uv/bw_fixed_local_collar_faithful_modular_defect_scaffold.json",
             "code/particles/runs/uv/bw_carried_collar_schedule_scaffold.json",
@@ -239,7 +249,7 @@ def build_artifact() -> dict[str, object]:
             "This scaffold promotes the UV/BW extension route to a canonical local artifact without claiming current-corpus closure.",
             "The current pressure point is the first object, not the symbolic rigidity calculation: the realized scaling-limit cap pair is still missing.",
             "The local carried-collar side is now decomposed one level further into constructive recovery, exact-Markov comparison convergence, and faithful modular-defect vanishing, with the eta schedule treated as the derived combination witness.",
-            "On the current branch the only nonlatent lower side condition still external to that emitted chain is the eventual fixed-local-collar spectral floor feeding the faithful modular-defect term.",
+            "On the current branch the only nonlatent lower side condition still external to that emitted chain is the eventual fixed-local-collar modular-transport common floor feeding the faithful modular-defect term.",
             "The symbolic test certifies the rigidity shape of the ordered cut-pair argument, but not the existence of the realized scaling-limit cap pair.",
             "The correct target is an automorphism theorem on the realized scaling-limit cap pair; no type-I survival is assumed.",
         ],
@@ -248,6 +258,7 @@ def build_artifact() -> dict[str, object]:
             "fixed_local_collar_markov_faithfulness_datum": "code/particles/uv/derive_bw_fixed_local_collar_markov_faithfulness_datum.py",
             "fixed_local_collar_constructive_recovery": "code/particles/uv/derive_bw_fixed_local_collar_constructive_recovery_scaffold.py",
             "fixed_local_collar_exact_markov_modulus": "code/particles/uv/derive_bw_fixed_local_collar_exact_markov_modulus_scaffold.py",
+            "fixed_local_collar_modular_transport_common_floor": "code/particles/uv/derive_bw_fixed_local_collar_modular_transport_common_floor_scaffold.py",
             "fixed_local_collar_eventual_spectral_floor": "code/particles/uv/derive_bw_fixed_local_collar_eventual_spectral_floor_scaffold.py",
             "fixed_local_collar_faithful_modular_defect": "code/particles/uv/derive_bw_fixed_local_collar_faithful_modular_defect_scaffold.py",
             "carried_collar_schedule": "code/particles/uv/derive_bw_carried_collar_schedule_scaffold.py",

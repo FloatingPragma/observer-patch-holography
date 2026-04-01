@@ -102,7 +102,7 @@ pixel constant \(P\) can be propagated through the whole spectrum. The working h
 one first infers \(P\) from a small electroweak calibration family and then uses the same \(P\)
 through the bosonic, quark, charged-lepton, neutrino, and hadronic branches. The structural
 massless carriers, the closed \(W\) boson/\(Z\) boson electroweak pair, the Higgs boson/top quark pair,
-and several quark rows are emitted, while charged leptons, the still-open exact physical quark branch, flavor-labeled neutrinos, and
+and several quark rows are emitted, while charged leptons, the exact physical quark branch, flavor-labeled neutrinos, and
 hadrons remain non-closed, with hadrons specifically execution-contract-frozen behind one production backend export bundle plus production systematics. This paper develops that derivation chain from the axioms and \(P\) to the
 reported particle outputs, while keeping the open closure boundary explicit.
 
@@ -296,6 +296,23 @@ equivalently the centered eta-class \([\eta_e]\) or the normalized weights
 \[
 \mu_e:=\frac{e^{\eta_e}}{\frac13\sum_f e^{\eta_f}}.
 \]
+Let \(s_e\) denote the realized sector-charge step carried by the same-label arrow \(e\). For any realized readout path \(\gamma\) on the same-label transport graph, the flavor-side integers are the traversal multiplicities
+\[
+m_{\gamma,e}\in\mathbb Z_{\ge0},
+\qquad
+s_\gamma=\sum_e m_{\gamma,e}s_e,
+\]
+and the corresponding excitation action is
+\[
+A_\gamma
+=
+-\sum_e m_{\gamma,e}\log q_e.
+\]
+So the old one-number ``texture exponents'' are not primitive family data. They are only compressions of excitation action, for example
+\[
+n_\gamma^{(6)}:=A_\gamma/\log 6,
+\]
+and they become literal defect counts only after the additional uniform sixfold collapse compatible with the realized \(\mathbb Z_6\) quotient.
 The structural result fixed before those branches is still the realized counting chain \(N_g=3\)
 then \(N_c=3\). What remains open is not a fresh set of primitive flavor parameters, but the
 lane-specific readout closures above that dictionary.
@@ -312,7 +329,10 @@ surfaces, and emits continuation-level reported rows for the up quark, down quar
 charm quark, and bottom quark. The mass-side continuation compresses transported same-label data
 to \((\Delta_{ud}^{\mathrm{overlap}},\eta_Q^{\mathrm{centered}})\) and, on the compact same-family
 branch, to the emitted ray \(\mathcal R_{D12}^{ud}\). The top quark is read out on the Higgs/top
-critical stage instead.
+critical stage instead. On the mixing side the same-label left-handed orbit closes negatively at
+the singleton \(\sigma_{\mathrm{ref}}\), so the emitted D12 sheet is fixed and is the wrong CKM
+sheet. The quark continuation boundary is therefore the intrinsic scale law on the
+already-emitted D12 mass ray.
 
 \paragraph{Charged leptons.}\label{step5-charged-lepton-continuation}
 Charged leptons are not described here as a Koide-assisted fit. The exact statement is narrower. On the ordered charged carrier
@@ -359,28 +379,54 @@ A_{\mathrm{ch}}(Y_e)=\mu_{\mathrm{phys}}(Y_e).
 The public claim is exact same-carrier centered readback together with a closed common-shift no-go and the explicit two-layer remaining obstruction above. Any balanced-circulant / \(Q=2/3\) / \(\delta=2/9\) branch is compare-only continuation and not an emitted charged-lepton mass theorem.
 
 \paragraph{Neutrinos.}\label{step5-neutrino-continuation}
-The weighted-cycle / Majorana-holonomy branch closes the PMNS/hierarchy shape and leaves no further discrete branch object on that lane. The normalized same-label overlap-defect weight section closes beneath that shape, so the remaining freedom is the positive rescaling orbit of the absolute spectrum together with the paper-facing attachment amplitude
+The isotropic intrinsic neutrino branch is excluded by the exact atmospheric-splitting cap, so the live continuation lane is the weighted-cycle / Majorana-holonomy branch. On that lane the standard-math-fixed balanced transport-load selector is the arithmetic midpoint on the positive segment between \(\chi=1+\varepsilon\) and \(1+\gamma/2\),
+\[
+D_\nu=\frac{\chi+1+\gamma/2}{2},
+\qquad
+p_\nu(\gamma,\varepsilon)=1+\gamma+\frac{\varepsilon}{D_\nu}.
+\]
+This repair closes the oscillation-shape lane in the physical PMNS/hierarchy regime. The emitted weighted-cycle data are
+\[
+\theta_{12}=34.225904631810025^\circ,\qquad
+\theta_{23}=49.72282845058266^\circ,\qquad
+\theta_{13}=8.686355527700156^\circ,
+\]
+\[
+\delta_{\mathrm{PMNS}}=305.58061231449796^\circ,\qquad
+J=-0.02753115613565372,\qquad
+\frac{\Delta m_{21}^2}{\Delta m_{32}^2}=0.03072111.
+\]
+So no further discrete selector remains on the neutrino lane.
+
+The normalized same-label overlap-defect weight section closes beneath that shape. The paper-facing amplitude parameterization is
 \[
 B_\nu:=\lambda_\nu q_{\mathrm{mean}}^{p_\nu}/m_{\star,\mathrm{eV}}
 \]
-above the closed normalizer. Because the proxy
+above the closed normalizer, while the best emitted proxy is
 \[
-P_\nu:=I_\nu^{1/2}\,\widehat{\mathrm{ratio}}^{\,1/2}\,\mathrm{sum\_defect}^{-1}
+P_\nu:=I_\nu^{1/2}\,\widehat{\mathrm{ratio}}^{\,1/2}\,\mathrm{sum\_defect}^{-1}.
 \]
-is internal to the emitted stack, the exact missing object is the reduced correction invariant
+Because that proxy is internal to the emitted stack, the smallest exact remaining object is the reduced bridge-correction invariant
 \[
 C_\nu:=\frac{B_\nu}{P_\nu}.
+\]
+Equivalently,
+\[
+B_\nu=P_\nu\,C_\nu,
+\qquad
+\lambda_\nu=\frac{m_{\star,\mathrm{eV}}}{q_{\mathrm{mean}}^{p_\nu}}\,P_\nu\,C_\nu.
 \]
 The best closed constructive local object beneath that reduced scalar is the defect-weighted same-label edge family
 \[
 q_e=\sqrt{g_e d_e},
 \qquad
+\eta_e=\log q_e-\frac13\sum_f \log q_f,
+\qquad
 \mu_e=\mu_\nu\,\frac{e^{\eta_e}}{\frac13\sum_f e^{\eta_f}},
 \]
-but that family does not emit \(C_\nu\) or \(B_\nu\) by itself. The compare-only value is \(C_\nu^\ast=0.9995473560\). A direct correction audit gives the target-containing reduced window \(C_\nu\in[0.9994296,1.0015784]\), which induces the narrower primary corridor \(B_\nu\in[6.69600,6.71040]\) with midpoint \(6.70320\); the earlier three-route bridge corridor \([6.69315,6.71259]\) remains as a wider comparison envelope, and the shortlist-consensus window \([6.70484,6.71259]\) remains diagnostic-only because it misses the compare-only target. Charged leptons and neutrinos are open for different reasons. Charged leptons wait on promotion of \(\widehat C_e^{\mathrm{cand}}\) and then one descended physical affine scalar \(\mu_{\mathrm{phys}}(Y_e)\). Neutrinos wait on the reduced bridge-correction invariant that would emit one positive normalization after the shape closure.
-The explicit positive selector segment also supports a stronger compare-only continuation adapter: solving \(\tau_\nu\) on \(D_\tau=(1-\tau_\nu)\chi+\tau_\nu(1+\gamma_{1/2})\) against the representative central ratio and then solving \(\lambda_\nu\) against \(\Delta m_{32}^2=2.438\times10^{-3}\,\mathrm{eV}^2\) yields \(\tau_\nu=0.49717\), \(\lambda_\nu=1.72396\), \((m_1,m_2,m_3)=(0.01745663,\,0.01948420,\,0.05308139)\,\mathrm{eV}\), and exact representative central splittings \(\Delta m_{21}^2=7.49\times10^{-5}\,\mathrm{eV}^2\), \(\Delta m_{31}^2=2.5129\times10^{-3}\,\mathrm{eV}^2\), \(\Delta m_{32}^2=2.438\times10^{-3}\,\mathrm{eV}^2\). This sidecar is compare-only because the weighted-cycle theorem lane waits on \(C_\nu\).
+but that family does not emit \(C_\nu\) or the induced \(B_\nu\) by itself. The compare-only value is \(C_\nu^\ast=0.9995473560\). A direct correction audit gives the target-containing reduced window \(C_\nu\in[0.9994296,1.0015784]\), which induces the sharpened paper-facing corridor \(B_\nu\in[6.69600,6.71040]\) with midpoint \(6.70320\); the earlier three-route bridge corridor \([6.69315,6.71259]\) remains as a wider comparison envelope, and the shortlist-consensus window \([6.70484,6.71259]\) remains diagnostic-only because it misses the compare-only target. Charged leptons and neutrinos are open for different reasons. Charged leptons wait on promotion of \(\widehat C_e^{\mathrm{cand}}\) and then one descended physical affine scalar \(\mu_{\mathrm{phys}}(Y_e)\). Neutrinos wait on the reduced bridge-correction invariant that would emit one positive normalization above the emitted proxy.
+The explicit positive selector segment also supports a stronger compare-only continuation adapter: solving \(\tau_\nu\) on \(D_\tau=(1-\tau_\nu)\chi+\tau_\nu(1+\gamma_{1/2})\) against the representative central ratio and then solving \(\lambda_\nu\) against \(\Delta m_{32}^2=2.438\times10^{-3}\,\mathrm{eV}^2\) yields \(\tau_\nu=0.49717\), \(\lambda_\nu=1.72396\), \((m_1,m_2,m_3)=(0.01745663,\,0.01948420,\,0.05308139)\,\mathrm{eV}\), and exact representative central splittings \(\Delta m_{21}^2=7.49\times10^{-5}\,\mathrm{eV}^2\), \(\Delta m_{31}^2=2.5129\times10^{-3}\,\mathrm{eV}^2\), \(\Delta m_{32}^2=2.438\times10^{-3}\,\mathrm{eV}^2\). This sidecar remains compare-only because the weighted-cycle theorem lane waits on \(C_\nu\), not on another selector or on the paper-facing amplitude parameterization.
 Taken together with the exact \(W/Z\) frozen repair pair, the exact Higgs/top inverse slice, and the exact charged/quark same-family witnesses, the exact non-hadron output lane is complete, even though the theorem-grade charged, quark, and neutrino lanes remain open at their sharper objects.
-
 \paragraph{Status boundary.}
 The Stage-5 summary is this: quarks have continuation-level rows; charged leptons have an exact same-carrier readback theorem together with an exact absolute-scale obstruction; neutrinos have a weighted-cycle continuation with one reduced bridge-correction invariant open. None of those later-family statements belongs on the recovered-core surface fixed earlier by the gauge and relativity chain.
 \subsection{Structural results and open closures}\label{step5-structural-results-and-open-closures}
@@ -396,7 +442,7 @@ Quarks have continuation-level rows on an emitted D12 branch. Charged leptons si
 \mu_{\mathrm{phys}}(Y_e),
 \]
 with the first arrow identified with the package \ophid{oph_generation_bundle_branch_generator_splitting} and reduced in practice to the missing descended-commutator clause \ophid{compression_descendant_commutator_vanishes_or_is_uniformly_quadratic_small_after_central_split}.
-If that promotion closes, the uncentered lift, determinant-line section, and affine anchor follow canonically from \(\mu_{\mathrm{phys}}(Y_e)\); until then no public charged-lepton mass theorem is claimed. A target-anchored same-family exact witness reproduces the charged reference triple exactly on the same ordered eigenvalue family, but its scope is same-family-only and it does not promote the theorem lane. Neutrinos are open for a different reason: the weighted-cycle / Majorana-holonomy lane closes the PMNS/hierarchy shape and misses the reduced correction invariant that would emit one positive normalization. Hadrons remain behind the explicit nonperturbative frontier.
+If that promotion closes, the uncentered lift, determinant-line section, and affine anchor follow canonically from \(\mu_{\mathrm{phys}}(Y_e)\); until then no public charged-lepton mass theorem is claimed. A target-anchored same-family exact witness reproduces the charged reference triple exactly on the same ordered eigenvalue family, and within that same-family scope the ordered three-point quadratic readout is closed through \ophid{oph_lepton_current_family_quadratic_readout_theorem}. On that same fixed target-anchored witness, the scoped affine coordinate also closes through \ophid{oph_lepton_current_family_affine_anchor_theorem}, with \(A_{\mathrm{ch}}^{(\mathrm{sf})}=\tfrac13\log\det(Y_e^{(\mathrm{sf})})\) and \(g_e^{(\mathrm{sf})}=e^{A_{\mathrm{ch}}^{(\mathrm{sf})}}\); this remains same-family-only and does not promote the theorem lane. Neutrinos are open for a different reason: the weighted-cycle / Majorana-holonomy lane closes the PMNS/hierarchy shape and misses the reduced correction invariant that would emit one positive normalization. Hadrons remain behind the explicit nonperturbative frontier.
 
 The conceptual picture stays the same across the later sector chapters. Particle families are the
 stabilized and readable descendants of transport obstructions on an observer network over \(S^2\),
@@ -518,7 +564,7 @@ On the sharpened D10 ledger, the paper-side transmutation factor is \(\beta_{\ma
 In plain language, the particle derivation has three different kinds of rows: rows that are
 structurally fixed, rows that are numerically emitted, and rows whose chains stop short of a promotable mass prediction. This section summarizes that split.
 
-Read this section by claim tier. The same absolute residual can indicate either a closed emitted value or a compare-only continuation benchmark. On this table, the closed emitted-output set is the electroweak calibration pair \(m_W\) and \(m_Z\). Charged-lepton near-matches are compare-only continuation diagnostics, and the weighted-cycle neutrino branch is one reduced bridge-correction invariant \(C_\nu\) short of promoted absolute masses, with the paper-facing amplitude \(B_\nu\) induced only after exact \(q_{\mathrm{mean}}^{p_\nu}\) factorization above the emitted proxy.
+Read this section by claim tier. The same absolute residual can indicate either a theorem-grade emitted value, an exact sidecar, or a compare-only continuation benchmark. On this table, the structural zeros and the electroweak calibration pair \(m_W,m_Z\) are exact on their declared surfaces; the Higgs, charged, quark, and neutrino lanes each carry a stronger exact sidecar than the theorem lane beneath them. The weighted-cycle neutrino branch remains one reduced bridge-correction invariant \(C_\nu\) short of promoted absolute masses, with the paper-facing amplitude \(B_\nu\) induced only after exact \(q_{\mathrm{mean}}^{p_\nu}\) factorization above the emitted proxy.
 
 \begin{table}[h]
 \centering
@@ -530,20 +576,21 @@ Sector & Status & Derivation stage & Exact output(s) & Caveat / remaining step \
 Structural carriers & structural & gauge/gravity structural theorems & exact \(m_\gamma=m_g=m_{\mathrm{grav}}=0\) & theorem-grade structural exactness; no particle-side caveat \\
 Electroweak bosons & calibration & electroweak calibration stage & exact frozen-repair pair \(M_W=80.377~\mathrm{GeV}\), \(M_Z=91.18797809193725~\mathrm{GeV}\) & exact only on the frozen authoritative repair surface; the public theorem rows remain the target-free source-only D10 outputs \\
 Higgs/top stage & secondary quantitative + exact sidecars & D10 gauge core followed by D11 / family exact witnesses & exact sidecars \(m_H=125.1995304097179~\mathrm{GeV}\), \(m_t=172.3523553288311~\mathrm{GeV}\) & Higgs exactness is a compare-only D11 inverse slice; top exactness is a same-family witness, not a theorem-grade forward closure \\
-Quark family & continuation + exact sidecar witness & shared excitation dictionary \(\rightarrow\) D12 mass-side continuation \(\rightarrow\) selected D12 sheet & exact same-family quark sextet & same-family-only; the local selector closes to \(\sigma_{\mathrm{ref}}\), so the next theorem-side object is \ophid{intrinsic_scale_law_D12} on \ophid{D12_ud_mass_ray} \\
-Charged leptons & continuation + exact sidecar witness & shared excitation dictionary \(\rightarrow\) ordered charged carrier \(\rightarrow\) exact centered readback & exact same-family charged triple & same-family-only; theorem-grade waiting set is promotion of \(\widehat C_e^{\mathrm{cand}}\) and then one descended physical affine scalar \(\mu_{\mathrm{phys}}(Y_e)\) \\
+Quark family & continuation + exact sidecar witness & shared excitation dictionary \(\rightarrow\) D12 mass-side continuation \(\rightarrow\) selected D12 sheet & exact same-family quark sextet on a closed ordered-three-point readout chain & same-family-only; the local selector closes to \(\sigma_{\mathrm{ref}}\), so the next primitive theorem-side object is \ophid{quark_d12_t1_value_law} on \ophid{D12_ud_mass_ray}, with \ophid{intrinsic_scale_law_D12} as the derived wrapper \\
+Charged leptons & continuation + exact sidecar witness & shared excitation dictionary \(\rightarrow\) ordered charged carrier \(\rightarrow\) exact centered readback & exact same-family charged triple on a closed ordered-three-point readout chain & same-family-only; theorem-grade waiting set is promotion of \(\widehat C_e^{\mathrm{cand}}\) and then one descended physical affine scalar \(\mu_{\mathrm{phys}}(Y_e)\) \\
 Neutrinos & continuation + exact sidecar adapter & same-label scalar certificate \(\rightarrow\) weighted-cycle branch \(\rightarrow\) positive selector segment & exact compare-only masses and central splittings & compare-only; one reduced bridge-correction invariant \(C_\nu\) remains open above the emitted proxy and keeps the theorem lane unclosed \\
 Hadrons & execution-contract-frozen nonperturbative continuation & stable-channel correlator and readout derivation & no paper-derived hadron masses & one production backend export bundle with publication-complete manifest provenance, real correlator arrays, and production systematics \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Two points are worth stating explicitly. First, the only matter-family rows with emitted
-numerical values are the quark rows, and even those remain continuation-level rather
-than theorem-closed. Second, ``the bosons are finished'' is too blunt. The photon, gluons, and
-graviton are structural zeros; the \(W\) boson and \(Z\) boson come from electroweak calibration; and
-the Higgs boson sits on the Higgs/top critical stage. Those are all real outputs, but they live at
-different tiers.
+Two points are worth stating explicitly. First, the theorem rows and the exact-hit rows are not
+the same object. The theorem table carries continuation-level quark rows and an open charged /
+neutrino boundary, while the exact-hit surface above it also contains exact same-family charged and
+quark witnesses plus an exact two-parameter neutrino adapter. Second, ``the bosons are finished''
+is too blunt. The photon, gluons, and graviton are structural zeros; the \(W\) boson and \(Z\) boson
+come from electroweak calibration; and the Higgs boson sits on the Higgs/top critical stage. Those
+are all real outputs, but they live at different tiers.
 
 This is the status boundary that governs the rest of the paper. Whenever a later chapter becomes
 detailed about an open family, it should still be read through this table. The table records the
@@ -563,8 +610,8 @@ Lane & Exact output(s) & Exact OPH chain on the paper surface & Caveat \\
 Structural carriers & \(m_\gamma=m_g=m_{\mathrm{grav}}=0\) & axioms \(\rightarrow\) realized electromagnetic/color/dynamical-metric carrier skeleton \(\rightarrow\) symmetry-protected zeros & theorem-grade structural exactness \\
 Electroweak exact sidecar & exact frozen \(W/Z\) pair & axioms \(\rightarrow D7\rightarrow D10\) calibration chain \(\rightarrow\) exact frozen repair pair \ophid{oph_d10_ew_w_anchor_neutral_shear_factorization} & exact only on the frozen authoritative repair surface; compare-only beneath the target-free theorem \\
 Higgs exact sidecar & exact Higgs inverse slice & axioms \(\rightarrow D10\) gauge core \(\rightarrow D11\) Jacobian \(\rightarrow\) exact inverse slice & compare-only inverse slice, not the public forward theorem row \\
-Charged exact witness & exact same-family charged triple & axioms \(\rightarrow\) shared excitation dictionary \(\rightarrow\) ordered charged carrier \(\rightarrow\) exact centered readback \(\rightarrow\) same-family exact witness & same-family-only; theorem lane waits on \(\widehat C_e^{\mathrm{cand}}\) and then \(\mu_{\mathrm{phys}}(Y_e)\) \\
-Quark exact witness & exact same-family quark sextet & axioms \(\rightarrow\) shared excitation dictionary \(\rightarrow\) D12 mass-side continuation \(\rightarrow\) selected D12 sheet \(\rightarrow\) same-family exact witness & same-family-only; the selected D12 sheet is the wrong CKM branch, and the remaining theorem-side object is \ophid{intrinsic_scale_law_D12} on \ophid{D12_ud_mass_ray} \\
+Charged exact witness & exact same-family charged triple & axioms \(\rightarrow\) shared excitation dictionary \(\rightarrow\) ordered charged carrier \(\rightarrow\) exact centered readback \(\rightarrow\) closed quadratic readout theorem \(\rightarrow\) same-family exact witness & same-family-only; theorem lane waits on \(\widehat C_e^{\mathrm{cand}}\) and then \(\mu_{\mathrm{phys}}(Y_e)\) \\
+Quark exact witness & exact same-family quark sextet & axioms \(\rightarrow\) shared excitation dictionary \(\rightarrow\) D12 mass-side continuation \(\rightarrow\) selected D12 sheet \(\rightarrow\) closed quadratic readout theorem \(\rightarrow\) same-family exact witness & same-family-only; the selected D12 sheet is the wrong CKM branch, and the remaining primitive theorem-side object is \ophid{quark_d12_t1_value_law} on \ophid{D12_ud_mass_ray}, with \ophid{intrinsic_scale_law_D12} as the derived wrapper \\
 Neutrino exact adapter & exact compare-only mass triple and representative central splittings & axioms \(\rightarrow\) same-label scalar certificate \(\rightarrow\) weighted-cycle branch \(\rightarrow\) explicit positive selector segment \(\rightarrow\) two-parameter exact adapter & compare-only; the theorem lane waits on the reduced bridge-correction invariant \(C_\nu\) \\
 \bottomrule
 \end{tabular}
@@ -596,7 +643,7 @@ with exact representative central splittings
 \]
 The table is lane-based. It states the OPH chain that emits each exact-hit surface and the exact caveat that prevents silent promotion to a stronger theorem claim.
 
-The detailed inventory below still records the public theorem/continuation rows sector by sector. Whenever an exact sidecar or same-family witness is stronger than the public theorem row, the caveat remains the one stated in the exact-hit table above.
+The detailed inventory below records the public theorem/continuation rows sector by sector. Whenever an exact sidecar or same-family witness is stronger than the public theorem row, the caveat is the one stated in the exact-hit table above.
 
 \subsection{Detailed particle inventory}
 
@@ -792,7 +839,7 @@ assumptions: the local Gibbs form of the regulator-scale state, the
 quasi-local propagation bound, the endpoint-control estimate for bounded intervals, and the
 meaning of refinement stability itself. In regulator language, one works with finite local
 Hilbert spaces and a boundary-fixed overlap action on cut data, often summarized as the R0/R1
-presentation. On top of that, the still-genuine extra burdens are the controlled scaling-limit
+presentation. Beyond that regulator package, the extra burdens are the controlled scaling-limit
 scope, the geometric modular branch, fixed-cap stationarity in the Jacobson step, the bosonic
 and fiber-functor clauses required by compact-gauge reconstruction, and the vanishing gluing
 obstruction when global transportability is invoked.
@@ -802,9 +849,11 @@ vanishing carried collar errors, and then an ordered null cut-pair rigidity theo
 collapses the residual cap-preserving conformal freedom on those extracted cap pairs to the
 hyperbolic subgroup. Beneath that carried-collar witness, the sharper raw datum is a fixed-local-collar
 Markov/faithfulness package: collarwise conditional mutual information vanishing together with an
-eventual positive lower spectral bound on each fixed local collar model. On the current branch the
-single live missing clause inside that datum is precisely that eventual spectral floor, which feeds
-the faithful modular-defect term.
+eventual common floor on the finite modular-transport family on each fixed local collar model. Within that datum the
+single missing clause is precisely that modular-transport common floor, which feeds
+the faithful modular-defect term. No separate exact-Markov-reference faithfulness input is
+missing there: on one fixed collar model, the exact-Markov comparison marginals inherit the same
+eventual floor once the exact-Markov modulus tends to zero.
 
 For the particle-spectrum derivation, this has a practical consequence. Structural statements such
 as compact-gauge reconstruction, the realized Standard Model quotient, the exact hypercharge
@@ -1376,7 +1425,7 @@ asymptotic free-particle masses.
 
 \subsection{Strongest overlap-branch mass-side and mixing-side primitives}\label{quark-family-strongest-overlap-branch-primitives}
 
-The strongest theorem-facing quark object is the intrinsic scale law on the emitted mass ray. On the emitted same-label left-handed solver surface the selector is fixed, and the exact-hit sidecar on top of that theorem boundary is the same-family witness \((u,d,s,c,b,t)=(0.00216,0.00470,0.0935,1.273,4.183,172.3523553288311)\,\mathrm{GeV}\). Its caveat is precise: it does not move the selected D12 sheet. The exact primitive split is as follows.
+The emitted same-label left-handed solver surface selects the singleton \(\sigma_{\mathrm{ref}}\) (\ophid{sigma_ref}). This is a negative closure because \(\sigma_{\mathrm{ref}}\) is the wrong D12 CKM sheet. No theorem-grade branch-changing route from the emitted D12 data to the physical CKM shell is derived. The exact next quark object is therefore the one-scalar law \ophid{quark_d12_t1_value_law} on \ophid{D12_ud_mass_ray}, with \ophid{intrinsic_scale_law_D12} retained as the derived wrapper. The exact-hit sidecar on top of that theorem boundary is the same-family selected-sheet witness \((u,d,s,c,b,t)=(0.00216,0.00470,0.0935,1.273,4.183,172.3523553288311)\,\mathrm{GeV}\), closed through \ophid{oph_quark_current_family_selected_sheet_exact_closure}. Its caveat is precise: it does not move the selected D12 sheet. The exact primitive split is as follows.
 
 Write
 \[
@@ -1639,14 +1688,13 @@ nonuniformity of the particle derivation across the particle zoo.
 
 \subsection{What remains open in the quark sector}\label{quark-family-open-closures}
 
-The quark lane has exactly two open theorem-facing burdens, and only one of them lives on the emitted same-family D12 ray:
+The quark lane has one theorem-facing open object on the emitted same-family D12 branch and one separate builder-facing backend burden:
 \begin{enumerate}[leftmargin=2em]
-\item the builder-facing pure-\(B\) payload pair beneath the reported quark values remains open;
-\item on the emitted same-label left-handed solver surface, the selector question is settled negatively: the orbit closes to \(\sigma_{\mathrm{ref}}\), and \(\sigma_{\mathrm{ref}}\) is the wrong D12 CKM sheet. The remaining same-family theorem object is the intrinsic ray law \ophid{intrinsic_scale_law_D12} on \(D12_{ud}^{\mathrm{mass}}=\mathcal R_{D12}^{ud}\) (paper id \ophid{D12_ud_mass_ray}).
+\item on the emitted same-label left-handed solver surface, the orbit closes negatively to \(\sigma_{\mathrm{ref}}\), and \(\sigma_{\mathrm{ref}}\) is the wrong D12 CKM sheet. No theorem-grade branch-changing route from the emitted D12 data to the physical CKM shell is derived. The remaining same-family theorem object is therefore the one-scalar law \ophid{quark_d12_t1_value_law} on \(D12_{ud}^{\mathrm{mass}}=\mathcal R_{D12}^{ud}\) (paper id \ophid{D12_ud_mass_ray}), with \ophid{intrinsic_scale_law_D12} as the derived wrapper;
+\item the builder-facing pure-\(B\) payload pair beneath the reported quark values remains open, but it is not another selector theorem on the emitted mass ray.
 \end{enumerate}
 
-The correct headline for quarks is narrower: quarks are the only matter family with reported numerical rows, and the row-emission branch sits above visible constructive objects, while the selector problem on the emitted solver surface is closed in the negative sense. A target-anchored same-family exact witness reproduces the six quark reference masses exactly on the same ordered three-point family, but it remains same-family-only and does not collapse the wrong-branch D12 boundary. Any compare-only orbit improvement or chirality-basis diagnostic that is not sector-attached and left-handed same-label remains outside the theorem ledger.
-
+The quark headline is narrower: quarks are the only matter family with reported numerical rows, the selector problem on the emitted solver surface is closed in the negative sense, and the next theorem-side target on that emitted branch is \ophid{quark_d12_t1_value_law}, with \ophid{intrinsic_scale_law_D12} as the derived wrapper. A target-anchored same-family exact witness reproduces the six quark reference masses exactly on the same ordered three-point family, and within that same-family scope the selected-sheet exact readout closes through \ophid{oph_quark_current_family_selected_sheet_exact_closure}, built on \ophid{oph_quark_current_family_quadratic_readout_theorem}; it does not collapse the wrong-branch D12 boundary. Any compare-only orbit improvement or chirality-basis diagnostic that is not sector-attached and left-handed same-label remains outside the theorem ledger.
 \section{Charged-Lepton Family Derivation}
 
 The charged-lepton derivation is one step less mature than the quark derivation. It contains an
@@ -1899,7 +1947,7 @@ the missing affine absolute anchor on the determinant-line route would have to t
 3.003986333402356.
 \]
 This identifies the remaining unresolved objects sharply: the shape bridge is almost solved on
-the continuation branch, but the theorem-grade derivation still lacks promotion of the latent
+the continuation branch, but the theorem-grade derivation lacks promotion of the latent
 candidate \(\widehat C_e^{\mathrm{cand}}\) to theorem-grade \(\widehat C_e\), then one
 affine-covariant absolute anchor \(A_{\mathrm{ch}}\), and therefore the emitted
 \(\eta_{\mathrm{ext}}\), \(\sigma_{\mathrm{ext}}\), \(g_e\), and \(\Delta_e^{\mathrm{abs}}\)
@@ -1953,17 +2001,17 @@ m_i=\lambda_\nu \widehat m_i,
 \Delta m_{ij}^2=\lambda_\nu^2 \widehat{\Delta}_{ij}.
 \]
 The normalized same-label overlap-defect weight section \(qbar_e\) is closed beneath
-this step, and on the current isotropic branch the same-label phase-cocycle theorem, the
+this step, and on the isotropic branch the same-label phase-cocycle theorem, the
 selector-centered common-refinement bundle descent, and the finite-angle centered edge-norm
 theorem are also closed, so the remaining attachment gap is the reduced positive correction scalar
 \[
 C_\nu:=\frac{B_\nu}{I_\nu^{1/2}\,\widehat{\mathrm{ratio}}^{\,1/2}\,\mathrm{sum\_defect}^{-1}}
 \]
-above the emitted proxy and closed normalizer. The current attached stack also factors exactly through
+above the emitted proxy and closed normalizer. The attached stack also factors exactly through
 \(q_e = q_{\mathrm{mean}} qbar_e\), so a \(qbar_e\)-only collapse law for the bridge factor does
 not follow from the present corpus. The best closed constructive local object beneath that bridge is the
 defect-weighted same-label edge family \(q_e=\sqrt{g_e d_e}\) together with the induced
-\(\mu_e\) family, but that family still sits below \(C_\nu\) and the induced paper-facing amplitude \(B_\nu\) rather than replacing them.
+\(\mu_e\) family, but that family sits below \(C_\nu\) and the induced paper-facing amplitude \(B_\nu\) rather than replacing them.
 The weighted-cycle branch fixes the PMNS data, the hierarchy ratio, and the
 scale-free mass normal form; it misses only the single positive scalar that would place that
 normal form on an absolute eV scale without an external oscillation anchor.

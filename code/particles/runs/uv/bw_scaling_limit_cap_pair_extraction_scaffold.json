@@ -42,7 +42,7 @@
     "id": "ordered_null_cut_pair_rigidity",
     "role": "Collapse the residual cap-preserving conformal freedom on the realized limit pair to the unique BW hyperbolic subgroup."
   },
-  "generated_utc": "2026-04-01T04:53:48Z",
+  "generated_utc": "2026-04-01T16:10:36Z",
   "goal": "Extract a canonical scaling-limit cap pair (A_infty(C), omega_infty^C) from transported cap marginals along the realized refinement-stable branch.",
   "input_contract": {
     "must_not_assume": [
@@ -84,9 +84,10 @@
     "The local quotient/prelimit transported cap-local system can already be packaged from the current corpus at the reference-chart and asymptotic transport-equivalence level.",
     "The compactness/extraction theorem itself is not the missing proof; the current remaining blocker is the two-term carried-collar emitted frontier beneath the derived eta schedule.",
     "The carried schedule itself is now recorded as theorem-generated from those two term witnesses: r_FR(epsilon_{n,m,delta}) -> 0 and 4 * lambda_{*,n,m,delta}^{-1} * delta^M_{m,delta}(epsilon_{n,m,delta}) -> 0.",
-    "That combined schedule reduces one level lower to a fixed-local-collar Markov/faithfulness datum: collarwise CMI vanishing plus an eventual positive lower spectral bound.",
+    "That combined schedule reduces one level lower to a fixed-local-collar Markov/faithfulness datum: collarwise CMI vanishing plus an eventual common floor on the finite modular-transport family.",
     "Inside that raw datum, the constructive recovery witness, the exact-Markov comparison modulus, and the faithful modular-defect term are now split as separate lower local scaffolds.",
-    "On the current branch the only nonlatent lower input still outside the emitted chain is the eventual fixed-local-collar spectral floor feeding the faithful modular-defect term; the recovery/Markov side is already latent once epsilon_{n,m,delta} -> 0.",
+    "No separate exact-Markov-reference spectral input remains hidden below the faithful modular-defect term: on one fixed collar model, the eventual floor for the transported marginals transfers to the exact-Markov comparison marginals once delta^M -> 0.",
+    "On the current branch the only nonlatent lower input still outside the emitted chain is the eventual fixed-local-collar modular-transport common floor feeding the faithful modular-defect term; the recovery/Markov side is already latent once epsilon_{n,m,delta} -> 0.",
     "The artifact now also carries a machine-readable honesty gate so prelimit transport packaging cannot be mistaken for the missing emitted collar schedule.",
     "It does not by itself prove the BW automorphism law."
   ],
@@ -142,7 +143,7 @@
     "promotion_rule": "No theorem promotion is honest until the carried-collar schedule itself is emitted on every fixed local collar model.",
     "required_raw_inputs": [
       "epsilon_{n,m,delta} = I(A_{m,delta}:D_{m,delta}|B_{m,delta})_{omega_{n->m}} -> 0",
-      "exists lambda_bar_{m,delta} > 0 with lambda_{*,n,m,delta} >= lambda_bar_{m,delta} eventually"
+      "exists lambda_bar_{m,delta} > 0 and N_{m,delta} such that for all n >= N_{m,delta} and every X in Xi^{mod}_{m,delta}, rho_{n->m,X} >= lambda_bar_{m,delta} * 1"
     ],
     "status": "open"
   },
@@ -158,7 +159,7 @@
       ]
     },
     {
-      "formula": "exists lambda_bar_{m,delta} > 0 with lambda_{*,n,m,delta} >= lambda_bar_{m,delta} eventually",
+      "formula": "exists lambda_bar_{m,delta} > 0 and N_{m,delta} such that for all n >= N_{m,delta} and every X in Xi^{mod}_{m,delta}, rho_{n->m,X} >= lambda_bar_{m,delta} * 1",
       "id": "collarwise_faithfulness_input",
       "kind": "raw_input",
       "status": "open_until_emitted_on_every_fixed_model",
@@ -247,12 +248,20 @@
       "role": "faithfulness_weighted_modular_term"
     }
   ],
-  "single_live_missing_clause_artifact": "code/particles/runs/uv/bw_fixed_local_collar_eventual_spectral_floor_scaffold.json",
+  "single_live_missing_clause_artifact": "code/particles/runs/uv/bw_fixed_local_collar_modular_transport_common_floor_scaffold.json",
+  "single_live_missing_clause_closure_lemma": {
+    "id": "exact_markov_reference_eventual_common_floor_transfer",
+    "requires_exact_markov_artifact": "code/particles/runs/uv/bw_fixed_local_collar_exact_markov_modulus_scaffold.json",
+    "requires_spectral_floor_artifact": "code/particles/runs/uv/bw_fixed_local_collar_modular_transport_common_floor_scaffold.json",
+    "statement": "On one fixed local collar model, if the modular-transport marginals satisfy rho_{n->m,X} >= lambda_bar_{m,delta} * 1 eventually for every X in Xi^{mod}_{m,delta} and the exact-Markov replacements satisfy ||rho_X - sigma_{n,m,delta,X}||_1 <= delta^M_{m,delta}(epsilon_{n,m,delta}) -> 0, then for all sufficiently large n the comparison marginals also satisfy sigma_{n,m,delta,X} >= (lambda_bar_{m,delta} / 2) * 1.",
+    "status_on_fill": "exact_markov_reference_common_floor_closed",
+    "why_this_is_enough": "No separate spectral-floor hypothesis on the exact-Markov comparison family is needed before applying the modular-transport estimate."
+  },
   "smaller_remaining_raw_datum": "fixed_local_collar_markov_faithfulness_datum",
   "smaller_remaining_raw_datum_artifact": "code/particles/runs/uv/bw_fixed_local_collar_markov_faithfulness_datum.json",
   "smaller_remaining_raw_datum_components": [
     "epsilon_{n,m,delta} = I(A_{m,delta}:D_{m,delta}|B_{m,delta})_{omega_{n->m}} -> 0",
-    "exists lambda_bar_{m,delta} > 0 with lambda_{*,n,m,delta} >= lambda_bar_{m,delta} eventually"
+    "exists lambda_bar_{m,delta} > 0 and N_{m,delta} such that for all n >= N_{m,delta} and every X in Xi^{mod}_{m,delta}, rho_{n->m,X} >= lambda_bar_{m,delta} * 1"
   ],
   "status": "constructive_prelimit_system_two_lower_emitted_witnesses_still_missing",
   "theorem_assumptions": [

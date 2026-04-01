@@ -11,7 +11,7 @@
   },
   "full_matrix_artifact": "oph_quark_d12_mass_branch_and_ckm_closure",
   "gauge_convention": "standard rephasing makes V_ud, V_us, V_cs, V_cb, V_tb real-positive; a diagonal conjugation then makes K_12 and K_23 real-positive",
-  "generated_utc": "2026-04-01T08:06:30Z",
+  "generated_utc": "2026-04-01T16:12:53Z",
   "generator_invariants": {
     "chi_diagonal_imag": [
       9.585939922364254e-11,
@@ -23,11 +23,11 @@
     "theta_13_K": 3.066523834550606e-05,
     "theta_23_K": 0.0012873978029669681
   },
-  "next_single_residual_object": "intrinsic_scale_law_D12",
+  "next_single_residual_object": "quark_d12_t1_value_law",
   "notes": [
     "This bundle records the gauge-fixed CKM/CP shell emitted by the forward same-label transport unitary on the current D12 sheet.",
     "The transport-generator residual is closed to machine precision on that sheet, but the current D12 sheet is not the physical quark branch.",
-    "The solver-side selector is now fixed to sigma_ref, so the next exact object is the intrinsic D12 scale law on the emitted mass ray."
+    "The solver-side selector is now fixed to sigma_ref, so the next exact object is the one-scalar D12 value law on the emitted mass ray."
   ],
   "physical_branch_status": "current_d12_sheet_is_strict_no_go_for_physical_ckm_shell",
   "physical_invariant_formula": "V_CKM^fwd = U_u^dagger U_d, K_CKM = Log_pr(V_CKM^fwd), K_gf = i diag(chi_1,chi_2,chi_3) + theta_12(E12-E21) + theta_23(E23-E32) + theta_13(e^{i phi_cp} E13 - e^{-i phi_cp} E31)",

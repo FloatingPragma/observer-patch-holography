@@ -22,6 +22,10 @@ EW_EXACT_JSON = ROOT / "particles" / "runs" / "calibration" / "d10_ew_w_anchor_n
 D11_EXACT_JSON = ROOT / "particles" / "runs" / "calibration" / "d11_reference_exact_adapter.json"
 CHARGED_JSON = ROOT / "particles" / "runs" / "leptons" / "lepton_current_family_exact_readout.json"
 QUARK_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_current_family_exact_readout.json"
+CHARGED_THEOREM_JSON = ROOT / "particles" / "runs" / "leptons" / "lepton_current_family_quadratic_readout_theorem.json"
+QUARK_THEOREM_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_current_family_quadratic_readout_theorem.json"
+CHARGED_AFFINE_JSON = ROOT / "particles" / "runs" / "leptons" / "lepton_current_family_affine_anchor_theorem.json"
+QUARK_CLOSURE_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_current_family_selected_sheet_closure.json"
 NEUTRINO_JSON = ROOT / "particles" / "runs" / "neutrino" / "neutrino_two_parameter_exact_adapter.json"
 DEFAULT_MD_OUT = ROOT / "particles" / "EXACT_NONHADRON_MASSES.md"
 DEFAULT_JSON_OUT = ROOT / "particles" / "exact_nonhadron_masses.json"
@@ -45,6 +49,8 @@ def build_entries() -> list[dict[str, Any]]:
     d11_exact = _load_json(D11_EXACT_JSON)
     charged = _load_json(CHARGED_JSON)
     quark = _load_json(QUARK_JSON)
+    charged_affine = _load_json(CHARGED_AFFINE_JSON)
+    quark_closure = _load_json(QUARK_CLOSURE_JSON)
     neutrino = _load_json(NEUTRINO_JSON)
 
     return [
@@ -116,7 +122,9 @@ def build_entries() -> list[dict[str, Any]]:
             "scope": charged["theorem_scope"],
             "promotable": False,
             "source_artifact": _repo_ref(CHARGED_JSON),
-            "note": "Exact current-family charged-lepton witness.",
+            "supporting_theorem_artifact": _repo_ref(CHARGED_THEOREM_JSON),
+            "supporting_scope_closure_artifact": _repo_ref(CHARGED_AFFINE_JSON),
+            "note": "Exact current-family charged-lepton witness on a closed ordered-three-point readout chain, with the scoped affine coordinate A_ch_current_family closed on the same exact family.",
         },
         {
             "particle_id": "muon",
@@ -126,7 +134,9 @@ def build_entries() -> list[dict[str, Any]]:
             "scope": charged["theorem_scope"],
             "promotable": False,
             "source_artifact": _repo_ref(CHARGED_JSON),
-            "note": "Exact current-family charged-lepton witness.",
+            "supporting_theorem_artifact": _repo_ref(CHARGED_THEOREM_JSON),
+            "supporting_scope_closure_artifact": _repo_ref(CHARGED_AFFINE_JSON),
+            "note": "Exact current-family charged-lepton witness on a closed ordered-three-point readout chain, with the scoped affine coordinate A_ch_current_family closed on the same exact family.",
         },
         {
             "particle_id": "tau",
@@ -136,7 +146,9 @@ def build_entries() -> list[dict[str, Any]]:
             "scope": charged["theorem_scope"],
             "promotable": False,
             "source_artifact": _repo_ref(CHARGED_JSON),
-            "note": "Exact current-family charged-lepton witness.",
+            "supporting_theorem_artifact": _repo_ref(CHARGED_THEOREM_JSON),
+            "supporting_scope_closure_artifact": _repo_ref(CHARGED_AFFINE_JSON),
+            "note": "Exact current-family charged-lepton witness on a closed ordered-three-point readout chain, with the scoped affine coordinate A_ch_current_family closed on the same exact family.",
         },
         {
             "particle_id": "up_quark",
@@ -146,7 +158,9 @@ def build_entries() -> list[dict[str, Any]]:
             "scope": quark["theorem_scope"],
             "promotable": False,
             "source_artifact": _repo_ref(QUARK_JSON),
-            "note": "Exact current-family quark witness on the local quark branch.",
+            "supporting_theorem_artifact": _repo_ref(QUARK_THEOREM_JSON),
+            "supporting_scope_closure_artifact": _repo_ref(QUARK_CLOSURE_JSON),
+            "note": "Exact current-family quark witness on the selected sigma_ref sheet, with the selected-sheet exact readout chain closed on current_family_only.",
         },
         {
             "particle_id": "charm_quark",
@@ -156,7 +170,9 @@ def build_entries() -> list[dict[str, Any]]:
             "scope": quark["theorem_scope"],
             "promotable": False,
             "source_artifact": _repo_ref(QUARK_JSON),
-            "note": "Exact current-family quark witness on the local quark branch.",
+            "supporting_theorem_artifact": _repo_ref(QUARK_THEOREM_JSON),
+            "supporting_scope_closure_artifact": _repo_ref(QUARK_CLOSURE_JSON),
+            "note": "Exact current-family quark witness on the selected sigma_ref sheet, with the selected-sheet exact readout chain closed on current_family_only.",
         },
         {
             "particle_id": "top_quark",
@@ -166,7 +182,9 @@ def build_entries() -> list[dict[str, Any]]:
             "scope": quark["theorem_scope"],
             "promotable": False,
             "source_artifact": _repo_ref(QUARK_JSON),
-            "note": "Exact current-family quark witness on the local quark branch.",
+            "supporting_theorem_artifact": _repo_ref(QUARK_THEOREM_JSON),
+            "supporting_scope_closure_artifact": _repo_ref(QUARK_CLOSURE_JSON),
+            "note": "Exact current-family quark witness on the selected sigma_ref sheet, with the selected-sheet exact readout chain closed on current_family_only.",
         },
         {
             "particle_id": "down_quark",
@@ -176,7 +194,9 @@ def build_entries() -> list[dict[str, Any]]:
             "scope": quark["theorem_scope"],
             "promotable": False,
             "source_artifact": _repo_ref(QUARK_JSON),
-            "note": "Exact current-family quark witness on the local quark branch.",
+            "supporting_theorem_artifact": _repo_ref(QUARK_THEOREM_JSON),
+            "supporting_scope_closure_artifact": _repo_ref(QUARK_CLOSURE_JSON),
+            "note": "Exact current-family quark witness on the selected sigma_ref sheet, with the selected-sheet exact readout chain closed on current_family_only.",
         },
         {
             "particle_id": "strange_quark",
@@ -186,7 +206,9 @@ def build_entries() -> list[dict[str, Any]]:
             "scope": quark["theorem_scope"],
             "promotable": False,
             "source_artifact": _repo_ref(QUARK_JSON),
-            "note": "Exact current-family quark witness on the local quark branch.",
+            "supporting_theorem_artifact": _repo_ref(QUARK_THEOREM_JSON),
+            "supporting_scope_closure_artifact": _repo_ref(QUARK_CLOSURE_JSON),
+            "note": "Exact current-family quark witness on the selected sigma_ref sheet, with the selected-sheet exact readout chain closed on current_family_only.",
         },
         {
             "particle_id": "bottom_quark",
@@ -196,7 +218,9 @@ def build_entries() -> list[dict[str, Any]]:
             "scope": quark["theorem_scope"],
             "promotable": False,
             "source_artifact": _repo_ref(QUARK_JSON),
-            "note": "Exact current-family quark witness on the local quark branch.",
+            "supporting_theorem_artifact": _repo_ref(QUARK_THEOREM_JSON),
+            "supporting_scope_closure_artifact": _repo_ref(QUARK_CLOSURE_JSON),
+            "note": "Exact current-family quark witness on the selected sigma_ref sheet, with the selected-sheet exact readout chain closed on current_family_only.",
         },
         {
             "particle_id": "electron_neutrino",

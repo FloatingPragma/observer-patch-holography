@@ -1,20 +1,30 @@
 {
   "artifact": "oph_bw_fixed_local_collar_eventual_spectral_floor_scaffold",
+  "coarsens_live_artifact": "code/particles/runs/uv/bw_fixed_local_collar_modular_transport_common_floor_scaffold.json",
+  "comparison_reference_floor_transfer": {
+    "id": "exact_markov_reference_eventual_common_floor_transfer",
+    "requires_exact_markov_artifact": "code/particles/runs/uv/bw_fixed_local_collar_exact_markov_modulus_scaffold.json",
+    "requires_spectral_floor_artifact": "code/particles/runs/uv/bw_fixed_local_collar_modular_transport_common_floor_scaffold.json",
+    "statement": "On one fixed local collar model, if the modular-transport marginals satisfy rho_{n->m,X} >= lambda_bar_{m,delta} * 1 eventually for every X in Xi^{mod}_{m,delta} and the exact-Markov replacements satisfy ||rho_X - sigma_{n,m,delta,X}||_1 <= delta^M_{m,delta}(epsilon_{n,m,delta}) -> 0, then for all sufficiently large n the comparison marginals also satisfy sigma_{n,m,delta,X} >= (lambda_bar_{m,delta} / 2) * 1.",
+    "status_on_fill": "exact_markov_reference_common_floor_closed",
+    "why_this_is_enough": "No separate spectral-floor hypothesis on the exact-Markov comparison family is needed before applying the modular-transport estimate."
+  },
   "contract": {
     "for_fixed_models": "every fixed local collar model (m, delta)",
     "must_emit": "exists lambda_bar_{m,delta} > 0 with lambda_{*,n,m,delta} >= lambda_bar_{m,delta} eventually"
   },
   "exact_missing_object": "eventual_fixed_local_collar_spectral_floor_for_transported_marginals",
-  "generated_utc": "2026-04-01T08:06:52Z",
+  "generated_utc": "2026-04-01T16:13:04Z",
+  "live_exact_missing_object": "eventual_fixed_local_collar_common_floor_on_modular_transport_marginals",
   "meaning": "Along the realized refinement chain, each fixed transported local-collar marginal stays uniformly faithful with a collarwise eigenvalue floor bounded away from zero.",
   "notes": [
-    "This clause does not by itself emit the carried-collar schedule or the scaling-limit cap pair.",
-    "It is the live faithfulness-side clause still external to the emitted theorem chain.",
+    "This clause is intentionally larger than the live primitive blocker.",
+    "The faithful modular-defect proof only consumes the finite modular-transport family Xi^{mod}_{m,delta}, so the smaller common-floor artifact is the live target and this all-marginal floor is only a legacy coarse wrapper.",
     "On the local-Gibbs plus exponential-mixing pullback branch, the recovery/Markov side is already latent once epsilon_{n,m,delta} -> 0."
   ],
   "public_promotion_allowed": false,
-  "role": "Package the sole nonlatent faithfulness-side clause beneath the fixed-local-collar faithful modular-defect witness.",
-  "status": "minimal_faithfulness_side_extension",
+  "role": "Package the legacy coarse all-marginal spectral-floor wrapper above the smaller modular-transport common-floor clause actually consumed by the proof.",
+  "status": "legacy_coarse_wrapper",
   "unlocks": [
     "fixed_local_collar_faithful_modular_defect_vanishing",
     "vanishing_carried_collar_schedule_on_fixed_local_collars",

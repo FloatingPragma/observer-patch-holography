@@ -1,0 +1,112 @@
+{
+  "artifact": "oph_quark_current_family_quadratic_readout_theorem",
+  "exact_centered_log_d": [
+    -3.260540130101604,
+    -0.2701412025229759,
+    3.53068133262458
+  ],
+  "exact_centered_log_u": [
+    -5.888737130993507,
+    0.4902862458678261,
+    5.39845088512568
+  ],
+  "exact_fit_residuals_d": [
+    1.734723475976807e-18,
+    -1.3877787807814457e-17,
+    -6.217248937900877e-15
+  ],
+  "exact_fit_residuals_u": [
+    -4.336808689942018e-19,
+    -4.440892098500626e-16,
+    -1.1368683772161603e-13
+  ],
+  "generated_utc": "2026-04-01T16:12:52Z",
+  "input_kind": "ordered_three_point_quark_carrier_plus_target_family",
+  "notes": [
+    "This closes the target-anchored same-family quark readout chain on the fixed ordered three-point carrier.",
+    "It does not change the separate theorem-grade physical-branch boundary on the selected D12 sheet."
+  ],
+  "ordered_carrier_artifact": "oph_family_excitation_spread_map",
+  "ordered_coordinate_x": [
+    -1.0,
+    -0.5175863354681689,
+    1.0
+  ],
+  "predicted_singular_values_d": [
+    0.004700000000000002,
+    0.09349999999999999,
+    4.182999999999994
+  ],
+  "predicted_singular_values_u": [
+    0.0021599999999999996,
+    1.2729999999999995,
+    172.3523553288311
+  ],
+  "proof_status": "closed_current_family_exact_readout",
+  "quadratic_basis": {
+    "invertible": true,
+    "linear": [
+      -0.8274712215106104,
+      -0.34505755697877927,
+      1.1725287784893896
+    ],
+    "minor_determinant": 0.48806959022442137,
+    "minor_first_two_rows": [
+      [
+        -0.8274712215106104,
+        0.2440347951122107
+      ],
+      [
+        -0.34505755697877927,
+        -0.4880695902244214
+      ]
+    ],
+    "quadratic_centered": [
+      0.2440347951122107,
+      -0.4880695902244214,
+      0.2440347951122107
+    ]
+  },
+  "reference_targets_d": [
+    0.0047,
+    0.0935,
+    4.183
+  ],
+  "reference_targets_u": [
+    0.00216,
+    1.273,
+    172.3523553288312
+  ],
+  "sector_exact_coefficients_d": {
+    "linear": 3.395610731363092,
+    "quadratic": -1.847154502040493
+  },
+  "sector_exact_coefficients_u": {
+    "linear": 5.643594008059593,
+    "quadratic": -4.994474262877307
+  },
+  "sector_exact_geometric_means": {
+    "g_d": 0.12249897208633505,
+    "g_u": 0.7796501962057188
+  },
+  "smallest_constructive_missing_object": null,
+  "target_centered_log_d": [
+    -3.2605401301016044,
+    -0.2701412025229759,
+    3.530681332624581
+  ],
+  "target_centered_log_u": [
+    -5.888737130993507,
+    0.49028624586782643,
+    5.39845088512568
+  ],
+  "target_source_artifact": "particle_reference_values.json",
+  "theorem_scope": "current_family_only",
+  "theorem_statement": "On the fixed ordered three-point quark carrier with x = (-1, x2, 1) and x2 != +/-1, the centered log readout is uniquely quadratic: every centered log triple y with sum(y)=0 has a unique decomposition y = a * ctr(X_ord) + b * ctr(X_ord^2). For the current-family quark targets, the unique centered logs together with the sector geometric means g_u and g_d therefore emit one exact same-family sextet.",
+  "uniqueness_contract": {
+    "absolute_scale_solver_d": "g_d = exp(mean(log target_d))",
+    "absolute_scale_solver_u": "g_u = exp(mean(log target_u))",
+    "centered_log_formula": "y = a * ctr(X_ord) + b * ctr(X_ord^2)",
+    "coefficient_solver": "[a, b]^T = B^{-1} * [y1, y2]^T where B is the first-two-row quadratic basis minor"
+  }
+}

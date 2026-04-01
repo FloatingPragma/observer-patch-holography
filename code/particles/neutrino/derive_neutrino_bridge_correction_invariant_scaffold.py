@@ -37,6 +37,7 @@ def build_payload(
         "artifact": "oph_neutrino_bridge_correction_invariant_scaffold",
         "generated_utc": _timestamp(),
         "status": "minimal_exact_reduction",
+        "proof_grade": "exact_proxy_relative_reduction",
         "public_promotion_allowed": False,
         "exact_missing_object": "oph_neutrino_bridge_correction_invariant",
         "parent_missing_object": "oph_neutrino_attachment_bridge_invariant",
@@ -53,6 +54,32 @@ def build_payload(
             "bridge_reconstruction": reduced.get("bridge_reconstruction"),
             "equivalence_theorem": reduced.get("equivalence_theorem"),
             "exact_residual_moduli_space": reduced.get("exact_residual_moduli_space"),
+        },
+        "strongest_locally_justified_exact_theorem": {
+            "name": "proxy_relative_single_coordinate_reduction_for_neutrino_attachment",
+            "statement": (
+                "On the current weighted-cycle attachment lane, once the internal positive proxy P_nu is fixed, "
+                "the remaining exact attachment quotient is one positive coordinate C_nu. Emitting C_nu is "
+                "exactly equivalent to emitting the parent bridge scalar B_nu, so any theorem-grade absolute "
+                "attachment closure on this lane must factor through that one proxy-relative coordinate."
+            ),
+            "scope": "current_weighted_cycle_branch_with_fixed_internal_positive_proxy",
+            "exact_residual_moduli_space": reduced.get("exact_residual_moduli_space"),
+            "equivalent_parent_object": {
+                "artifact": "oph_neutrino_attachment_bridge_invariant",
+                "symbol": "B_nu",
+                "bridge_reconstruction": reduced.get("bridge_reconstruction"),
+            },
+            "local_justification": [
+                "The attachment irreducibility theorem leaves exactly one positive residual orbit on the current attached stack.",
+                "The chosen proxy P_nu is already internal to the emitted stack and strictly positive on the live branch.",
+                "Dividing by P_nu is therefore an exact reparameterization of the same residual orbit, not a new theorem burden.",
+            ],
+            "non_claims": [
+                "no_numeric_value_for_C_nu_is_emitted",
+                "no_compare_only_window_or_proxy_search_is_promoted",
+                "no_hidden_full_closure_of_the_absolute_scale_is_claimed",
+            ],
         },
         "contract": {
             "must_emit": "one positive reduced bridge-correction scalar C_nu or an exactly equivalent reduced attachment invariant",

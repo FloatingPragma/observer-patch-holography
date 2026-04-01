@@ -233,12 +233,12 @@ stages:
     tasks:
       - id: papers.compact.e.29-derive-the-yukawa-excitation-dictionary
         title: "Derive the blind Yukawa / excitation dictionary"
-        status: in_progress
+        status: completed
         owner_lane: pro_paper
         depends_on: ["stage-1"]
       - id: particles.microphysics.01-bridge-edge-statistics-to-yukawa-dictionary
         title: "Bridge edge statistics to the Yukawa dictionary if e29 stalls"
-        status: in_progress
+        status: deferred
         owner_lane: pro_microphysics
         depends_on: ["stage-1"]
       - id: particles.flavor.05-derive-suppression-phase-tensors-artifact
@@ -321,7 +321,7 @@ stages:
     tasks:
       - id: papers.compact.e.30-replace-koide-assisted-lepton-fitting-with-a-theorem
         title: "Search for the full charged closure chain by promoting C_hat_e^{cand} and then deriving the descended affine scalar mu_phys(Y_e) beneath A_ch"
-        status: in_progress
+        status: blocked
         owner_lane: pro_paper
         depends_on: ["papers.compact.e.29-derive-the-yukawa-excitation-dictionary"]
       - id: particles.leptons.13-add-support-extension-source-scalar-pair-readback
@@ -567,11 +567,11 @@ stages:
   - id: stage-4
     title: "Close the physical quark branch"
     status: active
-    success_rule: "Either the quark lane escapes the selected wrong-branch sigma_ref sheet and reaches a theorem-grade physical CKM branch, or every surface states the sharper current boundary: sigma_ref is already selected and intrinsic_scale_law_D12 is the next exact object on D12_ud_mass_ray."
+    success_rule: "Either the quark lane escapes the selected wrong-branch sigma_ref sheet and reaches a theorem-grade physical CKM branch, or every surface states the sharper current boundary: sigma_ref is already selected, quark_d12_t1_value_law is the next primitive exact object on D12_ud_mass_ray, and intrinsic_scale_law_D12 survives only as the derived wrapper."
     tasks:
       - id: papers.compact.e.31-derive-quark-textures-ckm-mixing-and-cp-from-overlap-defects
         title: "Search for a genuine quark branch-changing closure beyond the selected wrong-branch sigma_ref sheet"
-        status: in_progress
+        status: blocked
         owner_lane: pro_paper
         depends_on: ["papers.compact.e.29-derive-the-yukawa-excitation-dictionary"]
       - id: particles.flavor.01-define-overlap-flavor-observable-artifact
@@ -648,7 +648,7 @@ stages:
         depends_on: ["particles.flavor.32-add-odd-response-normalization-and-zero-scalar-guards"]
       - id: particles.flavor.44-open-d12-light-quark-isospin-selector-branch
         title: "Open the D12 light-quark isospin-breaking selector / overlap-defect scalar branch"
-        status: in_progress
+        status: completed
         owner_lane: pro_paper
         depends_on: ["particles.flavor.43-certify-core-no-go-for-light-quark-pure-b-selector"]
       - id: particles.flavor.45-add-d12-light-quark-selector-law-shell
@@ -735,7 +735,7 @@ stages:
         owner_lane: local_code
         depends_on: ["particles.flavor.59-record-transport-frame-diagnostic-orbit-no-go"]
       - id: particles.flavor.53-derive-selected-branch-quark-mass-scale-law
-        title: "Derive the intrinsic mass-side scale law intrinsic_scale_law_D12 on the emitted selected quark branch"
+        title: "Derive the one-scalar quark law quark_d12_t1_value_law on the emitted selected D12 mass ray"
         status: pending
         owner_lane: pro_paper
         depends_on:
@@ -755,7 +755,7 @@ stages:
         depends_on: ["papers.compact.e.29-derive-the-yukawa-excitation-dictionary"]
       - id: particles.e.32b-close-neutrino-splittings-and-mixing
         title: "Close the reduced neutrino attachment law by emitting C_nu above the emitted proxy and then collapse the remaining positive normalization orbit"
-        status: in_progress
+        status: blocked
         owner_lane: pro_neutrino
         depends_on: ["papers.compact.e.32-derive-neutrino-masses-from-screen-capacity-as-a-theorem"]
       - id: particles.neutrino.01-derive-capacity-sector-anchor

@@ -1,0 +1,79 @@
+{
+  "artifact": "oph_lepton_current_family_quadratic_readout_theorem",
+  "exact_centered_log_shape": [
+    -4.49521010880808,
+    0.8363886515979084,
+    3.6588214572101716
+  ],
+  "exact_fit_residuals_abs": [
+    -1.0842021724855044e-19,
+    0.0,
+    1.1102230246251565e-15
+  ],
+  "g_e_exact_fit": 0.04577885783568762,
+  "generated_utc": "2026-04-01T16:12:58Z",
+  "input_kind": "ordered_three_point_charged_carrier_plus_target_family",
+  "notes": [
+    "This closes the target-anchored same-family charged readout chain on the fixed ordered three-point carrier.",
+    "It does not change the separate theorem-grade affine-scale boundary on the charged lane."
+  ],
+  "ordered_carrier_artifact": "oph_lepton_ordered_shape_readout",
+  "ordered_carrier_eigenvalues": [
+    1.3557137562771555,
+    0.40452595199087626,
+    0.102160291731968
+  ],
+  "predicted_singular_values_abs": [
+    0.0005109989499999998,
+    0.10565837550000001,
+    1.7769324651340912
+  ],
+  "proof_status": "closed_current_family_exact_readout",
+  "quadratic_basis": {
+    "invertible": true,
+    "linear": [
+      0.7349137562771556,
+      -0.21627404800912364,
+      -0.5186397082680319
+    ],
+    "minor_determinant": -0.12017672006448217,
+    "minor_first_two_rows": [
+      [
+        0.7349137562771556,
+        1.1672805356257814
+      ],
+      [
+        -0.21627404800912364,
+        -0.5070380074992086
+      ]
+    ],
+    "quadratic_centered": [
+      1.1672805356257814,
+      -0.5070380074992086,
+      -0.6602425281265726
+    ]
+  },
+  "quadratic_coefficients": {
+    "linear": -10.841885041734454,
+    "quadratic": 2.974983516260214
+  },
+  "reference_targets": [
+    0.0005109989499999999,
+    0.10565837550000001,
+    1.77693246513409
+  ],
+  "smallest_constructive_missing_object": null,
+  "target_centered_logs": [
+    -4.49521010880808,
+    0.8363886515979084,
+    3.6588214572101707
+  ],
+  "target_source_artifact": "particle_reference_values.json",
+  "theorem_scope": "current_family_only",
+  "theorem_statement": "On the fixed ordered three-point charged carrier, every centered log triple y with sum(y)=0 has a unique decomposition y = a * ctr(lambda) + b * ctr(lambda^2). For the current-family charged targets, that unique centered readout together with the geometric mean g_e emits one exact same-family charged triple.",
+  "uniqueness_contract": {
+    "absolute_scale_solver": "g_e = exp(mean(log target))",
+    "centered_log_formula": "y = a * ctr(lambda) + b * ctr(lambda^2)",
+    "coefficient_solver": "[a, b]^T = B^{-1} * [y1, y2]^T where B is the first-two-row quadratic basis minor"
+  }
+}

@@ -24,7 +24,7 @@ def test_quark_d12_ckm_transport_closes_on_d12_continuation_branch() -> None:
     assert payload["quark_relative_sheet_selector"]["sigma_id"] == "sigma_ref"
     assert payload["physical_branch_status"] == "current_d12_sheet_is_strict_no_go_for_physical_ckm_shell"
     assert payload["sample_same_family_point"]["Delta_ud_overlap"] > 0.0
-    assert payload["remaining_open_objects"][0] == "intrinsic_scale_law_D12"
+    assert payload["remaining_open_objects"][0] == "quark_d12_t1_value_law"
     assert "D12_ud_mass_ray" not in payload["remaining_open_objects"]
     assert payload["comparison_only_best_same_family_point"]["status"] == "comparison_only_not_promotable"
     assert payload["forward_same_label_transport"]["principal_log_exists_uniquely"] is True

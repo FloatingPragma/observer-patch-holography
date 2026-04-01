@@ -70,12 +70,12 @@ def build_artifact(transport: dict[str, object]) -> dict[str, object]:
         "current_sheet_status": transport.get("current_sheet_status"),
         "physical_branch_status": transport.get("physical_branch_status"),
         "quark_relative_sheet_selector": selector_value,
-        "next_single_residual_object": "intrinsic_scale_law_D12" if selector_value else "quark_relative_sheet_selector",
+        "next_single_residual_object": "quark_d12_t1_value_law" if selector_value else "quark_relative_sheet_selector",
         "notes": [
             "This bundle records the gauge-fixed CKM/CP shell emitted by the forward same-label transport unitary on the current D12 sheet.",
             "The transport-generator residual is closed to machine precision on that sheet, but the current D12 sheet is not the physical quark branch.",
             (
-                "The solver-side selector is now fixed to sigma_ref, so the next exact object is the intrinsic D12 scale law on the emitted mass ray."
+                "The solver-side selector is now fixed to sigma_ref, so the next exact object is the one-scalar D12 value law on the emitted mass ray."
                 if selector_value
                 else "The exact next object is one discrete relative-sheet selector; mass-side scale fixing remains separate after branch selection."
             ),

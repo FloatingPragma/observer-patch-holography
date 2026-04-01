@@ -9,7 +9,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from bw_collar_honesty import build_schedule_term_frontier
+from bw_collar_honesty import (
+    build_comparison_reference_floor_transfer,
+    build_schedule_term_frontier,
+)
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -21,8 +24,8 @@ CONSTRUCTIVE_RECOVERY = (
 EXACT_MARKOV_MODULUS = (
     ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_collar_exact_markov_modulus_scaffold.json"
 )
-SPECTRAL_FLOOR = (
-    ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_collar_eventual_spectral_floor_scaffold.json"
+COMMON_FLOOR = (
+    ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_collar_modular_transport_common_floor_scaffold.json"
 )
 DEFAULT_OUT = ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_collar_faithful_modular_defect_scaffold.json"
 
@@ -55,7 +58,7 @@ def build_payload(
         "parent_extraction_object": extraction_scaffold["precise_missing_object_name"],
         "smaller_comparison_witness": exact_markov_modulus["exact_missing_object"],
         "smaller_comparison_witness_artifact": _artifact_ref(EXACT_MARKOV_MODULUS),
-        "blocking_side_condition_artifact": _artifact_ref(SPECTRAL_FLOOR),
+        "blocking_side_condition_artifact": _artifact_ref(COMMON_FLOOR),
         "role": (
             "Package the faithful modular-defect term that sits directly beneath the full carried-collar "
             "schedule and above the exact-Markov comparison witness on each fixed local collar model."
@@ -75,12 +78,19 @@ def build_payload(
         "reduction_from_smaller_inputs": {
             "comparison_witness_artifact": _artifact_ref(EXACT_MARKOV_MODULUS),
             "faithfulness_side_condition": faithful_component,
-            "faithfulness_side_condition_artifact": _artifact_ref(SPECTRAL_FLOOR),
-            "theorem": (
-                "If the relevant marginals are uniformly faithful with lower spectral bound lambda_* > 0, "
-                "then the modular-additivity defect differs from the exact Markov value by at most "
-                "4 * lambda_*^{-1} * delta^M."
+            "faithfulness_side_condition_artifact": _artifact_ref(COMMON_FLOOR),
+            "comparison_reference_floor_transfer": build_comparison_reference_floor_transfer(
+                exact_markov_artifact=_artifact_ref(EXACT_MARKOV_MODULUS),
+                spectral_floor_artifact=_artifact_ref(COMMON_FLOOR),
             ),
+            "theorem": (
+                "Pair the latent comparison-reference floor transfer with the modular-transport "
+                "proposition: after the exact-Markov comparison marginals inherit the same eventual "
+                "floor up to lambda_bar_{m,delta} / 2, the modular-additivity defect differs from the "
+                "exact Markov value by at most 4 * lambda_*^{-1} * delta^M with "
+                "lambda_* = lambda_bar_{m,delta} / 2 for all sufficiently large n."
+            ),
+            "eventual_common_floor": "lambda_* = lambda_bar_{m,delta} / 2 on all relevant marginals for large n",
             "status_on_fill": "faithful_modular_defect_closed",
         },
         "position_inside_carried_schedule": {
@@ -98,12 +108,13 @@ def build_payload(
         "why_this_is_intermediate": [
             "This isolates the faithful modular-additivity burden from the full carried-collar schedule.",
             "It is smaller than the carried schedule because it omits the separate Fawzi-Renner recovery remainder.",
-            "It is larger than the exact-Markov comparison witness because it still needs the eventual collarwise spectral floor, which is now surfaced as its own artifact.",
+            "It is larger than the exact-Markov comparison witness because it still needs the eventual modular-transport common floor, which is now surfaced as its own artifact.",
         ],
         "notes": [
             "This scaffold does not claim the faithful modular-defect term is already emitted on the live corpus.",
             "It captures the second carried-error term singled out in the technical supplement, not the full carried schedule.",
-            "The only nonlatent lower side condition on the live branch is the eventual collarwise spectral floor recorded by the linked faithfulness-side artifact.",
+            "The only nonlatent lower side condition on the live branch is the eventual modular-transport common floor recorded by the linked faithfulness-side artifact.",
+            "No second spectral-floor artifact for the exact-Markov comparison family is missing: that common floor is inherited from the transported marginals once the exact-Markov modulus goes to zero on the fixed collar model.",
             "Closing this term together with the constructive recovery remainder closes the carried-collar schedule itself.",
             "The actual solver frontier above this witness is now recorded as the two-term pair, not as a separately targeted schedule object.",
         ],

@@ -18,6 +18,7 @@ import yaml
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 RESULTS_JSON = ROOT / "particles" / "results_status.json"
 TASK_TRACKER_YAML = ROOT / "particles" / "task_tracker.yaml"
+EXACT_NONHADRON_JSON = ROOT / "particles" / "exact_nonhadron_masses.json"
 DEFAULT_OUTPUT = ROOT / "particles" / "particle_mass_derivation_graph.svg"
 
 WIDTH = 2560
@@ -219,14 +220,15 @@ LANES: List[Dict[str, Any]] = [
     {
         "key": "leptons",
         "title": "Charged Leptons",
-        "summary": "The charged-lepton lane closes the centered hierarchy readback and the common-shift no-go, then sharpens the remaining exact burden to one branch-generator clause and one post-promotion affine scalar.",
-        "takeaway": "The active charged blocker is no longer a vague fit problem: the current theorem emits only the common-shift quotient class, and the next exact closure route runs through the descended commutator clause and then `mu_phys(Y_e)`.",
+        "summary": "The charged-lepton lane contains a closed exact same-family readout on the fixed ordered carrier, while the theorem-grade absolute lane narrows to one branch-generator clause and one post-promotion affine scalar.",
+        "takeaway": "One exact charged chain is already complete on its declared scope: shared excitation dictionary -> ordered charged carrier -> exact centered readback -> quadratic readout theorem -> exact same-family triple. The remaining theorem burden is the affine descent through `C_hat_e^{cand}` and then `mu_phys(Y_e)`.",
         "logic": (
             "The lane starts from the ordered charged package, proves that the realized support is a one-dimensional "
             "linear subray, exposes the canonical quadratic support-extension direction, maps that into the charged "
             "excitation gaps, closes the two-scalar support-extension law shell, isolates the eta source-readback "
             "primitive as a weighted midpoint-defect invariant, and then uses the endpoint-ratio breaker for sigma. "
-            "The live scalar order beneath the public charged rows is eta first and sigma second on the same carrier. "
+            "On the fixed ordered three-point family, the exact same-family quadratic theorem already closes the readout to one exact charged triple on that scope. "
+            "The live scalar order beneath the public charged theorem rows is eta first and sigma second on the same carrier. "
             "At theorem level, though, the deeper exact waiting set starts with the latent candidate "
             "`C_hat_e^{cand}`. Promoting it is blocked by the branch-generator splitting theorem and its "
             "commutator clause, and the local corpus proves neither exact vanishing nor uniform quadratic smallness of that descended commutator yet. The strongest new route is only an extension candidate: a centered Schur-type "
@@ -234,7 +236,7 @@ LANES: List[Dict[str, Any]] = [
             "symmetry, so the future slot is one affine-covariant absolute anchor `A_ch`. Conditional on theorem-grade centered promotion, the exact post-promotion burden descends further to the physical affine scalar `mu_phys(Y_e)`, from which the uncentered lift, determinant-line section, and affine anchor follow canonically."
         ),
         "tasks_text": "Open task: search for the full charged closure chain first by proving `oph_generation_bundle_branch_generator_splitting`, reduced to `compression_descendant_commutator_vanishes_or_is_uniformly_quadratic_small_after_central_split`, and then deriving the descended physical affine scalar `mu_phys(Y_e)`. If that still fails, keep the layered frontier explicit rather than falling back to older fit language.",
-        "prediction_surface": "Charged forward surface with exact centered readback, a common-shift no-go for the absolute scale, and a layered post-promotion route through `mu_phys(Y_e)` to the uncentered determinant-line lift and affine anchor.",
+        "prediction_surface": "Charged theorem surface with exact centered readback, an exact same-family sidecar triple on the fixed ordered carrier, a common-shift no-go for the absolute scale, and a layered post-promotion route through `mu_phys(Y_e)` to the uncentered determinant-line lift and affine anchor.",
         "particles": ["electron", "muon", "tau"],
         "tasks": [
             "papers.compact.e.29-derive-the-yukawa-excitation-dictionary",
@@ -244,8 +246,8 @@ LANES: List[Dict[str, Any]] = [
     {
         "key": "quarks",
         "title": "Quarks",
-        "summary": "The quark lane implements the local mean split, descent, forward Yukawa surface, the emitted same-family D12 mass ray, and forward CKM/CP closure on the current D12 sheet.",
-        "takeaway": "The important new fact is negative: the current D12 sheet is already closed as a transport shell, and that is exactly why we can now say clearly that it is the wrong physical branch.",
+        "summary": "The quark lane contains a closed exact same-family readout on the selected D12 sheet, while the theorem-grade physical branch still waits on one intrinsic ray law or a genuine branch-changing theorem.",
+        "takeaway": "One exact quark chain is already complete on its declared scope: shared excitation dictionary -> D12 mass-side continuation -> selected `sigma_ref` sheet -> quadratic readout theorem -> exact same-family sextet. The remaining theorem gap is the physical branch, not the exact same-family readout.",
         "logic": (
             "The local quark path takes the shared flavor data, emits the quark sector mean split, assembles the "
             "quark descent, builds the forward Yukawa matrices, and fixes the pure-B source-readback shell "
@@ -256,13 +258,14 @@ LANES: List[Dict[str, Any]] = [
             "available at recovered-core tier. The broader repair frontier is therefore a D12 light-quark "
             "isospin-breaking selector / overlap-defect scalar. On the current same-family continuation branch the "
             "mass side sharpens further to the emitted same-family ray `D12_ud_mass_ray`, with `Delta_ud_overlap = ray_modulus / 5` and `eta_Q_centered = -((1-x2^2)/27) * ray_modulus`. "
+            "On the fixed ordered three-point family, the exact same-family quadratic theorem already closes the readout to one exact quark sextet on that scope. "
             "The CKM/CP side is no longer the open burden: the forward Yukawa step already emits the same-label "
             "transport unitary `V_CKM^fwd = U_u^dagger U_d`, and its principal logarithm gives the gauge-fixed "
             "generator. But the current D12 sheet is now a strict no-go for the physical CKM shell: same-sheet "
-            "rephasing cannot change the CKM invariants, and the emitted angles are too small. The selector-side frontier is no longer open on the local solver surface: the same-label left-handed orbit already closes to the singleton `sigma_ref`, so the selected branch is fixed but remains the current wrong-branch D12 sheet. The only finite local scan on disk is a same-sheet 4001-point `Delta_ud_overlap` scan against `reference_targets`, and that route is comparison-only rather than a valid physical repair. A smaller finite local basis orbit is already extractable from the current forward Yukawa surface, but its nontrivial elements use right-singular-basis substitutions and are therefore diagnostic-only rather than admissible physical selectors. The exact next quark object is therefore the intrinsic mass-side scale law `intrinsic_scale_law_D12` on the already-emitted mass ray, unless a genuinely new branch-changing theorem is found outside the current selected sheet."
+            "rephasing cannot change the CKM invariants, and the emitted angles are too small. The selector-side frontier is no longer open on the local solver surface: the same-label left-handed orbit already closes to the singleton `sigma_ref`, so the selected branch is fixed but remains the current wrong-branch D12 sheet. The only finite local scan on disk is a same-sheet 4001-point `Delta_ud_overlap` scan against `reference_targets`, and that route is comparison-only rather than a valid physical repair. A smaller finite local basis orbit is already extractable from the current forward Yukawa surface, but its nontrivial elements use right-singular-basis substitutions and are therefore diagnostic-only rather than admissible physical selectors. The exact next quark object is therefore the one-scalar law `quark_d12_t1_value_law` on the already-emitted mass ray, with `intrinsic_scale_law_D12` retained as the derived wrapper, unless a genuinely new branch-changing theorem is found outside the current selected sheet."
         ),
-        "tasks_text": "Open task: search for a real branch-changing theorem that escapes the selected wrong-branch `sigma_ref` sheet and reaches the physical CKM shell. If no such route exists on the current corpus, target only `intrinsic_scale_law_D12` on the emitted `D12_ud_mass_ray` and keep diagnostic orbit improvements out of theorem state.",
-        "prediction_surface": "Local forward quark Yukawa surface on the public table, with CKM/CP transport closed on the selected wrong-branch D12 sheet, the light-quark mass side reduced to the emitted one-parameter ray `D12_ud_mass_ray`, and the next exact theorem-side burden reduced to `intrinsic_scale_law_D12`.",
+        "tasks_text": "Open task: search for a real branch-changing theorem that escapes the selected wrong-branch `sigma_ref` sheet and reaches the physical CKM shell. If no such route exists on the current corpus, target only `quark_d12_t1_value_law` on the emitted `D12_ud_mass_ray`, with `intrinsic_scale_law_D12` retained as the derived wrapper, and keep diagnostic orbit improvements out of theorem state.",
+        "prediction_surface": "Local forward quark Yukawa surface on the public table, plus an exact same-family sextet on the selected D12 sheet, with CKM/CP transport closed on the selected wrong-branch branch, the light-quark mass side reduced to the emitted one-parameter ray `D12_ud_mass_ray`, and the next exact theorem-side burden reduced to `quark_d12_t1_value_law`, with `intrinsic_scale_law_D12` retained as the derived wrapper.",
         "particles": ["up_quark", "down_quark", "strange_quark", "charm_quark", "bottom_quark"],
         "tasks": [
             "papers.compact.e.29-derive-the-yukawa-excitation-dictionary",
@@ -273,8 +276,8 @@ LANES: List[Dict[str, Any]] = [
     {
         "key": "neutrinos",
         "title": "Neutrinos",
-        "summary": "The neutrino lane closes the weighted-cycle PMNS/hierarchy branch and the normalized overlap-defect weight section. The absolute spectrum remains a one-parameter positive family, but the exact remaining object has now reduced from a raw bridge amplitude to the correction invariant `C_nu` above the emitted proxy.",
-        "takeaway": "The mixing pattern is in place. The exact remaining theorem object is now smaller and sharper: first `C_nu`, then the induced paper-facing bridge amplitude and absolute normalization.",
+        "summary": "The neutrino lane closes the weighted-cycle PMNS/hierarchy branch and carries an exact two-parameter adapter on the explicit positive selector segment, while the theorem-grade absolute spectrum still waits on `C_nu`.",
+        "takeaway": "One exact neutrino sidecar is already complete on the positive selector segment: the emitted scale-free branch plus one selector coordinate and one rescaling hit the representative central splittings exactly. The remaining theorem object is the reduced correction invariant `C_nu`.",
         "logic": (
             "The lane derives m_star = v^2 / mu_u from the D10 core, builds the family-response tensor, the "
             "Majorana holonomy lift, the pullback metric, the forward Majorana matrix, and the splitting/ordering "
@@ -286,10 +289,12 @@ LANES: List[Dict[str, Any]] = [
             "the midpoint, so `D_nu = (chi + 1 + gamma_half) / 2` and the repaired edge law becomes "
             "`w_e = q_e^(1 + gamma + eps / D_nu)`. That repaired branch "
             "lands in the physical PMNS window and the correct splitting hierarchy. The normalized same-label overlap-defect weight section `qbar_e` is already closed below the absolute attachment problem. "
-            "No hidden discrete branch remains on that repaired lane; once the normalizer is fixed, the residual quotient is exactly the positive rescaling orbit. After factoring out the already-emitted proxy `P_nu = I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1`, the exact remaining theorem object is the reduced correction invariant `C_nu`, with the paper-facing amplitude `B_nu` and then the final positive normalization scalar induced only after that correction law is fixed."
+            "No hidden discrete branch remains on that repaired lane; once the normalizer is fixed, the residual quotient is exactly the positive rescaling orbit. "
+            "On that already-emitted positive selector segment, the two-parameter exact adapter moves one selector coordinate and one positive rescaling to hit the representative central splittings exactly. "
+            "After factoring out the already-emitted proxy `P_nu = I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1`, the exact remaining theorem object is the reduced correction invariant `C_nu`, with the paper-facing amplitude `B_nu` and then the final positive normalization scalar induced only after that correction law is fixed."
         ),
         "tasks_text": "Open task: search for the full closure chain by deriving the reduced bridge-correction invariant `C_nu` above the emitted proxy and then collapsing the remaining positive normalization orbit. If closure still fails, keep `C_nu` as the canonical smallest exact missing object and keep corridor fits compare-only.",
-        "prediction_surface": "Weighted-cycle neutrino branch with PMNS/hierarchy closure, a closed normalized overlap-defect weight section, and one exact reduced correction invariant `C_nu` still separating the emitted proxy from a theorem-grade absolute spectrum.",
+        "prediction_surface": "Weighted-cycle neutrino branch with PMNS/hierarchy closure, a closed normalized overlap-defect weight section, an exact two-parameter sidecar adapter on the positive selector segment, and one reduced correction invariant `C_nu` still separating the emitted proxy from a theorem-grade absolute spectrum.",
         "particles": ["electron_neutrino", "muon_neutrino", "tau_neutrino"],
         "tasks": [
             "papers.compact.e.32-derive-neutrino-masses-from-screen-capacity-as-a-theorem",
@@ -332,6 +337,11 @@ def load_task_tracker(path: pathlib.Path) -> Dict[str, Dict[str, Any]]:
         for task in stage.get("tasks", []):
             tasks[task["id"]] = task
     return tasks
+
+
+def load_exact_nonhadron_bundle(path: pathlib.Path) -> Dict[str, Dict[str, Any]]:
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    return {entry["particle_id"]: entry for entry in payload.get("entries", [])}
 
 
 def wrap_text(text: str, width: int) -> List[str]:
@@ -683,26 +693,48 @@ def draw_task_card(task: Dict[str, Any], x: float, y: float, w: float) -> Tuple[
     )
 
 
-def particle_body(row: Dict[str, Any]) -> List[str]:
+def _format_exact_output(entry: Dict[str, Any]) -> str:
+    if "mass_gev" in entry:
+        return f"{entry['mass_gev']} GeV"
+    if "mass_eV" in entry:
+        return f"{entry['mass_eV']} eV"
+    return "n/a"
+
+
+def particle_body(row: Dict[str, Any], exact_entry: Dict[str, Any] | None = None) -> List[str]:
     info = PARTICLE_INFO[row["particle_id"]]
-    status = row["status"]
     lines = [
         f"Symbol: {info['symbol']}. What it is: {info['plain']}",
         f"Why this row matters: {GROUP_ROW_TEXT[row['group']]}",
-        f"Current status: {STATUS_TEXT[status]} meaning {STATUS_EXPLAINER[status]}.",
-        f"OPH output: {row['prediction_display_gev']} GeV.",
-        f"Reference: {row['reference_display']}.",
     ]
-    if row["delta_display"] != "n/a":
-        lines.append(f"Gap vs reference: {row['delta_display']}.")
-    lines.append(f"How to read it: {STATUS_NEXT_STEP[status]}")
+    if exact_entry is not None:
+        lines.extend(
+            [
+                f"Surface class: exact {exact_entry['exact_kind']} on {exact_entry['scope']}.",
+                f"OPH exact output: {_format_exact_output(exact_entry)}.",
+                f"Reference: {row['reference_display']}.",
+                f"Caveat: {exact_entry['note']}",
+            ]
+        )
+    else:
+        status = row["status"]
+        lines.extend(
+            [
+                f"Surface class: {STATUS_TEXT[status]} meaning {STATUS_EXPLAINER[status]}.",
+                f"OPH output: {row['prediction_display_gev']} GeV.",
+                f"Reference: {row['reference_display']}.",
+            ]
+        )
+        if row["delta_display"] != "n/a":
+            lines.append(f"Gap vs reference: {row['delta_display']}.")
+        lines.append(f"Caveat: {STATUS_NEXT_STEP[status]}")
     return lines
 
 
-def particle_card_height(row: Dict[str, Any], w: float) -> float:
+def particle_card_height(row: Dict[str, Any], w: float, exact_entry: Dict[str, Any] | None = None) -> float:
     return estimate_box_height(
         title=PARTICLE_TITLE[row["particle_id"]],
-        body=particle_body(row),
+        body=particle_body(row, exact_entry),
         w=w,
         title_size=18,
         body_size=15,
@@ -710,8 +742,16 @@ def particle_card_height(row: Dict[str, Any], w: float) -> float:
     )
 
 
-def draw_particle_card(row: Dict[str, Any], x: float, y: float, w: float) -> Tuple[str, float]:
-    height = particle_card_height(row, w)
+def draw_particle_card(
+    row: Dict[str, Any],
+    x: float,
+    y: float,
+    w: float,
+    exact_entry: Dict[str, Any] | None = None,
+) -> Tuple[str, float]:
+    badge_text = "exact sidecar" if exact_entry is not None and not exact_entry.get("promotable", False) else STATUS_TEXT[row["status"]]
+    badge_color = COLORS["task_complete"] if exact_entry is not None else STATUS_BAR[row["status"]]
+    height = particle_card_height(row, w, exact_entry)
     return (
         draw_box(
             x=x,
@@ -719,13 +759,13 @@ def draw_particle_card(row: Dict[str, Any], x: float, y: float, w: float) -> Tup
             w=w,
             h=height,
             title=PARTICLE_TITLE[row["particle_id"]],
-            body=particle_body(row),
+            body=particle_body(row, exact_entry),
             fill=COLORS["prediction_fill"],
             stroke=COLORS["prediction_stroke"],
             title_size=18,
             body_size=15,
-            accent=STATUS_BAR[row["status"]],
-            badge=STATUS_TEXT[row["status"]],
+            accent=badge_color,
+            badge=badge_text,
             body_fill="#d4ffe5",
         ),
         height,
@@ -768,6 +808,7 @@ def measure_particle_section(lane: Dict[str, Any], rows_by_id: Dict[str, Dict[st
 def draw_particle_section(
     lane: Dict[str, Any],
     rows_by_id: Dict[str, Dict[str, Any]],
+    exact_by_id: Dict[str, Dict[str, Any]],
     x: float,
     y: float,
     w: float,
@@ -806,7 +847,8 @@ def draw_particle_section(
     if cols == 1:
         cursor = y
         for particle_id in particle_ids:
-            card, height = draw_particle_card(rows_by_id[particle_id], x, cursor, card_w)
+            exact_entry = exact_by_id.get(particle_id)
+            card, height = draw_particle_card(rows_by_id[particle_id], x, cursor, card_w, exact_entry)
             parts.append(card)
             cursor += height + gap
         return "".join(parts), cursor - y - gap
@@ -815,15 +857,17 @@ def draw_particle_section(
     particles = [rows_by_id[particle_id] for particle_id in particle_ids]
     for index in range(0, len(particles), 2):
         left_row = particles[index]
-        left_h = particle_card_height(left_row, card_w)
-        left_card, _ = draw_particle_card(left_row, x, cursor, card_w)
+        left_exact = exact_by_id.get(left_row["particle_id"])
+        left_h = particle_card_height(left_row, card_w, left_exact)
+        left_card, _ = draw_particle_card(left_row, x, cursor, card_w, left_exact)
         parts.append(left_card)
 
         row_height = left_h
         if index + 1 < len(particles):
             right_row = particles[index + 1]
-            right_h = particle_card_height(right_row, card_w)
-            right_card, _ = draw_particle_card(right_row, x + card_w + gap, cursor, card_w)
+            right_exact = exact_by_id.get(right_row["particle_id"])
+            right_h = particle_card_height(right_row, card_w, right_exact)
+            right_card, _ = draw_particle_card(right_row, x + card_w + gap, cursor, card_w, right_exact)
             parts.append(right_card)
             row_height = max(left_h, right_h)
 
@@ -841,6 +885,7 @@ def lane_status(lane: Dict[str, Any], rows_by_id: Dict[str, Dict[str, Any]]) -> 
 def lane_panel_height(
     lane: Dict[str, Any],
     rows_by_id: Dict[str, Dict[str, Any]],
+    exact_by_id: Dict[str, Dict[str, Any]],
     tasks: Dict[str, Dict[str, Any]],
     w: float,
 ) -> float:
@@ -903,6 +948,7 @@ def lane_panel_height(
 def draw_lane_panel(
     lane: Dict[str, Any],
     rows_by_id: Dict[str, Dict[str, Any]],
+    exact_by_id: Dict[str, Dict[str, Any]],
     tasks: Dict[str, Dict[str, Any]],
     x: float,
     y: float,
@@ -1146,7 +1192,7 @@ def draw_lane_panel(
         draw_section_label(
             inner_x,
             cursor,
-            "Final tracked particle outputs",
+            "Tracked particle outputs",
             fill="#122219",
             stroke=COLORS["prediction_stroke"],
             text_fill=COLORS["ink"],
@@ -1156,13 +1202,13 @@ def draw_lane_panel(
     particle_y = cursor
     parts.append(
         draw_vertical_arrow(x + w / 2.0, prediction_y + prediction_h + 4, particle_y - 6, color=COLORS["prediction_stroke"]))
-    particle_markup, particle_total_h = draw_particle_section(lane, rows_by_id, inner_x, particle_y, inner_w)
+    particle_markup, particle_total_h = draw_particle_section(lane, rows_by_id, exact_by_id, inner_x, particle_y, inner_w)
     parts.append(particle_markup)
 
     return "".join(parts), panel_h
 
 
-def build_svg(results: Dict[str, Any], tasks: Dict[str, Dict[str, Any]]) -> str:
+def build_svg(results: Dict[str, Any], tasks: Dict[str, Dict[str, Any]], exact_by_id: Dict[str, Dict[str, Any]]) -> str:
     rows_by_id = {row["particle_id"]: row for row in results["rows"]}
     generated_utc = results["generated_utc"]
     built_utc = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -1302,15 +1348,15 @@ def build_svg(results: Dict[str, Any], tasks: Dict[str, Dict[str, Any]]) -> str:
     row2_xs = row1_xs
     hadron_x = (WIDTH - HADRON_W) / 2.0
 
-    row1_heights = [lane_panel_height(lane, rows_by_id, tasks, PANEL_W) for lane in row1]
+    row1_heights = [lane_panel_height(lane, rows_by_id, exact_by_id, tasks, PANEL_W) for lane in row1]
     row1_y = current_y
     row1_h = max(row1_heights)
 
-    row2_heights = [lane_panel_height(lane, rows_by_id, tasks, PANEL_W) for lane in row2]
+    row2_heights = [lane_panel_height(lane, rows_by_id, exact_by_id, tasks, PANEL_W) for lane in row2]
     row2_y = row1_y + row1_h + PANEL_GAP_Y
     row2_h = max(row2_heights)
 
-    row3_h = lane_panel_height(row3[0], rows_by_id, tasks, HADRON_W)
+    row3_h = lane_panel_height(row3[0], rows_by_id, exact_by_id, tasks, HADRON_W)
     row3_y = row2_y + row2_h + PANEL_GAP_Y
 
     total_panels_bottom = row3_y + row3_h
@@ -1489,12 +1535,12 @@ def build_svg(results: Dict[str, Any], tasks: Dict[str, Dict[str, Any]]) -> str:
 
     # Panels
     for lane, x in zip(row1, row1_xs):
-        panel_markup, _ = draw_lane_panel(lane, rows_by_id, tasks, x, row1_y, PANEL_W)
+        panel_markup, _ = draw_lane_panel(lane, rows_by_id, exact_by_id, tasks, x, row1_y, PANEL_W)
         parts.append(panel_markup)
     for lane, x in zip(row2, row2_xs):
-        panel_markup, _ = draw_lane_panel(lane, rows_by_id, tasks, x, row2_y, PANEL_W)
+        panel_markup, _ = draw_lane_panel(lane, rows_by_id, exact_by_id, tasks, x, row2_y, PANEL_W)
         parts.append(panel_markup)
-    hadron_markup, _ = draw_lane_panel(row3[0], rows_by_id, tasks, hadron_x, row3_y, HADRON_W)
+    hadron_markup, _ = draw_lane_panel(row3[0], rows_by_id, exact_by_id, tasks, hadron_x, row3_y, HADRON_W)
     parts.append(hadron_markup)
 
     # Footer
@@ -1523,12 +1569,14 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Generate the particle mass derivation SVG.")
     parser.add_argument("--results-json", default=str(RESULTS_JSON), help="Path to the results JSON.")
     parser.add_argument("--task-tracker-yaml", default=str(TASK_TRACKER_YAML), help="Path to the task tracker YAML.")
+    parser.add_argument("--exact-nonhadron-json", default=str(EXACT_NONHADRON_JSON), help="Path to the exact non-hadron bundle JSON.")
     parser.add_argument("--output", default=str(DEFAULT_OUTPUT), help="Output SVG path.")
     args = parser.parse_args()
 
     results = load_results(pathlib.Path(args.results_json))
     tasks = load_task_tracker(pathlib.Path(args.task_tracker_yaml))
-    svg = build_svg(results=results, tasks=tasks)
+    exact_by_id = load_exact_nonhadron_bundle(pathlib.Path(args.exact_nonhadron_json))
+    svg = build_svg(results=results, tasks=tasks, exact_by_id=exact_by_id)
 
     output = pathlib.Path(args.output)
     output.write_text(svg, encoding="utf-8")

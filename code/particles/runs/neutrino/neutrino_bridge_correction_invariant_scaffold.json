@@ -24,7 +24,7 @@
     "equivalence_theorem": "Because the proxy P_nu is already internal to the current attached stack and strictly positive on the live branch, the current stack emits B_nu if and only if it emits C_nu := B_nu / P_nu.",
     "exact_residual_moduli_space": "R_{>0}"
   },
-  "generated_utc": "2026-04-01T08:06:47Z",
+  "generated_utc": "2026-04-01T16:13:01Z",
   "induced_target_containing_bridge_scalar_window": {
     "contains_compare_only_target": true,
     "definition": "B_nu = (I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1) * C_nu",
@@ -51,6 +51,7 @@
   ],
   "parent_bridge_scalar_symbol": "B_nu",
   "parent_missing_object": "oph_neutrino_attachment_bridge_invariant",
+  "proof_grade": "exact_proxy_relative_reduction",
   "public_promotion_allowed": false,
   "residual_invariant_symbol": "C_nu",
   "status": "minimal_exact_reduction",
@@ -104,5 +105,26 @@
       }
     ],
     "selection_rule": "Choose one candidate per route family that still contains the live compare-only target while minimizing relative half-width; total algebraic complexity and route-local compare-only error break ties."
+  },
+  "strongest_locally_justified_exact_theorem": {
+    "equivalent_parent_object": {
+      "artifact": "oph_neutrino_attachment_bridge_invariant",
+      "bridge_reconstruction": "B_nu = (I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1) * C_nu",
+      "symbol": "B_nu"
+    },
+    "exact_residual_moduli_space": "R_{>0}",
+    "local_justification": [
+      "The attachment irreducibility theorem leaves exactly one positive residual orbit on the current attached stack.",
+      "The chosen proxy P_nu is already internal to the emitted stack and strictly positive on the live branch.",
+      "Dividing by P_nu is therefore an exact reparameterization of the same residual orbit, not a new theorem burden."
+    ],
+    "name": "proxy_relative_single_coordinate_reduction_for_neutrino_attachment",
+    "non_claims": [
+      "no_numeric_value_for_C_nu_is_emitted",
+      "no_compare_only_window_or_proxy_search_is_promoted",
+      "no_hidden_full_closure_of_the_absolute_scale_is_claimed"
+    ],
+    "scope": "current_weighted_cycle_branch_with_fixed_internal_positive_proxy",
+    "statement": "On the current weighted-cycle attachment lane, once the internal positive proxy P_nu is fixed, the remaining exact attachment quotient is one positive coordinate C_nu. Emitting C_nu is exactly equivalent to emitting the parent bridge scalar B_nu, so any theorem-grade absolute attachment closure on this lane must factor through that one proxy-relative coordinate."
   }
 }

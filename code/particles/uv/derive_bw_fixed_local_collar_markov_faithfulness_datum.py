@@ -19,6 +19,7 @@ from bw_collar_honesty import (
     CMI_COMPONENT,
     FAITHFUL_COMPONENT,
     FAITHFUL_MODULAR_DEFECT_FORMULA,
+    build_comparison_reference_floor_transfer,
     build_local_honesty_gate,
     build_local_obligation_ledger,
     build_schedule_term_frontier,
@@ -36,8 +37,8 @@ EXACT_MARKOV_MODULUS = ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_coll
 FAITHFUL_MODULAR_DEFECT = (
     ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_collar_faithful_modular_defect_scaffold.json"
 )
-SPECTRAL_FLOOR = (
-    ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_collar_eventual_spectral_floor_scaffold.json"
+COMMON_FLOOR = (
+    ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_collar_modular_transport_common_floor_scaffold.json"
 )
 DEFAULT_OUT = ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_collar_markov_faithfulness_datum.json"
 
@@ -114,10 +115,14 @@ def build_payload(extraction_scaffold: dict[str, Any], prelimit_system: dict[str
                 "epsilon_{n,m,delta} = I(A_{m,delta}:D_{m,delta}|B_{m,delta})_{omega_{n->m}}"
             ),
             "eventual_positive_lower_spectral_bound": (
-                "exists lambda_bar_{m,delta} > 0 with lambda_{*,n,m,delta} >= lambda_bar_{m,delta} eventually"
+                "exists lambda_bar_{m,delta} > 0 and N_{m,delta} such that for all n >= N_{m,delta} and every X in Xi^{mod}_{m,delta}, rho_{n->m,X} >= lambda_bar_{m,delta} * 1"
             ),
         },
-        "single_live_missing_clause_artifact": _artifact_ref(SPECTRAL_FLOOR),
+        "single_live_missing_clause_artifact": _artifact_ref(COMMON_FLOOR),
+        "single_live_missing_clause_closure_lemma": build_comparison_reference_floor_transfer(
+            exact_markov_artifact=_artifact_ref(EXACT_MARKOV_MODULUS),
+            spectral_floor_artifact=_artifact_ref(COMMON_FLOOR),
+        ),
         "markov_side_status": "latent_from_epsilon_to_zero",
         "faithfulness_side_status": "open",
         "already_packaged_below_this_datum": prelimit_system["fills_contract_witnesses"],
@@ -138,7 +143,8 @@ def build_payload(extraction_scaffold: dict[str, Any], prelimit_system: dict[str
             "The carried-collar witness is still one level too coarse for the live frontier because it bundles two distinct collarwise controls into one schedule.",
             "This datum separates those two raw inputs: collarwise Markovness and eventual collarwise faithfulness.",
             "Within the Markov side, the constructive recovery witness and the exact-Markov comparison modulus are now exposed as separate lower local scaffolds and become latent once epsilon_{n,m,delta} -> 0.",
-            "The single nonlatent lower clause on the live branch is the eventual collarwise spectral floor feeding the faithful modular-defect term.",
+            "The single nonlatent lower clause on the live branch is the eventual modular-transport common floor feeding the faithful modular-defect term.",
+            "No additional comparison-state faithfulness input is hiding below that clause: once the spectral floor and exact-Markov modulus are paired on one fixed collar model, the exact-Markov comparison marginals inherit the same floor up to a factor of 1/2 at late stages.",
             "Once that faithfulness-side clause is supplied, the remaining UV blocker rises back through the faithful modular-defect witness to the derived carried-collar schedule and then immediately to cap-pair extraction.",
         ],
         "notes": [

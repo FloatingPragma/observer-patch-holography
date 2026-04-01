@@ -1,0 +1,64 @@
+{
+  "artifact": "oph_quark_d12_t1_value_law",
+  "derived_wrapper": {
+    "derived_from": "quark_d12_t1_value_law",
+    "id": "intrinsic_scale_law_D12",
+    "meaning": "the induced mass-side wrapper on D12_ud_mass_ray after t1 is fixed intrinsically"
+  },
+  "exact_missing_object": "quark_d12_t1_value_law",
+  "generated_utc": "2026-04-01T16:12:53Z",
+  "minimal_new_theorem": {
+    "id": "quark_d12_t1_value_law",
+    "identifies": "ray_modulus = t1",
+    "must_emit": "quark_d12_t1_value_law",
+    "must_not_use_ckm_cp": true,
+    "must_not_use_target_masses": true,
+    "scalar_name": "t1",
+    "then_emits": [
+      "t1",
+      "ray_modulus",
+      "Delta_ud_overlap",
+      "eta_Q_centered"
+    ],
+    "unique_intersection_with": "D12_ud_mass_ray"
+  },
+  "notes": [
+    "This artifact resizes the primitive quark frontier to the single unresolved scalar already exposed by the emitted ray.",
+    "It does not claim a theorem-grade value for t1 is already emitted on the current corpus.",
+    "The larger wrapper intrinsic_scale_law_D12 remains valid language, but only as the derived mass-ray wrapper above quark_d12_t1_value_law."
+  ],
+  "one_scalar_reduction": {
+    "emitted_ray_formulas": {
+      "Delta_ud_overlap": "ray_modulus / 5",
+      "Lambda_ud_B_transport": "sigma_u_total_log_per_side * sigma_d_total_log_per_side * (ray_modulus / 5) / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))",
+      "eta_Q_centered": "-((1 - x2^2) / 27) * ray_modulus",
+      "kappa_Q": "-ray_modulus / 54",
+      "quadratic_even_log_formula_direct": "((-((1 - x2^2) / 27) * ray_modulus) / 6) * (1, -2, 1)",
+      "tau_d_log_per_side": "sigma_u_total_log_per_side * (ray_modulus / 5) / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))",
+      "tau_u_log_per_side": "sigma_d_total_log_per_side * (ray_modulus / 5) / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))"
+    },
+    "induced_formulas": {
+      "Delta_ud_overlap": "t1 / 5",
+      "eta_Q_centered": "-((1 - x2^2) / 27) * t1",
+      "kappa_Q": "-t1 / 54"
+    },
+    "ray_coordinate_identity": "ray_modulus = t1",
+    "scalar_name": "t1"
+  },
+  "parent_emitted_object": {
+    "artifact": "oph_quark_d12_mass_ray",
+    "id": "D12_ud_mass_ray"
+  },
+  "proof_status": "emitted_mass_ray_one_scalar_value_law_open",
+  "public_promotion_allowed": false,
+  "sample_same_family_point": {
+    "Delta_ud_overlap": 0.13391235422942327,
+    "eta_Q_centered": -0.018155152181872827,
+    "kappa_Q": -0.012399292058279932,
+    "ray_modulus": 0.6695617711471163,
+    "t1": 0.6695617711471163,
+    "x2": -0.5175863354681689
+  },
+  "scope": "D12_continuation_only",
+  "theorem_statement": "On the emitted same-family D12 mass ray, the unresolved coordinate is already identified with one scalar t1 through ray_modulus = t1. The exact next target-free theorem object is therefore the one-scalar value law quark_d12_t1_value_law. The larger wrapper intrinsic_scale_law_D12 is derived from that single scalar by the emitted ray formulas."
+}

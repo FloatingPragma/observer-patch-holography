@@ -33,6 +33,7 @@ SCALARIZED_BUNDLE_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_scalari
 ONE_SCALAR_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_d12_one_scalar_specialization.json"
 D12_MASS_BRANCH_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_d12_mass_branch_and_ckm_residual.json"
 MASS_RAY_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_d12_mass_ray.json"
+T1_VALUE_LAW_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_d12_t1_value_law.json"
 DEFAULT_OUT = ROOT / "particles" / "runs" / "flavor" / "quark_d12_mass_side_underdetermination_theorem.json"
 
 
@@ -50,6 +51,7 @@ def main() -> int:
     parser.add_argument("--one-scalar", default=str(ONE_SCALAR_JSON))
     parser.add_argument("--mass-branch", default=str(D12_MASS_BRANCH_JSON))
     parser.add_argument("--mass-ray", default=str(MASS_RAY_JSON))
+    parser.add_argument("--t1-value-law", default=str(T1_VALUE_LAW_JSON))
     parser.add_argument("--output", default=str(DEFAULT_OUT))
     args = parser.parse_args()
 
@@ -57,6 +59,7 @@ def main() -> int:
     one_scalar = _load_json(Path(args.one_scalar))
     mass_branch = _load_json(Path(args.mass_branch))
     mass_ray = _load_json(Path(args.mass_ray))
+    t1_value_law = _load_json(Path(args.t1_value_law))
 
     sample_same_family_point = dict(one_scalar["sample_same_family_point"])
     specialization_formulas = dict(one_scalar["specialization_formulas"])
@@ -80,8 +83,8 @@ def main() -> int:
             "On the present same-family D12 continuation branch, the mass-side deformation "
             "already emits the one-parameter ray D12_ud_mass_ray. "
             "Equivalently eta_Q_centered = -(5 * (1 - x2^2) / 27) * Delta_ud_overlap along that ray. "
-            "The current OPH chain still does not emit a theorem-grade intrinsic scale-fixing law "
-            "that would select one unique point on it."
+            "The current OPH chain still does not emit the target-free one-scalar law that would fix "
+            "t1 = ray_modulus and therefore select one unique point on it."
         ),
         "emitted_same_family_ray": {
             "artifact": mass_ray["artifact"],
@@ -96,9 +99,10 @@ def main() -> int:
             ),
         ),
         "remaining_object": {
-            "id": "intrinsic_scale_law_D12",
+            "id": "quark_d12_t1_value_law",
             "must_intersect": "D12_ud_mass_ray",
-            "unresolved_coordinate": "ray_modulus",
+            "unresolved_coordinate": "t1",
+            "identifies": "ray_modulus = t1",
         },
         "same_family_specialization_sample": {
             "formulas": specialization_formulas,
@@ -112,26 +116,29 @@ def main() -> int:
             "id": "quark_d12_same_family_mass_side_scale_underdetermination",
             "conclusion": (
                 "The present D12 mass-side branch already emits the one-parameter ray "
-                "D12_ud_mass_ray, but it does not yet emit a theorem-grade intrinsic scale law "
-                "that selects a unique ray_modulus on that emitted ray."
+                "D12_ud_mass_ray, but it does not yet emit the one-scalar target-free theorem "
+                "quark_d12_t1_value_law that selects a unique t1 = ray_modulus on that emitted ray."
             ),
             "forbidden_promotions": [
-                "target_mass_backsolve_as_intrinsic_scale_law_D12",
+                "target_mass_backsolve_as_quark_d12_t1_value_law",
                 "compare_derived_exact_mean_specialization_as_OPH_emitted",
             ],
         },
         "honest_remaining_value_laws": honest_remaining_value_laws,
-        "next_exact_missing_object": "intrinsic_scale_law_D12",
+        "next_exact_missing_object": "quark_d12_t1_value_law",
         "minimal_new_theorem": {
-            "id": "intrinsic_scale_law_D12",
-            "must_emit": "intrinsic_scale_law_D12",
+            "id": "quark_d12_t1_value_law",
+            "must_emit": "quark_d12_t1_value_law",
+            "scalar_name": "t1",
             "unique_intersection_with": "D12_ud_mass_ray",
-            "then_emits": ["ray_modulus", "Delta_ud_overlap", "eta_Q_centered"],
+            "identifies": "ray_modulus = t1",
+            "then_emits": ["t1", "ray_modulus", "Delta_ud_overlap", "eta_Q_centered"],
             "must_not_use_target_masses": True,
             "must_not_use_ckm_cp": True,
+            "derived_wrapper": t1_value_law["derived_wrapper"],
         },
         "notes": [
-            "This artifact sharpens the current D12 mass-side status after the ray itself is emitted: the remaining exact frontier is the intrinsic scale law on that ray, not the ray object.",
+            "This artifact sharpens the current D12 mass-side status after the ray itself is emitted: the remaining exact frontier is the one-scalar value law on that ray, not the larger wrapper.",
             "The retained numerical same-family point uses t1_sample = ray_modulus = 0.6695617711471163 and is sample-only, not theorem-grade emission.",
             "It does not by itself prove that the present D12 continuation branch is the physically correct quark branch.",
             "The physical-branch question remains separate from the mass-side no-go recorded here.",

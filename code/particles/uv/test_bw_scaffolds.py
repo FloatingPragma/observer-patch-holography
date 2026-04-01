@@ -12,6 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 CONSTRUCTIVE_RECOVERY = ROOT / "particles" / "uv" / "derive_bw_fixed_local_collar_constructive_recovery_scaffold.py"
 EXACT_MARKOV = ROOT / "particles" / "uv" / "derive_bw_fixed_local_collar_exact_markov_modulus_scaffold.py"
+COMMON_FLOOR = ROOT / "particles" / "uv" / "derive_bw_fixed_local_collar_modular_transport_common_floor_scaffold.py"
 SPECTRAL_FLOOR = ROOT / "particles" / "uv" / "derive_bw_fixed_local_collar_eventual_spectral_floor_scaffold.py"
 MODULAR_DEFECT = ROOT / "particles" / "uv" / "derive_bw_fixed_local_collar_faithful_modular_defect_scaffold.py"
 SCHEDULE = ROOT / "particles" / "uv" / "derive_bw_carried_collar_schedule_scaffold.py"
@@ -46,7 +47,12 @@ def test_scaling_limit_cap_pair_extraction_scaffold() -> None:
     assert payload["smaller_remaining_raw_datum"] == "fixed_local_collar_markov_faithfulness_datum"
     assert payload["smaller_remaining_raw_datum_artifact"].endswith("bw_fixed_local_collar_markov_faithfulness_datum.json")
     assert payload["single_live_missing_clause_artifact"].endswith(
-        "bw_fixed_local_collar_eventual_spectral_floor_scaffold.json"
+        "bw_fixed_local_collar_modular_transport_common_floor_scaffold.json"
+    )
+    closure_lemma = payload["single_live_missing_clause_closure_lemma"]
+    assert closure_lemma["id"] == "exact_markov_reference_eventual_common_floor_transfer"
+    assert closure_lemma["requires_exact_markov_artifact"].endswith(
+        "bw_fixed_local_collar_exact_markov_modulus_scaffold.json"
     )
     assert payload["markov_side_status"] == "latent_from_epsilon_to_zero"
     assert payload["faithfulness_side_status"] == "open"
@@ -106,12 +112,28 @@ def test_fixed_local_collar_exact_markov_modulus_scaffold() -> None:
     )
 
 
+def test_fixed_local_collar_modular_transport_common_floor_scaffold() -> None:
+    payload = _run(COMMON_FLOOR)
+    assert payload["artifact"] == "oph_bw_fixed_local_collar_modular_transport_common_floor_scaffold"
+    assert payload["status"] == "minimal_faithfulness_side_extension"
+    assert payload["exact_missing_object"] == "eventual_fixed_local_collar_common_floor_on_modular_transport_marginals"
+    assert payload["contract"]["relevant_family"] == "Xi^{mod}_{m,delta}"
+    assert "lambda_bar_{m,delta}" in payload["contract"]["must_emit"]
+
+
 def test_fixed_local_collar_eventual_spectral_floor_scaffold() -> None:
     payload = _run(SPECTRAL_FLOOR)
     assert payload["artifact"] == "oph_bw_fixed_local_collar_eventual_spectral_floor_scaffold"
-    assert payload["status"] == "minimal_faithfulness_side_extension"
+    assert payload["status"] == "legacy_coarse_wrapper"
     assert payload["exact_missing_object"] == "eventual_fixed_local_collar_spectral_floor_for_transported_marginals"
-    assert "lambda_bar_{m,delta}" in payload["contract"]["must_emit"]
+    assert payload["coarsens_live_artifact"].endswith(
+        "bw_fixed_local_collar_modular_transport_common_floor_scaffold.json"
+    )
+    transfer = payload["comparison_reference_floor_transfer"]
+    assert transfer["id"] == "exact_markov_reference_eventual_common_floor_transfer"
+    assert transfer["requires_exact_markov_artifact"].endswith(
+        "bw_fixed_local_collar_exact_markov_modulus_scaffold.json"
+    )
     assert payload["unlocks"] == [
         "fixed_local_collar_faithful_modular_defect_vanishing",
         "vanishing_carried_collar_schedule_on_fixed_local_collars",
@@ -128,9 +150,12 @@ def test_fixed_local_collar_faithful_modular_defect_scaffold() -> None:
         "bw_fixed_local_collar_exact_markov_modulus_scaffold.json"
     )
     assert payload["blocking_side_condition_artifact"].endswith(
-        "bw_fixed_local_collar_eventual_spectral_floor_scaffold.json"
+        "bw_fixed_local_collar_modular_transport_common_floor_scaffold.json"
     )
     assert payload["contract"]["must_emit"].startswith("4 * lambda_{*,n,m,delta}^{-1}")
+    transfer = payload["reduction_from_smaller_inputs"]["comparison_reference_floor_transfer"]
+    assert transfer["status_on_fill"] == "exact_markov_reference_common_floor_closed"
+    assert payload["reduction_from_smaller_inputs"]["eventual_common_floor"].startswith("lambda_* =")
     assert payload["position_inside_carried_schedule"]["other_term_still_needed"] == "r_FR(epsilon_{n,m,delta}) -> 0"
     assert [entry["id"] for entry in payload["joint_schedule_term_frontier"]["missing_emitted_witnesses"]] == [
         "constructive_recovery_remainder_vanishing",
@@ -149,7 +174,7 @@ def test_carried_collar_schedule_scaffold() -> None:
     assert payload["smaller_raw_datum"] == "fixed_local_collar_markov_faithfulness_datum"
     assert payload["smaller_raw_datum_artifact"].endswith("bw_fixed_local_collar_markov_faithfulness_datum.json")
     assert payload["single_live_missing_clause_artifact"].endswith(
-        "bw_fixed_local_collar_eventual_spectral_floor_scaffold.json"
+        "bw_fixed_local_collar_modular_transport_common_floor_scaffold.json"
     )
     assert payload["schedule_contract"]["formula"].startswith("eta_{n,m,delta} = r_FR")
     assert payload["decomposed_error_terms"]["faithful_modular_defect_remainder"]["artifact"].endswith(

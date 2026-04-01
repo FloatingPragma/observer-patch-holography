@@ -46,10 +46,10 @@
     "ray_parameter": "ray_modulus",
     "unresolved_coordinate": "ray_modulus"
   },
-  "generated_utc": "2026-04-01T08:06:30Z",
+  "generated_utc": "2026-04-01T16:12:53Z",
   "intrinsic_scale_law_contract": {
+    "derived_from": "quark_d12_t1_value_law",
     "id": "intrinsic_scale_law_D12",
-    "must_emit": "intrinsic_scale_law_D12",
     "must_not_use_ckm_cp": true,
     "must_not_use_target_masses": true,
     "then_emits": [
@@ -59,11 +59,11 @@
     ],
     "unique_intersection_with": "D12_ud_mass_ray"
   },
-  "next_exact_missing_object": "intrinsic_scale_law_D12",
+  "next_exact_missing_object": "quark_d12_t1_value_law",
   "notes": [
     "This artifact is the exact emitted same-family D12 mass object, not a compare-only point fit.",
     "The retained numerical same-family point is still sample-only; it witnesses one point on the emitted ray but does not fix ray_modulus intrinsically.",
-    "The current D12 branch can therefore be discussed cleanly in two stages: the ray is emitted, and the remaining exact scalar burden is the intrinsic scale law on that ray."
+    "The current D12 branch can therefore be discussed cleanly in three layers: the ray is emitted, the primitive open object is the one-scalar value law quark_d12_t1_value_law, and intrinsic_scale_law_D12 is the derived wrapper on top of that scalar."
   ],
   "proof_status": "same_family_mass_ray_emitted_modulus_open",
   "public_promotion_allowed": false,
@@ -111,5 +111,20 @@
     "x2": -0.5175863354681689
   },
   "scope": "D12_continuation_only",
-  "theorem_statement": "On the present same-family D12 continuation branch, the mass-side deformation already emits the one-parameter ray D12_ud_mass_ray with (Delta_ud_overlap, eta_Q_centered) = ray_modulus * (1/5, -((1 - x2^2) / 27)). The unresolved coordinate is the intrinsic normalization ray_modulus, so the next exact object is the intrinsic scale law on this emitted ray."
+  "t1_value_law_contract": {
+    "id": "quark_d12_t1_value_law",
+    "identifies": "ray_modulus = t1",
+    "must_emit": "quark_d12_t1_value_law",
+    "must_not_use_ckm_cp": true,
+    "must_not_use_target_masses": true,
+    "scalar_name": "t1",
+    "then_emits": [
+      "t1",
+      "ray_modulus",
+      "Delta_ud_overlap",
+      "eta_Q_centered"
+    ],
+    "unique_intersection_with": "D12_ud_mass_ray"
+  },
+  "theorem_statement": "On the present same-family D12 continuation branch, the mass-side deformation already emits the one-parameter ray D12_ud_mass_ray with (Delta_ud_overlap, eta_Q_centered) = ray_modulus * (1/5, -((1 - x2^2) / 27)). The emitted ray already identifies its unresolved coordinate with one scalar, ray_modulus = t1, so the next exact object is the one-scalar value law on this emitted ray. The larger intrinsic_scale_law_D12 wrapper is derived from that scalar."
 }

@@ -1,17 +1,17 @@
 {
   "artifact": "oph_bw_fixed_local_collar_faithful_modular_defect_scaffold",
-  "blocking_side_condition_artifact": "code/particles/runs/uv/bw_fixed_local_collar_eventual_spectral_floor_scaffold.json",
+  "blocking_side_condition_artifact": "code/particles/runs/uv/bw_fixed_local_collar_modular_transport_common_floor_scaffold.json",
   "contract": {
     "components": [
       "delta^M_{m,delta}(epsilon_{n,m,delta}) -> 0",
-      "exists lambda_bar_{m,delta} > 0 with lambda_{*,n,m,delta} >= lambda_bar_{m,delta} eventually"
+      "exists lambda_bar_{m,delta} > 0 and N_{m,delta} such that for all n >= N_{m,delta} and every X in Xi^{mod}_{m,delta}, rho_{n->m,X} >= lambda_bar_{m,delta} * 1"
     ],
     "for_fixed_models": "every fixed local collar model (m, delta)",
     "meaning": "On each fixed faithful collar model, the modular-additivity defect carried by the exact-Markov comparison state vanishes along the realized refinement chain.",
     "must_emit": "4 * lambda_{*,n,m,delta}^{-1} * delta^M_{m,delta}(epsilon_{n,m,delta}) -> 0"
   },
   "exact_missing_object": "fixed_local_collar_faithful_modular_defect_vanishing",
-  "generated_utc": "2026-04-01T04:53:52Z",
+  "generated_utc": "2026-04-01T16:10:37Z",
   "joint_schedule_term_frontier": {
     "closure_theorem": "If the constructive recovery remainder and the faithful modular-defect term both vanish on every fixed local collar model, then the carried-collar schedule follows by termwise addition of the two nonnegative remainders.",
     "derived_parent_witness": {
@@ -40,7 +40,8 @@
   "notes": [
     "This scaffold does not claim the faithful modular-defect term is already emitted on the live corpus.",
     "It captures the second carried-error term singled out in the technical supplement, not the full carried schedule.",
-    "The only nonlatent lower side condition on the live branch is the eventual collarwise spectral floor recorded by the linked faithfulness-side artifact.",
+    "The only nonlatent lower side condition on the live branch is the eventual modular-transport common floor recorded by the linked faithfulness-side artifact.",
+    "No second spectral-floor artifact for the exact-Markov comparison family is missing: that common floor is inherited from the transported marginals once the exact-Markov modulus goes to zero on the fixed collar model.",
     "Closing this term together with the constructive recovery remainder closes the carried-collar schedule itself.",
     "The actual solver frontier above this witness is now recorded as the two-term pair, not as a separately targeted schedule object."
   ],
@@ -53,11 +54,20 @@
   },
   "public_promotion_allowed": false,
   "reduction_from_smaller_inputs": {
+    "comparison_reference_floor_transfer": {
+      "id": "exact_markov_reference_eventual_common_floor_transfer",
+      "requires_exact_markov_artifact": "code/particles/runs/uv/bw_fixed_local_collar_exact_markov_modulus_scaffold.json",
+      "requires_spectral_floor_artifact": "code/particles/runs/uv/bw_fixed_local_collar_modular_transport_common_floor_scaffold.json",
+      "statement": "On one fixed local collar model, if the modular-transport marginals satisfy rho_{n->m,X} >= lambda_bar_{m,delta} * 1 eventually for every X in Xi^{mod}_{m,delta} and the exact-Markov replacements satisfy ||rho_X - sigma_{n,m,delta,X}||_1 <= delta^M_{m,delta}(epsilon_{n,m,delta}) -> 0, then for all sufficiently large n the comparison marginals also satisfy sigma_{n,m,delta,X} >= (lambda_bar_{m,delta} / 2) * 1.",
+      "status_on_fill": "exact_markov_reference_common_floor_closed",
+      "why_this_is_enough": "No separate spectral-floor hypothesis on the exact-Markov comparison family is needed before applying the modular-transport estimate."
+    },
     "comparison_witness_artifact": "code/particles/runs/uv/bw_fixed_local_collar_exact_markov_modulus_scaffold.json",
-    "faithfulness_side_condition": "exists lambda_bar_{m,delta} > 0 with lambda_{*,n,m,delta} >= lambda_bar_{m,delta} eventually",
-    "faithfulness_side_condition_artifact": "code/particles/runs/uv/bw_fixed_local_collar_eventual_spectral_floor_scaffold.json",
+    "eventual_common_floor": "lambda_* = lambda_bar_{m,delta} / 2 on all relevant marginals for large n",
+    "faithfulness_side_condition": "exists lambda_bar_{m,delta} > 0 and N_{m,delta} such that for all n >= N_{m,delta} and every X in Xi^{mod}_{m,delta}, rho_{n->m,X} >= lambda_bar_{m,delta} * 1",
+    "faithfulness_side_condition_artifact": "code/particles/runs/uv/bw_fixed_local_collar_modular_transport_common_floor_scaffold.json",
     "status_on_fill": "faithful_modular_defect_closed",
-    "theorem": "If the relevant marginals are uniformly faithful with lower spectral bound lambda_* > 0, then the modular-additivity defect differs from the exact Markov value by at most 4 * lambda_*^{-1} * delta^M."
+    "theorem": "Pair the latent comparison-reference floor transfer with the modular-transport proposition: after the exact-Markov comparison marginals inherit the same eventual floor up to lambda_bar_{m,delta} / 2, the modular-additivity defect differs from the exact Markov value by at most 4 * lambda_*^{-1} * delta^M with lambda_* = lambda_bar_{m,delta} / 2 for all sufficiently large n."
   },
   "role": "Package the faithful modular-defect term that sits directly beneath the full carried-collar schedule and above the exact-Markov comparison witness on each fixed local collar model.",
   "smaller_comparison_witness": "fixed_local_collar_exact_markov_modulus_vanishing",
@@ -66,6 +76,6 @@
   "why_this_is_intermediate": [
     "This isolates the faithful modular-additivity burden from the full carried-collar schedule.",
     "It is smaller than the carried schedule because it omits the separate Fawzi-Renner recovery remainder.",
-    "It is larger than the exact-Markov comparison witness because it still needs the eventual collarwise spectral floor, which is now surfaced as its own artifact."
+    "It is larger than the exact-Markov comparison witness because it still needs the eventual modular-transport common floor, which is now surfaced as its own artifact."
   ]
 }
