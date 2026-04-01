@@ -158,7 +158,7 @@ a reality.
 
 ## Reading Rule
 
-This book is the narrative layer of OPH. For the formal presentation of the framework, see [*Observers Are All You Need*](../paper/observers_are_all_you_need.pdf). Here the goal is clarity, momentum, and the larger picture.
+This book is the narrative layer of OPH. For the formal presentation of the framework, see [*Observers Are All You Need*](https://wkaxfdgxoqmghwgshymt.supabase.co/storage/v1/object/public/papers/observers_are_all_you_need.pdf). Here the goal is clarity, momentum, and the larger picture.
 
 ## What This Book Does
 
