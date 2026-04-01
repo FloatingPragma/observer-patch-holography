@@ -5,6 +5,11 @@ overlaps, local repair rules remove mismatches, and the physical output is the
 schedule-independent normal form on the gauge quotient. This section records the fixed-point,
 defect, and gauge-quotient statements in that language.
 
+The consensus lane also carries a simple law-selection model: once one equips candidate repair
+rules with a fitness functional, replicator dynamics gives a clean toy picture in which more
+successful reconciliation laws dominate a competing pool. That selection picture is useful for the
+interpretation of OPH, but it is not part of the recovered-core gravity/gauge theorem surface.
+
 \paragraph{Theorem (Asynchronous confluence).}
 On a finite patch net with local repair maps, if every accepted repair strictly decreases a
 finite inconsistency potential and the repair relation is locally confluent, then every initial
@@ -140,12 +145,26 @@ Neutrino hierarchy ratio \(\Delta m_{21}^2/\Delta m_{32}^2\) & \(0.0307211100979
 The structural-to-family route and the full per-sector status audit are developed in
 \emph{Deriving the Particle Zoo from Observer Consistency}~\cite{ophparticles}.
 
-\section{Records, Measurement, and Observer Continuation}
+\section{Screen Microphysics, Records, and Observer Continuation}
 
-The observer-facing measurement package is part of the main synthesis surface. At fixed cutoff,
-the OPH regulator carries a finite central record algebra, Born probabilities for its event
-projectors, Luders conditioning on that same commuting algebra, and a checkpoint/restoration
-theorem for observer-accessible event algebras.
+The screen-microphysics lane is the engineering side of the OPH suite. It no longer asks only
+whether some microscopic model might exist in principle. It now gives one explicit regulated
+reference architecture: a finite gauge-register or quantum-link style screen model in which local
+registers, patches, overlaps, edge observables, records, repair instruments, and observer-facing
+interfaces are all made concrete at fixed cutoff.
+
+The current status split on this lane has four pieces. First, the reference architecture itself is
+explicit. Second, the regulated patch-net embedding branch and the edge-sector thermal/Casimir
+branch are both sharpened, but each still keeps one remaining closure pass visible. Third, the
+fixed-cutoff measurement/Born-rule package is closed. Fourth, the checkpoint/restoration observer
+package is closed. What remains open on this lane is not the existence of a workable finite
+regulator model, but the final closure of the patch-net embedding and compact heat-kernel lifts,
+global consensus analysis, refinement-stable universality, and the continuum/gravity lift.
+
+\paragraph{Reference-architecture takeaway.}
+The synthesis-level point is that OPH now has a concrete screen-side habitat in which one can
+write local observables, overlap observables, record registers, and synchronization maps without
+pretending that the unique final UV completion is already known.
 
 \paragraph{Theorem (Fixed-cutoff record algebra and Born-Luders package).}
 For each completed compare/write/verify slice of the regulated microphysics, the declared pointer
@@ -224,14 +243,19 @@ cancellation, and full massless-spectrum matching remain outside the recovered O
 The present section records the synthesis-level statement; the longer technical discussion remains
 in the repository string fragment.
 
-\section{Current Status and Open Directions}
+\section{Cross-Lane Status and Open Directions}
 
 The current state of the OPH suite is:
 
 \begin{enumerate}[leftmargin=2em]
-\item The fixed-cutoff collar and higher-gauge theorem package is part of the closed finite
-regulator surface. The genuinely noncentral topological branch is no longer a live fixed-cutoff
-gap.
+\item The fixed-cutoff collar, higher-gauge, and consensus theorem packages are all live parts of
+the closed finite-regulator surface. The genuinely noncentral topological branch is no longer a
+fixed-cutoff gap, and the quotient-level repair normal form is explicit on the finite patch-net
+surface.
+\item The screen-microphysics lane now has an explicit regulated reference architecture together
+with closed measurement/Born-rule and checkpoint/restoration packages. Its remaining open fronts
+are the final patch-net embedding pass, the compact heat-kernel lift, refinement-stable
+universality, global consensus closure, and the continuum/gravity lift.
 \item Physical UV uniqueness is quotient-level and ancilla-stable: OPH fixes the physical branch
 modulo implementation hiding and inert ancillary refinement, not a unique microscopic
 representative.
@@ -242,8 +266,9 @@ branch, the scaling-limit scope clause, and the fixed-cap stationarity step.
 transportability, symmetric-braiding, and fiber-functor premises stated in the canonical
 technical-premise list.
 \item The particle branch is structurally rich but status-split: structural carriers and the
-realized Standard Model skeleton are fixed, while flavor, neutrino, and hadron quantitative
-closures still sit on explicit continuation fronts.
+realized Standard Model skeleton are fixed, electroweak closure is in hand, the Higgs/top stage is
+quantitatively emitted on its secondary branch, and the charged-lepton, quark, neutrino, and
+hadron closures still sit on explicit continuation fronts.
 \item The string branch is a continuation of the heat-kernel edge-sector theorem, not a promoted
 recovered-core result.
 \end{enumerate}
@@ -255,7 +280,13 @@ Detailed derivations appear in Refs.~\cite{ophcompact,ophconsensus,ophmicrophysi
 
 Observer-Patch Holography is presented here as a single synthesis surface. The OPH basis, the
 conditional gravity and gauge branches, the consensus formulation, the particle-spectrum branch,
-the fixed-cutoff measurement and observer package, and the conditional worldsheet continuation
-appear on one common theorem and status surface. The companion papers remain the depth surfaces
-for extended derivations, sector-by-sector proofs, calibration details, and continuation-level
-material.
+the regulated screen-microphysics lane, the fixed-cutoff measurement and observer package, and the
+conditional worldsheet continuation now appear on one common theorem and status surface.
+
+The best current reading of the suite is therefore uneven but concrete. OPH already has a sharp
+fixed-cutoff local picture, a conditional recovered core for relativity and Standard-Model
+structure, real particle-side quantitative outputs, and a usable microscopic engineering lane. The
+main unfinished fronts are equally explicit: the continuum BW/geometric lift, the
+transportable-sector compact-gauge lift, the remaining microphysics closure passes, and the open
+matter-family and hadron closures. The companion papers remain the depth surfaces for
+sector-by-sector proofs, calibration details, and continuation-level material.
