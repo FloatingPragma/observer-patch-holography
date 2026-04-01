@@ -48,6 +48,13 @@ def _load_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _intrinsic_builder_mass_splittings(forward: dict, pmns: dict) -> dict[str, float]:
+    return {
+        "delta_m21_sq_gev2": pmns.get("intrinsic_delta_m21_sq_gev2", forward.get("delta_m21_sq_gev2")),
+        "delta_m31_sq_gev2": pmns.get("intrinsic_delta_m31_sq_gev2", forward.get("delta_m31_sq_gev2")),
+    }
+
+
 def build_exact_blockers(
     forward: dict,
     certificate: dict,
@@ -70,6 +77,7 @@ def build_exact_blockers(
     repair_scale_free_mass = dict(repair.get("scale_free_mass_normal_form") or {})
     repair_scale_free_dm2 = dict((repair.get("scale_free_dm2_normal_form") or {}).get("dm2") or {})
     repair_symbolic_family = dict(repair.get("symbolic_absolute_family") or {})
+    intrinsic_builder_mass_splittings = _intrinsic_builder_mass_splittings(forward, pmns)
     reduced_bridge_object = dict(
         (irreducibility or {}).get("reduced_remaining_object")
         or (bridge_candidate or {}).get("smallest_exact_missing_object")
@@ -282,10 +290,23 @@ def build_exact_blockers(
             "current_pmns_parameters": dict(
                 (repair.get("pmns_observables") if repair_shape_closed else pmns.get("standard_pmns_parameters")) or {}
             ),
-            "current_mass_splittings_gev2": {
-                "delta_m21_sq_gev2": pmns.get("intrinsic_delta_m21_sq_gev2", forward.get("delta_m21_sq_gev2")),
-                "delta_m31_sq_gev2": pmns.get("intrinsic_delta_m31_sq_gev2", forward.get("delta_m31_sq_gev2")),
-            },
+            "current_mass_splittings_gev2": (
+                {
+                    "status": "not_emitted_without_absolute_anchor",
+                    "delta_m21_sq_gev2": None,
+                    "delta_m31_sq_gev2": None,
+                    "reason": (
+                        "The repaired weighted-cycle branch closes only the dimensionless splitting pattern until "
+                        "one positive reduced bridge-correction invariant is emitted."
+                    ),
+                }
+                if repair_shape_closed and absolute_normalization_open
+                else {
+                    "status": "builder_intrinsic_snapshot",
+                    **intrinsic_builder_mass_splittings,
+                }
+            ),
+            "intrinsic_builder_mass_splittings_gev2": intrinsic_builder_mass_splittings,
             "repaired_branch_dimensionless_dm2": dict(repair.get("dimensionless_dm2") or {}),
             "compare_only_atmospheric_anchor": dict(repair.get("compare_only_atmospheric_anchor") or {}),
             "absolute_scale_no_go": (

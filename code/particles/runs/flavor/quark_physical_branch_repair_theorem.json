@@ -9,7 +9,7 @@
   "current_d12_sheet": {
     "branch_key": [
       "D12",
-      null
+      "sigma_ref"
     ],
     "branch_label": "D12",
     "emitted_same_label_left_reference_sheet": {
@@ -24,6 +24,10 @@
       "coverage_status": "reference_sheet_representative_only",
       "sigma_id": "sigma_ref"
     },
+    "family_branch_key": [
+      "D12",
+      null
+    ],
     "local_orbit_uniqueness_theorem": {
       "proof_status": "same_label_left_handed_local_orbit_singleton_closed",
       "scope": "emitted_local_solver_surface_only",
@@ -57,7 +61,7 @@
     "uses_reference_targets": true,
     "why_disqualified": "The only finite scan currently exposed in local code is a same-sheet target-mass comparison scan over Delta_ud_overlap. It neither enumerates Sigma_ud nor emits a relative-sheet sigma->CKM evaluator, so it cannot honestly serve as branch repair."
   },
-  "generated_utc": "2026-04-01T03:10:51Z",
+  "generated_utc": "2026-04-01T08:02:54Z",
   "insufficiency_theorem": {
     "id": "D12_local_selector_closure_still_wrong_branch",
     "proof_obstruction": [

@@ -7,6 +7,8 @@ import importlib.util
 import json
 import pathlib
 
+import pytest
+
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "particles" / "compute_current_output_table.py"
@@ -26,9 +28,11 @@ def test_runtime_surface_preserves_repaired_neutrino_rows_and_canonical_refs(tmp
     current_dir = module.build_runtime(tmp_path / "runtime", with_hadrons=False, verbose=False)
 
     payload = json.loads((current_dir / "results_status.json").read_text(encoding="utf-8"))
+    exact_nonhadron = json.loads((current_dir / "exact_nonhadron_masses.json").read_text(encoding="utf-8"))
     active = payload["surface_state"]["active_local_public_candidates"]
     uv = payload["premise_boundaries"]["uv_bw_internalization"]
     markdown = (current_dir / "RESULTS_STATUS.md").read_text(encoding="utf-8")
+    exact_entries = {entry["particle_id"]: entry for entry in exact_nonhadron["entries"]}
 
     assert active["neutrino_repaired_branch"] is True
     assert payload["comparison_rows"]
@@ -44,3 +48,6 @@ def test_runtime_surface_preserves_repaired_neutrino_rows_and_canonical_refs(tmp
         "code/particles/runs/neutrino/neutrino_lambda_nu_bridge_candidate.json"
     )
     assert "## Neutrino Oscillation Comparison" in markdown
+    assert exact_nonhadron["status"] == "exact_output_lane_closed_nonhadron_only"
+    assert exact_entries["top_quark"]["mass_gev"] == pytest.approx(172.3523553288312, abs=1.0e-12)
+    assert exact_entries["bottom_quark"]["mass_gev"] == pytest.approx(4.182999999999994, abs=1.0e-15)

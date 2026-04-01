@@ -29,6 +29,11 @@ def test_bw_fixed_local_collar_markov_faithfulness_datum() -> None:
     must_emit = payload["contract"]["must_emit"]
     assert must_emit[0].startswith("epsilon_{n,m,delta} = I(")
     assert "lambda_bar_{m,delta}" in must_emit[1]
+    assert payload["single_live_missing_clause_artifact"].endswith(
+        "bw_fixed_local_collar_eventual_spectral_floor_scaffold.json"
+    )
+    assert payload["markov_side_status"] == "latent_from_epsilon_to_zero"
+    assert payload["faithfulness_side_status"] == "open"
     assert payload["implies_schedule"]["artifact"].endswith("bw_carried_collar_schedule_scaffold.json")
     assert payload["implies_schedule"]["formula"].startswith("eta_{n,m,delta} = r_FR")
     assert [entry["id"] for entry in payload["schedule_term_frontier"]["missing_emitted_witnesses"]] == [

@@ -35,6 +35,8 @@ LOCAL_BASIS_ORBIT_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_local_b
 TRANSPORT_FRAME_DIAGNOSTIC_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_transport_frame_diagnostic_orbit.json"
 REFERENCE_SHEET_TOKEN = "D12::same_label_left::reference_sheet"
 REFERENCE_SHEET_SIGMA_ID = "sigma_ref"
+REFERENCE_FAMILY_BRANCH_KEY = ["D12", None]
+REFERENCE_SELECTED_BRANCH_KEY = ["D12", REFERENCE_SHEET_SIGMA_ID]
 STANDARD_GAUGE_ANCHORS = {
     "V_ud": (0, 0),
     "V_us": (0, 1),
@@ -166,7 +168,7 @@ def load_emitted_reference_sheet_evaluation(
         "available": True,
         "sigma_id": REFERENCE_SHEET_SIGMA_ID,
         "canonical_token": REFERENCE_SHEET_TOKEN,
-        "branch_key": ["D12", None],
+        "branch_key": list(REFERENCE_FAMILY_BRANCH_KEY),
         "provider_status": "singleton_reference_sheet_only",
         "selection_proof": {
             "theorem_grade_select": False,
@@ -215,6 +217,9 @@ def build_emitted_reference_sheet_orbit_elements() -> list[dict[str, Any]]:
                 uniqueness["selected_sigma"]["branch_key"]
                 if bool(uniqueness.get("theorem_grade_select"))
                 else payload["branch_key"]
+            ),
+            "family_branch_key": (
+                payload["branch_key"] if bool(uniqueness.get("theorem_grade_select")) else None
             ),
             "coverage_status": payload["coverage_status"],
             "selection_proof": {
@@ -356,7 +361,7 @@ def load_sigma_ud_singleton_uniqueness_witness(
         "selected_sigma": {
             "sigma_id": REFERENCE_SHEET_SIGMA_ID,
             "canonical_token": REFERENCE_SHEET_TOKEN,
-            "branch_key": ["D12", REFERENCE_SHEET_SIGMA_ID],
+            "branch_key": list(REFERENCE_SELECTED_BRANCH_KEY),
         },
         "theorem_statement": (
             "On the emitted local solver surface, the only currently exposed same-label left-handed orbit representative is "
@@ -413,7 +418,8 @@ def build_sigma_ud_provider_frontier(path: Path = LOCAL_BASIS_ORBIT_JSON) -> dic
             "emitted_reference_sheet": {
                 "sigma_id": reference_sheet["sigma_id"],
                 "canonical_token": reference_sheet["canonical_token"],
-                "branch_key": reference_sheet["branch_key"],
+                "branch_key": list(uniqueness["selected_sigma"]["branch_key"]),
+                "family_branch_key": reference_sheet["branch_key"],
                 "coverage_status": reference_sheet["coverage_status"],
                 "ckm_invariants": reference_sheet["ckm_invariants"],
             },

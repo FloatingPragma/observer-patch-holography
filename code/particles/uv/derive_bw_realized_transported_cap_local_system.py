@@ -37,6 +37,10 @@ def _load_json(path: Path) -> dict[str, object]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _artifact_ref(path: Path) -> str:
+    return f"code/{path.relative_to(ROOT).as_posix()}"
+
+
 def build_payload(extraction_scaffold: dict[str, object]) -> dict[str, object]:
     filled = list(extraction_scaffold["fills_contract_witnesses"])
     remaining = str(extraction_scaffold["remaining_missing_emitted_witness"])
@@ -45,9 +49,9 @@ def build_payload(extraction_scaffold: dict[str, object]) -> dict[str, object]:
     smaller_raw_components = list(extraction_scaffold.get("smaller_remaining_raw_datum_components", []))
     intermediate_witness_chain = list(extraction_scaffold.get("intermediate_witness_chain", []))
     term_frontier = build_schedule_term_frontier(
-        constructive_recovery_artifact=str(CONSTRUCTIVE_RECOVERY),
-        faithful_modular_defect_artifact=str(FAITHFUL_MODULAR_DEFECT),
-        carried_schedule_artifact=str(CARRIED_SCHEDULE),
+        constructive_recovery_artifact=_artifact_ref(CONSTRUCTIVE_RECOVERY),
+        faithful_modular_defect_artifact=_artifact_ref(FAITHFUL_MODULAR_DEFECT),
+        carried_schedule_artifact=_artifact_ref(CARRIED_SCHEDULE),
     )
     return {
         "artifact": "oph_realized_transported_cap_local_system",
@@ -93,7 +97,7 @@ def build_payload(extraction_scaffold: dict[str, object]) -> dict[str, object]:
         },
         "remaining_missing_witness_contract": {
             "id": remaining,
-            "artifact": str(CARRIED_SCHEDULE),
+            "artifact": _artifact_ref(CARRIED_SCHEDULE),
             "formula": remaining_formula,
             "for_fixed_models": "every fixed local collar model (m, delta)",
             "meaning": (
@@ -103,7 +107,7 @@ def build_payload(extraction_scaffold: dict[str, object]) -> dict[str, object]:
         },
         "smaller_remaining_raw_datum": {
             "id": smaller_raw_datum,
-            "artifact": str(RAW_DATUM),
+            "artifact": _artifact_ref(RAW_DATUM),
             "components": smaller_raw_components,
             "role": "raw fixed-local-collar datum that implies the eta schedule once emitted",
         },
@@ -111,12 +115,12 @@ def build_payload(extraction_scaffold: dict[str, object]) -> dict[str, object]:
         "schedule_term_witnesses": [
             {
                 "id": "constructive_recovery_remainder_vanishing",
-                "artifact": str(CONSTRUCTIVE_RECOVERY),
+                "artifact": _artifact_ref(CONSTRUCTIVE_RECOVERY),
                 "role": "markov_side_recovery_term",
             },
             {
                 "id": "fixed_local_collar_faithful_modular_defect_vanishing",
-                "artifact": str(FAITHFUL_MODULAR_DEFECT),
+                "artifact": _artifact_ref(FAITHFUL_MODULAR_DEFECT),
                 "role": "faithfulness_weighted_modular_term",
             },
         ],
@@ -124,17 +128,17 @@ def build_payload(extraction_scaffold: dict[str, object]) -> dict[str, object]:
         "derived_remaining_input_witness": term_frontier["derived_parent_witness"],
         "derived_remaining_input_witness_closure_theorem": term_frontier["closure_theorem"],
         "remaining_witness_obligation_ledger": build_local_obligation_ledger(
-            constructive_recovery_artifact=str(CONSTRUCTIVE_RECOVERY),
-            exact_markov_artifact=str(EXACT_MARKOV_MODULUS),
-            faithful_modular_defect_artifact=str(FAITHFUL_MODULAR_DEFECT),
-            carried_schedule_artifact=str(CARRIED_SCHEDULE),
+            constructive_recovery_artifact=_artifact_ref(CONSTRUCTIVE_RECOVERY),
+            exact_markov_artifact=_artifact_ref(EXACT_MARKOV_MODULUS),
+            faithful_modular_defect_artifact=_artifact_ref(FAITHFUL_MODULAR_DEFECT),
+            carried_schedule_artifact=_artifact_ref(CARRIED_SCHEDULE),
         ),
         "remaining_witness_honesty_gate": build_local_honesty_gate(
-            carried_schedule_artifact=str(CARRIED_SCHEDULE),
-            constructive_recovery_artifact=str(CONSTRUCTIVE_RECOVERY),
-            exact_markov_artifact=str(EXACT_MARKOV_MODULUS),
-            faithful_modular_defect_artifact=str(FAITHFUL_MODULAR_DEFECT),
-            include_prelimit_system_artifact=str(DEFAULT_OUT),
+            carried_schedule_artifact=_artifact_ref(CARRIED_SCHEDULE),
+            constructive_recovery_artifact=_artifact_ref(CONSTRUCTIVE_RECOVERY),
+            exact_markov_artifact=_artifact_ref(EXACT_MARKOV_MODULUS),
+            faithful_modular_defect_artifact=_artifact_ref(FAITHFUL_MODULAR_DEFECT),
+            include_prelimit_system_artifact=_artifact_ref(DEFAULT_OUT),
         ),
         "remaining_witness_term_frontier": term_frontier,
         "promotion_boundary": {

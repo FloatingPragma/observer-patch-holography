@@ -28,6 +28,9 @@ EXACT_MARKOV_MODULUS = ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_coll
 FAITHFUL_MODULAR_DEFECT = (
     ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_collar_faithful_modular_defect_scaffold.json"
 )
+SPECTRAL_FLOOR = (
+    ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_collar_eventual_spectral_floor_scaffold.json"
+)
 DEFAULT_OUT = ROOT / "particles" / "runs" / "uv" / "bw_carried_collar_schedule_scaffold.json"
 
 
@@ -37,6 +40,10 @@ def _timestamp() -> str:
 
 def _load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _artifact_ref(path: Path) -> str:
+    return f"code/{path.relative_to(ROOT).as_posix()}"
 
 
 def build_payload(
@@ -54,13 +61,14 @@ def build_payload(
         "exact_missing_object": extraction_scaffold["remaining_missing_emitted_witness"],
         "theorem_object": extraction_scaffold["precise_missing_object_name"],
         "derived_missing_witness": extraction_scaffold["remaining_missing_emitted_witness"],
-        "derived_missing_witness_artifact": str(DEFAULT_OUT),
+        "derived_missing_witness_artifact": _artifact_ref(DEFAULT_OUT),
         "raw_input_frontier": raw_datum["exact_missing_object"],
-        "raw_input_frontier_artifact": str(RAW_DATUM),
+        "raw_input_frontier_artifact": _artifact_ref(RAW_DATUM),
         "intermediate_substep": exact_markov_modulus["exact_missing_object"],
         "parent_extraction_object": extraction_scaffold["precise_missing_object_name"],
         "smaller_raw_datum": raw_datum["exact_missing_object"],
-        "smaller_raw_datum_artifact": str(RAW_DATUM),
+        "smaller_raw_datum_artifact": _artifact_ref(RAW_DATUM),
+        "single_live_missing_clause_artifact": _artifact_ref(SPECTRAL_FLOOR),
         "role": (
             "Package the exact carried-collar vanishing schedule that sits directly above the fixed-local-collar "
             "Markov/faithfulness datum and directly below scaling-limit cap-pair extraction."
@@ -78,59 +86,60 @@ def build_payload(
         "reduction_from_raw_datum": {
             "reduction_theorem": extraction_scaffold["schedule_reduction_theorem"],
             "required_raw_components": raw_datum["contract"]["must_emit"],
-            "constructive_recovery_witness_artifact": str(CONSTRUCTIVE_RECOVERY),
-            "derived_exact_markov_comparison_witness_artifact": str(EXACT_MARKOV_MODULUS),
-            "faithful_modular_defect_witness_artifact": str(FAITHFUL_MODULAR_DEFECT),
+            "constructive_recovery_witness_artifact": _artifact_ref(CONSTRUCTIVE_RECOVERY),
+            "derived_exact_markov_comparison_witness_artifact": _artifact_ref(EXACT_MARKOV_MODULUS),
+            "faithful_modular_defect_witness_artifact": _artifact_ref(FAITHFUL_MODULAR_DEFECT),
             "status_on_fill": "carried_collar_schedule_closed",
         },
         "schedule_term_witnesses": [
             {
                 "id": constructive_recovery["exact_missing_object"],
-                "artifact": str(CONSTRUCTIVE_RECOVERY),
+                "artifact": _artifact_ref(CONSTRUCTIVE_RECOVERY),
                 "role": "markov_side_recovery_term",
             },
             {
                 "id": faithful_modular_defect["exact_missing_object"],
-                "artifact": str(FAITHFUL_MODULAR_DEFECT),
+                "artifact": _artifact_ref(FAITHFUL_MODULAR_DEFECT),
                 "role": "faithfulness_weighted_modular_term",
             },
         ],
         "termwise_closure_frontier": build_schedule_term_frontier(
-            constructive_recovery_artifact=str(CONSTRUCTIVE_RECOVERY),
-            faithful_modular_defect_artifact=str(FAITHFUL_MODULAR_DEFECT),
-            carried_schedule_artifact=str(DEFAULT_OUT),
+            constructive_recovery_artifact=_artifact_ref(CONSTRUCTIVE_RECOVERY),
+            faithful_modular_defect_artifact=_artifact_ref(FAITHFUL_MODULAR_DEFECT),
+            carried_schedule_artifact=_artifact_ref(DEFAULT_OUT),
         ),
         "decomposed_error_terms": {
             "constructive_recovery_remainder": {
                 "id": constructive_recovery["exact_missing_object"],
-                "artifact": str(CONSTRUCTIVE_RECOVERY),
+                "artifact": _artifact_ref(CONSTRUCTIVE_RECOVERY),
                 "formula": constructive_recovery["contract"]["must_emit"],
                 "source_component": constructive_recovery["contract"]["derived_from_component"],
                 "meaning": constructive_recovery["role"],
             },
             "faithful_modular_defect_remainder": {
                 "id": faithful_modular_defect["exact_missing_object"],
-                "artifact": str(FAITHFUL_MODULAR_DEFECT),
+                "artifact": _artifact_ref(FAITHFUL_MODULAR_DEFECT),
                 "formula": faithful_modular_defect["contract"]["must_emit"],
                 "smaller_comparison_witness": exact_markov_modulus["exact_missing_object"],
             },
         },
         "obligation_ledger": build_local_obligation_ledger(
-            constructive_recovery_artifact=str(CONSTRUCTIVE_RECOVERY),
-            exact_markov_artifact=str(EXACT_MARKOV_MODULUS),
-            faithful_modular_defect_artifact=str(FAITHFUL_MODULAR_DEFECT),
-            carried_schedule_artifact=str(DEFAULT_OUT),
+            constructive_recovery_artifact=_artifact_ref(CONSTRUCTIVE_RECOVERY),
+            exact_markov_artifact=_artifact_ref(EXACT_MARKOV_MODULUS),
+            faithful_modular_defect_artifact=_artifact_ref(FAITHFUL_MODULAR_DEFECT),
+            carried_schedule_artifact=_artifact_ref(DEFAULT_OUT),
         ),
         "honesty_gate": build_local_honesty_gate(
-            carried_schedule_artifact=str(DEFAULT_OUT),
-            constructive_recovery_artifact=str(CONSTRUCTIVE_RECOVERY),
-            exact_markov_artifact=str(EXACT_MARKOV_MODULUS),
-            faithful_modular_defect_artifact=str(FAITHFUL_MODULAR_DEFECT),
+            carried_schedule_artifact=_artifact_ref(DEFAULT_OUT),
+            constructive_recovery_artifact=_artifact_ref(CONSTRUCTIVE_RECOVERY),
+            exact_markov_artifact=_artifact_ref(EXACT_MARKOV_MODULUS),
+            faithful_modular_defect_artifact=_artifact_ref(FAITHFUL_MODULAR_DEFECT),
         ),
         "why_this_witness_is_sharp": [
             "This witness is the exact emitted schedule the extraction theorem consumes; it is smaller than cap-pair extraction but larger than the raw collarwise datum.",
             "The fixed-local-collar Markov/faithfulness datum remains the sharpest lower object because it isolates the two raw controls before they are assembled into one vanishing schedule.",
             "The exact-Markov comparison witness and faithful modular-defect term now expose the two lower local substeps inside that reduction.",
+            "The only nonlatent lower input beneath this derived schedule is the eventual collarwise spectral floor feeding the faithful modular-defect side; the recovery/Markov side is already latent once epsilon_{n,m,delta} -> 0.",
             "Once this schedule is emitted, the first UV exact object left is cap-pair extraction itself.",
         ],
         "promotion_boundary": {
@@ -149,6 +158,7 @@ def build_payload(
             "This scaffold does not claim the schedule is already emitted on the live corpus.",
             "It records the exact witness contract consumed by scaling-limit cap-pair extraction so solver work no longer jumps directly from the raw datum to the extraction theorem.",
             "The carried-collar witness is theorem-generated from the two term witnesses recorded here, so it should no longer be treated as an independent primitive solver target.",
+            "On the current branch, the only nonlatent lower side condition still outside the emitted chain is the eventual fixed-local-collar spectral floor recorded by the linked faithfulness-side artifact.",
             "The honesty gate records exactly which lower witnesses are still insufficient on their own, preventing premature promotion from one-sided local control.",
         ],
     }

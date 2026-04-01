@@ -316,15 +316,15 @@ def main() -> int:
             "delta_m31_sq_eV2": anchored_dm31,
             "delta_m32_sq_eV2": anchored_dm32,
         },
-        "remaining_object": "one_positive_neutrino_mass_normalization_scalar",
+        "remaining_object": "one_positive_neutrino_bridge_correction_invariant",
         "remaining_object_contract": (
-            "emit_one_internal_positive_normalization_scalar_lambda_nu_without_external_oscillation_anchor"
+            "emit_one_positive_neutrino_bridge_correction_invariant_above_the_emitted_proxy"
         ),
         "notes": [
             "The repaired weighted-cycle branch closes PMNS angles and the neutrino splitting hierarchy from live OPH artifacts.",
             "The weight exponent is fixed by the live same-label certificate, the overlap-edge cocycle invariants, and the log-affine midpoint selector on the positive segment between chi and 1 + gamma_half.",
             "The theorem-grade repaired branch is scale-free: it emits PMNS observables, J, the hierarchy ratio, and one symbolic positive absolute family parameterized by lambda_nu > 0.",
-            "Absolute neutrino masses and absolute delta m^2 values still require one overall positive normalization; the atmospheric-anchored numbers are hard-separated compare-only outputs.",
+            "Absolute neutrino masses and absolute delta m^2 values still require the reduced bridge-correction invariant C_nu above the emitted proxy; the atmospheric-anchored numbers are hard-separated compare-only outputs.",
             "This artifact supersedes the old isotropic continuation branch as the strongest honest neutrino branch on disk.",
         ],
     }

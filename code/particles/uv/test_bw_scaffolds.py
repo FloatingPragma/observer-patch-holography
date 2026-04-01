@@ -12,6 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 CONSTRUCTIVE_RECOVERY = ROOT / "particles" / "uv" / "derive_bw_fixed_local_collar_constructive_recovery_scaffold.py"
 EXACT_MARKOV = ROOT / "particles" / "uv" / "derive_bw_fixed_local_collar_exact_markov_modulus_scaffold.py"
+SPECTRAL_FLOOR = ROOT / "particles" / "uv" / "derive_bw_fixed_local_collar_eventual_spectral_floor_scaffold.py"
 MODULAR_DEFECT = ROOT / "particles" / "uv" / "derive_bw_fixed_local_collar_faithful_modular_defect_scaffold.py"
 SCHEDULE = ROOT / "particles" / "uv" / "derive_bw_carried_collar_schedule_scaffold.py"
 EXTRACTION = ROOT / "particles" / "uv" / "derive_bw_scaling_limit_cap_pair_extraction_scaffold.py"
@@ -44,6 +45,11 @@ def test_scaling_limit_cap_pair_extraction_scaffold() -> None:
     assert payload["remaining_missing_emitted_witness_formula"].startswith("eta_{n,m,delta} = r_FR")
     assert payload["smaller_remaining_raw_datum"] == "fixed_local_collar_markov_faithfulness_datum"
     assert payload["smaller_remaining_raw_datum_artifact"].endswith("bw_fixed_local_collar_markov_faithfulness_datum.json")
+    assert payload["single_live_missing_clause_artifact"].endswith(
+        "bw_fixed_local_collar_eventual_spectral_floor_scaffold.json"
+    )
+    assert payload["markov_side_status"] == "latent_from_epsilon_to_zero"
+    assert payload["faithfulness_side_status"] == "open"
     assert [entry["id"] for entry in payload["intermediate_witness_chain"]] == [
         "constructive_recovery_remainder_vanishing",
         "fixed_local_collar_exact_markov_modulus_vanishing",
@@ -100,6 +106,19 @@ def test_fixed_local_collar_exact_markov_modulus_scaffold() -> None:
     )
 
 
+def test_fixed_local_collar_eventual_spectral_floor_scaffold() -> None:
+    payload = _run(SPECTRAL_FLOOR)
+    assert payload["artifact"] == "oph_bw_fixed_local_collar_eventual_spectral_floor_scaffold"
+    assert payload["status"] == "minimal_faithfulness_side_extension"
+    assert payload["exact_missing_object"] == "eventual_fixed_local_collar_spectral_floor_for_transported_marginals"
+    assert "lambda_bar_{m,delta}" in payload["contract"]["must_emit"]
+    assert payload["unlocks"] == [
+        "fixed_local_collar_faithful_modular_defect_vanishing",
+        "vanishing_carried_collar_schedule_on_fixed_local_collars",
+        "canonical_scaling_cap_pair_realization_from_transported_cap_marginals",
+    ]
+
+
 def test_fixed_local_collar_faithful_modular_defect_scaffold() -> None:
     payload = _run(MODULAR_DEFECT)
     assert payload["artifact"] == "oph_bw_fixed_local_collar_faithful_modular_defect_scaffold"
@@ -107,6 +126,9 @@ def test_fixed_local_collar_faithful_modular_defect_scaffold() -> None:
     assert payload["smaller_comparison_witness"] == "fixed_local_collar_exact_markov_modulus_vanishing"
     assert payload["smaller_comparison_witness_artifact"].endswith(
         "bw_fixed_local_collar_exact_markov_modulus_scaffold.json"
+    )
+    assert payload["blocking_side_condition_artifact"].endswith(
+        "bw_fixed_local_collar_eventual_spectral_floor_scaffold.json"
     )
     assert payload["contract"]["must_emit"].startswith("4 * lambda_{*,n,m,delta}^{-1}")
     assert payload["position_inside_carried_schedule"]["other_term_still_needed"] == "r_FR(epsilon_{n,m,delta}) -> 0"
@@ -126,6 +148,9 @@ def test_carried_collar_schedule_scaffold() -> None:
     assert payload["intermediate_substep"] == "fixed_local_collar_exact_markov_modulus_vanishing"
     assert payload["smaller_raw_datum"] == "fixed_local_collar_markov_faithfulness_datum"
     assert payload["smaller_raw_datum_artifact"].endswith("bw_fixed_local_collar_markov_faithfulness_datum.json")
+    assert payload["single_live_missing_clause_artifact"].endswith(
+        "bw_fixed_local_collar_eventual_spectral_floor_scaffold.json"
+    )
     assert payload["schedule_contract"]["formula"].startswith("eta_{n,m,delta} = r_FR")
     assert payload["decomposed_error_terms"]["faithful_modular_defect_remainder"]["artifact"].endswith(
         "bw_fixed_local_collar_faithful_modular_defect_scaffold.json"

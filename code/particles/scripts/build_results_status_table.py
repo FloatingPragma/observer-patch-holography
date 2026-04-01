@@ -45,6 +45,7 @@ FORWARD_CHARGED_LEPTONS = ROOT / "particles" / "runs" / "leptons" / "forward_cha
 FORWARD_NEUTRINO_BUNDLE = ROOT / "particles" / "runs" / "neutrino" / "forward_neutrino_closure_bundle.json"
 NEUTRINO_EXACT_BLOCKERS = ROOT / "particles" / "runs" / "neutrino" / "exact_blocking_items.json"
 NEUTRINO_WEIGHTED_CYCLE_REPAIR = ROOT / "particles" / "runs" / "neutrino" / "neutrino_weighted_cycle_repair.json"
+NEUTRINO_TWO_PARAMETER_EXACT_ADAPTER = ROOT / "particles" / "runs" / "neutrino" / "neutrino_two_parameter_exact_adapter.json"
 NEUTRINO_LAMBDA_BRIDGE_CANDIDATE = ROOT / "particles" / "runs" / "neutrino" / "neutrino_lambda_nu_bridge_candidate.json"
 PUBLIC_SURFACE_KIND = "particles_native_candidate_or_gap_surface"
 P_DEFAULT = 1.63094
@@ -86,7 +87,13 @@ D10_MASS_PAIR_NOTE = (
     "That theorem emits the repaired chart `(tau2_tree_exact, delta_n_tree_exact)` from the D10 source basis alone using `lambda_EW = eta_source^2 / (4 * beta_EW)`, then emits one coherent electroweak quintet from one repaired coupling pair. "
     "On the paper-facing theorem lane the transmutation factor is `beta_transmutation_EW = N_c + 1`; older overloaded beta ratios survive only on compare-only validation readouts. "
     "So the public D10 W/Z values are no longer freeze-once rows. The older freeze-once coherent repair law is retained only as compare-only validation and agrees with the target-free theorem to machine scale: about `+1.54e-08` GeV on `W` and `-1.40e-08` GeV on `Z`. "
+    "That frozen-target repair pair is also surfaced separately on the exact-hit diagnostic side as `oph_d10_ew_w_anchor_neutral_shear_factorization`, where it hits the canonical `W/Z` references exactly on one frozen authoritative repair surface. "
     "This closes the electroweak mass-side lane on the Phase II calibration tier; the earlier source-only underdetermination theorem, minimal conditional route through `ColorBalancedQuadraticRepairDescent_D10`, and former candidate `EWTargetEmitter_D10` remain on disk only as historical scaffolding beneath the promoted theorem."
+)
+D11_NOTE = (
+    "Derived from `derive_d11_forward_seed.py -> derive_d11_forward_seed_promotion_certificate.py`, which propagates the D10 gauge core into the compact D11 forward seed, certifies the fixed-ray forward path, and reads out the D11 mass row from the Jacobian surface. "
+    "A separate exact-hit sidecar is now also on disk as `oph_d11_reference_exact_adapter`: it solves the linear D11 Jacobian against the canonical Higgs/top reference pair and therefore hits those references exactly, but only as a compare-only inverse slice. "
+    "The live public D11 rows remain the reference-free forward-seed outputs, not the inverse adapter."
 )
 CHARGED_CONTINUATION_NOTE = (
     "No public value is emitted yet. The active charged path is "
@@ -105,8 +112,9 @@ CHARGED_CONTINUATION_NOTE = (
     "A representation-consistent absolute-scale shell is also explicit: future charged scale code must emit either "
     "`mu_e_absolute_log_candidate` or `g_e_linear_candidate` and convert exactly once via `g_e = exp(mu_e_absolute_log_candidate)`. "
     "But the present charged theorem still fixes only the centered charged log class modulo a common shift, so the absolute scale `g_e` remains unresolved on the live theorem lane. "
-    "At theorem level, the exact waiting set is sharper than a standalone eta/sigma fit: the charged sector-response object is still only the latent candidate `C_hat_e^{cand}`, not a declared theorem-grade operator. Promoting that candidate is blocked by the upstream theorem `oph_generation_bundle_branch_generator_splitting`, reduced further to the clause `compression_descendant_commutator_vanishes_or_is_uniformly_quadratic_small_after_central_split`. The local corpus proves neither exact vanishing nor uniform quadratic smallness of that descended commutator yet; only the desired transfer bridge is specified. On the absolute side, the charged equalizer route is now an explicit no-go under common-shift symmetry: the current theorem emits only the quotient class of charged logs modulo `(1,1,1)`, so no theorem-grade `g_e` or `Delta_e_abs` exists yet. The layered frontier is now explicit on disk as `oph_charged_absolute_frontier_factorization`: on the current surface the missing affine object is `A_ch`, while conditional on future theorem-grade `C_hat_e` promotion the post-promotion burden sharpens further to the descended physical affine scalar `mu_phys(Y_e)`, carried by `oph_charged_mu_physical_descent_reduction`, with `C_tilde_e(Y_e) = C_hat_e(Y_e) + mu_phys(Y_e) I`, `s_det(Y_e) = 3 * mu_phys(Y_e)`, and `A_ch(Y_e) = mu_phys(Y_e)`. "
-    "The sharpest constructive route is therefore two-layered and still only an extension candidate, not a current-corpus closure. First, if the actual centered compressed generator factors through centered Schur-type `P->Q->P` feedback with a refinement-uniform middle-factor bound, then the transfer gap closes exactly when the descended commutator vanishes and otherwise only quadratically. On the current local certificate, the proxy margin would survive such an extension whenever the uniform bound satisfies about `M < 119.5600535277701`. That route can promote only the centered proxy `C_hat_e^{cand}`. Beyond that promotion step, the honest post-promotion single slot is the descended physical scalar carried by `oph_charged_mu_physical_descent_reduction`: once the uncentered lift is refinement-stable on theorem-grade physical `Y_e`, the family cocycle is forced to vanish on same-`Y_e` refinement pairs and the remaining missing object is one `charged_physical_affine_scalar_mu`, from which the uncentered lift, determinant-line section, and affine charged anchor follow canonically, with `A_ch(Y_e) = (1/3) log det(Y_e)` or equivalently `A_ch(Y_e) = (1/3) tr(log Y_e)`. "
+    "At theorem level, the exact waiting set is sharper than a standalone eta/sigma fit: the charged sector-response object is still only the latent candidate `C_hat_e^{cand}`, not a declared theorem-grade operator. Promoting that candidate is blocked by the upstream theorem `oph_generation_bundle_branch_generator_splitting`, reduced further to the clause `compression_descendant_commutator_vanishes_or_is_uniformly_quadratic_small_after_central_split`. The local corpus proves neither exact vanishing nor uniform quadratic smallness of that descended commutator yet. The exact minimal operator-side extension is already packaged on disk as `central_split_quadratic_commutator_transfer`, but `current_corpus_contains_theorem = false`: it has not been internalized into the live theorem corpus. On the absolute side, the charged equalizer route is now an explicit no-go under common-shift symmetry: the current theorem emits only the quotient class of charged logs modulo `(1,1,1)`, so no theorem-grade `g_e` or `Delta_e_abs` exists yet. The layered frontier is now explicit on disk as `oph_charged_absolute_frontier_factorization`: on the current surface the missing affine object is `A_ch`, while conditional on future theorem-grade `C_hat_e` promotion the post-promotion burden sharpens further to the descended physical affine scalar `mu_phys(Y_e)`, carried by `oph_charged_mu_physical_descent_reduction`, with `C_tilde_e(Y_e) = C_hat_e(Y_e) + mu_phys(Y_e) I`, `s_det(Y_e) = 3 * mu_phys(Y_e)`, and `A_ch(Y_e) = mu_phys(Y_e)`. "
+    "The sharpest constructive route is therefore two-layered and still only an extension candidate, not a current-corpus closure. First, if the actual centered compressed generator factors through centered Schur-type `P->Q->P` feedback with a refinement-uniform middle-factor bound, then internalizing that packaged extension would close the transfer gap exactly when the descended commutator vanishes and otherwise only quadratically. On the current local certificate, the proxy margin would survive such an internalization whenever the uniform bound satisfies about `M < 119.5600535277701`. That route can promote only the centered proxy `C_hat_e^{cand}`. Beyond that promotion step, the post-promotion single slot is the descended physical scalar carried by `oph_charged_mu_physical_descent_reduction`: once the uncentered lift is refinement-stable on theorem-grade physical `Y_e`, the family cocycle is forced to vanish on same-`Y_e` refinement pairs and the remaining missing object is one `charged_physical_affine_scalar_mu`, from which the uncentered lift, determinant-line section, and affine charged anchor follow canonically, with `A_ch(Y_e) = (1/3) log det(Y_e)` or equivalently `A_ch(Y_e) = (1/3) tr(log Y_e)`. "
+    "A separate exact same-family witness is also already on disk: `oph_lepton_current_family_exact_readout` reproduces the charged reference triple exactly on the same ordered eigenvalue family with residuals at floating-point zero, but its recorded scope field is `current_family_only` and it does not promote the live charged theorem lane. "
     "A D12 continuation bridge exists under the extra assumptions A1-A3 and gives eta = -6.729586682888832 and sigma = 8.154061112725994 with near-exact centered-log shape closure, "
     "but the theorem-grade lane still lacks emitted eta, sigma, and absolute scale. On that continuation bridge the compare-only absolute target would be `g_e* = 0.04577885783568762`, equivalently `Delta_e_abs* = 3.003986333402356`, and that target is kept strictly non-promotable until a theorem-grade absolute anchor `A_ch` exists on the live branch."
 )
@@ -122,17 +130,18 @@ QUARK_CONTINUATION_NOTE = (
     "not available at recovered-core tier. The active builder still waits on "
     "the pure-`B` payload pair "
     "`source_readback_u_log_per_side_and_source_readback_d_log_per_side`, but the broader D12 continuation branch is now scalarized: "
-    "the mass side reduces to `Delta_ud_overlap` together with the quadratic-even scalar `eta_Q_centered`, and the mixing side closes on the same D12 branch because the forward Yukawa step already emits the same-label transport unitary `V_CKM^fwd = U_u^dagger U_d`, whose principal logarithm yields the honest generator `K_CKM`. "
+    "the mass side reduces to `Delta_ud_overlap` together with the quadratic-even scalar `eta_Q_centered`, and the mixing side closes on the same D12 branch because the forward Yukawa step already emits the same-label transport unitary `V_CKM^fwd = U_u^dagger U_d`, whose principal logarithm yields the gauge-fixed generator `K_CKM`. "
     "On the current same-family continuation branch, the exact mass-side reduction sharpens to the emitted ray `D12_ud_mass_ray`, with `Delta_ud_overlap = ray_modulus / 5` and `eta_Q_centered = -((1 - x2^2) / 27) * ray_modulus`; that is a real structural reduction on the current sheet. "
     "The strongest current exact-mean specialization gives "
     "`alpha_u = 1.0007763698011345`, `alpha_d = 1.008463281557513`, "
     "`Delta_ud_overlap = 0.14049991320632976`, `eta_Q_centered = -0.018104730181494357`, "
     "with RMS log-mass error about `5.21e-05`, but those values remain compare-derived rather than OPH-emitted. "
     "The retained same-family numerical point on the emitted ray is sample-only: `t1_sample = ray_modulus = 0.6695617711471163`, giving `Delta_ud_overlap = 0.13391235422942327` and `eta_Q_centered = -0.018155152181872827`. "
-    "But the current D12 sheet is now an explicit no-go for the physical CKM shell: same-sheet rephasing leaves CKM invariants frozen, and the emitted angles undershoot the comparison shell by factors about `29.68`, `34.02`, and `117.06`. "
-    "The current local surface is no longer formally insufficient at the selector level: `oph_quark_sigma_ud_singleton_uniqueness_theorem` closes the emitted same-label left-handed orbit to the singleton `{sigma_ref}`, and `quark_relative_sheet_selector` now emits the theorem-grade selector value `sigma_ref` on the local solver surface. That is a real but negative closure: the singleton is still the current D12 reference sheet, so the physical CKM-shell mismatch survives unchanged on the selected branch. The only finite local scan now on disk is a 4001-point same-sheet `Delta_ud_overlap` scan against `reference_targets`; it remains comparison-only and cannot honestly change the selected branch. "
-    "A smaller already-local finite basis orbit has also been exposed and ruled out: swapping in right or conjugate-right singular bases can move CKM moduli, but that orbit leaves the ordered same-label left-eigenframe domain and is therefore diagnostic-only. A second representative-level transport-frame diagnostic orbit can be extracted from the common-refinement line-lift data, and its gauge-invariant self-overlap `F0^dagger F1` improves the compare-only CKM shell loss from about `46.62` to `2.21`; but once sector-attached mixed branches are restored, the residual objectwise-U(1) orbit moves CKM moduli, so that signal is still not an emitted physical `Sigma_ud` element either. "
-    "So the exact next quark object is no longer another branch selector: on the emitted local solver surface the selector is already fixed to `sigma_ref`, and the next honest theorem-side burden is the intrinsic mass-side scale law `intrinsic_scale_law_D12` on the already-emitted `D12_ud_mass_ray`, independent of target masses and independent of CKM/CP. The public quark rows therefore remain continuation-level and still live on the selected wrong-branch D12 sheet."
+    "But the current D12 sheet is now an explicit no-go for the physical CKM shell on the emitted same-label left-handed solver surface. The selector is already fixed to `sigma_ref`, but the current theorem-grade rigidity result is only same-sheet rephasing rigidity; the corpus does not yet emit a theorem-grade CKM rigidity law under `ray_modulus` motion on `D12_ud_mass_ray`. The emitted angles still undershoot the comparison shell by factors about `29.68`, `34.02`, and `117.06`. "
+    "The current local surface is no longer formally insufficient at the selector level: `oph_quark_sigma_ud_singleton_uniqueness_theorem` closes the emitted same-label left-handed orbit to the singleton `{sigma_ref}`, and `quark_relative_sheet_selector` now emits the theorem-grade selector value `sigma_ref` on the local solver surface. That is a real but negative closure: the singleton is still the current D12 reference sheet, so the physical CKM-shell mismatch survives unchanged on the selected branch. The only finite local scan now on disk is a 4001-point same-sheet `Delta_ud_overlap` scan against `reference_targets`; it remains comparison-only and cannot change the selected branch on the theorem lane. "
+    "A smaller already-local finite basis orbit has also been exposed and ruled out: swapping in right or conjugate-right singular bases can move CKM moduli, but that orbit leaves the ordered same-label left-eigenframe domain and is therefore diagnostic-only. A second representative-level transport-frame diagnostic orbit can be extracted from the common-refinement line-lift data, and its gauge-invariant self-overlap `F0^dagger F1` improves the compare-only CKM shell loss from about `46.62` to `2.21`; but the recorded residual objectwise-U(1) quotient acts only by diagonal rephasings `M -> D_u^dagger M D_d` and therefore preserves all entrywise moduli `|M_ij|`. That transport-frame signal is still not an emitted physical `Sigma_ud` element, but for the smaller exact reason that no sector-attached lift/equivalence identifies the common-refinement matrix with an emitted same-label left-handed `Sigma_ud` element carrying `{sigma_id, canonical_token, U_u_left, U_d_left, V_CKM}`. "
+    "A separate exact same-family witness is already on disk too: `oph_quark_current_family_exact_readout` reproduces the six quark reference masses exactly on the same ordered three-point family, but its recorded scope field is `current_family_only` and it does not resolve the wrong-branch D12 CKM no-go or emit `intrinsic_scale_law_D12`. "
+    "So the exact next quark object is no longer another branch selector: on the emitted local solver surface the selector is already fixed to `sigma_ref`, and the next theorem-side burden is the intrinsic mass-side scale law `intrinsic_scale_law_D12` on the already-emitted `D12_ud_mass_ray`, independent of target masses and independent of CKM/CP. The public quark rows therefore remain continuation-level and still live on the selected wrong-branch D12 sheet."
 )
 NEUTRINO_CONTINUATION_NOTE = (
     "No public value is emitted yet. The active neutrino path is `derive_neutrino_scale_anchor.py -> "
@@ -142,7 +151,7 @@ NEUTRINO_CONTINUATION_NOTE = (
     "derive_intrinsic_neutrino_exact_eta_map.py -> derive_intrinsic_neutrino_exact_mixing_law_validation.py -> "
     "derive_neutrino_weighted_cycle_repair.py`. "
     "The old isotropic intrinsic ansatz is now explicitly ruled out on the live branch by the exact cap `max |Delta m^2| <= 8 a rho`, which is far below the atmospheric scale. "
-    "The strongest honest branch on disk is therefore the shared-basis weighted-cycle lift: using the live same-label scalar certificate `(gap_e, overlap_sq_e)`, the live flavor cocycle invariants `gamma` and `eps`, the live selector phases, and the standard-math-fixed balanced transport-load selector on the positive segment between `chi = 1 + eps` and `1 + gamma_half`, it emits `D_nu = (chi + 1 + gamma_half) / 2` and the edge law `w_e = q_e^(1 + gamma + eps / D_nu)`. "
+    "The strongest branch on disk is therefore the shared-basis weighted-cycle lift: using the live same-label scalar certificate `(gap_e, overlap_sq_e)`, the live flavor cocycle invariants `gamma` and `eps`, the live selector phases, and the standard-math-fixed balanced transport-load selector on the positive segment between `chi = 1 + eps` and `1 + gamma_half`, it emits `D_nu = (chi + 1 + gamma_half) / 2` and the edge law `w_e = q_e^(1 + gamma + eps / D_nu)`. "
     "That current weighted-cycle branch lands in the PDG 2025 oscillation window at the dimensionless pattern level, with `theta12 = 34.2259 deg`, `theta23 = 49.7228 deg`, `theta13 = 8.68636 deg`, `delta = 305.581 deg`, and `J = -0.02753`; its predicted splitting ratio is `Delta m21^2 / Delta m32^2 = 0.03072111`. "
     "No hidden discrete branch remains on that weighted-cycle lane: the current attached stack is still constant on a one-parameter positive amplitude orbit. "
     "On the sharpened bridge scaffold, the paper-facing amplitude parameterization is still `B_nu = lambda_nu * q_mean^p_nu / m_star_eV`, but after factoring out the already-emitted positive proxy `P_nu = I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1` the exact remaining object is smaller: one reduced bridge-correction invariant `C_nu = B_nu / P_nu`. "
@@ -152,9 +161,11 @@ NEUTRINO_CONTINUATION_NOTE = (
     "The sharpened no-go statement is therefore that the current weighted-cycle branch emits only the one-parameter absolute family `m_i = lambda_nu * mhat_i`, `Delta m^2_ij = lambda_nu^2 * Delta_hat_ij`; all PMNS data and dimensionless hierarchy ratios are unchanged across that family, so no unique theorem-grade absolute spectrum exists yet. The attached irreducibility theorem goes one step further: the present attached stack factors exactly through `q_e = q_mean * qbar_e` and still leaves a one-parameter positive amplitude orbit, so a qbar-only collapse law does not follow from the current corpus. The worker-validated correction is sharper still: the current selected-point scalar `I_nu^(wc) = 0.5 * sum_e qbar_e * |z_e(psi_wc) - 1|^2` is already a function of the emitted `qbar_e`, `psi_wc`, and `psi*` data, so it cannot be the missing bridge-external scalar. The exact remaining object is therefore the reduced correction invariant `C_nu`, while the raw paper-facing amplitude remains `B_nu = (I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1) * C_nu`, equivalently `A_nu / m_star_eV`. "
     "A cross-route compare-only corridor now sharpens that same bridge further: the direct `C_nu` audit yields a target-containing `C_nu` window `[0.9994296, 1.0015784]` with live compare-only value `0.9995473560`, and that window induces `B_nu in [6.69600, 6.71040]` with midpoint `6.70320` and relative half-width about `0.107%`, improving on the older three-route bridge corridor `[6.69315, 6.71259]`. A narrower shortlist-consensus window `[6.70484, 6.71259]` is also on disk, but it remains diagnostic-only because it does not contain the live compare-only target. "
     "A compare-only single-scale fit shows how sharp that remaining gap is: fitting `lambda_nu` against PDG 2025 central splittings gives `lambda_nu = 1.72390`, `m = (0.01746, 0.01948, 0.05308) eV`, `Delta m21^2 = 7.48982e-5 eV^2`, and `Delta m32^2 = 2.43801e-3 eV^2`, with residuals about `-9.02e-4 sigma` on `Delta m21^2` and `+2.84e-4 sigma` on `Delta m32^2`. "
-    "The sharpest current constructive interface is still the Majorana overlap-defect scalar route, but after exact q_mean-factorization the remaining scalar is parameterized as `lambda_nu = (m_star_eV / q_mean^p_nu) * (I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1) * C_nu`, not as a closed `F_nu(qbar, I_nu^(wc))` law. The best closed constructive object beneath that bridge is the defect-weighted same-label family `q_e = sqrt(g_e * d_e)` together with its induced `mu_e = mu_nu * exp(eta_e) / mean_f(exp(eta_f))`; it is the first honest spectrum-moving object below the reduced correction scalar, but it still does not emit `C_nu` or `B_nu` itself. A compare-only residual-amplitude audit shows that `A_nu / m_star` is numerically much cleaner than the raw `lambda_nu / m_star` bridge factor. On the core residual scalar pool the strongest low-complexity clue is `sqrt(I_nu) * sqrt(Delta_hat_21 / Delta_hat_32) / sum_defect`. On the extended pool that also includes defect-weighted `mu_e` family scales normalized by `m_star`, no stronger low-complexity clue survives once the trivial closed normalizer `sum_qbar = 3` is removed from the search, so the extended pool does not beat the same core clue. Both remain compare-only and not theorem-grade. A tempting closed-form numerology `lambda_nu = gamma / sqrt(Delta_hat_21 / Delta_hat_32)` is explicitly ruled out as theorem-grade by the same positive-rescaling no-go, because both `gamma` and `Delta_hat_21 / Delta_hat_32` are orbit invariants on the scale-free family. "
+    "A stronger exact compare-only adapter is now also on disk: moving along the already-emitted positive load segment `D_tau = (1-tau_nu) * chi + tau_nu * (1 + gamma_half)` and then rescaling by one positive `lambda_nu` hits both representative PDG 2025 central splittings exactly, with `tau_nu = 0.49717`, `lambda_nu = 1.72396`, and `m = (0.01746, 0.01948, 0.05308) eV`. That two-parameter segment adapter remains strictly non-promotable because the theorem lane still waits on the reduced bridge-correction invariant `C_nu`. "
+    "The older atmospheric-only and solar-only exact one-observable adapters remain on disk as narrower special slices, and the same repair artifact still states that no single `lambda_nu` fits both central splittings exactly on the live promoted midpoint branch. "
+    "The sharpest current constructive interface is still the Majorana overlap-defect scalar route, but after exact q_mean-factorization the remaining scalar is parameterized as `lambda_nu = (m_star_eV / q_mean^p_nu) * (I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1) * C_nu`, not as a closed `F_nu(qbar, I_nu^(wc))` law. The best closed constructive object beneath that bridge is the defect-weighted same-label family `q_e = sqrt(g_e * d_e)` together with its induced `mu_e = mu_nu * exp(eta_e) / mean_f(exp(eta_f))`; it is the first spectrum-moving object below the reduced correction scalar, but it still does not emit `C_nu` or `B_nu` itself. A compare-only residual-amplitude audit shows that `A_nu / m_star` is numerically much cleaner than the raw `lambda_nu / m_star` bridge factor. On the core residual scalar pool the strongest low-complexity clue is `sqrt(I_nu) * sqrt(Delta_hat_21 / Delta_hat_32) / sum_defect`. On the extended pool that also includes defect-weighted `mu_e` family scales normalized by `m_star`, no stronger low-complexity clue survives once the trivial closed normalizer `sum_qbar = 3` is removed from the search, so the extended pool does not beat the same core clue. Both remain compare-only and not theorem-grade. A tempting closed-form numerology `lambda_nu = gamma / sqrt(Delta_hat_21 / Delta_hat_32)` is explicitly ruled out as theorem-grade by the same positive-rescaling no-go, because both `gamma` and `Delta_hat_21 / Delta_hat_32` are orbit invariants on the scale-free family. "
     "A separate compare-only load-segment audit records nearby alternative selectors on the same positive segment; the geometric mean gives the smallest raw representative central-ratio error, but the promoted theorem branch is the arithmetic midpoint because it is the unique balanced/least-distortion selector on that one-dimensional affine segment. "
-    "With the hard-separated compare-only atmospheric anchor `Delta m32^2 = 2.438e-3 eV^2`, the same branch gives `m = (0.01746, 0.01948, 0.05308) eV`, `Delta m21^2 = 7.48981e-5 eV^2`, and `Delta m31^2 = 2.51290e-3 eV^2`; relative to the representative PDG 2025 central values, the solar and atmospheric residuals are only about `-9.02e-4 sigma` and `+2.84e-4 sigma`. These rows therefore remain unpromoted as exact OPH mass predictions only because that single normalization scalar is still missing."
+    "With the hard-separated compare-only atmospheric anchor `Delta m32^2 = 2.438e-3 eV^2`, the same branch gives `m = (0.01746, 0.01948, 0.05308) eV`, `Delta m21^2 = 7.48981e-5 eV^2`, and `Delta m31^2 = 2.51290e-3 eV^2`; relative to the representative PDG 2025 central values, the solar and atmospheric residuals are only about `-9.02e-4 sigma` and `+2.84e-4 sigma`. These rows therefore remain unpromoted as exact OPH mass predictions because the reduced bridge-correction invariant `C_nu` is still missing."
 )
 HADRON_CONTINUATION_NOTE = (
     "Rows are suppressed by default because hadrons are execution-contract-frozen on the current branch rather than paper-derived outputs. The active hadron path is `derive_lambda_msbar_descendant.py -> "
@@ -215,7 +226,7 @@ INVENTORY: List[Dict[str, Any]] = [
         "group": "Bosons",
         "prediction_key": "crit_mH_tree",
         "ledger_id": "secondary.d11.higgs_top",
-        "note": "Derived from `derive_d11_forward_seed.py -> derive_d11_forward_seed_promotion_certificate.py`, which propagates the D10 gauge core into the compact D11 forward seed, certifies the fixed-ray forward path, and reads out `m_H` from the D11 Jacobian surface.",
+        "note": D11_NOTE,
     },
     {
         "particle_id": "electron",
@@ -311,7 +322,7 @@ INVENTORY: List[Dict[str, Any]] = [
         "group": "Quarks",
         "prediction_key": "crit_mt_pole",
         "ledger_id": "secondary.d11.higgs_top",
-        "note": "Derived from `derive_d11_forward_seed.py -> derive_d11_forward_seed_promotion_certificate.py`, which propagates the D10 gauge core into the compact D11 forward seed, certifies the fixed-ray forward path, and reads out `m_t` from the D11 Jacobian surface.",
+        "note": D11_NOTE,
         "extra_prediction_keys": ["m_t"],
     },
     {
@@ -467,7 +478,7 @@ def build_note(
     if row_spec["particle_id"] in {"up_quark", "down_quark", "strange_quark", "charm_quark", "bottom_quark"}:
         pieces.append("PDG quark references are running masses, not direct free-particle pole masses.")
     if row_spec["particle_id"] in {"electron_neutrino", "muon_neutrino", "tau_neutrino"}:
-        pieces.append("Comparison remains partly qualitative because the current weighted-cycle oscillation branch still waits on one overall positive neutrino normalization.")
+        pieces.append("Comparison remains partly qualitative because the current weighted-cycle oscillation branch still waits on the reduced bridge-correction invariant `C_nu` above the emitted proxy.")
     if row_spec["group"] == "Hadrons":
         pieces.append("Use this only when explicitly debugging the hadron pipeline.")
     return " ".join(piece for piece in pieces if piece)
@@ -642,6 +653,11 @@ def build_neutrino_oscillation_comparison_rows(surface_state: Dict[str, Any]) ->
     repair = json.loads(NEUTRINO_WEIGHTED_CYCLE_REPAIR.read_text(encoding="utf-8"))
     pmns = dict(repair.get("pmns_observables", {}))
     anchored = dict(repair.get("compare_only_atmospheric_anchor", {}))
+    two_parameter_adapter = (
+        json.loads(NEUTRINO_TWO_PARAMETER_EXACT_ADAPTER.read_text(encoding="utf-8"))
+        if NEUTRINO_TWO_PARAMETER_EXACT_ADAPTER.exists()
+        else None
+    )
     ratio_value = repair.get("dimensionless_ratio_dm21_over_dm32")
     ratio_reference = (
         NEUTRINO_PDG_2025_NO_CENTRAL["delta_m21_sq_eV2"] / NEUTRINO_PDG_2025_NO_CENTRAL["delta_m32_sq_eV2"]
@@ -744,7 +760,35 @@ def build_neutrino_oscillation_comparison_rows(surface_state: Dict[str, Any]) ->
             }
         )
 
-    if "delta_m21_sq_eV2" in anchored and "delta_m32_sq_eV2" in anchored:
+    if two_parameter_adapter:
+        exact_dm2 = dict(two_parameter_adapter["exact_outputs"]["delta_m_sq_eV2"])
+        rows.extend(
+            [
+                _row(
+                    observable_id="delta_m21_sq_eV2",
+                    observable="Delta m21^2",
+                    status="compare_only",
+                    prediction_value=float(exact_dm2["21"]),
+                    reference_value=NEUTRINO_PDG_2025_NO_CENTRAL["delta_m21_sq_eV2"],
+                    err_plus=NEUTRINO_PDG_2025_NO_1SIGMA["delta_m21_sq_eV2"]["plus"],
+                    err_minus=NEUTRINO_PDG_2025_NO_1SIGMA["delta_m21_sq_eV2"]["minus"],
+                    unit="eV^2",
+                    note="Exact compare-only central solar splitting from the two-parameter positive-segment neutrino adapter; this remains non-promotable because the live theorem lane still waits on the reduced bridge-correction invariant C_nu.",
+                ),
+                _row(
+                    observable_id="delta_m32_sq_eV2",
+                    observable="Delta m32^2",
+                    status="compare_only",
+                    prediction_value=float(exact_dm2["32"]),
+                    reference_value=NEUTRINO_PDG_2025_NO_CENTRAL["delta_m32_sq_eV2"],
+                    err_plus=NEUTRINO_PDG_2025_NO_1SIGMA["delta_m32_sq_eV2"]["plus"],
+                    err_minus=NEUTRINO_PDG_2025_NO_1SIGMA["delta_m32_sq_eV2"]["minus"],
+                    unit="eV^2",
+                    note="Exact compare-only central atmospheric splitting from the same two-parameter positive-segment neutrino adapter; the older one-parameter atmospheric anchor remains on disk only as a narrower diagnostic slice.",
+                ),
+            ]
+        )
+    elif "delta_m21_sq_eV2" in anchored and "delta_m32_sq_eV2" in anchored:
         rows.extend(
             [
                 _row(
@@ -935,6 +979,8 @@ def render_markdown(
                 f"- Remaining witness formula: `{uv_boundary['remaining_missing_emitted_witness_formula']}`",
                 f"- Smaller raw datum beneath that witness: `{uv_boundary['smaller_remaining_raw_datum']}`",
                 f"- Smaller raw datum artifact: `{uv_boundary.get('smaller_remaining_raw_datum_artifact', str(UV_BW_FIXED_LOCAL_COLLAR_DATUM))}`",
+                f"- Smallest exact blocker: `{uv_boundary.get('smallest_exact_blocker', 'n/a')}`",
+                f"- Smallest exact blocker formula: `{uv_boundary.get('smallest_exact_blocker_formula', 'n/a')}`",
                 f"- Candidate extension route: {uv_boundary['candidate_extension_route']}",
                 f"- Candidate extension target: `{uv_boundary['candidate_extension_target']}`",
                 "",

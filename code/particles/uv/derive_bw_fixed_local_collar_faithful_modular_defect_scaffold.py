@@ -21,6 +21,9 @@ CONSTRUCTIVE_RECOVERY = (
 EXACT_MARKOV_MODULUS = (
     ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_collar_exact_markov_modulus_scaffold.json"
 )
+SPECTRAL_FLOOR = (
+    ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_collar_eventual_spectral_floor_scaffold.json"
+)
 DEFAULT_OUT = ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_collar_faithful_modular_defect_scaffold.json"
 
 
@@ -30,6 +33,10 @@ def _timestamp() -> str:
 
 def _load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _artifact_ref(path: Path) -> str:
+    return f"code/{path.relative_to(ROOT).as_posix()}"
 
 
 def build_payload(
@@ -47,7 +54,8 @@ def build_payload(
         "parent_missing_witness": extraction_scaffold["remaining_missing_emitted_witness"],
         "parent_extraction_object": extraction_scaffold["precise_missing_object_name"],
         "smaller_comparison_witness": exact_markov_modulus["exact_missing_object"],
-        "smaller_comparison_witness_artifact": str(EXACT_MARKOV_MODULUS),
+        "smaller_comparison_witness_artifact": _artifact_ref(EXACT_MARKOV_MODULUS),
+        "blocking_side_condition_artifact": _artifact_ref(SPECTRAL_FLOOR),
         "role": (
             "Package the faithful modular-defect term that sits directly beneath the full carried-collar "
             "schedule and above the exact-Markov comparison witness on each fixed local collar model."
@@ -65,8 +73,9 @@ def build_payload(
             ),
         },
         "reduction_from_smaller_inputs": {
-            "comparison_witness_artifact": str(EXACT_MARKOV_MODULUS),
+            "comparison_witness_artifact": _artifact_ref(EXACT_MARKOV_MODULUS),
             "faithfulness_side_condition": faithful_component,
+            "faithfulness_side_condition_artifact": _artifact_ref(SPECTRAL_FLOOR),
             "theorem": (
                 "If the relevant marginals are uniformly faithful with lower spectral bound lambda_* > 0, "
                 "then the modular-additivity defect differs from the exact Markov value by at most "
@@ -80,20 +89,21 @@ def build_payload(
             "combined_parent_formula": extraction_scaffold["remaining_missing_emitted_witness_formula"],
         },
         "joint_schedule_term_frontier": build_schedule_term_frontier(
-            constructive_recovery_artifact=str(CONSTRUCTIVE_RECOVERY),
-            faithful_modular_defect_artifact=str(DEFAULT_OUT),
-            carried_schedule_artifact=str(
+            constructive_recovery_artifact=_artifact_ref(CONSTRUCTIVE_RECOVERY),
+            faithful_modular_defect_artifact=_artifact_ref(DEFAULT_OUT),
+            carried_schedule_artifact=_artifact_ref(
                 ROOT / "particles" / "runs" / "uv" / "bw_carried_collar_schedule_scaffold.json"
             ),
         ),
         "why_this_is_intermediate": [
             "This isolates the faithful modular-additivity burden from the full carried-collar schedule.",
             "It is smaller than the carried schedule because it omits the separate Fawzi-Renner recovery remainder.",
-            "It is larger than the exact-Markov comparison witness because it still needs the eventual collarwise spectral floor.",
+            "It is larger than the exact-Markov comparison witness because it still needs the eventual collarwise spectral floor, which is now surfaced as its own artifact.",
         ],
         "notes": [
             "This scaffold does not claim the faithful modular-defect term is already emitted on the live corpus.",
             "It captures the second carried-error term singled out in the technical supplement, not the full carried schedule.",
+            "The only nonlatent lower side condition on the live branch is the eventual collarwise spectral floor recorded by the linked faithfulness-side artifact.",
             "Closing this term together with the constructive recovery remainder closes the carried-collar schedule itself.",
             "The actual solver frontier above this witness is now recorded as the two-term pair, not as a separately targeted schedule object.",
         ],

@@ -183,6 +183,17 @@ def build_artifact(line_lift: dict[str, Any], transport: dict[str, Any]) -> dict
             "gauge_quotient": line_lift.get("gauge_quotient"),
             "vertex_rephasing_gauge_class": line_lift.get("vertex_rephasing_gauge_class"),
             "presentation_independence_status": line_lift.get("presentation_independence_status"),
+            "action_on_self_overlap": "M -> D_u^dagger M D_d with D_u, D_d in U(1)^3",
+            "entrywise_moduli_invariant": True,
+            "ckm_moduli_invariant": True,
+        },
+        "smallest_exact_blocker": {
+            "id": "sector_attached_transport_frame_to_sigma_ud_lift_equivalence",
+            "statement": (
+                "No sector-attached lift or equivalence currently identifies the common-refinement self-overlap "
+                "matrix with an emitted same-label left-handed Sigma_ud element carrying "
+                "{sigma_id, canonical_token, U_u_left, U_d_left, V_CKM}."
+            ),
         },
         "missing_sector_attachment": {
             "cannot_emit": [
@@ -199,7 +210,10 @@ def build_artifact(line_lift: dict[str, Any], transport: dict[str, Any]) -> dict
         },
         "why_not_promotable": (
             "The self-overlap F0^dagger F1 is a genuine already-local compare-only witness, but it lives on common-refinement "
-            "transport frames rather than on emitted left-handed quark sheet evaluations. It therefore cannot populate "
+            "transport frames rather than on emitted left-handed quark sheet evaluations. The residual objectwise-U(1) quotient "
+            "acts only by diagonal rephasings M -> D_u^dagger M D_d and therefore preserves all entrywise moduli |M_ij|, so the "
+            "remaining obstruction is not moving CKM moduli but the lack of a sector-attached lift/equivalence to an emitted "
+            "same-label left-handed Sigma_ud element. Without that lift the construction cannot populate "
             "Sigma_ud_orbit.elements = [{sigma_id, canonical_token, U_u_left, U_d_left, V_CKM, ckm_invariants}] or emit sigma_ud."
         ),
         "notes": [

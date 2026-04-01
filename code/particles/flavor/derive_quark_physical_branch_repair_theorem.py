@@ -43,6 +43,7 @@ DEFAULT_OUT = ROOT / "particles" / "runs" / "flavor" / "quark_physical_branch_re
 TARGET_THETA_12 = 0.2256
 TARGET_THETA_23 = 0.0438
 TARGET_THETA_13 = 0.00347
+REFERENCE_FAMILY_BRANCH_KEY = ["D12", None]
 
 
 def _timestamp() -> str:
@@ -106,7 +107,12 @@ def main() -> int:
         ),
         "current_d12_sheet": {
             "branch_label": "D12",
-            "branch_key": ["D12", None],
+            "branch_key": (
+                list(selector_value["branch_key"])
+                if selector_value is not None
+                else list(REFERENCE_FAMILY_BRANCH_KEY)
+            ),
+            "family_branch_key": list(REFERENCE_FAMILY_BRANCH_KEY),
             "quark_relative_sheet_selector": selector_value,
             "sheet_status": "single_local_reference_sheet_only",
             "local_solver_limit": (

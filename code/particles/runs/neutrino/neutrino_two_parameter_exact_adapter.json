@@ -1,0 +1,74 @@
+{
+  "artifact": "oph_neutrino_two_parameter_exact_adapter",
+  "exact_fit_residuals_eV2": {
+    "21": 4.0657581468206416e-20,
+    "31": 0.0,
+    "32": 0.0
+  },
+  "exact_outputs": {
+    "delta_m_sq_eV2": {
+      "21": 7.490000000000005e-05,
+      "31": 0.0025129,
+      "32": 0.002438
+    },
+    "masses_eV": [
+      0.01745663294772044,
+      0.019484199595350048,
+      0.053081390655025595
+    ],
+    "pmns_observables": {
+      "J": -0.02753021593409389,
+      "delta_deg": 305.5827304715826,
+      "theta12_deg": 34.22566071725186,
+      "theta13_deg": 8.686318401957758,
+      "theta23_deg": 49.72287949579018
+    },
+    "ratio_21_over_32": 0.03072190319934374
+  },
+  "exact_solution": {
+    "D_nu": 1.1277518477404371,
+    "lambda_nu": 1.723958214811294,
+    "p_nu": 1.3951028617104149,
+    "relative_tau_shift_from_live_midpoint": -0.0028293419919025453,
+    "tau_nu": 0.49717065800809745
+  },
+  "generated_utc": "2026-04-01T08:03:13Z",
+  "notes": [
+    "The exact fit is achieved on the existing positive selector segment; no new theorem object is claimed.",
+    "The exact match uses two compare-only degrees of freedom: tau_nu fixes the dimensionless ratio and lambda_nu fixes the overall positive scale.",
+    "This exact adapter is stronger than the older one-observable atmospheric-only and solar-only slices, but it remains non-promotable until the live theorem lane emits C_nu."
+  ],
+  "promotable": false,
+  "proof_status": "compare_only_exact_two_parameter_continuation_adapter",
+  "reference_central_values": {
+    "delta_m21_sq_eV2": 7.49e-05,
+    "delta_m31_sq_eV2": 0.0025129,
+    "delta_m32_sq_eV2": 0.002438,
+    "ratio_21_over_32": 0.030721903199343724,
+    "source": "PDG 2025 neutrino review Table 14.7, Ref. [193] with SK-ATM and IC24, normal ordering, representative central values"
+  },
+  "scope": "compare_only_two_parameter_segment_adapter",
+  "selector_family": {
+    "formula": "D_tau = (1 - tau_nu) * chi + tau_nu * (1 + gamma_half)",
+    "midpoint_live_selector": {
+      "D_nu": 1.127883690210334,
+      "p_nu": 1.395092021318097,
+      "ratio_21_over_32": 0.030721110097966534,
+      "tau_nu": 0.5
+    },
+    "segment_endpoints": {
+      "chi": 1.1045845502912137,
+      "one_plus_gamma_half": 1.1511828301294542
+    }
+  },
+  "source_artifacts": {
+    "overlap_edge_transport_cocycle": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/overlap_edge_transport_cocycle.json",
+    "same_label_scalar_certificate": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/same_label_scalar_certificate.json",
+    "selector_phase_source": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/intrinsic_neutrino_mass_eigenstate_bundle_from_scalar_certificate.json"
+  },
+  "theorem_boundary": {
+    "forbidden_feedback": "compare_only_segment_adapter_must_not_feed_back_into_theorem_state_or_C_nu_emission",
+    "statement": "This adapter solves exact representative PDG central splittings only by moving along the already-explicit positive selector segment and then rescaling the resulting scale-free branch. The live theorem lane still waits on the reduced bridge-correction invariant C_nu and therefore does not emit a theorem-grade absolute neutrino spectrum.",
+    "status": "non_promotable_compare_only_segment_and_scale_inverse_adapter"
+  }
+}

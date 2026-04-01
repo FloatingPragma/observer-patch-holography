@@ -94,7 +94,7 @@
       "reason": "The construction uses only common-refinement labels f1,f2,f3 and same-label line-lift transport maps. It does not emit a finite relative-sheet token or sector-attached left-handed up/down evaluations."
     },
     "self_overlap_symbol": "F0^dagger F1",
-    "why_not_promotable": "The self-overlap F0^dagger F1 is a genuine already-local compare-only witness, but it lives on common-refinement transport frames rather than on emitted left-handed quark sheet evaluations. It therefore cannot populate Sigma_ud_orbit.elements = [{sigma_id, canonical_token, U_u_left, U_d_left, V_CKM, ckm_invariants}] or emit sigma_ud."
+    "why_not_promotable": "The self-overlap F0^dagger F1 is a genuine already-local compare-only witness, but it lives on common-refinement transport frames rather than on emitted left-handed quark sheet evaluations. The residual objectwise-U(1) quotient acts only by diagonal rephasings M -> D_u^dagger M D_d and therefore preserves all entrywise moduli |M_ij|, so the remaining obstruction is not moving CKM moduli but the lack of a sector-attached lift/equivalence to an emitted same-label left-handed Sigma_ud element. Without that lift the construction cannot populate Sigma_ud_orbit.elements = [{sigma_id, canonical_token, U_u_left, U_d_left, V_CKM, ckm_invariants}] or emit sigma_ud."
   },
   "elements": [
     {
@@ -219,6 +219,10 @@
         "theta_23": 0.0012874186416783878
       },
       "coverage_status": "reference_sheet_representative_only",
+      "family_branch_key": [
+        "D12",
+        null
+      ],
       "gauge_fix": {
         "col_phase_radians": [
           0.0,
@@ -262,7 +266,7 @@
     "evaluate_relative_sheet(token)"
   ],
   "exact_missing_solver_interface": "sigma_ud_orbit_provider_interface",
-  "generated_utc": "2026-04-01T03:09:07Z",
+  "generated_utc": "2026-04-01T04:33:57Z",
   "input_contract": {
     "must_not_use": [
       "CKM target fitting inside the theorem artifact",
@@ -296,7 +300,7 @@
     "emitted_reference_sheet": {
       "branch_key": [
         "D12",
-        null
+        "sigma_ref"
       ],
       "canonical_token": "D12::same_label_left::reference_sheet",
       "ckm_invariants": {
@@ -307,6 +311,10 @@
         "theta_23": 0.0012874186416783878
       },
       "coverage_status": "reference_sheet_representative_only",
+      "family_branch_key": [
+        "D12",
+        null
+      ],
       "sigma_id": "sigma_ref"
     },
     "next_exact_object_after_orbit_closure": "intrinsic_scale_law_D12",
@@ -325,7 +333,7 @@
       "scope": "emitted_local_solver_surface_only",
       "selection_reason": "The current emitted local same-label left-handed solver surface exposes only sigma_ref, the chirality-basis diagnostic leaves only the ordered L/L side physically admissible, and the published five-anchor standard CKM gauge removes residual diagonal rephasing except the trivial global phase."
     },
-    "why_transport_frame_diagnostic_orbit_is_insufficient": "The self-overlap F0^dagger F1 is a genuine already-local compare-only witness, but it lives on common-refinement transport frames rather than on emitted left-handed quark sheet evaluations. It therefore cannot populate Sigma_ud_orbit.elements = [{sigma_id, canonical_token, U_u_left, U_d_left, V_CKM, ckm_invariants}] or emit sigma_ud."
+    "why_transport_frame_diagnostic_orbit_is_insufficient": "The self-overlap F0^dagger F1 is a genuine already-local compare-only witness, but it lives on common-refinement transport frames rather than on emitted left-handed quark sheet evaluations. The residual objectwise-U(1) quotient acts only by diagonal rephasings M -> D_u^dagger M D_d and therefore preserves all entrywise moduli |M_ij|, so the remaining obstruction is not moving CKM moduli but the lack of a sector-attached lift/equivalence to an emitted same-label left-handed Sigma_ud element. Without that lift the construction cannot populate Sigma_ud_orbit.elements = [{sigma_id, canonical_token, U_u_left, U_d_left, V_CKM, ckm_invariants}] or emit sigma_ud."
   },
   "public_promotion_allowed": false,
   "selected_sigma": {

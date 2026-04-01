@@ -13,12 +13,14 @@
 \usepackage{fancyvrb}
 \usepackage{ragged2e}
 \usepackage{hyperref}
+\usepackage{xurl}
 \input{release_info.tex}
 
 % Springer/pdflatex compatibility: provide fallbacks for Unicode math/text glyphs.
 \newcounter{none}
 \providecommand{\theHnone}{\arabic{none}}
 \providecommand{\textsubscript}[1]{$_{\mathrm{#1}}$}
+\newcommand{\ophid}[1]{{\small\path{#1}}}
 \ifdefined\DeclareUnicodeCharacter
 \DeclareUnicodeCharacter{00B1}{\ensuremath{\pm}}
 \DeclareUnicodeCharacter{00B2}{\textsuperscript{2}}
@@ -120,7 +122,7 @@
 \renewcommand{\arraystretch}{1.05}
 
 \providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+ \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \definecolor{shadecolor}{RGB}{248,248,248}
 \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
@@ -148,24 +150,23 @@ gauge structure, particles, and classical records are not put in by hand at the 
 features of whatever survives global consistency among many partial viewpoints on a finite-capacity
 screen.
 
-This paper is the synthesis surface for the current OPH suite. It pulls together the fixed-cutoff
+This paper is the synthesis surface for the OPH suite. It pulls together the fixed-cutoff
 collar and higher-gauge theorem packages, the consensus/fixed-point formulation of overlap repair,
 the conditional route to Lorentzian geometry and Einstein dynamics, the compact-gauge route to the
 realized Standard Model quotient
 \(\SU(3)\times\SU(2)\times\U(1)/\mathbb Z_6\), the particle-spectrum lane, and the screen
-microphysics and observer lane. The point is not that every lane is equally finished. The point
-is to show, in one place, what is already closed, what is conditional, and what still sits on an
+microphysics and observer lane. It shows, in one place, what is closed, what is conditional, and what sits on an
 explicit missing object.
 
-At fixed cutoff, OPH already has a sharp local picture: patches glue, higher-gauge defects are
+At fixed cutoff, OPH has a sharp local picture: patches glue, higher-gauge defects are
 controlled, physical UV uniqueness is quotient-level and ancilla-stable, and the microphysics lane
-now has an explicit regulated architecture together with closed measurement and
+has an explicit regulated architecture together with closed measurement and
 checkpoint/restoration packages. On the continuum side, OPH gives a conditional
 Lorentzian/Jacobson-type gravity branch and a conditional compact-gauge route whose realized
 low-energy output is the Standard Model quotient above with the exact hypercharge lattice and the
 counting chain \(N_g=3\) then \(N_c=3\). On the particle side, the structural massless carriers
 are fixed, the electroweak lane is closed at theorem level, the Higgs/top stage is emitted on its
-secondary branch, and the neutrino lane matches the observed mixing/hierarchy pattern while still
+secondary branch, and the neutrino lane matches the observed mixing/hierarchy pattern while
 leaving one reduced normalization invariant open; the charged-lepton, quark, and hadron lanes keep
 their remaining closure objects explicit. The biggest open front is the continuum/BW lift: an
 explicit microscopic refinement whose scaling limit lands in the geometric modular phase.
@@ -176,30 +177,30 @@ explicit microscopic refinement whose scaling limit lands in the geometric modul
 
 \section{Introduction}
 
-This paper presents the current OPH program on one synchronized theorem and status surface. It is
-not a replacement for the companion papers. It is the place where the different OPH lanes are read
-together: the recovered core from the compact paper, the finite patch-net consensus spine, the
-screen-microphysics engineering lane, and the downstream particle-spectrum lane. The guiding
+This synthesis paper reads the OPH suite on one synchronized theorem and status surface. It brings
+together the recovered core from Ref.~\cite{ophcompact}, the finite patch-net consensus spine from
+Ref.~\cite{ophconsensus}, the screen-microphysics engineering lane from Ref.~\cite{ophmicrophysics},
+and the downstream particle-spectrum lane from Ref.~\cite{ophparticles}. The guiding
 question is whether overlap consistency for local observer descriptions on a finite-capacity screen
 is strong enough to recover the structural features of low-energy physics, and if so, how much of
-that recovery is already theorem-level and how much still depends on explicit scaling-limit,
+that recovery is theorem-level and how much depends on explicit scaling-limit,
 categorical, or continuation premises.
 
-The answer is now sharply tiered. Fixed-cutoff collar structure, higher-gauge defect transport,
+The answer is sharply tiered. Fixed-cutoff collar structure, higher-gauge defect transport,
 the consensus/fixed-point formulation, the quotient-level UV uniqueness statement, the Born-rule
 record package, and the checkpoint/restoration package are theorem-bearing on their stated finite
 surfaces. The Lorentz/null-modular/Einstein chain and compact gauge reconstruction remain
 conditional continuum or categorical branches. The particle lane is the most status-split part of
 the suite: the structural carrier skeleton and realized Standard Model branch are fixed, the
 electroweak stage is closed, the Higgs/top stage is a secondary quantitative branch, the neutrino
-lane is shape-accurate with one reduced normalization invariant still open, and the
+lane is shape-accurate with one reduced normalization invariant open, and the
 charged-lepton, quark, and hadron lanes remain explicitly unfinished for different reasons.
 
 The paper is organized by lane. Section~2 gives the synthesis-level map. Section~3 carries the
 recovered-core trunk: axioms, premise ledger, collar tools, gluing, the Lorentz/gravity branch,
 and the compact-gauge/Standard-Model branch. Section~4 records the consensus lane. Section~5
-summarizes the current particle lane. Section~6 records the screen-microphysics and observer lane.
-Section~7 keeps the worldsheet lane at its current conditional status. Section~8 gives the
+summarizes the particle lane. Section~6 records the screen-microphysics and observer lane.
+Section~7 keeps the worldsheet lane at its conditional status. Section~8 gives the
 cross-lane status and open fronts. The appendices collect extra architecture and interpretive
 material that is useful in the synthesis paper but not part of the recovered core itself.
 
@@ -208,27 +209,27 @@ material that is useful in the synthesis paper but not part of the recovered cor
 The OPH suite currently supports the following lane-level split.
 
 \begin{enumerate}[leftmargin=2em]
-\item \textbf{At fixed cutoff, local structure and repair are already sharp.} Technically, the
+\item \textbf{At fixed cutoff, local structure and repair are sharp.} Technically, the
 collar theorem package is explicit and finite-range, the genuinely noncentral higher-gauge branch
 is closed at fixed cutoff, and the consensus lane gives a unique schedule-independent normal form
 on the gauge quotient under the stated finite patch-net hypotheses.
-\item \textbf{Relativity appears as a controlled continuum branch rather than an extra axiom.}
+\item \textbf{Relativity appears as a controlled continuum branch.}
 Technically, the Lorentz/null-modular/Einstein chain is a refinement/scaling-limit branch with
 explicit canonical technical premises.
 \item \textbf{The Standard Model gauge skeleton appears as a constrained consistency output.}
 Technically, compact gauge reconstruction and the realized
 \(\SU(3)\times\SU(2)\times\U(1)/\mathbb Z_6\) branch follow under the stated transportability and
 categorical premises, with the realized counting chain \(N_g=3\) then \(N_c=3\).
-\item \textbf{The particle lane now has real outputs, but it is not uniformly closed.}
+\item \textbf{The particle lane has real outputs and a nonuniform closure profile.}
 Technically, the structural carriers are exact, the electroweak stage is closed, the Higgs/top
 stage is quantitatively emitted on a secondary branch, and the charged-lepton, quark, neutrino,
-and hadron lanes still carry named remaining closure objects.
-\item \textbf{The screen-microphysics lane is no longer only schematic.} Technically, it now
+and hadron lanes carry named remaining closure objects.
+\item \textbf{The screen-microphysics lane is explicit and concrete.} Technically, it
 contains an explicit regulated reference architecture, sharpened patch-net and edge-sector
 branches, a closed fixed-cutoff Born-rule package, and a closed checkpoint/restoration package.
 \item \textbf{The UV picture is sharper at fixed cutoff than in the continuum.} Technically, OPH
 fixes the physical UV branch only modulo implementation hiding and inert ancillary refinement; the
-live UV burden is the continuum BW/geometric lift and the refinement-limit transportable-sector
+UV burden is the continuum BW/geometric lift and the refinement-limit transportable-sector
 lift.
 \item \textbf{The string/worldsheet lane remains conditional.} Technically, it is carried only as
 a continuation of the OPH heat-kernel edge-sector theorem, not as part of the recovered core.
@@ -241,7 +242,7 @@ The detailed depth surfaces used throughout this synthesis are:
 \item \emph{A Conditional Reconstruction Program for Relativity and Standard Model Structure from Observer-Overlap Consistency: Observers Are All You Need (Compact)}~\cite{ophcompact}, which carries the premise ledger, the recovered-core Lorentz/gravity route, and the compact-gauge/Standard-Model branch.
 \item \emph{Reality as a Consensus Protocol: The Fixed-Point Computation That Implements Physics}~\cite{ophconsensus}, which carries the finite patch-net fixed-point, defect, quotient, and record-layer consensus package.
 \item \emph{Screen Microphysics, Patches, and Observer Synchronization in OPH}~\cite{ophmicrophysics}, which carries the regulated reference architecture together with the measurement and observer checkpoint/restoration packages.
-\item \emph{Deriving the Particle Zoo from Observer Consistency}~\cite{ophparticles}, which carries the structural-to-family particle route and the current per-sector status ledger.
+\item \emph{Deriving the Particle Zoo from Observer Consistency}~\cite{ophparticles}, which carries the structural-to-family particle route and the per-sector status ledger.
 \end{enumerate}
 
 \def\OPHSkipEmbeddedReferences{1}

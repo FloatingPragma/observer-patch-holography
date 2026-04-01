@@ -36,9 +36,14 @@ def test_sigma_ud_orbit_closes_to_reference_singleton_by_uniqueness_theorem() ->
     assert element["coverage_status"] == "reference_sheet_representative_only"
     assert element["selection_proof"]["theorem_grade_select"] is True
     assert payload["selected_sigma"]["sigma_id"] == "sigma_ref"
+    assert payload["selected_sigma"]["branch_key"] == ["D12", "sigma_ref"]
     assert payload["selection_gate"]["quark_relative_sheet_selector"]["sigma_id"] == "sigma_ref"
     assert payload["singleton_uniqueness_theorem"]["proof_status"] == "same_label_left_handed_local_orbit_singleton_closed"
     assert payload["provider_frontier"]["emitted_reference_sheet"]["canonical_token"] == element["canonical_token"]
+    assert payload["provider_frontier"]["emitted_reference_sheet"]["branch_key"] == ["D12", "sigma_ref"]
+    assert payload["provider_frontier"]["emitted_reference_sheet"]["family_branch_key"] == ["D12", None]
+    assert element["branch_key"] == ["D12", "sigma_ref"]
+    assert element["family_branch_key"] == ["D12", None]
     assert payload["debug_compare_shell_ranking"]["ranked"][0]["canonical_token"] == element["canonical_token"]
     assert payload["already_local_diagnostic_orbit"]["physical_reference_element"]["basis_u"] == "L"
     assert payload["already_local_diagnostic_orbit"]["physical_reference_element"]["basis_d"] == "L"

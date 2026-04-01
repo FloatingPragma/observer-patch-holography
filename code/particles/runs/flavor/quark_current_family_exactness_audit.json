@@ -351,7 +351,7 @@
     "current_d12_sheet": {
       "branch_key": [
         "D12",
-        null
+        "sigma_ref"
       ],
       "branch_label": "D12",
       "emitted_same_label_left_reference_sheet": {
@@ -366,6 +366,10 @@
         "coverage_status": "reference_sheet_representative_only",
         "sigma_id": "sigma_ref"
       },
+      "family_branch_key": [
+        "D12",
+        null
+      ],
       "local_orbit_uniqueness_theorem": {
         "proof_status": "same_label_left_handed_local_orbit_singleton_closed",
         "scope": "emitted_local_solver_surface_only",
@@ -614,7 +618,7 @@
     "tau_d_best_fit": 0.08831017354133808,
     "tau_u_best_fit": 0.05214018144630117
   },
-  "generated_utc": "2026-04-01T03:10:50Z",
+  "generated_utc": "2026-04-01T08:02:50Z",
   "mean_split_audit": {
     "current_log_shift_d": -2.0281337286007872,
     "current_log_shift_u": -0.16973941452778685,

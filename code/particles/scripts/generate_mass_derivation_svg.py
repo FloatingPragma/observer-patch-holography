@@ -244,7 +244,7 @@ LANES: List[Dict[str, Any]] = [
     {
         "key": "quarks",
         "title": "Quarks",
-        "summary": "The quark lane implements the local mean split, descent, forward Yukawa surface, the emitted same-family D12 mass ray, and honest forward CKM/CP closure on the current D12 sheet.",
+        "summary": "The quark lane implements the local mean split, descent, forward Yukawa surface, the emitted same-family D12 mass ray, and forward CKM/CP closure on the current D12 sheet.",
         "takeaway": "The important new fact is negative: the current D12 sheet is already closed as a transport shell, and that is exactly why we can now say clearly that it is the wrong physical branch.",
         "logic": (
             "The local quark path takes the shared flavor data, emits the quark sector mean split, assembles the "
@@ -257,7 +257,7 @@ LANES: List[Dict[str, Any]] = [
             "isospin-breaking selector / overlap-defect scalar. On the current same-family continuation branch the "
             "mass side sharpens further to the emitted same-family ray `D12_ud_mass_ray`, with `Delta_ud_overlap = ray_modulus / 5` and `eta_Q_centered = -((1-x2^2)/27) * ray_modulus`. "
             "The CKM/CP side is no longer the open burden: the forward Yukawa step already emits the same-label "
-            "transport unitary `V_CKM^fwd = U_u^dagger U_d`, and its principal logarithm gives the honest gauge-fixed "
+            "transport unitary `V_CKM^fwd = U_u^dagger U_d`, and its principal logarithm gives the gauge-fixed "
             "generator. But the current D12 sheet is now a strict no-go for the physical CKM shell: same-sheet "
             "rephasing cannot change the CKM invariants, and the emitted angles are too small. The selector-side frontier is no longer open on the local solver surface: the same-label left-handed orbit already closes to the singleton `sigma_ref`, so the selected branch is fixed but remains the current wrong-branch D12 sheet. The only finite local scan on disk is a same-sheet 4001-point `Delta_ud_overlap` scan against `reference_targets`, and that route is comparison-only rather than a valid physical repair. A smaller finite local basis orbit is already extractable from the current forward Yukawa surface, but its nontrivial elements use right-singular-basis substitutions and are therefore diagnostic-only rather than admissible physical selectors. The exact next quark object is therefore the intrinsic mass-side scale law `intrinsic_scale_law_D12` on the already-emitted mass ray, unless a genuinely new branch-changing theorem is found outside the current selected sheet."
         ),

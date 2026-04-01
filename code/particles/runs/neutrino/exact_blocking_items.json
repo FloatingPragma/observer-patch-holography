@@ -83,7 +83,7 @@
     }
   ],
   "fully_completed": false,
-  "generated_utc": "2026-04-01T03:09:07Z",
+  "generated_utc": "2026-04-01T03:59:41Z",
   "live_continuation_branch_status": {
     "absolute_scale_no_go": {
       "absolute_amplitude_bridge_summary": {
@@ -428,8 +428,10 @@
       "sum_masses_eV": 0.0900224302009819
     },
     "current_mass_splittings_gev2": {
-      "delta_m21_sq_gev2": 2.204051907791789e-39,
-      "delta_m31_sq_gev2": 9.54986497185585e-25
+      "delta_m21_sq_gev2": null,
+      "delta_m31_sq_gev2": null,
+      "reason": "The repaired weighted-cycle branch closes only the dimensionless splitting pattern until one positive reduced bridge-correction invariant is emitted.",
+      "status": "not_emitted_without_absolute_anchor"
     },
     "current_pmns_parameters": {
       "J": -0.02753115613565372,
@@ -441,6 +443,10 @@
       "theta13_rad": 0.15160550395717723,
       "theta23_deg": 49.72282845058266,
       "theta23_rad": 0.867827069866978
+    },
+    "intrinsic_builder_mass_splittings_gev2": {
+      "delta_m21_sq_gev2": 2.204051907791789e-39,
+      "delta_m31_sq_gev2": 9.54986497185585e-25
     },
     "no_hidden_discrete_branch": {
       "open_discrete_blockers": [],

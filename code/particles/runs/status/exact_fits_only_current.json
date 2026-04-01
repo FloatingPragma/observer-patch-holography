@@ -1,0 +1,194 @@
+{
+  "artifact": "oph_exact_fits_only_surface",
+  "entries": [
+    {
+      "fit_kind": "exact_frozen_target_compare_only_adapter",
+      "id": "electroweak_frozen_target_exact_pair",
+      "label": "Electroweak Frozen-Target Exact Pair",
+      "matched_observables": [
+        "m_W",
+        "m_Z"
+      ],
+      "max_abs_residual": 0.0,
+      "note": "Exact on the frozen-authoritative D10 repair surface. The active public theorem surface remains the target-free source-only emission, which is separate and differs only at the `1e-8 GeV` scale.",
+      "promotable": false,
+      "references": {
+        "m_W": 80.377,
+        "m_Z": 91.18797809193725
+      },
+      "scope": "frozen_authoritative_target_surface",
+      "source_artifact": "code/particles/runs/calibration/d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json",
+      "units": "GeV",
+      "values": {
+        "m_W": 80.377,
+        "m_Z": 91.18797809193725
+      }
+    },
+    {
+      "fit_kind": "exact_target_anchored_compare_only_inverse_slice",
+      "id": "higgs_top_reference_exact_adapter",
+      "label": "Higgs/Top Reference Exact Adapter",
+      "matched_observables": [
+        "m_H",
+        "m_t"
+      ],
+      "max_abs_residual": 0.0,
+      "note": "Exact only as a compare-only inverse slice on the D11 Jacobian. The live predictive D11 branch remains the reference-free forward seed, not this adapter.",
+      "promotable": false,
+      "references": {
+        "m_H": 125.1995304097179,
+        "m_t": 172.3523553288312
+      },
+      "scope": "compare_only_inverse_slice",
+      "source_artifact": "code/particles/runs/calibration/d11_reference_exact_adapter.json",
+      "units": "GeV",
+      "values": {
+        "m_H": 125.1995304097179,
+        "m_t": 172.3523553288312
+      }
+    },
+    {
+      "fit_kind": "exact_target_anchored_current_family_witness",
+      "id": "charged_current_family_exact_witness",
+      "label": "Charged Current-Family Exact Witness",
+      "matched_observables": [
+        "m_e",
+        "m_mu",
+        "m_tau"
+      ],
+      "max_abs_residual": 1.1102230246251565e-15,
+      "note": "Exact on the current ordered charged eigenvalue triple, but theorem scope is `current_family_only` and the live charged theorem lane still does not emit a theorem-grade absolute anchor.",
+      "promotable": false,
+      "references": {
+        "m_e": 0.0005109989499999999,
+        "m_mu": 0.10565837550000001,
+        "m_tau": 1.77693246513409
+      },
+      "scope": "current_family_only",
+      "source_artifact": "code/particles/runs/leptons/lepton_current_family_exact_readout.json",
+      "units": "GeV",
+      "values": {
+        "m_e": 0.0005109989499999994,
+        "m_mu": 0.10565837550000004,
+        "m_tau": 1.7769324651340912
+      }
+    },
+    {
+      "fit_kind": "exact_target_anchored_current_family_witness",
+      "id": "quark_current_family_exact_witness",
+      "label": "Quark Current-Family Exact Witness",
+      "matched_observables": [
+        "m_u",
+        "m_c",
+        "m_t",
+        "m_d",
+        "m_s",
+        "m_b"
+      ],
+      "max_abs_residual": 1.1368683772161603e-13,
+      "note": "Exact on the current ordered three-point quark family witness, but theorem scope is `current_family_only`; it does not resolve the wrong-branch D12 CKM no-go or emit `intrinsic_scale_law_D12`.",
+      "promotable": false,
+      "references": {
+        "m_b": 4.183,
+        "m_c": 1.273,
+        "m_d": 0.0047,
+        "m_s": 0.0935,
+        "m_t": 172.3523553288312,
+        "m_u": 0.00216
+      },
+      "scope": "current_family_only",
+      "source_artifact": "code/particles/runs/flavor/quark_current_family_exact_readout.json",
+      "units": "GeV",
+      "values": {
+        "m_b": 4.182999999999994,
+        "m_c": 1.2729999999999995,
+        "m_d": 0.004700000000000002,
+        "m_s": 0.09349999999999999,
+        "m_t": 172.3523553288311,
+        "m_u": 0.0021599999999999996
+      }
+    },
+    {
+      "fit_kind": "exact_two_observable_compare_only_segment_adapter",
+      "id": "neutrino_two_parameter_exact_adapter",
+      "label": "Neutrino Two-Parameter Exact Adapter",
+      "matched_observables": [
+        "Delta m21^2",
+        "Delta m32^2"
+      ],
+      "max_abs_residual": 4.0657581468206416e-20,
+      "note": "Exact compare-only fit to both representative PDG central splittings by moving along the already-explicit positive selector segment and then rescaling with one positive `lambda_nu`. It remains non-promotable because the theorem lane still waits on the reduced bridge-correction invariant `C_nu`.",
+      "promotable": false,
+      "references": {
+        "delta_m21_sq_eV2": 7.49e-05,
+        "delta_m31_sq_eV2": 0.0025129,
+        "delta_m32_sq_eV2": 0.002438
+      },
+      "scope": "compare_only_two_parameter_segment_adapter",
+      "source_artifact": "code/particles/runs/neutrino/neutrino_two_parameter_exact_adapter.json",
+      "units": "eV / eV^2",
+      "values": {
+        "delta_m21_sq_eV2": 7.490000000000005e-05,
+        "delta_m31_sq_eV2": 0.0025129,
+        "delta_m32_sq_eV2": 0.002438,
+        "m1_eV": 0.01745663294772044,
+        "m2_eV": 0.019484199595350048,
+        "m3_eV": 0.053081390655025595
+      }
+    },
+    {
+      "exact_match_observable": "Delta m32^2",
+      "fit_kind": "exact_single_observable_compare_only_adapter",
+      "id": "neutrino_atmospheric_only_exact_adapter",
+      "label": "Neutrino Atmospheric Only Exact Adapter",
+      "matched_observables": [
+        "Delta m32^2"
+      ],
+      "note": "Exact only for one splitting observable on the repaired weighted-cycle family. The same artifact states that no single `lambda_nu` hits both central splittings exactly.",
+      "promotable": false,
+      "references": {
+        "delta_m21_sq_eV2": 7.49e-05,
+        "delta_m32_sq_eV2": 0.002438
+      },
+      "scope": "compare_only",
+      "source_artifact": "code/particles/runs/neutrino/neutrino_compare_only_scale_fit.json",
+      "units": "eV / eV^2",
+      "values": {
+        "delta_m21_sq_eV2": 7.489806641884242e-05,
+        "delta_m31_sq_eV2": 0.0025128980664188426,
+        "delta_m32_sq_eV2": 0.002438,
+        "m1_eV": 0.017456756479999103,
+        "m2_eV": 0.019484260653687455,
+        "m3_eV": 0.053081413067295344
+      }
+    },
+    {
+      "exact_match_observable": "Delta m21^2",
+      "fit_kind": "exact_single_observable_compare_only_adapter",
+      "id": "neutrino_solar_only_exact_adapter",
+      "label": "Neutrino Solar Only Exact Adapter",
+      "matched_observables": [
+        "Delta m21^2"
+      ],
+      "note": "Exact only for one splitting observable on the repaired weighted-cycle family. The same artifact states that no single `lambda_nu` hits both central splittings exactly.",
+      "promotable": false,
+      "references": {
+        "delta_m21_sq_eV2": 7.49e-05,
+        "delta_m32_sq_eV2": 0.002438
+      },
+      "scope": "compare_only",
+      "source_artifact": "code/particles/runs/neutrino/neutrino_compare_only_scale_fit.json",
+      "units": "eV / eV^2",
+      "values": {
+        "delta_m21_sq_eV2": 7.49e-05,
+        "delta_m31_sq_eV2": 0.0025129629398205804,
+        "delta_m32_sq_eV2": 0.0024380629398205803,
+        "m1_eV": 0.017456981811834547,
+        "m2_eV": 0.01948451215654942,
+        "m3_eV": 0.05308209824224456
+      }
+    }
+  ],
+  "generated_utc": "2026-04-01T06:07:34Z",
+  "status": "exact_target_anchored_or_single_observable_diagnostic_surface"
+}

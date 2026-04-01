@@ -346,7 +346,7 @@ def main() -> int:
         "notes": [
             "This artifact records the strongest current D12 continuation sample point for the light-quark split without overriding the recovered-core no-go.",
             "On the D12 continuation branch the CKM/CP lane closes honestly once the forward Yukawa step is reached, because the same-label transport unitary is already V_CKM^fwd = U_u^dagger U_d.",
-            "But the current D12 sheet is not the physical quark branch: same-sheet rephasing leaves CKM invariants frozen, and the emitted angles on this sheet undershoot the comparison shell substantially.",
+            "But the current D12 sheet is not the physical quark branch: the selector is already fixed to sigma_ref on the emitted same-label left-handed solver surface, while the current theorem-grade rigidity result is only same-sheet rephasing rigidity and does not prove CKM rigidity under ray_modulus motion on D12_ud_mass_ray. The emitted angles on this sheet still undershoot the comparison shell substantially.",
             "The only finite local scan on disk is a same-sheet Delta_ud_overlap scan against reference targets; it is comparison-only and cannot be repurposed as a Sigma_ud orbit scan.",
             (
                 "The solver-side same-label left-handed orbit now closes to the singleton sigma_ref, so the exact next object is the intrinsic scale law on D12_ud_mass_ray; that selected branch still inherits the current CKM-shell no-go."

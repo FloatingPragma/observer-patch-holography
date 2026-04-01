@@ -1,13 +1,13 @@
 {
   "actual_solver_missing_emitted_witnesses": [
     {
-      "artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_fixed_local_collar_constructive_recovery_scaffold.json",
+      "artifact": "code/particles/runs/uv/bw_fixed_local_collar_constructive_recovery_scaffold.json",
       "formula": "r_FR(epsilon_{n,m,delta}) -> 0",
       "id": "constructive_recovery_remainder_vanishing",
       "role": "markov_side_recovery_term"
     },
     {
-      "artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_fixed_local_collar_faithful_modular_defect_scaffold.json",
+      "artifact": "code/particles/runs/uv/bw_fixed_local_collar_faithful_modular_defect_scaffold.json",
       "formula": "4 * lambda_{*,n,m,delta}^{-1} * delta^M_{m,delta}(epsilon_{n,m,delta}) -> 0",
       "id": "fixed_local_collar_faithful_modular_defect_vanishing",
       "role": "faithfulness_weighted_modular_term"
@@ -25,12 +25,13 @@
   ],
   "collar_corollary": "Exact fixed-cutoff collar splice and additivity identities pass to the extracted pair whenever they are used only through carried-collar remainders that vanish on fixed local collar models.",
   "derived_remaining_input_witness": {
-    "artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_carried_collar_schedule_scaffold.json",
+    "artifact": "code/particles/runs/uv/bw_carried_collar_schedule_scaffold.json",
     "formula": "eta_{n,m,delta} = r_FR(epsilon_{n,m,delta}) + 4 * lambda_{*,n,m,delta}^{-1} * delta^M_{m,delta}(epsilon_{n,m,delta}) -> 0",
     "id": "vanishing_carried_collar_schedule_on_fixed_local_collars"
   },
   "derived_remaining_input_witness_closure_theorem": "If the constructive recovery remainder and the faithful modular-defect term both vanish on every fixed local collar model, then the carried-collar schedule follows by termwise addition of the two nonnegative remainders.",
   "exact_missing_object": "scaling_limit_cap_pair_extraction",
+  "faithfulness_side_status": "open",
   "fills_contract_witnesses": [
     "reference_cap_local_test_system",
     "projectively_compatible_transported_cap_marginal_family",
@@ -41,7 +42,7 @@
     "id": "ordered_null_cut_pair_rigidity",
     "role": "Collapse the residual cap-preserving conformal freedom on the realized limit pair to the unique BW hyperbolic subgroup."
   },
-  "generated_utc": "2026-04-01T00:30:28Z",
+  "generated_utc": "2026-04-01T04:53:48Z",
   "goal": "Extract a canonical scaling-limit cap pair (A_infty(C), omega_infty^C) from transported cap marginals along the realized refinement-stable branch.",
   "input_contract": {
     "must_not_assume": [
@@ -57,22 +58,23 @@
   },
   "intermediate_witness_chain": [
     {
-      "artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_fixed_local_collar_constructive_recovery_scaffold.json",
+      "artifact": "code/particles/runs/uv/bw_fixed_local_collar_constructive_recovery_scaffold.json",
       "id": "constructive_recovery_remainder_vanishing"
     },
     {
-      "artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_fixed_local_collar_exact_markov_modulus_scaffold.json",
+      "artifact": "code/particles/runs/uv/bw_fixed_local_collar_exact_markov_modulus_scaffold.json",
       "id": "fixed_local_collar_exact_markov_modulus_vanishing"
     },
     {
-      "artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_fixed_local_collar_faithful_modular_defect_scaffold.json",
+      "artifact": "code/particles/runs/uv/bw_fixed_local_collar_faithful_modular_defect_scaffold.json",
       "id": "fixed_local_collar_faithful_modular_defect_vanishing"
     },
     {
-      "artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_carried_collar_schedule_scaffold.json",
+      "artifact": "code/particles/runs/uv/bw_carried_collar_schedule_scaffold.json",
       "id": "vanishing_carried_collar_schedule_on_fixed_local_collars"
     }
   ],
+  "markov_side_status": "latent_from_epsilon_to_zero",
   "missing_input_witnesses": [
     "constructive_recovery_remainder_vanishing",
     "fixed_local_collar_faithful_modular_defect_vanishing"
@@ -84,6 +86,7 @@
     "The carried schedule itself is now recorded as theorem-generated from those two term witnesses: r_FR(epsilon_{n,m,delta}) -> 0 and 4 * lambda_{*,n,m,delta}^{-1} * delta^M_{m,delta}(epsilon_{n,m,delta}) -> 0.",
     "That combined schedule reduces one level lower to a fixed-local-collar Markov/faithfulness datum: collarwise CMI vanishing plus an eventual positive lower spectral bound.",
     "Inside that raw datum, the constructive recovery witness, the exact-Markov comparison modulus, and the faithful modular-defect term are now split as separate lower local scaffolds.",
+    "On the current branch the only nonlatent lower input still outside the emitted chain is the eventual fixed-local-collar spectral floor feeding the faithful modular-defect term; the recovery/Markov side is already latent once epsilon_{n,m,delta} -> 0.",
     "The artifact now also carries a machine-readable honesty gate so prelimit transport packaging cannot be mistaken for the missing emitted collar schedule.",
     "It does not by itself prove the BW automorphism law."
   ],
@@ -95,10 +98,10 @@
     "typeI_required": false
   },
   "precise_missing_object_name": "canonical_scaling_cap_pair_realization_from_transported_cap_marginals",
-  "prelimit_realized_system_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_realized_transported_cap_local_system.json",
+  "prelimit_realized_system_artifact": "code/particles/runs/uv/bw_realized_transported_cap_local_system.json",
   "public_promotion_allowed": false,
   "remaining_missing_emitted_witness": "vanishing_carried_collar_schedule_on_fixed_local_collars",
-  "remaining_missing_emitted_witness_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_carried_collar_schedule_scaffold.json",
+  "remaining_missing_emitted_witness_artifact": "code/particles/runs/uv/bw_carried_collar_schedule_scaffold.json",
   "remaining_missing_emitted_witness_components": [
     "r_FR(epsilon_{n,m,delta})",
     "lambda_{*,n,m,delta}",
@@ -107,7 +110,7 @@
   "remaining_missing_emitted_witness_domain": "every fixed local collar model",
   "remaining_missing_emitted_witness_formula": "eta_{n,m,delta} = r_FR(epsilon_{n,m,delta}) + 4 * lambda_{*,n,m,delta}^{-1} * delta^M_{m,delta}(epsilon_{n,m,delta}) -> 0",
   "remaining_witness_honesty_gate": {
-    "closure_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_carried_collar_schedule_scaffold.json",
+    "closure_artifact": "code/particles/runs/uv/bw_carried_collar_schedule_scaffold.json",
     "derived_witness_chain": [
       "constructive_recovery_remainder_vanishing",
       "fixed_local_collar_exact_markov_modulus_vanishing",
@@ -116,22 +119,22 @@
     ],
     "insufficient_on_their_own": [
       {
-        "artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_fixed_local_collar_constructive_recovery_scaffold.json",
+        "artifact": "code/particles/runs/uv/bw_fixed_local_collar_constructive_recovery_scaffold.json",
         "id": "constructive_recovery_remainder_vanishing",
         "why_not": "This removes only the Fawzi-Renner recovery term; it does not control the separate faithfulness-weighted modular defect remainder."
       },
       {
-        "artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_fixed_local_collar_exact_markov_modulus_scaffold.json",
+        "artifact": "code/particles/runs/uv/bw_fixed_local_collar_exact_markov_modulus_scaffold.json",
         "id": "fixed_local_collar_exact_markov_modulus_vanishing",
         "why_not": "This only controls distance to the exact-Markov set; it does not by itself bound the spectral-weighted modular defect term."
       },
       {
-        "artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_fixed_local_collar_faithful_modular_defect_scaffold.json",
+        "artifact": "code/particles/runs/uv/bw_fixed_local_collar_faithful_modular_defect_scaffold.json",
         "id": "fixed_local_collar_faithful_modular_defect_vanishing",
         "why_not": "This still omits the separate Fawzi-Renner recovery remainder, so the full eta schedule is not yet emitted."
       },
       {
-        "artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_realized_transported_cap_local_system.json",
+        "artifact": "code/particles/runs/uv/bw_realized_transported_cap_local_system.json",
         "id": "realized_transported_cap_local_system",
         "why_not": "The prelimit transport package fixes the local system but does not itself emit the vanishing carried-collar schedule consumed by cap-pair extraction."
       }
@@ -164,7 +167,7 @@
       ]
     },
     {
-      "artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_fixed_local_collar_exact_markov_modulus_scaffold.json",
+      "artifact": "code/particles/runs/uv/bw_fixed_local_collar_exact_markov_modulus_scaffold.json",
       "depends_on": [
         "collarwise_markov_input"
       ],
@@ -174,7 +177,7 @@
       "status": "open_until_emitted"
     },
     {
-      "artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_fixed_local_collar_constructive_recovery_scaffold.json",
+      "artifact": "code/particles/runs/uv/bw_fixed_local_collar_constructive_recovery_scaffold.json",
       "depends_on": [
         "collarwise_markov_input"
       ],
@@ -184,7 +187,7 @@
       "status": "open_until_emitted"
     },
     {
-      "artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_fixed_local_collar_faithful_modular_defect_scaffold.json",
+      "artifact": "code/particles/runs/uv/bw_fixed_local_collar_faithful_modular_defect_scaffold.json",
       "depends_on": [
         "fixed_local_collar_exact_markov_modulus_vanishing",
         "collarwise_faithfulness_input"
@@ -195,7 +198,7 @@
       "status": "open_until_emitted"
     },
     {
-      "artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_carried_collar_schedule_scaffold.json",
+      "artifact": "code/particles/runs/uv/bw_carried_collar_schedule_scaffold.json",
       "depends_on": [
         "constructive_recovery_remainder_vanishing",
         "fixed_local_collar_faithful_modular_defect_vanishing"
@@ -209,19 +212,19 @@
   "remaining_witness_term_frontier": {
     "closure_theorem": "If the constructive recovery remainder and the faithful modular-defect term both vanish on every fixed local collar model, then the carried-collar schedule follows by termwise addition of the two nonnegative remainders.",
     "derived_parent_witness": {
-      "artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_carried_collar_schedule_scaffold.json",
+      "artifact": "code/particles/runs/uv/bw_carried_collar_schedule_scaffold.json",
       "formula": "eta_{n,m,delta} = r_FR(epsilon_{n,m,delta}) + 4 * lambda_{*,n,m,delta}^{-1} * delta^M_{m,delta}(epsilon_{n,m,delta}) -> 0",
       "id": "vanishing_carried_collar_schedule_on_fixed_local_collars"
     },
     "missing_emitted_witnesses": [
       {
-        "artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_fixed_local_collar_constructive_recovery_scaffold.json",
+        "artifact": "code/particles/runs/uv/bw_fixed_local_collar_constructive_recovery_scaffold.json",
         "formula": "r_FR(epsilon_{n,m,delta}) -> 0",
         "id": "constructive_recovery_remainder_vanishing",
         "role": "markov_side_recovery_term"
       },
       {
-        "artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_fixed_local_collar_faithful_modular_defect_scaffold.json",
+        "artifact": "code/particles/runs/uv/bw_fixed_local_collar_faithful_modular_defect_scaffold.json",
         "formula": "4 * lambda_{*,n,m,delta}^{-1} * delta^M_{m,delta}(epsilon_{n,m,delta}) -> 0",
         "id": "fixed_local_collar_faithful_modular_defect_vanishing",
         "role": "faithfulness_weighted_modular_term"
@@ -234,18 +237,19 @@
   "schedule_reduction_theorem": "For each fixed local collar model, the eta_{n,m,delta} vanishing schedule follows once the collarwise conditional mutual information vanishes and the faithful lower spectral bound is eventually uniform.",
   "schedule_term_witnesses": [
     {
-      "artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_fixed_local_collar_constructive_recovery_scaffold.json",
+      "artifact": "code/particles/runs/uv/bw_fixed_local_collar_constructive_recovery_scaffold.json",
       "id": "constructive_recovery_remainder_vanishing",
       "role": "markov_side_recovery_term"
     },
     {
-      "artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_fixed_local_collar_faithful_modular_defect_scaffold.json",
+      "artifact": "code/particles/runs/uv/bw_fixed_local_collar_faithful_modular_defect_scaffold.json",
       "id": "fixed_local_collar_faithful_modular_defect_vanishing",
       "role": "faithfulness_weighted_modular_term"
     }
   ],
+  "single_live_missing_clause_artifact": "code/particles/runs/uv/bw_fixed_local_collar_eventual_spectral_floor_scaffold.json",
   "smaller_remaining_raw_datum": "fixed_local_collar_markov_faithfulness_datum",
-  "smaller_remaining_raw_datum_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/uv/bw_fixed_local_collar_markov_faithfulness_datum.json",
+  "smaller_remaining_raw_datum_artifact": "code/particles/runs/uv/bw_fixed_local_collar_markov_faithfulness_datum.json",
   "smaller_remaining_raw_datum_components": [
     "epsilon_{n,m,delta} = I(A_{m,delta}:D_{m,delta}|B_{m,delta})_{omega_{n->m}} -> 0",
     "exists lambda_bar_{m,delta} > 0 with lambda_{*,n,m,delta} >= lambda_bar_{m,delta} eventually"

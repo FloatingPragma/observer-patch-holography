@@ -7,6 +7,7 @@
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{verbatim}
+\usepackage{xurl}
 \input{release_info.tex}
 
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
@@ -26,12 +27,11 @@ and observer synchronization are meant as more than abstract words. The answer g
 finite screen model, encodable in qubits, in which local registers, patch observables, overlap
 observables, records, and repair instruments are all made explicit.
 
-The point of the paper is not to claim that the final OPH UV completion has already been found.
-The point is to supply a workable reference architecture: a finite gauge-register or quantum-link
+The paper supplies a workable reference architecture: a finite gauge-register or quantum-link
 style model on a cellulated screen that shows how stable records, observer patterns, local
 interaction, and synchronization could arise inside one shared microscopic system. The paper
-therefore separates what is already explicit at fixed cutoff, what is a simulator target, and
-what still belongs to a later continuum or gravity lift.
+therefore separates what is explicit at fixed cutoff, what is a simulator target, and
+what belongs to a later continuum or gravity lift.
 \end{abstract}
 
 \tableofcontents
@@ -39,7 +39,14 @@ what still belongs to a later continuum or gravity lift.
 
 \section{Scope}
 
-This paper gives a concrete reference architecture for local finite screen degrees of freedom, an explicit bridge from local registers to patches, overlaps, records, observers, and synchronization, and fixed-cutoff theorem packages for measurement and checkpoint/restoration. It keeps theorem claims, simulator claims, and conjectural bridges sharply separated. It does not claim that a unique microscopic UV completion is known, that the OPH scaling-limit continuum or gravity branch is derived here, that ``observer'' is a consciousness claim, or that synchronization of overlap data proves full continuum closure.
+This paper sets out one concrete reference architecture for local finite screen degrees of
+freedom. It gives an explicit bridge from local registers to patches, overlaps, records,
+observers, and synchronization, together with fixed-cutoff theorem packages for measurement and
+checkpoint/restoration. The claim boundary is narrow: theorem statements, simulator targets, and
+conjectural bridges are separated throughout. No uniqueness claim for the microscopic UV
+completion is made here, the OPH scaling-limit continuum and gravity branches are not derived
+here, ``observer'' is used operationally, and synchronization of overlap data is not presented as
+full continuum closure.
 
 \section{Claim Taxonomy}
 
@@ -89,7 +96,7 @@ truncations.
 
 A constrained finite gauge-register or quantum-link style screen model is therefore the
 default reference architecture for this draft. It is finite-dimensional, local, gauge-aware,
-and already speaks the same language as the OPH regulator package. It also makes the collar
+and speaks the same language as the OPH regulator package. It also makes the collar
 center and edge-sector story concrete instead of metaphorical.
 
 This choice is a working \emph{reference architecture}. It is not a claim that all other
@@ -145,26 +152,26 @@ repair dynamics all live on one finite screen.
 \begin{verbatim}
 Microscopic screen picture
 
-   record q(v1)      record q(v2)      record q(v3)
-        o------------------o------------------o
-        | \              / | \              / |
-        |  \    f1      /  |  \    f2      /  |
-        |   \          /   |   \          /   |
-        |    \        /    |    \        /    |
-        o-----\------/-----o-----\------/-----o
-      q(v4)    \    /    q(v5)    \    /    q(v6)
-                 \  /                \/
-                  \/                 /\
-                  /\                /  \
-                 /  \              / f4 \
-                / f3 \            /      \
-               /      \          /        \
-              o--------\--------o----------o
-          record q(v7)          q(v8)     q(v9)
+ record q(v1) record q(v2) record q(v3)
+ o------------------o------------------o
+ | \ / | \ / |
+ | \ f1 / | \ f2 / |
+ | \ / | \ / |
+ | \ / | \ / |
+ o-----\------/-----o-----\------/-----o
+ q(v4) \ / q(v5) \ / q(v6)
+ \ / \/
+ \/ /\
+ /\ / \
+ / \ / f4 \
+ / f3 \ / \
+ / \ / \
+ o--------\--------o----------o
+ record q(v7) q(v8) q(v9)
 
-   links carry finite gauge registers
-   vertices host Gauss checks and optional record qubits
-   faces carry plaquette/holonomy dynamics
+ links carry finite gauge registers
+ vertices host Gauss checks and optional record qubits
+ faces carry plaquette/holonomy dynamics
 \end{verbatim}
 
 The simulator-facing question is therefore not ``what is the final microscopic UV completion?'' It is
@@ -215,7 +222,7 @@ measurements and sensible scaling diagnostics.
 stability, not as a statement about final physics.
 \end{enumerate}
 
-What must be compiled into qubit circuits is now explicit:
+What must be compiled into qubit circuits is explicit:
 \begin{enumerate}[leftmargin=2em]
 \item local gauge transformations and Gauss projectors;
 \item plaquette or loop operators;
@@ -246,7 +253,7 @@ The physical patch algebra is the boundary-fixed subalgebra
 \begin{equation}
 \mathcal A(P)=\widetilde{\mathcal A}(P)^{G_{\partial P}},
 \end{equation}
-in the same spirit as the regulator picture already used in OPH.
+in the same spirit as the regulator picture used in OPH.
 
 If $P$ and $Q$ overlap, the shared region $B=P\cap Q$ is not merely a geometric set. It is
 where the shared or comparable observables live. At fixed cutoff, the collar Hilbert space is
@@ -298,15 +305,15 @@ comparisons on $B=P\cap Q$. It is the direct input to any repair or synchronizat
 \begin{verbatim}
 Patch/overlap interface
 
-   Patch P bulk             shared collar B            Patch Q bulk
-  ----------------         =================         ----------------
-  | loops W_gamma |        || Pi_alpha     ||        | loops W_gamma |
-  | records R_P   | <----> || shared bits  || <----> | records R_Q   |
-  | local state   |        || syndrome S   ||        | local state   |
-  ----------------         =================         ----------------
+ Patch P bulk shared collar B Patch Q bulk
+ ---------------- ================= ----------------
+ | loops W_gamma | || Pi_alpha || | loops W_gamma |
+ | records R_P | <----> || shared bits || <----> | records R_Q |
+ | local state | || syndrome S || | local state |
+ ---------------- ================= ----------------
 
-   what is compared on B is not the whole quantum state
-   it is a selected shared observable family on the overlap
+ what is compared on B is not the whole quantum state
+ it is a selected shared observable family on the overlap
 \end{verbatim}
 
 The observer interface is therefore local: persistent access to a patch algebra together with a
@@ -334,7 +341,7 @@ The role of the record layer is to produce stable, repeatedly accessible data.
 
 \subsection{Working observer criterion}
 
-The OPH manuscript already uses the tuple
+The OPH manuscript uses the tuple
 \begin{equation}
 O=(P_O,\mathcal A(P_O),\rho_O,R_O)
 \end{equation}
@@ -365,19 +372,19 @@ simulator definitions of record-bearing internal agents or agent-like subsystems
 \begin{verbatim}
 Local registers --> records --> observer pattern --> synchronization
 
-   link qudits / qubits
-          |
-          v
-   gauge-invariant patch observables
-          |
-          v
-   robust pointer variables / records
-          |
-          v
-   persistent update-capable pattern O_ref
-          |
-          v
-   compare shared overlap data and repair mismatch
+ link qudits / qubits
+ |
+ v
+ gauge-invariant patch observables
+ |
+ v
+ robust pointer variables / records
+ |
+ v
+ persistent update-capable pattern O_ref
+ |
+ v
+ compare shared overlap data and repair mismatch
 \end{verbatim}
 
 \section{Interaction, Synchronization, and Repair}
@@ -439,7 +446,7 @@ Z(\mathcal A_{IJ})
 =
 \bigoplus_{\alpha\in\mathsf A_{IJ}}\mathbb C\,\Pi_\alpha^{(IJ)},
 \end{equation}
-so the overlap center projectors are already explicit regulator observables rather than
+so the overlap center projectors are explicit regulator observables rather than
 placeholders. The same cutoff data also carry the finite patch-net interface later used on the
 consensus side.
 
@@ -447,17 +454,16 @@ Define the regulated microscopic package by
 \begin{equation}
 \mathfrak R_{\Gamma}
 =
-\Bigl(
-\Gamma,
-\mathcal G_{\mathrm{patch}},
-\mathcal H_{\mathrm{phys}},
-\{\mathcal A_I\}_I,
-\{\mathcal A_{IJ}\}_{\{I,J\}\in\mathcal E},
-\{\iota_{IJ\to I},\iota_{IJ\to J}\}_{\{I,J\}\in\mathcal E},
-\{\mathcal O_{IJ}^{\mathrm{sh}}\}_{\{I,J\}\in\mathcal E},
-\{\operatorname{read}_{I\to J},\operatorname{read}_{J\to I}\}_{\{I,J\}\in\mathcal E},
-\{R_I\}_I
-\Bigr).
+\left(
+\begin{aligned}
+&\Gamma,\ \mathcal G_{\mathrm{patch}},\ \mathcal H_{\mathrm{phys}},\ \{\mathcal A_I\}_I,\\
+&\{\mathcal A_{IJ}\}_{\{I,J\}\in\mathcal E},
+\ \{\iota_{IJ\to I},\iota_{IJ\to J}\}_{\{I,J\}\in\mathcal E},\\
+&\{\mathcal O_{IJ}^{\mathrm{sh}}\}_{\{I,J\}\in\mathcal E},
+\ \{\operatorname{read}_{I\to J},\operatorname{read}_{J\to I}\}_{\{I,J\}\in\mathcal E},\\
+&\{R_I\}_I
+\end{aligned}
+\right).
 \end{equation}
 The finite patch-net layer carried by that regulator is then
 \begin{equation}
@@ -650,15 +656,13 @@ L_{PQ}(S_{PQ})
 ordered lexicographically from left to right. An accepted correction should strictly
 lower $L_{PQ}$. This hard-codes the priority order
 \begin{equation}
+\begin{aligned}
 \text{gauge admissibility}
-\;>\;
-\text{sector agreement}
-\;>\;
-\text{boundary-observable agreement}
-\;>\;
-\text{record-summary agreement}
-\;>\;
-\text{record freshness}.
+&>\text{sector agreement}\\
+&>\text{boundary-observable agreement}\\
+&>\text{record-summary agreement}\\
+&>\text{record freshness}.
+\end{aligned}
 \end{equation}
 
 For logging and later schedule diagnostics, it is still useful to keep a scalar local cost,
@@ -771,27 +775,27 @@ Initialize the microscopic state, the patch cover, the overlap objects I_PQ,
 and the record registers.
 
 For t = 1,...,T_max:
-    choose one overlap (P,Q) according to schedule nu_t
-    x_P <- read_{P->Q}^{(PQ)}
-    x_Q <- read_{Q->P}^{(PQ)}
-    S   <- compare_{PQ}(x_P, x_Q)
+ choose one overlap (P,Q) according to schedule nu_t
+ x_P <- read_{P->Q}^{(PQ)}
+ x_Q <- read_{Q->P}^{(PQ)}
+ S <- compare_{PQ}(x_P, x_Q)
 
-    if S = 0:
-        log no-op, Xi_{PQ}, and Phi
-        continue
+ if S = 0:
+ log no-op, Xi_{PQ}, and Phi
+ continue
 
-    build all trial candidates c in C_{PQ}^{min} \ {noop}
-    discard candidates that violate local Gauss admissibility
-    score each surviving candidate by
-        ( post-update L_{PQ}, support size, static candidate id )
+ build all trial candidates c in C_{PQ}^{min} \ {noop}
+ discard candidates that violate local Gauss admissibility
+ score each surviving candidate by
+ (post-update L_{PQ}, support size, static candidate id)
 
-    if no surviving candidate strictly lowers L_{PQ}:
-        log unresolved syndrome and continue
+ if no surviving candidate strictly lowers L_{PQ}:
+ log unresolved syndrome and continue
 
-    commit the best candidate
-    refresh every touched record summary and stale bit
-    reread x'_P, x'_Q and recompute S'_{PQ}, Xi_{PQ}, and Phi
-    log the accepted move
+ commit the best candidate
+ refresh every touched record summary and stale bit
+ reread x'_P, x'_Q and recompute S'_{PQ}, Xi_{PQ}, and Phi
+ log the accepted move
 \end{verbatim}
 
 Only the schedule $\nu_t$ should vary across the simplest simulation experiments. Reasonable
@@ -854,7 +858,7 @@ candidate branch $c$,
 If this packet-closure test passes, the microscopic instrument pushes forward to a genuine
 finite update rule on packet space. If it fails, the finite packet layer is still an embedded
 readout/actuation interface, without an autonomous quotient dynamics. This is the boundary kept
-explicit for the later consensus paper.
+explicit for the later fixed-point paper \emph{Reality as a Consensus Protocol}.
 
 \subsection{Acceptance Tests and Handoff Boundary}
 
@@ -901,15 +905,15 @@ On a deliberately frustrated cycle, the loop should surface unresolved syndromes
 dependence in the logs rather than silently overwriting record summaries to fake agreement.
 \end{enumerate}
 
-The present microphysics paper owns the fixed-cutoff
+This paper owns the fixed-cutoff
 regulator $\mathfrak R_{\Gamma}$, the embedded finite interface layer
 $\mathfrak F_{\Gamma}$, the overlap object $\mathfrak I_{PQ}$, the local repair instrument
 $\mathcal R_{PQ}$, the packet-closure tests, and the unit/integration tests that a simulator can
-run. The separate consensus paper should own only the next layer: autonomous packet dynamics
+run. \emph{Reality as a Consensus Protocol} should own only the next layer: autonomous packet dynamics
 when closure holds, global termination, local confluence, schedule robustness, normal-form
 existence, and the classification of residual holonomy or obstruction classes. Phase 1
 therefore supplies the concrete microscopic inputs to the consensus story without claiming that
-the global consensus theorems have already been proved here.
+the global consensus theorems have been proved here.
 
 \section{What a First Implementable Reference Model Should Contain}
 
@@ -956,7 +960,7 @@ B_{XZ}&=P_X\cap P_Z=\{f_{+++},f_{+-+}\},\\
 B_{YZ}&=P_Y\cap P_Z=\{f_{+++},f_{-++}\},
 \end{align}
 and the triple overlap is the single face $f_{+++}$. This specific cover is the required reference-model
-geometry because it already contains pairwise collars, a nontrivial triple-overlap consistency
+geometry because it contains pairwise collars, a nontrivial triple-overlap consistency
 check, and one face unique to each patch:
 \begin{equation}
 f_X^{\mathrm{bulk}}=f_{+--},
@@ -1238,7 +1242,7 @@ and $v_I$ is a one-bit valid-write flag set to $1$ only when the current write p
 class label. Here $[\tau]$ is the transposition class and $[\sigma]$ the three-cycle class.
 
 The local layer structure is the same as in the $\mathbb Z_2$ pilot, but the candidate correction
-set is now
+set is
 \begin{align}
 \mathcal C_{IJ}^{(S_3)}
 =&
@@ -1308,7 +1312,7 @@ factor were missing.
 
 \subsection{Compact-group truncation as the merge-boundary build}
 
-Once the finite-group branch passes, one overlap should be upgraded to the already-declared
+Once the finite-group branch passes, one overlap should be upgraded to the declared
 quantum-link style truncation. Choose a finite irrep set $\mathcal R_{\max}$ and encode each cut
 register as
 \begin{equation}
@@ -1332,7 +1336,7 @@ p_R^{(IJ)}(t)
 =
 \frac{d_R e^{-tC_2(R)}}{\sum_{R'\in\mathcal R_{\max}} d_{R'} e^{-tC_2(R')}}.
 \end{equation}
-This is already enough for the compact-paper merge boundary at fixed cutoff. What is
+This is enough for the compact-paper merge boundary at fixed cutoff. What is
 \emph{not} claimed here is the refinement-stable uniqueness of the truncation, the continuum
 universality of $t$, or the theorem that different truncation ladders must land on one common
 compact limit. Those are later merge-level questions.
@@ -1408,29 +1412,26 @@ includes all named benchmarks and all six schedule orders.
 Every run must write two artifacts.
 
 \paragraph{Run manifest.}
-The manifest is one record with the fields \texttt{build\_id}, \texttt{group},
-\texttt{backend}, \texttt{encoding}, \texttt{graph\_id},
-\texttt{patch\_cover\_id}, \texttt{benchmark\_id}, \texttt{schedule\_id},
-\texttt{seed}, \texttt{shots}, \texttt{cycles},
-\texttt{candidate\_menu\_hash}, and \texttt{tie\_break\_hash}.
+The manifest is one record with the fields \path{build_id}, \path{group},
+\path{backend}, \path{encoding}, \path{graph_id}, \path{patch_cover_id},
+\path{benchmark_id}, \path{schedule_id}, \path{seed}, \path{shots},
+\path{cycles}, \path{candidate_menu_hash}, and \path{tie_break_hash}.
 The hashes are required so that two runs can be compared without guessing whether the correction
 table changed.
 
 \paragraph{Cycle table.}
-Each cycle must write one row with the fields \texttt{cycle},
-\texttt{active\_overlap}, \texttt{link\_state\_pre},
-\texttt{record\_state\_pre}, \texttt{a\_v\_pre[6]},
-\texttt{face\_obs\_pre[8]}, \texttt{collar\_obs\_pre[3]},
-\texttt{candidate\_costs}, \texttt{chosen\_correction}, \texttt{accepted},
-\texttt{tie\_break\_rank}, \texttt{link\_state\_post},
-\texttt{record\_state\_post}, \texttt{a\_v\_post[6]},
-\texttt{face\_obs\_post[8]}, \texttt{collar\_obs\_post[3]},
-\texttt{Phi\_post}, \texttt{g\_post}, and \texttt{u\_bad\_post}.
-For the $\mathbb Z_2$ pilot, \texttt{link\_state} is a $12$-bit string in stored-edge order and
-\texttt{face\_obs} is the ordered list of eight plaquette bits $B_f$. For the $S_3$ build,
-\texttt{link\_state} must contain both the raw three-bit code word and the decoded group symbol
-on every edge, while \texttt{face\_obs} must contain the eight decoded face holonomies together
-with their conjugacy classes. For the $S_3$ build, \texttt{collar\_obs} must additionally
+Each cycle must write one row with the fields \path{cycle}, \path{active_overlap},
+\path{link_state_pre}, \path{record_state_pre}, \path{a_v_pre[6]},
+\path{face_obs_pre[8]}, \path{collar_obs_pre[3]}, \path{candidate_costs},
+\path{chosen_correction}, \path{accepted}, \path{tie_break_rank},
+\path{link_state_post}, \path{record_state_post}, \path{a_v_post[6]},
+\path{face_obs_post[8]}, \path{collar_obs_post[3]}, \path{Phi_post},
+\path{g_post}, and \path{u_bad_post}. For the $\mathbb Z_2$ pilot, \path{link_state}
+is a $12$-bit string in stored-edge order and \path{face_obs} is the ordered list of eight
+plaquette bits $B_f$. For the $S_3$ build, \path{link_state} must contain both the raw
+three-bit code word and the decoded group symbol on every edge, while \path{face_obs} must
+contain the eight decoded face holonomies together with their conjugacy classes. For the $S_3$
+build, \path{collar_obs} must additionally
 contain the three irrep-probability triples
 \begin{equation}
 \bigl(p_{\mathbf 1}^{(IJ)},p_{\mathbf 1'}^{(IJ)},p_{\mathbf 2}^{(IJ)}\bigr).
@@ -1507,7 +1508,7 @@ Q_{\mathrm{readback}}\le 0.05.
 If these fail while the kinematic gate passes, the architecture has local observables while
 lacking a usable record layer.
 \item \textbf{$\mathbb Z_2$ synchronization gate.}
-On \texttt{Z2-1-stale-record}, \texttt{Z2-2-collar-flip}, and \texttt{Z2-3-double-overlap}, the
+On \path{Z2-1-stale-record}, \path{Z2-2-collar-flip}, and \path{Z2-3-double-overlap}, the
 analytic backend must reach $\Phi=0$ within $12$ repair activations for all six schedules. The
 sampled backend must do so within $15$ repair activations in at least $95\%$ of runs. In both
 backends, one also requires
@@ -1521,7 +1522,7 @@ D_{\mathrm{sched}}\le
 \end{cases}
 \end{equation}
 \item \textbf{Residual-obstruction gate.}
-On \texttt{Z2-4-frustrated-cycle}, the build is not supposed to fake full agreement. The
+On \path{Z2-4-frustrated-cycle}, the build is not supposed to fake full agreement. The
 required behavior is
 \begin{equation}
 g(t)=0\ \text{for all post-verify cycles},
@@ -1532,8 +1533,8 @@ and the residual label must remain unchanged for the final $10$ cycles. A run th
 indefinitely, or that reports $\Phi=0$ while the forced stale source is still present, fails
 this gate.
 \item \textbf{$S_3$ nonabelian gate.}
-On \texttt{S3-1-transposition}, \texttt{S3-2-threecycle}, and
-\texttt{S3-3-mixed-class-cycle}, the required label-fidelity bounds are
+On \path{S3-1-transposition}, \path{S3-2-threecycle}, and
+\path{S3-3-mixed-class-cycle}, the required label-fidelity bounds are
 \begin{equation}
 M_{\mathrm{class}}\le
 \begin{cases}
@@ -1626,7 +1627,7 @@ implementation hiding and inert ancillary refinement.
 
 \section{Dependence on Existing OPH Results and Open Bridges}
 
-This note is intentionally one-sided in its logical role. It imports OPH structure that already
+This note is intentionally one-sided in its logical role. It imports OPH structure that
 exists elsewhere in the program, adds one concrete fixed-cutoff reference architecture on top of
 that structure, and leaves the scaling-limit and theorem-level bridges explicit rather than
 implicit. The intended claim boundary is therefore
@@ -1738,18 +1739,16 @@ define the regulated OPH object
 \begin{equation}
 \mathfrak R_{\Gamma}^{\mathrm{OPH}}
 =
-\Bigl(
-\Gamma,
-\mathcal G_{\mathrm{patch}},
-\mathcal H_{\mathrm{phys}},
-\{\mathcal A_I\}_I,
-\{\mathcal A_{IJ}\}_{\{I,J\}\in\mathcal E},
-\{\iota_{IJ\to I},\iota_{IJ\to J}\}_{\{I,J\}\in\mathcal E},
-\{\mathcal O_{IJ}^{\mathrm{sh}}\}_{\{I,J\}\in\mathcal E},
-\{\mathfrak I_{IJ}\}_{\{I,J\}\in\mathcal E},
-\{\mathcal R_{IJ}\}_{\{I,J\}\in\mathcal E},
-\{R_I\}_I
-\Bigr),
+\left(
+\begin{aligned}
+&\Gamma,\ \mathcal G_{\mathrm{patch}},\ \mathcal H_{\mathrm{phys}},\ \{\mathcal A_I\}_I,\\
+&\{\mathcal A_{IJ}\}_{\{I,J\}\in\mathcal E},
+\ \{\iota_{IJ\to I},\iota_{IJ\to J}\}_{\{I,J\}\in\mathcal E},\\
+&\{\mathcal O_{IJ}^{\mathrm{sh}}\}_{\{I,J\}\in\mathcal E},
+\ \{\mathfrak I_{IJ}\}_{\{I,J\}\in\mathcal E},\\
+&\{\mathcal R_{IJ}\}_{\{I,J\}\in\mathcal E},\ \{R_I\}_I
+\end{aligned}
+\right),
 \end{equation}
 where $\mathcal A_I=\mathcal B(\widetilde{\mathcal H}_{P_I})^{G_{\partial P_I}}$ is the
 boundary-fixed patch algebra, $\mathcal A_{IJ}=\mathcal B(\widetilde{\mathcal H}_{B_{IJ}})^
@@ -1762,15 +1761,17 @@ Define the finite patch-net layer carried by that regulator to be
 \begin{equation}
 \mathfrak F_{\Gamma}^{\mathrm{PN}}
 =
-\Bigl(
-\mathcal G_{\mathrm{patch}},
-\{\mathsf X_{IJ}\}_{\{I,J\}\in\mathcal E},
-\{\mathbf q_{IJ}\}_{\{I,J\}\in\mathcal E},
-\{S_{IJ}\}_{\{I,J\}\in\mathcal E},
-\{L_{IJ}\}_{\{I,J\}\in\mathcal E},
-\{\Xi_{IJ}\}_{\{I,J\}\in\mathcal E},
-\{\mathcal C_{IJ}^{\mathrm{min}}\}_{\{I,J\}\in\mathcal E}
-\Bigr),
+\left(
+\begin{aligned}
+&\mathcal G_{\mathrm{patch}},
+\ \{\mathsf X_{IJ}\}_{\{I,J\}\in\mathcal E},
+\ \{\mathbf q_{IJ}\}_{\{I,J\}\in\mathcal E},\\
+&\{S_{IJ}\}_{\{I,J\}\in\mathcal E},
+\ \{L_{IJ}\}_{\{I,J\}\in\mathcal E},
+\ \{\Xi_{IJ}\}_{\{I,J\}\in\mathcal E},\\
+&\{\mathcal C_{IJ}^{\mathrm{min}}\}_{\{I,J\}\in\mathcal E}
+\end{aligned}
+\right),
 \end{equation}
 where
 \begin{equation}
@@ -1803,7 +1804,7 @@ They are actual regulator-side data on one explicit finite screen model.
 The patch cover and overlap graph are finite because the underlying cellulation is finite. The
 patch algebras $\mathcal A_I$ and overlap algebras $\mathcal A_{IJ}$ are explicit
 finite-dimensional boundary-fixed algebras, so the regulator presentation required for a
-fixed-cutoff OPH patch net is already in hand. The collar-sector projectors
+fixed-cutoff OPH patch net is in hand. The collar-sector projectors
 $\Pi_{\alpha}^{(IJ)}$ and the rest of the declared shared observable family
 $\mathcal O_{IJ}^{\mathrm{sh}}$ live in those overlap algebras, hence the packet alphabets
 $\mathsf X_{IJ}$ are realized by actual finite readouts rather than by external labels. The
@@ -2065,16 +2066,16 @@ This closes the fixed-cutoff observer checkpoint/restoration package: the checkp
 
 The remaining open items are:
 \begin{enumerate}[leftmargin=2em]
-\item The regulated patch-net embedding package now has an explicit regulated tuple and local
+\item The regulated patch-net embedding package has an explicit regulated tuple and local
 interface theorem here, but its downstream closure still needs one more pass.
-\item The edge heat-kernel / Casimir package now has an explicit thermalized finite-group branch
+\item The edge heat-kernel / Casimir package has an explicit thermalized finite-group branch
 here, but its compact heat-kernel lift still needs one more pass.
 \item The fixed-cutoff measurement/Born-rule package is closed here by the central record
 algebra, Born trace, and conditioning theorem stack.
 \item The fixed-cutoff observer checkpoint/restoration package is closed here by the
-checkpoint/restoration/error/identity theorem stack.
-\item What remains after these fixed-cutoff results is the unfinished regulator and edge-law closure work, refinement-stable universality, global consensus analysis, and
-continuum/gravity lift.
+checkpoint, restoration, error, and identity theorem stack.
+\item What remains after these fixed-cutoff results is unfinished regulator and edge-law closure
+work, refinement-stable universality, global consensus analysis, and the continuum/gravity lift.
 \end{enumerate}
 
 \section{Conclusion}

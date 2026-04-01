@@ -141,7 +141,7 @@ stages:
         owner_lane: local_docs
         depends_on: ["particles.calibration.02-separate-p-resolution-from-d10-transport-mismatch"]
       - id: particles.calibration.04-push-single-p-exact-ew-closure-branch
-        title: "Push an honest single-P D10 electroweak repair branch for W/Z/alpha_em/sin^2(theta_W)/v"
+        title: "Push a single-P D10 electroweak repair branch for W/Z/alpha_em/sin^2(theta_W)/v"
         status: completed
         owner_lane: pro_paper
         depends_on:
@@ -317,7 +317,7 @@ stages:
   - id: stage-3
     title: "Close the charged-lepton absolute frontier"
     status: active
-    success_rule: "The charged lane either closes through the exact centered-to-affine route above C_hat_e^{cand}, or every public surface states the honest two-layer obstruction: the descended commutator clause is still open and mu_phys(Y_e) is the irreducible post-promotion scalar."
+    success_rule: "The charged lane either closes through the exact centered-to-affine route above C_hat_e^{cand}, or every public surface states the two-layer obstruction: the descended commutator clause is still open and mu_phys(Y_e) is the irreducible post-promotion scalar."
     tasks:
       - id: papers.compact.e.30-replace-koide-assisted-lepton-fitting-with-a-theorem
         title: "Search for the full charged closure chain by promoting C_hat_e^{cand} and then deriving the descended affine scalar mu_phys(Y_e) beneath A_ch"
@@ -472,7 +472,7 @@ stages:
         owner_lane: local_docs
         depends_on: ["particles.leptons.17-fix-charged-absolute-scale-type-mismatch-and-shell"]
       - id: particles.leptons.19-record-charged-absolute-scale-underdetermination
-        title: "Record the honest charged absolute-scale underdetermination theorem and the compare-only continuation normalization target"
+        title: "Record the charged absolute-scale underdetermination theorem and the compare-only continuation normalization target"
         status: completed
         owner_lane: local_code
         depends_on: ["particles.leptons.18-record-exact-charged-waiting-set"]
@@ -725,7 +725,7 @@ stages:
         owner_lane: local_code
         depends_on: ["particles.flavor.57-expose-sigma-ud-orbit-provider-interface"]
       - id: particles.flavor.59-record-transport-frame-diagnostic-orbit-no-go
-        title: "Record the transport-frame same-label diagnostic orbit and mark it non-promotable because sector-attached mixed branches still depend on the residual objectwise-U(1) quotient"
+        title: "Record the transport-frame same-label diagnostic orbit and mark it non-promotable because no sector-attached lift/equivalence identifies the common-refinement matrix with an emitted same-label left-handed Sigma_ud element"
         status: completed
         owner_lane: local_code
         depends_on: ["particles.flavor.58-widen-orbit-provider-schema"]
@@ -746,7 +746,7 @@ stages:
   - id: stage-5
     title: "Close the neutrino absolute attachment frontier"
     status: active
-    success_rule: "The weighted-cycle neutrino branch stays honest about the positive-scale no-go, names C_nu as the smallest exact missing object above the emitted proxy, and only promotes absolute neutrino rows if that reduced correction invariant and the final normalization orbit are both genuinely closed."
+    success_rule: "The weighted-cycle neutrino branch keeps the positive-scale no-go explicit, names C_nu as the smallest exact missing object above the emitted proxy, and only promotes absolute neutrino rows if that reduced correction invariant and the final normalization orbit are both genuinely closed."
     tasks:
       - id: papers.compact.e.32-derive-neutrino-masses-from-screen-capacity-as-a-theorem
         title: "Repair the neutrino continuation branch so the emitted spectrum and PMNS reach the physical oscillation regime"
@@ -794,7 +794,7 @@ stages:
         owner_lane: local_code
         depends_on: ["particles.neutrino.06-add-majorana-lift-boundary"]
       - id: particles.neutrino.08-build-majorana-phase-envelope-artifact
-        title: "Build the residual Majorana phase-envelope honesty-check artifact"
+        title: "Build the residual Majorana phase-envelope consistency-check artifact"
         status: completed
         owner_lane: local_code
         depends_on: ["particles.neutrino.07-thread-sector-response-into-majorana-builder"]
@@ -1086,7 +1086,7 @@ stages:
   - id: stage-6
     title: "Hadron branch (deferred, execution-contract-frozen)"
     status: deferred
-    note: "Deferred from the active exact-spectrum closure program because honest progress from the current state requires one real production backend export bundle and then executed production systematics, not more local theorem work."
+    note: "Deferred from the active exact-spectrum closure program because progress from the current state requires one real production backend export bundle and then executed production systematics, not more local theorem work."
     success_rule: "Simulation-dependent stable-channel hadron pipeline with one production backend export bundle, executed writeback, and declared continuum, volume, chiral, and statistics budgets on the seeded 2+1 QED-off branch."
     tasks:
       - id: papers.compact.e.33-close-the-nonperturbative-qcd-hadron-branch

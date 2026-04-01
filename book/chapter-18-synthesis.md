@@ -207,9 +207,9 @@ Under the bridge assumptions above, the model yields:
 3. **The Standard Model gauge group** $SU(3) \times SU(2) \times U(1)/\mathbb{Z}_6$, reconstructed from edge-sector fusion rules and a minimality principle
 4. **Three generations, three colors**: fixed by anomaly cancellation and the minimality principle
 5. **Massless gauge bosons and graviton**: forced by emergent gauge and diffeomorphism invariance, which forbid mass terms
-6. **A particle story with clear landmarks**: photon, gluons, graviton, W, and Z are fixed; the Higgs, top quark, and several quark masses are already in play; charged leptons, the still-open physical quark branch after the local selector has already closed to `sigma_ref`, the reduced neutrino bridge-correction invariant `C_nu`, and hadrons are the hard remaining pieces
+6. **A particle story with clear landmarks**: photon, gluons, graviton, W, and Z are fixed; the Higgs, top quark, and several quark masses sit on explicit quantitative lanes; charged leptons, the physical quark branch beyond the local `sigma_ref` selector closure, the reduced neutrino bridge-correction invariant `C_nu`, and hadrons are the hard remaining pieces
 
-The photon and graviton are forced by the axiom chain. The framework is already deep into particle physics, and it is far beyond a vague gesture in that direction.
+The photon and graviton are forced by the axiom chain. The framework reaches deep into particle physics and goes far beyond a vague gesture in that direction.
 
 ### The Target Effective Lagrangian
 
@@ -287,7 +287,7 @@ The Hilbert space is finite-dimensional. The second fundamental parameter, **scr
 
 ## 18.8 The Remaining Frontier
 
-The core picture is now sharp enough to feel like physics. The framework recovers the Standard Model gauge group, three generations, three colors, massless photon/gluons/graviton, and the absence of gauge-mediated proton decay. On top of that, it already reaches the W and Z, places the Higgs and top on a short follow-on branch, produces several quark masses on the current flavor branch, and lands near the observed neutrino mixing pattern. The remaining difficult jobs are to finish the charged-lepton scale, bring flavor mixing onto a fully physical quark branch after the negative local selector closure to `sigma_ref` with `intrinsic_scale_law_D12` next on the emitted D12 mass ray, derive the reduced neutrino bridge-correction invariant `C_nu` that would fix the absolute neutrino scale, and land the production backend bundle plus the nonperturbative work needed for hadrons. On the gravity side, the big open task is to derive the smooth geometric spacetime limit from an explicit microscopic screen model instead of treating it as the right branch of the theory.
+The core picture has definite physical content. The framework recovers the Standard Model gauge group, three generations, three colors, massless photon/gluons/graviton, and the absence of gauge-mediated proton decay. On top of that, it has a full exact non-hadron output lane on disk: exact `W/Z` on the frozen-repair surface, an exact Higgs inverse slice, exact same-family charged and quark witnesses, and an exact compare-only neutrino adapter on the explicit positive selector segment. The remaining difficult jobs are to finish the charged-lepton theorem lane, bring flavor mixing onto a fully physical quark branch after the negative local selector closure to `sigma_ref` with `intrinsic_scale_law_D12` next on the emitted D12 mass ray, derive the reduced neutrino bridge-correction invariant `C_nu` that would fix the absolute neutrino scale, and land the production backend bundle plus the nonperturbative work needed for hadrons. On the gravity side, the big open task is to derive the smooth geometric spacetime limit from an explicit microscopic screen model instead of treating it as the right branch of the theory.
 
 **Progress on numerical predictions.** The extraction of gauge couplings from
 edge-sector probabilities has been validated numerically in 2D gauge models.
@@ -297,9 +297,9 @@ This has been confirmed to essentially exact precision in $\mathbb{Z}_2$ and
 $\mathbb{Z}_3$ models, where the extracted "modular time" $t$ agrees across
 different charge sectors to numerical noise level.
 
-**Peter-Weyl second-index mechanism for β-coefficients.** A major step forward:
-the MSSM-like beta coefficient shifts $\Delta b \approx (2.50, 4.17, 4.00)$ can now
-be derived from the edge-sector heat-kernel distribution using a structural
+**Peter-Weyl second-index mechanism for β-coefficients.** The MSSM-like beta
+coefficient shifts $\Delta b \approx (2.50, 4.17, 4.00)$ follow from the
+edge-sector heat-kernel distribution using a structural
 argument from the Peter-Weyl decomposition. The key insight: entropy (MaxEnt
 selection) traces over one side of the entanglement cut, giving the factor $d_R$
 in the probability $p_R \propto d_R e^{-t C_2(R)}$. But vacuum polarization loops
@@ -322,7 +322,7 @@ The main open directions are:
 
 We have shifted the Standard Model program toward anomaly and gluing
 consistency rather than discrete symmetry numerology. The promise of the
-model is that each engineering target is now tied to specific, testable
+model is that each engineering target is tied to specific, testable
 structural inputs instead of broad derivation.
 
 ## 18.9 What Is Rigorous: The Status of Our Claims
@@ -383,15 +383,17 @@ These follow from our axioms plus stated additional assumptions:
 
 ### Current Particle-Spectrum Status
 
-For the book, the particle story currently looks like this:
+For the book, the particle story looks like this:
 
-| Sector | Where the story stands |
-| --- | --- |
-| Structural carriers | Photon, gluons, and graviton come out as exactly massless. |
-| Electroweak bosons | The $W$ and $Z$ are derived. |
-| Next layer | The Higgs, the top quark, and several quark masses are already on the current particle branch. |
-| Still being finished | Charged leptons, the still-open physical quark branch after the local selector has already closed to `sigma_ref`, and the reduced neutrino bridge-correction invariant `C_nu` above the emitted proxy. |
-| Hardest frontier | Hadrons, because they require full nonperturbative strong-dynamics calculations. |
+| Lane | Exact outputs | Caveat |
+| --- | --- | --- |
+| Structural carriers | Photon, gluons, and graviton are exact zeros. | Theorem-grade structural exactness. |
+| Electroweak exact sidecar | Exact frozen-repair `W/Z` pair. | Compare-only beneath the target-free D10 theorem. |
+| Higgs exact sidecar | Exact Higgs inverse slice. | Compare-only inverse slice, not the forward theorem row. |
+| Charged exact witness | Exact same-family `(e, μ, τ)` triple. | Same-family-only; the theorem lane runs through `C_hat_e^{cand}` and then `mu_phys(Y_e)`. |
+| Quark exact witness | Exact same-family `(u, d, s, c, b, t)` sextet. | Same-family-only; the physical branch runs through `intrinsic_scale_law_D12` on the emitted D12 mass ray. |
+| Neutrino exact adapter | Exact compare-only `(m1, m2, m3)` and exact representative central splittings. | The theorem lane runs through `C_nu`. |
+| Hardest frontier | Hadrons. | Still compute-bound behind the production backend bundle. |
 
 ### Key Physical Arguments We Inherit
 

@@ -117,14 +117,14 @@
   <rect x="1940" y="330" width="680" height="620" rx="32" fill="url(#panelGradient)" stroke="rgb(212 181 110 / 0.12)" />
   <rect x="1962" y="352" width="636" height="86" rx="20" fill="rgb(212 181 110 / 0.05)" stroke="rgb(255 255 255 / 0.05)" />
   <text x="1982" y="388" fill="#f4f7fb" font-size="32" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.4">Primary Constants</text>
-  <text x="1982" y="418" fill="#9ba7b8" font-size="13" font-family="JetBrains Mono, monospace">Core implementation constants currently used in quantitative branches.</text>
+  <text x="1982" y="418" fill="#9ba7b8" font-size="13" font-family="JetBrains Mono, monospace">Core implementation constants used in quantitative branches.</text>
   <line x1="1970" y1="450" x2="2590" y2="450" stroke="rgb(212 181 110 / 0.22)" />
 </g>
 <g filter="url(#panelShadow)">
   <rect x="2690" y="330" width="930" height="645" rx="32" fill="url(#panelGradient)" stroke="rgb(255 255 255 / 0.08)" />
   <rect x="2712" y="352" width="886" height="86" rx="20" fill="rgb(212 181 110 / 0.03)" stroke="rgb(255 255 255 / 0.05)" />
   <text x="2732" y="388" fill="#f4f7fb" font-size="32" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.4">Bridge Packages / Extra Assumptions</text>
-  <text x="2732" y="418" fill="#9ba7b8" font-size="13" font-family="JetBrains Mono, monospace">Ongoing work aims to discharge and remove these extra assumptions.</text>
+  <text x="2732" y="418" fill="#9ba7b8" font-size="13" font-family="JetBrains Mono, monospace">These bridge packages mark the explicit conditional branches and completion targets.</text>
   <line x1="2720" y1="450" x2="3590" y2="450" stroke="rgb(212 181 110 / 0.12)" />
 </g>
 <g filter="url(#panelShadow)">
@@ -863,9 +863,9 @@
   <rect x="936" y="3109" width="134" height="28" rx="14" fill="rgb(255 255 255 / 0.03)" stroke="#f0cb77" opacity="1" />
   <text x="950" y="3128" fill="#f0cb77" font-size="15" font-family="JetBrains Mono, monospace" font-weight="700" letter-spacing="2" opacity="1">QUANT</text>
   <rect x="938" y="3281" width="227.2" height="3" rx="1.5" fill="#f0cb77" opacity="0.82" />
-  <text x="944" y="3181" fill="#f4f7fb" font-size="30" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Withdrawn Public Mass Branch</text>
-  <text x="944" y="3234" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">previous numerical mass pipeline removed</text>
-  <text x="944" y="3266" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">pending rebuilt derivation chain</text>
+  <text x="944" y="3181" fill="#f4f7fb" font-size="30" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Exact Non-Hadron Output Surface</text>
+  <text x="944" y="3234" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">structural, calibration, same-family, and compare-only exact hits</text>
+  <text x="944" y="3266" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">assembled on one public non-hadron surface</text>
 </g>
 <g filter="url(#panelShadow)">
   <rect x="180" y="3362" width="710" height="225" rx="28" fill="rgb(10 14 22 / 0.93)" stroke="#ff8f97" stroke-width="1.6" opacity="1.0" />
@@ -875,7 +875,7 @@
   <rect x="198" y="3578" width="227.2" height="3" rx="1.5" fill="#ff8f97" opacity="0.82" />
   <text x="204" y="3446" fill="#f4f7fb" font-size="30" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Deferred Matter Branches</text>
   <text x="204" y="3499" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">later matter-sector continuations remain outside</text>
-  <text x="204" y="3531" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">the current recovered-core public paper set</text>
+  <text x="204" y="3531" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">the recovered-core theorem surface</text>
   <text x="204" y="3563" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">until their constructive closure is ready</text>
 </g>
 <g filter="url(#panelShadow)">
@@ -884,9 +884,9 @@
   <rect x="936" y="3374" width="134" height="28" rx="14" fill="rgb(255 255 255 / 0.03)" stroke="#ff8f97" opacity="1" />
   <text x="950" y="3393" fill="#ff8f97" font-size="15" font-family="JetBrains Mono, monospace" font-weight="700" letter-spacing="2" opacity="1">COMPLETION</text>
   <rect x="938" y="3546" width="227.2" height="3" rx="1.5" fill="#ff8f97" opacity="0.82" />
-  <text x="944" y="3446" fill="#f4f7fb" font-size="30" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Deferred Quantitative Closure</text>
-  <text x="944" y="3499" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">later quantitative matter-sector completion</text>
-  <text x="944" y="3531" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">kept off the current public surface</text>
+  <text x="944" y="3446" fill="#f4f7fb" font-size="30" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Open Flavor and Hadron Closures</text>
+  <text x="944" y="3499" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">charged, quark, neutrino, and hadron theorem closures</text>
+  <text x="944" y="3531" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">remain distinct from the exact-output surface</text>
 </g>
 <g filter="url(#panelShadow)">
   <rect x="1930" y="2825" width="940" height="193" rx="28" fill="rgb(10 14 22 / 0.93)" stroke="#f0cb77" stroke-width="1.6" opacity="1.0" />

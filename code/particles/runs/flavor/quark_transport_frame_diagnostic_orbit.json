@@ -46,7 +46,7 @@
     "source_frame": "principal rank-one source-projector eigenvectors ordered by same-label line-lift labels",
     "target_frame": "principal rank-one target-projector eigenvectors phase-aligned by same-label transport_map action"
   },
-  "generated_utc": "2026-03-31T23:42:40Z",
+  "generated_utc": "2026-04-01T03:59:41Z",
   "input_artifacts": {
     "d12_transport": "code/particles/runs/flavor/quark_d12_mass_branch_and_ckm_residual.json",
     "line_lift": "code/particles/runs/flavor/overlap_edge_line_lift.json"
@@ -74,6 +74,9 @@
   "proof_status": "compare_only_not_sector_attached",
   "public_promotion_allowed": false,
   "residual_gauge_quotient": {
+    "action_on_self_overlap": "M -> D_u^dagger M D_d with D_u, D_d in U(1)^3",
+    "ckm_moduli_invariant": true,
+    "entrywise_moduli_invariant": true,
     "gauge_quotient": {
       "kind": "objectwise_u1",
       "strict_after_projectivization": true
@@ -139,5 +142,9 @@
     },
     "symbol": "F0^dagger F1"
   },
-  "why_not_promotable": "The self-overlap F0^dagger F1 is a genuine already-local compare-only witness, but it lives on common-refinement transport frames rather than on emitted left-handed quark sheet evaluations. It therefore cannot populate Sigma_ud_orbit.elements = [{sigma_id, canonical_token, U_u_left, U_d_left, V_CKM, ckm_invariants}] or emit sigma_ud."
+  "smallest_exact_blocker": {
+    "id": "sector_attached_transport_frame_to_sigma_ud_lift_equivalence",
+    "statement": "No sector-attached lift or equivalence currently identifies the common-refinement self-overlap matrix with an emitted same-label left-handed Sigma_ud element carrying {sigma_id, canonical_token, U_u_left, U_d_left, V_CKM}."
+  },
+  "why_not_promotable": "The self-overlap F0^dagger F1 is a genuine already-local compare-only witness, but it lives on common-refinement transport frames rather than on emitted left-handed quark sheet evaluations. The residual objectwise-U(1) quotient acts only by diagonal rephasings M -> D_u^dagger M D_d and therefore preserves all entrywise moduli |M_ij|, so the remaining obstruction is not moving CKM moduli but the lack of a sector-attached lift/equivalence to an emitted same-label left-handed Sigma_ud element. Without that lift the construction cannot populate Sigma_ud_orbit.elements = [{sigma_id, canonical_token, U_u_left, U_d_left, V_CKM, ckm_invariants}] or emit sigma_ud."
 }

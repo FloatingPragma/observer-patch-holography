@@ -30,10 +30,17 @@ EXACT_MARKOV_MODULUS = ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_coll
 FAITHFUL_MODULAR_DEFECT = (
     ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_collar_faithful_modular_defect_scaffold.json"
 )
+SPECTRAL_FLOOR = (
+    ROOT / "particles" / "runs" / "uv" / "bw_fixed_local_collar_eventual_spectral_floor_scaffold.json"
+)
 
 
 def _timestamp() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def _artifact_ref(path: Path) -> str:
+    return f"code/{path.relative_to(ROOT).as_posix()}"
 
 
 def build_payload() -> dict[str, object]:
@@ -46,9 +53,9 @@ def build_payload() -> dict[str, object]:
     smaller_raw_datum = "fixed_local_collar_markov_faithfulness_datum"
     remaining_formula = CARRIED_SCHEDULE_FORMULA
     schedule_term_frontier = build_schedule_term_frontier(
-        constructive_recovery_artifact=str(CONSTRUCTIVE_RECOVERY),
-        faithful_modular_defect_artifact=str(FAITHFUL_MODULAR_DEFECT),
-        carried_schedule_artifact=str(CARRIED_SCHEDULE),
+        constructive_recovery_artifact=_artifact_ref(CONSTRUCTIVE_RECOVERY),
+        faithful_modular_defect_artifact=_artifact_ref(FAITHFUL_MODULAR_DEFECT),
+        carried_schedule_artifact=_artifact_ref(CARRIED_SCHEDULE),
     )
     return {
         "artifact": "oph_bw_scaling_limit_cap_pair_extraction_scaffold",
@@ -76,7 +83,7 @@ def build_payload() -> dict[str, object]:
         },
         "fills_contract_witnesses": filled_witnesses,
         "remaining_missing_emitted_witness": remaining_witness,
-        "remaining_missing_emitted_witness_artifact": str(CARRIED_SCHEDULE),
+        "remaining_missing_emitted_witness_artifact": _artifact_ref(CARRIED_SCHEDULE),
         "remaining_missing_emitted_witness_formula": remaining_formula,
         "remaining_missing_emitted_witness_components": [
             "r_FR(epsilon_{n,m,delta})",
@@ -85,38 +92,41 @@ def build_payload() -> dict[str, object]:
         ],
         "remaining_missing_emitted_witness_domain": "every fixed local collar model",
         "smaller_remaining_raw_datum": smaller_raw_datum,
-        "smaller_remaining_raw_datum_artifact": str(RAW_DATUM),
+        "smaller_remaining_raw_datum_artifact": _artifact_ref(RAW_DATUM),
         "smaller_remaining_raw_datum_components": [
             CMI_COMPONENT,
             FAITHFUL_COMPONENT,
         ],
+        "single_live_missing_clause_artifact": _artifact_ref(SPECTRAL_FLOOR),
+        "markov_side_status": "latent_from_epsilon_to_zero",
+        "faithfulness_side_status": "open",
         "intermediate_witness_chain": [
             {
                 "id": "constructive_recovery_remainder_vanishing",
-                "artifact": str(CONSTRUCTIVE_RECOVERY),
+                "artifact": _artifact_ref(CONSTRUCTIVE_RECOVERY),
             },
             {
                 "id": "fixed_local_collar_exact_markov_modulus_vanishing",
-                "artifact": str(EXACT_MARKOV_MODULUS),
+                "artifact": _artifact_ref(EXACT_MARKOV_MODULUS),
             },
             {
                 "id": "fixed_local_collar_faithful_modular_defect_vanishing",
-                "artifact": str(FAITHFUL_MODULAR_DEFECT),
+                "artifact": _artifact_ref(FAITHFUL_MODULAR_DEFECT),
             },
             {
                 "id": remaining_witness,
-                "artifact": str(CARRIED_SCHEDULE),
+                "artifact": _artifact_ref(CARRIED_SCHEDULE),
             },
         ],
         "schedule_term_witnesses": [
             {
                 "id": "constructive_recovery_remainder_vanishing",
-                "artifact": str(CONSTRUCTIVE_RECOVERY),
+                "artifact": _artifact_ref(CONSTRUCTIVE_RECOVERY),
                 "role": "markov_side_recovery_term",
             },
             {
                 "id": "fixed_local_collar_faithful_modular_defect_vanishing",
-                "artifact": str(FAITHFUL_MODULAR_DEFECT),
+                "artifact": _artifact_ref(FAITHFUL_MODULAR_DEFECT),
                 "role": "faithfulness_weighted_modular_term",
             },
         ],
@@ -124,17 +134,17 @@ def build_payload() -> dict[str, object]:
         "derived_remaining_input_witness": schedule_term_frontier["derived_parent_witness"],
         "derived_remaining_input_witness_closure_theorem": schedule_term_frontier["closure_theorem"],
         "remaining_witness_obligation_ledger": build_local_obligation_ledger(
-            constructive_recovery_artifact=str(CONSTRUCTIVE_RECOVERY),
-            exact_markov_artifact=str(EXACT_MARKOV_MODULUS),
-            faithful_modular_defect_artifact=str(FAITHFUL_MODULAR_DEFECT),
-            carried_schedule_artifact=str(CARRIED_SCHEDULE),
+            constructive_recovery_artifact=_artifact_ref(CONSTRUCTIVE_RECOVERY),
+            exact_markov_artifact=_artifact_ref(EXACT_MARKOV_MODULUS),
+            faithful_modular_defect_artifact=_artifact_ref(FAITHFUL_MODULAR_DEFECT),
+            carried_schedule_artifact=_artifact_ref(CARRIED_SCHEDULE),
         ),
         "remaining_witness_honesty_gate": build_local_honesty_gate(
-            carried_schedule_artifact=str(CARRIED_SCHEDULE),
-            constructive_recovery_artifact=str(CONSTRUCTIVE_RECOVERY),
-            exact_markov_artifact=str(EXACT_MARKOV_MODULUS),
-            faithful_modular_defect_artifact=str(FAITHFUL_MODULAR_DEFECT),
-            include_prelimit_system_artifact=str(PRELIMIT_SYSTEM),
+            carried_schedule_artifact=_artifact_ref(CARRIED_SCHEDULE),
+            constructive_recovery_artifact=_artifact_ref(CONSTRUCTIVE_RECOVERY),
+            exact_markov_artifact=_artifact_ref(EXACT_MARKOV_MODULUS),
+            faithful_modular_defect_artifact=_artifact_ref(FAITHFUL_MODULAR_DEFECT),
+            include_prelimit_system_artifact=_artifact_ref(PRELIMIT_SYSTEM),
         ),
         "remaining_witness_term_frontier": schedule_term_frontier,
         "schedule_reduction_theorem": (
@@ -144,7 +154,7 @@ def build_payload() -> dict[str, object]:
             "constructive_recovery_remainder_vanishing",
             "fixed_local_collar_faithful_modular_defect_vanishing",
         ],
-        "prelimit_realized_system_artifact": str(PRELIMIT_SYSTEM),
+        "prelimit_realized_system_artifact": _artifact_ref(PRELIMIT_SYSTEM),
         "theorem_assumptions": [
             "countable directed cap-local test system in one fixed reference chart",
             "transported pullback states on each fixed local cap algebra",
@@ -186,6 +196,7 @@ def build_payload() -> dict[str, object]:
             "The carried schedule itself is now recorded as theorem-generated from those two term witnesses: r_FR(epsilon_{n,m,delta}) -> 0 and 4 * lambda_{*,n,m,delta}^{-1} * delta^M_{m,delta}(epsilon_{n,m,delta}) -> 0.",
             "That combined schedule reduces one level lower to a fixed-local-collar Markov/faithfulness datum: collarwise CMI vanishing plus an eventual positive lower spectral bound.",
             "Inside that raw datum, the constructive recovery witness, the exact-Markov comparison modulus, and the faithful modular-defect term are now split as separate lower local scaffolds.",
+            "On the current branch the only nonlatent lower input still outside the emitted chain is the eventual fixed-local-collar spectral floor feeding the faithful modular-defect term; the recovery/Markov side is already latent once epsilon_{n,m,delta} -> 0.",
             "The artifact now also carries a machine-readable honesty gate so prelimit transport packaging cannot be mistaken for the missing emitted collar schedule.",
             "It does not by itself prove the BW automorphism law.",
         ],

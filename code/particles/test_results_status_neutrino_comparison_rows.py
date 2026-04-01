@@ -41,8 +41,8 @@ def test_neutrino_oscillation_comparison_rows_preserve_compare_only_boundary() -
     by_id = {row["observable_id"]: row for row in rows}
     assert by_id["theta12_deg"]["status"] == "weighted_cycle_dimensionless"
     assert by_id["delta_m21_sq_eV2"]["status"] == "compare_only"
-    assert by_id["delta_m32_sq_eV2"]["status"] == "compare_only_anchor"
-    assert "external atmospheric anchor" in by_id["delta_m32_sq_eV2"]["note"]
+    assert by_id["delta_m32_sq_eV2"]["status"] == "compare_only"
+    assert "two-parameter positive-segment neutrino adapter" in by_id["delta_m32_sq_eV2"]["note"]
 
 
 def test_render_markdown_includes_neutrino_oscillation_section() -> None:

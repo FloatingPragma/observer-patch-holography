@@ -253,7 +253,7 @@ is invariant. Strict global reconciliation exists if and only if \(q=0\), and no
 \end{theorem}
 
 \begin{proof}
-The allowed rechartings are exactly the crossed-module coboundaries. So they preserve the class and strictify the weak gluing data precisely when the class vanishes. A nonzero class therefore gives a topologically protected residual obstruction, now in the full crossed-module defect hierarchy rather than only in the abelian truncation.
+The allowed rechartings are exactly the crossed-module coboundaries. So they preserve the class and strictify the weak gluing data precisely when the class vanishes. A nonzero class therefore gives a topologically protected residual obstruction, in the full crossed-module defect hierarchy rather than only in the abelian truncation.
 \end{proof}
 
 
@@ -356,7 +356,17 @@ For any initial record state $x_0\in L$, define $x^\star := F_1 F_2\cdots F_n(x_
 \begin{proof}
 Commutativity makes the composition order-independent, so $x^\star$ is well-defined.
 
-For any $i$, commutativity and idempotence give $F_i(x^\star) = F_i F_1\cdots F_n(x_0) = F_1\cdots F_i^2\cdots F_n(x_0) = x^\star$. So $x^\star$ is a common fixed point.
+For any $i$, commutativity and idempotence give
+\[
+F_i(x^\star)
+=
+F_i F_1\cdots F_n(x_0)
+=
+F_1\cdots F_i^2\cdots F_n(x_0)
+=
+x^\star.
+\]
+So $x^\star$ is a common fixed point.
 
 If $y\ge x_0$ satisfies $F_i(y)=y$ for all $i$, monotonicity gives $x^\star = F_1\cdots F_n(x_0) \le F_1\cdots F_n(y) = y$. So $x^\star$ is the least common fixed point above $x_0$.
 
@@ -482,7 +492,11 @@ external references, and that companion ledger is the place to look up the defin
 
 \section{Discussion and Open Problems}
 
-This paper proves the fixed-point / consensus spine of OPH: schedule-independent normal forms, holonomy obstructions, gauge-quotient invariance, record-layer convergence, and a clean law-selection meta-model. The conditional relativity chain together with the realized Standard Model structural chain remain the recovered core; the capacity relation is separate and input-dependent; and downstream phenomenology requires additional premises beyond the consensus results proved here.
+This paper proves the fixed-point consensus spine of OPH: schedule-independent normal forms,
+holonomy obstructions, gauge-quotient invariance, and record-layer convergence. It also gives a
+clean law-selection meta-model. The conditional relativity chain and the realized Standard Model
+structural chain remain the recovered core. The capacity relation is separate and input-dependent.
+Downstream phenomenology requires additional premises beyond the consensus results proved here.
 
 Six directions stand out as immediate next steps:
 
@@ -491,11 +505,11 @@ Six directions stand out as immediate next steps:
 
 \item \textbf{Coarse-graining.} When does reconciliation commute with renormalization? If you coarse-grain the patch net and then reconcile, do you get the same result as reconciling first and then coarse-graining? The conditions under which these operations commute would connect the discrete model to continuum field theory.
 
-\item \textbf{Defect classification and refinement-limit transportability.} The fixed-cutoff hierarchy now extends from abelian frustrations to crossed-module classes \(q\in \check H^2(N,H\to G)\). The remaining task is to connect those higher-gauge defect sectors to the refinement-stable transportable sector category used in the broader compact-gauge reconstruction lane.
+\item \textbf{Defect classification and refinement-limit transportability.} The fixed-cutoff hierarchy extends from abelian frustrations to crossed-module classes \(q\in \check H^2(N,H\to G)\). The remaining task is to connect those higher-gauge defect sectors to the refinement-stable transportable sector category used in the broader compact-gauge reconstruction lane.
 
 \item \textbf{Observable-level confluence.} When the raw state is not unique because local confluence fails, can gauge-invariant macrostates still be unique? This weaker form of objectivity may hold under broader conditions than the strict normal-form theorem.
 
-\item \textbf{Quantum lift.} How much of the patch-net theorem survives when local state spaces become operator algebras and repair maps become quantum channels? The Markov-collar splice theorem in the appendix already suggests that the algebraic version is natural.
+\item \textbf{Quantum lift.} How much of the patch-net theorem survives when local state spaces become operator algebras and repair maps become quantum channels? The Markov-collar splice theorem in the appendix suggests that the algebraic version is natural.
 
 \item \textbf{Scaling-limit bridge to full OPH.} Under what additional regularity conditions does the consensus protocol land in the geometric modular phase required by the compact note, so that the D3--D5 gravity chain and the D7--D9 gauge/matter chain become available? This is also the point at which the broader Phase-II and Phase-III branches must remain disciplined: dark-sector, baryogenesis, spectroscopy, and string/worldsheet topics require extra premises beyond what this paper itself proves.
 \end{enumerate}

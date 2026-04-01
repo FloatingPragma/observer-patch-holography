@@ -24,6 +24,7 @@ RER_ROOT = CODE_ROOT.parents[1]
 WORKSPACE_ROOT = CODE_ROOT.parents[2]
 DEFAULT_RUNTIME_ROOT = WORKSPACE_ROOT / "temp" / "particles_runtime"
 NEUTRINO_COMPARE_ONLY_FIT = Path("runs/neutrino/neutrino_compare_only_scale_fit.json")
+NEUTRINO_TWO_PARAMETER_EXACT_ADAPTER = Path("runs/neutrino/neutrino_two_parameter_exact_adapter.json")
 
 EXCLUDE_NAMES = {
     "__pycache__",
@@ -36,13 +37,20 @@ EXCLUDE_NAMES = {
 }
 
 RUNTIME_SURFACED_ARTIFACTS = (
+    Path("runs/calibration/d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json"),
+    Path("runs/calibration/d11_reference_exact_adapter.json"),
     Path("runs/flavor/forward_yukawas.json"),
+    Path("runs/flavor/quark_current_family_exact_readout.json"),
     Path("runs/flavor/quark_sector_mean_split.json"),
     Path("runs/leptons/forward_charged_leptons.json"),
+    Path("runs/leptons/lepton_current_family_exact_readout.json"),
     Path("runs/neutrino/forward_neutrino_closure_bundle.json"),
     Path("runs/neutrino/exact_blocking_items.json"),
+    Path("runs/neutrino/same_label_scalar_certificate.json"),
+    Path("runs/neutrino/intrinsic_neutrino_mass_eigenstate_bundle_from_scalar_certificate.json"),
     Path("runs/neutrino/neutrino_weighted_cycle_repair.json"),
     Path("runs/neutrino/neutrino_lambda_nu_bridge_candidate.json"),
+    Path("runs/flavor/overlap_edge_transport_cocycle.json"),
 )
 
 GROUP_ORDER = ["Bosons", "Leptons", "Quarks", "Hadrons"]
@@ -92,9 +100,13 @@ def _copy_outputs(work_particles: Path, current_dir: Path) -> None:
     outputs = [
         "RESULTS_STATUS.md",
         "results_status.json",
+        "EXACT_NONHADRON_MASSES.md",
+        "exact_nonhadron_masses.json",
         "particle_mass_derivation_graph.svg",
         "runs/status/status_table_forward_current.json",
+        "runs/status/exact_nonhadron_masses_current.json",
         "runs/neutrino/neutrino_compare_only_scale_fit.json",
+        "runs/neutrino/neutrino_two_parameter_exact_adapter.json",
         "runs/uv/bw_internalization_scaffold.json",
     ]
     for rel in outputs:
@@ -435,13 +447,16 @@ def build_runtime(runtime_root: Path, *, with_hadrons: bool, verbose: bool) -> P
     _seed_canonical_surface_artifacts(work_particles)
     _run(["python3", "particles/uv/derive_bw_internalization_scaffold.py"], cwd=work_code, verbose=verbose)
     _run(["python3", "particles/neutrino/derive_neutrino_compare_only_scale_fit.py"], cwd=work_code, verbose=verbose)
+    _run(["python3", "particles/neutrino/derive_neutrino_two_parameter_exact_adapter.py"], cwd=work_code, verbose=verbose)
 
     status_cmd = ["python3", "particles/scripts/build_results_status_table.py"]
+    exact_nonhadron_cmd = ["python3", "particles/scripts/build_exact_nonhadron_mass_bundle.py"]
     svg_cmd = ["python3", "particles/scripts/generate_mass_derivation_svg.py"]
     if with_hadrons:
         status_cmd.append("--with-hadrons")
         svg_cmd.append("--with-hadrons")
     _run(status_cmd, cwd=work_code, verbose=verbose)
+    _run(exact_nonhadron_cmd, cwd=work_code, verbose=verbose)
     _run(svg_cmd, cwd=work_code, verbose=verbose)
     _copy_outputs(work_particles, current_dir)
     return current_dir

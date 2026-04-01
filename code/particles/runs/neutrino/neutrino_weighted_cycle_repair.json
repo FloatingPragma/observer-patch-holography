@@ -46,14 +46,14 @@
   "gamma": 0.30236566025890826,
   "gamma_half": 0.15118283012945413,
   "gamma_times_eps": 0.03162277660168382,
-  "generated_utc": "2026-03-30T07:51:36Z",
+  "generated_utc": "2026-04-01T05:43:55Z",
   "holonomy_orientation": "021",
   "neutrino_branch_status": "repaired_shared_basis_weighted_cycle_lift",
   "notes": [
     "The repaired weighted-cycle branch closes PMNS angles and the neutrino splitting hierarchy from live OPH artifacts.",
     "The weight exponent is fixed by the live same-label certificate, the overlap-edge cocycle invariants, and the log-affine midpoint selector on the positive segment between chi and 1 + gamma_half.",
     "The theorem-grade repaired branch is scale-free: it emits PMNS observables, J, the hierarchy ratio, and one symbolic positive absolute family parameterized by lambda_nu > 0.",
-    "Absolute neutrino masses and absolute delta m^2 values still require one overall positive normalization; the atmospheric-anchored numbers are hard-separated compare-only outputs.",
+    "Absolute neutrino masses and absolute delta m^2 values still require the reduced bridge-correction invariant C_nu above the emitted proxy; the atmospheric-anchored numbers are hard-separated compare-only outputs.",
     "This artifact supersedes the old isotropic continuation branch as the strongest honest neutrino branch on disk."
   ],
   "old_isotropic_no_go": {
@@ -169,8 +169,8 @@
     "mu",
     "tau"
   ],
-  "remaining_object": "one_positive_neutrino_mass_normalization_scalar",
-  "remaining_object_contract": "emit_one_internal_positive_normalization_scalar_lambda_nu_without_external_oscillation_anchor",
+  "remaining_object": "one_positive_neutrino_bridge_correction_invariant",
+  "remaining_object_contract": "emit_one_positive_neutrino_bridge_correction_invariant_above_the_emitted_proxy",
   "repaired_cycle_matrix_imag": [
     [
       0.0,

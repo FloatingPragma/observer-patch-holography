@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parents[2]
 REPAIR_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_physical_branch_repair_theorem.json"
 ORBIT_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_sigma_ud_orbit.json"
 DEFAULT_OUT = ROOT / "particles" / "runs" / "flavor" / "quark_relative_sheet_selector.json"
+CANONICAL_SINGLETON_BRANCH_KEY = ["D12", "sigma_ref"]
 
 
 def _timestamp() -> str:
@@ -36,6 +37,46 @@ def _theorem_selected(elements: list[dict[str, Any]]) -> list[dict[str, Any]]:
         if bool(proof.get("theorem_grade_select", False)):
             selected.append(item)
     return selected
+
+
+def _closed_singleton_selector_surface(repair: dict[str, Any], orbit: dict[str, Any]) -> bool:
+    del repair
+    return orbit.get("selector_status") == "quark_relative_sheet_selector_closed_to_reference_singleton"
+
+
+def _assert_closed_singleton_branch_key_alignment(
+    repair: dict[str, Any],
+    orbit: dict[str, Any],
+    sigma_value: dict[str, Any] | None,
+) -> None:
+    if not _closed_singleton_selector_surface(repair, orbit):
+        return
+
+    expected = list(CANONICAL_SINGLETON_BRANCH_KEY)
+    checks = {
+        "orbit.selected_sigma.branch_key": ((orbit.get("selected_sigma") or {}).get("branch_key")),
+        "orbit.provider_frontier.emitted_reference_sheet.branch_key": (
+            (((orbit.get("provider_frontier") or {}).get("emitted_reference_sheet") or {}).get("branch_key"))
+        ),
+        "repair.current_d12_sheet.branch_key": ((repair.get("current_d12_sheet") or {}).get("branch_key")),
+        "repair.minimal_branch_shift_repair_theorem.branch_key_after_repair": (
+            ((repair.get("minimal_branch_shift_repair_theorem") or {}).get("branch_key_after_repair"))
+        ),
+        "repair.minimal_branch_shift_repair_theorem.selected_value.branch_key": (
+            (((repair.get("minimal_branch_shift_repair_theorem") or {}).get("selected_value") or {}).get("branch_key"))
+        ),
+        "repair.relative_sheet_scan.selector_value.branch_key": (
+            (((repair.get("relative_sheet_scan") or {}).get("selector_value") or {}).get("branch_key"))
+        ),
+        "selector.value.branch_key": ((sigma_value or {}).get("branch_key")),
+    }
+    mismatched = {label: value for label, value in checks.items() if value != expected}
+    if mismatched:
+        details = ", ".join(f"{label}={value!r}" for label, value in mismatched.items())
+        raise ValueError(
+            "closed singleton quark selector surface has inconsistent branch keys; "
+            f"expected {expected!r} across orbit/repair/selector artifacts, got {details}"
+        )
 
 
 def build_artifact(repair: dict[str, Any], orbit: dict[str, Any]) -> dict[str, Any]:
@@ -75,6 +116,8 @@ def build_artifact(repair: dict[str, Any], orbit: dict[str, Any]) -> dict[str, A
             "No orbit element carries a theorem-grade selection witness. The current corpus therefore emits only the selector object, "
             "not a selector value."
         )
+
+    _assert_closed_singleton_branch_key_alignment(repair, orbit, sigma_value)
 
     return {
         "artifact": "oph_quark_relative_sheet_selector",

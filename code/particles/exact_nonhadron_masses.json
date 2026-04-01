@@ -1,0 +1,188 @@
+{
+  "artifact": "oph_exact_nonhadron_mass_bundle",
+  "entries": [
+    {
+      "exact_kind": "structural_zero",
+      "label": "Photon",
+      "mass_gev": 0.0,
+      "note": "Exact structural zero from the nonbroken U(1) overlap-gluing redundancy.",
+      "particle_id": "photon",
+      "promotable": true,
+      "scope": "structural",
+      "source_artifact": "structural_gauge_redundancy_surface"
+    },
+    {
+      "exact_kind": "structural_zero",
+      "label": "Gluon",
+      "mass_gev": 0.0,
+      "note": "Exact structural zero for the color gauge sector.",
+      "particle_id": "gluon",
+      "promotable": true,
+      "scope": "structural",
+      "source_artifact": "structural_color_gauge_surface"
+    },
+    {
+      "exact_kind": "structural_zero",
+      "label": "Graviton",
+      "mass_gev": 0.0,
+      "note": "Exact structural zero from bulk diffeomorphism redundancy.",
+      "particle_id": "graviton",
+      "promotable": true,
+      "scope": "structural",
+      "source_artifact": "structural_diffeomorphism_redundancy_surface"
+    },
+    {
+      "exact_kind": "exact_frozen_target_compare_only_adapter",
+      "label": "W Boson",
+      "mass_gev": 80.377,
+      "note": "Exact on the frozen D10 repair surface.",
+      "particle_id": "w_boson",
+      "promotable": false,
+      "scope": "frozen_authoritative_target_surface",
+      "source_artifact": "code/particles/runs/calibration/d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json"
+    },
+    {
+      "exact_kind": "exact_frozen_target_compare_only_adapter",
+      "label": "Z Boson",
+      "mass_gev": 91.18797809193725,
+      "note": "Exact on the frozen D10 repair surface.",
+      "particle_id": "z_boson",
+      "promotable": false,
+      "scope": "frozen_authoritative_target_surface",
+      "source_artifact": "code/particles/runs/calibration/d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json"
+    },
+    {
+      "exact_kind": "exact_target_anchored_compare_only_inverse_slice",
+      "label": "Higgs Boson",
+      "mass_gev": 125.1995304097179,
+      "note": "Exact compare-only inverse slice on the D11 Jacobian.",
+      "particle_id": "higgs",
+      "promotable": false,
+      "scope": "compare_only_inverse_slice",
+      "source_artifact": "code/particles/runs/calibration/d11_reference_exact_adapter.json"
+    },
+    {
+      "exact_kind": "exact_target_anchored_current_family_witness",
+      "label": "Electron",
+      "mass_gev": 0.0005109989499999994,
+      "note": "Exact current-family charged-lepton witness.",
+      "particle_id": "electron",
+      "promotable": false,
+      "scope": "current_family_only",
+      "source_artifact": "code/particles/runs/leptons/lepton_current_family_exact_readout.json"
+    },
+    {
+      "exact_kind": "exact_target_anchored_current_family_witness",
+      "label": "Muon",
+      "mass_gev": 0.10565837550000004,
+      "note": "Exact current-family charged-lepton witness.",
+      "particle_id": "muon",
+      "promotable": false,
+      "scope": "current_family_only",
+      "source_artifact": "code/particles/runs/leptons/lepton_current_family_exact_readout.json"
+    },
+    {
+      "exact_kind": "exact_target_anchored_current_family_witness",
+      "label": "Tau",
+      "mass_gev": 1.7769324651340912,
+      "note": "Exact current-family charged-lepton witness.",
+      "particle_id": "tau",
+      "promotable": false,
+      "scope": "current_family_only",
+      "source_artifact": "code/particles/runs/leptons/lepton_current_family_exact_readout.json"
+    },
+    {
+      "exact_kind": "exact_target_anchored_current_family_witness",
+      "label": "Up Quark",
+      "mass_gev": 0.0021599999999999996,
+      "note": "Exact current-family quark witness on the local quark branch.",
+      "particle_id": "up_quark",
+      "promotable": false,
+      "scope": "current_family_only",
+      "source_artifact": "code/particles/runs/flavor/quark_current_family_exact_readout.json"
+    },
+    {
+      "exact_kind": "exact_target_anchored_current_family_witness",
+      "label": "Charm Quark",
+      "mass_gev": 1.2729999999999995,
+      "note": "Exact current-family quark witness on the local quark branch.",
+      "particle_id": "charm_quark",
+      "promotable": false,
+      "scope": "current_family_only",
+      "source_artifact": "code/particles/runs/flavor/quark_current_family_exact_readout.json"
+    },
+    {
+      "exact_kind": "exact_target_anchored_current_family_witness",
+      "label": "Top Quark",
+      "mass_gev": 172.3523553288311,
+      "note": "Exact current-family quark witness on the local quark branch.",
+      "particle_id": "top_quark",
+      "promotable": false,
+      "scope": "current_family_only",
+      "source_artifact": "code/particles/runs/flavor/quark_current_family_exact_readout.json"
+    },
+    {
+      "exact_kind": "exact_target_anchored_current_family_witness",
+      "label": "Down Quark",
+      "mass_gev": 0.004700000000000002,
+      "note": "Exact current-family quark witness on the local quark branch.",
+      "particle_id": "down_quark",
+      "promotable": false,
+      "scope": "current_family_only",
+      "source_artifact": "code/particles/runs/flavor/quark_current_family_exact_readout.json"
+    },
+    {
+      "exact_kind": "exact_target_anchored_current_family_witness",
+      "label": "Strange Quark",
+      "mass_gev": 0.09349999999999999,
+      "note": "Exact current-family quark witness on the local quark branch.",
+      "particle_id": "strange_quark",
+      "promotable": false,
+      "scope": "current_family_only",
+      "source_artifact": "code/particles/runs/flavor/quark_current_family_exact_readout.json"
+    },
+    {
+      "exact_kind": "exact_target_anchored_current_family_witness",
+      "label": "Bottom Quark",
+      "mass_gev": 4.182999999999994,
+      "note": "Exact current-family quark witness on the local quark branch.",
+      "particle_id": "bottom_quark",
+      "promotable": false,
+      "scope": "current_family_only",
+      "source_artifact": "code/particles/runs/flavor/quark_current_family_exact_readout.json"
+    },
+    {
+      "exact_kind": "exact_two_observable_compare_only_segment_adapter",
+      "label": "Electron Neutrino",
+      "mass_eV": 0.01745663294772044,
+      "note": "Exact compare-only neutrino mass from the two-parameter positive-segment adapter.",
+      "particle_id": "electron_neutrino",
+      "promotable": false,
+      "scope": "compare_only_two_parameter_segment_adapter",
+      "source_artifact": "code/particles/runs/neutrino/neutrino_two_parameter_exact_adapter.json"
+    },
+    {
+      "exact_kind": "exact_two_observable_compare_only_segment_adapter",
+      "label": "Muon Neutrino",
+      "mass_eV": 0.019484199595350048,
+      "note": "Exact compare-only neutrino mass from the two-parameter positive-segment adapter.",
+      "particle_id": "muon_neutrino",
+      "promotable": false,
+      "scope": "compare_only_two_parameter_segment_adapter",
+      "source_artifact": "code/particles/runs/neutrino/neutrino_two_parameter_exact_adapter.json"
+    },
+    {
+      "exact_kind": "exact_two_observable_compare_only_segment_adapter",
+      "label": "Tau Neutrino",
+      "mass_eV": 0.053081390655025595,
+      "note": "Exact compare-only neutrino mass from the two-parameter positive-segment adapter.",
+      "particle_id": "tau_neutrino",
+      "promotable": false,
+      "scope": "compare_only_two_parameter_segment_adapter",
+      "source_artifact": "code/particles/runs/neutrino/neutrino_two_parameter_exact_adapter.json"
+    }
+  ],
+  "excluded_lane": "hadrons_compute_bound",
+  "generated_utc": "2026-04-01T06:12:48Z",
+  "status": "exact_output_lane_closed_nonhadron_only"
+}

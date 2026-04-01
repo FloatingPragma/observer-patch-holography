@@ -75,10 +75,22 @@ part of this canonical tree.
 
 - status table:
   [RESULTS_STATUS.md](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/RESULTS_STATUS.md)
+- exact-fits-only diagnostic surface:
+  [EXACT_FITS_ONLY.md](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/EXACT_FITS_ONLY.md)
+- exact non-hadron mass bundle:
+  [EXACT_NONHADRON_MASSES.md](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/EXACT_NONHADRON_MASSES.md)
 - machine-readable status:
   [results_status.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/results_status.json)
+- machine-readable exact-fits-only surface:
+  [exact_fits_only.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/exact_fits_only.json)
+- machine-readable exact non-hadron mass bundle:
+  [exact_nonhadron_masses.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/exact_nonhadron_masses.json)
 - frozen status artifact:
   [status_table_forward_current.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/status/status_table_forward_current.json)
+- frozen exact-fits-only artifact:
+  [exact_fits_only_current.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/status/exact_fits_only_current.json)
+- frozen exact non-hadron mass bundle:
+  [exact_nonhadron_masses_current.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/status/exact_nonhadron_masses_current.json)
 - derivation graph:
   [particle_mass_derivation_graph.svg](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/particle_mass_derivation_graph.svg)
 
@@ -90,10 +102,14 @@ From `reverse-engineering-reality/code/particles`:
 python3 calibration/derive_d10_ew_w_anchor_neutral_shear_factorization.py
 python3 calibration/derive_d10_ew_source_transport_readout.py
 python3 calibration/derive_d10_ew_exactness_audit.py
+python3 calibration/derive_d11_reference_exact_adapter.py
+python3 neutrino/derive_neutrino_two_parameter_exact_adapter.py
 python3 hadron/derive_runtime_schedule_receipt_n_therm_and_n_sep.py
 python3 hadron/derive_stable_channel_sequence_evaluation.py
 python3 hadron/derive_current_hadron_lane_audit.py
 python3 scripts/build_results_status_table.py
+python3 scripts/build_exact_fit_surface.py
+python3 scripts/build_exact_nonhadron_mass_bundle.py
 python3 scripts/generate_mass_derivation_svg.py
 ```
 

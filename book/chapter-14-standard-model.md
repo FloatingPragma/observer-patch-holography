@@ -539,13 +539,15 @@ This sounds abstract, but it has concrete consequences. The model does not postu
 
 For the book, the picture is this:
 
-| Sector | Where the story stands |
-|---|---|
-| Structural carriers | Photon, gluons, and graviton are forced and exactly massless |
-| Electroweak sector | The $W$ and $Z$ are derived |
-| Next layer | The Higgs, the top quark, and several quark masses are already on the current particle branch |
-| Still being finished | Charged leptons, the still-open physical quark branch after the local selector has already closed to `sigma_ref`, and the reduced neutrino bridge-correction invariant `C_nu` above the emitted proxy, although the neutrino mixing pattern is already in the observed ballpark |
-| Hard frontier | Hadrons, because bound states now wait on a production backend export bundle and then full nonperturbative strong-dynamics calculations |
+| Lane | Exact outputs | Caveat |
+|---|---|---|
+| Structural carriers | Photon, gluons, and graviton are exact zeros | Theorem-grade structural exactness |
+| Electroweak exact sidecar | Exact frozen-repair `W/Z` pair | Compare-only beneath the target-free D10 theorem |
+| Higgs exact sidecar | Exact Higgs inverse slice | Compare-only inverse slice on the D11 Jacobian |
+| Charged exact witness | Exact same-family `(e, μ, τ)` triple | Same-family-only; the theorem lane runs through `C_hat_e^{cand}` and then `mu_phys(Y_e)` |
+| Quark exact witness | Exact same-family `(u, d, s, c, b, t)` sextet | Same-family-only; the physical quark branch runs through `intrinsic_scale_law_D12` on the emitted D12 mass ray |
+| Neutrino exact adapter | Exact compare-only `(m1, m2, m3)` and exact representative central splittings on the positive selector segment | The theorem lane runs through `C_nu` |
+| Hard frontier | Hadrons | Still compute-bound behind the production backend bundle and nonperturbative strong-dynamics work |
 
 That is enough to tell a clear story without pretending every particle sits at exactly the same stage of completion.
 
@@ -603,7 +605,7 @@ Not directly, and for good reason. The proton mass is a qualitatively different 
 
 The photon and graviton masses are symmetry-protected zeros. Their values are fixed by the algebraic structure of the theory-any deviation would break a required redundancy. The argument is exact and does not depend on knowing coupling constants or solving difficult equations.
 
-Not all mass claims have the same character. The cleanest results are the symmetry-protected zeros: photon, gluons, and graviton. The next easiest are masses tied closely to electroweak structure, such as the $W$ and $Z$. The Higgs, the top quark, and several quark masses are already on the current branch. Hadrons are hardest because they require solving the full strongly coupled dynamics of bound states.
+Not all mass claims have the same character. The cleanest results are the symmetry-protected zeros: photon, gluons, and graviton. The next easiest are masses tied closely to electroweak structure, such as the $W$ and $Z$. The Higgs, the top quark, and several quark masses lie on the current branch. Hadrons are hardest because they require solving the full strongly coupled dynamics of bound states.
 
 The proton mass is a bound-state eigenvalue in a strongly coupled gauge theory. The proton is made of three quarks held together by gluons, and its mass emerges from the complicated nonperturbative dynamics of quantum chromodynamics. The dominant contribution is not the masses of the constituent quarks (which sum to only about 10 MeV) but the energy stored in the gluon field and the kinetic energy of the quarks bouncing around inside.
 
@@ -669,7 +671,7 @@ Let's step back and see what the framework actually accounts for.
 
 **The zeros.** The photon and graviton masses are exactly zero. This is a symmetry-protected prediction. The photon's masslessness follows from U(1) gauge invariance being a genuine overlap redundancy; any mass would break the consistency of how charged patches glue together. Similarly, the graviton's masslessness follows from diffeomorphism invariance being the redundancy structure of bulk spacetime. Current experimental and observational upper bounds are consistent with these predictions to extraordinary precision: the photon mass is constrained below ~10⁻¹⁸ eV, often summarized as ~27 orders of magnitude, and the graviton mass is constrained below ~10⁻²³ eV by gravitational-wave dispersion, often summarized as ~22 orders of magnitude.
 
-**The particle story.** On top of those structural zeros, the framework already reaches the $W$ and $Z$, the Higgs, the top quark, and several quark masses. Charged leptons remain open, the physical quark branch is not finished even though the local selector has already closed to `sigma_ref` and the next exact quark object is `intrinsic_scale_law_D12` on the emitted D12 mass ray, the reduced neutrino bridge-correction invariant `C_nu` would fix the absolute neutrino scale, and the hadron spectrum still waits behind the backend-bundle gate.
+**The particle story.** On top of the structural zeros, the framework has one exact non-hadron output lane on disk: an exact frozen-repair `W/Z` pair, an exact Higgs inverse slice, an exact same-family charged witness, an exact same-family quark witness, and an exact compare-only neutrino adapter on the explicit positive selector segment. The caveats matter. Charged leptons run through `C_hat_e^{cand}` and then `mu_phys(Y_e)`, the physical quark branch remains distinct from the selected local `sigma_ref` sheet and the next exact quark object is `intrinsic_scale_law_D12` on the emitted D12 mass ray, the theorem-grade neutrino lane runs through `C_nu`, and the hadron spectrum sits behind the backend-bundle gate.
 
 **Charge quantization.** All color-singlet particles have integer electric charge. No fractional charges like $\pm 1/3$ can exist outside hadrons. This follows from the global structure of the gauge group.
 
@@ -685,7 +687,7 @@ The photon and graviton are particles the theory *forces* upon us. The photon ex
 
 The quarks and leptons aren't arbitrary. Their charges are fixed by the requirement that reality be self-consistent. Three generations and three colors are not inserted by hand; they are the smallest answer that survives the combined demands of chirality, CP violation, anomaly cancellation, and ultraviolet consistency.
 
-That is already a remarkably concrete result. The framework does not merely say that "symmetry matters." It points to a very specific gauge structure, charge pattern, generation count, and color count. It also already reaches the massless carriers, the $W$ and $Z$, the Higgs, the top quark, and several quark masses. The remaining work sits mostly in flavor completion and in strongly coupled bound states.
+That is a remarkably concrete result. The framework does not merely say that "symmetry matters." It points to a very specific gauge structure, charge pattern, generation count, and color count. It reaches the massless carriers, the $W$ and $Z$, the Higgs, the top quark, and several quark masses. The remaining work sits mostly in flavor completion and in strongly coupled bound states.
 
 We've now seen how particles emerge from the screen as stable patterns that transform under emergent symmetries. But how does spacetime itself emerge? How does Einstein's relativity fit into this picture?
 

@@ -1,0 +1,23 @@
+{
+  "artifact": "oph_bw_fixed_local_collar_eventual_spectral_floor_scaffold",
+  "contract": {
+    "for_fixed_models": "every fixed local collar model (m, delta)",
+    "must_emit": "exists lambda_bar_{m,delta} > 0 with lambda_{*,n,m,delta} >= lambda_bar_{m,delta} eventually"
+  },
+  "exact_missing_object": "eventual_fixed_local_collar_spectral_floor_for_transported_marginals",
+  "generated_utc": "2026-04-01T04:53:48Z",
+  "meaning": "Along the realized refinement chain, each fixed transported local-collar marginal stays uniformly faithful with a collarwise eigenvalue floor bounded away from zero.",
+  "notes": [
+    "This clause does not by itself emit the carried-collar schedule or the scaling-limit cap pair.",
+    "It is the live faithfulness-side clause still external to the emitted theorem chain.",
+    "On the local-Gibbs plus exponential-mixing pullback branch, the recovery/Markov side is already latent once epsilon_{n,m,delta} -> 0."
+  ],
+  "public_promotion_allowed": false,
+  "role": "Package the sole nonlatent faithfulness-side clause beneath the fixed-local-collar faithful modular-defect witness.",
+  "status": "minimal_faithfulness_side_extension",
+  "unlocks": [
+    "fixed_local_collar_faithful_modular_defect_vanishing",
+    "vanishing_carried_collar_schedule_on_fixed_local_collars",
+    "canonical_scaling_cap_pair_realization_from_transported_cap_marginals"
+  ]
+}
