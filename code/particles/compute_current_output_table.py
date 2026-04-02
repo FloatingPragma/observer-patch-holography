@@ -25,6 +25,7 @@ WORKSPACE_ROOT = CODE_ROOT.parents[2]
 DEFAULT_RUNTIME_ROOT = WORKSPACE_ROOT / "temp" / "particles_runtime"
 NEUTRINO_COMPARE_ONLY_FIT = Path("runs/neutrino/neutrino_compare_only_scale_fit.json")
 NEUTRINO_TWO_PARAMETER_EXACT_ADAPTER = Path("runs/neutrino/neutrino_two_parameter_exact_adapter.json")
+NEUTRINO_EXACT_ADAPTER_BRIDGE_COORDINATE = Path("runs/neutrino/neutrino_exact_adapter_bridge_coordinate.json")
 
 EXCLUDE_NAMES = {
     "__pycache__",
@@ -57,6 +58,7 @@ RUNTIME_SURFACED_ARTIFACTS = (
     Path("runs/neutrino/intrinsic_neutrino_mass_eigenstate_bundle_from_scalar_certificate.json"),
     Path("runs/neutrino/neutrino_weighted_cycle_repair.json"),
     Path("runs/neutrino/neutrino_lambda_nu_bridge_candidate.json"),
+    Path("runs/neutrino/neutrino_exact_adapter_bridge_coordinate.json"),
     Path("runs/uv/bw_fixed_local_collar_modular_transport_common_floor_scaffold.json"),
     Path("runs/flavor/overlap_edge_transport_cocycle.json"),
 )
@@ -118,6 +120,7 @@ def _copy_outputs(work_particles: Path, current_dir: Path) -> None:
         "runs/status/exact_nonhadron_masses_current.json",
         "runs/neutrino/neutrino_compare_only_scale_fit.json",
         "runs/neutrino/neutrino_two_parameter_exact_adapter.json",
+        "runs/neutrino/neutrino_exact_adapter_bridge_coordinate.json",
         "runs/uv/bw_internalization_scaffold.json",
     ]
     for rel in outputs:

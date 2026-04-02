@@ -33,7 +33,7 @@ stages:
         owner_lane: local_code
         depends_on: ["particles.audit.03-add-uv-bw-internalization-scaffold"]
       - id: particles.audit.06-sharpen-uv-carried-collar-witness-to-fixed-local-collar-datum
-        title: "Reduce the remaining UV carried-collar witness to the fixed-local-collar Markov/faithfulness datum of collarwise CMI vanishing plus an eventual positive lower spectral bound"
+        title: "Reduce the remaining UV carried-collar witness to the fixed-local-collar Markov/faithfulness datum of collarwise CMI vanishing plus the eventual modular-transport common floor"
         status: completed
         owner_lane: local_code
         depends_on: ["particles.audit.05-emit-uv-prelimit-cap-local-system"]

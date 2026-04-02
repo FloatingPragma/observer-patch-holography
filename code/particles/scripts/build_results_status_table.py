@@ -46,6 +46,7 @@ FORWARD_NEUTRINO_BUNDLE = ROOT / "particles" / "runs" / "neutrino" / "forward_ne
 NEUTRINO_EXACT_BLOCKERS = ROOT / "particles" / "runs" / "neutrino" / "exact_blocking_items.json"
 NEUTRINO_WEIGHTED_CYCLE_REPAIR = ROOT / "particles" / "runs" / "neutrino" / "neutrino_weighted_cycle_repair.json"
 NEUTRINO_TWO_PARAMETER_EXACT_ADAPTER = ROOT / "particles" / "runs" / "neutrino" / "neutrino_two_parameter_exact_adapter.json"
+NEUTRINO_EXACT_ADAPTER_BRIDGE_COORDINATE = ROOT / "particles" / "runs" / "neutrino" / "neutrino_exact_adapter_bridge_coordinate.json"
 NEUTRINO_LAMBDA_BRIDGE_CANDIDATE = ROOT / "particles" / "runs" / "neutrino" / "neutrino_lambda_nu_bridge_candidate.json"
 PUBLIC_SURFACE_KIND = "particles_native_candidate_or_gap_surface"
 P_DEFAULT = 1.63094
@@ -95,6 +96,19 @@ D11_NOTE = (
     "A separate exact-hit sidecar is now also on disk as `oph_d11_reference_exact_adapter`: it solves the linear D11 Jacobian against the canonical Higgs/top reference pair and therefore hits those references exactly, but only as a compare-only inverse slice. "
     "The live public D11 rows remain the reference-free forward-seed outputs, not the inverse adapter."
 )
+_NEUTRINO_EXACT_BRIDGE_COORDINATE = (
+    json.loads(NEUTRINO_EXACT_ADAPTER_BRIDGE_COORDINATE.read_text(encoding="utf-8"))
+    if NEUTRINO_EXACT_ADAPTER_BRIDGE_COORDINATE.exists()
+    else None
+)
+_NEUTRINO_EXACT_BRIDGE_COORDINATE_NOTE = ""
+if _NEUTRINO_EXACT_BRIDGE_COORDINATE is not None:
+    _b_nu = _NEUTRINO_EXACT_BRIDGE_COORDINATE["bridge_coordinates"]["paper_facing_amplitude"]["value"]
+    _c_nu = _NEUTRINO_EXACT_BRIDGE_COORDINATE["bridge_coordinates"]["reduced_correction_invariant"]["value"]
+    _NEUTRINO_EXACT_BRIDGE_COORDINATE_NOTE = (
+        f" On the same exact compare-only branch, the explicit bridge-coordinate sidecar evaluates to "
+        f"`B_nu = {_b_nu:.8f}` and `C_nu = {_c_nu:.8f}`. Those values remain compare-only and do not emit theorem-grade `C_nu`."
+    )
 CHARGED_CONTINUATION_NOTE = (
     "No public value is emitted yet on the theorem lane. A separate exact same-family witness is already on disk: `oph_lepton_current_family_exact_readout` reproduces the charged reference triple exactly on the same ordered eigenvalue family, its target-anchored ordered-three-point readout chain is closed within `current_family_only` by `oph_lepton_current_family_quadratic_readout_theorem`, and the scoped same-family affine coordinate is closed on that same witness by `oph_lepton_current_family_affine_anchor_theorem`; those closures do not promote the live charged theorem lane. The active charged path is "
     "`derive_charged_sector_local_current_support_obstruction_certificate.py -> "
@@ -163,6 +177,8 @@ NEUTRINO_CONTINUATION_NOTE = (
     "The older atmospheric-only and solar-only exact one-observable adapters remain on disk as narrower special slices, and the same repair artifact still states that no single `lambda_nu` fits both central splittings exactly on the live promoted midpoint branch. "
     "The sharpest current constructive interface is still the Majorana overlap-defect scalar route, but after exact q_mean-factorization the remaining scalar is parameterized as `lambda_nu = (m_star_eV / q_mean^p_nu) * (I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1) * C_nu`, not as a closed `F_nu(qbar, I_nu^(wc))` law. The best closed constructive object beneath that bridge is the defect-weighted same-label family `q_e = sqrt(g_e * d_e)` together with its induced `mu_e = mu_nu * exp(eta_e) / mean_f(exp(eta_f))`; it is the first spectrum-moving object below the reduced correction scalar, but it still does not emit `C_nu` or `B_nu` itself. A compare-only residual-amplitude audit shows that `A_nu / m_star` is numerically much cleaner than the raw `lambda_nu / m_star` bridge factor. On the core residual scalar pool the strongest low-complexity clue is `sqrt(I_nu) * sqrt(Delta_hat_21 / Delta_hat_32) / sum_defect`. On the extended pool that also includes defect-weighted `mu_e` family scales normalized by `m_star`, no stronger low-complexity clue survives once the trivial closed normalizer `sum_qbar = 3` is removed from the search, so the extended pool does not beat the same core clue. Both remain compare-only and not theorem-grade. A tempting closed-form numerology `lambda_nu = gamma / sqrt(Delta_hat_21 / Delta_hat_32)` is explicitly ruled out as theorem-grade by the same positive-rescaling no-go, because both `gamma` and `Delta_hat_21 / Delta_hat_32` are orbit invariants on the scale-free family. "
     "A separate compare-only load-segment audit records nearby alternative selectors on the same positive segment; the geometric mean gives the smallest raw representative central-ratio error, but the promoted theorem branch is the arithmetic midpoint because it is the unique balanced/least-distortion selector on that one-dimensional affine segment. "
+    + _NEUTRINO_EXACT_BRIDGE_COORDINATE_NOTE
+    + " "
     "With the hard-separated compare-only atmospheric anchor `Delta m32^2 = 2.438e-3 eV^2`, the same branch gives `m = (0.01746, 0.01948, 0.05308) eV`, `Delta m21^2 = 7.48981e-5 eV^2`, and `Delta m31^2 = 2.51290e-3 eV^2`; relative to the representative PDG 2025 central values, the solar and atmospheric residuals are only about `-9.02e-4 sigma` and `+2.84e-4 sigma`. These rows therefore remain unpromoted as exact OPH mass predictions because the reduced bridge-correction invariant `C_nu` is still missing."
 )
 HADRON_CONTINUATION_NOTE = (

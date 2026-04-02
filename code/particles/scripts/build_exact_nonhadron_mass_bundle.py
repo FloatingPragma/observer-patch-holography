@@ -27,6 +27,7 @@ QUARK_THEOREM_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_current_fam
 CHARGED_AFFINE_JSON = ROOT / "particles" / "runs" / "leptons" / "lepton_current_family_affine_anchor_theorem.json"
 QUARK_CLOSURE_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_current_family_selected_sheet_closure.json"
 NEUTRINO_JSON = ROOT / "particles" / "runs" / "neutrino" / "neutrino_two_parameter_exact_adapter.json"
+NEUTRINO_BRIDGE_COORDINATE_JSON = ROOT / "particles" / "runs" / "neutrino" / "neutrino_exact_adapter_bridge_coordinate.json"
 DEFAULT_MD_OUT = ROOT / "particles" / "EXACT_NONHADRON_MASSES.md"
 DEFAULT_JSON_OUT = ROOT / "particles" / "exact_nonhadron_masses.json"
 DEFAULT_FORWARD_OUT = ROOT / "particles" / "runs" / "status" / "exact_nonhadron_masses_current.json"
@@ -52,6 +53,7 @@ def build_entries() -> list[dict[str, Any]]:
     charged_affine = _load_json(CHARGED_AFFINE_JSON)
     quark_closure = _load_json(QUARK_CLOSURE_JSON)
     neutrino = _load_json(NEUTRINO_JSON)
+    neutrino_bridge_coordinate = _load_json(NEUTRINO_BRIDGE_COORDINATE_JSON)
 
     return [
         {
@@ -230,7 +232,13 @@ def build_entries() -> list[dict[str, Any]]:
             "scope": neutrino["scope"],
             "promotable": False,
             "source_artifact": _repo_ref(NEUTRINO_JSON),
-            "note": "Exact compare-only neutrino mass from the two-parameter positive-segment adapter.",
+            "supporting_bridge_coordinate_artifact": _repo_ref(NEUTRINO_BRIDGE_COORDINATE_JSON),
+            "note": (
+                "Exact compare-only neutrino mass from the two-parameter positive-segment adapter, with the same branch "
+                f"carrying explicit compare-only bridge coordinates `B_nu = "
+                f"{neutrino_bridge_coordinate['bridge_coordinates']['paper_facing_amplitude']['value']:.8f}` and "
+                f"`C_nu = {neutrino_bridge_coordinate['bridge_coordinates']['reduced_correction_invariant']['value']:.8f}`."
+            ),
         },
         {
             "particle_id": "muon_neutrino",
@@ -240,7 +248,13 @@ def build_entries() -> list[dict[str, Any]]:
             "scope": neutrino["scope"],
             "promotable": False,
             "source_artifact": _repo_ref(NEUTRINO_JSON),
-            "note": "Exact compare-only neutrino mass from the two-parameter positive-segment adapter.",
+            "supporting_bridge_coordinate_artifact": _repo_ref(NEUTRINO_BRIDGE_COORDINATE_JSON),
+            "note": (
+                "Exact compare-only neutrino mass from the two-parameter positive-segment adapter, with the same branch "
+                f"carrying explicit compare-only bridge coordinates `B_nu = "
+                f"{neutrino_bridge_coordinate['bridge_coordinates']['paper_facing_amplitude']['value']:.8f}` and "
+                f"`C_nu = {neutrino_bridge_coordinate['bridge_coordinates']['reduced_correction_invariant']['value']:.8f}`."
+            ),
         },
         {
             "particle_id": "tau_neutrino",
@@ -250,7 +264,13 @@ def build_entries() -> list[dict[str, Any]]:
             "scope": neutrino["scope"],
             "promotable": False,
             "source_artifact": _repo_ref(NEUTRINO_JSON),
-            "note": "Exact compare-only neutrino mass from the two-parameter positive-segment adapter.",
+            "supporting_bridge_coordinate_artifact": _repo_ref(NEUTRINO_BRIDGE_COORDINATE_JSON),
+            "note": (
+                "Exact compare-only neutrino mass from the two-parameter positive-segment adapter, with the same branch "
+                f"carrying explicit compare-only bridge coordinates `B_nu = "
+                f"{neutrino_bridge_coordinate['bridge_coordinates']['paper_facing_amplitude']['value']:.8f}` and "
+                f"`C_nu = {neutrino_bridge_coordinate['bridge_coordinates']['reduced_correction_invariant']['value']:.8f}`."
+            ),
         },
     ]
 

@@ -291,10 +291,11 @@ LANES: List[Dict[str, Any]] = [
             "lands in the physical PMNS window and the correct splitting hierarchy. The normalized same-label overlap-defect weight section `qbar_e` is already closed below the absolute attachment problem. "
             "No hidden discrete branch remains on that repaired lane; once the normalizer is fixed, the residual quotient is exactly the positive rescaling orbit. "
             "On that already-emitted positive selector segment, the two-parameter exact adapter moves one selector coordinate and one positive rescaling to hit the representative central splittings exactly. "
+            "That same compare-only branch also carries explicit bridge coordinates `(B_nu, C_nu)`, evaluated on the exact adapter without feeding back into theorem state. "
             "After factoring out the already-emitted proxy `P_nu = I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1`, the exact remaining theorem object is the reduced correction invariant `C_nu`, with the paper-facing amplitude `B_nu` and then the final positive normalization scalar induced only after that correction law is fixed."
         ),
         "tasks_text": "Open task: search for the full closure chain by deriving the reduced bridge-correction invariant `C_nu` above the emitted proxy and then collapsing the remaining positive normalization orbit. If closure still fails, keep `C_nu` as the canonical smallest exact missing object and keep corridor fits compare-only.",
-        "prediction_surface": "Weighted-cycle neutrino branch with PMNS/hierarchy closure, a closed normalized overlap-defect weight section, an exact two-parameter sidecar adapter on the positive selector segment, and one reduced correction invariant `C_nu` still separating the emitted proxy from a theorem-grade absolute spectrum.",
+        "prediction_surface": "Weighted-cycle neutrino branch with PMNS/hierarchy closure, a closed normalized overlap-defect weight section, an exact two-parameter sidecar adapter on the positive selector segment, explicit compare-only bridge coordinates `(B_nu, C_nu)` on that same branch, and one reduced correction invariant `C_nu` still separating the emitted proxy from a theorem-grade absolute spectrum.",
         "particles": ["electron_neutrino", "muon_neutrino", "tau_neutrino"],
         "tasks": [
             "papers.compact.e.32-derive-neutrino-masses-from-screen-capacity-as-a-theorem",

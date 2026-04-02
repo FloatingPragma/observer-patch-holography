@@ -25,6 +25,7 @@ CHARGED_AFFINE_JSON = ROOT / "particles" / "runs" / "leptons" / "lepton_current_
 QUARK_CLOSURE_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_current_family_selected_sheet_closure.json"
 NEUTRINO_JSON = ROOT / "particles" / "runs" / "neutrino" / "neutrino_compare_only_scale_fit.json"
 NEUTRINO_TWO_PARAMETER_JSON = ROOT / "particles" / "runs" / "neutrino" / "neutrino_two_parameter_exact_adapter.json"
+NEUTRINO_BRIDGE_COORDINATE_JSON = ROOT / "particles" / "runs" / "neutrino" / "neutrino_exact_adapter_bridge_coordinate.json"
 DEFAULT_MD_OUT = ROOT / "particles" / "EXACT_FITS_ONLY.md"
 DEFAULT_JSON_OUT = ROOT / "particles" / "exact_fits_only.json"
 DEFAULT_FORWARD_OUT = ROOT / "particles" / "runs" / "status" / "exact_fits_only_current.json"
@@ -56,6 +57,7 @@ def build_entries() -> list[dict[str, Any]]:
     quark_closure = _load_json(QUARK_CLOSURE_JSON)
     neutrino = _load_json(NEUTRINO_JSON)
     neutrino_two_parameter = _load_json(NEUTRINO_TWO_PARAMETER_JSON)
+    neutrino_bridge_coordinate = _load_json(NEUTRINO_BRIDGE_COORDINATE_JSON)
 
     entries: list[dict[str, Any]] = [
         {
@@ -202,10 +204,15 @@ def build_entries() -> list[dict[str, Any]]:
                 abs(neutrino_two_parameter["exact_fit_residuals_eV2"]["32"]),
             ),
             "source_artifact": _repo_ref(NEUTRINO_TWO_PARAMETER_JSON),
+            "supporting_bridge_coordinate_artifact": _repo_ref(NEUTRINO_BRIDGE_COORDINATE_JSON),
             "note": (
                 "Exact compare-only fit to both representative PDG central splittings by moving along the already-explicit "
                 "positive selector segment and then rescaling with one positive `lambda_nu`. It remains non-promotable "
-                "because the theorem lane still waits on the reduced bridge-correction invariant `C_nu`."
+                "because the theorem lane still waits on the reduced bridge-correction invariant `C_nu`. On that same "
+                "exact compare-only branch, the explicit bridge coordinates are "
+                f"`B_nu = {neutrino_bridge_coordinate['bridge_coordinates']['paper_facing_amplitude']['value']:.8f}` and "
+                f"`C_nu = {neutrino_bridge_coordinate['bridge_coordinates']['reduced_correction_invariant']['value']:.8f}`, "
+                "but they remain sidecars and do not promote the theorem lane."
             ),
         },
     ]

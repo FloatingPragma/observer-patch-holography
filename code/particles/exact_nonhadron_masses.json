@@ -173,34 +173,37 @@
       "exact_kind": "exact_two_observable_compare_only_segment_adapter",
       "label": "Electron Neutrino",
       "mass_eV": 0.01745663294772044,
-      "note": "Exact compare-only neutrino mass from the two-parameter positive-segment adapter.",
+      "note": "Exact compare-only neutrino mass from the two-parameter positive-segment adapter, with the same branch carrying explicit compare-only bridge coordinates `B_nu = 6.69675975` and `C_nu = 0.99952948`.",
       "particle_id": "electron_neutrino",
       "promotable": false,
       "scope": "compare_only_two_parameter_segment_adapter",
-      "source_artifact": "code/particles/runs/neutrino/neutrino_two_parameter_exact_adapter.json"
+      "source_artifact": "code/particles/runs/neutrino/neutrino_two_parameter_exact_adapter.json",
+      "supporting_bridge_coordinate_artifact": "code/particles/runs/neutrino/neutrino_exact_adapter_bridge_coordinate.json"
     },
     {
       "exact_kind": "exact_two_observable_compare_only_segment_adapter",
       "label": "Muon Neutrino",
       "mass_eV": 0.019484199595350048,
-      "note": "Exact compare-only neutrino mass from the two-parameter positive-segment adapter.",
+      "note": "Exact compare-only neutrino mass from the two-parameter positive-segment adapter, with the same branch carrying explicit compare-only bridge coordinates `B_nu = 6.69675975` and `C_nu = 0.99952948`.",
       "particle_id": "muon_neutrino",
       "promotable": false,
       "scope": "compare_only_two_parameter_segment_adapter",
-      "source_artifact": "code/particles/runs/neutrino/neutrino_two_parameter_exact_adapter.json"
+      "source_artifact": "code/particles/runs/neutrino/neutrino_two_parameter_exact_adapter.json",
+      "supporting_bridge_coordinate_artifact": "code/particles/runs/neutrino/neutrino_exact_adapter_bridge_coordinate.json"
     },
     {
       "exact_kind": "exact_two_observable_compare_only_segment_adapter",
       "label": "Tau Neutrino",
       "mass_eV": 0.053081390655025595,
-      "note": "Exact compare-only neutrino mass from the two-parameter positive-segment adapter.",
+      "note": "Exact compare-only neutrino mass from the two-parameter positive-segment adapter, with the same branch carrying explicit compare-only bridge coordinates `B_nu = 6.69675975` and `C_nu = 0.99952948`.",
       "particle_id": "tau_neutrino",
       "promotable": false,
       "scope": "compare_only_two_parameter_segment_adapter",
-      "source_artifact": "code/particles/runs/neutrino/neutrino_two_parameter_exact_adapter.json"
+      "source_artifact": "code/particles/runs/neutrino/neutrino_two_parameter_exact_adapter.json",
+      "supporting_bridge_coordinate_artifact": "code/particles/runs/neutrino/neutrino_exact_adapter_bridge_coordinate.json"
     }
   ],
   "excluded_lane": "hadrons_compute_bound",
-  "generated_utc": "2026-04-02T01:37:48Z",
+  "generated_utc": "2026-04-02T03:08:12Z",
   "status": "exact_output_lane_closed_nonhadron_only"
 }

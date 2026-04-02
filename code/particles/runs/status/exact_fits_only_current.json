@@ -119,7 +119,7 @@
         "Delta m32^2"
       ],
       "max_abs_residual": 4.0657581468206416e-20,
-      "note": "Exact compare-only fit to both representative PDG central splittings by moving along the already-explicit positive selector segment and then rescaling with one positive `lambda_nu`. It remains non-promotable because the theorem lane still waits on the reduced bridge-correction invariant `C_nu`.",
+      "note": "Exact compare-only fit to both representative PDG central splittings by moving along the already-explicit positive selector segment and then rescaling with one positive `lambda_nu`. It remains non-promotable because the theorem lane still waits on the reduced bridge-correction invariant `C_nu`. On that same exact compare-only branch, the explicit bridge coordinates are `B_nu = 6.69675975` and `C_nu = 0.99952948`, but they remain sidecars and do not promote the theorem lane.",
       "promotable": false,
       "references": {
         "delta_m21_sq_eV2": 7.49e-05,
@@ -128,6 +128,7 @@
       },
       "scope": "compare_only_two_parameter_segment_adapter",
       "source_artifact": "code/particles/runs/neutrino/neutrino_two_parameter_exact_adapter.json",
+      "supporting_bridge_coordinate_artifact": "code/particles/runs/neutrino/neutrino_exact_adapter_bridge_coordinate.json",
       "units": "eV / eV^2",
       "values": {
         "delta_m21_sq_eV2": 7.490000000000005e-05,
@@ -191,6 +192,6 @@
       }
     }
   ],
-  "generated_utc": "2026-04-02T01:37:48Z",
+  "generated_utc": "2026-04-02T03:08:12Z",
   "status": "exact_target_anchored_or_single_observable_diagnostic_surface"
 }

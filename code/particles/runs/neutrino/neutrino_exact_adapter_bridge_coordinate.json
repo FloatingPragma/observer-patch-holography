@@ -1,0 +1,79 @@
+{
+  "artifact": "oph_neutrino_exact_adapter_bridge_coordinate",
+  "bridge_coordinates": {
+    "definition": "B_nu = P_nu * C_nu",
+    "internal_proxy": {
+      "formula": "I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1",
+      "ingredients": {
+        "I_nu": 0.0965316330845031,
+        "ratio_hat": 0.03072190319934374,
+        "sum_defect": 0.008128113736742382
+      },
+      "symbol": "P_nu",
+      "value": 6.699912221878757
+    },
+    "paper_facing_amplitude": {
+      "formula": "lambda_nu * q_mean^p_nu / m_star_eV",
+      "symbol": "B_nu",
+      "value": 6.696759752761619
+    },
+    "reduced_correction_invariant": {
+      "formula": "B_nu / P_nu",
+      "symbol": "C_nu",
+      "value": 0.9995294760568888
+    }
+  },
+  "consistency_checks": {
+    "current_compare_only_b_window": [
+      6.696004159297337,
+      6.710401019972258
+    ],
+    "current_compare_only_c_window": [
+      0.9994295999075177,
+      1.0015784409718234
+    ],
+    "reconstruction_error_abs": 0.0,
+    "within_current_compare_only_b_window": true,
+    "within_current_compare_only_c_window": true
+  },
+  "exact_adapter_solution": {
+    "D_nu": 1.1277518477404371,
+    "delta_m_sq_eV2": {
+      "21": 7.490000000000005e-05,
+      "31": 0.0025129,
+      "32": 0.002438
+    },
+    "lambda_nu": 1.723958214811294,
+    "masses_eV": [
+      0.01745663294772044,
+      0.019484199595350048,
+      0.053081390655025595
+    ],
+    "p_nu": 1.3951028617104149,
+    "ratio_21_over_32": 0.03072190319934374,
+    "tau_nu": 0.49717065800809745
+  },
+  "generated_utc": "2026-04-02T03:33:09Z",
+  "notes": [
+    "The exact adapter moves only one selector coordinate and one positive rescaling on the already-emitted positive selector segment.",
+    "The same emitted phase and defect stack is reused here; the only exact-adapter-dependent bridge ingredient is ratio_hat, taken from the exact two-parameter fit.",
+    "This sidecar strengthens the explicit exact branch description without changing the open theorem object C_nu."
+  ],
+  "promotable": false,
+  "proof_status": "exact_compare_only_bridge_coordinate_on_exact_segment_adapter",
+  "scope": "compare_only_two_parameter_segment_adapter",
+  "source_artifacts": {
+    "exact_adapter": "code/particles/runs/neutrino/neutrino_two_parameter_exact_adapter.json",
+    "majorana_overlap_defect_hessian": "code/particles/runs/neutrino/majorana_overlap_defect_hessian.json",
+    "neutrino_bridge_correction_invariant_scaffold": "code/particles/runs/neutrino/neutrino_bridge_correction_invariant_scaffold.json",
+    "neutrino_scale_anchor": "code/particles/runs/neutrino/neutrino_scale_anchor.json",
+    "neutrino_weighted_cycle_repair": "code/particles/runs/neutrino/neutrino_weighted_cycle_repair.json",
+    "realized_same_label_gap_defect_readback": "code/particles/runs/neutrino/realized_same_label_gap_defect_readback.json",
+    "same_label_overlap_defect_weight_normalizer": "code/particles/runs/neutrino/same_label_overlap_defect_weight_normalizer.json"
+  },
+  "theorem_boundary": {
+    "forbidden_feedback": "exact_compare_only_bridge_coordinate_must_not_feed_back_into_theorem_state_or_C_nu_emission",
+    "statement": "This artifact evaluates exact compare-only bridge coordinates on the already-emitted positive selector segment after the exact two-parameter fit. It does not emit theorem-grade C_nu or B_nu and must not feed back into the theorem lane.",
+    "status": "non_promotable_compare_only_bridge_coordinate_sidecar"
+  }
+}

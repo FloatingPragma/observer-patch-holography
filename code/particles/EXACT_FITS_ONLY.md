@@ -1,6 +1,6 @@
 # Exact Fits Only
 
-Generated: `2026-04-02T01:37:48Z`
+Generated: `2026-04-02T03:08:12Z`
 
 This surface lists only exact target-matching diagnostic fits currently on disk. It is narrower than `RESULTS_STATUS.md` and does not promote any compare-only or current-family witness into theorem-grade OPH output.
 
@@ -72,7 +72,7 @@ This surface lists only exact target-matching diagnostic fits currently on disk.
 - Promotable: `false`
 - Source artifact: `code/particles/runs/neutrino/neutrino_two_parameter_exact_adapter.json`
 - Max absolute residual: `4.0657581468206416e-20`
-- Note: Exact compare-only fit to both representative PDG central splittings by moving along the already-explicit positive selector segment and then rescaling with one positive `lambda_nu`. It remains non-promotable because the theorem lane still waits on the reduced bridge-correction invariant `C_nu`.
+- Note: Exact compare-only fit to both representative PDG central splittings by moving along the already-explicit positive selector segment and then rescaling with one positive `lambda_nu`. It remains non-promotable because the theorem lane still waits on the reduced bridge-correction invariant `C_nu`. On that same exact compare-only branch, the explicit bridge coordinates are `B_nu = 6.69675975` and `C_nu = 0.99952948`, but they remain sidecars and do not promote the theorem lane.
 
 | Observable | Value | Reference |
 | --- | ---: | ---: |
