@@ -287,7 +287,7 @@ This connects directly to holography. When you restrict your view to a subregion
 
 ## 5.10 Modular Flow: Time from Algebra
 
-Type III algebras have beautiful internal structure discovered by Tomita and Takesaki in the 1970s.
+Von Neumann algebras have beautiful modular structure discovered by Tomita and Takesaki in the 1970s. Type III examples are especially important in the local QFT setting discussed here.
 
 Given a von Neumann algebra M with a "cyclic separating" state Ω (a vacuum state), there is a natural one-parameter group of transformations:
 
@@ -347,7 +347,7 @@ Let's trace the logic explicitly.
 2. States assign expectation values to observables
 3. Each observer has their own algebra (their patch on the screen)
 4. Consistency means agreeing on shared observables where patches overlap
-5. Type III algebras support modular flow intrinsically, and horizon-restricted examples make their thermal/KMS aspect especially vivid
+5. Von Neumann algebras admit modular flow, and Type III horizon-restricted examples make the thermal/KMS aspect especially vivid
 6. Causality requires commutation for spacelike-separated regions
 7. **Non-commutativity is central to the kind of consistency problem quantum physics presents**-a fully commutative picture would miss the nontrivial constraint structure highlighted in this chapter
 
