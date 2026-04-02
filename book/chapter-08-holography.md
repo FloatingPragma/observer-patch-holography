@@ -270,12 +270,12 @@ Einstein and Rosen studied wormholes (ER bridges) in 1935. Einstein, Podolsky, a
 
 In 2013, Maldacena and Susskind proposed: **ER = EPR**. In the right holographic settings, wormholes and entanglement can be read as two descriptions of the same underlying connectivity.
 
-Every EPR pair-every entangled pair of particles-is connected by a tiny, non-traversable wormhole. The wormhole is too small and too quantum to send messages through, but it's there in the geometry. Entanglement IS geometric connection.
+In the strongest holographic examples, entangled systems admit wormhole descriptions. The connection is suggestive more broadly, but it should not be stated here as a literal geometric fact for every entangled pair.
 
 This unifies two seemingly different concepts:
 - Quantum mechanics gives us entanglement
 - General relativity gives us wormholes
-- They're the same phenomenon viewed from different angles
+- They're proposed to be deeply linked, with geometry providing one language for certain entanglement structures
 
 ### Gravity from Thermodynamics
 
@@ -289,13 +289,13 @@ The argument:
 3. These horizons have entropy proportional to area (Bekenstein-Hawking)
 4. The first law of thermodynamics must hold: δQ = TδS
 
-Requiring thermodynamic consistency for ALL local horizons everywhere uniquely
-determines the relationship between matter and geometry. That relationship is
-Einstein's equation.
+Under Jacobson's assumptions, requiring thermodynamic consistency for local
+horizons recovers the relationship between matter and geometry. That
+relationship is Einstein's equation.
 
 **Gravity is not a force. It's an equation of state.**
 
-Just as PV = nRT follows from statistical mechanics without knowing molecular details, Einstein's equation follows from horizon thermodynamics without knowing the Planck-scale structure of spacetime.
+Just as PV = nRT follows from statistical mechanics without knowing molecular details, Einstein's equation can be recovered from horizon thermodynamics without knowing the Planck-scale structure of spacetime.
 
 ### Why This Matters for Our Framework
 
