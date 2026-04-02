@@ -81,7 +81,7 @@ They floated their apparatus on a pool of mercury to eliminate vibrations. They 
 
 **They found nothing.**
 
-The interference pattern didn't shift. The speed of light was exactly the same in all directions, regardless of how Earth was moving.
+The interference pattern didn't shift within the sensitivity of the experiment. No directional difference in the speed of light was detected as Earth moved.
 
 This was one of the most important null results in the history of science. It killed the aether principle. But it did something more: it revealed that the intuitive picture was missing something fundamental.
 
@@ -101,7 +101,7 @@ The result was special relativity. It was a revolution disguised as bookkeeping.
 
 Here's what Einstein discovered: **to keep the speed of light consistent across all observers, space and time themselves must be observer-dependent.**
 
-Time dilates. A moving clock ticks slower. In 1971, physicists Hafele and Keating flew atomic clocks around the Earth on commercial jets. When the clocks returned, they had ticked differently than clocks that stayed on the ground. The differences were nanoseconds, but they matched relativity's predictions exactly.
+Time dilates. A moving clock ticks slower. In 1971, physicists Hafele and Keating flew atomic clocks around the Earth on commercial jets. When the clocks returned, they had ticked differently than clocks that stayed on the ground. The differences were nanoseconds, and they were consistent with relativity's predictions within experimental uncertainty.
 
 Lengths contract. A moving ruler is shorter. If a spaceship flies past me at 90% of the speed of light, I measure it as less than half its rest length.
 
