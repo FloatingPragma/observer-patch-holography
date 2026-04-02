@@ -110,9 +110,9 @@ De Sitter has no spatial boundary. The only boundary is the horizon-and the hori
 
 ### Horizon Complementarity
 
-Leonard Susskind and collaborators proposed **de Sitter complementarity**: there is no "global" quantum state of the universe. Quantum mechanics applies only within a single observer's static patch.
+Leonard Susskind and collaborators proposed **de Sitter complementarity**: operationally, physics should be described patch by patch rather than by privileging a single global observer description.
 
-Alice describes physics in her patch using her Hilbert space. Bob describes physics in his patch using his Hilbert space. Where their patches overlap, their descriptions must be consistent. But there's no way to talk about the "state of the whole universe" as a single quantum state.
+Alice describes physics in her patch using her Hilbert space. Bob describes physics in his patch using his Hilbert space. Where their patches overlap, their descriptions must be consistent. In the complementarity reading adopted here, patch-relative descriptions are primary.
 
 This fits perfectly with our model. Reality is a collection of consistent patches. You can't step outside and view the universe from nowhere.
 
@@ -201,7 +201,7 @@ The picture so far:
 
 4. **Finite Patch Entropy**: A de Sitter static patch carries entropy of order \(10^{122}\) in natural units, so an observer's accessible region has finite information capacity.
 
-5. **Horizon Complementarity**: No global quantum state; only patch-relative descriptions that must be consistent on overlaps.
+5. **Horizon Complementarity**: Patch-relative descriptions are primary, and consistency is enforced on overlaps rather than through a single preferred global observer description.
 
 6. **Fast Scrambling**: De Sitter is often discussed as a fast-scrambling horizon with scaling analogous to the black-hole case.
 

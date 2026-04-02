@@ -305,7 +305,7 @@ G_\Sigma)\). Global gluing is possible iff the relevant obstruction class
 vanishes. In the EFT limit, the central truncation reduces to anomaly
 cancellation.
 
-This matches holographic expectations. In AdS/CFT, entanglement between boundary regions scales with the area of the minimal surface connecting them. The recovery rule says the same thing in our model: correlations scale with boundary area.
+This matches holographic expectations. In AdS/CFT, entanglement between boundary regions scales with the area of the minimal surface connecting them. In our model, one natural scaling candidate similarly ties recoverability bounds to separator size rather than bulk volume.
 
 ### Why This Matters
 
