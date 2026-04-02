@@ -72,9 +72,9 @@ The entropy of a black hole is proportional to its surface area, measured in Pla
 
 **The hint**: Information scales with area, not volume.
 
-**The lesson**: The intuitive picture-that information content scales with the size of a container-is fundamentally wrong. The boundary of a region, not its interior, is where the information lives.
+**The lesson**: The intuitive picture-that information content scales with the size of a container-is fundamentally wrong. Black-hole entropy and related bounds push strongly toward a boundary-sensitive description.
 
-**The first-principles reframing**: The 3D world we experience is not the fundamental level. The fundamental degrees of freedom live on 2D surfaces. The bulk is emergent, reconstructed from boundary data.
+**The first-principles reframing**: The 3D world we experience may not be the fundamental level. In the holographic reading developed here, the bulk is emergent and reconstructed from boundary data.
 
 ## 3.3 Entropy for Normal People
 
@@ -116,11 +116,11 @@ $$H = -\sum_i p_i \log_2 p_i$$
 
 This is the **Shannon entropy**, measured in bits.
 
-Shannon's entropy has the exact same mathematical form as Boltzmann's entropy. This is not a coincidence. Both measure missing information.
+Shannon's entropy is closely related to the Gibbs/Shannon form, while Boltzmann's \(S = k_B \ln W\) appears as the equal-probability special case. This is not a coincidence; both measure missing information in closely related settings.
 
 And in 1961, Rolf Landauer showed that erasing information costs energy-at least $k_B T \ln 2$ per bit. Information is physical. Bits are thermodynamic objects.
 
-This is why the Bekenstein-Hawking formula is so important. It connects information (entropy) to geometry (area). It tells us where the data lives: on the boundary.
+This is why the Bekenstein-Hawking formula is so important. It connects information (entropy) to geometry (area) and strongly motivates a boundary-first bookkeeping picture.
 
 ## 3.4 The Holographic Principle
 
@@ -248,7 +248,7 @@ If one adopts a smallest screen length scale as a finite-cutoff modeling assumpt
 
 $$\ell_{max} \sim \frac{R}{\ell_P}$$
 
-The total number of independent modes is roughly $\ell_{max}^2 \sim R^2/\ell_P^2$-proportional to area in Planck units, exactly what Bekenstein-Hawking says.
+The total number of independent modes is roughly $\ell_{max}^2 \sim R^2/\ell_P^2$-proportional to area in Planck units, in line with the area scaling suggested by Bekenstein-Hawking.
 
 In such a finite-resolution screen model, our experience of a continuous world is an approximation and the screen description becomes effectively discretized.
 
@@ -316,9 +316,9 @@ This definition of observers resolves several puzzles:
 
 **No external reference frame**: Observers are internal to the system, so there's no need for an external "God's-eye view."
 
-**Measurement is physical**: When an observer measures something, correlations form between subsystems within the horizon data. There's nothing mysterious about "collapse"-it's just the establishment of records.
+**Measurement is physical**: When an observer measures something, correlations form between subsystems within the horizon data and stable records are created. In the OPH reading, that record formation captures the main physical content behind textbook collapse language.
 
-**Consistency follows from structure**: Two observers whose patches overlap must agree because they're both patterns in the same underlying state. The state is self-consistent, so the observers are consistent.
+**Consistency follows from structure**: In the constructive screen picture, if two observers are modeled as patterns in the same underlying state, their reduced descriptions must agree on overlaps. The more general gluing story is subtler and is developed later.
 
 ### Reality from Computation
 
@@ -421,7 +421,7 @@ Let's trace the reverse engineering explicitly.
 
 **The hint**: Black hole entropy scales with area, and gravitational entropy bounds point toward boundary-limited information.
 
-**The lesson**: The fundamental degrees of freedom are 2D, not 3D. The boundary is primary; the bulk is emergent.
+**The lesson**: A boundary-first description becomes a strong candidate. On that reading, the boundary is primary and the bulk is emergent.
 
 **The first-principles reframing**:
 
@@ -451,7 +451,7 @@ In the finite-resolution screen picture used here, continuous space is an effect
 ## 3.13 Where We Go Next
 
 We have established that:
-- Information lives on horizons, not in volumes
+- Gravitational entropy bounds and holographic arguments push strongly toward horizon/boundary-sensitive bookkeeping rather than naive volume counting
 - In the symmetric light-cone constructions used here, the effective screens are spherical as a consequence of causality
 - The amount of information is finite, bounded by area
 - Entanglement patterns on the screen create emergent 3D geometry

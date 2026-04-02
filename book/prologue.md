@@ -65,17 +65,18 @@ reflects a correlated result. No signal passes between them. The correlation
 is just... there.
 
 **Information can't be destroyed.** Throw something into a black hole, and
-the information doesn't disappear. It's encoded on the horizon, scrambled
-but technically recoverable. The universe keeps perfect logs.
+modern quantum-gravity arguments suggest the information is not simply
+erased. It is thought to be encoded in horizon bookkeeping, though the
+detailed recovery story remains subtle.
 
 **Black holes put information under pressure.** Throw something into a black
 hole, and modern quantum-gravity arguments strongly suggest the information
 is not simply lost, even though the detailed recovery story remains subtle
 and framework-dependent.
 
-**Space is a hologram.** The information needed to describe a volume
-of space can be encoded entirely on its boundary. The three-dimensional
-world is a projection from two-dimensional data.
+**Holography is a major clue.** The information needed to describe a volume
+of space may admit a boundary-first encoding. The three-dimensional
+world can then be read as an emergent bulk description.
 
 If a human engineer wrote a program with these specifications, we'd assume
 they were trolling us. But this is how reality behaves. These aren't bugs.

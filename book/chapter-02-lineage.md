@@ -230,7 +230,7 @@ Quantum field theory provides a modern analogue to Aristotle's emphasis on form 
 
 Particles are not fundamental objects. They are excitations of fields-ripples in an underlying substrate. An electron is not a tiny ball. It is a stable vibration of the electron field.
 
-And now, with the information-theoretic view, we see the ultimate revenge of Aristotle. The universe is not made of atoms. It is made of bits-distinctions, yes-or-no answers, relationships.
+And now, with the information-theoretic view, we see the ultimate revenge of Aristotle. The universe is best read here not as little hard atoms alone, but as structured information-relations, distinctions, and quantum degrees of freedom.
 
 What we call "particles" are patterns of information on the holographic screen. The pattern is real; the "stuff" is emergent.
 
@@ -292,7 +292,7 @@ Hofstadter argued that consciousness itself is a strange loop, a pattern that pe
 
 This has profound implications for our model. If reality is computational, and observers are patterns within that computation that model reality, then we have a strange loop: reality contains observers that understand reality.
 
-But Hofstadter and others have shown something deeper: the loop doesn't just *exist* within reality. It *constitutes* reality. Self-reference is not merely possible but necessary.
+But Hofstadter and related strange-loop thinkers argue for something deeper: the loop may not just *exist* within reality; it may be part of how reality closes on itself. On that reading, self-reference is not merely possible but structurally important.
 
 We will return to this idea in Chapter 18, where we consider the possibility that reality evolves toward producing observers capable of understanding and simulating it, closing the loop of self-creation.
 
@@ -326,7 +326,7 @@ The philosophers were reverse-engineering reality with logic. Physics gave us th
 
 In 2003, philosopher Nick Bostrom posed a disturbing question: are we living in a computer simulation?
 
-His argument was statistical. If advanced civilizations can run detailed simulations of their ancestors, they probably would. If they run many such simulations, there would be far more simulated beings than "real" ones. Therefore, statistically, we are probably simulated.
+His argument was statistical and is usually framed as a trilemma: either civilizations like ours rarely reach simulation-capable maturity, or they rarely choose to run many ancestor simulations, or simulated observers vastly outnumber unsimulated ones. On the third horn, we would then have reason to think we are probably simulated.
 
 This argument has been debated endlessly. But the interesting question is not whether we are "in" a simulation. It is what the simulation principle reveals about the nature of reality itself.
 
@@ -344,13 +344,13 @@ From this view, asking "are we in a simulation?" becomes less useful than asking
 
 ### The Strange Loop of Self-Simulation
 
-But there is a deeper possibility, one that connects to the strange loops we discussed earlier.
+But there is a deeper speculative possibility, one that connects to the strange loops we discussed earlier.
 
-Reality is computational. Within this computation, observers evolve, patterns that model their environment, develop science, and reverse engineer the rules of existence. Eventually, these observers understand the computation well enough to simulate it themselves.
+If reality is computational, then observers can evolve within that computation, model their environment, develop science, and eventually understand the rules well enough to simulate key aspects of them.
 
-This is the strange loop: **reality evolves observers who discover how reality works and build simulations of it, closing the loop of self-creation**.
+This would be the strange loop: **reality evolves observers who discover how reality works and build simulations of it, closing the loop of self-creation**.
 
-We are not programs running on someone else's hardware. We are patterns within a self-simulating system. The simulation runs through us, through our understanding, and through our eventual construction of the very computational substrate that gives rise to us.
+On this speculative continuation, we are not programs running on someone else's hardware. We are patterns within a self-simulating system. The simulation would run through us, through our understanding, and through our eventual construction of the very computational substrate that gives rise to us.
 
 This is the book's most speculative thread. It is not needed for the physics developed so far, but it gives the story a striking philosophical closure.
 
@@ -405,10 +405,10 @@ This is not coincidence. The intuitive picture-objective 3D reality independent 
 
 The philosophers gave us hints. Now we need the machinery.
 
-The key claim is that information lives on boundaries, not in volumes. Black holes really do have entropy proportional to their horizon area. The holographic principle really does suggest that 3D physics can be encoded on 2D surfaces.
+The key claim moving forward is that black-hole entropy and holographic arguments push strongly toward a boundary-first description rather than naive volume bookkeeping. The holographic principle suggests that 3D physics may admit an encoding on 2D surfaces.
 
-In the next chapter, we make this concrete. We introduce the **holographic screen**-the 2D surface where the fundamental degrees of freedom live. We explain *why* the boundary of a region, not its interior, is where the data is stored.
+In the next chapter, we make this concrete. We introduce the **holographic screen** as the boundary-first bookkeeping surface used in this program. We explain *why* a region's boundary is the natural place to organize the accessible data.
 
-This isn't metaphor. It's where reality keeps its books.
+This isn't meant as loose metaphor. It is the bookkeeping picture the next chapter develops and defends.
 
 The reverse engineering continues.

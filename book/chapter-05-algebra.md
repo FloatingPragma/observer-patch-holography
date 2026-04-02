@@ -68,13 +68,13 @@ Heisenberg started with observations (spectral lines) and reverse-engineered the
 
 Here is the OPH reading developed in this chapter: non-commutativity is part of what makes overlap consistency nontrivial.
 
-Consider the overlap condition. When two observers compare notes, they must agree on their shared observables. In a commutative world-where all measurements are compatible-this consistency is trivial. You could assign pre-existing values to everything, and agreement would be automatic.
+Consider the overlap condition. When two observers compare notes, they must agree on their shared observables. In a commutative world-where all measurements are compatible-the problem is much closer to the classical marginal setting. Pre-existing values can often be assigned more straightforwardly, especially on simple overlap structures, but compatibility is not automatic on arbitrary overlap graphs.
 
 But the Quantum Marginal Problem shows this doesn't work. Pairwise-consistent marginals can fail to glue into a global state. The consistency constraints are non-trivial precisely because not all observables commute.
 
 Here's the deeper point: **non-commutativity is what makes the quantum consistency problem especially hard.** If measurements all commuted, the overlap conditions would be much closer to the classical case. Physics could still have rich laws and dynamics, but it would miss the specifically quantum constraint structure highlighted here.
 
-Non-commutativity creates a tension between local freedom and global consistency. That tension is resolved by specific patterns of entanglement, and those patterns are what we call physical law. OPH interprets quantum non-commutativity as deeply connected to the difficulty of global consistency instead of treating it as an arbitrary extra feature.
+Non-commutativity creates a tension between local freedom and global consistency. In the OPH reading, specific patterns of entanglement help resolve that tension and are part of what we read as physical law. OPH interprets quantum non-commutativity as deeply connected to the difficulty of global consistency instead of treating it as an arbitrary extra feature.
 
 ## 5.3 The Order of Questions
 
@@ -170,7 +170,7 @@ An observable is represented by a Hermitian operator A. The possible measurement
 
 $$P(a) = |\langle a|\psi\rangle|^2$$
 
-After measurement, the state "collapses" to the eigenstate corresponding to the measured value.
+In the standard textbook projection-postulate picture, an ideal measurement updates the state to the eigenstate corresponding to the measured value.
 
 ### The Density Matrix
 
@@ -211,7 +211,7 @@ Different observers may have different states-different density matrices-reflect
 
 Why emphasize algebras rather than wave functions?
 
-In simple quantum mechanics, you can write a global wave function Ψ for the whole universe. But this becomes problematic in quantum field theory, where the Hilbert space depends on how you slice spacetime.
+In simple quantum mechanics, you can write a global wave function Ψ for the whole system. In relativistic quantum field theory, however, global-wavefunction language becomes awkward for local regions and observer-dependent subsystem decompositions, and different slicings / representations need not share one simple preferred factorization.
 
 Local algebras sidestep this problem. Each observer has their local algebra of observables. Different observers can have different algebras, but where they overlap, they must agree. The algebraic formulation is more general and better suited to observer-centric physics.
 

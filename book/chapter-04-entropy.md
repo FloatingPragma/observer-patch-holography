@@ -112,7 +112,7 @@ Consider: for observers to exist at all, they must be able to form consistent re
 
 The MaxEnt principle tells us to assign the maximum-entropy state *given our constraints*. But what are the constraints? If one of them is "observers exist to apply MaxEnt," then equilibrium states are ruled out by construction. The very act of asking "what state should I assign?" presupposes a questioner embedded in an entropy gradient.
 
-This doesn't derive the specific low entropy of the Big Bang from pure logic. But it does suggest that the Past principle is not an arbitrary input; it's a consistency requirement. A universe with observers checking for consistency must have started far from equilibrium. The low-entropy past can then be read as a structural precondition for the consistency-building present, not yet as a fully derived theorem of the framework.
+This doesn't derive the specific low entropy of the Big Bang from pure logic. But it does suggest that the Past principle is not an arbitrary input; it is structurally important in the OPH reading. A universe with durable observers checking for consistency appears to require a significant departure from equilibrium. The low-entropy past can then be read as a structural precondition for the consistency-building present, not yet as a fully derived theorem of the framework.
 
 ## 4.4 Information is Physical
 
@@ -120,13 +120,13 @@ In 1948, Claude Shannon created information theory. He needed a measure of uncer
 
 $$H = -\sum_i p_i \log p_i$$
 
-This looks exactly like Boltzmann's entropy. Shannon called it **entropy** anyway.
+This closely parallels the Gibbs/Shannon entropy formula, and Boltzmann's \(S = k_B \ln W\) appears as the equal-probability special case.
 
-The identity is not coincidence. Boltzmann's entropy and Shannon's entropy are the same thing in different units.
+The connection is not coincidence. Thermodynamic and information-theoretic entropy share the same core counting logic, though the standard formulas are written in slightly different settings.
 
 **Entropy measures missing information.**
 
-In thermodynamics, you're missing information about the microstate. In communication, you're missing information about the message. The math is identical.
+In thermodynamics, you're missing information about the microstate. In communication, you're missing information about the message. The mathematics is closely related rather than literally identical in every setting.
 
 ### Landauer's Principle
 
@@ -140,7 +140,7 @@ This sounds technical. It's revolutionary. It means **information is physical**.
 
 In 1867, Maxwell imagined a demon operating a door between two gas chambers. By selectively letting fast molecules through one way and slow molecules the other, the demon could create a temperature difference without work-seemingly violating the Second Law.
 
-The resolution: the demon must observe and remember each molecule's velocity. When its memory fills up, it must erase old memories to continue. That erasure, by Landauer's principle, generates exactly enough entropy to save the Second Law.
+The modern resolution is subtler than one sentence, but Landauer-style memory erasure is a central part of it: the demon must observe and remember each molecule's velocity, and resetting that memory carries a thermodynamic cost that preserves the Second Law bookkeeping.
 
 **The hint**: Information processing has thermodynamic costs. You cannot observe, remember, or compute for free.
 
@@ -228,7 +228,7 @@ In the semiclassical regimes where the generalized second law is expected to hol
 
 ### The Page Curve: Information Escapes
 
-Hawking showed black holes radiate. They slowly evaporate, emitting thermal radiation until they disappear.
+Hawking showed black holes radiate. In the semiclassical picture, they slowly evaporate by emitting thermal radiation, apparently shrinking toward disappearance.
 
 His original calculation said the radiation is random-no information about what fell in. This would conflict with the standard unitary expectation of quantum mechanics and is what makes the information-loss problem so sharp.
 
@@ -294,7 +294,7 @@ The entropy model includes both mathematical results and testable predictions:
 
 **1. Boltzmann's formula is derivable**: S = k_B ln W follows from the microcanonical ensemble and counting arguments. This is a theorem, not an approximation.
 
-**2. Landauer's principle**: Erasing one bit requires dissipating at least k_B T ln 2 of energy. This is a theorem of statistical mechanics, verified experimentally (2012, Bérut et al.).
+**2. Landauer's principle**: In standard thermodynamic settings, erasing one bit requires dissipating at least k_B T ln 2 of energy. This lower bound is strongly supported theoretically and has experimental support (2012, Bérut et al.).
 
 **3. Strong subadditivity**: For any tripartite quantum state, S(AB) + S(BC) ≥ S(B) + S(ABC). This is a proven theorem (Lieb-Ruskai 1973).
 
@@ -328,7 +328,7 @@ Let's trace the logic explicitly.
 
 **Additional hints**:
 - Information is physical (Landauer)
-- Entropy of subsystems scales with boundary area, not volume
+- In the low-energy / ground-state regimes relevant to the argument, entanglement entropy often scales with boundary area rather than volume
 - Black hole entropy saturates the area bound
 - Standard quantum-gravity evidence points toward information-preserving black hole evaporation
 
@@ -338,10 +338,10 @@ Let's trace the logic explicitly.
 2. The information they can access is bounded by their patch area
 3. Entanglement patterns on the screen determine both entropy and geometry
 4. The consistency process that makes observations agree costs energy and generates entropy
-5. The arrow of time is a necessary condition for observers to exist at all
+5. In the OPH reading, durable observers and records require entropy gradients, so a robust arrow of time becomes structurally important
 6. The Past principle may be structurally favored by consistency constraints, even though the specific low-entropy beginning is not yet derived from OPH alone
 
-The universe had to start in a special state for any of this to work. But this need not be left as an unexplained miracle. Consistency constraints require observers, observers require records, records require entropy gradients, and entropy gradients require a low-entropy past. OPH therefore offers a consistency-based reason to view the Past principle as structurally motivated, even though the exact initial condition is not yet derived from the framework alone.
+On this reading, the universe appears to require a special low-entropy state for any of this to work. But this need not be left as an unexplained miracle. Consistency constraints require observers, observers require records, records require entropy gradients, and entropy gradients point back toward a low-entropy past. OPH therefore offers a consistency-based reason to view the Past principle as structurally motivated, even though the exact initial condition is not yet derived from the framework alone.
 
 ## 4.11 Summary: The Entropy Budget
 

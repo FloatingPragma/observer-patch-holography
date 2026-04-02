@@ -108,7 +108,7 @@ If all three of you agree on the overlap of your visual fields-"Red Car"-then yo
 
 ### Why Classical Consistency Is Easy
 
-In classical physics, checking consistency is computationally trivial.
+In classical physics, checking consistency is much simpler on basic overlap structures than in the quantum case.
 
 The state of a classical system is a point in phase space-a list of all positions and momenta. If Alice knows the full state, so does Bob. They're reading from the same book.
 
@@ -150,7 +150,7 @@ Now apply the overlap consistency condition. Any assignment where patches disagr
 
 **Reality is the collection of local states that survives the consistency filter.**
 
-The hardness of the Quantum Marginal Problem tells us the filter is doing real work. The constraints are genuinely restrictive. This is why physics is non-trivial. If consistency were easy, any random assignment would work. The difficulty of the marginal problem is why we have specific physical laws and not chaos.
+The hardness of the Quantum Marginal Problem tells us the filter is doing real work. The constraints are genuinely restrictive. This helps explain why overlap consistency is a nontrivial structural requirement rather than a vacuous one. In the OPH reading, that hardness is part of why the allowed state-space is highly structured rather than arbitrary.
 
 And here is the key insight: in the OPH reading, overlap conditions favor allowing correlations that exceed classical bounds. Bell-violating correlations are then interpreted as part of the quantum structure that helps keep patches consistent without a large hidden-variable bookkeeping overhead.
 
@@ -307,14 +307,14 @@ The consistency challenge becomes even more striking when observers themselves b
 
 In 1961, Eugene Wigner proposed a thought experiment that still troubles physicists today.
 
-Wigner's friend is in a sealed laboratory, measuring a quantum system. From the friend's perspective, the measurement has a definite outcome-say, spin-up. The friend knows the result. For the friend, the system has collapsed.
+Wigner's friend is in a sealed laboratory, measuring a quantum system. From the friend's perspective, the measurement has produced a definite outcome record-say, spin-up. In standard textbook language, the friend would update the system to the corresponding outcome state.
 
 But Wigner is outside the lab. He describes the entire lab-including his friend-using quantum mechanics. From Wigner's perspective, the lab is in a superposition: (friend sees spin-up and atom is spin-up) + (friend sees spin-down and atom is spin-down).
 
 Who's right?
 
-From the friend's view: the measurement happened, the outcome is definite.
-From Wigner's view: no measurement happened yet; the lab is in superposition.
+From the friend's view: the measurement record is definite.
+From Wigner's view: the isolated lab can still be described by a superposed quantum state until he interacts with it.
 
 Both descriptions are internally consistent. The problem arises at the overlap-when Wigner opens the door and compares notes with his friend.
 
@@ -345,7 +345,7 @@ A "classical fact" is quantum information that has been:
 2. Made available through multiple independent channels
 3. Robust against small perturbations
 
-The red Ferrari is classical because trillions of photons have bounced off it, carrying correlated information to many observers. The cat is alive or dead (not both) because its state rapidly entangles with the environment, and only certain states survive this process.
+The red Ferrari is classical because trillions of photons have bounced off it, carrying correlated information to many observers. In the decoherence / quantum-Darwinism picture, the cat's environmentally stable pointer-state records become effectively classical for observers, while interference between alternatives becomes inaccessible in practice.
 
 Classical objectivity is quantum redundancy. The facts everyone agrees on are the facts that got copied everywhere.
 
@@ -353,13 +353,13 @@ Classical objectivity is quantum redundancy. The facts everyone agrees on are th
 
 Let's step back and consider the big picture.
 
-We've been building toward a radical view of reality. There is no single, global "state of the universe." A useful mathematical analogy is a sheaf-like gluing picture in which local data are stitched together by consistency conditions.
+We've been building toward a radical view of reality. OPH does not begin by requiring a single, global "state of the universe." A useful mathematical analogy is a sheaf-like gluing picture in which local data are stitched together by consistency conditions.
 
 ### The Internet Analogy
 
 Think of the internet. There's no single file called "The Internet" stored somewhere. There are billions of computers, each with its own memory. They communicate via protocols. When my computer sends a packet to yours, we "agree" on the content. The "internet" is the emergent consistency of all these local interactions.
 
-Reality does not exist as a single quantum state observed from a God's-eye view. It is a collection of local states-one for each observer-constrained to agree on overlaps.
+Reality need not be organized for us as a single quantum state observed from a God's-eye view. Instead, it can be treated as a collection of local states-one for each observer-constrained to agree on overlaps.
 
 When a global state exists, great. But we don't require one. Local states satisfying consistency conditions are enough for physics.
 
@@ -376,7 +376,7 @@ What we're adding is a precise mathematical model. The consistency conditions ar
 
 With many observers, each pair of overlapping patches must agree on their intersection. This forms a web of constraints.
 
-If Alice and Bob agree on their overlap (AB), and Bob and Carol agree on their overlap (BC), then Alice and Carol's states on any shared region are determined by their mutual agreement with Bob. Local pairwise consistency can enforce global structure on tree-like covers, but loops can still produce frustration unless higher-order constraints are satisfied.
+If Alice and Bob agree on their overlap (AB), and Bob and Carol agree on their overlap (BC), then Bob can mediate indirect compatibility between them on simple tree-like covers. Local pairwise consistency can help enforce global structure there, but loops or more general covers can still produce frustration unless higher-order constraints are satisfied.
 
 But beware of loops. Go from Alice to Bob to Carol and back to Alice-you should return with the same state on shared overlaps. If not, you have **frustration**: local assignments can't all be true simultaneously.
 
@@ -447,7 +447,7 @@ Summary of this chapter:
 
 **Why Bell violations matter here**: This deserves emphasis. The Quantum Marginal Problem is QMA-complete-checking whether local states are globally consistent is computationally hard. This hardness is a feature, not a bug. It shows that overlap consistency is a real constraint, and OPH interprets Bell-violating correlations as part of the quantum structure that helps satisfy it.
 
-The Bell-violating correlations are precisely what allows quantum marginals to satisfy overlap conditions with minimal pre-coordination. Einstein wanted particles to carry "instruction sets" from their common past. But instruction sets create combinatorial explosions as you add more observers. The quantum solution-entanglement that exceeds classical bounds-is more parsimonious. It achieves consistency with less information.
+OPH treats Bell-violating correlations as part of the quantum structure that can help satisfy overlap conditions with less classical pre-coordination. Einstein wanted particles to carry "instruction sets" from their common past. But instruction sets create combinatorial explosions as you add more observers. On this reading, entanglement that exceeds classical bounds is more parsimonious and reduces the bookkeeping burden.
 
 Put differently: OPH treats Bell-violating correlations as an efficient part of the quantum bookkeeping needed to maintain consistency across patches.
 
@@ -467,7 +467,7 @@ Put differently: OPH treats Bell-violating correlations as an efficient part of 
 
 7. **Quantum Darwinism**: Classical objectivity emerges when quantum information gets redundantly copied into the environment, making it accessible through multiple overlapping channels.
 
-8. **Reality as a Sheaf-Like Gluing Picture**: Reality isn't a single global state but a collection of local states glued together by consistency conditions-like the internet, not like a centralized database.
+8. **Reality as a Sheaf-Like Gluing Picture**: OPH need not begin from a single global state; it can instead be organized as local states glued together by consistency conditions-like the internet, not like a centralized database.
 
 ---
 

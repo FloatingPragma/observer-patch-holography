@@ -227,7 +227,7 @@ A symmetry says "this thing looks the same from different perspectives."
 
 **Gauge symmetry**: You use one mathematical description, I use another. As long as they're related by a gauge transformation, we make the same physical predictions. This lets different mathematical formalisms agree on reality.
 
-Why do these symmetries exist? Because they have to. If the laws changed depending on who was looking, consistency would be impossible.
+In the OPH reading, broad observer agreement strongly favors these symmetries. If the laws changed arbitrarily depending on location, orientation, or frame, consistency would become much harder to maintain.
 
 ### Noether's Theorem: The Consistency-Conservation Link
 
@@ -239,7 +239,7 @@ In 1918, Emmy Noether proved one of the most beautiful theorems in physics: **Ev
 
 This is the bookkeeping of agreement. It is more than mathematics.
 
-If energy could just appear or disappear, observers at different times would tell incompatible stories. Conservation laws are the constraints that keep stories aligned. They are requirements for consistency.
+If energy could just appear or disappear, observers at different times would tell incompatible stories. Conservation laws are the constraints that keep stories aligned. OPH treats them as deeply connected to consistency once the relevant symmetries are in place.
 
 ## 1.8 Horizons: The Limits of Agreement
 
@@ -326,7 +326,7 @@ Every observer is finite. You only access a specific patch-bounded by horizons, 
 If you look at a star and I look at the same star, we have to agree on what we see. Where patches overlap, physics must be consistent. As we'll see, that single constraint shapes almost everything.
 
 **Principle 3: Area Bound**
-You cannot pack infinite information into a finite region. The information content of a region scales with its boundary area, not its volume. This is the holographic principle.
+You cannot pack infinite information into a finite region. Black-hole entropy and related bounds strongly motivate an area-sensitive information limit and a holographic, boundary-first reading.
 
 **Principle 4: Conditional Local Recovery**
 Under the relevant Markov and recovery conditions developed later, overlap data can sometimes be used to reconstruct more of the whole system than is obvious from a single local view.
