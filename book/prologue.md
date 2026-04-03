@@ -33,9 +33,9 @@ seriously probing it for maybe four centuries. And the complexity is beyond
 anything human engineers have ever built.
 
 Thousands of the smartest humans who ever lived have contributed to this
-project. Newton, Maxwell, Einstein, Bohr, Heisenberg, Feynman, Hawking-each
-generation inheriting the partial models of the previous one, refining them,
-finding the gaps, and pushing deeper. We're still at it. The current best
+project: Newton, Maxwell, Einstein, Bohr, Heisenberg, Feynman, Hawking. Each
+generation inherited the partial models of the previous one, refined them,
+found the gaps, and pushed deeper. We're still at it. The current best
 model, quantum field theory plus general relativity, predicts behavior with
 stunning accuracy but remains incomplete, inconsistent at the edges, and
 deeply mysterious at its core.

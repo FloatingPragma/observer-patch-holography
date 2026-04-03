@@ -22,9 +22,9 @@ In the 1970s, Bekenstein and Hawking showed that black hole entropy is proportio
 
 But black holes are different. Their information lives on the surface:
 
-$$S_{BH} = \frac{k_B c^3}{4 G \hbar} A = \frac{A}{4 l_P^2}$$
+$$S_{BH} = \frac{k_B c^3}{4 G \hbar} A = \frac{A}{4 \ell_P^2}$$
 
-In entropy units, black hole entropy is \(A/(4l_P^2)\); in bits this becomes \(A/(4l_P^2 \ln 2)\).
+In entropy units, black hole entropy is \(A/(4\ell_P^2)\); in bits this becomes \(A/(4\ell_P^2 \ln 2)\).
 
 ### The Bekenstein Bound
 
@@ -36,7 +36,7 @@ This would violate the second law of thermodynamics-unless the black hole gains 
 
 If you try to pack too much entropy into a small region, the energy required creates a black hole. The black-hole saturation scaling is:
 
-$$S_{BH} \sim \frac{R^2}{l_P^2}$$
+$$S_{BH} \sim \frac{R^2}{\ell_P^2}$$
 
 -proportional to the area, not the volume.
 
@@ -395,7 +395,7 @@ This is a fundamental fork in the road:
 
 **The key insight**: de Sitter horizons are not a problem to be solved. They're the feature that makes observer-patch holography natural. Each observer has their own horizon, their own patch of screen, and consistency conditions on the overlaps.
 
-The cosmological constant appears as a **global capacity parameter**, the total number of degrees of freedom on the screen, rather than as something predicted from local physics. From the observed Lambda, we infer the screen capacity: about 10^122 bits. This is the "size" of reality, just as the pixel area is its "resolution."
+The cosmological constant appears as a **global capacity parameter**, the total number of degrees of freedom on the screen, rather than as something predicted from local physics. From the observed Lambda, we infer a screen-entropy scale of about $10^{122}$ in natural units, or $10^{122}/\ln 2$ bits. This is the "size" of reality, just as the pixel area is its "resolution."
 
 This sidesteps that specific "boundary theory at infinity" version of the unsolved problem. We're not trying to build a global boundary theory at infinity. We're building local patch descriptions that must agree on overlaps. The bulk emerges from that agreement, with Lambda as the one global parameter that all overlapping descriptions share.
 

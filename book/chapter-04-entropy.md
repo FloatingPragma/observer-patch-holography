@@ -302,7 +302,7 @@ The entropy model includes both mathematical results and testable predictions:
 
 **1. Second Law holds statistically**: Entropy increases in isolated systems with overwhelming probability. Any genuine violation identifies a measurement contradiction with statistical mechanics. No violation has ever been observed in a properly isolated system.
 
-**2. Black-hole entropy follows the semiclassical A/4 law**: The Bekenstein-Hawking formula S_BH = A/(4ℓ_P²) is strongly supported by semiclassical gravity, black-hole thermodynamics, and microstate-counting evidence in special settings.
+**2. Black-hole entropy follows the semiclassical A/4 law**: The Bekenstein-Hawking formula \(S_{BH} = A/(4\ell_P^2)\) is strongly supported by semiclassical gravity, black-hole thermodynamics, and microstate-counting evidence in special settings.
 
 **3. Page-curve reasoning for black-hole evaporation**: If information is preserved, radiation entropy should rise and then fall. Island-formula calculations reproduce that behavior in important semiclassical settings and support consistency with unitarity.
 
