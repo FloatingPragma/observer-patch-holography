@@ -639,13 +639,13 @@ In the 1970s, physicists noticed something remarkable. If you run the couplings 
 
 But there was a problem. With just the Standard Model particle content, the three couplings don't quite meet. They miss each other. In the 1990s, physicists discovered that adding supersymmetric partners fixes this: with MSSM-like particle content, the couplings unify beautifully, predicting $\alpha_s(M_Z) \approx 0.117$, remarkably close to the measured value of $0.1177 \pm 0.0009$.
 
-Our framework does more than "inherit" this success. It *derives* the MSSM-like beta shifts from edge-mode structure. The key mechanism is the Peter-Weyl decomposition of $L^2(G)$: a representation $R$ corresponds to a block $V_R \otimes V_R^*$ of size $d_R^2$. Entropy, which selects the MaxEnt state, traces over one side, giving the familiar $d_R$ factor in $p_R \propto d_R e^{-t C_2(R)}$. Vacuum polarization loops run over both indices, restoring the second $d_R$. The effective multiplicity for RG running is therefore $N_{\text{eff}} = d \cdot p$.
+Our framework does not yet promote this to a theorem-level supersymmetric spectrum. The narrower current claim is that the edge-mode structure can reproduce MSSM-like one-loop beta shifts only on a declared D10 calibration package: external input $P$, the printed running/matching conventions, the printed threshold conventions, and, when the near-MSSM benchmark is quoted, an added fermionic-grading restriction to half-integer SU(2) sectors. The key mechanism is the Peter-Weyl decomposition of $L^2(G)$: a representation $R$ corresponds to a block $V_R \otimes V_R^*$ of size $d_R^2$. Entropy, which selects the MaxEnt state, traces over one side, giving the familiar $d_R$ factor in $p_R \propto d_R e^{-t C_2(R)}$. Vacuum polarization loops run over both indices, restoring the second $d_R$. The effective multiplicity for RG running is therefore $N_{\text{eff}} = d \cdot p$.
 
 At the unification-scale heat-kernel parameter $t_U \approx 1.64$, this gives:
 $$\Delta b_{\text{edge}} \approx (2.49,\ 4.38,\ 3.97)$$
-compared to the MSSM target $(2.50,\ 4.17,\ 4.00)$. The agreement is within 5% for all three coefficients, with **no fitted parameters**. The "MSSM-like spectrum" emerges from the structure of edge-mode entanglement, not from postulating superpartners.
+compared to the MSSM target $(2.50,\ 4.17,\ 4.00)$. The agreement is within 5% for all three coefficients only on that declared calibration branch. What emerges here is MSSM-like running behavior under stated premises, not a theorem that the realized OPH branch contains an MSSM particle spectrum.
 
-The real prediction comes from *how* unification happens.
+The sharper structural prediction concerns *how* any unification-like closure would happen.
 
 ### Why Protons Don't Decay
 
@@ -661,7 +661,7 @@ There's no larger group. No X and Y bosons. No leptoquark generators. Unificatio
 
 The prediction is stark: **gauge-mediated proton decay is forbidden**. That is the theorem-level statement.
 
-This is a unique experimental signature. Standard SUSY GUTs predict *both* precision unification *and* proton decay. Our model predicts unification *without* gauge-mediated proton decay because the full connected gauge group has only the product-group adjoint content and no mixed leptoquark generators. If Hyper-Kamiokande continues to see null results while precision measurements continue to favor unified couplings, that would be strong evidence for geometric unification instead of algebraic unification.
+This is a unique experimental signature. Standard SUSY GUTs predict *both* precision unification *and* proton decay. Our model instead combines a theorem-level structural statement with a separate calibration branch: the full connected gauge group has only the product-group adjoint content and no mixed leptoquark generators, so gauge-mediated proton decay is forbidden, while the D10 running story allows MSSM-like unification-style closure without simple-group embedding. If Hyper-Kamiokande continues to see null results while precision measurements continue to favor unified couplings, that would be evidence for geometric rather than algebraic unification.
 
 ## 14.20 What the Model Explains
 
