@@ -404,7 +404,7 @@ The holographic principle makes sharp, testable predictions:
 
 **2. Black holes saturate the gravitational area law**: Black holes realize $S = A/(4\ell_P^2)$ and are maximally entropic for their size in this gravitational sense. Any clear violation of the associated entropy bounds would identify a measurement contradiction with the model.
 
-**3. Information is finite**: The observable universe contains at most $\sim 10^{122}$ bits. This is enormous but finite. Any evidence of truly infinite information content would contradict holography.
+**3. Information is finite**: The observable universe carries an entropy scale of order $\sim 10^{122}$ in natural units, or $\sim 10^{122}/\ln 2$ bits. This is enormous but finite. Any evidence of truly infinite information content would contradict holography.
 
 These ideas have strong support in the settings where we can currently probe them:
 - Black hole thermodynamics confirms area-entropy
@@ -438,7 +438,7 @@ Let's put numbers on this.
 
 The Planck length is $\ell_P \approx 1.6 \times 10^{-35}$ meters-about $10^{20}$ times smaller than a proton. The Planck area is $\ell_P^2 \approx 2.6 \times 10^{-70}$ m².
 
-**The observable universe**: Radius $R \approx 4.4 \times 10^{26}$ m. Horizon area $A \approx 2.4 \times 10^{54}$ m². The corresponding information scale is of order $10^{122}$--$10^{123}$ bits, depending on which horizon convention is being used.
+**The observable universe**: Radius $R \approx 4.4 \times 10^{26}$ m. Horizon area $A \approx 2.4 \times 10^{54}$ m². The corresponding entropy scale is of order $10^{122}$--$10^{123}$ in natural units, or smaller by a factor of $\ln 2$ when quoted in bits, depending on which horizon convention is being used.
 
 This is a truly enormous number-but it is finite. The observable universe contains a finite amount of information.
 

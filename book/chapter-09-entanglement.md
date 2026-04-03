@@ -126,7 +126,7 @@ Bell showed that classical correlations are bounded. But why doesn't nature allo
 
 Imagine "super-quantum" correlations that saturate the algebraic maximum of S = 4. Even if they still obey no-signaling, they would trivialize tasks like communication complexity and sit uneasily with the information-processing structure of ordinary quantum theory.
 
-The Tsirelson bound S = 2sqrt(2) is the maximum allowed by quantum mechanics. It's strong enough to violate classical limits while still fitting the specific consistency structure of ordinary quantum theory.
+The Tsirelson bound \(S = 2\sqrt{2}\) is the maximum allowed by quantum mechanics. It's strong enough to violate classical limits while still fitting the specific consistency structure of ordinary quantum theory.
 
 This shows a deep connection: **quantum correlations are closely tied to the consistency structure we observe**. Classical is too weak-it fails certain consistency tests. Super-quantum options overshoot the ordinary quantum-information structure. Quantum sits at the sweet spot.
 

@@ -51,7 +51,7 @@ The logic:
 2. We have a state rho (a density matrix representing our knowledge)
 3. Any density matrix defines a **modular Hamiltonian**: K = -ln rho
 
-What is a modular Hamiltonian? In ordinary quantum mechanics, the Hamiltonian H generates time evolution via $e^{-iHt}$. The modular Hamiltonian does the same thing, except it is constructed from the state itself. If you know the density matrix $\rho$, you can take its logarithm and get an operator $K = -\ln\rho$ that acts like an internal clock for that state.
+What is a modular Hamiltonian? In ordinary quantum mechanics, the Hamiltonian H generates time evolution via $e^{-iHt}$. The modular Hamiltonian instead generates a state-dependent modular flow. If you know the density matrix $\rho$, you can take its logarithm and get an operator $K = -\ln\rho$ whose modular evolution acts like an internal clock for that state.
 
 4. This Hamiltonian generates a flow: sigma_s(A) = e^{iKs} A e^{-iKs}
 5. **The Thermal Time principle**: This flow is what we experience as time.
