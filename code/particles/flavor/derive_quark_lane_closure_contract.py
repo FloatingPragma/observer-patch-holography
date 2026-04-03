@@ -68,9 +68,10 @@ def build_payload(
     x2 = float(t1_value_law["sample_same_family_point"]["x2"])
     return {
         "artifact": "oph_quark_lane_closure_contract",
+        "base_theorem_emitted_package_artifact": "oph_quark_maximal_theorem_emitted_package",
         "generated_utc": _timestamp(),
         "scope": "quark_lane_theorem_boundary_plus_exact_sidecars",
-        "proof_status": "three_exact_missing_theorems_identified_exact_sidecar_masses_recorded",
+        "proof_status": "maximal_theorem_emitted_package_identified_three_exact_missing_theorems_recorded_exact_sidecar_masses_recorded",
         "public_promotion_allowed": False,
         "mass_comparison_surface": {
             "kind": "running_mass_comparison_surface",
@@ -245,6 +246,7 @@ def build_payload(
             "(axioms + Sigma_ud^phys) => Theta_ud^abs = quark_absolute_sector_readout_theorem => (g_u, g_d) => (m_u, m_d, m_s, m_c, m_b, m_t)",
         ],
         "notes": [
+            "The maximal theorem-emitted quark package on the present ledger is the D12 mass ray, the negative selector closure sigma_ref, and the restricted-scope affine mean package; the three exact missing theorem objects recorded here sit above that package.",
             "The exact current-family witness and the D12 internal backread sidecar exhibit the mass data on sidecar surfaces, but they do not promote the public quark theorem lane.",
             "The selected local same-label left-handed sheet closes negatively to sigma_ref; the remaining physical quark burden is not another local selector search.",
             "Full end-to-end physical quark closure waits on three exact theorem objects: the D12 one-scalar value law, a sector-attached physical CKM lift, and a target-free absolute sector readout on that physical sheet.",

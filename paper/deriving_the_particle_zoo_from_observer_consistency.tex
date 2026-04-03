@@ -471,7 +471,7 @@ The Stage-5 summary is this: quarks have continuation-level rows; charged lepton
 
 The move from overlap structure to compact gauge reconstruction and the realized Standard Model branch belongs to the OPH structural core. The move from the realized branch to structural carriers and to the electroweak/Higgs-top bosonic outputs is reflected in the reported numerical rows. The move from the shared flavor dictionary to full family closure remains split by sector.
 
-Quarks have continuation-level rows on an emitted D12 branch. The quark theorem boundary is exact and three-step: \(\Theta_{ud}^{\mathrm{mass}}=\text{\ophid{quark_d12_t1_value_law}}\), with \(\Delta_{ud}^{\mathrm{overlap}}=\tfrac16\log(c_d/c_u)=t_1/5\) on the emitted D12 mass ray; then \(\Theta_{ud}^{\mathrm{phys}}\), a sector-attached same-label left-handed lift to the physical CKM shell; then \(\Theta_{ud}^{\mathrm{abs}}\), a target-free absolute sector readout theorem for \((g_u,g_d)\) on that physical sheet. A separate D12 internal backread sidecar also fixes the mass-side scalar package numerically on a continuation-only surface, with \(\Delta_{ud}^{\mathrm{overlap}}=0.13431740757663183\), \(t_1=0.6715870378831591\), \(\eta_Q^{\mathrm{centered}}=-0.018210067243314802\), and \(\kappa_Q=-0.012436796997836279\); that sidecar does not replace the public theorem frontier and does not remove the wrong-sheet CKM boundary. Charged leptons sit on a narrower continuation surface: the same-carrier centered readback is exact, the common-shift quotient surface is closed as a no-go for absolute scale, and the theorem-grade frontier is the two-layer chain
+Quarks have continuation-level rows on an emitted D12 branch. The maximal theorem-emitted quark package on the present ledger consists of the D12 mass ray \(\mathcal R_{D12}^{ud}\), the negative same-label left-handed selector closure \(\sigma_{ud}=\sigma_{\mathrm{ref}}\), and the restricted-scope affine mean package with \(g_{\mathrm{ch}}=0.9231656602589082\) on \texttt{shared\_budget\_only} and \((g_u,g_d)=(0.7797392875757557,0.12172551081512113)\) on \texttt{current\_family\_only}. The stronger physical closure objects \(\Theta_{ud}^{\mathrm{mass}},\Theta_{ud}^{\mathrm{phys}},\Theta_{ud}^{\mathrm{abs}}\) are not emitted on that ledger. A separate D12 internal backread sidecar also fixes the mass-side scalar package numerically on a continuation-only surface, with \(\Delta_{ud}^{\mathrm{overlap}}=0.13431740757663183\), \(t_1=0.6715870378831591\), \(\eta_Q^{\mathrm{centered}}=-0.018210067243314802\), and \(\kappa_Q=-0.012436796997836279\); that sidecar does not replace the public theorem frontier and does not remove the wrong-sheet CKM boundary. Charged leptons sit on a narrower continuation surface: the same-carrier centered readback is exact, the common-shift quotient surface is closed as a no-go for absolute scale, and the theorem-grade frontier is the two-layer chain
 \[
 \widehat C_e^{\mathrm{cand}}
 \longrightarrow
@@ -1613,25 +1613,74 @@ The exact closure contract on this quark lane is therefore three-step:
 \item \(\Theta_{ud}^{\mathrm{abs}}\) is the target-free promotion of the affine sector-mean readout to the physical sheet, emitting \((g_u,g_d)\) and therefore the physical quark sextet.
 \end{enumerate}
 
-\paragraph{Current-premise no-go theorem.}
+\paragraph{Maximal theorem-emitted quark package theorem.}
 Let
 \[
 P:=p_a+\text{(Axioms 1--5)}+\text{Assumption 6}
 +\text{the emitted OPH nodes D1--D10}
 +\text{the current public D12 quark objects}.
 \]
-Then the present corpus does not emit
+Then the present corpus theorem-emits exactly the following quark-side package:
 \[
+\textbf{(i)}\quad
+D12_{ud}^{\mathrm{mass}}
+=
+\mathcal R_{D12}^{ud}
+=
+\left\{
+\lambda\left(\frac15,-\frac{1-x_2^2}{27}\right):\lambda\ge0
+\right\},
+\qquad
+\lambda=\mathrm{ray\_modulus}=t_1,
+\]
+\[
+\textbf{(ii)}\quad
+\sigma_{ud}=\sigma_{\mathrm{ref}}
+\]
+on the emitted same-label left-handed local solver surface, with canonical token
+\[
+\texttt{D12::same\_label\_left::reference\_sheet}.
+\]
+This is a negative closure because \(\sigma_{\mathrm{ref}}\) is the wrong D12 CKM sheet.
+\[
+\textbf{(iii)}\quad
+g_{\mathrm{ch}}=0.9231656602589082
+\qquad
+(\texttt{shared\_budget\_only}),
+\]
+\[
+\sigma_u=5.5905,\qquad
+\sigma_d=3.3049,\qquad
+\sigma_{\mathrm{seed}}^{ud}=4.4477,\qquad
+\eta_{ud}=1.1428,
+\]
+\[
+A_{ud}=0.2467442927388686,
+\qquad
+B_{ud}=0.8125616987157023,
+\]
+\[
+g_u=0.7797392875757557,
+\qquad
+g_d=0.12172551081512113
+\qquad
+(\texttt{current\_family\_only}).
+\]
+No stronger physical closure follows from this theorem-emitted package:
+\[
+P\nvdash
 \Theta_{ud}^{\mathrm{mass}},
 \qquad
+P\nvdash
 \Theta_{ud}^{\mathrm{phys}},
 \qquad
+P\nvdash
 \Theta_{ud}^{\mathrm{abs}}.
 \]
-On the mass side, \(P\) emits the D12 ray \(D12_{ud}^{\mathrm{mass}}=\mathcal R_{D12}^{ud}\) but not a theorem-grade nonzero value of its modulus \(t_1\). On the mixing side, \(P\) emits the negative selector closure \(\sigma_{ud}=\sigma_{\mathrm{ref}}\), and same-sheet rephasing preserves CKM moduli, so \(P\) emits no sector-attached same-label left-handed lift from \(\sigma_{\mathrm{ref}}\) to the physical CKM shell. On the absolute side, the affine sector-mean split is formula-complete on the selected sheet, but the exact sextet witness remains target-anchored and \texttt{current\_family\_only}, so \(P\) emits no target-free physical-sheet pair \((g_u,g_d)\). Therefore the exact same-family sextet and the D12 internal backread scalar package are continuation-sidecar representatives, not \(P\)-emitted theorem outputs.
+On the mass side, the emitted ray carries no theorem-grade nonzero modulus. On the mixing side, the emitted selector value \(\sigma_{\mathrm{ref}}\) carries no sector-attached same-label left-handed lift to the physical CKM shell because same-sheet rephasing preserves CKM moduli. On the absolute side, the affine sector-mean split is emitted only on the restricted current-family/shared-budget surfaces, so it carries no target-free physical-sheet pair \((g_u,g_d)\). Therefore the exact same-family sextet and the D12 internal backread scalar package are continuation-sidecar representatives, not \(P\)-emitted physical-sheet theorem outputs.
 
 \paragraph{Minimal-extension closure theorem.}
-The exact minimal extension triple consists of the smallest added data that remove that no-go:
+The exact minimal extension triple above that theorem-emitted package is
 \[
 H_{\mathrm{mass}}
 \;:\;
@@ -1717,15 +1766,17 @@ nonuniformity of the particle derivation across the particle zoo.
 
 \subsection{Quark Theorem Boundary}\label{quark-family-open-closures}
 
-The quark lane has three theorem-facing open objects on the emitted same-family D12 branch and one separate builder-facing backend burden:
+The present quark theorem boundary consists of a maximal theorem-emitted package on the emitted same-family D12 branch together with an exact minimal extension triple above that package:
 \begin{enumerate}[leftmargin=2em]
-\item \(H_{\mathrm{mass}}\): emit the intrinsic light-isospin scalar \(\ell_{ud}:=\log(c_d/c_u)\), equivalently the nonzero one-scalar law \ophid{quark_d12_t1_value_law} on \(D12_{ud}^{\mathrm{mass}}=\mathcal R_{D12}^{ud}\), with \(t_1=\tfrac56\,\ell_{ud}\) and \(\Delta_{ud}^{\mathrm{overlap}}=\tfrac16\,\ell_{ud}=t_1/5\);
-\item \(H_{\mathrm{phys}}\): emit the sector-attached same-label left-handed section \(s_{ud}^{\mathrm{phys}}:\mathfrak M_{ud}^{\mathrm{CR,phys}}\to\Sigma_{ud}^{\mathrm{phys}}\), because the emitted local selector is fixed negatively to \(\sigma_{\mathrm{ref}}\) and same-sheet rephasing preserves CKM moduli;
-\item \(H_{\mathrm{abs}}\): emit the physical affine anchor \(A_q^{\mathrm{phys}}:\Sigma_{ud}^{\mathrm{phys}}\to\mathbb R\), so the target-free physical-sheet readout \((g_u,g_d)\) follows from the affine mean split and the ordered three-point quadratic readout then emits the sextet; and
-\item beneath \(H_{\mathrm{mass}}\), the builder-facing pure-\(B\) payload pair is forced algebraically and is therefore not a fourth theorem object.
+\item the emitted D12 mass ray \(D12_{ud}^{\mathrm{mass}}=\mathcal R_{D12}^{ud}\), with unresolved modulus \(\lambda=\mathrm{ray\_modulus}=t_1\);
+\item the emitted same-label left-handed selector value \(\sigma_{ud}=\sigma_{\mathrm{ref}}\), which is a negative closure because \(\sigma_{\mathrm{ref}}\) is the wrong D12 CKM sheet;
+\item the emitted restricted-scope affine mean package with \(g_{\mathrm{ch}}=0.9231656602589082\) on \texttt{shared\_budget\_only} and \(g_u=0.7797392875757557\), \(g_d=0.12172551081512113\) on \texttt{current\_family\_only}, using \(\sigma_u=5.5905\), \(\sigma_d=3.3049\), \(\sigma_{\mathrm{seed}}^{ud}=4.4477\), \(\eta_{ud}=1.1428\), \(A_{ud}=0.2467442927388686\), and \(B_{ud}=0.8125616987157023\);
+\item \(H_{\mathrm{mass}}:\ell_{ud}:=\log(c_d/c_u)\), equivalently the nonzero one-scalar law \ophid{quark_d12_t1_value_law} with \(t_1=\tfrac56\,\ell_{ud}\) and \(\Delta_{ud}^{\mathrm{overlap}}=\tfrac16\,\ell_{ud}=t_1/5\);
+\item \(H_{\mathrm{phys}}\): the sector-attached same-label left-handed section \(s_{ud}^{\mathrm{phys}}:\mathfrak M_{ud}^{\mathrm{CR,phys}}\to\Sigma_{ud}^{\mathrm{phys}}\); and
+\item \(H_{\mathrm{abs}}\): the physical affine anchor \(A_q^{\mathrm{phys}}:\Sigma_{ud}^{\mathrm{phys}}\to\mathbb R\), so the target-free physical-sheet readout \((g_u,g_d)\) follows from the affine mean split and the ordered three-point quadratic readout then emits the sextet.
 \end{enumerate}
 
-The quark headline is narrower: quarks are the only matter family with reported numerical rows, the selected-sheet exact witness reproduces the six running quark reference masses exactly on the same ordered three-point family, and the exact missing theorem package above that sidecar is the minimal extension \((H_{\mathrm{mass}},H_{\mathrm{phys}},H_{\mathrm{abs}})\). Any same-sheet overlap scan, chirality-basis diagnostic, or other orbit improvement that is not sector-attached, left-handed, and same-label remains outside the theorem ledger.
+The quark headline is narrower: quarks are the only matter family with reported numerical rows, the selected-sheet exact witness reproduces the six running quark reference masses exactly on the same ordered three-point family, and the stronger physical closure objects sit strictly above the maximal theorem-emitted package on the present ledger. Any same-sheet overlap scan, chirality-basis diagnostic, or other orbit improvement that is not sector-attached, left-handed, and same-label remains outside the theorem ledger.
 \section{Charged-Lepton Family Derivation}
 
 The charged-lepton derivation is one step less mature than the quark derivation. It contains an

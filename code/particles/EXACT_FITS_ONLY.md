@@ -1,6 +1,6 @@
 # Exact Fits Only
 
-Generated: `2026-04-03T03:29:29Z`
+Generated: `2026-04-03T04:42:24Z`
 
 This surface lists only exact target-matching diagnostic fits currently on disk. It is narrower than `RESULTS_STATUS.md` and does not promote any compare-only or current-family witness into theorem-grade OPH output.
 

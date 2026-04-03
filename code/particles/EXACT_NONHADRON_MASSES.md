@@ -1,6 +1,6 @@
 # Exact Non-Hadron Masses
 
-Generated: `2026-04-03T03:29:28Z`
+Generated: `2026-04-03T04:42:24Z`
 
 This bundle gives one exact mass output for every non-hadron particle currently covered by the OPH particle stack.
 It closes the exact-output lane, not the theorem-grade derivation lane.

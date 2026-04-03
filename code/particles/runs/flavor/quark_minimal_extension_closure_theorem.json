@@ -2,7 +2,8 @@
   "artifact": "oph_quark_minimal_extension_closure_theorem",
   "status": "theorem_grade_extension_contract",
   "premise_set": "P := p_a + Axioms 1-5 + Assumption 6 + emitted OPH nodes D1-D10 + current public D12 quark objects",
-  "added_data": {
+  "base_theorem_emitted_package_artifact": "oph_quark_maximal_theorem_emitted_package",
+  "exact_minimal_extension_triple": {
     "H_mass": "ell_ud := log(c_d / c_u)",
     "H_phys": "s_ud^phys : M_ud^{CR,phys} -> Sigma_ud^phys",
     "H_abs": "A_q^phys : Sigma_ud^phys -> R"
@@ -17,10 +18,5 @@
     "log g_d = A_q^phys - (A_ud * sigma_seed_ud + B_ud * eta_ud)",
     "(m_u, m_d, m_s, m_c, m_b, m_t) follow from the ordered three-point quadratic readout"
   ],
-  "theorem_statement": "P + H_mass + H_phys + H_abs implies Theta_ud^mass, Theta_ud^phys, Theta_ud^abs, and therefore the physical quark sextet.",
-  "next_objects_are_exactly": [
-    "H_mass",
-    "H_phys",
-    "H_abs"
-  ]
+  "theorem_statement": "The exact minimal extension triple above oph_quark_maximal_theorem_emitted_package is H_mass, H_phys, H_abs. Adjoining that triple to P emits Theta_ud^mass, Theta_ud^phys, Theta_ud^abs, and therefore the physical quark sextet."
 }

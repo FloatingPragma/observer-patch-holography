@@ -39,6 +39,8 @@ UV_BW_CAP_PAIR_SCAFFOLD = ROOT / "particles" / "runs" / "uv" / "bw_scaling_limit
 UV_BW_RIGIDITY_SCAFFOLD = ROOT / "particles" / "runs" / "uv" / "bw_ordered_cut_pair_rigidity_scaffold.json"
 FORWARD_YUKAWAS = ROOT / "particles" / "runs" / "flavor" / "forward_yukawas.json"
 QUARK_SECTOR_MEAN_SPLIT = ROOT / "particles" / "runs" / "flavor" / "quark_sector_mean_split.json"
+QUARK_SHARED_ABSOLUTE_NORM_BINDING = ROOT / "particles" / "runs" / "flavor" / "quark_shared_absolute_norm_binding.json"
+QUARK_RELATIVE_SHEET_SELECTOR = ROOT / "particles" / "runs" / "flavor" / "quark_relative_sheet_selector.json"
 D10_SOURCE_TRANSPORT_READOUT = ROOT / "particles" / "runs" / "calibration" / "d10_ew_source_transport_readout.json"
 D11_FORWARD_SEED = ROOT / "particles" / "runs" / "calibration" / "d11_forward_seed.json"
 FORWARD_CHARGED_LEPTONS = ROOT / "particles" / "runs" / "leptons" / "forward_charged_leptons.json"
@@ -119,6 +121,21 @@ _QUARK_D12_INTERNAL_BACKREAD = (
     if QUARK_D12_INTERNAL_BACKREAD_CLOSURE.exists()
     else None
 )
+_QUARK_SECTOR_MEAN_SPLIT = (
+    json.loads(QUARK_SECTOR_MEAN_SPLIT.read_text(encoding="utf-8"))
+    if QUARK_SECTOR_MEAN_SPLIT.exists()
+    else None
+)
+_QUARK_SHARED_NORM_BINDING = (
+    json.loads(QUARK_SHARED_ABSOLUTE_NORM_BINDING.read_text(encoding="utf-8"))
+    if QUARK_SHARED_ABSOLUTE_NORM_BINDING.exists()
+    else None
+)
+_QUARK_RELATIVE_SELECTOR = (
+    json.loads(QUARK_RELATIVE_SHEET_SELECTOR.read_text(encoding="utf-8"))
+    if QUARK_RELATIVE_SHEET_SELECTOR.exists()
+    else None
+)
 _QUARK_D12_INTERNAL_BACKREAD_NOTE = ""
 if _QUARK_D12_INTERNAL_BACKREAD is not None:
     _quark_closed = _QUARK_D12_INTERNAL_BACKREAD["closed_mass_side_package"]
@@ -154,18 +171,34 @@ CHARGED_CONTINUATION_NOTE = (
     "A D12 continuation bridge exists under the extra assumptions A1-A3 and gives eta = -6.729586682888832 and sigma = 8.154061112725994 with near-exact centered-log shape closure, "
     "but the theorem-grade lane still lacks emitted eta, sigma, and absolute scale. On that continuation bridge the compare-only absolute target would be `g_e* = 0.04577885783568762`, equivalently `Delta_e_abs* = 3.003986333402356`, and that target is kept strictly non-promotable until a theorem-grade absolute anchor `A_ch` exists on the live branch."
 )
+_QUARK_GCH = _QUARK_SHARED_NORM_BINDING["g_ch"] if _QUARK_SHARED_NORM_BINDING is not None else 0.9231656602589082
+_QUARK_SHARED_SCOPE = _QUARK_SHARED_NORM_BINDING.get("theorem_scope", "shared_budget_only") if _QUARK_SHARED_NORM_BINDING is not None else "shared_budget_only"
+_QUARK_SIGMA_U = _QUARK_SECTOR_MEAN_SPLIT["sigma_u_total_log_per_side"] if _QUARK_SECTOR_MEAN_SPLIT is not None else 5.5905
+_QUARK_SIGMA_D = _QUARK_SECTOR_MEAN_SPLIT["sigma_d_total_log_per_side"] if _QUARK_SECTOR_MEAN_SPLIT is not None else 3.3049
+_QUARK_SIGMA_SEED = _QUARK_SECTOR_MEAN_SPLIT["sigma_seed_ud_candidate"] if _QUARK_SECTOR_MEAN_SPLIT is not None else 4.4477
+_QUARK_ETA_UD = _QUARK_SECTOR_MEAN_SPLIT["eta_ud_candidate"] if _QUARK_SECTOR_MEAN_SPLIT is not None else 1.1428
+_QUARK_A_UD = _QUARK_SECTOR_MEAN_SPLIT["A_ud_candidate"] if _QUARK_SECTOR_MEAN_SPLIT is not None else 0.2467442927388686
+_QUARK_B_UD = _QUARK_SECTOR_MEAN_SPLIT["B_ud_candidate"] if _QUARK_SECTOR_MEAN_SPLIT is not None else 0.8125616987157023
+_QUARK_GU = _QUARK_SECTOR_MEAN_SPLIT["g_u_candidate"] if _QUARK_SECTOR_MEAN_SPLIT is not None else 0.7797392875757557
+_QUARK_GD = _QUARK_SECTOR_MEAN_SPLIT["g_d_candidate"] if _QUARK_SECTOR_MEAN_SPLIT is not None else 0.12172551081512113
+_QUARK_MEAN_SCOPE = _QUARK_SECTOR_MEAN_SPLIT.get("theorem_scope", "current_family_only") if _QUARK_SECTOR_MEAN_SPLIT is not None else "current_family_only"
+_QUARK_SELECTOR_TOKEN = (
+    _QUARK_RELATIVE_SELECTOR["quark_relative_sheet_selector"]["value"]["canonical_token"]
+    if _QUARK_RELATIVE_SELECTOR is not None
+    else "D12::same_label_left::reference_sheet"
+)
+
 QUARK_CONTINUATION_NOTE = (
     "A separate exact same-family witness is on disk: `oph_quark_current_family_exact_readout` reproduces the six running quark reference masses exactly on the same ordered three-point family, its internal current-family readout chain is closed through `oph_quark_current_family_quadratic_readout_theorem`, and the selected-sheet exact completion on `sigma_ref` is packaged as `oph_quark_current_family_selected_sheet_exact_closure`; its recorded scope field is `current_family_only`, so it does not resolve the wrong-branch D12 CKM no-go or emit `quark_d12_t1_value_law`. Derived from the local quark chain "
     "`derive_quark_sector_mean_split.py -> derive_quark_sector_descent.py -> "
     "build_forward_yukawas.py -> derive_quark_d12_overlap_transport_law.py -> "
     "derive_quark_quadratic_even_transport_scalar.py -> derive_generation_bundle_same_label_physical_invariant_bundle.py -> "
     "derive_quark_scalarized_continuation_bundle.py -> derive_quark_d12_mass_branch_and_ckm_residual.py`, using the active reference-free forward Yukawa candidate on the `/particles` public surface. "
-    "The emitted same-label left-handed local solver surface closes to the singleton `sigma_ref`; that closure is negative because `sigma_ref` is the wrong D12 CKM sheet. Same-sheet rephasing preserves entrywise CKM moduli and the corpus emits no sector-attached same-label left-handed lift from `sigma_ref` to a physical `Sigma_ud` carrier. "
-    "The mass-side theorem boundary is exact. On the minimal light branch `y_u = c_u * epsilon^6`, `y_d = c_d * epsilon^6`, `epsilon = 1/6`, so `Delta_ud_overlap = (1/6) * log(c_d / c_u)`. On the emitted D12 mass ray `D12_ud_mass_ray`, the same scalar is `quark_d12_t1_value_law`, with `Delta_ud_overlap = t1 / 5`, `eta_Q_centered = -((1 - x2^2) / 27) * t1`, and `kappa_Q = -t1 / 54`, equivalently `t1 = 5 * Delta_ud_overlap = (5/6) * log(c_d / c_u)`. Once `t1` is emitted, the odd source package is forced algebraically: `beta_u_diag_B_source = t1 / 10`, `beta_d_diag_B_source = -t1 / 10`, `source_readback_u_log_per_side = (-t1/10, 0, +t1/10)`, `source_readback_d_log_per_side = (+t1/10, 0, -t1/10)`, `tau_u = sigma_d * t1 / (10 * (sigma_u + sigma_d))`, and `tau_d = sigma_u * t1 / (10 * (sigma_u + sigma_d))`. "
-    "The physical-sheet theorem boundary is also exact: the missing object is a sector-attached section from the common-refinement frame-overlap quotient to the physical same-label left-handed carrier `Sigma_ud^phys = {(sigma_id, tau, U_uL, U_dL, V_CKM, I_CKM) : V_CKM = U_uL^dagger U_dL} / ~`, with diagonal rephasing equivalence `(U_uL, U_dL, V) ~ (U_uL D_u, U_dL D_d, D_u^dagger V D_d)`. "
-    "The absolute-readout theorem boundary is formula-complete on the current-family selected sheet. Writing `sigma_seed_ud = (sigma_u + sigma_d) / 2`, `eta_ud = (sigma_u - sigma_d) / 2`, `A_ud = 1 / (2 * (1 + rho_ord - x2^2))`, and `B_ud = 1 / (2 * (1 - x2^2 - x2^2 / (1 + rho_ord)))`, the candidate sector means are `g_u = g_ch * exp(-(A_ud * sigma_seed_ud - B_ud * eta_ud))` and `g_d = g_ch * exp(-(A_ud * sigma_seed_ud + B_ud * eta_ud))`. The missing theorem is the target-free promotion of that mean split to the physical sheet, after which the ordered three-point quadratic readout emits the sextet. "
-    "The present premise set carries a strict no-go for full physical quark closure: it does not emit `quark_d12_t1_value_law`, it does not emit a sector-attached same-label left-handed lift from `sigma_ref` to the physical CKM shell, and it does not emit a target-free physical-sheet readout `(g_u, g_d)`. "
-    "The exact next objects to compute are therefore the minimal extension triple `H_mass : ell_ud = log(c_d / c_u)`, `H_phys : s_ud^phys : M_ud^{CR,phys} -> Sigma_ud^phys`, and `H_abs : A_q^phys : Sigma_ud^phys -> R`. "
+    "The maximal theorem-emitted quark package on the present ledger is explicit. The mass side emits the D12 ray `D12_ud_mass_ray = {lambda * (1/5, -((1 - x2^2) / 27))}` with unresolved modulus `lambda = ray_modulus = t1`. "
+    f"The same-label left-handed selector is theorem-emitted with unique value `sigma_ref` and canonical token `{_QUARK_SELECTOR_TOKEN}`; that value is a negative closure because `sigma_ref` is the wrong D12 CKM sheet. "
+    f"The shared absolute norm binding emits `g_ch = {_QUARK_GCH:.16f}` on `{_QUARK_SHARED_SCOPE}`, and the current-family affine mean law emits `sigma_u = {_QUARK_SIGMA_U:.4f}`, `sigma_d = {_QUARK_SIGMA_D:.4f}`, `sigma_seed_ud = {_QUARK_SIGMA_SEED:.4f}`, `eta_ud = {_QUARK_ETA_UD:.4f}`, `A_ud = {_QUARK_A_UD:.16f}`, `B_ud = {_QUARK_B_UD:.16f}`, `g_u = {_QUARK_GU:.16f}`, and `g_d = {_QUARK_GD:.16f}` on `{_QUARK_MEAN_SCOPE}`. "
+    "No stronger physical closure follows from that theorem-emitted package: the present premise set does not emit `quark_d12_t1_value_law`, it does not emit a sector-attached same-label left-handed lift from `sigma_ref` to the physical CKM shell, and it does not emit a target-free physical-sheet readout `(g_u, g_d)`. "
+    "The exact minimal extension above that theorem-emitted package is the triple `H_mass : ell_ud = log(c_d / c_u)`, `H_phys : s_ud^phys : M_ud^{CR,phys} -> Sigma_ud^phys`, and `H_abs : A_q^phys : Sigma_ud^phys -> R`. "
     "The exact selected-sheet sextet `(u, d, s, c, b, t) = (0.00216, 0.00470, 0.0935, 1.273, 4.183, 172.3523553288311) GeV` hits the running-mass comparison surface on `current_family_only`, but that exact sidecar does not promote the theorem lane."
     + _QUARK_D12_INTERNAL_BACKREAD_NOTE
 )

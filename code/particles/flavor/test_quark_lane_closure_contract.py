@@ -32,7 +32,8 @@ def test_quark_lane_closure_contract_records_three_exact_missing_theorems() -> N
 
     payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
     assert payload["artifact"] == "oph_quark_lane_closure_contract"
-    assert payload["proof_status"] == "three_exact_missing_theorems_identified_exact_sidecar_masses_recorded"
+    assert payload["base_theorem_emitted_package_artifact"] == "oph_quark_maximal_theorem_emitted_package"
+    assert payload["proof_status"] == "maximal_theorem_emitted_package_identified_three_exact_missing_theorems_recorded_exact_sidecar_masses_recorded"
     assert payload["selected_local_sheet_status"]["sigma_id"] == "sigma_ref"
     assert payload["exact_sidecar_mass_surface"]["scope"] == "current_family_only"
     assert payload["exact_sidecar_mass_surface"]["exact_outputs_gev"]["u"] == 0.0021599999999999996

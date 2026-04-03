@@ -1,0 +1,49 @@
+{
+  "artifact": "oph_quark_maximal_theorem_emitted_package",
+  "status": "theorem_grade_boundary_emitted",
+  "premise_set": "P_now := p_a + Axioms 1-5 + Assumption 6 + the currently emitted quark-side OPH artifacts on the active ledger",
+  "theorem_statement": "On the present ledger, the maximal theorem-emitted quark package consists of the D12 mass ray, the negative selector closure sigma_ref, and the restricted-scope affine mean package. The stronger physical closure objects Theta_ud^mass, Theta_ud^phys, and Theta_ud^abs are not emitted on that ledger.",
+  "emitted_package": {
+    "mass_ray": {
+      "artifact": "D12_ud_mass_ray",
+      "formula": "R_D12^ud = { lambda * (1/5, -((1 - x2^2) / 27)) : lambda >= 0 }",
+      "lambda_equals": "ray_modulus = t1",
+      "x2": -0.5175863354681689,
+      "scope": "theorem_grade_emitted_ray"
+    },
+    "same_label_left_handed_selector": {
+      "sigma_id": "sigma_ref",
+      "canonical_token": "D12::same_label_left::reference_sheet",
+      "scope": "theorem_grade_value_emitted",
+      "status": "negative_closure_wrong_ckm_sheet"
+    },
+    "shared_norm_binding": {
+      "g_ch": 0.9231656602589082,
+      "theorem_scope": "shared_budget_only",
+      "artifact": "quark_shared_absolute_norm_binding"
+    },
+    "current_family_affine_mean_package": {
+      "sigma_u": 5.5905,
+      "sigma_d": 3.3049,
+      "sigma_seed_ud": 4.447699999999999,
+      "eta_ud": 1.1427999999999998,
+      "rho_ord": 1.2942849363777058,
+      "A_ud": 0.2467442927388686,
+      "B_ud": 0.8125616987157023,
+      "g_u": 0.7797392875757557,
+      "g_d": 0.12172551081512113,
+      "theorem_scope": "current_family_only",
+      "artifact": "oph_quark_sector_mean_split"
+    }
+  },
+  "stronger_objects_not_emitted": [
+    "Theta_ud^mass",
+    "Theta_ud^phys",
+    "Theta_ud^abs"
+  ],
+  "exact_minimal_extension_triple": {
+    "H_mass": "ell_ud := log(c_d / c_u)",
+    "H_phys": "s_ud^phys : M_ud^{CR,phys} -> Sigma_ud^phys",
+    "H_abs": "A_q^phys : Sigma_ud^phys -> R"
+  }
+}

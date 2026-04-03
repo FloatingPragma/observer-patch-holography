@@ -100,15 +100,22 @@ part of this canonical tree.
 
 ## Current Quark Boundary
 
+- maximal theorem-emitted package artifact:
+  [quark_maximal_theorem_emitted_package.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/quark_maximal_theorem_emitted_package.json)
 - present-premise no-go artifact:
   [quark_current_premise_no_go_theorem.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/quark_current_premise_no_go_theorem.json)
 - minimal-extension closure artifact:
   [quark_minimal_extension_closure_theorem.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/quark_minimal_extension_closure_theorem.json)
 
-These two artifacts fix the current quark theorem boundary. On the present
-premise set, the corpus does not emit the three closure objects
-`Theta_ud^mass`, `Theta_ud^phys`, and `Theta_ud^abs`. The exact next objects to
-compute are the minimal extension triple `H_mass : ell_ud = log(c_d / c_u)`,
+These artifacts fix the current quark theorem boundary. On the present premise
+set, the maximal theorem-emitted package consists of the D12 mass ray, the
+negative selector `sigma_ref`, and the restricted-scope affine mean package
+with `g_ch = 0.9231656602589082` on `shared_budget_only` and
+`(g_u, g_d) = (0.7797392875757557, 0.12172551081512113)` on
+`current_family_only`. The stronger physical closure objects
+`Theta_ud^mass`, `Theta_ud^phys`, and `Theta_ud^abs` are absent on that
+ledger. The exact minimal extension triple above that package is
+`H_mass : ell_ud = log(c_d / c_u)`,
 `H_phys : s_ud^phys : M_ud^{CR,phys} -> Sigma_ud^phys`, and
 `H_abs : A_q^phys : Sigma_ud^phys -> R`.
 

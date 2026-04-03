@@ -2,7 +2,13 @@
   "artifact": "oph_quark_current_premise_no_go_theorem",
   "status": "theorem_grade_boundary_emitted",
   "premise_set": "P := p_a + Axioms 1-5 + Assumption 6 + emitted OPH nodes D1-D10 + current public D12 quark objects",
-  "theorem_statement": "On the present premise set P, the corpus does not emit Theta_ud^mass, Theta_ud^phys, or Theta_ud^abs.",
+  "maximal_theorem_emitted_package_artifact": "oph_quark_maximal_theorem_emitted_package",
+  "theorem_statement": "On the present premise set P, the corpus theorem-emits the maximal quark package recorded in oph_quark_maximal_theorem_emitted_package, but it does not emit the stronger physical closure objects Theta_ud^mass, Theta_ud^phys, or Theta_ud^abs.",
+  "theorem_emitted_package_summary": {
+    "mass_side": "Theorem-emitted D12 mass ray R_D12^ud with unresolved modulus ray_modulus = t1.",
+    "selector": "Theorem-emitted same-label left-handed selector sigma_ud = sigma_ref with canonical token D12::same_label_left::reference_sheet.",
+    "affine_mean_package": "Theorem-emitted restricted-scope affine mean package with g_ch = 0.9231656602589082 on shared_budget_only and (g_u, g_d) = (0.7797392875757557, 0.12172551081512113) on current_family_only."
+  },
   "non_derivable_objects": [
     {
       "id": "Theta_ud^mass",
@@ -25,9 +31,9 @@
     "d12_internal_backread_scalar_package": "continuation_only",
     "transport_frame_overlap_witness": "compare_only_not_sector_attached"
   },
-  "next_exact_objects_to_compute": [
-    "H_mass : ell_ud = log(c_d / c_u)",
-    "H_phys : s_ud^phys : M_ud^{CR,phys} -> Sigma_ud^phys",
-    "H_abs : A_q^phys : Sigma_ud^phys -> R"
-  ]
+  "exact_minimal_extension_triple": {
+    "H_mass": "ell_ud := log(c_d / c_u)",
+    "H_phys": "s_ud^phys : M_ud^{CR,phys} -> Sigma_ud^phys",
+    "H_abs": "A_q^phys : Sigma_ud^phys -> R"
+  }
 }
