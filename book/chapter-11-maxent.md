@@ -335,7 +335,7 @@ Recap:
 
 2. **Past principle**: The arrow of time exists because the Big Bang was a low-entropy state. Our model shows this isn't an arbitrary input; it's a consistency requirement. Observers need entropy gradients to form records, so a universe with observers must start far from equilibrium.
 
-3. **Jaynes**: Entropy measures ignorance. MaxEnt gives the uniquely correct probability distribution given the constraints.
+3. **Jaynes**: Entropy measures ignorance. In the Jaynes program, MaxEnt gives the least-biased probability distribution consistent with the stated constraints.
 
 4. **Thermal Time principle**: Time is the modular flow of our statistical state.
 

@@ -397,7 +397,7 @@ This is a fundamental fork in the road:
 
 The cosmological constant appears as a **global capacity parameter**, the total number of degrees of freedom on the screen, rather than as something predicted from local physics. From the observed Lambda, we infer the screen capacity: about 10^122 bits. This is the "size" of reality, just as the pixel area is its "resolution."
 
-This sidesteps the "unsolved problem" entirely. We're not trying to build a global boundary theory at infinity. We're building local patch descriptions that must agree on overlaps. The bulk emerges from that agreement, with Lambda as the one global parameter that all overlapping descriptions share.
+This sidesteps that specific "boundary theory at infinity" version of the unsolved problem. We're not trying to build a global boundary theory at infinity. We're building local patch descriptions that must agree on overlaps. The bulk emerges from that agreement, with Lambda as the one global parameter that all overlapping descriptions share.
 
 ## 8.14 Reverse Engineering Summary
 
