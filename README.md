@@ -49,6 +49,18 @@ OPH is a reconstruction program for fundamental physics. Spacetime, gauge struct
 
 Public Higgs/top rows are carried by the closed one-scalar D11 forward seed. The exact inverse pair above is a compare-only sidecar on the same Jacobian and does not replace the public forward branch.
 
+### Comparison to PDG
+
+PDG comparison lives on two different surfaces: the public theorem/prediction surface in
+[code/particles/RESULTS_STATUS.md](code/particles/RESULTS_STATUS.md), and the exact compare-only / same-family witness surface in
+[code/particles/EXACT_FITS_ONLY.md](code/particles/EXACT_FITS_ONLY.md).
+
+- Public `W/Z` rows sit within about `1e-8 GeV` of the pinned PDG central values; the frozen-target D10 sidecar hits the same pair exactly.
+- Public `H/t` rows differ from the pinned central values by `+0.01939165055 GeV` and `+0.03629026644 GeV`; the D11 inverse sidecar hits the same reference pair exactly, but only as a compare-only slice.
+- Charged leptons and quarks both have exact current-family witnesses matching their pinned reference masses to machine precision, but those witnesses remain `current_family_only` and do not replace the public theorem surface.
+- On the active public D12 continuation surface, the quark rows compare to the running-mass PDG references at about `u: +5.91%`, `d: +8.97%`, `s: -2.02%`, `c: -1.28%`, and `b: -8.68%`.
+- The weighted-cycle neutrino theorem branch emits one absolute family and one PMNS/hierarchy package. Flavor-neutrino masses are not directly PDG-measured as standalone masses, but the compare-only two-parameter adapter hits the representative central `Δm21²`, `Δm31²`, and `Δm32²` splittings exactly.
+
 **Particle derivation stack**
 
 <p align="center">
