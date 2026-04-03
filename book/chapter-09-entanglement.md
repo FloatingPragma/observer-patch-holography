@@ -116,7 +116,7 @@ This is the signature of entanglement: **the whole can be pure while the parts a
 
 ### Experimental Confirmation
 
-The **2015 loophole-free Bell tests** closed all experimental loopholes simultaneously. The result: nature violates Bell's inequality. Local hidden variables are dead.
+The **2015 loophole-free Bell tests** closed the main locality and detection loopholes simultaneously while strongly constraining remaining loophole worries. The result: suitable entangled experiments violate Bell inequalities, ruling out simple local hidden-variable accounts.
 
 Entanglement is real and irreducible. The correlations are stronger than any classical mechanism can produce, yet still cannot transmit information faster than light.
 

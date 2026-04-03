@@ -140,7 +140,7 @@ This density matrix defines a modular Hamiltonian:
 
 $$K_P = -\ln \rho_P$$
 
-which generates modular time t_P for that observer.
+which generates modular time \(t_P\) for that observer.
 
 **Every observer has their own emergent clock.**
 
@@ -267,7 +267,7 @@ The light cone structure of spacetime-which events can influence which-emerges f
 - **Timelike separation**: Events can have causal influence
 - **Null separation**: The boundary between these regimes
 
-The modular flow provides the time direction. Entanglement provides correlations. No-signaling prevents faster-than-light communication. The result is precisely the causal structure of Minkowski space.
+The modular flow provides the time direction. Entanglement provides correlations. No-signaling prevents faster-than-light communication. Taken together, these ingredients reproduce the Minkowski-style causal structure targeted by the program.
 
 ### Why This Matters
 
@@ -291,7 +291,7 @@ The emergent time model includes both rigorous mathematical results and testable
 
 **Testable predictions**:
 
-**1. Unruh effect**: Accelerating observers see thermal radiation at T = ℏa/(2πk_B c). While direct detection is beyond current technology (requires acceleration ~10²⁰ m/s²), the Unruh effect is equivalent to Hawking radiation by the equivalence principle, and the mathematics is confirmed.
+**1. Unruh effect**: Accelerating observers see thermal radiation at T = ℏa/(2πk_B c). While direct detection is beyond current technology (requires acceleration ~10²⁰ m/s²), the Unruh effect is closely related to Hawking radiation through the same horizon-thermodynamic structure, and the mathematics is well established.
 
 **2. Jacobson's derivation**: If entropy ∝ area and temperature ∝ surface gravity, then Einstein's equations can be recovered under specific thermodynamic assumptions. This is strong evidence for the thermodynamic route, but not a proof that every horizon-thermodynamics construction must reduce uniquely to GR.
 

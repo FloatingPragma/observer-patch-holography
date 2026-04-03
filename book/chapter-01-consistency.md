@@ -355,11 +355,11 @@ In the chapters ahead, we'll apply this method systematically:
 
 **Chapter 2-4**: The holographic hint-why does information scale with area, not volume? What does this tell us about the fundamental structure?
 
-**Chapter 5-7**: The entanglement hint-why do quantum correlations violate local realism? What does Bell's theorem tell us about the nature of reality?
+**Chapter 5-7**: The quantum-consistency hint-how do non-commuting questions, Bell correlations, and recovery constrain shared reality?
 
-**Chapter 8-10**: The reconstruction hint-how does 3D space emerge from 2D information? How does error correction stabilize reality?
+**Chapter 8-10**: The holography-and-reconstruction hint-how do boundaries, entanglement, and error correction build bulk space?
 
-**Chapter 11-13**: The thermodynamic hint-why does time have an arrow? How do symmetries and conservation laws emerge from consistency?
+**Chapter 11-13**: The time-symmetry-cosmology hint-how do clocks, conservation laws, and de Sitter horizons emerge from consistency?
 
 **Chapter 14-16**: The emergence hint-how do spacetime, particles, and classical physics emerge from the screen?
 

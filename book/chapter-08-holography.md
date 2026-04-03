@@ -136,7 +136,7 @@ Maldacena proposed: **these two descriptions are the same theory**.
 
 The gauge theory on the boundary is equivalent to string theory (including gravity) in the bulk. This was the **AdS/CFT correspondence**.
 
-The physics community was stunned. Within months, Edward Witten worked out how to compute correlation functions. Tests piled up. Nothing failed. AdS/CFT became the most checked result in theoretical physics.
+The physics community was stunned. Within months, Edward Witten worked out how to compute correlation functions. Tests piled up. AdS/CFT became one of the most heavily checked ideas in theoretical physics.
 
 ## 8.6 Conformal Field Theory: The Universal Ledger
 
