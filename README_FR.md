@@ -49,18 +49,6 @@ L'OPH est un programme de reconstruction. Espace-temps, structure de jauge, part
 
 Les lignes publiques Higgs/top sont portées par la graine forward D11 scalaire unique fermée. La paire inverse exacte ci-dessus reste un sidecar compare-only sur le même Jacobien et ne remplace pas la branche forward publique.
 
-### Comparaison au PDG
-
-La comparaison au PDG vit sur deux surfaces distinctes : la surface publique théorème/prédiction dans
-[code/particles/RESULTS_STATUS.md](code/particles/RESULTS_STATUS.md), et la surface exacte compare-only / témoins de famille dans
-[code/particles/EXACT_FITS_ONLY.md](code/particles/EXACT_FITS_ONLY.md).
-
-- Les lignes publiques `W/Z` restent à environ `1e-8 GeV` des valeurs centrales PDG épinglées ; le sidecar D10 gelé sur cible touche exactement la même paire.
-- Les lignes publiques `H/t` diffèrent des valeurs centrales épinglées de `+0.01939165055 GeV` et `+0.03629026644 GeV` ; le sidecar inverse D11 touche exactement cette paire de référence, mais seulement comme tranche compare-only.
-- Les leptons chargés et les quarks possèdent tous deux des témoins exacts `current_family_only` qui reproduisent les masses de référence épinglées à la précision machine, mais ces témoins ne remplacent pas la surface publique théorématique.
-- Sur la surface de continuation D12 active, les lignes quark se comparent aux masses courantes PDG à environ `u : +5.91%`, `d : +8.97%`, `s : -2.02%`, `c : -1.28%`, et `b : -8.68%`.
-- La branche théorème neutrino à cycle pondéré émet une famille absolue et un paquet PMNS/hiérarchie. Les masses de saveur neutrino ne sont pas mesurées directement comme masses autonomes dans le PDG, mais l'adaptateur compare-only à deux paramètres touche exactement les splittings centraux représentatifs `Δm21²`, `Δm31²`, et `Δm32²`.
-
 **Pile de dérivation des particules**
 
 <p align="center">
