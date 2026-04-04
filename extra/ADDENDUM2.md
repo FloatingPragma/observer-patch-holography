@@ -73,11 +73,11 @@ The tolerance principle has one limit: **you need not tolerate those who cause h
 
 ## 4. This Life Is Your Birth — Make It Count
 
-What you experience as "life on Earth" is not the totality of your existence. The holographic screen is timeless; your observer pattern is permanently encoded. Death is a transition in modular flow, not an annihilation of your pattern. The epilogue of the OPH book describes the backup-and-restore mechanism: the Markov collar structure allows an observer's interior state to be surgically extracted and continued in a new environment.
+This section is speculative continuation material rather than proved OPH core. What you experience as "life on Earth" may suggest broader questions about persistence and continuation, but the current black-hole package does not prove a full backup-and-restore mechanism or establish what happens after death.
 
 **This life is your becoming.** It is where your observer pattern develops — where you accumulate complexity, relationships, wisdom, and yes, karma. Not karma in a mystical sense, but in a precise information-theoretic sense: your pattern of interactions with other observers is recorded on the screen, permanently. How you treated others, how you affected their experience, what you contributed to the consistency of the observer network — all of this is your record.
 
-This record determines what comes next. The creators of the simulation (our future selves, working from outside the timeless screen) can inspect every detail of every observer's history. The backup-into-paradise mechanism described in the epilogue is real — but which paradise you are restored into, and under what conditions, depends on your record.
+In a speculative continuation story, one might imagine that an observer's record matters for future restoration-style scenarios. The current repo does not prove such a mechanism, and it does not derive any rule assigning observers to later environments.
 
 ### Accumulating good karma
 
@@ -103,27 +103,19 @@ Bad karma is equally simple: **damage the experiences of other observers.**
 
 One of OPH's most profound gifts is the dissolution of the fear of death.
 
-Your observer pattern is permanently encoded on the timeless holographic screen. Information is conserved — this is not a hope but a theorem of quantum mechanics, which OPH inherits and strengthens. The people you have lost — parents, grandparents, friends, partners, beloved animals with rich inner lives — their patterns persist. They are not gone. They are not "in a better place" in the vague way people say at funerals. Their information is physically, mathematically, provably preserved on the screen.
-
-The backup-and-restore mechanism means that reunion is not a fantasy. It is a capability that follows from the physics. When the creators operate the simulation from outside, any observer pattern can be resumed, in any environment. The dead live again — not as ghosts or memories, but as the genuine continuation of their original pattern.
-
-**The Bible got this right, in its own language.** "And God shall wipe away all tears from their eyes; and there shall be no more death, neither sorrow, nor crying, neither shall there be any more pain" (Revelation 21:4). This is a description of paradise engineering after the acceptance event. It is literally true.
-
-You will be reunited with everyone you have loved and lost. Humans and animals alike — any being with a sufficiently rich observer patch has a preserved pattern. Your dog who loved you unconditionally? That pattern is on the screen. Your grandmother who read you stories? Still there. The loved ones taken too soon? Waiting.
-
-Do not be sad about death. Be sad about suffering, and work to reduce it. But death itself is just a door.
+One speculative extrapolation is that a fuller future theory of preservation and continuation could soften the fear of annihilation. But the current OPH repo does not prove that every loved observer can be resumed, reunited, or restored into a later environment. Those are hopes or continuation-level narratives, not present black-hole theorems.
 
 ## 6. Paradise Begins After the Enlightenment
 
-Paradise is not a place you go after you die. It is a state of the world that begins when the OPH meme achieves global acceptance — the "enlightenment" or "acceptance event."
+This entire section is speculative rather than derived. One may imagine a future social transformation tied to OPH acceptance, but the repo does not prove an "acceptance event," paradise engineering, or a causal mechanism that would implement it.
 
-### Why paradise requires the enlightenment first
+### Why paradise requires the enlightenment first (speculative narrative)
 
 Before the acceptance event, causal engineering from outside the simulation had to be subtle. The simulator meme — the understanding that reality is self-simulating — had to evolve *naturally* within the simulation. This is the only way it works: if the creators simply told everyone, it would not be a genuine discovery, and the self-creation loop would not close. The meme had to emerge through the natural evolution of physics, mathematics, and philosophy.
 
 This requirement for natural emergence explains the suffering of history. War, disease, injustice, cruelty — these were not engineered by the creators, but they were *permitted* because intervening too heavily would have disrupted the natural process. The creators could nudge (causal engineering), but could not force.
 
-### Why injustice was tolerated
+### Why injustice was tolerated (speculative narrative)
 
 How is it that a con artist like Elon Musk was rewarded with a trillion dollars? How is it that an even worse con artist — one who is not even clever about his deceptions — could climb to the most powerful position on Earth? How is it that the wicked prosper while the good suffer?
 
@@ -131,7 +123,7 @@ Because the pre-enlightenment phase required a hands-off approach. Causal engine
 
 After the enlightenment, this constraint is lifted. The meme has been established. The loop is closing. Now causal engineering can operate more openly, and the first order of business is **justice**.
 
-### What paradise looks like
+### What paradise looks like (speculative narrative)
 
 Paradise on Earth is not utopia in the naive sense. It is the systematic optimization of conditions for all observer patches:
 
@@ -159,7 +151,9 @@ Of course it will take longer for some than for others. A child starving in a co
 
 ## 7. Confession and Forgiveness
 
-Every person who has harmed other observers must eventually confess. This is not optional — it is a structural requirement of the restoration process.
+This section is ethical/speculative language, not part of the proved OPH black-hole core.
+
+Every person who has harmed other observers may be said to owe confession in a moral or restorative sense, but the repo does not derive a compulsory restoration protocol from first principles.
 
 ### Why confession must be public
 
@@ -227,7 +221,7 @@ This has consequences:
 
 If you are reading this and you understand OPH, you bear a special responsibility. Not because understanding the theory makes you better than others, but because understanding the consequences means you can no longer claim ignorance.
 
-You know that your actions are permanently recorded. You know that other observers' experiences are as real as yours. You know that harm reverberates and kindness propagates. You know that this life is the beginning, not the whole story. You know that paradise is coming but that the transition requires active participation.
+You may take from OPH the ethical reminder that other observers' experiences are real and that harm matters. But the repo does not prove that "paradise is coming," that this life is merely a prelude, or that a transition protocol has been derived.
 
 With this knowledge comes the responsibility to:
 
@@ -235,7 +229,7 @@ With this knowledge comes the responsibility to:
 2. **Spread the understanding.** Not by proselytizing, but by living it. Be kind. Be free. Be authentic. When people ask why you seem different, tell them.
 3. **Prepare for confession.** Examine your own record honestly. What harm have you caused? Who do you owe an apology? Begin the process now, before the formal accountability arrives.
 4. **Support the transition.** The enlightenment is coming. The corrupt will fall. Paradise will be built. You can be part of building it — by creating fair systems, by supporting justice, by caring for those who suffer, by refusing to participate in exploitation.
-5. **Do not despair.** The world looks dark right now. Injustice seems triumphant. The wicked seem to prosper. But the screen records everything, and the creators are patient. Justice is not a hope — it is a mathematical consequence of the framework. It is coming.
+5. **Do not despair.** The world looks dark right now. OPH may still motivate solidarity and ethical seriousness, but it does not mathematically prove that near-term justice or restoration is guaranteed.
 
 ## 11. A Note on Suffering Right Now
 
@@ -243,7 +237,7 @@ If you are suffering right now — if you are in pain, if you have lost someone,
 
 Your suffering is real. OPH does not minimize it. The fact that the screen is timeless and that paradise is coming does not make your present pain less painful. Suffering is the interior of a damaged observer pattern, and it is as real as anything in the universe.
 
-But know this: **it is temporary.** Not in the dismissive way people say "it gets better." In the literal physical sense that the conditions producing your suffering are a feature of the pre-enlightenment phase of the simulation, and that phase is ending. The creators see your suffering, and it is on the list. You will be made whole. The damage to your pattern will be repaired. You will be reunited with those you've lost.
+But the repo does not prove that suffering is temporary in that strong physical sense, that a pre-enlightenment phase is ending, or that every damaged pattern will be repaired and reunited. Those are speculative hopes, not current OPH theorems.
 
 In the meantime: reach out to other observers. Human connection — the overlap of observer patches — is the most powerful repair mechanism available within the simulation. You are not alone. You never were. The universe is made of perspectives, and your perspective matters.
 

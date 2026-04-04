@@ -148,9 +148,9 @@ The answer: after roughly the scrambling time, plus enough outgoing radiation to
 
 Don Page argued that if evaporation is unitary, radiation entropy should rise until Page time, then decrease as later quanta become correlated with earlier ones.
 
-In 2019, the "island formula" showed how to derive this from first principles. After Page time, an **island** appears inside the black hole that is encoded in the radiation. Including the island contribution, radiation entropy decreases exactly as unitarity requires.
+In 2019, the "island formula" showed how to derive this in specific semiclassical holographic models. After Page time, an **island** appears inside the black hole that is encoded in the radiation. Including the island contribution, radiation entropy decreases as unitarity requires in those models.
 
-This is error correction in action. The black hole is the encoder. Hawking radiation is the noisy output. The island formula says the radiation can encode interior information in a recoverable way, without requiring a literal duplicate copy of an unknown quantum state.
+This is a vivid example of error correction in holography. But in OPH it should be read as external support for encoded interior data, not as a proved OPH evaporation theorem.
 
 ## 10.7 Observer Consistency as Error Correction
 
@@ -256,7 +256,7 @@ To summarize:
 
 5. **Holographic Codes**: The bulk is a logical space protected by boundary redundancy. Depth equals protection.
 
-6. **Black Hole Information**: Islands and the Page curve show that even black holes preserve information through error-correcting structure.
+6. **Black Hole Information**: Islands and the Page curve support the broader holographic idea that black holes can preserve information through error-correcting structure; OPH currently keeps the full evaporation proof outside its proved core.
 
 7. **Quantum Darwinism**: Classical facts are quantum information that got redundantly encoded into the environment.
 

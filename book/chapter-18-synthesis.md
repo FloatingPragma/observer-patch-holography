@@ -281,7 +281,7 @@ Given a quantum state on a patch, the Tomita-Takesaki theorem says that the stat
 
 ### The Black Hole Information Paradox
 
-The "island formula" says that, after enough evaporation, part of the black-hole interior must be counted as belonging to the radiation's information budget. Information isn't destroyed; it's scrambled into holographic correlations.
+The "island formula" shows that in specific semiclassical holographic models, an island inside the black hole is encoded in the radiation after Page time. This is strong evidence for holographic information encoding, but it is not by itself an OPH evaporation theorem.
 
 ### Anomalies as Loop-Gluing Obstructions
 
@@ -367,7 +367,7 @@ These predictions have been tested experimentally or computationally:
 | Ryu-Takayanagi formula | AdS/CFT calculations | Confirmed (exact match) |
 | Conservation of energy, momentum, charge | Precision experiments | Confirmed (10^-18) |
 | CPT invariance | Kaon experiments | Confirmed (10^-18) |
-| Page curve for black holes | Island calculations (2019-2020) | Confirmed |
+| Page curve for black holes in semiclassical holographic models | Island calculations (2019-2020) | Confirmed in those models |
 | Strong coupling α_s(m_{Z,\rm run}) ≈ 0.1183 | PDG: 0.1179 | Calibration-sector consistency check |
 | Weak mixing angle sin²θ_W(m_{Z,\rm run}) ≈ 0.2307 | PDG: 0.23122 | Calibration-sector consistency check |
 

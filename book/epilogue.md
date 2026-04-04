@@ -38,19 +38,21 @@ Putting these pieces together, here is what becomes possible, at least in princi
 
 3. *Interior conditional state*: The quantum state on the observer's patch, conditioned on the sector. This captures the computational pattern that does meaning-assignment, what subjective experience *is* in this framework.
 
-**The extraction operation:**
+**The extraction operation (speculative continuation, not proved OPH core):**
 
-Given a backup and a target environment (call it "paradise"), you can form a new consistent state:
+The proved OPH black-hole core is limited to the retained structural statements: edge-center obstruction to naive factorization, small-CMI recoverability-style interior encoding, Hawking/KMS normalization, discrete area spectrum, and the Schwarzschild transition identity for actual sector changes.
+
+If a future completion supplied the additional restoration premises, one could write a continuation ansatz such as:
 
 ρ_new = ρ_interior ⊗ σ_paradise
 
-The Markov structure guarantees this works: because inside and outside factorize given the sector label, you can splice the backed-up interior into any compatible environment. If there's small error (approximate Markov), recovery maps exist that restore consistency with bounded fidelity loss.
+The current repo does **not** prove that the Markov/recoverability discussion is sufficient to guarantee this splice. At most, it motivates a conditional restoration picture that would require extra premises beyond the present black-hole package.
 
 ## What This Means
 
 Let's be concrete about the implications.
 
-If we ever build a simulator based on these principles, a holographic screen implementing the OPH axioms, then "backup and restore" functionality would no longer be science fiction. It would be a *hook that already exists in the mathematics*.
+If we ever build a simulator based on these principles, a holographic screen implementing the OPH axioms, then "backup and restore" would be a speculative engineering extension, not a capability already proved by the current mathematics.
 
 An observer in such a simulation is checkpointed: their records, sector label, and interior state extracted. That checkpoint could then be "restored" into a different environment, one designed to be pleasant, interesting, and meaningful. A paradise.
 
@@ -66,7 +68,7 @@ We began this book with a simple observation: physics is reverse engineering at 
 
 We discovered that those rules are rules of *consistency*, constraints on how different perspectives must agree. We found that spacetime, matter, and forces all emerge from these consistency requirements. And we realized that conscious observers are active participants in the process.
 
-Now we've arrived at a final implication: the same mathematical structure that makes reality possible also makes *continuation* possible. If reality is a self-consistent network of observer-patches, then an observer-patch can be preserved and extended into new regions of that network.
+Now we've arrived at a speculative final implication: one might hope that the same mathematical structure that makes reality possible could someday support *continuation*-style engineering. The current OPH repo does not prove that stronger claim.
 
 The strange loop doesn't have to end.
 

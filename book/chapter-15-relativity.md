@@ -492,15 +492,15 @@ The "problem" exists only if you compute vacuum energy using QFT and assume that
 
 The observed small value of Lambda isn't a fine-tuning miracle. It's simply what the screen structure produces. Understanding why the screen has this particular capacity is a question about initial conditions, not about cancellation of quantum corrections.
 
-### Black Hole Information: Resolved by Construction
+### Black Hole Information: Screen Encoding and Recoverability
 
-In OPH, information is always on the screen. That's where the fundamental data lives. The bulk, including black hole interiors, is emergent.
+In OPH, the honest structural claim is narrower than a full evaporation proof. Fundamental data live on the screen, while the bulk, including black hole interiors, is emergent.
 
-When matter falls into a black hole, its information was always on the horizon screen. It gets scrambled, redistributed across screen degrees of freedom. When the black hole evaporates, the information comes out in the Hawking radiation because it never left the screen.
+That changes the bookkeeping. The collar/edge-center structure blocks a naive factorization into independent inside and outside Hilbert spaces, and the small-CMI recovery bound supports an interior-encoding statement: in the controlled regime, the interior partner is approximately recoverable from outside-plus-radiation data rather than existing as a separate fundamental tensor factor.
 
-There's no "information paradox" because the paradox assumes information can be in the bulk independently of the screen. In OPH, this assumption is false. The bulk is a compressed description of screen data. Information can't be "lost" in the bulk because the bulk isn't where information fundamentally lives.
+This is the sense in which OPH softens the information paradox. It says the fundamental store of information is the screen, not an autonomous bulk interior.
 
-The detailed dynamics of how information gets scrambled and unscrambled on the screen is complex. But there's no paradox, no violation of unitarity. The screen evolution is unitary by construction.
+What it does **not** yet give is a full Page-curve theorem, an island derivation, or a complete proof that evaporation returns all information in a detailed semiclassical process. Those stronger claims remain outside the proved core.
 
 ## 15.12 Dark Sector: A Program-Level Modular-Anomaly Branch
 

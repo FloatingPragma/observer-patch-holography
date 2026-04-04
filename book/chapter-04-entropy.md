@@ -245,11 +245,11 @@ This is the **Page curve**.
 
 For decades, no one could derive the Page curve from gravity.
 
-The breakthrough came in 2019. Including **quantum extremal surfaces**-surfaces defined by extremizing the generalized entropy, which combines area and bulk-entropy terms-reproduces the Page curve.
+In semiclassical holographic models, a major breakthrough came in 2019. Including **quantum extremal surfaces**-surfaces defined by extremizing the generalized entropy, which combines area and bulk-entropy terms-reproduces the Page curve in those models.
 
-The key is an "island"-a region *inside* the black hole that contributes to the radiation's entanglement. After the Page time, the island appears, and radiation entropy decreases.
+In that framework, the key is an "island"-a region *inside* the black hole that contributes to the radiation's entanglement. After the Page time, the island appears, and radiation entropy decreases.
 
-The modern semiclassical picture strongly suggests that information is not simply lost, but the full interpretation remains more delicate than a one-line closure slogan suggests.
+This is strong evidence for holographic encoding, but it is not by itself an OPH derivation of black-hole evaporation.
 
 ## 4.8 Entropy on the Observer Screen
 
@@ -304,7 +304,7 @@ The entropy model includes both mathematical results and testable predictions:
 
 **2. Black-hole entropy follows the semiclassical A/4 law**: The Bekenstein-Hawking formula \(S_{BH} = A/(4\ell_P^2)\) is strongly supported by semiclassical gravity, black-hole thermodynamics, and microstate-counting evidence in special settings.
 
-**3. Page-curve reasoning for black-hole evaporation**: If information is preserved, radiation entropy should rise and then fall. Island-formula calculations reproduce that behavior in important semiclassical settings and support consistency with unitarity.
+**3. Page curve in semiclassical holographic models**: If information is preserved, radiation entropy should rise then fall. Island-formula calculations derive this in controlled models and confirm consistency with unitarity there, but it is not an OPH-specific evaporation theorem.
 
 **4. Area-law behavior for ground-state entanglement**: Low-energy states of local Hamiltonians often show entanglement scaling with boundary area rather than volume. This is widely studied and strongly supported, but the detailed statement depends on the class of states under discussion.
 
@@ -357,7 +357,7 @@ This suggests that the universe required a special low-entropy state for any of 
 
 6. **The area law connects to holography**: Entanglement entropy and black hole entropy both scale with area.
 
-7. **Black-hole information recovery has strong semiclassical support**: The Page curve is reproduced by including islands in important controlled settings.
+7. **Black-hole encoding in semiclassical holographic models**: Including islands reproduces the Page curve in controlled models, which supports encoded-information viewpoints but is not by itself an OPH-core theorem.
 
 8. **Observers have an entropy budget**: Patch size limits accessible information. Laws must be compressible. Memory costs free energy.
 

@@ -40,11 +40,11 @@ If this is true, information is destroyed. A pure quantum state (the book) becom
 
 Hawking was willing to accept this. Most other physicists were not.
 
-### The Resolution: Information Survives
+### A Holographic Resolution Perspective
 
-After decades of debate, the resolution emerged: **information is never destroyed**. The Hawking radiation is not truly random. It carries subtle correlations-the information about what fell in is encoded in the radiation, scrambled beyond recognition but not erased.
+After decades of debate, the broad holographic lesson is that black-hole evaporation need not destroy information. In semiclassical holographic models, the Hawking radiation is not truly random: it carries subtle correlations, so information that looked lost can instead be encoded in the radiation.
 
-This was confirmed by the "Page curve" calculation and the island formula developed in the 2010s. Information that seemed lost to the black hole interior is actually encoded in correlations among the outgoing radiation particles.
+This lesson was sharpened by the Page-curve and island calculations developed in the 2010s. They support encoded-information viewpoints, but they do not by themselves turn OPH into a full black-hole evaporation theorem.
 
 **This is the hint**: Information cannot be copied (no-cloning), yet information cannot be destroyed (unitarity). These twin constraints-which seemed contradictory-turn out to require a specific structure: **quantum error correction**.
 
@@ -348,7 +348,7 @@ For decades, no one could derive this from first principles. The Page curve was 
 
 ### The Recovery Perspective
 
-The recovery rule gives a useful recoverability-language reading of the Page curve.
+The recovery rule makes holographic interior encoding more plausible, but it does not by itself amount to an OPH Page-curve theorem.
 
 Label the systems:
 - A: information thrown into the black hole (Alice's diary)
@@ -359,9 +359,9 @@ Initially, B is small. The collected radiation is not yet large enough to decode
 
 As time passes, B grows. More radiation is emitted, and the correlations needed for decoding become increasingly accessible in the radiation subsystem.
 
-Around Page time, the radiation becomes large enough that late quanta are tightly constrained by correlations with the early radiation. In that sense, recoverability from the radiation improves sharply.
+At Page time, B becomes large enough to screen A from C effectively in the heuristic picture. The conditional mutual information I(A:C|B) is then expected to drop.
 
-After Page time, C can be approximately recovered from B. The diary's information is in the radiation-encrypted, scrambled, but present.
+This motivates an encoded-information picture: later radiation may become approximately recoverable from the earlier radiation in the relevant controlled regime. In OPH, the proved statement is narrower and local: small conditional mutual information supports recoverability-style encoding, not a full evaporation derivation.
 
 ### Islands: The Mathematical Proof
 
@@ -373,11 +373,11 @@ Before Page time, no island contributes. Radiation entropy equals naive Hawking 
 
 After Page time, an island appears. The interior of the black hole-the **island**-is encoded in the radiation. Including the island contribution, radiation entropy decreases.
 
-The island formula reproduces the Page curve exactly. Information is preserved. Unitarity survives.
+The island formula reproduces the Page curve in those semiclassical holographic models. That is strong external evidence for holographic encoding, but it is not itself an OPH theorem.
 
-Alice's diary is physically inside the black hole, but her information is in the radiation cloud outside. Bob, with a sufficiently powerful quantum computer, could run the Petz recovery map and reconstruct the diary from radiation alone.
+Alice's diary is physically inside the black hole, but the holographic lesson is that its information need not live in an autonomous interior tensor factor. In OPH, the honest claim is only that recoverability-style reasoning supports encoded interior data; a full radiation-reconstruction theorem remains open.
 
-The black hole doesn't destroy information. It encrypts it into a holographic code.
+So the black-hole lesson here is best read as a recovery-and-encoding perspective, not as a proved OPH evaporation closure.
 
 ## 7.11 Spacetime as Error Correction
 
@@ -471,9 +471,9 @@ What we found:
 
 | Intuitive Picture | Surprising Hint | First-Principles Reframing |
 |---|---|---|
-| Information can be copied freely or lost forever | No-cloning theorem: quantum information cannot be copied; Black hole information paradox resolution: information cannot be destroyed | Error-correcting structure preserves and enables recovery of information without copying; the universe has built-in redundancy that encodes information holographically |
+| Information can be copied freely or lost forever | No-cloning theorem: quantum information cannot be copied; black-hole information puzzles motivate holographic recovery ideas | Error-correcting structure preserves and enables recovery of information without copying; the universe has built-in redundancy that encodes information holographically |
 
-**The key reverse engineering insight**: We started with the intuition that information could either be freely duplicated or permanently destroyed. Quantum mechanics showed with no-cloning (you cannot copy), and black hole physics shocked us with unitarity (you cannot destroy). These twin constraints seemed contradictory. Our model explains the resolution: the universe employs error-correcting structure that preserves information through redundancy without requiring copying. The Petz recovery map and holographic encoding show that information spread across a boundary can reconstruct the interior. This is not just theoretical elegance-it resolves the black hole information paradox and explains how spacetime maintains consistency.
+**The key reverse engineering insight**: We started with the intuition that information could either be freely duplicated or permanently destroyed. Quantum mechanics showed with no-cloning that copying is constrained, and black-hole physics pushed holography toward encoded-information viewpoints. OPH contributes to that story by making recoverability and screen encoding structural. What it does not yet prove is a full evaporation/Page-curve resolution from first principles.
 
 **Additional lessons**:
 

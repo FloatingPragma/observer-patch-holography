@@ -1832,9 +1832,11 @@ If this relation holds for all local directions and reference states in the loca
 
 \textbf{Proof sketch.} The cap first law identifies \(\delta S_C\) with \(\delta\langle K_C\rangle\), while the conditional null bridge relates the bulk modular variation to a null stress-tensor charge. Since the reference state is maximally symmetric, the fixed-volume small-ball area identity enters at first order in the perturbation, so entanglement equilibrium yields the displayed rest-frame relation. Overlap consistency then supplies all local directions, and the null-to-tensor lemma upgrades the relation to the tensor equation modulo \(\Lambda g_{ab}\). QED.
 
-\subsubsection{Discrete horizon area spectrum and Hawking emission (established)}\label{511-discrete-horizon-area-spectrum-and-hawking-emission-established}
+\subsubsection{Black-hole structural statements and continuation-level spectroscopy}\label{511-discrete-horizon-area-spectrum-and-hawking-emission-established}
 
-The edge-sector structure implies a discrete area spectrum with observable consequences for black hole emission. This section develops a established but sharp prediction.
+This subsection mixes two claim tiers and is organized accordingly. The structural black-hole statements already supported in the manuscript are: the edge-center/collar obstruction to a naive inside-outside tensor factorization, the small-CMI recoverability statement at the level proved earlier, the Hawking/KMS normalization fixed by the geometric modular branch, the discrete area spectrum from integer edge-sector dimensions, and the Schwarzschild transition identity \(\Delta E = k_B T_H \ln(d'/d)\) for an actual sector change \(d \to d'\). Any clean comb structure, QNM selector, linewidth estimate, PBH burst template, or Kerr/LIGO horizon spectroscopy template remains continuation-level and uses extra premises stated below.
+
+\textbf{Derived structural statements.}
 
 \textbf{Area eigenvalues from edge sectors.} The central area operator (Section 5.4) is
 
@@ -1869,6 +1871,8 @@ Using the Hawking temperature \(T_H = \hbar c^3 / (8\pi G k_B M)\), whose \(2\pi
 \Delta E = k_B T_H \ln(d'/d).
 \]
 
+\textbf{Continuation-level spectroscopy templates.} The remainder of this subsection is not part of the recovered core. It records what follows only if one adds extra discrete-horizon selection rules and, where stated, standard semiclassical inputs.
+
 \textbf{Integer transitions.} If dominant transitions multiply the edge dimension by an integer \(k\) (i.e., \(d'/d = k\)), the spectrum becomes a discrete comb:
 
 \[
@@ -1880,7 +1884,7 @@ Using the Hawking temperature \(T_H = \hbar c^3 / (8\pi G k_B M)\), whose \(2\pi
 
 \textbf{Continuation-level template (Discrete Hawking spectrum).} If the additional integer-transition selection rule is realized, the Hawking emission spectrum consists of discrete lines with spacing \(\Delta E_k = k_B T_H \ln k\), where \(k\) is an integer characterizing the dominant sector transitions, instead of a continuous thermal profile.
 
-\textbf{Mass-independent fractional linewidth.} Using Page\textquotesingle s semiclassical calculation for emission power \(P(M) = p_0 \hbar c^6 / (G^2 M^2)\) with \(p_0 \approx 2 \times 10^{-4}\), the emission rate is \(\dot{N} \approx P /
+\textbf{Mass-independent fractional linewidth (continuation-level estimate).} Using Page\textquotesingle s semiclassical calculation for emission power \(P(M) = p_0 \hbar c^6 / (G^2 M^2)\) with \(p_0 \approx 2 \times 10^{-4}\), the emission rate is \(\dot{N} \approx P /
 \langle E \rangle\) where \(\langle E \rangle = a \, k_B T_H\) with \(a \sim
 \mathcal{O}(1-10)\). The natural linewidth \(\Gamma \sim \hbar \dot{N}\) divided by the level spacing gives:
 
@@ -1888,9 +1892,9 @@ Using the Hawking temperature \(T_H = \hbar c^3 / (8\pi G k_B M)\), whose \(2\pi
 \frac{\Gamma}{\Delta E_k} \approx \frac{64\pi^2 p_0}{a \ln k} \approx 3-5\%
 \]
 
-\textbf{independent of black hole mass}. Within this continuation branch, the emission lines are narrow (few-percent fractional width) and the fraction is mass-independent.
+Within this continuation branch, the emission lines are narrow (few-percent fractional width) and the estimated fraction is mass-independent.
 
-\textbf{Connection to quasinormal modes.} The highly-damped Schwarzschild quasinormal modes have asymptotic real part (Motl, 2002):
+\textbf{Connection to quasinormal modes (interpretive continuation).} The highly-damped Schwarzschild quasinormal modes have asymptotic real part (Motl, 2002):
 
 \[
 \mathrm{Re}\,\omega \to \frac{c^3}{8\pi G M} \ln 3.
@@ -1918,17 +1922,17 @@ as the fundamental area quantum.
   \textbf{M = 10\textsuperscript{1}\textsuperscript{2} kg (primordial)}: k=2 at 7.3 MeV, k=3 at 11.6 MeV
 \end{itemize}
 
-These frequencies track \(k_B T_H \ln k\) exactly and are in principle distinguishable from a continuous thermal spectrum.
+Within the integer-transition continuation, these frequencies track \(k_B T_H \ln k\) exactly and are in principle distinguishable from a continuous thermal spectrum.
 
-\textbf{Experimental test: PBH burst searches with comb template.}
+\textbf{Continuation-level PBH burst search template.}
 
-The discrete Hawking comb provides an OPH-unique signature that can be tested against existing gamma-ray data. The smoking gun is \textbf{log-integer energy ratios}: if two emission lines are observed at energies \(E_2\) and \(E_3\), their ratio must satisfy
+Within the discrete-horizon continuation, the Hawking comb would provide a distinctive gamma-ray template. A template-level discriminant is \textbf{log-integer energy ratios}: if two emission lines are observed at energies \(E_2\) and \(E_3\), their ratio must satisfy
 
 \[
 \frac{E_3}{E_2} = \frac{\ln 3}{\ln 2} \approx 1.585
 \]
 
-exactly, independent of black hole mass. This is a parameter-free prediction.
+exactly, independent of black hole mass. Within that continuation template, the ratio is fixed once the log-integer rule is assumed.
 
 \textbf{Available instruments and energy coverage.} The \(k = 2\) line energy \(E_2 = k_B T_H \ln 2\) determines which instruments can see a given BH mass:
 
@@ -1947,7 +1951,7 @@ LHAASO-WCDA & 1--15 TeV & 5\ensuremath{\times}10\textsuperscript{5}--7\ensuremat
 \end{longtable}
 }
 
-\textbf{Detector resolution vs. intrinsic linewidth.} The predicted intrinsic linewidth is 3--5\% (mass-independent). Current detector energy resolutions:
+\textbf{Detector resolution vs. intrinsic linewidth.} The continuation-level linewidth estimate is 3--5\% (mass-independent). Current detector energy resolutions:
 
 \begin{itemize}
 \tightlist
@@ -1961,7 +1965,7 @@ LHAASO-WCDA & 1--15 TeV & 5\ensuremath{\times}10\textsuperscript{5}--7\ensuremat
   LHAASO-WCDA: \(\sim 33\%\) (TeV)
 \end{itemize}
 
-The comb is in principle resolvable with GBM/LAT; at TeV energies it would appear as moderately broad bumps rather than sharp lines.
+Within this template, the comb could be resolvable with GBM/LAT; at TeV energies it would appear as moderately broad bumps rather than sharp lines.
 
 \textbf{Search protocol.} A dedicated OPH-comb search would:
 
@@ -1994,7 +1998,7 @@ The comb is in principle resolvable with GBM/LAT; at TeV energies it would appea
 
 \textbf{Data availability.} Fermi GBM provides public Time-Tagged Event (TTE) burst data; Fermi LAT provides public photon event lists with documented analysis workflows. H.E.S.S. has a small public test data release.
 
-\textbf{GW horizon spectroscopy: conditional continuation template for Kerr remnants.}
+\textbf{Continuation-level GW horizon spectroscopy template for Kerr remnants.}
 
 The same continuation-level discrete-horizon branch extends to gravitational wave observables. For Kerr black holes, the thermodynamic first law is \(\delta M = T_H \delta S +
 \Omega_H \delta J\), so the entropy change for absorbing a quantum with frequency \(\omega\) and azimuthal number \(m\) is:
@@ -2009,7 +2013,7 @@ In the edge-sector framework, \(\delta S = \ln(d'/d)\), so the discreteness cond
 \hbar(\omega - m\Omega_H) = k_B T_H \ln k, \qquad k \in \{2, 3, 4, \ldots\}
 \]
 
-Under those additional discrete-horizon premises, this gives the \textbf{GW horizon spectroscopy comb}: discrete resonant frequencies where the horizon can efficiently absorb or emit energy.
+Under those additional discrete-horizon premises, this gives the \textbf{GW horizon spectroscopy comb}: a continuation-level set of discrete resonant frequencies where the horizon can efficiently absorb or emit energy.
 
 \textbf{Kerr line frequencies.} For a remnant with mass \(M\) and dimensionless spin \(\chi = a_*/M\), define the spin correction factor:
 
@@ -2024,9 +2028,9 @@ The line frequencies are:
 f_{k,m}(M,\chi) = \frac{m \, \Omega_H(M,\chi)}{2\pi} + \frac{c^3}{16\pi^2 GM} \, g(\chi) \, \ln k
 \]
 
-This is rigidly constrained: once LIGO/Virgo infers \((M, \chi)\) for a remnant, the entire line pattern is fixed with no free parameters.
+Within this continuation template, once LIGO/Virgo infers \((M, \chi)\) for a remnant, the line pattern is fixed by the inferred remnant parameters and the assumed discrete-horizon rule. This is not a recovered-core theorem.
 
-\textbf{Line weights from GR envelope + discretization.} The line strengths are not arbitrary; they are fixed by matching to the known GR greybody absorption spectrum in the semiclassical limit. The discretization rule gives bin width \(\Delta\omega_k \approx \omega_T \ln(1 + 1/k)\) where \(\omega_T = k_B T_H/\hbar\). The net line weight (absorption minus stimulated emission) is:
+\textbf{Line weights from GR envelope + discretization.} In this continuation template, the line strengths are modeled by matching to the known GR greybody absorption spectrum in the semiclassical limit. The discretization rule gives bin width \(\Delta\omega_k \approx \omega_T \ln(1 + 1/k)\) where \(\omega_T = k_B T_H/\hbar\). The net line weight (absorption minus stimulated emission) is:
 
 \[
 W^{\mathrm{net}}_{k,\ell m} = \Gamma^{\mathrm{GR}}_{\ell m}(\omega_{k,m}) \cdot \Delta\omega_k \cdot \frac{k-1}{k}
@@ -2073,8 +2077,8 @@ k & \(\Delta f_k := \frac{c^3 g(\chi)}{16\pi^2 GM} \ln k\) (Hz) & Relative weigh
 The full physical frequencies are \(f_{k,2} = 719 + \Delta f_k\) Hz (i.e., 760--827 Hz), outside LIGO\textquotesingle s most sensitive band for this remnant. However, the \textbf{stacking analysis} uses the rescaled coordinate \(x = GM(\omega -
 m\Omega_H)/(c^3 g(\chi))\), which maps the thermal spacing to universal constants \(x_k = \ln k / 8\pi\) regardless of the rotation offset.
 
-\textbf{Measurement contradiction criterion.} The smoking gun is the rigid arithmetic pattern: after rescaling by \((M, \chi)\), spectral features must satisfy \(f_k/f_2 =
-\ln k / \ln 2\) exactly, independent of remnant parameters. Absence of coherent stacking at the predicted \(x_k\) values identifies a measurement contradiction with the log-integer area spectrum.
+\textbf{Template-matching criterion.} After rescaling by \((M, \chi)\), spectral features in this continuation template must satisfy \(f_k/f_2 =
+\ln k / \ln 2\) exactly, independent of remnant parameters. Absence of coherent stacking at the predicted \(x_k\) values would challenge the discrete-horizon continuation template, not by itself the derived area-spectrum statement.
 
 \subsubsection{Classical mechanics from emergent GR}\label{512-classical-mechanics-from-emergent-gr}
 
@@ -3517,13 +3521,13 @@ Symmetry-protected exact zeros such as the masslessness of the photon, gluons, a
 
 The framework makes several directly testable statements, together with weaker continuation-level templates that can also be confronted with data:
 
-\textbf{GW horizon spectroscopy comb (Section 5.11; continuation-level).} If the extra discrete-horizon premises of Section 5.11 hold, the log-integer area spectrum gives discrete resonant frequencies for Kerr black hole horizons:
+\textbf{GW horizon spectroscopy template (Section 5.11; continuation-level).} If the extra discrete-horizon premises of Section 5.11 hold, the log-integer area spectrum gives discrete resonant frequencies for Kerr black hole horizons:
 
 f\_\{k,m\}(M,\ensuremath{\chi}) = (m \ensuremath{\Omega}\_H)/(2\ensuremath{\pi}) + (c\textsuperscript{3} g(\ensuremath{\chi}))/(16\ensuremath{\pi}\textsuperscript{2} GM) \ensuremath{\cdot} ln(k) for k = 2, 3, 4, ...
 
 After rescaling by remnant parameters, all events should stack at universal coordinates x\_k = ln(k)/(8\ensuremath{\pi}). This is checkable with public LIGO/Virgo data as a continuation-level test of that extra branch. Absence of coherent stacking would challenge the discrete-horizon continuation, not the recovered-core package by itself.
 
-\textbf{Discrete Hawking comb (Section 5.11; continuation-level).} If the same discrete-horizon branch is realized, primordial black holes in the final evaporation stage should show comb structure at E\_k/E\textsubscript{2} = ln(k)/ln(2). Current PBH burst searches (Fermi, H.E.S.S.) can constrain this with dedicated template analysis.
+\textbf{Discrete Hawking template (Section 5.11; continuation-level).} If the same discrete-horizon branch is realized, primordial black holes in the final evaporation stage should show comb structure at E\_k/E\textsubscript{2} = ln(k)/ln(2). Current PBH burst searches (Fermi, H.E.S.S.) can constrain this with dedicated template analysis.
 
 \textbf{Casimir ratio precision (Section 8.1).} Future lattice measurements of SU(3) edge-sector probabilities should confirm \ensuremath{\Delta}\textsubscript{8}/\ensuremath{\Delta}\textsubscript{3} = 9/4 exactly, not 2.67 (dimension-only) or 5.06 (Casimir-squared). The full set of parameter-free SU(3) ratio predictions is:
 
@@ -3545,16 +3549,16 @@ These exact rationals are fixed entirely by group theory (Casimir eigenvalue rat
 
 \textbf{Conditional Z$_6$ center-label entropy scale (Section 6.18).} Under the uniform sixfold center-label ensemble used in the flavor continuation, the associated entropy scale is \(\log_2 6 \approx 2.585\) bits. This is a phenomenological ansatz tied to the quotient label set, not a theorem-level direct observable of the quotient alone.
 
-\textbf{Black hole spectroscopy secondary structure (Section 5.11).} Beyond the headline log-integer comb, the framework predicts rigid secondary structure:
+\textbf{Black-hole spectroscopy bookkeeping within the continuation template (Section 5.11).} If one adopts the extra discrete-horizon selection rule, the semiclassical linewidth estimate, and the greybody matching used in Section 5.11, then the template carries secondary structure:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  \emph{Universal energy ratios}: E\_k/E\_2 = ln(k)/ln(2) exactly. For example, E\_3/E\_2 = ln(3)/ln(2) \ensuremath{\approx} 1.585 is parameter-free. This arithmetic pattern of ratios distinguishes OPH from other "quantized area" proposals that have different functional forms or free spacing parameters.
+  \emph{Universal energy ratios}: E\_k/E\_2 = ln(k)/ln(2) exactly within the assumed log-integer rule. For example, E\_3/E\_2 = ln(3)/ln(2) \ensuremath{\approx} 1.585. This arithmetic pattern of ratios distinguishes the template from other "quantized area" proposals that have different functional forms or free spacing parameters.
 \item
-  \emph{Mass-independent fractional linewidth}: The intrinsic linewidth \(\Gamma/\Delta E_k \approx 3\text{--}5\%\) is approximately independent of black hole mass. This is a sharp shape prediction constraining line positions and line profiles.
+  \emph{Mass-independent fractional linewidth estimate}: The continuation-level linewidth estimate \(\Gamma/\Delta E_k \approx 3\text{--}5\%\) is approximately independent of black hole mass.
 \item
-  \emph{Fixed weight hierarchy}: Line weights follow a (k-1)/k pattern from detailed balance in the log-integer transition rule, on top of the GR greybody envelope. High-k lines asymptote in strength in a specific, counting-driven way.
+  \emph{Fixed weight hierarchy}: Within the same template, line weights follow a (k-1)/k pattern from detailed balance in the log-integer transition rule, on top of the GR greybody envelope.
 \end{enumerate}
 
 \textbf{Inequality bounds on GR deviations (Section 5.8).} The modular additivity defect satisfies the exact identity \ensuremath{\langle}\ensuremath{\Delta}K\ensuremath{\rangle} = -I(A:D\textbar B), where I(A:D\textbar B) is the conditional mutual information. Under the Markov/mixing assumptions, this defect is exponentially small in collar thickness:
@@ -3623,7 +3627,7 @@ The lane-specific readout boundary above that dictionary is explicit: on the emi
 \item \textbf{Neutrino data}: beyond the input-dependent, order-of-magnitude capacity estimate tied to $N_{\mathrm{scr}}$, the recovered core does not derive neutrino masses or mixings. A continuation branch emits intrinsic masses, splittings, and PMNS data; its weighted-cycle branch reaches the physical PMNS/hierarchy regime, the normalized same-label overlap-defect weight section closes beneath that branch, and the weighted-cycle bridge-rigidity theorem emits \(C_\nu=G^2Q S^{-1/2}=0.9994295999075177\) above the emitted proxy \(P_\nu=6.699825740519345\). The absolute-attachment theorem then emits \(B_\nu=P_\nu C_\nu=6.696004159297337\), \(\lambda_\nu=(m_{\star,\mathrm{eV}}/q_{\mathrm{mean}}^{p_\nu})P_\nu C_\nu=1.7237014208357415\), and therefore the absolute family \(m_i=\lambda_\nu\hat m_i\), \(\Delta m_{ij}^2=\lambda_\nu^2\widehat{\Delta m_{ij}^2}\). Because the positive selector segment is explicit, a compare-only two-parameter continuation adapter still hits the representative central splittings exactly on the same family, but it is strictly diagnostic-only beneath the emitted theorem pair. Together with the exact \(W/Z\) sidecar pair, the exact Higgs/top sidecar, and the exact charged/quark same-family witnesses, the exact non-hadron output lane is complete even though the theorem-grade charged and quark lanes remain open. The attached weighted-cycle stack factors through \(q_e = q_{\mathrm{mean}} qbar_e\), and the best closed constructive local object beneath the theorem pair is the defect-weighted same-label edge family \(q_e=\sqrt{g_e d_e}\) together with its induced \(\mu_e\) family; that family is constructive beneath the bridge-rigid theorem pair and does not replace it.
 \item \textbf{Dark-sector phenomenology}: the sign, closure, and galaxy-scale response law of any modular-anomaly stress tensor are not derived by the recovered gravity chain.
 \item \textbf{Baryogenesis}: suppression-counting estimates are not a substitute for a derived out-of-equilibrium mechanism.
-\item \textbf{Black-hole spectroscopy}: any logarithmic line template requires an additional discrete-horizon branch.
+\item \textbf{Black-hole spectroscopy and evaporation closure}: beyond the structural statements retained in Section 5.11 (edge-center obstruction to naive factorization, recoverability-style interior encoding at small CMI, Hawking/KMS normalization, discrete area spectrum, and the Schwarzschild transition identity \(\Delta E = k_B T_H \ln(d'/d)\) for actual sector changes), the manuscript does not derive integer-transition combs, \(k=3\)/QNM selection, Page-type linewidth estimates, PBH burst templates, Kerr/LIGO horizon spectroscopy combs, or any Page-curve/island closure.
 \item \textbf{String/worldsheet reorganization}: the Gross-Taylor-type interpretation~\cite{grossTaylor93} requires a controlled large-\(N_{\mathrm{edge}}\) regime distinct from the proved compact-gauge chain, and any further lift to critical superstring structure remains a conjectural extension requiring extra worldsheet ingredients.
 \item \textbf{Other downstream continuations}: strong-CP proposals, proton-spin fractions, and similar late-stage continuations appearing on other OPH surfaces are not derived by the recovered core.
 \end{itemize}

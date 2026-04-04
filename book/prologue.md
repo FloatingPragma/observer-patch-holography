@@ -64,10 +64,11 @@ state, separate them by light-years, measure one-and the other instantly
 reflects a correlated result. No signal passes between them. The correlation
 is just... there.
 
-**Black holes put information under pressure.** Throw something into a black
-hole, and modern quantum-gravity arguments strongly suggest the information
-is not simply lost, even though the detailed recovery story remains subtle
-and framework-dependent.
+**Black holes don't force information to live in an independent interior.**
+Throw something into a black hole, and the honest OPH claim is narrower than
+a full evaporation proof: the bookkeeping stays on the horizon/screen
+degrees of freedom, scrambled and approximately recoverable rather than
+stored in a separate inside-outside tensor factor.
 
 **Holography is a major clue.** The information needed to describe a volume
 of space may be encoded on its boundary. The three-dimensional

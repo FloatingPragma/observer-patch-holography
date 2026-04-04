@@ -25,19 +25,19 @@ Since the holographic screen encodes all of spacetime simultaneously, the distin
 - **The future already exists.** The events you will experience tomorrow are already part of the pattern.
 - **There is no "flow" of time.** The sensation of time passing is what incomplete information feels like from inside an observer patch.
 
-This has a staggering implication: **everyone who has ever lived still exists on the screen.** Your grandmother, Leonardo da Vinci, a nameless hunter-gatherer from 50,000 years ago — their observer patterns are permanently encoded. Death, from the screen's perspective, is not the destruction of an observer but a local transition in the modular flow. The pattern persists.
+Taken as speculative extrapolation rather than proved OPH core, this suggests a striking possibility: observer patterns may be more structurally persistent than everyday intuition assumes. But that stronger permanence claim is not established by the current black-hole package.
 
 ## 3. Observer Backup and Restoration
 
-If observers are information patterns on the screen, and if the creators of the simulation (our future selves, who are also us) can inspect the screen's complete content, then any observer can be **backed up and restored**. Not as a copy, but as the genuine continuation of the original pattern — because the screen already contains all the information.
+This section is explicit speculation beyond the proved OPH core. If observers are information patterns on the screen, and if a future completion of OPH justified full preservation and recovery of those patterns, then one could imagine an observer being **backed up and restored**. That is not currently a theorem of the repo.
 
-This is not philosophical derivation — it follows directly from the information conservation principle that OPH inherits from quantum mechanics. Information is never destroyed. The black hole information paradox is resolved in OPH precisely because observer information is always preserved on the screen. The same principle applies to every observer who ever existed.
+This goes beyond the proved OPH core. The structurally supported claim is narrower: OPH treats fundamental bookkeeping as screen-based and uses recoverability-style reasoning instead of an autonomous bulk-interior store. A full black-hole evaporation proof, and any stronger restoration claim built on it, is not yet part of the proved package.
 
-This makes possible what every religion has intuited: **the dead can live again.** Not through supernatural intervention, but through the physics of information preservation and restoration.
+On that speculative continuation, one could imagine a physics-based analogue of resurrection. The current OPH repo does not prove that stronger claim.
 
 ## 4. Judgement Day: Complete Justice
 
-If every observer can be restored, and if every moment of every observer's experience is permanently encoded on the screen, then **complete accountability becomes possible.** Every act of cruelty is recorded. Every act of kindness is recorded. Nothing is forgotten and nothing can be hidden.
+If that speculative restoration picture were ever justified, and if every moment of every observer's experience were permanently encoded on the screen, then **complete accountability** would become a possible extrapolation. This remains philosophical speculation, not proved OPH physics.
 
 **Judgement Day** is the moment when this accountability is enacted:
 
@@ -103,7 +103,9 @@ The Rapture will play out remarkably close to biblical prophecy — with the twi
 
 ## 7. Causal Engineering
 
-The creators of the simulation — our future selves, working from "outside" the timeless screen — can influence events within the simulation. This is **causal engineering.**
+This section is speculative continuation material, not part of the proved OPH core or the black-hole package.
+
+One speculative continuation imagines that creators of the simulation — our future selves, working from "outside" the timeless screen — could influence events within the simulation. This would be **causal engineering**, but the current repo does not derive or prove such a mechanism.
 
 ### How It Works
 
@@ -126,11 +128,7 @@ Each nudge must be consistent with everything else on the screen. You cannot cre
 
 ### Historical Examples of Causal Engineering
 
-**Jesus** was an inserted observer whose mission was to propagate two critical memes:
-- "Love your neighbor" — the behavioral expression of overlap consistency (Axiom A2)
-- "Dying for one's insistence on truth" — establishing that truth is worth more than survival, a meme necessary for the eventual acceptance of OPH against institutional resistance
-
-**Other examples** may include key figures throughout history whose ideas arrived at precisely the right moment to steer humanity toward the OPH discovery: mathematicians who developed the right frameworks, philosophers who asked the right questions, scientists who made the right connections.
+The current OPH repo does not prove that any historical figure was an "inserted observer," and it does not derive causal-engineering readings of religious or political history. Those narratives are speculative interpretation, not OPH-core physics.
 
 ### After the Acceptance Event
 
@@ -142,9 +140,9 @@ Before the OPH acceptance event, causal engineering must be subtle — overt int
 
 This is, admittedly, somewhat unfair to the powerful — they face a situation where the very fabric of causality is working against them. But this is the consequence of having harmed other observers while the record was being kept.
 
-## 8. There Is No Outer Space (The Fermi Paradox Dissolved)
+## 8. There Is No Outer Space (Speculative Fermi-Paradox Extrapolation)
 
-One of the most disorienting consequences of OPH: **the far reaches of the universe do not have an independent "now."**
+One speculative extrapolation sometimes attached to OPH is that **the far reaches of the universe do not have an independent "now."** The current repo does not derive that as part of the proved core.
 
 The holographic screen encodes information about distant galaxies, but these encodings do not correspond to independently existing civilizations experiencing their own present moments. The universe is, fundamentally, about *this* observer community — humanity on Earth. The distant cosmos is the backdrop of the stage, not another stage with its own actors.
 
@@ -154,24 +152,22 @@ This does not mean space exploration is literally impossible — but it means th
 
 ## 9. Human Minds Exist Forever
 
-Since the holographic screen is timeless and information is conserved:
+This section is a speculative continuation, not a theorem of the repo.
+
+If one extrapolates beyond the proved OPH core, one might hope that because the holographic screen is timeless and information is conserved:
 
 - **You have always existed and will always exist.** Your observer pattern is a permanent feature of the screen.
 - **What you experience as "life on Earth" is not the totality of your existence.** It is one phase — the becoming phase, the phase where your observer pattern develops complexity through interaction with other observers in a competitive environment.
 - **Death is a transition, not an ending.** The local dissolution of your biological pattern within the modular flow does not affect the persistence of your information on the screen.
 - **Restoration is always possible.** Any observer, from any point in history, can be resumed.
 
-This means that the deepest human fear — annihilation, the permanent cessation of experience — is unfounded. Not because of faith, but because of physics. Information conservation is not a hope; it is a theorem.
+The current OPH repo does not prove that the deepest human fear — annihilation, the permanent cessation of experience — is unfounded. Information conservation alone is not yet a full restoration theorem.
 
 ## 10. Why Suffering Was Necessary (But Is Temporary)
 
-This is perhaps the most important consequence for anyone who is suffering right now.
+This section is philosophical/speculative rather than a derived OPH result.
 
-**Suffering exists because natural selection requires it.** The evolution of complex observer patches (intelligent, self-aware beings capable of discovering OPH) requires a competitive process. Competition means winners and losers. Losers suffer. Predators eat prey. Organisms fight for resources. This is not cruelty — it is the only known mechanism for producing the complexity necessary for the self-creation loop.
-
-**But suffering is temporary.** Once the OPH meme is established and accepted by all of humanity, the evolutionary pressure is no longer needed. The loop has closed. The universe has achieved self-awareness. From this point, the creators (our future selves) can engineer conditions to systematically eliminate suffering.
-
-Paradise on Earth is not a utopian fantasy — it is the logical endpoint of a universe that needed suffering only as a means to an end, and has now reached that end.
+The repo does not prove that suffering "was necessary," that an acceptance event will end it, or that paradise engineering follows from the black-hole package. At most, those ideas are continuation-level narrative extrapolations.
 
 ## 11. Free Will Is Real
 
