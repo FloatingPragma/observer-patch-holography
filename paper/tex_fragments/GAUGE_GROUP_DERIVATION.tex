@@ -130,9 +130,13 @@ The proof proceeds in five steps. Steps 1--4 determine the connected gauge group
 
 \textbf{From:} the canonical OPH package together with the fixed-cutoff realized presentation.
 
-At each cutoff one has a finite tensor category of transportable edge charges. The local MaxEnt/refinement package controls the realized state branch across cutoffs, but it does not by itself prove that transportable sectors persist nontrivially in the refinement limit. The reconstruction therefore uses the transportable directed-colimit premise \(T6\): assume a directed system of transportable edge-sector categories with objectwise finite-dimensional fibers, and write its colimit as \(\mathsf{Sect}_\infty\). By Theorem 6.1 (Tannaka/DR reconstruction~\cite{tannaka38,krein49,dr89,dr90}), there exists a compact group \(G\), unique up to isomorphism, with \(\mathsf{Sect}_\infty \simeq \mathrm{Rep}(G)\).
+At each cutoff one has a finite tensor category of transportable edge charges. The local MaxEnt/refinement package controls the realized state branch across cutoffs, but it does not by itself prove that transportable sectors persist nontrivially in the refinement limit. The reconstruction therefore uses the transportable directed-colimit premise \(T6\): assume a directed system of transportable edge-sector categories with objectwise finite-dimensional fibers, write its colimit as \(\mathsf{Sect}_\infty\), and let \(\mathcal F\) be the faithful bosonic fiber functor supplied there. By Theorem 6.1 (Tannaka/DR reconstruction~\cite{tannaka38,krein49,dr89,dr90}), the checked rigid/symmetric/\(C^*\) hypotheses on \(\mathsf{Sect}_\infty\) yield a compact group
+\[
+G=\mathrm{Aut}_\otimes(\mathcal F),
+\]
+unique up to isomorphism, with \(\mathsf{Sect}_\infty \simeq \mathrm{Rep}(G)\).
 
-The premise \([z] = 0\) ensures that this reconstruction is global: charges are DHR-transportable, so the compact group acts as a genuine gauge symmetry, not merely a local labeling (Proposition 6.1a). \(\square\)
+On the central branch, the premise \([z] = 0\) is then the explicit loop-coherence condition under which those transported sectors glue globally, so the reconstructed compact group acts as a genuine gauge symmetry rather than as local bookkeeping only (Proposition 6.1a). \(\square\)
 
 \subsubsection{Step 2: The gauge group must be a product}\label{step-2-the-gauge-group-must-be-a-product}
 

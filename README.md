@@ -12,7 +12,7 @@ OPH is a reconstruction program for fundamental physics. Spacetime, gauge struct
 
 - A finite-resolution theorem package for observer patches, collars, overlap repair, higher gauge structure, records, and checkpoint/restoration.
 - A conditional route to Lorentzian geometry, modular time, Jacobson-type Einstein dynamics, and de Sitter static-patch cosmology on the extracted prime geometric subnet; the remaining UV/BW scaffold is geometric cap-pair realization on that subnet plus ordered cut-pair rigidity, with the eventual fixed-local-collar modular-transport common floor as the smallest lower blocker.
-- A compact gauge route to the realized Standard Model quotient `SU(3) x SU(2) x U(1) / Z_6`, together with the exact hypercharge lattice and the realized counting chain `N_g = 3`, `N_c = 3`.
+- A conditional compact gauge route in the bosonic branch to the realized Standard Model quotient `SU(3) x SU(2) x U(1) / Z_6`, together with the exact hypercharge lattice and the realized counting chain `N_g = 3`, `N_c = 3`.
 - A particle program with exact structural massless carriers, theorem-grade electroweak closure, a quantitative Higgs/top stage, exact non-hadron mass sidecars, and explicit continuation lanes for flavor and hadrons.
 - A concrete screen-microphysics architecture that puts measurement, records, and observers inside the physics.
 

@@ -204,7 +204,7 @@ Under the bridge assumptions above, the model yields:
 
 1. **Lorentz kinematics** on the extracted prime geometric subnet from geometric modular flow on caps
 2. **Einstein's equation** on the stated scaling branch via entanglement equilibrium, promoted to a tensor equation by patch consistency
-3. **The Standard Model gauge group** $SU(3) \times SU(2) \times U(1)/\mathbb{Z}_6$, reconstructed from edge-sector fusion rules and a minimality principle
+3. **The Standard Model gauge group** $SU(3) \times SU(2) \times U(1)/\mathbb{Z}_6$, reconstructed from the transportable bosonic edge-sector package and a minimality principle
 4. **Three generations, three colors**: fixed by anomaly cancellation and the minimality principle
 5. **Massless gauge bosons and graviton**: forced by emergent gauge and diffeomorphism invariance, which forbid mass terms
 6. **A particle story with clear landmarks**: photon, gluons, graviton, W, and Z are fixed; the Higgs, top quark, and several quark masses sit on explicit quantitative lanes; the weighted-cycle neutrino branch carries an emitted theorem-grade absolute family; charged leptons, the remaining three-object quark extension beyond the selected continuation branch, and hadrons are the hard remaining pieces
@@ -438,7 +438,7 @@ These results are developed within the framework; the frontier lies in tightenin
 
 **Geometric meaning of the cap area operator**: The localized "area term" coming from quantum error correction should match the familiar minimal-surface geometry of holography.
 
-**Transportable charge sectors**: The charge sectors used to rebuild a full field description need to remain well-behaved in the small-region limit. That is the continuity requirement behind the gauge reconstruction.
+**Transportable charge sectors**: The charge sectors used to rebuild a full field description need to remain well-behaved in the small-region limit and carry the rigid symmetric bosonic fiber-functor structure used by the gauge-reconstruction theorem.
 
 **Matter selection**: Chirality, three generations, and the overall Standard Model counting come from requiring a theory that is consistent, ultraviolet-safe, and as economical as possible.
 

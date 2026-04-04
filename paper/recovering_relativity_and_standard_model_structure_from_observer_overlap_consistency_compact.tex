@@ -2312,15 +2312,40 @@ Assume therefore that in the EFT regime there is a directed system \((\mathsf{Se
 for the directed colimit retaining the transportable sectors and intertwiners that persist in that system, with objectwise finite-dimensional fibers. This is the category on which Doplicher--Roberts / Tannaka reconstruction is applied. The theorem below is neutral about whether \(\mathsf{Sect}_\infty\) is trivial or nontrivial: if \textbf{T6} furnished only the tensor unit, the reconstructed compact group would be the trivial group.
 
 \begin{theorem}[Conditional compact gauge reconstruction in the bosonic branch]\label{thm:compactgauge}
-Assume Axioms~\ref{ax:screen}--\ref{ax:entropy}, the relevant parts of Assumption~\ref{ass:technical}, and that the transportable edge-sector colimit furnished by \textbf{T6} in the EFT regime is a rigid symmetric \(C^*\)-tensor category with a faithful bosonic fiber functor to finite-dimensional Hilbert spaces. Then
+Assume Axioms~\ref{ax:screen}--\ref{ax:entropy}, the relevant parts of Assumption~\ref{ass:technical}, and let
 \[
-\mathsf{Sect}_\infty\simeq \mathrm{Rep}(G)
+\mathcal F:\mathsf{Sect}_\infty\to\mathsf{Hilb}_{\mathrm{fd}}
 \]
-for a compact group $G$ uniquely determined up to isomorphism.
+be the faithful bosonic fiber functor furnished by \textbf{T6} in the EFT regime. If \(\mathsf{Sect}_\infty\) is a rigid symmetric \(C^*\)-tensor category, then
+\[
+G:=\mathrm{Aut}_\otimes(\mathcal F)
+\]
+is a compact group and
+\[
+\mathsf{Sect}_\infty\simeq \mathrm{Rep}(G).
+\]
+In particular \(G\) is uniquely determined up to isomorphism.
 \end{theorem}
 
-\begin{proof}[Proof sketch]
-The theorem begins only once the directed system of transportable sectors and its objectwise finite-dimensional fiber functor are given; those data are part of \textbf{T6}, not consequences of the local-Gibbs or Dobrushin-type collar estimates. Each fixed-cutoff category has only finitely many simple blocks, but the transportable colimit \(\mathsf{Sect}_\infty\) can have infinitely many simple objects while still carrying objectwise finite-dimensional fibers. In the bosonic EFT branch, symmetry and rigidity place the category in the Doplicher--Roberts/Tannakian reconstruction class, and the faithful bosonic fiber functor identifies it with \(\mathrm{Rep}(G)\) for a compact group \(G\) \cite{dr89,dr90}.
+\begin{proof}
+The theorem begins only once the directed system of transportable sectors and its objectwise finite-dimensional fiber functor are given; those data are part of \textbf{T6}, not consequences of the local-Gibbs or Dobrushin-type collar estimates. Fix a small skeleton of \(\mathsf{Sect}_\infty\), which does not change the tensor category or the fiber functor up to equivalence. For every object \(X\), any monoidal natural automorphism \(\eta\in\mathrm{Aut}_\otimes(\mathcal F)\) has a unitary component \(\eta_X\in U(\mathcal F(X))\) because \(\mathcal F\) is a \(^*\)-functor to finite-dimensional Hilbert spaces. Hence there is an injective map
+\[
+\mathrm{Aut}_\otimes(\mathcal F)\hookrightarrow \prod_{X}U(\mathcal F(X)),\qquad
+\eta\mapsto (\eta_X)_X.
+\]
+For each intertwiner \(f:X\to Y\), naturality imposes the closed relation \(\mathcal F(f)\eta_X=\eta_Y\mathcal F(f)\). For each pair \(X,Y\), the monoidal structure isomorphism \(J_{X,Y}:\mathcal F(X)\otimes\mathcal F(Y)\xrightarrow{\sim}\mathcal F(X\otimes Y)\) imposes the closed relation
+\[
+\eta_{X\otimes Y}=J_{X,Y}\,(\eta_X\otimes\eta_Y)\,J_{X,Y}^{-1},
+\qquad
+\eta_{\mathbf 1}=\mathrm{id}_{\mathbb C}.
+\]
+Therefore \(\mathrm{Aut}_\otimes(\mathcal F)\) is a closed subgroup of the compact product \(\prod_X U(\mathcal F(X))\), so \(G=\mathrm{Aut}_\otimes(\mathcal F)\) is compact.
+
+The remaining hypotheses required by Doplicher--Roberts / Tannaka reconstruction are now exactly checked on the OPH sector category: \(\mathsf{Sect}_\infty\) is rigid, symmetric, and \(C^*\) by assumption, and \(\mathcal F\) is a faithful bosonic fiber functor with finite-dimensional values by \textbf{T6}. The standard reconstruction theorem therefore applies to the pair \((\mathsf{Sect}_\infty,\mathcal F)\) and yields a symmetric \(C^*\)-tensor equivalence
+\[
+\mathsf{Sect}_\infty \simeq \mathrm{Rep}(G),
+\]
+where an object \(X\) is sent to the representation \(g\mapsto g_X\) on \(\mathcal F(X)\) and morphisms are sent to the corresponding intertwiners \cite{dr89,dr90}. If the same category were also equivalent to \(\mathrm{Rep}(G')\) through another faithful bosonic fiber functor, then composing the two reconstruction equivalences would give a symmetric tensor equivalence \(\mathrm{Rep}(G)\simeq \mathrm{Rep}(G')\) compatible with the forgetful fiber functors. Applying the same reconstruction theorem to either side identifies the two automorphism groups of the fiber functor, so \(G\cong G'\). Thus the reconstructed compact group is unique up to isomorphism.
 \end{proof}
 
 If a fermionic sign object is present, the correct reconstruction statement is super-Tannakian rather than purely Tannakian. The compact note does not prove that fermionic/chiral extension; it works only in the bosonic internal-gauge branch.

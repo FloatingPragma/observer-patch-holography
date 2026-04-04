@@ -377,7 +377,7 @@ Technically, the Hilbert space decomposes:
 
 $$\mathcal{H}_{collar} = \bigoplus_\alpha (\mathcal{H}_{left}^\alpha \otimes \mathcal{H}_{right}^\alpha)$$
 
-The labels alpha are the edge charges. They correspond to representations of the boundary gauge group.
+The labels alpha are the edge charges. In the bosonic gauge branch they become the sector labels from which the reconstructed boundary gauge group is recovered.
 
 ### Fusion Rules Define the Group
 
@@ -385,7 +385,7 @@ When you concatenate collars, edge charges fuse. The fusion rules:
 
 $$\alpha \otimes \beta = \bigoplus_\gamma N_{\alpha\beta}^\gamma \, \gamma$$
 
-define a tensor category. The Tannaka-Krein reconstruction theorem says, roughly, that if you know exactly how the charges combine, you can reconstruct the symmetry group they came from. So the fusion table is not a side detail. It is enough to recover the gauge group itself.
+define a tensor category. The Tannaka-Krein reconstruction theorem says, roughly, that once the transportable small-region sector category carries the needed rigid, symmetric, bosonic fiber-functor structure, the way the charges combine reconstructs the symmetry group they came from. So the fusion table is not a side detail, but the full theorem uses the transportable sector package rather than a single fixed-cutoff list by itself.
 
 The gauge group isn't put in by hand. It's reconstructed from how charges combine.
 
@@ -559,7 +559,7 @@ Here is the chain of reasoning. Our Assumption D states that when two observer p
 
 When you have a boundary between patches-say, a collar region around the edge of a cap-the Hilbert space of that collar decomposes into sectors. In the formal derivation this is called edge-center completion: the boundary splits into sectors, each sector carries a charge label, and those labels combine when collars are joined.
 
-These fusion rules define a mathematical structure called a tensor category. A key result, established by Tannaka-Krein reconstruction (and its physics version, the Doplicher-Roberts theorem), is that any such tensor category with the right properties is equivalent to the representation category of some compact group G. In other words, the fusion rules of edge sectors reconstruct a gauge group.
+These fusion rules define a mathematical structure called a tensor category. A key result, established by Tannaka-Krein reconstruction (and its physics version, the Doplicher-Roberts theorem), is that any such transportable tensor category with the right rigid, symmetric, bosonic fiber-functor properties is equivalent to the representation category of some compact group G. In other words, the transportable edge-sector package reconstructs a gauge group.
 
 For the Standard Model, this reconstructed group includes a U(1) factor, the gauge group of electromagnetism. The key point: this U(1) is the redundancy structure of how patches identify their overlaps. It is built into the structure of observer consistency.
 
@@ -653,7 +653,7 @@ Traditional Grand Unified Theories achieve unification by embedding the Standard
 
 But Super-Kamiokande has been watching for proton decay since 1996. The current limit is $\tau_p > 10^{34}$ years, a thousand times longer than predicted. The simplest GUTs are dead.
 
-Our model takes a different path. The gauge group isn't embedded in anything larger. Tannaka-Krein reconstruction builds the gauge group directly from edge-sector fusion rules, yielding the *product* structure:
+Our model takes a different path. The gauge group isn't embedded in anything larger. Tannaka-Krein reconstruction builds the gauge group directly from the transportable edge-sector category defined by those fusion rules, yielding the *product* structure:
 
 $$G_{\mathrm{phys}} = \mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1) / \mathbb{Z}_6$$
 

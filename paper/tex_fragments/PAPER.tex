@@ -2507,17 +2507,31 @@ This gives a tensor category \(\mathsf{Sect}_\infty\) of edge charges:
   symmetric braiding in the EFT regime (no anyonic statistics in 3+1D).
 \end{itemize}
 
-Let \(\mathcal F: \mathsf{Sect}_\infty \to \mathsf{Hilb}_{\mathrm{fd}}\) be the fiber functor that sends each sector to its edge multiplicity space. The fibers are finite-dimensional objectwise even though \(\mathsf{Sect}_\infty\) can have infinitely many simple objects. The theorem begins only once that transportable colimit and its fiber functor are given; those data are not consequences of Axiom 3 alone.
+Let \(\mathcal F: \mathsf{Sect}_\infty \to \mathsf{Hilb}_{\mathrm{fd}}\) be the bosonic fiber functor that sends each sector to its edge multiplicity space. The fibers are finite-dimensional objectwise even though \(\mathsf{Sect}_\infty\) can have infinitely many simple objects. The theorem begins only once that transportable colimit and its fiber functor are given; those data are not consequences of Axiom 3 alone.
 
-\textbf{Theorem 6.1 (Tannaka/DR reconstruction).} If \(\mathsf{Sect}_\infty\) is a rigid symmetric \(C^*\) tensor category with a faithful fiber functor \(\mathcal F\), then there exists a compact group \(G\), unique up to isomorphism, such that \(\mathsf{Sect}_\infty \simeq \mathrm{Rep}(G)\). Moreover,
+\textbf{Theorem 6.1 (Tannaka/DR reconstruction).} If \(\mathsf{Sect}_\infty\) is a rigid symmetric \(C^*\) tensor category with a faithful bosonic fiber functor \(\mathcal F\), then
 
 \[
-G = \mathrm{Aut}_\otimes(\mathcal F)
+G := \mathrm{Aut}_\otimes(\mathcal F)
 \]
 
-is a compact subgroup of a product of unitary groups.
+is a compact group and \(\mathsf{Sect}_\infty \simeq \mathrm{Rep}(G)\). In particular \(G\) is unique up to isomorphism, and this group is a compact subgroup of a product of unitary groups.
 
-\textbf{Proof sketch.} Define \(G\) as the group of monoidal natural automorphisms of \(\mathcal F\). This is compact because it is closed in a product of unitary groups. By Tannaka-Krein/DR reconstruction, objects and morphisms of \(\mathsf{Sect}_\infty\) are recovered as finite-dimensional representations and intertwiners of \(G\). The MaxEnt/local-Gibbs/collar-mixing package is not used in this step to prove existence or nontriviality of the transportable colimit; it only supplies the earlier fixed-cutoff collar control. QED.
+\textbf{Proof.} The MaxEnt/local-Gibbs/collar-mixing package is not used here to prove existence or nontriviality of the transportable colimit; those data are supplied by the directed-colimit premise \textbf{T6}. Fix a small skeleton of \(\mathsf{Sect}_\infty\). For every object \(X\), a monoidal natural automorphism \(\eta \in \mathrm{Aut}_\otimes(\mathcal F)\) has a unitary component \(\eta_X \in U(\mathcal F(X))\), so
+
+\[
+\mathrm{Aut}_\otimes(\mathcal F) \hookrightarrow \prod_X U(\mathcal F(X)), \qquad \eta \mapsto (\eta_X)_X.
+\]
+
+For each intertwiner \(f:X\to Y\), naturality gives the closed relation \(\mathcal F(f)\eta_X=\eta_Y\mathcal F(f)\). For each pair \(X,Y\), the monoidal structure isomorphism \(J_{X,Y}\) of \(\mathcal F\) gives the closed relation
+
+\[
+\eta_{X\otimes Y}=J_{X,Y}\,(\eta_X\otimes\eta_Y)\,J_{X,Y}^{-1},
+\qquad
+\eta_{\mathbf 1}=\mathrm{id}_{\mathbb C}.
+\]
+
+Hence \(G=\mathrm{Aut}_\otimes(\mathcal F)\) is a closed subgroup of the compact product \(\prod_X U(\mathcal F(X))\), so \(G\) is compact. The remaining DR/Tannaka hypotheses are exactly the stated ones: \(\mathsf{Sect}_\infty\) is rigid, symmetric, and \(C^*\), and \(\mathcal F\) is a faithful bosonic fiber functor with finite-dimensional values. Therefore the Doplicher--Roberts/Tannaka reconstruction theorem applies and gives a symmetric \(C^*\)-tensor equivalence \(\mathsf{Sect}_\infty \simeq \mathrm{Rep}(G)\) \cite{dr89,dr90}. If another compact group \(G'\) gave the same category through a faithful bosonic fiber functor, the induced symmetric tensor equivalence \(\mathrm{Rep}(G)\simeq\mathrm{Rep}(G')\) compatible with the forgetful functors would identify both groups as the automorphism group of the same fiber functor. Thus \(G\cong G'\), so the reconstruction is unique up to isomorphism. QED.
 
 \textbf{Corollary 6.1 (field algebra reconstruction, conditional).} If in the small-region limit the edge sectors are localized and transportable in the DHR sense (i.e., charges can be moved between patches without changing their fusion), then there exists a field algebra \(\mathcal F\) and a compact group \(G\) such that \(\mathcal A = \mathcal F^G\). This is the Doplicher--Roberts reconstruction of local gauge symmetry from sectors. QED.
 
@@ -2969,7 +2983,7 @@ The model requires photons and gravitons.
 \item
   Theorem 2.3 (edge-center completion) decomposes collar Hilbert spaces into sectors labeled by boundary gauge representations.
 \item
-  Theorem 6.1 (Tannaka/DR reconstruction) recovers a compact gauge group G from the fusion rules of these edge sectors.
+  Theorem 6.1 (Tannaka/DR reconstruction) recovers a compact gauge group G from the transportable bosonic edge-sector category defined by these fusion rules.
 \item
   Corollary 6.1 (conditional on DHR transportability) reconstructs a field algebra with G as a local gauge symmetry.
 \item
