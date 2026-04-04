@@ -43,17 +43,18 @@ global solution, and the obstruction is holonomic. On the abelian branch it is t
 edge data; on the genuinely noncentral branch it is a crossed-module \v{C}ech class.
 
 Gauge symmetry enters as invariance under changes of hidden local representation that preserve
-overlap data. Under gauge-covariant repair dynamics, the normal-form map descends to the gauge
-quotient, so physical uniqueness is a quotient statement. Classical records are described by a
-finite closure system whose least common fixed point is independent of schedule. These results
-form the patch-net formulation used in the broader OPH literature.
+overlap data. When the repair step is read only on that overlap-invariant quotient, the
+normal-form map descends to the gauge quotient, so physical uniqueness is a quotient statement.
+Classical records are described by a finite closure system whose least common fixed point is
+independent of schedule. These results form the patch-net formulation used in the broader OPH
+literature.
 
 This paper proves four core results:
 
 \begin{enumerate}
 \item \textbf{Asynchronous confluence.} Under termination and local confluence, every initial state has a unique normal form, independent of update schedule (Theorem~\ref{thm:confluence}).
 \item \textbf{Cycle obstruction.} For affine overlap constraints over an abelian group, global consistency holds if and only if the holonomy vanishes on every cycle (Theorem~\ref{thm:holonomy}). The parity triangle gives the minimal frustrated example, and Theorem~\ref{thm:higherdefects} extends the same logic to the crossed-module higher-gauge defect hierarchy used later in OPH.
-\item \textbf{Gauge quotient.} Under gauge-covariant dynamics, the normal-form map descends to the quotient. Gauge-invariant observables are strictly unique on the quotient, even though microscopic representatives need not be unique (Theorem~\ref{thm:gauge}).
+\item \textbf{Gauge quotient.} When local repair is induced on the overlap-invariant quotient, the normal-form map descends to that quotient. Gauge-invariant observables are strictly unique there, even though microscopic representatives need not be unique (Theorem~\ref{thm:gauge}).
 \item \textbf{Record-layer convergence.} Commuting closure operators on a finite lattice converge to the least common fixed point under any asynchronous schedule that applies each operator at least once (Theorem~\ref{thm:crdt}).
 \end{enumerate}
 
@@ -250,22 +251,42 @@ Let $\Gamma = \prod_{i\in V}\Gamma_i$ act on $\Sigma$ componentwise. The action 
 \qquad
 \forall\, x\in S_i,\ \forall\, \gamma_i\in \Gamma_i.
 \]
-Gauge changes alter hidden local representations but do not alter overlap data. Assume gauge covariance:
-\[
-T_i^\lambda(\gamma\cdot s)=\gamma\cdot T_i^\lambda(s)
-\qquad
-\forall\, i,\ \forall\, \gamma\in\Gamma,\ \forall\, s\in\Sigma.
-\]
+Gauge changes alter hidden local representations but do not alter overlap data.
 \end{definition}
 
-Gauge transformations change hidden local representations while leaving overlap data fixed.
+Gauge transformations change hidden local representations while leaving overlap data fixed. Write
+\[
+q:\Sigma\to \Sigma/\Gamma,
+\qquad
+q(s)=[s],
+\]
+for the gauge-orbit map. A \textbf{physical repair law} is a family of local maps
+\[
+\overline T_i^\lambda:\Sigma/\Gamma\to \Sigma/\Gamma
+\]
+on the overlap-invariant quotient. A \textbf{representative repair family} is any choice of lifts
+\[
+T_i^\lambda:\Sigma\to\Sigma
+\]
+such that
+\[
+q\circ T_i^\lambda
+=
+\overline T_i^\lambda\circ q.
+\]
+This is the finite patch-net form of saying that the repair step is defined first on
+overlap-invariant physical data and only then lifted to hidden representatives. The separate OPH
+problem of deriving the physical repair law itself from recovery dynamics remains upstream; the
+point here is only that no extra gauge-covariance axiom is needed once repair is formulated on the
+quotient.
 
 \begin{theorem}[Gauge quotient theorem]\label{thm:gauge}
-Under the gauge action of Definition~\ref{def:gauge} and the hypotheses of Theorem~\ref{thm:confluence},
+Under the gauge action of Definition~\ref{def:gauge}, any representative lift of a physical repair
+law as just defined, and the hypotheses of Theorem~\ref{thm:confluence},
 \[
-\operatorname{nf}_\lambda(\gamma\cdot s)
+q\bigl(\operatorname{nf}_\lambda(\gamma\cdot s)\bigr)
 =
-\gamma\cdot \operatorname{nf}_\lambda(s)
+q\bigl(\operatorname{nf}_\lambda(s)\bigr)
 \qquad
 \forall\, \gamma\in\Gamma,\ \forall\, s\in\Sigma.
 \]
@@ -278,9 +299,24 @@ Hence the normal-form map descends to the quotient:
 \end{theorem}
 
 \begin{proof}
-Suppose $s\to_i t$, so $t=T_i^\lambda(s)\neq s$. Gauge covariance gives $T_i^\lambda(\gamma\cdot s) = \gamma\cdot T_i^\lambda(s) = \gamma\cdot t$, so $\gamma\cdot s\to_i \gamma\cdot t$. The gauge action sends rewrite sequences to rewrite sequences: $s\to^* t$ implies $\gamma\cdot s\to^* \gamma\cdot t$.
-
-Let $t=\operatorname{nf}_\lambda(s)$. Then $T_i^\lambda(t)=t$ for all $i$, so $T_i^\lambda(\gamma\cdot t) = \gamma\cdot T_i^\lambda(t) = \gamma\cdot t$, meaning $\gamma\cdot t$ is also normal. Since $\gamma\cdot s$ rewrites to $\gamma\cdot t$, uniqueness gives $\operatorname{nf}_\lambda(\gamma\cdot s) = \gamma\cdot\operatorname{nf}_\lambda(s)$.
+Suppose $s\to_i t$, so $t=T_i^\lambda(s)\neq s$. If $s'=\gamma\cdot s$, then
+\[
+q\bigl(T_i^\lambda(s')\bigr)
+=
+\overline T_i^\lambda\bigl(q(s')\bigr)
+=
+\overline T_i^\lambda\bigl(q(s)\bigr)
+=
+q\bigl(T_i^\lambda(s)\bigr).
+\]
+Thus gauge-equivalent inputs induce the same repaired orbit, and by induction the orbit reached
+after any repair sequence depends only on the initial orbit. Every maximal repair sequence from
+$s$ ends at $\operatorname{nf}_\lambda(s)$ by Theorem~\ref{thm:confluence}, so the terminal orbit
+$q(\operatorname{nf}_\lambda(s))$ depends only on $q(s)=[s]$. This makes
+\[
+[s]\longmapsto [\operatorname{nf}_\lambda(s)]
+\]
+well-defined on $\Sigma/\Gamma$.
 \end{proof}
 
 \begin{corollary}[Gauge-invariant law]\label{cor:gaugeinv}
@@ -288,7 +324,23 @@ If $M:\Sigma\to Y$ is gauge-invariant ($M(\gamma\cdot s)=M(s)$ for all $\gamma$)
 \end{corollary}
 
 \begin{proof}
-$M(\operatorname{nf}_\lambda(\gamma\cdot s)) = M(\gamma\cdot\operatorname{nf}_\lambda(s)) = M(\operatorname{nf}_\lambda(s))$.
+Because $M$ is gauge-invariant, it factors through the orbit map: $M=\overline M\circ q$ for some
+$\overline M:\Sigma/\Gamma\to Y$. Theorem~\ref{thm:gauge} gives
+\[
+q\bigl(\operatorname{nf}_\lambda(\gamma\cdot s)\bigr)
+=
+q\bigl(\operatorname{nf}_\lambda(s)\bigr),
+\]
+hence
+\[
+M\bigl(\operatorname{nf}_\lambda(\gamma\cdot s)\bigr)
+=
+\overline M\!\left(q\bigl(\operatorname{nf}_\lambda(\gamma\cdot s)\bigr)\right)
+=
+\overline M\!\left(q\bigl(\operatorname{nf}_\lambda(s)\bigr)\right)
+=
+M\bigl(\operatorname{nf}_\lambda(s)\bigr).
+\]
 \end{proof}
 
 \begin{corollary}[Inert ancillary refinement does not change physical law]\label{cor:ancilla}

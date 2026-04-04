@@ -397,21 +397,74 @@ A global solution exists if and only if the signed sum of $b_e$ vanishes on ever
 Summing the edge equations around a cycle gives necessity. For sufficiency, fix a root and define each $x_v$ by summing labels along a path from the root to $v$. Vanishing cycle sums make this independent of the chosen path.
 \end{proof}
 
-\begin{proposition}[Gauge Quotient]\label{prop:gauge}
-Suppose a local gauge group $\Gamma=\prod_i \Gamma_i$ acts on $\Sigma$ while leaving all interface data invariant, and the repair maps satisfy
+\begin{definition}[Physical repair law and representative lift]\label{def:physicalrepair}
+Suppose a local gauge group $\Gamma=\prod_i \Gamma_i$ acts on $\Sigma$ while leaving all interface
+data invariant. Write
 \[
-T_i^\lambda(\gamma\cdot s)=\gamma\cdot T_i^\lambda(s).
+q:\Sigma\to\Sigma/\Gamma,
+\qquad
+q(s)=[s].
 \]
-Then
+A physical repair law is a family of local maps
 \[
-\nf_\lambda(\gamma\cdot s)=\gamma\cdot \nf_\lambda(s).
+\overline T_i^\lambda:\Sigma/\Gamma\to\Sigma/\Gamma
+\]
+on the overlap-invariant quotient. A representative repair family is any family
+\[
+T_i^\lambda:\Sigma\to\Sigma
+\]
+with
+\[
+q\circ T_i^\lambda=\overline T_i^\lambda\circ q.
+\]
+\end{definition}
+
+\begin{proposition}[Representative lifts descend to the quotient]\label{prop:repairquot}
+For any representative repair family of Definition~\ref{def:physicalrepair},
+\[
+q\bigl(T_i^\lambda(\gamma\cdot s)\bigr)=q\bigl(T_i^\lambda(s)\bigr)
+\qquad
+\forall\, i,\ \forall\, \gamma\in\Gamma,\ \forall\, s\in\Sigma.
+\]
+In particular the repair relation descends to \(\Sigma/\Gamma\) without any extra
+gauge-covariance axiom.
+\end{proposition}
+
+\begin{proof}
+Because \(q(\gamma\cdot s)=q(s)\),
+\[
+q\bigl(T_i^\lambda(\gamma\cdot s)\bigr)
+=
+\overline T_i^\lambda\bigl(q(\gamma\cdot s)\bigr)
+=
+\overline T_i^\lambda\bigl(q(s)\bigr)
+=
+q\bigl(T_i^\lambda(s)\bigr).
+\]
+So gauge-equivalent inputs induce the same repaired physical state.
+\end{proof}
+
+\begin{proposition}[Gauge Quotient]\label{prop:gauge}
+Under Definition~\ref{def:physicalrepair}, Proposition~\ref{prop:repairquot}, and
+Theorem~\ref{thm:confluence}, the normal-form map descends to the quotient:
+\[
+\overline{\nf}_\lambda:\Sigma/\Gamma\to\Sigma/\Gamma,
+\qquad
+[s]\mapsto [\nf_\lambda(s)].
 \]
 Hence gauge-invariant observables are unique on the quotient.
 \end{proposition}
 
 \begin{proof}
-Gauge covariance maps repair sequences to repair sequences. Since the normal form is unique by Theorem~\ref{thm:confluence}, the normal form of $\gamma\cdot s$ must be $\gamma\cdot \nf_\lambda(s)$.
+By Proposition~\ref{prop:repairquot}, every repair step has quotient image determined only by the
+current orbit. Iterating, the quotient image of any repair sequence depends only on the initial
+orbit. Since every maximal repair sequence from \(s\) terminates at the unique normal form
+\(\nf_\lambda(s)\) by Theorem~\ref{thm:confluence}, the terminal orbit \([\nf_\lambda(s)]\)
+depends only on \([s]\). This makes \(\overline{\nf}_\lambda\) well-defined.
 \end{proof}
+
+This removes only the extra gauge-covariance axiom. Deriving the physical repair law itself from
+OPH recovery dynamics remains a separate upstream burden.
 
 \begin{definition}[Ancilla stabilization]\label{def:ancillastab}
 Fix a finite-cutoff OPH realization
@@ -478,15 +531,31 @@ Under the OPH axiom language, the UV invariant determined by the theory is the c
 \end{corollary}
 
 \begin{proof}
-Proposition~\ref{prop:gauge} fixes the schedule-independent physical branch on the quotient, while Proposition~\ref{prop:ancillauv} shows that inert ancillary refinements leave every OPH observable invariant. So the physical branch is fixed only modulo \(\sim_{\mathrm{OPH}}\), not at the level of one microscopic representative.
+Propositions~\ref{prop:repairquot} and \ref{prop:gauge} fix the schedule-independent physical
+branch on the quotient, while Proposition~\ref{prop:ancillauv} shows that inert ancillary
+refinements leave every OPH observable invariant. So the physical branch is fixed only modulo
+\(\sim_{\mathrm{OPH}}\), not at the level of one microscopic representative.
 \end{proof}
 
-These three results encode much of the eventual physical interpretation. Objectivity becomes confluence, gauge symmetry becomes quotient invariance, and stable defects are represented by nontrivial overlap holonomy classes.
-The physically relevant uniqueness statement is therefore quotient uniqueness together with ancilla-stable equivalence: OPH fixes a unique gauge-invariant physical branch modulo boundary redundancy, implementation hiding, and inert ancillary stabilization, not a unique microscopic regulator presentation.
+These three results encode much of the eventual physical interpretation. Objectivity becomes
+confluence, gauge symmetry becomes quotient invariance induced by the physical overlap algebra, and
+stable defects are represented by nontrivial overlap holonomy classes. The physically relevant
+uniqueness statement is therefore quotient uniqueness together with ancilla-stable equivalence: OPH
+fixes a unique gauge-invariant physical branch modulo boundary redundancy, implementation hiding,
+and inert ancillary stabilization, not a unique microscopic regulator presentation.
 
 \section{Collars, Edge Centers, and Generalized Entropy}
 
-The fixed-point picture explains why overlap consistency produces gauge quotients, but the gravity and consensus arguments later use a more specific collar fact: after edge-center completion, interior observables become insensitive to compatible exterior substitutions, and modular additivity becomes exact in the Markov normal form. The point of this section is therefore twofold. First, at fixed regulator scale, we derive the collar block decomposition from overlap consistency itself on the ordinary or central-defect branch and then state its genuinely noncentral higher-gauge replacement. Second, we state precisely when the approximate recoverability premise of Axiom~\ref{ax:entropy} is allowed to converge to the exact HJPW normal form used by the later spatial and null collar theorems.
+The fixed-point picture explains why overlap consistency produces gauge quotients: once repair is
+read on the physical overlap algebra, descent to the quotient is automatic. The gravity and
+consensus arguments later use a more specific collar fact: after edge-center completion, interior
+observables become insensitive to compatible exterior substitutions, and modular additivity becomes
+exact in the Markov normal form. The point of this section is therefore twofold. First, at fixed
+regulator scale, we derive the collar block decomposition from overlap consistency itself on the
+ordinary or central-defect branch and then state its genuinely noncentral higher-gauge replacement.
+Second, we state precisely when the approximate recoverability premise of Axiom~\ref{ax:entropy} is
+allowed to converge to the exact HJPW normal form used by the later spatial and null collar
+theorems.
 
 The sharp claim boundary is as follows. Small conditional mutual information always gives a constructive recovered comparison state with \(O(\varepsilon^{1/2})\) observable error. It does \emph{not} by itself give a universal one-shot trace-norm bound to an exact Markov state. The exact Markov normal form is recovered either when \(I(A:D\mid B)=0\) holds literally, or for a controlled family on one fixed finite-dimensional collar model, or after pullback to such a model, where \(\varepsilon\to0\). On that fixed collar one gets a collar-dependent modulus \(\delta^{\mathrm M}_{A:B:D}(\varepsilon)\to0\) measuring distance to the exact Markov set, and this is the error that must be carried into later exact splice or modular-additivity identities.
 

@@ -22,6 +22,17 @@ The supplement follows the canonical premise scheme of the main manuscript. The 
 
 \textbf{Fixed-cutoff realized presentation.} On a finite regulator cellulation, each regulator cell \(x\) carries a finite-dimensional factor \(\mathfrak h_x\), and local patch algebras are finite type-I algebras. Gauge-as-gluing is realized as a compact boundary redundancy action on cut data, so physical algebras are fixed-point algebras of the corresponding boundary action. This is the realized regulator form of Axiom 1 plus overlap consistency; it is not a separate premise layer.
 
+\textbf{Repair descent on the physical algebra.} In the consensus package, the physical repair law
+is defined on that overlap-invariant physical data rather than on hidden representatives. In the
+finite-patch-net notation, if \(q:\Sigma\to\Sigma/\Gamma\) is the quotient by boundary redundancy
+and \(\overline T_i\) is the physical quotient update, a representative-level map \(T_i\) is only
+required to be a lift satisfying \(q\circ T_i=\overline T_i\circ q\). Therefore
+\(q(T_i(\gamma\cdot s))=q(T_i(s))\) for gauge-equivalent inputs. Quotient descent is thus forced by
+the same overlap-invariant algebraic structure that defines the physical algebra; strict
+representative-level covariance of a chosen lift is implementation bookkeeping, not an extra
+theorem-level premise. This does not yet derive the physical repair law itself from recoverability
+dynamics; that remains the separate upstream burden of the consensus branch.
+
 \textbf{Local finite-constraint MaxEnt branch.} Axiom 3 states that at scale \(\ell_{\mathrm{UV}}\) the realized state maximizes entropy subject to a finite set of gauge-invariant local constraints
 \[
 \mathcal C_{\ell_{\mathrm{UV}}}=\{O_a(x)\}_{a=1}^{N_{\mathrm{con}}},
