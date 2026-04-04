@@ -112,7 +112,7 @@ Lexicographic minimality means: first minimize \(\chi_{\mathrm{cpl}}\); among ti
 
 \subsection{Main Theorem}\label{4-main-theorem}
 
-\textbf{Theorem (Standard Model closure from the gauge-selection hypotheses).} Under the gauge-reconstruction hypotheses of Theorem 6.1, the central transport condition \([z]=0\), admissibility conditions (i)--(vi), and Axiom 5 (MAR):
+\textbf{Theorem (Standard Model closure from the gauge-selection hypotheses).} Under the ordinary or central-defect bosonic gauge-reconstruction hypotheses of Theorem 6.1, admissibility conditions (i)--(vi), and Axiom 5 (MAR):
 
 \[G_{\mathrm{phys}} = \frac{SU(3) \times SU(2) \times U(1)}{\mathbb{Z}_6}, \qquad N_g = 3, \qquad N_c = 3.\]
 
@@ -132,7 +132,7 @@ The proof proceeds in five steps. Steps 1--4 determine the connected gauge group
 
 At each cutoff one has a finite tensor category of transportable edge charges. The local MaxEnt/refinement package controls the realized state branch across cutoffs, but it does not by itself prove that transportable sectors persist nontrivially in the refinement limit. The reconstruction therefore uses the transportable directed-colimit premise \(T6\): assume a directed system of transportable edge-sector categories with objectwise finite-dimensional fibers, and write its colimit as \(\mathsf{Sect}_\infty\). By Theorem 6.1 (Tannaka/DR reconstruction~\cite{tannaka38,krein49,dr89,dr90}), there exists a compact group \(G\), unique up to isomorphism, with \(\mathsf{Sect}_\infty \simeq \mathrm{Rep}(G)\).
 
-The premise \([z] = 0\) ensures that this reconstruction is global: charges are DHR-transportable, so the compact group acts as a genuine gauge symmetry, not merely a local labeling (Proposition 6.1a). \(\square\)
+On the central branch, the explicit loop-coherence premise \([z]=0\) is the condition under which those transported sectors glue globally, so the reconstructed compact group acts as a genuine gauge symmetry rather than as local bookkeeping only (Proposition 6.1a). The genuinely noncentral fixed-cutoff branch is handled separately by the crossed-module criterion \(q_\Sigma=0\) of Corollary 3.4a and is not here upgraded to the ordinary DR field-algebra route. \(\square\)
 
 \subsubsection{Step 2: The gauge group must be a product}\label{step-2-the-gauge-group-must-be-a-product}
 
@@ -355,7 +355,7 @@ The gauge-sector chain established in this fragment is:
 \begin{quote}
 \(\text{canonical package} + \text{fixed-cutoff realized presentation}\) \(\xrightarrow{\text{Thm 6.1}}\) \(\exists\, G\) compact
 
-\(+ \; [z]=0\) \(\xrightarrow{\text{Prop 6.1a}}\) DHR transportable, global gauge symmetry
+\(+ \; [z]=0\) on the central branch \(\xrightarrow{\text{Prop 6.1a}}\) DHR transportable, global gauge symmetry
 
 \(+ \;\text{apply MAR on the admissible class}\) \(\xrightarrow{\text{Thm (this doc)}}\) connected SM factors with the realized chain \(N_g = 3\) then \(N_c = 3\), and \(G_{\mathrm{phys}} = SU(3) \times SU(2) \times U(1)/\mathbb{Z}_6\)
 
