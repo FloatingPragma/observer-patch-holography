@@ -341,7 +341,7 @@ stages:
       - id: papers.compact.e.30c-derive-d10-p-to-charged-affine-anchor
         title: "Derive the theorem-grade bridge from the D10 calibration family of P to the charged affine anchor A_ch"
         status: pending
-        note: "A universal P-driven charged-mass law cannot enter through centered readback. The target object is a theorem-grade map from D10 calibration descendants to A_ch = mu_phys(Y_e), with no measured charged masses or same-family anchor reuse."
+        note: "A universal P-driven charged-mass law cannot enter through centered readback. The target object is a theorem-grade map from D10 calibration descendants to A_ch = mu_phys(Y_e), with no measured charged masses or same-family anchor reuse. The current local blocker is now explicit on disk as `oph_charged_p_to_affine_anchor_bridge_no_go`: the D10 family closes only to electroweak descendants and still does not land on physical `Y_e`, the charged determinant line, or `A_ch`."
         owner_lane: pro_paper
         depends_on:
           [
@@ -351,7 +351,7 @@ stages:
       - id: papers.compact.e.30d-emit-charged-masses-from-p
         title: "Emit theorem-grade charged masses from P once A_ch(P) is closed"
         status: pending
-        note: "Only after A_ch(P) is theorem-grade should the charged table emit g_e(P) = exp(A_ch(P)) and the three masses m_i(P) = exp(A_ch(P) + ell_i,centered)."
+        note: "Only after A_ch(P) is theorem-grade should the charged table emit g_e(P) = exp(A_ch(P)) and the three masses m_i(P) = exp(A_ch(P) + ell_i,centered). The current local dependency theorem is now explicit on disk as `oph_charged_masses_from_p_blocker`: Steps 1-3 remain open, so no theorem-grade charged masses from P emit yet."
         owner_lane: pro_paper
         depends_on: ["papers.compact.e.30c-derive-d10-p-to-charged-affine-anchor"]
       - id: particles.leptons.13-add-support-extension-source-scalar-pair-readback

@@ -1,0 +1,54 @@
+{
+  "alignment_with_global_no_go": {
+    "artifact": "oph_charged_end_to_end_impossibility_theorem",
+    "artifact_ref": "code/particles/runs/leptons/charged_end_to_end_impossibility_theorem.json",
+    "verdict": "no_current_corpus_end_to_end_closure"
+  },
+  "artifact": "oph_charged_masses_from_p_blocker",
+  "bridge_gap_artifact": {
+    "artifact": "oph_charged_p_to_affine_anchor_bridge_no_go",
+    "artifact_ref": "code/particles/runs/leptons/charged_p_to_affine_anchor_bridge_no_go.json",
+    "verdict": "no_current_corpus_P_to_A_ch_bridge"
+  },
+  "current_forbidden_outputs": [
+    "A_ch(P)",
+    "g_e(P)",
+    "m_e(P)",
+    "m_mu(P)",
+    "m_tau(P)"
+  ],
+  "failed_dependencies": [
+    {
+      "effect_on_fill": "theorem_grade_C_hat_e",
+      "id": "oph_generation_bundle_branch_generator_splitting",
+      "smallest_missing_clause": "compression_descendant_commutator_vanishes_or_is_uniformly_quadratic_small_after_central_split"
+    },
+    {
+      "effect_on_fill": "induce_determinant_line_section_A_ch_and_absolute_charged_outputs",
+      "exact_descended_scalar": "charged_physical_affine_scalar_mu",
+      "exact_smaller_forcing_object": "charged_physical_identity_mode_equalizer",
+      "id": "refinement_stable_uncentered_trace_lift"
+    },
+    {
+      "effect_on_fill": "theorem_grade_A_ch(P)",
+      "id": "d10_to_charged_affine_anchor_bridge",
+      "smallest_honest_contract": "one theorem-grade map from the D10 calibration descendants of P to the charged determinant line, or to a smaller intermediate object that canonically forces A_ch(P)"
+    }
+  ],
+  "generated_utc": "2026-04-04T04:02:26Z",
+  "notes": [
+    "This is a dependency theorem, not a numerical mismatch report.",
+    "It isolates exactly what remains before any public charged table can emit masses from P.",
+    "The symbolic formulas are already known; what is missing is the theorem-grade production of A_ch(P)."
+  ],
+  "public_promotion_allowed": false,
+  "status": "dependency_blocker_certificate",
+  "symbolic_readout_if_dependencies_close": {
+    "g_e(P)": "exp(A_ch(P))",
+    "m_e(P)": "exp(A_ch(P) + e_log_centered(P))",
+    "m_mu(P)": "exp(A_ch(P) + mu_log_centered(P))",
+    "m_tau(P)": "exp(A_ch(P) + tau_log_centered(P))"
+  },
+  "theorem_statement": "No theorem-grade charged masses are emitted from P on the current corpus. The operator-side promotion theorem is still open, the post-promotion affine slot is still open, and no theorem-grade bridge from the D10 calibration descendants of P to A_ch has been derived. Therefore A_ch(P), g_e(P), and the charged mass triple from P remain un-emitted.",
+  "verdict": "charged_masses_from_P_not_emitted_on_current_corpus"
+}
