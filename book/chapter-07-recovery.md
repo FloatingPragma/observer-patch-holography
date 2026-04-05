@@ -44,7 +44,7 @@ Hawking was willing to accept this. Most other physicists were not.
 
 After decades of debate, the resolution emerged: **information is never destroyed**. The Hawking radiation is not truly random. It carries subtle correlations-the information about what fell in is encoded in the radiation, scrambled beyond recognition but not erased.
 
-This was confirmed by the "Page curve" calculation and the island formula developed in the 2010s. Information that seemed lost to the black hole interior is actually encoded in correlations among the outgoing radiation particles.
+This picture was later strongly supported by the Page-curve reasoning and by island-formula calculations developed in the 2010s. Information that seemed lost to the black hole interior is instead encoded in correlations among the outgoing radiation particles.
 
 **This is the hint**: Information cannot be copied (no-cloning), yet information cannot be destroyed (unitarity). These twin constraints-which seemed contradictory-turn out to require a specific structure: **quantum error correction**.
 
@@ -429,7 +429,7 @@ The recovery model includes both rigorous mathematical results and testable pred
 
 **2. Black hole information is preserved**: The Page curve-radiation entropy rising then falling-follows from unitarity. This is supported by island-formula calculations in explicit models (2019-2020). Direct tests await quantum computers capable of simulating black hole evaporation.
 
-**3. Entanglement wedge reconstruction**: In holographic systems, bulk operators can be reconstructed from any boundary region whose entanglement wedge contains them. Confirmed in all AdS/CFT calculations.
+**3. Entanglement wedge reconstruction**: In holographic systems, bulk operators can be reconstructed from any boundary region whose entanglement wedge contains them. Supported by explicit AdS/CFT examples and by holographic code constructions.
 
 **4. Quantum error correction works**: Threshold theorem: below error threshold, arbitrary reliability is achievable. Confirmed in laboratory quantum computers-error-corrected qubits now demonstrably outperform physical qubits (Google Willow, 2024).
 

@@ -59,9 +59,9 @@ Our fundamental object is the holographic screen \(S^2\). The screen is a sphere
 This has immediate consequences. Whatever physics lives on the screen must organize itself into **representations** of SO(3)-ways that fields can transform under rotations.
 
 The representations are labeled by angular momentum l = 0, 1, 2, ...:
-- **l = 0 (Scalar)**: Doesn't change under rotation. One component. Examples: the Higgs field.
-- **l = 1 (Vector)**: Transforms like an arrow. Three components. Examples: the photon.
-- **l = 2 (Tensor)**: Transforms like a stress matrix. Five components. Example: the graviton.
+- **l = 0 (Scalar mode)**: Doesn't change under rotation. One component.
+- **l = 1 (Vector mode)**: Transforms like an arrow. Three components.
+- **l = 2 (Tensor mode)**: Transforms like a stress matrix. Five components.
 
 This explains part of the angular-momentum story: fields on the sphere decompose into discrete angular modes because spherical harmonics are labeled by integers. Intrinsic spin is a separate representation-theoretic input, which for fermions enters through the spinor and double-cover structure discussed next.
 

@@ -332,7 +332,7 @@ The answer involves a concept called **quantum Darwinism**, developed by Wojciec
 
 Here's the idea. A quantum system interacts with its environment-air molecules, photons, everything around it. Some information about the system gets copied into the environment. Not perfectly copied (quantum mechanics forbids that), but redundantly encoded.
 
-Consider Schr\"odinger's cat. If the cat is alive, air molecules bounce off it in a certain way. Light reflects off it in a certain way. Heat radiates from it in a certain way. Each of these environmental fragments carries partial information about the cat's state.
+Consider Schrodinger's cat. If the cat is alive, air molecules bounce off it in a certain way. Light reflects off it in a certain way. Heat radiates from it in a certain way. Each of these environmental fragments carries partial information about the cat's state.
 
 When you look at the cat, you're not accessing the cat directly-you're reading information from these environmental fragments. And crucially, many observers can read many different fragments and still agree.
 

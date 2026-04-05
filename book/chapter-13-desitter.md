@@ -42,7 +42,7 @@ Now we reverse engineer. Why does nature have a positive cosmological constant? 
 
 What does one observer actually experience in de Sitter space?
 
-As you look outward, galaxies recede faster and faster. At a critical distance r_H = 1/H, the recession velocity equals the speed of light. Beyond this radius, light can never reach you.
+As you look outward, galaxies recede faster and faster. At a critical distance \(r_H = c/H\), the recession velocity equals the speed of light. Beyond this radius, light can never reach you.
 
 This defines your **cosmological horizon**-the boundary of your causal access.
 
@@ -56,7 +56,7 @@ Here is the reframing: **The de Sitter horizon is the natural holographic screen
 |-------------------|-------------------|
 | Observers have finite patches | The static patch is bounded by horizon |
 | Patch boundary is \(S^2\) | The horizon is topologically a 2-sphere |
-| Finite entropy | Gibbons-Hawking entropy S = A/4G |
+| Finite entropy | Gibbons-Hawking entropy \(S = A/(4\ell_P^2)\) |
 | No "God's eye view" | No observer sees beyond their horizon |
 | Observer equivalence | De Sitter is maximally symmetric |
 | Time is emergent | No preferred global time; time is patch-dependent |
@@ -87,7 +87,7 @@ This has an important implication for our model: **de Sitter horizons automatica
 
 If the horizon has temperature, it must have entropy:
 
-$$S_{dS} = \frac{A}{4G\hbar} = \frac{\pi}{G\hbar H^2}$$
+$$S_{dS} = \frac{A}{4\ell_P^2} = \frac{\pi c^5}{G\hbar H^2}$$
 
 This is the entropy associated with one de Sitter static patch-the logarithm of the effective number of states accessible within that patch.
 
@@ -122,7 +122,7 @@ Where should we put the holographic screen in de Sitter?
 
 The natural answer: on the cosmological horizon.
 
-For an observer at r = 0, the horizon is a sphere at r = 1/H. This sphere has area \(4\pi/H^2\) and entropy of order \(10^{122}\) in natural units, or \(10^{122}/\ln 2\) bits.
+For an observer at \(r = 0\), the horizon is a sphere at \(r = c/H\). This sphere has area \(4\pi c^2/H^2\) and entropy of order \(10^{122}\) in natural units, or \(10^{122}/\ln 2\) bits.
 
 The three-dimensional bulk inside the horizon is encoded holographically on the two-dimensional horizon.
 
@@ -147,7 +147,7 @@ This is a fundamental shift in target. The "unsolved problem" of dS holography i
 
 A crucial insight: the cosmological constant cannot be determined by local consistency conditions. This follows from the mathematics-null modular data can only reconstruct the stress tensor up to a term proportional to the metric. Any term Lambda times g_ab is invisible to local null probes.
 
-So Lambda must be fixed by a **global** constraint: the total capacity of the screen. The relationship is:
+So Lambda must be fixed by a **global** constraint: the total capacity of the screen. In natural units, the relationship is:
 
 $$\Lambda = \frac{3\pi}{G \cdot \log(\dim \mathcal{H}_{\text{tot}})}$$
 
@@ -195,9 +195,9 @@ The picture so far:
 
 1. **Accelerating Expansion**: The universe is 68% dark energy with Lambda > 0.
 
-2. **Static Patch**: Each observer is bounded by a cosmological horizon at r = 1/H.
+2. **Static Patch**: Each observer is bounded by a cosmological horizon at \(r = c/H\).
 
-3. **Gibbons-Hawking**: The horizon has temperature \(T = \hbar H / (2\pi k_B)\) and entropy \(S = A / (4G\hbar)\).
+3. **Gibbons-Hawking**: The horizon has temperature \(T = \hbar H / (2\pi k_B)\) and entropy \(S = A / (4\ell_P^2)\).
 
 4. **Finite Patch Entropy**: A de Sitter static patch carries entropy of order \(10^{122}\) in natural units, so an observer's accessible region has finite information capacity.
 

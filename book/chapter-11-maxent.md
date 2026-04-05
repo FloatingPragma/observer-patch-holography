@@ -54,7 +54,7 @@ The logic:
 What is a modular Hamiltonian? In ordinary quantum mechanics, the Hamiltonian H generates time evolution via $e^{-iHt}$. The modular Hamiltonian instead generates a state-dependent modular flow. If you know the density matrix $\rho$, you can take its logarithm and get an operator $K = -\ln\rho$ whose modular evolution acts like an internal clock for that state.
 
 4. This Hamiltonian generates a flow: sigma_s(A) = e^{iKs} A e^{-iKs}
-5. **The Thermal Time principle**: This flow is what we experience as time.
+5. **The Thermal Time principle**: This flow is proposed as what we experience as time.
 
 Time isn't a coordinate on a manifold. Time is the modular flow of the statistical state.
 
