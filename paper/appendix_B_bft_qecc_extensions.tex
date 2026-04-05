@@ -1,0 +1,487 @@
+%% appendix_B_bft_qecc_extensions.tex
+%%
+%% Integration instructions for the maintainer:
+%%
+%% 1. SHORT SUBSECTION — paste the \subsection block below
+%%    into \section{Discussion and Open Problems} in
+%%    reality_as_consensus_protocol.tex, as the last subsection
+%%    before \appendix.
+%%
+%% 2. APPENDIX B — after the existing Appendix A, add:
+%%
+%%    \section{Conditional Distributed-Systems and QECC
+%%             Extensions of the Consensus Formalism}
+%%    \label{app:bft-qecc}
+%%    \input{appendix_B_bft_qecc_extensions}
+%%
+%% ---------------------------------------------------------------------------
+
+% ============================================================
+% SHORT PROSE — for Discussion and Open Problems subsection
+% ============================================================
+
+\subsection{Conditional BFT and QECC Extensions}
+\label{subsec:conditional-bft-qecc}
+
+The consensus formalism of \textrm{OPH} has natural analogies to classical and
+quantum distributed Byzantine agreement.
+Observer patches correspond to protocol nodes, overlap repair corresponds to a
+quorum vote, and the repair fixed-point corresponds to a consensus state.
+Under explicit structural assumptions (quorum size $\geq 2f+1$, partial synchrony,
+one-vote-per-view, certificate semantics, and \textrm{DLS}-style view-change), a
+\textrm{QBFT}-style interpretation of \textrm{OPH} repair satisfies safety and liveness
+(Appendix~\ref{app:bft-qecc}, Theorem~\ref{thm:qbft-safety}).
+The repair map admits a quantum-channel formulation via the Petz recovery map
+(Definition~\ref{def:oph-repair-map}), but the \textrm{CPTP} property on all inputs
+requires either full-rank $\mathcal{N}(\sigma)$ or an explicit domain restriction;
+trace-preserving completion is not automatic when $\mathcal{N}(\sigma)$ has a
+non-trivial kernel (Proposition~\ref{prop:petz-cptp}).
+A quantum error-correcting interpretation is possible under additional topological
+structure, but the code-distance / min-cut equality requires explicit conditions
+on logical-operator homology and boundary geometry
+(Claim~\ref{claim:qecc-mincut}).
+All of these extensions are conditional or conjectural and are not part of
+the core theorem package of Paper~4.
+
+% ============================================================
+% APPENDIX B — full technical material
+% ============================================================
+
+\noindent\rule{\linewidth}{0.4pt}
+
+\paragraph{Honesty labels.}
+\begin{description}
+  \item[\textbf{[Established]}] Follows from cited prior work or a complete
+        argument given here.
+  \item[\textbf{[Conditional]}] True under additional assumptions not yet
+        derived from \textrm{OPH} first principles.
+  \item[\textbf{[Conjecture]}] A plausible open direction, not a settled result.
+\end{description}
+
+% ------------------------------------------------------------
+\subsection*{B.1\quad Theorem 1 --- QBFT Safety Bound}
+% ------------------------------------------------------------
+
+\begin{definition}[QBFT-style protocol]
+\label{def:qbft-style}
+A consensus protocol is \emph{QBFT-style} in this analysis if it satisfies
+the following three structural properties.
+The safety proof of Theorem~\ref{thm:qbft-safety} uses all three;
+the theorem does not hold for protocols lacking any of them without a
+compensating change to the argument.
+\begin{enumerate}[(P1)]
+  \item \textbf{One-vote-per-view.}
+        Each honest node casts at most one vote per view number.
+        A node that has already voted in view~$v$ ignores any later request
+        to vote in view~$v$.
+  \item \textbf{Certificate semantics.}
+        A decision requires a valid quorum certificate: $2f+1$ distinct,
+        unforgeable, authenticated votes for the same value in the same view.
+  \item \textbf{DLS-style view-change.}
+        If no certificate is produced within a timeout, every honest node
+        increments the view number by one and a new leader is selected by a
+        fixed deterministic rule.  At \textrm{GST}, timeouts fire correctly
+        and the view-change terminates in bounded rounds.
+\end{enumerate}
+The Istanbul BFT / QBFT protocol family
+\cite{Moniz2020,Saltini}
+satisfies (P1)--(P3) and is the intended instance.
+\end{definition}
+
+\paragraph{Assumptions A1--A6.}
+\begin{enumerate}[(A1)]
+  \item \textbf{Partial synchrony (DLS).}
+        Fixed but initially unknown bounds $\Delta$ (message delay) and
+        $\Phi$ (processing rates).
+        \emph{Safety} holds unconditionally;
+        \emph{liveness} holds after the Global Stabilisation Time (\textrm{GST}).
+  \item \textbf{Byzantine fault model.}
+        At most $f$ observers behave arbitrarily; the remaining $n-f$ are honest.
+  \item \textbf{Optimal fault bound.}
+        $n \geq 3f+1$ (necessary: \cite{Lamport1982}; sufficient: \cite{Lamport1982}).
+  \item \textbf{Strong quorum connectivity.}
+        Every quorum $Q$ with $|Q|=2f+1$ is strongly connected within~$G$:
+        for any $u,v\in Q$ there is a directed path in~$G$ contained
+        entirely in~$Q$.
+        This is strictly stronger than requiring the overlap graph of
+        quorums to be connected, and is needed to propagate signed votes
+        within a quorum.
+  \item \textbf{Message authentication.}
+        All messages carry unforgeable digital signatures.
+  \item \textbf{OPH quorum overlap.}
+        Any two quorums $Q_a, Q_b$ of size $2f+1$ satisfy
+        $|Q_a\cap Q_b|\geq f+1$ (guaranteed by (A3)).
+\end{enumerate}
+
+\begin{theorem}[QBFT Safety Bound
+  {\normalfont\small [Established, conditional on A1--A6]}]
+\label{thm:qbft-safety}
+Under assumptions (A1)--(A6), any consensus protocol satisfying
+(P1)--(P3) of Definition~\ref{def:qbft-style} and run over the
+\textrm{OPH} observer graph satisfies:
+\begin{enumerate}[(i)]
+  \item \textbf{Safety.} No two honest observers finalise conflicting
+        patch states.
+  \item \textbf{Liveness.} After \textrm{GST}, every honest observer
+        finalises within $O(f\cdot\Delta)$ wall-clock time.
+  \item \textbf{Optimality.} The bound $f<n/3$ is tight.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+\textit{Safety.}
+Suppose $O_a$ and $O_b$ finalise $s_a\neq s_b$ in the same view.
+By (P2), each required a certificate of $q=2f+1$ votes: sets $Q_a,Q_b$.
+By (A3): $|Q_a\cap Q_b|\geq(2f+1)+(2f+1)-(3f+1)=f+1$.
+By (A2), at most $f$ are Byzantine, so $Q_a\cap Q_b$ contains an
+honest $O^*$.
+By (A4), $O^*$'s signed vote is path-reachable within both quorums.
+By (P1), $O^*$ voted for at most one value --- contradiction.
+
+\textit{Liveness and Optimality}
+follow from \cite{DLS88} (Thm.~4.4) and \cite{Lamport1982}, cited directly.
+
+\textit{Note on FLP.}
+Fischer, Lynch, Paterson~\cite{FLP85} is an impossibility result for
+fully asynchronous systems; it does not bear on achievability under
+partial synchrony (A1).
+\end{proof}
+
+% ------------------------------------------------------------
+\subsection*{B.2\quad Theorem 2 --- Convergence of the OPH Repair Map}
+% ------------------------------------------------------------
+
+\begin{definition}[OPH Repair Map --- Petz form]
+\label{def:oph-repair-map}
+Let $\sigma\in\mathcal{D}(\mathcal{H})$ be a full-rank reference state and
+$\mathcal{N}:\mathcal{B}(\mathcal{H})\to\mathcal{B}(\mathcal{K})$ a quantum channel.
+The \emph{OPH repair map} is
+\[
+  \mathcal{R}_{\sigma,\mathcal{N}}(\rho)
+  := \sigma^{1/2}\,
+     \mathcal{N}^\dagger\!\bigl(
+       \mathcal{N}(\sigma)^{-1/2}\,\rho\,\mathcal{N}(\sigma)^{-1/2}
+     \bigr)
+     \,\sigma^{1/2},
+\]
+where $\mathcal{N}^\dagger$ is the adjoint channel and inverses are
+taken on $\mathrm{supp}(\mathcal{N}(\sigma))$.
+\end{definition}
+
+\begin{remark}[Petz map vs.\ trace-distance projection]
+The closest-point trace-distance projection
+$\mathcal{P}_{\mathcal{S}}(\rho):=\arg\min_{\tau\in\mathcal{S}}\tfrac12\|\rho-\tau\|_1$
+is a different object from the Petz map: it is defined by a variational
+problem in trace-norm geometry and is not \textrm{CPTP} in general.
+The two coincide only in very special cases not automatic in the
+\textrm{OPH} setting.
+All subsequent properties refer exclusively to
+Definition~\ref{def:oph-repair-map}.
+\end{remark}
+
+\begin{proposition}[Petz map CPTP --- domain-restricted statement
+  {\normalfont\small [Established, subject to domain restriction]}]
+\label{prop:petz-cptp}
+Let $\sigma$ have full support on $\mathcal{H}$.
+\begin{enumerate}[(a)]
+  \item $\mathcal{R}_{\sigma,\mathcal{N}}$ is completely positive.
+  \item $\mathcal{R}_{\sigma,\mathcal{N}}$ is trace-preserving on
+        $\mathrm{supp}(\mathcal{N}(\sigma))$, i.e., on inputs $\rho$
+        for which $\mathcal{N}(\sigma)^{-1/2}\rho\,\mathcal{N}(\sigma)^{-1/2}$
+        is well-defined.
+  \item If additionally $\mathcal{N}(\sigma)$ has full rank on $\mathcal{K}$,
+        then $\mathcal{R}_{\sigma,\mathcal{N}}$ is \textrm{CPTP} on all
+        of $\mathcal{B}(\mathcal{K})$.
+\end{enumerate}
+If $\mathcal{N}(\sigma)$ is \emph{not} full rank on $\mathcal{K}$,
+then either (i)~the domain must be restricted to
+$\mathrm{supp}(\mathcal{N}(\sigma))$, or
+(ii)~pseudoinverses must replace the inverses (generalised Petz map;
+cf.~\cite{Junge2018}), or
+(iii)~a regularisation
+$\mathcal{N}(\sigma)\mapsto\mathcal{N}(\sigma)+\varepsilon\mathbf{1}$
+must be introduced.
+Note that full-rank $\sigma$ does \emph{not} prevent $\mathcal{N}(\sigma)$
+from being rank-deficient: the channel may map the support of $\sigma$
+into a strict subspace of $\mathcal{K}$.
+In the \textrm{OPH} setting, whether $\mathcal{N}(\sigma)$ is full rank
+depends on the specific overlap channel and must be verified separately
+(open issue~\#62).
+\end{proposition}
+
+\begin{proof}
+Complete positivity: composition of three \textrm{CP} operations,
+(i) sandwiching by $\mathcal{N}(\sigma)^{-1/2}(\cdot)\mathcal{N}(\sigma)^{-1/2}$
+on $\mathrm{supp}(\mathcal{N}(\sigma))$,
+(ii) $\mathcal{N}^\dagger$,
+(iii) sandwiching by $\sigma^{1/2}(\cdot)\sigma^{1/2}$.
+Trace preservation in the full-rank case:
+Petz~\cite{Petz1986}; Fagnola--Umanit\`{a}~\cite{FagnolaUmanita2010}.
+\end{proof}
+
+\begin{proposition}[Contraction {\normalfont\small [Conditional]}]
+\label{prop:petz-contraction}
+Suppose $\mathcal{N}$ is strictly contractive with spectral gap
+$\lambda\in(0,1)$:
+\[
+  \sup_{\rho\neq\tau}
+  \frac{\|\mathcal{N}(\rho)-\mathcal{N}(\tau)\|_1}
+       {\|\rho-\tau\|_1}
+  \leq\lambda<1.
+\]
+Then $\mathcal{R}_{\sigma,\mathcal{N}}\circ\mathcal{N}$ is contractive
+with coefficient depending on $\lambda$ and $\mathrm{spec}(\sigma)$.
+Establishing $\lambda<1$ for the OPH overlap channel requires analysis
+of the OPH Hamiltonian (open issue~\#62).
+\end{proposition}
+
+\begin{conjecture}[Spectral gap {\normalfont\small [Conjecture]}]
+\label{conj:spectral-gap}
+The transfer operator $\mathcal{T}$ for iterated application of
+$\mathcal{R}_{\sigma,\mathcal{N}}$ has a positive spectral gap
+$\delta>0$, implying exponential convergence.
+Proof from OPH first principles is open issue~\#63.
+\end{conjecture}
+
+\begin{theorem}[Exponential Convergence
+  {\normalfont\small [Conditional on Conjecture~\ref{conj:spectral-gap}]}]
+\label{thm:exp-convergence}
+Assuming Conjecture~\ref{conj:spectral-gap} with gap $\delta>0$,
+\[
+  \tfrac12\bigl\|\mathcal{R}_{\sigma,\mathcal{N}}^{\circ t}(\rho)
+  -\sigma\bigr\|_1
+  \leq C\,e^{-\delta t}
+\]
+for $C>0$ depending on $\rho$ and $\mathcal{N}$.
+\end{theorem}
+
+% ------------------------------------------------------------
+\subsection*{B.3\quad Theorem 3 --- QECC Correspondence}
+% ------------------------------------------------------------
+
+\paragraph{Notation.}
+$N=\dim(\mathcal{H})=2^n$ for $n$ physical qubits.
+Standard notation: $[[n,k,d]]$ stabilizer code; $K=2^k$; quantum
+Singleton bound: $k\leq n-2(d-1)$.
+
+\begin{claim}[Code distance and min-cut
+  {\normalfont\small [Conditional --- tightened]}]
+\label{claim:qecc-mincut}
+The identity \emph{code distance = graph min-cut} holds for topological
+codes (surface/toric codes) whose logical operators correspond to
+non-contractible homological cycles in the code graph.
+It does \emph{not} hold for a generic overlap graph.
+
+Suppose the OPH observer network is equipped with a surface-code-type
+construction on a planar or toroidal graph $G_{\mathrm{OPH}}$, and the
+following conditions are satisfied:
+\begin{enumerate}[(i)]
+  \item Logical $X$-type operators correspond to minimum-weight
+        non-contractible cycles in the \emph{primal} chain complex of
+        $G_{\mathrm{OPH}}$; logical $Z$-type operators correspond to
+        minimum-weight non-contractible cycles in the \emph{dual} complex.
+  \item Boundary conditions are such that no logical operator of weight
+        strictly less than the min-cut of $G_{\mathrm{OPH}}$ exists.
+  \item For non-planar geometries, the relevant group is
+        $H_1(G_{\mathrm{OPH}};\mathbb{F}_2)$ and the code distance equals
+        the minimum over all non-trivial homology classes of the weight of
+        a representative cycle.
+\end{enumerate}
+Under (i)--(iii), $d=\mathrm{mincut}(G_{\mathrm{OPH}})$
+\cite{Kitaev2003,Dennis2002}.
+
+This claim requires an explicit construction of the topological encoding
+map, the primal/dual complex of $G_{\mathrm{OPH}}$, and verification of
+(i)--(iii), none of which have been provided.
+The claim is conditional (open issue~\#113).
+\end{claim}
+
+\begin{conjecture}[Communication complexity {\normalfont\small [Conjecture]}]
+\label{conj:comm-complexity}
+The \textrm{OPH} consensus-repair protocol, realised as a quantum
+communication task, has per-round complexity $O(n\cdot\mathrm{poly}(d))$
+(open issue~\#72; cf.~\cite{BCW98}).
+\end{conjecture}
+
+\begin{theorem}[QECC Correspondence
+  {\normalfont\small [Conditional / Conjecture]}]
+\label{thm:qecc}
+Suppose conditions (i)--(iii) of Claim~\ref{claim:qecc-mincut} hold.
+Then:
+\begin{enumerate}[(i)]
+  \item \textrm{[Conditional]} Code distance $d =
+        \mathrm{mincut}(G_{\mathrm{OPH}})$.
+  \item \textrm{[Established]} The Knill--Laflamme \textrm{QECC}
+        conditions~\cite{KL97} are satisfied for the logical subspace
+        whenever the number of corrupted observers satisfies $t<d/2$.
+  \item \textrm{[Conjecture]} Per-round communication complexity is
+        $O(n\cdot\mathrm{poly}(d))$.
+\end{enumerate}
+\end{theorem}
+
+% ------------------------------------------------------------
+\subsection*{B.4\quad Theorem 4 --- Asynchronous Convergence}
+% ------------------------------------------------------------
+
+\paragraph{Why fairness alone does not give a probability-1 statement.}
+Standard strong fairness guarantees that every enabled action fires
+infinitely often along any fair schedule; it does not impose a probability
+space on the set of schedules.
+A convergence statement of the form ``converges with probability~1''
+requires a measure on schedules and does not follow from fairness alone.
+The \textrm{FLP} impossibility result~\cite{FLP85} confirms that even
+strong fairness is insufficient for bounded-time consensus in a fully
+asynchronous system.
+The phrase ``with probability~1'' has been removed from
+Theorem~\ref{thm:eventual-convergence}; the convergence is per-schedule
+and topological.
+
+\paragraph{Additional assumptions for a quantitative bound.}
+\begin{enumerate}[(B1)]
+  \item Finite known bound $\Delta$ on message delay after \textrm{GST}.
+  \item Finite bound $\Phi$ on processing rates.
+  \item $f < n/3$.
+\end{enumerate}
+
+\begin{theorem}[Eventual Convergence
+  {\normalfont\small [Established under fairness only]}]
+\label{thm:eventual-convergence}
+In a fully asynchronous \textrm{OPH} observer network under standard
+strong fairness, iterated application of $\mathcal{R}_{\sigma,\mathcal{N}}$
+converges to a consensus state $\sigma^*$ in the following sense:
+for every $\varepsilon>0$ and every strongly fair schedule,
+there exists a step $T(\text{schedule},\varepsilon)<\infty$ such that
+\[
+  \tfrac12\bigl\|\mathcal{R}^{\circ t}(\rho)-\sigma^*\bigr\|_1
+  <\varepsilon
+  \quad\text{for all }t\geq T.
+\]
+This is a per-schedule topological statement.
+No probability measure on schedules is assumed or needed;
+no uniform finite bound on $T$ follows from fairness alone.
+\end{theorem}
+
+\begin{theorem}[Quantitative Convergence
+  {\normalfont\small [Conditional on (B1)--(B3)]}]
+\label{thm:quantitative-convergence}
+In a partially synchronous \textrm{OPH} observer network satisfying
+(B1)--(B3), after \textrm{GST} every honest observer reaches consensus
+within $T=O(f\cdot\Delta)$ wall-clock time
+(by applying the \textrm{DLS} framework~\cite{DLS88}, Thm.~4.4,
+to the \textrm{OPH} repair protocol;
+requires (B1) and (B2) explicitly and does not follow from fairness alone).
+\end{theorem}
+
+% ------------------------------------------------------------
+\subsection*{B.5\quad Open Problems}
+% ------------------------------------------------------------
+
+\begin{itemize}
+  \item \textbf{\#62}\enspace Derive repair map from OPH dynamics;
+        verify full-rank condition for $\mathcal{N}(\sigma)$
+        (prerequisite for upgrading Proposition~\ref{prop:petz-contraction}
+        and the domain condition of Proposition~\ref{prop:petz-cptp}).
+  \item \textbf{\#63}\enspace Prove spectral gap from an OPH Lyapunov
+        functional (upgrades Conjecture~\ref{conj:spectral-gap} to
+        Theorem~\ref{thm:exp-convergence}).
+  \item \textbf{\#68}\enspace Quantum observable-level confluence.
+  \item \textbf{\#69}\enspace Continuum / refinement limit of
+        Theorems~\ref{thm:qbft-safety} and~\ref{thm:quantitative-convergence}.
+  \item \textbf{\#72}\enspace Communication complexity
+        (upgrades Conjecture~\ref{conj:comm-complexity}).
+  \item \textbf{\#73}\enspace Re-export repair map into OPH language.
+  \item \textbf{\#113}\enspace Construct topological encoding map for
+        Claim~\ref{claim:qecc-mincut}.
+\end{itemize}
+
+% ------------------------------------------------------------
+%  Bibliography entries for this appendix
+%  (merge into main .bib file or \bibliography)
+% ------------------------------------------------------------
+%
+% @article{FLP85,
+%   author  = {Fischer, M.J. and Lynch, N.A. and Paterson, M.S.},
+%   title   = {Impossibility of Distributed Consensus with One Faulty Process},
+%   journal = {Journal of the ACM},
+%   volume  = {32}, number = {2}, pages = {374--382}, year = {1985}}
+%
+% @article{Lamport1982,
+%   author  = {Lamport, L. and Shostak, R. and Pease, M.},
+%   title   = {The {Byzantine} Generals Problem},
+%   journal = {ACM Transactions on Programming Languages and Systems},
+%   volume  = {4}, number = {3}, pages = {382--401}, year = {1982}}
+%
+% @article{DLS88,
+%   author  = {Dwork, C. and Lynch, N.A. and Stockmeyer, L.},
+%   title   = {Consensus in the Presence of Partial Synchrony},
+%   journal = {Journal of the ACM},
+%   volume  = {35}, number = {2}, pages = {288--323}, year = {1988}}
+%
+% @inproceedings{Castro1999,
+%   author    = {Castro, M. and Liskov, B.},
+%   title     = {Practical {Byzantine} Fault Tolerance},
+%   booktitle = {OSDI 1999}, pages = {173--186}, year = {1999}}
+%
+% @misc{Moniz2020,
+%   author = {Moniz, H.},
+%   title  = {The {Istanbul BFT} Consensus Algorithm},
+%   eprint = {2002.03613}, year = {2020}}
+%
+% @misc{Saltini,
+%   author = {Saltini, R. and others},
+%   title  = {{QBFT} Formal Specification and Verification},
+%   howpublished = {\url{https://github.com/Consensys/qbft-formal-spec-and-verification}}}
+%
+% @article{Petz1986,
+%   author  = {Petz, D.},
+%   title   = {Sufficient subalgebras and the relative entropy of states
+%              of a von Neumann algebra},
+%   journal = {Communications in Mathematical Physics},
+%   volume  = {105}, number = {1}, pages = {123--131}, year = {1986}}
+%
+% @article{FagnolaUmanita2010,
+%   author  = {Fagnola, F. and Umanit\`{a}, V.},
+%   title   = {Generators of detailed balance quantum {Markov} semigroups},
+%   journal = {Infinite Dimensional Analysis, Quantum Probability},
+%   volume  = {13}, number = {3}, pages = {459--486}, year = {2010}}
+%
+% @article{Junge2018,
+%   author  = {Junge, M. and others},
+%   title   = {Universal recovery maps and approximate sufficiency of
+%              quantum relative entropies},
+%   journal = {Annales Henri Poincar\'e},
+%   volume  = {19}, number = {8}, pages = {2505--2555}, year = {2018}}
+%
+% @article{KL97,
+%   author  = {Knill, E. and Laflamme, R.},
+%   title   = {Theory of quantum error-correcting codes},
+%   journal = {Physical Review A},
+%   volume  = {55}, number = {2}, pages = {900--911}, year = {1997}}
+%
+% @phdthesis{Gottesman1997,
+%   author = {Gottesman, D.},
+%   title  = {Stabilizer Codes and Quantum Error Correction},
+%   school = {California Institute of Technology}, year = {1997}}
+%
+% @article{Kitaev2003,
+%   author  = {Kitaev, A.},
+%   title   = {Fault-tolerant quantum computation by anyons},
+%   journal = {Annals of Physics},
+%   volume  = {303}, number = {1}, pages = {2--30}, year = {2003}}
+%
+% @article{Dennis2002,
+%   author  = {Dennis, E. and Kitaev, A. and Landahl, A. and Preskill, J.},
+%   title   = {Topological quantum memory},
+%   journal = {Journal of Mathematical Physics},
+%   volume  = {43}, number = {9}, pages = {4452--4505}, year = {2002}}
+%
+% @inproceedings{BCW98,
+%   author    = {Buhrman, H. and Cleve, R. and Wigderson, A.},
+%   title     = {Quantum vs.\ Classical Communication and Computation},
+%   booktitle = {STOC 1998}, pages = {63--68}, year = {1998}}
+%
+% @book{Attiya2004,
+%   author    = {Attiya, H. and Welch, J.},
+%   title     = {Distributed Computing: Fundamentals, Simulations, and
+%                Advanced Topics},
+%   publisher = {Wiley-Interscience}, year = {2004}}
