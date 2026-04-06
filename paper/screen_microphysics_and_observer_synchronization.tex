@@ -1879,6 +1879,26 @@ The regulated patch-net embedding is explicit at fixed cutoff: patch vertices, p
 
 \subsection{Edge heat-kernel / Casimir theorem}\label{sec:microphysics-feeds-e24}
 
+\paragraph{Inputs used here.}
+From the earlier fixed-cutoff microphysics we use only the same declared overlap interface as in
+the reference-model section: the fixed patch cover and overlap collars, the cut register
+\(h_{IJ}\), the sector projectors \(\{\Pi_R^{(IJ)}\}_R\), the exact edge-state and local-sampler
+modes, and the same gauge-preserving local move sets on \(N_{IJ}\) from which the repair and
+thermal branches are built. On the compact-group truncation branch we also use the declared edge
+operator
+\[
+\Delta_{IJ}^{\mathrm{QL}}
+=
+\sum_{R\in \mathcal R_{\max}} C_2(R)\,\Pi_R^{(IJ)}.
+\]
+No continuum lift, no global consensus theorem, and no separate D10 calibration package are used
+here. The only theorem-local extra premise is that the thermal proposal kernel induced by the
+declared local move set obeys the reversible symmetry
+\(
+d_\alpha q_{\alpha\beta}=d_\beta q_{\beta\alpha}
+\)
+and is irreducible/aperiodic on the connected finite sector component under study.
+
 \paragraph{Thermalized edge-law branch.}
 Use the same regulated collars, the same overlap sector projectors
 $\{\Pi_\alpha^{(IJ)}\}_\alpha$, and the same correction menus as above, but replace the
@@ -1965,6 +1985,16 @@ edge-state mode, a local sampler mode, and a compact-group truncation branch wit
 $\Delta_{IJ}^{\mathrm{QL}}=\sum_R C_2(R)\Pi_R^{(IJ)}$. So the theorem above is not a detached
 Markov-chain exercise. It is the explicit fixed-cutoff edge law of the same regulated overlap
 microphysics used for synchronization and repair.
+
+\paragraph{Merge boundary.}
+What is closed here is exactly the fixed-cutoff edge-law package on the declared overlap
+interface: the cut register, the sector projectors, the reversible thermal branch, and the
+finite-group stationary Casimir law, together with the conditional Peter--Weyl heat-kernel
+corollary when the stated refinement ladder is supplied. The later compact D10 surfaces may
+import this package only through that declared handoff. They do not need a new leaf-level
+Casimir derivation; what remains above this microphysics surface is only the compact-group lift,
+refinement-stable universality, UV uniqueness, and the separate calibration conventions/root
+control of the D10 solve.
 
 \paragraph{Conclusion for this package.}
 This fixes the edge heat-kernel / Casimir package at fixed cutoff. The remaining items are uniqueness and refinement-stable universality, not a missing leaf-level Casimir derivation.

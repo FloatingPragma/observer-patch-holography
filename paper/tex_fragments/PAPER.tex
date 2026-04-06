@@ -3121,9 +3121,17 @@ t(\mu) = -\frac{\log(p_j/p_0)}{C_2(j)}, \qquad
 g_{\mathrm{ent}}^2(\mu) = \frac{t(\mu)}{2\pi}.
 \]
 
-\textbf{Theoretical derivation.} The heat-kernel law can be derived from the axioms once the edge-sector generator is known to take the quasi-local local-Gibbs form derived in Theorem 2.6.
+\textbf{Theoretical derivation.} The fixed-cutoff same-overlap edge law is carried by the
+regulated microphysics package once the declared overlap-sector projectors, reversible thermal
+branch, and quasi-local local-Gibbs generator of Theorem 2.6 are in hand. On this synthesis
+surface, the point is to summarize that fixed-cutoff source package and to state the
+refinement/Peter--Weyl lift boundary explicitly rather than to relocate the leaf-level source
+surface.
 
-\textbf{Theorem 6.20 (Heat-kernel law from MaxEnt + gauge structure).} Under the OPH axioms, the fixed-cutoff overlap-gauge realization of Sections 2.3 and 3.2, and the quasi-local local-Gibbs form supplied by Theorem 2.6, the edge-sector probability distribution satisfies:
+\textbf{Theorem 6.20 (Fixed-cutoff edge-sector law and refinement lift boundary).} Under the OPH
+axioms, the fixed-cutoff overlap-gauge realization of Sections 2.3 and 3.2, and the quasi-local
+local-Gibbs form supplied by Theorem 2.6, the regulated same-overlap edge-sector probability
+distribution satisfies:
 
 \[
 p_R = \frac{d_R \, e^{-t \lambda_R}}{\sum_{R'} d_{R'} \, e^{-t \lambda_{R'}}}
@@ -3133,7 +3141,12 @@ where \ensuremath{\lambda}\_R is the Laplacian eigenvalue on the R-isotypic comp
 
 \textbf{Proof.}
 
-\emph{Step 1 (Edge Hilbert space).} From the fixed-cutoff overlap-gauge realization, the edge degrees of freedom at a boundary circle \ensuremath{\Sigma} = \ensuremath{\partial}C live in a Hilbert space transforming under the gauge group G. Microscopically this is a finite-dimensional quantum-link edge space; the effective representation-theoretic description in the refinement limit is modeled by \(L^2(G)\). By the Peter--Weyl theorem~\cite{peterWeyl27}:
+\emph{Step 1 (Edge Hilbert space).} From the fixed-cutoff overlap-gauge realization, the edge
+degrees of freedom at a boundary circle \ensuremath{\Sigma} = \ensuremath{\partial}C live in a
+Hilbert space transforming under the gauge group G. Microscopically this is a finite-dimensional
+quantum-link edge space on the declared overlap interface; the effective
+representation-theoretic description used only for the refinement lift is modeled by \(L^2(G)\).
+By the Peter--Weyl theorem~\cite{peterWeyl27}:
 
 \[
 L^2(G) \cong \bigoplus_R V_R \otimes V_R^*
@@ -3164,7 +3177,14 @@ QED.
 
 \textbf{Why the entropy rank is \(d_R\) (instead of \(d_R^2\)).} The full edge space has dimension \(d_R^2\) in sector \(R\) (from \(V_R \otimes V_R^\ast\)). Entanglement entropy, however, measures correlations \emph{across} the cut. After tracing over one side, the reduced density matrix has effective rank \(d_R\). Mathematically: in the Markov normal form, the edge factor on one side contributes \(\log d_R\) to the entropy.
 
-\textbf{Status.} The derivation is complete up to the factorwise Laplacian choice just stated. The quasi-local local-Gibbs generator used here is derived from Theorem 2.6: if MaxEnt constraints are expectations of finitely many quasi-local operators, the entropy maximizer is automatically a Gibbs state with a quasi-local generator. What remains is the specific \emph{Laplacian form} of that generator; this follows from gauge invariance plus the factorwise uniqueness of the bi-invariant second-order operator on each compact simple factor.
+\textbf{Status.} The fixed-cutoff same-overlap derivation is the theorem-bearing part of the
+edge-law package. The quasi-local local-Gibbs generator used here is derived from Theorem 2.6:
+if MaxEnt constraints are expectations of finitely many quasi-local operators, the entropy
+maximizer is automatically a Gibbs state with a quasi-local generator. The additional
+representation-theoretic step summarized here is the compact-group / Peter--Weyl refinement
+lift, together with its factorwise Laplacian identification. What remains open above the
+fixed-cutoff source package is refinement-stable universality/uniqueness of that lift, not the
+existence of the fixed-cutoff same-overlap Casimir law itself.
 
 \textbf{Normalization anchor: 2D Yang-Mills.} The parameter t can be exactly matched to a conventional coupling in 2D Yang-Mills, where the physical Hamiltonian is literally the group Laplacian:
 
