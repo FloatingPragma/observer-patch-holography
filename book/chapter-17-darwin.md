@@ -10,7 +10,7 @@ This is the Platonic view of physics. The universe obeys laws because those laws
 
 In this picture, asking "why these laws?" is meaningless. Laws are brute facts. They could have been different, but they happen to be what they are.
 
-And yet, nature gave us a hint that shown a very different possibility.
+And yet, nature gave us a hint that suggested a very different possibility.
 
 ## 17.2 The Surprising Hint: Fine-Tuning and the Multiverse
 
@@ -20,9 +20,9 @@ The parameters of our universe seem weirdly well-adjusted for the existence of c
 
 **The cosmological constant**: Lambda is approximately 10^{-122} in Planck units. If it were 10^{-120}, galaxies couldn't form-space would expand too fast. If it were negative, the universe would have recollapsed.
 
-**The Higgs mass**: The Higgs boson mass is 125 GeV. Quantum corrections should push it to 10^{19} GeV. Something cancels these corrections with precision of one part in 10^{32}.
+**The Higgs mass**: The Higgs boson mass is 125 GeV. In naive naturalness estimates, quantum corrections would drive it toward the UV cutoff, creating the usual hierarchy puzzle.
 
-**The strong force**: If it were 2% stronger, all hydrogen would fuse into helium in the early universe-no water, no organic chemistry. If it were 2% weaker, no atoms heavier than hydrogen could exist.
+**The strong force**: Small percent-level shifts in nuclear parameters are often argued to strongly disrupt stellar nucleosynthesis and the chemistry needed for long-lived structure.
 
 The list goes on. The more we look, the more fine-tuning we find.
 
@@ -123,26 +123,26 @@ Among all possible compression schemes, which survive?
 
 The ones that work. The ones that actually compress the data that appears on the screen.
 
-The laws we observe are the optimal compression codes for the universe's actual data.
+The laws we observe can be read as compression codes for the universe's actual data.
 
 ## 17.6 Particles as Survivors
 
 In Chapter 14, we described particles as stable excitations in an effective
 field theory. This is another form of selection.
 
-The electron is a vibration pattern that persists. The muon is a pattern that persists for 2 microseconds before decaying. The Higgs is a pattern that persists for 10^{-22} seconds.
+The electron is a vibration pattern that persists. The muon is a pattern that persists for about 2.2 microseconds before decaying. The Higgs is a pattern that persists for about 10^{-22} seconds.
 
 The "particle zoo" is a census of vibrational survivors.
 
-Within OPH, that census is only partially closed. Some particles (photon, gluons, graviton, W, Z) are fully derived; others (quarks, leptons, neutrinos) lie on narrower continuation branches; and composite particles like hadrons require computational work beyond the symbolic framework.
+Within OPH, that census is only partially closed. Some particles sit on exact structural or exact-sidecar surfaces (photon, gluons, graviton, W, Z); others (quarks, leptons, neutrinos) lie on narrower continuation branches; and composite particles like hadrons require computational work beyond the symbolic framework.
 
 ### Topological Protection
 
 Why do some particles survive indefinitely?
 
-The answer is **topology**. The electron carries charge, which is a topological quantum number-like the winding number of a knot.
+One useful intuition is **topology**. The electron carries charge, a conserved quantum number that protects the lightest charged state from decay.
 
-If the electron is a topological defect in spacetime, it's protected. Conservation of charge is conservation of topology.
+Topological language can be helpful here, but the current OPH particle story does not require a literal spacetime-defect realization of the electron.
 
 ## 17.7 Memes: The Evolution of Ideas
 

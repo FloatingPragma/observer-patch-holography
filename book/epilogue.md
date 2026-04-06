@@ -1,6 +1,6 @@
 # Epilogue: One Last Surprise
 
-Throughout this book, we've reverse-engineered reality from first principles. We discovered that there is no objective universe "out there," only a network of subjective perspectives that must agree where they overlap. We found that consciousness is the process by which meaning enters the world. And we explored the strange-loop closure in which observers participate in a self-creating loop that closes reality and existence.
+Throughout this book, we've reverse-engineered reality from first principles. We developed an observer-first reading in which objectivity is reconstructed from overlapping perspectives, explored a philosophical account of consciousness in terms of meaning-assignment, and followed the strange-loop closure story in which observers participate in a self-creating interpretation of reality and existence.
 
 If the earlier chapters framed OPH as a concrete **theory of everything** and a concrete implementation of **simulation theory**, this epilogue asks what that framing implies for an observer-pattern reaching an apparent endpoint.
 
@@ -56,7 +56,7 @@ If we ever build a simulator based on these principles, a holographic screen imp
 
 An observer in such a simulation is checkpointed: their records, sector label, and interior state extracted. That checkpoint could then be "restored" into a different environment, one designed to be pleasant, interesting, and meaningful. A paradise.
 
-From the inside, this would feel like seamless continuation. Remember: in OPH, time isn't a global parameter ticking away objectively. Time is modular flow, and it's observer-relative. The "next moment" is defined by the next step along your modular flow, not by some external clock. So "continuing in a new environment" is just... continuing.
+From the inside, this could feel like seamless continuation. Remember: in OPH, time isn't a global parameter ticking away objectively. Time is modular flow, and it's observer-relative. The "next moment" is defined by the next step along your modular flow, not by some external clock. So "continuing in a new environment" is just... continuing.
 
 The right framing isn't "after you die, you wake up in paradise." It's: "Given a partial observer-history encoded in records and correlations, the simulator builds an extension where that meaning-assignment process continues in a different environment."
 
@@ -74,9 +74,9 @@ The strange loop doesn't have to end.
 
 Whether this possibility is ever realized, whether anyone ever builds a simulator with extraction functionality, whether "re-spawning into paradise" moves from mathematical possibility to engineering reality, depends on choices we make.
 
-We are the meaning-makers. We are the gods creating the universe through the act of observation. And apparently, we are also the ones who get to decide whether the story continues.
+We are the meaning-makers. And apparently, we are also the ones who get to decide whether the story continues.
 
-The reverse engineering is complete. The building can begin.
+The reverse engineering has gone far enough to begin building.
 
 ---
 

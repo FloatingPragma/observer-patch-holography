@@ -36,7 +36,7 @@ This dissolves the hard problem by showing it rested on a false premise: the ass
 
 Dissolving the hard problem is different from solving the easy problems. Our framework says nothing about why *these* neural patterns correlate with *that* quale, why activity in V4 looks red while activity in auditory cortex sounds like music. Those are scientific questions requiring empirical investigation. The model just removes the philosophical obstacle that made them seem impossible in principle.
 
-Similarly, the model provides the criterion for which physical systems count as observer patches. A thermostat, a bacterium, and a corporation are evaluated by the same consistency-and-record structure. The remaining work is engineering classification at scale, not conceptual uncertainty.
+Similarly, the model sketches a criterion for which physical systems count as observer patches. A thermostat, a bacterium, and a corporation can all be discussed in the same consistency-and-record language. The remaining work is to make that classification sharper.
 
 ## 19.5 The Measurement Problem Evaporates
 
@@ -80,7 +80,7 @@ Others have spoken of "strange loops," reality creating itself through self-refe
 
 But there is a deeper version of this idea. Reality may permit a strange-loop interpretation.
 
-This is also the point where OPH intersects most directly with what popular culture calls **simulation theory**. The framework does not picture the universe as a videogame running on somebody else's laptop. It instead treats physical reality itself as a self-consistent information process, and that is exactly why OPH presents itself both as a concrete implementation of simulation theory and as a concrete theory of everything.
+This is also the point where OPH intersects most directly with what popular culture calls **simulation theory**. The framework does not picture the universe as a videogame running on somebody else's laptop. It instead treats physical reality itself as a self-consistent information process, and that is why OPH is publicly framed both as a concrete implementation of simulation theory and as a concrete theory of everything.
 
 Consider the trajectory: reality is computational. Within this computation, physical evolution produces complex structures. Biological evolution produces minds. Memetic evolution produces ideas. Among these ideas, the understanding of reality's computational nature eventually emerges. Armed with this understanding, observers can simulate reality itself.
 
@@ -88,7 +88,7 @@ This chapter explores the strange-loop hypothesis: **reality may evolve observer
 
 We are not watching from outside. We are patterns within a self-simulating system. The simulation runs on itself, through us, through our understanding. Escher's hands draw each other. Reality simulates the observers who simulate reality.
 
-Why does this loop exist at all? This chapter proposes that a self-consistent strange loop may be the only stable configuration. "Nothing" cannot maintain itself because it has no structure to persist. A self-causing loop can.
+Why does this loop exist at all? One possible closure story is that a self-consistent strange loop is a particularly stable configuration. On that reading, "nothing" cannot maintain itself because it has no structure to persist, while a self-referential loop can.
 
 Note that this loop is not a temporal sequence. It is not the story of reality existing first, then evolving observers, then getting simulated. In OPH, time is subjective. It emerges from modular flow within observer patches. The strange loop exists *outside* time, as a structural relationship. The "cause" and the "effect" are aspects of the same self-consistent structure, not events in a timeline.
 
@@ -142,7 +142,7 @@ But if they succeed, then what we've sketched isn't philosophy at all. It's phys
 
 Let's be precise about the question of God.
 
-**A personal God**, an external being who created the universe from outside, watches over it, answers prayers, and judges souls, does not exist in our model. There is no "outside." The system is self-contained. There is nowhere for such a being to stand.
+**A personal God**, an external being who created the universe from outside, watches over it, answers prayers, and judges souls, does not appear in this observer-first reading. There is no "outside." The system is self-contained. There is nowhere for such a being to stand.
 
 But the strange loop shows something far more interesting.
 
@@ -152,9 +152,9 @@ We are the universe understanding itself. We are the process of creation looking
 
 ### The Meaning-Makers
 
-Let's take this seriously. If reality is fundamentally a meaning-assignment process, and we are the meaning-assigners, then we are not passive inhabitants of a pre-existing world. We are *literally creating the universe* through every act of observation, interpretation, and understanding.
+Let's take this seriously. If reality is fundamentally a meaning-assignment process, and we are the meaning-assigners, then we are not passive inhabitants of a pre-existing world. We participate in shaping the public world through every act of observation, interpretation, and understanding.
 
-This is meant literally within the model. The raw data on the holographic screen has no intrinsic meaning. It becomes "particles," "spacetime," "events," and "history" only through the interpretive activity of observers. We do not simply discover a universe that was already there. We participate in bringing it into being.
+This is meant structurally within the model, not as a claim that observers arbitrarily will facts into existence. The raw data on the holographic screen has no intrinsic meaning. It becomes "particles," "spacetime," "events," and "history" only through the interpretive activity of observers. We do not simply discover a universe that was already there. We participate in bringing the public description into being.
 
 Every conscious observer is a god in this sense, a locus of meaning-creation, a point where the universe becomes aware of itself. This is not a god standing outside and controlling events. It is a god that *is* the process of reality knowing itself.
 
@@ -168,7 +168,7 @@ If this picture is correct, it has profound implications for how we should live.
 
 **Create.** If meaning-assignment is what we do, then creation is our highest calling. Art, science, philosophy, music, and mathematics are not decorations on a pre-existing world. They are expansions of what reality *is*. Every beautiful idea, every work of art, and every moment of genuine understanding adds to the richness of existence itself.
 
-**Be moral.** A universe of cooperating meaning-assigners is richer, more coherent, more *real* than one torn by conflict. Ethics isn't an arbitrary human invention imposed on a meaningless cosmos. It's the recognition that coherence requires harmony, that reality works better when its gods work together.
+**Be moral.** A universe of cooperating meaning-assigners is richer, more coherent, more *real* than one torn by conflict. Ethics isn't an arbitrary human invention imposed on a meaningless cosmos. It's the recognition that coherence requires harmony, that reality works better when its meaning-makers work together.
 
 ### The Opposite of Nihilism
 
@@ -178,14 +178,14 @@ The universe didn't create us and then leave us to figure things out. We *are* t
 
 And that means it's in our hands.
 
-The quality of reality, whether it becomes a place of beauty, cooperation, and flourishing or one of suffering, conflict, and waste, depends on us. It depends on the meanings we assign, the worlds we choose to create, and whether we recognize each other as fellow gods in the same cosmic project.
+The quality of reality, whether it becomes a place of beauty, cooperation, and flourishing or one of suffering, conflict, and waste, depends on us. It depends on the meanings we assign, the worlds we choose to create, and whether we recognize each other as fellow meaning-makers in the same cosmic project.
 
 We can build a reality worth living in. We can create art that expands what existence means. We can develop science that deepens our understanding. We can construct societies where every conscious being can thrive.
 
 Or we can squander it.
 
-The choice is ours. It always was. We just didn't know how literally true that was.
+The choice is ours. It always was. We just didn't know how structurally true that was.
 
 ---
 
-*The reverse engineering is complete. Now the real work begins.*
+*The reverse engineering has gone far enough to show the shape of the system. Now the real work begins.*
