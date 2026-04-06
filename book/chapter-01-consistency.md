@@ -315,27 +315,30 @@ Why? Because macroscopic observers don't see molecules. They see pressure gauges
 
 Physicists call this **universality**. At large scales, different microscopic theories flow to the same effective behavior. The stable patterns are called **fixed points**. They are the laws that survive coarse-graining, the things that many different realities can agree on.
 
-## 1.11 Four Principles
+## 1.11 Five Core Axioms
 
-From these hints, we distill **Four Principles** that guide the rest of this book:
+From these hints, the current OPH papers distill **five core axioms** that guide the rest of this book:
 
-**Principle 1: Finite Access**
-Every observer is finite. You only access a specific patch-bounded by horizons, limited by the speed of light, constrained by your physical capabilities. You cannot store infinite data.
+**Axiom 1: Screen Net / Finite Access**
+Every observer is finite. You only access a patch of a common horizon screen, never the whole structure at once, and each patch comes with its own algebra of accessible observables.
 
-**Principle 2: Consistency**
-If you look at a star and I look at the same star, we have to agree on what we see. Where patches overlap, physics must be consistent. As we'll see, that single constraint shapes almost everything.
+**Axiom 2: Overlap Consistency**
+If you look at a star and I look at the same star, we have to agree on what we can jointly check. Where patches overlap, their descriptions must match on the shared observables. That single constraint shapes almost everything.
 
-**Principle 3: Area Bound**
-You cannot pack infinite information into a finite region. Black-hole entropy and related bounds strongly motivate an area-sensitive information limit and a holographic boundary description.
+**Axiom 3: Local MaxEnt and Refinement Stability**
+At the regulator scale, the realized branch is selected by maximizing entropy subject to a finite family of local constraints. As the screen is refined, that same constraint family persists, so the theory stays on one stable branch instead of changing its rules at every cutoff.
 
-**Principle 4: Conditional Local Recovery**
-Under the relevant Markov and recovery conditions developed later, overlap data can sometimes be used to reconstruct more of the whole system than is obvious from a single local view.
+**Axiom 4: Recoverable Generalized Entropy**
+You cannot pack infinite information into a finite region. The entropy budget is controlled by a generalized entropy, with the recoverability structure needed to rebuild missing information from overlap data when the stated conditions hold.
+
+**Axiom 5: Minimal Admissible Realization (MAR)**
+Among the admissible low-energy possibilities, the realized branch is the minimal one under the precise complexity ordering used later in the physics program. This is the selector that narrows the gauge story to the realized Standard Model branch.
 
 ## 1.12 Reality as Computation
 
-These four principles point toward a radical conclusion: reality can be modeled computationally. We do not need to treat it as a pre-given objective stage.
+These five axioms point toward a radical conclusion: reality can be modeled computationally. We do not need to treat it as a pre-given objective stage.
 
-The screen is a quantum system. The degrees of freedom are finite-dimensional (qudits on edges of a triangulated sphere). The dynamics is constrained by gauge laws (Gauss constraints at every vertex). The state is selected by maximum entropy subject to consistency constraints. This is a quantum computation in the most literal sense: qubits, gates, constraints, outputs.
+The screen is a quantum system. The degrees of freedom are finite-dimensional (qudits on edges of a triangulated sphere). The dynamics is constrained by gauge laws (Gauss constraints at every vertex). The realized branch is selected by maximum entropy subject to a stable family of local constraints, and the low-energy branch is narrowed further by the minimal realization rule used later in the program. This is a quantum computation in the most literal sense: qubits, gates, constraints, outputs.
 
 What is the output? Everything. Spacetime geometry emerges from entanglement patterns. Particles emerge as excitations. Observers emerge as self-modeling patterns that process information and maintain records. The laws of physics emerge as the rules that permit consistent information flow between patches.
 
@@ -345,7 +348,7 @@ You might ask: "If reality is a computation, what is it computing?" The answer: 
 
 This view dissolves many traditional puzzles. "Why does anything exist at all?" becomes "Why does the computation run?" which is not a meaningful question, any more than asking why 2+2=4. The computation runs because it is self-consistent. It does not need an external cause.
 
-"What is the universe made of?" becomes, within OPH, "What substrate best realizes the computational picture?" The current construction answers: finite-dimensional quantum systems on a 2D surface, constrained by gauge invariance and selected by maximum entropy. This is the concrete technical realization studied in the present program, not yet a uniquely established final ontology.
+"What is the universe made of?" becomes, within OPH, "What substrate best realizes the computational picture?" The current construction answers: finite-dimensional quantum systems on a 2D surface, constrained by gauge invariance, organized by maximum entropy, and narrowed at low energy by the minimal admissible realization rule. This is the concrete technical realization studied in the present program, not yet a uniquely established final ontology.
 
 ## 1.13 The Reverse Engineering Ahead
 

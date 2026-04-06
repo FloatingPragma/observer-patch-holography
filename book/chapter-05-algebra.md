@@ -243,7 +243,7 @@ Now we connect to our model. Each observer has a patch P on the holographic scre
 
 ### Net Axioms (Algebraic)
 
-These are standard AQFT-style properties of the patch algebra net. They are not the four model axioms (see the synthesis and `paper/tex_fragments/PAPER.tex` for those).
+These are standard AQFT-style properties of the patch algebra net. They are not the five core OPH axioms summarized in Chapter 18.
 
 **Net Axiom 1 (Isotony)**: If P ⊆ Q, then A(P) ⊆ A(Q). A smaller patch means fewer questions.
 

@@ -4,7 +4,7 @@
 
 **A Note on This Chapter**
 
-This synthesis chapter serves two purposes. The first is to summarize the physics-facing material developed through the earlier chapters-the holographic principle, entanglement structure, consistency conditions, emergent spacetime, and classical physics-together with the interpretive bridge built in Chapter 17. This material combines rigorous mathematics, standard external physics inputs, and the explicit bridge assumptions used in the cited research program.
+This synthesis chapter serves two purposes. The first is to summarize the physics-facing material developed through the earlier chapters-the holographic principle, entanglement structure, consistency conditions, emergent spacetime, and classical physics-together with the interpretive bridge built in Chapter 17. This material combines rigorous mathematics, the five core axioms, the standard external inputs, and the theorem-local assumptions used in the cited research program.
 
 The second purpose is to reflect on what it all means: what kind of universe the framework describes, and what it tells us about why reality is the way it is.
 
@@ -152,60 +152,61 @@ Let us gather all the reverse engineering insights from Chapters 6-17:
 | 16 (Classical Physics) | Matter is fundamental stuff and motion is force | Quantum interference and creation/annihilation | Matter is stable patterns; least action is a classical limit |
 | 17 (Darwin) | Laws are eternal truths | Fine-tuning | Laws are survivors of selection |
 
-## 18.5 Core Axioms and Bridge Assumptions
+## 18.5 Five Core Axioms and Further Inputs
 
-We can state the model through four core axioms plus a small set of explicit bridge assumptions.
+The current OPH papers organize the foundation in three layers: five core axioms, two external configuration inputs, and theorem-local assumptions used only in specific branches.
 
-### Axiom 1: Horizon Screen and Observer Access
+### Axiom 1: Screen Net
 
-Each observer O has access to a finite subregion of a common horizon screen:
+Physical data is organized on a horizon screen. Each connected patch \(P \subset S^2\) carries an algebra of observables \(A(P)\):
 
-$$P_O \subset S^2,\quad A(P_O)\ \text{defined for each}\ P_O$$
+$$P \subset Q \implies A(P) \subset A(Q)$$
 
-The choice of S^2 (and thus a 3+1D bulk via holography) is an input.
+Observers are finite because each observer sees only a patch, never the whole screen at once.
 
-### Axiom 2: Overlap Consistency (Algebraic Form)
+### Axiom 2: Overlap Consistency
 
-When two patches overlap, their descriptions must agree on the shared algebra:
+When two patches overlap, their local descriptions must agree on the shared algebra:
 
-$$\omega(O)\ \text{is uniquely determined for all}\ O \in A(P_A \cap P_B)$$
+$$\omega_{P_1}|_{A(P_1 \cap P_2)} = \omega_{P_2}|_{A(P_1 \cap P_2)}$$
 
-This is the algebraic form that allows centers and edge modes.
+This is the formal statement of the book's central claim: reality is the consistency of overlapping perspectives.
 
-### Axiom 3: Generalized Entropy and Focusing
+### Axiom 3: Local MaxEnt and Refinement Stability
 
-For any codimension-2 surface B:
+At the regulator scale, the realized branch is selected by maximizing entropy subject to a finite family of gauge-invariant local constraints. As the screen is refined, that same constraint family persists, so the theory stays on one stable branch instead of changing its rules at every cutoff.
 
-$$S_{\text{gen}}(B) = \frac{A(B)}{4G\hbar} + S_{\text{out}}(B)$$
+### Axiom 4: Recoverable Generalized Entropy
 
-S_gen is finite and obeys quantum focusing on lightsheets. This controls the entropy budget of screen subregions.
+Caps carry a generalized entropy,
 
-### Axiom 4: Local Markov/Recoverability on the Patch Net
+$$S_{\text{gen}}(C)=S_{\text{bulk}}(C)+\langle L_C\rangle,$$
 
-For patches A, B, C with B separating A from C:
+and the patch net has the recoverability and focusing structure used in the gravity branch. This is the entropic control layer behind the collar arguments, the null-modular machinery, and the semiclassical area term.
 
-$$I(A:C|B) \leq \varepsilon(\text{separator size or distance})$$
+### Axiom 5: Minimal Admissible Realization (MAR)
 
-Equivalently, there exists a recovery map from AB to ABC with error controlled by epsilon.
+Among admissible low-energy sector packages, the realized one is the lexicographically minimal one under the complexity measure used in the papers. MAR is a selection axiom. It is what singles out the realized Standard Model branch from the broader space of admissible gauge possibilities.
 
-### Bridge Assumptions (Explicitly Stated)
+### Further Inputs Used by Specific Branches
 
-1. **MaxEnt selection**: local states are chosen by maximum entropy given constraints.
-2. **Refinement stability**: the same constraint family survives as you refine the screen to finer resolution.
-3. **Geometric-subnet lift**: in the scaling limit, modular flow on caps becomes geometric on the extracted prime geometric subnet. It matches a standard conformal transformation on the sphere. The internalization scaffold beneath this condition is explicit: the scaling-limit geometric cap-pair realization from transported marginals on that subnet and the later ordered cut-pair rigidity step remain open, with the eventual fixed-local-collar modular-transport common floor as the smallest lower blocker.
-4. **Gauge-as-gluing**: overlap identifications between patches create redundancies that give rise to gauge structure; a minimality principle selects the specific gauge group.
-5. **EFT bridge**: a low-energy effective field theory limit exists, connecting the screen-level description to familiar particle physics. The stress tensor can be sourced from a conformal field theory on small caps, or built from modular data on light-ray surfaces.
+The five axioms are the foundation. Specific theorem branches still need extra inputs, and the papers now state those openly rather than folding them into the axiom list.
 
-Under these inputs, Lorentz kinematics is recovered from geometric modular flow on the extracted prime geometric subnet, Einstein's equation follows from entanglement equilibrium on the stated scaling branch, and the Standard Model gauge group emerges from the gluing structure. Geometric cap-pair extraction, ordered cut-pair rigidity, and the stress-tensor bridge remain explicit assumptions or open scaffold objects.
+1. **Lorentz branch**: scaling-limit and geometric modular-flow assumptions that let cap modular flow become geometric on the extracted prime geometric subnet.
+2. **Einstein branch**: fixed-cap stationarity and the stress-tensor bridge used in the entanglement-equilibrium argument.
+3. **Gauge branch**: the transport and reconstruction premises needed for ordinary compact gauge reconstruction, together with MAR on the realized admissible branch.
+4. **Configuration inputs**: the pixel area \(P\) and screen capacity \(N_{\mathrm{scr}}\), which set quantitative scales but are not axioms.
+
+Under that full ledger, Lorentz kinematics is recovered on the stated scaling branch, Einstein's equation follows on the Jacobson-style branch, and the Standard Model quotient emerges on the realized gauge branch. Geometric cap-pair extraction, ordered cut-pair rigidity, and parts of the transport package remain explicit pieces of scaffolding.
 
 ## 18.6 What the Model Yields (Under Stated Assumptions)
 
-Under the bridge assumptions above, the model yields:
+Under the full ledger above, the model yields:
 
 1. **Lorentz kinematics** on the extracted prime geometric subnet from geometric modular flow on caps
 2. **Einstein's equation** on the stated scaling branch via entanglement equilibrium, promoted to a tensor equation by patch consistency
-3. **The Standard Model gauge group** $SU(3) \times SU(2) \times U(1)/\mathbb{Z}_6$, reconstructed from the transportable bosonic edge-sector package and a minimality principle
-4. **Three generations, three colors**: fixed by anomaly cancellation and the minimality principle
+3. **The Standard Model gauge group** $SU(3) \times SU(2) \times U(1)/\mathbb{Z}_6$, reconstructed from the transportable bosonic edge-sector package, with MAR selecting the realized branch
+4. **Three generations, three colors**: fixed by anomaly cancellation together with MAR
 5. **Massless gauge bosons and graviton**: forced by emergent gauge and diffeomorphism invariance, which forbid mass terms
 6. **A particle story with clear landmarks**: photon, gluons, graviton, W, and Z are fixed; the Higgs, top quark, and several quark masses sit on explicit quantitative lanes; the weighted-cycle neutrino branch carries an emitted theorem-grade absolute family; charged leptons, the remaining three-object quark extension beyond the selected continuation branch, and hadrons are the hard remaining pieces
 
@@ -525,7 +526,7 @@ We must distinguish two questions:
 
 **Question A: Why does what exists have THIS SHAPE?**
 
-This is what our model aims to address comprehensively. Given that something exists and the OPH inputs hold, consistency requirements strongly constrain the structure we observe: emergent geometry, quantum correlations, time, and symmetries. The shape is not arbitrary, even though some ingredients still enter through explicit bridge assumptions.
+This is what our model aims to address comprehensively. Given that something exists and the OPH inputs hold, consistency requirements strongly constrain the structure we observe: emergent geometry, quantum correlations, time, and symmetries. The shape is not arbitrary, even though some ingredients still enter through theorem-local assumptions and external inputs.
 
 **Question B: Why does ANYTHING exist at all?**
 
@@ -690,7 +691,7 @@ This addresses both fundamental questions:
 
 Reality produces observers who produce understanding who produce simulation who produce reality. The loop closes. Gödel's self-reference and Hofstadter's strange loops, applied at the deepest level.
 
-The reverse engineering has uncovered the source code: from four axioms plus explicit bridge assumptions and a selection principle, we recover a scaling-limit semiclassical gravity branch, the Standard Model gauge structure, and several downstream continuation programs. The strange loop story explains why this source code runs at all.
+The reverse engineering has uncovered the source code: from five axioms, plus the stated external inputs and theorem-local assumptions, we recover a scaling-limit semiclassical gravity branch, the Standard Model gauge structure, and several downstream continuation programs. The strange loop story explains why this source code runs at all.
 
 ---
 
