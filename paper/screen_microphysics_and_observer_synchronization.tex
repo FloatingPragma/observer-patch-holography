@@ -379,7 +379,7 @@ Local registers --> records --> observer pattern --> synchronization
 
 \section{Interaction, Synchronization, and Repair}
 
-The fixed-cutoff object used here is a finite overlap interface that a simulator can instantiate
+The fixed-cutoff object used here is not a vague repair option or an abstract global repair law. It is a finite overlap interface that a simulator can instantiate
 on every edge of the patch-overlap graph. For each neighboring patch
 pair $(P,Q)$, the paper specifies the support of the update, the declared shared
 observable family, the finite syndrome alphabet, the local correction menu, the acceptance rule,
@@ -1708,11 +1708,15 @@ The present results are fixed-cutoff theorems. This paper does not derive the OP
 continuum, the geometric modular branch, or gravity from the finite regulator.
 \end{enumerate}
 
-The imported OPH structure stays imported, the finite reference architecture stays finite, the two observer-side theorem packages are closed at fixed cutoff, and the regulator and edge-law branches have their remaining closure gaps stated explicitly. The remaining open work is the larger uniqueness / consensus / continuum program together with the still-open regulator and edge-law closures.
+The imported OPH structure stays imported, the finite reference architecture stays finite, the
+regulator-side patch-net embedding theorem, the finite-group edge-law theorem, and the two
+observer-side theorem packages are closed at fixed cutoff, and the remaining open work is stated
+explicitly. What stays open is the later packet-level quotient closure where desired, the
+compact heat-kernel lift, the larger global consensus program, and the continuum/gravity lift.
 
 \section{Fixed-Cutoff Theorem Packages}
 
-This paper proves four fixed-cutoff theorem packages: regulated patch-net embedding, edge heat-kernel / Casimir weights, measurement/Born-rule, and observer checkpoint/restoration.
+This paper proves four fixed-cutoff theorem packages: regulated patch-net embedding, edge heat-kernel / Casimir, measurement/Born-rule, and observer checkpoint/restoration.
 
 \subsection{Regulated patch-net embedding theorem}\label{sec:microphysics-feeds-a01}
 
@@ -1776,6 +1780,49 @@ is the joint overlap packet readout. Thus the finite patch-net data consist of e
 alphabets, explicit readout maps, explicit mismatch syndromes, explicit local scores, and an
 explicit finite correction menu on every overlap edge.
 
+\paragraph{Consensus-format export.}
+For each patch $P_I$, let
+\begin{equation}
+\Pi_I^{\mathrm{pkt}}(\rho)
+=
+\bigl(
+x_{I\to J}^{(IJ)}(\rho)
+\bigr)_{J:\{I,J\}\in\mathcal E}
+\in
+\prod_{J:\{I,J\}\in\mathcal E}\mathsf X_{IJ}
+\end{equation}
+be the full outgoing packet tuple exported by that patch on all incident overlaps, and define the
+finite patch-state space
+\begin{equation}
+S_I^{\mathrm{reg}}
+:=
+\operatorname{im}\Pi_I^{\mathrm{pkt}}.
+\end{equation}
+For each overlap edge $e=\{I,J\}$, define the interface alphabet
+\begin{equation}
+I_e^{\mathrm{reg}}:=\mathsf X_{IJ},
+\end{equation}
+and let
+\begin{equation}
+\pi_{I,e}^{\mathrm{reg}}:S_I^{\mathrm{reg}}\to I_e^{\mathrm{reg}},
+\qquad
+\pi_{J,e}^{\mathrm{reg}}:S_J^{\mathrm{reg}}\to I_e^{\mathrm{reg}}
+\end{equation}
+be the coordinate projections onto the $IJ$ packet slots. Thus the abstract patch-net datum
+\[
+\bigl(
+\mathcal G_{\mathrm{patch}},
+\{S_I\}_I,
+\{I_e\}_e,
+\{\pi_{I,e}\}_{I,e}
+\bigr)
+\]
+used later in the consensus paper already has a literal regulator-side export here. What remains
+for the later consensus paper is not the existence of those objects, but the separate quotient-dynamics
+question: when a declared observable family passes packet closure, the exact regulator repair
+instrument pushes forward to an autonomous packet-level update rule; when it fails, the hidden-state
+dependence is logged and no such quotient dynamics is claimed.
+
 \paragraph{Embedding theorem.}
 The finite patch-net layer $\mathfrak F_{\Gamma}^{\mathrm{PN}}$ is explicitly realized inside
 the fixed-cutoff OPH regulator $\mathfrak R_{\Gamma}^{\mathrm{OPH}}$. Concretely:
@@ -1784,6 +1831,9 @@ the fixed-cutoff OPH regulator $\mathfrak R_{\Gamma}^{\mathrm{OPH}}$. Concretely
 every edge is a genuine overlap collar $B_{IJ}$;
 \item every packet field is the output of a declared finite readout on regulator observables in
 $\mathcal A_{IJ}$ and on the declared record layer;
+\item the consensus-format state spaces $S_I^{\mathrm{reg}}$, interface alphabets
+$I_{\{I,J\}}^{\mathrm{reg}}$, and projection maps
+$\pi_{I,\{I,J\}}^{\mathrm{reg}}$ are exported from those same readouts;
 \item every mismatch syndrome, local score, and allowed correction branch is defined from those
 same readouts and from the same local repair instrument $\mathcal R_{IJ}$.
 \end{enumerate}
@@ -1798,7 +1848,9 @@ fixed-cutoff OPH patch net is in hand. The collar-sector projectors
 $\Pi_{\alpha}^{(IJ)}$ and the rest of the declared shared observable family
 $\mathcal O_{IJ}^{\mathrm{sh}}$ live in those overlap algebras, hence the packet alphabets
 $\mathsf X_{IJ}$ are realized by actual finite readouts rather than by external labels. The
-candidate menu $\mathcal C_{IJ}^{\mathrm{min}}$ consists of concrete local link, face, or
+combined outgoing packet map $\Pi_I^{\mathrm{pkt}}$ therefore has finite image, so the exported
+patch-state spaces $S_I^{\mathrm{reg}}$ and interface projections
+$\pi_{I,\{I,J\}}^{\mathrm{reg}}$ are finite regulator-side objects as well. The candidate menu $\mathcal C_{IJ}^{\mathrm{min}}$ consists of concrete local link, face, or
 record-refresh branches supported on $N_{IJ}$, and the staged map
 \begin{equation}
 \mathcal R_{IJ}
@@ -1823,7 +1875,7 @@ that family. When it fails, the embedding proved here still stands, but the miss
 closure is explicit and logged rather than hidden.
 
 \paragraph{Conclusion for this package.}
-The regulated patch-net embedding is explicit at fixed cutoff: patch vertices, overlap alphabets, syndrome components, and candidate menus are fixed by the regulator. The remaining items are packet-level closure when available, global termination, local confluence, schedule robustness, normal-form existence, residual-obstruction classification, and refinement-limit lift.
+The regulated patch-net embedding is explicit at fixed cutoff: patch vertices, patch-state spaces, interface alphabets, projection maps, syndrome components, and candidate menus are fixed by the regulator. The remaining items are packet-level closure when available, global termination, local confluence, schedule robustness, normal-form existence, residual-obstruction classification, and refinement-limit lift.
 
 \subsection{Edge heat-kernel / Casimir theorem}\label{sec:microphysics-feeds-e24}
 
@@ -2056,31 +2108,36 @@ This closes the fixed-cutoff observer checkpoint/restoration package: the checkp
 
 The remaining open items are:
 \begin{enumerate}[leftmargin=2em]
-\item The regulated patch-net embedding package has an explicit regulated tuple and local
-interface theorem here, but its downstream closure still needs one more pass.
-\item The edge heat-kernel / Casimir package has an explicit thermalized finite-group branch
-here, but its compact heat-kernel lift still needs one more pass.
+\item The regulated patch-net embedding package is closed here at the object and local-interface
+level. Downstream work begins only when one asks for packet-level quotient closure on a declared
+observable family and then for the later global consensus analysis on that exported packet net.
+\item The edge heat-kernel / Casimir package has an explicit thermalized finite-group theorem
+here, while its compact heat-kernel lift remains a downstream refinement question.
 \item The fixed-cutoff measurement/Born-rule package is closed here by the central record
 algebra, Born trace, and conditioning theorem stack.
 \item The fixed-cutoff observer checkpoint/restoration package is closed here by the
 checkpoint, restoration, error, and identity theorem stack.
-\item What remains after these fixed-cutoff results is unfinished regulator and edge-law closure
-work, refinement-stable universality, global consensus analysis, and the continuum/gravity lift.
+\item What remains after these fixed-cutoff results is packet-level quotient closure where
+desired, the compact heat-kernel lift, refinement-stable universality, global consensus analysis,
+and the continuum/gravity lift.
 \end{enumerate}
 
 \section{Conclusion}
 
-The regulated screen architecture carries two closed fixed-cutoff theorem packages and two sharpened structural branches:
+The regulated screen architecture carries four fixed-cutoff theorem packages:
 \begin{enumerate}[leftmargin=2em]
-\item the regulated patch-net embedding branch with its remaining closure gap made explicit,
-\item the edge-sector thermal/Casimir branch with its remaining heat-kernel lift made explicit,
+\item the regulated patch-net embedding theorem, with the later packet-closure/global-consensus boundary made explicit,
+\item the edge-sector thermal/Casimir theorem, with its remaining compact heat-kernel lift made explicit,
 \item the central-record/Born-rule measurement package, and
 \item the checkpoint/restoration/backup observer package.
 \end{enumerate}
 
 These results do \emph{not} identify the unique OPH UV completion, prove global repair
-convergence, derive the continuum/gravity branch, or finish the remaining regulator and edge-law
-closures. The regulated patch-net embedding and edge-law branches remain open, while the observer-side measurement and restoration packages are fixed-cutoff theorem surfaces.
+convergence, derive the continuum/gravity branch, or finish the remaining packet-level,
+refinement, and edge-law lifts. The regulated patch-net embedding theorem is closed on its
+fixed-cutoff microphysics surface; the remaining open work begins with autonomous packet dynamics
+when closure holds, then global consensus analysis, refinement-stable universality, and the
+continuum/gravity lift.
 
 \appendix
 \input{tex_fragments/MICROPHYSICS_MEASUREMENT_SUPPLEMENT_PORT.tex}
