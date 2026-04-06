@@ -21,7 +21,7 @@ That sounds abstract. Let me unpack it.
 
 The universe is not a stage on which events unfold. In the OPH picture, it is more like a vast, self-interpreting program. The "code" is quantum information on a holographic boundary. The "execution" is performed by observers, patterns within that information that read, interpret, and act on other patterns. Observers are not outside the data; they are data that has become self-modeling and meaning-making. There is no external computer running this program, and no programmer who wrote it. OPH treats computation as a candidate organizing picture for reality, with the computer part of what is being described.
 
-And the structure of this computation-the laws of physics, the geometry of space, the flow of time-isn't arbitrary. It's forced by a single requirement: different observers, looking at overlapping regions, must get consistent answers.
+And the structure of this computation-the laws of physics, the geometry of space, the flow of time-isn't arbitrary. In OPH it is organized around a central requirement: different observers, looking at overlapping regions, must get consistent answers.
 
 This sounds like philosophy, but it is meant as a physics program: a candidate deep-structure picture that OPH tries to make concrete.
 

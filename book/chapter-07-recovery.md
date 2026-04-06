@@ -172,7 +172,7 @@ This is **locality**. Effects propagate through space. Distant regions communica
 
 Your skin is a Markov blanket. It screens your internal organs from the external world. Everything the world knows about your liver, it knows through your skin (and other body surfaces). Everything your liver knows about the world, it knows through your skin.
 
-An observer's patch works the same way. It carries all accessible information about what lies beyond. If recovery holds, the patch isn't just a window-it's a complete summary.
+An observer's patch works the same way. It carries all accessible information about what lies beyond. In the ideal recovery limit, the patch isn't just a window-it is a sufficient summary.
 
 ## 7.7 Quantum Recovery: The Petz Map
 

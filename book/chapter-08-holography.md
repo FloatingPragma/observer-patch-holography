@@ -307,7 +307,7 @@ In our model:
 If modular flow on caps is geometric (as shown in later chapters) and
 the entropy splits into an area piece plus a bulk piece (from the error-correction structure),
 then Jacobson's thermodynamic argument applies. Under those conditions, Einstein's
-equations emerge as the unique way for observer horizons to remain
+equations emerge as the natural effective way for observer horizons to remain
 thermodynamically consistent.
 
 This is why 4D spacetime geometry works so well: it is the thermodynamic equilibrium of horizon entropy. The geometry we observe is the most probable configuration, the one that maximizes entropy subject to matter constraints.

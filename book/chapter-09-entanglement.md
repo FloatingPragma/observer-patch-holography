@@ -126,13 +126,13 @@ Bell showed that classical correlations are bounded. But why doesn't nature allo
 
 Imagine "super-quantum" correlations that saturate the algebraic maximum of S = 4. Even if they still obey no-signaling, they would trivialize tasks like communication complexity and sit uneasily with the information-processing structure of ordinary quantum theory.
 
-The Tsirelson bound \(S = 2\sqrt{2}\) is the maximum allowed by quantum mechanics. It's strong enough to violate classical limits while still fitting the specific consistency structure of ordinary quantum theory.
+The Tsirelson bound \(S = 2\sqrt{2}\) is the maximum allowed by quantum mechanics. It's strong enough to violate classical limits while still fitting the specific information-processing structure of ordinary quantum theory.
 
-This shows a deep connection: **quantum correlations are closely tied to the consistency structure we observe**. Classical is too weak-it fails certain consistency tests. Super-quantum options overshoot the ordinary quantum-information structure. Quantum sits at the sweet spot.
+This suggests a deep connection: **quantum correlations are closely tied to the consistency structure we observe**. Classical correlations are too weak for the full quantum phenomena we measure, while super-quantum options overshoot the ordinary quantum-information structure. Quantum appears to sit at a particularly important sweet spot.
 
 In OPH, this connects to overlap consistency. When patches on the S^2 screen overlap, observers must agree on shared observables. The program argues that the needed correlation structure lines up with quantum mechanics rather than with classical or stronger no-signaling alternatives.
 
-Classical correlations are too weak, while super-quantum ones overshoot the ordinary consistency structure. Quantum mechanics sits at the consistency sweet spot emphasized in this chapter.
+Classical correlations are too weak, while super-quantum ones overshoot the ordinary consistency structure. Quantum mechanics is the consistency sweet spot emphasized in this chapter.
 
 ## 9.5 ER = EPR: Wormholes Are Entanglement
 

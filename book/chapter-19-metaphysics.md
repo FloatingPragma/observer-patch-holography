@@ -44,9 +44,9 @@ Quantum mechanics has its own philosophical zombie: the measurement problem. In 
 
 But what counts as a measurement? When exactly does collapse happen? Does consciousness cause collapse, as some early physicists speculated? The interpretations multiply: Copenhagen, many-worlds, pilot waves, objective collapse, relational quantum mechanics, QBism. Each tries to explain how an objective quantum state connects to the definite outcomes observers actually see.
 
-Our model cuts through this by removing the problematic assumption: that there's an objective quantum state existing independently of observers, which must somehow connect to their experiences.
+Our model cuts through this by removing the problematic assumption: that the measurement problem is about a single observer-independent state description that must somehow connect to lived experience.
 
-There is no such state. What exists are observer patches with their local descriptions. A "superposition" isn't a bizarre state where something is really in two places at once; it's an incomplete description that admits multiple compatible continuations. When two patches that were previously independent come to share access to a system, their descriptions must agree on that overlap. That agreement is what we call "measurement." The "collapse" is just what consistency looks like from one patch's perspective.
+The formalism can still contain a global quantum state, but no observer occupies a God's-eye position outside the system. What observers actually have are patch-level descriptions. A "superposition" isn't a bizarre state where something is really in two places at once; it's an incomplete description that admits multiple compatible continuations. When two patches that were previously independent come to share access to a system, their descriptions must agree on that overlap. That agreement is what we call "measurement." The "collapse" is just what consistency looks like from one patch's perspective.
 
 The measurement problem evaporates because there was never an objective wavefunction needing to collapse. There were only perspectives needing to synchronize.
 
