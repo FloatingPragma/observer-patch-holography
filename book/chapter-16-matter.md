@@ -62,8 +62,8 @@ emergent EFT.
 
 In ordinary physics, a particle is defined by symmetry. Wigner showed that
 "particle types" are **irreducible representations of the Poincare group**,
-classified by mass and spin. This is more than a definition; it explains why
-particles have sharp mass and spin labels.
+classified by mass together with spin or helicity. This is more than a
+definition; it explains why particles have sharp representation labels.
 
 In OPH, this appears after two steps:
 
@@ -156,7 +156,8 @@ $$\frac{d}{dt}\left(\frac{\partial L}{\partial \dot q}\right) = \frac{\partial L
 
 So the "least action" rule is not a separate law. It is the classical limit
 of quantum consistency. In OPH, the effective action is part of the EFT
-bridge. Once the bridge is in place, least action follows automatically.
+bridge. Once that bridge is in place, the stationary-action description
+follows in the usual semiclassical limit.
 
 Historically it is called "least" action, but what really survives is
 **stationary** action: small variations do not change the path to first order.
@@ -169,22 +170,22 @@ Classical physics is an **emergent approximation** that appears when:
 - The system is strongly entangled with its environment (decoherence).
 - Observers coarse-grain over microscopic details (MaxEnt selection).
 
-### Why Decoherence Is Required by Consistency
+### Why Decoherence Matters for Consistency
 
-Decoherence is crucial. In this framework it is **required by consistency**, not treated as a lucky accident.
+Decoherence is crucial. In this framework it is part of what makes a stable shared classical description possible, not a lucky accident bolted on afterward.
 
-Here's why. The overlap condition demands that observers agree on shared observables. But quantum mechanics permits states that are superpositions-"both A and B." If macroscopic objects remained in superposition, different observers accessing different environmental fragments would get contradictory information.
+Here's why. The overlap condition demands that observers agree on shared observables. But quantum mechanics permits states that are superpositions, "both A and B." If macroscopic interference remained broadly accessible at everyday scales, different observers sampling different environmental fragments would fail to recover a single robust public record.
 
 Decoherence solves this by rapidly entangling macroscopic objects with their environments. This entanglement has a specific structure: it correlates the object's state with environmental "records" that can be accessed by multiple observers independently.
 
-The key insight from **quantum Darwinism** (Chapter 6) is that only certain states-pointer states-get their information redundantly copied into the environment. These are the states that many observers can access and agree upon. Superpositions don't get copied; they get destroyed by the environment.
+The key insight from **quantum Darwinism** (Chapter 6) is that only certain states, pointer states, get their information redundantly copied into the environment. These are the states that many observers can access and agree upon. Coherent superpositions do not get copied into stable public records; once the system is entangled with the environment, the interference becomes locally inaccessible.
 
 **Classical facts are quantum states that pass the consistency filter.** A "classical" property is one that:
 1. Gets redundantly encoded in the environment
 2. Can be accessed through multiple independent channels
 3. Produces agreement when different observers check
 
-The pointer basis-the set of states that decohere into classical alternatives-is not arbitrary. It's selected by the overlap condition. States that can't be consistently shared across patches don't survive as "real" in the intersubjective sense.
+The pointer basis, the set of states that decohere into classical alternatives, is not arbitrary. It is constrained by the system-environment coupling and by which observables can be stably shared across patches. States that can't be consistently shared across patches don't survive as "real" in the intersubjective sense.
 
 So classical physics is the **stable, compressible limit** of the deeper quantum structure: the patterns that survive the consistency filter. The world looks deterministic because only the consistent patterns-the ones that all observers can agree on-rise to the level of "facts."
 
@@ -196,7 +197,7 @@ In the standard picture, classical physics is an approximation that breaks down 
 
 The quantum world is larger but less shareable. Superpositions exist, but they can't be consistently communicated. When you try to share quantum information broadly, decoherence kicks in, and you're left with classical correlations.
 
-**Classical physics is the public face of quantum reality.** It's not a simplification-it's a consistency requirement.
+**Classical physics is the public face of quantum reality.** It's not fundamental; it's the stable consistency regime that many observers can share.
 
 ## 16.9 Reverse Engineering Summary
 
@@ -213,7 +214,7 @@ into stable patterns, when modular time becomes geometric, and when overlap
 consistency enforces locality. Particles, energy, and motion are the emergent
 vocabulary of that stable regime.
 
-**Why classical physics emerges**: The overlap condition demands that observers agree on shared observables. Decoherence, the rapid entanglement of macroscopic objects with their environments, is required by consistency. Only pointer states that get redundantly copied into the environment can be consistently shared across patches. Classical facts are quantum states that pass the consistency filter. The deterministic, objective world of everyday experience is the public face of a quantum reality too fragile to be broadly shared.
+**Why classical physics emerges**: The overlap condition demands that observers agree on shared observables. Decoherence, the rapid entanglement of macroscopic objects with their environments, is part of what makes stable shared records possible. Only pointer states that get redundantly copied into the environment can be consistently shared across patches. Classical facts are quantum states that pass the consistency filter. The deterministic, objective world of everyday experience is the public face of a quantum reality too fragile to be broadly shared.
 
 We've seen that spacetime, particles, and classical physics all emerge from the screen through consistency requirements. But why these particular laws? Why these constants? Could the universe have been different?
 

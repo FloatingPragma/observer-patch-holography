@@ -149,11 +149,11 @@ The light cone is the same for all observers. That is why causality is preserved
 
 ## 15.5 Evidence for Special Relativity
 
-Special relativity is not established. It's one of the most precisely tested theories in physics.
+Special relativity is firmly established. It's one of the most precisely tested theories in physics.
 
 ### Muon Decay
 
-Muons are unstable particles created when cosmic rays hit the atmosphere. Their half-life is 2.2 microseconds. Traveling at nearly light speed, they should decay long before reaching the ground.
+Muons are unstable particles created when cosmic rays hit the atmosphere. Their mean lifetime is 2.2 microseconds. Traveling at nearly light speed, they should decay long before reaching the ground.
 
 But they don't. Time dilation stretches their lifetime. From our perspective, the muons' clocks run slow, so they live long enough to reach detectors at sea level.
 
@@ -163,7 +163,7 @@ Both perspectives are consistent. Both give the same answer. Muons reach the gro
 
 ### Particle Accelerators
 
-At the Large Hadron Collider, protons are accelerated to 0.999999991c. Their Lorentz factor is about 7,500. Their mass energy is increased by the same factor.
+At the Large Hadron Collider, protons are accelerated to 0.999999991c. Their Lorentz factor is about 7,500. Their total energy is increased by the same factor relative to their rest energy.
 
 If special relativity were wrong, the accelerator wouldn't work. The particles would behave differently than predicted. They don't. Special relativity is confirmed every second the LHC operates.
 
@@ -243,13 +243,13 @@ Einstein's equations predicted exactly this amount. It was the first confirmatio
 
 Einstein predicted that starlight passing near the Sun would be deflected by 1.75 arcseconds. In 1919, Arthur Eddington photographed stars during a solar eclipse. The stars near the Sun appeared displaced.
 
-The measurement confirmed Einstein's prediction. Headlines proclaimed: "Revolution in Science. New Theory of the Universe. Newton's Ideas Overthrown."
+The 1919 result was historically decisive, and later measurements confirmed the effect far more precisely. Headlines proclaimed: "Revolution in Science. New Theory of the Universe. Newton's Ideas Overthrown."
 
 ### Gravitational Waves
 
 In 2015, the LIGO detectors observed gravitational waves for the first time. Two black holes, each about 30 solar masses, spiraled together and merged. The resulting gravitational waves stretched and compressed space itself.
 
-The signal matched Einstein's predictions perfectly. A century after he wrote down the equations, ripples in spacetime were finally detected.
+The signal matched Einstein's predictions strikingly well. A century after he wrote down the equations, ripples in spacetime were finally detected.
 
 ### Black Holes
 
@@ -257,7 +257,7 @@ General relativity predicts that sufficient mass concentrated in a small enough 
 
 In 2019, the Event Horizon Telescope photographed the shadow of the black hole at the center of galaxy M87. In 2022, they imaged Sagittarius A*, the black hole at the center of our own galaxy.
 
-Black holes exist. Einstein's geometry is correct.
+Black holes exist, and the observed strong-field data match general relativity extremely well in the regimes tested so far.
 
 ## 15.8 Recovering Special Relativity from the Screen
 
@@ -273,7 +273,7 @@ This Hamiltonian generates a flow:
 
 $$\sigma_t(A) = e^{iKt} A e^{-iKt}$$
 
-This modular flow is what the observer experiences as time.
+This modular flow provides the observer's natural notion of time on that patch.
 
 ### Geometric Modular Flow on Caps
 
@@ -424,7 +424,7 @@ Our framework provides the *reason* for MaxEnt (it's how nature selects among ov
 
 ### Classical Mechanics from Emergent GR
 
-Once the semiclassical Einstein branch is established, classical mechanics follows automatically in the same regime.
+Once the semiclassical Einstein branch is established, classical mechanics follows in the same effective regime.
 
 **Conservation laws.** The contracted Bianchi identity is geometric: $\nabla^a G_{ab} = 0$. Combined with the Einstein equation in the scaling regime, this implies stress-energy conservation: $\nabla^a T_{ab} = 0$. Energy and momentum are conserved because the geometry demands it.
 
@@ -456,7 +456,7 @@ where L is the scale of interest and the Planck length is:
 
 $$\ell_P = \sqrt{\frac{\hbar G}{c^3}} \approx 10^{-35} \text{ m}$$
 
-For any macroscopic process, this ratio is absurdly tiny. General relativity is exact for all practical purposes.
+For any macroscopic process, this ratio is absurdly tiny. General relativity is extraordinarily accurate for all practical purposes.
 
 ### The Best Compression
 
@@ -466,7 +466,7 @@ Imagine collecting all the data about how every patch's modular flow relates to 
 
 But there's a compression. If you specify a metric g_{ab}, you can derive all the modular flows from it. The metric is the minimum description that captures the overlap structure.
 
-General relativity is the unique dynamics consistent with this compression. It's not arbitrary. It's the simplest theory that respects the structure.
+General relativity is the natural effective dynamics associated with this compression. It's not arbitrary. It's the simplest theory that respects the recovered structure.
 
 ## 15.11 What the Framework Resolves
 
@@ -486,9 +486,9 @@ This is like asking "what happens to temperature below one molecule?" The questi
 
 The "cosmological constant problem" assumes quantum field theory is fundamental. QFT predicts vacuum energy 10^120 times larger than observed. Something must cancel it.
 
-In OPH, QFT is not fundamental. It's an effective description that emerges from the screen. The cosmological constant Lambda is fixed by the reference curvature built into the screen structure. The Gibbons-Hawking entropy S = A/(4G) sets the scale.
+In OPH, QFT is not fundamental. It's an effective description that emerges from the screen. The effective cosmological constant is tied to the reference curvature and global screen capacity discussed in Chapter 13. In natural units, the Gibbons-Hawking entropy is S = A/(4G).
 
-The "problem" exists only if you compute vacuum energy using QFT and assume that calculation is fundamental. We don't. The screen determines Lambda directly through the entanglement equilibrium condition. QFT vacuum fluctuations are emergent phenomena, not fundamental contributions to the stress tensor.
+The "problem" exists only if you compute vacuum energy using QFT and assume that calculation is fundamental. We don't. In this framework, Lambda is fixed by the global-capacity package rather than by a local QFT vacuum-energy sum. QFT vacuum fluctuations are emergent phenomena, not fundamental contributions to the stress tensor.
 
 The observed small value of Lambda isn't a fine-tuning miracle. It's simply what the screen structure produces. Understanding why the screen has this particular capacity is a question about initial conditions, not about cancellation of quantum corrections.
 
@@ -510,7 +510,7 @@ This section is more speculative than the gravity and Lorentz results above. It'
 
 Galaxies rotate too fast. The stars at the outer edges orbit the galactic center at speeds that should fling them into intergalactic space, given the visible matter. Something provides extra gravitational pull.
 
-The standard response: dark matter particles. Some new, weakly interacting particle that clumps around galaxies and provides the missing mass. Decades of searches have found nothing.
+The standard response: dark matter particles. Some new, weakly interacting particle that clumps around galaxies and provides the missing mass. Decades of searches have not yet produced a confirmed new particle.
 
 An alternative: modify gravity (MOND). At low accelerations, perhaps gravity behaves differently. This explains galaxy rotation curves remarkably well, but struggles with galaxy clusters and the Bullet Cluster.
 
@@ -518,9 +518,9 @@ An alternative: modify gravity (MOND). At low accelerations, perhaps gravity beh
 
 Our framework suggests a third option: **there may be extra gravitational pull coming from imperfect information, not particles**.
 
-Recall that we derive the first-variation Einstein relation, whose tensor upgrade gives the semiclassical Einstein equation, from entanglement equilibrium in the scaling regime. In a perfect world, information on one side of a boundary would be perfectly recoverable from the boundary itself (the Markov condition). In that limit, you get pure Einstein gravity.
+Recall that we derive the first-variation Einstein relation, whose tensor upgrade gives the semiclassical Einstein equation, from entanglement equilibrium in the scaling regime. In the ideal Markov limit, information on one side of a boundary would be perfectly recoverable from the boundary itself. In that limit, you get pure Einstein gravity.
 
-But the real world isn't perfect. There's always some residual correlation that can't be captured by the boundary alone. This **Markov imperfection** appears as an extra term in Einstein's equations.
+Away from that ideal limit, there is residual correlation that can't be captured by the boundary alone. This **Markov imperfection** appears as an extra term in Einstein's equations.
 
 This term gravitates. But it's not made of particles. It's made of information deficits.
 

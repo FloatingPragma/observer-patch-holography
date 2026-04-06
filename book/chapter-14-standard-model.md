@@ -35,7 +35,7 @@ The problem was blackbody radiation. When you heat an object, it glows. At low t
 
 Classical physics gave a disastrous answer. The Rayleigh-Jeans formula predicted infinite energy at short wavelengths. Ovens should emit deadly gamma rays. This was the "ultraviolet catastrophe."
 
-Planck found a formula that fit the data perfectly. But to derive it, he had to assume something absurd: energy comes in discrete packets. Light of frequency f carries energy in multiples of hf, where h is a tiny constant.
+Planck found a formula that fit the data extremely well. But to derive it, he had to assume something absurd: energy comes in discrete packets. Light of frequency f carries energy in multiples of hf, where h is a tiny constant.
 
 $$E = nhf, \quad n = 0, 1, 2, 3, \ldots$$
 
@@ -167,9 +167,9 @@ Consider an electron. It's surrounded by a cloud of virtual photons. These photo
 
 The solution is renormalization. You absorb the infinities into the definition of mass and charge. The "bare" parameters are infinite, but the physical parameters are finite.
 
-This sounds like cheating, but it works with astonishing precision. Quantum electrodynamics (QED) predicts the electron's magnetic moment to 12 decimal places. The prediction matches experiment perfectly.
+This sounds like cheating, but it works with astonishing precision. Quantum electrodynamics (QED) predicts the electron's magnetic moment to 12 decimal places. The prediction agrees with experiment to extraordinary precision.
 
-Renormalization works for some theories (called "renormalizable") but not others. The Standard Model is renormalizable. Quantum gravity is not. This is one reason gravity remains outside the Standard Model.
+Renormalization works for some theories (called "renormalizable") but not others. The Standard Model is renormalizable. Perturbative Einstein gravity is not. This is one reason gravity remains outside the Standard Model.
 
 ### Running Couplings
 
@@ -213,7 +213,7 @@ The electron is stable. The muon and tau decay quickly.
 
 Here's something strange. The fermions come in three copies. The up and down quarks, plus the electron and its neutrino, form the first generation. The charm and strange quarks, plus the muon and its neutrino, form the second. The top and bottom, plus the tau and its neutrino, form the third.
 
-Why three? No one knows. The second and third generations are heavier copies of the first. Almost all ordinary matter uses only first-generation particles.
+Why three? No one knows. The charged members of the second and third generations are heavier copies of the first, while the neutrino sector has its own mixing pattern. Almost all ordinary matter uses only first-generation particles.
 
 ### Bosons: The Force Carriers
 
@@ -261,7 +261,7 @@ $$\psi_L = \frac{1}{2}(1-\gamma^5)\psi, \quad \psi_R = \frac{1}{2}(1+\gamma^5)\p
 
 ### The Weak Force Discriminates
 
-The W boson couples only to left-handed particles. A right-handed electron simply doesn't feel the weak force.
+The charged weak interaction carried by the W boson couples only to left-handed fermions. A right-handed electron does not participate in those charged-current processes.
 
 This was discovered through parity violation experiments in 1956-1957. Chien-Shiung Wu studied the beta decay of cobalt-60. If parity were conserved, electrons should emerge equally in both directions along the spin axis. They didn't. More electrons came out opposite to the spin.
 
@@ -271,7 +271,7 @@ Lee and Yang had predicted this. Wu proved it. Parity violation earned Lee and Y
 
 Chirality has major implications:
 
-1. **Neutrinos are (nearly) massless**: If neutrinos were massless, only left-handed neutrinos would exist. Right-handed neutrinos wouldn't interact with anything. We now know neutrinos have tiny masses, so both chiralities exist, but the right-handed ones are very hard to detect.
+1. **Neutrinos are very light**: If neutrinos were exactly massless, only left-handed neutrinos would participate in the weak interaction. We now know neutrinos have tiny masses, so massive neutrino propagation mixes left- and right-handed components, while the weak interaction still acts only on the left-chiral fields.
 
 2. **CP violation**: The asymmetry between matter and antimatter requires both C (charge conjugation) and P (parity) violation. The weak force provides both.
 
@@ -321,7 +321,7 @@ When you glue observer patches together, you can go around loops. If you come ba
 
 On the central branch, the mathematical structure is a Cech 2-cocycle. More generally, the genuinely noncentral branch is a crossed-module / 2-group obstruction class. The anomaly-free condition says the relevant class must be trivial. In physics language: gauge anomalies must cancel.
 
-The Standard Model's hypercharges aren't arbitrary. They're the unique solution that makes loop-coherent gluing possible.
+The Standard Model's hypercharges aren't arbitrary. Up to normalization, they're the unique solution that makes loop-coherent gluing possible.
 
 ## 14.8 The Higgs Mechanism
 
@@ -414,25 +414,25 @@ Given one generation of chiral fermions with SU(3) x SU(2) x U(1) charges, and r
 
 ### The Derivation
 
-Start with Yukawa invariance:
+Start with Yukawa invariance. Writing the anomaly equations in terms of left-handed Weyl fields means the right-handed singlets enter through their conjugates:
 
-$$Y_u = -(Y_Q + Y_H), \quad Y_d = -Y_Q + Y_H, \quad Y_e = -Y_L + Y_H$$
+$$Y_u = Y_Q + Y_H, \quad Y_d = Y_Q - Y_H, \quad Y_e = Y_L - Y_H$$
 
 Add anomaly cancellation conditions:
 
 $$N_c Y_Q + Y_L = 0 \quad (SU(2)^2 U(1))$$
 
-$$2N_c Y_Q + N_c Y_u + N_c Y_d + 2Y_L + Y_e = 0 \quad (\text{gravitational})$$
+$$2N_c Y_Q - N_c Y_u - N_c Y_d + 2Y_L - Y_e = 0 \quad (\text{gravitational})$$
 
 Solve:
 
 $$Y_L = -N_c Y_Q, \quad Y_H = N_c Y_Q$$
 
-$$Y_u = -(N_c+1)Y_Q, \quad Y_d = (N_c-1)Y_Q, \quad Y_e = 2N_c Y_Q$$
+$$Y_u = (N_c+1)Y_Q, \quad Y_d = -(N_c-1)Y_Q, \quad Y_e = -2N_c Y_Q$$
 
 With N_c = 3 and standard normalization:
 
-$$\boxed{Y_Q = \frac{1}{6}, \quad Y_L = -\frac{1}{2}, \quad Y_u = -\frac{2}{3}, \quad Y_d = \frac{1}{3}, \quad Y_e = 1, \quad Y_H = \frac{1}{2}}$$
+$$\boxed{Y_Q = \frac{1}{6}, \quad Y_L = -\frac{1}{2}, \quad Y_u = \frac{2}{3}, \quad Y_d = -\frac{1}{3}, \quad Y_e = -1, \quad Y_H = \frac{1}{2}}$$
 
 These are exact rationals, the Standard Model hypercharges, with the ratios fixed by anomaly freedom + Yukawa invariance and the absolute values fixed by standard normalization. There are no continuous parameters to adjust.
 
@@ -479,9 +479,9 @@ $$N_g \ge 3$$
 
 Too many generations spoil asymptotic freedom. The SU(2) beta function coefficient is:
 
-$$b_1 = \frac{1}{3}[22 - N_g(N_c + 1)]$$
+$$b_{SU(2)} = \frac{1}{3}[22 - N_g(N_c + 1)]$$
 
-For b_1 > 0 (asymptotic freedom): N_g(N_c + 1) < 22.
+For $b_{SU(2)} > 0$ (asymptotic freedom): $N_g(N_c + 1) < 22$.
 
 Since the color-type requirement already forces $N_c \ge 3$, we have $N_c + 1 \ge 4$:
 
@@ -529,9 +529,9 @@ Before discussing which particles the model predicts, we need to be clear about 
 
 In the conventional view, particles are fundamental objects, tiny balls of stuff that move through space. Fields fill the gaps, and particles are what detectors click on. This picture is useful for calculations, but it gets the ontology backwards. In OPH, particles are patterns first. They are not primitives.
 
-Think about what an observer actually accesses. Each observer has a patch on the holographic screen, and associated with that patch is an algebra of observables-the questions that observer can ask. The global quantum state assigns expectation values to these observables. When those expectation values exhibit a particular stable structure, when they show localized excitations that persist under modular time evolution, that transform in specific ways under the emergent symmetries, and that can be consistently tracked across overlapping patches-that is what we call a particle.
+Think about what an observer actually accesses. Each observer has a patch on the holographic screen, and associated with that patch is an algebra of observables, the questions that observer can ask. The global quantum state assigns expectation values to these observables. When those expectation values exhibit a particular stable structure, when they show localized excitations that persist under modular time evolution, that transform in specific ways under the emergent symmetries, and that can be consistently tracked across overlapping patches, that is what we call a particle.
 
-The technical statement is that particles correspond to irreducible representations of the emergent symmetry group. Once Lorentz kinematics appears on the screen (Chapter 15), excitations organize into representations of the Poincaré group. Eugene Wigner showed in 1939 that these representations are classified by two labels: mass and spin. A "particle type" is nothing more than such a representation label. An electron is a representation with mass 0.511 MeV and spin 1/2. A photon is a representation with mass zero and spin 1. The particle is not a thing; it is a classification of how stable excitation patterns transform.
+The technical statement is that particles correspond to irreducible representations of the emergent symmetry group. Once Lorentz kinematics appears on the screen (Chapter 15), excitations organize into representations of the Poincare group. Eugene Wigner showed in 1939 that these representations are classified by mass together with spin or helicity. A "particle type" is nothing more than such a representation label. An electron is a representation with mass 0.511 MeV and spin 1/2. A photon is a massless representation carrying helicity ±1. The particle is not a thing; it is a classification of how stable excitation patterns transform.
 
 This sounds abstract, but it has concrete consequences. The model does not postulate particles and then check whether they are consistent. It derives which particle types must exist from the structure of the algebra net itself. Some particles are forced to exist by the axioms. Others are permitted but not required. And some hypothetical particles are forbidden.
 
@@ -563,7 +563,7 @@ These fusion rules define a mathematical structure called a tensor category. A k
 
 For the Standard Model, this reconstructed group includes a U(1) factor, the gauge group of electromagnetism. The key point: this U(1) is the redundancy structure of how patches identify their overlaps. It is built into the structure of observer consistency.
 
-A gauge boson is the quantum of a gauge field. When U(1)_em emerges from overlap redundancy, its gauge field must exist, and its quantum-the photon-must exist. The photon is the particle that mediates the correlations between charged objects in different patches. It is how the redundancy structure propagates through the algebra net.
+A gauge boson is the quantum of a gauge field. When U(1)_em emerges from overlap redundancy, its gauge field must exist, and its quantum, the photon, must exist. The photon is the particle that mediates the correlations between charged objects in different patches. It is how the redundancy structure propagates through the algebra net.
 
 Now comes the structural consequence. A photon mass term in the Lagrangian would explicitly break the U(1) gauge symmetry. This symmetry is the structure of overlap identification. Breaking it would mean that different patches could not consistently glue their descriptions of charged objects. The model would become internally inconsistent. Therefore, a photon mass term is forbidden by the architecture of observer consistency.
 
@@ -575,13 +575,13 @@ The graviton emerges from a parallel chain of reasoning, applied to spacetime ge
 
 In Chapter 15 the theorem surface recovers the cap-modular statement on the extracted prime geometric subnet. On that subnet, once the recovery and MaxEnt structure is in place, modular flow on caps becomes a geometric conformal transformation with a fixed normalization. In the generic continuum case this is an automorphism-level statement for the scaling-limit cap pair; the operator identity for a modular Hamiltonian is restricted to the special type-I realization.
 
-The conformal group of the two-sphere is isomorphic to the Lorentz group: Conf⁺(S²) ≅ PSL(2,ℂ) ≅ SO⁺(3,1). This is a mathematical identity. Once the geometric cap pair is in hand on the extracted subnet, Lorentz kinematics follows automatically from that conformal classification.
+The conformal group of the two-sphere is isomorphic to the Lorentz group: Conf⁺(S²) ≅ PSL(2,ℂ) ≅ SO⁺(3,1). This is a mathematical identity. Once the geometric cap pair is in hand on the extracted subnet, Lorentz kinematics follows from that conformal classification.
 
 But geometry goes further. The entanglement structure of the screen encodes dynamics as well as kinematics. Through the entanglement equilibrium argument, developed in Chapter 15, the condition that generalized entropy is stationary under small admissible variations implies a Jacobson-type first-variation Einstein relation in the same scaling regime, and patch consistency upgrades it to the tensor equation. The metric tensor emerges as the compression of modular flow data, and its dynamics are fixed by the requirement that entanglement remains balanced.
 
 Now consider what it means for the metric to be dynamical. If spacetime geometry fluctuates quantum mechanically, those fluctuations must be described by a quantum field. The quantum of a spin-2 field that couples universally to energy-momentum is, by definition, a graviton. This is a consequence of having dynamical geometry in a quantum theory.
 
-A parallel constraint follows from diffeomorphism invariance. In the model, the bulk description-the effective spacetime that observers perceive-is a compressed encoding of screen data. Different coordinate systems for describing this bulk are related by diffeomorphisms, which are the gravitational analog of gauge transformations. They are redundancies in the description, not physical transformations.
+A parallel constraint follows from diffeomorphism invariance. In the model, the bulk description, the effective spacetime that observers perceive, is a compressed encoding of screen data. Different coordinate systems for describing this bulk are related by diffeomorphisms, which are the gravitational analog of gauge transformations. They are redundancies in the description, not physical transformations.
 
 A massive graviton would break diffeomorphism invariance. The mass term would pick out a preferred frame, making different coordinate descriptions physically inequivalent. Diffeomorphism invariance emerges from the fact that the bulk is a compact way of organizing screen correlations. Breaking it would mean the bulk description is an unfaithful compression of the underlying data. The model would be inconsistent.
 
