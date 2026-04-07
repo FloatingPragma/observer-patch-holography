@@ -3,29 +3,7 @@
 > Plain-English version: there is no objective "view from nowhere."
 > There are only perspectives from somewhere, and reality is what stays consistent between them.
 
-## 1.1 Physicists Are Hackers
-
-This book is about reverse engineering.
-
-When hackers reverse engineer a system, they don't have the source code. They have a black box. They probe it, feed it inputs, watch its outputs, and try to deduce the underlying logic. They ask: *What algorithm would produce this behavior?*
-
-That's what physicists do with the universe. We don't have God's source code. We have observations, surprising and counterintuitive observations that often violate our expectations. These observations are hints. Clues. Outputs of the cosmic black box that constrain what the underlying program can be.
-
-Physicists are reality's hackers.
-
-This book traces how the hints we've gathered lead to a radical conclusion: **reality may be organized as an observer-consistency process in which observers are meaning-assigning patterns and much of effective structure is constrained by consistency requirements.**
-
-There is a second through-line running alongside the “reverse engineering” theme: **primacy of perspective**. We start from observer patches and treat objectivity as an emergent property of their consistency, not a given backdrop.
-
-That sounds abstract. Let me unpack it.
-
-The universe is not a stage on which events unfold. In the OPH picture, it is more like a vast, self-interpreting program. The "code" is quantum information on a holographic boundary. The "execution" is performed by observers, patterns within that information that read, interpret, and act on other patterns. Observers are not outside the data; they are data that has become self-modeling and meaning-making. There is no external computer running this program, and no programmer who wrote it. OPH treats computation as a candidate organizing picture for reality, with the computer part of what is being described.
-
-And the structure of this computation-the laws of physics, the geometry of space, the flow of time-isn't arbitrary. In OPH it is organized around a central requirement: different observers, looking at overlapping regions, must get consistent answers.
-
-This sounds like philosophy, but it is meant as a physics program: a candidate deep-structure picture that OPH tries to make concrete.
-
-## 1.2 The Intuitive Picture
+## 1.1 The Intuitive Picture
 
 Let's start with what seems obvious-the picture that humans believed for millennia and that still matches our everyday intuition.
 
@@ -61,7 +39,7 @@ The intuitive picture is wrong. Not approximately wrong. Not wrong in some techn
 
 Understanding those hints, and what they tell us about the actual structure of reality, is what this book is about.
 
-## 1.3 Hint #1: The Invariant Speed of Light
+## 1.2 Hint #1: The Invariant Speed of Light
 
 The first major hint came from an experiment that was designed to confirm the intuitive picture and instead demolished it.
 
@@ -113,7 +91,7 @@ Simultaneity is relative. Two events that are simultaneous in my frame may not b
 
 **The first-principles reframing**: Reality is not about a single objective description. It's about different observers' descriptions being *consistent* where they overlap. The laws of physics, including Lorentz invariance, are what make this agreement possible.
 
-## 1.4 Hint #2: Measurement Affects Outcomes
+## 1.3 Hint #2: Measurement Affects Outcomes
 
 The second hint was even stranger. It came from the quantum revolution that unfolded in the early 20th century.
 
@@ -163,7 +141,7 @@ The measurement problem asks: "When does objective reality become definite?" Our
 
 Bohr was half right. He insisted that quantum mechanics describes relationships between observers and systems, not systems in isolation. Our model makes this precise: quantum mechanics is the mathematics of patch consistency.
 
-## 1.5 The Overlap Test
+## 1.4 The Overlap Test
 
 Put these hints together, and a new picture emerges.
 
@@ -193,7 +171,7 @@ Consider the Large Hadron Collider at CERN. The LHC has multiple detector system
 
 This is the overlap test at industrial scale. Each detector is an observer. Their patches overlap in the collisions they both record. Agreement between independent observers is what makes a discovery real.
 
-## 1.6 Hint #3: Consistency is Not the Default
+## 1.5 Hint #3: Consistency is Not the Default
 
 Here's a hint that's easy to miss: it's incredibly hard to construct a universe where observers agree.
 
@@ -213,7 +191,7 @@ We exist in a tiny island of consistency in a vast sea of possible physics. Most
 
 The laws of physics appear to be the same everywhere. An experiment in my lab gives the same result as the same experiment on the other side of the planet. The spectrum of hydrogen in a galaxy 10 billion light-years away matches what we measure on Earth. We take this for granted, but it's worth asking: what enforces this uniformity? If the laws varied from place to place, observers in different locations couldn't agree on physics. The universe would fragment into incompatible realities. Uniformity is more than convenient. It is a consistency requirement.
 
-## 1.7 Symmetry as Consistency
+## 1.6 Symmetry as Consistency
 
 When you dig into the laws of physics, you find something startling: almost all of them are statements about consistency. We call them **symmetries**.
 
@@ -241,7 +219,7 @@ This is the bookkeeping of agreement. It is more than mathematics.
 
 If energy could just appear or disappear, observers at different times would tell incompatible stories. Conservation laws are the constraints that keep stories aligned once the relevant symmetries are in place.
 
-## 1.8 Horizons: The Limits of Agreement
+## 1.7 Horizons: The Limits of Agreement
 
 If information has a speed limit, every observer has limits. There are parts of the universe you cannot see, no matter how long you wait.
 
@@ -261,7 +239,7 @@ Even without black holes, if you keep accelerating, signals from behind you can 
 
 **The lesson**: Horizons are observer-dependent. Two observers in the same region can disagree about which events are accessible. Each has their own causal patch. Reality is the overlap of those patches.
 
-## 1.9 The Central Thesis
+## 1.8 The Central Thesis
 
 We've now collected the major hints:
 
@@ -283,7 +261,7 @@ Every piece of evidence you have for an "objective world" is itself a subjective
 
 Call it reverse engineering. The hints from reality, invariant light speed, measurement effects, fine-tuning, symmetries, horizons, all point to the same conclusion: **reality is the process of making observations between observers consistent**. Agreement is part of the structure of the universe itself.
 
-## 1.10 The Laws as Survivors
+## 1.9 The Laws as Survivors
 
 If reality is an agreement between observers, what happens when they do not agree?
 
@@ -315,7 +293,7 @@ Why? Because macroscopic observers don't see molecules. They see pressure gauges
 
 Physicists call this **universality**. At large scales, different microscopic theories flow to the same effective behavior. The stable patterns are called **fixed points**. They are the laws that survive coarse-graining, the things that many different realities can agree on.
 
-## 1.11 Five Core Axioms
+## 1.10 Five Core Axioms
 
 From these hints, the current OPH papers distill **five core axioms** that guide the rest of this book:
 
@@ -334,7 +312,7 @@ You cannot pack infinite information into a finite region. The entropy budget is
 **Axiom 5: Minimal Admissible Realization (MAR)**
 Among the admissible low-energy possibilities, the realized branch is the minimal one under the precise complexity ordering used later in the physics program. This is the selector that narrows the gauge story to the realized Standard Model branch.
 
-## 1.12 Reality as Computation
+## 1.11 Reality as Computation
 
 These five axioms point toward a radical conclusion: reality can be modeled computationally. We do not need to treat it as a pre-given objective stage.
 
@@ -350,7 +328,7 @@ This view dissolves many traditional puzzles. "Why does anything exist at all?" 
 
 "What is the universe made of?" becomes, within OPH, "What substrate best realizes the computational picture?" The current construction answers: finite-dimensional quantum systems on a 2D surface, constrained by gauge invariance, organized by maximum entropy, and narrowed at low energy by the minimal admissible realization rule. This is the concrete technical realization studied in the present program, not yet a uniquely established final ontology.
 
-## 1.13 The Reverse Engineering Ahead
+## 1.12 The Reverse Engineering Ahead
 
 We've laid out the method: collect surprising hints from reality, and reverse engineer the principles that would produce them.
 
