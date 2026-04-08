@@ -64,7 +64,7 @@ This paper proves four core results:
 \item \textbf{Record-layer convergence.} Commuting closure operators on a finite lattice converge to the least common fixed point under any asynchronous schedule that applies each operator at least once (Theorem~\ref{thm:crdt}).
 \end{enumerate}
 
-The repair step itself is not a free rewrite primitive on the OPH reading used here. On the
+The repair step itself is not a free rewrite primitive here. On the
 fixed-cutoff collar branch, a local update is obtained from exact Markov splice or from a
 declared Petz/Fawzi--Renner recovery channel and then read on overlap-invariant physical data.
 The fixed-point theorem below still isolates the separate remaining burdens cleanly: one must show
@@ -74,7 +74,7 @@ clause stated later in Proposition~\ref{prop:petz-cptp}.
 
 We also define a fitness functional over the space of candidate reconciliation laws and prove that replicator dynamics monotonically increases mean fitness (Theorem~\ref{thm:replicator}). This gives a clean mathematical model for the selection of physical law.
 
-The results here are exact theorems about a computational model. The further claim that physical reality instantiates this model is the interpretive hypothesis of Observer-Patch Holography (OPH). The companion OPH manuscript develops the broader physics branches conditionally and keeps structural theorems, scaling-limit branches, calibration-sector outputs, and phenomenological continuations distinct~\cite{OPH}.
+The results here are exact theorems about a computational model. The companion OPH manuscript develops the broader physics branches conditionally and keeps structural theorems, scaling-limit branches, calibration-sector outputs, and phenomenological continuations distinct~\cite{OPH}.
 
 
 \section{Patch Nets, Overlaps, and Global Consistency}
@@ -145,7 +145,7 @@ of the current collar state encoded by \(s\):
       Definition~\ref{def:oph-repair-map} and Theorem~\ref{thm:splice}.
 \end{enumerate}
 The decoder back to \(S_i\) is bookkeeping for the finite patch presentation; the physical content
-is the repaired collar state on the chosen OPH branch. Write \(s\to_i t\) iff
+is the repaired collar state on the declared fixed-cutoff branch. Write \(s\to_i t\) iff
 \(t=T_i^\lambda(s)\neq s\). Let \(\to := \bigcup_{i\in V}\to_i\), and let \(\to^*\) be its
 reflexive-transitive closure. A state \(s\in\Sigma\) is a \textbf{normal form} iff
 \(T_i^\lambda(s)=s\) for all \(i\in V\).
@@ -573,7 +573,7 @@ The bridge to physics works as follows. In the full OPH framework:
 
 The OPH manuscript develops a conditional gravity branch from entanglement equilibrium and modular geometry, the SM gauge-group closure from edge-sector admissibility plus MAR, and a worldsheet/string reorganization from large-$N$ heat-kernel asymptotics. Input-dependent cosmological statements and later phenomenological continuations are kept explicitly separate from that recovered-core claim set.
 
-This paper provides the finite patch-net foundation for that OPH interpretation. When the broader
+This paper provides the finite patch-net foundation for the broader OPH suite. When the broader
 suite is described using labels such as \(D3\)--\(D5\) or \(D7\)--\(D9\), those are internal
 documentary node labels from the companion OPH derivation ledger~\cite{OPH}; they are not
 external references, and that companion ledger is the place to look up the definitions.
