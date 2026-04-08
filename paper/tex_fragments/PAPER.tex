@@ -229,7 +229,7 @@ Node & Main-manuscript output & Immediate OPH ingredients & Standard mathematics
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-\textbf{D1} & Theorem 3.1: schedule-independent normal-form statement for the declared recovery-derived repair relation & overlap-consistency setup on finite patch nets together with the declared fixed-cutoff collar recovery step & Newman's lemma & finite patch net, repair completeness, termination, and local confluence on the declared recovery branch & structural theorem \\
+\textbf{D1} & Theorem 3.1: schedule-independent normal-form statement for the declared recovery-derived repair relation & overlap-consistency setup on finite patch nets together with the declared fixed-cutoff collar recovery step & finite-valued Lyapunov descent on the inconsistency potential; Newman's lemma & finite patch net, repair completeness, strict \(\Phi\)-descent, and local confluence on the declared recovery branch; stated Petz support/CPTP control where that branch is used & structural theorem \\
 \textbf{D2} & Section 2.3 and \S5.4: EC/Markov collar and generalized-entropy split & Axioms 1--4 plus the derived fixed-cutoff regulator/collar package when invoked & HJPW; Petz; Fawzi--Renner & exact-Markov or idealized recoverability hypotheses when exact identities are used; coarse-grained \(A/(4G)\) dictionary & structural lemma/\newline proposition layer \\
 \textbf{D3} & Theorems 4.2--4.3: geometric modular flow and Lorentz branch & Axioms 1--4 together with SO(3)-invariant constraint data & Bisognano--Wichmann modular geometry;\newline conformal classification on \(S^2\) & T2 together with the theorem-local geometric cap-pair extraction and ordered cut-pair rigidity hypotheses of Theorem 4.2 & conditional scaling-limit\newline theorem \\
 \textbf{D4} & Section 5.2: null modular bridge & D2+D3 & Borchers--Wiesbrock and endpoint differentiation & the theorem-local inherited-strip decomposition and exact-or-controlled Markov hypotheses of Section 5.2, plus the same-half-line local modular-Hamiltonian input; bounded-interval formulas still require the separate interval-preserving projective branch & conditional bridge theorem \\
@@ -308,7 +308,8 @@ formulation, not added later as a separate covariance axiom on hidden representa
 declared fixed-cutoff collar branch, the local repair step itself is read from exact Markov splice
 or a declared Petz/Fawzi--Renner recovery channel. What remains above that step is proving that
 the accepted recovery-derived moves are repair-complete for overlap consistency, strictly
-\(\Phi\)-decreasing, locally confluent, and controlled on the declared Petz domain.
+\(\Phi\)-decreasing so that \(\Phi\) is the finite-patch Lyapunov functional, locally confluent,
+and controlled on the declared Petz domain.
 
 \textbf{Theorem 2.3 (EC from regulated overlap gluing).} For a collar \(B_\delta\) around a cap boundary \(\Sigma\), there is a canonical decomposition
 
@@ -549,7 +550,7 @@ Then \(\sigma_t^{\omega,C}(\mathcal A(R))=\mathcal A(f_t^C(R))\), which is exact
 \item
 \textbf{Fixed-cutoff null-strip bridge.} The null-strip package proves transferred cut-center data, theorem-local inherited left/right strip structure, exact-or-controlled four-term strip additivity on one inherited strip model, renormalized endpoint control up to the weak tail generator, and the derived half-sided modular pair whose Borchers--Wiesbrock consequence is an explicit positive null-translation generator on its Stone domain.
 \item
-\textbf{Derived half-sided modular inclusion.} Nested null half-line algebras satisfy half-sided modular inclusion on the OPH geometric scaling branch by Corollary 5.2e; Borchers--Wiesbrock then identifies the positive null-translation generator on its Stone domain together with the affine half-line modular relation~\cite{wiesbrock93}.
+\textbf{Derived half-sided modular inclusion.} Nested null half-line algebras satisfy half-sided modular inclusion on the declared geometric scaling branch by Corollary 5.2e; Borchers--Wiesbrock then identifies the positive null-translation generator on its Stone domain together with the affine half-line modular relation~\cite{wiesbrock93}.
 \item
 \textbf{Weak continuity and finite variation.} The bounded-interval and half-line endpoint control follow from the local MaxEnt branch and define the weak tail generator at fixed cutoff. The \textbf{T2} scaling branch together with the extracted geometric cap pair supplies the continuum null-generator setting in which that weak-tail data can be matched to the geometric null modular action of the relativistic phase.
 \end{itemize}
@@ -3503,7 +3504,7 @@ Node & Representative outputs in this manuscript & Standard mathematics used & E
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-\textbf{D1} & Theorem 3.1 schedule-independent normal form for the declared recovery-derived repair relation & Newman's lemma & finite patch net, repair completeness, termination, and local confluence on the declared recovery branch & Phase I structural theorem \\
+\textbf{D1} & Theorem 3.1 schedule-independent normal form for the declared recovery-derived repair relation & finite-valued Lyapunov descent on the inconsistency potential; Newman's lemma & finite patch net, repair completeness, strict \(\Phi\)-descent, and local confluence on the declared recovery branch; stated Petz support/CPTP control where that branch is used & Phase I structural theorem \\
 \textbf{D2} & EC decomposition, exact/approximate Markov collar, and generalized-entropy split & HJPW; Petz; Fawzi--Renner & explicit recoverability control when exact identities are used; coarse-grained \(A/(4G)\) dictionary & Phase I structural lemma/proposition layer \\
 \textbf{D3} & Theorems 4.2--4.3 Lorentz branch & Bisognano--Wichmann modular geometry; conformal-group classification & rotationally invariant constraints together with T2 and the theorem-local geometric cap-pair extraction and ordered cut-pair rigidity hypotheses of Theorem 4.2 & Phase I conditional scaling-limit theorem \\
 \textbf{D4} & Section 5.2 null modular bridge & Borchers--Wiesbrock; distribution theory for half-line differentiation & the theorem-local inherited-strip decomposition and exact-or-controlled Markov hypotheses of Section 5.2, plus the downstream density-upgrade and relativistic null-stress-identification premises; the endpoint/propagation controls are internal to the local finite-constraint MaxEnt branch & Phase I conditional bridge theorem \\
@@ -3551,7 +3552,7 @@ Symmetry-protected exact zeros such as the masslessness of the photon, gluons, a
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Dynamics}: The GR chain requires modular covariance plus the fixed-cutoff null-surface modular bridge. Section 5.2 carries that bridge through the derived positive null-translation stage and the exact half-line generator/charge identification on the OPH geometric scaling branch. The remaining inputs are modular covariance, the bounded-interval projective transport branch, and the tensor upgrade modulo the null-invisible metric term.
+  \textbf{Dynamics}: The GR chain requires modular covariance plus the fixed-cutoff null-surface modular bridge. Section 5.2 carries that bridge through the derived positive null-translation stage and the exact half-line generator/charge identification on the declared geometric scaling branch. The remaining inputs are modular covariance, the bounded-interval projective transport branch, and the tensor upgrade modulo the null-invisible metric term.
 \item
   \textbf{Gauge structure}: The gauge group is reconstructed from the transportable bosonic sector package, and the anomaly/gluing link is precise. Axiom 5 (MAR) fixes the SM factors; the CP/UV admissibility window and MAR give \(N_g = 3\), and Witten's parity constraint with that realized generation count gives \(N_c = 3\). On the central branch, Proposition 6.1a identifies the explicit loop-coherence criterion \([z]=0\) that accompanies DHR transportability in the ordinary compact-group route. On the genuinely noncentral branch, Corollary 3.4a gives the parallel fixed-cutoff criterion \(q_\Sigma=0\), but that branch is handled separately by crossed-module data rather than by the ordinary DR field-algebra route. The chirality selector still has to be justified in explicit models.
 \item

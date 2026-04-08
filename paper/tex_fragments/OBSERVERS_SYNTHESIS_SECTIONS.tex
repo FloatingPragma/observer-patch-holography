@@ -12,12 +12,13 @@ interpretation of OPH, but it is not part of the recovered-core gravity/gauge th
 
 \paragraph{Theorem (Asynchronous confluence).}
 On a finite patch net with local recovery-derived repair maps, if normal forms are exactly the
-globally consistent states, every accepted repair strictly decreases a finite inconsistency
+globally consistent states, every accepted repair strictly decreases a finite-valued inconsistency
 potential, and the repair relation is locally confluent, then every initial configuration has a
 unique schedule-independent normal form.
 
 \paragraph{Proof sketch.}
-Strict decrease of the inconsistency potential rules out infinite repair sequences. Newman's
+Strict decrease of the inconsistency potential makes \(\Phi\) a Lyapunov functional and rules out
+infinite repair sequences. Newman's
 lemma~\cite{newman42} then upgrades local confluence to global confluence. Therefore every initial state has a
 unique normal form, independent of the asynchronous update schedule, and the completeness clause
 identifies that normal form with the globally consistent state.

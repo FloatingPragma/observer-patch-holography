@@ -105,7 +105,7 @@ Node & Output & Immediate OPH ingredients & Standard mathematics used & Extra no
 \endhead
 \bottomrule
 \endfoot
-\textbf{D1} & Unique schedule-independent normal form for the declared recovery-derived repair relation (Theorem~\ref{thm:confluence}) & overlap-consistency problem on a finite patch net together with the declared fixed-cutoff collar recovery step & Newman's lemma for terminating locally confluent repair relations & finite state spaces, repair completeness, termination, and local confluence on the declared recovery branch & Phase I structural theorem \\
+\textbf{D1} & Unique schedule-independent normal form for the declared recovery-derived repair relation (Theorem~\ref{thm:confluence}) & overlap-consistency problem on a finite patch net together with the declared fixed-cutoff collar recovery step & finite-valued Lyapunov descent on the inconsistency potential plus Newman's lemma for locally confluent terminating repair relations & finite state spaces, repair completeness, strict \(\Phi\)-descent, and local confluence on the declared recovery branch; stated Petz support/CPTP control where that branch is used & Phase I structural theorem \\
 \textbf{D2} & Collar Markov/entropy split and \(G\)-dictionary setup (Theorem~\ref{thm:markovcollar}, Propositions~\ref{prop:approxrecover}, \ref{prop:splice}, \ref{prop:gensplit}, Definition~\ref{def:newton}) & Axioms~\ref{ax:screen}--\ref{ax:entropy} & HJPW Markov structure theorem; Petz and Fawzi--Renner recovery theory & exact block-factorized identities require exact Markovity or an explicitly stated idealized limit; the \(A/(4G)\) step is the coarse-grained dictionary of Definition~\ref{def:newton} & Phase I structural lemma/proposition layer \\
 \textbf{D3} & Lorentz branch \(\Conf^+(S^2)\cong \mathrm{SO}^+(3,1)\) (Theorem~\ref{thm:bw}, Corollary~\ref{cor:lorentz}) & Axioms~\ref{ax:screen}--\ref{ax:entropy} & Bisognano--Wichmann modular geometry; conformal-group classification & T2 together with the theorem-local geometric cap-pair extraction and ordered cut-pair rigidity hypotheses of Theorem~\ref{thm:bw}; Theorem~\ref{thm:geosubnet} fixes the target subnet internally & Phase I conditional scaling-limit theorem \\
 \textbf{D4} & Null modular bridge to \(T_{kk}\) (Propositions~\ref{prop:nullec}, \ref{prop:n3}; Corollaries~\ref{cor:n1}, \ref{cor:n2}; Theorem~\ref{lem:density}, Lemma~\ref{lem:translation}; Theorem~\ref{thm:stress}) & D2+D3 and Axioms~\ref{ax:screen}--\ref{ax:entropy} & Borchers--Wiesbrock half-sided modular inclusion; distributional differentiation on half-lines & the theorem-local inherited-strip decomposition and exact-or-controlled Markov hypotheses of Proposition~\ref{prop:nullec} and Corollary~\ref{cor:n1}, plus T2; quasi-local propagation and endpoint control are supplied internally by Axiom~\ref{ax:maxent} on the local finite-constraint branch; the imported continuum input is the standard local modular-Hamiltonian formula for the same half-line family, and bounded-interval formulas still require the separate interval-preserving projective branch & Phase I conditional bridge theorem \\
@@ -258,7 +258,7 @@ Node & Theorem labels and output & Immediate OPH ingredients & Standard mathemat
 \endhead
 \bottomrule
 \endfoot
-\textbf{D1} & Theorem~\ref{thm:confluence}: unique normal form and schedule independence for the declared recovery-derived repair relation & overlap-consistency problem on a finite patch net together with the declared fixed-cutoff collar recovery step & Newman's lemma for terminating locally confluent repair relations & finite state spaces, repair completeness, termination, and local confluence on the declared recovery branch & structural theorem \\
+\textbf{D1} & Theorem~\ref{thm:confluence}: unique normal form and schedule independence for the declared recovery-derived repair relation & overlap-consistency problem on a finite patch net together with the declared fixed-cutoff collar recovery step & finite-valued Lyapunov descent on the inconsistency potential plus Newman's lemma for locally confluent terminating repair relations & finite state spaces, repair completeness, strict \(\Phi\)-descent, and local confluence on the declared recovery branch; stated Petz support/CPTP control where that branch is used & structural theorem \\
 \textbf{D2} & Theorem~\ref{thm:markovcollar}, Propositions~\ref{prop:approxrecover}, \ref{prop:splice}, \ref{prop:gensplit}, Definition~\ref{def:newton}: collar Markov/entropy layer & Axioms~\ref{ax:screen}--\ref{ax:entropy} & HJPW Markov structure theorem; Petz and Fawzi--Renner recovery theory & exact Markov identities require exact Markovity or an explicitly stated idealized recoverability limit; the \(A/(4G)\) identification is the coarse-grained dictionary of Definition~\ref{def:newton} & structural lemma/\newline proposition layer \\
 \textbf{D3} & Theorem~\ref{thm:bw}, Corollary~\ref{cor:lorentz}: geometric modular flow and Lorentz branch & Axioms~\ref{ax:screen}--\ref{ax:entropy} & Bisognano--Wichmann modular geometry;\newline conformal classification on \(S^2\) & T2 together with the theorem-local geometric cap-pair extraction and ordered cut-pair rigidity hypotheses of Theorem~\ref{thm:bw}; Theorem~\ref{thm:geosubnet} fixes the target subnet internally & conditional scaling-limit\newline theorem \\
 \textbf{D4} & Propositions~\ref{prop:nullec}, \ref{prop:n3}; Corollaries~\ref{cor:n1}, \ref{cor:n2}; Theorem~\ref{lem:density}, Lemma~\ref{lem:translation}; Theorem~\ref{thm:stress}: null modular bridge to \(T_{kk}\) & D2+D3 and Axioms~\ref{ax:screen}--\ref{ax:entropy} & Borchers--Wiesbrock half-sided modular inclusion; distributional differentiation on half-lines & the theorem-local inherited-strip decomposition and exact-or-controlled Markov hypotheses of Proposition~\ref{prop:nullec} and Corollary~\ref{cor:n1}, plus T2; quasi-local propagation and endpoint control are supplied internally by Axiom~\ref{ax:maxent} on the local finite-constraint branch; the imported continuum input is the standard local modular-Hamiltonian formula for the same half-line family, and bounded-interval formulas still require the separate interval-preserving projective branch & conditional bridge theorem \\
@@ -376,7 +376,7 @@ finite patch presentation.
 Assume:
 \begin{enumerate}[label=(\roman*),leftmargin=2em]
 \item normal forms of the repair relation are exactly the globally consistent states $C$;
-\item the repair relation terminates;
+\item every enabled repair strictly decreases \(\Phi\);
 \item the repair relation is locally confluent.
 \end{enumerate}
 Then every $s\in\Sigma$ has a unique normal form
@@ -384,11 +384,14 @@ Then every $s\in\Sigma$ has a unique normal form
 \nf_\lambda(s)\in C,
 \]
 and every maximal asynchronous repair sequence terminates at that same state.
-A sufficient condition for (ii) is that each $S_i$ is finite and every enabled repair strictly decreases $\Phi$.
 \end{theorem}
 
 \begin{proof}
-Termination is assumed. Local confluence plus termination imply confluence by Newman's lemma~\cite{newman42}. The resulting normal form is unique. By assumption it is a globally consistent state.
+Because \(\Sigma\) is finite and every enabled repair strictly decreases \(\Phi\), the
+inconsistency potential is a Lyapunov functional and no infinite repair sequence exists. Thus the
+repair relation is terminating. Local confluence plus termination imply confluence by Newman's
+lemma~\cite{newman42}. The resulting normal form is unique. By assumption it is a globally
+consistent state.
 \end{proof}
 
 \begin{corollary}[Schedule Independence]
@@ -477,8 +480,8 @@ depends only on \([s]\). This makes \(\overline{\nf}_\lambda\) well-defined.
 This removes the extra gauge-covariance axiom and keeps repair on its actual OPH carrier:
 quotient-local recovery dynamics on fixed-cutoff collars. The remaining burden is not to invent a
 repair rule, but to prove that the accepted recovery-derived local moves satisfy repair
-completeness together with the \(\Phi\)-decrease and local-confluence hypotheses on the declared
-branch, and the Petz support/CPTP clause where that branch is used.
+completeness together with the Lyapunov \(\Phi\)-descent and local-confluence hypotheses on the
+declared branch, and the Petz support/CPTP clause where that branch is used.
 
 \begin{definition}[Ancilla stabilization]\label{def:ancillastab}
 Fix a finite-cutoff OPH realization
@@ -2092,7 +2095,7 @@ The only imported continuum input used above is the standard local null modular-
 \item transport of the half-line statement to bounded null intervals, which still requires the separate interval-preserving projective branch and its affine-covariant kernel \(g_I(v)\); and
 \item reconstruction of a full local symmetric tensor from the directional charges, which is determined only up to the null-invisible metric term \(\phi g_{ab}\).
 \end{enumerate}
-So the gap closed here is the generator/charge identification itself: inside the null bridge and on the OPH half-line family, \(P_\Omega\) is exactly the local null-stress charge.
+So the gap closed here is the generator/charge identification itself: inside the null bridge and on the declared half-line family, \(P_\Omega\) is exactly the local null-stress charge.
 
 \begin{lemma}[Null data determine the stress tensor modulo a metric term]\label{lem:nullreconstruct}
 Let \(X_{ab}\) be a symmetric tensor. If
@@ -2424,7 +2427,7 @@ For each intertwiner \(f:X\to Y\), naturality imposes the closed relation \(\mat
 \]
 Therefore \(\mathrm{Aut}_\otimes(\mathcal F)\) is a closed subgroup of the compact product \(\prod_X U(\mathcal F(X))\), so \(G=\mathrm{Aut}_\otimes(\mathcal F)\) is compact.
 
-The remaining hypotheses required by Doplicher--Roberts / Tannaka reconstruction are now exactly checked on the OPH sector category: \(\mathsf{Sect}_\infty\) is rigid, symmetric, and \(C^*\) by assumption, and \(\mathcal F\) is a faithful bosonic fiber functor with finite-dimensional values by Assumption~\ref{ass:gaugeprem}. The standard reconstruction theorem therefore applies to the pair \((\mathsf{Sect}_\infty,\mathcal F)\) and yields a symmetric \(C^*\)-tensor equivalence
+The remaining hypotheses required by Doplicher--Roberts / Tannaka reconstruction are now exactly checked on the declared sector category \(\mathsf{Sect}_\infty\): \(\mathsf{Sect}_\infty\) is rigid, symmetric, and \(C^*\) by assumption, and \(\mathcal F\) is a faithful bosonic fiber functor with finite-dimensional values by Assumption~\ref{ass:gaugeprem}. The standard reconstruction theorem therefore applies to the pair \((\mathsf{Sect}_\infty,\mathcal F)\) and yields a symmetric \(C^*\)-tensor equivalence
 \[
 \mathsf{Sect}_\infty \simeq \mathrm{Rep}(G),
 \]
@@ -2804,7 +2807,7 @@ OPH belongs to the holographic family of ideas, but its primitive data are diffe
 
 \subsection{Static-patch screen versus asymptotic boundary}
 
-In asymptotic-boundary holography one starts from a dual theory at infinity and reconstructs the bulk inward. In OPH one starts from a finite-capacity screen equipped with a net of local patch algebras and reconstructs the effective bulk from overlap consistency. The primitive object is therefore a family of observer patches with nontrivial overlaps, not a single global boundary theory.
+In asymptotic-boundary holography one starts from a dual theory at infinity and reconstructs the bulk inward. Here one starts from a finite-capacity screen equipped with a net of local patch algebras and reconstructs the effective bulk from overlap consistency. The primitive object is therefore a family of observer patches with nontrivial overlaps, not a single global boundary theory.
 
 This shift has two technical consequences. First, subsystem factorization is treated from the beginning as a gluing problem with centers and sector labels. Second, the physical role of the horizon is local and operational: every observer has direct access only to a patch algebra, and global law is whatever survives reconciliation on overlaps.
 
@@ -2822,7 +2825,7 @@ fits naturally with a de Sitter static patch of finite entropy via $N_{\mathrm{s
 
 \subsection{Factorization, gauge structure, and the string sector}
 
-The factorization problem of gauge theory and gravity is often treated as a technical nuisance. In OPH it is part of the architecture. Edge-center completion turns the collar center into a first-class object, and the entropy split
+The factorization problem of gauge theory and gravity is often treated as a technical nuisance. Here it is part of the architecture. Edge-center completion turns the collar center into a first-class object, and the entropy split
 \[
 S_{\mathrm{gen}}=\langle L_C\rangle + S_{\mathrm{bulk}}
 \]
@@ -2943,7 +2946,7 @@ Operationally, changing \(P\) moves the calibration family \((\alpha_U,\alpha_i(
 
 The UV regulator is placed on the screen algebra, not on an emergent bulk spacetime lattice. Lorentz kinematics arise from the continuum modular action on caps, summarized in Corollary~\ref{cor:lorentz}, rather than from microscopic invariance of a bulk discretization.
 
-This is conceptually similar to other continuum limits in statistical mechanics and lattice field theory. A regulator may break a symmetry at finite cutoff while the infrared fixed point restores it exactly. In OPH the restoration is stronger than a generic RG expectation because the modular-flow theorem identifies the symmetry group itself:
+This is conceptually similar to other continuum limits in statistical mechanics and lattice field theory. A regulator may break a symmetry at finite cutoff while the infrared fixed point restores it exactly. Here the restoration is stronger than a generic RG expectation because the modular-flow theorem identifies the symmetry group itself:
 \[
 \Conf^+(S^2)\cong \mathrm{SO}^+(3,1).
 \]

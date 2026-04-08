@@ -31,7 +31,7 @@ The Fixed-Point Computation That Implements Physics}
 \OPHPaperReleaseBanner
 
 \begin{abstract}
-This paper gives the consensus-theoretic core of Observer-Patch Holography (OPH). If physics is built from local observer descriptions that must agree on overlaps, the first question is whether different repair orders lead to different worlds. On the fixed-cutoff OPH collar branch, the local repair step is not left as an abstract rewrite primitive: it is read from exact Markov splice on exact collars or from declared Petz/Fawzi--Renner reconciliation on recoverable collars. The main result is that, once repair completeness, termination, and local confluence hold for those accepted local recovery moves, the repair dynamics has a unique schedule-independent normal form. The paper also identifies the loop obstructions to global consistency, shows why physical uniqueness belongs on the gauge quotient rather than on raw microscopic representatives, and gives a fixed-point account of stable classical records. This is the finite patch-net theorem package that supports the broader relativity, gauge, particle, and observer branches in the OPH suite.
+This paper gives the consensus-theoretic core of Observer-Patch Holography (OPH). If physics is built from local observer descriptions that must agree on overlaps, the first question is whether different repair orders lead to different worlds. On the fixed-cutoff OPH collar branch, the local repair step is not left as an abstract rewrite primitive: it is read from exact Markov splice on exact collars or from declared Petz/Fawzi--Renner reconciliation on recoverable collars. The main result is that, once repair completeness and local confluence hold for those accepted local recovery moves, and once the OPH inconsistency potential \(\Phi\) strictly decreases along that declared branch, the repair dynamics terminates and has a unique schedule-independent normal form. The paper also identifies the loop obstructions to global consistency, shows why physical uniqueness belongs on the gauge quotient rather than on raw microscopic representatives, and gives a fixed-point account of stable classical records. This is the finite patch-net theorem package that supports the broader relativity, gauge, particle, and observer branches in the OPH suite.
 \end{abstract}
 
 \section{Introduction}
@@ -43,8 +43,9 @@ means agreement on every overlap. The central mathematical problem is whether th
 admits a unique normal form and how global obstructions to reconciliation are encoded.
 
 The resulting theorem package has two layers. The first layer concerns convergence: once repair
-completeness, termination, and local confluence hold on the declared recovery branch, every
-initial configuration has a unique schedule-independent normal form. The second layer concerns obstructions: pairwise overlap agreement does not ensure a
+completeness and local confluence hold on the declared recovery branch and once the OPH
+inconsistency potential \(\Phi\) strictly decreases along every accepted repair, every initial
+configuration has a unique schedule-independent normal form. The second layer concerns obstructions: pairwise overlap agreement does not ensure a
 global solution, and the obstruction is holonomic. On the abelian branch it is the cycle sum of
 edge data; on the genuinely noncentral branch it is a crossed-module \v{C}ech class.
 
@@ -58,7 +59,7 @@ literature.
 This paper proves four core results:
 
 \begin{enumerate}
-\item \textbf{Asynchronous confluence.} Under repair completeness, termination, and local confluence, every initial state has a unique normal form, independent of update schedule (Theorem~\ref{thm:confluence}).
+\item \textbf{Asynchronous confluence.} Under repair completeness, strict decrease of the OPH inconsistency potential \(\Phi\), and local confluence, every initial state has a unique normal form, independent of update schedule (Theorem~\ref{thm:confluence}).
 \item \textbf{Cycle obstruction.} For affine overlap constraints over an abelian group, global consistency holds if and only if the holonomy vanishes on every cycle (Theorem~\ref{thm:holonomy}). The parity triangle gives the minimal frustrated example, and Theorem~\ref{thm:higherdefects} extends the same logic to the crossed-module higher-gauge defect hierarchy used later in OPH.
 \item \textbf{Gauge quotient.} When local repair is induced on the overlap-invariant quotient, the normal-form map descends to that quotient. Gauge-invariant observables are strictly unique there, even though microscopic representatives need not be unique (Theorem~\ref{thm:gauge}).
 \item \textbf{Record-layer convergence.} Commuting closure operators on a finite lattice converge to the least common fixed point under any asynchronous schedule that applies each operator at least once (Theorem~\ref{thm:crdt}).
@@ -69,8 +70,9 @@ fixed-cutoff collar branch, a local update is obtained from exact Markov splice 
 declared Petz/Fawzi--Renner recovery channel and then read on overlap-invariant physical data.
 The fixed-point theorem below still isolates the separate remaining burdens cleanly: one must show
 that the accepted recovery-derived moves are complete for overlap consistency, strictly decrease
-\(\Phi\), and satisfy local confluence, and on the Petz branch one must verify the support/CPTP
-clause stated later in Proposition~\ref{prop:petz-cptp}.
+the OPH inconsistency potential \(\Phi\), and satisfy local confluence, and on the Petz branch
+one must verify the support/CPTP clause stated later in Proposition~\ref{prop:petz-cptp}. On the
+finite patch net, that Lyapunov descent clause is the step from which termination is discharged.
 
 We also define a fitness functional over the space of candidate reconciliation laws and prove that replicator dynamics monotonically increases mean fitness (Theorem~\ref{thm:replicator}). This gives a clean mathematical model for the selection of physical law.
 
@@ -161,7 +163,7 @@ branch, full CPTP action on all inputs also requires the support clause recorded
 Proposition~\ref{prop:petz-cptp}.
 \end{remark}
 
-The three assumptions that make the machine work:
+The theorem package separates the remaining theorem-local inputs cleanly:
 
 \begin{assumption}[Repair completeness]\label{ass:complete}
 $s\in C \iff \forall\, i\in V,\; T_i^\lambda(s)=s.$
@@ -169,11 +171,25 @@ $s\in C \iff \forall\, i\in V,\; T_i^\lambda(s)=s.$
 
 Normal forms are exactly the globally consistent states. The dynamics is neither too weak (missing some inconsistencies) nor too strong (repairing things that were fine).
 
-\begin{assumption}[Termination]\label{ass:termination}
+\begin{assumption}[Lyapunov descent on the declared repair branch]\label{ass:lyapunov}
 Every enabled repair strictly decreases the inconsistency potential: $s\to t \implies \Phi(t)<\Phi(s)$.
 \end{assumption}
 
-Since $\Sigma$ is finite, this guarantees termination.
+On the finite patch-net branch, this makes \(\Phi\) the OPH Lyapunov functional for the accepted
+repair dynamics.
+
+\begin{proposition}[Termination from the OPH Lyapunov functional]\label{prop:lyapunov-termination}
+Under Assumption~\ref{ass:lyapunov}, every repair sequence is finite; equivalently, the repair
+relation \(\to\) is terminating.
+\end{proposition}
+
+\begin{proof}
+Because each \(S_i\) is finite, the global state space \(\Sigma=\prod_{i\in V}S_i\) is finite, so
+the value set \(\Phi(\Sigma)\subset\mathbb{R}_{\ge 0}\) is finite as well. Along any nontrivial
+repair step \(s\to t\), Assumption~\ref{ass:lyapunov} gives \(\Phi(t)<\Phi(s)\). An infinite repair
+sequence would therefore produce an infinite strictly descending chain in the finite ordered set
+\(\Phi(\Sigma)\), which is impossible.
+\end{proof}
 
 \begin{assumption}[Local confluence]\label{ass:confluence}
 The repair relation is locally confluent: if $s\to t$ and $s\to u$, then there exists $v\in\Sigma$ with $t\to^* v$ and $u\to^* v$.
@@ -182,7 +198,7 @@ The repair relation is locally confluent: if $s\to t$ and $s\to u$, then there e
 This is the diamond condition for the repair relation.
 
 \begin{theorem}[Asynchronous confluence / fixed-point law]\label{thm:confluence}
-Under Assumptions~\ref{ass:complete}--\ref{ass:confluence}, every initial state $s\in\Sigma$ has a unique normal form
+Under Assumptions~\ref{ass:complete}, \ref{ass:lyapunov}, and \ref{ass:confluence}, every initial state $s\in\Sigma$ has a unique normal form
 \[
 \operatorname{nf}_\lambda(s)\in C,
 \]
@@ -190,12 +206,12 @@ and every maximal asynchronous repair execution from $s$ terminates at that same
 \end{theorem}
 
 \begin{proof}
-By Assumption~\ref{ass:termination}, every accepted recovery-derived repair step strictly
-decreases \(\Phi\), so no infinite repair sequence exists. Thus \(\to\) is terminating.
+By Proposition~\ref{prop:lyapunov-termination}, the repair relation \(\to\) is terminating.
 
-We prove confluence by induction on $\Phi(s)$. Take any $s\in\Sigma$ and suppose $s\to^* t$ and $s\to^* u$. We must show $t$ and $u$ have a common descendant.
+We prove confluence by well-founded induction on the finite ordered set \(\Phi(\Sigma)\). Take any
+$s\in\Sigma$ and suppose $s\to^* t$ and $s\to^* u$. We must show $t$ and $u$ have a common descendant.
 
-If one reduction has length~0, there is nothing to prove. Otherwise write $s\to s_1\to^* t$ and $s\to s_2\to^* u$. By local confluence, there exists $w$ with $s_1\to^* w$ and $s_2\to^* w$. Since $s\to s_1$ and $s\to s_2$, Assumption~\ref{ass:termination} gives $\Phi(s_1)<\Phi(s)$ and $\Phi(s_2)<\Phi(s)$. The induction hypothesis applies at $s_1$ and $s_2$. Hence $t$ and $w$ have a common descendant, and $u$ and $w$ have a common descendant. Therefore $t$ and $u$ have a common descendant.
+If one reduction has length~0, there is nothing to prove. Otherwise write $s\to s_1\to^* t$ and $s\to s_2\to^* u$. By local confluence, there exists $w$ with $s_1\to^* w$ and $s_2\to^* w$. Since $s\to s_1$ and $s\to s_2$, Assumption~\ref{ass:lyapunov} gives $\Phi(s_1)<\Phi(s)$ and $\Phi(s_2)<\Phi(s)$. The induction hypothesis applies at $s_1$ and $s_2$. Hence $t$ and $w$ have a common descendant, and $u$ and $w$ have a common descendant. Therefore $t$ and $u$ have a common descendant.
 
 A terminating confluent repair relation has a unique normal form reachable from each initial
 state. By Assumption~\ref{ass:complete}, the normal forms are exactly \(C\). Every maximal
@@ -328,10 +344,10 @@ q\circ T_i^\lambda
 This is the finite patch-net form of saying that the repair step is defined first on
 overlap-invariant physical data and only then lifted to hidden representatives. The separate OPH
 problem here is therefore no longer to invent a repair rule, but to prove that the accepted
-recovery-derived local moves satisfy repair completeness together with the \(\Phi\)-decrease and
-local-confluence hypotheses on the declared branch, and the support/CPTP clause on the Petz
-branch. The point here is also that no extra gauge-covariance axiom is needed once repair is
-formulated on the quotient.
+recovery-derived local moves satisfy repair completeness together with the Lyapunov
+\(\Phi\)-descent and local-confluence hypotheses on the declared branch, and the support/CPTP
+clause on the Petz branch. The point here is also that no extra gauge-covariance axiom is needed
+once repair is formulated on the quotient.
 
 \begin{theorem}[Gauge quotient theorem]\label{thm:gauge}
 Under the gauge action of Definition~\ref{def:gauge}, any representative lift of a physical repair
@@ -558,7 +574,7 @@ This theorem records the monotonicity property of the meta-selection model.
 
 \section{Connection to Observer-Patch Holography}
 
-The formalism above is the computational skeleton of Observer-Patch Holography (OPH). In OPH, the observer patches carry von Neumann algebras on a holographic screen $S^2$, the overlap projections are restrictions to shared subalgebras, and the consistency condition is algebraic state agreement on overlaps.
+The formalism above is the computational skeleton of Observer-Patch Holography (OPH). The observer patches carry von Neumann algebras on a holographic screen $S^2$, the overlap projections are restrictions to shared subalgebras, and the consistency condition is algebraic state agreement on overlaps.
 
 The bridge to physics works as follows. In the full OPH framework:
 
@@ -590,7 +606,7 @@ Downstream phenomenology requires additional premises beyond the consensus resul
 Six directions stand out as immediate next steps:
 
 \begin{enumerate}
-\item \textbf{Computational complexity.} What is the complexity of computing $\operatorname{nf}_\lambda(s)$? The termination bound from $\Phi$-decrease is a worst-case measure, but typical instances may converge much faster. Is there a polynomial bound for natural classes of patch nets?
+\item \textbf{Computational complexity.} What is the complexity of computing $\operatorname{nf}_\lambda(s)$? The Lyapunov termination bound from \(\Phi\)-decrease is a worst-case measure, but typical instances may converge much faster. Is there a polynomial bound for natural classes of patch nets?
 
 \item \textbf{Coarse-graining.} When does reconciliation commute with renormalization? If you coarse-grain the patch net and then reconcile, do you get the same result as reconciling first and then coarse-graining? The conditions under which these operations commute would connect the discrete model to continuum field theory.
 
@@ -598,7 +614,7 @@ Six directions stand out as immediate next steps:
 
 \item \textbf{Observable-level confluence.} When the raw state is not unique because local confluence fails, can gauge-invariant macrostates still be unique? This weaker form of objectivity may hold under broader conditions than the strict normal-form theorem.
 
-\item \textbf{Recovery-channel control.} The fixed-cutoff collar branch already expresses local repair through exact splice or Petz/Fawzi--Renner recovery. What remains is to prove on natural OPH branches that these accepted recovery moves are repair-complete for overlap consistency, strictly \(\Phi\)-decreasing, locally confluent, and fully controlled on their declared domain, including the support/CPTP clause on the Petz branch.
+\item \textbf{Recovery-channel control.} The fixed-cutoff collar branch already expresses local repair through exact splice or Petz/Fawzi--Renner recovery. What remains is to prove on natural OPH branches that these accepted recovery moves are repair-complete for overlap consistency, strictly \(\Phi\)-decreasing so that the Lyapunov termination theorem applies, locally confluent, and fully controlled on their declared domain, including the support/CPTP clause on the Petz branch.
 
 \item \textbf{Scaling-limit bridge to full OPH.} Under what additional regularity conditions does the consensus protocol emit the prime geometric cap pair and support ordered cut-pair rigidity on that extracted limit, so that the D3--D5 gravity chain and the D7--D9 gauge/matter chain become available? This is also the point at which the broader Phase-II and Phase-III branches must remain disciplined: dark-sector, baryogenesis, spectroscopy, and string/worldsheet topics require extra premises beyond what this paper itself proves.
 \end{enumerate}
@@ -634,7 +650,7 @@ Paper~4.
 This appendix records the algebraic splice statement used to relate the finite patch-net model to
 the OPH collar formalism.
 
-In OPH, an observer is written as
+An observer is written as
 \[
 O=(P,\mathcal{A}(P),\rho,R),
 \]
