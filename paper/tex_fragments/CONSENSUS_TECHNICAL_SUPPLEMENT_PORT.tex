@@ -39,9 +39,9 @@ product state, with observable patch algebras embedded as
 \(\mathcal A(P)\otimes \mathbf 1_{K_P}\) and repair dynamics acting trivially on the ancillas.
 Then observable expectations on the physical subalgebras, overlap data, the local-Gibbs branch,
 the collar conditional mutual information \(I(A:D\mid B)\), the Fawzi--Renner remainder, the
-collar Markov modulus, and the quotient normal form are unchanged. Thus OPH determines the UV
-branch only modulo such ancillary stabilization together with gauge or implementation hiding, not
-a unique microscopic presentation.
+collar Markov modulus, and the quotient normal form are unchanged. Thus the fixed-cutoff theorem
+package determines the UV branch only modulo such ancillary stabilization together with gauge or
+implementation hiding, not a unique microscopic presentation.
 \end{proposition}
 
 \begin{proof}
@@ -171,3 +171,25 @@ Approximate recoverability gives controlled deviations from this normal form; it
 EC alone. This is the fixed-cutoff topological package behind the consensus paper's quotient and
 record-language surface.
 \end{remark}
+
+\begin{corollary}[Physical observables are invariant on one quotient-local glued state]\label{cor:obsglue}
+Let \(U\) be a finite union collar on the declared fixed-cutoff branch, and let
+\(\omega_U,\omega'_U\) be two microscopic representatives of the same quotient-local glued state
+from Proposition~\ref{prop:assocglue}. Then every physical observable \(X\) on the collar
+fixed-point / quotient-local algebra has the same expectation in both representatives:
+\[
+\operatorname{Tr}(X\omega_U)=\operatorname{Tr}(X\omega'_U).
+\]
+In particular the same holds for the central sector projectors and for any observer-accessible
+record observable generated from them on that same declared surface.
+\end{corollary}
+
+\begin{proof}
+On the ordinary or central-defect branch, Proposition~\ref{prop:assocglue} says the two
+representatives differ only by the boundary-redundancy action inside one fixed sector block. The
+fixed-point collar algebra and its central block projectors are invariant under that action, so
+their expectation values agree. On the genuinely noncentral branch, the same proposition says the
+two representatives differ only inside one \(\mathcal T_\Sigma\)-orbit, and the quotient-local
+physical algebra is defined precisely on that orbit space. Therefore the induced physical state
+and all expectations of physical observables agree there as well.
+\end{proof}

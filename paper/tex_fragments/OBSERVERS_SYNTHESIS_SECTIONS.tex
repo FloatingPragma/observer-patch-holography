@@ -1,14 +1,15 @@
 \section{Consensus, Defects, and Implementation Hiding}
 
-The OPH core admits an equivalent finite patch-net formulation. Local patch descriptions agree on
+The fixed-cutoff consensus package admits an equivalent finite patch-net formulation. Local patch descriptions agree on
 overlaps, local recovery-derived repair rules remove mismatches, and the physical output is the
-schedule-independent normal form on the gauge quotient. This section records the fixed-point,
+schedule-independent quotient normal form together with the induced terminal expectation
+functionals on the declared physical observable algebras. This section records the fixed-point,
 defect, and gauge-quotient statements in that language.
 
 The consensus lane also carries a simple law-selection model: once one equips candidate repair
 rules with a fitness functional, replicator dynamics gives a clean toy picture in which more
 successful reconciliation laws dominate a competing pool. That selection picture is useful for the
-interpretation of OPH, but it is not part of the recovered-core gravity/gauge theorem surface.
+overall framework picture, but it is not part of the recovered-core gravity/gauge theorem surface.
 
 \paragraph{Theorem (Asynchronous confluence).}
 On a finite patch net with local recovery-derived repair maps, if normal forms are exactly the
@@ -45,20 +46,26 @@ sum is necessary and sufficient for path-independent reconstruction. In the cros
 local rechartings are exactly crossed-module coboundaries, so they preserve the class and remove
 the defect precisely when the class is trivial.
 
-\paragraph{Theorem (Gauge quotient and ancilla-stable physical uniqueness).}
+\paragraph{Theorem (Observable-level confluence on the quantum lift).}
 If the recovery-derived repair dynamics is read on the overlap-invariant quotient, the normal-form map descends to the quotient by
 implementation hiding:
 \[
 [s]\mapsto [\operatorname{nf}(s)].
 \]
-Gauge-invariant observables are therefore uniquely fixed on the quotient, and inert ancillary
-refinement does not change the physical output.
+Every observable on the fixed-cutoff physical algebra therefore has the same terminal expectation
+on any two representative lifts of that quotient normal form, even when the microscopic
+representatives differ by gauge or sector relabelings inside one quotient-local glued state.
+Inert ancillary refinement does not change the physical output.
 
 \paragraph{Proof sketch.}
 Because the repair step is defined first on overlap-invariant quotient data, any representative
-lift of a repair sequence has the same quotient image. Uniqueness of normal forms therefore forces
-equivariance of the quotient normal-form map. Inert ancillary factors remain spectators under the
-lifted dynamics, so gauge-invariant observables are unchanged.
+lift of a repair sequence has the same quotient image. Uniqueness of quotient normal forms
+therefore fixes the terminal quotient state. The fixed-point / quotient-local
+observable algebra and the central sector projectors are invariant on the same declared
+quotient-local glued state, so their terminal expectations are independent of representative gauge
+or sector relabelings. Inert
+ancillary factors remain spectators under the lifted dynamics, so the physical output is
+unchanged.
 
 \paragraph{Extended derivation.}
 The full consensus, gauge-quotient, and operator-record theorem package is developed in
@@ -281,7 +288,7 @@ continuation is invoked.
 If a controlled large-\(N_{\mathrm{edge}}\) regime exists, with \(N_{\mathrm{edge}}\) distinct from
 the physical color rank \(N_c=3\), then the Gross-Taylor rewriting~\cite{grossTaylor93} gives a genus expansion and a
 worldsheet-like reorganization. Critical-superstring claims, worldsheet CFT closure, anomaly
-cancellation, and full massless-spectrum matching remain outside the recovered OPH core.
+cancellation, and full massless-spectrum matching remain outside the recovered core theorem package.
 
 \paragraph{Higher-gauge continuation slot.}
 The genuinely noncentral crossed-module gluing data on cuts provide the natural continuation-level
@@ -303,7 +310,8 @@ with closed measurement/Born-rule and checkpoint/restoration packages. Its remai
 are packet-level quotient closure where a declared observable family is meant to carry an
 autonomous exported dynamics, the compact heat-kernel lift, refinement-stable universality,
 global consensus closure, and the continuum/gravity lift.
-\item Physical UV uniqueness is quotient-level and ancilla-stable: the physical branch is fixed
+\item Physical UV uniqueness is quotient-level and ancilla-stable: the theorem-grade object is
+the family of terminal expectation functionals on the declared physical observable algebras, fixed
 modulo implementation hiding and inert ancillary refinement, not a unique microscopic
 representative.
 \item The Lorentz/null-modular/Einstein chain remains a controlled refinement/scaling-limit

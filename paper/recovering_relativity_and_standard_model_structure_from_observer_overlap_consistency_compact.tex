@@ -105,7 +105,7 @@ Node & Output & Immediate OPH ingredients & Standard mathematics used & Extra no
 \endhead
 \bottomrule
 \endfoot
-\textbf{D1} & Unique schedule-independent normal form for the declared recovery-derived repair relation (Theorem~\ref{thm:confluence}) & overlap-consistency problem on a finite patch net together with the declared fixed-cutoff collar recovery step, its touched-overlap local-fit acceptance contract, support-local disjoint commutation, and restriction-compatible union-collar gluing on the physical quotient & local-to-global Lyapunov descent on the inconsistency potential; local-diamond completion from overlap-associative center-sector / higher-gauge union-collar gluing; Newman's lemma & repair completeness; stated Petz support/CPTP control where that branch is used & Phase I structural theorem \\
+\textbf{D1} & Unique schedule-independent normal form on the physical quotient, together with observable-level confluence on the declared fixed-cutoff physical algebras for the recovery-derived repair relation & overlap-consistency problem on a finite patch net together with the declared fixed-cutoff collar recovery step, its touched-overlap local-fit acceptance contract, support-local disjoint commutation, restriction-compatible union-collar gluing on the physical quotient, and the fixed-point / quotient-local physical observable algebras carried by that same collar package & local-to-global Lyapunov descent on the inconsistency potential; local-diamond completion from overlap-associative center-sector / higher-gauge union-collar gluing; Newman's lemma & repair completeness; stated Petz support/CPTP control where that branch is used & Phase I structural theorem \\
 \textbf{D2} & Collar Markov/entropy split and \(G\)-dictionary setup (Theorem~\ref{thm:markovcollar}, Propositions~\ref{prop:approxrecover}, \ref{prop:splice}, \ref{prop:gensplit}, Definition~\ref{def:newton}) & Axioms~\ref{ax:screen}--\ref{ax:entropy} & HJPW Markov structure theorem; Petz and Fawzi--Renner recovery theory & exact block-factorized identities require exact Markovity or an explicitly stated idealized limit; the \(A/(4G)\) step is the coarse-grained dictionary of Definition~\ref{def:newton} & Phase I structural lemma/proposition layer \\
 \textbf{D3} & Lorentz branch \(\Conf^+(S^2)\cong \mathrm{SO}^+(3,1)\) (Theorem~\ref{thm:bw}, Corollary~\ref{cor:lorentz}) & Axioms~\ref{ax:screen}--\ref{ax:entropy} & Bisognano--Wichmann modular geometry; conformal-group classification & T2 together with the theorem-local geometric cap-pair extraction and ordered cut-pair rigidity hypotheses of Theorem~\ref{thm:bw}; Theorem~\ref{thm:geosubnet} fixes the target subnet internally & Phase I conditional scaling-limit theorem \\
 \textbf{D4} & Null modular bridge to \(T_{kk}\) (Propositions~\ref{prop:nullec}, \ref{prop:n3}; Corollaries~\ref{cor:n1}, \ref{cor:n2}; Theorem~\ref{lem:density}, Lemma~\ref{lem:translation}; Theorem~\ref{thm:stress}) & D2+D3 and Axioms~\ref{ax:screen}--\ref{ax:entropy} & Borchers--Wiesbrock half-sided modular inclusion; distributional differentiation on half-lines & the theorem-local inherited-strip decomposition and exact-or-controlled Markov hypotheses of Proposition~\ref{prop:nullec} and Corollary~\ref{cor:n1}, plus T2; quasi-local propagation and endpoint control are supplied internally by Axiom~\ref{ax:maxent} on the local finite-constraint branch; the imported continuum input is the standard local modular-Hamiltonian formula for the same half-line family, and bounded-interval formulas still require the separate interval-preserving projective branch & Phase I conditional bridge theorem \\
@@ -469,7 +469,8 @@ Theorem~\ref{thm:confluence}, the normal-form map descends to the quotient:
 \qquad
 [s]\mapsto [\nf_\lambda(s)].
 \]
-Hence gauge-invariant observables are unique on the quotient.
+Hence gauge-invariant observables are unique on the quotient, and the fixed-cutoff physical
+observable algebra has representative-independent terminal expectations on that carrier.
 \end{proposition}
 
 \begin{proof}
@@ -479,6 +480,12 @@ orbit. Since every maximal repair sequence from \(s\) terminates at the unique n
 \(\nf_\lambda(s)\) by Theorem~\ref{thm:confluence}, the terminal orbit \([\nf_\lambda(s)]\)
 depends only on \([s]\). This makes \(\overline{\nf}_\lambda\) well-defined.
 \end{proof}
+
+On the fixed-cutoff quantum lift, the same quotient-local carrier does more than fix the terminal
+orbit: for every declared fixed-cutoff physical algebra, the terminal expectation functional is
+the same on any two representative lifts whose regional collar data lie in one quotient-local
+glued state, even when the microscopic representatives differ by gauge or sector relabelings on
+that carrier.
 
 This removes the extra gauge-covariance axiom and keeps repair on its actual quotient-local
 carrier: recovery dynamics on fixed-cutoff collars. On the declared fixed-cutoff branch, the
@@ -2991,7 +2998,7 @@ Second, one needs ordered cut-pair rigidity on that realized limit. That stage w
 This is analogous to ordinary lattice field theory: one computes at finite regulator in a type-I algebra and then asks which continuum algebraic phase the scaling limit realizes. OPH's additional structural point is that the realized state-side branch is controlled under refinement. The open problem is to identify which scaling-limit observer algebra/state pair the realized branch produces and then to prove BW rigidity on that pair.
 \subsection{UV branch and scaling-limit scope}
 
-At fixed cutoff, Axiom~\ref{ax:maxent} yields a quasi-local finite-range interacting branch, and Propositions~\ref{prop:gauge} and \ref{prop:ancillauv} show that the physical normal form is unique only modulo quotient-level OPH-stable equivalence. The invariant fixed by the axiom language is the class \([\mathfrak U]_{\mathrm{OPH}}\) of the physical branch modulo implementation hiding and inert ancillary stabilization, not a unique microscopic representative. The genuinely noncentral topological case is also closed at fixed cutoff by the higher-gauge package of Theorems~\ref{thm:hgdatum}--\ref{thm:hgtransport} and Proposition~\ref{prop:hginteracting}, so the fixed-cutoff topological UV surface is closed on the ordinary, central-defect, and crossed-module branches alike. Beyond fixed cutoff, the continuum modular/geometric lift remains the geometric-subnet extraction-plus-rigidity problem under \textbf{T2}, and the transportable bosonic gauge lift still carries Assumption~\ref{ass:gaugeprem} when invoked.
+At fixed cutoff, Axiom~\ref{ax:maxent} yields a quasi-local finite-range interacting branch, and Propositions~\ref{prop:gauge} and \ref{prop:ancillauv} show that the physical normal form is unique only modulo quotient-level OPH-stable equivalence, while the terminal expectation functionals on the declared fixed-point / quotient-local physical algebras are already schedule-independent on that carrier even when microscopic representatives differ by gauge labels globally or by sector labels on one regional quotient-local glued state. The invariant fixed by the axiom language is the class \([\mathfrak U]_{\mathrm{OPH}}\) of the physical branch modulo implementation hiding and inert ancillary stabilization, not a unique microscopic representative. The genuinely noncentral topological case is also closed at fixed cutoff by the higher-gauge package of Theorems~\ref{thm:hgdatum}--\ref{thm:hgtransport} and Proposition~\ref{prop:hginteracting}, so the fixed-cutoff topological UV surface is closed on the ordinary, central-defect, and crossed-module branches alike. Beyond fixed cutoff, the continuum modular/geometric lift remains the geometric-subnet extraction-plus-rigidity problem under \textbf{T2}, and the transportable bosonic gauge lift still carries Assumption~\ref{ass:gaugeprem} when invoked.
 
 \subsection{Why is charge quantization possible without a simple GUT?}
 

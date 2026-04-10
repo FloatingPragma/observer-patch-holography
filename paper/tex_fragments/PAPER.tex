@@ -311,7 +311,11 @@ fixed-cutoff branch is repair completeness, together with control on the declare
 where that branch is used. The declared touched-overlap acceptance contract makes \(\Phi\) the
 finite-patch Lyapunov functional for accepted moves, and the support-local disjoint-commutation
 plus restriction-compatible union-collar glue that turn overlap associativity into the local
-diamond are part of the declared repair law itself. Stability of that compatibility package under
+diamond are part of the declared repair law itself. On the same fixed-cutoff quantum lift, the
+terminal expectation functional on each declared physical observable algebra is therefore unique
+even when microscopic representative lifts differ by gauge labels globally or by sector labels
+inside one quotient-local glued state.
+Stability of that compatibility package under
 refinement or branch change is a separate question.
 
 \textbf{Theorem 2.3 (EC from regulated overlap gluing).} For a collar \(B_\delta\) around a cap boundary \(\Sigma\), there is a canonical decomposition
@@ -603,7 +607,7 @@ to zero after transport to each fixed local collar model; only then can local we
 \subsection{Overlap Consistency and Gluing}\label{3-overlap-consistency-and-gluing}
 
 The constructive part of overlap consistency is the tree-gluing theorem below. The structural part is the origin of the gluing redundancy itself. On the ordinary or central-defect branch, gauge-as-gluing is the finite-regulator overlap redundancy of local chart presentations: once the overlap algebras are realized in finite-dimensional charts, overlap-consistent rechartings of a cut form a compact unitary transition system. The collar theorem of Section 2.3 should therefore be read with its boundary group \(G_\Sigma\) understood as shorthand for this derived compact boundary action, not as a model-specific add-on. On the genuinely noncentral branch, the same weak gluing data are encoded by a compact crossed-module change system, so the fixed-cutoff collar theorem upgrades to a higher-gauge statement rather than failing. The fixed-cutoff topological package is therefore closed on all three branches.
-A second structural point is UV underdetermination. If each patch Hilbert space is tensored with an inert finite ancillary factor and the observable patch algebras are embedded as \(\mathcal A(P)\otimes \mathbf 1\), then the physical observables, collar conditional mutual information, carried Markov errors, and quotient normal forms are unchanged. So the physical UV branch is fixed only modulo gauge or implementation hiding together with such ancillary stabilization, not a unique microscopic presentation.
+A second structural point is UV underdetermination. If each patch Hilbert space is tensored with an inert finite ancillary factor and the observable patch algebras are embedded as \(\mathcal A(P)\otimes \mathbf 1\), then the physical observables, collar conditional mutual information, carried Markov errors, and quotient normal forms are unchanged. So the physical UV branch is fixed only modulo gauge or implementation hiding together with such ancillary stabilization, not a unique microscopic presentation; the unique theorem-grade object is the induced family of terminal expectation functionals on the declared physical observable algebras, not a preferred microscopic representative.
 
 \subsubsection{Constructive gluing on tree covers}\label{31-constructive-gluing-on-tree-covers}
 
@@ -2440,7 +2444,7 @@ What remains missing for theorem-level closure:
 
 This branch contains structural ingredients and an IR benchmark, but it does not yet derive the precise galaxy-scale response from the recovered core.
 
-\textbf{Falsifiability.} If later work cannot supply the missing derivation steps, or if any resulting continuation is incompatible with galaxy, lensing, cluster, Bullet-Cluster, or cosmological data, then the modular-anomaly dark-sector continuation retracts. The recovered OPH core does not.
+\textbf{Falsifiability.} If later work cannot supply the missing derivation steps, or if any resulting continuation is incompatible with galaxy, lensing, cluster, Bullet-Cluster, or cosmological data, then the modular-anomaly dark-sector continuation retracts. The recovered core theorem package does not.
 
 \subsubsection{De Sitter holography: static patch vs boundary-at-infinity}\label{516-de-sitter-holography-static-patch-vs-boundary-at-infinity}
 
@@ -3511,7 +3515,7 @@ Node & Representative outputs in this manuscript & Standard mathematics used & E
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-\textbf{D1} & Theorem 3.1 schedule-independent normal form for the declared recovery-derived repair relation & local-to-global Lyapunov descent on the inconsistency potential; local-diamond completion from overlap-associative center-sector / higher-gauge union-collar gluing; Newman's lemma & repair completeness; stated Petz support/CPTP control where that branch is used & Phase I structural theorem \\
+\textbf{D1} & Theorem 3.1 schedule-independent normal form on the physical quotient together with observable-level confluence on the declared fixed-cutoff physical algebras for the recovery-derived repair relation & local-to-global Lyapunov descent on the inconsistency potential; local-diamond completion from overlap-associative center-sector / higher-gauge union-collar gluing; Newman's lemma & repair completeness; stated Petz support/CPTP control where that branch is used & Phase I structural theorem \\
 \textbf{D2} & EC decomposition, exact/approximate Markov collar, and generalized-entropy split & HJPW; Petz; Fawzi--Renner & explicit recoverability control when exact identities are used; coarse-grained \(A/(4G)\) dictionary & Phase I structural lemma/proposition layer \\
 \textbf{D3} & Theorems 4.2--4.3 Lorentz branch & Bisognano--Wichmann modular geometry; conformal-group classification & rotationally invariant constraints together with T2 and the theorem-local geometric cap-pair extraction and ordered cut-pair rigidity hypotheses of Theorem 4.2 & Phase I conditional scaling-limit theorem \\
 \textbf{D4} & Section 5.2 null modular bridge & Borchers--Wiesbrock; distribution theory for half-line differentiation & the theorem-local inherited-strip decomposition and exact-or-controlled Markov hypotheses of Section 5.2, plus the downstream density-upgrade and relativistic null-stress-identification premises; the endpoint/propagation controls are internal to the local finite-constraint MaxEnt branch & Phase I conditional bridge theorem \\
@@ -3704,75 +3708,75 @@ Unified models attempting to tie together QFT, gravity, and SM structure tend to
 
 In gauge theories and gravity, the Hilbert space does not cleanly split as "inside \ensuremath{\otimes} outside" across a cut. This infects entanglement entropy definitions, area terms, edge modes, and observable identification. Many unification attempts handwave this or patch it with conventions.
 
-\emph{OPH route:} The framework builds from a net of von Neumann algebras on patches plus overlap consistency. It does not start from na\"{i}ve tensor factorization. The gauge-as-gluing + regulator package yields edge-center completion: a canonical block decomposition on collars where the center captures superselection data at the cut, and the state becomes (exactly or approximately) Markov across the collar. The entropy split S(\ensuremath{\rho}\_C) = S\_bulk + \ensuremath{\langle}L\_C\ensuremath{\rangle} follows from having a center with sector labels. This replaces the ad hoc "add an area term" move.
+\emph{Resolution:} The framework builds from a net of von Neumann algebras on patches plus overlap consistency. It does not start from na\"{i}ve tensor factorization. The gauge-as-gluing + regulator package yields edge-center completion: a canonical block decomposition on collars where the center captures superselection data at the cut, and the state becomes (exactly or approximately) Markov across the collar. The entropy split S(\ensuremath{\rho}\_C) = S\_bulk + \ensuremath{\langle}L\_C\ensuremath{\rangle} follows from having a center with sector labels. This replaces the ad hoc "add an area term" move.
 
 \textbf{2. Modular Hamiltonian nonlocality.}
 
 Many entanglement-based gravity derivations depend on modular Hamiltonians that look like local stress-tensor charges (true only in special states/regions). In generic QFT states, modular Hamiltonians are nonlocal, making "first law of entanglement \ensuremath{\Rightarrow} Einstein equation" arguments fragile.
 
-\emph{OPH route:} The Markov collar condition does heavy lifting: approximate Markov implies approximate modular additivity, with the defect controlled by conditional mutual information. This makes "modular locality" a controlled approximation. It is not treated as an assumption. On the extracted prime geometric subnet of Theorem 4.2, the controlled tangent-half-space comparison then locks modular flow to geometric dilations with rigid \(2\pi\) normalization.
+\emph{Resolution:} The Markov collar condition does heavy lifting: approximate Markov implies approximate modular additivity, with the defect controlled by conditional mutual information. This makes "modular locality" a controlled approximation. It is not treated as an assumption. On the extracted prime geometric subnet of Theorem 4.2, the controlled tangent-half-space comparison then locks modular flow to geometric dilations with rigid \(2\pi\) normalization.
 
 \textbf{3. Lorentz invariance as a derived output.}
 
 Discrete microscopic models generally break Lorentz symmetry, and many unified proposals simply postulate Lorentz invariance in the IR.
 
-\emph{OPH route:} Lorentz kinematics are tied to geometric modular flow on caps. On the extracted prime geometric subnet, once modular flow acts as conformal transformations on S\textsuperscript{2}, we get Conf\textsuperscript{+}(S\textsuperscript{2}) \ensuremath{\cong} PSL(2,\ensuremath{\mathbb{C}}) \ensuremath{\cong} SO\textsuperscript{+}(3,1), so the Lorentz group appears as a theorem-level output of modular structure on that branch. No external spacetime symmetry axiom is added.
+\emph{Resolution:} Lorentz kinematics are tied to geometric modular flow on caps. On the extracted prime geometric subnet, once modular flow acts as conformal transformations on S\textsuperscript{2}, we get Conf\textsuperscript{+}(S\textsuperscript{2}) \ensuremath{\cong} PSL(2,\ensuremath{\mathbb{C}}) \ensuremath{\cong} SO\textsuperscript{+}(3,1), so the Lorentz group appears as a theorem-level output of modular structure on that branch. No external spacetime symmetry axiom is added.
 
 \textbf{4. Dynamics beyond kinematics.}
 
 Many approaches produce emergent geometry/kinematics but stall at dynamics: why Einstein\textquotesingle s equations (with the right coefficient) rather than some other geometric PDE?
 
-\emph{OPH route:} The framework combines MaxEnt entanglement equilibrium, the derived K\_C = 2\ensuremath{\pi}B\_C structure with rigid normalization, and an EFT bridge identifying modular energy with stress-tensor charges. The null modular additivity route reduces much of that bridge to Markov/edge-center mechanisms on null strips plus explicit scaling-limit regularity premises. It does not rely only on "assume a UV CFT."
+\emph{Resolution:} The framework combines MaxEnt entanglement equilibrium, the derived K\_C = 2\ensuremath{\pi}B\_C structure with rigid normalization, and an EFT bridge identifying modular energy with stress-tensor charges. The null modular additivity route reduces much of that bridge to Markov/edge-center mechanisms on null strips plus explicit scaling-limit regularity premises. It does not rely only on "assume a UV CFT."
 
 \textbf{5. Gauge symmetry origin and compactness.}
 
 Most unification stories pick a gauge group and work out consequences. Emergent-gauge approaches sometimes produce noncompact groups or uncontrolled redundancies.
 
-\emph{OPH route:} Gauge symmetry is recast as redundancy in overlap identifications (gauge-as-gluing). From edge sectors and fusion, a tensor category is reconstructed; Tannaka-Krein / Doplicher-Roberts reconstruction then yields a compact group G given the categorical hypotheses. "Gauge symmetry" names the gluing redundancy at the conceptual level. "Compact group" is the mathematical form compatible with finite-dimensional sector/fiber-functor structure.
+\emph{Resolution:} Gauge symmetry is recast as redundancy in overlap identifications (gauge-as-gluing). From edge sectors and fusion, a tensor category is reconstructed; Tannaka-Krein / Doplicher-Roberts reconstruction then yields a compact group G given the categorical hypotheses. "Gauge symmetry" names the gluing redundancy at the conceptual level. "Compact group" is the mathematical form compatible with finite-dimensional sector/fiber-functor structure.
 
 \textbf{6. Massless photon and graviton usually hand-imposed.}
 
 Getting massless gauge bosons is easy if exact gauge invariance is assumed, but that restates the problem. Massless graviton is more delicate (mass terms, vDVZ discontinuity, strong coupling scales).
 
-\emph{OPH route:} Once gauge and diffeomorphism invariance are emergent redundancies of description (from gluing consistency / emergent geometry), hard mass terms are forbidden: "a coordinate system\textquotesingle s Jacobian can\textquotesingle t show up as a physical mass." These symmetry-protected zeros emerge from the same consistency machinery that gives the symmetries.
+\emph{Resolution:} Once gauge and diffeomorphism invariance are emergent redundancies of description (from gluing consistency / emergent geometry), hard mass terms are forbidden: "a coordinate system\textquotesingle s Jacobian can\textquotesingle t show up as a physical mass." These symmetry-protected zeros emerge from the same consistency machinery that gives the symmetries.
 
 \textbf{7. Global consistency, anomalies, and loop patching.}
 
 Building physics from local patches hits loop/holonomy problems: consistent gluing on a tree but obstructions around loops. These obstructions are often anomalies or global topological constraints.
 
-\emph{OPH route:} This is elevated to a first-class organizing principle: gluing data on overlaps defines cocycles; central defects define a \v{C}ech obstruction class {[}z{]} (and more generally a 2-group/crossed-module cocycle for noncentral defects). "Global consistency exists iff the obstruction class vanishes" becomes the universal statement. Anomalies become "failure to glue" rather than a mysterious quantum pathology.
+\emph{Resolution:} This is elevated to a first-class organizing principle: gluing data on overlaps define cocycles; central defects define a \v{C}ech obstruction class {[}z{]} (and more generally a 2-group/crossed-module cocycle for noncentral defects). "Global consistency exists iff the obstruction class vanishes" becomes the universal statement. Anomalies become "failure to glue" rather than a mysterious quantum pathology.
 
 \textbf{8. Charge quantization without a GUT.}
 
 Without embedding into a simple GUT group, explaining charge quantization (why all isolated color singlets are integer charged) is awkward. Standard lore requires grand unification or monopoles.
 
-\emph{OPH route:} The framework leans on global group structure (the Z\textsubscript{6} quotient) and derives congruence/selection rules for allowed representations/hypercharges. This gives a structural explanation for integer-charged color singlets without introducing the proton-decay channel of simple-GUT models.
+\emph{Resolution:} The framework leans on global group structure (the Z\textsubscript{6} quotient) and derives congruence/selection rules for allowed representations/hypercharges. This gives a structural explanation for integer-charged color singlets without introducing the proton-decay channel of simple-GUT models.
 
 \textbf{9. Coupling unification usually forces proton decay.}
 
 Traditional simple-group unification introduces leptoquark gauge bosons (X, Y) mediating proton decay. Experiment keeps pushing limits up, pressuring minimal GUTs.
 
-\emph{OPH route:} "Unification" here is geometric/entropic (shared edge diffusion parameter, heat-kernel weights). It is not an embedding into a simple Lie group. If the reconstructed gauge group genuinely factorizes as a product (sector factorization selector), there are no mixed generators playing the X/Y role. "Unify couplings" and "unify groups" therefore come apart.
+\emph{Resolution:} "Unification" here is geometric/entropic (shared edge diffusion parameter, heat-kernel weights). It is not an embedding into a simple Lie group. If the reconstructed gauge group genuinely factorizes as a product (sector factorization selector), there are no mixed generators playing the X/Y role. "Unify couplings" and "unify groups" therefore come apart.
 
 \textbf{10. Cosmological constant locality.}
 
 The cosmological constant problem is a graveyard of unified theories: local QFT estimates are enormous, and tiny observed \ensuremath{\Lambda} seems to demand absurd fine tuning.
 
-\emph{OPH route:} From null modular data, T\_ab is reconstructed only up to \ensuremath{\phi}g\_ab. Local consistency conditions and null focusing are blind to vacuum-energy shifts, so the Einstein equation is fixed only up to \ensuremath{\Lambda}g\_ab. \ensuremath{\Lambda} becomes a global "capacity" parameter of the static patch (tied to log dim H\_tot). It is not a locally computable quantity. This resolves the conceptual tension: local microphysics \emph{cannot} fix \ensuremath{\Lambda} by structural information-theoretic reasons.
+\emph{Resolution:} From null modular data, T\_ab is reconstructed only up to \ensuremath{\phi}g\_ab. Local consistency conditions and null focusing are blind to vacuum-energy shifts, so the Einstein equation is fixed only up to \ensuremath{\Lambda}g\_ab. \ensuremath{\Lambda} becomes a global "capacity" parameter of the static patch (tied to log dim H\_tot). It is not a locally computable quantity. This resolves the conceptual tension: local microphysics \emph{cannot} fix \ensuremath{\Lambda} by structural information-theoretic reasons.
 
 \textbf{11. UV infinities and nonrenormalizability.}
 
 Unified programs struggle to give sharp, finite microscopic definitions. Formal continuum structures, infinite entropies, and regularization dependence abound.
 
-\emph{How OPH addresses it:} The regulator premises explicitly require local patch algebras to be type-I and finite-dimensional, with a MaxEnt branch whose generator is quasi-local and obeys a Lieb-Robinson bound. So the fixed-cutoff UV branch is interacting in the ordinary finite-range sense, and the fundamental degrees of freedom are finite and live on the screen. What OPH does \emph{not} claim is a unique microscopic UV completion: physical uniqueness is only modulo gauge or implementation hiding together with inert ancillary stabilization. The genuinely noncentral topological branch is also closed at fixed cutoff by the higher-gauge crossed-module collar theorem; the remaining burdens are the continuum BW lift and the refinement-limit transportable gauge branch.
+\emph{Resolution:} The regulator premises explicitly require local patch algebras to be type-I and finite-dimensional, with a MaxEnt branch whose generator is quasi-local and obeys a Lieb-Robinson bound. So the fixed-cutoff UV branch is interacting in the ordinary finite-range sense, and the fundamental degrees of freedom are finite and live on the screen. The framework does \emph{not} claim a unique microscopic UV completion: physical uniqueness is only modulo gauge or implementation hiding together with inert ancillary stabilization. The genuinely noncentral topological branch is also closed at fixed cutoff by the higher-gauge crossed-module collar theorem; the remaining burdens are the continuum BW lift and the refinement-limit transportable gauge branch.
 
 \textbf{12. Predictivity vs. parameter explosion.}
 
 Unified models often explode in parameters, sectors, or vacua, becoming hard to test directly because everything depends on choices.
 
-\emph{How OPH addresses it:} The framework compresses freedom into a "pixel area" (resolution) parameter and a total Hilbert space capacity (size) parameter, then derives structure from consistency (Lorentz, Einstein form, compact gauge group reconstruction, exact zeros, quantization patterns). The explicit MAR selector then picks the SM factors and sector factorization on the admissible class discussed in Section 6.2.
+\emph{Resolution:} The framework compresses freedom into a "pixel area" (resolution) parameter and a total Hilbert space capacity (size) parameter, then derives structure from consistency (Lorentz, Einstein form, compact gauge group reconstruction, exact zeros, quantization patterns). The explicit MAR selector then picks the SM factors and sector factorization on the admissible class discussed in Section 6.2.
 
-\textbf{Structural pattern.} OPH treats locality, Lorentz invariance, gauge symmetry, and
+\textbf{Structural pattern.} The framework treats locality, Lorentz invariance, gauge symmetry, and
 gravity as consequences of consistency conditions among overlapping descriptions together with
 information-theoretic properties of states. Modular rigidity then supplies the familiar symmetry
 and dynamical structures.
