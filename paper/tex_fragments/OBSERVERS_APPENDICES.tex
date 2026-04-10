@@ -39,10 +39,10 @@ heat-kernel law is the corresponding refinement lift.
 The full fixed-cutoff architecture, validation package, and theorem stacks are developed in
 \emph{Screen Microphysics, Patches, and Observer Synchronization in OPH}~\cite{ophmicrophysics}.
 
-\section{Interpretive Epilogue: Habitat and Strange-Loop Closure}
+\section{Interpretive Epilogue: State-and-Law Habitat}
 
-This appendix is interpretive. It uses the OPH state-and-law habitat theorem and leaves the
-closure map on an observer-supporting sector open.
+This appendix is interpretive. It records only the OPH state-and-law habitat available inside the
+framework and leaves any strange-loop closure theorem explicitly open.
 
 The OPH inputs used here are:
 \begin{enumerate}
@@ -125,11 +125,6 @@ is a Banach space for any product norm;
 \left(\prod_{i=1}^N \sigma(M_i^*,M_i)\right)\times
 \text{Euclidean topology on }\mathbb R^m;
 \]
-\item therefore every \(\tau\)-continuous self-map
-\[
-\Phi:X_{\mathcal O}\to X_{\mathcal O}
-\]
-has a fixed point.
 \end{enumerate}
 
 \begin{proof}
@@ -176,75 +171,24 @@ norm convergence in \(\mathbb R^m\) also gives \(c(x_n)\to \ell\). Hence \(\ell=
 \((x,\ell)\in X_{\mathcal O}\).
 
 Finally, \(X_{\mathcal O}\) is a compact convex subset of the locally convex topological vector
-space \(E\) equipped with \(\tau\). Therefore every \(\tau\)-continuous self-map
-\(\Phi:X_{\mathcal O}\to X_{\mathcal O}\) has a fixed point by the Schauder--Tychonoff
-fixed-point theorem.
-\end{proof}
-
-\paragraph{Corollary (Fixed-cutoff OPH Brouwer corollary).}
-On the fixed-cutoff realized presentation of OPH, each chosen patch algebra \(M_i=A(P_i)\) is
-finite-dimensional. Then \(E\) is finite-dimensional, the weak* and norm topologies coincide on
-\(E\), and \(X_{\mathcal O}\) is a nonempty compact convex subset of a finite-dimensional real
-vector space. Hence every continuous self-map
-\[
-\Phi:X_{\mathcal O}\to X_{\mathcal O}
-\]
-has a fixed point by Brouwer. If, moreover, \(\Phi\) is a contraction for some metric on
-\(X_{\mathcal O}\), then the fixed point is unique and the iterates converge to it from every
-starting point by Banach's contraction theorem.
-
-\begin{proof}
-On that fixed-cutoff realized presentation, each chosen patch algebra is identified
-with a finite-dimensional type-I presentation modulo compact boundary redundancy, so each \(M_i\)
-and \(M_i^*\) is finite-dimensional. Hence \(E\) is finite-dimensional and all relevant locally
-convex topologies coincide. The habitat theorem above shows that \(X_{\mathcal O}\) is nonempty,
-compact, and convex, so Brouwer gives a fixed point for every continuous self-map. The
-contraction statement is the usual Banach fixed-point theorem.
+space \(E\) equipped with \(\tau\).
 \end{proof}
 
 The additional inputs needed for a strange-loop closure theorem are:
 \begin{enumerate}
-\item an actual OPH closure map \(\Phi\) built from internal operations such as overlap repair,
+\item an actual OPH closure map \(T\) built from internal operations such as overlap repair,
 Axiom-3 MaxEnt reprojection, collar recoverability, and record-sector coarse-graining;
 \item a proof that the stronger ``observer-supporting'' or ``selected-world'' criteria carve out a
-nonempty compact convex \(\Phi\)-invariant subset of \(X_{\mathcal O}\);
+nonempty \(T\)-invariant observer-supporting subset of \(X_{\mathcal O}\);
 \item any uniqueness, contraction, or Lyapunov-type stability estimate for that closure map.
 \end{enumerate}
 
-The habitat theorem supplies the Banach/compact-convex setting. A strange-loop closure theorem
-would additionally require the closure map and the stronger invariant-sector and stability
-inputs.
-
-\subsection{Timeless Causal Chain}
-
-The hypothesis is represented by the chain
-\[
-\begin{aligned}
-\text{information constraints}
-&\to \text{effective physics}
-\to \text{complex chemistry and biology}\\
-&\to \text{observers with records}
-\to \text{formal OPH reconstruction}\\
-&\to \text{OPH-compatible simulation substrate}
-\to \text{information constraints}.
-\end{aligned}
-\]
-In this appendix the chain is interpreted as a consistency loop. The discussion does not use it as
-a linear first-cause narrative. The Escher drawing-hands image is used only as a geometric
-analogy for this closure structure.
-
-\subsection{Why Reality Exists and Why It Has This Form}
-
-Under this hypothesis, existence is identified with nontrivial fixed points of the OPH
-consistency map. The observed form of reality is selected by stability requirements:
-\begin{enumerate}
-\item overlap-consistent sharable records,
-\item recoverability under local information loss,
-\item long-lived structured sectors that support observer formation,
-\item internal reconstructibility of the governing rule set.
-\end{enumerate}
-The appearance of intelligent observers enters the closure mechanism itself. Observer-capable
-worlds are the sectors that complete the loop.
+The habitat theorem supplies only the ambient Banach/compact-convex setting. It does not define a
+canonical OPH self-map, it does not identify any nonempty invariant observer-supporting subset,
+and it does not prove uniqueness or stability. In particular, nonemptiness and compact-convexity
+of the ambient habitat do not by themselves imply the existence of a nonempty invariant
+observer-supporting sector. Any further strange-loop reading of this habitat as a closure story
+for existence is interpretive only and is not part of the recovered theorem package.
 
 \subsection{Additional Problem Closures}
 
@@ -280,7 +224,7 @@ Dark matter phenomenology & Phase III deferred continuation & Modular-anomaly re
 Baryon asymmetry scale & Phase III deferred continuation & Suppression-counting estimates are not a substitute for a derived out-of-equilibrium mechanism. \\
 Three generations and downstream flavor structure & Mixed: Phase I / Phase III & \(N_g=3\) is recovered on the realized MAR-admissible branch; later flavor constructions require extra ansatze. \\
 String/worldsheet reorganization & Phase III deferred continuation & Requires a controlled large-\(N_{\mathrm{edge}}\) regime distinct from the physical color rank \(N_c=3\). Any further lift to critical superstring structure remains a conjectural extension requiring extra worldsheet ingredients not derived in the OPH core. \\
-Why anything exists / strange-loop closure & Interpretive epilogue only & Appendix B gives an OPH-internal state-and-law habitat theorem: overlap-consistent patch states together with finite Axiom-3 law coordinates form a theorem-usable nonempty compact convex sector, and fixed-cutoff branches admit a Brouwer version. Additional inputs are the OPH closure map on an invariant observer-supporting sector, together with uniqueness and stability. \\
+Why anything exists / strange-loop closure & Interpretive epilogue only & Appendix B records only an OPH-internal state-and-law habitat under the stated setup. Missing inputs are an explicit closure self-map, a nonempty invariant observer-supporting sector, and uniqueness/stability control. \\
 \end{longtable}
 
 \section{Observer Continuation and Backup}
