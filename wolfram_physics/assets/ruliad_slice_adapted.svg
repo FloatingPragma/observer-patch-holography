@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Adapted visual inspired by the branching multiway/ruliad diagrams in
+  Stephen Wolfram, "The Concept of the Ruliad" (2021), Wolfram Writings:
+  https://writings.stephenwolfram.com/2021/11/the-concept-of-the-ruliad./
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">Adapted Ruliad Slice and Observer-Semantic Quotient</title>
+  <desc id="desc">A branching multiway graph inspired by Wolfram's ruliad diagrams, with many raw histories on the left and a smaller observer-semantic quotient on the right.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fbff"/>
+      <stop offset="100%" stop-color="#f2f4ff"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6c63d9"/>
+    </marker>
+    <marker id="arrow-soft" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#a39de8"/>
+    </marker>
+    <style>
+      .title { font: 700 26px Georgia, 'Times New Roman', serif; fill: #1b2240; }
+      .subtitle { font: 400 14px Georgia, 'Times New Roman', serif; fill: #55607c; }
+      .label { font: 700 15px Georgia, 'Times New Roman', serif; fill: #24304f; }
+      .note { font: 400 13px Georgia, 'Times New Roman', serif; fill: #4e5975; }
+      .tiny { font: 600 12px 'Helvetica Neue', Helvetica, Arial, sans-serif; fill: #29427a; }
+      .node { fill: #f5f7ff; stroke: #b9c6ec; stroke-width: 2; rx: 12; ry: 12; }
+      .node-strong { fill: #eef2ff; stroke: #7c83ea; stroke-width: 2.5; rx: 14; ry: 14; }
+      .edge { fill: none; stroke: #6c63d9; stroke-width: 2.1; stroke-linecap: round; marker-end: url(#arrow); opacity: 0.82; }
+      .edge-soft { fill: none; stroke: #8c84e4; stroke-width: 1.7; stroke-linecap: round; marker-end: url(#arrow-soft); opacity: 0.5; }
+      .edge-dashed { fill: none; stroke: #5663c7; stroke-width: 2.2; stroke-dasharray: 7 7; stroke-linecap: round; marker-end: url(#arrow); opacity: 0.9; }
+      .panel { fill: rgba(255,255,255,0.8); stroke: #d6def5; stroke-width: 1.5; rx: 20; ry: 20; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="560" fill="url(#bg)"/>
+
+  <text x="56" y="52" class="title">Ruliad Slice to Observer-Semantic Quotient</text>
+  <text x="56" y="78" class="subtitle">Adapted from the visual language of Wolfram's branching ruliad diagrams, then specialized to the OPH bridge paper.</text>
+
+  <rect x="42" y="108" width="654" height="392" class="panel"/>
+  <rect x="734" y="108" width="424" height="392" class="panel"/>
+
+  <text x="64" y="138" class="label">Many raw histories</text>
+  <text x="756" y="138" class="label">Few observer-visible classes</text>
+
+  <!-- Left panel nodes -->
+  <rect x="315" y="154" width="110" height="38" class="node-strong"/>
+  <text x="370" y="178" text-anchor="middle" class="tiny">seed state</text>
+
+  <rect x="116" y="230" width="88" height="34" class="node"/>
+  <text x="160" y="252" text-anchor="middle" class="tiny">h1a</text>
+  <rect x="238" y="230" width="88" height="34" class="node"/>
+  <text x="282" y="252" text-anchor="middle" class="tiny">h1b</text>
+  <rect x="360" y="230" width="88" height="34" class="node"/>
+  <text x="404" y="252" text-anchor="middle" class="tiny">h1c</text>
+  <rect x="482" y="230" width="88" height="34" class="node"/>
+  <text x="526" y="252" text-anchor="middle" class="tiny">h1d</text>
+
+  <rect x="74" y="310" width="80" height="32" class="node"/>
+  <text x="114" y="331" text-anchor="middle" class="tiny">h2a</text>
+  <rect x="154" y="310" width="80" height="32" class="node"/>
+  <text x="194" y="331" text-anchor="middle" class="tiny">h2b</text>
+  <rect x="234" y="310" width="80" height="32" class="node"/>
+  <text x="274" y="331" text-anchor="middle" class="tiny">h2c</text>
+  <rect x="314" y="310" width="80" height="32" class="node"/>
+  <text x="354" y="331" text-anchor="middle" class="tiny">h2d</text>
+  <rect x="394" y="310" width="80" height="32" class="node"/>
+  <text x="434" y="331" text-anchor="middle" class="tiny">h2e</text>
+  <rect x="474" y="310" width="80" height="32" class="node"/>
+  <text x="514" y="331" text-anchor="middle" class="tiny">h2f</text>
+  <rect x="554" y="310" width="80" height="32" class="node"/>
+  <text x="594" y="331" text-anchor="middle" class="tiny">h2g</text>
+
+  <rect x="58" y="388" width="72" height="30" class="node"/>
+  <text x="94" y="408" text-anchor="middle" class="tiny">h3a</text>
+  <rect x="128" y="388" width="72" height="30" class="node"/>
+  <text x="164" y="408" text-anchor="middle" class="tiny">h3b</text>
+  <rect x="198" y="388" width="72" height="30" class="node"/>
+  <text x="234" y="408" text-anchor="middle" class="tiny">h3c</text>
+  <rect x="268" y="388" width="72" height="30" class="node"/>
+  <text x="304" y="408" text-anchor="middle" class="tiny">h3d</text>
+  <rect x="338" y="388" width="72" height="30" class="node"/>
+  <text x="374" y="408" text-anchor="middle" class="tiny">h3e</text>
+  <rect x="408" y="388" width="72" height="30" class="node"/>
+  <text x="444" y="408" text-anchor="middle" class="tiny">h3f</text>
+  <rect x="478" y="388" width="72" height="30" class="node"/>
+  <text x="514" y="408" text-anchor="middle" class="tiny">h3g</text>
+  <rect x="548" y="388" width="72" height="30" class="node"/>
+  <text x="584" y="408" text-anchor="middle" class="tiny">h3h</text>
+
+  <!-- Left panel edges -->
+  <path d="M370 192 C320 212, 220 214, 160 230" class="edge"/>
+  <path d="M370 192 C348 214, 314 216, 282 230" class="edge"/>
+  <path d="M370 192 C388 214, 394 216, 404 230" class="edge"/>
+  <path d="M370 192 C430 212, 486 214, 526 230" class="edge"/>
+
+  <path d="M160 264 C132 282, 122 292, 114 310" class="edge-soft"/>
+  <path d="M160 264 C152 282, 170 292, 194 310" class="edge"/>
+  <path d="M160 264 C190 286, 228 292, 274 310" class="edge-soft"/>
+
+  <path d="M282 264 C248 286, 234 292, 194 310" class="edge-soft"/>
+  <path d="M282 264 C274 282, 274 292, 274 310" class="edge"/>
+  <path d="M282 264 C302 286, 326 292, 354 310" class="edge"/>
+  <path d="M282 264 C340 286, 386 292, 434 310" class="edge-soft"/>
+
+  <path d="M404 264 C332 286, 320 292, 274 310" class="edge-soft"/>
+  <path d="M404 264 C364 286, 356 292, 354 310" class="edge"/>
+  <path d="M404 264 C404 284, 420 292, 434 310" class="edge"/>
+  <path d="M404 264 C446 286, 488 292, 514 310" class="edge"/>
+  <path d="M404 264 C512 284, 570 292, 594 310" class="edge-soft"/>
+
+  <path d="M526 264 C432 286, 396 292, 354 310" class="edge-soft"/>
+  <path d="M526 264 C486 286, 470 292, 434 310" class="edge-soft"/>
+  <path d="M526 264 C522 286, 518 292, 514 310" class="edge"/>
+  <path d="M526 264 C556 286, 574 292, 594 310" class="edge"/>
+
+  <path d="M114 342 C96 360, 94 370, 94 388" class="edge"/>
+  <path d="M114 342 C118 360, 142 370, 164 388" class="edge-soft"/>
+  <path d="M194 342 C180 360, 164 370, 164 388" class="edge-soft"/>
+  <path d="M194 342 C194 360, 208 370, 234 388" class="edge"/>
+  <path d="M274 342 C250 360, 234 370, 234 388" class="edge-soft"/>
+  <path d="M274 342 C276 360, 286 370, 304 388" class="edge"/>
+  <path d="M274 342 C308 360, 340 370, 374 388" class="edge-soft"/>
+  <path d="M354 342 C330 360, 316 370, 304 388" class="edge-soft"/>
+  <path d="M354 342 C356 360, 360 370, 374 388" class="edge"/>
+  <path d="M354 342 C386 360, 416 370, 444 388" class="edge"/>
+  <path d="M434 342 C388 360, 374 370, 374 388" class="edge-soft"/>
+  <path d="M434 342 C428 360, 436 370, 444 388" class="edge"/>
+  <path d="M434 342 C470 360, 500 370, 514 388" class="edge-soft"/>
+  <path d="M514 342 C456 360, 438 370, 444 388" class="edge-soft"/>
+  <path d="M514 342 C510 360, 508 370, 514 388" class="edge"/>
+  <path d="M514 342 C544 360, 570 370, 584 388" class="edge"/>
+  <path d="M594 342 C548 360, 530 370, 514 388" class="edge-soft"/>
+  <path d="M594 342 C592 360, 590 370, 584 388" class="edge"/>
+
+  <!-- Quotient arrow and label -->
+  <path d="M648 300 C706 300, 734 300, 778 300" class="edge-dashed"/>
+  <text x="715" y="286" text-anchor="middle" class="note">observer quotient and repair</text>
+
+  <!-- Right panel nodes -->
+  <rect x="852" y="196" width="188" height="46" class="node-strong"/>
+  <text x="946" y="224" text-anchor="middle" class="tiny">class A</text>
+  <rect x="820" y="276" width="252" height="52" class="node-strong"/>
+  <text x="946" y="307" text-anchor="middle" class="tiny">class B</text>
+  <rect x="852" y="362" width="188" height="46" class="node-strong"/>
+  <text x="946" y="390" text-anchor="middle" class="tiny">class C</text>
+
+  <text x="946" y="168" text-anchor="middle" class="note">many microscopic histories can collapse into one observer-visible class</text>
+
+  <!-- Mapping hints -->
+  <path d="M584 403 C694 392, 760 220, 852 219" class="edge-soft"/>
+  <path d="M514 403 C666 396, 748 294, 820 302" class="edge-soft"/>
+  <path d="M444 403 C648 404, 758 386, 852 385" class="edge-soft"/>
+  <path d="M304 403 C668 406, 714 318, 820 302" class="edge-soft"/>
+  <path d="M164 403 C650 408, 720 230, 852 219" class="edge-soft"/>
+
+  <text x="76" y="472" class="note">branching and merging histories</text>
+  <text x="756" y="472" class="note">compressed observer view for rule-space pruning</text>
+</svg>
