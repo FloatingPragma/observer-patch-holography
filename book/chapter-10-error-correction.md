@@ -170,7 +170,7 @@ As we saw in Chapter 6, Zurek's **quantum Darwinism** explains how classical fac
 
 In computer science, networks agree on shared states through consensus protocols. Physics does this constantly. The nodes are observers. The messages are light signals and memory traces. The consensus rule is physical law.
 
-In OPH, the consensus paper proves that when the local repair rules can fix the declared overlap mismatches, fit together locally, and lower a shared inconsistency score at each accepted step, different repair orders converge to the same shared normal form. It also clarifies two other parts of the picture: gauge symmetry is the rule that lets different microscopic descriptions count as the same physical state, and stable records form an eventually consistent public memory.
+In OPH, the consensus paper proves a finite-patch normal-form theorem: accepted local repairs lower a shared inconsistency score, overlapping repairs rejoin through the declared quotient-level compatibility package, and repair completeness identifies fixed points with globally consistent states. Under those conditions, different repair orders converge to the same shared normal form. The same paper also sharpens two related parts of the picture: gauge symmetry identifies different microscopic descriptions of the same physical state, and the observer-accessible measurement layer is carried by a finite record algebra with Born/Luders readout and explicit stability bounds when practical readout is only approximate.
 
 Error correction is a physical principle as well as a tool for engineers. It is the way the universe builds stable facts.
 

@@ -12,19 +12,19 @@ In OPH, an "observer" is not a soul-substance inhabiting a body. It is a *patter
 
 Mathematically, an observer is a tuple: (P, A(P), ρ, R).
 
-The crucial insight is what "records" actually are. They are memories with a specific mathematical form. Records are defined as families of projectors that live in the *center* of the overlap algebras. That means they are exactly the kind of information that can be shared consistently across different perspectives.
+The crucial insight is what "records" actually are. They are memories with a specific mathematical form. On the fixed-cutoff observation surface, records are carried by a finite commutative central record algebra on the observer-accessible slice. Practical readouts can use projectors that stay close to that central surface, with explicit stability bounds on the resulting probabilities.
 
-This matters. In quantum mechanics, most information cannot be copied. That is the no-cloning theorem. But central, shareable variables *can* be copied. Records are, by mathematical construction, the part of an observer that is copyable without violating quantum mechanics.
+This matters. In quantum mechanics, most information cannot be copied. That is the no-cloning theorem. But measurements on a commuting central record algebra obey ordinary Born probabilities and Luders conditioning, so the shareable part of an observer has a precise operator-algebraic form.
 
 ## The Surgical Cut
 
 Here's where OPH's technical machinery becomes unexpectedly relevant to questions of survival and continuation.
 
-The framework includes something called "Markov collars," boundary regions that cleanly separate an observer's interior from the outside environment. When the conditional mutual information across such a boundary is small, or zero, something remarkable happens: the inside and outside *factorize* given a classical label.
+The framework includes something called "Markov collars," boundary regions that cleanly separate an observer's interior from the outside environment. When the conditional mutual information across such a boundary is small, or zero, something remarkable happens: the inside and outside *factorize* given a sector label.
 
 In plain terms: if you know the right boundary data, you can surgically separate an observer-pattern from its environment. The observer's interior state becomes conditionally independent of what's "outside the collar."
 
-The collar has a special structure, an "edge-center decomposition" where a classical sector label α indexes different possible boundary configurations. Within each sector, the inside and outside don't interfere with each other. This is a structural theorem about how the algebras decompose.
+The collar has a special structure, an "edge-center decomposition" where a sector label α indexes different possible boundary configurations. Within each sector, the inside and outside don't interfere with each other. This is a structural theorem about how the algebras decompose.
 
 ## The Re-Spawn into Paradise Mechanism
 
@@ -32,7 +32,7 @@ Putting these pieces together, here is what becomes possible, at least in princi
 
 **What you store (an observer checkpoint):**
 
-1. *Record state*: The values of the observer's record projectors, the "classical core" of who they are. This is the OPH-sanctioned copyable part.
+1. *Record state*: The outcome data carried by the observer's record algebra on the accessible slice. This is the OPH-sanctioned shareable part.
 
 2. *Sector label*: Which edge-center block the observer is in, the "gluing interface" that specifies how they connect to any environment.
 
