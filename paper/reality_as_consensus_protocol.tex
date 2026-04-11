@@ -80,7 +80,10 @@ parenthesization-independent union-collar glue used for the local diamond. What 
 that step is repair completeness and, on the Petz branch, the support/CPTP clause stated later in
 Proposition~\ref{prop:petz-cptp}.
 
-We also define a fitness functional over the space of candidate reconciliation laws and prove that replicator dynamics monotonically increases mean fitness (Theorem~\ref{thm:replicator}). This gives a clean mathematical model for the selection of physical law.
+We also define a fitness functional over a finite candidate space of reconciliation laws and prove
+that replicator dynamics monotonically increases mean fitness (Theorem~\ref{thm:replicator}). This
+gives a clean mathematical model for finite-candidate law selection, not a universality theorem or
+a literal cosmological dynamics claim.
 
 The results here are exact theorems about a computational model. The companion OPH manuscript develops the broader physics branches conditionally and keeps structural theorems, scaling-limit branches, calibration-sector outputs, and phenomenological continuations distinct~\cite{OPH}.
 
@@ -837,18 +840,46 @@ clean law-selection meta-model. The conditional relativity chain and the realize
 structural chain remain the recovered core. The capacity relation is separate and input-dependent.
 Downstream phenomenology requires additional premises beyond the consensus results proved here.
 
-Six directions stand out as immediate next steps:
+\paragraph{Complexity status.}
+On a fixed finite patch net, the accepted reconciliation dynamics is a finite-state asynchronous
+rewrite system on \(\Sigma\). Under Theorem~\ref{thm:confluence}, every accepted repair run has at
+most \(|\Phi(\Sigma)|-1\le |\Sigma|-1\) nontrivial steps, because each accepted move strictly
+lowers \(\Phi\) and the value set \(\Phi(\Sigma)\) is finite. Exact normal-form computation is
+therefore decidable by direct iteration of accepted local repairs. What this paper does
+\emph{not} prove is a uniform polynomial-time bound, a sharper complexity-class placement for
+families of growing patch nets, or any hardness lower bound.
+
+\paragraph{Approximate-stability status.}
+The theorem-grade consensus statement is exact on the declared fixed-cutoff branch. Approximate
+control is presently collar-local: Theorem~\ref{thm:splice} gives the exact-Markov modulus
+\(\delta^{\mathrm M}_{A:B:D}(\varepsilon)\to0\) on one fixed finite-dimensional collar model and
+the one-shot recovery comparison bound \(2\sqrt{1-e^{-\varepsilon}}\le 2\sqrt{\varepsilon}\),
+while Theorem~\ref{thm:crdt} gives the \((\varepsilon,\delta_{\mathrm{rec}})\) repeated-read
+stability bound for approximate record projectors. The current corpus does \emph{not} prove a
+global noisy-consensus theorem asserting that arbitrarily long asynchronous approximate repair
+sequences converge to a unique approximate quotient normal form with uniformly controlled
+accumulated error.
+
+\paragraph{Expressive-power status.}
+The law-selection model of Theorem~\ref{thm:replicator} is a finite-candidate monotonicity result,
+not a universality theorem. For each fixed patch net the current theorem package proves a
+finite-state exact reconciliation mechanism rather than an unbounded universal machine. A genuine
+universality claim would require an explicit uniform family of patch nets and repair laws that
+simulates arbitrary circuits or machines with stated encoding overhead and robustness under
+asynchronous schedules. No such theorem is supplied here.
+
+With that status split fixed, six directions stand out as immediate next steps:
 
 \begin{enumerate}
-\item \textbf{Computational complexity.} What is the complexity of computing $\operatorname{nf}_\lambda(s)$? The finite-valued Lyapunov termination bound from the touched-overlap descent of \(\Phi\) is a worst-case measure, but typical instances may converge much faster. Is there a polynomial bound for natural classes of patch nets?
-
 \item \textbf{Coarse-graining.} When does reconciliation commute with renormalization? If you coarse-grain the patch net and then reconcile, do you get the same result as reconciling first and then coarse-graining? The conditions under which these operations commute would connect the discrete model to continuum field theory.
 
 \item \textbf{Defect classification and refinement-limit transportability.} The fixed-cutoff hierarchy extends from abelian frustrations to crossed-module classes \(q\in \check H^2(N,H\to G)\). The remaining task is to connect those higher-gauge defect sectors to the refinement-stable transportable sector category used in the broader compact-gauge reconstruction lane.
 
 \item \textbf{Observable-level confluence beyond the declared fixed-cutoff physical algebra.} Theorem~\ref{thm:obsconfluence} closes the fixed-cutoff quantum-lift statement when microscopic representatives differ by gauge relabelings globally or by sector/higher-gauge relabelings on the same declared quotient-local glued state. The remaining question is whether an analogous observable theorem survives on broader refinement-stable branches where the union-collar compatibility is only approximate or where the physical observable algebra itself changes under refinement.
 
-\item \textbf{Recovery-channel control.} The fixed-cutoff collar branch already expresses local repair through exact splice or Petz/Fawzi--Renner recovery, commits candidate moves only under the touched-overlap local-fit contract that yields Lyapunov descent of \(\Phi\), and derives the local diamond from support-local disjoint commutation together with parenthesization-invariant union-collar gluing on the physical quotient. What remains is to prove on natural refinement-stable branches that these accepted recovery moves are repair-complete for overlap consistency, preserve support-local disjoint commutation and nested-collar restriction compatibility, including the support/CPTP clause on the Petz branch, and keep the union-collar package stable under refinement or branch changes.
+\item \textbf{Global approximate-consensus stability.} Theorem~\ref{thm:splice} and Theorem~\ref{thm:crdt} already supply the collar-local perturbative controls carried by the present paper. What remains is a multi-step theorem showing that approximate recovery moves are repair-complete for overlap consistency, preserve support-local disjoint commutation and nested-collar restriction compatibility, satisfy the support/CPTP clause on the Petz branch where needed, and converge under long asynchronous schedules to a unique approximate quotient normal form with controlled accumulated error.
+
+\item \textbf{Expressive power / universality.} A universality claim would require an explicit uniform family of patch nets and repair laws that simulates arbitrary circuits or machines with stated encoding overhead and robustness under asynchronous schedules. The current paper supplies no such construction, so universality remains an external possibility rather than a theorem-grade output.
 
 \item \textbf{Scaling-limit bridge to the downstream gravity/gauge stack.} Under what additional regularity conditions does the consensus protocol emit the prime geometric cap pair and support ordered cut-pair rigidity on that extracted limit, so that the D3--D5 gravity chain and the D7--D9 gauge/matter chain become available? This is also the point at which the broader Phase-II and Phase-III branches must remain disciplined: dark-sector, baryogenesis, spectroscopy, and string/worldsheet topics require extra premises beyond what this paper itself proves.
 \end{enumerate}
