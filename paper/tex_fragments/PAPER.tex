@@ -120,10 +120,10 @@ for \(d > v_{\mathrm{LR}}|t|\), where \(\xi = O(\ell_{\mathrm{UV}})\).
 
 This is the branch-internal control statement that turns the quasi-local structure of the
 local-Gibbs branch into explicit support control for time-evolved operators. It is not an extra
-premise beyond the third OPH axiom.
+premise beyond the third axiom.
 
 \begin{quote}
-\textbf{Approximate modular covariance on the geometric branch.} Under the fixed-cutoff realized presentation, Lemma 2.6 (local Gibbs), the derived quasi-local propagation bound above, and the collar double-scaling plus mixing hypotheses of Section 2.3, the modular flow \(\sigma_t^{\omega,C}\) maps \(\mathcal{A}(R)\) into a slightly thickened region algebra:
+\textbf{Approximate modular covariance on the fixed-cutoff realized branch.} Under the fixed-cutoff realized presentation, Lemma 2.6 (local Gibbs), the derived quasi-local propagation bound above, and the collar double-scaling plus mixing hypotheses of Section 2.3, the modular flow \(\sigma_t^{\omega,C}\) maps \(\mathcal{A}(R)\) into a slightly thickened region algebra:
 
 \[
 \sigma_t^{\omega,C}(\mathcal{A}(R)) \subseteq \mathcal{A}(R^{+v_{\mathrm{mod}}|t|})
@@ -940,7 +940,7 @@ otherwise the automorphism identity is the full statement and the action is oute
 \]
 for some \(\kappa_C>0\). Because \(s\) is normalized by the null blow-up \(v\mapsto e^{-s}v\), the modular KMS condition fixes \(\kappa_C=2\pi\). Thus
 \[
-\sigma_t^{\omega_\infty^C}
+\sigma_t^{\omega_\infty^{\mathrm{geo},C}}
 =
 \alpha_{\lambda_C(2\pi t)}.
 \]
@@ -974,15 +974,15 @@ By Theorem~\ref{42-theorem-mathrmbw_s2-from-markov-locality-symmetry-regularity}
 
 Section 4.2 fixes the cap modular statement first at the automorphism level. On the extracted prime geometric subnet, the scaling-limit cap modular flow is geometric with the standard \(2\pi\) normalization,
 \[
-\sigma_t^{\omega_\infty^C}
+\sigma_t^{\omega_\infty^{\mathrm{geo},C}}
 =
 \alpha_{\lambda_C(2\pi t)}.
 \]
-If the realized scaling-limit cap algebra happens to remain type I, one may choose a density matrix \(\rho_C^\omega\) and modular Hamiltonian
+If the realized scaling-limit cap algebra happens to remain type I, one may choose a density matrix \(\rho_C^{\omega_\infty^{\mathrm{geo},C}}\) and modular Hamiltonian
 \[
-K_C:=-\log\rho_C^\omega,
+K_C:=-\log\rho_C^{\omega_\infty^{\mathrm{geo},C}},
 \]
-and then for a perturbation \(\rho(\varepsilon)\) with \(\rho(0)=\omega\) the first-law identity reads
+and then for a perturbation \(\rho(\varepsilon)\) with \(\rho(0)=\omega_\infty^{\mathrm{geo},C}\) the first-law identity reads
 \[
 \delta S_C=\delta\langle K_C\rangle
 =
@@ -992,7 +992,7 @@ In the generic continuum/non-type-I case, Section 4.2 does not supply an inner o
 
 \subsubsection{Null-surface modular bridge}\label{52-null-surface-modular-bridge}
 
-This subsection extends the fixed-cutoff weak-tail-generator boundary to the derived positive null-translation stage and the exact half-line generator/charge identification. At fixed cutoff one can transfer cut-center data to regulated null strips, obtain exact or controlled strip additivity on one inherited strip model, and derive a weak tail generator for the renormalized half-line family. On the OPH geometric scaling branch of Theorem 4.2, the null half-line blow-up net then inherits geometric dilation and therefore half-sided modular inclusion, so Borchers--Wiesbrock supplies an explicit positive null-translation generator on its Stone domain. The remaining downstream boundary is narrower: bounded-interval formulas still require the separate interval-preserving projective branch, and the later tensor upgrade still carries the null-invisible metric ambiguity. Accordingly the c.12-local bridge consists of:
+This subsection extends the fixed-cutoff weak-tail-generator boundary to the derived positive null-translation stage and the exact half-line generator/charge identification. At fixed cutoff one can transfer cut-center data to regulated null strips, obtain exact or controlled strip additivity on one inherited strip model, and derive a weak tail generator for the renormalized half-line family. On the scaling-limit geometric-cap branch of Theorem 4.2, the null half-line blow-up net then inherits geometric dilation and therefore half-sided modular inclusion, so Borchers--Wiesbrock supplies an explicit positive null-translation generator on its Stone domain. The remaining downstream boundary is narrower: bounded-interval formulas still require the separate interval-preserving projective branch, and the later tensor upgrade still carries the null-invisible metric ambiguity. Accordingly the c.12-local bridge consists of:
 \begin{itemize}
 \tightlist
 \item
@@ -1240,7 +1240,7 @@ a\le b
 \mathcal M_b(\Omega)\subseteq \mathcal M_a(\Omega).
 \]
 
-\textbf{Corollary 5.2e (Derived half-sided modular inclusion on null half-lines).} On the OPH geometric scaling branch of Theorem 4.2, the blow-up modular action near a smooth entangling cut acts on the null coordinate by
+\textbf{Corollary 5.2e (Derived half-sided modular inclusion on null half-lines).} On the scaling-limit geometric-cap branch of Theorem 4.2, the blow-up modular action near a smooth entangling cut acts on the null coordinate by
 \[
 v\mapsto e^{-2\pi t}v.
 \]
@@ -1358,7 +1358,7 @@ as a quadratic-form identity on the common domain. The only imported continuum i
 \item
   the fixed-cutoff null-strip bridge is exact for exact Markov strip states on that inherited decomposition, and otherwise is replaced by a controlled limit with the carried defect operator \(\mathfrak D_J\);
 \item
-  the local finite-constraint MaxEnt branch gives endpoint-Lipschitz control strong enough to define a weak tail generator for renormalized half-lines, and the OPH geometric scaling branch then derives half-sided modular inclusion on the half-line blow-up net;
+  the local finite-constraint MaxEnt branch gives endpoint-Lipschitz control strong enough to define a weak tail generator for renormalized half-lines, and the scaling-limit geometric-cap branch of Theorem 4.2 then derives half-sided modular inclusion on the half-line blow-up net;
 \item
   Borchers--Wiesbrock therefore supplies a genuine positive null-translation generator \(P_\Omega\) inside the bridge itself, together with its Stone domain and the half-line modular-Hamiltonian relation \(K_a=K_0-2\pi aP_\Omega\);
 \item
@@ -1505,7 +1505,7 @@ On the t=0 slice its lapse is
 \[
 \xi_{D_\ell}\!\cdot n=\frac{\ell^2-r^2}{2\ell}.
 \]
-The bounded-interval kernel comes from combining the D3 geometric cap generator with the separate interval-preserving projective branch used downstream of the D4 half-line stress bridge, so the D3 geometric branch and the D4 stress bridge together yield
+The bounded-interval kernel comes from combining the D3 geometric cap generator with the separate interval-preserving projective branch used downstream of the D4 half-line stress bridge, so the D3 cap-modular theorem and the D4 stress bridge together yield
 \[
 \delta S_{\mathrm{bulk}}(C)
 =
@@ -1571,13 +1571,13 @@ Along any connected scaling branch of reference states, \(Y_{ab}\) is therefore 
 \[
 G_{ab}+\Lambda g_{ab}=8\pi G\,\langle T_{ab}\rangle.
 \]
-Thus the tensor upgrade does not require a separate EFT handoff once OPH supplies the geometric branch, the null bridge, and the overlap-complete timelike family.
+Thus the tensor upgrade does not require a separate EFT handoff once the D3 geometric-cap theorem, the D4 null bridge, and the overlap-complete timelike family are in place.
 
 \subsubsection{Non-tunable numerical constants}\label{58-non-tunable-numerical-constants}
 
 The gravity chain yields specific numerical constants as rigid outputs of the axiom chain.
 
-\textbf{The \(2\pi\) KMS normalization.} From Theorem 4.2, once the OPH refinement branch is geometric, cap modular flow is fixed by the KMS condition to the standard \(2\pi\) normalization. This is the same rigidity that fixes Unruh/Hawking temperature normalization. The period is determined by the stated scaling-limit package together with the geometric-branch hypothesis.
+\textbf{The \(2\pi\) KMS normalization.} From Theorem 4.2, once the scaling-limit geometric cap pair has been emitted and ordered cut-pair rigidity holds on it, cap modular flow is fixed by the KMS condition to the standard \(2\pi\) normalization. This is the same rigidity that fixes Unruh/Hawking temperature normalization. The period is determined by the \textbf{T2} scaling-limit package together with those theorem-local hypotheses.
 
 \textbf{The geometric coefficient \(\Omega_{d-2}/(d^2 - 1)\).} This coefficient appears in both (a) the CFT-ball modular Hamiltonian weight integral and (b) the geometric area-variation identity. It is an exact integral identity:
 
@@ -2466,7 +2466,7 @@ A natural question arises: how does this framework relate to the ``unsolved prob
 
 \textbf{What the usual dS holography problem is.} When people say ``dS holography is unsolved,'' they typically mean that we do not have anything as sharp as AdS/CFT, where the bulk has a timelike asymptotic boundary supporting a well-defined dual CFT with a precise dictionary. For de Sitter, there is no asymptotic timelike boundary in the static patch where one can simply place the dual theory. The classic dS/CFT proposal at future infinity has familiar difficulties, including non-unitarity worries and complex conformal weights.
 
-\textbf{What this model does differently.} The framework begins with an observer's static patch and its horizon screen \(S^2\), building a net of subregion algebras on that screen. At finite cutoff those algebras are type-I regulators. The Lorentz branch, when invoked, is a scaling-limit statement about the refinement-limit observer net, and that limit may leave the regulator class. On the extracted-prime-geometric branch of Theorem~\ref{42-theorem-mathrmbw_s2-from-markov-locality-symmetry-regularity}, the realized scaling-limit cap modular action is geometric and, in the non-type-I case of interest, generally outer. That identification is \emph{not} derived from MaxEnt alone; it is exactly the explicit \textbf{T2} plus extraction-and-rigidity boundary.
+\textbf{Static-patch/horizon-screen setup.} The framework begins with an observer's static patch and its horizon screen \(S^2\), building a net of subregion algebras on that screen. At finite cutoff those algebras are type-I regulators. The Lorentz statement, when invoked, is a scaling-limit statement about the refinement-limit observer net, and that limit may leave the regulator class. On the theorem-local branch of Theorem~\ref{42-theorem-mathrmbw_s2-from-markov-locality-symmetry-regularity} where the extracted prime geometric cap pair has been emitted, the realized scaling-limit cap modular action is geometric and, in the non-type-I case of interest, generally outer. That identification is \emph{not} derived from MaxEnt alone; it is exactly the explicit \textbf{T2} plus extraction-and-rigidity boundary.
 
 This is therefore a fundamental fork away from AdS/CFT-style holography:
 
