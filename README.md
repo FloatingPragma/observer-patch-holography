@@ -32,8 +32,8 @@ Constants, theorem chains, and open proof fronts for this surface are tracked in
 **Current theorem stack and open fronts**
 
 <p align="center">
-  <a href="assets/prediction-chain.svg?v=20260411" target="_blank" rel="noopener noreferrer">
-    <img src="assets/prediction-chain.svg?v=20260411" alt="Current OPH theorem stack and open proof fronts" width="92%">
+  <a href="assets/prediction-chain.svg?v=20260412" target="_blank" rel="noopener noreferrer">
+    <img src="assets/prediction-chain.svg?v=20260412" alt="Current OPH theorem stack and open proof fronts" width="92%">
   </a>
 </p>
 

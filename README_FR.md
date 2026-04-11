@@ -32,8 +32,8 @@ Les constantes, chaînes de théorèmes et fronts de preuve ouverts pour cette s
 **Pile générale des théorèmes et dérivations**
 
 <p align="center">
-  <a href="assets/prediction-chain.svg" target="_blank" rel="noopener noreferrer">
-    <img src="assets/prediction-chain.svg" alt="Pile théorématique et de dérivation OPH" width="92%">
+  <a href="assets/prediction-chain.svg?v=20260412" target="_blank" rel="noopener noreferrer">
+    <img src="assets/prediction-chain.svg?v=20260412" alt="Pile théorématique et de dérivation OPH" width="92%">
   </a>
 </p>
 
