@@ -55,10 +55,10 @@ papiers et ne sont pas répétés ici.
 | Masse du photon | `m_gamma` | `0 eV` | `< 1 x 10^-18 eV` | `Sous la borne PDG` | [PDG 2025 jauge/Higgs](https://pdg.lbl.gov/2025/tables/rpp2025-sum-gauge-higgs-bosons.pdf) |
 | Masse du gluon | `m_gluon` | `0 GeV` | `0 GeV` | `100% match` | [PDG 2025 jauge/Higgs](https://pdg.lbl.gov/2025/tables/rpp2025-sum-gauge-higgs-bosons.pdf) |
 | Masse du graviton | `m_graviton` | `0 eV` | `< 1.76 x 10^-23 eV` | `Sous la borne PDG` | [PDG 2025 jauge/Higgs](https://pdg.lbl.gov/2025/tables/rpp2025-sum-gauge-higgs-bosons.pdf) |
-| Masse du boson W | `m_W` | `80.377000015 GeV` | `80.3692 ± 0.0133 GeV` | `0.59σ` | [PDG 2025 jauge/Higgs](https://pdg.lbl.gov/2025/tables/rpp2025-sum-gauge-higgs-bosons.pdf) |
-| Masse du boson Z | `m_Z` | `91.187978078 GeV` | `91.1880 ± 0.0020 GeV` | `0.01σ` | [PDG 2025 jauge/Higgs](https://pdg.lbl.gov/2025/tables/rpp2025-sum-gauge-higgs-bosons.pdf) |
-| Masse du boson de Higgs | `m_H` | `125.218922060 GeV` | `125.20 ± 0.11 GeV` | `0.17σ` | [PDG 2025 jauge/Higgs](https://pdg.lbl.gov/2025/tables/rpp2025-sum-gauge-higgs-bosons.pdf) |
-| Masse du quark top | `m_t` | `172.388645595 GeV` | `172.56 ± 0.31 GeV` | `0.55σ` | [PDG 2025 quarks](https://pdg.lbl.gov/2025/tables/rpp2025-sum-quarks.pdf) |
+| Masse du boson W | `m_W` | `80.377000015 GeV` | `80.3692 ± 0.0133 GeV` | `0.59σ, pas encore entièrement dérivé` | [PDG 2025 jauge/Higgs](https://pdg.lbl.gov/2025/tables/rpp2025-sum-gauge-higgs-bosons.pdf) |
+| Masse du boson Z | `m_Z` | `91.187978078 GeV` | `91.1880 ± 0.0020 GeV` | `0.01σ, pas encore entièrement dérivé` | [PDG 2025 jauge/Higgs](https://pdg.lbl.gov/2025/tables/rpp2025-sum-gauge-higgs-bosons.pdf) |
+| Masse du boson de Higgs | `m_H` | `125.218922060 GeV` | `125.20 ± 0.11 GeV` | `0.17σ, pas encore entièrement dérivé` | [PDG 2025 jauge/Higgs](https://pdg.lbl.gov/2025/tables/rpp2025-sum-gauge-higgs-bosons.pdf) |
+| Masse du quark top | `m_t` | `172.388645595 GeV` | `172.56 ± 0.31 GeV` | `0.55σ, pas encore entièrement dérivé` | [PDG 2025 quarks](https://pdg.lbl.gov/2025/tables/rpp2025-sum-quarks.pdf) |
 | Masse du quark bottom | `m_b(m_b)` | `4.183 GeV` | `4.183 ± 0.007 GeV` | `100% match` | [PDG 2025 quarks](https://pdg.lbl.gov/2025/tables/rpp2025-sum-quarks.pdf) |
 | Masse du quark charm | `m_c(m_c)` | `1.273 GeV` | `1.2730 ± 0.0046 GeV` | `100% match` | [PDG 2025 quarks](https://pdg.lbl.gov/2025/tables/rpp2025-sum-quarks.pdf) |
 | Masse du quark étrange | `m_s(2 GeV)` | `93.5 MeV` | `93.5 ± 0.8 MeV` | `100% match` | [PDG 2025 quarks](https://pdg.lbl.gov/2025/tables/rpp2025-sum-quarks.pdf) |
@@ -68,6 +68,8 @@ papiers et ne sont pas répétés ici.
 L'accord est donné en nombre de sigma lorsque le PDG ou le NIST publie une incertitude à un sigma.
 Pour les définitions exactes, les égalités exactes aux chiffres affichés ou les bornes supérieures
 publiées, le tableau affiche `100% match` ou `Sous la borne PDG`.
+
+Les lignes `W/Z` appartiennent à la voie de calibration de phase II, et les lignes Higgs/top à la branche quantitative D11. Elles ne sont donc pas encore entièrement dérivées de bout en bout au même sens que les zéros structurels, la ligne exacte de la structure fine ou les lignes quark exactes sur classe sélectionnée.
 
 Pour les quarks, le PDG utilise ses conventions standard : `u`, `d` et `s` à `2 GeV`, `c` et `b`
 dans le schéma `MS` à leur propre échelle de masse, et le résumé de masse directe du top pour `t`.
