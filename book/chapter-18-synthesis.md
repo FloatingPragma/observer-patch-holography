@@ -193,12 +193,12 @@ Among admissible low-energy sector packages, the realized one is the lexicograph
 
 The five axioms are the foundation. Specific theorem branches use extra inputs, and the papers state those inputs explicitly.
 
-1. **Lorentz branch**: scaling-limit and geometric modular-flow assumptions that let cap modular flow become geometric on the extracted prime geometric subnet.
-2. **Einstein branch**: fixed-cap stationarity, the half-line stress-tensor bridge, and the separate bounded-interval projective branch used in the entanglement-equilibrium argument.
+1. **Lorentz branch**: the `T2` scaling-limit scope clause together with theorem-local realized geometric cap-pair extraction and ordered cut-pair rigidity on the extracted prime geometric subnet.
+2. **Einstein branch**: the null bridge still uses theorem-local inherited-strip and exact-or-controlled Markov hypotheses plus the same-half-line local modular-Hamiltonian input; the Jacobson step then adds fixed-cap stationarity and the separate bounded-interval projective branch used in the entanglement-equilibrium argument.
 3. **Gauge branch**: the transport and reconstruction premises needed for ordinary compact gauge reconstruction, together with MAR on the realized admissible branch.
 4. **Configuration inputs**: the pixel area \(P\) and screen capacity \(N_{\mathrm{scr}}\), which set quantitative scales but are not axioms.
 
-Under that full ledger, Lorentz kinematics is recovered on the stated scaling branch, Einstein's equation follows on the Jacobson-style branch, and the Standard Model quotient emerges on the realized gauge branch. Geometric cap-pair extraction, ordered cut-pair rigidity, and parts of the transport package remain explicit pieces of scaffolding.
+Under that full ledger, Lorentz kinematics is recovered on the stated scaling branch, Einstein's equation follows on the Jacobson-style branch, and the Standard Model quotient emerges on the realized gauge branch. Geometric cap-pair extraction, ordered cut-pair rigidity, the separate bounded-interval projective branch, and parts of the transport package remain explicit pieces of scaffolding.
 
 ## 18.6 What the Model Yields (Under Stated Assumptions)
 
