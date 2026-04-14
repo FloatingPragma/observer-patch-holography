@@ -1,0 +1,52 @@
+{
+  "artifact": "oph_charged_physical_determinant_line_canonical_uncentered_lift",
+  "canonical_consequences": {
+    "absolute_gap": "Delta_e_abs(Y_e) = log(g_ch_shared) - mu_phys(Y_e)",
+    "absolute_scale": "g_e(Y_e) = exp(mu_phys(Y_e))",
+    "charged_masses": "m_i(Y_e) = exp(mu_phys(Y_e) + ell_i_centered(Y_e))",
+    "determinant_line": "s_det(Y_e) = 3 * mu_phys(Y_e)"
+  },
+  "canonical_definitions": {
+    "affine_anchor": "A_ch(Y_e) = mu_phys(Y_e)",
+    "descended_scalar": "mu_phys(Y_e) = (1/3) * log(det(Y_e))",
+    "determinant_line_section": "s_det(Y_e) = log(det(Y_e))",
+    "uncentered_lift": "C_tilde_e(Y_e) = C_hat_e(Y_e) + mu_phys(Y_e) I"
+  },
+  "dependencies": {
+    "charged_absolute_anchor": {
+      "artifact": "oph_charged_absolute_anchor_section",
+      "artifact_ref": "code/particles/runs/leptons/charged_absolute_anchor_section.json",
+      "exact_missing_object": "charged_absolute_anchor_A_ch"
+    },
+    "determinant_line_section": {
+      "artifact": "oph_charged_determinant_line_section_extension",
+      "artifact_ref": "code/particles/runs/leptons/charged_determinant_line_section_extension.json",
+      "theorem_id": "charged_determinant_line_reduces_to_uncentered_trace_lift"
+    },
+    "physical_identity_mode_equalizer": {
+      "artifact": "oph_charged_physical_identity_mode_equalizer",
+      "artifact_ref": "code/particles/runs/leptons/charged_physical_identity_mode_equalizer.json",
+      "theorem_id": "charged_physical_identity_mode_equalizer_forces_mu_phys"
+    }
+  },
+  "forced_equalizer_on_declared_surface": {
+    "fiber_rule": "delta(r,r') = 0 for refinement representatives r,r' of the same physical Y_e",
+    "reason": "mu is defined as the physical scalar mu_phys(Y_e), so it is constant on each physical fiber by construction"
+  },
+  "generated_utc": "2026-04-14T06:05:01Z",
+  "notes": [
+    "This theorem closes the post-promotion charged lift on theorem-grade physical Y_e.",
+    "It uses the determinant line of theorem-grade physical Y_e directly, so the uncentered lift is canonical rather than existential.",
+    "It does not close the P-driven charged absolute lane by itself."
+  ],
+  "proof_status": "closed_conditional_theorem_on_theorem_grade_physical_Y_e",
+  "public_promotion_allowed": false,
+  "scope_exclusions": [
+    "No theorem-grade landing from P to physical Y_e(P) is proved by this artifact.",
+    "No promotion C_hat_e^{cand} -> C_hat_e is proved by this artifact.",
+    "No claim about a public selected-class charged source descent is made."
+  ],
+  "theorem_id": "charged_physical_determinant_line_canonical_uncentered_lift",
+  "theorem_scope": "theorem_grade_physical_charged_class_only",
+  "theorem_statement": "Assume theorem-grade physical charged data Y_e on the declared physical surface and assume theorem-grade centered charged operator C_hat_e on that same surface. Define s_det(Y_e) := log(det(Y_e)), mu_phys(Y_e) := (1/3) * s_det(Y_e), and C_tilde_e(Y_e) := C_hat_e(Y_e) + mu_phys(Y_e) I. Then C_tilde_e(Y_e) is an admissible uncentered lift of C_hat_e(Y_e), the determinant-line section and affine anchor are canonically fixed by s_det(Y_e) = 3 * mu_phys(Y_e) and A_ch(Y_e) = mu_phys(Y_e), and for any refinement representatives r,r' of the same physical Y_e the induced identity-mode cocycle vanishes because mu(r) = mu(r') = mu_phys(Y_e). Therefore g_e(Y_e) = exp(mu_phys(Y_e)), Delta_e_abs(Y_e) = log(g_ch_shared) - mu_phys(Y_e), and the charged mass triple are algebraic descendants of theorem-grade physical Y_e."
+}

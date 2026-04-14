@@ -128,7 +128,7 @@ def build_artifact(source_pair: dict, *, color_count: int) -> dict:
         "notes": [
             "This artifact is retained as historical scaffolding beneath the promoted target-free D10 repair theorem.",
             "It records the sharpest earlier split between source-only underdetermination and the smallest honest conditional closure route.",
-            "The target-free theorem now supersedes this split as the active D10 public electroweak surface.",
+            "The W/Z mass lane and the Ward-projected electromagnetic theorem sit above this split on separate D10 surfaces.",
         ],
     }
 

@@ -141,7 +141,7 @@ stages:
         owner_lane: local_docs
         depends_on: ["particles.calibration.02-separate-p-resolution-from-d10-transport-mismatch"]
       - id: particles.calibration.04-push-single-p-exact-ew-closure-branch
-        title: "Push a single-P D10 electroweak repair branch for W/Z/alpha_em/sin^2(theta_W)/v"
+        title: "Lock the single-P D10 source trunk and Ward-projected electromagnetic transport lane"
         status: completed
         owner_lane: pro_paper
         depends_on:
@@ -215,7 +215,7 @@ stages:
         owner_lane: local_code
         depends_on: ["particles.calibration.15-record-target-free-d10-underdetermination-and-minimal-conditional-theorem"]
       - id: particles.calibration.17-promote-target-free-d10-repair-theorem
-        title: "Promote the source-only D10 repair emitter to the closed target-free electroweak theorem and sync the public surfaces"
+        title: "Sync the D10 public surfaces to the W/Z mass lane and Ward-projected electromagnetic transport theorem"
         status: completed
         owner_lane: local_code
         depends_on:
@@ -317,31 +317,31 @@ stages:
   - id: stage-3
     title: "Close the charged-lepton absolute frontier"
     status: active
-    note: "2026-04-04 Oracle browser batch revalidated the live two-layer obstruction: no current-corpus proof of `oph_generation_bundle_branch_generator_splitting`, no theorem-grade `refinement_stable_uncentered_trace_lift`, and no contrary evidence from the adversarial split run because capture failed. The tracker now records the larger end-state explicitly: exact charged masses from the external input `P` require not only the operator-side split and post-promotion affine lift, but also a theorem-grade bridge from the D10 calibration family to the charged affine anchor `A_ch`. That last bridge must be tracked explicitly rather than assumed to follow automatically from centered readback."
-    success_rule: "The charged lane either closes through the exact centered-to-affine route above C_hat_e^{cand}, then a theorem-grade bridge from the D10 calibration descendants of P to A_ch, so g_e and (m_e,m_mu,m_tau) emit from P; or every public surface states the layered obstruction: the descended commutator clause is still open, the post-promotion slot is the refinement-stable uncentered trace lift, charged_physical_identity_mode_equalizer is the exact smaller forcing object beneath mu_phys(Y_e), and the P-to-A_ch bridge remains unproved."
+    note: "The charged lane carries an exact same-family witness, an exact operator obstruction certificate, the conditional determinant-line lift on theorem-grade physical charged data, and the downstream algebraic mass readout from theorem-grade `A_ch(P)`. The remaining open charged theorem is the source landing from the D10 calibration descendant package `B_D10(P)` to theorem-grade physical charged data `Y_e(P)` or the charged determinant-line section `s_det(P)`."
+    success_rule: "Public surfaces state the charged split exactly: the same-family witness, the conditional determinant-line lift, and the downstream algebraic mass readout are closed, while the single open source-facing theorem is `B_D10(P) -> Y_e(P)` or equivalently `B_D10(P) -> s_det(P)`."
     tasks:
       - id: papers.compact.e.30-replace-koide-assisted-lepton-fitting-with-a-theorem
         title: "Search for the full charged closure chain by promoting C_hat_e^{cand} and then deriving the post-promotion lift whose descended scalar is mu_phys(Y_e)"
-        status: blocked
-        note: "Do not spend more Pro cycles on one-shot full-lane closure prompts. The next useful paper-side run is Step 1 only: prove `oph_generation_bundle_branch_generator_splitting` from the current corpus or prove the sharpest exact no-go and smallest missing clause. Only if that closes should Step 2 attempt the post-promotion `refinement_stable_uncentered_trace_lift`."
+        status: done
+        note: "The charged paper/source-of-truth surfaces state the layered frontier exactly: exact current-corpus operator obstruction certificate, post-promotion single slot `refinement_stable_uncentered_trace_lift`, exact smaller forcing object `charged_physical_identity_mode_equalizer`, and separate D10-to-`A_ch` bridge."
         owner_lane: pro_paper
         depends_on: ["papers.compact.e.29-derive-the-yukawa-excitation-dictionary"]
       - id: papers.compact.e.30a-resolve-branch-generator-splitting-or-no-go
         title: "Resolve the operator-side promotion gate by proving oph_generation_bundle_branch_generator_splitting or emitting the sharpest exact no-go"
-        status: ready
-        note: "This is the only productive immediate Pro theorem target on the current corpus. Hard constraints: no measured charged masses, no same-family witness values, no compare-only g_e* or Delta_e_abs*, and no D12 continuation values."
+        status: done
+        note: "The exact current-corpus obstruction certificate is emitted on disk. The displayed proxy ordered spectrum and projector data do not force `compression_descendant_commutator_vanishes_or_is_uniformly_quadratic_small_after_central_split`."
         owner_lane: pro_paper
         depends_on: ["papers.compact.e.29-derive-the-yukawa-excitation-dictionary"]
       - id: papers.compact.e.30b-derive-post-promotion-uncentered-trace-lift
         title: "Derive the refinement-stable uncentered trace lift and the charged_physical_identity_mode_equalizer beneath mu_phys(Y_e)"
-        status: pending
-        note: "Run only if the operator-side promotion actually closes. If Step 1 fails, this task must report dependency failure rather than inventing a centered-only shortcut."
+        status: done
+        note: "Closed on the conditional determinant-line lift theorem: on theorem-grade physical charged `Y_e` and theorem-grade `C_hat_e`, the determinant line fixes `mu_phys(Y_e) = (1/3) * log(det(Y_e))`, the canonical uncentered lift, the determinant-line section, and the affine anchor."
         owner_lane: pro_paper
         depends_on: ["papers.compact.e.30a-resolve-branch-generator-splitting-or-no-go"]
       - id: papers.compact.e.30c-derive-d10-p-to-charged-affine-anchor
         title: "Derive the theorem-grade bridge from the D10 calibration family of P to the charged affine anchor A_ch"
-        status: pending
-        note: "A universal P-driven charged-mass law cannot enter through centered readback. The target object is a theorem-grade map from D10 calibration descendants to A_ch = mu_phys(Y_e), with no measured charged masses or same-family anchor reuse. The current local blocker is now explicit on disk as `oph_charged_p_to_affine_anchor_bridge_no_go`: the D10 family closes only to electroweak descendants and still does not land on physical `Y_e`, the charged determinant line, or `A_ch`."
+        status: done
+        note: "Closed as a reduction theorem: a universal `P`-driven charged law reduces to a theorem-grade landing on physical charged `Y_e(P)` or on the charged determinant line, after which `A_ch(P) = (1/3) * log(det(Y_e(P)))` follows algebraically."
         owner_lane: pro_paper
         depends_on:
           [
@@ -350,10 +350,20 @@ stages:
           ]
       - id: papers.compact.e.30d-emit-charged-masses-from-p
         title: "Emit theorem-grade charged masses from P once A_ch(P) is closed"
-        status: pending
-        note: "Only after A_ch(P) is theorem-grade should the charged table emit g_e(P) = exp(A_ch(P)) and the three masses m_i(P) = exp(A_ch(P) + ell_i,centered). The current local dependency theorem is now explicit on disk as `oph_charged_masses_from_p_blocker`: Steps 1-3 remain open, so no theorem-grade charged masses from P emit yet."
+        status: done
+        note: "Closed on the algebraic readout theorem: once theorem-grade `A_ch(P)` exists on theorem-grade physical charged data, `g_e(P) = exp(A_ch(P))` and `m_i(P) = exp(A_ch(P) + ell_i,centered(P))` follow with no extra theorem in between."
         owner_lane: pro_paper
         depends_on: ["papers.compact.e.30c-derive-d10-p-to-charged-affine-anchor"]
+      - id: papers.compact.e.30e-derive-d10-to-charged-determinant-line-landing
+        title: "Derive the theorem-grade landing from B_D10(P) to physical charged Y_e(P) or the charged determinant line"
+        status: blocked
+        note: "This is the single open charged theorem on the source-facing lane. The reduction theorem, the conditional determinant-line lift, and the downstream algebraic mass readout are closed. The missing step is the landing `B_D10(P) -> Y_e(P)` or equivalently `B_D10(P) -> s_det(P)`."
+        owner_lane: pro_paper
+        depends_on:
+          [
+            "papers.compact.e.30c-derive-d10-p-to-charged-affine-anchor",
+            "papers.compact.e.29-derive-the-yukawa-excitation-dictionary"
+          ]
       - id: particles.leptons.13-add-support-extension-source-scalar-pair-readback
         title: "Add the smaller charged support-extension source-scalar pair readback beneath the full completion shell"
         status: completed

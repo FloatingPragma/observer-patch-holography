@@ -34,6 +34,9 @@ UNDERDETERMINATION_JSON = (
 ANCHOR_SECTION_JSON = ROOT / "particles" / "runs" / "leptons" / "charged_absolute_anchor_section.json"
 GENERATOR_JSON = ROOT / "particles" / "runs" / "flavor" / "generation_bundle_branch_generator.json"
 TRANSFER_JSON = ROOT / "particles" / "runs" / "flavor" / "charged_central_split_transfer_extension.json"
+SPLITTING_OBSTRUCTION_JSON = (
+    ROOT / "particles" / "runs" / "flavor" / "generation_bundle_branch_generator_splitting_obstruction.json"
+)
 ROUTE_JSON = ROOT / "particles" / "runs" / "leptons" / "charged_post_promotion_absolute_closure_route.json"
 DEFAULT_OUT = ROOT / "particles" / "runs" / "leptons" / "charged_end_to_end_impossibility_theorem.json"
 
@@ -53,6 +56,7 @@ def build_artifact(
     anchor_section: dict[str, Any],
     generator: dict[str, Any],
     transfer: dict[str, Any],
+    splitting_obstruction: dict[str, Any],
     route: dict[str, Any],
 ) -> dict[str, Any]:
     charged_candidate = dict(generator["charged_sector_response_operator_candidate"])
@@ -93,6 +97,13 @@ def build_artifact(
             "exact_missing_theorem": charged_candidate["declaration_missing_theorem"],
             "exact_missing_clause": charged_candidate["smallest_missing_clause"],
             "proof_gate": promotion_gate,
+            "exact_obstruction_certificate": {
+                "artifact": splitting_obstruction["artifact"],
+                "artifact_ref": "code/particles/runs/flavor/generation_bundle_branch_generator_splitting_obstruction.json",
+                "verdict": splitting_obstruction["verdict"],
+                "first_failed_implication": splitting_obstruction["first_failed_implication"],
+                "current_attached_data_obstruction": splitting_obstruction["current_attached_data_obstruction"],
+            },
             "theorem_grade_C_hat_e_available_now": False,
             "no_hidden_promotion_in_current_corpus": True,
             "why_not": (
@@ -169,6 +180,7 @@ def main() -> int:
     parser.add_argument("--anchor-section", default=str(ANCHOR_SECTION_JSON))
     parser.add_argument("--generator", default=str(GENERATOR_JSON))
     parser.add_argument("--transfer", default=str(TRANSFER_JSON))
+    parser.add_argument("--splitting-obstruction", default=str(SPLITTING_OBSTRUCTION_JSON))
     parser.add_argument("--route", default=str(ROUTE_JSON))
     parser.add_argument("--output", default=str(DEFAULT_OUT))
     args = parser.parse_args()
@@ -180,6 +192,7 @@ def main() -> int:
         _load_json(Path(args.anchor_section)),
         _load_json(Path(args.generator)),
         _load_json(Path(args.transfer)),
+        _load_json(Path(args.splitting_obstruction)),
         _load_json(Path(args.route)),
     )
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="720" height="700" viewBox="0 0 720 700" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="780" viewBox="0 0 720 780" role="img" aria-labelledby="title desc">
   <title id="title">OPH unification diagram</title>
-  <desc id="desc">A local unification surface linking the OPH pixel constant to gravity, Lorentz, electroweak, Higgs, and SI readout lanes.</desc>
+  <desc id="desc">A local unification surface linking the OPH pixel constant to gravity, the D10 electroweak source trunk, the Ward-projected fine-structure constant, the Higgs and top masses, and structural readout lanes.</desc>
 
   <defs>
     <marker id="uni-arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
@@ -27,7 +27,7 @@
     </linearGradient>
   </defs>
 
-  <rect width="720" height="700" rx="12" fill="hsl(220,20%,7%)" />
+  <rect width="720" height="780" rx="12" fill="hsl(220,20%,7%)" />
 
   <rect x="200" y="12" width="320" height="80" rx="12" fill="url(#uni-root-grad)" stroke="hsl(45,90%,55%)" stroke-width="2" />
   <text x="360" y="36" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold" fill="hsl(45,90%,75%)">PIXEL CONSTANT</text>
@@ -36,17 +36,18 @@
   <text x="360" y="84" text-anchor="middle" font-family="monospace" font-size="9" fill="hsl(45,60%,60%)">in Planck units (a_cell / ℓ²_P)</text>
 
   <line x1="360" y1="92" x2="360" y2="110" stroke="hsl(45,90%,55%)" stroke-width="2" marker-end="url(#uni-arrow)" />
-  <rect x="195" y="110" width="330" height="62" rx="8" fill="hsl(220,20%,12%)" stroke="hsl(45,60%,40%)" stroke-width="1.2" />
+  <rect x="170" y="110" width="380" height="74" rx="8" fill="hsl(220,20%,12%)" stroke="hsl(45,60%,40%)" stroke-width="1.2" />
   <text x="360" y="130" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="hsl(45,80%,70%)">COMMON DERIVATION CHAIN</text>
-  <text x="360" y="145" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(220,15%,65%)">P fixes the unified coupling α_U, which sets the</text>
-  <text x="360" y="157" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(220,15%,65%)">electroweak scale v = 246.8 GeV and the cell area a_cell</text>
+  <text x="360" y="145" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(220,15%,65%)">P fixes α_U, the transmutation pair (t_U, t_tr),</text>
+  <text x="360" y="157" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(220,15%,65%)">the electroweak scale v, the Ward-projected α lane,</text>
+  <text x="360" y="169" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(220,15%,65%)">and the cell area a_cell</text>
 
-  <line x1="360" y1="172" x2="360" y2="200" stroke="hsl(45,60%,40%)" stroke-width="1.5" />
-  <path d="M360,200 L180,200 L180,235" stroke="hsl(185,80%,55%)" stroke-width="2" fill="none" marker-end="url(#uni-arrow-cyan)" />
-  <path d="M360,200 L540,200 L540,235" stroke="hsl(140,60%,55%)" stroke-width="2" fill="none" marker-end="url(#uni-arrow-green)" />
+  <line x1="360" y1="184" x2="360" y2="212" stroke="hsl(45,60%,40%)" stroke-width="1.5" />
+  <path d="M360,212 L180,212 L180,235" stroke="hsl(185,80%,55%)" stroke-width="2" fill="none" marker-end="url(#uni-arrow-cyan)" />
+  <path d="M360,212 L540,212 L540,235" stroke="hsl(140,60%,55%)" stroke-width="2" fill="none" marker-end="url(#uni-arrow-green)" />
 
-  <rect x="285" y="191" width="150" height="20" rx="10" fill="hsl(220,20%,12%)" stroke="hsl(45,60%,45%)" stroke-width="1" />
-  <text x="360" y="205" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="hsl(45,80%,70%)">EDGE ENTROPY = P / 4</text>
+  <rect x="258" y="203" width="204" height="20" rx="10" fill="hsl(220,20%,12%)" stroke="hsl(45,60%,45%)" stroke-width="1" />
+  <text x="360" y="217" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="hsl(45,80%,70%)">P → α_U, t_U, t_tr, a_cell</text>
 
   <rect x="50" y="235" width="260" height="38" rx="8" fill="url(#uni-gravity-grad)" stroke="hsl(185,80%,55%)" stroke-width="1.5" />
   <text x="180" y="252" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="hsl(185,80%,80%)">GRAVITY BRANCH</text>
@@ -78,8 +79,8 @@
 
   <line x1="540" y1="273" x2="540" y2="295" stroke="hsl(140,60%,55%)" stroke-width="1.5" marker-end="url(#uni-arrow-green)" />
   <rect x="420" y="295" width="240" height="36" rx="6" fill="hsl(220,20%,10%)" stroke="hsl(140,35%,35%)" stroke-width="1" />
-  <text x="540" y="312" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="hsl(140,55%,65%)">Electroweak Calibration</text>
-  <text x="540" y="324" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(220,15%,55%)">coupling runs from α_U to electroweak scale</text>
+  <text x="540" y="312" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="hsl(140,55%,65%)">D10 Source Trunk</text>
+  <text x="540" y="324" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(220,15%,55%)">P → α_U → (t_U, t_tr) → v = 246.767 GeV</text>
 
   <line x1="540" y1="331" x2="540" y2="353" stroke="hsl(140,60%,55%)" stroke-width="1.5" marker-end="url(#uni-arrow-green)" />
   <rect x="415" y="353" width="250" height="56" rx="8" fill="hsl(140,50%,12%)" stroke="hsl(140,60%,55%)" stroke-width="2" />
@@ -88,23 +89,30 @@
   <text x="540" y="403" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="hsl(140,80%,82%)">Z Boson: 91.188 GeV</text>
 
   <line x1="540" y1="409" x2="540" y2="428" stroke="hsl(140,60%,55%)" stroke-width="1.5" marker-end="url(#uni-arrow-green)" />
-  <rect x="415" y="428" width="250" height="56" rx="8" fill="hsl(140,50%,12%)" stroke="hsl(140,60%,55%)" stroke-width="2" />
-  <text x="540" y="446" text-anchor="middle" font-family="monospace" font-size="9" fill="hsl(140,40%,60%)">Higgs and Top Quark masses</text>
-  <text x="540" y="462" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="hsl(140,80%,82%)">Higgs Boson: 125.219 GeV</text>
-  <text x="540" y="478" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="hsl(140,80%,82%)">Top Quark: 172.389 GeV</text>
+  <rect x="402" y="428" width="276" height="68" rx="8" fill="hsl(140,50%,12%)" stroke="hsl(140,60%,55%)" stroke-width="2" />
+  <text x="540" y="446" text-anchor="middle" font-family="monospace" font-size="9" fill="hsl(140,40%,60%)">Ward-projected electromagnetic transport</text>
+  <text x="540" y="463" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="hsl(140,80%,82%)">α⁻¹(m_Z²) = 128.30576920234813</text>
+  <text x="540" y="480" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="hsl(140,90%,85%)">α⁻¹(0) = 137.035999177</text>
+  <text x="540" y="492" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(220,15%,55%)">Thomson endpoint on the unbroken U(1)_Q lane</text>
 
-  <line x1="540" y1="484" x2="540" y2="503" stroke="hsl(140,40%,40%)" stroke-width="1" stroke-dasharray="4,3" />
-  <rect x="420" y="503" width="240" height="28" rx="5" fill="hsl(220,20%,9%)" stroke="hsl(140,30%,30%)" stroke-width="0.8" />
-  <text x="540" y="521" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(140,40%,55%)">remaining quarks · leptons · neutrinos</text>
+  <line x1="540" y1="496" x2="540" y2="515" stroke="hsl(140,60%,55%)" stroke-width="1.5" marker-end="url(#uni-arrow-green)" />
+  <rect x="415" y="515" width="250" height="56" rx="8" fill="hsl(140,50%,12%)" stroke="hsl(140,60%,55%)" stroke-width="2" />
+  <text x="540" y="533" text-anchor="middle" font-family="monospace" font-size="9" fill="hsl(140,40%,60%)">Higgs and Top Quark masses</text>
+  <text x="540" y="549" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="hsl(140,80%,82%)">Higgs Boson: 125.219 GeV</text>
+  <text x="540" y="565" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="hsl(140,80%,82%)">Top Quark: 172.389 GeV</text>
 
-  <line x1="360" y1="200" x2="360" y2="555" stroke="hsl(220,15%,25%)" stroke-width="1" stroke-dasharray="3,4" />
-  <rect x="170" y="555" width="380" height="90" rx="8" fill="hsl(220,20%,10%)" stroke="hsl(260,40%,45%)" stroke-width="1.5" />
-  <text x="360" y="573" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="hsl(260,50%,80%)">STRUCTURAL INVARIANTS</text>
-  <text x="360" y="588" text-anchor="middle" font-family="monospace" font-size="9" fill="hsl(260,30%,60%)">from Lorentz symmetry of the observer sphere</text>
-  <text x="360" y="605" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="hsl(260,40%,85%)">Speed of Light: c = 299,792,458 m/s</text>
-  <text x="360" y="622" text-anchor="middle" font-family="monospace" font-size="9" fill="hsl(260,30%,60%)">Structurally massless carriers:</text>
-  <text x="360" y="638" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="hsl(260,40%,85%)">Photon · Gluon · Graviton → mass = 0</text>
+  <line x1="540" y1="571" x2="540" y2="590" stroke="hsl(140,40%,40%)" stroke-width="1" stroke-dasharray="4,3" />
+  <rect x="420" y="590" width="240" height="28" rx="5" fill="hsl(220,20%,9%)" stroke="hsl(140,30%,30%)" stroke-width="0.8" />
+  <text x="540" y="608" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(140,40%,55%)">remaining quarks · leptons · neutrinos</text>
 
-  <rect x="60" y="660" width="600" height="22" rx="6" fill="hsl(45,80%,12%)" stroke="hsl(45,70%,40%)" stroke-width="1" />
-  <text x="360" y="675" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="hsl(45,90%,75%)">ONE INPUT (P) → GRAVITY + PARTICLE MASSES + STRUCTURAL CONSTANTS</text>
+  <line x1="360" y1="212" x2="360" y2="635" stroke="hsl(220,15%,25%)" stroke-width="1" stroke-dasharray="3,4" />
+  <rect x="170" y="635" width="380" height="90" rx="8" fill="hsl(220,20%,10%)" stroke="hsl(260,40%,45%)" stroke-width="1.5" />
+  <text x="360" y="653" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="hsl(260,50%,80%)">STRUCTURAL INVARIANTS</text>
+  <text x="360" y="668" text-anchor="middle" font-family="monospace" font-size="9" fill="hsl(260,30%,60%)">from Lorentz symmetry of the observer sphere</text>
+  <text x="360" y="685" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="hsl(260,40%,85%)">Speed of Light: c = 299,792,458 m/s</text>
+  <text x="360" y="702" text-anchor="middle" font-family="monospace" font-size="9" fill="hsl(260,30%,60%)">Structurally massless carriers:</text>
+  <text x="360" y="718" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="hsl(260,40%,85%)">Photon · Gluon · Graviton → mass = 0</text>
+
+  <rect x="48" y="740" width="624" height="22" rx="6" fill="hsl(45,80%,12%)" stroke="hsl(45,70%,40%)" stroke-width="1" />
+  <text x="360" y="755" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="hsl(45,90%,75%)">ONE INPUT (P) → G + α + MASS SPECTRUM + STRUCTURAL CONSTANTS</text>
 </svg>

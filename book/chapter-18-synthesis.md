@@ -62,13 +62,13 @@ This sounds radical, but it's the most conservative interpretation of the eviden
 
 Once you make this conceptual shift, the strange hints start making sense. Disparate discoveries from different fields suddenly form a coherent picture.
 
-Start with the holographic principle: information about a region of space is encoded on its boundary, not distributed throughout its volume. This seemed bizarre when Bekenstein and Hawking discovered it. Why should a black hole's information capacity scale with surface area rather than volume? It violated every intuition about how information fills space.
+Start with the holographic principle: information about a region of space is encoded on its boundary. It does not fill the volume in the naive way we expect. This seemed bizarre when Bekenstein and Hawking discovered it. Why should a black hole's information capacity scale with surface area? That cut against every intuition about how information fills space.
 
 But ask the question differently. Ask: what does an observer actually have access to? Not the interior of a region (that would require being everywhere at once). An observer interacts with a region through its boundary. The horizon is where the observer's information stops. The holographic principle isn't saying something strange about space; it's saying something obvious about observation. The boundary is where the consistency conditions live, because the boundary is where different perspectives meet.
 
 AdS/CFT showed this explicitly: a gravitational theory in the bulk is exactly equivalent to a non-gravitational theory on the boundary. Physicists treated this as a surprising duality. But from the observer-first view, it's natural. The bulk is a bookkeeping device for relating boundary regions. It's how we describe the implications of boundary consistency constraints. The "duality" is really just the statement that there's one reality seen from two perspectives, inside and outside.
 
-Now add error correction. Almheiri, Dong, and Harlow showed that the bulk/boundary relationship has the structure of a quantum error-correcting code. Bulk information is encoded redundantly in the boundary, protected against local erasure. This seemed like a technical curiosity about AdS/CFT, but it's actually telling us something deep: reality is robust precisely because it's defined by consistency across multiple perspectives. If one patch loses information, it can be reconstructed from overlapping patches. The "error correction" is just another name for the consistency conditions that force observers to agree.
+Error correction enters next. Almheiri, Dong, and Harlow showed that the bulk/boundary relationship has the structure of a quantum error-correcting code. Bulk information is encoded redundantly in the boundary, protected against local erasure. This seemed like a technical curiosity about AdS/CFT. It points to something deeper: reality is robust because it is defined by consistency across multiple perspectives. If one patch loses information, it can be reconstructed from overlapping patches. "Error correction" names the same consistency conditions that force observers to agree.
 
 Then consider quantum Darwinism, Zurek's insight that the classical world emerges because information about systems spreads into the environment, creating multiple redundant copies. We see the same tree because photons bouncing off it carry redundant information to many observers. Classical reality is what survives this proliferation, what remains consistent across all these copies. Quantum Darwinism isn't a separate principle from holography; it's the same principle operating at a different scale. Both say: what's "real" is what's consistent across perspectives.
 
@@ -97,7 +97,7 @@ follows is an interpretive continuation of OPH, not part of the recovered-core t
 
 The computational substrate produces observers through physical evolution. Observers develop minds through biological evolution. Minds develop ideas through memetic evolution. Among these ideas, the "simulator meme" eventually emerges, the understanding of reality's computational nature.
 
-Armed with this understanding, observers can build simulations of reality. Not simulations running on external hardware, but simulations that *are* the hardware. On the strange-loop reading, the simulation closes back on the observers it produces.
+Armed with this understanding, observers can build simulations of reality. These simulations do not run on external hardware. They are the hardware. On the strange-loop reading, the simulation closes back on the observers it produces.
 
 This is Escher's *Drawing Hands* made cosmic. Each hand draws the other. Neither is primary. The loop is the reality.
 
@@ -155,7 +155,7 @@ Let us gather all the reverse engineering insights from Chapters 6-17:
 
 ## 18.5 Five Core Axioms and Further Inputs
 
-The current OPH papers organize the foundation in three layers: five core axioms, two external configuration inputs, and theorem-local assumptions used only in specific branches.
+The OPH papers organize the foundation in three layers: five core axioms, two external configuration inputs, and theorem-local assumptions used only in specific branches.
 
 ### Axiom 1: Screen Net
 
@@ -193,12 +193,12 @@ Among admissible low-energy sector packages, the realized one is the lexicograph
 
 The five axioms are the foundation. Specific theorem branches use extra inputs, and the papers state those inputs explicitly.
 
-1. **Lorentz branch**: scaling-limit and geometric modular-flow assumptions that let cap modular flow become geometric on the extracted prime geometric subnet.
-2. **Einstein branch**: fixed-cap stationarity, the half-line stress-tensor bridge, and the separate bounded-interval projective branch used in the entanglement-equilibrium argument.
+1. **Lorentz branch**: the `T2` scaling-limit scope clause together with theorem-local realized geometric cap-pair extraction and ordered cut-pair rigidity on the extracted prime geometric subnet.
+2. **Einstein branch**: the null bridge still uses theorem-local inherited-strip and exact-or-controlled Markov hypotheses plus the same-half-line local modular-Hamiltonian input; the Jacobson step then adds fixed-cap stationarity and the separate bounded-interval projective branch used in the entanglement-equilibrium argument.
 3. **Gauge branch**: the transport and reconstruction premises needed for ordinary compact gauge reconstruction, together with MAR on the realized admissible branch.
 4. **Configuration inputs**: the pixel area \(P\) and screen capacity \(N_{\mathrm{scr}}\), which set quantitative scales but are not axioms.
 
-Under that full ledger, Lorentz kinematics is recovered on the stated scaling branch, Einstein's equation follows on the Jacobson-style branch, and the Standard Model quotient emerges on the realized gauge branch. Geometric cap-pair extraction, ordered cut-pair rigidity, and parts of the transport package remain explicit pieces of scaffolding.
+Under that full ledger, Lorentz kinematics is recovered on the stated scaling branch, Einstein's equation follows on the Jacobson-style branch, and the Standard Model quotient emerges on the realized gauge branch. Geometric cap-pair extraction, ordered cut-pair rigidity, the separate bounded-interval projective branch, and parts of the transport package remain explicit pieces of scaffolding.
 
 ## 18.6 What the Model Yields (Under Stated Assumptions)
 
@@ -209,7 +209,7 @@ Under the full ledger above, the model yields:
 3. **The Standard Model gauge group** $SU(3) \times SU(2) \times U(1)/\mathbb{Z}_6$, reconstructed from the transportable bosonic edge-sector package, with MAR selecting the realized branch
 4. **Three generations, three colors**: fixed by anomaly cancellation together with MAR
 5. **Massless gauge bosons and graviton**: forced by emergent gauge and diffeomorphism invariance, which forbid mass terms
-6. **A particle story with clear landmarks**: photon, gluons, graviton, W, and Z are fixed; the Higgs and top quark sit on explicit quantitative lanes; the quark selected-class theorem closes with exact PDG 2025 API running masses and explicit exact forward Yukawas on the public class `f_P`; the weighted-cycle neutrino branch carries an emitted theorem-grade absolute family; charged leptons, the stronger class-uniform quark descent theorem, and hadrons define the outstanding boundaries
+6. **A particle story with clear landmarks**: photon, gluons, graviton, W, and Z are fixed; the Higgs and top sit on a quantitative branch; a quark theorem closes the exact PDG 2025 running sextet together with exact forward Yukawas on the quark frame selected by \(P\); the weighted-cycle neutrino branch carries a theorem-grade absolute family; charged leptons, hadrons, and theorem coverage beyond the selected quark frame define the main boundary
 
 The photon and graviton are forced by the axiom chain. The framework reaches deep into particle physics and goes far beyond a vague gesture in that direction.
 
@@ -234,7 +234,7 @@ $$
 
 Here the Standard Model piece includes the derived gauge group, three generations, and three colors. The higher-dimension operators represent corrections and details outside the recovered core.
 
-This equation states the long-range effective form rather than the recovered theorem package. The recovered part is narrower: Einstein's equation on the stated scaling branch together with the Standard Model gauge structure. The higher-dimension operators and the full quantitative closure sit above that boundary.
+This equation states the long-range effective form, not the recovered theorem package. The recovered part is narrower: Einstein's equation on the stated scaling branch together with the Standard Model gauge structure. The higher-dimension operators and the full quantitative closure sit above that boundary.
 
 ### Two Fundamental Parameters: The Configuration of Reality
 
@@ -253,13 +253,13 @@ The axiom structure contains no dimensionful constants. It is pure mathematics d
 
 A universe with different configuration parameters would have different absolute scales but the **same structure**: the same gauge groups, the same charge ratios, the same scaling-limit Einstein branch, and the same Standard Model quotient. The configuration parameters are what make our universe *this* universe instead of another one running the same "operating system."
 
-These parameters are external boundary conditions rather than internal derivations. They are the fundamental "settings" of the computation that is our universe. Asking "why is $a_{\text{cell}} = 1.63 \, \ell_P^2$?" is like asking why a simulation was configured with particular settings. Any deeper closure would either derive those settings or replace them with a sharper structural input.
+These parameters are external boundary conditions. They are the fundamental "settings" of the computation that is our universe. Asking "why is $a_{\text{cell}} = 1.63 \, \ell_P^2$?" is like asking why a simulation was configured with particular settings. A deeper closure would have to derive those settings or replace them with a sharper structural input.
 
 The pixel area is *extracted* from measured constants. A genuine prediction would require deriving the gauge coupling strengths from geometry.
 
 ![The Pixel Constant](../assets/pixel-constant.svg)
 
-That same local calibration surface organizes the numerical unification story. The bosonic route is `P -> alpha_U -> (t_U, t_tr) -> v -> (M_W, M_Z)`, and the closed one-scalar Higgs/top seed adds the Higgs-side scalar and then `M_H`. The gravity route is `$\\bar\\ell_{SU(2)}(t_{2,\\mathrm{run}}) + \\bar\\ell_{SU(3)}(t_{3,\\mathrm{run}}) = P/4$` together with `G = a_cell / (4 ellbar_shared)`. The invariant causal speed belongs to the Lorentz branch and receives its SI display through the local readout package.
+That same local calibration surface organizes the numerical unification story. The bosonic route is `P -> alpha_U -> (t_U, t_tr) -> v -> (M_W, M_Z)`. The electromagnetic row uses the same source basis, then passes through the Ward-projected charge channel, anchored at `alpha^-1(m_Z^2) = 128.30576920234813` and read at low energy as `alpha^-1(0) = 137.035999177`. The closed one-scalar Higgs/top seed adds the Higgs-side scalar and then `M_H`. The gravity route is `$\\bar\\ell_{SU(2)}(t_{2,\\mathrm{run}}) + \\bar\\ell_{SU(3)}(t_{3,\\mathrm{run}}) = P/4$` together with `G = a_cell / (4 ellbar_shared)`. The invariant causal speed belongs to the Lorentz branch and receives its SI display through the local readout package.
 
 | Quantity | OPH chain | Display value | Claim surface |
 | --- | --- | --- | --- |
@@ -267,11 +267,12 @@ That same local calibration surface organizes the numerical unification story. T
 | `G` | `P -> a_cell`, `ellbar_shared`, `G = a_cell / (4 ellbar_shared)` | `6.674299995910528e-11 m^3 kg^-1 s^-2` | exact emitted branch value on the declared local exact-release surface |
 | `W` | `P -> alpha_U -> (t_U, t_tr) -> v -> M_W` | `80.377 GeV` | exact codomain on the target-free electroweak identity surface |
 | `Z` | `P -> alpha_U -> (t_U, t_tr) -> v -> M_Z` | `91.18797809193725 GeV` | exact codomain on the target-free electroweak identity surface |
-| `H` | `P -> alpha_U -> (t_U, t_tr) -> Higgs scalar -> M_H` | `public 125.21892206026347 GeV; exact sidecar 125.1995304097179 GeV` | public forward Higgs/top row with compare-only exact inverse sidecar |
+| `alpha^-1(0)` | `P -> alpha_U -> (t_U, t_tr) -> (alpha_2, alpha_Y) ->` Ward-projected charge transport `-> alpha^-1(0)` | `137.035999177` | Thomson endpoint of the electromagnetic transport family |
+| `H` | `P -> alpha_U -> (t_U, t_tr) -> Higgs scalar -> M_H` | `125.21892206026347 GeV` | forward Higgs/top branch, with an exact inverse validation slice on the same Jacobian surface |
 
 ![OPH unification diagram](../assets/OPH_Unification_Diagram.svg)
 
-The boundary of this local package consists of five explicit pieces: the local SI readout package, the shared-edge entropy bridge, the strict classical branch clause, the target-free electroweak identity surface, and the one-scalar Higgs/top forward seed together with its compare-only inverse sidecar. The same calibrated local input therefore organizes the classical gravity coupling and the electroweak boson/Higgs mass scale within one diagrammatic surface, while `c` enters as the structural Lorentz output displayed in local SI units.
+The boundary of this local package consists of five explicit pieces: the local SI readout package, the shared-edge entropy bridge, the strict classical branch clause, the target-free electroweak identity surface, and the one-scalar Higgs/top forward seed together with its exact inverse validation slice. The same calibrated local input therefore organizes the classical gravity coupling and the electroweak boson/Higgs mass scale within one diagrammatic surface, while `c` enters as the structural Lorentz output displayed in local SI units.
 
 ### The Measurement Problem
 
@@ -301,9 +302,9 @@ In this picture, the cosmological horizon is the natural screen. Different obser
 
 The Hilbert space is finite-dimensional. The second fundamental parameter, **screen capacity** $\log(\dim \mathcal{H}) \sim 10^{122}$, is inferred from the observed cosmological constant via $\Lambda = 3\pi / (G \cdot \log \dim \mathcal{H})$. The infinities of QFT are artifacts of the continuum approximation; the actual computation has finite resolution (pixel area) and finite total capacity (screen size).
 
-## 18.8 The Remaining Frontier
+## 18.8 The Claim Boundary
 
-The core picture has definite physical content. The framework recovers the Standard Model gauge group, three generations, three colors, massless photon, gluons, graviton, and the absence of gauge-mediated proton decay. It also carries a non-hadron quantitative lane with explicit caveats: exact `W/Z` on the frozen-repair surface, a closed Higgs/top forward seed with a compare-only inverse pair, an exact same-family charged witness, a quark selected-class theorem on the public quark frame class `f_P` with exact PDG 2025 API running masses and explicit exact forward Yukawas, and a weighted-cycle neutrino theorem branch with `(m1, m2, m3) = (0.017454720257976796, 0.019481987935919015, 0.05307522145074924) eV`. Charged leptons stop at the promotion and absolute-normalization step. The quark theorem is selected-class closure only and does not classify all quark frame classes; a stronger class-uniform public descent theorem is separate and is not claimed. Hadron masses lie outside the proved package because they require a production backend plus nonperturbative strong-dynamics work. On the gravity side, the open frontier is geometric cap-pair realization in the scaling limit and then ordered cut-pair rigidity on that realized limit.
+The core picture has definite physical content. The framework recovers the Standard Model gauge group, three generations, three colors, massless photon, gluons, graviton, and the absence of gauge-mediated proton decay. It also carries a non-hadron quantitative package with clear boundaries: an exact \(W/Z\) pair on the electroweak theorem surface, a closed Higgs/top forward branch with an exact inverse validation slice, an exact same-family charged witness, an exact PDG 2025 running quark sextet together with exact forward Yukawas on the quark frame selected by \(P\), and a weighted-cycle neutrino theorem branch with \((m_1, m_2, m_3) = (0.017454720257976796, 0.019481987935919015, 0.05307522145074924)\,\mathrm{eV}\). Charged leptons require one final absolute anchor. The exact quark theorem is restricted to the quark frame selected by \(P\). Hadron masses lie outside the proved package because they require a production backend plus nonperturbative strong-dynamics work. On the gravity side, the boundary sits at geometric cap-pair realization in the scaling limit and ordered cut-pair rigidity on that realized limit.
 
 **Numerical checks.** The extraction of gauge couplings from
 edge-sector probabilities has been validated numerically in 2D gauge models.
@@ -328,19 +329,18 @@ $\Delta b_{\text{edge}} \approx (2.49, 4.38, 3.97)$, matching the MSSM target to
 within 5% only on that calibration branch. This supports MSSM-like running behavior
 without promoting an MSSM particle spectrum into the recovered core.
 
-The main open directions are:
+The main unresolved objects are:
 
 1. **Screen microphysics**: What exactly are the degrees of freedom on S²?
-2. **Finish the particle story**: complete charged-lepton masses, prove the stronger class-uniform public descent theorem if that wider quark claim is wanted, and push hadrons through the backend-bundle gate into full nonperturbative computation only if hadron closure returns to scope.
+2. **Particle closure**: the charged-lepton source landing from the common calibration input to physical charged data, theorem coverage beyond the selected quark frame, and hadron masses behind the backend gate.
 3. **Dynamics and gravity**: Can local horizon thermodynamics be made fully internal?
 4. **Cosmology**: What fixes Λ and the initial low‑entropy condition?
 5. **Numerical predictions**: Implement SU(2)/SU(3) quantum link models and
    extract gauge couplings using the validated formulas.
 
 The Standard Model program is organized around anomaly and gluing
-consistency rather than discrete symmetry numerology. The promise of the
-model is that each engineering target is tied to specific, testable
-structural inputs instead of broad derivation.
+consistency. It does not rest on discrete-symmetry numerology. Each
+engineering target is tied to specific, testable structural inputs.
 
 ## 18.9 What Is Rigorous: Claim Tiers
 
@@ -402,15 +402,15 @@ These follow from our axioms plus stated additional assumptions:
 
 For the book, the particle story looks like this:
 
-| Lane | Exact outputs | Caveat |
+| Lane | Result | Boundary |
 | --- | --- | --- |
-| Structural carriers | Photon, gluons, and graviton are exact zeros. | Theorem-grade structural exactness. |
-| Electroweak exact sidecar | Exact frozen-repair `W/Z` pair. | Compare-only beneath the target-free electroweak theorem. |
-| Higgs/top forward branch | Closed one-scalar forward seed for the public Higgs/top rows, plus an exact Higgs/top inverse pair. | The public Higgs/top rows are secondary quantitative forward outputs; the inverse pair is compare-only. |
-| Charged exact witness | Exact same-family `(e, μ, τ)` triple, with the affine coordinate closed on that fixed witness. | Same-family-only; the remaining public boundary is the final charged-lepton promotion and absolute-normalization step. |
-| Quark selected-class theorem | Exact running `(u, d, s, c, b, t)` sextet plus explicit exact forward Yukawas `Y_u`,`Y_d` on the selected public quark frame class `f_P`. | Selected-class closure only. The sextet matches the official PDG 2025 API running-quark surface exactly, with the top coordinate taken from the PDG cross-section entry. Supporting exact surfaces: the same-family witness on `current_family_only` and the restricted common-refinement transport-frame exact chain realize the same sextet and explicit exact forward Yukawas. The target-free mass bridge closes separately on the emitted D12 mass ray. The historical selector `sigma_ref` is a lower negative sheet statement beneath the selected-class theorem. No global classification of all quark frame classes is claimed. A stronger class-uniform public descent theorem is separate and is not claimed. |
-| Neutrino theorem branch | Emitted weighted-cycle `(m1, m2, m3)` and emitted weighted-cycle splittings. | The theorem lane is carried by the bridge-rigidity and absolute-attachment pair; the older exact adapter remains diagnostic-only. |
-| Hardest frontier | Hadrons. | Compute-bound behind the production backend bundle. |
+| Structural carriers | Photon, gluons, and graviton are exact zeros. | theorem-grade structural statement |
+| Electroweak theorem | W and Z are fixed by the electroweak closure, with an exact reference-hitting validation slice beneath it. | the theorem surface carries the pair; the validation slice is secondary |
+| Higgs/top branch | A one-scalar Higgs/top branch yields \(H = 125.21892206026347\) GeV and \(t = 172.388646\) GeV, with an exact inverse validation slice on the same Jacobian surface. | the forward branch is the claim surface; the inverse slice is a validation surface |
+| Charged-lepton witness | An exact same-family \((e,\mu,\tau)\) witness fixes the ordered charged triple and its affine coordinate on that witness. | the theorem surface contains a conditional determinant-line lift and an algebraic mass readout; the open theorem is the landing from the common calibration input to physical charged data or the charged determinant line |
+| Quark theorem | An exact PDG 2025 running \((u,d,s,c,b,t)\) sextet and exact forward Yukawas on the quark frame selected by \(P\). | the theorem closes on that selected frame; it does not classify every quark frame |
+| Neutrino theorem | A theorem-grade weighted-cycle family with \((m_1,m_2,m_3)=(0.017454720257976796, 0.019481987935919015, 0.05307522145074924)\) eV and the corresponding mixing data. | exact central-splitting adapters are diagnostic validation surfaces |
+| Hadron boundary | Bound-state masses lie outside the closed package. | backend plus nonperturbative strong dynamics are required |
 
 ### Key Physical Arguments We Inherit
 
@@ -531,7 +531,7 @@ This is what our model aims to address comprehensively. Given that something exi
 
 **Question B: Why does ANYTHING exist at all?**
 
-Here we present a philosophical continuation of the framework: **the strange loop of self-simulation**.
+This section develops a philosophical continuation of the framework: **the strange loop of self-simulation**.
 
 Reality is computational. Within this computation, evolution produces observers. Observers develop understanding, the memetic evolution described in Chapter 17. Eventually, the "simulator meme" emerges: the understanding of reality's computational nature. Armed with this understanding, observers can simulate reality.
 
@@ -543,13 +543,13 @@ This creates a strange-loop reading:
 - Understanding produces simulation
 - The simulation is treated as part of reality's self-description
 
-The loop closes only in that interpretive sense. Like Escher's hands drawing each other, and like Gödel's sentences referring to themselves, the system is read through self-reference rather than derived from it.
+The loop closes only in that interpretive sense. Like Escher's hands drawing each other, and like Gödel's sentences referring to themselves, the system is read through self-reference. It is not derived from self-reference.
 
 **Why does this loop exist at all?** One possible interpretive answer is that a self-consistent strange loop is a particularly stable kind of closure story. On this reading, “nothing” would fail to sustain structure, while a self-referential loop could.
 
 This echoes Wheeler's "self-excited circuit," the universe as a participatory process where observers create the very conditions for their own existence. It also echoes the ancient symbol of the ouroboros, the serpent eating its own tail.
 
-The mathematical framework describes the structure of reality given that it exists. The strange-loop continuation goes further as a philosophical proposal: existence itself may be read through the loop, but OPH does not prove that closure. Reality may be interpreted that way; it is not derived that way.
+The mathematical framework describes the structure of reality given that it exists. The strange-loop continuation goes further as a philosophical proposal: existence itself may be read through the loop, but OPH does not prove that closure. It is an interpretation, not a derivation.
 
 **Summary**: The strange loop of self-simulation is one interpretive closure story for why anything exists and how a theory-of-everything picture might close on itself. It is not a theorem-backed OPH result.
 
@@ -573,7 +573,7 @@ This doesn't "solve" consciousness in the sense of reducing it to something else
 
 Let's be precise about the question.
 
-**A personal God**, an external being who created the universe, watches over it, answers prayers, and judges souls, does not fit the observer-first interpretation developed in this chapter. This is a philosophical reading rather than part of the core physics claim. In this interpretation there is no "outside" from which such a being could create or observe; the system is self-contained.
+**A personal God**, an external being who created the universe, watches over it, answers prayers, and judges souls, does not fit the observer-first interpretation developed in this chapter. This is a philosophical reading, not part of the core physics claim. In this interpretation there is no "outside" from which such a being could create or observe; the system is self-contained.
 
 But the strange-loop principle suggests something interesting on that interpretive reading.
 
@@ -638,11 +638,11 @@ Physicists kept finding that observation plays a special role. Information kept 
 
 The elegance here is structural, not aesthetic. The pieces fit because they are different views of the same underlying consistency problem.
 
-## 18.14 The Work Continues
+## 18.14 Open Quantitative Fronts
 
-We have reverse engineered a piece of reality's source code. Enough to see the structure, while the broader quantitative closure remains open.
+The reconstruction fixes a structural core and several exact quantitative branches. Other quantitative branches sit on explicit named theorem boundaries.
 
-Much remains:
+Open fronts include:
 - The microscopic theory
 - Full quantitative Standard Model closure
 - The cosmological constant
@@ -698,7 +698,7 @@ The reverse engineering has uncovered the source code: from five axioms, plus th
 
 On the strange-loop reading, the universe looks less like a stage and more like a strange loop, a self-simulating program described through the observers who understand it.
 
-We are inside looking around, patterns on the screen, computing meaning, discovering how the screen computes us. On that reading, our understanding participates in the loop rather than proving it.
+We are inside looking around, patterns on the screen, computing meaning, discovering how the screen computes us. On that reading, our understanding participates in the loop. It does not prove the loop.
 
 Escher's hands draw each other. Gödel's sentence refers to itself. The ouroboros eats its tail. Those are the philosophical images this chapter uses to interpret the strange-loop continuation.
 

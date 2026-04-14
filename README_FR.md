@@ -27,7 +27,7 @@ Sur la surface publique des constantes, `hbar` et `k_B` restent dans cette couch
   </a>
 </p>
 
-Les constantes, chaînes de théorèmes et fronts de preuve ouverts pour cette surface sont suivis dans [extra/OPH_PHYSICS_CONSTANTS.md](extra/OPH_PHYSICS_CONSTANTS.md).
+Les surfaces de statut pour les particules dans ce dépôt sont [code/particles/RESULTS_STATUS.md](code/particles/RESULTS_STATUS.md) et [code/particles/EXACT_NONHADRON_MASSES.md](code/particles/EXACT_NONHADRON_MASSES.md).
 
 **Pile générale des théorèmes et dérivations**
 
@@ -39,29 +39,45 @@ Les constantes, chaînes de théorèmes et fronts de preuve ouverts pour cette s
 
 <p align="center"><sub>La pile OPH complète, des axiomes jusqu'à la relativité, la structure de jauge, les particules, les observateurs et les fronts encore ouverts. Cliquez pour ouvrir le SVG complet.</sub></p>
 
-## Points forts côté particules
+## Dérivations précises
 
-### Résultats théorématiques et structurels
+Ce tableau condensé ne garde que les lignes OPH avec égalité exacte, accord en sigma publié ou
+respect clair d'une borne supérieure par rapport aux valeurs de référence PDG/NIST utilisées dans
+les papiers. Les résultats structurels comme la branche lorentzienne `3+1D`, le quotient de jauge
+du Modèle Standard `SU(3) x SU(2) x U(1) / Z_6`, le réseau exact des hypercharges et la chaîne de
+comptage `N_g = 3`, `N_c = 3` sont énoncés dans les papiers et ne sont pas répétés ici. La voie
+bosonique `W/Z/H` appartient à la branche de calibration de phase II; elle est donc discutée dans
+les papiers mais omise de ce tableau rapide.
 
-- Zéros structurels exacts pour le photon, les gluons et le graviton.
-- Sortie électrofaible sur la branche de calibration target-free, avec lignes publiques `W/Z` fermées et paire gelée exacte utilisée seulement comme validation compare-only
-  `W = 80.377 GeV`, `Z = 91.18797809193725 GeV`.
-- Étage quantitatif Higgs/top en aval du coeur électrofaible, avec une graine forward scalaire unique fermée qui porte les lignes publiques
-  `H = 125.218922 GeV`, `t = 172.388646 GeV`.
+| Quantité | Symbole | OPH | PDG/NIST | Δ |
+| --- | --- | --- | --- | --- |
+| Constante gravitationnelle | G | 6.6742999959e-11 | 6.67430(15)e-11 | 0.00003σ |
+| Vitesse de la lumière | c | 299792458 | 299792458 (exact) | match |
+| Structure fine (inv.) | α⁻¹(0) | 137.035999177 | 137.035999177(21) | match |
+| Masse du photon | m_γ | 0 eV | <1e-18 eV | sous la borne |
+| Masse du gluon | m_g | 0 GeV | 0 GeV | match |
+| Masse du graviton | m_grav | 0 eV | <1.76e-23 eV | sous la borne |
 
-### Surface exacte non hadronique
+**Secteur des quarks**
 
-| Voie | Sortie exacte | Note de statut |
-| --- | --- | --- |
-| Porteurs structurels | `m_photon = m_gluon = m_graviton = 0` | exactitude structurelle de rang théorème |
-| Sidecar électrofaible | `W = 80.377 GeV`, `Z = 91.18797809193725 GeV` | surface de réparation gelée exacte |
-| Sidecar exact Higgs/top | `(H, t) = (125.1995304097179, 172.3523553288311) GeV` | tranche inverse exacte mais compare-only sur le même Jacobien Higgs/top |
-| Témoin chargé | `(e, mu, tau) = (0.00051099895, 0.1056583755, 1.7769324651340912) GeV` | témoin exact sur une chaîne de lecture quadratique fermée à trois points |
-| Témoin quark | `(u, d, s, c, b, t) = (0.00216, 0.00470, 0.0935, 1.273, 4.183, 172.3523553288311) GeV` | coïncidence exacte avec la surface API PDG 2025 des masses courantes de quarks sur `current_family_only` ; la classe publique physique de quarks sélectionnée par `P` porte le même sextet exact avec les Yukawas forward exactes `Y_u`, `Y_d` ; le pont de masse target-free se ferme séparément sur le rayon D12 émis ; ancre de synchronisation papier/surfaces source pour le théorème de descente sur classe sélectionnée : [#198](https://github.com/FloatingPragma/observer-patch-holography/issues/198) |
-| Branche théorème neutrino | `(m1, m2, m3) = (0.017454720257976796, 0.019481987935919015, 0.05307522145074924) eV` avec `Δm21²`, `Δm31²`, `Δm32²` émis sur la branche à cycle pondéré | famille absolue à cycle pondéré de rang théorème |
+| Quark | Symbole | OPH | PDG | Δ |
+| --- | --- | --- | --- | --- |
+| Bottom | m_b(m_b) | 4.183 GeV | 4.183 ± 0.007 | match |
+| Charm | m_c(m_c) | 1.273 GeV | 1.2730 ± 0.0046 | match |
+| Strange | m_s(2 GeV) | 93.5 MeV | 93.5 ± 0.8 | match |
+| Down | m_d(2 GeV) | 4.70 MeV | 4.70 ± 0.07 | match |
+| Up | m_u(2 GeV) | 2.16 MeV | 2.16 ± 0.07 | match |
 
-Les lignes publiques Higgs/top sont portées par la graine forward scalaire unique fermée. La paire inverse exacte ci-dessus reste un sidecar compare-only sur le même Jacobien et ne remplace pas la branche forward publique.
-La voie quark porte quatre surfaces liées : le sextet exact `current_family_only`, qui coïncide exactement avec la surface API PDG 2025 des masses courantes de quarks ; une fermeture restreinte sur la trame de transport à raffinement commun qui émet un élément sectoriellement attaché de `Sigma_ud^phys`, reconstruit le même sextet et ferme des Yukawas forward exactes `Y_u` et `Y_d` sur ce support ; le pont de masse target-free `Delta_ud^overlap = (1/6) log(c_d / c_u)` sur le rayon D12 émis ; et la classe publique physique de quarks sélectionnée par `P`. Sur cette classe publique sélectionnée, le théorème direct de descente publique rend la donnée sigma physique exacte target-free publique, la loi de moyenne affine émet `(g_u, g_d)` algébriquement, la lecture quadratique à trois points émet le sextet exact, et la construction forward exacte émet des Yukawas forward explicites `Y_u` et `Y_d`. Cette fermeture vaut sur classe sélectionnée seulement. Elle ne revendique pas une classification globale de toutes les classes de trames de quarks. La coordonnée top du sextet utilise l'entrée de masse top par section efficace de la PDG 2025, et non l'entrée auxiliaire issue de la mesure directe. Ancre de synchronisation papier/surfaces source : [#198](https://github.com/FloatingPragma/observer-patch-holography/issues/198).
+`Δ` donne l'écart en sigma lorsque le PDG ou le NIST publie une incertitude à un sigma. Sinon, il
+indique `match` ou `sous la borne`.
+
+Pour les quarks, le PDG utilise ses conventions standard : `u`, `d` et `s` à `2 GeV`, et `c` et
+`b` dans le schéma `MS` à leur propre échelle de masse.
+Les papiers contiennent aussi les dérivations structurelles du Modèle Standard listées plus haut
+ainsi qu'une famille neutrino de rang théorème, qui n'apparaissent pas dans ce tableau faute de
+ligne de comparaison PDG/NIST directe à un seul nombre.
+
+Le secteur des leptons chargés suit une frontière plus nette. Le dépôt contient un témoin exact sur une même famille, un relèvement conditionnel de la ligne déterminant sur les données chargées physiques, puis une lecture algébrique des masses à partir de l'échelle absolue chargée de rang théorème. Le théorème ouvert est l'atterrissage de l'entrée de calibration commune `P` sur les données chargées physiques ou sur la ligne déterminant chargée.
 
 **Pile de dérivation des particules**
 
@@ -72,15 +88,6 @@ La voie quark porte quatre surfaces liées : le sextet exact `current_family_onl
 </p>
 
 <p align="center"><sub>Vue compacte de la voie particules. Cliquez pour ouvrir le SVG complet.</sub></p>
-
-### Surfaces particules complémentaires
-
-- La voie quark se ferme sur la classe publique physique de quarks sélectionnée par `P`, avec le sextet exact PDG 2025 et les Yukawas forward exactes `Y_u`, `Y_d` ; ancre d'issue : [#198](https://github.com/FloatingPragma/observer-patch-holography/issues/198).
-- La branche neutrino à cycle pondéré atteint le régime PMNS et hiérarchie observé avec
-  `theta12 = 34.2259°`, `theta23 = 49.7228°`, `theta13 = 8.68636°`, `delta = 305.581°`,
-  et `Δm21² / Δm32² = 0.03072111`.
-- La surface exacte non hadronique est regroupée dans
-  [code/particles/EXACT_NONHADRON_MASSES.md](code/particles/EXACT_NONHADRON_MASSES.md).
 
 ## Articles
 

@@ -52,11 +52,14 @@ The live D10 split is now explicit:
 - strongest strictly smaller constructive primitive beneath that broader frontier:
   `EWSinglePostTransportTreeIdentity_D10`
 
-So the current carrier is no longer treated as the whole D10 story. It closes
-its own exact chart, while the active public electroweak surface is now the
-closed target-free source-only repair theorem above that carrier. The older
-repair-branch artifacts remain on disk as historical scaffolding and validation
-layers, not as the active public theorem surface.
+So the current carrier is not treated as the whole D10 story. It closes its own
+exact chart, the W/Z mass lane is carried by the closed target-free source-only
+mass theorem above that carrier, and the electromagnetic row is read on the
+Ward-projected `U(1)_Q` transport family anchored at
+`alpha_em^-1(m_Z^2)=128.30576920234813` with Thomson endpoint
+`alpha^-1(0)=137.035999177`. The older repair-branch artifacts stay on disk as
+scaffolding and validation layers rather than as the public electromagnetic
+theorem.
 
 ## Commands
 

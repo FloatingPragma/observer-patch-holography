@@ -227,17 +227,17 @@
     "stricter_still_open_object": "EWTargetFreeRepairValueLaw_D10",
     "target_free_predictive_emission_closed": false
   },
-  "generated_utc": "2026-04-03T04:42:53Z",
+  "generated_utc": "2026-04-13T06:31:20Z",
   "notes": [
     "This audit computes a purely inverse reference-W/Z slice for diagnosis only; that slice is not a predictive artifact and is not emitted by the live D10 source-pair builder.",
     "Any coherent family matching those reference W/Z values forces sin2(theta_W) = 1 - (MW/MZ)^2, so the current mixed reference surface cannot be hit exactly by one simple tree-level family.",
     "On the fixed-eta current family, the reference W and Z masses already point to nearly the same sigma_EW, but that sigma_EW is incompatible with the running alpha_em^-1 target and the running sin^2(theta_W) target is not even admissible on that one-parameter slice.",
-    "The carrier-level selector, split exact-closure law, fiberwise tree law, exact current-carrier mass chart, freeze-once coherent repair law, and target-free source-only repair theorem are all closed. Exact public W/Z now come from the target-free theorem, while the frozen authoritative repair surface is retained only as compare-only validation.",
-    "The broader D10 geometry is historically the repair branch beyond the present current carrier. That branch remains explicit, but the public electroweak theorem surface is now the target-free source-only repair law.",
+    "The carrier-level selector, split exact-closure law, fiberwise tree law, exact current-carrier mass chart, freeze-once coherent repair law, and target-free source-only repair theorem are all closed. The W/Z mass lane comes from the target-free theorem, the frozen authoritative repair surface is compare-only validation, and the fine-structure constant is read separately on the Ward-projected U(1)_Q transport family.",
+    "The broader D10 geometry is the repair branch beyond the present current carrier. That branch remains explicit, the W/Z mass lane uses the target-free source-only repair law, and the electromagnetic readout sits on the Ward-projected U(1)_Q transport family.",
     "The forward transmutation certificate now records the non-circular P -> alpha_U -> t map explicitly and separates the calibration beta_ratio_EW from the transmutation counting factor beta_transmutation_EW = N_c + 1.",
     "The current-carrier exact pair remains a distinct object from the public repaired pair; they should not be conflated in audits or status surfaces.",
     "No stricter D10 electroweak mass-side theorem object remains open on the active Phase II calibration surface.",
-    "The earlier source-only D10 split is retained historically on disk: the underdetermination theorem, the minimal conditional route through ColorBalancedQuadraticRepairDescent_D10, and the former candidate EWTargetEmitter_D10 all sit beneath the promoted target-free theorem."
+    "The source-only underdetermination theorem, the minimal conditional route through ColorBalancedQuadraticRepairDescent_D10, and the former candidate EWTargetEmitter_D10 all sit beneath the target-free mass-side theorem; they do not define the public electromagnetic readout."
   ],
   "reference_inputs": {
     "MW_pole_gev": 80.377,

@@ -16,6 +16,7 @@ from typing import Any
 
 from charged_absolute_route_common import (
     ANCHOR_SECTION_JSON,
+    P_TO_AFFINE_REDUCTION_JSON,
     POST_PROMOTION_ROUTE_JSON,
     artifact_ref,
     load_json,
@@ -42,6 +43,7 @@ def build_artifact(
     d10_repair: dict[str, Any],
     anchor: dict[str, Any],
     post_promotion_route: dict[str, Any],
+    reduction: dict[str, Any],
 ) -> dict[str, Any]:
     forward_theorem = _as_dict(d10_forward, "theorem")
     repair_theorem = _as_dict(d10_repair, "theorem")
@@ -114,6 +116,9 @@ def build_artifact(
                 "one theorem-grade map from the D10 calibration descendants of P to the charged determinant "
                 "line, or to a smaller intermediate object that canonically forces A_ch(P)"
             ),
+            "exact_reduction_artifact": reduction.get("artifact"),
+            "exact_reduction_artifact_ref": artifact_ref(P_TO_AFFINE_REDUCTION_JSON),
+            "exact_smallest_bridge_target": reduction.get("exact_smallest_bridge_target", {}).get("id"),
             "admissible_landings": [
                 "theorem_grade_physical_Y_e(P)",
                 "charged_determinant_line_section(P)",
@@ -151,6 +156,7 @@ def main() -> int:
     parser.add_argument("--d10-repair", default=str(D10_REPAIR_JSON))
     parser.add_argument("--anchor-section", default=str(ANCHOR_SECTION_JSON))
     parser.add_argument("--post-promotion-route", default=str(POST_PROMOTION_ROUTE_JSON))
+    parser.add_argument("--reduction", default=str(P_TO_AFFINE_REDUCTION_JSON))
     parser.add_argument("--output", default=str(DEFAULT_OUT))
     args = parser.parse_args()
 
@@ -159,6 +165,7 @@ def main() -> int:
         load_json(Path(args.d10_repair)),
         load_json(Path(args.anchor_section)),
         load_json(Path(args.post_promotion_route)),
+        load_json(Path(args.reduction)),
     )
 
     out_path = Path(args.output)

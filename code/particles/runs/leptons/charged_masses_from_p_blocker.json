@@ -10,6 +10,13 @@
     "artifact_ref": "code/particles/runs/leptons/charged_p_to_affine_anchor_bridge_no_go.json",
     "verdict": "no_current_corpus_P_to_A_ch_bridge"
   },
+  "bridge_reduction_artifact": {
+    "P_threaded_reformulation_id": "d10_selected_charged_source_exactness_forces_physical_affine_scalar_mu",
+    "artifact": "oph_charged_p_to_affine_anchor_reduction",
+    "artifact_ref": "code/particles/runs/leptons/charged_p_to_affine_anchor_reduction.json",
+    "exact_smallest_bridge_target": "d10_to_charged_determinant_line_bridge",
+    "reduction_theorem_id": "charged_P_to_A_ch_reduces_to_determinant_line_bridge"
+  },
   "current_forbidden_outputs": [
     "A_ch(P)",
     "g_e(P)",
@@ -30,16 +37,19 @@
       "id": "refinement_stable_uncentered_trace_lift"
     },
     {
-      "effect_on_fill": "theorem_grade_A_ch(P)",
+      "P_threaded_reformulation": "d10_selected_charged_source_exactness_forces_physical_affine_scalar_mu",
+      "effect_on_fill": "theorem_grade_charged_determinant_line_section(P)_then_A_ch(P)",
+      "exact_smallest_bridge_target": "d10_to_charged_determinant_line_bridge",
       "id": "d10_to_charged_affine_anchor_bridge",
       "smallest_honest_contract": "one theorem-grade map from the D10 calibration descendants of P to the charged determinant line, or to a smaller intermediate object that canonically forces A_ch(P)"
     }
   ],
-  "generated_utc": "2026-04-04T04:02:26Z",
+  "generated_utc": "2026-04-14T04:13:24Z",
   "notes": [
     "This is a dependency theorem, not a numerical mismatch report.",
     "It isolates exactly what remains before any public charged table can emit masses from P.",
-    "The symbolic formulas are already known; what is missing is the theorem-grade production of A_ch(P)."
+    "The symbolic formulas are already known; what is missing is the theorem-grade production of A_ch(P).",
+    "The charged P-bridge can be phrased more sharply as theorem-grade source landing on physical Y_e(P), after which the affine scalar follows from the physical descent package."
   ],
   "public_promotion_allowed": false,
   "status": "dependency_blocker_certificate",

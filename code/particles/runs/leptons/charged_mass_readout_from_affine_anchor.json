@@ -1,0 +1,53 @@
+{
+  "artifact": "oph_charged_mass_readout_from_affine_anchor",
+  "dependencies": {
+    "absolute_anchor_section": {
+      "artifact": "oph_charged_absolute_anchor_section",
+      "artifact_ref": "code/particles/runs/leptons/charged_absolute_anchor_section.json",
+      "exact_missing_object": "charged_absolute_anchor_A_ch",
+      "induced_formula_on_fill": "A_ch = (1/3) * log(det(Y_e)) = (1/3) * tr(log Y_e)"
+    },
+    "canonical_lift": {
+      "artifact": "oph_charged_physical_determinant_line_canonical_uncentered_lift",
+      "artifact_ref": "code/particles/runs/leptons/charged_physical_determinant_line_canonical_uncentered_lift.json",
+      "theorem_id": "charged_physical_determinant_line_canonical_uncentered_lift"
+    },
+    "physical_class_reduction": {
+      "artifact": "oph_charged_physical_class_affine_scalar_reduction",
+      "artifact_ref": "code/particles/runs/leptons/charged_physical_class_affine_scalar_reduction.json",
+      "theorem_id": "charged_physical_class_affine_scalar_reduction"
+    }
+  },
+  "exact_readout": {
+    "absolute_gap": "Delta_e_abs(P) = log(g_ch_shared) - A_ch(P)",
+    "absolute_scale": "g_e(P) = exp(A_ch(P))",
+    "affine_anchor": "A_ch(P)",
+    "charged_masses": "m_i(P) = exp(A_ch(P) + ell_i_centered(P))",
+    "determinant_line_form": "A_ch(P) = (1/3) * log(det(Y_e(P)))"
+  },
+  "generated_utc": "2026-04-14T06:04:59Z",
+  "issue_repair_interpretation": {
+    "closeable_issue_form": "Once theorem-grade A_ch(P) exists, emit g_e(P) and the charged mass triple algebraically.",
+    "separate_open_upstream_math": "d10_to_charged_determinant_line_bridge"
+  },
+  "notes": [
+    "This is the exact downstream theorem beneath the charged source-landing frontier.",
+    "It is algebraic and does not use target anchoring, compare-only normalization, or same-family substitution."
+  ],
+  "proof_status": "closed_algebraic_readout_theorem",
+  "public_promotion_allowed": false,
+  "scope_exclusions": [
+    "No theorem-grade source landing B_D10(P) -> physical_Y_e(P) is proved by this artifact.",
+    "No theorem-grade source landing B_D10(P) -> charged_determinant_line_section(P) is proved by this artifact.",
+    "No promotion C_hat_e^{cand} -> C_hat_e is proved by this artifact."
+  ],
+  "theorem_id": "charged_mass_readout_from_affine_anchor",
+  "theorem_scope": "conditional_on_theorem_grade_A_ch_on_physical_charged_data",
+  "theorem_statement": "Assume theorem-grade physical charged data Y_e(P) on which the affine charged anchor A_ch(P) is theorem-grade. Then the charged absolute scale and charged mass triple are algebraic readouts: g_e(P) = exp(A_ch(P)), Delta_e_abs(P) = log(g_ch_shared) - A_ch(P), and m_i(P) = exp(A_ch(P) + ell_i_centered(P)). Equivalently, once the determinant-line datum has fixed A_ch(P) = (1/3) * log(det(Y_e(P))), no extra theorem remains between the affine anchor and the emitted charged masses.",
+  "why_this_closes_the_downstream_lane": [
+    "The common-shift breaking datum is exactly the affine anchor A_ch(P).",
+    "Once A_ch(P) is theorem-grade, the absolute scale g_e(P) is a single exponential readout.",
+    "The charged masses are the same centered charged logs shifted by the theorem-grade affine anchor.",
+    "No further bridge-sized theorem sits between A_ch(P) and the charged mass triple."
+  ]
+}

@@ -19,6 +19,7 @@ DESCENT_SCRIPT = ROOT / "particles" / "leptons" / "derive_charged_mu_physical_de
 NO_GO_SCRIPT = ROOT / "particles" / "leptons" / "derive_charged_centered_operator_mu_phys_no_go.py"
 ROUTE_SCRIPT = ROOT / "particles" / "leptons" / "derive_charged_post_promotion_absolute_closure_route.py"
 END_TO_END_SCRIPT = ROOT / "particles" / "leptons" / "derive_charged_end_to_end_impossibility_theorem.py"
+REDUCTION_SCRIPT = ROOT / "particles" / "leptons" / "derive_charged_p_to_affine_anchor_reduction.py"
 BRIDGE_SCRIPT = ROOT / "particles" / "leptons" / "derive_charged_p_to_affine_anchor_bridge_no_go.py"
 SCRIPT = ROOT / "particles" / "leptons" / "derive_charged_masses_from_p_blocker.py"
 OUTPUT = ROOT / "particles" / "runs" / "leptons" / "charged_masses_from_p_blocker.json"
@@ -34,6 +35,7 @@ def test_current_corpus_does_not_emit_charged_masses_from_p() -> None:
     subprocess.run([sys.executable, str(NO_GO_SCRIPT)], check=True, cwd=ROOT)
     subprocess.run([sys.executable, str(ROUTE_SCRIPT)], check=True, cwd=ROOT)
     subprocess.run([sys.executable, str(END_TO_END_SCRIPT)], check=True, cwd=ROOT)
+    subprocess.run([sys.executable, str(REDUCTION_SCRIPT)], check=True, cwd=ROOT)
     subprocess.run([sys.executable, str(BRIDGE_SCRIPT)], check=True, cwd=ROOT)
     subprocess.run([sys.executable, str(SCRIPT)], check=True, cwd=ROOT)
 
@@ -43,5 +45,15 @@ def test_current_corpus_does_not_emit_charged_masses_from_p() -> None:
     assert payload["failed_dependencies"][0]["id"] == "oph_generation_bundle_branch_generator_splitting"
     assert payload["failed_dependencies"][1]["id"] == "refinement_stable_uncentered_trace_lift"
     assert payload["failed_dependencies"][2]["id"] == "d10_to_charged_affine_anchor_bridge"
+    assert payload["failed_dependencies"][2]["exact_smallest_bridge_target"] == "d10_to_charged_determinant_line_bridge"
+    assert (
+        payload["failed_dependencies"][2]["P_threaded_reformulation"]
+        == "d10_selected_charged_source_exactness_forces_physical_affine_scalar_mu"
+    )
+    assert payload["bridge_reduction_artifact"]["artifact"] == "oph_charged_p_to_affine_anchor_reduction"
+    assert (
+        payload["bridge_reduction_artifact"]["P_threaded_reformulation_id"]
+        == "d10_selected_charged_source_exactness_forces_physical_affine_scalar_mu"
+    )
     assert payload["symbolic_readout_if_dependencies_close"]["g_e(P)"] == "exp(A_ch(P))"
     assert "m_tau(P)" in payload["current_forbidden_outputs"]

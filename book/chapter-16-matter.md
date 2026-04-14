@@ -25,16 +25,15 @@ Quantum physics breaks the intuitive picture in three ways:
    appears only after interference and measurement.
 
 2. **Fields are more fundamental than particles.** The same electron can be
-   created or destroyed. "Particle" is not a permanent object but a
-   long-lived excitation of a field.
+   created or destroyed. A particle is a long-lived excitation of a field,
+   not a permanent object.
 
 3. **Energy is more than fuel.** It is a generator of time evolution, and it
    is tied to symmetry. In relativity, energy and momentum are components of a
    single object, and mass is energy at rest.
 
 The hint is clear: the classical picture is an emergent approximation.
-The question is not "why does classical physics work?" but "what makes it
-work so well?"
+The question becomes: what makes classical physics work so well?
 
 ## 16.3 The First-Principles Reframing: Matter as Stable Patterns
 
@@ -44,7 +43,7 @@ Think of the screen as a high-resolution, quantum information canvas. Most
 patterns are noisy and ephemeral. Some are stable: they survive overlap
 consistency, persist under modular time, and can be tracked across patches.
 Those stable patterns are what we call **particles**.
-That's the conceptual picture. The detailed particle story is richer. The framework fixes the gauge structure and several prominent particles, while the more delicate mass relations remain open.
+That's the conceptual picture. The particle sector has a sharper structure. The framework fixes the gauge structure, the massless carriers, and the W/Z pair. It carries a quantitative Higgs/top branch, an exact running quark sextet with exact forward Yukawas on the quark frame selected by \(P\), and a theorem-grade neutrino family. Charged leptons require one final absolute anchor. Hadron masses sit outside the closed package.
 
 The key reframing is:
 
@@ -197,7 +196,7 @@ In the standard picture, classical physics is an approximation that breaks down 
 
 The quantum world is larger but less shareable. Superpositions exist, but they can't be consistently communicated. When you try to share quantum information broadly, decoherence kicks in, and you're left with classical correlations.
 
-**Classical physics is the public face of quantum reality.** It's not fundamental; it's the stable consistency regime that many observers can share.
+**Classical physics is the public face of quantum reality.** It is the stable consistency regime that many observers can share.
 
 ## 16.9 Reverse Engineering Summary
 

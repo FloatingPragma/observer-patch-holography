@@ -33,7 +33,7 @@
     }
   },
   "exact_descended_scalar_artifact_ref": "code/particles/runs/leptons/charged_mu_physical_descent_reduction.json",
-  "generated_utc": "2026-04-03T04:43:03Z",
+  "generated_utc": "2026-04-14T04:29:48Z",
   "matrix_vs_scalar_content": {
     "admissible_uncentered_extension": "C_tilde_e = C_hat_e + mu I",
     "centered_operator_fixed_on_fill": "theorem_grade_C_hat_e",
@@ -74,21 +74,24 @@
     "current_waiting_set": {
       "mandatory_package_a": {
         "blocked_candidate_object": "C_hat_e^{cand}",
+        "closed_issue": "papers.compact.e.30a-resolve-branch-generator-splitting-or-no-go",
         "current_strength_statement": "neither exact vanishing nor uniform quadratic smallness is proved on the live corpus",
+        "exact_obstruction_certificate_artifact": "oph_generation_bundle_branch_generator_splitting_obstruction_certificate",
+        "exact_obstruction_certificate_artifact_ref": "code/particles/runs/flavor/generation_bundle_branch_generator_splitting_obstruction.json",
         "exact_vanishing_proved": false,
         "id": "charged_sector_response_pushforward_to_C_hat_e",
-        "immediate_downstream_effect": "If the upstream splitting theorem closes and C_hat_e^{cand} is promoted to theorem-grade C_hat_e, then eta and sigma become charged spectral invariants rather than independent primitive theorem objects.",
-        "linked_issue": "papers.compact.e.29-derive-the-yukawa-excitation-dictionary",
+        "immediate_downstream_effect": "No theorem-grade C_hat_e follows from the displayed current-corpus transfer data alone, so the live open charged issues begin at the post-promotion lift and affine-anchor chain rather than at the exact obstruction certificate.",
+        "reopen_condition": "a stronger transfer theorem beyond the displayed current-corpus projector and commutator data",
         "smallest_missing_clause": "compression_descendant_commutator_vanishes_or_is_uniformly_quadratic_small_after_central_split",
-        "status": "blocked_by_upstream_promotion_theorem",
-        "summary": "Promote the latent charged operator candidate C_hat_e^{cand} to theorem-grade declaration by closing the quotient-natural charged sector-response functor on the shared OPH flavor dictionary.",
+        "status": "resolved_as_exact_current_corpus_obstruction_certificate",
+        "summary": "The current corpus emits an exact obstruction certificate against promoting the latent charged operator candidate C_hat_e^{cand} from the displayed projector and proxy-generator data alone.",
         "uniform_quadratic_smallness_proved": false,
         "upstream_missing_theorem": "oph_generation_bundle_branch_generator_splitting"
       },
       "mandatory_package_b": {
         "id": "refinement_stable_uncentered_trace_lift",
         "immediate_downstream_effect": "The determinant-line section and A_ch are then induced canonically by A_ch = (1/3) log det(Y_e) = (1/3) tr(log Y_e).",
-        "linked_issue": "papers.compact.e.30-replace-koide-assisted-lepton-fitting-with-a-theorem",
+        "linked_issue": "papers.compact.e.30b-derive-post-promotion-uncentered-trace-lift",
         "replaces_invalid_route": "charged_common_refinement_transport_equalizer",
         "status": "open_future_single_slot_only",
         "summary": "Derive the refinement-stable uncentered trace lift of the promoted charged response on theorem-grade physical Y_e or an equivalent determinant line."
@@ -96,7 +99,7 @@
       "mandatory_package_c": {
         "id": "charged_absolute_anchor_A_ch",
         "immediate_downstream_effect": "Once A_ch exists, the absolute charged scale is emitted by g_e = exp(A_ch), and Delta_e_abs follows as log(g_ch_shared) - A_ch.",
-        "linked_issue": "papers.compact.e.30-replace-koide-assisted-lepton-fitting-with-a-theorem",
+        "linked_issue": "papers.compact.e.30c-derive-d10-p-to-charged-affine-anchor",
         "status": "derived_once_package_b_exists",
         "summary": "Read out the affine charged absolute coordinate A_ch from the induced determinant-line section, with A_ch(logm + c*(1,1,1)) = A_ch(logm) + c."
       },

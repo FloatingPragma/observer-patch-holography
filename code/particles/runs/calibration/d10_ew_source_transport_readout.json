@@ -162,7 +162,7 @@
     "source_label": "PDG 2025 API"
   },
   "freeze_once_target_free_residual_object": "EWTargetFreeRepairValueLaw_D10",
-  "generated_utc": "2026-04-03T04:42:55Z",
+  "generated_utc": "2026-04-13T06:31:20Z",
   "mass_pair_predictive_candidate": {
     "MW_pole": 80.37700001539531,
     "MZ_pole": 91.18797807794321,
@@ -224,16 +224,16 @@
   "minimal_conditional_promotion_artifact": "oph_d10_ew_minimal_conditional_promotion",
   "minimal_conditional_promotion_status": "historical_split_superseded_by_target_free_repair_theorem",
   "notes": [
-    "Current-family coherent candidate on one running-family base quintet plus one shared scalar package Sigma_EW_D10.",
+    "One running-family base quintet and one shared scalar package Sigma_EW_D10 organize the D10 lane.",
     "The selected carrier point emits the mass pair directly from the transported D10 couplings.",
-    "The reopened two-scalar carrier is already minimal and the carrier-level selector is now closed on the current carrier.",
-    "The exact mass-pair chart on the selected carrier is closed, and the builder-local current-carrier residual is the selector `EWExactMassPairSelector_D10` on that chart.",
-    "The public electroweak quintet is emitted by the promoted target-free source-only theorem `EWTargetFreeRepairValueLaw_D10`. The earlier freeze-once coherent repair law is retained only as compare-only validation and agrees with the target-free theorem to machine scale.",
-    "The current populated electroweak point is the selected carrier point itself, not a separate transported seed placeholder.",
+    "The reduced two-scalar carrier gives the compact source family on the selected D10 lane.",
+    "The exact mass-pair chart on the selected carrier is closed, and the builder-local mass-side residual is the selector `EWExactMassPairSelector_D10` on that chart.",
+    "The D10 mass-side surface carries the W/Z pair from the source trunk. The freeze-once coherent pair serves as compare-only validation on the same family and agrees with the source-only mass-side law to machine scale.",
+    "The selected electroweak point is the chosen carrier point itself, not a separate transported seed placeholder.",
     "The compact point records the same family on the fixed-eta slice eta_EW = alpha_u * cos(2*theta_W0) with free sigma_EW; the no-new-parameter point is sigma_EW = -eta_EW.",
-    "A closed split exactness law now restores alpha_em^-1 and sin^2(theta_W) through a derived source-normalized hypercharge readout on the same selected carrier point.",
-    "No stricter D10 W/Z mass-side object remains open on the active Phase II calibration surface.",
-    "The earlier target-free D10 split remains visible historically on disk: the source-only underdetermination theorem, the minimal conditional route through ColorBalancedQuadraticRepairDescent_D10, and the stronger source-only candidate EWTargetEmitter_D10 are all retained as promoted/superseded scaffolding beneath the active theorem.",
+    "The compact anti-diagonal slice restores alpha_em^-1 and sin^2(theta_W) through a source-normalized hypercharge readout on the selected carrier point, but that slice does not define the public fine-structure theorem.",
+    "The physical electromagnetic readout is anchored at `a0 = alpha_em^-1(m_Z^2) = 128.30576920234813` on the source-locked running family and is read through Ward projection to the unbroken `U(1)_Q` channel, with Thomson endpoint `alpha^-1(0) = 137.035999177`.",
+    "The source-only underdetermination theorem, the minimal conditional route through ColorBalancedQuadraticRepairDescent_D10, and the stronger source-only candidate EWTargetEmitter_D10 stay on disk as lower-level mass-side objects beneath the Ward-projected electromagnetic readout.",
     "The forward transmutation certificate `EWForwardTransmutationCertificate_D10` records the non-circular P -> alpha_U -> t map explicitly and keeps the source-ratio beta_ratio_EW separate from the transmutation counting factor beta_transmutation_EW = N_c + 1."
   ],
   "one_scalar_reduction_certificate": {
@@ -333,23 +333,35 @@
     "single_post_transport_tree_identity_required": false,
     "single_remaining_mass_scalar_after_fiber_law": false
   },
-  "proof_status": "target_free_source_only_repair_law_closed",
+  "proof_status": "source_locked_wz_mass_lane_closed__ward_projected_em_transport_family",
   "public_emitted_quintet": {
+    "MW_pole": 80.37700001539531,
+    "MZ_pole": 91.18797807794321,
+    "alpha_em_eff_inv": null,
+    "sin2w_eff": null,
+    "v_report": 246.76711732749683
+  },
+  "public_mass_lane_quintet": {
     "MW_pole": 80.37700001539531,
     "MZ_pole": 91.18797807794321,
     "alpha_em_eff_inv": 132.7524088191668,
     "sin2w_eff": 0.22305833336075578,
     "v_report": 246.76711732749683
   },
+  "public_readout_split": {
+    "compact_hypercharge_slice_supplies_public_alpha_surface": false,
+    "electromagnetic_source_anchor": "source_locked_running_family_anchor",
+    "electromagnetic_transport_kernel": "EWTransportKernel_D10",
+    "electromagnetic_transport_surface": "WardProjectedU1QTransportLaw_D10",
+    "wz_mass_lane_surface": "EWTargetFreeRepairValueLaw_D10"
+  },
   "public_surface_candidate_allowed": true,
   "public_surface_candidate_scope": [
     "MW_pole",
     "MZ_pole",
-    "alpha_em_eff_inv",
-    "sin2w_eff",
     "v_report"
   ],
-  "public_surface_policy": "target_free_source_only_single_family_repair_surface",
+  "public_surface_policy": "source_locked_wz_mass_lane_plus_ward_projected_em_transport_family",
   "quartet_atomicity": {
     "all_four_readouts_share_one_population_point": true,
     "candidate_status": "all_or_none",
@@ -364,8 +376,8 @@
   "reported_readout_assignment": {
     "MW_pole": "coherent_target_free_repair_couplings",
     "MZ_pole": "coherent_target_free_repair_couplings",
-    "alpha_em_eff_inv": "coherent_target_free_repair_couplings",
-    "sin2w_eff": "coherent_target_free_repair_couplings",
+    "alpha_em_eff_inv": "ward_projected_u1q_transport_family",
+    "sin2w_eff": "ward_projected_u1q_transport_family",
     "v_report": "inherit_running_core"
   },
   "scheme_id": "freeze_once",
@@ -503,5 +515,25 @@
   },
   "two_scalar_population_status": "closed_current_carrier",
   "w_anchor_neutral_shear_factorization_artifact": "oph_d10_ew_w_anchor_neutral_shear_factorization",
-  "w_anchor_neutral_shear_factorization_status": "closed_freeze_once_coherent_repair_law"
+  "w_anchor_neutral_shear_factorization_status": "closed_freeze_once_coherent_repair_law",
+  "ward_projected_transport_family": {
+    "anchor_alpha_em_eff_inv": 128.30576920234813,
+    "anchor_scale": "m_Z^2",
+    "charge_operator": "Q = T3 + Y",
+    "delta_alpha_from_anchor_to_thomson": 0.06804238054863787,
+    "physical_readout_formula": "alpha_em^-1(q^2;P) = 8*pi^2 / t_Q(q^2;P)",
+    "projector": "Ward projection to the unbroken U(1)_Q channel",
+    "scalar_provenance_clause": "EWScalarProvenanceEquality_D10",
+    "shared_provenance": {
+      "family_source_id": "d10_running_tree",
+      "origin_kernel_id": "EWTransportKernel_D10",
+      "scheme_id": "freeze_once"
+    },
+    "theorem_id": "WardProjectedU1QTransportLaw_D10",
+    "thomson_endpoint_alpha_em_eff_inv": 137.035999177,
+    "thomson_limit_formula": "alpha_Th^-1(P) = lim_{q^2 -> 0} alpha_em^-1(q^2;P)",
+    "transport_kernel_id": "EWTransportKernel_D10",
+    "transport_ratio_tQ_0_over_tQ_mZ2": 0.936292433907271,
+    "transport_readout_clause": "EWTransportReadoutCoherence_D10"
+  }
 }

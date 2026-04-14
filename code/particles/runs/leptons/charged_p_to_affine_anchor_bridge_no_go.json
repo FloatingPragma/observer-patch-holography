@@ -48,6 +48,9 @@
       "charged_determinant_line_section(P)",
       "charged_absolute_anchor_A_ch(P)"
     ],
+    "exact_reduction_artifact": "oph_charged_p_to_affine_anchor_reduction",
+    "exact_reduction_artifact_ref": "code/particles/runs/leptons/charged_p_to_affine_anchor_reduction.json",
+    "exact_smallest_bridge_target": "d10_to_charged_determinant_line_bridge",
     "id": "d10_to_charged_affine_anchor_bridge",
     "smallest_honest_contract": "one theorem-grade map from the D10 calibration descendants of P to the charged determinant line, or to a smaller intermediate object that canonically forces A_ch(P)"
   },
@@ -62,7 +65,7 @@
     "A_ch(P)": "mu_phys(Y_e(P)) = (1/3) * log(det(Y_e(P)))",
     "g_e(P)": "exp(A_ch(P))"
   },
-  "generated_utc": "2026-04-04T04:02:27Z",
+  "generated_utc": "2026-04-14T04:13:24Z",
   "hard_rejections": [
     "measured charged masses",
     "same-family affine anchor reuse",

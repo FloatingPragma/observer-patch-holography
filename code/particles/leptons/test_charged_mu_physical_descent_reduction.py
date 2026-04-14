@@ -38,3 +38,8 @@ def test_charged_mu_physical_descent_reduction() -> None:
     )
     assert payload["equivalent_presentations_on_fill"]["descended_scalar"] == "mu_phys(Y_e)"
     assert payload["reduction_theorem"]["id"] == "charged_refinement_stable_mu_descends_to_physical_scalar"
+    assert (
+        payload["P_threaded_source_exactness_reformulation"]["id"]
+        == "d10_selected_charged_source_exactness_forces_physical_affine_scalar_mu"
+    )
+    assert "P -> Y_e(P)" in payload["P_threaded_source_exactness_reformulation"]["statement"]

@@ -56,6 +56,17 @@ Current theorem-facing absolute route:
 - `refinement_stable_uncentered_trace_lift`
 - then the determinant-line section and `A_ch` are induced rather than independent
 
+Operator-side exact obstruction certificate:
+
+- `oph_generation_bundle_branch_generator_splitting_obstruction_certificate`
+  This fixes the current operator-side claim boundary sharply: the displayed
+  proxy ordered spectrum together with the displayed level-0 and level-1
+  projector system does not force the descended-commutator clause. The
+  obstruction witness is the nonzero natural centered commutator with operator
+  norm `0.04861550547372144` against projector defect
+  `0.06363734112184061`, so the displayed current data do not imply exact
+  vanishing or uniform quadratic smallness after the central split.
+
 The post-promotion lift slot has now been reduced further in carrier type:
 
 - `oph_charged_uncentered_trace_lift_cocycle_reduction`
@@ -74,6 +85,48 @@ The post-promotion lift slot has now been reduced further in carrier type:
   This closes the false post-promotion shortcut: even a theorem-grade centered
   `C_hat_e` cannot emit `mu_phys(Y_e)` by itself, because centered operator
   data is still invariant under the common-shift action that `mu_phys` breaks.
+
+- `oph_charged_p_to_affine_anchor_reduction`
+  This fixes the smallest honest bridge target for the `P`-driven absolute
+  lane. A theorem-grade landing from the D10 descendants of `P` on theorem-
+  grade physical `Y_e(P)` or on the charged determinant line already forces
+  `A_ch(P) = (1/3) * log(det(Y_e(P)))`, so the bridge target is smaller than a
+  free-standing affine-scalar theorem.
+
+  The same descent package also gives a sharper P-threaded reformulation:
+  once `P -> Y_e(P)` lands on theorem-grade physical charged data and the
+  post-promotion charged descent hypotheses hold, the physical affine scalar
+  `mu_phys(Y_e(P))` is forced by the identity-mode equalizer rather than
+  remaining a separate bridge-sized theorem.
+
+- `oph_charged_physical_class_affine_scalar_reduction`
+  This is the strongest honest selected-surface charged theorem packaged on the
+  current local surface. It does not claim a quark-style public selected-class
+  charged source descent. It states that on theorem-grade physical charged
+  `Y_e(P)`, once theorem-grade `C_hat_e` exists, the determinant line fixes the
+  canonical physical affine scalar `mu_phys(Y_e(P)) = (1/3) * log(det(Y_e(P)))`
+  and therefore the canonical uncentered lift, determinant-line, affine-anchor,
+  and charged mass formulas.
+
+- `oph_charged_physical_determinant_line_canonical_uncentered_lift`
+  This is the exact conditional theorem behind `#151`: on theorem-grade
+  physical charged `Y_e`, theorem-grade `C_hat_e` and the determinant line
+  canonically fix
+  `C_tilde_e(Y_e) = C_hat_e(Y_e) + mu_phys(Y_e) I`
+  with
+  `mu_phys(Y_e) = (1/3) * log(det(Y_e))`.
+  The identity-mode equalizer on a fixed physical fiber is then tautological.
+
+- `oph_charged_mass_readout_from_affine_anchor`
+  This is the exact downstream theorem beneath the source-landing frontier:
+  once theorem-grade `A_ch(P)` exists on theorem-grade physical charged data,
+  the charged absolute scale and charged mass triple are pure algebraic
+  readouts,
+  `g_e(P) = exp(A_ch(P))` and
+  `m_i(P) = exp(A_ch(P) + ell_i_centered(P))`.
+  The remaining open charged source problem is not this algebraic readout. The
+  remaining open theorem is the landing from the D10 calibration descendants of
+  `P` to theorem-grade physical charged data or the charged determinant line.
 
 Layered frontier ledger now on disk:
 

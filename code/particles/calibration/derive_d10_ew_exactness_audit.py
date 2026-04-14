@@ -615,7 +615,7 @@ def main() -> int:
             "Any coherent family matching those reference W/Z values forces sin2(theta_W) = 1 - (MW/MZ)^2, so the current mixed reference surface cannot be hit exactly by one simple tree-level family.",
             "On the fixed-eta current family, the reference W and Z masses already point to nearly the same sigma_EW, but that sigma_EW is incompatible with the running alpha_em^-1 target and the running sin^2(theta_W) target is not even admissible on that one-parameter slice.",
             (
-                "The carrier-level selector, split exact-closure law, fiberwise tree law, exact current-carrier mass chart, freeze-once coherent repair law, and target-free source-only repair theorem are all closed. Exact public W/Z now come from the target-free theorem, while the frozen authoritative repair surface is retained only as compare-only validation."
+                "The carrier-level selector, split exact-closure law, fiberwise tree law, exact current-carrier mass chart, freeze-once coherent repair law, and target-free source-only repair theorem are all closed. The W/Z mass lane comes from the target-free theorem, the frozen authoritative repair surface is compare-only validation, and the fine-structure constant is read separately on the Ward-projected U(1)_Q transport family."
                 if target_free_closed
                 else
                 "The carrier-level selector, split exact-closure law, fiberwise tree law, exact current-carrier mass chart, and freeze-once coherent repair law are all closed. Exact public W/Z now come from the frozen authoritative repair surface, while the stricter still-open D10 step is the target-free repair value law from P alone."
@@ -634,7 +634,7 @@ def main() -> int:
                 else "The carrier-level selector is now closed on the existing reopened two-scalar carrier, so the exact local question is whether exact electroweak closure requires a new invariant beyond the current selected carrier point."
             ),
             (
-                "The broader D10 geometry is historically the repair branch beyond the present current carrier. That branch remains explicit, but the public electroweak theorem surface is now the target-free source-only repair law."
+                "The broader D10 geometry is the repair branch beyond the present current carrier. That branch remains explicit, the W/Z mass lane uses the target-free source-only repair law, and the electromagnetic readout sits on the Ward-projected U(1)_Q transport family."
                 if target_free_closed
                 else "The broader D10 geometry is still the repair branch beyond the present current carrier, but on one frozen authoritative target pair the coherent repair law is already explicit and exact."
             ),
@@ -650,7 +650,7 @@ def main() -> int:
                 else "The only stricter remaining D10 theorem step is a target-free law that emits the same nonzero repair directly from P alone with no frozen authoritative W/Z input."
             ),
             (
-                "The earlier source-only D10 split is retained historically on disk: the underdetermination theorem, the minimal conditional route through ColorBalancedQuadraticRepairDescent_D10, and the former candidate EWTargetEmitter_D10 all sit beneath the promoted target-free theorem."
+                "The source-only underdetermination theorem, the minimal conditional route through ColorBalancedQuadraticRepairDescent_D10, and the former candidate EWTargetEmitter_D10 all sit beneath the target-free mass-side theorem; they do not define the public electromagnetic readout."
                 if target_free_closed and (minimal_conditional is not None or target_emitter is not None)
                 else
                 "That target-free step is now split sharply on disk: the current source-only D10 corpus underdetermines the repair coefficients, the smallest honest conditional theorem route goes through ColorBalancedQuadraticRepairDescent_D10, and the strongest current source-only candidate is EWTargetEmitter_D10."

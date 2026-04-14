@@ -85,6 +85,24 @@ def build_artifact(
                 "zero-cocycle certificate is the exact smaller forcing object beneath mu_phys(Y_e)."
             ),
         },
+        "P_threaded_source_exactness_reformulation": {
+            "id": "d10_selected_charged_source_exactness_forces_physical_affine_scalar_mu",
+            "statement": (
+                "Assume OPH axioms, the realized D9 branch, the D10 calibration sector with external input P, "
+                "and a theorem-grade source landing P -> Y_e(P) on theorem-grade physical charged data. "
+                "Assume theorem-grade C_hat_e is promoted on that physical Y_e(P) surface and that an admissible "
+                "refinement-stable uncentered lift C_tilde_e(r;P) = C_hat_e(Y_e(P)) + mu(r;P) I exists on "
+                "refinement representatives of the same physical Y_e(P). Then the physical identity-mode equalizer "
+                "forces delta(r,r';P) = 0 on each same-fiber pair, so mu(r;P) descends uniquely to "
+                "mu_phys(Y_e(P)). Equivalently, once the D10-selected charged source is exact on theorem-grade "
+                "physical Y_e(P), the affine scalar is forced by the existing descent package rather than remaining "
+                "an extra independent bridge-sized object."
+            ),
+            "bridge_role": (
+                "This reformulates the charged P-bridge burden as a theorem-grade landing on physical Y_e(P), "
+                "after which the post-promotion affine scalar follows from the descent reduction."
+            ),
+        },
         "forced_vanishing": {
             "refinement_pair_rule_before_descent": cocycle.get("scalar_cocycle_contract", {}).get(
                 "pairwise_difference_rule"

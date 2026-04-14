@@ -9,6 +9,8 @@ import math
 from datetime import datetime, timezone
 from pathlib import Path
 
+from charged_absolute_route_common import charged_waiting_set
+
 
 ROOT = Path(__file__).resolve().parents[2]
 REFERENCE_JSON = ROOT / "particles" / "data" / "particle_reference_values.json"
@@ -531,41 +533,7 @@ def main() -> int:
             "declaration_status": "candidate_only",
             "declared_operator_name": None,
         },
-        "exact_waiting_set": {
-            "mandatory_package_a": {
-                "id": "charged_sector_response_pushforward_to_C_hat_e",
-                "linked_issue": "papers.compact.e.29-derive-the-yukawa-excitation-dictionary",
-                "summary": "Promote the latent charged operator candidate C_hat_e^{cand} to theorem-grade declaration by closing the quotient-natural charged sector-response functor on the shared OPH flavor dictionary.",
-                "immediate_downstream_effect": "If the upstream splitting theorem closes and C_hat_e^{cand} is promoted to theorem-grade C_hat_e, then eta and sigma become charged spectral invariants rather than independent primitive theorem objects.",
-                "status": "blocked_by_upstream_promotion_theorem" if generation_bundle is not None else "open",
-                "blocked_candidate_object": "C_hat_e^{cand}",
-                "upstream_missing_theorem": generation_bundle.get("remaining_missing_theorem") if generation_bundle is not None else None,
-                "smallest_missing_clause": generation_bundle.get("promotion_gate", {}).get("smaller_exact_missing_clause") if generation_bundle is not None else None,
-                "exact_vanishing_proved": generation_bundle.get("promotion_gate", {}).get("exact_vanishing_proved") if generation_bundle is not None else None,
-                "uniform_quadratic_smallness_proved": generation_bundle.get("promotion_gate", {}).get("uniform_quadratic_smallness_proved") if generation_bundle is not None else None,
-                "current_strength_statement": generation_bundle.get("promotion_gate", {}).get("current_strength_statement") if generation_bundle is not None else None,
-            },
-            "mandatory_package_b": {
-                "id": "refinement_stable_uncentered_trace_lift",
-                "linked_issue": "papers.compact.e.30-replace-koide-assisted-lepton-fitting-with-a-theorem",
-                "summary": "Derive the refinement-stable uncentered trace lift of the promoted charged response on theorem-grade physical Y_e or an equivalent determinant line.",
-                "immediate_downstream_effect": "The determinant-line section and A_ch are then induced canonically by A_ch = (1/3) log det(Y_e) = (1/3) tr(log Y_e).",
-                "status": "open_future_single_slot_only",
-                "replaces_invalid_route": "charged_common_refinement_transport_equalizer",
-            },
-            "mandatory_package_c": {
-                "id": "charged_absolute_anchor_A_ch",
-                "linked_issue": "papers.compact.e.30-replace-koide-assisted-lepton-fitting-with-a-theorem",
-                "summary": "Read out the affine charged absolute coordinate A_ch from the induced determinant-line section, with A_ch(logm + c*(1,1,1)) = A_ch(logm) + c.",
-                "immediate_downstream_effect": "Once A_ch exists, the absolute charged scale is emitted by g_e = exp(A_ch), and Delta_e_abs follows as log(g_ch_shared) - A_ch.",
-                "status": "derived_once_package_b_exists",
-            },
-            "optional_package_d": {
-                "id": "charged_holonomy_bridge_for_legacy_delta_2_over_9",
-                "summary": "Retain a charged holonomy bridge only if the older delta = 2/9 D12 benchmark is kept as a theorem-grade bridge instead of a diagnostic continuation.",
-                "required_only_if": "legacy_continuation_bridge_kept_as_theorem_grade",
-            },
-        },
+        "exact_waiting_set": charged_waiting_set(generation_bundle or {}),
         "red_team_branch_verdict": {
             "status": "current_branch_cannot_be_closed_as_stated",
             "smallest_wrong_frontier": [

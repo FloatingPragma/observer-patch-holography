@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any
 
 from charged_absolute_route_common import (
+    P_TO_AFFINE_REDUCTION_JSON,
     POST_PROMOTION_ROUTE_JSON,
     artifact_ref,
     load_json,
@@ -18,6 +19,7 @@ from charged_absolute_route_common import (
 
 ROOT = Path(__file__).resolve().parents[2]
 BRIDGE_NO_GO_JSON = ROOT / "particles" / "runs" / "leptons" / "charged_p_to_affine_anchor_bridge_no_go.json"
+BRIDGE_REDUCTION_JSON = ROOT / "particles" / "runs" / "leptons" / "charged_p_to_affine_anchor_reduction.json"
 END_TO_END_JSON = ROOT / "particles" / "runs" / "leptons" / "charged_end_to_end_impossibility_theorem.json"
 DEFAULT_OUT = ROOT / "particles" / "runs" / "leptons" / "charged_masses_from_p_blocker.json"
 
@@ -33,6 +35,7 @@ def _as_dict(payload: dict[str, Any], key: str) -> dict[str, Any]:
 
 def build_artifact(
     bridge_no_go: dict[str, Any],
+    bridge_reduction: dict[str, Any],
     end_to_end: dict[str, Any],
     post_promotion_route: dict[str, Any],
 ) -> dict[str, Any]:
@@ -69,13 +72,26 @@ def build_artifact(
                 "smallest_honest_contract": bridge_no_go.get("exact_missing_object", {}).get(
                     "smallest_honest_contract"
                 ),
-                "effect_on_fill": "theorem_grade_A_ch(P)",
+                "exact_smallest_bridge_target": bridge_reduction.get("exact_smallest_bridge_target", {}).get(
+                    "id"
+                ),
+                "P_threaded_reformulation": "d10_selected_charged_source_exactness_forces_physical_affine_scalar_mu",
+                "effect_on_fill": "theorem_grade_charged_determinant_line_section(P)_then_A_ch(P)",
             },
         ],
         "bridge_gap_artifact": {
             "artifact": bridge_no_go.get("artifact"),
             "artifact_ref": artifact_ref(BRIDGE_NO_GO_JSON),
             "verdict": bridge_no_go.get("verdict"),
+        },
+        "bridge_reduction_artifact": {
+            "artifact": bridge_reduction.get("artifact"),
+            "artifact_ref": artifact_ref(BRIDGE_REDUCTION_JSON),
+            "reduction_theorem_id": bridge_reduction.get("reduction_theorem", {}).get("id"),
+            "exact_smallest_bridge_target": bridge_reduction.get("exact_smallest_bridge_target", {}).get("id"),
+            "P_threaded_reformulation_id": bridge_reduction.get(
+                "P_threaded_source_exactness_reformulation", {}
+            ).get("id"),
         },
         "current_forbidden_outputs": [
             "A_ch(P)",
@@ -99,6 +115,7 @@ def build_artifact(
             "This is a dependency theorem, not a numerical mismatch report.",
             "It isolates exactly what remains before any public charged table can emit masses from P.",
             "The symbolic formulas are already known; what is missing is the theorem-grade production of A_ch(P).",
+            "The charged P-bridge can be phrased more sharply as theorem-grade source landing on physical Y_e(P), after which the affine scalar follows from the physical descent package.",
         ],
     }
 
@@ -106,6 +123,7 @@ def build_artifact(
 def main() -> int:
     parser = argparse.ArgumentParser(description="Build the current-corpus blocker for charged masses from P.")
     parser.add_argument("--bridge-no-go", default=str(BRIDGE_NO_GO_JSON))
+    parser.add_argument("--bridge-reduction", default=str(BRIDGE_REDUCTION_JSON))
     parser.add_argument("--end-to-end", default=str(END_TO_END_JSON))
     parser.add_argument("--post-promotion-route", default=str(POST_PROMOTION_ROUTE_JSON))
     parser.add_argument("--output", default=str(DEFAULT_OUT))
@@ -113,6 +131,7 @@ def main() -> int:
 
     artifact = build_artifact(
         load_json(Path(args.bridge_no_go)),
+        load_json(Path(args.bridge_reduction)),
         load_json(Path(args.end_to_end)),
         load_json(Path(args.post_promotion_route)),
     )

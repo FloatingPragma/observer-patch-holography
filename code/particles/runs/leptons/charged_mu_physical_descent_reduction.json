@@ -1,4 +1,9 @@
 {
+  "P_threaded_source_exactness_reformulation": {
+    "bridge_role": "This reformulates the charged P-bridge burden as a theorem-grade landing on physical Y_e(P), after which the post-promotion affine scalar follows from the descent reduction.",
+    "id": "d10_selected_charged_source_exactness_forces_physical_affine_scalar_mu",
+    "statement": "Assume OPH axioms, the realized D9 branch, the D10 calibration sector with external input P, and a theorem-grade source landing P -> Y_e(P) on theorem-grade physical charged data. Assume theorem-grade C_hat_e is promoted on that physical Y_e(P) surface and that an admissible refinement-stable uncentered lift C_tilde_e(r;P) = C_hat_e(Y_e(P)) + mu(r;P) I exists on refinement representatives of the same physical Y_e(P). Then the physical identity-mode equalizer forces delta(r,r';P) = 0 on each same-fiber pair, so mu(r;P) descends uniquely to mu_phys(Y_e(P)). Equivalently, once the D10-selected charged source is exact on theorem-grade physical Y_e(P), the affine scalar is forced by the existing descent package rather than remaining an extra independent bridge-sized object."
+  },
   "artifact": "oph_charged_mu_physical_descent_reduction",
   "descent_contract": {
     "canonical_readout_on_fill": {
@@ -49,7 +54,7 @@
     "reason": "refinement stability identifies all refinement representatives of the same physical operator",
     "refinement_pair_rule_before_descent": "C_tilde_e(r') - C_tilde_e(r) = delta(r,r') I"
   },
-  "generated_utc": "2026-04-03T04:43:03Z",
+  "generated_utc": "2026-04-14T04:29:48Z",
   "input_scalarization_artifact_ref": "code/particles/runs/leptons/charged_uncentered_trace_lift_cocycle_reduction.json",
   "larger_missing_object": "refinement_stable_uncentered_trace_lift",
   "larger_missing_object_artifact_ref": "code/particles/runs/leptons/charged_uncentered_trace_lift_scaffold.json",

@@ -78,10 +78,16 @@ def test_d10_source_transport_readout_uses_predictive_seed_trial() -> None:
     assert abs(mass_pair["MZ_pole"] - 91.18797807794321) < 1.0e-12
     assert abs(payload["public_emitted_quintet"]["MW_pole"] - 80.37700001539531) < 1.0e-12
     assert abs(payload["public_emitted_quintet"]["MZ_pole"] - 91.18797807794321) < 1.0e-12
+    assert payload["public_emitted_quintet"]["alpha_em_eff_inv"] is None
+    assert payload["public_emitted_quintet"]["sin2w_eff"] is None
+    assert abs(payload["public_mass_lane_quintet"]["alpha_em_eff_inv"] - 132.7524088191668) < 1.0e-12
     assert abs(payload["current_compact_emitted_quintet"]["MW_pole"] - 80.38629169244275) < 1.0e-12
     assert abs(payload["current_compact_emitted_quintet"]["MZ_pole"] - 91.18290444674243) < 1.0e-12
-    assert payload["reported_readout_assignment"]["alpha_em_eff_inv"] == "coherent_target_free_repair_couplings"
-    assert payload["reported_readout_assignment"]["sin2w_eff"] == "coherent_target_free_repair_couplings"
+    assert payload["reported_readout_assignment"]["alpha_em_eff_inv"] == "ward_projected_u1q_transport_family"
+    assert payload["reported_readout_assignment"]["sin2w_eff"] == "ward_projected_u1q_transport_family"
+    assert payload["public_readout_split"]["electromagnetic_transport_surface"] == "WardProjectedU1QTransportLaw_D10"
+    assert payload["ward_projected_transport_family"]["thomson_endpoint_alpha_em_eff_inv"] == 137.035999177
+    assert payload["ward_projected_transport_family"]["transport_ratio_tQ_0_over_tQ_mZ2"] == 0.936292433907271
     assert payload["proof_gate"]["single_post_transport_tree_identity_required"] is False
     target_free_split = payload["target_free_repair_status_split"]
     assert target_free_split["status"] == "closed"

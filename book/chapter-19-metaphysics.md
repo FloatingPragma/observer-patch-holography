@@ -54,7 +54,7 @@ The measurement problem evaporates because there was never an objective wavefunc
 
 Here's a question that keeps physicists and philosophers up at night: Why does the universe have the specific laws it does? Why these particles, these forces, these constants?
 
-The standard framing assumes laws are eternal Platonic truths, mathematical structures that exist independently of physical reality and somehow "govern" it. But then their specific form becomes inexplicable. Why should the fine structure constant be approximately 1/137 rather than some other number? Why three spatial dimensions rather than four or seven?
+The standard framing assumes laws are eternal Platonic truths, mathematical structures that exist independently of physical reality and somehow "govern" it. But then their specific form becomes inexplicable. Why should the low-energy fine structure constant land near \(1/137\), more precisely \(\alpha^{-1}(0)=137.035999177\), rather than some other number? Why three spatial dimensions rather than four or seven?
 
 Some invoke the anthropic principle: the constants must be compatible with observers existing, or we wouldn't be here to ask. But this feels like giving up on explanation.
 
@@ -123,7 +123,7 @@ The tests remain:
 - Can quantum structure be derived as a consistency constraint?
 - Can the dimensionality of spacetime be forced rather than assumed?
 - Can dynamics arise from synchronization pressure?
-- Can the pixel area and screen-capacity inputs of the current implementation be derived or replaced from first principles, or must they remain empirical inputs?
+- Can the pixel area and screen-capacity inputs used in this book be derived or replaced from first principles, or must they remain empirical inputs?
 
 If those fail, the model fails, and the philosophical picture with it. Beautiful coherence is necessary but not sufficient.
 

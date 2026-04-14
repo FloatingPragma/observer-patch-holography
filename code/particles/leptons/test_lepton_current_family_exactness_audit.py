@@ -128,7 +128,11 @@ def test_lepton_exactness_audit_identifies_common_shift_as_insufficient() -> Non
     assert payload["red_team_branch_verdict"]["post_promotion_single_slot"] == "refinement_stable_uncentered_trace_lift"
     waiting = payload["exact_waiting_set"]
     assert waiting["mandatory_package_a"]["id"] == "charged_sector_response_pushforward_to_C_hat_e"
-    assert waiting["mandatory_package_a"]["status"] == "blocked_by_upstream_promotion_theorem"
+    assert waiting["mandatory_package_a"]["status"] == "resolved_as_exact_current_corpus_obstruction_certificate"
+    assert waiting["mandatory_package_a"]["closed_issue"] == "papers.compact.e.30a-resolve-branch-generator-splitting-or-no-go"
+    assert waiting["mandatory_package_a"]["exact_obstruction_certificate_artifact"] == (
+        "oph_generation_bundle_branch_generator_splitting_obstruction_certificate"
+    )
     assert waiting["mandatory_package_a"]["blocked_candidate_object"] == "C_hat_e^{cand}"
     assert waiting["mandatory_package_b"]["id"] == "refinement_stable_uncentered_trace_lift"
     assert waiting["mandatory_package_b"]["replaces_invalid_route"] == "charged_common_refinement_transport_equalizer"

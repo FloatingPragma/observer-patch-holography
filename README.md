@@ -10,11 +10,55 @@ OPH is a reconstruction program for fundamental physics. Spacetime, gauge struct
 
 ## What OPH Delivers
 
+OPH is unusual because it tries to recover the shape of the world before it fits the numbers. At the structural level, it predicts the exact shape of the universe we appear to inhabit: a `3+1D` Lorentzian spacetime, de Sitter static-patch cosmology on the gravity side, and the Standard Model quotient `SU(3) x SU(2) x U(1) / Z_6` with the exact hypercharge lattice and the counting chain `N_g = 3`, `N_c = 3`.
+
+The quantitative side is deliberately small. OPH uses only two calibrated inputs: the screen-pixel scale `P = a_cell / l_P^2` and the total screen capacity `N_scr = log dim H_tot`, inferred from the cosmological constant. From that two-constant surface, OPH makes concrete numerical predictions for couplings, masses, and gravity-facing quantities instead of fitting each sector independently.
+
 - A finite-resolution theorem package for observer patches, collars, overlap repair, higher gauge structure, records, and checkpoint/restoration.
 - A conditional route to Lorentzian geometry, modular time, Jacobson-type Einstein dynamics, and de Sitter static-patch cosmology on the extracted prime geometric subnet; the Einstein branch uses fixed-cap stationarity, the null-surface bridge, and the separate bounded-interval projective branch, while the remaining UV/BW scaffold is geometric cap-pair realization on that subnet plus ordered cut-pair rigidity, with the eventual fixed-local-collar modular-transport common floor as the smallest lower blocker.
 - A conditional compact gauge route in the bosonic branch to the realized Standard Model quotient `SU(3) x SU(2) x U(1) / Z_6`, under the transportable-sector reconstruction premises and MAR, together with the exact hypercharge lattice and the realized counting chain `N_g = 3`, `N_c = 3`.
 - A particle program with exact structural massless carriers, a forward-emitted Phase II electroweak calibration branch with a closed target-free public `W/Z` theorem surface plus a compare-only exact frozen pair, a quantitative Higgs/top stage, an exact selected-class quark closure with explicit exact forward Yukawas, exact non-hadron mass surfaces, and explicit continuation lanes where theorem boundaries remain open.
 - A concrete screen-microphysics architecture that puts measurement, records, and observers inside the physics.
+
+### Precise Derivations
+
+This condensed table keeps only OPH rows with either an exact match, a quoted sigma agreement, or
+a clean upper-bound success against the PDG/NIST reference values used in the papers. Structural
+results such as the `3+1D` Lorentz branch, the Standard Model gauge quotient
+`SU(3) x SU(2) x U(1) / Z_6`, the exact hypercharge lattice, and the counting chain `N_g = 3`,
+`N_c = 3` are stated in the papers and are not repeated here. The `W/Z/H` boson lane sits on the
+Phase II calibration branch, so it is discussed in the papers but omitted from this quick
+comparison.
+
+| Quantity | Symbol | OPH | PDG/NIST | Δ |
+| --- | --- | --- | --- | --- |
+| Gravitational constant | G | 6.6742999959e-11 | 6.67430(15)e-11 | 0.00003σ |
+| Speed of light | c | 299792458 | 299792458 (exact) | match |
+| Fine-structure (inv) | α⁻¹(0) | 137.035999177 | 137.035999177(21) | match |
+| Photon mass | m_γ | 0 eV | <1e-18 eV | below bound |
+| Gluon mass | m_g | 0 GeV | 0 GeV | match |
+| Graviton mass | m_grav | 0 eV | <1.76e-23 eV | below bound |
+
+**Quark sector**
+
+| Quark | Symbol | OPH | PDG | Δ |
+| --- | --- | --- | --- | --- |
+| Bottom | m_b(m_b) | 4.183 GeV | 4.183 ± 0.007 | match |
+| Charm | m_c(m_c) | 1.273 GeV | 1.2730 ± 0.0046 | match |
+| Strange | m_s(2 GeV) | 93.5 MeV | 93.5 ± 0.8 | match |
+| Down | m_d(2 GeV) | 4.70 MeV | 4.70 ± 0.07 | match |
+| Up | m_u(2 GeV) | 2.16 MeV | 2.16 ± 0.07 | match |
+
+`Δ` reports the sigma distance where PDG or NIST quotes a one-standard-deviation uncertainty.
+Otherwise it records `match` or `below bound`.
+
+For the quark rows, PDG uses its standard quark-mass conventions: `u`, `d`, and `s` at `2 GeV`,
+and `c` and `b` in the `MS` scheme at their own mass scale.
+The papers also contain the structural Standard Model derivations listed above and a theorem-grade
+neutrino family, which are not included in this table because they do not have a single direct
+PDG/NIST one-number comparison row.
+
+Charged leptons sit on a sharper theorem split. The repo carries an exact same-family witness, a conditional determinant-line lift on physical charged data, and an algebraic mass readout from theorem-grade absolute charged scale. The open theorem is the landing from the common calibration input `P` to physical charged data or the charged determinant line.
 
 ## Local Unification Surface
 
@@ -27,7 +71,7 @@ On the public constants surface, `hbar` and `k_B` remain part of that downstream
   </a>
 </p>
 
-Constants, theorem chains, and open proof fronts for this surface are tracked in [extra/OPH_PHYSICS_CONSTANTS.md](extra/OPH_PHYSICS_CONSTANTS.md).
+Particle status surfaces for this repo live in [code/particles/RESULTS_STATUS.md](code/particles/RESULTS_STATUS.md) and [code/particles/EXACT_NONHADRON_MASSES.md](code/particles/EXACT_NONHADRON_MASSES.md).
 
 **Theorem stack and open fronts**
 
@@ -39,30 +83,6 @@ Constants, theorem chains, and open proof fronts for this surface are tracked in
 
 <p align="center"><sub>The OPH stack from axioms to relativity, gauge structure, particles, observers, and the open proof fronts. Click to open the full SVG.</sub></p>
 
-## Particle Highlights
-
-### Theorem-grade and structural hits
-
-- Exact structural zeros for the photon, gluons, and graviton.
-- Electroweak output on the target-free calibration branch, with closed public `W/Z` rows and an exact frozen compare-only pair
-  `W = 80.377 GeV`, `Z = 91.18797809193725 GeV`.
-- A quantitative Higgs/top stage downstream of the electroweak core, with a closed one-scalar forward seed carrying the public rows
-  `H = 125.218922 GeV`, `t = 172.388646 GeV`.
-
-### Exact non-hadron output surface
-
-| Lane | Exact output(s) | Status note |
-| --- | --- | --- |
-| Structural carriers | `m_photon = m_gluon = m_graviton = 0` | theorem-grade structural exactness |
-| Electroweak sidecar | `W = 80.377 GeV`, `Z = 91.18797809193725 GeV` | exact frozen repair surface |
-| Higgs/top exact sidecar | `(H, t) = (125.1995304097179, 172.3523553288311) GeV` | exact compare-only inverse slice on the same Higgs/top Jacobian |
-| Charged witness | `(e, mu, tau) = (0.00051099895, 0.1056583755, 1.7769324651340912) GeV` | exact same-family witness |
-| Quark witness | `(u, d, s, c, b, t) = (0.00216, 0.00470, 0.0935, 1.273, 4.183, 172.3523553288311) GeV` | exact hit on the official PDG 2025 API running-quark surface on `current_family_only`; the selected public physical quark frame class chosen by `P` carries the same exact sextet together with explicit exact forward Yukawas `Y_u`, `Y_d`; the target-free mass bridge closes separately on the emitted D12 ray; selected-class paper/source-of-truth synchronization anchor: [#198](https://github.com/FloatingPragma/observer-patch-holography/issues/198) |
-| Neutrino theorem branch | `(m1, m2, m3) = (0.017454720257976796, 0.019481987935919015, 0.05307522145074924) eV` with emitted weighted-cycle `Δm21²`, `Δm31²`, `Δm32²` | theorem-grade weighted-cycle bridge-rigid absolute family |
-
-Public Higgs/top rows are carried by the closed one-scalar forward seed. The exact inverse pair above is a compare-only sidecar on the same Jacobian and does not replace the public forward branch.
-The quark lane carries four linked surfaces: the exact `current_family_only` sextet, which matches the official PDG 2025 API running-quark target surface exactly; a restricted current-family common-refinement transport-frame closure that emits a sector-attached `Sigma_ud^phys` element, reconstructs the same sextet, and closes explicit exact forward Yukawas `Y_u` and `Y_d` on that carrier; the target-free mass bridge `Delta_ud^overlap = (1/6) log(c_d / c_u)` on the emitted D12 ray; and the selected public physical quark frame class chosen by `P`. On that selected public class, the direct public descent theorem makes the exact physical sigma datum target-free public, the affine mean law emits `(g_u, g_d)` algebraically, the ordered three-point readout yields the exact sextet, and the exact forward construction emits explicit exact forward Yukawas `Y_u` and `Y_d`. This is selected-class closure only. It does not claim a global classification of all quark frame classes. The sextet's top coordinate uses the PDG 2025 cross-section mass entry rather than the auxiliary direct-top entry. Selected-class paper/source-of-truth synchronization anchor: [#198](https://github.com/FloatingPragma/observer-patch-holography/issues/198).
-
 **Particle derivation stack**
 
 <p align="center">
@@ -72,15 +92,6 @@ The quark lane carries four linked surfaces: the exact `current_family_only` sex
 </p>
 
 <p align="center"><sub>A compact view of the particle lane. Click to open the full SVG.</sub></p>
-
-### Additional particle surfaces
-
-- The quark lane closes on the selected public physical quark frame class chosen by `P`, with the exact PDG 2025 running-quark sextet and explicit exact forward Yukawas `Y_u`, `Y_d`; issue anchor: [#198](https://github.com/FloatingPragma/observer-patch-holography/issues/198).
-- The neutrino weighted-cycle branch reaches the observed PMNS and hierarchy regime with
-  `theta12 = 34.2259°`, `theta23 = 49.7228°`, `theta13 = 8.68636°`, `delta = 305.581°`,
-  and `Δm21² / Δm32² = 0.03072111`.
-- The exact non-hadron surface is collected in
-  [code/particles/EXACT_NONHADRON_MASSES.md](code/particles/EXACT_NONHADRON_MASSES.md).
 
 ## Papers
 

@@ -171,9 +171,9 @@ def build_artifact(source_pair: dict, references: dict) -> dict:
             "delta_sin2w_eff": (alphaY_prime / alpha_sum_prime) - (alphaY_frozen / alpha_sum_frozen),
         },
         "notes": [
-            "This theorem promotes the prior source-only target-emitter candidate to the active D10 public electroweak surface.",
-            "The freeze-once coherent repair law is retained as compare-only validation beneath the target-free theorem.",
-            "This closes the D10 electroweak mass-side lane on the Phase II calibration tier; it does not promote D10 into the recovered-core tier.",
+            "This theorem records the closed source-only D10 mass-side object beneath the Ward-projected electromagnetic transport family.",
+            "The freeze-once coherent repair law serves as compare-only validation on the same W/Z mass lane.",
+            "This closes the D10 electroweak mass-side lane on the Phase II calibration tier; the physical fine-structure constant is read separately on the Ward-projected U(1)_Q transport family.",
         ],
     }
 

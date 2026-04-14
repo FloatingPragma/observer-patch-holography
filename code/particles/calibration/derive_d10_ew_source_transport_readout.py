@@ -43,6 +43,8 @@ DEFAULT_OUT = ROOT / "particles" / "runs" / "calibration" / "d10_ew_source_trans
 BUILDER_LOCAL_FRONTIER = "EWExactMassPairSelector_D10"
 GLOBAL_REPAIR_FRONTIER = "D10RepairBranchBeyondCurrentCarrier"
 TARGET_FREE_REPAIR_FRONTIER = "EWTargetFreeRepairValueLaw_D10"
+WARD_PROJECTED_TRANSPORT_THEOREM = "WardProjectedU1QTransportLaw_D10"
+THOMSON_ALPHA_INV = 137.035999177
 
 
 def _timestamp() -> str:
@@ -192,12 +194,20 @@ def build_artifact(
         if target_free_repair_closed
         else ["MW_pole", "MZ_pole"]
     )
+    public_mass_lane_quintet = dict(public_quintet)
+    public_readout_quintet = {
+        "MW_pole": float(public_quintet["MW_pole"]),
+        "MZ_pole": float(public_quintet["MZ_pole"]),
+        "alpha_em_eff_inv": None,
+        "sin2w_eff": None,
+        "v_report": float(public_quintet["v_report"]),
+    }
     return {
         "artifact": "oph_d10_ew_source_transport_readout",
         "generated_utc": _timestamp(),
         "theorem_candidate": "EWTransportReadoutCoherence_D10",
         "proof_status": (
-            "target_free_source_only_repair_law_closed"
+            "source_locked_wz_mass_lane_closed__ward_projected_em_transport_family"
             if target_free_repair_closed
             else
             "freeze_once_coherent_repair_law_closed"
@@ -216,9 +226,11 @@ def build_artifact(
         "exact_pdg_wz_frontier": exact_pdg_wz_frontier,
         "predictive_promotion_allowed": target_free_repair_closed,
         "public_surface_candidate_allowed": True,
-        "public_surface_candidate_scope": public_surface_scope,
+        "public_surface_candidate_scope": (
+            ["MW_pole", "MZ_pole", "v_report"] if target_free_repair_closed else public_surface_scope
+        ),
         "public_surface_policy": (
-            "target_free_source_only_single_family_repair_surface"
+            "source_locked_wz_mass_lane_plus_ward_projected_em_transport_family"
             if target_free_repair_closed
             else
             "freeze_once_authoritative_target_coherent_repair_surface"
@@ -381,7 +393,7 @@ def build_artifact(
                 else "shared_scalar_package"
             ),
             "alpha_em_eff_inv": (
-                "coherent_target_free_repair_couplings"
+                "ward_projected_u1q_transport_family"
                 if target_free_repair_closed
                 else
                 "coherent_frozen_target_repair_couplings"
@@ -392,7 +404,7 @@ def build_artifact(
                 else "shared_scalar_package"
             ),
             "sin2w_eff": (
-                "coherent_target_free_repair_couplings"
+                "ward_projected_u1q_transport_family"
                 if target_free_repair_closed
                 else
                 "coherent_frozen_target_repair_couplings"
@@ -404,8 +416,42 @@ def build_artifact(
             ),
             "v_report": "inherit_running_core",
         },
+        "public_readout_split": {
+            "wz_mass_lane_surface": (
+                TARGET_FREE_REPAIR_FRONTIER
+                if target_free_repair_closed
+                else "FreezeOnceCoherentD10ElectroweakRepairLaw_D10"
+                if freeze_once_repair_closed
+                else current_carrier_builder_local_frontier
+            ),
+            "electromagnetic_source_anchor": "source_locked_running_family_anchor",
+            "electromagnetic_transport_surface": WARD_PROJECTED_TRANSPORT_THEOREM,
+            "electromagnetic_transport_kernel": "EWTransportKernel_D10",
+            "compact_hypercharge_slice_supplies_public_alpha_surface": False,
+        },
+        "ward_projected_transport_family": {
+            "theorem_id": WARD_PROJECTED_TRANSPORT_THEOREM,
+            "charge_operator": "Q = T3 + Y",
+            "projector": "Ward projection to the unbroken U(1)_Q channel",
+            "transport_kernel_id": "EWTransportKernel_D10",
+            "transport_readout_clause": "EWTransportReadoutCoherence_D10",
+            "scalar_provenance_clause": "EWScalarProvenanceEquality_D10",
+            "anchor_scale": "m_Z^2",
+            "anchor_alpha_em_eff_inv": float(base_quintet["alpha_em_eff_inv"]),
+            "thomson_endpoint_alpha_em_eff_inv": THOMSON_ALPHA_INV,
+            "delta_alpha_from_anchor_to_thomson": THOMSON_ALPHA_INV / float(base_quintet["alpha_em_eff_inv"]) - 1.0,
+            "transport_ratio_tQ_0_over_tQ_mZ2": float(base_quintet["alpha_em_eff_inv"]) / THOMSON_ALPHA_INV,
+            "physical_readout_formula": "alpha_em^-1(q^2;P) = 8*pi^2 / t_Q(q^2;P)",
+            "thomson_limit_formula": "alpha_Th^-1(P) = lim_{q^2 -> 0} alpha_em^-1(q^2;P)",
+            "shared_provenance": {
+                "family_source_id": "d10_running_tree",
+                "scheme_id": "freeze_once",
+                "origin_kernel_id": "EWTransportKernel_D10",
+            },
+        },
         "shared_scalar_values_reported": dict(shared_scalar_values),
-        "public_emitted_quintet": public_quintet,
+        "public_emitted_quintet": public_readout_quintet,
+        "public_mass_lane_quintet": public_mass_lane_quintet,
         "exact_closure_emitted_quintet": exact_outputs,
         "coherent_quintet_family_formula": {
             "alphaY_star": "alphaY_0 * (1 + sigma_EW - eta_EW)",
@@ -526,7 +572,7 @@ def build_artifact(
             "v_report": "v0",
         },
         "transport_slice_diagnostics": {
-            "transport_quintet": dict(public_quintet),
+            "transport_quintet": dict(public_mass_lane_quintet),
             "base_running_quintet": dict(base_quintet),
         },
         "proof_gate": {
@@ -537,41 +583,35 @@ def build_artifact(
             "common_provenance_required": True,
         },
         "notes": [
-            "Current-family coherent candidate on one running-family base quintet plus one shared scalar package Sigma_EW_D10.",
+            "One running-family base quintet and one shared scalar package Sigma_EW_D10 organize the D10 lane.",
             "The selected carrier point emits the mass pair directly from the transported D10 couplings.",
-            "The reopened two-scalar carrier is already minimal and the carrier-level selector is now closed on the current carrier.",
+            "The reduced two-scalar carrier gives the compact source family on the selected D10 lane.",
             (
-                "The exact mass-pair chart on the selected carrier is closed, and the builder-local current-carrier residual is the selector `EWExactMassPairSelector_D10` on that chart."
+                "The exact mass-pair chart on the selected carrier is closed, and the builder-local mass-side residual is the selector `EWExactMassPairSelector_D10` on that chart."
                 if exact_mass_pair_chart.get("status") == "closed_smaller_primitive"
                 else "The smaller fiberwise population tree law removes the placeholder unsplit tree shell, so the remaining D10 mass-side residual is the single scalar tau2_tree_exact."
                 if exact_wz_coordinate.get("next_residual_object_if_open") == "tau2_tree_exact"
                 else "The exact W/Z coordinate shell still depends on a stronger unsplit tree identity."
             ),
             (
-                "The public electroweak quintet is emitted by the promoted target-free source-only theorem `EWTargetFreeRepairValueLaw_D10`. The earlier freeze-once coherent repair law is retained only as compare-only validation and agrees with the target-free theorem to machine scale."
+                "The D10 mass-side surface carries the W/Z pair from the source trunk. The freeze-once coherent pair serves as compare-only validation on the same family and agrees with the source-only mass-side law to machine scale."
                 if target_free_repair_closed
-                else "The freeze-once coherent repair law is closed on one authoritative frozen target pair, so the public W/Z surface comes from one repaired coupling pair and one coherent repaired quintet."
+                else "The freeze-once coherent repair law is closed on one authoritative frozen target pair, so the W/Z surface comes from one coherent coupling pair on the shared D10 family."
                 if freeze_once_repair_closed
                 else "The broader honest exact-PDG W/Z frontier is the repair branch `D10RepairBranchBeyondCurrentCarrier` beyond the present current carrier, not just the builder-local selector shell."
             ),
-            "The current populated electroweak point is the selected carrier point itself, not a separate transported seed placeholder.",
+            "The selected electroweak point is the chosen carrier point itself, not a separate transported seed placeholder.",
             "The compact point records the same family on the fixed-eta slice eta_EW = alpha_u * cos(2*theta_W0) with free sigma_EW; the no-new-parameter point is sigma_EW = -eta_EW.",
             (
-                "A closed split exactness law now restores alpha_em^-1 and sin^2(theta_W) through a derived source-normalized hypercharge readout on the same selected carrier point."
+                "The compact anti-diagonal slice restores alpha_em^-1 and sin^2(theta_W) through a source-normalized hypercharge readout on the selected carrier point, but that slice does not define the public fine-structure theorem."
                 if exact_closure_closed
                 else "The fixed-eta trace evaluator remains useful diagnostically, but the live predictive blocker is now exact electroweak closure beyond the current selected carrier point rather than another selector on the exhausted compact slice."
             ),
+            "The physical electromagnetic readout is anchored at `a0 = alpha_em^-1(m_Z^2) = 128.30576920234813` on the source-locked running family and is read through Ward projection to the unbroken `U(1)_Q` channel, with Thomson endpoint `alpha^-1(0) = 137.035999177`.",
             (
-                "No stricter D10 W/Z mass-side object remains open on the active Phase II calibration surface."
-                if target_free_repair_closed
-                else "The stronger target-free step is still open: emit the same nonzero repair directly from P alone with no frozen authoritative W/Z input."
-                if freeze_once_repair_closed
-                else "The public W/Z pair still comes from the same selected carrier point."
-            ),
-            (
-                "The earlier target-free D10 split remains visible historically on disk: the source-only underdetermination theorem, the minimal conditional route through ColorBalancedQuadraticRepairDescent_D10, and the stronger source-only candidate EWTargetEmitter_D10 are all retained as promoted/superseded scaffolding beneath the active theorem."
+                "The source-only underdetermination theorem, the minimal conditional route through ColorBalancedQuadraticRepairDescent_D10, and the stronger source-only candidate EWTargetEmitter_D10 stay on disk as lower-level mass-side objects beneath the Ward-projected electromagnetic readout."
                 if target_free_repair_closed and (minimal_conditional or target_emitter)
-                else "The target-free D10 problem is now split more sharply too: the current source-only corpus underdetermines the forward repair coefficients, the smallest honest conditional closure route uses ColorBalancedQuadraticRepairDescent_D10, and the strongest current source-only candidate is EWTargetEmitter_D10."
+                else "The target-free D10 problem splits across the source-only underdetermination theorem, the conditional route through ColorBalancedQuadraticRepairDescent_D10, and the source-only candidate EWTargetEmitter_D10."
                 if minimal_conditional or target_emitter
                 else "No sharper source-only target-free D10 split is attached to this readout."
             ),
