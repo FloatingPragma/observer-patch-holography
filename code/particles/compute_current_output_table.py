@@ -66,6 +66,8 @@ RUNTIME_SURFACED_ARTIFACTS = (
     Path("runs/neutrino/realized_same_label_gap_defect_readback.json"),
     Path("runs/neutrino/same_label_overlap_defect_weight_normalizer.json"),
     Path("runs/neutrino/same_label_scalar_certificate.json"),
+    Path("runs/neutrino/neutrino_weighted_cycle_shared_basis_representation.json"),
+    Path("runs/neutrino/neutrino_physical_majorana_phase_theorem.json"),
     Path("runs/neutrino/pmns_from_shared_basis.json"),
     Path("runs/neutrino/shared_charged_lepton_left_basis.json"),
     Path("runs/neutrino/intrinsic_neutrino_eta_demo_payload.json"),
@@ -493,6 +495,8 @@ def build_runtime(runtime_root: Path, *, with_hadrons: bool, verbose: bool) -> P
     _run(["python3", "particles/neutrino/derive_neutrino_attachment_irreducibility.py"], cwd=work_code, verbose=verbose)
     _run(["python3", "particles/neutrino/derive_neutrino_bridge_rigidity_theorem.py"], cwd=work_code, verbose=verbose)
     _run(["python3", "particles/neutrino/derive_neutrino_absolute_attachment_theorem.py"], cwd=work_code, verbose=verbose)
+    _run(["python3", "particles/neutrino/derive_neutrino_weighted_cycle_shared_basis_representation.py"], cwd=work_code, verbose=verbose)
+    _run(["python3", "particles/neutrino/derive_neutrino_physical_majorana_phase_theorem.py"], cwd=work_code, verbose=verbose)
     _run(["python3", "particles/neutrino/derive_exact_blocking_items.py"], cwd=work_code, verbose=verbose)
     _run(["python3", "particles/neutrino/export_forward_neutrino_closure_bundle.py"], cwd=work_code, verbose=verbose)
     _run(

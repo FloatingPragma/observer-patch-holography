@@ -100,7 +100,7 @@
       "unit": "eV^2"
     }
   ],
-  "generated_utc": "2026-04-12T16:58:21Z",
+  "generated_utc": "2026-04-14T09:36:33Z",
   "inputs": {
     "P": 1.63094,
     "hadron_profile": "suppressed",
@@ -108,6 +108,26 @@
     "loops": 4,
     "with_hadrons": false
   },
+  "majorana_rows": [
+    {
+      "note": "Theorem-grade physical Majorana phase on the repaired shared-basis weighted-cycle surface. The readout uses the canonical Takagi congruence of the emitted symmetric cycle matrix together with the electron-row gauge `U_e1 in R_{>0}`, so it is insensitive to computational column rephasings of the intermediate unitary.",
+      "observable": "alpha21^(Maj)",
+      "observable_id": "alpha21_majorana",
+      "prediction_display": "153.618518 deg",
+      "prediction_value": 153.6185177794357,
+      "status": "theorem_grade",
+      "unit": "deg"
+    },
+    {
+      "note": "Same theorem surface as `alpha21^(Maj)`: emitted by the canonical Takagi congruence readout on the repaired shared-basis weighted-cycle matrix.",
+      "observable": "alpha31^(Maj)",
+      "observable_id": "alpha31_majorana",
+      "prediction_display": "257.003241 deg",
+      "prediction_value": 257.00324082207993,
+      "status": "theorem_grade",
+      "unit": "deg"
+    }
+  ],
   "premise_boundaries": {
     "uv_bw_internalization": {
       "actual_solver_missing_emitted_witnesses": [

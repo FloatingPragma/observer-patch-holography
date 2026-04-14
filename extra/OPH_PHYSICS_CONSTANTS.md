@@ -47,7 +47,7 @@ This ledger is easiest to read as a small number of theorem chains. Each row say
 | Higgs / top | `P -> alpha_U -> (t_U, t_tr) -> v ->` one-scalar Higgs/top seed -> `(M_H, m_t)` | make the forward Higgs/top surface fully rigorous | [#34](https://github.com/FloatingPragma/observer-patch-holography/issues/34) |
 | Charged leptons | exact same-family witness -> branch splitting -> post-promotion trace lift -> affine anchor -> `(m_e, m_mu, m_tau)` | close the remaining promotion, lift, and absolute-anchor steps | [#149](https://github.com/FloatingPragma/observer-patch-holography/issues/149), [#151](https://github.com/FloatingPragma/observer-patch-holography/issues/151), [#150](https://github.com/FloatingPragma/observer-patch-holography/issues/150), [#152](https://github.com/FloatingPragma/observer-patch-holography/issues/152) |
 | Quarks / CKM | exact same-family witness -> continuation package -> physical-sheet lift -> mass and CKM outputs | close the physical-sheet branch and the remaining three-object extension | [#37](https://github.com/FloatingPragma/observer-patch-holography/issues/37) |
-| Neutrinos | weighted-cycle bridge rigidity + absolute attachment -> PMNS pattern + splittings + absolute masses | expose the remaining physical Majorana-phase surface | [#154](https://github.com/FloatingPragma/observer-patch-holography/issues/154) |
+| Neutrinos | weighted-cycle bridge rigidity + absolute attachment + shared-basis weighted-cycle transport + canonical Takagi readout -> PMNS pattern + splittings + absolute masses + physical Majorana phases | the transported shared-basis weighted-cycle branch now closes the public Majorana surface | [#154](https://github.com/FloatingPragma/observer-patch-holography/issues/154) |
 | Hadrons | quark descendants + `Lambda_MSbar` + nonperturbative execution -> hadron masses | unquench the hadron branch and publish systematics | [#153](https://github.com/FloatingPragma/observer-patch-holography/issues/153), [#157](https://github.com/FloatingPragma/observer-patch-holography/issues/157) |
 | Familiar units / thermodynamic constants | Lorentz output + local unit bridge + global capacity bridge -> SI-facing `c`, `G`, `Lambda`, `H_dS`, temperature displays, with `hbar` / `k_B` kept in the readout-convention lane | close the local unit bridge and propagate the temperature readout honestly across the local and de Sitter surfaces | [#159](https://github.com/FloatingPragma/observer-patch-holography/issues/159), [#22](https://github.com/FloatingPragma/observer-patch-holography/issues/22) |
 
@@ -152,8 +152,18 @@ That means:
 | `m_1` | Lightest neutrino mass. Current theorem-grade value `0.0174547 eV`. | `P + weighted-cycle bridge rigidity + absolute attachment` | The absolute-attachment theorem emits `lambda_nu` and therefore the absolute family. | conditional | — |
 | `m_2` | Second neutrino mass. Current theorem-grade value `0.0194820 eV`. | `P + weighted-cycle bridge rigidity + absolute attachment` | Same theorem lane as `m_1`. | conditional | — |
 | `m_3` | Heaviest neutrino mass. Current theorem-grade value `0.0530752 eV`. | `P + weighted-cycle bridge rigidity + absolute attachment` | Same theorem lane as `m_1`. | conditional | — |
-| `alpha_21^(Maj)` | First physical Majorana phase, if the neutrinos are Majorana. | open neutrino continuation | The corpus contains Majorana-holonomy machinery, but it does not yet expose final physical Majorana phases as public constants. | not yet derived | [#154](https://github.com/FloatingPragma/observer-patch-holography/issues/154) |
-| `alpha_31^(Maj)` | Second physical Majorana phase, if the neutrinos are Majorana. | open neutrino continuation | Same current boundary as `alpha_21^(Maj)`. | not yet derived | [#154](https://github.com/FloatingPragma/observer-patch-holography/issues/154) |
+| `alpha_21^(Maj)` | First physical Majorana phase, if the neutrinos are Majorana. Current theorem-grade value `153.618518 deg`. | weighted-cycle neutrino theorem branch + shared-basis weighted-cycle transport | The repaired weighted-cycle Majorana matrix is transported exactly into the closed shared `[f1, f2, f3]` basis by `U_e_left`, and canonical Takagi congruence then emits the physical phase pair on that anchored branch. | conditional | [#154](https://github.com/FloatingPragma/observer-patch-holography/issues/154) |
+| `alpha_31^(Maj)` | Second physical Majorana phase, if the neutrinos are Majorana. Current theorem-grade value `257.003241 deg`. | weighted-cycle neutrino theorem branch + shared-basis weighted-cycle transport | Same theorem lane as `alpha_21^(Maj)`: the public phase pair is emitted after rebuilding the physical PMNS path explicitly as `U_e_left^dagger * U_nu_shared`. | conditional | [#154](https://github.com/FloatingPragma/observer-patch-holography/issues/154) |
+
+### Public Status Of Physical Majorana Phases
+
+On the current OPH public neutrino surface, the physical Majorana phases are now emitted on the explicit shared-basis weighted-cycle transport branch.
+
+That means:
+
+- the weighted-cycle branch already emits PMNS-type observables, absolute neutrino masses, and absolute splittings
+- the stronger shared-basis transport route closes instead: `M_shared = U_e_left^* M_wc U_e_left^dagger`, `U_nu_shared = U_e_left U_PMNS`, and `U_PMNS = U_e_left^dagger U_nu_shared`
+- the resulting public values are `alpha_21^(Maj) = 153.618518 deg` and `alpha_31^(Maj) = 257.003241 deg`
 
 ## QCD And Hadrons
 
@@ -368,7 +378,8 @@ Today, the OPH constant story looks like this:
 - conditional on `P`: the target-free electroweak and one-scalar Higgs/top stack, the QCD `Lambda_MSbar` descendant, and the theorem-grade neutrino branch
 - conditional on `N_scr`: `Lambda` and its de Sitter descendants
 - public familiar-unit conventions rather than standalone OPH outputs: `hbar` and `k_B`
-- not yet derived: the physical charged-lepton theorem lane, the physical quark/CKM theorem lane, physical Majorana phases, strong CP, and the hadron spectrum
+- public neutrino surface now includes physical Majorana phases via the explicit shared-basis weighted-cycle transport branch
+- not yet derived: the physical charged-lepton theorem lane, the physical quark/CKM theorem lane, strong CP, and the hadron spectrum
 
 ## Primary Source Surface
 

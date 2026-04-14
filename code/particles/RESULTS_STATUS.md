@@ -1,6 +1,6 @@
 # Particle Results Status
 
-Generated: `2026-04-12T16:58:21Z`
+Generated: `2026-04-14T09:36:33Z`
 
 Inputs: `P=1.63094` | `log_dim_H=1e+122` | `loops=4` | `with_hadrons=False` | `hadron_profile=suppressed`
 
@@ -70,6 +70,13 @@ Measured/reference values are pinned from the official Particle Data Group 2025 
 | Delta m21^2 / Delta m32^2 | weighted_cycle_dimensionless | 0.03072111 | 0.030721903 | -7.9310137719e-07 (-2.582e-05) | Dimensionless hierarchy ratio from the current weighted-cycle branch; this is the cleanest split comparison because it does not depend on the missing absolute normalization scalar. |
 | Delta m21^2 | theorem_grade | 7.48805946511e-05 eV^2 | 7.49e-05 +1.9e-06 -2e-06 eV^2 | -1.94053489315e-08 eV^2 (-2.591e-04) | Theorem-grade absolute solar splitting from the emitted weighted-cycle bridge rigidity and absolute attachment theorems. |
 | Delta m32^2 | theorem_grade | 0.0024374313 eV^2 | 0.002438 +2.1e-05 -1.9e-05 eV^2 | -5.68721889221e-07 eV^2 (-2.333e-04) | Theorem-grade absolute atmospheric splitting from the emitted weighted-cycle bridge rigidity and absolute attachment theorems. |
+
+## Majorana Phase Surface
+
+| Observable | Status | OPH value | Note |
+| --- | --- | --- | --- |
+| alpha21^(Maj) | theorem_grade | 153.618518 deg | Theorem-grade physical Majorana phase on the repaired shared-basis weighted-cycle surface. The readout uses the canonical Takagi congruence of the emitted symmetric cycle matrix together with the electron-row gauge `U_e1 in R_{>0}`, so it is insensitive to computational column rephasings of the intermediate unitary. |
+| alpha31^(Maj) | theorem_grade | 257.003241 deg | Same theorem surface as `alpha21^(Maj)`: emitted by the canonical Takagi congruence readout on the repaired shared-basis weighted-cycle matrix. |
 
 ## Quarks
 

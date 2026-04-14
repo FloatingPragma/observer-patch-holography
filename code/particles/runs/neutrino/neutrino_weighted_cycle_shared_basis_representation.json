@@ -1,0 +1,244 @@
+{
+  "artifact": "oph_neutrino_weighted_cycle_shared_basis_representation",
+  "basis_contract": {
+    "labels": [
+      "f1",
+      "f2",
+      "f3"
+    ],
+    "orientation_preserved": true
+  },
+  "basis_labels": [
+    "f1",
+    "f2",
+    "f3"
+  ],
+  "charged_basis_matrix_imag": [
+    [
+      0.0,
+      -0.0034409541855482603,
+      -0.004341567374288044
+    ],
+    [
+      -0.0034409541855482603,
+      0.0,
+      -0.005033930258857977
+    ],
+    [
+      -0.004341567374288044,
+      -0.005033930258857977,
+      0.0
+    ]
+  ],
+  "charged_basis_matrix_real": [
+    [
+      -0.004627694081134708,
+      0.0023899845251189994,
+      0.008473638500134547
+    ],
+    [
+      0.0023899845251189994,
+      -0.017733523041378037,
+      0.01524485668490928
+    ],
+    [
+      0.008473638500134547,
+      0.01524485668490928,
+      -0.010516883830923774
+    ]
+  ],
+  "construction": {
+    "physical_pmns_recovery": "U_PMNS = U_e_left^dagger U_nu_shared",
+    "shared_basis_matrix": "M_shared = U_e_left^* M_wc U_e_left^dagger",
+    "shared_basis_neutrino_unitary": "U_nu_shared = U_e_left U_wc"
+  },
+  "depends_on": [
+    "oph_neutrino_weighted_cycle_repair",
+    "oph_shared_charged_lepton_left_basis"
+  ],
+  "emitted_parameters": {
+    "alpha21_deg": 153.6185177794357,
+    "alpha21_deg_0_to_360": 153.6185177794357,
+    "alpha21_rad": 2.6811489272846014,
+    "alpha21_rad_0_to_2pi": 2.6811489272846014,
+    "alpha31_deg": -102.99675917792007,
+    "alpha31_deg_0_to_360": 257.00324082207993,
+    "alpha31_rad": -1.7976325665383932,
+    "alpha31_rad_0_to_2pi": 4.485552740641193,
+    "electron_row_gauge_phase_deg": -100.27248394939436,
+    "electron_row_gauge_phase_rad": -1.7500849940700987
+  },
+  "generated_utc": "2026-04-14T09:34:46Z",
+  "notes": [
+    "This artifact does not use the old intrinsic/shared-basis PMNS surface; it transports the repaired weighted-cycle theorem lane itself into the closed same-label basis.",
+    "Because the transport is a Majorana congruence by the already-closed U_e_left, the shared-basis matrix remains complex symmetric and is diagonalized by the transported U_nu_shared with the same positive masses.",
+    "The physical PMNS matrix recovered from U_e_left^dagger * U_nu_shared matches the repaired weighted-cycle PMNS surface exactly, so Majorana readout can be promoted on this anchored branch."
+  ],
+  "physical_branch_closed": true,
+  "pmns_matrix_imag": [
+    [
+      -0.8042412098161018,
+      -0.2213794827347565,
+      0.1497839687175629
+    ],
+    [
+      0.3135003667922325,
+      0.359260018362933,
+      0.7538755297968618
+    ],
+    [
+      0.12886571615680642,
+      0.4597124284246202,
+      -0.6305957660226231
+    ]
+  ],
+  "pmns_matrix_real": [
+    [
+      -0.14575644415157862,
+      0.5100329244750385,
+      0.019324562415921693
+    ],
+    [
+      -0.2886616009610345,
+      0.3471946575181609,
+      -0.02125546334381524
+    ],
+    [
+      -0.3657003729461608,
+      0.4794894500655687,
+      0.10373135846276038
+    ]
+  ],
+  "pmns_observables": {
+    "J": -0.027531156135653663,
+    "delta_deg": 305.5806123144978,
+    "delta_rad": 5.333387815148316,
+    "theta12_deg": 34.22590463181004,
+    "theta12_rad": 0.5973547252986627,
+    "theta13_deg": 8.68635552770014,
+    "theta13_rad": 0.15160550395717695,
+    "theta23_deg": 49.72282845058262,
+    "theta23_rad": 0.8678270698669772
+  },
+  "proof_chain_role": "active_theorem_lane",
+  "public_surface_candidate_allowed": true,
+  "shared_basis_matrix_imag": [
+    [
+      0.002755745602475409,
+      0.009598971222034947,
+      -0.011661281217960853
+    ],
+    [
+      0.009598971222034947,
+      0.011974544125796443,
+      -0.0013777486801780734
+    ],
+    [
+      -0.011661281217960853,
+      -0.001377748680178073,
+      -0.007847964726890626
+    ]
+  ],
+  "shared_basis_matrix_real": [
+    [
+      -0.01706740547946228,
+      0.0025951942674305077,
+      -0.002816900019437197
+    ],
+    [
+      0.002595194267430507,
+      0.006297345326004829,
+      -0.007904953319718955
+    ],
+    [
+      -0.0028169000194371973,
+      -0.007904953319718955,
+      -0.0045284370829092625
+    ]
+  ],
+  "source_artifacts": {
+    "shared_charged_left_basis": "C:\\Users\\Mario\\SourceCode\\Local\\observer-patch-holography\\code\\particles\\runs\\neutrino\\shared_charged_lepton_left_basis.json",
+    "weighted_cycle_branch": "C:\\Users\\Mario\\SourceCode\\Local\\observer-patch-holography\\code\\particles\\runs\\neutrino\\neutrino_weighted_cycle_repair.json"
+  },
+  "statement": "The repaired weighted-cycle Majorana matrix is transported exactly into the closed shared same-label basis, and the physical PMNS surface is recovered there as U_e_left^dagger * U_nu_shared. This closes the weighted-cycle theorem lane on the shared basis without identifying it with the separate intrinsic/shared-basis PMNS diagnostic surface.",
+  "status": "theorem_grade_emitted",
+  "theorem_object": "shared_basis_weighted_cycle_physical_pmns",
+  "theorem_surface": "weighted_cycle_shared_basis_transport",
+  "transport_checks": {
+    "pmns_recovery_max_abs": 5.79553433516819e-16,
+    "shared_basis_diagonalized_imag_max_abs": 6.5052130349130266e-18,
+    "shared_basis_diagonalized_offdiag_max_abs": 1.7826161734532172e-17,
+    "shared_basis_diagonalized_real_masses": [
+      0.010126301485273367,
+      0.01130241450196932,
+      0.030791424088410572
+    ],
+    "shared_basis_symmetry_max_abs": 8.673617379884035e-19
+  },
+  "u_nu_shared_imag": [
+    [
+      0.5709315447773968,
+      0.06983053829791178,
+      0.712854307838556
+    ],
+    [
+      -0.6142811869223057,
+      -0.004373763537020958,
+      0.1887446452297699
+    ],
+    [
+      -0.17986733073824657,
+      -0.8616442584170184,
+      0.19066022948907835
+    ]
+  ],
+  "u_nu_shared_real": [
+    [
+      0.1286183543040494,
+      -0.3708304241570648,
+      -0.08331697516557844
+    ],
+    [
+      0.4977464675250033,
+      -0.2987690024611036,
+      -0.5000004897174712
+    ],
+    [
+      0.007022172528145465,
+      -0.16092115379408906,
+      0.4036343190510691
+    ]
+  ],
+  "weighted_cycle_observables_match": {
+    "J_abs_delta": 5.551115123125783e-17,
+    "delta_deg_abs_delta": 1.7053025658242404e-13,
+    "theta12_deg_abs_delta": 1.4210854715202004e-14,
+    "theta13_deg_abs_delta": 1.5987211554602254e-14,
+    "theta23_deg_abs_delta": 4.263256414560601e-14
+  },
+  "weighted_cycle_takagi_congruence": {
+    "congruence_half_angles_deg": [
+      -79.72751605060567,
+      23.463225059676475,
+      -82.64852414714794
+    ],
+    "congruence_half_angles_rad": [
+      -1.391507659519695,
+      0.4095105304277975,
+      -1.4424888682817698
+    ],
+    "diagonalized_imag_max_abs": 6.071532165918825e-18,
+    "diagonalized_offdiag_max_abs": 1.780205822318556e-17,
+    "diagonalized_real_masses": [
+      0.01012630148527337,
+      0.011302414501969324,
+      0.030791424088410606
+    ],
+    "phase_relation_offdiag_max_abs": 1.5553031891404223e-15,
+    "singular_values": [
+      0.010126301485273378,
+      0.01130241450196933,
+      0.03079142408841062
+    ]
+  }
+}

@@ -54,6 +54,9 @@ NEUTRINO_WEIGHTED_CYCLE_REPAIR = ROOT / "particles" / "runs" / "neutrino" / "neu
 NEUTRINO_TWO_PARAMETER_EXACT_ADAPTER = ROOT / "particles" / "runs" / "neutrino" / "neutrino_two_parameter_exact_adapter.json"
 NEUTRINO_EXACT_ADAPTER_BRIDGE_COORDINATE = ROOT / "particles" / "runs" / "neutrino" / "neutrino_exact_adapter_bridge_coordinate.json"
 NEUTRINO_LAMBDA_BRIDGE_CANDIDATE = ROOT / "particles" / "runs" / "neutrino" / "neutrino_lambda_nu_bridge_candidate.json"
+NEUTRINO_PHYSICAL_MAJORANA_PHASE_THEOREM = (
+    ROOT / "particles" / "runs" / "neutrino" / "neutrino_physical_majorana_phase_theorem.json"
+)
 QUARK_D12_INTERNAL_BACKREAD_CLOSURE = ROOT / "particles" / "runs" / "flavor" / "quark_d12_internal_backread_continuation_closure.json"
 PUBLIC_SURFACE_KIND = "particles_native_candidate_or_gap_surface"
 P_DEFAULT = 1.63094
@@ -424,10 +427,12 @@ INVENTORY: List[Dict[str, Any]] = [
 
 def _canonical_artifact_ref(path: pathlib.Path | str) -> str:
     path = pathlib.Path(path)
+    if not path.is_absolute():
+        return path.as_posix()
     try:
         rel = path.relative_to(ROOT)
     except ValueError:
-        return str(path)
+        return path.as_posix()
     return f"code/{rel.as_posix()}"
 
 
@@ -965,6 +970,94 @@ def build_neutrino_oscillation_comparison_rows(surface_state: Dict[str, Any]) ->
     return rows
 
 
+def build_majorana_phase_surface_rows(surface_state: Dict[str, Any]) -> List[Dict[str, Any]]:
+    active = dict(surface_state["active_local_public_candidates"])
+    if not active.get("neutrino_repaired_branch"):
+        return []
+
+    theorem = (
+        json.loads(NEUTRINO_PHYSICAL_MAJORANA_PHASE_THEOREM.read_text(encoding="utf-8"))
+        if NEUTRINO_PHYSICAL_MAJORANA_PHASE_THEOREM.exists()
+        else None
+    )
+    if (
+        theorem
+        and theorem.get("status") == "theorem_grade_emitted"
+        and theorem.get("public_surface_candidate_allowed", False)
+    ):
+        emitted = dict(theorem.get("emitted_parameters") or theorem.get("candidate_parameters") or {})
+        alpha21_note = (
+            "Theorem-grade physical Majorana phase on the repaired shared-basis weighted-cycle surface. "
+            "The readout uses the canonical Takagi congruence of the emitted symmetric cycle matrix together with the electron-row gauge `U_e1 in R_{>0}`, so it is insensitive to computational column rephasings of the intermediate unitary."
+        )
+        alpha31_note = (
+            "Same theorem surface as `alpha21^(Maj)`: emitted by the canonical Takagi congruence readout on the repaired shared-basis weighted-cycle matrix."
+        )
+        return [
+            {
+                "observable_id": "alpha21_majorana",
+                "observable": "alpha21^(Maj)",
+                "status": "theorem_grade",
+                "prediction_value": float(emitted["alpha21_deg_0_to_360"]),
+                "prediction_display": format_observable_value(float(emitted["alpha21_deg_0_to_360"]), "deg"),
+                "unit": "deg",
+                "note": alpha21_note,
+            },
+            {
+                "observable_id": "alpha31_majorana",
+                "observable": "alpha31^(Maj)",
+                "status": "theorem_grade",
+                "prediction_value": float(emitted["alpha31_deg_0_to_360"]),
+                "prediction_display": format_observable_value(float(emitted["alpha31_deg_0_to_360"]), "deg"),
+                "unit": "deg",
+                "note": alpha31_note,
+            },
+        ]
+
+    if theorem is None:
+        alpha21_note = (
+            "Still absent on the current public surface, not declared unphysical. "
+            "The weighted-cycle branch already emits PMNS-type observables, masses, and splittings, "
+            "but no declared public Majorana readout artifact is available yet."
+        )
+        alpha31_note = "Same current boundary as `alpha21^(Maj)`."
+    else:
+        blocker = str(
+            theorem.get("public_promotion_blocker")
+            or "The repaired weighted-cycle branch has not yet been represented explicitly on the closed shared basis for public Majorana promotion."
+        )
+        alpha21_note = (
+            "Still absent on the current public surface, not declared unphysical. "
+            "A canonical Takagi readout candidate exists on the repaired weighted-cycle matrix, "
+            f"but public promotion remains open. {blocker}"
+        )
+        alpha31_note = (
+            "Same current boundary as `alpha21^(Maj)`: still absent on the current public surface while the weighted-cycle "
+            f"candidate remains below the public-promotion blocker. {blocker}"
+        )
+
+    return [
+        {
+            "observable_id": "alpha21_majorana",
+            "observable": "alpha21^(Maj)",
+            "status": "still_absent",
+            "prediction_value": None,
+            "prediction_display": "n/a",
+            "unit": "",
+            "note": alpha21_note,
+        },
+        {
+            "observable_id": "alpha31_majorana",
+            "observable": "alpha31^(Maj)",
+            "status": "still_absent",
+            "prediction_value": None,
+            "prediction_display": "n/a",
+            "unit": "",
+            "note": alpha31_note,
+        },
+    ]
+
+
 def prediction_surface_for_row(row_spec: Dict[str, Any], surface_state: Dict[str, Any], *, with_hadrons: bool) -> str:
     active = dict(surface_state["active_local_public_candidates"])
     particle_id = row_spec["particle_id"]
@@ -1075,7 +1168,9 @@ def render_markdown(
     reference_payload: Dict[str, Any],
     surface_state: Dict[str, Any],
     premise_boundaries: Dict[str, Any],
+    majorana_rows: Optional[List[Dict[str, Any]]] = None,
 ) -> str:
+    majorana_rows = majorana_rows or []
     groups_present = [group for group in GROUP_ORDER if any(item["group"] == group for item in rows)]
     hadron_profile_display = _effective_hadron_profile(with_hadrons=with_hadrons, hadron_profile=hadron_profile)
     lines: List[str] = [
@@ -1162,6 +1257,20 @@ def render_markdown(
                     f"| {row['observable']} | {row['status']} | {row['prediction_display']} | {row['reference_display']} | {row['delta_display']} | {row['note']} |"
                 )
             lines.append("")
+        if group == "Leptons" and majorana_rows:
+            lines.extend(
+                [
+                    "## Majorana Phase Surface",
+                    "",
+                    "| Observable | Status | OPH value | Note |",
+                    "| --- | --- | --- | --- |",
+                ]
+            )
+            for row in majorana_rows:
+                lines.append(
+                    f"| {row['observable']} | {row['status']} | {row['prediction_display']} | {row['note']} |"
+                )
+            lines.append("")
 
     return "\n".join(lines)
 
@@ -1197,6 +1306,7 @@ def main() -> int:
         surface_state=surface_state,
     )
     comparison_rows = build_neutrino_oscillation_comparison_rows(surface_state)
+    majorana_rows = build_majorana_phase_surface_rows(surface_state)
     generated_utc = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     effective_hadron_profile = _effective_hadron_profile(
         with_hadrons=with_hadrons,
@@ -1206,6 +1316,7 @@ def main() -> int:
     markdown = render_markdown(
         rows=rows,
         comparison_rows=comparison_rows,
+        majorana_rows=majorana_rows,
         generated_utc=generated_utc,
         P=float(args.P),
         log_dim_H=float(args.log_dim_H),
@@ -1237,6 +1348,7 @@ def main() -> int:
         "premise_boundaries": premise_boundaries,
         "rows": rows,
         "comparison_rows": comparison_rows,
+        "majorana_rows": majorana_rows,
     }
     forward_out.write_text(json.dumps(forward_payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
@@ -1257,6 +1369,7 @@ def main() -> int:
                 "reference_source": reference_payload["source"],
                 "rows": rows,
                 "comparison_rows": comparison_rows,
+                "majorana_rows": majorana_rows,
             },
             indent=2,
             sort_keys=True,
