@@ -116,25 +116,46 @@ def _standard_pmns_parameters(unitary: np.ndarray) -> dict[str, float]:
     }
 
 
-def _majorana_pair_from_pmns(unitary: np.ndarray, delta_rad: float) -> dict[str, float]:
+def _row_gauge_pmns(unitary: np.ndarray) -> tuple[np.ndarray, float]:
     electron_row_phase = float(np.angle(unitary[0, 0]))
     row_gauged = np.diag([np.exp(-1j * electron_row_phase), 1.0, 1.0]) @ unitary
+    u_e1 = row_gauged[0, 0]
+    if abs(float(np.imag(u_e1))) > 1.0e-12:
+        raise ValueError("electron-row Majorana readout gauge must make U_e1 real")
+    if float(np.real(u_e1)) <= 0.0:
+        raise ValueError("electron-row Majorana readout gauge must make U_e1 positive")
+    return row_gauged, electron_row_phase
+
+
+def _majorana_readout_details(unitary: np.ndarray, delta_rad: float) -> dict[str, Any]:
+    row_gauged, electron_row_phase = _row_gauge_pmns(unitary)
     alpha21_signed = _wrap_signed_phase(2.0 * float(np.angle(row_gauged[0, 1])))
     alpha31_signed = _wrap_signed_phase(2.0 * (float(np.angle(row_gauged[0, 2])) + delta_rad))
     alpha21_mod = float(alpha21_signed % (2.0 * math.pi))
     alpha31_mod = float(alpha31_signed % (2.0 * math.pi))
     return {
-        "electron_row_gauge_phase_rad": electron_row_phase,
-        "electron_row_gauge_phase_deg": math.degrees(electron_row_phase),
-        "alpha21_rad": alpha21_signed,
-        "alpha21_deg": math.degrees(alpha21_signed),
-        "alpha21_rad_0_to_2pi": alpha21_mod,
-        "alpha21_deg_0_to_360": math.degrees(alpha21_mod),
-        "alpha31_rad": alpha31_signed,
-        "alpha31_deg": math.degrees(alpha31_signed),
-        "alpha31_rad_0_to_2pi": alpha31_mod,
-        "alpha31_deg_0_to_360": math.degrees(alpha31_mod),
+        "row_gauged_pmns": row_gauged,
+        "checks": {
+            "row_gauged_u_e1_real": float(np.real(row_gauged[0, 0])),
+            "row_gauged_u_e1_imag_abs": abs(float(np.imag(row_gauged[0, 0]))),
+        },
+        "parameters": {
+            "electron_row_gauge_phase_rad": electron_row_phase,
+            "electron_row_gauge_phase_deg": math.degrees(electron_row_phase),
+            "alpha21_rad": alpha21_signed,
+            "alpha21_deg": math.degrees(alpha21_signed),
+            "alpha21_rad_0_to_2pi": alpha21_mod,
+            "alpha21_deg_0_to_360": math.degrees(alpha21_mod),
+            "alpha31_rad": alpha31_signed,
+            "alpha31_deg": math.degrees(alpha31_signed),
+            "alpha31_rad_0_to_2pi": alpha31_mod,
+            "alpha31_deg_0_to_360": math.degrees(alpha31_mod),
+        },
     }
+
+
+def _majorana_pair_from_pmns(unitary: np.ndarray, delta_rad: float) -> dict[str, float]:
+    return dict(_majorana_readout_details(unitary, delta_rad)["parameters"])
 
 
 def _canonical_pmns_from_weighted_cycle_matrix(matrix: np.ndarray) -> dict[str, Any]:
@@ -185,6 +206,27 @@ def _observable_match(observables: dict[str, float], weighted_cycle_observables:
     }
 
 
+def _shared_basis_transport_checks(
+    shared_basis_matrix: np.ndarray,
+    u_nu_shared: np.ndarray,
+    pmns: np.ndarray,
+    u_e_left: np.ndarray,
+) -> dict[str, Any]:
+    recovered_pmns = np.conjugate(u_e_left).T @ u_nu_shared
+    shared_diagonalized = u_nu_shared.T @ shared_basis_matrix @ u_nu_shared
+    shared_offdiag = shared_diagonalized - np.diag(np.diag(shared_diagonalized))
+    shared_diag_real = np.real(np.diag(shared_diagonalized))
+    if np.any(shared_diag_real <= 0.0):
+        raise ValueError("shared-basis weighted-cycle representation must keep a positive Takagi diagonal")
+    return {
+        "shared_basis_symmetry_max_abs": float(np.max(np.abs(shared_basis_matrix - shared_basis_matrix.T))),
+        "shared_basis_diagonalized_offdiag_max_abs": float(np.max(np.abs(shared_offdiag))),
+        "shared_basis_diagonalized_imag_max_abs": float(np.max(np.abs(np.imag(np.diag(shared_diagonalized))))),
+        "shared_basis_diagonalized_real_masses": [float(x) for x in shared_diag_real.tolist()],
+        "pmns_recovery_max_abs": float(np.max(np.abs(recovered_pmns - pmns))),
+    }
+
+
 def build_payload(
     weighted_cycle: dict[str, Any],
     shared_charged_left: dict[str, Any],
@@ -206,7 +248,8 @@ def build_payload(
     canonical = _canonical_pmns_from_weighted_cycle_matrix(matrix)
     pmns = canonical["pmns"]
     observables = _standard_pmns_parameters(pmns)
-    majorana_pair = _majorana_pair_from_pmns(pmns, observables["delta_rad"])
+    majorana_readout = _majorana_readout_details(pmns, observables["delta_rad"])
+    majorana_pair = dict(majorana_readout["parameters"])
     weighted_cycle_observables = dict(weighted_cycle["pmns_observables"])
     observable_match = _observable_match(observables, weighted_cycle_observables)
     if max(observable_match.values()) > 1.0e-8:
@@ -240,25 +283,34 @@ def build_payload(
         "diagonalized_imag_max_abs": canonical["diagonalized_imag_max_abs"],
         "diagonalized_offdiag_max_abs": canonical["diagonalized_offdiag_max_abs"],
     }
+    readout_checks = dict(majorana_readout["checks"])
+    row_gauged_pmns = majorana_readout["row_gauged_pmns"]
 
     if shared_basis_representation is not None:
         if shared_basis_representation.get("artifact") != "oph_neutrino_weighted_cycle_shared_basis_representation":
             raise ValueError("unexpected shared-basis weighted-cycle artifact id")
+        if shared_basis_representation.get("status") != "theorem_grade_emitted":
+            raise ValueError("shared-basis weighted-cycle representation must already be theorem-grade emitted")
         if not bool(shared_basis_representation.get("physical_branch_closed", False)):
             raise ValueError("shared-basis weighted-cycle representation must explicitly close the physical branch")
-        transport_checks = dict(shared_basis_representation.get("transport_checks") or {})
-        if transport_checks:
-            if float(transport_checks.get("shared_basis_symmetry_max_abs", 0.0)) > 1.0e-8:
-                raise ValueError("shared-basis weighted-cycle representation must remain complex symmetric")
-            if float(transport_checks.get("shared_basis_diagonalized_offdiag_max_abs", 0.0)) > 1.0e-8:
-                raise ValueError("shared-basis weighted-cycle representation must diagonalize exactly")
-            if float(transport_checks.get("shared_basis_diagonalized_imag_max_abs", 0.0)) > 1.0e-8:
-                raise ValueError("shared-basis weighted-cycle representation must keep a real positive Takagi diagonal")
-            if float(transport_checks.get("pmns_recovery_max_abs", 0.0)) > 1.0e-8:
-                raise ValueError("shared-basis weighted-cycle representation must recover the physical PMNS exactly")
+        u_e_left = _complex_matrix(shared_charged_left["U_e_left"], "real", "imag")
         pmns = _complex_matrix(shared_basis_representation, "pmns_matrix_real", "pmns_matrix_imag")
+        shared_basis_matrix = _complex_matrix(shared_basis_representation, "shared_basis_matrix_real", "shared_basis_matrix_imag")
+        u_nu_shared = _complex_matrix(shared_basis_representation, "u_nu_shared_real", "u_nu_shared_imag")
+        transport_checks = _shared_basis_transport_checks(shared_basis_matrix, u_nu_shared, pmns, u_e_left)
+        if float(transport_checks["shared_basis_symmetry_max_abs"]) > 1.0e-8:
+            raise ValueError("shared-basis weighted-cycle representation must remain complex symmetric")
+        if float(transport_checks["shared_basis_diagonalized_offdiag_max_abs"]) > 1.0e-8:
+            raise ValueError("shared-basis weighted-cycle representation must diagonalize exactly")
+        if float(transport_checks["shared_basis_diagonalized_imag_max_abs"]) > 1.0e-8:
+            raise ValueError("shared-basis weighted-cycle representation must keep a real positive Takagi diagonal")
+        if float(transport_checks["pmns_recovery_max_abs"]) > 1.0e-8:
+            raise ValueError("shared-basis weighted-cycle representation must recover the physical PMNS exactly")
         observables = _standard_pmns_parameters(pmns)
-        majorana_pair = _majorana_pair_from_pmns(pmns, observables["delta_rad"])
+        majorana_readout = _majorana_readout_details(pmns, observables["delta_rad"])
+        majorana_pair = dict(majorana_readout["parameters"])
+        readout_checks = dict(majorana_readout["checks"])
+        row_gauged_pmns = majorana_readout["row_gauged_pmns"]
         observable_match = _observable_match(observables, weighted_cycle_observables)
         if max(observable_match.values()) > 1.0e-8:
             raise ValueError("shared-basis weighted-cycle representation must recover the weighted-cycle oscillation observables")
@@ -297,9 +349,13 @@ def build_payload(
         "theorem_surface": theorem_surface,
         "statement": statement,
         "readout_convention": {
+            "stored_pmns_matrix": "pmns_matrix_* stores the canonical Takagi unitary recovered from the emitted symmetric matrix before any charged-lepton row rephasing for display.",
             "takagi_condition": "U_PMNS^T M_nu U_PMNS = diag(m_i) with diag(m_i) in R_{>0}",
-            "row_gauge": "U_e1 in R_{>0}",
-            "phase_parameterization": "U_PMNS = V(theta12, theta23, theta13, delta_PMNS) * diag(1, exp(i alpha21 / 2), exp(i alpha31 / 2))",
+            "majorana_readout_row_gauge": "row_gauged_pmns_matrix_* = diag(exp(-i arg(U_e1)), 1, 1) * pmns_matrix_* so (row_gauged U)_{e1} in R_{>0}",
+            "majorana_readout_formula": {
+                "alpha21": "2 arg((row_gauged U)_{e2})",
+                "alpha31": "2 (arg((row_gauged U)_{e3}) + delta_PMNS)",
+            },
         },
         "public_promotion_status": public_promotion_status,
         "public_promotion_blocker": public_promotion_blocker,
@@ -322,14 +378,17 @@ def build_payload(
         "takagi_congruence": takagi_congruence_payload,
         "pmns_matrix_real": np.real(pmns).tolist(),
         "pmns_matrix_imag": np.imag(pmns).tolist(),
+        "row_gauged_pmns_matrix_real": np.real(row_gauged_pmns).tolist(),
+        "row_gauged_pmns_matrix_imag": np.imag(row_gauged_pmns).tolist(),
         "pmns_observables": observables,
+        "readout_checks": readout_checks,
         "weighted_cycle_observables_match": observable_match,
         "shared_basis_representation": shared_basis_representation_summary,
         "candidate_parameters": majorana_pair,
         "emitted_parameters": emitted_parameters,
         "notes": [
             "A strict readout from PMNS columns alone would remain computational-gauge dependent, because arbitrary intermediate column phases leave the oscillation observables unchanged while moving alpha21 and alpha31.",
-            "The readout fixes that ambiguity by reading the phases only after the canonical Takagi congruence of the emitted symmetric weighted-cycle matrix.",
+            "The readout fixes that ambiguity by first taking the canonical Takagi congruence of the emitted symmetric weighted-cycle matrix and then applying the readout-only electron-row gauge `U_e1 in R_{>0}`.",
             (
                 "The resulting pair is promoted publicly because the repaired weighted-cycle branch is now represented explicitly on the closed shared basis and the physical PMNS path is recovered there exactly. This promotion does not identify that branch with the separate intrinsic/shared-basis PMNS diagnostic surface."
                 if shared_basis_representation is not None

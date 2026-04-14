@@ -970,10 +970,10 @@ def build_majorana_phase_surface_rows(surface_state: Dict[str, Any]) -> List[Dic
         emitted = dict(theorem.get("emitted_parameters") or theorem.get("candidate_parameters") or {})
         alpha21_note = (
             "Theorem-grade physical Majorana phase on the repaired shared-basis weighted-cycle surface. "
-            "The readout uses the canonical Takagi congruence of the emitted symmetric cycle matrix together with the electron-row gauge `U_e1 in R_{>0}`, so it is insensitive to computational column rephasings of the intermediate unitary."
+            "The readout uses the canonical Takagi congruence of the emitted symmetric cycle matrix together with the readout-only electron-row gauge `U_e1 in R_{>0}`, so it is insensitive to computational column rephasings of the intermediate unitary."
         )
         alpha31_note = (
-            "Same theorem surface as `alpha21^(Maj)`: emitted by the canonical Takagi congruence readout on the repaired shared-basis weighted-cycle matrix."
+            "Same theorem surface as `alpha21^(Maj)`: emitted by the same canonical Takagi readout after the readout-only electron-row gauge on the repaired shared-basis weighted-cycle matrix."
         )
         return [
             {

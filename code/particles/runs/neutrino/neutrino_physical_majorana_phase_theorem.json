@@ -37,10 +37,10 @@
     "electron_row_gauge_phase_deg": -100.27248394939436,
     "electron_row_gauge_phase_rad": -1.7500849940700987
   },
-  "generated_utc": "2026-04-14T09:34:46Z",
+  "generated_utc": "2026-04-14T10:30:15Z",
   "notes": [
     "A strict readout from PMNS columns alone would remain computational-gauge dependent, because arbitrary intermediate column phases leave the oscillation observables unchanged while moving alpha21 and alpha31.",
-    "The readout fixes that ambiguity by reading the phases only after the canonical Takagi congruence of the emitted symmetric weighted-cycle matrix.",
+    "The readout fixes that ambiguity by first taking the canonical Takagi congruence of the emitted symmetric weighted-cycle matrix and then applying the readout-only electron-row gauge `U_e1 in R_{>0}`.",
     "The resulting pair is promoted publicly because the repaired weighted-cycle branch is now represented explicitly on the closed shared basis and the physical PMNS path is recovered there exactly. This promotion does not identify that branch with the separate intrinsic/shared-basis PMNS diagnostic surface."
   ],
   "pmns_matrix_imag": [
@@ -92,11 +92,53 @@
   "public_promotion_blocker": null,
   "public_promotion_status": "closed_on_weighted_cycle_shared_basis_representation",
   "public_surface_candidate_allowed": true,
+  "readout_checks": {
+    "row_gauged_u_e1_imag_abs": 5.551115123125783e-17,
+    "row_gauged_u_e1_real": 0.8173425625636899
+  },
   "readout_convention": {
-    "phase_parameterization": "U_PMNS = V(theta12, theta23, theta13, delta_PMNS) * diag(1, exp(i alpha21 / 2), exp(i alpha31 / 2))",
-    "row_gauge": "U_e1 in R_{>0}",
+    "majorana_readout_formula": {
+      "alpha21": "2 arg((row_gauged U)_{e2})",
+      "alpha31": "2 (arg((row_gauged U)_{e3}) + delta_PMNS)"
+    },
+    "majorana_readout_row_gauge": "row_gauged_pmns_matrix_* = diag(exp(-i arg(U_e1)), 1, 1) * pmns_matrix_* so (row_gauged U)_{e1} in R_{>0}",
+    "stored_pmns_matrix": "pmns_matrix_* stores the canonical Takagi unitary recovered from the emitted symmetric matrix before any charged-lepton row rephasing for display.",
     "takagi_condition": "U_PMNS^T M_nu U_PMNS = diag(m_i) with diag(m_i) in R_{>0}"
   },
+  "row_gauged_pmns_matrix_imag": [
+    [
+      5.551115123125783e-17,
+      0.5413360354678772,
+      -0.007696123391525284
+    ],
+    [
+      0.3135003667922325,
+      0.359260018362933,
+      0.7538755297968618
+    ],
+    [
+      0.12886571615680642,
+      0.4597124284246202,
+      -0.6305957660226231
+    ]
+  ],
+  "row_gauged_pmns_matrix_real": [
+    [
+      0.8173425625636899,
+      0.1268769330035597,
+      -0.15082919373282191
+    ],
+    [
+      -0.2886616009610345,
+      0.3471946575181609,
+      -0.02125546334381524
+    ],
+    [
+      -0.3657003729461608,
+      0.4794894500655687,
+      0.10373135846276038
+    ]
+  ],
   "shared_basis_representation": {
     "artifact": "oph_neutrino_weighted_cycle_shared_basis_representation",
     "physical_branch_closed": true,
@@ -104,7 +146,7 @@
     "statement": "The repaired weighted-cycle Majorana matrix is transported exactly into the closed shared same-label basis, and the physical PMNS surface is recovered there as U_e_left^dagger * U_nu_shared. This closes the weighted-cycle theorem lane on the shared basis without identifying it with the separate intrinsic/shared-basis PMNS diagnostic surface.",
     "status": "theorem_grade_emitted",
     "transport_checks": {
-      "pmns_recovery_max_abs": 5.79553433516819e-16,
+      "pmns_recovery_max_abs": 0.0,
       "shared_basis_diagonalized_imag_max_abs": 6.5052130349130266e-18,
       "shared_basis_diagonalized_offdiag_max_abs": 1.7826161734532172e-17,
       "shared_basis_diagonalized_real_masses": [

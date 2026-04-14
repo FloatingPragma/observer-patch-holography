@@ -8,6 +8,7 @@ import json
 import pathlib
 
 import numpy as np
+import pytest
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
@@ -55,6 +56,10 @@ def test_weighted_cycle_majorana_phase_candidate_is_stable_but_not_publicly_prom
     assert payload["public_surface_candidate_allowed"] is False
     assert payload["public_promotion_status"] == "blocked_missing_shared_basis_representation"
     assert "represented explicitly on the closed shared same-label basis" in payload["public_promotion_blocker"]
+    assert "phase_parameterization" not in payload["readout_convention"]
+    assert "majorana_readout_row_gauge" in payload["readout_convention"]
+    assert payload["readout_checks"]["row_gauged_u_e1_imag_abs"] < 1.0e-12
+    assert payload["readout_checks"]["row_gauged_u_e1_real"] > 0.0
     assert payload["takagi_congruence"]["diagonalized_offdiag_max_abs"] < 1.0e-12
     assert payload["takagi_congruence"]["diagonalized_imag_max_abs"] < 1.0e-12
     assert abs(payload["weighted_cycle_observables_match"]["delta_deg_abs_delta"]) < 1.0e-10
@@ -86,8 +91,40 @@ def test_weighted_cycle_majorana_phase_theorem_promotes_when_shared_basis_repres
     assert payload["public_promotion_blocker"] is None
     assert payload["shared_basis_representation"] is not None
     assert payload["emitted_parameters"] is not None
+    assert "phase_parameterization" not in payload["readout_convention"]
+    assert "majorana_readout_row_gauge" in payload["readout_convention"]
+    row_gauged = np.array(payload["row_gauged_pmns_matrix_real"], dtype=float) + 1j * np.array(
+        payload["row_gauged_pmns_matrix_imag"], dtype=float
+    )
+    assert payload["readout_checks"]["row_gauged_u_e1_imag_abs"] < 1.0e-12
+    assert payload["readout_checks"]["row_gauged_u_e1_real"] > 0.0
+    assert abs(np.imag(row_gauged[0, 0])) < 1.0e-12
+    assert np.real(row_gauged[0, 0]) > 0.0
     assert abs(payload["emitted_parameters"]["alpha21_deg_0_to_360"] - 153.6185177794357) < 1.0e-9
     assert abs(payload["emitted_parameters"]["alpha31_deg_0_to_360"] - 257.0032408220805) < 1.0e-9
+
+
+def test_shared_basis_majorana_promotion_revalidates_transport_even_without_declared_checks() -> None:
+    module = _load_module()
+    representation_module = _load_representation_module()
+    representation_payload = representation_module.build_payload(
+        json.loads(WEIGHTED_CYCLE.read_text(encoding="utf-8")),
+        json.loads(SHARED_CHARGED_LEFT.read_text(encoding="utf-8")),
+        weighted_cycle_path=WEIGHTED_CYCLE,
+        shared_charged_left_path=SHARED_CHARGED_LEFT,
+    )
+    representation_payload["transport_checks"] = {}
+    representation_payload["shared_basis_matrix_real"][0][1] += 1.0e-4
+
+    with pytest.raises(ValueError, match="must remain complex symmetric"):
+        module.build_payload(
+            json.loads(WEIGHTED_CYCLE.read_text(encoding="utf-8")),
+            json.loads(SHARED_CHARGED_LEFT.read_text(encoding="utf-8")),
+            representation_payload,
+            weighted_cycle_path=WEIGHTED_CYCLE,
+            shared_charged_left_path=SHARED_CHARGED_LEFT,
+            shared_basis_representation_path=ROOT / "particles" / "runs" / "neutrino" / "neutrino_weighted_cycle_shared_basis_representation.json",
+        )
 
 
 def test_naive_pmns_only_majorana_readout_is_column_phase_dependent() -> None:

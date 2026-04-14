@@ -1,6 +1,6 @@
 # Particle Results Status
 
-Generated: `2026-04-14T10:02:56Z`
+Generated: `2026-04-14T10:30:15Z`
 
 Inputs: `P=1.63094` | `log_dim_H=1e+122` | `loops=4` | `with_hadrons=False` | `hadron_profile=suppressed`
 
@@ -75,8 +75,8 @@ Measured/reference values are pinned from the official Particle Data Group 2025 
 
 | Observable | Status | OPH value | Note |
 | --- | --- | --- | --- |
-| alpha21^(Maj) | theorem_grade | 153.618518 deg | Theorem-grade physical Majorana phase on the repaired shared-basis weighted-cycle surface. The readout uses the canonical Takagi congruence of the emitted symmetric cycle matrix together with the electron-row gauge `U_e1 in R_{>0}`, so it is insensitive to computational column rephasings of the intermediate unitary. |
-| alpha31^(Maj) | theorem_grade | 257.003241 deg | Same theorem surface as `alpha21^(Maj)`: emitted by the canonical Takagi congruence readout on the repaired shared-basis weighted-cycle matrix. |
+| alpha21^(Maj) | theorem_grade | 153.618518 deg | Theorem-grade physical Majorana phase on the repaired shared-basis weighted-cycle surface. The readout uses the canonical Takagi congruence of the emitted symmetric cycle matrix together with the readout-only electron-row gauge `U_e1 in R_{>0}`, so it is insensitive to computational column rephasings of the intermediate unitary. |
+| alpha31^(Maj) | theorem_grade | 257.003241 deg | Same theorem surface as `alpha21^(Maj)`: emitted by the same canonical Takagi readout after the readout-only electron-row gauge on the repaired shared-basis weighted-cycle matrix. |
 
 ## Quarks
 
