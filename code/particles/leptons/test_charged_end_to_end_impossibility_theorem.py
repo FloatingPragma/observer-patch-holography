@@ -18,6 +18,9 @@ EQUALIZER_SCRIPT = ROOT / "particles" / "leptons" / "derive_charged_physical_ide
 DESCENT_SCRIPT = ROOT / "particles" / "leptons" / "derive_charged_mu_physical_descent_reduction.py"
 NO_GO_SCRIPT = ROOT / "particles" / "leptons" / "derive_charged_centered_operator_mu_phys_no_go.py"
 ROUTE_SCRIPT = ROOT / "particles" / "leptons" / "derive_charged_post_promotion_absolute_closure_route.py"
+SPLITTING_OBSTRUCTION_SCRIPT = (
+    ROOT / "particles" / "flavor" / "derive_generation_bundle_branch_generator_splitting_obstruction.py"
+)
 SCRIPT = ROOT / "particles" / "leptons" / "derive_charged_end_to_end_impossibility_theorem.py"
 OUTPUT = ROOT / "particles" / "runs" / "leptons" / "charged_end_to_end_impossibility_theorem.json"
 
@@ -31,6 +34,7 @@ def test_charged_lane_is_not_end_to_end_closed_on_live_corpus() -> None:
     subprocess.run([sys.executable, str(DESCENT_SCRIPT)], check=True, cwd=ROOT)
     subprocess.run([sys.executable, str(NO_GO_SCRIPT)], check=True, cwd=ROOT)
     subprocess.run([sys.executable, str(ROUTE_SCRIPT)], check=True, cwd=ROOT)
+    subprocess.run([sys.executable, str(SPLITTING_OBSTRUCTION_SCRIPT)], check=True, cwd=ROOT)
     subprocess.run([sys.executable, str(SCRIPT)], check=True, cwd=ROOT)
     payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
 
@@ -41,6 +45,8 @@ def test_charged_lane_is_not_end_to_end_closed_on_live_corpus() -> None:
     assert payload["operator_side_no_go"]["theorem_grade_C_hat_e_available_now"] is False
     assert payload["operator_side_no_go"]["exact_missing_theorem"] == "oph_generation_bundle_branch_generator_splitting"
     assert payload["operator_side_no_go"]["exact_missing_clause"] == "compression_descendant_commutator_vanishes_or_is_uniformly_quadratic_small_after_central_split"
+    obstruction = payload["operator_side_no_go"]["exact_obstruction_certificate"]["current_attached_data_obstruction"]
+    assert abs(float(obstruction["commutator_operator_norm"]) - 0.04861550547372144) < 1.0e-12
     assert payload["minimal_operator_extension"]["id"] == "central_split_quadratic_commutator_transfer"
     assert payload["minimal_operator_extension"]["current_corpus_contains_theorem"] is False
     assert payload["promotion_only_absolute_no_go"]["theorem_id"] == "charged_centered_operator_cannot_emit_mu_phys"

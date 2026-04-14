@@ -56,6 +56,17 @@ Current theorem-facing absolute route:
 - `refinement_stable_uncentered_trace_lift`
 - then the determinant-line section and `A_ch` are induced rather than independent
 
+Operator-side exact obstruction certificate:
+
+- `oph_generation_bundle_branch_generator_splitting_obstruction_certificate`
+  This fixes the current operator-side claim boundary sharply: the displayed
+  proxy ordered spectrum together with the displayed level-0 and level-1
+  projector system does not force the descended-commutator clause. The
+  obstruction witness is the nonzero natural centered commutator with operator
+  norm `0.04861550547372144` against projector defect
+  `0.06363734112184061`, so the displayed current data do not imply exact
+  vanishing or uniform quadratic smallness after the central split.
+
 The post-promotion lift slot has now been reduced further in carrier type:
 
 - `oph_charged_uncentered_trace_lift_cocycle_reduction`

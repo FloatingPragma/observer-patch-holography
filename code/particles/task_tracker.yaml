@@ -322,25 +322,25 @@ stages:
     tasks:
       - id: papers.compact.e.30-replace-koide-assisted-lepton-fitting-with-a-theorem
         title: "Search for the full charged closure chain by promoting C_hat_e^{cand} and then deriving the post-promotion lift whose descended scalar is mu_phys(Y_e)"
-        status: blocked
-        note: "Do not spend more Pro cycles on one-shot full-lane closure prompts. The next useful paper-side run is Step 1 only: prove `oph_generation_bundle_branch_generator_splitting` from the current corpus or prove the sharpest exact no-go and smallest missing clause. Only if that closes should Step 2 attempt the post-promotion `refinement_stable_uncentered_trace_lift`."
+        status: done
+        note: "The charged paper/source-of-truth surfaces state the layered frontier exactly: exact current-corpus operator obstruction certificate, post-promotion single slot `refinement_stable_uncentered_trace_lift`, exact smaller forcing object `charged_physical_identity_mode_equalizer`, and separate D10-to-`A_ch` bridge."
         owner_lane: pro_paper
         depends_on: ["papers.compact.e.29-derive-the-yukawa-excitation-dictionary"]
       - id: papers.compact.e.30a-resolve-branch-generator-splitting-or-no-go
         title: "Resolve the operator-side promotion gate by proving oph_generation_bundle_branch_generator_splitting or emitting the sharpest exact no-go"
-        status: ready
-        note: "This is the only productive immediate Pro theorem target on the current corpus. Hard constraints: no measured charged masses, no same-family witness values, no compare-only g_e* or Delta_e_abs*, and no D12 continuation values."
+        status: done
+        note: "The exact current-corpus obstruction certificate is emitted on disk. The displayed proxy ordered spectrum and projector data do not force `compression_descendant_commutator_vanishes_or_is_uniformly_quadratic_small_after_central_split`."
         owner_lane: pro_paper
         depends_on: ["papers.compact.e.29-derive-the-yukawa-excitation-dictionary"]
       - id: papers.compact.e.30b-derive-post-promotion-uncentered-trace-lift
         title: "Derive the refinement-stable uncentered trace lift and the charged_physical_identity_mode_equalizer beneath mu_phys(Y_e)"
-        status: pending
-        note: "Run only if the operator-side promotion actually closes. If Step 1 fails, this task must report dependency failure rather than inventing a centered-only shortcut."
+        status: blocked
+        note: "The theorem package beneath this slot is explicit on disk, including `charged_physical_identity_mode_equalizer`, but no theorem-grade promoted charged operator surface is emitted by the current corpus."
         owner_lane: pro_paper
         depends_on: ["papers.compact.e.30a-resolve-branch-generator-splitting-or-no-go"]
       - id: papers.compact.e.30c-derive-d10-p-to-charged-affine-anchor
         title: "Derive the theorem-grade bridge from the D10 calibration family of P to the charged affine anchor A_ch"
-        status: pending
+        status: blocked
         note: "A universal P-driven charged-mass law cannot enter through centered readback. The target object is a theorem-grade map from D10 calibration descendants to A_ch = mu_phys(Y_e), with no measured charged masses or same-family anchor reuse. The current local blocker is now explicit on disk as `oph_charged_p_to_affine_anchor_bridge_no_go`: the D10 family closes only to electroweak descendants and still does not land on physical `Y_e`, the charged determinant line, or `A_ch`."
         owner_lane: pro_paper
         depends_on:

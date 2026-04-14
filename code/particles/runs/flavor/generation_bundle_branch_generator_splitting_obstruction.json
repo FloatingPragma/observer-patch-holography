@@ -1,0 +1,38 @@
+{
+  "artifact": "oph_generation_bundle_branch_generator_splitting_obstruction_certificate",
+  "current_attached_data_obstruction": {
+    "commutator_operator_norm": 0.04861550547372144,
+    "commutator_over_defect": 0.7639462085733872,
+    "commutator_over_defect_squared": 12.004684594077071,
+    "projector_defect_operator_norm": 0.06363734112184061,
+    "reason": "On the displayed level-0/level-1 projector systems, the natural centered operators built from the proxy ordered spectrum have a commutator that is linear in the projector defect rather than quadratic-small."
+  },
+  "exact_vanishing_not_forced": {
+    "max_same_label_overlap_amplitude": 0.9987517128757214,
+    "min_same_label_overlap_amplitude": 0.9959502888149423,
+    "reason": "Exact vanishing is not forced by the displayed current data because the same-label level-0 and level-1 eigenspaces are not identical. The overlaps are close to 1 but not equal to 1.",
+    "same_label_overlap_amplitudes": [
+      0.9971698845725937,
+      0.9959502888149423,
+      0.9987517128757214
+    ]
+  },
+  "first_failed_implication": "explicit_centered_proxy_shell_and_current_projector_data does_not_imply compression_descendant_commutator_vanishes_or_is_uniformly_quadratic_small_after_central_split",
+  "generated_utc": "2026-04-14T03:28:57Z",
+  "issue_149_resolution_mode": "sharp_exact_obstruction",
+  "notes": [
+    "This certificate does not prove impossibility in every future extension of the corpus.",
+    "It proves that the current displayed proxy/projector data do not themselves force the missing clause.",
+    "That is the exact obstruction object needed to close the current operator-side issue honestly when a positive proof is absent."
+  ],
+  "proof_status": "closed_exact_current_corpus_obstruction_certificate",
+  "resulting_remaining_open_chain": [
+    "charged.02-derive-post-promotion-uncentered-trace-lift",
+    "charged.03-derive-d10-p-to-charged-affine-anchor",
+    "charged.04-emit-charged-masses-from-p"
+  ],
+  "target_clause": "compression_descendant_commutator_vanishes_or_is_uniformly_quadratic_small_after_central_split",
+  "target_theorem": "oph_generation_bundle_branch_generator_splitting",
+  "theorem_statement": "The displayed current proxy shell does not force the descended-commutator clause. Using the displayed proxy ordered spectrum together with the displayed level-0 and level-1 projector systems, the natural centered proxy operators have nonzero commutator whose size is linear in the projector defect rather than uniformly quadratic-small. So the current artifacts do not imply exact vanishing or uniform quadratic smallness after the central split.",
+  "verdict": "not_forced_by_current_corpus"
+}

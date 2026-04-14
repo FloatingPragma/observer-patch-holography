@@ -13,6 +13,9 @@ REPO_ROOT = ROOT.parent
 
 RUNS_DIR = ROOT / "particles" / "runs" / "leptons"
 GENERATION_BUNDLE_JSON = ROOT / "particles" / "runs" / "flavor" / "generation_bundle_branch_generator.json"
+GENERATION_BUNDLE_OBSTRUCTION_JSON = (
+    ROOT / "particles" / "runs" / "flavor" / "generation_bundle_branch_generator_splitting_obstruction.json"
+)
 UNDERDETERMINATION_JSON = RUNS_DIR / "charged_absolute_scale_underdetermination_theorem.json"
 TRACE_LIFT_JSON = RUNS_DIR / "charged_uncentered_trace_lift_scaffold.json"
 TRACE_LIFT_COCYCLE_JSON = RUNS_DIR / "charged_uncentered_trace_lift_cocycle_reduction.json"
@@ -120,18 +123,24 @@ def charged_waiting_set(generation_bundle: dict[str, Any]) -> dict[str, Any]:
     return {
         "mandatory_package_a": {
             "id": "charged_sector_response_pushforward_to_C_hat_e",
-            "linked_issue": "papers.compact.e.29-derive-the-yukawa-excitation-dictionary",
+            "closed_issue": "papers.compact.e.30a-resolve-branch-generator-splitting-or-no-go",
             "summary": (
-                "Promote the latent charged operator candidate C_hat_e^{cand} to theorem-grade "
-                "declaration by closing the quotient-natural charged sector-response functor "
-                "on the shared OPH flavor dictionary."
+                "The current corpus emits an exact obstruction certificate against promoting "
+                "the latent charged operator candidate C_hat_e^{cand} from the displayed "
+                "projector and proxy-generator data alone."
             ),
             "immediate_downstream_effect": (
-                "If the upstream splitting theorem closes and C_hat_e^{cand} is promoted to "
-                "theorem-grade C_hat_e, then eta and sigma become charged spectral invariants "
-                "rather than independent primitive theorem objects."
+                "No theorem-grade C_hat_e follows from the displayed current-corpus transfer "
+                "data alone, so the live open charged issues begin at the post-promotion lift "
+                "and affine-anchor chain rather than at the exact obstruction certificate."
             ),
-            "status": "blocked_by_upstream_promotion_theorem",
+            "status": "resolved_as_exact_current_corpus_obstruction_certificate",
+            "exact_obstruction_certificate_artifact": (
+                "oph_generation_bundle_branch_generator_splitting_obstruction_certificate"
+            ),
+            "exact_obstruction_certificate_artifact_ref": artifact_ref(
+                GENERATION_BUNDLE_OBSTRUCTION_JSON
+            ),
             "blocked_candidate_object": candidate.get("name", "C_hat_e^{cand}"),
             "upstream_missing_theorem": candidate.get(
                 "declaration_missing_theorem",
@@ -144,10 +153,14 @@ def charged_waiting_set(generation_bundle: dict[str, Any]) -> dict[str, Any]:
             "exact_vanishing_proved": promotion_gate.get("exact_vanishing_proved"),
             "uniform_quadratic_smallness_proved": promotion_gate.get("uniform_quadratic_smallness_proved"),
             "current_strength_statement": promotion_gate.get("current_strength_statement"),
+            "reopen_condition": (
+                "a stronger transfer theorem beyond the displayed current-corpus projector and "
+                "commutator data"
+            ),
         },
         "mandatory_package_b": {
             "id": "refinement_stable_uncentered_trace_lift",
-            "linked_issue": "papers.compact.e.30-replace-koide-assisted-lepton-fitting-with-a-theorem",
+            "linked_issue": "papers.compact.e.30b-derive-post-promotion-uncentered-trace-lift",
             "summary": (
                 "Derive the refinement-stable uncentered trace lift of the promoted charged "
                 "response on theorem-grade physical Y_e or an equivalent determinant line."
@@ -161,7 +174,7 @@ def charged_waiting_set(generation_bundle: dict[str, Any]) -> dict[str, Any]:
         },
         "mandatory_package_c": {
             "id": "charged_absolute_anchor_A_ch",
-            "linked_issue": "papers.compact.e.30-replace-koide-assisted-lepton-fitting-with-a-theorem",
+            "linked_issue": "papers.compact.e.30c-derive-d10-p-to-charged-affine-anchor",
             "summary": (
                 "Read out the affine charged absolute coordinate A_ch from the induced "
                 "determinant-line section, with A_ch(logm + c*(1,1,1)) = A_ch(logm) + c."

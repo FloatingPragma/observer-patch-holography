@@ -65,7 +65,7 @@
       "m_tau": "exp(A_ch + tau_log_centered)"
     }
   },
-  "generated_utc": "2026-04-03T04:43:03Z",
+  "generated_utc": "2026-04-14T03:28:57Z",
   "induced_after_irreducible_chain": {
     "absolute_outputs": {
       "Delta_e_abs": "log(g_ch_shared) - A_ch",
@@ -118,6 +118,19 @@
     "current_status": "candidate_only",
     "exact_missing_clause": "compression_descendant_commutator_vanishes_or_is_uniformly_quadratic_small_after_central_split",
     "exact_missing_theorem": "oph_generation_bundle_branch_generator_splitting",
+    "exact_obstruction_certificate": {
+      "artifact": "oph_generation_bundle_branch_generator_splitting_obstruction_certificate",
+      "artifact_ref": "code/particles/runs/flavor/generation_bundle_branch_generator_splitting_obstruction.json",
+      "current_attached_data_obstruction": {
+        "commutator_operator_norm": 0.04861550547372144,
+        "commutator_over_defect": 0.7639462085733872,
+        "commutator_over_defect_squared": 12.004684594077071,
+        "projector_defect_operator_norm": 0.06363734112184061,
+        "reason": "On the displayed level-0/level-1 projector systems, the natural centered operators built from the proxy ordered spectrum have a commutator that is linear in the projector defect rather than quadratic-small."
+      },
+      "first_failed_implication": "explicit_centered_proxy_shell_and_current_projector_data does_not_imply compression_descendant_commutator_vanishes_or_is_uniformly_quadratic_small_after_central_split",
+      "verdict": "not_forced_by_current_corpus"
+    },
     "no_hidden_promotion_in_current_corpus": true,
     "proof_gate": {
       "current_strength_statement": "neither exact vanishing nor uniform quadratic smallness is proved on the live corpus",
