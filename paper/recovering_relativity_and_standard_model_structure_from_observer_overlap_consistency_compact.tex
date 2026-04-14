@@ -1205,7 +1205,122 @@ G:=\frac{a_{\mathrm{cell}}}{4\bar\ell(t)}.
 This is a continuum dictionary identification, not part of the exact algebraic proposition.
 \end{definition}
 
+\begin{proposition}[Shared edge-entropy identity on the realized product-group branch]\label{prop:sharededgeentropy}
+On the realized product-group branch
+\[
+G_{\mathrm{phys}}
+=
+\frac{\SU(3)\times\SU(2)\times\U(1)}{\mathbb Z_6},
+\]
+let the collar edge-center entropy operator be
+\[
+L_C=\log d_R
+\]
+on a cut sector carrying representation
+\[
+R=R_3\boxtimes R_2\boxtimes q.
+\]
+Then
+\[
+L_C
+=
+L_C^{(3)}+L_C^{(2)},
+\qquad
+L_C^{(3)}:=\log d_{R_3},
+\qquad
+L_C^{(2)}:=\log d_{R_2},
+\]
+because every irreducible \( \U(1) \) representation is one-dimensional and contributes \(\log 1=0\). Consequently, on the product heat-kernel branch
+\[
+\ellbar_{\mathrm{shared}}
+=
+\langle L_C\rangle
+=
+\ellbar_{\mathrm{SU(3)}}(t_{3,\mathrm{run}})
++
+\ellbar_{\mathrm{SU(2)}}(t_{2,\mathrm{run}}).
+\]
+If the same branch satisfies the D10 pixel law
+\[
+\ellbar_{\mathrm{SU(2)}}(t_{2,\mathrm{run}})
+\;+\;
+\ellbar_{\mathrm{SU(3)}}(t_{3,\mathrm{run}})
+=
+P/4,
+\]
+then
+\[
+\ellbar_{\mathrm{shared}}=P/4.
+\]
+\end{proposition}
+
+\begin{proof}
+For a product-group representation \(R=R_3\boxtimes R_2\boxtimes q\),
+\[
+d_R=d_{R_3}d_{R_2}d_q.
+\]
+Every irreducible \( \U(1) \) representation is one-dimensional, so \(d_q=1\). Therefore
+\[
+\log d_R
+=
+\log d_{R_3}+\log d_{R_2}+\log d_q
+=
+\log d_{R_3}+\log d_{R_2}.
+\]
+This proves \(L_C=L_C^{(3)}+L_C^{(2)}\) at the operator level. On the product heat-kernel branch, expectation values add, so
+\[
+\ellbar_{\mathrm{shared}}
+=
+\langle L_C\rangle
+=
+\ellbar_{\mathrm{SU(3)}}(t_{3,\mathrm{run}})
++
+\ellbar_{\mathrm{SU(2)}}(t_{2,\mathrm{run}}).
+\]
+If the same branch satisfies the D10 pixel law, the right-hand side equals \(P/4\). \qedhere
+\end{proof}
+
+\begin{proposition}[Local SI readout of the gravity row]\label{prop:gsi}
+On the declared local extension surface, let \(a_{\mathrm{cell}}\) be the microscopic cell-area datum and define
+\[
+G_{\mathrm{nat}}:=\frac{a_{\mathrm{cell}}}{4\ellbar_{\mathrm{shared}}}.
+\]
+If Proposition~\ref{prop:sharededgeentropy} gives \(\ellbar_{\mathrm{shared}}=P/4\), then
+\[
+G_{\mathrm{nat}}=\frac{a_{\mathrm{cell}}}{P}=\ell_P^2.
+\]
+In SI units \(\ell_P^2=\hbar G_{\mathrm{SI}}/c^3\). Therefore
+\[
+G_{\mathrm{SI}}
+=
+\frac{c^3 a_{\mathrm{cell}}}{\hbar P}.
+\]
+\end{proposition}
+
+\begin{proof}
+By Proposition~\ref{prop:sharededgeentropy},
+\[
+G_{\mathrm{nat}}
+=
+\frac{a_{\mathrm{cell}}}{4(P/4)}
+=
+\frac{a_{\mathrm{cell}}}{P}.
+\]
+Since \(P=a_{\mathrm{cell}}/\ell_P^2\), this equals \(\ell_P^2\). The SI relation
+\[
+\ell_P^2=\frac{\hbar G_{\mathrm{SI}}}{c^3}
+\]
+then gives
+\[
+G_{\mathrm{SI}}
+=
+\frac{c^3 a_{\mathrm{cell}}}{\hbar P}.
+\qedhere
+\]
+\end{proof}
+
 Proposition~\ref{prop:splice} is the algebraic version of interior invariance under compatible exterior substitutions. Proposition~\ref{prop:modulartransport} is the precise bridge from small collar conditional mutual information to the exact modular identities later used by the spatial and null branches: at finite stage one carries a remainder, and exact identities appear only when that remainder is zero or tends to zero in the controlled collar limit. Proposition~\ref{prop:gensplit} isolates the exact entropy split, while Definition~\ref{def:newton} supplies the continuum identification that turns the edge center into a gravitational coupling.
+Proposition~\ref{prop:sharededgeentropy} identifies the shared edge entropy on the realized product-group branch with the same \(\SU(2)+\SU(3)\) quantity used by the D10 pixel law, and Proposition~\ref{prop:gsi} makes the familiar-unit readout explicit relative to the declared microscopic datum \(a_{\mathrm{cell}}\).
 
 \section{Modular Geometry, Relativity, and Einstein Dynamics}\label{sec:gravity}
 
@@ -3613,18 +3728,24 @@ P/4,
 \qquad
 G=\frac{a_{\mathrm{cell}}}{4\,\ellbar(t)}.
 \]
-The exact local release burden consists of five explicit objects: one theorem/convention split for
-the familiar-unit readout, one branch-preserving D10/gravity
-edge-entropy bridge beneath the scalar identity
+The exact local release burden consists of three explicit objects: one strict classical-regime
+clause above the BW/Lorentz honesty package, one target-free D10 chart-identity theorem for exact
+\(W/Z\), and one forward Higgs-promotion theorem. On the gravity side,
+Proposition~\ref{prop:sharededgeentropy} gives
 \[
 \ellbar_{\mathrm{shared}}
 =
 \ellbar_{\mathrm{SU(2)}}(t_{2,\mathrm{run}})
 \;+\;
-\ellbar_{\mathrm{SU(3)}}(t_{3,\mathrm{run}}),
+\ellbar_{\mathrm{SU(3)}}(t_{3,\mathrm{run}})
+=
+P/4,
 \]
-one strict classical-regime clause above the BW/Lorentz honesty package, one target-free D10
-chart-identity theorem for exact live \(W/Z\), and one live-forward D11 Higgs-promotion theorem.
+and Proposition~\ref{prop:gsi} gives the local SI readout
+\[
+G_{\mathrm{SI}}=\frac{c^3 a_{\mathrm{cell}}}{\hbar P}
+\]
+relative to the declared microscopic datum \(a_{\mathrm{cell}}\).
 On that declared extension surface the local release values are
 \[
 c=299792458\,\mathrm{m/s},
@@ -3635,9 +3756,9 @@ G=6.674299995910528\times10^{-11}\,\mathrm{m^3\,kg^{-1}\,s^{-2}},
 (M_W,M_Z,M_H)=
 (80.377,\ 91.18797809193725,\ 125.1995304097179)\,\mathrm{GeV}.
 \]
-This is extension-level rather than current-corpus theorem status: \(c\) is structural from the
-Lorentz branch rather than fitted from \(P\), and the displayed \(G\) row is an exact emitted
-branch value rather than a literal zero-difference identity against the rounded benchmark
+The displayed \(c\) row is structural from the Lorentz branch rather than \(P\)-fitted, and the
+displayed \(G\) row is an exact emitted branch value relative to the stated \(a_{\mathrm{cell}}\)
+datum rather than a literal zero-difference identity against the rounded benchmark
 \(6.6743\times10^{-11}\).
 
 The hadron lane is separate. It depends on one production backend export bundle with publication-complete manifest provenance, real stable-channel correlator arrays, and later nonperturbative runtime/systematics completion rather than on a closed theorem-level mass surface. The declared particle roadmap does not include hadron-mass closure, because that nonperturbative execution burden is not a realistic target within the current project compute scope, so the neutrino weighted-cycle improvement does not promote hadron observables.

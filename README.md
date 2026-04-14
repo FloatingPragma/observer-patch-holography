@@ -64,7 +64,7 @@ Charged leptons sit on a sharper theorem split. The repo carries an exact same-f
 
 ## Local Unification Surface
 
-OPH places a local unification surface around the calibrated local UV input. The same `P`-driven scale carries the electroweak boson and Higgs lane together with the gravity-side entropy lane, while the Lorentz branch supplies the invariant causal speed and the local readout package supplies the SI display.
+OPH places a local unification surface around the calibrated local UV input. The same `P`-driven scale carries the electroweak boson and Higgs lane together with the gravity-side entropy lane, while the Lorentz branch supplies the invariant causal speed and the local readout package supplies the SI display. On the gravity side, the realized product-group branch identifies `ellbar_shared = ellbar_SU(2) + ellbar_SU(3) = P/4`, and the local SI readout is `G_SI = c^3 a_cell / (hbar P)` relative to the declared microscopic datum `a_cell`.
 On the public constants surface, `hbar` and `k_B` remain part of that downstream familiar-unit readout rather than standalone OPH-emitted constants.
 
 <p align="center">

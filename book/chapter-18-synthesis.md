@@ -259,12 +259,12 @@ The pixel area is *extracted* from measured constants. A genuine prediction woul
 
 ![The Pixel Constant](../assets/pixel-constant.svg)
 
-That same local calibration surface organizes the numerical unification story. The bosonic route is `P -> alpha_U -> (t_U, t_tr) -> v -> (M_W, M_Z)`. The electromagnetic row uses the same source basis, then passes through the Ward-projected charge channel, anchored at `alpha^-1(m_Z^2) = 128.30576920234813` and read at low energy as `alpha^-1(0) = 137.035999177`. The closed one-scalar Higgs/top seed adds the Higgs-side scalar and then `M_H`. The gravity route is `$\\bar\\ell_{SU(2)}(t_{2,\\mathrm{run}}) + \\bar\\ell_{SU(3)}(t_{3,\\mathrm{run}}) = P/4$` together with `G = a_cell / (4 ellbar_shared)`. The invariant causal speed belongs to the Lorentz branch and receives its SI display through the local readout package.
+That same local calibration surface organizes the numerical unification story. The bosonic route is `P -> alpha_U -> (t_U, t_tr) -> v -> (M_W, M_Z)`. The electromagnetic row uses the same source basis, then passes through the Ward-projected charge channel, anchored at `alpha^-1(m_Z^2) = 128.30576920234813` and read at low energy as `alpha^-1(0) = 137.035999177`. The closed one-scalar Higgs/top seed adds the Higgs-side scalar and then `M_H`. The gravity route identifies `ellbar_shared = ellbar_SU(2) + ellbar_SU(3) = P/4` on the realized product-group branch and reads `G_SI = c^3 a_cell / (hbar P)` relative to the declared microscopic cell-area datum `a_cell`. The invariant causal speed belongs to the Lorentz branch and receives its SI display through the local readout package.
 
 | Quantity | OPH chain | Display value | Claim surface |
 | --- | --- | --- | --- |
 | `c` | Lorentz branch + local SI readout | `299792458 m/s` | structural causal-speed output with SI readout |
-| `G` | `P -> a_cell`, `ellbar_shared`, `G = a_cell / (4 ellbar_shared)` | `6.674299995910528e-11 m^3 kg^-1 s^-2` | exact emitted branch value on the declared local exact-release surface |
+| `G` | `P -> ellbar_shared = P/4 -> G_SI = c^3 a_cell / (hbar P)` | `6.674299995910528e-11 m^3 kg^-1 s^-2` | exact emitted branch value on the declared local exact-release surface, relative to the declared `a_cell` datum |
 | `W` | `P -> alpha_U -> (t_U, t_tr) -> v -> M_W` | `80.377 GeV` | exact codomain on the target-free electroweak identity surface |
 | `Z` | `P -> alpha_U -> (t_U, t_tr) -> v -> M_Z` | `91.18797809193725 GeV` | exact codomain on the target-free electroweak identity surface |
 | `alpha^-1(0)` | `P -> alpha_U -> (t_U, t_tr) -> (alpha_2, alpha_Y) ->` Ward-projected charge transport `-> alpha^-1(0)` | `137.035999177` | Thomson endpoint of the electromagnetic transport family |
