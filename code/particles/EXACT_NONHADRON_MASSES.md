@@ -1,6 +1,6 @@
 # Exact Non-Hadron Masses
 
-Generated: `2026-04-14T06:42:35Z`
+Generated: `2026-04-15T11:35:46Z`
 
 This bundle gives one exact mass output for every non-hadron particle on the declared OPH surfaces.
 It records exact-output surfaces rather than one uniform theorem tier.
@@ -16,7 +16,7 @@ The top coordinate uses the PDG 2025 cross-section mass entry `Q007TP4`; the aux
 | Graviton | `0.0 GeV` | `structural_zero` | `structural` | `structural_diffeomorphism_redundancy_surface` |
 | W Boson | `80.377 GeV` | `exact_frozen_target_compare_only_adapter` | `frozen_authoritative_target_surface` | `code/particles/runs/calibration/d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json` |
 | Z Boson | `91.18797809193725 GeV` | `exact_frozen_target_compare_only_adapter` | `frozen_authoritative_target_surface` | `code/particles/runs/calibration/d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json` |
-| Higgs Boson | `125.1995304097179 GeV` | `exact_target_anchored_compare_only_inverse_slice` | `compare_only_inverse_slice` | `code/particles/runs/calibration/d11_reference_exact_adapter.json` |
+| Higgs Boson | `125.1995304097179 GeV` | `exact_target_anchored_higgs_calibration_theorem` | `declared_d10_d11_running_matching_threshold_surface_only` | `code/particles/runs/calibration/d11_live_exact_higgs_promotion.json` |
 | Electron | `0.0005109989499999994 GeV` | `exact_target_anchored_current_family_witness` | `current_family_only` | `code/particles/runs/leptons/lepton_current_family_exact_readout.json` |
 | Muon | `0.10565837550000004 GeV` | `exact_target_anchored_current_family_witness` | `current_family_only` | `code/particles/runs/leptons/lepton_current_family_exact_readout.json` |
 | Tau | `1.7769324651340912 GeV` | `exact_target_anchored_current_family_witness` | `current_family_only` | `code/particles/runs/leptons/lepton_current_family_exact_readout.json` |

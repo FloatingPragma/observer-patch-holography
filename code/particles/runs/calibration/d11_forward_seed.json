@@ -15,7 +15,7 @@
   "diagnostic_literals_forbidden": true,
   "forward_seed_object": "sigma_D11_HT",
   "forward_seed_promotion_certificate": null,
-  "generated_utc": "2026-04-03T04:42:56Z",
+  "generated_utc": "2026-04-15T11:35:47Z",
   "kappa_HT": 1.7777777777777777,
   "mass_readout": {
     "jacobian": {
@@ -28,7 +28,7 @@
     "mt_pole_gev": 172.38864559527133
   },
   "notes": [
-    "Compact D11 forward seed extracted from the current critical-surface artifact.",
+    "Compact D11 forward seed emitted from the declared D10/D11 calibration surface.",
     "This artifact now emits one reference-free compact seed law from the D10 gauge core: sigma_D11_HT = alpha_u * cos(2*theta_W0) / sqrt(pi).",
     "The resulting one-scalar chain sigma_D11_HT -> Theta_D11_HT -> (m_t, m_H) is a forward candidate and no longer depends on the diagnostic delta_y_t / delta_lambda readback values.",
     "No larger Higgs/top family is missing here; the remaining work is promotion/certification of this one compact seed, not a wider Higgs/top residual program."
@@ -46,7 +46,7 @@
   "seed_status": "predictive_forward_law_candidate",
   "sigma_D11_HT": 0.012495107198783639,
   "smallest_predictive_missing_object": "forward_seed_promotion_certificate",
-  "source_artifact": "oph_d11_critical_surface_readout",
+  "source_artifact": "oph_d11_declared_calibration_surface",
   "source_predictive_status": "reference_free_compact_seed_law",
   "source_seed_law": {
     "alpha2_mz": 0.03377843630219015,

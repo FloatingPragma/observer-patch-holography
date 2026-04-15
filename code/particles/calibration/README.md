@@ -40,8 +40,11 @@ For the live branch, the main path is:
 - `derive_d10_ew_exact_mass_pair_chart_current_carrier.py`
 - `derive_d10_ew_repair_branch_beyond_current_carrier.py`
 - `derive_d10_ew_source_transport_readout.py`
+- `derive_d11_declared_calibration_surface.py`
 - `derive_d11_forward_seed.py`
 - `derive_d11_forward_seed_promotion_certificate.py`
+- `derive_d11_fixed_ray_no_go_theorem.py`
+- `derive_d11_live_exact_higgs_promotion.py`
 
 The live D10 split is explicit:
 
@@ -98,3 +101,18 @@ python3 particles/calibration/test_d10_ew_transport_kernel_artifact.py
 That guard checks the solver mechanics and the presence of the current D10
 calibration observables. It is not a claim that exact single-`P` closure has
 already been achieved.
+
+The D11 lane is split into two public objects.
+
+- The shared forward seed `sigma_D11_HT = alpha_u * cos(2*theta_W0) / sqrt(pi)`
+  stays as the companion D11 top-side calibration row on the declared D10/D11
+  surface. Its fixed-ray certificate proves `pi_y = pi_lambda`, `eta_HT = 0`,
+  and `w_HT = 0` on that one-scalar branch only.
+- The Higgs row is carried by the separate Higgs-only theorem
+  `D11LiveForwardExactHiggsPromotion`, which uses the D10 repair chart on the
+  lambda side and fixes one unique `delta_n_tree_exact` exactifier coefficient
+  so that the declared Higgs codomain is hit exactly without promoting the full
+  compare-only Higgs/top inverse slice.
+- The compare-only exact Higgs/top pair on the same Jacobian surface has
+  nonzero `w_HT`, so it lies off the current one-scalar fixed ray. That sharp
+  no-go is recorded in `D11FixedRayNoGoTheorem`.

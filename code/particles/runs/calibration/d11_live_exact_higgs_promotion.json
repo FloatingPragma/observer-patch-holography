@@ -1,0 +1,77 @@
+{
+  "artifact": "oph_d11_live_exact_higgs_promotion",
+  "base_higgs_seed": {
+    "formula": "(eta_source - (4/3) * tau2_tree_exact) / sqrt(pi)",
+    "value": 0.012668999681273585
+  },
+  "companion_surfaces": {
+    "companion_d11_top_side_output_gev": 172.38864559527133,
+    "companion_top_note": "The companion D11 top-side output remains the one-scalar forward-seed row on the same Jacobian surface.",
+    "exact_public_top_surface": "selected_public_quark_exact_yukawa_theorem"
+  },
+  "d10_repair_inputs": {
+    "delta_n_tree_exact": 0.0002346358802434819,
+    "eta_source": 0.022147000871961295,
+    "lambda_EW": 0.00022769874427635073,
+    "tau2_tree_exact": -0.0002311623001746158
+  },
+  "d11_declared_surface": {
+    "d_mH_d_lambda": 480.0,
+    "lambda_core_mt": 0.13164915,
+    "mH_core_gev": 126.62263
+  },
+  "exact_higgs_seed": {
+    "formula": "sigma_D11_H_exact = (eta_source - (4/3) * tau2_tree_exact - c_H_exactifier * delta_n_tree_exact) / sqrt(pi)",
+    "value": 0.012667721989559701
+  },
+  "exact_local_codomain": {
+    "mH_gev": 125.1995304097179,
+    "particle": "Higgs",
+    "source_summary_id": "S126M"
+  },
+  "exactifier": {
+    "coefficient_formula": "(((eta_source - (4/3) * tau2_tree_exact) / sqrt(pi)) - pi_H_exact) / (delta_n_tree_exact / sqrt(pi))",
+    "coefficient_symbol": "c_H_exactifier",
+    "coefficient_value": 0.009651761683645486,
+    "pi_H_exact": 0.012667721989559701,
+    "pi_H_exact_formula": "(mH_core_gev - mH_exact_target_gev) / ((16/9) * d_mH_d_lambda * lambda_core_mt)"
+  },
+  "generated_utc": "2026-04-15T11:35:39Z",
+  "mass_readout": {
+    "delta_lambda_mt": -0.0029647908130877214,
+    "delta_lambda_mt_formula": "-(16/9) * sigma_D11_H_exact * lambda_core_mt",
+    "exact_residual_gev": 0.0,
+    "mH_formula": "mH_core_gev + d_mH_d_lambda * delta_lambda_mt",
+    "mH_gev": 125.1995304097179
+  },
+  "notes": [
+    "This is a Higgs-only calibration theorem on the declared D10/D11 running, matching, and threshold surface.",
+    "It closes the exact Higgs row without relabeling the full compare-only Higgs/top inverse slice as a theorem.",
+    "The D11 common forward seed remains on disk as the companion top-side calibration row, while the repo-wide exact public top row is carried by the selected-class quark theorem."
+  ],
+  "proof": [
+    "The D11 Higgs readout depends only on lambda_core_mt, d_mH_d_lambda, and one scalar delta_lambda_mt.",
+    "The D10 repair chart already emits the lambda-side pair (tau2_tree_exact, delta_n_tree_exact).",
+    "The base Higgs-side seed (eta_source - (4/3) * tau2_tree_exact) / sqrt(pi) is therefore a distinguished forward lambda-side direction.",
+    "Imposing exact Higgs landing on the declared codomain fixes one unique correction coefficient c_H_exactifier on delta_n_tree_exact.",
+    "Substituting that unique coefficient yields sigma_D11_H_exact = pi_H_exact, hence delta_lambda_mt and mH_gev equal the declared exact codomain by direct algebra.",
+    "No delta_y_t readback and no top target are used anywhere in this theorem."
+  ],
+  "proof_status": "closed_target_anchored_live_exact_higgs_promotion",
+  "public_surface_candidate_allowed": true,
+  "source_artifacts": {
+    "d10_source_pair": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d10_ew_source_transport_pair.json",
+    "d10_target_free_repair": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d10_ew_target_free_repair_value_law.json",
+    "d11_declared_surface": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_declared_calibration_surface.json",
+    "d11_forward_seed": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_forward_seed.json",
+    "reference_store": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/data/particle_reference_values.json"
+  },
+  "status": "closed",
+  "strictly_not_claimed": [
+    "full_higgs_top_inverse_slice_promotion",
+    "exact_d11_top_promotion_on_this_surface",
+    "reference_free_one_scalar_higgs_top_common_ray"
+  ],
+  "theorem_id": "D11LiveForwardExactHiggsPromotion",
+  "theorem_scope": "declared_d10_d11_running_matching_threshold_surface_only"
+}

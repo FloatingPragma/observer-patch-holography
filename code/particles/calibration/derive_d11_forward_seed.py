@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
-"""Propagate the D10 gauge core into the compact D11 Higgs/top seed.
+"""Propagate the D10 gauge core into the compact D11 fixed-ray seed.
 
 Chain role: reuse the calibrated D10 gauge carrier to produce the current
-forward seed for the Higgs and top branch.
+one-scalar diagonal branch on the declared D10/D11 surface.
 
 Mathematics: a one-scalar perturbation of the D11 core followed by linear
-Jacobian readout for `m_t` and `m_H`.
+Jacobian readout for the companion D11 top-side row and the companion Higgs
+value on that fixed ray.
 
 OPH-derived inputs: `alpha_u`, `alphaY_mz`, and `alpha2_mz` from the D10 core,
-plus the D11 critical-surface core and Jacobian payload.
+plus the declared D10/D11 calibration-surface core and Jacobian payload.
 
-Output: the public `/particles` Higgs/top candidate and the remaining D11
-promotion certificate gap.
+Output: the diagonal fixed-ray D11 seed and its fixed-ray certificate gap.
 """
 
 from __future__ import annotations
@@ -24,7 +24,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_INPUT = ROOT / "particles" / "runs" / "calibration" / "d11_critical_surface_readout.json"
+DEFAULT_INPUT = ROOT / "particles" / "runs" / "calibration" / "d11_declared_calibration_surface.json"
 DEFAULT_D10_SOURCE = ROOT / "particles" / "runs" / "calibration" / "d10_ew_observable_family.json"
 DEFAULT_PROMOTION_CERTIFICATE = ROOT / "particles" / "runs" / "calibration" / "d11_forward_seed_promotion_certificate.json"
 DEFAULT_OUT = ROOT / "particles" / "runs" / "calibration" / "d11_forward_seed.json"
@@ -56,17 +56,19 @@ def build_artifact(payload: dict, d10_source: dict, promotion_certificate: dict 
         "artifact": "oph_d11_forward_seed",
         "generated_utc": _timestamp(),
         "forward_seed_object": "sigma_D11_HT",
-        "seed_status": "promoted_exact_forward_seed" if promotion_closed else "predictive_forward_law_candidate",
+        "seed_status": "closed_fixed_ray_branch_seed" if promotion_closed else "predictive_forward_law_candidate",
         "predictive_promotion_allowed": promotion_closed,
+        "predictive_promotion_scope": "diagonal_fixed_ray_only" if promotion_closed else None,
         "public_surface_candidate_allowed": True,
         "public_surface_candidate_scope": ["mH_gev", "mt_pole_gev"],
-        "public_surface_policy": "best_available_reference_free_forward_seed_candidate",
+        "public_surface_policy": "diagonal_fixed_ray_companion_branch",
         "smallest_predictive_missing_object": None if promotion_closed else "forward_seed_promotion_certificate",
-        "closure_state": "forward_closed_exact_on_live_seed" if promotion_closed else "forward_seed_open_waiting_certificate",
+        "closure_state": "fixed_ray_branch_closed" if promotion_closed else "forward_seed_open_waiting_certificate",
         "forward_seed_promotion_certificate": str(DEFAULT_PROMOTION_CERTIFICATE) if promotion_closed else None,
         "promotion_certificate_artifact": str(DEFAULT_PROMOTION_CERTIFICATE) if promotion_closed else None,
         "source_artifact": payload.get("artifact"),
         "source_predictive_status": "reference_free_compact_seed_law",
+        "branch_scope": "diagonal_fixed_ray_only",
         "kappa_HT": kappa,
         "sigma_D11_HT": sigma,
         "source_seed_law": {
@@ -100,19 +102,23 @@ def build_artifact(payload: dict, d10_source: dict, promotion_certificate: dict 
         },
         "seed_certificate_id": "D11SeedCommonProvenanceCertificate",
         "diagnostic_literals_forbidden": True,
+        "strictly_not_claimed": [
+            "exact_higgs_row_on_fixed_ray",
+            "exact_higgs_top_pair_on_fixed_ray",
+        ],
         "compare_only_blocks": [
             "diagnostic_required_to_current_refs",
             "legacy_diagnostic_readback",
             "center_witness_forward_consequence",
         ],
         "notes": [
-            "Compact D11 forward seed extracted from the current critical-surface artifact.",
+            "Compact D11 fixed-ray seed emitted from the declared D10/D11 calibration surface.",
             "This artifact now emits one reference-free compact seed law from the D10 gauge core: sigma_D11_HT = alpha_u * cos(2*theta_W0) / sqrt(pi).",
-            "The resulting one-scalar chain sigma_D11_HT -> Theta_D11_HT -> (m_t, m_H) is a forward candidate and no longer depends on the diagnostic delta_y_t / delta_lambda readback values.",
+            "The resulting one-scalar chain sigma_D11_HT -> Theta_D11_HT -> (m_t, m_H) is the diagonal fixed-ray branch and no longer depends on the diagnostic delta_y_t / delta_lambda readback values.",
             (
-                "The live forward D11 path is closed by the forward-seed promotion certificate on the emitted one-scalar seed."
+                "The one-scalar diagonal branch is closed by the fixed-ray certificate. The exact Higgs row is carried separately by D11LiveForwardExactHiggsPromotion."
                 if promotion_closed
-                else "No larger Higgs/top family is missing here; the remaining work is promotion/certification of this one compact seed, not a wider Higgs/top residual program."
+                else "The remaining work beneath this artifact is certification of the one-scalar diagonal branch."
             ),
         ],
     }

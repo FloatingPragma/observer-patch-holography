@@ -1197,8 +1197,8 @@ stages:
   - id: stage-6a
     title: "Local P-to-gravity-and-bosons exact-release surface"
     status: active
-    note: "2026-04-15 compact-paper internalization records the shared D10/gravity edge-entropy bridge on the stated local extension surface, using the lifted product presentation of the realized quotient branch. On that stated surface, the local exact-release boundary is summarized by four named objects: the local familiar-unit readout package, the strict classical-regime clause, `EWTargetFreeRepairChartIdentity_D10`, and `D11LiveForwardExactHiggsPromotion`. Public papers may summarize the extension-level local bundle `(c,G,M_W,M_Z,M_H)` with explicit caveats, but the live corpus does not yet close that bundle uniformly."
-    success_rule: "Either the four-object local exact-release package closes on the live corpus so one calibrated local input P emits the bosonic trunk and the classical-regime gravity coupling with explicit SI readout, or every public surface states the exact four-object frontier without silently promoting the extension surface to current-corpus theorem status."
+    note: "2026-04-15 compact-paper internalization records the shared D10/gravity edge-entropy bridge on the stated local extension surface, using the lifted product presentation of the realized quotient branch. On that stated surface, the local exact-release boundary is summarized by three named objects: the local familiar-unit readout package, the strict classical-regime clause, and `EWTargetFreeRepairChartIdentity_D10`. The Higgs-side object `D11LiveForwardExactHiggsPromotion` is closed on the declared D10/D11 running, matching, and threshold surface as a Higgs-only target-anchored calibration theorem. Public papers may summarize the extension-level local bundle `(c,G,M_W,M_Z,M_H)` with explicit caveats, but the live corpus does not yet close that bundle uniformly."
+    success_rule: "Either the three-object local exact-release package closes on the live corpus so one calibrated local input P emits the bosonic trunk and the classical-regime gravity coupling with explicit SI readout, or every public surface states the exact three-object frontier without silently promoting the extension surface to current-corpus theorem status."
     tasks:
       - id: papers.compact.u.01-record-four-object-local-unification-frontier
         title: "Record the four-object local unification frontier on the paper and status surfaces"
@@ -1236,7 +1236,7 @@ stages:
         depends_on: ["particles.calibration.17-promote-target-free-d10-repair-theorem"]
       - id: papers.compact.u.06-close-d11-exact-live-higgs-promotion
         title: "Close D11LiveForwardExactHiggsPromotion so the live forward Higgs row lands on the exact codomain without inverse-adapter relabeling"
-        status: ready
+        status: completed
         owner_lane: pro_paper
         depends_on: ["papers.compact.e.28-make-the-higgs-top-critical-surface-fully-rigorous"]
   - id: stage-7

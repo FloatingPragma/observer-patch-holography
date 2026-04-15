@@ -52,14 +52,14 @@
       "source_artifact": "code/particles/runs/calibration/d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json"
     },
     {
-      "exact_kind": "exact_target_anchored_compare_only_inverse_slice",
+      "exact_kind": "exact_target_anchored_higgs_calibration_theorem",
       "label": "Higgs Boson",
       "mass_gev": 125.1995304097179,
-      "note": "Exact compare-only inverse slice on the D11 Jacobian.",
+      "note": "Exact target-anchored Higgs calibration theorem on the declared D10/D11 surface.",
       "particle_id": "higgs",
-      "promotable": false,
-      "scope": "compare_only_inverse_slice",
-      "source_artifact": "code/particles/runs/calibration/d11_reference_exact_adapter.json"
+      "promotable": true,
+      "scope": "declared_d10_d11_running_matching_threshold_surface_only",
+      "source_artifact": "code/particles/runs/calibration/d11_live_exact_higgs_promotion.json"
     },
     {
       "exact_kind": "exact_target_anchored_current_family_witness",
@@ -228,6 +228,6 @@
     }
   ],
   "excluded_lane": "hadrons_compute_bound",
-  "generated_utc": "2026-04-14T06:42:35Z",
+  "generated_utc": "2026-04-15T11:35:46Z",
   "status": "exact_output_lane_closed_nonhadron_only"
 }

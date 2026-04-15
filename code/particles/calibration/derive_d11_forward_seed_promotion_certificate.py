@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
-"""Promote the live D11 forward seed with an exact forward-path certificate.
+"""Certify the current one-scalar D11 fixed-ray branch.
 
-Chain role: certify that the already-emitted D11 seed closes the live forward
-Higgs/top path without reopening the legacy diagnostic sidecar.
+Chain role: certify that the already-emitted D11 seed closes its own diagonal
+fixed-ray branch without reopening the legacy diagnostic sidecar.
 
-Mathematics: exact fixed-ray factorization on the live forward readout vector,
+Mathematics: exact fixed-ray factorization on the forward readout vector,
 showing `pi_y = pi_lambda`, `eta_HT = 0`, and `w_HT = 0` identically on the
-forward seed branch.
+one-scalar branch.
 
 OPH-derived inputs: the emitted D11 forward seed and its core/Jacobian payload.
 
-Output: an exact promotion certificate for the live forward seed.
+Output: an exact fixed-ray branch certificate for the live forward seed.
 """
 
 from __future__ import annotations
@@ -23,6 +23,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_FORWARD_SEED = ROOT / "particles" / "runs" / "calibration" / "d11_forward_seed.json"
+EXACT_HIGGS_ARTIFACT = ROOT / "particles" / "runs" / "calibration" / "d11_live_exact_higgs_promotion.json"
+FIXED_RAY_NO_GO_ARTIFACT = ROOT / "particles" / "runs" / "calibration" / "d11_fixed_ray_no_go_theorem.json"
 DEFAULT_OUT = ROOT / "particles" / "runs" / "calibration" / "d11_forward_seed_promotion_certificate.json"
 
 
@@ -53,11 +55,17 @@ def build_artifact(forward_seed: dict) -> dict:
         "source_forward_seed_artifact": str(DEFAULT_FORWARD_SEED),
         "discharges_seed_certificate_id": forward_seed.get("seed_certificate_id"),
         "discharges_legacy_sidecar_object_on_live_forward_path": "D11FixedRayWedgeVanishing",
-        "proof_scope": "live_forward_path_only",
+        "proof_scope": "diagonal_fixed_ray_only",
         "diagnostic_center_equality_claimed": False,
         "status": "closed",
         "predictive_promotion_allowed": True,
+        "predictive_promotion_scope": "diagonal_fixed_ray_only",
         "forward_path_closed": True,
+        "fixed_ray_branch_closed": True,
+        "exact_higgs_row_claimed": False,
+        "exact_pair_claimed": False,
+        "exact_higgs_artifact": str(EXACT_HIGGS_ARTIFACT),
+        "fixed_ray_no_go_artifact": str(FIXED_RAY_NO_GO_ARTIFACT),
         "promoted_seed_object": "sigma_D11_HT",
         "sigma_D11_HT": sigma,
         "theta_symbol": "Theta_D11_HT(mu_t)",
@@ -100,11 +108,16 @@ def build_artifact(forward_seed: dict) -> dict:
             "mH_gev": float(mass_readout["mH_gev"]),
         },
         "smallest_predictive_missing_object": None,
-        "next_single_residual_object": None,
+        "next_single_residual_object": "one_extra_forward_coordinate_beyond_fixed_ray",
+        "strictly_not_claimed": [
+            "exact_higgs_row_on_fixed_ray",
+            "exact_higgs_top_pair_on_fixed_ray",
+        ],
         "notes": [
-            "This certificate closes the live D11 forward seed without reopening the legacy diagnostic sidecar.",
+            "This certificate closes the live D11 one-scalar seed on its diagonal fixed-ray branch without reopening the legacy diagnostic sidecar.",
             "The exact fixed-ray factorization is proven on the emitted one-scalar forward seed sigma_D11_HT.",
-            "The public Higgs/top rows are therefore supported by the live forward seed path rather than by a witness-only sidecar.",
+            "The same Jacobian surface carries a companion D11 top-side output on that fixed ray, while the exact Higgs row is carried separately by D11LiveForwardExactHiggsPromotion.",
+            "The compare-only exact Higgs/top pair lies off this fixed ray and remains a validation surface only.",
         ],
     }
 

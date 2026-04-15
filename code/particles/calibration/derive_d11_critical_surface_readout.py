@@ -12,6 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_OUT = ROOT / "particles" / "runs" / "calibration" / "d11_critical_surface_readout.json"
 DEFAULT_D10_SOURCE = ROOT / "particles" / "runs" / "calibration" / "d10_ew_observable_family.json"
+DEFAULT_DECLARED_SURFACE = ROOT / "particles" / "runs" / "calibration" / "d11_declared_calibration_surface.json"
 DEFAULT_RESULTS_STATUS = ROOT / "particles" / "RESULTS_STATUS.md"
 DEFAULT_FORWARD_SEED_CERTIFICATE = ROOT / "particles" / "runs" / "calibration" / "d11_forward_seed_promotion_certificate.json"
 
@@ -20,9 +21,16 @@ def _timestamp() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-def build_artifact(d10_source: Path, results_status: Path, forward_seed_certificate: dict | None = None) -> dict[str, object]:
-    y_t_core = 0.92046435
-    lambda_core = 0.13164915
+def build_artifact(
+    declared_surface: dict[str, object],
+    d10_source: Path,
+    results_status: Path,
+    forward_seed_certificate: dict | None = None,
+) -> dict[str, object]:
+    core_surface = dict(declared_surface["core"])
+    jacobian_surface = dict(declared_surface["jacobian"])
+    y_t_core = float(core_surface["y_t_core_mt"])
+    lambda_core = float(core_surface["lambda_core_mt"])
     delta_y = 0.01156247
     delta_lambda = -0.00294158
     kappa_candidate = 16.0 / 9.0
@@ -50,20 +58,13 @@ def build_artifact(d10_source: Path, results_status: Path, forward_seed_certific
         ),
         "predictive_promotion_allowed": False,
         "d10_source_artifact": str(d10_source),
+        "declared_calibration_surface_artifact": declared_surface.get("artifact"),
         "results_status_surface": str(results_status),
-        "transport_family": "sm_below_sync__mssm_like_gauge_above_sync",
-        "mu_sync_gev": 6.8e11,
+        "transport_family": declared_surface["transport_family"],
+        "mu_sync_gev": declared_surface["mu_sync_gev"],
         "mu_sync_status": "candidate",
-        "mu_eval_gev": 160.61247,
-        "core": {
-            "mt_ms_gev": 160.61247,
-            "mt_pole_core_gev": 170.26125,
-            "mH_core_gev": 126.62263,
-            "y_t_core_mt": y_t_core,
-            "lambda_core_mt": lambda_core,
-            "alpha_s_mt": 0.11018777,
-            "pole_ratio_core": 1.06007492,
-        },
+        "mu_eval_gev": declared_surface["mu_eval_gev"],
+        "core": core_surface,
         "readout_kernel": {
             "name": "CriticalSurfaceReadoutKernel_D11",
             "status": "collapsed_common_seed_constructive__strict_antidiagonal_vanishing_open",
@@ -204,10 +205,7 @@ def build_artifact(d10_source: Path, results_status: Path, forward_seed_certific
                 "w_HT": 0.0,
             },
         },
-        "jacobian": {
-            "d_mt_pole_d_y_t": 184.97,
-            "d_mH_d_lambda": 480.0,
-        },
+        "jacobian": jacobian_surface,
         "predicted": {
             "mt_pole_gev": 172.40055484582462,
             "mH_gev": 125.21106404382539,
@@ -231,6 +229,7 @@ def build_artifact(d10_source: Path, results_status: Path, forward_seed_certific
             else "diagnostic_center_projection_only__not_forward_closed"
         ),
         "notes": [
+            "The declared D11 calibration surface carries the core and Jacobian payload used here; this artifact remains diagnostic-sidecar only.",
             "The synchronized D11 core already captures most of the numerical gain over the literal appendix flow, but mu_sync alone moves top and Higgs together and cannot do the needed top-up / Higgs-down move.",
             "The smallest constructive D11 object is a common low-scale readout vector Theta_D11_HT(mu_t) = (delta_y_t, delta_lambda) produced by one CriticalSurfaceReadoutKernel_D11, not two independent per-observable residual fits.",
             "The current diagnostic vector already lies almost exactly on a rank-one relative-core ray with kappa_HT = 16/9, so the collapsed shared seed sigma_D11_HT is now constructively available rather than only interval-marked.",
@@ -254,19 +253,21 @@ def build_artifact(d10_source: Path, results_status: Path, forward_seed_certific
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Build the D11 critical-surface readout boundary artifact.")
+    parser.add_argument("--declared-surface", default=str(DEFAULT_DECLARED_SURFACE))
     parser.add_argument("--d10-source", default=str(DEFAULT_D10_SOURCE))
     parser.add_argument("--results-status", default=str(DEFAULT_RESULTS_STATUS))
     parser.add_argument("--forward-seed-certificate", default=str(DEFAULT_FORWARD_SEED_CERTIFICATE))
     parser.add_argument("--output", default=str(DEFAULT_OUT))
     args = parser.parse_args()
 
+    declared_surface = json.loads(Path(args.declared_surface).read_text(encoding="utf-8"))
     certificate_path = Path(args.forward_seed_certificate)
     certificate = (
         json.loads(certificate_path.read_text(encoding="utf-8"))
         if certificate_path.exists()
         else None
     )
-    artifact = build_artifact(Path(args.d10_source), Path(args.results_status), certificate)
+    artifact = build_artifact(declared_surface, Path(args.d10_source), Path(args.results_status), certificate)
     out_path = Path(args.output)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(artifact, indent=2, sort_keys=True) + "\n", encoding="utf-8")

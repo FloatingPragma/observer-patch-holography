@@ -126,8 +126,9 @@ def build_entries() -> list[dict[str, Any]]:
             ),
             "source_artifact": _repo_ref(D11_EXACT_JSON),
             "note": (
-                "Exact only as a compare-only inverse slice on the D11 Jacobian. The public D11 branch uses "
-                "the reference-free forward seed, not this adapter."
+                "Exact only as a compare-only inverse slice on the D11 Jacobian. The live Higgs row uses "
+                "the separate exact Higgs theorem on the declared D10/D11 surface, while the old one-scalar "
+                "seed remains the companion fixed-ray D11 branch, not this adapter."
             ),
         },
         {

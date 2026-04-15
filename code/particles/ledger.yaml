@@ -42,16 +42,15 @@ entries:
     borrowed_qft_piece: "RG evolution and matching conventions"
     extra_ansatz: "printed D10 running/matching package"
     blocked_by: []
-  - id: secondary.d11.higgs_top
+  - id: calibration.d11.higgs_top
     output_keys: ["crit_mt_MS", "crit_mt_pole", "crit_mH_tree"]
-    label: "D11 Higgs/top critical-surface branch"
-    tier: secondary_quantitative
+    label: "D11 Higgs/top calibration theorem"
+    tier: calibration
     branch: D11
-    oph_derived_piece: "D10 closure plus critical-surface condition"
-    borrowed_qft_piece: "RG transport and pole-mass conversion"
-    extra_ansatz: "supplement-backed transport and matching layer"
-    blocked_by:
-      ["papers.compact.e.28-make-the-higgs-top-critical-surface-fully-rigorous"]
+    oph_derived_piece: "D10 closure plus the exact Higgs lambda-side seed and the companion one-scalar D11 fixed-ray branch"
+    borrowed_qft_piece: "printed running, matching, threshold, and pole-mass conversion layer"
+    extra_ansatz: "declared D10/D11 calibration surface"
+    blocked_by: []
   - id: open.artifact.stage5_charged_surface
     output_keys: ["stage5_artifact_surface"]
     label: "Stage-5 charged-spectrum artifact surface"

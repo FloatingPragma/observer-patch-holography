@@ -22,6 +22,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[2]
 REFERENCE_JSON = ROOT / "particles" / "data" / "particle_reference_values.json"
 EW_EXACT_JSON = ROOT / "particles" / "runs" / "calibration" / "d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json"
 D11_EXACT_JSON = ROOT / "particles" / "runs" / "calibration" / "d11_reference_exact_adapter.json"
+D11_EXACT_HIGGS_PROMOTION_JSON = ROOT / "particles" / "runs" / "calibration" / "d11_live_exact_higgs_promotion.json"
 CHARGED_JSON = ROOT / "particles" / "runs" / "leptons" / "lepton_current_family_exact_readout.json"
 QUARK_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_current_family_exact_readout.json"
 CHARGED_THEOREM_JSON = ROOT / "particles" / "runs" / "leptons" / "lepton_current_family_quadratic_readout_theorem.json"
@@ -62,6 +63,7 @@ def build_entries() -> list[dict[str, Any]]:
     references = _load_json(REFERENCE_JSON)["entries"]
     ew_exact = _load_json(EW_EXACT_JSON)
     d11_exact = _load_json(D11_EXACT_JSON)
+    d11_exact_higgs = _load_optional_json(D11_EXACT_HIGGS_PROMOTION_JSON)
     charged = _load_json(CHARGED_JSON)
     quark = _load_json(QUARK_JSON)
     charged_affine = _load_optional_json(CHARGED_AFFINE_JSON)
@@ -180,12 +182,32 @@ def build_entries() -> list[dict[str, Any]]:
         {
             "particle_id": "higgs",
             "label": "Higgs Boson",
-            "mass_gev": d11_exact["predicted_outputs"]["mH_gev"],
-            "exact_kind": "exact_target_anchored_compare_only_inverse_slice",
-            "scope": d11_exact["scope"],
-            "promotable": False,
-            "source_artifact": _repo_ref(D11_EXACT_JSON),
-            "note": "Exact compare-only inverse slice on the D11 Jacobian.",
+            "mass_gev": (
+                d11_exact_higgs["mass_readout"]["mH_gev"]
+                if d11_exact_higgs
+                else d11_exact["predicted_outputs"]["mH_gev"]
+            ),
+            "exact_kind": (
+                "exact_target_anchored_higgs_calibration_theorem"
+                if d11_exact_higgs
+                else "exact_target_anchored_compare_only_inverse_slice"
+            ),
+            "scope": (
+                d11_exact_higgs["theorem_scope"]
+                if d11_exact_higgs
+                else d11_exact["scope"]
+            ),
+            "promotable": bool(d11_exact_higgs),
+            "source_artifact": (
+                _repo_ref(D11_EXACT_HIGGS_PROMOTION_JSON)
+                if d11_exact_higgs
+                else _repo_ref(D11_EXACT_JSON)
+            ),
+            "note": (
+                "Exact target-anchored Higgs calibration theorem on the declared D10/D11 surface."
+                if d11_exact_higgs
+                else "Exact compare-only inverse slice on the D11 Jacobian."
+            ),
         },
         {
             "particle_id": "electron",

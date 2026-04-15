@@ -466,9 +466,11 @@ def build_runtime(runtime_root: Path, *, with_hadrons: bool, verbose: bool) -> P
         ["python3", "particles/calibration/derive_d10_ew_target_free_repair_value_law.py"],
         ["python3", "particles/calibration/derive_d10_ew_source_transport_readout.py"],
         ["python3", "particles/calibration/derive_d10_ew_exactness_audit.py"],
+        ["python3", "particles/calibration/derive_d11_declared_calibration_surface.py"],
         ["python3", "particles/calibration/derive_d11_critical_surface_readout.py"],
         ["python3", "particles/calibration/derive_d11_forward_seed.py"],
         ["python3", "particles/calibration/derive_d11_forward_seed_promotion_certificate.py"],
+        ["python3", "particles/calibration/derive_d11_live_exact_higgs_promotion.py"],
     ]
 
     if with_hadrons:

@@ -1,0 +1,43 @@
+{
+  "artifact": "oph_d11_declared_calibration_surface",
+  "core": {
+    "alpha_s_mt": 0.11018777,
+    "lambda_core_mt": 0.13164915,
+    "mH_core_gev": 126.62263,
+    "mt_ms_gev": 160.61247,
+    "mt_pole_core_gev": 170.26125,
+    "pole_ratio_core": 1.06007492,
+    "y_t_core_mt": 0.92046435
+  },
+  "d10_source_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d10_ew_observable_family.json",
+  "declared_surface_inputs": {
+    "matching_package": "printed_d10_d11_matching_surface",
+    "running_package": "printed_d10_d11_running_surface",
+    "threshold_package": "printed_d10_d11_threshold_surface"
+  },
+  "fixed_ray_candidate": {
+    "kappa_HT": 1.7777777777777777,
+    "seed_symbol": "sigma_D11_HT"
+  },
+  "generated_utc": "2026-04-15T11:35:47Z",
+  "jacobian": {
+    "d_mH_d_lambda": 480.0,
+    "d_mt_pole_d_y_t": 184.97
+  },
+  "mu_eval_gev": 160.61247,
+  "mu_sync_gev": 680000000000.0,
+  "notes": [
+    "This artifact makes the declared D10/D11 running, matching, and threshold surface explicit for the compact Higgs/top lane.",
+    "The live forward seed and the compare-only inverse slice both consume this surface rather than a diagnostic-sidecar payload.",
+    "The artifact fixes the D11 core coordinates and linear Jacobian on the declared surface; it does not by itself claim reference fitting or a larger recovered-core theorem."
+  ],
+  "predictive_promotion_allowed": false,
+  "proof_status": "declared_d10_d11_calibration_surface_fixed",
+  "scope": [
+    "compact_d11_forward_seed",
+    "d11_jacobian_mass_readout",
+    "compare_only_inverse_slice"
+  ],
+  "surface_kind": "declared_running_matching_threshold_surface",
+  "transport_family": "sm_below_sync__mssm_like_gauge_above_sync"
+}

@@ -43,8 +43,11 @@ part of this canonical tree.
   calibration/derive_d10_ew_w_anchor_neutral_shear_factorization.py ->
   calibration/derive_d10_ew_source_transport_readout.py`
 - Higgs/top:
-  `calibration/derive_d11_forward_seed.py ->
-  calibration/derive_d11_forward_seed_promotion_certificate.py`
+  `calibration/derive_d11_declared_calibration_surface.py ->
+  calibration/derive_d11_forward_seed.py ->
+  calibration/derive_d11_forward_seed_promotion_certificate.py ->
+  calibration/derive_d11_fixed_ray_no_go_theorem.py ->
+  calibration/derive_d11_live_exact_higgs_promotion.py`
 - charged leptons:
   support and scale artifacts feeding
   `leptons/derive_lepton_excitation_gap_map.py ->
@@ -168,6 +171,10 @@ From `reverse-engineering-reality/code/particles`:
 python3 calibration/derive_d10_ew_w_anchor_neutral_shear_factorization.py
 python3 calibration/derive_d10_ew_source_transport_readout.py
 python3 calibration/derive_d10_ew_exactness_audit.py
+python3 calibration/derive_d11_declared_calibration_surface.py
+python3 calibration/derive_d11_forward_seed.py
+python3 calibration/derive_d11_forward_seed_promotion_certificate.py
+python3 calibration/derive_d11_live_exact_higgs_promotion.py
 python3 calibration/derive_d11_reference_exact_adapter.py
 python3 neutrino/derive_neutrino_weighted_cycle_repair.py
 python3 neutrino/derive_neutrino_bridge_rigidity_theorem.py

@@ -14,7 +14,7 @@
     "mH_gev": "mH_core_gev + d_mH_d_lambda * delta_lambda_mt",
     "mt_pole_gev": "mt_pole_core_gev + d_mt_pole_d_y_t * delta_y_t_mt"
   },
-  "generated_utc": "2026-04-03T04:42:56Z",
+  "generated_utc": "2026-04-15T11:35:47Z",
   "inverse_slice_coordinates": {
     "delta_lambda_mt": -0.002964790813087722,
     "delta_y_t_mt": 0.011305105308056543
@@ -29,7 +29,7 @@
   "notes": [
     "This is a compare-only inverse slice on the linear D11 Jacobian, not the live predictive forward seed.",
     "It exists only to surface an exact Higgs/top reference hit on the current emitted D11 core.",
-    "The live public Higgs/top rows remain the reference-free forward-seed outputs, not this inverse adapter."
+    "The live public Higgs row remains the reference-free forward-seed output, while the repo-wide exact public top row is carried by the selected-class quark theorem rather than by this inverse adapter."
   ],
   "predicted_outputs": {
     "mH_gev": 125.1995304097179,
@@ -39,7 +39,7 @@
   "proof_status": "compare_only_exact_reference_adapter",
   "reference_source": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/data/particle_reference_values.json",
   "scope": "compare_only_inverse_slice",
-  "source_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_critical_surface_readout.json",
+  "source_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_declared_calibration_surface.json",
   "strictly_not_claimed": [
     "live_forward_seed_equality",
     "predictive_reference_free_closure",

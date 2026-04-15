@@ -94,7 +94,7 @@ PARTICLE_INFO: Dict[str, Dict[str, str]] = {
     "w_boson": {"symbol": "W", "plain": "Charged weak-force boson used in beta-decay-type processes."},
     "z_boson": {"symbol": "Z", "plain": "Neutral weak-force boson from the same electroweak sector as the W."},
     "higgs": {"symbol": "H", "plain": "Higgs boson tied to the Standard Model mass-giving field."},
-    "top_quark": {"symbol": "t", "plain": "Heaviest known quark. Its public row on this chart comes from D11."},
+    "top_quark": {"symbol": "t", "plain": "Heaviest known quark. Its public row on this chart comes from the selected-class quark theorem surface."},
     "electron": {"symbol": "e", "plain": "Light charged matter particle found in atoms."},
     "muon": {"symbol": "mu", "plain": "Heavier unstable cousin of the electron."},
     "tau": {"symbol": "tau", "plain": "Heaviest charged lepton; a short-lived electron cousin."},
@@ -205,19 +205,24 @@ LANES: List[Dict[str, Any]] = [
     },
     {
         "key": "d11",
-        "title": "D11 Higgs / Top Branch",
-        "summary": "The D11 lane maps the D10 gauge core into a compact shared seed and then reads out Higgs and top masses through the D11 Jacobian surface.",
-        "takeaway": "One compact seed controls the Higgs and top outputs on this branch.",
+        "title": "D11 Higgs Calibration Theorem",
+        "summary": "The D11 lane keeps a closed one-scalar diagonal branch for the companion top-side row and a separate exact Higgs theorem on the declared D10/D11 running, matching, and threshold surface.",
+        "takeaway": "The exact Higgs row uses a separate lambda-side seed, while the old one-scalar D11 branch stays on disk as the companion top-side output.",
         "logic": (
             "Take the D10 substrate, impose the critical-surface condition, then use the synchronized "
-            "transport core to emit Higgs/top outputs. The reduced readback closes on the one-scalar "
-            "seed `sigma_D11_HT`, and the forward certificate records `pi_y = pi_lambda`, `eta_HT = 0`, "
-            "and `w_HT = 0` on the declared branch. The public `m_H` and `m_t` rows use that promoted seed."
+            "transport core to emit the one-scalar D11 fixed-ray seed on the declared running, matching, "
+            "and threshold surface. Its certificate records `pi_y = pi_lambda`, `eta_HT = 0`, and "
+            "`w_HT = 0` on that diagonal branch. The exact Higgs row is carried separately by "
+            "`sigma_D11_H_exact = (eta_source - (4/3) * tau2_tree_exact - c_H_exactifier * delta_n_tree_exact) / sqrt(pi)` "
+            "with `delta_lambda_mt = -(16/9) * sigma_D11_H_exact * lambda_core_mt`. The compare-only exact "
+            "pair has nonzero `w_HT`, so it lies off the fixed ray. The same Jacobian surface still carries "
+            "the companion D11 top-side output, while the repo-wide exact public top row is carried "
+            "separately by the selected-class quark theorem."
         ),
-        "tasks_text": "Ledger state: no D11 mass-side blocker is attached to the forward-seed path.",
-        "prediction_surface": "D11 exact promoted forward-seed plus Jacobian readout surface.",
-        "particles": ["higgs", "top_quark"],
-        "tasks": ["papers.compact.e.28-make-the-higgs-top-critical-surface-fully-rigorous"],
+        "tasks_text": "Ledger state: the exact Higgs theorem is closed on the declared D10/D11 running, matching, and threshold surface; the one-scalar D11 seed is a closed diagonal companion branch; the exact inverse slice remains compare-only.",
+        "prediction_surface": "D11 calibration-theorem surface with an exact Higgs lambda-side theorem plus a closed one-scalar companion branch on the same Jacobian surface.",
+        "particles": ["higgs"],
+        "tasks": [],
     },
     {
         "key": "leptons",
@@ -268,7 +273,7 @@ LANES: List[Dict[str, Any]] = [
         ),
         "tasks_text": "Selected-class theorem statement: the public physical quark frame class chosen by `P` carries the exact physical sigma datum, the affine mean law emits `(g_u, g_d)` algebraically, and the exact forward construction emits the exact sextet together with explicit exact forward Yukawas `Y_u` and `Y_d`. Broader work concerns global classification or alternative upstream transfer routes, not a missing theorem on the selected class.",
         "prediction_surface": "Public quark surface = theorem-grade exact sextet on the selected public physical quark frame class, explicit exact forward Yukawas on that selected class, the supporting `current_family_only` exact witness, the supporting restricted transport-frame exact chain, and the separate target-free D12 mass bridge on the emitted ray.",
-        "particles": ["up_quark", "down_quark", "strange_quark", "charm_quark", "bottom_quark"],
+        "particles": ["up_quark", "down_quark", "strange_quark", "charm_quark", "bottom_quark", "top_quark"],
         "tasks": [],
     },
     {

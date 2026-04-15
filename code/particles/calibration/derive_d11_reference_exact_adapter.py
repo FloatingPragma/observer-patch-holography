@@ -3,12 +3,12 @@
 
 Chain role: expose the exact inverse-slice adapter that hits the canonical
 Higgs/top reference targets exactly on the linear D11 readout, while keeping
-the live predictive forward seed reference-free.
+the live predictive D11 surfaces reference-free.
 
 Mathematics: solve the linear D11 Jacobian readout against the canonical
 reference pair `(m_t, m_H)` to get one exact compare-only adapter.
 
-OPH-derived inputs: the emitted D11 critical-surface core and Jacobian plus the
+OPH-derived inputs: the declared D11 calibration-surface core and Jacobian plus the
 repo-local canonical reference-value store.
 
 Output: a machine-readable exact-reference adapter that is explicitly
@@ -25,7 +25,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 REFERENCE_JSON = ROOT / "particles" / "data" / "particle_reference_values.json"
-D11_CRITICAL_JSON = ROOT / "particles" / "runs" / "calibration" / "d11_critical_surface_readout.json"
+D11_SURFACE_JSON = ROOT / "particles" / "runs" / "calibration" / "d11_declared_calibration_surface.json"
 DEFAULT_OUT = ROOT / "particles" / "runs" / "calibration" / "d11_reference_exact_adapter.json"
 
 
@@ -62,7 +62,7 @@ def build_artifact(d11_surface: dict, references: dict) -> dict:
         "proof_status": "compare_only_exact_reference_adapter",
         "scope": "compare_only_inverse_slice",
         "promotable": False,
-        "source_artifact": str(D11_CRITICAL_JSON),
+        "source_artifact": str(D11_SURFACE_JSON),
         "reference_source": str(REFERENCE_JSON),
         "live_predictive_branch_artifact": str(
             ROOT / "particles" / "runs" / "calibration" / "d11_forward_seed_promotion_certificate.json"
@@ -101,16 +101,16 @@ def build_artifact(d11_surface: dict, references: dict) -> dict:
             "theorem_grade_higgs_top_exact_hit",
         ],
         "notes": [
-            "This is a compare-only inverse slice on the linear D11 Jacobian, not the live predictive forward seed.",
+            "This is a compare-only inverse slice on the linear D11 Jacobian, not a live predictive D11 theorem.",
             "It exists only to surface an exact Higgs/top reference hit on the current emitted D11 core.",
-            "The live public Higgs/top rows remain the reference-free forward-seed outputs, not this inverse adapter.",
+            "The live public Higgs row is carried by D11LiveForwardExactHiggsPromotion, while the old one-scalar seed stays on disk as the companion fixed-ray D11 branch and the repo-wide exact public top row is carried by the selected-class quark theorem rather than by this inverse adapter.",
         ],
     }
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Build the compare-only exact D11 Higgs/top reference adapter.")
-    parser.add_argument("--d11-surface", default=str(D11_CRITICAL_JSON))
+    parser.add_argument("--d11-surface", default=str(D11_SURFACE_JSON))
     parser.add_argument("--output", default=str(DEFAULT_OUT))
     args = parser.parse_args()
 

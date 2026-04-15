@@ -45,6 +45,7 @@ QUARK_PUBLIC_SIGMA_DESCENT = ROOT / "particles" / "runs" / "flavor" / "quark_pub
 QUARK_PUBLIC_EXACT_YUKAWA_THEOREM = ROOT / "particles" / "runs" / "flavor" / "quark_public_exact_yukawa_end_to_end_theorem.json"
 D10_SOURCE_TRANSPORT_READOUT = ROOT / "particles" / "runs" / "calibration" / "d10_ew_source_transport_readout.json"
 D11_FORWARD_SEED = ROOT / "particles" / "runs" / "calibration" / "d11_forward_seed.json"
+D11_EXACT_HIGGS_PROMOTION = ROOT / "particles" / "runs" / "calibration" / "d11_live_exact_higgs_promotion.json"
 FORWARD_CHARGED_LEPTONS = ROOT / "particles" / "runs" / "leptons" / "forward_charged_leptons.json"
 FORWARD_NEUTRINO_BUNDLE = ROOT / "particles" / "runs" / "neutrino" / "forward_neutrino_closure_bundle.json"
 NEUTRINO_BRIDGE_RIGIDITY_THEOREM = ROOT / "particles" / "runs" / "neutrino" / "neutrino_bridge_rigidity_theorem.json"
@@ -100,9 +101,10 @@ D10_MASS_PAIR_NOTE = (
     "The compact anti-diagonal carrier slice and the source-only target-free emitter artifacts sit on disk as carrier or compare surfaces; they do not define the public electromagnetic theorem."
 )
 D11_NOTE = (
-    "Derived from `derive_d11_forward_seed.py -> derive_d11_forward_seed_promotion_certificate.py`, which propagates the D10 gauge core into the compact D11 forward seed, closes the emitted one-scalar forward branch on the fixed ray, and reads out the D11 mass row from the Jacobian surface. "
-    "A separate exact-hit sidecar is on disk as `oph_d11_reference_exact_adapter`: it solves the linear D11 Jacobian against the canonical Higgs/top reference pair and therefore hits those references exactly, but only as a compare-only inverse slice. "
-    "The live public D11 rows remain the reference-free forward-seed outputs, not the inverse adapter."
+    "Derived from `derive_d11_declared_calibration_surface.py -> derive_d10_ew_source_transport_pair.py -> derive_d10_ew_target_free_repair_value_law.py -> derive_d11_live_exact_higgs_promotion.py`, which makes the declared D10/D11 running, matching, and threshold surface explicit, feeds the D10 repair chart into the D11 lambda-side readout, and closes the Higgs row on the exact local codomain with one unique `delta_n_tree_exact` exactifier coefficient. "
+    "The theorem lives on the declared D10/D11 running, matching, and threshold surface, where the exact Higgs seed is `sigma_D11_H_exact = (eta_source - (4/3) * tau2_tree_exact - c_H_exactifier * delta_n_tree_exact) / sqrt(pi)` and the lambda-side readout law is `delta_lambda_mt = -(16/9) * sigma_D11_H_exact * lambda_core_mt`. "
+    "The old one-scalar forward seed `sigma_D11_HT = alpha_u * cos(2*theta_W0) / sqrt(pi)` stays on disk as the closed diagonal fixed-ray companion branch for the D11 top-side row. The compare-only exact Higgs/top inverse slice has nonzero `w_HT = pi_y - pi_lambda`, so the exact pair lies off that fixed ray and does not define the live Higgs theorem. "
+    "The repo-wide exact public top row is carried separately by the selected-class quark theorem."
 )
 _NEUTRINO_EXACT_BRIDGE_COORDINATE = (
     json.loads(NEUTRINO_EXACT_ADAPTER_BRIDGE_COORDINATE.read_text(encoding="utf-8"))
@@ -272,7 +274,7 @@ INVENTORY: List[Dict[str, Any]] = [
         "label": "H",
         "group": "Bosons",
         "prediction_key": "crit_mH_tree",
-        "ledger_id": "secondary.d11.higgs_top",
+        "ledger_id": "calibration.d11.higgs_top",
         "note": D11_NOTE,
     },
     {
@@ -571,6 +573,11 @@ def _d11_public_seed_allowed(seed: Dict[str, Any]) -> bool:
     )
 
 
+def _d11_exact_higgs_allowed(payload: Dict[str, Any]) -> bool:
+    mass_readout = dict(payload.get("mass_readout", {}))
+    return bool(payload.get("public_surface_candidate_allowed", False)) and "mH_gev" in mass_readout
+
+
 def _quark_public_forward_allowed(forward: Dict[str, Any], mean_split: Dict[str, Any]) -> bool:
     return (
         bool(forward.get("public_surface_candidate_allowed", False))
@@ -627,9 +634,12 @@ def build_surface_state(*, with_hadrons: bool) -> Dict[str, Any]:
         readout = json.loads(D10_SOURCE_TRANSPORT_READOUT.read_text(encoding="utf-8"))
         d10_active = _d10_public_mass_pair_allowed(readout)
 
+    if D11_EXACT_HIGGS_PROMOTION.exists():
+        exact_higgs = json.loads(D11_EXACT_HIGGS_PROMOTION.read_text(encoding="utf-8"))
+        d11_active = _d11_exact_higgs_allowed(exact_higgs)
     if D11_FORWARD_SEED.exists():
         seed = json.loads(D11_FORWARD_SEED.read_text(encoding="utf-8"))
-        d11_active = _d11_public_seed_allowed(seed)
+        d11_active = d11_active or _d11_public_seed_allowed(seed)
 
     if FORWARD_CHARGED_LEPTONS.exists():
         charged = json.loads(FORWARD_CHARGED_LEPTONS.read_text(encoding="utf-8"))
@@ -686,13 +696,17 @@ def apply_local_candidate_overrides(prediction: Dict[str, Any]) -> Dict[str, Any
                 }
             )
 
+    if D11_EXACT_HIGGS_PROMOTION.exists():
+        exact_higgs = json.loads(D11_EXACT_HIGGS_PROMOTION.read_text(encoding="utf-8"))
+        if _d11_exact_higgs_allowed(exact_higgs):
+            updated["crit_mH_tree"] = float(exact_higgs["mass_readout"]["mH_gev"])
+
     if D11_FORWARD_SEED.exists():
         seed = json.loads(D11_FORWARD_SEED.read_text(encoding="utf-8"))
         if _d11_public_seed_allowed(seed):
             mass_readout = dict(seed.get("mass_readout", {}))
             updated.update(
                 {
-                    "crit_mH_tree": float(mass_readout["mH_gev"]),
                     "crit_mt_pole": float(mass_readout["mt_pole_gev"]),
                 }
             )
@@ -1080,6 +1094,8 @@ def prediction_surface_for_row(row_spec: Dict[str, Any], surface_state: Dict[str
         "top_quark",
     } and active.get("quark_forward_candidate"):
         return "selected_public_quark_exact_yukawa_theorem_surface"
+    if particle_id == "higgs" and D11_EXACT_HIGGS_PROMOTION.exists():
+        return "local_d11_exact_higgs_promotion"
     if particle_id in {"higgs", "top_quark"} and active.get("d11_forward_seed"):
         return "local_d11_forward_seed_candidate"
     if row_spec["group"] == "Hadrons" and not with_hadrons:

@@ -24,6 +24,7 @@
     "y_t_core_mt": 0.92046435
   },
   "d10_source_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d10_ew_observable_family.json",
+  "declared_calibration_surface_artifact": "oph_d11_declared_calibration_surface",
   "diagnostic_required_to_current_refs": {
     "delta_lambda_mt": -0.00294158,
     "delta_mH_gev": -1.42263,
@@ -54,7 +55,7 @@
     "wedge_value": -1.5051272943336635e-06
   },
   "forward_path_closed_by": "forward_seed_promotion_certificate",
-  "generated_utc": "2026-04-03T04:42:56Z",
+  "generated_utc": "2026-04-15T10:37:35Z",
   "jacobian": {
     "d_mH_d_lambda": 480.0,
     "d_mt_pole_d_y_t": 184.97
@@ -69,6 +70,7 @@
   "mu_sync_gev": 680000000000.0,
   "mu_sync_status": "candidate",
   "notes": [
+    "The declared D11 calibration surface carries the core and Jacobian payload used here; this artifact remains diagnostic-sidecar only.",
     "The synchronized D11 core already captures most of the numerical gain over the literal appendix flow, but mu_sync alone moves top and Higgs together and cannot do the needed top-up / Higgs-down move.",
     "The smallest constructive D11 object is a common low-scale readout vector Theta_D11_HT(mu_t) = (delta_y_t, delta_lambda) produced by one CriticalSurfaceReadoutKernel_D11, not two independent per-observable residual fits.",
     "The current diagnostic vector already lies almost exactly on a rank-one relative-core ray with kappa_HT = 16/9, so the collapsed shared seed sigma_D11_HT is now constructively available rather than only interval-marked.",

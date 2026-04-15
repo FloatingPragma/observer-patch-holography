@@ -25,7 +25,7 @@
   },
   "forward_path_closed": true,
   "forward_seed_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_forward_seed.json",
-  "generated_utc": "2026-04-03T04:42:56Z",
+  "generated_utc": "2026-04-15T11:35:47Z",
   "mass_readout_consequence": {
     "mH_formula": "mH_core_gev + d_mH_d_lambda * delta_lambda_mt",
     "mH_gev": 125.21892206026347,
@@ -36,7 +36,7 @@
   "notes": [
     "This certificate closes the live D11 forward seed without reopening the legacy diagnostic sidecar.",
     "The exact fixed-ray factorization is proven on the emitted one-scalar forward seed sigma_D11_HT.",
-    "The public Higgs/top rows are therefore supported by the live forward seed path rather than by a witness-only sidecar."
+    "The public Higgs row is therefore supported by the live forward seed path rather than by a witness-only sidecar, and the same Jacobian surface carries a companion D11 top-side output."
   ],
   "predictive_promotion_allowed": true,
   "promoted_seed_object": "sigma_D11_HT",
