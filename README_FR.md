@@ -8,6 +8,10 @@
 
 L'OPH est un programme de reconstruction. Espace-temps, structure de jauge, particules, enregistrements et synchronisation des observateurs y apparaissent comme des conséquences du paquet OPH enraciné dans la cohérence de recouvrement sur un écran holographique fini, avec les prémisses de branche explicites énoncées dans les papiers.
 
+## Règle d'autorité et de lecture
+
+Pour le statut théorématique du noyau reconstruit et le niveau de preuve des claims, consultez d'abord **Paper 2. [Recovering Relativity and the Standard Model from the OPH Package Rooted in Observer Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**. Le niveau de preuve propre à chaque voie reste dans les papiers compagnons correspondants, notamment **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**, **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** et **Paper 5. [Screen Microphysics and Observer Synchronization](paper/screen_microphysics_and_observer_synchronization.pdf)**. Ce README, le Paper 1 et le livre sont des surfaces de synthèse synchronisées : ils résument et organisent les résultats sans en rehausser le niveau de preuve.
+
 ## Ce que l'OPH apporte
 
 - Un paquet théorématique à cutoff fixe pour les patches d'observateurs, les collerettes, la réparation de recouvrement, la jauge supérieure, les enregistrements et le checkpoint/restauration.
@@ -94,8 +98,8 @@ Le secteur des leptons chargés suit une frontière plus nette. Le dépôt conti
 
 ## Articles
 
-- **Papier 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)** : papier de synthèse de l'ensemble OPH.
-- **Papier 2. [Recovering Relativity and the Standard Model from the OPH Package Rooted in Observer Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : papier de dérivation relativité/structure du Modèle Standard.
+- **Papier 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)** : papier de synthèse de l'ensemble OPH ; il organise la suite sur une seule surface et hérite du niveau de preuve du papier compact sur le noyau reconstruit ainsi que des ledgers des papiers compagnons correspondants, au lieu de les rehausser.
+- **Papier 2. [Recovering Relativity and the Standard Model from the OPH Package Rooted in Observer Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : surface faisant autorité pour le noyau reconstruit et le niveau de preuve sur la chaîne Lorentz/gravité et la branche structurelle réalisée du Modèle Standard.
 - **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivation des particules, surface exacte, et carte des frontières théorématiques.
 - **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : formulation point fixe, réparation, et consensus.
 - **Papier 5. [Screen Microphysics and Observer Synchronization](paper/screen_microphysics_and_observer_synchronization.pdf)** : architecture d'écran finie, enregistrements, et machinerie observateur.
