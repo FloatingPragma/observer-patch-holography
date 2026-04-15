@@ -22,7 +22,7 @@ Pour le statut théorématique du noyau reconstruit et le niveau de preuve des c
 
 ## Surface locale d'unification
 
-L'OPH place une surface locale d'unification autour de l'entrée UV locale calibrée. La même échelle pilotée par `P` porte la voie bosonique électrofaible et Higgs ainsi que la voie entropique gravitationnelle, tandis que la branche lorentzienne fournit la vitesse causale invariante et que le paquet local de lecture fournit l'affichage SI. Du côté gravitationnel, la branche réalisée à groupe produit identifie `ellbar_shared = ellbar_SU(2) + ellbar_SU(3) = P/4`, et la lecture locale en unités SI est `G_SI = c^3 a_cell / (hbar P)` relativement au datum microscopique déclaré `a_cell`.
+L'OPH place une surface locale d'unification autour de l'entrée UV locale calibrée. La même échelle pilotée par `P` porte la voie bosonique électrofaible et Higgs ainsi que la voie entropique gravitationnelle, tandis que la branche lorentzienne fournit la vitesse causale invariante et que le paquet local de lecture fournit l'affichage SI. Sur la surface locale d'extension déclarée, la présentation produit relevée de la branche quotient réalisée donne `ellbar_shared = ellbar_SU(2) + ellbar_SU(3)` ; la même loi D10 sur cette surface fixe `ellbar_shared = P/4`, et la lecture locale en unités SI est `G_SI = c^3 a_cell / (hbar P)` relativement au datum microscopique déclaré `a_cell`.
 Sur la surface publique des constantes, `hbar` et `k_B` restent dans cette couche aval de lecture en unités familières plutôt que d'apparaître comme des constantes OPH émises de manière autonome.
 
 <p align="center">

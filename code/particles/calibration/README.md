@@ -19,7 +19,7 @@ object is then one common `EWTransportKernel_D10`, not more digits of `P`.
 
 ## Active Calibration Files
 
-The active calibration scripts now open with the same short derivation header:
+The active calibration scripts open with the same short derivation header:
 
 - `Chain role`: where the file sits between the D10 core, the reduced
   two-scalar carrier, the selector, and the public readout
@@ -43,7 +43,7 @@ For the live branch, the main path is:
 - `derive_d11_forward_seed.py`
 - `derive_d11_forward_seed_promotion_certificate.py`
 
-The live D10 split is now explicit:
+The live D10 split is explicit:
 
 - builder-local current-carrier frontier:
   `EWExactMassPairSelector_D10`
@@ -51,6 +51,8 @@ The live D10 split is now explicit:
   `D10RepairBranchBeyondCurrentCarrier`
 - strongest strictly smaller constructive primitive beneath that broader frontier:
   `EWSinglePostTransportTreeIdentity_D10`
+- shared D10/gravity bridge beneath the local gravity row:
+  `D10GravitySharedEdgeEntropyBridge`
 
 So the current carrier is not treated as the whole D10 story. It closes its own
 exact chart, the W/Z mass lane is carried by the closed target-free source-only
@@ -60,6 +62,16 @@ Ward-projected `U(1)_Q` transport family anchored at
 `alpha^-1(0)=137.035999177`. The older repair-branch artifacts stay on disk as
 scaffolding and validation layers rather than as the public electromagnetic
 theorem.
+
+The local gravity bridge is carried on the stated local extension surface. On
+the lifted product presentation of the realized quotient branch, the
+`R`-sector collar entropy contribution satisfies
+`(L_C)|_R = log d_R = log d_R3 + log d_R2`, because the `U(1)` factor is
+one-dimensional. The resulting shared scalar is
+`ellbar_shared = ellbar_SU(2)(t2_run) + ellbar_SU(3)(t3_run)`, and when the
+same branch satisfies the D10 pixel law this becomes `ellbar_shared = P/4`.
+That is the surface on which the local gravity readout uses the same emitted
+scalar as the D10 pixel law.
 
 ## Commands
 

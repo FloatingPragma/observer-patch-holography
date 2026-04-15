@@ -1197,17 +1197,17 @@ stages:
   - id: stage-6a
     title: "Local P-to-gravity-and-bosons exact-release surface"
     status: active
-    note: "2026-04-04 local plus Oracle narrowing reduced the local exact-release frontier to five named objects: the local familiar-unit readout package, the shared D10/gravity edge-entropy bridge, the strict classical-regime clause, `EWTargetFreeRepairChartIdentity_D10`, and `D11LiveForwardExactHiggsPromotion`. Public papers may summarize the extension-level local bundle `(c,G,M_W,M_Z,M_H)` with explicit caveats, but the live corpus does not yet close that bundle uniformly."
-    success_rule: "Either the five-object local exact-release package closes on the live corpus so one calibrated local input P emits the bosonic trunk and the classical-regime gravity coupling with explicit SI readout, or every public surface states the exact five-object frontier without silently promoting the extension surface to current-corpus theorem status."
+    note: "2026-04-15 compact-paper internalization records the shared D10/gravity edge-entropy bridge on the stated local extension surface, using the lifted product presentation of the realized quotient branch. On that stated surface, the local exact-release boundary is summarized by four named objects: the local familiar-unit readout package, the strict classical-regime clause, `EWTargetFreeRepairChartIdentity_D10`, and `D11LiveForwardExactHiggsPromotion`. Public papers may summarize the extension-level local bundle `(c,G,M_W,M_Z,M_H)` with explicit caveats, but the live corpus does not yet close that bundle uniformly."
+    success_rule: "Either the four-object local exact-release package closes on the live corpus so one calibrated local input P emits the bosonic trunk and the classical-regime gravity coupling with explicit SI readout, or every public surface states the exact four-object frontier without silently promoting the extension surface to current-corpus theorem status."
     tasks:
-      - id: papers.compact.u.01-record-five-object-local-unification-frontier
-        title: "Record the five-object local unification frontier on the paper and status surfaces"
+      - id: papers.compact.u.01-record-four-object-local-unification-frontier
+        title: "Record the four-object local unification frontier on the paper and status surfaces"
         status: completed
         owner_lane: local_docs
         depends_on: []
       - id: papers.compact.u.02-close-shared-d10-gravity-edge-entropy-bridge
         title: "Close the shared D10/gravity edge-entropy bridge beneath the scalar identity ellbar_shared = ellbar_SU2 + ellbar_SU3"
-        status: ready
+        status: completed
         owner_lane: pro_paper
         depends_on:
           [

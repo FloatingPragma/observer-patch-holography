@@ -159,6 +159,12 @@ The philosophical stance of our model-"no objective reality, only subjective per
 
 But Lambda is the one thing that **can** be shared across overlaps. It's a global capacity constraint that all consistent overlapping descriptions inherit. Different observers see different patches, but they all see the same Lambda-encoded in the finite size of their horizons.
 
+### The Claim Boundary
+
+The cosmology-facing theorem package has a clear scope. If the constraint family is rotationally symmetric and the maximum-entropy state is unique, the reference state is isotropic and its stress tensor has perfect-fluid form. If that same isotropy condition holds for all observers, the spatial slices are constant-curvature. Combined with the conditional Einstein branch and positive screen-capacity Lambda, the metric takes FLRW form. Markov-control estimates then bound patch-to-patch anisotropy and give the collar benchmark used in the horizon-homogeneity bookkeeping.
+
+What this does not say is equally important. The bare OPH axioms do not, by themselves, force every cosmological branch onto that symmetric sector. The theorem package identifies the exact consequences of that branch once it is selected and states the error control cleanly.
+
 ## 13.7 Scrambling and Chaos
 
 De Sitter space is a **fast scrambler**-perhaps the fastest possible.

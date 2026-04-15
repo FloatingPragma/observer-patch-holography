@@ -1,0 +1,44 @@
+{
+  "artifact": "oph_d10_gravity_shared_edge_entropy_bridge",
+  "branch_data": {
+    "P": 1.63094,
+    "ellbar_shared": 0.407735,
+    "realized_product_group_branch": "(SU(3) x SU(2) x U(1)) / Z6",
+    "t2_run": 1.3335192143600498,
+    "t3_run": 4.67176653937017
+  },
+  "downstream_consequences": {
+    "gravity_nat": "G_nat = a_cell / P",
+    "gravity_nat_equals_planck_area": "G_nat = ell_P^2",
+    "gravity_si": "G_SI = c^3 * a_cell / (hbar * P)"
+  },
+  "generated_utc": "2026-04-15T03:33:15Z",
+  "notes": [
+    "This artifact records the shared D10/gravity edge-entropy bridge on the stated local extension surface beneath the local gravity display.",
+    "The bridge is branch-preserving: the D10 nonabelian edge-entropy sum and the gravity-side shared entropy are identified on the same lifted product presentation of the realized quotient branch.",
+    "The strict classical-regime clause and the familiar-unit readout package remain separate local release objects."
+  ],
+  "object_id": "D10GravitySharedEdgeEntropyBridge",
+  "proof": [
+    "For R = R_3 boxtimes R_2 boxtimes q one has d_R = d_R3 * d_R2 * d_q.",
+    "Every irreducible U(1) representation is one-dimensional, so d_q = 1 and log d_q = 0.",
+    "Hence the R-sector contribution satisfies (L_C)|_R = log d_R = log d_R3 + log d_R2, so expectation values on the product heat-kernel branch give ellbar_shared = ellbar_SU3(t3_run) + ellbar_SU2(t2_run).",
+    "The D10 forward transmutation certificate fixes the same nonabelian sum to P / 4 on the realized D10 branch.",
+    "Therefore on the stated local extension surface, if the same branch satisfies the D10 pixel law, then ellbar_shared = P / 4 and the local gravity readout uses that emitted scalar."
+  ],
+  "proof_gate": "branch_preserving_nonabelian_edge_entropy_identity",
+  "source_artifact": "oph_d10_ew_forward_transmutation_certificate",
+  "status": "closed",
+  "theorem": {
+    "formulas": {
+      "gravity_nat": "G_nat = a_cell / (4 * ellbar_shared)",
+      "gravity_si": "G_SI = c^3 * a_cell / (hbar * P)",
+      "operator_split": "(L_C)|_R = log d_R = log d_R3 + log d_R2",
+      "pixel_constraint": "ellbar_SU2(t2_mz_run) + ellbar_SU3(t3_mz_run) = P / 4",
+      "representation_split": "R = R_3 boxtimes R_2 boxtimes q",
+      "shared_entropy_identity": "ellbar_shared = ellbar_SU3(t3_run) + ellbar_SU2(t2_run)"
+    },
+    "name": "D10GravitySharedEdgeEntropyBridge",
+    "statement": "On the stated local extension surface and the lifted product presentation of the realized quotient branch G_phys = (SU(3) x SU(2) x U(1)) / Z6, the R-sector contribution of the collar edge-center entropy operator for R = R_3 \u22a0 R_2 \u22a0 q satisfies (L_C)|_R = log d_R = log d_R3 + log d_R2 because every irreducible U(1) representation is one-dimensional. Therefore the gravity-side shared edge entropy equals the D10 nonabelian edge-entropy sum on the same branch, and if that same branch satisfies the D10 pixel law then the shared scalar is fixed to P/4."
+  }
+}
