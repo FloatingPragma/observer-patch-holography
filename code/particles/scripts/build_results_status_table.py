@@ -46,6 +46,7 @@ QUARK_PUBLIC_EXACT_YUKAWA_THEOREM = ROOT / "particles" / "runs" / "flavor" / "qu
 D10_SOURCE_TRANSPORT_READOUT = ROOT / "particles" / "runs" / "calibration" / "d10_ew_source_transport_readout.json"
 D11_FORWARD_SEED = ROOT / "particles" / "runs" / "calibration" / "d11_forward_seed.json"
 D11_EXACT_HIGGS_PROMOTION = ROOT / "particles" / "runs" / "calibration" / "d11_live_exact_higgs_promotion.json"
+D11_EXACT_SPLIT_PAIR = ROOT / "particles" / "runs" / "calibration" / "d11_live_exact_split_pair_theorem.json"
 FORWARD_CHARGED_LEPTONS = ROOT / "particles" / "runs" / "leptons" / "forward_charged_leptons.json"
 FORWARD_NEUTRINO_BUNDLE = ROOT / "particles" / "runs" / "neutrino" / "forward_neutrino_closure_bundle.json"
 NEUTRINO_BRIDGE_RIGIDITY_THEOREM = ROOT / "particles" / "runs" / "neutrino" / "neutrino_bridge_rigidity_theorem.json"
@@ -101,10 +102,27 @@ D10_MASS_PAIR_NOTE = (
     "The compact anti-diagonal carrier slice and the source-only target-free emitter artifacts sit on disk as carrier or compare surfaces; they do not define the public electromagnetic theorem."
 )
 D11_NOTE = (
-    "Derived from `derive_d11_declared_calibration_surface.py -> derive_d10_ew_source_transport_pair.py -> derive_d10_ew_target_free_repair_value_law.py -> derive_d11_live_exact_higgs_promotion.py`, which makes the declared D10/D11 running, matching, and threshold surface explicit, feeds the D10 repair chart into the D11 lambda-side readout, and closes the Higgs row on the exact local codomain with one unique `delta_n_tree_exact` exactifier coefficient. "
-    "The theorem lives on the declared D10/D11 running, matching, and threshold surface, where the exact Higgs seed is `sigma_D11_H_exact = (eta_source - (4/3) * tau2_tree_exact - c_H_exactifier * delta_n_tree_exact) / sqrt(pi)` and the lambda-side readout law is `delta_lambda_mt = -(16/9) * sigma_D11_H_exact * lambda_core_mt`. "
-    "The old one-scalar forward seed `sigma_D11_HT = alpha_u * cos(2*theta_W0) / sqrt(pi)` stays on disk as the closed diagonal fixed-ray companion branch for the D11 top-side row. The compare-only exact Higgs/top inverse slice has nonzero `w_HT = pi_y - pi_lambda`, so the exact pair lies off that fixed ray and does not define the live Higgs theorem. "
-    "The repo-wide exact public top row is carried separately by the selected-class quark theorem."
+    "Derived from `derive_d11_declared_calibration_surface.py -> derive_d10_ew_source_transport_pair.py -> "
+    "derive_d10_ew_target_free_repair_value_law.py -> derive_d11_fixed_ray_no_go_theorem.py -> "
+    "derive_d11_live_exact_split_pair_theorem.py`, which makes the declared D10/D11 running, matching, and "
+    "threshold surface explicit, emits the source-only D10 repair tuple `(eta_source, beta_EW, lambda_EW, "
+    "tau2_tree_exact, delta_n_tree_exact)`, and then closes the Higgs/top lane with a split forward theorem. "
+    "The old one-scalar fixed ray remains a lower companion branch. The live split theorem uses the shared scalar "
+    "`rho_HT = log(1 + tau2_tree_exact)` together with the source-only residual selectors "
+    "`R_T = -tau2_tree_exact * eta_source^2 + (1 + beta_EW/28) * eta_source^6 + eta_source^8/14 + eta_source^9/27` "
+    "and `R_H = eta_source^5 - (3/25) * eta_source^6 + lambda_EW * eta_source^6 / 18 + eta_source^8 / (2 * beta_EW)`. "
+    "The forward split coordinates are `pi_y = (eta_source + (3/2 + beta_EW/4) * rho_HT + R_T) / sqrt(pi)` and "
+    "`pi_lambda = (eta_source - (4/3 - beta_EW/54) * rho_HT + R_H) / sqrt(pi)`, and the declared D11 Jacobian reads out "
+    "`m_t = 172.3523553288312 GeV` and `m_H = 125.1995304097179 GeV` on that same surface. "
+    "At the precision quoted by PDG, the Higgs row lands on the 2025 Higgs average. "
+    "The same surface emits a companion top coordinate `m_t = 172.3523553288312 GeV`. "
+    "The exact public running-top row is carried by the selected-class quark theorem and uses the PDG 2025 "
+    "cross-section entry `Q007TP4`. The bridge to the auxiliary direct-top average "
+    "`Q007TP = 172.56 +- 0.31 GeV` is open and is tracked in "
+    "[#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207). "
+    "The old one-scalar seed `sigma_D11_HT = alpha_u * cos(2*theta_W0) / sqrt(pi)` remains on disk as the fixed-ray companion branch beneath this split theorem. "
+    "The compare-only exact Higgs/top inverse slice remains a validation surface and does not define the predictive lane. "
+    "The repo-wide exact public top row is also carried by the selected-class quark theorem."
 )
 _NEUTRINO_EXACT_BRIDGE_COORDINATE = (
     json.loads(NEUTRINO_EXACT_ADAPTER_BRIDGE_COORDINATE.read_text(encoding="utf-8"))
@@ -196,7 +214,9 @@ QUARK_CONTINUATION_NOTE = (
     "Supporting exact surfaces: `oph_quark_current_family_exact_readout` on `current_family_only` and "
     "`oph_quark_current_family_transport_frame_exact_pdg_completion` plus "
     "`oph_quark_current_family_transport_frame_exact_forward_yukawas` on the declared common-refinement transport-frame carrier. "
-    "The D12 mass bridge is target-free on the emitted ray, and the sextet uses the PDG 2025 cross-section top entry rather than the auxiliary direct-top entry. "
+    "The D12 mass bridge is target-free on the emitted ray, and the sextet uses the PDG 2025 cross-section top entry. "
+    "The bridge to the auxiliary direct-top entry remains open and is tracked in "
+    "[#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207). "
     "Scope: selected-class closure only; no global classification of quark frame classes. "
     "Synchronization anchor: [#198](https://github.com/FloatingPragma/observer-patch-holography/issues/198)."
 )
@@ -573,9 +593,11 @@ def _d11_public_seed_allowed(seed: Dict[str, Any]) -> bool:
     )
 
 
-def _d11_exact_higgs_allowed(payload: Dict[str, Any]) -> bool:
-    mass_readout = dict(payload.get("mass_readout", {}))
-    return bool(payload.get("public_surface_candidate_allowed", False)) and "mH_gev" in mass_readout
+def _d11_exact_pair_allowed(payload: Dict[str, Any]) -> bool:
+    pair = dict(payload.get("exact_split_pair", {}))
+    return bool(payload.get("public_surface_candidate_allowed", False)) and all(
+        key in pair for key in ("mH_gev", "mt_pole_gev")
+    )
 
 
 def _quark_public_forward_allowed(forward: Dict[str, Any], mean_split: Dict[str, Any]) -> bool:
@@ -634,9 +656,14 @@ def build_surface_state(*, with_hadrons: bool) -> Dict[str, Any]:
         readout = json.loads(D10_SOURCE_TRANSPORT_READOUT.read_text(encoding="utf-8"))
         d10_active = _d10_public_mass_pair_allowed(readout)
 
-    if D11_EXACT_HIGGS_PROMOTION.exists():
+    if D11_EXACT_SPLIT_PAIR.exists():
+        exact_pair = json.loads(D11_EXACT_SPLIT_PAIR.read_text(encoding="utf-8"))
+        d11_active = _d11_exact_pair_allowed(exact_pair)
+    elif D11_EXACT_HIGGS_PROMOTION.exists():
         exact_higgs = json.loads(D11_EXACT_HIGGS_PROMOTION.read_text(encoding="utf-8"))
-        d11_active = _d11_exact_higgs_allowed(exact_higgs)
+        d11_active = bool(exact_higgs.get("public_surface_candidate_allowed", False)) and "mH_gev" in dict(
+            exact_higgs.get("mass_readout", {})
+        )
     if D11_FORWARD_SEED.exists():
         seed = json.loads(D11_FORWARD_SEED.read_text(encoding="utf-8"))
         d11_active = d11_active or _d11_public_seed_allowed(seed)
@@ -696,12 +723,19 @@ def apply_local_candidate_overrides(prediction: Dict[str, Any]) -> Dict[str, Any
                 }
             )
 
-    if D11_EXACT_HIGGS_PROMOTION.exists():
+    if D11_EXACT_SPLIT_PAIR.exists():
+        exact_pair = json.loads(D11_EXACT_SPLIT_PAIR.read_text(encoding="utf-8"))
+        if _d11_exact_pair_allowed(exact_pair):
+            updated["crit_mH_tree"] = float(exact_pair["exact_split_pair"]["mH_gev"])
+            updated["crit_mt_pole"] = float(exact_pair["exact_split_pair"]["mt_pole_gev"])
+    elif D11_EXACT_HIGGS_PROMOTION.exists():
         exact_higgs = json.loads(D11_EXACT_HIGGS_PROMOTION.read_text(encoding="utf-8"))
-        if _d11_exact_higgs_allowed(exact_higgs):
+        if bool(exact_higgs.get("public_surface_candidate_allowed", False)) and "mH_gev" in dict(
+            exact_higgs.get("mass_readout", {})
+        ):
             updated["crit_mH_tree"] = float(exact_higgs["mass_readout"]["mH_gev"])
 
-    if D11_FORWARD_SEED.exists():
+    if D11_FORWARD_SEED.exists() and "crit_mt_pole" not in updated:
         seed = json.loads(D11_FORWARD_SEED.read_text(encoding="utf-8"))
         if _d11_public_seed_allowed(seed):
             mass_readout = dict(seed.get("mass_readout", {}))
@@ -1094,6 +1128,8 @@ def prediction_surface_for_row(row_spec: Dict[str, Any], surface_state: Dict[str
         "top_quark",
     } and active.get("quark_forward_candidate"):
         return "selected_public_quark_exact_yukawa_theorem_surface"
+    if particle_id == "higgs" and D11_EXACT_SPLIT_PAIR.exists():
+        return "local_d11_source_split_exact_pair_theorem"
     if particle_id == "higgs" and D11_EXACT_HIGGS_PROMOTION.exists():
         return "local_d11_exact_higgs_promotion"
     if particle_id in {"higgs", "top_quark"} and active.get("d11_forward_seed"):

@@ -126,9 +126,13 @@ def build_entries() -> list[dict[str, Any]]:
             ),
             "source_artifact": _repo_ref(D11_EXACT_JSON),
             "note": (
-                "Exact only as a compare-only inverse slice on the D11 Jacobian. The live Higgs row uses "
-                "the separate exact Higgs theorem on the declared D10/D11 surface, while the old one-scalar "
-                "seed remains the companion fixed-ray D11 branch, not this adapter."
+                "Exact only as a compare-only inverse slice on the D11 Jacobian. The live D11 theorem lane uses "
+                "the source-only split theorem on the declared D10/D11 surface, not this adapter. "
+                "That theorem emits `m_H = 125.1995304097179 GeV` and a companion top coordinate "
+                "`m_t = 172.3523553288312 GeV`. The Higgs row lands on the PDG 2025 Higgs average at quoted precision. "
+                "The exact public running-top row uses the PDG 2025 cross-section entry `Q007TP4`. "
+                "The bridge to the auxiliary direct-top average `Q007TP` is open and is tracked in "
+                "[#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207)."
             ),
         },
         {
@@ -199,8 +203,10 @@ def build_entries() -> list[dict[str, Any]]:
                 "Exact on the official PDG 2025 API running-quark target surface on the ordered three-point "
                 "quark family witness, with the internal same-family quadratic readout closed on the fixed "
                 "carrier and the selected-sheet exact closure packaged on `sigma_ref`. The top coordinate "
-                f"uses PDG summary `{references['top_quark']['source']['summary_id']}` rather than the "
-                f"auxiliary direct-top entry `{references['top_quark_direct_aux']['source']['summary_id']}`. "
+                f"uses PDG summary `{references['top_quark']['source']['summary_id']}`. "
+                "The bridge to the auxiliary direct-top entry "
+                f"`{references['top_quark_direct_aux']['source']['summary_id']}` is open and is tracked in "
+                "[#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207). "
                 "The declared scope is `current_family_only`. A separate restricted theorem chain emits a "
                 "sector-attached `Sigma_ud^phys` element on the explicit "
                 f"`{(quark_transport_lift or {}).get('theorem_scope', 'current_family_common_refinement_transport_frame_only')}` carrier, and the merged transport-frame theorem "
@@ -328,8 +334,9 @@ def build_entries() -> list[dict[str, Any]]:
                     "on that selected class, and "
                     f"`{quark_public_exact_yukawa['artifact']}` emits the exact PDG 2025 running-quark sextet together "
                     "with explicit exact forward Yukawas `Y_u` and `Y_d`. The top coordinate uses PDG summary "
-                    f"`{references['top_quark']['source']['summary_id']}` rather than the auxiliary direct-top entry "
-                    f"`{references['top_quark_direct_aux']['source']['summary_id']}`. This is selected-class closure "
+                    f"`{references['top_quark']['source']['summary_id']}`. The bridge to the auxiliary direct-top entry "
+                    f"`{references['top_quark_direct_aux']['source']['summary_id']}` is open and is tracked in "
+                    "[#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207). This is selected-class closure "
                     "only. It does not claim a global classification of all quark frame classes."
                 ),
             },

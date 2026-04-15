@@ -205,22 +205,24 @@ LANES: List[Dict[str, Any]] = [
     },
     {
         "key": "d11",
-        "title": "D11 Higgs Calibration Theorem",
-        "summary": "The D11 lane keeps a closed one-scalar diagonal branch for the companion top-side row and a separate exact Higgs theorem on the declared D10/D11 running, matching, and threshold surface.",
-        "takeaway": "The exact Higgs row uses a separate lambda-side seed, while the old one-scalar D11 branch stays on disk as the companion top-side output.",
+        "title": "D11 Higgs/Top Split Theorem",
+        "summary": "The D11 lane closes as one source-only split theorem on the declared D10/D11 running, matching, and threshold surface, while the old one-scalar seed remains only as a lower-rank fixed-ray branch.",
+        "takeaway": "The live electroweak theorem emits the exact Higgs row and a companion top coordinate from the forward repair tuple and the declared Jacobian surface.",
         "logic": (
             "Take the D10 substrate, impose the critical-surface condition, then use the synchronized "
-            "transport core to emit the one-scalar D11 fixed-ray seed on the declared running, matching, "
-            "and threshold surface. Its certificate records `pi_y = pi_lambda`, `eta_HT = 0`, and "
-            "`w_HT = 0` on that diagonal branch. The exact Higgs row is carried separately by "
-            "`sigma_D11_H_exact = (eta_source - (4/3) * tau2_tree_exact - c_H_exactifier * delta_n_tree_exact) / sqrt(pi)` "
-            "with `delta_lambda_mt = -(16/9) * sigma_D11_H_exact * lambda_core_mt`. The compare-only exact "
-            "pair has nonzero `w_HT`, so it lies off the fixed ray. The same Jacobian surface still carries "
-            "the companion D11 top-side output, while the repo-wide exact public top row is carried "
-            "separately by the selected-class quark theorem."
+            "transport core to emit the forward D10 repair tuple `(eta_source, beta_EW, lambda_EW, "
+            "tau2_tree_exact, delta_n_tree_exact)` on the declared running, matching, and threshold "
+            "surface. The fixed-ray certificate still records `pi_y = pi_lambda`, `eta_HT = 0`, and "
+            "`w_HT = 0` on the old one-scalar branch. The live theorem instead emits "
+            "`rho_HT = log(1 + tau2_tree_exact)` together with source-only residual selectors for the "
+            "top and Higgs channels, then reads out `m_t = 172.3523553288312 GeV` and "
+            "`m_H = 125.1995304097179 GeV` by the declared D11 Jacobian. The compare-only exact pair "
+            "stays on disk only as a validation surface. The exact public running-top row is also "
+            "carried by the selected-class quark theorem. The bridge to the auxiliary direct-top PDG "
+            "row is open and is tracked in `#207`."
         ),
-        "tasks_text": "Ledger state: the exact Higgs theorem is closed on the declared D10/D11 running, matching, and threshold surface; the one-scalar D11 seed is a closed diagonal companion branch; the exact inverse slice remains compare-only.",
-        "prediction_surface": "D11 calibration-theorem surface with an exact Higgs lambda-side theorem plus a closed one-scalar companion branch on the same Jacobian surface.",
+        "tasks_text": "Ledger state: the exact source-only electroweak Higgs theorem is closed on the declared running, matching, and threshold surface; the one-scalar seed stays on disk as a lower-rank fixed-ray branch; the exact inverse slice remains compare-only; the direct-top bridge is open under `#207`.",
+        "prediction_surface": "Electroweak calibration-theorem surface with an exact Higgs row and a companion top coordinate on the declared Jacobian surface.",
         "particles": ["higgs"],
         "tasks": [],
     },

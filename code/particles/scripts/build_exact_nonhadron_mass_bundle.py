@@ -23,6 +23,7 @@ REFERENCE_JSON = ROOT / "particles" / "data" / "particle_reference_values.json"
 EW_EXACT_JSON = ROOT / "particles" / "runs" / "calibration" / "d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json"
 D11_EXACT_JSON = ROOT / "particles" / "runs" / "calibration" / "d11_reference_exact_adapter.json"
 D11_EXACT_HIGGS_PROMOTION_JSON = ROOT / "particles" / "runs" / "calibration" / "d11_live_exact_higgs_promotion.json"
+D11_EXACT_SPLIT_PAIR_JSON = ROOT / "particles" / "runs" / "calibration" / "d11_live_exact_split_pair_theorem.json"
 CHARGED_JSON = ROOT / "particles" / "runs" / "leptons" / "lepton_current_family_exact_readout.json"
 QUARK_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_current_family_exact_readout.json"
 CHARGED_THEOREM_JSON = ROOT / "particles" / "runs" / "leptons" / "lepton_current_family_quadratic_readout_theorem.json"
@@ -64,6 +65,7 @@ def build_entries() -> list[dict[str, Any]]:
     ew_exact = _load_json(EW_EXACT_JSON)
     d11_exact = _load_json(D11_EXACT_JSON)
     d11_exact_higgs = _load_optional_json(D11_EXACT_HIGGS_PROMOTION_JSON)
+    d11_exact_pair = _load_optional_json(D11_EXACT_SPLIT_PAIR_JSON)
     charged = _load_json(CHARGED_JSON)
     quark = _load_json(QUARK_JSON)
     charged_affine = _load_optional_json(CHARGED_AFFINE_JSON)
@@ -110,8 +112,9 @@ def build_entries() -> list[dict[str, Any]]:
         )
     ) + (
         "The top coordinate uses PDG "
-        f"summary `{references['top_quark']['source']['summary_id']}` rather than the auxiliary direct-top "
-        f"entry `{references['top_quark_direct_aux']['source']['summary_id']}`. The same exact sextet is also "
+        f"summary `{references['top_quark']['source']['summary_id']}`. The bridge to the auxiliary direct-top "
+        f"entry `{references['top_quark_direct_aux']['source']['summary_id']}` is open and is tracked in "
+        "[#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207). The same exact sextet is also "
         "realized on `current_family_only`. A separate restricted theorem "
         "surface emits a sector-attached `Sigma_ud^phys` element on "
         f"`{(quark_transport_lift or {}).get('theorem_scope', 'current_family_common_refinement_transport_frame_only')}`, "
@@ -183,30 +186,55 @@ def build_entries() -> list[dict[str, Any]]:
             "particle_id": "higgs",
             "label": "Higgs Boson",
             "mass_gev": (
+                d11_exact_pair["exact_split_pair"]["mH_gev"]
+                if d11_exact_pair
+                else (
                 d11_exact_higgs["mass_readout"]["mH_gev"]
                 if d11_exact_higgs
                 else d11_exact["predicted_outputs"]["mH_gev"]
+                )
             ),
             "exact_kind": (
+                "exact_source_only_higgs_top_split_calibration_theorem"
+                if d11_exact_pair
+                else (
                 "exact_target_anchored_higgs_calibration_theorem"
                 if d11_exact_higgs
                 else "exact_target_anchored_compare_only_inverse_slice"
+                )
             ),
             "scope": (
+                d11_exact_pair["theorem_scope"]
+                if d11_exact_pair
+                else (
                 d11_exact_higgs["theorem_scope"]
                 if d11_exact_higgs
                 else d11_exact["scope"]
+                )
             ),
-            "promotable": bool(d11_exact_higgs),
+            "promotable": bool(d11_exact_pair or d11_exact_higgs),
             "source_artifact": (
+                _repo_ref(D11_EXACT_SPLIT_PAIR_JSON)
+                if d11_exact_pair
+                else (
                 _repo_ref(D11_EXACT_HIGGS_PROMOTION_JSON)
                 if d11_exact_higgs
                 else _repo_ref(D11_EXACT_JSON)
+                )
             ),
             "note": (
+                "Exact source-only Higgs theorem on the declared D10/D11 surface. "
+                "The same theorem emits the exact Higgs row together with a companion top coordinate by direct Jacobian readout from the live D10 repair tuple. "
+                "At PDG quoting precision the Higgs row lands on the 2025 Higgs average. "
+                "The exact public running-top row uses the PDG 2025 cross-section entry `Q007TP4`. "
+                "The bridge to the auxiliary direct-top average `Q007TP` is open and is tracked in "
+                "[#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207)."
+                if d11_exact_pair
+                else (
                 "Exact target-anchored Higgs calibration theorem on the declared D10/D11 surface."
                 if d11_exact_higgs
                 else "Exact compare-only inverse slice on the D11 Jacobian."
+                )
             ),
         },
         {
@@ -416,7 +444,7 @@ def build_markdown(generated_utc: str, entries: list[dict[str, Any]]) -> str:
             else "The same sextet is also realized on the restricted current-family common-refinement transport-frame carrier, which emits explicit exact forward Yukawas `Y_u` and `Y_d` on that declared carrier."
         ),
         "For charged leptons, this bundle records the exact same-family witness surface. The theorem surface also contains a conditional determinant-line lift and an algebraic charged-mass readout once theorem-grade `A_ch(P)` is given.",
-        "The top coordinate uses the PDG 2025 cross-section mass entry `Q007TP4`; the auxiliary direct-top entry `Q007TP` remains separate.",
+        "The top coordinate uses the PDG 2025 cross-section mass entry `Q007TP4`. The bridge to the auxiliary direct-top entry `Q007TP` is open and is tracked in [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207).",
         "",
         "| Particle | Exact Mass | Kind | Scope | Source |",
         "| --- | ---: | --- | --- | --- |",

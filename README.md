@@ -21,7 +21,7 @@ The quantitative side is deliberately small. OPH uses only two calibrated inputs
 - A finite-resolution theorem package for observer patches, collars, overlap repair, higher gauge structure, records, and checkpoint/restoration.
 - A conditional route to Lorentzian geometry, modular time, Jacobson-type Einstein dynamics, and de Sitter static-patch cosmology on the extracted prime geometric subnet; local null data fix the Einstein branch only up to a metric term, so the cosmological-capacity lane fixes `Lambda` only after the global screen-capacity identification rather than from local null data alone; the Einstein branch uses fixed-cap stationarity, the null-surface bridge, and the separate bounded-interval projective branch, while the remaining UV/BW scaffold is geometric cap-pair realization on that subnet plus ordered cut-pair rigidity, with the eventual fixed-local-collar modular-transport common floor as the smallest lower blocker.
 - A conditional compact gauge route in the bosonic branch to the realized Standard Model quotient `SU(3) x SU(2) x U(1) / Z_6`, under the transportable-sector reconstruction premises and MAR, together with the exact hypercharge lattice and the realized counting chain `N_g = 3`, `N_c = 3`.
-- A particle program with exact structural massless carriers, a forward-emitted Phase II electroweak calibration branch with a closed target-free public `W/Z` theorem surface plus a compare-only exact frozen pair, an exact Higgs calibration theorem on the declared D10/D11 running, matching, and threshold surface together with a companion D11 top-side calibration output and a compare-only exact inverse Higgs/top slice, an exact selected-class quark closure with explicit exact forward Yukawas, exact non-hadron mass surfaces, and explicit continuation lanes where theorem boundaries remain open.
+- A particle program with exact structural massless carriers, a forward-emitted Phase II electroweak calibration branch with a closed target-free public `W/Z` theorem surface plus a compare-only exact frozen pair, an exact source-only Higgs/top split theorem on the declared D10/D11 running, matching, and threshold surface together with a compare-only exact inverse Higgs/top slice, an exact selected-class quark closure with explicit exact forward Yukawas, exact non-hadron mass surfaces, and explicit continuation lanes where theorem boundaries remain open.
 - A concrete screen-microphysics architecture that puts measurement, records, and observers inside the physics.
 
 ### Precise Derivations
@@ -64,6 +64,15 @@ PDG/NIST one-number comparison row.
 The current public neutrino surface also includes theorem-grade physical Majorana phases on the
 shared-basis weighted-cycle transport branch; see `code/particles/RESULTS_STATUS.md`.
 
+The declared electroweak calibration surface also carries an exact source-only Higgs theorem with
+`m_H = 125.1995304097179 GeV` and a companion top coordinate
+`m_t = 172.3523553288312 GeV` on the same Jacobian surface.
+At the precision quoted by PDG, the Higgs row lands on the 2025 Higgs average.
+The exact public running-top row on the selected quark frame uses the PDG 2025 cross-section entry
+`Q007TP4`.
+The bridge to the auxiliary direct-top average `Q007TP = 172.56 ± 0.31 GeV` is open and tracked in
+[#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207).
+
 Charged leptons sit on a sharper theorem split. The repo carries an exact same-family witness, a conditional determinant-line lift on physical charged data, and an algebraic mass readout from theorem-grade absolute charged scale. The open theorem is the landing from the common calibration input `P` to physical charged data or the charged determinant line.
 
 ## Local Unification Surface
@@ -73,7 +82,7 @@ On the public constants surface, `hbar` and `k_B` remain part of that downstream
 
 <p align="center">
   <a href="assets/OPH_Unification_Diagram.svg" target="_blank" rel="noopener noreferrer">
-    <img src="assets/OPH_Unification_Diagram.svg?v=20260407" alt="OPH unification diagram" width="92%">
+    <img src="assets/OPH_Unification_Diagram.svg?v=20260415" alt="OPH unification diagram" width="92%">
   </a>
 </p>
 

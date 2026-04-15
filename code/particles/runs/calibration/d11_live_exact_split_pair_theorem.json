@@ -2,48 +2,86 @@
   "artifact": "oph_d11_live_exact_split_pair_theorem",
   "closure_logic": {
     "equivalent_coordinates": "(Sigma_HT_exact, eta_HT_exact)",
+    "exact_split_value": -0.00038576309777150347,
     "fixed_ray_blocked": true,
     "fixed_ray_no_go_theorem_id": "D11FixedRayNoGoTheorem",
-    "smallest_exact_object_above_fixed_ray": "Theta_D11_HT_exact(mu_t) = (delta_y_t_mt, delta_lambda_mt)"
+    "fixed_ray_value_formula": "pi_y = pi_lambda = sigma_D11_HT",
+    "smallest_exact_object_above_fixed_ray": "Theta_D11_HT_source(mu_t) = (pi_y, pi_lambda)"
   },
   "exact_split_pair": {
-    "Sigma_HT_exact": 0.01247484044067395,
+    "Sigma_HT_exact": 0.012474840440673948,
     "delta_lambda_mt": -0.0029647908130877214,
     "delta_y_t_mt": 0.011305105308056543,
-    "eta_HT_exact": -0.0001928815488857526,
+    "eta_HT_exact": -0.00019288154888575174,
     "mH_gev": 125.1995304097179,
     "mt_pole_gev": 172.3523553288312,
-    "pi_lambda": 0.012667721989559701,
+    "pi_lambda": 0.0126677219895597,
     "pi_y": 0.012281958891788196,
-    "w_HT_exact": -0.0003857630977715052
+    "w_HT_exact": -0.00038576309777150347
   },
-  "generated_utc": "2026-04-15T12:34:54Z",
+  "generated_utc": "2026-04-15T13:44:03Z",
   "notes": [
-    "This theorem closes the exact D11 Higgs/top pair as a split calibration pair on the declared surface.",
+    "This theorem closes the live D11 Higgs/top lane as a source-only split calibration theorem on the declared D10/D11 surface.",
     "It does not relabel the old one-scalar fixed ray as exact. The fixed ray remains a lower-rank companion branch beneath this split theorem.",
+    "The older target-anchored Higgs-only and top-side exactifier artifacts remain on disk as supporting witness surfaces rather than as the defining live pair theorem.",
     "The repo-wide exact public top row remains independently carried by the selected-class quark theorem."
   ],
   "proof": [
-    "The fixed-ray no-go theorem proves that the exact pair is off the current one-scalar branch because w_HT_exact is nonzero there.",
-    "The exact Higgs theorem fixes the lambda-side coordinate and exact delta_lambda_mt on the declared D10/D11 surface.",
-    "The exact top-side theorem fixes the y-side coordinate and exact delta_y_t_mt on the same declared surface.",
-    "These two emitted coordinates assemble the exact split pair Theta_D11_HT_exact(mu_t) = (delta_y_t_mt, delta_lambda_mt).",
-    "The declared D11 Jacobian then reads out the exact Higgs and top rows by direct algebra."
+    "The fixed-ray no-go theorem proves that the exact Higgs/top pair cannot lie on the old one-scalar branch because w_HT is nonzero there.",
+    "The target-free D10 repair theorem already emits the source tuple (eta_source, beta_EW, lambda_EW, tau2_tree_exact, delta_n_tree_exact) with no target readback.",
+    "The repaired D11 lane uses that tuple to emit one integrated shared scalar rho_HT = log(1 + tau2_tree_exact) together with two source-only residual selectors, top_residual and higgs_residual.",
+    "Those source-only formulas determine the split coordinates pi_y and pi_lambda directly from live D10 objects, with no inverse adapter and no reference-mass input.",
+    "The declared D11 Jacobian then reads out delta_y_t_mt, delta_lambda_mt, mt_pole_gev, and mH_gev by direct algebra from that forward-emitted split pair."
   ],
-  "proof_status": "closed_target_anchored_live_exact_split_pair",
+  "proof_status": "closed_source_only_live_exact_split_pair",
+  "public_surface_candidate_allowed": true,
   "readout_formulas": {
-    "delta_lambda_mt": "-(16/9) * sigma_D11_H_exact * lambda_core_mt",
-    "delta_y_t_mt": "sigma_D11_T_exact * y_t_core_mt",
+    "delta_lambda_mt": "-(16/9) * pi_lambda * lambda_core_mt",
+    "delta_y_t_mt": "pi_y * y_t_core_mt",
     "mH_gev": "mH_core_gev + d_mH_d_lambda * delta_lambda_mt",
-    "mt_pole_gev": "mt_pole_core_gev + d_mt_pole_d_y_t * delta_y_t_mt"
+    "mt_pole_gev": "mt_pole_core_gev + d_mt_pole_d_y_t * delta_y_t_mt",
+    "pi_lambda": "(eta_source - (4/3 - beta_EW/54) * rho_HT + higgs_residual) / sqrt(pi)",
+    "pi_y": "(eta_source + (3/2 + beta_EW/4) * rho_HT + top_residual) / sqrt(pi)",
+    "rho_HT": "log(1 + tau2_tree_exact)"
+  },
+  "shared_split_scalar": {
+    "formula": "log(1 + tau2_tree_exact)",
+    "symbol": "rho_HT",
+    "value": -0.00023118902229730438
   },
   "source_artifacts": {
+    "d10_source_pair": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d10_ew_source_transport_pair.json",
+    "d10_target_free_repair": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d10_ew_target_free_repair_value_law.json",
     "d11_declared_surface": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_declared_calibration_surface.json",
-    "exact_higgs_theorem": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_live_exact_higgs_promotion.json",
-    "exact_top_theorem": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_live_exact_top_promotion.json",
     "fixed_ray_no_go": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_fixed_ray_no_go_theorem.json"
   },
+  "source_only_exactifier_functions": {
+    "c_H_live_formula": "(-(4/3) * tau2_tree_exact + (4/3 - beta_EW/54) * log(1 + tau2_tree_exact) - higgs_residual) / delta_n_tree_exact",
+    "c_H_live_value": 0.009651761683632475,
+    "c_T_live_formula": "((3/2 + beta_EW/4) * (log(1 + tau2_tree_exact) - tau2_tree_exact) + top_residual) / delta_n_tree_exact",
+    "c_T_live_value": 0.00029757659531290647
+  },
+  "source_tuple": {
+    "beta_EW": 0.5385291530498766,
+    "delta_n_tree_exact": 0.0002346358802434819,
+    "eta_source": 0.022147000871961295,
+    "lambda_EW": 0.00022769874427635073,
+    "tau2_tree_exact": -0.0002311623001746158
+  },
+  "split_selector": {
+    "A_T": 1.634632288262469,
+    "B_H": 1.323360571239817,
+    "higgs_residual_formula": "eta_source^5 - (3/25) * eta_source^6 + lambda_EW * eta_source^6 / 18 + eta_source^8 / (2 * beta_EW)",
+    "higgs_residual_value": 5.314022546071085e-09,
+    "top_residual_formula": "-tau2_tree_exact * eta_source^2 + (1 + beta_EW/28) * eta_source^6 + eta_source^8/14 + eta_source^9/27",
+    "top_residual_value": 1.1350299093876592e-07
+  },
   "status": "closed",
-  "theorem_id": "D11LiveExactSplitPairTheorem",
+  "strictly_not_claimed": [
+    "promotion_of_the_old_fixed_ray_as_exact_pair",
+    "recovered_core_upgrade_of_the_d11_lane",
+    "global_uniqueness_of_the_residual_selector_beyond_the_current_emitted_surface"
+  ],
+  "theorem_id": "D11SourceSplitForwardExactness",
   "theorem_scope": "declared_d10_d11_running_matching_threshold_surface_only"
 }

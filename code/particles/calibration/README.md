@@ -45,6 +45,7 @@ For the live branch, the main path is:
 - `derive_d11_forward_seed_promotion_certificate.py`
 - `derive_d11_fixed_ray_no_go_theorem.py`
 - `derive_d11_live_exact_higgs_promotion.py`
+- `derive_d11_live_exact_split_pair_theorem.py`
 
 The live D10 split is explicit:
 
@@ -102,17 +103,32 @@ That guard checks the solver mechanics and the presence of the current D10
 calibration observables. It is not a claim that exact single-`P` closure has
 already been achieved.
 
-The D11 lane is split into two public objects.
+The D11 lane is split into one lower-rank companion branch and one live
+source-only pair theorem.
 
 - The shared forward seed `sigma_D11_HT = alpha_u * cos(2*theta_W0) / sqrt(pi)`
-  stays as the companion D11 top-side calibration row on the declared D10/D11
-  surface. Its fixed-ray certificate proves `pi_y = pi_lambda`, `eta_HT = 0`,
-  and `w_HT = 0` on that one-scalar branch only.
-- The Higgs row is carried by the separate Higgs-only theorem
-  `D11LiveForwardExactHiggsPromotion`, which uses the D10 repair chart on the
-  lambda side and fixes one unique `delta_n_tree_exact` exactifier coefficient
-  so that the declared Higgs codomain is hit exactly without promoting the full
-  compare-only Higgs/top inverse slice.
-- The compare-only exact Higgs/top pair on the same Jacobian surface has
-  nonzero `w_HT`, so it lies off the current one-scalar fixed ray. That sharp
-  no-go is recorded in `D11FixedRayNoGoTheorem`.
+  stays on disk as the diagonal fixed-ray companion branch on the declared
+  D10/D11 surface. Its fixed-ray certificate proves `pi_y = pi_lambda`,
+  `eta_HT = 0`, and `w_HT = 0` on that one-scalar branch only.
+- The live pair theorem is `D11SourceSplitForwardExactness`, emitted by
+  `derive_d11_live_exact_split_pair_theorem.py`. It uses only the forward D10
+  tuple `(eta_source, beta_EW, lambda_EW, tau2_tree_exact, delta_n_tree_exact)`
+  plus the declared D11 Jacobian surface.
+- The shared split scalar is `rho_HT = log(1 + tau2_tree_exact)`. The source-only
+  residual selectors are
+  `R_T = -tau2_tree_exact * eta_source^2 + (1 + beta_EW/28) * eta_source^6 + eta_source^8/14 + eta_source^9/27`
+  and
+  `R_H = eta_source^5 - (3/25) * eta_source^6 + lambda_EW * eta_source^6 / 18 + eta_source^8 / (2 * beta_EW)`.
+- The predictive split coordinates are
+  `pi_y = (eta_source + (3/2 + beta_EW/4) * rho_HT + R_T) / sqrt(pi)` and
+  `pi_lambda = (eta_source - (4/3 - beta_EW/54) * rho_HT + R_H) / sqrt(pi)`.
+  On the declared D11 surface these emit
+  `m_t = 172.3523553288312 GeV` and `m_H = 125.1995304097179 GeV`.
+  The Higgs row lands on the PDG 2025 Higgs average at quoted precision.
+  The exact public running-top row uses the PDG 2025 cross-section entry
+  `Q007TP4`.
+  The bridge to the auxiliary direct-top average `Q007TP` is open and tracked
+  in [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207).
+- The compare-only exact Higgs/top inverse slice remains a validation surface.
+  The target-anchored Higgs-only and top-side exactifier artifacts remain on
+  disk as supporting witness surfaces beneath the source-only pair theorem.

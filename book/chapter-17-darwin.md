@@ -134,7 +134,7 @@ The electron is a vibration pattern that persists. The muon is a pattern that pe
 
 The "particle zoo" is a census of vibrational survivors.
 
-Within OPH, that census is uneven. Some particles sit on exact structural or exact-sidecar surfaces (photon, gluons, graviton, W, Z). The Higgs/top lane is a closed one-scalar calibration theorem on the declared D10/D11 running, matching, and threshold surface, and the neutrino lane has theorem-grade weighted-cycle outputs. Quarks and charged leptons sit on narrower intermediate surfaces, and composite particles like hadrons require computational work beyond the symbolic framework.
+Within OPH, that census is uneven. Some particles sit on exact structural or exact-sidecar surfaces (photon, gluons, graviton, W, Z). The Higgs/top lane is a closed source-only split calibration theorem on the declared D10/D11 running, matching, and threshold surface, and the neutrino lane has theorem-grade weighted-cycle outputs. Quarks and charged leptons sit on narrower intermediate surfaces, and composite particles like hadrons require computational work beyond the symbolic framework.
 
 ### Topological Protection
 

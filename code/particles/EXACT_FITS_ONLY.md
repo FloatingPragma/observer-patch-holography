@@ -1,6 +1,6 @@
 # Exact Fits Only
 
-Generated: `2026-04-15T10:37:27Z`
+Generated: `2026-04-15T14:21:17Z`
 
 This surface lists exact target matches on declared OPH carriers. It separates theorem-grade selected-class outputs from compare-only and carrier-restricted exact surfaces.
 For quarks, the selected-class theorem and its supporting exact carriers coincide with the official PDG 2025 API running-quark target surface.
@@ -26,7 +26,7 @@ For quarks, the selected-class theorem and its supporting exact carriers coincid
 - Promotable: `false`
 - Source artifact: `code/particles/runs/calibration/d11_reference_exact_adapter.json`
 - Max absolute residual: `0.0`
-- Note: Exact only as a compare-only inverse slice on the D11 Jacobian. The public D11 branch uses the reference-free forward seed, not this adapter.
+- Note: Exact only as a compare-only inverse slice on the D11 Jacobian. The live D11 theorem lane uses the source-only split theorem on the declared D10/D11 surface, not this adapter. That theorem emits `m_H = 125.1995304097179 GeV` and a companion top coordinate `m_t = 172.3523553288312 GeV`. The Higgs row lands on the PDG 2025 Higgs average at quoted precision. The exact public running-top row uses the PDG 2025 cross-section entry `Q007TP4`. The bridge to the auxiliary direct-top average `Q007TP` is open and is tracked in [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207).
 
 | Observable | Value | Reference |
 | --- | ---: | ---: |
@@ -55,7 +55,7 @@ For quarks, the selected-class theorem and its supporting exact carriers coincid
 - Promotable: `true`
 - Source artifact: `code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json`
 - Max absolute residual: `5.684341886080802e-14`
-- Note: Exact theorem on the selected public physical quark frame class chosen by `P`. `oph_quark_public_physical_sigma_datum_descent` makes the exact physical sigma datum target-free public on that selected class, and `oph_quark_public_exact_yukawa_end_to_end_theorem` emits the exact PDG 2025 running-quark sextet together with explicit exact forward Yukawas `Y_u` and `Y_d`. The top coordinate uses PDG summary `Q007TP4` rather than the auxiliary direct-top entry `Q007TP`. This is selected-class closure only. It does not claim a global classification of all quark frame classes.
+- Note: Exact theorem on the selected public physical quark frame class chosen by `P`. `oph_quark_public_physical_sigma_datum_descent` makes the exact physical sigma datum target-free public on that selected class, and `oph_quark_public_exact_yukawa_end_to_end_theorem` emits the exact PDG 2025 running-quark sextet together with explicit exact forward Yukawas `Y_u` and `Y_d`. The top coordinate uses PDG summary `Q007TP4`. The bridge to the auxiliary direct-top entry `Q007TP` is open and is tracked in [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207). This is selected-class closure only. It does not claim a global classification of all quark frame classes.
 
 | Observable | Value | Reference |
 | --- | ---: | ---: |
@@ -73,7 +73,7 @@ For quarks, the selected-class theorem and its supporting exact carriers coincid
 - Promotable: `false`
 - Source artifact: `code/particles/runs/flavor/quark_current_family_exact_readout.json`
 - Max absolute residual: `1.1368683772161603e-13`
-- Note: Exact on the official PDG 2025 API running-quark target surface on the ordered three-point quark family witness, with the internal same-family quadratic readout closed on the fixed carrier and the selected-sheet exact closure packaged on `sigma_ref`. The top coordinate uses PDG summary `Q007TP4` rather than the auxiliary direct-top entry `Q007TP`. The declared scope is `current_family_only`. A separate restricted theorem chain emits a sector-attached `Sigma_ud^phys` element on the explicit `current_family_common_refinement_transport_frame_only` carrier, and the merged transport-frame theorem reconstructs the same running sextet exactly on `current_family_common_refinement_transport_frame_only`. The declared transport-frame chain also closes explicit exact forward Yukawas `Y_u` and `Y_d` with certification status `forward_matrix_certified`, and the full declared-carrier chain is recorded in `oph_quark_current_family_end_to_end_exact_pdg_derivation_chain`. A separate target-free mass bridge closes `Delta_ud_overlap = (1/6) * log(c_d / c_u)`, equivalently `quark_d12_t1_value_law`, on the emitted D12 ray. A separate public theorem closes on the selected public physical quark frame class chosen by `P`: `oph_quark_public_physical_sigma_datum_descent` makes the exact physical sigma datum target-free public on that selected class, and `oph_quark_public_exact_yukawa_end_to_end_theorem` emits the same exact sextet together with explicit exact forward Yukawas `Y_u` and `Y_d`. This entry remains an exact-fit surface rather than that public selected-class theorem.
+- Note: Exact on the official PDG 2025 API running-quark target surface on the ordered three-point quark family witness, with the internal same-family quadratic readout closed on the fixed carrier and the selected-sheet exact closure packaged on `sigma_ref`. The top coordinate uses PDG summary `Q007TP4`. The bridge to the auxiliary direct-top entry `Q007TP` is open and is tracked in [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207). The declared scope is `current_family_only`. A separate restricted theorem chain emits a sector-attached `Sigma_ud^phys` element on the explicit `current_family_common_refinement_transport_frame_only` carrier, and the merged transport-frame theorem reconstructs the same running sextet exactly on `current_family_common_refinement_transport_frame_only`. The declared transport-frame chain also closes explicit exact forward Yukawas `Y_u` and `Y_d` with certification status `forward_matrix_certified`, and the full declared-carrier chain is recorded in `oph_quark_current_family_end_to_end_exact_pdg_derivation_chain`. A separate target-free mass bridge closes `Delta_ud_overlap = (1/6) * log(c_d / c_u)`, equivalently `quark_d12_t1_value_law`, on the emitted D12 ray. A separate public theorem closes on the selected public physical quark frame class chosen by `P`: `oph_quark_public_physical_sigma_datum_descent` makes the exact physical sigma datum target-free public on that selected class, and `oph_quark_public_exact_yukawa_end_to_end_theorem` emits the same exact sextet together with explicit exact forward Yukawas `Y_u` and `Y_d`. This entry remains an exact-fit surface rather than that public selected-class theorem.
 
 | Observable | Value | Reference |
 | --- | ---: | ---: |

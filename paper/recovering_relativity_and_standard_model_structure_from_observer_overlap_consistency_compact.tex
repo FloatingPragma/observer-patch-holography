@@ -3288,39 +3288,57 @@ has an exact frozen authoritative repair sidecar
 (M_W,M_Z)=
 (80.377,\ 91.18797809193725)\,\mathrm{GeV}
 \]
-on the frozen authoritative repair surface, but that exact pair remains compare-only beneath the target-free source-only theorem. The D11 Higgs/top branch splits into one exact Higgs calibration theorem and one companion D11 top-side calibration output. On the declared D10/D11 calibration surface,
+on the frozen authoritative repair surface, but that exact pair remains compare-only beneath the target-free source-only theorem. The D11 Higgs/top branch closes as one source-only split calibration theorem on the declared D10/D11 calibration surface. On the emitted D10 repair tuple \((\eta_{\mathrm{source}},\beta_{EW},\lambda_{EW},\tau_{2,\mathrm{tree}}^{\mathrm{exact}},\delta n_{\mathrm{tree}}^{\mathrm{exact}})\), define
+\[
+\rho_{HT}=\log\!\bigl(1+\tau_{2,\mathrm{tree}}^{\mathrm{exact}}\bigr),
+\]
+\[
+R_T=
+-\tau_{2,\mathrm{tree}}^{\mathrm{exact}}\eta_{\mathrm{source}}^2
++\Bigl(1+\frac{\beta_{EW}}{28}\Bigr)\eta_{\mathrm{source}}^6
++\frac{\eta_{\mathrm{source}}^8}{14}
++\frac{\eta_{\mathrm{source}}^9}{27},
+\]
+\[
+R_H=
+\eta_{\mathrm{source}}^5
+-\frac{3}{25}\eta_{\mathrm{source}}^6
++\frac{\lambda_{EW}\eta_{\mathrm{source}}^6}{18}
++\frac{\eta_{\mathrm{source}}^8}{2\beta_{EW}}.
+\]
+Then the forward split coordinates are
+\[
+\pi_y=
+\frac{\eta_{\mathrm{source}}+\left(\frac32+\frac{\beta_{EW}}4\right)\rho_{HT}+R_T}{\sqrt{\pi}},
+\qquad
+\pi_\lambda=
+\frac{\eta_{\mathrm{source}}-\left(\frac43-\frac{\beta_{EW}}{54}\right)\rho_{HT}+R_H}{\sqrt{\pi}},
+\]
+and the declared D11 Jacobian reads out
+\[
+\delta y_t(\mu_t)=\pi_y\,y_t^{\mathrm{core}}(\mu_t),
+\qquad
+\delta\lambda(\mu_t)=-\frac{16}{9}\pi_\lambda\,\lambda^{\mathrm{core}}(\mu_t).
+\]
+On that same declared surface,
 \[
 m_H=125.1995304097179~\mathrm{GeV},
 \qquad
-m_t^{D11}=172.388646~\mathrm{GeV}.
+m_t^{D11}=172.3523553288312~\mathrm{GeV}.
 \]
-The Higgs theorem uses the lambda-side seed
+At the precision quoted by the PDG Higgs listing, the Higgs row lands on the 2025 Higgs average. The
+same surface emits a companion top coordinate. The exact public running-top row is carried by the
+selected-class quark theorem and uses the PDG 2025 cross-section entry. The bridge to the auxiliary
+direct-top PDG row remains open; see \href{https://github.com/FloatingPragma/observer-patch-holography/issues/207}{issue \#207}.
+The old one-scalar seed
 \[
-\sigma_{D11,H}^{\mathrm{exact}}
-=
-\frac{\eta_{\mathrm{source}}-\frac43\tau_{2,\mathrm{tree}}^{\mathrm{exact}}-c_H^{\mathrm{exactifier}}\delta n_{\mathrm{tree}}^{\mathrm{exact}}}{\sqrt{\pi}},
+\sigma_{D11,\mathrm{HT}}=\frac{\alpha_U\cos(2\theta_{W0})}{\sqrt{\pi}}
 \]
-together with the readout law
-\[
-\delta\lambda(\mu_t)
-=
--\frac{16}{9}\sigma_{D11,H}^{\mathrm{exact}}\lambda^{\mathrm{core}}(\mu_t),
-\]
-which fixes the Higgs row exactly on that declared surface. The companion D11 top-side row continues to use the common one-scalar seed
-\[
-\sigma_{D11,\mathrm{HT}}=\frac{\alpha_U\cos(2\theta_{W0})}{\sqrt{\pi}},
-\]
-with the fixed-ray factorization
-\[
-\frac{\delta y_t(\mu_t)}{y_t^{\mathrm{core}}(\mu_t)}
-=-\frac{9}{16}\frac{\delta\lambda(\mu_t)}{\lambda^{\mathrm{core}}(\mu_t)}
-=\sigma_{D11,\mathrm{HT}}.
-\]
-The exact inverse slice on the same D11 Jacobian remains compare-only and does not define the theorem surface.
+remains on disk only as the lower-rank fixed-ray companion branch with \(\pi_y=\pi_\lambda=\sigma_{D11,\mathrm{HT}}\). The exact inverse slice on the same D11 Jacobian remains compare-only and does not define the theorem surface.
 The same D11 Jacobian also has a compare-only exact inverse slice at the canonical Higgs/top reference pair
 \[
 (m_H,m_t)=
-(125.1995304097179,\ 172.3523553288311)\,\mathrm{GeV}.
+(125.1995304097179,\ 172.3523553288312)\,\mathrm{GeV}.
 \]
 The charged lane has an exact same-family witness
 \[
@@ -3332,7 +3350,7 @@ on the same ordered eigenvalue family, but it remains same-family-only beneath t
 (u,d,s,c,b,t)=
 (0.00216,\ 0.00470,\ 0.0935,\ 1.273,\ 4.183,\ 172.3523553288311)\,\mathrm{GeV},
 \]
-again same-family-only on \texttt{current\_family\_only}. This sextet matches the official PDG 2025 API running-quark target surface exactly; its top coordinate is the PDG 2025 cross-section mass entry rather than the auxiliary direct-top entry. A separate target-free mass bridge closes
+again same-family-only on \texttt{current\_family\_only}. This sextet matches the official PDG 2025 API running-quark target surface exactly; its top coordinate is the PDG 2025 cross-section mass entry. The bridge to the auxiliary direct-top row remains open; see \href{https://github.com/FloatingPragma/observer-patch-holography/issues/207}{issue \#207}. A separate target-free mass bridge closes
 \[
 \Delta_{ud}^{\mathrm{overlap}}=\frac16\log\frac{c_d}{c_u},
 \]
@@ -3739,7 +3757,7 @@ q_e=\sqrt{g_e d_e},
 \mu_e=\mu_\nu\,\frac{e^{\eta_e}}{\frac13\sum_f e^{\eta_f}},
 \]
 remains the best closed constructive local object beneath the bridge, while the exact two-parameter positive-segment adapter, the bridge corridor, and the reduced-correction candidate audit are retained only as diagnostic surfaces and do not feed back into theorem state.
-Taken together with the exact \(W/Z\) frozen repair pair, the exact Higgs calibration theorem together with its companion D11 top-side calibration output and compare-only exact inverse Higgs/top slice, the exact charged witness, the selected-class exact quark theorem together with its same-family and restricted transport-frame supporting surfaces, and the weighted-cycle bridge-rigid absolute neutrino family, the exact non-hadron output lane is complete. The theorem-grade charged lane remains open at its sharper remaining objects, while the quark theorem is selected-class closure rather than a global classification of all quark frame classes.
+Taken together with the exact \(W/Z\) frozen repair pair, the exact source-only D11 Higgs/top split theorem together with its compare-only exact inverse Higgs/top slice, the exact charged witness, the selected-class exact quark theorem together with its same-family and restricted transport-frame supporting surfaces, and the weighted-cycle bridge-rigid absolute neutrino family, the exact non-hadron output lane is complete. The theorem-grade charged lane remains open at its sharper remaining objects, while the quark theorem is selected-class closure rather than a global classification of all quark frame classes.
 
 \paragraph{Local unification surface and exact-release frontier.}
 The local quantitative bridge can be stated without inflating the recovered-core claim. On the
@@ -3747,13 +3765,13 @@ bosonic side, the declared pixel input \(P\) fixes the D10/D11 trunk
 \[
 P\longmapsto \alpha_U(P) \longmapsto \bigl(t_U(P),t_{\mathrm{tr}}(P)\bigr)\longmapsto v(P),
 \]
-after which the D10 source basis emits the public electroweak pair and the D11 forward seed
+after which the D10 source basis emits the public electroweak pair and the D11 source-only split theorem with
 \[
-\sigma_{D11,\mathrm{HT}}
-=
-\alpha_U(P)\cos(2\theta_{W0})/\sqrt{\pi}
+\rho_{HT}=\log\!\bigl(1+\tau_{2,\mathrm{tree}}^{\mathrm{exact}}\bigr),
+\qquad
+(\pi_y,\pi_\lambda)\longmapsto (m_t,m_H)
 \]
-with no inverse readback of the internal transmutation data from measured low-energy couplings.
+by the declared D11 Jacobian, again with no inverse readback of the internal transmutation data from measured low-energy couplings.
 emits the Higgs/top branch. On the gravity side, the same D10 pixel law packages
 \[
 \ellbar_{\mathrm{SU(2)}}(t_{2,\mathrm{run}})

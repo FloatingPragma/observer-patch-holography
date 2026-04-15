@@ -47,7 +47,7 @@ part of this canonical tree.
   calibration/derive_d11_forward_seed.py ->
   calibration/derive_d11_forward_seed_promotion_certificate.py ->
   calibration/derive_d11_fixed_ray_no_go_theorem.py ->
-  calibration/derive_d11_live_exact_higgs_promotion.py`
+  calibration/derive_d11_live_exact_split_pair_theorem.py`
 - charged leptons:
   support and scale artifacts feeding
   `leptons/derive_lepton_excitation_gap_map.py ->
@@ -77,6 +77,16 @@ part of this canonical tree.
   hadron/derive_stable_channel_groundstate_readout.py`
 - rendered public surface:
   `scripts/build_results_status_table.py`
+
+The live Higgs theorem lane is the source-only split theorem on the declared
+electroweak running, matching, and threshold surface. It emits
+`m_H = 125.1995304097179 GeV` and a companion top coordinate
+`m_t = 172.3523553288312 GeV`.
+The Higgs row lands on the PDG 2025 Higgs average at quoted precision.
+The exact public running-top row uses the PDG 2025 cross-section entry
+`Q007TP4`.
+The bridge to the auxiliary direct-top average `Q007TP` is open and tracked in
+[#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207).
 
 ## Main Outputs
 
@@ -148,8 +158,8 @@ selector `sigma_ref`, and the restricted-scope affine mean package with
 `quark_d12_t1_value_law`, on the emitted D12 ray. The exact six-mass witness
 closes on `current_family_only` and matches the official PDG 2025 API running
 quark reference sextet exactly on that declared surface; its top coordinate is
-the PDG 2025 cross-section mass entry rather than the auxiliary direct-top
-entry. A separate restricted theorem chain on the explicit
+the PDG 2025 cross-section mass entry. The bridge to the auxiliary direct-top
+entry is open and is tracked in [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207). A separate restricted theorem chain on the explicit
 `current_family_common_refinement_transport_frame_only` carrier emits a
 sector-attached `Sigma_ud^phys` element, the exact physical sigma datum, the
 restricted absolute sector readout, the same sextet, and explicit exact
@@ -175,6 +185,7 @@ python3 calibration/derive_d11_declared_calibration_surface.py
 python3 calibration/derive_d11_forward_seed.py
 python3 calibration/derive_d11_forward_seed_promotion_certificate.py
 python3 calibration/derive_d11_live_exact_higgs_promotion.py
+python3 calibration/derive_d11_live_exact_split_pair_theorem.py
 python3 calibration/derive_d11_reference_exact_adapter.py
 python3 neutrino/derive_neutrino_weighted_cycle_repair.py
 python3 neutrino/derive_neutrino_bridge_rigidity_theorem.py

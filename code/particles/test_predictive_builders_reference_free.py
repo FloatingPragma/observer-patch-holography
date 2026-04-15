@@ -20,6 +20,7 @@ PREDICTIVE_BUILDERS = [
     ROOT / "particles" / "calibration" / "derive_d10_ew_source_transport_pair.py",
     ROOT / "particles" / "calibration" / "derive_d10_ew_source_transport_readout.py",
     ROOT / "particles" / "calibration" / "derive_d11_forward_seed.py",
+    ROOT / "particles" / "calibration" / "derive_d11_live_exact_split_pair_theorem.py",
     ROOT / "particles" / "calibration" / "derive_d11_critical_surface_readout.py",
 ]
 

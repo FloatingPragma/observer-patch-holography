@@ -17,7 +17,7 @@ Pour le statut théorématique du noyau reconstruit et le niveau de preuve des c
 - Un paquet théorématique à cutoff fixe pour les patches d'observateurs, les collerettes, la réparation de recouvrement, la jauge supérieure, les enregistrements et le checkpoint/restauration.
 - Une voie conditionnelle vers la géométrie lorentzienne, le temps modulaire, la dynamique d'Einstein de type Jacobson et la cosmologie de Sitter en patch statique sur le sous-réseau géométrique premier extrait ; la branche d'Einstein utilise la stationnarité à cap fixe, le pont modulaire sur les surfaces nulles et la branche projective séparée sur intervalles bornés, tandis que le scaffold UV/BW restant est la réalisation de la paire de caps géométriques sur ce sous-réseau puis la rigidité des paires de coupures ordonnées, avec le plancher commun éventuel de transport modulaire sur collerette locale fixe comme plus petit bloqueur inférieur.
 - Une voie conditionnelle de jauge compacte dans la branche bosonique vers le quotient réalisé du Modèle Standard `SU(3) x SU(2) x U(1) / Z_6`, sous les prémisses de reconstruction par secteurs transportables et sous MAR, avec le réseau exact des hypercharges et la chaîne de comptage réalisée `N_g = 3`, `N_c = 3`.
-- Un programme particules avec porteurs structurels exactement sans masse, une branche de calibration électrofaible de Phase II émise vers l'avant avec une surface théorématique publique `W/Z` target-free fermée plus une paire gelée exacte utilisée seulement comme validation compare-only, un théorème exact de calibration du Higgs sur la surface déclarée D10/D11 de running, matching et seuils avec une sortie de calibration D11 compagnon pour le top et une tranche inverse exacte Higgs/top gardée comme validation compare-only, une fermeture quark exacte sur classe publique sélectionnée avec Yukawas forward exactes explicites, des surfaces exactes non hadroniques et des voies de continuation explicites là où la frontière théorématique reste ouverte.
+- Un programme particules avec porteurs structurels exactement sans masse, une branche de calibration électrofaible de Phase II émise vers l'avant avec une surface théorématique publique `W/Z` target-free fermée plus une paire gelée exacte utilisée seulement comme validation compare-only, un théorème exact de séparation Higgs/top à source seule sur la surface déclarée D10/D11 de running, matching et seuils avec une tranche inverse exacte Higgs/top gardée comme validation compare-only, une fermeture quark exacte sur classe publique sélectionnée avec Yukawas forward exactes explicites, des surfaces exactes non hadroniques et des voies de continuation explicites là où la frontière théorématique reste ouverte.
 - Une architecture microphysique d'écran concrète qui met mesure, enregistrements et observateurs à l'intérieur de la physique.
 
 ## Surface locale d'unification
@@ -27,7 +27,7 @@ Sur la surface publique des constantes, `hbar` et `k_B` restent dans cette couch
 
 <p align="center">
   <a href="assets/OPH_Unification_Diagram.svg" target="_blank" rel="noopener noreferrer">
-    <img src="assets/OPH_Unification_Diagram.svg?v=20260407" alt="Schéma d'unification OPH" width="92%">
+    <img src="assets/OPH_Unification_Diagram.svg?v=20260415" alt="Schéma d'unification OPH" width="92%">
   </a>
 </p>
 
@@ -83,6 +83,16 @@ ligne de comparaison PDG/NIST directe à un seul nombre.
 La surface neutrino publique courante inclut aussi une paire physique de phases de Majorana de
 rang théorème sur la branche de transport weighted-cycle en base partagée ; voir
 `code/particles/RESULTS_STATUS.md`.
+
+La surface de calibration électrofaible déclarée porte aussi un théorème exact à source seule pour
+le Higgs, avec `m_H = 125.1995304097179 GeV`, ainsi qu'une coordonnée compagnon pour le top
+`m_t = 172.3523553288312 GeV` sur la même surface jacobienne.
+À la précision effectivement publiée par le PDG, la ligne Higgs tombe sur la moyenne 2025.
+La ligne top publique exacte sur la surface quark sélectionnée utilise l'entrée PDG 2025 en masse
+extraite de section efficace `Q007TP4`.
+Le pont vers la moyenne auxiliaire en mesures directes
+`Q007TP = 172.56 ± 0.31 GeV` reste ouvert et est suivi dans
+[#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207).
 
 Le secteur des leptons chargés suit une frontière plus nette. Le dépôt contient un témoin exact sur une même famille, un relèvement conditionnel de la ligne déterminant sur les données chargées physiques, puis une lecture algébrique des masses à partir de l'échelle absolue chargée de rang théorème. Le théorème ouvert est l'atterrissage de l'entrée de calibration commune `P` sur les données chargées physiques ou sur la ligne déterminant chargée.
 
