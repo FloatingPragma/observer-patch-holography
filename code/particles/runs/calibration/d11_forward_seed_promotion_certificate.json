@@ -4,6 +4,11 @@
   "diagnostic_center_equality_claimed": false,
   "discharges_legacy_sidecar_object_on_live_forward_path": "D11FixedRayWedgeVanishing",
   "discharges_seed_certificate_id": "D11SeedCommonProvenanceCertificate",
+  "exact_higgs_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_live_exact_higgs_promotion.json",
+  "exact_higgs_row_claimed": false,
+  "exact_pair_claimed": false,
+  "fixed_ray_branch_closed": true,
+  "fixed_ray_no_go_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_fixed_ray_no_go_theorem.json",
   "fixed_ray_wedge_vanishing_certificate": {
     "kappa_HT": 1.7777777777777777,
     "name": "D11FixedRayWedgeVanishing",
@@ -25,23 +30,25 @@
   },
   "forward_path_closed": true,
   "forward_seed_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_forward_seed.json",
-  "generated_utc": "2026-04-15T11:35:47Z",
+  "generated_utc": "2026-04-15T12:34:53Z",
   "mass_readout_consequence": {
     "mH_formula": "mH_core_gev + d_mH_d_lambda * delta_lambda_mt",
     "mH_gev": 125.21892206026347,
     "mt_pole_formula": "mt_pole_core_gev + d_mt_pole_d_y_t * delta_y_t_mt",
     "mt_pole_gev": 172.38864559527133
   },
-  "next_single_residual_object": null,
+  "next_single_residual_object": "one_extra_forward_coordinate_beyond_fixed_ray",
   "notes": [
-    "This certificate closes the live D11 forward seed without reopening the legacy diagnostic sidecar.",
+    "This certificate closes the live D11 one-scalar seed on its diagonal fixed-ray branch without reopening the legacy diagnostic sidecar.",
     "The exact fixed-ray factorization is proven on the emitted one-scalar forward seed sigma_D11_HT.",
-    "The public Higgs row is therefore supported by the live forward seed path rather than by a witness-only sidecar, and the same Jacobian surface carries a companion D11 top-side output."
+    "The same Jacobian surface carries a companion D11 top-side output on that fixed ray, while the exact Higgs row is carried separately by D11LiveForwardExactHiggsPromotion.",
+    "The compare-only exact Higgs/top pair lies off this fixed ray and remains a validation surface only."
   ],
   "predictive_promotion_allowed": true,
+  "predictive_promotion_scope": "diagonal_fixed_ray_only",
   "promoted_seed_object": "sigma_D11_HT",
   "promotion_status": "closed",
-  "proof_scope": "live_forward_path_only",
+  "proof_scope": "diagonal_fixed_ray_only",
   "proof_status": "forward_seed_promotion_closed",
   "seed_equality_certificate": {
     "law": "delta_y_t_mt / y_t_core_mt = -(9/16) * delta_lambda_mt / lambda_core_mt = sigma_D11_HT",
@@ -52,6 +59,10 @@
   "smallest_predictive_missing_object": null,
   "source_forward_seed_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_forward_seed.json",
   "status": "closed",
+  "strictly_not_claimed": [
+    "exact_higgs_row_on_fixed_ray",
+    "exact_higgs_top_pair_on_fixed_ray"
+  ],
   "theta_formula": {
     "delta_lambda_mt": "-(16/9) * sigma_D11_HT * lambda_core_mt",
     "delta_y_t_mt": "sigma_D11_HT * y_t_core_mt"

@@ -1,0 +1,49 @@
+{
+  "artifact": "oph_d11_live_exact_split_pair_theorem",
+  "closure_logic": {
+    "equivalent_coordinates": "(Sigma_HT_exact, eta_HT_exact)",
+    "fixed_ray_blocked": true,
+    "fixed_ray_no_go_theorem_id": "D11FixedRayNoGoTheorem",
+    "smallest_exact_object_above_fixed_ray": "Theta_D11_HT_exact(mu_t) = (delta_y_t_mt, delta_lambda_mt)"
+  },
+  "exact_split_pair": {
+    "Sigma_HT_exact": 0.01247484044067395,
+    "delta_lambda_mt": -0.0029647908130877214,
+    "delta_y_t_mt": 0.011305105308056543,
+    "eta_HT_exact": -0.0001928815488857526,
+    "mH_gev": 125.1995304097179,
+    "mt_pole_gev": 172.3523553288312,
+    "pi_lambda": 0.012667721989559701,
+    "pi_y": 0.012281958891788196,
+    "w_HT_exact": -0.0003857630977715052
+  },
+  "generated_utc": "2026-04-15T12:34:54Z",
+  "notes": [
+    "This theorem closes the exact D11 Higgs/top pair as a split calibration pair on the declared surface.",
+    "It does not relabel the old one-scalar fixed ray as exact. The fixed ray remains a lower-rank companion branch beneath this split theorem.",
+    "The repo-wide exact public top row remains independently carried by the selected-class quark theorem."
+  ],
+  "proof": [
+    "The fixed-ray no-go theorem proves that the exact pair is off the current one-scalar branch because w_HT_exact is nonzero there.",
+    "The exact Higgs theorem fixes the lambda-side coordinate and exact delta_lambda_mt on the declared D10/D11 surface.",
+    "The exact top-side theorem fixes the y-side coordinate and exact delta_y_t_mt on the same declared surface.",
+    "These two emitted coordinates assemble the exact split pair Theta_D11_HT_exact(mu_t) = (delta_y_t_mt, delta_lambda_mt).",
+    "The declared D11 Jacobian then reads out the exact Higgs and top rows by direct algebra."
+  ],
+  "proof_status": "closed_target_anchored_live_exact_split_pair",
+  "readout_formulas": {
+    "delta_lambda_mt": "-(16/9) * sigma_D11_H_exact * lambda_core_mt",
+    "delta_y_t_mt": "sigma_D11_T_exact * y_t_core_mt",
+    "mH_gev": "mH_core_gev + d_mH_d_lambda * delta_lambda_mt",
+    "mt_pole_gev": "mt_pole_core_gev + d_mt_pole_d_y_t * delta_y_t_mt"
+  },
+  "source_artifacts": {
+    "d11_declared_surface": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_declared_calibration_surface.json",
+    "exact_higgs_theorem": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_live_exact_higgs_promotion.json",
+    "exact_top_theorem": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_live_exact_top_promotion.json",
+    "fixed_ray_no_go": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_fixed_ray_no_go_theorem.json"
+  },
+  "status": "closed",
+  "theorem_id": "D11LiveExactSplitPairTheorem",
+  "theorem_scope": "declared_d10_d11_running_matching_threshold_surface_only"
+}

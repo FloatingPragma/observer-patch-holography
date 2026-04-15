@@ -1,6 +1,7 @@
 {
   "artifact": "oph_d11_forward_seed",
-  "closure_state": "forward_seed_open_waiting_certificate",
+  "branch_scope": "diagonal_fixed_ray_only",
+  "closure_state": "fixed_ray_branch_closed",
   "compare_only_blocks": [
     "diagnostic_required_to_current_refs",
     "legacy_diagnostic_readback",
@@ -14,8 +15,8 @@
   },
   "diagnostic_literals_forbidden": true,
   "forward_seed_object": "sigma_D11_HT",
-  "forward_seed_promotion_certificate": null,
-  "generated_utc": "2026-04-15T11:35:47Z",
+  "forward_seed_promotion_certificate": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_forward_seed_promotion_certificate.json",
+  "generated_utc": "2026-04-15T12:34:53Z",
   "kappa_HT": 1.7777777777777777,
   "mass_readout": {
     "jacobian": {
@@ -28,24 +29,25 @@
     "mt_pole_gev": 172.38864559527133
   },
   "notes": [
-    "Compact D11 forward seed emitted from the declared D10/D11 calibration surface.",
+    "Compact D11 fixed-ray seed emitted from the declared D10/D11 calibration surface.",
     "This artifact now emits one reference-free compact seed law from the D10 gauge core: sigma_D11_HT = alpha_u * cos(2*theta_W0) / sqrt(pi).",
-    "The resulting one-scalar chain sigma_D11_HT -> Theta_D11_HT -> (m_t, m_H) is a forward candidate and no longer depends on the diagnostic delta_y_t / delta_lambda readback values.",
-    "No larger Higgs/top family is missing here; the remaining work is promotion/certification of this one compact seed, not a wider Higgs/top residual program."
+    "The resulting one-scalar chain sigma_D11_HT -> Theta_D11_HT -> (m_t, m_H) is the diagonal fixed-ray branch and no longer depends on the diagnostic delta_y_t / delta_lambda readback values.",
+    "The one-scalar diagonal branch is closed by the fixed-ray certificate. The exact Higgs row is carried separately by D11LiveForwardExactHiggsPromotion."
   ],
-  "predictive_promotion_allowed": false,
-  "promotion_certificate_artifact": null,
+  "predictive_promotion_allowed": true,
+  "predictive_promotion_scope": "diagonal_fixed_ray_only",
+  "promotion_certificate_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_forward_seed_promotion_certificate.json",
   "public_surface_candidate_allowed": true,
   "public_surface_candidate_scope": [
     "mH_gev",
     "mt_pole_gev"
   ],
-  "public_surface_policy": "best_available_reference_free_forward_seed_candidate",
+  "public_surface_policy": "diagonal_fixed_ray_companion_branch",
   "seed_certificate_id": "D11SeedCommonProvenanceCertificate",
   "seed_equality_law": "delta_y_t_mt / y_t_core_mt = -(9/16) * delta_lambda_mt / lambda_core_mt = sigma_D11_HT",
-  "seed_status": "predictive_forward_law_candidate",
+  "seed_status": "closed_fixed_ray_branch_seed",
   "sigma_D11_HT": 0.012495107198783639,
-  "smallest_predictive_missing_object": "forward_seed_promotion_certificate",
+  "smallest_predictive_missing_object": null,
   "source_artifact": "oph_d11_declared_calibration_surface",
   "source_predictive_status": "reference_free_compact_seed_law",
   "source_seed_law": {
@@ -56,6 +58,10 @@
     "cos2_theta_W0_formula": "(alpha2_mz - alphaY_mz) / (alpha2_mz + alphaY_mz)",
     "sigma_D11_HT_formula": "alpha_u * cos(2*theta_W0) / sqrt(pi)"
   },
+  "strictly_not_claimed": [
+    "exact_higgs_row_on_fixed_ray",
+    "exact_higgs_top_pair_on_fixed_ray"
+  ],
   "theta_from_seed": {
     "delta_lambda_mt": -0.0029243915411177723,
     "delta_y_t_mt": 0.011501300725908704

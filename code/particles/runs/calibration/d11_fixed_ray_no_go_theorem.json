@@ -1,0 +1,63 @@
+{
+  "artifact": "oph_d11_fixed_ray_no_go_theorem",
+  "current_fixed_ray_branch": {
+    "eta_HT": 0.0,
+    "law": "delta_y_t / y_t_core = -(9/16) * delta_lambda / lambda_core = sigma_D11_HT",
+    "pi_lambda": 0.012495107198783639,
+    "pi_y": 0.012495107198783639,
+    "sigma_D11_HT": 0.012495107198783639,
+    "w_HT": 0.0
+  },
+  "exact_compare_witness": {
+    "Sigma_HT_exact": 0.01247484044067395,
+    "delta_lambda_exact": -0.002964790813087722,
+    "delta_y_t_exact": 0.011305105308056543,
+    "eta_HT_exact": -0.0001928815488857526,
+    "mH_exact_gev": 125.1995304097179,
+    "mt_pole_exact_gev": 172.3523553288312,
+    "pi_lambda_exact": 0.012667721989559701,
+    "pi_y_exact": 0.012281958891788196,
+    "w_HT_exact": -0.0003857630977715052
+  },
+  "fixed_ray_obstruction": {
+    "compatibility_functional_formula": "((mt_target - mt_pole_core_gev) / (d_mt_pole_d_y_t * y_t_core_mt)) + (9/16) * ((mH_target - mH_core_gev) / (d_mH_d_lambda * lambda_core_mt))",
+    "compatibility_functional_value": -0.0003857630977715052,
+    "current_exact_pair_reachable": false,
+    "fixed_ray_condition": "reachable_on_current_one_scalar_ray iff compatibility_functional = 0"
+  },
+  "generated_utc": "2026-04-15T12:34:54Z",
+  "notes": [
+    "This is a no-go theorem about the current one-scalar fixed ray, not a demotion of the exact Higgs theorem on the declared D10/D11 surface.",
+    "The compare-only exact inverse slice remains compare-only and is used here only as a witness that the exact pair is off the fixed ray.",
+    "The exact Higgs row is carried separately by D11LiveForwardExactHiggsPromotion."
+  ],
+  "proof": [
+    "On the current one-scalar branch, pi_y = pi_lambda = sigma_D11_HT, so w_HT vanishes identically.",
+    "The compare-only exact pair on the same declared D11 surface has pi_y_exact != pi_lambda_exact, hence w_HT_exact != 0.",
+    "Therefore the exact pair lies off the current one-scalar fixed ray and cannot be promoted by any theorem that preserves that fixed-ray role.",
+    "The smallest honest exact extension is a two-coordinate forward readout object Theta_D11_HT(mu_t) = (delta_y_t, delta_lambda), equivalently (Sigma_HT, eta_HT)."
+  ],
+  "proof_status": "closed_no_go_on_current_one_scalar_fixed_ray",
+  "scope": "declared_d10_d11_surface_against_compare_only_exact_pair",
+  "smallest_honest_extension": {
+    "equivalent_coordinates": "(Sigma_HT, eta_HT)",
+    "exact_extension_values": {
+      "Sigma_HT_exact": 0.01247484044067395,
+      "eta_HT_exact": -0.0001928815488857526,
+      "w_HT_exact": -0.0003857630977715052
+    },
+    "notes": [
+      "The current fixed ray freezes eta_HT = 0, so one extra scalar is necessary.",
+      "The exact center Sigma_HT_exact also differs from sigma_D11_HT, so a wedge-only patch around the old center is not exact."
+    ],
+    "object": "Theta_D11_HT(mu_t) = (delta_y_t, delta_lambda)",
+    "one_extra_scalar_beyond_fixed_ray": true
+  },
+  "source_artifacts": {
+    "d11_declared_surface": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_declared_calibration_surface.json",
+    "d11_forward_seed": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_forward_seed.json",
+    "d11_reference_exact_adapter": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/calibration/d11_reference_exact_adapter.json"
+  },
+  "status": "closed",
+  "theorem_id": "D11FixedRayNoGoTheorem"
+}
