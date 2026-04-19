@@ -15,9 +15,13 @@
     "log_formula": "S_M = sum_e M_e^ch log q_e",
     "affine_readout_if_closed": "A_ch(P) = (1/3) * sum_e M_e^ch log q_e(P)"
   },
+  "equivalent_source_shell_cocycle_formulation": {
+    "cocycle": "O_M(r,r') = S_M(r') - S_M(r) = (1/2) * sum_e M_e^ch * [log(g_e(r')/g_e(r)) + log(d_e(r')/d_e(r))]",
+    "closure_criterion": "O_M(r,r') = 0 on common physical charged fibers"
+  },
   "exact_smaller_sufficient_theorem": {
     "id": "charged_determinant_trace_lift_identification",
-    "statement": "Identify the charged determinant trace lift by 3 mu(r) = sum_e M_e^ch log q_e(r) on the charged L-H-E determinant channel. The determinant fiber equalizer then follows from the existing physical identity-mode equalizer.",
+    "statement": "Identify the charged determinant trace lift by 3 mu(r) = sum_e M_e^ch log q_e(r) on the charged L-H-E determinant channel. Equivalently on the source-shell side, prove vanishing of the determinant cocycle O_M(r,r') = S_M(r') - S_M(r) on common physical charged fibers. The determinant fiber equalizer then follows from the existing physical identity-mode equalizer.",
     "why_smaller_than_full_landing": [
       "It asks only for one determinant character and its trace-lift identification.",
       "It does not ask for the full charged Yukawa matrix Y_e(P).",
@@ -42,6 +46,7 @@
   "notes": [
     "The live q_e payload is already populated on the realized same-label arrows.",
     "The remaining theorem is no longer a missing q_e readback claim.",
-    "The determinant fiber equalizer follows once the trace-lift identity 3 mu(r) = sum_e M_e^ch log q_e(r) is proved on the charged determinant channel."
+    "The determinant fiber equalizer follows once the trace-lift identity 3 mu(r) = sum_e M_e^ch log q_e(r) is proved on the charged determinant channel.",
+    "In equivalent source-shell form, the remaining open clause is vanishing of O_M(r,r') = S_M(r') - S_M(r) on common physical charged fibers."
   ]
 }

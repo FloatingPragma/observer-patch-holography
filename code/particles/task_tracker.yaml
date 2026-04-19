@@ -317,7 +317,7 @@ stages:
   - id: stage-3
     title: "Close the charged-lepton absolute frontier"
     status: active
-    note: "The charged lane carries an exact same-family witness, an exact operator obstruction certificate, the conditional determinant-line lift on theorem-grade physical charged data, and the downstream algebraic mass readout from theorem-grade `A_ch(P)`. The live same-label `q_e` readback is already populated. The remaining exact smaller source-facing theorem is the determinant trace-lift identification `3 mu(r) = sum_e M_e^ch log q_e(r)` on the charged determinant channel, beneath the broader landing `B_D10(P) -> Y_e(P)` or equivalently `B_D10(P) -> s_det(P)`."
+    note: "The charged lane carries an exact same-family witness, an exact operator obstruction certificate, the conditional determinant-line lift on theorem-grade physical charged data, and the downstream algebraic mass readout from theorem-grade `A_ch(P)`. The live same-label `q_e` readback is already populated. The remaining exact smaller source-facing theorem is the determinant trace-lift identification `3 mu(r) = sum_e M_e^ch log q_e(r)` on the charged determinant channel, beneath the broader landing `B_D10(P) -> Y_e(P)` or equivalently `B_D10(P) -> s_det(P)`. Equivalently on the source-shell side, the remaining open clause is vanishing of the determinant cocycle `O_M(r,r') = S_M(r') - S_M(r)` on common physical charged fibers."
     success_rule: "Public surfaces state the charged split exactly: the same-family witness, the conditional determinant-line lift, the live same-label `q_e` readback, and the downstream algebraic mass readout are closed, while the single open source-facing theorem is the determinant trace-lift identification beneath `B_D10(P) -> s_det(P)`."
     tasks:
       - id: papers.compact.e.30-replace-koide-assisted-lepton-fitting-with-a-theorem
@@ -357,7 +357,7 @@ stages:
       - id: papers.compact.e.30e-derive-d10-to-charged-determinant-line-landing
         title: "Prove the charged determinant trace-lift identification beneath the D10 charged landing"
         status: blocked
-        note: "This is the single open charged theorem on the source-facing lane. The reduction theorem, the conditional determinant-line lift, the live same-label `q_e` readback, and the downstream algebraic mass readout are closed. The exact smaller sufficient theorem now isolated is the determinant trace-lift identification `3 mu(r) = sum_e M_e^ch log q_e(r)` on the charged determinant channel, beneath the broader landing `B_D10(P) -> Y_e(P)` or equivalently `B_D10(P) -> s_det(P)`."
+        note: "This is the single open charged theorem on the source-facing lane. The reduction theorem, the conditional determinant-line lift, the live same-label `q_e` readback, and the downstream algebraic mass readout are closed. The exact smaller sufficient theorem now isolated is the determinant trace-lift identification `3 mu(r) = sum_e M_e^ch log q_e(r)` on the charged determinant channel, beneath the broader landing `B_D10(P) -> Y_e(P)` or equivalently `B_D10(P) -> s_det(P)`. In equivalent source-shell form, this is the vanishing of the determinant cocycle `O_M(r,r') = S_M(r') - S_M(r)` on common physical charged fibers."
         owner_lane: pro_paper
         depends_on:
           [
