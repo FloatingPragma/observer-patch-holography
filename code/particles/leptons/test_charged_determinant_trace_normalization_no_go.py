@@ -19,7 +19,7 @@ def test_charged_determinant_trace_normalization_no_go() -> None:
     payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
 
     assert payload["artifact"] == "oph_charged_determinant_trace_normalization_no_go"
-    assert payload["proof_status"] == "source_character_closed_additive_normalization_open"
+    assert payload["proof_status"] == "source_character_defined_additive_normalization_open"
     assert payload["unresolved_scalar_defect"]["id"] == "charged_determinant_normalization_defect"
     assert "mu -> mu + kappa" in payload["affine_shift_witness"]["shift_family"]
     assert "3 mu(r) = sum_e M_e^ch log q_e(r)" in payload["exact_remaining_theorem"]["statement"]

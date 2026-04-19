@@ -134,7 +134,7 @@ The electron is a vibration pattern that persists. The muon is a pattern that pe
 
 The "particle zoo" is a census of vibrational survivors.
 
-Within OPH, that census is uneven. Some particles sit on especially clean structural results: photon, gluons, graviton, W, and Z. The Higgs and top are calibrated together on one electroweak branch, and the neutrino sector has definite masses on another. Quarks and charged leptons sit on narrower intermediate results, and composite particles like hadrons require stronger computational control of the strong interaction.
+Within OPH, that census is uneven. Some particles sit on especially clean structural results: photon, gluons, graviton, W, and Z. The Higgs and top are calibrated together on one electroweak branch, and the neutrino sector has definite masses on another. Quarks close on a selected public frame class. Charged leptons stop at the missing attachment between the source-side determinant character and the physical mass scale. Composite particles like hadrons require stronger computational control of the strong interaction.
 
 ### Topological Protection
 

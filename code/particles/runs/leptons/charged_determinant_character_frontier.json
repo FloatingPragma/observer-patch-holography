@@ -1,7 +1,7 @@
 {
   "artifact": "oph_charged_determinant_character_frontier",
   "generated_utc": "2026-04-19T09:00:00Z",
-  "proof_status": "source_character_closed_additive_normalization_open",
+  "proof_status": "source_character_defined_additive_normalization_open",
   "public_promotion_allowed": false,
   "readback_source_artifact_ref": "code/particles/runs/neutrino/realized_same_label_gap_defect_readback.json",
   "live_same_label_q_e": {
@@ -14,7 +14,7 @@
     "formula": "chi_det,e^exc(q) = prod_e q_e^(M_e^ch)",
     "log_formula": "S_M = sum_e M_e^ch log q_e",
     "affine_readout_if_closed": "A_ch(P) = (1/3) * sum_e M_e^ch log q_e(P)",
-    "status": "closed_source_side_character"
+    "status": "defined_source_side_character"
   },
   "normalization_defect": {
     "id": "charged_determinant_normalization_defect",
@@ -32,32 +32,32 @@
     "why_smaller_than_full_landing": [
       "It asks only for one determinant character and its trace-lift attachment / normalization.",
       "It does not ask for the full charged Yukawa matrix Y_e(P).",
-      "It is still sufficient to force s_det(P) and A_ch(P)."
+      "It is sufficient to force s_det(P) and A_ch(P)."
     ]
   },
   "current_corpus_no_go": {
-    "statement": "The current corpus fixes the source-side determinant character S_M and the post-promotion identity-mode equalizer separately, but it does not fix their relative additive origin. One affine determinant normalization constant remains unresolved.",
+    "statement": "The current corpus fixes the source-side determinant character S_M and the post-promotion identity-mode equalizer separately, but it does not fix their relative additive origin. One affine determinant normalization constant is unresolved.",
     "witness": "mu -> mu + kappa shifts s_det and A_ch but leaves the populated q_e readback and S_M unchanged."
   },
   "broader_open_landing": {
     "formula": "B_D10(P) -> Y_e(P) or equivalently B_D10(P) -> s_det(P)",
-    "status": "still_open"
+    "status": "open"
   },
   "if_closed_then": {
     "determinant_line": "s_det(P) = sum_e M_e^ch log q_e(P)",
     "affine_anchor": "A_ch(P) = (1/3) * s_det(P)",
     "electron_mass": "m_e(P) = exp(A_ch(P) + e_log_centered(P))"
   },
-  "do_not_claim_now": [
+  "do_not_claim": [
     "theorem-grade charged determinant-character descent",
     "theorem-grade sector-isolated M^ch",
     "theorem-grade A_ch(P)",
     "theorem-grade charged masses from P"
   ],
   "notes": [
-    "The live q_e payload is already populated on the realized same-label arrows.",
-    "The remaining theorem is no longer a missing q_e readback claim.",
-    "The current corpus now has a formal underdetermination result: it leaves one additive determinant normalization constant unresolved.",
-    "In equivalent source-shell language, cocycle vanishing alone is not enough; one basepoint normalization is also required to identify the source-side character with the physical determinant line."
+    "The live q_e payload is populated on the realized same-label arrows.",
+    "The charged theorem boundary is an additive determinant normalization.",
+    "The current corpus has a formal underdetermination result: it leaves one additive determinant normalization constant unresolved.",
+    "In equivalent source-shell language, cocycle vanishing alone does not identify the source-side character with the physical determinant line; one basepoint normalization is required."
   ]
 }

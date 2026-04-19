@@ -21,7 +21,7 @@
     "id": "charged_determinant_trace_lift_attachment",
     "statement": "Attach the fixed determinant exponent vector M^ch sector-isolatedly to the charged L-H-E determinant channel and prove 3 mu(r) = sum_e M_e^ch log q_e(r) on that channel. Equivalently, force the determinant normalization defect N_det to vanish."
   },
-  "generated_utc": "2026-04-19T10:04:20Z",
+  "generated_utc": "2026-04-19T10:59:04Z",
   "no_go_theorem": {
     "id": "charged_determinant_trace_normalization_not_forced_by_current_corpus",
     "proof_skeleton": [
@@ -32,12 +32,12 @@
       "The source-side q_e readback and therefore S_M are unchanged under this shift.",
       "Hence the defect Theta = 3 mu - S_M is not fixed by current theorem-grade data."
     ],
-    "statement": "The populated same-label readback closes the source-side determinant character S_M = sum_e M_e^ch log q_e, and the post-promotion identity-mode equalizer closes the fiberwise differences of mu. But the current charged corpus does not force the cross-normalization 3 mu(r) = S_M(r), because the additive affine shift mu -> mu + kappa preserves the existing cocycle/equalizer contracts while leaving S_M fixed. Therefore one additive determinant normalization constant remains unresolved."
+    "statement": "The populated same-label readback fixes the source-side determinant character S_M = sum_e M_e^ch log q_e, and the post-promotion identity-mode equalizer fixes the fiberwise differences of mu. But the charged corpus does not force the cross-normalization 3 mu(r) = S_M(r), because the additive affine shift mu -> mu + kappa preserves the existing cocycle/equalizer contracts while leaving S_M fixed. Therefore one additive determinant normalization constant stays unresolved."
   },
   "notes": [
-    "This is stronger than merely restating that the frontier is open: it proves that current surfaces leave one additive determinant normalization unresolved.",
-    "It does not deny future closure; it isolates exactly the missing scalar normalization theorem.",
-    "The live same-label q_e readback remains fully populated and theorem-relevant on the source side."
+    "This theorem states a relative underdetermination result for the charged determinant normalization.",
+    "It isolates the missing scalar normalization theorem.",
+    "The live same-label q_e readback is fully populated and theorem-relevant on the source side."
   ],
   "post_promotion_trace_lift_scaffold": {
     "determinant_formula_on_fill": "s_det(r) = 3 * mu(r)",
@@ -48,7 +48,7 @@
     "physical_descent_artifact_ref": "code/particles/runs/leptons/charged_mu_physical_descent_reduction.json",
     "trace_lift_formula_on_fill": "C_tilde_e(r) = C_hat_e(r) + mu(r) I"
   },
-  "proof_status": "source_character_closed_additive_normalization_open",
+  "proof_status": "source_character_defined_additive_normalization_open",
   "public_promotion_allowed": false,
   "scope": "current_corpus_relative_to_populated_q_e_and_post_promotion_trace_lift_scaffold",
   "source_side_character": {

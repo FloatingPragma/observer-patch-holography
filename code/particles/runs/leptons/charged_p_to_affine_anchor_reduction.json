@@ -1,7 +1,7 @@
 {
   "P_threaded_source_exactness_reformulation": {
     "id": "d10_selected_charged_source_exactness_forces_physical_affine_scalar_mu",
-    "role": "This gives the broad bridge reduction. On the current sharper frontier, the remaining exact smaller sufficient clause beneath that landing is the sector-isolated determinant trace-lift attachment 3 mu(r) = sum_e M_e^ch log q_e(r), equivalently vanishing of the determinant normalization defect N_det(P) = s_det(P) - sum_e M_e^ch log q_e(P), on the charged determinant channel. After that attachment, the affine scalar and determinant-line data follow canonically rather than through an extra independent lift theorem.",
+    "role": "This gives the broad bridge reduction. The exact smaller sufficient clause beneath that landing is the sector-isolated determinant trace-lift attachment 3 mu(r) = sum_e M_e^ch log q_e(r), equivalently vanishing of the determinant normalization defect N_det(P) = s_det(P) - sum_e M_e^ch log q_e(P), on the charged determinant channel. After that attachment, the affine scalar and determinant-line data follow canonically through the determinant line.",
     "statement": "Assume the D10 calibration descendants of P land theorem-grade on physical charged data Y_e(P). Assume theorem-grade C_hat_e is promoted on that same physical Y_e(P) surface. Then the canonical determinant-line lift theorem fixes mu_phys(Y_e(P)) = (1/3) * log(det(Y_e(P))), defines C_tilde_e(Y_e(P)) = C_hat_e(Y_e(P)) + mu_phys(Y_e(P)) I, and the determinant-line section and affine anchor follow canonically by s_det(Y_e(P)) = 3 mu_phys(Y_e(P)) and A_ch(P) = mu_phys(Y_e(P))."
   },
   "artifact": "oph_charged_p_to_affine_anchor_reduction",
@@ -23,7 +23,7 @@
     "target_free_repair_artifact": "oph_d10_ew_target_free_repair_value_law",
     "target_free_repair_artifact_ref": "code/particles/runs/calibration/d10_ew_target_free_repair_value_law.json"
   },
-  "do_not_claim_now": [
+  "do_not_claim": [
     "theorem_grade_physical_Y_e(P)",
     "charged_determinant_line_section(P)",
     "A_ch(P)",
@@ -39,13 +39,13 @@
     ],
     "id": "d10_to_charged_determinant_line_bridge",
     "why_smaller_than_A_ch": [
-      "The determinant-line section already carries the correct common-shift covariance.",
+      "The determinant-line section carries the correct common-shift covariance.",
       "The affine anchor is a readout of that line rather than an extra free scalar once the line is emitted.",
       "The charged determinant-line extension theorem records A_ch = (1/3) * s_det = (1/3) * log(det(Y_e)).",
-      "On the current sharper frontier, the remaining exact smaller sufficient clause beneath this landing is the sector-isolated determinant trace-lift attachment 3 mu(r) = sum_e M_e^ch log q_e(r), equivalently zero determinant normalization defect N_det(P)."
+      "The exact smaller sufficient clause beneath this landing is the sector-isolated determinant trace-lift attachment 3 mu(r) = sum_e M_e^ch log q_e(r), equivalently zero determinant normalization defect N_det(P)."
     ]
   },
-  "generated_utc": "2026-04-19T10:04:21Z",
+  "generated_utc": "2026-04-19T10:59:04Z",
   "induced_objects_once_bridge_closes": {
     "absolute_outputs": {
       "Delta_e_abs(P)": "log(g_ch_shared) - A_ch(P)",
@@ -68,8 +68,8 @@
   "notes": [
     "This is a reduction theorem, not a bridge-closure theorem.",
     "It fixes the smallest honest bridge target for the D10-to-charged absolute lane.",
-    "The live same-label q_e readback is already populated, and the source-side determinant character is already fixed.",
-    "The current sharper frontier sits one level lower as the determinant trace-lift attachment / normalization defect beneath the broader determinant-line landing."
+    "The live same-label q_e readback supplies the source-side determinant character on realized support.",
+    "The frontier sits one level lower as the determinant trace-lift attachment / normalization defect beneath the broader determinant-line landing."
   ],
   "proof_status": "closed_bridge_reduction_to_determinant_line_or_physical_Y_e",
   "public_promotion_allowed": false,

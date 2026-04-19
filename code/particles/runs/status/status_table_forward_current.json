@@ -100,7 +100,7 @@
       "unit": "eV^2"
     }
   ],
-  "generated_utc": "2026-04-19T10:04:13Z",
+  "generated_utc": "2026-04-19T10:57:10Z",
   "inputs": {
     "P": 1.63094,
     "hadron_profile": "suppressed",
@@ -360,7 +360,7 @@
     {
       "delta_display": "n/a",
       "group": "Leptons",
-      "note": "No public charged value is emitted on the theorem lane. The repo contains an exact same-family witness on `current_family_only`, the live same-label `q_e` readback, the closed source-side determinant character `S_M = sum_e M_e^ch log q_e`, a conditional determinant-line lift on theorem-grade physical charged data, and the downstream algebraic readout from theorem-grade `A_ch(P)`. The remaining exact source theorem is the sector-isolated trace-lift attachment / determinant-normalization closure `3 mu(r) = sum_e M_e^ch log q_e(r)`, equivalently zero normalization defect `N_det(P) = s_det(P) - sum_e M_e^ch log q_e(P)`, beneath the broader D10 landing to `s_det(P)`.",
+      "note": "No public charged value is emitted on the theorem lane. The repo contains an exact same-family witness on `current_family_only`, the live same-label `q_e` readback, a source-side determinant character `S_M = sum_e M_e^ch log q_e` for a fixed formal source multiplicity vector, a conditional determinant-line lift on theorem-grade physical charged data, and the downstream algebraic readout from theorem-grade `A_ch(P)`. The open source theorem is the sector-isolated trace-lift attachment / determinant-normalization identity `3 mu(r) = sum_e M_e^ch log q_e(r)`, equivalently zero normalization defect `N_det(P) = s_det(P) - sum_e M_e^ch log q_e(P)`, beneath the broader D10 landing to `s_det(P)`.",
       "particle": "e",
       "particle_id": "electron",
       "prediction_display_gev": "n/a",
@@ -377,7 +377,7 @@
     {
       "delta_display": "n/a",
       "group": "Leptons",
-      "note": "No public charged value is emitted on the theorem lane. The repo contains an exact same-family witness on `current_family_only`, the live same-label `q_e` readback, the closed source-side determinant character `S_M = sum_e M_e^ch log q_e`, a conditional determinant-line lift on theorem-grade physical charged data, and the downstream algebraic readout from theorem-grade `A_ch(P)`. The remaining exact source theorem is the sector-isolated trace-lift attachment / determinant-normalization closure `3 mu(r) = sum_e M_e^ch log q_e(r)`, equivalently zero normalization defect `N_det(P) = s_det(P) - sum_e M_e^ch log q_e(P)`, beneath the broader D10 landing to `s_det(P)`.",
+      "note": "No public charged value is emitted on the theorem lane. The repo contains an exact same-family witness on `current_family_only`, the live same-label `q_e` readback, a source-side determinant character `S_M = sum_e M_e^ch log q_e` for a fixed formal source multiplicity vector, a conditional determinant-line lift on theorem-grade physical charged data, and the downstream algebraic readout from theorem-grade `A_ch(P)`. The open source theorem is the sector-isolated trace-lift attachment / determinant-normalization identity `3 mu(r) = sum_e M_e^ch log q_e(r)`, equivalently zero normalization defect `N_det(P) = s_det(P) - sum_e M_e^ch log q_e(P)`, beneath the broader D10 landing to `s_det(P)`.",
       "particle": "mu",
       "particle_id": "muon",
       "prediction_display_gev": "n/a",
@@ -394,7 +394,7 @@
     {
       "delta_display": "n/a",
       "group": "Leptons",
-      "note": "No public charged value is emitted on the theorem lane. The repo contains an exact same-family witness on `current_family_only`, the live same-label `q_e` readback, the closed source-side determinant character `S_M = sum_e M_e^ch log q_e`, a conditional determinant-line lift on theorem-grade physical charged data, and the downstream algebraic readout from theorem-grade `A_ch(P)`. The remaining exact source theorem is the sector-isolated trace-lift attachment / determinant-normalization closure `3 mu(r) = sum_e M_e^ch log q_e(r)`, equivalently zero normalization defect `N_det(P) = s_det(P) - sum_e M_e^ch log q_e(P)`, beneath the broader D10 landing to `s_det(P)`.",
+      "note": "No public charged value is emitted on the theorem lane. The repo contains an exact same-family witness on `current_family_only`, the live same-label `q_e` readback, a source-side determinant character `S_M = sum_e M_e^ch log q_e` for a fixed formal source multiplicity vector, a conditional determinant-line lift on theorem-grade physical charged data, and the downstream algebraic readout from theorem-grade `A_ch(P)`. The open source theorem is the sector-isolated trace-lift attachment / determinant-normalization identity `3 mu(r) = sum_e M_e^ch log q_e(r)`, equivalently zero normalization defect `N_det(P) = s_det(P) - sum_e M_e^ch log q_e(P)`, beneath the broader D10 landing to `s_det(P)`.",
       "particle": "tau",
       "particle_id": "tau",
       "prediction_display_gev": "n/a",

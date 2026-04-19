@@ -20,7 +20,7 @@ The live charged scripts now use the same compact derivation header:
 - `Mathematics`: which ordered-gap, support-rank, or spectral step it performs
 - `OPH-derived inputs`: which values are inherited directly from the active
   `/particles` flavor/lepton artifacts
-- `Output`: the emitted artifact and, when still open, the exact missing scalar
+- `Output`: the emitted artifact and, when applicable, the exact missing scalar
 
 The active charged completion tail is:
 
@@ -42,7 +42,7 @@ Current scripts:
 - [`test_channel_norm_not_fit.py`](/Users/muellerberndt/Projects/oph-meta/particles/leptons/test_channel_norm_not_fit.py)
 - [`test_ratio_only_not_promoted.py`](/Users/muellerberndt/Projects/oph-meta/particles/leptons/test_ratio_only_not_promoted.py)
 
-These scripts do **not** claim charged leptons are already theorem-level. They
+These scripts do **not** claim charged leptons are theorem-level. They
 give the `e30` closure lane a concrete local home under `/particles`, and they
 keep the ordered-shape/hierarchy problem separate from absolute-scale closure.
 
@@ -50,11 +50,11 @@ Current same-carrier constructive blocker:
 
 - `eta_source_support_extension_log_per_side`
 
-Current theorem-facing absolute route:
+Theorem-facing absolute route:
 
 - `oph_generation_bundle_branch_generator_splitting`
 - `refinement_stable_uncentered_trace_lift`
-- then the determinant-line section and `A_ch` are induced rather than independent
+- then the determinant-line section and `A_ch` are induced data
 
 Operator-side exact obstruction certificate:
 
@@ -67,55 +67,55 @@ Operator-side exact obstruction certificate:
   `0.06363734112184061`, so the displayed current data do not imply exact
   vanishing or uniform quadratic smallness after the central split.
 
-The post-promotion lift slot has now been reduced further in carrier type:
+The post-promotion lift slot is packaged in carrier form:
 
 - `oph_charged_uncentered_trace_lift_cocycle_reduction`
   This keeps the single-slot frontier unchanged while making its exact content
-  explicit: after centered promotion, the remaining ambiguity is only a scalar
+  explicit: after centered promotion, the ambiguity is one scalar
   affine cocycle primitive `mu`, with `C_tilde_e = C_hat_e + mu I`,
   `s_det = 3 mu`, and `A_ch = mu`.
 
 - `oph_charged_mu_physical_descent_reduction`
-  This shrinks that description one step further under the same refinement-
-  stability contract already required by the lift: on theorem-grade physical
+  This expresses the same carrier one step further under the same refinement-
+  stability contract required by the lift: on theorem-grade physical
   `Y_e`, the refinement cocycle vanishes and the exact residual object is one
   physical affine scalar `mu_phys(Y_e)`.
 
 - `oph_charged_centered_operator_mu_phys_no_go`
   This closes the false post-promotion shortcut: even a theorem-grade centered
   `C_hat_e` cannot emit `mu_phys(Y_e)` by itself, because centered operator
-  data is still invariant under the common-shift action that `mu_phys` breaks.
+  data is invariant under the common-shift action that `mu_phys` breaks.
 
 - `oph_charged_p_to_affine_anchor_reduction`
   This fixes the smallest honest bridge target for the `P`-driven absolute
   lane. A theorem-grade landing from the D10 descendants of `P` on theorem-
-  grade physical `Y_e(P)` or on the charged determinant line already forces
+  grade physical `Y_e(P)` or on the charged determinant line forces
   `A_ch(P) = (1/3) * log(det(Y_e(P)))`, so the bridge target is smaller than a
   free-standing affine-scalar theorem.
 
   The same descent package also gives a sharper P-threaded reformulation:
   once `P -> Y_e(P)` lands on theorem-grade physical charged data and the
   post-promotion charged descent hypotheses hold, the physical affine scalar
-  `mu_phys(Y_e(P))` is forced by the identity-mode equalizer rather than
-  remaining a separate bridge-sized theorem.
+  `mu_phys(Y_e(P))` is forced by the identity-mode equalizer and does not form
+  a separate bridge-sized theorem.
 
 - `oph_charged_determinant_character_frontier`
-  This records the sharpened source-facing charged frontier. The live same-
-  label readback already populates the uncentered `q_e = sqrt(g_e d_e)` values,
-  so the source-side determinant character `S_M = sum_e M_e^ch log q_e` is
-  already fixed on the realized support. The current formal no-go is now
-  sharper too: the remaining gap is one additive determinant normalization
+  This records the source-facing charged frontier. The live same-
+  label readback populates the uncentered `q_e = sqrt(g_e d_e)` values,
+  so the source-side determinant character `S_M = sum_e M_e^ch log q_e`
+  is defined on the realized support for a fixed formal source exponent vector.
+  The formal no-go isolates one additive determinant normalization
   attaching that source-side character to the physical charged determinant
-  line. Equivalently, the remaining exact smaller theorem is the sector-
+  line. Equivalently, the exact smaller theorem is the sector-
   isolated trace-lift attachment
   `3 mu(r) = sum_e M_e^ch log q_e(r)` on the charged determinant channel, not
-  a fresh mass ansatz and not yet a promoted end-to-end charged closure.
+  a fresh mass ansatz and not an end-to-end charged closure.
 
 - `oph_charged_determinant_trace_normalization_no_go`
   This packages the formal underdetermination theorem behind the new charged
   frontier wording. The current corpus fixes the populated source-side
   determinant character and the post-promotion identity-mode equalizer
-  separately, but still leaves one additive determinant normalization defect
+  separately, and it leaves one additive determinant normalization defect
   `N_det(P) = s_det(P) - sum_e M_e^ch log q_e(P)` unresolved.
 
 - `oph_charged_physical_class_affine_scalar_reduction`
@@ -143,29 +143,28 @@ The post-promotion lift slot has now been reduced further in carrier type:
   readouts,
   `g_e(P) = exp(A_ch(P))` and
   `m_i(P) = exp(A_ch(P) + ell_i_centered(P))`.
-  The remaining open charged source problem is not this algebraic readout. The
-  remaining open theorem is the determinant trace-lift attachment / zero-
-  normalization step beneath the broader landing from the D10 calibration
+  The charged source theorem is the determinant trace-lift attachment / zero-
+  normalization identity beneath the broader landing from the D10 calibration
   descendants of `P` to theorem-grade physical charged data or the charged
   determinant line.
 
-Layered frontier ledger now on disk:
+Layered frontier ledger on disk:
 
 - `oph_charged_absolute_frontier_factorization`
   This separates the current-surface missing affine object `A_ch` from the
   strictly smaller post-promotion single slot `refinement_stable_uncentered_trace_lift`.
 
-Smaller same-carrier primitive already on disk:
+Smaller same-carrier primitive on disk:
 
 - `oph_charged_sector_local_support_extension_source_scalar_pair_readback`
   This collects the ordered `eta` then `sigma` invariant readbacks beneath the
   full support-extension shell without promoting either scalar value.
 
-That is the first charged scalar that actually leaves the exhausted current
-support and changes the hierarchy. Until it is emitted, the forward charged
+That is the first charged scalar that leaves the exhausted current
+support and changes the hierarchy. Without it, the forward charged
 artifact remains a structured gap surface rather than a promotable prediction.
 
-The theorem-facing absolute tail is sharper than that same-carrier frontier.
+The theorem-facing absolute tail lies above that same-carrier frontier.
 Once the latent centered charged operator is promoted, the honest post-promotion
 single slot is the refinement-stable uncentered trace lift. The determinant-line
 section and affine absolute anchor `A_ch` then follow as induced data.

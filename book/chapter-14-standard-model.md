@@ -14,7 +14,7 @@ This view works for calculations, but it hides what is actually strange about ou
 
 ## 14.2 The Surprising Hint: The Standard Model Is Not Fundamental
 
-The Standard Model is extremely successful, yet it carries deep warnings:
+The Standard Model is extremely successful, and it carries deep warnings:
 
 - **UV divergences**: the vacuum energy and loop integrals blow up.
 - **Running couplings**: the "constants" of nature change with scale.
@@ -553,16 +553,16 @@ This sounds abstract, but it has concrete consequences. The model does not postu
 
 For the book, the picture is this:
 
-| Sector | What the framework fixes | What remains open |
+| Sector | What the framework fixes | What the framework does not fix |
 |---|---|---|
 | Gauge structure | The realized branch fixes the Standard Model quotient, the exact hypercharge lattice, and the generation/color counting | Bound-state spectroscopy is a separate layer |
 | Structural carriers | Photon, gluons, and graviton are forced to be massless | Nothing additional is needed at that structural level |
 | Electroweak sector | One electroweak transport family fixes the weak-boson pair and the Thomson-limit electromagnetic coupling | The full ultraviolet running structure belongs to the broader calibration package |
 | Higgs and top | One electroweak calibration surface fixes a Higgs value and its companion top value | Connecting that top value to the direct experimental extraction requires extra work |
-| Charged leptons | The family structure is fixed and the remaining freedom is isolated to one overall anchor | One absolute mass-setting input is missing |
-| Quarks | The six running quark masses and corresponding Yukawa data are fixed in the model's physical quark basis | A fuller basis-independent closure remains open |
-| Neutrinos | One neutrino branch gives definite masses and Majorana phases | Stronger closure beyond that branch remains open |
-| Hadrons | Composite hadron masses are outside the closed package | Bound-state strong dynamics still have to be solved |
+| Charged leptons | The family geometry, the centered shape, and a same-family exact witness are fixed | The determinant normalization that would set the public electron, muon, and tau masses is not derived |
+| Quarks | The six running quark masses and corresponding Yukawa data are fixed in the model's physical quark basis | A basis-independent classification is not derived |
+| Neutrinos | One neutrino branch gives definite masses and Majorana phases | A branch-independent closure is not derived |
+| Hadrons | Composite hadron masses are outside the closed package | Bound-state strong dynamics require a separate solution |
 
 The detailed numerical rows belong to the calibration section just below.
 
@@ -731,7 +731,7 @@ which gives \(x^2-x-1=0\) and therefore \(x=\phi\). That is the exact
 equilibrium point of the three-level total/bulk/edge hierarchy. But the OPH
 record/observer framework does not put the realized universe at exact equilibrium:
 a universe with durable records, structure, and dynamics needs entropy
-gradients. The exact numerical value of \(P\) still comes from the calibration
+gradients. The exact numerical value of \(P\) comes from the calibration
 surface. The reason it lies close to \(\phi\) is that \(\phi\) fixes the exact
 balance point and the realized branch sits at a small equilibrium-breaking
 detuning away from it. This belongs to the quantitative calibration layer, not

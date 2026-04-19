@@ -1,12 +1,12 @@
 # Exact Non-Hadron Masses
 
-Generated: `2026-04-19T10:04:13Z`
+Generated: `2026-04-19T10:57:10Z`
 
 This bundle gives one exact mass output for every non-hadron particle on the declared OPH surfaces.
 It records exact-output surfaces rather than one uniform theorem tier.
 For quarks, the exact theorem surface matches the official PDG 2025 API running-quark target surface on the selected public physical quark frame class chosen by `P`.
 The same selected-class theorem emits explicit exact forward Yukawas `Y_u` and `Y_d`, and the same sextet is also realized on `current_family_only` and on the restricted current-family common-refinement transport-frame carrier.
-For charged leptons, this bundle records the exact same-family witness surface. The theorem surface also contains the live same-label `q_e` readback, the closed source-side determinant character, a conditional determinant-line lift, and an algebraic charged-mass readout once theorem-grade `A_ch(P)` is given. What remains open is the determinant normalization attaching that source-side character to the physical charged determinant line.
+For charged leptons, this bundle records the exact same-family witness surface. The theorem surface also contains the live same-label `q_e` readback, a source-side determinant character for a fixed formal source multiplicity vector, a conditional determinant-line lift, and an algebraic charged-mass readout once theorem-grade `A_ch(P)` is given. The open theorem is the determinant normalization attaching that source-side character to the physical charged determinant line.
 The top coordinate uses the PDG 2025 cross-section mass entry `Q007TP4`. The bridge to the auxiliary direct-top entry `Q007TP` is open and is tracked in [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207).
 
 | Particle | Exact Mass | Kind | Scope | Source |

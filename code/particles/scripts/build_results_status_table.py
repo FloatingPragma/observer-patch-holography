@@ -11,7 +11,7 @@ OPH-derived inputs: the local `/particles` calibration, flavor, neutrino, and
 hadron artifacts only. No legacy ancillary predictor surface is imported here.
 
 Output: `RESULTS_STATUS.md`, `results_status.json`, and the machine-readable
-public surface snapshot used for audits and progress tracking.
+public surface snapshot used for audits and status review.
 """
 
 from __future__ import annotations
@@ -184,10 +184,10 @@ if _QUARK_D12_INTERNAL_BACKREAD is not None:
     )
 CHARGED_CONTINUATION_NOTE = (
     "No public charged value is emitted on the theorem lane. The repo contains an exact same-family witness on "
-    "`current_family_only`, the live same-label `q_e` readback, the closed source-side determinant character "
-    "`S_M = sum_e M_e^ch log q_e`, a conditional determinant-line lift on theorem-grade physical charged data, "
-    "and the downstream algebraic readout from theorem-grade `A_ch(P)`. The remaining exact source theorem is the "
-    "sector-isolated trace-lift attachment / determinant-normalization closure "
+    "`current_family_only`, the live same-label `q_e` readback, a source-side determinant character "
+    "`S_M = sum_e M_e^ch log q_e` for a fixed formal source multiplicity vector, a conditional determinant-line lift on theorem-grade physical charged data, "
+    "and the downstream algebraic readout from theorem-grade `A_ch(P)`. The open source theorem is the "
+    "sector-isolated trace-lift attachment / determinant-normalization identity "
     "`3 mu(r) = sum_e M_e^ch log q_e(r)`, equivalently zero normalization defect "
     "`N_det(P) = s_det(P) - sum_e M_e^ch log q_e(P)`, beneath the broader D10 landing to `s_det(P)`."
 )

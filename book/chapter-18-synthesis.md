@@ -210,7 +210,7 @@ Under the full ledger above, the model yields:
 3. **The Standard Model gauge group** $SU(3) \times SU(2) \times U(1)/\mathbb{Z}_6$, reconstructed from the transportable bosonic edge-sector package, with MAR selecting the realized branch
 4. **Three generations, three colors**: fixed by anomaly cancellation together with MAR
 5. **Massless gauge bosons and graviton**: forced by emergent gauge and diffeomorphism invariance, which forbid mass terms
-6. **A particle sector with clear landmarks**: photon, gluons, graviton, W, and Z are fixed; the framework also carries a calibrated Higgs/top sector, a running quark package, and a neutrino branch with definite masses and phases, while charged leptons and hadrons remain the main open edges
+6. **A particle sector with clear landmarks**: photon, gluons, graviton, W, and Z are fixed; the framework also carries a calibrated Higgs/top sector, a running quark package, and a neutrino branch with definite masses and phases, while charged leptons and hadrons sit outside theorem-grade closure
 
 The photon and graviton are forced by the axiom chain. The framework reaches deep into particle physics and goes far beyond a vague gesture in that direction.
 
@@ -266,10 +266,10 @@ and impose exact self-similar balance,
 $$\frac{S_{\mathrm{gen}}}{S_{\mathrm{bulk}}}=\frac{S_{\mathrm{bulk}}}{\langle L\rangle},$$
 then \(x\) satisfies \(x^2-x-1=0\), so the unique positive equilibrium point is
 \(\phi=(1+\sqrt5)/2\). In that precise sense, the golden ratio is the exact
-self-similar balance point. But OPH does not place the realized universe at
+self-similar balance point. OPH does not place the realized universe at
 exact equilibrium: a universe with durable records, structure, and dynamics
 needs entropy gradients, so the realized branch sits slightly off that balance
-point. The exact numerical value of \(P\) still comes from the electroweak
+point. The exact numerical value of \(P\) comes from the electroweak
 calibration surface. The reason it sits close to \(\phi\) is structural. Exact
 equilibrium fixes the reference configuration, and the measured pixel input is
 a small equilibrium-breaking detuning away from it. This belongs to the
@@ -289,7 +289,7 @@ quantities.
 
 ![The Pixel Constant](../assets/pixel-constant.svg)
 
-That same local calibration structure organizes the main numerical claims. In plain language, one local input sets the electroweak scale, the low-energy electromagnetic coupling, and the effective gravitational coupling.
+That same local calibration structure organizes the main numerical claims. One local input sets the electroweak scale, the low-energy electromagnetic coupling, and the effective gravitational coupling.
 
 ![OPH unification diagram](../assets/OPH_Unification_Diagram.svg)
 
@@ -415,16 +415,16 @@ These follow from our axioms plus stated additional assumptions:
 
 For the book, the particle sector can be summarized as follows:
 
-| Sector | What the framework fixes | What remains open |
+| Sector | What the framework fixes | What the framework does not fix |
 | --- | --- | --- |
 | Structural carriers | Photon, gluons, and graviton are forced to be massless. | Nothing additional is needed at that structural level. |
 | Electroweak bosons | The $W$ and $Z$ masses are fixed on the electroweak calibration branch. | Their relation to bound-state strong dynamics is separate. |
 | Electromagnetic coupling | The same electroweak transport family yields $\alpha^{-1}(0)=137.035999177$ in the Thomson limit. | The broader ultraviolet running structure belongs to the same calibration package. |
 | Higgs and top | The same calibration branch gives $m_H = 125.1995304097179$ GeV and a companion top value $m_t = 172.3523553288312$ GeV. | Connecting that top value to the direct experimental extraction requires extra work. |
-| Charged leptons | The family structure is fixed and the remaining freedom is isolated to one overall anchor. | One absolute mass-setting input is missing. |
-| Quarks | The six running quark masses and corresponding Yukawa data are fixed in the model's physical quark basis. | A fuller basis-independent closure remains open. |
-| Neutrinos | One neutrino branch gives definite masses and Majorana phases. | Stronger closure beyond that branch remains open. |
-| Hadrons | Composite hadron masses are outside the closed package. | Bound-state strong dynamics still have to be solved. |
+| Charged leptons | The family geometry, the centered shape, and a same-family exact witness are fixed. | The determinant normalization that would set the public electron, muon, and tau masses is not derived. |
+| Quarks | The six running quark masses and corresponding Yukawa data are fixed in the model's physical quark basis. | A basis-independent classification is not derived. |
+| Neutrinos | One neutrino branch gives definite masses and Majorana phases. | A branch-independent closure is not derived. |
+| Hadrons | Composite hadron masses are outside the closed package. | Bound-state strong dynamics require a separate solution. |
 
 ### Key Physical Arguments We Inherit
 
@@ -541,7 +541,7 @@ We must distinguish two questions:
 
 **Question A: Why does what exists have THIS SHAPE?**
 
-This is what our model aims to address comprehensively. Given that something exists and the OPH inputs hold, consistency requirements strongly constrain the structure we observe: emergent geometry, quantum correlations, time, and symmetries. The shape is not arbitrary, even though some ingredients still enter through theorem-local assumptions and external inputs.
+This is what our model aims to address comprehensively. Given that something exists and the OPH inputs hold, consistency requirements strongly constrain the structure we observe: emergent geometry, quantum correlations, time, and symmetries. The shape is not arbitrary, even though some ingredients enter through theorem-local assumptions and external inputs.
 
 **Question B: Why does ANYTHING exist at all?**
 
@@ -718,4 +718,4 @@ Escher's hands draw each other. Gödel's sentence refers to itself. The ouroboro
 
 Physicists are reality's hackers. And what we've hacked suggests that the hacker and the hacked belong to the same process, that the act of reverse engineering is itself part of what is being engineered.
 
-That synthesis still leaves one exposed frontier. If observers, meaning, and public reality belong to one structure, what should we say about experience itself? The next chapter turns from synthesis to metaphysics.
+That synthesis leaves one exposed frontier. If observers, meaning, and public reality belong to one structure, what should we say about experience itself? The next chapter turns from synthesis to metaphysics.

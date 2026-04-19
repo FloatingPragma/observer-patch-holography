@@ -170,7 +170,7 @@ LANES: List[Dict[str, Any]] = [
         "takeaway": "These carrier sectors stay massless on the structural OPH surface, so the outputs are exact zeros.",
         "logic": (
             "Use the realized gauge/content branch for photon and gluons, and the dynamical-metric "
-            "Einstein branch for the graviton. In plain English: OPH says the electromagnetic, color, "
+            "Einstein branch for the graviton. OPH says the electromagnetic, color, "
             "and spin-2 carrier sectors remain massless at the structural level because their mass terms "
             "would break required gauge or diffeomorphism redundancies."
         ),
@@ -229,8 +229,8 @@ LANES: List[Dict[str, Any]] = [
     {
         "key": "leptons",
         "title": "Charged Leptons",
-        "summary": "The charged-lepton lane contains a closed exact same-family readout on the fixed ordered carrier, the live same-label `q_e` readback, the closed source-side determinant character `S_M`, a conditional determinant-line lift on theorem-grade physical charged data, and an algebraic charged-mass readout from theorem-grade `A_ch(P)`.",
-        "takeaway": "The theorem surface contains the exact same-family witness, the live same-label `q_e` readback, the source-side determinant character, the conditional determinant-line lift, and the downstream algebraic mass readout. The remaining exact source theorem is the sector-isolated trace-lift attachment `3 mu(r) = sum_e M_e^ch log q_e(r)`, equivalently zero determinant-normalization defect.",
+        "summary": "The charged-lepton lane contains an exact same-family readout on the fixed ordered carrier, the live same-label `q_e` readback, a source-side determinant character `S_M` for a fixed formal source exponent vector, a conditional determinant-line lift on theorem-grade physical charged data, and an algebraic charged-mass readout from theorem-grade `A_ch(P)`.",
+        "takeaway": "The theorem surface contains the exact same-family witness, the live same-label `q_e` readback, the source-side determinant character for a fixed formal source exponent vector, the conditional determinant-line lift, and the downstream algebraic mass readout. The open source theorem is the sector-isolated trace-lift attachment `3 mu(r) = sum_e M_e^ch log q_e(r)`, equivalently zero determinant-normalization defect.",
         "logic": (
             "The lane starts from the ordered charged package, proves that the realized support is a one-dimensional "
             "linear subray, exposes the canonical quadratic support-extension direction, maps that into the charged "
@@ -240,11 +240,11 @@ LANES: List[Dict[str, Any]] = [
             "The theorem-facing charged absolute lane contains a conditional determinant-line lift on theorem-grade physical charged data: "
             "`mu_phys(Y_e) = (1/3) * log(det(Y_e))`, together with the canonical uncentered lift and determinant-line section. "
             "Once theorem-grade `A_ch(P)` is given, the charged absolute scale and the charged mass triple are algebraic readouts. "
-            "The live same-label `q_e` readback is already populated and the source-side determinant character is already fixed. "
-            "The unresolved step is the sector-isolated trace-lift attachment / determinant-normalization closure "
+            "The live same-label `q_e` readback supplies a populated source-side determinant character for each fixed formal source exponent vector. "
+            "The unresolved step is the sector-isolated trace-lift attachment / determinant-normalization identity "
             "`3 mu(r) = sum_e M_e^ch log q_e(r)` on the charged determinant channel, beneath the broader D10 landing to the charged determinant line."
         ),
-        "tasks_text": "Frontier statement: the same-family witness, the live same-label `q_e` readback, the source-side determinant character, the conditional determinant-line lift, and the algebraic mass readout are closed. The remaining exact source theorem is the sector-isolated trace-lift attachment / zero-normalization step `3 mu(r) = sum_e M_e^ch log q_e(r)`.",
+        "tasks_text": "Frontier statement: the same-family witness, the live same-label `q_e` readback, the source-side determinant character for a fixed formal source exponent vector, the conditional determinant-line lift, and the algebraic mass readout are part of the charged theorem surface. The open source theorem is the sector-isolated trace-lift attachment / zero-normalization identity `3 mu(r) = sum_e M_e^ch log q_e(r)`.",
         "prediction_surface": "Charged theorem surface with an exact same-family witness, a conditional determinant-line lift on theorem-grade physical charged data, and an algebraic charged-mass readout from theorem-grade `A_ch(P)`.",
         "particles": ["electron", "muon", "tau"],
         "tasks": ["papers.compact.e.30e-derive-d10-to-charged-determinant-line-landing"],

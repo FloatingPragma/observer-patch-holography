@@ -51,7 +51,7 @@ def build_artifact(
         "public_promotion_allowed": False,
         "theorem_statement": (
             "No theorem-grade charged masses are emitted from P on the current corpus. The operator-side "
-            "promotion theorem is still open, the post-promotion affine slot is still open, and no theorem-grade "
+            "promotion theorem is open, the post-promotion affine slot is open, and no theorem-grade "
             "bridge from the D10 calibration descendants of P to A_ch has been derived. Therefore A_ch(P), "
             "g_e(P), and the charged mass triple from P remain un-emitted."
         ),
@@ -114,8 +114,8 @@ def build_artifact(
         "notes": [
             "This is a dependency theorem, not a numerical mismatch report.",
             "It isolates exactly what remains before any public charged table can emit masses from P.",
-            "The symbolic formulas are already known; what is missing is the theorem-grade production of A_ch(P).",
-            "The charged P-bridge now sharpens further: the live same-label q_e readback is already populated, the source-side determinant character is already fixed, and the remaining exact smaller sufficient theorem is the sector-isolated determinant trace-lift attachment / normalization defect closure beneath the broader landing to the charged determinant line.",
+            "The symbolic formulas are known; the missing object is the theorem-grade production of A_ch(P).",
+            "The charged P-bridge is reduced to the live same-label q_e readback, the source-side determinant character on realized support, and the sector-isolated determinant trace-lift attachment / normalization-defect identity beneath the broader landing to the charged determinant line.",
         ],
     }
 

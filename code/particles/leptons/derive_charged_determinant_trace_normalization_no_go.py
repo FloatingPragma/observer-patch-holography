@@ -32,7 +32,7 @@ def build_artifact(frontier: dict, physical_equalizer: dict, physical_descent: d
     return {
         "artifact": "oph_charged_determinant_trace_normalization_no_go",
         "generated_utc": _timestamp(),
-        "proof_status": "source_character_closed_additive_normalization_open",
+        "proof_status": "source_character_defined_additive_normalization_open",
         "public_promotion_allowed": False,
         "scope": "current_corpus_relative_to_populated_q_e_and_post_promotion_trace_lift_scaffold",
         "source_side_character": {
@@ -79,12 +79,12 @@ def build_artifact(frontier: dict, physical_equalizer: dict, physical_descent: d
         "no_go_theorem": {
             "id": "charged_determinant_trace_normalization_not_forced_by_current_corpus",
             "statement": (
-                "The populated same-label readback closes the source-side determinant character "
-                "S_M = sum_e M_e^ch log q_e, and the post-promotion identity-mode equalizer closes "
-                "the fiberwise differences of mu. But the current charged corpus does not force the "
+                "The populated same-label readback fixes the source-side determinant character "
+                "S_M = sum_e M_e^ch log q_e, and the post-promotion identity-mode equalizer fixes "
+                "the fiberwise differences of mu. But the charged corpus does not force the "
                 "cross-normalization 3 mu(r) = S_M(r), because the additive affine shift mu -> mu + "
                 "kappa preserves the existing cocycle/equalizer contracts while leaving S_M fixed. "
-                "Therefore one additive determinant normalization constant remains unresolved."
+                "Therefore one additive determinant normalization constant stays unresolved."
             ),
             "proof_skeleton": [
                 "The live same-label q_e readback fixes S_M = sum_e M_e^ch log q_e on the realized support.",
@@ -108,9 +108,9 @@ def build_artifact(frontier: dict, physical_equalizer: dict, physical_descent: d
             ),
         },
         "notes": [
-            "This is stronger than merely restating that the frontier is open: it proves that current surfaces leave one additive determinant normalization unresolved.",
-            "It does not deny future closure; it isolates exactly the missing scalar normalization theorem.",
-            "The live same-label q_e readback remains fully populated and theorem-relevant on the source side.",
+            "This theorem states a relative underdetermination result for the charged determinant normalization.",
+            "It isolates the missing scalar normalization theorem.",
+            "The live same-label q_e readback is fully populated and theorem-relevant on the source side.",
         ],
     }
 

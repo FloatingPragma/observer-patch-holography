@@ -4,9 +4,9 @@
 This does not close the bridge. It fixes the broad reduction target for the
 charged P-driven absolute lane: a theorem-grade landing on the charged
 determinant line or theorem-grade physical Y_e(P), from which A_ch(P) is
-algebraic. On the sharper current frontier, the remaining exact smaller
-sufficient clause beneath that landing is the sector-isolated determinant
-trace-lift attachment / normalization-defect closure.
+algebraic. The exact smaller sufficient clause beneath that landing is the
+sector-isolated determinant trace-lift attachment / normalization-defect
+identity.
 """
 
 from __future__ import annotations
@@ -84,10 +84,10 @@ def build_artifact(d10_forward: dict, d10_repair: dict, determinant: dict, ancho
                 "charged_determinant_line_section(P)",
             ],
             "why_smaller_than_A_ch": [
-                "The determinant-line section already carries the correct common-shift covariance.",
+                "The determinant-line section carries the correct common-shift covariance.",
                 "The affine anchor is a readout of that line rather than an extra free scalar once the line is emitted.",
                 "The charged determinant-line extension theorem records A_ch = (1/3) * s_det = (1/3) * log(det(Y_e)).",
-                "On the current sharper frontier, the remaining exact smaller sufficient clause beneath this landing is the sector-isolated determinant trace-lift attachment 3 mu(r) = sum_e M_e^ch log q_e(r), equivalently zero determinant normalization defect N_det(P).",
+                "The exact smaller sufficient clause beneath this landing is the sector-isolated determinant trace-lift attachment 3 mu(r) = sum_e M_e^ch log q_e(r), equivalently zero determinant normalization defect N_det(P).",
             ],
         },
         "P_threaded_source_exactness_reformulation": {
@@ -102,7 +102,7 @@ def build_artifact(d10_forward: dict, d10_repair: dict, determinant: dict, ancho
                 "s_det(Y_e(P)) = 3 mu_phys(Y_e(P)) and A_ch(P) = mu_phys(Y_e(P))."
             ),
             "role": (
-                "This gives the broad bridge reduction. On the current sharper frontier, the remaining exact smaller sufficient clause beneath that landing is the sector-isolated determinant trace-lift attachment 3 mu(r) = sum_e M_e^ch log q_e(r), equivalently vanishing of the determinant normalization defect N_det(P) = s_det(P) - sum_e M_e^ch log q_e(P), on the charged determinant channel. After that attachment, the affine scalar and determinant-line data follow canonically rather than through an extra independent lift theorem."
+                "This gives the broad bridge reduction. The exact smaller sufficient clause beneath that landing is the sector-isolated determinant trace-lift attachment 3 mu(r) = sum_e M_e^ch log q_e(r), equivalently vanishing of the determinant normalization defect N_det(P) = s_det(P) - sum_e M_e^ch log q_e(P), on the charged determinant channel. After that attachment, the affine scalar and determinant-line data follow canonically through the determinant line."
             ),
         },
         "induced_objects_once_bridge_closes": {
@@ -124,7 +124,7 @@ def build_artifact(d10_forward: dict, d10_repair: dict, determinant: dict, ancho
                 "m_tau(P)": "exp(A_ch(P) + tau_log_centered(P))",
             },
         },
-        "do_not_claim_now": [
+        "do_not_claim": [
             "theorem_grade_physical_Y_e(P)",
             "charged_determinant_line_section(P)",
             "A_ch(P)",
@@ -136,8 +136,8 @@ def build_artifact(d10_forward: dict, d10_repair: dict, determinant: dict, ancho
         "notes": [
             "This is a reduction theorem, not a bridge-closure theorem.",
             "It fixes the smallest honest bridge target for the D10-to-charged absolute lane.",
-            "The live same-label q_e readback is already populated, and the source-side determinant character is already fixed.",
-            "The current sharper frontier sits one level lower as the determinant trace-lift attachment / normalization defect beneath the broader determinant-line landing.",
+            "The live same-label q_e readback supplies the source-side determinant character on realized support.",
+            "The frontier sits one level lower as the determinant trace-lift attachment / normalization defect beneath the broader determinant-line landing.",
         ],
     }
 

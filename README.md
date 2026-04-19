@@ -20,7 +20,7 @@ The quantitative side is deliberately small. OPH uses only two calibrated inputs
 The exact numerical value of `P` comes from the calibration surface. Its proximity to the golden ratio is part of the quantitative explanation. `φ = (1 + sqrt(5)) / 2` is the exact self-similar balance point of the total/bulk/edge hierarchy, and a universe with durable records, structure, and dynamics must sit at a small equilibrium-breaking detuning away from that balance point. This belongs to the Phase II calibration layer, not the structural core.
 
 - A finite-resolution theorem package for observer patches, collars, overlap repair, higher gauge structure, records, and checkpoint/restoration.
-- A conditional route to Lorentzian geometry, modular time, Jacobson-type Einstein dynamics, and de Sitter static-patch cosmology on the extracted prime geometric subnet; local null data fix the Einstein branch only up to a metric term, so the cosmological-capacity lane fixes `Lambda` through the global screen-capacity identification. Local null data alone do not fix it. The Einstein branch uses fixed-cap stationarity, the null-surface bridge, and the separate bounded-interval projective branch, while the remaining UV/BW scaffold is geometric cap-pair realization on that subnet plus ordered cut-pair rigidity, with the eventual fixed-local-collar modular-transport common floor as the smallest lower blocker.
+- A conditional route to Lorentzian geometry, modular time, Jacobson-type Einstein dynamics, and de Sitter static-patch cosmology on the extracted prime geometric subnet; local null data fix the Einstein branch only up to a metric term, so the cosmological-capacity lane fixes `Lambda` through the global screen-capacity identification. Local null data alone do not fix it. The Einstein branch uses fixed-cap stationarity, the null-surface bridge, and the separate bounded-interval projective branch. The UV/BW scaffold consists of geometric cap-pair realization on that subnet plus ordered cut-pair rigidity, with the eventual fixed-local-collar modular-transport common floor as the smallest lower blocker.
 - A conditional compact gauge route in the bosonic branch to the realized Standard Model quotient `SU(3) x SU(2) x U(1) / Z_6`, under the transportable-sector reconstruction premises and MAR, together with the exact hypercharge lattice and the realized counting chain `N_g = 3`, `N_c = 3`.
 - A particle program with exact structural massless carriers, a forward-emitted Phase II electroweak calibration branch with a closed target-free public `W/Z` theorem surface plus a compare-only exact frozen pair, an exact source-only Higgs/top split theorem on the declared D10/D11 running, matching, and threshold surface together with a compare-only exact inverse Higgs/top slice, an exact selected-class quark closure with explicit exact forward Yukawas, exact non-hadron mass surfaces, and explicit continuation lanes where theorem boundaries remain open.
 - A concrete screen-microphysics architecture that puts measurement, records, and observers inside the physics.
@@ -62,7 +62,7 @@ and `c` and `b` in the `MS` scheme at their own mass scale.
 The papers also contain the structural Standard Model derivations listed above and a theorem-grade
 neutrino family, which are not included in this table because they do not have a single direct
 PDG/NIST one-number comparison row.
-The current public neutrino surface also includes theorem-grade physical Majorana phases on the
+The public neutrino surface also includes theorem-grade physical Majorana phases on the
 shared-basis weighted-cycle transport branch; see `code/particles/RESULTS_STATUS.md`.
 
 The declared electroweak calibration surface also carries an exact source-only Higgs theorem with
@@ -74,12 +74,12 @@ The exact public running-top row on the selected quark frame uses the PDG 2025 c
 The bridge to the auxiliary direct-top average `Q007TP = 172.56 ± 0.31 GeV` is open and tracked in
 [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207).
 
-Charged leptons sit on a sharper theorem split. The repo carries an exact same-family witness, the live same-label `q_e` readback, a conditional determinant-line lift on physical charged data, and an algebraic mass readout from theorem-grade absolute charged scale. A formal underdetermination theorem now shows that current surfaces still leave one additive determinant normalization unresolved between the source-side determinant character and the physical charged determinant line, so no public charged masses are emitted yet.
+Charged leptons sit on a split claim tier. The repo carries an exact same-family witness, the same-label `q_e` readback, a source-side determinant character defined for a fixed source multiplicity vector, a conditional determinant-line lift on physical charged data, and an algebraic mass readout from theorem-grade absolute charged scale. The public theorem lane does not emit a theorem-grade sector-isolated charged determinant exponent vector, and it does not identify the source-side determinant character with the physical charged determinant line. Public electron, muon, and tau masses are therefore not emitted from `P`.
 
 ## Local Unification Surface
 
 OPH places a local unification surface around the calibrated local UV input. The same `P`-driven scale carries the electroweak boson and Higgs lane together with the gravity-side entropy lane, while the Lorentz branch supplies the invariant causal speed and the local readout package supplies the SI display. On the stated local extension surface, the lifted product presentation of the realized quotient branch gives `ellbar_shared = ellbar_SU(2) + ellbar_SU(3)`; the same D10 pixel law on that surface fixes `ellbar_shared = P/4`, and the local SI readout is `G_SI = c^3 a_cell / (hbar P)` relative to the declared microscopic datum `a_cell`.
-On the public constants surface, `hbar` and `k_B` remain part of that downstream familiar-unit readout. OPH does not emit them as standalone constants.
+On the public constants surface, `hbar` and `k_B` belong to that downstream familiar-unit readout. OPH does not emit them as standalone constants.
 
 <p align="center">
   <a href="assets/OPH_Unification_Diagram.svg" target="_blank" rel="noopener noreferrer">

@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
-"""Emit the current-corpus no-go for the D10-to-charged affine bridge.
+"""Emit the no-go for the D10-to-charged affine bridge.
 
-This artifact isolates the third charged blocker explicitly: the current corpus
-does not yet contain a theorem-grade bridge from the D10 calibration family of
-``P`` to the charged determinant line or affine anchor ``A_ch``; on the
-sharper current frontier the remaining exact smaller sufficient clause beneath
-that bridge is the sector-isolated determinant trace-lift attachment /
-normalization-defect closure.
+This artifact isolates the third charged blocker explicitly: the corpus does
+not contain a theorem-grade bridge from the D10 calibration family of ``P`` to
+the charged determinant line or affine anchor ``A_ch``. The exact smaller
+sufficient clause beneath that bridge is the sector-isolated determinant
+trace-lift attachment / normalization-defect identity.
 """
 
 from __future__ import annotations
@@ -110,14 +109,14 @@ def build_artifact(
             "no_hidden_landing_on_A_ch_from_P": True,
             "why_more_digits_of_P_do_not_help": (
                 "The missing object is theorem-sized bridge content, not numerical precision inside the "
-                "already-closed D10 electroweak lane."
+                "closed D10 electroweak lane."
             ),
         },
         "exact_missing_object": {
             "id": "d10_to_charged_affine_anchor_bridge",
             "smallest_honest_contract": (
                 "one theorem-grade map from the D10 calibration descendants of P to the charged determinant "
-                "line; on the current sharper frontier the exact smaller sufficient clause beneath that landing "
+                "line; the exact smaller sufficient clause beneath that landing "
                 "is the sector-isolated determinant trace-lift attachment 3 mu(r) = sum_e M_e^ch log q_e(r), "
                 "equivalently zero determinant normalization defect N_det(P), on the charged determinant channel"
             ),
@@ -149,9 +148,9 @@ def build_artifact(
         ],
         "notes": [
             "This artifact does not deny that a future universal P-driven charged-mass law may exist; it records that no such bridge is presently derived.",
-            "The charged affine anchor remains downstream of the post-promotion uncentered trace lift rather than a visible D10 readout today.",
-            "The live same-label q_e readback is already populated, and the source-side determinant character is already fixed.",
-            "The remaining exact smaller sufficient theorem is the determinant trace-lift attachment / normalization defect closure beneath the broader D10 landing.",
+            "The charged affine anchor sits downstream of the post-promotion uncentered trace lift, not on the visible D10 readout.",
+            "The live same-label q_e readback supplies the source-side determinant character on realized support.",
+            "The exact smaller sufficient theorem is the determinant trace-lift attachment / normalization-defect identity beneath the broader D10 landing.",
             "This is the exact local result needed before spending Pro cycles on a Step-3 bridge prompt.",
         ],
     }
