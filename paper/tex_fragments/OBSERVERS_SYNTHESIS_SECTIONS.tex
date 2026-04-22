@@ -9,72 +9,43 @@ defect, and gauge-quotient statements in that language.
 The consensus lane also carries a simple finite-candidate law-selection model: once one equips
 candidate repair rules with a fitness functional, replicator dynamics gives a clean toy picture in
 which more successful reconciliation laws dominate a competing pool. That selection picture is
-useful for the overall synthesis picture, but it is not part of the recovered-core gravity/gauge
-theorem surface and it is not a universality claim.
+useful for the overall synthesis picture, but in the consensus paper it remains a finite-candidate
+monotonicity result, not part of the recovered-core gravity/gauge theorem surface, not a
+universality claim, and not a literal cosmological dynamics claim.
 
-\paragraph{Theorem (Asynchronous confluence).}
-On a finite patch net with local recovery-derived repair maps, if normal forms are exactly the
-globally consistent states, the accepted local-fit contract strictly lowers the finite-valued
-inconsistency potential on every touched overlap set, disjoint accepted repairs commute by support
-locality, and overlapping repairs are read through a parenthesization-invariant union-collar
-gluing state on the physical quotient, then every initial configuration has a unique
-schedule-independent normal form.
-
-\paragraph{Proof sketch.}
-Because each accepted move changes only its touched-overlap set, the local-fit contract forces a
-strict decrease of the global inconsistency potential. That makes \(\Phi\) a Lyapunov functional
-and rules out infinite repair sequences. Disjoint repairs commute directly by support locality, while overlapping
-repairs rejoin because center-sector / higher-gauge union-collar gluing is
-parenthesization-independent on the physical quotient. That gives the local diamond, and the
-standard finite terminating local-to-global confluence step then upgrades it to global
-confluence. Therefore every initial state has a
-unique normal form, independent of the asynchronous update schedule, and the completeness clause
-identifies that normal form with the globally consistent state.
-
-\paragraph{Theorem (Cycle holonomy and higher-gauge defects).}
-Pairwise overlap agreement is not enough for global consistency. On the abelian branch, a global
-solution exists iff the cycle holonomy vanishes on every loop. On the genuinely noncentral
-branch, weak gluing data define a crossed-module Cech class
+On its declared fixed-cutoff branch, \emph{Reality as a Consensus Protocol: The Fixed-Point
+Computation That Implements Physics}~\cite{ophconsensus} imports four core D1 surfaces into the
+wrapper:
+\begin{enumerate}[leftmargin=2em]
+\item \textbf{Asynchronous confluence.} For the declared accepted repair law, the local-fit
+contract makes \(\Phi\) a Lyapunov functional and, together with the fixed-cutoff union-collar
+gluing package, yields a unique schedule-independent normal form under repair completeness.
+\item \textbf{Cycle obstruction and higher-gauge defects.} On the abelian branch, global
+consistency holds exactly when cycle holonomy vanishes; on the genuinely noncentral branch, the
+crossed-module defect class
 \[
-q_\Sigma \in \check H^2(N_\Sigma,H_\Sigma \to G_\Sigma),
+q_\Sigma \in \check H^2(N_\Sigma,H_\Sigma \to G_\Sigma)
 \]
-and strict global reconciliation exists iff \(q_\Sigma=0\). Nonzero \(q_\Sigma\) labels stable
-fixed-cutoff higher-gauge defects.
+labels the fixed-cutoff higher-gauge obstruction.
+\item \textbf{Gauge quotient and observable-level confluence.} The repair law descends to the
+overlap-invariant quotient, and the induced terminal state on the declared physical observable
+algebras is unique there even when microscopic representatives differ by gauge or sector
+relabelings inside one quotient-local glued state.
+\item \textbf{Record algebra and stability.} On the fixed-cutoff observer-accessible surface,
+central record projectors carry the Born/L\"uders package directly, while approximate record
+projectors inherit explicit \((\varepsilon,\delta_{\mathrm{rec}})\) stability bounds on that same
+event surface.
+\end{enumerate}
 
-\paragraph{Proof sketch.}
-In the abelian case, summing edge constraints around a loop telescopes, so vanishing of the loop
-sum is necessary and sufficient for path-independent reconstruction. In the crossed-module case,
-local rechartings are exactly crossed-module coboundaries, so they preserve the class and remove
-the defect precisely when the class is trivial.
-
-\paragraph{Theorem (Observable-level confluence on the quantum lift).}
-If the recovery-derived repair dynamics is read on the overlap-invariant quotient, the normal-form map descends to the quotient by
-implementation hiding:
-\[
-[s]\mapsto [\operatorname{nf}(s)].
-\]
-Every observable on the fixed-cutoff physical algebra therefore has the same terminal expectation
-on any two representative lifts of that quotient normal form, even when the microscopic
-representatives differ by gauge or sector relabelings inside one quotient-local glued state.
-Inert ancillary refinement does not change the physical output.
-
-\paragraph{Proof sketch.}
-Because the repair step is defined first on overlap-invariant quotient data, any representative
-lift of a repair sequence has the same quotient image. Uniqueness of quotient normal forms
-therefore fixes the terminal quotient state. The fixed-point / quotient-local
-observable algebra and the central sector projectors are invariant on the same declared
-quotient-local glued state, so their terminal expectations are independent of representative gauge
-or sector relabelings. Inert
-ancillary factors remain spectators under the lifted dynamics, so the physical output is
-unchanged.
-
-\paragraph{Extended derivation.}
-The full consensus, gauge-quotient, and operator-record theorem package is developed in
-\emph{Reality as a Consensus Protocol: The Fixed-Point Computation That Implements Physics}~\cite{ophconsensus}.
-On that fixed-cutoff surface the status split is explicit: exact normal-form computation is
+The consensus paper is equally explicit about the imported repair-law data and what remains
+outside the fixed-cutoff theorem stack. The declared repair step already includes the
+touched-overlap local-fit contract and the union-collar gluing package on the physical quotient;
+the remaining burdens above that step are repair completeness and, on the Petz branch, the stated
+support/CPTP clause. On that same fixed-cutoff surface, exact normal-form computation is
 finite-state and decidable, approximate stability is only collar-local through the splice and
-record estimates, and no universality theorem for a uniform family of growing patch nets and
-repair laws is claimed.
+record estimates, no global approximate-consensus theorem for long asynchronous noisy repair is
+claimed, and no universality theorem for a uniform family of growing patch nets and repair laws is
+claimed.
 
 \section{Particle-Spectrum Branch}
 
@@ -212,7 +183,7 @@ The synthesis-level point is that the regulated screen-side architecture supplie
 habitat in which local observables, overlap observables, record registers, and synchronization
 maps can all be written without pretending to identify a unique final UV completion.
 
-\paragraph{Theorem (Fixed-cutoff record algebra and Born-L\"uders package).}
+\paragraph{Imported theorem from Ref.~\cite{ophmicrophysics} (Fixed-cutoff record algebra and Born-L\"uders package).}
 For each completed compare/write/verify slice of the regulated microphysics, the declared pointer
 and overlap-sector projectors generate a finite commutative central record algebra
 \[
@@ -238,15 +209,7 @@ then
 and any accessible-state perturbation \(\|\widetilde\rho-\rho\|_1\le\varepsilon\) changes each
 declared elementary record-event probability by at most \(\varepsilon+\delta_{\mathrm{rec}}\).
 
-\paragraph{Proof sketch.}
-At fixed cutoff, the declared record and pointer projectors commute and the measurement surface
-factors through that finite commutative central algebra. Finite-dimensional projective
-measurement on a commuting projector algebra gives the Born trace and the L\"uders update
-directly. The approximate
-stability estimate is the same two-term bound used on the consensus surface: projector errors
-contribute \(\delta_{\mathrm{rec}}\) and accessible-state errors contribute \(\varepsilon\).
-
-\paragraph{Theorem (Fixed-cutoff Bell / CHSH package).}
+\paragraph{Imported theorem from Ref.~\cite{ophmicrophysics} (Fixed-cutoff Bell / CHSH package).}
 On the declared fixed-cutoff physical observable algebra, fix commuting left/right wing
 subalgebras, central binary setting registers, binary projective readouts on each wing, and a
 physical source state on the joint wing algebra. Then the compare slice carries the joint law
@@ -271,35 +234,12 @@ is explicit: the theorem derives the Bell law and the Tsirelson bound from the s
 fixed-cutoff operator surface, while Bell-pair preparation and two-qubit factor structure remain
 stated branch premises.
 
-\paragraph{Proof sketch.}
-The left/right readout projectors commute across wings, so the joint events lie in one commuting
-event algebra and Born's rule gives the joint law directly. Summing over one wing removes the
-remote projector and yields no-signaling. Writing
-\[
-A_x=P_{+|x}^{(L)}-P_{-|x}^{(L)},
-\qquad
-B_y=P_{+|y}^{(R)}-P_{-|y}^{(R)}
-\]
-gives \(A_x^2=B_y^2=\mathbf 1\) and \([A_x,B_y]=0\), so the standard CHSH operator identity
-\[
-\mathcal B^2=4\,\mathbf 1-[A_0,A_1][B_0,B_1]
-\]
-implies \(\|\mathcal B\|\le 2\sqrt2\). The explicit two-qubit branch gives equality for the
-standard Pauli choices.
-
-\paragraph{Theorem (Checkpoint/restoration and observer backup).}
+\paragraph{Imported theorem from Ref.~\cite{ophmicrophysics} (Checkpoint/restoration and observer backup).}
 For an observer patch \(P_O\), let the checkpoint data consist of the observer-facing record
 algebra, the accessible local state, the future update schedule, and the externally visible
 overlap interface data. Exact restoration reproduces the full future law of observer-accessible
 events, while an \(\varepsilon\)-accurate restoration changes that future law by at most
 \(\varepsilon\) in total variation.
-
-\paragraph{Proof sketch.}
-Exact restoration reinstates the same accessible state on the same observer-facing algebra with
-the same future channel sequence, so every later event probability agrees exactly. Approximate
-restoration is controlled by contractivity of trace distance under completely positive
-trace-preserving maps, which propagates the initial \(\varepsilon\) error bound to all later
-observer-accessible events.
 
 \paragraph{Observer-facing conclusion.}
 The theorem-level content is modest but sharp: OPH supplies a fixed-cutoff measurement interface,
@@ -318,7 +258,7 @@ the live OPH papers: a genuine theorem-level bridge from OPH edge sectors to the
 Yang-Mills partition function, followed by a conditional large-\(N_{\mathrm{edge}}\) continuation
 to a worldsheet reorganization.
 
-\paragraph{Theorem (Heat-kernel edge-sector bridge).}
+\paragraph{Imported theorem (Heat-kernel edge-sector bridge).}
 Import the fixed-cutoff same-overlap edge-law package from
 \emph{Screen Microphysics, Patches, and Observer Synchronization in OPH}~\cite{ophmicrophysics}.
 Under the same overlap-gauge realization and local-Gibbs/MaxEnt edge branch, the edge-sector
@@ -329,7 +269,7 @@ p_R(t)\propto d_R e^{-t C_2(R)}.
 Consequently the edge partition function matches the standard two-dimensional Yang-Mills
 heat-kernel form.
 
-\paragraph{Proof sketch.}
+\paragraph{Imported proof route.}
 The microphysics source surface carries the fixed-cutoff thermal/Casimir law on the declared
 overlap interface. Peter--Weyl decomposition~\cite{peterWeyl27}
 then identifies the resulting sum with the standard heat-kernel expression for
