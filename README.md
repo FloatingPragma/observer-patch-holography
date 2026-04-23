@@ -78,8 +78,13 @@ Charged leptons sit on a split claim tier. The repo carries an exact same-family
 
 ## Local Unification Surface
 
-OPH places a local unification surface around the calibrated local UV input. The same `P`-driven scale carries the electroweak boson and Higgs lane together with the gravity-side entropy lane, while the Lorentz branch supplies the invariant causal speed and the local readout package supplies the SI display. On the stated local extension surface, the lifted product presentation of the realized quotient branch gives `ellbar_shared = ellbar_SU(2) + ellbar_SU(3)`; the same D10 pixel law on that surface fixes `ellbar_shared = P/4`, and the local SI readout is `G_SI = c^3 a_cell / (hbar P)` relative to the declared microscopic datum `a_cell`.
-On the public constants surface, `hbar` and `k_B` belong to that downstream familiar-unit readout. OPH does not emit them as standalone constants.
+The local unification surface is organized around the calibrated local UV input. The same `P`-driven scale carries the electroweak boson and Higgs lane together with the gravity-side entropy lane, while the Lorentz branch supplies the invariant causal speed and the local familiar-unit package supplies meters, seconds, GeV, and Kelvin. On the stated local extension surface, the lifted product presentation of the realized quotient branch gives `ellbar_shared = ellbar_SU(2) + ellbar_SU(3)`; the same D10 pixel law on that surface fixes `ellbar_shared = P/4`, and the gravity-side emitted row is `G_SI = c^3 a_cell / (hbar P)` relative to the declared microscopic datum `a_cell`.
+The familiar-unit package on that surface is explicit: `L_loc = sqrt(a_cell) * Lhat(P)`,
+`t_loc = sqrt(a_cell) * That(P) / c`, `E_loc = hbar c * Ehat(P) / sqrt(a_cell)`, and
+`Theta_loc = hbar c * Thetahat(P) / (k_B sqrt(a_cell))`, with dimensionless branch outputs
+`Lhat`, `That`, `Ehat`, `Thetahat`. So `a_cell` supplies the one local ruler, `c` is the
+structural Lorentz output, and `hbar` and `k_B` are downstream familiar-unit display conventions
+for GeV and Kelvin rather than standalone OPH-emitted constants.
 
 <p align="center">
   <a href="assets/OPH_Unification_Diagram.svg" target="_blank" rel="noopener noreferrer">

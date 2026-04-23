@@ -248,7 +248,14 @@ The quantitative implementation is characterized by exactly **two external conti
 
 The axiom structure contains no dimensionful constants. It is pure mathematics describing how information organizes on holographic screens. These two parameters are the only "settings" that distinguish our universe from other possible universes running the same axiom structure.
 
-**Pixel area** determines the resolution of the computation, roughly 1.63 Planck areas per pixel. From this single calibration scale, Newton's gravitational constant and the Planck length follow. The gauge coupling strengths are also organized through this scale.
+**Pixel area** determines the resolution of the computation, roughly 1.63 Planck areas per pixel. From this single calibration scale, Newton's gravitational constant and the local mass scale follow. The gauge coupling strengths are also organized through this scale.
+
+The local familiar-unit package is then simple. Once \(P\) is fixed, the single local ruler is
+\(\sqrt{a_{\text{cell}}}\). Lengths are \(\sqrt{a_{\text{cell}}}\) times dimensionless branch
+values. Times are that same ruler divided by the structural causal speed \(c\). Energies and
+masses in GeV are the inverse ruler multiplied by \(\hbar c\). Temperatures in Kelvin are the
+same energy scale divided by \(k_B\). So \(c\) is a structural output, while \(\hbar\) and
+\(k_B\) are part of the familiar-unit display convention rather than extra emitted constants.
 
 **Screen capacity** determines the size of the computation. From the observed cosmological constant, we infer that the screen holds roughly $10^{122}$ bits, an enormous but finite number. This sets the de Sitter horizon radius at about $10^{26}$ meters. The cosmological constant itself is an input. It tells us how big the screen is, not why it has that size.
 

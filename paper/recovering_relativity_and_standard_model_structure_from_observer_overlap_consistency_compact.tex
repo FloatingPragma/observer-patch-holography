@@ -1293,7 +1293,7 @@ On the product heat-kernel branch, expectation values add, so
 If the same branch satisfies the D10 pixel law, the right-hand side equals \(P/4\). \qedhere
 \end{proof}
 
-\begin{proposition}[Local SI readout of the gravity row]\label{prop:gsi}
+\begin{proposition}[Local familiar-unit readout package on the gravity row]\label{prop:gsi}
 On the declared local extension surface, let \(a_{\mathrm{cell}}\) be the microscopic cell-area datum and define
 \[
 G_{\mathrm{nat}}:=\frac{a_{\mathrm{cell}}}{4\ellbar_{\mathrm{shared}}}.
@@ -1308,6 +1308,22 @@ G_{\mathrm{SI}}
 =
 \frac{c^3 a_{\mathrm{cell}}}{\hbar P}.
 \]
+More generally, if \(\widehat L(P)\), \(\widehat T(P)\), \(\widehat E(P)\), and
+\(\widehat\Theta(P)\) denote dimensionless branch outputs on that same local branch, then
+\[
+L_{\mathrm{loc}}=\sqrt{a_{\mathrm{cell}}}\,\widehat L(P),
+\qquad
+t_{\mathrm{loc}}=\frac{\sqrt{a_{\mathrm{cell}}}}{c}\,\widehat T(P),
+\]
+\[
+E_{\mathrm{loc}}=\frac{\hbar c}{\sqrt{a_{\mathrm{cell}}}}\,\widehat E(P),
+\qquad
+\Theta_{\mathrm{loc}}=\frac{\hbar c}{k_B\sqrt{a_{\mathrm{cell}}}}\,\widehat\Theta(P).
+\]
+Thus, at fixed \(P\), local lengths scale with \(a_{\mathrm{cell}}^{1/2}\) alone, local times
+use that same \(a_{\mathrm{cell}}^{1/2}\) scale divided by the structural Lorentz output \(c\),
+and local mass/energy and temperature rows use the inverse \(a_{\mathrm{cell}}^{1/2}\) scale
+dressed only by the familiar-unit display conventions \(\hbar\) and \(k_B\).
 \end{proposition}
 
 \begin{proof}
@@ -1328,8 +1344,13 @@ then gives
 G_{\mathrm{SI}}
 =
 \frac{c^3 a_{\mathrm{cell}}}{\hbar P}.
-\qedhere
 \]
+The remaining formulas are dimensional bookkeeping on the same declared local branch. Because \(P\)
+is dimensionless and \(a_{\mathrm{cell}}\) is the only local microscopic area datum, every local
+length readout is \(\sqrt{a_{\mathrm{cell}}}\) times a dimensionless branch quantity. The structural
+Lorentz output \(c\) converts that same local ruler to seconds, while the familiar-unit display
+constants \(\hbar\) and \(k_B\) convert the inverse local ruler to energy/mass rows and to Kelvin
+rows. \qedhere
 \end{proof}
 
 Proposition~\ref{prop:splice} is the algebraic version of interior invariance under compatible exterior substitutions. Proposition~\ref{prop:modulartransport} is the precise bridge from small collar conditional mutual information to the exact modular identities later used by the spatial and null branches: at finite stage one carries a remainder, and exact identities appear only when that remainder is zero or tends to zero in the controlled collar limit. Proposition~\ref{prop:gensplit} isolates the exact entropy split, while Definition~\ref{def:newton} supplies the continuum identification that turns the edge center into a gravitational coupling.
@@ -3360,9 +3381,11 @@ P/4,
 \qquad
 G=\frac{a_{\mathrm{cell}}}{4\,\ellbar(t)}.
 \]
-The exact local release burden consists of two explicit objects: one strict classical-regime
-clause above the BW/Lorentz honesty package and one target-free D10 chart-identity theorem for exact
-\(W/Z\). On the gravity side,
+The remaining exact local release burden consists of two theorem-sized objects: one strict
+classical-regime clause above the BW/Lorentz honesty package and one target-free D10
+chart-identity theorem for exact \(W/Z\). The familiar-unit readout is not a third theorem-sized
+burden. It is the explicit display package attached to the theorem-side data
+\(a_{\mathrm{cell}}\), \(c\), and \(\ellbar_{\mathrm{shared}}\). On the gravity side,
 Proposition~\ref{prop:sharededgeentropy} gives
 \[
 \ellbar_{\mathrm{shared}}
@@ -3378,6 +3401,19 @@ and Proposition~\ref{prop:gsi} gives the local SI readout
 G_{\mathrm{SI}}=\frac{c^3 a_{\mathrm{cell}}}{\hbar P}
 \]
 relative to the declared microscopic datum \(a_{\mathrm{cell}}\).
+The same proposition fixes the full familiar-unit package:
+\[
+L_{\mathrm{loc}}=\sqrt{a_{\mathrm{cell}}}\,\widehat L(P),\qquad
+t_{\mathrm{loc}}=\frac{\sqrt{a_{\mathrm{cell}}}}{c}\,\widehat T(P),
+\]
+\[
+E_{\mathrm{loc}}=\frac{\hbar c}{\sqrt{a_{\mathrm{cell}}}}\,\widehat E(P),\qquad
+\Theta_{\mathrm{loc}}=\frac{\hbar c}{k_B\sqrt{a_{\mathrm{cell}}}}\,\widehat\Theta(P),
+\]
+with dimensionless \(\widehat L,\widehat T,\widehat E,\widehat\Theta\). Meters and seconds are
+therefore read from the single local ruler \(\sqrt{a_{\mathrm{cell}}}\) together with the
+structural Lorentz output \(c\), while GeV and Kelvin are downstream familiar-unit displays of the
+inverse local ruler through \(\hbar\) and \(k_B\).
 On that declared extension surface the local release values are
 \[
 c=299792458\,\mathrm{m/s},
@@ -3400,7 +3436,7 @@ The paper does not claim complete closure of all low-energy observables.\footnot
 
 Observer-Patch Holography starts from overlap consistency of observer patches and yields, within one framework, several effective structures usually treated separately in modern fundamental physics. This SM/GR derivation paper supports a unique schedule-independent normal form for overlap repair and hence a unique physical UV branch only modulo boundary redundancy, implementation hiding, and inert ancillary stabilization, a conditional Lorentz branch on the extracted prime geometric cap pair, a conditional Jacobson-type Einstein branch under fixed-cap stationarity and the null modular bridge together with the bounded-interval projective branch, the Standard Model gauge quotient with exact hypercharges on the realized matter package under the MAR admissibility package in the bosonic internal-gauge branch, the realized counting chain \(N_g=3\) then \(N_c=3\) on that branch, a separate integrated gauge-calibration sector, and a separate input-dependent cosmological-capacity corollary. Phenomenological continuations are discussed separately from the recovered core.
 
-The framework therefore presents general relativity and the Standard Model as effective descriptions arising once the stated scaling-limit, geometric-subnet, and categorical premises are realized. The local quantitative claim surface is equally explicit: on a four-object extension surface, the same declared pixel input \(P\) controls the electroweak/Higgs mass trunk and the classical-regime gravity coupling, while the invariant causal speed \(c\) is the structural Lorentz output with explicit SI readout. Open items are sharper quantitative control, full derivation of the refinement-limit bosonic ordinary/central gauge package of Assumption~\ref{ass:gaugeprem}, a fuller fermionic gauge branch, explicit microscopic realizations that emit the prime geometric cap pair and support ordered cut-pair rigidity, and proof of those four local exact-release objects on the live corpus.
+The framework therefore presents general relativity and the Standard Model as effective descriptions arising once the stated scaling-limit, geometric-subnet, and categorical premises are realized. The local quantitative claim surface is equally explicit: the same declared pixel input \(P\) controls the electroweak/Higgs mass trunk and the classical-regime gravity coupling, the invariant causal speed \(c\) is the structural Lorentz output, and the familiar-unit package reads meters, seconds, GeV, and Kelvin from the single local ruler \(\sqrt{a_{\mathrm{cell}}}\) with \(\hbar\) and \(k_B\) used only as display conventions. Open items are sharper quantitative control, full derivation of the refinement-limit bosonic ordinary/central gauge package of Assumption~\ref{ass:gaugeprem}, a fuller fermionic gauge branch, explicit microscopic realizations that emit the prime geometric cap pair and support ordered cut-pair rigidity, and proof of the remaining theorem-side local exact-release objects on the live corpus.
 
 \appendix
 \input{tex_fragments/COMPACT_TECHNICAL_SUPPLEMENT_PORT.tex}
