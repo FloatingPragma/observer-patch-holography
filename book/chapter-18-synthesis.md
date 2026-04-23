@@ -312,7 +312,7 @@ The "island formula" shows that in specific semiclassical holographic models, an
 
 ### Anomalies as Loop-Gluing Obstructions
 
-Gluing overlap descriptions around loops can fail by a central phase or, more generally, by a crossed-module higher-gauge defect. In the EFT limit the central truncation is the familiar 't Hooft anomaly. Vanishing of the relevant obstruction is equivalent to loop-coherent gluing and immediately yields Standard Model-facing constraints, including hypercharge relations (and the Witten anomaly condition that N_c is odd).
+Gluing overlap descriptions around loops can fail by a central phase or, more generally, by a crossed-module higher-gauge defect. In the EFT limit the central truncation is the familiar 't Hooft anomaly. Vanishing of the relevant obstruction is equivalent to loop-coherent gluing and immediately yields Standard Model-facing constraints, including hypercharge relations (and the Witten anomaly condition that N_c is odd). On the fixed-cutoff branch, that genuinely noncentral crossed-module package is already closed; the remaining open item is the refinement-limit transportable-sector lift used later by the compact-gauge route.
 
 ### Laws as Survivors
 
