@@ -66,7 +66,7 @@ This paper proves four core results:
 
 \begin{enumerate}
 \item \textbf{Asynchronous confluence.} For the declared accepted repair law, the local-fit contract makes \(\Phi\) a Lyapunov functional and hence gives termination, while the fixed-cutoff union-collar gluing package gives the local diamond on the physical quotient; under repair completeness, every initial state has a unique normal form, independent of update schedule (Theorem~\ref{thm:confluence}).
-\item \textbf{Cycle obstruction.} For affine overlap constraints over an abelian group, global consistency holds if and only if the holonomy vanishes on every cycle (Theorem~\ref{thm:holonomy}). The parity triangle gives the minimal frustrated example, and Theorem~\ref{thm:higherdefects} extends the same logic to the crossed-module higher-gauge defect hierarchy used later in OPH.
+\item \textbf{Cycle obstruction.} For affine overlap constraints over an abelian group, global consistency holds if and only if the holonomy vanishes on every cycle (Theorem~\ref{thm:holonomy}). The parity triangle gives the minimal frustrated example, and Theorem~\ref{thm:higherdefects} extends the same logic to the crossed-module higher-gauge defect hierarchy used later in the framework.
 \item \textbf{Gauge quotient and observable-level confluence.} When local repair is induced on the overlap-invariant quotient, the normal-form map descends to that quotient, and the induced terminal state on every declared physical observable algebra is unique there even when microscopic representatives differ by gauge or sector relabelings inside one quotient-local glued state (Theorems~\ref{thm:gauge}, \ref{thm:obsconfluence}).
 \item \textbf{Record algebra and stability.} On the fixed-cutoff observer-accessible surface, central record projectors carry Born/L\"uders measurement directly, and approximate record projectors inherit explicit \((\varepsilon,\delta_{\mathrm{rec}})\) stability bounds on the same event surface (Theorem~\ref{thm:crdt}).
 \end{enumerate}
@@ -817,11 +817,11 @@ The bridge to physics works as follows in the broader paper stack:
 
 \begin{itemize}
 \item The patch net becomes a net of subregion algebras on $S^2$.
-\item Overlap Consistency, one of the canonical OPH axioms, is the algebraic version of Definition~\ref{def:patchnet}.
+\item Overlap Consistency, one of the canonical framework axioms, is the algebraic version of Definition~\ref{def:patchnet}.
 \item The recoverability clause of the canonical Recoverable Generalized Entropy axiom provides the collar factorization $\rho_{ABD} = \bigoplus_\alpha p_\alpha\,\rho^{(\alpha)}_{Ab_L^\alpha}\otimes\rho^{(\alpha)}_{b_R^\alpha D}$ and the declared Petz/Fawzi--Renner recovery channels from which the local repair moves are built (see Appendix~\ref{app:splice} and Definition~\ref{def:oph-repair-map}).
-\item Gauge symmetry as implementation hiding (Theorem~\ref{thm:gauge}) becomes the edge-sector fusion structure from which OPH conditionally reconstructs a compact gauge group and, under the MAR admissibility package, selects the Standard Model gauge group $\mathrm{SU}(3)\times\mathrm{SU}(2)\times\mathrm{U}(1)/\mathbb{Z}_6$.
-\item Stable defects (Corollary~\ref{cor:defects}) become the topologically protected excitations that OPH identifies with particles.
-\item The record-algebra theorem (Theorem~\ref{thm:crdt}) provides the formal basis for the fixed-cutoff observation layer in OPH, where records are carried by central or quantitatively stable approximately commuting projectors in overlap centers.
+\item Gauge symmetry as implementation hiding (Theorem~\ref{thm:gauge}) becomes the edge-sector fusion structure from which the compact-gauge branch conditionally reconstructs a compact gauge group and, under the MAR admissibility package, selects the Standard Model gauge group $\mathrm{SU}(3)\times\mathrm{SU}(2)\times\mathrm{U}(1)/\mathbb{Z}_6$.
+\item Stable defects (Corollary~\ref{cor:defects}) become the topologically protected excitations identified with particles on the declared branch.
+\item The record-algebra theorem (Theorem~\ref{thm:crdt}) provides the formal basis for the fixed-cutoff observation layer, where records are carried by central or quantitatively stable approximately commuting projectors in overlap centers.
 \end{itemize}
 
 The companion manuscripts develop a conditional gravity branch from entanglement equilibrium and modular geometry, the SM gauge-group closure from edge-sector admissibility plus MAR, and a worldsheet/string reorganization from large-$N$ heat-kernel asymptotics. Input-dependent cosmological statements and later phenomenological continuations are kept explicitly separate from that recovered-core claim set.
