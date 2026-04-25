@@ -80,7 +80,7 @@ STATUS_BAR = {
 
 STATUS_TEXT = {
     "structural": "structural",
-    "calibration": "calibration",
+    "calibration": "electroweak closure",
     "secondary_quantitative": "secondary",
     "selected_class_theorem": "selected-class theorem",
     "continuation": "continuation",
@@ -121,7 +121,7 @@ GROUP_ROW_TEXT = {
 
 STATUS_EXPLAINER = {
     "structural": "exact structural theorem surface",
-    "calibration": "closed calibration theorem surface after fixing the shared scale P",
+    "calibration": "implemented P-driven electroweak quantitative-closure surface",
     "secondary_quantitative": "quantitative secondary branch with a separate proof package",
     "selected_class_theorem": "theorem-grade closure on the public quark frame class selected by P",
     "continuation": "declared continuation or witness surface rather than theorem-grade public output",
@@ -130,7 +130,7 @@ STATUS_EXPLAINER = {
 
 STATUS_NEXT_STEP = {
     "structural": "This row belongs to the structural zero surface.",
-    "calibration": "This row belongs to the calibrated target-free theorem surface.",
+    "calibration": "This row belongs to the implemented P-driven electroweak closure surface.",
     "secondary_quantitative": "This row belongs to a quantitative secondary branch with its own proof surface.",
     "selected_class_theorem": "This row belongs to a theorem-grade closure on the public quark frame class selected by P.",
     "continuation": "This row belongs to a declared continuation or witness surface rather than a theorem-grade public output.",
@@ -181,22 +181,19 @@ LANES: List[Dict[str, Any]] = [
     },
     {
         "key": "d10",
-        "title": "D10 Electroweak Calibration",
-        "summary": "The D10 lane fixes the single-P running family, the reduced two-scalar carrier, the exact current-carrier mass chart, the source-locked W/Z mass lane, and the Ward-projected electromagnetic transport family.",
-        "takeaway": "This lane fixes the shared scale P on its declared surface, carries W and Z on the D10 mass lane, and reads the fine-structure constant from the Thomson endpoint alpha^-1(0)=137.035999177.",
+        "title": "Electroweak Closure Surface",
+        "summary": "This lane starts from the shared pixel ratio P, builds the electroweak running family, and emits the public W/Z mass surface together with the electromagnetic closure lane.",
+        "takeaway": "This lane uses the selected pixel ratio P to organize the electroweak sector. The W and Z rows are public outputs on this surface, while the low-energy electromagnetic closure remains a separate frontier.",
         "logic": (
-            "From P the code builds M_U, solves alpha_U from the pixel constraint, gets the electroweak "
-            "scale v, runs couplings to mZ_run, emits the source basis `(alpha2_mz, alphaY_mz, eta_source, v)`, "
-            "reduces it to the two-scalar `(sigma_EW, eta_EW)` family, and keeps the selected-carrier mass chart "
-            "explicit on disk. The D10 mass-side theorem fixes the W/Z pair from that source trunk. The physical "
-            "electromagnetic readout is not taken from the compact hypercharge slice. Instead the running-family "
-            "anchor `a0 = alpha_em^-1(m_Z^2) = 128.30576920234813` is read through `EWTransportKernel_D10` after "
-            "Ward projection to the unbroken `U(1)_Q` channel, and the Thomson endpoint gives "
-            "`alpha^-1(0) = 137.035999177`. The freeze-once W/Z pair sits beneath the same source trunk as "
-            "compare-only validation."
+            "From P the code builds the unification scale, solves the shared coupling constraint, gets the "
+            "electroweak scale, runs the couplings to the Z scale, and emits the source basis that feeds the "
+            "mass chart. The W/Z theorem sits on that source trunk. The electromagnetic side is tracked "
+            "separately as an outer/inner closure problem for the same pixel. The running-family anchor at the "
+            "Z scale is a consistency surface, not the final zero-momentum closure by itself. The frozen W/Z pair "
+            "sits beneath the same source trunk as compare-only validation."
         ),
-        "tasks_text": "Frontier statement: the D10 source trunk fixes the W/Z mass lane, while the electromagnetic row is read on the Ward-projected `U(1)_Q` transport family beneath `EWTransportKernel_D10` with one shared provenance lock.",
-        "prediction_surface": "Source-locked D10 running family plus W/Z mass lane and Ward-projected `U(1)_Q` transport family, anchored at `alpha^-1(m_Z^2)=128.30576920234813` and read physically at `alpha^-1(0)=137.035999177`.",
+        "tasks_text": "Frontier statement: this trunk fixes the W/Z mass lane, while the remaining electromagnetic frontier is the direct zero-momentum closure for the same pixel.",
+        "prediction_surface": "P-driven electroweak running family plus public W/Z mass lane. The low-energy electromagnetic row is tracked separately as a closure problem for the same pixel.",
         "particles": ["w_boson", "z_boson"],
         "tasks": [
             "particles.calibration.02-separate-p-resolution-from-d10-transport-mismatch",
@@ -222,7 +219,7 @@ LANES: List[Dict[str, Any]] = [
             "row is open and is tracked in `#207`."
         ),
         "tasks_text": "Ledger state: the exact source-only electroweak Higgs theorem is closed on the declared running, matching, and threshold surface; the one-scalar seed stays on disk as a lower-rank fixed-ray branch; the exact inverse slice remains compare-only; the direct-top bridge is open under `#207`.",
-        "prediction_surface": "Electroweak calibration-theorem surface with an exact Higgs row and a companion top coordinate on the declared Jacobian surface.",
+        "prediction_surface": "Electroweak split-theorem surface with an exact Higgs row and a companion top coordinate on the declared Jacobian surface.",
         "particles": ["higgs"],
         "tasks": [],
     },
@@ -1276,8 +1273,8 @@ def build_svg(results: Dict[str, Any], tasks: Dict[str, Dict[str, Any]], exact_b
         {
             "x": MARGIN_X + axiom_w + input_gap,
             "w": p_w,
-            "title": "Declared External Input: P",
-            "body": [f"P = {inputs['P']}. This scalar is the main numerical upstream input for the electroweak, flavor, and hadron branches."],
+            "title": "Shared Closure Variable: P",
+            "body": [f"P = {inputs['P']}. This scalar is the local pixel ratio selected on the outer/inner closure surface and shared by the electroweak, flavor, and hadron lanes."],
             "fill": COLORS["input_fill"],
             "stroke": COLORS["input_stroke"],
         },
@@ -1318,9 +1315,9 @@ def build_svg(results: Dict[str, Any], tasks: Dict[str, Dict[str, Any]], exact_b
     scaffold_y = current_y
     scaffold_w = WIDTH - 2 * MARGIN_X
     scaffold_body = [
-        "Start with the OPH axioms plus the declared scalar P and the extra input surface used by the neutrino lane.",
+        "Start with the OPH axioms plus the shared closure variable P and the extra input surface used by the neutrino lane.",
         "Then read each lane from top to bottom: implemented theorem content, named frontier objects, prediction surface, and the particle rows shown on the public table.",
-        f"The badge reports {closedish} of {total_rows} tracked rows above continuation / simulation status. Those rows sit on structural, calibration, secondary quantitative, or selected-class theorem surfaces.",
+        f"The badge reports {closedish} of {total_rows} tracked rows above continuation / simulation status. Those rows sit on structural, electroweak-closure, secondary quantitative, or selected-class theorem surfaces.",
         "The broader UV/BW premise boundary sits above the particle lanes. Three cap-pair extraction witnesses are explicit on disk. On the local-Gibbs pullback branch, the Markov/recovery side is latent, so the missing clause inside the fixed-local-collar Markov/faithfulness datum is `eventual_fixed_local_collar_common_floor_on_modular_transport_marginals`, the common eventual floor on the finitely many modular-transport marginals feeding the faithful modular-defect term, followed by ordered null cut-pair rigidity.",
     ]
     scaffold_h = estimate_box_height(
@@ -1383,8 +1380,8 @@ def build_svg(results: Dict[str, Any], tasks: Dict[str, Dict[str, Any]], exact_b
             "Status colors",
             [
                 "structural = massless or exact structural rows",
-                "calibration = produced by the implemented P-driven electroweak chain",
-                "secondary = quantitative branch built on an earlier calibrated layer",
+                "electroweak closure = produced by the implemented P-driven electroweak chain",
+                "secondary = quantitative branch built on an earlier electroweak-closure layer",
                 "selected-class theorem = theorem-grade closure on the public quark frame class selected by P",
                 "continuation = declared continuation or witness surface",
                 "simulation = execution-bound lane with backend and systematics prerequisites",

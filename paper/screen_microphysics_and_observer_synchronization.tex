@@ -21,7 +21,7 @@
 \OPHPaperReleaseBanner
 
 \begin{abstract}
-This paper gives the concrete microphysics side of Observer-Patch Holography. Patches, overlaps, records, and observers are written as explicit finite registers with declared readout, repair, and synchronization rules. The result is a fixed-cutoff architecture that can be simulated directly and used to analyze measurement, stable records, checkpoint/restoration, and observer synchronization inside one shared quantum system. The same setup also gives the edge-sector heat-kernel law that feeds the gauge-coupling sector. On the quantitative branch carried by the companion papers, the total/bulk/edge hierarchy has one exact self-similar balance point at the golden ratio, while an observer-supporting universe requires a small detuning away from that exact symmetry. The paper does not claim a final UV completion. It gives the finite reference surface on which the rest of the program is built.
+This paper gives the hardware picture behind Observer-Patch Holography. Patches, overlaps, records, and observers are written as explicit finite registers with declared readout, repair, and synchronization rules. The result is a concrete fixed-cutoff screen architecture that can be simulated directly and used to analyze measurement, stable records, checkpoint and restoration, and observer synchronization inside one shared quantum system. The same architecture also gives the edge-sector heat-kernel law that feeds the gauge-coupling branch. On the quantitative side carried by the companion papers, the total, bulk, and edge entropy hierarchy has one exact self-similar balance point at the golden ratio, while an observer-supporting universe requires a small detuning away from that symmetry. This paper presents the finite reference surface on which the rest of the OPH program is built.
 \end{abstract}
 
 \tableofcontents
@@ -32,11 +32,9 @@ This paper gives the concrete microphysics side of Observer-Patch Holography. Pa
 This paper sets out one concrete reference architecture for local finite screen degrees of
 freedom. It gives an explicit bridge from local registers to patches, overlaps, records,
 observers, and synchronization, together with fixed-cutoff theorem packages for measurement and
-checkpoint/restoration. The claim boundary is narrow: theorem statements, simulator targets, and
-conjectural bridges are separated throughout. No uniqueness claim for the microscopic UV
-completion is made here, the OPH scaling-limit continuum and gravity branches are not derived
-here, ``observer'' is used operationally, and synchronization of overlap data is not presented as
-full continuum closure.
+checkpoint and restoration. The claim boundary is narrow: theorem statements, simulator targets, and
+conjectural bridges are separated throughout. The paper does not identify a unique microscopic UV
+completion, it does not derive the scaling-limit continuum and gravity branches, ``observer'' is used operationally, and synchronization of overlap data is not presented as full continuum closure.
 
 \section{Claim Taxonomy}
 
@@ -70,12 +68,12 @@ Several microscopic families are logically possible: constrained finite gauge re
 quantum-link truncations of compact gauge systems, string-net or quantum-double models,
 generic tensor-network ans\"atze, or ad hoc observer automata attached to a screen. For a
 reference-model construction, the first working model should be selected by engineering
-criteria rather than by aesthetic breadth.
+criteria. Aesthetic breadth comes second.
 
 The selection criteria are:
 \begin{enumerate}[leftmargin=2em]
 \item finite local Hilbert spaces at fixed cutoff;
-\item exact local constraints rather than only emergent ones;
+\item exact local constraints;
 \item a natural patch and overlap algebra;
 \item explicit edge-sector or center observables on collars;
 \item straightforward qudit-to-qubit compilation;
@@ -87,10 +85,10 @@ truncations.
 A constrained finite gauge-register or quantum-link style screen model is therefore the
 default reference architecture for this draft. It is finite-dimensional, local, gauge-aware,
 and speaks the same language as the OPH regulator package. It also makes the collar
-center and edge-sector story concrete instead of metaphorical.
+center and edge-sector story concrete.
 
-This choice is a working \emph{reference architecture}. It is not a claim that all other
-microscopic families are ruled out.
+This choice is a working \emph{reference architecture}. It leaves room for other
+microscopic families.
 
 \section{Reference Architecture: Local Screen Registers on a Cellulated Sphere}
 
@@ -164,9 +162,7 @@ Microscopic screen picture
  faces carry plaquette/holonomy dynamics
 \end{verbatim}
 
-The simulator-facing question is therefore not ``what is the final microscopic UV completion?'' It is
-``can one finite local screen model realize the OPH patch, edge, record, and synchronization
-interfaces well enough to be testable?'' The physically meaningful
+The simulator-facing question is simple. Can one finite local screen model realize the OPH patch, edge, record, and synchronization interfaces well enough to be testable? The physically meaningful
 uniqueness statement is quotient-level implementation hiding together with inert ancillary
 stabilization, not uniqueness of one screen-register presentation.
 

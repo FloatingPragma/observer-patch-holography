@@ -14,32 +14,35 @@ For recovered-core theorem status and claim tier, consult **Paper 2. [Recovering
 
 ## What OPH Delivers
 
-OPH is unusual because it tries to recover the shape of the world before it fits the numbers. At the structural level, it predicts the exact shape of the universe we appear to inhabit: a `3+1D` Lorentzian spacetime, de Sitter static-patch cosmology on the gravity side, and the Standard Model quotient `SU(3) x SU(2) x U(1) / Z_6` with the exact hypercharge lattice and the counting chain `N_g = 3`, `N_c = 3`.
+Most theories begin with spacetime, quantum fields, and a long list of free constants. OPH starts with a much smaller scene. An observer has access to one finite patch of a holographic screen. A neighboring observer has another patch. Physics is the requirement that these local descriptions agree where the patches overlap.
 
-The quantitative side is deliberately small. OPH uses one external quantitative input, the total screen capacity `N_scr = log dim H_tot`, inferred from the cosmological constant, together with one local pixel ratio `P = a_cell / l_P^2` that the synthesis paper treats as a Phase II outer/inner closure variable rather than a sector-by-sector fit dial. From that small surface, OPH makes concrete numerical predictions for couplings, masses, and gravity-facing quantities instead of fitting each sector independently.
-The synthesis-paper closure packages `P` as a fixed-point problem. `φ = (1 + sqrt(5)) / 2` is the exact self-similar balance point of the total/bulk/edge hierarchy, so the outer detuning can be written as `α_ext(P) = (P - φ) / sqrt(pi)`, equivalently `P = φ + α_ext(P) sqrt(pi)`. The inner D10 chain emits the corresponding electromagnetic observation scale `α_in(P)`, and the proposed closure is `α_ext(P) = α_in(P)`, equivalently `P = φ + α_in(P) sqrt(pi)`. This belongs to the Phase II quantitative-closure layer, not the structural core.
+That single move leads surprisingly far. OPH recovers the broad shape of the world before it touches the detailed numbers. On the structural side, it yields a `3+1D` Lorentzian spacetime, a Jacobson-style Einstein branch, and the realized Standard Model quotient `SU(3) x SU(2) x U(1) / Z_6` with the exact hypercharge lattice and the counting chain `N_g = 3`, `N_c = 3`.
 
-- A finite-resolution theorem package for observer patches, collars, overlap repair, higher gauge structure, records, and checkpoint/restoration. On the genuinely noncentral branch this already includes the fixed-cutoff crossed-module defect hierarchy; the remaining open item there is the refinement-limit transportable-sector lift into the compact-gauge lane.
-- A conditional route to Lorentzian geometry, modular time, Jacobson-type Einstein dynamics, and de Sitter static-patch cosmology on the extracted prime geometric subnet; local null data fix the Einstein branch only up to a metric term, so the cosmological-capacity lane fixes `Lambda` through the global screen-capacity identification. Local null data alone do not fix it. The Einstein branch uses fixed-cap stationarity, the null-surface bridge, and the separate bounded-interval projective branch. The UV/BW scaffold consists of geometric cap-pair realization on that subnet plus ordered cut-pair rigidity, with the eventual fixed-local-collar modular-transport common floor as the smallest lower blocker.
-- A conditional compact gauge route in the bosonic branch to the realized Standard Model quotient `SU(3) x SU(2) x U(1) / Z_6`, under the transportable-sector reconstruction premises and MAR, together with the exact hypercharge lattice and the realized counting chain `N_g = 3`, `N_c = 3`.
-- A particle program with exact structural massless carriers, a forward-emitted Phase II electroweak quantitative-closure branch with a closed target-free public `W/Z` theorem surface plus a compare-only exact frozen pair, an exact source-only Higgs/top split theorem on the declared D10/D11 running, matching, and threshold surface together with a compare-only exact inverse Higgs/top slice, an exact selected-class quark closure with explicit exact forward Yukawas, exact non-hadron mass surfaces, and explicit continuation lanes where theorem boundaries remain open.
-- A concrete screen-microphysics architecture that puts measurement, records, and observers inside the physics.
+The quantitative story is compact. OPH uses only two numbers. The first is the total screen capacity `N_scr = log dim H_tot`, read from the cosmological constant. The second is the local pixel ratio `P = a_cell / l_P^2`, the size of one screen cell in Planck areas.
 
-### Precise Derivations
+`P` has a simple interpretation. The same cell is read in two ways. From the outside it is a pixel sitting slightly above the self-similar balance `φ = (1 + sqrt(5)) / 2`. From the inside it is the smallest electromagnetic observation scale available to observers in the simulated universe. `P` is the value where those two readings agree. The fixed-point proof is the mathematical certificate for that idea. It shows that the closure selects an admissible `P` on the physical interval.
 
-This condensed table keeps only OPH rows with either an exact match, a quoted sigma agreement, or
-a clean upper-bound success against the PDG/NIST reference values used in the papers. Structural
-results such as the `3+1D` Lorentz branch, the Standard Model gauge quotient
+Once `N_scr` and `P` are in place, the rest of the story runs forward. The same framework organizes gravity, gauge structure, the electroweak sector, the Higgs/top surface, the quark masses and Yukawas, neutrino structure, records, and observer synchronization. Charged-lepton absolute masses, the direct zero-momentum electromagnetic closure, and hadrons are work in progress.
+
+That is what makes OPH different. It treats information and computation as the deeper layer, then derives the familiar world from there.
+
+### Selected Quantitative Rows
+
+This condensed table keeps only OPH rows with either an exact match, a quoted sigma agreement, a
+clean upper-bound success against the PDG/NIST reference values used in the papers, or one
+explicitly labeled Phase II closure candidate. Structural results such as the `3+1D` Lorentz
+branch, the Standard Model gauge quotient
 `SU(3) x SU(2) x U(1) / Z_6`, the exact hypercharge lattice, and the counting chain `N_g = 3`,
 `N_c = 3` are stated in the papers and are not repeated here. The `W/Z/H` boson lane sits on the
 Phase II quantitative-closure branch, so it is discussed in the papers but omitted from this quick
-comparison.
+comparison. The fine-structure row is a Phase II `P`-closure candidate. The source-only transport
+certificate for that row is pending.
 
 | Quantity | Symbol | OPH | PDG/NIST | Δ |
 | --- | --- | --- | --- | --- |
 | Gravitational constant | G | 6.6742999959e-11 | 6.67430(15)e-11 | 0.00003σ |
 | Speed of light | c | 299792458 | 299792458 (exact) | match |
-| Fine-structure (inv) | α⁻¹(0) | 137.035999177 | 137.035999177(21) | match |
+| Fine-structure (inv) | α⁻¹(0) | Phase-II `P`-closure candidate | 137.035999177(21) | certificate pending |
 | Photon mass | m_γ | 0 eV | <1e-18 eV | below bound |
 | Gluon mass | m_g | 0 GeV | 0 GeV | match |
 | Graviton mass | m_grav | 0 eV | <1.76e-23 eV | below bound |
@@ -55,7 +58,7 @@ comparison.
 | Up | m_u(2 GeV) | 2.16 MeV | 2.16 ± 0.07 | match |
 
 `Δ` reports the sigma distance where PDG or NIST quotes a one-standard-deviation uncertainty.
-Otherwise it records `match` or `below bound`.
+Otherwise it records `match`, `below bound`, or the status of a declared candidate row.
 
 For the quark rows, PDG uses its standard quark-mass conventions: `u`, `d`, and `s` at `2 GeV`,
 and `c` and `b` in the `MS` scheme at their own mass scale.

@@ -20,8 +20,8 @@ Pour le statut théorématique du noyau reconstruit et le niveau de preuve des c
 - Un programme particules avec porteurs structurels exactement sans masse, une branche électrofaible de fermeture quantitative de Phase II émise vers l'avant avec une surface théorématique publique `W/Z` target-free fermée plus une paire gelée exacte utilisée seulement comme validation compare-only, un théorème exact de séparation Higgs/top à source seule sur la surface électrofaible déclarée de running, matching et seuils avec une tranche inverse exacte Higgs/top gardée comme validation compare-only, une fermeture quark exacte sur classe publique sélectionnée avec Yukawas forward exactes explicites, des surfaces exactes non hadroniques et des voies de continuation explicites aux frontières théorématiques ouvertes.
 - Une architecture microphysique d'écran concrète qui met mesure, enregistrements et observateurs à l'intérieur de la physique.
 
-L'OPH utilise une seule entrée quantitative externe, la capacité totale de l'écran `N_scr = log dim H_tot`, déduite de la constante cosmologique, ainsi qu'un ratio local de pixel `P = a_cell / l_P^2` que le papier de synthèse traite comme une variable de fermeture extérieure/intérieure de Phase II plutôt que comme un bouton ajusté secteur par secteur. Sur cette petite surface quantitative, l'OPH émet des prédictions concrètes pour les couplages, les masses et les grandeurs gravitationnelles.
-Le papier de synthèse reformule `P` comme un problème de point fixe. `φ = (1 + sqrt(5)) / 2` est le point exact d'équilibre auto-similaire de la hiérarchie total/bulk/edge; on peut donc écrire le décalage extérieur sous la forme `α_ext(P) = (P - φ) / sqrt(pi)`, ou encore `P = φ + α_ext(P) sqrt(pi)`. La chaîne D10 intérieure émet l'échelle d'observation électromagnétique correspondante `α_in(P)`, et la fermeture proposée est `α_ext(P) = α_in(P)`, équivalemment `P = φ + α_in(P) sqrt(pi)`. Cela appartient à la couche de fermeture quantitative de Phase II, non au coeur structurel.
+L'OPH utilise une seule entrée quantitative externe, la capacité totale de l'écran `N_scr = log dim H_tot`, déduite de la constante cosmologique, ainsi qu'un ratio local de pixel `P = a_cell / l_P^2`. La même cellule d'écran est décrite deux fois : vue de l'extérieur comme un pixel situé légèrement au-dessus de l'équilibre auto-similaire exact `φ = (1 + sqrt(5)) / 2`, et vue de l'intérieur comme la plus petite échelle d'observation électromagnétique disponible pour les observateurs de l'univers simulé. `P` est la valeur pour laquelle ces deux descriptions coïncident.
+Le papier de synthèse écrit cette autoréférence comme un problème de point fixe. Le décalage extérieur vaut `α_ext(P) = (P - φ) / sqrt(pi)`, ou encore `P = φ + α_ext(P) sqrt(pi)`, tandis que le côté intérieur est le couplage électromagnétique émis par cette même cellule sur la branche quantitative déclarée. L'équation de fermeture affirme que ces deux lectures d'un même objet coïncident. La preuve par point fixe montre que cette fermeture sélectionne un `P` admissible sur l'intervalle physique. Sur cette petite surface quantitative, l'OPH émet des prédictions concrètes pour les couplages, les masses et les grandeurs gravitationnelles.
 
 ## Surface locale d'unification
 
@@ -46,21 +46,24 @@ Les surfaces de statut pour les particules dans ce dépôt sont [code/particles/
 
 <p align="center"><sub>La pile OPH complète, des axiomes jusqu'à la relativité, la structure de jauge, les particules, les observateurs et les fronts encore ouverts. Cliquez pour ouvrir le SVG complet.</sub></p>
 
-## Dérivations précises
+## Lignes quantitatives sélectionnées
 
-Ce tableau condensé ne garde que les lignes OPH avec égalité exacte, accord en sigma publié ou
+Ce tableau condensé ne garde que les lignes OPH avec égalité exacte, accord en sigma publié,
 respect clair d'une borne supérieure par rapport aux valeurs de référence PDG/NIST utilisées dans
-les papiers. Les résultats structurels comme la branche lorentzienne `3+1D`, le quotient de jauge
+les papiers, ou une ligne explicitement marquée comme candidate de fermeture de Phase II. Les
+résultats structurels comme la branche lorentzienne `3+1D`, le quotient de jauge
 du Modèle Standard `SU(3) x SU(2) x U(1) / Z_6`, le réseau exact des hypercharges et la chaîne de
 comptage `N_g = 3`, `N_c = 3` sont énoncés dans les papiers et ne sont pas répétés ici. La voie
 bosonique `W/Z/H` appartient à la branche de fermeture quantitative de phase II; elle est donc discutée dans
-les papiers mais omise de ce tableau rapide.
+les papiers mais omise de ce tableau rapide. La ligne de structure fine reste une candidate de
+fermeture `P` de Phase II tant que la voie de transport à source seule n'a pas publié son
+certificat de fermeture lisible par machine.
 
 | Quantité | Symbole | OPH | PDG/NIST | Δ |
 | --- | --- | --- | --- | --- |
 | Constante gravitationnelle | G | 6.6742999959e-11 | 6.67430(15)e-11 | 0.00003σ |
 | Vitesse de la lumière | c | 299792458 | 299792458 (exact) | match |
-| Structure fine (inv.) | α⁻¹(0) | 137.035999177 | 137.035999177(21) | match |
+| Structure fine (inv.) | α⁻¹(0) | candidate de fermeture `P` de Phase II | 137.035999177(21) | certificat en attente |
 | Masse du photon | m_γ | 0 eV | <1e-18 eV | sous la borne |
 | Masse du gluon | m_g | 0 GeV | 0 GeV | match |
 | Masse du graviton | m_grav | 0 eV | <1.76e-23 eV | sous la borne |
@@ -76,7 +79,7 @@ les papiers mais omise de ce tableau rapide.
 | Up | m_u(2 GeV) | 2.16 MeV | 2.16 ± 0.07 | match |
 
 `Δ` donne l'écart en sigma lorsque le PDG ou le NIST publie une incertitude à un sigma. Sinon, il
-indique `match` ou `sous la borne`.
+indique `match`, `sous la borne`, ou le statut d'une ligne candidate déclarée.
 
 Pour les quarks, le PDG utilise ses conventions standard : `u`, `d` et `s` à `2 GeV`, et `c` et
 `b` dans le schéma `MS` à leur propre échelle de masse.

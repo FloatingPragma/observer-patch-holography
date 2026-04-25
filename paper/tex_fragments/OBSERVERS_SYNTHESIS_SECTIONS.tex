@@ -115,7 +115,7 @@ not feed back into the transmutation solve.
 \paragraph{Outer/inner self-consistency for the pixel ratio.}\label{sec:p-closure}
 This synthesis paper is the canonical place where the local pixel ratio \(P\) is defined, so the
 compact and particle papers can cite one derivation rather than duplicate it. The construction has
-five steps.
+six steps.
 \begin{enumerate}[leftmargin=2em]
 \item \textbf{Outer pixel ratio.} The simulator-side local screen datum is the dimensionless area
 ratio
@@ -138,23 +138,37 @@ the self-similar balance condition
 gives \(x^2-x-1=0\) and hence \(x=\varphi=(1+\sqrt5)/2\). The realized branch must sit near, but
 not exactly at, this point because exact equilibrium is too symmetric to support durable records,
 structure, and dynamics.
-\item \textbf{Outer detuning variable.} We therefore write the simulator-side detuning as
+\item \textbf{Outer detuning variable.} On the declared Phase-II closure surface we parametrize
+the simulator-side detuning by
 \[
 \alpha_{\mathrm{ext}}(P):=\frac{P-\varphi}{\sqrt{\pi}},
 \qquad\text{equivalently}\qquad
 P=\varphi+\alpha_{\mathrm{ext}}(P)\sqrt{\pi}.
 \]
-\item \textbf{Inner observation scale from the same pixel.} For any trial \(P\), the forward D10
-lane emits the inner electroweak/electromagnetic hierarchy
+\item \textbf{Source-only D10 anchor from the same pixel.} Let \(I\subset\mathbb R_+\) be the
+physical pixel interval and let
+\[
+F_{D10}:I\longrightarrow\mathcal D_{D10}
+\]
+denote the declared D10 source map. For any trial \(P\in I\), the forward D10 lane emits
 \[
 P\longmapsto \alpha_U(P)\longmapsto (t_U(P),t_{\mathrm{tr}}(P))
 \longmapsto (t_2(P),t_3(P),v(P))
-\longmapsto a_0(P)=\alpha_{\mathrm{em}}^{-1}(m_Z^2;P).
+\longmapsto A_Z(P)=\alpha_{\mathrm{em}}^{-1}(m_Z^2;P).
 \]
-On the chosen electromagnetic transport lane, write \(\alpha_{\mathrm{in}}(P)\) for the
-corresponding inner coupling scale carried by that same forward branch. On the paper surface, the
-most source-local inner quantity is the anchor \(a_0(P)\); later Ward-projected low-energy
-descendants sit below that same emitted map.
+\item \textbf{Ward-projected Thomson transport.} Let \(T_Q\) be the declared Ward-projected
+\(\U(1)_Q\) transport operator from the \(m_Z\)-anchor to the Thomson limit, using only emitted
+D10 data on that same branch. Define
+\[
+A_T(P):=
+T_Q\bigl(A_Z(P),F_{D10}(P)\bigr)
+=
+\alpha_{\mathrm{Th}}^{-1}(P).
+\]
+The inner coupling used in the outer/inner closure is the coupling, not the inverse coupling:
+\[
+\alpha_{\mathrm{in}}(P):=\frac{1}{A_T(P)}.
+\]
 \item \textbf{Closure.} The realized pixel ratio is the fixed point for which the outer detuning
 equals the inner observation coupling:
 \[
@@ -162,22 +176,35 @@ equals the inner observation coupling:
 \]
 Equivalently,
 \[
-P=\varphi+\alpha_{\mathrm{in}}(P)\sqrt{\pi}.
+H(P):=P-\varphi-\frac{\sqrt{\pi}}{A_T(P)}=0,
+\qquad\text{or}\qquad
+P=\varphi+\frac{\sqrt{\pi}}{A_T(P)}=\varphi+\alpha_{\mathrm{in}}(P)\sqrt{\pi}.
 \]
 \end{enumerate}
 Writing
 \[
-g(P):=\varphi+\alpha_{\mathrm{in}}(P)\sqrt{\pi},
+G(P):=\varphi+\frac{\sqrt{\pi}}{A_T(P)},
 \]
-the closure problem is the fixed-point condition \(g(P)=P\). On any physical interval where this
-induced map is a self-map and a contraction, the closure root is locally unique.
+the closure problem is the fixed-point condition \(G(P)=P\).
+On any physical interval where this induced map is a self-map and a contraction, the closure root
+is locally unique.
 
-Informally, the same screen cell must do two jobs at once. On the outer side it is a finite pixel
-of the simulating screen. On the inner side it is the source of the smallest electromagnetic
-observation step available to observers in the simulated world. The fixed-point equation is
-therefore the statement that these two descriptions of the same cell agree. Once the fixed point
-\(P_\star\) is selected, every downstream D10/D11 quantity is propagated forward from that same
-\(P_\star\); it is not separately fitted sector by sector.
+Informally, OPH treats the outer universe as the hardware layer of a simulation and the inner
+universe as the world reconstructed by observers who live on that hardware. The same screen cell
+therefore has two meanings at once. On the outer side it is one hardware pixel of the simulating
+screen. On the inner side it is the smallest electromagnetic observation step available to
+observers in the simulated world. The pixel ratio \(P\) is the size of that cell in Planck areas,
+and the realized \(P\) is the value at which the outer and inner readings of the same cell agree.
+The outer description says how far the cell sits above the exact self-similar equilibrium
+\(\varphi\). The inner description says what electromagnetic observation scale that same cell emits
+through the particle chain. The fixed-point equation is the mathematical form of this loop. On the
+physical interval, the proof certifies one admissible pixel ratio. Once the fixed point \(P_\star\)
+is selected, every downstream quantity is propagated forward from that same \(P_\star\).
+
+One clean refinement studies the same closure directly at zero momentum. That route would close the
+electromagnetic row without transporting from the \(m_Z\) anchor. The present paper keeps the
+fixed-point idea itself simple and treats that zero-momentum promotion as a separate quantitative
+task.
 
 \paragraph{Exact non-hadron hit surface.}
 For quick orientation, the exact non-hadron lanes are:
