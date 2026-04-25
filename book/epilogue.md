@@ -2,26 +2,22 @@
 
 The book has argued that objectivity is reconstructed from overlapping
 perspectives, that consciousness belongs on the inside of the observer-world
-relation, and that the strange-loop story belongs to interpretation. This
+relation, and that the strange-loop reading belongs to interpretation. This
 epilogue asks what that picture implies when an observer-pattern reaches an
 apparent endpoint.
 
 ## The Observer as Pattern
 
-In OPH, an observer is not a soul-substance dropped into a body. An observer
-is a pattern: a patch of the holographic screen, the local algebra of
-observables on that patch, the quantum state on that patch, and a set of
-records that preserve what the observer has experienced and learned.
+An observer is not a soul-substance dropped into a body. An observer is
+a pattern. It includes a patch of the screen, the questions available from that
+patch, the local quantum state, and the records that preserve what the observer
+has experienced and learned.
 
-Mathematically, one can write that pattern as $(P, A(P), \rho, R)$. The point
-of the notation is not to sound formal. It is to say that an observer has a
-shareable side and an interior side, and the shareable side has a clean
-operator-algebraic form.
+Part of that pattern can be read, compared, and checked by others. Part of it
+lives on the inside.
 
-Records matter because most quantum information cannot be copied. Yet the
-record layer available to the observer can be represented by a commuting
-algebra of public outcomes on the accessible slice. That is what makes a
-record public at all. It is the part of the observer that can be read,
+Records matter because most quantum information cannot simply be copied. A
+record is the rare part that becomes public. It is the part that can be read,
 compared, and restored without turning the whole observer into a classical
 machine.
 
@@ -59,7 +55,7 @@ framework. The stronger claim people care about most goes further. It would
 move the observer-pattern into a newly engineered environment and treat that as
 the same continuing subject.
 
-The framework reaches restoration more cleanly than transplantation. The second
+Restoration is cleaner than transplantation. The second
 move asks for extra structure tying one recovered interior pattern to one
 redesigned world.
 
@@ -69,7 +65,7 @@ The philosophical weight of this is easy to miss if one hears only the word
 "backup." The interesting question is not digital storage as such. The
 interesting question is continuity.
 
-In OPH, time is not a global clock outside the system. Time is modular flow
+Time is not a global clock outside the system. Time is modular flow
 attached to the observer's restricted state. The next moment for an observer
 is the next step in that flow. So if a checkpoint can be restored under the
 right conditions, the real issue is whether that restored pattern carries the

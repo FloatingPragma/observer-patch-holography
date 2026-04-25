@@ -4,7 +4,7 @@
 
 > Core idea, in plain English: there is no single objective camera angle on reality.
 > There are only local, subjective perspectives, and physics is the rulebook that keeps them consistent where they overlap.
-> If you are not a physicist, you are in the right place; this book is written as a reverse-engineering story, not a math-first textbook.
+> If you are not a physicist, you are in the right place; this book is written as a reverse-engineering book, not a math-first textbook.
 
 Whether your interest begins with **simulation theory** or with the hope of a **theory of everything**, this book gives the long-form OPH answer. OPH is presented here as a concrete observer-consistent information architecture. Quantum mechanics, relativity, gauge structure, and particle physics appear as effective descriptions of deeper overlap-consistency rules. The strange-loop material is kept where it belongs: as interpretation outside the recovered core.
 
@@ -68,7 +68,7 @@ is just... there.
 
 **Black holes put information under pressure.** Throw something into a black
 hole, and modern quantum-gravity arguments strongly suggest the information
-is not simply lost, even though the detailed recovery story remains subtle
+is not simply lost, even though the detailed recovery mechanism remains subtle
 and framework-dependent.
 
 **Holography is a major clue.** The information needed to describe a volume
@@ -158,46 +158,32 @@ This book reverse engineers reality from first principles.
 We start with a minimal assumption: observers exist, they have bounded
 access to information, and they must agree where their observations overlap.
 
-The framework takes one global quantitative input from experiment, the total
-screen capacity inferred from the cosmological constant, together with one
-local pixel variable tied to the particle story by a self-consistency
-equation. From there, the book asks how much of gravity, gauge structure, and
-the particle world can be recovered from observer consistency. The resulting
-picture contains the Standard Model gauge structure, three generations, three
-colors, the massless photon, gluons, and graviton, the $W$ and $Z$, a
-Higgs-top calibration, a running quark package, and a neutrino family with
-definite masses.
+Only a small amount of outside numerical help is needed. One number sets the
+overall size of the screen, and that number is read from the cosmological
+constant. Another number sets the local grain of the picture, the effective
+pixel size. From there the question is simple: how much of gravity, gauge
+structure, and the particle world can be forced from observer consistency
+alone?
 
 This is where the reverse-engineering method matters. A good reverse engineer
-separates architecture from the small quantitative surface that remains after
-the architecture is fixed. First you infer the structure the system must
-have. Then you identify the few external knobs that the structure itself does
-not fix on structural grounds alone. In OPH, the main local knob is the pixel scale
-$P=a_{\mathrm{cell}}/\ell_P^2$. The axioms determine a great deal about the
-shape of the theory, but they do not determine that number on the structural
-core alone. The book's quantitative question is therefore sharp: can that
-same $P$ drive the rest of the particle package, and can it eventually be
-recovered by an outer/inner self-consistency closure rather than sitting as an
-isolated dial?
+first works out the architecture, then checks how many knobs are really left.
+The book argues that most of the architecture is forced early. The interesting
+remaining question is whether one local scale can organize far more of the
+particle structure than common sense would expect.
 
-The historical calibration move is simple to state. Use the clean electroweak
-surface, align $P$ with the $W/Z$ masses, and then ask whether the same
-value propagates through the fine-structure constant, the Higgs/top sector,
-the quark package, and the gravity-facing readout. If that works, the theory
-is doing real reverse engineering. If each sector needs its own private dial,
-it is only curve fitting with philosophical decoration.
+That is the game played in the middle of the book. Start with the cleanest part
+of the particle data, the weak sector. Fix the local scale there. Then ask a
+hard question: does the same choice keep working when you move outward to the
+electromagnetic coupling, the Higgs and top, the quark package, and the
+gravity-facing side of the framework? If it does, the book is uncovering one
+machine rather than fitting a different dial for every chapter.
 
-The synthesis chapter gives that same quantity a second reading. One screen
-cell can be described from the outside as a pixel of the screen and from the
-inside as the smallest electromagnetic observation step available to observers
-in the encoded world. The closure map asks for the value of $P$ where those
-two readings agree, and the fixed-point proof certifies an admissible
-solution on the physical interval.
-
-That closure does not force a one-way derivation of hardware settings from
-lower-level physics. It does support the stranger interpretive picture in
-which observers inside the world infer $P$ and total screen capacity from
-within the same loop that includes the hardware choice.
+The synthesis chapter returns to the same scale from a more surprising angle.
+From one side it looks like a pixel of the screen. From the other it looks like
+the smallest observational step available to the world encoded on that screen.
+The strange and beautiful possibility is that these two descriptions meet at
+the same value. That is where the book's stranger loop starts to come into
+view.
 
 From this starting point, we derive constraints. We show how the mathematical
 structures of quantum mechanics and relativity emerge from consistency

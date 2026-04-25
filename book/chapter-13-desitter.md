@@ -4,7 +4,9 @@
 
 Start with the old cosmological picture.
 
-**The intuitive picture**: The universe is either static (things stay roughly as they are) or decelerating (gravity pulls everything together, slowing expansion). This is the natural expectation from Newton through Einstein.
+The universe is either static, with things staying roughly as they are, or
+decelerating, with gravity pulling everything together and slowing expansion.
+This is the natural expectation from Newton through Einstein.
 
 Einstein himself added a "cosmological constant" to his equations in 1917 to create a static universe-a universe that neither expanded nor contracted. When Hubble discovered the universe is expanding, Einstein dropped the constant, calling it his "greatest blunder."
 
@@ -36,7 +38,7 @@ The universe has a positive cosmological constant. It is accelerating toward a d
 
 ## 13.3 The First-Principles Reframing: De Sitter Is the Natural Screen
 
-Reverse engineering asks why nature has a positive cosmological constant. What principle makes de Sitter space natural?
+The deeper question is why the universe settled into a de Sitter patch.
 
 ### The Static Patch
 
@@ -131,7 +133,10 @@ The three-dimensional bulk inside the horizon is encoded holographically on the 
 
 When an object falls toward the horizon, it gets redshifted and appears to freeze onto the surface, its information smeared across the screen.
 
-This is why the horizon is the natural screen in this chapter. It is the last place where an observer can still trade signals with the rest of the patch. If the book's general claim is that physics is organized around what observers can compare, then the cosmological horizon is exactly where that comparison structure has to live.
+The horizon is the natural screen in this chapter. It is the last place where
+an observer can still trade signals with the rest of the patch. If physics is
+organized around what observers can compare, then the cosmological horizon is
+exactly where that comparison structure has to live.
 
 ### Why This Is Not "dS/CFT"
 
@@ -139,7 +144,7 @@ When physicists say "de Sitter holography is unsolved," they typically mean: we 
 
 Our model takes a different path entirely. We're not trying to do "AdS/CFT but
 with positive Lambda." We're doing static-patch holography. The boundary is
-the observer's horizon, not future infinity. The framework asks for local
+the observer's horizon, not future infinity. The construction asks for local
 algebras and overlap consistency, not one global CFT. Each observer has a
 horizon screen, and observer-dependence is embraced as fundamental.
 
@@ -150,7 +155,7 @@ This is a fundamental shift in target. The "unsolved problem" of dS holography i
 A crucial insight: the cosmological constant is not a local patch datum. Null
 modular probes reconstruct the stress tensor only up to a term proportional to
 the metric itself, so $\Lambda g_{ab}$ enters as the one global scale the local
-story cannot erase.
+construction cannot erase.
 
 So Lambda must be fixed by a **global** constraint: the total capacity of the screen. In natural units, the relationship is:
 
@@ -200,8 +205,8 @@ The **anthropic principle** offers an answer: if Lambda were much larger, galaxi
 
 ## 13.9 Reverse Engineering Summary
 
-The old story expected expansion to slow under gravity. The sky told a
-different story. The supernova data and positive cosmological constant point
+Older cosmology expected expansion to slow under gravity. The sky disagreed.
+The supernova data and positive cosmological constant point
 toward de Sitter behavior, and de Sitter fits the observer-first picture with
 almost suspicious neatness. Each observer has a static patch, a horizon, a
 temperature, an entropy budget, and finite accessible information. The
@@ -274,7 +279,7 @@ $$V^4 = G \cdot M_b \cdot a_0^{(\text{OPH})}$$
 This has the observed Tully-Fisher form, with its normalization set by screen
 capacity. The dark sector is then read as an infrared correction to gravity
 rather than as a new species of particle. The cosmological constant and the
-galaxy-scale anomaly sit inside one de Sitter story.
+galaxy-scale anomaly sit inside one de Sitter picture.
 
 ---
 

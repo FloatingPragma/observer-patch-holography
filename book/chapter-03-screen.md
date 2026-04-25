@@ -252,7 +252,10 @@ This definition of observers resolves several puzzles:
 
 **Measurement is physical**: When an observer measures something, correlations form between subsystems within the horizon data and stable records are created. That record formation captures the main physical content behind textbook collapse language.
 
-**Consistency follows from structure**: In the constructive screen picture, if two observers are modeled as patterns in the same underlying state, their reduced descriptions must agree on overlaps. The more general gluing story is subtler and is developed later.
+**Consistency follows from structure**: In the constructive screen picture, if
+two observers are modeled as patterns in the same underlying state, their
+reduced descriptions must agree on overlaps. The more general gluing problem is
+subtler and is developed later.
 
 ### Reality from Computation
 
@@ -270,18 +273,22 @@ Imagine the screen as a **gauge-invariant quantum system** on the 2-sphere, some
 
 *The screen is the computation. Observer patches are the threads. Reality is what they agree on.*
 
-This computational picture is developed concretely through **quantum link models**, a class of lattice gauge theories with finite-dimensional Hilbert spaces that provide an explicit UV realization of key OPH ingredients. The technical details are in the paper; the intuition is that the sphere is running a quantum computation, and we are processes within it.
+One concrete way to picture this is as a finite quantum machine. The specialist
+literature gives that family of pictures names such as quantum link models, but
+the image itself is easy to hold in mind. The sphere is a working device, and
+we are processes unfolding inside it.
 
 ### A Plausible Hardware Sketch
 
-The exact screen hardware is not the focus of this book. The point here is the
-logic of the architecture rather than the engineering detail of the substrate.
+The hardware itself does not need center stage. What matters is the feel of the
+architecture. Imagine the sphere tiled into tiny cells. Short quantum links
+connect neighbors. Local rules keep records stable, move correlations across
+the surface, and let nearby patches stay in sync.
 
-The current microphysics program studies one concrete reference architecture. Start with a finite cellulation of the sphere. Put small quantum registers on the links. Add small record registers on selected vertices or coarse cells. Enforce local gauge admissibility through Gauss checks. Let the faces carry local plaquette dynamics. Add local repair and synchronization moves that keep neighboring patches mutually consistent.
-
-In that picture, a patch is a boundary-fixed observable algebra carved out of the screen. An overlap is the shared interface where two patches read the same observables and the same edge-sector data. Records are stored in explicit finite registers, so measurement and observer memory are part of the same microscopic machine.
-
-This matters for a simple reason. It turns the screen from a philosophical image into a simulator target. The design can be compiled into ordinary qubits, and that makes it possible to test finite-resolution measurement, stable records, restoration protocols, and observer synchronization inside one finite system.
+That picture turns the screen from a metaphor into a machine. It can be rebuilt
+in miniature with ordinary qubits, then used to study finite-resolution
+measurement, durable records, restoration, and synchronization inside one
+bounded system.
 
 ## 3.10 Entanglement Creates Depth
 
@@ -290,7 +297,9 @@ starts arranging the data into an interior.
 
 When parts of a quantum state are strongly correlated, they behave as one connected structure. In holographic settings this relation becomes quantitative: boundary entanglement constrains bulk geometry. The Ryu-Takayanagi formula and related results make that statement precise in the regimes where they apply.
 
-For the book, one lesson is enough here. Depth is read off from correlation structure. Strongly linked regions count as nearby in the emergent bulk. Weakly linked regions count as distant.
+One lesson is enough here. Depth is read off from correlation structure.
+Strongly linked regions count as nearby in the emergent bulk. Weakly linked
+regions count as distant.
 
 Chapter 9 develops this in detail. In the present chapter, entanglement does one job. It explains why a screen can support an interior world instead of a flat catalog of data.
 

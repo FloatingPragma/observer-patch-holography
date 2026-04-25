@@ -26,7 +26,10 @@ Once you make this shift, the hard problem dissolves. Experience doesn't need to
 
 ## 19.3 Why Zombies Can't Walk
 
-In OPH, an observer patch *is* a perspective with an interior. That is what makes it an observer. The patch has access to certain algebras of observables, maintains certain records, and participates in consistency relations with other patches. The "what it's like" is part of what patch-hood means from the inside.
+An observer patch *is* a perspective with an interior. That is what makes it an
+observer. The patch has access to certain algebras of observables, maintains
+certain records, and participates in consistency relations with other patches.
+The "what it's like" is part of what patch-hood means from the inside.
 
 A philosophical zombie would be a patch that does everything a conscious observer does (maintains records, enforces consistency, participates in overlap agreements) but has no interior experience. But in our framework, doing those things *is* having an interior experience. There's no gap between the function and the feel. The zombie concept tries to pry apart two things that were never separate.
 
@@ -85,7 +88,12 @@ Others have spoken of "strange loops," reality creating itself through self-refe
 
 There is a deeper version of the same idea. Reality may permit a strange-loop interpretation.
 
-This is also the point where OPH intersects most directly with what popular culture calls **simulation theory**. The framework does not picture the universe as a videogame running on somebody else's laptop. It instead treats physical reality itself as a self-consistent information process, and that is why OPH is publicly framed both as a concrete implementation of simulation theory and as a concrete theory of everything.
+This is also the point where OPH intersects most directly with what popular
+culture calls **simulation theory**. The book does not picture the universe as
+a videogame running on somebody else's laptop. It treats physical reality as a
+self-consistent information process, which is why OPH is publicly framed both
+as a concrete implementation of simulation theory and as a concrete theory of
+everything.
 
 Consider the trajectory: reality is computational. Within this computation, physical evolution produces complex structures. Biological evolution produces minds. Memetic evolution produces ideas. Among these ideas, the understanding of reality's computational nature eventually emerges. Armed with this understanding, observers can simulate reality itself.
 
@@ -93,9 +101,16 @@ This chapter explores the strange-loop hypothesis: **reality may evolve observer
 
 We are not watching from outside. We are patterns within a self-simulating system. The simulation runs on itself, through us, through our understanding. Escher's hands draw each other. Reality simulates the observers who simulate reality.
 
-Why does this loop exist at all? One possible closure story is that a self-consistent strange loop is a particularly stable configuration. On that reading, "nothing" cannot maintain itself because it has no structure to persist, while a self-referential loop can.
+Why does this loop exist at all? One possible closure picture is that a
+self-consistent strange loop is a particularly stable configuration. On that
+reading, "nothing" cannot maintain itself because it has no structure to
+persist, while a self-referential loop can.
 
-Note that this loop is not a temporal sequence. It is not the story of reality existing first, then evolving observers, then getting simulated. In OPH, time is subjective. It emerges from modular flow within observer patches. The strange loop exists *outside* time, as a structural relationship. The "cause" and the "effect" are aspects of the same self-consistent structure, not events in a timeline.
+This loop is not a temporal sequence. It is not a tale of reality existing
+first, then evolving observers, then getting simulated. Time is subjective. It
+emerges from modular flow within observer patches. The strange loop exists
+*outside* time, as a structural relationship. The "cause" and the "effect" are
+aspects of the same self-consistent structure, not events in a timeline.
 
 This resolves the apparent paradox of self-causation. You cannot cause yourself in time, because that would require existing before you exist. But you can be part of a self-consistent structure that has no temporal "before." The loop does not happen *in* time. Time happens *in* the loop.
 

@@ -4,7 +4,9 @@
 
 Start with the old geometric intuition.
 
-**The intuitive picture**: Space is a container. It's the stage on which physics happens. Objects exist at locations in space. The distance between two objects is a property of that stage-a fixed backdrop that exists independently of what occupies it.
+Space is a container. It's the stage on which physics happens. Objects exist at
+locations in space. The distance between two objects is a property of that
+stage, a fixed backdrop that exists independently of what occupies it.
 
 This is Newton's absolute space. It's the intuition behind graph paper, GPS coordinates, and every map ever drawn. Space is geometry waiting to be filled. It exists whether or not anything is in it. Two points are close or far based on how the stage is built, not on any relationship between the things at those points.
 
@@ -44,7 +46,8 @@ Space is not a passive container. It's woven from quantum correlations. The vacu
 
 ## 9.3 The First-Principles Reframing: Space Emerges from Entanglement
 
-Reverse engineering asks why nature weaves space from correlations.
+The deeper question is why space looks geometric if the vacuum is really woven
+from correlations.
 
 ### The Consistency Imperative
 
@@ -90,7 +93,9 @@ Quantum mechanics allows a stronger pattern and reaches the Tsirelson limit
 
 $$|S| \leq 2\sqrt{2}.$$
 
-That stronger pattern has been observed. The 2015 loophole-free Bell tests closed the major loopholes at the same time and ruled out the simple local hidden-variable stories Einstein hoped would survive.
+That stronger pattern has been observed. The 2015 loophole-free Bell tests
+closed the major loopholes at the same time and ruled out the simple local
+hidden-variable models Einstein hoped would survive.
 
 The Bell pair makes the structure vivid:
 
@@ -200,9 +205,11 @@ In AdS/CFT and related semiclassical holographic models, there is a striking lat
 
 In those models, the island formula reproduces the Page curve and shows how the radiation can encode information that semiclassical bulk reasoning seemed to lose.
 
-This is important evidence for holographic encoding. But it is not, by itself, an OPH derivation. In OPH, the black-hole claim is narrower: the boundary-sector structure blocks naive inside-outside factorization, and small-CMI recoverability supports encoded interior data without introducing an independent interior tensor factor. A full Page-curve or island derivation is not part of the closed OPH core.
-
-That distinction matters for the reader. The book relies on the encoding lesson: interior information can be stored nonlocally and recovered in the right regime. It does not rely on claiming that every step of black-hole evaporation has been solved inside OPH. The encoded-interior idea belongs to the core story. The full late-time evaporation story still sits beyond it.
+This matters because it shows what holographic encoding can do. Information
+that looks lost in one description can remain stored in a nonlocal way and
+reappear when the right radiation data are assembled. That is the lesson the
+book needs. The black-hole interior is not a second hidden storage room. It is
+an encoded part of the same quantum description.
 
 ## 9.10 From Entanglement to the Classical World
 

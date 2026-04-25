@@ -4,7 +4,10 @@
 
 Start with the ordinary intuition about storage.
 
-**The intuitive picture**: Information fills space. The more volume you have, the more stuff you can pack into it. Double the size of a box, and you can store twice as much information. Triple it, triple the storage. This is so obvious it hardly seems worth stating.
+Information fills space. The more volume you have, the more stuff you can pack
+into it. Double the size of a box, and you can store twice as much
+information. Triple it, triple the storage. This is so obvious it hardly seems
+worth stating.
 
 If you want to describe a region of the universe completely, you need to specify what's happening at every point in the volume. A cubic meter has more information capacity than a square meter, which has more than a linear meter. The three-dimensional interior is where the action is; surfaces are just boundaries, interfaces, the thin walls separating volumes from each other.
 
@@ -60,7 +63,7 @@ Information capacity scales with area, not volume. The bulk seems three-dimensio
 
 ## 8.3 The First-Principles Reframing: Boundaries Are Consistency Ledgers
 
-Reverse engineering asks why nature encodes bulk physics on boundaries.
+The deeper question is why nature keeps pushing bulk physics to the boundary.
 
 ### Dennis Gabor's Hologram
 
@@ -78,15 +81,23 @@ Gabor called this a "hologram" from the Greek *holos* (whole) and *gramma* (mess
 
 There's a stranger fact about holograms. Cut one into pieces and each piece still shows the whole object, just with less detail. The entire image is encoded everywhere on the film, redundantly.
 
-This maps onto our observer story. Each observer patch contains a partial picture-blurry, missing details, but still encoding the same world. The overlap between patches is like the interference pattern. That's how the shared story stays consistent.
+The analogy fits the observer picture. Each patch contains a partial image:
+blurred, incomplete, yet still tied to the same world. The overlap between
+patches plays the role of the interference pattern. That is how the shared
+account stays consistent.
 
 ### The Consistency Ledger
 
 **Boundaries are consistency ledgers where observers compare notes.**
 
-In OPH, reality emerges from the agreement of observer patches. But where do observers compare notes? They need a shared ledger-a common reference where their descriptions must match.
+Reality emerges from the agreement of observer patches. But where do observers
+compare notes? They need a shared ledger, a common reference where their
+descriptions must match.
 
-The boundary serves exactly this role. It's where the bookkeeping lives. Each observer's patch includes a region of the boundary. When patches overlap, the boundary values must agree. The bulk emerges as the most consistent story that fits all the boundary data.
+The boundary serves exactly this role. It's where the bookkeeping lives. Each
+observer's patch includes a region of the boundary. When patches overlap, the
+boundary values must agree. The bulk emerges as the most consistent account
+that fits all the boundary data.
 
 This explains why information scales with area, not volume. The boundary is the fundamental storage; the bulk is derivative. There's no hidden interior capacity beyond what the surface encodes-because the interior *is* the surface, reorganized into a convenient three-dimensional description.
 
@@ -182,7 +193,12 @@ $$Z_{gravity}[\phi \to \phi_0] = \left\langle \exp\left(\int d^d x \, \phi_0(x) 
 
 This is the working dictionary between bulk and boundary. The left-hand side asks the gravity theory for its partition function while the bulk field $\phi$ is forced to approach the boundary profile $\phi_0$. The right-hand side asks the boundary theory for the generating functional obtained by turning on a source $\phi_0(x)$ for the operator $\mathcal{O}(x)$.
 
-That is why the formula matters. It tells you how to turn a bulk question into a boundary calculation. Fix the boundary data, and the bulk tells you how the interior responds. Turn on the corresponding source in the CFT, and the boundary tells you the same thing in field-theory language. Differentiate with respect to the source and you generate correlation functions. The bulk and boundary are solving one problem in two dialects.
+The formula earns its keep because it turns a bulk question into a boundary
+calculation. Fix the boundary data, and the bulk tells you how the interior
+responds. Turn on the corresponding source in the CFT, and the boundary tells
+you the same thing in field-theory language. Differentiate with respect to the
+source and you generate correlation functions. Bulk and boundary are solving
+one problem in two dialects.
 
 It helps to picture one concrete use. If the boundary theorist asks, "What happens if I couple a source to this operator and measure the response?" the bulk theorist asks, "What bulk field profile reaches the boundary with that asymptotic value?" GKPW says those are the same computation written on opposite sides of the correspondence.
 
@@ -226,7 +242,10 @@ Draw a region A on the boundary. There's a surface in the bulk that dips into th
 
 More entanglement means a larger minimal surface. The geometry of the bulk encodes entanglement structure on the boundary.
 
-That is why the RT formula sits at the center of the chapter. It turns a quantum-information question into a geometric one. Once area can be read from entropy, the old separation between "matter state" and "shape of space" starts to collapse.
+The RT formula sits at the center of the chapter because it turns a
+quantum-information question into a geometric one. Once area can be read from
+entropy, the old separation between "matter state" and "shape of space" starts
+to collapse.
 
 **Geometry is built from entanglement. Information becomes shape.**
 
@@ -254,7 +273,9 @@ A bulk region can be reconstructed from **many different** boundary subsets. Thi
 
 If you erase part of the boundary, bulk information survives-you can recover it from the remaining boundary. This is the holographic implementation of the recovery rule.
 
-HKLL matters because it shows how a world that looks local inside can be stored nonlocally on the boundary without contradiction. The boundary keeps the ledger. HKLL explains how to read a local bulk story out of that ledger.
+HKLL matters because it shows how a world that looks local inside can be stored
+nonlocally on the boundary without contradiction. The boundary keeps the
+ledger. HKLL explains how to read a local bulk description out of that ledger.
 
 ## 8.11 Black Holes and Thermodynamics
 
@@ -322,9 +343,8 @@ Just as PV = nRT follows from statistical mechanics without knowing molecular de
 
 ### Why This Matters for Our Framework
 
-In our model, observers have patches with boundaries, those patches have to
-agree on overlaps, and that agreement takes the thermodynamic form of
-equilibrium.
+Observer patches have boundaries, those patches have to agree on overlaps, and
+that agreement takes the thermodynamic form of equilibrium.
 
 If modular flow on caps is geometric (as shown in later chapters) and
 the entropy splits into an area piece plus a bulk piece (from the error-correction structure),
@@ -332,7 +352,10 @@ then Jacobson's thermodynamic argument applies. Under those conditions, Einstein
 equations emerge as the natural effective way for observer horizons to remain
 thermodynamically consistent.
 
-This is why 4D spacetime geometry works so well: it is the thermodynamic equilibrium of horizon entropy. The geometry we observe is the most probable configuration, the one that maximizes entropy subject to matter constraints.
+Four-dimensional spacetime geometry works so well because it is the
+thermodynamic equilibrium of horizon entropy. The geometry we observe is the
+most probable configuration, the one that maximizes entropy subject to matter
+constraints.
 
 ## 8.13 What We Borrow from AdS/CFT (and What We Don't)
 
@@ -365,7 +388,7 @@ In de Sitter, each observer has their own horizon. Nearby observers have
 different horizons, yet those horizons overlap enormously. That is exactly our
 setup. Each observer accesses a region bounded by a cosmological horizon, the
 shared parts of those horizons have to agree, and no global boundary theory is
-needed for the story to work.
+needed to make this work.
 
 For that reason, we're **not proposing dS/CFT**. A hypothetical dS/CFT would posit a CFT at future infinity dual to de Sitter bulk physics. We're proposing something weaker and more concrete:
 

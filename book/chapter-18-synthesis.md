@@ -2,7 +2,7 @@
 
 ## 18.1 The Picture That Gives Way
 
-For a long time physics told its story on a finished stage. Space was the
+For a long time physics assumed a finished stage. Space was the
 container. Time was the clock hanging above it. Matter moved through both.
 Observers arrived late, as witnesses standing at the edge.
 
@@ -20,10 +20,10 @@ finite access, and the demand that overlapping descriptions agree.
 
 That turn changes the tone of everything that came before. Objectivity ceases
 to be a mysterious substance sitting behind all perspectives. It becomes the
-shared story that survives comparison. A world becomes public when many local
+shared account that survives comparison. A world becomes public when many local
 views can be woven into one durable account.
 
-That is why the horizon matters. It is where comparison becomes physical. It is
+The horizon matters. It is where comparison becomes physical. It is
 where records meet. It is where the bookkeeping has to close.
 
 ## 18.3 The Screen and the Ledger
@@ -56,7 +56,7 @@ shared bookkeeping looks like when written smoothly.
 
 ## 18.5 How the Particle World Appears
 
-The particle story follows the same logic from another angle. Once stable
+The particle world follows the same logic from another angle. Once stable
 charge sectors can fuse, split, and move coherently around overlaps, the gauge
 group is reconstructed from the charge bookkeeping itself. The group that
 emerges is
@@ -69,7 +69,7 @@ Three generations and three colors follow from the same pressure. The photon,
 gluons, and graviton stay massless because they ride on redundancy directions
 the architecture cannot break. The weak pair, the low-energy electromagnetic
 coupling, the Higgs-top surface, the running quark package, and one neutrino
-family all arrive inside the same particle story.
+family all arrive inside the same reconstruction.
 
 That is the twist. The Standard Model no longer looks like a cabinet full of
 unrelated entries. It looks like the smallest charged world that lets the
@@ -119,8 +119,8 @@ enormously. The consistency conditions are severe. The total state space is
 finite. The cosmological constant ceases to look like an awkward vacuum-energy
 leftover and starts looking like a global capacity statement about the screen.
 
-That is why the de Sitter chapter mattered so much. It did not interrupt the
-story. It revealed the stage on which the observer-first picture reads most
+The de Sitter chapter mattered so much because it did not break the thread. It
+revealed the stage on which the observer-first picture reads most
 cleanly.
 
 ## 18.8 Old Puzzles Under New Light
@@ -145,12 +145,12 @@ harsh test of public consistency.
 
 ## 18.9 The Strange Loop
 
-The framework also presses toward a more unsettling thought. Reality produces
+A more unsettling thought follows. Reality produces
 observers. Observers produce understanding. Understanding can produce a working
 image of the same informational structure that produced the observers in the
 first place.
 
-That is why the simulation question lands differently here. The book does not
+The simulation question lands differently here. The book does not
 need an external programmer standing beyond the physics. The stronger image is
 stranger. A world of finite observers can close back on itself through the very
 minds it generates. The loop is conceptual before it is technological. It says
@@ -170,7 +170,7 @@ is the family of stable excitations that can survive transport across patches.
 Laws are the public regularities that endure repeated comparison. Objectivity
 is the residue left behind after many partial viewpoints are made to agree.
 
-The story feels strange only if one insists on beginning with a finished world.
+The picture feels strange only if one insists on beginning with a finished world.
 Begin with finite access, horizons, records, and overlap, and the twists stop
 looking decorative. They start looking inevitable.
 

@@ -14,7 +14,7 @@
     "sin2w_mz": 0.23073542347506173,
     "v": 246.76711732749683
   },
-  "generated_at": "2026-04-25T04:24:18.893709+00:00",
+  "generated_at": "2026-04-25T05:31:46.917469+00:00",
   "grid_points": 401,
   "iterations": 80,
   "observables": {
@@ -74,39 +74,6 @@
       },
       "status": "estimated",
       "target_value": 91.22
-    },
-    "sin2w_mz": {
-      "current_delta": 3.542347506174659e-05,
-      "current_value_at_p_default": 0.23073542347506173,
-      "delta_p_from_default": 0.004667877417201094,
-      "dp_sensitivity_near_default": -0.007588775774447497,
-      "implied_p": 1.6356078774172012,
-      "refined_root": {
-        "implied_p": null,
-        "iterations": 0,
-        "status": "unbracketed"
-      },
-      "status": "estimated_out_of_scan_range",
-      "target_value": 0.2307
-    },
-    "v": {
-      "current_delta": -0.002882672503176309,
-      "current_value_at_p_default": 246.76711732749683,
-      "delta_p_from_default": -5.429027567505074e-07,
-      "dp_sensitivity_near_default": -5309.740035885113,
-      "implied_p": 1.6309394570972433,
-      "refined_root": {
-        "bracket": [
-          1.6309375000000002,
-          1.63094
-        ],
-        "final_residual": 5.7980287238024175e-12,
-        "implied_p": 1.6309394571003812,
-        "iterations": 80,
-        "status": "solved"
-      },
-      "status": "estimated",
-      "target_value": 246.77
     }
   },
   "p_default": 1.63094,
@@ -115,13 +82,13 @@
   "root_refinement_enabled": true,
   "source_branch": "arXiv/RC1/ancillary/code/particles/particle_masses_paper_d10_d11.py",
   "summary": {
-    "estimated_count": 5,
+    "estimated_count": 3,
     "exact_single_p_candidate": false,
     "focus_pair_spreads": {
       "m_w_run_vs_m_z_pole_stage3": 2.2363740490582984e-06
     },
-    "implied_p_midpoint": 1.6332728808581103,
-    "implied_p_spread": 0.0046699931181815035,
-    "observable_count": 5
+    "implied_p_midpoint": 1.6309661128865003,
+    "implied_p_spread": 5.6457174961277445e-05,
+    "observable_count": 3
   }
 }

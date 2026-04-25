@@ -4,7 +4,11 @@
 
 Start with the classical picture.
 
-**The intuitive picture**: When two distant events are correlated, there must be a common cause in their shared past. Correlations come from shared history, hidden connections, or pre-existing properties. If I flip two coins and they always match, either the coins were manufactured together with matching weights, or someone is signaling between them. There's no spooky magic at a distance.
+When two distant events are correlated, there must be a common cause in their
+shared past. Correlations come from shared history, hidden connections, or
+pre-existing properties. If I flip two coins and they always match, either the
+coins were manufactured together with matching weights, or someone is signaling
+between them. There's no spooky magic at a distance.
 
 This is the worldview of classical physics and common sense. Einstein himself held it dear. Objects have definite properties whether or not we measure them. Measurements reveal pre-existing facts. If two particles are correlated when measured far apart, they must have carried that correlation with them from the start, like matched gloves packed in separate suitcases.
 
@@ -90,7 +94,12 @@ The reverse-engineering question is simple: why does nature behave this way? Wha
 
 ### Objectivity Is Agreement
 
-Let's begin with a parable. Imagine you're standing on a street corner in New York City. You see a bright red Ferrari parked across the street-gleaming, expensive, the kind of car that makes people stop and stare. A second observer, Bob, is standing fifty feet down the block. He sees the side profile and the license plate. A third observer, Charlie, is looking out of a second-story window and sees the roof of the car.
+Let's begin with a parable. Imagine you're standing on a street corner in New
+York City. You see a bright red Ferrari parked across the street, gleaming and
+expensive, the kind of car that makes people stop and stare. A second
+observer, Bob, is standing fifty feet down the block. He sees the side profile
+and the license plate. A third observer, Charlie, is looking out of a
+second-story window and sees the roof of the car.
 
 We take for granted that there's a single, objective "real" Ferrari sitting there. But ask a dangerous question: *How do we know the car is real?*
 
@@ -162,7 +171,10 @@ What does Bell's theorem have to do with observer patches?
 
 Everything.
 
-Bell showed that when two observers access the same entangled system, their correlations can exceed classical bounds. They can't *communicate* faster than light-each observer's local statistics look completely random-but when they *compare notes*, patterns emerge that no classical story can explain.
+Bell showed that when two observers access the same entangled system, their
+correlations can exceed classical bounds. They can't *communicate* faster than
+light, each observer's local statistics look completely random, but when they
+*compare notes*, patterns emerge that no classical account can explain.
 
 This comparison is overlap. When Alice and Bob's patches both include information about an entangled system, their descriptions must be compatible in a very specific way.
 
@@ -302,7 +314,10 @@ But each observable appears once in a row and once in a column. So the product o
 
 +1 does not equal -1. Contradiction.
 
-No single noncontextual value assignment exists that satisfies these constraints. Any viable account must therefore treat the value story as context-dependent. This is **contextuality** in the sense highlighted by the theorem.
+No single noncontextual value assignment exists that satisfies these
+constraints. Any viable account must therefore treat value assignment as
+context-dependent. This is **contextuality** in the sense highlighted by the
+theorem.
 
 That is exactly why this theorem fits OPH so well. Observer overlap is never the overlap of two perfect God's-eye inventories. It is the overlap of actual measurement contexts, actual accessible observables, and actual records. Context is not an embarrassment to be removed. It is part of the structure.
 
@@ -331,7 +346,12 @@ superposed description, provided they have not compared notes. The tension
 appears when communication begins and the two descriptions have to settle into
 one common account.
 
-That is why Wigner's friend matters beyond foundations theater. It is the simplest clean model of nested access. One observer inhabits a definite record, another still treats that record as part of a larger quantum state, and both descriptions remain admissible until communication forces a common restriction. The whole OPH project keeps asking how such restrictions line up without contradiction.
+Wigner's friend matters beyond foundations theater because it is the simplest
+clean model of nested access. One observer inhabits a definite record, another
+still treats that record as part of a larger quantum state, and both
+descriptions remain admissible until communication forces a common restriction.
+The whole OPH project keeps asking how such restrictions line up without
+contradiction.
 
 At that moment, their descriptions must agree. The consistency condition forces a resolution. Before the door opens, they can maintain different descriptions. After it opens, they share an overlap, and quantum mechanics demands their states match on that overlap.
 
@@ -447,13 +467,13 @@ bound.
 
 This chapter turns objectivity into agreement. Correlations do not need to be
 explained by hidden classical instruction sets carried from a common past.
-Bell's theorem makes that fantasy too small for the world we observe. In OPH,
+Bell's theorem makes that fantasy too small for the world we observe. Here,
 the stronger quantum structure belongs to the consistency conditions linking
 patches.
 
 That matters because the gluing problem is hard. Quantum marginals can fail to
 fit together even when pairwise overlaps look harmless, and the combinatorics
-become vicious as more observers enter the story. Bell-violating entanglement
+become vicious as more observers are involved. Bell-violating entanglement
 is not an embarrassment in this setting. It is part of the efficient
 bookkeeping that allows many local perspectives to remain compatible without
 an impossible burden of pre-coordination.
@@ -464,7 +484,10 @@ We have the Screen. We have the Algebra. We have the Consistency Rules.
 
 But what if the web gets torn? What if I measure something here, and you measure something there, and we lose the connection? What if information seems to disappear into a black hole or leak out through quantum noise?
 
-That tension is sharper after this chapter than before it. Overlap is contextual, entanglement is limited, and global compatibility can be brutally hard to check. A world built from such ingredients should feel fragile. The reason it does not feel fragile is the next piece of the story.
+That tension is sharper after this chapter than before it. Overlap is
+contextual, entanglement is limited, and global compatibility can be brutally
+hard to check. A world built from such ingredients should feel fragile. The
+next chapter explains why it does not.
 
 That is where the next chapter picks up. If overlap is contextual, limited, and sometimes globally hard, why does the world feel stable at all? Why do broken traces, partial records, and scrambled signals so often still lead back to one shared history?
 

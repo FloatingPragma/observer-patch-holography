@@ -1,42 +1,63 @@
 # Observer Patch Holography (OPH)
 
-> Observer Patch Holography starts from one claim: no observer sees the whole world at once. Each observer accesses only a local patch, and neighboring patches must agree on their overlap. OPH asks how much physics can be reconstructed from that starting point once the full axiom and branch ledger is made explicit.
+> Observer Patch Holography starts from a simple restriction: no observer sees the whole world at once. Each observer gets only a local patch, and neighboring patches have to agree where those patches overlap. The question is how much physics can be forced from that fact alone.
 
 **French version:** [README_FR.md](README_FR.md)
 
 **Quick links:** [website](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [OPH Lab](https://oph-lab.floatingpragma.io)
 
-OPH is a reconstruction program for fundamental physics. Spacetime, gauge structure, particles, records, and observer synchronization are treated as consequences of the OPH package rooted in overlap consistency on a finite holographic screen, together with the explicit branch premises stated in the papers.
+OPH is a reconstruction program for fundamental physics. It starts from finite
+observers on a finite holographic screen and works outward. Spacetime, gauge
+structure, particles, records, and observer synchronization are treated as
+consequences of overlap consistency, not as primitives.
 
-## Authority and Reading Rule
+## Where To Start
 
-For recovered-core theorem status and claim tier, consult **Paper 2. [Recovering Relativity and the Standard Model from the OPH Package Rooted in Observer Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** first. Lane-specific claim tier remains with the corresponding companion papers, including **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**, **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)**, and **Paper 5. [Screen Microphysics and Observer Synchronization](paper/screen_microphysics_and_observer_synchronization.pdf)**. This README, Paper 1, and the book are synchronized synthesis surfaces; they summarize and organize results but do not promote claim tier.
+If you want the compact technical core, start with **Paper 2. [Recovering
+Relativity and the Standard Model from the OPH Package Rooted in Observer
+Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**.
+It carries the relativity, gravity, and Standard Model structure in the
+tightest form. **Paper 3. [Deriving the Particle Zoo from Observer
+Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**
+carries the particle derivations. **Paper 4. [Reality as a Consensus
+Protocol](paper/reality_as_consensus_protocol.pdf)** develops the consensus and
+repair picture. **Paper 5. [Screen Microphysics and Observer
+Synchronization](paper/screen_microphysics_and_observer_synchronization.pdf)**
+covers finite screen architecture, records, and observer machinery. This
+README, Paper 1, and the book are the broad overviews.
 
 ## What OPH Delivers
 
-Most theories begin with spacetime, quantum fields, and a long list of free constants. OPH starts with a much smaller scene. An observer has access to one finite patch of a holographic screen. A neighboring observer has another patch. Physics is the requirement that these local descriptions agree where the patches overlap.
+Most theories begin by assuming spacetime, quantum fields, and a list of
+constants. OPH starts one step earlier, with finite observers on a finite
+holographic screen whose descriptions have to agree where their patches
+overlap. Push that requirement hard enough and a `3+1D` Lorentzian spacetime
+emerges, together with a Jacobson-style Einstein equation and the realized
+Standard Model quotient `SU(3) x SU(2) x U(1) / Z_6`, including the exact
+hypercharge lattice and the counting chain `N_g = 3`, `N_c = 3`.
 
-That single move leads surprisingly far. OPH recovers the broad shape of the world before it touches the detailed numbers. On the structural side, it yields a `3+1D` Lorentzian spacetime, a Jacobson-style Einstein branch, and the realized Standard Model quotient `SU(3) x SU(2) x U(1) / Z_6` with the exact hypercharge lattice and the counting chain `N_g = 3`, `N_c = 3`.
+The scale is set by two quantities: the total screen capacity
+`N_scr = log dim H_tot`, read from the cosmological constant, and the local
+pixel ratio `P = a_cell / l_P^2`, which fixes the size of one screen cell in
+Planck areas. From the outside, `P` is a geometric cell size that sits
+slightly above the self-similar balance `φ = (1 + sqrt(5)) / 2`. From the
+inside, it becomes the smallest electromagnetic observation scale available to
+observers in the world encoded on that screen. OPH ties those two readings
+together by requiring them to land on the same value.
 
-The quantitative story is compact. OPH uses only two numbers. The first is the total screen capacity `N_scr = log dim H_tot`, read from the cosmological constant. The second is the local pixel ratio `P = a_cell / l_P^2`, the size of one screen cell in Planck areas.
-
-`P` has a simple interpretation. The same cell is read in two ways. From the outside it is a pixel sitting slightly above the self-similar balance `φ = (1 + sqrt(5)) / 2`. From the inside it is the smallest electromagnetic observation scale available to observers in the simulated universe. `P` is the value where those two readings agree. The fixed-point proof is the mathematical certificate for that idea. It shows that the closure selects an admissible `P` on the physical interval.
-
-Once `N_scr` and `P` are in place, the rest of the story runs forward. The same framework organizes gravity, gauge structure, the electroweak sector, the Higgs/top surface, the quark masses and Yukawas, neutrino structure, records, and observer synchronization. Charged-lepton absolute masses, the direct zero-momentum electromagnetic closure, and hadrons are work in progress.
-
-That is what makes OPH different. It treats information and computation as the deeper layer, then derives the familiar world from there.
+From the same setup come gravity, gauge structure, the electroweak sector,
+the Higgs-top pair, quark masses and Yukawas, neutrino structure, records, and
+observer synchronization. Charged-lepton absolute masses, direct zero-momentum
+electromagnetic closure, and hadrons remain under derivation.
 
 ### Selected Quantitative Rows
 
-This condensed table keeps only OPH rows with either an exact match, a quoted sigma agreement, a
-clean upper-bound success against the PDG/NIST reference values used in the papers, or one
-explicitly labeled Phase II closure candidate. Structural results such as the `3+1D` Lorentz
-branch, the Standard Model gauge quotient
-`SU(3) x SU(2) x U(1) / Z_6`, the exact hypercharge lattice, and the counting chain `N_g = 3`,
-`N_c = 3` are stated in the papers and are not repeated here. The `W/Z/H` boson lane sits on the
-Phase II quantitative-closure branch, so it is discussed in the papers but omitted from this quick
-comparison. The fine-structure row is a Phase II `P`-closure candidate. The source-only transport
-certificate for that row is pending.
+This table keeps the rows that are easiest to compare directly with PDG and
+NIST values. Structural results such as the `3+1D` Lorentzian spacetime, the
+Standard Model quotient `SU(3) x SU(2) x U(1) / Z_6`, the exact hypercharge
+lattice, and the counting chain `N_g = 3`, `N_c = 3` live in the papers. The
+quick view here sticks to direct numeric rows, exact zeros, and a small number
+of declared closure candidates.
 
 | Quantity | Symbol | OPH | PDG/NIST | Δ |
 | --- | --- | --- | --- | --- |
@@ -57,37 +78,32 @@ certificate for that row is pending.
 | Down | m_d(2 GeV) | 4.70 MeV | 4.70 ± 0.07 | match |
 | Up | m_u(2 GeV) | 2.16 MeV | 2.16 ± 0.07 | match |
 
-`Δ` reports the sigma distance where PDG or NIST quotes a one-standard-deviation uncertainty.
-Otherwise it records `match`, `below bound`, or the status of a declared candidate row.
+`Δ` reports the sigma distance where PDG or NIST quotes a one-standard-deviation
+uncertainty. Otherwise it records `match`, `below bound`, or the status of a
+declared candidate row.
 
-For the quark rows, PDG uses its standard quark-mass conventions: `u`, `d`, and `s` at `2 GeV`,
-and `c` and `b` in the `MS` scheme at their own mass scale.
-The papers also contain the structural Standard Model derivations listed above and a theorem-grade
-neutrino family, which are not included in this table because they do not have a single direct
-PDG/NIST one-number comparison row.
-The public neutrino surface also includes theorem-grade physical Majorana phases on the
-shared-basis weighted-cycle transport branch; see `code/particles/RESULTS_STATUS.md`.
+For quarks, PDG uses its standard mass conventions: `u`, `d`, and `s` at
+`2 GeV`, with `c` and `b` in the `MS` scheme at their own mass scale. The
+papers also carry the structural Standard Model derivations listed above and a
+neutrino family, but those do not collapse to one simple PDG or NIST row and
+are left out of this table. For detailed particle status, see
+[code/particles/RESULTS_STATUS.md](code/particles/RESULTS_STATUS.md).
 
-The declared electroweak quantitative-closure surface also carries an exact source-only Higgs theorem with
-`m_H = 125.1995304097179 GeV` and a companion top coordinate
-`m_t = 172.3523553288312 GeV` on the same Jacobian surface.
-At the precision quoted by PDG, the Higgs row lands on the 2025 Higgs average.
-The exact public running-top row on the selected quark frame uses the PDG 2025 cross-section entry
-`Q007TP4`.
-The bridge to the auxiliary direct-top average `Q007TP = 172.56 ± 0.31 GeV` is open and tracked in
+The public electroweak surface also includes a Higgs value
+`m_H = 125.1995304097179 GeV` and a companion top value
+`m_t = 172.3523553288312 GeV` on the same calibration surface. The bridge to
+the auxiliary direct-top average `Q007TP = 172.56 ± 0.31 GeV` is tracked in
 [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207).
 
-Charged leptons sit on a split claim tier. The repo carries an exact same-family witness, the same-label `q_e` readback, a source-side determinant character defined for a fixed source multiplicity vector, a conditional determinant-line lift on physical charged data, and an algebraic mass readout from theorem-grade absolute charged scale. The public theorem lane does not emit a theorem-grade sector-isolated charged determinant exponent vector, and it does not identify the source-side determinant character with the physical charged determinant line. Public electron, muon, and tau masses are therefore not emitted from `P`.
+Charged leptons are still under derivation from the public `P` route.
 
 ## Local Unification Surface
 
-The local unification surface is organized around the local pixel ratio `P` on its declared Phase II closure surface. The same `P`-driven scale carries the electroweak boson and Higgs lane together with the gravity-side entropy lane, while the Lorentz branch supplies the invariant causal speed and the local familiar-unit package supplies meters, seconds, GeV, and Kelvin. On the stated local extension surface, the lifted product presentation of the realized quotient branch gives `ellbar_shared = ellbar_SU(2) + ellbar_SU(3)`; the same D10 pixel law on that surface fixes `ellbar_shared = P/4`, and the gravity-side emitted row is `G_SI = c^3 a_cell / (hbar P)` relative to the declared microscopic datum `a_cell`.
-The familiar-unit package on that surface is explicit: `L_loc = sqrt(a_cell) * Lhat(P)`,
-`t_loc = sqrt(a_cell) * That(P) / c`, `E_loc = hbar c * Ehat(P) / sqrt(a_cell)`, and
-`Theta_loc = hbar c * Thetahat(P) / (k_B sqrt(a_cell))`, with dimensionless branch outputs
-`Lhat`, `That`, `Ehat`, `Thetahat`. So `a_cell` supplies the one local ruler, `c` is the
-structural Lorentz output, and `hbar` and `k_B` are downstream familiar-unit display conventions
-for GeV and Kelvin rather than standalone OPH-emitted constants.
+The local unification surface is organized around the pixel ratio `P` and one
+local ruler, `a_cell`. On that surface the same scale touches the electroweak
+bosons, the Higgs lane, the gravity-side entropy relation, and the familiar
+unit package for meters, seconds, GeV, and Kelvin. The diagram below shows how
+those pieces sit on one scale. The detailed formulas live in the papers.
 
 <p align="center">
   <a href="assets/OPH_Unification_Diagram.svg" target="_blank" rel="noopener noreferrer">
@@ -97,15 +113,15 @@ for GeV and Kelvin rather than standalone OPH-emitted constants.
 
 Particle status surfaces for this repo live in [code/particles/RESULTS_STATUS.md](code/particles/RESULTS_STATUS.md) and [code/particles/EXACT_NONHADRON_MASSES.md](code/particles/EXACT_NONHADRON_MASSES.md).
 
-**Theorem stack and open fronts**
+**OPH Stack**
 
 <p align="center">
-  <a href="assets/prediction-chain.svg?v=20260412" target="_blank" rel="noopener noreferrer">
-    <img src="assets/prediction-chain.svg?v=20260412" alt="OPH theorem stack and open proof fronts" width="92%">
+  <a href="assets/prediction-chain.svg" target="_blank" rel="noopener noreferrer">
+    <img src="assets/prediction-chain.svg" alt="OPH theorem stack" width="92%">
   </a>
 </p>
 
-<p align="center"><sub>The OPH stack from axioms to relativity, gauge structure, particles, observers, and the open proof fronts. Click to open the full SVG.</sub></p>
+<p align="center"><sub>The main OPH line from axioms to relativity, gauge structure, particles, and observers. Click to open the full SVG.</sub></p>
 
 **Particle derivation stack**
 
@@ -119,11 +135,11 @@ Particle status surfaces for this repo live in [code/particles/RESULTS_STATUS.md
 
 ## Papers
 
-- **Paper 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)**: synthesis paper for the whole OPH stack; it organizes the suite on one surface and inherits claim tier from the compact recovered-core paper and the corresponding companion-paper ledgers. It does not upgrade them.
-- **Paper 2. [Recovering Relativity and the Standard Model from the OPH Package Rooted in Observer Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: authoritative recovered-core and claim-tier surface for the Lorentz/gravity chain and the realized Standard Model structural branch.
-- **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle derivation, exact-hit surface, and theorem-boundary map.
-- **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)**: fixed-point, repair, and consensus formulation.
-- **Paper 5. [Screen Microphysics and Observer Synchronization](paper/screen_microphysics_and_observer_synchronization.pdf)**: finite screen architecture, records, and observer machinery.
+- **Paper 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)**: broad synthesis across the full OPH stack.
+- **Paper 2. [Recovering Relativity and the Standard Model from the OPH Package Rooted in Observer Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for relativity, gravity, and Standard Model structure.
+- **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle derivations and the quantitative mass and coupling surface.
+- **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)**: repair, fixed-point, and consensus picture.
+- **Paper 5. [Screen Microphysics and Observer Synchronization](paper/screen_microphysics_and_observer_synchronization.pdf)**: finite screen architecture, records, and observer synchronization.
 
 ## More
 

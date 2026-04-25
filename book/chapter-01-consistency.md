@@ -7,7 +7,11 @@
 
 Let's start with what seems obvious-the picture that humans believed for millennia and that still matches our everyday intuition.
 
-**The intuitive picture**: There exists an objective, three-dimensional reality that is completely independent of observers. Objects have definite positions, definite properties, at every moment. The universe is like a vast stage, and we observers are audience members watching a play that would proceed exactly the same whether we were watching or not.
+There exists an objective, three-dimensional reality that is completely
+independent of observers. Objects have definite positions and definite
+properties at every moment. The universe is like a vast stage, and we
+observers are audience members watching a play that would proceed exactly the
+same whether we were watching or not.
 
 Space is a container. It exists "out there," infinite and absolute, like a cosmic graph paper on which events are plotted. Time flows uniformly, the same for everyone, like a universal clock ticking away in the background.
 
@@ -159,7 +163,10 @@ Picture two friends, Mira and Sam, walking through a city. Mira turns down a sid
 
 "I didn't see any truck," says Sam.
 
-This is not a paradox. They had partial views. Their stories overlap only where their views overlap. When Sam walks down the street and finds tire marks and a taco wrapper, he updates his story: "Okay, I guess there was a truck. I just didn't see it."
+This is not a paradox. They had partial views. Their accounts only have to
+agree where their views overlap. When Sam walks down the street and finds tire
+marks and a taco wrapper, he updates his account: "Okay, I guess there was a
+truck. I just didn't see it."
 
 That is the overlap test. When observers share access to the same facts, they must agree. When they don't agree, something has to change-a memory corrected, a measurement retaken, a theory revised.
 
@@ -214,7 +221,9 @@ is conserved.
 
 This is the bookkeeping of agreement. It is more than mathematics.
 
-If energy could just appear or disappear, observers at different times would tell incompatible stories. Conservation laws are the constraints that keep stories aligned once the relevant symmetries are in place.
+If energy could just appear or disappear, observers at different times would
+end up with incompatible accounts. Conservation laws are the constraints that
+keep those accounts aligned once the relevant symmetries are in place.
 
 ## 1.7 Horizons: The Limits of Agreement
 
@@ -312,7 +321,7 @@ You cannot pack infinite information into a finite region. The entropy budget is
 **Axiom 5: Economy Principle**
 Among the admissible low-energy possibilities, the realized package is the
 minimal one under the precise complexity ordering used in the physics program.
-This is the selector that narrows the gauge story to the Standard Model.
+This is the selector that narrows the gauge structure to the Standard Model.
 
 ## 1.11 Reality as Computation
 

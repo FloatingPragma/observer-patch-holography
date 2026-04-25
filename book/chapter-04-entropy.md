@@ -4,7 +4,10 @@
 
 Here's what seems obvious: if you know the rules perfectly, you should be able to run them backward.
 
-**The intuitive picture**: The laws of physics are deterministic and time-reversible. Newton's equations work just as well backward as forward. If you film billiard balls colliding and play the film in reverse, you see a perfectly valid physical process. Past and future should be symmetric.
+The laws of physics are deterministic and time-reversible. Newton's equations
+work just as well backward as forward. If you film billiard balls colliding and
+play the film in reverse, you see a perfectly valid physical process. Past and
+future should be symmetric.
 
 Ordinary life says otherwise.
 
@@ -103,7 +106,8 @@ We exist in a brief window when entropy is high enough for complexity but low en
 
 ### The First-Principles Reframing
 
-**The intuitive picture**: Time is a fundamental dimension. The arrow of time should come from fundamental laws.
+Time is a fundamental dimension. The arrow of time should come from fundamental
+laws.
 
 **The hint**: The microscopic laws are time-symmetric. Irreversibility is statistical, not fundamental. The arrow traces to the low-entropy initial condition.
 
@@ -113,7 +117,12 @@ Consider: for observers to exist at all, they must be able to form consistent re
 
 The MaxEnt principle tells us to assign the maximum-entropy state *given our constraints*. But what are the constraints? If one of them is "observers exist to apply MaxEnt," then equilibrium states are ruled out by construction. The very act of asking "what state should I assign?" presupposes a questioner embedded in an entropy gradient.
 
-This does not derive the specific low entropy of the Big Bang from pure logic. It does show why the Past principle is structurally important in this picture. A universe with durable observers checking for consistency requires a significant departure from equilibrium. The low-entropy past is therefore a structural precondition for the consistency-building present. The framework does not derive that initial condition.
+This does not derive the specific low entropy of the Big Bang from pure logic.
+It does show why the Past principle is structurally important in this picture.
+A universe with durable observers checking for consistency requires a
+significant departure from equilibrium. The low-entropy past is therefore a
+structural precondition for the consistency-building present. That initial
+condition is not derived here.
 
 ## 4.4 Information is Physical
 
@@ -320,8 +329,8 @@ the deep structure required for records, comparison, and public reality.
 
 ## 4.11 Summary: The Entropy Budget
 
-Entropy is not the villain of the story. It is the rulebook that decides what
-can be remembered, what can be shared, and what has to dissolve into noise.
+Entropy decides what can be remembered, what can be shared, and what has to
+dissolve into noise.
 The Second Law gives the direction. Landauer gives the price. Entanglement
 gives the geometry. Black holes reveal the area budget in its starkest form.
 Observers live inside that budget. Their memory, records, and shared facts are

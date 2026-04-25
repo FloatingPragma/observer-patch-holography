@@ -4,7 +4,10 @@
 
 Start with the Newtonian picture of time.
 
-**The intuitive picture**: Time is a fundamental external parameter. It flows from past to future, independent of anything in the universe. Events happen in time, just as objects exist in space. The clock ticks whether or not anything is happening. Time is the stage; physics is the play.
+Time is a fundamental external parameter. It flows from past to future,
+independent of anything in the universe. Events happen in time, just as objects
+exist in space. The clock ticks whether or not anything is happening. Time is
+the stage; physics is the play.
 
 This is Newton's absolute time: "Absolute, true, and mathematical time, of itself, and from its own nature, flows equably without relation to anything external."
 
@@ -40,50 +43,40 @@ Time is not a fundamental external parameter. The microscopic laws are time-symm
 
 ## 11.3 The First-Principles Reframing: Time Emerges from Modular Flow
 
-Reverse engineering asks why we experience time if it is not fundamental.
+The deeper question is why we experience time at all if the fundamental
+description has no preferred clock.
 
 ### The Thermal Time principle
 
-In the 1990s, Alain Connes and Carlo Rovelli proposed that time emerges from statistical mechanics-from our incomplete knowledge of the quantum state.
+In the 1990s, Alain Connes and Carlo Rovelli proposed a stark idea. Time can be
+read from incomplete knowledge. Start with the observer's limited state
+$\rho$. From it one forms the modular Hamiltonian, $K=-\ln\rho$. That operator
+generates a flow, and the thermal-time proposal reads that flow as the time the
+observer actually experiences.
 
-The logic is spare. Start with a quantum system described by an algebra of
-observables. Give it a state $\rho$, a density matrix representing the
-observer's limited access. Any such density matrix defines a modular
-Hamiltonian, $K=-\ln\rho$.
-
-What is a modular Hamiltonian? In ordinary quantum mechanics, the Hamiltonian H generates time evolution via $e^{-iHt}$. The modular Hamiltonian instead generates a state-dependent modular flow. If you know the density matrix $\rho$, you can take its logarithm and get an operator $K = -\ln\rho$ whose modular evolution acts like an internal clock for that state.
-
-That Hamiltonian generates a flow,
-$\sigma_s(A)=e^{iKs}Ae^{-iKs}$, and the thermal-time principle reads that flow
-as the time the observer experiences.
-
-On the thermal-time proposal, time is the modular flow of the statistical state rather than a fundamental coordinate on a manifold.
-
-**Time flows because we are in a state of incomplete knowledge.** The thermal-time program ties experienced time to state restriction and coarse-graining, rather than treating time as a primitive external parameter.
+This is a strange move the first time one sees it. In ordinary mechanics, the
+Hamiltonian is given first and time evolution follows. Here the restricted
+state itself furnishes the clock. Time is tied to access, ignorance, and coarse
+graining.
 
 ### Tomita-Takesaki Theory
 
-The mathematical foundation is **Tomita-Takesaki theory**.
+The deeper theorem behind that proposal comes from operator algebra. Once an
+observer has a rich enough algebra of questions and a state that probes it
+fully, the pair carries a preferred internal flow whether or not anyone inserts
+an external master clock. The formal machinery is called
+**Tomita-Takesaki theory**.
 
-Let M be a von Neumann algebra and |Omega> a cyclic and separating vector. Tomita-Takesaki theory constructs, from M and |Omega> alone, a one-parameter group of automorphisms:
+An observer with partial access does not sit in a timeless fog. The
+restriction itself orders experience into before and after. The flow depends on
+the algebra-state pair, which is why different observers can inherit different
+clocks from different access conditions. It also carries the thermal
+equilibrium structure that makes temperature and time appear together in the
+same move.
 
-$$\sigma_t(A) = \Delta^{it} A \Delta^{-it}$$
-
-Even without specifying a Hamiltonian, even without putting time in by hand, the algebra-state pair *generates its own time evolution*.
-
-For a non-specialist, the surprise is easy to miss. An automorphism is just a structure-preserving way of pushing every allowed question forward. Tomita-Takesaki says that once you know which questions an observer can ask and which state those questions live in, the pair contains a preferred internal flow. The clock is not added from outside. It is extracted from the observer's restricted situation.
-
-The technical phrases "cyclic" and "separating" sound forbidding, but their role is straightforward. They say the chosen state probes the algebra richly enough and distinguishes operators cleanly enough for modular theory to get a grip. Once those conditions hold, the observer's limited state is not passive. It carries an intrinsic ordering of accessible questions.
-
-Two properties matter most. The state satisfies the KMS equilibrium condition
-at inverse temperature $\beta=1$ with respect to modular time, and the
-resulting modular flow depends on the chosen algebra-state pair.
-
-This theorem says: given any quantum system and any state of incomplete knowledge, there's a natural notion of time evolution.
-
-That is why the theorem matters here. It turns time from a background assumption into something an observer earns by having a state, a horizon, and a limited algebra of questions.
-
-That is the philosophical punchline hidden inside the formalism. Partial knowledge has its own dynamics. Give an observer a restricted state and a restricted algebra, and the pair furnishes an internal before-and-after structure without appealing to an external master clock.
+Modular flow matters here because it turns time from a background stage into
+something earned by an observer's horizon and state. Partial knowledge has its
+own dynamics.
 
 ### The Rindler Wedge
 
@@ -145,7 +138,8 @@ Thermal states are ubiquitous because they're the unique states of maximum ignor
 
 ## 11.6 Time on the Holographic Screen
 
-In OPH, each observer has a patch P on the holographic screen. The global state restricts to a density matrix:
+Each observer has a patch $P$ on the holographic screen. The global state
+restricts to a density matrix:
 
 $$\rho_P = \text{Tr}_{\bar{P}} |\Psi\rangle \langle \Psi|$$
 
@@ -260,13 +254,13 @@ Start with thermal structure. Ask: what is the natural notion of time evolution?
 
 This reverses the usual logic in QFT. We don't postulate Lorentz symmetry and then discover thermal horizons; the BW theorem shows the boost structure is encoded in modular flow.
 
-In OPH, that modular-boost link is the route by which Lorentz kinematics and a
+That modular-boost link is the route by which Lorentz kinematics and a
 universal light speed are recovered on the screen.
 
 ### Connection to Our Framework
 
-In our model, each observer's patch has a boundary, that boundary carries a
-horizon temperature, and the modular flow of the horizon state generates the
+Each observer's patch has a boundary, that boundary carries a horizon
+temperature, and the modular flow of the horizon state generates the
 observer's time evolution. Carried over from wedges in ordinary spacetime to
 caps on the holographic screen, that flow becomes an actual geometric motion on
 the sphere. Once that happens, the conformal symmetry of the sphere reproduces
@@ -339,4 +333,4 @@ We’ve located a source of time without putting time in by hand. Incomplete kno
 
 The harder question concerns translation. Different observers inherit different local clocks, different horizons, and different cuts through the state. Why do the conversion rules between their descriptions lock into the rigid form of symmetry and conservation law instead of dissolving into case-by-case negotiation?
 
-That is the story of **Chapter 12: Symmetry on the Sphere**.
+That is where **Chapter 12: Symmetry on the Sphere** begins.

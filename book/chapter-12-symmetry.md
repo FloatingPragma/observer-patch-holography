@@ -4,7 +4,10 @@
 
 Start with the aesthetic picture of symmetry.
 
-**The intuitive picture**: Symmetries are aesthetic preferences. The universe could have been asymmetric-lopsided, irregular, chaotic-but it happens to be symmetric in certain ways. Physicists chose to study symmetric systems because they're easier to analyze and more beautiful. Symmetry is a convenience, not a necessity.
+Symmetries are aesthetic preferences. The universe could have been asymmetric,
+lopsided, or irregular, but it happens to be symmetric in certain ways.
+Physicists chose to study symmetric systems because they're easier to analyze
+and more beautiful. Symmetry is a convenience, not a necessity.
 
 This view treats symmetry as a happy accident or an unexplained gift. The laws of physics happen to look the same in all directions (rotational symmetry). They happen to be the same today as yesterday (time translation symmetry). But there's no deeper reason for this. The universe could have been otherwise.
 
@@ -35,7 +38,8 @@ Symmetries are connected to the deepest physical laws. The "stuff" of physics (e
 
 ## 12.3 The First-Principles Reframing: Symmetries Are Consistency Requirements
 
-Reverse engineering asks why nature has symmetries. What principle makes them necessary?
+The deeper question is why symmetry keeps showing up as law instead of
+decoration.
 
 ### Symmetry Enables Agreement
 
@@ -43,13 +47,17 @@ Recall our thesis: reality is the process of making observations consistent betw
 
 Consider two astronomers observing the same galaxy. One measures energy in her reference frame. The other measures energy in his frame, moving at a different velocity. Their numbers are different.
 
-But they're not inconsistent. They're related by a Lorentz transformation. In OPH, this symmetry emerges from how modular time-flow works on the screen, as we saw in the previous chapters. The symmetry tells them exactly how to translate between their observations. Lorentz invariance is the rule that makes their different measurements compatible.
+But they're not inconsistent. They're related by a Lorentz transformation. On
+the screen, this symmetry grows out of modular time-flow. It tells them how to
+translate between their observations. Lorentz invariance is the rule that keeps
+both accounts compatible.
 
 **Symmetry is the grammar of consistency.** Without symmetry, different observers could not compare notes. Their measurements would be incommensurable.
 
 ### The Overlap Algebra
 
-In OPH, observers have patches with algebras of observables. When patches overlap, observers must agree on the overlap region.
+Observers have patches with algebras of observables. When patches overlap, they
+must agree on the overlap region.
 
 Conservation laws are the simplest form of this agreement. If I measure total energy in my region and you measure total energy in your region, and our regions overlap, then we must agree on the energy in the overlap-because energy is conserved.
 
@@ -66,7 +74,11 @@ scalar mode $l=0$ stays unchanged under rotation. The vector mode $l=1$
 transforms like an arrow and carries three components. The tensor mode $l=2$
 transforms like a stress matrix and carries five.
 
-This explains part of the angular-momentum story: fields on the sphere decompose into discrete angular modes because spherical harmonics are labeled by integers. Intrinsic spin is a separate representation-theoretic input, which for fermions enters through the spinor and double-cover structure discussed next.
+This explains part of the angular-momentum structure: fields on the sphere
+decompose into discrete angular modes because spherical harmonics are labeled
+by integers. Intrinsic spin is a separate representation-theoretic input, which
+for fermions enters through the spinor and double-cover structure discussed
+next.
 
 ## 12.5 The Spinor Mystery
 
@@ -170,7 +182,8 @@ boson remains as the physical excitation, and fermion masses are fed through
 their Higgs couplings. The underlying symmetry $SU(2)\times U(1)$ narrows to
 $U(1)_{\mathrm{em}}$.
 
-In OPH, symmetry breaking corresponds to the screen "freezing" into a specific configuration. We live in a frozen shard of a more symmetric world.
+Symmetry breaking corresponds to the screen "freezing" into a specific
+configuration. We live in a frozen shard of a more symmetric world.
 
 ## 12.9 CPT: The Unbreakable Symmetry
 
@@ -214,7 +227,12 @@ $$T^{\mu\nu} = \frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}\partial^\n
 
 This is the precise sense in which conserved "stuff" (energy, momentum) is tied to symmetry.
 
-The calculation earns its keep here. It shows that a conservation law is not an extra commandment stapled onto the theory after the fact. The conserved current is the shadow cast by an allowed infinitesimal transformation. If the action does not change when you slide in time, rotate, or shift phase, a current must exist whose flow is preserved. That is why the chapter treats symmetry as operational structure, not decoration.
+The calculation earns its keep here. It shows that a conservation law is not an
+extra commandment stapled onto the theory after the fact. The conserved current
+is the shadow cast by an allowed infinitesimal transformation. If the action
+does not change when you slide in time, rotate, or shift phase, a current must
+exist whose flow is preserved. The chapter therefore treats symmetry as
+operational structure, not decoration.
 
 ## 12.11 What Symmetry Predicts
 

@@ -365,7 +365,7 @@ This would be the strange loop: **reality evolves observers who discover how rea
 In this speculative continuation, we are not programs running on someone else's hardware. We are patterns within a self-simulating system. The simulation would run through us, through our understanding, and through our eventual construction of the very computational substrate that gives rise to us.
 
 This thread sits furthest out on the philosophical edge of the book. The
-physics does not depend on it, yet it gives the story a striking closure.
+physics does not depend on it, yet it gives the book a striking closure.
 
 Escher's hands draw each other. Reality simulates the observers who simulate reality.
 

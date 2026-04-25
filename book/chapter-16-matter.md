@@ -5,9 +5,9 @@
 Before we get technical, let's state the common-sense picture most of us grew
 up with.
 
-**The intuitive picture**: Matter is made of tiny objects moving around in
-space. Each object has a position and velocity. Forces push them, pull them,
-and bend their paths. Energy is a kind of fuel that keeps the motion going.
+Matter is made of tiny objects moving around in space. Each object has a
+position and velocity. Forces push them, pull them, and bend their paths.
+Energy is a kind of fuel that keeps the motion going.
 
 In this view, the world is a stage (space), time ticks forward, and matter is
 the cast. Classical physics is the script: Newton's laws, conservation of
@@ -28,7 +28,7 @@ is why it works so well.
 
 ## 16.3 The First-Principles Reframing: Matter as Stable Patterns
 
-In OPH, **matter is a stable pattern in the screen data**.
+**Matter is a stable pattern in the screen data**.
 
 Think of the screen as a high-resolution, quantum information canvas. Most
 patterns are noisy and ephemeral. Some are stable: they survive overlap
@@ -52,7 +52,7 @@ the zoo stops looking like a zoo.
 
 The first bridge is symmetry. Once Lorentz kinematics is recovered, a durable
 excitation is sorted by the familiar labels of relativistic physics: mass,
-spin, and helicity. Once the gauge story is recovered, the charge bookkeeping
+spin, and helicity. Once the gauge structure is recovered, the charge bookkeeping
 also stops looking arbitrary. The realized package fixes the Standard Model
 quotient $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, the exact hypercharge
 lattice, and the counting chain $N_g=3$, $N_c=3$. Those are structural
@@ -81,9 +81,8 @@ $$
 \alpha^{-1}(0)=137.035999177.
 $$
 
-The point is not that one more number has been fitted. The point is that the
-weak-boson pair and the familiar low-energy electromagnetic strength come from
-one continuous construction.
+The weak-boson pair and the familiar low-energy electromagnetic strength come
+from one continuous construction.
 
 The same electroweak core continues into the scalar and companion top values
 
@@ -125,56 +124,39 @@ nonperturbative bound-state step.
 
 ## 16.5 What Is a Particle?
 
-In ordinary physics, a particle is defined by symmetry. Wigner showed that
-"particle types" are **irreducible representations of the Poincare group**,
-classified by mass together with spin or helicity. This is more than a
-definition; it explains why particles have sharp representation labels.
+By the time the book reaches matter, the old billiard-ball picture has already
+fallen away. A particle is the stable way an excitation shows up under the
+symmetries of the world. Wigner taught physics to catalogue those recurring
+roles by mass and spin, and OPH inherits the same catalogue once Lorentz
+kinematics emerges from screen dynamics.
 
-In OPH, this appears once Lorentz kinematics is recovered on the geometric
-track described in Chapter 15 and once localized excitations organize into
-representations of that emergent symmetry in the effective theory. Particles
-are therefore the representation theory of emergent symmetries.
-
-A "mass" is the representation label that tells you how the excitation
-responds to time translations. A "spin" is the label for how it responds to
-rotations.
-
-Once Lorentz kinematics is in place, energy and momentum form a single
-four-vector and mass is the invariant. This gives the familiar relation
+Mass tells you how the excitation answers time translations. Spin tells you how
+it answers rotations. Once Lorentz symmetry is in place, energy and momentum
+lock into a single four-vector and mass becomes the invariant. The
+familiar relation
 
 $$E^2 = p^2 + m^2$$
 
-(in units where $c=1$). This is why energy and mass are so tightly linked in
-classical physics: they are two faces of the same symmetry.
-
-This is why particles are universal: they are bookkeeping devices for symmetry
-classes, not fundamental objects.
+feels so deep. It is symmetry speaking. Particles are universal because those
+symmetry roles are universal.
 
 ## 16.6 What Is Energy?
 
-Energy is more than a number. It is the generator of time evolution.
+Energy is the price a pattern pays to keep unfolding through time. In this
+framework,
+time first appears as modular flow, so energy first appears as the generator of
+that flow. Far enough out in the effective world, this becomes the ordinary
+Hamiltonian language and the stress tensor familiar from field theory.
 
-In OPH, time is **modular flow**. The generator of modular flow is
-the modular Hamiltonian:
-
-$$K = -\log \rho.$$
-
-In the EFT regime, this connects to the ordinary Hamiltonian and the stress
-energy tensor. On null surfaces, the modular generator becomes an integral of
-$T_{kk}$ (null energy density), and in a UV CFT it reduces to the standard
-stress-tensor charge on small caps.
-
-So energy has a clean meaning. It is the charge that generates time
-translations, and in the emergent effective theory it is encoded in the
-stress tensor $T_{ab}$. Conservation of energy then follows from symmetry: if
-the emergent action is invariant under time shifts, Noether's theorem gives a
-conserved energy.
+Energy conservation survives the journey because once the emergent action
+respects time shifts, the usual conserved charge follows with it. The deep
+explanation changes. The operational behavior does not.
 
 ## 16.7 Motion and Forces: Why Things Move the Way They Do
 
 Classical motion can be described in two equivalent languages. One uses force
 laws such as $F = ma$. The other uses variational laws in which trajectories
-extremize an action. Both are effective descriptions. In OPH, motion is a property of
+extremize an action. Both are effective descriptions. Motion is a property of
 stable patterns moving under modular flow, observed consistently across
 patches. Forces describe how those patterns interact within the emergent EFT.
 
@@ -185,8 +167,8 @@ freedom in the form of effective equations of motion.
 
 The broad shape of the low-energy laws is set by the same consistency
 structure that gives us gauge symmetry in Chapter 14. The exact
-coupling-by-coupling story is carried by the quantitative particle and gravity
-picture built in the surrounding chapters.
+coupling-by-coupling account is carried by the quantitative particle and
+gravity picture built in the surrounding chapters.
 
 ## 16.8 Why the Principle of Least Action Appears
 
@@ -211,7 +193,7 @@ Euler-Lagrange equations:
 $$\frac{d}{dt}\left(\frac{\partial L}{\partial \dot q}\right) = \frac{\partial L}{\partial q}.$$
 
 So the "least action" rule is not a separate law. It is the classical limit
-of quantum consistency. In OPH, the effective action is part of the EFT
+of quantum consistency. The effective action is part of the EFT
 bridge. Once that bridge is in place, the stationary-action description
 follows in the usual semiclassical limit.
 

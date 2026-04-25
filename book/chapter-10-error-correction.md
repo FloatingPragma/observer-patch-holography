@@ -4,7 +4,10 @@
 
 Start with the common-sense picture of data.
 
-**The intuitive picture**: Information is either fragile or permanent. Write a message in sand and the tide erases it. Carve it in stone and it lasts for millennia. Information exists in specific physical arrangements; disturb those arrangements and the information is gone.
+Information is either fragile or permanent. Write a message in sand and the
+tide erases it. Carve it in stone and it lasts for millennia. Information
+exists in specific physical arrangements. Disturb those arrangements and the
+information is gone.
 
 This is the commonsense view of data. A hard drive crash destroys your files. A brain injury erases memories. Noise corrupts signals. The only way to protect information is to shield it from disturbance or make multiple copies that can substitute for each other.
 
@@ -41,7 +44,8 @@ Quantum error correction is possible. Information can be protected without copyi
 
 ## 10.3 The First-Principles Reframing: Reality Is Error-Corrected
 
-Reverse engineering asks why nature permits quantum error correction. What principle makes robust quantum information essential?
+The harder question is why nature allows quantum information to survive noise at
+all.
 
 ### The Consistency Imperative
 
@@ -79,7 +83,7 @@ bulk information.
 
 ## 10.4 Classical Error Correction: Shannon's Foundation
 
-The story begins with Claude Shannon's 1948 paper "A Mathematical Theory of Communication."
+The thread begins with Claude Shannon's 1948 paper "A Mathematical Theory of Communication."
 
 Shannon asked: Suppose you want to send a message through a noisy channel that randomly flips bits. How much of the original message can survive?
 
@@ -168,7 +172,14 @@ As we saw in Chapter 6, Zurek's **quantum Darwinism** explains how classical fac
 
 In computer science, networks agree on shared states through consensus protocols. Physics does this constantly. The nodes are observers. The messages are light signals and memory traces. The consensus rule is physical law.
 
-In OPH, the same idea appears in a more formal way. Local repairs to inconsistent patch descriptions are supposed to lower a shared inconsistency score. When neighboring repairs are compatible, different repair orders converge to the same shared description. The measurement layer then singles out the records that observers can actually compare, with the usual Born probabilities and measurement updates on that accessible record structure. The Bell analysis stays within the standard quantum limits as well. In plain language, the framework treats stable public facts as the result of many local correction steps settling on one common answer.
+The same idea can be stated more formally. Local repairs to inconsistent patch
+descriptions are supposed to lower a shared inconsistency score. When
+neighboring repairs are compatible, different repair orders converge to the
+same shared description. The measurement layer then singles out the records
+that observers can actually compare, with the usual Born probabilities and
+measurement updates on that accessible record structure. The Bell analysis
+stays within the standard quantum limits as well. Stable public facts appear
+when many local correction steps settle on one common answer.
 
 Error correction is a physical principle as well as a tool for engineers. It is the way the universe builds stable facts.
 
@@ -180,7 +191,11 @@ $$P E_a^\dagger E_b P = \alpha_{ab} P$$
 
 Within the code space, all errors look the same up to a scalar. Errors don't move you between different logical states. The scalar can be detected as the syndrome and removed.
 
-This is the heart of the theorem. The formula says the error channel cannot learn which logical state was encoded. Every correctable error acts on the protected subspace in the same bland way, differing only by an overall number. The physical carrier may be damaged, but the logical information stays hidden from the noise. That is why it can be recovered.
+This is the heart of the theorem. The formula says the error channel cannot
+learn which logical state was encoded. Every correctable error acts on the
+protected subspace in the same bland way, differing only by an overall number.
+The physical carrier may be damaged, but the logical information stays hidden
+from the noise. That hiddenness is what makes recovery possible.
 
 In quantum gravity, we only have approximate codes. The Knill-Laflamme condition holds up to 1/N corrections. This is enough to make classical spacetime look stable.
 

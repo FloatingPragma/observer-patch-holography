@@ -4,7 +4,10 @@
 
 Start with the ordinary picture of information loss.
 
-**The intuitive picture**: Information can be freely copied or irreversibly destroyed. When you write a letter, you can make as many copies as you like. When you burn a book, the information is gone forever. These are two distinct fates: duplication or annihilation.
+Information can be freely copied or irreversibly destroyed. When you write a
+letter, you can make as many copies as you like. When you burn a book, the
+information is gone forever. These are two distinct fates: duplication or
+annihilation.
 
 This is the commonsense view embedded in our everyday experience. You can photocopy a document infinitely. You can record a conversation and play it back endlessly. Information is cheap to replicate. Conversely, when the Library of Alexandria burned, when a hard drive crashes, when memories fade with age, the information vanishes into the void. Destruction is final.
 
@@ -53,7 +56,8 @@ Information cannot be copied (no-cloning), yet information cannot be destroyed (
 
 ## 7.3 The First-Principles Reframing: Error Correction Structure Preserves Information
 
-Reverse engineering asks why nature has these strange constraints. What principle explains both no-cloning and unitarity?
+The deeper question is why nature forbids copying and yet refuses to lose
+information.
 
 ### The Library of Alexandria Revisited
 
@@ -79,7 +83,7 @@ But how can information be preserved if it cannot be copied? The answer: you don
 
 ## 7.4 Claude Shannon's Discovery
 
-The story of recovery begins in 1948, in a cramped office at Bell Telephone Laboratories in Murray Hill, New Jersey.
+The recovery thread begins in 1948, in a cramped office at Bell Telephone Laboratories in Murray Hill, New Jersey.
 
 Claude Shannon was not like other engineers. While his colleagues worried about practical problems-how to reduce static on phone lines, how to compress calls onto cables-Shannon was thinking about something deeper. What *is* information? Can it be measured? And crucially: how do you send a message reliably when the channel tries to destroy it?
 
@@ -112,7 +116,7 @@ The universe has finite resources. Recovery must be efficient, local, bounded. Y
 
 This constraint shapes reality. The area law says a boundary can only carry so many bits. If information capacity is bounded by area, then recovery must respect geometry. Distant regions can't share unlimited redundancy.
 
-**Spacetime itself behaves like a Shannon code.** Gravity acts like an error corrector, keeping the global story consistent even when local observations are noisy.
+**Spacetime itself behaves like a Shannon code.** Gravity acts like an error corrector, keeping the global account consistent even when local observations are noisy.
 
 ## 7.5 The Mathematics of Redundancy
 
@@ -298,18 +302,16 @@ $$\|\rho_{ABC} - (\mathrm{id}\otimes\mathcal R)(\rho_{AB})\|_1 \le 2\sqrt{\ln 2\
 
 (CMI in bits), and errors accumulate at most additively (capped by 2).
 
-Loopy covers require cycle-consistency control. At fixed cutoff, the central
-defect is governed by a Cech 2-cocycle in the center of triple-overlap
-algebras, while the genuinely noncentral case is governed by a crossed-module
-class
+Loopy covers ask for one more check. If several overlaps wrap around and return
+to the starting point, the gluing has to close cleanly on the full loop, not
+just pair by pair. If it fails, the reconstruction accumulates a genuine
+global defect. In the effective field-theory limit, this becomes the familiar
+demand that anomaly cancellation hold.
 
-$$q_\Sigma \in \check H^2(N_\Sigma, H_\Sigma \to G_\Sigma).$$
-
-Global gluing is possible iff the relevant obstruction class
-vanishes. In the EFT limit, the central truncation reduces to anomaly
-cancellation.
-
-This matches holographic expectations. In AdS/CFT, entanglement between boundary regions scales with the area of the minimal surface connecting them. In our model, one natural scaling candidate ties recoverability bounds to separator size and not to bulk volume.
+This matches holographic expectations. In AdS/CFT, entanglement between
+boundary regions scales with the area of the minimal surface connecting them.
+Here, one natural scaling candidate ties recoverability bounds to separator
+size and not to bulk volume.
 
 ### Why This Matters
 
@@ -415,7 +417,7 @@ subadditivity guarantees that conditional mutual information cannot go
 negative. Fawzi-Renner and Petz show that when the missing correlation is
 small enough, there is a map that rebuilds what looked lost.
 
-The physical story mirrors the mathematics. Ordinary quantum evolution keeps
+The physics mirrors the mathematics. Ordinary quantum evolution keeps
 information in play. Black-hole evaporation is read through the Page curve.
 Entanglement wedges reconstruct bulk data from boundary data. Quantum error
 correction works in the lab, which means the core logic of encoded recovery is
@@ -451,7 +453,7 @@ time. The past is not erased. It is encrypted with a key we will never find.
 
 Information does not have to be freely copied to remain recoverable.
 No-cloning blocks duplication, but recovery survives because the information is
-encoded across extended correlations. That is why a noisy world can still
+encoded across extended correlations. That is how a noisy world can still
 carry history. It is why observers can agree on a past they never saw. It is
 why black holes do not behave like cosmic shredders. And it is why spacetime
 starts to look like a code, a structure whose geometry and stability are tied

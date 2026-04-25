@@ -4,7 +4,10 @@
 
 Start with the Platonic picture of law.
 
-**The intuitive picture**: The laws of physics are eternal, unchanging mathematical truths. They existed before the Big Bang. They will exist after the heat death. Newton's laws, Maxwell's equations, Einstein's field equations-these are discovered, not invented. They describe timeless constraints on reality.
+The laws of physics are eternal, unchanging mathematical truths. They existed
+before the Big Bang. They will exist after the heat death. Newton's laws,
+Maxwell's equations, and Einstein's field equations are discovered, not
+invented. They describe timeless constraints on reality.
 
 This is the Platonic view of physics. The universe obeys laws because those laws are somehow part of mathematics itself. The laws aren't explained by anything deeper; they simply *are*.
 
@@ -38,7 +41,8 @@ and what we observe is filtered by the fact that we are here to observe it.
 
 ## 17.3 The First-Principles Reframing: Laws Are Survivors
 
-Reverse engineering asks why we have these specific laws.
+The harder question is why the laws look like these and not some nearby
+alternative.
 
 ### Lee Smolin's Cosmological Natural Selection
 
@@ -143,7 +147,7 @@ Why do some particles survive indefinitely?
 
 One useful intuition is **topology**. The electron carries charge, a conserved quantum number that protects the lightest charged state from decay.
 
-Topological language can be helpful here, but the OPH particle story does not
+Topological language can be helpful here, but the OPH particle framework does not
 require a literal spacetime-defect realization of the electron.
 
 ## 17.7 Memes: The Evolution of Ideas
@@ -199,7 +203,7 @@ philosophical continuation of the framework.
 
 In biological evolution, "nature" is the selector. In quantum Darwinism, "the environment" is the selector. In memetic evolution, "minds" are the selector.
 
-In OPH, **the requirement of consistency between observers** is the selector.
+**The requirement of consistency between observers** is the selector.
 
 The screen has finite capacity. Only patterns that fit survive. When two observers compare notes, incompatible descriptions get rejected. Compatible descriptions persist.
 
