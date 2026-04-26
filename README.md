@@ -43,12 +43,18 @@ Planck areas. From the outside, `P` is a geometric cell size that sits
 slightly above the self-similar balance `φ = (1 + sqrt(5)) / 2`. From the
 inside, it becomes the smallest electromagnetic observation scale available to
 observers in the world encoded on that screen. OPH ties those two readings
-together by requiring them to land on the same value.
+together with `P = φ + α_in(P) sqrt(pi)`. For the 2022 CODATA/NIST central
+value `α⁻¹(0) = 137.035999177`, that outer formula gives
+`P = 1.630968209403959...`. The current repo records this as a numerical
+fixed-point witness and comparison target; an interval-wide uniqueness
+certificate remains a separate release item.
+A separate pending hardware note reports an optical-cavity check of the same
+fixed-point geometry; this is treated as corroborating engineering evidence.
 
 From the same setup come gravity, gauge structure, the electroweak sector,
 the Higgs-top pair, quark masses and Yukawas, neutrino structure, records, and
-observer synchronization. Charged-lepton absolute masses, direct zero-momentum
-electromagnetic closure, and hadrons remain under derivation.
+observer synchronization. Charged-lepton absolute masses, the theorem-grade
+zero-momentum electromagnetic certificate, and hadrons remain under derivation.
 
 ### Selected Quantitative Rows
 
@@ -57,13 +63,13 @@ NIST values. Structural results such as the `3+1D` Lorentzian spacetime, the
 Standard Model quotient `SU(3) x SU(2) x U(1) / Z_6`, the exact hypercharge
 lattice, and the counting chain `N_g = 3`, `N_c = 3` live in the papers. The
 quick view here sticks to direct numeric rows, exact zeros, and a small number
-of declared closure candidates.
+of declared closure witnesses and candidates.
 
 | Quantity | Symbol | OPH | PDG/NIST | Δ |
 | --- | --- | --- | --- | --- |
 | Gravitational constant | G | 6.6742999959e-11 | 6.67430(15)e-11 | 0.00003σ |
 | Speed of light | c | 299792458 | 299792458 (exact) | match |
-| Fine-structure (inv) | α⁻¹(0) | Phase-II `P`-closure candidate | 137.035999177(21) | certificate pending |
+| Fine-structure (inv) | α⁻¹(0) | `P`-closure numerical witness targets 137.035999177 | 137.035999177(21) | interval certificate pending |
 | Photon mass | m_γ | 0 eV | <1e-18 eV | below bound |
 | Gluon mass | m_g | 0 GeV | 0 GeV | match |
 | Graviton mass | m_grav | 0 eV | <1.76e-23 eV | below bound |

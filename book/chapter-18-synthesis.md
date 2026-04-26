@@ -103,6 +103,18 @@ $$
 P=\phi+\alpha_{\mathrm{in}}(P)\sqrt{\pi}.
 $$
 
+Using the 2022 CODATA/NIST central value for the long-distance fine-structure
+constant, the outside reading gives
+
+$$
+P=1.630968209403959\ldots
+$$
+
+The current OPH code records this as a numerical fixed-point witness. A full
+interval certificate for uniqueness remains a separate mathematical object.
+A separate pending hardware note reports an optical-cavity check of the same
+fixed-point geometry; this is treated as corroborating engineering evidence.
+
 One cell on the screen is then being described twice. From one side it is a
 pixel of the horizon. From the other it is the smallest electromagnetic step
 available to observers inside the encoded world. The same number closes both

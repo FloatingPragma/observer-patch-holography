@@ -75,14 +75,15 @@ M_Z = 91.18797809193725\,\mathrm{GeV},
 $$
 
 and the same family, followed along the unbroken electromagnetic channel to
-the long-distance Thomson limit, gives
+the long-distance Thomson limit, targets the CODATA/NIST central value
 
 $$
 \alpha^{-1}(0)=137.035999177.
 $$
 
 The weak-boson pair and the familiar low-energy electromagnetic strength come
-from one continuous construction.
+from one continuous construction. The present repository records this as a
+numerical fixed-point witness; the interval certificate remains separate.
 
 The same electroweak core continues into the scalar and companion top values
 
@@ -111,16 +112,9 @@ $$
 together with definite Majorana phases in that construction. Taken together, the
 particle picture is larger than a handful of isolated numbers. OPH fixes the
 structural gauge package, the exact massless carriers, the $W/Z$ pair, the
-Thomson-limit electromagnetic coupling, the Higgs-top pair, the running quark
+fine-structure fixed-point witness, the Higgs/top pair, the running quark
 sextet with Yukawas, and one neutrino family. Charged leptons need one
 absolute anchor. Hadrons require a separate nonperturbative bound-state step.
-
-Taken together, the particle picture is larger than a handful of isolated
-numbers. OPH fixes the structural gauge package, the exact massless carriers,
-the $W/Z$ pair, the Thomson-limit electromagnetic coupling, the Higgs/top
-pair, the running quark sextet with Yukawas, and one neutrino family.
-Charged leptons need one absolute anchor. Hadrons require a separate
-nonperturbative bound-state step.
 
 ## 16.5 What Is a Particle?
 

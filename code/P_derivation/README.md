@@ -27,6 +27,11 @@ equation:
 
 `P = phi + alpha * sqrt(pi)`
 
+For the 2022 CODATA/NIST central value `alpha^-1 = 137.035999177`, that outer
+equation gives the compare-only pixel ratio
+
+`P = 1.630968209403959...`
+
 ## Terms
 
 `P ratio (pixel size)` means the dimensionless screen-cell area
@@ -47,8 +52,8 @@ Informally, the closure program is:
   golden-ratio equilibrium, via `P = phi + alpha * sqrt(pi)`
 - the inner description says what electromagnetic observation scale that same
   pixel emits through the OPH chain
-- the derivation solves for the unique `alpha` where those two descriptions
-  agree, and only then computes `P`
+- the derivation solves for the fixed-point `alpha` where those two
+  descriptions agree, and only then computes `P`
 
 ## Readout modes
 
@@ -84,6 +89,12 @@ The important claim-boundary caveat is:
 - It is still a continuation beyond the strict theorem-grade D10 core, because
   the final low-energy transport law is being modeled by the current internal
   Stage-5 structured-running ansatz rather than by a closed theorem.
+- `fixed_point_witness.py` emits a numerical witness, not an interval
+  certificate. It samples the declared `alpha -> alpha` map and records local
+  finite-difference slopes, but it does not prove a Banach contraction bound or
+  interval-wide uniqueness.
+- A separate pending hardware note reports an optical-cavity check of the same
+  fixed-point geometry; this is treated as corroborating engineering evidence.
 
 ## Usage
 
@@ -112,6 +123,19 @@ To save the report:
 python3 derive_p.py --mode thomson_structured_running --precision 40 --output runtime/report.json
 ```
 
+To emit the fixed-point witness with compare-only CODATA metadata:
+
+```bash
+python3 fixed_point_witness.py --mode thomson_structured_running --precision 40 --output runtime/fixed_point_witness.json
+```
+
+For a fast smoke check of the witness plumbing, use the electroweak-scale anchor
+debug path:
+
+```bash
+python3 fixed_point_witness.py --mode mz_anchor --precision 10 --su2-cutoff 6 --su3-cutoff 4 --scan-points 8 --max-iterations 3 --sample-points 1
+```
+
 ## Output
 
 The CLI prints:
@@ -123,3 +147,10 @@ The CLI prints:
 - the internal structured-running decomposition used to reach the Thomson limit
 
 The JSON report also includes every alpha-space closure step.
+
+The witness JSON additionally records:
+
+- `claim_status = numerical_witness_not_interval_certificate`
+- the sampled local slopes of the closure map
+- the compare-only 2022 CODATA/NIST inverse fine-structure constant
+- the pixel ratio implied by that observed central value

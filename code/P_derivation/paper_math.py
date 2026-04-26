@@ -100,6 +100,20 @@ class ClosureResult:
     iterations: list[ClosureStep]
 
 
+@dataclass(frozen=True)
+class FixedPointProbe:
+    alpha: Decimal
+    alpha_inv: Decimal
+    p: Decimal
+    inner_alpha: Decimal
+    inner_alpha_inv: Decimal
+    residual_alpha: Decimal
+
+
+CODATA_2022_ALPHA_INV = Decimal("137.035999177")
+CODATA_2022_ALPHA_INV_STD_UNCERTAINTY = Decimal("0.000000021")
+
+
 class PaperMathContext:
     def __init__(
         self,
@@ -605,6 +619,11 @@ class PaperMathContext:
             ctx.prec = self.work_precision
             return +((p - self.phi) / self.sqrt_pi)
 
+    def observed_p_from_alpha_inv(self, alpha_inv: Decimal | int | str | float = CODATA_2022_ALPHA_INV) -> Decimal:
+        with localcontext() as ctx:
+            ctx.prec = self.work_precision
+            return +self.outer_p_from_alpha(self.one / _dec(alpha_inv))
+
     def alpha_external_from_d10(
         self,
         d10: D10Point,
@@ -625,18 +644,36 @@ class PaperMathContext:
                 return +(self.one / alpha_inv), +alpha_inv, running
         raise ValueError(f"Unsupported mode: {mode}")
 
+    def evaluate_alpha_fixed_point(self, alpha_probe: Decimal | int | str | float, mode: str) -> FixedPointProbe:
+        with localcontext() as ctx:
+            ctx.prec = self.work_precision
+            alpha = _dec(alpha_probe)
+            p_outer = self.outer_p_from_alpha(alpha)
+            d10 = self.build_d10_from_p(p_outer)
+            inner_alpha, inner_alpha_inv, _running = self.alpha_external_from_d10(d10, mode)
+            return FixedPointProbe(
+                alpha=+alpha,
+                alpha_inv=+(self.one / alpha),
+                p=+p_outer,
+                inner_alpha=+inner_alpha,
+                inner_alpha_inv=+inner_alpha_inv,
+                residual_alpha=+(inner_alpha - alpha),
+            )
+
     def solve_closure(
         self,
         mode: str = "thomson_structured_running",
         max_iterations: int = 80,
         tolerance: Decimal | None = None,
+        scan_points: int = 60,
     ) -> ClosureResult:
         with localcontext() as ctx:
             ctx.prec = self.work_precision
             tol = tolerance or Decimal(10) ** (-(self.precision - 4))
             alpha_min = Decimal("0.005")
             alpha_max = Decimal("0.01")
-            scan_points = 60
+            if scan_points < 2:
+                raise ValueError("scan_points must be at least 2")
 
             def evaluate(alpha_probe: Decimal) -> tuple[Decimal, Decimal, D10Point, Decimal, dict[str, Any] | None]:
                 p_outer = self.outer_p_from_alpha(alpha_probe)
@@ -742,10 +779,88 @@ def build_report(
     su2_cutoff: int = 120,
     su3_cutoff: int = 90,
     max_iterations: int = 20,
+    scan_points: int = 60,
 ) -> dict[str, Any]:
     ctx = PaperMathContext(precision=precision, su2_cutoff=su2_cutoff, su3_cutoff=su3_cutoff)
-    result = ctx.solve_closure(mode=mode, max_iterations=max_iterations)
+    result = ctx.solve_closure(mode=mode, max_iterations=max_iterations, scan_points=scan_points)
     return to_serializable(result)
+
+
+def build_fixed_point_witness(
+    precision: int = 40,
+    mode: str = "thomson_structured_running",
+    su2_cutoff: int = 120,
+    su3_cutoff: int = 90,
+    max_iterations: int = 20,
+    scan_points: int = 60,
+    derivative_step: str = "0.000001",
+    sample_points: int = 5,
+) -> dict[str, Any]:
+    """Build a numerical witness for the alpha -> alpha fixed-point map.
+
+    This is intentionally not an interval-arithmetic proof. It records a
+    reproducible numerical fixed-point witness and finite-difference diagnostics
+    so public claims can distinguish "candidate emitted by the code" from
+    "uniqueness certified on an interval".
+    """
+    ctx = PaperMathContext(precision=precision, su2_cutoff=su2_cutoff, su3_cutoff=su3_cutoff)
+    result = ctx.solve_closure(mode=mode, max_iterations=max_iterations, scan_points=scan_points)
+    with localcontext() as dec_ctx:
+        dec_ctx.prec = ctx.work_precision
+        h = _dec(derivative_step)
+        if h <= 0:
+            raise ValueError("derivative_step must be positive")
+        if sample_points < 1:
+            raise ValueError("sample_points must be at least 1")
+
+        center = result.alpha
+        start = center - h * Decimal(sample_points // 2)
+        probes: list[dict[str, Any]] = []
+        slopes: list[Decimal] = []
+        for index in range(sample_points):
+            alpha = start + h * Decimal(index)
+            probe = ctx.evaluate_alpha_fixed_point(alpha, mode)
+            probes.append(to_serializable(probe))
+            left = ctx.evaluate_alpha_fixed_point(alpha - h, mode)
+            right = ctx.evaluate_alpha_fixed_point(alpha + h, mode)
+            slope = (right.inner_alpha - left.inner_alpha) / (Decimal(2) * h)
+            slopes.append(+slope)
+
+        observed_p = ctx.observed_p_from_alpha_inv(CODATA_2022_ALPHA_INV)
+        codata_alpha = ctx.one / CODATA_2022_ALPHA_INV
+        codata_delta_alpha_inv = result.alpha_inv - CODATA_2022_ALPHA_INV
+        codata_delta_p = result.p - observed_p
+
+        max_abs_sample_slope = max(abs(slope) for slope in slopes)
+        witness = {
+            "claim_status": "numerical_witness_not_interval_certificate",
+            "claim_boundary": (
+                "This report samples the declared closure map and estimates local finite-difference "
+                "slopes. It does not prove interval-wide uniqueness or a Banach contraction bound."
+            ),
+            "mode": mode,
+            "precision": precision,
+            "su2_cutoff": su2_cutoff,
+            "su3_cutoff": su3_cutoff,
+            "scan_points": scan_points,
+            "derivative_step": h,
+            "sample_points": sample_points,
+            "fixed_point": result,
+            "finite_difference": {
+                "max_abs_sample_slope": +max_abs_sample_slope,
+                "slopes": slopes,
+                "probes": probes,
+            },
+            "codata_2022_compare_only": {
+                "alpha_inv": CODATA_2022_ALPHA_INV,
+                "alpha_inv_standard_uncertainty": CODATA_2022_ALPHA_INV_STD_UNCERTAINTY,
+                "alpha": +codata_alpha,
+                "p_from_alpha_inv": +observed_p,
+                "fixed_point_minus_codata_alpha_inv": +codata_delta_alpha_inv,
+                "fixed_point_p_minus_codata_p": +codata_delta_p,
+            },
+        }
+        return to_serializable(witness)
 
 
 def compute_alpha(
@@ -754,7 +869,8 @@ def compute_alpha(
     su2_cutoff: int = 120,
     su3_cutoff: int = 90,
     max_iterations: int = 20,
+    scan_points: int = 60,
 ) -> tuple[Decimal, Decimal]:
     ctx = PaperMathContext(precision=precision, su2_cutoff=su2_cutoff, su3_cutoff=su3_cutoff)
-    result = ctx.solve_closure(mode=mode, max_iterations=max_iterations)
+    result = ctx.solve_closure(mode=mode, max_iterations=max_iterations, scan_points=scan_points)
     return result.alpha, result.alpha_inv

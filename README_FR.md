@@ -21,7 +21,7 @@ Pour le statut théorématique du noyau reconstruit et le niveau de preuve des c
 - Une architecture microphysique d'écran concrète qui met mesure, enregistrements et observateurs à l'intérieur de la physique.
 
 L'OPH utilise une seule entrée quantitative externe, la capacité totale de l'écran `N_scr = log dim H_tot`, déduite de la constante cosmologique, ainsi qu'un ratio local de pixel `P = a_cell / l_P^2`. La même cellule d'écran est décrite deux fois : vue de l'extérieur comme un pixel situé légèrement au-dessus de l'équilibre auto-similaire exact `φ = (1 + sqrt(5)) / 2`, et vue de l'intérieur comme la plus petite échelle d'observation électromagnétique disponible pour les observateurs de l'univers simulé. `P` est la valeur pour laquelle ces deux descriptions coïncident.
-Le papier de synthèse écrit cette autoréférence comme un problème de point fixe. Le décalage extérieur vaut `α_ext(P) = (P - φ) / sqrt(pi)`, ou encore `P = φ + α_ext(P) sqrt(pi)`, tandis que le côté intérieur est le couplage électromagnétique émis par cette même cellule sur la branche quantitative déclarée. L'équation de fermeture affirme que ces deux lectures d'un même objet coïncident. La preuve par point fixe montre que cette fermeture sélectionne un `P` admissible sur l'intervalle physique. Sur cette petite surface quantitative, l'OPH émet des prédictions concrètes pour les couplages, les masses et les grandeurs gravitationnelles.
+Le papier de synthèse écrit cette autoréférence comme un problème de point fixe. Le décalage extérieur vaut `α_ext(P) = (P - φ) / sqrt(pi)`, ou encore `P = φ + α_ext(P) sqrt(pi)`, tandis que le côté intérieur est le couplage électromagnétique émis par cette même cellule sur la branche quantitative déclarée. Pour la valeur centrale CODATA/NIST 2022 `α⁻¹(0) = 137.035999177`, cette formule extérieure donne `P = 1.630968209403959...`. Le dépôt traite ce nombre comme un témoin numérique et une cible de comparaison; le certificat d'unicité sur intervalle reste un objet séparé. Une note matérielle séparée et en attente rapporte une vérification en cavité optique de la même géométrie de point fixe; elle est traitée comme une preuve d'ingénierie corroborante. Sur cette petite surface quantitative, l'OPH émet des prédictions concrètes pour les couplages, les masses et les grandeurs gravitationnelles.
 
 ## Surface locale d'unification
 
@@ -55,15 +55,15 @@ résultats structurels comme la branche lorentzienne `3+1D`, le quotient de jaug
 du Modèle Standard `SU(3) x SU(2) x U(1) / Z_6`, le réseau exact des hypercharges et la chaîne de
 comptage `N_g = 3`, `N_c = 3` sont énoncés dans les papiers et ne sont pas répétés ici. La voie
 bosonique `W/Z/H` appartient à la branche de fermeture quantitative de phase II; elle est donc discutée dans
-les papiers mais omise de ce tableau rapide. La ligne de structure fine reste une candidate de
-fermeture `P` de Phase II tant que la voie de transport à source seule n'a pas publié son
-certificat de fermeture lisible par machine.
+les papiers mais omise de ce tableau rapide. La ligne de structure fine est maintenant présentée
+comme un témoin numérique de fermeture `P` de Phase II tant que la voie de transport à source seule
+n'a pas publié son certificat d'unicité lisible par machine.
 
 | Quantité | Symbole | OPH | PDG/NIST | Δ |
 | --- | --- | --- | --- | --- |
 | Constante gravitationnelle | G | 6.6742999959e-11 | 6.67430(15)e-11 | 0.00003σ |
 | Vitesse de la lumière | c | 299792458 | 299792458 (exact) | match |
-| Structure fine (inv.) | α⁻¹(0) | candidate de fermeture `P` de Phase II | 137.035999177(21) | certificat en attente |
+| Structure fine (inv.) | α⁻¹(0) | témoin numérique de fermeture `P` visant 137.035999177 | 137.035999177(21) | certificat d'intervalle en attente |
 | Masse du photon | m_γ | 0 eV | <1e-18 eV | sous la borne |
 | Masse du gluon | m_g | 0 GeV | 0 GeV | match |
 | Masse du graviton | m_grav | 0 eV | <1.76e-23 eV | sous la borne |

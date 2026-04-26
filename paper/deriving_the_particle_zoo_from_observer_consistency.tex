@@ -42,7 +42,7 @@ Observer Consistency}
 \OPHPaperReleaseBanner
 
 \begin{abstract}
-Observer-Patch Holography turns the particle problem into a forward calculation from one selected scale. The synthesis paper fixes the local pixel ratio \(P\) by describing the same screen cell from two sides: as one hardware pixel of the simulating screen and as the electromagnetic observation scale available inside the simulated universe. With \(P\) fixed, the particle chain emits a compact package: massless carriers, the \(W\) and \(Z\) masses, the electromagnetic coupling, a Higgs mass, running quark masses with explicit Yukawas, and a neutrino family in the observed hierarchy and mixing regime. The same framework targets the full particle spectrum. Direct zero-momentum electromagnetic closure, charged-lepton absolute masses, and hadrons remain work in progress.
+Observer-Patch Holography turns the particle problem into a forward calculation from one selected scale. The synthesis paper fixes the local pixel ratio \(P\) by describing the same screen cell from two sides: as an exterior screen cell and as the electromagnetic observation scale available inside the encoded universe. With \(P\) fixed, the particle chain emits a compact package: massless carriers, the \(W\) and \(Z\) masses, the electromagnetic coupling, a Higgs mass, running quark masses with explicit Yukawas, and a neutrino family in the observed hierarchy and mixing regime. The same framework targets the full particle spectrum. Direct zero-momentum electromagnetic closure, charged-lepton absolute masses, and hadrons remain work in progress.
 \end{abstract}
 
 \section{Introduction}
@@ -181,6 +181,19 @@ of the \(W\) boson mass, the Higgs boson mass, or the up-quark mass.
 The role of the pixel closure is to supply one common quantitative scale
 variable for the entire downstream spectrum. In the synthesis paper, \(P\) is fixed by matching
 the outer pixel detuning to the inner electromagnetic observation scale emitted by the same cell.
+The outer side of the closure is
+\[
+P=\varphi+\alpha_{\mathrm{in}}(P)\sqrt{\pi}.
+\]
+For comparison, the 2022 CODATA/NIST central value
+\(\alpha^{-1}(0)=137.035999177\) gives
+\[
+P=1.630968209403959\ldots
+\]
+through this outer formula. This is compare-only metadata until the same number is emitted by the
+declared OPH fixed-point map.
+A separate pending hardware note reports an optical-cavity check of the same fixed-point geometry;
+this is treated as corroborating engineering evidence.
 Once that fixed point is selected, the particle question becomes whether all downstream readouts
 can be written as
 \[
@@ -1209,11 +1222,15 @@ and therefore the comparison endpoint
 \[
 \alpha_{\mathrm{Th,comp}}^{-1}=137.035999177.
 \]
+The repository's \texttt{code/P\_derivation} witness path records this as a numerical fixed-point
+candidate and keeps the CODATA/NIST value as compare-only metadata rather than as an input to the
+closure solve.
 
 \begin{remark}
 The CODATA/NIST comparison is against the Thomson-limit inverse fine-structure constant. The
 source anchor \(a_0=128.30576920234813\) is the electroweak-scale running-family value at
-\(m_Z^2\), not the low-energy endpoint.
+\(m_Z^2\), not the low-energy endpoint. The 2022 CODATA/NIST value used for comparison is
+\(\alpha^{-1}=137.035999177(21)\)~\cite{codata2022}.
 \end{remark}
 
 The freeze-once coherent repair surface provides compare-only validation, with machine-scale deltas
@@ -3063,6 +3080,12 @@ B.\ M\"uller, A.\ Osika, K.\ Xue, and P.\ Nguyen,
 \emph{Recovering Relativity and Standard Model Structure from Observer Overlap Consistency}.
 GitHub PDF:
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf}
+
+\bibitem{codata2022}
+National Institute of Standards and Technology,
+\emph{2022 CODATA Recommended Values of the Fundamental Constants of Physics and Chemistry},
+NIST SP 959, May 2024.
+\url{https://physics.nist.gov/cuu/pdf/wallet_2022.pdf}
 
 \end{thebibliography}
 \end{document}

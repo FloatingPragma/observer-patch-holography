@@ -21,6 +21,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--precision", type=int, default=40, help="Decimal precision for the paper-math solver.")
     parser.add_argument("--su2-cutoff", type=int, default=120, help="Representation cutoff for the SU(2) edge sum.")
     parser.add_argument("--su3-cutoff", type=int, default=90, help="Representation cutoff for the SU(3) edge sum.")
+    parser.add_argument("--scan-points", type=int, default=60, help="Alpha-space scan points used to bracket closure.")
     parser.add_argument("--max-iterations", type=int, default=20, help="Maximum outer fixed-point iterations.")
     parser.add_argument("--json", action="store_true", help="Print the full report as JSON.")
     parser.add_argument("--output", help="Optional path for the JSON report.")
@@ -34,6 +35,7 @@ def main() -> int:
         mode=args.mode,
         su2_cutoff=args.su2_cutoff,
         su3_cutoff=args.su3_cutoff,
+        scan_points=args.scan_points,
         max_iterations=args.max_iterations,
     )
 

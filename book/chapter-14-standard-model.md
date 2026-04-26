@@ -170,20 +170,22 @@ Renormalization works for some theories (called "renormalizable") but not others
 
 A strange consequence of renormalization: coupling constants change with energy.
 
-The fine structure constant alpha, which measures the strength of electromagnetism, is
-$\alpha^{-1}(0)=137.035999177$ in the Thomson limit. At higher energies, it increases. At the Z
+The fine structure constant alpha measures the strength of electromagnetism. In
+the long-distance Thomson limit, the 2022 CODATA/NIST central value is
+$\alpha^{-1}(0)=137.035999177$. At higher energies, it increases. At the Z
 boson mass, it is about $1/128$.
 
-That low-energy number sits inside the same particle package as the weak bosons. Once the
-electroweak transport family is fixed by the shared local calibration, electromagnetism is read as
-the unbroken channel left after the weak and hypercharge sectors mix. Taking the long-distance
-Thomson limit of that channel gives
+That low-energy number sits inside the same particle package as the weak bosons.
+Once the electroweak transport family is fixed by the shared local calibration,
+electromagnetism is read as the unbroken channel left after the weak and
+hypercharge sectors mix. The current OPH `P`-closure witness targets the
+long-distance Thomson value
 
 $$\alpha^{-1}(0)=137.035999177.$$
 
-The fine-structure constant is therefore not an isolated entry from a constants
-table. It belongs to the same transport family that yields the $W$ and $Z$
-rows.
+The interval-wide uniqueness certificate is still a separate mathematical
+object. The fine-structure constant belongs to the same transport family that
+yields the $W$ and $Z$ rows.
 
 The strong force coupling runs the opposite way. At low energies, it's strong (hence the name). At high energies, it weakens. This is "asymptotic freedom," discovered by Gross, Wilczek, and Politzer in 1973.
 
@@ -568,9 +570,9 @@ same question as the picture widens. Does that one choice still work for the
 long-distance electromagnetic coupling, the Higgs-top pair, the quark sector,
 and the neutrino family? This chapter argues that it does.
 
-The fine-structure constant belongs here beside the weak sector, and
+The fine-structure constant belongs here beside the weak sector. This is
 why the later mass tables do not feel like disconnected tricks. They read as
-tifferent faces of one calibrated machine. Charged leptons ask for one
+different faces of one calibrated machine. Charged leptons ask for one
 additional absolute anchor. Hadrons belong to the later strong-binding descent
 of the same picture. Chapter 18 returns to the same local scale from the
 outside-inside closure equation, which gives the whole particle package an even

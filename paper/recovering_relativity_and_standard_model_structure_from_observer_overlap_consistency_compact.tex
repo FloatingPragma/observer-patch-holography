@@ -41,7 +41,7 @@ from the OPH Package Rooted in Observer Consistency}
 \OPHPaperReleaseBanner
 
 \begin{abstract}
-Observer-Patch Holography starts from a finite screen and one requirement: neighboring observer patches must agree on their overlap. From that simple rule, the recovered core yields a Lorentzian spacetime sector, a Jacobson-style route to Einstein's equation, and the realized Standard Model quotient \(\left(\SU(3)\times\SU(2)\times\U(1)\right)/\mathbb Z_6\) with the exact hypercharge lattice and the counting chain \(N_g=3\), \(N_c=3\). The broader OPH framework then introduces one local pixel ratio \(P\) by describing the same screen cell from two sides: as a hardware pixel of the simulating universe and as the electromagnetic observation scale available inside the simulated one. That single scale feeds the downstream particle papers. This compact paper isolates the recovered core and keeps it distinct from the quantitative particle and continuation branches built on top of the same \(P\).
+Observer-Patch Holography starts from a finite screen and one requirement: neighboring observer patches must agree on their overlap. From that simple rule, the recovered core yields a Lorentzian spacetime sector, a Jacobson-style route to Einstein's equation, and the realized Standard Model quotient \(\left(\SU(3)\times\SU(2)\times\U(1)\right)/\mathbb Z_6\) with the exact hypercharge lattice and the counting chain \(N_g=3\), \(N_c=3\). The broader OPH framework then introduces one local pixel ratio \(P\) by describing the same screen cell from two sides: as an exterior screen cell and as the electromagnetic observation scale available inside the encoded world. That single scale feeds the downstream particle papers. This compact paper isolates the recovered core and keeps it distinct from the quantitative particle and continuation branches built on top of the same \(P\).
 \end{abstract}
 
 \section{Introduction}
@@ -150,10 +150,21 @@ N_{\mathrm{scr}} &\equiv \log \dim \mathcal H_{\mathrm{tot}} \sim 10^{122}.
 In the quantitative implementation used here, \(P\) is the local particle-physics scale variable
 fixed by the outer/inner closure program summarized in the synthesis paper
 \emph{Observers Are All You Need}~\cite{ophsynthesis}; this compact paper uses it only as the
-quantity carried by the forward D10 particle-physics map. \(N_{\mathrm{scr}}\) is inferred from
-the observed cosmological constant and enters the cosmological-capacity branch. Any retained
-capacity-level neutrino side estimate on that input is legacy bookkeeping rather than the live
-weighted-cycle theorem lane.
+quantity carried by the forward D10 particle-physics map. That closure writes the outside
+detuning as
+\[
+P=\varphi+\alpha_{\mathrm{in}}(P)\sqrt{\pi},
+\]
+where the inner side is the electromagnetic observation scale emitted by the same cell on the
+declared quantitative branch. The current code surface includes a numerical fixed-point witness
+for this map and the compare-only CODATA/NIST central-value conversion
+\(P=1.630968209403959\ldots\) from \(\alpha^{-1}=137.035999177\). It is not yet an
+interval-arithmetic proof of uniqueness. A separate pending hardware note reports an
+optical-cavity check of the same fixed-point geometry; this is treated as corroborating
+engineering evidence. \(N_{\mathrm{scr}}\) is inferred from the observed
+cosmological constant and enters the cosmological-capacity branch. Any retained capacity-level
+neutrino side estimate on that input is legacy bookkeeping rather than the live weighted-cycle
+theorem lane.
 
 \begin{axiom}[Screen Net]\label{ax:screen}
 Physical data is organized on a horizon screen \(S^2\) carrying a net of local algebras
@@ -3028,9 +3039,11 @@ electromagnetic transport family \(\alpha_{\mathrm{em}}^{-1}(q^2;P)\) and \(\sin
 \]
 on the Ward-projected \(\U(1)_Q\) lane are forward-emitted outputs of the chosen D10
 running/matching package. When compared with observation, they serve as validation of that printed
-implementation on the quantitative-closure branch recorded in the premise ledger. What remains
-outside theorem level is a general existence/uniqueness or monotonicity proof for the scalar root
-selected by the printed D10 package under arbitrary convention changes.
+implementation on the quantitative-closure branch recorded in the premise ledger. The repository
+now carries a numerical witness for the outer/inner fixed-point closure and its compare-only
+CODATA/NIST fine-structure comparison. What remains outside theorem level is an interval-wide
+existence/uniqueness or monotonicity proof for the scalar root selected by the printed D10 package
+under arbitrary convention changes.
 
 \section{Relation to Holography and Existing UV Frameworks}
 

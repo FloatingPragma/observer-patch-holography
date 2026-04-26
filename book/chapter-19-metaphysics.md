@@ -57,7 +57,14 @@ The measurement problem evaporates because there was never an objective wavefunc
 
 Here's a question that keeps physicists and philosophers up at night: Why does the universe have the specific laws it does? Why these particles, these forces, these constants?
 
-The standard framing assumes laws are eternal Platonic truths, mathematical structures that exist independently of physical reality and somehow "govern" it. But then their specific form becomes inexplicable. Why should the low-energy fine structure constant land near $1/137$, more precisely $\alpha^{-1}(0)=137.035999177$, rather than some other number? Why three spatial dimensions rather than four or seven?
+The standard framing assumes laws are eternal Platonic truths, mathematical
+structures that exist independently of physical reality and somehow "govern"
+it. But then their specific form becomes inexplicable. Why should the
+low-energy fine structure constant land near $1/137$, more precisely at the
+current central value $\alpha^{-1}(0)=137.035999177$? Why three spatial
+dimensions, not four or seven? In OPH, the fine-structure row is tied to the
+same pixel fixed-point witness that organizes the local particle scale, with a
+full uniqueness certificate still separated from the public proof core.
 
 Some invoke the anthropic principle: the constants must be compatible with observers existing, or we wouldn't be here to ask. But this feels like giving up on explanation.
 

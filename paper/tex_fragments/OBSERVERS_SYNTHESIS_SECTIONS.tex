@@ -189,19 +189,22 @@ the closure problem is the fixed-point condition \(G(P)=P\).
 On any physical interval where this induced map is a self-map and a contraction, the closure root
 is locally unique.
 
-Informally, OPH treats the outer universe as the hardware layer of a simulation and the inner
-universe as the world reconstructed by observers who live on that hardware. The same screen cell
-therefore has two meanings at once. On the outer side it is one hardware pixel of the simulating
+Informally, OPH treats the outer universe as the implementation layer of a simulation and the inner
+universe as the world reconstructed by observers who live on its screen. The same screen cell
+therefore has two meanings at once. On the outer side it is one cell of the simulating
 screen. On the inner side it is the smallest electromagnetic observation step available to
 observers in the simulated world. The pixel ratio \(P\) is the size of that cell in Planck areas,
 and the realized \(P\) is the value at which the outer and inner readings of the same cell agree.
 The outer description says how far the cell sits above the exact self-similar equilibrium
 \(\varphi\). The inner description says what electromagnetic observation scale that same cell emits
-through the particle chain. The fixed-point equation is the mathematical form of this loop. On the
-physical interval, the proof certifies one admissible pixel ratio. Once the fixed point \(P_\star\)
-is selected, every downstream quantity is propagated forward from that same \(P_\star\).
+through the particle chain. The fixed-point equation is the mathematical form of this loop. The
+current code records a numerical closure witness; the interval-wide uniqueness certificate remains
+a separate mathematical burden. Once the fixed point \(P_\star\) is selected, every downstream
+quantity is propagated forward from that same \(P_\star\).
+A separate pending hardware note reports an optical-cavity check of the same fixed-point geometry;
+this is treated as corroborating engineering evidence.
 This is a consistency certificate on the declared closure surface. It is not a theorem that earlier
-local physics must uniquely generate the hardware settings. OPH also allows the reverse-engineering
+local physics must uniquely generate the outer screen settings. OPH also allows the reverse-engineering
 reading in which observers can infer \(P\) and total screen capacity from inside the world even if
 those values are chosen later on the simulator side.
 
