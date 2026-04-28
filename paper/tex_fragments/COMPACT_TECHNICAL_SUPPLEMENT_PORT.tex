@@ -115,20 +115,8 @@ Within the null-modular reconstruction used here:
 \end{enumerate}
 \end{theorem}
 
-\paragraph{Capacity and de Sitter scales.}
-The global-capacity closure is
-\[
-\Lambda=\frac{3\pi}{G N_{\mathrm{scr}}},
-\qquad
-S_{\mathrm{dS}}=\frac{A_{\mathrm{dS}}}{4G}=\frac{3\pi}{G\Lambda}=N_{\mathrm{scr}}.
-\]
-On any connected scaling branch where the local Einstein recovery is available, this same input closes that branch globally as
-\[
-G_{ab}+\frac{3\pi}{G N_{\mathrm{scr}}}\,g_{ab}=8\pi G\,\langle T_{ab}\rangle.
-\]
-The local null route and the global capacity relation are therefore one local/global theorem stack rather than two detached gravity laws.
-At the observed \(\Lambda\approx 1.09\times 10^{-52}\,\mathrm{m^{-2}}\), this gives the benchmark
-scales
+\begin{corollary}[Benchmark cosmological readout on the D6 branch]\label{cor:lambda-benchmark}
+On the same D6 branch as Corollaries~\ref{cor:lambda}--\ref{cor:lambda-parameters}, inserting the observed value \(\Lambda\approx 1.09\times 10^{-52}\,\mathrm{m^{-2}}\) gives
 \[
 r_{\mathrm{dS}}=\sqrt{\frac{3}{\Lambda}}\approx 1.66\times 10^{26}\ \mathrm{m},
 \qquad
@@ -137,21 +125,31 @@ t_\Lambda=\frac{r_{\mathrm{dS}}}{c}\approx 17.5\ \mathrm{Gyr},
 \[
 N_{\mathrm{scr}}\approx 2.85\times 10^{122}.
 \]
-The companion pixel benchmarks are
+\end{corollary}
+
+\begin{proof}
+Immediate from Corollary~\ref{cor:lambda-parameters}.
+\end{proof}
+
+\paragraph{Observed-age benchmark status.}
+The branch quantity \(t_\Lambda\) is the de Sitter static-patch timescale. The usual cosmic age \(t_0\) remains a compare-only FLRW benchmark rather than an additional D6 theorem output. On the flat \(\Lambda\)CDM benchmark
+\[
+t_0=\frac{2}{3H_0\sqrt{\Omega_\Lambda}}
+\sinh^{-1}\!\left(\sqrt{\frac{\Omega_\Lambda}{\Omega_m}}\right)
+\]
+one gets the standard comparison value \(t_0\approx 13.8\,\mathrm{Gyr}\) at
+\(H_0\approx 67.4\,\mathrm{km\,s^{-1}\,Mpc^{-1}}\) and \(\Omega_\Lambda\approx 0.685\).
+
+\paragraph{Separate pixel-side benchmarks.}
+The companion pixel numbers
 \[
 a_{\mathrm{cell}}\approx 1.63\,\ell_P^2,
 \qquad
 \ell_{\mathrm{UV}}=\sqrt{a_{\mathrm{cell}}}\approx 1.28\,\ell_P,
 \qquad
-\bar{\ell}\approx 0.408.
+\bar{\ell}\approx 0.408
 \]
-For comparison, the flat \(\Lambda\)CDM age formula
-\[
-t_0=\frac{2}{3H_0\sqrt{\Omega_\Lambda}}
-\sinh^{-1}\!\left(\sqrt{\frac{\Omega_\Lambda}{\Omega_m}}\right)
-\]
-gives the usual benchmark \(t_0\approx 13.8\,\mathrm{Gyr}\) at
-\(H_0\approx 67.4\,\mathrm{km\,s^{-1}\,Mpc^{-1}}\) and \(\Omega_\Lambda\approx 0.685\).
+belong to the separate pixel-closure/local-readout package rather than to the D6 cosmological-parameter corollary itself.
 
 \subsection{Product-Group Structural Corollaries}
 

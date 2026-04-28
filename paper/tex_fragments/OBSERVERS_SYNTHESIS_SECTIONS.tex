@@ -189,20 +189,14 @@ the closure problem is the fixed-point condition \(G(P)=P\).
 On any physical interval where this induced map is a self-map and a contraction, the closure root
 is locally unique.
 
-Informally, OPH treats the outer universe as the implementation layer of a simulation and the inner
-universe as the world reconstructed by observers who live on its screen. The same screen cell
-therefore has two meanings at once. On the outer side it is one cell of the simulating
-screen. On the inner side it is the smallest electromagnetic observation step available to
-observers in the simulated world. OPH finds the fine-structure constant by asking for the nonzero
-detuning of a holographic screen cell such that the cell's outer geometric displacement from
-perfect self-similar equilibrium equals the electromagnetic observation scale emitted by the
-universe living on that same screen. The pixel ratio \(P\) is the size of that cell in Planck areas,
-and the realized \(P\) is the value at which the outer and inner readings of the same cell agree.
-The outer description says how far the cell sits above the exact self-similar equilibrium
-\(\varphi\). The inner description says what electromagnetic observation scale that same cell emits
-through the particle chain. The fixed-point equation is the mathematical form of this loop. The
-public code records a numerical closure witness; the interval-wide uniqueness certificate remains
-a separate mathematical burden, with a local numerical contraction certificate recorded as the
+The closure interpretation assigns one screen cell two coupled roles. On the outer side it is one
+cell of the screen whose displacement above the exact self-similar equilibrium \(\varphi\) sets
+the geometric detuning. On the inner side the same cell emits the smallest electromagnetic
+observation step available on the particle branch. The pixel ratio \(P\) is the size of that cell
+in Planck areas, and the realized \(P\) is the value at which those outer and inner readings
+agree. The fixed-point equation is the mathematical form of that consistency condition. The public
+code records a numerical closure witness; the interval-wide uniqueness certificate remains a
+separate mathematical burden, with a local numerical contraction certificate recorded as the
 machine-checkable hardening step. Once the fixed point \(P_\star\) is selected, every downstream
 quantity is propagated forward from that same \(P_\star\).
 A separate pending hardware note reports an optical-cavity check of the same fixed-point geometry;
@@ -226,7 +220,7 @@ For quick orientation, the exact non-hadron lanes are:
 \setlength{\tabcolsep}{3pt}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.14\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.31\textwidth}>{\raggedright\arraybackslash}p{0.30\textwidth}@{}}
 \toprule
-Lane & Exact output(s) & Exact OPH chain on the paper surface & Caveat \\
+Lane & Exact output(s) & Exact paper-surface chain & Caveat \\
 \midrule
 Structural carriers & \(m_\gamma=m_g=m_{\mathrm{grav}}=0\) & axioms \(\rightarrow\) realized electromagnetic/color/dynamical-metric carrier skeleton \(\rightarrow\) symmetry-protected zeros & theorem-grade structural exactness \\
 Electroweak exact sidecar & exact frozen \(W/Z\) pair & axioms \(\rightarrow\) gauge reconstruction \(\rightarrow\) target-free electroweak quantitative-closure solve \(\rightarrow\) exact frozen repair pair & exact only on the frozen authoritative repair surface; compare-only beneath the target-free theorem \\
@@ -249,7 +243,7 @@ The structural-to-family route and the full per-sector claim-tier audit are deve
 
 \section{Screen Microphysics, Records, and Observer Continuation}
 
-The screen-microphysics lane is the engineering side of the OPH suite. It asks
+The screen-microphysics lane is the engineering side of the paper stack. It asks
 whether some microscopic model might exist in principle and gives one explicit regulated
 reference architecture: a finite gauge-register or quantum-link style screen model in which local
 registers, patches, overlaps, edge observables, records, repair instruments, and observer-facing
@@ -330,7 +324,7 @@ events, while an \(\varepsilon\)-accurate restoration changes that future law by
 \(\varepsilon\) in total variation.
 
 \paragraph{Observer-facing conclusion.}
-The theorem-level content is modest but sharp: OPH supplies a fixed-cutoff measurement interface,
+The theorem-level content is modest but sharp: the paper stack supplies a fixed-cutoff measurement interface,
 a fixed-cutoff checkpoint/restoration package, and an operational observer-identity criterion on
 observer-accessible event algebras. Stronger substrate-selection or strange-loop closure claims
 remain outside the recovered theorem package.
@@ -390,7 +384,7 @@ critical-string theorem.
 
 \section{Cross-Lane Theorem Boundary and Open Directions}
 
-The state of the OPH suite is:
+The state of the current paper stack is:
 
 \begin{enumerate}[leftmargin=2em]
 \item The fixed-cutoff collar, higher-gauge, and consensus theorem packages are part of
@@ -455,7 +449,7 @@ package.
 \setlength{\tabcolsep}{3pt}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.11\textwidth}>{\raggedright\arraybackslash}p{0.25\textwidth}>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}p{0.31\textwidth}@{}}
 \toprule
-Quantity & Best value on the paper surface & Common OPH chain & Caveat \\
+Quantity & Best value on the paper surface & Common paper-surface chain & Caveat \\
 \midrule
 \(c\) & \(299792458~\mathrm{m/s}\) & structural Lorentz/BW branch \(\rightarrow\) invariant causal speed \(\rightarrow\) local SI readout & structural rather than \(P\)-fitted; the SI presentation sits on the stated BW/Lorentz support package \\
 \(G\) & \(6.674299995910528\times10^{-11}~\mathrm{m^3\,kg^{-1}\,s^{-2}}\) on the stated local extension surface & \(P \rightarrow \ellbar_{\mathrm{SU(2)}}+\ellbar_{\mathrm{SU(3)}} = \ellbar_{\mathrm{shared}} \rightarrow G_{\mathrm{SI}} = c^3 a_{\mathrm{cell}}/(\hbar P)\) & stated relative to the declared \(a_{\mathrm{cell}}\) datum; on that surface the D10 pixel law fixes \(\ellbar_{\mathrm{shared}}=P/4\), and the strict classical-regime clause remains explicit \\
@@ -499,7 +493,8 @@ structure, real particle-side quantitative outputs, and a usable microscopic eng
 main external burdens are equally explicit: the D3 geometric-cap lift under \textbf{T2}, the D4
 null-bridge inputs together with the bounded-interval projective branch, the D5
 fixed-cap-stationarity / local-Lorentz tensor-upgrade step together with the D6 global
-screen-capacity closure of the remaining branch constant, the transportable-sector compact-gauge
+screen-capacity closure of the remaining branch constant and its de Sitter static-patch parameter
+package, the transportable-sector compact-gauge
 lift, the microphysics closure passes, and the matter-family and hadron closure lanes.
 Refs.~\cite{ophcompact,ophconsensus,ophmicrophysics,ophparticles} are the depth surfaces for
 sector-by-sector proofs, quantitative details, and continuation-level material. The local
