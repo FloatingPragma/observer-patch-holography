@@ -21,7 +21,7 @@
 \OPHPaperReleaseBanner
 
 \begin{abstract}
-This paper gives the hardware picture behind Observer-Patch Holography. Patches, overlaps, records, and observers are written as explicit finite registers with declared readout, repair, and synchronization rules. The result is a concrete fixed-cutoff screen architecture that can be simulated directly and used to analyze measurement, stable records, checkpoint and restoration, and observer synchronization inside one shared quantum system. The same architecture also gives the edge-sector heat-kernel law that feeds the gauge-coupling branch. On the quantitative side carried by the companion papers, the total, bulk, and edge entropy hierarchy has one exact self-similar balance point at the golden ratio, while an observer-supporting universe requires a small detuning away from that symmetry. This paper presents the finite reference surface on which the rest of the OPH program is built.
+This paper gives the fixed-cutoff implementation picture behind Observer-Patch Holography. Patches, overlaps, records, and observers are written as explicit finite registers with declared readout, repair, and synchronization rules. The result is a concrete fixed-cutoff screen architecture that can be simulated directly and used to analyze measurement, stable records, checkpoint and restoration, and observer synchronization inside one shared quantum system. The same architecture also gives the edge-sector heat-kernel law that feeds the gauge-coupling branch. On the quantitative side carried by the companion papers, the total, bulk, and edge entropy hierarchy has one exact self-similar balance point at the golden ratio, while an observer-supporting universe requires a small detuning away from that symmetry. This paper presents the finite reference surface on which the rest of the OPH program is built.
 \end{abstract}
 
 \tableofcontents
@@ -32,7 +32,7 @@ This paper gives the hardware picture behind Observer-Patch Holography. Patches,
 This paper sets out one concrete reference architecture for local finite screen degrees of
 freedom. It gives an explicit bridge from local registers to patches, overlaps, records,
 observers, and synchronization, together with fixed-cutoff theorem packages for measurement and
-checkpoint and restoration. The claim boundary is narrow: theorem statements, simulator targets, and
+checkpoint and restoration. The claim boundary is narrow: theorem statements, implementation targets, and
 conjectural bridges are separated throughout. The paper does not identify a unique microscopic UV
 completion, it does not derive the scaling-limit continuum and gravity branches, ``observer'' is used operationally, and synchronization of overlap data is not presented as full continuum closure.
 
@@ -49,7 +49,7 @@ regulator-scale edge-center completion language are reused as background structu
 chosen, the patch algebra, overlap algebra, edge-sector observables, record layer, and
 observer-level interfaces can be defined explicitly at fixed cutoff.
 
-\item \textbf{Fixed-cutoff theorem and simulator claims.} Small-lattice digital or tensor-network simulations can test
+\item \textbf{Fixed-cutoff theorem and implementation claims.} Small-lattice digital or tensor-network realizations can test
 whether the reference architecture exhibits gauge-invariant patch observables, stable records,
 low conditional mutual information across collars, and robust synchronization under local repair
 schedules.
@@ -162,7 +162,7 @@ Microscopic screen picture
  faces carry plaquette/holonomy dynamics
 \end{verbatim}
 
-The simulator-facing question is simple. Can one finite local screen model realize the OPH patch, edge, record, and synchronization interfaces well enough to be testable? The physically meaningful
+The implementation question is direct. Can one finite local screen model realize the OPH patch, edge, record, and synchronization interfaces well enough to be testable? The physically meaningful
 uniqueness statement is quotient-level implementation hiding together with inert ancillary
 stabilization, not uniqueness of one screen-register presentation.
 
