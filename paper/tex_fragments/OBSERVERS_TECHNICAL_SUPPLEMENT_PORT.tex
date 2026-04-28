@@ -99,7 +99,7 @@ The package does not prove from the bare OPH axioms alone that the realized cosm
 must satisfy SO(3)-invariant constraint data, that MaxEnt uniqueness holds in every cosmological
 sector, or that the observed universe saturates the displayed CMB benchmark.
 
-\subsection{Black-Hole Structural Core}
+\subsection{Black-Hole Structural Package and Continuation Boundary}
 
 The AMPS-style information trilemma assumes:
 \begin{enumerate}[leftmargin=2em]
@@ -116,7 +116,9 @@ The false assumption in this setting is the naive tensor factorization
 \]
 
 \paragraph{\textbf{Theorem 7.1 (Edge-center black-hole decomposition).}}
-Under EC, the collar decomposition gives
+On the fixed-cutoff edge-center collar branch, assume the black-hole collar state lies in the
+exact Markov class or in the idealized exact-recoverability limit used elsewhere in the paper
+stack. Then the collar decomposition gives
 \[
 \rho_{A_\delta B_\delta D_\delta}
 =
@@ -127,15 +129,16 @@ The glue between inside and outside is the edge-sector label \(\alpha\) in the c
 Conditional on \(\alpha\), inside and outside factorize.
 
 \paragraph{\textbf{Theorem 7.2 (Hawking/KMS normalization).}}
-The outside algebra is in a KMS state at inverse temperature
+On the geometric modular branch where the horizon generator carries the standard \(2\pi\) KMS
+normalization, the outside algebra is in a KMS state at inverse temperature
 \[
 \beta=\frac{2\pi}{\kappa}
 \]
-with respect to the horizon Killing generator. The retained structural claim here is exactly the
-Hawking/KMS normalization together with the edge-center obstruction to naive
-inside/outside factorization and the small-CMI recoverability reading of interior encoding.
+with respect to the horizon Killing generator.
 
-When the collar conditional mutual information is small, the interior partner is approximately
+\paragraph{\textbf{Corollary 7.3 (Recoverability-style interior encoding).}}
+On the same fixed-cutoff collar carrier, when the collar conditional mutual information is small,
+the interior partner is approximately
 recoverable from outside plus radiation:
 \[
 \left\|
@@ -148,6 +151,7 @@ recoverable from outside plus radiation:
 \]
 So the interior is encoded rather than supplied by an independent tensor factor.
 
+\paragraph{\textbf{Corollary 7.4 (Discrete area spectrum and Schwarzschild transition identity).}}
 The same edge-center package carries a discrete area operator
 \[
 L_C=\sum_\alpha (\log d_\alpha)P_\alpha,
@@ -160,8 +164,12 @@ and for a Schwarzschild sector transition \(d\to d'\) one has
 \]
 
 \paragraph{\textbf{Scope boundary.}}
-Integer-transition combs, QNM selectors, linewidth estimates, PBH/LIGO templates, and Page-curve
-or island closure remain outside the structural core on the live synthesis surface.
+The retained structural theorem package is exactly Theorem 7.1, Theorem 7.2, Corollary 7.3, and
+Corollary 7.4. Integer-transition combs, QNM selectors, Page-type linewidth estimates, PBH burst
+templates, Kerr/LIGO horizon spectroscopy templates, and any Page-curve or island closure remain
+outside that structural core. Those items require extra premises such as an integer-transition
+selection rule, a semiclassical evaporation-power model, a QNM/transition identification, greybody
+matching, or an explicit island prescription.
 
 \subsection{Modular-Anomaly Continuation}
 
