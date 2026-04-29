@@ -133,7 +133,7 @@ Node & Output & Immediate internal ingredients & Standard mathematics used & Dec
 \textbf{D8} & Product gauge structure up to finite quotient (Lemmas~\ref{lem:mincontent}--\ref{lem:commutant}, Theorem~\ref{thm:sm}) & D7 + Axiom~\ref{ax:mar} & compact Lie representation classification; Schur's lemma & the same ordinary or central-defect bosonic branch as D7, together with a connected positive-dimensional Lie admissible class, one connected abelian factor, and faithful action on the minimal coupled carrier & Phase I realized-branch theorem \\
 \textbf{D9} & Realized Standard Model quotient, hypercharges, the counting chain \(N_g=3\) then \(N_c=3\), and product-group corollaries (Theorem~\ref{thm:hypercharge}, Corollaries~\ref{cor:ng}, \ref{cor:nc}, Proposition~\ref{prop:z6}) & D8 & anomaly-cancellation algebra; Witten global-anomaly argument; CKM CP counting & realized one-generation chiral matter plus one Higgs package; asymptotic-freedom and MAR admissibility premises & Phase I realized-branch theorem/corollary chain \\
 \textbf{D10} & Forward gauge-coupling closure and target-free source-only electroweak readout of the integrated D10 quantitative-closure package & D9 + pixel ratio \(P\) & printed RG evolution and matching conventions & pixel constraint and the source-only forward transmutation solve \(\mathcal F(\alpha_U;P)=0\); the fixed-cutoff edge heat-kernel / Casimir theorem on the microphysics surface together with the compact-group / Peter--Weyl lift used on the D10 lane; printed beta-function and threshold conventions & Phase II quantitative-closure sector \\
-\textbf{D12} & Charged-lepton centered-readback / centered-to-affine frontier, texture, dark-sector, baryogenesis, black-hole spectroscopy, proton-spin, proton-lifetime estimates beyond the gauge-channel exclusion, conditional string/worldsheet reorganizations, conjectural critical-superstring extensions, and other continuations & various subsets of D6, D9, and D10 & branch-specific EFT and phenomenological manipulations & additional ans\"atze such as the uniform \(\mathbb Z_6\) center-label ensemble, discrete texture choices, dark-sector response assumptions, discrete-horizon assumptions, or extra worldsheet/CFT premises & Phase III phenomenological continuation branch \\
+\textbf{D12} & Charged-lepton centered-readback / centered-to-affine frontier, texture, dark-sector, baryogenesis, black-hole spectroscopy, proton-spin, proton-lifetime estimates beyond the gauge-channel exclusion, controlled large-\(N_{\mathrm{edge}}\) string/worldsheet effective descriptions, conjectural critical-superstring extensions, and other continuations & various subsets of D6, D9, and D10 & branch-specific EFT and phenomenological manipulations & additional ans\"atze such as the uniform \(\mathbb Z_6\) center-label ensemble, discrete texture choices, dark-sector response assumptions, discrete-horizon assumptions, a distinct large-\(N_{\mathrm{edge}}\) regime with fixed \(\tau=tN_{\mathrm{edge}}\) window and uniform genus-remainder control, or extra worldsheet/CFT premises & Phase III phenomenological continuation branch \\
 \end{longtable}
 \endgroup
 
@@ -304,7 +304,7 @@ Node & Theorem labels and output & Immediate OPH ingredients & Standard mathemat
 \textbf{D8} & Lemmas~\ref{lem:mincontent}--\ref{lem:commutant}, Theorem~\ref{thm:sm}: product gauge structure up to finite quotient & D7 + Axiom~\ref{ax:mar} & compact Lie representation classification; Schur's lemma & the same ordinary or central-defect bosonic branch as D7, together with a connected positive-dimensional Lie admissible class, one connected abelian factor, and faithful action on the minimal coupled carrier & realized-branch theorem \\
 \textbf{D9} & Theorem~\ref{thm:hypercharge}, Corollaries~\ref{cor:ng}, \ref{cor:nc}, Proposition~\ref{prop:z6}: realized Standard Model quotient, hypercharges, the counting chain \(N_g=3\) then \(N_c=3\), and product-group corollaries & D8 & anomaly-cancellation algebra; Witten global-anomaly argument; CKM CP counting & realized one-generation chiral matter plus one Higgs package; asymptotic-freedom and MAR admissibility premises & realized-branch theorem/corollary chain \\
 \textbf{D10} & forward gauge-coupling closure and target-free source-only electroweak readout of Section~7 & D9 + pixel ratio \(P\) & printed RG evolution and matching conventions & pixel constraint and the source-only forward transmutation solve \(\mathcal F(\alpha_U;P)=0\); the fixed-cutoff edge heat-kernel / Casimir theorem on the microphysics surface together with the compact-group / Peter--Weyl lift used on the D10 lane; printed beta-function and threshold conventions & quantitative-closure sector \\
-\textbf{D12} & Sections~8--10 continuations:\newline charged leptons,\newline proton spin/lifetime,\newline and string/worldsheet branches & various subsets of D6, D9, and D10 & branch-specific EFT\newline and phenomeno\-logical\newline manipulations & additional ans\"atze such as the uniform\newline \(\mathbb Z_6\) center-label ensemble, texture choices,\newline dark-sector response assumptions,\newline discrete-horizon assumptions, or extra\newline worldsheet/CFT premises & phenomeno\-logical\newline continuation \\
+\textbf{D12} & Sections~8--10 continuations:\newline charged leptons,\newline proton spin/lifetime,\newline and controlled string/worldsheet effective-description branches & various subsets of D6, D9, and D10 & branch-specific EFT\newline and phenomeno\-logical\newline manipulations & additional ans\"atze such as the uniform\newline \(\mathbb Z_6\) center-label ensemble, texture choices,\newline dark-sector response assumptions,\newline discrete-horizon assumptions, a distinct\newline large-\(N_{\mathrm{edge}}\) regime with fixed\newline \(\tau=tN_{\mathrm{edge}}\) window and uniform\newline genus-remainder control, or extra\newline worldsheet/CFT premises & phenomeno\-logical\newline continuation \\
 \end{longtable}
 \endgroup
 
@@ -3171,11 +3171,61 @@ is then a structural consequence rather than an added prescription.
 
 In the bosonic EFT branch, compact gauge reconstruction follows only after the explicit transportable sector-colimit and the bosonic ordinary/central gauge premises of Assumption~\ref{ass:gaugeprem} are supplied. The genuinely noncentral fixed-cutoff branch is handled separately by crossed-module data rather than by the ordinary compact-group theorem. The Standard Model quotient is then selected by minimal admissibility. This differs sharply from approaches in which the gauge group is specified in advance.
 
-The string-theory relation is similarly reversed. The edge partition function
+The worldsheet relation is similarly reversed. The edge partition function
 \[
 Z_{\mathrm{edge}}(t)=\sum_R d_R^2 e^{-t C_2(R)}
 \]
-is the closed partition function obtained after gluing the open-edge weights $p_R(t)\propto d_R e^{-tC_2(R)}$. Peter--Weyl identifies this sum with the compact-group heat kernel at the identity, \(Z_{\mathrm{edge}}(t)=K_t(1)\), and the Chapman--Kolmogorov law gives the corresponding collar-sewing rule. If a large-$N_{\mathrm{edge}}$ regime exists, with $N_{\mathrm{edge}}$ distinct from the physical color rank $N_c=3$, its free energy admits a genus expansion. Here this is read as a conditional effective reorganization of edge degrees of freedom, not as a derived critical-superstring completion. Any further lift to critical superstring structure would additionally require worldsheet supersymmetry, critical dimension, modular invariance, and GSO projection beyond the OPH axiom chain.
+is the closed partition function obtained after gluing the open-edge weights $p_R(t)\propto d_R e^{-tC_2(R)}$. Peter--Weyl identifies this sum with the compact-group heat kernel at the identity, \(Z_{\mathrm{edge}}(t)=K_t(1)\), and the Chapman--Kolmogorov law gives the corresponding collar-sewing rule. The large-$N_{\mathrm{edge}}$ step is therefore not a separate analogy layer; it is a criterion-level theorem that states exactly when the standard Gross--Taylor large-$N$ rewriting of that two-dimensional Yang--Mills surface counts as a controlled effective description of the edge branch.
+
+\begin{theorem}[Criterion for a controlled large-$N_{\mathrm{edge}}$ worldsheet effective description]\label{thm:worldsheet-largeN}
+Assume the exact bridge identity \(Z_{\mathrm{edge}}(t)=K_t(1)\) above and a large-$N_{\mathrm{edge}}$
+realization of the compact-group heat-kernel branch, with \(N_{\mathrm{edge}}\neq N_c=3\), for
+which the 't Hooft-style variable
+\[
+\tau:=tN_{\mathrm{edge}}
+\]
+is kept in a compact interval \(I\subset (0,\infty)\). Suppose moreover that for every truncation
+order \(G\ge 0\) there exist coefficient functions \(F_g:I\to\mathbb R\) and constants
+\(C_{G,I}\) such that
+\[
+\log Z_{\mathrm{edge}}\!\left(\frac{\tau}{N_{\mathrm{edge}}}\right)
+=
+\sum_{g=0}^{G} N_{\mathrm{edge}}^{2-2g} F_g(\tau)
++
+R_{G+1}(\tau,N_{\mathrm{edge}})
+\]
+with
+\[
+\bigl|R_{G+1}(\tau,N_{\mathrm{edge}})\bigr|
+\le
+C_{G,I}N_{\mathrm{edge}}^{-2G}
+\qquad(\tau\in I).
+\]
+Then this branch defines a controlled theorem-level worldsheet effective description of the edge
+dynamics, with control parameters \(N_{\mathrm{edge}}^{-2}\), the fixed-\(\tau\) window \(I\),
+and the truncation order \(G\).
+\end{theorem}
+
+\begin{proof}
+The exact bridge identity puts the edge partition function on the compact-group heat-kernel /
+two-dimensional Yang--Mills surface. On that surface, the standard Gross--Taylor dictionary reads
+a genus expansion of the displayed form as a closed-worldsheet rewriting of the free energy. The
+stated large-\(N_{\mathrm{edge}}\) premise supplies that expansion on the fixed-\(\tau\) window
+\(I\), together with an explicit truncation bound. Therefore the worldsheet rewriting is
+controlled by the displayed parameters \(N_{\mathrm{edge}}^{-2}\), \(I\), and \(G\). The
+statement is only an effective description on the declared branch: it does not by itself construct
+a critical worldsheet CFT, derive modular invariance, worldsheet supersymmetry, anomaly
+cancellation, GSO projection, or full massless-spectrum matching.
+\end{proof}
+
+\paragraph{Remaining blockers.}
+The theorem does not derive the large-\(N_{\mathrm{edge}}\) regime itself from the compact-gauge
+chain, and it does not reprove the imported Gross--Taylor large-\(N\) worldsheet dictionary for
+two-dimensional Yang--Mills. What remains external is the existence of the large-\(N_{\mathrm{edge}}\)
+sequence, the fixed-\(\tau\) window on which the genus expansion holds, and the uniform remainder
+control. Any further lift to critical superstring structure additionally requires worldsheet
+supersymmetry, critical dimension, modular invariance, anomaly cancellation, GSO projection, and
+full massless-spectrum matching beyond the present continuation theorem.
 
 \begingroup
 \footnotesize
@@ -3187,7 +3237,7 @@ Primitive data & Boundary theory at infinity & Finite-capacity screen with obser
 Factorization across cuts & Subtle and often indirect & Explicit edge-center completion with central labels \\
 Status of $\Lambda$ & External background datum & Fixed globally by $N_{\mathrm{scr}}$ after local null reconstruction \\
 Gauge group & Usually specified as part of the model & Reconstructed from edge sectors, then filtered by admissibility \\
-String sector & Fundamental dual description & Effective large-$N_{\mathrm{edge}}$ reorganization of edge dynamics \\
+String sector & Fundamental dual description & Controlled large-$N_{\mathrm{edge}}$ worldsheet effective description of edge dynamics on the stated branch \\
 \bottomrule
 \end{tabular}
 \endgroup
@@ -3214,7 +3264,7 @@ Tier & Representative outputs & What would actually falsify the tier \\
 Phase I recovered core (Theorem~\ref{thm:master}; D1--D5, D7--D9) & Confluence of overlap repair, conditional Lorentz kinematics, the conditional Jacobson-type Einstein branch in the stated scaling regime, compact gauge reconstruction in the bosonic branch, the realized Standard Model quotient chain, the exact hypercharge lattice on the realized matter package, the realized counting chain \(N_g=3\) then \(N_c=3\), and the product-group consequence of no gauge-mediated proton decay & A mathematical failure in the derivation chain, or data that require a different realized gauge quotient, different realized hypercharges, a different color or generation count on the admissible branch, or gauge-mediated proton decay \\
 Phase II input-dependent corollary (D6) & \(\Lambda=\frac{3\pi}{G N_{\mathrm{scr}}}\), \(S_{\mathrm{dS}}=N_{\mathrm{scr}}\), \(r_{\mathrm{dS}}=\sqrt{3/\Lambda}\), and \(t_\Lambda=r_{\mathrm{dS}}/c\) once the screen-capacity identification is made, while any retained capacity-level neutrino side estimate on that input is legacy bookkeeping rather than the live neutrino theorem lane; the observed cosmic age remains a downstream FLRW benchmark & Failure of the screen-capacity identification or of the specific global capacity relation. Such a failure would not by itself erase the recovered core \\
 Phase II quantitative-closure branch (D10) & forward transmutation data \(\alpha_U(P)\), \(t_U(P)\), \(t_{\mathrm{tr}}(P)\), pixel-closure gauge-coupling consistency, \(\alpha_i(m_Z)\), the source-locked anchor \(a_0(P)=\alpha_{\mathrm{em}}^{-1}(m_Z^2;P)\), the electroweak transport family \((W,Z,\alpha_{\mathrm{em}}^{-1}(q^2),\sin^2\theta_W(q^2),v)\), and the Thomson endpoint \(\alpha_{\mathrm{Th}}^{-1}(P)\) on the Ward-projected \(\U(1)_Q\) lane & Failure of the integrated quantitative closure once \(P\) and the printed running/matching conventions are imposed \\
-Phase III phenomenological continuations (D12 and beyond) & Flavor ans\"atze, charged-lepton continuation ans\"atze beyond exact centered readback, texture branches, the weighted-cycle / Majorana-holonomy neutrino branch above the legacy D6 side estimate, further neutrino mass/mixing refinements, dark-sector response laws, baryogenesis estimates, proton-spin bookkeeping, proton-lifetime estimates beyond the gauge-channel exclusion, black-hole spectroscopy templates, conditional string/worldsheet reorganizations, conjectural critical-superstring extensions, and other downstream phenomenology & Retraction of the corresponding continuation only. These branches are not part of the recovered core and their failure is not, by itself, a falsification of relativity-plus-Standard-Model recovery \\
+Phase III phenomenological continuations (D12 and beyond) & Flavor ans\"atze, charged-lepton continuation ans\"atze beyond exact centered readback, texture branches, the weighted-cycle / Majorana-holonomy neutrino branch above the legacy D6 side estimate, further neutrino mass/mixing refinements, dark-sector response laws, baryogenesis estimates, proton-spin bookkeeping, proton-lifetime estimates beyond the gauge-channel exclusion, black-hole spectroscopy templates, controlled large-\(N_{\mathrm{edge}}\) string/worldsheet effective descriptions, conjectural critical-superstring extensions, and other downstream phenomenology & Retraction of the corresponding continuation only. These branches are not part of the recovered core and their failure is not, by itself, a falsification of relativity-plus-Standard-Model recovery \\
 \end{longtable}
 \endgroup
 
@@ -3268,7 +3318,7 @@ The following do \emph{not} falsify Theorem~\ref{thm:master} if they fail in the
 \item baryogenesis estimates based on extra suppression-counting assumptions; a baryogenesis theorem would still need a concrete out-of-equilibrium mechanism, derived CP-odd source terms, justified defect/sphaleron counting, washout control, and a freeze-out computation of the final asymmetry;
 \item proton-spin ans\"atze or proton-lifetime estimates beyond the structural exclusion of gauge-mediated decay;
 \item discrete-horizon spectroscopy templates;
-\item large-$N_{\mathrm{edge}}$ string/worldsheet reorganizations.
+\item controlled large-$N_{\mathrm{edge}}$ string/worldsheet effective descriptions.
 \end{enumerate}
 These are all post-Phase-I, non-core branches. Some are Phase-II input-dependent estimates, while the rest are Phase-III continuations. None is part of this paper's recovered relativity-plus-Standard-Model core.
 
