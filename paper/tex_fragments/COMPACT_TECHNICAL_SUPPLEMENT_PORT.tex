@@ -261,12 +261,21 @@ from OPH data to renormalized proton matrix elements.
 
 \subsection{Controlled Worldsheet Effective Description}
 
-\paragraph{Large-\(N_{\mathrm{edge}}\) boundary.}
-On the compact-group heat-kernel branch, the exact identity
+\paragraph{Exact OPH-to-2D-Yang--Mills bridge.}
+On the compact-group heat-kernel branch, Theorem~\ref{thm:edge-2dym} proves the exact identity
 \[
 Z_{\mathrm{edge}}(t)=K_t(1)
 \]
-puts the closed edge partition function on the two-dimensional Yang--Mills surface. The large-\(N_{\mathrm{edge}}\)
+by gluing the open-edge weights \(p_R(t)\propto d_R e^{-tC_2(R)}\) into the closed partition sum
+\[
+Z_{\mathrm{edge}}(t)=\sum_R d_R^2 e^{-tC_2(R)}.
+\]
+This is the precise theorem-level sense in which the OPH edge-sector partition reorganizes into
+the two-dimensional Yang--Mills heat-kernel surface, and the Chapman--Kolmogorov law supplies the
+matching collar-sewing rule.
+
+\paragraph{Large-\(N_{\mathrm{edge}}\) boundary.}
+The large-\(N_{\mathrm{edge}}\)
 worldsheet interpretation is carried only when one fixes a distinct large-\(N_{\mathrm{edge}}\)
 sequence, with \(N_{\mathrm{edge}}\neq N_c=3\), a fixed-\(\tau\) window for
 \[
@@ -278,7 +287,9 @@ expansion, so the standard Gross--Taylor rewriting becomes a controlled worldshe
 description of edge dynamics rather than a loose analogy.
 
 \paragraph{What remains external.}
-This continuation theorem does not derive the large-\(N_{\mathrm{edge}}\) regime itself, nor does
+The exact bridge theorem does not derive the compact-group heat-kernel branch itself from bare
+local axioms, and the continuation theorem does not derive the large-\(N_{\mathrm{edge}}\) regime
+itself, nor does
 it rederive the imported Gross--Taylor large-\(N\) worldsheet dictionary for two-dimensional
 Yang--Mills, nor does it identify a critical worldsheet CFT. Worldsheet supersymmetry, critical
 dimension, modular invariance, anomaly cancellation, GSO projection, and full massless-spectrum

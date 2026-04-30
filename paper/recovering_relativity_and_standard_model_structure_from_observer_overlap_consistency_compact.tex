@@ -3232,10 +3232,65 @@ The worldsheet relation is similarly reversed. The edge partition function
 \[
 Z_{\mathrm{edge}}(t)=\sum_R d_R^2 e^{-t C_2(R)}
 \]
-is the closed partition function obtained after gluing the open-edge weights $p_R(t)\propto d_R e^{-tC_2(R)}$. Peter--Weyl identifies this sum with the compact-group heat kernel at the identity, \(Z_{\mathrm{edge}}(t)=K_t(1)\), and the Chapman--Kolmogorov law gives the corresponding collar-sewing rule. The large-$N_{\mathrm{edge}}$ step is therefore not a separate analogy layer; it is a criterion-level theorem that states exactly when the standard Gross--Taylor large-$N$ rewriting of that two-dimensional Yang--Mills surface counts as a controlled effective description of the edge branch.
+is the closed partition function obtained after gluing the open-edge weights
+\[
+p_R(t)\propto d_R e^{-tC_2(R)}.
+\]
+
+\begin{theorem}[OPH-to-2D-Yang--Mills edge partition theorem]\label{thm:edge-2dym}
+Assume the compact-group heat-kernel branch supplied by the fixed-cutoff edge-sector law together
+with the compact-group / Peter--Weyl lift used in the bosonic gauge lane, in the same
+quadratic-Casimir normalization as the compact heat kernel. Equivalently, assume the open-edge
+weights satisfy
+\[
+p_R(t)\propto d_R e^{-tC_2(R)}
+\]
+on a compact gauge group \(G\), and define the closed edge partition function by gluing the two
+edge boundaries:
+\[
+Z_{\mathrm{edge}}(t)=\sum_R d_R^2 e^{-tC_2(R)}.
+\]
+Then:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2em]
+\item the closed edge partition function is exactly the compact-group heat kernel at the identity,
+\[
+Z_{\mathrm{edge}}(t)=K_t(1);
+\]
+\item the same sum is therefore the standard compact-group two-dimensional Yang--Mills
+heat-kernel partition function at identity, equivalently the closed-surface heat-kernel partition
+sum on that branch;
+\item the Chapman--Kolmogorov law for \(K_t\) is the corresponding collar-sewing rule for the OPH
+edge partition.
+\end{enumerate}
+Thus the OPH edge-sector partition reorganizes exactly into the two-dimensional Yang--Mills
+heat-kernel form before any large-\(N_{\mathrm{edge}}\) continuation is invoked.
+\end{theorem}
+
+\begin{proof}
+The fixed-cutoff edge-sector theorem gives the heat-kernel weights \(d_R e^{-tC_2(R)}\) on the
+compact-group branch. Gluing the two edge boundaries contributes a second factor of \(d_R\), so the
+closed partition function is the displayed sum. Peter--Weyl identifies
+\[
+\sum_R d_R \chi_R(g)e^{-tC_2(R)}
+\]
+with the compact-group heat kernel \(K_t(g)\), and evaluating at the identity \(g=1\) gives
+\[
+K_t(1)=\sum_R d_R \chi_R(1)e^{-tC_2(R)}=\sum_R d_R^2 e^{-tC_2(R)}=Z_{\mathrm{edge}}(t),
+\]
+since \(\chi_R(1)=d_R\). The Chapman--Kolmogorov law for \(K_t\) is exactly the semigroup gluing
+law, so it gives the collar-sewing rule on the same branch.
+\end{proof}
+
+\paragraph{Scope boundary.}
+The imported premises are exactly the fixed-cutoff edge heat-kernel / Casimir law, the compact
+gauge-group / Peter--Weyl lift, the quadratic-Casimir heat-kernel normalization on that lift, and
+the Peter--Weyl heat-kernel identity. What remains external is any large-\(N_{\mathrm{edge}}\)
+regime, the Gross--Taylor dictionary on that regime, and every further critical-string
+ingredient. The theorem above proves the OPH-to-2D-Yang--Mills partition reorganization itself; it
+does not by itself produce a worldsheet genus expansion.
 
 \begin{theorem}[Criterion for a controlled large-$N_{\mathrm{edge}}$ worldsheet effective description]\label{thm:worldsheet-largeN}
-Assume the exact bridge identity \(Z_{\mathrm{edge}}(t)=K_t(1)\) above and a large-$N_{\mathrm{edge}}$
+Assume Theorem~\ref{thm:edge-2dym} and a large-$N_{\mathrm{edge}}$
 realization of the compact-group heat-kernel branch, with \(N_{\mathrm{edge}}\neq N_c=3\), for
 which the 't Hooft-style variable
 \[
@@ -3264,7 +3319,7 @@ and the truncation order \(G\).
 \end{theorem}
 
 \begin{proof}
-The exact bridge identity puts the edge partition function on the compact-group heat-kernel /
+Theorem~\ref{thm:edge-2dym} puts the edge partition function on the compact-group heat-kernel /
 two-dimensional Yang--Mills surface. On that surface, the standard Gross--Taylor dictionary reads
 a genus expansion of the displayed form as a closed-worldsheet rewriting of the free energy. The
 stated large-\(N_{\mathrm{edge}}\) premise supplies that expansion on the fixed-\(\tau\) window
@@ -3276,7 +3331,7 @@ cancellation, GSO projection, or full massless-spectrum matching.
 \end{proof}
 
 \paragraph{Remaining blockers.}
-The theorem does not derive the large-\(N_{\mathrm{edge}}\) regime itself from the compact-gauge
+The criterion theorem does not derive the large-\(N_{\mathrm{edge}}\) regime itself from the compact-gauge
 chain, and it does not reprove the imported Gross--Taylor large-\(N\) worldsheet dictionary for
 two-dimensional Yang--Mills. What remains external is the existence of the large-\(N_{\mathrm{edge}}\)
 sequence, the fixed-\(\tau\) window on which the genus expansion holds, and the uniform remainder
