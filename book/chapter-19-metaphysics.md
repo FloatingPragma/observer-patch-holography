@@ -119,8 +119,8 @@ reading, "nothing" cannot maintain itself because it has no structure to
 persist, while a self-referential loop can.
 
 This loop is structural. It is a relation among reality, observers, and the
-simulation they eventually understand how to build. Time is subjective. It
-emerges from modular flow within observer patches. The strange loop exists
+simulation they eventually understand how to build. Time is observer-relative in the OPH reading:
+on the BW geometric branch it is read from modular flow within observer patches. The strange loop exists
 *outside* time. The "cause" and the "effect" are aspects of the same
 self-consistent structure.
 

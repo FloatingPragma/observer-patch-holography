@@ -242,7 +242,10 @@ Do observers "move around" on the sphere?
 
 Not in a simple sense. Different patches represent different observers, or the same observer at different moments. "Movement" is actually a sequence of overlapping patches with consistent marginals.
 
-What creates the sense of time? The internal structure of the quantum state provides a natural flow: the **modular flow** from quantum statistical mechanics. For a thermal state, modular flow generates time evolution, and the thermal time principle provides an important interpretive-organizational guide.
+What creates the sense of time? The internal structure of the quantum state provides a candidate
+observer-relative modular flow from quantum statistical mechanics. For a thermal state, modular
+flow can organize an internal evolution parameter, and the thermal time principle provides an
+important interpretive-organizational guide rather than a standalone clock theorem.
 
 ### Why This Matters
 

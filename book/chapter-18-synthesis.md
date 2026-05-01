@@ -45,8 +45,9 @@ selection principle. Minimality gives the economy.
 ## 18.4 How Spacetime Appears
 
 Once cap modular flow becomes geometric on the extracted prime geometric
-subnet, time stops looking imported from outside. It becomes the internal flow
-attached to a restricted state. When those local flows fit together across the
+subnet, observer-relative time is read from the internal modular flow attached
+to a restricted state. This remains the conditional BW-branch reading, not a
+standalone operational-clock theorem. When those local flows fit together across the
 realized scaling-limit cap pair, Lorentz kinematics appears. When generalized
 entropy sits at equilibrium under admissible fixed-cap MaxEnt variations,
 Einstein gravity appears as the public large-scale grammar of that equilibrium.
@@ -158,8 +159,9 @@ The measurement problem softens because there is no wavefunction of the
 universe being watched from outside. Measurement is one patch entering a new
 record relation with another.
 
-The problem of time softens because modular flow furnishes an internal
-before and after. Time is local, real, and emergent in the same breath.
+The problem of time softens because, on the BW geometric branch, modular flow furnishes an internal
+before and after for each observer patch. This is an observer-relative reading, not a global
+clock theorem.
 
 The black-hole information problem softens because the screen blocks any naive
 splitting of the world into one autonomous inside and one autonomous outside.
@@ -192,7 +194,8 @@ By this point the central sentence of the book can be spoken plainly:
 **Reality is the consistency of observations across overlapping perspectives.**
 
 Everything else unfolds from that pressure. Space is the geometry of
-entanglement. Time is modular flow read from inside restricted states. Matter
+entanglement. Observer-relative time is read from modular flow inside restricted states on the BW
+geometric branch. Matter
 is the family of stable excitations that can survive transport across patches.
 Laws are the public regularities that endure repeated comparison. Objectivity
 is the residue left behind after many partial viewpoints are made to agree.

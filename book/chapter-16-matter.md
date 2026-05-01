@@ -32,7 +32,7 @@ is why it works so well.
 
 Think of the screen as a high-resolution, quantum information canvas. Most
 patterns are noisy and ephemeral. Some are stable: they survive overlap
-consistency, persist under modular time, and can be tracked across patches.
+consistency, persist under BW-branch observer-relative modular time, and can be tracked across patches.
 Those stable patterns are what we call **particles**.
 
 Matter is not a primitive substance. Particles are not tiny billiard balls.
@@ -141,9 +141,8 @@ symmetry roles are universal.
 ## 16.6 What Is Energy?
 
 Energy is the price a pattern pays to keep unfolding through time. In this
-framework,
-time first appears as modular flow, so energy first appears as the generator of
-that flow. Far enough out in the effective world, this becomes the ordinary
+framework, observer-relative time is read from modular flow on the BW geometric branch, so energy
+first appears as the generator of that flow. Far enough out in the effective world, this becomes the ordinary
 Hamiltonian language and the stress tensor familiar from field theory.
 
 Energy conservation survives the journey because once the emergent action
@@ -244,8 +243,8 @@ The quantum world is larger but less shareable. Superpositions exist, but they c
 ## 16.10 Reverse Engineering Summary
 
 Classical physics is not the starting point. It appears when quantum
-information on the screen organizes into stable patterns, modular time becomes
-geometric, and overlap consistency enforces locality. Matter is not primitive
+information on the screen organizes into stable patterns, BW-branch observer-relative modular time
+becomes geometric, and overlap consistency enforces locality. Matter is not primitive
 stuff. It is a family of stable excitation patterns. The particle catalogue is
 not arbitrary. It comes with a constrained package of charges, carriers,
 couplings, and masses. Energy is the charge of time

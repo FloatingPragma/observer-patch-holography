@@ -266,7 +266,7 @@ Here is the connection to the model.
 
 ### Time as Modular Flow
 
-In previous chapters, we developed the idea that time emerges from modular flow. Each observer has a patch P on the holographic screen. The reduced density matrix on that patch defines a modular Hamiltonian:
+In previous chapters, we developed the narrower idea that observer-relative time is read from modular flow on the BW geometric branch. Each observer has a patch P on the holographic screen. The reduced density matrix on that patch defines a modular Hamiltonian:
 
 $$K_P = -\ln \rho_P$$
 
@@ -274,14 +274,14 @@ This Hamiltonian generates a flow:
 
 $$\sigma_t(A) = e^{iKt} A e^{-iKt}$$
 
-This modular flow provides the observer's natural notion of time on that patch.
+This modular flow provides the observer's natural notion of time on that patch in the conditional BW-branch reading; it is not by itself a separate operational-clock theorem.
 
 ### Geometric Modular Flow on Caps
 
 Consider a cap $C$ on the sphere $S^2$. In the smooth regime, the cap's
-thermal time stops feeling like abstract algebra and starts behaving like an
-actual motion on the sphere. This is where the construction turns into
-relativity. A clock is no longer just a formal device inside the math. Its flow becomes the
+thermal-time parameter stops feeling like abstract algebra and starts behaving like an
+actual motion on the sphere. This is where the conditional BW branch turns into
+relativity. The local modular parameter is no longer just a formal device inside the math. Its flow becomes the
 same kind of geometric motion that later shows up as boosts and time
 translations.
 
@@ -292,8 +292,8 @@ normalization and an irrelevant constant. This is the geometric branch on the
 extracted prime subnet, once the scaling-limit cap pair and its rigidity lift
 have been realized there.
 
-That is the bridge. The clock defined by the state becomes the same clock
-spacetime symmetry was looking for.
+That is the bridge. The modular parameter defined by the state becomes the observer-relative
+time parameter used by the spacetime symmetry reading.
 
 ### Conformal Symmetry Is Lorentz Symmetry
 
@@ -321,8 +321,8 @@ The answer is that **there is no observer outside the sphere**. The model does n
 
 Think about what an observer actually is in this model. An observer is a stable correlation pattern among some subset of the screen degrees of freedom. This pattern has access only to its patch $P_O \subset S^2$. No observer can access the entire sphere simultaneously. The "global state" $\omega$ exists mathematically, but no entity within the model can observe it.
 
-Consider two observers with overlapping patches. Each has a modular flow, a
-local clock. When their descriptions are compared, the admissible
+Consider two observers with overlapping patches. Each has a modular flow, read on this branch as a
+local observer-relative time parameter. When their descriptions are compared, the admissible
 transformations have to map patches to patches, preserve the overlap
 structure, and avoid turning any one patch into the privileged center of the
 world. The group that does exactly that is the conformal group of $S^2$, and
@@ -341,7 +341,7 @@ Why is there a maximum speed, and why is it the same for everyone?
 Information propagates on the screen. The modular flow determines the rate of
 propagation. The conformal structure of $S^2$ determines the causal structure.
 
-The speed of light c is the conversion factor between modular time and geometric distance. It's universal because the conformal structure of the sphere is unique.
+The speed of light c is the conversion factor between BW-branch observer-relative modular time and geometric distance. It's universal because the conformal structure of the sphere is unique.
 
 Different observers have different modular flows. But their flows are all conformal transformations of S^2. The Lorentz group is precisely the set of transformations that preserve the causal structure while changing the observer's notion of time.
 
@@ -480,7 +480,7 @@ For any macroscopic process, this ratio is absurdly tiny. General relativity is 
 
 ### The Best Compression
 
-Emergent geometry is the most economical description of how modular clocks fit together.
+Emergent geometry is the most economical description of how BW-branch observer-relative modular parameters fit together.
 
 Imagine collecting all the data about how every patch's modular flow relates to every other patch's flow. This is an enormous amount of information.
 
@@ -582,7 +582,7 @@ The old picture treated time as universal, gravity as a force, and geometry as
 a fixed stage. Relativity overturns each part. The speed of light forces time
 and distance into one four-dimensional structure. Free fall reveals gravity as
 geometry. OPH pushes the logic one step deeper. Lorentz symmetry becomes the
-geometry of how modular times mesh across patches, and gravity becomes the
+geometry of how BW-branch observer-relative modular times mesh across patches, and gravity becomes the
 equilibrium condition that lets those patches share one spacetime.
 
 On this reading, the speed of light is not a random number sprinkled into the

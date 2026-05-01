@@ -48,7 +48,7 @@ Recall our thesis: reality is the process of making observations consistent betw
 Consider two astronomers observing the same galaxy. One measures energy in her reference frame. The other measures energy in his frame, moving at a different velocity. Their numbers are different.
 
 But they're not inconsistent. They're related by a Lorentz transformation. On
-the screen, this symmetry grows out of modular time-flow. It tells them how to
+the screen, this symmetry grows out of BW-branch observer-relative modular flow. It tells them how to
 translate between their observations. Lorentz invariance is the rule that keeps
 both accounts compatible.
 

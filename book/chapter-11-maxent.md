@@ -41,7 +41,7 @@ This is the **problem of time** in quantum gravity. If the fundamental descripti
 
 Time is not a fundamental external parameter. The microscopic laws are time-symmetric. Something else must generate the arrow of time we experience.
 
-## 11.3 The First-Principles Reframing: Time Emerges from Modular Flow
+## 11.3 The First-Principles Reframing: Observer-Relative Time from Modular Flow
 
 The deeper question is why we experience time at all if the fundamental
 description has no preferred clock.
@@ -51,32 +51,31 @@ description has no preferred clock.
 In the 1990s, Alain Connes and Carlo Rovelli proposed a stark idea. Time can be
 read from incomplete knowledge. Start with the observer's limited state
 $\rho$. From it one forms the modular Hamiltonian, $K=-\ln\rho$. That operator
-generates a flow, and the thermal-time proposal reads that flow as the time the
-observer actually experiences.
+generates a flow, and the thermal-time proposal reads that flow as a candidate
+observer-relative time parameter.
 
 This is a strange move the first time one sees it. In ordinary mechanics, the
 Hamiltonian is given first and time evolution follows. Here the restricted
-state itself furnishes the clock. Time is tied to access, ignorance, and coarse
+state itself furnishes a candidate internal clock. Time is tied to access, ignorance, and coarse
 graining.
 
 ### Tomita-Takesaki Theory
 
 The deeper theorem behind that proposal comes from operator algebra. Once an
 observer has a rich enough algebra of questions and a state that probes it
-fully, the pair carries a preferred internal flow whether or not anyone inserts
+fully, the pair carries a preferred modular flow whether or not anyone inserts
 an external master clock. The formal machinery is called
 **Tomita-Takesaki theory**.
 
-An observer with partial access does not sit in a timeless fog. The
-restriction itself orders experience into before and after. The flow depends on
+An observer with partial access does not sit in a timeless fog. In the thermal-time
+reading, the restriction itself orders experience into before and after. The flow depends on
 the algebra-state pair, which is why different observers can inherit different
-clocks from different access conditions. It also carries the thermal
+candidate local parameters from different access conditions. It also carries the thermal
 equilibrium structure that makes temperature and time appear together in the
 same move.
 
-Modular flow matters here because it turns time from a background stage into
-something earned by an observer's horizon and state. Partial knowledge has its
-own dynamics.
+Modular flow matters here because it turns observer-relative time from a background stage into
+something read from an observer's horizon and state. Partial knowledge has its own dynamics.
 
 ### The Rindler Wedge
 
@@ -90,11 +89,11 @@ The modular temperature works out to:
 
 $$T_{Unruh} = \frac{\hbar a}{2\pi k_B c}$$
 
-The Unruh effect isn't a separate phenomenon-it's Tomita-Takesaki theory applied to spacetime. The "time" experienced by an observer is determined by their restricted access to the quantum state.
+The Unruh effect isn't a separate phenomenon-it's Tomita-Takesaki theory applied to spacetime. In the thermal-time reading, the observer's restricted access selects a candidate observer-relative time parameter.
 
 This is the first major payoff of the chapter. The mathematics does not stay abstract. Restrict the vacuum to what one observer can access, and the restriction behaves like a thermal state with its own clock.
 
-This is also the point where modular theory stops sounding like rarefied operator algebra and starts sounding like lived physics. Restriction generates both a temperature and a time flow. Losing access to part of the state has thermodynamic and temporal consequences.
+This is also the point where modular theory stops sounding like rarefied operator algebra and starts sounding like lived physics. Restriction generates a temperature and a candidate modular flow; reading that flow as time is the conditional thermal-time/BW-branch interpretation. Losing access to part of the state has thermodynamic and temporal consequences.
 
 ## 11.4 The Arrow of Time
 
@@ -147,26 +146,27 @@ This density matrix defines a modular Hamiltonian:
 
 $$K_P = -\ln \rho_P$$
 
-which generates modular time $t_P$ for that observer.
+which generates a modular parameter $t_P$ for that observer. In OPH this parameter is read as
+observer-relative time only on the conditional BW geometric branch.
 
-**Every observer has their own emergent clock.**
+**Every observer has a candidate local modular parameter, not a standalone operational-clock theorem.**
 
 ### Consistency of Clocks
 
-If two observers' patches overlap, their modular times must be compatible on the overlap. This is a strong constraint. Reality hangs together because the modular flows mesh.
+If two observers' patches overlap, their BW-branch observer-relative modular parameters must be compatible on the overlap. This is a strong constraint. Reality hangs together because the modular flows mesh.
 
 ### Cosmic Time
 
 Why do we all agree on a "cosmic time"?
 
-If the global state is highly entangled in a particular pattern, the modular flows of local patches are synchronized. Cosmic time emerges as the "center of mass" of all local modular times.
+If the global state is highly entangled in a particular pattern, the modular flows of local patches are synchronized. In this conditional reading, cosmic time is an effective synchronization of local BW-branch modular times rather than a new fundamental clock.
 
 ### Roadmap: From Modular Time to Gravity
 
 The chain is clean once the pieces are visible. Recovery structure from Chapter
 7 makes the time generator local near patch boundaries. A key theorem then
 identifies that local flow with a standard geometric motion on the sphere and
-fixes its normalization. Geometric time flow gives Lorentz kinematics on the
+fixes its normalization. BW-branch geometric modular flow gives Lorentz kinematics on the
 screen, and entanglement equilibrium together with the local energy bridge
 yields Einstein's equation.
 
@@ -260,8 +260,8 @@ universal light speed are recovered on the screen.
 ### Connection to Our Framework
 
 Each observer's patch has a boundary, that boundary carries a horizon
-temperature, and the modular flow of the horizon state generates the
-observer's time evolution. Carried over from wedges in ordinary spacetime to
+temperature, and the modular flow of the horizon state supplies a candidate
+observer-relative evolution parameter. Carried over from wedges in ordinary spacetime to
 caps on the holographic screen, that flow becomes an actual geometric motion on
 the sphere. Once that happens, the conformal symmetry of the sphere reproduces
 Lorentz symmetry.
@@ -281,7 +281,7 @@ influence which, emerges from entanglement. Spacelike-separated regions can be
 correlated without signaling. Timelike-separated events can have causal
 influence. Null separation marks the dividing line between those two regimes.
 
-The modular flow provides the time direction. Entanglement provides correlations. No-signaling prevents faster-than-light communication. Taken together, these ingredients reproduce the Minkowski-style causal structure targeted by the program.
+On the BW geometric branch, modular flow provides the observer-relative time direction. Entanglement provides correlations. No-signaling prevents faster-than-light communication. Taken together, these ingredients reproduce the Minkowski-style causal structure targeted by the program.
 
 ### Why This Matters
 
@@ -320,17 +320,17 @@ The arrow of time is the arrow of record-keeping. Time flows in the direction we
 
 Time does not need to be laid down as a primitive external river. General
 relativity removes any preferred slicing. Quantum gravity sharpens that loss.
-OPH reads time from the inside, through the modular flow attached to a
+OPH reads observer-relative time from the inside, through the BW-branch modular flow attached to a
 restricted state. The arrow points in the direction records can be made and
 kept. Boltzmann explains why entropy rises. Jaynes explains why ignorance has
-structure. Tomita-Takesaki supplies the clock. Bisognano-Wichmann ties that
-clock to relativity. Jacobson shows how the same thermodynamic language leans
+structure. Tomita-Takesaki supplies the modular flow. Bisognano-Wichmann ties that
+flow to relativity on the geometric branch. Jacobson shows how the same thermodynamic language leans
 toward gravity.
 
 ---
 
-We’ve located a source of time without putting time in by hand. Incomplete knowledge, restricted access, and record-building are enough to generate clocks and an arrow.
+We’ve located a conditional source of observer-relative time without putting time in by hand. Incomplete knowledge, restricted access, and record-building supply candidate modular parameters and an arrow; they do not by themselves prove a universal operational clock.
 
-The harder question concerns translation. Different observers inherit different local clocks, different horizons, and different cuts through the state. Why do the conversion rules between their descriptions lock into the rigid form of symmetry and conservation law instead of dissolving into case-by-case negotiation?
+The harder question concerns translation. Different observers inherit different local modular parameters, different horizons, and different cuts through the state. Why do the conversion rules between their descriptions lock into the rigid form of symmetry and conservation law instead of dissolving into case-by-case negotiation?
 
 That is where **Chapter 12: Symmetry on the Sphere** begins.

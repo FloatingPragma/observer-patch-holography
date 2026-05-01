@@ -246,4 +246,4 @@ local damage.
 
 We've built a static picture of reality as a protected code. But a static code isn't enough. The next question is about time. Why does the code evolve? Why does entropy increase?
 
-That brings us to **Chapter 11: MaxEnt and the Arrow**-where we discover that time itself emerges from incomplete knowledge, and the arrow of time is the direction of consistency-building.
+That brings us to **Chapter 11: MaxEnt and the Arrow**-where we treat observer-relative time as a candidate modular reading of incomplete knowledge, and the arrow of time as the direction of consistency-building.

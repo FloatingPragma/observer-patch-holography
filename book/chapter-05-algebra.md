@@ -302,9 +302,9 @@ The KMS condition characterizes thermal equilibrium states.
 
 ### Time from Algebra
 
-Here's the stunning implication: once you specify an algebra-state pair, modular theory gives a natural flow. Time evolution isn't imposed from outside in this construction-it emerges from that algebraic structure together with the chosen state.
+Here's the stunning implication: once you specify an algebra-state pair, modular theory gives a canonical modular flow. In the thermal-time reading, a candidate time-evolution parameter is read from that algebraic structure together with the chosen state; this is interpretive background, not an OPH operational-clock theorem.
 
-This connects to the **thermal time principle** of Connes and Rovelli: modular flow provides an important candidate for organizing experienced time. Given the quantum state of our patch, the algebra provides a natural clock.
+This connects to the **thermal time principle** of Connes and Rovelli: modular flow provides an important candidate for organizing experienced time. Given the quantum state of our patch, the algebra provides a candidate observer-relative modular parameter rather than a proved universal clock.
 
 ## 5.11 Commutation and Causality
 

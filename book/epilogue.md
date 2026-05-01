@@ -65,8 +65,8 @@ The philosophical weight of this is easy to miss if one hears only the word
 "backup." The interesting question is not digital storage as such. The
 interesting question is continuity.
 
-Time is not a global clock outside the system. Time is modular flow
-attached to the observer's restricted state. The next moment for an observer
+Time is not a global clock outside the system. In the BW-branch reading, observer-relative time is
+read from modular flow attached to the observer's restricted state. The next moment for an observer
 is the next step in that flow. So if a checkpoint can be restored under the
 right conditions, the real issue is whether that restored pattern carries the
 same continuation of the observer.
