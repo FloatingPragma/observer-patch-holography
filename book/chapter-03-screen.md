@@ -324,7 +324,7 @@ Let's put numbers on this.
 
 The Planck length is $\ell_P \approx 1.6 \times 10^{-35}$ meters-about $10^{20}$ times smaller than a proton. The Planck area is $\ell_P^2 \approx 2.6 \times 10^{-70}$ m².
 
-**The observable universe**: Radius $R \approx 4.4 \times 10^{26}$ m. Horizon area $A \approx 2.4 \times 10^{54}$ m². The corresponding entropy scale is of order $10^{122}$--$10^{123}$ in natural units, or smaller by a factor of $\ln 2$ when quoted in bits, depending on which horizon convention is being used.
+**The de Sitter horizon**: Radius $R_{dS} \approx 1.66 \times 10^{26}$ m. The bare radius-squared count is $N_{\text{patch}} \approx 1.05\times10^{122}$. The corresponding Gibbons-Hawking entropy capacity is $N_{\text{scr}} \approx 3.31\times10^{122}$ in natural units, or about $4.77\times10^{122}$ bits. Other cosmological horizon conventions stay in the same $10^{122}$--$10^{123}$ band.
 
 This is a truly enormous number-but it is finite. The observable universe contains a finite amount of information.
 

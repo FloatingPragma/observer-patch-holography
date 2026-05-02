@@ -85,8 +85,9 @@ The quantitative side of the framework turns on two scales with very different
 roles.
 
 The first is global. The observed cosmological constant fixes the total screen
-capacity, roughly $10^{122}$ bits. That gives the size of the accessible
-computation and sets the de Sitter horizon scale.
+capacity, about $3.31\times10^{122}$ natural entropy units, or about
+$4.77\times10^{122}$ bits. That gives the size of the accessible computation
+and sets the de Sitter horizon scale.
 
 The second is local. The pixel ratio
 

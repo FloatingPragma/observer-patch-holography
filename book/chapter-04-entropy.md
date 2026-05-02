@@ -273,7 +273,7 @@ When two observers compare notes, they share information across patch boundaries
 
 ### The Information Budget
 
-The total information budget of our causal patch is often quoted at the $10^{122}$--$10^{123}$ scale, depending on which cosmological horizon convention is being used. The key point here is that the budget is enormous but finite.
+For the late-time de Sitter horizon used in the OPH capacity closure, the bare radius-squared count is about $1.05\times10^{122}$ and the Gibbons-Hawking entropy capacity is about $3.31\times10^{122}$ in natural units, or $4.77\times10^{122}$ bits. Other cosmological horizon conventions stay in the same $10^{122}$--$10^{123}$ band. The key point here is that the budget is enormous but finite.
 
 But most of that entropy is in black holes, inaccessible. The entropy we can actually manipulate is far less.
 

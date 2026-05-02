@@ -510,7 +510,9 @@ The "cosmological constant problem" assumes quantum field theory is fundamental.
 QFT is not fundamental here. It is an effective description that emerges from
 the screen. The effective cosmological constant is tied to the reference
 curvature and global screen capacity discussed in Chapter 13. In natural units,
-the Gibbons-Hawking entropy is $S = A/(4G)$.
+the Gibbons-Hawking entropy is $S = A/(4G)$. For the late-time de Sitter
+horizon, this gives a bare radius-squared ratio near $1.05\times10^{122}$ and
+an entropy capacity near $3.31\times10^{122}$.
 
 The "problem" exists only if you compute vacuum energy using QFT and assume that calculation is fundamental. We don't. In this framework, Lambda is fixed by the global-capacity package rather than by a local QFT vacuum-energy sum. QFT vacuum fluctuations are emergent phenomena, not fundamental contributions to the stress tensor.
 

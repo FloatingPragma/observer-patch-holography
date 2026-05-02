@@ -83,7 +83,7 @@ $$T_U = \frac{\hbar a}{2\pi c k_B}$$
 
 So the de Sitter and Unruh temperatures are locally linked, but they should not be identified by assigning every static-patch observer the same acceleration $a = cH$.
 
-This has an important implication for our model: **de Sitter horizons automatically satisfy the same thermodynamic relations as Rindler horizons**. We don't need to prove this-Gibbons and Hawking did.
+This has an important implication for our model: **de Sitter horizons automatically satisfy the same thermodynamic relations as Rindler horizons**. This is standard Gibbons-Hawking thermodynamics.
 
 ### Finite Entropy
 
@@ -92,6 +92,16 @@ If the horizon has temperature, it must have entropy:
 $$S_{dS} = \frac{A}{4\ell_P^2} = \frac{\pi c^5}{G\hbar H^2}$$
 
 This is the entropy associated with one de Sitter static patch-the logarithm of the effective number of states accessible within that patch.
+
+For the late-time horizon of our universe, $R_{dS} \approx 1.66 \times 10^{26}$ m. The bare radius-squared count is
+
+$$N_{\text{patch}} = \left(\frac{R_{dS}}{\ell_P}\right)^2 \approx 1.05 \times 10^{122}.$$
+
+The entropy capacity includes the area factor:
+
+$$N_{\text{scr}} = S_{dS} = \pi N_{\text{patch}} \approx 3.31 \times 10^{122},$$
+
+or about $4.77 \times 10^{122}$ bits.
 
 That is the practical meaning of the formula. It is a capacity statement. The patch does not contain an infinite amount of information hidden in a smooth continuum. It contains a finite number of distinguishable states, and the area of the horizon tells you how large that state space can be.
 
@@ -127,7 +137,7 @@ Where should we put the holographic screen in de Sitter?
 
 The natural answer: on the cosmological horizon.
 
-For an observer at $r = 0$, the horizon is a sphere at $r = c/H$. This sphere has area $4\pi c^2/H^2$ and entropy of order $10^{122}$ in natural units, or $10^{122}/\ln 2$ bits.
+For an observer at $r = 0$, the horizon is a sphere at $r = c/H$. This sphere has area $4\pi c^2/H^2$ and the entropy capacity above.
 
 The three-dimensional bulk inside the horizon is encoded holographically on the two-dimensional horizon.
 

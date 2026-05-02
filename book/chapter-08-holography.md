@@ -407,7 +407,7 @@ Lambda rather than AdS. Think of AdS/CFT as a proof of concept that
 boundaries can encode bulks with gravity. OPH takes that encoding lesson and
 rebuilds it in an observer-first setting.
 
-The finite horizon in de Sitter provides a natural cutoff, a finite Hilbert space (~exp(10^122) dimensions), and observer-dependence built in from the start. These aren't bugs to be fixed-they're features that make the observer-centric approach natural.
+The finite horizon in de Sitter provides a natural cutoff, a finite Hilbert space of about $\exp(3.31\times10^{122})$ dimensions, and observer-dependence built in from the start. These finite features make the observer-centric approach natural.
 
 ### Why "dS Holography Is Unsolved" Doesn't Apply Here
 
@@ -430,7 +430,7 @@ De Sitter horizons are not a problem to be solved. They are the feature that
 makes observer-patch holography natural. Each observer has a horizon, a patch
 of screen, and overlap conditions tying that patch to neighboring ones.
 
-The cosmological constant appears as a **global capacity parameter**, the total number of degrees of freedom on the screen. It does not come from a local-physics derivation in this framework. From the observed Lambda, we infer a screen-entropy scale of about $10^{122}$ in natural units, or $10^{122}/\ln 2$ bits. This is the "size" of reality, just as the pixel area is its "resolution."
+The cosmological constant appears as a **global capacity parameter**, the total number of degrees of freedom on the screen. It does not come from a local-physics derivation in this framework. From the observed Lambda, we infer a bare de Sitter horizon ratio of about $1.05\times10^{122}$ and a screen-entropy capacity of about $3.31\times10^{122}$ natural units, or $4.77\times10^{122}$ bits. This is the "size" of reality, just as the pixel area is its "resolution."
 
 This sidesteps that specific "boundary theory at infinity" version of the unsolved problem. We're not trying to build a global boundary theory at infinity. We're building local patch descriptions that must agree on overlaps. The bulk emerges from that agreement, with Lambda as the one global parameter that all overlapping descriptions share.
 
