@@ -153,7 +153,7 @@ This section states the premise ledger and dependency map for this SM/GR derivat
 The formulation uses one Phase-II pixel variable together with one external continuous input:
 \begin{align}
 P &\equiv a_{\mathrm{cell}}/\ell_P^2,\\
-N_{\mathrm{scr}} &\equiv \log \dim \mathcal H_{\mathrm{tot}} \sim 10^{122}.
+N_{\mathrm{scr}} &\equiv \log \dim \mathcal H_{\mathrm{tot}}.
 \end{align}
 In the quantitative implementation used here, \(P\) is the local particle-physics scale variable
 fixed by the outer/inner closure program summarized in the synthesis paper
@@ -172,7 +172,22 @@ interval-arithmetic proof of uniqueness; the companion local numerical contracti
 records the machine-checkable hardening step. A separate hardware note reports an
 optical-cavity check of the same fixed-point geometry; this is treated as corroborating
 engineering evidence. \(N_{\mathrm{scr}}\) is inferred from the observed
-cosmological constant and enters the cosmological-capacity branch. Any retained capacity-level
+cosmological horizon and enters the cosmological-capacity branch. The D6 normalization uses the
+Gibbons--Hawking de Sitter entropy~\cite{gibbonsHawking77}: if
+\[
+N_{\mathrm{patch}}=\left(\frac{r_{\mathrm{dS}}}{\ell_P}\right)^2
+\]
+denotes the bare horizon area ratio, then
+\[
+N_{\mathrm{scr}}=S_{\mathrm{dS}}=\frac{A_{\mathrm{dS}}}{4\ell_P^2}
+=\pi N_{\mathrm{patch}}
+=\frac{3\pi}{\Lambda\ell_P^2}.
+\]
+Using the Planck-2018 cosmological benchmark~\cite{planck18} gives
+\(r_{\mathrm{dS}}\simeq1.66\times10^{26}\,\mathrm m\),
+\(N_{\mathrm{patch}}\simeq1.05\times10^{122}\),
+\(N_{\mathrm{scr}}\simeq3.31\times10^{122}\), and
+\(\Lambda\ell_P^2\simeq2.85\times10^{-122}\). Any retained capacity-level
 neutrino side estimate on that input is legacy bookkeeping rather than the live weighted-cycle
 theorem lane.
 
@@ -2674,6 +2689,21 @@ S_{\mathrm{dS}}=\frac{A_{\mathrm{dS}}}{4G}=N_{\mathrm{scr}},
 \]
 and the standard static-patch formulas give the stated \(r_{\mathrm{dS}}\) and \(t_\Lambda\).
 \end{proof}
+
+\begin{remark}[Capacity normalization]\label{rem:lambda-capacity-normalization}
+The entropy capacity and the bare horizon area ratio differ by the factor \(\pi\). In Planck units,
+\[
+N_{\mathrm{patch}}=\left(\frac{r_{\mathrm{dS}}}{\ell_P}\right)^2
+=\frac{3}{\Lambda\ell_P^2},
+\qquad
+N_{\mathrm{scr}}=\pi N_{\mathrm{patch}}
+=\frac{3\pi}{\Lambda\ell_P^2}.
+\]
+For \(\Lambda\ell_P^2\simeq2.85\times10^{-122}\), this gives
+\(N_{\mathrm{patch}}\simeq1.05\times10^{122}\) and
+\(N_{\mathrm{scr}}\simeq3.31\times10^{122}\). The D6 branch uses the second quantity because
+\(N_{\mathrm{scr}}\) is defined as the de Sitter entropy capacity.
+\end{remark}
 
 \begin{remark}[Observed-age benchmark status]\label{rem:lambda-age}
 The branch quantity \(t_\Lambda\) is the de Sitter timescale fixed by the same D6 closure. The observed cosmic age \(t_0\) is not an additional D6 theorem output. It is a downstream FLRW comparison quantity once one chooses a cosmological model above the local/global D5\(\to\)D6 stack. On the flat \(\Lambda\)CDM benchmark,

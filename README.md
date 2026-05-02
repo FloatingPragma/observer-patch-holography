@@ -38,9 +38,11 @@ hypercharge lattice, the realized color triplet `N_c = 3`, and the generation
 count `N_g = 3`.
 
 The scale is set by two quantities: the total screen capacity
-`N_scr = log dim H_tot`, read from the cosmological constant, and the local
-pixel ratio `P = a_cell / l_P^2`, which fixes the size of one screen cell in
-Planck areas. From the outside, `P` is a geometric cell size that sits
+`N_scr = log dim H_tot`, read from the de Sitter horizon, and the local pixel
+ratio `P = a_cell / l_P^2`, which fixes the size of one screen cell in Planck
+areas. For the observed cosmological constant, the bare horizon area ratio is
+`N_patch = (R_dS / l_P)^2 ≈ 1.05e122`, while the entropy capacity used by OPH is
+`N_scr = pi N_patch ≈ 3.31e122`. From the outside, `P` is a geometric cell size that sits
 slightly above the self-similar balance `φ = (1 + sqrt(5)) / 2`. From the
 inside, it becomes the smallest electromagnetic observation scale available to
 observers in the world encoded on that screen. OPH finds the fine-structure

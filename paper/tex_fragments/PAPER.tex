@@ -79,7 +79,7 @@ external continuous input:
 \[
 P \equiv a_{\mathrm{cell}}/\ell_P^2,
 \qquad
-N_{\mathrm{scr}} \equiv \log \dim \mathcal H_{\mathrm{tot}} \sim 10^{122}.
+N_{\mathrm{scr}} \equiv \log \dim \mathcal H_{\mathrm{tot}}.
 \]
 
 Here \(P\) is the local UV-area ratio fixed on the outer/inner closure branch summarized in
@@ -87,6 +87,21 @@ Section~\ref{sec:p-closure}, while \(N_{\mathrm{scr}}\) is the external screen-c
 used by the cosmological-capacity branch. Capacity-level neutrino side estimates tied to that
 input are legacy bookkeeping terms separate from the weighted-cycle theorem lane. These are
 quantitative-branch quantities, not extra axioms.
+
+The capacity normalization uses the de Sitter static-patch entropy~\cite{gibbonsHawking77}. If
+\[
+N_{\mathrm{patch}}=\left(\frac{r_{\mathrm{dS}}}{\ell_P}\right)^2
+\]
+denotes the bare horizon area ratio, then
+\[
+N_{\mathrm{scr}}=S_{\mathrm{dS}}=\frac{A_{\mathrm{dS}}}{4\ell_P^2}
+=\pi N_{\mathrm{patch}}
+=\frac{3\pi}{\Lambda\ell_P^2}.
+\]
+Using the Planck-2018 late-time de Sitter scale~\cite{planck18} gives
+\(N_{\mathrm{patch}}\simeq1.05\times10^{122}\),
+\(N_{\mathrm{scr}}\simeq3.31\times10^{122}\), and
+\(\Lambda\ell_P^2\simeq2.85\times10^{-122}\).
 
 The list below introduces the only labeled technical premises used later, namely \textbf{T1}--\textbf{T5}. Fixed-cutoff regulator bookkeeping, quasi-local propagation, endpoint-Lipschitz control, collar decomposition, and related branch-internal statements are cited directly from axioms and earlier theorems rather than through a second premise-label system.
 
@@ -2525,6 +2540,16 @@ formulas. The external item is the screen-capacity identification itself: the lo
 route does not derive \(N_{\mathrm{scr}}=S_{\mathrm{dS}}\) from the bare local axioms. This
 logic is compatible with the BW scaling branch but does not depend on the scaling-limit algebra
 being type I.
+
+\textbf{Capacity readout.} The branch uses \(N_{\mathrm{scr}}\) as the entropy capacity. The
+bare radius-squared ratio is \(N_{\mathrm{patch}}=(r_{\mathrm{dS}}/\ell_P)^2\), and
+\[
+N_{\mathrm{scr}}=\pi N_{\mathrm{patch}}
+=\frac{3\pi}{\Lambda\ell_P^2}.
+\]
+The observed late-time scale gives \(N_{\mathrm{patch}}\simeq1.05\times10^{122}\),
+\(N_{\mathrm{scr}}\simeq3.31\times10^{122}\), and
+\(\Lambda\ell_P^2\simeq2.85\times10^{-122}\).
 
 \textbf{What this solves vs.\ what it assumes.} The model does \textbf{not} solve the classic ``give me a unitary CFT at future infinity'' problem. It does not aim there. It also does \textbf{not} prove that every refinement-stable MaxEnt branch lands in the static-patch geometric modular branch with emitted cap pair and standard modular action. What it does provide is a coherent route to \textbf{patch holography} in which de Sitter static patches are natural:
 \begin{enumerate}
