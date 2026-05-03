@@ -397,7 +397,11 @@ When you concatenate collars, edge charges fuse. The fusion rules:
 
 $$\alpha \otimes \beta = \bigoplus_\gamma N_{\alpha\beta}^\gamma \, \gamma$$
 
-define a tensor category. The Tannaka-Krein reconstruction theorem says, roughly, that if the charge sectors fuse, split, and travel with the right consistency properties, then the fusion rules recover the compact symmetry group behind them. The fusion table is central. The group is read off from how charges behave.
+define a tensor category. The Tannaka-Krein reconstruction theorem says,
+roughly, that if the charge sectors fuse, split, and remain transportable
+across patches with the right consistency properties, then the fusion rules
+recover the compact symmetry group behind them. The fusion table is central.
+The group is read off from how charges behave.
 
 For intuition, treat the fusion rules as a multiplication table for charges.
 If you know how every charge combines with every other charge, you have enough
@@ -443,7 +447,9 @@ Given the gauge group, what determines the matter content?
 
 ### The Anomaly Condition Again
 
-Loop-coherent gluing requires trivial obstruction class. In the effective field theory limit, this becomes anomaly cancellation.
+Loop-coherent gluing requires trivial central obstruction class. In a chiral
+effective field theory, the same consistency burden reappears as anomaly
+cancelation, but the full bridge between the two is a separate step.
 
 Given one generation of chiral fermions with SU(3) x SU(2) x U(1) charges, and requiring Yukawa couplings to a Higgs doublet, the hypercharge ratios are determined. A standard normalization then fixes the absolute lattice.
 
@@ -783,7 +789,7 @@ $\tau_p > 10^{34}$ years, a thousand times longer than predicted. The simplest G
 
 Our model takes a different path. The gauge group is not embedded in anything
 larger. Tannaka-Krein reconstruction builds the gauge group directly from the
-charge-fusion data, yielding the product structure:
+transportable charge-fusion data, yielding the product structure:
 
 $$G_{\mathrm{phys}} = \mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1) / \mathbb{Z}_6$$
 

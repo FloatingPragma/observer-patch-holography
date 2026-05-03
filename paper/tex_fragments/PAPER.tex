@@ -197,7 +197,7 @@ External mathematical inputs: SSA and recovery theorems (Petz 1986, 1988; Fawzi 
 \textbf{Canonical technical premises.} The only labeled technical premises used in this manuscript are:
 \begin{itemize}
 \tightlist
-\item \textbf{T1}: the loop-coherence branch criterion kept explicit whenever the ordinary compact-group route is invoked, written \([z]=0\) on the central-defect branch; on the genuinely noncentral fixed-cutoff branch the parallel criterion is \(q_\Sigma=0\), but that branch is handled by crossed-module data rather than by the ordinary DR field-algebra route.
+\item \textbf{T1}: on the central-defect branch, the gluing-side criterion corresponding to path-independent transportability is written \([z]=0\); on the genuinely noncentral fixed-cutoff branch the parallel criterion is \(q_\Sigma=0\), but that branch is handled by crossed-module data rather than by the ordinary DR field-algebra route. This identifies the obstruction data attached to the transportability premise on each fixed-cutoff branch; it is not a second theorem-side premise beyond the supplied transportable sector system.
 \item \textbf{T2}: all Lorentz/null-modular/Einstein statements are claims about a controlled refinement/scaling limit of the regulator net, not literal exactness at fixed finite cutoff.
 \item \textbf{T3}: symmetric braiding in the \(3+1\)D EFT branch.
 \item \textbf{T4}: a bosonic Tannakian fiber-functor premise, or else an explicit super-Tannakian fork.
@@ -2582,6 +2582,8 @@ on the explicit \textbf{T2} plus extraction-and-rigidity branch, the realized sc
 
 At any fixed UV cutoff, edge-center completion provides finite tensor categories of transportable edge charges. The local MaxEnt / collar-mixing package established earlier controls only fixed-cutoff recoverability, modular-support localization, and carried error terms on the realized branch. It is logically separate from the question whether transportable edge sectors survive refinement, and it supplies no theorem that the refinement-limit sector category is trivial or nontrivial. A nontrivial transportable colimit is therefore treated here as additional gauge data rather than as something decided by the mixing estimate itself. Whenever compact gauge reconstruction is invoked, that transportable refinement-directed sector system is exactly the content of \textbf{T5}.
 
+On the central-defect branch, the transportability carried by this assumed directed system already matches the vanishing of the central gluing obstruction by Proposition 6.1a. So \([z]=0\) is not listed again as a second independent gauge premise on the ordinary compact-group route. The genuinely noncentral fixed-cutoff branch remains separate: its obstruction is \(q_\Sigma\), and it is handled by the crossed-module theorems rather than by the ordinary DR field-algebra corollary.
+
 Assume therefore that in the EFT regime there is a directed system \((\mathsf{Sect}_r)_r\) of transportable edge-sector categories with refinement functors, and write
 
 \[
@@ -2662,7 +2664,7 @@ The complete formal statement, admissibility definitions, and proof route are gi
 
 Here \(\chi_{\mathrm{cpl}}\) is the \textbf{coupled edge capacity}: the dimension of the minimal unitary carrier containing a common irreducible block on which the admissible pseudoreal and complex nonabelian charge types both act nontrivially. This is intentionally stronger than the abstract minimal faithful representation dimension. For \(S(U(3)\times U(2))\), the block-diagonal action on \(\mathbb{C}^3 \oplus \mathbb{C}^2\) is faithful of dimension \(5\), but it is not coupled and therefore does not enter MAR. The object minimized by MAR is the sector package \(\mathfrak S\), not the bare tensor category by itself. MAR is thus an explicit structural-economy selector on the admissible class, not a theorem derived from the earlier axioms.
 
-\textbf{Note on transport obstruction.} The loop-coherent gluing condition is an explicit premise of the gauge derivation. On the central branch this is \([z]=0\) (Proposition 6.1a); on the genuinely noncentral branch it is \(q_\Sigma=0\) (Corollary 3.4a). In either form it ensures that the reconstructed compact group acts as a genuine global gauge symmetry.
+\textbf{Note on transport obstruction.} The gluing obstruction is tracked explicitly so the gauge lane does not hide extra burdens. On the central branch, Proposition 6.1a identifies \([z]=0\) as the gluing-side form of the DHR transportability already required by the supplied transportable sector system, so it is not an additional free theorem-side premise. On the genuinely noncentral branch, Corollary 3.4a gives the parallel fixed-cutoff criterion \(q_\Sigma=0\), but that branch is handled by crossed-module data rather than by the ordinary DR field-algebra corollary.
 
 \textbf{What MAR derives.} Product structure, minimal sector content, and coupled edge-capacity minimality are consequences of MAR applied to the admissible class:
 

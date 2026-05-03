@@ -80,12 +80,12 @@ ingredients. They are the stable observer-visible excitations and carrier modes 
 are left once three layers of structure have been fixed:
 \begin{enumerate}[leftmargin=2em]
 \item overlap consistency on the observer-patch network;
-\item compact gauge reconstruction from the transportable edge-sector colimit once its directed-colimit and fiber-functor premises are supplied;
+\item compact gauge reconstruction from the transportable edge-sector colimit once its directed-colimit, symmetry, and fiber-functor premises are supplied;
 \item minimal admissible realization of the low-energy branch.
 \end{enumerate}
 The first layer says what kinds of local data can be compared consistently across neighboring
 patches. The second says that persistent transportable sector data, once the compact paper's
-explicit colimit and fiber-functor premises are supplied, organize into a compact gauge
+explicit colimit, symmetry, and fiber-functor premises are supplied, organize into a compact gauge
 structure. The third selects which of the admissible low-energy branches is physically realized.
 At that point one is not choosing an arbitrary particle catalog. One is reading off the
 carrier and matter content of the realized branch.
@@ -551,7 +551,7 @@ CP capability, and weak-sector UV completeness.
 For particle physics, the first four axioms provide the observer-centric kinematic and
 entropic/modular background. The fifth axiom, MAR, is the selector that turns ``some compact
 gauge group reconstructed from the transportable edge-sector category under the compact paper's
-explicit colimit and fiber-functor premises'' into the realized Standard Model branch. This
+explicit colimit, symmetry, and fiber-functor premises'' into the realized Standard Model branch. This
 paper therefore uses MAR constantly, but only after the compact-gauge reconstruction step has
 been separated from the later realized-branch selection.
 
@@ -642,10 +642,12 @@ quasi-local propagation bound, the endpoint-control estimate for bounded interva
 meaning of refinement stability itself. In regulator language, one works with finite local
 Hilbert spaces and a boundary-fixed overlap action on cut data, often summarized as the R0/R1
 presentation. Beyond that regulator package, the extra burdens are the controlled scaling-limit
-scope, the theorem-local equilibrium input used in the Jacobson step, the bosonic and fiber-functor clauses
-required by compact-gauge reconstruction, and the vanishing gluing obstruction when global
-transportability is invoked. Any local-Gibbs or collar-mixing language on that branch is therefore
-only fixed-cutoff recoverability/support control; it is not what decides whether the
+scope, the theorem-local equilibrium input used in the Jacobson step, and the transportable
+directed-colimit, symmetry, and bosonic fiber-functor clauses required by compact-gauge
+reconstruction. On the central branch the matching gluing obstruction is already the gluing-side
+form of that supplied transportability rather than a second theorem-side input. Any local-Gibbs
+or collar-mixing language on that branch is therefore only fixed-cutoff recoverability/support
+control; it is not what decides whether the
 refinement-limit gauge-sector colimit exists or whether, if supplied, it is trivial or
 nontrivial.
 For the BW/geometric side, the target is the extracted prime geometric subnet, and the
@@ -715,7 +717,7 @@ simulation status unless the underlying derivation chains close more strongly.
 The particle-spectrum derivation does not start from a list of particles. It starts from the
 compact-gauge branch. OPH first reconstructs a compact gauge
 group from the transportable refinement-directed edge-sector colimit under the compact paper's
-explicit transportability, symmetry, and fiber-functor premises and only then applies MAR to
+explicit transportable-colimit, \(3+1\)D symmetry, and fiber-functor premises and only then applies MAR to
 select the realized low-energy branch. That logical order matters for this paper. The
 gauge branch fixes the structural carrier content before any mass readout, and it also explains
 why some rows are exact structural zeros rather than fitted or accidentally small numbers.
