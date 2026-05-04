@@ -31,7 +31,7 @@ The Fixed-Point Computation That Implements Physics}
 \OPHPaperReleaseBanner
 
 \begin{abstract}
-This paper gives the computational spine of Observer-Patch Holography. A universe is modeled as a finite network of observer patches that may disagree on their overlaps. Local repair moves try to reconcile those disagreements. When the repair law lowers the declared mismatch score and respects the overlap contract, the total inconsistency \(\Phi\) becomes a Lyapunov functional and the patch network converges to a unique schedule-independent physical world on the quotient. The paper also identifies the loop obstructions that block global consistency, explains why physical uniqueness lives on gauge-equivalence classes, and gives a fixed-point account of stable records. This is the finite patch-net theorem package behind the broader relativity, gauge, particle, and observer branches.
+This paper gives the computational spine of Observer-Patch Holography. A universe is modeled as a finite network of observer patches that may disagree on their overlaps. Local repair moves try to reconcile those disagreements. When the repair law lowers the declared mismatch score and respects the overlap contract, the total inconsistency \(\Phi\) becomes a Lyapunov functional and the patch network converges to a unique schedule-independent physical world on the quotient. The paper also identifies the loop obstructions that block global consistency, explains why physical uniqueness lives on gauge-equivalence classes, carries the same normal-form and holonomy data through separated cofinal refinement systems, and gives a fixed-point account of stable records. This is the patch-net theorem package behind the broader relativity, gauge, particle, and observer branches.
 \end{abstract}
 
 \section{Introduction}
@@ -58,12 +58,13 @@ central or quantitatively stable approximately commuting projectors. These resul
 patch-net formulation used in the broader OPH literature, including the fixed-cutoff Bell/CHSH
 package on the companion microphysics surface.
 
-This paper proves four core results:
+This paper proves five core results:
 
 \begin{enumerate}
 \item \textbf{Asynchronous confluence.} For the declared accepted repair law, the local-fit contract makes \(\Phi\) a Lyapunov functional and hence gives termination, while the fixed-cutoff union-collar gluing package gives the local diamond on the physical quotient; under repair completeness, every initial state has a unique normal form, independent of update schedule (Theorem~\ref{thm:confluence}).
 \item \textbf{Cycle obstruction.} For affine overlap constraints over an abelian group, global consistency holds if and only if the holonomy vanishes on every cycle (Theorem~\ref{thm:holonomy}). The parity triangle gives the minimal frustrated example, and Theorem~\ref{thm:higherdefects} extends the same logic to the crossed-module higher-gauge defect hierarchy used later in the framework.
 \item \textbf{Gauge quotient and observable-level confluence.} When local repair is induced on the overlap-invariant quotient, the normal-form map descends to that quotient, and the induced terminal state on every declared physical observable algebra is unique there even when microscopic representatives differ by gauge or sector relabelings inside one quotient-local glued state (Theorems~\ref{thm:gauge}, \ref{thm:obsconfluence}).
+\item \textbf{Refinement-limit consensus classes.} On a separated cofinal refinement system whose restriction maps commute with the finite-stage normal-form and holonomy maps, the quotient normal forms and holonomy obstructions assemble into unique inverse-limit classes with finite-stage visibility (Theorem~\ref{thm:refinement-consensus}).
 \item \textbf{Record algebra and stability.} On the fixed-cutoff observer-accessible surface, central record projectors carry Born/L\"uders measurement directly, and approximate record projectors inherit explicit \((\varepsilon,\delta_{\mathrm{rec}})\) stability bounds on the same event surface (Theorem~\ref{thm:crdt}).
 \end{enumerate}
 
@@ -488,7 +489,7 @@ physical observable algebra even when microscopic representatives are not unique
 
 \section{Why Local Agreement Is Not Enough: Cycle Holonomy and Frustration}
 
-Now we show that the story has a twist: just because every pair of neighbors agrees does not mean the whole system is consistent.
+Pairwise neighbor agreement does not by itself imply global consistency.
 
 \begin{theorem}[Cycle-obstruction / holonomy criterion]\label{thm:holonomy}
 Let $A$ be an abelian group, and let $G=(V,E)$ be a connected graph with an arbitrary orientation on each edge. For each oriented edge $e:u\to v$, assign a label $b_e\in A$. Consider the affine consistency equations
@@ -560,7 +561,10 @@ is invariant. Strict global reconciliation exists if and only if \(q=0\), and no
 \end{theorem}
 
 \begin{proof}
-The allowed rechartings are exactly the crossed-module coboundaries. So they preserve the class and strictify the weak gluing data precisely when the class vanishes. A nonzero class therefore gives a topologically protected residual obstruction, in the full crossed-module defect hierarchy rather than only in the abelian truncation.
+The allowed rechartings are exactly the crossed-module coboundaries. They preserve the class and
+strictify the weak gluing data precisely when the class vanishes. A nonzero class therefore gives
+a topologically protected residual obstruction in the full crossed-module defect hierarchy,
+including the abelian truncation as its first layer.
 \end{proof}
 
 
@@ -752,6 +756,134 @@ Therefore \(M^\eta(\operatorname{nf}_\lambda^\eta(s,k))=M(\operatorname{nf}_\lam
 
 Physical uniqueness therefore holds on the quotient by gauge or implementation hiding. The same
 statement is unchanged under inert ancillary stabilization.
+
+
+\section{Refinement-Limit Consensus Classes}
+\label{sec:refinement-consensus}
+
+The finite consensus theorem is the operational object used by the continuum branches. To pass
+from one finite patch net to a refining family, the paper uses an explicit inverse-limit package
+with named compatibility clauses.
+
+\begin{definition}[Separated cofinal refinement consensus system]\label{def:refinement-consensus}
+Let \((R,\preceq)\) be a directed refinement set. For each \(r\in R\), let
+\[
+Q_r:=\Sigma_r/\Gamma_r
+\]
+be the finite physical quotient state space of a patch presentation, let
+\[
+n_r:Q_r\to Q_r
+\]
+be the finite-stage quotient normal-form map supplied by Theorems~\ref{thm:confluence} and
+\ref{thm:gauge}, and let
+\[
+h_r:Q_r\to \mathcal H_r
+\]
+be the finite-stage holonomy or higher-gauge obstruction map supplied by
+Theorems~\ref{thm:holonomy} and \ref{thm:higherdefects}. For \(r\preceq s\), assume restriction
+maps
+\[
+\rho_{sr}:Q_s\to Q_r,
+\qquad
+\chi_{sr}:\mathcal H_s\to\mathcal H_r,
+\]
+with \(\rho_{rr}=\mathrm{id}\), \(\chi_{rr}=\mathrm{id}\), and the cocycle identities
+\[
+\rho_{tr}=\rho_{sr}\circ\rho_{ts},
+\qquad
+\chi_{tr}=\chi_{sr}\circ\chi_{ts}
+\qquad
+(r\preceq s\preceq t).
+\]
+The system is a separated cofinal refinement consensus system when:
+\begin{enumerate}
+\item \textbf{Normal-form naturality:}
+\[
+\rho_{sr}\circ n_s=n_r\circ\rho_{sr}
+\qquad
+(r\preceq s).
+\]
+\item \textbf{Holonomy naturality:}
+\[
+\chi_{sr}\circ h_s=h_r\circ\rho_{sr}
+\qquad
+(r\preceq s).
+\]
+\item \textbf{Visible separation:} two compatible families in \(\varprojlim Q_r\), or in
+\(\varprojlim \mathcal H_r\), are equal whenever their projections agree on a cofinal subset of
+stages.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Refinement-limit consensus and holonomy classes]\label{thm:refinement-consensus}
+For any separated cofinal refinement consensus system, the formulas
+\[
+n_\infty\bigl((x_r)_r\bigr):=(n_r(x_r))_r,
+\qquad
+h_\infty\bigl((x_r)_r\bigr):=(h_r(x_r))_r
+\]
+define maps
+\[
+n_\infty:\varprojlim Q_r\to\varprojlim Q_r,
+\qquad
+h_\infty:\varprojlim Q_r\to\varprojlim\mathcal H_r.
+\]
+The class \(n_\infty(x)\) is the unique schedule-independent refinement-limit normal form of
+\(x\). The class \(h_\infty(x)\) is the refinement-limit holonomy obstruction. The pair
+\((n_\infty(x),h_\infty(x))\) is the refinement-limit consensus class. In the inverse-limit
+topology, finite-stage normal forms and holonomy classes converge to these two classes: for every
+stage \(r\), all refinements \(s\succeq r\) restrict to the fixed values
+\[
+\rho_{sr}(n_s(x_s))=n_r(x_r),
+\qquad
+\chi_{sr}(h_s(x_s))=h_r(x_r).
+\]
+Furthermore, \(h_\infty(x)=0\) if and only if every finite projection has zero finite-stage
+obstruction. If \(h_\infty(x)\ne0\), visible separation gives a finite stage that witnesses the
+nonzero obstruction. If two refinement-limit candidates have the same normal-form and holonomy
+projections on a cofinal tail, then they determine the same refinement-limit consensus class.
+\end{theorem}
+
+\begin{proof}
+Let \(x=(x_r)_r\in\varprojlim Q_r\), so \(\rho_{sr}(x_s)=x_r\) for \(r\preceq s\). Normal-form
+naturality gives
+\[
+\rho_{sr}(n_s(x_s))
+=
+n_r(\rho_{sr}(x_s))
+=
+n_r(x_r),
+\]
+so \((n_r(x_r))_r\) is a compatible family and \(n_\infty\) is well defined. The same argument
+with holonomy naturality gives
+\[
+\chi_{sr}(h_s(x_s))
+=
+h_r(\rho_{sr}(x_s))
+=
+h_r(x_r),
+\]
+so \(h_\infty\) is well defined.
+
+Each finite \(n_r(x_r)\) is independent of update schedule by Theorems~\ref{thm:confluence} and
+\ref{thm:gauge}. Therefore every finite projection of \(n_\infty(x)\) is schedule-independent,
+and visible separation makes the inverse-limit class unique. The displayed restriction identities
+are exactly the cylinder convergence statement in the inverse-limit topology.
+
+The zero-obstruction statement follows from the definition of the inverse-limit zero class. The
+identity \(h_\infty(x)=0\) holds exactly when every projection \(h_r(x_r)\) is zero. If
+\(h_\infty(x)\ne0\), at least one finite projection is nonzero, and any cofinal tail containing a
+refinement of that stage carries the same nonzero projected obstruction by holonomy naturality.
+The last claim is visible separation applied to the compatible normal-form and holonomy families.
+\end{proof}
+
+\begin{remark}[Scope of the refinement theorem]\label{rem:refinement-consensus}
+Theorem~\ref{thm:refinement-consensus} is a conditional continuum bridge. It proves persistence,
+exhaustion, and collapse of the consensus data once the OPH refinement system supplies the
+restriction maps and the two naturality clauses in Definition~\ref{def:refinement-consensus}. It
+leaves uniform complexity bounds, global noisy-consensus control, and automatic normal-form
+naturality for arbitrary changing repair laws as separate branch conditions.
+\end{remark}
 
 
 \section{Record Algebras and the Operator Observation Layer}
@@ -1003,7 +1135,8 @@ references, and that companion ledger is the place to look up the definitions.
 \section{Discussion and Open Problems}
 
 This paper proves the fixed-point consensus spine of OPH: schedule-independent normal forms,
-holonomy obstructions, gauge-quotient invariance, and the fixed-cutoff operator-record theorem.
+holonomy obstructions, gauge-quotient invariance, separated cofinal refinement-limit consensus
+classes, and the fixed-cutoff operator-record theorem.
 It also proves the full repair-completeness, Petz-domain, and quotient-compatibility package on
 the rooted-tree packet-net domain of Theorem~\ref{thm:tree-packet-domain}, and gives a clean
 law-selection meta-model. The conditional relativity chain and the realized Standard Model
@@ -1031,10 +1164,9 @@ sequences converge to a unique approximate quotient normal form with uniformly c
 accumulated error.
 
 \paragraph{Expressive-power boundary.}
-The law-selection model of Theorem~\ref{thm:replicator} is a finite-candidate monotonicity result,
-not a universality theorem. For each fixed patch net the theorem package proves a
-finite-state exact reconciliation mechanism rather than an unbounded universal machine. A genuine
-universality claim would require an explicit uniform family of patch nets and repair laws that
+The law-selection model of Theorem~\ref{thm:replicator} is a finite-candidate monotonicity result.
+For each fixed patch net the theorem package proves a finite-state exact reconciliation
+mechanism. A universality claim would require an explicit uniform family of patch nets and repair laws that
 simulates arbitrary circuits or machines with stated encoding overhead and robustness under
 asynchronous schedules. No such theorem is supplied here.
 
@@ -1049,7 +1181,7 @@ With those boundaries explicit, six downstream directions are:
 
 \item \textbf{Global approximate-consensus stability.} Theorem~\ref{thm:splice} and Theorem~\ref{thm:crdt} supply the collar-local perturbative controls carried by this paper. The rooted-tree packet domain proves the exact finite repair package on one nontrivial exported domain. What is absent is a multi-step theorem showing that approximate recovery moves are repair-complete for arbitrary packet-closed exported overlap nets, preserve support-local disjoint commutation and nested-collar restriction compatibility, satisfy the support/CPTP clause on every Petz branch used there, and converge under long asynchronous schedules to a unique approximate quotient normal form with controlled accumulated error.
 
-\item \textbf{Expressive power / universality.} A universality claim would require an explicit uniform family of patch nets and repair laws that simulates arbitrary circuits or machines with stated encoding overhead and robustness under asynchronous schedules. This paper supplies no such construction, so universality is an external possibility rather than a theorem-grade output.
+\item \textbf{Expressive power / universality.} A universality claim would require an explicit uniform family of patch nets and repair laws that simulates arbitrary circuits or machines with stated encoding overhead and robustness under asynchronous schedules. This paper supplies no such construction, so universality remains outside the theorem-grade output.
 
 \item \textbf{Scaling-limit bridge to the downstream gravity/gauge stack.} Under what additional regularity conditions does the consensus protocol emit the prime geometric cap pair and support ordered cut-pair rigidity on that extracted limit, so that the D3--D5 gravity chain and the D7--D9 gauge/matter chain become available? This is also the point at which the broader Phase-II and Phase-III branches must be disciplined: dark-sector, baryogenesis, spectroscopy, and string/worldsheet topics require extra premises beyond what this paper itself proves.
 \end{enumerate}
