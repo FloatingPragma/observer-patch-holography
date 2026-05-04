@@ -533,8 +533,8 @@ The CKM matrix describes how quarks mix under the weak force. In general, it's a
 
 CP means charge-parity reversal: swap particles with antiparticles and mirror
 space. A CP-violating phase is a built-in complex phase that lets those mirrored
-processes differ. In ordinary language, it is one source of matter-antimatter
-asymmetry in weak interactions.
+processes differ. In ordinary language, it is one source of particle-antiparticle
+rate differences in weak interactions.
 
 $$\text{(CP phases)} = \frac{(N_g - 1)(N_g - 2)}{2}$$
 
