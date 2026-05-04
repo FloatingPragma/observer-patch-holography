@@ -88,6 +88,15 @@ RUNTIME_SURFACED_ARTIFACTS = (
     Path("runs/neutrino/neutrino_exact_adapter_bridge_coordinate.json"),
     Path("runs/uv/bw_fixed_local_collar_modular_transport_common_floor_scaffold.json"),
     Path("runs/flavor/overlap_edge_transport_cocycle.json"),
+    Path("runs/hadron/proton_contraction_plan.json"),
+    Path("runs/hadron/rho_operator_basis.json"),
+    Path("runs/hadron/rho_levels.json"),
+    Path("runs/hadron/stable_channel_groundstate_readout.json"),
+    Path("runs/hadron/stable_channel_cfg_source_measure_payload.json"),
+    Path("runs/hadron/hadron_surrogate_execution_bridge_status.json"),
+    Path("runs/hadron/production_geometry_summary.json"),
+    Path("runs/hadron/hadron_production_closure_validation_report.json"),
+    Path("runs/hadron/hadron_production_readiness_report.json"),
 )
 
 GROUP_ORDER = ["Bosons", "Leptons", "Quarks", "Hadrons"]
@@ -476,23 +485,22 @@ def build_runtime(runtime_root: Path, *, with_hadrons: bool, verbose: bool) -> P
         ["python3", "particles/calibration/derive_d11_live_exact_split_pair_theorem.py"],
     ]
 
-    if with_hadrons:
-        build_steps.extend(
-            [
-                ["python3", "particles/qcd/derive_lambda_msbar_descendant.py"],
-                ["python3", "particles/hadron/derive_full_unquenched_correlator.py"],
-                ["python3", "particles/hadron/derive_runtime_schedule_receipt_n_therm_and_n_sep.py"],
-                ["python3", "particles/hadron/derive_stable_channel_cfg_source_measure_payload.py"],
-                ["python3", "particles/hadron/derive_stable_channel_sequence_population.py"],
-                ["python3", "particles/hadron/derive_stable_channel_sequence_evaluation.py"],
-                ["python3", "particles/hadron/derive_current_hadron_lane_audit.py"],
-            ]
-        )
-
     for step in build_steps:
         _run(step, cwd=work_code, verbose=verbose)
 
     _seed_canonical_surface_artifacts(work_particles)
+    if with_hadrons:
+        for step in [
+            ["python3", "particles/qcd/derive_lambda_msbar_descendant.py"],
+            ["python3", "particles/hadron/derive_full_unquenched_correlator.py"],
+            ["python3", "particles/hadron/derive_stable_channel_sequence_population.py"],
+            ["python3", "particles/hadron/derive_runtime_schedule_receipt_n_therm_and_n_sep.py"],
+            ["python3", "particles/hadron/derive_stable_channel_cfg_source_measure_payload.py"],
+            ["python3", "particles/hadron/derive_stable_channel_sequence_evaluation.py"],
+            ["python3", "particles/hadron/derive_current_hadron_lane_audit.py"],
+        ]:
+            _run(step, cwd=work_code, verbose=verbose)
+
     _run(["python3", "particles/uv/derive_bw_internalization_scaffold.py"], cwd=work_code, verbose=verbose)
     _run(["python3", "particles/neutrino/derive_neutrino_compare_only_scale_fit.py"], cwd=work_code, verbose=verbose)
     _run(["python3", "particles/neutrino/derive_neutrino_two_parameter_exact_adapter.py"], cwd=work_code, verbose=verbose)
@@ -521,7 +529,6 @@ def build_runtime(runtime_root: Path, *, with_hadrons: bool, verbose: bool) -> P
     svg_cmd = ["python3", "particles/scripts/generate_mass_derivation_svg.py"]
     if with_hadrons:
         status_cmd.append("--with-hadrons")
-        svg_cmd.append("--with-hadrons")
     _run(status_cmd, cwd=work_code, verbose=verbose)
     _run(exact_nonhadron_cmd, cwd=work_code, verbose=verbose)
     _run(exact_fit_cmd, cwd=work_code, verbose=verbose)

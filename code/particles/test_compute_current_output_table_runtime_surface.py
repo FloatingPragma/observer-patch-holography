@@ -68,3 +68,18 @@ def test_runtime_surface_preserves_repaired_neutrino_rows_and_canonical_refs(tmp
     assert exact_fit_entries["quark_current_family_exact_witness"]["supporting_scope_closure_artifact"] == (
         "code/particles/runs/flavor/quark_current_family_selected_sheet_closure.json"
     )
+
+
+def test_runtime_surface_with_hadrons_exercises_intermediate_hadron_lane(tmp_path: pathlib.Path) -> None:
+    module = _load_module()
+    current_dir = module.build_runtime(tmp_path / "runtime", with_hadrons=True, verbose=False)
+
+    payload = json.loads((current_dir / "results_status.json").read_text(encoding="utf-8"))
+    hadron_rows = [row for row in payload["rows"] if row["group"] == "Hadrons"]
+
+    assert payload["inputs"]["with_hadrons"] is True
+    assert payload["inputs"]["hadron_profile"] == "serious"
+    assert payload["surface_state"]["active_local_public_candidates"]["hadrons_enabled"] is True
+    assert hadron_rows
+    assert {row["status"] for row in hadron_rows} == {"simulation_dependent"}
+    assert (current_dir / "runs" / "status" / "status_table_forward_current.json").exists()
