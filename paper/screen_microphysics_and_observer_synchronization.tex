@@ -7,6 +7,7 @@
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{verbatim}
+\usepackage{tikz}
 \usepackage{xurl}
 \input{release_info.tex}
 
@@ -137,30 +138,77 @@ menu later in the paper. The exact coefficients and update schedules are not fix
 What matters is the architecture: gauge constraints, face dynamics, record dynamics, and
 repair dynamics all live on one finite screen.
 
-\begin{verbatim}
-Microscopic screen picture
+\begin{figure}[tbp]
+\centering
+\begin{tikzpicture}[
+  x=2.45cm,
+  y=1.45cm,
+  vertex/.style={circle,draw,fill=white,inner sep=1.6pt,minimum size=5pt},
+  link/.style={line width=0.55pt},
+  diag/.style={line width=0.45pt,gray!70},
+  facefill/.style={fill=blue!4,draw=none},
+  face/.style={font=\small,fill=white,inner sep=1.5pt},
+  qlabel/.style={font=\scriptsize,fill=white,inner sep=1pt},
+  rec/.style={font=\scriptsize,draw,rounded corners=1pt,fill=gray!10,
+    inner xsep=2pt,inner ysep=1pt}
+]
+\coordinate (v1) at (0,2);
+\coordinate (v2) at (2,2);
+\coordinate (v3) at (4,2);
+\coordinate (v4) at (0,1);
+\coordinate (v5) at (2,1);
+\coordinate (v6) at (4,1);
+\coordinate (v7) at (0,0);
+\coordinate (v8) at (2,0);
+\coordinate (v9) at (4,0);
 
- record q(v1) record q(v2) record q(v3)
- o------------------o------------------o
- | \ / | \ / |
- | \ f1 / | \ f2 / |
- | \ / | \ / |
- | \ / | \ / |
- o-----\------/-----o-----\------/-----o
- q(v4) \ / q(v5) \ / q(v6)
- \ / \/
- \/ /\
- /\ / \
- / \ / f4 \
- / f3 \ / \
- / \ / \
- o--------\--------o----------o
- record q(v7) q(v8) q(v9)
+\foreach \a/\b/\c/\d in {v1/v2/v5/v4,v2/v3/v6/v5,v4/v5/v8/v7,v5/v6/v9/v8} {
+  \fill[facefill] (\a)--(\b)--(\c)--(\d)--cycle;
+}
 
- links carry finite gauge registers
- vertices host Gauss checks and optional record qubits
- faces carry plaquette/holonomy dynamics
-\end{verbatim}
+\foreach \a/\b in {v1/v2,v2/v3,v4/v5,v5/v6,v7/v8,v8/v9,v1/v4,v4/v7,v2/v5,v5/v8,v3/v6,v6/v9} {
+  \draw[link] (\a)--(\b);
+}
+
+\foreach \a/\b in {v1/v5,v4/v2,v2/v6,v5/v3,v4/v8,v7/v5,v5/v9,v8/v6} {
+  \draw[diag] (\a)--(\b);
+}
+
+\foreach \v in {v1,v2,v3,v4,v5,v6,v7,v8,v9} {
+  \node[vertex] at (\v) {};
+}
+
+\node[face] at (1,1.5) {$f_1$};
+\node[face] at (3,1.5) {$f_2$};
+\node[face] at (1,0.5) {$f_3$};
+\node[face] at (3,0.5) {$f_4$};
+
+\node[qlabel] at (0,2.18) {$q(v_1)$};
+\node[qlabel] at (2,2.18) {$q(v_2)$};
+\node[qlabel] at (4,2.18) {$q(v_3)$};
+\node[qlabel] at (-0.34,1) {$q(v_4)$};
+\node[qlabel] at (2,1.18) {$q(v_5)$};
+\node[qlabel] at (4.34,1) {$q(v_6)$};
+\node[qlabel] at (0,-0.18) {$q(v_7)$};
+\node[qlabel] at (2,-0.18) {$q(v_8)$};
+\node[qlabel] at (4,-0.18) {$q(v_9)$};
+
+\node[rec] at (0,2.43) {record};
+\node[rec] at (2,2.43) {record};
+\node[rec] at (4,2.43) {record};
+\node[rec] at (-0.52,-0.18) {record};
+\end{tikzpicture}
+
+\vspace{0.4em}
+\small
+\begin{tabular}{@{}ll@{}}
+\textbf{Links} & finite gauge registers \(\mathcal H_e\).\\
+\textbf{Vertices} & Gauss checks \(P_v\) and optional record qubits.\\
+\textbf{Faces} & plaquette or holonomy dynamics \(B_f\).
+\end{tabular}
+\caption{Microscopic screen picture for the finite gauge-register reference architecture.}
+\label{fig:microscopic-screen-picture}
+\end{figure}
 
 The implementation question is direct. Can one finite local screen model realize the OPH patch, edge, record, and synchronization interfaces well enough to be testable? The physically meaningful
 uniqueness statement is quotient-level implementation hiding together with inert ancillary
@@ -288,19 +336,43 @@ This is a function of shared observables, typically of the collar sector labels 
 comparisons on $B=P\cap Q$. It is the direct input to any repair or synchronization update.
 \end{enumerate}
 
-\begin{verbatim}
-Patch/overlap interface
+\begin{figure}[tbp]
+\centering
+\begin{tikzpicture}[
+  box/.style={draw,rounded corners=1.5pt,align=center,inner sep=5pt,
+    minimum height=2.7cm},
+  bulkbox/.style={box,fill=gray!7,text width=0.25\textwidth},
+  collarbox/.style={box,fill=blue!5,text width=0.26\textwidth,line width=0.7pt},
+  exchange/.style={<->,line width=0.55pt}
+]
+\node[bulkbox] (pbulk) at (-4.2,0) {
+  \textbf{Patch \(P\) bulk}\\[0.6em]
+  {\small loop observables \(W_{\gamma}\)}\\[0.35em]
+  {\small records \(R_P\)}\\[0.35em]
+  {\small local state \(\rho_P\)}
+};
+\node[collarbox] (collar) at (0,0) {
+  \textbf{Shared collar \(B=P\cap Q\)}\\[0.6em]
+  {\small sector labels \(\Pi_{\alpha}\)}\\[0.35em]
+  {\small shared record bits}\\[0.35em]
+  {\small mismatch syndrome \(S_{PQ}\)}
+};
+\node[bulkbox] (qbulk) at (4.2,0) {
+  \textbf{Patch \(Q\) bulk}\\[0.6em]
+  {\small loop observables \(W_{\gamma}\)}\\[0.35em]
+  {\small records \(R_Q\)}\\[0.35em]
+  {\small local state \(\rho_Q\)}
+};
+\draw[exchange] (pbulk.east) -- (collar.west);
+\draw[exchange] (collar.east) -- (qbulk.west);
+\end{tikzpicture}
+\caption{Patch/overlap interface. The collar carries only the selected shared observables used
+for comparison and synchronization, not the full patch quantum state.}
+\label{fig:patch-overlap-interface}
+\end{figure}
 
- Patch P bulk shared collar B Patch Q bulk
- ---------------- ================= ----------------
- | loops W_gamma | || Pi_alpha || | loops W_gamma |
- | records R_P | <----> || shared bits || <----> | records R_Q |
- | local state | || syndrome S || | local state |
- ---------------- ================= ----------------
-
- what is compared on B is not the whole quantum state
- it is a selected shared observable family on the overlap
-\end{verbatim}
+What is compared on \(B\) is not the whole quantum state; it is a selected shared observable
+family on the overlap.
 
 The observer interface is therefore local: persistent access to a patch algebra together with a
 stable shared observable family on overlaps is sufficient.

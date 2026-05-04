@@ -1,6 +1,6 @@
 # Particle Derivation Gap Ledger
 
-Generated: `2026-05-04T22:51:19Z`
+Generated: `2026-05-04T23:46:42Z`
 
 Systematic claim-safe queue after the five-equation P-trunk simplification.
 
@@ -20,10 +20,17 @@ The remaining work is grouped into coupled closure packets rather than a one-blo
 
 | Bundle | Status | Gaps | Promotion question |
 | --- | --- | --- | --- |
-| `electroweak-root-closure-bundle` | `ready_for_parallel_research_packet` | `pclosure.compressed-trunk-artifact`, `d10.ward-projected-thomson-endpoint`, `d10.rg-matching-threshold-scheme`, `pclosure.live-codepath-adoption` | Can one source-emitted map Delta_Th(P), with declared matching and interval bounds, certify the compressed P trunk as the live particle root without importing alpha(0)? |
-| `spectrum-source-bundle` | `ready_for_parallel_research_packet` | `charged.determinant-normalization-transport`, `quark.selected-class-vs-global-classification`, `neutrino.pmns-status-and-absolute-rows` | Is there one OPH excitation dictionary and sector-isolated trace-lift theorem that explains the charged affine anchor, quark selected-class boundary, and neutrino PMNS comparison surface without hidden target fitting? |
-| `qcd-thomson-backend-bundle` | `ready_for_parallel_research_packet` | `d10.ward-projected-thomson-endpoint`, `hadron.production-backend-systematics` | Can the hadron production backend emit the rho_had(s;P) object and uncertainty budget needed by the Ward-projected Thomson endpoint, rather than leaving hadrons and alpha(0) as separate deferred gaps? |
-| `particle-root-integration-gate` | `blocked_until_bundle_packets_return` | `pclosure.compressed-trunk-artifact`, `d10.ward-projected-thomson-endpoint`, `d10.rg-matching-threshold-scheme`, `pclosure.live-codepath-adoption`, `charged.determinant-normalization-transport`, `quark.selected-class-vs-global-classification`, `neutrino.pmns-status-and-absolute-rows`, `hadron.production-backend-systematics` | Do the returned packets jointly close the endpoint, matching, interval, and source-object requirements strongly enough to promote the compressed trunk into live particle builders? |
+| `electroweak-root-closure-bundle` | `returned_blocked_contract_emitted` | `pclosure.compressed-trunk-artifact`, `d10.ward-projected-thomson-endpoint`, `d10.rg-matching-threshold-scheme`, `pclosure.live-codepath-adoption` | Can one source-emitted map Delta_Th(P), with declared matching and interval bounds, certify the compressed P trunk as the live particle root without importing alpha(0)? |
+| `spectrum-source-bundle` | `returned_blocked_schema_only` | `charged.determinant-normalization-transport`, `quark.selected-class-vs-global-classification`, `neutrino.pmns-status-and-absolute-rows` | Is there one OPH excitation dictionary and sector-isolated trace-lift theorem that explains the charged affine anchor, quark selected-class boundary, and neutrino PMNS comparison surface without hidden target fitting? |
+| `qcd-thomson-backend-bundle` | `returned_blocked_missing_spectral_measure` | `d10.ward-projected-thomson-endpoint`, `hadron.production-backend-systematics` | Can the hadron production backend emit the rho_had(s;P) object and uncertainty budget needed by the Ward-projected Thomson endpoint, rather than leaving hadrons and alpha(0) as separate deferred gaps? |
+| `particle-root-integration-gate` | `keep_candidate_after_first_wave` | `pclosure.compressed-trunk-artifact`, `d10.ward-projected-thomson-endpoint`, `d10.rg-matching-threshold-scheme`, `pclosure.live-codepath-adoption`, `charged.determinant-normalization-transport`, `quark.selected-class-vs-global-classification`, `neutrino.pmns-status-and-absolute-rows`, `hadron.production-backend-systematics` | Do the returned packets jointly close the endpoint, matching, interval, and source-object requirements strongly enough to promote the compressed trunk into live particle builders? |
+
+## Bundle Packet Results
+
+- `electroweak-root-closure-bundle`: `returned_blocked_contract_emitted`. Blocked. The admissible endpoint object is now explicit: Delta_Th(P) must split into source lepton transport, a Ward-projected hadronic spectral density rho_had(s;P), a certified electroweak/scheme remainder, RG/matching certificates, quadrature bounds, and an interval-level fixed-point certificate.
+- `spectrum-source-bundle`: `returned_blocked_schema_only`. Blocked. SourceNormalizedTraceLiftDescent is only a reusable schema. Charged leptons still need N_det(P)=0, quarks remain selected-class on f_P, and neutrino PMNS rows remain visible comparison-tension rows.
+- `qcd-thomson-backend-bundle`: `returned_blocked_missing_spectral_measure`. Blocked. The current stable-channel backend is not the endpoint object. The smallest missing primitive is production_ward_projected_hadronic_spectral_measure_export with continuum, volume, chiral, statistical, matching, quadrature, and endpoint budgets.
+- `particle-root-integration-gate`: `keep_candidate_after_first_wave`. No. All first-wave packets returned narrowed blockers, so the compressed P trunk remains candidate/audit metadata and may not feed live particle predictions.
 
 ## Remaining Gaps
 

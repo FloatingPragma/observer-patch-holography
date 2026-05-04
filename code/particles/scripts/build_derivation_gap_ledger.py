@@ -185,7 +185,7 @@ def build_bundles() -> list[dict[str, Any]]:
     return [
         {
             "id": "electroweak-root-closure-bundle",
-            "status": "ready_for_parallel_research_packet",
+            "status": "constructive_endpoint_contract_emitted",
             "gap_ids": [
                 "pclosure.compressed-trunk-artifact",
                 "d10.ward-projected-thomson-endpoint",
@@ -196,10 +196,17 @@ def build_bundles() -> list[dict[str, Any]]:
                 "Can one source-emitted map Delta_Th(P), with declared matching and interval bounds, "
                 "certify the compressed P trunk as the live particle root without importing alpha(0)?"
             ),
+            "result": (
+                "Constructive result. The admissible endpoint object is now explicit: Delta_Th(P) must split into "
+                "source lepton transport, a Ward-projected hadronic spectral density rho_had(s;P), "
+                "a certified electroweak/scheme remainder, RG/matching certificates, quadrature bounds, "
+                "and an interval-level fixed-point certificate. The local implementation target is "
+                "P_derivation/runtime/thomson_endpoint_contract_current.json."
+            ),
         },
         {
             "id": "spectrum-source-bundle",
-            "status": "ready_for_parallel_research_packet",
+            "status": "constructive_trace_lift_schema_emitted",
             "gap_ids": [
                 "charged.determinant-normalization-transport",
                 "quark.selected-class-vs-global-classification",
@@ -210,10 +217,15 @@ def build_bundles() -> list[dict[str, Any]]:
                 "explains the charged affine anchor, quark selected-class boundary, and neutrino PMNS "
                 "comparison surface without hidden target fitting?"
             ),
+            "result": (
+                "Constructive result. SourceNormalizedTraceLiftDescent is the reusable schema to implement next. Charged leptons "
+                "still need N_det(P)=0, quarks remain selected-class on f_P, and neutrino PMNS rows "
+                "remain visible comparison-tension rows."
+            ),
         },
         {
             "id": "qcd-thomson-backend-bundle",
-            "status": "ready_for_parallel_research_packet",
+            "status": "constructive_spectral_measure_contract_emitted",
             "gap_ids": [
                 "d10.ward-projected-thomson-endpoint",
                 "hadron.production-backend-systematics",
@@ -223,10 +235,16 @@ def build_bundles() -> list[dict[str, Any]]:
                 "needed by the Ward-projected Thomson endpoint, rather than leaving hadrons and alpha(0) "
                 "as separate deferred gaps?"
             ),
+            "result": (
+                "Constructive result. The current stable-channel backend is not the endpoint object. The smallest "
+                "missing primitive is production_ward_projected_hadronic_spectral_measure_export with "
+                "continuum, volume, chiral, statistical, matching, quadrature, and endpoint budgets. The "
+                "local implementation target is particles/hadron/ward_projected_spectral_measure.schema.json."
+            ),
         },
         {
             "id": "particle-root-integration-gate",
-            "status": "blocked_until_bundle_packets_return",
+            "status": "keep_candidate_with_constructive_next_artifacts",
             "gap_ids": [
                 "pclosure.compressed-trunk-artifact",
                 "d10.ward-projected-thomson-endpoint",
@@ -240,6 +258,10 @@ def build_bundles() -> list[dict[str, Any]]:
             "promotion_question": (
                 "Do the returned packets jointly close the endpoint, matching, interval, and source-object "
                 "requirements strongly enough to promote the compressed trunk into live particle builders?"
+            ),
+            "result": (
+                "No promotion. The first wave now emits constructive next artifacts, so the compressed P trunk "
+                "remains candidate/audit metadata until those artifacts are populated and certified."
             ),
         },
     ]
@@ -259,6 +281,7 @@ def build_ledger() -> dict[str, Any]:
             "reason": "The endpoint, RG/matching, and interval-certificate gates remain open.",
             "torus_mode_language_allowed_in_pipeline": False,
             "address_remaining_blockers_one_by_one": False,
+            "obstruction_only_worker_result_allowed": False,
         },
     }
 
@@ -303,6 +326,15 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         lines.append(
             f"| `{bundle['id']}` | `{bundle['status']}` | {gaps} | {bundle['promotion_question']} |"
         )
+    lines.extend(
+        [
+            "",
+            "## Bundle Packet Results",
+            "",
+        ]
+    )
+    for bundle in ledger["bundles"]:
+        lines.append(f"- `{bundle['id']}`: `{bundle['status']}`. {bundle['result']}")
     lines.extend(
         [
             "",

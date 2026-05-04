@@ -4,7 +4,7 @@
   "model": "5.4 Pro",
   "oracle_force": true,
   "verbose": true,
-  "browser_model_strategy": "current",
+  "browser_model_strategy": "ignore",
   "browser_profile_seed_dir": "~/.oracle/browser-profile",
   "browser_bundle_files": true,
   "browser_reupload_attachments_on_thread_continue": false,
@@ -75,6 +75,6 @@
     "stale_task_timeout_seconds": 7200,
     "heartbeat_interval_seconds": 60,
     "task_timeout_seconds": 21600,
-    "max_task_attempts": 3
+    "max_task_attempts": 5
   }
 }

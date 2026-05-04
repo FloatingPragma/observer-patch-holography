@@ -10,7 +10,8 @@
       ],
       "id": "electroweak-root-closure-bundle",
       "promotion_question": "Can one source-emitted map Delta_Th(P), with declared matching and interval bounds, certify the compressed P trunk as the live particle root without importing alpha(0)?",
-      "status": "ready_for_parallel_research_packet"
+      "result": "Blocked. The admissible endpoint object is now explicit: Delta_Th(P) must split into source lepton transport, a Ward-projected hadronic spectral density rho_had(s;P), a certified electroweak/scheme remainder, RG/matching certificates, quadrature bounds, and an interval-level fixed-point certificate.",
+      "status": "returned_blocked_contract_emitted"
     },
     {
       "gap_ids": [
@@ -20,7 +21,8 @@
       ],
       "id": "spectrum-source-bundle",
       "promotion_question": "Is there one OPH excitation dictionary and sector-isolated trace-lift theorem that explains the charged affine anchor, quark selected-class boundary, and neutrino PMNS comparison surface without hidden target fitting?",
-      "status": "ready_for_parallel_research_packet"
+      "result": "Blocked. SourceNormalizedTraceLiftDescent is only a reusable schema. Charged leptons still need N_det(P)=0, quarks remain selected-class on f_P, and neutrino PMNS rows remain visible comparison-tension rows.",
+      "status": "returned_blocked_schema_only"
     },
     {
       "gap_ids": [
@@ -29,7 +31,8 @@
       ],
       "id": "qcd-thomson-backend-bundle",
       "promotion_question": "Can the hadron production backend emit the rho_had(s;P) object and uncertainty budget needed by the Ward-projected Thomson endpoint, rather than leaving hadrons and alpha(0) as separate deferred gaps?",
-      "status": "ready_for_parallel_research_packet"
+      "result": "Blocked. The current stable-channel backend is not the endpoint object. The smallest missing primitive is production_ward_projected_hadronic_spectral_measure_export with continuum, volume, chiral, statistical, matching, quadrature, and endpoint budgets.",
+      "status": "returned_blocked_missing_spectral_measure"
     },
     {
       "gap_ids": [
@@ -44,10 +47,11 @@
       ],
       "id": "particle-root-integration-gate",
       "promotion_question": "Do the returned packets jointly close the endpoint, matching, interval, and source-object requirements strongly enough to promote the compressed trunk into live particle builders?",
-      "status": "blocked_until_bundle_packets_return"
+      "result": "No. All first-wave packets returned narrowed blockers, so the compressed P trunk remains candidate/audit metadata and may not feed live particle predictions.",
+      "status": "keep_candidate_after_first_wave"
     }
   ],
-  "generated_utc": "2026-05-04T22:51:19Z",
+  "generated_utc": "2026-05-04T23:46:42Z",
   "p_trunk": {
     "P": "1.63097210492078846050203640439",
     "alpha_inv": "136.994020662724205139718642793",
