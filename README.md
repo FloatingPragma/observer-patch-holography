@@ -135,14 +135,6 @@ tiers live in the papers.
   </a>
 </p>
 
-Detailed particle outputs live in [code/particles/RESULTS_STATUS.md](code/particles/RESULTS_STATUS.md), [code/particles/FINAL_END_TO_END_PREDICTIONS.md](code/particles/FINAL_END_TO_END_PREDICTIONS.md), and [code/particles/DERIVATION_CHAIN_CLOSURE_MATRIX.md](code/particles/DERIVATION_CHAIN_CLOSURE_MATRIX.md).
-
-The current public boundary between closed claims, conditional claims, and open
-work is tracked in [OPEN_PROBLEMS.md](OPEN_PROBLEMS.md). GitHub issues remain
-the canonical task state; the ledger records the claim level, missing artifact,
-closure criterion, falsification route, and Chrome Pro worker policy for each
-open issue.
-
 **OPH Stack**
 
 <p align="center">
