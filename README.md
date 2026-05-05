@@ -180,6 +180,7 @@ open issue.
 - **Website:** [floatingpragma.io/oph](https://floatingpragma.io/oph)
 - **Theory explainer:** [floatingpragma.io/oph/theory-of-everything](https://floatingpragma.io/oph/theory-of-everything)
 - **Simulation-theory explainer:** [floatingpragma.io/oph/simulation-theory](https://floatingpragma.io/oph/simulation-theory/)
+- **Blog essay:** [P = NP on the Observer Screen](https://blog.floatingpragma.io/p-equals-np-on-the-observer-screen): frames OPH as a model of computation built from patches, overlaps, mismatch syndromes, repair moves, and stable records. The essay uses proof-of-work mining as a concrete example and treats `P = NP` as an observer-screen slogan, not a claim to solve the classical complexity problem.
 - **Book:** [oph-book.floatingpragma.io](https://oph-book.floatingpragma.io)
 - **Guided study app:** [learn.floatingpragma.io](https://learn.floatingpragma.io/)
 - **Questions and detailed explanations:** OPH Sage on [Telegram](https://t.me/HoloObserverBot), [X](https://x.com/OphSage), or [Bluesky](https://bsky.app/profile/ophsage.bsky.social)
