@@ -631,14 +631,14 @@ the algebra net closes on itself.
 
 ### Where the Particle Story Stands
 
-The particle picture can be told as one continuous line. The
-framework fixes the Standard Model quotient, the hypercharge lattice, and the
-generation-color counting. The same structure keeps the photon, gluons, and
-graviton on protected zero lines. From there the electroweak transport family
-supplies the weak-boson pair and a fixed-point witness for the long-distance
-electromagnetic coupling, then carries the picture into the Higgs-top surface,
-the selected-class running quark masses, and the weighted-cycle neutrino
-family.
+The particle picture can be told as one continuous line, but the current
+version has explicit stop signs. The framework fixes the Standard Model
+quotient, the hypercharge lattice, and the generation-color counting. The same
+structure keeps the photon, gluons, and graviton on protected zero lines. From
+there the candidate P-closure trunk organizes the electroweak comparison
+surface, the Higgs-top surface, the selected-class running quark masses, and
+the weighted-cycle neutrino family. The weak-boson pair is still compare-only
+until the Thomson endpoint and RG/matching certificates close.
 
 ### How the Concrete Particle Rows Arise
 
@@ -649,19 +649,22 @@ labels of mass, spin, and helicity. This chapter supplies the realized gauge
 quotient, the hypercharge lattice, and the generation-color counting. Together
 they decide which charged excitations can exist and how they transform.
 
-Then comes the fixed-point closure. Once the common pixel ratio is selected,
-the electroweak sector is the cleanest place to read out the local ruler
-because the data are sharp and hadronic clutter is weak. From there the same
-forward construction can be checked against the long-distance electromagnetic
-coupling, continued into the Higgs-top surface, and pushed through the quark
-and neutrino sectors.
+Then comes the fixed-point closure. The current code emits a candidate local
+pixel ratio, not a promoted live prediction root. The electroweak sector remains
+the cleanest comparison place because the data are sharp and hadronic clutter is
+weak, but the W and Z values are currently frozen-adapter checks. From there the
+same organized construction continues into the Higgs-top surface and is pushed
+through the selected-class quark and weighted-cycle neutrino sectors.
 
-The fine-structure constant belongs here beside the weak sector. This is why
-the later mass tables do not feel like disconnected tricks. They read as
-different faces of one fixed-point closure. Hadrons belong to the later
-strong-binding descent of the same picture. Chapter 18 returns to the same
-local fixed point from the outside-inside closure equation, which gives the
-whole particle sector an even tighter narrative spine.
+The fine-structure constant belongs here beside the weak sector, but the
+present candidate value is not yet the Thomson endpoint theorem. This is why
+the later mass tables should not be read as disconnected tricks or as a
+uniformly closed spectrum. They are different claim tiers around one
+fixed-point closure program. Hadrons belong to the later strong-binding descent
+of the same picture, and in the current roadmap that descent waits for a real
+OPH hadron backend. Chapter 18 returns to the same local fixed point from the
+outside-inside closure equation, which gives the whole particle sector an even
+tighter narrative spine.
 
 The interpretation is simple. The screen cell wants to sit at the golden-ratio
 balance point, the exact self-similar equilibrium of the local entropy
@@ -831,19 +834,20 @@ Let's step back and see what the framework actually accounts for.
 **The zeros.** The photon and graviton masses are exactly zero. This is a symmetry-protected prediction. The photon's masslessness follows from U(1) gauge invariance being a genuine overlap redundancy; any mass would break the consistency of how charged patches glue together. Similarly, the graviton's masslessness follows from diffeomorphism invariance being the redundancy structure of bulk spacetime. Experimental and observational upper bounds are consistent with these predictions to extraordinary precision: the photon mass is constrained below ~10⁻¹⁸ eV, often summarized as ~27 orders of magnitude, and the graviton mass is constrained below ~10⁻²³ eV by gravitational-wave dispersion, often summarized as ~22 orders of magnitude.
 
 **The particle structure.** Section 14.14 gives the concrete structure. The
-framework fixes the massless carriers, the weak-boson pair, the Thomson-limit
-fine-structure witness, a Higgs-top surface, a selected-class six-quark
-running-mass sector with Yukawas, and one weighted-cycle neutrino family with
-definite masses and Majorana phases.
+framework fixes the massless carriers. The current particle surface carries a
+compare-only weak-boson pair, a candidate Thomson-limit fine-structure trunk, a
+Higgs-top surface, a selected-class six-quark running-mass sector with Yukawas,
+and one weighted-cycle neutrino family with definite masses and Majorana
+phases.
 
 The reason these numbers belong in one chapter is that the framework is trying
-to organize them with one local fixed-point structure. The same pixel ratio that
-sets the electroweak scale also feeds the low-energy electromagnetic coupling
-and the effective gravitational coupling. The reader does not need every
-intermediate symbol to see the point. OPH is attempting to tie electroweak
-masses, the Higgs/top surface, electromagnetism at low energy, and Newton's
-constant to one common structure instead of treating them as unrelated
-constants.
+to organize them with one local fixed-point structure. The same candidate pixel
+ratio is meant to feed the electroweak scale, the low-energy electromagnetic
+endpoint, and the effective gravitational coupling. The reader does not need
+every intermediate symbol to see the point. OPH is attempting to tie
+electroweak masses, the Higgs/top surface, electromagnetism at low energy, and
+Newton's constant to one common structure instead of treating them as unrelated
+constants, while keeping the open endpoint and matching gates visible.
 
 **Charge quantization.** All color-singlet particles have integer electric charge. No fractional charges like $\pm 1/3$ can exist outside hadrons. This follows from the global structure of the gauge group.
 
@@ -851,8 +855,9 @@ constants.
 
 **Why hadrons are harder.** Quark masses are short-distance parameters.
 Hadrons are bound states. Their masses come from the nonperturbative dynamics
-of confined quarks and gluons, so they require solving the strong-binding
-layer rather than reading off one more particle row.
+of confined quarks and gluons, so they require a working OPH hadron backend,
+such as the GLORB/Echosahedron route, rather than reading off one more particle
+row.
 
 ## 14.21 The Big Picture
 

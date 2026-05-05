@@ -28,7 +28,7 @@ Pour le noyau technique compact, commencez par **Paper 2. [Recovering Relativity
 - Un cadre à cutoff fixe pour les patches d'observateurs, les collerettes, la réparation de recouvrement, la jauge supérieure, les enregistrements et le checkpoint/restauration.
 - Une reconstruction de la géométrie lorentzienne, du temps modulaire, de la dynamique d'Einstein de type Jacobson et de la cosmologie de Sitter en patch statique.
 - Une reconstruction de jauge compacte vers le quotient réalisé du Modèle Standard `SU(3) x SU(2) x U(1) / Z_6`, avec le réseau exact des hypercharges, le triplet de couleur réalisé `N_c = 3` et le comptage des générations `N_g = 3`.
-- Un programme particules avec porteurs structurels exactement sans masse, secteur électrofaible, surface Higgs/top, masses de quarks avec Yukawas, structure neutrino et constantes locales.
+- Un programme particules à niveaux de revendication explicites : porteurs structurels exactement sans masse, ligne `W/Z` en comparaison seule, surface Higgs/top déclarée, masses de quarks sélectionnées avec Yukawas, branche neutrino pondérée et constantes locales candidates.
 - Une architecture microphysique d'écran concrète qui met mesure, enregistrements et observateurs à l'intérieur de la physique.
 
 La mécanique quantique est traitée comme le langage algébrique d'information porté par l'architecture OPH. Le test de reconstruction est de savoir si cette base retrouve de manière cohérente l'univers effectif, et non si chaque ingrédient mathématique a été dérivé depuis un point de départ vide. Une reconstruction des espaces de Hilbert, des `C*`-algèbres ou des algèbres de von Neumann, des probabilités de Born, de la trace et de l'entropie depuis de simples enregistrements opérationnels serait une autre question, pas une condition préalable au programme.
@@ -41,11 +41,11 @@ synchronisés. Géométrie, particules, lois et enregistrements sont les points
 fixes à grande échelle de ce calcul en réseau d'observateurs.
 
 L'OPH utilise une seule entrée quantitative externe, la capacité totale de l'écran `N_scr = log dim H_tot`, lue depuis l'horizon de Sitter, ainsi qu'un ratio local de pixel `P = a_cell / l_P^2`. Pour la constante cosmologique observée, le ratio nu d'aire d'horizon vaut `N_patch = (R_dS / l_P)^2 ≈ 1.05e122`, tandis que la capacité entropique utilisée par l'OPH vaut `N_scr = pi N_patch ≈ 3.31e122`. La même cellule d'écran est décrite deux fois : vue de l'extérieur comme un pixel situé légèrement au-dessus de l'équilibre auto-similaire exact `φ = (1 + sqrt(5)) / 2`, et vue de l'intérieur comme la plus petite échelle d'observation électromagnétique disponible pour les observateurs de l'univers simulé. `P` est la valeur pour laquelle ces deux descriptions coïncident.
-Le papier de synthèse écrit cette autoréférence comme un problème de point fixe. L'OPH trouve la constante de structure fine en demandant quel décalage non nul d'une cellule d'écran holographique fait coïncider le déplacement géométrique extérieur depuis l'équilibre auto-similaire parfait avec l'échelle d'observation électromagnétique émise par l'univers vivant sur ce même écran. Le décalage extérieur vaut `α_ext(P) = (P - φ) / sqrt(pi)`, ou encore `P = φ + α_ext(P) sqrt(pi)`, tandis que le côté intérieur est le couplage électromagnétique émis par cette même cellule. Pour la valeur centrale externe 2022 `α⁻¹(0) = 137.035999177`, cette formule extérieure donne `P = 1.630968209403959...`. La même géométrie de point fixe est aussi testée par une note matérielle en cavité optique. Sur cette petite surface quantitative, l'OPH émet des prédictions concrètes pour les couplages, les masses et les grandeurs gravitationnelles.
+Le papier de synthèse écrit cette autoréférence comme un problème de point fixe. L'OPH trouve la constante de structure fine en demandant quel décalage non nul d'une cellule d'écran holographique fait coïncider le déplacement géométrique extérieur depuis l'équilibre auto-similaire parfait avec l'échelle d'observation électromagnétique émise par l'univers vivant sur ce même écran. Le décalage extérieur vaut `α_ext(P) = (P - φ) / sqrt(pi)`, ou encore `P = φ + α_ext(P) sqrt(pi)`, tandis que le côté intérieur est le couplage électromagnétique émis par cette même cellule. Le tronc courant émet `P = 1.63097210492078846050203640439` et `α_cand⁻¹ = 136.994020662724205139718642793`, mais cette racine reste candidate tant que le point final Thomson projeté par Ward et le certificat RG/seuils ne sont pas fermés. La valeur CODATA/NIST `α⁻¹(0) = 137.035999177` reste donc une comparaison, non une ligne promue.
 
 ## Surface locale d'unification
 
-L'OPH place une surface locale d'unification autour de l'entrée UV locale calibrée. La même échelle pilotée par `P` porte la voie bosonique électrofaible et Higgs ainsi que la voie entropique gravitationnelle, tandis que la géométrie lorentzienne fournit la vitesse causale invariante et que la couche locale de lecture fournit l'affichage SI. La présentation produit relevée donne `ellbar_shared = ellbar_SU(2) + ellbar_SU(3)` ; la même loi locale fixe `ellbar_shared = P/4`, et la lecture locale en unités SI est `G_SI = c^3 a_cell / (hbar P)` relativement au datum microscopique déclaré `a_cell`.
+L'OPH place une surface locale d'unification autour de l'entrée UV locale calibrée. La même échelle pilotée par le `P` candidat porte la voie électrofaible en comparaison, la voie Higgs ainsi que la voie entropique gravitationnelle, tandis que la géométrie lorentzienne fournit la vitesse causale invariante et que la couche locale de lecture fournit l'affichage SI. La présentation produit relevée donne `ellbar_shared = ellbar_SU(2) + ellbar_SU(3)` ; la même loi locale fixe `ellbar_shared = P/4`, et la lecture locale en unités SI est `G_SI = c^3 a_cell / (hbar P)` relativement au datum microscopique déclaré `a_cell`.
 Sur la surface publique des constantes, `hbar` et `k_B` appartiennent à cette couche aval de lecture en unités familières plutôt que d'apparaître comme des constantes OPH émises de manière autonome.
 
 <p align="center">
@@ -54,7 +54,7 @@ Sur la surface publique des constantes, `hbar` et `k_B` appartiennent à cette c
   </a>
 </p>
 
-Les sorties particules détaillées vivent dans [code/particles/RESULTS_STATUS.md](code/particles/RESULTS_STATUS.md) et [code/particles/EXACT_NONHADRON_MASSES.md](code/particles/EXACT_NONHADRON_MASSES.md).
+Les sorties particules détaillées vivent dans [code/particles/RESULTS_STATUS.md](code/particles/RESULTS_STATUS.md), [code/particles/FINAL_END_TO_END_PREDICTIONS.md](code/particles/FINAL_END_TO_END_PREDICTIONS.md) et [code/particles/DERIVATION_CHAIN_CLOSURE_MATRIX.md](code/particles/DERIVATION_CHAIN_CLOSURE_MATRIX.md).
 
 La frontière publique entre résultats fermés, résultats conditionnels et
 travaux ouverts est suivie dans [OPEN_PROBLEMS.md](OPEN_PROBLEMS.md). Les
@@ -84,7 +84,7 @@ de couleur réalisé `N_c = 3` et le comptage des générations `N_g = 3` sont �
 | --- | --- | --- | --- | --- |
 | Constante gravitationnelle | G | 6.6742999959e-11 | 6.67430(15)e-11 | 0.00003σ |
 | Vitesse de la lumière | c | 299792458 | 299792458 (exact) | match |
-| Structure fine (inv.) | α⁻¹(0) | fermeture `P` donnant 137.035999177 | 137.035999177(21) | match |
+| Structure fine (inv.) | α⁻¹(0) | tronc candidat donnant 136.994020662724 | 137.035999177(21) | point final/certificat ouverts |
 | Masse du photon | m_γ | 0 eV | <1e-18 eV | sous la borne |
 | Masse du gluon | m_g | 0 GeV | 0 GeV | match |
 | Masse du graviton | m_grav | 0 eV | <1.76e-23 eV | sous la borne |
@@ -108,10 +108,13 @@ Les papiers contiennent aussi les dérivations structurelles du Modèle Standard
 ainsi qu'une famille neutrino, qui n'apparaît pas dans ce tableau faute de ligne de comparaison
 PDG/NIST directe à un seul nombre.
 
-La surface électrofaible porte aussi une valeur Higgs `m_H = 125.1995304097179 GeV`
-et une valeur top compagnon `m_t = 172.3523553288312 GeV`.
-Les masses hadroniques demandent la dynamique QCD non perturbative des états liés; elles ne sont
-pas de simples entrées de quarks dans un tableau de comparaison rapide.
+La surface particules courante porte aussi des valeurs `W/Z` en comparaison seule
+`80.377 GeV` et `91.18797809193725 GeV`, une valeur Higgs
+`m_H = 125.1995304097179 GeV` et une valeur top compagnon
+`m_t = 172.35235532883115 GeV`. Les masses des leptons chargés sont des témoins
+ancrés sur cible, pas des prédictions promues. Les masses hadroniques demandent
+un backend hadronique OPH; elles ne sont pas de simples entrées de quarks dans
+un tableau de comparaison rapide.
 
 **Pile de dérivation des particules**
 

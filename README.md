@@ -64,10 +64,15 @@ universe living on that same screen. The closure is
 `P = 1.630968209403959...`. The same fixed-point geometry is also probed in a
 separate optical-cavity hardware note.
 
-From the same setup come gravity, gauge structure, the electroweak sector,
-the Higgs-top pair, quark masses and Yukawas, neutrino structure, records, and
-observer synchronization. Hadrons are not simple quark entries: their masses
-belong to the nonperturbative QCD bound-state problem.
+From the same setup come gravity, gauge structure, a tiered particle surface,
+records, and observer synchronization. The current particle pipeline emits a
+candidate `P = 1.63097210492078846050203640439` and
+`alpha_cand^-1 = 136.994020662724205139718642793`, but that root is not yet a
+live prediction root. The weak-boson pair is compare-only until the
+Ward-projected Thomson endpoint and RG/matching certificates close; the Higgs
+lane, selected-class quark rows, and weighted-cycle neutrino branch remain
+separate scoped outputs. Hadrons are not simple quark entries: their masses
+belong to the OPH hadron-backend problem.
 
 ### Selected Quantitative Rows
 
@@ -82,7 +87,7 @@ quick view here sticks to direct numeric rows and exact zeros.
 | --- | --- | --- | --- | --- |
 | Gravitational constant | G | 6.6742999959e-11 | 6.67430(15)e-11 | 0.00003σ |
 | Speed of light | c | 299792458 | 299792458 (exact) | match |
-| Fine-structure (inv) | α⁻¹(0) | `P` closure gives 137.035999177 | 137.035999177(21) | match |
+| Fine-structure (inv) | α⁻¹(0) | candidate trunk gives 136.994020662724 | 137.035999177(21) | endpoint/matching gate open |
 | Photon mass | m_γ | 0 eV | <1e-18 eV | below bound |
 | Gluon mass | m_g | 0 GeV | 0 GeV | match |
 | Graviton mass | m_grav | 0 eV | <1.76e-23 eV | below bound |
@@ -106,17 +111,20 @@ papers also carry the structural Standard Model derivations listed above and a
 neutrino family, but those do not collapse to one simple PDG or NIST row and
 are left out of this table.
 
-The public electroweak surface also includes a Higgs value
-`m_H = 125.1995304097179 GeV` and a companion top value
-`m_t = 172.3523553288312 GeV` in the same calculation.
+The current particle surface also reports compare-only `W/Z` values
+`80.377 GeV` and `91.18797809193725 GeV`, a Higgs value
+`m_H = 125.1995304097179 GeV`, and a companion top value
+`m_t = 172.35235532883115 GeV`. Charged-lepton values are target-anchored
+witness rows, not promoted predictions.
 
 ## Local Unification Surface
 
-The local unification surface is organized around the pixel ratio `P` and one
-local ruler, `a_cell`. On that surface the same scale touches the electroweak
-bosons, the Higgs lane, the gravity-side entropy relation, and the familiar
-unit readout for meters, seconds, GeV, and Kelvin. The diagram below shows how
-those pieces sit on one scale. The detailed formulas live in the papers.
+The local unification surface is organized around the candidate pixel ratio
+`P` and one local ruler, `a_cell`. On that surface the same scale touches the
+electroweak comparison lane, the Higgs lane, the gravity-side entropy relation,
+and the familiar unit readout for meters, seconds, GeV, and Kelvin. The diagram
+below shows how those pieces sit on one scale. The detailed formulas and claim
+tiers live in the papers.
 
 <p align="center">
   <a href="assets/OPH_Unification_Diagram.svg" target="_blank" rel="noopener noreferrer">
@@ -124,7 +132,7 @@ those pieces sit on one scale. The detailed formulas live in the papers.
   </a>
 </p>
 
-Detailed particle outputs live in [code/particles/RESULTS_STATUS.md](code/particles/RESULTS_STATUS.md) and [code/particles/EXACT_NONHADRON_MASSES.md](code/particles/EXACT_NONHADRON_MASSES.md).
+Detailed particle outputs live in [code/particles/RESULTS_STATUS.md](code/particles/RESULTS_STATUS.md), [code/particles/FINAL_END_TO_END_PREDICTIONS.md](code/particles/FINAL_END_TO_END_PREDICTIONS.md), and [code/particles/DERIVATION_CHAIN_CLOSURE_MATRIX.md](code/particles/DERIVATION_CHAIN_CLOSURE_MATRIX.md).
 
 The current public boundary between closed claims, conditional claims, and open
 work is tracked in [OPEN_PROBLEMS.md](OPEN_PROBLEMS.md). GitHub issues remain
