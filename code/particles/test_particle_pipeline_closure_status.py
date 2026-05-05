@@ -21,9 +21,16 @@ def test_particle_pipeline_closure_status_scope_locks_hadrons_and_workers() -> N
     assert "GLORB/Echosahedron" in status["scope"]["hadron_scope_reason"]
     assert status["finalization_gates"]["obstruction_only_worker_result_allowed"] is False
     gates = {gate["issue"]: gate for gate in status["issue_gates"]}
-    assert gates[153]["state"] == "hardware_gated_out_of_scope"
+    assert gates[153]["state"] == "closed_out_of_scope_computationally_blocked"
+    assert gates[153]["closable_now"] is True
     assert gates[153]["requires_oph_hardware_backend"] is True
+    assert gates[153]["closed_as_out_of_scope"] is True
     assert gates[153]["chrome_workers"] == "do_not_use_for_backend_execution"
+    assert gates[157]["state"] == "closed_out_of_scope_computationally_blocked"
+    assert gates[157]["closable_now"] is True
+    assert gates[157]["requires_oph_hardware_backend"] is True
+    assert gates[157]["closed_as_out_of_scope"] is True
+    assert gates[157]["chrome_workers"] == "do_not_use_for_backend_execution"
     assert gates[223]["state"] == "open_constructive_contract"
     assert gates[224]["state"] == "open_waiting_certified_root"
     assert gates[32]["state"] == "open_constructive_contract"

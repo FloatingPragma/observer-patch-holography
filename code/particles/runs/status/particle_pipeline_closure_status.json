@@ -77,7 +77,7 @@
     "obstruction_only_worker_result_allowed": false,
     "p_trunk_candidate_only": true
   },
-  "generated_utc": "2026-05-05T00:55:21Z",
+  "generated_utc": "2026-05-05T01:44:15Z",
   "issue_gates": [
     {
       "chrome_workers": "not_useful_until_source_endpoint_packet_exists",
@@ -107,12 +107,25 @@
     },
     {
       "chrome_workers": "do_not_use_for_backend_execution",
-      "closable_now": false,
+      "closable_now": true,
+      "close_reason": "Current environment lacks a working OPH hadron backend; reopen only when GLORB/Echosahedron-class backend output and production systematics exist.",
+      "closed_as_out_of_scope": true,
       "issue": 153,
       "local_next_artifact": "particles/runs/hadron/ward_projected_spectral_measure_contract.json",
       "requires_oph_hardware_backend": true,
-      "state": "hardware_gated_out_of_scope",
+      "state": "closed_out_of_scope_computationally_blocked",
       "title": "Hadron backend and systematics"
+    },
+    {
+      "chrome_workers": "do_not_use_for_backend_execution",
+      "closable_now": true,
+      "close_reason": "The compact/paper hadron branch is outside the current computational scope until a working OPH hadron backend emits the Ward-projected spectral measure.",
+      "closed_as_out_of_scope": true,
+      "issue": 157,
+      "local_next_artifact": "particles/runs/hadron/ward_projected_spectral_measure_contract.json",
+      "requires_oph_hardware_backend": true,
+      "state": "closed_out_of_scope_computationally_blocked",
+      "title": "Nonperturbative QCD hadron branch"
     },
     {
       "chrome_workers": "only_for_independent_audit_of_a_proposed_response_kernel",
@@ -279,7 +292,7 @@
   "scope": {
     "chrome_workers_needed_now": false,
     "current_pipeline_scope": "nonhadron_particles_plus_candidate_P_root_metadata",
-    "hadron_scope_reason": "Production hadrons require a working OPH hardware backend such as GLORB/Echosahedron; local surrogate code and Chrome workers are non-promoting for #153.",
+    "hadron_scope_reason": "Production hadrons require a working OPH hardware backend such as GLORB/Echosahedron. Issues #153 and #157 are closed as out-of-scope/computationally blocked for the current pipeline; local surrogate code and Chrome workers are non-promoting.",
     "hadrons_in_current_local_scope": false
   }
 }

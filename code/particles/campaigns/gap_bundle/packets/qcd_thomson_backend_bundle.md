@@ -3,10 +3,16 @@
 Connect hadron production systematics to the hadronic spectral object needed by
 the Ward-projected Thomson endpoint.
 
-Return `backend_contract` only with a production artifact for `rho_had(s;P)` or
-the more primitive OPH spectral measure, plus quadrature/matching bounds and
-continuum/volume/chiral/statistical budgets. Otherwise return `blocked` with the
-smallest missing QCD primitive.
+Scope update: GitHub issues #153 and #157 are closed as out-of-scope /
+computationally blocked, not solved. The current local and Chrome-worker
+environment cannot execute or promote this backend. Reopen only when a working
+OPH hadron backend such as GLORB/Echosahedron emits the production export and
+systematics.
+
+Return `backend_contract` only after a production artifact for `rho_had(s;P)` or
+the more primitive OPH spectral measure exists, plus quadrature/matching bounds
+and continuum/volume/chiral/statistical budgets. Until then return
+`out_of_scope` with the missing OPH backend primitive.
 
 Surrogate hadron artifacts are not endpoint inputs.
 
@@ -56,8 +62,9 @@ It must be non-surrogate and unquenched, and it must include:
 - Stable-channel surrogate bridge: diagnostic only.
 - `rho`/finite-volume resonance and Ward-projected spectral readout:
   missing production primitive.
-- Ward-projected Thomson endpoint: theorem path blocked.
+- Ward-projected Thomson endpoint: theorem path blocked on backend spectral data.
 - Imported Thomson/CODATA endpoint: compare-only metadata.
+- Issues #153/#157: closed out-of-scope / computationally blocked, not solved.
 
 ## Smallest Missing Primitive
 
@@ -67,6 +74,6 @@ Stable masses, surrogate correlators, or the existing stable-channel backend
 cannot be promoted into this role without silently replacing a spectral-measure
 problem by a stable-mass problem.
 
-The next worker or local patch must populate this schema, add a loader/builder
-for it, or connect it to the endpoint contract.  Obstruction-only output is not
-an accepted result.
+The next in-scope local patch may improve the schema, loader, or endpoint
+contract. Backend execution itself is out of scope until OPH hadron hardware is
+available; Chrome workers are not an execution substitute.

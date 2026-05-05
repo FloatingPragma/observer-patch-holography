@@ -1,6 +1,6 @@
 # Particle Results Status
 
-Generated: `2026-05-05T00:55:21Z`
+Generated: `2026-05-05T01:44:15Z`
 
 Inputs: `P=1.63094` | `log_dim_H=1e+122` | `loops=4` | `with_hadrons=False` | `hadron_profile=suppressed`
 
@@ -12,7 +12,7 @@ Active Local Public Candidates: `D10=True` | `D11=True` | `charged=False` | `neu
 
 This table is a `/particles`-native audit surface. If a sector has no live local public candidate, the value is reported as `n/a`; legacy fallback predictors are not used.
 
-Hadron rows are intentionally suppressed by default because the hadron lane is execution-contract-frozen: promotable rows require a real production backend export bundle plus production systematics, not just further symbolic derivation. Re-enable them only for explicit hadron debugging with `--with-hadrons`.
+Hadron rows are intentionally suppressed by default because issues #153/#157 are closed out-of-scope / computationally blocked, not solved: promotable rows require a real OPH production backend export bundle plus production systematics, not further symbolic derivation or Chrome workers. Re-enable them only for explicit hadron debugging with `--with-hadrons`.
 
 Measured/reference values are pinned from the official Particle Data Group 2025 machine-readable surface where available, with explicit manual structural-context entries for non-PDG rows such as gluons, graviton, and flavor neutrinos: https://pdg.lbl.gov/api.
 

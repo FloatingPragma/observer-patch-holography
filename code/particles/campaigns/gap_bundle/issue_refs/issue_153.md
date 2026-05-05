@@ -1,7 +1,7 @@
 # Issue #153 Snapshot
 
 URL: https://github.com/FloatingPragma/observer-patch-holography/issues/153
-State checked: OPEN on 2026-05-04
+State checked: CLOSING AS OUT-OF-SCOPE / COMPUTATIONALLY BLOCKED on 2026-05-05
 Title: [OPH Task] particles.e.33a-unquench-hadron-branch-and-publish-systematics: Unquench the hadron branch and publish systematics
 Labels: enhancement, surface: particles
 
@@ -19,7 +19,9 @@ production-grade public OPH hadron surface with explicit systematics.
 
 ## Boundary For This Campaign
 
-Surrogate artifacts are not promotable. The QCD/Thomson bundle should either
-define the exact production artifact needed for rho_had(s;P) and its uncertainty
-budget, or isolate the smallest missing QCD primitive.
-
+Surrogate artifacts are not promotable. The QCD/Thomson bundle has defined the
+exact production artifact needed for rho_had(s;P) and its uncertainty budget.
+The remaining missing primitive is a working OPH hadron backend such as
+GLORB/Echosahedron. #153 and related compact-surface issue #157 are closed as
+out-of-scope, not solved, until that backend emits production data and
+systematics.

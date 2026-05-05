@@ -1,14 +1,19 @@
 {
   "artifact": "oph_ward_projected_spectral_measure_contract",
+  "close_reason": "The current compute environment has no working OPH hadron backend. Local surrogate code and Chrome workers cannot execute or promote production hadron predictions.",
   "constructive_next_artifact": "oph_qcd_ward_projected_hadronic_spectral_measure",
-  "current_local_scope": "hardware_gated_out_of_scope",
+  "current_local_scope": "closed_out_of_scope_computationally_blocked",
   "forbidden_promotions": [
     "stable_channel_only_backend_export",
     "surrogate_hadron_artifact",
     "free_quark_screened_ansatz",
     "compare_only_external_Thomson_endpoint"
   ],
-  "generated_utc": "2026-05-05T00:55:21Z",
+  "generated_utc": "2026-05-05T01:44:15Z",
+  "github_issues_closed_out_of_scope": [
+    153,
+    157
+  ],
   "hardware_gate": {
     "chrome_workers_useful_for_backend_execution": false,
     "expected_backend_class": "OPH hardware backend such as GLORB/Echosahedron",

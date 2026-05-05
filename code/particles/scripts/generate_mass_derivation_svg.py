@@ -60,6 +60,7 @@ COLORS = {
     "task_in_progress": "#fb923c",
     "task_complete": "#22c55e",
     "task_deferred": "#64748b",
+    "task_out_of_scope": "#ef4444",
     "task_blocked": "#ef4444",
     "footer_fill": "#0f1d33",
     "footer_stroke": "#2e4c75",
@@ -84,7 +85,7 @@ STATUS_TEXT = {
     "secondary_quantitative": "secondary",
     "selected_class_theorem": "selected-class theorem",
     "continuation": "continuation",
-    "simulation_dependent": "simulation",
+    "simulation_dependent": "out of scope",
 }
 
 PARTICLE_INFO: Dict[str, Dict[str, str]] = {
@@ -108,8 +109,8 @@ PARTICLE_INFO: Dict[str, Dict[str, str]] = {
     "tau_neutrino": {"symbol": "nu_tau", "plain": "Extremely light neutral lepton of the tau family."},
     "proton": {"symbol": "p", "plain": "Stable positively charged hadron found in atomic nuclei."},
     "neutron": {"symbol": "n", "plain": "Neutral hadron found in atomic nuclei."},
-    "neutral_pion": {"symbol": "pi0 proxy", "plain": "Light meson placeholder row withheld from the public table because the hadron lane is execution-contract-frozen."},
-    "rho_770_0": {"symbol": "rho(770)0 proxy", "plain": "Vector-meson placeholder row withheld from the public table because the hadron lane is execution-contract-frozen."},
+    "neutral_pion": {"symbol": "pi0 proxy", "plain": "Light meson placeholder row withheld from the public table because the hadron lane is closed out-of-scope."},
+    "rho_770_0": {"symbol": "rho(770)0 proxy", "plain": "Vector-meson placeholder row withheld from the public table because the hadron lane is closed out-of-scope."},
 }
 
 GROUP_ROW_TEXT = {
@@ -125,7 +126,7 @@ STATUS_EXPLAINER = {
     "secondary_quantitative": "quantitative secondary branch with a separate proof package",
     "selected_class_theorem": "theorem-grade closure on the public quark frame class selected by P",
     "continuation": "declared continuation or witness surface rather than theorem-grade public output",
-    "simulation_dependent": "execution-bound surface with backend and systematics prerequisites",
+    "simulation_dependent": "closed out-of-scope surface with backend and systematics prerequisites",
 }
 
 STATUS_NEXT_STEP = {
@@ -134,7 +135,7 @@ STATUS_NEXT_STEP = {
     "secondary_quantitative": "This row belongs to a quantitative secondary branch with its own proof surface.",
     "selected_class_theorem": "This row belongs to a theorem-grade closure on the public quark frame class selected by P.",
     "continuation": "This row belongs to a declared continuation or witness surface rather than a theorem-grade public output.",
-    "simulation_dependent": "This row depends on a backend bundle and publication-grade systematics.",
+    "simulation_dependent": "This row is closed out-of-scope until a backend bundle and publication-grade systematics exist.",
 }
 
 PARTICLE_TITLE = {
@@ -311,8 +312,8 @@ LANES: List[Dict[str, Any]] = [
     {
         "key": "hadrons",
         "title": "Hadrons",
-        "summary": "The hadron lane is execution-contract-frozen: the theorem-side schema, receipt, and local writeback path are explicit, while public masses require a production backend export bundle and publication-complete systematics.",
-        "takeaway": "This lane depends on nonperturbative computation and publication-grade systematics.",
+        "summary": "The hadron lane is closed out-of-scope / computationally blocked: issues #153/#157 are not solved, and public masses require a working OPH backend export bundle with publication-complete systematics.",
+        "takeaway": "This lane depends on nonperturbative backend computation that is unavailable in the current local and Chrome-worker environment.",
         "logic": (
             "The hadron path steps down from D10 and the local quark masses into Lambda_MSbar^(3), seeds the "
             "unquenched ensemble family, realizes deterministic cfg/source payload identifiers, attaches a fixed "
@@ -321,8 +322,8 @@ LANES: List[Dict[str, Any]] = [
             "hadron masses require one production backend export bundle with publication-complete manifest provenance, real `pi_iso`, `N_iso_direct`, and `N_iso_exchange` arrays, the executed runtime receipt `(N_therm, N_sep)`, and then declared production continuum/volume/chiral/statistical systematics. "
             "The surrogate execution bridge is only a diagnostic proof that the schema closes; it is not a promotable hadron output surface."
         ),
-        "tasks_text": "Execution contract: public hadron rows require a production backend export bundle with manifest provenance, real correlator arrays, and published statistical plus continuum/volume/chiral systematics on the seeded 2+1 QED-off stable-channel branch.",
-        "prediction_surface": "Execution-contract-frozen stable-channel hadron shell; public hadron rows are withheld because this lane requires a real backend bundle and publication-grade systematics.",
+        "tasks_text": "Scope closure: #153/#157 are closed out-of-scope, not solved. Reopen only when a GLORB/Echosahedron-class OPH backend emits real correlator arrays and published statistical plus continuum/volume/chiral systematics on the seeded 2+1 QED-off stable-channel branch.",
+        "prediction_surface": "Closed-out-of-scope stable-channel hadron shell; public hadron rows are withheld because this lane requires a real backend bundle and publication-grade systematics.",
         "particles": ["proton", "neutron", "neutral_pion", "rho_770_0"],
         "tasks": [
             "papers.compact.e.33-close-the-nonperturbative-qcd-hadron-branch",
@@ -655,6 +656,8 @@ def task_badge_color(status: str) -> str:
         return COLORS["task_in_progress"]
     if status == "deferred":
         return COLORS["task_deferred"]
+    if status == "out_of_scope":
+        return COLORS["task_out_of_scope"]
     if status == "blocked":
         return COLORS["task_blocked"]
     return COLORS["task_pending"]

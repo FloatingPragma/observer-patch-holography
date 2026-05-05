@@ -3,7 +3,7 @@
 
 This is the simplified issue gate for the current pipeline: non-hadron particle
 predictions are finalized through the disposable runtime surface, while hadron
-production is explicitly hardware-gated and out of local scope.
+production is closed out-of-scope until OPH backend hardware exists.
 """
 
 from __future__ import annotations
@@ -106,8 +106,9 @@ def build_status() -> dict[str, Any]:
             "current_pipeline_scope": "nonhadron_particles_plus_candidate_P_root_metadata",
             "hadrons_in_current_local_scope": False,
             "hadron_scope_reason": (
-                "Production hadrons require a working OPH hardware backend such as GLORB/Echosahedron; "
-                "local surrogate code and Chrome workers are non-promoting for #153."
+                "Production hadrons require a working OPH hardware backend such as GLORB/Echosahedron. "
+                "Issues #153 and #157 are closed as out-of-scope/computationally blocked for the current "
+                "pipeline; local surrogate code and Chrome workers are non-promoting."
             ),
             "chrome_workers_needed_now": False,
         },
@@ -161,10 +162,29 @@ def build_status() -> dict[str, Any]:
             {
                 "issue": 153,
                 "title": "Hadron backend and systematics",
-                "state": "hardware_gated_out_of_scope",
-                "closable_now": False,
+                "state": "closed_out_of_scope_computationally_blocked",
+                "closable_now": True,
                 "local_next_artifact": _rel(HADRON_SPECTRAL_CONTRACT),
                 "requires_oph_hardware_backend": True,
+                "closed_as_out_of_scope": True,
+                "close_reason": (
+                    "Current environment lacks a working OPH hadron backend; reopen only when "
+                    "GLORB/Echosahedron-class backend output and production systematics exist."
+                ),
+                "chrome_workers": "do_not_use_for_backend_execution",
+            },
+            {
+                "issue": 157,
+                "title": "Nonperturbative QCD hadron branch",
+                "state": "closed_out_of_scope_computationally_blocked",
+                "closable_now": True,
+                "local_next_artifact": _rel(HADRON_SPECTRAL_CONTRACT),
+                "requires_oph_hardware_backend": True,
+                "closed_as_out_of_scope": True,
+                "close_reason": (
+                    "The compact/paper hadron branch is outside the current computational scope "
+                    "until a working OPH hadron backend emits the Ward-projected spectral measure."
+                ),
                 "chrome_workers": "do_not_use_for_backend_execution",
             },
             {

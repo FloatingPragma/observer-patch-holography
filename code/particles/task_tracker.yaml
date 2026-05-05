@@ -1124,19 +1124,19 @@ stages:
             "particles.neutrino.49-extend-residual-audit-through-defect-weighted-mu-family"
           ]
   - id: stage-6
-    title: "Hadron branch (deferred, execution-contract-frozen)"
-    status: deferred
-    note: "Deferred from the active exact-spectrum closure program because progress from the current state requires one real production backend export bundle and then executed production systematics, not more local theorem work."
-    success_rule: "Simulation-dependent stable-channel hadron pipeline with one production backend export bundle, executed writeback, and declared continuum, volume, chiral, and statistics budgets on the seeded 2+1 QED-off branch."
+    title: "Hadron branch (closed out-of-scope, computationally blocked)"
+    status: out_of_scope
+    note: "Issues #153/#157 are closed as out-of-scope, not solved, because progress from the current state requires a real OPH hadron backend such as GLORB/Echosahedron plus executed production systematics, not more local theorem work, local surrogate code, or Chrome workers."
+    success_rule: "Reopen only after a working OPH hadron backend emits one production export bundle, executed writeback, and declared continuum, volume, chiral, and statistics budgets on the seeded 2+1 QED-off branch."
     tasks:
       - id: papers.compact.e.33-close-the-nonperturbative-qcd-hadron-branch
-        title: "Close the nonperturbative QCD hadron branch with one production backend export bundle and declared systematics"
-        status: deferred
+        title: "Out-of-scope nonperturbative QCD hadron branch until backend output exists"
+        status: out_of_scope
         owner_lane: pro_hadron
         depends_on: ["papers.compact.e.31-derive-quark-textures-ckm-mixing-and-cp-from-overlap-defects"]
       - id: particles.e.33a-unquench-hadron-branch-and-publish-systematics
-        title: "Unquench hadron branch and publish systematics"
-        status: deferred
+        title: "Out-of-scope hadron production run and systematics"
+        status: out_of_scope
         owner_lane: local_hpc
         depends_on: ["papers.compact.e.33-close-the-nonperturbative-qcd-hadron-branch"]
       - id: particles.hadron.06-classify-runtime-receipt-as-execution-systematics-contract

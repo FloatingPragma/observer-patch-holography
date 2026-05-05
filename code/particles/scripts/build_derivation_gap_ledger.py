@@ -182,17 +182,19 @@ def build_gap_rows() -> list[dict[str, Any]]:
         {
             "id": "hadron.production-backend-systematics",
             "lane": "Hadrons",
-            "status": "hardware_gated_out_of_scope",
+            "status": "closed_out_of_scope_computationally_blocked",
             "github_issue": 153,
+            "related_github_issues": [153, 157],
             "title": "Execute the production hadron backend and publish systematics",
             "current_boundary": (
-                "The hadron lane is explicitly outside the current local pipeline because there is no "
-                "working production hadron backend here. A credible backend is hardware-gated on OPH "
-                "hardware such as GLORB/Echosahedron rather than on local Python or Chrome workers."
+                "The hadron lane is explicitly outside the current local pipeline. Issues #153 and "
+                "#157 are closed as out-of-scope/computationally blocked, not solved, because there "
+                "is no working production hadron backend here. A credible backend is hardware-gated "
+                "on OPH hardware such as GLORB/Echosahedron rather than on local Python or Chrome workers."
             ),
             "next_action": (
-                "Keep hadron rows suppressed, track #153 as a hardware-gated backend issue, and do "
-                "not spend Oracle/Chrome workers on local surrogate backend promotion."
+                "Keep hadron rows suppressed. Reopen only after a working OPH hadron backend emits "
+                "production hadron output, Ward-projected spectral data, and systematics."
             ),
             "target_surfaces": ["code/particles/hadron", "code/particles/qcd"],
         },
@@ -243,7 +245,7 @@ def build_bundles() -> list[dict[str, Any]]:
         },
         {
             "id": "qcd-thomson-backend-bundle",
-            "status": "hardware_gated_scope_lock_emitted",
+            "status": "closed_out_of_scope_scope_lock_emitted",
             "gap_ids": [
                 "d10.ward-projected-thomson-endpoint",
                 "hadron.production-backend-systematics",
@@ -256,8 +258,9 @@ def build_bundles() -> list[dict[str, Any]]:
             "result": (
                 "Constructive result with a scope lock. The current stable-channel backend is not the endpoint "
                 "object, and the real hadron backend is not locally runnable. The missing primitive remains "
-                "production_ward_projected_hadronic_spectral_measure_export, but #153 is hardware-gated on "
-                "OPH hardware rather than assigned to Chrome workers or local surrogate code."
+                "production_ward_projected_hadronic_spectral_measure_export. Issues #153/#157 are closed "
+                "out-of-scope/computationally blocked until OPH hardware exists, rather than assigned to "
+                "Chrome workers or local surrogate code."
             ),
         },
         {
@@ -315,7 +318,10 @@ def build_ledger() -> dict[str, Any]:
             "compressed_p_trunk_is_live_prediction_root": False,
             "reason": "The endpoint, RG/matching, and interval-certificate gates remain open.",
             "hadron_backend_in_current_local_scope": False,
-            "hadron_backend_scope_reason": "Production hadrons require a real OPH hardware backend; local surrogate output is non-promoting.",
+            "hadron_backend_scope_reason": (
+                "Production hadrons require a real OPH hardware backend. Issues #153/#157 are closed "
+                "as out-of-scope/computationally blocked; local surrogate output is non-promoting."
+            ),
             "torus_mode_language_allowed_in_pipeline": False,
             "address_remaining_blockers_one_by_one": False,
             "obstruction_only_worker_result_allowed": False,

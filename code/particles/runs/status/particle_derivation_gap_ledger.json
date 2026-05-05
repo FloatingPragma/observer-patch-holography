@@ -31,8 +31,8 @@
       ],
       "id": "qcd-thomson-backend-bundle",
       "promotion_question": "Can the hadron production backend emit the rho_had(s;P) object and uncertainty budget needed by the Ward-projected Thomson endpoint, rather than leaving hadrons and alpha(0) as separate deferred gaps?",
-      "result": "Constructive result with a scope lock. The current stable-channel backend is not the endpoint object, and the real hadron backend is not locally runnable. The missing primitive remains production_ward_projected_hadronic_spectral_measure_export, but #153 is hardware-gated on OPH hardware rather than assigned to Chrome workers or local surrogate code.",
-      "status": "hardware_gated_scope_lock_emitted"
+      "result": "Constructive result with a scope lock. The current stable-channel backend is not the endpoint object, and the real hadron backend is not locally runnable. The missing primitive remains production_ward_projected_hadronic_spectral_measure_export. Issues #153/#157 are closed out-of-scope/computationally blocked until OPH hardware exists, rather than assigned to Chrome workers or local surrogate code.",
+      "status": "closed_out_of_scope_scope_lock_emitted"
     },
     {
       "gap_ids": [
@@ -61,7 +61,7 @@
       "status": "keep_candidate_with_constructive_next_artifacts"
     }
   ],
-  "generated_utc": "2026-05-05T00:55:21Z",
+  "generated_utc": "2026-05-05T01:44:15Z",
   "p_trunk": {
     "P": "1.63097210492078846050203640439",
     "alpha_inv": "136.994020662724205139718642793",
@@ -75,7 +75,7 @@
     "address_remaining_blockers_one_by_one": false,
     "compressed_p_trunk_is_live_prediction_root": false,
     "hadron_backend_in_current_local_scope": false,
-    "hadron_backend_scope_reason": "Production hadrons require a real OPH hardware backend; local surrogate output is non-promoting.",
+    "hadron_backend_scope_reason": "Production hadrons require a real OPH hardware backend. Issues #153/#157 are closed as out-of-scope/computationally blocked; local surrogate output is non-promoting.",
     "obstruction_only_worker_result_allowed": false,
     "reason": "The endpoint, RG/matching, and interval-certificate gates remain open.",
     "torus_mode_language_allowed_in_pipeline": false
@@ -189,12 +189,16 @@
       "title": "Bridge the exact top coordinate to the auxiliary direct-top PDG row"
     },
     {
-      "current_boundary": "The hadron lane is explicitly outside the current local pipeline because there is no working production hadron backend here. A credible backend is hardware-gated on OPH hardware such as GLORB/Echosahedron rather than on local Python or Chrome workers.",
+      "current_boundary": "The hadron lane is explicitly outside the current local pipeline. Issues #153 and #157 are closed as out-of-scope/computationally blocked, not solved, because there is no working production hadron backend here. A credible backend is hardware-gated on OPH hardware such as GLORB/Echosahedron rather than on local Python or Chrome workers.",
       "github_issue": 153,
       "id": "hadron.production-backend-systematics",
       "lane": "Hadrons",
-      "next_action": "Keep hadron rows suppressed, track #153 as a hardware-gated backend issue, and do not spend Oracle/Chrome workers on local surrogate backend promotion.",
-      "status": "hardware_gated_out_of_scope",
+      "next_action": "Keep hadron rows suppressed. Reopen only after a working OPH hadron backend emits production hadron output, Ward-projected spectral data, and systematics.",
+      "related_github_issues": [
+        153,
+        157
+      ],
+      "status": "closed_out_of_scope_computationally_blocked",
       "target_surfaces": [
         "code/particles/hadron",
         "code/particles/qcd"

@@ -1,6 +1,6 @@
 # Exact Fits Only
 
-Generated: `2026-05-05T00:55:21Z`
+Generated: `2026-05-05T01:44:15Z`
 
 This surface lists exact target matches on declared OPH carriers. It separates theorem-grade selected-class outputs from compare-only and carrier-restricted exact surfaces.
 For quarks, the selected-class theorem and its supporting exact carriers coincide with the official PDG 2025 API running-quark target surface.

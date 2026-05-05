@@ -16,11 +16,14 @@
     "obstruction_only_worker_result_allowed": false,
     "p_trunk_candidate_only": true
   },
-  "generated_utc": "2026-05-05T00:55:21Z",
+  "generated_utc": "2026-05-05T01:44:15Z",
   "hadron_policy": {
-    "github_issue": 153,
+    "github_issues": [
+      153,
+      157
+    ],
     "predictions_emitted": false,
-    "reason": "Hadrons require a working OPH hadron backend on suitable hardware such as GLORB/Echosahedron."
+    "reason": "Hadrons require a working OPH hadron backend on suitable hardware such as GLORB/Echosahedron. Issues #153/#157 are closed out-of-scope/computationally blocked, not solved, and no hadron predictions are emitted."
   },
   "p_closure": {
     "P": "1.63097210492078846050203640439",
@@ -57,11 +60,13 @@
     },
     {
       "chrome_workers": "do_not_use_for_backend_execution",
-      "closable_now": false,
+      "closable_now": true,
+      "close_reason": "Current environment lacks a working OPH hadron backend; reopen only when GLORB/Echosahedron-class backend output and production systematics exist.",
+      "closed_as_out_of_scope": true,
       "issue": 153,
       "local_next_artifact": "particles/runs/hadron/ward_projected_spectral_measure_contract.json",
       "requires_oph_hardware_backend": true,
-      "state": "hardware_gated_out_of_scope",
+      "state": "closed_out_of_scope_computationally_blocked",
       "title": "Hadron backend and systematics"
     },
     {
@@ -280,7 +285,7 @@
     "loops": 4,
     "with_hadrons": false
   },
-  "scope": "current_nonhadron_particle_pipeline_with_hadrons_hardware_gated",
+  "scope": "current_nonhadron_particle_pipeline_with_hadrons_closed_out_of_scope",
   "source_surfaces": {
     "direct_top_bridge": "code/particles/runs/calibration/direct_top_bridge_contract.json",
     "exact_nonhadron": "code/particles/exact_nonhadron_masses.json",

@@ -89,7 +89,7 @@ def build_payload() -> dict[str, Any]:
     return {
         "artifact": "oph_final_current_end_to_end_particle_predictions",
         "generated_utc": _now_utc(),
-        "scope": "current_nonhadron_particle_pipeline_with_hadrons_hardware_gated",
+        "scope": "current_nonhadron_particle_pipeline_with_hadrons_closed_out_of_scope",
         "claim_status": "final_current_nonhadron_predictions_not_full_hadron_or_certified_P_root_release",
         "source_surfaces": {
             "p_trunk": "code/P_derivation/runtime/p_closure_trunk_current.json",
@@ -110,8 +110,12 @@ def build_payload() -> dict[str, Any]:
         "predictions": predictions,
         "hadron_policy": {
             "predictions_emitted": False,
-            "reason": "Hadrons require a working OPH hadron backend on suitable hardware such as GLORB/Echosahedron.",
-            "github_issue": 153,
+            "reason": (
+                "Hadrons require a working OPH hadron backend on suitable hardware such as "
+                "GLORB/Echosahedron. Issues #153/#157 are closed out-of-scope/computationally "
+                "blocked, not solved, and no hadron predictions are emitted."
+            ),
+            "github_issues": [153, 157],
         },
         "direct_top_auxiliary_comparison": {
             "current_top_coordinate_gev": direct_top["current_theorem_coordinate"]["value_gev"],

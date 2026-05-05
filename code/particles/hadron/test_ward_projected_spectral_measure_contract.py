@@ -23,7 +23,8 @@ def test_contract_emits_constructive_spectral_measure_target() -> None:
     assert payload["artifact"] == "oph_ward_projected_spectral_measure_contract"
     assert payload["constructive_next_artifact"] == "oph_qcd_ward_projected_hadronic_spectral_measure"
     assert payload["promotion_allowed"] is False
-    assert payload["current_local_scope"] == "hardware_gated_out_of_scope"
+    assert payload["current_local_scope"] == "closed_out_of_scope_computationally_blocked"
+    assert payload["github_issues_closed_out_of_scope"] == [153, 157]
     assert payload["hardware_gate"]["requires_working_oph_hadron_backend"] is True
     assert payload["hardware_gate"]["chrome_workers_useful_for_backend_execution"] is False
     assert "stable_channel_only_backend_export" in payload["forbidden_promotions"]

@@ -246,6 +246,28 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
 }
 
 
+CLOSED_OUT_OF_SCOPE_ISSUES: dict[int, dict[str, str]] = {
+    153: {
+        "title": "hadron backend/systematics",
+        "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/153",
+        "closed_status": "closed_not_planned_out_of_scope_computationally_blocked",
+        "closure_note": (
+            "Closed as out-of-scope, not solved. The current pipeline emits no hadron predictions "
+            "until a working OPH hadron backend on suitable hardware publishes production output and systematics."
+        ),
+    },
+    157: {
+        "title": "nonperturbative QCD hadron branch",
+        "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/157",
+        "closed_status": "closed_not_planned_out_of_scope_computationally_blocked",
+        "closure_note": (
+            "Closed as out-of-scope, not solved. Compact-paper hadron claims remain suppressed until "
+            "a working OPH backend emits the required nonperturbative QCD/hadron data."
+        ),
+    },
+}
+
+
 def _now_utc() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
@@ -289,6 +311,7 @@ def _fallback_policy(issue: dict[str, Any]) -> dict[str, str]:
 
 def build_ledger(issues: list[dict[str, Any]]) -> dict[str, Any]:
     rows = []
+    open_numbers = {int(issue["number"]) for issue in issues}
     for issue in sorted(issues, key=lambda item: item["number"]):
         policy = ISSUE_POLICY.get(int(issue["number"]), _fallback_policy(issue))
         labels = [label["name"] for label in issue.get("labels", [])]
@@ -302,17 +325,34 @@ def build_ledger(issues: list[dict[str, Any]]) -> dict[str, Any]:
                 **policy,
             }
         )
+    closed_out_of_scope_records = []
+    for number, record in sorted(CLOSED_OUT_OF_SCOPE_ISSUES.items()):
+        if number in open_numbers:
+            continue
+        policy = ISSUE_POLICY[number]
+        closed_out_of_scope_records.append(
+            {
+                "number": number,
+                "title": record["title"],
+                "url": record["url"],
+                "closed_status": record["closed_status"],
+                "closure_note": record["closure_note"],
+                **policy,
+            }
+        )
     return {
         "artifact": "oph_open_problem_ledger",
         "generated_utc": _now_utc(),
         "repo": REPO,
         "open_issue_count": len(rows),
+        "closed_out_of_scope_count": len(closed_out_of_scope_records),
         "worker_policy": {
             "chrome_pro_workers_default": "local_first",
             "max_parallel_workers": 6,
             "launch_condition": "only after a concrete theorem, audit, or implementation packet exists",
             "obstruction_only_result_allowed": False,
         },
+        "closed_out_of_scope_records": closed_out_of_scope_records,
         "rows": rows,
     }
 
@@ -337,6 +377,25 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         f"Open issue count: `{ledger['open_issue_count']}`",
         "",
     ]
+    closed_records = ledger.get("closed_out_of_scope_records", [])
+    if closed_records:
+        lines.extend(
+            [
+                "## Closed Out-Of-Scope Records",
+                "",
+                "These are not solved derivations. They are closed as non-current-scope tasks because "
+                "the required computation depends on a working OPH hadron backend and suitable hardware.",
+                "",
+                "| Issue | Status | Claim level | Closure note | Reopen criterion | Chrome policy |",
+                "| --- | --- | --- | --- | --- | --- |",
+            ]
+        )
+        for row in closed_records:
+            lines.append(
+                f"| [#{row['number']}]({row['url']}) {row['title']} | `{row['closed_status']}` | "
+                f"`{row['claim_level']}` | {row['closure_note']} | {row['closure']} | {row['chrome_policy']} |"
+            )
+        lines.append("")
     for phase in sorted(grouped):
         lines.extend([f"## {phase}", ""])
         lines.extend(

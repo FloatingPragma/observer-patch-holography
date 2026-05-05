@@ -26,7 +26,12 @@ def build_artifact() -> dict[str, Any]:
         "status": "constructive_contract_emitted_not_production_data",
         "schema": str(SCHEMA.relative_to(ROOT)),
         "promotion_allowed": False,
-        "current_local_scope": "hardware_gated_out_of_scope",
+        "current_local_scope": "closed_out_of_scope_computationally_blocked",
+        "github_issues_closed_out_of_scope": [153, 157],
+        "close_reason": (
+            "The current compute environment has no working OPH hadron backend. Local surrogate "
+            "code and Chrome workers cannot execute or promote production hadron predictions."
+        ),
         "hardware_gate": {
             "requires_working_oph_hadron_backend": True,
             "expected_backend_class": "OPH hardware backend such as GLORB/Echosahedron",

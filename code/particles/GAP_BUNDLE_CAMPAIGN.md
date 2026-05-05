@@ -9,7 +9,7 @@ requirements are closed.
 | --- | --- | --- |
 | Electroweak root | `P` trunk, Ward Thomson endpoint, RG/matching, live adoption | Source-emitted `Delta_Th(P)` package or minimal obstruction |
 | Spectrum source | charged, quark, neutrino | Shared excitation/trace-lift theorem or separated obstructions |
-| QCD/Thomson backend | hadron backend, hadronic endpoint | `rho_had(s;P)` production contract or missing QCD primitive |
+| QCD/Thomson backend | hadron backend, hadronic endpoint | #153/#157 closed out-of-scope; reopen only with OPH backend spectral data and systematics |
 | Integration gate | all bundles | `promote` only if every gate closes; otherwise `keep_candidate` |
 
 The launchable campaign lives in `campaigns/gap_bundle/`. Its worker packets

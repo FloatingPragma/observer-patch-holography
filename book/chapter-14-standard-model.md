@@ -662,7 +662,8 @@ the later mass tables should not be read as disconnected tricks or as a
 uniformly closed spectrum. They are different claim tiers around one
 fixed-point closure program. Hadrons belong to the later strong-binding descent
 of the same picture, and in the current roadmap that descent waits for a real
-OPH hadron backend. Chapter 18 returns to the same local fixed point from the
+OPH hadron backend. Issues #153 and #157 are closed as out-of-scope /
+computationally blocked, not as solved derivations. Chapter 18 returns to the same local fixed point from the
 outside-inside closure equation, which gives the whole particle sector an even
 tighter narrative spine.
 
@@ -857,7 +858,8 @@ constants, while keeping the open endpoint and matching gates visible.
 Hadrons are bound states. Their masses come from the nonperturbative dynamics
 of confined quarks and gluons, so they require a working OPH hadron backend,
 such as the GLORB/Echosahedron route, rather than reading off one more particle
-row.
+row. The current issue status for #153/#157 records that hardware gate, not a
+hadron-mass prediction.
 
 ## 14.21 The Big Picture
 

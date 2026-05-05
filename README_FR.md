@@ -114,7 +114,10 @@ La surface particules courante porte aussi des valeurs `W/Z` en comparaison seul
 `m_t = 172.35235532883115 GeV`. Les masses des leptons chargés sont des témoins
 ancrés sur cible, pas des prédictions promues. Les masses hadroniques demandent
 un backend hadronique OPH; elles ne sont pas de simples entrées de quarks dans
-un tableau de comparaison rapide.
+un tableau de comparaison rapide. Les issues #153 et #157 sont fermées comme
+hors périmètre / bloquées computationnellement, non comme résolues; il faut les
+rouvrir seulement lorsqu'un backend hadronique OPH comme GLORB/Echosahedron
+produit des données spectrales et des systématiques de production.
 
 **Pile de dérivation des particules**
 

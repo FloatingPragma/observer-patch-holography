@@ -242,7 +242,7 @@ NEUTRINO_CONTINUATION_NOTE = (
     "The two-parameter exact adapter, the bridge corridor, and the reduced-correction candidate audit remain on disk only as diagnostic surfaces beneath the theorem lane."
 )
 HADRON_CONTINUATION_NOTE = (
-    "Rows are suppressed by default because hadrons are execution-contract-frozen on the current branch rather than paper-derived outputs. The active hadron path is `derive_lambda_msbar_descendant.py -> "
+    "Rows are suppressed by default because hadrons are closed out-of-scope / computationally blocked on the current branch rather than paper-derived outputs. Issues #153/#157 are closed as not planned, not solved. The active hadron scaffold path is `derive_lambda_msbar_descendant.py -> "
     "derive_full_unquenched_correlator.py -> derive_stable_channel_cfg_source_measure_payload.py -> "
     "derive_runtime_schedule_receipt_n_therm_and_n_sep.py -> derive_stable_channel_sequence_population.py -> "
     "derive_hadron_production_geometry_summary.py -> derive_stable_channel_sequence_evaluation.py -> "
@@ -250,7 +250,7 @@ HADRON_CONTINUATION_NOTE = (
     "`derive_hadron_surrogate_execution_bridge_status.py` records that the full receipt/writeback/evaluation/convergence/systematics path "
     "has been closed on a surrogate HMC/RHMC kernel. The operational barrier has lower friction: `run_production_backend_writeback.py` executes the backend-export -> receipt -> dump -> payload -> evaluation -> closure-report path in one command once a real production export exists. The production geometry is explicit: 3 seeded 2+1 ensembles, 6 cfg total, naive raw gauge storage about "
     "`2.80071464105088e14` bytes for all cfg, and a backend correlator dump of `195264` float64 bytes. "
-    "Public hadron rows still require one production backend export bundle on the seeded family with publication-complete manifest provenance and real `pi_iso`, `N_iso_direct`, and `N_iso_exchange` correlator arrays, followed by production continuum/volume/chiral/statistical systematics; the first local derivative after that bundle lands is the normalized production dump "
+    "Public hadron rows still require one production backend export bundle from a working OPH hadron backend such as GLORB/Echosahedron on the seeded family with publication-complete manifest provenance and real `pi_iso`, `N_iso_direct`, and `N_iso_exchange` correlator arrays, followed by production continuum/volume/chiral/statistical systematics; the first local derivative after that bundle lands is the normalized production dump "
     "`backend_correlator_dump.production.json`."
 )
 INVENTORY: List[Dict[str, Any]] = [
@@ -1252,7 +1252,7 @@ def render_markdown(
         "",
         "This table is a `/particles`-native audit surface. If a sector has no live local public candidate, the value is reported as `n/a`; legacy fallback predictors are not used.",
         "",
-        "Hadron rows are intentionally suppressed by default because the hadron lane is execution-contract-frozen: promotable rows require a real production backend export bundle plus production systematics, not just further symbolic derivation. Re-enable them only for explicit hadron debugging with `--with-hadrons`.",
+        "Hadron rows are intentionally suppressed by default because issues #153/#157 are closed out-of-scope / computationally blocked, not solved: promotable rows require a real OPH production backend export bundle plus production systematics, not further symbolic derivation or Chrome workers. Re-enable them only for explicit hadron debugging with `--with-hadrons`.",
         "",
         f"Measured/reference values are pinned from the official {reference_payload['source']['label']} {reference_payload['source']['edition']} machine-readable surface where available, with explicit manual structural-context entries for non-PDG rows such as gluons, graviton, and flavor neutrinos: {reference_payload['source']['api_info_url']}.",
         "",

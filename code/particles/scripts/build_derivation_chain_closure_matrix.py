@@ -136,12 +136,20 @@ def build_payload() -> dict[str, Any]:
         },
         {
             "chain": "hadrons",
-            "status": "hardware_gated_out_of_scope",
+            "status": "closed_out_of_scope_computationally_blocked",
             "claim_level": "no_local_prediction_emitted",
             "outputs": {},
             "promotable": False,
-            "open_gates": [153, 157],
-            "next_artifact": "real OPH hadron backend output and systematics",
+            "open_gates": [],
+            "closed_issue_refs": [153, 157],
+            "closure_reason": (
+                "The current environment has no working OPH hadron backend; local surrogate code "
+                "and Chrome workers cannot promote hadron predictions."
+            ),
+            "next_artifact": (
+                "none in current scope; reopen only when a GLORB/Echosahedron-class OPH backend "
+                "emits production hadron output and systematics"
+            ),
         },
     ]
     closed_or_scoped = [
@@ -159,6 +167,7 @@ def build_payload() -> dict[str, Any]:
         row["chain"]
         for row in rows
         if row["chain"] not in closed_or_scoped
+        and row["status"] != "closed_out_of_scope_computationally_blocked"
     ]
 
     return {
@@ -169,6 +178,7 @@ def build_payload() -> dict[str, Any]:
             "all_derivation_chains_claimed_closed": False,
             "closed_or_scoped_chains": closed_or_scoped,
             "remaining_nonclosed_chains": remaining_nonclosed,
+            "closed_out_of_scope_chains": ["hadrons"],
             "hardware_gated_chains": ["hadrons"],
             "policy": (
                 "Do not promote candidate, compare-only, witness-only, or hardware-gated chains as "
@@ -182,7 +192,10 @@ def build_payload() -> dict[str, Any]:
         },
         "worker_policy": {
             "chrome_pro_workers_needed_now": False,
-            "reason": "Remaining open chains need local theorem packets or OPH hadron hardware before worker audit is meaningful.",
+            "reason": (
+                "Hadron issues #153/#157 are closed out-of-scope until OPH hadron hardware exists; "
+                "the remaining in-scope open chains need local theorem packets before worker audit is meaningful."
+            ),
         },
         "particle_five_gates": {str(issue): gates[issue] for issue in (32, 153, 207, 223, 224) if issue in gates},
         "provenance_status": provenance["status"],

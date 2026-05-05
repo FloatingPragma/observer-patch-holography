@@ -1,8 +1,8 @@
 # Final Current End-to-End Particle Predictions
 
-Generated: `2026-05-05T00:55:21Z`
+Generated: `2026-05-05T01:44:15Z`
 
-Scope: `current_nonhadron_particle_pipeline_with_hadrons_hardware_gated`
+Scope: `current_nonhadron_particle_pipeline_with_hadrons_closed_out_of_scope`
 Claim status: `final_current_nonhadron_predictions_not_full_hadron_or_certified_P_root_release`
 
 ## P Closure
@@ -19,7 +19,7 @@ Claim status: `final_current_nonhadron_predictions_not_full_hadron_or_certified_
 | #223 | `open_constructive_contract` | `False` | `P_derivation/runtime/thomson_endpoint_contract_current.json` | not_useful_until_source_endpoint_packet_exists |
 | #224 | `open_waiting_certified_root` | `False` | `P_derivation/runtime/p_closure_trunk_current.json` | not_useful_until_endpoint_and_interval_gates_close |
 | #32 | `open_constructive_contract` | `False` | `P_derivation/runtime/rg_matching_threshold_contract_current.json` | only_after_beta_threshold_packet_is_populated |
-| #153 | `hardware_gated_out_of_scope` | `False` | `particles/runs/hadron/ward_projected_spectral_measure_contract.json` | do_not_use_for_backend_execution |
+| #153 | `closed_out_of_scope_computationally_blocked` | `True` | `particles/runs/hadron/ward_projected_spectral_measure_contract.json` | do_not_use_for_backend_execution |
 | #207 | `open_constructive_conversion_contract` | `False` | `particles/runs/calibration/direct_top_bridge_contract.json` | only_for_independent_audit_of_a_proposed_response_kernel |
 
 ## Predictions
@@ -56,4 +56,4 @@ Claim status: `final_current_nonhadron_predictions_not_full_hadron_or_certified_
 ## Hadrons
 
 - Predictions emitted: `False`
-- Reason: Hadrons require a working OPH hadron backend on suitable hardware such as GLORB/Echosahedron.
+- Reason: Hadrons require a working OPH hadron backend on suitable hardware such as GLORB/Echosahedron. Issues #153/#157 are closed out-of-scope/computationally blocked, not solved, and no hadron predictions are emitted.

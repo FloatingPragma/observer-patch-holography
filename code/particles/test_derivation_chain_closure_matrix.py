@@ -38,9 +38,11 @@ def test_derivation_chain_closure_matrix_keeps_stage_gates_explicit() -> None:
     assert rows["structural_massless_bosons"]["promotable"] is True
     assert rows["charged_leptons"]["status"] == "current_family_witness_only_end_to_end_nonclosure_theorem"
     assert rows["charged_leptons"]["promotable"] is False
-    assert rows["hadrons"]["status"] == "hardware_gated_out_of_scope"
-    assert rows["hadrons"]["open_gates"] == [153, 157]
+    assert rows["hadrons"]["status"] == "closed_out_of_scope_computationally_blocked"
+    assert rows["hadrons"]["open_gates"] == []
+    assert rows["hadrons"]["closed_issue_refs"] == [153, 157]
     assert "p_closure_root" in payload["closure_summary"]["remaining_nonclosed_chains"]
-    assert "hadrons" in payload["closure_summary"]["remaining_nonclosed_chains"]
-    assert payload["particle_five_gates"]["153"]["state"] == "hardware_gated_out_of_scope"
+    assert "hadrons" not in payload["closure_summary"]["remaining_nonclosed_chains"]
+    assert payload["closure_summary"]["closed_out_of_scope_chains"] == ["hadrons"]
+    assert payload["particle_five_gates"]["153"]["state"] == "closed_out_of_scope_computationally_blocked"
     assert payload["particle_five_gates"]["224"]["state"] == "open_waiting_certified_root"

@@ -26,7 +26,7 @@ def test_gap_ledger_keeps_compressed_trunk_claim_safe() -> None:
     assert "pclosure.live-codepath-adoption" in gap_ids
     assert "calibration.direct-top-bridge" in gap_ids
     row_statuses = {row["id"]: row["status"] for row in ledger["rows"]}
-    assert row_statuses["hadron.production-backend-systematics"] == "hardware_gated_out_of_scope"
+    assert row_statuses["hadron.production-backend-systematics"] == "closed_out_of_scope_computationally_blocked"
     assert row_statuses["calibration.direct-top-bridge"] == "constructive_conversion_contract_emitted"
     bundle_ids = {bundle["id"] for bundle in ledger["bundles"]}
     assert "electroweak-root-closure-bundle" in bundle_ids
@@ -35,6 +35,6 @@ def test_gap_ledger_keeps_compressed_trunk_claim_safe() -> None:
     assert "top-codomain-bridge-bundle" in bundle_ids
     assert "particle-root-integration-gate" in bundle_ids
     bundle_statuses = {bundle["id"]: bundle["status"] for bundle in ledger["bundles"]}
-    assert bundle_statuses["qcd-thomson-backend-bundle"] == "hardware_gated_scope_lock_emitted"
+    assert bundle_statuses["qcd-thomson-backend-bundle"] == "closed_out_of_scope_scope_lock_emitted"
     assert bundle_statuses["top-codomain-bridge-bundle"] == "constructive_conversion_contract_emitted"
     assert bundle_statuses["particle-root-integration-gate"] == "keep_candidate_with_constructive_next_artifacts"

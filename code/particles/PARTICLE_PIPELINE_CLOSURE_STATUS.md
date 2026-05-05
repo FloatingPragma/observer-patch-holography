@@ -1,6 +1,6 @@
 # Particle Pipeline Closure Status
 
-Generated: `2026-05-05T00:55:21Z`
+Generated: `2026-05-05T01:44:15Z`
 
 Single simplified closure gate for the current non-hadron particle pipeline.
 
@@ -9,7 +9,7 @@ Single simplified closure gate for the current non-hadron particle pipeline.
 - Current scope: `nonhadron_particles_plus_candidate_P_root_metadata`
 - Hadrons in current local scope: `False`
 - Chrome workers needed now: `False`
-- Hadron scope reason: Production hadrons require a working OPH hardware backend such as GLORB/Echosahedron; local surrogate code and Chrome workers are non-promoting for #153.
+- Hadron scope reason: Production hadrons require a working OPH hardware backend such as GLORB/Echosahedron. Issues #153 and #157 are closed as out-of-scope/computationally blocked for the current pipeline; local surrogate code and Chrome workers are non-promoting.
 
 ## Issue Gates
 
@@ -18,7 +18,8 @@ Single simplified closure gate for the current non-hadron particle pipeline.
 | #223 | `open_constructive_contract` | `False` | `P_derivation/runtime/thomson_endpoint_contract_current.json` | not_useful_until_source_endpoint_packet_exists |
 | #224 | `open_waiting_certified_root` | `False` | `P_derivation/runtime/p_closure_trunk_current.json` | not_useful_until_endpoint_and_interval_gates_close |
 | #32 | `open_constructive_contract` | `False` | `P_derivation/runtime/rg_matching_threshold_contract_current.json` | only_after_beta_threshold_packet_is_populated |
-| #153 | `hardware_gated_out_of_scope` | `False` | `particles/runs/hadron/ward_projected_spectral_measure_contract.json` | do_not_use_for_backend_execution |
+| #153 | `closed_out_of_scope_computationally_blocked` | `True` | `particles/runs/hadron/ward_projected_spectral_measure_contract.json` | do_not_use_for_backend_execution |
+| #157 | `closed_out_of_scope_computationally_blocked` | `True` | `particles/runs/hadron/ward_projected_spectral_measure_contract.json` | do_not_use_for_backend_execution |
 | #207 | `open_constructive_conversion_contract` | `False` | `particles/runs/calibration/direct_top_bridge_contract.json` | only_for_independent_audit_of_a_proposed_response_kernel |
 | #234 | `open_provenance_ledger_emitted_sensitivity_open` | `False` | `particles/runs/status/blind_prediction_provenance.json` | only_for_audit_after_convention_sensitivity_sweep_exists |
 | #117 | `closed_keep_visible_comparison_tension` | `True` | `particles/runs/neutrino/neutrino_lane_closure_contract.json` | not_needed |

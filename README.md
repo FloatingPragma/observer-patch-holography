@@ -72,7 +72,10 @@ live prediction root. The weak-boson pair is compare-only until the
 Ward-projected Thomson endpoint and RG/matching certificates close; the Higgs
 lane, selected-class quark rows, and weighted-cycle neutrino branch remain
 separate scoped outputs. Hadrons are not simple quark entries: their masses
-belong to the OPH hadron-backend problem.
+belong to the OPH hadron-backend problem. Issues #153 and #157 are closed as
+out-of-scope/computationally blocked, not solved; they should be reopened only
+when a working OPH hadron backend such as GLORB/Echosahedron emits production
+spectral data and systematics.
 
 ### Selected Quantitative Rows
 

@@ -1,12 +1,12 @@
 # Particle Derivation Chain Closure Matrix
 
-Generated: `2026-05-05T00:55:21Z`
+Generated: `2026-05-05T01:44:15Z`
 
 Status: `executable_nonhadron_chain_matrix_emitted`
 All derivation chains claimed closed: `False`
-Remaining nonclosed chains: `p_closure_root, electroweak_wz, charged_leptons, hadrons`
+Remaining nonclosed chains: `p_closure_root, electroweak_wz, charged_leptons`
 Chrome Pro workers needed now: `False`
-Reason: Remaining open chains need local theorem packets or OPH hadron hardware before worker audit is meaningful.
+Reason: Hadron issues #153/#157 are closed out-of-scope until OPH hadron hardware exists; the remaining in-scope open chains need local theorem packets before worker audit is meaningful.
 
 | Chain | Status | Promotable | Open gates | Outputs | Next artifact |
 | --- | --- | --- | --- | --- | --- |
@@ -17,4 +17,4 @@ Reason: Remaining open chains need local theorem packets or OPH hadron hardware 
 | `charged_leptons` | `current_family_witness_only_end_to_end_nonclosure_theorem` | `False` | #201 | `electron=0.0005109989499999994`, `muon=0.10565837550000004`, `tau=1.7769324651340912` | code/particles/runs/leptons/charged_end_to_end_impossibility_theorem.json |
 | `selected_class_quarks` | `closed_selected_public_class_global_classification_open` | `True` | #199, #207, #212 | `up=0.0021600000000000005`, `down=0.004699999999999999`, `strange=0.09349999999999999`, `charm=1.2729999999999992`, `bottom=4.182999999999994`, `top=172.35235532883115` | global quark frame classification or keep selected-class scope visible |
 | `neutrino_absolute_attachment` | `closed_weighted_cycle_absolute_attachment_with_comparison_tension_visible` | `True` | none | `electron_neutrino=0.017454720257976796`, `muon_neutrino=0.019481987935919015`, `tau_neutrino=0.05307522145074924` | none |
-| `hadrons` | `hardware_gated_out_of_scope` | `False` | #153, #157 | n/a | real OPH hadron backend output and systematics |
+| `hadrons` | `closed_out_of_scope_computationally_blocked` | `False` | none | n/a | none in current scope; reopen only when a GLORB/Echosahedron-class OPH backend emits production hadron output and systematics |
