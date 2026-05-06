@@ -138,8 +138,9 @@ the particle picture is larger than a handful of isolated numbers. OPH fixes
 the structural gauge reconstruction, the exact massless carriers, the declared
 Higgs/top surface, the selected-class running quark sextet with Yukawas, and one
 weighted-cycle neutrino family. It keeps the weak pair and fine-structure trunk
-on compare/candidate status until endpoint and matching gates close, and it
-records a no-go for charged-lepton absolute masses in the available derivation.
+on compare/candidate status until the source spectral measure payload,
+same-scheme remainder, and interval certificate close, and it records a no-go
+for charged-lepton absolute masses in the available derivation.
 Hadrons require a separate nonperturbative bound-state step
 because protons, neutrons, and mesons are QCD composites rather than elementary
 particle rows.

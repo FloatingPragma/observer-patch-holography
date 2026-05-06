@@ -8,7 +8,7 @@ import unittest
 
 from alpha_gap_audit import build_alpha_gap_audit
 from emit_p_closure_trunk import build_p_closure_trunk
-from paper_math import PaperMathContext, build_contraction_certificate, build_fixed_point_witness
+from paper_math import PaperMathContext, build_contraction_certificate, build_fixed_point_witness, build_report
 from transport_theorem_manifest import build_manifest
 
 
@@ -34,8 +34,30 @@ class FixedPointWitnessTests(unittest.TestCase):
         )
 
         self.assertEqual(witness["claim_status"], "numerical_witness_not_interval_certificate")
+        self.assertFalse(witness["promotion_allowed"])
+        self.assertFalse(witness["exact_alpha_promoted"])
         self.assertNotIn("external_compare_only", witness)
         self.assertGreater(Decimal(witness["finite_difference"]["max_abs_sample_slope"]), Decimal("0"))
+
+    def test_raw_report_has_machine_readable_exact_alpha_guard(self) -> None:
+        report = build_report(
+            precision=10,
+            mode="mz_anchor",
+            su2_cutoff=6,
+            su3_cutoff=4,
+            scan_points=8,
+            max_iterations=3,
+        )
+
+        self.assertEqual(report["artifact"], "oph_p_alpha_fixed_point_report")
+        self.assertEqual(report["claim_status"], "candidate_fixed_point_report_not_exact_alpha_derivation")
+        self.assertFalse(report["promotion_allowed"])
+        self.assertFalse(report["exact_alpha_promoted"])
+        self.assertFalse(report["consumer_policy"]["may_feed_live_particle_predictions"])
+        self.assertEqual(
+            report["promotion_gates"][0]["minimal_new_theorem"],
+            "WardProjectedHadronicSpectralEmission_Q",
+        )
 
     def test_witness_keeps_explicit_compare_value_out_of_solver_inputs(self) -> None:
         witness = build_fixed_point_witness(

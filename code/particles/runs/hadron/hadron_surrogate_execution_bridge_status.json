@@ -1,12 +1,6 @@
 {
   "artifact": "oph_hadron_surrogate_execution_bridge_status",
-  "generated_utc": "2026-04-03T04:43:00Z",
-  "supported_remaining_physical_blockers": [
-    "production unquenched RHMC/HMC on SU(3) gauge fields",
-    "real Dirac solves and baryon contractions",
-    "production autocorrelation/statistics studies",
-    "production continuum / finite-volume / chiral systematics"
-  ],
+  "generated_utc": "2026-05-06T10:24:46Z",
   "notes": [
     "This artifact records the strongest current hadron execution bridge, but it is surrogate-only and not promotable.",
     "The surrogate bridge is useful because it closes the runtime-receipt -> writeback -> evaluation -> convergence -> systematics path on the emitted schema.",
@@ -18,6 +12,12 @@
     "N_therm": 2048
   },
   "status": "surrogate_hmc_execution_bridge_complete",
+  "supported_remaining_physical_blockers": [
+    "production unquenched RHMC/HMC on SU(3) gauge fields",
+    "real Dirac solves and baryon contractions",
+    "production autocorrelation/statistics studies",
+    "production continuum / finite-volume / chiral systematics"
+  ],
   "surrogate_completion_scope": [
     "non-null runtime receipt",
     "executed cfg/source writeback on the seeded 2+1 family",

@@ -136,19 +136,15 @@ differences, yet small enough for the screen geometry to remain coherent. The
 fine-structure constant measures that minimal electromagnetic disturbance.
 
 Using the 2022 CODATA/NIST central value for the long-distance fine-structure
-constant, the outside reading gives
+constant as a comparison value, the outside reading gives
 
 $$
 P=1.630968209403959\ldots
 $$
 
-The particle-side endpoint package tells us what is missing from the source
-calculation. At the candidate fixed point, the gap is
-$0.041164012378350542050005414212806738$ inverse-alpha units. At the pixel value
-above, the required source residual is
-$0.041465861005223389065796874868111808\ldots$ beyond the exact one-loop
-continuation. This is a target for the source-side electromagnetic transport
-map, including the strong-interaction screening and scheme remainder.
+The source-spectral reduction theorem gives the dispersion endpoint functional.
+The source spectral measure payload, same-scheme remainder, and interval
+certificate are work in progress.
 
 Alex Osika's optical-cavity hardware work probes the same fixed-point geometry.
 The apparatus is not a miniature universe. It is a controlled physical
@@ -157,8 +153,8 @@ forced to settle on one fixed point.
 
 One cell on the screen is then being described twice. From one side it is a
 pixel of the horizon. From the other it is the smallest electromagnetic step
-available to observers inside the encoded world. The same number closes both
-descriptions.
+available to observers inside the encoded world. The fixed-point theorem closes
+once the source spectral payload and interval certificate are supplied.
 
 ## 18.7 Why de Sitter Fits
 

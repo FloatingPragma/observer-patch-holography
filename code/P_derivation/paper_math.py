@@ -823,6 +823,45 @@ def to_serializable(obj: Any) -> Any:
     return obj
 
 
+def _claim_guard_for_fixed_point_report() -> dict[str, Any]:
+    return {
+        "artifact": "oph_p_alpha_fixed_point_report",
+        "claim_status": "candidate_fixed_point_report_not_exact_alpha_derivation",
+        "claim_boundary": (
+            "This report emits a reproducible P/alpha fixed-point candidate for the declared "
+            "readout mode. It is not an exact fine-structure derivation: promotion requires "
+            "a source-emitted Ward-projected Thomson endpoint map and a theorem-grade interval "
+            "fixed-point certificate."
+        ),
+        "promotion_allowed": False,
+        "exact_alpha_promoted": False,
+        "consumer_policy": {
+            "may_feed_live_particle_predictions": False,
+            "may_feed_compare_or_audit_surfaces": True,
+            "hidden_external_alpha_allowed": False,
+            "default_thomson_endpoint_allowed": False,
+        },
+        "promotion_gates": [
+            {
+                "id": "source_spectral_measure_payload",
+                "github_issue": 235,
+                "required_status": "populated_source_spectral_measure_payload",
+                "minimal_new_theorem": "WardProjectedHadronicSpectralEmission_Q",
+            },
+            {
+                "id": "same_scheme_endpoint_remainder",
+                "github_issue": 235,
+                "required_status": "source_emitted_same_scheme_R_Q_of_P",
+            },
+            {
+                "id": "interval_fixed_point_certificate",
+                "github_issue": 235,
+                "required_status": "theorem_grade_interval_existence_uniqueness_certificate",
+            },
+        ],
+    }
+
+
 def build_report(
     precision: int = 40,
     mode: str = "thomson_structured_running",
@@ -833,7 +872,8 @@ def build_report(
 ) -> dict[str, Any]:
     ctx = PaperMathContext(precision=precision, su2_cutoff=su2_cutoff, su3_cutoff=su3_cutoff)
     result = ctx.solve_closure(mode=mode, max_iterations=max_iterations, scan_points=scan_points)
-    return to_serializable(result)
+    report = to_serializable(result)
+    return {**_claim_guard_for_fixed_point_report(), **report}
 
 
 def build_fixed_point_witness(
@@ -885,6 +925,14 @@ def build_fixed_point_witness(
                 "This report samples the declared closure map and estimates local finite-difference "
                 "slopes. It does not prove interval-wide uniqueness or a Banach contraction bound."
             ),
+            "promotion_allowed": False,
+            "exact_alpha_promoted": False,
+            "consumer_policy": {
+                "may_feed_live_particle_predictions": False,
+                "may_feed_compare_or_audit_surfaces": True,
+                "hidden_external_alpha_allowed": False,
+                "default_thomson_endpoint_allowed": False,
+            },
             "mode": mode,
             "precision": precision,
             "su2_cutoff": su2_cutoff,

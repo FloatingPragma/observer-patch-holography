@@ -38,9 +38,51 @@
     "ward_projected_residues_populated": false
   },
   "external_inputs_used": false,
-  "generated_utc": "2026-05-06T10:15:20Z",
+  "generated_utc": "2026-05-06T10:23:45Z",
   "github_issue": 235,
   "nonidentifiability_corollary": {
+    "constructive_witness": {
+      "common_current_corpus_projection": {
+        "current": "U1_Q",
+        "same_anchor_a0": true,
+        "same_currently_emitted_hadron_fields": [],
+        "same_lepton_kernel": true,
+        "same_mZ": true,
+        "same_total_positive_weight": "1",
+        "source_family_id": "d10_running_tree",
+        "source_measure_payload_populated": false
+      },
+      "dimensionless_thomson_moment_a": "1/6",
+      "dimensionless_thomson_moment_b": "1/12",
+      "dimensionless_thomson_moment_difference": "1/12",
+      "external_inputs_used": false,
+      "kernel": "k(y)=1/(y*(1+y))",
+      "logical_form": "There exist two positive Ward-projected spectral-measure completions whose projection to every invariant emitted by the current corpus is identical, while their Thomson dispersion moments differ.",
+      "measure_a": {
+        "atoms": [
+          {
+            "support_y": "2",
+            "weight": "1"
+          }
+        ],
+        "description": "one positive atom at y=2",
+        "positive": true
+      },
+      "measure_b": {
+        "atoms": [
+          {
+            "support_y": "3",
+            "weight": "1"
+          }
+        ],
+        "description": "one positive atom at y=3",
+        "positive": true
+      },
+      "moments_equal": false,
+      "normalization": "Use y=s/mZ(P)^2 and omit the common positive factor 1/(3*pi*mZ(P)^2).",
+      "status": "constructive_counterexample_emitted",
+      "why_this_blocks_exact_alpha": "The current corpus emits no finite-volume vector levels, Ward-projected residues, continuum pushforward, or same-scheme source remainder. The projection that the corpus can see is therefore identical for these measures, but the endpoint functional is not."
+    },
     "fitted_scalars_rejected": [
       "missing_source_transport_delta_alpha_inv",
       "required_screening_factor",
@@ -49,7 +91,7 @@
       "S_required"
     ],
     "statement": "The current D10 invariant packet fixes the mZ anchor, lepton kernel, naive quark kernel, and first-order screen. It contains no finite-volume vector levels, current residues, or continuum pushforward for rho_Q(s;P). Distinct positive spectral measures can share that packet and give different Thomson moments.",
-    "status": "closed_for_current_source_packet"
+    "status": "constructive_no_external_input_no_go_closed_for_current_source_packet"
   },
   "promotion_allowed": false,
   "source_only_guard": {
