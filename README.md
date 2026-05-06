@@ -70,8 +70,10 @@ synchronization. The particle pipeline records a nearby candidate-root lane
 with `P = 1.63097210492078846050203640439` and
 `alpha_cand^-1 = 136.994020662724205139718642793`. This root is outside the
 promoted prediction tier. The weak-boson pair is compare-only; promotion
-requires the Ward-projected Thomson residual map and RG/matching certificates. The
-endpoint package isolates the missing fixed-point contribution as
+requires the Ward-projected Thomson residual map together with the open
+RG/matching/threshold/scheme packet: scheme lock, threshold map, beta
+provenance, and interval composition. The endpoint package isolates the
+missing fixed-point contribution as
 `0.041163974743011720681199819215801821` inverse-alpha units. At the
 CODATA-mapped pixel value, the source residual target is
 `0.041465835978928681137459869870016982` inverse-alpha units, equivalent to

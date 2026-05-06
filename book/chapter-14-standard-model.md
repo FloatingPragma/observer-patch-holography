@@ -638,7 +638,8 @@ structure keeps the photon, gluons, and graviton on protected zero lines. From
 there the candidate pixel-ratio trunk organizes the electroweak comparison
 surface, the Higgs-top surface, the selected-class running quark masses, and
 the weighted-cycle neutrino family. The weak-boson pair is compare-only. Its
-promotion requires the Thomson residual map and RG/matching certificates.
+live promotion requires the Thomson residual map and the open
+RG/matching/threshold/scheme packet.
 The charged-lepton absolute-mass lane, the stronger global quark-frame
 classification lane, and the auxiliary direct-top conversion are no-go
 boundaries for the available derivation.
