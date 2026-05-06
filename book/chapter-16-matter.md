@@ -68,22 +68,33 @@ structure also blocks gauge-mediated proton decay, because the realized gauge
 group is a product group and does not contain the extra leptoquark gauge
 bosons required by simple-group unification.
 
-The electroweak transport family gives the public target-free weak-boson pair
+The electroweak transport family records a target-free weak-boson continuation
 
 $$
 M_W = 80.37700001539531\,\mathrm{GeV}, \qquad
 M_Z = 91.18797807794321\,\mathrm{GeV},
 $$
 
-and the same family follows the unbroken electromagnetic channel to the
-long-distance Thomson limit
+with exact frozen-adapter comparison values
 
 $$
-\alpha^{-1}(0)=137.035999177.
+M_W^\dagger = 80.377\,\mathrm{GeV}, \qquad
+M_Z^\dagger = 91.18797809193725\,\mathrm{GeV}.
 $$
 
-The weak-boson pair and the familiar low-energy electromagnetic strength come
-from one continuous construction.
+Those rows are not promoted live predictions yet. The same family is supposed
+to follow the unbroken electromagnetic channel to the long-distance Thomson
+limit, but the current certified trunk instead emits the candidate
+
+$$
+\alpha_{\mathrm{cand}}^{-1}=136.994020662724205139718642793.
+$$
+
+The observed Thomson value $\alpha^{-1}(0)=137.035999177$ remains a comparison
+until the Ward-projected endpoint and RG/matching certificates close. The
+weak-boson pair and the familiar low-energy electromagnetic strength are meant
+to come from one continuous construction, but they are not all on one promoted
+theorem tier yet.
 
 The same electroweak core continues into the scalar and companion top values
 
@@ -102,7 +113,8 @@ $$
 
 and these are running quark masses, not hadron masses. They belong to the
 short-distance particle description before QCD binds quarks into composite
-states.
+states. The top value is the selected-class theorem row on the PDG
+cross-section codomain; the auxiliary direct-top codomain is compare-only.
 
 Running means the quoted mass depends on the energy scale at which the quark is
 probed. This is normal in quantum field theory. It is why a quark mass in a
@@ -118,11 +130,14 @@ $$
 
 together with definite Majorana phases in that construction. Taken together,
 the particle picture is larger than a handful of isolated numbers. OPH fixes
-the structural gauge reconstruction, the exact massless carriers, the weak pair, the
-fine-structure fixed-point relation, the Higgs/top pair, the running quark
-sextet with Yukawas, and one weighted-cycle neutrino family. Hadrons require a
-separate nonperturbative bound-state step because protons, neutrons, and mesons
-are QCD composites rather than elementary particle rows.
+the structural gauge reconstruction, the exact massless carriers, the declared
+Higgs/top surface, the selected-class running quark sextet with Yukawas, and one
+weighted-cycle neutrino family. It keeps the weak pair and fine-structure trunk
+on compare/candidate status until endpoint and matching gates close, and it
+closes charged-lepton absolute masses as a current-corpus no-go rather than a
+promoted theorem. Hadrons require a separate nonperturbative bound-state step
+because protons, neutrons, and mesons are QCD composites rather than elementary
+particle rows.
 
 Majorana phases are extra neutrino mixing phases that matter if neutrinos are
 their own antiparticles in the relevant sense. QCD is quantum chromodynamics,

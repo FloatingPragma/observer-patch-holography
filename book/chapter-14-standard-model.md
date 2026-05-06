@@ -639,6 +639,9 @@ there the candidate P-closure trunk organizes the electroweak comparison
 surface, the Higgs-top surface, the selected-class running quark masses, and
 the weighted-cycle neutrino family. The weak-boson pair is still compare-only
 until the Thomson endpoint and RG/matching certificates close.
+The charged-lepton absolute-mass lane, the stronger global quark-frame
+classification lane, and the auxiliary direct-top codomain are current-corpus
+no-go boundaries rather than solved derivations.
 
 ### How the Concrete Particle Rows Arise
 
@@ -839,7 +842,9 @@ framework fixes the massless carriers. The current particle surface carries a
 compare-only weak-boson pair, a candidate Thomson-limit fine-structure trunk, a
 Higgs-top surface, a selected-class six-quark running-mass sector with Yukawas,
 and one weighted-cycle neutrino family with definite masses and Majorana
-phases.
+phases. It also marks charged-lepton absolute masses, global public quark-frame
+classification, and the auxiliary direct-top codomain as current-corpus no-go
+boundaries.
 
 The reason these numbers belong in one chapter is that the framework is trying
 to organize them with one local fixed-point structure. The same candidate pixel

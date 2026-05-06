@@ -1,6 +1,6 @@
 # Particle Pipeline Closure Status
 
-Generated: `2026-05-06T04:16:19Z`
+Generated: `2026-05-06T04:24:20Z`
 
 Single simplified closure gate for the current non-hadron particle pipeline.
 

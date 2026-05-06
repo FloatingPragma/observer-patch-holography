@@ -71,8 +71,11 @@ candidate `P = 1.63097210492078846050203640439` and
 live prediction root. The weak-boson pair is compare-only until the
 Ward-projected Thomson endpoint and RG/matching certificates close; the Higgs
 lane, selected-class quark rows, and weighted-cycle neutrino branch remain
-separate scoped outputs. Hadrons are not simple quark entries: their masses
-belong to the OPH hadron-backend problem. Issues #153 and #157 are closed as
+separate scoped outputs. The charged-lepton absolute-mass lane, the stronger
+global quark-frame classification lane, and the auxiliary direct-top codomain
+are closed as current-corpus no-go boundaries rather than promoted derivations.
+Hadrons are not simple quark entries: their masses belong to the OPH
+hadron-backend problem. Issues #153 and #157 are closed as
 out-of-scope/computationally blocked, not solved; they should be reopened only
 when a working OPH hadron backend such as GLORB/Echosahedron emits production
 spectral data and systematics.
@@ -104,6 +107,7 @@ quick view here sticks to direct numeric rows and exact zeros.
 | Strange | m_s(2 GeV) | 93.5 MeV | 93.5 ± 0.8 | match |
 | Down | m_d(2 GeV) | 4.70 MeV | 4.70 ± 0.07 | match |
 | Up | m_u(2 GeV) | 2.16 MeV | 2.16 ± 0.07 | match |
+| Top | m_t cross-section row | 172.35235532883115 GeV | 172.3523553288312 | selected-class match |
 
 `Δ` reports the sigma distance where PDG or NIST quotes a one-standard-deviation
 uncertainty. Otherwise it records `match` or `below bound`.
@@ -116,9 +120,14 @@ are left out of this table.
 
 The current particle surface also reports compare-only `W/Z` values
 `80.377 GeV` and `91.18797809193725 GeV`, a Higgs value
-`m_H = 125.1995304097179 GeV`, and a companion top value
-`m_t = 172.35235532883115 GeV`. Charged-lepton values are target-anchored
-witness rows, not promoted predictions.
+`m_H = 125.1995304097179 GeV`, and a selected-class top value
+`m_t = 172.35235532883115 GeV` on the PDG cross-section codomain `Q007TP4`.
+The auxiliary direct-top row `Q007TP` is compare-only. Charged-lepton values
+are target-anchored witness rows, not promoted predictions; issue #201 records
+the current-corpus no-go for the missing determinant-line attachment. The
+weighted-cycle neutrino branch emits
+`(0.017454720257976796, 0.019481987935919015, 0.05307522145074924) eV` on its
+declared branch.
 
 ## Local Unification Surface
 

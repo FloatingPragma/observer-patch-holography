@@ -78,8 +78,12 @@ consistency, and minimality on the same low-energy branch. The photon,
 gluons, and graviton stay massless because they ride on redundancy directions
 the architecture cannot break. The weak pair, the low-energy electromagnetic
 coupling, the Higgs-top surface, a running quark sector, and one
-weighted-cycle neutrino family all arrive inside the same reconstruction.
-Hadrons add the strong-binding problem on top of that particle-level picture.
+weighted-cycle neutrino family all sit inside the same reconstruction, but not
+on one claim tier. The weak pair remains compare-only until endpoint and
+matching gates close; the low-energy electromagnetic value is still a candidate
+trunk; Higgs/top, selected-class quarks, and weighted-cycle neutrinos are scoped
+outputs; charged-lepton absolute masses are a current-corpus no-go; and hadrons
+add the strong-binding problem on top of that particle-level picture.
 
 The particle words here refer to roles explained in Chapters 12-16: color is the
 three-way strong-force bookkeeping, CKM phases describe quark mixing under the
