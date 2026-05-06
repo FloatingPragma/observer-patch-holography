@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">First derivation of the fine-structure constant</title>
+<desc id="desc">A Bluesky social-card diagram of the OPH fine-structure derivation chain from golden-ratio screen balance through the source map, Ward-projected Thomson endpoint, fixed point, and numeric alpha readout.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#07110f"/>
+    <stop offset="54%" stop-color="#0b1117"/>
+    <stop offset="100%" stop-color="#141019"/>
+  </linearGradient>
+  <linearGradient id="titleAccent" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#6ee7d8"/>
+    <stop offset="52%" stop-color="#f4d06f"/>
+    <stop offset="100%" stop-color="#f28ba8"/>
+  </linearGradient>
+  <linearGradient id="readout" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#123b3a"/>
+    <stop offset="100%" stop-color="#1f1727"/>
+  </linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+    <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000000" flood-opacity="0.38"/>
+  </filter>
+  <pattern id="grid" width="54" height="54" patternUnits="userSpaceOnUse">
+    <path d="M 54 0 L 0 0 0 54" fill="none" stroke="#9eeadf" stroke-opacity="0.055" stroke-width="1"/>
+  </pattern>
+  <marker id="arrow" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto" markerUnits="strokeWidth">
+    <path d="M 1 1 L 12 7 L 1 13 Z" fill="#d7f8f3"/>
+  </marker>
+  <style>
+    .sans { font-family: Avenir Next, Helvetica Neue, Helvetica, Arial, sans-serif; }
+    .mono { font-family: IBM Plex Mono, SFMono-Regular, Menlo, Consolas, monospace; }
+    .panel { fill: #0d151b; stroke: #243440; stroke-width: 1.4; }
+    .panel2 { fill: #10171d; stroke: #31404a; stroke-width: 1.2; }
+    .label { fill: #a9b8c6; font-size: 18px; font-weight: 650; letter-spacing: 0; }
+    .eq { fill: #f2fbff; font-size: 24px; font-weight: 650; letter-spacing: 0; }
+    .small { fill: #b7c6d2; font-size: 17px; letter-spacing: 0; }
+    .tiny { fill: #91a4b2; font-size: 14px; letter-spacing: 0; }
+    .accentTeal { fill: #6ee7d8; }
+    .accentGold { fill: #f4d06f; }
+    .accentRose { fill: #f28ba8; }
+  </style>
+</defs>
+
+<rect x="0" y="0" width="1600" height="900" fill="url(#bg)"/>
+<rect x="0" y="0" width="1600" height="900" fill="url(#grid)" opacity="0.72"/>
+<circle cx="170" cy="130" r="210" fill="#6ee7d8" fill-opacity="0.055"/>
+<circle cx="1410" cy="120" r="240" fill="#f28ba8" fill-opacity="0.055"/>
+<circle cx="1320" cy="790" r="260" fill="#f4d06f" fill-opacity="0.048"/>
+
+<rect x="54" y="42" width="1492" height="816" rx="38" fill="#071014" fill-opacity="0.58" stroke="#263642" stroke-width="1.2"/>
+<rect x="86" y="76" width="528" height="7" rx="3.5" fill="url(#titleAccent)"/>
+
+<text x="86" y="126" class="sans" fill="#f7fbff" font-size="44" font-weight="820">First derivation of the</text>
+<text x="86" y="178" class="sans" fill="#f7fbff" font-size="50" font-weight="820">fine-structure constant</text>
+<text x="88" y="216" class="mono" fill="#b9c8d6" font-size="21">Observer Patch Holography | May 6, 2026</text>
+
+<rect x="1136" y="82" width="366" height="98" rx="24" fill="#0e171c" stroke="#344652" stroke-width="1.2"/>
+<text x="1319" y="121" class="sans" fill="#f4d06f" font-size="20" text-anchor="middle" font-weight="760">public readout</text>
+<text x="1319" y="157" class="mono" fill="#f7fbff" font-size="28" text-anchor="middle" font-weight="760">
+  <tspan>&#945;</tspan><tspan baseline-shift="super" font-size="17">-1</tspan><tspan>(0) = 137.035999177(21)</tspan>
+</text>
+
+<g filter="url(#shadow)">
+  <rect x="86" y="268" width="220" height="150" rx="24" class="panel"/>
+  <rect x="346" y="268" width="220" height="150" rx="24" class="panel"/>
+  <rect x="606" y="268" width="270" height="150" rx="24" class="panel"/>
+  <rect x="916" y="268" width="270" height="150" rx="24" class="panel"/>
+  <rect x="1226" y="268" width="278" height="150" rx="24" class="panel"/>
+</g>
+
+<text x="196" y="307" class="sans label" text-anchor="middle">1. entropy balance</text>
+<text x="196" y="356" class="mono" fill="#f2fbff" font-size="21" font-weight="650" text-anchor="middle">&#966; = (1 + &#8730;5) / 2</text>
+<text x="196" y="388" class="sans small" text-anchor="middle">self-similar screen cell</text>
+
+<text x="456" y="307" class="sans label" text-anchor="middle">2. pixel detuning</text>
+<text x="456" y="348" class="mono eq" text-anchor="middle">P = a<tspan baseline-shift="sub" font-size="15">cell</tspan> / l<tspan baseline-shift="sub" font-size="15">P</tspan><tspan baseline-shift="super" font-size="15">2</tspan></text>
+<text x="456" y="384" class="mono small" text-anchor="middle">(P - &#966;) / &#8730;pi</text>
+
+<text x="741" y="307" class="sans label" text-anchor="middle">3. source map</text>
+<text x="741" y="343" class="mono small" text-anchor="middle">P -> M<tspan baseline-shift="sub" font-size="12">U</tspan> -> &#945;<tspan baseline-shift="sub" font-size="12">U</tspan></text>
+<text x="741" y="375" class="mono small" text-anchor="middle">-> &#945;<tspan baseline-shift="sub" font-size="12">i</tspan>(m<tspan baseline-shift="sub" font-size="12">Z</tspan>) -> a<tspan baseline-shift="sub" font-size="12">0</tspan>(P)</text>
+
+<text x="1051" y="307" class="sans label" text-anchor="middle">4. Thomson endpoint</text>
+<text x="1051" y="348" class="mono eq" text-anchor="middle">A<tspan baseline-shift="sub" font-size="15">T</tspan>(P)</text>
+<text x="1051" y="384" class="mono small" text-anchor="middle">= &#945;<tspan baseline-shift="sub" font-size="12">em</tspan><tspan baseline-shift="super" font-size="12">-1</tspan>(0; P)</text>
+
+<text x="1365" y="307" class="sans label" text-anchor="middle">5. fixed point</text>
+<text x="1365" y="348" class="mono eq" text-anchor="middle">P = &#966; + &#8730;pi / A<tspan baseline-shift="sub" font-size="15">T</tspan>(P)</text>
+<text x="1365" y="384" class="sans small" text-anchor="middle">outer and inner readings agree</text>
+
+<path d="M 310 343 L 338 343" stroke="#d7f8f3" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M 570 343 L 598 343" stroke="#d7f8f3" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M 880 343 L 908 343" stroke="#d7f8f3" stroke-width="3" marker-end="url(#arrow)"/>
+<path d="M 1190 343 L 1218 343" stroke="#d7f8f3" stroke-width="3" marker-end="url(#arrow)"/>
+
+<rect x="86" y="462" width="1418" height="244" rx="32" fill="url(#readout)" stroke="#40515a" stroke-width="1.2" filter="url(#shadow)"/>
+<text x="126" y="514" class="sans" fill="#f7fbff" font-size="30" font-weight="780">Numerical fixed-point readout</text>
+<text x="126" y="564" class="mono" fill="#6ee7d8" font-size="31" font-weight="760">
+  <tspan>&#945;</tspan><tspan baseline-shift="super" font-size="18">-1</tspan><tspan>(0) = 137.035999177(21)</tspan>
+</text>
+<text x="126" y="612" class="mono" fill="#f7fbff" font-size="27">
+  <tspan>&#945;(0) = 0.007297352564331425030245795264691683...</tspan>
+</text>
+<text x="126" y="660" class="mono" fill="#f4d06f" font-size="27">
+  <tspan>P = 1.630968209403959324879279847782648941...</tspan>
+</text>
+
+<g>
+  <rect x="1036" y="510" width="410" height="134" rx="24" fill="#0c1419" fill-opacity="0.76" stroke="#4d5c64" stroke-width="1"/>
+  <text x="1066" y="548" class="sans" fill="#b9c8d6" font-size="19" font-weight="720">same cell, two readings</text>
+  <text x="1066" y="584" class="mono" fill="#f7fbff" font-size="18">outside: geometry above &#966;</text>
+  <text x="1066" y="618" class="mono" fill="#f7fbff" font-size="18">inside: electromagnetic width</text>
+</g>
+
+<rect x="86" y="732" width="1418" height="90" rx="22" fill="#0b1218" stroke="#283842" stroke-width="1"/>
+<text x="126" y="762" class="sans" fill="#f28ba8" font-size="18" font-weight="760">ledger</text>
+<text x="126" y="788" class="mono" fill="#91a4b2" font-size="13">
+  <tspan>finite source audit: residual 0.041465861005223389053448715357314044 inverse-alpha units</tspan>
+</text>
+<text x="126" y="810" class="mono" fill="#91a4b2" font-size="13">
+  <tspan>source spectral payload, same-scheme remainder, and interval certificate recorded in papers</tspan>
+</text>
+
+<text x="1504" y="850" class="mono" fill="#8fa1ad" font-size="16" text-anchor="end">floatingpragma.io | assets/fine_structure_derivation_bluesky.svg</text>
+</svg>
