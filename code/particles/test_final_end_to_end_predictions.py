@@ -31,6 +31,8 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
     assert gates[225]["state"] == "closed_material_sync_no_live_publish"
     assert gates[234]["state"] == "closed_provenance_ledger_and_declared_sensitivity_taxonomy"
     assert gates[32]["state"] == "closed_declared_convention_contract"
+    companion = {branch["label"]: branch for branch in payload["companion_open_branches"]}
+    assert companion["Strong CP"]["state"] == "open_theta_qcd_bar_theta_vanishing_gap"
     predictions = {entry["particle_id"]: entry for entry in payload["predictions"]}
     assert predictions["photon"]["value"] == 0.0
     assert predictions["w_boson"]["value"] == 80.377

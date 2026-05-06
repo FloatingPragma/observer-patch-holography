@@ -32,11 +32,14 @@ def test_runtime_surface_preserves_repaired_neutrino_rows_and_canonical_refs(tmp
     exact_fit_surface = json.loads((current_dir / "exact_fits_only.json").read_text(encoding="utf-8"))
     active = payload["surface_state"]["active_local_public_candidates"]
     uv = payload["premise_boundaries"]["uv_bw_internalization"]
+    companion = payload["companion_status_rows"]
     markdown = (current_dir / "RESULTS_STATUS.md").read_text(encoding="utf-8")
     exact_entries = {entry["particle_id"]: entry for entry in exact_nonhadron["entries"]}
     exact_fit_entries = {entry["id"]: entry for entry in exact_fit_surface["entries"]}
 
     assert active["neutrino_repaired_branch"] is True
+    assert companion
+    assert companion[0]["topic_id"] == "strong_cp"
     assert payload["comparison_rows"]
     assert payload["inputs"]["hadron_profile"] == "suppressed"
     assert uv["prelimit_system_artifact"] == "code/particles/runs/uv/bw_realized_transported_cap_local_system.json"
@@ -49,6 +52,7 @@ def test_runtime_surface_preserves_repaired_neutrino_rows_and_canonical_refs(tmp
     assert uv["neutrino_local_bridge_candidate_context"] == (
         "code/particles/runs/neutrino/neutrino_lambda_nu_bridge_candidate.json"
     )
+    assert "## Companion Status" in markdown
     assert "## Neutrino Oscillation Comparison" in markdown
     assert exact_nonhadron["status"] == "exact_output_lane_closed_nonhadron_only"
     assert exact_fit_surface["artifact"] == "oph_exact_fits_only_surface"

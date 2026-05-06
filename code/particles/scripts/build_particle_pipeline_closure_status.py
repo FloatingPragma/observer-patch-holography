@@ -71,6 +71,25 @@ def _display_status(status: str) -> str:
     return status.replace("current_corpus", "corpus_limited")
 
 
+def _companion_status_branches(gap_ledger: dict[str, Any] | None) -> list[dict[str, Any]]:
+    if not gap_ledger:
+        return []
+    branches: list[dict[str, Any]] = []
+    for row in gap_ledger.get("rows", []):
+        if row.get("id") != "qcd.strong-cp-angle":
+            continue
+        branches.append(
+            {
+                "issue": row.get("github_issue"),
+                "label": "Strong CP",
+                "state": row.get("status"),
+                "summary": row.get("current_boundary"),
+                "next_action": row.get("next_action"),
+            }
+        )
+    return branches
+
+
 def _latest_nonhadron_predictions(exact_payload: dict[str, Any] | None) -> dict[str, dict[str, Any]]:
     if not exact_payload:
         return {}
@@ -295,7 +314,17 @@ def build_status() -> dict[str, Any]:
                 "selected_class_theorem_preserved": True,
                 "chrome_workers": "not_needed_until_new_global_public_frame_classifier_source_exists",
             },
+            {
+                "issue": 155,
+                "title": "Strong-CP branch status",
+                "state": "open_theta_qcd_bar_theta_vanishing_gap",
+                "closable_now": False,
+                "local_next_artifact": _rel(GAP_LEDGER),
+                "public_status_only": True,
+                "chrome_workers": "not_needed_until_a_concrete_strong_cp_packet_exists",
+            },
         ],
+        "companion_status_branches": _companion_status_branches(gap_ledger),
         "finalization_gates": {
             "nonhadron_prediction_surface_buildable": True,
             "hadrons_suppressed_by_default": bool(
@@ -337,6 +366,22 @@ def render_markdown(status: dict[str, Any]) -> str:
             f"| #{gate['issue']} | `{_display_status(gate['state'])}` | `{gate['closable_now']}` | "
             f"`{gate['local_next_artifact']}` | {gate['chrome_workers']} |"
         )
+
+    companion_status_branches = status.get("companion_status_branches") or []
+    if companion_status_branches:
+        lines.extend(
+            [
+                "",
+                "## Companion Status Branches",
+                "",
+                "| Topic | State | Current boundary | Next action |",
+                "| --- | --- | --- | --- |",
+            ]
+        )
+        for branch in companion_status_branches:
+            lines.append(
+                f"| {branch['label']} | `{_display_status(branch['state'])}` | {branch['summary']} | {branch['next_action']} |"
+            )
 
     lines.extend(
         [

@@ -112,6 +112,7 @@ def build_payload() -> dict[str, Any]:
         "runtime_inputs": results.get("inputs", {}),
         "finalization_gates": pipeline["finalization_gates"],
         "particle_five_issue_gates": particle_five_gates,
+        "companion_open_branches": list(pipeline.get("companion_status_branches", [])),
         "predictions": predictions,
         "hadron_policy": {
             "predictions_emitted": False,
@@ -160,6 +161,21 @@ def render_markdown(payload: dict[str, Any]) -> str:
             f"| #{gate['issue']} | `{_display_status(gate['state'])}` | `{gate['closable_now']}` | "
             f"`{gate['local_next_artifact']}` | {gate['chrome_workers']} |"
         )
+    companion_open_branches = payload.get("companion_open_branches") or []
+    if companion_open_branches:
+        lines.extend(
+            [
+                "",
+                "## Companion Open Branches",
+                "",
+                "| Topic | State | Current boundary | Next action |",
+                "| --- | --- | --- | --- |",
+            ]
+        )
+        for branch in companion_open_branches:
+            lines.append(
+                f"| {branch['label']} | `{_display_status(branch['state'])}` | {branch['summary']} | {branch['next_action']} |"
+            )
     lines.extend(
         [
             "",

@@ -137,12 +137,14 @@ together with definite Majorana phases in that construction. Taken together,
 the particle picture is larger than a handful of isolated numbers. OPH fixes
 the structural gauge reconstruction, the exact massless carriers, the declared
 Higgs/top surface, the selected-class running quark sextet with Yukawas, and one
-weighted-cycle neutrino family. The late status ledger records the weak
-validation pair, the fine-structure audit trunk, and the charged-lepton
-absolute-mass no-go boundary.
-Hadrons require a separate nonperturbative bound-state step
-because protons, neutrons, and mesons are QCD composites rather than elementary
-particle rows.
+weighted-cycle neutrino family. It keeps the weak pair and fine-structure trunk
+on compare/candidate status until endpoint and matching gates close. The
+selected-class quark theorem does not yet close strong CP: the current corpus
+does not derive $\theta_{\mathrm{QCD}}$, does not yet emit physical
+$\bar\theta$, and does not prove that the physical strong-CP phase vanishes. It
+records a no-go for charged-lepton absolute masses in the available derivation.
+Hadrons require a separate nonperturbative bound-state step because protons,
+neutrons, and mesons are QCD composites rather than elementary particle rows.
 
 Majorana phases are extra neutrino mixing phases that matter if neutrinos are
 their own antiparticles in the relevant sense. QCD is quantum chromodynamics,

@@ -1,6 +1,6 @@
 # Particle Pipeline Closure Status
 
-Generated: `2026-05-06T10:15:20Z`
+Generated: `2026-05-06T12:38:37Z`
 
 Single simplified closure gate for the non-hadron particle pipeline.
 
@@ -28,6 +28,13 @@ Single simplified closure gate for the non-hadron particle pipeline.
 | #117 | `closed_keep_visible_comparison_tension` | `True` | `particles/runs/neutrino/neutrino_lane_closure_contract.json` | not_needed |
 | #198 | `closed_selected_class_scope_visible` | `True` | `particles/runs/flavor/quark_lane_closure_contract.json` | not_needed |
 | #199 | `closed_corpus_limited_global_classification_no_go` | `True` | `particles/runs/flavor/quark_class_uniform_public_frame_descent_obstruction.json` | not_needed_until_new_global_public_frame_classifier_source_exists |
+| #155 | `open_theta_qcd_bar_theta_vanishing_gap` | `False` | `particles/runs/status/particle_derivation_gap_ledger.json` | not_needed_until_a_concrete_strong_cp_packet_exists |
+
+## Companion Status Branches
+
+| Topic | State | Current boundary | Next action |
+| --- | --- | --- | --- |
+| Strong CP | `open_theta_qcd_bar_theta_vanishing_gap` | The selected-class exact quark theorem emits the PDG 2025 running-quark sextet and exact forward Yukawas on the public class f_P, but the current corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes. | Keep strong CP explicit as an open branch. Reopen only for a theorem-grade descent from exact quark/Yukawa phase data to the determinant-line phase contribution together with a theorem fixing the topological-angle contribution and proving the physical strong-CP phase vanishes on the realized branch. |
 
 ## Latest Non-Hadron Predictions
 

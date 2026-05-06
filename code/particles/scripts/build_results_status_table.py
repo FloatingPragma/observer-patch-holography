@@ -1231,6 +1231,22 @@ def build_premise_boundaries() -> Dict[str, Any]:
     }
 
 
+def build_companion_status_rows(ledger_entries: Dict[str, Dict[str, Any]]) -> List[Dict[str, Any]]:
+    strong_cp = ledger_entries.get("continuation.qcd.strong_cp")
+    if strong_cp is None:
+        return []
+    return [
+        {
+            "topic_id": "strong_cp",
+            "topic": str(strong_cp.get("label", "Strong CP")),
+            "status": "open",
+            "summary": str(strong_cp.get("status_summary", "")).strip(),
+            "next_action": str(strong_cp.get("next_action", "")).strip(),
+            "blocked_by": list(strong_cp.get("blocked_by") or []),
+        }
+    ]
+
+
 def render_markdown(
     *,
     rows: List[Dict[str, Any]],
@@ -1244,6 +1260,7 @@ def render_markdown(
     reference_payload: Dict[str, Any],
     surface_state: Dict[str, Any],
     premise_boundaries: Dict[str, Any],
+    companion_status_rows: List[Dict[str, Any]],
     majorana_rows: Optional[List[Dict[str, Any]]] = None,
 ) -> str:
     majorana_rows = majorana_rows or []
@@ -1304,6 +1321,21 @@ def render_markdown(
                 "",
             ]
         )
+
+    if companion_status_rows:
+        lines.extend(
+            [
+                "## Companion Status",
+                "",
+                "| Topic | Status | Current boundary | Next action |",
+                "| --- | --- | --- | --- |",
+            ]
+        )
+        for row in companion_status_rows:
+            lines.append(
+                f"| {row['topic']} | {row['status']} | {row['summary']} | {row['next_action']} |"
+            )
+        lines.append("")
 
     for group in groups_present:
         lines.extend(
@@ -1383,6 +1415,7 @@ def main() -> int:
     )
     comparison_rows = build_neutrino_oscillation_comparison_rows(surface_state)
     majorana_rows = build_majorana_phase_surface_rows(surface_state)
+    companion_status_rows = build_companion_status_rows(ledger_entries)
     generated_utc = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     effective_hadron_profile = _effective_hadron_profile(
         with_hadrons=with_hadrons,
@@ -1402,6 +1435,7 @@ def main() -> int:
         reference_payload=reference_payload,
         surface_state=surface_state,
         premise_boundaries=premise_boundaries,
+        companion_status_rows=companion_status_rows,
     )
 
     markdown_out = pathlib.Path(args.markdown_out)
@@ -1424,6 +1458,7 @@ def main() -> int:
         "premise_boundaries": premise_boundaries,
         "rows": rows,
         "comparison_rows": comparison_rows,
+        "companion_status_rows": companion_status_rows,
         "majorana_rows": majorana_rows,
     }
     forward_out.write_text(json.dumps(forward_payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
@@ -1445,6 +1480,7 @@ def main() -> int:
                 "reference_source": reference_payload["source"],
                 "rows": rows,
                 "comparison_rows": comparison_rows,
+                "companion_status_rows": companion_status_rows,
                 "majorana_rows": majorana_rows,
             },
             indent=2,
