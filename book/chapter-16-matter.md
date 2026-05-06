@@ -98,8 +98,8 @@ $0.041465835978928681137459869870016982\ldots$ beyond the exact one-loop
 continuation. The weak-boson pair and the familiar low-energy electromagnetic
 strength are meant to come from one continuous construction. The W/Z comparison
 rows and the candidate low-energy electromagnetic value occupy different claim
-tiers while the source residual map and RG/matching certificates are work in
-progress.
+tiers while the source residual map and the open
+RG/matching/threshold/scheme packet are work in progress.
 
 The same electroweak core continues into the scalar and companion top values
 
