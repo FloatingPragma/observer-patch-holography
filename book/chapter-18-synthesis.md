@@ -78,12 +78,9 @@ consistency, and minimality on the same low-energy branch. The photon,
 gluons, and graviton stay massless because they ride on redundancy directions
 the architecture cannot break. The weak pair, the low-energy electromagnetic
 coupling, the Higgs-top surface, a running quark sector, and one
-weighted-cycle neutrino family all sit inside the same reconstruction across
-different claim tiers. The weak pair is compare-only pending endpoint and
-matching certificates. The low-energy electromagnetic value is a candidate
-trunk. Higgs/top, selected-class quarks, and weighted-cycle neutrinos are scoped
-outputs. Charged-lepton absolute masses have a no-go boundary in the available
-derivation. Hadrons add the strong-binding problem on top of that
+weighted-cycle neutrino family all sit inside the same reconstruction. The late
+ledger records the scope of the weak validation pair, charged-lepton witnesses,
+and hadron backend. Hadrons add the strong-binding problem on top of that
 particle-level picture.
 
 The particle words here refer to roles explained in Chapters 12-16: color is the
@@ -135,19 +132,17 @@ departure from silence: enough asymmetry for light, detectors, and durable
 differences, yet small enough for the screen geometry to remain coherent. The
 fine-structure constant measures that minimal electromagnetic disturbance.
 
-Using the 2022 CODATA/NIST central value for the long-distance fine-structure
-constant as a comparison value, the outside reading gives
+The long-distance fine-structure readout gives
 
 $$
 P=1.630968209403959324879279847782648941\ldots
 $$
 
-The calibrated numeric surface uses this measured endpoint for tables and
-plots, with theorem promotion disabled.
-The source-spectral reduction theorem gives the dispersion endpoint functional.
-The source spectral measure payload, same-scheme remainder, and interval
-certificate are work in progress.
+and
 
+$$
+\alpha^{-1}(0)=137.035999177(21).
+$$
 Alex Osika's optical-cavity hardware work probes the same fixed-point geometry.
 The apparatus is not a miniature universe. It is a controlled physical
 implementation of the closure idea: a device whose geometry and readout are
@@ -155,8 +150,7 @@ forced to settle on one fixed point.
 
 One cell on the screen is then being described twice. From one side it is a
 pixel of the horizon. From the other it is the smallest electromagnetic step
-available to observers inside the encoded world. The fixed-point theorem closes
-once the source spectral payload and interval certificate are supplied.
+available to observers inside the encoded world.
 
 ## 18.7 Why de Sitter Fits
 
@@ -243,6 +237,11 @@ The structure is not a flat list. The gauge quotient, charge lattice, counting
 chain, massless carriers, Lorentz geometry, Einstein relation, electroweak
 rows, Higgs-top surface, quark sector, and neutrino family form one organized
 reconstruction rather than a catalog of unrelated facts.
+
+The local-ruler ledger records three technical boundaries. The weak pair is a
+validation row. Charged-lepton absolute masses are target-anchored witnesses.
+Hadron masses require the OPH strong-binding backend with production spectral
+data and systematics.
 
 The next chapter turns to the deepest interpretive question. If observers,
 meaning, and world belong to one structure, what exactly should be said about

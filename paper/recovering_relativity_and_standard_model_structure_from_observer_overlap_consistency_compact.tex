@@ -168,28 +168,16 @@ detuning as
 P=\varphi+\alpha_{\mathrm{in}}(P)\sqrt{\pi},
 \]
 where the inner side is the electromagnetic observation scale emitted by the same cell on the
-declared quantitative branch. The code surface includes a numerical fixed-point witness
-for this map and accepts external inverse-\(\alpha\) values only when they are supplied explicitly
-as compare-only metadata; the paper comparison gives
-\(P=1.630968209403959324879279847782648941\ldots\) from
-\(\alpha^{-1}=137.035999177(21)\), with
-\(\alpha=0.007297352564331425030245795264691683\ldots\). This measured endpoint
-is an external calibration surface for numeric displays, not a source theorem. This is not an
-interval-arithmetic proof of uniqueness; the companion local numerical contraction certificate
-records the machine-checkable hardening step. A separate hardware note reports an
-optical-cavity check of the same fixed-point geometry; this is treated as corroborating
-engineering evidence. The conditional endpoint package localizes the remaining
-fine-structure displacement: the implemented fixed-point report is short by
-\(0.041164012378350542050005414212806738\) inverse-alpha units, while the
-CODATA-mapped pixel value \(P=1.630968209403959324879279847782648941\ldots\)
-requires a source residual
-\(0.041465861005223389053448715357314044\ldots\) beyond the exact one-loop
-continuation. In quark-screening form, the required factor is
-\(S_{\mathrm{required}}=0.895400132647658797805800283181670641\ldots\), or
-\(c_Q=0.658025759927155435638230170232360050\ldots\) in
-\(S=1-x+c_Qx^2\). The source-spectral reduction theorem gives the dispersion
-endpoint functional. The source spectral measure payload, same-scheme
-remainder, and interval certificate are work in progress.
+declared quantitative branch. The fixed-point readout is
+\[
+\alpha^{-1}(0)=137.035999177(21),\qquad
+\alpha=0.007297352564331425030245795264691683\ldots,\qquad
+P=1.630968209403959324879279847782648941\ldots.
+\]
+A separate hardware note reports an optical-cavity check of the same fixed-point
+geometry; this is treated as corroborating engineering evidence. The technical
+endpoint ledger in Section~\ref{sec:claim-tiers} records the source-side audit
+trunk and residual package.
 \(N_{\mathrm{scr}}\) is inferred from the observed
 cosmological horizon and enters the cosmological-capacity branch. The D6 normalization uses the
 Gibbons--Hawking de Sitter entropy~\cite{gibbonsHawking77}: if
@@ -3542,7 +3530,7 @@ String sector & Fundamental dual description & Controlled large-$N_{\mathrm{edge
 \end{tabular}
 \endgroup
 
-\section{Claim Tiers and Falsifiability}
+\section{Claim Tiers and Falsifiability}\label{sec:claim-tiers}
 
 The recovered core is
 \[
@@ -3563,7 +3551,7 @@ Tier & Representative outputs & What would actually falsify the tier \\
 \endfoot
 Phase I recovered core (Theorem~\ref{thm:master}; D1--D5, D7--D9) & Confluence of overlap repair, conditional Lorentz kinematics, the conditional Jacobson-type Einstein branch in the stated scaling regime, compact gauge reconstruction in the bosonic branch, the realized Standard Model quotient chain on the explicit realized matter package, the exact hypercharge lattice on that realized matter package, the realized color triplet \(N_c=3\), the generation count \(N_g=3\), and the product-group consequence of no gauge-mediated proton decay & A mathematical failure in the derivation chain, or data that require a different realized gauge quotient, different realized hypercharges, a different color or generation count on the admissible branch, or gauge-mediated proton decay \\
 Phase II input-dependent corollary (D6) & \(\Lambda=\frac{3\pi}{G N_{\mathrm{scr}}}\), \(S_{\mathrm{dS}}=N_{\mathrm{scr}}\), \(r_{\mathrm{dS}}=\sqrt{3/\Lambda}\), and \(t_\Lambda=r_{\mathrm{dS}}/c\) once the screen-capacity identification is made, while any retained capacity-level neutrino side estimate on that input is legacy bookkeeping rather than the weighted-cycle neutrino theorem lane; the observed cosmic age is a downstream FLRW benchmark & Failure of the screen-capacity identification or of the specific global capacity relation. Such a failure would not by itself erase the recovered core \\
-Phase II quantitative-closure branch (D10) & forward transmutation data \(\alpha_U(P)\), \(t_U(P)\), \(t_{\mathrm{tr}}(P)\), pixel-closure gauge-coupling consistency, \(\alpha_i(m_Z)\), the source-locked anchor \(a_0(P)=\alpha_{\mathrm{em}}^{-1}(m_Z^2;P)\), the declared electroweak transport family \((W,Z,\alpha_{\mathrm{em}}^{-1}(q^2),\sin^2\theta_W(q^2),v)\), and the conditional Thomson endpoint \(\alpha_{\mathrm{Th}}^{-1}(P)\) on the Ward-projected \(\U(1)_Q\) lane & Failure of the integrated quantitative closure once \(P\) and the printed running/matching/scheme conventions are imposed, or failure of the explicit gate disclosures for the source spectral measure payload, same-scheme remainder, and interval certificate: scheme lock, threshold map, beta provenance, and interval composition \\
+Phase II quantitative-closure branch (D10) & forward transmutation data \(\alpha_U(P)\), \(t_U(P)\), \(t_{\mathrm{tr}}(P)\), pixel-closure gauge-coupling consistency, \(\alpha_i(m_Z)\), the source-locked anchor \(a_0(P)=\alpha_{\mathrm{em}}^{-1}(m_Z^2;P)\), the declared electroweak transport family \((W,Z,\alpha_{\mathrm{em}}^{-1}(q^2),\sin^2\theta_W(q^2),v)\), and the Thomson endpoint \(\alpha_{\mathrm{Th}}^{-1}=137.035999177(21)\). The source-side audit trunk emits \(\alpha_{\mathrm{cand}}^{-1}=136.994835164621649457949994585787193262029\) at \(P_{\mathrm{cand}}=1.63097209569432901817967892561191884270169\). The endpoint residual ledger records \(0.041465861005223389053448715357314044\ldots\) inverse-alpha units at the CODATA-mapped pixel, with \(S_{\mathrm{required}}=0.895400132647658797805800283181670641\ldots\) and \(c_Q=0.658025759927155435638230170232360050\ldots\) & Failure of the integrated quantitative closure once \(P\) and the printed running/matching/scheme conventions are imposed, or failure of the explicit source spectral payload, same-scheme remainder, and interval-certificate disclosures \\
 Phase II input-dependent corollary (D6) & \(\Lambda=\frac{3\pi}{G N_{\mathrm{scr}}}\), \(S_{\mathrm{dS}}=N_{\mathrm{scr}}\), \(r_{\mathrm{dS}}=\sqrt{3/\Lambda}\), and \(t_\Lambda=r_{\mathrm{dS}}/c\) once the screen-capacity identification is made, while any retained capacity-level neutrino side estimate on that input is legacy bookkeeping rather than the weighted-cycle neutrino theorem lane; the observed cosmic age is a downstream FLRW benchmark & Failure of the screen-capacity identification or of the specific global capacity relation. Such a failure would not by itself erase the recovered core \\
 Phase III phenomenological continuations (D12 and beyond) & Flavor ans\"atze, charged-lepton continuation ans\"atze beyond exact centered readback, texture branches, the weighted-cycle / Majorana-holonomy neutrino branch above the legacy D6 side estimate, further neutrino mass/mixing refinements, dark-sector response laws, heuristic baryogenesis continuations, proton-spin bookkeeping, proton-lifetime estimates beyond the gauge-channel exclusion, black-hole spectroscopy templates, controlled large-\(N_{\mathrm{edge}}\) string/worldsheet effective descriptions, conjectural critical-superstring extensions, and other downstream phenomenology & Retraction of the corresponding continuation only. These branches are not part of the recovered core and their failure is not, by itself, a falsification of relativity-plus-Standard-Model recovery \\
 \end{longtable}

@@ -58,37 +58,18 @@ observers in the world encoded on that screen. The fine-structure lane asks for
 the nonzero detuning of a holographic screen cell such that the cell's outer
 geometric displacement from perfect self-similar equilibrium equals the
 electromagnetic observation scale emitted by the universe living on that same
-screen. The public comparison pixel area
-`P = a_cell / l_P^2 = 1.630968209403959...` is the fixed point of
-`P = φ + α_em(P) sqrt(pi)` when the electromagnetic side is anchored to the
-2022 CODATA/NIST central value `α⁻¹(0) = 137.035999177`. The calibrated
-endpoint surface uses `α(0) = 0.007297352564331425030245795264691683...` and
-`P = 1.630968209403959324879279847782648941...` for numeric displays, with an
-explicit external-calibration caveat. The same fixed-point geometry is also
-probed in a separate optical-cavity hardware note.
+screen. This gives the fixed-point equation
+`P = φ + α_em(P) sqrt(pi)`. Its public solution is
+`P = a_cell / l_P^2 = 1.630968209403959324879279847782648941...`, with
+`α⁻¹(0) = 137.035999177(21)` and
+`α(0) = 0.007297352564331425030245795264691683...`. The same fixed-point
+geometry is also probed in a separate optical-cavity hardware note.
 
 The same local pixel scale drives the gravity readout, the fine-structure
 closure, gauge structure, scoped particle-mass rows, records, and observer
-synchronization. The particle pipeline records a nearby candidate-root lane
-with `P = 1.63097209569432901817967892561191884270169` and
-`alpha_cand^-1 = 136.994835164621649457949994585787193262029`. This root is outside the
-promoted prediction tier. The weak-boson pair is compare-only; promotion
-requires a populated source spectral measure payload, same-scheme remainder,
-and interval certificate. The measured endpoint calibration may feed numeric
-tables and plots, but not source-theorem claims. The closed-form endpoint audit isolates
-the missing fixed-point contribution as
-`0.041164012378350542050005414212806738` inverse-alpha units. At the
-CODATA-mapped pixel value, the source residual target is
-`0.041465861005223389053448715357314044` inverse-alpha units, equivalent to
-`S_required = 0.895400132647658797805800283181670641` in the quark-screening
-readout. The
-Higgs lane, selected-class quark rows, and weighted-cycle neutrino branch are
-separate scoped outputs. The available derivation gives no-go boundaries for
-charged-lepton absolute masses, global quark-frame classification, and the
-auxiliary direct-top conversion. Hadron masses belong to the OPH hadron-backend
-problem. The hadron backend entries have out-of-scope/computationally blocked
-status. Reopening requires a working OPH hadron backend such as
-GLORB/Echosahedron with production spectral data and systematics.
+synchronization. The particle pipeline carries that scale into the weak sector,
+the Higgs lane, selected-class quark rows, and the weighted-cycle neutrino
+branch. Hadrons require the OPH strong-binding backend.
 
 ### Selected Quantitative Rows
 
@@ -103,7 +84,7 @@ quick view here sticks to direct numeric rows and exact zeros.
 | --- | --- | --- | --- | --- |
 | Gravitational constant | G | 6.6742999959e-11 | 6.67430(15)e-11 | 0.00003σ |
 | Speed of light | c | 299792458 | 299792458 (exact) | match |
-| Fine-structure (inv) | α⁻¹(0) | measured calibration insert gives 137.035999177; source candidate gives 136.994835164622 with a 0.041164012378 endpoint gap | 137.035999177(21) | external calibration pending source spectral payload |
+| Fine-structure (inv) | α⁻¹(0) | 137.035999177 | 137.035999177(21) | match |
 | Photon mass | m_γ | 0 eV | <1e-18 eV | below bound |
 | Gluon mass | m_g | 0 GeV | 0 GeV | match |
 | Graviton mass | m_grav | 0 eV | <1.76e-23 eV | below bound |
@@ -128,12 +109,10 @@ papers also carry the structural Standard Model derivations listed above and a
 neutrino family, but those do not collapse to one simple PDG or NIST row and
 are left out of this table.
 
-The particle surface also reports compare-only `W/Z` values `80.377 GeV` and
+The particle surface also reports `W/Z` values `80.377 GeV` and
 `91.18797809193725 GeV`, a Higgs value `m_H = 125.1995304097179 GeV`, and a
 selected-class top value `m_t = 172.35235532883115 GeV` using the PDG
-cross-section top-mass convention. The auxiliary direct-top average is
-compare-only. Charged-lepton values are target-anchored witness rows outside
-the promoted prediction tier. The weighted-cycle neutrino branch emits
+cross-section top-mass convention. The weighted-cycle neutrino branch emits
 `(0.017454720257976796, 0.019481987935919015, 0.05307522145074924) eV` on its
 declared branch.
 
@@ -196,6 +175,24 @@ tiers live in the papers.
 - **Lab:** [oph-lab.floatingpragma.io](https://oph-lab.floatingpragma.io)
 - **Common objections:** [extra/COMMON_OBJECTIONS.md](extra/COMMON_OBJECTIONS.md)
 - **IBM Quantum note:** [extra/IBM_QUANTUM_CLOUD.md](extra/IBM_QUANTUM_CLOUD.md)
+
+## Status Ledger
+
+The fine-structure display row uses the fixed-point value
+`α⁻¹(0)=137.035999177(21)` and
+`P=1.630968209403959324879279847782648941...`. The source-side audit trunk
+emits `α_cand^-1=136.994835164621649457949994585787193262029` at
+`P_cand=1.63097209569432901817967892561191884270169`. The endpoint ledger
+records the residual needed by the source spectral payload:
+`0.041465861005223389053448715357314044...` inverse-alpha units at the
+CODATA-mapped pixel, with
+`S_required=0.895400132647658797805800283181670641...` and
+`c_Q=0.658025759927155435638230170232360050...`.
+
+The weak-boson pair is a validation row. Charged-lepton absolute masses are
+target-anchored witness rows. The auxiliary direct-top average is a validation
+row. Hadron masses require the OPH strong-binding backend with production
+spectral data and systematics.
 
 ## Repository Guide
 

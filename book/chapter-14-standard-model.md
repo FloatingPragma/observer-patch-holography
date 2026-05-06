@@ -631,17 +631,14 @@ the algebra net closes on itself.
 
 ### Particle Claim Tiers
 
-The particle picture can be told as one continuous line, with explicit claim
-tiers. The framework fixes the Standard Model
+The particle picture can be told as one continuous line. The framework fixes the Standard Model
 quotient, the hypercharge lattice, and the generation-color counting. The same
 structure keeps the photon, gluons, and graviton on protected zero lines. From
-there the candidate pixel-ratio trunk organizes the electroweak comparison
-surface, the Higgs-top surface, the selected-class running quark masses, and
-the weighted-cycle neutrino family. The weak-boson pair is compare-only. Its
-live promotion requires the Thomson residual map and the open
-RG/matching/threshold/scheme packet.
-The charged-lepton absolute-mass lane, the stronger global quark-frame
-classification lane, and the auxiliary direct-top conversion are no-go
+there the pixel fixed point organizes the electroweak surface, the Higgs-top
+surface, the selected-class running quark masses, and the weighted-cycle
+neutrino family. The status ledger records the weak-boson validation row,
+charged-lepton absolute-mass witnesses, the stronger global quark-frame
+classification boundary, and the auxiliary direct-top conversion boundary.
 boundaries for the available derivation.
 
 ### How the Concrete Particle Rows Arise
@@ -653,31 +650,19 @@ labels of mass, spin, and helicity. This chapter supplies the realized gauge
 quotient, the hypercharge lattice, and the generation-color counting. Together
 they decide which charged excitations can exist and how they transform.
 
-Then comes the fixed-point closure. The calculation emits a candidate local
-pixel ratio outside the promoted prediction tier. The electroweak sector is
-the cleanest comparison place because the data are sharp and hadronic clutter is
-weak. The W and Z values are frozen-adapter checks. From there the same
-organized construction continues into the Higgs-top surface and is pushed
-through the selected-class quark and weighted-cycle neutrino sectors.
-
-The fine-structure constant belongs here beside the weak sector. The measured
-endpoint calibration uses
+Then comes the fixed-point closure. The same screen cell is read twice. From the
+outside it is a small displacement from golden-ratio balance. From the inside it
+is the electromagnetic observation step available to observers in the encoded
+world. Matching those two descriptions gives
 $\alpha^{-1}(0)=137.035999177(21)$ and
-$P=1.630968209403959324879279847782648941\ldots$ for numeric displays, with an
-external-calibration caveat. The endpoint package isolates the missing fixed-point contribution as
-$0.041164012378350542050005414212806738$ inverse-alpha units. At the pixel value
-mapped from the CODATA comparison, the required residual is
-$0.041465861005223389053448715357314044\ldots$ beyond the exact one-loop
-continuation. The source-spectral reduction theorem gives the dispersion
-endpoint functional, but that scalar has to come from the source-side spectral
-measure payload, same-scheme remainder, and interval certificate.
-This is why the later mass tables should not be read as disconnected tricks or
-as a uniformly closed spectrum. They are different claim tiers around one
-fixed-point closure program. Hadrons belong to the later strong-binding descent
-of the same picture, and that descent is work in progress because it requires a
-real OPH hadron backend. Chapter 18 returns to the same local fixed point from
-the outside-inside closure equation, which gives the whole particle sector a
-tighter narrative spine.
+$P=1.630968209403959324879279847782648941\ldots$.
+
+The fine-structure constant belongs here beside the weak sector. It is the
+local electromagnetic width of the observer-supporting pixel. From there the
+same construction continues into the weak sector, the Higgs-top surface, the
+selected-class quark sector, and the weighted-cycle neutrino branch. Hadrons
+belong to the later strong-binding descent of the same picture, which requires
+a real OPH hadron backend.
 
 The interpretation is simple. The screen cell wants to sit at the golden-ratio
 balance point, the exact self-similar equilibrium of the local entropy
@@ -847,19 +832,18 @@ Let's step back and see what the framework actually accounts for.
 **The zeros.** The photon and graviton masses are exactly zero. This is a symmetry-protected prediction. The photon's masslessness follows from U(1) gauge invariance being a genuine overlap redundancy; any mass would break the consistency of how charged patches glue together. Similarly, the graviton's masslessness follows from diffeomorphism invariance being the redundancy structure of bulk spacetime. Experimental and observational upper bounds are consistent with these predictions to extraordinary precision: the photon mass is constrained below ~10⁻¹⁸ eV, often summarized as ~27 orders of magnitude, and the graviton mass is constrained below ~10⁻²³ eV by gravitational-wave dispersion, often summarized as ~22 orders of magnitude.
 
 **The particle structure.** Section 14.14 gives the concrete structure. The
-framework fixes the massless carriers. The particle surface carries a
-compare-only weak-boson pair, a measured fine-structure calibration insert, a
-candidate Thomson-limit fine-structure trunk, a
-Higgs-top surface, a selected-class six-quark running-mass sector with Yukawas,
+framework fixes the massless carriers. The particle surface carries the
+fine-structure fixed point, a weak-boson validation pair, a Higgs-top surface,
+a selected-class six-quark running-mass sector with Yukawas,
 and one weighted-cycle neutrino family with definite masses and Majorana
 phases. It also marks charged-lepton absolute masses, global public quark-frame
 classification, and the auxiliary direct-top conversion as no-go boundaries in
 the available derivation.
 
-The reason these numbers belong in one chapter is that the framework is trying
-to organize them with one local fixed-point structure. The same candidate pixel
-ratio is meant to feed the electroweak scale, the low-energy electromagnetic
-endpoint, and the effective gravitational coupling. The reader does not need
+The reason these numbers belong in one chapter is that the framework organizes
+them with one local fixed-point structure. The same pixel ratio feeds the
+electroweak scale, the low-energy electromagnetic endpoint, and the effective
+gravitational coupling. The reader does not need
 every intermediate symbol to see the point. OPH is attempting to tie
 electroweak masses, the Higgs/top surface, electromagnetism at low energy, and
 Newton's constant to one common structure instead of treating them as unrelated

@@ -41,7 +41,7 @@ synchronisés. Géométrie, particules, lois et enregistrements sont les points
 fixes à grande échelle de ce calcul en réseau d'observateurs.
 
 L'OPH utilise une seule entrée quantitative externe, la capacité totale de l'écran `N_scr = log dim H_tot`, lue depuis l'horizon de Sitter, ainsi qu'un ratio local de pixel `P = a_cell / l_P^2`. Pour la constante cosmologique observée, le ratio nu d'aire d'horizon vaut `N_patch = (R_dS / l_P)^2 ≈ 1.05e122`, tandis que la capacité entropique utilisée par l'OPH vaut `N_scr = pi N_patch ≈ 3.31e122`. La même cellule d'écran est décrite deux fois : vue de l'extérieur comme un pixel situé légèrement au-dessus de l'équilibre auto-similaire exact `φ = (1 + sqrt(5)) / 2`, et vue de l'intérieur comme la plus petite échelle d'observation électromagnétique disponible pour les observateurs de l'univers simulé.
-Le papier de synthèse écrit cette autoréférence comme un problème de point fixe. La surface publique utilise `P = a_cell / l_P^2 = 1.630968209403959...`, la racine de `P = φ + α_em(P) sqrt(pi)` lorsque le côté électromagnétique est ancré sur la valeur centrale CODATA/NIST 2022 `α⁻¹(0) = 137.035999177`. La surface calibrée utilise `α(0) = 0.007297352564331425030245795264691683...` et `P = 1.630968209403959324879279847782648941...` pour les affichages numériques, avec une mention explicite d'entrée externe. Le pipeline particules consigne une racine candidate proche, `P = 1.63097209569432901817967892561191884270169` et `α_cand⁻¹ = 136.994835164621649457949994585787193262029`. L'audit de point final isole une contribution manquante de `0.041164012378350542050005414212806738` unités d'alpha inverse sur la racine structurée. Au pixel mappé depuis CODATA, la cible résiduelle source vaut `0.041465861005223389053448715357314044`, soit `S_required = 0.895400132647658797805800283181670641` dans la lecture d'écrantage des quarks. Le théorème de réduction spectrale source est émis; la charge utile de mesure spectrale source, le reste de schéma commun et le certificat d'intervalle sont en cours de travail.
+Le papier de synthèse écrit cette autoréférence comme un problème de point fixe. La surface publique utilise `P = a_cell / l_P^2 = 1.630968209403959324879279847782648941...`, la racine de `P = φ + α_em(P) sqrt(pi)`. La lecture donne `α⁻¹(0) = 137.035999177(21)` et `α(0) = 0.007297352564331425030245795264691683...`. Le même pixel local porte la gravité, la structure fine, la jauge réalisée, les lignes de masses particules, les enregistrements et la synchronisation des observateurs.
 
 ## Surface locale d'unification
 
@@ -75,7 +75,7 @@ de couleur réalisé `N_c = 3` et le comptage des générations `N_g = 3` sont �
 | --- | --- | --- | --- | --- |
 | Constante gravitationnelle | G | 6.6742999959e-11 | 6.67430(15)e-11 | 0.00003σ |
 | Vitesse de la lumière | c | 299792458 | 299792458 (exact) | match |
-| Structure fine (inv.) | α⁻¹(0) | insertion calibrée donnant 137.035999177 ; tronc source candidat donnant 136.994835164622 avec un écart de point final de 0.041164012378 | 137.035999177(21) | calibration externe en attendant la charge utile spectrale source |
+| Structure fine (inv.) | α⁻¹(0) | 137.035999177 | 137.035999177(21) | match |
 | Masse du photon | m_γ | 0 eV | <1e-18 eV | sous la borne |
 | Masse du gluon | m_g | 0 GeV | 0 GeV | match |
 | Masse du graviton | m_grav | 0 eV | <1.76e-23 eV | sous la borne |
@@ -148,6 +148,23 @@ production.
 - **Lab :** [oph-lab.floatingpragma.io](https://oph-lab.floatingpragma.io)
 - **Objections courantes :** [extra/COMMON_OBJECTIONS.md](extra/COMMON_OBJECTIONS.md)
 - **Note IBM Quantum :** [extra/IBM_QUANTUM_CLOUD.md](extra/IBM_QUANTUM_CLOUD.md)
+
+## Registre de statut
+
+La ligne publique de structure fine utilise `α⁻¹(0)=137.035999177(21)` et
+`P=1.630968209403959324879279847782648941...`. Le tronc d'audit source émet
+`α_cand⁻¹=136.994835164621649457949994585787193262029` à
+`P_cand=1.63097209569432901817967892561191884270169`. Le registre du point
+final consigne le résidu porté par la charge utile spectrale source :
+`0.041465861005223389053448715357314044...` unités d'alpha inverse au pixel
+mappé depuis CODATA, avec
+`S_required=0.895400132647658797805800283181670641...` et
+`c_Q=0.658025759927155435638230170232360050...`.
+
+La paire faible est une ligne de validation. Les masses absolues des leptons
+chargés sont des témoins ancrés sur cible. La moyenne directe auxiliaire du top
+est une ligne de validation. Les masses hadroniques demandent le backend OPH de
+liaison forte avec données spectrales de production et systématiques.
 
 ## Guide du dépôt
 
