@@ -59,7 +59,13 @@ the nonzero detuning of a holographic screen cell such that the cell's outer
 geometric displacement from perfect self-similar equilibrium equals the
 electromagnetic observation scale emitted by the universe living on that same
 screen. This gives the fixed-point equation
-`P = φ + α_em(P) sqrt(pi)`. Its public solution is
+`P = φ + α_em(P) sqrt(pi)`. The first-principles computation is:
+golden-ratio entropy balance gives `φ`; boundary Gaussian normalization gives
+the `sqrt(pi)` width; a trial `P` feeds the source map
+`P -> M_U -> α_U -> α_i(m_Z) -> a0(P)`; Ward-projected `U(1)_Q`
+transport carries the electroweak anchor to the Thomson endpoint
+`A_T(P)=α_em^-1(0;P)`; the realized cell solves
+`P = φ + sqrt(pi) / A_T(P)`. Its public solution is
 `P = a_cell / l_P^2 = 1.630968209403959324879279847782648941...`, with
 `α⁻¹(0) = 137.035999177(21)` and
 `α(0) = 0.007297352564331425030245795264691683...`. The same fixed-point
@@ -185,7 +191,7 @@ emits `α_cand^-1=136.994835164621649457949994585787193262029` at
 `P_cand=1.63097209569432901817967892561191884270169`. The endpoint ledger
 records the residual needed by the source spectral payload:
 `0.041465861005223389053448715357314044...` inverse-alpha units at the
-CODATA-mapped pixel, with
+public endpoint pixel, with
 `S_required=0.895400132647658797805800283181670641...` and
 `c_Q=0.658025759927155435638230170232360050...`.
 

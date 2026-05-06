@@ -75,11 +75,13 @@ observation strength available to observers. The closure condition is
 $$P=\varphi+\alpha_{\mathrm{in}}(P)\sqrt{\pi}.$$
 
 Here $\alpha_{\mathrm{in}}(P)$ is the inside electromagnetic observation
-strength. The fixed point gives
+strength. The source-side computation sends the same trial pixel through the
+unification scale, running gauge couplings, electroweak anchor, and
+Ward-projected electromagnetic endpoint. The fixed point gives
 
 $$P=1.630968209403959324879279847782648941\ldots.$$
 
-and
+with
 
 $$\alpha^{-1}(0)=137.035999177(21).$$
 

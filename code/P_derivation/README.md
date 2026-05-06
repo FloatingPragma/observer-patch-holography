@@ -22,14 +22,23 @@ For a trial pixel constant `P`, the code reproduces the paper D10 forward map:
 4. Build the source-locked electroweak anchor
    `a0(P) = alpha_em^-1(m_Z^2; P)`
 
-The closure step inserts that paper-side `P -> alpha` map into Alex's
+The closure step inserts that paper-side `P -> alpha` map into the outer
 equation:
 
 `P = phi + alpha * sqrt(pi)`
 
-If an external inverse-alpha value is supplied explicitly, the same outer
-equation reports the corresponding compare-only pixel ratio. The solver has no
-default reference constant.
+The first-principles chain is:
+
+```text
+phi from golden-ratio entropy balance
+sqrt(pi) from boundary Gaussian normalization
+P -> M_U(P) -> alpha_U(P) -> alpha_i(m_Z;P) -> a0(P)
+a0(P) -> A_T(P) by Ward-projected U(1)_Q Thomson transport
+P = phi + sqrt(pi) / A_T(P)
+alpha(0) = 1 / A_T(P)
+```
+
+The solver has no default reference constant.
 
 `emit_p_closure_trunk.py` is the compressed five-equation trunk emitter. It
 packages the code path as:
@@ -113,17 +122,18 @@ The important claim-boundary caveat is:
 ## Full derivation status
 
 `FULL_DERIVATION.md` records the complete derivation contract and the endpoint
-gap. `THOMSON_TRANSPORT_THEOREMS.md` records the theorem suite and its
-promotion rule. The short version is:
+audit packet. `THOMSON_TRANSPORT_THEOREMS.md` records the theorem suite and its
+source-payload rule. The short version is:
 
 - the D10 source map and the outer fixed-point witness are implemented
+- the public fixed-point readout is
+  `alpha^-1(0) = 137.035999177(21)` and
+  `P=1.630968209403959324879279847782648941...`
 - the default exact one-loop readout gives
   `alpha^-1 = 136.994835164621649457949994585787...`
-- the 2022 CODATA/NIST compare-only value is
-  `alpha^-1(0) = 137.035999177(21)`
 - the missing term is a source-only Thomson transport contribution of
   `0.0411640123783505420500054142128...` in inverse-alpha units
-- at the CODATA-mapped pixel point
+- at the public endpoint pixel
   `P=1.630968209403959324879279847782648941...`, the endpoint package gives
   `a0(P)=128.307965473286248209961108741756716187...`,
   `Delta_required(P)=8.728033703713751790038891258243283813...`, and
@@ -224,7 +234,7 @@ stronger exact one-loop continuation profile, pass:
 python3 emit_p_closure_trunk.py --mode thomson_structured_running --precision 40 --su2-cutoff 120 --su3-cutoff 90 --output runtime/p_closure_trunk_exact.json
 ```
 
-To include an external inverse-alpha value as compare-only metadata, pass it
+To include a reference inverse-alpha value in an audit report, pass it
 explicitly:
 
 ```bash
@@ -261,8 +271,8 @@ The witness JSON additionally records:
 
 - `claim_status = numerical_witness_not_interval_certificate`
 - the sampled local slopes of the closure map
-- any explicitly supplied external inverse-alpha reference
-- the pixel ratio implied by that external value
+- any explicitly supplied reference inverse-alpha value
+- the pixel ratio implied by that reference value
 
 The certificate JSON additionally records:
 

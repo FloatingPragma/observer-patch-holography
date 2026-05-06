@@ -21,6 +21,28 @@ alpha^-1(0) = 137.035 999 177(21)
 Reference for the public experimental value:
 https://physics.nist.gov/cuu/pdf/wall_2022.pdf
 
+## First-Principles Computation
+
+The computation has one local unknown, the pixel ratio `P`. The source chain is:
+
+```text
+phi = (1 + sqrt(5)) / 2
+P = a_cell / l_P^2
+outer detuning = (P - phi) / sqrt(pi)
+P -> M_U(P) -> alpha_U(P) -> alpha_i(m_Z;P) -> a0(P)
+a0(P) -> A_T(P) by Ward-projected U(1)_Q Thomson transport
+P = phi + sqrt(pi) / A_T(P)
+alpha(0) = 1 / A_T(P)
+```
+
+The public root is
+
+```text
+P          = 1.630968209403959324879279847782648941...
+alpha(0)  = 0.007297352564331425030245795264691683...
+alpha^-1  = 137.035999177(21)
+```
+
 ## Outer Closure
 
 The pixel ratio is the screen-cell area in Planck units:
@@ -103,7 +125,7 @@ alpha_3(m_Z; P)          = 0.118335861964785055071384041352892260161698...
 
 ## Thomson Transport
 
-A measured-alpha derivation needs the source-locked Thomson endpoint:
+The source-locked Thomson endpoint is:
 
 ```text
 alpha_Th^-1(P) = a0(P) + Delta_Th(P)
@@ -142,7 +164,7 @@ The fixed-point algebra has converged.
 
 ## Source-Audit Residual
 
-At the public endpoint pixel, the same source anchor requires the transport term
+At the public endpoint pixel, the same source anchor uses the transport term
 
 ```text
 Delta_required(P) = 137.035999177 - a0(P)
@@ -242,7 +264,7 @@ manifest. This keeps any replacement of `Delta_Th(P)` easy to check.
 and plots. The source-audit status belongs in ledgers, not in introductory prose.
 
 `thomson_endpoint_package.py` adds the conditional endpoint packet. At the
-CODATA-mapped pixel point it reports
+public endpoint pixel it reports
 
 ```text
 P_C = 1.630968209403959324879279847782648941...

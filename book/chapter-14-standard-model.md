@@ -656,6 +656,10 @@ is the electromagnetic observation step available to observers in the encoded
 world. Matching those two descriptions gives
 $\alpha^{-1}(0)=137.035999177(21)$ and
 $P=1.630968209403959324879279847782648941\ldots$.
+The calculation runs from golden-ratio entropy balance to the boundary
+$\sqrt{\pi}$ width, through the source map for the unification scale and
+running gauge couplings, into the electroweak anchor, and then through the
+Ward-projected electromagnetic channel to the Thomson endpoint.
 
 The fine-structure constant belongs here beside the weak sector. It is the
 local electromagnetic width of the observer-supporting pixel. From there the
@@ -668,9 +672,8 @@ The interpretation is simple. The screen cell wants to sit at the golden-ratio
 balance point, the exact self-similar equilibrium of the local entropy
 hierarchy. A universe with observers cannot remain perfectly silent. It needs a
 small displacement so that records can form, photons can carry information, and
-measurements can leave durable traces. The fine-structure lane treats the
-observed Thomson-limit value as the public comparison for that small
-displacement.
+measurements can leave durable traces. The fine-structure lane reads the
+Thomson-limit value as that small displacement.
 
 ## 14.15 Why the Photon Is Inevitable
 

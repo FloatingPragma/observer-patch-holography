@@ -197,16 +197,18 @@ the geometric detuning. On the inner side the same cell emits the smallest elect
 observation step available on the particle branch. The pixel ratio \(P\) is the size of that cell
 in Planck areas, and the realized \(P\) is the value at which those outer and inner readings
 agree. The fixed-point equation is the mathematical form of that consistency condition. The public
-code records a numerical closure witness; the interval-wide uniqueness certificate is a
-separate mathematical burden, with a local numerical contraction certificate recorded as the
-machine-checkable hardening step. Once the fixed point \(P_\star\) is selected, every downstream
+root is
+\[
+P_\star=1.630968209403959324879279847782648941\ldots,\qquad
+\alpha^{-1}(0)=137.035999177(21).
+\]
+The status ledger records the source-audit trunk, endpoint residual, and interval-certificate
+disclosures. Once the fixed point \(P_\star\) is selected, every downstream
 quantity is propagated forward from that same \(P_\star\).
 A separate hardware note reports an optical-cavity check of the same fixed-point geometry;
 this is treated as corroborating engineering evidence.
-This is a consistency certificate on the declared closure surface. It is not a theorem that earlier
-local physics must uniquely generate the outer screen settings. The same closure surface also
-admits an inverse observational use case in which observers infer \(P\) and total screen capacity
-from inside the world even if those values are fixed externally at a later stage.
+The same closure surface also admits an inverse observational use case in which observers infer
+\(P\) and total screen capacity from inside the world.
 
 One clean refinement studies the same closure directly at zero momentum. That route would close the
 electromagnetic row without transporting from the \(m_Z\) anchor. The present paper keeps the

@@ -121,6 +121,19 @@ $$
 P=\phi+\alpha_{\mathrm{in}}(P)\sqrt{\pi}.
 $$
 
+The computation has a definite order. The golden-ratio balance gives the
+reference value $\phi$. The boundary Gaussian normalization gives the
+$\sqrt{\pi}$ width. A trial $P$ is sent through the source map for the
+unification scale, the running gauge couplings, and the electroweak anchor. The
+unbroken electromagnetic channel is then transported to the long-distance
+Thomson endpoint. The fixed point is the value where
+
+$$
+P=\phi+\frac{\sqrt{\pi}}{A_T(P)}
+$$
+
+with $A_T(P)=\alpha_{\mathrm{em}}^{-1}(0;P)$.
+
 This is the cleanest way to say what the fine-structure constant means in OPH.
 It is the nonzero detuning of a holographic screen cell. From the outside, the
 cell is displaced from perfect self-similar equilibrium. From the inside, the

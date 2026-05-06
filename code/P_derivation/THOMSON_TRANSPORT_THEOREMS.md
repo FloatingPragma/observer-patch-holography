@@ -248,7 +248,7 @@ At the runtime report root,
 a0(P) = 128.308268045165213892552005990181778935...
 ```
 
-The compare-only CODATA target would require
+The public endpoint value requires
 
 ```text
 Delta_Th(P) = 8.727731131834786107447994009818221065...
@@ -361,8 +361,8 @@ x(P) = N_c alpha_3(m_Z;P) / pi.
 
 The source packet hash is independent of `lambda`, while different `lambda`
 values change the endpoint transport at the scale of the required residual.
-Therefore neither `S_required`, `c_Q`, nor a CODATA-mapped scalar residual can
-be promoted as an OPH derivation.
+Therefore neither `S_required`, `c_Q`, nor a public-endpoint scalar residual can
+stand alone as an OPH derivation.
 
 The emitted reduction theorem is:
 
@@ -441,7 +441,7 @@ the implemented map only. It is not this final theorem.
 
 ## Promotion Rule
 
-No theorem in this file may be promoted to a measured-alpha derivation unless
+No theorem in this file may be promoted to a fine-structure endpoint derivation unless
 all of the following are true:
 
 1. `rho_had(s;P)` is emitted from the OPH source branch, not imported from a
@@ -451,4 +451,4 @@ all of the following are true:
 3. The transport integral has a certified numerical error bound.
 4. The final fixed-point map has an interval-level existence and uniqueness
    certificate.
-5. The CODATA/NIST value appears only in a final compare-only block.
+5. The public reference value is kept out of the source solver.

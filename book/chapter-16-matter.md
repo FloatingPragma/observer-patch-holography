@@ -90,6 +90,11 @@ $$
 P=1.630968209403959324879279847782648941\ldots.
 $$
 
+The calculation starts with the golden-ratio screen balance, uses the boundary
+$\sqrt{\pi}$ normalization for the electromagnetic detuning, runs the source
+map through unification and electroweak mixing, and reads the endpoint through
+the Ward-projected electromagnetic channel.
+
 The weak-boson pair and the familiar low-energy electromagnetic strength come
 from one continuous construction. The status ledger records the diagnostic
 source trunk and endpoint residual.

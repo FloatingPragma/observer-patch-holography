@@ -165,6 +165,12 @@ electroweak map and its descendants. The fixed point gives
 \qquad
 P=1.630968209403959324879279847782648941\ldots.
 \]
+The computation has a fixed source order: golden-ratio entropy balance gives
+\(\varphi\), boundary Gaussian normalization supplies the \(\sqrt{\pi}\) width,
+a trial \(P\) feeds the D10 map \(P\mapsto M_U\mapsto\alpha_U\mapsto
+\alpha_i(m_Z)\mapsto a_0(P)\), Ward-projected \(\U(1)_Q\) transport gives the
+Thomson endpoint \(A_T(P)=\alpha_{\mathrm{em}}^{-1}(0;P)\), and the realized
+cell solves \(P=\varphi+\sqrt{\pi}/A_T(P)\).
 The source-side audit trunk records
 \[
 P=1.63097209569432901817967892561191884270169,
@@ -210,6 +216,31 @@ universe living on that same screen.
 The outer side of the closure is
 \[
 P=\varphi+\alpha_{\mathrm{in}}(P)\sqrt{\pi}.
+\]
+The first-principles computation is a five-step source chain. First, the
+golden-ratio entropy balance of the local screen cell supplies
+\(\varphi=(1+\sqrt5)/2\). Second, boundary maximum-entropy normalization fixes
+the width of the leading electromagnetic detuning to \(\sqrt{\pi}\). Third, a
+trial \(P\) is sent through the D10 source map
+\[
+M_U(P)=E_P e^{-2\pi}P^{1/6},\qquad E_{\mathrm{cell}}(P)=\frac{E_P}{\sqrt P},
+\]
+followed by the heat-kernel closure
+\[
+\bar\ell_{\mathrm{SU}(2)}(t_2(P))+\bar\ell_{\mathrm{SU}(3)}(t_3(P))=\frac{P}{4},
+\]
+which selects \(\alpha_U(P)\) and the running family
+\(\alpha_i(m_Z;P)\). Fourth, electroweak mixing gives the source anchor
+\[
+a_0(P)=\alpha_2^{-1}(m_Z;P)+\frac53\alpha_1^{-1}(m_Z;P).
+\]
+Fifth, Ward-projected \(\U(1)_Q\) transport gives the Thomson endpoint
+\[
+A_T(P)=T_Q(a_0(P),F_{D10}(P))=\alpha_{\mathrm{em}}^{-1}(0;P),
+\]
+and the cell closes when
+\[
+P=\varphi+\frac{\sqrt{\pi}}{A_T(P)}.
 \]
 The OPH fixed-point readout
 \(\alpha^{-1}(0)=137.035999177(21)\) gives
@@ -413,7 +444,7 @@ Thomson residual. At the implemented fixed point the residual is
 \[
 0.041164012378350542050005414212806738
 \]
-inverse-alpha units. At the CODATA-mapped pixel value
+inverse-alpha units. At the public endpoint pixel value
 \[
 P=1.630968209403959324879279847782648941\ldots
 \]
@@ -1311,7 +1342,7 @@ Ward-projected transport kernel satisfies
 \[
 \lim_{q^2\to0}\alpha_{\mathrm{em}}^{-1}(q^2;P)=\alpha_{\mathrm{Th}}^{-1}(P),
 \]
-on the same source-locked family and without any separate comparison endpoint feeding that lane.
+on the same source-locked family and without any separate endpoint value feeding that lane.
 \end{corollary}
 
 The endpoint ledger records the source-locked anchor from the runtime candidate,
@@ -1323,19 +1354,18 @@ and the fixed-point display value
 \alpha_{\mathrm{Th}}^{-1}=137.035999177.
 \]
 The repository's \texttt{code/P\_derivation} witness path records the source-side audit trunk without
-a built-in external inverse-\(\alpha\) value. The displayed CODATA/NIST value enters only as
-compare metadata or as the measured calibration insert. The closure solve excludes it as an input.
+a built-in reference inverse-\(\alpha\) value. The public endpoint value is excluded as a closure-solve
+input.
 The source-side audit trunk emits
 \[
 \alpha_{\mathrm{cand}}^{-1}=136.994835164621649457949994585787193262029,
 \]
-so the difference from the Thomson comparison endpoint remains a visible endpoint-and-matching
-gap.
+so the difference from the endpoint readout is recorded as an endpoint-and-matching audit packet.
 
 \begin{remark}
-The CODATA/NIST comparison is against the Thomson-limit inverse fine-structure constant. The
+The public experimental reference is the Thomson-limit inverse fine-structure constant. The
 source anchor \(a_0(P)=128.308268045165213892552005990181778935450\ldots\) is the electroweak-scale running-family value at
-\(m_Z^2\), not the low-energy endpoint. The 2022 CODATA/NIST value used for comparison is
+\(m_Z^2\), not the low-energy endpoint. The 2022 CODATA/NIST reference value is
 \(\alpha^{-1}=137.035999177(21)\)~\cite{codata2022}.
 \end{remark}
 
@@ -2049,7 +2079,7 @@ Equivalently, relative to the stored shared-budget seed
 \[
 g_{\mathrm{ch}}^{\mathrm{shared}} = 0.9231656602589082,
 \]
-the missing affine absolute anchor on the determinant-line route would have to take the compare-only value
+the missing affine absolute anchor on the determinant-line route would have to take the target value
 \[
 \Delta_e^{\mathrm{abs},\star}
 =

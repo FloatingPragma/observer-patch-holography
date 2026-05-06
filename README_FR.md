@@ -41,7 +41,7 @@ synchronisés. Géométrie, particules, lois et enregistrements sont les points
 fixes à grande échelle de ce calcul en réseau d'observateurs.
 
 L'OPH utilise une seule entrée quantitative externe, la capacité totale de l'écran `N_scr = log dim H_tot`, lue depuis l'horizon de Sitter, ainsi qu'un ratio local de pixel `P = a_cell / l_P^2`. Pour la constante cosmologique observée, le ratio nu d'aire d'horizon vaut `N_patch = (R_dS / l_P)^2 ≈ 1.05e122`, tandis que la capacité entropique utilisée par l'OPH vaut `N_scr = pi N_patch ≈ 3.31e122`. La même cellule d'écran est décrite deux fois : vue de l'extérieur comme un pixel situé légèrement au-dessus de l'équilibre auto-similaire exact `φ = (1 + sqrt(5)) / 2`, et vue de l'intérieur comme la plus petite échelle d'observation électromagnétique disponible pour les observateurs de l'univers simulé.
-Le papier de synthèse écrit cette autoréférence comme un problème de point fixe. La surface publique utilise `P = a_cell / l_P^2 = 1.630968209403959324879279847782648941...`, la racine de `P = φ + α_em(P) sqrt(pi)`. La lecture donne `α⁻¹(0) = 137.035999177(21)` et `α(0) = 0.007297352564331425030245795264691683...`. Le même pixel local porte la gravité, la structure fine, la jauge réalisée, les lignes de masses particules, les enregistrements et la synchronisation des observateurs.
+Le papier de synthèse écrit cette autoréférence comme un problème de point fixe. Le calcul de structure fine part de l'équilibre entropique au nombre d'or `φ`, utilise la normalisation gaussienne de bord `sqrt(pi)`, envoie un essai de `P` dans la chaîne source `P -> M_U -> α_U -> α_i(m_Z) -> a0(P)`, puis transporte l'ancre électrofaible par la voie Ward-projetée `U(1)_Q` jusqu'au point de Thomson `A_T(P)=α_em^-1(0;P)`. La cellule réalisée résout `P = φ + sqrt(pi) / A_T(P)`. La surface publique utilise `P = a_cell / l_P^2 = 1.630968209403959324879279847782648941...`. La lecture donne `α⁻¹(0) = 137.035999177(21)` et `α(0) = 0.007297352564331425030245795264691683...`. Le même pixel local porte la gravité, la structure fine, la jauge réalisée, les lignes de masses particules, les enregistrements et la synchronisation des observateurs.
 
 ## Surface locale d'unification
 
@@ -157,7 +157,7 @@ La ligne publique de structure fine utilise `α⁻¹(0)=137.035999177(21)` et
 `P_cand=1.63097209569432901817967892561191884270169`. Le registre du point
 final consigne le résidu porté par la charge utile spectrale source :
 `0.041465861005223389053448715357314044...` unités d'alpha inverse au pixel
-mappé depuis CODATA, avec
+public du point final, avec
 `S_required=0.895400132647658797805800283181670641...` et
 `c_Q=0.658025759927155435638230170232360050...`.
 
