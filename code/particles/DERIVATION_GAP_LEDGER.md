@@ -1,6 +1,6 @@
 # Particle Derivation Gap Ledger
 
-Generated: `2026-05-06T05:13:06Z`
+Generated: `2026-05-06T07:44:09Z`
 
 Systematic claim-safe queue after the five-equation P-trunk simplification.
 
@@ -9,7 +9,7 @@ Systematic claim-safe queue after the five-equation P-trunk simplification.
 - Artifact: `P_derivation/runtime/p_closure_trunk_current.json`
 - Exists: `True`
 - Claim status: `compressed_candidate_trunk_not_final_particle_root`
-- May feed live particle predictions: `False`
+- May feed promoted particle predictions: `False`
 - Candidate P: `1.63097210492078846050203640439`
 - Candidate alpha^-1: `136.994020662724205139718642793`
 - Source report mode: `thomson_structured_running_asymptotic`
@@ -20,15 +20,15 @@ The remaining work is grouped into coupled closure packets rather than a one-blo
 
 | Bundle | Status | Gaps | Promotion question |
 | --- | --- | --- | --- |
-| `electroweak-root-closure-bundle` | `constructive_endpoint_contract_emitted` | `pclosure.compressed-trunk-artifact`, `d10.ward-projected-thomson-endpoint`, `d10.rg-matching-threshold-scheme`, `pclosure.live-codepath-adoption` | Can one source-emitted map Delta_Th(P), with declared matching and interval bounds, certify the compressed P trunk as the live particle root without importing alpha(0)? |
+| `electroweak-root-closure-bundle` | `endpoint_package_closed_source_residual_open` | `pclosure.compressed-trunk-artifact`, `d10.ward-projected-thomson-endpoint`, `d10.source-residual-map-and-interval-certificate`, `d10.rg-matching-threshold-scheme`, `pclosure.certified-codepath-adoption` | Can one source-emitted map Delta_Th(P), with declared matching and interval bounds, certify the compressed P trunk as the particle root without importing alpha(0)? |
 | `spectrum-source-bundle` | `closed_corpus_limited_source_boundaries_emitted` | `charged.determinant-normalization-transport`, `quark.selected-class-vs-global-classification`, `neutrino.pmns-status-and-absolute-rows` | Is there one OPH excitation dictionary and sector-isolated trace-lift theorem that explains the charged affine anchor, quark selected-class boundary, and neutrino PMNS comparison surface without hidden target fitting? |
 | `qcd-thomson-backend-bundle` | `closed_out_of_scope_scope_lock_emitted` | `d10.ward-projected-thomson-endpoint`, `hadron.production-backend-systematics` | Can the hadron production backend emit the rho_had(s;P) object and uncertainty budget needed by the Ward-projected Thomson endpoint with hadrons and alpha(0) handled in one closed packet? |
 | `top-codomain-bridge-bundle` | `closed_corpus_limited_codomain_no_go` | `calibration.direct-top-bridge` | Can the exact top coordinate be mapped into the auxiliary direct-top extraction codomain without using Q007TP as a calibration input? |
-| `particle-root-integration-gate` | `keep_candidate_with_constructive_next_artifacts` | `pclosure.compressed-trunk-artifact`, `d10.ward-projected-thomson-endpoint`, `d10.rg-matching-threshold-scheme`, `pclosure.live-codepath-adoption`, `charged.determinant-normalization-transport`, `quark.selected-class-vs-global-classification`, `neutrino.pmns-status-and-absolute-rows`, `calibration.direct-top-bridge`, `hadron.production-backend-systematics` | Do the returned packets jointly close the endpoint, matching, interval, and source-object requirements strongly enough to promote the compressed trunk into live particle builders? |
+| `particle-root-integration-gate` | `keep_candidate_with_constructive_next_artifacts` | `pclosure.compressed-trunk-artifact`, `d10.ward-projected-thomson-endpoint`, `d10.rg-matching-threshold-scheme`, `pclosure.certified-codepath-adoption`, `charged.determinant-normalization-transport`, `quark.selected-class-vs-global-classification`, `neutrino.pmns-status-and-absolute-rows`, `calibration.direct-top-bridge`, `hadron.production-backend-systematics` | Do the returned packets jointly close the endpoint, matching, interval, and source-object requirements strongly enough to promote the compressed trunk into particle builders? |
 
 ## Bundle Packet Results
 
-- `electroweak-root-closure-bundle`: `constructive_endpoint_contract_emitted`. Constructive result. The admissible endpoint object is explicit: Delta_Th(P) must split into source lepton transport, a Ward-projected hadronic spectral density rho_had(s;P), a certified electroweak/scheme remainder, RG/matching certificates, quadrature bounds, and an interval-level fixed-point certificate. The local implementation target is P_derivation/runtime/thomson_endpoint_contract_current.json.
+- `electroweak-root-closure-bundle`: `endpoint_package_closed_source_residual_open`. Constructive result. The admissible endpoint object is explicit and the endpoint package computes the residual inverse-alpha packet. Delta_Th(P) must split into source lepton transport, a Ward-projected hadronic spectral density rho_had(s;P), a certified electroweak/scheme remainder, RG/matching certificates, quadrature bounds, and an interval-level fixed-point certificate. The local implementation targets are P_derivation/runtime/thomson_endpoint_contract_current.json and P_derivation/runtime/thomson_endpoint_package_current.json.
 - `spectrum-source-bundle`: `closed_corpus_limited_source_boundaries_emitted`. No promotion. Charged leptons are closed as a corpus-limited no-go by the end-to-end impossibility theorem: the same-family witness and conditional algebraic readout remain, but no theorem-grade A_ch(P) is emitted. Quarks remain selected-class on f_P with global classification closed as a corpus-limited no-go, and neutrino PMNS rows remain visible comparison-tension rows.
 - `qcd-thomson-backend-bundle`: `closed_out_of_scope_scope_lock_emitted`. Constructive result with a scope lock. The stable-channel backend is outside the endpoint object, and the real hadron backend is outside local execution. The missing primitive remains production_ward_projected_hadronic_spectral_measure_export. Issues #153/#157 are closed out-of-scope/computationally blocked pending OPH hardware and outside Chrome workers or local surrogate code.
 - `top-codomain-bridge-bundle`: `closed_corpus_limited_codomain_no_go`. No-go result. The exact top theorem row remains on Q007TP4. The auxiliary direct-top row Q007TP is compare-only because the available corpus emits no source-side extraction-response kernel into that codomain.
@@ -39,9 +39,10 @@ The remaining work is grouped into coupled closure packets rather than a one-blo
 | ID | Lane | Status | Issue | Next action |
 | --- | --- | --- | --- | --- |
 | `pclosure.compressed-trunk-artifact` | P closure | `candidate_artifact` | #224 | Keep emitting p_closure_trunk_current.json and use it as audit metadata. |
-| `d10.ward-projected-thomson-endpoint` | D10 electromagnetic endpoint | `open_theorem_gap` | #223 | Derive Delta_Th(P) from the same Ward-projected source family as a0(P), including rho_had(s;P), matching remainder, and certified quadrature bounds. |
+| `d10.ward-projected-thomson-endpoint` | D10 electromagnetic endpoint | `closed_blocker_isolated_endpoint_package` | #223 | Keep the package as the closed blocker-isolation artifact for issue #223. |
+| `d10.source-residual-map-and-interval-certificate` | D10 electromagnetic endpoint | `open_source_residual_map_and_interval_certificate` | #235 | Emit a source-only residual map that matches the endpoint package, including rho_had(s;P) or an equivalent Ward-projected spectral primitive, matching remainder, and certified quadrature bounds. |
 | `d10.rg-matching-threshold-scheme` | D10 running and matching | `open_theorem_gap` | #32 | Turn the running/matching package into an OPH edge-sector theorem or explicitly keep it as a declared convention in every prediction surface. |
-| `pclosure.live-codepath-adoption` | P closure | `blocked_pending_certified_root` | #224 | When issues 223 and 32 close, switch particle builders to the certified trunk artifact and make compare-only or historical P paths non-default. |
+| `pclosure.certified-codepath-adoption` | P closure | `blocked_pending_certified_root` | #224 | When issues 235 and 32 close, switch particle builders to the certified trunk artifact and make compare-only or historical P paths non-default. |
 | `charged.determinant-normalization-transport` | Charged leptons | `closed_corpus_limited_charged_end_to_end_no_go` | #201 | Keep charged masses suppressed on the public theorem lane. Reopen only for a theorem-grade uncentered trace lift proving 3 mu(r) = sum_e M_e^ch log q_e(r), equivalently zero normalization defect N_det(P), on the physical charged branch. |
 | `quark.selected-class-vs-global-classification` | Quarks | `selected_class_closed_global_classification_no_go` | #199 | Keep every public exact-quark claim explicitly selected-class. Reopen only for a new source-emitted global public-frame classifier artifact. |
 | `neutrino.pmns-status-and-absolute-rows` | Neutrinos | `theorem_rows_with_visible_comparison_tension` | #117 | Do not hide PMNS residuals behind the exact absolute-splitting rows; either prove a better branch or leave the comparison tension explicit. |
@@ -53,4 +54,4 @@ The remaining work is grouped into coupled closure packets rather than a one-blo
 - The compressed P trunk is an audit/candidate artifact until the endpoint and certificate gates close.
 - The remaining blockers should be worked as coupled bundles, not as isolated one-off fixes.
 - The particle pipeline must keep compare-only, continuation, selected-class, and theorem-grade rows mechanically distinct.
-- Golden-ratio torus or resonance language is not a live derivation input unless a separate representation-to-spectrum theorem is supplied.
+- Golden-ratio torus or resonance language is not a derivation input unless a separate representation-to-spectrum theorem is supplied.

@@ -31,7 +31,13 @@ def test_particle_pipeline_closure_status_scope_locks_hadrons_and_workers() -> N
     assert gates[157]["requires_oph_hardware_backend"] is True
     assert gates[157]["closed_as_out_of_scope"] is True
     assert gates[157]["chrome_workers"] == "do_not_use_for_backend_execution"
-    assert gates[223]["state"] == "open_constructive_contract"
+    assert gates[223]["state"] == "closed_blocker_isolated_endpoint_package"
+    assert gates[223]["closable_now"] is True
+    assert gates[223]["successor_issue"] == 235
+    assert gates[223]["chrome_workers"] == "not_needed_for_closed_package"
+    assert gates[235]["state"] == "open_source_residual_map_and_interval_certificate"
+    assert gates[235]["closable_now"] is False
+    assert gates[235]["chrome_workers"] == "constructive_only_for_source_residual_map"
     assert gates[224]["state"] == "open_waiting_certified_root"
     assert gates[32]["state"] == "open_constructive_contract"
     assert gates[207]["state"] == "closed_current_corpus_codomain_no_go"

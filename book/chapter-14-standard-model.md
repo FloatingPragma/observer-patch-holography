@@ -638,7 +638,7 @@ structure keeps the photon, gluons, and graviton on protected zero lines. From
 there the candidate pixel-ratio trunk organizes the electroweak comparison
 surface, the Higgs-top surface, the selected-class running quark masses, and
 the weighted-cycle neutrino family. The weak-boson pair is compare-only. Its
-live promotion requires the Thomson endpoint and RG/matching certificates.
+promotion requires the Thomson residual map and RG/matching certificates.
 The charged-lepton absolute-mass lane, the stronger global quark-frame
 classification lane, and the auxiliary direct-top conversion are no-go
 boundaries for the available derivation.
@@ -653,20 +653,25 @@ quotient, the hypercharge lattice, and the generation-color counting. Together
 they decide which charged excitations can exist and how they transform.
 
 Then comes the fixed-point closure. The calculation emits a candidate local
-pixel ratio outside the promoted live prediction tier. The electroweak sector is
+pixel ratio outside the promoted prediction tier. The electroweak sector is
 the cleanest comparison place because the data are sharp and hadronic clutter is
 weak. The W and Z values are frozen-adapter checks. From there the same
 organized construction continues into the Higgs-top surface and is pushed
 through the selected-class quark and weighted-cycle neutrino sectors.
 
-The fine-structure constant belongs here beside the weak sector, but the
-candidate value is outside the Thomson endpoint theorem. This is why
-the later mass tables should not be read as disconnected tricks or as a
-uniformly closed spectrum. They are different claim tiers around one
+The fine-structure constant belongs here beside the weak sector. The endpoint
+package isolates the missing fixed-point contribution as
+$0.041163974743011720681199819215801821$ inverse-alpha units. At the pixel value
+mapped from the CODATA comparison, the required residual is
+$0.041465835978928681137459869870016982\ldots$ beyond the exact one-loop
+continuation. That scalar has to come from the source-side electromagnetic
+transport, including the strong-interaction screening and scheme remainder.
+This is why the later mass tables should not be read as disconnected tricks or
+as a uniformly closed spectrum. They are different claim tiers around one
 fixed-point closure program. Hadrons belong to the later strong-binding descent
 of the same picture, and that descent is work in progress because it requires a
-real OPH hadron backend. Chapter 18 returns to the same local fixed point from the
-outside-inside closure equation, which gives the whole particle sector an even
+real OPH hadron backend. Chapter 18 returns to the same local fixed point from
+the outside-inside closure equation, which gives the whole particle sector a
 tighter narrative spine.
 
 The interpretation is simple. The screen cell wants to sit at the golden-ratio
@@ -740,7 +745,7 @@ confinement.
 That difference matters. Some results in the framework are structural and
 sharp. Others depend on solving the strong-coupling machinery in detail. The
 electroweak sector sits close enough to the local fixed-point readout that masses and
-couplings can be pinned down cleanly. Hadrons live deeper in the jungle.
+couplings can be pinned down cleanly. Hadrons sit deeper in the strong-coupling problem.
 
 A promising route into that jungle uses edge entanglement. It does not
 weight charge sectors arbitrarily. It assigns each one a local geometric cost

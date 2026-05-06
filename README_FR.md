@@ -41,7 +41,7 @@ synchronisés. Géométrie, particules, lois et enregistrements sont les points
 fixes à grande échelle de ce calcul en réseau d'observateurs.
 
 L'OPH utilise une seule entrée quantitative externe, la capacité totale de l'écran `N_scr = log dim H_tot`, lue depuis l'horizon de Sitter, ainsi qu'un ratio local de pixel `P = a_cell / l_P^2`. Pour la constante cosmologique observée, le ratio nu d'aire d'horizon vaut `N_patch = (R_dS / l_P)^2 ≈ 1.05e122`, tandis que la capacité entropique utilisée par l'OPH vaut `N_scr = pi N_patch ≈ 3.31e122`. La même cellule d'écran est décrite deux fois : vue de l'extérieur comme un pixel situé légèrement au-dessus de l'équilibre auto-similaire exact `φ = (1 + sqrt(5)) / 2`, et vue de l'intérieur comme la plus petite échelle d'observation électromagnétique disponible pour les observateurs de l'univers simulé.
-Le papier de synthèse écrit cette autoréférence comme un problème de point fixe. La surface publique utilise `P = a_cell / l_P^2 = 1.630968209403959...`, la racine de `P = φ + α_em(P) sqrt(pi)` lorsque le côté électromagnétique est ancré sur la valeur centrale CODATA/NIST 2022 `α⁻¹(0) = 137.035999177`. Le pipeline particules consigne une racine candidate proche, `P = 1.63097210492078846050203640439` et `α_cand⁻¹ = 136.994020662724205139718642793`. Cette racine reste candidate tant que le point final Thomson projeté par Ward et le certificat RG/seuils ne sont pas fermés.
+Le papier de synthèse écrit cette autoréférence comme un problème de point fixe. La surface publique utilise `P = a_cell / l_P^2 = 1.630968209403959...`, la racine de `P = φ + α_em(P) sqrt(pi)` lorsque le côté électromagnétique est ancré sur la valeur centrale CODATA/NIST 2022 `α⁻¹(0) = 137.035999177`. Le pipeline particules consigne une racine candidate proche, `P = 1.63097210492078846050203640439` et `α_cand⁻¹ = 136.994020662724205139718642793`. Le paquet de point final isole la contribution manquante à `0.041163974743011720681199819215801821` unités d'alpha inverse à cette racine. Au pixel mappé depuis CODATA, la cible résiduelle source vaut `0.041465835978928681137459869870016982`, soit `S_required = 0.895400127551185647132725678585532880` dans la lecture d'écrantage des quarks. La carte résiduelle source et le certificat RG/seuils sont en cours de travail.
 
 ## Surface locale d'unification
 
@@ -75,7 +75,7 @@ de couleur réalisé `N_c = 3` et le comptage des générations `N_g = 3` sont �
 | --- | --- | --- | --- | --- |
 | Constante gravitationnelle | G | 6.6742999959e-11 | 6.67430(15)e-11 | 0.00003σ |
 | Vitesse de la lumière | c | 299792458 | 299792458 (exact) | match |
-| Structure fine (inv.) | α⁻¹(0) | tronc candidat donnant 136.994020662724 | 137.035999177(21) | point final/certificat ouverts |
+| Structure fine (inv.) | α⁻¹(0) | tronc candidat donnant 136.994020662724 ; paquet de point final isolant 0.041163974743 à cette racine | 137.035999177(21) | carte résiduelle source et certificats en cours de travail |
 | Masse du photon | m_γ | 0 eV | <1e-18 eV | sous la borne |
 | Masse du gluon | m_g | 0 GeV | 0 GeV | match |
 | Masse du graviton | m_grav | 0 eV | <1.76e-23 eV | sous la borne |

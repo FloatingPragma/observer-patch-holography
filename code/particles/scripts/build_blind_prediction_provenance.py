@@ -18,6 +18,7 @@ RESULTS_STATUS = PARTICLES_ROOT / "results_status.json"
 PIPELINE_STATUS = PARTICLES_ROOT / "runs" / "status" / "particle_pipeline_closure_status.json"
 RG_CONTRACT = P_ROOT / "runtime" / "rg_matching_threshold_contract_current.json"
 THOMSON_CONTRACT = P_ROOT / "runtime" / "thomson_endpoint_contract_current.json"
+THOMSON_PACKAGE = P_ROOT / "runtime" / "thomson_endpoint_package_current.json"
 DEFAULT_JSON_OUT = PARTICLES_ROOT / "runs" / "status" / "blind_prediction_provenance.json"
 DEFAULT_MD_OUT = PARTICLES_ROOT / "BLIND_PREDICTION_PROVENANCE.md"
 
@@ -104,6 +105,7 @@ def build_payload() -> dict[str, Any]:
     pipeline = _load_json(PIPELINE_STATUS)
     rg = _load_json(RG_CONTRACT)
     thomson = _load_json(THOMSON_CONTRACT)
+    thomson_package = _load_json(THOMSON_PACKAGE)
     rows = [_classify_entry(entry) for entry in exact.get("entries", [])]
 
     return {
@@ -119,6 +121,7 @@ def build_payload() -> dict[str, Any]:
             "pipeline_closure_status": _repo_ref(PIPELINE_STATUS),
             "rg_matching_threshold_contract": _repo_ref(RG_CONTRACT),
             "thomson_endpoint_contract": _repo_ref(THOMSON_CONTRACT),
+            "thomson_endpoint_package": _repo_ref(THOMSON_PACKAGE),
         },
         "pipeline_inputs": results.get("inputs", {}),
         "finalization_gates": pipeline.get("finalization_gates", {}),
@@ -136,6 +139,7 @@ def build_payload() -> dict[str, Any]:
             "rg_contract_status": rg.get("status"),
             "required_objects": [item["id"] for item in rg.get("constructive_objects", [])],
             "endpoint_contract_status": thomson.get("status"),
+            "endpoint_package_status": thomson_package.get("claim_status"),
             "next_artifact": "populate beta_provenance_table, threshold_map, scheme_lock, and interval composition certificates",
         },
         "preregistered_blind_workflows": [
@@ -227,6 +231,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
             f"- Status: `{payload['convention_sensitivity']['status']}`",
             f"- RG contract status: `{payload['convention_sensitivity']['rg_contract_status']}`",
             f"- Endpoint contract status: `{payload['convention_sensitivity']['endpoint_contract_status']}`",
+            f"- Endpoint package status: `{payload['convention_sensitivity']['endpoint_package_status']}`",
             f"- Next artifact: {payload['convention_sensitivity']['next_artifact']}",
         ]
     )

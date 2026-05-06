@@ -1,8 +1,8 @@
 # Electroweak Root Bundle Packet
 
 Close or obstruct the coupled package: compressed `P` trunk, Ward-projected
-Thomson endpoint, RG/matching/scheme clauses, interval certificate, and live
-code adoption.
+Thomson endpoint, RG/matching/scheme clauses, interval certificate, and
+certified code adoption.
 
 Return `closure_candidate` only with a source-emitted `Delta_Th(P)` object,
 matching clauses, interval certificate plan, and exact follow-up surfaces.
@@ -14,8 +14,9 @@ Measured `alpha(0)` must not enter the solver.
 
 `constructive_endpoint_contract_emitted`.
 
-The first worker pass did not close #223/#32/#224, so the result has been
-converted into a constructive local contract rather than accepted as a no-go.
+The endpoint package closes #223 as blocker isolation. The remaining root
+package is #235/#32/#224, so the result is a constructive local contract rather
+than a no-go.
 The compressed `P` trunk can remain a candidate/audit artifact, and the next
 implementation target is now explicit:
 

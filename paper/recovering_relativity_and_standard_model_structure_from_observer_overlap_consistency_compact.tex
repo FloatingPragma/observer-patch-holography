@@ -175,7 +175,18 @@ as compare-only metadata; the paper comparison gives
 interval-arithmetic proof of uniqueness; the companion local numerical contraction certificate
 records the machine-checkable hardening step. A separate hardware note reports an
 optical-cavity check of the same fixed-point geometry; this is treated as corroborating
-engineering evidence. \(N_{\mathrm{scr}}\) is inferred from the observed
+engineering evidence. The conditional endpoint package localizes the remaining
+fine-structure displacement: the implemented fixed-point report is short by
+\(0.041163974743011720681199819215801821\) inverse-alpha units, while the
+CODATA-mapped pixel value \(P=1.630968209403959324879279847782648941\ldots\)
+requires a source residual
+\(0.041465835978928681137459869870016982\ldots\) beyond the exact one-loop
+continuation. In quark-screening form, the required factor is
+\(S_{\mathrm{required}}=0.895400127551185647132725678585532880\ldots\), or
+\(c_Q=0.658025360816792342502465198049036592\ldots\) in
+\(S=1-x+c_Qx^2\). This scalar is a theorem target for the Ward-projected QCD
+screening and endpoint-remainder map, not a source-only derivation of that map.
+\(N_{\mathrm{scr}}\) is inferred from the observed
 cosmological horizon and enters the cosmological-capacity branch. The D6 normalization uses the
 Gibbons--Hawking de Sitter entropy~\cite{gibbonsHawking77}: if
 \[
@@ -192,7 +203,7 @@ Using the Planck-2018 cosmological benchmark~\cite{planck18} gives
 \(N_{\mathrm{patch}}\simeq1.05\times10^{122}\),
 \(N_{\mathrm{scr}}\simeq3.31\times10^{122}\), and
 \(\Lambda\ell_P^2\simeq2.85\times10^{-122}\). Any retained capacity-level
-neutrino side estimate on that input is legacy bookkeeping rather than the live weighted-cycle
+neutrino side estimate on that input is legacy bookkeeping rather than the weighted-cycle
 theorem lane.
 
 \begin{axiom}[Screen Net]\label{ax:screen}
@@ -3215,7 +3226,7 @@ constraint above it. The open burden is refinement-stable universality/uniquenes
 that lift and the scalar-root control of the printed D10 solve, not the existence of the
 finite-cutoff Casimir branch itself.
 Measured electroweak quantities are not used to infer the internal transmutation parameters. They enter only at the end as compare-only validation targets for the printed D10 running/matching package.
-The forward transmutation certificate on the live D10 lane makes that logical order explicit: the source-only basis reconstructs the same \(\alpha_U(P)\), hence the same unified diffusion parameter
+The forward transmutation certificate on the D10 lane makes that logical order explicit: the source-only basis reconstructs the same \(\alpha_U(P)\), hence the same unified diffusion parameter
 \[
 t_U(P)=4\pi^2\alpha_U(P),
 \]
@@ -3549,7 +3560,7 @@ Tier & Representative outputs & What would actually falsify the tier \\
 \bottomrule
 \endfoot
 Phase I recovered core (Theorem~\ref{thm:master}; D1--D5, D7--D9) & Confluence of overlap repair, conditional Lorentz kinematics, the conditional Jacobson-type Einstein branch in the stated scaling regime, compact gauge reconstruction in the bosonic branch, the realized Standard Model quotient chain on the explicit realized matter package, the exact hypercharge lattice on that realized matter package, the realized color triplet \(N_c=3\), the generation count \(N_g=3\), and the product-group consequence of no gauge-mediated proton decay & A mathematical failure in the derivation chain, or data that require a different realized gauge quotient, different realized hypercharges, a different color or generation count on the admissible branch, or gauge-mediated proton decay \\
-Phase II input-dependent corollary (D6) & \(\Lambda=\frac{3\pi}{G N_{\mathrm{scr}}}\), \(S_{\mathrm{dS}}=N_{\mathrm{scr}}\), \(r_{\mathrm{dS}}=\sqrt{3/\Lambda}\), and \(t_\Lambda=r_{\mathrm{dS}}/c\) once the screen-capacity identification is made, while any retained capacity-level neutrino side estimate on that input is legacy bookkeeping rather than the live neutrino theorem lane; the observed cosmic age is a downstream FLRW benchmark & Failure of the screen-capacity identification or of the specific global capacity relation. Such a failure would not by itself erase the recovered core \\
+Phase II input-dependent corollary (D6) & \(\Lambda=\frac{3\pi}{G N_{\mathrm{scr}}}\), \(S_{\mathrm{dS}}=N_{\mathrm{scr}}\), \(r_{\mathrm{dS}}=\sqrt{3/\Lambda}\), and \(t_\Lambda=r_{\mathrm{dS}}/c\) once the screen-capacity identification is made, while any retained capacity-level neutrino side estimate on that input is legacy bookkeeping rather than the weighted-cycle neutrino theorem lane; the observed cosmic age is a downstream FLRW benchmark & Failure of the screen-capacity identification or of the specific global capacity relation. Such a failure would not by itself erase the recovered core \\
 Phase II quantitative-closure branch (D10) & forward transmutation data \(\alpha_U(P)\), \(t_U(P)\), \(t_{\mathrm{tr}}(P)\), pixel-closure gauge-coupling consistency, \(\alpha_i(m_Z)\), the source-locked anchor \(a_0(P)=\alpha_{\mathrm{em}}^{-1}(m_Z^2;P)\), the electroweak transport family \((W,Z,\alpha_{\mathrm{em}}^{-1}(q^2),\sin^2\theta_W(q^2),v)\), and the Thomson endpoint \(\alpha_{\mathrm{Th}}^{-1}(P)\) on the Ward-projected \(\U(1)_Q\) lane & Failure of the integrated quantitative closure once \(P\) and the printed running/matching conventions are imposed \\
 Phase III phenomenological continuations (D12 and beyond) & Flavor ans\"atze, charged-lepton continuation ans\"atze beyond exact centered readback, texture branches, the weighted-cycle / Majorana-holonomy neutrino branch above the legacy D6 side estimate, further neutrino mass/mixing refinements, dark-sector response laws, heuristic baryogenesis continuations, proton-spin bookkeeping, proton-lifetime estimates beyond the gauge-channel exclusion, black-hole spectroscopy templates, controlled large-\(N_{\mathrm{edge}}\) string/worldsheet effective descriptions, conjectural critical-superstring extensions, and other downstream phenomenology & Retraction of the corresponding continuation only. These branches are not part of the recovered core and their failure is not, by itself, a falsification of relativity-plus-Standard-Model recovery \\
 \end{longtable}
@@ -3901,7 +3912,7 @@ The paper does not claim complete closure of all low-energy observables.\footnot
 
 Observer-Patch Holography starts from overlap consistency of observer patches and yields, within one framework, several effective structures usually treated separately in modern fundamental physics. This SM/GR derivation paper supports a unique schedule-independent normal form for overlap repair and hence a unique physical UV branch only modulo boundary redundancy, implementation hiding, and inert ancillary stabilization, a conditional Lorentz branch on the extracted prime geometric cap pair, a conditional Jacobson-type Einstein branch under the derived fixed-cap generalized-entropy stationarity theorem for admissible fixed-cap MaxEnt variations and the null modular bridge together with the bounded-interval projective branch, the input-dependent global closure of that same gravity lane once the screen-capacity input is supplied, the Standard Model gauge quotient with exact hypercharges on the realized matter package on the realized MAR one-Higgs branch in the bosonic internal-gauge sector, the realized color triplet \(N_c=3\) and generation count \(N_g=3\) on that branch, and a separate integrated quantitative-closure branch. Phenomenological continuations are discussed separately from the recovered core.
 
-The framework therefore presents general relativity and the Standard Model as effective descriptions arising once the stated scaling-limit, geometric-subnet, and categorical premises are realized. The local quantitative claim surface is equally explicit: the same declared pixel input \(P\) controls the electroweak/Higgs mass trunk and the classical-regime gravity coupling, the invariant causal speed \(c\) is the structural Lorentz output, and the familiar-unit package reads meters, seconds, GeV, and Kelvin from the single local ruler \(\sqrt{a_{\mathrm{cell}}}\) with \(\hbar\) and \(k_B\) used only as display conventions. Open items are sharper quantitative control, proof that the required coherent transportable bosonic refinement ladder is emitted on a realized nontrivial branch rather than merely supplied as gauge data, a fuller fermionic gauge branch, explicit microscopic realizations that emit the prime geometric cap pair and support ordered cut-pair rigidity, and proof of the theorem-side local exact-release objects on the live corpus.
+The framework therefore presents general relativity and the Standard Model as effective descriptions arising once the stated scaling-limit, geometric-subnet, and categorical premises are realized. The local quantitative claim surface is equally explicit: the same declared pixel input \(P\) controls the electroweak/Higgs mass trunk and the classical-regime gravity coupling, the invariant causal speed \(c\) is the structural Lorentz output, and the familiar-unit package reads meters, seconds, GeV, and Kelvin from the single local ruler \(\sqrt{a_{\mathrm{cell}}}\) with \(\hbar\) and \(k_B\) used only as display conventions. Open items are sharper quantitative control, proof that the required coherent transportable bosonic refinement ladder is emitted on a realized nontrivial branch rather than merely supplied as gauge data, a fuller fermionic gauge branch, explicit microscopic realizations that emit the prime geometric cap pair and support ordered cut-pair rigidity, and proof of the theorem-side local exact-release objects on the corpus.
 
 \appendix
 \input{tex_fragments/COMPACT_TECHNICAL_SUPPLEMENT_PORT.tex}

@@ -146,7 +146,7 @@
     },
     {
       "acceptance_criteria": [
-        "Integrate all returned bundle packets before deciding whether live prediction roots may change.",
+        "Integrate all returned bundle packets before deciding whether promoted prediction roots may change.",
         "Promote the compressed P trunk only if endpoint, matching, interval, hadronic, and source-object requirements are all closed.",
         "If any requirement remains open, keep the trunk as candidate/audit metadata and update the ledger with the next bundle revision."
       ],

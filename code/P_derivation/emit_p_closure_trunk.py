@@ -109,8 +109,8 @@ def build_p_closure_trunk(report: dict[str, Any]) -> dict[str, Any]:
         "source_report_precision": report["precision"],
         "claim_status": "compressed_candidate_trunk_not_final_particle_root",
         "claim_boundary": (
-            "This artifact is the canonical compressed P-trunk candidate for the current code path. "
-            "It is not yet the live particle-pipeline root: promotion requires the Ward-projected "
+            "This artifact is the canonical compressed P-trunk candidate for the code path. "
+            "It is not the certified particle-pipeline root: promotion requires the Ward-projected "
             "Thomson endpoint theorem, OPH-internal RG/matching/scheme closure, and an interval-level "
             "fixed-point certificate."
         ),
@@ -145,7 +145,7 @@ def build_p_closure_trunk(report: dict[str, Any]) -> dict[str, Any]:
         "promotion_gates": [
             {
                 "id": "ward_projected_thomson_endpoint",
-                "github_issue": 223,
+                "github_issue": 235,
                 "required_status": "source_emitted_zero_momentum_transport_theorem",
             },
             {
@@ -155,13 +155,13 @@ def build_p_closure_trunk(report: dict[str, Any]) -> dict[str, Any]:
             },
             {
                 "id": "interval_fixed_point_certificate",
-                "github_issue": 223,
+                "github_issue": 235,
                 "required_status": "interval_existence_uniqueness_certificate_for_the_full_map",
             },
             {
                 "id": "particle_codepath_adoption",
                 "github_issue": 224,
-                "required_status": "all_live_particle_consumers_read_the_certified_trunk_artifact",
+                "required_status": "all_particle_consumers_read_the_certified_trunk_artifact",
             },
         ],
         "consumer_policy": {

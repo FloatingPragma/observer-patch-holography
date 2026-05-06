@@ -23,6 +23,7 @@ DEFAULT_MD_OUT = PARTICLES_ROOT / "PARTICLE_PIPELINE_CLOSURE_STATUS.md"
 
 P_TRUNK = P_DERIVATION_ROOT / "runtime" / "p_closure_trunk_current.json"
 THOMSON_CONTRACT = P_DERIVATION_ROOT / "runtime" / "thomson_endpoint_contract_current.json"
+THOMSON_PACKAGE = P_DERIVATION_ROOT / "runtime" / "thomson_endpoint_package_current.json"
 RG_CONTRACT = P_DERIVATION_ROOT / "runtime" / "rg_matching_threshold_contract_current.json"
 DIRECT_TOP_CONTRACT = PARTICLES_ROOT / "runs" / "calibration" / "direct_top_bridge_contract.json"
 GAP_LEDGER = PARTICLES_ROOT / "runs" / "status" / "particle_derivation_gap_ledger.json"
@@ -94,6 +95,7 @@ def _latest_nonhadron_predictions(exact_payload: dict[str, Any] | None) -> dict[
 def build_status() -> dict[str, Any]:
     p_trunk = _load_json(P_TRUNK)
     thomson = _load_json(THOMSON_CONTRACT)
+    thomson_package = _load_json(THOMSON_PACKAGE)
     rg = _load_json(RG_CONTRACT)
     direct_top = _load_json(DIRECT_TOP_CONTRACT)
     gap_ledger = _load_json(GAP_LEDGER)
@@ -132,6 +134,7 @@ def build_status() -> dict[str, Any]:
         "artifacts": {
             "p_trunk": _artifact_status(P_TRUNK, p_trunk),
             "thomson_endpoint_contract": _artifact_status(THOMSON_CONTRACT, thomson),
+            "thomson_endpoint_package": _artifact_status(THOMSON_PACKAGE, thomson_package),
             "rg_matching_threshold_contract": _artifact_status(RG_CONTRACT, rg),
             "direct_top_bridge_contract": _artifact_status(DIRECT_TOP_CONTRACT, direct_top),
             "gap_ledger": _artifact_status(GAP_LEDGER, gap_ledger),
@@ -145,12 +148,25 @@ def build_status() -> dict[str, Any]:
         "issue_gates": [
             {
                 "issue": 223,
-                "title": "Ward-projected Thomson endpoint",
-                "state": "open_constructive_contract",
+                "title": "Ward-projected Thomson endpoint package",
+                "state": "closed_blocker_isolated_endpoint_package",
+                "closable_now": True,
+                "local_next_artifact": _rel(THOMSON_PACKAGE),
+                "contract_artifact": _rel(THOMSON_CONTRACT),
+                "closed_as_blocker_isolation": True,
+                "successor_issue": 235,
+                "promotion_allowed": False,
+                "chrome_workers": "not_needed_for_closed_package",
+            },
+            {
+                "issue": 235,
+                "title": "Source residual map and interval certificate",
+                "state": "open_source_residual_map_and_interval_certificate",
                 "closable_now": False,
                 "local_next_artifact": _rel(THOMSON_CONTRACT),
+                "package_artifact": _rel(THOMSON_PACKAGE),
                 "hadron_dependency_hardware_gated": True,
-                "chrome_workers": "not_useful_until_source_endpoint_packet_exists",
+                "chrome_workers": "constructive_only_for_source_residual_map",
             },
             {
                 "issue": 224,

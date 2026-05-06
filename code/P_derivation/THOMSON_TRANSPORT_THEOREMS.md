@@ -1,11 +1,13 @@
 # Thomson Transport Theorem Suite
 
-This file states the theorem package needed to turn the current `P/alpha`
+This file states the theorem package needed to turn the `P/alpha`
 fixed-point witness into a measured fine-structure derivation.
 
-The theorem package is not fully closed. The lepton one-loop transport is
-implemented as a numerical kernel. The hadronic spectral object and the final
-certified contraction theorem remain open.
+The theorem package is conditional. The lepton one-loop transport is
+implemented as a numerical kernel. The endpoint package computes the residual
+inverse-alpha packet that a source-only Ward-projected transport theorem must
+emit. The Ward-projected QCD screening map, the electroweak scheme remainder,
+and the interval certificate remain theorem burdens.
 
 ## Objects
 
@@ -83,7 +85,7 @@ This theorem identifies the correct lane. It does not by itself compute
 
 ## Theorem 2: Leptonic One-Loop Source Transport
 
-**Status:** implemented as a numerical continuation, conditional on the current
+**Status:** implemented as a numerical continuation, conditional on the
 Stage-5 charged-lepton mass emitter.
 
 Assume the source branch emits charged-lepton masses
@@ -119,7 +121,7 @@ What remains to promote this to theorem grade:
 
 ## Theorem 3: Hadronic Spectral Transport
 
-**Status:** open.
+**Status:** residual packet computed, source map open.
 
 The quark part cannot be theorem-grade if it is only a free-quark sum multiplied
 by a simple screening factor. A source-only theorem must emit a positive
@@ -145,16 +147,18 @@ Delta_had(P) = Integral[ W_had(s, m_Z(P)^2) * rho_had(s;P) ds ],
 with the subtraction chosen so that the same `a0(P)` scheme is used at
 `m_Z^2`.
 
-This theorem is the main missing physics object. It must replace the current
-free-quark screened ansatz.
+This theorem is the main missing physics object. It must replace the free-quark
+screened ansatz.
 
 Constructive implementation target:
 
 - `thomson_endpoint_contract.py`
+- `thomson_endpoint_package.py`
 - `runtime/thomson_endpoint_contract_current.json`
+- `runtime/thomson_endpoint_package_current.json`
 - `../particles/hadron/ward_projected_spectral_measure.schema.json`
 
-Workers should not return obstruction-only text for this branch. If the current
+Workers should not return obstruction-only text for this branch. If the
 free-quark screened route fails, the required replacement is a populated
 Ward-projected spectral-measure export or a code/schema patch that moves that
 export toward the endpoint builder.
@@ -181,7 +185,7 @@ bound.
 
 ## Theorem 5: Full Thomson Endpoint
 
-**Status:** conditional theorem, not closed.
+**Status:** endpoint package closed for issue #223; source residual and interval certificate tracked by issue #235.
 
 If Theorems 2, 3, and 4 are closed on the same source family and scheme, define
 
@@ -197,7 +201,7 @@ alpha_Th^-1(P) = a0(P) + Delta_Th(P)
 
 is the source-only Thomson endpoint on the Ward-projected `U(1)_Q` lane.
 
-At the current p80 report,
+At the p80 report root,
 
 ```text
 a0(P) = 128.308268057804920945587248022104657547...
@@ -209,19 +213,42 @@ The compare-only CODATA target would require
 Delta_Th(P) = 8.727731119195079054412751977895342453...
 ```
 
-The current implemented ansatz gives
+The implemented exact one-loop continuation gives
 
 ```text
 Delta_impl(P) = 8.686567144452067333731552158679540632...
 ```
 
-so the open source-only theorem must account for
+so the source-only theorem must account for
 
 ```text
 Delta_missing(P) = 0.041163974743011720681199819215801821...
 ```
 
 without using the measured endpoint as an input.
+
+The endpoint package also evaluates the same question at the pixel obtained by
+the outer equation from the CODATA/NIST comparison value:
+
+```text
+P_C = 1.630968209403959324879279847782648941...
+a0(P_C) = 128.307965473286248209948959819190019918...
+Delta_required(P_C) = 8.728033703713751790051040180809980082...
+Delta_impl_exact(P_C) = 8.686567867734823108913580310939963101...
+Delta_source_residual(P_C) = 0.041465835978928681137459869870016982...
+```
+
+Equivalently, if \(x=N_c\alpha_3(m_Z;P_C)/\pi\) and the implemented quark
+screen is \(1-x\), the endpoint package requires
+
+```text
+S_required(P_C) = 0.895400127551185647132725678585532880...
+c_Q(P_C) = 0.658025360816792342502465198049036592...
+```
+
+where \(c_Q=(S_{\rm required}-(1-x))/x^2\). This is a compact scalar form of
+the missing Ward-projected QCD screening and endpoint-remainder map. It is not a
+source-only derivation of that map.
 
 ## Theorem 6: Fixed-Point Closure With Certified Transport
 
@@ -255,7 +282,7 @@ P_* = phi + alpha_* * sqrt(pi)
 
 is the source-only OPH pixel closure.
 
-The current `fixed_point_certificate.py` is a local numerical certificate for
+`fixed_point_certificate.py` is a local numerical certificate for
 the implemented map only. It is not this final theorem.
 
 ## Promotion Rule

@@ -1,10 +1,10 @@
 # Full P/Alpha Derivation Contract
 
 This note records the complete derivation shape for the OPH `P <-> alpha`
-closure. It also records the part that is not closed by the current code.
+closure. It also records the part that is not closed by the code.
 
-The current implementation is a reproducible numerical witness. It is not yet a
-measured fine-structure derivation. The open term is the same-family transport
+The implementation is a reproducible numerical witness. It is not a measured
+fine-structure derivation. The open term is the same-family transport
 from the electroweak source anchor at `m_Z^2` to the Thomson limit.
 
 ## Target Value
@@ -79,7 +79,7 @@ The same source branch gives the electroweak source anchor:
 a0(P) = alpha_em^-1(m_Z^2; P)
 ```
 
-At the current p80 closure solution, the tracked report has
+At the p80 closure solution, the tracked report has
 
 ```text
 P                         = 1.630972095856551047687367577695292870658496913060878...
@@ -98,7 +98,7 @@ A measured-alpha derivation needs the source-locked Thomson endpoint:
 alpha_Th^-1(P) = a0(P) + Delta_Th(P)
 ```
 
-The current implementation uses an internal Stage-5 charged-spectrum
+The implementation uses an internal Stage-5 charged-spectrum
 continuation and an exact one-loop fermion transport kernel:
 
 ```text
@@ -127,7 +127,7 @@ The closure residual is small:
 alpha_fixed_point_residual = -1.1689e-29
 ```
 
-So the current fixed-point algebra has converged.
+So the fixed-point algebra has converged.
 
 ## Compare-Only Gap
 
@@ -139,7 +139,7 @@ Delta_required(P) = 137.035999177 - a0(P)
                   = 8.727731119195079054412751977895342452961634554155586...
 ```
 
-The current transport term is short by
+The transport term is short by
 
 ```text
 Delta_missing(P) = 0.041163974743011720681199819215801820708374322325208...
@@ -154,7 +154,7 @@ P gap        = 0.000003886452591722808087729912643929322514061433...
 
 This is too large to call a precision match.
 
-## What Is Not Wrong
+## Checks That Pass
 
 The comparison does not indicate a failure of the outer equation:
 
@@ -163,7 +163,7 @@ P = phi + alpha * sqrt(pi)
 ```
 
 It also does not indicate an obvious failure of numerical convergence. The
-current p80 report contains 80 bisection steps and a tiny fixed-point residual.
+the p80 report contains 80 bisection steps and a tiny fixed-point residual.
 
 The missing piece is the low-energy transport/readout term
 `Delta_Th(P)`.
@@ -173,7 +173,7 @@ The missing piece is the low-energy transport/readout term
 `THOMSON_TRANSPORT_THEOREMS.md` states the theorem suite for the missing layer.
 The summary is below.
 
-A full measured-alpha derivation must replace the current structured-running
+A full measured-alpha derivation must replace the structured-running
 ansatz with a source-only transport theorem. The required object is a map
 
 ```text
@@ -218,6 +218,7 @@ After generating a full report, run:
 
 ```bash
 python3 alpha_gap_audit.py --report runtime/full_p_alpha_report_p80.json
+python3 thomson_endpoint_package.py --report runtime/full_p_alpha_report_p80.json
 python3 transport_theorem_manifest.py --report runtime/full_p_alpha_report_p80.json
 ```
 
@@ -226,11 +227,29 @@ transport term, the missing inverse-alpha contribution, and the theorem-status
 manifest. This makes any future replacement of `Delta_Th(P)` easy to check
 without letting the measured constant feed the solver.
 
-## Current Status
+`thomson_endpoint_package.py` adds the conditional endpoint packet. At the
+CODATA-mapped pixel point it reports
 
 ```text
-closed: D10 source map P -> a0(P)
-closed: outer/inner numerical fixed-point witness for the implemented map
-open:   same-family Thomson transport Delta_Th(P)
-open:   interval-wide proof for the final full transport map
+P_C = 1.630968209403959324879279847782648941...
+a0(P_C) = 128.307965473286248209948959819190019918...
+Delta_required(P_C) = 8.728033703713751790051040180809980082...
+Delta_impl_exact(P_C) = 8.686567867734823108913580310939963101...
+Delta_source_residual(P_C) = 0.041465835978928681137459869870016982...
+S_required(P_C) = 0.895400127551185647132725678585532880...
+c_Q(P_C) = 0.658025360816792342502465198049036592...
+```
+
+The scalar \(c_Q\) is defined by \(S_{\rm required}=1-x+c_Qx^2\), with
+\(x=N_c\alpha_3(m_Z;P_C)/\pi\). It is the compact endpoint target for a
+source-only Ward-projected QCD screening and endpoint-remainder map.
+
+## Status
+
+```text
+closed:   D10 source map P -> a0(P)
+closed:   outer/inner numerical fixed-point witness for the implemented map
+closed:   endpoint-package blocker isolation for issue #223
+open:     source-only same-family residual map for Delta_Th(P), tracked by issue #235
+open:     interval-wide proof for the final full transport map, tracked by issue #235
 ```

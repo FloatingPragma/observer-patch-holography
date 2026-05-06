@@ -11,6 +11,9 @@ from typing import Any
 from alpha_gap_audit import DEFAULT_REPORT, build_alpha_gap_audit
 
 
+ENDPOINT_PACKAGE = Path(__file__).resolve().parent / "runtime" / "thomson_endpoint_package_current.json"
+
+
 THEOREM_STATUSES = [
     {
         "id": "ward_projected_source_lock",
@@ -31,10 +34,13 @@ THEOREM_STATUSES = [
     {
         "id": "hadronic_spectral_transport",
         "title": "Hadronic spectral transport",
-        "status": "open",
+        "status": "residual_packet_computed_source_map_open",
         "promotable_to_measured_alpha": False,
         "depends_on": ["source_emitted_rho_had_spectral_density", "threshold_support", "ope_tail_match"],
-        "blocking_gap": "No OPH-emitted hadronic electromagnetic spectral density rho_had(s;P) exists yet.",
+        "blocking_gap": (
+            "The endpoint package isolates the residual screening/remainder scalar, but no OPH-emitted "
+            "hadronic electromagnetic spectral map rho_had(s;P) or equivalent source remainder map exists."
+        ),
     },
     {
         "id": "electroweak_matching_remainder",
@@ -47,14 +53,17 @@ THEOREM_STATUSES = [
     {
         "id": "full_thomson_endpoint",
         "title": "Full Thomson endpoint",
-        "status": "conditional_open",
+        "status": "endpoint_package_closed_source_residual_open",
         "promotable_to_measured_alpha": False,
         "depends_on": [
             "leptonic_one_loop_source_transport",
             "hadronic_spectral_transport",
             "electroweak_matching_remainder",
         ],
-        "blocking_gap": "Delta_Th(P) is not source-emitted until all component transport terms are closed.",
+        "blocking_gap": (
+            "The missing endpoint packet is numerically isolated. Delta_Th(P) is not source-emitted "
+            "until the residual screening/remainder map is emitted on an interval."
+        ),
     },
     {
         "id": "fixed_point_closure_with_certified_transport",
@@ -79,6 +88,10 @@ def build_manifest(report: dict[str, Any]) -> dict[str, Any]:
         "implemented_transport_delta_alpha_inv": audit["implemented_transport_delta_alpha_inv"],
         "required_transport_delta_alpha_inv": audit["required_transport_delta_alpha_inv"],
         "missing_transport_delta_alpha_inv": audit["missing_transport_delta_alpha_inv"],
+        "endpoint_package": {
+            "path": str(ENDPOINT_PACKAGE.relative_to(Path(__file__).resolve().parents[1])),
+            "exists": ENDPOINT_PACKAGE.exists(),
+        },
         "theorems": THEOREM_STATUSES,
         "promotion_rule": {
             "codata_may_enter_solver": False,

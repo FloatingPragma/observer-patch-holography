@@ -11,6 +11,7 @@
   },
   "convention_sensitivity": {
     "endpoint_contract_status": "constructive_contract_emitted_not_endpoint_theorem",
+    "endpoint_package_status": "endpoint_package_computed_blocker_isolated",
     "next_artifact": "populate beta_provenance_table, threshold_map, scheme_lock, and interval composition certificates",
     "required_objects": [
       "scheme_lock",
@@ -27,10 +28,10 @@
     "obstruction_only_worker_result_allowed": true,
     "p_trunk_candidate_only": true
   },
-  "generated_utc": "2026-05-06T04:53:47Z",
+  "generated_utc": "2026-05-06T07:44:09Z",
   "github_issue": 234,
   "pipeline_inputs": {
-    "P": 1.63094,
+    "P": 1.630968209403959,
     "hadron_profile": "suppressed",
     "log_dim_H": 1e+122,
     "loops": 4,
@@ -328,7 +329,8 @@
     "pipeline_closure_status": "code/particles/runs/status/particle_pipeline_closure_status.json",
     "results_status": "code/particles/results_status.json",
     "rg_matching_threshold_contract": "code/P_derivation/runtime/rg_matching_threshold_contract_current.json",
-    "thomson_endpoint_contract": "code/P_derivation/runtime/thomson_endpoint_contract_current.json"
+    "thomson_endpoint_contract": "code/P_derivation/runtime/thomson_endpoint_contract_current.json",
+    "thomson_endpoint_package": "code/P_derivation/runtime/thomson_endpoint_package_current.json"
   },
   "status": "provenance_ledger_emitted_convention_sensitivity_contract_open"
 }

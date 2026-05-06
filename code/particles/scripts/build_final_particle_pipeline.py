@@ -42,6 +42,11 @@ FINAL_PIPELINE_STEPS: tuple[PipelineStep, ...] = (
         "Refresh the Ward-projected Thomson endpoint contract.",
     ),
     PipelineStep(
+        "thomson_endpoint_package",
+        "P_derivation/thomson_endpoint_package.py",
+        "Refresh the computed conditional Thomson endpoint package.",
+    ),
+    PipelineStep(
         "rg_matching_threshold_contract",
         "P_derivation/rg_matching_threshold_contract.py",
         "Refresh the RG/matching/threshold contract.",

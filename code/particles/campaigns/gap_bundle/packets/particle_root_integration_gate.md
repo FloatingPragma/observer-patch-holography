@@ -1,6 +1,6 @@
 # Particle Root Integration Gate Packet
 
-Integrate returned bundle packets and decide whether live prediction roots may
+Integrate returned bundle packets and decide whether promoted prediction roots may
 change.
 
 Return `promote` only if the endpoint, RG/matching, interval, hadronic, and
@@ -22,7 +22,7 @@ is the constructive artifact set:
 - `code/particles/runs/hadron/ward_projected_spectral_measure_contract.json`
 
 The compressed `P` trunk remains candidate/audit metadata and must not be
-promoted into live particle builders until those constructive artifacts are
+promoted into certified particle builders until those constructive artifacts are
 populated and certified.
 
 Next local target: populate or load the production spectral-measure contract and

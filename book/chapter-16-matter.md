@@ -90,11 +90,16 @@ $$
 \alpha_{\mathrm{cand}}^{-1}=136.994020662724205139718642793.
 $$
 
-The observed Thomson value $\alpha^{-1}(0)=137.035999177$ remains a comparison
-until the Ward-projected endpoint and RG/matching certificates close. The
-weak-boson pair and the familiar low-energy electromagnetic strength are meant
-to come from one continuous construction. The W/Z comparison rows and the
-candidate low-energy electromagnetic value occupy different claim tiers.
+The observed Thomson value $\alpha^{-1}(0)=137.035999177$ remains a comparison.
+The endpoint package isolates the missing fixed-point contribution as
+$0.041163974743011720681199819215801821$ inverse-alpha units. At the pixel value
+mapped from the CODATA comparison, the required source residual is
+$0.041465835978928681137459869870016982\ldots$ beyond the exact one-loop
+continuation. The weak-boson pair and the familiar low-energy electromagnetic
+strength are meant to come from one continuous construction. The W/Z comparison
+rows and the candidate low-energy electromagnetic value occupy different claim
+tiers while the source residual map and RG/matching certificates are work in
+progress.
 
 The same electroweak core continues into the scalar and companion top values
 

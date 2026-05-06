@@ -82,7 +82,8 @@ $$P=1.630968209403959\ldots.$$
 
 This is the same number seen from two sides: outside as pixel-area detuning,
 inside as electromagnetic observation. Chapter 14 gives the particle-physics
-use of this fixed-point witness. Here the philosophical point is that a famous
+use of this fixed-point witness and the endpoint residual that remains work in
+progress on the source side. Here the philosophical point is that a famous
 "free constant" is no longer merely a brute entry in a table. It is tied to the
 same local screen scale that organizes the particle sector.
 

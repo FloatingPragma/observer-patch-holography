@@ -16,7 +16,7 @@
     "obstruction_only_worker_result_allowed": true,
     "p_trunk_candidate_only": true
   },
-  "generated_utc": "2026-05-06T04:53:47Z",
+  "generated_utc": "2026-05-06T07:44:09Z",
   "hadron_policy": {
     "github_issues": [
       153,
@@ -33,13 +33,26 @@
   },
   "particle_five_issue_gates": [
     {
-      "chrome_workers": "not_useful_until_source_endpoint_packet_exists",
+      "chrome_workers": "not_needed_for_closed_package",
+      "closable_now": true,
+      "closed_as_blocker_isolation": true,
+      "contract_artifact": "P_derivation/runtime/thomson_endpoint_contract_current.json",
+      "issue": 223,
+      "local_next_artifact": "P_derivation/runtime/thomson_endpoint_package_current.json",
+      "promotion_allowed": false,
+      "state": "closed_blocker_isolated_endpoint_package",
+      "successor_issue": 235,
+      "title": "Ward-projected Thomson endpoint package"
+    },
+    {
+      "chrome_workers": "constructive_only_for_source_residual_map",
       "closable_now": false,
       "hadron_dependency_hardware_gated": true,
-      "issue": 223,
+      "issue": 235,
       "local_next_artifact": "P_derivation/runtime/thomson_endpoint_contract_current.json",
-      "state": "open_constructive_contract",
-      "title": "Ward-projected Thomson endpoint"
+      "package_artifact": "P_derivation/runtime/thomson_endpoint_package_current.json",
+      "state": "open_source_residual_map_and_interval_certificate",
+      "title": "Source residual map and interval certificate"
     },
     {
       "chrome_workers": "not_useful_until_endpoint_and_interval_gates_close",
@@ -297,7 +310,7 @@
     }
   ],
   "runtime_inputs": {
-    "P": 1.63094,
+    "P": 1.630968209403959,
     "hadron_profile": "suppressed",
     "log_dim_H": 1e+122,
     "loops": 4,
@@ -309,6 +322,7 @@
     "exact_nonhadron": "code/particles/exact_nonhadron_masses.json",
     "p_trunk": "code/P_derivation/runtime/p_closure_trunk_current.json",
     "pipeline_status": "code/particles/runs/status/particle_pipeline_closure_status.json",
-    "results_status": "code/particles/results_status.json"
+    "results_status": "code/particles/results_status.json",
+    "thomson_endpoint_package": "code/P_derivation/runtime/thomson_endpoint_package_current.json"
   }
 }

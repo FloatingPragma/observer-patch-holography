@@ -1,6 +1,6 @@
 # Final End-to-End Particle Predictions
 
-Generated: `2026-05-06T04:53:47Z`
+Generated: `2026-05-06T07:44:09Z`
 
 Scope: `nonhadron_particle_pipeline_with_hadrons_closed_out_of_scope`
 Claim status: `final_nonhadron_predictions_without_full_hadron_or_certified_P_root_release`
@@ -10,13 +10,14 @@ Claim status: `final_nonhadron_predictions_without_full_hadron_or_certified_P_ro
 - Candidate `P`: `1.63097210492078846050203640439`
 - Candidate `alpha^-1`: `136.994020662724205139718642793`
 - Claim status: `compressed_candidate_trunk_not_final_particle_root`
-- May feed live particle predictions: `False`
+- May feed promoted particle predictions: `False`
 
 ## Particle-Five Gates
 
 | Issue | State | Closable | Local artifact | Worker policy |
 | --- | --- | --- | --- | --- |
-| #223 | `open_constructive_contract` | `False` | `P_derivation/runtime/thomson_endpoint_contract_current.json` | not_useful_until_source_endpoint_packet_exists |
+| #223 | `closed_blocker_isolated_endpoint_package` | `True` | `P_derivation/runtime/thomson_endpoint_package_current.json` | not_needed_for_closed_package |
+| #235 | `open_source_residual_map_and_interval_certificate` | `False` | `P_derivation/runtime/thomson_endpoint_contract_current.json` | constructive_only_for_source_residual_map |
 | #224 | `open_waiting_certified_root` | `False` | `P_derivation/runtime/p_closure_trunk_current.json` | not_useful_until_endpoint_and_interval_gates_close |
 | #32 | `open_constructive_contract` | `False` | `P_derivation/runtime/rg_matching_threshold_contract_current.json` | only_after_beta_threshold_packet_is_populated |
 | #153 | `closed_out_of_scope_computationally_blocked` | `True` | `particles/runs/hadron/ward_projected_spectral_measure_contract.json` | do_not_use_for_backend_execution |

@@ -70,7 +70,13 @@ synchronization. The particle pipeline records a nearby candidate-root lane
 with `P = 1.63097210492078846050203640439` and
 `alpha_cand^-1 = 136.994020662724205139718642793`. This root is outside the
 promoted prediction tier. The weak-boson pair is compare-only; promotion
-requires the Ward-projected Thomson endpoint and RG/matching certificates. The
+requires the Ward-projected Thomson residual map and RG/matching certificates. The
+endpoint package isolates the missing fixed-point contribution as
+`0.041163974743011720681199819215801821` inverse-alpha units. At the
+CODATA-mapped pixel value, the source residual target is
+`0.041465835978928681137459869870016982` inverse-alpha units, equivalent to
+`S_required = 0.895400127551185647132725678585532880` in the quark-screening
+readout. The
 Higgs lane, selected-class quark rows, and weighted-cycle neutrino branch are
 separate scoped outputs. The available derivation gives no-go boundaries for
 charged-lepton absolute masses, global quark-frame classification, and the
@@ -92,7 +98,7 @@ quick view here sticks to direct numeric rows and exact zeros.
 | --- | --- | --- | --- | --- |
 | Gravitational constant | G | 6.6742999959e-11 | 6.67430(15)e-11 | 0.00003σ |
 | Speed of light | c | 299792458 | 299792458 (exact) | match |
-| Fine-structure (inv) | α⁻¹(0) | candidate trunk gives 136.994020662724 | 137.035999177(21) | endpoint/matching gate open |
+| Fine-structure (inv) | α⁻¹(0) | candidate trunk gives 136.994020662724; endpoint package isolates 0.041163974743 missing at that root | 137.035999177(21) | source residual and matching certificates are work in progress |
 | Photon mass | m_γ | 0 eV | <1e-18 eV | below bound |
 | Gluon mass | m_g | 0 GeV | 0 GeV | match |
 | Graviton mass | m_grav | 0 eV | <1.76e-23 eV | below bound |

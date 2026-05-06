@@ -63,7 +63,7 @@ def build_gap_rows() -> list[dict[str, Any]]:
             "github_issue": 224,
             "title": "Make the five-equation P trunk the canonical audit artifact",
             "current_boundary": (
-                "The compressed trunk organizes the code path. It remains outside the certified live "
+                "The compressed trunk organizes the code path. It remains outside the certified "
                 "particle-root surface until the endpoint and interval-certificate gates close."
             ),
             "next_action": "Keep emitting p_closure_trunk_current.json and use it as audit metadata.",
@@ -72,19 +72,47 @@ def build_gap_rows() -> list[dict[str, Any]]:
         {
             "id": "d10.ward-projected-thomson-endpoint",
             "lane": "D10 electromagnetic endpoint",
-            "status": "open_theorem_gap",
+            "status": "closed_blocker_isolated_endpoint_package",
             "github_issue": 223,
-            "title": "Close the Ward-projected U(1)_Q Thomson endpoint",
+            "successor_github_issue": 235,
+            "title": "Close the Ward-projected U(1)_Q endpoint package",
             "current_boundary": (
-                "The structured-running law is a continuation: lepton one-loop transport is "
-                "implemented, while hadronic spectral transport, scheme matching, and interval error "
-                "control are not theorem-grade."
+                "The structured-running law is a continuation. The endpoint package computes the "
+                "residual inverse-alpha transport packet and isolates the first non-internalized "
+                "object. The source-emitted QCD screening map, scheme remainder, and interval error "
+                "control are carried by issue #235."
             ),
             "next_action": (
-                "Derive Delta_Th(P) from the same Ward-projected source family as a0(P), including "
-                "rho_had(s;P), matching remainder, and certified quadrature bounds."
+                "Keep the package as the closed blocker-isolation artifact for issue #223."
             ),
-            "target_surfaces": ["code/P_derivation/THOMSON_TRANSPORT_THEOREMS.md", "code/particles/calibration"],
+            "target_surfaces": [
+                "code/P_derivation/THOMSON_TRANSPORT_THEOREMS.md",
+                "code/P_derivation/runtime/thomson_endpoint_package_current.json",
+                "code/particles/calibration",
+            ],
+        },
+        {
+            "id": "d10.source-residual-map-and-interval-certificate",
+            "lane": "D10 electromagnetic endpoint",
+            "status": "open_source_residual_map_and_interval_certificate",
+            "github_issue": 235,
+            "closed_issue_refs": [223],
+            "title": "Emit the source-only Thomson residual map and interval certificate",
+            "current_boundary": (
+                "The endpoint package fixes the target residual, but no OPH source theorem emits "
+                "the Ward-projected hadronic spectral measure, electroweak scheme remainder, or "
+                "interval certificate for the full map."
+            ),
+            "next_action": (
+                "Emit a source-only residual map that matches the endpoint package, including "
+                "rho_had(s;P) or an equivalent Ward-projected spectral primitive, matching remainder, "
+                "and certified quadrature bounds."
+            ),
+            "target_surfaces": [
+                "code/P_derivation/THOMSON_TRANSPORT_THEOREMS.md",
+                "code/P_derivation/runtime/thomson_endpoint_contract_current.json",
+                "code/particles/hadron/ward_projected_spectral_measure.schema.json",
+            ],
         },
         {
             "id": "d10.rg-matching-threshold-scheme",
@@ -103,7 +131,7 @@ def build_gap_rows() -> list[dict[str, Any]]:
             "target_surfaces": ["paper compact D10 section", "code/P_derivation", "code/particles/calibration"],
         },
         {
-            "id": "pclosure.live-codepath-adoption",
+            "id": "pclosure.certified-codepath-adoption",
             "lane": "P closure",
             "status": "blocked_pending_certified_root",
             "github_issue": 224,
@@ -114,7 +142,7 @@ def build_gap_rows() -> list[dict[str, Any]]:
                 "blocked while the compressed trunk remains candidate/audit metadata."
             ),
             "next_action": (
-                "When issues 223 and 32 close, switch particle builders to the certified trunk "
+                "When issues 235 and 32 close, switch particle builders to the certified trunk "
                 "artifact and make compare-only or historical P paths non-default."
             ),
             "target_surfaces": ["code/particles/scripts", "code/particles/runs/status", "WebProjects OPH summaries"],
@@ -145,7 +173,7 @@ def build_gap_rows() -> list[dict[str, Any]]:
             "github_issue": 199,
             "title": "Keep exact quark rows scoped to the selected public frame class",
             "current_boundary": (
-                "The selected-class exact Yukawa theorem is live. The stronger class-uniform/global "
+                "The selected-class exact Yukawa theorem is promoted. The stronger class-uniform/global "
                 "classification lane is closed as a corpus-limited no-go because no source-emitted "
                 "ambient public-frame classifier or quotient-intrinsic sigma law exists."
             ),
@@ -214,23 +242,26 @@ def build_bundles() -> list[dict[str, Any]]:
     return [
         {
             "id": "electroweak-root-closure-bundle",
-            "status": "constructive_endpoint_contract_emitted",
+            "status": "endpoint_package_closed_source_residual_open",
             "gap_ids": [
                 "pclosure.compressed-trunk-artifact",
                 "d10.ward-projected-thomson-endpoint",
+                "d10.source-residual-map-and-interval-certificate",
                 "d10.rg-matching-threshold-scheme",
-                "pclosure.live-codepath-adoption",
+                "pclosure.certified-codepath-adoption",
             ],
             "promotion_question": (
                 "Can one source-emitted map Delta_Th(P), with declared matching and interval bounds, "
-                "certify the compressed P trunk as the live particle root without importing alpha(0)?"
+                "certify the compressed P trunk as the particle root without importing alpha(0)?"
             ),
             "result": (
-                "Constructive result. The admissible endpoint object is explicit: Delta_Th(P) must split into "
+                "Constructive result. The admissible endpoint object is explicit and the endpoint "
+                "package computes the residual inverse-alpha packet. Delta_Th(P) must split into "
                 "source lepton transport, a Ward-projected hadronic spectral density rho_had(s;P), "
                 "a certified electroweak/scheme remainder, RG/matching certificates, quadrature bounds, "
-                "and an interval-level fixed-point certificate. The local implementation target is "
-                "P_derivation/runtime/thomson_endpoint_contract_current.json."
+                "and an interval-level fixed-point certificate. The local implementation targets are "
+                "P_derivation/runtime/thomson_endpoint_contract_current.json and "
+                "P_derivation/runtime/thomson_endpoint_package_current.json."
             ),
         },
         {
@@ -297,7 +328,7 @@ def build_bundles() -> list[dict[str, Any]]:
                 "pclosure.compressed-trunk-artifact",
                 "d10.ward-projected-thomson-endpoint",
                 "d10.rg-matching-threshold-scheme",
-                "pclosure.live-codepath-adoption",
+                "pclosure.certified-codepath-adoption",
                 "charged.determinant-normalization-transport",
                 "quark.selected-class-vs-global-classification",
                 "neutrino.pmns-status-and-absolute-rows",
@@ -306,7 +337,7 @@ def build_bundles() -> list[dict[str, Any]]:
             ],
             "promotion_question": (
                 "Do the returned packets jointly close the endpoint, matching, interval, and source-object "
-                "requirements strongly enough to promote the compressed trunk into live particle builders?"
+                "requirements strongly enough to promote the compressed trunk into particle builders?"
             ),
             "result": (
                 "No promotion. The first wave emits constructive next artifacts, so the compressed P trunk "
@@ -326,7 +357,7 @@ def build_ledger() -> dict[str, Any]:
         "bundles": build_bundles(),
         "rows": rows,
         "promotion_policy": {
-            "compressed_p_trunk_is_live_prediction_root": False,
+            "compressed_p_trunk_is_certified_prediction_root": False,
             "reason": "The endpoint, RG/matching, and interval-certificate gates remain open.",
             "hadron_backend_in_current_local_scope": False,
             "hadron_backend_scope_reason": (
@@ -354,7 +385,7 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         f"- Artifact: `{p_trunk['artifact_path']}`",
         f"- Exists: `{p_trunk['exists']}`",
         f"- Claim status: `{p_trunk['claim_status']}`",
-        f"- May feed live particle predictions: `{p_trunk['may_feed_live_particle_predictions']}`",
+        f"- May feed promoted particle predictions: `{p_trunk['may_feed_live_particle_predictions']}`",
     ]
     if p_trunk.get("P") is not None:
         lines.extend(
@@ -411,7 +442,7 @@ def render_markdown(ledger: dict[str, Any]) -> str:
             "- The compressed P trunk is an audit/candidate artifact until the endpoint and certificate gates close.",
             "- The remaining blockers should be worked as coupled bundles, not as isolated one-off fixes.",
             "- The particle pipeline must keep compare-only, continuation, selected-class, and theorem-grade rows mechanically distinct.",
-            "- Golden-ratio torus or resonance language is not a live derivation input unless a separate representation-to-spectrum theorem is supplied.",
+            "- Golden-ratio torus or resonance language is not a derivation input unless a separate representation-to-spectrum theorem is supplied.",
         ]
     )
     return "\n".join(lines)

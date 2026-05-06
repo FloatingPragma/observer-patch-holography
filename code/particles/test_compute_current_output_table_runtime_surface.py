@@ -70,6 +70,7 @@ def test_runtime_surface_preserves_repaired_neutrino_rows_and_canonical_refs(tmp
     )
     assert (current_dir / "P_derivation" / "runtime" / "p_closure_trunk_current.json").exists()
     assert (current_dir / "P_derivation" / "runtime" / "thomson_endpoint_contract_current.json").exists()
+    assert (current_dir / "P_derivation" / "runtime" / "thomson_endpoint_package_current.json").exists()
     assert (current_dir / "P_derivation" / "runtime" / "rg_matching_threshold_contract_current.json").exists()
     assert (current_dir / "runs" / "status" / "particle_derivation_gap_ledger.json").exists()
     assert (current_dir / "runs" / "status" / "particle_pipeline_closure_status.json").exists()

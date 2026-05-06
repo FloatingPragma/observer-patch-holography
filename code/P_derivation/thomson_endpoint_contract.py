@@ -27,8 +27,11 @@ def build_contract() -> dict[str, Any]:
     return {
         "artifact": "oph_ward_projected_thomson_endpoint_contract",
         "generated_utc": _now_utc(),
+        "github_issue": 235,
+        "closed_blocker_isolation_issue": 223,
         "status": "constructive_contract_emitted_not_endpoint_theorem",
         "promotion_allowed": False,
+        "computed_package": "code/P_derivation/runtime/thomson_endpoint_package_current.json",
         "worker_result_policy": {
             "obstruction_only_result_allowed": False,
             "required_if_primary_route_fails": (
@@ -94,6 +97,18 @@ def build_contract() -> dict[str, Any]:
                 ],
             },
             {
+                "id": "delta_qcd_screening_and_endpoint_remainder",
+                "kind": "computed_residual_interface",
+                "target_status": "source_emitted_residual_map_for_the_package_scalar",
+                "local_package": "code/P_derivation/runtime/thomson_endpoint_package_current.json",
+                "required_fields": [
+                    "ward_projected_qcd_screening_map",
+                    "electroweak_scheme_remainder_map",
+                    "positivity_or_bound_status",
+                    "interval_transport_bound",
+                ],
+            },
+            {
                 "id": "full_endpoint_interval_certificate",
                 "kind": "certificate_interface",
                 "target_status": "interval_existence_uniqueness_for_full_map",
@@ -107,9 +122,9 @@ def build_contract() -> dict[str, Any]:
             },
         ],
         "local_next_steps": [
-            "Populate the Ward-projected hadronic spectral-measure schema from a production QCD export.",
-            "Add a source-side endpoint builder that refuses to run unless all constructive objects are present.",
-            "Upgrade the numerical contraction witness only after the endpoint builder uses source-emitted transport.",
+            "Use thomson_endpoint_package.py to compute the residual endpoint packet from the internal report.",
+            "Populate a source-emitted Ward-projected QCD screening and endpoint-remainder map matching that packet.",
+            "Upgrade the interval certificate only after the endpoint builder uses source-emitted transport.",
         ],
         "forbidden_solver_inputs": [
             "measured_alpha_0",

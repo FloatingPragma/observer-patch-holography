@@ -87,7 +87,7 @@ def build_payload() -> dict[str, Any]:
     particle_five_gates = [
         gate
         for gate in pipeline["issue_gates"]
-        if gate["issue"] in {223, 224, 32, 153, 199, 201, 207}
+        if gate["issue"] in {223, 224, 235, 32, 153, 199, 201, 207}
     ]
 
     return {
@@ -97,6 +97,7 @@ def build_payload() -> dict[str, Any]:
         "claim_status": "final_nonhadron_predictions_without_full_hadron_or_certified_P_root_release",
         "source_surfaces": {
             "p_trunk": "code/P_derivation/runtime/p_closure_trunk_current.json",
+            "thomson_endpoint_package": "code/P_derivation/runtime/thomson_endpoint_package_current.json",
             "pipeline_status": "code/particles/runs/status/particle_pipeline_closure_status.json",
             "exact_nonhadron": "code/particles/exact_nonhadron_masses.json",
             "results_status": "code/particles/results_status.json",
@@ -147,7 +148,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
         f"- Candidate `P`: `{payload['p_closure']['P']}`",
         f"- Candidate `alpha^-1`: `{payload['p_closure']['alpha_inv']}`",
         f"- Claim status: `{payload['p_closure']['claim_status']}`",
-        f"- May feed live particle predictions: `{payload['p_closure']['may_feed_live_particle_predictions']}`",
+        f"- May feed promoted particle predictions: `{payload['p_closure']['may_feed_live_particle_predictions']}`",
         "",
         "## Particle-Five Gates",
         "",

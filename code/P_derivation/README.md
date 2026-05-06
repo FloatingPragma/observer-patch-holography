@@ -3,7 +3,7 @@
 This directory is a clean paper-math implementation of the OPH `P <-> alpha`
 closure experiment.
 
-The goal is to avoid the current public-facing ambiguity between the paper
+The goal is to avoid public-facing ambiguity between the paper
 equations and the larger `code/particles` calibration stack. The code here is
 therefore built directly from the equations stated in:
 
@@ -22,7 +22,7 @@ For a trial pixel constant `P`, the code reproduces the paper D10 forward map:
 4. Build the source-locked electroweak anchor
    `a0(P) = alpha_em^-1(m_Z^2; P)`
 
-The new closure step then inserts that paper-side `P -> alpha` map into Alex's
+The closure step inserts that paper-side `P -> alpha` map into Alex's
 equation:
 
 `P = phi + alpha * sqrt(pi)`
@@ -32,14 +32,14 @@ equation reports the corresponding compare-only pixel ratio. The solver has no
 default reference constant.
 
 `emit_p_closure_trunk.py` is the compressed five-equation trunk emitter. It
-packages the current code path as:
+packages the code path as:
 
 ```text
 P -> M_U -> alpha_U -> alpha_i(m_Z) -> a0(P) -> alpha_in(P) -> P
 ```
 
 and writes `runtime/p_closure_trunk_current.json`. That artifact is the
-canonical audit surface for the simplified chain, but not yet the certified live
+canonical audit surface for the simplified chain, but it is not the certified
 particle root. Promotion still requires the Ward-projected Thomson endpoint
 theorem, OPH-internal RG/matching closure, and an interval-level fixed-point
 certificate.
@@ -92,14 +92,14 @@ Two alpha readout modes are supported:
 
 The important claim-boundary caveat is:
 
-- `paper_math.py` is now zero-insert with respect to paper-side target values:
+- `paper_math.py` is zero-insert with respect to paper-side target values:
   it contains no hard-coded reference `P`, no hard-coded Thomson endpoint, and
   no imported compare bundle from `code/particles`.
 - `thomson_structured_running` is therefore the cleanest internal closure
   experiment in this directory, and it uses the exact one-loop fermion kernel
   rather than the older asymptotic log expansion.
-- It is still a continuation beyond the strict theorem-grade D10 core, because
-  the final low-energy transport law is being modeled by the current internal
+- It is a continuation beyond the strict theorem-grade D10 core, because
+  the final low-energy transport law is being modeled by the internal
   Stage-5 structured-running ansatz rather than by a closed theorem.
 - `fixed_point_witness.py` emits a numerical witness, not an interval
   certificate. It samples the declared `alpha -> alpha` map and records local
@@ -113,22 +113,32 @@ The important claim-boundary caveat is:
 
 ## Full derivation status
 
-`FULL_DERIVATION.md` records the complete derivation contract and the current
-open gap. `THOMSON_TRANSPORT_THEOREMS.md` records the theorem suite and its
+`FULL_DERIVATION.md` records the complete derivation contract and the endpoint
+gap. `THOMSON_TRANSPORT_THEOREMS.md` records the theorem suite and its
 promotion rule. The short version is:
 
 - the D10 source map and the outer fixed-point witness are implemented
-- the current default readout gives
+- the default exact one-loop readout gives
   `alpha^-1 = 136.994835202256988279318800180784...`
 - the 2022 CODATA/NIST compare-only value is
   `alpha^-1(0) = 137.035999177(21)`
 - the missing term is a source-only Thomson transport contribution of
   `0.0411639747430117206811998192158...` in inverse-alpha units
+- at the CODATA-mapped pixel point
+  `P=1.630968209403959324879279847782648941...`, the endpoint package gives
+  `a0(P)=128.307965473286248209948959819190019918...`,
+  `Delta_required(P)=8.728033703713751790051040180809980082...`, and
+  `Delta_source_residual(P)=0.041465835978928681137459869870016982...`
+- the residual is equivalent to a required Ward-projected quark-screening factor
+  `S_required=0.895400127551185647132725678585532880...`, or
+  `c_Q=0.658025360816792342502465198049036592...` in the parameterization
+  `S=1-x+c_Q x^2`, with `x=N_c alpha_3(m_Z;P)/pi`
 
 Run the audit after producing a report:
 
 ```bash
 python3 alpha_gap_audit.py --report runtime/full_p_alpha_report_p80.json
+python3 thomson_endpoint_package.py --report runtime/full_p_alpha_report_p80.json
 python3 transport_theorem_manifest.py --report runtime/full_p_alpha_report_p80.json
 ```
 

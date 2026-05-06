@@ -5,13 +5,14 @@
       "gap_ids": [
         "pclosure.compressed-trunk-artifact",
         "d10.ward-projected-thomson-endpoint",
+        "d10.source-residual-map-and-interval-certificate",
         "d10.rg-matching-threshold-scheme",
-        "pclosure.live-codepath-adoption"
+        "pclosure.certified-codepath-adoption"
       ],
       "id": "electroweak-root-closure-bundle",
-      "promotion_question": "Can one source-emitted map Delta_Th(P), with declared matching and interval bounds, certify the compressed P trunk as the live particle root without importing alpha(0)?",
-      "result": "Constructive result. The admissible endpoint object is explicit: Delta_Th(P) must split into source lepton transport, a Ward-projected hadronic spectral density rho_had(s;P), a certified electroweak/scheme remainder, RG/matching certificates, quadrature bounds, and an interval-level fixed-point certificate. The local implementation target is P_derivation/runtime/thomson_endpoint_contract_current.json.",
-      "status": "constructive_endpoint_contract_emitted"
+      "promotion_question": "Can one source-emitted map Delta_Th(P), with declared matching and interval bounds, certify the compressed P trunk as the particle root without importing alpha(0)?",
+      "result": "Constructive result. The admissible endpoint object is explicit and the endpoint package computes the residual inverse-alpha packet. Delta_Th(P) must split into source lepton transport, a Ward-projected hadronic spectral density rho_had(s;P), a certified electroweak/scheme remainder, RG/matching certificates, quadrature bounds, and an interval-level fixed-point certificate. The local implementation targets are P_derivation/runtime/thomson_endpoint_contract_current.json and P_derivation/runtime/thomson_endpoint_package_current.json.",
+      "status": "endpoint_package_closed_source_residual_open"
     },
     {
       "gap_ids": [
@@ -48,7 +49,7 @@
         "pclosure.compressed-trunk-artifact",
         "d10.ward-projected-thomson-endpoint",
         "d10.rg-matching-threshold-scheme",
-        "pclosure.live-codepath-adoption",
+        "pclosure.certified-codepath-adoption",
         "charged.determinant-normalization-transport",
         "quark.selected-class-vs-global-classification",
         "neutrino.pmns-status-and-absolute-rows",
@@ -56,12 +57,12 @@
         "hadron.production-backend-systematics"
       ],
       "id": "particle-root-integration-gate",
-      "promotion_question": "Do the returned packets jointly close the endpoint, matching, interval, and source-object requirements strongly enough to promote the compressed trunk into live particle builders?",
+      "promotion_question": "Do the returned packets jointly close the endpoint, matching, interval, and source-object requirements strongly enough to promote the compressed trunk into particle builders?",
       "result": "No promotion. The first wave emits constructive next artifacts, so the compressed P trunk remains candidate/audit metadata until those artifacts are populated and certified.",
       "status": "keep_candidate_with_constructive_next_artifacts"
     }
   ],
-  "generated_utc": "2026-05-06T05:13:06Z",
+  "generated_utc": "2026-05-06T07:44:09Z",
   "p_trunk": {
     "P": "1.63097210492078846050203640439",
     "alpha_inv": "136.994020662724205139718642793",
@@ -73,7 +74,7 @@
   },
   "promotion_policy": {
     "address_remaining_blockers_one_by_one": false,
-    "compressed_p_trunk_is_live_prediction_root": false,
+    "compressed_p_trunk_is_certified_prediction_root": false,
     "hadron_backend_in_current_local_scope": false,
     "hadron_backend_scope_reason": "Production hadrons require a real OPH hardware backend. Issues #153/#157 are closed as out-of-scope/computationally blocked; local surrogate output is non-promoting.",
     "obstruction_only_worker_result_allowed": true,
@@ -83,7 +84,7 @@
   "purpose": "Systematic claim-safe queue after the five-equation P-trunk simplification.",
   "rows": [
     {
-      "current_boundary": "The compressed trunk organizes the code path. It remains outside the certified live particle-root surface until the endpoint and interval-certificate gates close.",
+      "current_boundary": "The compressed trunk organizes the code path. It remains outside the certified particle-root surface until the endpoint and interval-certificate gates close.",
       "github_issue": 224,
       "id": "pclosure.compressed-trunk-artifact",
       "lane": "P closure",
@@ -96,17 +97,36 @@
       "title": "Make the five-equation P trunk the canonical audit artifact"
     },
     {
-      "current_boundary": "The structured-running law is a continuation: lepton one-loop transport is implemented, while hadronic spectral transport, scheme matching, and interval error control are not theorem-grade.",
+      "current_boundary": "The structured-running law is a continuation. The endpoint package computes the residual inverse-alpha transport packet and isolates the first non-internalized object. The source-emitted QCD screening map, scheme remainder, and interval error control are carried by issue #235.",
       "github_issue": 223,
       "id": "d10.ward-projected-thomson-endpoint",
       "lane": "D10 electromagnetic endpoint",
-      "next_action": "Derive Delta_Th(P) from the same Ward-projected source family as a0(P), including rho_had(s;P), matching remainder, and certified quadrature bounds.",
-      "status": "open_theorem_gap",
+      "next_action": "Keep the package as the closed blocker-isolation artifact for issue #223.",
+      "status": "closed_blocker_isolated_endpoint_package",
+      "successor_github_issue": 235,
       "target_surfaces": [
         "code/P_derivation/THOMSON_TRANSPORT_THEOREMS.md",
+        "code/P_derivation/runtime/thomson_endpoint_package_current.json",
         "code/particles/calibration"
       ],
-      "title": "Close the Ward-projected U(1)_Q Thomson endpoint"
+      "title": "Close the Ward-projected U(1)_Q endpoint package"
+    },
+    {
+      "closed_issue_refs": [
+        223
+      ],
+      "current_boundary": "The endpoint package fixes the target residual, but no OPH source theorem emits the Ward-projected hadronic spectral measure, electroweak scheme remainder, or interval certificate for the full map.",
+      "github_issue": 235,
+      "id": "d10.source-residual-map-and-interval-certificate",
+      "lane": "D10 electromagnetic endpoint",
+      "next_action": "Emit a source-only residual map that matches the endpoint package, including rho_had(s;P) or an equivalent Ward-projected spectral primitive, matching remainder, and certified quadrature bounds.",
+      "status": "open_source_residual_map_and_interval_certificate",
+      "target_surfaces": [
+        "code/P_derivation/THOMSON_TRANSPORT_THEOREMS.md",
+        "code/P_derivation/runtime/thomson_endpoint_contract_current.json",
+        "code/particles/hadron/ward_projected_spectral_measure.schema.json"
+      ],
+      "title": "Emit the source-only Thomson residual map and interval certificate"
     },
     {
       "current_boundary": "The D10 branch uses declared running/matching conventions. The compressed P trunk exposes that boundary without proving those conventions from OPH.",
@@ -125,9 +145,9 @@
     {
       "current_boundary": "Particle status surfaces use the public display value P=1.630968209403959 where the value is reader-facing. Certified particle-root adoption remains blocked while the compressed trunk remains candidate/audit metadata.",
       "github_issue": 224,
-      "id": "pclosure.live-codepath-adoption",
+      "id": "pclosure.certified-codepath-adoption",
       "lane": "P closure",
-      "next_action": "When issues 223 and 32 close, switch particle builders to the certified trunk artifact and make compare-only or historical P paths non-default.",
+      "next_action": "When issues 235 and 32 close, switch particle builders to the certified trunk artifact and make compare-only or historical P paths non-default.",
       "status": "blocked_pending_certified_root",
       "target_surfaces": [
         "code/particles/scripts",
@@ -150,7 +170,7 @@
       "title": "Keep the P-to-charged affine anchor bridge scoped as a no-go"
     },
     {
-      "current_boundary": "The selected-class exact Yukawa theorem is live. The stronger class-uniform/global classification lane is closed as a corpus-limited no-go because no source-emitted ambient public-frame classifier or quotient-intrinsic sigma law exists.",
+      "current_boundary": "The selected-class exact Yukawa theorem is promoted. The stronger class-uniform/global classification lane is closed as a corpus-limited no-go because no source-emitted ambient public-frame classifier or quotient-intrinsic sigma law exists.",
       "github_issue": 199,
       "id": "quark.selected-class-vs-global-classification",
       "lane": "Quarks",

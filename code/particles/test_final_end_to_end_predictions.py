@@ -21,10 +21,12 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
     assert payload["hadron_policy"]["predictions_emitted"] is False
     assert payload["hadron_policy"]["github_issues"] == [153, 157]
     gates = {gate["issue"]: gate for gate in payload["particle_five_issue_gates"]}
-    assert set(gates) == {32, 153, 199, 201, 207, 223, 224}
+    assert set(gates) == {32, 153, 199, 201, 207, 223, 224, 235}
     assert gates[153]["state"] == "closed_out_of_scope_computationally_blocked"
     assert gates[199]["state"] == "closed_current_corpus_global_classification_no_go"
     assert gates[201]["state"] == "closed_current_corpus_charged_end_to_end_no_go"
+    assert gates[223]["state"] == "closed_blocker_isolated_endpoint_package"
+    assert gates[235]["state"] == "open_source_residual_map_and_interval_certificate"
     assert gates[224]["state"] == "open_waiting_certified_root"
     predictions = {entry["particle_id"]: entry for entry in payload["predictions"]}
     assert predictions["photon"]["value"] == 0.0

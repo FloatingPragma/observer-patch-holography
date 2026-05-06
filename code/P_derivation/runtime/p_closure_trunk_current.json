@@ -1,6 +1,6 @@
 {
   "artifact": "oph_p_closure_trunk_current",
-  "claim_boundary": "This artifact is the canonical compressed P-trunk candidate for the current code path. It is not yet the live particle-pipeline root: promotion requires the Ward-projected Thomson endpoint theorem, OPH-internal RG/matching/scheme closure, and an interval-level fixed-point certificate.",
+  "claim_boundary": "This artifact is the canonical compressed P-trunk candidate for the code path. It is not the certified particle-pipeline root: promotion requires the Ward-projected Thomson endpoint theorem, OPH-internal RG/matching/scheme closure, and an interval-level fixed-point certificate.",
   "claim_status": "compressed_candidate_trunk_not_final_particle_root",
   "closed_form_candidate": {
     "formula": "P = phi + alpha_in(P) * sqrt(pi)",
@@ -105,10 +105,10 @@
     "outer_equation_residual": "0.00000000000000000000000000000",
     "source_anchor_alpha_inv_mz": "128.308268762616913741791069064"
   },
-  "generated_utc": "2026-05-06T04:53:47Z",
+  "generated_utc": "2026-05-06T07:43:52Z",
   "promotion_gates": [
     {
-      "github_issue": 223,
+      "github_issue": 235,
       "id": "ward_projected_thomson_endpoint",
       "required_status": "source_emitted_zero_momentum_transport_theorem"
     },
@@ -118,14 +118,14 @@
       "required_status": "OPH_internal_running_matching_and_scheme_theorem"
     },
     {
-      "github_issue": 223,
+      "github_issue": 235,
       "id": "interval_fixed_point_certificate",
       "required_status": "interval_existence_uniqueness_certificate_for_the_full_map"
     },
     {
       "github_issue": 224,
       "id": "particle_codepath_adoption",
-      "required_status": "all_live_particle_consumers_read_the_certified_trunk_artifact"
+      "required_status": "all_particle_consumers_read_the_certified_trunk_artifact"
     }
   ],
   "source_report_mode": "thomson_structured_running_asymptotic",

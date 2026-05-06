@@ -34,7 +34,7 @@ def test_derivation_chain_closure_matrix_keeps_stage_gates_explicit() -> None:
         "hadrons",
     }
     assert rows["p_closure_root"]["promotable"] is False
-    assert rows["p_closure_root"]["open_gates"] == [32, 223, 224]
+    assert rows["p_closure_root"]["open_gates"] == [32, 235, 224]
     assert rows["structural_massless_bosons"]["promotable"] is True
     assert rows["charged_leptons"]["status"] == "closed_current_corpus_charged_end_to_end_no_go"
     assert rows["charged_leptons"]["promotable"] is False
@@ -56,4 +56,6 @@ def test_derivation_chain_closure_matrix_keeps_stage_gates_explicit() -> None:
     assert payload["particle_five_gates"]["199"]["state"] == "closed_current_corpus_global_classification_no_go"
     assert payload["particle_five_gates"]["201"]["state"] == "closed_current_corpus_charged_end_to_end_no_go"
     assert payload["particle_five_gates"]["153"]["state"] == "closed_out_of_scope_computationally_blocked"
+    assert payload["particle_five_gates"]["223"]["state"] == "closed_blocker_isolated_endpoint_package"
+    assert payload["particle_five_gates"]["235"]["state"] == "open_source_residual_map_and_interval_certificate"
     assert payload["particle_five_gates"]["224"]["state"] == "open_waiting_certified_root"

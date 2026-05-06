@@ -1,6 +1,6 @@
 # Blind Prediction Provenance
 
-Generated: `2026-05-06T04:53:47Z`
+Generated: `2026-05-06T07:44:09Z`
 
 This ledger records target-use and convention-sensitivity status for the public quantitative particle rows.
 
@@ -43,4 +43,5 @@ This ledger records target-use and convention-sensitivity status for the public 
 - Status: `contract_open_not_quantified`
 - RG contract status: `constructive_contract_emitted_not_rg_matching_theorem`
 - Endpoint contract status: `constructive_contract_emitted_not_endpoint_theorem`
+- Endpoint package status: `endpoint_package_computed_blocker_isolated`
 - Next artifact: populate beta_provenance_table, threshold_map, scheme_lock, and interval composition certificates

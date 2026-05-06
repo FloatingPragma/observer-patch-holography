@@ -41,7 +41,7 @@ def _issue_map(payload: dict[str, Any]) -> dict[int, dict[str, Any]]:
 
 
 def _display_status(status: str) -> str:
-    return status.replace("current_corpus", "corpus_limited")
+    return status.replace("current_corpus", "corpus_limited").replace("not_live", "not_certified")
 
 
 def build_payload() -> dict[str, Any]:
@@ -64,8 +64,8 @@ def build_payload() -> dict[str, Any]:
                 "alpha_inv": final_predictions["p_closure"]["alpha_inv"],
             },
             "promotable": False,
-            "open_gates": [32, 223, 224],
-            "next_artifact": "code/P_derivation/runtime/rg_matching_threshold_contract_current.json + code/P_derivation/runtime/thomson_endpoint_contract_current.json",
+            "open_gates": [32, 235, 224],
+            "next_artifact": "code/P_derivation/runtime/rg_matching_threshold_contract_current.json + code/P_derivation/runtime/thomson_endpoint_package_current.json",
         },
         {
             "chain": "structural_massless_bosons",
@@ -85,7 +85,7 @@ def build_payload() -> dict[str, Any]:
                 "z_boson": predictions["z_boson"]["value"],
             },
             "promotable": False,
-            "open_gates": [32, 223, 224],
+            "open_gates": [32, 235, 224],
             "next_artifact": "code/P_derivation/runtime/rg_matching_threshold_contract_current.json",
         },
         {
@@ -210,12 +210,16 @@ def build_payload() -> dict[str, Any]:
             "chrome_pro_workers_needed_now": False,
             "reason": (
                 "Hadron issues #153/#157 are closed out-of-scope pending OPH hadron hardware; "
-                "the remaining in-scope open P/electroweak chains need local theorem packets before worker audit is meaningful. "
+                "the remaining in-scope open P/electroweak chains need a source-emitted residual map and interval certificate before worker audit is meaningful. "
                 "The charged absolute-anchor, quark global-classification, and direct-top auxiliary-codomain lanes "
                 "have corpus-limited no-go boundaries."
             ),
         },
-        "particle_five_gates": {str(issue): gates[issue] for issue in (32, 153, 199, 201, 207, 223, 224) if issue in gates},
+        "particle_five_gates": {
+            str(issue): gates[issue]
+            for issue in (32, 153, 199, 201, 207, 223, 224, 235)
+            if issue in gates
+        },
         "provenance_status": provenance["status"],
         "rows": rows,
     }

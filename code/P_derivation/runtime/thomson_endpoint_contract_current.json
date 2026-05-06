@@ -1,5 +1,7 @@
 {
   "artifact": "oph_ward_projected_thomson_endpoint_contract",
+  "closed_blocker_isolation_issue": 223,
+  "computed_package": "code/P_derivation/runtime/thomson_endpoint_package_current.json",
   "constructive_objects": [
     {
       "id": "sigma_q_scheme_lock",
@@ -49,6 +51,18 @@
       "target_status": "zero_identity_or_source_bound"
     },
     {
+      "id": "delta_qcd_screening_and_endpoint_remainder",
+      "kind": "computed_residual_interface",
+      "local_package": "code/P_derivation/runtime/thomson_endpoint_package_current.json",
+      "required_fields": [
+        "ward_projected_qcd_screening_map",
+        "electroweak_scheme_remainder_map",
+        "positivity_or_bound_status",
+        "interval_transport_bound"
+      ],
+      "target_status": "source_emitted_residual_map_for_the_package_scalar"
+    },
+    {
       "id": "full_endpoint_interval_certificate",
       "kind": "certificate_interface",
       "required_fields": [
@@ -76,11 +90,12 @@
     "free_quark_screened_ansatz_as_theorem_input",
     "charged_physical_values_imported_into_the_determinant_line"
   ],
-  "generated_utc": "2026-05-06T04:53:47Z",
+  "generated_utc": "2026-05-06T07:43:52Z",
+  "github_issue": 235,
   "local_next_steps": [
-    "Populate the Ward-projected hadronic spectral-measure schema from a production QCD export.",
-    "Add a source-side endpoint builder that refuses to run unless all constructive objects are present.",
-    "Upgrade the numerical contraction witness only after the endpoint builder uses source-emitted transport."
+    "Use thomson_endpoint_package.py to compute the residual endpoint packet from the internal report.",
+    "Populate a source-emitted Ward-projected QCD screening and endpoint-remainder map matching that packet.",
+    "Upgrade the interval certificate only after the endpoint builder uses source-emitted transport."
   ],
   "promotion_allowed": false,
   "status": "constructive_contract_emitted_not_endpoint_theorem",

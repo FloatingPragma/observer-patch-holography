@@ -21,7 +21,7 @@
       "electroweak_wz"
     ]
   },
-  "generated_utc": "2026-05-06T04:53:47Z",
+  "generated_utc": "2026-05-06T07:44:09Z",
   "particle_five_gates": {
     "153": {
       "chrome_workers": "do_not_use_for_backend_execution",
@@ -61,13 +61,16 @@
       "title": "Direct-top codomain bridge"
     },
     "223": {
-      "chrome_workers": "not_useful_until_source_endpoint_packet_exists",
-      "closable_now": false,
-      "hadron_dependency_hardware_gated": true,
+      "chrome_workers": "not_needed_for_closed_package",
+      "closable_now": true,
+      "closed_as_blocker_isolation": true,
+      "contract_artifact": "P_derivation/runtime/thomson_endpoint_contract_current.json",
       "issue": 223,
-      "local_next_artifact": "P_derivation/runtime/thomson_endpoint_contract_current.json",
-      "state": "open_constructive_contract",
-      "title": "Ward-projected Thomson endpoint"
+      "local_next_artifact": "P_derivation/runtime/thomson_endpoint_package_current.json",
+      "promotion_allowed": false,
+      "state": "closed_blocker_isolated_endpoint_package",
+      "successor_issue": 235,
+      "title": "Ward-projected Thomson endpoint package"
     },
     "224": {
       "chrome_workers": "not_useful_until_endpoint_and_interval_gates_close",
@@ -77,6 +80,16 @@
       "promotion_allowed": false,
       "state": "open_waiting_certified_root",
       "title": "Adopt certified derived P closure root"
+    },
+    "235": {
+      "chrome_workers": "constructive_only_for_source_residual_map",
+      "closable_now": false,
+      "hadron_dependency_hardware_gated": true,
+      "issue": 235,
+      "local_next_artifact": "P_derivation/runtime/thomson_endpoint_contract_current.json",
+      "package_artifact": "P_derivation/runtime/thomson_endpoint_package_current.json",
+      "state": "open_source_residual_map_and_interval_certificate",
+      "title": "Source residual map and interval certificate"
     },
     "32": {
       "chrome_workers": "only_after_beta_threshold_packet_is_populated",
@@ -92,10 +105,10 @@
     {
       "chain": "p_closure_root",
       "claim_level": "compressed_candidate_trunk_not_final_particle_root",
-      "next_artifact": "code/P_derivation/runtime/rg_matching_threshold_contract_current.json + code/P_derivation/runtime/thomson_endpoint_contract_current.json",
+      "next_artifact": "code/P_derivation/runtime/rg_matching_threshold_contract_current.json + code/P_derivation/runtime/thomson_endpoint_package_current.json",
       "open_gates": [
         32,
-        223,
+        235,
         224
       ],
       "outputs": {
@@ -124,7 +137,7 @@
       "next_artifact": "code/P_derivation/runtime/rg_matching_threshold_contract_current.json",
       "open_gates": [
         32,
-        223,
+        235,
         224
       ],
       "outputs": {
@@ -226,6 +239,6 @@
   "status": "executable_nonhadron_chain_matrix_emitted",
   "worker_policy": {
     "chrome_pro_workers_needed_now": false,
-    "reason": "Hadron issues #153/#157 are closed out-of-scope pending OPH hadron hardware; the remaining in-scope open P/electroweak chains need local theorem packets before worker audit is meaningful. The charged absolute-anchor, quark global-classification, and direct-top auxiliary-codomain lanes have corpus-limited no-go boundaries."
+    "reason": "Hadron issues #153/#157 are closed out-of-scope pending OPH hadron hardware; the remaining in-scope open P/electroweak chains need a source-emitted residual map and interval certificate before worker audit is meaningful. The charged absolute-anchor, quark global-classification, and direct-top auxiliary-codomain lanes have corpus-limited no-go boundaries."
   }
 }
