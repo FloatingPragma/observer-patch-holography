@@ -27,6 +27,15 @@
     },
     {
       "gap_ids": [
+        "qcd.strong-cp-angle"
+      ],
+      "id": "strong-cp-closure-bundle",
+      "promotion_question": "Can the exact quark/Yukawa branch be extended to the physical strong-CP invariant, including theta_QCD, bar(theta), and a vanishing theorem on the realized branch?",
+      "result": "No promotion. The selected-class exact quark theorem fixes the running sextet and forward Yukawas on the public class f_P, but the current corpus does not emit the determinant-line phase contribution, the bare theta_QCD term, or a theorem forcing the physical strong-CP phase to vanish.",
+      "status": "open_physical_invariant_gap"
+    },
+    {
+      "gap_ids": [
         "d10.ward-projected-thomson-endpoint",
         "hadron.production-backend-systematics"
       ],
@@ -62,7 +71,7 @@
       "status": "keep_candidate_with_constructive_next_artifacts"
     }
   ],
-  "generated_utc": "2026-05-06T10:15:20Z",
+  "generated_utc": "2026-05-06T12:38:37Z",
   "p_trunk": {
     "P": "1.63097210492078846050203640439",
     "alpha_inv": "136.994020662724205139718642793",
@@ -206,6 +215,20 @@
         "RESULTS_STATUS.md"
       ],
       "title": "Keep neutrino theorem rows and comparison tension separated"
+    },
+    {
+      "current_boundary": "The selected-class exact quark theorem emits the PDG 2025 running-quark sextet and exact forward Yukawas on the public class f_P, but the current corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes.",
+      "github_issue": 155,
+      "id": "qcd.strong-cp-angle",
+      "lane": "Strong CP",
+      "next_action": "Keep strong CP explicit as an open branch. Reopen only for a theorem-grade descent from exact quark/Yukawa phase data to the determinant-line phase contribution together with a theorem fixing the topological-angle contribution and proving the physical strong-CP phase vanishes on the realized branch.",
+      "status": "open_theta_qcd_bar_theta_vanishing_gap",
+      "target_surfaces": [
+        "paper particle discussion",
+        "README.md",
+        "code/particles status surfaces"
+      ],
+      "title": "Keep the strong-CP branch explicit until the physical invariant is emitted"
     },
     {
       "current_boundary": "The exact top coordinate uses the PDG cross-section codomain Q007TP4. The auxiliary direct-top entry Q007TP is a separate extraction codomain and remains compare-only; the available corpus emits no extraction-response map or uncertainty-propagation certificate.",

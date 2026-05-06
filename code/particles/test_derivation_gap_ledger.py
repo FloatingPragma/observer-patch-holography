@@ -26,12 +26,14 @@ def test_gap_ledger_keeps_compressed_trunk_claim_safe() -> None:
     assert "d10.ward-projected-thomson-endpoint" in gap_ids
     assert "d10.source-residual-map-and-interval-certificate" in gap_ids
     assert "pclosure.certified-codepath-adoption" in gap_ids
+    assert "qcd.strong-cp-angle" in gap_ids
     assert "calibration.direct-top-bridge" in gap_ids
     row_statuses = {row["id"]: row["status"] for row in ledger["rows"]}
     assert row_statuses["hadron.production-backend-systematics"] == "closed_out_of_scope_computationally_blocked"
     assert row_statuses["charged.determinant-normalization-transport"] == (
         "closed_current_corpus_charged_end_to_end_no_go"
     )
+    assert row_statuses["qcd.strong-cp-angle"] == "open_theta_qcd_bar_theta_vanishing_gap"
     assert row_statuses["calibration.direct-top-bridge"] == "closed_current_corpus_codomain_no_go"
     assert row_statuses["d10.ward-projected-thomson-endpoint"] == "closed_blocker_isolated_endpoint_package"
     assert row_statuses["d10.source-residual-map-and-interval-certificate"] == (
@@ -46,6 +48,7 @@ def test_gap_ledger_keeps_compressed_trunk_claim_safe() -> None:
     bundle_ids = {bundle["id"] for bundle in ledger["bundles"]}
     assert "electroweak-root-closure-bundle" in bundle_ids
     assert "spectrum-source-bundle" in bundle_ids
+    assert "strong-cp-closure-bundle" in bundle_ids
     assert "qcd-thomson-backend-bundle" in bundle_ids
     assert "top-codomain-bridge-bundle" in bundle_ids
     assert "particle-root-integration-gate" in bundle_ids
@@ -54,4 +57,5 @@ def test_gap_ledger_keeps_compressed_trunk_claim_safe() -> None:
     assert bundle_statuses["electroweak-root-closure-bundle"] == "endpoint_package_closed_source_measure_payload_absent"
     assert bundle_statuses["top-codomain-bridge-bundle"] == "closed_current_corpus_codomain_no_go"
     assert bundle_statuses["spectrum-source-bundle"] == "closed_current_corpus_source_boundaries_emitted"
+    assert bundle_statuses["strong-cp-closure-bundle"] == "open_physical_invariant_gap"
     assert bundle_statuses["particle-root-integration-gate"] == "keep_candidate_with_constructive_next_artifacts"

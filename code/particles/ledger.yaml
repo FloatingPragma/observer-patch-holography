@@ -111,6 +111,17 @@ entries:
     extra_ansatz: "epsilon-power CKM scaling and CP handling"
     blocked_by:
       ["papers.compact.e.31-derive-quark-textures-ckm-mixing-and-cp-from-overlap-defects"]
+  - id: continuation.qcd.strong_cp
+    output_keys: ["theta_QCD", "bar_theta"]
+    label: "Strong CP"
+    tier: open
+    branch: continuation
+    oph_derived_piece: "selected-class exact quark theorem with exact forward Yukawas on the public class f_P"
+    borrowed_qft_piece: "the anomaly-invariant physical strong-CP combination that mixes the quark determinant phases with the QCD topological angle"
+    extra_ansatz: "not derived on the current corpus"
+    status_summary: "Open. The selected-class exact quark theorem emits the running sextet and forward Yukawas on the public class f_P, but the current corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes."
+    next_action: "Emit a theorem-grade descent from exact quark/Yukawa phase data to the determinant-line phase contribution together with a theorem fixing the topological-angle contribution on the realized branch and proving that the resulting physical strong-CP phase vanishes."
+    blocked_by: ["#155"]
   - id: continuation.neutrinos.d6_estimate
     output_keys: ["m_nu_e", "m_nu_mu", "m_nu_tau", "rho_Lambda_1_4"]
     label: "Weighted-cycle bridge-rigid neutrino theorem branch"

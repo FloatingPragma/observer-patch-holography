@@ -42,6 +42,8 @@ def test_particle_pipeline_closure_status_scope_locks_hadrons_and_workers() -> N
     assert gates[235]["source_spectral_reduction"] == "source_spectral_reduction_theorem_emitted_measure_payload_absent"
     assert gates[235]["minimal_new_payload"] == "oph_qcd_ward_projected_hadronic_spectral_measure"
     assert gates[235]["chrome_workers"] == "not_needed_until_source_spectral_measure_payload_exists"
+    companion = {branch["label"]: branch for branch in status["companion_status_branches"]}
+    assert companion["Strong CP"]["state"] == "open_theta_qcd_bar_theta_vanishing_gap"
     assert gates[224]["state"] == "closed_canonical_guarded_trunk_adoption"
     assert gates[32]["state"] == "closed_declared_convention_contract"
     assert gates[32]["closable_now"] is True
@@ -52,6 +54,10 @@ def test_particle_pipeline_closure_status_scope_locks_hadrons_and_workers() -> N
     assert gates[199]["state"] == "closed_current_corpus_global_classification_no_go"
     assert gates[199]["closable_now"] is True
     assert gates[234]["state"] == "closed_provenance_ledger_and_declared_sensitivity_taxonomy"
+    assert gates[155]["state"] == "open_theta_qcd_bar_theta_vanishing_gap"
+    assert gates[155]["closable_now"] is False
+    companion = {branch["label"]: branch for branch in status["companion_status_branches"]}
+    assert companion["Strong CP"]["state"] == "open_theta_qcd_bar_theta_vanishing_gap"
     assert gates[117]["closable_now"] is True
     assert gates[198]["closable_now"] is True
     assert status["latest_nonhadron_predictions"]["higgs"]["value"] == 125.1995304097179

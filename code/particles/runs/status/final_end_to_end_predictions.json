@@ -1,6 +1,15 @@
 {
   "artifact": "oph_final_current_end_to_end_particle_predictions",
   "claim_status": "final_nonhadron_predictions_without_full_hadron_or_certified_P_root_release",
+  "companion_open_branches": [
+    {
+      "issue": 155,
+      "label": "Strong CP",
+      "next_action": "Keep strong CP explicit as an open branch. Reopen only for a theorem-grade descent from exact quark/Yukawa phase data to the determinant-line phase contribution together with a theorem fixing the topological-angle contribution and proving the physical strong-CP phase vanishes on the realized branch.",
+      "state": "open_theta_qcd_bar_theta_vanishing_gap",
+      "summary": "The selected-class exact quark theorem emits the PDG 2025 running-quark sextet and exact forward Yukawas on the public class f_P, but the current corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes."
+    }
+  ],
   "direct_top_auxiliary_comparison": {
     "auxiliary_direct_top_codomain": "Q007TP",
     "auxiliary_direct_top_gev": 172.5590883453979,
@@ -18,7 +27,7 @@
     "paper_material_sync_complete_without_live_publish": true,
     "source_spectral_stage_gate": "populated source spectral measure payload plus interval certificate"
   },
-  "generated_utc": "2026-05-06T10:15:20Z",
+  "generated_utc": "2026-05-06T12:38:37Z",
   "hadron_policy": {
     "github_issues": [
       153,

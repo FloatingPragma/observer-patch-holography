@@ -73,9 +73,30 @@ geometry is also probed in a separate optical-cavity hardware note.
 
 The same local pixel scale drives the gravity readout, the fine-structure
 closure, gauge structure, scoped particle-mass rows, records, and observer
-synchronization. The particle pipeline carries that scale into the weak sector,
-the Higgs lane, selected-class quark rows, and the weighted-cycle neutrino
-branch. Hadrons require the OPH strong-binding backend.
+synchronization. The particle pipeline records a nearby candidate-root lane
+with `P = 1.63097210492078846050203640439` and
+`alpha_cand^-1 = 136.994020662724205139718642793`. This root is outside the
+promoted prediction tier. The weak-boson pair is compare-only; promotion
+requires the Ward-projected Thomson residual map together with the open
+RG/matching/threshold/scheme packet: scheme lock, threshold map, beta
+provenance, and interval composition. The endpoint package isolates the
+missing fixed-point contribution as
+`0.041163974743011720681199819215801821` inverse-alpha units. At the
+CODATA-mapped pixel value, the source residual target is
+`0.041465835978928681137459869870016982` inverse-alpha units, equivalent to
+`S_required = 0.895400127551185647132725678585532880` in the quark-screening
+readout. The
+Higgs lane, selected-class quark rows, and weighted-cycle neutrino branch are
+separate scoped outputs. The available derivation gives no-go boundaries for
+charged-lepton absolute masses, global quark-frame classification, and the
+auxiliary direct-top conversion. Hadron masses belong to the OPH hadron-backend
+problem. The hadron backend entries have out-of-scope/computationally blocked
+status. Reopening requires a working OPH hadron backend such as
+GLORB/Echosahedron with production spectral data and systematics.
+The selected-class quark theorem does not yet close strong CP: the current
+corpus has no theorem-grade derivation of `theta_QCD`, does not yet emit the
+physical anomaly-invariant `bar(theta)`, and does not prove that the physical
+strong-CP phase vanishes.
 
 ### Selected Quantitative Rows
 

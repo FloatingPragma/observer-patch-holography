@@ -213,6 +213,26 @@ def build_gap_rows() -> list[dict[str, Any]]:
             "target_surfaces": ["code/particles/neutrino", "RESULTS_STATUS.md"],
         },
         {
+            "id": "qcd.strong-cp-angle",
+            "lane": "Strong CP",
+            "status": "open_theta_qcd_bar_theta_vanishing_gap",
+            "github_issue": 155,
+            "title": "Keep the strong-CP branch explicit until the physical invariant is emitted",
+            "current_boundary": (
+                "The selected-class exact quark theorem emits the PDG 2025 running-quark sextet "
+                "and exact forward Yukawas on the public class f_P, but the current corpus does not "
+                "derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does "
+                "not prove that the physical strong-CP phase vanishes."
+            ),
+            "next_action": (
+                "Keep strong CP explicit as an open branch. Reopen only for a theorem-grade descent "
+                "from exact quark/Yukawa phase data to the determinant-line phase contribution "
+                "together with a theorem fixing the topological-angle contribution and proving the "
+                "physical strong-CP phase vanishes on the realized branch."
+            ),
+            "target_surfaces": ["paper particle discussion", "README.md", "code/particles status surfaces"],
+        },
+        {
             "id": "calibration.direct-top-bridge",
             "lane": "D11/top codomain",
             "status": "closed_current_corpus_codomain_no_go",
@@ -297,6 +317,23 @@ def build_bundles() -> list[dict[str, Any]]:
                 "but no theorem-grade A_ch(P) is emitted. Quarks remain selected-class on f_P with global "
                 "classification closed as a corpus-limited no-go, and neutrino PMNS rows remain visible "
                 "comparison-tension rows."
+            ),
+        },
+        {
+            "id": "strong-cp-closure-bundle",
+            "status": "open_physical_invariant_gap",
+            "gap_ids": [
+                "qcd.strong-cp-angle",
+            ],
+            "promotion_question": (
+                "Can the exact quark/Yukawa branch be extended to the physical strong-CP invariant, "
+                "including theta_QCD, bar(theta), and a vanishing theorem on the realized branch?"
+            ),
+            "result": (
+                "No promotion. The selected-class exact quark theorem fixes the running sextet and "
+                "forward Yukawas on the public class f_P, but the current corpus does not emit the "
+                "determinant-line phase contribution, the bare theta_QCD term, or a theorem forcing "
+                "the physical strong-CP phase to vanish."
             ),
         },
         {

@@ -78,9 +78,15 @@ consistency, and minimality on the same low-energy branch. The photon,
 gluons, and graviton stay massless because they ride on redundancy directions
 the architecture cannot break. The weak pair, the low-energy electromagnetic
 coupling, the Higgs-top surface, a running quark sector, and one
-weighted-cycle neutrino family all sit inside the same reconstruction. The late
-ledger records the scope of the weak validation pair, charged-lepton witnesses,
-and hadron backend. Hadrons add the strong-binding problem on top of that
+weighted-cycle neutrino family all sit inside the same reconstruction across
+different claim tiers. The weak pair is compare-only pending endpoint and
+matching certificates. The low-energy electromagnetic value is a candidate
+trunk. Higgs/top, selected-class quarks, and weighted-cycle neutrinos are scoped
+outputs. The selected-class quark theorem still leaves strong CP open: the
+current corpus does not derive $\theta_{\mathrm{QCD}}$, does not yet emit
+physical $\bar\theta$, and does not prove that the physical strong-CP phase
+vanishes. Charged-lepton absolute masses have a no-go boundary in the available
+derivation. Hadrons add the strong-binding problem on top of that
 particle-level picture.
 
 The particle words here refer to roles explained in Chapters 12-16: color is the

@@ -1,6 +1,6 @@
 # Final End-to-End Particle Predictions
 
-Generated: `2026-05-06T10:15:20Z`
+Generated: `2026-05-06T12:38:37Z`
 
 Scope: `nonhadron_particle_pipeline_with_hadrons_closed_out_of_scope`
 Claim status: `final_nonhadron_predictions_without_full_hadron_or_certified_P_root_release`
@@ -26,6 +26,12 @@ Claim status: `final_nonhadron_predictions_without_full_hadron_or_certified_P_ro
 | #207 | `closed_corpus_limited_codomain_no_go` | `True` | `particles/runs/calibration/direct_top_bridge_contract.json` | not_needed_until_new_response_kernel_source_exists |
 | #234 | `closed_provenance_ledger_and_declared_sensitivity_taxonomy` | `True` | `particles/runs/status/blind_prediction_provenance.json` | not_needed_for_closed_provenance_taxonomy |
 | #199 | `closed_corpus_limited_global_classification_no_go` | `True` | `particles/runs/flavor/quark_class_uniform_public_frame_descent_obstruction.json` | not_needed_until_new_global_public_frame_classifier_source_exists |
+
+## Companion Open Branches
+
+| Topic | State | Current boundary | Next action |
+| --- | --- | --- | --- |
+| Strong CP | `open_theta_qcd_bar_theta_vanishing_gap` | The selected-class exact quark theorem emits the PDG 2025 running-quark sextet and exact forward Yukawas on the public class f_P, but the current corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes. | Keep strong CP explicit as an open branch. Reopen only for a theorem-grade descent from exact quark/Yukawa phase data to the determinant-line phase contribution together with a theorem fixing the topological-angle contribution and proving the physical strong-CP phase vanishes on the realized branch. |
 
 ## Predictions
 

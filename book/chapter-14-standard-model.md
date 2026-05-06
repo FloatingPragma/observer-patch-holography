@@ -634,11 +634,16 @@ the algebra net closes on itself.
 The particle picture can be told as one continuous line. The framework fixes the Standard Model
 quotient, the hypercharge lattice, and the generation-color counting. The same
 structure keeps the photon, gluons, and graviton on protected zero lines. From
-there the pixel fixed point organizes the electroweak surface, the Higgs-top
-surface, the selected-class running quark masses, and the weighted-cycle
-neutrino family. The status ledger records the weak-boson validation row,
-charged-lepton absolute-mass witnesses, the stronger global quark-frame
-classification boundary, and the auxiliary direct-top conversion boundary.
+there the candidate pixel-ratio trunk organizes the electroweak comparison
+surface, the Higgs-top surface, the selected-class running quark masses, and
+the weighted-cycle neutrino family. The weak-boson pair is compare-only. Its
+live promotion requires the Thomson residual map and the open
+RG/matching/threshold/scheme packet.
+The selected-class quark theorem does not yet close strong CP: the current
+corpus does not derive $\theta_{\mathrm{QCD}}$, does not yet emit physical
+$\bar\theta$, and does not prove that the physical strong-CP phase vanishes.
+The charged-lepton absolute-mass lane, the stronger global quark-frame
+classification lane, and the auxiliary direct-top conversion are no-go
 boundaries for the available derivation.
 
 ### How the Concrete Particle Rows Arise
@@ -842,9 +847,12 @@ framework fixes the massless carriers. The particle surface carries the
 fine-structure fixed point, a weak-boson validation pair, a Higgs-top surface,
 a selected-class six-quark running-mass sector with Yukawas,
 and one weighted-cycle neutrino family with definite masses and Majorana
-phases. It also marks charged-lepton absolute masses, global public quark-frame
-classification, and the auxiliary direct-top conversion as no-go boundaries in
-the available derivation.
+phases. That selected-class quark sector still leaves strong CP open: the
+available corpus does not yet derive $\theta_{\mathrm{QCD}}$, does not yet emit
+physical $\bar\theta$, and does not prove that the physical strong-CP phase
+vanishes. It also marks charged-lepton absolute masses, global public
+quark-frame classification, and the auxiliary direct-top conversion as no-go
+boundaries in the available derivation.
 
 The reason these numbers belong in one chapter is that the framework organizes
 them with one local fixed-point structure. The same pixel ratio feeds the
@@ -890,8 +898,10 @@ It is a remarkably concrete result. The book points to a specific gauge
 structure, charge pattern, color count, and generation count. It also reaches
 the massless carriers, the $W$ and $Z$, a Higgs-top surface, one
 weighted-cycle neutrino family, and a running quark sector on a selected
-physical basis. Strongly coupled bound states add the QCD problem on top of
-that particle-level structure.
+physical basis. That selected-class quark surface is not yet a strong-CP
+solution: $\theta_{\mathrm{QCD}}$, physical $\bar\theta$, and the vanishing
+theorem remain open. Strongly coupled bound states add the QCD problem on top
+of that particle-level structure.
 
 This chapter has shown how particles emerge from the screen as stable patterns that transform under emergent symmetries. The natural sequel is spacetime itself. If the particle inventory is fixed by consistency, can geometry be fixed the same way?
 
