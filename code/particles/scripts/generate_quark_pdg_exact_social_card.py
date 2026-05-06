@@ -126,7 +126,7 @@ def build_svg() -> str:
         )
 
     title = "Observer Patch Holography vs PDG Quark Mass Matches"
-    subtitle = "derived from P = 1.63094 | selected class f_P | top entry Q007TP4"
+    subtitle = "derived from P = 1.630968 | selected-class quark theorem | PDG cross-section top row"
     badge = f"max |Δm| = {_fmt_decimal(max_abs_diff)} GeV"
     footer = f"y_q = sqrt(2) m_q / v | v = {_fmt_decimal(Decimal(v_exact))} GeV | scalar y_q shown to 30 decimals"
 

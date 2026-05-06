@@ -1,6 +1,6 @@
 # Particle Derivation Gap Ledger
 
-Generated: `2026-05-06T04:53:47Z`
+Generated: `2026-05-06T05:13:06Z`
 
 Systematic claim-safe queue after the five-equation P-trunk simplification.
 
@@ -41,7 +41,7 @@ The remaining work is grouped into coupled closure packets rather than a one-blo
 | `pclosure.compressed-trunk-artifact` | P closure | `candidate_artifact` | #224 | Keep emitting p_closure_trunk_current.json and use it as audit metadata. |
 | `d10.ward-projected-thomson-endpoint` | D10 electromagnetic endpoint | `open_theorem_gap` | #223 | Derive Delta_Th(P) from the same Ward-projected source family as a0(P), including rho_had(s;P), matching remainder, and certified quadrature bounds. |
 | `d10.rg-matching-threshold-scheme` | D10 running and matching | `open_theorem_gap` | #32 | Turn the running/matching package into an OPH edge-sector theorem or explicitly keep it as a declared convention in every prediction surface. |
-| `pclosure.live-codepath-adoption` | P closure | `blocked_pending_certified_root` | #224 | After issues 223 and 32 close, switch live particle builders to the certified trunk artifact and make compare-only or historical P paths non-default. |
+| `pclosure.live-codepath-adoption` | P closure | `blocked_pending_certified_root` | #224 | When issues 223 and 32 close, switch particle builders to the certified trunk artifact and make compare-only or historical P paths non-default. |
 | `charged.determinant-normalization-transport` | Charged leptons | `closed_corpus_limited_charged_end_to_end_no_go` | #201 | Keep charged masses suppressed on the public theorem lane. Reopen only for a theorem-grade uncentered trace lift proving 3 mu(r) = sum_e M_e^ch log q_e(r), equivalently zero normalization defect N_det(P), on the physical charged branch. |
 | `quark.selected-class-vs-global-classification` | Quarks | `selected_class_closed_global_classification_no_go` | #199 | Keep every public exact-quark claim explicitly selected-class. Reopen only for a new source-emitted global public-frame classifier artifact. |
 | `neutrino.pmns-status-and-absolute-rows` | Neutrinos | `theorem_rows_with_visible_comparison_tension` | #117 | Do not hide PMNS residuals behind the exact absolute-splitting rows; either prove a better branch or leave the comparison tension explicit. |

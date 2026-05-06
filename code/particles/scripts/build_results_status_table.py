@@ -61,7 +61,7 @@ NEUTRINO_PHYSICAL_MAJORANA_PHASE_THEOREM = (
 )
 QUARK_D12_INTERNAL_BACKREAD_CLOSURE = ROOT / "particles" / "runs" / "flavor" / "quark_d12_internal_backread_continuation_closure.json"
 PUBLIC_SURFACE_KIND = "particles_native_candidate_or_gap_surface"
-P_DEFAULT = 1.63094
+P_DEFAULT = 1.630968209403959
 LOG_DIM_H_DEFAULT = 1.0e122
 
 

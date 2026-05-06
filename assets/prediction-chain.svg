@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="5620" height="4286" viewBox="0 0 5620 4286" role="img" aria-labelledby="title desc">
-  <title id="title">Observer Patch Holography Current Status DAG</title>
-  <desc id="desc">A README-facing map of the current theorem stack, exact surfaces, and open proof fronts.</desc>
+  <title id="title">Observer Patch Holography Status DAG</title>
+  <desc id="desc">A README-facing map of the theorem stack, exact surfaces, and open proof fronts.</desc>
 
   <defs>
     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -86,8 +86,8 @@
   <rect x="162" y="92" width="86" height="44" rx="14" fill="rgb(9 13 20 / 0.98)" stroke="rgb(255 255 255 / 0.1)" />
   <text x="205" y="119" text-anchor="middle" fill="#4ee7ff" font-size="24" font-family="JetBrains Mono, monospace" font-weight="700" letter-spacing="4">OPH</text>
   <text x="310" y="102" fill="#4ee7ff" font-size="15" font-family="JetBrains Mono, monospace" font-weight="600" letter-spacing="5">FLOATING PRAGMA // POSTER DAG</text>
-  <text x="310" y="156" fill="#f4f7fb" font-size="54" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-1.7">Observer Patch Holography Current Status DAG</text>
-  <text x="310" y="222" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace">A README-facing map of the current theorem stack, exact surfaces, and open proof fronts.</text>
+  <text x="310" y="156" fill="#f4f7fb" font-size="54" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-1.7">Observer Patch Holography Status DAG</text>
+  <text x="310" y="222" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace">A README-facing map of the theorem stack, exact surfaces, and open proof fronts.</text>
   <rect x="4260" y="76" width="1120" height="112" rx="24" fill="rgb(255 255 255 / 0.03)" stroke="rgb(255 255 255 / 0.08)" />
   <text x="4292" y="104" fill="#f4f7fb" font-size="18" font-family="Space Grotesk, sans-serif" font-weight="700">Poster logic</text>
   <text x="4292" y="128" fill="#9ba7b8" font-size="14" font-family="JetBrains Mono, monospace">Top: axioms and bridge packages. Middle: derivation spine. Bottom: branch completions and global closure.</text>
@@ -117,7 +117,7 @@
   <rect x="1940" y="330" width="680" height="620" rx="32" fill="url(#panelGradient)" stroke="rgb(212 181 110 / 0.12)" />
   <rect x="1962" y="352" width="636" height="86" rx="20" fill="rgb(212 181 110 / 0.05)" stroke="rgb(255 255 255 / 0.05)" />
   <text x="1982" y="388" fill="#f4f7fb" font-size="32" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.4">Primary Constants</text>
-  <text x="1982" y="418" fill="#9ba7b8" font-size="13" font-family="JetBrains Mono, monospace">Core implementation constants currently used in quantitative branches.</text>
+  <text x="1982" y="418" fill="#9ba7b8" font-size="13" font-family="JetBrains Mono, monospace">Core implementation constants used in quantitative branches.</text>
   <line x1="1970" y1="450" x2="2590" y2="450" stroke="rgb(212 181 110 / 0.22)" />
 </g>
 <g filter="url(#panelShadow)">
@@ -179,7 +179,7 @@
   <rect x="4310" y="2695" width="1170" height="1404" rx="32" fill="url(#panelGradient)" stroke="rgb(255 143 151 / 0.14)" />
   <rect x="4332" y="2717" width="1126" height="86" rx="20" fill="rgb(255 143 151 / 0.05)" stroke="rgb(255 255 255 / 0.05)" />
   <text x="4352" y="2753" fill="#f4f7fb" font-size="32" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.4">Paper and Release Roadmap</text>
-  <text x="4352" y="2783" fill="#9ba7b8" font-size="13" font-family="JetBrains Mono, monospace">These are the current roadmap goals rather than a claimed finished TOE end-state.</text>
+  <text x="4352" y="2783" fill="#9ba7b8" font-size="13" font-family="JetBrains Mono, monospace">These roadmap goals mark open proof and publishing fronts.</text>
   <line x1="4340" y1="2815" x2="5450" y2="2815" stroke="rgb(255 143 151 / 0.22)" />
 </g>
 <g fill="none">
@@ -492,7 +492,7 @@
   <text x="2004" y="621" fill="#f4f7fb" font-size="24" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Constant p_a</text>
   <text x="2004" y="668" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">p_a (P) =</text>
   <text x="2004" y="698" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">a_cell / l_P^2</text>
-  <text x="2004" y="728" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">= 1.63094</text>
+  <text x="2004" y="728" fill="#c9d3e2" font-size="20" font-family="JetBrains Mono, monospace" font-weight="520" opacity="1">= 1.630968</text>
 </g>
 <g filter="url(#panelShadow)">
   <rect x="2284" y="504" width="292" height="287" rx="30" fill="none" stroke="#f3df9a" stroke-width="3" opacity="0.18" filter="url(#softGlow)" />
@@ -1003,7 +1003,7 @@
   <rect x="3178" y="3274" width="300.8" height="3" rx="1.5" fill="#ff8f97" opacity="0.82" />
   <text x="3184" y="3174" fill="#f4f7fb" font-size="30" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Majorana Phase Surface</text>
   <text x="3184" y="3227" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">emit or explicitly block physical Majorana phases</text>
-  <text x="3184" y="3259" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">current frontier issue #154</text>
+  <text x="3184" y="3259" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">frontier issue #154</text>
 </g>
 <g filter="url(#panelShadow)">
   <rect x="3160" y="3323" width="940" height="193" rx="28" fill="rgb(10 14 22 / 0.93)" stroke="#ff8f97" stroke-width="1.6" opacity="1.0" />
@@ -1084,7 +1084,7 @@
   <rect x="4356" y="3801" width="134" height="28" rx="14" fill="rgb(255 255 255 / 0.03)" stroke="#ffb8be" opacity="1" />
   <text x="4370" y="3820" fill="#ffb8be" font-size="15" font-family="JetBrains Mono, monospace" font-weight="700" letter-spacing="2" opacity="1">ENDPOINT</text>
   <rect x="4358" y="4030" width="1064.0" height="4" rx="1.5" fill="#ffb8be" opacity="0.94" />
-  <text x="4364" y="3873" fill="#f4f7fb" font-size="34" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Current OPH Roadmap State</text>
+  <text x="4364" y="3873" fill="#f4f7fb" font-size="34" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">OPH Roadmap State</text>
   <text x="4364" y="3930" fill="#f2f5fb" font-size="32" font-family="JetBrains Mono, monospace" font-weight="560" opacity="1">Recovered core + exact sidecars are real.</text>
   <text x="4364" y="3972" fill="#f2f5fb" font-size="32" font-family="JetBrains Mono, monospace" font-weight="560" opacity="1">Particles-from-P, constants bridge, monograph, and</text>
   <text x="4364" y="4014" fill="#f2f5fb" font-size="32" font-family="JetBrains Mono, monospace" font-weight="560" opacity="1">release closure stay open.</text>

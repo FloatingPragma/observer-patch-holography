@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="720" height="780" viewBox="0 0 720 780" role="img" aria-labelledby="title desc">
   <title id="title">OPH unification diagram</title>
-  <desc id="desc">A local unification surface linking the OPH pixel constant to gravity, the D10 electroweak source trunk, the Ward-projected fine-structure constant, the Higgs and top masses, and structural readout lanes.</desc>
+  <desc id="desc">A local unification surface linking the OPH pixel constant P = 1.630968 to gravity, fine-structure readout, bosonic masses, Higgs/top rows, and structural lanes.</desc>
 
   <defs>
     <marker id="uni-arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
@@ -31,23 +31,23 @@
 
   <rect x="200" y="12" width="320" height="80" rx="12" fill="url(#uni-root-grad)" stroke="hsl(45,90%,55%)" stroke-width="2" />
   <text x="360" y="36" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold" fill="hsl(45,90%,75%)">PIXEL CONSTANT</text>
-  <text x="360" y="56" text-anchor="middle" font-family="monospace" font-size="18" font-weight="bold" fill="hsl(45,95%,85%)">P = 1.63094</text>
+  <text x="360" y="56" text-anchor="middle" font-family="monospace" font-size="18" font-weight="bold" fill="hsl(45,95%,85%)">P = 1.630968</text>
   <text x="360" y="72" text-anchor="middle" font-family="monospace" font-size="9" fill="hsl(45,60%,60%)">dimensionless · pixel area measured</text>
   <text x="360" y="84" text-anchor="middle" font-family="monospace" font-size="9" fill="hsl(45,60%,60%)">in Planck units (a_cell / ℓ²_P)</text>
 
   <line x1="360" y1="92" x2="360" y2="110" stroke="hsl(45,90%,55%)" stroke-width="2" marker-end="url(#uni-arrow)" />
   <rect x="170" y="110" width="380" height="74" rx="8" fill="hsl(220,20%,12%)" stroke="hsl(45,60%,40%)" stroke-width="1.2" />
-  <text x="360" y="130" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="hsl(45,80%,70%)">COMMON DERIVATION CHAIN</text>
-  <text x="360" y="145" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(220,15%,65%)">P fixes α_U, the transmutation pair (t_U, t_tr),</text>
-  <text x="360" y="157" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(220,15%,65%)">the electroweak scale v, the Ward-projected α lane,</text>
-  <text x="360" y="169" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(220,15%,65%)">and the cell area a_cell</text>
+  <text x="360" y="130" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="hsl(45,80%,70%)">LOCAL UNIFICATION SURFACE</text>
+  <text x="360" y="145" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(220,15%,65%)">P fixes the local pixel area and entropy target,</text>
+  <text x="360" y="157" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(220,15%,65%)">drives the gravity readout and gauge closure,</text>
+  <text x="360" y="169" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(220,15%,65%)">and organizes scoped particle-mass rows</text>
 
   <line x1="360" y1="184" x2="360" y2="212" stroke="hsl(45,60%,40%)" stroke-width="1.5" />
   <path d="M360,212 L180,212 L180,235" stroke="hsl(185,80%,55%)" stroke-width="2" fill="none" marker-end="url(#uni-arrow-cyan)" />
   <path d="M360,212 L540,212 L540,235" stroke="hsl(140,60%,55%)" stroke-width="2" fill="none" marker-end="url(#uni-arrow-green)" />
 
   <rect x="258" y="203" width="204" height="20" rx="10" fill="hsl(220,20%,12%)" stroke="hsl(45,60%,45%)" stroke-width="1" />
-  <text x="360" y="217" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="hsl(45,80%,70%)">P → α_U, t_U, t_tr, a_cell</text>
+  <text x="360" y="217" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="hsl(45,80%,70%)">P → G, α readout, particle rows</text>
 
   <rect x="50" y="235" width="260" height="38" rx="8" fill="url(#uni-gravity-grad)" stroke="hsl(185,80%,55%)" stroke-width="1.5" />
   <text x="180" y="252" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="hsl(185,80%,80%)">GRAVITY BRANCH</text>
@@ -55,12 +55,12 @@
 
   <line x1="180" y1="273" x2="180" y2="295" stroke="hsl(185,80%,55%)" stroke-width="1.5" marker-end="url(#uni-arrow-cyan)" />
   <rect x="68" y="295" width="224" height="36" rx="6" fill="hsl(220,20%,10%)" stroke="hsl(185,40%,35%)" stroke-width="1" />
-  <text x="180" y="312" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="hsl(185,60%,70%)">ℓ̄_shared = P / 4 = 0.4077</text>
+  <text x="180" y="312" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="hsl(185,60%,70%)">ℓ̄_shared = P / 4 = 0.407742</text>
   <text x="180" y="324" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(220,15%,55%)">boundary information density per edge</text>
 
   <line x1="180" y1="331" x2="180" y2="353" stroke="hsl(185,80%,55%)" stroke-width="1.5" marker-end="url(#uni-arrow-cyan)" />
   <rect x="68" y="353" width="224" height="36" rx="6" fill="hsl(220,20%,10%)" stroke="hsl(185,40%,35%)" stroke-width="1" />
-  <text x="180" y="369" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="hsl(185,60%,70%)">G_nat = a_cell / P ≈ 0.6131</text>
+  <text x="180" y="369" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="hsl(185,60%,70%)">G_nat = a_cell / P ≈ 0.613133</text>
   <text x="180" y="382" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(220,15%,55%)">gravitational coupling in Planck units</text>
 
   <line x1="180" y1="389" x2="180" y2="411" stroke="hsl(185,80%,55%)" stroke-width="1.5" marker-end="url(#uni-arrow-cyan)" />
@@ -75,11 +75,11 @@
 
   <rect x="410" y="235" width="260" height="38" rx="8" fill="url(#uni-particle-grad)" stroke="hsl(140,60%,55%)" stroke-width="1.5" />
   <text x="540" y="252" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="hsl(140,70%,80%)">PARTICLE BRANCH</text>
-  <text x="540" y="266" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(140,40%,55%)">Gauge consistency → exact mass spectrum</text>
+  <text x="540" y="266" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(140,40%,55%)">Gauge consistency → scoped mass rows</text>
 
   <line x1="540" y1="273" x2="540" y2="295" stroke="hsl(140,60%,55%)" stroke-width="1.5" marker-end="url(#uni-arrow-green)" />
   <rect x="420" y="295" width="240" height="36" rx="6" fill="hsl(220,20%,10%)" stroke="hsl(140,35%,35%)" stroke-width="1" />
-  <text x="540" y="312" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="hsl(140,55%,65%)">D10 Source Trunk</text>
+  <text x="540" y="312" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="hsl(140,55%,65%)">Electroweak source surface</text>
   <text x="540" y="324" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(220,15%,55%)">P → α_U → (t_U, t_tr) → v = 246.767 GeV</text>
 
   <line x1="540" y1="331" x2="540" y2="353" stroke="hsl(140,60%,55%)" stroke-width="1.5" marker-end="url(#uni-arrow-green)" />
@@ -103,7 +103,7 @@
 
   <line x1="540" y1="571" x2="540" y2="590" stroke="hsl(140,40%,40%)" stroke-width="1" stroke-dasharray="4,3" />
   <rect x="390" y="590" width="300" height="28" rx="5" fill="hsl(220,20%,9%)" stroke="hsl(140,30%,30%)" stroke-width="0.8" />
-  <text x="540" y="608" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(140,40%,55%)">direct-top bridge open · see issue #207</text>
+  <text x="540" y="608" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(140,40%,55%)">direct-top row is compare-only</text>
 
   <line x1="360" y1="212" x2="360" y2="635" stroke="hsl(220,15%,25%)" stroke-width="1" stroke-dasharray="3,4" />
   <rect x="170" y="635" width="380" height="90" rx="8" fill="hsl(220,20%,10%)" stroke="hsl(260,40%,45%)" stroke-width="1.5" />
@@ -114,5 +114,5 @@
   <text x="360" y="718" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="hsl(260,40%,85%)">Photon · Gluon · Graviton → mass = 0</text>
 
   <rect x="48" y="740" width="624" height="22" rx="6" fill="hsl(45,80%,12%)" stroke="hsl(45,70%,40%)" stroke-width="1" />
-  <text x="360" y="755" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="hsl(45,90%,75%)">ONE INPUT (P) → G + α + MASS SPECTRUM + STRUCTURAL CONSTANTS</text>
+  <text x="360" y="755" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="hsl(45,90%,75%)">ONE INPUT (P) → G + α READOUT + PARTICLE ROWS + STRUCTURAL CONSTANTS</text>
 </svg>

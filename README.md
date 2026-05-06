@@ -58,17 +58,18 @@ observers in the world encoded on that screen. OPH finds the fine-structure
 constant by asking for the nonzero detuning of a holographic screen cell such
 that the cell's outer geometric displacement from perfect self-similar
 equilibrium equals the electromagnetic observation scale emitted by the
-universe living on that same screen. The closure is
-`P = φ + α_in(P) sqrt(pi)`. For the 2022 CODATA/NIST central value
-`α⁻¹(0) = 137.035999177`, that outer formula gives
-`P = 1.630968209403959...`. The same fixed-point geometry is also probed in a
-separate optical-cavity hardware note.
+universe living on that same screen. The public pixel area
+`P = a_cell / l_P^2 = 1.630968209403959...` is the fixed point of
+`P = φ + α_em(P) sqrt(pi)` when the electromagnetic side is anchored to the
+2022 CODATA/NIST central value `α⁻¹(0) = 137.035999177`. The same fixed-point
+geometry is also probed in a separate optical-cavity hardware note.
 
-From the same setup come gravity, gauge structure, a tiered particle surface,
-records, and observer synchronization. The particle pipeline records the
-candidate values `P = 1.63097210492078846050203640439` and
+The same local pixel scale drives the gravity readout, the fine-structure
+closure, gauge structure, scoped particle-mass rows, records, and observer
+synchronization. The particle pipeline records a nearby candidate-root lane
+with `P = 1.63097210492078846050203640439` and
 `alpha_cand^-1 = 136.994020662724205139718642793`. This root is outside the
-live prediction tier. The weak-boson pair is compare-only; live promotion
+promoted prediction tier. The weak-boson pair is compare-only; promotion
 requires the Ward-projected Thomson endpoint and RG/matching certificates. The
 Higgs lane, selected-class quark rows, and weighted-cycle neutrino branch are
 separate scoped outputs. The available derivation gives no-go boundaries for
@@ -127,8 +128,8 @@ declared branch.
 
 ## Local Unification Surface
 
-The local unification surface is organized around the candidate pixel ratio
-`P` and one local ruler, `a_cell`. On that surface the same scale touches the
+The local unification surface is organized around the public pixel ratio
+`P = 1.630968209403959...` and one local ruler, `a_cell`. On that surface the same scale touches the
 electroweak comparison lane, the Higgs lane, the gravity-side entropy relation,
 and the familiar unit readout for meters, seconds, GeV, and Kelvin. The diagram
 below shows how those pieces sit on one scale. The detailed formulas and claim

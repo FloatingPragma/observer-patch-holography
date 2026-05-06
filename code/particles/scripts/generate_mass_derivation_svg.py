@@ -20,6 +20,7 @@ RESULTS_JSON = ROOT / "particles" / "results_status.json"
 TASK_TRACKER_YAML = ROOT / "particles" / "task_tracker.yaml"
 EXACT_NONHADRON_JSON = ROOT / "particles" / "exact_nonhadron_masses.json"
 DEFAULT_OUTPUT = ROOT / "particles" / "particle_mass_derivation_graph.svg"
+PUBLIC_PIXEL_DISPLAY = "1.630968"
 
 WIDTH = 2560
 MARGIN_X = 72
@@ -1282,7 +1283,7 @@ def build_svg(results: Dict[str, Any], tasks: Dict[str, Dict[str, Any]], exact_b
             "x": MARGIN_X + axiom_w + input_gap,
             "w": p_w,
             "title": "Shared Closure Variable: P",
-            "body": [f"P = {inputs['P']}. This scalar is the local pixel ratio selected on the outer/inner closure surface and shared by the electroweak, flavor, and hadron lanes."],
+            "body": [f"P = {PUBLIC_PIXEL_DISPLAY}. This scalar is the local pixel ratio selected on the outer/inner closure surface and shared by the electroweak, flavor, and hadron lanes."],
             "fill": COLORS["input_fill"],
             "stroke": COLORS["input_stroke"],
         },

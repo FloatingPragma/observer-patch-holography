@@ -107,13 +107,14 @@ def build_gap_rows() -> list[dict[str, Any]]:
             "lane": "P closure",
             "status": "blocked_pending_certified_root",
             "github_issue": 224,
-            "title": "Replace live particle P consumers with the certified P root",
+            "title": "Replace particle P consumers with the certified P root",
             "current_boundary": (
-                "Particle status surfaces still expose legacy metadata P=1.63094. This is acceptable "
-                "only while the compressed trunk remains candidate/audit metadata."
+                "Particle status surfaces use the public display value P=1.630968209403959 "
+                "where the value is reader-facing. Certified particle-root adoption remains "
+                "blocked while the compressed trunk remains candidate/audit metadata."
             ),
             "next_action": (
-                "After issues 223 and 32 close, switch live particle builders to the certified trunk "
+                "When issues 223 and 32 close, switch particle builders to the certified trunk "
                 "artifact and make compare-only or historical P paths non-default."
             ),
             "target_surfaces": ["code/particles/scripts", "code/particles/runs/status", "WebProjects OPH summaries"],
