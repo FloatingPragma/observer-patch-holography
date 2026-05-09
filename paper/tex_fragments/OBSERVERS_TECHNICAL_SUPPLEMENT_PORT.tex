@@ -201,19 +201,20 @@ normalization, the outside algebra is in a KMS state at inverse temperature
 with respect to the horizon Killing generator.
 
 \paragraph{\textbf{Corollary 7.3 (Recoverability-style interior encoding).}}
-On the same fixed-cutoff collar carrier, when the collar conditional mutual information is small,
-the interior partner is approximately
-recoverable from outside plus radiation:
+On the same fixed-cutoff collar carrier, when
+\(I(A_\delta:D_\delta\mid B_\delta)\le\varepsilon\), there exists a recovery channel
+\(\mathcal R_{B_\delta\to A_\delta B_\delta}\) such that
 \[
 \left\|
-\rho_{ABC}
+\rho_{A_\delta B_\delta D_\delta}
 -
-(\mathrm{id}_A\otimes\mathcal R)(\rho_{AB})
+(\mathcal R_{B_\delta\to A_\delta B_\delta}\otimes \mathrm{id}_{D_\delta})(\rho_{B_\delta D_\delta})
 \right\|_1
 \le
 2\sqrt{\ln 2\cdot \varepsilon}.
 \]
-So the interior is encoded rather than supplied by an independent tensor factor.
+So the interior collar data are encoded in the exterior collar together with the shared cut data,
+rather than supplied by an independent tensor factor.
 
 \paragraph{\textbf{Corollary 7.4 (Discrete area spectrum and Schwarzschild transition identity).}}
 The same edge-center package carries a discrete area operator
@@ -224,7 +225,11 @@ A_\alpha=4G\log d_\alpha=4\ell_P^2\ln d_\alpha,
 \]
 and for a Schwarzschild sector transition \(d\to d'\) one has
 \[
-\Delta E=k_B T_H\ln(d'/d).
+\Delta(Mc^2)=k_B T_H\ln(d'/d).
+\]
+On the emission branch \(d'=d/k\) with \(k>1\), the emitted line energy magnitude is
+\[
+E_{\mathrm{emit}}=k_B T_H\ln k.
 \]
 
 \paragraph{\textbf{Scope boundary.}}
