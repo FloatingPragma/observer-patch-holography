@@ -127,16 +127,18 @@ utilise une classe séparée de charge utile \(e^+e^-\to\mathrm{hadrons}\).
 
 ## Articles
 
-- **Papier 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)** : synthèse large de la pile OPH.
-- **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique compact pour la relativité, la gravité et la structure du Modèle Standard.
-- **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivations particules, masses et couplages.
-- **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : formulation point fixe, réparation, et consensus.
-- **Papier 5. [Screen Microphysics and Observer Synchronization](paper/screen_microphysics_and_observer_synchronization.pdf)** : architecture d'écran finie, enregistrements, et machinerie observateur.
+- **Papier 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)** : synthèse du programme OPH, des observateurs finis jusqu'à l'univers effectif reconstruit.
+- **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique pour la relativité, la gravité et la structure réalisée du Modèle Standard.
+- **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivations particules, lignes de masses, structure des couplages et surface quantitative.
+- **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : dynamique de réparation à point fixe, stabilité des enregistrements et consensus public.
+- **Papier 5. [Screen Microphysics and Observer Synchronization](paper/screen_microphysics_and_observer_synchronization.pdf)** : architecture d'écran finie, enregistrements, mouvements de récupération et synchronisation observateur.
 
 ## Articles supplémentaires
 
-- **[Observer-Patch Holography and the Dark Matter Phenomenon](extra/oph_dark_matter_paper.pdf)** : note de recherche supplémentaire sur la phénoménologie de la matière noire, la limite galactique de type MOND, les diagnostics SPARC, le transport par réparation et les tests cosmologiques compressés. Le code de reproductibilité vit dans [code/dark_matter](code/dark_matter/).
-- **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)** : article supplémentaire qui modélise le calcul neuronal, la pensée, la conscience et les qualia comme consensus de point fixe auto-lisant entre patches observateurs récurrents. La source TeX vit à côté du PDF dans [extra/](extra/).
+- **[Breaking SHA-256 with Physics](extra/breaking_sha256_with_physics.pdf)** ([TeX](extra/breaking_sha256_with_physics.tex)) : recherche physique par contraintes pour la preuve de travail SHA-256d.
+- **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)** ([TeX](extra/fine_structure_constant_derivation.tex)) : dérivation à point fixe de la ligne de structure fine.
+- **[Observer-Patch Holography and the Dark Matter Phenomenon](extra/oph_dark_matter_paper.pdf)** ([TeX](extra/oph_dark_matter_paper.tex)) : phénoménologie de la matière noire et limite galactique de type MOND.
+- **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)** ([TeX](extra/thinking_as_patch_net_fixed_point_search.tex)) : cognition et qualia comme consensus récurrent de patches.
 
 ## Plus
 
