@@ -759,6 +759,107 @@ Therefore \(M^\eta(\operatorname{nf}_\lambda^\eta(s,k))=M(\operatorname{nf}_\lam
 Physical uniqueness therefore holds on the quotient by gauge or implementation hiding. The same
 statement is unchanged under inert ancillary stabilization.
 
+\begin{definition}[Finite packet closure simplex]\label{def:packet-closure-simplex}
+Assume the finite fixed-cutoff consensus branch of Theorems~\ref{thm:confluence} and
+\ref{thm:gauge}, so the physical quotient \(Q:=\Sigma/\Gamma\) is finite and carries the
+schedule-independent quotient normal-form map
+\[
+\overline{\operatorname{nf}}_\lambda:Q\to Q.
+\]
+Let
+\[
+N_\lambda:=\overline{\operatorname{nf}}_\lambda(Q)=q(C)
+\]
+be the quotient normal-form set. The \textbf{finite packet simplex} on \(Q\) is
+\[
+\Delta(Q):=
+\left\{
+\mu:Q\to\mathbb R_{\ge0}\ \middle|\ \sum_{x\in Q}\mu(x)=1
+\right\},
+\]
+and the \textbf{finite packet closure map} is the pushforward
+\[
+\mathcal C_\lambda:\Delta(Q)\to\Delta(Q),
+\qquad
+\mathcal C_\lambda(\mu):=
+\bigl(\overline{\operatorname{nf}}_\lambda\bigr)_*\mu,
+\]
+equivalently
+\[
+\mathcal C_\lambda(\mu)(y)
+=
+\sum_{\substack{x\in Q\\ \overline{\operatorname{nf}}_\lambda(x)=y}}\mu(x).
+\]
+\end{definition}
+
+\begin{theorem}[Finite packet-quotient closure map]\label{thm:finite-packet-closure}
+On the finite fixed-cutoff consensus branch of Definition~\ref{def:packet-closure-simplex}, the
+map \(\mathcal C_\lambda\) is an affine continuous idempotent self-map of \(\Delta(Q)\). Its
+image is exactly the normal-form simplex
+\[
+\Delta(N_\lambda)
+=
+\left\{
+\mu\in\Delta(Q)\ \middle|\ \operatorname{supp}(\mu)\subseteq N_\lambda
+\right\}.
+\]
+Hence the fixed points of \(\mathcal C_\lambda\) are exactly the packets supported on quotient
+normal forms. For every initial quotient state \([s]\in Q\),
+\[
+\mathcal C_\lambda(\delta_{[s]})
+=
+\delta_{\overline{\operatorname{nf}}_\lambda([s])}.
+\]
+\end{theorem}
+
+\begin{proof}
+Because \(\overline{\operatorname{nf}}_\lambda:Q\to Q\) is a set map on a finite set, its
+pushforward on probability packets is affine and continuous in the finite-dimensional simplex
+topology.
+
+By Theorems~\ref{thm:confluence} and \ref{thm:gauge}, the quotient normal form is
+schedule-independent and already terminal, so
+\[
+\overline{\operatorname{nf}}_\lambda\circ\overline{\operatorname{nf}}_\lambda
+=
+\overline{\operatorname{nf}}_\lambda.
+\]
+Pushforward therefore gives
+\[
+\mathcal C_\lambda^2
+=
+\bigl(\overline{\operatorname{nf}}_\lambda\bigr)_*
+\bigl(\overline{\operatorname{nf}}_\lambda\bigr)_*
+=
+\bigl(\overline{\operatorname{nf}}_\lambda\circ\overline{\operatorname{nf}}_\lambda\bigr)_*
+=
+\mathcal C_\lambda,
+\]
+so \(\mathcal C_\lambda\) is idempotent.
+
+If \(\nu=\mathcal C_\lambda(\mu)\), then every point in \(\operatorname{supp}(\nu)\) lies in the
+image of \(\overline{\operatorname{nf}}_\lambda\), namely \(N_\lambda\). Thus
+\(\operatorname{im}(\mathcal C_\lambda)\subseteq \Delta(N_\lambda)\). Conversely, if
+\(\nu\in\Delta(N_\lambda)\), then \(\overline{\operatorname{nf}}_\lambda(y)=y\) for every
+\(y\in N_\lambda\), so
+\[
+\mathcal C_\lambda(\nu)=\nu.
+\]
+Hence \(\Delta(N_\lambda)\subseteq \operatorname{im}(\mathcal C_\lambda)\), proving
+\(\operatorname{im}(\mathcal C_\lambda)=\Delta(N_\lambda)\). The same identity shows that
+\(\nu\) is a fixed point if and only if it is supported on \(N_\lambda\). The Dirac-mass formula
+is the pushforward of a point mass under \(\overline{\operatorname{nf}}_\lambda\).
+\end{proof}
+
+\begin{remark}[Boundary of the finite closure theorem]\label{rem:finite-packet-closure}
+Theorem~\ref{thm:finite-packet-closure} is an exact finite-branch result. It proves a closure map
+only on the finite packet simplex built from one fixed quotient carrier whose repair law is
+already terminating, confluent, and quotient-descended. It does not prove a habitat-level closure
+map for arbitrary OPH state-and-law data, does not identify a nonempty observer-supporting
+invariant sector inside the Appendix-B habitat, and does not supply uniqueness or stability
+estimates beyond this finite packet branch.
+\end{remark}
+
 
 \section{Refinement-Limit Consensus Classes}
 \label{sec:refinement-consensus}
