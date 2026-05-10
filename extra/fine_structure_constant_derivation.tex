@@ -1,0 +1,1162 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{longtable,booktabs,array,tabularx}
+\usepackage[shortlabels]{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage{microtype}
+\usepackage{seqsplit}
+
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\setlength{\emergencystretch}{3em}
+\renewcommand{\arraystretch}{1.12}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\newcommand{\OPH}{\mathrm{OPH}}
+\newcommand{\U}{\mathrm{U}}
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\A}{\mathcal A}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\e}{\mathrm e}
+\newcommand{\alphainv}{\alpha^{-1}}
+\newcommand{\ATh}{A_{\mathrm{Th}}}
+\newcommand{\AZ}{A_Z}
+\newcommand{\Pstar}{P_\star}
+\newcommand{\Ppub}{P_{\mathrm C}}
+\newcommand{\Rq}{R_Q}
+\newcommand{\Dcalc}{\Delta_{\mathrm{calc}}}
+\newcommand{\Dcalib}{\Delta_{\mathrm{H,cal}}}
+\newcommand{\Dlep}{\Delta_{\mathrm{lep}}}
+\newcommand{\Dhad}{\Delta_{\mathrm{had}}}
+\newcommand{\DEW}{\Delta_{\mathrm{EW}}}
+\newcommand{\Dreq}{\Delta_{\mathrm{req}}}
+\newcommand{\Dmiss}{\Delta_{\mathrm{miss}}}
+\newcommand{\Nc}{N_c}
+\newcommand{\Ng}{N_g}
+\newcommand{\decnum}[1]{\vcenter{\hbox{\parbox{0.68\linewidth}{\small\ttfamily\seqsplit{#1}}}}}
+
+\definecolor{ophblue}{HTML}{1B4E7A}
+\definecolor{ophgreen}{HTML}{1F7A5A}
+\definecolor{ophgold}{HTML}{A66A00}
+\definecolor{ophred}{HTML}{8A2D2D}
+
+\title{\textbf{The Fine-Structure Constant as an OPH Pixel Fixed Point}}
+\author{B.\ M\"uller}
+\date{Draft of May 10, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+OPH starts from a simple demand: finite observer patches must agree on the observations they share. This paper follows one local screen cell through that demand. The outside reading is geometry: a dimensionless pixel area \(P=a_{\mathrm{cell}}/\ell_P^2\), measured relative to the golden-ratio balance point \(\varphi=(1+\sqrt5)/2\). The inside reading is electromagnetism: the Thomson-limit observation width emitted by the world encoded on the same screen. Boundary Gaussian normalization converts the outside displacement into \((P-\varphi)/\sqrt\pi\). The inside readout is \(\alpha_{\mathrm{in}}(P)=1/\ATh(P)\), where \(\ATh(P)=\alpha_{\mathrm{em}}^{-1}(0;P)\) is the inverse electromagnetic coupling at zero momentum. The cell is consistent when
+\[
+P=\varphi+\frac{\sqrt\pi}{\ATh(P)}.
+\]
+The executable source calculation gives
+\[
+\begin{aligned}
+\alphainv_{\mathrm{cand}}&=\decnum{136.994835164621649457949994585787193262029}\\
+P_{\mathrm{cand}}&=\decnum{1.63097209569432901817967892561191884270169}
+\end{aligned}
+\]
+This number is expected to miss exactly the part left out of that source calculation: low-energy hadronic vacuum polarization and the finite endpoint terms that belong to the same electromagnetic-current scheme. These terms enter the inverse-alpha transport from the electroweak anchor to the Thomson limit. Calibrating that missing hadronic correction against the CODATA/NIST central value gives
+\[
+\Dcalib^{\mathrm{fp}}
+=
+\decnum{0.041164012378350542050005414212806737971}
+\]
+Adding it gives the CODATA/NIST central value
+\[
+\begin{aligned}
+A_{\mathrm{calc}}^{\mathrm{fp}}
+&=
+\decnum{136.994835164621649457949994585787193262029}\\
+\Dcalib^{\mathrm{fp}}
+&=
+\decnum{0.041164012378350542050005414212806737971}\\
+A_{\mathrm{calc}}^{\mathrm{fp}}+\Dcalib^{\mathrm{fp}}
+&=
+137.035999177
+\end{aligned}
+\]
+The correction above is not an independently measured constant with all those digits. Its uncertainty is inherited from the measured fine-structure constant. The public endpoint is
+\[
+\alphainv(0)=137.035999177(21),
+\qquad
+P_{\mathrm C}=1.630968209403959324879279847782648941\ldots .
+\]
+\end{abstract}
+
+\section{Introduction}
+
+The goal is to make every mathematical step visible and keep the physics status clear.
+
+\begin{quote}\small
+\textbf{Pure source calculation.} The executable source map solves the OPH fixed point without importing the measured Thomson value. Its output is \(\alphainv_{\mathrm{cand}}=136.9948351646\ldots\).
+
+\textbf{Hadron-completed endpoint target.} The public endpoint value is \(\alphainv(0)=137.035999177(21)\). The OPH source calculation reaches it only if the low-energy hadronic spectral step is supplied in the same endpoint convention as the source map. The published electroweak number \(\Delta\alpha_{\mathrm{had}}^{(5)}(M_Z^2)\simeq0.0276\) is the measured running-alpha input behind that physics, but it is not itself the additive inverse-alpha correction used here.
+\end{quote}
+
+Informally: the source calculation reaches the number it should reach when the hadronic part is absent. The remaining difference has a precise physical address. It is the hadronic vacuum-polarization and same-scheme endpoint contribution in the electromagnetic transport from the \(Z\)-scale down to zero momentum. The standard measured \(0.0276\) hadronic-running number is a denominator correction in the electroweak convention. Inserted directly into the OPH source anchor, it gives \(136.382895\ldots\), not \(137.035999177\). The OPH endpoint needs the same spectral physics rewritten in the inverse-alpha endpoint convention.
+
+The OPH background used here is spread across three papers. The observer-overlap starting point is the synthesis paper \cite{oph-synthesis}. The source map and fixed-point branch are recorded in the compact overlap-consistency paper \cite{oph-smgr}. The charged-spectrum and particle-structure continuation is recorded in the particle paper \cite{oph-particle}. The references give direct GitHub links to those source files.
+
+Why this split matters: the fixed-point equation and the hadronic transport calculation answer different questions. The fixed-point equation says how a local screen cell must close on itself. The hadronic calculation says how the electromagnetic current is transported through low-energy QCD. These are different layers of the calculation. A non-arbitrary endpoint calculation must either evaluate the same-scheme hadronic spectral functional directly, or derive the scheme bridge from OPH source data.
+
+There is a long history of attempts to understand \(\alpha\) from deeper structure. Jentschura and Nandori give a useful survey of first-principles attempts, including beta-function, symmetry, cutoff, and string-inspired ideas \cite{jentschura-nandori}. Golden-ratio constructions appear in older geometric proposals \cite{heyrovska-narayan} and in recent semi-empirical work on electroweak and flavor mixing \cite{ciborowski}. Octonionic and exceptional-algebra approaches also produce values near \(1/137\) \cite{singh}. Recent arXiv papers use symbolic regression and quantum-information criteria to look for structure in Standard Model constants and electroweak parameters \cite{chekanov-kjellerstrand,liu-low-yin}. The OPH calculation belongs to this broad search for structure, with one added requirement: the number must arise from a fixed-point map whose input and output are the same local screen cell.
+
+The hadronic step uses the standard dispersion logic behind hadronic vacuum-polarization work. The measured input is the electromagnetic spectral function measured through \(e^+e^-\to\mathrm{hadrons}\), as used in data-driven running-\(\alpha\) and \(g-2\) analyses \cite{dhmz,knt19,pdg-xsect}. In this paper, the decimal correction shown above is calibrated from the CODATA/NIST Thomson endpoint and the OPH pure source calculation. A direct production calculation from OPH hadron dynamics is work in progress.
+
+\section{Symbols}
+
+\begin{longtable}{@{}L{0.20\textwidth}L{0.32\textwidth}L{0.38\textwidth}@{}}
+\toprule
+Symbol & Definition & Informal meaning \\
+\midrule
+\endhead
+\(\A(P)\) & Patch algebra assigned to a screen patch \(P\) & The local observables available to one finite observer patch. \\
+\(\omega_P\) & State on \(\A(P)\) & The local physical description carried by that patch. \\
+\(\A(P\cap Q)\) & Shared overlap algebra & The observables two neighboring patches can compare. \\
+\(P\) & \(a_{\mathrm{cell}}/\ell_P^2\) & The dimensionless area of one screen cell in Planck-area units. \\
+\(a_{\mathrm{cell}}\) & Physical screen-cell area & The area of the local pixel on the holographic screen. \\
+\(\ell_P\) & Planck length & The length unit used to make \(P\) dimensionless. \\
+\(\varphi\) & \((1+\sqrt5)/2\) & The self-similar entropy-balance point. \\
+\(\sqrt\pi\) & Boundary Gaussian normalization width & The conversion factor from pixel displacement to observation width. \\
+\(\alpha_{\mathrm{ext}}(P)\) & \((P-\varphi)/\sqrt\pi\) & The outside, geometric reading of the electromagnetic coupling. \\
+\(\ATh(P)\) & \(\alpha_{\mathrm{em}}^{-1}(0;P)\) & The inverse electromagnetic coupling at the Thomson limit emitted by the trial pixel. \\
+\(\alpha_{\mathrm{in}}(P)\) & \(1/\ATh(P)\) & The inside, electromagnetic reading of the same cell. \\
+\(E_P\) & Planck energy & The energy unit used by the source map. The numerical equations use Planck units unless GeV labels are attached. \\
+\(M_U(P)\) & \(E_P\e^{-2\pi}P^{1/6}\) & The OPH unification-scale readout emitted by a trial pixel. \\
+\(E_{\mathrm{cell}}(P)\) & \(E_P/\sqrt P\) & The local cell energy readout. \\
+\(\alpha_U(P)\) & Unified coupling solved from the heat-kernel closure equation & The coupling at \(M_U(P)\) that makes the gauge representation entropy match the pixel. \\
+\(\alpha_i(\mu;P)\) & Gauge coupling \(i=1,2,3\) at scale \(\mu\) & The hypercharge, weak, and color couplings emitted by the same trial \(P\). \\
+\(b_i\) & \((33/5,1,-3)\) & The one-loop beta coefficients for the high-scale running convention used here. \\
+\(m_Z(P)\) & Self-consistent electroweak anchor scale & The \(Z\)-scale generated by \(v(P)\), \(\alpha_1(P)\), and \(\alpha_2(P)\). \\
+\(v(P)\) & \(E_{\mathrm{cell}}(P)\exp[-2\pi/(\beta_{\mathrm{EW}}\alpha_U(P))]\) & The electroweak transmutation scale. \\
+\(\beta_{\mathrm{EW}}\) & \(\Nc+1=4\) for \(\Nc=3\) & The coefficient that controls the exponential drop to the electroweak scale. \\
+\(\AZ(P)\) & \(\alpha_{\mathrm{em}}^{-1}(m_Z^2;P)\) & The electroweak-scale electromagnetic anchor. \\
+\(\Dlep(P)\) & Lepton transport contribution to inverse alpha & The exact one-loop \(e,\mu,\tau\) contribution. \\
+\(\Dhad(P)\) & Hadronic transport contribution & The low-energy QCD spectral contribution needed for the pure source calculation. \\
+\(\DEW(P)\) & Electroweak/scheme endpoint remainder & Same-scheme finite remainder needed to connect the source anchor to the endpoint. \\
+\(\Dcalc(P)\) & Calculated charged-fermion transport contribution & The exact lepton term plus the screened quark continuation used by the source calculation. \\
+\(\Dcalib^{\mathrm{fp}}\) & CODATA-calibrated hadronic endpoint correction for the fixed point & The inverse-alpha amount needed to move the pure source fixed-point value to the CODATA/NIST central endpoint. \\
+\(\Rq(P)\) & \(\ATh(P)-[\AZ(P)+\Dcalc(P)]\) & The remaining same-scheme hadronic endpoint contribution. \\
+\(\Ppub\) & Public endpoint pixel & The pixel obtained from the CODATA/NIST Thomson endpoint under the OPH outer equation. \\
+\bottomrule
+\end{longtable}
+
+\section{Step 1: The OPH Starting Rule}
+
+OPH starts from a finite screen covered by observer patches. If \(P_1\) and \(P_2\) overlap, then their induced states must agree on the shared algebra:
+\begin{equation}
+\omega_{P_1}|_{\A(P_1\cap P_2)}
+=
+\omega_{P_2}|_{\A(P_1\cap P_2)}.
+\label{eq:overlap}
+\end{equation}
+
+Informally: no observer sees the whole world. Physics is what survives when neighboring local descriptions can be checked against each other and made consistent on the parts they share.
+
+The quantitative fine-structure branch applies this rule to a single local screen cell. The cell has one outside description and one inside description. The outside description is geometric. The inside description is electromagnetic. Closure means both descriptions identify the same cell.
+
+Why this step is needed: OPH does not start by assigning constants to nature. It starts by asking what finite observers can compare. A dimensionless constant can be derived only if it is the fixed value of such a comparison.
+
+\section{Step 2: The Pixel Variable}
+
+Define the local pixel ratio
+\begin{equation}
+P:=\frac{a_{\mathrm{cell}}}{\ell_P^2}.
+\label{eq:Pdef}
+\end{equation}
+Here \(a_{\mathrm{cell}}\) is the screen-cell area and \(\ell_P^2\) is the Planck area.
+
+Informally: \(P\) says how large the screen cell is when measured in Planck-area units. It is dimensionless, so it can be compared directly with pure numbers such as \(\varphi\) and \(\sqrt\pi\).
+
+Why this step is needed: \(\alpha\) has no units. A unitless electromagnetic number has to be matched to a unitless geometric number. Dividing the cell area by the Planck area gives that number.
+
+\section{Step 3: The Golden-Ratio Balance}
+
+The self-similar balance point is
+\begin{equation}
+\varphi=1+\frac{1}{\varphi},
+\qquad
+\varphi^2-\varphi-1=0,
+\qquad
+\varphi=\frac{1+\sqrt5}{2}.
+\label{eq:phi}
+\end{equation}
+
+Informally: \(\varphi\) is the fixed point of the simplest self-similar split, where the whole-to-large ratio equals the large-to-small ratio. OPH uses it as the zero-detuning balance point for the local pixel.
+
+The pixel does not sit exactly at \(\varphi\). It sits at
+\begin{equation}
+\Delta_P:=P-\varphi.
+\label{eq:deltaP}
+\end{equation}
+
+Informally: \(\Delta_P\) is the small amount by which the realized cell is displaced from exact self-similar equilibrium. That small displacement is what becomes the electromagnetic observation strength.
+
+Why this step is needed: a fixed point needs a reference position. The golden ratio supplies the self-similar reference, while \(P-\varphi\) measures how far the actual cell sits away from it.
+
+\section{Step 4: Boundary Gaussian Normalization}
+
+The boundary normalization converts \(\Delta_P\) into the outside coupling readout:
+\begin{equation}
+\alpha_{\mathrm{ext}}(P):=\frac{P-\varphi}{\sqrt\pi}.
+\label{eq:alphaext}
+\end{equation}
+
+Informally: the screen displacement is not itself the electromagnetic coupling. The boundary Gaussian width supplies the normalization. Dividing by \(\sqrt\pi\) turns the geometric displacement into a dimensionless observation strength.
+
+Why this step is needed: the outside screen variable is an area displacement. The inside electromagnetic variable is a coupling. The boundary normalization is the conversion factor between those two readings.
+
+\section{Step 5: The Inside Electromagnetic Readout}
+
+Let
+\begin{equation}
+\ATh(P):=\alpha_{\mathrm{em}}^{-1}(0;P)
+\label{eq:ATdef}
+\end{equation}
+be the inverse electromagnetic coupling at zero momentum, emitted from the same trial pixel \(P\). The inside coupling is
+\begin{equation}
+\alpha_{\mathrm{in}}(P):=\frac{1}{\ATh(P)}.
+\label{eq:alphain}
+\end{equation}
+
+Informally: an observer inside the encoded world does not see \(P\) as a screen area. The observer sees the strength of electromagnetism. Since particle physicists quote the low-energy coupling as an inverse number near \(137\), the actual coupling is \(1/\ATh(P)\).
+
+Why this step is needed: the measured fine-structure constant is the Thomson-limit coupling. The calculation must therefore end at zero momentum, after the electroweak anchor has been transported through all charged degrees of freedom.
+
+\section{Step 6: The Fixed-Point Equation}
+
+Closure requires the outside and inside couplings to agree:
+\begin{equation}
+\alpha_{\mathrm{ext}}(P)=\alpha_{\mathrm{in}}(P).
+\label{eq:couplingmatch}
+\end{equation}
+Using Eqs.~\eqref{eq:alphaext} and \eqref{eq:alphain},
+\begin{equation}
+\frac{P-\varphi}{\sqrt\pi}
+=
+\frac{1}{\ATh(P)}.
+\end{equation}
+Equivalently,
+\begin{equation}
+\boxed{
+H(P):=P-\varphi-\frac{\sqrt\pi}{\ATh(P)}=0
+}
+\label{eq:H}
+\end{equation}
+or
+\begin{equation}
+\boxed{
+P=G(P):=\varphi+\frac{\sqrt\pi}{\ATh(P)}.
+}
+\label{eq:G}
+\end{equation}
+
+Informally: feed a trial pixel into the source chain. It emits a Thomson endpoint. That endpoint tells the pixel what size it should have. The physical pixel is the value that comes back unchanged.
+
+Why this step is needed: a trial value is not enough. The same cell must agree with itself when read from the outside and from the inside. That is why the answer is a fixed point, not a one-way evaluation.
+
+\section{Step 7: The Source Map}
+
+For a trial \(P\), the source map first emits
+\begin{align}
+M_U(P)&=E_P\,\e^{-2\pi}\,P^{1/6},
+\label{eq:MU}\\
+E_{\mathrm{cell}}(P)&=\frac{E_P}{\sqrt P}.
+\label{eq:Ecell}
+\end{align}
+
+Informally: \(M_U(P)\) is the high-scale source readout, and \(E_{\mathrm{cell}}(P)\) is the local cell energy. Both come from the same screen cell. The unification scale is therefore read from the pixel.
+
+Why this step is needed: the inside electromagnetic coupling has to be generated from the same \(P\) used in the outside equation. These two formulas begin that inside calculation without adding a separate high-scale fit parameter.
+
+\section{Step 8: Electroweak Transmutation}
+
+The source branch uses
+\begin{equation}
+\beta_{\mathrm{EW}}=\Nc+1=4
+\end{equation}
+with \(\Nc=3\), and defines
+\begin{equation}
+v(P,\alpha_U)
+=
+E_{\mathrm{cell}}(P)
+\exp\!\left[-\frac{2\pi}{\beta_{\mathrm{EW}}\alpha_U}\right].
+\label{eq:v}
+\end{equation}
+
+Informally: the weak scale is exponentially lower than the cell scale. The unified coupling controls that descent, so changing \(\alpha_U\) changes the electroweak scale sharply.
+
+Why this step is needed: the fine-structure constant is measured at low energy, but the source map begins at the cell scale. The transmutation formula explains how the electroweak scale is produced from the same source data.
+
+\section{Step 9: One-Loop Gauge Running}
+
+For \(i=1,2,3\), define
+\begin{equation}
+(b_1,b_2,b_3)=\left(\frac{33}{5},\,1,\,-3\right),
+\label{eq:b}
+\end{equation}
+and run the couplings by
+\begin{equation}
+\alpha_i^{-1}(\mu;P,\alpha_U)
+=
+\alpha_U^{-1}
++ 
+\frac{b_i}{2\pi}\log\!\left(\frac{M_U(P)}{\mu}\right).
+\label{eq:running}
+\end{equation}
+
+Informally: once \(\alpha_U\) is guessed, all three gauge couplings at lower scales are fixed. The same high-scale coupling determines \(\alpha_1\), \(\alpha_2\), and \(\alpha_3\).
+
+Why this step is needed: the electromagnetic coupling is a mixture of the weak and hypercharge couplings. Running the gauge couplings supplies the ingredients needed to form that mixture at the \(Z\)-scale.
+
+\section{Step 10: The Self-Consistent \(Z\)-Scale}
+
+The hypercharge coupling in Standard Model normalization is
+\begin{equation}
+\alpha_Y(\mu;P)=\frac{3}{5}\alpha_1(\mu;P).
+\label{eq:alphaY}
+\end{equation}
+The tree-level \(Z\)-mass readout is
+\begin{equation}
+m_Z(\mu;P,\alpha_U)
+=
+\frac{v(P,\alpha_U)}{2}
+\sqrt{4\pi\alpha_2(\mu;P,\alpha_U)+4\pi\alpha_Y(\mu;P,\alpha_U)}.
+\label{eq:mZtree}
+\end{equation}
+The source point uses the self-consistency condition
+\begin{equation}
+\mu=m_Z(\mu;P,\alpha_U).
+\label{eq:mZfixed}
+\end{equation}
+
+Informally: the \(Z\)-scale is determined inside the calculation. It is the scale at which the running couplings and the electroweak transmutation formula reproduce their own \(Z\)-mass readout.
+
+Why this step is needed: using a measured \(m_Z\) here would hide experimental input inside the source map. The self-consistency condition keeps the source calculation closed.
+
+\section{Step 11: Heat-Kernel Gauge Closure}
+
+For \(\SU(2)\), the irreducible representations are labeled by \(j=n/2\), \(n=0,1,\ldots,N_2\), with
+\begin{equation}
+d_j=2j+1,
+\qquad
+C_2(j)=j(j+1).
+\label{eq:su2rep}
+\end{equation}
+For \(\SU(3)\), representations are labeled by highest weights \((p,q)\), \(0\le p,q\le N_3\), with
+\begin{align}
+d_{p,q}&=\frac{(p+1)(q+1)(p+q+2)}{2},
+\label{eq:su3dim}\\
+C_2(p,q)&=\frac{p^2+q^2+pq+3p+3q}{3}.
+\label{eq:su3casimir}
+\end{align}
+
+For a compact group \(G\) in this finite representation cutoff, define
+\begin{align}
+Z_G(t)&=\sum_R d_R\,\e^{-tC_2(R)},\\
+\bar\ell_G(t)&=
+\frac{1}{Z_G(t)}
+\sum_R d_R\,\e^{-tC_2(R)}\log d_R.
+\label{eq:ellbar}
+\end{align}
+
+The heat-kernel source parameters are
+\begin{equation}
+t_2=4\pi^2\alpha_2(m_Z;P,\alpha_U),
+\qquad
+t_3=4\pi^2\alpha_3(m_Z;P,\alpha_U).
+\label{eq:t23}
+\end{equation}
+The pixel-closure equation is
+\begin{equation}
+\boxed{
+\bar\ell_{\SU(2)}(t_2)+\bar\ell_{\SU(3)}(t_3)=\frac{P}{4}.
+}
+\label{eq:pixelclosure}
+\end{equation}
+For a trial \(P\), Eq.~\eqref{eq:pixelclosure} is solved for \(\alpha_U(P)\).
+
+Informally: the representation entropy carried by the weak and color sectors must match the pixel capacity assigned to the cell. This step is what locks the unified coupling to the same \(P\) that appears in the outer equation.
+
+Why this step is needed: \(\alpha_U\) should not be chosen by hand. The heat-kernel closure turns the finite representation content of the gauge sectors into an equation for \(\alpha_U(P)\).
+
+\section{Step 12: The Electroweak Anchor}
+
+Once \(\alpha_U(P)\) and \(m_Z(P)\) are solved, define
+\begin{align}
+\alpha_Y(m_Z;P)&=\frac{3}{5}\alpha_1(m_Z;P),\\
+\alpha_{\mathrm{em}}(m_Z^2;P)
+&=
+\left(
+\frac{1}{\alpha_2(m_Z;P)}
++\frac{1}{\alpha_Y(m_Z;P)}
+\right)^{-1}.
+\label{eq:alphaem}
+\end{align}
+The source-locked electroweak anchor is
+\begin{equation}
+\boxed{
+\AZ(P):=\alpha_{\mathrm{em}}^{-1}(m_Z^2;P).
+}
+\label{eq:AZ}
+\end{equation}
+The weak mixing readout is
+\begin{equation}
+\sin^2\theta_W(m_Z;P)=
+\frac{\alpha_{\mathrm{em}}(m_Z^2;P)}{\alpha_2(m_Z;P)}.
+\label{eq:sin2}
+\end{equation}
+
+Informally: the source map has reached the electromagnetic coupling at the electroweak anchor scale. The low-energy \(1/137\) number appears only after this anchor is transported to zero momentum.
+
+Why this step is needed: \(\AZ(P)\) is the clean place where the source map meets standard electroweak physics. From here the problem becomes a transport problem for the electromagnetic current.
+
+\section{Step 13: Charged Spectrum Used by the Transport}
+
+The exact one-loop transport uses \(\Nc=3\), \(\Ng=3\), and
+\begin{equation}
+\epsilon=\frac16,
+\qquad
+\delta=\frac{\beta_{\mathrm{EW}}}{2\Nc\Ng}
+=\frac{2}{9}.
+\label{eq:epsdelta}
+\end{equation}
+Define three Koide roots
+\begin{equation}
+r_k=1+\sqrt2\cos\!\left(\delta+\frac{2\pi k}{3}\right),
+\qquad k=0,1,2,
+\label{eq:koide}
+\end{equation}
+then sort them in increasing order and write the sorted list as
+\((r_1,r_2,r_3)\).
+
+The quark exponent vectors are
+\begin{equation}
+\bm n_u=(2\Nc,\Nc,0)=(6,3,0),
+\qquad
+\bm n_d=(2\Nc,\Nc+1,\Nc-1)=(6,4,2).
+\label{eq:quarkexponents}
+\end{equation}
+With \(v=v(P)\),
+\begin{align}
+m_u&=\frac{v}{\sqrt2}\epsilon^6,
+&
+m_c&=\frac{v}{\sqrt2}\epsilon^3,
+&
+m_t&=\frac{v}{\sqrt2},\\
+m_d&=\frac{v}{\sqrt2}\epsilon^6,
+&
+m_s&=\frac{v}{\sqrt2}\epsilon^4,
+&
+m_b&=\frac{v}{\sqrt2}\epsilon^2.
+\label{eq:quarkmasses}
+\end{align}
+
+For charged leptons the exponent vector is
+\begin{equation}
+\bm n_e=(7,4,3).
+\label{eq:lepexp}
+\end{equation}
+Define
+\begin{equation}
+\log g_c
+=
+\frac{1}{3}
+\sum_{a=1}^3
+\log\!\left(
+\frac{r_a^2\sqrt2\,6^{n_{e,a}}}{v}
+\right),
+\qquad
+s_0=\e^{-\log g_c},
+\qquad
+s_e=s_0\,2^{1/6}.
+\label{eq:lepscale}
+\end{equation}
+Then
+\begin{equation}
+m_e=s_e r_1^2,
+\qquad
+m_\mu=s_e r_2^2,
+\qquad
+m_\tau=s_e r_3^2.
+\label{eq:lepmasses}
+\end{equation}
+
+Informally: this section specifies the charged masses used by the source transport. The lepton part is a clean one-loop calculation. The quark part is a perturbative continuation. The confined hadronic QCD spectral measure is a separate low-energy object.
+
+Why this step is needed: vacuum polarization depends on charged particles. The transport step cannot be evaluated until the charged spectrum and its charges are specified.
+
+\section{Step 14: Exact One-Loop Fermion Transport}
+
+For a fermion of mass \(m_f\), electric charge \(Q_f\), and multiplicity \(N_f\), define
+\begin{equation}
+K_f(Q^2;m_f,Q_f,N_f)
+=
+\frac{2N_fQ_f^2}{\pi}
+\int_0^1 x(1-x)
+\log\!\left(1+\frac{Q^2x(1-x)}{m_f^2}\right)\dd x.
+\label{eq:kernelint}
+\end{equation}
+
+The integral has the following closed form. Let
+\begin{equation}
+z=\frac{Q^2}{m_f^2},
+\qquad
+a=\frac{z}{4}.
+\end{equation}
+Then
+\begin{equation}
+\int_0^1 x(1-x)\log(1+zx(1-x))\dd x
+=
+-\frac{5}{18}
++\frac{1}{6a}
++\frac{(2a-1)\sqrt{1+a}\,\operatorname{asinh}(\sqrt a)}
+{6a^{3/2}},
+\label{eq:kernelclosed}
+\end{equation}
+with
+\begin{equation}
+\operatorname{asinh}(\sqrt a)
+=
+\log(\sqrt a+\sqrt{1+a}).
+\end{equation}
+
+The lepton contribution is
+\begin{equation}
+\Dlep(P)=
+K_e(m_Z(P)^2;m_e,1,1)
++K_\mu(m_Z(P)^2;m_\mu,1,1)
++K_\tau(m_Z(P)^2;m_\tau,1,1).
+\label{eq:Dlep}
+\end{equation}
+The naive five-quark contribution is
+\begin{align}
+\Delta_q^{\mathrm{naive}}(P)
+&=
+K_u(m_Z(P)^2;m_u,2/3,3)
++K_d(m_Z(P)^2;m_d,-1/3,3)
+\nonumber\\
+&\quad
++K_s(m_Z(P)^2;m_s,-1/3,3)
++K_c(m_Z(P)^2;m_c,2/3,3)
++K_b(m_Z(P)^2;m_b,-1/3,3).
+\label{eq:Dqnaive}
+\end{align}
+The perturbative screening factor is
+\begin{equation}
+S_{\mathrm{calc}}(P)=
+1-\frac{\Nc\alpha_3(m_Z;P)}{\pi}.
+\label{eq:Scalc}
+\end{equation}
+Thus
+\begin{equation}
+\Dcalc(P)
+=
+\Dlep(P)+S_{\mathrm{calc}}(P)\Delta_q^{\mathrm{naive}}(P).
+\label{eq:Dcalc}
+\end{equation}
+
+Informally: charged leptons are treated by an exact one-loop kernel. Quarks are treated by a perturbative expression with a simple screening factor. The expected gap is the confined hadronic spectral transport plus the matching terms needed to use the same electromagnetic-current convention all the way to the endpoint.
+
+Why this step is needed: the Thomson endpoint is not the same as the \(Z\)-scale anchor. Charged particles screen the electromagnetic current between those scales, and the kernel is the mathematical form of that screening.
+
+\section{Step 15: The Source Calculation Endpoint}
+
+The calculated endpoint is
+\begin{equation}
+A_{\mathrm{calc}}(P)
+=
+\AZ(P)+\Dcalc(P).
+\label{eq:Acalc}
+\end{equation}
+Putting \(A_{\mathrm{calc}}\) into Eq.~\eqref{eq:G} gives the source map
+\begin{equation}
+G_{\mathrm{calc}}(P)
+=
+\varphi+\frac{\sqrt\pi}{A_{\mathrm{calc}}(P)}.
+\label{eq:Gcalc}
+\end{equation}
+The numerical solve uses
+\begin{equation}
+G_{\mathrm{calc}}(P_{\mathrm{cand}})=P_{\mathrm{cand}}
+\label{eq:Pcand}
+\end{equation}
+and emits
+\begin{align}
+P_{\mathrm{cand}}
+&=
+1.63097209569432901817967892561191884270169,
+\label{eq:Pcandnum}\\
+\alphainv_{\mathrm{cand}}
+&=
+136.994835164621649457949994585787193262029.
+\label{eq:alphacand}
+\end{align}
+The source anchor at that candidate point is
+\begin{equation}
+\AZ(P_{\mathrm{cand}})
+=
+128.308268045165213892552005990181778935450.
+\label{eq:AZcand}
+\end{equation}
+The calculated transport contribution is
+\begin{equation}
+\Dcalc(P_{\mathrm{cand}})
+=
+8.68656711945643556539798859560541432657857.
+\label{eq:Dcalccand}
+\end{equation}
+
+Informally: the fixed-point algebra lands at a stable value near \(137\), with no measured alpha inserted into the solve. The remaining gap has a precise address: low-energy hadronic transport in the same endpoint convention.
+
+Why this step is needed: this is the non-circular check. It shows what the OPH source chain produces before the calibrated hadronic endpoint correction is added.
+
+\section{Step 16: The Public Endpoint Pixel}
+
+The CODATA/NIST 2022 inverse fine-structure constant is
+\begin{equation}
+A_{\mathrm C}=137.035999177,
+\qquad
+\sigma_A=0.000000021,
+\label{eq:codata}
+\end{equation}
+with concise form \(137.035999177(21)\). The corresponding OPH public pixel is
+\begin{equation}
+\Ppub
+=
+\varphi+\frac{\sqrt\pi}{A_{\mathrm C}}
+=
+\decnum{1.6309682094039593248792798477826489413359828516279250606661507533907793398933432}
+\label{eq:Ppub}
+\end{equation}
+The public coupling is
+\begin{equation}
+\alpha(0)
+=
+\frac{1}{A_{\mathrm C}}
+=
+\decnum{0.0072973525643314250302457952646916832280660213133653604957798803819933561573639928}
+\label{eq:alphapub}
+\end{equation}
+
+Informally: once the Thomson endpoint is known, the outer OPH equation fixes the pixel immediately. It is the direct readout of one equation.
+
+Why this step is needed: the public endpoint and the public pixel are two forms of the same fixed-point statement. Reporting both makes it clear how the measured inverse coupling maps back to the screen cell.
+
+\section{Step 17: Endpoint Accounting at the Public Pixel}
+
+At \(P=\Ppub\), the source point gives
+\begin{align}
+\AZ(\Ppub)
+&=
+\decnum{128.30796547328624820996110874175671618724547618036535646005342169635117784168285644078724728}
+\label{eq:AZpub}\\
+\Dcalc(\Ppub)
+&=
+\decnum{8.6865678427085284009854425428859697682672217376487364233784577389993784459106783080961179590}
+\label{eq:Dcalcpub}
+\end{align}
+The transport required by the public endpoint is
+\begin{equation}
+\Dreq(\Ppub)
+=
+A_{\mathrm C}-\AZ(\Ppub)
+=
+\decnum{8.72803370371375179003889125824328381275452381963464353994657830364882215831714355921275272}
+\label{eq:Dreqpub}
+\end{equation}
+Therefore the source-side residual at the public pixel is
+\begin{align}
+\Rq(\Ppub)
+&=
+\Dreq(\Ppub)-\Dcalc(\Ppub)
+\nonumber\\
+&=
+\decnum{0.04146586100522338905344871535731404448730208198590711656812056464944371240646525111663476}
+\label{eq:RQpub}
+\end{align}
+
+Informally: the public value differs from the pure source calculation by a small, precisely localized inverse-alpha contribution. The golden-ratio equation, the heat-kernel closure, and the numerical fixed-point solve all point to the same address for the difference: the same-scheme low-energy hadronic transport.
+
+Why this step is needed: this accounting prevents the hadronic contribution from being hidden inside the final number. It shows the source anchor, the calculated transport, the required transport, and the residual in the same units.
+
+\section{Step 18: The Calibrated Hadronic Correction}
+
+The fixed-point calculation uses
+\begin{equation}
+A_{\mathrm{calc}}(P_{\mathrm{cand}})
+=
+\alphainv_{\mathrm{cand}}
+=
+\decnum{136.994835164621649457949994585787193262029}
+\label{eq:Acalcfp}
+\end{equation}
+The hadronic correction required on that calculation, when calibrated to the CODATA/NIST central value, is
+\begin{equation}
+\Dcalib^{\mathrm{fp}}
+=
+A_{\mathrm C}-A_{\mathrm{calc}}(P_{\mathrm{cand}})
+=
+\decnum{0.041164012378350542050005414212806737971}
+\label{eq:Dempfp}
+\end{equation}
+Therefore
+\begin{align}
+A_{\mathrm{closed}}^{\mathrm{fp}}
+&=
+A_{\mathrm{calc}}(P_{\mathrm{cand}})+\Dcalib^{\mathrm{fp}}
+\nonumber\\
+&=
+137.035999177
+\label{eq:exactaddition}
+\end{align}
+The two inputs in that addition are
+\begin{align}
+A_{\mathrm{calc}}(P_{\mathrm{cand}})
+&=
+\decnum{136.994835164621649457949994585787193262029}
+\label{eq:exactaddition-source}\\
+\Dcalib^{\mathrm{fp}}
+&=
+\decnum{0.041164012378350542050005414212806737971}
+\label{eq:exactaddition-emp}
+\end{align}
+This number is not an independently measured hadronic constant with 39 significant decimal places. It is the difference between the measured CODATA/NIST central value and the pure OPH source calculation. Its uncertainty is therefore limited by the CODATA/NIST uncertainty, apart from the much smaller numerical error in the source solve:
+\begin{equation}
+\Dcalib^{\mathrm{fp}}
+=0.041164012\pm0.000000021.
+\label{eq:Dcalibuncertainty}
+\end{equation}
+Equivalently, the central value and uncertainty of the final inverse coupling are
+\begin{equation}
+A_{\mathrm C}=137.035999177,
+\qquad
+\sigma_A=0.000000021.
+\end{equation}
+Here \(A_{\mathrm C}\) is the CODATA/NIST 2022 inverse fine-structure constant \cite{nist-value,nist-2022}. The source value \(A_{\mathrm{calc}}(P_{\mathrm{cand}})\) is the reproducible OPH fixed-point solve \cite{oph-code}. Equation~\eqref{eq:Dempfp} is a calibrated hadronic correction in inverse-alpha units.
+
+Informally: the source calculation lands short by a small number with a known physical meaning. Adding the hadronic correction calibrated from the measured value lands on the CODATA/NIST central value. It does not predict extra digits, because the hadronic part has not been derived mathematically inside OPH.
+
+Why this step is needed: this is the public numerical result, and it marks the limit of the calculation. More digits require a source-derived hadronic spectral calculation, not more decimal padding.
+
+The endpoint decomposition is
+\begin{equation}
+\ATh(P)
+=
+\AZ(P)+\Dlep(P)+\Dhad(P)+\DEW(P).
+\label{eq:ATsplit}
+\end{equation}
+The calculated transport contains the exact one-loop charged-lepton contribution and a structured quark-screening continuation. The remaining pure source object can be written compactly as
+\begin{equation}
+\Rq(P)
+=
+\Dhad(P)+\DEW(P)
+-\bigl[\Dcalc(P)-\Dlep(P)\bigr],
+\label{eq:RQmeaning}
+\end{equation}
+where the right side is understood in the same renormalization and endpoint scheme as \(\AZ(P)\).
+
+In the screening notation used by the endpoint calculation, let
+\begin{equation}
+x(P)=\frac{\Nc\alpha_3(m_Z;P)}{\pi}.
+\label{eq:xqcd}
+\end{equation}
+At \(P=\Ppub\),
+\begin{align}
+S_{\mathrm{required}}
+&=
+\decnum{0.89540013264765879780580028318167064130770986481229164844830591011545242521273086888107864576}
+\label{eq:Sreq}\\
+c_Q
+&=
+\decnum{0.65802575992715543563823017023236005042492009907058639608566007832470711257322011342309305088}
+\label{eq:cQ}
+\end{align}
+where
+\begin{equation}
+S_{\mathrm{required}}=1-x+c_Qx^2.
+\label{eq:cQdef}
+\end{equation}
+
+Informally: the needed hadronic and endpoint correction can be summarized as a small second-order screening coefficient. A pure source proof has to emit this coefficient from a Ward-projected hadronic spectral measure.
+
+Why this step is needed: hadrons are not pointlike free quarks at low energy. The coefficient is a compact way to record what the empirical hadronic spectral function contributes in this endpoint convention.
+
+\section{Step 19: Why Raw PDG \(\Delta\alpha_{\mathrm{had}}^{(5)}(M_Z)\) Is a Different Quantity}
+
+The direct PDG/CERN diagnostic uses
+\begin{align}
+\AZ(\Ppub)&=
+\decnum{128.30796547328624820996110874175671618724547618036535646005342169635117784168285644}\\
+\Dlep(\Ppub)&=
+\decnum{4.3093978664522040271317438975344894018487156605576773194711528089665680313257906466129}\\
+\Delta\alpha_{\mathrm{had}}^{(5)}(M_Z)&=0.02761.
+\end{align}
+It forms
+\begin{equation}
+A_L=\AZ+\Dlep,
+\qquad
+A_{\mathrm{PDGdiag}}=\frac{A_L}{1-\Delta\alpha_{\mathrm{had}}^{(5)}(M_Z)}.
+\label{eq:pdgdiag}
+\end{equation}
+Numerically,
+\begin{equation}
+A_{\mathrm{PDGdiag}}
+=
+\decnum{136.382895072695577121415124218977165118002233508081154453999500720202537945689123794581289}
+\label{eq:pdgdiagval}
+\end{equation}
+This differs from \(137.035999177\). Holding this raw hadronic denominator shift fixed, the target would require
+\begin{equation}
+\Delta\alpha_{\mathrm{had,req}}
+=
+\decnum{0.032244343557887288822268499236957947422007347612226081506593089221871380926117950141438549}
+\label{eq:pdgreq}
+\end{equation}
+or a same-scheme source-anchor bridge of
+\begin{equation}
+\decnum{0.6350718999845777629071473607087944109058081590769662204754254946822541269913529133871}
+\label{eq:bridgegap}
+\end{equation}
+inverse-alpha units.
+
+Informally: the raw electroweak-review hadronic running number is a useful diagnostic. The OPH endpoint needs the same electromagnetic current and the same inverse-alpha endpoint convention used by \(\AZ(P)\). Mixing the two conventions moves the answer by a visible amount.
+
+Why this step is needed: a common mistake is to insert a published \(\Delta\alpha_{\mathrm{had}}^{(5)}(M_Z)\) number as though it were the OPH endpoint contribution. This section shows the numerical consequence of that convention mismatch.
+
+\section{Step 20: The Measured Hadronic Spectral Input}
+
+The standard measured hadronic vacuum-polarization relation uses
+\begin{equation}
+\Delta\alpha_{\mathrm{had}}(q^2)
+=
+-\frac{\alpha q^2}{3\pi}\,
+\mathrm{P.V.}\!\int \frac{R(s)}{s(s-q^2)}\dd s,
+\label{eq:dispersion}
+\end{equation}
+where \(R(s)\) is the measured ratio of the bare \(e^+e^-\to\mathrm{hadrons}\) cross section to the pointlike \(e^+e^-\to\mu^+\mu^-\) cross section.
+
+The independently documented measured quantity in the standard electroweak literature is usually quoted as \(\Delta\alpha_{\mathrm{had}}^{(5)}(M_Z^2)\). It is a dimensionless change in the running electromagnetic coupling at the \(Z\)-boson mass, not the inverse-alpha correction \(\Dcalib^{\mathrm{fp}}\) used in Eq.~\eqref{eq:Dempfp}. For example, Davier, Hoecker, Malaescu, and Zhang report
+\[
+\Delta\alpha_{\mathrm{had}}^{(5)}(M_Z^2)=(275.7\pm1.0)\times10^{-4}
+\]
+from \(e^+e^-\)-based data \cite{dhmz}. A more recent perturbative update by Erler and Ferro-Hernandez gives
+\[
+\Delta\alpha_{\mathrm{had}}^{(5)}(M_Z^2)
+=\left(276.29\pm0.38\pm0.62\right)\times10^{-4}
+\]
+when low-energy cross-section data are used as input \cite{erler-ferro}.
+
+The OPH correction in Eq.~\eqref{eq:Dempfp} is different. It is expressed in inverse-alpha units and in the endpoint convention used by \(\AZ(P)\). The standard published hadronic-running values document the physics source of the correction. They do not by themselves give the OPH same-scheme inverse-alpha correction to arbitrary precision. The community does publish the data machinery needed for this kind of calculation. Jegerlehner's alphaQED package provides hadronic running routines, covariance data, and an integration routine for custom kernels \cite{alphaqed}. That is the right empirical route once the OPH endpoint kernel and finite same-scheme remainder are fixed.
+
+In the OPH endpoint convention this is represented as a same-current spectral functional,
+\begin{equation}
+\Dhad(P)
+=
+\frac{m_Z(P)^2}{3\pi}
+\int \frac{\rho_Q(s;P)}{s[s+m_Z(P)^2]}\dd s,
+\label{eq:ophhadron}
+\end{equation}
+plus the same-scheme finite remainder needed by Eq.~\eqref{eq:ATsplit}.
+
+Informally: the measured hadronic input supplies the electromagnetic spectral information required for the endpoint. The single published number \(0.0276\) is one weighted integral of that spectral information. The OPH endpoint needs a different weighted integral plus the same-scheme finite remainder. A pure source theorem requires the same spectral object from OPH source data.
+
+Why this step is needed: the dispersion relation explains why measured \(e^+e^-\to\mathrm{hadrons}\) data are the right empirical input. They measure the electromagnetic spectral function that the endpoint transport requires.
+
+\section{Step 21: The Conditional Pure Source Theorem}
+
+\begin{theorem}[OPH fine-structure endpoint, conditional pure source form]
+Assume:
+\begin{enumerate}[label=(\roman*)]
+\item the OPH overlap-consistency branch emits the source map \(P\mapsto \AZ(P)\) by Eqs.~\eqref{eq:MU}--\eqref{eq:AZ};
+\item the Ward-projected \(\U(1)_Q\) transport theorem emits a same-scheme endpoint map
+\[
+\ATh(P)=\AZ(P)+\Dlep(P)+\Dhad(P)+\DEW(P);
+\]
+\item \(G(P)=\varphi+\sqrt\pi/\ATh(P)\) is a self-map and a contraction on the physical pixel interval \(I\);
+\item the interval image contains the root and the residual bound is certified.
+\end{enumerate}
+Then there is a unique \(P_\star\in I\) satisfying \(G(P_\star)=P_\star\), and the fine-structure constant on that branch is
+\[
+\alpha(0)=\frac{1}{\ATh(P_\star)}=\frac{P_\star-\varphi}{\sqrt\pi}.
+\]
+\end{theorem}
+
+\begin{proof}
+By assumption (iii), \(G:I\to I\) is a contraction. Banach's fixed-point theorem gives a unique \(P_\star\in I\) such that \(G(P_\star)=P_\star\). Equation~\eqref{eq:G} gives
+\[
+P_\star-\varphi=\frac{\sqrt\pi}{\ATh(P_\star)}.
+\]
+Dividing by \(\sqrt\pi\) gives
+\[
+\frac{P_\star-\varphi}{\sqrt\pi}=\frac{1}{\ATh(P_\star)}.
+\]
+The left side is \(\alpha_{\mathrm{ext}}(P_\star)\), and the right side is \(\alpha_{\mathrm{in}}(P_\star)\). Their common value is the Thomson-limit electromagnetic coupling \(\alpha(0)\).
+\end{proof}
+
+Informally: a source-derived hadronic spectral endpoint map would close the last open transport step. With the interval proof included, the fine-structure constant is the unique fixed point of the full source map.
+
+\section{Step 22: The Public Endpoint Value}
+
+With the CODATA/NIST endpoint value
+\begin{equation}
+\ATh(\Ppub)=A_{\mathrm C}=137.035999177(21),
+\end{equation}
+Eq.~\eqref{eq:G} gives the corresponding public endpoint pixel:
+\begin{align}
+\boxed{
+\Ppub
+=
+\decnum{1.6309682094039593248792798477826489413359828516279250606661507533907793398933432}
+}
+\\
+\boxed{
+\alpha(0)
+=
+\decnum{0.0072973525643314250302457952646916832280660213133653604957798803819933561573639928}
+}
+\\
+\boxed{
+\alphainv(0)=137.035999177(21).
+}
+\end{align}
+
+Informally: the endpoint number is the same number NIST/CODATA reports. The derivation exposes every OPH-side step and identifies where the low-energy hadronic calculation enters. It does not replace the missing hadronic spectral calculation with an arbitrary fitted value.
+
+\section{Reproducibility}
+
+The main human-facing CLI is
+\begin{verbatim}
+cd reverse-engineering-reality/code/P_derivation
+python3 derive_p.py --color always
+\end{verbatim}
+To print only the pure source value:
+\begin{verbatim}
+python3 derive_p.py --no-hadron-closure
+\end{verbatim}
+To emit machine-readable output:
+\begin{verbatim}
+python3 derive_p.py --json --output runtime/report.json
+\end{verbatim}
+To run the raw PDG/CERN diagnostic discussed in Section~19:
+\begin{verbatim}
+python3 fine_structure_fixed_point_demo.py --compare-alpha-inv 137.035999177
+\end{verbatim}
+
+Informally: the command line separates the pure source value, the measured-hadron value, and the diagnostic values. The mathematical paper uses the same separation.
+
+\section{Checklist of Non-Omitted Steps}
+
+\begin{longtable}{@{}L{0.18\textwidth}L{0.44\textwidth}L{0.28\textwidth}@{}}
+\toprule
+Step & Mathematical object & Status \\
+\midrule
+\endhead
+Overlap rule & Eq.~\eqref{eq:overlap} & OPH starting structure. \\
+Pixel variable & \(P=a_{\mathrm{cell}}/\ell_P^2\) & Defined. \\
+Golden balance & \(\varphi=(1+\sqrt5)/2\) & Defined. \\
+Boundary width & \(\alpha_{\mathrm{ext}}=(P-\varphi)/\sqrt\pi\) & Defined. \\
+Inside readout & \(\alpha_{\mathrm{in}}=1/\ATh(P)\) & Defined. \\
+Closure & \(P=\varphi+\sqrt\pi/\ATh(P)\) & Defined. \\
+Source scale & \(M_U=E_P\e^{-2\pi}P^{1/6}\) & Defined and calculated. \\
+Cell scale & \(E_{\mathrm{cell}}=E_P/\sqrt P\) & Defined and calculated. \\
+Transmutation & \(v=E_{\mathrm{cell}}\exp[-2\pi/(\beta_{\mathrm{EW}}\alpha_U)]\) & Defined and calculated. \\
+Gauge running & Eq.~\eqref{eq:running} & Defined and calculated. \\
+\(Z\)-scale self-consistency & Eq.~\eqref{eq:mZfixed} & Defined and calculated. \\
+Heat-kernel closure & Eq.~\eqref{eq:pixelclosure} & Defined and calculated. \\
+Electroweak anchor & \(\AZ=\alpha_{\mathrm{em}}^{-1}(m_Z^2;P)\) & Defined and calculated. \\
+Charged spectrum & Eqs.~\eqref{eq:quarkmasses} and \eqref{eq:lepmasses} & Calculated continuation. \\
+Fermion kernel & Eqs.~\eqref{eq:kernelint} and \eqref{eq:kernelclosed} & Exact one-loop kernel. \\
+Calculated endpoint & \(A_{\mathrm{calc}}=\AZ+\Dcalc\) & Pure source value. \\
+Calibrated hadronic correction & \(\Dcalib^{\mathrm{fp}}\), Eq.~\eqref{eq:Dempfp} & Hadron-completed endpoint value. \\
+Hadronic/scheme residual & \(\Rq=\ATh-A_{\mathrm{calc}}\) & Isolated endpoint contribution. \\
+Public endpoint & \(\ATh=137.035999177(21)\) & CODATA/NIST endpoint comparison value. \\
+Raw PDG diagnostic & Eq.~\eqref{eq:pdgdiag} & Comparison diagnostic in a different endpoint convention. \\
+Interval theorem & Banach/contraction certificate for full \(G\) & Required for pure source theorem. \\
+\bottomrule
+\end{longtable}
+
+\section{Conclusion}
+
+The fine-structure constant is the coupling that makes one OPH screen cell internally consistent. The outside reading says that the cell is displaced from the golden-ratio balance by \((P-\varphi)/\sqrt\pi\). The inside reading sends the same \(P\) through the source map, gauge closure, electroweak anchor, and Ward-projected Thomson transport, producing \(1/\ATh(P)\). The physical cell is the fixed point where those two readings agree.
+
+The pure source calculation computes the fixed-point witness
+\[
+\alphainv_{\mathrm{cand}}=136.994835164621649457949994585787193262029.
+\]
+The public endpoint value is
+\[
+\alphainv(0)=137.035999177(21),
+\]
+with
+\[
+P=1.630968209403959324879279847782648941\ldots.
+\]
+The gap is a named low-energy hadronic and same-scheme endpoint contribution. The public exact-value row is a calibrated endpoint comparison, not a source-only prediction. The pure source theorem is work in progress at the Ward-projected hadronic spectral measure, the same-scheme endpoint bridge, and the interval-certificate step.
+
+\section*{Declarations}
+
+\textbf{Funding declaration.} No funding was received for this work.
+
+\textbf{Consent to Participate declaration.} Not applicable.
+
+\textbf{Consent to Publish declaration.} Not applicable.
+
+\textbf{Author Contribution declaration.} B.\ M\"uller conceived the OPH fine-structure fixed-point formulation, prepared the mathematical derivation, wrote and checked the numerical calculation, wrote the manuscript, and prepared the reproducibility materials.
+
+\textbf{Data Availability declaration.} No new experimental data were generated. The manuscript uses the 2022 CODATA/NIST inverse fine-structure constant \cite{nist-value,nist-2022}, public hadronic cross-section and vacuum-polarization references \cite{pdg-xsect,dhmz,knt19}, and the OPH source materials cited below. The TeX source, OPH paper sources, and executable derivation code are available in the public GitHub repository:
+\url{https://github.com/FloatingPragma/observer-patch-holography}.
+
+\textbf{Code Availability declaration.} The fixed-point code and runtime artifacts are available at
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/P_derivation}.
+
+\textbf{Ethics declaration.} Not applicable.
+
+\textbf{Competing Interests declaration.} The author declares no competing interests.
+
+\begin{thebibliography}{99}
+
+\bibitem{oph-synthesis}
+B.\ M\"uller, K.\ Xue, and K.\ A.\ Anirudha,
+\emph{Observers Are All You Need}.
+GitHub source:
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.tex}.
+GitHub PDF:
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.pdf}.
+
+\bibitem{oph-smgr}
+B.\ M\"uller and K.\ Xue,
+\emph{Recovering Relativity and Standard Model Structure from Observer-Overlap Consistency}.
+GitHub source:
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex}.
+GitHub PDF:
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf}.
+
+\bibitem{oph-particle}
+B.\ M\"uller,
+\emph{Deriving the Particle Zoo from Observer Consistency}.
+GitHub source:
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.tex}.
+GitHub PDF:
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.pdf}.
+
+\bibitem{oph-code}
+OPH executable derivation code,
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/P_derivation}.
+Primary files:
+\path{paper_math.py},
+\path{derive_p.py},
+\path{fine_structure_fixed_point_demo.py}.
+
+\bibitem{oph-hadron-policy}
+OPH hadron data policy,
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/HADRON.md}.
+
+\bibitem{jentschura-nandori}
+U.\ D.\ Jentschura and I.\ Nandori,
+\emph{Attempts at a determination of the fine-structure constant from first principles: A brief historical overview},
+Eur.\ Phys.\ J.\ H \textbf{39}, 591--613 (2014).
+\url{https://arxiv.org/abs/1411.4673}.
+
+\bibitem{heyrovska-narayan}
+R.\ Heyrovska and S.\ Narayan,
+\emph{Fine-structure Constant, Anomalous Magnetic Moment, Relativity Factor and the Golden Ratio that Divides the Bohr Radius}.
+\url{https://arxiv.org/abs/physics/0509207}.
+
+\bibitem{singh}
+T.\ P.\ Singh,
+\emph{Quantum theory without classical time: octonions, and a theoretical derivation of the fine structure constant \(1/137\)},
+Int.\ J.\ Mod.\ Phys.\ D \textbf{30}, 2142010 (2021).
+\url{https://arxiv.org/abs/2110.07548}.
+
+\bibitem{ciborowski}
+J.\ Ciborowski,
+\emph{Bi-Constructible pattern of weak and flavour mixing: implications for electroweak coupling constants}.
+\url{https://arxiv.org/abs/2508.00030}.
+
+\bibitem{chekanov-kjellerstrand}
+S.\ V.\ Chekanov and H.\ Kjellerstrand,
+\emph{Discovering the Underlying Analytic Structure Within Standard Model Constants Using Artificial Intelligence},
+Particles \textbf{8}, 95 (2025).
+\url{https://arxiv.org/abs/2507.00225}.
+
+\bibitem{liu-low-yin}
+Q.\ Liu, I.\ Low, and Z.\ Yin,
+\emph{A Quantum Computational Determination of the Weak Mixing Angle in the Standard Model}.
+\url{https://arxiv.org/abs/2509.18251}.
+
+\bibitem{dhmz}
+M.\ Davier, A.\ Hoecker, B.\ Malaescu, and Z.\ Zhang,
+\emph{Reevaluation of the Hadronic Contributions to the Muon \(g-2\) and to \(\alpha(M_Z)\)},
+Eur.\ Phys.\ J.\ C \textbf{71}, 1515 (2011).
+\url{https://arxiv.org/abs/1010.4180}.
+
+\bibitem{knt19}
+A.\ Keshavarzi, D.\ Nomura, and T.\ Teubner,
+\emph{The \(g-2\) of charged leptons, \(\alpha(M_Z^2)\) and the hyperfine splitting of muonium},
+Phys.\ Rev.\ D \textbf{101}, 014029 (2020).
+\url{https://arxiv.org/abs/1911.00367}.
+
+\bibitem{erler-ferro}
+J.\ Erler and R.\ Ferro-Hernandez,
+\emph{Perturbative contributions to \(\Delta\alpha^{(5)}(M_Z^2)\)}.
+\url{https://arxiv.org/abs/2308.05740}.
+
+\bibitem{pdg-xsect}
+Particle Data Group,
+\emph{Data files and plots of cross-sections and related quantities in the Review of Particle Physics}.
+\url{https://pdg.lbl.gov/current/xsect/}.
+
+\bibitem{alphaqed}
+F.\ Jegerlehner,
+\emph{Software packages alphaQED and pQCDAdler}.
+\url{https://people.physik.hu-berlin.de/~fjeger/software.html}.
+
+\bibitem{blog}
+B.\ M\"uller,
+\emph{Fine-Structure Constant from First Principles},
+Floating Pragma Blog.
+\url{https://blog.floatingpragma.io/fine-structure-constant-from-first-principles}.
+
+\bibitem{nist-value}
+NIST,
+\emph{CODATA Value: inverse fine-structure constant},
+2022 CODATA recommended value.
+\url{https://physics.nist.gov/cgi-bin/cuu/Value?eqalphinv=}.
+
+\bibitem{nist-2022}
+P.\ J.\ Mohr, E.\ Tiesinga, D.\ B.\ Newell, and B.\ N.\ Taylor,
+\emph{CODATA Recommended Values of the Fundamental Physical Constants: 2022}.
+NIST publication page:
+\url{https://www.nist.gov/publications/codata-recommended-values-fundamental-physical-constants-2022}.
+
+\bibitem{nist-wall}
+NIST/CODATA,
+\emph{CODATA Recommended Values of the Fundamental Physical Constants: 2022},
+wall chart.
+\url{https://physics.nist.gov/cuu/pdf/wall_2022.pdf}.
+
+\end{thebibliography}
+
+\end{document}
