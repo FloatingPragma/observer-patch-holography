@@ -175,7 +175,9 @@ the particle picture is larger than a handful of isolated numbers. The OPH
 ledger carries structural massless carriers, the weak-sector validation pair,
 the declared Higgs/top surface, the selected-class running quark sextet with
 Yukawas, and one weighted-cycle neutrino family. The late status ledger
-records the fine-structure audit trunk and the charged-lepton witness surface.
+records the fine-structure audit trunk, the charged-lepton witness surface, the
+global public quark-frame classification boundary, and the auxiliary direct-top
+compare-only codomain.
 The selected-class quark theorem leaves strong CP open: the
 available corpus does not derive $\theta_{\mathrm{QCD}}$, does not emit
 physical $\bar\theta$, and does not prove that the physical strong-CP phase
@@ -351,10 +353,11 @@ action is the classical limit of quantum interference. The deterministic world
 of everyday life is the public face of a quantum reality that becomes
 shareable only after decoherence and redundancy have done their work.
 
-Ledger details: the weak-boson pair is a validation row, charged-lepton
-absolute masses are target-anchored witnesses, source-only hadron masses require
-the OPH strong-binding backend with production spectral data and systematics,
-and empirical hadron closure checks use the separate
+Ledger details: the weak-boson pair is a validation row, charged-lepton rows
+are target-anchored same-family witnesses rather than source-emitted public
+masses, source-only hadron masses require the OPH strong-binding backend with
+production spectral data and systematics, and empirical hadron closure checks
+use the separate
 \(e^+e^-\to\mathrm{hadrons}\) payload class.
 
 ### Matter as a Public Achievement

@@ -701,9 +701,9 @@ structure keeps the photon, gluons, and graviton on protected zero lines. From
 there the pixel fixed point organizes the electroweak surface, the Higgs-top
 surface, the selected-class running quark masses, and the weighted-cycle
 neutrino family. The status ledger records the weak-boson validation row,
-charged-lepton absolute-mass witnesses, the stronger global quark-frame
+the charged-lepton witness surface, the global public quark-frame
 classification boundary, the strong-CP branch, and the auxiliary direct-top
-conversion boundary.
+compare-only codomain.
 
 ### How the Concrete Particle Rows Arise
 
@@ -911,9 +911,9 @@ and one weighted-cycle neutrino family with definite masses and Majorana
 phases. That selected-class quark sector leaves strong CP open: the available
 corpus does not derive $\theta_{\mathrm{QCD}}$, does not emit physical
 $\bar\theta$, and does not prove that the physical strong-CP phase vanishes. It
-also marks charged-lepton absolute masses, global public quark-frame
-classification, and the auxiliary direct-top conversion as no-go boundaries in
-the available derivation.
+also marks the charged-lepton source landing from $P$ to physical charged data,
+global public quark-frame classification, and the auxiliary direct-top PDG
+codomain as current boundaries in the available derivation.
 
 The reason these numbers belong in one chapter is that the framework organizes
 them with one local fixed-point structure. The same pixel ratio feeds the
