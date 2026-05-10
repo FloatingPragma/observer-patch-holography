@@ -231,7 +231,7 @@ def build_source_payload_interval_certificate(source_transport_payload: dict[str
                     "The supplied source payload carries a theorem-grade interval fixed-point "
                     "certificate."
                     if promotion_allowed
-                    else "Exact alpha still requires the populated source spectral measure payload and interval certificate fields."
+                    else "Exact alpha still requires the populated source spectral measure payload, same-scheme remainder, and interval certificate fields."
                 ),
             },
         }

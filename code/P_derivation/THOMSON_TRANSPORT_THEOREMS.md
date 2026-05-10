@@ -225,8 +225,8 @@ bound.
 
 **Status:** endpoint package closed for issue #223; source-residual
 non-identifiability boundary closed for issue #235. Exact-alpha promotion
-requires the populated source spectral measure payload and interval
-certificate.
+requires the populated source spectral measure payload, same-scheme
+remainder, and interval certificate.
 
 If Theorems 2, 3, and 4 are closed on the same source family and scheme, define
 
