@@ -97,9 +97,10 @@ the architecture cannot break. The broader particle ledger then carries the
 weak validation pair, the low-energy electromagnetic endpoint, the declared
 Higgs-top surface, the selected-class quark sector, and one weighted-cycle
 neutrino family. The technical status ledger separates charged-lepton
-witnesses, source-only hadron calculations, and empirical hadron closure
-checks. Hadrons add the strong-binding problem on top of that particle-level
-picture.
+witnesses, the global public quark-frame classification boundary, the
+auxiliary direct-top compare-only codomain, source-only hadron calculations,
+and empirical hadron closure checks. Hadrons add the strong-binding problem on
+top of that particle-level picture.
 
 The particle words here refer to roles explained in Chapters 12-16: color is the
 three-way strong-force bookkeeping, CKM phases describe quark mixing under the
@@ -310,10 +311,13 @@ chain, massless carriers, Lorentz geometry, Einstein relation, and the
 ledgered electroweak, Higgs-top, quark, and neutrino surfaces form one
 organized reconstruction, not a catalog of unrelated facts.
 
-The local-ruler ledger records three technical boundaries. The weak pair is a
-validation row. Charged-lepton absolute masses are target-anchored witnesses.
-Hadron masses require the OPH strong-binding backend with production spectral
-data and systematics.
+The local-ruler ledger records five technical boundaries. The weak pair is a
+validation row. Charged-lepton rows are target-anchored same-family witnesses
+rather than source-emitted public masses. The selected-class quark theorem
+closes only on its declared public frame class, so global public quark-frame
+classification remains open. The auxiliary direct-top PDG row remains
+compare-only. Hadron masses require the OPH strong-binding backend with
+production spectral data and systematics.
 The selected-class quark theorem leaves strong CP open: the available corpus
 does not derive $\theta_{\mathrm{QCD}}$, does not emit physical $\bar\theta$,
 and does not prove that the physical strong-CP phase vanishes.
