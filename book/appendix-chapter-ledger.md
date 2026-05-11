@@ -597,7 +597,8 @@ $$
 
 uses the de Sitter radius to set a deep-infrared scale. The proximity to the
 empirical MOND scale is the reason the chapter treats galaxy-scale anomalies
-as a serious assumption-dependent continuation.
+as a serious assumption-dependent continuation rather than as part of the
+recovered-core theorem package.
 
 The builders include de Sitter, Friedmann, Lemaitre, Hubble, Slipher,
 Gamow, Penzias, Wilson, Guth, Starobinsky, Linde, Riess, Perlmutter, Schmidt,
@@ -793,9 +794,10 @@ quark theorem does not derive its vanishing.
 
 The synthesis chapter is also where status language matters most. A
 reconstruction can be impressive without being uniform in theorem status.
-Some parts are structural consequences. Some are assumption-dependent continuations.
-Some are empirical validations. Some depend on external payloads. A serious
-book should not flatten those categories.
+Some parts are recovered-core structural consequences. Some are input-dependent
+Phase-II closures. Some are assumption-dependent continuations. Some are
+empirical validations. Some depend on external payloads. A serious book should
+not flatten those categories.
 
 The human lineage here is the full relay. No one builds a theory of this
 scope alone. The synthesis is made possible by thermodynamicists, quantum

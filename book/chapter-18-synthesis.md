@@ -94,9 +94,9 @@ three-generation count follows from CKM phase counting, weak-sector
 consistency, and minimality on the same low-energy branch. The photon,
 gluons, and graviton stay massless because they ride on redundancy directions
 the architecture cannot break. The broader particle table then carries the
-weak validation pair, the low-energy electromagnetic endpoint, the declared
-Higgs-top surface, the selected-class quark sector, and one weighted-cycle
-neutrino family. The technical status ledger separates charged-lepton
+weak-sector validation pair, the low-energy electromagnetic endpoint, the
+declared Higgs/top quantitative surface, the selected-class quark sector, and
+one weighted-cycle neutrino family. The technical status ledger separates charged-lepton
 witnesses, the global public quark-frame classification boundary, the
 auxiliary direct-top compare-only codomain, source-only hadron calculations,
 and empirical hadron closure checks. Hadrons add the strong-binding problem on
@@ -116,7 +116,7 @@ observer records close.
 The quantitative side of the framework turns on two scales with very different
 roles.
 
-The first is global. On the screen-capacity identification branch, the observed
+The first is global. On the input-dependent screen-capacity identification branch, the observed
 cosmological constant fixes the total screen capacity, about
 $3.31\times10^{122}$ natural entropy units, or about $4.77\times10^{122}$
 bits. That gives the size of the accessible computation and sets the de Sitter
@@ -312,12 +312,12 @@ tracked electroweak, Higgs-top, quark, and neutrino surfaces form one
 organized reconstruction, not a catalog of unrelated facts.
 
 The local-ruler ledger records five technical boundaries. The weak pair is a
-validation row. Charged-lepton rows are target-anchored same-family witnesses
-rather than source-emitted public masses. The selected-class quark theorem
-closes only on its declared public frame class, so global public quark-frame
-classification remains open. The auxiliary direct-top PDG row remains
-compare-only. Hadron masses require the OPH strong-binding backend with
-production spectral data and systematics.
+validation row on a declared compare-only surface. Charged-lepton rows are
+target-anchored same-family witnesses rather than source-emitted public
+masses. The selected-class quark theorem closes only on its declared public
+frame class, so global public quark-frame classification remains open. The
+auxiliary direct-top PDG row remains compare-only. Hadron masses require the
+OPH strong-binding backend with production spectral data and systematics.
 The selected-class quark theorem leaves strong CP open: the available corpus
 does not derive $\theta_{\mathrm{QCD}}$, does not emit physical $\bar\theta$,
 and does not prove that the physical strong-CP phase vanishes.

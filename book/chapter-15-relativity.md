@@ -618,9 +618,10 @@ gravitational pull may come from imperfect information recovery.
 
 The underlying logic is simple. In the ideal Markov limit, information on one
 side of a boundary is perfectly recoverable from the boundary itself, and the
-recovered branch follows the Einstein relation. In the dark-sector continuation
-considered here, one moves away from that ideal limit and some correlation
-sits out of reach. That leftover correlation can feed an extra effective term.
+recovered gravity branch follows the Einstein relation. In the dark-sector
+continuation considered here, one moves away from that ideal limit and some
+correlation sits out of reach. That leftover correlation can feed an extra
+effective term.
 
 It gravitates because missing recoverability has physical weight in the
 bookkeeping. This supplies a structural ingredient for a dark sector without
@@ -644,7 +645,9 @@ $$a_0 = \frac{15}{8\pi^2} c^2 \sqrt{\frac{\Lambda}{3}} \approx 1.0 \times 10^{-1
 
 This lands near the empirical MOND acceleration scale. The proximity matters
 because it ties galaxy-scale anomalies back to the same de Sitter capacity
-logic that shaped the horizon from the start.
+logic that shaped the horizon from the start. That benchmark is
+continuation-level: it does not by itself derive a full galaxy-scale
+source/response law.
 
 ## 15.13 Reverse Engineering Summary
 

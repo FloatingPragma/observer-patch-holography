@@ -277,7 +277,7 @@ OPH suggests a different route.
 
 ### The Modular Anomaly
 
-In Chapter 11, we saw that a first-variation Einstein relation emerges from an entanglement-equilibrium argument in the scaling regime, and that the same branch can be upgraded to the semiclassical Einstein equation. The continuation below asks what happens when one moves away from the ideal recoverability limit.
+In Chapter 11, we saw that a first-variation Einstein relation emerges from an entanglement-equilibrium argument in the scaling regime, and that the same branch can be upgraded to the semiclassical Einstein equation. The continuation below is not part of that recovered-core gravity chain. It asks what happens when one moves away from the ideal recoverability limit.
 
 In the phenomenological continuation considered here, the Markov condition is treated as only approximate. Some residual correlation is then not perfectly captured by the boundary alone. That imperfection is packaged as an extra term:
 
@@ -349,10 +349,12 @@ The same picture yields the baryonic Tully-Fisher relation:
 $$V^4 = G \cdot M_b \cdot a_0^{(\text{OPH})}$$
 
 This is the observed Tully-Fisher form that the continuation aims to
-reproduce, with its normalization set by screen capacity. In that
+reproduce, with its normalization benchmark set by screen capacity. In that
 phenomenological branch, the dark sector is read as an infrared correction to
 gravity rather than a new species of particle. The cosmological constant and
-the galaxy-scale anomaly then sit inside one de Sitter picture.
+the galaxy-scale anomaly then sit inside one de Sitter picture, but the
+galaxy-scale response law itself is not part of the recovered-core theorem
+package.
 
 ---
 

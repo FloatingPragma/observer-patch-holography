@@ -80,8 +80,8 @@ structure also blocks gauge-mediated proton decay, because the realized gauge
 group is a product group and does not contain the extra leptoquark gauge
 bosons required by simple-group unification.
 
-The electroweak transport family records the weak-sector validation pair
-through a target-free continuation row
+The electroweak transport family records the weak-sector validation pair on a
+declared compare-only validation surface
 
 $$
 M_W = 80.37700001539531\,\mathrm{GeV}, \qquad
