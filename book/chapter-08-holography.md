@@ -21,8 +21,6 @@ Black holes broke that picture.
 
 The first hint came from black holes.
 
-![Boundary cells can carry the correlated ledger from which interior events are reconstructed.](../assets/book_diagrams/boundary-ledger.svg){width=80%}
-
 In the 1970s, Bekenstein and Hawking showed that black hole entropy is proportional to surface area, not volume. A black hole with twice the horizon area has twice the entropy-twice the information content. This was strange. Normal systems have entropy proportional to volume. A box twice as big can hold twice as much stuff.
 
 But black holes are different. Their information lives on the surface:

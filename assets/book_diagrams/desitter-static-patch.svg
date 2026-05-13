@@ -3,13 +3,15 @@
   <desc id="desc">An observer at the center of a de Sitter static patch is bounded by a finite horizon screen.</desc>
   <rect width="960" height="500" fill="#f6f7f1"/>
   <circle cx="480" cy="250" r="180" fill="#fffaf0" stroke="#2e2a25" stroke-width="4"/>
+  <path d="M506 250 L660 250" stroke="#405d73" stroke-width="6" stroke-linecap="round"/>
   <circle cx="480" cy="250" r="22" fill="#c85b43" stroke="#2e2a25" stroke-width="3"/>
-  <path d="M480 250 L660 250" stroke="#405d73" stroke-width="6" stroke-linecap="round"/>
   <path d="M300 250 A180 180 0 0 1 660 250" fill="none" stroke="#68a691" stroke-width="8" stroke-linecap="round"/>
   <g font-family="Arial, sans-serif" fill="#2e2a25" font-weight="700">
-    <text x="402" y="244" font-size="23">observer</text>
-    <text x="535" y="236" font-size="23">r_dS</text>
-    <text x="344" y="78" font-size="27">finite horizon screen</text>
-    <text x="302" y="452" font-size="23">capacity scales as horizon area</text>
+    <text x="480" y="52" text-anchor="middle" font-size="27">finite horizon screen</text>
+    <text x="480" y="312" text-anchor="middle" font-size="23">observer</text>
+    <text x="580" y="229" text-anchor="middle" font-size="23">
+      <tspan font-style="italic">r</tspan><tspan dx="1" dy="7" font-size="15">dS</tspan>
+    </text>
+    <text x="480" y="474" text-anchor="middle" font-size="23">capacity scales as horizon area</text>
   </g>
 </svg>

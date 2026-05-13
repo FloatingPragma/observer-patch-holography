@@ -1,2 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 520 420" class="w-full max-w-md mx-auto" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="mf-sphere" cx="0.4" cy="0.35"><stop offset="0%" stop-color="hsl(220,18%,16%)"></stop><stop offset="100%" stop-color="hsl(220,20%,8%)"></stop></radialGradient><marker id="mf-arrow" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="hsl(260,60%,60%)"></path></marker><clipPath id="mf-cap-clip"><path d="M135,175 A130,130 0 0,1 385,175 A100,24 0 0,1 135,175 Z"></path></clipPath></defs><text x="260" y="28" text-anchor="middle" fill="hsl(175,70%,50%)" font-family="monospace" font-size="13" font-weight="600">MODULAR FLOW ON A CAP</text><circle cx="260" cy="210" r="130" fill="url(#mf-sphere)" stroke="hsl(220,15%,25%)" stroke-width="1"></circle><path d="M135,175 A130,130 0 0,1 385,175 A100,24 0 0,1 135,175 Z" fill="hsl(175,70%,50%)" fill-opacity="0.12"></path><path d="M135,175 A130,130 0 0,1 385,175" fill="none" stroke="hsl(175,50%,45%)" stroke-width="1" stroke-dasharray="4 3"></path><ellipse cx="260" cy="175" rx="125" ry="24" fill="none" stroke="hsl(45,90%,55%)" stroke-width="1.8"></ellipse><path d="M200,145 C180,125 170,140 188,155" fill="none" stroke="hsl(260,60%,60%)" stroke-width="1.5" marker-end="url(#mf-arrow)"></path><path d="M240,130 C225,118 215,128 228,140" fill="none" stroke="hsl(260,60%,60%)" stroke-width="1.5" marker-end="url(#mf-arrow)"></path><path d="M280,130 C295,118 305,128 292,140" fill="none" stroke="hsl(260,60%,60%)" stroke-width="1.5" marker-end="url(#mf-arrow)"></path><path d="M320,145 C340,125 350,140 332,155" fill="none" stroke="hsl(260,60%,60%)" stroke-width="1.5" marker-end="url(#mf-arrow)"></path><path d="M220,162 C210,170 218,178 230,170" fill="none" stroke="hsl(260,50%,55%)" stroke-width="1.2" marker-end="url(#mf-arrow)"></path><path d="M300,162 C310,170 302,178 290,170" fill="none" stroke="hsl(260,50%,55%)" stroke-width="1.2" marker-end="url(#mf-arrow)"></path><text x="260" y="108" text-anchor="middle" fill="hsl(175,80%,60%)" font-family="monospace" font-size="13" font-weight="600">Cap C</text><text x="260" y="122" text-anchor="middle" fill="hsl(175,60%,45%)" font-family="monospace" font-size="9">(observer&#x27;s patch)</text><line x1="388" y1="175" x2="420" y2="165" stroke="hsl(45,70%,50%)" stroke-width="1" stroke-dasharray="3 2"></line><text x="423" y="169" fill="hsl(45,80%,55%)" font-family="monospace" font-size="10">∂C</text><text x="423" y="181" fill="hsl(45,60%,45%)" font-family="monospace" font-size="9">(boundary, fixed)</text><text x="260" y="275" text-anchor="middle" fill="hsl(210,20%,45%)" font-family="monospace" font-size="11">Rest of S²</text><text x="260" y="290" text-anchor="middle" fill="hsl(210,15%,38%)" font-family="monospace" font-size="9">(complement of cap)</text><line x1="170" y1="140" x2="115" y2="115" stroke="hsl(260,40%,50%)" stroke-width="1" stroke-dasharray="3 2"></line><text x="112" y="112" text-anchor="end" fill="hsl(260,50%,60%)" font-family="monospace" font-size="9">modular flow</text><text x="112" y="124" text-anchor="end" fill="hsl(260,40%,50%)" font-family="monospace" font-size="9">(internal time)</text><text x="260" y="345" text-anchor="middle" fill="hsl(260,50%,60%)" font-family="sans-serif" font-size="11" font-style="italic">Modular flow circulates points inside the cap</text><text x="260" y="363" text-anchor="middle" fill="hsl(45,60%,50%)" font-family="sans-serif" font-size="11" font-style="italic">The boundary ∂C stays fixed under the flow</text><text x="260" y="381" text-anchor="middle" fill="hsl(210,20%,45%)" font-family="sans-serif" font-size="10" font-style="italic">→ identified with Lorentz boost (Bisognano-Wichmann)</text><circle cx="120" cy="405" r="5" fill="hsl(175,70%,50%)" fill-opacity="0.3" stroke="hsl(175,50%,45%)" stroke-width="1"></circle><text x="130" y="409" fill="hsl(175,60%,50%)" font-family="monospace" font-size="9">Cap region</text><line x1="210" y1="405" x2="225" y2="405" stroke="hsl(45,90%,55%)" stroke-width="1.8"></line><text x="230" y="409" fill="hsl(45,70%,50%)" font-family="monospace" font-size="9">Boundary</text><path d="M310,405 C320,398 325,405 318,410" fill="none" stroke="hsl(260,60%,60%)" stroke-width="1.5" marker-end="url(#mf-arrow)"></path><text x="335" y="409" fill="hsl(260,50%,55%)" font-family="monospace" font-size="9">Flow</text></svg>
+<svg viewBox="0 0 520 480" class="w-full max-w-md mx-auto" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="mf-sphere" cx="0.4" cy="0.35">
+      <stop offset="0%" stop-color="hsl(220,18%,16%)"/>
+      <stop offset="100%" stop-color="hsl(220,20%,8%)"/>
+    </radialGradient>
+    <marker id="mf-arrow" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+      <path d="M0,0 L7,2.5 L0,5" fill="hsl(260,60%,60%)"/>
+    </marker>
+    <clipPath id="mf-cap-clip">
+      <path d="M135,175 A130,130 0 0,1 385,175 A100,24 0 0,1 135,175 Z"/>
+    </clipPath>
+  </defs>
+
+  <rect width="520" height="480" fill="#ffffff"/>
+  <text x="260" y="30" text-anchor="middle" fill="hsl(175,70%,50%)" font-family="monospace" font-size="13" font-weight="600">MODULAR FLOW ON A CAP</text>
+
+  <circle cx="260" cy="210" r="130" fill="url(#mf-sphere)" stroke="hsl(220,15%,25%)" stroke-width="1"/>
+  <path d="M135,175 A130,130 0 0,1 385,175 A100,24 0 0,1 135,175 Z" fill="hsl(175,70%,50%)" fill-opacity="0.12"/>
+  <path d="M135,175 A130,130 0 0,1 385,175" fill="none" stroke="hsl(175,50%,45%)" stroke-width="1" stroke-dasharray="4 3"/>
+  <ellipse cx="260" cy="175" rx="125" ry="24" fill="none" stroke="hsl(45,90%,55%)" stroke-width="1.8"/>
+
+  <path d="M200,145 C180,125 170,140 188,155" fill="none" stroke="hsl(260,60%,60%)" stroke-width="1.5" marker-end="url(#mf-arrow)"/>
+  <path d="M240,130 C225,118 215,128 228,140" fill="none" stroke="hsl(260,60%,60%)" stroke-width="1.5" marker-end="url(#mf-arrow)"/>
+  <path d="M280,130 C295,118 305,128 292,140" fill="none" stroke="hsl(260,60%,60%)" stroke-width="1.5" marker-end="url(#mf-arrow)"/>
+  <path d="M320,145 C340,125 350,140 332,155" fill="none" stroke="hsl(260,60%,60%)" stroke-width="1.5" marker-end="url(#mf-arrow)"/>
+  <path d="M220,162 C210,170 218,178 230,170" fill="none" stroke="hsl(260,50%,55%)" stroke-width="1.2" marker-end="url(#mf-arrow)"/>
+  <path d="M300,162 C310,170 302,178 290,170" fill="none" stroke="hsl(260,50%,55%)" stroke-width="1.2" marker-end="url(#mf-arrow)"/>
+
+  <text x="260" y="108" text-anchor="middle" fill="hsl(175,80%,60%)" font-family="monospace" font-size="13" font-weight="600">Cap C</text>
+  <text x="260" y="122" text-anchor="middle" fill="hsl(175,60%,45%)" font-family="monospace" font-size="9">(observer's patch)</text>
+
+  <line x1="388" y1="175" x2="420" y2="165" stroke="hsl(45,70%,50%)" stroke-width="1" stroke-dasharray="3 2"/>
+  <text x="423" y="169" fill="hsl(45,80%,55%)" font-family="monospace" font-size="10">&#x2202;C</text>
+  <text x="423" y="181" fill="hsl(45,60%,45%)" font-family="monospace" font-size="9">(boundary, fixed)</text>
+
+  <text x="260" y="275" text-anchor="middle" fill="hsl(210,20%,45%)" font-family="monospace" font-size="11">Rest of S&#x00B2;</text>
+  <text x="260" y="290" text-anchor="middle" fill="hsl(210,15%,38%)" font-family="monospace" font-size="9">(complement of cap)</text>
+
+  <line x1="170" y1="140" x2="115" y2="115" stroke="hsl(260,40%,50%)" stroke-width="1" stroke-dasharray="3 2"/>
+  <text x="112" y="112" text-anchor="end" fill="hsl(260,50%,60%)" font-family="monospace" font-size="9">modular flow</text>
+  <text x="112" y="124" text-anchor="end" fill="hsl(260,40%,50%)" font-family="monospace" font-size="9">(internal time)</text>
+
+  <text x="260" y="372" text-anchor="middle" fill="hsl(260,50%,60%)" font-family="sans-serif" font-size="11" font-style="italic">Modular flow circulates points inside the cap</text>
+  <text x="260" y="394" text-anchor="middle" fill="hsl(45,60%,50%)" font-family="sans-serif" font-size="11" font-style="italic">The boundary &#x2202;C stays fixed under the flow</text>
+  <text x="260" y="416" text-anchor="middle" fill="hsl(210,20%,45%)" font-family="sans-serif" font-size="10" font-style="italic">&#x2192; identified with Lorentz boost (Bisognano-Wichmann)</text>
+
+  <circle cx="120" cy="455" r="5" fill="hsl(175,70%,50%)" fill-opacity="0.3" stroke="hsl(175,50%,45%)" stroke-width="1"/>
+  <text x="130" y="459" fill="hsl(175,60%,50%)" font-family="monospace" font-size="9">Cap region</text>
+  <line x1="210" y1="455" x2="225" y2="455" stroke="hsl(45,90%,55%)" stroke-width="1.8"/>
+  <text x="230" y="459" fill="hsl(45,70%,50%)" font-family="monospace" font-size="9">Boundary</text>
+  <path d="M310,455 C320,448 325,455 318,460" fill="none" stroke="hsl(260,60%,60%)" stroke-width="1.5" marker-end="url(#mf-arrow)"/>
+  <text x="335" y="459" fill="hsl(260,50%,55%)" font-family="monospace" font-size="9">Flow</text>
+</svg>
