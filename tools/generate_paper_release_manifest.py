@@ -26,6 +26,11 @@ RELEASE_TRACKED_PDFS = {
         "paper/screen_microphysics_and_observer_synchronization.pdf"
     ),
 }
+SUPPLEMENTAL_RELEASE_PDFS = {
+    "screen_microphysics_digital_calibration_note": Path(
+        "paper/screen_microphysics_digital_calibration_note.pdf"
+    ),
+}
 
 
 def main() -> int:
@@ -40,14 +45,12 @@ def main() -> int:
         "released_at": release_date,
         "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "papers": {},
+        "supplemental_papers": {},
+        "extra_papers": {},
     }
-    for paper_id, relative_path in RELEASE_TRACKED_PDFS.items():
-        pdf_path = repo_root / relative_path
-        manifest["papers"][paper_id] = {
-            "pdf_path": str(relative_path),
-            "sha256": sha256(pdf_path),
-            "size_bytes": pdf_path.stat().st_size,
-        }
+    fill_section(repo_root, manifest["papers"], RELEASE_TRACKED_PDFS)
+    fill_section(repo_root, manifest["supplemental_papers"], SUPPLEMENTAL_RELEASE_PDFS)
+    fill_section(repo_root, manifest["extra_papers"], discover_extra_pdfs(repo_root))
 
     output_path = repo_root / OUTPUT_RELATIVE
     previous_manifest = load_existing_manifest(output_path)
@@ -56,6 +59,32 @@ def main() -> int:
     output_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(output_path)
     return 0
+
+
+def discover_extra_pdfs(repo_root: Path) -> dict[str, Path]:
+    extra_dir = repo_root / "extra"
+    discovered: dict[str, Path] = {}
+    for tex_path in sorted(extra_dir.glob("*.tex")):
+        pdf_path = tex_path.with_suffix(".pdf")
+        if not pdf_path.is_file():
+            raise SystemExit(
+                f"missing PDF for extra paper {tex_path.name}: {pdf_path}. "
+                "Run python3 tools/build_tex_papers.py --extra-only before regenerating the manifest."
+            )
+        discovered[tex_path.stem] = pdf_path.relative_to(repo_root)
+    return discovered
+
+
+def fill_section(repo_root: Path, section: dict, pdfs: dict[str, Path]) -> None:
+    for paper_id, relative_path in pdfs.items():
+        pdf_path = repo_root / relative_path
+        if not pdf_path.is_file():
+            raise SystemExit(f"missing release PDF for {paper_id}: {pdf_path}")
+        section[paper_id] = {
+            "pdf_path": str(relative_path),
+            "sha256": sha256(pdf_path),
+            "size_bytes": pdf_path.stat().st_size,
+        }
 
 
 def parse_args() -> argparse.Namespace:
@@ -98,10 +127,11 @@ def enforce_release_bump(previous_manifest: dict | None, manifest: dict, allow_s
     if previous_release_id != current_release_id:
         return
 
-    previous_papers = previous_manifest.get("papers", {})
+    previous_papers = manifest_pdf_entries(previous_manifest)
+    current_papers = manifest_pdf_entries(manifest)
     changed_papers = [
         paper_id
-        for paper_id, payload in manifest["papers"].items()
+        for paper_id, payload in current_papers.items()
         if previous_papers.get(paper_id, {}).get("sha256") != payload["sha256"]
     ]
     if not changed_papers:
@@ -123,7 +153,7 @@ def verify_pdf_release_lines(repo_root: Path, manifest: dict, skip_pdf_release_c
     release_id = str(manifest["release_id"]).strip()
     missing_release_line: list[str] = []
     tool_failures: list[str] = []
-    for paper_id, payload in manifest["papers"].items():
+    for paper_id, payload in manifest_pdf_entries(manifest).items():
         pdf_path = repo_root / payload["pdf_path"]
         contains_release = pdf_contains_text(pdf_path, f"Paper release: {release_id}")
         if contains_release is True:
@@ -172,6 +202,13 @@ def pdf_contains_text(path: Path, needle: str) -> bool | str:
 
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def manifest_pdf_entries(manifest: dict) -> dict:
+    entries: dict = {}
+    for section_name in ("papers", "supplemental_papers", "extra_papers"):
+        entries.update(manifest.get(section_name, {}))
+    return entries
 
 
 if __name__ == "__main__":

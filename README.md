@@ -192,6 +192,7 @@ tiers live in the papers.
 
 - **[Breaking SHA-256 with Physics](extra/breaking_sha256_with_physics.pdf)** ([TeX](extra/breaking_sha256_with_physics.tex)): physical constraint search for SHA-256d proof of work.
 - **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)** ([TeX](extra/fine_structure_constant_derivation.tex)): fixed-point derivation of the fine-structure row.
+- **[A Narrow Note on the OPH Gravity Chain](extra/jacobson_gravity_note.pdf)** ([TeX](extra/jacobson_gravity_note.tex)): Jacobson-route isolation for the OPH gravity branch.
 - **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)** ([TeX](extra/yang_mills_gap_clay_problem.tex)): support-visible OPH route to the Clay Yang-Mills problem, branch-scoped to the compact-gauge extraction and identifying the gap with the repair gap.
 - **[Observer-Patch Holography and the Dark Matter Phenomenon](extra/oph_dark_matter_paper.pdf)** ([TeX](extra/oph_dark_matter_paper.tex)): dark-matter phenomenology and MOND-like galaxy limit.
 - **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)** ([TeX](extra/thinking_as_patch_net_fixed_point_search.tex)): cognition and qualia as recurrent patch consensus.

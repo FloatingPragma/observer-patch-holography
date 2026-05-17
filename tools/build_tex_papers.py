@@ -9,6 +9,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PAPER_DIR = REPO_ROOT / "paper"
+EXTRA_DIR = REPO_ROOT / "extra"
 
 PAPERS = {
     "deriving_the_particle_zoo_from_observer_consistency": (
@@ -22,6 +23,10 @@ PAPERS = {
     "screen_microphysics_and_observer_synchronization": PAPER_DIR / "screen_microphysics_and_observer_synchronization.tex",
     "screen_microphysics_digital_calibration_note": PAPER_DIR / "screen_microphysics_digital_calibration_note.tex",
 }
+EXTRA_PAPERS = {
+    tex_path.stem: tex_path for tex_path in sorted(EXTRA_DIR.glob("*.tex"))
+}
+ALL_PAPERS = {**PAPERS, **EXTRA_PAPERS}
 
 RELEASE_TRACKED = (
     "recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact",
@@ -53,6 +58,11 @@ def parse_args() -> argparse.Namespace:
         help="Build only supplemental papers that are not yet release-tracked.",
     )
     parser.add_argument(
+        "--extra-only",
+        action="store_true",
+        help="Build only root-level extra/ TeX papers.",
+    )
+    parser.add_argument(
         "--list",
         action="store_true",
         help="Print the known paper ids and exit.",
@@ -61,17 +71,23 @@ def parse_args() -> argparse.Namespace:
 
 
 def resolve_targets(args: argparse.Namespace) -> list[str]:
-    if args.release_only and args.supplemental_only:
-        raise SystemExit("choose at most one of --release-only or --supplemental-only")
+    selected_modes = [args.release_only, args.supplemental_only, args.extra_only]
+    if sum(bool(mode) for mode in selected_modes) > 1:
+        raise SystemExit("choose at most one of --release-only, --supplemental-only, or --extra-only")
 
     if args.list:
-        for paper_id in sorted(PAPERS):
-            marker = "release" if paper_id in RELEASE_TRACKED_SET else "supplemental"
+        for paper_id in sorted(ALL_PAPERS):
+            if paper_id in RELEASE_TRACKED_SET:
+                marker = "release"
+            elif paper_id in EXTRA_PAPERS:
+                marker = "extra"
+            else:
+                marker = "supplemental"
             print(f"{paper_id}\t{marker}")
         raise SystemExit(0)
 
     if args.papers:
-        unknown = [paper_id for paper_id in args.papers if paper_id not in PAPERS]
+        unknown = [paper_id for paper_id in args.papers if paper_id not in ALL_PAPERS]
         if unknown:
             raise SystemExit(f"unknown paper ids: {', '.join(sorted(unknown))}")
         return args.papers
@@ -80,16 +96,18 @@ def resolve_targets(args: argparse.Namespace) -> list[str]:
         return list(RELEASE_TRACKED)
     if args.supplemental_only:
         return sorted(set(PAPERS) - RELEASE_TRACKED_SET)
-    return sorted(PAPERS)
+    if args.extra_only:
+        return sorted(EXTRA_PAPERS)
+    return sorted(ALL_PAPERS)
 
 
 def build_one(paper_id: str) -> None:
-    tex_path = PAPERS[paper_id]
+    tex_path = ALL_PAPERS[paper_id]
     if not tex_path.exists():
         raise SystemExit(f"missing TeX source: {tex_path}")
 
     cmd = ["tectonic", "-X", "compile", tex_path.name]
-    result = subprocess.run(cmd, cwd=PAPER_DIR, text=True, capture_output=True)
+    result = subprocess.run(cmd, cwd=tex_path.parent, text=True, capture_output=True)
     if result.returncode != 0:
         if result.stdout.strip():
             print(result.stdout[-8000:])
@@ -97,7 +115,7 @@ def build_one(paper_id: str) -> None:
             print(result.stderr[-8000:])
         raise SystemExit(f"tectonic failed for {paper_id}")
 
-    print(PAPER_DIR / f"{tex_path.stem}.pdf")
+    print(tex_path.parent / f"{tex_path.stem}.pdf")
 
 
 def main() -> int:
