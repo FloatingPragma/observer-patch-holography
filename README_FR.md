@@ -179,7 +179,6 @@ utilise une classe séparée de charge utile \(e^+e^-\to\mathrm{hadrons}\).
 
 - **[Breaking SHA-256 with Physics](extra/breaking_sha256_with_physics.pdf)** : recherche physique par contraintes pour la preuve de travail SHA-256d.
 - **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)** : dérivation à point fixe de la ligne de structure fine.
-- **[A Narrow Note on the OPH Gravity Chain](extra/jacobson_gravity_note.pdf)** : isolation de la route de Jacobson pour la branche gravitationnelle OPH.
 - **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)** : route OPH visible par support vers le problème de Yang-Mills de Clay, limitée à la branche compacte de jauge déclarée, avec identification du gap au gap de réparation.
 - **[Observer-Patch Holography and the Dark Matter Phenomenon](extra/oph_dark_matter_paper.pdf)** : phénoménologie de la matière noire et limite galactique de type MOND.
 - **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)** : cognition et qualia comme consensus récurrent de patches.
