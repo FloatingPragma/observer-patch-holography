@@ -14,6 +14,8 @@ OMEGA wraps optical chamber dynamics in an exact software verifier. The chamber 
 
 OMEGA is an optical hardware and software project for building machines that compute by wave consensus.
 
+The initial OMEGA hardware theory and design are credited to Alexander Osika and [SNRGY Studios](https://www.snrgystudios.com/home).
+
 The physics behind OMEGA is Observer Patch Holography, or OPH: a novel fundamental physics theory developed over roughly six years. The project has a working research corpus, public papers, software, diagrams, and a volunteer group of about twenty to thirty people around it. Company formation and fundraising belong to the project path, but the technical gate is hardware evidence. The optical chambers have to work under controls.
 
 OPH has no institutional or mainstream physics acceptance. Journal publication faces hard blockers. The theory is fully mathematically proven on its declared surfaces, and the research corpus gives the proof stack in public form. The hardware effort also has working prototypes, including a reported optical proof-of-work hash-search result around 2,300x under exact verification. That receipt is a candidate-enrichment result on a proof-of-work hash-search surface. Production mining belongs behind a separate evidence gate.
@@ -51,8 +53,8 @@ OPH begins with finite observers and overlap consistency. A finite observer carr
 That mechanism appears throughout the OPH corpus:
 
 - The [book prologue](https://oph-book.floatingpragma.io/chapter/prologue) states the reader-facing premise: physics is reverse engineering from finite perspectives, and public reality is the stable agreement across them.
-- The [synthesis chapter](https://oph-book.floatingpragma.io/chapter/chapter-18-synthesis) compresses the whole picture: finite access, horizons, records, overlaps, modular flow, generalized entropy, and a shared world that survives comparison.
-- The [error-correction chapter](https://oph-book.floatingpragma.io/chapter/chapter-10-error-correction) explains how durable information can be protected in patterns of overlap and recoverability.
+- The [synthesis chapter](https://oph-book.floatingpragma.io/chapter/synthesis) compresses the whole picture: finite access, horizons, records, overlaps, modular flow, generalized entropy, and a shared world that survives comparison.
+- The [error-correction chapter](https://oph-book.floatingpragma.io/chapter/error-correction) explains how durable information can be protected in patterns of overlap and recoverability.
 - The [compact technical paper](../paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) gives the recovery of relativity, gravity, realized Standard Model structure, and the branch-scoped Yang-Mills repair-gap route.
 - The [microphysics paper](../paper/screen_microphysics_and_observer_synchronization.pdf) gives the fixed-cutoff implementation surface: finite patch carriers, exposed ports, records, repair interfaces, event surfaces, and checkpoint/restoration.
 
@@ -345,10 +347,10 @@ The following files give the theory and engineering background for this summary:
 ### Book Chapters
 
 - [Prologue](https://oph-book.floatingpragma.io/chapter/prologue): OPH as reverse engineering reality from finite perspectives.
-- [Overlap chapter](https://oph-book.floatingpragma.io/chapter/chapter-06-overlap): why overlap is the public consistency surface.
-- [Error-correction chapter](https://oph-book.floatingpragma.io/chapter/chapter-10-error-correction): error correction, recoverability, and stable information.
-- [Symmetry chapter](https://oph-book.floatingpragma.io/chapter/chapter-12-symmetry): symmetry as stable structure under transformation.
-- [Synthesis chapter](https://oph-book.floatingpragma.io/chapter/chapter-18-synthesis): synthesis of finite access, records, overlaps, spacetime, and the particle world.
+- [Overlap chapter](https://oph-book.floatingpragma.io/chapter/overlap): why overlap is the public consistency surface.
+- [Error-correction chapter](https://oph-book.floatingpragma.io/chapter/error-correction): error correction, recoverability, and stable information.
+- [Symmetry chapter](https://oph-book.floatingpragma.io/chapter/symmetry): symmetry as stable structure under transformation.
+- [Synthesis chapter](https://oph-book.floatingpragma.io/chapter/synthesis): synthesis of finite access, records, overlaps, spacetime, and the particle world.
 
 ### Supporting Notes
 
