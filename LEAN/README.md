@@ -14,7 +14,8 @@ This project is **early-stage scaffolding**. What is currently present:
   `ObserverPatchHolography/AbstractRewriting.lean`.
 - Sorry-bearing primitive signatures in
   `ObserverPatchHolography/Primitives.lean` (Records, Patch, Obs, Repair,
-  Φ, gauge equivalence, OPH-Confluence, OPH-Completeness).
+  local accepted repair steps, Φ, gauge equivalence, OPH-Confluence, and
+  repair-completeness).
 
 What is **not** yet present and is the target:
 
@@ -28,11 +29,12 @@ What is **not** yet present and is the target:
 
 A theorem-grade Lean statement matching Prop 4.2 requires:
 
-- `World`, `Records`, `Repair`, `Patch`, `Obs` as concrete Lean structures
-  matching paper Definition 4.1 and the OPH preliminaries. Note: these are
-  TeX macros in *Paradise* (lines 28–31) whose structural content lives in
-  the companion paper *Reality as a Consensus Protocol* — i.e. the target
-  is **paper-incomplete**, not just Lean-incomplete.
+- `World`, `Records`, `Repair`, `Patch`, `Obs`, and the local accepted
+  repair-step relation as concrete Lean structures matching paper
+  Definition 4.1 and the OPH preliminaries. Note: several names are TeX
+  macros in *Paradise* (lines 28–31) whose structural content lives in the
+  companion paper *Reality as a Consensus Protocol* — i.e. the target is
+  **paper-incomplete**, not just Lean-incomplete.
 - The mismatch potential `Φ : Records → NNReal` with the paper's concrete
   formula `Φ(x) = Σ_e w_e · d_e(π_{i,e}(x_i), π_{j,e}(x_j))`
   (*Paradise* line 300).
@@ -40,9 +42,11 @@ A theorem-grade Lean statement matching Prop 4.2 requires:
   proved an equivalence relation AND a `Repair`-congruence (required by
   Prop 4.2 sentence 2's "on the physical quotient" clause).
 - `NF` defined as the terminal state of accepted repair built from local
-  recovery moves (line 297 — paper says *local*, not *asynchronous*).
-- OPH-specific `Confluence` and `Completeness` predicates as Lean
-  definitions (Prop 4.2 hypothesis — line 326).
+  recovery moves (line 297), with those local repairs composed under the
+  asynchronous update schedules used by the consensus companion.
+- OPH-specific Lyapunov descent/termination, `Confluence`, and
+  `Completeness` obligations as Lean definitions (Prop 4.2 hypothesis —
+  line 326, with details supplied by the consensus companion).
 - Schedule independence on the physical quotient, transferring the
   abstract-rewriting confluence result to the structured OPH setting.
 
@@ -60,7 +64,9 @@ completion tracker.
     ./.lake/build/bin/oph     # optional: run the entry point
 
 CI runs on every push and pull request — see
-`.github/workflows/lean-ci.yml`.
+`.github/workflows/lean-ci.yml`. The workflow currently allows exactly the
+10 intentional `sorry` warnings in `Primitives.lean` and fails if new proof
+debt appears elsewhere or the count changes.
 
 ## Provenance
 

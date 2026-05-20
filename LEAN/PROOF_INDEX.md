@@ -6,13 +6,15 @@ Mapping between Lean 4 theorems in this project and statements in
 
 ## Completion summary
 
-- **Proposition 4.2 (theorem-grade): 0 / 7 obligations formalised → 0%**
-  (2 Prop-4.2 statements + 2 OPH-side hypothesis predicates +
-  `repair_respects_gauge` congruence + `gaugeEquiv_equivalence` +
-  `Φ`-formula match)
-- **Definition 4.1 (Public world): 0 / 10 Lean items built → 0%**
-  (3 carrier types + 1 repair + 1 potential + 1 gauge relation +
-  equivalence proof + congruence proof + 2 quotient/NF construction items)
+- **Proposition 4.2 (theorem-grade): 0 / 9 obligation families formalised → 0%**
+  (2 Prop-4.2 statements + Lyapunov termination/descent +
+  OPH confluence + repair completeness + `repair_respects_gauge`
+  quotient descent + `gaugeEquiv_equivalence` + `Φ`-formula match +
+  quotient/NF construction)
+- **Definition 4.1 (Public world): 0 / 11 Lean items built → 0%**
+  (3 carrier types + repair-site/local-step package + 1 global repair +
+  1 potential + 1 gauge relation + equivalence proof + congruence proof +
+  2 quotient/NF construction items)
 - Abstract-rewriting skeleton (preliminary): 5 / 5 proofs → 100%
 - OPH primitives (declared, sorry-bearing): 0 / 10 discharged → 0%
 
@@ -26,7 +28,7 @@ math-seat audit (2026-05-19): previous "3+2" undercounted by ≈3×.
 - ✅  proven, sorry-free, matches paper statement
 - 🟡  proven but generic (does not yet refer to OPH structure)
 - 🔸  motivational only (no formal anchor in paper)
-- ⬜  declared as `sorry` / not yet formalised
+- ⬜  declared as `sorry` or thin placeholder / not yet formalised
 - ❌  stated, contains unintended `sorry` or `admit`
 
 ## Definition 4.1 — Public world
@@ -42,7 +44,8 @@ Paper: `paper/paradise_as_fixed_point_consensus.tex` §4, lines 305–313.
 | `OPH.Records` | `Primitives` | ⬜ | TeX macro line 28; structural content per OPHConsensus. |
 | `OPH.Patch` | `Primitives` | ⬜ | TeX macro line 31; structural content per OPHConsensus. |
 | `OPH.Obs` | `Primitives` | ⬜ | TeX macro line 30; structural content per OPHConsensus. |
-| `OPH.Repair` | `Primitives` | ⬜ | "Built from local recovery moves" (line 297). Not *asynchronous* — paper says local. |
+| `OPH.Site` | `Primitives` | ⬜ | Repair-site carrier for local accepted repair steps; structural content per OPHConsensus. |
+| `OPH.Repair`, `OPH.localRepair`, `OPH.acceptedStep` | `Primitives` | ⬜ | "Built from local recovery moves" (line 297), composed under asynchronous schedules in OPHConsensus. |
 | `OPH.Φ` | `Primitives` | ⬜ | Concrete formula `Φ(x) = Σ_e w_e · d_e(π_{i,e}(x_i), π_{j,e}(x_j))` (line 300). |
 | `OPH.gaugeEquiv` (`∼_gauge`) | `Primitives` | ⬜ | Predicate on declared observable overlap data (line 311). |
 | `OPH.gaugeEquiv_equivalence` | `Primitives` | ⬜ | `∼_gauge` is an equivalence relation. |
@@ -61,7 +64,9 @@ Paper: `paper/paradise_as_fixed_point_consensus.tex` §4, lines 321–328.
 | Lean name | Module | Status | Notes |
 |---|---|---|---|
 | `OPH.Confluence` | `Primitives` | ⬜ | OPH-specific confluence hypothesis (line 326); per OPHConsensus. |
-| `OPH.Completeness` | `Primitives` | ⬜ | OPH-specific completeness hypothesis (line 326); per OPHConsensus. |
+| `OPH.LyapunovDescent` | `Primitives` | ⬜ | Strict descent of accepted repairs; OPHConsensus uses this plus finite state/value range for termination. |
+| `OPH.Termination` | `Primitives` | ⬜ | Termination of the accepted-step relation; not implied by repair completeness. |
+| `OPH.Completeness` | `Primitives` | ⬜ | Normal forms are exactly consistent states; per OPHConsensus Assumption `ass:complete`. |
 | `OPH.world_is_fixedPt` | (TODO) | ⬜ | `Repair(World) = World` on the physical quotient. |
 | `OPH.schedule_independence` | (TODO) | ⬜ | Under `Confluence ∧ Completeness`, terminal public state is independent of update schedule on the physical quotient. |
 
@@ -87,12 +92,12 @@ proof will eventually instantiate.
 |---|---|---|
 | `r : X → X → Prop` (opaque) | `Repair` operating on `Records`, inducing rewriting on `World` representatives | lines 30, 297 |
 | `X` (opaque) | `Records` carrier type (TeX macro, structural content per OPHConsensus) | lines 28, 1615 |
-| `IsNormalForm` (opaque) | `NF` as terminal state of accepted repair (built from *local* recovery moves — paper does NOT say *asynchronous*) | line 297 |
+| `IsNormalForm` (opaque) | `NF` as terminal state of accepted repair built from local recovery moves, with local steps executed under asynchronous schedules in OPHConsensus | line 297; OPHConsensus §3 |
 | `Φ : X → NNReal` (opaque) | Concrete `Φ(x) = Σ_e w_e · d_e(π_{i,e}(x_i), π_{j,e}(x_j))` on patch-overlap data | line 300 |
 | (none) | `∼_gauge` is an equivalence relation | line 311 |
 | (none) | **`∼_gauge` is a `Repair`-congruence** — descent to the physical quotient depends on this | line 327 ("on the physical quotient") |
 | (none) | Quotient construction `World = NF(x) / ∼_gauge` | lines 305–313 |
-| `Terminating r` (assumption) | OPH `Completeness` predicate (structurally defined per OPHConsensus) implies termination on `Records` | line 326 |
+| `Terminating r` (assumption) | OPH Lyapunov descent plus finite patch-net/value-set control gives termination of `acceptedStep`; repair completeness is a separate normal-form/consistency condition | OPHConsensus Prop. `lyapunov-termination`, Assumption `complete` |
 | `LocallyConfluent r` (assumption) | OPH `Confluence` predicate (structurally defined per OPHConsensus) implies local confluence on patch repairs | line 326 |
 | Confluence on `r` | Confluence stated **directly on the physical quotient**, not lifted from below. Prop 4.2 sentence 2 imposes conditions on the quotient. | lines 326–327 |
 
