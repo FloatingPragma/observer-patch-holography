@@ -4,7 +4,7 @@
 
 **Version anglaise :** [README.md](README.md)
 
-**Liens rapides :** [site OPH](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [OPH Lab](https://oph-lab.floatingpragma.io) | [carte de cohérence](https://coherence.floatingpragma.io/) | [OMEGA](https://omega.floatingpragma.io/) | [démo à trois corps](https://3body.floatingpragma.io/)
+**Liens rapides :** [site OPH](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [OPH Lab](https://oph-lab.floatingpragma.io) | [blog OPH](https://blog.floatingpragma.io/) | [carte de cohérence](https://coherence.floatingpragma.io/) | [OMEGA](https://omega.floatingpragma.io/) | [démo à trois corps](https://3body.floatingpragma.io/)
 
 Pour la réponse existentielle immédiate, allez directement au **Paper 6.
 [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**.
@@ -203,6 +203,16 @@ utilise une classe séparée de charge utile \(e^+e^-\to\mathrm{hadrons}\).
 
 <p align="center"><sub>Vue compacte de la voie particules. Cliquez pour ouvrir le SVG complet.</sub></p>
 
+## Matériel OMEGA
+
+OMEGA est la voie publique orientée matériel pour la microphysique d'écran
+OPH. Il traite une chambre optique comme un patch d'observateur fini : les
+ports exposent des données de bord, la lumière se mélange dans une géométrie de
+tâche, le logiciel vérifie les sorties candidates et les revendications
+sérieuses demandent des enregistrements et des contrôles exacts. Le guide
+[omega.floatingpragma.io](https://omega.floatingpragma.io/) est le point de
+départ pour le modèle matériel et sa discipline de preuve.
+
 ## Articles
 
 - **Papier 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)** : synthèse du programme OPH, des observateurs finis jusqu'à l'univers effectif reconstruit.
@@ -229,6 +239,7 @@ utilise une classe séparée de charge utile \(e^+e^-\to\mathrm{hadrons}\).
 - **Carte de cohérence :** [coherence.floatingpragma.io](https://coherence.floatingpragma.io) : surface graphe publique pour les concepts OPH, les recouvrements et les routes entre domaines.
 - **Guide matériel OMEGA :** [omega.floatingpragma.io](https://omega.floatingpragma.io) : ressource d'apprentissage détaillée sur le fonctionnement du modèle matériel OPH.
 - **Démo OPH du problème à trois corps :** [3body.floatingpragma.io](https://3body.floatingpragma.io) : un simulateur et parcours de preuve supplémentaire pour la formulation OPH en réseau fini de patches du problème à trois corps, présentée comme un exemple de recollement par holonomie de boucle, sans revendication de solution élémentaire fermée.
+- **Blog :** [blog.floatingpragma.io](https://blog.floatingpragma.io/) rassemble les essais publics OPH. Commencez par [Semiotics and the Physics of Meaning](https://blog.floatingpragma.io/semiotics-and-the-physics-of-meaning), [The Trigger](https://blog.floatingpragma.io/the-trigger) et [P = NP on the Observer Screen](https://blog.floatingpragma.io/p-equals-np-on-the-observer-screen). L'essai de calcul traite `P = NP` comme un slogan d'écran d'observateur, pas comme une revendication de solution du problème classique.
 - **Livre :** [oph-book.floatingpragma.io](https://oph-book.floatingpragma.io)
 - **Application d'étude guidée :** [learn.floatingpragma.io](https://learn.floatingpragma.io/)
 - **Questions et explications détaillées :** OPH Sage sur [Telegram](https://t.me/HoloObserverBot), [X](https://x.com/OphSage) ou [Bluesky](https://bsky.app/profile/ophsage.bsky.social)

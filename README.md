@@ -4,7 +4,7 @@
 
 **French version:** [README_FR.md](README_FR.md)
 
-**Quick links:** [OPH website](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [OPH Lab](https://oph-lab.floatingpragma.io) | [Coherence map](https://coherence.floatingpragma.io/) | [OMEGA](https://omega.floatingpragma.io/) | [Three-body demo](https://3body.floatingpragma.io/)
+**Quick links:** [OPH website](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [OPH Lab](https://oph-lab.floatingpragma.io) | [OPH Blog](https://blog.floatingpragma.io/) | [Coherence map](https://coherence.floatingpragma.io/) | [OMEGA](https://omega.floatingpragma.io/) | [Three-body demo](https://3body.floatingpragma.io/)
 
 **Falsifiability:** [OPH falsifiability map](extra/OPH_falsifiability.md)
 lists 40 hard OPH-killing outcomes and concrete IBM Quantum Cloud tests for
@@ -223,6 +223,15 @@ tiers live in the papers.
 
 <p align="center"><sub>A compact view of the particle lane. Click to open the full SVG.</sub></p>
 
+## OMEGA Hardware
+
+OMEGA is the public hardware-facing route into OPH screen microphysics. It
+treats an optical chamber as a finite observer patch: ports expose boundary
+data, light mixes through a task geometry, software verifies candidate outputs,
+and serious claims require records and exact checks. The guide at
+[omega.floatingpragma.io](https://omega.floatingpragma.io/) is the starting
+point for the hardware model and its evidence discipline.
+
 ## Papers
 
 - **Paper 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)**: broad synthesis of the OPH reconstruction program, from finite observers to the recovered effective universe.
@@ -249,7 +258,7 @@ tiers live in the papers.
 - **Coherence map:** [coherence.floatingpragma.io](https://coherence.floatingpragma.io): public graph surface for OPH concepts, overlaps, and cross-domain routes.
 - **OMEGA hardware guide:** [omega.floatingpragma.io](https://omega.floatingpragma.io): detailed learning resource for how the OPH hardware model works.
 - **Three-body OPH demo:** [3body.floatingpragma.io](https://3body.floatingpragma.io): an extra simulator and proof walk-through for the OPH finite patch-net formulation of the three-body problem, framed as a loop-holonomy gluing example. No closed-form elementary solution is claimed.
-- **Blog essay:** [P = NP on the Observer Screen](https://blog.floatingpragma.io/p-equals-np-on-the-observer-screen): frames OPH as a model of computation built from patches, overlaps, mismatch syndromes, repair moves, and stable records. The essay uses proof-of-work mining as a concrete example and treats `P = NP` as an observer-screen slogan, not a claim to solve the classical complexity problem.
+- **Blog:** [blog.floatingpragma.io](https://blog.floatingpragma.io/) collects public OPH essays. Start with [Semiotics and the Physics of Meaning](https://blog.floatingpragma.io/semiotics-and-the-physics-of-meaning), [The Trigger](https://blog.floatingpragma.io/the-trigger), and [P = NP on the Observer Screen](https://blog.floatingpragma.io/p-equals-np-on-the-observer-screen). The computation essay treats `P = NP` as an observer-screen slogan, not a claim to solve the classical complexity problem.
 - **Book:** [oph-book.floatingpragma.io](https://oph-book.floatingpragma.io)
 - **Guided study app:** [learn.floatingpragma.io](https://learn.floatingpragma.io/)
 - **Questions and detailed explanations:** OPH Sage on [Telegram](https://t.me/HoloObserverBot), [X](https://x.com/OphSage), or [Bluesky](https://bsky.app/profile/ophsage.bsky.social)
