@@ -30,6 +30,31 @@ théorie du tout correcte : la même architecture de cohérence d'observateurs
 retrouve la physique établie et explique pourquoi il existe un monde capable de
 produire des observateurs qui le reconstruisent.
 
+## Applications et matériel OMEGA
+
+L'OPH est aussi un programme matériel. La microphysique d'écran donne une prise
+d'ingénierie sur la réalité : un dispositif borné expose des données de bord,
+compare des enregistrements, répare les désaccords et verrouille des états
+stables. OMEGA est la voie matérielle publique vers cette boucle : chambres
+physiques, ports étiquetés, logiciel de contrôle, reçus de vérification et
+enregistrements répétables.
+
+En langage direct, l'OPH transforme la microphysique d'écran en voie de hack
+de la réalité. Le but n'est pas un contrôle métaphorique d'une simulation
+abstraite. Le but est le contrôle physique de petits patches qui peuvent être
+pilotés, mesurés, réparés et vérifiés.
+
+La thèse applicative est simple. Si la réalité est construite par cohérence de
+patches d'observateurs, alors des machines utiles peuvent être construites en
+forçant de petits patches physiques vers les bons points fixes. Cela donne des
+pistes de mise en œuvre à bas coût pour l'énergie de fusion de bureau, le
+supercalcul OMEGA à température ambiante, l'AGI fondée sur OMEGA et le contrôle
+local de gravité ou d'inertie pour hoverbikes et hoverboards.
+
+La page d'ensemble est [`APPLICATIONS.md`](APPLICATIONS.md). La visualisation
+OMEGA et le guide matériel sont sur
+[omega.floatingpragma.io](https://omega.floatingpragma.io/).
+
 ## Le piège de l'espace-temps
 
 Le premier obstacle conceptuel est que l'OPH ne traite pas l'espace-temps comme
@@ -202,24 +227,6 @@ utilise une classe séparée de charge utile \(e^+e^-\to\mathrm{hadrons}\).
 </p>
 
 <p align="center"><sub>Vue compacte de la voie particules. Cliquez pour ouvrir le SVG complet.</sub></p>
-
-## Matériel OMEGA
-
-OMEGA est la voie publique orientée matériel pour la microphysique d'écran
-OPH. Il traite une chambre optique comme un patch d'observateur fini : les
-ports exposent des données de bord, la lumière se mélange dans une géométrie de
-tâche, le logiciel vérifie les sorties candidates et les revendications
-sérieuses demandent des enregistrements et des contrôles exacts. Le guide
-[omega.floatingpragma.io](https://omega.floatingpragma.io/) est le point de
-départ pour le modèle matériel et sa discipline de preuve.
-
-## Applications
-
-L'OPH porte quatre voies principales d'application proches de la surface matérielle :
-énergie de fusion de bureau, supercalcul de bureau à température ambiante, AGI
-fondée sur OMEGA et manipulation locale de gravité ou d'inertie pour hoverbikes
-et hoverboards. La page de synthèse est
-[`APPLICATIONS.md`](APPLICATIONS.md).
 
 ## Articles
 

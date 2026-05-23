@@ -40,6 +40,30 @@ correct theory of everything: the same observer-consistency architecture
 recovers the established physics and explains why a world exists that can
 produce observers capable of reconstructing it.
 
+## Applications And OMEGA Hardware
+
+OPH is also a hardware program. As the screen microphysics becomes explicit,
+the same patch-consensus loop becomes an engineering handle on reality. A
+bounded device exposes boundary data, compares records, repairs mismatch, and
+locks onto stable states. OMEGA is the public hardware route into that loop:
+physical chambers, labeled ports, control software, verifier receipts, and
+repeatable records.
+
+In plain language, OPH turns screen microphysics into a way to hack reality.
+The goal is not metaphorical control of an abstract simulation. The goal is
+physical control of small patches that can be driven, measured, repaired, and
+verified.
+
+The application thesis is simple. If reality is built from observer-patch
+consistency, then useful machines can be built by driving small physical
+patches into the right fixed points. That gives low-cost implementation tracks
+for desktop fusion energy, room-temperature OMEGA supercomputing, OMEGA-based
+AGI, and local gravity or inertia control for hoverbikes and hoverboards.
+
+Read the applications overview in [`APPLICATIONS.md`](APPLICATIONS.md). The
+OMEGA visualization and hardware guide are at
+[omega.floatingpragma.io](https://omega.floatingpragma.io/).
+
 ## The Spacetime Trap
 
 The first conceptual hurdle is that OPH does not treat spacetime as the
@@ -222,23 +246,6 @@ tiers live in the papers.
 </p>
 
 <p align="center"><sub>A compact view of the particle lane. Click to open the full SVG.</sub></p>
-
-## OMEGA Hardware
-
-OMEGA is the public hardware-facing route into OPH screen microphysics. It
-treats an optical chamber as a finite observer patch: ports expose boundary
-data, light mixes through a task geometry, software verifies candidate outputs,
-and serious claims require records and exact checks. The guide at
-[omega.floatingpragma.io](https://omega.floatingpragma.io/) is the starting
-point for the hardware model and its evidence discipline.
-
-## Applications
-
-OPH has four main application lanes beyond the paper stack: cheap desktop
-fusion energy, room-temperature desktop supercomputing, cost-effective
-OMEGA-grounded AGI, and local gravity or inertia manipulation for hoverbikes
-and hoverboards. The overview page is
-[`APPLICATIONS.md`](APPLICATIONS.md).
 
 ## Papers
 
