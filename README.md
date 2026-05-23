@@ -125,7 +125,7 @@ That spherical chart carries several concrete jobs. Caps and collars give the
 local cut data used by modular flow and entropy variation. The conformal group
 of the sphere is the celestial-sphere form of the connected Lorentz group,
 $\mathrm{SO}^+(3,1)$, so the same chart supplies the kinematic bridge to the
-emergent $3+1$D spacetime branch. Spherical harmonics organize angular modes.
+emergent $(3+1)$-dimensional spacetime branch. Spherical harmonics organize angular modes.
 Finite cellulations of the same chart give the regulator surface on which patch
 ports, edge data, and overlap checks can be made explicit.
 
