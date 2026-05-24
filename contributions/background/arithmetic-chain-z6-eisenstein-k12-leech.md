@@ -35,7 +35,7 @@ We present an expository account of a five-step chain of standard mathematical s
 
 $$(\mathbb{Z}/6\mathbb{Z})^\times \to \mathbb{Z}[\omega] \to K_{12} \to \Lambda_{24} \to \mathbb{M}.$$
 
-Each bridge requires substantial independent mathematical data: algebraic number theory for Bridge 1, the ternary Golay code for Bridge 2, the binary Golay code for Bridge 3, and vertex operator algebra theory for Bridge 4. All results cited are standard, due to Coxeter, Todd, Conway, Sloane, Griess, Frenkel–Lepowsky–Meurman, Borcherds, and others. **No new theorems are claimed**, and **the chain is ancestral, not constructive**: $`(\mathbb{Z}/6\mathbb{Z})^\times`$ does not generate the later structures; it indexes a single arithmetic dichotomy that initiates the chain.
+Each bridge requires substantial independent mathematical data: algebraic number theory for Bridge 1, the ternary Golay code for Bridge 2, the binary Golay code for Bridge 3, and vertex operator algebra theory for Bridge 4. All results cited are standard, due to Coxeter, Todd, Conway, Sloane, Griess, Frenkel–Lepowsky–Meurman, Borcherds, and others. **No new theorems are claimed**, and **the chain is ancestral, not constructive**: $`(\mathbb{Z}/6\mathbb{Z})^\times`$ does not generate the later structures; it indexes a single arithmetic dichotomy that initiates the chain. For OPH, the relevance is as background: the note records how finite residue classes, Eisenstein/$`A_2`$ geometry, code glue, exceptional lattices, and sporadic symmetry already form a standard mathematical ladder that OPH can reference when studying finite boundary codes and exceptional symmetry patterns.
 
 ---
 
@@ -68,14 +68,7 @@ $$N(a + b\omega) = a^2 - ab + b^2.$$
 
 **Remark 2.3** (Verification).
 
-| $`p`$ | $`p \bmod 6`$ | Behavior | Example factorization |
-|---:|:-:|:-:|:--|
-| 7 | 1 | splits | $`7 = (3 + \omega)(3 + \bar{\omega})`$ |
-| 11 | 5 | inert | $`11`$ remains prime |
-| 13 | 1 | splits | $`13 = (4 + \omega)(4 + \bar{\omega})`$ |
-| 17 | 5 | inert | $`17`$ remains prime |
-| 19 | 1 | splits | $`19 = (5 + 2\omega)(5 + 2\bar{\omega})`$ |
-| 23 | 5 | inert | $`23`$ remains prime |
+For example, $`7 \equiv 1 \pmod{6}`$ splits as $`7 = (3 + \omega)(3 + \bar{\omega})`$, while $`11 \equiv 5 \pmod{6}`$ remains inert. Likewise, $`13`$ and $`19`$ split, while $`17`$ and $`23`$ remain inert.
 
 **Connection to $`(\mathbb{Z}/6\mathbb{Z})^\times`$.** The splitting/inertness dichotomy is governed by the residue of $`p`$ modulo 3, since the quadratic character of $`\mathbb{Q}(\sqrt{-3})`$ is the Kronecker symbol $`\chi_{-3}`$, which has conductor 3. The lift to modulus 6 is via the natural isomorphism
 
