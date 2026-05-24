@@ -266,6 +266,7 @@ tiers live in the papers.
 - **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)**: fixed-point derivation of the fine-structure row.
 - **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)**: support-visible OPH route to the Clay Yang-Mills problem, branch-scoped to the compact-gauge extraction, with Clay-facing status tied to that axiomatic-construction claim, and identifying the gap with the repair gap.
 - **[Observer-Patch Holography and the Dark Matter Phenomenon](extra/oph_dark_matter_paper.pdf)**: dark-matter phenomenology and MOND-like galaxy limit.
+- **[Theoretical Bounds on $\chi_\nu$ in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)**: OPH-derived continuation-window bounds, with macroscopic response thresholds near $10^{-22}$ to $10^{-24}$.
 - **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)**: cognition and qualia as recurrent patch consensus.
 
 ## More

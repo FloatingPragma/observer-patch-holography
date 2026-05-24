@@ -1,0 +1,875 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{booktabs,longtable,array,tabularx}
+\usepackage[shortlabels]{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage{microtype}
+
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\setlength{\emergencystretch}{3em}
+\renewcommand{\arraystretch}{1.12}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\numberwithin{equation}{section}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\OPH}{\mathrm{OPH}}
+\newcommand{\chinu}{\chi_\nu}
+\newcommand{\scoh}{S_{\mathrm{coh}}}
+\newcommand{\nueff}{\nu_{\mathrm{eff}}}
+\newcommand{\nuoph}{\nu_{\mathrm{OPH}}}
+\newcommand{\gbar}{\mathbf g_b}
+\newcommand{\A}{\mathcal A}
+\newcommand{\I}{\mathcal I}
+\newcommand{\Ralg}{\mathcal R}
+\newcommand{\U}{\mathcal U}
+\newcommand{\Zrec}{\mathcal Z^{\mathrm{rec}}}
+\newcommand{\RecCap}{\operatorname{Cap}}
+\newcommand{\Law}{\operatorname{Law}}
+\newcommand{\TV}{\mathrm{TV}}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\rhoa}{\rho_A}
+\newcommand{\Cgeom}{C_g}
+\newcommand{\Gammaeff}{\Gamma_{\mathrm{eff}}}
+
+\title{\textbf{Theoretical Bounds on \(\chinu\) in Observer-Patch Holography}\\
+\large Coherent-Matter Susceptibility and the Construction Window}
+\author{Bernhard Mueller and Alex Osika}
+\date{Draft of May 24, 2026}
+\input{../paper/release_info}
+
+\begin{document}
+\maketitle
+\begin{center}
+\small\textbf{Paper release:} \OPHPaperReleaseID\quad
+\textbf{Released:} \OPHPaperReleaseDate
+\end{center}
+
+\begin{abstract}
+OPH says that an ordinary tabletop gravity test on Earth should read null. The
+reason is simple. The canonical dark-sector response is controlled by
+\[
+\rhoa=-\frac{1}{4\pi G}\nabla\cdot[(\nuoph-1)\gbar],
+\]
+and Earth sits deep in the high-acceleration regime where \(\nuoph\simeq1\).
+
+The separate hypothesis is local. A coherent material state may add a
+small local correction
+\[
+\delta\nu=\chinu\scoh
+\]
+to the same interpolation function. The constant is \(\chinu\). A bench
+experiment measures it or bounds it.
+
+The useful part is the definition of \(\scoh\). The scalar is built from record
+capacity, record stability, predictive boundary coupling, visible overlap
+coherence, stored coherent energy density, and substrate directness. It vanishes
+when the record and prediction conditions fail. It is also defined on the
+observer-facing quotient, so hidden implementation choices do not change it.
+
+In the weak-field lab limit the force law is
+\[
+F=\frac{g^2}{4\pi G}A_\perp\,\chinu\,\Delta\scoh .
+\]
+For areal load \(\Sigma=M/A_\perp\), target response fraction \(f\), and
+\(\Delta\scoh=\Gammaeff u/u_0\), the required value is
+\[
+|\chinu|_{\mathrm{req}}
+=
+\frac{4\pi G\Sigma f}{g}\,
+\frac{u_0}{\Gammaeff u}.
+\]
+Write \(\Sigma_2=\Sigma/(10^2\,\mathrm{kg\,m^{-2}})\). For
+\(u_0=8.5\times10^{-10}\,\mathrm{J\,m^{-3}}\), \(\Gammaeff=1\), and
+\(u=10^5\)--\(10^7\,\mathrm{J\,m^{-3}}\), the calculated full-response threshold is
+\[
+|\chinu|_{\mathrm{req}}\simeq
+f\Sigma_2\,(7.3\times10^{-23}\ \text{to}\ 7.3\times10^{-25}),
+\]
+scaling as \(\Gammaeff^{-1}\). Macroscopic areal loads with
+\(\Sigma_2\sim1\)--\(10\) sit in the \(10^{-22}\)--\(10^{-24}\) band. The
+order-unity linear ceiling over the same stored-energy range is
+\(8.5\times10^{-15}\) to \(8.5\times10^{-17}\), also scaled by
+\(\Gammaeff^{-1}\). For a declared response target, \(\chinu\) has to lie
+between these two OPH-derived bounds. The result is a clean construction window
+for the continuation, separate from the recovered OPH core.
+\end{abstract}
+
+\tableofcontents
+
+\section{Status and Claim Boundary}
+
+The OPH core used here consists of finite patch carriers, mismatch-lowering repair,
+observer-accessible record algebras, quotient normal forms, checkpoint continuation,
+support-visible BW scaling, fixed-cap generalized-entropy stationarity, and the
+Jacobson-type Einstein branch. These ingredients are supplied by the consensus,
+microphysics, synthesis, and compact SM/GR papers~\cite{oph-consensus,oph-micro,oph-synthesis,oph-compact}.
+
+The dark-sector paper supplies the settled weak-field anomaly law
+\begin{equation}
+\rhoa
+=
+-\frac{1}{4\pi G}
+\nabla\cdot[(\nuoph-1)\gbar],
+\label{eq:canonical-dark}
+\end{equation}
+interpreting the anomaly as a transported modular/collar information-defect
+remainder, with no new particle species postulated~\cite{oph-dark}.
+
+The \(\chinu\) law is a continuation outside the recovered core:
+\begin{equation}
+\delta\nu(x,t)=\chinu\scoh(x,t).
+\label{eq:chinu-law}
+\end{equation}
+Here \(\scoh\) is defined from OPH-native observer-facing quantities, and the
+mathematical response window for \(\chinu\) is derived. No claim is made that
+\(\chinu\) is nonzero.
+
+\section{Canonical Chain}
+
+\subsection{Fixed-cutoff carrier}
+
+At fixed cutoff, an observer-facing OPH implementation surface is a federated
+patch carrier
+\begin{equation}
+\mathfrak F
+=
+\bigl(V,E,\{\A_i\}_{i\in V},\{\I_e\}_{e\in E},
+\{\pi_{i,e}\},\{\Ralg_i\},\{\U_i\}\bigr).
+\end{equation}
+Here \(\A_i\) are local finite algebras, \(\I_e\) are overlap interfaces,
+\(\pi_{i,e}\) are visible restriction maps, \(\Ralg_i\subseteq Z(\A_i)\) are
+record algebras, and \(\U_i\) are local update and repair interfaces. Physical
+claims are made through visible restrictions, record algebras, and quotient-local
+observables, without choosing hidden microscopic representatives~\cite{oph-micro}.
+
+\subsection{Mismatch and repair}
+
+The consensus paper gives a nonnegative visible mismatch functional \(\Phi\).
+Accepted repairs lower the relevant mismatch on finite state spaces. Under the
+declared local-diamond and repair-completeness hypotheses, the terminal
+observer-facing normal form is unique on the physical quotient and independent
+of asynchronous update schedule~\cite{oph-consensus}.
+
+\subsection{Records and checkpoints}
+
+For an observer-supporting subfederation \(U\), the microphysics paper uses a
+checkpoint of the form
+\begin{equation}
+\mathrm{Chk}_U(t)=
+\bigl(
+\Ralg_U(t),
+\rho_U^{\mathrm{acc}}(t),
+\mathfrak I_U^{\mathrm{ext}}(t),
+\nu_{\ge t},
+\mathfrak B_U(t)
+\bigr).
+\end{equation}
+If two checkpoints agree on the accessible record algebra, accessible state,
+external interface, boundary-update schedule class, and provenance bundle, they
+induce the same continuation law on the observer-accessible event algebra. Approximate
+agreement gives a controlled total-variation bound~\cite{oph-micro}.
+
+\subsection{Gravity and dark response}
+
+The compact SM/GR paper keeps the recovered core and downstream continuations
+separate. On the stated support-visible scaling branch, the OPH stack gives a
+Jacobson-type Einstein relation; dark-sector response laws are phenomenological
+continuations and do not belong to that recovered-core tier~\cite{oph-compact}.
+The dark paper then models the anomaly by Eq.~\eqref{eq:canonical-dark}.
+
+On Earth, \(g_b/a_0\sim 10^{11}\), so the canonical \(\nuoph\) term is pinned
+near unity. A terrestrial tabletop anomaly attributed only to the canonical OPH
+dark sector should read null. The \(\chinu\) continuation is tested against
+that null baseline as a separate effect.
+
+\section{The Coherence Scalar}
+
+\begin{definition}[Patch coherence factors]
+Let \(U\) be an observer-supporting patch subfederation at cycle \(t\), with
+observer-accessible record algebra \(\Zrec_U(t)\). Let \(Y_U(t)\) be the induced
+record outcome variable, \(X_{\partial U,t+1:t+h}\) the boundary packet
+over horizon \(h\), and \(\Phi_U(t)\) the visible mismatch on the relevant
+support. Define
+\begin{align}
+R_U(t;h)
+&=
+\left[
+1-
+d_{\TV}\!\left(
+\Law(Y_U(t+h)),\Law(Y_U(t))
+\right)
+\right]e^{-\delta_{\mathrm{rec}}(t)},
+\label{eq:R-factor}\\
+P_U(t;h)
+&=
+\frac{
+I\!\left(Y_U(t);X_{\partial U,t+1:t+h}\right)
+}{
+H\!\left(X_{\partial U,t+1:t+h}\right)+\epsilon
+},
+\label{eq:P-factor}\\
+C_U(t)
+&=
+\left[
+1-\frac{\Phi_U(t)}{\Phi_U^{\max}+\epsilon}
+\right]_+.
+\label{eq:C-factor}
+\end{align}
+Fix a reference capacity \(\RecCap_0>0\) and set
+\begin{equation}
+\widehat{\mathrm{Cap}}_U(t)=
+\frac{\RecCap(\Zrec_U(t))}{\RecCap_0}.
+\end{equation}
+The minimal patch-coherence factor is
+\begin{equation}
+\mathcal K_U(t;h)=
+\mathbf 1_{\mathrm{self\mbox{-}read}}\,
+\widehat{\mathrm{Cap}}_U(t)\,
+R_U(t;h)\,
+P_U(t;h)\,
+C_U(t).
+\label{eq:K-factor}
+\end{equation}
+\end{definition}
+
+\begin{definition}[OPH-native coherent-matter scalar]
+Let \(u_{\mathrm{stored}}(U,t)\) be the stored coherent matter energy density in
+the substrate mode supported by \(U\), let \(u_0\) be a fixed reference energy
+density, and let \(\eps_{\mathrm{sub}}(U)\in[0,1]\) be the substrate directness
+factor. Define
+\begin{equation}
+\scoh(U,t;h)
+=
+\eps_{\mathrm{sub}}(U)
+\frac{u_{\mathrm{stored}}(U,t)}{u_0}
+\mathcal K_U(t;h).
+\label{eq:Scoh-patch}
+\end{equation}
+Given a partition of unity \(w_U(x)\) over observer-supporting subfederations,
+define the coarse-grained field
+\begin{equation}
+\scoh(x,t)=\sum_U w_U(x)\scoh(U,t;h),
+\qquad
+\sum_U w_U(x)=1.
+\label{eq:Scoh-field}
+\end{equation}
+\end{definition}
+
+The continuation axiom is the single statement
+\begin{equation}
+\boxed{
+\nueff(x,t)=\nuoph(x,t)+\chinu\scoh(x,t).
+}
+\label{eq:continuation-axiom}
+\end{equation}
+
+\section{Structural Properties}
+
+\begin{proposition}[Observer-facing quotient well-definedness]
+Assume two microscopic representatives induce the same observer-accessible
+continuation law on \(U\), preserve the same visible mismatch score, and expose the
+same stored coherent energy density and substrate class. Then they give the same
+\(\scoh(U,t;h)\).
+\end{proposition}
+
+\begin{proof}
+The factors \(\RecCap(\Zrec_U)\), \(R_U\), \(P_U\), and \(C_U\) are defined from
+observer-accessible records, boundary-law variables, and visible mismatch
+data. These are precisely the quantities that survive the observer-facing
+quotient. Multiplying them by \(u_{\mathrm{stored}}\) and
+\(\eps_{\mathrm{sub}}\), which are declared observable substrate data for the
+continuation, does not introduce hidden representative dependence.
+\end{proof}
+
+\begin{proposition}[Null conditions]
+If \(U\) has no self-read, no stable record algebra, or no predictive boundary
+coupling at horizon \(h\), then \(\scoh(U,t;h)=0\).
+\end{proposition}
+
+\begin{proof}
+If there is no self-read, then
+\(\mathbf 1_{\mathrm{self\mbox{-}read}}=0\). If no stable record algebra is
+available, then either \(\RecCap(\Zrec_U)=0\) or the stability factor \(R_U\)
+vanishes on the declared readout. If predictive boundary coupling is absent,
+then \(P_U=0\). In each case \(\mathcal K_U=0\), hence \(\scoh=0\).
+\end{proof}
+
+\begin{proposition}[Saturated-limit reduction]
+If
+\[
+\mathbf 1_{\mathrm{self\mbox{-}read}}\simeq1,\quad
+\widehat{\mathrm{Cap}}_U\simeq1,\quad
+R_U\simeq1,\quad
+P_U\simeq1,\quad
+C_U\simeq1,
+\]
+then
+\[
+\scoh(U,t;h)\simeq
+\eps_{\mathrm{sub}}(U)\frac{u_{\mathrm{stored}}(U,t)}{u_0}.
+\]
+\end{proposition}
+
+\begin{proof}
+Substitute the saturated factor values into Eq.~\eqref{eq:Scoh-patch}.
+\end{proof}
+
+\section{Weak-Field Response}
+
+Insert Eq.~\eqref{eq:continuation-axiom} into the settled weak-field density:
+\begin{equation}
+\rhoa^{\mathrm{eff}}
+=
+-\frac{1}{4\pi G}
+\nabla\cdot
+\Bigl[
+\bigl(\nuoph-1+\chinu\scoh\bigr)\gbar
+\Bigr].
+\label{eq:rho-eff}
+\end{equation}
+In a small terrestrial laboratory region with \(\gbar\simeq -g\,\hat z\) and
+canonical \(\nuoph-1\) negligible, this becomes
+\begin{equation}
+\rhoa^{\mathrm{lab}}
+\simeq
+-\frac{1}{4\pi G}
+\nabla\cdot
+\bigl[\chinu\scoh\,\mathbf g\bigr].
+\label{eq:rho-lab}
+\end{equation}
+
+\begin{theorem}[Planar response law]
+Let a thin device have horizontal projected area \(A_\perp\), and define the
+bottom-to-top coherence contrast
+\[
+\Delta\scoh={\scoh}_{\mathrm{bottom}}-{\scoh}_{\mathrm{top}}.
+\]
+Then, to leading order in the thin-device approximation, the apparent vertical
+force generated by the \(\chinu\) continuation is
+\begin{equation}
+\boxed{
+F_\chi
+=
+\frac{g^2}{4\pi G}A_\perp\,\chinu\,\Delta\scoh .
+}
+\label{eq:force-law}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+With \(\mathbf g=-g\hat z\), Eq.~\eqref{eq:rho-lab} gives
+\[
+\rhoa^{\mathrm{lab}}
+=
+\frac{g\chinu}{4\pi G}\frac{\partial\scoh}{\partial z}
+\]
+up to the sign convention for \(z\). Integrating through a thin column gives
+\[
+M_A=
+\int\rhoa^{\mathrm{lab}}\dd V
+=
+-\frac{g\chinu}{4\pi G}A_\perp\,\Delta\scoh
+\]
+when \(\Delta\scoh\) is bottom minus top. The apparent weight change is
+\(F_\chi=-gM_A\), yielding Eq.~\eqref{eq:force-law}.
+\end{proof}
+
+\begin{corollary}[Geometric ceiling]
+If \(|\Delta\nu|\lesssim 1\), then
+\begin{equation}
+\frac{|F_\chi|}{A_\perp}
+\lesssim
+\Cgeom
+\equiv
+\frac{g^2}{4\pi G}
+=
+1.1466\times10^{11}\,\mathrm{N\,m^{-2}}
+\label{eq:geometric-ceiling}
+\end{equation}
+for \(g=9.80665\,\mathrm{m\,s^{-2}}\) and
+\(G=6.67430\times10^{-11}\,\mathrm{m^3\,kg^{-1}\,s^{-2}}\).
+\end{corollary}
+
+This ceiling is algebraic. It does not assert that any material system reaches
+\(|\Delta\nu|=1\).
+
+\section{The Susceptibility Window}
+
+For bounds it is useful to package the contrast geometry, substrate directness,
+and OPH coherence factors into one dimensionless number:
+\begin{equation}
+\Delta\scoh
+=
+\Gammaeff\frac{u}{u_0},
+\qquad
+0\le \Gammaeff\le 1.
+\label{eq:Gamma-definition}
+\end{equation}
+Here \(u\) is the representative stored coherent energy density in the active
+mode. The factor \(\Gammaeff\) includes vertical contrast, substrate directness,
+and effective \(\mathcal K\).
+
+\begin{theorem}[Nonempty macroscopic linear-response window]
+Let \(\Sigma=M/A_\perp\) be the areal load, let \(f\in[0,1]\) be the target
+fraction of the ordinary weight \(Mg\), and let \(\epsilon_{\mathrm{lin}}\le 1\)
+be the maximum allowed \(|\Delta\nu|\) in the chosen linear-response regime.
+Assume \(\Gammaeff>0\). If
+\begin{equation}
+f\,\frac{4\pi G\Sigma}{g}
+<
+\epsilon_{\mathrm{lin}},
+\label{eq:window-condition}
+\end{equation}
+then the interval
+\begin{equation}
+\boxed{
+\frac{4\pi G\Sigma f}{g}\,
+\frac{u_0}{\Gammaeff u}
+\le
+|\chinu|
+\le
+\epsilon_{\mathrm{lin}}
+\frac{u_0}{\Gammaeff u}
+}
+\label{eq:chinu-window}
+\end{equation}
+is nonempty. Values in this interval produce at least fraction \(f\) of the
+ordinary weight inside the declared linear-response bound. Conversely, any
+value that produces at least fraction \(f\) while staying inside that
+linear-response bound lies in this interval.
+\end{theorem}
+
+\begin{proof}
+The force law gives
+\[
+\frac{|F_\chi|}{Mg}
+=
+\frac{g}{4\pi G\Sigma}|\chinu|\Delta\scoh.
+\]
+Requiring \(|F_\chi|/(Mg)\ge f\) gives the lower bound in
+Eq.~\eqref{eq:chinu-window}. Requiring
+\(|\Delta\nu|=|\chinu|\Delta\scoh\le\epsilon_{\mathrm{lin}}\) gives the upper
+bound. The interval is nonempty exactly when the lower bound is smaller than the
+upper bound, which is Eq.~\eqref{eq:window-condition}.
+\end{proof}
+
+\begin{corollary}[Numerical width in normalized areal load]
+Let
+\[
+\Sigma_2=\frac{\Sigma}{10^2\,\mathrm{kg\,m^{-2}}}.
+\]
+Then
+\[
+\frac{4\pi G\Sigma}{g}=8.5525\times10^{-9}\,\Sigma_2.
+\]
+The full-response \((f=1)\), order-unity linear window has width
+\[
+\frac{\chi_{\mathrm{upper}}}{\chi_{\mathrm{lower}}}
+=
+1.1692\times10^8\,\Sigma_2^{-1},
+\]
+independent of \(u\) and \(\Gammaeff\). With
+\(\epsilon_{\mathrm{lin}}=0.1\), the window width is
+\(1.1692\times10^7\,\Sigma_2^{-1}\).
+\end{corollary}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}R{0.19\textwidth}R{0.23\textwidth}R{0.25\textwidth}R{0.20\textwidth}@{}}
+\toprule
+\(u\,[\mathrm{J\,m^{-3}}]\) &
+\(u/u_0\) &
+\(|\chinu|_{\mathrm{req}}\) for \(f\Sigma_2/\Gammaeff=1\) &
+\(|\chinu|_{\mathrm{lin}}\) for \(\epsilon_{\mathrm{lin}}/\Gammaeff=1\) \\
+\midrule
+\(1.0\times10^5\) & \(1.18\times10^{14}\) & \(7.27\times10^{-23}\) & \(8.5\times10^{-15}\) \\
+\(5.5\times10^5\) & \(6.47\times10^{14}\) & \(1.32\times10^{-23}\) & \(1.55\times10^{-15}\) \\
+\(1.0\times10^6\) & \(1.18\times10^{15}\) & \(7.27\times10^{-24}\) & \(8.5\times10^{-16}\) \\
+\(4.0\times10^6\) & \(4.71\times10^{15}\) & \(1.82\times10^{-24}\) & \(2.13\times10^{-16}\) \\
+\(1.0\times10^7\) & \(1.18\times10^{16}\) & \(7.27\times10^{-25}\) & \(8.5\times10^{-17}\) \\
+\bottomrule
+\end{tabular}
+\caption{Full-response susceptibility bounds for \(u_0=8.5\times10^{-10}\,\mathrm{J\,m^{-3}}\) and \(\Sigma_2=\Sigma/(10^2\,\mathrm{kg\,m^{-2}})\). The third column should be multiplied by \(f\Sigma_2/\Gammaeff\). The fourth column should be multiplied by \(\epsilon_{\mathrm{lin}}/\Gammaeff\).}
+\label{tab:window}
+\end{table}
+
+The table gives the bound in numerical form. It says that
+ordinary material stress and coherent phonon energy densities put the
+macroscopic response threshold in the \(\chinu\sim10^{-22}\)--\(10^{-24}\)
+range for macroscopic areal loads and \(\Gammaeff\) near unity. Smaller
+\(\Gammaeff\) shifts the required value upward by \(1/\Gammaeff\).
+
+\section{Power and Stored-Energy Bounds}
+
+The force law fixes stored energy. Input power depends on how the coherent state
+is maintained.
+
+\subsection{Driven coherent oscillations}
+
+For a driven oscillator with angular frequency \(\omega\), mode volume
+\(V_{\mathrm{mode}}\), quality factor \(Q\), and stored density \(u\),
+\begin{equation}
+P_{\mathrm{loss}}
+=
+\frac{uV_{\mathrm{mode}}\omega}{Q}.
+\label{eq:loss-power}
+\end{equation}
+Combining Eq.~\eqref{eq:loss-power} with the required density from the
+macroscopic response law gives
+\begin{equation}
+\boxed{
+P_{\mathrm{loss}}
+=
+\frac{4\pi G\Sigma f\,u_0\,V_{\mathrm{mode}}\omega}
+{g\,Q\,\Gammaeff\,|\chinu|}.
+}
+\label{eq:power-bound}
+\end{equation}
+
+For \(\Sigma_2=1\),
+\(V_{\mathrm{mode}}=10^{-3}\,\mathrm{m^3}\),
+\(\omega=2\pi(4.0\times10^4)\,\mathrm{s^{-1}}\),
+\(Q=10^5\), \(f=1\), and \(\Gammaeff=1\), this gives:
+\[
+\begin{array}{c|c}
+|\chinu| & P_{\mathrm{loss}}\\
+\hline
+10^{-20} & 1.8\,\mathrm{W}\\
+10^{-21} & 18\,\mathrm{W}\\
+10^{-22} & 183\,\mathrm{W}\\
+10^{-23} & 1.8\,\mathrm{kW}\\
+10^{-24} & 18\,\mathrm{kW}
+\end{array}
+\]
+The scaling is \(P_{\mathrm{loss}}\propto(Q\Gammaeff|\chinu|)^{-1}\).
+
+\subsection{Static elastic storage}
+
+For a static elastic-strain coherent variable, the stored density is
+\begin{equation}
+u_{\mathrm{elastic}}=\frac{\sigma^2}{2E},
+\label{eq:elastic-density}
+\end{equation}
+where \(\sigma\) is stress and \(E\) is Young's modulus. In that interpretation
+there is no oscillator decay factor \(\omega/Q\). Maintaining the state is then
+limited by creep, relaxation, and mechanical failure. Its loss law differs from
+Eq.~\eqref{eq:loss-power}. The same susceptibility bounds apply, because they
+depend only on \(u\), \(\Gammaeff\), and \(\Sigma\).
+
+\section{Construction-Scale Consequences}
+
+The bounds are algebraic. They do not prove that any substrate realizes
+\(\Gammaeff\simeq1\), that \(\chinu\ne0\), or that a high-energy coherent state
+can be maintained safely. They specify the requirements for a macroscopic
+force device if the continuation is real.
+
+A force device, in this narrow sense, is a bounded substrate whose active region
+creates a vertical coherence contrast \(\Delta\scoh\). The apparent weight
+fraction is
+\begin{equation}
+\frac{|F_\chi|}{Mg}
+=
+\frac{g}{4\pi G\Sigma}\,
+|\chinu|\,\Gammaeff\frac{u}{u_0}.
+\label{eq:force-fraction}
+\end{equation}
+All construction choices enter through the product
+\begin{equation}
+|\chinu|\,\Gammaeff\,u.
+\label{eq:construction-product}
+\end{equation}
+This is why \(\chinu\) is the governing number. Geometry fixes the coefficient
+\(g/(4\pi G\Sigma)\). Better materials can raise \(u\). Better mode design can
+raise \(\Gammaeff\). A smaller \(\chinu\) must be paid for linearly by higher
+stored energy density, larger active volume, better quality factor, or a smaller
+target response fraction. If \(\chinu=0\), no amount of construction produces the
+continuation force.
+
+For the normalized areal load \(\Sigma_2=1\), the full-response condition is
+\begin{equation}
+\Delta\nu_{\mathrm{full}}(\Sigma_2=1)
+=
+\frac{4\pi G\Sigma}{g}
+=
+8.5525\times10^{-9}.
+\label{eq:full-response-dnu}
+\end{equation}
+This is far below even a conservative \(\epsilon_{\mathrm{lin}}=0.1\) linear
+bound. The required \(\Delta\nu\) lies inside the theorem window. Construction
+depends on the required \(\Gammaeff u\) product, mode volume, quality factor,
+and material stress.
+
+\begin{table}[p]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}R{0.12\textwidth}R{0.16\textwidth}R{0.16\textwidth}L{0.19\textwidth}X@{}}
+\toprule
+\(|\chinu|\) &
+\(u_{\mathrm{req}}\) at \(f\Sigma_2/\Gammaeff=1\) &
+\(P_{\mathrm{loss}}\) at \(f\Sigma_2/\Gammaeff=1,Q=10^5\) &
+Construction class &
+Interpretation \\
+\midrule
+\(10^{-20}\) &
+\(7.3\times10^2\,\mathrm{J\,m^{-3}}\) &
+\(1.8\,\mathrm{W}\) &
+small bench article &
+The force is easy to produce if the coherence scalar is real. Existing ambient-coherence nulls become the main consistency check. \\
+\(10^{-21}\) &
+\(7.3\times10^3\,\mathrm{J\,m^{-3}}\) &
+\(18\,\mathrm{W}\) &
+tabletop module &
+Accessible to modest driven resonators or static strain specimens. A direct balance or pendulum experiment should see it cleanly. \\
+\(10^{-22}\) &
+\(7.3\times10^4\,\mathrm{J\,m^{-3}}\) &
+\(183\,\mathrm{W}\) &
+high-Q insert / compact platform &
+This is the first useful construction band. Full response is compatible with ordinary high-Q crystal or metal inserts. Thermal management matters. \\
+\(10^{-23}\) &
+\(7.3\times10^5\,\mathrm{J\,m^{-3}}\) &
+\(1.8\,\mathrm{kW}\) &
+engineered crystal or metal module &
+Inside high-strength material energy densities. Continuous driven operation becomes hard. Static elastic storage becomes much more attractive. \\
+\(10^{-24}\) &
+\(7.3\times10^6\,\mathrm{J\,m^{-3}}\) &
+\(18\,\mathrm{kW}\) &
+industrial multi-module system &
+Near the upper end of practical stored-density claims. Driven operation needs large area, high \(Q\), cryogenic or exceptional materials, or partial-lift use. \\
+\(10^{-25}\) &
+\(7.3\times10^7\,\mathrm{J\,m^{-3}}\) &
+\(183\,\mathrm{kW}\) &
+large array / static-only candidate &
+Inside the response window. Compact driven construction is implausible. Static prestress, very high \(\Gammaeff\), or large arrays are the plausible routes. \\
+\(10^{-26}\) &
+\(7.3\times10^8\,\mathrm{J\,m^{-3}}\) &
+\(1.8\,\mathrm{MW}\) &
+outside compact construction &
+The response inequalities are satisfied. Material and power requirements exceed the intended compact-device scale. This is effectively a null for compact devices. \\
+\bottomrule
+\end{tabularx}
+\caption{Construction regimes inside the response-window theorem for \(\Sigma_2=1\), \(f=1\), \(u_0=8.5\times10^{-10}\,\mathrm{J\,m^{-3}}\), \(V_{\mathrm{mode}}=10^{-3}\,\mathrm{m^3}\), \(\omega=2\pi(4.0\times10^4)\,\mathrm{s^{-1}}\), and \(Q=10^5\). Every row has \(\Delta\nu=8.5525\times10^{-9}\), so construction difficulty changes while algebraic admissibility is the same. Multiply the listed material and power requirements by \(f\Sigma_2/\Gammaeff\).}
+\label{tab:construction-regimes}
+\end{table}
+
+Two consequences follow.
+
+First, a measurement of \(\chinu\) selects a construction class. If
+\(|\chinu|\gtrsim10^{-22}\) and \(\Gammaeff\) is reasonably large, compact
+demonstrators are in the ordinary resonator and high-strength-substrate regime.
+If \(|\chinu|\sim10^{-23}\)--\(10^{-24}\), the design must move toward high-Q
+crystals, larger active area, static strain, or partial lift. If
+\(|\chinu|\lesssim10^{-25}\), compact force-device construction stops being the
+right first target. The useful output is a bound on the continuation.
+
+Second, the static-versus-driven distinction is decisive. The driven column pays
+\(uV_{\mathrm{mode}}\omega/Q\). Static elastic storage pays no oscillator
+maintenance cost. It must survive creep and fracture. The same
+\(\chinu\) value can be impractical for a driven phonon design and practical for
+a static strain design. The static-stress experiment decides which maintenance
+law applies to the construction table.
+
+\section{Experimental Bound Formula}
+
+Let an experiment have force sensitivity \(F_{\min}\), projected area
+\(A_\perp\), and known coherence contrast \(\Delta\scoh\). A null result gives
+\begin{equation}
+\boxed{
+|\chinu|
+\le
+\frac{4\pi G F_{\min}}{g^2 A_\perp|\Delta\scoh|}.
+}
+\label{eq:null-bound-general}
+\end{equation}
+If the mode is a driven oscillator, with
+\(\Delta\scoh=\Gammaeff QP_{\mathrm{in}}/(u_0\omega V_{\mathrm{mode}})\), then
+\begin{equation}
+\boxed{
+|\chinu|
+\le
+\frac{4\pi G F_{\min}u_0\omega V_{\mathrm{mode}}}
+{g^2 A_\perp\Gammaeff QP_{\mathrm{in}}}.
+}
+\label{eq:null-bound-driven}
+\end{equation}
+If the mode is static elastic storage, replace the driven density by
+\(u_{\mathrm{elastic}}\) from Eq.~\eqref{eq:elastic-density}.
+
+\section{Compatibility with Existing Nulls}
+
+\begin{proposition}[No ordinary-matter anomaly from null coherence]
+If ordinary non-engineered configurations have \(\mathcal K_U=0\) on the
+observer-facing scalar of Eq.~\eqref{eq:K-factor}, then they impose no direct
+bound on \(\chinu\), because \(\delta\nu=\chinu\scoh=0\) for those
+configurations.
+\end{proposition}
+
+\begin{proof}
+This is immediate from Eq.~\eqref{eq:Scoh-patch}. The continuation couples only
+to the OPH-native coherent scalar. Undifferentiated rest mass or heat is outside
+this ansatz.
+\end{proof}
+
+If ordinary matter has a small nonzero ambient scalar
+\({\scoh}_{\mathrm{amb}}\), then existing gravitational null tests bound the
+product:
+\begin{equation}
+|\chinu|\,{\scoh}_{\mathrm{amb}}
+\le
+\delta\nu_{\mathrm{test}}.
+\label{eq:ambient-bound}
+\end{equation}
+This is a real consistency condition. It becomes a theorem-grade number when
+the ambient scalar is specified. The continuation is falsifiable in
+two ways: by direct \(\chinu\) searches through Eq.~\eqref{eq:null-bound-general}
+and by ordinary-gravity null tests once a model for \({\scoh}_{\mathrm{amb}}\) is
+fixed.
+
+\section{What OPH Alone Bounds}
+
+The OPH-only result is conditional. For a declared areal load \(\Sigma\), target
+fraction \(f\), stored coherent density \(u\), effective coherence
+\(\Gammaeff\), and linear allowance \(\epsilon_{\mathrm{lin}}\), any
+\(\chinu\) that produces the target response while staying inside the linear
+branch has to satisfy Eq.~\eqref{eq:chinu-window}. Below the lower edge, the
+response is smaller than the target. Above the upper edge, the declared
+linear-response branch stops applying.
+
+\begin{proposition}[No OPH-only point value]
+The recovered OPH core, together with the continuation axiom
+\(\delta\nu=\chinu\scoh\), does not fix a nonzero value of \(\chinu\), its sign,
+or a narrower absolute numerical interval than Eq.~\eqref{eq:chinu-window}.
+\end{proposition}
+
+\begin{proof}
+The continuation term is outside the recovered Einstein/dark-sector core. The
+choice \(\chinu=0\) returns exactly to that core and satisfies the quotient,
+checkpoint, null-coherence, and terrestrial high-acceleration baseline
+statements. The OPH construction also defines the response through the product
+\(\chinu\scoh\). Without a further theorem fixing a global maximum for
+\(\scoh\), a canonical material value of \(u\), or a variational principle for
+the continuation coefficient, the core theorems constrain only products and
+conditional response windows. Finite patch capacity makes the scalar
+well-defined at fixed cutoff; it does not select the numerical coupling.
+\end{proof}
+
+Further narrowing needs one extra input: a canonical normalization of
+the maximum ordinary coherent scalar, an ambient-coherence theorem for ordinary
+matter, or a direct experimental bound. Those inputs can sharpen
+Eq.~\eqref{eq:chinu-window}. They are separate from the recovered OPH core.
+
+\section{Open Normalizations}
+
+Three normalizations are parameters of the continuation.
+
+First, \(\RecCap_0\) must be fixed canonically. Depending on the substrate and
+regime, \(\RecCap\) could be \(\log\dim\Zrec\), an effective rank, usable record
+entropy, or effective patch capacity. The formulas keep \(\RecCap_0\) explicit.
+
+Second, the partition weights \(w_U(x)\) should be induced by a declared
+observer-supporting subcover. Only the coarse-grained contrast
+\(\Delta\scoh\) enters the bounds, so the construction is an implementation
+choice.
+
+Third, the exponents in Eq.~\eqref{eq:K-factor} are all set to one. A calibrated
+variant may replace
+\[
+\mathcal K_U=
+\mathbf 1_{\mathrm{self\mbox{-}read}}\,
+\widehat{\mathrm{Cap}}_U R_U P_U C_U
+\]
+by a renormalized exponent family. The linear product is the minimal
+non-arbitrary continuation.
+
+\section{Conclusion}
+
+The \(\chinu\) continuation can be stated as one additional local response law:
+\[
+\nueff=\nuoph+\chinu\scoh.
+\]
+The scalar \(\scoh\) can be built from OPH-native observer-facing quantities:
+record capacity, record stability, boundary predictivity, visible overlap
+coherence, and stored coherent matter energy density. It is null when the
+observer-facing coherence conditions fail and quotient-invariant when the
+observer-accessible continuation law is unchanged.
+
+The response bounds are simple. For an areal load \(\Sigma\), target fraction
+\(f\), and contrast \(\Delta\scoh=\Gammaeff u/u_0\),
+\[
+|\chinu|_{\mathrm{req}}
+=
+\frac{4\pi G\Sigma f}{g}\frac{u_0}{\Gammaeff u}.
+\]
+The corresponding linear headroom extends up to
+\[
+|\chinu|_{\mathrm{lin}}
+\le
+\epsilon_{\mathrm{lin}}\frac{u_0}{\Gammaeff u}.
+\]
+For \(\Sigma_2=\Sigma/(10^2\,\mathrm{kg\,m^{-2}})\), the interval width is
+\(1.1692\times10^8\,\epsilon_{\mathrm{lin}}/(f\Sigma_2)\). Coherent stored
+energy densities \(10^5\)--\(10^7\,\mathrm{J\,m^{-3}}\) put macroscopic
+full-response thresholds near \(10^{-22}\)--\(10^{-24}\), scaled by
+\(f\Sigma_2\Gammaeff^{-1}\). This is a mathematical continuation window outside
+the recovered OPH predictions and outside experimental results. The recovered
+core permits \(\chinu=0\); a nonzero value or a tighter interval requires the
+additional inputs listed above.
+
+\begin{thebibliography}{99}
+
+\bibitem{oph-synthesis}
+B.\ M\"uller, A.\ Osika, K.\ Xue, B.\ Cassie, P.\ Nguyen, M.\ Poneder, and K.\ A.\ Anirudha,
+\emph{Observers Are All You Need}.
+\href{https://github.com/FloatingPragma/observer-patch-holography/releases/download/\OPHPaperReleaseID/observers_are_all_you_need.pdf}{release PDF}.
+
+\bibitem{oph-compact}
+B.\ M\"uller, A.\ Osika, K.\ Xue, and P.\ Nguyen,
+\emph{Recovering Relativity and Standard Model Structure from Observer-Overlap Consistency}.
+\href{https://github.com/FloatingPragma/observer-patch-holography/releases/download/\OPHPaperReleaseID/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf}{release PDF}.
+
+\bibitem{oph-consensus}
+B.\ M\"uller, A.\ Osika, K.\ Xue, and P.\ Nguyen,
+\emph{Reality as a Consensus Protocol}.
+\href{https://github.com/FloatingPragma/observer-patch-holography/releases/download/\OPHPaperReleaseID/reality_as_consensus_protocol.pdf}{release PDF}.
+
+\bibitem{oph-micro}
+B.\ M\"uller and K.\ Xue,
+\emph{Federated Echosahedral Screen Microphysics: Patch Hardware, Records, and Observer Synchronization in OPH}.
+\href{https://github.com/FloatingPragma/observer-patch-holography/releases/download/\OPHPaperReleaseID/screen_microphysics_and_observer_synchronization.pdf}{release PDF}.
+
+\bibitem{oph-calibration}
+B.\ M\"uller and K.\ Xue,
+\emph{Digital Calibration Note for OPH Screen Microphysics}.
+\href{https://github.com/FloatingPragma/observer-patch-holography/releases/download/\OPHPaperReleaseID/screen_microphysics_digital_calibration_note.pdf}{release PDF}.
+
+\bibitem{oph-dark}
+B.\ M\"uller,
+\emph{Observer-Patch Holography and the Dark Matter Phenomenon}.
+\href{https://github.com/FloatingPragma/observer-patch-holography/releases/download/\OPHPaperReleaseID/oph_dark_matter_paper.pdf}{release PDF}.
+
+\bibitem{chinu-draft}
+A.\ Osika and B.\ M\"uller,
+\emph{\(\chinu\): Probing the OPH Dark Sector via Coherent-Matter Susceptibility},
+draft, May 20, 2026.
+
+\end{thebibliography}
+
+\end{document}
