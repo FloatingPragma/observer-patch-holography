@@ -342,7 +342,6 @@ The following files give the theory and engineering background for this summary:
 - [Compact technical paper](../paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf): compact technical core for relativity, gravity, Standard Model structure, and branch-scoped Yang-Mills repair gap.
 - [Reality as a Consensus Protocol](../paper/reality_as_consensus_protocol.pdf): fixed-point consensus, normal forms, repair, records, and quotient-local convergence.
 - [Federated Echosahedral Screen Microphysics](../paper/screen_microphysics_and_observer_synchronization.pdf): finite patch carriers, echosahedral interfaces, toroidal recurrence, evidence rules, records, and checkpoint/restoration.
-- [Digital calibration note](../paper/screen_microphysics_digital_calibration_note.pdf): digital calibration note for finite patch constraints.
 
 ### Book Chapters
 

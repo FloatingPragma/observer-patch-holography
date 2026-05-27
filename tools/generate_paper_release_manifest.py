@@ -27,11 +27,7 @@ RELEASE_TRACKED_PDFS = {
         "paper/screen_microphysics_and_observer_synchronization.pdf"
     ),
 }
-SUPPLEMENTAL_RELEASE_PDFS = {
-    "screen_microphysics_digital_calibration_note": Path(
-        "paper/screen_microphysics_digital_calibration_note.pdf"
-    ),
-}
+SUPPLEMENTAL_RELEASE_PDFS = {}
 
 
 def main() -> int:

@@ -25,7 +25,6 @@ DEFAULT_CORE_PAPERS = [
     PAPER_DIR / "screen_microphysics_and_observer_synchronization.tex",
 ]
 DEFAULT_SUPPLEMENTAL_PAPERS = [
-    PAPER_DIR / "screen_microphysics_digital_calibration_note.tex",
 ]
 DEFAULT_EXTRA_PAPERS = sorted(EXTRA_DIR.glob("*.tex"))
 DEFAULT_SOURCES = [

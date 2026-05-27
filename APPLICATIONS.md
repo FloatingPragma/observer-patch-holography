@@ -75,8 +75,6 @@ Finite hardware patch carriers and verifier-bundle rules are in
 [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf).
 The SHA-256d scorebook is
 [Photonic Fixed-Point Consensus for SHA-256d Proof of Work](extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf).
-The screen and simulator calibration layer is in
-[Digital Calibration Note for OPH Screen Microphysics](paper/screen_microphysics_digital_calibration_note.pdf).
 
 ## 3. AGI From Cost-Effective OMEGA Components
 
