@@ -16,8 +16,9 @@ geometric branch turns modular flow on caps into Lorentz kinematics and then int
 relation through fixed-cap generalized-entropy stationarity. Third, the transportable edge-sector
 branch reconstructs compact internal gauge data in the bosonic branch; minimal admissible
 realization, anomaly constraints, and the explicit CKM/weak-sector clauses of MAR select the
-realized Standard Model quotient with exact hypercharge, the realized color triplet \(N_c=3\), and
-the generation count \(N_g=3\) on the explicit realized one-generation/one-Higgs package. This
+realized Standard Model quotient with exact hypercharge, structural electroweak force content, the
+realized color triplet \(N_c=3\), and the generation count \(N_g=3\) on the explicit realized
+one-generation/one-Higgs package. This
 branch does not by itself supply a super-Tannakian internalization of fermions/chirality.
 
 The local pixel ratio \(P \equiv a_{\rm cell}/\ell_P^2\) and the total screen capacity
@@ -2724,7 +2725,7 @@ where \(N_{\mathrm{nonab}}\) is the number of connected nonabelian simple factor
 
 \textbf{Proof.} The lexicographic order on \(\mathbb N^4\) is well-founded: first minimize \(\chi_{\mathrm{cpl}}\), then \(N_{\mathrm{nonab}}\) on that fiber, then \(N_c\), then \(N_g\). Each step minimizes a nonempty subset of \(\mathbb N\). QED.
 
-\textbf{Proposition 6.1e (meaning of MAR uniqueness).} MAR uniqueness is uniqueness of the observer-visible low-energy package modulo the physical equivalence relation in Definition 6.1b. It is not uniqueness of a microscopic regulator representative. The subsequent lemmas prove that, within the connected positive-dimensional Lie admissible class with one connected abelian factor and faithful action on the minimal coupled carrier, all MAR-minimal representatives realize the same connected SM gauge image, the same exact hypercharge lattice after normalization, \(N_c=3\), and \(N_g=3\). Any remaining differences are gauge-center quotient choices, relabelings, or inert implementation data and therefore do not change the physical predictions recorded in D8--D9.
+\textbf{Proposition 6.1e (meaning of MAR uniqueness).} MAR uniqueness is uniqueness of the observer-visible low-energy package modulo the physical equivalence relation in Definition 6.1b. It is not uniqueness of a microscopic regulator representative. The subsequent lemmas prove that, within the connected positive-dimensional Lie admissible class with one connected abelian factor and faithful action on the minimal coupled carrier, all MAR-minimal representatives realize the same connected SM gauge image, the same exact hypercharge lattice after normalization, the same structural electroweak force content, \(N_c=3\), and \(N_g=3\). Any remaining differences are gauge-center quotient choices, relabelings, or inert implementation data and therefore do not change the physical predictions recorded in D8--D9.
 
 \textbf{Note on transport obstruction.} The gluing obstruction is tracked explicitly so the gauge lane states its branch conditions. TransportabilityFromOverlapGluing identifies \([z]_\Sigma=0\) as the central-branch strict transport criterion and \(q_\Sigma=0\) as the genuinely noncentral strict ordinary transport criterion. When \(q_\Sigma\ne0\), the sector is handled by crossed-module data rather than by the ordinary DR field-algebra corollary. FixedCutoffBosonicSectorCategory constructs the fixed-cutoff category, RefinementFunctorAndFiberDescent constructs the refinement/fiber descent, and the realized witness theorem supplies the occupied ordinary/central compact-gauge branch.
 
@@ -2825,6 +2826,24 @@ with the Standard Model hypercharge lattice. Microscopic regulator representativ
 N_c=3.
 \]
 This is not a later selector layered on top of the theorem stack. QED.
+
+\textbf{Corollary 6.6c (structural electroweak force and charges).} On the realized one-Higgs branch, the electroweak gauge factor has Lie algebra
+\[
+\mathfrak{su}(2)_L\oplus\mathfrak{u}(1)_Y.
+\]
+The Higgs doublet \(H=(1,2)_{1/2}\) selects a neutral direction with
+\[
+Q_H=T_3+Y=0,
+\]
+so the unbroken generator is
+\[
+Q=T_3+Y,
+\]
+and the unbroken gauge factor is \(\mathrm U(1)_Q\). The charged weak generators give
+\[
+W^\pm=\frac{1}{\sqrt2}(W^1\mp iW^2),
+\]
+while the neutral \(\mathrm{SU}(2)_L\) and \(\mathrm U(1)_Y\) gauge fields span the \(Z/A\) basis on the D10 quantitative branch. Thus the recovered structural package contains the weak charged-current carriers \(W^\pm\), the neutral weak carrier \(Z\), the electromagnetic carrier \(A\), and the exact charge operator \(Q=T_3+Y\). The mixing angle, \(v\), and numerical \(W/Z\) masses belong to the D10 running/matching surface rather than to this recovered-core structural corollary. QED.
 
 \subsubsection{Refinement stability and unprotected relevant operators}\label{63-refinement-stability-and-unprotected-relevant-operators}
 
@@ -3207,12 +3226,12 @@ The model requires photons and gravitons.
 \item
   Corollary 6.1 (on the zero-obstruction sector system of TransportabilityFromOverlapGluing) reconstructs a field algebra with G as a local gauge symmetry.
 \item
-  For the Standard Model, G includes U(1)\_em after electroweak symmetry breaking.
+  For the Standard Model, the realized one-Higgs branch leaves the \(Q=T_3+Y\) stabilizer \(\mathrm U(1)_Q\) after electroweak symmetry breaking.
 \item
-  A gauge boson is the quantum of the gauge field. Once U(1)\_em emerges from overlap redundancy, its gauge field exists, and its quantum (the photon) must exist.
+  A gauge boson is the quantum of the gauge field. Once \(\mathrm U(1)_Q\) emerges from overlap redundancy, its gauge field exists, and its quantum (the photon) must exist.
 \end{enumerate}
 
-The photon is not postulated. It is forced by the axioms through the chain above. The photon mediates the correlations between charged excitations in different patches; it is how the U(1) redundancy structure propagates through the algebra net.
+The photon is not postulated. It is forced by the axioms through the chain above. The photon mediates the correlations between charged excitations in different patches; it is how the \(\mathrm U(1)_Q\) redundancy structure propagates through the algebra net.
 
 \textbf{Graviton inevitability chain:}
 
@@ -3707,7 +3726,7 @@ phase split is:
 \toprule
 Phase & Nodes & Meaning \\
 \midrule
-I & D1--D5, D7--D9 & Recovered core: fixed-cutoff overlap repair and collar structure; the Lorentz/null-modular/Einstein branch; bosonic compact gauge reconstruction; the support-visible four-dimensional Euclidean Yang--Mills form and repair-gap theorem on the compact-gauge branch; realized-branch Standard Model quotient, exact hypercharge, \(N_c=3\), and \(N_g=3\) under the explicit matter-package and admissibility inputs. \\
+I & D1--D5, D7--D9 & Recovered core: fixed-cutoff overlap repair and collar structure; the Lorentz/null-modular/Einstein branch; bosonic compact gauge reconstruction; the support-visible four-dimensional Euclidean Yang--Mills form and repair-gap theorem on the compact-gauge branch; realized-branch Standard Model quotient, exact hypercharge, structural electroweak force content, \(N_c=3\), and \(N_g=3\) under the explicit matter-package and admissibility inputs. \\
 II & D6, D10 & Quantitative closures: screen-capacity closure of the same Einstein branch and the \(P\)-driven electroweak/gauge-coupling branch. These depend on declared external or branch-specific inputs. \\
 III & D12 & Continuations: flavor details beyond the stated theorem surfaces, dark-sector proposals, heuristic baryogenesis branches, spectroscopy, hadrons, and string/worldsheet effective-description branches. \\
 \bottomrule
@@ -3742,12 +3761,24 @@ fixed-cap generalized-entropy stationarity, and the tensor upgrade. The scaling 
 the support-visible BW scaling theorem on the prime geometric subnet.
 \item \textbf{Gauge structure}: compact gauge reconstruction uses the transportable bosonic
 sector package. MAR plus anomaly algebra and the explicit CKM/weak-sector clauses on the same
-one-Higgs branch select the realized Standard Model quotient, \(N_c=3\), and \(N_g=3\).
+one-Higgs branch select the realized Standard Model quotient, \(N_c=3\), \(N_g=3\), and the
+structural electroweak force content \(\mathrm{SU}(2)_L\times\mathrm U(1)_Y\to\mathrm U(1)_Q\).
 \item \textbf{Microscopic theory}: finite quantum-link style presentations give concrete
 fixed-cutoff examples. They do not select a unique microscopic representative.
 \item \textbf{Noncentral gluing}: the crossed-module higher-gauge package closes the fixed-cutoff
 topological branch. The realized zero-obstruction bosonic compact-gauge branch is carried by a
 separate theorem stack on the ordinary or central branch.
+\end{itemize}
+
+\subsubsection{Known-force and charge coverage}\label{82a-known-force-and-charge-coverage}
+
+The recovered stack does not leave any known long-range or Standard Model gauge force unassigned:
+\begin{itemize}
+\tightlist
+\item \textbf{Gravity}: D3--D6 recover Lorentz kinematics, the null-stress bridge, and the Jacobson-type Einstein branch, with \(T_{ab}\) as the stress-energy source and the graviton as the quantum of the dynamical metric branch.
+\item \textbf{Strong interaction}: D8--D9 recover the \(\mathrm{SU}(3)_c\) color factor, the color triplet \(N_c=3\), quark color triplet/antitriplet assignments, and the eight gluon generators \((8,1,0)\). Confinement and hadron spectra are separate infrared QCD questions, not missing gauge-charge assignments.
+\item \textbf{Weak interaction}: D8--D9 recover the \(\mathrm{SU}(2)_L\) weak doublet structure, the one-Higgs branch, and the charged weak carriers \(W^\pm\) from the broken \(\mathrm{SU}(2)_L\) generators. D10 supplies the quantitative running/matching readout for \(v\) and the \(W/Z\) validation rows.
+\item \textbf{Hypercharge and electromagnetism}: The hypercharge theorem, the \(\mathbb Z_6\) quotient, and Corollary 6.6c fix the \(\mathrm U(1)_Y\) lattice, the unbroken generator \(Q=T_3+Y\), integer charge for color singlets, and the photon \(A\) as the massless \(\mathrm U(1)_Q\) carrier. The Thomson-limit fine-structure endpoint is a D10 quantitative closure.
 \end{itemize}
 
 \subsubsection{Testable Items and Phenomenological Branches}\label{83-novel-testable-predictions}
@@ -3756,8 +3787,8 @@ The detailed prediction surfaces live in the companion papers. The synthesis-lev
 
 \begin{itemize}
 \tightlist
-\item \textbf{Exact structural tests}: massless photon/gluons/graviton, exact hypercharge
-quantization, \(N_c=3\), \(N_g=3\), and no gauge-mediated proton decay on the product-group branch.
+\item \textbf{Exact structural tests}: massless photon/gluons/graviton, exact color and electroweak
+charge assignments, exact hypercharge quantization, \(N_c=3\), \(N_g=3\), and no gauge-mediated proton decay on the product-group branch.
 \item \textbf{Information-theoretic gravity bound}: modular-additivity defects give explicit
 upper bounds on GR deviations wherever the Markov/mixing hypotheses apply.
 \item \textbf{Edge-sector tests}: Casimir-ratio predictions, including
