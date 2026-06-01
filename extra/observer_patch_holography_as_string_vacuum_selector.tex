@@ -1,0 +1,2365 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{booktabs,array,longtable}
+\usepackage[shortlabels]{enumitem}
+\usepackage{hyperref}
+\usepackage{xurl}
+\IfFileExists{../paper/release_info.tex}{%
+  \input{../paper/release_info.tex}%
+}{%
+  \IfFileExists{../reverse-engineering-reality/paper/release_info.tex}{%
+    \input{../reverse-engineering-reality/paper/release_info.tex}%
+  }{%
+    \newcommand{\OPHPaperReleaseDate}{Working paper, \today}%
+    \newcommand{\OPHPaperReleaseBanner}{%
+      \begin{center}\small\textbf{String selector working paper:} local standalone compile\end{center}}
+  }%
+}
+
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\setlength{\emergencystretch}{3em}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.08}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{claim}[theorem]{Claim}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\theoremstyle{plain}
+
+\newcommand{\OPH}{\mathrm{OPH}}
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\U}{\mathrm{U}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Cent}{\operatorname{Cent}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\calF}{\mathcal F}
+\newcommand{\calO}{\mathcal O}
+\newcommand{\calA}{\mathcal A}
+\newcommand{\calR}{\mathcal R}
+\newcommand{\calI}{\mathcal I}
+\newcommand{\calU}{\mathcal U}
+\newcommand{\ZfourR}{\mathbb Z_4^R}
+\newcommand{\Tcorr}{\mathcal T_{\mathrm{correct}}^{\OPH}}
+\newcommand{\Teq}{\sim_{\OPH}}
+\newcommand{\Mgrav}{\mathfrak M_{\mathrm{grav}}}
+\newcommand{\TT}{\mathrm{TT}}
+
+\title{Observer-Patch Holography as a String-Vacuum Selector:\\
+Observers, Clocks, Edge Strings, and the Bouchard-Donagi Witness}
+\author{B.\ M\"uller}
+\date{\OPHPaperReleaseDate}
+
+\begin{document}
+\maketitle
+\OPHPaperReleaseBanner
+
+\begin{abstract}
+Recent de Sitter holography asks for a physical observer in the static patch, a clock branch,
+a time-reversal holonomy that flips clocks around a closed curve, and a Planck-scale location for
+horizon entropy \cite{DSObservers2025,DSMoreObservers2026,DSTimeReversal2026,DSEntropy2025}.
+String phenomenology has its own list: a vacuum selector, the exact global Standard Model group,
+one Higgs branch, no light exotics, proton-decay discrimination, operator safety, and moduli
+locking. OPH turns these questions into finite gates.
+
+Here is the picture. Finite observer patches compare shared readouts; accepted repairs settle the
+public quotient normal form \cite{OPHObserversAllYouNeed,OPHRealityConsensus}. A physical observer
+is a record-bearing patch subfederation. Clock time is an ordered record branch. A clock flip around
+a closed curve is a \(\Z_2^T\) obstruction on the overlap nerve. Horizon entropy is edge-center
+record capacity. The same edge/collar system has stable cyclic normal forms. Their repair histories
+are read as worldsheets, so string theory appears as the effective worldsheet description of OPH
+edge dynamics. The string graviton is the left/right collar factorization of the OPH
+transverse-traceless metric quantum.
+
+The compact OPH core supplies the Lorentz, Einstein, global Standard Model quotient, hypercharge,
+color, and generation targets \cite{OPHCompactCore}. The finite carrier picture supplies records,
+interfaces, checkpoints, and synchronization \cite{OPHScreenMicrophysics}. This turns the string
+landscape into a sieve. The geometric witness selected in this paper is the Bouchard-Donagi
+\(E_8\times E_8\) heterotic \(\SU(5)\) Standard Model on its one-Higgs-pair stratum. The
+operator-safe candidate is
+\[
+BD_{n=1,+}^{\OPH}=BD_{n=1}^{\OPH}+\ZfourR .
+\]
+The empirical handles are concrete: the \((\SU(3)\times\SU(2)\times\U(1))/\Z_6\) quotient, one
+light Higgs doublet, three generations, no light chiral exotics, no extra visible low-scale
+\(\U(1)\), no \(X/Y\) gauge-proton channel, a moderate positive Higgs/stop threshold, and a
+string/GUT threshold target. The formulas stay close to the claims, which is how this kind of paper
+should behave. The open certificate gates are cohomology reproduction, geometric realization of the safety
+layer, threshold matching, and moduli locking.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Scope and Claim Boundary}
+
+This paper records a specific bridge from the de Sitter observer problem to the OPH string
+continuation. It separates three layers:
+\[
+\begin{aligned}
+&\text{observer/clock implementation}\\
+&\quad\longrightarrow \text{edge-string effective language}\\
+&\quad\longrightarrow \text{critical string representative.}
+\end{aligned}
+\]
+The first layer is OPH fixed-cutoff patch algebra. The second layer is the heat-kernel
+edge-sector read-off. The third layer is the Bouchard-Donagi heterotic Standard Model used as a
+named critical-string witness.
+
+The target claim is conditional. If the OPH recovered-core theorem stack is accepted, if the
+Bouchard-Donagi one-Higgs stratum locks to the OPH quantitative vector without free retuning,
+and if the MSSM \(\ZfourR\) safety layer is realized on the same branch, OPH becomes an
+independent selector of a particular known heterotic Standard Model representative:
+\[
+BD_{n=1,+}^{\OPH}.
+\]
+
+The notation separates two roles:
+\[
+BD_{n=1}^{\OPH}
+\quad
+\text{is the geometric one-Higgs witness,}
+\]
+\[
+BD_{n=1,+}^{\OPH}
+ =
+BD_{n=1}^{\OPH}+\ZfourR
+\quad
+\text{is the operator-safe candidate.}
+\]
+The \(+\) records the MSSM \(\ZfourR\) safety layer. The charge-algebra part of this gate closes
+inside the paper; the realization of \(\ZfourR\) as a symmetry of the BD compactification is a
+certificate gate.
+
+The compact rule is:
+\[
+\text{string theory is the edge-language of OPH.}
+\]
+In that reading, the string landscape is the space of effective edge-worldsheet completions. OPH
+acts as a selector by imposing the observer-visible normal form.
+
+\begin{center}
+\small
+\begin{tabular}{p{0.25\linewidth}p{0.31\linewidth}p{0.34\linewidth}}
+\toprule
+\textbf{Goal} & \textbf{Paper claim} & \textbf{Receipt carried here} \\
+\midrule
+Exact string representative & OPH selects the operator-safe Bouchard-Donagi one-Higgs heterotic
+Standard Model candidate \(BD_{n=1,+}^{\OPH}\). & Selector gates, global group proof, safety
+charge table, candidate sieve. \\
+String-theory pressure points & The landscape, global group, Higgs multiplicity, exotics,
+operator danger, proton decay, and moduli problems become explicit gates. & Gate table,
+acceptance table, falsifier matrix. \\
+Empirical prediction surface & The selected branch makes low-energy and threshold-level
+claims that can fail. & Higgs/top targets, stop-threshold proxy, string/GUT threshold proxy,
+operator table. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+
+\section{OPH Entry Map for String Theorists}
+
+For a reader entering OPH from string theory, the shortest safe translation is this. OPH begins
+with finite observer patches. Each patch has local data, records, and overlap readouts. A physical
+world is the quotient-normal form reached when accepted repair moves make shared readouts agree.
+Geometry, gauge structure, particles, and edge strings are read from that normal form.
+
+\subsection{Five informal summaries}
+
+\paragraph{1. The basic rule.}
+Observer patches are finite. They see shared boundary data. Physics is the public content that
+survives overlap comparison and repair. The synthesis paper gives the broad entry point
+\cite{OPHObserversAllYouNeed}; the consensus paper gives the fixed-cutoff repair theorem surface
+\cite{OPHRealityConsensus}.
+
+\paragraph{2. Why spacetime and gauge theory appear.}
+Null structure, Lorentzian geometry, the Einstein branch, compact gauge data, and the realized
+Standard Model quotient are recovered as stable normal forms of observer-overlap consistency. The
+compact paper carries the theorem surface for this claim \cite{OPHCompactCore}. The Yang-Mills note
+states the compact-gauge branch in the language of holonomy, Euclidean transfer, and the mass-gap
+problem \cite{OPHYangMillsGap}.
+
+\paragraph{3. Why particle numbers enter the selector.}
+The particle-sector paper carries the electroweak, Higgs/top, quark, charged-lepton, neutrino, and
+hadron audit lanes \cite{OPHParticleZoo}. The fine-structure note isolates the local pixel fixed
+point that feeds the quantitative electroweak target \cite{OPHFineStructure}. These papers supply
+the numerical vector that the selected string representative has to match.
+
+\paragraph{4. Why observers and records are literal inputs.}
+The screen-microphysics paper turns patches into finite record-bearing carriers with ports,
+interfaces, synchronization rules, and checkpoint readouts \cite{OPHScreenMicrophysics}. The
+thinking paper shows the same patch-net fixed-point machine as a model of biological cognition
+\cite{OPHThinkingPatchNet}. For this string paper, the needed fact is concrete: observers are
+record-bearing finite systems inside the theory.
+
+\paragraph{5. Why phenomenology becomes a gate list.}
+The dark-matter paper treats missing gravitational response as a quotient-edge coherent-matter
+phenomenon \cite{OPHDarkMatter}. The \(\chi_\nu\) note records the susceptibility bounds used by
+that collar branch \cite{OPHChiNuBounds}. The paradise paper belongs to OPH's meaning and
+continuation layer; it is useful background for the fixed-point ontology, outside the string
+selector proof \cite{OPHParadiseConsensus}.
+
+\subsection{Source map}
+
+The OPH reader path used here has eleven entries. Each link points to the TeX source in the public
+GitHub repository.
+
+\begin{longtable}{p{0.27\linewidth}p{0.43\linewidth}p{0.20\linewidth}}
+\toprule
+\textbf{Source} & \textbf{Role in this paper} & \textbf{GitHub} \\
+\midrule
+Observers Are All You Need & Synthesis entry point: finite observer cuts, overlap agreement,
+screen-capacity language, and the recovered-branch map. &
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.tex}{paper/source} \\
+Recovering Relativity and the Standard Model & Compact theorem surface for Lorentz, Einstein,
+global Standard Model quotient, hypercharge, colors, generations, and no mixed \(X/Y\) gauge bosons. &
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex}{paper/source} \\
+Reality as a Consensus Protocol & Fixed-cutoff consensus theorem: mismatch functional, accepted
+repair, quotient confluence, and holonomy obstructions. &
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/reality_as_consensus_protocol.tex}{paper/source} \\
+Screen Microphysics and Observer Synchronization & Finite carrier model for records, ports,
+interfaces, checkpoint restoration, and observer synchronization. &
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.tex}{paper/source} \\
+Deriving the Particle Zoo & Particle and electroweak quantitative lanes used by the
+moduli-locking target vector. &
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.tex}{paper/source} \\
+Paradise as Fixed-Point Consensus & OPH ontology and continuation layer; background only for the
+string selector. &
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/paradise_as_fixed_point_consensus.tex}{paper/source} \\
+The Fine-Structure Constant as an OPH Pixel Fixed Point & Local screen-cell fixed point and
+fine-structure input used by the electroweak target. &
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/fine_structure_constant_derivation.tex}{extra/source} \\
+Observer-Patch Holography and the Dark Matter Phenomenon & Quotient-edge coherent-matter branch,
+used as a phenomenology example of OPH gate logic. &
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/oph_dark_matter_paper.tex}{extra/source} \\
+Theoretical Bounds on \(\chi_\nu\) & Collar survival and susceptibility bounds for the dark
+sector continuation. &
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/chi_nu_susceptibility_bounds.tex}{extra/source} \\
+Explaining the Yang-Mills Mass Gap & Compact-gauge reconstruction and mass-gap route, useful for
+the gauge side of the string selector. &
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/yang_mills_gap_clay_problem.tex}{extra/source} \\
+Thinking as Patch-Net Fixed-Point Search & Cognitive instance of the same finite patch-net
+record and repair machine. &
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/thinking_as_patch_net_fixed_point_search.tex}{extra/source} \\
+\bottomrule
+\end{longtable}
+
+\section{Main Result: One Correct String Theory up to OPH Equivalence}
+
+The phrase ``exactly one correct string theory'' needs a precise equivalence relation. The claim
+concerns the observer-visible physical class. Notation, duality frame, worldsheet gauge, and
+coordinate presentation are chart data. Once observer-visible data are fixed, all admissible
+critical-string presentations collapse to a single OPH-equivalence class.
+
+\begin{definition}[OPH-equivalent critical presentations]
+Two critical-string presentations \(\mathcal T_1\) and \(\mathcal T_2\) are OPH-equivalent,
+written
+\[
+\mathcal T_1\Teq\mathcal T_2,
+\]
+when they induce the same observer-visible data:
+\begin{enumerate}[leftmargin=2em]
+\item the same edge-sewn heat-kernel partition on the compact gauge branch;
+\item the same four-dimensional graviton normalization and Einstein-frame metric perturbation;
+\item the same global visible gauge group
+\[
+G_{\rm phys}=(\SU(3)\times\SU(2)\times\U(1))/\Z_6;
+\]
+\item the same hypercharge lattice, chiral index, and low-energy matter package;
+\item the same operator-safety algebra on the visible superpotential;
+\item the same OPH quantitative target vector \(\calO_{\OPH}\), modulo threshold and moduli
+coordinates invisible to the OPH quotient.
+\end{enumerate}
+Duality frames are charts on the same OPH-visible normal form.
+\end{definition}
+
+\begin{definition}[OPH-correct critical string]
+A critical-string presentation \(\mathcal T\) is OPH-correct if it satisfies all of the following.
+\begin{enumerate}[leftmargin=2em]
+\item a critical completion of the OPH sewn-edge worldsheet branch, with the same
+observer-visible edge data.
+\item Its massless spin-two field is the quantization of the OPH Einstein-frame metric mode.
+\item Its visible compact gauge sector descends to
+\((\SU(3)\times\SU(2)\times\U(1))/\Z_6\).
+\item Its visible chiral spectrum is exactly three generations, no light chiral exotics, and the
+one-Higgs-pair branch used by the OPH electroweak target.
+\item Its visible operator algebra has the \(\ZfourR\) safety layer, or an OPH-equivalent rule,
+which permits Yukawas and the Weinberg operator, and forbids perturbative RPV, perturbative
+dimension-five proton decay, and the perturbative \(\mu\)-term.
+\item Its moduli and threshold map satisfies
+\[
+\calF_{\mathcal T}(m_\star)=\calO_{\OPH}
+\]
+with full transverse rank after quotienting OPH-invisible redundancies.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Correct-string uniqueness theorem]
+Assume the OPH recovered-core target, the heterotic edge-sector branch, the certificate gates
+listed in Section~\ref{sec:open-gates}, and the following comparison principle:
+OPH-correct presentations are ordered first by gate satisfaction, then by the minimality vector
+\[
+C(v)=
+\bigl(
+N_{\rm parent},N_{\rm corridor},|\Gamma|,n_H,N_{\rm exotic},
+N_{U(1),{\rm extra}},N_{\rm safety},D_{\rm moduli}
+\bigr),
+\]
+with ties quotienting by \(\Teq\). Then the set of OPH-correct critical-string presentations is a
+singleton:
+\[
+\boxed{
+\{
+\mathcal T:\mathcal T\text{ is OPH-correct}
+\}/\Teq
+=
+\{BD_{n=1,+}^{\OPH}\}.
+}
+\]
+Equivalently,
+\[
+\boxed{
+\Tcorr=BD_{n=1,+}^{\OPH}.
+}
+\]
+\end{theorem}
+
+\begin{proof}
+The recovered-core target fixes the observer-visible endpoint: the global Standard Model quotient,
+three colors, three generations, exact hypercharge lattice, one-Higgs electroweak branch, no light
+chiral exotics, no extra visible low-scale \(\U(1)\), and the product-group absence of \(X/Y\)
+gauge bosons. The edge-string continuation restricts the UV completion to critical presentations
+whose worldsheet branch is the sewn OPH edge system and whose massless spin-two mode is the
+quantized OPH metric perturbation. The Bouchard--Donagi \(\Z_2\)-quotient \(\SU(5)\)-bundle
+with one Higgs pair supplies a nonempty heterotic witness with the required three-generation,
+no-exotics visible spectrum and Wilson-line centralizer. The \(\ZfourR\) layer closes the visible
+operator gate. The moduli-locking hypothesis isolates the physical target point. All other encoded
+competitors fail at least one gate or have a larger minimality vector. Quotienting by \(\Teq\) removes
+pure duality-frame duplicates. The passing minimal OPH-equivalence class is the singleton
+\(BD_{n=1,+}^{\OPH}\).
+\end{proof}
+
+\begin{remark}[How strong this is]
+BD is not decoration here. OPH supplies an external observer-visible target, so the landscape is
+filtered by a normal-form equation. The claim is falsifiable by construction: failure of the BD
+cohomology,
+safety-layer realization, threshold target, or transverse moduli rank retracts the selected critical
+representative without retracting the OPH recovered core.
+\end{remark}
+
+\section{Theorem Agenda}
+
+The de Sitter observer literature has isolated a tight set of frontier puzzles. OPH's job is to
+make them concrete. The de Sitter side of the agenda is:
+\begin{center}
+\small
+\begin{tabular}{p{0.29\linewidth}p{0.61\linewidth}}
+\toprule
+\textbf{Pressure point} & \textbf{OPH theorem target} \\
+\midrule
+Physical observer in de Sitter & Finite observer theorem: a physical observer is a stable
+record-bearing patch subfederation. \\
+Complex semiclassical correlators & Clock-projection correlator theorem: imaginary phases appear
+after record-sector clock projection. \\
+Time-reversal holonomy & \(\Z_2^T\) holonomy theorem: clock flips are cycle obstructions,
+equivalently \(w_1(L_T)\) classes. \\
+Time-reversal breaking & Record-branch theorem: ordered checkpoint records select a local time
+orientation. \\
+Entropy location & Edge-capacity theorem: \(S_{\rm dS}=A/(4\ell_P^2)\) is finite edge-center
+record capacity. \\
+Finite de Sitter degrees & Static-patch matrix-carrier theorem: finite patch and interface
+algebras supply pre-geometric matrix degrees. \\
+DSSYK/QCD/string parallels & Edge-sum universality theorem: heat-kernel edge sums reorganize as
+large-\(N\) worldsheet expansions. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The string/vacuum side of the agenda is:
+\begin{center}
+\small
+\begin{tabular}{p{0.29\linewidth}p{0.61\linewidth}}
+\toprule
+\textbf{Pressure point} & \textbf{OPH theorem target} \\
+\midrule
+String landscape & OPH vacuum sieve theorem: critical completions must hit the observer-visible
+normal form. \\
+Global Standard Model group & Global group locking theorem:
+\(S(\U(3)\times\U(2))\cong(\SU(3)\times\SU(2)\times\U(1))/\Z_6\). \\
+GUT proton decay & No-\(X/Y\) gauge theorem: the product-group adjoint contains no mixed
+\((3,2,\pm5/6)\) gauge bosons. \\
+Moduli stabilization & OPH moduli-locking criterion:
+\(\calF(m_\star)=\calO_{\OPH}\) with full transverse rank. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{De Sitter Observer Pressure Points}
+
+Recent de Sitter papers make the observer problem unusually explicit. One note relates the need
+for observers in de Sitter space to spontaneous breaking of time reversal \cite{DSObservers2025}.
+A follow-up states that quantum de Sitter theory is widely thought to require a physical observer
+in the static patch, with the definition of observer unspecified \cite{DSMoreObservers2026}. The
+time-reversal question is sharpened by treating time reversal as a gauge symmetry hidden by
+spontaneous symmetry breaking, with a proposed ``smoking gun'' given by a closed curve whose
+holonomy flips forward-going clocks into backward clocks \cite{DSTimeReversal2026}.
+
+OPH reads these as implementation questions. What finite object counts as an observer? What
+operation selects the clock branch? What finite obstruction carries the clock flip? What entropy
+surface supplies the static-patch degrees of freedom?
+
+\subsection{Observer}
+
+\begin{definition}[OPH observer subfederation]
+Let
+\[
+\mathfrak F=(V,E,\{\calA_i\},\{\calI_e\},\{\pi_{i,e}\},\{\calR_i\},\{\calU_i\})
+\]
+be a finite OPH patch carrier. An observer subfederation is a finite
+\(U\subset V\) equipped with an accessible algebra \(\calA_U\), a state \(\rho_U\), a record
+algebra \(\calR_U\), a boundary interface \(\calI_{\partial U}\), and accepted repair maps whose
+normal form preserves a checkpoint order on \(\calR_U\).
+\end{definition}
+
+The observer projection is the record event
+\[
+P_{\rm obs}=P_{\calR_U,+},
+\]
+where \(+\) denotes the chosen clock orientation. Conditioning is ordinary projection:
+\[
+\rho|_{\calR_U,+}
+=
+\frac{P_{\calR_U,+}\rho P_{\calR_U,+}}{\Tr(P_{\calR_U,+}\rho)}.
+\]
+
+\begin{theorem}[Finite observer theorem]
+On a finite OPH static-patch carrier, a physical observer is a subfederation \(U\subset V\) whose
+checkpoint
+\[
+\mathrm{Chk}_U(t)=
+\bigl(\calR_U(t),\rho_U^{\rm acc}(t),\mathfrak I_U^{\rm ext}(t),
+\nu_{\ge t},\mathfrak B_U(t)\bigr)
+\]
+has a stable continuation law on the observer-accessible event algebra under same-interface
+continuation. The de Sitter observer projection is the record-sector projection
+\(P_{\calR_U,+}\).
+\end{theorem}
+
+\begin{proof}
+The data defining \(U\) are finite algebraic data. The event that records persist with a
+monotone checkpoint ordering is a projection in the record algebra after passing to the
+observable quotient. Conditioning by that projection gives the usual post-selected state on the
+observer-accessible sector. The observer is represented inside the patch Hilbert space.
+\end{proof}
+
+\subsection{Semiclassical De Sitter}
+
+OPH treats semiclassical spacetime as an observer-facing quotient normal form. The repair
+functional has the schematic form
+\[
+\Phi(s)=\sum_{e=\{i,j\}} w_e\,
+d_e\!\left(\pi_{i,e}(s_i),\pi_{j,e}(s_j)\right).
+\]
+Accepted repairs lower \(\Phi\). Under the local-diamond and repair-completeness hypotheses used
+in the consensus paper, the terminal observable state is schedule-independent on the physical
+quotient.
+
+\begin{claim}[Semiclassical patch]
+The semiclassical de Sitter patch is the stable quotient normal form of finite
+observer-overlap repair, read on a record-bearing clock sector.
+\end{claim}
+
+OPH answers the de Sitter observer question here. The maximally mixed
+static-patch state belongs to the unconditioned algebra. The semiclassical branch is read after
+record conditioning.
+
+\subsection{Clock-conditioned correlator}
+
+The finite toy model used in the correspondence package has two clock orientations exchanged by
+time reversal. The two-level model is only a witness. The algebraic point is that the maximally
+mixed static-patch trace averages over clock orientations, and an observer record projection selects
+one oriented branch.
+
+\begin{theorem}[Clock-projection correlator theorem]
+Let \(\mathcal H\) be finite-dimensional, let \(H=H^\dagger\), let \(A=A^\dagger\), and set
+\[
+A(t)=e^{iHt}Ae^{-iHt},\qquad \rho_\infty=I/d.
+\]
+Then
+\[
+C_\infty(t):=\Tr(\rho_\infty A(t)A)
+\]
+is real, so
+\[
+\im C_\infty(t)=0.
+\]
+Equivalently,
+\[
+\Tr(\rho_\infty[A(t),A])=0.
+\]
+For a noncentral observer-clock record projector \(P_E\),
+\[
+\rho_E=\frac{P_E\rho_\infty P_E}{\Tr(P_E\rho_\infty)},
+\]
+the commutator expectation is generically nonzero. In the two-state clock example
+\[
+H=\frac{\omega}{2}\sigma_z,\qquad A=\sigma_x,
+\]
+one has
+\[
+C_\infty(t)=\frac12\Tr(\sigma_x(t)\sigma_x)=\cos(\omega t).
+\]
+On the forward clock record state \(\rho_+=|0\rangle\langle0|\),
+\[
+C_+(t)=\langle0|\sigma_x(t)\sigma_x|0\rangle=e^{i\omega t}.
+\]
+The imaginary semiclassical phase is restored by clock-record conditioning:
+\[
+\im C_\infty(t)=0,\qquad \im C_+(t)=\sin(\omega t).
+\]
+\end{theorem}
+
+\begin{proof}
+Since \(A(t)\) and \(A\) are Hermitian,
+\[
+C_\infty(t)^*=\frac1d\Tr(A A(t)).
+\]
+By cyclicity of the trace,
+\[
+\Tr(A A(t))=\Tr(A(t)A),
+\]
+so \(C_\infty(t)^*=C_\infty(t)\), hence \(C_\infty(t)\in\mathbb R\). The commutator statement
+follows from \(\Tr([A(t),A])=0\).
+
+For a projected state \(\rho_E\), the projector sits between the state and the clock-transition
+operator. The cyclic cancellation above applies only in the commuting case. Generic observer-clock
+records are noncentral, so the antisymmetric part can survive. For the two-state witness,
+\[
+\sigma_x(t)=e^{i\omega t\sigma_z/2}\sigma_xe^{-i\omega t\sigma_z/2}
+=\cos(\omega t)\sigma_x-\sin(\omega t)\sigma_y.
+\]
+Then
+\[
+\sigma_x(t)\sigma_x=\cos(\omega t)I+i\sin(\omega t)\sigma_z.
+\]
+The maximally mixed trace gives \(\cos(\omega t)\). The \(|0\rangle\) matrix element gives
+\(\cos(\omega t)+i\sin(\omega t)=e^{i\omega t}\).
+\end{proof}
+
+\subsection{Time-reversal holonomy}
+
+The time-orientation data must be a local system. Globally chosen patch signs give only a
+coboundary, and every closed-cycle product then telescopes to \(+1\). Clock-flip holonomy needs a
+\(\Z_2^T\)-valued \v{C}ech 1-cocycle on the overlap nerve \(N(\mathfrak F)\):
+\[
+g_{ij}\in \Z_2^T,\qquad g_{ij}g_{jk}g_{ki}=1
+\]
+on triple overlaps, modulo local redefinitions
+\[
+g_{ij}\sim \lambda_i g_{ij}\lambda_j^{-1},\qquad \lambda_i\in\Z_2^T.
+\]
+For a closed path \(\gamma=(i_0i_1)(i_1i_2)\cdots(i_{n-1}i_0)\), define
+\[
+h_T(\gamma)=\prod_{a=0}^{n-1}g_{i_a i_{a+1}}\in\Z_2^T.
+\]
+
+\begin{theorem}[Time-reversal holonomy theorem]
+A forward-going local clock transported around \(\gamma\) returns backward-going iff
+\[
+h_T(\gamma)=-1.
+\]
+The obstruction to a global time-orientation section is the cohomology class
+\[
+[g]\in H^1(N(\mathfrak F),\Z_2)\cong \check H^1(N(\mathfrak F),\Z_2),
+\]
+equivalently the first Stiefel-Whitney class
+\[
+w_1(L_T)=[g].
+\]
+It vanishes iff the transition cocycle is a coboundary, i.e. iff one can choose local orientations
+\(\epsilon_i\) with \(g_{ij}=\epsilon_i^{-1}\epsilon_j\) on every overlap.
+\end{theorem}
+
+\begin{proof}
+Parallel transport across the overlap \((ij)\) multiplies the clock-orientation basis by \(g_{ij}\).
+Transport around \(\gamma\) multiplies by the ordered product \(h_T(\gamma)\). Since the group is
+\(\Z_2\), the value \(+1\) preserves orientation and the value \(-1\) reverses it.
+
+A global time orientation is a choice of signs \(\epsilon_i\in\Z_2\) such that the transition from
+patch \(i\) to patch \(j\) is reproduced by \(g_{ij}=\epsilon_i^{-1}\epsilon_j\). This is the
+statement that the 1-cocycle \(g\) is a coboundary. The obstruction class is
+\([g]\in H^1(N(\mathfrak F),\Z_2)\), which is the first Stiefel-Whitney class of the associated
+\(\Z_2\) time-orientation line bundle \(L_T\). A nonzero class means no global time-orientation
+section exists.
+\end{proof}
+
+The proposed de Sitter clock-flip test reads, in finite OPH form, as a \(\Z_2^T\) cycle obstruction
+on the patch-overlap nerve.
+
+\subsection{Record-branch time-reversal breaking}
+
+Let \(P_1,P_2,\ldots,P_n\in\calR_U\) be mutually commuting checkpoint record projectors over a
+finite observation window, with a monotone checkpoint order
+\[
+P_1\prec P_2\prec\cdots\prec P_n.
+\]
+Time reversal sends this ordered history to the reversed history. Conditioning on the finite branch
+projector
+\[
+P_{\rm branch}=P_1P_2\cdots P_n
+\]
+selects one local time orientation on the observer-accessible quotient.
+
+\begin{theorem}[Record-branch time-reversal breaking]
+The unconditioned finite carrier carries the time-reversal-related pair of record orders. A
+stable checkpoint branch selects one order by
+\[
+\rho\mapsto
+\frac{P_{\rm branch}\rho P_{\rm branch}}{\Tr(P_{\rm branch}\rho)}.
+\]
+Time reversal is a redundancy of the unconditioned carrier and is hidden on the conditioned
+observer quotient by finite record ordering.
+\end{theorem}
+
+\begin{proof}
+Because the checkpoint records belong to the observer-accessible record algebra, they are central
+or mutually commuting on the exact fixed-cutoff event surface used here. The finite product
+\(P_{\rm branch}=P_1\cdots P_n\) is again a projector onto the event that the ordered record history
+occurs. The time-reversed branch is represented by the same unordered product together with the
+opposite continuation schedule. The unconditioned carrier contains both orientation-related
+continuations. Conditioning by \(P_{\rm branch}\) and the continuation schedule selects one law on
+the observer-accessible quotient. On that quotient the reversed branch is outside the conditioned
+continuation law, so the time-reversal redundancy is hidden by record ordering.
+\end{proof}
+
+\section{Entropy, Matrix Degrees, and Scale Separation}
+
+Recent DSSYK/JT-de Sitter work places the stretched-horizon entropy at order Planck distance
+from the mathematical horizon \cite{DSEntropy2025}. OPH agrees with that direction. The entropy
+budget is finite edge-center and record capacity:
+\[
+S_{\rm dS}=N_{\rm scr}=\frac{A_{\rm dS}}{4\ell_P^2}.
+\]
+The string scale is downstream in this paper. The edge record capacity is the substrate; the
+worldsheet is the effective language after sewing and large-edge organization.
+
+\begin{theorem}[Edge-capacity entropy theorem]
+On the OPH de Sitter static-patch branch, the horizon entropy is the capacity of the
+observer-facing edge-center record surface:
+\[
+S_{\rm dS}=N_{\rm scr}=\frac{A_{\rm dS}}{4\ell_P^2}.
+\]
+The corresponding screen-capacity branch gives
+\[
+\Lambda=\frac{3\pi}{G N_{\rm scr}}.
+\]
+\end{theorem}
+
+\begin{proof}
+The OPH screen-capacity branch identifies the number of observer-facing horizon record units with
+the Gibbons-Hawking entropy,
+\[
+N_{\rm scr}=\frac{A_{\rm dS}}{4\ell_P^2}.
+\]
+For a four-dimensional de Sitter static patch,
+\[
+A_{\rm dS}=4\pi R_{\rm dS}^2,
+\qquad
+\Lambda=\frac{3}{R_{\rm dS}^2}.
+\]
+This gives
+\[
+N_{\rm scr}=\frac{4\pi R_{\rm dS}^2}{4\ell_P^2}
+=\frac{\pi R_{\rm dS}^2}{\ell_P^2}.
+\]
+Using \(\ell_P^2=G\) in units \(\hbar=c=1\),
+\[
+N_{\rm scr}=\frac{3\pi}{G\Lambda},
+\]
+and
+\[
+\Lambda=\frac{3\pi}{G N_{\rm scr}}.
+\]
+\end{proof}
+
+The finite carrier
+\[
+\mathfrak F=(V,E,\{\calA_i\},\{\calI_e\},\{\pi_{i,e}\},\{\calR_i\},\{\calU_i\})
+\]
+also supplies a matrix-style pre-geometric object. This matches the pressure behind de
+Sitter-matrix arguments, where black holes and nonperturbative sectors probe the static-patch
+degrees of freedom \cite{DSMatrix2021}. In OPH, black-hole sectors are constrained normal
+forms that reallocate screen capacity:
+\[
+P(\text{sector})\propto
+\exp[-(S_{\rm dS}-S_{\rm sector})].
+\]
+
+\begin{theorem}[Static-patch matrix carrier theorem]
+The finite algebras \(\calA_i\) and interface algebras \(\calI_e\) of an OPH de Sitter
+static-patch carrier are the microscopic matrix degrees used by the pre-geometric description.
+A black-hole sector is a constrained normal-form sector \(\mathfrak S_{\rm BH}\) with
+\[
+S(\mathfrak S_{\rm BH})<S_{\rm dS}
+\]
+and fluctuation weight proportional to
+\[
+\exp[-(S_{\rm dS}-S(\mathfrak S_{\rm BH}))].
+\]
+\end{theorem}
+
+\begin{proof}
+At fixed cutoff each local patch algebra and interface algebra is finite-dimensional, hence a finite
+direct sum of matrix algebras. The unreduced tensor product of a finite static-patch carrier is a
+finite matrix algebra up to superselection-block decomposition, and the physical algebra is its
+overlap-invariant quotient. A constrained black-hole sector imposes additional horizon, energy, or
+area constraints on the same finite record surface, so its accessible record count is smaller than
+the empty de Sitter static-patch count. With the same coarse-grained entropy measure in both
+macroscopic sectors, the relative weight of the constrained sector is the ratio of state counts,
+\[
+\frac{e^{S(\mathfrak S_{\rm BH})}}{e^{S_{\rm dS}}}
+=\exp[-(S_{\rm dS}-S(\mathfrak S_{\rm BH}))].
+\]
+\end{proof}
+
+Scale-separation work on de Sitter and double-scaled SYK distinguishes a cosmic sector from a
+microscopic sector \cite{DSScales2022}. OPH has the same split:
+\[
+\text{cosmic sector}\leftrightarrow N_{\rm scr},
+\qquad
+\text{microscopic sector}\leftrightarrow P,\text{ edge labels, finite records}.
+\]
+The clean dimensionless separator is \(N_{\rm scr}/P\).
+
+\section{Edge-String Emergence}
+
+The OPH string continuation begins at the edge-sector partition. At fixed cutoff, edge labels are
+compact representations \(R\) with dimension \(d_R\) and quadratic Casimir \(C_2(R)\). The
+open-edge weight is
+\[
+p_R(t)=\frac{d_R e^{-t C_2(R)}}{Z_{\rm open}(t)}.
+\]
+Sewing two collar sides contributes a second representation-dimension factor:
+\[
+Z_{\rm edge}(t)=\sum_R d_R^2 e^{-tC_2(R)}.
+\]
+By Peter-Weyl,
+\[
+K_t(g)=\sum_R d_R\chi_R(g)e^{-tC_2(R)}.
+\]
+At \(g=1\), \(\chi_R(1)=d_R\), hence
+\[
+Z_{\rm edge}(t)=K_t(1).
+\]
+
+\begin{theorem}[OPH edge-string read-off]
+The sewn OPH collar partition equals the compact-group heat kernel at the identity:
+\[
+Z_{\rm edge}(t)=K_t(1).
+\]
+On a large-\(N_{\rm edge}\) branch with \(g_s=1/N_{\rm edge}\), the controlled surface expansion
+has the closed-string genus form.
+\end{theorem}
+
+\begin{proof}
+The compact heat kernel has Peter-Weyl expansion
+\[
+K_t(g)=\sum_R d_R\chi_R(g)e^{-tC_2(R)}.
+\]
+At the identity, \(\chi_R(1)=d_R\), so
+\[
+K_t(1)=\sum_R d_R^2e^{-tC_2(R)}.
+\]
+A closed OPH collar is obtained by sewing two open edge boundaries, and the second boundary
+contributes the second dimension factor. The sewn collar partition is
+\[
+Z_{\rm edge}(t)=\sum_R d_R^2e^{-tC_2(R)}=K_t(1).
+\]
+If a distinct large-edge branch has the controlled expansion
+\[
+\log Z=\sum_g N_{\rm edge}^{2-2g}F_g
+\]
+with uniform remainder bounds, then \(g_s=N_{\rm edge}^{-1}\) rewrites the coefficient as
+\[
+N_{\rm edge}^{2-2g}=g_s^{2g-2},
+\]
+the standard closed-string genus weight.
+\end{proof}
+
+\begin{theorem}[Edge-sum universality theorem]
+On the controlled large-\(N_{\rm edge}\) branch,
+\[
+\log Z_{\rm edge}
+=
+\sum_g N_{\rm edge}^{2-2g}F_g,
+\qquad
+g_s=\frac1{N_{\rm edge}}.
+\]
+The same representation sum gives the two-dimensional Yang-Mills heat-kernel basis and the
+worldsheet string basis.
+\end{theorem}
+
+\begin{proof}
+The representation sum is the heat-kernel form of two-dimensional Yang-Mills. Its sewing law is the
+Chapman-Kolmogorov law for heat kernels, which is also the OPH collar-sewing law. The
+large-\(N_{\rm edge}\) expansion reorganizes the same sewn surfaces by Euler characteristic:
+\[
+N_{\rm edge}^{2-2g}=g_s^{2g-2}.
+\]
+The same edge representation sum has a 2D Yang-Mills heat-kernel reading and a perturbative
+closed-string worldsheet reading, provided the large-edge remainder bounds hold.
+\end{proof}
+
+This theorem is the bridge to the string community. It also explains why DSSYK, large-\(N\) QCD,
+and open-string structures keep meeting in the de Sitter flat-space limit. A 2025 DSSYK/QCD paper
+states that double-scaled SYK at infinite temperature and large-\(N\) QCD have large-\(N\)
+expansions of the same form, and that DSSYK provides a tractable window into the fixed-coupling
+flat-space limit \cite{DSSYKQCDPaper}. A companion DSSYK flat-space paper connects the limit to
+strongly coupled \((1+1)\)-dimensional QCD and open-string Regge behavior \cite{DSSYKFlatPaper}.
+OPH reads this family of coincidences as different bases for sewn edge-sector sums.
+
+
+\section{What an OPH String Is}\label{sec:oph-string-object}
+
+The heat-kernel identity gives the partition-function trace of a string. The object-level
+dictionary is finite. In OPH, a string is a stable one-dimensional edge-cycle normal form in the
+overlap carrier. A continuum string is the scaling description of that cycle after collar sewing
+and large-edge coarse graining.
+
+\begin{definition}[Fixed-cutoff OPH pre-string]
+Let
+\[
+\mathfrak F=(V,E,\{\calA_i\},\{\calI_e\},\{\pi_{i,e}\},\{\calR_i\},\{\calU_i\})
+\]
+be a fixed OPH patch carrier. A fixed-cutoff pre-string is a cyclic collar word
+\[
+\Gamma=(e_1,e_2,\ldots,e_n;e_{n+1}=e_1)
+\]
+in the overlap nerve, together with edge labels and vertex intertwiners
+\[
+\mathcal S_0(\Gamma)=
+\left(\Gamma,\{R_{e_a}\}_{a=1}^n,\{I_{v_a}\}_{a=1}^n,\{r_{e_a}\}_{a=1}^n\right),
+\]
+where each \(R_e\) is a compact-gauge representation label carried by the edge-center algebra,
+each
+\[
+I_v\in\operatorname{Hom}_G(R_{e_{a-1}}\otimes R_{e_a},\mathbf 1\oplus\cdots)
+\]
+is the local fusion/sewing datum at a patch junction, and \(r_e\) is the record state exposed on
+the collar.
+\end{definition}
+
+\begin{definition}[OPH string]
+An OPH string is the quotient-normal-form class
+\[
+\mathcal S=[\mathcal S_0(\Gamma)]_{\mathrm{nf}}/
+\bigl(\text{local repair},\text{collar refinement},\text{OPH-invisible relabeling}\bigr).
+\]
+A closed string is a cyclic class with no external endpoint. An open string is an interval-class
+whose endpoints lie on declared observer branes, defect collars, or boundary record sectors. A
+multi-string state is a finite disjoint union of such classes, modulo the same repair quotient.
+\end{definition}
+
+The cycle is visible through representation data and records on overlaps. Its support is
+one-dimensional in the overlap nerve. Its physical status comes from survival under local repair
+and refinement.
+
+\subsection{One string, many strings, and worldsheets}
+
+A single OPH string at one checkpoint is
+\[
+\mathcal S(\tau_0)=[\Gamma(\tau_0),R(\tau_0),I(\tau_0),r(\tau_0)]_{\mathrm{nf}}.
+\]
+A history of the same object through accepted repairs is a sequence
+\[
+\mathcal S(\tau_0)\to \mathcal S(\tau_1)\to\cdots\to\mathcal S(\tau_m).
+\]
+The two-dimensional worldsheet is the swept collar complex
+\[
+\Sigma_{\mathcal S}:=\bigcup_{j=0}^{m-1}\Gamma(\tau_j)\times[\tau_j,\tau_{j+1}],
+\]
+with sewing at repair events. Pair-of-pants splitting and joining are OPH cobordisms in which one
+cyclic normal form changes into two, or two change into one, preserving exposed overlap
+constraints.
+
+The dictionary is:
+\[
+\begin{array}{ccl}
+\text{OPH cyclic edge normal form} &\longleftrightarrow& \text{string at one time},\\
+\text{accepted repair history of the cycle} &\longleftrightarrow& \text{worldsheet},\\
+\text{cycle split/merge cobordism} &\longleftrightarrow& \text{string interaction},\\
+\text{finite edge capacity} &\longleftrightarrow& g_s^{-1}\text{ on the controlled large-edge branch}.
+\end{array}
+\]
+
+\subsection{Why the string vibrates}
+
+The string vibrates because the cyclic edge normal form has internal normal modes. Linearize the
+repair law around a stable cyclic solution \(\mathcal S_\star\). If \(\xi_a\) denotes a small
+edge-position or edge-label perturbation at the \(a\)-th collar site, the quadratic mismatch is
+\[
+\Phi(\mathcal S_\star+\xi)=\Phi(\mathcal S_\star)
++\frac12\sum_{a,b}\xi_a K_{ab}\xi_b+O(\xi^3).
+\]
+On a long uniform cycle, the Hessian \(K\) is a graph Laplacian plus local mass/curvature terms.
+The normal modes are Fourier modes
+\[
+\xi_a^\mu(\tau)=\sum_{n\in\mathbb Z}\xi_n^\mu(\tau)e^{2\pi i n a/N}.
+\]
+In the continuum edge limit, with \(a/N\to\sigma/(2\pi)\), this becomes the closed-string field
+\[
+X^\mu(\sigma,\tau)=x_0^\mu+p^\mu\tau+
+ i\sqrt{\frac{\alpha'_{\OPH}}{2}}
+\sum_{n\ne0}\frac1n
+\left(\alpha_n^\mu e^{-in(\tau-\sigma)}+\tilde\alpha_n^\mu e^{-in(\tau+\sigma)}\right).
+\]
+The left/right split is the two-sided collar split. One side of the sewn edge supplies the left
+movers and the other supplies the right movers. Quantization of the finite symplectic record/edge
+normal modes gives the oscillator algebra in the scaling limit,
+\[
+[\alpha_m^\mu,\alpha_n^\nu]=m\delta_{m+n,0}\eta^{\mu\nu},
+\qquad
+[\tilde\alpha_m^\mu,\tilde\alpha_n^\nu]=m\delta_{m+n,0}\eta^{\mu\nu}.
+\]
+The parameter \(\alpha'_{\OPH}\) is the continuum normalization of the edge diffusion/repair time
+after matching the four-dimensional Newton constant, the OPH pixel scale, and the selected
+compactification threshold.
+
+\begin{theorem}[String emergence theorem]
+Assume a fixed-cutoff compact edge branch, collar sewing, a separated refinement system, and a
+controlled large-\(N_{\rm edge}\) limit in which cyclic normal forms have a continuum embedding
+\(X:\Sigma\to M_{\OPH}\). Then the OPH edge-cycle normal-form category maps to a perturbative
+string worldsheet category. The map sends cyclic edge normal forms to string states, accepted
+repair histories to worldsheets, and edge-cycle split/merge cobordisms to string interactions.
+\end{theorem}
+
+\begin{proof}
+At fixed cutoff, the object is finite: a cyclic word of edge collars with compact representation
+labels and intertwiners. Sewing gives the heat-kernel partition described above. Refinement turns
+long cyclic words into one-dimensional continua. A time-ordered repair history sweeps a
+cellulated two-complex. The large-edge expansion supplies the genus weighting. The normal-mode
+expansion of the repaired cycle gives the oscillator degrees of freedom. These are precisely the
+data used by a perturbative worldsheet description.
+\end{proof}
+
+\begin{remark}[Claim boundary]
+The exact fixed-cutoff theorem is the edge heat-kernel/sewing theorem. The continuum string,
+oscillator algebra, and genus expansion require the large-edge/refinement hypotheses. OPH begins
+with finite edge data; string theory is the controlled language of its sewn-edge scaling branch.
+\end{remark}
+
+\section{The OPH Graviton and the String Graviton}
+
+The graviton dictionary is the conceptual hinge. The string graviton is the left-right edge-mode
+factorization of the OPH graviton. OPH identifies its metric quantum with the ordinary massless
+closed-string spin-two state.
+
+\subsection{OPH side: metric from modular geometry}
+
+On the OPH gravity branch, cap modular flow becomes geometric in the support-visible scaling
+limit, and fixed-cap generalized-entropy stationarity supplies the Einstein relation. The metric is
+the compressed observer-facing datum that makes the cap modular action geometric. A small metric
+perturbation is a deformation of the OPH geometric normal form:
+\[
+q_{ab}^{\OPH}\longmapsto q_{ab}^{\OPH}+h_{ab}^{\OPH}.
+\]
+The transverse-traceless part
+\[
+h_{ab}^{\OPH,\TT}
+\]
+is the propagating spin-two perturbation. Quantizing this field gives the OPH graviton.
+
+\subsection{String side: metric from the closed-string vertex}
+
+In a critical closed string, the metric appears as a background coupling in the sigma model:
+\[
+S_\sigma\supset
+\frac{1}{4\pi\alpha'}
+\int d^2\sigma\sqrt\gamma\,\gamma^{\alpha\beta}
+G_{\mu\nu}(X)\partial_\alpha X^\mu\partial_\beta X^\nu.
+\]
+Perturbing
+\[
+G_{\mu\nu}=G^{(0)}_{\mu\nu}+\kappa h_{\mu\nu}
+\]
+produces the standard closed-string spin-two vertex
+\[
+V_h(k,\epsilon)=
+\epsilon_{\mu\nu}\,
+\partial X^\mu\bar\partial X^\nu e^{ik\cdot X}.
+\]
+Equivalently, at the first closed-string oscillator level,
+\[
+|G;k,\epsilon\rangle
+=
+\epsilon_{\mu\nu}^{\TT}
+\alpha_{-1}^{\mu}\tilde\alpha_{-1}^{\nu}|0;k\rangle .
+\]
+The polarization decomposes into symmetric traceless, antisymmetric, and trace pieces:
+\[
+\epsilon_{\mu\nu}
+=\epsilon^{\TT}_{(\mu\nu)}
++\epsilon_{[\mu\nu]}
++\frac1D\eta_{\mu\nu}\epsilon^\lambda_{\ \lambda}.
+\]
+The symmetric transverse-traceless piece is the string graviton. The antisymmetric piece is the
+\(B\)-field, and the trace is the dilaton.
+
+\subsection{Left-right collar factorization}
+
+A closed OPH edge cycle has two collar readings. The two readings are sewn into the heat-kernel
+factor \(d_R^2\). In the large-edge worldsheet language they become the left and right chiral
+oscillator sectors:
+\[
+\text{left collar edge mode}\otimes\text{right collar edge mode}
+\longmapsto
+\alpha_{-1}^{\mu}\tilde\alpha_{-1}^{\nu}|0;k\rangle .
+\]
+The level-one tensor product splits after contraction with a polarization tensor. A general
+polarized state decomposes as
+\[
+\epsilon_{\mu\nu}\alpha_{-1}^{\mu}\tilde\alpha_{-1}^{\nu}|0;k\rangle
+=
+\epsilon^{\TT}_{(\mu\nu)}\alpha_{-1}^{\mu}\tilde\alpha_{-1}^{\nu}|0;k\rangle
++
+\epsilon_{[\mu\nu]}\alpha_{-1}^{\mu}\tilde\alpha_{-1}^{\nu}|0;k\rangle
++
+\frac1D\eta_{\mu\nu}\epsilon^\lambda{}_{\lambda}
+\alpha_{-1}^{\mu}\tilde\alpha_{-1}^{\nu}|0;k\rangle .
+\]
+The OPH graviton is the symmetric transverse-traceless component of the two-sided collar excitation
+read in the critical worldsheet language:
+\[
+h_{\mu\nu}^{\OPH,\TT}
+\longleftrightarrow
+\epsilon_{\mu\nu}^{\TT}\alpha_{-1}^{\mu}\tilde\alpha_{-1}^{\nu}|0;k\rangle .
+\]
+
+\subsection{The map}
+
+Define the OPH-to-string graviton map by
+\[
+\Mgrav:
+[h_{ab}^{\OPH,\TT}]
+\longmapsto
+[\epsilon^{\TT}_{\mu\nu}\partial X^\mu\bar\partial X^\nu e^{ik\cdot X}],
+\]
+with the following normalization condition:
+\[
+G_4^{\rm string}(m_\star,\alpha',g_s,V_6)
+=
+G_4^{\OPH}(N_{\rm scr},P).
+\]
+OPH fixes the Einstein-frame graviton normalization, and the string representative supplies
+the critical worldsheet realization.
+
+\begin{theorem}[Graviton identification theorem]
+On an OPH-correct critical-string presentation, the massless closed-string symmetric spin-two
+state is exactly the quantized OPH metric perturbation:
+\[
+\Mgrav(h^{\OPH,\TT})=h^{\rm string,\TT}.
+\]
+No additional independent massless spin-two field is allowed in the OPH-visible sector.
+\end{theorem}
+
+\begin{proof}
+The OPH gravity branch produces a single observer-facing Einstein-frame metric on the physical
+quotient. Its propagating transverse-traceless perturbation is a massless spin-two field. A critical
+closed string contains a massless symmetric spin-two state, represented by the vertex
+\(\epsilon_{\mu\nu}\partial X^\mu\bar\partial X^\nu e^{ik\cdot X}\). In an OPH-correct lift, the
+worldsheet background metric is the same observer-facing metric that OPH reconstructs. Its
+symmetric transverse-traceless vertex is the quantization of the OPH metric perturbation. If an
+extra independent massless spin-two field survived in the same visible sector, the four-dimensional
+low-energy theory would contain an additional graviton or bigravity degree of freedom, changing the
+OPH Einstein branch and failing OPH-equivalence. The two gravitons are the same field.
+\end{proof}
+
+\begin{center}
+\small
+\begin{tabular}{p{0.31\linewidth}p{0.57\linewidth}}
+\toprule
+\textbf{OPH object} & \textbf{String-theory image} \\
+\midrule
+Cap modular geometry & Target-space metric background \(G_{\mu\nu}(X)\). \\
+Fixed-cap generalized entropy stationarity & Low-energy Einstein equation / vanishing metric beta function on the selected background. \\
+Metric perturbation \(h^{\OPH}_{ab}\) & Closed-string background deformation \(h_{\mu\nu}\partial X^\mu\bar\partial X^\nu\). \\
+OPH graviton & Symmetric transverse-traceless massless closed-string state. \\
+Screen-capacity normalization & Four-dimensional Newton constant after compactification. \\
+Edge record/collar sewing & Worldsheet sewing and genus expansion in the controlled large-edge branch. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{OPH-Augmented String Theory}\label{sec:oph-augmented-string}
+
+OPH supplies a selection and readout functor for critical string vacua. Ordinary string theory
+supplies a large class of critical presentations. OPH asks which presentation is the critical
+worldsheet completion of the observer-visible edge normal form.
+
+\begin{definition}[OPH augmentation of a string vacuum]
+A string vacuum \(v\) is augmented by OPH data when it is equipped with a map
+\[
+\Pi_{\OPH}(v)=
+\left(
+G_{\rm phys},Y,N_c,N_g,n_H,\calO_{\rm op},G_4,\Lambda,\calO_{\rm quant}
+\right)
+\]
+from compactification data to observer-visible records, together with the constraints
+\[
+\Pi_{\OPH}(v)=\Pi_{\rm target}^{\OPH},
+\qquad
+\operatorname{rank}D\Pi_{\OPH}|_{N_{\OPH}}=\dim N_{\OPH},
+\]
+where \(N_{\OPH}\) is the moduli subspace transverse to OPH-invisible redundancies. The rank
+condition is the moduli-locking condition: the target has no adjustable flat direction after the
+OPH quotient.
+\end{definition}
+
+The augmented vacuum equations are:
+\[
+\begin{cases}
+\beta^G=\beta^B=\beta^\Phi=0, & \text{worldsheet consistency},\\
+F^{0,2}=0,\quad J^2\wedge F=0, & \text{heterotic bundle stability/HYM},\\
+c_2(TX)-c_2(V_{\rm vis})-c_2(V_{\rm hid})=[W], & \text{Bianchi/anomaly condition},\\
+\chi(V_{\rm matter})=3,\quad n_H=1,\quad N_{\rm exotic}=0, & \text{visible cohomology target},\\
+G_{\rm phys}=(\SU(3)\times\SU(2)\times\U(1))/\Z_6, & \text{global group target},\\
+\calO_{\rm op}=\ZfourR\text{ safety}, & \text{operator target},\\
+G_4^{\rm string}=G_4^{\OPH},\quad \alpha'\mapsto\alpha'_{\OPH}, & \text{graviton normalization target},\\
+\calF_v(m_\star)=\calO_{\OPH},\quad \operatorname{rank}D\calF_v=\mathrm{full}, & \text{moduli/threshold target}.
+\end{cases}
+\]
+
+This turns landscape selection into a finite certificate problem. A conventional string vacuum can
+be internally consistent and fail the OPH observer-visible target map.
+
+\subsection{Predictions available after selection}
+
+Once the selected class is fixed, the theory makes gates that generic landscape reasoning lacks:
+\begin{enumerate}[leftmargin=2em]
+\item \textbf{One visible Higgs pair at the compactification target.} Extra light Higgs pairs fail
+the OPH one-Higgs electroweak branch.
+\item \textbf{No light chiral exotics.} Exotic chiral matter changes the observer-visible matter
+package and fails the cohomology target.
+\item \textbf{No extra visible low-scale \(\U(1)\).} Additional visible abelian gauge bosons change
+the OPH global group quotient.
+\item \textbf{No simple-GUT \(X/Y\) gauge proton decay.} The selected visible group is the product
+quotient. The four-dimensional visible adjoint contains no unbroken \(\SU(5)\) mixed gauge bosons.
+\item \textbf{Operator-safety pattern.} Perturbative R-parity violation, perturbative
+dimension-five proton decay, and a perturbative \(\mu\)-term are forbidden on the operator-safe
+branch; Yukawas and the Weinberg neutrino operator are allowed.
+\item \textbf{One visible graviton.} Any additional massless spin-two field, bimetric sector, or
+independent low-energy tensor polarization fails the OPH graviton-identity gate.
+\end{enumerate}
+
+\section{String-Community Pressure Points}
+
+The string-community problem is selection. The 2024 Standard Model review states the challenge in
+compactification language: reproduce the Standard Model gauge sector, chiral matter, and
+phenomenology from geometry and topology \cite{MarchesanoShiuWeigand2024}. Heterotic
+M-theory stabilization work emphasizes the computational weight of dilaton, complex-structure,
+and K\"ahler moduli stabilization \cite{DeffayetOvrutSteinhardt2024}. The philosophy literature
+on the string landscape frames the predictivity concern as underdetermination among many
+solutions compatible with observed data \cite{FriederichLeBihan2021}.
+Exact flux-vacua work also makes the computational problem concrete: stabilized flux vacua
+require solving vacuum conditions with exponential corrections, although symmetry loci can turn
+some conditions algebraic \cite{GrimmVanDeHeisteeg2025}.
+
+OPH imposes the observer-visible target
+\[
+\mathfrak S_{\OPH}=
+\left(
+\frac{\SU(3)\times\SU(2)\times\U(1)}{\Z_6},
+N_c=3,\,
+N_g=3,\,
+Y_{\rm SM},\,
+n_H=1,\,
+\text{no light chiral exotics},\,
+\ZfourR\text{ safety}
+\right).
+\]
+The selected geometric witness in the package is
+\[
+\boxed{
+BD_{n=1}^{\OPH}
+=
+\text{Bouchard-Donagi }E_8\times E_8
+\text{ heterotic }\SU(5)\text{ Standard Model, one-Higgs-pair stratum}.
+}
+\]
+The selected operator-safe candidate is
+\[
+\boxed{
+BD_{n=1,+}^{\OPH}
+=
+BD_{n=1}^{\OPH}+\ZfourR.
+}
+\]
+
+Bouchard and Donagi introduced a heterotic Standard Model with exactly the MSSM spectrum, no
+exotic matter, observable \(\SU(3)\times\SU(2)\times\U(1)\), a Calabi-Yau threefold with
+\(\Z_2\) fundamental group, and an invariant \(\SU(5)\) bundle. Depending on moduli, the model
+has zero, one, or two Higgs doublet conjugate pairs; the one-pair region gives precisely the
+MSSM Higgs content \cite{BouchardDonagi2005}.
+
+The global group identity is central:
+\[
+\Cent_{\SU(5)}(\diag(1,1,1,-1,-1))=S(\U(3)\times\U(2)),
+\]
+\[
+S(\U(3)\times\U(2))
+\cong
+\frac{\SU(3)\times\SU(2)\times\U(1)}{\Z_6}.
+\]
+This fixes the charge lattice, beyond Lie-algebra matching.
+
+\begin{theorem}[OPH vacuum sieve theorem]
+A critical string vacuum \(\mathcal T\) is OPH-admissible only if
+\[
+\Pi_{\rm IR}^{\OPH}(\mathcal T)=\mathfrak S_{\OPH}.
+\]
+For the package studied here, the selected geometric witness is \(BD_{n=1}^{\OPH}\), and the
+operator-safe candidate is \(BD_{n=1,+}^{\OPH}\).
+\end{theorem}
+
+\begin{theorem}[Global group locking theorem]
+The OPH visible group and the Bouchard-Donagi Wilson-line centralizer agree:
+\[
+G_{\rm phys}=S(\U(3)\times\U(2))
+\cong
+\frac{\SU(3)\times\SU(2)\times\U(1)}{\Z_6}.
+\]
+For \(\rho(-1)=\diag(1,1,1,-1,-1)\),
+\[
+\Cent_{\SU(5)}(\rho)=S(\U(3)\times\U(2)).
+\]
+\end{theorem}
+
+\begin{theorem}[BD geometry closure theorem]
+The Bouchard-Donagi \(\Z_2\)-quotient \(\SU(5)\)-bundle construction supplies a nonempty
+heterotic \(\SU(5)\)-corridor witness whose Wilson-line centralizer is the OPH global Standard
+Model group and whose spectrum contains the three-generation, no-exotic, one-Higgs branch used
+by the OPH selector.
+\end{theorem}
+
+\begin{proof}
+Bouchard-Donagi construct the \(E_8\times E_8\) heterotic model on a Calabi-Yau quotient
+\(X=\widetilde X/\Z_2\) with an invariant \(\SU(5)\) bundle and a \(\Z_2\) Wilson line
+\cite{BouchardDonagi2005}. Their bundle is built on the cover using an extension of rank-two
+and rank-three pieces,
+\[
+0\to V_2\to \widetilde V^\ast\to V_3\to0,
+\qquad
+V_i=\pi'{}^\ast W_i\otimes\pi^\ast L_i.
+\]
+The resulting observable sector has the Standard Model gauge algebra, three generations, no
+exotic matter, and moduli regions with \(0\), \(1\), or \(2\) Higgs doublet conjugate pairs.
+The OPH target chooses the one-pair region. The centralizer theorem above supplies the global
+quotient
+\[
+S(\U(3)\times\U(2))
+\cong
+(\SU(3)\times\SU(2)\times\U(1))/\Z_6.
+\]
+The BD geometry supplies the named heterotic witness, and OPH supplies the global quotient
+and Higgs-stratum selector.
+\end{proof}
+
+\section{String Problems Solved by the OPH Selector}
+
+The table lists the string-theory gates. The word ``solved'' means solved at the
+selector or algebraic-gate level, relative to the OPH assumptions stated in the paper. Cohomology
+reproduction, geometric realization of the \(\ZfourR\) safety layer, full Yukawa computation, and
+moduli locking remain work in progress. The distinction matters: exact algebraic gates can close
+inside this paper; string-geometric gates require the full Bouchard-Donagi geometry and bundle
+maps.
+
+\begin{longtable}{p{0.26\linewidth}p{0.34\linewidth}p{0.30\linewidth}}
+\toprule
+\textbf{String-theory pressure point} & \textbf{OPH result} & \textbf{Status in this paper} \\
+\midrule
+Vacuum selection & Converts candidate vacua into a public sieve against
+\(\mathfrak S_{\OPH}\). & Exact selector definition; comparative audits can expand. \\
+Global Standard Model group & Locks the finite quotient
+\((\SU(3)\times\SU(2)\times\U(1))/\Z_6\) beyond Lie-algebra data. & Exact group proof. \\
+Charge lattice and anomalies & Uses the Standard Model hypercharge lattice with anomaly
+cancellation. & Exact rational arithmetic. \\
+Yukawa admissibility & One-Higgs Yukawa terms are gauge invariant. & Exact charge-sum proof. \\
+Three generations & \(\Z_2\)-cover arithmetic gives \(N_g=3\). & Exact index arithmetic,
+assuming the BD \(c_3\) input. \\
+Higgs multiplicity & Selects \(n=1\) among BD \(n=0,1,2\) strata. & Selector proof. \\
+Simple-GUT proton decay & Product-group adjoint excludes \(X/Y\) gauge bosons. & Exact Lie-algebra
+proof. \\
+String emergence & Sewn edge partition equals \(K_t(1)\). & Exact Peter-Weyl proof. \\
+Moduli stabilization & Becomes \(\calF(m_\star)=\calO_{\OPH}\). & Target criterion; BD map is
+work in progress. \\
+Operator safety & The MSSM \(\ZfourR\) layer permits Yukawas and the Weinberg operator, and
+forbids perturbative RPV, dimension-five proton decay, and the perturbative \(\mu\)-term. &
+Charge algebra closes; BD geometric realization is a certificate gate. \\
+Empirical predictions & Converts the selected branch into a compact list of failure-prone
+low-energy and threshold targets. & Prediction table and computed target equations. \\
+\bottomrule
+\end{longtable}
+
+\begin{longtable}{p{0.25\linewidth}p{0.43\linewidth}p{0.22\linewidth}}
+\toprule
+\textbf{Physicist pressure point} & \textbf{Closure supplied by the selector} & \textbf{Gate type} \\
+\midrule
+Landscape degeneracy & OPH replaces broad vacuum search with the finite target
+\(\mathfrak S_{\OPH}\) and a public sieve. & Selector theorem. \\
+Global Standard Model group & The Wilson-line centralizer lands on
+\((\SU(3)\times\SU(2)\times\U(1))/\Z_6\). & Exact algebra. \\
+Three families & The \(\Z_2\)-cover index relation gives \(N_g=3\) from
+\(|c_3(\widetilde V)|=12\). & BD input plus exact arithmetic. \\
+Higgs multiplicity & The \(n=1\) stratum is the minimal BD stratum compatible with the
+electroweak branch. & Selector theorem. \\
+Exotic matter & BD supplies the no-exotics MSSM spectrum witness. & Published geometry
+certificate. \\
+Simple-GUT proton decay & The product-group adjoint excludes mixed \((3,2,\pm5/6)\) gauge
+bosons. & Exact Lie algebra. \\
+RPV and \(\mu\)-problem & \(\ZfourR\) permits Yukawas, forbids perturbative RPV and
+dimension-five proton decay, forbids perturbative \(\mu\), and leaves matter parity. & Exact
+charge algebra; compactification certificate required. \\
+Moduli stabilization & The problem becomes \(\calF_{BD,n=1,+}(m_\star)=\calO_{\OPH}\) plus
+full transverse rank. & Theorem closed; numerical certificate required. \\
+Predictivity & Higgs/top, stop-threshold, and string/GUT thresholds give failure-prone numerical
+targets. & Reproducible proxy plus spectrum certificate. \\
+\bottomrule
+\end{longtable}
+
+\subsection{Problem 1: vacuum selection}
+
+String theory supplies many compactifications with Standard-Model-like low-energy data. OPH
+adds an independent target:
+\[
+\mathfrak S_{\OPH}=
+\begin{gathered}
+\left(
+\frac{\SU(3)\times\SU(2)\times\U(1)}{\Z_6},
+N_c=3,\,
+N_g=3,\,
+Y_{\rm SM},\,
+n_H=1
+\right),\\
+\text{no light chiral exotics},\qquad
+\text{no extra visible low-scale }\U(1).
+\end{gathered}
+\]
+
+\begin{theorem}[Selector reduction]
+Let \(\mathcal C\) be any class of critical string compactifications with an observer-visible
+infrared projection \(\Pi_{\rm IR}^{\OPH}\). Define
+\[
+\mathcal C_{\OPH}=
+\{\mathcal T\in\mathcal C:\Pi_{\rm IR}^{\OPH}(\mathcal T)=\mathfrak S_{\OPH}\}.
+\]
+The OPH selection problem over \(\mathcal C\) is exactly the finite or enumerable audit of
+\(\mathcal C_{\OPH}\) against the gates in \(\mathfrak S_{\OPH}\) and the quantitative target
+\(\calO_{\OPH}\).
+\end{theorem}
+
+\begin{proof}
+The OPH target \(\mathfrak S_{\OPH}\) is fixed independently of any string compactification. The
+projection \(\Pi_{\rm IR}^{\OPH}\) assigns each candidate its observer-visible group, charge
+lattice, matter content, Higgs count, and visible low-scale gauge factors. Equality with
+\(\mathfrak S_{\OPH}\) is a conjunction of explicit gates. A candidate passes exactly when all
+equalities and exclusions hold. The quantitative stage appends the equation
+\[
+\calF_{\mathcal T}(m)=\calO_{\OPH}.
+\]
+The landscape question becomes a sieve and target equation.
+\end{proof}
+
+\subsection{Problem 2: global Standard Model group}
+
+The OPH target fixes the global group beyond the Lie algebra, at the level of the charge lattice.
+
+\begin{theorem}[Centralizer computation]
+Let
+\[
+\rho=\diag(1,1,1,-1,-1)\in\SU(5).
+\]
+The centralizer of \(\rho\) in \(\SU(5)\) is
+\[
+\Cent_{\SU(5)}(\rho)=S(\U(3)\times\U(2)).
+\]
+\end{theorem}
+
+\begin{proof}
+The \(+1\) eigenspace of \(\rho\) has dimension \(3\), and the \(-1\) eigenspace has dimension
+\(2\). A unitary matrix commutes with \(\rho\) exactly when it preserves these two eigenspaces.
+Such a matrix is block diagonal,
+\[
+g=\begin{pmatrix}A&0\\0&B\end{pmatrix},
+\qquad
+A\in\U(3),\quad B\in\U(2).
+\]
+The condition \(g\in\SU(5)\) is \(\det A\,\det B=1\), precisely
+\[
+S(\U(3)\times\U(2)).
+\]
+\end{proof}
+
+\begin{theorem}[\(\Z_6\) quotient]
+There is an isomorphism
+\[
+S(\U(3)\times\U(2))
+\cong
+\frac{\SU(3)\times\SU(2)\times\U(1)}{\Z_6}.
+\]
+\end{theorem}
+
+\begin{proof}
+Define
+\[
+\varphi:\SU(3)\times\SU(2)\times\U(1)\to S(\U(3)\times\U(2))
+\]
+by
+\[
+\varphi(A,B,z)=
+\begin{pmatrix}
+z^2 A&0\\
+0&z^{-3}B
+\end{pmatrix}.
+\]
+The determinant is
+\[
+\det(z^2A)\det(z^{-3}B)=z^6z^{-6}\det A\det B=1,
+\]
+so the image lies in \(S(\U(3)\times\U(2))\). The kernel consists of triples with
+\[
+z^2A=I_3,\qquad z^{-3}B=I_2.
+\]
+\(A=z^{-2}I_3\) and \(B=z^3I_2\). The conditions \(A\in\SU(3)\) and \(B\in\SU(2)\) give
+\[
+z^{-6}=1,\qquad z^6=1.
+\]
+The kernel is
+\[
+\{(z^{-2}I_3,z^3I_2,z):z^6=1\}\cong\Z_6.
+\]
+Surjectivity follows by decomposing any \((A',B')\in S(\U(3)\times\U(2))\) into determinant-one
+parts and the common \(\U(1)\) factor. The first isomorphism theorem gives the quotient.
+\end{proof}
+
+\subsection{Problem 3: charge lattice, anomalies, and one-Higgs Yukawas}
+
+The OPH target uses the Standard Model hypercharge lattice:
+\[
+Q=(3,2)_{1/6},\quad
+u^c=(\bar3,1)_{-2/3},\quad
+d^c=(\bar3,1)_{1/3},\quad
+L=(1,2)_{-1/2},\quad
+e^c=(1,1)_1,\quad
+H=(1,2)_{1/2}.
+\]
+
+\begin{theorem}[One-generation anomaly cancellation]
+For one generation with the hypercharges above,
+\[
+\SU(3)^2\U(1)=0,\quad
+\SU(2)^2\U(1)=0,\quad
+\mathrm{grav}^2\U(1)=0,\quad
+\U(1)^3=0.
+\]
+\end{theorem}
+
+\begin{proof}
+Use left-handed Weyl fields. For \(\SU(3)^2\U(1)\), the color-charged fields give
+\[
+2\cdot\frac12\cdot\frac16
++\frac12\cdot\left(-\frac23\right)
++\frac12\cdot\frac13
+=
+\frac16-\frac13+\frac16=0.
+\]
+For \(\SU(2)^2\U(1)\), the weak doublets give
+\[
+3\cdot\frac12\cdot\frac16
++\frac12\cdot\left(-\frac12\right)
+=\frac14-\frac14=0.
+\]
+For the mixed gravitational anomaly, count dimensions:
+\[
+6\cdot\frac16
++3\cdot\left(-\frac23\right)
++3\cdot\frac13
++2\cdot\left(-\frac12\right)
++1
+=1-2+1-1+1=0.
+\]
+For the cubic anomaly,
+\[
+6\left(\frac16\right)^3
++3\left(-\frac23\right)^3
++3\left(\frac13\right)^3
++2\left(-\frac12\right)^3
++1^3
+\]
+\[
+=\frac1{36}-\frac89+\frac19-\frac14+1
+=0.
+\]
+\end{proof}
+
+\begin{theorem}[One-Higgs Yukawa invariants]
+The one-Higgs Standard Model Yukawa terms have zero hypercharge:
+\[
+QHu^c,\qquad QH^\dagger d^c,\qquad LH^\dagger e^c.
+\]
+\end{theorem}
+
+\begin{proof}
+The hypercharge sums are
+\[
+\frac16+\frac12-\frac23=0,
+\]
+\[
+\frac16-\frac12+\frac13=0,
+\]
+and
+\[
+-\frac12-\frac12+1=0.
+\]
+The nonabelian indices contract using \(3\otimes\bar3\), \(2\otimes2\), and the
+\(\epsilon\)-tensor of \(\SU(2)\).
+\end{proof}
+
+\subsection{Problem 4: generation arithmetic}
+
+Bouchard-Donagi uses a \(\Z_2\) quotient. The chiral index relation gives the number of
+generations:
+\[
+N_g=\frac{|c_3(\widetilde V)|}{2|\Gamma|}.
+\]
+
+\begin{theorem}[Three-generation cover arithmetic]
+If \(|c_3(\widetilde V)|=12\) and \(|\Gamma|=2\), the quotient has three generations.
+\end{theorem}
+
+\begin{proof}
+Substitution gives
+\[
+N_g=\frac{12}{2\cdot2}=3.
+\]
+\end{proof}
+
+\subsection{Problem 5: Higgs-stratum selection}
+
+The Bouchard-Donagi construction has regions with zero, one, or two Higgs doublet conjugate
+pairs. OPH selects the one-pair stratum.
+
+\begin{theorem}[One-Higgs stratum gate]
+Within a visible-normal-form sieve requiring electroweak breaking and no extra visible
+low-energy electroweak matter, the \(n=1\) Higgs-pair stratum is the minimal admissible
+Bouchard-Donagi Higgs stratum.
+\end{theorem}
+
+\begin{proof}
+\(n=0\) lacks a Higgs pair and lacks the Yukawa-complete electroweak branch
+used by the OPH target. The \(n=2\) stratum contains an additional visible Higgs pair without
+a lifting mechanism and adds visible electroweak matter outside the minimal OPH
+normal form. The \(n=1\) stratum supplies exactly one pair and is the minimal stratum satisfying
+the stated gate.
+\end{proof}
+
+\subsection{Problem 6: simple-GUT proton decay}
+
+The product-group branch removes the ordinary simple-\(\SU(5)\) \(X/Y\) gauge channel.
+
+\begin{theorem}[Product-group adjoint]
+The connected adjoint of
+\[
+\frac{\SU(3)\times\SU(2)\times\U(1)}{\Z_6}
+\]
+is
+\[
+(8,1,0)\oplus(1,3,0)\oplus(1,1,0).
+\]
+It contains no \((3,2,\pm5/6)\) gauge bosons.
+\end{theorem}
+
+\begin{proof}
+Dividing by the finite central subgroup \(\Z_6\) leaves the Lie algebra unchanged:
+\[
+\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak{u}(1).
+\]
+The adjoint representation decomposes as the adjoints of the three factors:
+\[
+(8,1,0)\oplus(1,3,0)\oplus(1,1,0).
+\]
+Mixed \((3,2,\pm5/6)\) generators occur in the adjoint of simple \(\SU(5)\) after breaking to
+the Standard Model subgroup. They are absent from the product Lie algebra above.
+\end{proof}
+
+\subsection{Problem 7: string emergence}
+
+The worldsheet language appears from edge sewing as an effective description.
+
+\begin{theorem}[Heat-kernel derivation]
+For a compact group \(G\), the sewn OPH edge partition
+\[
+Z_{\rm edge}(t)=\sum_R d_R^2e^{-tC_2(R)}
+\]
+is the heat kernel at the identity:
+\[
+Z_{\rm edge}(t)=K_t(1).
+\]
+\end{theorem}
+
+\begin{proof}
+Peter-Weyl gives the heat kernel expansion
+\[
+K_t(g)=\sum_R d_R\chi_R(g)e^{-tC_2(R)}.
+\]
+At \(g=1\), \(\chi_R(1)=d_R\). Substitution gives
+\[
+K_t(1)=\sum_R d_R^2e^{-tC_2(R)}=Z_{\rm edge}(t).
+\]
+\end{proof}
+
+\subsection{Problem 8: moduli stabilization as target locking}
+
+The OPH contribution is a target criterion. A completed BD moduli computation is work in progress.
+
+\begin{theorem}[Local isolation by full rank]
+Let \(\calF:\mathcal M\to\mathbb R^K\) be smooth, and suppose
+\[
+\calF(m_\star)=\calO_{\OPH},
+\qquad
+\operatorname{rank}D\calF(m_\star)=\dim\mathcal M_{\rm phys}
+\]
+after quotienting OPH-stable equivalences. The solution \(m_\star\) is locally isolated in the
+physical moduli directions.
+\end{theorem}
+
+\begin{proof}
+Work on a local slice transverse to OPH-stable equivalence, of dimension
+\(\dim\mathcal M_{\rm phys}\). The derivative of \(\calF\) restricted to that slice has full
+rank. The regular level-set theorem gives a level set of dimension
+\[
+\dim\mathcal M_{\rm phys}-\operatorname{rank}D\calF=0.
+\]
+The target equation has an isolated local solution on the physical slice.
+\end{proof}
+
+\subsection{Problem 9: operator safety}
+
+Gauge invariance allows the standard dangerous operators
+\[
+LH_u,\quad LLe^c,\quad LQd^c,\quad u^cd^cd^c,\quad QQQL,\quad u^cu^cd^ce^c.
+\]
+The operator-safe candidate adds the MSSM \(\ZfourR\) safety layer. Lee, Raby, Ratz, Ross,
+Schieren, Schmidt-Hoberg, and Vaudrevange prove that, allowing Green-Schwarz anomaly
+cancellation and requiring a discrete symmetry commuting with \(SO(10)\) that forbids the
+perturbative \(\mu\)-term, the MSSM has a unique \(\ZfourR\) symmetry. It leaves exact matter
+parity after nonperturbative breaking and suppresses dimension-five baryon/lepton violation
+\cite{LeeRabyRatzRossSchierenSchmidtHobergVaudrevange2010}.
+
+Use the charge assignment
+\[
+R(Q)=R(u^c)=R(d^c)=R(L)=R(e^c)=1,
+\qquad
+R(H_u)=R(H_d)=0,
+\qquad
+R(W)=2\pmod4.
+\]
+A perturbative superpotential monomial is allowed precisely when its total \(R\)-charge is
+\(2\pmod4\).
+
+\begin{longtable}{p{0.28\linewidth}c p{0.40\linewidth}}
+\toprule
+\textbf{Operator} & \textbf{\(\ZfourR\) charge} & \textbf{Result} \\
+\midrule
+\(QH_uu^c\) & \(1+0+1=2\) & Up-type Yukawa allowed. \\
+\(QH_dd^c\) & \(1+0+1=2\) & Down-type Yukawa allowed. \\
+\(LH_de^c\) & \(1+0+1=2\) & Charged-lepton Yukawa allowed. \\
+\(LH_uLH_u\) & \(1+0+1+0=2\) & Weinberg neutrino operator allowed. \\
+\(LH_u\) & \(1+0=1\) & Bilinear RPV forbidden perturbatively. \\
+\(LLe^c\) & \(1+1+1=3\) & Lepton-number RPV forbidden perturbatively. \\
+\(LQd^c\) & \(1+1+1=3\) & Lepton-number RPV forbidden perturbatively. \\
+\(u^cd^cd^c\) & \(1+1+1=3\) & Baryon-number RPV forbidden perturbatively. \\
+\(QQQL\) & \(1+1+1+1=0\) & Dimension-five proton decay forbidden perturbatively. \\
+\(u^cu^cd^ce^c\) & \(1+1+1+1=0\) & Dimension-five proton decay forbidden perturbatively. \\
+\(H_uH_d\) & \(0+0=0\) & Perturbative \(\mu\)-term forbidden. \\
+\bottomrule
+\end{longtable}
+
+\begin{theorem}[OPH operator-safety theorem]
+At the MSSM charge-algebra level, adding the \(\ZfourR\) layer to \(BD_{n=1}^{\OPH}\) permits
+all Standard Model Yukawa couplings and the Weinberg operator, forbids perturbative
+dimension-four RPV, forbids perturbative dimension-five proton decay, forbids the perturbative
+\(\mu\)-term, and leaves exact matter parity after nonperturbative breaking. The operator-safe
+candidate is
+\[
+BD_{n=1,+}^{\OPH}=BD_{n=1}^{\OPH}+\ZfourR.
+\]
+\end{theorem}
+
+\begin{proof}
+The charge table verifies the perturbative selection rule term by term. The allowed Yukawa and
+Weinberg operators have total \(R\)-charge \(2\pmod4\). The RPV operators, the dimension-five
+proton-decay operators, and \(H_uH_d\) have total charge \(1\), \(3\), or \(0\pmod4\), hence fail
+the \(2\pmod4\) superpotential rule. The cited MSSM theorem supplies uniqueness of the
+\(\ZfourR\) safety layer under the stated anomaly and \(SO(10)\)-commuting assumptions, plus the
+matter-parity remnant after nonperturbative breaking.
+\end{proof}
+
+\section{Acceptance Gates}
+
+The package is adversarial by design. The selected operator-safe candidate has to pass the same
+gates as any competitor:
+\begin{longtable}{p{0.33\linewidth}p{0.57\linewidth}}
+\toprule
+\textbf{Gate} & \textbf{Requirement} \\
+\midrule
+Global group & The realized group is
+\((\SU(3)\times\SU(2)\times\U(1))/\Z_6\). \\
+Hypercharge & The charge lattice is the Standard Model lattice. \\
+Color and generations & \(N_c=3\) and \(N_g=3\). \\
+Higgs sector & The low-energy branch has one Higgs pair and decouples to the observed Higgs
+doublet. \\
+Exotics & No light chiral exotics appear. \\
+Extra visible gauge factors & No extra visible low-scale \(\U(1)\) appears. \\
+Gauge proton decay & The product-group adjoint contains no mixed \((3,2,\pm5/6)\) gauge bosons. \\
+Operator safety & The MSSM \(\ZfourR\) safety layer forbids perturbative RPV, dimension-five
+proton decay, and the perturbative \(\mu\)-term, with exact matter parity after
+nonperturbative breaking. \\
+Moduli and thresholds & The branch must solve
+\(\calF_{BD,n=1,+}(m_\star)=\calO_{\OPH}\). \\
+\bottomrule
+\end{longtable}
+
+\begin{theorem}[No-\(X/Y\) gauge proton decay theorem]
+On the OPH-selected product-group branch, the connected gauge adjoint is
+\[
+(8,1,0)\oplus(1,3,0)\oplus(1,1,0).
+\]
+The adjoint contains no mixed \((3,2,\pm5/6)\) gauge bosons. The ordinary simple-\(\SU(5)\)
+gauge-mediated \(X/Y\) proton-decay channel is absent on this branch.
+\end{theorem}
+
+The local executable package verifies the algebraic gates using exact rational arithmetic:
+\[
+\SU(3)^2\U(1)=0,\quad
+\SU(2)^2\U(1)=0,\quad
+\mathrm{grav}^2\U(1)=0,\quad
+\U(1)^3=0.
+\]
+It also verifies the one-Higgs Yukawa hypercharge sums and records the \(\Z_2\)-cover generation
+arithmetic
+\[
+|c_3(\widetilde V)|=12,\qquad |\Gamma|=2,\qquad
+N_g=\frac{|c_3|}{2|\Gamma|}=3.
+\]
+
+\begin{remark}[Operator safety certificate]
+Gauge invariance leaves the usual MSSM danger operators hypercharge-neutral:
+\[
+LH_u,\quad LLe^c,\quad LQd^c,\quad u^cd^cd^c,\quad QQQL,\quad u^cu^cd^ce^c.
+\]
+Bouchard, Cvetic, and Donagi computed the classical trilinear couplings for this heterotic MSSM
+and report nonzero up-sector Yukawa couplings, vanishing R-parity-violating terms, and proton
+stability at that trilinear level \cite{BouchardCveticDonagi2006}. The \(\ZfourR\) layer closes
+the MSSM charge-algebra safety gate. A BD certificate should realize this safety layer, or an
+equivalent selection rule, directly in the compactification data.
+\end{remark}
+
+\section{Open Computation Audit and Moduli-Locking Target}
+
+The selected operator-safe string candidate has to match the OPH quantitative vector. The local proxy
+computes
+\begin{longtable}{p{0.44\linewidth}p{0.44\linewidth}}
+\toprule
+\textbf{Quantity} & \textbf{Computed target} \\
+\midrule
+Top Yukawa & \(y_t^{\OPH}=0.987745211164\) \\
+Higgs quartic & \(\lambda_H^{\OPH}=0.128706603202\) \\
+MSSM tree-level quartic ceiling & \(\lambda_{\rm MSSM,max}=0.068973725409\) \\
+Minimum positive threshold lift & \(\Delta\lambda_{\min}=0.059732877792\) \\
+Tree-level Higgs mass proxy ceiling & \(m_{h,\rm tree}^{\rm max}=91.6524602856\,\mathrm{GeV}\) \\
+\bottomrule
+\end{longtable}
+
+Equivalently, the same targets can be written as
+\[
+y_t^{\OPH}=0.987745211164,
+\qquad
+\lambda_H^{\OPH}=0.128706603202,
+\]
+with the MSSM tree-level quartic ceiling
+\[
+\lambda_{\rm MSSM,max}=0.068973725409,
+\]
+so the minimum positive threshold lift is
+\[
+\Delta\lambda_{\min}=0.059732877792.
+\]
+The branch requires a moderate positive MSSM Higgs/stop threshold.
+
+\subsection{Stop-threshold proxy}
+
+Using
+\[
+\Delta m_h^2
+\simeq
+\frac{3m_t^4}{2\pi^2v^2}
+\left[
+\log\frac{M_S^2}{m_t^2}
++
+\frac{X_t^2}{M_S^2}
+\left(
+1-\frac{X_t^2}{12M_S^2}
+\right)
+\right],
+\]
+and the tree-level OPH electroweak ceiling above, the reproduction script gives:
+\begin{longtable}{c c r}
+\toprule
+\(\tan\beta\) & \(X_t/M_S\) & \(M_S\) proxy target \\
+\midrule
+2 & \(0\) & \(3046.266\,\mathrm{GeV}\)\\
+2 & \(\sqrt6\) & \(679.714\,\mathrm{GeV}\)\\
+5 & \(0\) & \(1191.830\,\mathrm{GeV}\)\\
+5 & \(\sqrt6\) & \(265.933\,\mathrm{GeV}\)\\
+10 & \(0\) & \(968.658\,\mathrm{GeV}\)\\
+10 & \(\sqrt6\) & \(216.137\,\mathrm{GeV}\)\\
+50 & \(0\) & \(901.608\,\mathrm{GeV}\)\\
+50 & \(\sqrt6\) & \(201.176\,\mathrm{GeV}\)\\
+\bottomrule
+\end{longtable}
+These are one-loop proxy targets for the full BD soft-term and spectrum computation.
+
+\subsection{Gauge-unification proxy}
+
+A one-loop SM/MSSM running proxy with \(M_{\rm SUSY}=1\,\mathrm{TeV}\) and
+\(\alpha_1=(5/3)\alpha_Y\) gives
+\[
+\log_{10}(M_U/\mathrm{GeV})=16.0815812332,
+\]
+\[
+M_U=1.20665\times10^{16}\,\mathrm{GeV},
+\qquad
+\alpha_U^{-1}=26.0176807530,
+\]
+\[
+\alpha_3^{\rm pred}(m_Z)=0.111511310319.
+\]
+The reference slot \(\alpha_3=0.118400\) requires
+\[
+\Delta(\alpha_3^{-1})_{\rm needed}=-0.521754255407.
+\]
+The string/GUT threshold target in the \(1\,\mathrm{TeV}\) proxy is fixed by this number.
+
+\subsection{Encoded candidate sieve}
+
+The open-computation audit scores representative branches against the encoded structural gates. The
+threshold and moduli gates are certificate gates, not part of this finite structural score:
+\begin{longtable}{p{0.46\linewidth}c p{0.33\linewidth}}
+\toprule
+\textbf{Candidate} & \textbf{Score} & \textbf{Verdict} \\
+\midrule
+\(BD_{n=0}^{\SU(5),\Z_2}\) & \(7/9\) & Rejected: no Higgs pair. \\
+\(BD_{n=1}^{\SU(5),\Z_2}\) & \(8/9\) & Geometric witness; safety layer absent. \\
+\(BD_{n=1,+}^{\SU(5),\Z_2}\) & \(9/9\) & Selected operator-safe candidate. \\
+\(BD_{n=2}^{\SU(5),\Z_2}\) & \(7/9\) & Rejected: extra Higgs pair. \\
+BHOP \(\SU(4),\Z_3\times\Z_3\) & \(4/9\) & Backup witness. \\
+Generic \(\mathrm{Spin}(32)/\Z_2\) heterotic & \(0/9\) & Rejected as minimal class. \\
+\bottomrule
+\end{longtable}
+Inside this encoded audit set, \(BD_{n=1}^{\SU(5),\Z_2}\) is the selected geometric witness and
+\(BD_{n=1,+}^{\SU(5),\Z_2}\) is the selected operator-safe candidate.
+
+\begin{theorem}[Encoded structural-audit uniqueness]
+Let \(\mathcal C_{\rm audit}\) be the six-branch candidate family in the table above, scored
+against the encoded structural OPH gates. The unique branch in \(\mathcal C_{\rm audit}\) passing
+every encoded structural gate is \(BD_{n=1,+}^{\SU(5),\Z_2}\).
+\end{theorem}
+
+\begin{proof}
+The table assigns scores \(7/9,8/9,9/9,7/9,4/9,0/9\) to the six listed candidates. The only score
+equal to the full structural gate count is the \(BD_{n=1,+}^{\SU(5),\Z_2}\) row. The passing set inside
+\(\mathcal C_{\rm audit}\) is the singleton
+\[
+\{BD_{n=1,+}^{\SU(5),\Z_2}\}.
+\]
+\end{proof}
+
+These are proxy numbers. They define the target for a full cohomology, Yukawa, threshold, and
+SUSY-breaking computation. Cohomology algorithms such as cohomCalg-style line-bundle
+cohomology are designed for massless-mode calculations in compactifications
+\cite{BlumenhagenJurkeRahnRoschy2010}. Spectrum tools such as SOFTSUSY solve MSSM
+renormalization-group equations with supplied SUSY-breaking constraints \cite{Allanach2001}.
+
+\begin{theorem}[OPH moduli-locking criterion]
+Let \(\mathcal M_{BD,n=1,+}\) be the moduli, threshold, safety-layer, and SUSY-breaking
+parameter space of the selected one-Higgs operator-safe stratum, and let
+\[
+\calF_{BD,n=1,+}:\mathcal M_{BD,n=1,+}\to\mathbb R^K
+\]
+send a point \(m\) to its gauge, Yukawa, Higgs, threshold, and mass vector. If
+\[
+\calF_{BD,n=1,+}(m_\star)=\calO_{\OPH}
+\]
+and
+\[
+\operatorname{rank}D\calF_{BD,n=1,+}(m_\star)=\dim\mathcal M_{\rm phys}
+\]
+transverse to OPH-stable equivalence makes \(m_\star\) locally isolated as a physical
+solution of the target equation.
+\end{theorem}
+
+\section{Exact Candidate Theorem}
+
+The strongest mathematically clean statement has certificate form. It separates what the paper
+proves by algebra from what the BD computation has to certify.
+
+\begin{theorem}[Exact OPH-selected critical-string representative]
+Assume the following data.
+\begin{enumerate}[leftmargin=2em]
+\item The OPH recovered-core target is
+\[
+\mathfrak S_{\OPH}=
+\left(
+(\SU(3)\times\SU(2)\times\U(1))/\Z_6,\,
+N_c=3,\,
+N_g=3,\,
+Y_{\rm SM},\,
+n_H=1,\,
+\text{no light chiral exotics},\,
+\ZfourR\text{ safety}
+\right).
+\]
+\item The effective string continuation is read through the heterotic edge-sector branch.
+\item The BD cohomology certificate realizes the one-Higgs, three-generation, no-exotics
+stratum with Wilson-line centralizer \(S(\U(3)\times\U(2))\).
+\item The same branch realizes \(\ZfourR\), or an OPH-equivalent safety rule, on the visible
+operator algebra.
+\item There is \(m_\star\in\mathcal M_{BD,n=1,+}\) with
+\[
+\calF_{BD,n=1,+}(m_\star)=\calO_{\OPH},
+\qquad
+\operatorname{rank}D\calF_{BD,n=1,+}(m_\star)=\dim\mathcal M_{\rm phys}.
+\]
+\item The comparison class is ordered by the OPH gate count and the minimality vector
+\[
+C(v)=
+\bigl(
+N_{\rm parent},N_{\rm corridor},|\Gamma|,n_H,N_{\rm exotic},
+N_{U(1),{\rm extra}},N_{\rm safety},D_{\rm moduli}
+\bigr).
+\]
+\end{enumerate}
+The selected effective critical-string representative, modulo OPH-stable equivalence, is
+\[
+\boxed{
+\mathcal T_{\rm correct}^{\OPH}
+=
+\left[
+BD_{n=1}^{\SU(5),\Z_2}+\ZfourR
+\right]_{\OPH}
+=
+BD_{n=1,+}^{\OPH}.
+}
+\]
+\end{theorem}
+
+\begin{proof}
+The recovered-core target fixes the observer-visible group, hypercharge lattice, generation
+count, Higgs count, exotic-matter gate, and operator-safety gate. The heterotic edge-sector branch
+and the OPH minimality order restrict the comparison class to heterotic edge-sector completions at
+the audit boundary, with brane/orientifold and duality-rewritten presentations treated as separate
+presentation tests. The BD
+certificate supplies a nonempty \(\Z_2\)-quotient \(\SU(5)\)-bundle witness with the required
+three-generation, no-exotics, one-Higgs spectrum. The centralizer and quotient theorems identify
+its Wilson-line centralizer with the OPH global Standard Model group. The \(\ZfourR\) safety
+layer closes the visible operator algebra gate. The moduli-locking rank hypothesis isolates
+\(m_\star\) modulo OPH-stable equivalence. The comparison order removes the encoded competitors:
+\(n=0\) fails the Higgs gate, \(n=2\) adds visible Higgs matter, BHOP carries an extra visible
+\(\U(1)\) corridor in the audit, and the generic \(\mathrm{Spin}(32)/\Z_2\) branch misses the
+minimal OPH corridor. The passing minimal class is the singleton
+\[
+\left[
+BD_{n=1}^{\SU(5),\Z_2}+\ZfourR
+\right]_{\OPH}.
+\]
+\end{proof}
+
+\begin{remark}[Certificate boundary]
+The theorem gives the full proof shape. Its algebraic steps close in this paper. The
+cohomology table, \(\ZfourR\)-realization table, Yukawa/superpotential table, threshold table,
+and Jacobian-rank table form the external certificate package.
+\end{remark}
+
+\begin{theorem}[Certificate closure criterion]
+The equality
+\[
+\mathcal V_{\rm crit}^{\OPH}/\Teq=\{BD_{n=1,+}^{\OPH}\}
+\]
+is fully certified once the six machine-readable certificates in Section~\ref{sec:open-gates}
+verify: cohomology, \(\ZfourR\) realization, superpotential safety, threshold matching, moduli
+locking with full transverse rank, and comparative uniqueness. If any of the first five
+certificates fails, the selected representative retracts. If the sixth certificate fails, uniqueness
+retracts and the surviving OPH-admissible set requires a wider comparison audit.
+\end{theorem}
+
+\begin{proof}
+The exact candidate theorem is a conjunction of six independent certificate gates. Gates 1--5 are
+existence and safety gates for the named representative. Gate 6 is a comparison gate over the
+declared candidate class. If all six hold, the named representative exists and is the unique minimal
+OPH-admissible survivor. If an existence or safety gate fails, the named representative misses the
+definition of OPH-correctness. If the comparison gate alone fails, the named representative may
+remain OPH-correct, with singleton status retracted. This proves the criterion.
+\end{proof}
+
+\section{Empirical Prediction Surface}
+
+The selected branch is useful only because it can lose. The predictions below are phrased as
+observer-visible constraints and threshold targets, since those are the quantities a string
+compactification, spectrum pipeline, or experiment can attack.
+
+\begin{longtable}{p{0.29\linewidth}p{0.37\linewidth}p{0.24\linewidth}}
+\toprule
+\textbf{Prediction} & \textbf{Numerical or structural target} & \textbf{Failure meaning} \\
+\midrule
+Global Standard Model group &
+\((\SU(3)\times\SU(2)\times\U(1))/\Z_6\). & Retracts the selected visible branch. \\
+Color and generations & \(N_c=3\), \(N_g=3\), with
+\(|c_3(\widetilde V)|=12\), \(|\Gamma|=2\). & Retracts the BD witness. \\
+Higgs sector & One Higgs pair in the string branch, decoupling to the observed light Higgs
+doublet. & Retracts the one-Higgs projection. \\
+Visible exotics & No light chiral exotics. & Retracts the minimal branch. \\
+Visible gauge factors & No extra visible low-scale \(\U(1)\). & Severe pressure on the
+normal-form sieve. \\
+Gauge-mediated proton decay & No mixed \((3,2,\pm5/6)\) gauge bosons in the connected
+product-group adjoint. & Conflicts with the product-group branch. \\
+Operator safety & \(\ZfourR\) permits Yukawas and the Weinberg operator, forbids perturbative
+RPV, dimension-five proton decay, and the perturbative \(\mu\)-term, and leaves matter parity
+after nonperturbative breaking \cite{LeeRabyRatzRossSchierenSchmidtHobergVaudrevange2010}. &
+Safety certificate fails if the BD branch lacks this layer or an equivalent rule. \\
+RPV trilinears & BCD report vanishing R-parity-violating trilinears in this heterotic MSSM
+\cite{BouchardCveticDonagi2006}. & Superpotential audit failure. \\
+Top Yukawa target & \(y_t^{\OPH}=0.987745211164\). & Spectrum/moduli target miss. \\
+Higgs quartic target & \(\lambda_H^{\OPH}=0.128706603202\). & Spectrum/moduli target miss. \\
+Higgs threshold lift & \(\Delta\lambda_{\min}=0.059732877792\). & MSSM threshold realization
+fails. \\
+Stop-threshold proxy & \(M_S\) lies in the tabled moderate band for representative
+\((\tan\beta,X_t/M_S)\) values. & Soft-term corridor fails. \\
+String/GUT threshold & \(\Delta(\alpha_3^{-1})_{\rm needed}\simeq -0.521754255407\) in the
+\(M_{\rm SUSY}=1\,\mathrm{TeV}\) proxy. & Heavy-threshold corridor fails. \\
+\bottomrule
+\end{longtable}
+
+The empirical content is sharper than a generic landscape statement. The selected
+string branch predicts a narrow visible package and a numerical threshold corridor. The
+unclosed part is the full map
+\[
+\calF_{BD,n=1,+}(m_\star)=\calO_{\OPH}.
+\]
+
+\section{Open Gates}\label{sec:open-gates}
+
+The computation package reduces the full string-model task to explicit inputs. The gate table is
+the working contract for an independent heterotic reproduction:
+
+\begin{longtable}{p{0.25\linewidth}p{0.36\linewidth}p{0.29\linewidth}}
+\toprule
+\textbf{Gate} & \textbf{Needed input} & \textbf{State of the paper claim} \\
+\midrule
+Cohomology certificate & Explicit \(X\), \(V\), and equivariant \(\Z_2\) action in
+cohomCalg, Sage, or Macaulay2 form. & Structural witness cited; raw computation work in
+progress. \\
+Safety-layer realization certificate & \(\ZfourR\), or an equivalent compactification selection rule,
+realized on the BD one-Higgs branch. & MSSM charge algebra closes; BD realization certificate
+work in progress. \\
+Operator and superpotential certificate & Sheaf cup products, harmonic representatives, instanton
+data, and sector selection rules. & BCD trilinear result supports RPV vanishing; numeric
+textures work in progress. \\
+Threshold and spectrum certificate & Heavy spectrum, K\"ahler moduli, complex-structure moduli,
+string scale, hidden sector, mediation data, soft terms, and low-energy spectrum pipeline.
+& Target deltas computed; heavy-threshold and UV soft-term work in progress. \\
+Moduli-locking certificate & Full map \(D\calF_{BD,n=1}\) on the physical moduli slice. & Isolation
+criterion proved; rank computation work in progress. \\
+Comparative uniqueness certificate & Expanded heterotic edge-sector audit, plus any brane,
+orientifold, or duality-rewritten presentations claiming OPH equivalence. & Encoded audit selects
+\(BD_{n=1,+}^{\OPH}\); broader catalogue audit work in progress. \\
+\bottomrule
+\end{longtable}
+
+\section{Falsifier Matrix}
+
+\begin{longtable}{p{0.32\linewidth}p{0.60\linewidth}}
+\toprule
+\textbf{Failure mode} & \textbf{Consequence} \\
+\midrule
+Wrong global Standard Model group & Retracts the OPH visible landing branch. \\
+Wrong hypercharge lattice & Retracts the selected visible branch. \\
+Fourth chiral generation & Retracts the realized branch. \\
+Light chiral exotics & Retracts the BD one-Higgs witness. \\
+Irreducible second light Higgs pair & Retracts the one-Higgs low-energy projection. \\
+Extra visible low-scale \(\U(1)\) & Severe pressure on the OPH normal-form sieve. \\
+Gauge-mediated \(X/Y\) proton decay & Conflicts with the product-group branch. \\
+BD cohomology reproduction fails & Retracts \(BD_{n=1}^{\OPH}\) as selected geometric witness. \\
+\(\ZfourR\) or equivalent safety layer absent & Retracts \(BD_{n=1,+}^{\OPH}\) as
+operator-safe candidate. \\
+Dangerous operators survive without suppression & Severe pressure on the effective theory. \\
+No moduli point matches \(\calO_{\OPH}\) & Retracts the operator-safe candidate. \\
+Critical-string lift fails & Weakens the string continuation; the OPH recovered core is a separate claim tier. \\
+\bottomrule
+\end{longtable}
+
+\section{Proof Stack for De Sitter and String Theory}
+
+The most persuasive route is compact:
+\begin{enumerate}[leftmargin=2em]
+\item prove the finite observer theorem as stable checkpoint continuation;
+\item prove the clock-projection correlator theorem in finite dimension;
+\item prove \(T\)-holonomy as a \(\Z_2^T\) cycle obstruction and \(w_1(L_T)\) class;
+\item prove record-branch time-reversal breaking on the observer quotient;
+\item derive \(S_{\rm dS}=A/(4\ell_P^2)=N_{\rm scr}\) as edge-center record capacity;
+\item derive \(Z_{\rm edge}(t)=K_t(1)\) and the large-\(N_{\rm edge}\) worldsheet branch;
+\item prove the OPH vacuum sieve, global group lock, \(\ZfourR\) safety table, no-\(X/Y\) gauge
+theorem, and moduli-locking criterion;
+\item reproduce the Bouchard-Donagi \(n=1\) cohomology, \(\ZfourR\) realization, and operator
+catalogue.
+\end{enumerate}
+
+The first two items target the de Sitter observer and time-reversal program. The last two items
+target the string community's demand for a reproducible vacuum selector.
+
+
+\section{What This Solves for De Sitter and String Theory}
+
+The paper reduces the program to a finite observer-visible normal-form problem for critical strings.
+In that form, many familiar open issues become gates with explicit pass/fail certificates.
+
+\begin{longtable}{p{0.27\linewidth}p{0.43\linewidth}p{0.20\linewidth}}
+\toprule
+\textbf{Problem} & \textbf{OPH resolution} & \textbf{Certificate gate} \\
+\midrule
+What is the physical observer in de Sitter? & A stable record-bearing patch subfederation with
+checkpoint continuation. & Record/collar model. \\
+Why does a clock branch appear? & Clock time is a record-sector projection; imaginary
+semiclassical correlators appear after branch conditioning. & Observer-sector examples. \\
+What is the clock-flip holonomy? & A \(\Z_2^T\) cycle obstruction on the overlap nerve,
+\(w_1(L_T)\). & Geometric examples. \\
+Where is de Sitter entropy? & Edge-center record capacity,
+\(S_{\rm dS}=A/(4\ell_P^2)=N_{\rm scr}\). & Capacity normalization. \\
+Why do strings appear? & Sewn OPH edge partitions are heat-kernel sums; the controlled
+large-edge continuation is a worldsheet expansion. & Large-edge control. \\
+Which string theory is correct? & The OPH-correct critical-string equivalence class is
+\(BD_{n=1,+}^{\OPH}\). & BD/Z4R/moduli certificate. \\
+Why anthropic landscape selection is absent & OPH provides a target normal form
+\(\Pi_{\rm IR}^{\OPH}(\mathcal T)=\mathfrak S_{\OPH}\), with no statistical sampling weight. & Exhaustive audits. \\
+Why the exact SM global group? & Wilson-line centralizer and OPH quotient both give
+\((\SU(3)\times\SU(2)\times\U(1))/\Z_6\). & Algebraic proof in paper. \\
+Why no simple-GUT proton decay? & The connected product-group adjoint has no
+\((3,2,\pm5/6)\) gauge bosons. & Algebraic proof in paper. \\
+How is the \(\mu\)-problem controlled? & The \(\ZfourR\) safety layer forbids perturbative
+\(H_uH_d\) and allows nonperturbative generation. & Compactification realization. \\
+How are moduli stabilized? & The problem becomes the target-locking equation
+\(\calF(m_\star)=\calO_{\OPH}\) plus full transverse rank. & Numerical/rank certificate. \\
+What is the string graviton? & The closed-string vertex image of the OPH transverse-traceless
+metric perturbation. & Normalization match. \\
+\bottomrule
+\end{longtable}
+
+\begin{theorem}[De Sitter/string compression theorem]
+On the OPH-correct branch, the de Sitter observer problem, the time-reversal clock-branch
+problem, the entropy-location problem, and the critical-string vacuum-selection problem reduce to
+one finite statement: find the observer-visible normal form of the OPH patch federation and then
+lift its sewn edge sector to a critical worldsheet presentation.
+\end{theorem}
+
+\begin{proof}
+The observer and clock problems are properties of record-bearing subfederations and their
+\(\Z_2^T\) cycle data. The entropy problem is the edge-center capacity of the same finite static
+patch. The string problem is the critical completion of the sewn edge-sector partition. The OPH
+normal form fixes the visible quotient data used by all four questions. The apparently separate
+problems are projections of the same finite patch-federation normal-form problem.
+\end{proof}
+
+\section{Conclusion}
+
+OPH gives a finite observer/record/overlap implementation layer for de Sitter holography. The
+same edge system admits a sewn-worldsheet language. Critical string theory enters as the
+effective completion of that language, and the OPH visible-normal-form target selects the
+Bouchard-Donagi one-Higgs heterotic Standard Model as the geometric witness. Adding the MSSM
+\(\ZfourR\) safety layer gives the operator-safe selected candidate
+\[
+BD_{n=1,+}^{\OPH}=BD_{n=1}^{\OPH}+\ZfourR.
+\]
+
+The claim remains falsifiable. The cohomology, safety-layer, threshold, and moduli gates decide
+how far the operator-safe candidate goes.
+
+\begin{thebibliography}{99}
+
+\bibitem{OPHObserversAllYouNeed}
+B.\ M\"uller,
+\emph{Observers Are All You Need},
+Observer-Patch Holography paper source.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.tex}.
+
+\bibitem{OPHCompactCore}
+B.\ M\"uller,
+\emph{Recovering Relativity and the Standard Model from Observer Overlap Consistency},
+Observer-Patch Holography compact paper source.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex}.
+
+\bibitem{OPHRealityConsensus}
+B.\ M\"uller,
+\emph{Reality as a Consensus Protocol: The Fixed-Point Computation That Implements Physics},
+Observer-Patch Holography paper source.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/reality_as_consensus_protocol.tex}.
+
+\bibitem{OPHScreenMicrophysics}
+B.\ M\"uller,
+\emph{Federated Echosahedral Screen Microphysics: Patch Hardware, Records, and Observer Synchronization in OPH},
+Observer-Patch Holography paper source.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.tex}.
+
+\bibitem{OPHParticleZoo}
+B.\ M\"uller,
+\emph{Deriving the Particle Zoo from Observer Consistency},
+Observer-Patch Holography paper source.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.tex}.
+
+\bibitem{OPHParadiseConsensus}
+B.\ M\"uller,
+\emph{Paradise as Fixed-Point Consensus: Resurrection, Justice, Heaven, and Hell in Observer-Patch Holography},
+Observer-Patch Holography paper source.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/paradise_as_fixed_point_consensus.tex}.
+
+\bibitem{OPHFineStructure}
+B.\ M\"uller,
+\emph{The Fine-Structure Constant as an OPH Pixel Fixed Point},
+Observer-Patch Holography extra paper source.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/fine_structure_constant_derivation.tex}.
+
+\bibitem{OPHDarkMatter}
+B.\ M\"uller,
+\emph{Observer-Patch Holography and the Dark Matter Phenomenon},
+Observer-Patch Holography extra paper source.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/oph_dark_matter_paper.tex}.
+
+\bibitem{OPHChiNuBounds}
+B.\ M\"uller,
+\emph{Theoretical Bounds on \(\chi_\nu\) in Observer-Patch Holography},
+Observer-Patch Holography extra paper source.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/chi_nu_susceptibility_bounds.tex}.
+
+\bibitem{OPHYangMillsGap}
+B.\ M\"uller,
+\emph{Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics},
+Observer-Patch Holography extra paper source.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/yang_mills_gap_clay_problem.tex}.
+
+\bibitem{OPHThinkingPatchNet}
+B.\ M\"uller,
+\emph{Thinking as Patch-Net Fixed-Point Search: A Mathematical Model of Neural Consensus Computation},
+Observer-Patch Holography extra paper source.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/thinking_as_patch_net_fixed_point_search.tex}.
+
+\bibitem{DSObservers2025}
+L.\ Susskind,
+\emph{Why do we Need Observers? Spontaneous Breaking of Time-Reversal in de Sitter Space},
+arXiv:2512.13650.
+
+\bibitem{DSMoreObservers2026}
+L.\ Susskind,
+\emph{More About the Spontaneous Breaking of Time Reversal in de Sitter Space},
+arXiv:2601.01666.
+
+\bibitem{DSTimeReversal2026}
+L.\ Susskind,
+\emph{Is Time Reversal in de Sitter Space a Spontaneously Broken Gauge Symmetry?},
+arXiv:2603.12434.
+
+\bibitem{DSEntropy2025}
+L.\ Susskind,
+\emph{Where is the Entropy in DSSYK-de Sitter? Correction to a wrong claim},
+arXiv:2511.10907.
+
+\bibitem{DSMatrix2021}
+L.\ Susskind,
+\emph{Black Holes Hint Towards De Sitter-Matrix Theory},
+arXiv:2109.01322.
+
+\bibitem{DSScales2022}
+L.\ Susskind,
+\emph{De Sitter Space, Double-Scaled SYK, and the Separation of Scales in the Semiclassical Limit},
+arXiv:2209.09999.
+
+\bibitem{DSSYKQCDPaper}
+Y.\ Sekino and L.\ Susskind,
+\emph{Double-Scaled SYK, QCD, and the Flat Space Limit of de Sitter Space},
+arXiv:2501.09423.
+
+\bibitem{DSSYKFlatPaper}
+S.\ Miyashita, Y.\ Sekino, and L.\ Susskind,
+\emph{DSSYK at Infinite Temperature: The Flat-Space Limit and the 't Hooft Model},
+arXiv:2506.18054.
+
+\bibitem{BouchardDonagi2005}
+V.\ Bouchard and R.\ Donagi,
+\emph{An SU(5) Heterotic Standard Model},
+arXiv:hep-th/0512149.
+
+\bibitem{BouchardCveticDonagi2006}
+V.\ Bouchard, M.\ Cvetic, and R.\ Donagi,
+\emph{Tri-linear Couplings in an Heterotic Minimal Supersymmetric Standard Model},
+arXiv:hep-th/0602096.
+
+\bibitem{LeeRabyRatzRossSchierenSchmidtHobergVaudrevange2010}
+H.\ M.\ Lee, S.\ Raby, M.\ Ratz, G.\ G.\ Ross, R.\ Schieren, K.\ Schmidt-Hoberg, and
+P.\ K.\ S.\ Vaudrevange,
+\emph{A unique \(Z_4^R\) symmetry for the MSSM},
+arXiv:1009.0905.
+
+\bibitem{MarchesanoShiuWeigand2024}
+F.\ Marchesano, G.\ Shiu, and T.\ Weigand,
+\emph{The Standard Model from String Theory: What Have We Learned?},
+arXiv:2401.01939.
+
+\bibitem{DeffayetOvrutSteinhardt2024}
+C.\ Deffayet, B.\ A.\ Ovrut, and P.\ J.\ Steinhardt,
+\emph{Stable Vacua with Realistic Phenomenology and Cosmology in Heterotic M-theory Satisfying Swampland Conjectures},
+arXiv:2401.04828.
+
+\bibitem{FriederichLeBihan2021}
+S.\ Friederich and B.\ Le Bihan,
+\emph{The landscape and the multiverse: What's the problem?},
+Synthese 199, 7749-7771 (2021).
+\url{https://doi.org/10.1007/s11229-021-03137-0}.
+
+\bibitem{GrimmVanDeHeisteeg2025}
+T.\ W.\ Grimm and D.\ van de Heisteeg,
+\emph{Exact flux vacua, symmetries, and the structure of the landscape},
+JHEP 01 (2025) 005.
+\url{https://doi.org/10.1007/JHEP01(2025)005}.
+
+\bibitem{BlumenhagenJurkeRahnRoschy2010}
+R.\ Blumenhagen, B.\ Jurke, T.\ Rahn, and H.\ Roschy,
+\emph{Cohomology of Line Bundles: A Computational Algorithm},
+arXiv:1003.5217.
+
+\bibitem{Allanach2001}
+B.\ C.\ Allanach,
+\emph{SOFTSUSY: a program for calculating supersymmetric spectra},
+arXiv:hep-ph/0104145.
+
+\end{thebibliography}
+
+\end{document}

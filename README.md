@@ -267,6 +267,7 @@ tiers live in the papers.
 
 - **[Photonic Fixed-Point Consensus for SHA-256d Proof of Work](extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf)**: photonic candidate enrichment for SHA-256d proof of work.
 - **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)**: fixed-point derivation of the fine-structure row.
+- **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)**: OPH edge-string emergence, the Bouchard-Donagi one-Higgs heterotic witness, the `Z4R` safety layer, and moduli-locking gates.
 - **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)**: support-visible OPH route to the Clay Yang-Mills problem, branch-scoped to the compact-gauge extraction, with Clay-facing status tied to that axiomatic-construction claim, and identifying the gap with the repair gap.
 - **[Observer-Patch Holography and the Dark Matter Phenomenon](extra/oph_dark_matter_paper.pdf)**: dark-matter phenomenology and MOND-like galaxy limit.
 - **[Theoretical Bounds on chi-nu in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)**: conditional quotient-edge band `0.9343006394893864 <= chi_nu^can <= 1`; uniform-branch exact value `exp(-P/24)`; engineering chart values scale as `N_coh^-1`.

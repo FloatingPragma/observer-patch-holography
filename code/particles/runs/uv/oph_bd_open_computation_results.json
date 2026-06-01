@@ -1,0 +1,111 @@
+{
+  "gauge_unification_proxy": {
+    "M_SUSY_GeV": 1000.0,
+    "M_U_GeV": 1.2066497665312306e+16,
+    "alpha3_pred_mZ": 0.11151131031870261,
+    "alpha_U_inverse": 26.01768075303152,
+    "delta_alpha3_inverse_needed": -0.5217542554234988,
+    "log10_MU_GeV": 16.081581233199998
+  },
+  "inputs": {
+    "alpha2_mz": 0.03377843630219015,
+    "alpha3_reference_mz": 0.1184,
+    "alphaY_mz": 0.010131601067241624,
+    "mH_gev": 125.1995304097179,
+    "mZ_reference_gev": 91.187978085123,
+    "mt_gev": 172.35235532883115,
+    "v_gev": 246.76711732749683
+  },
+  "low_energy_targets": {
+    "Delta_lambda_min": 0.05973287779223409,
+    "lambda_H_OPH": 0.12870660320156416,
+    "lambda_MSSM_tree_max": 0.06897372540933007,
+    "m_h_tree_max_GeV": 91.65246028560671,
+    "y_t_OPH": 0.9877452111639996
+  },
+  "open_gates": [
+    "raw_BD_geometry_bundle_cohomology",
+    "Yukawa_superpotential_cup_products_and_instantons",
+    "heavy_spectrum_and_string_GUT_thresholds",
+    "hidden_sector_SUSY_breaking_soft_terms",
+    "full_moduli_lock_map_F_BD_n1"
+  ],
+  "operator_audit": {
+    "L Hd ec": {
+      "hypercharge_neutral": true,
+      "hypercharge_sum": 0.0
+    },
+    "L L ec": {
+      "hypercharge_neutral": true,
+      "hypercharge_sum": 0.0
+    },
+    "L Q dc": {
+      "hypercharge_neutral": true,
+      "hypercharge_sum": -2.7755575615628914e-17
+    },
+    "Q Hd dc": {
+      "hypercharge_neutral": true,
+      "hypercharge_sum": -2.7755575615628914e-17
+    },
+    "Q Hu uc": {
+      "hypercharge_neutral": true,
+      "hypercharge_sum": 2.7755575615628914e-17
+    },
+    "Q Q Q L": {
+      "hypercharge_neutral": true,
+      "hypercharge_sum": -2.7755575615628914e-17
+    },
+    "uc dc dc": {
+      "hypercharge_neutral": true,
+      "hypercharge_sum": 0.0
+    },
+    "uc uc dc ec": {
+      "hypercharge_neutral": true,
+      "hypercharge_sum": 5.551115123125783e-17
+    }
+  },
+  "selected_representative": "BD_n=1_OPH_Bouchard-Donagi_E8xE8_heterotic_SU5_one_Higgs_stratum",
+  "status": "target_equation_reduction_not_full_BD_geometry_solve",
+  "stop_threshold_proxy": [
+    {
+      "X_t_over_M_S": 0.0,
+      "required_M_S_GeV": 3046.2658890082694,
+      "tan_beta": 2.0
+    },
+    {
+      "X_t_over_M_S": 2.449489742783178,
+      "required_M_S_GeV": 679.7137956691143,
+      "tan_beta": 2.0
+    },
+    {
+      "X_t_over_M_S": 0.0,
+      "required_M_S_GeV": 1191.8302668120557,
+      "tan_beta": 5.0
+    },
+    {
+      "X_t_over_M_S": 2.449489742783178,
+      "required_M_S_GeV": 265.93327830351996,
+      "tan_beta": 5.0
+    },
+    {
+      "X_t_over_M_S": 0.0,
+      "required_M_S_GeV": 968.6578539487122,
+      "tan_beta": 10.0
+    },
+    {
+      "X_t_over_M_S": 2.449489742783178,
+      "required_M_S_GeV": 216.13678208061054,
+      "tan_beta": 10.0
+    },
+    {
+      "X_t_over_M_S": 0.0,
+      "required_M_S_GeV": 901.607828226984,
+      "tan_beta": 50.0
+    },
+    {
+      "X_t_over_M_S": 2.449489742783178,
+      "required_M_S_GeV": 201.17589910336503,
+      "tan_beta": 50.0
+    }
+  ]
+}
