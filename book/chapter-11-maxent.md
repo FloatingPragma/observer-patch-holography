@@ -320,14 +320,13 @@ branch recovers Lorentz kinematics and a universal causal speed on the screen.
 
 Each observer's patch has a boundary, that boundary carries a horizon
 temperature, and the modular flow of the horizon state generates the
-observer's time evolution. In OPH this is not the claim that finite screen
-cells are already Lorentz invariant. The support-visible BW branch first
-extracts the prime geometric cap pair, carries modular data by regularized
-transport, reads the modular flow as a support map on cap-local regions,
-identifies the cap-preserving conformal subgroup by round-cap rigidity, and
-fixes the $2\pi$ normalization by KMS/BW matching. On that branch the cap
-modular automorphism becomes geometric on the sphere. Once that happens, the
-conformal symmetry of the sphere reproduces Lorentz symmetry.
+observer's time evolution. Finite screen cells serve as regulators in OPH.
+The support-visible BW branch extracts the prime geometric cap pair, carries
+modular data by regularized transport, reads the modular flow as a support map
+on cap-local regions, identifies the cap-preserving conformal subgroup by
+round-cap rigidity, and fixes the $2\pi$ normalization by KMS/BW matching. On
+that branch the cap modular automorphism becomes geometric on the sphere.
+That geometric action gives the Lorentz symmetry.
 
 ### The Speed of Light
 

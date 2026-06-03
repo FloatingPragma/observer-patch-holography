@@ -361,8 +361,8 @@ correlations. Cut enough entanglement and you cut space itself.
 
 We've seen that space emerges from entanglement. But why is this structure stable? Why doesn't the entanglement web unravel?
 
-In the next chapter, we'll see how this picture connects to quantum error correction. In
-controlled holographic settings, spacetime is not just entanglement; it is encoded in a structure
-that can protect information. The OPH overlap network begins more modestly as a finite constraint
-code, and it becomes a quantum error-correcting claim only when the code subspace, logical
-operators, error model, and recovery map are supplied.
+In the next chapter, this picture connects to quantum error correction. In controlled holographic
+settings, spacetime is encoded in a structure that can protect information. The OPH overlap
+network begins more modestly as a finite constraint code, and it becomes a quantum
+error-correcting claim only when the code subspace, logical operators, error model, and recovery
+map are supplied.

@@ -266,11 +266,10 @@ $$\|\rho_{ABC} - (\mathbb{I}_A \otimes R_{B \to BC})(\rho_{AB})\|_1 \leq 2\sqrt{
 Small CMI implies approximate recoverability. The smaller I(A:C|B), the better the recovery.
 
 This is the mathematical heart of the recovery rule: **redundancy implies reconstruction**.
-But this is not the same as saying that small CMI is already an exact Markov
-normal form. Small CMI gives a recovered comparison state with controlled
-error. Exact HJPW factorization, exact splice identities, and exact modular
-additivity require either \(I(A:C|B)=0\) literally or a controlled fixed-collar
-family whose distance to the exact Markov set tends to zero.
+Small CMI gives a recovered comparison state with controlled error. Exact HJPW
+factorization, exact splice identities, and exact modular additivity require
+either \(I(A:C|B)=0\) literally or a controlled fixed-collar family whose
+distance to the exact Markov set tends to zero.
 
 ## 7.8 Example Calculations
 

@@ -150,7 +150,7 @@ painted on its surface. In the idealized description there is a shared
 observer-facing screen net, often drawn with the symmetric chart $S^2$. A finite
 observer has access only to a bounded local cut of that net. The observer's
 operational screen is that accessible cut, and a patch is the part of the cut
-currently supporting records, comparisons, and repair.
+that supports records, comparisons, and repair.
 
 For an observer in our universe, the accessible boundary can take several
 forms. There is an observer-dependent cosmological horizon scale. Near a black

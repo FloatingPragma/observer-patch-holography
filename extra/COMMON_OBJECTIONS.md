@@ -477,7 +477,7 @@ A lattice relation of the form `Delta x Delta k >= 1/2`, together with `p = hbar
 - a local modular Hamiltonian of stress-tensor form,
 - or the modular thermality behind Unruh/Hawking behavior.
 
-Those are modular and operator-algebraic claims, not just Fourier-resolution claims.
+Those are modular and operator-algebraic claims. Fourier resolution does not cover them.
 
 There is also a simple finite-dimensional caveat. On an `N`-dimensional Hilbert space, exact canonical commutation relations cannot hold in the form
 
@@ -561,7 +561,7 @@ package.
 
 ### What was repaired
 
-The compact and main papers now state this as theorem-level bookkeeping. The
+The compact and main papers state this as theorem-level bookkeeping. The
 SM endpoint is branch-conditional: MAR minima exist because the admissible
 class is nonempty and the MAR complexity vector lives in a well-founded
 lexicographic order on `N^4`; within the stated one-Higgs chiral package, the

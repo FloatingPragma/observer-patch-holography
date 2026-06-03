@@ -102,9 +102,9 @@ with finite observers on finite quantum-algebraic holographic screen geometry
 whose descriptions have to agree where their patches overlap. Push that
 requirement through the support-visible BW/geometric scaling branch and a
 3+1-dimensional Lorentzian spacetime emerges, together with a Jacobson-style
-Einstein equation. This is not a claim that finite cells are already Lorentz
-invariant; the Lorentz branch is the extracted prime geometric cap-pair limit
-with fixed-collar Markov/recovery remainders carried through regularized
+Einstein equation. Finite cells serve as the regulator. The Lorentz branch is
+the extracted prime geometric cap-pair limit with fixed-collar Markov/recovery
+remainders carried through regularized
 modular transport, support-readable modular covariance, and KMS/BW
 normalization. In the gauge lane,
 zero-obstruction is a transportability condition: it reconstructs a compact
