@@ -267,8 +267,10 @@ record-event probability shifts by at most \(\varepsilon+\delta_{\mathrm{rec}}\)
 
 \subsection{Markov Collar Factorization}
 
-For a collar tripartition \(A\)-\(B\)-\(D\) with conditional mutual information
-\(I(A:D|B)\le\varepsilon\), the exact Markov limit gives
+For a collar tripartition \(A\)-\(B\)-\(D\), the exact Markov normal form is used only when
+\(I(A:D|B)=0\) holds literally, or along a controlled fixed-collar family for which the
+exact-Markov replacement modulus \(\delta^{\mathrm M}_{A:B:D}(\varepsilon)\to0\). In that exact or
+controlled limit one obtains
 \[
 \rho_{ABD}
 =\bigoplus_{\alpha} p_{\alpha}\,
@@ -277,7 +279,8 @@ For a collar tripartition \(A\)-\(B\)-\(D\) with conditional mutual information
 \rho^{(\alpha)}_{b_R^{\alpha} D}.
 \]
 The sector label \(\alpha\) is classical center data. This decomposition is the mathematical
-basis for extracting an interior observer state with a controlled boundary interface.
+basis for extracting an interior observer state with a controlled boundary interface. Small CMI by
+itself supplies a recovered comparison state; it is not silently promoted to an exact Markov state.
 
 \subsection{Checkpoint and Restoration Map}
 
@@ -304,9 +307,10 @@ For approximate Markov collars, recovery is controlled by the standard bound
 \le
 2\sqrt{\ln 2\,\varepsilon}.
 \]
-This gives quantitative trace-distance control on the recovered state under finite CMI
-(finite collar error). Interpreting that control as observer continuation
-requires additional modeling assumptions beyond the bound itself.
+This gives quantitative trace-distance control on the recovered comparison state under finite CMI
+(finite collar error). The exact HJPW splice form instead requires literal exact Markovity or the
+separate fixed-collar replacement modulus tending to zero. Interpreting either control as observer
+continuation requires additional modeling assumptions beyond the bound itself.
 
 The fixed-cutoff microphysics claim is stronger than the bare recoverability estimate written
 above. In Ref.~\cite{ophmicrophysics}, exact checkpoint restoration preserves the full future

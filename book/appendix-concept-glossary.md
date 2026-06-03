@@ -71,6 +71,13 @@ they do not reveal or scramble which logical state was encoded. Holographic
 spacetime behaves like an approximate code space in which bulk information is
 protected by boundary redundancy.
 
+**Constraint code.** A constraint code is the set of assignments satisfying a
+declared family of local constraints. In OPH, a bare finite overlap network is
+first a constraint code: valid codewords are globally overlap-consistent patch
+assignments. It becomes a quantum error-correcting or topological-code claim
+only after a code space, logical operators, error family, and recovery map are
+supplied.
+
 **Collar.** A collar is a buffer region between a cap and its exterior. In
 recoverability arguments, the collar can screen off inside from outside once
 the right boundary data are fixed. The collar diagram in the recovery chapter
@@ -84,8 +91,11 @@ position-momentum commutator is the standard quantum example.
 **CMI.** CMI
 $I(A:C|B)$ measures how much correlation remains between $A$ and $C$ once
 $B$ is known. In quantum information, small CMI
-signals approximate recoverability. OPH uses it to express when local damage
-can be repaired from surrounding data.
+signals approximate recoverability: there is a recovered comparison state with
+controlled error. It is not by itself an exact Markov normal form. OPH uses it
+to express when local damage can be repaired from surrounding data, while exact
+splice or modular-additivity identities require exact Markovity or a
+fixed-collar replacement modulus tending to zero.
 
 **Conservation law.** A conservation law says a quantity is locally balanced:
 what flows out of one region flows into another. Noether's theorem ties
@@ -146,7 +156,8 @@ The book links them through record cost and finite information budgets.
 damage to physical carriers. Quantum error correction does this without
 copying unknown states. Holographic error correction shows how bulk
 information can survive boundary erasure. OPH uses recovery and coding as
-central stability mechanisms.
+central stability mechanisms, but bare overlap consistency is only a finite
+constraint-code claim until stronger code certificates are present.
 
 **Fixed point.** A fixed point is a value or state left unchanged by a process
 or map. In OPH, fixed points appear in consensus repair, pixel-ratio
@@ -157,7 +168,8 @@ applying the relevant consistency operation again does not move it.
 structure. The Standard Model uses $SU(3)\times SU(2)\times U(1)$, with a
 quotient by a shared discrete center in the full global structure. OPH tries
 to reconstruct gauge structure from persistent charge bookkeeping across
-patches.
+patches; MAR is the later selection rule that picks the realized one-Higgs
+Standard Model branch.
 
 **Generalized entropy.** Generalized entropy combines a geometric area term
 with quantum entropy outside or across a surface. It is central in black-hole
@@ -206,9 +218,11 @@ the speed of light and light-cone structure. In OPH, Lorentz behavior appears
 from smooth screen geometry and modular boost structure.
 
 **Lyapunov function.** A Lyapunov function is a quantity that decreases along
-allowed repair or relaxation steps. It proves convergence when the state
-space is finite and no infinite decreasing chain exists. OPH consensus
-arguments use this style of reasoning to make repair termination precise.
+allowed repair or relaxation steps. In a finite state space with no infinite
+decreasing chain, it proves termination. It does not by itself prove that all
+allowed schedules stop at the same result; that is the separate confluence
+condition. OPH consensus arguments use this style of reasoning to make repair
+termination precise.
 
 **MaxEnt.** Maximum entropy inference chooses the least biased state
 compatible with known constraints. Jaynes made this a general principle of
@@ -223,12 +237,16 @@ modular flow, and entropy equilibrium.
 **Modular flow.** Modular flow is the natural flow associated with an
 algebra-state pair in Tomita-Takesaki theory. It is written
 $\sigma_t(A)=\Delta^{it}A\Delta^{-it}$. OPH uses modular flow as a source of
-internal time and, in cap limits, geometric motion.
+internal time and, on the certified support-visible BW branch, geometric cap
+motion.
 
 **Modular Hamiltonian.** The modular Hamiltonian $K$ is related to a density
-matrix by $\rho\propto e^{-K}$. It generates modular flow. Unlike ordinary
-energy, it depends on the chosen region and state. That region-dependence is
-why it fits observer patches.
+matrix by $\rho\propto e^{-K}$ at finite cutoff or in a special type-I
+representation. In generic continuum operator algebras the modular
+automorphism group can be the theorem-level object even when no inner
+density-matrix generator belongs to the algebra. Unlike ordinary energy, the
+modular generator or flow depends on the chosen region and state. That
+region-dependence is why it fits observer patches.
 
 **No-cloning.** The no-cloning theorem says an unknown quantum state cannot be
 copied perfectly. This forces quantum error correction to use entangled
@@ -243,7 +261,11 @@ rules, not mere aesthetic preferences.
 **Normal form.** A normal form is a canonical result reached by applying
 rewrite or repair rules. If different repair paths reach the same normal
 form, the system has confluence. OPH uses this as a computational image for
-public reality as the stable result of overlap repair.
+public reality as the stable result of overlap repair. Termination only says
+the repair process stops; confluence is the extra condition that different
+allowed schedules from the same initial quotient state stop at the same
+observer-facing quotient result. Same-boundary uniqueness additionally needs
+that boundary or sector to have a unique consistent extension.
 
 **Observer patch.** An observer patch is the finite operational domain
 available to an observer. It has a local algebra, a state, records, and
@@ -268,9 +290,10 @@ conditions. Tree-like graphs are simpler, but quantum compatibility can still
 be subtle.
 
 **Petz map.** The Petz map is a canonical recovery map in quantum information
-theory. It reconstructs a state under exact or approximate Markov conditions.
-OPH uses Petz-style recovery as part of the repair logic for missing or
-scrambled local information.
+theory. In the exact Markov setting it reconstructs the state; in approximate
+settings it supplies a controlled recovered comparison state. OPH uses
+Petz-style recovery as part of the repair logic for missing or scrambled local
+information, while exact splice claims are audited separately.
 
 **Pointer state.** Pointer states are stable states selected by
 system-environment interaction. They are the states whose information gets

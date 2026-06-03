@@ -58,14 +58,17 @@ description has no preferred clock.
 
 In the 1990s, Alain Connes and Carlo Rovelli proposed a stark idea. Time can be
 read from incomplete knowledge. Start with the observer's limited state
-$\rho$. From it one forms the modular Hamiltonian, $K=-\ln\rho$. That operator
-generates a flow, and the thermal-time proposal reads that flow as the time the
-observer actually experiences.
+$\rho$. At finite cutoff, or in a special type-I representation, one writes a
+modular Hamiltonian $K=-\ln\rho$. In the general operator-algebraic setting the
+more fundamental object is the modular automorphism group itself; an inner
+density-matrix generator need not exist. The thermal-time proposal reads that
+flow as the time the observer actually experiences.
 
 Here $\rho$ is the observer's density matrix, the quantum bookkeeping object for
 what the observer can know. The modular Hamiltonian is not necessarily the
 ordinary energy of the whole universe. It is the operator that generates the
-natural evolution of the restricted state the observer actually has access to.
+natural evolution of the restricted state the observer actually has access to
+when such an operator representative exists.
 
 This is a strange move the first time one sees it. In ordinary mechanics, the
 Hamiltonian is given first and time evolution follows. Here the restricted
@@ -198,7 +201,7 @@ state into the modular generator for the patch.
 
 ### Consistency of Clocks
 
-If two observers' patches overlap, their modular times have to agree on the shared operational content. On the smooth geometric branch, that compatibility is what later supports a shared causal structure.
+If two observers' patches overlap, their modular times have to agree on the shared operational content. On the support-visible BW/geometric branch, that compatibility is what later supports a shared causal structure.
 
 ### Cosmic Time
 
@@ -275,15 +278,19 @@ Why? Acceleration creates a **Rindler horizon**-a boundary beyond which signals 
 
 In 1975-1976, Bisognano and Wichmann proved something deeper. Consider the vacuum state of a quantum field theory. Restrict attention to a Rindler wedge-the region accessible to a forever-accelerating observer.
 
-The reduced density matrix on this wedge turns out to be thermal:
+The wedge modular automorphism is geometric. In a cutoff or pedagogical
+type-I representation this is often written as a thermal density matrix:
 
 $$\rho_R = \frac{e^{-2\pi K}}{Z}$$
 
-where K is the Lorentz boost generator. The modular Hamiltonian-which generates "time evolution" within the wedge-is proportional to the boost:
+where K is the Lorentz boost generator. In that representation the modular
+Hamiltonian-which generates "time evolution" within the wedge-is proportional
+to the boost:
 
 $$H_{mod} = 2\pi K$$
 
-In this wedge case, **modular flow is Lorentz boost**.
+In this wedge case, **the modular automorphism group is the Lorentz boost
+flow**.
 
 This does not mean that every clock in the universe is literally an
 accelerating rocket clock. It means that, in this clean wedge example, the
@@ -293,7 +300,8 @@ operator algebra and spacetime motion.
 
 $$\Delta^{it} = e^{-2\pi i K t}$$
 
-The natural time evolution of a thermal state in a wedge-shaped region is exactly a Lorentz transformation.
+The natural modular evolution of the wedge state is exactly a Lorentz
+transformation.
 
 That means the same structure that tells the observer "this restricted state is thermal" also tells the observer how boosts and clocks fit together. Thermal language and relativistic geometry are two descriptions of one modular fact.
 
@@ -305,17 +313,21 @@ Start with thermal structure. Ask: what is the natural notion of time evolution?
 
 This reverses the usual logic in QFT. We do not postulate Lorentz symmetry and then discover thermal horizons; the Bisognano-Wichmann theorem shows the boost structure is encoded in modular flow.
 
-That modular-boost link is the route by which the smooth geometric branch
-recovers Lorentz kinematics and a universal causal speed on the screen.
+That modular-boost link is the route by which the support-visible geometric
+branch recovers Lorentz kinematics and a universal causal speed on the screen.
 
 ### Connection to OPH
 
 Each observer's patch has a boundary, that boundary carries a horizon
 temperature, and the modular flow of the horizon state generates the
-observer's time evolution. Carried over from wedges in ordinary spacetime to
-caps on the holographic screen, that flow becomes an actual geometric motion on
-the sphere. Once that happens, the conformal symmetry of the sphere reproduces
-Lorentz symmetry.
+observer's time evolution. In OPH this is not the claim that finite screen
+cells are already Lorentz invariant. The support-visible BW branch first
+extracts the prime geometric cap pair, carries modular data by regularized
+transport, reads the modular flow as a support map on cap-local regions,
+identifies the cap-preserving conformal subgroup by round-cap rigidity, and
+fixes the $2\pi$ normalization by KMS/BW matching. On that branch the cap
+modular automorphism becomes geometric on the sphere. Once that happens, the
+conformal symmetry of the sphere reproduces Lorentz symmetry.
 
 ### The Speed of Light
 
@@ -336,17 +348,19 @@ The modular flow provides the time direction. Entanglement provides correlations
 
 ### Why This Matters
 
-Einstein discovered special relativity in 1905 by thinking about light and motion. QFT gives the same structure another reading: Lorentz boosts are tied to horizon thermodynamics via the Bisognano-Wichmann theorem. In OPH the same pattern appears when the screen reaches its smooth geometric limit, so the Lorentz group shows up as the geometry of modular flow on caps.
+Einstein discovered special relativity in 1905 by thinking about light and motion. QFT gives the same structure another reading: Lorentz boosts are tied to horizon thermodynamics via the Bisognano-Wichmann theorem. In OPH the same pattern appears only on the certified support-visible BW branch, where the Lorentz group shows up as the geometry of modular automorphisms on extracted caps.
 
-The laws of physics look the same to all inertial observers because thermal states on wedge-shaped regions naturally evolve via boosts. In the OPH program, the universal speed emerges on the smooth geometric branch when that modular-boost structure is carried over to the screen and then read back into bulk kinematics.
+The laws of physics look the same to all inertial observers because thermal states on wedge-shaped regions naturally evolve via boosts. In the OPH program, the universal speed emerges on the support-visible geometric branch when that modular-boost structure is carried over to the screen and then read back into bulk kinematics.
 
 ## 11.10 What Time Predicts
 
 The thermal-time picture does not float free of physics. Tomita-Takesaki says
 an algebra-state pair carries its own flow. The KMS condition gives that flow
 the structure of thermal equilibrium. Bisognano-Wichmann shows that modular
-time becomes an actual Lorentz boost in the wedge setting. Boltzmann explains
-why irreversible records emerge out of reversible microscopic laws.
+time becomes an actual Lorentz boost in the wedge setting, and OPH uses the
+corresponding cap statement only after the support-visible BW branch has been
+certified. Boltzmann explains why irreversible records emerge out of reversible
+microscopic laws.
 
 The physical world fits this picture with surprising loyalty. Accelerating
 observers inherit Unruh temperature from the same horizon logic that produces

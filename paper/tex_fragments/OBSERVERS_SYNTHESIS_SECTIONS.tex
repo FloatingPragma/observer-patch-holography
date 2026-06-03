@@ -17,9 +17,18 @@ On its declared fixed-cutoff branch, \emph{Reality as a Consensus Protocol: The 
 Computation That Implements Physics}~\cite{ophconsensus} imports four core D1 surfaces into this
 synthesis surface:
 \begin{enumerate}[leftmargin=2em]
+\item \textbf{Constraint-code firewall.} A bare finite overlap net is a finite constraint code:
+its codewords are exactly the globally consistent states \(C=\Phi^{-1}(0)\). It is not
+automatically a QECC/topological code, and its graph min-cut does not determine code distance.
+Distance/min-cut, Knill--Laflamme resilience, spectral convergence, BFT liveness, and hardware
+speedup enter only through separate certificates.
 \item \textbf{Asynchronous confluence.} For the declared accepted repair law, the local-fit
-contract makes \(\Phi\) a Lyapunov functional and, together with the fixed-cutoff union-collar
-gluing package, yields a unique schedule-independent normal form under repair completeness.
+contract makes \(\Phi\) a Lyapunov functional, hence gives termination on the finite patch net.
+The fixed-cutoff union-collar gluing package supplies the local diamond on the physical quotient,
+and only that confluence condition together with repair completeness yields a unique
+schedule-independent normal form from a fixed initial quotient state. Same-boundary uniqueness
+requires the additional unique consistent extension condition in the preserved boundary/sector
+fiber.
 \item \textbf{Cycle obstruction and higher-gauge defects.} On the abelian branch, global
 consistency holds exactly when cycle holonomy vanishes; on the genuinely noncentral branch, the
 crossed-module defect class
@@ -43,18 +52,18 @@ outside the fixed-cutoff theorem stack. The declared repair step includes the
 touched-overlap local-fit contract and the union-collar gluing package on the physical quotient;
 the branch conditions above that step are repair completeness and, on the Petz branch, the stated
 support/CPTP clause. On that same fixed-cutoff surface, exact normal-form computation is
-finite-state and decidable, approximate stability is only collar-local through the splice and
-record estimates, and long-run noisy approximate consensus for arbitrary exported patch-net
-families belongs to the consensus paper's expressiveness and stability boundary. That boundary is
-not a dependency for the support-visible BW theorem, local Einstein branch, compact-gauge
-reconstruction, or realized Standard Model branch.
+finite-state and decidable, automatic approximate stability is only collar-local through the
+splice and record estimates, and long-run noisy approximate consensus is theorem-grade only after
+a fair-block contraction certificate is supplied for the chosen exported patch-net family. That
+certificate boundary is not a dependency for the support-visible BW theorem, local Einstein
+branch, compact-gauge reconstruction, or realized Standard Model branch.
 
 \section{Particle-Spectrum Branch}
 
 The particle branch follows the same logical order as
 \emph{Deriving the Particle Zoo from Observer Consistency}~\cite{ophparticles}.
-One first fixes the compact-gauge basis and realized branch, then identifies the realized
-Standard Model quotient, and only then asks how transport-stable overlap data organize the
+One first fixes the compact-gauge classification basis, applies MAR to the realized
+one-Higgs branch to identify the Standard Model quotient, and only then asks how transport-stable overlap data organize the
 observed particle families.
 
 \paragraph{Structural particle theorem package.}
@@ -252,8 +261,9 @@ record-event surface. Fourth, the fixed-cutoff
 Bell/CHSH package is closed on the declared two-wing surface. Fifth, the
 checkpoint/restoration observer package is closed. The downstream boundaries on this lane are
 packet-level quotient closure where one wants an autonomous exported dynamics,
-compact-group/Peter--Weyl bookkeeping on the D10/compact surfaces, long-run noisy approximate
-consensus for arbitrary exported packet nets, and model-family universality. The
+compact-group/Peter--Weyl bookkeeping on the D10/compact surfaces, fair-block contraction
+certificates for long-run noisy approximate consensus on exported packet nets, and model-family
+universality. The
 support-visible BW / geometric-modular / local-Einstein closure lives on the companion recovered-core
 papers rather than on this fixed-cutoff engineering lane. A reconstruction of Hilbert, \(C^*\)- or von Neumann algebra
 structure, Born probabilities, trace structure, and entropy from operational records alone remains
@@ -406,10 +416,15 @@ restoration packages are theorem-bearing on their stated finite-regulator surfac
 \item Physical UV uniqueness is quotient-level and stable under inert ancillas. OPH fixes terminal
 values on declared physical observables, not a unique microscopic representative.
 \item The Lorentz/null-modular/Einstein chain is closed on the support-visible refinement/scaling
-branch by the BW scaling theorem on the prime geometric subnet.
+branch by the BW scaling theorem on the prime geometric subnet: cap-pair extraction, fixed-collar
+Markov replacement with carried \(r_{\mathrm{FR}}\), \(\delta^{\mathrm M}\), and regularized
+modular remainders, regularized modular transport, support-readable modular covariance,
+round-cap rigidity, and KMS/BW normalization make the cap modular automorphism geometric. This is
+not a finite-cell Lorentz-invariance claim or a one-shot upgrade from small CMI to exact Markov
+geometry.
 \item The cosmological constant branch uses \(N_{\mathrm{scr}}\) as an external capacity input and
 fixes \(\Lambda=3\pi/(G N_{\mathrm{scr}})\) on the same Einstein branch.
-\item Compact gauge reconstruction uses the theorem-produced transportability criterion, fixed-cutoff bosonic sector category, bosonic refinement ladder, and realized compact-gauge witness theorem. On the realized branch it yields the Standard Model quotient, exact hypercharge, \(N_c=3\), and \(N_g=3\).
+\item Compact gauge reconstruction uses the theorem-produced transportability criterion, fixed-cutoff bosonic sector category, and bosonic refinement ladder to reconstruct a compact gauge group from zero-obstruction sectors. That is the classification stage, not the Standard Model selector. The realized MAR-admissible witness data plus the explicit one-Higgs matter package then select the realized Standard Model quotient, exact hypercharge, \(N_c=3\), and \(N_g=3\).
 \item The particle branch is sector-split: electroweak \(W/Z\) is a validation pair, Higgs/top is exact on its declared quantitative surface, selected-class quarks close on their declared public frame class, weighted-cycle neutrinos sit on their declared theorem surface, strong CP is work in progress, charged-lepton source landing from \(P\) to physical charged data is a corpus-limited no-go boundary, the auxiliary direct-top PDG row is compare-only, and source-only hadron masses require a production OPH backend.
 \item The string/worldsheet branch is a controlled heat-kernel continuation branch.
 \end{enumerate}

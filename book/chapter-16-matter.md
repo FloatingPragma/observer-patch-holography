@@ -54,9 +54,11 @@ the zoo stops looking like a zoo.
 
 The first bridge is symmetry. Once Lorentz kinematics is recovered, a durable
 excitation is sorted by the familiar labels of relativistic physics: mass,
-spin, and helicity. Once the gauge structure is recovered, the charge bookkeeping
-also stops looking arbitrary. On the realized one-Higgs low-energy branch, the
-sector fixes the Standard Model quotient
+spin, and helicity. Once compact gauge structure is reconstructed from
+transportable sectors, the charge bookkeeping also stops looking arbitrary. The
+reconstruction step classifies the compact group carried by persistent
+zero-obstruction sectors; it does not by itself select the Standard Model. On
+the realized one-Higgs low-energy branch, MAR selects the Standard Model quotient
 $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, the exact hypercharge lattice, the
 realized color triplet $N_c=3$, and the generation count $N_g=3$. Those are
 structural answers about what kinds of matter can exist on that realized

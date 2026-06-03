@@ -52,8 +52,8 @@ physics follows from that agreement rule.
 The claims fall into three buckets:
 
 1. **Core reconstruction.** Relativity, an Einstein-gravity branch, compact
-   force symmetries, the Standard Model quotient, hypercharges, three colors,
-   and three generations.
+   force-symmetry reconstruction, and the MAR-selected Standard Model quotient
+   with hypercharges, three colors, and three generations.
 2. **Number rows.** The fine-structure constant, particle masses, neutrino
    data, dark-sector diagnostics, quantum-cloud signatures, and bench-hardware
    signatures. Each row needs a status label.
@@ -67,11 +67,12 @@ The claims fall into three buckets:
 | --- | --- | --- |
 | Spacetime | Geometry is basic in general relativity. | Geometry is recovered from observer-patch consistency. |
 | Quantum theory | Fields and Hilbert spaces carry the theory. | Quantum algebra is the local record language of patches. |
-| Standard Model | Force symmetry and matter content are inputs. | The realized branch claims to recover the Standard Model force quotient, exact hypercharges, three colors, and three generations. |
+| Standard Model | Force symmetry and matter content are inputs. | Zero obstruction is a transportability condition: the persistent sector category reconstructs a compact gauge group, while MAR plus the explicit one-Higgs matter package selects the realized Standard Model force quotient, exact hypercharges, three colors, and three generations. |
 | Constants | Many constants are measured separately. | Several rows are tied to one local pixel scale, `P`. |
 | Grand unification | Many extensions use one larger simple symmetry. | OPH uses a product-group structure. The usual leptoquark gauge bosons are absent. |
 | Dark matter | Usually a cold invisible component. | OPH uses a repair/modular response branch. The implementation is pre-likelihood grade. |
-| Hardware | Digital search runs candidates one by one. | OPH hardware claims use physical settling plus exact digital verification. Evidence requires public bundles. |
+| Coding language | Code distance is fixed only after a concrete code is specified. | A bare OPH overlap net is only a finite constraint code; QECC distance and min-cut resilience require topological-code and error-model certificates. |
+| Hardware | Digital search runs candidates one by one. | OPH hardware claims use measured candidate enrichment plus exact digital verification. Evidence requires public bundles. |
 
 ## Risky Predictions And Status
 
@@ -98,6 +99,7 @@ The claims fall into three buckets:
 | Dark-sector scale | near the MOND/RAR acceleration scale in galaxy diagnostics | pre-likelihood |
 | Hadrons | no promoted source-only masses | backend gated |
 | Hardware proof-of-work | candidate enrichment or verified shares | engineering evidence claim |
+| QECC/min-cut resilience | no claim from a bare overlap graph; only certified topological-code branches may state distance/min-cut or Knill-Laflamme correction | certificate-gated extension |
 
 Weaker rows:
 
@@ -106,7 +108,8 @@ Weaker rows:
 - Direct top mass is compare-only outside the cross-section codomain.
 - Strong CP is work in progress.
 - Empirical hadron closure uses measured electron-positron to hadron input.
-- Hardware claims need raw evidence bundles, controls, and verifier receipts.
+- Hardware claims need raw evidence bundles, controls, and verifier receipts. The promoted compute claim is a measured distributional lift `B = p_Q/p_U`, not a complexity-class theorem.
+- Bare overlap graphs do not determine code distance. Distance/min-cut and corrupted-observer correction claims need an explicit code subspace, logical operators, error family, and recovery certificate.
 
 ## The `P` Fixed Point In Plain Language
 
@@ -451,16 +454,17 @@ Difficulty:
 
 | Test | Outcome that kills OPH | Why it kills OPH |
 | --- | --- | --- |
-| Repair confluence | A finite observer-patch network satisfies the OPH assumptions, and two repair orders settle into different final realities. | OPH says shared reality is the stable agreement point of overlapping patches. If the final answer depends on repair order, the consensus mechanism is not well defined. |
+| Repair confluence | A finite observer-patch network satisfies the OPH descent assumptions, but two accepted repair orders from the same initial quotient state settle into different observer-facing quotient normal forms with no declared holonomy or higher-gauge obstruction. | Descent only proves termination. OPH needs the local-diamond condition plus repair completeness for confluence. Same-boundary uniqueness also needs a preserved boundary/sector map with a unique consistent extension. If the final physical answer depends on repair order under those hypotheses, the proposed repair law is not an OPH consensus mechanism. |
 | Mismatch descent | A repair move accepted by the OPH rules makes the mismatch larger and no compensating potential decreases. | Repair is supposed to settle disagreements. If an allowed move can make the system less consistent, the core dynamics points the wrong way. |
-| Relativity emergence | A valid OPH model satisfies the overlap assumptions and fails to produce a Lorentzian light-cone structure. | OPH claims relativity comes from observer overlap. A valid countermodel with no relativistic light cone breaks that claim. |
-| Einstein branch | The entropy and modular assumptions hold, and the Einstein-gravity limit fails. | OPH claims ordinary gravity appears as a branch of the overlap rules. If the stated assumptions do not give that branch, the gravity reconstruction fails. |
-| Gauge reconstruction | The compact force-symmetry reconstruction admits a valid non-Standard-Model force structure. | OPH claims the Standard Model force structure is forced. A different valid force output means the theory did not derive the Standard Model. |
+| Relativity emergence | A model satisfies the support-visible BW branch certificate--cap-pair extraction, regularized modular transport, support-readable modular covariance, round-cap rigidity, and KMS/BW normalization--but fails to produce the Lorentzian cap/conformal light-cone structure. | OPH does not claim finite cells alone are Lorentz invariant. It claims Lorentz kinematics on the certified support-visible geometric cap-pair branch. A countermodel satisfying that certificate but lacking the Lorentzian light-cone structure breaks the branch. |
+| Einstein branch | The entropy and modular assumptions hold, the controlled Markov-collar and support-visible modular remainders vanish in the stated limits, and the Einstein-gravity limit still fails. | OPH claims ordinary gravity appears as a controlled scaling branch of the overlap rules. If the stated assumptions and vanishing carried remainders do not give that branch, the gravity reconstruction fails. |
+| Gauge reconstruction | The zero-obstruction compact-gauge reconstruction fails to produce a well-defined compact group from the stated transportable sector category. | This breaks the classification/reconstruction stage before any Standard Model selection claim can be made. |
+| MAR selection | A valid MAR-admissible one-Higgs low-energy sector package, satisfying the same anomaly, refinement, CP, and weak-sector clauses, is selected instead of the Standard Model package. | OPH does not claim cocycles alone force the Standard Model. The selection claim is MAR-local; a different MAR-minimal package would mean the theory did not derive the realized Standard Model branch. |
 | Charge lattice | The stated assumptions allow a different hypercharge lattice. | Hypercharge fixes electric charges. If OPH allows another lattice, the observed charge pattern was not forced by the theory. |
 | Generation count | A valid OPH construction has two or four light matter generations. | OPH claims exactly three generations. A valid two-generation or four-generation world breaks that count. |
 | Fermions and chirality | Chiral fermions have to be imported from the Standard Model by hand. | OPH says matter structure follows from observer consistency. If the key fermion structure has to be assumed, the reconstruction fails. |
 | Fixed-point equation | The stated `P` fixed-point equations have no solution at the public value. | The fine-structure row depends on that fixed point. If the equation does not close, the number spine breaks. |
-| Low-energy uniqueness | The OPH axioms allow many inequivalent low-energy physics worlds with the same assumptions. | OPH claims the familiar world is selected by consistency. If many incompatible worlds pass the same rules, the selection claim fails. |
+| Low-energy uniqueness | The OPH axioms plus MAR allow many inequivalent low-energy physics worlds with the same admissibility predicates. | OPH claims the familiar world is selected by MAR on the admissible class. If many incompatible worlds pass the same rules, the selection claim fails. |
 
 ### Particle And Precision Physics
 

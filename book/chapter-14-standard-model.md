@@ -496,7 +496,17 @@ checkable.
 
 ### The Standard Model Factors
 
-Why does the reconstructed group have the form SU(3) x SU(2) x U(1) up to finite quotient?
+Why does the realized group have the form SU(3) x SU(2) x U(1) up to finite quotient?
+
+The reconstruction step by itself gives a compact gauge group from the
+transportable sector category. It does not yet say that Nature chose the
+Standard Model. That choice enters through MAR: among the admissible one-Higgs
+low-energy sector packages, choose the minimal package that still satisfies the
+transport, anomaly, refinement, Yukawa, CP, and weak-sector conditions.
+Equivalently, the logic factors into classification and selection. Overlap
+gluing gives an obstruction class; zero obstruction gives an ordinary
+transportable sector category; tensor reconstruction gives a compact group.
+Only after that does MAR act on realized matter packages.
 
 Once you ask for the smallest matter sector that can carry color, weak
 interactions, chirality, and ordinary charge, the answer is forced into a
@@ -522,7 +532,8 @@ Given the gauge group, what determines the matter content?
 
 ### The Anomaly Condition Again
 
-Loop-coherent gluing requires trivial central obstruction class. In a chiral
+Loop-coherent gluing requires trivial central obstruction class. This is a
+transportability condition, not a Standard Model selector. In a chiral
 effective field theory, the same consistency burden reappears as anomaly
 cancelation, but the full bridge between the two is a separate step.
 
@@ -711,7 +722,8 @@ the algebra net closes on itself.
 
 ### Particle Claim Tiers
 
-The particle picture can be told as one continuous line. The framework fixes the Standard Model
+The particle picture can be told as one continuous line. The framework first reconstructs compact
+gauge data from zero-obstruction transportable sectors; MAR then selects the realized Standard Model
 quotient, the hypercharge lattice, and the generation-color counting. The same
 structure keeps the photon, gluons, and graviton on protected zero lines. From
 there the pixel fixed point organizes the electroweak compare-only validation surface, the Higgs/top
@@ -953,8 +965,9 @@ uses a separate \(e^+e^-\to\mathrm{hadrons}\) payload class.
 ## 14.21 The Big Picture
 
 The Standard Model looks like the answer to a very specific question: What is
-the simplest quantum field theory that can emerge from OPH's gluing rules and
-charge transport, and survive under refinement?
+the simplest admissible low-energy sector package that can be transported by
+OPH's gluing rules, reconstructed as compact gauge data, and survive under
+refinement?
 
 The photon and graviton are particles the theory forces upon us. The photon
 exists because $U(1)$ gauge redundancy emerges from how charged patches glue
@@ -965,9 +978,9 @@ decisive: adding a hard mass term would break a redundancy the model requires.
 String theory is often credited with predicting gravity. OPH reaches the same
 kind of conclusion through its own architecture.
 
-The quarks and leptons are not arbitrary. Their charges are fixed by the
-gauge-consistency structure. Three colors and three generations are not inserted
-by hand. They follow from the combined demands of anomaly cancellation,
+The quarks and leptons are not arbitrary. Their charges are fixed on the
+MAR-selected gauge-consistency branch. Three colors and three generations are not inserted
+by hand. They follow there from the combined demands of anomaly cancellation,
 chirality, the minimal coupled color carrier, CKM CP capability, and
 ultraviolet consistency.
 

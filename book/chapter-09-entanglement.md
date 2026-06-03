@@ -223,7 +223,8 @@ once. The RT formula became exact, with boundary entropy equal to the number of
 legs cut by a minimal path. Bulk operators also became recoverable from
 different boundary regions.
 
-This redundancy is quantum error correction. The bulk exists because it's the error-corrected version of the boundary.
+In that toy-model setting, this redundancy is quantum error correction. The bulk exists because it
+is encoded in boundary degrees of freedom with a supplied code structure.
 
 ## 9.8 Monogamy: Why Space Is Local
 
@@ -360,4 +361,8 @@ correlations. Cut enough entanglement and you cut space itself.
 
 We've seen that space emerges from entanglement. But why is this structure stable? Why doesn't the entanglement web unravel?
 
-In the next chapter, we'll see how this picture connects to quantum error correction. Spacetime isn't just entanglement-it's a code that protects information. The bulk exists because it's the error-corrected version of the boundary. And this connection explains why spacetime is stable: the same mechanisms that protect quantum computers protect reality itself.
+In the next chapter, we'll see how this picture connects to quantum error correction. In
+controlled holographic settings, spacetime is not just entanglement; it is encoded in a structure
+that can protect information. The OPH overlap network begins more modestly as a finite constraint
+code, and it becomes a quantum error-correcting claim only when the code subspace, logical
+operators, error model, and recovery map are supplied.

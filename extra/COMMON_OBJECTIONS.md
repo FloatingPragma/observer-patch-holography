@@ -6,6 +6,7 @@ This note collects rebuttals to common objections to the OPH framework, with lon
 
 - [Objection 2: Fixed cell size and Lorentz invariance](#objection-2-lorentz)
 - [Objection 3: Type I / Type III discontinuity](#objection-3-type-i-type-iii)
+- [Objection 4: Obstruction calculus selects the Standard Model](#objection-4-sm-selection)
 
 ---
 
@@ -34,7 +35,7 @@ In OPH:
 
 - `a_cell` is a UV **area density** attached to cut elements of the screen net, not a preferred spatial ruler in emergent 3+1D spacetime.
 - The physical objects are patch algebras and their overlap maps, not coordinate cells in a background bulk.
-- Lorentz kinematics are derived from **geometric modular flow** on caps, with `K_C = 2pi B_C` and `Conf^+(S^2) ~= PSL(2,C) ~= SO^+(3,1)`.
+- Lorentz kinematics are derived on the certified support-visible BW branch: cap-pair extraction, regularized modular transport, support-readable modular covariance, round-cap rigidity, and KMS/BW normalization give `sigma_t^(omega_C) = alpha_{lambda_C(2pi t)}` on the extracted prime geometric cap pair. Only in the special type-I representation may this be written as `K_C = 2pi B_C`.
 - The entanglement first law is applied to these algebraic caps, and it is covariant under the induced Lorentz action.
 - The gravity derivation is explicitly upgraded from a scalar rest-frame statement to the **full tensor Einstein equation** by overlap consistency across all local timelike directions, `G_ab + Lambda g_ab = 8pi G <T_ab>`, so the framework does **not** stop at a Newtonian approximation. This is the published chain in *Observers Are All You Need*, Part I §4.2-4.3 and Part I §5.1-5.7, with the short-form theorem statements also summarized in Part V §2.1-2.5.
 
@@ -144,13 +145,38 @@ The criticism says OPH has not proved Lorentz invariance. But the published clai
 The key steps in the main paper are:
 
 1. Markov locality localizes the modular generator to the collar around a cap boundary.
-2. The Bisognano-Wichmann geometric-branch premise identifies the cap modular flow with the standard cap-preserving conformal dilation.
-3. The KMS and Bisognano-Wichmann normalization fixes the modular scale to `2pi`.
-4. Therefore cap modular flow takes the form:
+2. Support-visible cap-pair extraction and regularized modular transport identify the branch target: the extracted prime geometric cap pair, not the full finite regulator algebra.
+3. Support-readable modular covariance turns the limiting modular group into a cap-local support map.
+4. Round-cap rigidity identifies that support map with the standard cap-preserving conformal dilation up to normalization.
+5. The KMS and Bisognano-Wichmann normalization fixes the modular scale to `2pi`.
+6. Therefore cap modular flow takes the automorphism form:
 
-`K_C = 2pi B_C`.
+`sigma_t^(omega_C) = alpha_{lambda_C(2pi t)}`.
+
+In a special type-I representation this can be written as `K_C = 2pi B_C`; in the generic continuum case the automorphism identity is the theorem.
 
 That is the `BW_{S^2}` step.
+
+### 4.1a Small CMI is not exact Markov geometry
+
+Another common shortcut would be:
+
+```text
+small I(A:D|B) -> exact Markov normal form -> exact modular geometry
+```
+
+OPH does not use that shortcut. Small CMI gives a Fawzi-Renner recovered
+comparison state with controlled observable error. Exact HJPW factorization
+and exact splice/modular-additivity identities are used only at literal exact
+Markovity, or on a fixed collar model with a collar-local replacement modulus
+`delta^M(epsilon) -> 0`. On faithful fixed collars this modulus can be given a
+collar-dependent Lojasiewicz-type rate, but it is not a dimension-free
+one-shot trace-norm theorem for arbitrary tripartite systems.
+
+The BW and Einstein branches then carry the finite-stage defects through
+regularized support-visible modular transport. The exact Lorentz/Einstein
+statements are controlled scaling-limit statements, not finite-cutoff exact
+identities inherited from approximate Markovity.
 
 Then:
 
@@ -298,7 +324,7 @@ If one wants the reply in one compact chain, it is this:
 
 1. OPH does **not** identify physical entropy with a frame-dependent count of coordinate pixels.
 2. The physical objects are reduced states on cap algebras and their modular Hamiltonians.
-3. Under the OPH assumptions, cap modular flow is geometric and KMS-normalized: `K_C = 2pi B_C`.
+3. Under the certified support-visible BW branch, cap modular flow is support-readable, geometric, and KMS-normalized: `sigma_t^(omega_C) = alpha_{lambda_C(2pi t)}`. The operator shorthand `K_C = 2pi B_C` is only the special type-I representation.
 4. The cap-preserving geometric group is conformal on `S^2`, hence `Conf^+(S^2) ≅ SO^+(3,1)`.
 5. Therefore boosts act as automorphisms of the cap net: `rho_C -> U(Lambda) rho_C U(Lambda)^dagger` and `K_C -> U(Lambda) K_C U(Lambda)^dagger`.
 6. Von Neumann entropy and the first-law pairing are invariant under this conjugation: `S(U rho U^dagger) = S(rho)` and `delta <U K U^dagger>_(U rho U^dagger) = delta <K>_rho`.
@@ -401,9 +427,9 @@ bridge itself is missing.
 The contradiction claim implicitly treats two different layers of OPH as if they were the same thing:
 
 1. the **UV regulator premises**, where sufficiently small patches are finite-dimensional and Type I;
-2. the **emergent cap-net regime**, where OPH closes geometric modular flow,
-   `K_C = 2pi B_C`, Lorentz kinematics, and the null modular bridge on the
-   stated scaling surface.
+2. the **emergent cap-net regime**, where OPH closes geometric modular flow as
+   an automorphism identity on the extracted support-visible cap pair, with the
+   `K_C = 2pi B_C` shorthand only on the special type-I representation.
 
 But the manuscript itself distinguishes those layers.
 
@@ -506,3 +532,40 @@ the modular-algebraic problem it raises; it answers a different question.
   Key sections used above: the support-visible Bisognano-Wichmann scaling theorem, the Lorentz branch, and the null modular bridge.
 - [Main manuscript source](../paper/tex_fragments/PAPER.tex)
   Key sections used above: the regulator premises, the support-visible Bisognano-Wichmann cap theorem, and the null modular bridge.
+
+---
+
+<a id="objection-4-sm-selection"></a>
+## Objection 4: "Zero obstruction does not select the Standard Model"
+
+### Short answer
+
+Correct. Zero obstruction is a transportability condition, not the Standard
+Model selector.
+
+The OPH gauge lane factors the logic this way:
+
+```text
+overlap/gluing data
+-> obstruction class
+-> transportable sector category
+-> compact group by DR/Tannaka reconstruction
+-> MAR-selected realized one-Higgs matter package
+```
+
+The first four steps classify and reconstruct. They can return a trivial
+compact group, or any compact group carried by the persistent tensor-category
+and fiber-functor data. The Standard Model quotient enters only in the final
+step, where MAR is applied to the explicit nonempty one-Higgs chiral matter
+package.
+
+### What was repaired
+
+The compact and main papers now state this as theorem-level bookkeeping. The
+SM endpoint is branch-conditional: MAR minima exist because the admissible
+class is nonempty and the MAR complexity vector lives in a well-founded
+lexicographic order on `N^4`; within the stated one-Higgs chiral package, the
+minimal coupled carrier gives `C^3 tensor C^2`, the commutant gives one `U(1)`,
+the hypercharge theorem fixes the charge lattice, and the realized spectrum
+fixes the `Z_6` quotient. Generation count is also MAR-branch conditional:
+anomaly cancellation alone does not fix it.

@@ -1374,6 +1374,35 @@ per-distinct-enrichment gates above.
 
 \section{Speedup Accounting}
 
+\begin{theorem}[Candidate-enrichment work reduction]\label{thm:candidate-enrichment}
+Let \(V(x)\in\{0,1\}\) be an exact verifier. Let \(U\) be the baseline candidate distribution and
+\(Q\) the chamber-conditioned candidate distribution. Define
+\[
+p_U=\Pr_{x\sim U}[V(x)=1],
+\qquad
+p_Q=\Pr_{x\sim Q}[V(x)=1],
+\qquad
+B=\frac{p_Q}{p_U}.
+\]
+If \(B>1\), the expected number of exact verifier calls to find a valid candidate drops from
+\[
+\mathbb E_U[N]=\frac{1}{p_U}
+\]
+to
+\[
+\mathbb E_Q[N]=\frac{1}{p_Q}=\frac{1}{B p_U}.
+\]
+Thus the verifier-work reduction factor is exactly the measured enrichment \(B\). This theorem is
+a distributional lift statement under an exact verifier, not a complexity-class theorem and not a
+claim that arbitrary hard problems become easy.
+\end{theorem}
+
+\begin{proof}
+Verifier calls are Bernoulli trials with success probabilities \(p_U\) and \(p_Q\). The waiting
+time to the first success is geometric with expectation \(1/p\). Substituting
+\(p_Q=Bp_U\) gives the result.
+\end{proof}
+
 Let \(R_{\mathrm{hash}}\) be a classical exact-verifier rate in hashes per
 second, \(p=|T|/2^{256}\) the target fraction, and \(q\) the probability that a
 physical candidate is valid after exact verification. An unbiased random
@@ -1461,7 +1490,7 @@ The wave-overlap sampler sits between these two limits. Its measured speed is
 set by \(m_{\mathrm{pkt}}\beta\), the number of independently checked candidates per
 settling event times the verified enrichment over random search. Firmware that
 only improves transport raises \(m_{\mathrm{pkt}}\); only a changed
-exact-verifier distribution raises \(B\).
+exact-verifier distribution raises \(\beta\).
 
 For a concrete wall-clock baseline, take Bitmain's ANTMINER S21 XP Hyd
 specification: SHA-256 mining at \(473\,\mathrm{TH/s}\), \(5676\,\mathrm{W}\),
@@ -1605,8 +1634,10 @@ rate, number of successes \(S\), expected random baseline
 \[
 p_{\mathrm{val}}=\Pr\left[\operatorname{Binomial}(N_{\mathrm{dist}},p)\ge S\right]
 \]
-for enrichment claims, and plot \(\widehat\beta(k)\) across a high-\(k\) shoulder
-rather than only at easy targets.
+for enrichment claims. A promoted enrichment claim also reports a binomial or beta-binomial lower
+confidence bound \(\underline p_Q(\alpha)\) and requires
+\(\underline p_Q(\alpha)>p\) at the stated confidence level. Plot \(\widehat\beta(k)\) across a
+high-\(k\) shoulder rather than only at easy targets.
 \item Run controls in named modes: single module, pair, subset, full five,
 shuffled labels, shuffle replay, ABBA, same energy, header perturbation,
 receive cadence, disconnected cavity, dark path, fixed phase, CPU-random, and

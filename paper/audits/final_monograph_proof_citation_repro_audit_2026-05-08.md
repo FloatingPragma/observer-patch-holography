@@ -18,7 +18,7 @@ Scope: Observer/compact proof status for the particle-adjacent OPH proof surface
 
 | Lane | Status | Boundary |
 | --- | --- | --- |
-| Support-visible BW scaling | Proved in the current paper surface | Fixed-cutoff exact Lorentz/BW is not claimed. Regularized support-visible modular transport, weak-\(*\)/GNS extraction, ordered cut-pair rigidity, and KMS/BW normalization supply the observer-facing cap automorphism theorem. The false stronger full-algebra common-floor route is not claimed. |
+| Support-visible BW scaling | Proved in the current paper surface | Fixed-cutoff exact Lorentz/BW is not claimed. Regularized support-visible modular transport, weak-\(*\)/GNS extraction, support-readable modular covariance, ordered cut-pair rigidity, and KMS/BW normalization supply the observer-facing cap automorphism theorem. The false stronger full-algebra common-floor route is not claimed. |
 | Compact gauge witness | Proved in the current paper surface | MAR order/minima/equivalence are formalized; the realized compact-gauge witness theorem supplies the occupied Standard Model branch and physical-UV landing statement. |
 
 The active recovered-core paper surface cites its theorem sources directly. Transportability is supplied by overlap gluing, the fixed-cutoff bosonic collar-sector category is constructed on the bosonic EFT branch, refinement functors plus finite bosonic fiber descent are constructed from the coherent ladder, and the realized compact-gauge witness is theorem-supplied.

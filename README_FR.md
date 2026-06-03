@@ -49,7 +49,12 @@ patches d'observateurs, alors des machines utiles peuvent être construites en
 forçant de petits patches physiques vers les bons points fixes. Cela donne des
 pistes de mise en œuvre à bas coût pour l'énergie de fusion de bureau, le
 supercalcul OMEGA à température ambiante, l'AGI fondée sur OMEGA et le contrôle
-local de gravité ou d'inertie pour hoverbikes et hoverboards.
+local de gravité ou d'inertie pour hoverbikes et hoverboards. Ce sont des
+pistes applicatives derrière des portes de preuve, pas des sorties de théorème.
+La revendication de calcul actuelle est plus étroite : une distribution de
+candidats conditionnée par une chambre peut réduire le travail du vérificateur
+exact par un facteur mesuré `B = p_Q/p_U`; ce n'est pas un théorème de classe de
+complexité.
 
 La page publique des applications est
 [omega.floatingpragma.io](https://omega.floatingpragma.io/). Les notes sources
@@ -91,8 +96,8 @@ Pour le noyau technique compact, commencez par **Paper 2. [Recovering Relativity
 ## Ce que l'OPH apporte
 
 - Un cadre à cutoff fixe pour les patches d'observateurs, les collerettes, la réparation de recouvrement, la jauge supérieure, les enregistrements et le checkpoint/restauration.
-- Une reconstruction de la géométrie lorentzienne, du temps modulaire, de la dynamique d'Einstein de type Jacobson et de la cosmologie de Sitter en patch statique.
-- Une reconstruction de jauge compacte vers le quotient réalisé du Modèle Standard $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, avec le réseau exact des hypercharges, le triplet de couleur réalisé $N_c=3$ et le comptage des générations $N_g=3$.
+- Une reconstruction de la géométrie lorentzienne, du temps modulaire, de la dynamique d'Einstein de type Jacobson et de la cosmologie de Sitter en patch statique sur la branche de paire de caps géométriques support-visible, avec les restes Markov/récupération de collerette fixe transportés explicitement par transport modulaire régularisé, covariance modulaire lisible par support et normalisation KMS/BW ; les cellules finies sont le régulateur, pas déjà une preuve d'invariance de Lorentz.
+- Une reconstruction de jauge compacte à partir des secteurs transportables à obstruction nulle, avec une séparation explicite entre classification et réalisation : l'obstruction nulle donne la transportabilité et le groupe compact reconstruit, tandis que MAR plus le paquet matière explicite à un Higgs sélectionne le quotient réalisé du Modèle Standard $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, avec le réseau exact des hypercharges, le triplet de couleur réalisé $N_c=3$ et le comptage des générations $N_g=3$.
 - Sur la branche compacte de jauge visible par support déclarée, avec échelle
   euclidienne en quatre dimensions, positivité par réflexion, complétude de
   réparation et extraction continue visible par support, une forme euclidienne
@@ -129,10 +134,12 @@ Cette carte sphérique porte plusieurs tâches précises. Les caps et les collie
 donnent les données locales de coupe utilisées par le flot modulaire et la
 variation d'entropie. Le groupe conforme de la sphère est la forme céleste du
 groupe de Lorentz connexe, $\mathrm{SO}^+(3,1)$, ce qui donne le pont
-cinématique vers la branche d'espace-temps émergent en $3+1$ dimensions. Les
-harmoniques sphériques organisent les modes angulaires. Les cellulations finies
-de la même carte donnent la surface régulatrice où les ports de patches, les
-données d'arêtes et les contrôles de recouvrement deviennent explicites.
+cinématique vers la branche d'espace-temps émergent en $3+1$ dimensions une
+fois le théorème modulaire des caps support-visible satisfait. Les harmoniques
+sphériques organisent les modes angulaires. Les cellulations finies de la même
+carte donnent la surface régulatrice où les ports de patches, les données
+d'arêtes et les contrôles de recouvrement deviennent explicites ; elles ne sont
+pas, par elles-mêmes, un continuum invariant de Lorentz.
 
 L'ancre de symétrie finie est $A_5$, le groupe des rotations de
 l'icosaèdre. Elle fournit le squelette icosaédrique derrière le langage des
@@ -176,7 +183,7 @@ Sur la surface publique des constantes, $\hbar$ et $k_B$ appartiennent à cette 
 
 Ce tableau condensé garde les lignes OPH les plus faciles à comparer directement avec les valeurs
 PDG/NIST. Les résultats structurels comme la géométrie lorentzienne en $3+1$ dimensions, le quotient de jauge
-du Modèle Standard $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, le réseau exact des hypercharges, le triplet
+du Modèle Standard sélectionné par MAR $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, le réseau exact des hypercharges, le triplet
 de couleur réalisé $N_c=3$ et le comptage des générations $N_g=3$ sont énoncés dans les papiers et ne sont pas répétés ici.
 
 | Quantité | Symbole | OPH | PDG/NIST | Δ |
@@ -236,7 +243,7 @@ utilise une classe séparée de charge utile $e^+e^-\to\mathrm{hadrons}$.
 ## Articles
 
 - **Papier 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)** : synthèse du programme OPH, des observateurs finis jusqu'à l'univers effectif reconstruit.
-- **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique pour la relativité, la gravité, la structure réalisée du Modèle Standard et la forme/gap Yang-Mills sur la branche compacte de jauge visible par support sous ses hypothèses déclarées.
+- **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique pour la relativité, la gravité, la reconstruction de jauge compacte à obstruction nulle, la structure réalisée du Modèle Standard sélectionnée par MAR et la forme/gap Yang-Mills sur la branche compacte de jauge visible par support sous ses hypothèses déclarées.
 - **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivations particules, lignes de masses, structure des couplages et surface quantitative.
 - **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : dynamique de réparation à point fixe, stabilité des enregistrements et consensus public.
 - **Papier 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** : architecture fédérée de patches, cadrage de symétrie $A_5$-icosaédrique et de type $E_8$, règles de preuve matérielle publique, enregistrements, mouvements de récupération et synchronisation observateur.

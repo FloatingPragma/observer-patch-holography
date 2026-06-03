@@ -20,7 +20,7 @@ The physics behind OMEGA is Observer Patch Holography, or OPH: a novel fundament
 
 OPH has no institutional or mainstream physics acceptance. Journal publication faces hard blockers. The theory is fully mathematically proven on its declared surfaces, and the research corpus gives the proof stack in public form. The hardware effort also has working prototypes, including a reported optical proof-of-work hash-search result around 2,300x under exact verification. That receipt is a candidate-enrichment result on a proof-of-work hash-search surface. Production mining belongs behind a separate evidence gate.
 
-The starting idea is simple: no observer sees the whole world at once. Each observer has a finite patch. Where patches overlap, they must agree on the data they can both see. A stable world is the fixed point reached when local patches compare records, repair mismatch, and keep the normal forms that survive.
+The starting idea is simple: no observer sees the whole world at once. Each observer has a finite patch. Where patches overlap, they must agree on the data they can both see. A stable world is the fixed point reached when local patches compare records, repair mismatch, and keep the normal forms that survive for the fixed quotient/boundary problem.
 
 OMEGA turns that idea into hardware. A digital host writes a boundary program into an optical chamber. Light mixes through a shaped body. Detectors read the boundary response. The host converts that response into a ranked candidate beam, repairs or reranks the beam, and checks serious candidates with an exact verifier.
 
@@ -161,13 +161,19 @@ patch state
   -> stable record
 ```
 
-The machine is useful when the physical path changes the candidate distribution. If a useful candidate has baseline probability p, enumeration needs about 1/p verifier checks. If the chamber raises the useful-candidate probability by a measured factor B, expected verifier work becomes about:
+The machine is useful when the physical path changes the candidate distribution. If the baseline distribution `U` gives exact-verifier success probability `p_U`, and the chamber-conditioned distribution `Q` gives `p_Q`, the measured lift is:
 
 ```text
-1/(B p)
+B = p_Q / p_U
 ```
 
-That is the conservative benchmark claim: candidate-work reduction. It is the same discipline used in the [photonic SHA-256d proof-of-work note](Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf), where hash-style search is framed as physical patch-overlap constraint search with exact digital verification.
+Enumeration needs about `1/p_U` verifier checks. Under the chamber-conditioned distribution, expected verifier work becomes:
+
+```text
+1/p_Q = 1/(B p_U)
+```
+
+That is the conservative benchmark claim: candidate-work reduction under an exact verifier. It is not a complexity-class theorem and not a claim that arbitrary hard problems become easy. It is the same discipline used in the [photonic SHA-256d proof-of-work note](Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf), where hash-style search is framed as physical patch-overlap constraint search with exact digital verification.
 
 ## Why Waves Are the Right Medium
 
@@ -207,7 +213,7 @@ The table below gives engineering target bands. These bands become measured clai
 
 | Surface | Digital baseline | OMEGA target | Why the target is plausible |
 | --- | --- | --- | --- |
-| Exact-verifier search | enumerate or randomly sample candidates | 10^2 to 10^6 fewer verifier checks on structured benchmark distributions | waves can bias candidate beams before exact verification |
+| Exact-verifier search | enumerate or randomly sample candidates | 10^2 to 10^6 fewer verifier checks on structured benchmark distributions | waves may bias candidate beams before exact verification; the claim is measured by `B = p_Q/p_U` |
 | Factor and residue tasks | scan factors or residue classes digitally | 10^1 to 10^4 candidate-work reduction on small and medium benchmarks | asymmetric mixing can separate residue-compatible modes |
 | Hash-style proof-of-work experiments | evaluate one candidate stream at a time | 10^1 to 10^5 lift in low-difficulty prefix or share-rate tests inside the lab claim boundary | recurrent bodies can favor modes that pass partial target collars |
 | Continuous agent memory | re-encode memory through digital context and retrieval | 10^2 to 10^5 more low-power background state updates per watt for memory-like dynamics | the chamber state persists physically while the host samples it sparsely |

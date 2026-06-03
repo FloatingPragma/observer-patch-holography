@@ -119,13 +119,18 @@ Even before one gets to Einstein's equation, the main question is which algebrai
 
 ### 3.3 A compatible environment substitution
 
-OPH has a strong structural statement here. In the Markov-collar splice theorem, one may replace the exterior environment by another compatible environment with the same boundary-sector data, and all interior observables remain unchanged:
+OPH has a strong structural statement here. In the exact Markov-collar splice theorem, one may replace the exterior environment by another compatible environment with the same boundary-sector data, and all interior observables remain unchanged:
 
 ```text
 Tr(X rho'_ABD') = Tr(X rho_ABD)
 ```
 
 for every observable `X` supported on the interior side of the collar.
+
+For small but nonzero CMI, OPH does not silently use this exact identity. The
+finite-stage statement is a Fawzi-Renner recovered comparison state plus a
+fixed-collar exact-Markov replacement modulus; exact splice identities are
+used only at exact Markovity or in a controlled fixed-collar limit.
 
 This means that many local changes in an entangled environment have no interior geometric meaning. If the boundary-sector compatibility is preserved, large classes of exterior manipulations are invisible to interior observables.
 
@@ -145,7 +150,7 @@ The OPH chain is more structured.
 
 ### 4.1 First law and generalized entropy
 
-For a cap `C` in a reference state:
+For a cap `C` in a reference state, the finite/type-I representation uses:
 
 ```text
 K_C = - log rho_C^(omega)
@@ -172,11 +177,21 @@ Since `L_C` is the area operator, this is the first-order area response.
 OPH derives geometric modular flow for caps:
 
 ```text
-K_C = 2pi B_C
+sigma_t^(omega_C) = alpha_{lambda_C(2pi t)}
 Conf^+(S^2) ~= PSL(2,C) ~= SO^+(3,1)
 ```
 
-The modular generator is therefore a geometric boost generator.
+This is a support-visible scaling-limit statement on the extracted prime
+geometric cap pair. It is not a claim that finite cells are Lorentz invariant
+and not a full-algebra matrix identity. Only in the special type-I
+representation may the automorphism identity be written as:
+
+```text
+K_C = 2pi B_C
+```
+
+The modular automorphism is therefore the geometric boost/dilation action on
+the certified branch.
 
 ### 4.3 Null modular bridge
 
@@ -263,7 +278,7 @@ That is not the same thing as reducing one entanglement entropy.
 
 ### 5.3 Markov recoverability suppresses spurious "geometry changes"
 
-The OPH Markov structure says that interior data are recoverable from collar data with controlled error. This means a large class of local manipulations either:
+The OPH Markov structure says that interior data are recoverable from collar data with controlled error. The controlled error is carried explicitly: small CMI gives a recovered comparison state, while exact Markov splice requires exact zero CMI or a fixed-collar replacement limit. This means a large class of local manipulations either:
 
 - are purely gauge/record updates,
 - are absorbed as compatible environment changes,

@@ -266,6 +266,11 @@ $$\|\rho_{ABC} - (\mathbb{I}_A \otimes R_{B \to BC})(\rho_{AB})\|_1 \leq 2\sqrt{
 Small CMI implies approximate recoverability. The smaller I(A:C|B), the better the recovery.
 
 This is the mathematical heart of the recovery rule: **redundancy implies reconstruction**.
+But this is not the same as saying that small CMI is already an exact Markov
+normal form. Small CMI gives a recovered comparison state with controlled
+error. Exact HJPW factorization, exact splice identities, and exact modular
+additivity require either \(I(A:C|B)=0\) literally or a controlled fixed-collar
+family whose distance to the exact Markov set tends to zero.
 
 ## 7.8 Example Calculations
 
@@ -319,6 +324,12 @@ $A$, $B$, and $C$ are regions or patches. $B$ is the separator. The small
 quantity $\varepsilon(B)$ is the allowed leakage past that separator. Exact
 Markov screening would set it to zero. Realistic geometry permits a small
 nonzero remainder.
+
+That remainder has to be carried. In the technical papers, OPH separates the
+Fawzi-Renner recovered comparison state from the exact-Markov replacement used
+in ideal splice and modular-additivity calculations. The latter is justified
+only on a fixed collar, or after pullback to one, with a collar-local modulus
+that tends to zero.
 
 ### Screening Through the Separator
 

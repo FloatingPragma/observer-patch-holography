@@ -142,7 +142,8 @@ observers must agree on.
 
 This is a significant shift from the traditional view, and it works. Gravity
 emerges from how observers share entanglement across their screens. The
-particle world emerges from the symmetry structure forced by the framework. A
+particle world emerges after compact-gauge reconstruction and MAR selection on
+the admissible low-energy branch. A
 dark-sector continuation appears through modular anomalies, residual mismatches
 in the bookkeeping that turns local observer time into geometry. The question
 of why anything exists at all enters through a self-referential closure
@@ -184,9 +185,9 @@ Only a small amount of outside numerical help is needed. One number sets the
 overall size of the screen, and that number is read from the cosmological
 constant. The local grain of the picture, the effective pixel size, is then
 solved on the OPH quantitative branch as part of the same local scale
-structure. From there the question is simple: how much of gravity,
-gauge structure, and the particle world can be forced from observer
-consistency alone?
+structure. From there the question is simple: how much of gravity, compact-gauge
+structure, and the MAR-selected particle world can be reconstructed from
+observer consistency and the declared branch assumptions?
 
 The OPH basis is quantum-algebraic by design. It starts with algebraic
 observables, states, trace/Born event probabilities on declared record
@@ -231,8 +232,9 @@ a repair-gap account of the compact-gauge mass gap on its declared
 support-visible compact-gauge branch. In the Clay-facing formulation, that
 claim stays tied to the support-visible continuum construction carried there.
 
-The program recovers known physics, gravity and the Standard Model included,
-from this simple starting point. The answer is not inserted by hand.
+The program recovers known physics, gravity and the MAR-selected Standard Model
+branch included, from this simple starting point. The answer is not inserted by
+hand.
 
 The apparent mysteries of physics dissolve once the conceptual starting point
 changes from "objective reality exists" to "consistency across observers is

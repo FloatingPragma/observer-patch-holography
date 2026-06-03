@@ -172,42 +172,70 @@ Trace preservation in the full-rank case:
 Petz~\cite{Petz1986}; Fagnola--Umanit\`{a}~\cite{FagnolaUmanita2010}.
 \end{proof}
 
-\begin{proposition}[Contraction {\normalfont\small [Assumption-dependent]}]
+\begin{proposition}[Analytic contraction certificate {\normalfont\small [Assumption-dependent]}]
 \label{prop:petz-contraction}
-Suppose $\mathcal{N}$ is strictly contractive with spectral gap
-$\lambda\in(0,1)$:
+Suppose a declared quotient repair map \(T:Q\to Q\) on a metric physical quotient
+\((Q,d_Q)\) is strictly contractive with coefficient \(\lambda\in(0,1)\):
 \[
-  \sup_{\rho\neq\tau}
-  \frac{\|\mathcal{N}(\rho)-\mathcal{N}(\tau)\|_1}
-       {\|\rho-\tau\|_1}
-  \leq\lambda<1.
+  d_Q(Tx,Ty)\le \lambda d_Q(x,y).
 \]
-Then $\mathcal{R}_{\sigma,\mathcal{N}}\circ\mathcal{N}$ is contractive
-with coefficient depending on $\lambda$ and $\mathrm{spec}(\sigma)$.
-This is an analytic channel condition. It is not required for the finite OPH normal-form theorem,
-where termination follows from strict Lyapunov descent of accepted repairs.
+Then \(T\) has at most one fixed point. If a fixed point \(x_\star\) exists, the ideal iterates
+obey \(d_Q(T^t x,x_\star)\le \lambda^t d_Q(x,x_\star)\).
+This is an analytic contraction condition. It is not required for the finite OPH normal-form
+theorem, where termination follows from strict Lyapunov descent of accepted repairs.
 \end{proposition}
+
+\begin{theorem}[Noisy approximate repair stability {\normalfont\small [Contraction branch]}]
+\label{thm:noisy-contraction}
+Assume the contraction certificate of Proposition~\ref{prop:petz-contraction}, and let
+\(\widetilde T:Q\to Q\) be an implemented noisy repair map satisfying
+\[
+d_Q(\widetilde T x,Tx)\le \varepsilon
+\qquad\text{for all }x\in Q.
+\]
+If \(x_\star\) is the ideal fixed point of \(T\), then
+\[
+d_Q(\widetilde T^t x,x_\star)
+\le
+\lambda^t d_Q(x,x_\star)+\frac{\varepsilon}{1-\lambda}.
+\]
+Thus the noisy branch converges only to a controlled error ball, and only after the contraction
+certificate and uniform implementation-error bound are supplied.
+\end{theorem}
+
+\begin{proof}
+The recursion
+\[
+d_Q(\widetilde T x,x_\star)
+\le d_Q(\widetilde T x,Tx)+d_Q(Tx,Tx_\star)
+\le \varepsilon+\lambda d_Q(x,x_\star)
+\]
+iterates to the displayed geometric-series bound.
+\end{proof}
 
 \begin{proposition}[Spectral-gap criterion {\normalfont\small [Model-dependent]}]
 \label{conj:spectral-gap}
-If the transfer operator $\mathcal{T}$ for iterated application of
-$\mathcal{R}_{\sigma,\mathcal{N}}$ has a positive spectral gap
-$\delta>0$, then the corresponding analytic channel model has exponential convergence. The
-finite OPH repair package supplies termination by Lyapunov descent on its declared finite state
-space; a spectral gap is a separate quantitative mixing condition for this BFT/QECC-style
-extension.
+Let \(\mathcal T\) be the Markov, channel, or transfer operator induced by iterated OPH repair on
+a declared analytic realization. If \(\mathcal T\) has stationary projection \(\Pi_\star\) and
+constants \(C<\infty\), \(\delta>0\) such that on the nonstationary subspace
+\[
+\|\mathcal T^t-\Pi_\star\|\le C e^{-\delta t},
+\]
+then the corresponding analytic channel model has exponential convergence. The finite OPH repair
+package supplies termination by Lyapunov descent on its declared finite state space; a spectral
+gap is a separate quantitative mixing condition for this BFT/QECC-style extension.
 \end{proposition}
 
 \begin{theorem}[Exponential Convergence
   {\normalfont\small [Under Proposition~\ref{conj:spectral-gap}]}]
 \label{thm:exp-convergence}
-Under Proposition~\ref{conj:spectral-gap} with gap $\delta>0$,
+Under Proposition~\ref{conj:spectral-gap}, for any initial analytic state \(\rho\),
 \[
-  \tfrac12\bigl\|\mathcal{R}_{\sigma,\mathcal{N}}^{\circ t}(\rho)
-  -\sigma\bigr\|_1
-  \leq C\,e^{-\delta t}
+  \bigl\|\mathcal T^t\rho-\Pi_\star\rho\bigr\|
+  \leq C\,e^{-\delta t}\bigl\|\rho-\Pi_\star\rho\bigr\|.
 \]
-for $C>0$ depending on $\rho$ and $\mathcal{N}$.
+This theorem belongs only to the spectral-gap branch. It is not a consequence of a bare finite
+overlap graph or of finite Lyapunov descent alone.
 \end{theorem}
 
 % ------------------------------------------------------------
@@ -219,37 +247,70 @@ $N=\dim(\mathcal{H})=2^n$ for $n$ physical qubits.
 Standard notation: $[[n,k,d]]$ stabilizer code; $K=2^k$; quantum
 Singleton bound: $k\leq n-2(d-1)$.
 
-\begin{claim}[Code distance and min-cut
-  {\normalfont\small [Assumption-dependent, tightened]}]
-\label{claim:qecc-mincut}
-The identity \emph{code distance = graph min-cut} holds for topological
-codes (surface/toric codes) whose logical operators correspond to
-non-contractible homological cycles in the code graph.
-It does \emph{not} hold for a generic overlap graph.
+\begin{theorem}[No free min-cut theorem for bare overlap graphs
+  {\normalfont\small [Established]}]
+\label{thm:no-free-mincut}
+Let \(G=(V,E)\) be any connected graph with \(|V|\ge2\). The graph \(G\) alone does not determine
+the Hamming distance of the consistency set \(C\) of a finite overlap net on \(G\). In particular,
+the same graph can realize a binary constraint code of distance \(1\) or a binary repetition code
+of distance \(|V|\).
+\end{theorem}
 
-Suppose the OPH observer network is equipped with a surface-code-type
-construction on a planar or toroidal graph $G_{\mathrm{OPH}}$, and the
-following conditions are satisfied:
-\begin{enumerate}[(i)]
-  \item Logical $X$-type operators correspond to minimum-weight
-        non-contractible cycles in the \emph{primal} chain complex of
-        $G_{\mathrm{OPH}}$; logical $Z$-type operators correspond to
-        minimum-weight non-contractible cycles in the \emph{dual} complex.
-  \item Boundary conditions are such that no logical operator of weight
-        strictly less than the min-cut of $G_{\mathrm{OPH}}$ exists.
-  \item For non-planar geometries, the relevant group is
-        $H_1(G_{\mathrm{OPH}};\mathbb{F}_2)$ and the code distance equals
-        the minimum over all non-trivial homology classes of the weight of
-        a representative cycle.
-\end{enumerate}
-Under (i)--(iii), $d=\mathrm{mincut}(G_{\mathrm{OPH}})$
-\cite{Kitaev2003,Dennis2002}.
+\begin{proof}
+Set \(S_i=\{0,1\}\) for every vertex. For the repetition realization, choose \(I_e=\{0,1\}\) and
+let both endpoint readouts be the identity. Then every edge imposes \(x_i=x_j\), so the only
+global codewords are \(00\cdots0\) and \(11\cdots1\), whose Hamming distance is \(|V|\).
 
-This claim requires an explicit construction of the topological encoding
-map, the primal/dual complex of $G_{\mathrm{OPH}}$, and verification of
-(i)--(iii). This is a separate topological-code realization condition rather than a
-generic theorem about arbitrary overlap graphs.
-\end{claim}
+For the trivial-overlap realization, keep the same vertex state spaces but let every endpoint
+readout be the constant map to \(0\). Then every binary assignment is globally consistent, so the
+minimum Hamming distance among distinct codewords is \(1\). The graph is unchanged. Therefore
+distance is a property of the code realization--state spaces, readout maps, logical dictionary,
+metric, and error model--not of the bare overlap graph.
+\end{proof}
+
+\begin{definition}[Topological-code realization certificate]\label{def:tcert}
+An OPH overlap network may be treated as a QECC/topological code only after supplying a tuple
+\[
+\mathsf{TCert}=
+(K,\mathcal H_{\mathrm{phys}},\mathcal H_{\mathrm{code}},
+\partial_2,\partial_1,S_X,S_Z,\mathcal L_X,\mathcal L_Z,\mathcal E,\mathcal R),
+\]
+where \(C_2\xrightarrow{\partial_2}C_1\xrightarrow{\partial_1}C_0\) is a chain complex over
+\(\mathbb F_2\), the physical carriers live in \(\mathcal H_{\mathrm{phys}}\), the protected
+subspace is \(\mathcal H_{\mathrm{code}}\), \(S_X,S_Z\) are stabilizer or gauge checks,
+\(\mathcal L_X,\mathcal L_Z\) are logical-operator classes, \(\mathcal E\) is a declared error
+family, and \(\mathcal R\) is a recovery map or recovery family.
+\end{definition}
+
+\begin{theorem}[Certified topological-code distance and min-cut
+  {\normalfont\small [Assumption-dependent]}]
+\label{thm:tcert-distance}
+Suppose a certificate \(\mathsf{TCert}\) of Definition~\ref{def:tcert} is supplied, with logical
+classes identified as
+\[
+\mathcal L_X\simeq H_1(K;\mathbb F_2),
+\qquad
+\mathcal L_Z\simeq H^1(K;\mathbb F_2),
+\]
+and with boundary conditions excluding lower-weight trivial representatives. Then the certified
+distance is
+\[
+d=
+\min\left\{
+\min_{\ell\in\mathcal L_X\setminus0}|\ell|,
+\min_{\ell^\star\in\mathcal L_Z\setminus0}|\ell^\star|
+\right\}.
+\]
+Only in geometries where this homological systole equals the relevant graph min-cut may one write
+\(d=\mathrm{mincut}(G_{\mathrm{OPH}})\) \cite{Kitaev2003,Dennis2002}.
+\end{theorem}
+
+\begin{proof}
+This is the standard stabilizer/topological-code distance statement once the chain complex,
+checks, logical representatives, and boundary conditions are declared. The min-cut equality is an
+additional geometric identification of that homological minimum with a graph cut. By
+Theorem~\ref{thm:no-free-mincut}, it cannot be inferred from the bare graph.
+\end{proof}
 
 \begin{conjecture}[Communication complexity {\normalfont\small [Conjecture]}]
 \label{conj:comm-complexity}
@@ -260,38 +321,49 @@ termination after a supplied descent law; it does not by itself fix a quantum co
 complexity class for every implementation.
 \end{conjecture}
 
-\begin{theorem}[QECC Correspondence
-  {\normalfont\small [Assumption-dependent / Conjecture]}]
+\begin{theorem}[QECC resilience under a supplied code certificate
+  {\normalfont\small [Assumption-dependent]}]
 \label{thm:qecc}
-Suppose conditions (i)--(iii) of Claim~\ref{claim:qecc-mincut} hold.
-Then:
+Assume a genuine code subspace \(\mathcal H_{\mathrm{code}}\subseteq\mathcal H_{\mathrm{phys}}\)
+with projector \(\Pi\), and let \(\mathcal E_t\) be the declared set of errors supported on fewer
+than \(t\) corrupted patches or physical carriers. If
+\[
+\Pi E_a^\dagger E_b \Pi=\alpha_{ab}\Pi
+\qquad
+\forall E_a,E_b\in\mathcal E_t,
+\]
+then there exists a recovery channel correcting all errors in \(\mathcal E_t\)
+\cite{KL97}. If the supplied certificate also gives distance \(d\), then all errors of weight
+\(t<d/2\) are correctable. No such resilience statement follows from the bare overlap graph.
+\end{theorem}
+
+\begin{corollary}[QECC extension inventory]\label{cor:qecc-inventory}
+Under Definition~\ref{def:tcert}, Theorem~\ref{thm:tcert-distance}, and
+Theorem~\ref{thm:qecc}, the OPH BFT/QECC extension carries the following status split:
 \begin{enumerate}[(i)]
-  \item \textrm{[Assumption-dependent]} Code distance $d =
-        \mathrm{mincut}(G_{\mathrm{OPH}})$.
+  \item \textrm{[Assumption-dependent]} Code distance is the certified homological minimum; it
+        equals \(\mathrm{mincut}(G_{\mathrm{OPH}})\) only under the additional systole/min-cut
+        identification.
   \item \textrm{[Established]} The Knill--Laflamme \textrm{QECC}
-        conditions~\cite{KL97} are satisfied for the logical subspace
-        whenever the number of corrupted observers satisfies $t<d/2$.
+        theorem supplies recovery once the projector and error family satisfy the displayed
+        condition.
   \item \textrm{[Conjecture]} Per-round communication complexity is
         $O(n\cdot\mathrm{poly}(d))$.
 \end{enumerate}
-\end{theorem}
+\end{corollary}
 
 % ------------------------------------------------------------
 \subsection*{B.4\quad Theorem 4: Asynchronous Convergence}
 % ------------------------------------------------------------
 
-\paragraph{Why fairness alone does not give a probability-1 statement.}
-Standard strong fairness guarantees that every enabled action fires
-infinitely often along any fair schedule; it does not impose a probability
-space on the set of schedules.
-A convergence statement of the form ``converges with probability~1''
-requires a measure on schedules and does not follow from fairness alone.
-The \textrm{FLP} impossibility result~\cite{FLP85} confirms that even
-strong fairness is insufficient for bounded-time consensus in a fully
-asynchronous system.
-The phrase ``with probability~1'' has been removed from
-Theorem~\ref{thm:eventual-convergence}; the convergence is per-schedule
-and topological.
+\paragraph{Why fairness alone does not give a probability-1, spectral, or wall-clock statement.}
+Standard strong fairness guarantees that every enabled action fires infinitely often along any fair
+schedule; it does not impose a probability space on schedules, a transfer-operator spectral gap,
+or a message-delay bound. A convergence statement of the form ``converges with probability~1''
+requires a measure on schedules. Exponential convergence requires the spectral-gap certificate of
+Theorem~\ref{thm:exp-convergence}. Bounded wall-clock liveness requires partial synchrony and
+quorum assumptions. The \textrm{FLP} impossibility result~\cite{FLP85} confirms that fairness is
+insufficient for bounded-time consensus in a fully asynchronous system.
 
 \paragraph{Additional assumptions for a quantitative bound.}
 \begin{enumerate}[(B1)]
@@ -300,22 +372,18 @@ and topological.
   \item $f < n/3$.
 \end{enumerate}
 
-\begin{theorem}[Eventual Convergence
-  {\normalfont\small [Established under fairness only]}]
+\begin{theorem}[Eventual finite repair termination
+  {\normalfont\small [Finite-descent branch]}]
 \label{thm:eventual-convergence}
-In a fully asynchronous \textrm{OPH} observer network under standard
-strong fairness, iterated application of $\mathcal{R}_{\sigma,\mathcal{N}}$
-converges to a consensus state $\sigma^*$ in the following sense:
-for every $\varepsilon>0$ and every strongly fair schedule,
-there exists a step $T(\text{schedule},\varepsilon)<\infty$ such that
-\[
-  \tfrac12\bigl\|\mathcal{R}^{\circ t}(\rho)-\sigma^*\bigr\|_1
-  <\varepsilon
-  \quad\text{for all }t\geq T.
-\]
-This is a per-schedule topological statement.
-No probability measure on schedules is assumed or needed;
-no uniform finite bound on $T$ follows from fairness alone.
+For a finite OPH patch net with a strict Lyapunov-decreasing accepted repair relation, every
+maximal repair run terminates after finitely many accepted repairs. The step count is bounded by
+the finite value-set bound of Proposition~\ref{prop:finite-step-bound}. If the local-diamond and
+repair-completeness clauses also hold, Newman's lemma upgrades this termination statement to the
+unique schedule-independent quotient normal form of Theorem~\ref{thm:confluence}.
+
+This theorem is finite descent convergence in repair steps. It is not trace-norm convergence of a
+Petz channel, not probability-one convergence over random schedules, not exponential convergence,
+and not a wall-clock liveness theorem.
 \end{theorem}
 
 \begin{theorem}[Quantitative Convergence
@@ -334,12 +402,18 @@ requires (B1) and (B2) explicitly and does not follow from fairness alone).
 % ------------------------------------------------------------
 
 \begin{itemize}
+  \item A bare OPH overlap graph is a finite constraint-code presentation only. Its graph does
+        not determine code distance, correctable error weight, or min-cut resilience.
   \item Analytic spectral-gap and full-rank estimates for a chosen stochastic or channel-level
         BFT/QECC realization are model-specific refinements. They are separate from the finite
         OPH repair theorem, where the accepted repair law supplies Lyapunov descent directly.
-  \item Topological-code distance equals graph min-cut only after a concrete primal/dual
-        complex, boundary condition, and logical-operator dictionary are supplied for the
-        chosen code realization.
+  \item Long-run noisy approximate consensus is available only on the fair-block contraction
+        branch of Theorem~\ref{thm:noisy-fair-block-consensus}: the chosen implementation must
+        certify fair blocks, expected contraction toward the exact quotient normal-form set, and
+        controlled within-block excursions. Fairness alone does not supply that certificate.
+  \item Topological-code distance equals graph min-cut only after a concrete chain complex,
+        boundary condition, logical-operator dictionary, error family, and systole/min-cut
+        identification are supplied for the chosen code realization.
   \item Communication-complexity bounds require a concrete quantum communication encoding and
         implementation cost model. They are not consequences of finite normal-form termination
         alone.

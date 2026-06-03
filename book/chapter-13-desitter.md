@@ -286,7 +286,7 @@ OPH suggests a different route.
 
 In Chapter 11, we saw that a first-variation Einstein relation emerges from an entanglement-equilibrium argument in the scaling regime, and that the same branch can be upgraded to the semiclassical Einstein equation. The continuation below is not part of that recovered-core gravity chain. It asks what happens when one moves away from the ideal recoverability limit.
 
-In the phenomenological continuation considered here, the Markov condition is treated as only approximate. Some residual correlation is then not perfectly captured by the boundary alone. That imperfection is packaged as an extra term:
+In the phenomenological continuation considered here, the Markov condition is treated as only approximate. Some residual correlation is then not perfectly captured by the boundary alone. The primary BW theorem is still the support-visible cap automorphism identity. In the special type-I or effective local representation where one can write a modular generator, that imperfection is packaged as an extra term:
 
 $$K_C = 2\pi B_C + K_C^{(\text{anom})} + \text{const}$$
 
@@ -368,6 +368,6 @@ package.
 
 The arena is a finite static patch bounded by a holographic horizon. What populates this arena? What are the particles and forces we observe, and why do they have the peculiar properties they do?
 
-The next chapter treats the Standard Model of particle physics as an effective structure. It **emerges from consistency requirements**: the gluing conditions between observer patches force gauge symmetry, and the requirement for anomaly-free gluing determines the particle content.
+The next chapter treats the Standard Model of particle physics as an effective structure. It does not follow from gluing in one jump. First, overlap gluing classifies which sectors can be transported as ordinary compact-gauge data. Then compact-gauge reconstruction reads a compact group from those sectors. Finally, MAR and the one-Higgs matter package select the realized Standard Model branch.
 
 This is **Chapter 14: The Standard Model from Consistency**.

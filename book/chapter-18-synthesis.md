@@ -94,7 +94,10 @@ The particle world follows the same logic from another angle. Once fixed-cutoff
 charge sectors can fuse, split, carry duals, persist coherently under
 refinement, and descend with compatible finite-dimensional multiplicity spaces,
 the gauge group is reconstructed from that persistent charge bookkeeping
-itself. On the realized one-Higgs matter branch, the group that emerges is
+itself. This reconstruction classifies the compact group carried by the
+transportable sector package; it does not make the Standard Model choice by
+itself. MAR then selects the minimal admissible one-Higgs matter branch. On that
+realized branch, the group is
 
 $$
 SU(3)\times SU(2)\times U(1)/\mathbb Z_6.
@@ -138,8 +141,8 @@ weak interaction, and hadrons are composite particles such as protons and
 neutrons.
 
 That is the twist. The Standard Model stops looking like a cabinet full of
-unrelated entries. It looks like the smallest charged world that lets the
-observer records close.
+unrelated entries. It looks like the smallest MAR-admissible charged world that
+lets the observer records close.
 
 ## 18.6 One Global Size and One Local Ruler
 

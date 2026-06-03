@@ -58,7 +58,11 @@ The application thesis is simple. If reality is built from observer-patch
 consistency, then useful machines can be built by driving small physical
 patches into the right fixed points. That gives low-cost implementation tracks
 for desktop fusion energy, room-temperature OMEGA supercomputing, OMEGA-based
-AGI, and local gravity or inertia control for hoverbikes and hoverboards.
+AGI, and local gravity or inertia control for hoverbikes and hoverboards. These
+are application tracks behind evidence gates, not theorem outputs. The current
+compute claim is the narrower exact-verifier claim: a chamber-conditioned
+candidate distribution may reduce verifier work by a measured lift
+`B = p_Q/p_U`; it is not a complexity-class theorem.
 
 Read the public applications page at
 [omega.floatingpragma.io](https://omega.floatingpragma.io/). Source notes for
@@ -96,12 +100,20 @@ Most theories begin by assuming spacetime, quantum fields, and a list of
 constants. OPH starts one step earlier than spacetime and quantum field theory,
 with finite observers on finite quantum-algebraic holographic screen geometry
 whose descriptions have to agree where their patches overlap. Push that
-requirement hard enough and a 3+1-dimensional Lorentzian spacetime emerges,
-together with a Jacobson-style Einstein equation and the realized Standard Model
-quotient $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, including the exact
-hypercharge lattice, the realized color triplet $N_c=3$, and the generation
-count $N_g=3$. Quantum mechanics is the algebraic information language carried
-by the OPH architecture.
+requirement through the support-visible BW/geometric scaling branch and a
+3+1-dimensional Lorentzian spacetime emerges, together with a Jacobson-style
+Einstein equation. This is not a claim that finite cells are already Lorentz
+invariant; the Lorentz branch is the extracted prime geometric cap-pair limit
+with fixed-collar Markov/recovery remainders carried through regularized
+modular transport, support-readable modular covariance, and KMS/BW
+normalization. In the gauge lane,
+zero-obstruction is a transportability condition: it reconstructs a compact
+gauge group from the persistent sector category, but does not by itself select
+the Standard Model. MAR plus the explicit one-Higgs matter package selects the
+realized Standard Model quotient $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$,
+including the exact hypercharge lattice, the realized color triplet $N_c=3$,
+and the generation count $N_g=3$. Quantum mechanics is the algebraic
+information language carried by the OPH architecture.
 On the declared support-visible compact-gauge branch, with four-dimensional
 scaling, reflection positivity, repair completeness, and support-visible
 continuum extraction in force, the same stack gives the Euclidean Yang-Mills
@@ -132,9 +144,11 @@ That spherical chart carries several concrete jobs. Caps and collars give the
 local cut data used by modular flow and entropy variation. The conformal group
 of the sphere is the celestial-sphere form of the connected Lorentz group,
 $\mathrm{SO}^+(3,1)$, so the same chart supplies the kinematic bridge to the
-emergent $(3+1)$-dimensional spacetime branch. Spherical harmonics organize angular modes.
+emergent $(3+1)$-dimensional spacetime branch once the support-visible cap
+modular theorem is satisfied. Spherical harmonics organize angular modes.
 Finite cellulations of the same chart give the regulator surface on which patch
-ports, edge data, and overlap checks can be made explicit.
+ports, edge data, and overlap checks can be made explicit; they are not by
+themselves a Lorentz-invariant continuum.
 
 The finite symmetry anchor is $A_5$, the rotational symmetry group of the
 icosahedron. It supplies the icosahedral skeleton behind the echosahedral patch
@@ -178,7 +192,7 @@ marked empirical hadron closure. The operating policy for those rows is in
 
 This table keeps the rows that are easiest to compare directly with PDG and
 NIST values. Structural results such as the 3+1-dimensional Lorentzian spacetime, the
-Standard Model quotient $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, the exact hypercharge
+MAR-selected Standard Model quotient $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, the exact hypercharge
 lattice, the realized color triplet $N_c=3$, and the generation count
 $N_g=3$ live in the papers. The
 quick view here sticks to direct numeric rows and exact zeros.
@@ -257,7 +271,7 @@ tiers live in the papers.
 ## Papers
 
 - **Paper 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)**: broad synthesis of the OPH reconstruction program, from finite observers to the recovered effective universe.
-- **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for relativity, gravity, realized Standard Model structure, and the support-visible compact-gauge Yang-Mills form/gap theorem under its declared branch assumptions.
+- **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for relativity, gravity, zero-obstruction compact-gauge reconstruction, MAR-selected realized Standard Model structure, and the support-visible compact-gauge Yang-Mills form/gap theorem under its declared branch assumptions.
 - **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle derivations, mass rows, coupling structure, and the quantitative comparison surface.
 - **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)**: fixed-point repair dynamics, record stability, and the consensus picture of public reality.
 - **Paper 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)**: federated patch-carrier architecture, $A_5$-icosahedral and $E_8$-type symmetry framing, public hardware-evidence rules, records, recovery moves, and observer synchronization.

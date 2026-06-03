@@ -79,7 +79,9 @@ The paper uses five claim levels.
 \begin{enumerate}[leftmargin=2em,label=\textbf{C\arabic*.}]
 \item \textbf{Mathematical fixed-cutoff claims.} These are finite-algebra statements about
 patches, overlaps, records, repair interfaces, event algebras, and checkpoint laws. They are
-allowed to be theorem-bearing.
+allowed to be theorem-bearing. The generic overlap network is a finite constraint code only;
+QECC distance, min-cut resilience, spectral convergence, BFT liveness, and hardware speedup need
+their own certificates.
 
 \item \textbf{Regulator-chart claims.} These identify a convenient finite model, such as a
 spherical cellulation or a digital finite-group simulator, as a calculational chart. Their claim
@@ -267,7 +269,9 @@ menu, and an accepted-repair rule such that every accepted repair lowers \(\Phi\
 touched visible datum is locally repaired. Then every repair sequence terminates at a visible
 local normal form. If the union-collar gluing and repair-completeness hypotheses of the OPH
 consensus theorem hold on the quotient-local carrier, the terminal physical observable state is
-schedule-independent on that carrier.
+schedule-independent on that carrier. The carrier is thereby a finite constraint-code
+implementation surface; no QECC distance, min-cut formula, spectral mixing rate, or wall-clock
+liveness bound follows unless the corresponding extra certificate is supplied.
 \end{proposition}
 
 \begin{proof}

@@ -162,7 +162,7 @@ There is no God's-eye view. There is no absolute description of reality that exi
 
 This is the turnaround: **subjective perspectives are primary**. The “objective world” is the fixed point of consistency across many observer patches.
 
-![Many initial local descriptions can be repaired in different orders, yet converge to one shared normal form when the overlap rules close.](../assets/book_diagrams/consensus-funnel.svg){width=72%}
+![Many local descriptions for a fixed boundary problem can be repaired in different orders, yet converge to one shared normal form when the overlap rules satisfy the confluence conditions.](../assets/book_diagrams/consensus-funnel.svg){width=72%}
 
 This is the **overlap test**: If two observers share a region of experience, their accounts must agree in that overlap.
 
@@ -341,7 +341,8 @@ right form.
 **Axiom 5: Economy Principle**
 Among the admissible low-energy possibilities, the realized sector is the
 minimal one under the precise complexity ordering used in the physics program.
-This is the selector that narrows the gauge structure to the Standard Model.
+This is the selector that acts after compact-gauge reconstruction and narrows
+the realized low-energy package to the Standard Model branch.
 
 ## 1.11 Reality as Computation
 

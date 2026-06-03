@@ -410,7 +410,8 @@ s\in C
 \quad\Longleftrightarrow\quad
 \forall i,\ T_i(s)=s.
 \]
-Then every initial state has a unique normal form, independent of asynchronous update schedule, on the observer-facing quotient.
+Then every fixed initial state has a unique normal form, independent of asynchronous update
+schedule, on the observer-facing quotient.
 \end{theorem}
 
 \begin{proof}
@@ -423,6 +424,20 @@ The theorem applies inside the stated regime: terminating repair and local confl
 \text{content is schedule-independent only on the declared observer-facing quotient.}
 }
 \]
+
+\begin{theorem}[Boundary-conditioned observer-facing uniqueness]
+Let \(B\) record task boundary data, sensory input, conserved context, or active mode. If accepted
+repairs preserve \(B\), and each consistent observer-facing quotient fiber with fixed \(B=b\) has
+at most one element, then all initial interiors with the same \(b\) settle to the same
+observer-facing normal form.
+\end{theorem}
+
+\begin{proof}
+The previous theorem gives a unique quotient normal form for each initial state. Boundary
+preservation puts the terminal normal form in the same \(B=b\) fiber as the initial state. If that
+consistent fiber has at most one quotient element, the normal forms for all initial interiors with
+that boundary value coincide.
+\end{proof}
 
 \begin{proposition}[Rooted-tree hierarchy model]
 Let \(T=(V,E,r)\) be a finite rooted tree. Each patch state is \(S_i=A\times K_i\), with visible packet \(x_i\in A\) and hidden label \(k_i\in K_i\). For each non-root \(i\), compare \(x_i\) with the parent packet \(x_{p(i)}\), and define

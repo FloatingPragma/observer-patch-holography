@@ -77,6 +77,13 @@ is exactly what error-correcting codes provide.
 **Reality can be read as error-corrected.** The consistency we observe requires
 robust encoding of shared information.
 
+For OPH, there is an important boundary. A bare overlap network is first a
+finite constraint code: its valid codewords are the globally consistent patch
+assignments. It is not automatically a quantum error-correcting code, and its
+graph min-cut does not by itself determine code distance. Quantum-code distance,
+Knill-Laflamme correction, and topological min-cut statements require an
+explicit code subspace, logical operators, error model, and recovery map.
+
 ### Holographic Error Correction
 
 The shock of the 2010s was that spacetime itself has the structure of an error-correcting code.
@@ -208,8 +215,8 @@ OPH sharpens this into an observer-based fixed-point consensus protocol. A
 finite network of patches carries local state data. Neighboring patches compare
 the data on their overlaps. Local repair moves try to reduce a shared mismatch
 score. When the repair law respects the overlap contract, every accepted move
-lowers that score, and compatible repair orders converge to the same public
-description.
+lowers that score, and compatible repair orders from the same fixed quotient
+problem converge to the same public description.
 
 That public description is the fixed point. It is not a vote and it is not a
 view from nowhere. It is the state that remains after the observer network has
@@ -252,6 +259,11 @@ In quantum gravity, we only have approximate codes. The Knill-Laflamme
 condition is correspondingly approximate, with corrections often organized in
 powers of \(1/N\). That is enough to make classical spacetime look stable in
 the controlled large-\(N\) settings where the code picture applies.
+
+The OPH consensus papers use this theorem only after that code data is present.
+Without a supplied projector, error family, and recovery certificate, overlap
+redundancy remains a finite consistency code, not a claim of quantum
+error-correction resilience.
 
 ## 10.9 The Threshold Theorem
 

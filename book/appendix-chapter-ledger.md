@@ -89,7 +89,13 @@ Local descriptions may begin mismatched. The public world is what remains
 after admissible repairs remove overlap-visible disagreement. A **Lyapunov
 function**, introduced more formally elsewhere in OPH, is a quantity that
 decreases along accepted repair steps. It proves that the repair process is
-not wandering forever when the state space is finite.
+not wandering forever when the state space is finite. It does not by itself
+prove that every repair order lands in the same result. That stronger claim is
+confluence, and OPH treats it as a separate local-diamond plus repair-completeness
+condition on the observer-facing quotient.
+The theorem is relative to the fixed initial quotient state. A still stronger
+"same boundary data gives the same answer" statement also needs a unique
+consistent extension in that boundary or sector fiber.
 
 The five axiom groups are not meant as arbitrary declarations. They bundle
 lessons from several mature fields. Finite screen capacity comes from
@@ -337,12 +343,15 @@ $A$, $B$, and $C$ are subsystems. $S(AB)$ is the entropy of the joint system
 $AB$, and similarly for the other terms. The quantity measures how much
 correlation remains between $A$ and $C$ once $B$ is known. If it is zero, the
 state has a quantum Markov property: $B$ screens off $A$ from $C$ in the
-right sense. If it is small, recovery is approximate.
+right sense. If it is small, recovery is approximate, but exact Markov normal
+forms require exact zero CMI or a controlled fixed-collar replacement limit.
 
 The Fawzi-Renner theorem says, roughly, that small CMI implies the existence of a recovery map. Petz gave an earlier
-canonical recovery map in the exact Markov setting. The book does not require
-the reader to compute the map, but it does require the conceptual lesson:
-lost-looking local data can be reconstructible from surrounding correlations.
+canonical recovery map in the exact Markov setting. This recovery map supplies
+a recovered comparison state, not a dimension-free one-shot projection onto
+the exact Markov set. The book does not require the reader to compute the map,
+but it does require the conceptual lesson: lost-looking local data can be
+reconstructible from surrounding correlations.
 
 The collar-tripartition diagram shows the split used repeatedly in
 holographic recovery: a cap, a collar, and an exterior. The collar is the
@@ -460,6 +469,11 @@ states when errors are correctable. $P$ projects onto the code space. $E_a$
 and $E_b$ are possible errors. The dagger is the adjoint. The numbers
 $\alpha_{ab}$ form syndrome data. The environment may learn which error
 happened, but it must not learn the protected logical state.
+
+The OPH boundary is explicit: a bare overlap graph is only a finite constraint
+code. Code distance, min-cut resilience, and corrupted-carrier correction
+require the additional code space, logical-operator, error-family, and recovery
+certificate.
 
 Landauer's cost $k_BT\ln2$ returns at the end of the chapter. $k_B$ is
 Boltzmann's constant, $T$ is temperature, and $\ln2$ appears for one erased
@@ -632,6 +646,10 @@ $$SU(3)\times SU(2)\times U(1).$$
 $SU(3)$ is the color symmetry of the strong interaction. $SU(2)$ is weak
 isospin. $U(1)$ is hypercharge. Fermions come in representations of this
 group. A representation tells how a field transforms under the symmetry.
+
+In OPH, zero-obstruction transport and tensor reconstruction classify the
+compact gauge group carried by persistent sectors. MAR is the later selection
+step that acts on realized one-Higgs matter packages.
 
 Hypercharge is written $Y$. Electric charge is related by
 

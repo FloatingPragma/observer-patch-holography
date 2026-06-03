@@ -152,7 +152,9 @@ If $I(A:C|B)=0$, then $B$ screens off $A$ from $C$ in a Markov-like way. In
 quantum information, small CMI implies that
 recovery is possible with controlled error. This is why the quantity matters
 for the collar picture. The collar $B$ can contain the interface data needed
-to reconstruct relationships between inside and outside.
+to reconstruct relationships between inside and outside. The controlled
+recovery statement is not the same as an exact Markov factorization; exact
+splice formulas require zero CMI or a fixed-collar replacement limit.
 
 OPH uses this formula to explain why a finite, noisy, horizon-limited world
 can still have stable history. Information need not be copied into one place.
@@ -264,10 +266,11 @@ $$Q=T_3+\frac{Y}{2}$$
 connects electric charge $Q$, weak isospin component $T_3$, and hypercharge
 $Y$. This is one of the basic bookkeeping equations of electroweak theory.
 
-OPH tries to reconstruct why this kind of gauge structure is selected from
-persistent charge sectors and overlap consistency. The Tannaka-Krein idea is
-that a group can be read from its representations. The economy principle then
-narrows the admissible low-energy realization.
+OPH separates classification from selection here. Persistent zero-obstruction
+charge sectors and overlap consistency reconstruct a compact group through
+the Tannaka-Krein idea that a group can be read from its representations. The
+economy principle then narrows the admissible one-Higgs low-energy realization
+to the Standard Model branch.
 
 ## The Higgs Potential
 

@@ -31,19 +31,25 @@ The Fixed-Point Computation That Implements Physics}
 \OPHPaperReleaseBanner
 
 \begin{abstract}
-This paper gives the computational spine of Observer-Patch Holography. A universe is modeled as a finite network of observer patches that may disagree on their overlaps. The network is abstract patch geometry. Spherical, \(A_5\)-icosahedral, and \(E_8\)-type language in the surrounding OPH stack names regulator and symmetry structure. Local repair moves try to reconcile those disagreements. When the repair law lowers the declared mismatch score and respects the overlap contract, the total inconsistency \(\Phi\) becomes a Lyapunov functional and the patch network converges to a unique schedule-independent physical world on the quotient. The paper also identifies the loop obstructions that block global consistency, explains why physical uniqueness lives on gauge-equivalence classes, carries the same normal-form and holonomy data through separated cofinal refinement systems, shows when coarse-graining and reconciliation commute up to controlled error, and gives a fixed-point account of stable records. This is the patch-net theorem package behind the relativity, gauge, Yang--Mills repair-gap, particle, and observer branches.
+This paper gives the computational spine of Observer-Patch Holography. A universe is modeled as a finite network of observer patches that may disagree on their overlaps. The network is abstract patch geometry. Spherical, \(A_5\)-icosahedral, and \(E_8\)-type language in the surrounding OPH stack names regulator and symmetry structure. Local repair moves try to reconcile those disagreements. When the repair law lowers the declared mismatch score, the total inconsistency \(\Phi\) becomes a Lyapunov functional and termination follows on the finite patch net. Uniqueness is a separate confluence claim: the local-diamond condition on the physical quotient, together with repair completeness, is what makes the terminal physical normal form schedule-independent from a fixed initial quotient state. A stronger same-boundary conclusion requires one more hypothesis: the fixed boundary/sector fiber has a unique consistent quotient extension. The paper also identifies the loop obstructions that block global consistency, explains why physical uniqueness lives on gauge-equivalence classes, carries the same normal-form and holonomy data through separated cofinal refinement systems, shows when coarse-graining and reconciliation commute up to controlled error, gives a fixed-point account of stable records, and proves a conditional fair-block theorem for noisy approximate consensus once a separate contraction certificate is supplied. This is the patch-net theorem package behind the relativity, gauge, Yang--Mills repair-gap, particle, and observer branches.
 \end{abstract}
 
 \section{Introduction}
 
 This paper writes the OPH consensus picture in the simplest concrete form. A universe is represented as a finite graph of observer patches. Each patch carries local state data, neighboring patches compare those data on overlaps, and local repair moves try to reconcile any mismatch. The central mathematical question is whether this repair dynamics converges to one shared world and how the unavoidable obstructions are encoded when it does not.
 
-The resulting theorem package has two layers. The first concerns convergence: the declared
+The resulting theorem package has two layers. The bare overlap network is only a finite
+constraint code: its codewords are the globally overlap-consistent states. Quantum
+error-correction, code-distance / min-cut resilience, exponential mixing, wall-clock BFT
+liveness, and hardware speedup are separate certified branches with additional data. The first
+core consensus layer concerns convergence: the declared
 local-fit contract on touched overlaps makes \(\Phi\) a Lyapunov functional for accepted repair
 moves, so termination is derived on the finite patch net; the fixed-cutoff union-collar gluing
 package then turns competing local repairs into a local diamond on the physical quotient, so
-under repair completeness every initial configuration has a unique schedule-independent normal
-form. The second concerns obstructions: pairwise overlap agreement does not ensure a
+under repair completeness every initial quotient state has a unique schedule-independent normal
+form. The stronger claim that all interiors with the same boundary data settle to the same state
+requires preservation of that boundary data plus a unique consistent extension in the corresponding
+fiber. The second concerns obstructions: pairwise overlap agreement does not ensure a
 global solution, and the obstruction is holonomic. On the abelian branch it is the cycle sum of
 edge data; on the genuinely noncentral branch it is a crossed-module \v{C}ech class.
 
@@ -58,15 +64,21 @@ central or quantitatively stable approximately commuting projectors. These resul
 patch-net formulation used in the broader OPH literature, including the fixed-cutoff Bell/CHSH
 package on the companion microphysics surface.
 
-This paper proves six core results:
+This paper proves a constraint-code firewall and six core consensus results:
 
 \begin{enumerate}
-\item \textbf{Asynchronous confluence.} For the declared accepted repair law, the local-fit contract makes \(\Phi\) a Lyapunov functional and hence gives termination, while the fixed-cutoff union-collar gluing package gives the local diamond on the physical quotient; under repair completeness, every initial state has a unique normal form, independent of update schedule (Theorem~\ref{thm:confluence}).
+\item \textbf{Constraint-code firewall.} A finite overlap net defines a finite constraint code:
+its codewords are exactly the globally consistent states, and \(C=\Phi^{-1}(0)\)
+(Proposition~\ref{prop:constraint-code}). This is the default meaning of ``the overlap network is
+a code.'' It is not, by itself, a quantum error-correcting code and does not imply a graph
+min-cut formula for distance (Theorem~\ref{thm:no-free-mincut}).
+\item \textbf{Asynchronous confluence.} For the declared accepted repair law, the local-fit contract makes \(\Phi\) a Lyapunov functional and hence gives termination, while the fixed-cutoff union-collar gluing package gives the local diamond on the physical quotient; under repair completeness, every fixed initial quotient state has a unique normal form, independent of update schedule (Theorem~\ref{thm:confluence}).
 \item \textbf{Cycle obstruction.} For affine overlap constraints over an abelian group, global consistency holds if and only if the holonomy vanishes on every cycle (Theorem~\ref{thm:holonomy}). The parity triangle gives the minimal frustrated example, and Theorem~\ref{thm:higherdefects} extends the same logic to the crossed-module higher-gauge defect hierarchy used later in the framework.
-\item \textbf{Gauge quotient and observable-level confluence.} When local repair is induced on the overlap-invariant quotient, the normal-form map descends to that quotient, and the induced terminal state on every declared physical observable algebra is unique there even when microscopic representatives differ by gauge or sector relabelings inside one quotient-local glued state (Theorems~\ref{thm:gauge}, \ref{thm:obsconfluence}).
+\item \textbf{Gauge quotient and observable-level confluence.} When local repair is induced on the overlap-invariant quotient, the normal-form map descends to that quotient, and the induced terminal state on every declared physical observable algebra is unique there even when microscopic representatives differ by gauge or sector relabelings inside one quotient-local glued state. If a boundary/sector map is preserved and each consistent boundary fiber has at most one quotient extension, then all initial states with that boundary value settle to the same quotient normal form (Theorems~\ref{thm:gauge}, \ref{thm:boundary-conditioned-uniqueness}, \ref{thm:obsconfluence}).
 \item \textbf{Refinement-limit consensus classes.} On a separated cofinal refinement system whose restriction maps commute with the finite-stage normal-form and holonomy maps, the quotient normal forms and holonomy obstructions assemble into unique inverse-limit classes with finite-stage visibility (Theorem~\ref{thm:refinement-consensus}).
 \item \textbf{Coarse-graining compatibility.} On any refinement system whose coarse-graining maps shadow finite-stage normal forms and holonomy maps with declared errors, reconciling first and then coarse-graining gives the same macroscopic law data as coarse-graining first and then reconciling, up to those errors; in the exact natural case the error is zero (Theorem~\ref{thm:coarse-grain-consensus}).
 \item \textbf{Record algebra and stability.} On the fixed-cutoff observer-accessible surface, central record projectors carry Born/L\"uders measurement directly, and approximate record projectors inherit explicit \((\varepsilon,\delta_{\mathrm{rec}})\) stability bounds on the same event surface (Theorem~\ref{thm:crdt}).
+\item \textbf{Conditional noisy fair-block consensus.} If a noisy asynchronous implementation admits fair repair blocks, a uniform expected contraction toward the exact quotient normal-form set, and controlled within-block excursions, then all long runs stay in a controlled expected tube around that exact normal-form set. In singleton boundary/sector fibers, Lipschitz observer readouts are approximately schedule-independent, and a finite Markov-kernel certificate checks the block contraction on finite exported nets (Theorem~\ref{thm:noisy-fair-block-consensus}, Corollaries~\ref{cor:approx-schedule-independence}--\ref{cor:high-prob-noisy-tube}, and Proposition~\ref{prop:finite-fair-block-certificate}).
 \end{enumerate}
 
 The repair step itself is a concrete recovery move, not a free rewrite primitive. On the
@@ -129,6 +141,26 @@ w_e\, d_e\!\bigl(\pi_{i,e}(s_i),\pi_{j,e}(s_j)\bigr).
 \]
 Then $s\in C \iff \Phi(s)=0$.
 \end{definition}
+
+\begin{proposition}[Bare overlap nets are finite constraint codes]\label{prop:constraint-code}
+For every finite patch net of Definition~\ref{def:patchnet}, the consistency set \(C\subseteq
+\Sigma\) is a finite constraint code whose codewords are exactly the globally overlap-consistent
+states. With the mismatch potential of Definition~\ref{def:potential},
+\[
+C=\Phi^{-1}(0).
+\]
+This proposition is the theorem-grade content of the unqualified phrase ``the overlap network is
+a code.'' It supplies a finite constraint code, not a quantum error-correcting code, not a
+topological code, and not a graph-theoretic formula for code distance.
+\end{proposition}
+
+\begin{proof}
+Finiteness follows from \(\Sigma=\prod_i S_i\) with finite \(S_i\). The definition of \(C\) is a
+finite family of interface-equality constraints, so \(C\) is the set of satisfying assignments.
+Since each \(w_e>0\) and \(d_e(a,b)=0\) exactly when \(a=b\), every term in \(\Phi\) is
+nonnegative and vanishes exactly on a satisfied edge constraint. Therefore all edge constraints
+hold if and only if \(\Phi(s)=0\).
+\end{proof}
 
 So $\Phi$ is the total disagreement energy of the universe. Consistent states have zero energy. Everything else is frustrated.
 
@@ -431,6 +463,40 @@ sequence would therefore produce an infinite strictly descending chain in the fi
 \(\Phi(\Sigma)\), which is impossible.
 \end{proof}
 
+\begin{proposition}[Finite repair step bound]\label{prop:finite-step-bound}
+Let \(s_0\in\Sigma\). Under Proposition~\ref{prop:lyapunov-descent}, every accepted repair run
+starting at \(s_0\) has length at most
+\[
+\bigl|\{\,\Phi(s):s\in\Sigma,\ \Phi(s)\le \Phi(s_0)\,\}\bigr|-1
+\le |\Phi(\Sigma)|-1.
+\]
+If, additionally, \(\Phi\) is integer-valued, or more generally every accepted move lowers
+\(\Phi\) by at least a fixed \(\eta>0\), then the run length satisfies
+\[
+T(s_0)\le \left\lceil\frac{\Phi(s_0)}{\eta}\right\rceil .
+\]
+This is a finite descent bound in repair steps only. It is not a wall-clock bound, not a
+probability-one scheduling statement, and not spectral or exponential convergence.
+\end{proposition}
+
+\begin{proof}
+The values of \(\Phi\) strictly decrease along the run, so no value in
+\(\{\,\Phi(s):s\in\Sigma,\ \Phi(s)\le \Phi(s_0)\,\}\) can occur twice. This gives the finite
+value-set bound. If each move lowers \(\Phi\) by at least \(\eta\), after \(T\) moves the value has
+dropped by at least \(T\eta\). Since \(\Phi\ge0\), \(T\eta\le\Phi(s_0)\), giving the displayed
+ceiling bound.
+\end{proof}
+
+\begin{remark}[Termination is not confluence]\label{rem:termination-not-confluence}
+Proposition~\ref{prop:lyapunov-termination} proves only that accepted repair runs stop. It does not
+prove that two update orders stop at the same physical state. Schedule-independence enters only after
+the local-diamond property of Proposition~\ref{prop:local-confluence} is combined with termination
+via Newman's lemma and with repair completeness in Assumption~\ref{ass:complete}. If two accepted
+repair schedules from the same initial state reach different observer-facing quotient normal forms,
+with no declared holonomy or higher-gauge obstruction and no mere gauge-representative difference,
+then the proposed repair law is not OPH-admissible as a consensus mechanism.
+\end{remark}
+
 \begin{proposition}[Local confluence from overlap-associative gluing]\label{prop:local-confluence}
 For the accepted repair law of Definitions~\ref{def:repair}, \ref{def:localfit}, and
 \ref{def:assoc}, the repair relation is locally confluent.
@@ -460,18 +526,18 @@ quotient-local union-collar state. Hence there exists \(v\in\Sigma\) with \(t\to
 
 \begin{theorem}[Asynchronous confluence / fixed-point law]\label{thm:confluence}
 For the accepted repair law of Definitions~\ref{def:repair}, \ref{def:localfit}, and
-\ref{def:assoc}, under Assumption~\ref{ass:complete}, every initial state $s\in\Sigma$ has a unique normal form
+\ref{def:assoc}, under Assumption~\ref{ass:complete}, each fixed initial state $s\in\Sigma$ has a unique normal form
 \[
 \operatorname{nf}_\lambda(s)\in C,
 \]
-and every maximal asynchronous repair execution from $s$ terminates at that same state. The terminal state is independent of update order.
+and every maximal asynchronous repair execution from $s$ terminates at that same state. The terminal state is independent of update order because descent, local confluence on the physical quotient, and repair completeness all hold; termination alone is not enough.
 \end{theorem}
 
 \begin{proof}
 By Proposition~\ref{prop:lyapunov-termination}, the repair relation \(\to\) is terminating.
 By Proposition~\ref{prop:local-confluence}, it is locally confluent. Newman's
 lemma~\cite{newman42} therefore makes it confluent. A terminating confluent repair relation has a
-unique normal form reachable from each initial state. By Assumption~\ref{ass:complete}, the
+unique normal form reachable from each fixed initial state. By Assumption~\ref{ass:complete}, the
 normal forms are exactly \(C\). Every maximal execution terminates and reaches
 \(\operatorname{nf}_\lambda(s)\), and that terminal state is independent of update order.
 \end{proof}
@@ -487,6 +553,14 @@ All schedules from the same initial $s$ terminate at $\operatorname{nf}_\lambda(
 Here objectivity is identified with schedule-independent convergence of the repair
 dynamics; Theorem~\ref{thm:obsconfluence} sharpens this to schedule-independent convergence of the
 physical observable algebra even when microscopic representatives are not unique.
+
+\begin{remark}[Quantifier on normal-form uniqueness]\label{rem:normal-form-quantifier}
+Theorem~\ref{thm:confluence} proves uniqueness from a fixed initial state, and
+Theorem~\ref{thm:gauge} below turns that into uniqueness from a fixed physical quotient state. It
+does not say that all possible initial data settle to one universal state. Different boundary
+conditions, conserved charges, root packets, holonomy sectors, or external records can
+legitimately determine different normal forms.
+\end{remark}
 
 
 \section{Why Local Agreement Is Not Enough: Cycle Holonomy and Frustration}
@@ -653,6 +727,44 @@ $q(\operatorname{nf}_\lambda(s))$ depends only on $q(s)=[s]$. This makes
 [s]\longmapsto [\operatorname{nf}_\lambda(s)]
 \]
 well-defined on $\Sigma/\Gamma$.
+\end{proof}
+
+\begin{theorem}[Boundary-conditioned quotient uniqueness]\label{thm:boundary-conditioned-uniqueness}
+Let
+\[
+B:\Sigma/\Gamma\to\mathcal B
+\]
+record fixed external boundary data, conserved charge, root packet, holonomy sector, or task
+input. Assume accepted quotient repairs preserve \(B\):
+\[
+[s]\to [t]\implies B([s])=B([t]).
+\]
+For \(b\in\mathcal B\), define the consistent quotient fiber
+\[
+C_b:=\{\,x\in q(C):B(x)=b\,\}.
+\]
+If every \(C_b\) has at most one element, then all initial states with the same boundary value
+settle to the same observer-facing quotient normal form:
+\[
+B([s])=B([s'])\implies
+\overline{\operatorname{nf}}_\lambda([s])
+=
+\overline{\operatorname{nf}}_\lambda([s']).
+\]
+\end{theorem}
+
+\begin{proof}
+Theorem~\ref{thm:gauge} gives unique quotient normal forms
+\(\overline{\operatorname{nf}}_\lambda([s])\) and
+\(\overline{\operatorname{nf}}_\lambda([s'])\) in \(q(C)\). Boundary preservation along accepted
+repair sequences gives
+\[
+B(\overline{\operatorname{nf}}_\lambda([s]))=B([s]),
+\qquad
+B(\overline{\operatorname{nf}}_\lambda([s']))=B([s']).
+\]
+If \(B([s])=B([s'])=b\), both quotient normal forms lie in \(C_b\). By the unique consistent
+extension assumption, \(C_b\) has at most one element, so the quotient normal forms are equal.
 \end{proof}
 
 \begin{corollary}[Gauge-invariant law]\label{cor:gaugeinv}
@@ -984,8 +1096,8 @@ The last claim is visible separation applied to the compatible normal-form and h
 Theorem~\ref{thm:refinement-consensus} is a controlled continuum bridge. It proves persistence,
 exhaustion, and collapse of the consensus data once the OPH refinement system supplies the
 restriction maps and the two naturality clauses in Definition~\ref{def:refinement-consensus}. It
-leaves uniform complexity bounds, global noisy-consensus control, and automatic normal-form
-naturality for arbitrary changing repair laws as separate branch conditions.
+leaves uniform complexity bounds, automatic fair-block noisy-consensus certificates, and
+automatic normal-form naturality for arbitrary changing repair laws as separate branch conditions.
 \end{remark}
 
 \begin{definition}[Controlled coarse-graining / reconciliation square]\label{def:controlled-coarse-consensus}
@@ -1191,6 +1303,285 @@ to that central surface. The broader export problem asks whether richer branches
 relevant pointer surfaces close to one such central record algebra and whether the same control
 survives refinement and continuation.
 
+\section{Noisy Fair-Block Approximate Consensus}
+\label{sec:noisy-fair-block-consensus}
+
+The exact consensus theorem supplies the quotient normal-form target. A noisy implementation
+needs one more quantitative certificate: complete fair blocks must contract expected distance to
+that target. This section records the conditional bridge from local noisy repair to long-run
+observer-facing approximate consensus.
+
+\begin{theorem}[Global noisy approximate consensus under fair-block contraction]
+\label{thm:noisy-fair-block-consensus}
+Let \((Q,d_Q)\) be the observer-facing quotient state space of a fixed exported OPH patch
+federation, and let \(\mathcal N\subset Q\) be the exact quotient normal-form set supplied by the
+finite repair theorem on that quotient. Define
+\[
+D(q):=d_Q(q,\mathcal N)=\inf_{n\in\mathcal N}d_Q(q,n).
+\]
+Let \(q_{t+1}=\widetilde T_{i_t,t}(q_t)\) be a noisy asynchronous repair process adapted to a
+filtration \((\mathcal F_t)_t\). Assume:
+\begin{enumerate}[(G1)]
+\item \textbf{Exact quotient target.} The ideal repair relation on \(Q\) has the exact OPH
+normal-form package: finite descent, quotient-local confluence, and repair completeness, so every
+fixed initial quotient state has a schedule-independent exact normal form in \(\mathcal N\).
+\item \textbf{Fair asynchronous blocks.} There are stopping times
+\[
+0=\tau_0<\tau_1<\tau_2<\cdots
+\]
+such that each interval \([\tau_m,\tau_{m+1})\) contains enough local repairs to expose and act on
+every active mismatch class required by the exact local-diamond and repair-completeness
+certificate, with uniformly bounded length \(\tau_{m+1}-\tau_m\le L\). Write the noisy block map
+as
+\[
+\widetilde B_m
+:=
+\widetilde T_{i_{\tau_{m+1}-1},\,\tau_{m+1}-1}
+\circ\cdots\circ
+\widetilde T_{i_{\tau_m},\,\tau_m}.
+\]
+\item \textbf{Uniform block contraction toward normal form.} There are constants
+\(0<\lambda<1\) and \(\varepsilon\ge0\) such that, for every block \(m\) and every reachable
+quotient state \(q\) at time \(\tau_m\),
+\[
+\mathbb E\!\left[
+D\!\left(\widetilde B_m(q)\right)
+\mid \mathcal F_{\tau_m}
+\right]
+\le
+\lambda D(q)+\varepsilon.
+\]
+\item \textbf{Controlled within-block excursions.} There are constants \(A\ge1\) and
+\(\beta\ge0\) such that, for every \(t\in[\tau_m,\tau_{m+1})\),
+\[
+\mathbb E\!\left[
+D(q_t)\mid \mathcal F_{\tau_m}
+\right]
+\le
+A\,D(q_{\tau_m})+\beta.
+\]
+\end{enumerate}
+Then, at fair-block times,
+\[
+\mathbb E[D(q_{\tau_m})]
+\le
+\lambda^mD(q_0)
++
+\frac{1-\lambda^m}{1-\lambda}\,\varepsilon,
+\]
+and hence
+\[
+\limsup_{m\to\infty}\mathbb E[D(q_{\tau_m})]
+\le
+\frac{\varepsilon}{1-\lambda}.
+\]
+At all intermediate asynchronous times,
+\[
+\limsup_{t\to\infty}\mathbb E[D(q_t)]
+\le
+A\,\frac{\varepsilon}{1-\lambda}+\beta.
+\]
+Thus the noisy asynchronous OPH repair process converges in expectation to a controlled tube
+around the exact quotient normal-form set. If \(\varepsilon=\beta=0\), then \(D(q_t)\to0\) in
+\(L^1\), hence also in probability, along the full asynchronous run.
+\end{theorem}
+
+\begin{proof}
+Let \(D_m:=D(q_{\tau_m})\). Assumption (G3), applied to the realized state \(q_{\tau_m}\), gives
+\[
+\mathbb E[D_{m+1}\mid \mathcal F_{\tau_m}]
+\le
+\lambda D_m+\varepsilon.
+\]
+Taking expectations,
+\[
+\mathbb E[D_{m+1}]
+\le
+\lambda\,\mathbb E[D_m]+\varepsilon.
+\]
+Iterating the scalar recursion gives
+\[
+\mathbb E[D_m]
+\le
+\lambda^mD(q_0)
++
+\varepsilon\sum_{r=0}^{m-1}\lambda^r
+=
+\lambda^mD(q_0)
++
+\frac{1-\lambda^m}{1-\lambda}\varepsilon.
+\]
+Taking \(m\to\infty\) yields the fair-block limsup bound. For
+\(t\in[\tau_m,\tau_{m+1})\), Assumption (G4) gives
+\[
+\mathbb E[D(q_t)]
+\le
+A\,\mathbb E[D(q_{\tau_m})]+\beta.
+\]
+Substitution of the fair-block estimate and then taking the limsup over all intermediate times
+gives
+\[
+\limsup_{t\to\infty}\mathbb E[D(q_t)]
+\le
+A\,\frac{\varepsilon}{1-\lambda}+\beta.
+\]
+If \(\varepsilon=\beta=0\), then \(\mathbb E[D(q_{\tau_m})]\le\lambda^mD(q_0)\to0\). Since
+\(D\ge0\), convergence in expectation to zero implies convergence in probability at block times.
+Assumption (G4) then gives \(\mathbb E[D(q_t)]\le A\,\mathbb E[D(q_{\tau_m})]\) inside each
+block, so the same \(L^1\) and probability convergence holds along the full asynchronous run.
+\end{proof}
+
+\begin{corollary}[Approximate observer-facing schedule independence]
+\label{cor:approx-schedule-independence}
+Let \(M:Q\to Y\) be an observer-facing readout into a metric space \((Y,d_Y)\), and suppose \(M\)
+is \(L_M\)-Lipschitz. Fix an exact sector \(\zeta\) whose exact normal-form set is the singleton
+\(\mathcal N_\zeta=\{n_\zeta\}\), and apply Theorem~\ref{thm:noisy-fair-block-consensus} on that
+sector, so that \(D(q)=d_Q(q,n_\zeta)\). Then
+\[
+\limsup_{t\to\infty}
+\mathbb E\!\left[
+d_Y(M(q_t),M(n_\zeta))
+\right]
+\le
+L_M\left(A\,\frac{\varepsilon}{1-\lambda}+\beta\right).
+\]
+For two noisy asynchronous schedules \(q_t\) and \(q'_t\) started in the same exact singleton
+sector and satisfying the same certificate,
+\[
+\limsup_{t\to\infty}
+\mathbb E\!\left[
+d_Y(M(q_t),M(q'_t))
+\right]
+\le
+2L_M\left(A\,\frac{\varepsilon}{1-\lambda}+\beta\right).
+\]
+\end{corollary}
+
+\begin{proof}
+The Lipschitz condition gives
+\[
+d_Y(M(q_t),M(n_\zeta))
+\le
+L_M d_Q(q_t,n_\zeta)
+=
+L_M D(q_t).
+\]
+The first bound follows from Theorem~\ref{thm:noisy-fair-block-consensus}. The two-schedule bound
+follows from the triangle inequality through \(M(n_\zeta)\) and applying the first estimate to
+both schedules.
+\end{proof}
+
+\begin{corollary}[High-probability noisy consensus tube]
+\label{cor:high-prob-noisy-tube}
+Assume the block-distance process also admits the pathwise decomposition
+\[
+D_{m+1}
+\le
+\lambda D_m+\varepsilon+\xi_{m+1},
+\qquad
+\mathbb E[\xi_{m+1}\mid\mathcal F_{\tau_m}]=0,
+\qquad
+|\xi_{m+1}|\le b
+\]
+almost surely. Then, for every \(a>0\),
+\[
+\Pr\!\left[
+D_m>
+\lambda^mD_0
++
+\frac{1-\lambda^m}{1-\lambda}\varepsilon
++
+a
+\right]
+\le
+\exp\!\left(
+-\frac{a^2(1-\lambda^2)}{2b^2}
+\right).
+\]
+\end{corollary}
+
+\begin{proof}
+Unrolling the recursion gives
+\[
+D_m
+\le
+\lambda^mD_0
++
+\frac{1-\lambda^m}{1-\lambda}\varepsilon
++
+\sum_{r=1}^{m}\lambda^{m-r}\xi_r.
+\]
+The final term is a weighted martingale sum with increments bounded by
+\(|\lambda^{m-r}\xi_r|\le\lambda^{m-r}b\). Azuma--Hoeffding gives
+\[
+\Pr\!\left[
+\sum_{r=1}^{m}\lambda^{m-r}\xi_r>a
+\right]
+\le
+\exp\!\left(
+-\frac{a^2}{2\sum_{r=1}^{m}\lambda^{2(m-r)}b^2}
+\right).
+\]
+Since \(\sum_{r=1}^{m}\lambda^{2(m-r)}\le(1-\lambda^2)^{-1}\), substitution yields the claimed
+bound.
+\end{proof}
+
+\begin{proposition}[Finite fair-block contraction certificate]
+\label{prop:finite-fair-block-certificate}
+Let \(Q\) be finite, let \(\mathfrak B_{\mathrm{fair}}\) be a finite list of noisy fair-block
+types, and let \(K_B(q,q')\) be the Markov kernel induced by block type \(B\). If there are
+constants \(0<\lambda<1\) and \(\varepsilon\ge0\) such that
+\[
+\sum_{q'\in Q}K_B(q,q')D(q')
+\le
+\lambda D(q)+\varepsilon
+\qquad
+\forall q\in Q,\quad \forall B\in\mathfrak B_{\mathrm{fair}},
+\]
+then Assumption (G3) of Theorem~\ref{thm:noisy-fair-block-consensus} holds for any run whose
+fair blocks are drawn from \(\mathfrak B_{\mathrm{fair}}\).
+\end{proposition}
+
+\begin{proof}
+Conditioning on the current quotient state \(q\) and the realized fair-block type \(B\), the
+conditional expectation of \(D\) after the block is exactly
+\(\sum_{q'}K_B(q,q')D(q')\). The displayed inequality is therefore Assumption (G3), uniformly
+over all reachable states and fair-block types.
+\end{proof}
+
+\paragraph{Finite audit route and constants.}
+For a finite exported packet net, Proposition~\ref{prop:finite-fair-block-certificate} gives the
+practical certificate path:
+\[
+\text{finite quotient }Q
+\Rightarrow
+\text{exact normal forms }\mathcal N
+\Rightarrow
+\text{distance table }D(q)
+\Rightarrow
+\text{noisy fair-block kernels }K_B
+\Rightarrow
+(\lambda,\varepsilon)\text{ certificate}.
+\]
+Here \(\mathcal N\) is the exact quotient normal-form set, \(D(q)\) is observer-facing residual
+distance to that set, \(\lambda\) is the net contraction produced by one completed fair block,
+\(\varepsilon\) is the per-block irreducible local recovery / record / readout / calibration /
+environmental noise, \(A\) bounds transient within-block expansion, \(\beta\) is the
+within-block noise floor, and \(L\) is the fairness horizon before all required active mismatch
+classes are serviced. In quantum/collar implementations, \(\varepsilon\) may absorb Petz-domain
+truncation, Fawzi--Renner recovery error, approximate central-record error, detector/readout
+noise, and coarse-graining defect.
+
+\paragraph{Claim boundary.}
+Theorem~\ref{thm:noisy-fair-block-consensus} is a conditional global noisy-consensus theorem. It
+does not follow from the exact finite repair theorem alone. The exact OPH theorem supplies the
+quotient normal-form target \(\mathcal N\); the noisy theorem requires a separate fair-block
+contraction certificate \((\lambda,\varepsilon,A,\beta,L)\) for the chosen implementation. Without
+that certificate, OPH retains exact fixed-cutoff convergence and the collar-local splice and
+record-stability estimates above. With that certificate, arbitrarily long asynchronous noisy
+repair sequences converge to a controlled observer-facing tube around the exact quotient
+normal-form set.
+
 
 \section{Law-Space Selection and Observer Emergence}
 
@@ -1304,8 +1695,8 @@ The bridge to physics works as follows in the broader companion corpus:
 \item The patch net becomes a net of support-visible subregion algebras; \(S^2\) is the standard
 observer-facing regulator chart, not a required literal substrate.
 \item Overlap Consistency, one of the canonical framework axioms, is the algebraic version of Definition~\ref{def:patchnet}.
-\item The recoverability clause of the canonical Recoverable Generalized Entropy axiom provides the collar factorization $\rho_{ABD} = \bigoplus_\alpha p_\alpha\,\rho^{(\alpha)}_{Ab_L^\alpha}\otimes\rho^{(\alpha)}_{b_R^\alpha D}$ and the declared Petz/Fawzi--Renner recovery channels from which the local repair moves are built (see Appendix~\ref{app:splice} and Definition~\ref{def:oph-repair-map}).
-\item Gauge symmetry as implementation hiding (Theorem~\ref{thm:gauge}) becomes the fixed-cutoff edge-sector package from which the compact-gauge branch, using the theorem-produced coherent refinement transport, compatible finite fibers, and realized witness theorem, reconstructs a compact gauge group and fixes the Standard Model quotient $\mathrm{SU}(3)\times\mathrm{SU}(2)\times\mathrm{U}(1)/\mathbb{Z}_6$ together with the exact hypercharge lattice and the realized counts \(N_c=3\), \(N_g=3\).
+\item The recoverability clause of the canonical Recoverable Generalized Entropy axiom provides controlled collar recovery data. The exact collar factorization \(\rho_{ABD} = \bigoplus_\alpha p_\alpha\,\rho^{(\alpha)}_{Ab_L^\alpha}\otimes\rho^{(\alpha)}_{b_R^\alpha D}\) is used only at exact Markovity or along the fixed-collar replacement limit, while the declared Petz/Fawzi--Renner recovery channels supply recovered comparison states from which the local repair moves are built (see Appendix~\ref{app:splice} and Definition~\ref{def:oph-repair-map}).
+\item Gauge symmetry as implementation hiding (Theorem~\ref{thm:gauge}) becomes the fixed-cutoff edge-sector package from which the compact-gauge branch, using the theorem-produced coherent refinement transport and compatible finite fibers, reconstructs a compact gauge group from zero-obstruction sectors. Zero obstruction is the transportability/classification condition; it is not the Standard Model selector. The realized witness theorem supplies nonempty MAR-admissible branch data, and MAR plus the explicit one-Higgs matter package then selects the Standard Model quotient $\mathrm{SU}(3)\times\mathrm{SU}(2)\times\mathrm{U}(1)/\mathbb{Z}_6$ together with the exact hypercharge lattice and the realized counts \(N_c=3\), \(N_g=3\).
 \item On the declared support-visible compact-gauge branch, the companion compact paper obtains
 the four-dimensional Euclidean Yang--Mills form from compact-gauge holonomy data and the local
 MaxEnt/Gibbs continuum limit, with the branch assumptions stated there. It then applies the same
@@ -1326,9 +1717,12 @@ This paper provides the finite patch-net foundation for the broader companion co
 
 \section{Discussion and Scope Boundaries}
 
-This paper proves the fixed-point consensus spine of OPH: schedule-independent normal forms,
-holonomy obstructions, gauge-quotient invariance, separated cofinal refinement-limit consensus
-classes, controlled coarse-graining compatibility, and the fixed-cutoff operator-record theorem.
+This paper proves the fixed-point consensus spine of OPH: schedule-independent normal forms from
+fixed initial quotient states, boundary-conditioned uniqueness when a preserved boundary/sector
+fiber has a unique consistent extension, holonomy obstructions, gauge-quotient invariance,
+separated cofinal refinement-limit consensus classes, controlled coarse-graining compatibility,
+the fixed-cutoff operator-record theorem, and conditional noisy fair-block convergence once a
+separate contraction certificate is supplied.
 It also proves the full repair-completeness, Petz-domain, and quotient-compatibility package on
 the rooted-tree packet-net domain of Theorem~\ref{thm:tree-packet-domain}, and gives a clean
 law-selection meta-model. The relativity chain and the realized Standard Model
@@ -1340,20 +1734,24 @@ On a fixed finite patch net, the accepted reconciliation dynamics is a finite-st
 rewrite system on \(\Sigma\). Under Theorem~\ref{thm:confluence}, every accepted repair run has at
 most \(|\Phi(\Sigma)|-1\le |\Sigma|-1\) nontrivial steps, because each accepted move strictly
 lowers \(\Phi\) and the value set \(\Phi(\Sigma)\) is finite. Exact normal-form computation is
-therefore decidable by direct iteration of accepted local repairs. What this paper does
+therefore decidable by direct iteration of accepted local repairs. This step bound is a termination
+statement; the schedule-independent answer still depends on the local-diamond and repair-completeness
+clauses of Theorem~\ref{thm:confluence}. What this paper does
 \emph{not} prove is a uniform polynomial-time bound, a sharper complexity-class placement for
 families of growing patch nets, or any hardness lower bound.
 
 \paragraph{Approximate-stability boundary.}
 The theorem-grade consensus statement is exact on the declared fixed-cutoff branch. Approximate
-control is collar-local: Theorem~\ref{thm:splice} gives the exact-Markov modulus
+control begins collar-locally: Theorem~\ref{thm:splice} gives the exact-Markov modulus
 \(\delta^{\mathrm M}_{A:B:D}(\varepsilon)\to0\) on one fixed finite-dimensional collar model and
 the one-shot recovery comparison bound \(2\sqrt{1-e^{-\varepsilon}}\le 2\sqrt{\varepsilon}\),
 while Theorem~\ref{thm:crdt} gives the \((\varepsilon,\delta_{\mathrm{rec}})\) repeated-read
-stability bound for approximate record projectors. This paper does \emph{not} prove a
-global noisy-consensus theorem asserting that arbitrarily long asynchronous approximate repair
-sequences converge to a unique approximate quotient normal form with uniformly controlled
-accumulated error.
+stability bound for approximate record projectors. The long-run noisy statement is conditional:
+Theorem~\ref{thm:noisy-fair-block-consensus} upgrades those local noisy controls to a global
+expected tube around the exact quotient normal-form set only after a fair-block contraction
+certificate \((\lambda,\varepsilon,A,\beta,L)\) is supplied for the chosen implementation. It does
+not follow from finite descent or fairness alone, and it gives a unique approximate readout only
+inside singleton boundary/sector fibers.
 
 \paragraph{Expressive-power boundary.}
 The law-selection model of Theorem~\ref{thm:replicator} is a finite-candidate monotonicity result.
@@ -1371,7 +1769,7 @@ With those boundaries explicit, the consensus-paper boundaries and companion int
 
 \item \textbf{Observable-level confluence beyond the declared fixed-cutoff physical algebra.} Theorem~\ref{thm:obsconfluence} closes the fixed-cutoff quantum-lift statement when microscopic representatives differ by gauge relabelings globally or by sector/higher-gauge relabelings on the same declared quotient-local glued state. The continuation question is whether an analogous observable theorem survives on broader refinement-stable branches where the union-collar compatibility is only approximate or where the physical observable algebra itself changes under refinement.
 
-\item \textbf{Global approximate-consensus stability.} Theorem~\ref{thm:splice} and Theorem~\ref{thm:crdt} supply the collar-local perturbative controls carried by this paper. The rooted-tree packet domain proves the exact finite repair package on one nontrivial exported domain. What is absent is a multi-step theorem showing that approximate recovery moves are repair-complete for arbitrary packet-closed exported overlap nets, preserve support-local disjoint commutation and nested-collar restriction compatibility, satisfy the support/CPTP clause on every Petz branch used there, and converge under long asynchronous schedules to a unique approximate quotient normal form with controlled accumulated error.
+\item \textbf{Global approximate-consensus stability.} Theorem~\ref{thm:splice} and Theorem~\ref{thm:crdt} supply the collar-local perturbative controls carried by this paper. The rooted-tree packet domain proves the exact finite repair package on one nontrivial exported domain. Theorem~\ref{thm:noisy-fair-block-consensus} closes the long-run noisy branch only after a fair-block contraction certificate is supplied. What remains absent is an automatic theorem showing that arbitrary approximate recovery moves on arbitrary packet-closed exported overlap nets are repair-complete, preserve support-local disjoint commutation and nested-collar restriction compatibility, satisfy the support/CPTP clause on every Petz branch used there, and meet that fair-block contraction certificate.
 
 \item \textbf{Expressive power / universality.} A universality claim would require an explicit uniform family of patch nets and repair laws that simulates arbitrary circuits or machines with stated encoding overhead and robustness under asynchronous schedules. This paper supplies no such construction, so universality is outside the theorem-grade output.
 
@@ -1397,11 +1795,30 @@ written in exact-splice / Petz form; the assumption-dependent item is the \textr
 property on all inputs, which requires either full-rank $\mathcal{N}(\sigma)$ or an explicit
 domain restriction, and trace-preserving completion is not automatic when
 $\mathcal{N}(\sigma)$ has a non-trivial kernel
-(Proposition~\ref{prop:petz-cptp}). A quantum error-correcting interpretation is possible under
-additional topological structure, but the code-distance / min-cut equality requires explicit
-conditions on logical-operator homology and boundary geometry (Claim~\ref{claim:qecc-mincut}). All
-of these extensions are assumption-dependent or conjectural and are not part of the core theorem package of
-Paper~4.
+(Proposition~\ref{prop:petz-cptp}). A quantum error-correcting interpretation is possible only
+after a genuine code subspace, logical dictionary, error family, and recovery map are supplied.
+The graph-min-cut equality for distance is not a property of a bare overlap graph: the same graph
+can realize distance \(1\) or distance \(|V|\) under different interface maps
+(Theorem~\ref{thm:no-free-mincut}). Distance/min-cut statements require the topological-code
+certificate of Definition~\ref{def:tcert} and Theorem~\ref{thm:tcert-distance}; resilience
+requires the Knill--Laflamme certificate of Theorem~\ref{thm:qecc}. All of these extensions are
+assumption-dependent or conjectural and are not part of the core theorem package of Paper~4.
+
+\begin{center}
+\small
+\begin{tabular}{@{}p{0.33\linewidth}p{0.56\linewidth}@{}}
+\textbf{Desired statement} & \textbf{Required certificate} \\
+\hline
+Overlap network is a code & finite constraint-code data of Proposition~\ref{prop:constraint-code} \\
+Repair converges & finite Lyapunov descent; confluence additionally needs local diamond and repair completeness \\
+Distance equals min-cut & topological-code certificate with homological logicals and matching systole/min-cut geometry \\
+Corrects \(t\) corrupted carriers & code projector, error family, Knill--Laflamme condition, and certified \(t<d/2\) distance bound \\
+Exponential convergence & declared transfer/channel operator with stationary projection and spectral gap \\
+Long-run noisy approximate consensus & fair-block contraction certificate \((\lambda,\varepsilon,A,\beta,L)\) for distance to the exact quotient normal-form set \\
+Wall-clock BFT liveness & partial synchrony, quorum certificates, authentication, and \(n\ge3f+1\) \\
+Hardware search work reduction & exact-verifier candidate-enrichment factor measured under controls \\
+\end{tabular}
+\end{center}
 
 
 \appendix
@@ -1466,6 +1883,17 @@ Then
 \qquad
 (\varepsilon\downarrow0).
 \]
+On a fixed faithful collar class with lower floor \(\lambda_\ast>0\), this
+qualitative modulus can be sharpened to a collar-local rate
+\[
+\delta^{\mathrm M,\lambda_\ast}_{A:B:D}(\varepsilon)
+\le
+C_{A:B:D,\lambda_\ast}\,\varepsilon^{\theta_{A:B:D,\lambda_\ast}},
+\]
+by the compact real-analytic Lojasiewicz inequality applied to
+\(I(A:D\mid B)\). The constants depend on the fixed collar model and floor;
+they are not a dimension-free stability theorem for arbitrary tripartite
+systems.
 Hence if \(I(A:D\mid B)_\omega\le \varepsilon\) and \(\widetilde\omega_\varepsilon\in\mathfrak M_{A:B:D}\) is chosen so that
 \[
 \|\omega-\widetilde\omega_\varepsilon\|_1
@@ -1527,7 +1955,7 @@ For the controlled statement, compactness of the fixed finite-dimensional state 
 The final inequality is the standard Fawzi--Renner recovery bound~\cite{fawziRenner15}.
 \end{proof}
 
-This appendix therefore uses exact splice identities in only two regimes: literal exact Markovity, or a controlled collar family on one fixed finite-dimensional model for which \(\delta^{\mathrm M}_{A:B:D}(\varepsilon)\to0\). Small one-shot conditional mutual information is not silently upgraded to an exact normal form.
+This appendix therefore uses exact splice identities in only two regimes: literal exact Markovity, or a controlled collar family on one fixed finite-dimensional model for which \(\delta^{\mathrm M}_{A:B:D}(\varepsilon)\to0\). Fawzi--Renner recovery supplies the constructive recovered comparison state; the fixed-collar modulus supplies the exact-Markov comparison. Small one-shot conditional mutual information is not silently upgraded to an exact normal form.
 
 \input{tex_fragments/CONSENSUS_TECHNICAL_SUPPLEMENT_PORT.tex}
 
