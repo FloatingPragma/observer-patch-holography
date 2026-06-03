@@ -52,6 +52,121 @@ def postprocess_markdown(text: str) -> str:
             return line
         return re.sub(r"\$`([^`]*\|[^`]*)`\$", protect_math_table_pipes, line)
 
+    def table_matches(header: str, required: tuple[str, ...]) -> bool:
+        normalized = header.lower()
+        normalized = re.sub(r"<sub>\s*([^<]+?)\s*</sub>", r"_\1", normalized)
+        normalized = re.sub(r"\$`_\{\\mathrm\{([^}]+)\}\}`\$", r"_\1", normalized)
+        normalized = re.sub(r"\s+", "", normalized)
+        return all(term.lower().replace(" ", "") in normalized for term in required)
+
+    table_repairs: list[tuple[tuple[str, ...], list[str]]] = [
+        (
+            ("Delta f_k", "Relative weight"),
+            [
+                "| 2 | 41.6 | 0.500 |",
+                "| 3 | 65.9 | 0.667 |",
+                "| 4 | 83.2 | 0.750 |",
+                "| 5 | 96.5 | 0.800 |",
+                "| 6 | 107.5 | 0.833 |",
+            ],
+        ),
+        (
+            ("p_0", "p_1", "p_2", "m_plaq"),
+            [
+                "| 0.2 | 0.4395 | 0.2803 | 0.2803 | 0.1500 | 0.1500 | 0.154 | 2.22 |",
+                "| 0.5 | 0.7509 | 0.1245 | 0.1245 | 0.5989 | 0.5989 | 0.309 | 1.75 |",
+                "| 1.0 | 0.9606 | 0.0197 | 0.0197 | 1.2956 | 1.2956 | 0.454 | 4.07 |",
+                "| 1.5 | 0.9851 | 0.0074 | 0.0074 | 1.6288 | 1.6288 | 0.509 | 7.06 |",
+                "| 2.0 | 0.9921 | 0.0039 | 0.0039 | 1.8440 | 1.8440 | 0.542 | 10.10 |",
+            ],
+        ),
+        (
+            ("p_0", "p_1", "g_ent"),
+            [
+                "| 0.5 | 0.8266 | 0.1734 | 0.391 | 0.249 |",
+                "| 1.0 | 0.9612 | 0.0388 | 0.803 | 0.357 |",
+                "| 2.0 | 0.9917 | 0.0083 | 1.194 | 0.436 |",
+            ],
+        ),
+        (
+            ("Measured ratio", "Deviation from"),
+            [
+                "| 0.5 | 2.25 | 14% |",
+                "| 1.0 | 2.51 | 4% |",
+                "| 2.0 | 2.619 | &lt; 0.1% |",
+            ],
+        ),
+        (
+            ("p_triv", "p_sign", "p_std", "log-ratio"),
+            [
+                "| 0.5 | 0.909 | 0.0013 | 0.089 | 1.09 | 1.01 | 8.4% | 2.17 |",
+                "| 1.0 | 0.980 | 7.5e-5 | 0.020 | 1.58 | 1.54 | 2.8% | 2.06 |",
+                "| 2.0 | 0.996 | 4.3e-6 | 0.004 | 2.06 | 2.04 | 1.0% | 2.02 |",
+                "| 5.0 | 0.9993 | 1.0e-7 | 0.00066 | 2.68 | 2.67 | 0.3% | 2.006 |",
+                "| 12 | 0.9999 | 3.0e-9 | 0.00011 | 3.27 | 3.27 | 0.1% | 2.002 |",
+                "| 100 | 1.0000 | 6.1e-13 | 2.0e-6 | 4.69 | 4.69 | 0.009% | 2.0002 |",
+            ],
+        ),
+        (
+            ("extracted t", "mean", "g_ent", "gap"),
+            [
+                "| 0.3 | 0.314 &plusmn; 0.0005 | 0.224 | 1.92 |",
+                "| 0.5 | 0.539 &plusmn; 0.0025 | 0.293 | 1.83 |",
+                "| 0.8 | 0.896 &plusmn; 0.012 | 0.378 | 1.72 |",
+                "| 1.0 | 1.144 &plusmn; 0.025 | 0.427 | 1.64 |",
+            ],
+        ),
+        (
+            ("bare g", "extracted t", "A_eff"),
+            [
+                "| 0.3 | 0.314 | 2.093 |",
+                "| 0.5 | 0.539 | 2.156 |",
+                "| 0.8 | 0.896 | 2.240 |",
+                "| 1.0 | 1.144 | 2.288 |",
+            ],
+        ),
+    ]
+
+    def repair_known_tables(markdown: str) -> str:
+        def is_damaged_table_body(rows: list[str]) -> bool:
+            if not rows:
+                return False
+            damaged_rows = 0
+            for row in rows:
+                cells = [cell.strip() for cell in row.strip().strip("|").split("|")]
+                if not cells:
+                    continue
+                nonempty = sum(bool(cell) for cell in cells)
+                if nonempty == 0 or (len(cells) >= 3 and nonempty <= max(1, len(cells) // 4)):
+                    damaged_rows += 1
+            return damaged_rows > 0
+
+        lines = markdown.splitlines()
+        repaired: list[str] = []
+        index = 0
+        while index < len(lines):
+            line = lines[index]
+            replacement_rows = None
+            if line.lstrip().startswith("|") and index + 1 < len(lines):
+                for required, rows in table_repairs:
+                    if table_matches(line, required):
+                        replacement_rows = rows
+                        break
+            if replacement_rows is None:
+                repaired.append(line)
+                index += 1
+                continue
+
+            repaired.append(line)
+            repaired.append(lines[index + 1])
+            index += 2
+            body_rows: list[str] = []
+            while index < len(lines) and lines[index].lstrip().startswith("|"):
+                body_rows.append(lines[index])
+                index += 1
+            repaired.extend(replacement_rows if is_damaged_table_body(body_rows) else body_rows)
+        return "\n".join(repaired)
+
     text = re.sub(
         r"(\*\*Paper release:\*\* `[^`]+`)(?=\*\*Released:\*\*)",
         r"\1  \n",
@@ -59,6 +174,7 @@ def postprocess_markdown(text: str) -> str:
         count=1,
     )
     text = "\n".join(protect_table_row_pipes(line) for line in text.splitlines())
+    text = repair_known_tables(text)
     return text
 
 
