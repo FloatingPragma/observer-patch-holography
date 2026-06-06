@@ -66,7 +66,9 @@ candidate distribution may reduce verifier work by a measured lift
 
 Read the public applications page at
 [omega.floatingpragma.io](https://omega.floatingpragma.io/). Source notes for
-the application tracks live in [`APPLICATIONS.md`](APPLICATIONS.md).
+the application tracks live in [`APPLICATIONS.md`](APPLICATIONS.md). The local
+gravity and inertia track also has a standalone engineering note:
+[Hacking the Simulation: Anti-Gravity Exploit](https://github.com/FloatingPragma/oph-meta/blob/main/docs/oph-gravity-hack/hacking-the-simulation-anti-gravity-exploit.pdf).
 
 ## The Spacetime Trap
 
