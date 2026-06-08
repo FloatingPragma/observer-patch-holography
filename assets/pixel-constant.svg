@@ -25,12 +25,12 @@
   <rect width="100%" height="100%" fill="#ffffff" />
   
   <text x="600" y="50" text-anchor="middle" class="title">THE PIXEL CONSTANT</text>
-  <text x="600" y="80" text-anchor="middle" class="subtitle">Deriving the fundamental resolution of the Universe</text>
+  <text x="600" y="80" text-anchor="middle" class="subtitle">Unique outer/inner fixed point for observation</text>
 
   <g transform="translate(50, 120)">
     <rect width="320" height="450" class="panel-bg" />
     <rect width="320" height="40" rx="10" ry="10" class="header-box" />
-    <text x="160" y="27" text-anchor="middle" class="header-text">1. MACROSCOPIC INPUT (G)</text>
+    <text x="160" y="27" text-anchor="middle" class="header-text">1. OUTSIDE PIXEL AREA</text>
     
     <g transform="translate(160, 150)">
       <circle r="60" fill="url(#grad1)" stroke="#2b6cb0" stroke-width="2" fill-opacity="0.2"/>
@@ -39,12 +39,12 @@
       <text x="0" y="90" text-anchor="middle" class="label">Spacetime Geometry</text>
     </g>
     
-    <text x="160" y="300" text-anchor="middle" class="body-text">We observe gravity strength G:</text>
-    <text x="160" y="340" text-anchor="middle" class="math-bold">G = 6.674 × 10⁻¹¹ m³ kg⁻¹ s⁻²</text>
+    <text x="160" y="300" text-anchor="middle" class="body-text">Boundary cell area in Planck units:</text>
+    <text x="160" y="340" text-anchor="middle" class="math-bold">P = a<tspan dy="5" font-size="18">cell</tspan><tspan dy="-5"> / ℓ</tspan><tspan dy="0" font-size="18">P</tspan><tspan dy="-10" font-size="14">2</tspan></text>
     <text x="160" y="380" text-anchor="middle" class="body-text" width="280">
-      <tspan x="160" dy="0">In the Bekenstein-Hawking</tspan>
-      <tspan x="160" dy="20">view, G is the conversion factor</tspan>
-      <tspan x="160" dy="20">between Area and Entropy.</tspan>
+      <tspan x="160" dy="0">This is the outside screen</tspan>
+      <tspan x="160" dy="20">cell measured as an area</tspan>
+      <tspan x="160" dy="20">ratio.</tspan>
     </text>
   </g>
 
@@ -53,32 +53,26 @@
   <g transform="translate(440, 120)">
     <rect width="320" height="450" class="panel-bg" />
     <rect width="320" height="40" rx="10" ry="10" class="header-box" />
-    <text x="160" y="27" text-anchor="middle" class="header-text">2. ENTROPY MATCHING</text>
+    <text x="160" y="27" text-anchor="middle" class="header-text">2. FIXED-POINT CLOSURE</text>
     
     <g transform="translate(20, 80)">
-      <text x="0" y="0" class="label">Step A: Equate Entropies</text>
-      <text x="20" y="30" class="math">S<tspan dy="5" font-size="14">macro</tspan> = S<tspan dy="0" font-size="14">micro</tspan></text>
+      <text x="0" y="0" class="label">Step A: Build EM readout</text>
+      <text x="20" y="30" class="math">A<tspan dy="5" font-size="14">T</tspan>(P)</text>
       
-      <text x="0" y="70" class="label">Step B: Substitute Definitions</text>
-      <line x1="20" y1="105" x2="60" y2="105" stroke="black" stroke-width="1"/>
-      <text x="40" y="100" text-anchor="middle" class="math">Area</text>
-      <text x="40" y="125" text-anchor="middle" class="math">4G</text>
+      <text x="0" y="70" class="label">Step B: Close outer/inner map</text>
+      <text x="20" y="112" class="math">P = φ + √π / A<tspan dy="5" font-size="14">T</tspan><tspan dy="-5">(P)</tspan></text>
       
-      <text x="80" y="112" class="math">=</text>
-      
-      <text x="100" y="112" class="math">N<tspan dy="5" font-size="14">pixels</tspan> · <tspan dy="-5">ℓ</tspan><tspan dy="-10">_</tspan><tspan dy="10"></tspan>(t)</text>
-      
-      <text x="0" y="160" class="label">Step C: Decompose Area</text>
-      <text x="20" y="190" class="math">Area = N<tspan dy="5" font-size="14">pixels</tspan> · a<tspan dy="0" font-size="14">cell</tspan></text>
+      <text x="0" y="160" class="label">Step C: Unique fixed point</text>
+      <text x="20" y="190" class="math">P* = 1.630968...</text>
       
       <rect x="0" y="220" width="280" height="110" class="highlight-box" />
-      <text x="140" y="245" text-anchor="middle" class="label">Step D: Solve for Pixel Area</text>
+      <text x="140" y="245" text-anchor="middle" class="label">Step D: Read observation strength</text>
       
       <g transform="translate(70, 260)">
-         <text x="0" y="30" class="math">a<tspan dy="5" font-size="14">cell</tspan> = 4G · <tspan dy="-5">ℓ</tspan><tspan dy="-10">_</tspan></text>
+         <text x="-30" y="30" class="math">α(P*) ≈ 1 / 137</text>
       </g>
       
-      <text x="140" y="315" text-anchor="middle" class="body-text" font-style="italic">G is the scaling factor!</text>
+      <text x="140" y="315" text-anchor="middle" class="body-text" font-style="italic">No empirical selector is inserted.</text>
     </g>
   </g>
 
@@ -87,7 +81,7 @@
   <g transform="translate(830, 120)">
     <rect width="320" height="450" class="panel-bg" />
     <rect width="320" height="40" rx="10" ry="10" class="header-box" />
-    <text x="160" y="27" text-anchor="middle" class="header-text">3. OUTPUT: THE PIXEL</text>
+    <text x="160" y="27" text-anchor="middle" class="header-text">3. OUTPUT: OBSERVATION PIXEL</text>
     
     <g transform="translate(60, 100)">
       <rect width="200" height="200" fill="url(#grid)" stroke="#cbd5e0" stroke-width="2" />
@@ -100,20 +94,20 @@
       <text x="55" y="105" text-anchor="end" class="math" font-size="14">√a<tspan dy="2" font-size="10">cell</tspan></text>
     </g>
 
-    <text x="160" y="340" text-anchor="middle" class="label">Calculated Value:</text>
-    <text x="160" y="380" text-anchor="middle" class="math-bold">a<tspan dy="5" font-size="18">cell</tspan> ≈ 1.63 ℓ<tspan dy="0" font-size="18">P</tspan><tspan dy="-10" font-size="14">2</tspan></text>
+    <text x="160" y="340" text-anchor="middle" class="label">Fixed-point value:</text>
+    <text x="160" y="380" text-anchor="middle" class="math-bold">P* ≈ 1.630968</text>
     
     <text x="160" y="420" text-anchor="middle" class="body-text">
-      <tspan x="160" dy="0">The fundamental resolution</tspan>
-      <tspan x="160" dy="20">limit of our Universe.</tspan>
+      <tspan x="160" dy="0">Outside cell area matches</tspan>
+      <tspan x="160" dy="20">inside electromagnetic readout.</tspan>
     </text>
   </g>
 
   <text x="600" y="620" text-anchor="middle" class="body-text" font-size="12">
-    ℓ̄ (edge entropy density) is derived from Standard Model gauge couplings (approx 0.408 nats).
+    P links the simulating-side pixel area to electromagnetic observation in the simulated universe.
   </text>
   <text x="600" y="640" text-anchor="middle" class="body-text" font-size="12">
-    G (Newton's Constant) serves as the experimental input to fix the scale.
+    The fine-structure readout follows from the same unique fixed-point closure.
   </text>
 
 </svg>

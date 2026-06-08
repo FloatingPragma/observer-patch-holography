@@ -197,19 +197,54 @@ construction cannot erase.
 
 The symbol $\Lambda$ is the cosmological constant, the part of Einstein's
 equation that acts like a uniform large-scale tendency for space to accelerate.
-It is global capacity data on the input-dependent screen-capacity branch, not
-one more local particle-physics coupling.
+It is global capacity data at the cosmic record fixed point, not one more local
+particle-physics coupling.
 
-So on the input-dependent cosmological-capacity branch Lambda is fixed by a
-**global** constraint: the total capacity of the screen. In natural units,
-once $N_{\mathrm{scr}}=\log(\dim \mathcal{H}_{\text{tot}})$ is supplied, the
-relationship is:
+So on the cosmological-capacity branch Lambda is fixed by a **global**
+self-reading constraint: the outside total horizon capacity must equal the
+inside observer-accessible public record. In natural units the fixed point is
 
-$$\Lambda = \frac{3\pi}{G \cdot \log(\dim \mathcal{H}_{\text{tot}})}$$
+$$N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}),\qquad
+\Lambda_{\mathrm{CRC}}=\frac{3\pi}{G N_{\mathrm{CRC}}}.$$
 
-With that global input declared, the observed $\Lambda$ is the way the world
+With that fixed point, the observed $\Lambda$ is the way the world
 announces its total screen capacity. It is the global size parameter carried
 by every consistent patch.
+
+The input-free global closure is now sharp. Let $F(N)$ be the active
+horizon capacity read back by stable observers inside the OPH universe supplied
+with capacity $N$. The cosmic record-closure capacity is
+
+$$
+N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}).
+$$
+
+The finite-count representation uses the terminal observer normal forms that
+close on themselves at capacity $N$, normalized by the full screen Hilbert
+space size:
+
+$$
+\Pi(N)=|\Omega^{\mathrm{sc}}_N|e^{-N},
+\qquad
+N_\star=\operatorname{MAR}\arg\max_N\left(\log|\Omega^{\mathrm{sc}}_N|-N\right).
+$$
+
+Equivalently, with $\ell(N)=\log|\Omega^{\mathrm{sc}}_N|-N$, the OPH-derived
+map $T_\eta(N)=N+\eta\ell'(N)$ has a unique stable fixed point under the stated
+derivative-sign certificate. Informally, this is the single screen size where
+the universe reads back its own boundary without deficit or slack: below it,
+stable self-reading records do not have enough active capacity; above it, added
+capacity is slack, redundancy, or de Sitter dilution. On the observed branch
+this fixed point is the de Sitter entropy capacity. The current
+reverse-engineering claim is uniqueness plus observed read-off; a from-scratch
+prediction still requires deriving $F$ or $A(N)$ from the finite grammar.
+
+This is the informal $N_{\mathrm{CRC}}$ story. From the outside the datum is
+total horizon capacity. From the inside the datum is total observer-accessible
+public record. Closure says that the universe must be able to reconstruct its
+own boundary. Observers exist inside it, and infer geometry, horizons, entropy,
+$\Lambda$, history, and records from the information available inside the
+universe.
 
 The symbol $\mathcal H_{\text{tot}}$ means the total Hilbert space available to
 the screen, and $\dim$ means its dimension, the number of independent quantum
@@ -222,7 +257,7 @@ positive cosmological constant.
 
 The philosophical stance of OPH, no objective camera angle and only perspectives that must agree on overlaps, maps naturally onto de Sitter static-patch intuition. Each timelike observer has a horizon and a patch. There is no operational access to a single global description.
 
-On that same input-dependent branch, Lambda is the global quantity that
+On that same implemented branch, Lambda is the global quantity that
 **can** be shared across overlaps. It is a capacity constraint that all
 consistent overlapping descriptions inherit. Different observers see
 different patches, and they all see the same Lambda encoded in the finite

@@ -607,9 +607,12 @@ The factor of $\pi$ appears because the horizon area is $4\pi r_{dS}^2$ and
 the entropy formula divides by $4\ell_P^2$.
 
 The chapter's capacity numbers are enormous but finite, around
-$10^{122}$ to $10^{123}$ depending on convention. OPH reads the cosmological
-constant as an input-dependent global capacity parameter: it fixes the size of
-the screen on which finite observer-patch physics is organized.
+$10^{122}$ to $10^{123}$ depending on convention. At the cosmic record fixed
+point OPH reads the cosmological constant as a global capacity parameter: it
+fixes the size of the screen on which finite observer-patch physics is
+organized. The input-free global closure is
+$N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})$, with
+$\log|\Omega^{\mathrm{sc}}_N|-N$ as its finite-count representation.
 
 The modular-anomaly continuation introduces an effective dark component. The
 benchmark acceleration
@@ -822,8 +825,9 @@ quark theorem does not derive its vanishing.
 
 The synthesis chapter is also where status language matters most. A
 reconstruction can be impressive without being uniform in theorem status.
-Some parts are recovered-core structural consequences. Some are input-dependent
-Phase-II closures. Some are assumption-dependent continuations. Some are
+Some parts are recovered-core structural consequences. Some are implemented
+Phase-II closures with conditional input-free theorem targets. Some are
+assumption-dependent continuations. Some are
 empirical validations. Some depend on external payloads. A serious book should
 not flatten those categories.
 
@@ -926,7 +930,8 @@ converts time and space units. In natural units physicists often set $c=1$.
 gravity and appears in Einstein's equation and gravitational entropy.
 
 **$\Lambda$** is the cosmological constant. In the de Sitter chapters it sets
-the horizon radius and therefore the global screen capacity.
+the horizon radius and therefore the global screen capacity at the cosmic
+record-capacity fixed point \(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\).
 
 **$P$** is the OPH local pixel ratio. It is a dimensionless fixed-point value
 linking the local screen grain to the electromagnetic readout side of the

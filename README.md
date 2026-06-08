@@ -30,6 +30,38 @@ starting point. From that basis, OPH recovers the observed effective universe:
 spacetime, gauge structure, particles, records, and observer synchronization all
 follow from overlap consistency.
 
+**Headline:** OPH is formulated as a zero-input theory. It has two quantitative
+scales, both fixed by closure rather than by fitting:
+
+$$
+P_\star=\varphi+\frac{\sqrt{\pi}}{A_T(P_\star)}
+$$
+
+for the local pixel ratio, and
+
+$$
+N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})
+$$
+
+for the global screen capacity, where $F(N)$ is the active horizon capacity read
+back by observers inside the universe supplied with capacity $N$. The finite
+count representation is
+$N_\star=\operatorname{MAR}\arg\max_N(\log|\Omega^{\mathrm{sc}}_N|-N)$.
+Informally, $N_{\mathrm{CRC}}$ is the unique capacity where the universe reads
+back its own boundary without deficit or slack. The cosmological readout is
+$\Lambda_{\mathrm{CRC}}=3\pi/(G N_{\mathrm{CRC}})$. All other OPH quantitative
+readouts sit downstream of these two closure values and the recovered structural
+branch.
+
+In the informal simulation-language reading, $P$ links the pixel area of the
+simulating-side screen to the electromagnetic interaction, i.e. observation, in
+the simulated-side universe. It gives $P\simeq1.630968$ and the low-energy
+fine-structure value near $1/137$. $N_{\mathrm{CRC}}$ links the outside total
+horizon capacity to the inside observer-accessible public record: the universe
+must be able to reconstruct its own boundary. Observers inside infer geometry,
+horizons, entropy, $\Lambda$, history, and records from information available
+inside the universe.
+
 The operational claim is sharper than "information is fundamental." OPH models
 reality as an observer-based fixed-point consensus process. Finite observer
 patches carry local records, compare only what their overlaps expose, repair
@@ -165,17 +197,22 @@ correspondence. This is why $A_5$-icosahedral and $E_8$-type language can
 belong to one symmetry story. These names mark symmetry constraints and
 regulator structure.
 
-The scale is set by two quantities: the total screen capacity read from the
-de Sitter horizon and the local pixel ratio $P$, the area of one screen cell
-in Planck-area units. For the observed cosmological constant, the bare horizon
-area ratio is about $1.05\times10^{122}$, while the entropy capacity used by
-OPH is about $3.31\times10^{122}$. From the outside, $P$ is a geometric
-cell size slightly above the golden-ratio self-similar balance. From the
-inside, it becomes the smallest electromagnetic observation scale available to
-observers in the world encoded on that screen. The fine-structure lane asks for
-the nonzero detuning of a holographic screen cell such that the cell's outer
-geometric displacement equals the electromagnetic observation scale emitted by
-the universe living on that same screen. The public solution is
+The scale discussion has two surfaces. The cosmological branch uses
+the unique cosmic record-closure fixed point:
+$N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})$, where the supplied horizon capacity and
+the observer-readback capacity agree. The density
+$\log|\Omega^{\mathrm{sc}}_N|-N$ is the finite-count representation of that
+target. On the observed branch, this fixed point is the de Sitter entropy
+capacity. For the observed cosmological constant, the bare horizon area ratio is about
+$1.05\times10^{122}$, while the entropy capacity used by OPH is about
+$3.31\times10^{122}$. The local pixel ratio $P$ is the area of one screen
+cell in Planck-area units. From the outside, $P$ is a geometric cell size
+slightly above the golden-ratio self-similar balance. From the inside, it
+becomes the smallest electromagnetic observation scale available to observers in
+the world encoded on that screen. The fine-structure lane asks for the nonzero
+detuning of a holographic screen cell such that the cell's outer geometric
+displacement equals the electromagnetic observation scale emitted by the
+universe living on that same screen. The public solution is
 $P\simeq1.6309682094$, with
 $\alpha^{-1}(0)=137.035999177(21)$ and
 $\alpha(0)\simeq0.00729735256433$. Hardware-facing checks of the

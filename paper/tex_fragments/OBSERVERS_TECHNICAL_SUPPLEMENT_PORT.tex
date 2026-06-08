@@ -103,13 +103,13 @@ sector, or that the observed universe saturates the displayed CMB benchmark.
 
 \paragraph{\textbf{Theorem 6.4 (D5--D6 local/global closure stack).}}
 On the gravity lane, assume the local Einstein branch has been recovered only modulo
-\(\Lambda g_{ab}\), the external input
+\(\Lambda g_{ab}\), the cosmic record-capacity fixed point
 \[
-N_{\mathrm{scr}}=\log \dim \mathcal H_{\mathrm{tot}},
+N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}),
 \]
-the D6 screen-capacity identification
+its observed-branch de Sitter entropy readout
 \[
-N_{\mathrm{scr}}=S_{\mathrm{dS}},
+N_{\mathrm{CRC}}=S_{\mathrm{dS}},
 \]
 \noindent the standard de Sitter entropy relation
 \[
@@ -126,13 +126,13 @@ Then:
 \item local null data determine the Einstein branch only modulo \(\Lambda g_{ab}\);
 \item the same branch closes globally as
 \[
-G_{ab}+\frac{3\pi}{G N_{\mathrm{scr}}}\,g_{ab}=8\pi G\,\langle T_{ab}\rangle;
+G_{ab}+\frac{3\pi}{G N_{\mathrm{CRC}}}\,g_{ab}=8\pi G\,\langle T_{ab}\rangle;
 \]
 \item the same D6 closure fixes
 \[
-S_{\mathrm{dS}}=N_{\mathrm{scr}},
+S_{\mathrm{dS}}=N_{\mathrm{CRC}},
 \qquad
-A_{\mathrm{dS}}=4G N_{\mathrm{scr}},
+A_{\mathrm{dS}}=4G N_{\mathrm{CRC}},
 \qquad
 r_{\mathrm{dS}}=\sqrt{\frac{3}{\Lambda}},
 \qquad
@@ -144,11 +144,49 @@ So the cosmological-constant package is one local/global theorem stack rather th
 argument plus an unrelated global readout.
 
 \paragraph{\textbf{Scope boundary.}}
-The imported inputs are exactly the local Einstein branch, the external input
-\(N_{\mathrm{scr}}\), the D6 identification \(N_{\mathrm{scr}}=S_{\mathrm{dS}}\), the de Sitter
-entropy relation, and the standard static-patch formulas. The external item is the
-screen-capacity identification itself: the local null-data route does not derive
-\(N_{\mathrm{scr}}=S_{\mathrm{dS}}\) from the bare OPH axioms.
+The D6 hypotheses are the local Einstein branch, the cosmic record-capacity fixed point
+\(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\), its observed-branch de Sitter entropy readout, the de
+Sitter entropy relation, and the standard static-patch formulas. The local null-data route does not
+by itself determine the global capacity; that value is fixed by the readback closure.
+
+\paragraph{\textbf{Input-free capacity target.}}
+The zero-input global capacity is the cosmic record-closure fixed point. For candidate capacity
+\(N\), let \(F(N)\) be the active horizon capacity read back by
+stable observers inside the OPH universe supplied with capacity \(N\):
+\[
+F(N)=
+\operatorname{Cap}_{\mathrm{read}}
+\bigl(\operatorname{Obs}(\operatorname{nf}(\mathfrak U_N))\bigr).
+\]
+The target is
+\[
+N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}),
+\qquad
+\Lambda_{\mathrm{CRC}}=\frac{3\pi}{G N_{\mathrm{CRC}}}.
+\]
+The screen-normalized density of terminal self-closing observer normal forms is the count
+representation of the same target. Let \(\Omega^{\mathrm{sc}}_N\) be the terminal OPH normal forms
+that are repair-closed, observer- and checkpoint-supporting, carry the recovered local package, and
+whose own horizon record surface reads back capacity \(N\). Since
+\(\log\dim\mathcal H_{\partial,N}=N\), define
+\[
+\Pi(N):=\frac{|\Omega^{\mathrm{sc}}_N|}{\dim\mathcal H_{\partial,N}}
+=|\Omega^{\mathrm{sc}}_N|e^{-N}.
+\]
+The corresponding selector is
+\[
+N_\star=\operatorname{MAR}\arg\max_N\left[\log|\Omega^{\mathrm{sc}}_N|-N\right].
+\]
+Equivalently, with \(\ell(N)=\log|\Omega^{\mathrm{sc}}_N|-N\), the OPH-derived stationarity map
+\[
+T_\eta(N)=N+\eta\ell'(N)
+\]
+has a unique stable fixed point under the derivative-sign certificate stated in the synthesis
+section. Informally, this is the single balance point where the universe reads back its own
+boundary without deficit or slack. On the observed branch,
+\[
+N_{\mathrm{CRC}}=N_\star\simeq3.31\times10^{122}.
+\]
 
 \paragraph{\textbf{Capacity normalization.}}
 The branch uses \(N_{\mathrm{scr}}\) as the de Sitter entropy capacity. The bare horizon ratio is

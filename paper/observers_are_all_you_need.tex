@@ -159,8 +159,37 @@ triplet \(N_c=3\), and the generation count \(N_g=3\). The basis is quantum-alge
 patch algebras, states, trace/Born event probabilities on declared record surfaces, and
 generalized entropy are ingredients of the formalism. The synthesis claim is that this
 algebraic-information basis can recover the observed effective universe from overlap
-consistency, with its mathematical ingredients stated explicitly. Beyond the recovered core, the quantitative side uses only two scales. On the input-dependent
-screen-capacity branch, the global capacity \(N_{\mathrm{scr}}=\log\dim\mathcal H_{\mathrm{tot}}\) is read from the de Sitter horizon entropy. For the observed
+consistency, with its mathematical ingredients stated explicitly. The resulting OPH program is
+zero-input at the level of physical constants: the two quantitative scales are closure values, not
+freely tunable parameters. The local pixel ratio is the unique outer/inner fixed point
+\[
+P_\star=\varphi+\frac{\sqrt{\pi}}{A_T(P_\star)},
+\]
+where \(A_T\) is the Ward-projected Thomson endpoint emitted by the D10 lane. The total screen
+capacity is targeted by the cosmic record-closure fixed point
+\[
+N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}),
+\qquad
+F(N)=\operatorname{Cap}_{\mathrm{read}}
+\bigl(\operatorname{Obs}(\operatorname{nf}(\mathfrak U_N))\bigr),
+\]
+where \(F(N)\) is the active horizon capacity read back by observers inside the universe supplied
+with capacity \(N\). The fixed-point proof shows that the corresponding readback map has a unique
+stable capacity fixed point.
+Informally, \(P\) links the outside screen-cell area of the simulating side to the inside
+electromagnetic interaction/observation strength of the simulated side; the same closure gives
+\(P\simeq1.630968\) and the low-energy fine-structure value. \(N_{\mathrm{CRC}}\) links outside
+total horizon capacity to inside observer-accessible public record capacity. The universe must be
+able to reconstruct its own boundary: observers inside infer geometry, horizons, entropy,
+\(\Lambda\), history, and records from information available inside the universe.
+Informally, \(N_{\mathrm{CRC}}\) is the unique balance point where the universe reads back its own
+boundary without deficit or slack: below it there is not enough active record capacity, and above it
+added capacity is quotient-invisible slack, redundancy, or de Sitter dilution. The cosmological
+readout is \(\Lambda_{\mathrm{CRC}}=3\pi/(G N_{\mathrm{CRC}})\); all remaining
+dimensionless particle, gravity, and observer-facing quantities are downstream readouts of those
+closures and the recovered structural branch. On the observed branch, that global fixed point is the
+de Sitter entropy capacity
+\(N_{\mathrm{scr}}=\log\dim\mathcal H_{\mathrm{tot}}\). For the observed
 horizon, the bare ratio \((R_{\mathrm{dS}}/\ell_P)^2\) is about \(1.05\times10^{122}\);
 the entropy capacity used by OPH is the \(\pi\)-larger value \(N_{\mathrm{scr}}\simeq
 3.31\times10^{122}\), giving \(\Lambda=3\pi/(G N_{\mathrm{scr}})\). The local pixel ratio
@@ -220,9 +249,9 @@ realization.
 The first major achievement is spacetime. Modular flow on screen caps becomes geometric, giving the
 Lorentzian structure of local physics. Generalized entropy at fixed cap then gives the Einstein
 relation in the large-scale regime. The cosmological constant is not treated as a vacuum-energy
-guess. It is read from the total screen capacity \(N_{\mathrm{scr}}\), with
+guess. It is read from the cosmic record-capacity fixed point \(N_{\mathrm{CRC}}\), with
 \[
-\Lambda=\frac{3\pi}{G N_{\mathrm{scr}}}.
+\Lambda_{\mathrm{CRC}}=\frac{3\pi}{G N_{\mathrm{CRC}}}.
 \]
 The Gibbons--Hawking entropy and the Planck-2018 late-time de Sitter benchmark give a concrete normalization~\cite{gibbonsHawking77,planck18}. With
 \(R_{\mathrm{dS}}\simeq1.66\times10^{26}\,\mathrm m\) and
@@ -237,6 +266,15 @@ N_{\mathrm{scr}}=S_{\mathrm{dS}}=\frac{A_{\mathrm{dS}}}{4\ell_P^2}
 \]
 so \(\Lambda\ell_P^2\simeq2.85\times10^{-122}\). OPH uses \(N_{\mathrm{scr}}\) for the
 Gibbons--Hawking entropy capacity and \(N_{\mathrm{patch}}\) for the bare horizon area ratio.
+The input-free closure is sharper: define the OPH readback map \(F(N)\) to be the active cosmic
+record capacity reconstructed by stable observers inside the universe supplied with capacity
+\(N\). The cosmic record-closure capacity satisfies
+\[
+N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}).
+\]
+The fixed-point proof gives uniqueness and stability. The observed branch read-off is
+\(N_{\mathrm{obs}}\simeq3.31\times10^{122}\), so the cosmological constant is the downstream
+readout \(\Lambda_{\mathrm{CRC}}=3\pi/(G N_{\mathrm{CRC}})\).
 
 The second achievement is the Standard Model structure. Under the stated
 coherent transportable-sector refinement ladder, \(3+1\)D symmetry, and compatible bosonic finite-fiber conditions, edge sectors reconstruct the
@@ -250,9 +288,10 @@ The realized low-energy branch then fixes exact hypercharge, three generations, 
 masslessness of the photon, gluons, and graviton, integer charge for color singlets, and the absence
 of gauge-mediated proton decay.
 
-The third achievement is quantitative and sits outside the recovered core. OPH uses one
-input-dependent global capacity scale and one local pixel scale. The global scale is
-\(N_{\mathrm{scr}}\) on the separate screen-capacity branch. The local scale is
+The third achievement is quantitative and sits outside the recovered core. OPH's zero-input
+constants program has two closure values: the local pixel fixed point and the global
+cosmic record-closure fixed point. On the observed branch, the global scale is
+\(N_{\mathrm{CRC}}\simeq N_{\mathrm{scr}}\simeq3.31\times10^{122}\). The local scale is
 \[
 P:=\frac{a_{\mathrm{cell}}}{\ell_P^2}.
 \]
@@ -299,8 +338,16 @@ cap-pair extraction, regularized modular transport, support-readable modular cov
 round-cap rigidity, and KMS/BW normalization make the cap modular automorphism geometric and
 supply Lorentz kinematics. Recoverable
 generalized entropy together with the null modular bridge and bounded-interval transport then
-supplies the Einstein relation. The separate input-dependent screen-capacity branch ties the
-cosmological constant to \(N_{\mathrm{scr}}\).
+	supplies the Einstein relation. The screen-capacity branch ties the cosmological
+	constant to the zero-input cosmic record-closure fixed point:
+\[
+N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}),
+\qquad
+\Lambda_{\mathrm{CRC}}=\frac{3\pi}{G N_{\mathrm{CRC}}}.
+\]
+	Here \(F(N)\) is the active cosmic record capacity read back by observers inside the universe
+	supplied with capacity \(N\); uniqueness and stability follow from the OPH readback fixed-point
+	certificate.
 \item \textbf{The Standard Model quotient is selected by MAR.} Under the stated coherent transportable-sector
 refinement conditions, edge sectors reconstruct a bosonic compact-gauge branch. The overlap/holonomy calculus classifies transportable sectors; it does not by itself choose the Standard Model. The realized low-energy branch
 with the explicit one-generation/one-Higgs matter package and MAR then selects the compact gauge quotient, exact hypercharge,

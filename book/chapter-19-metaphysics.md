@@ -218,9 +218,10 @@ The philosophical picture earns its weight only when it keeps making contact
 with physics. The deep contact points are clear: overlap consistency as a
 complete sheaf-style gluing condition, quantum structure as the algebraic
 language of consistency, spacetime dimensionality as an output of the support
-branch, dynamics as synchronization pressure, and the pixel area plus
-screen-capacity inputs as the local ruler surface. These are pressure points
-where metaphysics and physics meet.
+branch, dynamics as synchronization pressure, the pixel area as the local ruler
+surface, and the cosmic record-capacity fixed point as the global self-reading
+closure. These are pressure points where metaphysics and
+physics meet.
 
 A sheaf condition is the mathematical version of a simple demand: local
 descriptions that agree on their overlaps should glue into one consistent

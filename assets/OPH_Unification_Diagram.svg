@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="720" height="780" viewBox="0 0 720 780" role="img" aria-labelledby="title desc">
   <title id="title">OPH unification diagram</title>
-  <desc id="desc">A local unification surface linking the OPH pixel constant P = 1.630968 to gravity, fine-structure readout, bosonic masses, Higgs/top rows, and structural lanes.</desc>
+  <desc id="desc">A local unification surface where the OPH pixel fixed point P = 1.630968 links outside pixel area to inside electromagnetic observation, then feeds gravity, fine-structure readout, bosonic masses, Higgs/top rows, and structural lanes.</desc>
 
   <defs>
     <marker id="uni-arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
@@ -32,13 +32,13 @@
   <rect x="200" y="12" width="320" height="80" rx="12" fill="url(#uni-root-grad)" stroke="hsl(45,90%,55%)" stroke-width="2" />
   <text x="360" y="36" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold" fill="hsl(45,90%,75%)">PIXEL CONSTANT</text>
   <text x="360" y="56" text-anchor="middle" font-family="monospace" font-size="18" font-weight="bold" fill="hsl(45,95%,85%)">P = 1.630968</text>
-  <text x="360" y="72" text-anchor="middle" font-family="monospace" font-size="9" fill="hsl(45,60%,60%)">dimensionless · pixel area measured</text>
-  <text x="360" y="84" text-anchor="middle" font-family="monospace" font-size="9" fill="hsl(45,60%,60%)">in Planck units (a_cell / ℓ²_P)</text>
+  <text x="360" y="72" text-anchor="middle" font-family="monospace" font-size="9" fill="hsl(45,60%,60%)">outside pixel area ↔ inside EM readout</text>
+  <text x="360" y="84" text-anchor="middle" font-family="monospace" font-size="9" fill="hsl(45,60%,60%)">unique local fixed point</text>
 
   <line x1="360" y1="92" x2="360" y2="110" stroke="hsl(45,90%,55%)" stroke-width="2" marker-end="url(#uni-arrow)" />
   <rect x="170" y="110" width="380" height="74" rx="8" fill="hsl(220,20%,12%)" stroke="hsl(45,60%,40%)" stroke-width="1.2" />
   <text x="360" y="130" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="hsl(45,80%,70%)">LOCAL UNIFICATION SURFACE</text>
-  <text x="360" y="145" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(220,15%,65%)">P fixes the local pixel area and entropy target,</text>
+  <text x="360" y="145" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(220,15%,65%)">P links local pixel area to EM observation,</text>
   <text x="360" y="157" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(220,15%,65%)">drives the gravity readout and gauge closure,</text>
   <text x="360" y="169" text-anchor="middle" font-family="monospace" font-size="8" fill="hsl(220,15%,65%)">and organizes scoped particle-mass rows</text>
 
@@ -114,5 +114,5 @@
   <text x="360" y="718" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="hsl(260,40%,85%)">Photon · Gluon · Graviton → mass = 0</text>
 
   <rect x="48" y="740" width="624" height="22" rx="6" fill="hsl(45,80%,12%)" stroke="hsl(45,70%,40%)" stroke-width="1" />
-  <text x="360" y="755" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="hsl(45,90%,75%)">ONE INPUT (P) → G + α READOUT + PARTICLE ROWS + STRUCTURAL CONSTANTS</text>
+  <text x="360" y="755" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="hsl(45,90%,75%)">P FIXED POINT → G + α READOUT + PARTICLE ROWS + STRUCTURAL CONSTANTS</text>
 </svg>

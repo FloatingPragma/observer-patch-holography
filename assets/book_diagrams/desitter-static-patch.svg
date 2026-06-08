@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="500" viewBox="0 0 960 500" role="img" aria-labelledby="title desc">
-  <title id="title">de Sitter static patch and horizon capacity</title>
-  <desc id="desc">An observer at the center of a de Sitter static patch is bounded by a finite horizon screen.</desc>
+  <title id="title">de Sitter static patch and cosmic record capacity</title>
+  <desc id="desc">An observer at the center of a de Sitter static patch is bounded by a finite horizon screen whose outside capacity must match the inside observer-accessible public record.</desc>
   <rect width="960" height="500" fill="#f6f7f1"/>
   <circle cx="480" cy="250" r="180" fill="#fffaf0" stroke="#2e2a25" stroke-width="4"/>
   <path d="M506 250 L660 250" stroke="#405d73" stroke-width="6" stroke-linecap="round"/>
@@ -12,6 +12,7 @@
     <text x="580" y="229" text-anchor="middle" font-size="23">
       <tspan font-style="italic">r</tspan><tspan dx="1" dy="7" font-size="15">dS</tspan>
     </text>
-    <text x="480" y="474" text-anchor="middle" font-size="23">capacity scales as horizon area</text>
+    <text x="480" y="462" text-anchor="middle" font-size="23">N_CRC fixed point</text>
+    <text x="480" y="488" text-anchor="middle" font-size="20">horizon capacity = public record</text>
   </g>
 </svg>

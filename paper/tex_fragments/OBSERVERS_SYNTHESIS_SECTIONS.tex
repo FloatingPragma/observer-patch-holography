@@ -126,12 +126,157 @@ not feed back into the transmutation solve. Source payloads, same-scheme remaind
 certificates, and empirical hadron records document public validation and endpoint bookkeeping;
 they do not supply the arithmetic bridge from \(P\) to the fine-structure endpoint.
 
+\paragraph{Screen-normalized self-consistency for total capacity.}\label{sec:n-closure}
+The global counterpart to the local \(P\)-closure is the cosmic record-closure capacity,
+\[
+N_{\mathrm{CRC}},
+\]
+the active horizon capacity at which the universe can contain observers who read back the same
+boundary capacity that supports them. This synthesis paper records the derivation here, next to the
+pixel derivation, because the two quantitative scales play parallel roles. The local equation for
+\(P\) says that one screen cell has the same outside geometric reading and inside electromagnetic
+reading. The global equation for \(N_{\mathrm{CRC}}\) says that the whole horizon has the same
+outside supplied capacity and inside observer-readable cosmic record capacity.
+
+For a trial entropy capacity \(N\), the outside global readout is the de Sitter curvature term
+\[
+\Lambda_{\mathrm{out}}(N)=\frac{3\pi}{G N}.
+\]
+That trial value defines a candidate OPH universe: horizon size, accessible records, dilution rate,
+checkpoint continuation, observer-supporting capacity, and late-time de Sitter boundary. Observers
+inside that candidate universe do not see an external parameter \(N\) directly. They infer boundary
+capacity from internal geometry, causal accessibility, stable records, and self-read closure. The
+corresponding capacity readback map is
+\[
+F(N):=N_{\mathrm{read}}(N),
+\]
+where \(F(N)\) is the active cosmic record capacity read back by observers inside the universe
+supplied with capacity \(N\). The global closure equation is
+\[
+\boxed{N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}).}
+\]
+In words, \(N_{\mathrm{CRC}}\) is the only global capacity at which the universe can read back its
+own boundary without deficit or slack.
+
+At fixed cutoff \(r\), the finite OPH machinery makes this map explicit. Let \(\mathfrak U_{r,N}\)
+be the finite OPH universe candidate with supplied active boundary capacity \(N\). The consensus
+branch supplies a quotient normal-form map \(\operatorname{nf}_{r,N}\) on the declared
+terminating/confluent repair surface. Let \(\operatorname{Obs}\) select the stable self-reading
+observer sector, and let \(\operatorname{Cap}_{\mathrm{read}}\) return the capacity reconstructed
+by that sector. Then the finite readback map has the schematic form
+\[
+F_r(N)=
+\operatorname{Cap}_{\mathrm{read}}
+\left(
+\operatorname{Obs}\left(\operatorname{nf}_{r,N}(\mathfrak U_{r,N})\right)
+\right).
+\]
+The refinement-limit map \(F\) is the cofinal limit of this finite readback construction when that
+limit exists on the admissible capacity interval.
+
+The uniqueness proof is the direct global analogue of the local \(P\)-fixed-point proof. Let
+\(I\) be the admissible interval of active horizon capacities. If the OPH-derived readback map
+\(F:I\to I\) satisfies
+\[
+0\le F'(N)\le \kappa<1
+\qquad (N\in I)
+\]
+and the observed branch satisfies \(F(N_{\mathrm{obs}})=N_{\mathrm{obs}}\), then
+\(N_{\mathrm{obs}}\) is the unique stable fixed point. Indeed, if \(N_1\) and \(N_2\) are two fixed
+points, then
+\[
+|N_1-N_2|
+=|F(N_1)-F(N_2)|
+\le \kappa |N_1-N_2|.
+\]
+Since \(\kappa<1\), this implies \(N_1=N_2\). Banach iteration \(N_{k+1}=F(N_k)\) also converges
+to the same fixed point from any starting value in \(I\).
+
+The physical meaning of the contraction condition is that changing supplied raw capacity changes
+observer-readable active capacity by less than one-for-one. Extra Hilbert-space room does not
+automatically become public record capacity. It must be reachable, recordable, self-readable,
+stable under repair, coupled to observer continuation, and visible on the quotient. Capacity is
+physical capacity only insofar as the universe can read it.
+
+The existing self-closing normal-form count is the finite-count representation of the same closure target. For
+a candidate entropy capacity \(N\), let \(\mathcal H_{\partial,N}\) be the observer-facing horizon
+record Hilbert space with \(\log\dim\mathcal H_{\partial,N}=N\), and let
+\(\Omega^{\mathrm{sc}}_{r,N}\) be the terminal normal forms that are repair-closed,
+observer/checkpoint-supporting, locally recovered-core closed, and whose own horizon record surface
+reads back capacity \(N\). Define
+\[
+A_r(N):=|\Omega^{\mathrm{sc}}_{r,N}|,
+\qquad
+\Pi_r(N):=\frac{A_r(N)}{\dim\mathcal H_{\partial,N}}=A_r(N)e^{-N}.
+\]
+The subtraction by \(N\) in
+\[
+\log\Pi_r(N)=\log|\Omega^{\mathrm{sc}}_{r,N}|-N
+\]
+is not a tunable penalty; it is exactly division by the full screen Hilbert-space size \(e^N\).
+Thus the count-density selector is
+\[
+N_{r,\star}
+=
+\operatorname{MAR}\arg\max_N
+\left[\log|\Omega^{\mathrm{sc}}_{r,N}|-N\right].
+\]
+In the refinement limit this becomes
+\[
+N_\star
+=
+\operatorname{MAR}\arg\max_N
+\left[\log|\Omega^{\mathrm{sc}}_N|-N\right].
+\]
+When the limiting pressure
+\[
+\ell(N):=\log|\Omega^{\mathrm{sc}}_N|-N
+\]
+is differentiable, the count-density proof can also be written as the stationarity fixed point
+\[
+T_\eta(N):=N+\eta\ell'(N),
+\qquad
+T_\eta(N)=N\Longleftrightarrow \ell'(N)=0.
+\]
+The proof certificate is the derivative-sign certificate for
+\[
+H_N(N):=\ell'(N),
+\]
+namely \(H_N(N_0)=0\) and \(H_N'(N)<0\) on the admissible interval, or the stronger concavity bound
+\[
+-M\le\ell''(N)\le -m<0.
+\]
+This certificate is another way to express uniqueness of the global self-read closure. A numerical
+solver may locate a candidate root, but uniqueness and stability come from the OPH-derived
+readback or pressure certificate. Software checks, when used, check the finite grammar or
+transfer-function certificate; they are not a brute-force enumeration of cosmological normal
+forms and are not the proof by themselves.
+
+The observed de Sitter read-off is
+\[
+N_{\mathrm{obs}}
+=S_{\mathrm{dS}}
+=\frac{A_{\mathrm{dS}}}{4\ell_P^2}
+=\frac{3\pi}{\Lambda\ell_P^2}
+\simeq3.31\times10^{122}.
+\]
+On the observed branch,
+\[
+N_{\mathrm{CRC}}=N_\star=N_{\mathrm{obs}},
+\qquad
+\Lambda_{\mathrm{CRC}}=\frac{3\pi}{G N_{\mathrm{CRC}}}.
+\]
+The fixed-point certificate makes this value the unique stable capacity of the self-reading
+solution we inhabit, not a freely tunable creator-set parameter. Informally, \(N_{\mathrm{CRC}}\)
+is the single horizon capacity at which the outside total horizon capacity and the inside
+observer-accessible public record agree.
+
 \paragraph{Outer/inner self-consistency for the pixel ratio.}\label{sec:p-closure}
 This synthesis paper is the canonical place where the local pixel ratio \(P\) is defined, so the
 compact and particle papers can cite one derivation rather than duplicate it. The construction has
 six steps.
 \begin{enumerate}[leftmargin=2em]
-\item \textbf{Outer pixel ratio.} The externally fixed local screen datum is the dimensionless area
+\item \textbf{Outer pixel ratio.} The outer-side local screen datum is the dimensionless area
 ratio
 \[
 P:=\frac{a_{\mathrm{cell}}}{\ell_P^2}.
@@ -153,7 +298,7 @@ gives \(x^2-x-1=0\) and hence \(x=\varphi=(1+\sqrt5)/2\). The realized branch mu
 not exactly at, this point because exact equilibrium is too symmetric to support durable records,
 structure, and dynamics.
 \item \textbf{Outer detuning variable.} On the declared Phase-II closure surface we parametrize
-the externally fixed detuning by
+the outer-side detuning by
 \[
 \alpha_{\mathrm{ext}}(P):=\frac{P-\varphi}{\sqrt{\pi}},
 \qquad\text{equivalently}\qquad
@@ -422,8 +567,12 @@ modular remainders, regularized modular transport, support-readable modular cova
 round-cap rigidity, and KMS/BW normalization make the cap modular automorphism geometric. This is
 not a finite-cell Lorentz-invariance claim or a one-shot upgrade from small CMI to exact Markov
 geometry.
-\item The cosmological constant branch uses \(N_{\mathrm{scr}}\) as an external capacity input and
-fixes \(\Lambda=3\pi/(G N_{\mathrm{scr}})\) on the same Einstein branch.
+\item The cosmological constant branch uses the cosmic record-closure fixed point
+\(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\) and fixes
+\(\Lambda_{\mathrm{CRC}}=3\pi/(G N_{\mathrm{CRC}})\) on the same Einstein branch. Its count-density
+representation is
+\(N_\star=\operatorname{MAR}\arg\max_N(\log|\Omega^{\mathrm{sc}}_N|-N)\). On the observed branch
+this readback fixed point is the de Sitter entropy capacity.
 \item Compact gauge reconstruction uses the theorem-produced transportability criterion, fixed-cutoff bosonic sector category, and bosonic refinement ladder to reconstruct a compact gauge group from zero-obstruction sectors. That is the classification stage, not the Standard Model selector. The realized MAR-admissible witness data plus the explicit one-Higgs matter package then select the realized Standard Model quotient, exact hypercharge, \(N_c=3\), and \(N_g=3\).
 \item The particle branch is sector-split: electroweak \(W/Z\) is a validation pair, Higgs/top is exact on its declared quantitative surface, selected-class quarks close on their declared public frame class, weighted-cycle neutrinos sit on their declared theorem surface, strong CP is work in progress, charged-lepton source landing from \(P\) to physical charged data is a corpus-limited no-go boundary, the auxiliary direct-top PDG row is compare-only, and source-only hadron masses require a production OPH backend.
 \item The string/worldsheet branch is a controlled heat-kernel continuation branch.
@@ -484,13 +633,13 @@ The corpus is uneven but concrete. It has a sharp
 fixed-cutoff local picture, a derived recovered core for relativity and Standard-Model
 structure, real particle-side quantitative outputs, and a usable microscopic engineering lane. The
 scope boundaries are equally explicit: bounded-interval projective inputs in the null-stress
-branch, the screen-capacity input for the global value of the branch constant, microscopic
+branch, the cosmic record-capacity fixed point for the global branch constant, microscopic
 representative uniqueness, public validation artifacts for the D10 electroweak rows, strong CP,
-full flavor/CKM closure, charged-lepton source landing from \(P\), and source-only hadron masses
+full flavor/CKM closure, charged-lepton source landing from \(P_\star\), and source-only hadron masses
 without a production OPH backend.
 Refs.~\cite{ophcompact,ophconsensus,ophmicrophysics,ophparticles} are the depth surfaces for
 sector-by-sector proofs, quantitative details, and continuation-level material. The local
-cross-lane numerical surface is explicit enough to summarize concisely: one declared input \(P\)
+cross-lane numerical surface is explicit enough to summarize concisely: the fixed point \(P_\star\)
 organizes the bosonic mass trunk and the gravity-side shared edge-entropy identity beneath the
 emitted local \(G\) row, while the same familiar-unit package reads meters and seconds from the
 single ruler \(\sqrt{a_{\mathrm{cell}}}\) together with the structural invariant speed \(c\), and

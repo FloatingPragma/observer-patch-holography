@@ -11,6 +11,38 @@ process. Finite observer patches compare overlap-visible records, repair
 checkable mismatch, and settle into the stable public world that survives those
 consistency tests.
 
+The headline version is simple: OPH is formulated as a zero-input theory. It
+has two quantitative constants, and both are closure values rather than knobs.
+The local pixel ratio is fixed by
+
+$$
+P_\star=\varphi+\frac{\sqrt{\pi}}{A_T(P_\star)}.
+$$
+
+The global screen capacity is fixed by cosmic record closure
+
+$$
+N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}).
+$$
+
+Here $F(N)$ is the active horizon capacity read back by observers inside the
+universe supplied with capacity $N$. The count representation is
+$N_\star=\operatorname{MAR}\arg\max_N(\log|\Omega^{\mathrm{sc}}_N|-N)$.
+Informally, $N_{\mathrm{CRC}}$ is the unique capacity where the universe reads
+back its own boundary without deficit or slack. The cosmological constant is
+$\Lambda_{\mathrm{CRC}}=3\pi/(G N_{\mathrm{CRC}})$. Everything else in the
+quantitative OPH stack is downstream of these two closure values and the
+structural observer-consistency branch.
+
+The informal version is even shorter. $P$ links the pixel area of the
+simulating-side screen to the electromagnetic interaction, or observation, in
+the simulated-side universe. It comes out at $P\simeq1.630968$ and gives the
+fine-structure value near $1/137$. $N_{\mathrm{CRC}}$ links the outside total
+horizon capacity to the inside observer-accessible public record. Closure says
+that the universe must be able to reconstruct its own boundary. Observers exist
+inside it, and from the information available inside the universe they infer
+geometry, horizons, entropy, $\Lambda$, history, and records.
+
 ## The Cosmic Program
 
 Reverse engineering a program without source code is an exercise in inference.
@@ -244,9 +276,9 @@ The structure follows the logic of reverse engineering. Each chapter begins
 with the intuitive picture most readers carry into the subject and then turns
 to the surprising hint that breaks that intuition. From there the book asks
 what principle explains the hint once observer consistency is taken
-seriously. When the structural chain is in place, the book fixes the small
-external input surface and follows its consequences through gravity, gauge
-structure, particles, and observers.
+seriously. When the structural chain is in place, the book follows the two
+closure-selected constants through gravity, gauge structure, particles, and
+observers.
 
 This model rests on established mathematics and physics, organized around five
 core axioms. Gravity, the symmetry structure behind the Standard Model, and

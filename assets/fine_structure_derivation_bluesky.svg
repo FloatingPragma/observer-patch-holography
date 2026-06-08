@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
-<title id="title">Fine-structure constant: OPH core plus hadronic input</title>
-<desc id="desc">A Bluesky social-card diagram of the OPH fine-structure calculation, showing the internal OPH core value first, the measured hadronic correction next, and the measured low-energy alpha endpoint.</desc>
+<title id="title">Fine-structure constant: P fixed-point readout</title>
+<desc id="desc">A Bluesky social-card diagram of the OPH fine-structure calculation, where the P fixed point links outside pixel area to the inside electromagnetic readout while the accounting separates the OPH core value, measured hadronic correction, and measured low-energy alpha endpoint.</desc>
 <defs>
   <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
     <stop offset="0%" stop-color="#07110f"/>
@@ -50,7 +50,7 @@
 <rect x="86" y="76" width="528" height="7" rx="3.5" fill="url(#titleAccent)"/>
 
 <text x="86" y="126" class="sans" fill="#f7fbff" font-size="44" font-weight="820">Fine-structure constant:</text>
-<text x="86" y="178" class="sans" fill="#f7fbff" font-size="48" font-weight="820">OPH core + hadronic input</text>
+<text x="86" y="178" class="sans" fill="#f7fbff" font-size="48" font-weight="820">P fixed point + hadronic input</text>
 <text x="88" y="216" class="mono" fill="#b9c8d6" font-size="21">Observer Patch Holography | May 19, 2026</text>
 
 <rect x="1018" y="82" width="486" height="104" rx="24" fill="#0e171c" stroke="#344652" stroke-width="1.2"/>
@@ -71,7 +71,7 @@
 <text x="196" y="356" class="mono" fill="#f2fbff" font-size="21" font-weight="650" text-anchor="middle">&#966; = (1 + &#8730;5) / 2</text>
 <text x="196" y="388" class="sans small" text-anchor="middle">self-similar screen cell</text>
 
-<text x="456" y="307" class="sans label" text-anchor="middle">2. pixel detuning</text>
+<text x="456" y="307" class="sans label" text-anchor="middle">2. outside pixel area</text>
 <text x="456" y="348" class="mono eq" text-anchor="middle">P = a<tspan baseline-shift="sub" font-size="15">cell</tspan> / l<tspan baseline-shift="sub" font-size="15">P</tspan><tspan baseline-shift="super" font-size="15">2</tspan></text>
 <text x="456" y="384" class="mono small" text-anchor="middle">(P - &#966;) / &#8730;pi</text>
 
@@ -85,7 +85,7 @@
 
 <text x="1365" y="307" class="sans label" text-anchor="middle">5. fixed point</text>
 <text x="1365" y="348" class="mono eq" text-anchor="middle">P = &#966; + &#8730;pi / A<tspan baseline-shift="sub" font-size="15">T</tspan>(P)</text>
-<text x="1365" y="384" class="sans small" text-anchor="middle">outer and inner readings agree</text>
+<text x="1365" y="384" class="sans small" text-anchor="middle">outside area and EM readout agree</text>
 
 <path d="M 310 343 L 338 343" stroke="#d7f8f3" stroke-width="3" marker-end="url(#arrow)"/>
 <path d="M 570 343 L 598 343" stroke="#d7f8f3" stroke-width="3" marker-end="url(#arrow)"/>

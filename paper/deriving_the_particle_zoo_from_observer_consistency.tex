@@ -42,7 +42,11 @@ Observer Consistency}
 \OPHPaperReleaseBanner
 
 \begin{abstract}
-Observer-Patch Holography turns the particle problem into a forward calculation from one local screen-geometry scale. The screen is a regulator and symmetry chart whose finite geometry organizes the \(A_5\)- and \(E_8\)-type data. The local pixel closure proceeds through five physics layers: unification scale, heat-kernel pixel closure, running transport, electroweak mixing, and Ward-projected Thomson transport. The outer/inner pixel equation leaves no local tuning freedom for the fine-structure constant: the fixed point gives \(\alpha^{-1}(0)=137.035999177(21)\) and \(P\simeq1.6309682094\). The same pixel scale propagates into structural massless carriers, the weak sector, the Higgs/top row, selected-class running quarks, and a weighted-cycle neutrino absolute-mass branch. Hadrons require separate treatment: source-only strong-binding calculations are kept distinct from empirical \(e^+e^-\to\mathrm{hadrons}\) closure checks. The status table separates validation rows, charged-lepton witnesses, source-only checks, and empirical hadron closure checks.
+Observer-Patch Holography turns the particle problem into a forward calculation from one local screen-geometry fixed point, not from a fitted particle-sector parameter. The screen is a regulator and symmetry chart whose finite geometry organizes the \(A_5\)- and \(E_8\)-type data. The local pixel closure proceeds through five physics layers: unification scale, heat-kernel pixel closure, running transport, electroweak mixing, and Ward-projected Thomson transport. The outer/inner pixel equation leaves no local tuning freedom for the fine-structure constant:
+\[
+P_\star=\varphi+\frac{\sqrt{\pi}}{A_T(P_\star)}.
+\]
+The fixed point gives \(\alpha^{-1}(0)=137.035999177(21)\) and \(P\simeq1.6309682094\). The same pixel scale propagates into structural massless carriers, the weak sector, the Higgs/top row, selected-class running quarks, and a weighted-cycle neutrino absolute-mass branch. Hadrons require separate treatment: source-only strong-binding calculations are kept distinct from empirical \(e^+e^-\to\mathrm{hadrons}\) closure checks. The status table separates validation rows, charged-lepton witnesses, source-only checks, and empirical hadron closure checks.
 \end{abstract}
 
 \section{Introduction}
@@ -64,7 +68,7 @@ above are imported from \cite{ophcompact} with their stated branch conditions. T
 the realized color triplet \(N_c=3\) and generation count \(N_g=3\). This paper uses those results as input and summarizes only the
 downstream particle-spectrum continuation. If that derivation is correct, it should also constrain the particle spectrum.
 
-The particle branch studied here is a one-parameter forward reconstruction problem with an
+The particle branch studied here is a one-fixed-point forward reconstruction problem with an
 explicit closure matrix. Instead of treating masses, mixings, and Yukawa parameters as independent
 inputs, it tries to propagate one dimensionless pixel ratio \(P\) through the spectrum. The
 pipeline claims closure only for the structural massless carriers, the Higgs/top row on its
@@ -181,9 +185,10 @@ P=1.63097209569432901817967892561191884270169,
 \alpha_{\mathrm{cand}}^{-1}=136.994835164621649457949994585787193262029,
 \]
 with the detailed endpoint table in Section~\ref{sec:particle-input-ledger}. The separate
-screen-capacity input \(N_{\mathrm{scr}}\) belongs to the cosmological-capacity branch and
+cosmic record-closure target \(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\), with count representation
+\(N_\star=\operatorname{MAR}\arg\max_N[\log|\Omega^{\mathrm{sc}}_N|-N]\), belongs to the cosmological-capacity branch and
 only to legacy capacity-level neutrino side estimates. Structural carriers, quantitative outputs,
-exact sidecars, and continuation lanes are therefore downstream branches of one common input and theorem
+exact sidecars, and continuation lanes are therefore downstream branches of one common local fixed point and theorem
 checklist. The public fine-structure display row is the declared Ward-projected Thomson endpoint
 of the OPH fixed-point equation. The source-only audit row and empirical hadron closure rows are
 separate status-table records.
@@ -201,8 +206,23 @@ that situation into one universal pixel ratio \(P\) from the outer/inner closure
 described in the synthesis paper. The same \(P\) must drive all
 downstream bosonic, quark, lepton, neutrino, and hadronic branches.
 
-One clarification matters. The broader formulation carries the
-screen-capacity input \(N_{\mathrm{scr}}\) in its cosmological branch. The particle-spectrum derivation studied here uses one common nontrivial local scale input \(P\) in place of a long particle-by-particle parameter list.
+One clarification matters. The broader zero-input formulation targets the global screen capacity by
+\[
+N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}),
+\]
+where \(F(N)\) is the active cosmic record capacity read back by observers inside the universe
+supplied with capacity \(N\). The count-density representation is
+\[
+N_\star=\operatorname{MAR}\arg\max_N\left[\log|\Omega^{\mathrm{sc}}_N|-N\right],
+\]
+equivalently, in differentiable form, as the unique stable fixed point of
+\(T_\eta(N)=N+\eta\,d(\log|\Omega^{\mathrm{sc}}_N|-N)/dN\) under the stated strict-concavity
+certificate. Informally, it is the unique global capacity where the universe reads back its own
+boundary without deficit or slack, parallel to the local \(P_\star\) fixed point where outer screen
+detuning equals the inner Thomson observation scale. The observed branch reads this same capacity as
+\(N_{\mathrm{scr}}\simeq3.31\times10^{122}\). The
+particle-spectrum derivation studied here uses the local pixel fixed point \(P_\star\) in place of
+a long particle-by-particle parameter list.
 
 \subsection{Why a single \(P\) matters}
 
@@ -306,7 +326,7 @@ P
 \]
 The forward transmutation certificate records that the same basis reconstructs the unified diffusion parameter \(t_U(P)=4\pi^2\alpha_U(P)\) and transmutation exponent \(t_{\mathrm{tr}}(P)=2\pi/((N_c+1)\alpha_U(P))\) as the pixel-closure solve itself. Measured electroweak data appear only at the validation surface.
 
-The electroweak branch is the place where one common input \(P\) emits the weak-sector rows. The
+The electroweak branch is the place where the common fixed point \(P_\star\) emits the weak-sector rows. The
 published \(W/Z\) values are
 \[
 M_W=80.377~\mathrm{GeV},
@@ -604,12 +624,12 @@ Hadrons & \(\rho(770)^0\) proxy & source backend absent; empirical closure polic
 \end{longtable}
 \normalsize
 
-\section{Detailed Inputs, Screen Architecture, and Theorem Packages}\label{sec:particle-input-ledger}
+\section{Detailed Closure Values, Screen Architecture, and Theorem Packages}\label{sec:particle-input-ledger}
 
-This section records the detailed input and theorem checklist used by the particle derivation: the five axioms,
-the screen-capacity input, the local pixel closure, the regulated screen realization, and the imported
+This section records the detailed closure-value and theorem checklist used by the particle derivation: the five axioms,
+the screen-capacity target, the local pixel closure, the regulated screen realization, and the imported
 OPH theorem packages. The order is the logical order used later in the paper: axioms and screen
-language first, external inputs next, and theorem packages after that.
+language first, closure values next, and theorem packages after that.
 
 \subsection{Canonical OPH basis}
 
@@ -719,23 +739,40 @@ P &\equiv a_{\mathrm{cell}}/\ell_P^2,\\
 N_{\mathrm{scr}} &\equiv \log \dim \mathcal H_{\mathrm{tot}}.
 \end{align}
 
-The particle-spectrum draft needs to keep these inputs visible because several later sections
+The particle-spectrum draft needs to keep these closure values visible because several later sections
 depend on them in different ways.
 
 \paragraph{Pixel area \(P\).}
 The pixel area is the declared local UV-area ratio. In this derivation it feeds the heat-kernel /
 edge-law input stage and, through that route, the forward D10 electroweak surface. It is the
 common upstream numerical variable for the electroweak, Higgs/top, flavor, quark, and
-hadron-facing branches. The particle paper therefore treats \(P\) as inherited from the synthesis
-paper's outer/inner closure discussion~\cite{ophsynthesis}, not as a quantity derived again inside
-the particle-spectrum argument itself.
+hadron-facing branches. The particle paper therefore treats \(P=P_\star\) as the inherited
+outer/inner fixed point
+\[
+P_\star=\varphi+\frac{\sqrt{\pi}}{A_T(P_\star)}
+\]
+from the synthesis paper~\cite{ophsynthesis}, not as a quantity derived again inside the
+particle-spectrum argument itself.
 
-\paragraph{Screen capacity \(N_{\mathrm{scr}}\).}
+\paragraph{Screen capacity \(N_{\mathrm{CRC}}\).}
 The screen capacity is not part of the local recovered-core gravity/gauge derivation. It enters
-the separate screen-capacity branch once the screen-capacity identification is adopted. In the
-particle context, this matters mainly for a legacy capacity-level neutrino side estimate and for the
+the separate screen-capacity branch through the cosmic record-closure target
+\[
+N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}),
+\qquad
+\Lambda_{\mathrm{CRC}}=\frac{3\pi}{G N_{\mathrm{CRC}}}.
+\]
+The count-density representation is
+\[
+N_\star=\operatorname{MAR}\arg\max_N\left[\log|\Omega^{\mathrm{sc}}_N|-N\right].
+\]
+In differentiable form, with \(\ell(N)=\log|\Omega^{\mathrm{sc}}_N|-N\), this same branch is the
+unique stable fixed point of \(T_\eta(N)=N+\eta\ell'(N)\) when the OPH normal-form count gives a
+strictly concave normalized density. Thus the capacity is the unique OPH-derived global readback
+balance point, not a separately fitted cosmological number.
+In the particle context, this matters mainly for a legacy capacity-level neutrino side estimate and for the
 cosmological-capacity discussion that frames why local null data do not determine the
-cosmological constant. The static-patch normalization is
+cosmological constant. The implemented branch still uses the static-patch normalization
 \[
 N_{\mathrm{patch}}=\left(\frac{r_{\mathrm{dS}}}{\ell_P}\right)^2\simeq1.05\times10^{122},
 \qquad
@@ -745,16 +782,18 @@ This paper should therefore keep the neutrino chapter direct:
 legacy capacity-level order-of-magnitude bookkeeping and the weighted-cycle neutrino derivation are not the
 same thing.
 
-\paragraph{Why these are the only declared continuous inputs.}
+\paragraph{Why these are the only declared continuous closure values.}
 One of the discipline constraints of the OPH derivation is that particle-sector freedom should not
-be hidden in a large uncontrolled parameter set. This paper compresses the
-continuous external freedom into \(P\) and \(N_{\mathrm{scr}}\), then asks the overlap,
-modular, gauge, and admissibility machinery to do the rest. Whether later continuation branches
-stay faithful to that discipline is one of the central questions this paper is meant to
-make explicit. For the particle-spectrum branch specifically, the nontrivial common quantitative
-burden sits on \(P\): \(N_{\mathrm{scr}}\) enters the separate capacity/cosmology side, whereas
-the reverse-engineering claim for masses and couplings is that one shared pixel constant should
-drive the spectrum instead of a long sector-by-sector input list.
+be hidden in a large uncontrolled parameter set. This paper exposes the two continuous closure
+values, \(P_\star\) and the \(N_{\mathrm{CRC}}\) readback fixed point, with \(N_\star\) as its
+count representation, then asks
+the overlap, modular, gauge, and admissibility machinery to do the rest. Whether
+later continuation branches stay faithful to that discipline is one of the central questions this
+paper is meant to make explicit. For the particle-spectrum branch specifically, the nontrivial
+common quantitative burden sits on \(P_\star\): \(N_{\mathrm{scr}}\) enters the separate
+capacity/cosmology side, whereas the reverse-engineering claim for masses and couplings is that
+one shared pixel fixed point should drive the spectrum instead of a long sector-by-sector input
+list.
 
 \subsection{Technical theorem data carried into the particle-spectrum derivation}
 

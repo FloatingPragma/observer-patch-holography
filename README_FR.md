@@ -18,6 +18,40 @@ pile de preuves mathématiques et la surface de vérification empirique.
 
 L'OPH est la reconstruction observateur-premier de la physique fondamentale. Il part d'observateurs finis sur une géométrie finie d'écran holographique. Sa base de travail est algébrique-quantique : algèbres de patchs, états, probabilités de type trace/Born sur les surfaces d'enregistrement déclarées et entropie généralisée font partie du point de départ formel. À partir de cette base, l'OPH retrouve l'univers effectif observé : espace-temps, structure de jauge, particules, enregistrements et synchronisation des observateurs découlent de la cohérence de recouvrement.
 
+**Point clé :** l'OPH est formulée comme une théorie sans entrée externe. Elle
+possède deux échelles quantitatives, fixées par fermeture plutôt que par
+ajustement :
+
+$$
+P_\star=\varphi+\frac{\sqrt{\pi}}{A_T(P_\star)}
+$$
+
+pour le ratio local de pixel, et
+
+$$
+N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})
+$$
+
+pour la capacité globale de l'écran, où $F(N)$ est la capacité active de
+l'horizon relue par les observateurs à l'intérieur de l'univers fourni avec la
+capacité $N$. La représentation par comptage fini est
+$N_\star=\operatorname{MAR}\arg\max_N(\log|\Omega^{\mathrm{sc}}_N|-N)$.
+Intuitivement, $N_{\mathrm{CRC}}$ est l'unique capacité où l'univers relit sa
+propre frontière sans déficit ni capacité inerte. La lecture cosmologique est
+$\Lambda_{\mathrm{CRC}}=3\pi/(G N_{\mathrm{CRC}})$. Tous les autres affichages
+quantitatifs OPH sont en aval de ces deux valeurs de fermeture et de la branche
+structurelle retrouvée.
+
+Dans la lecture informelle en langage de simulation, $P$ relie l'aire du pixel
+de l'écran côté simulateur à l'interaction électromagnétique, c'est-à-dire à
+l'observation, dans l'univers simulé. Il donne $P\simeq1.630968$ et la valeur
+de structure fine basse énergie proche de $1/137$. $N_{\mathrm{CRC}}$ relie la
+capacité totale d'horizon vue de l'extérieur à l'enregistrement public
+accessible aux observateurs de l'intérieur : l'univers doit pouvoir reconstruire
+sa propre frontière. Les observateurs internes infèrent géométrie, horizons,
+entropie, $\Lambda$, histoire et enregistrements depuis l'information disponible
+à l'intérieur de l'univers.
+
 La thèse opérationnelle est plus précise que "l'information est fondamentale".
 L'OPH modélise la réalité comme un processus de consensus à point fixe fondé
 sur les observateurs. Des patches d'observateurs finis portent des
@@ -155,7 +189,7 @@ de McKay. C'est pourquoi le langage $A_5$-icosaédrique et le langage de type
 $E_8$ appartiennent à une même histoire de symétrie. Ces noms désignent des
 contraintes de symétrie et une structure de régulateur.
 
-L'OPH utilise une seule entrée quantitative externe, la capacité totale de l'écran lue depuis l'horizon de Sitter, ainsi qu'un ratio local de pixel $P$, l'aire d'une cellule d'écran en unités de Planck. Pour la constante cosmologique observée, le ratio nu d'aire d'horizon vaut environ $1.05\times10^{122}$, tandis que la capacité entropique utilisée par l'OPH vaut environ $3.31\times10^{122}$. La même cellule d'écran est décrite deux fois : vue de l'extérieur comme un pixel situé légèrement au-dessus de l'équilibre auto-similaire au nombre d'or, et vue de l'intérieur comme la plus petite échelle d'observation électromagnétique disponible pour les observateurs de l'univers encodé.
+La discussion d'échelle a deux surfaces. La branche cosmologique utilise le point fixe unique de fermeture des enregistrements cosmiques : $N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})$, où la capacité d'horizon fournie et la capacité relue par les observateurs coïncident. La densité $\log|\Omega^{\mathrm{sc}}_N|-N$ est la représentation par comptage fini de cette cible. Sur la branche observée, ce point fixe est la capacité entropique de Sitter. Pour la constante cosmologique observée, le ratio nu d'aire d'horizon vaut environ $1.05\times10^{122}$, tandis que la capacité entropique utilisée par l'OPH vaut environ $3.31\times10^{122}$. Le ratio local de pixel $P$ est l'aire d'une cellule d'écran en unités de Planck. La même cellule d'écran est décrite deux fois : vue de l'extérieur comme un pixel situé légèrement au-dessus de l'équilibre auto-similaire au nombre d'or, et vue de l'intérieur comme la plus petite échelle d'observation électromagnétique disponible pour les observateurs de l'univers encodé.
 Le papier de synthèse écrit cette autoréférence comme un problème de point fixe. Le calcul de structure fine part de l'équilibre entropique au nombre d'or et de la normalisation gaussienne de bord, puis transporte l'ancre électrofaible jusqu'au point de Thomson. La surface publique utilise $P\simeq1.6309682094$. La lecture donne $\alpha^{-1}(0)=137.035999177(21)$ et $\alpha(0)\simeq0.00729735256433$. Le même pixel local porte la gravité, la structure fine, la jauge réalisée, les lignes de masses particules, les enregistrements et la synchronisation des observateurs.
 
 ## Surface locale d'unification

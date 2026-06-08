@@ -144,16 +144,35 @@ That is the twist. The Standard Model stops looking like a cabinet full of
 unrelated entries. It looks like the smallest MAR-admissible charged world that
 lets the observer records close.
 
-## 18.6 One Global Size and One Local Ruler
+## 18.6 Two Fixed Points, No Free Constants
 
-The quantitative side of the framework turns on two scales with very different
-roles.
+The quantitative side of the framework turns on two constants with very
+different roles. The important point is not that OPH has two adjustable
+parameters. It does not. The claim is that both constants are closure values.
 
-The first is global. On the input-dependent screen-capacity identification branch, the observed
-cosmological constant fixes the total screen capacity, about
-$3.31\times10^{122}$ natural entropy units, or about $4.77\times10^{122}$
-bits. That gives the size of the accessible computation and sets the de Sitter
-horizon scale.
+The first is global. The cosmic record fixed point \(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\)
+selects the total screen capacity, about $3.31\times10^{122}$ natural entropy
+units, or about $4.77\times10^{122}$ bits on the observed branch. It is the
+single capacity at which the outside horizon capacity and the inside
+observer-accessible public record agree. That gives the size of the accessible
+computation and sets the de Sitter horizon scale.
+
+The same global scale can be written as a fixed-point problem: supply capacity
+$N$, let the terminal observer-supported normal form read back its active
+horizon capacity, and take the unique point where supplied capacity and
+readback capacity agree. Informally, this is the screen size where the universe
+reads back its own boundary without deficit or slack. On the observed branch,
+that fixed point is the de Sitter entropy capacity. The density
+$\log|\Omega^{\mathrm{sc}}_N|-N$ is the finite-count representation of the same
+closure.
+
+In formula form:
+
+$$
+N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}),
+\qquad
+\Lambda_{\mathrm{CRC}}=\frac{3\pi}{G N_{\mathrm{CRC}}}.
+$$
 
 The second is local. The pixel ratio
 
@@ -244,6 +263,20 @@ One cell on the screen is then being described twice. From one side it is a
 pixel of the horizon. From the other it is the smallest electromagnetic step
 available to observers inside the encoded world.
 
+So the headline is: OPH is a zero-input closure program. The two constants are
+$N_{\mathrm{CRC}}$ and $P_\star$, both selected by unique fixed-point or closure
+conditions. The rest of the quantitative stack follows from those constants
+together with the recovered relativity, gauge, matter, and observer-record
+branches.
+
+Put informally, $P$ links the pixel area of the simulating-side screen to the
+electromagnetic interaction, or observation, inside the simulated-side universe.
+$N_{\mathrm{CRC}}$ links the outside total horizon capacity to the inside
+observer-accessible public record. The universe is a self-reading object:
+observers inside infer geometry, horizons, entropy, $\Lambda$, history, and
+records from the information available inside the universe, and closure demands
+that this internal readback reconstruct the same boundary capacity.
+
 ## 18.7 Why de Sitter Fits
 
 The large-scale universe is accelerating. In OPH that matters
@@ -252,7 +285,7 @@ therefore a natural screen.
 
 Different observers carry different horizons, yet those horizons overlap
 enormously. The consistency conditions are severe. The total state space is
-finite. On that same input-dependent branch, the cosmological constant stops
+finite. On that same implemented branch, the cosmological constant stops
 looking like an awkward vacuum-energy leftover and instead looks like a global
 capacity statement about the screen.
 
