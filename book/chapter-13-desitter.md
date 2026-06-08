@@ -197,8 +197,7 @@ construction cannot erase.
 
 The symbol $\Lambda$ is the cosmological constant, the part of Einstein's
 equation that acts like a uniform large-scale tendency for space to accelerate.
-It is global capacity data at the cosmic record fixed point, not one more local
-particle-physics coupling.
+It belongs to the global capacity branch at the cosmic record fixed point.
 
 So on the cosmological-capacity branch Lambda is fixed by a **global**
 self-reading constraint: the outside total horizon capacity must equal the
@@ -211,7 +210,7 @@ With that fixed point, the observed $\Lambda$ is the way the world
 announces its total screen capacity. It is the global size parameter carried
 by every consistent patch.
 
-The input-free global closure is now sharp. Let $F(N)$ be the active
+The input-free global closure is sharp. Let $F(N)$ be the active
 horizon capacity read back by stable observers inside the OPH universe supplied
 with capacity $N$. The cosmic record-closure capacity is
 
