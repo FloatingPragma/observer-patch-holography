@@ -363,7 +363,23 @@ frequency.  It may not use measured \(G\), Planck area \(\hbar G/c^3\), or a
 cosmological expression containing \(G\).  That condition is the
 non-circularity test for the gravity number.}
 
-The clock gap is a hierarchy readout.  The required source bridge factorizes as
+\infobox{Hierarchy problem in OPH}{
+The usual hierarchy problem treats the weak scale as a fragile scalar input
+near the ultraviolet cutoff.  OPH uses the local pixel branch.  The cell scale
+is \(E_{\rm cell}\), the unified-coupling record \(\mathcal R_U\) emits
+\(\alpha_U(P_\star)\), and the weak scale is read by
+\[
+  \frac{v}{E_{\rm cell}}
+  =
+  \exp\!\left[-\frac{2\pi}{4\alpha_U(P_\star)}\right].
+\]
+The Higgs mass is fixed by the D10/D11 normal-form branch equations.  A free
+bare scalar parameter is absent from this proof object.  The detailed
+hierarchy and Higgs/top records live in O1 and O5.}
+
+The hierarchy construction enters this note through the public
+\emph{Observers Are All You Need} paper, cited as O1 in Appendix A.  The
+imported clock-scale object is the source bridge
 \[
   \mathcal R_\gamma
   =
@@ -377,41 +393,18 @@ The clock gap is a hierarchy readout.  The required source bridge factorizes as
   +
   \mathcal R_{\rm atom}^{133{\rm Cs}}.
 \]
-\(\mathcal R_U\) emits the unified diffusion coupling and the electroweak
-transmutation scale.  Its source residual is
-\[
-  \Phi_U(P,a)
-  =
-  \bar\ell_{\rm SU(2)}(t_2(P,a))
-  +
-  \bar\ell_{\rm SU(3)}(t_3(P,a))
-  -
-  \frac{P}{4},
-\]
-with \(t_i(P,a)\) computed from the declared source running family and
-self-consistent \(Z\)-scale.  The zero
-\(\Phi_U(P_\star,\alpha_U(P_\star))=0\) is accepted only with frozen
-representation cutoffs, beta packet, matching prescription, threshold packet,
-renormalization convention, interval bound, residual bound, derivative bound,
-and a dependency graph that contains no measured electroweak or gravitational
-ancestor.  It then emits
-\[
-  \frac{v}{E_\star}
-  =
-  P_\star^{-1/2}
-  \exp\!\left[-\frac{2\pi}{(N_c+1)\alpha_U(P_\star)}\right],
-  \qquad N_c=3.
-\]
-\(\mathcal R_\alpha\) emits the electromagnetic endpoint used by the atomic
-Hamiltonian. \(\mathcal R_e^{\rm abs}\) emits the absolute electron mass ratio.
-\(\mathcal R_{\rm QCD/nuc}^{133{\rm Cs}}\) emits the source-side cesium nuclear
-packet. \(\mathcal R_{\rm atom}^{133{\rm Cs}}\) emits the cesium hyperfine
-spectral gap from those dimensionless source data.  Importing measured \(G\),
-Planck area, measured \(\Lambda\), measured electroweak data, or an equivalent
-calibrated scale makes the numerical gravity row a calibration.  A dependency
-graph that passes that test emits a no-\(G\) scale readout, and the displayed
-Newton value follows by unit conversion.  Printed digits beyond the interval
-bounds supplied by the full source chain are calibration checksum digits.
+\(\mathcal R_U\) is the unified-coupling and weak-scale source record.
+\(\mathcal R_\alpha\) is the electromagnetic endpoint record.
+\(\mathcal R_e^{\rm abs}\) is the absolute electron-mass record.
+\(\mathcal R_{\rm QCD/nuc}^{133{\rm Cs}}\) is the source-side cesium nuclear
+record.  \(\mathcal R_{\rm atom}^{133{\rm Cs}}\) is the cesium hyperfine
+spectral record.  The Observers paper carries the source equations, interval
+requirements, derivative bounds, and dependency graph.  This note uses only the
+resulting rule: if the full graph contains no measured \(G\), no Planck area,
+no measured \(\Lambda\), no measured electroweak calibration, and no equivalent
+gravity-calibrated scale, then the emitted \(\varepsilon_{\rm Cs}\) is a
+no-\(G\) scale readout.  Otherwise the printed SI gravity decimal is a
+calibration checksum.
 
 The scale proof record has the form
 \[
