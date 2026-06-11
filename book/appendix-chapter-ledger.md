@@ -608,9 +608,10 @@ the entropy formula divides by $4\ell_P^2$.
 
 The chapter's capacity numbers are enormous but finite, around
 $10^{122}$ to $10^{123}$ depending on convention. At the cosmic record fixed
-point OPH reads the cosmological constant as a global capacity parameter: it
-fixes the size of the screen on which finite observer-patch physics is
-organized. The input-free global closure is
+point OPH reads dimensionless cosmological-constant products as global capacity
+data: they fix the screen capacity on which finite observer-patch physics is
+organized, while the SI curvature scale also uses the selected OPH scale certificate. The
+input-free global closure is
 $N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})$, with
 $\log|\Omega^{\mathrm{sc}}_N|-N$ as its finite-count representation.
 

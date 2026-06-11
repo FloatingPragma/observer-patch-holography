@@ -120,7 +120,7 @@ You cannot simultaneously know both position and momentum with arbitrary precisi
 
 Bohr and Heisenberg developed what became the "Copenhagen interpretation." The wave function doesn't describe objective reality. It describes our knowledge. When we measure, the wave function "collapses" to a definite value.
 
-This interpretation was never universally accepted. Einstein famously objected: "God does not play dice." But the mathematics works. Quantum mechanics makes predictions, and those predictions are confirmed to extraordinary precision.
+This interpretation was never universally accepted. Einstein famously objected: "God does not play dice." The mathematics still works. Quantum mechanics makes predictions, and those predictions are confirmed to extraordinary precision.
 
 The core lesson is operational. Quantum theory gives probabilities for measurement outcomes with extraordinary accuracy. What those probabilities mean ontologically depends on the interpretation.
 

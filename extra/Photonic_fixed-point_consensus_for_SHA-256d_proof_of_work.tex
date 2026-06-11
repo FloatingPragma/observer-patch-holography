@@ -69,38 +69,9 @@
 \end{center}
 
 \begin{abstract}
-Proof-of-work mining is a narrow search task. Given a fixed block template, a
-miner varies a nonce and accepts any double-SHA-256 digest below the target. In
-the ideal-hash model, each verified candidate succeeds with probability equal
-to the target fraction. Claims about general SHA-256 preimages, collision
-attacks, or attacks on the SHA-256 compression function are outside scope. The
-question is narrower: can an optical patch federation enrich the stream of
-candidates that reach exact SHA-256d verification?
+Proof-of-work mining is a search problem with an exact digital verifier. This paper asks a narrow question: can an optical OPH-style patch machine enrich the stream of SHA-256d candidates that reach that verifier?
 
-The construction uses Observer Patch Holography (OPH) to compile a fixed
-SHA-256d mining instance into four constraint patches: nonce source, message
-schedule, compression trajectory, and target face. Patch collars carry shared
-wires, so disagreement becomes a repair syndrome and agreement becomes a
-verifier-ready candidate. The proposed SHA-256d test architecture is
-OMEGA-I1, a five-chamber, host-routed optical federation with duplicate torus
-recurrence, search-torus expansion, asymmetric criticism, Echosahedron
-shadowing, and exact host verification.
-
-The empirical motivation is the OPH/Karma optical proof-of-work prototype: its
-optical candidate path has produced pool-accepted kHeavyHash/Kaspa shares under
-digital verification, and a separate shuffle-replay audit reported
-\(\widehat\beta(12)=2{,}434\) on the Kaspa chord-promote output. Here
-\(\widehat\beta(12)\) is the exact-verifier hit rate for candidates with at
-least \(12\) leading zero bits divided by the uniform-random baseline \(2^{-12}\);
-the reported value means that the selected candidate stream hit that \(12\)-bit
-target \(2{,}434\) times as often as uniform random nonces. This is used as
-controlled candidate-enrichment evidence. The present paper contributes the OPH
-constraint formalism and SHA-256d scorebook.
-SHA-256d has different nonlinear structure, so this paper gives the SHA-256d
-constraint map, evidence gates, controls, and performance metric. The tested
-quantity is distinct verifier-ready candidate enrichment per settling event
-under blinded routes, label shuffles, operator-alignment checks, and exact
-SHA-256d receipts.
+The setup compiles one mining instance into constraint patches for nonce choice, message schedule, compression, and target checking. The main achievement is an audit-ready test contract for candidate enrichment. The optical path proposes candidates. The digital verifier judges them. The metric is verifier-ready candidate enrichment per settling event, under blinded routes, label shuffles, operator-alignment checks, and exact SHA-256d receipts.
 \end{abstract}
 
 \noindent\textbf{Keywords:} SHA-256; proof of work; Kaspa; kHeavyHash;
@@ -876,10 +847,11 @@ enumeration after exact verification.
 
 The OPH papers use a dimensionless local pixel ratio
 \[
-P=\frac{a_{\mathrm{cell}}}{\ell_P^2},
+P=\frac{a_{\mathrm{cell}}}{\ell_\star^2},
 \]
-where \(a_{\mathrm{cell}}\) is the microscopic screen-cell area and \(\ell_P\)
-is the Planck length \cite{OPHCompactCurrent,OPHScreenCurrent}. In the public OPH
+where \(a_{\mathrm{cell}}\) is the microscopic screen-cell area and \(\ell_\star\)
+is the OPH scale-readout length, displayed as the Planck length after the gravity row emits
+\(G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar\) \cite{OPHCompactCurrent,OPHScreenCurrent}. In the public OPH
 release, \(P\) is selected by the fixed-point equation
 \[
 P=\varphi+\sqrt{\pi}\,\alpha_{\mathrm{em}}(0;P)

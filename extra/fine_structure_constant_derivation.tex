@@ -70,43 +70,11 @@
 \end{center}
 
 \begin{abstract}
-OPH starts from a simple demand: finite observer patches must agree on the observations they share. This paper follows one local screen-geometry cell through that demand. The screen is a regulator and symmetry chart whose finite geometry follows the spherical symmetries of observer-accessible cuts. The outside reading is geometry: a dimensionless pixel area \(P=a_{\mathrm{cell}}/\ell_P^2\), measured relative to the golden-ratio balance point \(\varphi=(1+\sqrt5)/2\). The inside reading is electromagnetism: the Thomson-limit observation width emitted by the world encoded on the same chart. Boundary Gaussian normalization converts the outside displacement into \((P-\varphi)/\sqrt\pi\). The inside readout is \(\alpha_{\mathrm{in}}(P)=1/\ATh(P)\), where \(\ATh(P)=\alpha_{\mathrm{em}}^{-1}(0;P)\) is the inverse electromagnetic coupling at zero momentum. The cell is consistent when
+This paper follows one OPH screen cell. From the outside, the cell has a dimensionless area \(P\). From the inside, it appears as the electromagnetic observation scale available to observers in the encoded world. The two readings meet at
 \[
 P=\varphi+\frac{\sqrt\pi}{\ATh(P)}.
 \]
-The calculation before low-energy hadronic transport gives
-\[
-\begin{aligned}
-\alphainv_{\mathrm{cand}}&=\decnum{136.994835164621649457949994585787193262029}\\
-P_{\mathrm{cand}}&=\decnum{1.63097209569432901817967892561191884270169}
-\end{aligned}
-\]
-This number is expected to miss exactly the part left out of that source calculation: low-energy hadronic vacuum polarization and the finite endpoint terms that belong to the same electromagnetic-current scheme. These terms enter the inverse-alpha transport from the electroweak anchor to the Thomson limit. Calibrating that missing hadronic correction against the CODATA/NIST central value gives
-\[
-\Dcalib^{\mathrm{fp}}
-=
-\decnum{0.041164012378350542050005414212806737971}
-\]
-Adding it gives the CODATA/NIST central value
-\[
-\begin{aligned}
-A_{\mathrm{calc}}^{\mathrm{fp}}
-&=
-\decnum{136.994835164621649457949994585787193262029}\\
-\Dcalib^{\mathrm{fp}}
-&=
-\decnum{0.041164012378350542050005414212806737971}\\
-A_{\mathrm{calc}}^{\mathrm{fp}}+\Dcalib^{\mathrm{fp}}
-&=
-137.035999177
-\end{aligned}
-\]
-The displayed correction is calibration arithmetic. Its uncertainty is inherited from the measured fine-structure constant. The reported endpoint is
-\[
-\alphainv(0)=137.035999177(21),
-\qquad
-P_{\mathrm C}=1.630968209403959324879279847782648941\ldots .
-\]
+The main achievement is the fixed-point calculation for the fine-structure branch. The source calculation lands close to the Thomson-limit value. The gap has a specific address: low-energy hadronic and endpoint transport in the same electromagnetic scheme. With that empirical endpoint correction stated separately, the public display is \(\alpha^{-1}(0)=137.035999177(21)\) and \(P\simeq1.6309682094\).
 \end{abstract}
 
 \section{Introduction}
@@ -118,6 +86,13 @@ The goal is to make every mathematical step visible and keep the physics status 
 
 \textbf{Hadron-completed endpoint target.} The public endpoint value is \(\alphainv(0)=137.035999177(21)\). The OPH source calculation reaches it only if the low-energy hadronic spectral step is supplied in the same endpoint convention as the source map. The published electroweak number \(\Delta\alpha_{\mathrm{had}}^{(5)}(M_Z^2)\simeq0.0276\) is the measured running-alpha input behind that physics, but it is not itself the additive inverse-alpha correction used here.
 \end{quote}
+
+This paper uses observation in the OPH reverse-engineering sense. The measured universe can point to
+the basin and to the endpoint convention because, in the OPH reading, the realized universe is a
+closed mathematical fixed structure whose coordinates are visible to internal observers.
+That permission does not turn the calculation into a fit. The source map must still define a
+self-map on the declared branch and solve the fixed-point equation; measured input is either a
+branch locator or an explicitly marked empirical endpoint correction.
 
 Informally: the source calculation reaches the number it should reach when the hadronic part is absent. The remaining difference has a precise physical address. It is the hadronic vacuum-polarization and same-scheme endpoint contribution in the electromagnetic transport from the \(Z\)-scale down to zero momentum. The standard measured \(0.0276\) hadronic-running number is a denominator correction in the electroweak convention. Inserted directly into the OPH source anchor, it gives \(136.382895\ldots\), not \(137.035999177\). The OPH endpoint needs the same spectral physics rewritten in the inverse-alpha endpoint convention.
 
@@ -139,15 +114,16 @@ Symbol & Definition & Informal meaning \\
 \(\A(P)\) & Patch algebra assigned to a screen patch \(P\) & The local observables available to one finite observer patch. \\
 \(\omega_P\) & State on \(\A(P)\) & The local physical description carried by that patch. \\
 \(\A(P\cap Q)\) & Shared overlap algebra & The observables two neighboring patches can compare. \\
-\(P\) & \(a_{\mathrm{cell}}/\ell_P^2\) & The dimensionless area of one screen cell in Planck-area units. \\
+\(P\) & \(a_{\mathrm{cell}}/\ell_\star^2\) & The dimensionless area of one screen cell in scale-readout units. \\
 \(a_{\mathrm{cell}}\) & Physical screen-cell area & The area of the local pixel on the holographic screen. \\
-\(\ell_P\) & Planck length & The length unit used to make \(P\) dimensionless. \\
+\(\ell_\star\) & OPH scale-certificate length & The length emitted by the selected no-\(G\) scale certificate. \\
+\(\ell_P\) & Planck length & The SI display of \(\ell_\star\) after \(G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar\). \\
 \(\varphi\) & \((1+\sqrt5)/2\) & The self-similar entropy-balance point. \\
 \(\sqrt\pi\) & Boundary Gaussian normalization width & The conversion factor from pixel displacement to observation width. \\
 \(\alpha_{\mathrm{ext}}(P)\) & \((P-\varphi)/\sqrt\pi\) & The outside, geometric reading of the electromagnetic coupling. \\
 \(\ATh(P)\) & \(\alpha_{\mathrm{em}}^{-1}(0;P)\) & The inverse electromagnetic coupling at the Thomson limit emitted by the trial pixel. \\
 \(\alpha_{\mathrm{in}}(P)\) & \(1/\ATh(P)\) & The inside, electromagnetic reading of the same cell. \\
-\(E_P\) & Planck energy & The energy unit used by the source map. The numerical equations use Planck units unless GeV labels are attached. \\
+\(E_P\) & Planck energy & The energy unit associated with the selected scale certificate. The numerical equations use Planck units unless GeV labels are attached. \\
 \(M_U(P)\) & \(E_P\e^{-2\pi}P^{1/6}\) & The OPH unification-scale readout emitted by a trial pixel. \\
 \(E_{\mathrm{cell}}(P)\) & \(E_P/\sqrt P\) & The local cell energy readout. \\
 \(\alpha_U(P)\) & Unified coupling solved from the heat-kernel closure equation & The coupling at \(M_U(P)\) that makes the gauge representation entropy match the pixel. \\
@@ -187,14 +163,15 @@ Why this step is needed: OPH does not start by assigning constants to nature. It
 
 Define the local pixel ratio
 \begin{equation}
-P:=\frac{a_{\mathrm{cell}}}{\ell_P^2}.
+P:=\frac{a_{\mathrm{cell}}}{\ell_\star^2}.
 \label{eq:Pdef}
 \end{equation}
-Here \(a_{\mathrm{cell}}\) is the screen-cell area and \(\ell_P^2\) is the Planck area.
+Here \(a_{\mathrm{cell}}\) is the screen-cell area and \(\ell_\star^2\) is the area scale emitted
+by the separate OPH gravity readback fixed point.
 
-Informally: \(P\) says how large the screen cell is when measured in Planck-area units. It is dimensionless, so it can be compared directly with pure numbers such as \(\varphi\) and \(\sqrt\pi\).
+Informally: \(P\) says how large the screen cell is when measured in scale-readout units. It is dimensionless, so it can be compared directly with pure numbers such as \(\varphi\) and \(\sqrt\pi\). After the gravity row emits \(G\), the same scale is displayed as the Planck area in SI units. The pixel equation fixes this dimensionless ratio; it does not determine the SI scale by itself.
 
-Why this step is needed: \(\alpha\) has no units. A unitless electromagnetic number has to be matched to a unitless geometric number. Dividing the cell area by the Planck area gives that number.
+Why this step is needed: \(\alpha\) has no units. A unitless electromagnetic number has to be matched to a unitless geometric number. Dividing the cell area by the emitted scale area gives that number without using the pixel equation to derive \(G\).
 
 \section{Step 3: The Golden-Ratio Balance}
 
@@ -979,7 +956,7 @@ Step & Mathematical object & Status \\
 \midrule
 \endhead
 Overlap rule & Eq.~\eqref{eq:overlap} & OPH starting structure. \\
-Pixel variable & \(P=a_{\mathrm{cell}}/\ell_P^2\) & Defined. \\
+Pixel variable & \(P=a_{\mathrm{cell}}/\ell_\star^2\) & Defined. \\
 Golden balance & \(\varphi=(1+\sqrt5)/2\) & Defined. \\
 Boundary width & \(\alpha_{\mathrm{ext}}=(P-\varphi)/\sqrt\pi\) & Defined. \\
 Inside readout & \(\alpha_{\mathrm{in}}=1/\ATh(P)\) & Defined. \\

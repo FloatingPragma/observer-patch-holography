@@ -121,7 +121,7 @@ The mere act of observation changes the outcome.
 
 This has nothing to do with technological limitations or clumsy detectors disturbing the electrons. In the standard textbook reading of quantum mechanics, before measurement the electron is described by a superposition, not by a single definite path through one slit.
 
-The wave function $|\psi\rangle$ describes probabilities, not definite properties. When you measure, the wave function "collapses" to a definite state. But what counts as a measurement? Who is the observer? When exactly does collapse happen?
+The wave function $|\psi\rangle$ describes probabilities, not definite properties. When you measure, the wave function "collapses" to a definite state. That raises the measurement question. What counts as a measurement? Who is the observer? When exactly does collapse happen?
 
 The notation $|\psi\rangle$ is just the standard quantum way to name a state.
 It does not mean the electron is secretly a little object with an unknown

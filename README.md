@@ -30,8 +30,9 @@ starting point. From that basis, OPH recovers the observed effective universe:
 spacetime, gauge structure, particles, records, and observer synchronization all
 follow from overlap consistency.
 
-**Headline:** OPH is formulated as a zero-input theory. It has two quantitative
-scales, both fixed by closure rather than by fitting:
+**Headline:** OPH is formulated as a zero-input theory. Its quantitative surface
+uses two dimensionless closure coordinates and one selected no-G scale
+certificate, all fixed by closure:
 
 $$
 P_\star=\varphi+\frac{\sqrt{\pi}}{A_T(P_\star)}
@@ -44,8 +45,18 @@ N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})
 $$
 
 for the global screen capacity, where $F(N)$ is the active horizon capacity read
-back by observers inside the universe supplied with capacity $N$. The finite
-count representation is
+back by observers inside the universe supplied with capacity $N$. The selected
+scale certificate is most cleanly written as a dimensionless clock ratio,
+
+$$
+\gamma_\star=\frac{\ell_\star\nu_{\mathrm{Cs}}}{c},
+\qquad
+B_\star=\frac{3\pi}{\ell_\star^2},
+\qquad
+G_{\mathrm{SI}}=\frac{c^3\ell_\star^2}{\hbar}.
+$$
+
+The finite count representation of the global capacity closure is
 
 $$
 N_\star=\mathrm{MAR}\,\mathrm{argmax}_{N}
@@ -53,23 +64,43 @@ N_\star=\mathrm{MAR}\,\mathrm{argmax}_{N}
 $$
 
 Informally, $N_{\mathrm{CRC}}$ is the unique capacity where the universe reads
-back its own boundary without deficit or slack. The cosmological readout is
+back its own boundary without deficit or slack. In geometric units the
+cosmological readout is
 
 $$
-\Lambda_{\mathrm{CRC}}=\frac{3\pi}{G N_{\mathrm{CRC}}}
+\Lambda_{\mathrm{CRC}}=\frac{3\pi}{G_{\mathrm{geom}} N_{\mathrm{CRC}}},
+\qquad
+G_{\mathrm{geom}}=\ell_\star^2.
 $$
 
-All other OPH quantitative readouts sit downstream of these two closure values
-and the recovered structural branch.
+The fine-structure and particle rows sit downstream of $P_\star$ and the
+recovered structural branch. The cosmological row sits downstream of
+$N_{\mathrm{CRC}}$. The Newton normalization sits downstream of
+$\ell_\star^2=3\pi/B_\star$.
+
+Observation is used for reverse engineering. Because OPH treats the universe as
+a closed mathematical fixed structure, approximate measured values can locate
+the basin or observed branch. The precise OPH value must come from the declared
+fixed-point map and its Banach contraction, derivative-sign, strict-concavity,
+or equivalent uniqueness certificate.
+
+The two dimensionless closures fix dimensionless geometry. In particular,
+$\Lambda_\star\ell_\star^2=3\pi/N_{\mathrm{CRC}}$ and
+$\Lambda_\star a_{\mathrm{cell}}=3\pi P_\star/N_{\mathrm{CRC}}$. A selected
+scale certificate supplies the SI scale product
+$B_\star=\Lambda_\star N_{\mathrm{CRC}}=3\pi/\ell_\star^2$.
 
 In the informal simulation-language reading, $P$ links the pixel area of the
 simulating-side screen to the electromagnetic interaction, i.e. observation, in
 the simulated-side universe. It gives $P\simeq1.630968$ and the low-energy
 fine-structure value near $1/137$. $N_{\mathrm{CRC}}$ links the outside total
 horizon capacity to the inside observer-accessible public record: the universe
-must be able to reconstruct its own boundary. Observers inside infer geometry,
-horizons, entropy, $\Lambda$, history, and records from information available
-inside the universe.
+must be able to reconstruct its own boundary. The gravity scale is read on its
+own observed branch through the no-G scale certificate $\gamma_\star$, or
+equivalently $B_\star$, after which $\ell_\star$ is displayed as the Planck
+length. Observers inside infer
+geometry, horizons, entropy, $\Lambda$, history, and records from information
+available inside the universe.
 
 The operational claim is sharper than "information is fundamental." OPH models
 reality as an observer-based fixed-point consensus process. Finite observer
@@ -206,7 +237,7 @@ correspondence. This is why $A_5$-icosahedral and $E_8$-type language can
 belong to one symmetry story. These names mark symmetry constraints and
 regulator structure.
 
-The scale discussion has two surfaces. The cosmological branch uses
+The scale discussion has three surfaces. The cosmological branch uses
 the unique cosmic record-closure fixed point:
 $N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})$, where the supplied horizon capacity and
 the observer-readback capacity agree. The density
@@ -214,11 +245,15 @@ $\log|\Omega^{\mathrm{sc}}_N|-N$ is the finite-count representation of that
 target. On the observed branch, this fixed point is the de Sitter entropy
 capacity. For the observed cosmological constant, the bare horizon area ratio is about
 $1.05\times10^{122}$, while the entropy capacity used by OPH is about
-$3.31\times10^{122}$. The local pixel ratio $P$ is the area of one screen
-cell in Planck-area units. From the outside, $P$ is a geometric cell size
-slightly above the golden-ratio self-similar balance. From the inside, it
-becomes the smallest electromagnetic observation scale available to observers in
-the world encoded on that screen. The fine-structure lane asks for the nonzero
+$3.31\times10^{122}$. That rounded capacity is a branch-scale display. The
+Newton row uses the fixed-point capacity together with the selected no-G scale
+certificate. The local pixel ratio is $P=a_{\mathrm{cell}}/\ell_\star^2$, where
+$\ell_\star^2=3\pi/B_\star$ is supplied by the scale certificate and is displayed
+as the Planck area only after that readout. From the outside, $P$ is a
+geometric cell-size ratio slightly
+above the golden-ratio self-similar balance. From the inside, it becomes the
+smallest electromagnetic observation scale available to observers in the world
+encoded on that screen. The fine-structure lane asks for the nonzero
 detuning of a holographic screen cell such that the cell's outer geometric
 displacement equals the electromagnetic observation scale emitted by the
 universe living on that same screen. The public solution is
@@ -228,13 +263,16 @@ $\alpha(0)\simeq0.00729735256433$. Hardware-facing checks of the
 same fixed-point geometry are treated only as public evidence-bundle claims
 when the raw artifacts and verifier receipts are available.
 
-The same local pixel scale drives the gravity readout, the fine-structure
-closure, gauge structure, scoped particle-mass rows, records, and observer
-synchronization. The particle pipeline carries that scale into the weak sector,
-the Higgs lane, selected-class quark rows, and the weighted-cycle neutrino
-branch. Hadrons require either the OPH strong-binding backend or an explicitly
-marked empirical hadron closure. The operating policy for those rows is in
-[`HADRON.md`](HADRON.md).
+The same local pixel scale drives the fine-structure closure, gauge structure,
+scoped particle-mass rows, records, and observer synchronization. On the gravity
+row it supplies the shared cell/edge identity
+$a_{\mathrm{cell}}=P\ell_\star^2$ and
+$\bar{\ell}_{\mathrm{shared}}=P/4$; $P$ cancels in the Newton area-law
+readout, leaving $G_{\mathrm{geom}}=\ell_\star^2$. The particle pipeline
+carries the local scale into the weak sector, the Higgs lane, selected-class
+quark rows, and the weighted-cycle neutrino branch. Hadrons require either the
+OPH strong-binding backend or an explicitly marked empirical hadron closure.
+The operating policy for those rows is in [`HADRON.md`](HADRON.md).
 
 ### Selected Quantitative Rows
 
@@ -281,15 +319,19 @@ cross-section top-mass convention. The weighted-cycle neutrino branch emits
 $(0.017454720257976796, 0.019481987935919015, 0.05307522145074924)\,\mathrm{eV}$ on its
 declared branch.
 
-## Two-Constant Unification Surface
+## Quantitative Unification Surface
 
-The quantitative surface is organized around two closure values rather than one
-local input: the pixel fixed point $P\simeq1.6309682094$ and the global
-record-capacity fixed point $N_{\mathrm{CRC}}\simeq3.31\times10^{122}$. The
-$P$ branch feeds the gravity readout, the Ward-projected electromagnetic
-channel, and the scoped particle-mass rows; the $N_{\mathrm{CRC}}$ branch feeds
-the cosmological-constant readout. The detailed formulas and claim tiers live in
-the papers.
+The quantitative surface is organized around distinct fixed-readback roles: the
+pixel fixed point $P\simeq1.6309682094$, the global record-capacity fixed point
+$N_{\mathrm{CRC}}\simeq3.31\times10^{122}$, and the selected no-G scale
+certificate $\gamma_\star$, equivalently $B_\star=3\pi/\ell_\star^2$. The
+displayed capacity is approximate; precision rows use the fixed-point value and
+the scale certificate. The $P$ branch feeds the Ward-projected electromagnetic channel
+and the scoped particle-mass rows, while also fixing the cell/edge identity that
+cancels out of the Newton area-law readout. The $N_{\mathrm{CRC}}$ branch feeds
+the cosmological-constant readout. The scale certificate supplies the area
+quantum that becomes the Newton normalization. The detailed formulas and claim
+tiers live in the papers.
 
 <p align="center">
   <a href="assets/OPH_Unification_Diagram.svg" target="_blank" rel="noopener noreferrer">

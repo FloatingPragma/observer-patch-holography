@@ -360,11 +360,11 @@ This seems to conflict with entanglement. Entangled particles show correlations:
 
 The key distinction: **correlations** are not **influence**.
 
-Alice and Bob share an entangled pair. Alice measures and gets "up." She can then infer that Bob will measure "up." But she hasn't influenced Bob's particle-she has learned about it.
+Alice and Bob share an entangled pair. Alice measures and gets "up." She can then infer that Bob will measure "up." She has learned about their shared state. She has not sent a signal to Bob.
 
 The commutation relation above says Alice's measurement operator doesn't change Bob's statistics. Before Alice measures, Bob has 50/50 odds. After Alice measures, Bob still has 50/50 odds. Alice's knowledge changed, but not Bob's physics.
 
-Bell's theorem shows these correlations cannot be explained by local hidden variables. The correlations are genuinely quantum. But they still respect causality: no signal can be sent using entanglement alone.
+Bell's theorem shows these correlations cannot be explained by local hidden variables. The correlations are genuinely quantum. They still respect causality: no signal can be sent using entanglement alone.
 
 That algebraic locality condition is the mathematical statement that consistency and causality can coexist, even with entanglement.
 

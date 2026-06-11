@@ -480,11 +480,12 @@ matter together. OPH fixed-point equations look for values that remain
 consistent when two descriptions are identified.
 
 Third ask which symbols are local and which are global. A patch algebra
-$\mathcal A(P)$ is local to a patch. The cosmological constant $\Lambda$ is a
-global capacity parameter in the OPH reading. A density matrix $\rho_A$ is
-restricted to subsystem $A$. The full state, if available, contains more
-than any one patch sees. Confusing local and global symbols is one of the
-fastest ways to misread the book.
+$\mathcal A(P)$ is local to a patch. The dimensionless products involving the
+cosmological constant $\Lambda$ are global capacity data in the OPH reading;
+the SI value of $\Lambda$ also needs the selected scale certificate. A density
+matrix $\rho_A$ is restricted to subsystem $A$. The full state, if available,
+contains more than any one patch sees. Confusing local and global symbols is
+one of the fastest ways to misread the book.
 
 Fourth ask about units. Natural units often set $c=\hbar=k_B=1$ so formulas
 look cleaner. Restoring constants shows what kind of quantity is being

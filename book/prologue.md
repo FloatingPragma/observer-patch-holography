@@ -11,9 +11,9 @@ process. Finite observer patches compare overlap-visible records, repair
 checkable mismatch, and settle into the stable public world that survives those
 consistency tests.
 
-The headline version is simple: OPH is formulated as a zero-input theory. It
-has two quantitative constants, and both are closure values rather than knobs.
-The local pixel ratio is fixed by
+The headline version is simple: OPH is formulated as a zero-input theory. Its
+quantitative surface has two dimensionless closure coordinates and one selected
+no-G scale certificate. The local pixel ratio is fixed by
 
 $$
 P_\star=\varphi+\frac{\sqrt{\pi}}{A_T(P_\star)}.
@@ -26,13 +26,38 @@ N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}).
 $$
 
 Here $F(N)$ is the active horizon capacity read back by observers inside the
-universe supplied with capacity $N$. The count representation is
+universe supplied with capacity $N$. The selected scale certificate is the
+dimensionless clock ratio
+
+$$
+\gamma_\star=\frac{\ell_\star\nu_{\mathrm{Cs}}}{c},
+\qquad
+B_\star=\frac{3\pi}{\ell_\star^2},
+\qquad
+G_{\mathrm{SI}}=\frac{c^3\ell_\star^2}{\hbar}.
+$$
+
+The count representation of the global capacity closure is
 $N_\star=\mathrm{MAR}\,\mathrm{argmax}_N(\log|\Omega^{\mathrm{sc}}_N|-N)$.
 Informally, $N_{\mathrm{CRC}}$ is the unique capacity where the universe reads
 back its own boundary without deficit or slack. The cosmological constant is
-$\Lambda_{\mathrm{CRC}}=3\pi/(G N_{\mathrm{CRC}})$. Everything else in the
-quantitative OPH stack is downstream of these two closure values and the
-structural observer-consistency branch.
+$\Lambda_{\mathrm{CRC}}=3\pi/(G_{\mathrm{geom}}N_{\mathrm{CRC}})$ with
+$G_{\mathrm{geom}}=\ell_\star^2$. The fine-structure and particle rows sit
+downstream of $P_\star$ and the structural observer-consistency branch. The
+cosmological row sits downstream of $N_{\mathrm{CRC}}$. The Newton
+normalization sits downstream of $\ell_\star^2=3\pi/B_\star$.
+
+Observation is used for reverse engineering. In the OPH reading, the universe
+is a closed mathematical fixed structure, so approximate measured values can
+locate the basin or observed branch. The precise OPH value must come from the
+declared fixed-point map and its Banach contraction, derivative-sign,
+strict-concavity, or equivalent uniqueness certificate.
+
+The two dimensionless closures fix dimensionless geometry. They give, for
+example, $\Lambda_\star\ell_\star^2=3\pi/N_{\mathrm{CRC}}$ and
+$\Lambda_\star a_{\mathrm{cell}}=3\pi P_\star/N_{\mathrm{CRC}}$. The selected
+scale certificate supplies the SI scale product
+$B_\star=\Lambda_\star N_{\mathrm{CRC}}=3\pi/\ell_\star^2$.
 
 The informal version is even shorter. $P$ links the pixel area of the
 simulating-side screen to the electromagnetic interaction, or observation, in
@@ -41,7 +66,10 @@ fine-structure value near $1/137$. $N_{\mathrm{CRC}}$ links the outside total
 horizon capacity to the inside observer-accessible public record. Closure says
 that the universe must be able to reconstruct its own boundary. Observers exist
 inside it, and from the information available inside the universe they infer
-geometry, horizons, entropy, $\Lambda$, history, and records.
+geometry, horizons, entropy, $\Lambda$, history, and records. The gravity
+scale is read on its own observed branch through the no-G scale certificate
+$\gamma_\star$, or equivalently $B_\star$, after which $\ell_\star$ is
+displayed as the Planck length.
 
 ## The Cosmic Program
 

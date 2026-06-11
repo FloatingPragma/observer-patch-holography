@@ -188,7 +188,7 @@ part of the setup.
 
 This is a different target. The "unsolved problem" of dS holography is about finding a global boundary theory at infinity. OPH asks how local observer patches, each bounded by a horizon, yield consistent physics.
 
-### Lambda as Global Capacity
+### The Lambda-Capacity Relation
 
 A key point: the cosmological constant is not a local patch datum. Null
 modular probes reconstruct the stress tensor only up to a term proportional to
@@ -199,16 +199,18 @@ The symbol $\Lambda$ is the cosmological constant, the part of Einstein's
 equation that acts like a uniform large-scale tendency for space to accelerate.
 It belongs to the global capacity branch at the cosmic record fixed point.
 
-So on the cosmological-capacity branch Lambda is fixed by a **global**
-self-reading constraint: the outside total horizon capacity must equal the
-inside observer-accessible public record. In natural units the fixed point is
+So on the cosmological-capacity branch the dimensionless Lambda-capacity
+relation is fixed by a **global** self-reading constraint: the outside total
+horizon capacity must equal the inside observer-accessible public record. With
+the selected OPH scale certificate, the fixed point is displayed as
 
 $$N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}),\qquad
 \Lambda_{\mathrm{CRC}}=\frac{3\pi}{G N_{\mathrm{CRC}}}.$$
 
-With that fixed point, the observed $\Lambda$ is the way the world
-announces its total screen capacity. It is the global size parameter carried
-by every consistent patch.
+With that fixed point and scale certificate, the observed $\Lambda$ is the way the
+world announces its total screen capacity in SI units. The dimensionless
+capacity relation is the global size parameter carried by every consistent
+patch.
 
 The input-free global closure is sharp. Let $F(N)$ be the active
 horizon capacity read back by stable observers inside the OPH universe supplied

@@ -144,18 +144,45 @@ That is the twist. The Standard Model stops looking like a cabinet full of
 unrelated entries. It looks like the smallest MAR-admissible charged world that
 lets the observer records close.
 
-## 18.6 Two Fixed Points, No Free Constants
+## 18.6 Closure Coordinates And Scale Certificate
 
-The quantitative side of the framework turns on two constants with very
-different roles. The important point is not that OPH has two adjustable
-parameters. It does not. The claim is that both constants are closure values.
+The quantitative side of the framework turns on two dimensionless closure
+coordinates and one selected no-G scale certificate. These quantities are
+selected by closure or certificate conditions. They are fixed branch data.
+
+This is where reverse engineering enters legitimately. The observed universe
+can give a rough value or a branch interval because, in the OPH reading, those
+coordinates belong to a completed mathematical structure. The job of
+the theory is then to show that the declared readback map has a unique fixed
+point in that basin. Observation supplies the starting neighborhood; the
+fixed-point theorem supplies the value.
+
+There is a sharp limit to what the two dimensionless closures can do. They fix
+dimensionless geometry:
+
+$$
+\Lambda_\star\ell_\star^2=\frac{3\pi}{N_{\mathrm{CRC}}},
+\qquad
+\Lambda_\star a_{\mathrm{cell}}
+=\frac{3\pi P_\star}{N_{\mathrm{CRC}}}.
+$$
+
+Equivalently, if $\mathcal B_\ell=\Lambda_\star N_{\mathrm{CRC}}$, then
+$\mathcal B_\ell\ell_\star^2=3\pi$ and
+$\mathcal B_\ell a_{\mathrm{cell}}=3\pi P_\star$. A global rescaling of all
+lengths leaves $P_\star$ and $N_{\mathrm{CRC}}$ unchanged while changing
+$\mathcal B_\ell$ in SI units. The two closures supply the dimensionless
+geometry. The selected scale certificate supplies the SI display.
 
 The first is global. The cosmic record fixed point \(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\)
 selects the total screen capacity, about $3.31\times10^{122}$ natural entropy
-units, or about $4.77\times10^{122}$ bits on the observed branch. It is the
+units, or about $4.77\times10^{122}$ bits on the observed branch. This rounded
+number is a branch-scale display. The Newton row uses the fixed-point capacity
+together with the selected no-G scale certificate. The fixed point is the
 single capacity at which the outside horizon capacity and the inside
-observer-accessible public record agree. That gives the size of the accessible
-computation and sets the de Sitter horizon scale.
+observer-accessible public record agree. That gives the size of the accessible computation and fixes the
+dimensionless de Sitter capacity relation; the SI horizon scale uses the
+selected scale certificate.
 
 The same global scale can be written as a fixed-point problem: supply capacity
 $N$, let the terminal observer-supported normal form read back its active
@@ -171,22 +198,27 @@ In formula form:
 $$
 N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}),
 \qquad
-\Lambda_{\mathrm{CRC}}=\frac{3\pi}{G N_{\mathrm{CRC}}}.
+\Lambda_{\mathrm{CRC}}=\frac{3\pi}{G_{\mathrm{geom}}N_{\mathrm{CRC}}},
+\qquad
+G_{\mathrm{geom}}=\ell_\star^2.
 $$
 
-The second is local. The pixel ratio
+The second closure coordinate is local. The pixel ratio
 
 $$
-P=\frac{a_{\mathrm{cell}}}{\ell_P^2}
+P=\frac{a_{\mathrm{cell}}}{\ell_\star^2}
 $$
 
-acts as the ruler from which the electroweak scale, the low-energy
-electromagnetic coupling, and the gravity-facing readout are displayed.
+acts as the ruler from which the electroweak scale and the low-energy
+electromagnetic coupling are displayed.
 
 $a_{\mathrm{cell}}$ is the effective area assigned to one screen cell.
-$\ell_P$ is the Planck length. Dividing by $\ell_P^2$ makes $P$
-dimensionless: it is a pure ratio between the cell area and the Planck-area
-unit.
+$\ell_\star^2$ is supplied by the selected scale certificate, usually written
+as a no-G clock ratio or equivalently as the curvature display
+$B_\star=3\pi/\ell_\star^2$. It is displayed as the Planck area only after the
+gravity row emits $G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar$. Dividing by
+$\ell_\star^2$ makes $P$ dimensionless: it is a pure ratio between the cell
+area and the emitted scale area.
 
 The striking part is that this local ruler can be read from two sides of the
 same world. Feed a trial value of $P$ through the electroweak chain and the
@@ -226,6 +258,15 @@ departure from silence: enough asymmetry for light, detectors, and durable
 differences, yet small enough for the screen geometry to remain coherent. The
 fine-structure constant measures that minimal electromagnetic disturbance.
 
+The Newton row uses the same local cell without using it to solve for the
+scale. Once the selected scale certificate supplies
+$\ell_\star^2=3\pi/B_\star$, the shared readings are
+$a_{\mathrm{cell}}=P\ell_\star^2$ and
+$\bar{\ell}_{\mathrm{shared}}=P/4$. The area-law expression gives
+$G_{\mathrm{geom}}=a_{\mathrm{cell}}/(4\bar{\ell}_{\mathrm{shared}})
+=\ell_\star^2$. Thus the pixel ratio fixes the cell/edge identity, while $P$
+cancels out of Newton's constant.
+
 The long-distance fine-structure readout gives
 
 $$
@@ -263,16 +304,18 @@ One cell on the screen is then being described twice. From one side it is a
 pixel of the horizon. From the other it is the smallest electromagnetic step
 available to observers inside the encoded world.
 
-So the headline is: OPH is a zero-input closure program. The two constants are
-$N_{\mathrm{CRC}}$ and $P_\star$, both selected by unique fixed-point or closure
-conditions. The rest of the quantitative stack follows from those constants
+So the headline is: OPH is a zero-input closure program. The dimensionless
+closure coordinates are $N_{\mathrm{CRC}}$ and $P_\star$, and the gravity
+normalization is supplied by the selected no-G scale certificate. The rest of
+the quantitative stack follows from those fixed quantities
 together with the recovered relativity, gauge, matter, and observer-record
 branches.
 
 Put informally, $P$ links the pixel area of the simulating-side screen to the
 electromagnetic interaction, or observation, inside the simulated-side universe.
 $N_{\mathrm{CRC}}$ links the outside total horizon capacity to the inside
-observer-accessible public record. The universe is a self-reading object:
+observer-accessible public record. $\ell_\star^2$ supplies the Newton scale on
+its own observed branch. The universe is a self-reading object:
 observers inside infer geometry, horizons, entropy, $\Lambda$, history, and
 records from the information available inside the universe, and closure demands
 that this internal readback reconstruct the same boundary capacity.

@@ -81,11 +81,14 @@ $\alpha^{-1}(0)=137.035999177(21)$? Why three spatial
 dimensions, not four or seven?
 
 The fine-structure lane treats the public Thomson-limit value as a fixed-point
-readout of the same local screen cell. The local
-pixel ratio \(P\), the area of one screen cell in Planck-area units, is given two readings. From outside
-the encoded world, $P$ is the area of one screen cell in Planck units, sitting
-slightly above the exact golden-ratio balance point $\varphi$. From inside the
-encoded world, the same displacement is read as the smallest electromagnetic
+readout of the same local screen cell. The local pixel ratio
+\(P=a_{\mathrm{cell}}/\ell_\star^2\) is given two readings. The scale
+$\ell_\star^2$ comes from the selected no-G scale certificate and is displayed
+as the Planck area only after that branch emits
+$G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar$. From outside the encoded world, $P$
+is the screen-cell area in units of the emitted scale area, sitting slightly
+above the exact golden-ratio balance point $\varphi$. From inside the encoded
+world, the same displacement is read as the smallest electromagnetic
 observation strength available to observers. The closure condition is
 
 $$P=\varphi+\alpha_{\mathrm{in}}(P)\sqrt{\pi}.$$
@@ -106,11 +109,13 @@ observer-supporting pixel. Its value is forced because the inside and outside
 descriptions of that pixel have to land on the same number.
 
 The symbol $\varphi$ is the golden ratio. $P$ is the pixel area ratio,
-the area of a screen cell in Planck-area units.
+the area of a screen cell in units of $\ell_\star^2$.
 $\sqrt{\pi}$ is the boundary Gaussian normalization used in the local
 ruler discussion. The inverse $\alpha^{-1}(0)$ is the long-distance
 fine-structure readout. The parenthesized digits again indicate the quoted
 uncertainty in the final digits.
+The pixel ratio and global capacity closure fix dimensionless geometry; they do
+not fix the SI size of $\ell_\star^2$ without the selected scale certificate.
 For the displayed Thomson endpoint, the hadronic spectral contribution has a
 separate empirical \(e^+e^-\to\mathrm{hadrons}\) payload class. The source-only
 calculation is kept in the technical table.
@@ -135,7 +140,7 @@ This is the oldest question in philosophy. Leibniz asked it. Heidegger called it
 
 Notice the hidden assumption: that "nothing" is the default state, and existence requires justification. OPH inverts this.
 
-Consider: what would "nothing" actually look like? Not empty space (that's still something, with geometry and quantum fields). True nothing would be the absence of all structure, all information, all distinction. But a state with no information *is* indistinguishable from random noise. It has no features that could distinguish it from anything else.
+Consider: what would "nothing" actually look like? Empty space is still something, with geometry and quantum fields. True nothing would be the absence of all structure, all information, all distinction. A state with no information is indistinguishable from random noise. It has no features that could distinguish it from anything else.
 
 The process described by OPH, observer patches enforcing consistency and
 carving stable structures from the space of possibilities, is precisely how

@@ -110,7 +110,9 @@ overlap-visible records and predictions match.
 **Cosmological constant.** The cosmological constant $\Lambda$ controls the
 late-time accelerated expansion of the universe in the simplest model. In de
 Sitter space it fixes the horizon radius $r_{dS}=\sqrt{3/\Lambda}$. OPH reads
-it as a global capacity parameter for the finite screen.
+the dimensionless products involving $\Lambda$ as global capacity data for the
+finite screen; the SI curvature scale also requires the selected OPH scale
+certificate.
 
 **Decoherence.** Decoherence is the process by which quantum systems become
 entangled with their environments so that interference between certain

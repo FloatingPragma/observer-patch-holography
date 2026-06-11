@@ -126,7 +126,7 @@ $R_s$ is the Schwarzschild radius. The formula says that the critical radius
 grows linearly with mass $M$. Compress the same mass inside that radius and
 the escape velocity at the boundary reaches light speed.
 
-The horizon is not a physical surface. You could cross it without noticing anything special. But once you're inside, the geometry of spacetime is such that all paths-even light paths-lead inward.
+A horizon is a causal boundary. You could cross it without noticing anything special. Once you're inside, the geometry of spacetime is such that all paths, even light paths, lead inward.
 
 Near a black hole, space is falling inward like a waterfall. The event horizon is where the water falls faster than you can swim.
 
@@ -393,7 +393,7 @@ Let's put numbers on this.
 
 The Planck length is $\ell_P \approx 1.6 \times 10^{-35}$ meters-about $10^{20}$ times smaller than a proton. The Planck area is $\ell_P^2 \approx 2.6 \times 10^{-70}$ m².
 
-**The de Sitter horizon**: Radius $R_{dS} \approx 1.66 \times 10^{26}$ m. The bare radius-squared count is $N_{\text{patch}} \approx 1.05\times10^{122}$. The corresponding Gibbons-Hawking entropy capacity is $N_{\text{scr}} \approx 3.31\times10^{122}$ in natural units, or about $4.77\times10^{122}$ bits. Other cosmological horizon conventions stay in the band from $10^{122}$ to $10^{123}$.
+**The de Sitter horizon**: After the selected OPH scale certificate is expressed in SI units, the radius is $R_{dS} \approx 1.66 \times 10^{26}$ m. The bare radius-squared count is $N_{\text{patch}} \approx 1.05\times10^{122}$. The corresponding Gibbons-Hawking entropy capacity is $N_{\text{scr}} \approx 3.31\times10^{122}$ in natural units, or about $4.77\times10^{122}$ bits. Other cosmological horizon conventions stay in the band from $10^{122}$ to $10^{123}$.
 
 This is a truly enormous number-but it is finite. The observable universe contains a finite amount of information.
 

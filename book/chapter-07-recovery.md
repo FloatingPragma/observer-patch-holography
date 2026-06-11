@@ -231,7 +231,7 @@ CMI is never negative.
 
 This sounds obvious but it's not. The proof took years and required sophisticated functional analysis. And it's the foundation of quantum recovery.
 
-Strong subadditivity says B can only help, never hurt. If you want to learn about correlations between A and C, knowing B cannot make things worse. In the worst case, B is useless. But B can never create confusion that didn't exist before.
+Strong subadditivity says B can only help, never hurt. If you want to learn about correlations between A and C, knowing B cannot make things worse. In the worst case, B is useless. B never creates confusion that was absent before.
 
 ### The Petz Map: Physical Recovery
 

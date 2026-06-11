@@ -620,12 +620,14 @@ The "cosmological constant problem" assumes quantum field theory is fundamental.
 
 QFT is not fundamental here. It is an effective description that emerges from
 the screen. The effective cosmological constant is tied to the reference
-curvature and global screen capacity discussed in Chapter 13. In natural units,
-the Gibbons-Hawking entropy is $S = A/(4G)$. For the late-time de Sitter
-horizon, this gives a bare radius-squared ratio near $1.05\times10^{122}$ and
-an entropy capacity near $3.31\times10^{122}$.
+curvature and global screen capacity discussed in Chapter 13 through
+dimensionless products such as $\Lambda\ell_\star^2$. In natural units, the
+Gibbons-Hawking entropy is $S = A/(4G)$. For the late-time de Sitter horizon,
+after the OPH scale branch is expressed in SI units, this gives a bare
+radius-squared ratio near $1.05\times10^{122}$ and an entropy capacity near
+$3.31\times10^{122}$.
 
-The "problem" exists only if you compute vacuum energy using QFT and assume that calculation is fundamental. OPH fixes Lambda by the global-capacity relation, not by a local QFT vacuum-energy sum. QFT vacuum fluctuations are emergent phenomena, not fundamental contributions to the stress tensor.
+The "problem" exists only if you compute vacuum energy using QFT and assume that calculation is fundamental. OPH fixes the dimensionless global-capacity relation, while the numerical SI value of Lambda also requires the selected scale certificate. It is not obtained from a local QFT vacuum-energy sum. QFT vacuum fluctuations are emergent phenomena, not fundamental contributions to the stress tensor.
 
 The observed small value of Lambda isn't a fine-tuning miracle. It's simply what the screen structure produces. Understanding why the screen has this particular capacity is a question about initial conditions, not about cancellation of quantum corrections.
 

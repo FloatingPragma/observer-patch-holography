@@ -18,9 +18,9 @@ pile de preuves mathématiques et la surface de vérification empirique.
 
 L'OPH est la reconstruction observateur-premier de la physique fondamentale. Il part d'observateurs finis sur une géométrie finie d'écran holographique. Sa base de travail est algébrique-quantique : algèbres de patchs, états, probabilités de type trace/Born sur les surfaces d'enregistrement déclarées et entropie généralisée font partie du point de départ formel. À partir de cette base, l'OPH retrouve l'univers effectif observé : espace-temps, structure de jauge, particules, enregistrements et synchronisation des observateurs découlent de la cohérence de recouvrement.
 
-**Point clé :** l'OPH est formulée comme une théorie sans entrée externe. Elle
-possède deux échelles quantitatives, fixées par fermeture plutôt que par
-ajustement :
+**Point clé :** l'OPH est formulée comme une théorie sans entrée externe. Sa
+surface quantitative utilise deux coordonnées de fermeture sans dimension et un
+certificat d'échelle sans \(G\). Toutes viennent de conditions de fermeture :
 
 $$
 P_\star=\varphi+\frac{\sqrt{\pi}}{A_T(P_\star)}
@@ -34,13 +34,40 @@ $$
 
 pour la capacité globale de l'écran, où $F(N)$ est la capacité active de
 l'horizon relue par les observateurs à l'intérieur de l'univers fourni avec la
-capacité $N$. La représentation par comptage fini est
+capacité $N$. Le certificat d'échelle sélectionné s'écrit comme le rapport
+d'horloge sans \(G\)
+
+$$
+\gamma_\star=\frac{\ell_\star\nu_{\mathrm{Cs}}}{c},
+\qquad
+B_\star=\frac{3\pi}{\ell_\star^2},
+\qquad
+G_{\mathrm{SI}}=\frac{c^3\ell_\star^2}{\hbar}.
+$$
+
+La représentation par comptage fini de la fermeture de capacité globale est
 $N_\star=\mathrm{MAR}\,\mathrm{argmax}_N(\log|\Omega^{\mathrm{sc}}_N|-N)$.
 Intuitivement, $N_{\mathrm{CRC}}$ est l'unique capacité où l'univers relit sa
-propre frontière sans déficit ni capacité inerte. La lecture cosmologique est
-$\Lambda_{\mathrm{CRC}}=3\pi/(G N_{\mathrm{CRC}})$. Tous les autres affichages
-quantitatifs OPH sont en aval de ces deux valeurs de fermeture et de la branche
-structurelle retrouvée.
+propre frontière sans déficit ni capacité inerte. En unités géométriques, la
+lecture cosmologique est
+$\Lambda_{\mathrm{CRC}}=3\pi/(G_{\mathrm{geom}}N_{\mathrm{CRC}})$ avec
+$G_{\mathrm{geom}}=\ell_\star^2$. Les lignes de structure fine et de particules
+sont en aval de $P_\star$ et de la branche structurelle retrouvée. La ligne
+cosmologique est en aval de $N_{\mathrm{CRC}}$. La normalisation de Newton est
+en aval de $\ell_\star^2=3\pi/B_\star$.
+
+L'observation sert à la rétro-ingénierie. Comme l'OPH traite l'univers comme
+une structure mathématique fermée à point fixe, les valeurs mesurées
+approximatives peuvent localiser le bassin ou la branche observée. La valeur
+OPH précise doit venir de la carte de point fixe
+déclarée et de son certificat de contraction de Banach, de signe dérivé, de
+concavité stricte ou d'unicité équivalente.
+
+Les deux fermetures sans dimension fixent la géométrie sans dimension. En
+particulier, $\Lambda_\star\ell_\star^2=3\pi/N_{\mathrm{CRC}}$ et
+$\Lambda_\star a_{\mathrm{cell}}=3\pi P_\star/N_{\mathrm{CRC}}$. Le certificat
+d'échelle sélectionné fournit le produit d'échelle SI
+$B_\star=\Lambda_\star N_{\mathrm{CRC}}=3\pi/\ell_\star^2$.
 
 Dans la lecture informelle en langage de simulation, $P$ relie l'aire du pixel
 de l'écran côté simulateur à l'interaction électromagnétique, c'est-à-dire à
@@ -48,9 +75,12 @@ l'observation, dans l'univers simulé. Il donne $P\simeq1.630968$ et la valeur
 de structure fine basse énergie proche de $1/137$. $N_{\mathrm{CRC}}$ relie la
 capacité totale d'horizon vue de l'extérieur à l'enregistrement public
 accessible aux observateurs de l'intérieur : l'univers doit pouvoir reconstruire
-sa propre frontière. Les observateurs internes infèrent géométrie, horizons,
-entropie, $\Lambda$, histoire et enregistrements depuis l'information disponible
-à l'intérieur de l'univers.
+sa propre frontière. L'échelle gravitationnelle est relue sur sa propre branche
+observée par le certificat d'échelle sans \(G\), $\gamma_\star$, ou de façon
+équivalente par $B_\star$, puis $\ell_\star$ s'affiche comme longueur de
+Planck. Les observateurs internes infèrent géométrie,
+horizons, entropie, $\Lambda$, histoire et enregistrements depuis l'information
+disponible à l'intérieur de l'univers.
 
 La thèse opérationnelle est plus précise que "l'information est fondamentale".
 L'OPH modélise la réalité comme un processus de consensus à point fixe fondé
@@ -189,18 +219,24 @@ de McKay. C'est pourquoi le langage $A_5$-icosaédrique et le langage de type
 $E_8$ appartiennent à une même histoire de symétrie. Ces noms désignent des
 contraintes de symétrie et une structure de régulateur.
 
-La discussion d'échelle a deux surfaces. La branche cosmologique utilise le point fixe unique de fermeture des enregistrements cosmiques : $N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})$, où la capacité d'horizon fournie et la capacité relue par les observateurs coïncident. La densité $\log|\Omega^{\mathrm{sc}}_N|-N$ est la représentation par comptage fini de cette cible. Sur la branche observée, ce point fixe est la capacité entropique de Sitter. Pour la constante cosmologique observée, le ratio nu d'aire d'horizon vaut environ $1.05\times10^{122}$, tandis que la capacité entropique utilisée par l'OPH vaut environ $3.31\times10^{122}$. Le ratio local de pixel $P$ est l'aire d'une cellule d'écran en unités de Planck. La même cellule d'écran est décrite deux fois : vue de l'extérieur comme un pixel situé légèrement au-dessus de l'équilibre auto-similaire au nombre d'or, et vue de l'intérieur comme la plus petite échelle d'observation électromagnétique disponible pour les observateurs de l'univers encodé.
-Le papier de synthèse écrit cette autoréférence comme un problème de point fixe. Le calcul de structure fine part de l'équilibre entropique au nombre d'or et de la normalisation gaussienne de bord, puis transporte l'ancre électrofaible jusqu'au point de Thomson. La surface publique utilise $P\simeq1.6309682094$. La lecture donne $\alpha^{-1}(0)=137.035999177(21)$ et $\alpha(0)\simeq0.00729735256433$. Le même pixel local porte la gravité, la structure fine, la jauge réalisée, les lignes de masses particules, les enregistrements et la synchronisation des observateurs.
+La discussion d'échelle a trois surfaces. La branche cosmologique utilise le point fixe unique de fermeture des enregistrements cosmiques : $N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})$, où la capacité d'horizon fournie et la capacité relue par les observateurs coïncident. La densité $\log|\Omega^{\mathrm{sc}}_N|-N$ est la représentation par comptage fini de cette cible. Sur la branche observée, ce point fixe est la capacité entropique de Sitter. Pour la constante cosmologique observée, le ratio nu d'aire d'horizon vaut environ $1.05\times10^{122}$, tandis que la capacité entropique utilisée par l'OPH vaut environ $3.31\times10^{122}$. Cette capacité arrondie est un affichage de branche. La ligne de Newton utilise la capacité de point fixe avec le certificat d'échelle sans \(G\). Le ratio local de pixel est $P=a_{\mathrm{cell}}/\ell_\star^2$, où $\ell_\star^2=3\pi/B_\star$ vient du certificat d'échelle et ne s'affiche comme aire de Planck qu'après cette lecture. La même cellule d'écran est décrite deux fois : vue de l'extérieur comme un ratio géométrique légèrement au-dessus de l'équilibre auto-similaire au nombre d'or, et vue de l'intérieur comme la plus petite échelle d'observation électromagnétique disponible pour les observateurs de l'univers encodé.
+Le papier de synthèse écrit cette autoréférence comme un problème de point fixe. Le calcul de structure fine part de l'équilibre entropique au nombre d'or et de la normalisation gaussienne de bord, puis transporte l'ancre électrofaible jusqu'au point de Thomson. La surface publique utilise $P\simeq1.6309682094$. La lecture donne $\alpha^{-1}(0)=137.035999177(21)$ et $\alpha(0)\simeq0.00729735256433$. Sur la ligne gravitationnelle, le même pixel fournit l'identité cellule/arête $a_{\mathrm{cell}}=P\ell_\star^2$ et $\bar{\ell}_{\mathrm{shared}}=P/4$ ; $P$ s'annule dans la lecture de Newton et laisse $G_{\mathrm{geom}}=\ell_\star^2$. Le pixel local porte aussi la structure fine, la jauge réalisée, les lignes encadrées de masses de particules, les enregistrements et la synchronisation des observateurs.
 
-## Surface d'unification à deux constantes
+## Surface d'unification quantitative
 
-La surface quantitative de l'OPH s'organise autour de deux valeurs de fermeture
-plutôt qu'une seule entrée locale : le point fixe de pixel
-$P\simeq1.6309682094$ et le point fixe global de capacité d'enregistrement
-$N_{\mathrm{CRC}}\simeq3.31\times10^{122}$. La branche $P$ alimente la lecture
-gravitationnelle, le canal électromagnétique projeté par Ward et les lignes
-encadrées de masses de particules ; la branche $N_{\mathrm{CRC}}$ alimente la
-lecture de la constante cosmologique. Les formules détaillées et les niveaux de
+La surface quantitative de l'OPH s'organise autour de rôles de fermeture et de
+relecture distincts : le point fixe de pixel $P\simeq1.6309682094$, le point
+fixe global de capacité d'enregistrement
+$N_{\mathrm{CRC}}\simeq3.31\times10^{122}$ et le certificat d'échelle sans
+\(G\), $\gamma_\star$, ou de façon équivalente
+$B_\star=3\pi/\ell_\star^2$. La capacité affichée est approximative ; les
+lignes de précision utilisent la valeur de point fixe et le certificat
+d'échelle. La branche $P$ alimente le canal
+électromagnétique projeté par Ward et les lignes encadrées de masses de
+particules, tout en fixant l'identité cellule/arête qui s'annule dans la lecture
+newtonienne. La branche $N_{\mathrm{CRC}}$ alimente la lecture de la constante
+cosmologique. Le certificat d'échelle fournit le quantum d'aire qui devient la
+normalisation de Newton. Les formules détaillées et les niveaux de
 revendication vivent dans les papiers.
 
 <p align="center">
