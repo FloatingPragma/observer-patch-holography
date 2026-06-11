@@ -66,8 +66,8 @@
 \color{pragmaInk}
 \arrayrulecolor{pragmaLine}
 
-{\LARGE\bfseries\color{pragmaCyanText}A Compact Conditional Derivation of the OPH Gravity Row}\par
-{\normalsize\color{pragmaMuted}From edge entropy and a no-\(G\) clock-scale proof record to Newton's constant}\par
+{\LARGE\bfseries\color{pragmaCyanText}A Compact Derivation of the OPH Gravity Row}\par
+{\normalsize\color{pragmaMuted}From edge entropy and the no-\(G\) clock-scale record to Newton's constant}\par
 {\scriptsize\color{pragmaMuted}Paper release: \texttt{\OPHPaperReleaseID}\quad Released: \OPHPaperReleaseDate}\par
 \tightline
 {\resultpanel{
@@ -89,37 +89,38 @@ G_{\rm checksum}
 \end{gathered}
 \]
 {\small\color{pragmaMuted}The structural result is \(G_{\rm geom}=\ell_\star^2\).  The printed
-SI decimal is source-predictive only when the imported \(\varepsilon_{\rm Cs}\) proof record has
-no gravity-calibrated dependency path.  Appendix A records the CODATA comparison.}\par
+SI decimal is source-predictive only when the clock-scale record has no
+gravity-calibrated dependency path.  Appendix A records the CODATA comparison.}\par
 }}
-{\bfseries\color{pragmaInk}Conditional closure-to-gravity derivation.}\par
+{\bfseries\color{pragmaInk}Closure-to-gravity derivation.}\par
 
 \sect{1. Claim boundary}
-This note proves a compact conditional readout inside the OPH paper stack.  It
-imports four branch proof records:
-\[
-  \mathcal R_P,\qquad
-  \mathcal R_N,\qquad
-  \mathcal R_E,\qquad
-  \mathcal R_\gamma .
-\]
-\(\mathcal R_P\) is the local pixel closure proof record.  \(\mathcal R_N\) is
-the cosmic record-capacity closure proof record.  \(\mathcal R_E\) is the
-edge-entropy and Einstein-branch proof record.  \(\mathcal R_\gamma\) is the
-no-\(G\) clock-scale proof record.
+This note proves the local OPH gravity readout from imported branch records in
+the OPH paper stack.  The load-bearing local records are \(\mathcal R_P\) and
+\(\mathcal R_E\).  \(\mathcal R_P\) is the local pixel closure record.
+\(\mathcal R_E\) is the edge-entropy and Einstein-branch record.
+\(\mathcal R_N\) is the cosmic record-capacity closure record.  Its role here
+is the downstream cosmological display.
+\(\mathcal R_\gamma\) is the no-\(G\) clock-scale record, used to express the
+geometric gravity row in SI units.
 
 The theorem proved here is the local gravity readout:
 \[
 \boxed{
-\mathcal R_P+\mathcal R_E+\mathcal R_\gamma
+\mathcal R_P+\mathcal R_E
 \Longrightarrow
-G_{\rm geom}=\ell_\star^2,\qquad
+G_{\rm geom}=\ell_\star^2 .
+}
+\]
+The SI display is a separate unit-chart readout:
+\[
+\mathcal R_\gamma
+\Longrightarrow
 G_{\rm SI}
 =
 \frac{c^5}{4\pi^2\hbar\nu_{\rm Cs}^2}\varepsilon_{\rm Cs}^2 .
-}
 \]
-The global capacity proof record \(\mathcal R_N\) closes the downstream
+The global capacity record \(\mathcal R_N\) closes the downstream
 cosmological term,
 \[
   \Lambda_{\rm CRC}
@@ -406,7 +407,17 @@ gravity-calibrated scale, then the emitted \(\varepsilon_{\rm Cs}\) is a
 no-\(G\) scale readout.  Otherwise the printed SI gravity decimal is a
 calibration checksum.
 
-The scale proof record has the form
+\infobox{Hadronic blocker}{
+The source-only SI gravity number meets the same blocker as the public
+fine-structure endpoint.  The hadronic/same-scheme endpoint payload and the
+cesium QCD/nuclear packet are fixed for the displayed checksum.  They are not
+used in the local proof \( \mathcal R_P+\mathcal R_E\Rightarrow
+G_{\rm geom}=\ell_\star^2 \).  A source-only SI prediction requires a
+Ward-projected QCD/nuclear spectral record from a dedicated OPH optical-compute
+backend, or an equivalent nonperturbative backend with manifest provenance and
+systematics.}
+
+The scale record has the form
 \[
   \mathcal R_\gamma
   =
@@ -518,7 +529,7 @@ shared edge entropy per local cell\\
 geometric Newton coupling\\
 \(G_{\rm SI}\) &
 \(6.674299995910528\times10^{-11}{\rm m^3kg^{-1}s^{-2}}\) &
-SI branch checksum; source-predictive only after the full clock proof record\\
+SI branch checksum; source-predictive only after the full clock chain\\
 \(\Lambda_{\rm CRC}\) &
 \(\dfrac{3\pi}{G_{\rm geom}N_\star}\) &
 downstream de Sitter display\\
@@ -591,7 +602,7 @@ The printed decimal is source-predictive only if the full
 \(\mathcal R_U+\mathcal R_\alpha+\mathcal R_e^{\rm abs}
 +\mathcal R_{\rm QCD/nuc}^{133{\rm Cs}}+\mathcal R_{\rm atom}^{133{\rm Cs}}\)
 chain emits it without a gravity-calibrated parent. &
-conditional &
+source-emitted required &
 O4\\
 
 Area quantum and pixel area &
@@ -611,7 +622,7 @@ G_{\rm SI}=6.674299995910528\times10^{-11}
 \end{gathered}\) &
 Comparison only.  \(G=6.67430(15)\times10^{-11}{\rm m^3\,kg^{-1}\,s^{-2}}\).
 This CODATA row is excluded upstream by the no-\(G\) criterion in Section 4. &
-conditional; calibration checksum unless \(\mathcal R_\gamma\) is source-emitted &
+source-gated checksum unless \(\mathcal R_\gamma\) is source-emitted &
 S1,O3,O4\\
 
 Cosmological constant &
@@ -693,7 +704,8 @@ S6,O4,O5\\
 Fine-structure source trunk &
 \(\alpha^{-1}_{\rm source}=136.994835164621649\ldots\) &
 No direct public measurement.  It is the source calculation before the
-declared hadronic/same-scheme endpoint payload. &
+declared hadronic/same-scheme endpoint payload, which is fixed for the
+displayed endpoint row. &
 \(n/a\) &
 O5\\
 
@@ -703,7 +715,8 @@ Fine-structure endpoint &
 \alpha(0)=0.00729735256433\ldots
 \end{gathered}\) &
 CODATA gives \(\alpha^{-1}=137.035999177(21)\).  The public endpoint stays
-outside the gravity proof. &
+outside the gravity proof.  Its hadronic/same-scheme payload is fixed rather
+than source-emitted in this compact note. &
 \(0\sigma\) &
 S2,O5\\
 
