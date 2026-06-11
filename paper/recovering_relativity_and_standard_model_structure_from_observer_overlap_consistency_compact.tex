@@ -33,7 +33,7 @@
 
 \title{Recovering Relativity and the Standard Model\\
 from Observer Overlap Consistency}
-\author{B.\ M\"uller \and Alexander Osika \and Kai Xue \and Peter Nguyen}
+\author{B.\ M\"uller \and Alexander Osika \and Kai Xue \and Peter Nguyen \and Maarten Antonie Visser}
 \date{\OPHPaperReleaseDate}
 
 \begin{document}
@@ -222,6 +222,44 @@ capacity \(N_{\mathrm{CRC}}\), from measured \(G\), or from \(\Lambda=3\pi/(GN)\
 certificate is supplied, \(\ell_\star^2=3\pi/B_\star\), \(\ell_P^2\) is the usual SI
 Planck-area display of \(\ell_\star^2\), and
 \(G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar\).
+The no-\(G\) burden of this scale certificate is the clock hierarchy. In the synthesis paper
+this is stated as the OPH clock-hierarchy theorem. Its first upstream record is the
+no-measured-input \(\alpha_U(P_\star)\) proof record, where
+\[
+\Phi_U(P,a)
+=
+\bar\ell_{\mathrm{SU}(2)}(t_2(P,a))
++
+\bar\ell_{\mathrm{SU}(3)}(t_3(P,a))
+-
+\frac{P}{4}
+\]
+has a unique source zero in the declared interval, with frozen representation cutoffs, beta
+packet, matching prescription, threshold packet, and renormalization convention. The cesium gap
+\(\varepsilon_{\mathrm{Cs}}=\hbar\omega_{\mathrm{Cs}}/E_\star\) must then factor through the
+source-only chain
+\[
+\mathcal R_\gamma
+=
+\mathcal R_U
++
+\mathcal R_\alpha
++
+\mathcal R_e^{\mathrm{abs}}
++
+\mathcal R_{\mathrm{QCD/nuc}}^{133\mathrm{Cs}}
++
+\mathcal R_{\mathrm{atom}}^{133\mathrm{Cs}}.
+\]
+Here \(\mathcal R_\alpha\) emits the electromagnetic endpoint used by the atomic Hamiltonian,
+\(\mathcal R_e^{\mathrm{abs}}\) emits the absolute electron mass ratio, the cesium
+QCD/nuclear branch emits the source-side \({}^{133}\mathrm{Cs}\) nuclear packet, and the atomic
+branch emits the hyperfine spectral gap. The combined dependency graph may contain no path from
+measured \(G\), Planck area/mass/time, measured low-energy electroweak data, measured
+\(\Lambda\), \(3\pi c^3/(\hbar G)\), or an equivalent calibrated scale. Failure of that
+dependency test makes the numerical \(G\) row calibration. Passing the dependency test makes the
+SI gravity row inherit the no-\(G\) status of the emitted clock gap. Printed digits beyond the
+source interval bounds are calibration checksum digits.
 \(N_{\mathrm{CRC}}\) enters the cosmological-capacity branch. The capacity normalization uses the
 Gibbons--Hawking de Sitter entropy~\cite{gibbonsHawking77}: if
 \[
@@ -4704,6 +4742,21 @@ t_{\mathrm{tr}}(P)=\frac{2\pi}{(N_c+1)\alpha_U(P)}
 as the pixel-closure solve itself. Here the paper-side transmutation factor is the same
 \(\beta_{\mathrm{EW}}=N_c+1\) used below; legacy overloaded \(\beta\)-ratios are compare-only
 diagnostic readouts and are not part of the theorem contract.
+
+This fixes the hierarchy interpretation used by the compact paper. The cosmic capacity number
+\(N_{\mathrm{CRC}}\) belongs to the global horizon-capacity branch. The electroweak hierarchy is
+local:
+\[
+\frac{v}{E_\star}
+=
+P_\star^{-1/2}
+\exp\!\left[-\frac{2\pi}{4\alpha_U(P_\star)}\right].
+\]
+The Higgs naturalness row is read on the same D10/D11 normal-form surface. The observer-visible
+scalar mass is the branch readout \(m_H=H_{\mathrm{OPH}}(P_\star)\). The split into a bare scalar
+mass plus a cutoff correction is a regulator coordinate description; the selected branch fixes
+the scalar row through its own equations. This is a quantitative-closure statement, not a
+recovered-core theorem.
 
 The scales fixed directly from \(P\) are
 \[

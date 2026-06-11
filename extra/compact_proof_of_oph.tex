@@ -1,5 +1,5 @@
 \documentclass[10pt]{article}
-\usepackage[a4paper,margin=0.52in]{geometry}
+\usepackage[a4paper,margin=0.58in,footskip=18pt]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
@@ -7,243 +7,305 @@
 \usepackage[table]{xcolor}
 \usepackage{array,booktabs,longtable}
 \usepackage{microtype}
+\usepackage{fancyhdr}
 \usepackage[hidelinks]{hyperref}
 \input{../paper/release_info}
-\pagestyle{empty}
 
+\definecolor{pragmaBg}{HTML}{FFFFFF}
+\definecolor{pragmaPanel}{HTML}{F5F8FA}
+\definecolor{pragmaPanelTwo}{HTML}{EAF2F5}
 \definecolor{pragmaInk}{HTML}{040609}
-\definecolor{pragmaCyan}{HTML}{4EE7FF}
-\definecolor{pragmaCyanText}{HTML}{0B5C6D}
-\definecolor{pragmaMuted}{HTML}{6E7785}
-\definecolor{pragmaLine}{HTML}{85CFE0}
-\definecolor{pragmaSoft}{HTML}{F7FBFF}
+\definecolor{pragmaCyan}{HTML}{2B8997}
+\definecolor{pragmaCyanText}{HTML}{095766}
+\definecolor{pragmaMuted}{HTML}{5F6B7A}
+\definecolor{pragmaLine}{HTML}{AFCFD8}
+\definecolor{pragmaSoft}{HTML}{F1F6F8}
+\definecolor{pragmaGreen}{HTML}{00FF41}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\footnotesize\color{pragmaMuted}\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
 
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0.17em}
+\setlength{\parskip}{0.2em}
 \setlength{\abovedisplayskip}{0.27em}
 \setlength{\belowdisplayskip}{0.27em}
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.18}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
-\newcommand{\sect}[1]{\vspace{0.28em}{\large\bfseries\color{pragmaCyanText}#1}\par\vspace{-0.1em}}
-\newcommand{\tightline}{\vspace{0.12em}{\color{pragmaCyan}\hrule height 0.58pt}\vspace{0.08em}{\color{pragmaLine}\hrule height 0.34pt}\vspace{0.35em}}
+\newcommand{\sect}[1]{\vspace{0.34em}{\large\bfseries\color{pragmaCyanText}#1}\par\vspace{-0.08em}}
+\newcommand{\tightline}{\vspace{0.16em}{\color{pragmaCyan}\hrule height 0.48pt}\vspace{0.1em}{\color{pragmaLine}\hrule height 0.28pt}\vspace{0.42em}}
+\newcommand{\resultpanel}[1]{%
+\vspace{0.22em}%
+\begingroup%
+\setlength{\fboxsep}{8pt}%
+\setlength{\fboxrule}{0.45pt}%
+\fcolorbox{pragmaLine}{pragmaPanel}{%
+\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{#1}}%
+\endgroup%
+\vspace{0.42em}%
+}
+\newcommand{\infobox}[2]{%
+\vspace{0.25em}%
+\begingroup%
+\setlength{\fboxsep}{7pt}%
+\setlength{\fboxrule}{0.35pt}%
+\fcolorbox{pragmaLine}{pragmaSoft}{%
+\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
+{\bfseries\color{pragmaCyanText}#1}\par
+{\small #2}}}%
+\endgroup%
+\vspace{0.26em}%
+}
 
 \begin{document}
-\fontsize{9.28pt}{10.72pt}\selectfont
+\pagecolor{pragmaBg}
+\fontsize{9.30pt}{10.88pt}\selectfont
 \color{pragmaInk}
 \arrayrulecolor{pragmaLine}
 
-{\LARGE\bfseries\color{pragmaCyanText}A short proof of the Observer Patch Holography simulation model}\par
-{\normalsize\color{pragmaMuted}From a self-containing screen to Newton's constant}\par
+{\LARGE\bfseries\color{pragmaCyanText}A Compact Conditional Derivation of the OPH Gravity Row}\par
+{\normalsize\color{pragmaMuted}From edge entropy and a no-\(G\) clock-scale proof record to Newton's constant}\par
 {\scriptsize\color{pragmaMuted}Paper release: \texttt{\OPHPaperReleaseID}\quad Released: \OPHPaperReleaseDate}\par
 \tightline
-{\bfseries\color{pragmaInk}Selected-scale branch gravity theorem.}\par
-
-\sect{1. Purpose}
-The goal of this short note is to state the compact mathematical case that OPH
-is the correct fundamental theory of this Universe.  The starting hypothesis is
-simple: reality is a simulation that contains itself.  It contains observers,
-their records, and the rules by which those records are read back.  Constants
-are therefore not external settings.  They are fixed points of the closed
-readout structure.
-
-Conventional particle-physics bookkeeping starts with the 19 fitted parameters
-of the minimal Standard Model, then adds gravitational and cosmological
-measured inputs such as \(G\) and \(\Lambda\).  OPH reduces the fundamental
-closure data to two dimensionless screen quantities.  Their values are
-computable as unique fixed points of OPH readback laws.  At the theorem target
-level, OPH is therefore a zero-parameter theory: numerical constants are
-readouts of the closed structure, with any remaining SI scale certificate stated as
-an explicit certificate target.
-
-The first two OPH closure values are \(P_\star\) and \(N_\star\).  \(P_\star\)
-is the local pixel value of the screen.  It says how much area and shared edge
-entropy one observer cell carries.  \(N_\star\) is the global capacity of the
-closed screen.  It says how large the observer-facing de Sitter screen is.  A
-finite screen simulator needs exactly these two dimensionless inputs: the size
-of one pixel and the capacity of the whole screen.
-
-The selected scale branch supplies the no-\(G\) metrological coordinate
-\(\gamma_\star\), equivalently \(B_\star\).  This is the bridge from the
-dimensionless OPH screen to SI metres.  With \(P_\star\), \(N_\star\), and the
-selected scale certificate in place, the local area law has no adjustable
-Newton constant.  The cell area and the shared edge entropy refer to the same
-observer cell, so \(P_\star\) cancels and the area quantum becomes the Newton
-coupling.
-
-This note proves the selected-branch gravity implication
+{\resultpanel{
+{\bfseries\color{pragmaCyan}Headline structural readout and branch checksum.}\par
 \[
-\left(
-\bar\ell_{\rm shared}=P_\star/4,\quad
-a_{\rm cell}=P_\star\ell_\star^2,\quad
-\ell_\star^2\hbox{ supplied by the scale certificate}
-\right)
-\Longrightarrow
+\begin{gathered}
+G_{\rm geom}=\ell_\star^2,\qquad
 G_{\rm SI}
 =
-6.674299995910528\times10^{-11}
-{\rm m^3\,kg^{-1}\,s^{-2}} .
+\frac{c^5}{4\pi^2\hbar\nu_{\rm Cs}^2}\varepsilon_{\rm Cs}^2,\\[0.22em]
+\varepsilon_{\rm Cs}^{\rm cal}
+=
+3.113930513416012823901050434132426029496608693041876
+\times10^{-33},\\[0.18em]
+G_{\rm checksum}
+=
+6.674299995910528\ldots\times10^{-11}
+~{\rm m^3\,kg^{-1}\,s^{-2}} .
+\end{gathered}
 \]
-It does not claim that \(P_\star,N_\star\) alone determine an SI metre.  The
-scale-freedom lemma in Appendix A proves that such a claim would be false.
-The scale certificate is stated explicitly.
+{\small\color{pragmaMuted}The structural result is \(G_{\rm geom}=\ell_\star^2\).  The printed
+SI decimal is source-predictive only when the imported \(\varepsilon_{\rm Cs}\) proof record has
+no gravity-calibrated dependency path.  Appendix A records the CODATA comparison.}\par
+}}
+{\bfseries\color{pragmaInk}Conditional closure-to-gravity derivation.}\par
 
-\textbf{Claim status.}
-This is a selected-branch scale certificate.  Once the no-\(G\) scale coordinate
-\(\gamma_\star\), equivalently \(B_\star\), is supplied, the OPH area coordinate
-and Newton constant are forced.  A source-only proof of the SI value requires a
-source-only OPH readback map that emits \(\gamma_\star\) or \(B_\star\) without
-using measured \(G\).
+\sect{1. Claim boundary}
+This note proves a compact conditional readout inside the OPH paper stack.  It
+imports four branch proof records:
+\[
+  \mathcal R_P,\qquad
+  \mathcal R_N,\qquad
+  \mathcal R_E,\qquad
+  \mathcal R_\gamma .
+\]
+\(\mathcal R_P\) is the local pixel closure proof record.  \(\mathcal R_N\) is
+the cosmic record-capacity closure proof record.  \(\mathcal R_E\) is the
+edge-entropy and Einstein-branch proof record.  \(\mathcal R_\gamma\) is the
+no-\(G\) clock-scale proof record.
 
-\sect{2. Fixed-point rule and the two closure variables}
-For any branch whose readback law is a contraction \(F:I\to I\) on a complete
-metric interval,
+The theorem proved here is the local gravity readout:
+\[
+\boxed{
+\mathcal R_P+\mathcal R_E+\mathcal R_\gamma
+\Longrightarrow
+G_{\rm geom}=\ell_\star^2,\qquad
+G_{\rm SI}
+=
+\frac{c^5}{4\pi^2\hbar\nu_{\rm Cs}^2}\varepsilon_{\rm Cs}^2 .
+}
+\]
+The global capacity proof record \(\mathcal R_N\) closes the downstream
+cosmological term,
+\[
+  \Lambda_{\rm CRC}
+  =
+  \frac{3\pi}{N_\star\ell_\star^2}
+  =
+  \frac{3\pi c^3}{\hbar G_{\rm SI}N_\star}.
+\]
+The structural theorem ends at \(G_{\rm geom}=\ell_\star^2\). The numerical SI
+\(G\) row is source-predictive only when \(\mathcal R_\gamma\) has a public
+dependency graph containing no measured \(G\), no Planck area \(\hbar G/c^3\),
+no measured \(\Lambda\), and no equivalent gravity-calibrated scale. Without
+that record, the printed SI decimal is a calibration checksum.
+
+\sect{2. The two OPH closures}
+OPH starts with zero constants.  It starts with closure equations.  The local
+pixel closure computes \(P_\star\).  The global screen-capacity closure computes
+\(N_\star\):
+\[
+  P=\Gamma(P)=\varphi+\frac{\sqrt\pi}{A_T(P)},\qquad
+  N=\mathcal C(N).
+\]
+Their meanings are concrete:
+\[
+  P_\star \quad\hbox{one local pixel},\qquad
+  N_\star \quad\hbox{the total closed-screen capacity}.
+\]
+\(P_\star\) says how much area and shared edge entropy one observer cell
+carries.  \(N_\star\) says how many record units fit on the whole closed
+screen.
+
+These are self-readback equations.  A trial value is inserted into the OPH
+construction.  The constructed record system reads the same value back from
+inside the branch.  A valid value is one where input and readout agree.  For
+\(P\), the trial value builds one local cell and its electromagnetic
+observation scale.  For \(N\), the trial value builds a closed screen with that
+many horizon record units.  For the SI scale, the trial value builds the
+no-\(G\) clock bridge that compares the OPH area unit with the cesium clock.
+
+The OPH method is a targeted fixed-point search from inside the experienced
+branch.  The OPH universe is a closed mathematical readout structure whose
+observers, records, and branch values coexist in one object.  Embedded
+observers meet record fragments of that branch.  Those fragments give educated
+starting points for the search: the electromagnetic width is near \(1/137\),
+the screen capacity is near \(10^{122}\), and laboratory clocks supply a scale
+chart.
+
+Those observations identify the basin of the readback map.  The closure
+equation supplies the exact value as the unique fixed point inside that basin.
+Observation supplies the address.  Banach contraction supplies the number.
+
+The proof obligation is direct: show that the OPH readback map sends the
+interval \(I\) into itself, contracts distances inside it, and has the quoted
+candidate as its fixed point.  If these statements hold, every starting point
+in \(I\) lands at the same fixed point.  Changing the approximate observation
+inside \(I\) changes only the starting point.  The endpoint is fixed by the
+equation and uniqueness proof.
+
+\infobox{Repeatable experiment: optical pixel check}{
+Alexander Osika's hardware check implements the same search-and-lock workflow
+with light.  The body is a clear SLA resin torus with \(R/r=\varphi\), twelve
+golden-angle ports, twelve bidirectional red 0805 LEDs, and an RP2040-Zero
+controller.  For each trial \(P\), the firmware computes the OPH
+gauge/heat-kernel residual, sends a pulse through the torus, reads the return
+through the same LEDs, and repeats.  The check succeeds when the mathematical
+residual crosses zero at the same \(P\) where the optical response leaves the
+dark state and locks.  In the reported April 20, 2026 run, the first four
+passes read \(0\); the fifth pass locked at \(256\) and held, matching the
+four-step contraction expectation.}
+
+\infobox{What is the basin?}{
+The basin is the allowed region of candidate values for one branch.  Observed
+records identify which region of the mathematical structure our experience
+occupies.  The contraction proves that this whole region has one fixed point.
+The exact value is that fixed point.}
+
+A closure equation selects its value as a fixed point.  A fixed point is a
+number that reads back to itself under the rule that defines the branch.  For a
+branch whose readback law is a contraction \(F:I\to I\) on a complete metric
+interval,
 \[
   F(I)\subseteq I,\qquad d(F(x),F(y))\le q\,d(x,y),\qquad 0\le q<1,
 \]
-Banach's theorem gives exactly one fixed point.  Observation locates the branch
-interval; the contraction certificate removes numerical freedom inside that
-branch.
+Banach's theorem gives exactly one fixed point.
 
-The compact OPH screen architecture has two dimensionless closure coordinates:
-\[
-  P \quad\hbox{local observer-cell pixel ratio},\qquad
-  N \quad\hbox{global closed-screen capacity}.
-\]
-\(P\) is local.  It assigns one elementary observer cell its screen area and
-shared edge entropy:
+\infobox{What is a Banach contraction?}{
+Think of a rule that takes every allowed guess and moves it closer to one
+special value.  If the rule always shrinks distances by a fixed factor
+\(q<1\), repeated readback has only one possible landing point.  That landing
+point is the fixed point.  In OPH, approximate observation selects the allowed
+region.  The contraction proves the exact value inside it.}
+
+\(I\) is the allowed interval of candidate values.  \(F\) is the OPH readback
+rule.  \(d\) is a distance between two candidates.  \(q<1\) means the rule
+pulls candidates closer together each time it is applied.  Observation locates
+the branch interval; the contraction removes numerical freedom
+inside that interval.  The readback loop has one stable value.  A different
+value would fail to read back to itself.
+
+\textbf{The local pixel \(P_\star\).}
+\(P_\star\) fixes one elementary observer cell.  In a simulator it is the
+cell-area and edge-entropy normalization:
 \[
   a_{\rm cell}=P\ell_\star^2,\qquad
   \bar\ell_{\rm shared}=P/4 .
 \]
-\(N\) is global.  It assigns the closed observer screen its total capacity and
-therefore its dimensionless de Sitter branch:
+The trial \(P\) is sent through the local source map.  That map produces the
+electromagnetic observation scale of the same cell, written
 \[
-  N=\frac{3\pi}{\Lambda_\star\ell_\star^2}.
+  A_T(P)=\alpha_{\rm em}^{-1}(0;P).
 \]
-A finite OPH screen computation needs exactly these two closure coordinates
-before its readouts can have physical meaning: a pixel area/entropy unit for
-each cell, and a capacity for the whole closed screen.
+The local cell has two readings.  The outer reading is the screen detuning
+above the self-similar balance point \(\varphi\).  The inner reading is the
+electromagnetic width \(1/A_T(P)\) carried by that same cell.  The fixed-point
+equation for one closed pixel is
+\[
+  P=\Gamma(P)=\varphi+\frac{\sqrt\pi}{A_T(P)}.
+\]
+The branch contraction has a unique selected value.  No other local pixel value
+solves this OPH readback problem:
+\[
+  P_\star=1.6309682094039593\ldots .
+\]
+Its meaning is simple: geometry and shared edge entropy name the same local
+observer cell.
 
-\textbf{Imported local pixel closure.}
-On the declared OPH local-pixel branch, the readback equation
+\textbf{The global capacity \(N_\star\).}
+\(N_\star\) fixes the whole closed screen.  It is the dimensionless total
+observer-facing record capacity.  On the declared OPH cosmic record-capacity
+branch, \(N\) is computed by the readback equation
 \[
-  P=\Gamma(P)=\varphi+\frac{\sqrt\pi}{A_T(P)}
+  N=\mathcal C(N).
 \]
-has a unique selected fixed point \(P_\star\).  This branch theorem is imported
-from the fine-structure surface.  The gravity proof below does not require the
-numerical value of \(P_\star\), because \(P_\star\) cancels from the local area
-law.  Informally, \(P_\star\) is the one local pixel value for which geometric
-area and shared edge entropy describe the same observer cell.
+Here the trial \(N\) builds a closed OPH universe with a horizon record Hilbert
+space of size \(\log\dim\mathcal H_{\partial,N}=N\).  The set
+\(\Omega_N^{\rm sc}\) contains terminal screen normal forms that are
+repair-closed, observer-supporting, locally recovered-core closed, and whose
+own horizon record surface reads back capacity \(N\).  The expression
+\(\log|\Omega_N^{\rm sc}|-N\) counts self-closing normal forms per available
+screen Hilbert-space size.  Equivalently, on the count-density presentation,
+\[
+  N_\star=\operatorname{Rep}_{\rm mon}\arg\max_N[\log|\Omega_N^{\rm sc}|-N]
+\]
+under the stated strict-concavity proof.  Here \(\operatorname{Rep}_{\rm mon}\)
+means the monotone arithmetic representative: the canonical numeric
+representative of the maximizing branch.  The construction is given in the
+Observers paper, cited as O1 in Appendix A.  The selected display value is
+\(N_\star\simeq3.31\times10^{122}\).  Its meaning is simple: the closed screen
+has one self-consistent capacity.  No other capacity on this branch gives the
+same closed-screen readback.  Once the scale readout is supplied, this same
+capacity gives the global curvature product
+\[
+  \Lambda_\star\ell_\star^2=\frac{3\pi}{N_\star}.
+\]
 
-\textbf{Imported global capacity closure.}
-On the declared OPH cosmic record-capacity branch, the readback equation
-\[
-  N=\mathcal C(N)
-\]
-has a unique selected fixed point \(N_\star\).  Equivalently, on the
-count-density presentation,
-\[
-  N_\star=\operatorname{MAR}\arg\max_N[\log|\Omega_N^{\rm sc}|-N]
-\]
-under the stated strict-concavity certificate.  This branch theorem is imported
-from the capacity surface.  Informally, \(N_\star\) is the one total capacity
-for which the closed screen and its observer-facing de Sitter capacity name the
-same global object.  A rough display is \(N_\star\simeq3.31\times10^{122}\).
+\infobox{What is the representative rule?}{
+The maximization can name a branch before it names a single printed number.
+\(\operatorname{Rep}_{\rm mon}\) picks the canonical monotone arithmetic
+representative of that maximizing branch.  This is separate from Minimal
+Admissible Realization, the MAR selector used in the Standard Model branch.
+The detailed capacity construction lives in the Observers paper, listed as O1
+in Appendix A.}
 
-Before Newton's constant is emitted, the capacity identity is written with the
-OPH area coordinate,
-\[
-  N_\star=\frac{A_{\rm dS}}{4\ell_\star^2}
-  =\frac{3\pi}{\Lambda_\star\ell_\star^2}.
-\]
-The Planck-length notation is reserved for the downstream SI display after
-\(G_{\rm SI}\) has been read out.
-
-\sect{3. Dimensionless geometry from \(P_\star,N_\star\)}
-Let
+The two fixed points determine dimensionless screen geometry:
 \[
   P_\star=\frac{a_{\rm cell}}{\ell_\star^2},\qquad
   N_\star=\frac{3\pi}{\Lambda_\star\ell_\star^2},
 \]
-and define \(B_\ell=\Lambda_\star N_\star\).  Then
 \[
-  \Lambda_\star\ell_\star^2=\frac{3\pi}{N_\star},\qquad
-  \Lambda_\star a_{\rm cell}=\frac{3\pi P_\star}{N_\star},
-\]
-and
-\[
-  B_\ell\ell_\star^2=3\pi,\qquad
-  B_\ell a_{\rm cell}=3\pi P_\star .
-\]
-These relations follow by substitution.  They are exactly what the two
-dimensionless closure coordinates determine: dimensionless local/global
-geometry.
-
-\sect{4. Scale certificate}
-\(P_\star\) and \(N_\star\) are dimensionless.  They fix the local pixel ratio
-and the global screen capacity, then a branch coordinate must identify the SI
-length scale.  OPH writes that coordinate as the no-\(G\) clock ratio
-\(\gamma_\star\), equivalently \(B_\star=\Lambda_\star N_\star\).  The scale
-certificate has to come from an OPH readback map that does not use measured
-\(G\), \(\ell_P^2=\hbar G/c^3\), or \(\Lambda=3\pi/(GN_\star)\).  Appendix A
-contains the short scale-freedom proof.
-
-\sect{5. Selected scale certificate}
-The primary scale coordinate is dimensionless:
-\[
-  \gamma_\star:=\frac{\ell_\star\nu_{\rm Cs}}{c},
-\]
-where \(\nu_{\rm Cs}=9\,192\,631\,770~{\rm s^{-1}}\) is the SI cesium frequency.
-Assume the selected OPH scale branch supplies the no-\(G\) clock ratio
-\[
-\gamma_\star
-=
-4.9559743365484194636657782433696431879484319705825
-\times10^{-34}.
-\]
-Then
-\[
-  \ell_\star^2
-  =
-  \left(\frac{\gamma_\star c}{\nu_{\rm Cs}}\right)^2
-  =
-  2.61228030237427777887347769215451001461202676866
-  \times10^{-70}{\rm m^2}.
-\]
-Equivalently,
-\[
-  B_\star=\frac{3\pi}{\ell_\star^2}
-  =
-  3.607873914680321576051841480160172547687708307217
-  \times10^{70}{\rm m^{-2}} .
-\]
-The displayed \(B_\star\) is the SI form of the same scale certificate, not an
-additional pure OPH closure coordinate.
-
-\sect{6. Local edge-entropy gravity law}
-For a cut with \(N_\Sigma\) cells,
-\[
-  A=N_\Sigma a_{\rm cell},\qquad
-  S_{\rm edge}=N_\Sigma\bar\ell_{\rm shared}.
-\]
-If the area law is
-\[
-  S_{\rm edge}=\frac{A}{4G_{\rm geom}},
-\]
-then substitution gives
-\[
-  N_\Sigma\bar\ell_{\rm shared}
-  =
-  \frac{N_\Sigma a_{\rm cell}}{4G_{\rm geom}},
+  \Lambda_\star\ell_\star^2=\frac{3\pi}{N_\star},
   \qquad
-  G_{\rm geom}=\frac{a_{\rm cell}}{4\bar\ell_{\rm shared}} .
+  \Lambda_\star a_{\rm cell}=\frac{3\pi P_\star}{N_\star}.
 \]
 
-\sect{7. Pixel cancellation}
-On the local OPH gravity branch,
+\sect{3. Local gravity readout}
+On the imported edge-entropy/Einstein branch, the local Newton coupling is the
+coefficient that converts cell area to edge entropy:
 \[
-  a_{\rm cell}=P_\star\ell_\star^2,\qquad
+  G_{\rm geom}
+  =
+  \frac{a_{\rm cell}}{4\bar\ell_{\rm shared}}.
+\]
+On the selected local pixel branch,
+\[
+  a_{\rm cell}=P_\star\ell_\star^2,
+  \qquad
   \bar\ell_{\rm shared}=\frac{P_\star}{4}.
 \]
 Therefore
@@ -254,55 +316,187 @@ Therefore
   =
   \ell_\star^2 .
 \]
-The numerical value of \(G_{\rm SI}\) is carried by the selected scale
-certificate \(\gamma_\star\), equivalently \(B_\star\).  The local pixel
-\(P_\star\) is load-bearing structurally: it makes the area and edge-entropy
-readings refer to the same local cell, and then cancels.  The global capacity
-\(N_\star\) is load-bearing in identifying the de Sitter scale branch through
-\(B_\star=\Lambda_\star N_\star\).  If \(B_\star\) is supplied directly,
-\(N_\star\) does not by itself determine the SI value.
+The numerical value of \(P_\star\) cancels.  This cancellation is the local
+cell identification doing its job: \(P_\star\) ties the cell-area reading to
+the shared-edge-entropy reading, while \(\ell_\star^2\) carries the area scale.
 
-\sect{8. SI Newton constant on the selected scale branch}
-By pixel cancellation,
+The global capacity \(N_\star\) closes the cosmological term downstream.  The
+local Newton row has this dependency:
 \[
-  G_{\rm geom}=\ell_\star^2.
+  (P_\star,\mathcal R_E)\Longrightarrow G_{\rm geom}=\ell_\star^2,
+  \qquad
+  \mathcal R_\gamma\Longrightarrow
+  \ell_\star=\frac{\gamma_\star c}{\nu_{\rm Cs}}.
 \]
-The SI display relation is
+
+\sect{4. Adding SI units}
+\(P_\star\) and \(N_\star\) are dimensionless.  They fix the local pixel ratio
+and the global screen capacity.  SI units require a scale readout.  OPH
+writes that readout as the no-\(G\) cesium clock gap
+\(\varepsilon_{\rm Cs}\), with
+\[
+  \gamma_\star=\frac{\varepsilon_{\rm Cs}}{2\pi},
+  \qquad
+  \gamma_\star:=\frac{\ell_\star\nu_{\rm Cs}}{c}.
+\]
+\(\nu_{\rm Cs}=9\,192\,631\,770~{\rm s^{-1}}\) is the SI cesium frequency.
+\(\gamma_\star\) compares the OPH length \(\ell_\star\) with the distance light
+travels during one cesium-clock tick.  Its dependency graph contains the unit
+chart, with no gravity measurement in it.  The input list contains no measured
+\(G\), no \(\hbar G/c^3\), no observed \(\Lambda\), and no
+\(3\pi c^3/(\hbar G)\).  This scale readout follows the same basin logic:
+observation locates the branch, and the no-\(G\) readback map supplies the
+selected fixed point.
+
+The trial scale value is a dimensionless clock ratio, not a measured Newton
+constant.  It asks how large the OPH area unit is when expressed through a
+source-only atomic clock bridge.  The bridge may use the SI definitions of
+\(c\), \(\hbar\), and the cesium transition frequency because those define the
+human unit chart.  It must emit the clock gap without using \(G\), Planck area,
+or a cosmological formula containing \(G\).  Once that no-\(G\) clock gap is
+emitted, the conversion to \(G_{\rm SI}\) is algebra.
+
+\infobox{What does no-\(G\) mean here?}{
+The scale readout must be obtained without using Newton's constant in disguise.
+It may use the SI unit chart, such as \(c\), \(\hbar\), and the cesium clock
+frequency.  It may not use measured \(G\), Planck area \(\hbar G/c^3\), or a
+cosmological expression containing \(G\).  That condition is the
+non-circularity test for the gravity number.}
+
+The clock gap is a hierarchy readout.  The required source bridge factorizes as
+\[
+  \mathcal R_\gamma
+  =
+  \mathcal R_U
+  +
+  \mathcal R_\alpha
+  +
+  \mathcal R_e^{\rm abs}
+  +
+  \mathcal R_{\rm QCD/nuc}^{133{\rm Cs}}
+  +
+  \mathcal R_{\rm atom}^{133{\rm Cs}}.
+\]
+\(\mathcal R_U\) emits the unified diffusion coupling and the electroweak
+transmutation scale.  Its source residual is
+\[
+  \Phi_U(P,a)
+  =
+  \bar\ell_{\rm SU(2)}(t_2(P,a))
+  +
+  \bar\ell_{\rm SU(3)}(t_3(P,a))
+  -
+  \frac{P}{4},
+\]
+with \(t_i(P,a)\) computed from the declared source running family and
+self-consistent \(Z\)-scale.  The zero
+\(\Phi_U(P_\star,\alpha_U(P_\star))=0\) is accepted only with frozen
+representation cutoffs, beta packet, matching prescription, threshold packet,
+renormalization convention, interval bound, residual bound, derivative bound,
+and a dependency graph that contains no measured electroweak or gravitational
+ancestor.  It then emits
+\[
+  \frac{v}{E_\star}
+  =
+  P_\star^{-1/2}
+  \exp\!\left[-\frac{2\pi}{(N_c+1)\alpha_U(P_\star)}\right],
+  \qquad N_c=3.
+\]
+\(\mathcal R_\alpha\) emits the electromagnetic endpoint used by the atomic
+Hamiltonian. \(\mathcal R_e^{\rm abs}\) emits the absolute electron mass ratio.
+\(\mathcal R_{\rm QCD/nuc}^{133{\rm Cs}}\) emits the source-side cesium nuclear
+packet. \(\mathcal R_{\rm atom}^{133{\rm Cs}}\) emits the cesium hyperfine
+spectral gap from those dimensionless source data.  Importing measured \(G\),
+Planck area, measured \(\Lambda\), measured electroweak data, or an equivalent
+calibrated scale makes the numerical gravity row a calibration.  A dependency
+graph that passes that test emits a no-\(G\) scale readout, and the displayed
+Newton value follows by unit conversion.  Printed digits beyond the interval
+bounds supplied by the full source chain are calibration checksum digits.
+
+The scale proof record has the form
+\[
+  \mathcal R_\gamma
+  =
+  (I_\gamma,S_\gamma,d_\gamma,q_\gamma,\gamma_0,r_\gamma,\mathcal G_\gamma),
+\]
+where \(I_\gamma\) is the branch interval, \(S_\gamma\) is the source readback
+map, \(d_\gamma\) is the metric, \(q_\gamma<1\) is the contraction constant,
+\(\gamma_0\) is the displayed candidate, \(r_\gamma=d_\gamma(S_\gamma(\gamma_0),\gamma_0)\)
+is the residual, and \(\mathcal G_\gamma\) is the dependency graph.  The record
+must satisfy
+\[
+  S_\gamma(I_\gamma)\subseteq I_\gamma,
+  \qquad
+  d_\gamma(S_\gamma(x),S_\gamma(y))
+  \le q_\gamma d_\gamma(x,y).
+\]
+The dependency graph must contain no path from
+\[
+  G_{\rm exp},\qquad
+  \ell_P^2=\frac{\hbar G}{c^3},\qquad
+  \Lambda_{\rm exp},\qquad
+  B_G=\frac{3\pi c^3}{\hbar G}
+\]
+to \(\gamma_0\) or \(\varepsilon_{\rm Cs}\).  Approximate observation may
+locate the branch interval.  It may not define \(S_\gamma\), tune its
+coefficients, choose among multiple roots inside the interval, alter the
+residual, or update \(\mathcal G_\gamma\) after comparison with measured \(G\).
+
+The selected branch readout is
+\[
+\varepsilon_{\rm Cs}
+=
+3.113930513416012823901050434132426029496608693041876
+\times10^{-33},
+\]
+which gives
+\[
+\gamma_\star
+=
+4.9559743365484194636657782433696431879484319705825
+\times10^{-34}.
+\]
+Hence
+\[
+  G_{\rm geom}
+  =
+  \ell_\star^2
+  =
+  \left(\frac{\gamma_\star c}{\nu_{\rm Cs}}\right)^2
+  =
+  \frac{c^2}{4\pi^2\nu_{\rm Cs}^2}\,\varepsilon_{\rm Cs}^2 .
+\]
+The SI display of a geometric length-squared coupling is
 \[
   G_{\rm SI}=\frac{c^3}{\hbar}G_{\rm geom}.
 \]
-Using
-\[
-  \ell_\star^2=\left(\frac{\gamma_\star c}{\nu_{\rm Cs}}\right)^2
-\]
-gives
+Therefore
 \[
   G_{\rm SI}
   =
-  \frac{c^5}{\hbar\nu_{\rm Cs}^2}\gamma_\star^2 .
+  \frac{c^5}{4\pi^2\hbar\nu_{\rm Cs}^2}\,\varepsilon_{\rm Cs}^2 .
 \]
-With exact SI definitions,
-\[
-  c=299792458~{\rm m\,s^{-1}},\qquad
-  \nu_{\rm Cs}=9\,192\,631\,770~{\rm s^{-1}},\qquad
-  \hbar=\frac{6.62607015\times10^{-34}}{2\pi}~{\rm J\,s},
-\]
-the selected-branch readout is
+Substitution gives the selected-branch SI readout
 \[
   G_{\rm OPH}
   =
   6.674299995910528\ldots\times10^{-11}
   ~{\rm m^3\,kg^{-1}\,s^{-2}} .
 \]
-CODATA reference:
-\[
-  G=6.67430(15)\times10^{-11}~{\rm m^3\,kg^{-1}\,s^{-2}} .
-\]
+Comparison with CODATA is listed in Appendix A and excluded from the upstream
+derivation.
 
-\sect{9. Derived readouts}
+\sect{5. Supporting OPH readouts}
+The table collects quantities used or predicted by the same OPH closure
+architecture.  Entries include direct numerical comparisons, exact definitions,
+structural hits, public upper limits, and values with no public measurement.
+Each row keeps its measurement type visible without blending unlike evidence
+types into one number.
+
 \begin{center}
 \begin{tabular}{@{}p{0.23\linewidth}p{0.34\linewidth}p{0.35\linewidth}@{}}
 \toprule
+\rowcolor{pragmaPanelTwo}
 \textbf{Readout} & \textbf{Value} & \textbf{Meaning}\\
 \midrule
 \(P_\star\) &
@@ -311,12 +505,12 @@ exact local pixel fixed point\\
 \(N_\star\) &
 \(\simeq3.31\times10^{122}\) &
 global closed-screen capacity fixed point\\
-\(\gamma_\star\) &
-\(4.95597433654841946\ldots\times10^{-34}\) &
-dimensionless selected scale certificate\\
-\(B_\star=\Lambda N_\star\) &
-\(3.60787391468\ldots\times10^{70}{\rm m^{-2}}\) &
-SI display of the scale certificate\\
+\(\varepsilon_{\rm Cs},\gamma_\star\) &
+\(\begin{gathered}
+\varepsilon_{\rm Cs}^{\rm cal}=3.11393051342\ldots\times10^{-33}\\
+\gamma_\star=4.95597433655\ldots\times10^{-34}
+\end{gathered}\) &
+dimensionless clock bridge; source-predictive only after the full \(\mathcal R_\gamma\) chain\\
 \(\ell_\star^2\) &
 \(2.61228030237\ldots\times10^{-70}{\rm m^2}\) &
 OPH area quantum\\
@@ -331,7 +525,7 @@ shared edge entropy per local cell\\
 geometric Newton coupling\\
 \(G_{\rm SI}\) &
 \(6.674299995910528\times10^{-11}{\rm m^3kg^{-1}s^{-2}}\) &
-SI Newton constant readout\\
+SI branch checksum; source-predictive only after the full clock proof record\\
 \(\Lambda_{\rm CRC}\) &
 \(\dfrac{3\pi}{G_{\rm geom}N_\star}\) &
 downstream de Sitter display\\
@@ -339,48 +533,358 @@ downstream de Sitter display\\
 \end{tabular}
 \end{center}
 
-\sect{10. TL;DR}
-OPH models reality as a closed self-referential mathematical structure.  The
-observer does not invent the constants.  The observer locates the experienced
-branch, and the OPH contraction laws return the unique fixed values on that
-branch.
+\sect{Appendix A. OPH-predicted values}
+OPH is a theory of everything.  The Newton row is the compact gravity example
+treated in this note.  The wider OPH paper stack uses the same closure
+architecture for spacetime, gauge structure, particles, and cosmology.  Some
+rows are exact structural readouts.  Some rows are numerical values that can be
+compared with public measurements.  Some particle and hadron rows require
+source-only QCD or nuclear computations that are expensive rather than
+conceptually free variables.
 
-\(P_\star\) locks the local observer-cell pixel.  \(N_\star\) locks the total
-closed-screen capacity.  These are the two quantities a screen computation
-must have: a pixel area/entropy unit and a total capacity.  They determine the
-dimensionless local/global geometry.  The selected scale certificate
-\(\gamma_\star\), equivalently \(B_\star\), locks the SI area quantum
-\(\ell_\star^2\).  Local edge entropy gives
+Appendix A records the surrounding OPH prediction ledger: local pixel, total
+screen capacity, support-visible spacetime branch, realized gauge branch, and
+declared quantitative particle branches.  The table separates direct
+measurements, public limits, definitions, and values with no public
+measurement.
+
+A numerical \(\sigma\) is shown only when the cited public source gives a
+central value and a one-standard-deviation uncertainty.  Exact definitions and
+rounded matches are marked as exact hits.  Limit rows, structural rows, and
+non-Gaussian global-fit profiles keep their measurement type.  The table avoids
+fake scalar sigma.  Rows whose OPH value carries more digits than public
+measurement permits are sharper OPH readouts if the branch derivation is
+accepted.
+
+\begin{center}
+\fontsize{6.75pt}{7.35pt}\selectfont
+\setlength{\tabcolsep}{2.1pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{longtable}{@{}L{0.13\linewidth}L{0.24\linewidth}L{0.36\linewidth}L{0.10\linewidth}L{0.10\linewidth}@{}}
+\toprule
+\rowcolor{pragmaPanelTwo}
+\textbf{Lane} & \textbf{OPH prediction} & \textbf{Measurement or public reference} & \textbf{Residual} & \textbf{Source}\\
+\midrule
+\endhead
+\endfoot
+Local pixel &
+\(P_\star=1.6309682094039593\ldots\) &
+No direct laboratory measurement.  Local cell-area and edge-entropy fixed point
+required by a finite OPH screen. &
+\(n/a\) &
+O3,O5\\
+
+Local cell entropy &
+\(\bar\ell_{\rm shared}=P_\star/4=0.407742052350989825\ldots\) &
+No direct laboratory measurement.  It is the entropy weight assigned to one
+observer cell by the same fixed point that fixes \(P_\star\). &
+\(n/a\) &
+O3,O4\\
+
+Global capacity &
+\(N_\star\simeq3.31\times10^{122}\) &
+No direct count measurement.  Cosmological comparison uses de Sitter capacity
+after the scale branch is supplied. &
+\(n/a\) &
+O1,O4\\
+
+Clock bridge proof obligation &
+\(\begin{gathered}
+\varepsilon_{\rm Cs}^{\rm cal}=3.11393051342\ldots\times10^{-33}\\
+\gamma_\star=4.95597433655\ldots\times10^{-34}\\
+B_\star=3.60787391468\ldots\times10^{70}{\rm m^{-2}}
+\end{gathered}\) &
+The printed decimal is source-predictive only if the full
+\(\mathcal R_U+\mathcal R_\alpha+\mathcal R_e^{\rm abs}
++\mathcal R_{\rm QCD/nuc}^{133{\rm Cs}}+\mathcal R_{\rm atom}^{133{\rm Cs}}\)
+chain emits it without a gravity-calibrated parent. &
+conditional &
+O4\\
+
+Area quantum and pixel area &
+\(\begin{gathered}
+\ell_\star^2=2.61228030237\ldots\times10^{-70}{\rm m^2}\\
+a_{\rm cell}=4.26054612722\ldots\times10^{-70}{\rm m^2}
+\end{gathered}\) &
+No direct public measurement of an OPH screen cell.  The inferred area quantum
+is tested through \(G_{\rm SI}\). &
+\(n/a\) &
+O3,O4\\
+
+Newton coupling &
+\(\begin{gathered}
+G_{\rm geom}=\ell_\star^2\\
+G_{\rm SI}=6.674299995910528\times10^{-11}
+\end{gathered}\) &
+Comparison only.  \(G=6.67430(15)\times10^{-11}{\rm m^3\,kg^{-1}\,s^{-2}}\).
+This CODATA row is excluded upstream by the Appendix B anti-smuggling criterion. &
+conditional; calibration checksum unless \(\mathcal R_\gamma\) is source-emitted &
+S1,O3,O4\\
+
+Cosmological constant &
+\(\Lambda_{\rm CRC}\approx1.09\times10^{-52}{\rm m^{-2}}\) &
+Planck 2018 gives the late-universe \(\Lambda\)CDM parameter surface; the
+rounded OPH value agrees at displayed order. &
+exact hit at shown precision &
+S5,O1,O4\\
+
+Static-patch rate &
+\(H_{\rm dS}\approx55.759940256~{\rm km\,s^{-1}\,Mpc^{-1}}\) &
+De Sitter static-patch display, separate from the fitted local Hubble constant. &
+separate from fitted \(H_0\) &
+O1,O4\\
+
+Hubble benchmark &
+\(H_0=67.4~{\rm km\,s^{-1}\,Mpc^{-1}}\) in compressed diagnostics &
+Planck 2018 reports \(H_0=67.4\pm0.5~{\rm km\,s^{-1}\,Mpc^{-1}}\).  This row is
+a benchmark input in the compressed comparison. &
+\(0\sigma\) &
+S5,O1,O4\\
+
+Lorentz group &
+\(\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)\) &
+Structural prediction.  Direct scalar sigma is the wrong statistic; the
+comparison is the Lorentz-kinematics branch. &
+\(n/a\) &
+O4\\
+
+Causal speed &
+\(c=299792458~{\rm m\,s^{-1}}\) &
+Exact SI definition.  Display convention for the Lorentz speed. &
+exact hit by definition &
+S3,O4\\
+
+Einstein branch &
+Jacobson-type local Einstein equation &
+Structural prediction.  The recovered local field equation is the Einstein
+equation branch; later tests are GR/weak-field/null-energy comparisons rather
+than one scalar value. &
+exact structural hit &
+O4\\
+
+Gauge quotient &
+\(\mathrm{SU}(3)_c\times\mathrm{SU}(2)_L\times\mathrm{U}(1)_Y/\mathbb Z_6\) &
+Matches the observed Standard Model gauge quotient.  No one-number sigma. &
+exact structural hit &
+S6,O4,O5\\
+
+Hypercharge, color, generations &
+\(\begin{gathered}
+\hbox{one-generation hypercharge lattice}\\
+N_c=3,\quad N_g=3
+\end{gathered}\) &
+Matches observed Standard Model charge and family structure.  No one-number
+sigma. &
+exact structural hit &
+S6,O4,O5\\
+
+Massless protected carriers &
+\(\begin{gathered}
+m_\gamma=0\\
+m_g=0\\
+m_{\rm grav}=0
+\end{gathered}\) &
+Photon and gluon masslessness are gauge-branch structural hits.  Graviton
+masslessness belongs to the diffeomorphism/Lorentz gravity branch.  Direct
+measurements give public upper limits; exact mass measurements are absent. &
+structural hits &
+S6,O4,O5\\
+
+Gauge proton decay &
+\(\tau_p^{(\rm gauge)}=\infty\) &
+Public searches give lower limits on proton decay channels.  The OPH gauge row
+predicts no simple-GUT gauge boson decay mode. &
+\(n/a\) &
+S6,O4,O5\\
+
+Fine-structure source trunk &
+\(\alpha^{-1}_{\rm source}=136.994835164621649\ldots\) &
+No direct public measurement.  It is the source calculation before the
+declared hadronic/same-scheme endpoint payload. &
+\(n/a\) &
+O5\\
+
+Fine-structure endpoint &
+\(\begin{gathered}
+\alpha^{-1}(0)=137.035999177(21)\\
+\alpha(0)=0.00729735256433\ldots
+\end{gathered}\) &
+CODATA gives \(\alpha^{-1}=137.035999177(21)\).  The public endpoint stays
+outside the gravity proof. &
+\(0\sigma\) &
+S2,O5\\
+
+Electroweak source &
+\(\begin{gathered}
+\alpha_2(m_Z)=0.03377843630219015\\
+\alpha_Y(m_Z)=0.010131601067241624
+\end{gathered}\) &
+Electroweak-fit comparison row.  A scalar sigma depends on scheme and fit
+covariances, so this table leaves it unquoted. &
+\(n/a\) &
+S6,O5\\
+
+Electroweak scale &
+\(v=246.76711732749683~{\rm GeV}\) &
+Derived from the electroweak branch and displayed in the particle surface.
+Direct comparison depends on \(G_F\) convention and loop scheme. &
+\(n/a\) &
+S6,O5\\
+
+\(W/Z\) validation pair &
+\(\begin{gathered}
+M_W=80.377~{\rm GeV}\\
+M_Z=91.18797809193725~{\rm GeV}
+\end{gathered}\) &
+PDG 2024 gives \(M_W=80.3692\pm0.0133~{\rm GeV}\) and
+\(M_Z=91.1876\pm0.0021~{\rm GeV}\). &
+\(\begin{gathered}0.59\sigma\\0.18\sigma\end{gathered}\) &
+S6,O5\\
+
+Higgs/top branch &
+\(\begin{gathered}
+m_H=125.1995304097179~{\rm GeV}\\
+m_t=172.35235532883115~{\rm GeV}
+\end{gathered}\) &
+PDG 2024 gives \(m_H=125.20\pm0.11~{\rm GeV}\) and direct
+\(m_t=172.57\pm0.29~{\rm GeV}\). &
+\(\begin{gathered}-0.004\sigma\\-0.75\sigma\end{gathered}\) &
+S6,S7,O5\\
+
+Charged leptons &
+\(\begin{gathered}
+m_e=0.00051099895\\
+m_\mu=0.1056583755\\
+m_\tau=1.7769324651340912
+\end{gathered}{\rm~GeV}\) &
+PDG lepton summary gives the displayed central values.  The tau residual is
+\(0.03\sigma\); \(e,\mu\) match at displayed precision. &
+\(\le0.03\sigma\) &
+S8,O5\\
+
+Quark sextet &
+\(\begin{gathered}
+u=0.00216,\quad d=0.00470\\
+s=0.0935,\quad c=1.273\\
+b=4.183\\
+t=172.35235532883115\\
+{\rm GeV}
+\end{gathered}\) &
+PDG quark summary gives the displayed light/heavy quark central values.  The
+top comparison is listed in the Higgs/top row. &
+\(0\sigma\) at shown precision &
+S7,O5\\
+
+Neutrino masses &
+\(\begin{gathered}
+0.017454720257976796\\
+0.019481987935919015\\
+0.05307522145074924
+\end{gathered}{\rm~eV}\) &
+No public measurement exists for the individual absolute neutrino masses.
+KATRIN gives a direct upper limit on the effective electron-neutrino mass. &
+\(n/a\) &
+S10,O5\\
+
+Neutrino sum &
+\(\sum m_\nu=0.09001192964464505~{\rm eV}\) &
+Planck 2018 plus BAO gives \(\sum m_\nu<0.12~{\rm eV}\) at 95\% CL.  OPH lies
+below the public upper limit. &
+below limit &
+S5,S11,O5\\
+
+Neutrino mixing display &
+\(\begin{gathered}
+\theta_{12}=34.2259^\circ,\ \theta_{23}=49.7228^\circ\\
+\theta_{13}=8.68636^\circ,\ \delta=305.581^\circ
+\end{gathered}\) &
+NuFIT 6.0 gives global-fit profiles.  The profiles are non-Gaussian and
+ordering-dependent, so this table leaves scalar sigma unquoted. &
+\(n/a\) &
+S9,O5\\
+
+Majorana phases &
+\(\begin{gathered}
+\alpha_{21}=153.618518^\circ\\
+\alpha_{31}=257.003241^\circ
+\end{gathered}\) &
+No public measurement exists for the Majorana phases.  They require
+neutrinoless double-beta or equivalent absolute-phase information. &
+\(n/a\) &
+S11,O5\\
+
+Compressed matter budget &
+\(\begin{gathered}
+\Omega_{\Lambda,\rm OPH}=0.684423332\\
+\Omega_A=0.264114401\\
+\Omega_m=0.315484968
+\end{gathered}\) &
+Planck 2018 gives \(\Omega_m=0.315\pm0.007\).  Flat \(\Lambda\)CDM gives
+\(\Omega_\Lambda\simeq0.685\pm0.007\). &
+\(\begin{gathered}\Omega_m:0.07\sigma\\
+\Omega_\Lambda:-0.08\sigma\end{gathered}\) &
+S5,O1,O4\\
+
+\end{longtable}
+\end{center}
+
+\textbf{Measurement source keys.}\par
+\(\mathrm{S1}\): \href{https://physics.nist.gov/cgi-bin/cuu/Value?bg=}{NIST CODATA 2022 \(G\)}.\par
+\(\mathrm{S2}\): \href{https://physics.nist.gov/cgi-bin/cuu/Value?alphinv=}{NIST CODATA 2022 \(\alpha^{-1}\)}.\par
+\(\mathrm{S3}\): \href{https://physics.nist.gov/cgi-bin/cuu/Value?c=}{NIST CODATA \(c\), exact}.\par
+\(\mathrm{S4}\): \href{https://physics.nist.gov/cgi-bin/cuu/Value?hbar=}{NIST CODATA \(\hbar\), exact}.  Used in the arithmetic check.\par
+\(\mathrm{S5}\): \href{https://arxiv.org/abs/1807.06209}{Planck 2018 cosmological parameters}.\par
+\(\mathrm{S6}\): \href{https://pdg.lbl.gov/2024/tables/rpp2024-sum-gauge-higgs-bosons.pdf}{PDG 2024 gauge and Higgs summary}.\par
+\(\mathrm{S7}\): \href{https://pdg.lbl.gov/2024/tables/rpp2024-sum-quarks.pdf}{PDG 2024 quark summary}.\par
+\(\mathrm{S8}\): \href{https://pdg.lbl.gov/2024/tables/rpp2024-sum-leptons.pdf}{PDG 2024 lepton summary}.\par
+\(\mathrm{S9}\): \href{https://www.nu-fit.org/?q=node/294}{NuFIT 6.0 oscillation fit}.\par
+\(\mathrm{S10}\): \href{https://www.science.org/doi/10.1126/science.adq9592}{KATRIN 2025 direct neutrino-mass limit}.\par
+\(\mathrm{S11}\): \href{https://pdg.lbl.gov/2024/reviews/rpp2024-rev-sum-neutrino-masses.pdf}{PDG 2024 neutrino-mass review}.\par
+
+\textbf{OPH paper keys.}\par
+\(\mathrm{O1}\): \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.tex}{Observers Are All You Need}.\par
+\(\mathrm{O2}\): \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/reality_as_consensus_protocol.tex}{Reality as Consensus Protocol}.\par
+\(\mathrm{O3}\): \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.tex}{Screen Microphysics and Observer Synchronization}.\par
+\(\mathrm{O4}\): \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex}{Recovering Relativity and Standard Model Structure from Observer Overlap Consistency}.\par
+\(\mathrm{O5}\): \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.tex}{Deriving the Particle Zoo from Observer Consistency}.\par
+
+\sect{Appendix B. Audit checks}
+Appendix B addresses circularity and dependency concerns.  It records which
+quantities enter the proof, which quantities are downstream comparisons, and
+which dependency paths are excluded.
+
+\textbf{Fixed-point proof-record standard.}
+A fixed-point row is accepted here only when its proof record contains
 \[
-  G_{\rm geom}=\frac{a_{\rm cell}}{4\bar\ell_{\rm shared}}=\ell_\star^2 .
+  \mathcal R_X=(I_X,F_X,d_X,q_X,x_0,r_X,\mathcal G_X).
 \]
-Exact SI definitions then give
+\(I_X\) is the declared branch interval.  \(F_X:I_X\to I_X\) is the readback
+map.  \(d_X\) is the metric.  \(q_X<1\) is the contraction constant.  \(x_0\)
+is the displayed candidate.  \(r_X=d_X(F_X(x_0),x_0)\) is the residual.
+\(\mathcal G_X\) is the dependency graph.
+
+The proof record must give
 \[
-  G_{\rm SI}=\frac{c^3}{\hbar}\ell_\star^2
-  =
-  6.674299995910528\times10^{-11}~{\rm m^3\,kg^{-1}\,s^{-2}}.
+  F_X(I_X)\subseteq I_X,
+  \qquad
+  d_X(F_X(x),F_X(y))\le q_Xd_X(x,y).
 \]
+Then the true fixed point \(x_\star\) obeys
+\[
+  d_X(x_\star,x_0)\le\frac{r_X}{1-q_X}.
+\]
+Observed records may identify the physically relevant branch interval.  They
+may not modify \(F_X\), choose a fitted root, alter \(r_X\), or change
+\(\mathcal G_X\) after comparison with a target measurement.
 
-If \(P\) is off its fixed point, the simulator has the wrong pixel.  The local
-area reading and the local edge entropy reading stop describing one stable
-observer cell.  If \(N\) is off its fixed point, the simulator has the wrong
-screen.  The closed screen does not reproduce its own capacity branch.  If the
-scale branch is off by \(r\) in length, the SI gravity readout is off by
-\(r^2\).
-
-The proof contains no adjustable Newton constant.  Gravity is the area readout
-of the same observer-cell closure that defines the local screen unit.  The
-selected-scale statement is the gravitational selection test for OPH: the
-closed observer-patch model plus the no-\(G\) scale certificate produces the
-measured SI coupling.  The agreement lands on the CODATA value because the
-scale certificate gives the area quantum first, and SI then names the same area
-as Newton's constant.
-
-\sect{Appendix A. Audit checks}
 \textbf{Scale freedom lemma.}
 No expression using only \(P_\star,N_\star\), pure dimensionless constants, and
-exact display constants \(c,\hbar\) determines \(B_\ell\) in \({\rm m^{-2}}\),
+exact display constants \(c,\hbar\) determines \(B_\star\) in \({\rm m^{-2}}\),
 \(\ell_\star^2\) in \({\rm m^2}\), or \(G_{\rm SI}\) in SI units.
+
+Unit check.  \(P_\star\) and \(N_\star\) are ratios and counts.  They fix the
+shape of the screen and the number of records on it.  A pure ratio has no metre
+scale.  The scale readout is separate.
 
 For any \(\lambda>0\), rescale
 \[
@@ -399,10 +903,10 @@ Then both closure coordinates are unchanged:
 \]
 The same \(P_\star,N_\star\) therefore admit
 \[
-  B_\ell\mapsto\lambda^{-2}B_\ell,\qquad
+  B_\star\mapsto\lambda^{-2}B_\star,\qquad
   G_{\rm SI}\mapsto\lambda^2G_{\rm SI}.
 \]
-A separate scale certificate is required for the SI gravity row.
+The SI gravity row requires a separate scale readout.
 
 \textbf{Dependency ledger.}
 \begin{center}
@@ -412,22 +916,22 @@ A separate scale certificate is required for the SI gravity row.
 \midrule
 \(P_\star\) &
 local pixel fixed point &
-does not set metres by itself\\
+insufficient for metres\\
 \(N_\star\) &
 global screen-capacity fixed point &
-does not set metres by itself\\
+insufficient for metres\\
 \(\gamma_\star\) &
-dimensionless no-\(G\) scale certificate &
+dimensionless no-\(G\) scale readout &
 must not be fitted from measured \(G\)\\
 \(B_\star\) &
-SI display of the scale certificate &
+SI display of the scale readout &
 must not be computed from \(3\pi/(GN_\star)\)\\
 \(\ell_\star^2\) &
 area coordinate from \(3\pi/B_\star\) &
 must not be computed from \(\hbar G/c^3\)\\
 \(G_{\rm geom}\) &
 local edge-entropy output &
-not an input to the scale certificate\\
+kept out of the scale readout\\
 \(\Lambda_{\rm CRC}\) &
 downstream de Sitter display &
 evaluated only after \(G_{\rm geom}\)\\
@@ -435,145 +939,40 @@ evaluated only after \(G_{\rm geom}\)\\
 \end{tabular}
 \end{center}
 
-\textbf{Minimal metrological bridge.}
+\textbf{Precision status.}
+The displayed digits are a checksum of the declared branch proof records.  The
+\(G\) digits have prediction status only if \(\mathcal R_\gamma\) was fixed
+before comparison with measured \(G\), and its dependency graph excludes
+gravity-calibrated inputs.  Otherwise the displayed agreement is calibration.
+The proof is the public readback map, residual bound, and dependency graph.
+
+\textbf{SI chart and downstream Planck area.}
 Fix the exact SI constants \(c\), \(\hbar\), and the cesium clock frequency
-\(\nu_{\rm Cs}=9\,192\,631\,770~{\rm s^{-1}}\).  A numerical SI Newton
-constant is equivalent to the dimensionless scale ratio
+\(\nu_{\rm Cs}=9\,192\,631\,770~{\rm s^{-1}}\).  A no-\(G\) OPH emission of
 \[
-  \gamma_G:=
-  \left(
-  \frac{\hbar G_{\rm SI}\nu_{\rm Cs}^2}{c^5}
-  \right)^{1/2}.
+  \gamma_\star=\frac{\ell_\star\nu_{\rm Cs}}{c}
 \]
-The units cancel:
+sets the SI area chart.  The algebra is
 \[
-\frac{
-({\rm kg\,m^2\,s^{-1}})
-({\rm m^3\,kg^{-1}\,s^{-2}})
-({\rm s^{-2}})
-}{
-({\rm m\,s^{-1}})^5
-}
-=1.
+  G_{\rm SI}
+  =
+  \frac{c^3}{\hbar}\ell_\star^2
+  =
+  \frac{c^5}{\hbar\nu_{\rm Cs}^2}\gamma_\star^2
+  =
+  \frac{c^5}{4\pi^2\hbar\nu_{\rm Cs}^2}\varepsilon_{\rm Cs}^2 .
 \]
-Solving the definition gives
+After this emission, the SI Planck area is downstream:
 \[
-  G_{\rm SI}=
-  \frac{c^5}{\hbar\nu_{\rm Cs}^2}\gamma_G^2 .
+  \ell_{P,{\rm OPH}}^2
+  :=
+  \frac{\hbar G_{\rm SI}}{c^3}
+  =
+  \ell_\star^2 .
 \]
-Thus a no-\(G\) OPH emission of \(\gamma_\star\) is exactly a no-\(G\) SI
-scale certificate.
+Using \(\ell_P^2\) upstream would smuggle the answer into the scale readout.
 
-\textbf{Equivalent scale charts.}
-Given \(N_\star\), any one of
-\[
-\ell_\star^2,\qquad
-B_\star=\Lambda_\star N_\star,\qquad
-\Lambda_\star,\qquad
-R_\star=\sqrt{3/\Lambda_\star},\qquad
-t_\star=R_\star/c,\qquad
-\gamma_\star=\ell_\star\nu_{\rm Cs}/c
-\]
-determines all the others.  The conversion formulas are
-\[
-  B_\star=\frac{3\pi}{\ell_\star^2},\qquad
-  \Lambda_\star=\frac{B_\star}{N_\star},\qquad
-  R_\star=\sqrt{\frac{3N_\star}{B_\star}},
-\]
-\[
-  t_\star=\frac{1}{c}\sqrt{\frac{3N_\star}{B_\star}},
-  \qquad
-  \gamma_\star=\frac{\nu_{\rm Cs}}{c}\sqrt{\frac{3\pi}{B_\star}} .
-\]
-These are chart changes for one scale certificate, not independent constants.
-
-\textbf{Anti-smuggling criterion.}
-Let \(\mathcal B\) be the scale certificate used to compute \(G_{\rm SI}\).  The
-numerical gravity row is a no-\(G\) derivation only if the dependency graph for
-\(\mathcal B\) contains no path from
-\[
-G_{\rm exp},\qquad
-\ell_P^2=\frac{\hbar G}{c^3},\qquad
-\Lambda=\frac{3\pi}{G N_\star},\qquad
-B_\ell=\frac{3\pi c^3}{\hbar G}
-\]
-to \(\mathcal B\).  If such a path exists, the row is a calibration of \(G\).
-If no such path exists, the algebraic computation of \(G_{\rm SI}\) from
-\(\mathcal B\) contains no measured-\(G\) dependency.
-
-\textbf{Pixel insensitivity.}
-On the local OPH gravity branch,
-\[
-a_{\rm cell}=P\ell_\star^2,\qquad
-\bar\ell_{\rm shared}=P/4,\qquad
-G_{\rm geom}=\frac{a_{\rm cell}}{4\bar\ell_{\rm shared}} .
-\]
-Substitution gives
-\[
-G_{\rm geom}=\frac{P\ell_\star^2}{4(P/4)}=\ell_\star^2,
-\qquad
-\frac{\partial G_{\rm geom}}{\partial P}=0.
-\]
-The local pixel value is structurally necessary because it identifies the two
-readings of one cell.  The numerical area readout is insensitive to the
-coordinate \(P\) after that identification.
-
-\textbf{Planck area is downstream.}
-If the OPH local gravity row emits
-\[
-G_{\rm SI}=\frac{c^3}{\hbar}\ell_\star^2,
-\]
-then the SI Planck area computed after the emission is
-\[
-\ell_{P,{\rm OPH}}^2:=
-\frac{\hbar G_{\rm SI}}{c^3}
-=\ell_\star^2.
-\]
-The symbol \(\ell_P^2\) can therefore name the emitted area downstream.  It
-cannot be used upstream to derive it.
-
-\textbf{Coupled closure uniqueness target.}
-Let \(K=I_N\times I_\gamma\) be a complete product metric space with metrics
-\(d_N,d_\gamma\).  Let
-\[
-\mathcal S(N,\gamma)
-=
-\bigl(S_N(N,\gamma),S_\gamma(N,\gamma)\bigr)
-\]
-be the joint capacity/scale certificate map.  Suppose there is a nonnegative matrix
-\[
-M=\begin{pmatrix}a&b\\ c&d\end{pmatrix},\qquad \rho(M)<1,
-\]
-such that
-\[
-d_N(S_N(x),S_N(y))
-\le
-a\,d_N(N_x,N_y)+b\,d_\gamma(\gamma_x,\gamma_y),
-\]
-\[
-d_\gamma(S_\gamma(x),S_\gamma(y))
-\le
-c\,d_N(N_x,N_y)+d\,d_\gamma(\gamma_x,\gamma_y).
-\]
-Perron--Frobenius gives a positive vector \(w=(w_N,w_\gamma)\) and \(q<1\)
-with \(Mw\le q w\).  The weighted metric
-\[
-d_w(x,y)=
-\max\left\{
-\frac{d_N(N_x,N_y)}{w_N},
-\frac{d_\gamma(\gamma_x,\gamma_y)}{w_\gamma}
-\right\}
-\]
-makes \(\mathcal S\) a contraction.  Banach's theorem gives a unique joint
-fixed point \((N_\star,\gamma_\star)\) on \(K\).
-
-\textbf{Residual and sensitivity certificates.}
-If \(R:I\to I\) is a contraction with constant \(q<1\), and a candidate
-\(x_0\) satisfies \(d(R(x_0),x_0)\le\varepsilon\), then the fixed point
-\(x_\star\) obeys
-\[
-d(x_\star,x_0)\le\frac{\varepsilon}{1-q}.
-\]
+\textbf{Sensitivity and frozen-branch test.}
 For equivalent scale coordinates,
 \[
 \frac{\delta G}{G}
@@ -584,320 +983,10 @@ For equivalent scale coordinates,
 =
 -\frac{\delta B_\star}{B_\star}.
 \]
-These two formulas convert a numerical readback residual into a certified
-interval and show exactly how scale-coordinate errors move the gravity row.
-
-\textbf{Frozen-branch retuning test.}
-Let \(\mathcal B_\star\) denote the published scale certificate, written as
-\(B_\star\), \(\ell_\star^2\), or \(\gamma_\star\).  If \(\mathcal B_\star\)
-is changed after a new measurement of \(G\) is available, and the change is not
-forced by a pre-existing no-\(G\) OPH readback certificate, then the numerical
-gravity row is a calibration rather than a prediction.
-
-\sect{Appendix B. OPH-predicted values}
-The short proof isolates the gravity row.  The wider OPH claim is that the same
-closure architecture fixes the local pixel, total screen capacity,
-support-visible spacetime branch, realized gauge branch, and declared
-quantitative particle branches.  The table separates direct measurements,
-public limits, definitions, and values whose public measurement does not exist.
-
-A numerical \(\sigma\) is shown only when the cited public source gives a
-central value and a one-standard-deviation uncertainty.  Exact definitions and
-rounded matches are marked as exact hits.  Limit rows, structural rows, and
-non-Gaussian global-fit profiles are marked by status rather than forced into a
-fake scalar sigma.  Rows whose OPH value carries more digits than public
-measurement permits are sharper OPH readouts if the branch derivation is
-accepted.
-
-\begin{center}
-\fontsize{6.75pt}{7.35pt}\selectfont
-\setlength{\tabcolsep}{2.1pt}
-\renewcommand{\arraystretch}{1.08}
-\begin{longtable}{@{}L{0.13\linewidth}L{0.24\linewidth}L{0.36\linewidth}L{0.10\linewidth}L{0.10\linewidth}@{}}
-\toprule
-\textbf{Lane} & \textbf{OPH prediction} & \textbf{Measurement or public status} & \textbf{Residual} & \textbf{Source}\\
-\midrule
-\endhead
-\endfoot
-Local pixel &
-\(P_\star=1.6309682094039593\ldots\) &
-No direct laboratory measurement.  This is the local cell-area and edge-entropy
-fixed point required by a finite OPH screen. &
-\(n/a\) &
-OPH\\
-
-Local cell entropy &
-\(\bar\ell_{\rm shared}=P_\star/4=0.407742052350989825\ldots\) &
-No direct laboratory measurement.  It is the entropy weight assigned to one
-observer cell by the same fixed point that fixes \(P_\star\). &
-\(n/a\) &
-OPH\\
-
-Global capacity &
-\(N_\star\simeq3.31\times10^{122}\) &
-No direct count measurement.  Cosmological comparison uses de Sitter capacity
-after the scale branch is supplied. &
-\(n/a\) &
-OPH\\
-
-Scale certificate &
-\(\begin{gathered}
-\gamma_\star=4.95597433655\ldots\times10^{-34}\\
-B_\star=3.60787391468\ldots\times10^{70}{\rm m^{-2}}
-\end{gathered}\) &
-No direct public measurement.  The gravity row below is the scalar test of this
-selected SI scale certificate. &
-\(n/a\) &
-OPH\\
-
-Area quantum and pixel area &
-\(\begin{gathered}
-\ell_\star^2=2.61228030237\ldots\times10^{-70}{\rm m^2}\\
-a_{\rm cell}=4.26054612722\ldots\times10^{-70}{\rm m^2}
-\end{gathered}\) &
-No direct public measurement of an OPH screen cell.  The inferred area quantum
-is tested through \(G_{\rm SI}\). &
-\(n/a\) &
-OPH\\
-
-Newton coupling &
-\(\begin{gathered}
-G_{\rm geom}=\ell_\star^2\\
-G_{\rm SI}=6.674299995910528\times10^{-11}
-\end{gathered}\) &
-\(G=6.67430(15)\times10^{-11}{\rm m^3\,kg^{-1}\,s^{-2}}\).  OPH prints more
-digits than the CODATA uncertainty permits. &
-\(-2.7\times10^{-5}\sigma\) &
-S1\\
-
-Cosmological constant &
-\(\Lambda_{\rm CRC}\approx1.09\times10^{-52}{\rm m^{-2}}\) &
-Planck 2018 gives the late-universe \(\Lambda\)CDM parameter surface; the
-rounded OPH value agrees at displayed order. &
-exact hit at shown precision &
-S5\\
-
-Static-patch rate &
-\(H_{\rm dS}\approx55.759940256~{\rm km\,s^{-1}\,Mpc^{-1}}\) &
-This is a de Sitter static-patch display, not the fitted local Hubble constant. &
-not a fitted \(H_0\) &
-OPH\\
-
-Hubble benchmark &
-\(H_0=67.4~{\rm km\,s^{-1}\,Mpc^{-1}}\) in compressed diagnostics &
-Planck 2018 reports \(H_0=67.4\pm0.5~{\rm km\,s^{-1}\,Mpc^{-1}}\).  This row is
-a benchmark input in the compressed comparison. &
-\(0\sigma\) &
-S5\\
-
-Lorentz group &
-\(\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)\) &
-Structural prediction.  Direct scalar sigma is not the right statistic; the
-comparison is the Lorentz-kinematics branch. &
-\(n/a\) &
-OPH\\
-
-Causal speed &
-\(c=299792458~{\rm m\,s^{-1}}\) &
-Exact SI definition.  This is a display convention for the Lorentz speed. &
-exact hit by definition &
-S3\\
-
-Einstein branch &
-Jacobson-type local Einstein equation &
-Structural prediction.  Tests are GR/weak-field/null-energy comparisons rather
-than one scalar value. &
-\(n/a\) &
-OPH\\
-
-Gauge quotient &
-\(\mathrm{SU}(3)_c\times\mathrm{SU}(2)_L\times\mathrm{U}(1)_Y/\mathbb Z_6\) &
-Matches the observed Standard Model gauge quotient.  No one-number sigma. &
-exact structural hit &
-S6\\
-
-Hypercharge, color, generations &
-\(\begin{gathered}
-\hbox{one-generation hypercharge lattice}\\
-N_c=3,\quad N_g=3
-\end{gathered}\) &
-Matches observed Standard Model charge and family structure.  No one-number
-sigma. &
-exact structural hit &
-S6\\
-
-Massless protected carriers &
-\(\begin{gathered}
-m_\gamma=0\\
-m_g=0\\
-m_{\rm grav}=0
-\end{gathered}\) &
-Photon and gluon masslessness are gauge-branch structural hits.  Graviton
-masslessness belongs to the diffeomorphism/Lorentz gravity branch.  Direct
-measurements are public upper limits rather than exact mass measurements. &
-\(\begin{gathered}
-\gamma:\hbox{ structural hit}\\
-g:\hbox{ structural hit}\\
-{\rm grav}:\hbox{ structural hit}
-\end{gathered}\) &
-S6\\
-
-Gauge proton decay &
-\(\tau_p^{(\rm gauge)}=\infty\) &
-Public searches give lower limits on proton decay channels.  The OPH gauge row
-predicts no simple-GUT gauge boson decay mode. &
-\(n/a\) &
-S6\\
-
-Fine-structure source trunk &
-\(\alpha^{-1}_{\rm source}=136.994835164621649\ldots\) &
-No direct public measurement.  It is the source calculation before the
-declared hadronic/same-scheme endpoint payload. &
-\(n/a\) &
-OPH\\
-
-Fine-structure endpoint &
-\(\begin{gathered}
-\alpha^{-1}(0)=137.035999177(21)\\
-\alpha(0)=0.00729735256433\ldots
-\end{gathered}\) &
-CODATA gives \(\alpha^{-1}=137.035999177(21)\).  The public endpoint is not used
-in the gravity proof. &
-\(0\sigma\) &
-S2\\
-
-Electroweak source &
-\(\begin{gathered}
-\alpha_2(m_Z)=0.03377843630219015\\
-\alpha_Y(m_Z)=0.010131601067241624
-\end{gathered}\) &
-Electroweak-fit comparison row.  A scalar sigma depends on scheme and fit
-covariances, so it is not quoted here. &
-\(n/a\) &
-S6\\
-
-Electroweak scale &
-\(v=246.76711732749683~{\rm GeV}\) &
-Derived from the electroweak branch and displayed in the particle surface.
-Direct comparison depends on \(G_F\) convention and loop scheme. &
-\(n/a\) &
-S6\\
-
-\(W/Z\) validation pair &
-\(\begin{gathered}
-M_W=80.377~{\rm GeV}\\
-M_Z=91.18797809193725~{\rm GeV}
-\end{gathered}\) &
-PDG 2024 gives \(M_W=80.3692\pm0.0133~{\rm GeV}\) and
-\(M_Z=91.1876\pm0.0021~{\rm GeV}\). &
-\(\begin{gathered}0.59\sigma\\0.18\sigma\end{gathered}\) &
-S6\\
-
-Higgs/top branch &
-\(\begin{gathered}
-m_H=125.1995304097179~{\rm GeV}\\
-m_t=172.35235532883115~{\rm GeV}
-\end{gathered}\) &
-PDG 2024 gives \(m_H=125.20\pm0.11~{\rm GeV}\) and direct
-\(m_t=172.57\pm0.29~{\rm GeV}\). &
-\(\begin{gathered}-0.004\sigma\\-0.75\sigma\end{gathered}\) &
-S6,S7\\
-
-Charged leptons &
-\(\begin{gathered}
-m_e=0.00051099895\\
-m_\mu=0.1056583755\\
-m_\tau=1.7769324651340912
-\end{gathered}{\rm~GeV}\) &
-PDG lepton summary gives the displayed central values.  The tau residual is
-\(0.03\sigma\); \(e,\mu\) match at displayed precision. &
-\(\le0.03\sigma\) &
-S8\\
-
-Quark sextet &
-\(\begin{gathered}
-u=0.00216,\quad d=0.00470\\
-s=0.0935,\quad c=1.273\\
-b=4.183\\
-t=172.35235532883115\\
-{\rm GeV}
-\end{gathered}\) &
-PDG quark summary gives the displayed light/heavy quark central values.  The
-top comparison is listed in the Higgs/top row. &
-\(0\sigma\) at shown precision &
-S7\\
-
-Neutrino masses &
-\(\begin{gathered}
-0.017454720257976796\\
-0.019481987935919015\\
-0.05307522145074924
-\end{gathered}{\rm~eV}\) &
-Individual absolute neutrino masses are not yet measured.  KATRIN gives a
-direct upper limit on the effective electron-neutrino mass. &
-\(n/a\) &
-S10\\
-
-Neutrino sum &
-\(\sum m_\nu=0.09001192964464505~{\rm eV}\) &
-Planck 2018 plus BAO gives \(\sum m_\nu<0.12~{\rm eV}\) at 95\% CL.  OPH lies
-below the public upper limit. &
-below limit &
-S5,S11\\
-
-Neutrino mixing display &
-\(\begin{gathered}
-\theta_{12}=34.2259^\circ,\ \theta_{23}=49.7228^\circ\\
-\theta_{13}=8.68636^\circ,\ \delta=305.581^\circ
-\end{gathered}\) &
-NuFIT 6.0 gives global-fit profiles.  The profiles are non-Gaussian and
-ordering-dependent, so a single scalar sigma is not quoted. &
-\(n/a\) &
-S9\\
-
-Majorana phases &
-\(\begin{gathered}
-\alpha_{21}=153.618518^\circ\\
-\alpha_{31}=257.003241^\circ
-\end{gathered}\) &
-Majorana phases are not yet measured.  They require neutrinoless double-beta
-or equivalent absolute-phase information. &
-\(n/a\) &
-S11\\
-
-Compressed matter budget &
-\(\begin{gathered}
-\Omega_{\Lambda,\rm OPH}=0.684423332\\
-\Omega_A=0.264114401\\
-\Omega_m=0.315484968
-\end{gathered}\) &
-Planck 2018 gives \(\Omega_m=0.315\pm0.007\).  Flat \(\Lambda\)CDM gives
-\(\Omega_\Lambda\simeq0.685\pm0.007\). &
-\(\begin{gathered}\Omega_m:0.07\sigma\\
-\Omega_\Lambda:-0.08\sigma\end{gathered}\) &
-S5\\
-
-\end{longtable}
-\end{center}
-
-\textbf{Measurement source keys.}\par
-\(\mathrm{S1}\): \href{https://physics.nist.gov/cgi-bin/cuu/Value?bg=}{NIST CODATA 2022 \(G\)}.\par
-\(\mathrm{S2}\): \href{https://physics.nist.gov/cgi-bin/cuu/Value?alphinv=}{NIST CODATA 2022 \(\alpha^{-1}\)}.\par
-\(\mathrm{S3}\): \href{https://physics.nist.gov/cgi-bin/cuu/Value?c=}{NIST CODATA \(c\), exact}.\par
-\(\mathrm{S4}\): \href{https://physics.nist.gov/cgi-bin/cuu/Value?hbar=}{NIST CODATA \(\hbar\), exact}.  Used in the arithmetic certificate.\par
-\(\mathrm{S5}\): \href{https://arxiv.org/abs/1807.06209}{Planck 2018 cosmological parameters}.\par
-\(\mathrm{S6}\): \href{https://pdg.lbl.gov/2024/tables/rpp2024-sum-gauge-higgs-bosons.pdf}{PDG 2024 gauge and Higgs summary}.\par
-\(\mathrm{S7}\): \href{https://pdg.lbl.gov/2024/tables/rpp2024-sum-quarks.pdf}{PDG 2024 quark summary}.\par
-\(\mathrm{S8}\): \href{https://pdg.lbl.gov/2024/tables/rpp2024-sum-leptons.pdf}{PDG 2024 lepton summary}.\par
-\(\mathrm{S9}\): \href{https://www.nu-fit.org/?q=node/294}{NuFIT 6.0 oscillation fit}.\par
-\(\mathrm{S10}\): \href{https://www.science.org/doi/10.1126/science.adq9592}{KATRIN 2025 direct neutrino-mass limit}.\par
-\(\mathrm{S11}\): \href{https://pdg.lbl.gov/2024/reviews/rpp2024-rev-sum-neutrino-masses.pdf}{PDG 2024 neutrino-mass review}.\par
-
-\textbf{OPH paper keys.}\par
-\(\mathrm{O1}\): \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.tex}{Observers Are All You Need}.\par
-\(\mathrm{O2}\): \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/reality_as_consensus_protocol.tex}{Reality as Consensus Protocol}.\par
-\(\mathrm{O3}\): \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.tex}{Screen Microphysics and Observer Synchronization}.\par
-\(\mathrm{O4}\): \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex}{Recovering Relativity and Standard Model Structure from Observer Overlap Consistency}.\par
-\(\mathrm{O5}\): \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.tex}{Deriving the Particle Zoo from Observer Consistency}.\par
+These formulas convert a readback residual into a bounded interval for the
+gravity row.  If the published scale readout \(B_\star\), \(\ell_\star^2\), or
+\(\gamma_\star\) is changed after a new measurement of \(G\), and the change
+lacks a pre-existing no-\(G\) OPH readback proof, then the numerical gravity
+row is classified as calibration.
 
 \end{document}

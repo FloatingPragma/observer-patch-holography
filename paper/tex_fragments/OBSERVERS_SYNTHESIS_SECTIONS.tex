@@ -126,6 +126,555 @@ not feed back into the transmutation solve. Source payloads, same-scheme remaind
 certificates, and empirical hadron records document public validation and endpoint bookkeeping;
 they do not supply the arithmetic bridge from \(P\) to the fine-structure endpoint.
 
+\paragraph{The \(\alpha_U(P)\) source proof record.}
+The electroweak hierarchy used by the clock-scale branch depends first on a source readout of the
+unified diffusion coupling
+\[
+\alpha_U(P_\star).
+\]
+For a trial pixel \(P\), define
+\[
+M_U(P)=E_\star e^{-2\pi}P^{1/6},
+\qquad
+E_{\mathrm{cell}}(P)=\frac{E_\star}{\sqrt P}.
+\]
+On the realized color branch,
+\[
+N_c=3,
+\qquad
+\beta_{\mathrm{EW}}:=N_c+1=4,
+\]
+and the transmutation scale for a candidate coupling \(a\) is
+\[
+v(P,a)
+=
+E_{\mathrm{cell}}(P)
+\exp\!\left[
+-\frac{2\pi}{\beta_{\mathrm{EW}}a}
+\right].
+\]
+The source running family is
+\[
+\alpha_i^{-1}(\mu;P,a)
+=
+a^{-1}
++
+\frac{b_i}{2\pi}
+\log\!\left(\frac{M_U(P)}{\mu}\right),
+\qquad i=1,2,3.
+\]
+The beta-coefficient packet \((b_1,b_2,b_3)\), matching convention, threshold packet, and
+renormalization convention are part of the source proof record. They are declared before any
+comparison with measured electroweak or gravitational data.
+
+The hypercharge coupling is
+\[
+\alpha_Y(\mu;P,a)=\frac35\alpha_1(\mu;P,a).
+\]
+The source \(Z\)-scale is a fixed point of the source equations, not an inserted measured mass:
+\[
+\mu_Z(P,a)
+=
+\frac{v(P,a)}{2}
+\sqrt{
+4\pi\alpha_2(\mu_Z;P,a)
++
+4\pi\alpha_Y(\mu_Z;P,a)
+}.
+\]
+For \(G=\mathrm{SU}(2),\mathrm{SU}(3)\), define the finite representation heat-kernel sums
+\[
+Z_G(t)=\sum_R d_R e^{-tC_2(R)},
+\qquad
+\bar\ell_G(t)
+=
+\frac{1}{Z_G(t)}
+\sum_R d_R e^{-tC_2(R)}\log d_R.
+\]
+The source heat-kernel parameters are
+\[
+t_2(P,a)=4\pi^2\alpha_2(\mu_Z(P,a);P,a),
+\qquad
+t_3(P,a)=4\pi^2\alpha_3(\mu_Z(P,a);P,a).
+\]
+The unified-coupling residual is
+\[
+\Phi_U(P,a)
+:=
+\bar\ell_{\mathrm{SU}(2)}(t_2(P,a))
++
+\bar\ell_{\mathrm{SU}(3)}(t_3(P,a))
+-
+\frac{P}{4}.
+\]
+The source value is the zero
+\[
+\Phi_U(P,\alpha_U(P))=0.
+\]
+
+\begin{definition}[No-hidden-free-variable admissibility]\label{def:no-hidden-free-variable-u}
+The unified-coupling proof record is admissible only when the representation cutoffs, beta packet,
+matching prescription, threshold packet, and renormalization convention are frozen before
+comparison with measured electroweak or gravitational data:
+\[
+N_2,\quad N_3,\quad (b_1,b_2,b_3),\quad
+\hbox{matching prescription},\quad
+\hbox{threshold packet},\quad
+\hbox{renormalization convention}.
+\]
+None of these may be selected by minimizing the error against
+\[
+M_W,\quad M_Z,\quad \alpha_s(M_Z),\quad \sin^2\theta_W,\quad v_{\mathrm{exp}},
+\quad G_{\mathrm{exp}}.
+\]
+Tuning any of these objects after comparison with observed electroweak or gravitational data
+makes the hierarchy row a calibration.
+\end{definition}
+
+\begin{theorem}[No-measured-input unified-coupling proof record]\label{thm:no-input-alpha-u}
+Let
+\[
+\mathcal R_U
+=
+\bigl(
+P_\star,
+N_2,N_3,
+I_U,
+\Phi_U,
+K_U,
+a_U^{(0)},
+r_U,
+m_U,
+\mathrm{DAG}_U
+\bigr)
+\]
+be an admissible unified-coupling proof record. Here \(N_2,N_3\) are the finite
+representation cutoffs for \(\mathrm{SU}(2)\) and \(\mathrm{SU}(3)\), \(I_U\subset\mathbb R_+\)
+is the declared physical interval for \(\alpha_U\), \(\Phi_U\) is the heat-kernel closure
+residual, \(K_U\) is an interval-Newton or Krawczyk operator, \(a_U^{(0)}\) is the displayed
+candidate, \(r_U\) is the residual bound, \(m_U\) is a lower derivative bound, and
+\(\mathrm{DAG}_U\) is the dependency graph.
+
+Assume
+\[
+K_U(I_U)\subset \operatorname{int}(I_U),
+\]
+\[
+|\Phi_U(P_\star,a_U^{(0)})|\le r_U,
+\]
+\[
+|\partial_a\Phi_U(P_\star,a)|\ge m_U>0
+\qquad
+(a\in I_U),
+\]
+and assume that \(\mathrm{DAG}_U\) contains no directed path from measured electroweak masses,
+measured low-energy gauge couplings, measured \(G\), Planck area, Planck mass, measured
+\(\Lambda\), or any equivalent gravity-calibrated or electroweak-calibrated scale. Then there is
+a unique source value
+\[
+\alpha_U(P_\star)\in I_U
+\]
+such that
+\[
+\Phi_U(P_\star,\alpha_U(P_\star))=0,
+\]
+and
+\[
+|\alpha_U(P_\star)-a_U^{(0)}|
+\le
+\frac{r_U}{m_U}.
+\]
+Consequently, the electroweak hierarchy
+\[
+\frac{v}{E_\star}
+=
+P_\star^{-1/2}
+\exp\!\left[
+-\frac{2\pi}{(N_c+1)\alpha_U(P_\star)}
+\right]
+\]
+is no-measured-input on this proof record.
+\end{theorem}
+
+\begin{proof}
+The residual \(\Phi_U(P_\star,a)\) is built from the source-side pixel \(P_\star\), declared
+representation cutoffs, source transmutation law, source running law, and source \(Z\)-scale
+fixed-point equation. The dependency condition excludes measured electroweak data and all
+gravity-calibrated scales. The interval-Newton/Krawczyk inclusion proves existence and uniqueness
+of a zero of \(\Phi_U(P_\star,a)\) inside \(I_U\). The residual estimate and derivative lower
+bound give
+\[
+|\alpha_U(P_\star)-a_U^{(0)}|
+\le
+\frac{|\Phi_U(P_\star,a_U^{(0)})|}{m_U}
+\le
+\frac{r_U}{m_U}.
+\]
+Substitution into the declared transmutation law gives the displayed hierarchy. The dependency
+graph contains no measured \(G\), Planck unit, measured \(M_Z\), measured \(M_W\), measured
+\(\alpha_s(M_Z)\), or measured low-energy electroweak coupling ancestor, so the emitted hierarchy
+is source-side on \(\mathcal R_U\).
+\end{proof}
+
+\begin{lemma}[Exponential sensitivity of the hierarchy row]\label{lem:alpha-u-sensitivity}
+On the transmutation branch
+\[
+\frac{v}{E_\star}
+=
+P_\star^{-1/2}
+\exp\!\left[
+-\frac{2\pi}{4\alpha_U}
+\right],
+\]
+and on a clock row whose dominant scale dependence is inherited from \(v/E_\star\), the induced
+gravity readout satisfies approximately
+\[
+\frac{\partial\ln G}{\partial \alpha_U}
+=
+\frac{\pi}{\alpha_U^2}.
+\]
+At \(\alpha_U\simeq0.0411\),
+\[
+\frac{\partial\ln G}{\partial \alpha_U}
+\simeq
+1.86\times10^3.
+\]
+Therefore a certified relative gravity precision \(\eta_G\) requires
+\[
+|\delta\alpha_U|
+\lesssim
+\frac{\eta_G}{1.86\times10^3}.
+\]
+\end{lemma}
+
+\begin{proof}
+For \(\beta_{\mathrm{EW}}=4\),
+\[
+\ln(v/E_\star)
+=
+-\frac12\ln P_\star
+-
+\frac{2\pi}{4\alpha_U}.
+\]
+Thus
+\[
+\frac{\partial\ln(v/E_\star)}{\partial\alpha_U}
+=
+\frac{2\pi}{4\alpha_U^2}
+=
+\frac{\pi}{2\alpha_U^2}.
+\]
+Since the gravity row is quadratic in the clock scale,
+\[
+G\propto \varepsilon_{\mathrm{Cs}}^2,
+\]
+and the clock scale inherits this dominant factor, one obtains
+\[
+\frac{\partial\ln G}{\partial\alpha_U}
+=
+2\cdot\frac{\pi}{2\alpha_U^2}
+=
+\frac{\pi}{\alpha_U^2}.
+\]
+\end{proof}
+
+\begin{remark}[Digits policy]\label{rem:gravity-digits-policy}
+The exponential branch allows precision only to the extent that the source proof records carry
+interval bounds. The number of printed digits in \(G_{\mathrm{SI}}\) may not exceed the precision
+certified by \(\mathcal R_U\), \(\mathcal R_{\mathrm{QCD}}\), \(\mathcal R_{\mathrm{flav}}\), and
+\(\mathcal R_{\mathrm{Cs}}\). A display such as
+\[
+\varepsilon_{\mathrm{Cs}}
+=
+2\pi\nu_{\mathrm{Cs}}\sqrt{\hbar G_{\mathrm{ref}}/c^5}
+\]
+is a calibration checksum unless the full source stack emits the same interval with a no-\(G\)
+dependency graph.
+\end{remark}
+
+\paragraph{No-\(G\) clock hierarchy for the gravity scale.}
+The numerical gravity row uses the dimensionless cesium clock gap
+\[
+\varepsilon_{\mathrm{Cs}}
+:=
+\frac{\hbar\omega_{\mathrm{Cs}}}{E_\star},
+\qquad
+E_\star:=\frac{\hbar c}{\ell_\star},
+\qquad
+\omega_{\mathrm{Cs}}=2\pi\nu_{\mathrm{Cs}}.
+\]
+The size of this gap is a hierarchy problem for the OPH scale branch. The gap is represented as a
+factorized source-side readout. The source-only scale branch is accepted as no-\(G\) only when the
+gap factorizes through source-side dimensionless physics:
+\[
+\mathcal R_\gamma
+=
+\mathcal R_U
++
+\mathcal R_\alpha
++
+\mathcal R_{e}^{\mathrm{abs}}
++
+\mathcal R_{\mathrm{QCD/nuc}}^{133\mathrm{Cs}}
++
+\mathcal R_{\mathrm{atom}}^{133\mathrm{Cs}}.
+\]
+Here \(\mathcal R_U\) emits \(\alpha_U(P_\star)\) and the electroweak scale,
+\(\mathcal R_\alpha\) emits the electromagnetic coupling used by the atomic Hamiltonian,
+\(\mathcal R_e^{\mathrm{abs}}\) emits the electron absolute mass ratio,
+\(\mathcal R_{\mathrm{QCD/nuc}}^{133\mathrm{Cs}}\) emits the cesium nuclear source packet, and
+\(\mathcal R_{\mathrm{atom}}^{133\mathrm{Cs}}\) emits the hyperfine spectral gap from those
+dimensionless data.
+
+At leading OPH source level, the electroweak hierarchy is generated by the branch-fixed
+transmutation law
+\[
+\frac{v}{E_\star}
+=
+P_\star^{-1/2}
+\exp\!\left[
+-\frac{2\pi}{(N_c+1)\alpha_U(P_\star)}
+\right],
+\qquad
+N_c=3.
+\]
+Thus the weak-to-UV ratio is generated from the dimensionless source data
+\(P_\star\), \(N_c\), and \(\alpha_U(P_\star)\). The cesium gap then has the schematic
+source form
+\[
+\varepsilon_{\mathrm{Cs}}
+=
+\mathcal H_{\mathrm{Cs}}
+\left(
+\alpha_\star,
+\frac{v}{E_\star},
+\frac{\Lambda_{\mathrm{QCD}}}{E_\star},
+y_e,
+y_q,
+\hbox{nuclear data},
+\hbox{atomic corrections}
+\right),
+\]
+where all arguments are dimensionless source outputs on the declared branch. In leading
+hyperfine scaling this contains the familiar structure
+\[
+\varepsilon_{\mathrm{Cs}}
+\sim
+\mathcal C_{\mathrm{Cs}}\,
+\alpha_\star^4
+\frac{m_e^2}{m_pE_\star},
+\]
+with relativistic, many-body, recoil, QED, finite-nuclear-size, and nuclear-moment corrections
+absorbed into \(\mathcal C_{\mathrm{Cs}}\).
+
+\begin{definition}[Cesium source packet]\label{def:cs-source-packet}
+A source-only cesium packet is
+\[
+\mathcal D_{\mathrm{Cs}}^{\mathrm{src}}
+=
+\left(
+\alpha_\star,\,
+\frac{m_e}{E_\star},\,
+\frac{\Lambda_{\mathrm{QCD}}}{E_\star},\,
+\{y_q\},\,
+\mathcal N_{133},\,
+\mathcal B_{\mathrm{atom}}^{\mathrm{Cs}}
+\right).
+\]
+\(\mathcal N_{133}\) contains the source-side nuclear data for \({}^{133}\mathrm{Cs}\), including
+nuclear spin, magnetic moment, magnetization distribution, charge radius, recoil data, and
+finite-size data. \(\mathcal B_{\mathrm{atom}}^{\mathrm{Cs}}\) contains the atomic many-body,
+relativistic, QED, recoil, and finite-nucleus correction package. Every object in
+\(\mathcal D_{\mathrm{Cs}}^{\mathrm{src}}\) is dimensionless and has no dependency path from
+measured \(G\), Planck area, Planck mass, Planck time, measured \(\Lambda\), or an algebraically
+equivalent gravity-calibrated scale.
+\end{definition}
+
+\begin{definition}[OPH cesium Hamiltonian]\label{def:oph-cs-hamiltonian}
+Given \(\mathcal D_{\mathrm{Cs}}^{\mathrm{src}}\), define the dimensionless cesium Hamiltonian
+\[
+\widehat H_{\mathrm{Cs}}^{\mathrm{OPH}}
+=
+\widehat H_{\mathrm{DC}}
++
+\widehat H_{\mathrm{Breit}}
++
+\widehat H_{\mathrm{QED}}
++
+\widehat H_{\mathrm{recoil}}
++
+\widehat H_{\mathrm{nuc}}
++
+\widehat H_{\mathrm{manybody}}.
+\]
+The hats indicate that every term is measured in units of \(E_\star\), not in SI units and not in
+Planck units inferred from measured \(G\).
+\end{definition}
+
+\begin{theorem}[No-\(G\) OPH clock-hierarchy theorem]\label{thm:no-g-clock-hierarchy}
+Assume the local pixel proof selects \(P_\star\). Assume the unified-coupling proof record
+\(\mathcal R_U\) of Theorem~\ref{thm:no-input-alpha-u} emits \(\alpha_U(P_\star)\) and
+\[
+\frac{v}{E_\star}
+=
+P_\star^{-1/2}
+\exp\!\left[
+-\frac{2\pi}{(N_c+1)\alpha_U(P_\star)}
+\right].
+\]
+Assume the electromagnetic endpoint branch \(\mathcal R_\alpha\) emits \(\alpha_\star\), the
+charged-lepton absolute-scale branch \(\mathcal R_e^{\mathrm{abs}}\) emits
+\[
+\frac{m_e}{E_\star}
+=
+\frac{y_e}{\sqrt2}\frac{v}{E_\star},
+\]
+the QCD/nuclear branch \(\mathcal R_{\mathrm{QCD/nuc}}^{133\mathrm{Cs}}\) emits
+\(\mathcal N_{133}\), and the atomic branch
+\(\mathcal R_{\mathrm{atom}}^{133\mathrm{Cs}}\) supplies isolated spectral enclosures
+\[
+J_{F=3},\qquad J_{F=4}
+\]
+for the source-only Hamiltonian
+\[
+\widehat H_{\mathrm{Cs}}^{\mathrm{OPH}}
+=
+\widehat H_{\mathrm{DC}}
++
+\widehat H_{\mathrm{Breit}}
++
+\widehat H_{\mathrm{QED}}
++
+\widehat H_{\mathrm{recoil}}
++
+\widehat H_{\mathrm{nuc}}
++
+\widehat H_{\mathrm{manybody}}
+\]
+with disjoint intervals and certified hyperfine gap
+\[
+\varepsilon_{\mathrm{Cs}}
+=
+\lambda_{F=4}(\widehat H_{\mathrm{Cs}}^{\mathrm{OPH}})
+-
+\lambda_{F=3}(\widehat H_{\mathrm{Cs}}^{\mathrm{OPH}}).
+\]
+Assume further that the combined dependency graph
+\[
+\mathrm{DAG}_{\mathrm{Cs}}
+=
+\mathrm{DAG}
+\left(
+\mathcal R_U,
+\mathcal R_\alpha,
+\mathcal R_e^{\mathrm{abs}},
+\mathcal R_{\mathrm{QCD/nuc}}^{133\mathrm{Cs}},
+\mathcal R_{\mathrm{atom}}^{133\mathrm{Cs}}
+\right)
+\]
+contains no directed path from
+\[
+G_{\mathrm{exp}},
+\qquad
+\ell_P^2=\frac{\hbar G}{c^3},
+\qquad
+m_P=\sqrt{\frac{\hbar c}{G}},
+\qquad
+t_P=\sqrt{\frac{\hbar G}{c^5}},
+\qquad
+\Lambda_{\mathrm{exp}},
+\qquad
+\frac{3\pi c^3}{\hbar G},
+\]
+or from any algebraically equivalent gravity-calibrated scale. Then
+\(\varepsilon_{\mathrm{Cs}}\) is a no-\(G\) hierarchy readout. Consequently
+\[
+\gamma_\star
+=
+\frac{\ell_\star\nu_{\mathrm{Cs}}}{c}
+=
+\frac{\varepsilon_{\mathrm{Cs}}}{2\pi}
+\]
+is non-circular, and
+\[
+G_{\mathrm{SI}}
+=
+\frac{c^5}{4\pi^2\hbar\nu_{\mathrm{Cs}}^2}
+\varepsilon_{\mathrm{Cs}}^2
+\]
+has no measured-\(G\) ancestor.
+\end{theorem}
+
+\begin{proof}
+\(\mathcal R_U\) emits the small weak ratio from \(P_\star\), \(N_c\), and
+\(\alpha_U(P_\star)\), all of which are dimensionless branch data. \(\mathcal R_\alpha\) emits
+the electromagnetic coupling used by the atomic Hamiltonian. \(\mathcal R_e^{\mathrm{abs}}\)
+emits the electron mass ratio. \(\mathcal R_{\mathrm{QCD/nuc}}^{133\mathrm{Cs}}\) emits the
+cesium nuclear source packet. Therefore every coefficient of
+\(\widehat H_{\mathrm{Cs}}^{\mathrm{OPH}}\) has no measured-\(G\) ancestor. The atomic branch
+gives isolated spectral enclosures for the two hyperfine levels, so the gap
+\[
+\varepsilon_{\mathrm{Cs}}
+=
+\lambda_{F=4}(\widehat H_{\mathrm{Cs}}^{\mathrm{OPH}})
+-
+\lambda_{F=3}(\widehat H_{\mathrm{Cs}}^{\mathrm{OPH}})
+\]
+is well-defined and inherits the no-\(G\) dependency status of the Hamiltonian.
+
+Finally,
+\[
+\varepsilon_{\mathrm{Cs}}
+=
+\frac{\hbar(2\pi\nu_{\mathrm{Cs}})}{\hbar c/\ell_\star}
+=
+\frac{2\pi\nu_{\mathrm{Cs}}\ell_\star}{c},
+\]
+so
+\[
+\gamma_\star=\frac{\ell_\star\nu_{\mathrm{Cs}}}{c}
+=
+\frac{\varepsilon_{\mathrm{Cs}}}{2\pi}.
+\]
+Substitution into \(G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar\) gives the displayed expression
+for \(G_{\mathrm{SI}}\). The only non-display parent of the expression is the source-side
+\(\varepsilon_{\mathrm{Cs}}\) readout, so the gravity row is non-circular under the stated
+hypotheses.
+\end{proof}
+
+\begin{remark}[Clock-certificate status]\label{rem:cs-clock-status}
+The theorem above is not discharged by printing
+\[
+\varepsilon_{\mathrm{Cs}}
+=
+3.1139305134\ldots\times10^{-33}.
+\]
+That decimal is source-predictive only if it is emitted by
+\[
+\mathcal R_U
++
+\mathcal R_\alpha
++
+\mathcal R_e^{\mathrm{abs}}
++
+\mathcal R_{\mathrm{QCD/nuc}}^{133\mathrm{Cs}}
++
+\mathcal R_{\mathrm{atom}}^{133\mathrm{Cs}}.
+\]
+If instead it is computed as
+\[
+\varepsilon_{\mathrm{Cs}}^{\mathrm{cal}}
+=
+2\pi\nu_{\mathrm{Cs}}
+\sqrt{\frac{\hbar G_{\mathrm{exp}}}{c^5}},
+\]
+then it is a gravity-side calibration checksum, not a source-side clock prediction. The paper
+surface supplies the algebraic certificate shape and the \(\mathcal R_U\) numerical witness.
+The full source-only \(\mathcal R_{\mathrm{Cs}}\) branch requires the source-only
+electromagnetic endpoint, charged-lepton absolute-scale gate, source-side cesium nuclear packet,
+and atomic spectral enclosure.
+\end{remark}
+
 \paragraph{Screen-normalized self-consistency for total capacity.}\label{sec:n-closure}
 The global counterpart to the local \(P\)-closure is the cosmic record-closure capacity,
 \[

@@ -9,6 +9,257 @@ calibration branch. The public D10 status is explicitly Phase II rather than rec
 Phase I. In particular, this appendix does not prove that OPH derives the physical
 one-loop beta coefficients from edge sectors alone.
 
+\subsection{\texorpdfstring{\(\mathcal R_U\)}{R\_U} Unified-Coupling Certificate v0.2}
+
+The \(\mathcal R_U\) certificate is the D10 gate needed by the hierarchy discussion in the
+synthesis paper. It certifies the unified diffusion coupling used in the electroweak
+transmutation factor
+\[
+\frac{v}{E_\star}
+=
+P^{-1/2}\exp\!\left[-\frac{2\pi}{4\alpha_U(P)}\right].
+\]
+It does not certify the full clock branch
+\[
+\mathcal R_\gamma
+=
+\mathcal R_U+\mathcal R_\alpha+\mathcal R_e^{\mathrm{abs}}
++\mathcal R_{\mathrm{QCD/nuc}}^{133\mathrm{Cs}}
++\mathcal R_{\mathrm{atom}}^{133\mathrm{Cs}}.
+\]
+The full \(\mathcal R_\gamma\) stack requires source-only electromagnetic endpoint,
+charged-lepton absolute-scale, cesium nuclear, and atomic spectral enclosures. The v0.2 package is
+a numerical witness for \(\mathcal R_U\), with formal promotion gated by outward-rounded interval
+arithmetic.
+
+\paragraph{Frozen source packet.}
+The public-pixel branch uses
+\[
+P_C
+=
+1.6309682094039593248792798477826489413359828516279250606661507533907793398933432.
+\]
+The source-audit branch uses
+\[
+P_{\mathrm{cand}}
+=
+1.63097209569432901817967892561191884270169.
+\]
+The finite heat-kernel cutoffs are
+\[
+N_2=128,\qquad N_3=64.
+\]
+The one-loop running packet is
+\[
+(b_1,b_2,b_3)=\left(\frac{33}{5},1,-3\right),
+\qquad
+N_c=3,
+\qquad
+\beta_{\mathrm{EW}}=N_c+1=4.
+\]
+This packet is frozen in the certificate. It is not silently derived in this appendix from the
+recovered OPH core.
+
+\begin{definition}[No-hidden-free-variable rule for \(\mathcal R_U\)]
+The following objects must be fixed before comparison with electroweak or gravity data:
+\[
+(b_1,b_2,b_3),\quad
+N_2,\quad
+N_3,\quad
+M_U(P),\quad
+E_{\mathrm{cell}}(P),\quad
+\beta_{\mathrm{EW}},\quad
+\hbox{Casimir normalization},\quad
+\hbox{matching scheme}.
+\]
+Changing any of them after comparison with \(M_W\), \(M_Z\), \(\alpha_s(M_Z)\), low-energy
+electroweak couplings, or \(G_{\mathrm{exp}}\) demotes the row to calibration.
+\end{definition}
+
+\paragraph{Dimensionless source map.}
+Set \(E_\star=1\) for the dimensionless calculation. For a trial coupling \(a\), define
+\[
+M_U(P)=e^{-2\pi}P^{1/6},
+\qquad
+E_{\mathrm{cell}}(P)=P^{-1/2},
+\]
+\[
+v(P,a)=E_{\mathrm{cell}}(P)\exp\!\left[-\frac{2\pi}{4a}\right].
+\]
+For \(i=1,2,3\),
+\[
+\alpha_i^{-1}(\mu;P,a)
+=
+a^{-1}
++
+\frac{b_i}{2\pi}\log\!\left(\frac{M_U(P)}{\mu}\right),
+\qquad
+\alpha_Y(\mu;P,a)=\frac35\alpha_1(\mu;P,a).
+\]
+The source \(Z\)-scale is the positive solution of
+\[
+\mu
+=
+\frac{v(P,a)}{2}
+\sqrt{4\pi\alpha_2(\mu;P,a)+4\pi\alpha_Y(\mu;P,a)}.
+\]
+For \(\mathrm{SU}(2)\), with \(j=n/2\) and \(0\le n\le N_2\),
+\[
+d_j=2j+1,\qquad C_2(j)=j(j+1).
+\]
+For \(\mathrm{SU}(3)\), with \(0\le p,q\le N_3\),
+\[
+d_{p,q}=\frac{(p+1)(q+1)(p+q+2)}{2},
+\qquad
+C_2(p,q)=\frac{p^2+q^2+pq+3p+3q}{3}.
+\]
+The group sums are
+\[
+Z_G(t)=\sum_R d_R e^{-tC_2(R)},
+\qquad
+\bar\ell_G(t)=
+\frac{1}{Z_G(t)}
+\sum_R d_R e^{-tC_2(R)}\log d_R.
+\]
+Define
+\[
+t_2(P,a)=4\pi^2\alpha_2(\mu_Z(P,a);P,a),
+\qquad
+t_3(P,a)=4\pi^2\alpha_3(\mu_Z(P,a);P,a),
+\]
+and
+\[
+\Phi_U(P,a)
+=
+\bar\ell_{\mathrm{SU}(2)}(t_2(P,a))
++
+\bar\ell_{\mathrm{SU}(3)}(t_3(P,a))
+-
+\frac{P}{4}.
+\]
+The certificate value is the zero \(\Phi_U(P,\alpha_U(P))=0\).
+
+\paragraph{Numerical witness.}
+For \(P=P_C\), the v0.2 checker emits
+\[
+\alpha_U(P_C)=0.041124336195630495,
+\qquad
+\alpha_U(P_C)^{-1}=24.316501918546496.
+\]
+The corresponding dimensionless hierarchy data are
+\[
+\frac{M_U(P_C)}{E_\star}=0.0020260720012100037,
+\quad
+\frac{v(P_C)}{E_\star}=2.0199803239725553\times10^{-17},
+\quad
+\frac{\mu_Z(P_C)}{E_\star}=7.502403238986022\times10^{-18}.
+\]
+The emitted couplings at \(\mu_Z\) are
+\[
+\alpha_1=0.016885708038988166,\qquad
+\alpha_Y=0.010131424823392899,
+\]
+\[
+\alpha_2=0.033777889448908055,\qquad
+\alpha_3=0.11833602747445048.
+\]
+The heat-kernel parameters and entropy readouts are
+\[
+t_2=1.3334976254578108,\qquad
+t_3=4.6717191102770705,
+\]
+\[
+\bar\ell_{\mathrm{SU}(2)}=0.39488144681077636,
+\qquad
+\bar\ell_{\mathrm{SU}(3)}=0.012860605540213493.
+\]
+Thus
+\[
+\bar\ell_{\mathrm{SU}(2)}+\bar\ell_{\mathrm{SU}(3)}
+=
+0.40774205235098987,
+\qquad
+P_C/4=0.4077420523509898,
+\]
+and
+\[
+\Phi_U(P_C,0.041124336195630495)=5.55\times10^{-17}.
+\]
+A centered derivative check gives
+\[
+\partial_a\Phi_U(P_C,a)\simeq -10.990524683118785.
+\]
+With \(\delta=10^{-6}\), the bracket signs are
+\[
+\Phi_U(P_C,\alpha_U-\delta)=1.0990748697592423\times10^{-5},
+\]
+\[
+\Phi_U(P_C,\alpha_U+\delta)=-1.0990300680135956\times10^{-5}.
+\]
+
+For the source-audit pixel,
+\[
+\alpha_U(P_{\mathrm{cand}})=0.04112424744557487,
+\qquad
+\alpha_U(P_{\mathrm{cand}})^{-1}=24.316554395881205,
+\]
+\[
+\frac{v(P_{\mathrm{cand}})}{E_\star}=2.0198114150099223\times10^{-17},
+\qquad
+\frac{\mu_Z(P_{\mathrm{cand}})}{E_\star}=7.501767385088398\times10^{-18}.
+\]
+This branch is the one to cite when avoiding the measured Thomson endpoint in the upstream pixel
+solve.
+
+\begin{theorem}[Electroweak unified-coupling numerical witness]\label{thm:particle-ru-witness}
+Assume the frozen source map, running packet, heat-kernel cutoff policy, and
+no-hidden-free-variable rule above. Let
+\[
+I_U=[0.041123336195630494,\;0.041125336195630496].
+\]
+If outward-rounded interval arithmetic verifies
+\[
+0\in \Phi_U(P_C,I_U),
+\qquad
+0\notin \partial_a\Phi_U(P_C,I_U),
+\]
+then there is a unique \(\alpha_U(P_C)\in I_U\) satisfying
+\[
+\Phi_U(P_C,\alpha_U(P_C))=0.
+\]
+Moreover, the dependency graph of this zero contains no measured \(G\), no Planck unit formed
+using measured \(G\), no measured \(\Lambda\), no measured \(M_Z\), no measured \(M_W\), and no
+measured low-energy gauge coupling.
+\end{theorem}
+
+\begin{proof}
+Continuity follows because the running couplings, self-consistent \(Z\)-scale solution, and
+finite heat-kernel sums are continuous on the declared positive interval. The endpoint sign
+change gives existence by the intermediate value theorem. The derivative exclusion gives
+uniqueness. The dependency statement follows by inspection of the frozen source map: the residual
+is built only from \(P_C\), the frozen running packet, the self-consistent \(Z\)-scale equation,
+and finite compact-group representation sums.
+\end{proof}
+
+\paragraph{Precision policy.}
+The exponential map makes downstream gravity displays sensitive to \(\alpha_U\):
+\[
+\frac{\partial\log G}{\partial \alpha_U}
+\simeq
+\frac{\pi}{\alpha_U^2}
+\approx
+1.86\times10^3.
+\]
+Therefore the number of digits printed for any downstream \(G\) or \(\varepsilon_{\mathrm{Cs}}\)
+row may not exceed the interval precision certified by
+\[
+\mathcal R_U+\mathcal R_\alpha+\mathcal R_e^{\mathrm{abs}}
++\mathcal R_{\mathrm{QCD/nuc}}^{133\mathrm{Cs}}
++\mathcal R_{\mathrm{atom}}^{133\mathrm{Cs}}.
+\]
+The v0.2 witness supports an electroweak hierarchy certificate. It does not support a 52-digit
+source-only gravity prediction.
+
 \subsection{One-Loop Calibration Frame}
 
 At one loop, if couplings unify at \((M_U,\alpha_U)\),

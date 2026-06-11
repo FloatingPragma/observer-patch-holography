@@ -9,19 +9,21 @@ c = Decimal("299792458")
 h = Decimal("6.62607015e-34")
 hbar = h / (2 * pi)
 
-B_star = Decimal(
-    "3.6078739146803215760518414801601725476877083072171853821242070198789871988886e70"
-)
-ell2 = (3 * pi) / B_star
-ell = ell2.sqrt()
-G = (c**3) * ell2 / hbar
 nu_cs = Decimal("9192631770")
-gamma_cs = ell * nu_cs / c
+gamma_cs = Decimal(
+    "4.9559743365484194636657782433696431879484319705825e-34"
+)
+epsilon_cs = 2 * pi * gamma_cs
+ell = gamma_cs * c / nu_cs
+ell2 = ell * ell
+B_star = (3 * pi) / ell2
+G = (c**5) * gamma_cs * gamma_cs / (hbar * nu_cs * nu_cs)
 
+print("epsilon_Cs        =", epsilon_cs)
+print("gamma_Cs          =", gamma_cs)
 print("B_star            =", B_star)
 print("ell_star^2        =", ell2)
 print("ell_star          =", ell)
-print("gamma_Cs          =", gamma_cs)
 print("hbar              =", hbar)
 print("G_OPH             =", G)
 print("check B_star*ell2 =", B_star * ell2)
