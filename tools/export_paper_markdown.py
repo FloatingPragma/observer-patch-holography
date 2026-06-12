@@ -15,15 +15,14 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 WORKSPACE_ROOT = REPO_ROOT.parent
 PAPER_DIR = REPO_ROOT / "paper"
 EXTRA_DIR = REPO_ROOT / "extra"
-DEFAULT_OUT = WORKSPACE_ROOT / "temp" / "markdown"
-DEFAULT_CORE_PAPERS = [
-    PAPER_DIR / "deriving_the_particle_zoo_from_observer_consistency.tex",
-    PAPER_DIR / "observers_are_all_you_need.tex",
-    PAPER_DIR / "paradise_as_fixed_point_consensus.tex",
-    PAPER_DIR / "reality_as_consensus_protocol.tex",
-    PAPER_DIR / "recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
-    PAPER_DIR / "screen_microphysics_and_observer_synchronization.tex",
-]
+DEFAULT_OUT = WORKSPACE_ROOT / "markdown"
+NON_PAPER_TEX = {
+    "appendix_B_bft_qecc_extensions.tex",
+    "release_info.tex",
+}
+DEFAULT_CORE_PAPERS = sorted(
+    path for path in PAPER_DIR.glob("*.tex") if path.name not in NON_PAPER_TEX
+)
 DEFAULT_SUPPLEMENTAL_PAPERS = [
 ]
 DEFAULT_EXTRA_PAPERS = sorted(EXTRA_DIR.glob("*.tex"))
