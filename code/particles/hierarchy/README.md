@@ -30,6 +30,7 @@ P_\star^{-1/2}\exp\left[-\frac{2\pi}{4\alpha_U(P_\star)}\right].
 - `certificates/local_global_resonance_audit.json`
 - `computations/derive_global_repair_tick_lemma.py`
 - `validators/validate_bundle.py`
+- `validators/validate_manifest.py`
 
 ## Closure status
 

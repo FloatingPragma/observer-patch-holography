@@ -4,7 +4,8 @@ root = pathlib.Path(__file__).resolve().parents[1]
 checks = [
     [sys.executable, str(root/"validators/validate_dag.py"), str(root/"certificates/DAG_U.json")],
     [sys.executable, str(root/"validators/validate_ru_interval_certificate.py"), str(root/"certificates/R_U_krawczyk_certificate.json")],
-    [sys.executable, str(root/"validators/validate_global_repair_tick_certificate.py"), str(root/"certificates/R_N_global_repair_tick_certificate.json")]
+    [sys.executable, str(root/"validators/validate_global_repair_tick_certificate.py"), str(root/"certificates/R_N_global_repair_tick_certificate.json")],
+    [sys.executable, str(root/"validators/validate_manifest.py"), str(root/"manifest.json")]
 ]
 results=[]
 for cmd in checks:

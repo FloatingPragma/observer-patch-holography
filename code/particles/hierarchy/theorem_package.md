@@ -1,6 +1,6 @@
 # Publication-Grade Theorem Package
 
-## Theorem A — Conditional OPH electroweak hierarchy
+## Theorem A: Conditional OPH electroweak hierarchy
 
 Assume:
 
@@ -30,7 +30,7 @@ On the source-audit branch:
 v(P_{cand})/E_\star = 2.0198114150099223\times10^{-17}.
 ```
 
-## Theorem B — Higgs D10/D11 declared surface
+## Theorem B: Higgs D10/D11 declared surface
 
 Assume the D10/D11 input interval box `I_HT`, interval extension `F_HT#`, D11 Jacobian interval map, and `DAG_HT`.
 
@@ -43,7 +43,7 @@ m_t^{D11}=172.3523553288312\,\mathrm{GeV}.
 
 This bundle records the formula/output surface but does not include the raw interval input box.
 
-## Corollary — OPH Higgs naturalness
+## Corollary: OPH Higgs naturalness
 
 If the RG/coarse-graining Higgs readout defect
 
@@ -56,7 +56,7 @@ is zero, or interval-bounded within the declared Higgs output interval, then the
 
 This bundle defines the defect but does not prove its numerical bound.
 
-## Lemma C — Global repair-tick lemma
+## Lemma C: Global repair-tick lemma
 
 Setting: the cosmic record-capacity fixed point `N_CRC = F(N_CRC)` with observed-branch
 readout `N_CRC = S_dS` and D6 normalization `N_CRC = pi * (r_CRC/ell_star)^2`. Coordinate:
@@ -64,14 +64,14 @@ readout `N_CRC = S_dS` and D6 normalization `N_CRC = pi * (r_CRC/ell_star)^2`. C
 `rho_star = ell_star / r_CRC = (N_CRC/pi)^(-1/2)`.
 
 Definition (global repair cycle): `G_N` is the scale-free (homogeneous) readback transport
-attached to the fixed point. Fixed-point closure — readback without deficit or slack — means
+attached to the fixed point. Fixed-point closure, readback without deficit or slack, means
 `G_N(1) = rho_star` exactly.
 
 Realization (closure derived from the readback interface plus a declared counting model): the
 corpus defines the readback map as `F(N) = Cap_read(Obs(nf_{r,N}(U_{r,N})))` in the refinement
-limit — the capacity reconstructed by the stable self-reading observer sector from the horizon
+limit, the capacity reconstructed by the stable self-reading observer sector from the horizon
 record (`paper/tex_fragments/OBSERVERS_SYNTHESIS_SECTIONS.tex`). Model `Cap_read` by the D6
-area law evaluated at the effective delivery resolution `rho_read` — the canonical
+area law evaluated at the effective delivery resolution `rho_read`, the canonical
 scale-covariant extension of `N = pi (r/ell)^2`, supplied here as a declared modeling
 identification rather than a corpus-stated property of `Cap_read`:
 
@@ -110,7 +110,7 @@ finite-machinery verification, a representation-to-spectrum theorem for the roun
 electroweak tick projection (assigned to later issues), the joint `(P,N)` stability theorem,
 and the RG/coarse-graining naturality statement remain outside the promoted hierarchy theorem.
 
-## Boundary theorem — SI gravity/clock hierarchy
+## Boundary theorem: SI gravity/clock hierarchy
 
 The electroweak hierarchy theorem supplies `R_U`, not the full clock bridge. SI gravity requires:
 

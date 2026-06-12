@@ -29,13 +29,13 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "8890f02eeb148ebef71e0b6f148327526be88fbaffe1e263f366109334794fee",
-      "bytes": 2725
+      "sha256": "af26260db4417054176031db44f173425c08905c7fa0340a9e79c544e38f125f",
+      "bytes": 2691
     },
     {
       "path": "STATUS.md",
-      "sha256": "085f5c4aba9eb233fe309d6bb673e045a618f52485c79fcfc0ef1f499191c50f",
-      "bytes": 2085
+      "sha256": "88226b37709aaee374241264ca3d5f475028ef8370b812a012fd408dacd81477",
+      "bytes": 2068
     },
     {
       "path": "certificates/DAG_U.json",
@@ -89,13 +89,13 @@
     },
     {
       "path": "certificates/R_N_global_repair_tick_certificate.json",
-      "sha256": "4d6666af26f85bcc4aab8b14bb29ea5c65d20f3677c18dc08aef370877dca9e9",
-      "bytes": 11188
+      "sha256": "9ecf31a0ee338e49055002505187f59b71d35cdc0706ebabafc8ea5d2f3a5b6b",
+      "bytes": 11029
     },
     {
       "path": "certificates/local_global_resonance_audit.json",
-      "sha256": "0ef8c463aea5eac28174ebabca7322792fc374fd668d8cabd8d63550857605ba",
-      "bytes": 1470
+      "sha256": "95872652db0abc24b619191bd6132372bfa77c858a91c6c5150abac79f5fb3f1",
+      "bytes": 1442
     },
     {
       "path": "computations/hierarchy_numeric_witness.json",
@@ -109,18 +109,18 @@
     },
     {
       "path": "computations/derive_global_repair_tick_lemma.py",
-      "sha256": "d202b53a0b1d3943ca24f661648372ab8bc1e9f5746395956e6f0050dfb289c3",
-      "bytes": 16993
+      "sha256": "4b08fd2527fd5a5662a8fb71c3ca46e86f3a5cc9d5145f7f23ffb4f07ca07758",
+      "bytes": 16711
     },
     {
       "path": "theorem_package.md",
-      "sha256": "9b4281bf746559d25c70f300673fb0646edc34f063b3e152b091dc885a25dd29",
-      "bytes": 4775
+      "sha256": "cd3a6baff0cb3f249ec72fabd8a7e0136f2073c017d50cbbcea33fc3d7032052",
+      "bytes": 4621
     },
     {
       "path": "validators/validate_bundle.py",
-      "sha256": "58fcb69f34326a22af913d1a856fce896fa4db94ecedea8f0822c64e8a92826f",
-      "bytes": 835
+      "sha256": "9e489edfeb60ac694e04582cba82b9134664765b8db4d9579a8c168f2fa0cc3f",
+      "bytes": 915
     },
     {
       "path": "validators/validate_dag.py",
@@ -134,8 +134,13 @@
     },
     {
       "path": "validators/validate_global_repair_tick_certificate.py",
-      "sha256": "2aacf1518fdb58b68003662a813e40822e8b20f17d4c85997eccb813c4c81ae2",
-      "bytes": 4463
+      "sha256": "7ac8729e8c3104cb3ea1f2d3519c76d633628626eb113687db6b1f905ece7a00",
+      "bytes": 6071
+    },
+    {
+      "path": "validators/validate_manifest.py",
+      "sha256": "fd4dc3303c6ae22135c2315f658c8309b9d91784e0b43670e3386a1bfa887e2d",
+      "bytes": 1236
     }
   ]
 }

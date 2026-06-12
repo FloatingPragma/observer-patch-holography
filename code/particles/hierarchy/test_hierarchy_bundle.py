@@ -26,7 +26,7 @@ def test_hierarchy_bundle_validators_pass() -> None:
     result = _run("validators/validate_bundle.py")
     payload = json.loads(result.stdout)
 
-    assert len(payload) == 3
+    assert len(payload) == 4
     assert all(entry["returncode"] == 0 for entry in payload)
     validator_outputs = [json.loads(entry["stdout"]) for entry in payload]
     assert all(output["pass"] is True for output in validator_outputs)
@@ -62,7 +62,7 @@ def test_hierarchy_numeric_witness_keeps_public_and_source_audit_branches_separa
     assert source_audit["v_over_E_star"] == "2.0198114150099223e-17"
 
 
-def test_global_repair_tick_lemma_is_closed_on_declared_rounds_with_honest_boundary() -> None:
+def test_global_repair_tick_lemma_is_closed_on_declared_rounds_with_claim_boundary() -> None:
     result = _run(
         "validators/validate_global_repair_tick_certificate.py",
         "certificates/R_N_global_repair_tick_certificate.json",
@@ -73,6 +73,9 @@ def test_global_repair_tick_lemma_is_closed_on_declared_rounds_with_honest_bound
     assert payload["status_is_closed_lemma_on_declared_rounds"] is True
     assert payload["tick_exponent_is_minus_one_over_48"] is True
     assert payload["tick_times_rounds_is_full_cycle"] is True
+    assert payload["full_cycle_map_recorded"] is True
+    assert payload["one_tick_map_recorded"] is True
+    assert payload["numeric_display_matches_formula"] is True
     assert payload["full_cycle_multiplier_is_derived_from_closure"] is True
     assert payload["f_interface_equivalence_derived"] is True
     assert payload["round_count_is_declared_not_derived"] is True

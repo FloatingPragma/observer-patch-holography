@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import math
 import pathlib
 import sys
 from fractions import Fraction
@@ -19,6 +20,33 @@ FORBIDDEN_EW_INPUTS = {
 
 def _fraction_from_payload(payload: dict) -> Fraction:
     return Fraction(int(payload["numerator"]), int(payload["denominator"]))
+
+
+def _scientific(value: float) -> str:
+    return f"{value:.17e}"
+
+
+def _numeric_display_matches(cert: dict) -> bool:
+    display = cert["numeric_display_for_rounded_capacity"]
+    n_crc = float(display["N_CRC_display"])
+    n_over_pi = n_crc / math.pi
+    one_tick = _fraction_from_payload(cert["normalization"]["one_tick_exponent"])
+    full_cycle = _fraction_from_payload(cert["normalization"]["full_cycle_exponent"])
+    tick_multiplier = math.exp(float(one_tick) * math.log(n_over_pi))
+    full_contraction = math.exp(float(full_cycle) * math.log(n_over_pi))
+    tick_power = tick_multiplier ** int(cert["normalization"]["full_repair_rounds"])
+    relative_residual = (tick_power - full_contraction) / full_contraction
+    return all(
+        (
+            display["N_CRC_over_pi"] == _scientific(n_over_pi),
+            display["log_N_CRC_over_pi"] == f"{math.log(n_over_pi):.17g}",
+            display["log10_N_CRC_over_pi"] == f"{math.log10(n_over_pi):.17g}",
+            display["abs_g_star_prime_for_display_N"] == _scientific(tick_multiplier),
+            display["full_24_round_contraction_for_display_N"] == _scientific(full_contraction),
+            display["tick_power_24_float_check"] == _scientific(tick_power),
+            display["tick_power_24_relative_residual_float"] == f"{relative_residual:.3e}",
+        )
+    )
 
 
 def main(cert_path: str = "certificates/R_N_global_repair_tick_certificate.json") -> int:
@@ -46,6 +74,13 @@ def main(cert_path: str = "certificates/R_N_global_repair_tick_certificate.json"
             cert["exponent_law"]["per_tick_exponent_for_m_ticks"] == "-1/(2m)"
         ),
         "derivative_formula_recorded": cert["normalization"]["abs_g_star_prime"] == "(N_CRC/pi)^(-1/48)",
+        "full_cycle_map_recorded": (
+            cert["normalization"]["full_cycle_map"] == "G_N(rho) = (N_CRC/pi)^(-1/2) * rho"
+        ),
+        "one_tick_map_recorded": (
+            cert["normalization"]["one_tick_map"] == "g_N(rho) = (N_CRC/pi)^(-1/48) * rho"
+        ),
+        "numeric_display_matches_formula": _numeric_display_matches(cert),
         "full_cycle_multiplier_is_derived_from_closure": any(
             premise["id"] == "full_cycle_closure_multiplier" and premise["discharged_here"] is True
             for premise in derived_premises
@@ -58,7 +93,7 @@ def main(cert_path: str = "certificates/R_N_global_repair_tick_certificate.json"
             premise["id"] == "global_repair_round_count" and premise["discharged_here"] is False
             for premise in declared_inputs
         ),
-        "round_count_honesty_flag_set": acceptance["round_count_derived_from_first_principles"] is False,
+        "round_count_boundary_flag_set": acceptance["round_count_derived_from_first_principles"] is False,
         "closure_transport_derived_from_f_interface": (
             acceptance.get("closure_transport_derived_from_F_interface") is True
         ),
