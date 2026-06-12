@@ -81,10 +81,14 @@ $\alpha^{-1}(0)=137.035999177(21)$? Why three spatial
 dimensions, not four or seven?
 
 The fine-structure lane treats the public Thomson-limit value as a fixed-point
-readout of the same local screen cell. The local pixel ratio
-\(P=a_{\mathrm{cell}}/\ell_\star^2\) is given two readings. The scale
-$\ell_\star^2$ comes from the selected no-G scale certificate and is displayed
-as the Planck area only after that branch emits
+readout of the same local screen cell. The local pixel ratio is
+
+\[
+P=a_{\mathrm{cell}}/\ell_\star^2.
+\]
+
+It is given two readings. The scale $\ell_\star^2$ comes from the selected no-G
+scale certificate and is displayed as the Planck area only after that branch emits
 $G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar$. From outside the encoded world, $P$
 is the screen-cell area in units of the emitted scale area, sitting slightly
 above the exact golden-ratio balance point $\varphi$. From inside the encoded
