@@ -28,11 +28,18 @@ quantum-algebraic: patch algebras, states, trace/Born event probabilities on
 declared record surfaces, and generalized entropy are part of the formal
 starting point. From that basis, OPH recovers the observed effective universe:
 spacetime, gauge structure, particles, records, and observer synchronization all
-follow from overlap consistency.
+follow from overlap consistency. At the operating level, finite observer
+patches carry local records, compare only what their overlaps expose, repair
+mismatches through declared recovery moves, and settle into stable fixed points
+that survive refinement. The public world is the overlap-stable output of that
+process. This is the mathematical and empirical proof surface for OPH as the
+correct theory of everything: the same observer-consistency architecture
+recovers the established physics and explains why a world exists that can
+produce observers capable of reconstructing it.
 
-**Headline:** OPH is formulated as a zero-input theory. Its quantitative surface
-uses two dimensionless closure coordinates and one selected no-G scale
-certificate, all fixed by closure:
+OPH is formulated as a zero-input theory. Its quantitative surface uses two
+dimensionless closure coordinates and one selected no-G scale certificate, all
+fixed by closure:
 
 $$
 P_\star=\varphi+\frac{\sqrt{\pi}}{A_T(P_\star)}
@@ -101,16 +108,6 @@ equivalently $B_\star$, after which $\ell_\star$ is displayed as the Planck
 length. Observers inside infer
 geometry, horizons, entropy, $\Lambda$, history, and records from information
 available inside the universe.
-
-The operational claim is sharper than "information is fundamental." OPH models
-reality as an observer-based fixed-point consensus process. Finite observer
-patches carry local records, compare only what their overlaps expose, repair
-mismatches through declared recovery moves, and settle into stable fixed points
-that survive refinement. The public world is the overlap-stable output of that
-process. This is the mathematical and empirical proof surface for OPH as the
-correct theory of everything: the same observer-consistency architecture
-recovers the established physics and explains why a world exists that can
-produce observers capable of reconstructing it.
 
 ## Applications And OMEGA Hardware
 
@@ -237,42 +234,66 @@ correspondence. This is why $A_5$-icosahedral and $E_8$-type language can
 belong to one symmetry story. These names mark symmetry constraints and
 regulator structure.
 
-The scale discussion has three surfaces. The cosmological branch uses
-the unique cosmic record-closure fixed point:
-$N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})$, where the supplied horizon capacity and
-the observer-readback capacity agree. The density
-$\log|\Omega^{\mathrm{sc}}_N|-N$ is the finite-count representation of that
-target. On the observed branch, this fixed point is the de Sitter entropy
-capacity. For the observed cosmological constant, the bare horizon area ratio is about
-$1.05\times10^{122}$, while the entropy capacity used by OPH is about
-$3.31\times10^{122}$. That rounded capacity is a branch-scale display. The
-Newton row uses the fixed-point capacity together with the selected no-G scale
-certificate. The local pixel ratio is $P=a_{\mathrm{cell}}/\ell_\star^2$, where
-$\ell_\star^2=3\pi/B_\star$ is supplied by the scale certificate and is displayed
-as the Planck area only after that readout. From the outside, $P$ is a
-geometric cell-size ratio slightly
-above the golden-ratio self-similar balance. From the inside, it becomes the
-smallest electromagnetic observation scale available to observers in the world
-encoded on that screen. The fine-structure lane asks for the nonzero
-detuning of a holographic screen cell such that the cell's outer geometric
-displacement equals the electromagnetic observation scale emitted by the
-universe living on that same screen. The public solution is
+The scale story has three roles: a global capacity closure, a local pixel
+closure, and a no-G scale readout. The global coordinate is the unique cosmic
+record-closure capacity,
+
+$$
+N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}),
+$$
+
+where the supplied horizon capacity and the observer-readback capacity agree.
+The finite-count target is the density
+
+$$
+\log|\Omega^{\mathrm{sc}}_N|-N.
+$$
+
+On the observed branch this fixed point is the de Sitter entropy capacity. For
+the observed cosmological constant, the bare horizon area ratio is about
+$1.05\times10^{122}$, while the OPH entropy capacity is about
+$3.31\times10^{122}$. That displayed capacity belongs to the cosmological
+branch. The Newton row uses the same fixed-point capacity together with the
+selected no-G scale certificate.
+
+The local coordinate is the pixel ratio
+
+$$
+P=\frac{a_{\mathrm{cell}}}{\ell_\star^2},
+\qquad
+\ell_\star^2=\frac{3\pi}{B_\star}.
+$$
+
+The scale certificate supplies $\ell_\star^2$; only after that readout is the
+area displayed as the Planck area. From the outside, $P$ is a geometric
+cell-size ratio slightly above the golden-ratio self-similar balance. From the
+inside, the same cell is the smallest electromagnetic observation scale
+available to observers in the encoded universe.
+
+The applications sit downstream of those roles. The fine-structure lane asks
+for the nonzero detuning of a holographic screen cell such that the cell's
+outer geometric displacement equals the electromagnetic observation scale
+emitted by the universe living on that screen. The public solution is
 $P\simeq1.6309682094$, with
 $\alpha^{-1}(0)=137.035999177(21)$ and
-$\alpha(0)\simeq0.00729735256433$. Hardware-facing checks of the
+$\alpha(0)\simeq0.00729735256433$. The same local pixel scale feeds the gauge
+structure, scoped particle-mass rows, records, and observer synchronization. On
+the gravity row it supplies
+
+$$
+a_{\mathrm{cell}}=P\ell_\star^2,
+\qquad
+\bar{\ell}_{\mathrm{shared}}=\frac{P}{4}.
+$$
+
+The factor $P$ cancels in the Newton area-law readout, leaving
+$G_{\mathrm{geom}}=\ell_\star^2$. The particle pipeline carries the local
+scale into the weak sector, the Higgs lane, selected-class quark rows, and the
+weighted-cycle neutrino branch. Hadrons require either the OPH strong-binding
+backend or an explicitly marked empirical hadron closure. The operating policy
+for those rows is in [`HADRON.md`](HADRON.md). Hardware-facing checks of the
 same fixed-point geometry are treated only as public evidence-bundle claims
 when the raw artifacts and verifier receipts are available.
-
-The same local pixel scale drives the fine-structure closure, gauge structure,
-scoped particle-mass rows, records, and observer synchronization. On the gravity
-row it supplies the shared cell/edge identity
-$a_{\mathrm{cell}}=P\ell_\star^2$ and
-$\bar{\ell}_{\mathrm{shared}}=P/4$; $P$ cancels in the Newton area-law
-readout, leaving $G_{\mathrm{geom}}=\ell_\star^2$. The particle pipeline
-carries the local scale into the weak sector, the Higgs lane, selected-class
-quark rows, and the weighted-cycle neutrino branch. Hadrons require either the
-OPH strong-binding backend or an explicitly marked empirical hadron closure.
-The operating policy for those rows is in [`HADRON.md`](HADRON.md).
 
 ### Selected Quantitative Rows
 

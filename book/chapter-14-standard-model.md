@@ -952,6 +952,14 @@ electroweak validation rows, the Higgs/top quantitative surface, electromagnetis
 Newton's constant to one common structure without treating them as unrelated
 constants, while keeping validation bookkeeping and matching gates visible.
 
+The hierarchy row is part of that same local story. The weak scale is emitted
+by the pixel transmutation law
+$v/E_\star=P_\star^{-1/2}\exp[-2\pi/(4\alpha_U(P_\star))]$. The particle paper
+and the Observers paper carry the interval/Krawczyk certificate for the unique
+source value of $\alpha_U(P_\star)$. The full Higgs naturality reading
+depends on the RG coarse-graining defect bound, and the SI gravity decimal
+depends on the complete no-G clock bridge.
+
 **Charge quantization.** All color-singlet particles have integer electric charge. No fractional charges like $\pm 1/3$ can exist outside hadrons. This follows from the global structure of the gauge group.
 
 **Gauge-mediated proton decay.** Gauge-mediated proton decay is forbidden. The gauge group is a product group with no embedding in a larger simple group, so no leptoquark generators exist. Published experimental limits ($\tau_p > 10^{34}$ years) are consistent with this prediction.

@@ -16,11 +16,26 @@ effectives stables générées par la cohérence plus profonde des patches. La
 métaphore de l'illusion est traitée plus bas. Le reste de ce README donne la
 pile de preuves mathématiques et la surface de vérification empirique.
 
-L'OPH est la reconstruction observateur-premier de la physique fondamentale. Il part d'observateurs finis sur une géométrie finie d'écran holographique. Sa base de travail est algébrique-quantique : algèbres de patchs, états, probabilités de type trace/Born sur les surfaces d'enregistrement déclarées et entropie généralisée font partie du point de départ formel. À partir de cette base, l'OPH retrouve l'univers effectif observé : espace-temps, structure de jauge, particules, enregistrements et synchronisation des observateurs découlent de la cohérence de recouvrement.
+L'OPH est la reconstruction observateur-premier de la physique fondamentale.
+Il part d'observateurs finis sur une géométrie finie d'écran holographique. Sa
+base de travail est algébrique-quantique : algèbres de patchs, états,
+probabilités de type trace/Born sur les surfaces d'enregistrement déclarées et
+entropie généralisée font partie du point de départ formel. À partir de cette
+base, l'OPH retrouve l'univers effectif observé : espace-temps, structure de
+jauge, particules, enregistrements et synchronisation des observateurs
+découlent de la cohérence de recouvrement. Au niveau opératoire, des patches
+d'observateurs finis portent des enregistrements locaux, ne comparent que les
+données visibles dans leurs recouvrements, réparent les désaccords par des
+mouvements de récupération déclarés et convergent vers des points fixes stables
+qui survivent au raffinement. Le monde public est la sortie stable par
+recouvrement de ce processus. C'est la surface de preuve mathématique et
+empirique de l'OPH comme théorie du tout correcte : la même architecture de
+cohérence d'observateurs retrouve la physique établie et explique pourquoi il
+existe un monde capable de produire des observateurs qui le reconstruisent.
 
-**Point clé :** l'OPH est formulée comme une théorie sans entrée externe. Sa
-surface quantitative utilise deux coordonnées de fermeture sans dimension et un
-certificat d'échelle sans \(G\). Toutes viennent de conditions de fermeture :
+L'OPH est formulée comme une théorie sans entrée externe. Sa surface
+quantitative utilise deux coordonnées de fermeture sans dimension et un
+certificat d'échelle sans $G$. Toutes viennent de conditions de fermeture :
 
 $$
 P_\star=\varphi+\frac{\sqrt{\pi}}{A_T(P_\star)}
@@ -35,7 +50,7 @@ $$
 pour la capacité globale de l'écran, où $F(N)$ est la capacité active de
 l'horizon relue par les observateurs à l'intérieur de l'univers fourni avec la
 capacité $N$. Le certificat d'échelle sélectionné s'écrit comme le rapport
-d'horloge sans \(G\)
+d'horloge sans $G$
 
 $$
 \gamma_\star=\frac{\ell_\star\nu_{\mathrm{Cs}}}{c},
@@ -76,23 +91,11 @@ de structure fine basse énergie proche de $1/137$. $N_{\mathrm{CRC}}$ relie la
 capacité totale d'horizon vue de l'extérieur à l'enregistrement public
 accessible aux observateurs de l'intérieur : l'univers doit pouvoir reconstruire
 sa propre frontière. L'échelle gravitationnelle est relue sur sa propre branche
-observée par le certificat d'échelle sans \(G\), $\gamma_\star$, ou de façon
+observée par le certificat d'échelle sans $G$, $\gamma_\star$, ou de façon
 équivalente par $B_\star$, puis $\ell_\star$ s'affiche comme longueur de
 Planck. Les observateurs internes infèrent géométrie,
 horizons, entropie, $\Lambda$, histoire et enregistrements depuis l'information
 disponible à l'intérieur de l'univers.
-
-La thèse opérationnelle est plus précise que "l'information est fondamentale".
-L'OPH modélise la réalité comme un processus de consensus à point fixe fondé
-sur les observateurs. Des patches d'observateurs finis portent des
-enregistrements locaux, ne comparent que les données visibles dans leurs
-recouvrements, réparent les désaccords par des mouvements de récupération
-déclarés et convergent vers des points fixes stables qui survivent au
-raffinement. Le monde public est la sortie stable par recouvrement de ce
-processus. C'est la surface de preuve mathématique et empirique de l'OPH comme
-théorie du tout correcte : la même architecture de cohérence d'observateurs
-retrouve la physique établie et explique pourquoi il existe un monde capable de
-produire des observateurs qui le reconstruisent.
 
 ## Applications et matériel OMEGA
 
@@ -219,8 +222,70 @@ de McKay. C'est pourquoi le langage $A_5$-icosaédrique et le langage de type
 $E_8$ appartiennent à une même histoire de symétrie. Ces noms désignent des
 contraintes de symétrie et une structure de régulateur.
 
-La discussion d'échelle a trois surfaces. La branche cosmologique utilise le point fixe unique de fermeture des enregistrements cosmiques : $N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})$, où la capacité d'horizon fournie et la capacité relue par les observateurs coïncident. La densité $\log|\Omega^{\mathrm{sc}}_N|-N$ est la représentation par comptage fini de cette cible. Sur la branche observée, ce point fixe est la capacité entropique de Sitter. Pour la constante cosmologique observée, le ratio nu d'aire d'horizon vaut environ $1.05\times10^{122}$, tandis que la capacité entropique utilisée par l'OPH vaut environ $3.31\times10^{122}$. Cette capacité arrondie est un affichage de branche. La ligne de Newton utilise la capacité de point fixe avec le certificat d'échelle sans \(G\). Le ratio local de pixel est $P=a_{\mathrm{cell}}/\ell_\star^2$, où $\ell_\star^2=3\pi/B_\star$ vient du certificat d'échelle et ne s'affiche comme aire de Planck qu'après cette lecture. La même cellule d'écran est décrite deux fois : vue de l'extérieur comme un ratio géométrique légèrement au-dessus de l'équilibre auto-similaire au nombre d'or, et vue de l'intérieur comme la plus petite échelle d'observation électromagnétique disponible pour les observateurs de l'univers encodé.
-Le papier de synthèse écrit cette autoréférence comme un problème de point fixe. Le calcul de structure fine part de l'équilibre entropique au nombre d'or et de la normalisation gaussienne de bord, puis transporte l'ancre électrofaible jusqu'au point de Thomson. La surface publique utilise $P\simeq1.6309682094$. La lecture donne $\alpha^{-1}(0)=137.035999177(21)$ et $\alpha(0)\simeq0.00729735256433$. Sur la ligne gravitationnelle, le même pixel fournit l'identité cellule/arête $a_{\mathrm{cell}}=P\ell_\star^2$ et $\bar{\ell}_{\mathrm{shared}}=P/4$ ; $P$ s'annule dans la lecture de Newton et laisse $G_{\mathrm{geom}}=\ell_\star^2$. Le pixel local porte aussi la structure fine, la jauge réalisée, les lignes encadrées de masses de particules, les enregistrements et la synchronisation des observateurs.
+La discussion d'échelle a trois rôles : une fermeture globale de capacité, une
+fermeture locale de pixel et une lecture d'échelle sans $G$. La coordonnée
+globale est la capacité unique de fermeture des enregistrements cosmiques,
+
+$$
+N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}),
+$$
+
+où la capacité d'horizon fournie et la capacité relue par les observateurs
+coïncident. La cible de comptage fini est la densité
+
+$$
+\log|\Omega^{\mathrm{sc}}_N|-N.
+$$
+
+Sur la branche observée, ce point fixe est la capacité entropique de Sitter.
+Pour la constante cosmologique observée, le ratio nu d'aire d'horizon vaut
+environ $1.05\times10^{122}$, tandis que la capacité entropique OPH vaut
+environ $3.31\times10^{122}$. Cette capacité affichée appartient à la branche
+cosmologique. La ligne de Newton utilise la même capacité de point fixe avec le
+certificat d'échelle sans $G$.
+
+La coordonnée locale est le ratio de pixel
+
+$$
+P=\frac{a_{\mathrm{cell}}}{\ell_\star^2},
+\qquad
+\ell_\star^2=\frac{3\pi}{B_\star}.
+$$
+
+Le certificat d'échelle fournit $\ell_\star^2$ ; ce n'est qu'après cette
+lecture que l'aire s'affiche comme aire de Planck. Vu de l'extérieur, $P$ est
+un ratio géométrique de taille de cellule, légèrement au-dessus de l'équilibre
+auto-similaire au nombre d'or. Vu de l'intérieur, la même cellule est la plus
+petite échelle d'observation électromagnétique disponible pour les observateurs
+de l'univers encodé.
+
+Les applications sont en aval de ces rôles. La ligne de structure fine demande
+le désaccord non nul d'une cellule d'écran holographique tel que le déplacement
+géométrique externe de la cellule égale l'échelle d'observation
+électromagnétique émise par l'univers vivant sur ce même écran. La surface
+publique utilise $P\simeq1.6309682094$, avec
+$\alpha^{-1}(0)=137.035999177(21)$ et
+$\alpha(0)\simeq0.00729735256433$. Le même pixel local alimente aussi la
+structure de jauge, les lignes encadrées de masses de particules, les
+enregistrements et la synchronisation des observateurs. Sur la ligne
+gravitationnelle, il fournit
+
+$$
+a_{\mathrm{cell}}=P\ell_\star^2,
+\qquad
+\bar{\ell}_{\mathrm{shared}}=\frac{P}{4}.
+$$
+
+Le facteur $P$ s'annule dans la lecture de Newton et laisse
+$G_{\mathrm{geom}}=\ell_\star^2$. Le pipeline de particules porte l'échelle
+locale vers le secteur faible, la ligne de Higgs, les lignes encadrées de quarks
+et la branche de neutrinos à cycles pondérés. Les hadrons exigent soit le
+backend OPH de liaison forte, soit une fermeture empirique de hadrons marquée
+comme telle. La politique opérationnelle de ces lignes est dans
+[`HADRON.md`](HADRON.md). Les vérifications orientées matériel de cette même
+géométrie à point fixe ne sont traitées comme revendications publiques de
+paquets de preuve que lorsque les artefacts bruts et les reçus de vérification
+sont disponibles.
 
 ## Surface d'unification quantitative
 
@@ -228,7 +293,7 @@ La surface quantitative de l'OPH s'organise autour de rôles de fermeture et de
 relecture distincts : le point fixe de pixel $P\simeq1.6309682094$, le point
 fixe global de capacité d'enregistrement
 $N_{\mathrm{CRC}}\simeq3.31\times10^{122}$ et le certificat d'échelle sans
-\(G\), $\gamma_\star$, ou de façon équivalente
+$G$, $\gamma_\star$, ou de façon équivalente
 $B_\star=3\pi/\ell_\star^2$. La capacité affichée est approximative ; les
 lignes de précision utilisent la valeur de point fixe et le certificat
 d'échelle. La branche $P$ alimente le canal

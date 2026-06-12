@@ -247,6 +247,15 @@ its geometry and another value for electromagnetic observation. The
 fine-structure constant is the electromagnetic width that makes both readings
 describe the same local pixel.
 
+The electroweak hierarchy uses the same local branch. Once the unified coupling
+$\alpha_U(P_\star)$ is fixed by its source interval certificate, the weak scale
+is read as
+$v/E_\star=P_\star^{-1/2}\exp[-2\pi/(4\alpha_U(P_\star))]$. The particle paper
+and the Observers paper give the theorem-grade certificate for that local
+hierarchy row. The Higgs naturality upgrade and the full SI gravity readout
+have separate proof obligations: the Higgs RG coarse-graining defect bound and
+the complete no-G clock bridge.
+
 This is the cleanest way to say what the fine-structure constant means in OPH.
 It is the nonzero detuning of a holographic screen cell. From the outside, the
 cell is displaced from perfect self-similar equilibrium. From the inside, the
