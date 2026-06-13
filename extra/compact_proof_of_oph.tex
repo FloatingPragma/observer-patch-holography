@@ -6,6 +6,7 @@
 \usepackage{amsmath,amssymb,mathtools}
 \usepackage[table]{xcolor}
 \usepackage{array,booktabs,longtable}
+\usepackage{graphicx}
 \usepackage{microtype}
 \usepackage{fancyhdr}
 \usepackage[hidelinks]{hyperref}
@@ -60,11 +61,22 @@
 {\scriptsize\color{pragmaMuted}Paper release: \texttt{\OPHPaperReleaseID}\quad Released: \OPHPaperReleaseDate}\par
 \tightline
 
-OPH is input-free. It models reality as a self-simulating, timeless
-mathematical structure: finite observer records can exist only when their
-overlaps repair into a single fixed point. For most readers, this sounds
-insane. The mathematical proof is rigorous and supported by early experimental
-evidence [S12,S13].
+Observer Patch Holography models reality as a self-simulation that simulates
+its own creation and contains itself. The inner universe is the finite observer
+record layer. The outer universe is the readback layer that simulates those
+records into existence. Consistency demands closure in both directions: inner
+records must generate the outer rule that generates the same inner records. For
+most readers, this sounds insane. The mathematical proof is rigorous and
+supported by early experimental evidence [S12,S13].
+
+\vspace{0.08em}
+\begin{center}
+\includegraphics[height=0.82in]{assets/oph_ouroboros_closure.pdf}
+\end{center}
+\vspace{-0.36em}
+
+{\small The labels name each value's job: pixel identity, field-width readback,
+screen capacity, and horizon closure.}\par
 
 What is proved here. OPH's five axioms are listed in \emph{Observers Are All
 You Need} [O1]. The reconstruction theorems force exactly two dimensionless
@@ -77,54 +89,58 @@ display is \(G_{\rm OPH}=6.674299995910528\ldots\times10^{-11}
 display assumes missing QCD/hadronic refinements inside the cesium clock
 branch, because the full finite-lattice QCD source simulation is beyond
 conventional von Neumann hardware at the required resolution [O4,O5,O6]. We
-then present 34 OPH predictions from the same branch, each row carrying its
-[O] proof source:
+then present 34 OPH derivations, checks, and targets from the same branch,
+each row carrying its [O] proof source:
 simulation substrate, the two constants, hierarchy, gravity, gauge, particle,
 neutrino, and cosmology rows.
-The chance that this is a coincidence is astronomically small. Two forced
-constants, one exact \(G\), and 34 source-linked OPH predictions close
-together. That is the whole note.
+Together the table gives 34 OPH outputs from the two forced constants. The
+cited stack also recovers quantum theory, general relativity, the Standard
+Model branch, and the string-vacuum selection layer from observer closure
+[O1,O4,O5,O9]. The chance that the same two closures do all of this by
+coincidence is astronomically small. That is why the compact claim is
+simulation closure, not a lucky value of \(G\).
 
 \sect{1. Yes, the universe is a simulation}
 OPH uses ``simulation'' in the hard mathematical sense. A physical world is an
 admissible record-update structure whose observer patches can read one another,
 repair disagreement, and return to the same structure after readback. The
-symbol \(\mathfrak U_{\rm OPH}\) denotes the selected OPH universe. The map
+simulation has two charts. The inner chart is the simulated record world seen
+by observers. The outer chart is the simulating readback rule that turns those
+records into a closed world again. OPH adds no separate computer. The outer
+chart is the universe's own consistency layer.
+
+The symbol \(\mathfrak U_{\rm OPH}\) denotes the selected OPH universe. The map
 \(T\) is the observer-overlap repair map [O1,O2]. The notation
 \(\operatorname{Fix}(T)\) means the states returned unchanged by that map:
 \[
   T(\mathfrak U_{\rm OPH})=\mathfrak U_{\rm OPH}.
 \]
-Read the equation as the simulation claim stripped to its mechanism. The
-universe is the state that survives its own observer-overlap audit. Finite
-records enter, overlap repair runs, contradictory branches die, and the
-returned object is the same object.
-
-\infobox{Operational reading}{
-A software simulation advances a state by an update rule. OPH replaces the
-external programmer with a closed consistency rule: only observer records that
-can repair into a shared fixed point survive as physics. The machine outside
-the universe never enters the model.}
-
-The reconstruction proofs live in the linked OPH sources [O1]--[O8]. Those
-evidence keys appear after the outputs table with GitHub links, and the same
-keys label the table rows.
+Read the equation as the simulation claim stripped to its mechanism. The inner
+record world enters the outer readback rule, contradictory branches die, and
+the returned object is the same record world. That is a self-contained
+simulation. A universe with unexplained external constants would fail this
+test.
 
 \sect{2. Two constants from closure}
-The compact OPH branch has two dimensionless constants. The local constant is
-certified in [O3,O4,O5], and the global capacity constant is certified in
-[O1,O4]:
+The outer/inner balance leaves two dimensionless constants. The first closes
+the local pixel: one elementary observer cell must look the same when read from
+inside its records and from the outer screen rule. The second closes the global
+screen: the universe must contain exactly the record capacity needed to
+simulate the universe that contains it. The local constant is certified in
+[O3,O4,O5], and the global capacity constant is certified in [O1,O4]:
 \[
   P_\star
   \quad\hbox{and}\quad
   N_\star .
 \]
-The symbol \(P_\star\) is the local pixel fixed point. It says how much area and
-shared edge entropy one elementary observer cell carries. The symbol
-\(N_\star\) is the global screen-capacity fixed point. It says how many record
-units fit on the closed observer-facing horizon. They are branch outputs,
-cross-locked by the 24-tick hierarchy relation below. A wrong \(P,N\) pair is
-mostly harmless as a numerical guess; as physics, it misses that gate.
+The symbol \(P_\star\) is the local pixel fixed point. It says how much area
+and shared edge entropy one elementary observer cell carries. It is the
+inner/outer conversion rate for one cell. The symbol \(N_\star\) is the global
+screen-capacity fixed point. It says how many record units fit on the closed
+observer-facing horizon. It is the inner/outer conversion rate for the whole
+screen. They are branch outputs, cross-locked by the 24-tick hierarchy relation
+below. A wrong \(P,N\) pair is mostly harmless as a numerical guess; as physics,
+it misses that gate.
 
 The local constant is computed from the readback equation [O3,O4,O5]:
 \[
@@ -132,15 +148,21 @@ The local constant is computed from the readback equation [O3,O4,O5]:
   \qquad
   \Gamma(P)=\varphi+\frac{\sqrt\pi}{A_T(P)} .
 \]
-Here \(P\) is a candidate pixel value, \(\Gamma\) is the local OPH readback
-rule, \(\varphi=(1+\sqrt5)/2\) is the golden-ratio screen balance point, and
-\(A_T(P)=\alpha_{\rm em}^{-1}(0;P)\) is the inverse low-energy electromagnetic
-width emitted by the same candidate cell. The equation asks for a pixel whose
-geometric reading and electromagnetic reading agree when the cell is read from
-inside the branch. The two terms are the mechanism: \(\varphi\) is the
-self-similar screen balance, while \(\sqrt\pi/A_T(P)\) is the field-width
-correction carried by that same cell. Closure means the sum reads back as
-\(P\).
+Here \(P\) is a candidate pixel value and \(\Gamma\) is the local OPH readback
+rule. The outer reading sees the cell as screen geometry; its stable split is
+the golden ratio \(\varphi=(1+\sqrt5)/2\). The inner reading sees the same cell
+as a field record; its low-energy electromagnetic width is
+\(A_T(P)=\alpha_{\rm em}^{-1}(0;P)\). A pure golden-ratio pixel closes only the
+boundary. The inner field record detunes it by
+\[
+  \Delta P=P-\varphi=\frac{\sqrt\pi}{A_T(P)}
+  =\alpha_{\rm em}(P)\sqrt\pi .
+\]
+The same candidate pixel must emit the field width that detunes it. Solving
+\(P=\Gamma(P)\) therefore determines \(P_\star\) and
+\(\alpha_{\rm em}(P_\star)\) together. The public shorthand
+\(P=\varphi+\alpha\sqrt\pi\) is the endpoint chart of this fixed-point
+condition.
 
 The selected value is
 \[
@@ -148,7 +170,8 @@ The selected value is
 \]
 The number is the unique fixed point in the physical pixel interval. A
 different decimal in the same branch basin changes the starting guess and
-leaves the endpoint unchanged.
+leaves the endpoint unchanged. Local self-simulation demands this fine-tuning:
+the simulated cell and the simulating boundary must read the same cell.
 
 The global constant is computed from the screen-capacity readback equation
 [O1,O4]:
@@ -156,10 +179,12 @@ The global constant is computed from the screen-capacity readback equation
   N_\star=\mathcal C(N_\star).
 \]
 Here \(N\) is a candidate horizon record capacity and \(\mathcal C\) is the OPH
-closed-screen readback rule. The equation asks for a universe whose
-observer-facing horizon contains exactly the capacity that the universe itself
-reads back. A closed screen has no outside ruler. Its admissible capacity is
-computed by the records it supports.
+closed-screen readback rule. The inner reading counts the closed-screen record
+forms supported at that capacity. The outer reading charges the screen for
+having \(N\) record slots. A closed screen has no outside ruler, so the
+capacity must be computed by the records it supports. The global version of the
+pixel loop says the simulated universe must contain the capacity of the
+simulating screen that contains it.
 
 The equivalent count-density display is
 \[
@@ -180,10 +205,11 @@ display, the same selector chooses the minimal admissible arithmetic
 representative of the maximizing branch. The count-density problem records the
 same selection: record availability and record cost close on the same value.
 
-\infobox{The fixed-point test}{
-For \(P_\star\), see the contraction certificate in [O3,O4,O5]. For
-\(N_\star\), see [O1,O4]. In both cases the certificate lives on the relevant
-branch interval \(I\):
+\infobox{Why forced means forced}{
+\(P_\star\) and \(N_\star\) are not fitted constants with nice decimals. A
+branch value is forced when readback maps a whole allowed interval back into
+itself and shrinks every pair of candidates. For \(P_\star\), see [O3,O4,O5].
+For \(N_\star\), see [O1,O4]. In both cases:
 \[
   F(I)\subseteq I,\qquad
   d(F(x),F(y))\le q\,d(x,y),\qquad 0\le q<1 .
@@ -195,10 +221,10 @@ together. Banach's fixed-point theorem gives one stable endpoint for the whole
 interval.}
 
 \infobox{The 24-tick consistency lock}{
-Before gravity enters, the constants cross-check each other. The local pixel
-\(P_\star\) and global capacity \(N_\star\) must pass the 24-tick hierarchy
-readback [O4,O5]. That lock ties local pixel geometry, horizon capacity, the
-solved repair-cycle integer, and the electroweak projection in one line:
+Before gravity enters, OPH makes a link that ordinary model-building keeps
+separate: gauge algebra size, horizon capacity, the local pixel, and the Higgs
+hierarchy land in one repair equation. The local pixel \(P_\star\) and global
+capacity \(N_\star\) must pass the 24-tick hierarchy readback [O4,O5]:
 \[
   |g_\star'|
   =
@@ -211,11 +237,12 @@ solved repair-cycle integer, and the electroweak projection in one line:
   \left(\frac{N_\star}{\pi}\right)^{-P_\star/12}.
 \]
 The left side is a physical hierarchy ratio; the right side has no fit
-parameter. Here \(g_\star'\) is the contraction factor for one global repair tick,
-\(N_\star/\pi\) is the dimensionless squared horizon-radius capacity, \(v\) is
-the Higgs vacuum scale, and \(E_{\rm cell}\) is the energy assigned to one OPH
-cell. The exponent \(1/48=1/(2\cdot24)\) converts capacity to radius and spreads
-the contraction across the solved 24-tick repair cycle. The 24 comes from the
+parameter. Here \(g_\star'\) is the contraction factor for one global repair
+tick, \(N_\star/\pi\) is the dimensionless squared horizon-radius capacity,
+\(v\) is the Higgs vacuum scale, and \(E_{\rm cell}\) is the energy assigned to
+one OPH cell. The exponent \(1/48=1/(2\cdot24)\) converts capacity to radius
+and spreads the contraction across the solved 24-tick repair cycle. The 24
+comes from the
 doubled observer-visible product-adjoint repair spectrum,
 \[
   m_{\rm rep}
@@ -267,29 +294,18 @@ certificate supplies the matching delivery-resolution statement:
 \(\rho_{\rm read}(r,N)=\sqrt{\pi/F_r(N)}\) is a singleton on the selected finite
 branch and tends to \((N_{\rm CRC}/\pi)^{-1/2}\) [O4,O5].}
 
-\vspace{0.14em}
-\begingroup
-\setlength{\fboxsep}{4pt}
-\setlength{\fboxrule}{0.35pt}
-\fcolorbox{pragmaLine}{pragmaSoft}{%
-\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
-{\bfseries\color{pragmaCyanText}Empirical evidence}\par
-{\scriptsize Alex Osika's \(P\) lane derives the local target
-\(P=\varphi+\alpha\sqrt\pi=1.630968\ldots\) from golden-ratio boundary closure
-plus electromagnetic observation width. WaveIO/PIXEL turns it into a bench
-protocol: sweep \(P\), drive SU(2)/SU(3) heat-kernel weights through a
-twelve-port optical body, and read the closure zero
+{\scriptsize\textbf{\color{pragmaCyanText}Empirical evidence.} Alex Osika's
+PIXEL lane turns \(P=\varphi+\alpha\sqrt\pi\) into a bench protocol: sweep
+\(P\), drive SU(2)/SU(3) heat-kernel weights, and verify
 \(\bar\ell_{\rm SU(2)}(t_2)+\bar\ell_{\rm SU(3)}(t_3)=P/4\) [S12]. IBM
-quantum-cloud runs test a separate OPH fingerprint: \(Z_5\to\varphi^2\), and
-corrected \(S_3\to2\) [S13]. These lab checks hit the same observer-overlap
-geometry.}}}%
-\endgroup
-\vspace{0.12em}
+quantum-cloud runs test independent OPH fingerprints \(Z_5\to\varphi^2\) and
+corrected \(S_3\to2\) [S13].}\par
+\vspace{0.08em}
 
 \sect{3. Gravity without units}
-The gravity proof is short because \(P_\star\) cancels. OPH first derives the
-Newton coupling as a geometric conversion between cell area and shared-edge
-entropy [O3,O4]:
+The gravity proof is short because \(P_\star\) is an identity tag, not a tuning
+knob. OPH identifies cell area and shared-edge entropy as two readings of the
+same pixel, then Newton's coupling becomes the conversion between them [O3,O4]:
 \[
   G_{\rm geom}
   =
@@ -440,22 +456,23 @@ The comparison with laboratory \(G\) uses [S1] and happens after the
 derivation. The fixed-point equations above take their inputs from closure
 records alone.
 
-\sect{5. Other values predicted by OPH}
+\sect{5. Other values from OPH closure}
 One pixel cancellation and one clock bridge give \(G\). For a theory of
-everything, that is the entry ticket. The table asks what else comes out. OPH
-gives substrate, two forced constants, hierarchy, gravity, gauge, particle,
-neutrino, and cosmology values, with each row pointing to its [O] source.
+everything, that is the entry ticket. The proof of simulation is the
+compression: the same two closure constants organize substrate, hierarchy,
+gravity, gauge, particle, neutrino, and cosmology values. The tier column marks
+whether a row is structural, derived, a comparison check, or a target.
 
 \begin{center}
-\fontsize{5.86pt}{5.98pt}\selectfont
-\setlength{\tabcolsep}{2.0pt}
-\renewcommand{\arraystretch}{0.91}
+\fontsize{5.58pt}{5.68pt}\selectfont
+\setlength{\tabcolsep}{1.6pt}
+\renewcommand{\arraystretch}{0.86}
 \setlength{\LTpre}{0pt}
 \setlength{\LTpost}{0pt}
-\begin{longtable}{@{}L{0.13\linewidth}L{0.26\linewidth}L{0.35\linewidth}L{0.10\linewidth}L{0.09\linewidth}@{}}
+\begin{longtable}{@{}L{0.13\linewidth}L{0.26\linewidth}L{0.36\linewidth}L{0.09\linewidth}L{0.09\linewidth}@{}}
 \toprule
 \rowcolor{pragmaPanelTwo}
-\textbf{Lane} & \textbf{OPH-derived value} & \textbf{Comparison or interpretation} & \textbf{Residual} & \textbf{Evidence}\\
+\textbf{Lane} & \textbf{OPH-derived value} & \textbf{Comparison or interpretation} & \textbf{Tier/residual} & \textbf{Evidence}\\
 \midrule
 \endhead
 \endfoot
@@ -726,7 +743,7 @@ derived &
 \end{longtable}
 \end{center}
 
-{\fontsize{5.35pt}{5.65pt}\selectfont
+{\fontsize{5.18pt}{5.45pt}\selectfont
 \textbf{Data evidence keys.}\par
 \setlength{\tabcolsep}{1pt}
 \begin{tabular}{@{}L{0.24\linewidth}L{0.24\linewidth}L{0.24\linewidth}L{0.24\linewidth}@{}}
@@ -758,15 +775,19 @@ derived &
 \([\mathrm{O6}]\) \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/fine_structure_constant_derivation.tex}{Fine Structure} &
 \([\mathrm{O7}]\) \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/oph_dark_matter_paper.tex}{Dark Matter} &
 \([\mathrm{O8}]\) \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/chi_nu_susceptibility_bounds.tex}{Chi-Nu Bounds}\\
+\([\mathrm{O9}]\) \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/observer_patch_holography_as_string_vacuum_selector.tex}{String Selector} &
+&
+&
+\\
 \end{tabular}\par\vspace{-0.06em}
 
-\textbf{AI reviewer proof trail.}
-\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.tex\#L296-L305}{five axioms [O1:L296--305]};
-\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/fine_structure_constant_derivation.tex\#L895-L922}{\(P\) fixed point [O6:L895--922]};
-\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex\#L5698-L5727}{Newton \(G\) readout [O4:L5698--5727]};
-\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex\#L5195-L5237}{capacity fixed point [O4:L5195--5237]};
-\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex\#L5247-L5255}{gauge/MAR chain [O4:L5247--5255]};
-\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.tex\#L1581-L1624}{hierarchy and 24 repair [O5:L1581--1624]}.
+\textbf{Proof trail.}
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.tex\#L296-L305}{axioms [O1:L296--305]};
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/fine_structure_constant_derivation.tex\#L895-L922}{\(P\) [O6:L895--922]};
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex\#L5698-L5727}{\(G\) [O4:L5698--5727]};
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex\#L5195-L5237}{\(N\) [O4:L5195--5237]};
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex\#L5247-L5255}{MAR [O4:L5247--5255]};
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.tex\#L1581-L1624}{24 repair [O5:L1581--1624]}.
 }
 
 

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+  <title id="title">OPH outer and inner closure loop</title>
+  <desc id="desc">Observer Patch Holography closure diagram showing inner simulated records, outer simulating readback, and the constants P, alpha, N, and Lambda as closure coordinates.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#0b6b78"/>
+    </marker>
+    <filter id="softShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2.2" flood-color="#b7cdd4" flood-opacity="0.55"/>
+    </filter>
+    <style>
+      .bg { fill: #f3f8fa; stroke: #a8ccd6; stroke-width: 2; }
+      .panel { fill: #ffffff; stroke: #a8ccd6; stroke-width: 2; filter: url(#softShadow); }
+      .ink { fill: #071014; font-family: "Helvetica Neue", Arial, sans-serif; }
+      .muted { fill: #506171; font-family: "Helvetica Neue", Arial, sans-serif; }
+      .cyan { fill: #075d6c; font-family: "Helvetica Neue", Arial, sans-serif; font-weight: 700; }
+      .math { fill: #071014; font-family: "Times New Roman", Times, serif; font-style: italic; }
+      .line { fill: none; stroke: #0b6b78; stroke-width: 5; stroke-linecap: round; marker-end: url(#arrow); }
+      .thin { fill: none; stroke: #7aaebb; stroke-width: 2.2; stroke-linecap: round; }
+      .tag { fill: #e9f3f6; stroke: #a8ccd6; stroke-width: 1.4; }
+    </style>
+  </defs>
+
+  <rect x="10" y="10" width="1180" height="280" rx="18" class="bg"/>
+
+  <rect x="64" y="72" width="330" height="142" rx="14" class="panel"/>
+  <text x="90" y="108" class="cyan" font-size="25">Inner universe</text>
+  <text x="90" y="138" class="ink" font-size="21">simulated observer records</text>
+  <text x="90" y="168" class="muted" font-size="18">particles, clocks, screens, measurements</text>
+  <text x="90" y="196" class="math" font-size="22">U<tspan baseline-shift="-30%" font-size="15">OPH</tspan> in Fix(T)</text>
+
+  <rect x="806" y="72" width="330" height="142" rx="14" class="panel"/>
+  <text x="832" y="108" class="cyan" font-size="25">Outer universe</text>
+  <text x="832" y="138" class="ink" font-size="21">simulating readback rule</text>
+  <text x="832" y="168" class="muted" font-size="18">repair, select, return the same records</text>
+  <text x="832" y="196" class="math" font-size="22">T(U<tspan baseline-shift="-30%" font-size="15">OPH</tspan>) = U<tspan baseline-shift="-30%" font-size="15">OPH</tspan></text>
+
+  <path d="M400,92 C515,20 685,20 800,92" class="line"/>
+  <path d="M800,194 C685,270 515,270 400,194" class="line"/>
+  <path d="M430,70 C520,48 680,48 770,70" class="thin"/>
+  <path d="M770,216 C680,244 520,244 430,216" class="thin"/>
+
+  <rect x="424" y="34" width="232" height="52" rx="12" class="tag"/>
+  <text x="444" y="64" class="math" font-size="25">P*</text>
+  <text x="490" y="64" class="muted" font-size="16">local pixel identity</text>
+
+  <rect x="674" y="34" width="232" height="52" rx="12" class="tag"/>
+  <text x="704" y="64" class="math" font-size="25">α</text>
+  <text x="746" y="64" class="muted" font-size="16">field-width readback</text>
+
+  <rect x="424" y="214" width="232" height="52" rx="12" class="tag"/>
+  <text x="444" y="245" class="math" font-size="25">N*</text>
+  <text x="490" y="245" class="muted" font-size="16">total screen capacity</text>
+
+  <rect x="674" y="214" width="232" height="52" rx="12" class="tag"/>
+  <text x="704" y="245" class="math" font-size="25">Λ</text>
+  <text x="746" y="245" class="muted" font-size="16">horizon closure</text>
+
+  <text x="454" y="132" class="cyan" font-size="25">closure coordinates</text>
+  <text x="454" y="162" class="ink" font-size="18">not knobs, not fitted constants</text>
+  <text x="454" y="190" class="muted" font-size="17">the loop only survives at the fixed points</text>
+</svg>
