@@ -1,8 +1,8 @@
 # OPH Hierarchy Proof Artifacts Bundle
 
-Bundle ID: `oph-hierarchy-proof-artifacts-r1473-2026-06-12`
+Bundle ID: `oph-hierarchy-proof-artifacts-r1473-2026-06-13`
 
-Generated: `2026-06-12T04:17:17Z`
+Generated: `2026-06-13T00:00:00Z`
 
 This bundle packages the proof-obligation artifacts for the OPH electroweak hierarchy lane:
 
@@ -27,8 +27,12 @@ P_\star^{-1/2}\exp\left[-\frac{2\pi}{4\alpha_U(P_\star)}\right].
 - `certificates/R_WZ_boundary_certificate.json`
 - `certificates/R_gamma_noG_DAG_certificate.json`
 - `certificates/R_N_global_repair_tick_certificate.json`
+- `issue_332_rg_naturality_certificate.json`
+- `certificates/R_PN_joint_fixed_point_certificate_report.json`
 - `certificates/local_global_resonance_audit.json`
 - `computations/derive_global_repair_tick_lemma.py`
+- `verify_issue_332_rg_naturality.py`
+- `verify_joint_fixed_point_certificate.py`
 - `validators/validate_bundle.py`
 - `validators/validate_manifest.py`
 
@@ -46,20 +50,28 @@ Closed inside this bundle:
    transport `G_N(1) = rho_star`, giving the full-cycle multiplier
    `(N_CRC/pi)^(-1/2)`; the declared 24-round branch yields
    `|g_*'| = (N_CRC/pi)^(-1/48)`.
+7. The product-branch joint `(P,N_CRC)` fixed-point theorem: on the
+   product-separated source map `J(P,x)=(Gamma(P),C_hat(x))`, component
+   contraction certificates imply a unique joint branch and stability with
+   `q=max(qP,qN)<1`. A genuinely coupled source map requires the recorded
+   weighted-sup derivative condition.
+8. The RG/Higgs naturality square for the selected exact branch:
+   `epsilon_H=max(epsilon_n,epsilon_h)=0`, with measured weak-scale, Higgs,
+   W/Z, gravity, Planck-area, and Lambda inputs excluded.
 
 External/source gates outside this bundle:
 
 1. Source-only public Thomson endpoint transport `A_T(P)`.
 2. Formal outward-rounded interval log from a certified interval stack.
 3. Raw D10/D11 interval box for Higgs/top internals.
-4. Concrete RG/Higgs naturality defect bound `epsilon_H`.
-5. Full `R_gamma` stack for SI gravity/clock hierarchy.
-6. Theorem-grade `W/Z` promotion.
-7. Finite-machinery verification that `nf_{r,N}` delivers a single well-defined
+4. Full `R_gamma` stack for SI gravity/clock hierarchy.
+5. Theorem-grade `W/Z` promotion.
+6. Finite-machinery verification that `nf_{r,N}` delivers a single well-defined
    effective readback resolution, representation-to-spectrum derivation of the
-   24-round repair count, plus electroweak tick projection, joint `(P,N)`
-   stability, and RG/coarse-graining naturality for theorem-grade local/global
-   resonance promotion.
+   24-round repair count, plus electroweak tick projection for theorem-grade
+   local/global resonance promotion.
+7. Coupled-map extension of the joint `(P,N_CRC)` theorem, if OPH source work
+   introduces cross-feedback between the local pixel and global capacity maps.
 
 ## Run validators
 
@@ -68,4 +80,6 @@ From this directory:
 ```bash
 python3 validators/validate_bundle.py
 python3 computations/hierarchy_recompute.py
+python3 verify_issue_332_rg_naturality.py --check --output issue_332_rg_naturality_certificate.json
+python3 verify_joint_fixed_point_certificate.py --output certificates/R_PN_joint_fixed_point_certificate_report.json
 ```

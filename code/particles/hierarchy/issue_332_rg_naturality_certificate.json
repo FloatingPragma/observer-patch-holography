@@ -1,0 +1,71 @@
+{
+  "issue": 332,
+  "theorem": "RG/coarse-graining naturality for source hierarchy to Higgs/electroweak normal-form readout",
+  "mode": "exact_selected_OPH_branch",
+  "accepted": true,
+  "epsilon_n": "0",
+  "epsilon_h": "0",
+  "epsilon_H": "0",
+  "epsilon_H_interval": [
+    "0",
+    "0"
+  ],
+  "source_values": {
+    "P_star": "1.6309682094",
+    "alpha_U": "0.041124336195630495",
+    "alpha_U_interval": [
+      "0.041123336195630494",
+      "0.041125336195630496"
+    ],
+    "v_over_E_star": "2.01998032397500177576445967389942180161404457412000406236390221894838799480445248181103855E-17",
+    "v_over_E_cell": "2.57970405952762235065833419039220186954900353699032902560966834523146305595787610791503412E-17",
+    "v_over_E_star_interval_from_alpha_U": [
+      "2.01810499225521821357647248329029939956166313785295925554408393632670606707146565176547841E-17",
+      "2.02185730702595581136055104073221344111669849116110652823888609507042181556190588670879441E-17"
+    ],
+    "v_over_E_cell_interval_from_alpha_U": [
+      "2.57730908528303835093255751948867384177103430074702975285245598026754435662689340439498573E-17",
+      "2.58210114267677018883362883078113265991611766797125481520931437377587857298384984085790011E-17"
+    ]
+  },
+  "optional_upstream_resonance_check": {
+    "n_crc_source": "inferred_from_v_over_E_cell_for_display_only",
+    "N_CRC": "3.53235462510287758225854894926110290171546116283528833863646291932210171453964196819413706E+122",
+    "g_tick_source": "inferred_from_N_CRC_for_display_only",
+    "g_tick_abs": "0.00286597644151989250616600724463187423558488019321096770872743199932587821251726631792488307",
+    "theta_H_residual": "0.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "g_tick_residual": "1E-88",
+    "tolerance": "1E-40",
+    "strict_resonance": false,
+    "resonance_ok": true,
+    "note": "N_CRC and g_tick belong to upstream resonance records. Issue #332 checks the RG/Higgs naturality defect."
+  },
+  "comparison_map": {
+    "rho_sH": "[x]_s -> [P(x), N(x), Theta(x), Pi_HT F_D11 F_D10(P(x), N(x))]_H",
+    "Theta": "(N/pi)^(-P/12) = |g_*'|^(4P)",
+    "obstruction_map": "chi_sH maps source holonomy/relevant-scalar obstruction data to Higgs-stage obstruction coordinates"
+  },
+  "allowed_inputs": [
+    "OPH local pixel fixed point P_star and its source certificate",
+    "source D10 alpha_U(P_star) interval and forward transmutation law",
+    "upstream #336 global repair-tick record for |g_*'|",
+    "upstream #337 electroweak tick-projection record",
+    "upstream #338 joint (P,N_CRC) fixed-point/stability record",
+    "declared D10/D11 running, matching, threshold, and Higgs/top split maps",
+    "finite-constraint MaxEnt/refinement-stability branch clauses"
+  ],
+  "forbidden_calibrations": [
+    "measured weak scale v as an input",
+    "measured Higgs, W, Z, or top mass as an input",
+    "G, Planck area, measured Lambda, or any gravity-calibrated area as an input",
+    "tuned bare Higgs mass or cutoff counterterm as a physical input",
+    "post-hoc choice of RG scheme to force the weak hierarchy"
+  ],
+  "dependency_graph": [
+    "#338 emits stable P_star and N_CRC branch record",
+    "#336 emits global repair-tick |g_*'|=(N_CRC/pi)^(-1/48)",
+    "#337 emits electroweak tick projection v/E_cell=|g_*'|^(4P_star)",
+    "#332 proves rho_sH n_s = n_H rho_sH and chi_sH h_s = h_H rho_sH, hence epsilon_H=0"
+  ],
+  "verifier_command": "python3 code/particles/hierarchy/verify_issue_332_rg_naturality.py --check --output code/particles/hierarchy/issue_332_rg_naturality_certificate.json"
+}

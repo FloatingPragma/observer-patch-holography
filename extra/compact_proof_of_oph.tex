@@ -302,11 +302,47 @@ the declared \(24\)-tick resonance branch,
 \]
 It closes the global \(N\)-side tick factor for the local/global resonance
 continuation.
-The integer \(24\) is a branch input in this lemma. Work in progress covers
-the finite-machinery verification that the repair normal form delivers a
-single effective resolution, the derivation of the round count from the repair
-grammar, the electroweak projection of the tick, and the joint \((P,N)\)
-stability theorem.
+The integer \(24\) is a branch input in this lemma.
+
+The joint product branch is also fixed.  With \(x=\log N\), use
+\[
+  X=I_P\times I_x,\qquad
+  \mathcal J(P,x)=(\Gamma(P),\widehat C(x)).
+\]
+Component contraction certificates for \(\Gamma\) and \(\widehat C\) give a
+unique stable joint point \((P_\star,\log N_\star)\).  If a coupled source map
+is used instead, it must provide derivative bounds \(a,b,c,d\) and a weight
+\(r>0\) with
+\[
+  \max\{a+b/r,\ d+rc\}<1.
+\]
+Otherwise the coupled branch remains residual freedom.
+
+The selected exact source-to-Higgs comparison has zero RG defect.  Define
+\[
+\rho_{sH}([x]_s)=
+\left[
+P(x),N(x),
+\left(\frac{N(x)}{\pi}\right)^{-P(x)/12},
+\Pi_{HT}F_{D11}F_{D10}(P(x),N(x)),0
+\right]_H .
+\]
+For the corresponding normal-form and obstruction maps,
+\[
+\rho_{sH}n_s=n_H\rho_{sH},
+\qquad
+\chi_{sH}h_s=h_H\rho_{sH},
+\]
+so
+\[
+  \varepsilon_H=\max\{\varepsilon^n_{sH},\varepsilon^h_{sH}\}=0,
+  \qquad \varepsilon_H\in[0,0].
+\]
+Measured weak-scale, Higgs/top, \(W/Z\), gravity, Planck-area, and
+\(\Lambda\) data are excluded inputs.  The remaining local/global resonance
+promotion gates are the finite readback-resolution verification, the
+round-count derivation from the repair grammar, and the electroweak
+projection of the tick.
 
 \infobox{What is the representative rule?}{
 The maximization can name a branch before it names a single printed number.
@@ -417,9 +453,9 @@ endpoint branch.  The source-audit branch gives
 \(v/E_\star=2.0198114150099223\times10^{-17}\) when the public Thomson
 endpoint is excluded upstream.  The Higgs mass is fixed by the branch equations
 recorded in the particle paper, cited as O5 in Appendix A.  A free bare scalar
-parameter is absent from this proof object.  The RG naturality defect bound for
-the Higgs normal form is a separate proof obligation, and the SI gravity value
-requires the full \(\mathcal R_\gamma\) clock bridge below.}
+parameter is absent from this proof object.  The selected exact source-to-Higgs
+normal-form square has zero RG defect, \(\varepsilon_H\in[0,0]\), and the SI
+gravity value requires the full \(\mathcal R_\gamma\) clock bridge below.}
 
 The hierarchy construction enters this note through the public
 \emph{Observers Are All You Need} paper, cited as O1 in Appendix A.  The

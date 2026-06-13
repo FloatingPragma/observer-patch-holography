@@ -10,8 +10,10 @@
 | `R_U_krawczyk_certificate.json` | supplied witness | Krawczyk image lies inside `I_U` under the derivative interval. |
 | `hierarchy_numeric_witness.json` | supplied | Public and source-audit branch computations. |
 | `R_HT_declared_surface_certificate.json` | partial | Formula/output ledger supplied; raw interval input box missing. |
-| `RG_Higgs_naturality_defect_certificate.json` | formal condition only | Defines `epsilon_H`; concrete defect bound missing. |
+| `RG_Higgs_naturality_defect_certificate.json` | closed exact selected branch | Defines `epsilon_H` and points to the issue-332 certificate, which supplies `epsilon_H=0` and `epsilon_H in [0,0]` on the selected exact source-to-Higgs branch. |
 | `R_WZ_boundary_certificate.json` | compare-only | Prevents accidental promotion of `W/Z`. |
 | `R_gamma_noG_DAG_certificate.json` | skeleton only | No-G rule and missing components are explicit. |
 | `R_N_global_repair_tick_certificate.json` | closed lemma on declared rounds | Derives the closure transport from the corpus readback map under the declared area-law counting model (`F(N)=pi/rho_read^2`, so `N=F(N)` is equivalent to `G_N(1)=rho_star`), hence the full-cycle multiplier `(N_CRC/pi)^(-1/2)` and `|g_*'|=(N_CRC/pi)^(-1/48)` on the declared 24-round branch without EW inputs; the proof takes the counting model and round count as declared inputs. |
-| `local_global_resonance_audit.json` | not used | Computes mismatch for rounded `N_CRC`, records the closed tick lemma, and lists the remaining round-count/projection/stability/naturality gates. |
+| `R_PN_joint_fixed_point_certificate_report.json` | closed product-branch theorem with coupled boundary | Defines the joint space `I_P x log I_N` and the source map `J(P,x)=(Gamma(P),C_hat(x))`; component contractions imply a unique stable joint fixed point. A genuinely coupled source map requires derivative bounds with `max(a+b/r,d+r*c)<1`, otherwise the coupled branch remains residual freedom. |
+| `issue_332_rg_naturality_certificate.json` | closed exact selected branch | Verifies the RG/Higgs naturality defect on the selected exact branch: `epsilon_n=epsilon_h=epsilon_H=0`, with measured weak-scale, Higgs, W/Z, gravity, Planck-area, and Lambda inputs excluded. |
+| `local_global_resonance_audit.json` | not used | Computes mismatch for rounded `N_CRC`, records the closed tick, joint product-branch, and RG/Higgs naturality components, and lists the remaining finite-readback, round-count, and projection gates. |

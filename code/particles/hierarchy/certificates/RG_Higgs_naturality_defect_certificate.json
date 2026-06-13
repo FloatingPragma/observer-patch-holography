@@ -1,17 +1,24 @@
 {
   "artifact": "RG_Higgs_naturality_defect_certificate",
-  "status": "formal_condition_supplied_concrete_defect_unresolved",
+  "status": "closed_exact_selected_branch_by_issue_332_certificate",
   "normal_form_condition": "H_OPH o Theta_RG = H_OPH on Q_HT",
   "defect_definition": "epsilon_H = sup_x | H_r(rho_sr n_s(x)) - H_r(n_r rho_sr(x)) |",
-  "closed_if": [
-    "epsilon_H = 0",
-    "or epsilon_H <= Delta_H for the declared Higgs interval"
-  ],
+  "closed_value": {
+    "epsilon_n": "0",
+    "epsilon_h": "0",
+    "epsilon_H": "0",
+    "epsilon_H_interval": [
+      "0",
+      "0"
+    ]
+  },
   "source_theorem_used": "coarse-graining commutes with reconciliation up to max(epsilon_n, epsilon_h); exact naturality is zero-defect.",
-  "missing_data": [
-    "concrete D10/D11 coarse-graining channel rho_sr",
-    "normal form maps n_s, n_r",
-    "Higgs readout H_r",
-    "interval/supremum bound for epsilon_H"
+  "certificate": "../issue_332_rg_naturality_certificate.json",
+  "forbidden_inputs": [
+    "measured weak scale",
+    "measured Higgs, W, Z, or top mass",
+    "measured G or Planck area",
+    "measured Lambda",
+    "tuned bare-Higgs/cutoff counterterm"
   ]
 }

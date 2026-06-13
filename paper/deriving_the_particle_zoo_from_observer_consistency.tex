@@ -1571,9 +1571,9 @@ on the selected branch. The split into a bare Higgs mass plus a cutoff correctio
 coordinate split outside the observer-facing physical variable. A scalar relevant deformation absent
 from the retained branch constraints is off-branch; a scalar deformation present on the selected
 branch has its value fixed by the branch equations. The claim inherits the D10/D11 quantitative
-surface and the \(\mathcal R_U\) precision policy. Promotion of the naturality reading also
-requires the RG/coarse-graining Higgs readout defect \(\epsilon_H\) to vanish, or to be bounded
-inside the declared Higgs output interval.
+surface and the \(\mathcal R_U\) precision policy. The selected exact source-to-Higgs
+coarse-graining square has \(\epsilon_H=0\), with
+\(\epsilon_H\in[0,0]\), as stated below.
 
 \subsection{Local/global resonance continuation for the hierarchy}
 
@@ -1664,16 +1664,103 @@ The emitted particle rows continue to use the \(\mathcal R_U\) certificate above
 Lemma~\ref{lem:global-repair-tick} closes the global tick side on the declared \(24\)-round
 branch. The proof derives the closure transport at the interface level of \(F\) under the declared
 area-law counting model of \(\operatorname{Cap}_{\mathrm{read}}\). It takes the round
-count as declared branch architecture. A
-theorem-grade promotion of the resonance relation requires the finite-machinery
-verification that \(\operatorname{nf}_{r,N}\) delivers a single well-defined effective
-resolution counted by that model (the corpus marks the finite readback map as schematic), a
-representation-to-spectrum theorem deriving that round count from the OPH repair grammar, an
-electroweak tick-projection lemma, a joint fixed-point and stability theorem for \((P,N)\), and
-an RG/coarse-graining naturality statement showing that radiative corrections preserve the
-selected normal-form readout up to scheme-coordinate changes. The relation is a
-continuation target connecting \(\mathcal R_U\) and \(\mathcal R_N\). The promoted hierarchy
-row does not use it as an input.
+count as declared branch architecture.
+
+\begin{theorem}[Joint product fixed-point branch]\label{thm:joint-pn-product}
+Let \(x=\log N\), let \(X=I_P\times I_x\), and equip \(X\) with
+\[
+d((P,x),(Q,y))=\max\{|P-Q|,\ |x-y|\}.
+\]
+On the product-separated source branch the joint map is
+\[
+\mathcal J(P,x)=(\Gamma(P),\widehat C(x)),
+\qquad
+\widehat C(x)=\log F(e^x),
+\]
+where \(\Gamma\) is the local pixel closure map and \(F\) is the global capacity readback map.
+If
+\[
+|\Gamma(P)-\Gamma(Q)|\le q_P|P-Q|,
+\qquad
+|\widehat C(x)-\widehat C(y)|\le q_N|x-y|,
+\qquad q_P,q_N<1,
+\]
+then \(\mathcal J\) has a unique fixed point \((P_\star,\log N_{\mathrm{CRC}})\), and every
+iteration in \(X\) converges to it with contraction constant \(q=\max\{q_P,q_N\}\).
+\end{theorem}
+
+\begin{proof}
+For any two points in \(X\),
+\[
+d(\mathcal J(P,x),\mathcal J(Q,y))
+\le
+\max\{q_P|P-Q|,\ q_N|x-y|\}
+\le
+\max\{q_P,q_N\}d((P,x),(Q,y)).
+\]
+Banach's theorem gives existence, uniqueness, and stability. A genuinely coupled source map
+\(\mathcal J(P,x)=(\Gamma(P,x),\widehat C(P,x))\) requires derivative bounds \(a,b,c,d\) and
+a weight \(r>0\) with
+\[
+\max\{a+b/r,\ d+rc\}<1
+\]
+in the weighted sup metric. Without that bound, the coupled branch is residual freedom rather
+than a uniqueness theorem.
+\end{proof}
+
+\begin{theorem}[RG/Higgs naturality closure]\label{thm:rg-higgs-naturality}
+On the selected exact hierarchy branch, let \(Q_s\) be the source hierarchy quotient and
+\(Q_H\) the Higgs/electroweak quotient. Define
+\[
+\rho_{sH}([x]_s)=
+\left[
+P(x),N(x),
+\Theta(P(x),N(x)),
+\Pi_{HT}F_{D11}F_{D10}(P(x),N(x)),0
+\right]_H,
+\]
+with
+\[
+\Theta(P,N)=
+\left(\frac{N}{\pi}\right)^{-P/12}
+=|g_\star'|^{4P}.
+\]
+For the corresponding normal-form maps and obstruction maps,
+\[
+\rho_{sH}n_s=n_H\rho_{sH},
+\qquad
+\chi_{sH}h_s=h_H\rho_{sH}.
+\]
+Consequently,
+\[
+\varepsilon_H
+=
+\max\{\varepsilon^n_{sH},\varepsilon^h_{sH}\}
+=0,
+\qquad
+\varepsilon_H\in[0,0].
+\]
+\end{theorem}
+
+\begin{proof}
+The two routes through the source and Higgs quotients preserve the same tuple
+\[
+(P,N,\Theta(P,N),\Pi_{HT}F_{D11}F_{D10}(P,N)).
+\]
+The equality with \(|g_\star'|^{4P}\) follows from
+\(|g_\star'|=(N/\pi)^{-1/48}\). A hidden scalar relevant deformation is not an independent
+physical input on the selected branch: if absent from the retained finite constraint family, it
+is off-branch by refinement stability; if retained, its value is fixed by the branch equations
+and belongs to the displayed Higgs/top coordinate. Both controlled squares commute exactly, so
+the product defect is zero.
+\end{proof}
+
+The RG/Higgs naturality closure does not use the measured weak scale. Measured \(W/Z\),
+Higgs/top, \(G\), Planck-area, and \(\Lambda\) data are excluded inputs. The full local/global
+resonance relation remains a continuation target until the finite readback-resolution
+verification, the representation-to-spectrum derivation of the \(24\)-round count, and the
+electroweak tick-projection lemma are supplied. The promoted hierarchy row does not use it as an
+input.
 
 \subsection{Higgs/top critical stage}
 

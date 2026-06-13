@@ -252,9 +252,10 @@ $\alpha_U(P_\star)$ is fixed by its source interval certificate, the weak scale
 is read as
 $v/E_\star=P_\star^{-1/2}\exp[-2\pi/(4\alpha_U(P_\star))]$. The particle paper
 and the Observers paper give the theorem-grade certificate for that local
-hierarchy row. The Higgs naturality upgrade and the full SI gravity readout
-have separate proof obligations: the Higgs RG coarse-graining defect bound and
-the complete no-G clock bridge.
+hierarchy row. The selected source-to-Higgs coarse-graining square has
+$\epsilon_H=0$, so the Higgs naturality reading is carried by the same
+normal-form branch rather than by an independent bare scalar input. The full
+SI gravity readout still depends on the complete no-G clock bridge.
 
 The global screen-capacity branch also carries the global repair-tick
 lemma: under the declared area-law counting model the readback fixed-point
@@ -263,10 +264,12 @@ local cell, so
 the full-cycle multiplier is $(N_{\mathrm{CRC}}/\pi)^{-1/2}$, and on the
 declared 24-tick branch one homogeneous tick has
 $|g_\star'|=(N_{\mathrm{CRC}}/\pi)^{-1/48}$. The round count is declared
-branch architecture in this lemma. The theorem-grade local/global resonance
-statement has work-in-progress gates: finite-machinery verification of the
-readback resolution, the round-count derivation, electroweak projection,
-joint $(P,N)$ stability, and RG naturality.
+branch architecture in this lemma. The product joint branch for the local
+pixel and global capacity fixed points is stable under the component
+contraction certificates; a coupled source branch needs its own derivative
+bound. The theorem-grade local/global resonance still requires the
+finite-machinery verification of the readback resolution, the round-count
+derivation, and the electroweak projection.
 
 This is the cleanest way to say what the fine-structure constant means in OPH.
 It is the nonzero detuning of a holographic screen cell. From the outside, the

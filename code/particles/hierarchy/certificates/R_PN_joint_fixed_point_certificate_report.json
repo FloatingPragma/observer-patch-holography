@@ -1,0 +1,34 @@
+{
+  "issue": 338,
+  "status": "closed_product_branch_theorem_with_explicit_coupled_branch_boundary",
+  "theorem": "joint fixed-point and stability theorem for the product-separated (P,N_CRC) source branch",
+  "P_public": "1.6309682094039593248792798477826489413359828516279250606661507533907793398933432",
+  "alpha_from_P_public": "0.00729735256433142503024579526469168322806602131336536049577988038199335615736397074797655371",
+  "alpha_inverse_from_P_public": "137.035999177000000000000000000000000000000000000000000000000000000000000000000414135236892",
+  "P_source_audit": "1.63097209569432901817967892561191884270169",
+  "alpha_source_audit_inverse": "136.994835164621649457949994585787193262029",
+  "N_display_used_for_readout_demo": "3.31e+122",
+  "N_display_warning": "3.31e122 is a rounded capacity-scale label, not a high-precision N_CRC certificate.",
+  "global_tick_gprime_at_N_display": "0.002869861066262084994395035765724435048822818706352",
+  "v_over_Ecell_resonance_at_display_N": "2.6026010251439104410914115789656261702914332097801e-17",
+  "v_over_Estar_resonance_at_display_N": "2.0379092875111223351737728411075039948046405180499e-17",
+  "log_sensitivity_tick_to_logN": "-0.0208333333333333333333333333333",
+  "log_sensitivity_vEcell_to_logN": "-0.135914017450329943739939987315",
+  "log_sensitivity_vEcell_to_P_at_display_N": "-23.4139666374010954007333470042",
+  "log_sensitivity_vEstar_to_P_at_display_N": "-23.7205330052291513656313639311",
+  "N_backsolved_from_source_v_over_Estar": "3.532354622692921585400187378020063583588e+122",
+  "N_backsolved_warning": "CIRCULAR_DIAGNOSTIC_ONLY: this solves N from a weak-scale readout and is not allowed as an OPH source certificate.",
+  "claim_boundary": {
+    "product_branch": "The source map is J(P,x)=(Gamma(P),C_hat(x)) on I_P x I_x. Component contraction certificates imply a unique joint fixed point with q=max(qP,qN)<1.",
+    "coupled_branch": "If a future source map contains cross-feedback, supply derivative bounds a,b,c,d and r>0 with max(a+b/r,d+r*c)<1, or keep the coupled branch as residual freedom.",
+    "forbidden_input": "The weak scale, Higgs mass, W/Z masses, G, Planck area, and measured Lambda are not allowed as fixed-point inputs."
+  },
+  "product_contraction_certificate": {
+    "status": "conditional_on_component_contractions",
+    "required": "qP<1 and qN<1 from the local P and global N source certificates; then q=max(qP,qN)<1."
+  },
+  "coupled_contraction_certificate": {
+    "status": "residual_coupled_branch_boundary",
+    "required": "find r>0 such that max(a+b/r, d+r*c)<1, or equivalently a weighted-sup contraction envelope."
+  }
+}

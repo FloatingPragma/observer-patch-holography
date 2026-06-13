@@ -17,13 +17,23 @@
       "status": "closed_global_repair_tick_lemma_on_declared_round_structure",
       "result": "under the declared area-law counting model the readback fixed-point equation is equivalent to the closure transport G_N(1) = rho_star, giving the full-cycle multiplier (N_CRC/pi)^(-1/2); the declared 24-tick branch gives |g_*'| = (N_CRC/pi)^(-1/48)",
       "declared_input": "24-round count (representation-to-spectrum derivation open); area-law counting model of Cap_read and single effective readback resolution (finite-machinery verification open)"
+    },
+    {
+      "name": "joint product fixed-point/stability theorem",
+      "artifact": "R_PN_joint_fixed_point_certificate_report.json",
+      "status": "closed_product_branch_theorem_with_explicit_coupled_branch_boundary",
+      "result": "on the product-separated source map J(P,x)=(Gamma(P),C_hat(x)), component contractions give a unique stable joint fixed point; genuinely coupled source feedback requires the weighted-sup derivative condition max(a+b/r,d+r*c)<1"
+    },
+    {
+      "name": "RG/coarse-graining naturality theorem",
+      "artifact": "../issue_332_rg_naturality_certificate.json",
+      "status": "closed_exact_selected_branch",
+      "result": "epsilon_n=epsilon_h=epsilon_H=0 on the selected exact source-to-Higgs normal-form square, with measured weak-scale and gravity inputs forbidden"
     }
   ],
   "promotion_requires": [
     "finite-machinery verification that nf_{r,N} delivers a single well-defined effective readback resolution",
     "representation-to-spectrum theorem deriving the 24-round repair count",
-    "electroweak tick-projection lemma",
-    "joint fixed-point/stability theorem for (P,N)",
-    "RG/coarse-graining naturality theorem"
+    "electroweak tick-projection lemma"
   ]
 }

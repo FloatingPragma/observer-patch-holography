@@ -26,7 +26,7 @@ def test_hierarchy_bundle_validators_pass() -> None:
     result = _run("validators/validate_bundle.py")
     payload = json.loads(result.stdout)
 
-    assert len(payload) == 4
+    assert len(payload) == 6
     assert all(entry["returncode"] == 0 for entry in payload)
     validator_outputs = [json.loads(entry["stdout"]) for entry in payload]
     assert all(output["pass"] is True for output in validator_outputs)
@@ -97,3 +97,45 @@ def test_global_repair_tick_lemma_is_closed_on_declared_rounds_with_claim_bounda
     assert any("round count" in item for item in boundary)
     assert any("electroweak tick-projection lemma" in item for item in boundary)
     assert any("finite repair machinery" in item for item in boundary)
+
+
+def test_joint_pn_fixed_point_certificate_records_product_closure_and_coupled_boundary() -> None:
+    result = _run(
+        "validators/validate_joint_fixed_point_certificate.py",
+        "certificates/R_PN_joint_fixed_point_certificate_report.json",
+    )
+    payload = json.loads(result.stdout)
+
+    assert payload["pass"] is True
+    checks = payload["checks"]
+    assert checks["product_theorem_status"] is True
+    assert checks["backsolve_is_diagnostic_only"] is True
+    assert checks["coupled_residual_boundary_recorded"] is True
+
+    cert = json.loads((ROOT / "certificates/R_PN_joint_fixed_point_certificate_report.json").read_text())
+    assert cert["status"] == "closed_product_branch_theorem_with_explicit_coupled_branch_boundary"
+    assert cert["product_contraction_certificate"]["status"] == "conditional_on_component_contractions"
+    assert cert["coupled_contraction_certificate"]["status"] == "residual_coupled_branch_boundary"
+    assert "CIRCULAR_DIAGNOSTIC_ONLY" in cert["N_backsolved_warning"]
+
+
+def test_issue_332_rg_higgs_naturality_certificate_is_zero_defect() -> None:
+    result = _run(
+        "validators/validate_issue_332_rg_naturality.py",
+        "issue_332_rg_naturality_certificate.json",
+    )
+    payload = json.loads(result.stdout)
+
+    assert payload["pass"] is True
+    checks = payload["checks"]
+    assert checks["epsilon_H_zero"] is True
+    assert checks["weak_scale_forbidden"] is True
+    assert checks["higgs_mass_forbidden"] is True
+
+    cert = json.loads((ROOT / "issue_332_rg_naturality_certificate.json").read_text())
+    assert cert["accepted"] is True
+    assert cert["epsilon_H_interval"] == ["0", "0"]
+    assert cert["optional_upstream_resonance_check"]["strict_resonance"] is False
+    forbidden = cert["forbidden_calibrations"]
+    assert any("measured weak scale" in item for item in forbidden)
+    assert any("measured Higgs" in item for item in forbidden)

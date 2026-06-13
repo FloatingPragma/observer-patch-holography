@@ -45,18 +45,77 @@ This bundle records the formula/output surface but does not include the raw inte
 
 ## Corollary: OPH Higgs naturalness
 
-If the RG/coarse-graining Higgs readout defect
+The selected exact source-to-Higgs comparison map has zero RG/coarse-graining
+defect:
 
 ```math
 \epsilon_H =
 \sup_x |H_r(\rho_{sr}n_s(x))-H_r(n_r\rho_{sr}(x))|
+=0.
 ```
 
-is zero, or interval-bounded within the declared Higgs output interval, then the bare/counterterm split is a regulator-coordinate split, not an observer-facing fine-tuning datum.
+Equivalently,
 
-This bundle defines the defect but does not prove its numerical bound.
+```math
+\epsilon_H=\max\{\epsilon^n_{sH},\epsilon^h_{sH}\}=0,\qquad
+\epsilon_H\in[0,0].
+```
 
-## Lemma C: Global repair-tick lemma
+The certificate is `issue_332_rg_naturality_certificate.json`. It allows only
+the OPH source branch, the D10 source `alpha_U(P_star)` interval, the upstream
+repair-tick/tick-projection/joint-stability records, and the declared D10/D11
+maps. It forbids measured weak-scale, Higgs, W/Z, gravity, Planck-area, Lambda,
+and tuned bare-Higgs/cutoff-counterterm inputs. Therefore the bare/counterterm
+split is a regulator-coordinate split, not an observer-facing fine-tuning datum,
+on the selected exact branch.
+
+## Theorem C: Joint `(P,N_CRC)` product fixed point
+
+Let `x=log N`. The product-separated source branch has joint space
+`X=I_P x I_x` and source map
+
+```math
+\mathcal J(P,x)=(\Gamma(P),\widehat C(x)).
+```
+
+Assume the local and global component contraction certificates
+
+```math
+|\Gamma(P)-\Gamma(Q)|\le q_P|P-Q|,\qquad
+|\widehat C(x)-\widehat C(y)|\le q_N|x-y|,
+\qquad q_P,q_N<1.
+```
+
+In the product metric,
+
+```math
+d((P,x),(Q,y))=\max\{|P-Q|,|x-y|\},
+```
+
+the joint map is a contraction with constant `q=max(qP,qN)<1`. Banach's theorem
+therefore gives a unique stable joint fixed point
+`(P_star,log N_CRC)`. The theorem does not source `N_CRC` from the weak scale.
+The report `certificates/R_PN_joint_fixed_point_certificate_report.json` records
+the rounded capacity display and flags the weak-scale backsolve as a circular
+diagnostic only.
+
+For a genuinely coupled source map
+
+```math
+\mathcal J(P,x)=(\Gamma(P,x),\widehat C(P,x)),
+```
+
+with derivative envelope `a,b,c,d`, the coupled branch is promoted only when
+there is an `r>0` such that
+
+```math
+\max\{a+b/r,d+rc\}<1.
+```
+
+Without that bound, the coupled map is residual branch freedom rather than a
+theorem-grade uniqueness claim.
+
+## Lemma D: Global repair-tick lemma
 
 Setting: the cosmic record-capacity fixed point `N_CRC = F(N_CRC)` with observed-branch
 readout `N_CRC = S_dS` and D6 normalization `N_CRC = pi * (r_CRC/ell_star)^2`. Coordinate:
@@ -103,12 +162,11 @@ the declared `m = 24` gives the stated `-1/48` exponent.
 
 Boundary: the closure transport follows at the interface level of `F`, conditional on the
 declared counting model above. The corpus marks the finite readback map `F_r` as schematic and
-its refinement limit as conditional on existence. Work in progress covers the concrete
+its refinement limit as conditional on existence. The remaining promotion gates are the concrete
 finite-machinery verification that `nf_{r,N}` delivers a single well-defined effective
 resolution, the area-law readback count at that resolution, a representation-to-spectrum
-theorem for the round count, the electroweak tick projection, the joint `(P,N)` stability
-theorem, and the RG/coarse-graining naturality statement. The promoted hierarchy theorem does
-not use these as inputs.
+theorem for the round count, and the electroweak tick projection. The promoted hierarchy theorem
+does not use these as inputs.
 
 ## Boundary theorem: SI gravity/clock hierarchy
 

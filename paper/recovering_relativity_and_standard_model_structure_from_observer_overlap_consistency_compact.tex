@@ -346,10 +346,66 @@ g_N(\rho)
 =
 \left(\frac{N_{\mathrm{CRC}}}{\pi}\right)^{-1/48}.
 \]
-The integer \(24\) is branch architecture for this lemma. Work in progress covers the
-finite-machinery verification that the repair normal form delivers a single effective
-resolution, the representation-to-spectrum round-count derivation, the electroweak
-projection, and the joint \((P,N)\) stability theorem.
+The integer \(24\) is branch architecture for this lemma.
+
+The joint source branch uses the product space
+\[
+X=I_P\times I_x,\qquad x=\log N,
+\]
+and the product-separated source map
+\[
+\mathcal J(P,x)=(\Gamma(P),\widehat C(x)),
+\]
+where \(\Gamma\) is the local pixel closure map and \(\widehat C(x)=\log F(e^x)\) is the
+global capacity readback map. If the component certificates give
+\[
+|\Gamma(P)-\Gamma(Q)|\le q_P|P-Q|,
+\qquad
+|\widehat C(x)-\widehat C(y)|\le q_N|x-y|,
+\qquad
+q_P,q_N<1,
+\]
+then \(\mathcal J\) is a contraction in the product metric with constant
+\(q=\max\{q_P,q_N\}\). It has a unique stable joint fixed point
+\((P_\star,\log N_{\mathrm{CRC}})\). A source branch with genuine cross-feedback must instead
+provide a weighted-sup derivative certificate: for derivative bounds \(a,b,c,d\), there must
+exist \(r>0\) with
+\[
+\max\{a+b/r,\ d+rc\}<1.
+\]
+Without that coupled-map certificate, the product theorem is the closed branch and coupled
+feedback remains residual branch freedom.
+
+On the selected exact branch, the RG/Higgs naturality square is also closed. Let \(Q_s\) be the
+source hierarchy quotient and \(Q_H\) the Higgs/electroweak quotient, and define
+\[
+\rho_{sH}([x]_s)=
+\left[
+P(x),N(x),
+\left(\frac{N(x)}{\pi}\right)^{-P(x)/12},
+\Pi_{HT}F_{D11}F_{D10}(P(x),N(x)),0
+\right]_H .
+\]
+For the source and Higgs normal-form maps \(n_s,n_H\), and for the corresponding obstruction
+maps \(h_s,h_H\) with induced map \(\chi_{sH}\), the selected branch has
+\[
+\rho_{sH}n_s=n_H\rho_{sH},
+\qquad
+\chi_{sH}h_s=h_H\rho_{sH}.
+\]
+Thus
+\[
+\varepsilon_H
+=
+\max\{\varepsilon^n_{sH},\varepsilon^h_{sH}\}
+=0,
+\qquad
+\varepsilon_H\in[0,0].
+\]
+Measured \(v\), \(W/Z\), Higgs/top, \(G\), Planck-area, and \(\Lambda\) data are not inputs to
+this naturality bound. The remaining hierarchy-resonance promotion gates are the finite
+readback-resolution verification, the representation-to-spectrum derivation of the \(24\)-round
+count, and the electroweak tick-projection lemma.
 
 This is the reverse-engineering protocol used for the quantitative branch. Observed values may
 name a neighborhood of the branch: \(P\) near the electromagnetic endpoint, \(N_{\mathrm{CRC}}\)
@@ -4929,10 +4985,13 @@ and is the branch to use when the public Thomson endpoint is excluded upstream.
 The Higgs naturalness row is read on the same D10/D11 normal-form surface. The observer-visible
 scalar mass is the branch readout \(m_H=H_{\mathrm{OPH}}(P_\star)\). The split into a bare scalar
 mass plus a cutoff correction is a regulator coordinate description; the selected branch fixes
-the scalar row through its own equations. The concrete RG/coarse-graining defect bound
-\(\epsilon_H=0\), or an interval bound inside the declared Higgs output interval, is the required
-condition for promoting the naturality reading beyond this normal-form statement. This is a
-quantitative-closure statement outside the recovered-core theorem.
+the scalar row through its own equations. The source-to-Higgs coarse-graining square has the
+exact selected-branch defect bound
+\[
+\epsilon_H=0,\qquad \epsilon_H\in[0,0],
+\]
+with measured weak-scale, Higgs/top, \(W/Z\), gravity, Planck-area, and \(\Lambda\) inputs
+excluded. This is a quantitative-closure statement outside the recovered-core theorem.
 
 The scales fixed directly from \(P\) are
 \[

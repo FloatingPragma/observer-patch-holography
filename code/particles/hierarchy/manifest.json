@@ -1,8 +1,8 @@
 {
-  "bundle_id": "oph-hierarchy-proof-artifacts-r1473-2026-06-12",
-  "generated_utc": "2026-06-12T04:17:17Z",
+  "bundle_id": "oph-hierarchy-proof-artifacts-r1473-2026-06-13",
+  "generated_utc": "2026-06-13T00:00:00Z",
   "purpose": "Machine-readable artifacts for the OPH electroweak hierarchy proof obligation audit.",
-  "source_release_context": "OPH r1473 sources, released June 11-12, 2026; generated in ChatGPT session on 2026-06-12.",
+  "source_release_context": "OPH r1473 source context with issue #332 and #338 hierarchy closure artifacts added on 2026-06-13.",
   "claim_boundary": {
     "closed_by_bundle": [
       "public-branch numerical hierarchy witness",
@@ -12,30 +12,38 @@
       "R_U interval/Krawczyk witness using explicit interval derivative enclosure",
       "W/Z compare-only boundary ledger",
       "R_gamma no-G graph skeleton and missing-component gate ledger",
-      "R_N global repair-tick lemma on the declared 24-round structure"
+      "R_N global repair-tick lemma on the declared 24-round structure",
+      "product-branch joint (P,N_CRC) fixed-point and stability theorem",
+      "RG/Higgs naturality defect epsilon_H=0 on the selected exact branch"
     ],
     "not_closed_by_bundle": [
       "source-only A_T(P) hadronic endpoint transport for the public Thomson endpoint",
       "raw outward-rounded interval log from a formal proof assistant or certified interval library",
       "D10/D11 Higgs/top raw interval box for every internal input",
-      "concrete RG/coarse-graining Higgs readout defect epsilon_H=0 or bounded",
       "full R_gamma source stack: R_alpha, R_e_abs, R_QCD/nuc^133Cs, R_atom^133Cs",
       "W/Z theorem-grade target-free promotion certificate",
       "finite-machinery verification of a single effective readback resolution for nf_{r,N}",
       "representation-to-spectrum derivation of the 24-round repair count",
-      "local/global N_CRC resonance theorem"
+      "electroweak tick-projection lemma for full local/global hierarchy resonance",
+      "coupled-map joint fixed-point theorem if future source branches introduce cross-feedback",
+      "full local/global N_CRC resonance theorem"
     ]
   },
   "files": [
     {
       "path": "README.md",
-      "sha256": "af26260db4417054176031db44f173425c08905c7fa0340a9e79c544e38f125f",
-      "bytes": 2691
+      "sha256": "9873170357b7fe53c8155b781e39104bca81b374322ef823c0ae25a557c2b623",
+      "bytes": 3661
     },
     {
       "path": "STATUS.md",
-      "sha256": "4b7957ca35d51bbbccf13ab901b382d648593867dbb30c8fb8fbfa85c70a1771",
-      "bytes": 2077
+      "sha256": "9fb6fe83e747cb9d70047aa4e92e1d2fac9ebebcd21e40dcae8e0a94c5351860",
+      "bytes": 2921
+    },
+    {
+      "path": "INTEGRATION.md",
+      "sha256": "d9d0acc0b7422a26d73a426ca59186b1934b41737c83bc08f9f07b01d601b12e",
+      "bytes": 3320
     },
     {
       "path": "certificates/DAG_U.json",
@@ -49,13 +57,18 @@
     },
     {
       "path": "certificates/RG_Higgs_naturality_defect_certificate.json",
-      "sha256": "736cf7ca440242e59ef4a5ca8193f4a699357c37c917ad6a6b033c6f5f365e44",
-      "bytes": 703
+      "sha256": "27d5d87ff7ad8352dcdf1e8f646286203e08427ca19e124757bd866da2ccbd17",
+      "bytes": 823
     },
     {
       "path": "certificates/R_HT_declared_surface_certificate.json",
       "sha256": "3eb749b766308013d1f839c8838c32e1b59cb8ed2e4e079f4b7ba8b7397c4575",
       "bytes": 1065
+    },
+    {
+      "path": "certificates/R_PN_joint_fixed_point_certificate_report.json",
+      "sha256": "cfe2ffc9d4cb52aa23c442856a3d53c3f69f8818e4d936a6214318f54e401e40",
+      "bytes": 2639
     },
     {
       "path": "certificates/R_P_public_pixel_certificate.json",
@@ -94,8 +107,13 @@
     },
     {
       "path": "certificates/local_global_resonance_audit.json",
-      "sha256": "95872652db0abc24b619191bd6132372bfa77c858a91c6c5150abac79f5fb3f1",
-      "bytes": 1442
+      "sha256": "dad9e2b2bdd0374f0195a84325edea1897667588ce1e9efe13b482246575e227",
+      "bytes": 2162
+    },
+    {
+      "path": "issue_332_rg_naturality_certificate.json",
+      "sha256": "1067d1daf048f1cd3b9abb410347d4091240315f49ef4f786cd9c7802ac551f0",
+      "bytes": 3602
     },
     {
       "path": "computations/hierarchy_numeric_witness.json",
@@ -114,18 +132,43 @@
     },
     {
       "path": "theorem_package.md",
-      "sha256": "62aab940dae997c9985a33b10e20734fe8a2df6b612460932bb5d6a199274028",
-      "bytes": 4536
+      "sha256": "c1981f5f52827d680395a0129b5732bfe3b02c7912f2ee862437e9e5bd08d57f",
+      "bytes": 6060
+    },
+    {
+      "path": "verify_issue_332_rg_naturality.py",
+      "sha256": "02afda992a24805dedb6d561e527501b094d8e9c2c0a2fbfde070b15ca43e374",
+      "bytes": 9016
+    },
+    {
+      "path": "verify_joint_fixed_point_certificate.py",
+      "sha256": "06f9f86e123953e1b3a25ab1218e19c9e3a967ee7a0672fcdc2564b5229bfad9",
+      "bytes": 5996
+    },
+    {
+      "path": "test_hierarchy_bundle.py",
+      "sha256": "c9fe0e9360a5ff3c97f1f793546c3091650b31b6cd806020847c297128014bed",
+      "bytes": 6275
     },
     {
       "path": "validators/validate_bundle.py",
-      "sha256": "9e489edfeb60ac694e04582cba82b9134664765b8db4d9579a8c168f2fa0cc3f",
-      "bytes": 915
+      "sha256": "c0ce29ed807e27a4e3a5a3d537533bbea94c1f2f4bd65247bfb28d77fe58fa01",
+      "bytes": 1212
     },
     {
       "path": "validators/validate_dag.py",
       "sha256": "05fbc369b6077d5c8c5849c8b29152f41871c07eaf13d3a5d54781cfb938abc2",
       "bytes": 906
+    },
+    {
+      "path": "validators/validate_issue_332_rg_naturality.py",
+      "sha256": "f286f026300d8e0cbd3b43869aceccd22a141498a1f0862bec0095a2845d6247",
+      "bytes": 1317
+    },
+    {
+      "path": "validators/validate_joint_fixed_point_certificate.py",
+      "sha256": "eadaaa94aa297b22f2be902280986fc6b5792a03be873b0943eec2b5eb2e6fb8",
+      "bytes": 1677
     },
     {
       "path": "validators/validate_ru_interval_certificate.py",

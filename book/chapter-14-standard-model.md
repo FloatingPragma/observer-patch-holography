@@ -966,9 +966,10 @@ The hierarchy row is part of that same local story. The weak scale is emitted
 by the pixel transmutation law
 $v/E_\star=P_\star^{-1/2}\exp[-2\pi/(4\alpha_U(P_\star))]$. The particle paper
 and the Observers paper carry the interval/Krawczyk certificate for the unique
-source value of $\alpha_U(P_\star)$. The full Higgs naturality reading
-depends on the RG coarse-graining defect bound, and the SI gravity decimal
-depends on the complete no-G clock bridge.
+source value of $\alpha_U(P_\star)$. The selected source-to-Higgs
+coarse-graining square has zero defect, $\epsilon_H=0$, so the usual
+bare-Higgs-plus-cutoff split is a regulator coordinate description on that
+branch. The SI gravity decimal depends on the complete no-G clock bridge.
 
 There is also a global capacity-side tick lemma. The screen-capacity fixed
 point fixes the cosmic radius ratio. The readback closure follows from the
@@ -981,9 +982,13 @@ the full cycle contracts by $(N_{\mathrm{CRC}}/\pi)^{-1/2}$. On the declared
 24-tick branch one homogeneous tick has
 $|g_\star'|=(N_{\mathrm{CRC}}/\pi)^{-1/48}$, and the certificate excludes
 electroweak inputs. The proof takes the 24-round count as branch
-architecture. Work in progress covers the finite-machinery verification of the
-readback resolution, the derivation of that round count, the electroweak
-projection, joint stability, and RG naturality.
+architecture. The product joint branch for the local pixel fixed point and
+global capacity fixed point is stable when the two component fixed-point maps
+have their contraction certificates. A genuinely coupled branch needs a
+separate derivative bound. The remaining gates for the full local/global
+hierarchy resonance are the finite-machinery verification of the readback
+resolution, the derivation of the 24-round count, and the electroweak
+projection.
 
 **Charge quantization.** All color-singlet particles have integer electric charge. No fractional charges like $\pm 1/3$ can exist outside hadrons. This follows from the global structure of the gauge group.
 
