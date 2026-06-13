@@ -141,12 +141,76 @@ def test_issue_337_electroweak_projection_certificate_records_exact_bridge_condi
     assert checks["projection_exponent_matches_4P"] is True
     assert checks["rounded_N_is_diagnostic"] is True
     assert checks["rounded_N_fails_exact_bridge"] is True
+    assert checks["derivation_chain_has_seven_steps"] is True
+    assert checks["step_3_derives_projection_formula"] is True
+    assert checks["step_4_discloses_resonance_target_definitionality"] is True
+    assert checks["step_6_cites_capacity_certificate"] is True
+    assert checks["step_7_derives_P_over_12_form"] is True
+    assert checks["factor_origin_beta_EW_recorded"] is True
+    assert checks["factor_origin_m_rep_recorded"] is True
+    assert checks["factor_origin_48_recorded"] is True
+    assert checks["factor_origin_12_recorded"] is True
+    assert checks["acceptance_projection_map_defined"] is True
+    assert checks["acceptance_4P_proved_under_resonance_target"] is True
+    assert checks["acceptance_factor_4_origin_documented"] is True
+    assert checks["acceptance_factor_12_origin_documented"] is True
+    assert checks["acceptance_compatible_with_local_D10"] is True
+    assert checks["acceptance_no_measured_weak_inputs"] is True
+    assert checks["acceptance_resonance_target_disclosed_as_definitional"] is True
+    assert checks["boundary_records_closed_elsewhere"] is True
+    assert checks["boundary_includes_honest_disclosure"] is True
 
     cert = json.loads((ROOT / "certificates/R_EW_tick_projection_certificate.json").read_text())
     assert cert["accepted"] is True
     assert cert["status"] == "closed_projection_map_with_exact_bridge_condition"
     assert cert["exact_bridge"]["bridge_residual"] == "0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
     assert cert["rounded_capacity_diagnostic"]["status"] == "diagnostic_only_not_exact_bridge_certificate"
+
+    chain = cert["derivation_chain"]
+    assert len(chain) == 7
+    assert chain[0]["premise"] == "D10 forward transmutation theorem"
+    assert "beta_EW" in str(chain[0]["uses"]) or "beta_EW" in str(chain[0].get("conclusion", ""))
+    assert "m_rep" in str(chain[1]["uses"]) or "m_rep" in str(chain[1].get("conclusion", ""))
+    assert "Pi_EW" in chain[2]["conclusion"] and "24*pi" in chain[2]["conclusion"]
+    assert "honesty_flag" in chain[3]
+    assert "B_EW" in chain[4]["conclusion"]
+    assert "R_EW_global_capacity" in chain[5]["source"]
+    assert "(P_star/12)" in chain[6]["conclusion"] and "48/4" in chain[6]["conclusion"]
+
+    factors = cert["factor_origins"]
+    assert factors["beta_EW"]["value"] == "4"
+    assert "D10" in factors["beta_EW"]["source_theorem"]
+    assert factors["m_rep"]["value"] == "24"
+    assert "representation-to-spectrum" in factors["m_rep"]["source_theorem"]
+    assert factors["tick_exponent_denominator_48"]["value"] == "48"
+    assert "global repair-tick" in factors["tick_exponent_denominator_48"]["source_theorem"]
+    assert factors["projection_target_factor_4_in_4P"]["identification"] == "beta_EW"
+    assert factors["projection_target_denominator_12_in_P_over_12"]["value"] == "12"
+    assert "48 / 4" in factors["projection_target_denominator_12_in_P_over_12"]["definition"]
+
+    acceptance = cert["acceptance_criteria_status"]
+    assert acceptance["projection_map_defined"] is True
+    assert acceptance["sampling_exponent_4P_proved_under_resonance_target"] is True
+    assert acceptance["factor_4_origin_documented"] is True
+    assert acceptance["factor_12_origin_documented"] is True
+    assert acceptance["compatibility_with_local_D10_transmutation_certificate"] is True
+    assert acceptance["no_measured_weak_scale_inputs"] is True
+    assert acceptance["no_measured_higgs_top_W_Z_inputs"] is True
+    assert acceptance["no_measured_gravity_inputs"] is True
+    assert acceptance["rounded_N_display_rejected_as_high_precision_bridge"] is True
+    assert acceptance["honest_disclosure_resonance_target_is_definitional"] is True
+
+    boundary = cert["claim_boundary"]
+    assert "derivation chain" in boundary["closed_here"]
+    closed_elsewhere = boundary["closed_elsewhere"]
+    assert any("D10" in item for item in closed_elsewhere)
+    assert any("representation-to-spectrum" in item or "R_m_rep_24" in item for item in closed_elsewhere)
+    assert any("global repair-tick" in item or "R_N_global_repair_tick" in item for item in closed_elsewhere)
+    assert any("R_EW_global_capacity" in item or "EW-refined" in item for item in closed_elsewhere)
+    disclosure = boundary["honest_disclosure"]
+    assert "resonance target" in disclosure
+    assert "beta_EW" in disclosure
+    assert "EW-refined" in disclosure
 
 
 def test_issue_344_exact_capacity_certificate_is_fixed_point_source_record() -> None:
