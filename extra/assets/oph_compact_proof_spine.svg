@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="210" viewBox="0 0 1500 210" role="img" aria-labelledby="title desc">
+  <title id="title">OPH compact six-lock proof</title>
+  <desc id="desc">Six OPH locks from observer experience as local readout through pixel detuning, horizon capacity, hierarchy repair, gravity cancellation, and numerical outputs.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M1,1 L9,5 L1,9 Z" fill="#0b6b78"/>
+    </marker>
+    <filter id="shadow" x="-4%" y="-6%" width="108%" height="112%">
+      <feDropShadow dx="0" dy="1.6" stdDeviation="1.8" flood-color="#b7cdd4" flood-opacity="0.46"/>
+    </filter>
+    <style>
+      .bg { fill: #f3f8fa; stroke: #a8ccd6; stroke-width: 2; }
+      .box { fill: #ffffff; stroke: #a8ccd6; stroke-width: 1.8; filter: url(#shadow); }
+      .num { fill: #095766; font-family: "Helvetica Neue", Arial, sans-serif; font-weight: 700; }
+      .head { fill: #075d6c; font-family: "Helvetica Neue", Arial, sans-serif; font-weight: 700; }
+      .body { fill: #506171; font-family: "Helvetica Neue", Arial, sans-serif; }
+      .math { fill: #071014; font-family: "Times New Roman", Times, serif; font-style: italic; }
+      .arrow { fill: none; stroke: #0b6b78; stroke-width: 4; stroke-linecap: round; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect x="10" y="10" width="1480" height="190" rx="16" class="bg"/>
+
+  <g transform="translate(34,32)">
+    <rect x="0" y="0" width="206" height="146" rx="12" class="box"/>
+    <text x="18" y="31" class="num" font-size="20">1</text>
+    <text x="48" y="31" class="head" font-size="20">observer lock</text>
+    <text x="22" y="68" class="math" font-size="25">T(U) = U</text>
+    <text x="22" y="104" class="body" font-size="16">local readouts</text>
+    <text x="22" y="126" class="body" font-size="16">return the world</text>
+  </g>
+
+  <path d="M248,105 L286,105" class="arrow"/>
+
+  <g transform="translate(294,32)">
+    <rect x="0" y="0" width="206" height="146" rx="12" class="box"/>
+    <text x="18" y="31" class="num" font-size="20">2</text>
+    <text x="48" y="31" class="head" font-size="20">pixel lock</text>
+    <text x="22" y="68" class="math" font-size="24">P = φ + α√π</text>
+    <text x="22" y="104" class="body" font-size="16">geometry and field</text>
+    <text x="22" y="126" class="body" font-size="16">read one cell</text>
+  </g>
+
+  <path d="M508,105 L546,105" class="arrow"/>
+
+  <g transform="translate(554,32)">
+    <rect x="0" y="0" width="206" height="146" rx="12" class="box"/>
+    <text x="18" y="31" class="num" font-size="20">3</text>
+    <text x="48" y="31" class="head" font-size="20">horizon lock</text>
+    <text x="22" y="68" class="math" font-size="23">N = MAR max</text>
+    <text x="22" y="104" class="body" font-size="16">record supply equals</text>
+    <text x="22" y="126" class="body" font-size="16">screen cost</text>
+  </g>
+
+  <path d="M768,105 L806,105" class="arrow"/>
+
+  <g transform="translate(814,32)">
+    <rect x="0" y="0" width="206" height="146" rx="12" class="box"/>
+    <text x="18" y="31" class="num" font-size="20">4</text>
+    <text x="48" y="31" class="head" font-size="20">24-tick lock</text>
+    <text x="22" y="68" class="math" font-size="21">v/E = (N/π)<tspan baseline-shift="super" font-size="14">-P/12</tspan></text>
+    <text x="22" y="104" class="body" font-size="16">hierarchy becomes</text>
+    <text x="22" y="126" class="body" font-size="16">a repair rhythm</text>
+  </g>
+
+  <path d="M1028,105 L1066,105" class="arrow"/>
+
+  <g transform="translate(1074,32)">
+    <rect x="0" y="0" width="206" height="146" rx="12" class="box"/>
+    <text x="18" y="31" class="num" font-size="20">5</text>
+    <text x="48" y="31" class="head" font-size="20">gravity lock</text>
+    <text x="22" y="68" class="math" font-size="24">G/ℓ<tspan baseline-shift="super" font-size="14">2</tspan> = 1</text>
+    <text x="22" y="104" class="body" font-size="16">area and entropy</text>
+    <text x="22" y="126" class="body" font-size="16">share the pixel</text>
+  </g>
+
+  <path d="M1288,105 L1326,105" class="arrow"/>
+
+  <g transform="translate(1334,32)">
+    <rect x="0" y="0" width="132" height="146" rx="12" class="box"/>
+    <text x="16" y="31" class="num" font-size="20">6</text>
+    <text x="44" y="31" class="head" font-size="20">outputs</text>
+    <text x="20" y="68" class="math" font-size="25">34</text>
+    <text x="20" y="104" class="body" font-size="16">same branch</text>
+    <text x="20" y="126" class="body" font-size="16">same source</text>
+  </g>
+</svg>

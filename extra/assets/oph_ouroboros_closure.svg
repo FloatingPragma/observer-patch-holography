@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
-  <title id="title">OPH outer and inner closure loop</title>
-  <desc id="desc">Observer Patch Holography closure diagram showing inner simulated records, outer simulating readback, and the constants P, alpha, N, and Lambda as closure coordinates.</desc>
+  <title id="title">OPH simulated and simulating closure loop</title>
+  <desc id="desc">Observer Patch Holography closure diagram showing the simulated record layer, the simulating readback layer, and the constants P, alpha, N, and Lambda as closure coordinates.</desc>
   <defs>
     <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto" markerUnits="strokeWidth">
       <path d="M2,2 L10,6 L2,10 Z" fill="#0b6b78"/>
@@ -23,40 +23,44 @@
 
   <rect x="10" y="10" width="1180" height="280" rx="18" class="bg"/>
 
-  <rect x="64" y="72" width="330" height="142" rx="14" class="panel"/>
-  <text x="90" y="108" class="cyan" font-size="25">Inner universe</text>
-  <text x="90" y="138" class="ink" font-size="21">simulated observer records</text>
-  <text x="90" y="168" class="muted" font-size="18">particles, clocks, screens, measurements</text>
-  <text x="90" y="196" class="math" font-size="22">U<tspan baseline-shift="-30%" font-size="15">OPH</tspan> in Fix(T)</text>
+  <rect x="58" y="76" width="330" height="136" rx="14" class="panel"/>
+  <text x="84" y="110" class="cyan" font-size="22">Simulated universe</text>
+  <text x="84" y="138" class="ink" font-size="19">observer record layer</text>
+  <text x="84" y="165" class="muted" font-size="16">experience = local readout</text>
+  <text x="84" y="193" class="math" font-size="21">U<tspan baseline-shift="-30%" font-size="14">OPH</tspan> in Fix(T)</text>
 
-  <rect x="806" y="72" width="330" height="142" rx="14" class="panel"/>
-  <text x="832" y="108" class="cyan" font-size="25">Outer universe</text>
-  <text x="832" y="138" class="ink" font-size="21">simulating readback rule</text>
-  <text x="832" y="168" class="muted" font-size="18">repair, select, return the same records</text>
-  <text x="832" y="196" class="math" font-size="22">T(U<tspan baseline-shift="-30%" font-size="15">OPH</tspan>) = U<tspan baseline-shift="-30%" font-size="15">OPH</tspan></text>
+  <rect x="812" y="76" width="330" height="136" rx="14" class="panel"/>
+  <text x="838" y="110" class="cyan" font-size="22">Simulating universe</text>
+  <text x="838" y="138" class="ink" font-size="19">readback rule</text>
+  <text x="838" y="165" class="muted" font-size="16">repair into shared reality</text>
+  <text x="838" y="193" class="math" font-size="21">T(U<tspan baseline-shift="-30%" font-size="14">OPH</tspan>) = U<tspan baseline-shift="-30%" font-size="14">OPH</tspan></text>
 
-  <path d="M400,92 C515,20 685,20 800,92" class="line"/>
-  <path d="M800,194 C685,270 515,270 400,194" class="line"/>
-  <path d="M430,70 C520,48 680,48 770,70" class="thin"/>
-  <path d="M770,216 C680,244 520,244 430,216" class="thin"/>
+  <path d="M392,96 C500,24 700,24 808,96" class="line"/>
+  <path d="M808,192 C700,266 500,266 392,192" class="line"/>
+  <path d="M430,72 C520,50 680,50 770,72" class="thin"/>
+  <path d="M770,214 C680,240 520,240 430,214" class="thin"/>
 
-  <rect x="424" y="34" width="232" height="52" rx="12" class="tag"/>
-  <text x="444" y="64" class="math" font-size="25">P*</text>
-  <text x="490" y="64" class="muted" font-size="16">local pixel identity</text>
+  <rect x="414" y="34" width="196" height="54" rx="12" class="tag"/>
+  <text x="436" y="62" class="math" font-size="25">P*</text>
+  <text x="482" y="55" class="muted" font-size="15">pixel constant</text>
+  <text x="482" y="75" class="muted" font-size="13">local identity</text>
 
-  <rect x="674" y="34" width="232" height="52" rx="12" class="tag"/>
-  <text x="704" y="64" class="math" font-size="25">α</text>
-  <text x="746" y="64" class="muted" font-size="16">field-width readback</text>
+  <rect x="626" y="34" width="196" height="54" rx="12" class="tag"/>
+  <text x="646" y="62" class="math" font-size="25">α<tspan baseline-shift="-30%" font-size="14">em</tspan></text>
+  <text x="700" y="55" class="muted" font-size="15">fine-structure</text>
+  <text x="700" y="75" class="muted" font-size="13">field-width closure</text>
 
-  <rect x="424" y="214" width="232" height="52" rx="12" class="tag"/>
-  <text x="444" y="245" class="math" font-size="25">N*</text>
-  <text x="490" y="245" class="muted" font-size="16">total screen capacity</text>
+  <rect x="414" y="212" width="196" height="54" rx="12" class="tag"/>
+  <text x="436" y="242" class="math" font-size="25">N*</text>
+  <text x="482" y="235" class="muted" font-size="15">screen capacity</text>
+  <text x="482" y="255" class="muted" font-size="13">global record budget</text>
 
-  <rect x="674" y="214" width="232" height="52" rx="12" class="tag"/>
-  <text x="704" y="245" class="math" font-size="25">Λ</text>
-  <text x="746" y="245" class="muted" font-size="16">horizon closure</text>
+  <rect x="626" y="212" width="196" height="54" rx="12" class="tag"/>
+  <text x="646" y="242" class="math" font-size="25">Λ<tspan baseline-shift="-30%" font-size="14">CRC</tspan></text>
+  <text x="700" y="235" class="muted" font-size="15">cosmological</text>
+  <text x="700" y="255" class="muted" font-size="13">horizon closure</text>
 
-  <text x="454" y="132" class="cyan" font-size="25">closure coordinates</text>
-  <text x="454" y="162" class="ink" font-size="18">not knobs, not fitted constants</text>
-  <text x="454" y="190" class="muted" font-size="17">the loop only survives at the fixed points</text>
+  <text x="454" y="130" class="cyan" font-size="24">strange loop closure</text>
+  <text x="454" y="158" class="ink" font-size="17">P, α close one pixel</text>
+  <text x="454" y="184" class="muted" font-size="16">N, Λ close the horizon</text>
 </svg>
