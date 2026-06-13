@@ -62,10 +62,143 @@
     "measured Lambda as an input",
     "rounded N_CRC display as a high-precision bridge certificate"
   ],
+  "factor_origins": {
+    "beta_EW": {
+      "value": "4",
+      "definition": "N_c+1 with N_c=3",
+      "role": "electroweak transmutation channel multiplicity",
+      "source_theorem": "D10 forward transmutation theorem",
+      "source_artifact": "code/particles/runs/calibration/d10_ew_forward_transmutation_certificate.json"
+    },
+    "m_rep": {
+      "value": "24",
+      "definition": "2 * dim(su(3)+su(2)+u(1)) = 2 * (8+3+1)",
+      "role": "global repair-tick round count on the OPH product branch",
+      "source_theorem": "representation-to-spectrum round-count theorem",
+      "source_artifact": "certificates/R_m_rep_24_certificate.json"
+    },
+    "tick_exponent_denominator_48": {
+      "value": "48",
+      "definition": "2 * m_rep",
+      "role": "denominator of the per-tick screen-radius exponent -1/(2*m_rep)",
+      "source_theorem": "global repair-tick theorem with derived round count",
+      "source_artifact": "certificates/R_N_global_repair_tick_certificate.json"
+    },
+    "projection_target_factor_4_in_4P": {
+      "value": "4",
+      "identification": "beta_EW",
+      "role": "the integer factor in the OPH-defined resonance target Pi_EW(P_star,N_CRC)=beta_EW*P_star=4P_star",
+      "source_theorem": "D10 transmutation multiplicity",
+      "note": "The resonance target 4P_star=beta_EW*P_star is the OPH local/global EW resonance condition, not an independent geometric theorem. Its source-side realization is supplied by the EW-refined global-capacity contraction certificate."
+    },
+    "projection_target_denominator_12_in_P_over_12": {
+      "value": "12",
+      "definition": "2 * m_rep / beta_EW = 48 / 4",
+      "role": "denominator in t_tr = (P_star/12) * log(N_CRC/pi) and v/E_cell = (N_CRC/pi)^(-P_star/12), inherited from the projection ratio",
+      "source_theorem": "algebraic consequence of D10 (beta_EW=4) and the global repair-tick + representation-to-spectrum theorems (m_rep=24)"
+    }
+  },
+  "derivation_chain": [
+    {
+      "step": 1,
+      "premise": "D10 forward transmutation theorem",
+      "uses": [
+        "alpha_U(P_star)",
+        "beta_EW=N_c+1=4"
+      ],
+      "conclusion": "t_tr(P)=2*pi/(beta_EW*alpha_U(P)) and v/E_cell=exp[-2*pi/(beta_EW*alpha_U(P))]",
+      "source": "code/particles/runs/calibration/d10_ew_forward_transmutation_certificate.json"
+    },
+    {
+      "step": 2,
+      "premise": "global repair-tick theorem + representation-to-spectrum theorem",
+      "uses": [
+        "screen-capacity fixed point N_CRC=F(N_CRC)",
+        "m_rep=2*(8+3+1)=24"
+      ],
+      "conclusion": "|g_*'|=(N/pi)^(-1/(2*m_rep))=(N/pi)^(-1/48) and -log|g_*'|=log(N/pi)/48",
+      "source": "certificates/R_N_global_repair_tick_certificate.json + certificates/R_m_rep_24_certificate.json"
+    },
+    {
+      "step": 3,
+      "premise": "ratio of step-1 and step-2 log-quantities",
+      "uses": [
+        "t_tr from step 1",
+        "-log|g_*'| from step 2"
+      ],
+      "conclusion": "Pi_EW(P,N) := -log(v/E_cell)/(-log|g_*'|) = (2*pi/(beta_EW*alpha_U)) / (log(N/pi)/(2*m_rep)) = (4*pi*m_rep)/(beta_EW*alpha_U*log(N/pi)) = 24*pi/(alpha_U*log(N/pi)) at beta_EW=4, m_rep=24",
+      "discharged_here": true
+    },
+    {
+      "step": 4,
+      "premise": "OPH local/global EW resonance target",
+      "uses": [
+        "beta_EW=4 (D10 channel count)",
+        "P_star (local pixel fixed point from R_P)"
+      ],
+      "conclusion": "Pi_EW(P_star,N_CRC) = beta_EW*P_star = 4*P_star",
+      "honesty_flag": "This identifies the resonance target by which OPH defines local/global EW resonance: a single global tick per electroweak channel per local pixel-area unit. The integers come from D10 (beta_EW) and R_P (P_star); the choice to take their product as the resonance target is the OPH resonance condition itself, not derived from a deeper independent theorem in this certificate."
+    },
+    {
+      "step": 5,
+      "premise": "step 3 = step 4",
+      "uses": [
+        "Pi_EW=24*pi/(alpha_U*log(N/pi))",
+        "Pi_EW=4*P"
+      ],
+      "conclusion": "alpha_U(P)*log(N/pi) = 24*pi/(4*P) = 6*pi/P, equivalently B_EW(P,N) = alpha_U(P)*log(N/pi) - 6*pi/P = 0",
+      "discharged_here": true
+    },
+    {
+      "step": 6,
+      "premise": "EW-refined exact global-capacity contraction certificate",
+      "uses": [
+        "B_EW=0 from step 5",
+        "Banach contraction C_EW(P,x)=(1-lambda)x+lambda*6*pi/(P*alpha_U(P)) with lambda=1/2"
+      ],
+      "conclusion": "N_CRC^EW(P_star) = pi*exp[6*pi/(P_star*alpha_U(P_star))] is the unique source-side fixed point, with B_EW(P_star,N_CRC^EW)=0",
+      "source": "certificates/R_EW_global_capacity_certificate.json"
+    },
+    {
+      "step": 7,
+      "premise": "substitution of step 6 into step 1 and step 2",
+      "uses": [
+        "t_tr from step 1",
+        "log(N_CRC^EW/pi)=6*pi/(P_star*alpha_U(P_star)) from step 6"
+      ],
+      "conclusion": "t_tr(P_star) = (P_star/12)*log(N_CRC^EW/pi); v/E_cell = (N_CRC^EW/pi)^(-P_star/12) = |g_*'|^(4*P_star) where 12 = 2*m_rep/beta_EW = 48/4",
+      "discharged_here": true
+    }
+  ],
+  "acceptance_criteria_status": {
+    "projection_map_defined": true,
+    "projection_map_definition": "Pi_EW(P,N) := -log(v/E_cell)/(-log|g_*'|) = 24*pi/(alpha_U(P)*log(N/pi))",
+    "sampling_exponent_4P_proved_under_resonance_target": true,
+    "factor_4_origin_documented": true,
+    "factor_12_origin_documented": true,
+    "factor_4_source": "beta_EW=N_c+1=4 from D10 transmutation theorem",
+    "factor_12_source": "12 = 2*m_rep/beta_EW = 48/4, from the global repair-tick + representation-to-spectrum theorems (m_rep=24) and D10 (beta_EW=4)",
+    "compatibility_with_local_D10_transmutation_certificate": true,
+    "compatibility_note": "v/E_cell=exp[-2*pi/(beta_EW*alpha_U(P))] is the D10 forward transmutation law and is used as input, not redefined.",
+    "no_measured_weak_scale_inputs": true,
+    "no_measured_higgs_top_W_Z_inputs": true,
+    "no_measured_gravity_inputs": true,
+    "rounded_N_display_rejected_as_high_precision_bridge": true,
+    "honest_disclosure_resonance_target_is_definitional": true,
+    "resonance_target_disclosure": "The equality Pi_EW(P_star,N_CRC)=4*P_star is the OPH local/global EW resonance condition. Each factor is corpus-derived (4=beta_EW from D10; P_star from R_P pixel closure), and the resonance target's source-side realization is the bridge fixed point N_CRC^EW supplied by the EW-refined global-capacity contraction certificate. No independent geometric theorem forces the product 4*P_star at the level of this certificate; the realization is by source-side fixed-point construction, not by stipulating any measured datum."
+  },
   "claim_boundary": {
-    "closed_here": "unique projection map, origin of 4P, exact bridge residual, and exact bridge target N_EW(P_star)",
+    "closed_here": "unique projection map Pi_EW(P,N), explicit derivation chain from D10 transmutation and the global repair tick, machine-readable origin of every integer factor (4, 12, 24, 48), exact bridge residual B_EW=0, and exact bridge target N_EW(P_star)",
     "source_certificate_required": "The issue-344 exact global capacity certificate supplies B_EW(P_star,N_CRC^EW)=0 for the bridge-refined capacity object.",
-    "rounded_display": "3.31e122 is a capacity-scale label and fails the exact bridge diagnostic."
+    "closed_elsewhere": [
+      "beta_EW=N_c+1=4 from the D10 forward transmutation certificate",
+      "m_rep=24 from the representation-to-spectrum round-count certificate (R_m_rep_24_certificate.json)",
+      "|g_*'|=(N/pi)^(-1/48) from the global repair-tick certificate (R_N_global_repair_tick_certificate.json)",
+      "exact source-side capacity N_CRC^EW from the EW-refined global-capacity certificate (R_EW_global_capacity_certificate.json)",
+      "umbrella local/global hierarchy resonance from the resonance closeout certificate (R_local_global_hierarchy_resonance_closeout_335.json)"
+    ],
+    "rounded_display": "3.31e122 is a capacity-scale label and fails the exact bridge diagnostic.",
+    "honest_disclosure": "The resonance target Pi_EW(P_star,N_CRC)=4*P_star=beta_EW*P_star is the OPH local/global EW resonance condition. Its source-side realization is the bridge fixed point N_CRC^EW supplied by the EW-refined global-capacity certificate. This certificate does not claim an independent geometric theorem forcing 4*P_star at a deeper level; it documents the derivation chain from D10 (beta_EW), the global repair-tick theorem, and the representation-to-spectrum theorem (m_rep), and records the bridge equivalence verified at residual <= 1e-40."
   },
   "verifier_command": "python3 code/particles/hierarchy/verify_issue_337_electroweak_projection.py --check --output code/particles/hierarchy/certificates/R_EW_tick_projection_certificate.json"
 }
