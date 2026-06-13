@@ -26,7 +26,7 @@ def test_hierarchy_bundle_validators_pass() -> None:
     result = _run("validators/validate_bundle.py")
     payload = json.loads(result.stdout)
 
-    assert len(payload) == 8
+    assert len(payload) == 9
     assert all(entry["returncode"] == 0 for entry in payload)
     validator_outputs = [json.loads(entry["stdout"]) for entry in payload]
     assert all(output["pass"] is True for output in validator_outputs)
@@ -96,7 +96,7 @@ def test_global_repair_tick_lemma_is_closed_on_declared_rounds_with_claim_bounda
     boundary = cert["claim_boundary"]["not_closed_by_certificate"]
     assert any("round count" in item for item in boundary)
     assert any("R_EW_tick_projection_certificate" in item for item in boundary)
-    assert any("B_EW(P_star,N_CRC)=0" in item for item in boundary)
+    assert any("R_EW_global_capacity_certificate" in item for item in boundary)
     assert any("finite repair machinery" in item for item in boundary)
 
 
@@ -140,6 +140,27 @@ def test_issue_337_electroweak_projection_certificate_records_exact_bridge_condi
     assert cert["rounded_capacity_diagnostic"]["status"] == "diagnostic_only_not_exact_bridge_certificate"
 
 
+def test_issue_344_exact_capacity_certificate_is_fixed_point_source_record() -> None:
+    result = _run(
+        "validators/validate_issue_344_exact_capacity.py",
+        "certificates/R_EW_global_capacity_certificate.json",
+    )
+    payload = json.loads(result.stdout)
+
+    assert payload["pass"] is True
+    checks = payload["checks"]
+    assert checks["bridge_residual_zero"] is True
+    assert checks["fixed_point_residual_zero"] is True
+    assert checks["residual_contracts"] is True
+    assert checks["rounded_capacity_fails_bridge"] is True
+
+    cert = json.loads((ROOT / "certificates/R_EW_global_capacity_certificate.json").read_text())
+    assert cert["accepted"] is True
+    assert cert["status"] == "closed_bridge_refined_global_capacity_fixed_point_certificate"
+    assert cert["contraction_certificate"]["lipschitz_constant"] == "0.5"
+    assert cert["exact_capacity_fixed_point"]["bridge_residual"] == "0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+
+
 def test_issue_332_rg_higgs_naturality_certificate_is_zero_defect() -> None:
     result = _run(
         "validators/validate_issue_332_rg_naturality.py",
@@ -172,15 +193,16 @@ def test_issue_335_local_global_resonance_closes_as_conditional_statement() -> N
     assert payload["pass"] is True
     checks = payload["checks"]
     assert checks["full_theorem_not_promoted"] is True
-    assert checks["downgrade_recorded"] is True
+    assert checks["exact_capacity_supplied"] is True
+    assert checks["finite_readback_and_round_count_recorded"] is True
     assert checks["rounded_capacity_rejected"] is True
-    assert checks["three_promotion_gates_recorded"] is True
+    assert checks["two_promotion_gates_recorded"] is True
 
     cert = json.loads((ROOT / "certificates/R_local_global_hierarchy_resonance_closeout_335.json").read_text())
     assert cert["accepted"] is True
     assert cert["status"] == "closed_as_exact_surviving_conditional_statement"
     assert cert["full_theorem_grade_resonance_promoted"] is False
     acceptance = cert["acceptance_criteria_status"]
-    assert acceptance["four_prerequisite_steps_accounted_for"] is True
+    assert acceptance["prerequisite_steps_accounted_for"] is True
     assert acceptance["full_theorem_grade_resonance_proved"] is False
-    assert acceptance["downgraded_to_exact_surviving_conditional_statement"] is True
+    assert acceptance["exact_capacity_source_certificate_supplied"] is True

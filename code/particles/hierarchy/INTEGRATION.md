@@ -63,17 +63,30 @@ B_EW(P,N) = alpha_U(P)*log(N/pi) - 6*pi/P = 0
 ```
 
 The certificate records the exact bridge target `N_EW(P_star)` and keeps the
-rounded `3.31e122` capacity label as a diagnostic. The full local/global
-resonance theorem requires the exact global capacity source certificate that
-satisfies `B_EW(P_star,N_CRC)=0`.
+rounded `3.31e122` capacity label as a diagnostic.
+
+The issue-#344 artifact supplies the exact EW-refined global-capacity
+certificate. In log-capacity coordinates,
+
+```text
+C_EW(P,x) = (1-lambda)*x + lambda*6*pi/(P*alpha_U(P))
+```
+
+with `lambda=1/2` is a contraction. Its unique fixed point gives
+
+```text
+N_CRC^EW = pi*exp[6*pi/(P_star*alpha_U(P_star))]
+B_EW(P_star,N_CRC^EW) = 0
+```
+
+using only `P_star`, source `alpha_U(P_star)`, `pi`, and `exp`.
 
 The issue-#335 close-out certificate accounts for the closed global tick,
-projection bridge, joint product branch, and RG/Higgs naturality records. It
+projection bridge, exact capacity fixed point, joint product branch, and RG/Higgs naturality records. It
 does not promote the full local/global `N_CRC` resonance. It closes the umbrella
-issue as the exact surviving conditional statement: if the exact global
-capacity source certificate supplies `B_EW(P_star,N_CRC)=0`, and the finite
-readback-resolution and 24-round derivation gates close, then the target
-local/global hierarchy relation follows.
+issue as the exact bridge statement: with #344 supplying
+`B_EW(P_star,N_CRC^EW)=0`, if the finite readback-resolution and 24-round
+derivation gates close, then the target local/global hierarchy relation follows.
 
 The joint `(P,N_CRC)` artifact defines the product branch map
 `J(P,x)=(Gamma(P),C_hat(x))` on `I_P x log I_N`. Component contraction
@@ -103,5 +116,6 @@ python3 -m pytest test_hierarchy_bundle.py
 python3 verify_issue_332_rg_naturality.py --check --output issue_332_rg_naturality_certificate.json
 python3 verify_issue_335_local_global_resonance.py --check --output certificates/R_local_global_hierarchy_resonance_closeout_335.json
 python3 verify_issue_337_electroweak_projection.py --check --output certificates/R_EW_tick_projection_certificate.json
+python3 verify_issue_344_exact_capacity.py --check --output certificates/R_EW_global_capacity_certificate.json
 python3 verify_joint_fixed_point_certificate.py --output certificates/R_PN_joint_fixed_point_certificate_report.json
 ```

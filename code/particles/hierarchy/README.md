@@ -28,6 +28,7 @@ P_\star^{-1/2}\exp\left[-\frac{2\pi}{4\alpha_U(P_\star)}\right].
 - `certificates/R_gamma_noG_DAG_certificate.json`
 - `certificates/R_N_global_repair_tick_certificate.json`
 - `certificates/R_EW_tick_projection_certificate.json`
+- `certificates/R_EW_global_capacity_certificate.json`
 - `certificates/R_local_global_hierarchy_resonance_closeout_335.json`
 - `issue_332_rg_naturality_certificate.json`
 - `certificates/R_PN_joint_fixed_point_certificate_report.json`
@@ -36,6 +37,7 @@ P_\star^{-1/2}\exp\left[-\frac{2\pi}{4\alpha_U(P_\star)}\right].
 - `verify_issue_332_rg_naturality.py`
 - `verify_issue_335_local_global_resonance.py`
 - `verify_issue_337_electroweak_projection.py`
+- `verify_issue_344_exact_capacity.py`
 - `verify_joint_fixed_point_certificate.py`
 - `validators/validate_bundle.py`
 - `validators/validate_manifest.py`
@@ -65,14 +67,18 @@ Closed inside this bundle:
    `B_EW(P,N)=alpha_U(P)*log(N/pi)-6*pi/P=0`. The certificate records the
    exact bridge target `N_EW(P_star)` and keeps the rounded `3.31e122` capacity
    label as a diagnostic.
-9. The RG/Higgs naturality square for the selected exact branch:
+9. The issue-#344 EW-refined exact-capacity certificate:
+   `C_EW(P,x)=(1-lambda)*x+lambda*6*pi/(P*alpha_U(P))` is a contraction at
+   `lambda=1/2`; its unique fixed point gives
+   `N_CRC^EW=pi*exp[6*pi/(P_star*alpha_U(P_star))]` and
+   `B_EW(P_star,N_CRC^EW)=0`.
+10. The RG/Higgs naturality square for the selected exact branch:
    `epsilon_H=max(epsilon_n,epsilon_h)=0`, with measured weak-scale, Higgs,
    W/Z, gravity, Planck-area, and Lambda inputs excluded.
-10. The issue-#335 close-out certificate: the prerequisite records are
+11. The issue-#335 close-out certificate: the prerequisite records are
    accounted for, but the full local/global `N_CRC` resonance is not promoted.
-   The closed result is the exact surviving conditional statement: if an exact
-   global capacity source certificate satisfies `B_EW(P_star,N_CRC)=0`, and the
-   finite-readback and 24-round gates close, the target relation follows.
+   The closed result is the exact bridge statement with the remaining
+   finite-readback and 24-round gates recorded.
 
 External/source gates outside this bundle:
 
@@ -86,8 +92,6 @@ External/source gates outside this bundle:
    24-round repair count for theorem-grade local/global resonance promotion.
 7. Coupled-map extension of the joint `(P,N_CRC)` theorem, if OPH source work
    introduces cross-feedback between the local pixel and global capacity maps.
-8. Exact global capacity source certificate satisfying `B_EW(P_star,N_CRC)=0`
-   for the full local/global resonance theorem.
 
 ## Run validators
 
@@ -99,5 +103,6 @@ python3 computations/hierarchy_recompute.py
 python3 verify_issue_332_rg_naturality.py --check --output issue_332_rg_naturality_certificate.json
 python3 verify_issue_335_local_global_resonance.py --check --output certificates/R_local_global_hierarchy_resonance_closeout_335.json
 python3 verify_issue_337_electroweak_projection.py --check --output certificates/R_EW_tick_projection_certificate.json
+python3 verify_issue_344_exact_capacity.py --check --output certificates/R_EW_global_capacity_certificate.json
 python3 verify_joint_fixed_point_certificate.py --output certificates/R_PN_joint_fixed_point_certificate_report.json
 ```

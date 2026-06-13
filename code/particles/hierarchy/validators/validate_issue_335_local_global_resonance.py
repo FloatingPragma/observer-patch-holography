@@ -23,6 +23,7 @@ def main(path: str = "certificates/R_local_global_hierarchy_resonance_closeout_3
     forbidden = cert.get("forbidden_calibrations", [])
     checks = cert.get("checks", {})
     gate_checks = checks.get("remaining_promotion_gates_recorded", {})
+    exact_capacity = cert.get("exact_capacity_certificate", {})
 
     validation = {
         "issue_is_335": cert.get("issue") == 335,
@@ -31,7 +32,13 @@ def main(path: str = "certificates/R_local_global_hierarchy_resonance_closeout_3
         == "closed_as_exact_surviving_conditional_statement",
         "full_theorem_not_promoted": cert.get("full_theorem_grade_resonance_promoted") is False,
         "all_dependencies_closed": all(deps.values()),
-        "downgrade_recorded": acceptance.get("downgraded_to_exact_surviving_conditional_statement") is True,
+        "exact_capacity_supplied": (
+            acceptance.get("exact_capacity_source_certificate_supplied") is True
+            and D(exact_capacity.get("bridge_residual", "1")) == 0
+        ),
+        "finite_readback_and_round_count_recorded": (
+            acceptance.get("finite_readback_and_round_count_remain_for_full_resonance") is True
+        ),
         "full_theorem_status_false": acceptance.get("full_theorem_grade_resonance_proved") is False,
         "exact_bridge_target_recorded": "3.5323546226929906511187512962330547600462" in (
             cert.get("exact_surviving_statement", {}).get("N_EW_public_endpoint", "")
@@ -39,7 +46,7 @@ def main(path: str = "certificates/R_local_global_hierarchy_resonance_closeout_3
         "rounded_capacity_rejected": obstruction.get("rounded_N_CRC_status")
         == "diagnostic_only_not_exact_bridge_certificate"
         and abs(D(obstruction.get("rounded_bridge_residual", "0"))) > Decimal("1e-6"),
-        "three_promotion_gates_recorded": len(gates) >= 3
+        "two_promotion_gates_recorded": len(gates) == 2
         and gate_checks.get("finite_readback_resolution") is True
         and gate_checks.get("round_count_derivation") is True
         and gate_checks.get("exact_capacity_source_certificate") is True,

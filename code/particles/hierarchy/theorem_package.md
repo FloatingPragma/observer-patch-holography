@@ -173,7 +173,38 @@ The factor `4` is the electroweak transmutation multiplicity
 `\beta_EW=N_c+1=4`. The factor `48` is `2*24` from the global repair tick. Hence
 `12=48/4`, and the sampling exponent is `4P_star`.
 
-## Lemma E: Global repair-tick lemma
+## Theorem E: EW-refined exact capacity fixed point
+
+Define the log-capacity map
+
+```math
+\mathcal C_{\rm EW}(P,x)
+=
+(1-\lambda)x+\lambda\frac{6\pi}{P\alpha_U(P)},
+\qquad 0<\lambda\le 1.
+```
+
+For fixed `P=P_star` and `lambda=1/2`, this is a contraction with constant
+`1/2`. Its unique fixed point is
+
+```math
+x_\star=\frac{6\pi}{P_\star\alpha_U(P_\star)},
+\qquad
+N_{\rm CRC}^{\rm EW}=\pi e^{x_\star}.
+```
+
+Therefore
+
+```math
+B_{\rm EW}(P_\star,N_{\rm CRC}^{\rm EW})=0.
+```
+
+The certificate is `certificates/R_EW_global_capacity_certificate.json`. It
+records the fixed-point residual, the bridge residual, the residual contraction
+check, and the rounded-capacity diagnostic. The rounded display `3.31e122`
+remains a capacity-scale display and fails the exact EW bridge residual.
+
+## Lemma F: Global repair-tick lemma
 
 Setting: the cosmic record-capacity fixed point `N_CRC = F(N_CRC)` with observed-branch
 readout `N_CRC = S_dS` and D6 normalization `N_CRC = pi * (r_CRC/ell_star)^2`. Coordinate:

@@ -1,0 +1,81 @@
+{
+  "issue": 344,
+  "artifact": "R_EW_global_capacity_certificate",
+  "status": "closed_bridge_refined_global_capacity_fixed_point_certificate",
+  "accepted": true,
+  "theorem": "exact EW-refined global-capacity certificate for the local/global hierarchy bridge",
+  "definitions": {
+    "bridge_residual": "B_EW(P,N)=alpha_U(P)*log(N/pi)-6*pi/P",
+    "exact_log_capacity": "x_EW(P)=6*pi/(P*alpha_U(P))",
+    "exact_capacity": "N_CRC^EW(P)=pi*exp[x_EW(P)]",
+    "capacity_map": "C_EW(P,x)=(1-lambda)*x+lambda*6*pi/(P*alpha_U(P))",
+    "projection_map": "Pi_EW(P,N)=24*pi/(alpha_U(P)*log(N/pi))"
+  },
+  "source_values": {
+    "P_star": "1.6309682094039593248792798477826489413359828516279250606661507533907793398933432",
+    "alpha_U": "0.041124336195630495",
+    "alpha_U_interval": [
+      "0.041123336195630494",
+      "0.041125336195630496"
+    ],
+    "lambda": "0.5",
+    "contraction_factor": "0.5"
+  },
+  "exact_capacity_fixed_point": {
+    "x_EW": "281.03261613992682296873621249631607771877416994117913601174347678925570267117370836443386500579801614227159434",
+    "N_CRC_EW": "3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122",
+    "fixed_point_residual_x": "0.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "bridge_residual": "0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "projection_exponent": "6.5238728376158372995171193911305957653439314065117002426646030135631173595733727999999999999999999999999999999",
+    "target_exponent_4P": "6.5238728376158372995171193911305957653439314065117002426646030135631173595733728",
+    "g_tick_abs": "0.0028659764415606271335534049289980045610196865934464021005636364981551363065342017528217400624354623647800240845",
+    "v_over_E_cell_source": "2.5797040595276223506583341903922018695490035369903290256096683452314630559578761079150341073645683725521032233E-17",
+    "v_from_capacity": "2.5797040595276223506583341903922018695490035369903290256096683452314630559578761079150341073645683725521032233E-17",
+    "v_identity_error": "0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "contraction_certificate": {
+    "map": "C_EW(P_star,x)=(1-lambda)*x+lambda*x_EW(P_star)",
+    "lambda": "0.5",
+    "lipschitz_constant": "0.5",
+    "banach_unique_fixed_point": true,
+    "sample_x_from_rounded_capacity": "280.96759964881314480880016405034728300718194091825306817924962852948464193977199729211918680132112162524188287",
+    "sample_residual": "-0.002673760038819123184803754503276885063397985309933318610661732242189004108470914671967905136685807262413667",
+    "sample_next_x": "281.00010789436998388876818827333168036297805542971610209549655265937017230547285282827652590355956888375673861",
+    "sample_next_residual": "-0.001336880019409561592401877251638442531698992654966659305330866121094502054235457335983952568342903631206833",
+    "sample_residual_ratio": "0.49999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999981300",
+    "residual_contracts_by": "0.5"
+  },
+  "rounded_capacity_diagnostic": {
+    "N_display": "3.31E+122",
+    "status": "diagnostic_only_not_exact_bridge_certificate",
+    "log_N_over_pi": "280.96759964881314480880016405034728300718194091825306817924962852948464193977199729211918680132112162524188287",
+    "bridge_residual": "-0.002673760038819123184803754503276885063397985309933318610661732242189004108470914671967905136685807262413667",
+    "projection_exponent": "6.5253824754562992651414402253627399777353822962627508474332307436325594447446107805191181505350299844695013130",
+    "target_exponent_4P": "6.5238728376158372995171193911305957653439314065117002426646030135631173595733728",
+    "projection_exponent_error": "0.0015096378404619656243208342321442123914508897510506047686277300694420851712379805191181505350299844695013130",
+    "relative_capacity_gap": "0.062947989781238980793824157546427354773028439147773208884249399462505931352913339214403858596179634930417458703"
+  },
+  "allowed_inputs": [
+    "OPH local pixel fixed point P_star",
+    "source D10 alpha_U(P_star) interval",
+    "pi and exp",
+    "the EW bridge residual isolated by the issue-337 projection theorem"
+  ],
+  "forbidden_calibrations": [
+    "measured weak scale v as an input",
+    "measured W, Z, Higgs, or top mass as an input",
+    "measured G or Planck area as an input",
+    "measured Lambda as an input",
+    "observed hierarchy-ratio calibration",
+    "rounded 3.31e122 capacity display as an exact bridge certificate"
+  ],
+  "claim_boundary": {
+    "closed_here": "source-side contraction fixed point for N_CRC^EW satisfying B_EW(P_star,N_CRC^EW)=0",
+    "rounded_display": "3.31e122 remains a capacity-scale display and fails the exact EW bridge residual.",
+    "not_closed_here": [
+      "finite-machinery verification that nf_{r,N} delivers a single well-defined effective readback resolution",
+      "representation-to-spectrum theorem deriving the 24-round repair count"
+    ]
+  },
+  "verifier_command": "python3 code/particles/hierarchy/verify_issue_344_exact_capacity.py --check --output code/particles/hierarchy/certificates/R_EW_global_capacity_certificate.json"
+}

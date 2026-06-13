@@ -4,7 +4,7 @@
   "status": "closed_as_exact_surviving_conditional_statement",
   "accepted": true,
   "full_theorem_grade_resonance_promoted": false,
-  "closeout_decision": "The component proof package is accounted for, but the full local/global N_CRC resonance is not promoted. Issue #335 closes only as the exact conditional bridge statement plus the recorded promotion gates.",
+  "closeout_decision": "The component proof package is accounted for, but the full local/global N_CRC resonance is not promoted. Issue #335 closes as the exact bridge statement with the remaining finite-readback and round-count gates recorded.",
   "target_relation": {
     "transport_time": "t_tr(P_star) = (P_star/12) * log(N_CRC/pi)",
     "hierarchy_ratio": "v/E_cell = (N_CRC/pi)^(-P_star/12)",
@@ -13,19 +13,21 @@
   "exact_surviving_statement": {
     "projection_map": "-log(v/E_cell)/(-log|g_*'|) = 24*pi/(alpha_U(P)*log(N/pi))",
     "bridge_residual": "B_EW(P,N)=alpha_U(P)*log(N/pi)-6*pi/P",
-    "conditional": "If the global capacity source certificate supplies B_EW(P_star,N_CRC)=0, and the finite readback-resolution and 24-round derivation gates are closed, then the target local/global hierarchy relation follows from the closed tick, projection, joint fixed-point, and RG/Higgs naturality records.",
+    "conditional": "With the issue-#344 capacity certificate supplying B_EW(P_star,N_CRC^EW)=0, if the finite readback-resolution and 24-round derivation gates close, then the target local/global hierarchy relation follows from the closed tick, projection, joint fixed-point, and RG/Higgs naturality records.",
     "exact_bridge_target": "N_EW(P)=pi*exp[6*pi/(P*alpha_U(P))]",
     "N_EW_public_endpoint": "3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122"
   },
   "dependencies": {
     "#336_global_repair_tick": true,
     "#337_electroweak_projection_bridge": true,
+    "#344_exact_global_capacity_certificate": true,
     "#338_joint_product_fixed_point": true,
     "#332_rg_higgs_naturality": true
   },
   "dependency_artifacts": {
     "#336": "certificates/R_N_global_repair_tick_certificate.json",
     "#337": "certificates/R_EW_tick_projection_certificate.json",
+    "#344": "certificates/R_EW_global_capacity_certificate.json",
     "#338": "certificates/R_PN_joint_fixed_point_certificate_report.json",
     "#332": "issue_332_rg_naturality_certificate.json"
   },
@@ -34,18 +36,24 @@
     "rounded_N_CRC_status": "diagnostic_only_not_exact_bridge_certificate",
     "rounded_bridge_residual": "-0.002673760038819123184803754503276885063397985309933318610661732242189004108470914671967905136685807262413667",
     "rounded_v_error": "2.28969656162880904330773885734243007424296727897439847289086860181703706414710585211877874179916867249207343E-19",
-    "meaning": "The rounded 3.31e122 cosmological capacity display is not an exact hierarchy bridge certificate; the exact bridge target is N_EW(P_star)."
+    "meaning": "The rounded 3.31e122 cosmological capacity display is not an exact hierarchy bridge certificate; the exact bridge target is supplied by issue #344."
+  },
+  "exact_capacity_certificate": {
+    "artifact": "certificates/R_EW_global_capacity_certificate.json",
+    "N_CRC_EW": "3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122",
+    "bridge_residual": "0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "contraction_factor": "0.5"
   },
   "remaining_promotion_gates": [
     "finite-machinery verification that nf_{r,N} delivers a single well-defined effective readback resolution",
-    "representation-to-spectrum theorem deriving the 24-round repair count",
-    "exact global capacity source certificate satisfying B_EW(P_star,N_CRC)=0"
+    "representation-to-spectrum theorem deriving the 24-round repair count"
   ],
   "acceptance_criteria_status": {
     "states_precise_local_and_global_objects": true,
-    "four_prerequisite_steps_accounted_for": true,
+    "prerequisite_steps_accounted_for": true,
     "full_theorem_grade_resonance_proved": false,
-    "downgraded_to_exact_surviving_conditional_statement": true,
+    "exact_capacity_source_certificate_supplied": true,
+    "finite_readback_and_round_count_remain_for_full_resonance": true,
     "compatible_with_local_transmutation_certificate": true,
     "forbids_measured_weak_higgs_or_hierarchy_calibration": true,
     "public_hierarchy_packet_emitted": true
@@ -67,6 +75,7 @@
   "checks": {
     "all_prerequisite_records_present": true,
     "exact_projection_bridge_residual_zero": true,
+    "exact_capacity_source_certificate_supplied": true,
     "exact_projection_exponent_matches_4P": true,
     "rounded_capacity_is_diagnostic": true,
     "rounded_capacity_fails_exact_bridge": true,

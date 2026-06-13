@@ -64,7 +64,7 @@
   ],
   "claim_boundary": {
     "closed_here": "unique projection map, origin of 4P, exact bridge residual, and exact bridge target N_EW(P_star)",
-    "source_certificate_required": "The exact global capacity certificate must supply B_EW(P_star,N_CRC)=0 for the full local/global resonance theorem.",
+    "source_certificate_required": "The issue-344 exact global capacity certificate supplies B_EW(P_star,N_CRC^EW)=0 for the bridge-refined capacity object.",
     "rounded_display": "3.31e122 is a capacity-scale label and fails the exact bridge diagnostic."
   },
   "verifier_command": "python3 code/particles/hierarchy/verify_issue_337_electroweak_projection.py --check --output code/particles/hierarchy/certificates/R_EW_tick_projection_certificate.json"

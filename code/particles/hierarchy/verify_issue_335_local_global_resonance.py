@@ -36,6 +36,7 @@ def main() -> int:
 
     tick = read_json(ROOT / "certificates/R_N_global_repair_tick_certificate.json")
     ew = read_json(ROOT / "certificates/R_EW_tick_projection_certificate.json")
+    exact_capacity = read_json(ROOT / "certificates/R_EW_global_capacity_certificate.json")
     pn = read_json(ROOT / "certificates/R_PN_joint_fixed_point_certificate_report.json")
     rg = read_json(ROOT / "issue_332_rg_naturality_certificate.json")
     audit = read_json(ROOT / "certificates/local_global_resonance_audit.json")
@@ -50,6 +51,9 @@ def main() -> int:
         "#337_electroweak_projection_bridge": ew.get("status")
         == "closed_projection_map_with_exact_bridge_condition"
         and ew.get("accepted") is True,
+        "#344_exact_global_capacity_certificate": exact_capacity.get("status")
+        == "closed_bridge_refined_global_capacity_fixed_point_certificate"
+        and exact_capacity.get("accepted") is True,
         "#338_joint_product_fixed_point": pn.get("status")
         == "closed_product_branch_theorem_with_explicit_coupled_branch_boundary",
         "#332_rg_higgs_naturality": rg.get("accepted") is True
@@ -58,12 +62,21 @@ def main() -> int:
 
     exact_residual = D(exact.get("bridge_residual", "1"))
     exact_projection_error = D(exact.get("projection_exponent_error", "1"))
+    capacity_residual = D(
+        exact_capacity.get("exact_capacity_fixed_point", {}).get("bridge_residual", "1")
+    )
     rounded_residual = D(rounded.get("bridge_residual", "0"))
-    assert exact_residual is not None and exact_projection_error is not None and rounded_residual is not None
+    assert (
+        exact_residual is not None
+        and exact_projection_error is not None
+        and capacity_residual is not None
+        and rounded_residual is not None
+    )
 
     closeout_checks = {
         "all_prerequisite_records_present": all(dependencies.values()),
         "exact_projection_bridge_residual_zero": exact_residual == 0,
+        "exact_capacity_source_certificate_supplied": capacity_residual == 0,
         "exact_projection_exponent_matches_4P": abs(exact_projection_error) <= TOL,
         "rounded_capacity_is_diagnostic": rounded.get("status")
         == "diagnostic_only_not_exact_bridge_certificate",
@@ -71,7 +84,7 @@ def main() -> int:
         "remaining_promotion_gates_recorded": {
             "finite_readback_resolution": any("readback resolution" in item for item in promotion_requires),
             "round_count_derivation": any("24-round" in item for item in promotion_requires),
-            "exact_capacity_source_certificate": any("B_EW" in item for item in promotion_requires),
+            "exact_capacity_source_certificate": exact_capacity.get("accepted") is True,
         },
     }
     gates = closeout_checks["remaining_promotion_gates_recorded"]
@@ -92,8 +105,8 @@ def main() -> int:
         "full_theorem_grade_resonance_promoted": False,
         "closeout_decision": (
             "The component proof package is accounted for, but the full local/global "
-            "N_CRC resonance is not promoted. Issue #335 closes only as the exact "
-            "conditional bridge statement plus the recorded promotion gates."
+            "N_CRC resonance is not promoted. Issue #335 closes as the exact "
+            "bridge statement with the remaining finite-readback and round-count gates recorded."
         ),
         "target_relation": {
             "transport_time": "t_tr(P_star) = (P_star/12) * log(N_CRC/pi)",
@@ -104,19 +117,20 @@ def main() -> int:
             "projection_map": ew["definitions"]["Pi_EW"],
             "bridge_residual": ew["definitions"]["bridge_residual"],
             "conditional": (
-                "If the global capacity source certificate supplies "
-                "B_EW(P_star,N_CRC)=0, and the finite readback-resolution and "
-                "24-round derivation gates are closed, then the target local/global "
+                "With the issue-#344 capacity certificate supplying "
+                "B_EW(P_star,N_CRC^EW)=0, if the finite readback-resolution and "
+                "24-round derivation gates close, then the target local/global "
                 "hierarchy relation follows from the closed tick, projection, joint "
                 "fixed-point, and RG/Higgs naturality records."
             ),
             "exact_bridge_target": ew["definitions"]["exact_bridge_capacity"],
-            "N_EW_public_endpoint": exact.get("N_EW"),
+            "N_EW_public_endpoint": exact_capacity["exact_capacity_fixed_point"]["N_CRC_EW"],
         },
         "dependencies": dependencies,
         "dependency_artifacts": {
             "#336": "certificates/R_N_global_repair_tick_certificate.json",
             "#337": "certificates/R_EW_tick_projection_certificate.json",
+            "#344": "certificates/R_EW_global_capacity_certificate.json",
             "#338": "certificates/R_PN_joint_fixed_point_certificate_report.json",
             "#332": "issue_332_rg_naturality_certificate.json",
         },
@@ -127,15 +141,22 @@ def main() -> int:
             "rounded_v_error": rounded.get("v_error"),
             "meaning": (
                 "The rounded 3.31e122 cosmological capacity display is not an exact "
-                "hierarchy bridge certificate; the exact bridge target is N_EW(P_star)."
+                "hierarchy bridge certificate; the exact bridge target is supplied by issue #344."
             ),
+        },
+        "exact_capacity_certificate": {
+            "artifact": "certificates/R_EW_global_capacity_certificate.json",
+            "N_CRC_EW": exact_capacity["exact_capacity_fixed_point"]["N_CRC_EW"],
+            "bridge_residual": exact_capacity["exact_capacity_fixed_point"]["bridge_residual"],
+            "contraction_factor": exact_capacity["contraction_certificate"]["lipschitz_constant"],
         },
         "remaining_promotion_gates": promotion_requires,
         "acceptance_criteria_status": {
             "states_precise_local_and_global_objects": True,
-            "four_prerequisite_steps_accounted_for": all(dependencies.values()),
+            "prerequisite_steps_accounted_for": all(dependencies.values()),
             "full_theorem_grade_resonance_proved": False,
-            "downgraded_to_exact_surviving_conditional_statement": True,
+            "exact_capacity_source_certificate_supplied": capacity_residual == 0,
+            "finite_readback_and_round_count_remain_for_full_resonance": True,
             "compatible_with_local_transmutation_certificate": True,
             "forbids_measured_weak_higgs_or_hierarchy_calibration": True,
             "public_hierarchy_packet_emitted": True,

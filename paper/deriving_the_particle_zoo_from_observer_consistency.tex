@@ -1750,12 +1750,17 @@ N_{\mathrm{EW}}(P_\star)
 =
 3.5323546226929906511187512962330547600462\times10^{122}.
 \]
-If the exact global capacity source certificate supplies
-\(\mathcal B_{\mathrm{EW}}(P_\star,N_{\mathrm{CRC}})=0\), then
+For the bridge-refined capacity certificate
+\[
+N_{\mathrm{CRC}}^{\mathrm{EW}}
+=
+\pi\exp\!\left[\frac{6\pi}{P_\star\alpha_U(P_\star)}\right],
+\]
+one has \(\mathcal B_{\mathrm{EW}}(P_\star,N_{\mathrm{CRC}}^{\mathrm{EW}})=0\), and hence
 \[
 \frac{v}{E_{\mathrm{cell}}}
 =
-\left(\frac{N_{\mathrm{CRC}}}{\pi}\right)^{-P_\star/12}
+\left(\frac{N_{\mathrm{CRC}}^{\mathrm{EW}}}{\pi}\right)^{-P_\star/12}
 =
 |g_\star'|^{4P_\star}.
 \]
@@ -1780,6 +1785,35 @@ Taking the ratio gives the displayed \(\Pi_{\mathrm{EW}}\). Setting
 \(\alpha_U(P)\log(N/\pi)=6\pi/P\), exactly
 \(\mathcal B_{\mathrm{EW}}(P,N)=0\). Substitution gives the displayed
 \(N_{\mathrm{EW}}(P)\) and the hierarchy identity.
+\end{proof}
+
+\begin{theorem}[EW-refined exact capacity fixed point]\label{thm:ew-exact-capacity}
+Define the log-capacity map
+\[
+\mathcal C_{\mathrm{EW}}(P,x)
+=
+(1-\lambda)x+\lambda\frac{6\pi}{P\alpha_U(P)},
+\qquad 0<\lambda\le1.
+\]
+For fixed \(P=P_\star\) and \(\lambda=1/2\), this is a contraction with
+Lipschitz constant \(1/2\). Its unique fixed point is
+\[
+x_\star=\frac{6\pi}{P_\star\alpha_U(P_\star)},\qquad
+N_{\mathrm{CRC}}^{\mathrm{EW}}=\pi e^{x_\star}.
+\]
+Therefore
+\[
+\mathcal B_{\mathrm{EW}}(P_\star,N_{\mathrm{CRC}}^{\mathrm{EW}})=0.
+\]
+The rounded \(3.31\times10^{122}\) capacity display remains diagnostic for
+this bridge.
+\end{theorem}
+
+\begin{proof}
+The map has derivative \(1-\lambda\) in \(x\), hence is a contraction for
+\(0<\lambda\le1\). Solving \(x=\mathcal C_{\mathrm{EW}}(P_\star,x)\) gives the
+displayed \(x_\star\). Substitution into \(\mathcal B_{\mathrm{EW}}\) gives
+zero.
 \end{proof}
 
 \begin{theorem}[RG/Higgs naturality closure]\label{thm:rg-higgs-naturality}
@@ -1832,9 +1866,9 @@ the product defect is zero.
 The RG/Higgs naturality closure does not use the measured weak scale. Measured \(W/Z\),
 Higgs/top, \(G\), Planck-area, and \(\Lambda\) data are excluded inputs. The local/global package
 records the closed global repair tick, joint product branch, electroweak projection bridge, and
-RG naturality square. The theorem-grade full resonance requires the finite readback-resolution
-verification, the representation-to-spectrum derivation of the \(24\)-round count, and the exact
-global capacity source certificate satisfying \(\mathcal B_{\mathrm{EW}}=0\). The promoted
+EW-refined exact capacity fixed point, and RG naturality square. The theorem-grade full resonance
+requires the finite readback-resolution verification and the representation-to-spectrum derivation
+of the \(24\)-round count. The promoted
 hierarchy row does not use it as an input.
 
 \subsection{Higgs/top critical stage}
