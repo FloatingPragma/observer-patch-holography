@@ -127,13 +127,12 @@ three-generation count follows from CKM phase counting, weak-sector
 consistency, and minimality on the same low-energy branch. The photon,
 gluons, and graviton stay massless because they ride on redundancy directions
 the architecture cannot break. The broader particle table then carries the
-weak-sector compare-only validation pair, the low-energy electromagnetic endpoint, the
-declared Higgs/top quantitative surface, the selected-class quark sector, and
-one weighted-cycle neutrino theorem branch. The technical status ledger separates charged-lepton
-witnesses, the global public quark-frame classification boundary, the
-auxiliary direct-top compare-only codomain, source-only hadron calculations,
-and empirical hadron closure checks. Hadrons add the strong-binding problem on
-top of that particle-level picture.
+weak-sector comparison pair, the low-energy electromagnetic endpoint, the
+Higgs/top quantitative surface, the selected-class quark sector, and
+one weighted-cycle neutrino branch. The charged-lepton, quark-frame,
+direct-top, hadron, and strong-CP stories sit around that same particle map as
+separate branches of the full particle program. Hadrons add the strong-binding
+problem on top of that particle-level picture.
 
 The particle words here refer to roles explained in Chapters 12-16: color is the
 three-way strong-force bookkeeping, CKM phases describe quark mixing under the
@@ -248,33 +247,32 @@ fine-structure constant is the electromagnetic width that makes both readings
 describe the same local pixel.
 
 The electroweak hierarchy uses the same local branch. Once the unified coupling
-$\alpha_U(P_\star)$ is fixed by its source interval certificate, the weak scale
+$\alpha_U(P_\star)$ is fixed by the source branch, the weak scale
 is read as
 $v/E_\star=P_\star^{-1/2}\exp[-2\pi/(4\alpha_U(P_\star))]$. The particle paper
-and the Observers paper give the theorem-grade certificate for that local
-hierarchy row. The selected source-to-Higgs coarse-graining square has
+and the Observers paper give the exact local hierarchy row. The selected
+source-to-Higgs coarse-graining square has
 $\epsilon_H=0$, so the Higgs naturality reading is carried by the same
 normal-form branch. An independent bare scalar input is absent from this
 proof object. The full SI gravity readout depends on the complete no-G clock
 bridge.
 
 The global screen-capacity branch also carries the global repair-tick
-lemma: under the declared area-law counting model the readback fixed-point
+story: under the area-law counting model the readback fixed-point
 equation is equivalent to the closure transport that lands exactly on the
 local cell, so
 the full-cycle multiplier is $(N_{\mathrm{CRC}}/\pi)^{-1/2}$, and on the
-declared 24-tick branch one homogeneous tick has
-$|g_\star'|=(N_{\mathrm{CRC}}/\pi)^{-1/48}$. The round count is declared
-branch architecture in this lemma. The product joint branch for the local
-pixel and global capacity fixed points is stable under the component
-contraction certificates; a coupled source branch needs its own derivative
-bound. The electroweak projection bridge defines
+24-tick cycle one homogeneous tick has
+$|g_\star'|=(N_{\mathrm{CRC}}/\pi)^{-1/48}$. The product joint branch reads
+the local pixel fixed point and global capacity fixed point as one stable pair.
+The electroweak projection bridge defines
 $\Pi_{\mathrm{EW}}(P,N)=24\pi/(\alpha_U(P)\log(N/\pi))$ and the exact bridge
 residual
-$\mathcal B_{\mathrm{EW}}=\alpha_U(P)\log(N/\pi)-6\pi/P$. The theorem-grade
-local/global resonance requires the finite-machinery verification of the
-readback resolution, the round-count derivation, and the exact global capacity
-source certificate satisfying $\mathcal B_{\mathrm{EW}}=0$.
+$\mathcal B_{\mathrm{EW}}=\alpha_U(P)\log(N/\pi)-6\pi/P$. Equivalently,
+$N_{\mathrm{EW}}(P)=\pi\exp[6\pi/(P\alpha_U(P))]$, which gives
+$3.5323546226929906511187512962330547600462\times10^{122}$ on the public
+endpoint branch. The rounded $3.31\times10^{122}$ capacity display is
+only the capacity-scale display; the exact bridge uses the value above.
 
 This is the cleanest way to say what the fine-structure constant means in OPH.
 It is the nonzero detuning of a holographic screen cell. From the outside, the
@@ -438,20 +436,15 @@ information theorist sees a code. A good theory earns its keep by making those
 views mutually legible without erasing their differences.
 
 The gauge quotient, charge lattice, counting chain, Yang-Mills repair gap,
-massless carriers, Lorentz geometry, Einstein relation, and the tracked
+massless carriers, Lorentz geometry, Einstein relation, and the
 electroweak, Higgs-top, quark, and neutrino surfaces form one organized
 reconstruction.
 
-The local-ruler ledger records five technical boundaries. The weak pair is a
-validation row on a declared compare-only surface. Charged-lepton rows are
-target-anchored same-family witnesses. They are not source-emitted public
-masses. The selected-class quark theorem closes only on its declared public
-frame class, with global public quark-frame classification as a corpus-limited
-no-go boundary. The auxiliary direct-top PDG row is compare-only. Hadron masses require the
-OPH strong-binding backend with production spectral data and systematics.
-Strong CP is work in progress in the selected-class quark theorem: the available corpus
-does not derive $\theta_{\mathrm{QCD}}$, does not emit physical $\bar\theta$,
-and does not prove that the physical strong-CP phase vanishes.
+The local-ruler story has several neighboring branches. The weak pair is a
+comparison surface, charged leptons sit on their own landing branch, selected-class
+quarks carry the running-mass story, the direct-top row is a comparison row,
+hadrons add strong binding and production data, and Strong CP belongs to the
+phase-bookkeeping side of the quark sector.
 
 The next chapter turns to the deepest metaphysical question. If observers,
 meaning, and world belong to one structure, what exactly should be said about

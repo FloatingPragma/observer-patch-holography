@@ -242,8 +242,13 @@ Sur la branche observée, ce point fixe est la capacité entropique de Sitter.
 Pour la constante cosmologique observée, le ratio nu d'aire d'horizon vaut
 environ $1.05\times10^{122}$, tandis que la capacité entropique OPH vaut
 environ $3.31\times10^{122}$. Cette capacité affichée appartient à la branche
-cosmologique. La ligne de Newton utilise la même capacité de point fixe avec le
-certificat d'échelle sans $G$.
+cosmologique. Le pont de résonance local/global de la hiérarchie utilise une
+condition exacte plus stricte : la cible de projection électrofaible correspond
+à
+$N_{\mathrm{EW}}(P_\star)=3.5323546226929906511187512962330547600462\times10^{122}$
+sur la branche publique, et la capacité arrondie affichée n'est pas un
+certificat exact de ce pont. La ligne de Newton utilise la même capacité de point
+fixe avec le certificat d'échelle sans $G$.
 
 La coordonnée locale est le ratio de pixel
 
@@ -302,8 +307,11 @@ d'échelle. La branche $P$ alimente le canal
 particules, tout en fixant l'identité cellule/arête qui s'annule dans la lecture
 newtonienne. La branche $N_{\mathrm{CRC}}$ alimente la lecture de la constante
 cosmologique. Le certificat d'échelle fournit le quantum d'aire qui devient la
-normalisation de Newton. Les formules détaillées et les niveaux de
-revendication vivent dans les papiers.
+normalisation de Newton. Le pont de résonance de la hiérarchie est enregistré
+comme énoncé conditionnel exact, non comme promotion au rang de théorème, tant
+que les portes du readback fini, de la dérivation des 24 tours et du certificat
+exact de capacité globale ne sont pas fermées. Les formules détaillées et les
+niveaux de revendication vivent dans les papiers.
 
 <p align="center">
   <a href="assets/OPH_Unification_Diagram.svg" target="_blank" rel="noopener noreferrer">

@@ -2,7 +2,7 @@
   "bundle_id": "oph-hierarchy-proof-artifacts-r1473-2026-06-13",
   "generated_utc": "2026-06-13T00:00:00Z",
   "purpose": "Machine-readable artifacts for the OPH electroweak hierarchy proof obligation audit.",
-  "source_release_context": "OPH r1473 source context with issue #332 and #338 hierarchy closure artifacts added on 2026-06-13.",
+  "source_release_context": "OPH r1473 source context with issue #332, #335, #337, and #338 hierarchy closure artifacts added on 2026-06-13.",
   "claim_boundary": {
     "closed_by_bundle": [
       "public-branch numerical hierarchy witness",
@@ -14,7 +14,9 @@
       "R_gamma no-G graph skeleton and missing-component gate ledger",
       "R_N global repair-tick lemma on the declared 24-round structure",
       "product-branch joint (P,N_CRC) fixed-point and stability theorem",
-      "RG/Higgs naturality defect epsilon_H=0 on the selected exact branch"
+      "electroweak tick-projection bridge with exact bridge residual condition",
+      "RG/Higgs naturality defect epsilon_H=0 on the selected exact branch",
+      "issue #335 local/global hierarchy-resonance close-out as the exact surviving conditional statement, with full theorem-grade promotion explicitly not closed"
     ],
     "not_closed_by_bundle": [
       "source-only A_T(P) hadronic endpoint transport for the public Thomson endpoint",
@@ -24,7 +26,7 @@
       "W/Z theorem-grade target-free promotion certificate",
       "finite-machinery verification of a single effective readback resolution for nf_{r,N}",
       "representation-to-spectrum derivation of the 24-round repair count",
-      "electroweak tick-projection lemma for full local/global hierarchy resonance",
+      "exact global capacity source certificate satisfying B_EW(P_star,N_CRC)=0 for the full local/global resonance theorem",
       "coupled-map joint fixed-point theorem if future source branches introduce cross-feedback",
       "full local/global N_CRC resonance theorem"
     ]
@@ -32,18 +34,18 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "9873170357b7fe53c8155b781e39104bca81b374322ef823c0ae25a557c2b623",
-      "bytes": 3661
+      "sha256": "4aed6bc6de035bc6ff438c9af43b0e9e3ec524fbce9c248591319ce681f7f3e1",
+      "bytes": 4978
     },
     {
       "path": "STATUS.md",
-      "sha256": "9fb6fe83e747cb9d70047aa4e92e1d2fac9ebebcd21e40dcae8e0a94c5351860",
-      "bytes": 2921
+      "sha256": "ac9661faf0b6222fe4e7013e7333642ae61183d5559704a3b3f341fedc817960",
+      "bytes": 3618
     },
     {
       "path": "INTEGRATION.md",
-      "sha256": "d9d0acc0b7422a26d73a426ca59186b1934b41737c83bc08f9f07b01d601b12e",
-      "bytes": 3320
+      "sha256": "f22c96cd5f0a68930b68c366aa68fd7f8bca523624421a6021df89553667833a",
+      "bytes": 4585
     },
     {
       "path": "certificates/DAG_U.json",
@@ -102,13 +104,13 @@
     },
     {
       "path": "certificates/R_N_global_repair_tick_certificate.json",
-      "sha256": "a9f5f1d98742746118bf6064ed5c3d665f43dae81b0a02f3b0ad924390a1628a",
-      "bytes": 10971
+      "sha256": "bbadea29f04162351f69c955c773f81e243f8c3b220d91461d8a090b4564c818",
+      "bytes": 11121
     },
     {
       "path": "certificates/local_global_resonance_audit.json",
-      "sha256": "dad9e2b2bdd0374f0195a84325edea1897667588ce1e9efe13b482246575e227",
-      "bytes": 2162
+      "sha256": "ddd2c09e380cca866d09ddc42bb805cf916f069acd1cdf8d0a1e0edd6c1032dd",
+      "bytes": 2604
     },
     {
       "path": "issue_332_rg_naturality_certificate.json",
@@ -127,13 +129,13 @@
     },
     {
       "path": "computations/derive_global_repair_tick_lemma.py",
-      "sha256": "4311612e98796683b8d77872237b60ad38a297fe6aacdb4871685c7f22457b3f",
-      "bytes": 16648
+      "sha256": "bf5a4f9d53b26b816e107165b07380eba929f2776d1eb6761af3bd1f948706ef",
+      "bytes": 16798
     },
     {
       "path": "theorem_package.md",
-      "sha256": "c1981f5f52827d680395a0129b5732bfe3b02c7912f2ee862437e9e5bd08d57f",
-      "bytes": 6060
+      "sha256": "f8830dbb36440d536343ea982eb6aaca65bbcbac0d3c8d531b170265b8b79a92",
+      "bytes": 7326
     },
     {
       "path": "verify_issue_332_rg_naturality.py",
@@ -147,13 +149,13 @@
     },
     {
       "path": "test_hierarchy_bundle.py",
-      "sha256": "c9fe0e9360a5ff3c97f1f793546c3091650b31b6cd806020847c297128014bed",
-      "bytes": 6275
+      "sha256": "854d4787678cfd0cf242e515af8c0b6ddca2023319db6fc493b2378ebd263faa",
+      "bytes": 8514
     },
     {
       "path": "validators/validate_bundle.py",
-      "sha256": "c0ce29ed807e27a4e3a5a3d537533bbea94c1f2f4bd65247bfb28d77fe58fa01",
-      "bytes": 1212
+      "sha256": "e6267a8788d9a8324929b20709122bcdc2d2372ac292362eace71a19fc2a6e9c",
+      "bytes": 1537
     },
     {
       "path": "validators/validate_dag.py",
@@ -184,6 +186,36 @@
       "path": "validators/validate_manifest.py",
       "sha256": "fd4dc3303c6ae22135c2315f658c8309b9d91784e0b43670e3386a1bfa887e2d",
       "bytes": 1236
+    },
+    {
+      "path": "certificates/R_EW_tick_projection_certificate.json",
+      "sha256": "b7154376531ed4c00353fd13d2cbf83d16411ccc1fda4e7294cecb01c3c959c1",
+      "bytes": 4891
+    },
+    {
+      "path": "verify_issue_337_electroweak_projection.py",
+      "sha256": "097820a72fb00d70f84774c35938712413eb23ecf4ef012c3e1d8ccfb688608f",
+      "bytes": 9771
+    },
+    {
+      "path": "validators/validate_issue_337_electroweak_projection.py",
+      "sha256": "a81ca5138a898521fadd314782e3c587168d7367f9f8d5bf4ecf063e0939c780",
+      "bytes": 1933
+    },
+    {
+      "path": "certificates/R_local_global_hierarchy_resonance_closeout_335.json",
+      "sha256": "b36bea87b57543a92c5727941c4957d7746e668fe28eaaa0f294e7fdf8c187d9",
+      "bytes": 4437
+    },
+    {
+      "path": "verify_issue_335_local_global_resonance.py",
+      "sha256": "563c37b19289858c9434649b1e0c07510a2826af5134d48890befda293babbfb",
+      "bytes": 8081
+    },
+    {
+      "path": "validators/validate_issue_335_local_global_resonance.py",
+      "sha256": "9d1c7d726f87a453a99410b9461545d2c38cd6b4790ccc87b9b32c2f28a664c0",
+      "bytes": 2668
     }
   ]
 }

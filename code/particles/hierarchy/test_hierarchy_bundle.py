@@ -26,7 +26,7 @@ def test_hierarchy_bundle_validators_pass() -> None:
     result = _run("validators/validate_bundle.py")
     payload = json.loads(result.stdout)
 
-    assert len(payload) == 7
+    assert len(payload) == 8
     assert all(entry["returncode"] == 0 for entry in payload)
     validator_outputs = [json.loads(entry["stdout"]) for entry in payload]
     assert all(output["pass"] is True for output in validator_outputs)
@@ -95,7 +95,8 @@ def test_global_repair_tick_lemma_is_closed_on_declared_rounds_with_claim_bounda
     assert any("modeling identification" in item for item in declared)
     boundary = cert["claim_boundary"]["not_closed_by_certificate"]
     assert any("round count" in item for item in boundary)
-    assert any("electroweak tick-projection lemma" in item for item in boundary)
+    assert any("R_EW_tick_projection_certificate" in item for item in boundary)
+    assert any("B_EW(P_star,N_CRC)=0" in item for item in boundary)
     assert any("finite repair machinery" in item for item in boundary)
 
 
@@ -159,3 +160,27 @@ def test_issue_332_rg_higgs_naturality_certificate_is_zero_defect() -> None:
     forbidden = cert["forbidden_calibrations"]
     assert any("measured weak scale" in item for item in forbidden)
     assert any("measured Higgs" in item for item in forbidden)
+
+
+def test_issue_335_local_global_resonance_closes_as_conditional_statement() -> None:
+    result = _run(
+        "validators/validate_issue_335_local_global_resonance.py",
+        "certificates/R_local_global_hierarchy_resonance_closeout_335.json",
+    )
+    payload = json.loads(result.stdout)
+
+    assert payload["pass"] is True
+    checks = payload["checks"]
+    assert checks["full_theorem_not_promoted"] is True
+    assert checks["downgrade_recorded"] is True
+    assert checks["rounded_capacity_rejected"] is True
+    assert checks["three_promotion_gates_recorded"] is True
+
+    cert = json.loads((ROOT / "certificates/R_local_global_hierarchy_resonance_closeout_335.json").read_text())
+    assert cert["accepted"] is True
+    assert cert["status"] == "closed_as_exact_surviving_conditional_statement"
+    assert cert["full_theorem_grade_resonance_promoted"] is False
+    acceptance = cert["acceptance_criteria_status"]
+    assert acceptance["four_prerequisite_steps_accounted_for"] is True
+    assert acceptance["full_theorem_grade_resonance_proved"] is False
+    assert acceptance["downgraded_to_exact_surviving_conditional_statement"] is True

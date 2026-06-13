@@ -28,11 +28,13 @@ P_\star^{-1/2}\exp\left[-\frac{2\pi}{4\alpha_U(P_\star)}\right].
 - `certificates/R_gamma_noG_DAG_certificate.json`
 - `certificates/R_N_global_repair_tick_certificate.json`
 - `certificates/R_EW_tick_projection_certificate.json`
+- `certificates/R_local_global_hierarchy_resonance_closeout_335.json`
 - `issue_332_rg_naturality_certificate.json`
 - `certificates/R_PN_joint_fixed_point_certificate_report.json`
 - `certificates/local_global_resonance_audit.json`
 - `computations/derive_global_repair_tick_lemma.py`
 - `verify_issue_332_rg_naturality.py`
+- `verify_issue_335_local_global_resonance.py`
 - `verify_issue_337_electroweak_projection.py`
 - `verify_joint_fixed_point_certificate.py`
 - `validators/validate_bundle.py`
@@ -66,6 +68,11 @@ Closed inside this bundle:
 9. The RG/Higgs naturality square for the selected exact branch:
    `epsilon_H=max(epsilon_n,epsilon_h)=0`, with measured weak-scale, Higgs,
    W/Z, gravity, Planck-area, and Lambda inputs excluded.
+10. The issue-#335 close-out certificate: the prerequisite records are
+   accounted for, but the full local/global `N_CRC` resonance is not promoted.
+   The closed result is the exact surviving conditional statement: if an exact
+   global capacity source certificate satisfies `B_EW(P_star,N_CRC)=0`, and the
+   finite-readback and 24-round gates close, the target relation follows.
 
 External/source gates outside this bundle:
 
@@ -90,6 +97,7 @@ From this directory:
 python3 validators/validate_bundle.py
 python3 computations/hierarchy_recompute.py
 python3 verify_issue_332_rg_naturality.py --check --output issue_332_rg_naturality_certificate.json
+python3 verify_issue_335_local_global_resonance.py --check --output certificates/R_local_global_hierarchy_resonance_closeout_335.json
 python3 verify_issue_337_electroweak_projection.py --check --output certificates/R_EW_tick_projection_certificate.json
 python3 verify_joint_fixed_point_certificate.py --output certificates/R_PN_joint_fixed_point_certificate_report.json
 ```

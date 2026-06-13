@@ -8,6 +8,7 @@ checks = [
     [sys.executable, str(root/"validators/validate_issue_337_electroweak_projection.py"), str(root/"certificates/R_EW_tick_projection_certificate.json")],
     [sys.executable, str(root/"validators/validate_issue_332_rg_naturality.py"), str(root/"issue_332_rg_naturality_certificate.json")],
     [sys.executable, str(root/"validators/validate_joint_fixed_point_certificate.py"), str(root/"certificates/R_PN_joint_fixed_point_certificate_report.json")],
+    [sys.executable, str(root/"validators/validate_issue_335_local_global_resonance.py"), str(root/"certificates/R_local_global_hierarchy_resonance_closeout_335.json")],
     [sys.executable, str(root/"validators/validate_manifest.py"), str(root/"manifest.json")]
 ]
 results=[]

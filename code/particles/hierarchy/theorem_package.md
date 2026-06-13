@@ -65,9 +65,9 @@ The certificate is `issue_332_rg_naturality_certificate.json`. It allows only
 the OPH source branch, the D10 source `alpha_U(P_star)` interval, the upstream
 repair-tick/tick-projection/joint-stability records, and the declared D10/D11
 maps. It forbids measured weak-scale, Higgs, W/Z, gravity, Planck-area, Lambda,
-and tuned bare-Higgs/cutoff-counterterm inputs. Therefore the bare/counterterm
-split is a regulator-coordinate split, not an observer-facing fine-tuning datum,
-on the selected exact branch.
+and tuned bare-Higgs/cutoff-counterterm inputs. On the selected exact branch,
+the bare/counterterm split is a regulator-coordinate split. Observer-facing
+fine tuning does not appear as a proof datum.
 
 ## Theorem C: Joint `(P,N_CRC)` product fixed point
 
@@ -112,7 +112,7 @@ there is an `r>0` such that
 \max\{a+b/r,d+rc\}<1.
 ```
 
-Without that bound, the coupled map is residual branch freedom rather than a
+Without that bound, the coupled map has residual branch freedom and no
 theorem-grade uniqueness claim.
 
 ## Theorem D: Electroweak tick-projection bridge

@@ -87,10 +87,10 @@ def build_artifact(n_crc_display: float = DISPLAY_N_CRC) -> dict:
             "not_closed_by_certificate": [
                 "verification on the concrete finite repair machinery that nf_{r,N} delivers a single well-defined effective resolution scale (the corpus marks the finite readback map F_r as schematic and the refinement limit as conditional on existence)",
                 "representation-to-spectrum theorem deriving the 24-round count from the OPH repair grammar",
-                "electroweak tick-projection lemma (part of local/global resonance work)",
-                "joint fixed-point/stability theorem for (P,N)",
-                "RG/coarse-graining naturality theorem",
-                "exact equality between the D10 transmutation exponent and the N_CRC tick projection",
+                "exact global capacity source certificate satisfying B_EW(P_star,N_CRC)=0",
+                "joint fixed-point/stability theorem for (P,N), recorded separately in R_PN_joint_fixed_point_certificate_report.json",
+                "electroweak tick-projection bridge, recorded separately in R_EW_tick_projection_certificate.json",
+                "RG/coarse-graining naturality theorem, recorded separately in issue_332_rg_naturality_certificate.json",
             ],
         },
         "definitions": {

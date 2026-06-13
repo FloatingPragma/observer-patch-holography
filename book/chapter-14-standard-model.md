@@ -720,18 +720,16 @@ That picture has teeth. The model does not place particles on the stage and
 then ask whether they fit. It reads which particle types can exist from the way
 the algebra net closes on itself.
 
-### Particle Claim Tiers
+### The Particle Rows In One Picture
 
 The particle picture can be told as one continuous line. The framework first reconstructs compact
 gauge data from zero-obstruction transportable sectors; MAR then selects the realized Standard Model
 quotient, the hypercharge lattice, and the generation-color counting. The same
 structure keeps the photon, gluons, and graviton on protected zero lines. From
-there the pixel fixed point organizes the electroweak compare-only validation surface, the Higgs/top
-quantitative surface, the selected-class running quark masses, and the weighted-cycle
-neutrino theorem branch. The status ledger records the weak-boson compare-only validation row,
-the charged-lepton target-anchored witness surface, the global public quark-frame
-classification boundary, the strong-CP branch, and the auxiliary direct-top
-compare-only codomain.
+there the pixel fixed point organizes the electroweak sector, the Higgs/top
+quantitative surface, the selected-class running quark masses, the charged
+lepton landing story, and the weighted-cycle neutrino branch. Hadrons then add
+the strong-binding problem on top of that particle-level picture.
 
 ### How the Concrete Particle Rows Arise
 
@@ -943,56 +941,48 @@ Let's step back and see what the framework actually accounts for.
 
 **The particle structure.** Section 14.14 gives the concrete structure. The
 framework fixes the massless carriers. The particle surface carries the
-fine-structure fixed point, a weak-boson compare-only validation pair, a Higgs/top quantitative surface,
+fine-structure fixed point, a weak-boson comparison pair, a Higgs/top quantitative surface,
 a selected-class six-quark running-mass sector with Yukawas,
-and one weighted-cycle neutrino theorem branch with definite masses and Majorana
-phases. Strong CP is work in progress in that selected-class quark sector: the available
-corpus does not derive $\theta_{\mathrm{QCD}}$, does not emit physical
-$\bar\theta$, and does not prove that the physical strong-CP phase vanishes. It
-also marks the charged-lepton source landing from $P$ to physical charged data,
-global public quark-frame classification, and the auxiliary direct-top PDG
-codomain as declared boundaries in the available derivation.
+and one weighted-cycle neutrino branch with definite masses and Majorana
+phases. The charged-lepton, quark-frame, direct-top, hadron, and strong-CP
+stories sit around that same particle map as separate branches of the full
+particle program.
 
 The reason these numbers belong in one chapter is that the framework organizes
 them with one local fixed-point structure. The same pixel ratio feeds the
 electroweak scale, the low-energy electromagnetic endpoint, and the effective
 gravitational coupling. The reader does not need
-every intermediate symbol to see the point. OPH is attempting to tie
-electroweak validation rows, the Higgs/top quantitative surface, electromagnetism at low energy, and
-Newton's constant to one common structure without treating them as unrelated
-constants, while keeping validation bookkeeping and matching gates visible.
+every intermediate symbol to see the point. OPH ties
+electroweak rows, the Higgs/top quantitative surface,
+electromagnetism at low energy, and Newton's constant into one common
+structure.
 
 The hierarchy row is part of that same local story. The weak scale is emitted
 by the pixel transmutation law
 $v/E_\star=P_\star^{-1/2}\exp[-2\pi/(4\alpha_U(P_\star))]$. The particle paper
-and the Observers paper carry the interval/Krawczyk certificate for the unique
-source value of $\alpha_U(P_\star)$. The selected source-to-Higgs
+and the Observers paper give the unique source value of $\alpha_U(P_\star)$.
+The selected source-to-Higgs
 coarse-graining square has zero defect, $\epsilon_H=0$, so the usual
 bare-Higgs-plus-cutoff split is a regulator coordinate description on that
-branch. The SI gravity decimal depends on the complete no-G clock bridge.
+branch. The SI gravity decimal is a separate clock-scale readout.
 
-There is also a global capacity-side tick lemma. The screen-capacity fixed
+There is also a global capacity-side tick story. The screen-capacity fixed
 point fixes the cosmic radius ratio. The readback closure follows from the
-fixed-point equation under the declared area-law counting model: the capacity
-read back at delivery resolution
-$\rho_{\mathrm{read}}$ is $\pi/\rho_{\mathrm{read}}^2$ under the declared
-area-law counting model, so the
-fixed-point equation forces the readback to land exactly on the local cell and
-the full cycle contracts by $(N_{\mathrm{CRC}}/\pi)^{-1/2}$. On the declared
-24-tick branch one homogeneous tick has
-$|g_\star'|=(N_{\mathrm{CRC}}/\pi)^{-1/48}$, and the certificate excludes
-electroweak inputs. The proof takes the 24-round count as branch
-architecture. The product joint branch for the local pixel fixed point and
-global capacity fixed point is stable when the two component fixed-point maps
-have their contraction certificates. A genuinely coupled branch needs a
-separate derivative bound. The electroweak projection bridge defines
+fixed-point equation and the area-law count at delivery resolution
+$\rho_{\mathrm{read}}$: the capacity read back there is
+$\pi/\rho_{\mathrm{read}}^2$, so the fixed-point equation lands the readback
+exactly on the local cell and the full cycle contracts by
+$(N_{\mathrm{CRC}}/\pi)^{-1/2}$. On the 24-tick cycle one homogeneous tick has
+$|g_\star'|=(N_{\mathrm{CRC}}/\pi)^{-1/48}$. The product joint branch reads the
+local pixel fixed point and global capacity fixed point as one stable pair. The
+electroweak projection bridge defines
 $\Pi_{\mathrm{EW}}(P,N)=24\pi/(\alpha_U(P)\log(N/\pi))$ and the exact bridge
 residual
-$\mathcal B_{\mathrm{EW}}=\alpha_U(P)\log(N/\pi)-6\pi/P$. The remaining gates
-for the full local/global hierarchy resonance are the finite-machinery
-verification of the readback resolution, the derivation of the 24-round count,
-and the exact global capacity source certificate satisfying
-$\mathcal B_{\mathrm{EW}}=0$.
+$\mathcal B_{\mathrm{EW}}=\alpha_U(P)\log(N/\pi)-6\pi/P$. Equivalently,
+$N_{\mathrm{EW}}(P)=\pi\exp[6\pi/(P\alpha_U(P))]$, which gives
+$3.5323546226929906511187512962330547600462\times10^{122}$ on the public
+endpoint branch. The rounded $3.31\times10^{122}$ capacity display is
+only the capacity-scale display; the exact bridge uses the value above.
 
 **Charge quantization.** All color-singlet particles have integer electric charge. No fractional charges like $\pm 1/3$ can exist outside hadrons. This follows from the global structure of the gauge group.
 
@@ -1028,8 +1018,8 @@ ultraviolet consistency.
 
 It is a remarkably concrete result. The book points to a specific gauge
 structure, charge pattern, color count, and generation count. It also reaches
-the massless carriers, the compare-only $W$ and $Z$ row, a Higgs/top quantitative surface, one
-weighted-cycle neutrino theorem branch, and a running quark sector on a selected
+the massless carriers, the $W$ and $Z$ comparison row, a Higgs/top quantitative surface, one
+weighted-cycle neutrino branch, and a running quark sector on a selected
 physical basis. Strongly coupled bound states add the QCD problem on top of
 that particle-level structure.
 

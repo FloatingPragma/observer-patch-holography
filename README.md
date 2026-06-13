@@ -254,8 +254,12 @@ On the observed branch this fixed point is the de Sitter entropy capacity. For
 the observed cosmological constant, the bare horizon area ratio is about
 $1.05\times10^{122}$, while the OPH entropy capacity is about
 $3.31\times10^{122}$. That displayed capacity belongs to the cosmological
-branch. The Newton row uses the same fixed-point capacity together with the
-selected no-G scale certificate.
+branch. The local/global hierarchy-resonance bridge uses a stricter exact
+condition: the electroweak projection target corresponds to
+$N_{\mathrm{EW}}(P_\star)=3.5323546226929906511187512962330547600462\times10^{122}$
+on the public endpoint branch, and the rounded capacity display is not an exact
+bridge certificate. The Newton row uses the same fixed-point capacity together
+with the selected no-G scale certificate.
 
 The local coordinate is the pixel ratio
 
@@ -352,8 +356,11 @@ the scale certificate. The $P$ branch feeds the Ward-projected electromagnetic c
 and the scoped particle-mass rows, while also fixing the cell/edge identity that
 cancels out of the Newton area-law readout. The $N_{\mathrm{CRC}}$ branch feeds
 the cosmological-constant readout. The scale certificate supplies the area
-quantum that becomes the Newton normalization. The detailed formulas and claim
-tiers live in the papers.
+quantum that becomes the Newton normalization. The hierarchy-resonance bridge is
+recorded as an exact conditional statement, not a theorem-grade promotion, until
+the finite readback-resolution, 24-round derivation, and exact global-capacity
+bridge-certificate gates close. The detailed formulas and claim tiers live in
+the papers.
 
 <p align="center">
   <a href="assets/OPH_Unification_Diagram.svg" target="_blank" rel="noopener noreferrer">
