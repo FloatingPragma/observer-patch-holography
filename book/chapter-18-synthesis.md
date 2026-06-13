@@ -257,22 +257,21 @@ normal-form branch. An independent bare scalar input is absent from this
 proof object. The full SI gravity readout depends on the complete no-G clock
 bridge.
 
-The global screen-capacity branch also carries the global repair-tick
-story: under the area-law counting model the readback fixed-point
-equation is equivalent to the closure transport that lands exactly on the
-local cell, so
-the full-cycle multiplier is $(N_{\mathrm{CRC}}/\pi)^{-1/2}$, and on the
-24-tick cycle one homogeneous tick has
-$|g_\star'|=(N_{\mathrm{CRC}}/\pi)^{-1/48}$. The product joint branch reads
-the local pixel fixed point and global capacity fixed point as one stable pair.
-The electroweak projection bridge defines
-$\Pi_{\mathrm{EW}}(P,N)=24\pi/(\alpha_U(P)\log(N/\pi))$ and the exact bridge
-residual
-$\mathcal B_{\mathrm{EW}}=\alpha_U(P)\log(N/\pi)-6\pi/P$. Equivalently,
-$N_{\mathrm{EW}}(P)=\pi\exp[6\pi/(P\alpha_U(P))]$, which gives
-$3.5323546226929906511187512962330547600462\times10^{122}$ on the public
-endpoint branch. The rounded $3.31\times10^{122}$ capacity display is
-only the capacity-scale display; the exact bridge uses the value above.
+The global screen-capacity branch also carries the global repair-tick story.
+OPH treats reality as a continual repair of disagreements between local
+observers. In the hierarchy story, a local physics pixel has to synchronize
+with the cosmic record-capacity screen. A 24-layer repair rhythm carries the
+global capacity ratio as
+$|g_\star'|=(N_{\mathrm{CRC}}/\pi)^{-1/48}$. This is the informal reason the
+local pixel scale $P$ can resonate with the huge cosmic capacity $N$: particle
+physics samples one small piece of the same repair cycle that closes the whole
+horizon record.
+
+The compact bridge formula is
+$\Pi_{\mathrm{EW}}(P,N)=24\pi/(\alpha_U(P)\log(N/\pi))$. Equivalently,
+$N_{\mathrm{EW}}(P)=\pi\exp[6\pi/(P\alpha_U(P))]$, giving
+about $3.53235\times10^{122}$ on the public endpoint branch. The rounded
+$3.31\times10^{122}$ value is the capacity-scale display.
 
 This is the cleanest way to say what the fine-structure constant means in OPH.
 It is the nonzero detuning of a holographic screen cell. From the outside, the
