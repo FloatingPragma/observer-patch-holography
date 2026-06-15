@@ -49,7 +49,7 @@ def main() -> int:
 
     dependencies = {
         "#336_global_repair_tick": tick.get("status")
-        == "closed_global_repair_tick_lemma_on_declared_round_structure",
+        == "closed_global_repair_tick_theorem_with_derived_round_count",
         "#337_electroweak_projection_bridge": ew.get("status")
         == "closed_projection_map_with_exact_bridge_condition"
         and ew.get("accepted") is True,
@@ -150,8 +150,8 @@ def main() -> int:
             "rounded_bridge_residual": rounded.get("bridge_residual"),
             "rounded_v_error": rounded.get("v_error"),
             "meaning": (
-                "The rounded 3.31e122 cosmological capacity display is not an exact "
-                "hierarchy bridge certificate; the exact bridge target is supplied by issue #344."
+                "The rounded 3.31e122 cosmological capacity display remains a diagnostic label; "
+                "issue #344 supplies the exact hierarchy bridge target."
             ),
         },
         "exact_capacity_certificate": {

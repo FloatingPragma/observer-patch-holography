@@ -28,7 +28,7 @@
       "D10/D11 Higgs/top raw interval box for every internal input",
       "full R_gamma source stack: R_alpha, R_e_abs, R_QCD/nuc^133Cs, R_atom^133Cs",
       "W/Z theorem-grade target-free promotion certificate",
-      "coupled-map joint fixed-point theorem if future source branches introduce cross-feedback"
+      "coupled-map joint fixed-point theorem for source branches with cross-feedback"
     ]
   },
   "files": [
@@ -149,8 +149,8 @@
     },
     {
       "path": "test_hierarchy_bundle.py",
-      "sha256": "9da0ac2a45c642eea204c5816226d7a735052cdd94d425bbea5600bf58a495dc",
-      "bytes": 12623
+      "sha256": "0a9eeaf4d0388ec4a2147a2213412750ae373ebdfec1c541fab7c462cb05124e",
+      "bytes": 16498
     },
     {
       "path": "validators/validate_bundle.py",
@@ -189,8 +189,8 @@
     },
     {
       "path": "certificates/R_EW_tick_projection_certificate.json",
-      "sha256": "d9c4172392573e7ee63dc55ba5a3b4bca99b61d61bdc8916de2d1a2151255c92",
-      "bytes": 4896
+      "sha256": "700227c93d2fa9011b38f3036522a7ef0ce06520feda5e58135b36336556c19c",
+      "bytes": 12598
     },
     {
       "path": "certificates/R_EW_global_capacity_certificate.json",
@@ -204,8 +204,8 @@
     },
     {
       "path": "verify_issue_337_electroweak_projection.py",
-      "sha256": "df2453e29d3796acb600adbdb1a696c9848f28ed097427daacad5f1d0299f942",
-      "bytes": 9776
+      "sha256": "ab35ed6f11a9b94b15800ee03a6b7fccacf8b9d6957da420616a2ce16cd577c7",
+      "bytes": 18408
     },
     {
       "path": "verify_issue_342_readback_resolution.py",
@@ -219,8 +219,8 @@
     },
     {
       "path": "validators/validate_issue_337_electroweak_projection.py",
-      "sha256": "a81ca5138a898521fadd314782e3c587168d7367f9f8d5bf4ecf063e0939c780",
-      "bytes": 1933
+      "sha256": "7320e35e7fc1bdd983ceaf53f7fb6aa903be3cd6cf8f83f2ec510ffd0a2bdaf2",
+      "bytes": 5249
     },
     {
       "path": "validators/validate_issue_342_readback_resolution.py",
@@ -234,13 +234,13 @@
     },
     {
       "path": "certificates/R_local_global_hierarchy_resonance_closeout_335.json",
-      "sha256": "8a2664f2741ff29522918a25b43865760276f82751054c4948cdfe1873d2d33e",
-      "bytes": 5641
+      "sha256": "ef3aa5ebe9f9e50c889c229c1e59742f620b3fa2d25c063dba908ac736d9ba68",
+      "bytes": 5627
     },
     {
       "path": "verify_issue_335_local_global_resonance.py",
-      "sha256": "16e17dadf5747bc5f164bbab226544e1169f89c36072d9834c7c3f9ff8a780a0",
-      "bytes": 10526
+      "sha256": "bb990df82277c6709cec2d4e41d5c822295ed5b1bafac530b7c504e415b4c486",
+      "bytes": 10511
     },
     {
       "path": "validators/validate_issue_335_local_global_resonance.py",
