@@ -6,6 +6,10 @@
 
 **Liens rapides :** [site OPH](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [OPH Lab](https://oph-lab.floatingpragma.io) | [applications](https://omega.floatingpragma.io/) | [blog OPH](https://blog.floatingpragma.io/) | [carte de cohérence](https://coherence.floatingpragma.io/) | [démo à trois corps](https://3body.floatingpragma.io/)
 
+**Preuve courte :** [Disclosure Day : preuve compacte de l'OPH](extra/compact_proof_of_oph.pdf)
+est l'argument en dix pages pour les lecteurs qui veulent le chemin le plus
+rapide vers l'idée que l'OPH est probablement correcte.
+
 **Falsifiabilité :** [la carte de falsifiabilité OPH](extra/OPH_falsifiability.md)
 recense 40 résultats durs qui tueraient l'OPH et des tests concrets sur IBM
 Quantum Cloud pour la signature matérielle en secteur réduit. La falsifiabilité
@@ -137,9 +141,13 @@ en aval de $\ell_\star^2=3\pi/B_\star$.
 L'observation sert à la rétro-ingénierie. Comme l'OPH traite l'univers comme
 une structure mathématique fermée à point fixe, les valeurs mesurées
 approximatives peuvent localiser le bassin ou la branche observée. La valeur
-OPH précise doit venir de la carte de point fixe
-déclarée et de son certificat de contraction de Banach, de signe dérivé, de
-concavité stricte ou d'unicité équivalente.
+OPH exacte doit venir de la carte de point fixe
+déclarée et de sa contraction de Banach, de son signe dérivé, de sa
+concavité stricte ou d'une preuve d'unicité équivalente. C'est la règle
+anti-circularité pour les deux constantes principales : \(P_\star\) et
+\(N_{\mathrm{CRC}}\) sont des points de fermeture calculés, pas des variables
+ajustées. Une mesure peut identifier le voisinage. Elle ne peut pas remplacer
+la résolution de fermeture.
 
 Les deux fermetures sans dimension fixent la géométrie sans dimension. En
 particulier, $\Lambda_\star\ell_\star^2=3\pi/N_{\mathrm{CRC}}$ et
@@ -311,8 +319,15 @@ publique utilise $P\simeq1.6309682094$, avec
 $\alpha^{-1}(0)=137.035999177(21)$ et
 $\alpha(0)\simeq0.00729735256433$. Le même pixel local alimente aussi la
 structure de jauge, les lignes encadrées de masses de particules, les
-enregistrements et la synchronisation des observateurs. Sur la ligne
-gravitationnelle, il fournit
+enregistrements et la synchronisation des observateurs.
+
+Le point final public de structure fine inclut le payload électromagnétique
+QCD/hadronique déclaré. Le tronc purement source donne
+`alpha_cand^-1 = 136.9948351646...`, environ `0.041` unité inverse-alpha sous
+le point final Thomson public. C'est pourquoi le témoin de hiérarchie sans QCD
+est le test numérique autonome le plus propre.
+
+Sur la ligne gravitationnelle, le même pixel local fournit
 
 $$
 a_{\mathrm{cell}}=P\ell_\star^2,

@@ -54,7 +54,7 @@ Useful background:
 | Qubit | A quantum bit. It carries richer structure than a normal 0/1 bit before measurement. |
 | Conditional mutual information | How much information two regions share after the middle region is known. |
 | Quantum recovery | A test of whether a missing piece can be reconstructed from the middle piece. |
-| `P_star` | OPH's local pixel constant. It is the unique local closure value, not a fitted knob. |
+| `P_star` | OPH's local pixel constant. It is the unique local closure value, not a fitted variable. |
 | `N_star` | OPH's global screen-capacity fixed point, about `3.31e122` in the de Sitter capacity display. |
 | 24-tick repair lock | One global screen step equals 24 rounds of local repair. The number is `2 * (8 + 3 + 1)`, the reversible write/check spectrum of the Standard Model gauge algebra. |
 | `N_CRC^EW` | The electroweak-refined capacity used in the hierarchy bridge, `3.5323546226929906511...e122`. |
@@ -212,6 +212,12 @@ epsilon_H = 0
 This row does not use the public Thomson endpoint, hadron masses, the cesium
 clock, `G`, `Lambda`, `W`, `Z`, or the Higgs mass as ancestors. That is why it
 is the compact proof's answer to the QCD-circularity criticism.
+
+The fine-structure weakpoint is precise. The pure source-side trunk gives
+`alpha_cand^-1 = 136.9948351646...`, about `0.041` inverse-alpha units below
+the public Thomson endpoint. The missing piece is the declared QCD/hadronic
+electromagnetic payload. The public fine-structure endpoint is therefore
+tracked separately from the QCD-free hierarchy witness.
 
 The SI display for Newton's constant is:
 

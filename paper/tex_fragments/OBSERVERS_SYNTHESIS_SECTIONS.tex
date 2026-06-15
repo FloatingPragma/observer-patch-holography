@@ -707,8 +707,9 @@ The operational use of observation is reverse engineering, not fitting. Because 
 realized universe as a closed mathematical fixed structure, approximate measurements can identify
 which basin or branch interval internal observers inhabit. The quantitative claim then requires the
 OPH map on that interval to be a self-map with a contraction, derivative-sign, strict-concavity, or
-equivalent uniqueness certificate. The observational readout supplies \(x_0\) or the interval; the
-fixed-point theorem supplies \(x_\star\).
+equivalent uniqueness proof. The observational readout supplies \(x_0\) or the interval; the
+fixed-point theorem supplies \(x_\star\). The exact \(P_\star\) and \(N_{\mathrm{CRC}}\) values must
+be computed as closure endpoints.
 
 What \(P_\star\) and \(N_\star\) determine by themselves is the dimensionless geometry. With
 \[
@@ -974,6 +975,12 @@ G(P):=\varphi+\frac{\sqrt{\pi}}{A_T(P)},
 the closure problem is the fixed-point condition \(G(P)=P\).
 On any physical interval where this induced map is a self-map and a contraction, the closure root
 is locally unique.
+Equivalently, the solver can use
+\[
+H(P):=P-\varphi-\frac{\sqrt{\pi}}{A_T(P)}
+\]
+and accept the unique zero of \(H\) on the declared branch interval. Observer-facing data may
+localize that interval. The measured endpoint cannot replace the closure solve.
 
 The closure interpretation assigns one screen cell two coupled roles. On the outer side it is one
 cell of the screen whose displacement above the exact self-similar equilibrium \(\varphi\) sets

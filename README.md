@@ -6,6 +6,10 @@
 
 **Quick links:** [OPH website](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [OPH Lab](https://oph-lab.floatingpragma.io) | [Applications](https://omega.floatingpragma.io/) | [OPH Blog](https://blog.floatingpragma.io/) | [Coherence map](https://coherence.floatingpragma.io/) | [Three-body demo](https://3body.floatingpragma.io/)
 
+**Short proof:** [Disclosure Day: compact OPH proof](extra/compact_proof_of_oph.pdf)
+is the ten-page argument for readers who want the fastest route through the
+case that OPH is likely correct.
+
 **Falsifiability:** [OPH falsifiability map](extra/OPH_falsifiability.md)
 lists 40 hard OPH-killing outcomes and concrete IBM Quantum Cloud tests for
 the reduced-sector hardware signature. Falsifiability is how a physics theory
@@ -134,9 +138,12 @@ $\ell_\star^2=3\pi/B_\star$.
 
 Observation is used for reverse engineering. Because OPH treats the universe as
 a closed mathematical fixed structure, approximate measured values can locate
-the basin or observed branch. The precise OPH value must come from the declared
+the basin or observed branch. The exact OPH value must come from the declared
 fixed-point map and its Banach contraction, derivative-sign, strict-concavity,
-or equivalent uniqueness certificate.
+or equivalent uniqueness proof. This is the anti-circularity rule for the two
+main constants: \(P_\star\) and \(N_{\mathrm{CRC}}\) are computed endpoints,
+not fitted variables. A measured value can identify the neighborhood. It
+cannot replace the closure solve.
 
 The two dimensionless closures fix dimensionless geometry. In particular,
 $\Lambda_\star\ell_\star^2=3\pi/N_{\mathrm{CRC}}$ and
@@ -295,8 +302,15 @@ emitted by the universe living on that screen. The public solution is
 $P\simeq1.6309682094$, with
 $\alpha^{-1}(0)=137.035999177(21)$ and
 $\alpha(0)\simeq0.00729735256433$. The same local pixel scale feeds the gauge
-structure, scoped particle-mass rows, records, and observer synchronization. On
-the gravity row it supplies
+structure, scoped particle-mass rows, records, and observer synchronization.
+
+The public fine-structure endpoint includes the declared QCD/hadronic
+electromagnetic payload. The pure source-side trunk gives
+`alpha_cand^-1 = 136.9948351646...`, about `0.041` inverse-alpha units below
+the public Thomson endpoint. That is why the QCD-free hierarchy witness is the
+cleaner standalone numerical stress test.
+
+On the gravity row the same local pixel scale supplies
 
 $$
 a_{\mathrm{cell}}=P\ell_\star^2,
