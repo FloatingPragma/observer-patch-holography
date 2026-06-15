@@ -53,6 +53,11 @@ with an observer-accessible patch or a subregion used in entropy and
 modular-flow arguments. Caps have boundaries and collars, and their generalized
 entropy plays a role in the gravity reconstruction.
 
+**Capacity-electroweak bridge.** The bridge reads the weak scale as a local
+projection of the global screen-capacity repair rhythm. The exact bridge
+capacity is separate from the rounded de Sitter capacity display. The
+screen-sieve theorem gives the factor $12$ in the projection.
+
 **Causal structure.** Causal structure determines which events can influence
 which. Relativity encodes it through light cones. OPH reads causal structure
 as emerging from no-signaling, modular flow, and screen geometry in the
@@ -347,6 +352,12 @@ their algebras, and their overlaps. In symmetric situations it can be charted
 by $S^2$. Finite observers never inspect the whole net. They compare only the
 overlaps of their local patches.
 
+**Screen-sieve.** A screen-sieve is a finite port sampling rule on the spherical
+screen. In the hierarchy bridge, the refinement-stable triangulated screen has
+twelve unit fivefold defects. Edge-center collars make them central ports, and
+$A_5$ symmetry places them on the icosahedral vertex orbit. This gives the
+geometric origin of the twelve-way local readout.
+
 **Selection filter.** A selection filter is a constraint that candidate
 physical structures must pass to become part of a stable public world.
 Examples include finite capacity, record stability, recoverability,
@@ -355,6 +366,11 @@ compressibility, and observer support.
 **Sheaf.** A sheaf is a mathematical structure that assigns local data to
 regions and specifies when matching local data glue into a global section.
 OPH uses sheaf logic as a formal cousin of observer-overlap consistency.
+
+**Sphere ladder.** The ladder $S^0\to S^1\to S^2\to S^3$ names four roles:
+seed or readout, recurrence loop, horizon screen or public archive, and
+reconstructed bulk geometry. It is a teaching map for OPH's readback
+architecture. Particle identities come from Lorentz and gauge structure.
 
 **Static patch.** A static patch is the region of de Sitter space accessible
 to one observer inside their cosmological horizon. It is finite and bounded,

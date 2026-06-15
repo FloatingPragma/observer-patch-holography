@@ -173,7 +173,37 @@ The factor `4` is the electroweak transmutation multiplicity
 `\beta_EW=N_c+1=4`. The factor `48` is `2*24` from the global repair tick. Hence
 `12=48/4`, and the sampling exponent is `4P_star`.
 
-## Theorem E: EW-refined exact capacity fixed point
+## Theorem E: Icosahedral screen-sieve theorem
+
+On the declared triangulated `S^2` screen branch, define the curvature charge
+
+```math
+q_v=6-\deg(v).
+```
+
+Euler and triangular incidence give
+
+```math
+V-E+F=2,\qquad 3F=2E,\qquad \sum_v q_v=12.
+```
+
+Convex positive defect cost selects twelve unit fivefold defects. Edge-center
+collars expose those defects as central ports. The no-marked-point finite
+isotropy rule places them on the `A5/C5` orbit, with size `60/5=12`.
+Therefore a scalar screen load `X=log(N/pi)` is read locally as `X/12`.
+With cell entropy `P/4` and `beta_EW=4`, this gives
+
+```math
+\Gamma_{\rm EW}
+=
+4\cdot\frac{P}{4}\cdot\frac{1}{12}\log(N/\pi)
+=
+\frac{P}{12}\log(N/\pi).
+```
+
+The certificate is `certificates/R_screen_sieve_icosahedral_certificate.json`.
+
+## Theorem F: EW-refined exact capacity fixed point
 
 Define the log-capacity map
 
@@ -204,7 +234,7 @@ records the fixed-point residual, the bridge residual, the residual contraction
 check, and the rounded-capacity diagnostic. The rounded display `3.31e122`
 remains a capacity-scale display and fails the exact EW bridge residual.
 
-## Theorem F: Finite readback-resolution certificate
+## Theorem G: Finite readback-resolution certificate
 
 At fixed cutoff, define the finite readback pipeline
 
@@ -247,7 +277,7 @@ positive capacity atom, the positive-root extractor, the refinement bound, and
 the forbidden-input ledger. It uses no measured weak/Higgs/gravity/cosmology
 calibration.
 
-## Theorem G: Representation-to-spectrum round count
+## Theorem H: Representation-to-spectrum round count
 
 On the OPH realized product branch, the observer-visible compact gauge repair
 support is the product adjoint

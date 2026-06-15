@@ -2,7 +2,7 @@
   "bundle_id": "oph-hierarchy-proof-artifacts-r1473-2026-06-13",
   "generated_utc": "2026-06-13T00:00:00Z",
   "purpose": "Machine-readable artifacts for the OPH electroweak hierarchy proof obligation audit.",
-  "source_release_context": "OPH hierarchy source context with issue #332, #335, #337, #338, #342, #343, and #344 hierarchy closure artifacts.",
+  "source_release_context": "OPH hierarchy source context with issue #332, #335, #337, #338, #342, #343, and #344 hierarchy closure artifacts, plus the icosahedral screen-sieve theorem.",
   "claim_boundary": {
     "closed_by_bundle": [
       "public-branch numerical hierarchy witness",
@@ -15,6 +15,7 @@
       "R_N global repair-tick theorem with derived m_rep=24 round count",
       "product-branch joint (P,N_CRC) fixed-point and stability theorem",
       "electroweak tick-projection bridge with exact bridge residual condition",
+      "icosahedral screen-sieve theorem deriving the 12-port sampling factor and P/12 exponent origin on the declared triangulated S^2 branch",
       "EW-refined exact global-capacity certificate satisfying B_EW(P_star,N_CRC^EW)=0",
       "issue-#344 EW-refined exact global-capacity fixed-point certificate satisfying B_EW(P_star,N_CRC^EW)=0",
       "issue-#342 finite readback-resolution certificate satisfying rho_read(r,N_CRC)->(N_CRC/pi)^(-1/2)",
@@ -34,8 +35,8 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "d328445e6818afd6c4e3cdde264eb895de6359f28bc7b96e29aa6a299ed45a6c",
-      "bytes": 6010
+      "sha256": "712e2407f5860bd1db704afa53b492475c8f3cd7e0cd9bc53260f4a68b6416ba",
+      "bytes": 6561
     },
     {
       "path": "STATUS.md",
@@ -134,8 +135,8 @@
     },
     {
       "path": "theorem_package.md",
-      "sha256": "1166c52a5aa481c6de69a0e68c9f504ed1f6664c517b9b4d58fb7f57f0844fd2",
-      "bytes": 10083
+      "sha256": "cee0468898aab1b50bf41b478f3ead32e3b1512257d7eea7619943531c07d920",
+      "bytes": 10861
     },
     {
       "path": "verify_issue_332_rg_naturality.py",
@@ -154,8 +155,8 @@
     },
     {
       "path": "validators/validate_bundle.py",
-      "sha256": "98c8b135a59c1653ddd048d1b0513a447c694fd27cb32ff599c11e8e1969a2f8",
-      "bytes": 1968
+      "sha256": "73fe89bb6c33fbd6126d653e2635c45478d7eb2daf73e30dd752cf0ebb6aecf0",
+      "bytes": 2121
     },
     {
       "path": "validators/validate_dag.py",
@@ -193,6 +194,11 @@
       "bytes": 12598
     },
     {
+      "path": "certificates/R_screen_sieve_icosahedral_certificate.json",
+      "sha256": "285b30486e4d8548bed60ee0d7220796fee5c80276aa36a0820a709df680433c",
+      "bytes": 2759
+    },
+    {
       "path": "certificates/R_EW_global_capacity_certificate.json",
       "sha256": "3f47b500631a345f0b810aa49cd141573f590617cd012131902e21939c4271b4",
       "bytes": 5519
@@ -208,6 +214,11 @@
       "bytes": 18408
     },
     {
+      "path": "verify_screen_sieve_theorem.py",
+      "sha256": "1ee0c7061893b13bd0d6d6092c428e46deceef95c109a642586fc8f16cf24740",
+      "bytes": 4634
+    },
+    {
       "path": "verify_issue_342_readback_resolution.py",
       "sha256": "a7b3c5d9f8e059219ca3662c3c6c4cd8632877386cb2eb117fdc057dc73e8643",
       "bytes": 10077
@@ -221,6 +232,11 @@
       "path": "validators/validate_issue_337_electroweak_projection.py",
       "sha256": "7320e35e7fc1bdd983ceaf53f7fb6aa903be3cd6cf8f83f2ec510ffd0a2bdaf2",
       "bytes": 5249
+    },
+    {
+      "path": "validators/validate_screen_sieve_certificate.py",
+      "sha256": "481a7adc4059eb6e0aedc14521f0e864f04ed2714566e30805bd44f0dedd9625",
+      "bytes": 1809
     },
     {
       "path": "validators/validate_issue_342_readback_resolution.py",

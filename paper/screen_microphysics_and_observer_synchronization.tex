@@ -23,7 +23,7 @@
 
 \title{Federated Echosahedral Screen Microphysics:\\
 Patch Hardware, Records, and Observer Synchronization in OPH}
-\author{B.\ M\"uller \and Alexander Osika \and Kai Xue \and Ben Cassie}
+\author{B.\ M\"uller \and Alexander Osika \and Kai Xue \and Ben Cassie \and Maarten Antonie Visser}
 \date{\OPHPaperReleaseDate}
 
 \begin{document}
@@ -33,7 +33,7 @@ Patch Hardware, Records, and Observer Synchronization in OPH}
 \begin{abstract}
 This paper gives OPH a finite microphysical carrier. Observers see finite screen cuts. The model turns those cuts into patch bodies with ports, records, repair channels, and synchronization rules.
 
-The main achievements are regulated patch embedding, edge-sector weights, central-record Born--L\"uders readout, Bell/CHSH event surfaces with the Tsirelson bound, and checkpoint restoration. The paper also fixes the evidence rule for hardware claims. A run counts as evidence when hashes, manifests, calibration records, and exact verifier receipts are public.
+The main achievements are regulated patch embedding, the twelve-port screen-sieve theorem, edge-sector weights, central-record Born--L\"uders readout, Bell/CHSH event surfaces with the Tsirelson bound, and checkpoint restoration. The paper also fixes the evidence rule for hardware claims. A run counts as evidence when hashes, manifests, calibration records, and exact verifier receipts are public.
 \end{abstract}
 
 \tableofcontents
@@ -189,9 +189,58 @@ the port arrangement.
 \end{enumerate}
 \end{definition}
 
-The twelve-port choice is a reference convention. Its role is to give the reference patch enough boundary
-structure to support nontrivial overlap comparison, symmetry tests, verifier-shadow behavior, and
-cross-patch routing while remaining small enough for explicit evidence records.
+\begin{theorem}[Icosahedral screen-sieve theorem]\label{thm:icosahedral-screen-sieve}
+Assume the fixed-cutoff OPH screen branch is represented by a quantum-link
+triangulation of \(S^2\), with finite Hilbert spaces on links, Gauss constraints
+at vertices, boundary-gauge-invariant physical algebras, and a refinement-stable
+MaxEnt vacuum that is locally six-valent away from curvature defects. Let the
+discrete curvature charge at a vertex be
+\[
+q_v=6-\deg(v).
+\]
+If the defect cost is convex in the charges and the edge-center collar
+decomposition exposes each irreducible positive defect as one central port, then
+the invariant screen contraction is sampled by exactly twelve indistinguishable
+ports. Under the no-marked-point MaxEnt symmetry rule those ports form the
+\(12\)-vertex icosahedral orbit. Therefore an invariant scalar screen load
+\(X\), in particular \(X=\log(N/\pi)\), is read locally as \(X/12\).
+\end{theorem}
+
+\begin{proof}
+For a triangulated sphere with \(V\) vertices, \(E\) edges, and \(F\) faces,
+Euler and triangular incidence give
+\[
+V-E+F=2,\qquad 3F=2E,\qquad E=3V-6.
+\]
+Therefore
+\[
+\sum_v q_v
+=
+\sum_v(6-\deg(v))
+=6V-2E
+=12.
+\]
+This is the discrete Gauss--Bonnet charge of the spherical screen. A locally
+hexagonal vacuum has \(q_v=0\) away from defects. With fixed total positive
+charge \(12\), a convex defect cost such as \(\sum_v q_v^2\) is minimized by
+twelve unit defects \(q_v=1\), while tetrahedral and octahedral alternatives
+concentrate the same charge into four \(q=3\) defects or six \(q=2\) defects.
+The edge-center collar package turns each unit fivefold defect into a central
+readout algebra \(Z(\mathcal A(B_i))\), so the defects are the ports. The
+no-marked-point MaxEnt rule makes the twelve ports indistinguishable. The
+maximal finite rotation symmetry of the sphere is the icosahedral group
+\(I\simeq A_5\), and orbit-stabilizer gives
+\[
+|I|/|C_5|=60/5=12.
+\]
+Any invariant scalar assigned to a transitive twelve-port orbit is split
+equally across the ports, so the local port read is \(X/12\).
+\end{proof}
+
+The theorem fixes the canonical twelve-port branch. Its role is to give the
+reference patch enough boundary structure to support nontrivial overlap
+comparison, symmetry tests, verifier-shadow behavior, and cross-patch routing
+while remaining small enough for explicit evidence records.
 
 \begin{remark}
 The word ``echosahedral'' is intentionally implementation-facing. In a mathematical theorem, one

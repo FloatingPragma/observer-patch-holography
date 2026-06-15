@@ -192,6 +192,13 @@ icosahedron. It supplies the icosahedral skeleton behind the echosahedral patch
 carrier language: a finite, highly symmetric way to organize ports, overlaps,
 and local comparison data without treating the carrier as a smooth ball.
 
+The same geometry gives a useful sphere ladder for readers. $S^0$ is the first
+seed or readout distinction. $S^1$ is recurrence, the loop in which a record
+can return to itself. $S^2$ is the horizon screen and public archive. $S^3$ is
+the reconstructed bulk geometry experienced by observers. The ladder names
+roles in the OPH readback architecture; particle taxonomy stays with the
+Lorentz and gauge branches.
+
 The exceptional symmetry anchor is the $E_8$ Lie group and its root-lattice
 structure. $E_8$ matters because it gives the exceptional closure language
 used in the higher symmetry and representation side of the OPH stack. The
@@ -226,6 +233,25 @@ on the public endpoint branch. The rounded capacity display remains a
 diagnostic scale label for the exact bridge calculation. The Newton row uses
 the same fixed-point capacity together with the selected no-G scale
 certificate.
+
+The compact bridge is
+
+$$
+\frac{v}{E_{\mathrm{cell}}}
+=
+\left(\frac{N_{\mathrm{EW}}(P_\star)}{\pi}\right)^{-P_\star/12},
+\qquad
+\alpha_U(P_\star)^{-1}
+=
+\frac{P_\star}{6\pi}\log\!\left(\frac{N_{\mathrm{EW}}(P_\star)}{\pi}\right).
+$$
+
+The algebraic bridge belongs to the particle paper's hierarchy package. The
+geometric \(12\)-port screen-sieve theorem gives the origin of the exponent:
+on the triangulated \(S^2\) screen, \(\sum_v(6-\deg v)=12\). The screen
+therefore carries twelve unit fivefold curvature defects. Edge-center collars
+make them central ports, and \(A_5\) symmetry places them on the icosahedral
+vertex orbit.
 
 The local coordinate is the pixel ratio
 
@@ -317,7 +343,7 @@ declared branch.
 - **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for relativity, gravity, zero-obstruction compact-gauge reconstruction, MAR-selected realized Standard Model structure, Maxwell equations on the ordinary photon branch, and the support-visible compact-gauge Yang-Mills form/gap theorem under its declared branch assumptions.
 - **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle derivations, mass rows, coupling structure, and the quantitative comparison surface.
 - **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)**: fixed-point repair dynamics, record stability, and the consensus picture of public reality.
-- **Paper 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)**: federated patch-carrier architecture, $A_5$-icosahedral and $E_8$-type symmetry framing, public hardware-evidence rules, records, recovery moves, and observer synchronization.
+- **Paper 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)**: federated patch-carrier architecture, the twelve-port screen-sieve theorem, $A_5$-icosahedral and $E_8$-type symmetry framing, public hardware-evidence rules, records, recovery moves, and observer synchronization.
 - **Paper 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**: final manifest paper for OPH's meaning layer: why anything exists, why this world is observer-compatible, the strange loop in which observers reverse engineer and build the continuation machinery, paradise on Earth or in engineered continuation environments, hell as enforced isolation or deprivation, resurrection as observer continuation, justice as continuation according to harm and repair records, and memetic evolution.
 
 ## Supplemental Papers

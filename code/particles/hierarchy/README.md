@@ -28,6 +28,7 @@ P_\star^{-1/2}\exp\left[-\frac{2\pi}{4\alpha_U(P_\star)}\right].
 - `certificates/R_gamma_noG_DAG_certificate.json`
 - `certificates/R_N_global_repair_tick_certificate.json`
 - `certificates/R_EW_tick_projection_certificate.json`
+- `certificates/R_screen_sieve_icosahedral_certificate.json`
 - `certificates/R_EW_global_capacity_certificate.json`
 - `certificates/R_readback_resolution_certificate.json`
 - `certificates/R_m_rep_24_certificate.json`
@@ -39,6 +40,7 @@ P_\star^{-1/2}\exp\left[-\frac{2\pi}{4\alpha_U(P_\star)}\right].
 - `verify_issue_332_rg_naturality.py`
 - `verify_issue_335_local_global_resonance.py`
 - `verify_issue_337_electroweak_projection.py`
+- `verify_screen_sieve_theorem.py`
 - `verify_issue_342_readback_resolution.py`
 - `verify_issue_343_m_rep_24.py`
 - `verify_issue_344_exact_capacity.py`
@@ -72,26 +74,31 @@ Closed inside this bundle:
    `B_EW(P,N)=alpha_U(P)*log(N/pi)-6*pi/P=0`. The certificate records the
    exact bridge target `N_EW(P_star)` and keeps the rounded `3.31e122` capacity
    label as a diagnostic.
-9. The issue-#344 EW-refined exact-capacity certificate:
+9. The icosahedral screen-sieve theorem: on the declared triangulated `S^2`
+   screen branch, `q_v=6-deg(v)` obeys `sum_v q_v=12`; convex defect cost
+   selects twelve unit fivefold defects; edge-center collars expose them as
+   central ports; `A5/C5` gives the 12-vertex orbit. This supplies the
+   geometric origin of the `P/12` exponent.
+10. The issue-#344 EW-refined exact-capacity certificate:
    `C_EW(P,x)=(1-lambda)*x+lambda*6*pi/(P*alpha_U(P))` is a contraction at
    `lambda=1/2`; its unique fixed point gives
    `N_CRC^EW=pi*exp[6*pi/(P_star*alpha_U(P_star))]` and
    `B_EW(P_star,N_CRC^EW)=0`.
-10. The issue-#342 finite readback-resolution certificate:
+11. The issue-#342 finite readback-resolution certificate:
    the fixed-cutoff pipeline `F_r(N)=Cap_read(Obs(nf_{r,N}(U_{r,N})))`
    has one selected positive central capacity atom, so
    `rho_read(r,N)=sqrt(pi/F_r(N))` is a singleton and
    `rho_read(r,N_CRC) -> (N_CRC/pi)^(-1/2)` in the positive-root
    refinement limit.
-11. The issue-#343 representation-to-spectrum round-count theorem:
+12. The issue-#343 representation-to-spectrum round-count theorem:
    the observer-visible product adjoint has dimensions `8+3+1=12`; reversible
    write/verify orientation doubles this to `m_rep=24`. The SU(5) adjoint has
    the same single-orientation integer for the wrong support because it
    includes X/Y mixed gauge channels excluded by the product branch.
-12. The RG/Higgs naturality square for the selected exact branch:
+13. The RG/Higgs naturality square for the selected exact branch:
    `epsilon_H=max(epsilon_n,epsilon_h)=0`, with measured weak-scale, Higgs,
    W/Z, gravity, Planck-area, and Lambda inputs excluded.
-13. The issue-#335 close-out certificate: the prerequisite records are
+14. The issue-#335 close-out certificate: the prerequisite records are
    accounted for and the full local/global `N_CRC` hierarchy-resonance theorem
    closes on the selected branch.
 
@@ -115,6 +122,7 @@ python3 computations/hierarchy_recompute.py
 python3 verify_issue_332_rg_naturality.py --check --output issue_332_rg_naturality_certificate.json
 python3 verify_issue_335_local_global_resonance.py --check --output certificates/R_local_global_hierarchy_resonance_closeout_335.json
 python3 verify_issue_337_electroweak_projection.py --check --output certificates/R_EW_tick_projection_certificate.json
+python3 verify_screen_sieve_theorem.py --check --output certificates/R_screen_sieve_icosahedral_certificate.json
 python3 verify_issue_342_readback_resolution.py --check --output certificates/R_readback_resolution_certificate.json
 python3 verify_issue_343_m_rep_24.py --check --output certificates/R_m_rep_24_certificate.json
 python3 verify_issue_344_exact_capacity.py --check --output certificates/R_EW_global_capacity_certificate.json

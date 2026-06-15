@@ -1,0 +1,121 @@
+{
+  "branch_assumptions": [
+    "fixed-cutoff OPH screen represented by a quantum-link triangulation of S^2",
+    "finite Hilbert spaces on links and Gauss constraints at vertices",
+    "boundary-gauge-invariant physical algebras",
+    "locally six-valent MaxEnt vacuum away from curvature defects",
+    "convex positive defect cost",
+    "edge-center collars expose irreducible positive defects as central ports",
+    "no-marked-point finite isotropy rule"
+  ],
+  "capacity_electroweak_projection": {
+    "beta_EW": 4,
+    "cell_entropy": "P/4",
+    "gamma_EW": "(P/12)*log(N/pi)",
+    "hierarchy_readout": "v/E_cell=(N/pi)^(-P/12)",
+    "local_port_read": "X/12",
+    "screen_load": "X=log(N/pi)"
+  },
+  "certificate_id": "R_screen_sieve_icosahedral_certificate",
+  "checks": {
+    "electroweak_projection_factor_is_one_over_twelve": true,
+    "icosahedral_orbit_has_twelve_vertices": true,
+    "polyhedral_examples_obey_sphere_charge": true,
+    "unit_defects_minimize_positive_convex_cost": true
+  },
+  "convex_defect_minimum": {
+    "charges": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "defect_cost_sum_q2": 12,
+    "total_charge": 12,
+    "unit_defect_count": 12
+  },
+  "discrete_gauss_bonnet": {
+    "derived_edge_count": "E=3V-6",
+    "euler_identity": "V-E+F=2",
+    "total_charge": "sum_v q_v=6V-2E=12",
+    "triangular_incidence": "3F=2E",
+    "vertex_charge": "q_v=6-deg(v)"
+  },
+  "orbit_stabilizer": {
+    "fivefold_stabilizer_order": 5,
+    "group": "I ~= A5",
+    "group_order": 60,
+    "orbit": "12-vertex icosahedral orbit",
+    "orbit_size": 12
+  },
+  "pass": true,
+  "polyhedral_comparison": [
+    {
+      "charges": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "defect_cost_sum_q2": 36,
+      "edges": 6,
+      "euler_residual": 0,
+      "faces": 4,
+      "name": "tetrahedral",
+      "total_charge": 12,
+      "triangular_incidence_residual": 0,
+      "vertices": 4
+    },
+    {
+      "charges": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "defect_cost_sum_q2": 24,
+      "edges": 12,
+      "euler_residual": 0,
+      "faces": 8,
+      "name": "octahedral",
+      "total_charge": 12,
+      "triangular_incidence_residual": 0,
+      "vertices": 6
+    },
+    {
+      "charges": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "defect_cost_sum_q2": 12,
+      "edges": 30,
+      "euler_residual": 0,
+      "faces": 20,
+      "name": "icosahedral",
+      "total_charge": 12,
+      "triangular_incidence_residual": 0,
+      "vertices": 12
+    }
+  ],
+  "status": "closed_on_declared_triangulated_screen_branch"
+}

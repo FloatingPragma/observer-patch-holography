@@ -372,7 +372,26 @@ regions count as distant.
 
 Chapter 9 develops this in detail. In the present chapter, entanglement does one job. It explains why a screen can support an interior world, not a flat catalog of data.
 
-## 3.11 The Reverse Engineering
+## 3.11 The Sphere Ladder
+
+The screen notation can be read as a small ladder of logical roles.
+
+$S^0$ is the first distinction, the seed of a readout. Something can be marked
+as this, with silence as the alternative. $S^1$ is recurrence: a loop in which a record can
+return to itself and be checked again. $S^2$ is the screen, the public archive
+where finite observers expose overlap data. $S^3$ is the reconstructed bulk,
+the three-dimensional habitat that observers experience when the screen data
+and entanglement pattern close coherently.
+
+This ladder is a teaching map. It does not replace the particle taxonomy. The
+photon belongs to the recovered electromagnetic branch, gluons to color gauge
+transport, the graviton to emergent geometry and diffeomorphism structure,
+$W$, $Z$, and $H$ to the electroweak and Higgs sectors, and hadrons to QCD
+composites. The ladder explains how OPH moves from seed, to loop, to screen,
+to bulk. The particle labels are fixed later by Lorentz symmetry, gauge
+structure, and the branch equations.
+
+## 3.12 The Reverse Engineering
 
 Let us trace the reverse engineering explicitly. The intuitive picture says
 information scales with volume and space is the container. The hint is that
@@ -387,7 +406,7 @@ and stable across observers.
 
 The holographic principle enters as the strongest explanatory reading of the hints reviewed above, not as a philosophical preference.
 
-## 3.12 Pixel Limits
+## 3.13 Pixel Limits
 
 Let's put numbers on this.
 
@@ -403,7 +422,7 @@ This is still huge, but much smaller than the observable universe. Yet it's far 
 
 In the finite-resolution screen picture used here, continuous space is an effective approximation. The screen description is the fundamental descriptive layer.
 
-## 3.13 Where We Go Next
+## 3.14 Where We Go Next
 
 We have established four linked facts. Gravitational entropy bounds and
 holographic arguments push away from naive volume counting and toward

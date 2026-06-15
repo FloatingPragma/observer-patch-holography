@@ -274,11 +274,12 @@ $2(8+3+1)=24$. The SU(5) adjoint lands on the same single-orientation number
 for a different support; its X/Y mixed gauge channels are absent from the OPH
 product branch.
 
-The compact bridge formula is
-$\Pi_{\mathrm{EW}}(P,N)=24\pi/(\alpha_U(P)\log(N/\pi))$. Equivalently,
-$N_{\mathrm{EW}}(P)=\pi\exp[6\pi/(P\alpha_U(P))]$, giving
-about $3.53235\times10^{122}$ on the public endpoint branch. The rounded
-$3.31\times10^{122}$ value is the capacity-scale display.
+The compact bridge gives an exact electroweak capacity near
+$3.53235\times10^{122}$ on the public endpoint branch. The rounded
+$3.31\times10^{122}$ value is the de Sitter capacity-scale display. The
+screen-sieve theorem reads the weak-scale exponent as an icosahedral sampling
+law on the finite spherical screen: the refinement-stable screen has twelve
+unit fivefold defects, exposed as central ports on the \(A_5\) vertex orbit.
 
 In the technical papers this bridge value is also written as a fixed point in
 log-capacity coordinates. The book-level point is simpler: the exact bridge

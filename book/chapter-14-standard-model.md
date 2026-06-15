@@ -731,6 +731,13 @@ quantitative surface, the selected-class running quark masses, the charged
 lepton landing story, and the weighted-cycle neutrino branch. Hadrons then add
 the strong-binding problem on top of that particle-level picture.
 
+The sphere ladder from Chapter 3 is useful here only as a logic map. It says
+seed, loop, screen, bulk. It does not say photon, gluon, graviton, hadron.
+Those labels come from the recovered Lorentz and gauge structure. The photon is
+the unbroken electromagnetic carrier, gluons are color carriers, the graviton
+belongs to the geometric branch, $W$ and $Z$ are massive weak carriers, the
+Higgs is the scalar electroweak excitation, and hadrons are QCD composites.
+
 ### How the Concrete Particle Rows Arise
 
 Stable patterns on the screen matter because they land on the particle rows a

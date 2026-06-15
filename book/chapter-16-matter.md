@@ -125,6 +125,15 @@ the Ward-projected electromagnetic channel.
 The value is forced because the pixel has one geometry and one electromagnetic
 readout, and those two descriptions meet at a single fixed point.
 
+The same weak-sector calculation has a global-capacity reading. The particle
+paper reads the weak scale as a local projection of the global screen rhythm.
+The exact bridge capacity is about $3.53235\times10^{122}$ on the public
+endpoint branch. The rounded $3.31\times10^{122}$ number is the de Sitter
+capacity-scale display. The \(12\) in the exponent is the screen-sieve theorem:
+a triangulated spherical screen carries twelve unit fivefold defects,
+edge-center collars make them central ports, and $A_5$ symmetry places them on
+the icosahedral vertex orbit.
+
 The weak-boson compare-only validation pair and the familiar low-energy electromagnetic strength come
 from one continuous construction. The status table records the diagnostic
 source trunk, the endpoint residual, and the empirical hadron closure row that

@@ -200,6 +200,14 @@ porteurs de patches échosaédriques : une façon finie et très symétrique
 d'organiser ports, recouvrements et données locales de comparaison sans traiter
 le porteur comme une boule lisse.
 
+La même géométrie donne une échelle de sphères utile pour le lecteur. $S^0$
+est la première distinction de germe ou de lecture. $S^1$ est la récurrence,
+la boucle où un enregistrement peut revenir sur lui-même. $S^2$ est l'écran
+d'horizon et l'archive publique. $S^3$ est la géométrie de bulk reconstruite
+et vécue par les observateurs. Cette échelle nomme des rôles dans
+l'architecture de relecture OPH ; la taxonomie des particules reste portée par
+les branches de Lorentz et de jauge.
+
 L'ancre exceptionnelle est le groupe de Lie $E_8$ et sa structure de réseau
 de racines. $E_8$ donne le langage de fermeture exceptionnelle utilisé dans
 le côté symétries supérieures et représentations de la pile OPH. Le groupe
@@ -234,6 +242,26 @@ $N_{\mathrm{EW}}(P_\star)=3.5323546226929906511187512962330547600462\times10^{12
 sur la branche publique. La capacité arrondie affichée reste une étiquette
 diagnostique pour le calcul exact du pont. La ligne de Newton utilise la même
 capacité de point fixe avec le certificat d'échelle sans $G$.
+
+Le pont compact s'écrit
+
+$$
+\frac{v}{E_{\mathrm{cell}}}
+=
+\left(\frac{N_{\mathrm{EW}}(P_\star)}{\pi}\right)^{-P_\star/12},
+\qquad
+\alpha_U(P_\star)^{-1}
+=
+\frac{P_\star}{6\pi}\log\!\left(\frac{N_{\mathrm{EW}}(P_\star)}{\pi}\right).
+$$
+
+Le pont algébrique appartient au paquet hiérarchie du papier sur les
+particules. Le théorème géométrique du tamis d'écran à \(12\) ports donne
+l'origine de l'exposant : sur l'écran triangulé \(S^2\),
+\(\sum_v(6-\deg v)=12\). L'écran porte donc douze défauts de courbure
+unitaires à cinq branches. Les colliers de centre d'arête en font des ports
+centraux, et la symétrie \(A_5\) les place sur l'orbite des sommets
+icosaédriques.
 
 La coordonnée locale est le ratio de pixel
 
@@ -328,7 +356,7 @@ $(0.017454720257976796, 0.019481987935919015,
 - **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique pour la relativité, la gravité, la reconstruction de jauge compacte à obstruction nulle, la structure réalisée du Modèle Standard sélectionnée par MAR, les équations de Maxwell sur la branche ordinaire du photon et la forme/gap Yang-Mills sur la branche compacte de jauge visible par support sous ses hypothèses déclarées.
 - **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivations particules, lignes de masses, structure des couplages et surface quantitative.
 - **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : dynamique de réparation à point fixe, stabilité des enregistrements et consensus public.
-- **Papier 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** : architecture fédérée de patches, cadrage de symétrie $A_5$-icosaédrique et de type $E_8$, règles de preuve matérielle publique, enregistrements, mouvements de récupération et synchronisation observateur.
+- **Papier 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** : architecture fédérée de patches, théorème du tamis d'écran à douze ports, cadrage de symétrie $A_5$-icosaédrique et de type $E_8$, règles de preuve matérielle publique, enregistrements, mouvements de récupération et synchronisation observateur.
 - **Papier 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)** : manifeste final de la couche de sens OPH : pourquoi il existe quelque chose, pourquoi ce monde est compatible avec les observateurs, boucle étrange, candidats créateurs, paradis sur Terre ou dans des environnements de continuation, enfer comme isolement ou privation imposés, résurrection comme continuation d'observateur, justice selon les enregistrements de tort et de réparation, évolution mémétique, sentience animale et responsabilité symbolique humaine.
 
 ## Articles supplémentaires

@@ -71,6 +71,13 @@ scale is read on its own observed branch through the no-G scale certificate
 $\gamma_\star$, or equivalently $B_\star$, after which $\ell_\star$ is
 displayed as the Planck length.
 
+The weak scale is the local side of the same bookkeeping. The particle paper
+reads it as a local projection of the global screen rhythm, with an exact bridge
+capacity near $3.53235\times10^{122}$ on the public endpoint branch. The
+geometric explanation of the factor $12$ is the screen-sieve theorem: a
+triangulated spherical screen carries twelve unit curvature defects, and the
+finite readout runs through the $12$-vertex icosahedral port orbit.
+
 ## The Cosmic Program
 
 Reverse engineering a program without source code is an exercise in inference.
