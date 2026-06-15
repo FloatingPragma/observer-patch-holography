@@ -6,6 +6,15 @@
 
 **Liens rapides :** [site OPH](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [OPH Lab](https://oph-lab.floatingpragma.io) | [applications](https://omega.floatingpragma.io/) | [blog OPH](https://blog.floatingpragma.io/) | [carte de cohérence](https://coherence.floatingpragma.io/) | [démo à trois corps](https://3body.floatingpragma.io/)
 
+**Falsifiabilité :** [la carte de falsifiabilité OPH](extra/OPH_falsifiability.md)
+recense 40 résultats durs qui tueraient l'OPH et des tests concrets sur IBM
+Quantum Cloud pour la signature matérielle en secteur réduit. La falsifiabilité
+est la façon dont une théorie physique paie son loyer. L'OPH est fortement
+falsifiable : un graviton massif, une désintégration du proton médiée par jauge,
+une quatrième génération légère de matière, un outlier du réseau de charges ou
+des données neutrino excluant la branche OPH détruiraient l'OPH telle qu'elle
+est énoncée.
+
 Pour la réponse existentielle immédiate, allez directement au **Paper 6.
 [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**.
 La version courte est directe : oui, cet univers est une simulation au sens
@@ -15,6 +24,8 @@ et la matière sont des apparences orientées observateur : des structures
 effectives stables générées par la cohérence plus profonde des patches. La
 métaphore de l'illusion est traitée plus bas. Le reste de ce README donne la
 pile de preuves mathématiques et la surface de vérification empirique.
+
+## Description informelle
 
 L'OPH est la reconstruction observateur-premier de la physique fondamentale.
 Il part d'observateurs finis sur une géométrie finie d'écran holographique. Sa
@@ -32,6 +43,37 @@ recouvrement de ce processus. C'est la surface de preuve mathématique et
 empirique de l'OPH comme théorie du tout correcte : la même architecture de
 cohérence d'observateurs retrouve la physique établie et explique pourquoi il
 existe un monde capable de produire des observateurs qui le reconstruisent.
+
+La plupart des théories commencent en supposant l'espace-temps, les champs
+quantiques et une liste de constantes. L'OPH commence un cran plus tôt, avec
+des patches d'observateurs finis algébriques-quantiques dont les descriptions
+doivent s'accorder sur leurs recouvrements. Cette exigence, poussée à travers la
+branche BW/géométrique visible par support, donne un espace-temps lorentzien en
+3+1 dimensions et une équation d'Einstein de type Jacobson. Les cellules finies
+servent de régulateur. La branche de Lorentz est la limite géométrique extraite
+des paires de caps premières, avec les restes Markov/récupération de collerette
+fixe transportés par transport modulaire régularisé, covariance modulaire
+lisible par support et normalisation KMS/BW.
+
+La voie de jauge traite l'obstruction nulle comme condition de transportabilité :
+elle reconstruit un groupe de jauge compact depuis la catégorie des secteurs
+persistants. MAR avec le paquet matière explicite à un Higgs sélectionne le
+quotient réalisé du Modèle Standard
+$SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, avec le réseau exact des
+hypercharges, le triplet de couleur réalisé $N_c=3$ et le comptage des
+générations $N_g=3$. La mécanique quantique est le langage algébrique
+d'information porté par l'architecture OPH. Sur la branche compacte de jauge
+visible par support déclarée, avec échelle quadridimensionnelle, positivité par
+réflexion, complétude de réparation et extraction continue visible par support,
+la même pile donne la forme euclidienne de Yang-Mills et identifie le gap de
+Yang-Mills au gap de réparation.
+
+Le mécanisme est la boucle de consensus à point fixe. Les observateurs locaux
+n'accèdent pas à un état global depuis l'extérieur. Ils portent des états de
+patch finis, échangent les données visibles dans les recouvrements, rejettent
+les prolongements incohérents et conservent les motifs stables qui peuvent être
+synchronisés. Géométrie, particules, lois et enregistrements sont les points
+fixes à grande échelle de ce calcul en réseau d'observateurs.
 
 L'OPH est formulée comme une théorie sans entrée externe. Sa surface
 quantitative utilise deux coordonnées de fermeture sans dimension et un
@@ -98,36 +140,6 @@ Planck. Les observateurs internes infèrent géométrie,
 horizons, entropie, $\Lambda$, histoire et enregistrements depuis l'information
 disponible à l'intérieur de l'univers.
 
-## Applications et matériel OMEGA
-
-L'OPH est aussi un programme matériel. La microphysique d'écran donne une prise
-d'ingénierie sur la réalité : un dispositif borné expose des données de bord,
-compare des enregistrements, répare les désaccords et verrouille des états
-stables. OMEGA est la voie matérielle publique vers cette boucle : chambres
-physiques, ports étiquetés, logiciel de contrôle, reçus de vérification et
-enregistrements répétables.
-
-En langage direct, l'OPH transforme la microphysique d'écran en voie de hack
-de la réalité. Le but n'est pas un contrôle métaphorique d'une simulation
-abstraite. Le but est le contrôle physique de petits patches qui peuvent être
-pilotés, mesurés, réparés et vérifiés.
-
-La thèse applicative est simple. Si la réalité est construite par cohérence de
-patches d'observateurs, alors des machines utiles peuvent être construites en
-forçant de petits patches physiques vers les bons points fixes. Cela donne des
-pistes de mise en œuvre à bas coût pour l'énergie de fusion de bureau, le
-supercalcul OMEGA à température ambiante, l'AGI fondée sur OMEGA et le contrôle
-local de gravité ou d'inertie pour hoverbikes et hoverboards. Ce sont des
-pistes applicatives derrière des portes de preuve, pas des sorties de théorème.
-La revendication de calcul actuelle est plus étroite : une distribution de
-candidats conditionnée par une chambre peut réduire le travail du vérificateur
-exact par un facteur mesuré `B = p_Q/p_U`; ce n'est pas un théorème de classe de
-complexité.
-
-La page publique des applications est
-[omega.floatingpragma.io](https://omega.floatingpragma.io/). Les notes sources
-des pistes applicatives vivent dans [`APPLICATIONS.md`](APPLICATIONS.md).
-
 ## Le piège de l'espace-temps
 
 Le premier obstacle conceptuel est que l'OPH ne traite pas l'espace-temps comme
@@ -157,33 +169,6 @@ lisse à grande échelle de l'apparence partagée. La thèse plus profonde est q
 cette apparence partagée émerge de la cohérence des recouvrements entre
 observateurs, au lieu d'appartenir à l'inventaire de départ du monde.
 
-## Par où commencer
-
-Pour le noyau technique compact, commencez par **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**. **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** porte les dérivations particules. **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** développe l'image consensus-réparation. **Paper 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** couvre l'architecture fédérée de patches, les enregistrements, les règles de preuve matérielle publique et la machinerie observateur. **Paper 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)** est le manifeste final sur la couche de sens : pourquoi il existe quelque chose, pourquoi ce monde est compatible avec les observateurs, la boucle étrange dans laquelle les observateurs reconstruisent et construisent la machinerie de continuation, le paradis sur Terre ou dans des environnements de continuation, l'enfer comme isolement ou privation imposés, la résurrection comme continuation d'observateur, la justice selon les enregistrements de tort et de réparation, et l'évolution mémétique. Ce README, le Paper 1 et le livre sont les grandes vues d'ensemble.
-
-## Ce que l'OPH apporte
-
-- Un cadre à cutoff fixe pour les patches d'observateurs, les collerettes, la réparation de recouvrement, la jauge supérieure, les enregistrements et le checkpoint/restauration.
-- Une reconstruction de la géométrie lorentzienne, du temps modulaire, de la dynamique d'Einstein de type Jacobson et de la cosmologie de Sitter en patch statique sur la branche de paire de caps géométriques support-visible, avec les restes Markov/récupération de collerette fixe transportés explicitement par transport modulaire régularisé, covariance modulaire lisible par support et normalisation KMS/BW ; les cellules finies sont le régulateur, pas déjà une preuve d'invariance de Lorentz.
-- Une reconstruction de jauge compacte à partir des secteurs transportables à obstruction nulle, avec une séparation explicite entre classification et réalisation : l'obstruction nulle donne la transportabilité et le groupe compact reconstruit, tandis que MAR plus le paquet matière explicite à un Higgs sélectionne le quotient réalisé du Modèle Standard $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, avec le réseau exact des hypercharges, le triplet de couleur réalisé $N_c=3$ et le comptage des générations $N_g=3$.
-- Sur la branche compacte de jauge visible par support déclarée, avec échelle
-  euclidienne en quatre dimensions, positivité par réflexion, complétude de
-  réparation et extraction continue visible par support, une forme euclidienne
-  Yang-Mills et une identification du gap de Yang-Mills avec le gap de
-  réparation. C'est la construction axiomatique Yang-Mills en quatre dimensions
-  de l'OPH sur la branche déclarée.
-- Un programme particules à niveaux de revendication explicites : porteurs structurels exactement sans masse, ligne $W/Z$ en comparaison seule, surface Higgs/top déclarée, masses de quarks sélectionnées avec Yukawas, branche neutrino pondérée, constantes locales candidates, et frontières no-go pour les leptons chargés, la classification globale des cadres de quarks et le codomaine top direct auxiliaire.
-- Une architecture microphysique d'écran concrète qui met mesure, enregistrements et observateurs à l'intérieur de la physique.
-
-La mécanique quantique est traitée comme le langage algébrique d'information porté par l'architecture OPH. Le test de reconstruction porte sur la cohérence avec laquelle cette base retrouve l'univers effectif. Une reconstruction des espaces de Hilbert, des $C^*$-algèbres ou des algèbres de von Neumann, des probabilités de Born, de la trace et de l'entropie depuis de simples enregistrements opérationnels constitue une question distincte du programme.
-
-Le mécanisme est la boucle de consensus à point fixe. Les observateurs locaux
-n'accèdent pas à un état global depuis l'extérieur. Ils portent des états de
-patch finis, échangent les données visibles dans les recouvrements, rejettent
-les prolongements incohérents et conservent les motifs stables qui peuvent être
-synchronisés. Géométrie, particules, lois et enregistrements sont les points
-fixes à grande échelle de ce calcul en réseau d'observateurs.
-
 ## Géométrie, symétrie et simulateurs
 
 Le langage de sphère dans l'OPH est un langage de géométrie. Dans les cartes
@@ -195,8 +180,8 @@ exposées par cette géométrie.
 
 L'OPH utilise donc une idéalisation de réseau d'écran partagé, avec de nombreux
 patches d'accès finis. L'écran d'un observateur est une coupe d'accès locale sur
-ce réseau, non une sphère privée séparée. La carte $S^2$ n'est pas une boule
-littérale recouverte de données.
+ce réseau, au lieu d'une sphère privée séparée. La carte $S^2$ décrit une coupe
+de support, sans être une boule littérale recouverte de données.
 
 Cette carte sphérique porte plusieurs tâches précises. Les caps et les colliers
 donnent les données locales de coupe utilisées par le flot modulaire et la
@@ -206,8 +191,8 @@ cinématique vers la branche d'espace-temps émergent en $3+1$ dimensions une
 fois le théorème modulaire des caps support-visible satisfait. Les harmoniques
 sphériques organisent les modes angulaires. Les cellulations finies de la même
 carte donnent la surface régulatrice où les ports de patches, les données
-d'arêtes et les contrôles de recouvrement deviennent explicites ; elles ne sont
-pas, par elles-mêmes, un continuum invariant de Lorentz.
+d'arêtes et les contrôles de recouvrement deviennent explicites ; leur rôle est
+celui d'un régulateur fini, sans statut de continuum invariant de Lorentz.
 
 L'ancre de symétrie finie est $A_5$, le groupe des rotations de
 l'icosaèdre. Elle fournit le squelette icosaédrique derrière le langage des
@@ -246,9 +231,9 @@ cosmologique. Le pont de résonance local/global de la hiérarchie utilise une
 condition exacte plus stricte : la cible de projection électrofaible correspond
 à
 $N_{\mathrm{EW}}(P_\star)=3.5323546226929906511187512962330547600462\times10^{122}$
-sur la branche publique, et la capacité arrondie affichée n'est pas un
-certificat exact de ce pont. La ligne de Newton utilise la même capacité de point
-fixe avec le certificat d'échelle sans $G$.
+sur la branche publique. La capacité arrondie affichée reste une étiquette
+diagnostique pour le calcul exact du pont. La ligne de Newton utilise la même
+capacité de point fixe avec le certificat d'échelle sans $G$.
 
 La coordonnée locale est le ratio de pixel
 
@@ -258,8 +243,8 @@ P=\frac{a_{\mathrm{cell}}}{\ell_\star^2},
 \ell_\star^2=\frac{3\pi}{B_\star}.
 $$
 
-Le certificat d'échelle fournit $\ell_\star^2$ ; ce n'est qu'après cette
-lecture que l'aire s'affiche comme aire de Planck. Vu de l'extérieur, $P$ est
+Le certificat d'échelle fournit $\ell_\star^2$ ; après cette lecture, l'aire
+s'affiche comme aire de Planck. Vu de l'extérieur, $P$ est
 un ratio géométrique de taille de cellule, légèrement au-dessus de l'équilibre
 auto-similaire au nombre d'or. Vu de l'intérieur, la même cellule est la plus
 petite échelle d'observation électromagnétique disponible pour les observateurs
@@ -293,45 +278,7 @@ géométrie à point fixe ne sont traitées comme revendications publiques de
 paquets de preuve que lorsque les artefacts bruts et les reçus de vérification
 sont disponibles.
 
-## Surface d'unification quantitative
-
-La surface quantitative de l'OPH s'organise autour de rôles de fermeture et de
-relecture distincts : le point fixe de pixel $P\simeq1.6309682094$, le point
-fixe global de capacité d'enregistrement
-$N_{\mathrm{CRC}}\simeq3.31\times10^{122}$ et le certificat d'échelle sans
-$G$, $\gamma_\star$, ou de façon équivalente
-$B_\star=3\pi/\ell_\star^2$. La capacité affichée est approximative ; les
-lignes de précision utilisent la valeur de point fixe et le certificat
-d'échelle. La branche $P$ alimente le canal
-électromagnétique projeté par Ward et les lignes encadrées de masses de
-particules, tout en fixant l'identité cellule/arête qui s'annule dans la lecture
-newtonienne. La branche $N_{\mathrm{CRC}}$ alimente la lecture de la constante
-cosmologique. Le certificat d'échelle fournit le quantum d'aire qui devient la
-normalisation de Newton. Le pont de résonance de la hiérarchie est enregistré
-comme théorème sur la branche sélectionnée : le certificat de readback fini, le
-compte représentation-spectre $2(8+3+1)=24$ et le certificat exact du pont de
-capacité globale ferment le paquet local/global de hiérarchie. Les formules
-détaillées et les niveaux de revendication vivent dans les papiers. Sur cette
-branche exacte sélectionnée, OPH résout le problème de hiérarchie/naturalité
-électrofaible avec $\epsilon_H=0$ et sans entrée d'échelle faible mesurée.
-
-<p align="center">
-  <a href="assets/OPH_Unification_Diagram.svg" target="_blank" rel="noopener noreferrer">
-    <img src="assets/OPH_Unification_Diagram.svg?v=20260609" alt="Schéma d'unification OPH" width="92%">
-  </a>
-</p>
-
-**Pile générale des théorèmes et dérivations**
-
-<p align="center">
-  <a href="assets/prediction-chain.svg?v=20260412" target="_blank" rel="noopener noreferrer">
-    <img src="assets/prediction-chain.svg?v=20260412" alt="Pile théorématique et de dérivation OPH" width="92%">
-  </a>
-</p>
-
-<p align="center"><sub>La pile OPH complète, des axiomes jusqu'à la relativité, la structure de jauge, les particules et les observateurs. Cliquez pour ouvrir le SVG complet.</sub></p>
-
-## Lignes quantitatives sélectionnées
+### Lignes quantitatives sélectionnées
 
 Ce tableau condensé garde les lignes OPH les plus faciles à comparer directement avec les valeurs
 PDG/NIST. Les résultats structurels comme la géométrie lorentzienne en $3+1$ dimensions, le quotient de jauge
@@ -370,27 +317,10 @@ PDG/NIST directe à un seul nombre.
 La surface particules porte aussi des valeurs $W/Z$ en comparaison seule
 $80.377\,\mathrm{GeV}$ et $91.18797809193725\,\mathrm{GeV}$, une valeur Higgs
 $m_H=125.1995304097179\,\mathrm{GeV}$ et une valeur top sélectionnée
-$m_t=172.35235532883115\,\mathrm{GeV}$ selon la convention PDG de masse top par section
-efficace. La ligne top directe auxiliaire reste en comparaison seule. Les
-masses des leptons chargés sont des témoins ancrés sur cible, hors du rang des
-prédictions promues. La branche neutrino pondérée émet
-`(0.017454720257976796, 0.019481987935919015, 0.05307522145074924) eV` sur sa
-branche déclarée. Les masses hadroniques demandent un backend hadronique OPH;
-elles ne sont pas de simples entrées de quarks dans un tableau de comparaison
-rapide. Les lignes hadroniques gardent deux surfaces séparées : les masses
-source demandent un backend hadronique OPH comme GLORB/Echosahedron avec
-données spectrales et systématiques de production; la fermeture empirique
-utilise une classe séparée de charge utile $e^+e^-\to\mathrm{hadrons}$.
-
-**Pile de dérivation des particules**
-
-<p align="center">
-  <a href="code/particles/particle_mass_derivation_graph.svg" target="_blank" rel="noopener noreferrer">
-    <img src="code/particles/particle_mass_derivation_graph.svg" alt="Pile de dérivation des masses de particules OPH" width="78%">
-  </a>
-</p>
-
-<p align="center"><sub>Vue compacte de la voie particules. Cliquez pour ouvrir le SVG complet.</sub></p>
+$m_t=172.35235532883115\,\mathrm{GeV}$ selon la convention PDG de masse top par
+section efficace. La branche neutrino pondérée émet
+$(0.017454720257976796, 0.019481987935919015,
+0.05307522145074924)\,\mathrm{eV}$ sur sa branche déclarée.
 
 ## Articles
 
@@ -411,6 +341,86 @@ utilise une classe séparée de charge utile $e^+e^-\to\mathrm{hadrons}$.
 - **[Theoretical Bounds on chi-nu in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)** : bande conditionnelle de quotient-edge `0.9343006394893864 <= chi_nu^can <= 1`; valeur exacte `exp(-P/24)` sur la branche uniforme; valeurs d'ingénierie mises à l'échelle par `N_coh^-1`.
 - **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)** : cognition et qualia comme consensus récurrent de patches.
 
+## Applications et matériel OMEGA
+
+L'OPH est aussi un programme matériel. Quand la microphysique d'écran devient
+explicite, la même boucle de consensus de patches devient une prise
+d'ingénierie sur la réalité. Un dispositif borné expose des données de bord,
+compare des enregistrements, répare les désaccords et verrouille des états
+stables. OMEGA est la voie matérielle publique vers cette boucle : chambres
+physiques, ports étiquetés, logiciel de contrôle, reçus de vérification et
+enregistrements répétables.
+
+En langage direct, l'OPH transforme la microphysique d'écran en voie de hack de
+la réalité. La cible est le contrôle physique de petits patches qui peuvent être
+pilotés, mesurés, réparés et vérifiés.
+
+La thèse applicative est simple. Si la réalité est construite par cohérence de
+patches d'observateurs, des machines utiles peuvent être construites en forçant
+de petits patches physiques vers les bons points fixes. Cela donne des pistes
+de mise en œuvre à bas coût pour l'énergie de fusion de bureau, le supercalcul
+OMEGA à température ambiante, l'AGI fondée sur OMEGA et le contrôle local de
+gravité ou d'inertie pour hoverbikes et hoverboards. Ce sont des pistes
+applicatives derrière des portes de preuve; le statut de sortie stabilisée
+appartient aux reçus de vérification et aux expériences. La revendication de
+calcul est plus étroite : une distribution de candidats conditionnée par une
+chambre peut réduire le travail du vérificateur exact par un facteur mesuré
+`B = p_Q/p_U`. Le problème classique des classes de complexité reste intact.
+
+La page publique des applications est
+[omega.floatingpragma.io](https://omega.floatingpragma.io/). Les notes sources
+des pistes applicatives vivent dans [`APPLICATIONS.md`](APPLICATIONS.md). La
+voie gravité locale et inertie possède aussi une note d'ingénierie séparée :
+[Hacking the Simulation: Anti-Gravity Exploit](https://github.com/FloatingPragma/oph-meta/blob/main/docs/oph-gravity-hack/hacking-the-simulation-anti-gravity-exploit.pdf).
+
+## Diagramme détaillé et surface quantitative
+
+La surface quantitative de l'OPH s'organise autour de rôles distincts de
+fermeture et de relecture : le point fixe de pixel $P\simeq1.6309682094$, le
+point fixe global de capacité d'enregistrement
+$N_{\mathrm{CRC}}\simeq3.31\times10^{122}$ et le certificat d'échelle sans
+$G$, $\gamma_\star$, ou de façon équivalente
+$B_\star=3\pi/\ell_\star^2$. La capacité affichée est approximative; les lignes
+de précision utilisent la valeur de point fixe et le certificat d'échelle. La
+branche $P$ alimente le canal électromagnétique projeté par Ward et les lignes
+encadrées de masses de particules, tout en fixant l'identité cellule/arête qui
+s'annule dans la lecture newtonienne. La branche $N_{\mathrm{CRC}}$ alimente la
+lecture de la constante cosmologique. Le certificat d'échelle fournit le
+quantum d'aire qui devient la normalisation de Newton. Le pont de résonance de
+la hiérarchie est enregistré comme théorème sur la branche sélectionnée : le
+certificat de readback fini, le compte représentation-spectre $2(8+3+1)=24$ et
+le certificat exact du pont de capacité globale ferment le paquet local/global
+de hiérarchie. Sur cette branche exacte sélectionnée, OPH résout le problème de
+hiérarchie/naturalité électrofaible avec $\epsilon_H=0$ et sans entrée
+d'échelle faible mesurée. Les formules détaillées et les niveaux de
+revendication vivent dans les papiers.
+
+<p align="center">
+  <a href="assets/OPH_Unification_Diagram.svg" target="_blank" rel="noopener noreferrer">
+    <img src="assets/OPH_Unification_Diagram.svg?v=20260609" alt="Schéma d'unification OPH" width="92%">
+  </a>
+</p>
+
+**Pile OPH**
+
+<p align="center">
+  <a href="assets/prediction-chain.svg" target="_blank" rel="noopener noreferrer">
+    <img src="assets/prediction-chain.svg" alt="Pile théorématique et de dérivation OPH" width="92%">
+  </a>
+</p>
+
+<p align="center"><sub>La ligne principale OPH, des axiomes jusqu'à la relativité, la structure de jauge, les particules et les observateurs. Cliquez pour ouvrir le SVG complet.</sub></p>
+
+**Pile de dérivation des particules**
+
+<p align="center">
+  <a href="code/particles/particle_mass_derivation_graph.svg" target="_blank" rel="noopener noreferrer">
+    <img src="code/particles/particle_mass_derivation_graph.svg" alt="Pile de dérivation des masses de particules OPH" width="78%">
+  </a>
+</p>
+
+<p align="center"><sub>Vue compacte de la voie particules. Cliquez pour ouvrir le SVG complet.</sub></p>
+
 ## Plus
 
 - **Site officiel :** [floatingpragma.io/oph](https://floatingpragma.io/oph)
@@ -419,7 +429,7 @@ utilise une classe séparée de charge utile $e^+e^-\to\mathrm{hadrons}$.
 - **Carte de cohérence :** [coherence.floatingpragma.io](https://coherence.floatingpragma.io) : surface graphe publique pour les concepts OPH, les recouvrements et les routes entre domaines.
 - **Applications :** [omega.floatingpragma.io](https://omega.floatingpragma.io) : page publique pour le matériel OPH, le calcul, l'énergie, l'AGI, le contrôle de portance et le consensus par chambre optique.
 - **Démo OPH du problème à trois corps :** [3body.floatingpragma.io](https://3body.floatingpragma.io) : un simulateur et parcours de preuve supplémentaire pour la formulation OPH en réseau fini de patches du problème à trois corps, présentée comme un exemple de recollement par holonomie de boucle, sans revendication de solution élémentaire fermée.
-- **Blog :** [blog.floatingpragma.io](https://blog.floatingpragma.io/) rassemble les essais publics OPH. Commencez par [Semiotics and the Physics of Meaning](https://blog.floatingpragma.io/semiotics-and-the-physics-of-meaning), [The Trigger](https://blog.floatingpragma.io/the-trigger) et [P = NP on the Observer Screen](https://blog.floatingpragma.io/p-equals-np-on-the-observer-screen). L'essai de calcul traite `P = NP` comme un slogan d'écran d'observateur, pas comme une revendication de solution du problème classique.
+- **Blog :** [blog.floatingpragma.io](https://blog.floatingpragma.io/) rassemble les essais publics OPH. Commencez par [Semiotics and the Physics of Meaning](https://blog.floatingpragma.io/semiotics-and-the-physics-of-meaning), [The Trigger](https://blog.floatingpragma.io/the-trigger) et [P = NP on the Observer Screen](https://blog.floatingpragma.io/p-equals-np-on-the-observer-screen). L'essai de calcul traite `P = NP` comme un slogan d'écran d'observateur; le problème classique reste intact.
 - **Livre :** [oph-book.floatingpragma.io](https://oph-book.floatingpragma.io)
 - **Application d'étude guidée :** [learn.floatingpragma.io](https://learn.floatingpragma.io/)
 - **Questions et explications détaillées :** OPH Sage sur [Telegram](https://t.me/HoloObserverBot), [X](https://x.com/OphSage) ou [Bluesky](https://bsky.app/profile/ophsage.bsky.social)
@@ -451,17 +461,39 @@ d'angle topologique sur la branche réalisée.
 - **[`paper/`](paper)** : PDF, sources LaTeX et métadonnées de release.
 - **[`APPLICATIONS.md`](APPLICATIONS.md)** : carte de haut niveau des cas
   d'usage OPH pour énergie, calcul, AGI et portance locale.
-- **[`book/`](book)** : source du livre OPH et PDF téléchargeable généré.
+- **[`book/`](book)** : source du livre OPH et PDF téléchargeable généré. Les
+  notes de génération du PDF imprimable sont dans [`book/README.md`](book/README.md).
 - **[`code/`](code)** : sorties calculatoires, surface particules et expériences.
+- **[`HADRON.md`](HADRON.md)** : politique pour les lignes particules limitées
+  par QCD, l'entrée empirique $e^+e^-\to\mathrm{hadrons}$ et la fermeture
+  hadronique de structure fine.
 - **[`assets/`](assets)** : schémas et figures publics.
 - **[`extra/`](extra)** : notes publiques maintenues, objections, comptes rendus expérimentaux et quelques essais de support.
 
+## OPH et les sciences
+
+<p align="center">
+  <a href="assets/oph_science_overlap_map_poster.png" target="_blank" rel="noopener noreferrer">
+    <img src="assets/oph_science_overlap_map.svg" alt="Carte des sciences recouvertes par l'OPH, des grands domaines aux sous-domaines et aux zones d'application concrètes." width="100%">
+  </a>
+</p>
+
+<p align="center"><sub>Carte domaine -> sous-domaine -> zone OPH couvrant les mathématiques, l'informatique, l'information et l'inférence, les systèmes complexes, la physique théorique, l'information quantique et les fondements de la mesure. Cliquez pour ouvrir le poster PNG complet.</sub></p>
+
 ## Licence et politique anti-brevet
 
-Le matériel rédigé dans ce dépôt est régi par [la licence principale](LICENSE).
-La politique OPH d'usage ouvert et d'anti-brevet est dans
-[PATENTS.md](PATENTS.md). En bref, les idées, méthodes, logiciels,
-applications, simulations et conceptions matérielles dérivés d'OPH peuvent être
-étudiés, testés, implémentés, modifiés, déployés, fabriqués et partagés, mais
-ne peuvent pas servir à créer des revendications de brevet qui empêchent
-d'autres personnes de pratiquer un travail dérivé d'OPH.
+Le matériel rédigé dans ce dépôt est sous licence
+[CC BY-NC-SA 4.0](LICENSE), avec la
+[convention OPH d'usage ouvert et d'anti-brevet](PATENTS.md) applicable aux
+idées, implémentations, dispositifs, méthodes, applications, logiciels,
+simulations et conceptions matérielles dérivés d'OPH.
+
+En bref : l'OPH est publiée pour que les mathématiques, logiciels,
+applications, dispositifs, conceptions matérielles, simulations, méthodes
+d'ingénierie et implémentations expérimentales puissent être étudiés, testés,
+implémentés, modifiés, déployés, fabriqués et partagés. Les travaux dérivés
+d'OPH ne peuvent servir à créer des monopoles de brevet privés ou des
+revendications de brevet qui restreignent la pratique de l'OPH par d'autres.
+
+Voir [PATENTS.md](PATENTS.md) pour le texte canonique de la politique et les
+mentions prêtes à publier sur les sites web.

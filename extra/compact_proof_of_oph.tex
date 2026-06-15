@@ -93,7 +93,8 @@ point of its own readback. The pixel lock says a physical pixel cannot remain
 purely golden; the electromagnetic field width detunes it by
 \(\alpha\sqrt\pi\). The horizon lock says a closed universe cannot borrow
 memory; record supply and screen cost close on \(N_\star\). The hierarchy lock
-turns \(P_\star,N_\star\) into the 24-tick weak-scale repair. The gravity lock
+uses \(P_\star\) and the EW-refined bridge capacity to make the 24-tick
+weak-scale repair exact. The gravity lock
 cancels \(P_\star\) out of Newton coupling. The output lock is the 34-row table
 at the end.
 
@@ -273,22 +274,24 @@ interval.}
 \infobox{The 24-tick consistency lock}{
 Before gravity enters, OPH makes a link that ordinary model-building keeps
 separate: gauge algebra size, horizon capacity, the local pixel, and the Higgs
-hierarchy land in one repair equation. The local pixel \(P_\star\) and global
-capacity \(N_\star\) must pass the 24-tick hierarchy readback [O4,O5]:
+hierarchy land in one repair equation. The global repair tick has the
+capacity-normalized form [O4,O5]
 \[
-  |g_\star'|
+  |g_N'|
   =
-  \left(\frac{N_\star}{\pi}\right)^{-1/48},
-  \qquad
+  \left(\frac{N}{\pi}\right)^{-1/48}.
+\]
+On the selected electroweak bridge this is evaluated at \(N=N_{\rm CRC}^{\rm EW}\), giving
+\[
   \frac{v}{E_{\rm cell}}
   =
-  |g_\star'|^{4P_\star}
+  |g_{\rm EW}'|^{4P_\star}
   =
-  \left(\frac{N_\star}{\pi}\right)^{-P_\star/12}.
+  \left(\frac{N_{\rm CRC}^{\rm EW}}{\pi}\right)^{-P_\star/12}.
 \]
 The left side is a physical hierarchy ratio; the right side has no fit
-parameter. Here \(g_\star'\) is the contraction factor for one global repair
-tick, \(N_\star/\pi\) is the dimensionless squared horizon-radius capacity,
+parameter. Here \(g_N'\) is the contraction factor for one global repair
+tick, \(N/\pi\) is the dimensionless squared horizon-radius capacity,
 \(v\) is the Higgs vacuum scale, and \(E_{\rm cell}\) is the energy assigned to
 one OPH cell. The exponent \(1/48=1/(2\cdot24)\) converts capacity to radius
 and spreads the contraction across the solved 24-tick repair cycle. The 24
@@ -321,7 +324,7 @@ residual mismatch left after RG transport and OPH coarse-graining carry the
 source-side Higgs normal form down to the electroweak branch. The interval
 \([0,0]\) is the certified defect range. Zero means there is no cancellation to
 arrange. The Higgs scale is the local projection of the same 24-tick repair
-cycle that closes the horizon record. Substituting the tick factor into the
+law that closes the horizon record. Substituting the tick factor into the
 projection gives the combined exponent \(-4P_\star/48=-P_\star/12\). The
 bridge-refined value is
 \[
@@ -557,15 +560,21 @@ Closed-screen record capacity on the selected branch. &
 derived &
 [O1,O4]\\
 
-24-tick repair factor &
-\(|g_\star'|=(N_\star/\pi)^{-1/48}\) &
+24-tick repair law &
+\(|g_N'|=(N/\pi)^{-1/48}\) &
 One tick of the doubled product-adjoint global repair rhythm. &
 derived &
 [O4,O5,C3]\\
 
+EW bridge capacity &
+\(\displaystyle N_{\rm CRC}^{\rm EW}=\pi\exp\!\left[\frac{6\pi}{P_\star\alpha_U(P_\star)}\right]\) &
+Unique source-side capacity that satisfies the exact electroweak bridge residual. &
+derived &
+[O4,O5,C3]\\
+
 Hierarchy resonance &
-\(\displaystyle v/E_{\rm cell}=(N_\star/\pi)^{-P_\star/12}\) &
-Weak scale as the local projection of the global repair cycle. &
+\(\displaystyle v/E_{\rm cell}=(N_{\rm CRC}^{\rm EW}/\pi)^{-P_\star/12}=|g_{\rm EW}'|^{4P_\star}\) &
+Weak scale as the local projection of the global repair law on the EW bridge. &
 derived &
 [O4,O5,C3]\\
 
