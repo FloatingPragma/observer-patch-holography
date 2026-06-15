@@ -360,34 +360,52 @@ In 2003, philosopher Nick Bostrom posed a disturbing question: are we living in 
 
 His argument was statistical and is usually framed as a trilemma: either civilizations like ours rarely reach simulation-capable maturity, or they rarely choose to run many ancestor simulations, or simulated observers vastly outnumber unsimulated ones. On the third horn, we would then have reason to think we are probably simulated.
 
-This argument has been debated endlessly. But the interesting question is not whether we are "in" a simulation. It is what the simulation principle reveals about the nature of reality itself.
+This argument has been debated endlessly. OPH takes the useful part and changes
+the frame. The question is the kind of computation that can count as reality.
 
 ### The Wrong Question
 
-The simulation principle assumes a sharp distinction: either reality is "real" (made of genuine stuff) or it is "simulated" (made of bits in someone else's computer). This distinction presupposes that "real stuff" and "computational processes" are fundamentally different.
-
-But what if they are not?
+The simulation principle often assumes a sharp distinction: reality is either
+"real" material stuff or "simulated" bits in someone else's computer. That
+distinction presupposes that material reality and computation belong to
+different categories.
 
 ### The Right Question
 
-OPH supports a different perspective. Computation becomes a serious candidate organizing picture for reality. The screen is a quantum system processing information according to gauge constraints. Observers are patterns within that computation. The laws of physics are the rules that allow consistent information processing across patches.
+OPH supports a different perspective. Computation becomes a serious candidate
+organizing picture for reality. A conventional simulation evolves a surrogate
+history. OPH points to a fixed-point computation: observer patches, records,
+overlaps, and repair rules settle into a normal form whose internal readout is
+history. The screen is a quantum system processing information according to
+gauge constraints. Observers are patterns within that computation. The laws of
+physics are the rules that allow consistent information processing across
+patches.
 
-From this view, asking "are we in a simulation?" becomes less useful than asking what kind of computational organization reality may instantiate. Computation is not being used here as a loose metaphor; it is being treated as a serious candidate organizing picture for reality.
+Computation is not being used here as a loose metaphor. It is the proposed
+organizing picture for reality.
 
-### The Strange Loop of Self-Simulation
+### The Strange Loop of Fixed-Point Continuation
 
 But there is a deeper speculative possibility, one that connects to the strange loops we discussed earlier.
 
-If reality is computational, then observers can evolve within that computation, model their environment, develop science, and understand the rules well enough to simulate key aspects of them.
+If reality is computational, observers can evolve inside the fixed-point
+output, model their environment, develop science, and understand the rules well
+enough to build continuation systems from them.
 
-This would be the strange loop: **reality evolves observers who discover how reality works and build simulations of it, closing the loop of self-creation**.
+This would be the strange loop: **reality evolves observers who discover how
+reality works and build fixed-point continuations of it, closing the loop of
+self-creation**.
 
-In this speculative continuation, we are not programs running on someone else's hardware. We are patterns within a self-simulating system. The simulation would run through us, through our understanding, and through our eventual construction of the very computational substrate that gives rise to us.
+In this speculative continuation, observers are patterns inside the
+observer-facing output. The computation closes through their understanding and
+through their eventual construction of the substrate that restores the records
+from which they themselves arose.
 
 This thread sits furthest out on the philosophical edge of the book. The
 physics does not depend on it, yet it gives the book a striking closure.
 
-Escher's hands draw each other. Reality simulates the observers who simulate reality.
+Escher's hands draw each other. Reality produces observers who learn to produce
+the same kind of observer-readable closure.
 
 ### The Physics
 
@@ -398,7 +416,9 @@ state. The implementation surface is a federation of finite patches, with the sc
 acting as an observer-facing geometry chart. In that regulated model,
 spacetime, particles, and observers all emerge as outputs.
 
-The simulation principle asked the right question in the wrong frame. The useful question is not "are we simulated?" It is "what is the nature of the self-simulating loop we are part of?" OPH gives that question a physical direction.
+The simulation principle asked the right question in the wrong frame. OPH gives
+the sharper version a physical direction: what fixed-point computation has this
+world as its internal readout?
 
 ## 2.12 The Meter: A Case Study in Agreement
 

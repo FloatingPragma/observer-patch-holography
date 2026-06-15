@@ -976,25 +976,26 @@ branch. The SI gravity decimal is a separate clock-scale readout.
 There is also a global capacity-side tick story. OPH treats reality as a
 continual repair of disagreements between local observers. In the hierarchy
 story, a local physics pixel has to synchronize with the cosmic
-record-capacity screen. A 24-layer repair rhythm carries the global capacity
-ratio as
-$|g_\star'|=(N_{\mathrm{CRC}}/\pi)^{-1/48}$. This is the informal reason the
-local pixel scale $P$ can resonate with the huge cosmic capacity $N$: particle
-physics samples one small piece of the same repair cycle that closes the whole
+record-capacity screen. One Universe tick is read locally as twenty-four
+repair rounds. The full tick carries the horizon-to-cell contraction; one
+local round carries one twenty-fourth of that contraction. This is the
+book-level picture behind the local/global hierarchy link: particle physics
+samples a small repeated piece of the same repair cycle that closes the whole
 horizon record.
 
 Those 24 layers have a simple group-theory origin. The visible product branch
 has eight color channels, three weak channels, and one hypercharge channel.
-Reversible repair reads each channel in two orientations, write and verify, so
-$2(8+3+1)=24$. The SU(5) adjoint lands on the same single-orientation number
-for a different support; its X/Y mixed gauge channels are absent from the OPH
-product branch.
+Reversible repair reads each channel in two orientations, write and verify.
+Twelve one-way channels therefore become twenty-four local repair rounds. The
+SU(5) adjoint lands on the same single-orientation number for a different
+support; its X/Y mixed gauge channels are absent from the OPH product branch.
 
-The compact bridge formula is
-$\Pi_{\mathrm{EW}}(P,N)=24\pi/(\alpha_U(P)\log(N/\pi))$. Equivalently,
-$N_{\mathrm{EW}}(P)=\pi\exp[6\pi/(P\alpha_U(P))]$, giving
-about $3.53235\times10^{122}$ on the public endpoint branch. The rounded
-$3.31\times10^{122}$ value is the capacity-scale display.
+The exact bridge capacity is about $3.53235\times10^{122}$ on the public
+endpoint branch. The rounded $3.31\times10^{122}$ value is the de Sitter
+capacity-scale display. The screen-sieve theorem explains why the weak-scale
+exponent is divided by twelve: the finite spherical screen exposes twelve
+icosahedral sampling ports, the refinement-stable orbit of its unit fivefold
+curvature defects.
 
 In the technical papers this bridge value is also written as a fixed point in
 log-capacity coordinates. The book-level point is simpler: the exact bridge
@@ -1004,8 +1005,8 @@ capacity-scale display.
 The readback side has a matching finite statement. At a finite cutoff, the
 closed observer record selects one public capacity atom, so the delivery
 resolution is a single value. No menu of incompatible scales remains. In the
-refinement limit, that resolution becomes the horizon-to-cell factor
-$(N_{\mathrm{CRC}}/\pi)^{-1/2}$ used by the repair tick.
+refinement limit, that single atom becomes the horizon-to-cell factor used by
+the repair tick.
 
 **Charge quantization.** All color-singlet particles have integer electric charge. No fractional charges like $\pm 1/3$ can exist outside hadrons. This follows from the global structure of the gauge group.
 

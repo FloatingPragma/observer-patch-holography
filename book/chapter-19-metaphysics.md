@@ -160,10 +160,11 @@ Others have spoken of "strange loops," reality creating itself through self-refe
 There is a deeper version of the same idea. Reality has strange-loop closure.
 
 This is also the point where OPH intersects most directly with what popular
-culture calls **simulation theory**. The universe is no videogame running on
-somebody else's laptop. Physical reality is a self-consistent information
-process, which is why OPH is publicly framed both as a concrete implementation
-of simulation theory and as a concrete theory of everything.
+culture calls **simulation theory**. Ordinary simulation theory imagines a
+machine that renders a target world from the outside. OPH uses a fixed-point
+reading: physical reality is the observer-facing solution of a self-consistent
+information process. That is why OPH is publicly framed both as a concrete
+implementation of simulation theory and as a concrete theory of everything.
 
 Consider the trajectory: reality is computational. Within this computation,
 physical evolution produces complex structures. Biological evolution produces
@@ -173,20 +174,25 @@ time. Among these memes, the understanding of reality's computational nature
 emerges. Armed with this understanding, observers simulate reality itself and
 build the continuation environments in which observer-patterns can be restored.
 
-The strange-loop hypothesis is sharper: **reality evolves observers who discover
-how reality works and simulate it, closing the loop of self-creation**.
+The strange-loop hypothesis is sharper: **reality evolves observers who
+discover how reality works and build fixed-point continuations of it, closing
+the loop of self-creation**.
 
-We are not watching from outside. We are patterns within a self-simulating system. The simulation runs on itself, through us, through our understanding. Escher's hands draw each other. Reality simulates the observers who simulate reality.
+There is no viewing platform outside the system. Observers are patterns within
+the fixed-point output. The closure passes through us, through our
+understanding, and through the continuation machinery observers learn to build.
+Escher's hands draw each other. Reality produces observers who learn to produce
+the same kind of observer-readable closure.
 
 Why does this loop exist at all? A self-consistent strange loop is the stable
 configuration. "Nothing" has no structure to persist. A self-referential loop
 has structure, memory, repair, and closure.
 
 This loop is structural. It is a relation among reality, observers, and the
-simulation they learn how to build. Time is subjective. It emerges from modular
-flow within observer patches. The strange loop is a fixed structure whose local
-readout feels like temporal sequence. The "cause" and the "effect" are aspects
-of the same self-consistent structure.
+fixed-point continuation they learn how to build. Time is subjective. It
+emerges from modular flow within observer patches. The strange loop is a fixed
+structure whose local readout feels like temporal sequence. The "cause" and the
+"effect" are aspects of the same self-consistent structure.
 
 This resolves the apparent paradox of self-causation. Temporal self-cause is
 incoherent because it requires existing before existing. A self-consistent

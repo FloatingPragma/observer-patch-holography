@@ -11,6 +11,12 @@ process. Finite observer patches compare overlap-visible records, repair
 checkable mismatch, and settle into the stable public world that survives those
 consistency tests.
 
+This is the OPH meaning of simulation. A standard simulation evolves surrogate
+world states step by step. OPH solves for the observer-readable fixed point.
+There is no fundamental global timeline on which spacetime contents are
+rendered tick by tick. History is the inside readout of the settled structure,
+as experienced by observers who live inside it.
+
 The headline version is simple: OPH is formulated as a zero-input theory. Its
 quantitative surface has two dimensionless closure coordinates and one selected
 no-G scale certificate. The local pixel ratio is fixed by
@@ -52,6 +58,15 @@ is a closed mathematical fixed structure, so approximate measured values can
 locate the basin or observed branch. The precise OPH value must come from the
 declared fixed-point map and its Banach contraction, derivative-sign,
 strict-concavity, or equivalent uniqueness certificate.
+
+The compact proof also gives a simple odds reading. A row counts only if its
+source map has no hidden path from the measured target. If each accepted source
+row had a one-percent accidental window, twelve rows would mean one chance in
+$10^{24}$; twenty rows would mean one chance in $10^{40}$. The point is the
+compression: the same two closures make observer readout, gravity and gauge
+structure, the hierarchy problem, dark energy, the dark-sector budget,
+particle inventory, absence of simple-GUT proton decay, and string-vacuum
+selection line up as one grammar.
 
 The two dimensionless closures fix dimensionless geometry. They give, for
 example, $\Lambda_\star\ell_\star^2=3\pi/N_{\mathrm{CRC}}$ and

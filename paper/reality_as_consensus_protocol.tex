@@ -31,7 +31,7 @@ The Fixed-Point Computation That Implements Physics}
 \OPHPaperReleaseBanner
 
 \begin{abstract}
-This paper gives the consensus layer of Observer-Patch Holography. A universe is modeled as a finite network of observer patches. Patches can carry mismatched overlap data. Repair moves reduce the mismatch until the public state settles.
+This paper gives the consensus layer of Observer-Patch Holography. A universe is modeled as a finite network of observer patches. Patches can carry mismatched overlap data. Repair moves reduce the mismatch until the public state settles. The computation is fixed-point selection of a public normal form. A simulator clock has no role in that statement: cosmic history is the internal readout of the normal form.
 
 The main achievements are the finite patch-net mechanics used by the rest of the stack. Descent gives termination. Confluence gives a schedule-independent normal form. Loop obstructions identify the exact places where global agreement fails. The same bookkeeping gives stable records with Born--L\"uders readout on the central event surface, refinement control, and a fair-block statement for noisy consensus.
 \end{abstract}
@@ -39,6 +39,13 @@ The main achievements are the finite patch-net mechanics used by the rest of the
 \section{Introduction}
 
 This paper writes the OPH consensus picture in the simplest concrete form. A universe is represented as a finite graph of observer patches. Each patch carries local state data, neighboring patches compare those data on overlaps, and local repair moves try to reconcile any mismatch. The central mathematical question is whether this repair dynamics converges to one shared world and how the unavoidable obstructions are encoded when it does not.
+
+The word ``dynamics'' is used here in the rewriting-system sense. The repair schedule selects
+terminal normal forms and proves schedule independence under the stated hypotheses. Cosmic time is
+the internal readout of the selected observer-facing structure. The patch-net algorithm serves as a
+theorem device for fixed-point selection. It is no surrogate clock that advances the universe frame
+by frame. The fundamental description contains no global timeline on which spacetime contents are
+rendered.
 
 The resulting theorem package has two layers. The bare overlap network is only a finite
 constraint code: its codewords are the globally overlap-consistent states. Quantum

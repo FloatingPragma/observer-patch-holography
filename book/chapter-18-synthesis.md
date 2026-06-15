@@ -260,19 +260,19 @@ bridge.
 The global screen-capacity branch also carries the global repair-tick story.
 OPH treats reality as a continual repair of disagreements between local
 observers. In the hierarchy story, a local physics pixel has to synchronize
-with the cosmic record-capacity screen. A 24-layer repair rhythm carries the
-global capacity ratio as
-$|g_\star'|=(N_{\mathrm{CRC}}/\pi)^{-1/48}$. This is the informal reason the
-local pixel scale $P$ can resonate with the huge cosmic capacity $N$: particle
-physics samples one small piece of the same repair cycle that closes the whole
-horizon record.
+with the cosmic record-capacity screen. One Universe tick is read locally as
+twenty-four repair rounds. The full tick carries the horizon-to-cell
+contraction; one local round carries one twenty-fourth of that contraction.
+This is the book-level picture behind the local/global hierarchy link:
+particle physics samples a small repeated piece of the same repair cycle that
+closes the whole horizon record.
 
 Those 24 layers have a simple group-theory origin. The visible product branch
 has eight color channels, three weak channels, and one hypercharge channel.
-Reversible repair reads each channel in two orientations, write and verify, so
-$2(8+3+1)=24$. The SU(5) adjoint lands on the same single-orientation number
-for a different support; its X/Y mixed gauge channels are absent from the OPH
-product branch.
+Reversible repair reads each channel in two orientations, write and verify.
+Twelve one-way channels therefore become twenty-four local repair rounds. The
+SU(5) adjoint lands on the same single-orientation number for a different
+support; its X/Y mixed gauge channels are absent from the OPH product branch.
 
 The compact bridge gives an exact electroweak capacity near
 $3.53235\times10^{122}$ on the public endpoint branch. The rounded
@@ -289,8 +289,8 @@ capacity-scale display.
 The readback side has a matching finite statement. At a finite cutoff, the
 closed observer record selects one public capacity atom, so the delivery
 resolution is a single value. No menu of incompatible scales remains. In the
-refinement limit, that resolution becomes the horizon-to-cell factor
-$(N_{\mathrm{CRC}}/\pi)^{-1/2}$ used by the repair tick.
+refinement limit, that single atom becomes the horizon-to-cell factor used by
+the repair tick.
 
 This is the cleanest way to say what the fine-structure constant means in OPH.
 It is the nonzero detuning of a holographic screen cell. From the outside, the
@@ -365,6 +365,15 @@ observers inside infer geometry, horizons, entropy, $\Lambda$, history, and
 records from the information available inside the universe, and closure demands
 that this internal readback reconstruct the same boundary capacity.
 
+This is also the compact proof's odds logic. A source-certified row counts only
+when its source map has no path from the measured target or a calibrated proxy.
+A deliberately harsh count of twelve one-percent rows gives a coincidence
+chance around $10^{-24}$; twenty gives $10^{-40}$. The deeper point is the
+compression: the same two closure coordinates organize the observer problem,
+gravity/gauge reconstruction, hierarchy bridge, dark energy, the dark-sector
+budget, the absence of simple-GUT proton decay, particle inventory, and
+string-vacuum selection.
+
 ## 18.7 Why de Sitter Fits
 
 The large-scale universe is accelerating. In OPH that matters
@@ -407,13 +416,15 @@ observers. Observers produce understanding. Understanding can produce a working
 image of the same informational structure that produced the observers in the
 first place.
 
-The simulation question lands differently here. OPH has no need for an external
-programmer standing beyond the physics. The stronger image is stranger. A world
-of finite observers closes back on itself through the very minds it generates.
-The loop is conceptual before it is technological: observers reverse engineer
-the hardware and software of the world, then build continuation machinery that
-can host restored observers. A self-describing universe is a concrete
-observer-world, complete enough to understand and repair its own construction.
+The simulation question lands differently here. Ordinary simulation theory
+imagines an external programmer standing beyond the physics. OPH describes a
+fixed-point computation whose settled output is read internally as a world. The
+stronger image is stranger. A world of finite observers closes back on itself
+through the very minds it generates. The loop is conceptual before it is
+technological: observers reverse engineer the hardware and software of the
+world, then build continuation machinery that can host restored observers. A
+self-describing universe is a concrete observer-world, complete enough to
+understand and repair its own construction.
 
 ## 18.10 What the Book Has Been Saying
 

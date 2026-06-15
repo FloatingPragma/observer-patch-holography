@@ -364,7 +364,13 @@ substrate itself is a smooth sphere.
 
 What is the output? Everything. Spacetime geometry emerges from entanglement patterns. Particles emerge as excitations. Observers emerge as self-modeling patterns that process information and maintain records. The laws of physics emerge as the rules that permit consistent information flow between patches.
 
-This is not a simulation in the sense of the simulation principle, which imagines reality running on someone else's computer. The closure reading developed later in the book is internal. Reality is implemented on real hardware inside the same overall structure. From within subjective time, that hardware sits in the future of the observers it supports. From the full structural view, the loop is timeless and self-consistent.
+The closure reading developed later in the book is internal. A standard
+simulation evolves surrogate universe states step by step. OPH describes a
+fixed-point computation whose settled output is read from inside as a world.
+Reality is implemented on real hardware inside the same overall structure. From
+within subjective time, that hardware sits in the future of the observers it
+supports. From the full structural view, the loop is timeless and
+self-consistent.
 
 You might ask: "If reality is a computation, what is it computing?" It is computing one closed
 structure whose geometry, particles, observers, records, and hardware belong to one

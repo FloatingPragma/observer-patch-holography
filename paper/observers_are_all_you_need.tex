@@ -148,7 +148,7 @@
 \OPHPaperReleaseBanner
 
 \begin{abstract}
-Observer-Patch Holography starts from finite observers. Each observer has a horizon-screen patch. Overlapping patches must agree on the records they can both check. This paper is the broad synthesis: it explains how that rule organizes spacetime, gauge structure, matter records, and the quantitative readouts of the theory.
+Observer-Patch Holography starts from finite observers. Each observer has a horizon-screen patch. Overlapping patches must agree on the records they can both check. This paper is the broad synthesis: it explains how that rule organizes spacetime, gauge structure, matter records, and the quantitative readouts of the theory. Computation here means fixed-point readback: an operator on observer-facing world candidates settles to a normal form whose internal readout is history. The simulator-clock picture is excluded; time is part of the internal readout.
 
 The main achievements are the famous-law recovery surface: Lorentz kinematics, the Einstein branch with its Newton limit, the Standard Model gauge quotient, charge quantization, three colors, three generations, Maxwell and Yang--Mills field equations on their branches, protected massless photon/gluon/graviton carriers, the Born--L\"uders and Tsirelson record interface, cosmic capacity closure, the capacity-electroweak hierarchy bridge, and the selected-branch Higgs naturality solution. The paper also states the OPH reverse-engineering rule for quantitative branches: observation may locate the basin, while declared fixed-point maps supply the values and uniqueness certificates.
 \end{abstract}
@@ -178,8 +178,22 @@ The formalism used here is deliberately quantum-algebraic. Patches carry algebra
 record events use the trace/Born rule on their declared operator surface, and the gravity branch
 uses generalized entropy. OPH's theory-of-everything claim is that the observed effective universe
 can be recovered from this axiom set and its stated branch conditions if the framework is correct.
-It is not a demand that every mathematical ingredient be rebuilt from a blank starting point
-before the reconstruction can proceed.
+The reconstruction may use declared standard mathematics and branch hypotheses without treating
+those ingredients as hidden empirical constants.
+
+The computational interpretation has a sharp boundary. An ordinary simulation evolves surrogate
+universe states,
+\[
+U_t\longrightarrow U_{t+1}\longrightarrow U_{t+2}\longrightarrow\cdots .
+\]
+OPH uses a fixed-point computation. In the fundamental description there is no global timeline on
+which the contents of spacetime are updated. The readback-and-repair operator acts on
+observer-readable world candidates and selects a stable solution
+\[
+\mathcal T(W)=W .
+\]
+The local readout of that normal form supplies history for observers who subjectively experience
+time. No external frame renderer or tick-by-tick machine is part of the claim.
 
 That one demand is strong enough to organize the familiar world. The effective bulk is reconstructed
 from compatible screen data. Locality comes from the way collars control recovery across patch
@@ -293,6 +307,20 @@ scale. The screen-sieve theorem gives the geometric reading of the factor
 \(\sum_v(6-\deg v)=12\); MaxEnt/refinement stability spreads that curvature
 charge into twelve unit fivefold defects; edge-center collars make them
 central ports; \(A_5\) symmetry places them on the icosahedral vertex orbit.
+
+The compact proof packages this quantitative surface as a source-certified
+compression test. A row counts in the accidental-hit estimate only when its
+declared source map has no dependency path from the measured target or a
+calibrated proxy. If \(p_i\) bounds the conditional accidental-hit probability
+for row \(i\) after earlier accepted rows, then
+\[
+P_{\rm acc}\le\prod_i p_i .
+\]
+Twelve one-percent source-certified rows give \(P_{\rm acc}\le10^{-24}\);
+twenty such rows give \(10^{-40}\). The estimate is an evidential shorthand.
+The proof load remains the fixed-point maps, uniqueness certificates, source
+records, and falsifiers.
+
 The value of \(P\) comes from giving the same screen cell two readings, with no separate measured
 constant inserted. From outside, the cell sits a little above the exact self-similar
 entropy balance point \(\varphi=(1+\sqrt5)/2\). From inside, the same cell appears as the smallest

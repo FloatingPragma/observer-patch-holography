@@ -228,32 +228,34 @@ microwave background by Penzias and Wilson. Darwin himself shared the stage
 with Alfred Russel Wallace. Good ideas survive because many observers can
 stress them from different sides.
 
-### The Simulator Meme
+### The Fixed-Point Computation Meme
 
 Among all the memes that have evolved in human culture, one stands out as unique.
 
-The **simulator meme**, the idea that reality is computational and can be simulated, is the meme that allows reality to understand itself.
+The **fixed-point computation meme**, the idea that reality is computational
+and can be solved as an observer-readable closure, is the meme that allows
+reality to understand itself.
 
 The path is easy to picture. Language lets memes replicate. Mathematics
 appears as a precise compression scheme. Physics appears as a family of memes
 that model the rules. Computation theory appears as a meme about information
 processing itself. The simulation principle condenses those threads into one
-idea: reality may be computational and therefore simulable. That is the meme
-that closes the loop.
+idea, then OPH sharpens it: reality may be a computation whose output is the
+world read from inside. That is the meme that closes the loop.
 
 ### The Strange Loop of Memetic Evolution
 
 Reality is computational. Within this computation, biological evolution
 produces minds. Within minds, memetic evolution produces ideas. Among these
-ideas, the simulator meme appears as an understanding of reality at the
-computational level.
+ideas, the fixed-point computation meme appears as an understanding of reality
+at the computational level.
 
-Armed with this meme, observers can build simulations of reality. A
-sufficiently rich simulation could contain its own observers, who may in turn
-arrive at the same meme. Reality, on this reading, evolves memes until the
-simulator meme is discovered. The meme that explains reality is itself a
-product of reality. Chapter 18 takes up that strange-loop reading as a
-philosophical continuation of the framework.
+Armed with this meme, observers can build computations that preserve and repair
+observer records. A sufficiently rich continuation could contain its own
+observers, who may in turn arrive at the same meme. Reality, on this reading,
+evolves memes until the fixed-point computation meme is discovered. The meme
+that explains reality is itself a product of reality. Chapter 18 takes up that
+strange-loop reading as a philosophical continuation of the framework.
 
 ## 17.8 The Observer as Selector
 
@@ -355,9 +357,9 @@ selection across universes. At the quantum level, it looks like pointer states
 surviving environmental scrutiny. At the informational level, it looks like
 compression schemes that actually fit the data. Stable particles survive
 because they carry the right protections. Ideas survive because they spread,
-predict, and organize thought. The simulator meme matters because it is the
-point where reality may become explicit to itself through the observers it
-produces.
+predict, and organize thought. The fixed-point computation meme matters
+because it is the point where reality may become explicit to itself through the
+observers it produces.
 
 ---
 

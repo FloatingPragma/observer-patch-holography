@@ -382,8 +382,8 @@ a privileged reference frame?
 The answer is that **there is no observer outside the screen net**. The sphere
 is not an external object that someone can inspect from above. It is the
 symmetric chart for observer-facing support data. OPH does not include any
-external vantage point. Observers are not users viewing a simulation. They are
-patterns *within* the screen data itself.
+external vantage point. Observers have no user seat outside the computation.
+They are patterns *within* the screen data itself.
 
 Think about what an observer actually is in OPH. An observer is a stable
 correlation pattern among some subset of the screen degrees of freedom. This

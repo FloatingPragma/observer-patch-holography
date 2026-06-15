@@ -52,6 +52,14 @@ The main achievements are Lorentz and null structure, the Einstein branch with i
 
 Physics is usually presented in two boxes. One box contains spacetime and gravity. The other contains the particle world. This paper asks whether both can be recovered from a smaller starting point: a finite screen whose neighboring observer patches must agree on their overlaps.
 
+The computation in this paper is a fixed-point computation. A conventional simulator would evolve
+surrogate universe states \(U_t\to U_{t+1}\to\cdots\). OPH instead studies a readback-and-repair
+operator on observer-facing world candidates and asks for the stable normal forms \(W\) satisfying
+\(\mathcal T(W)=W\). The repair schedule is a theorem device for selecting quotient normal forms;
+it is not a one-to-one clock for cosmic time. In the fundamental description there is no global
+timeline that renders spacetime contents tick by tick; history is the internal readout of the
+selected normal form.
+
 That single requirement drives a long structural chain. It explains why the Lorentz group appears, why the low-energy spacetime description follows a Jacobson-type Einstein branch, why the gauge structure is
 \[
 \frac{\SU(3)\times\SU(2)\times\U(1)}{\mathbb Z_6},
@@ -461,6 +469,21 @@ asks whether the OPH readback map is a self-map on that neighborhood and whether
 contraction, derivative sign, strict concavity, or an equivalent uniqueness certificate selects one
 fixed point. Only that selected point is counted as an OPH output; the observational seed is branch
 location, not a fitted constant.
+
+The companion compact proof uses the same convention as a compression
+estimate. A quantitative row enters that estimate only when the declared source
+map has no dependency path from the measured target or a calibrated proxy. If
+\(p_i\) upper-bounds the conditional accidental hit probability of row \(i\)
+after previous accepted rows, then
+\[
+P_{\rm acc}\le\prod_i p_i .
+\]
+Twelve one-percent source-certified rows give \(P_{\rm acc}\le10^{-24}\), and
+twenty give \(10^{-40}\). The numerical bound is secondary to the theorem
+stack: the same two closure coordinates organize the observer readout,
+gravity/gauge reconstruction, hierarchy bridge, dark energy, dark-sector
+budget, product-group proton-decay exclusion, particle inventory, and
+string-vacuum selector.
 
 \begin{theorem}[What the two dimensionless closures determine]\label{thm:pn-dimensionless-geometry}
 Let the local pixel closure be

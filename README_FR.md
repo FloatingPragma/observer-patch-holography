@@ -18,12 +18,16 @@ est énoncée.
 Pour la réponse existentielle immédiate, allez directement au **Paper 6.
 [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**.
 La version courte est directe : oui, cet univers est une simulation au sens
-OPH, un processus de consensus à point fixe fondé sur les observateurs. Oui,
-l'expérience subjective et les esprits sont premiers. Oui, l'espace, le temps
-et la matière sont des apparences orientées observateur : des structures
-effectives stables générées par la cohérence plus profonde des patches. La
-métaphore de l'illusion est traitée plus bas. Le reste de ce README donne la
-pile de preuves mathématiques et la surface de vérification empirique.
+OPH, c'est-à-dire un calcul à point fixe dont la sortie stable, lisible par les
+observateurs, est vécue de l'intérieur comme une histoire. Cela ne signifie
+pas qu'une machine extérieure calcule les positions des particules tic par tic.
+La description fondamentale n'a pas de ligne du temps globale de simulateur ;
+le temps fait partie de la lecture interne. Oui, l'expérience subjective et les
+esprits sont premiers. Oui, l'espace, le temps et la matière sont des
+apparences orientées observateur : des structures effectives stables générées
+par la cohérence plus profonde des patches. La métaphore de l'illusion est
+traitée plus bas. Le reste de ce README donne la pile de preuves mathématiques
+et la surface de vérification empirique.
 
 ## Description informelle
 
@@ -39,10 +43,26 @@ d'observateurs finis portent des enregistrements locaux, ne comparent que les
 données visibles dans leurs recouvrements, réparent les désaccords par des
 mouvements de récupération déclarés et convergent vers des points fixes stables
 qui survivent au raffinement. Le monde public est la sortie stable par
-recouvrement de ce processus. C'est la surface de preuve mathématique et
-empirique de l'OPH comme théorie du tout correcte : la même architecture de
-cohérence d'observateurs retrouve la physique établie et explique pourquoi il
-existe un monde capable de produire des observateurs qui le reconstruisent.
+recouvrement de ce processus. L'OPH calcule le point fixe dont la lecture
+interne est un monde ; il ne produit pas une suite d'images pour un spectateur
+extérieur. C'est la surface de preuve mathématique et empirique de l'OPH comme
+théorie du tout correcte : la même architecture de cohérence d'observateurs
+retrouve la physique établie et explique pourquoi il existe un monde capable de
+produire des observateurs qui le reconstruisent.
+
+La preuve compacte lit l'évidence comme un test de compression certifié par les
+sources. Une ligne numérique ne compte que lorsque sa carte source déclarée n'a
+aucun chemin de dépendance depuis la valeur mesurée ou un proxy calibré. Si
+$p_i$ borne la chance conditionnelle d'un coup accidentel pour la ligne $i$
+après les lignes déjà acceptées, alors
+$P_{\mathrm{acc}}\le\prod_i p_i$. Compter seulement douze lignes certifiées à
+fenêtres d'un pour cent donne $P_{\mathrm{acc}}\le10^{-24}$; vingt lignes de ce
+type donnent $10^{-40}$. Les deux mêmes coordonnées de fermeture organisent
+aussi le problème de l'observateur, la reconstruction gravité/jauge, la
+hiérarchie électrofaible, l'énergie noire, le budget du secteur sombre,
+l'exclusion de la désintégration du proton par bosons de jauge, l'inventaire
+des particules et la sélection du vide de corde comme une seule grammaire de
+fermeture.
 
 La plupart des théories commencent en supposant l'espace-temps, les champs
 quantiques et une liste de constantes. L'OPH commence un cran plus tôt, avec
@@ -243,6 +263,11 @@ sur la branche publique. La capacité arrondie affichée reste une étiquette
 diagnostique pour le calcul exact du pont. La ligne de Newton utilise la même
 capacité de point fixe avec le certificat d'échelle sans $G$.
 
+Informellement, c'est la résonance entre le pixel local et l'écran global. Une
+mise à jour du monde consiste en exactement 24 tours de réparation locale :
+après ces 24 tours, la réduction locale du désaccord s'aligne avec un pas de
+l'écran holographique global.
+
 Le pont compact s'écrit
 
 $$
@@ -418,10 +443,13 @@ quantum d'aire qui devient la normalisation de Newton. Le pont de résonance de
 la hiérarchie est enregistré comme théorème sur la branche sélectionnée : le
 certificat de readback fini, le compte représentation-spectre $2(8+3+1)=24$ et
 le certificat exact du pont de capacité globale ferment le paquet local/global
-de hiérarchie. Sur cette branche exacte sélectionnée, OPH résout le problème de
-hiérarchie/naturalité électrofaible avec $\epsilon_H=0$ et sans entrée
-d'échelle faible mesurée. Les formules détaillées et les niveaux de
-revendication vivent dans les papiers.
+de hiérarchie. En langage de simulation, cette résonance dit qu'une mise à jour
+du monde est faite de 24 tours de réparation locale : le processus local de
+réparation du pixel réduit le désaccord exactement de la quantité requise par
+la capacité de l'écran global. Sur cette branche exacte sélectionnée, OPH
+résout le problème de hiérarchie/naturalité électrofaible avec $\epsilon_H=0$
+et sans entrée d'échelle faible mesurée. Les formules détaillées et les niveaux
+de revendication vivent dans les papiers.
 
 <p align="center">
   <a href="assets/OPH_Unification_Diagram.svg" target="_blank" rel="noopener noreferrer">
