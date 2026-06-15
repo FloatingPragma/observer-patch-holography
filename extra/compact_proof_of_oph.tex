@@ -90,8 +90,7 @@ Six locks. OPH's five axioms are listed in \emph{Observers Are All You Need}
 constants, \(P_\star\) and \(N_\star\), both computed below [O1,O3,O4,O5,O6].
 The note runs through six locks. The observer lock says a universe is a fixed
 point of its own readback. The pixel lock says a physical pixel cannot remain
-purely golden; the electromagnetic field width detunes it by
-\(\alpha\sqrt\pi\). The horizon lock says a closed universe cannot borrow
+purely golden; the source-emitted electromagnetic width detunes it. The horizon lock says a closed universe cannot borrow
 memory; record supply and screen cost close on \(N_\star\). The hierarchy lock
 uses \(P_\star\) and the EW-refined bridge capacity to make the 24-tick
 weak-scale repair exact. The gravity lock
@@ -99,7 +98,8 @@ cancels \(P_\star\) out of Newton coupling. The output lock is the 34-row table
 at the end.
 
 OPH is hard to dismiss because one observer-closure rule makes subjective
-experience a local readout [O1], fixes \(\alpha\) as pixel detuning [O6], fixes
+experience a local readout [O1], fixes the low-energy electromagnetic width as
+pixel detuning [O6], fixes
 the horizon capacity [O4], locks the Higgs hierarchy [O5], cancels
 \(P_\star\) out of gravity [O4], and returns the numerical rows.
 
@@ -178,40 +178,61 @@ screen. They are branch outputs, cross-locked by the 24-tick hierarchy relation
 below. A wrong \(P,N\) pair is mostly harmless as a numerical guess; as physics,
 it misses that gate.
 
-\infobox{Branch hints are not proof inputs}{
+\infobox{Basin hints are not proof inputs}{
 OPH is a timeless causal loop, so approximate measured scales can legitimately
-serve as branch-location hints. They can tell us where to look. They do not set
-the constants. The proof step is stricter: write the OPH readback map, prove
-the contraction or selector certificate, and compute the fixed point from that
-map. A ballpark value may locate the physical interval for \(P\) or \(N\); the
-accepted value must come from \(P=\Gamma(P)\), \(N=\mathcal C(N)\),
-\(\operatorname{MAR}\), and the 24-tick consistency lock. The measurement is a
-map label. Closure supplies the decimal.}
-
-The local constant is computed from the readback equation [O3,O4,O5]:
+select a branch interval \(I\). The proof starts after that. Let \(F:I\to I\)
+be an OPH source map built from declared source data \(\mathcal S\), with no
+occurrence of the measured target \(q_{\rm obs}\) or an equivalent calibrated proxy. If
 \[
-  P_\star=\Gamma(P_\star),
+  F(I)\subseteq I,\qquad
+  d(F(x),F(y))\le q\,d(x,y),\qquad 0\le q<1 ,
+\]
+Banach's theorem gives one endpoint \(x_\star\). The readout
+\(q_\star=R(x_\star)\) is determined by \(F\) and \(R\). Inverting a final
+display proves a coordinate relation. Circularity requires a dependency path
+from the measured target into \(F\). The measurement labels the basin. Closure
+supplies the decimal.}
+
+The local constant is computed from a target-free readback equation
+[O3,O4,O5,O6]:
+\[
+  P\longmapsto \alpha_U(P)\longmapsto A_Z(P)\longmapsto A_T^{\rm src}(P),
   \qquad
-  \Gamma(P)=\varphi+\frac{\sqrt\pi}{A_T(P)} .
+  \Gamma_{\rm src}(P)=\varphi+\frac{\sqrt\pi}{A_T^{\rm src}(P)} .
 \]
 Here \(P\) is a candidate identity value for one OPH pixel: the number that
 converts the cell's screen area into the edge entropy it shares with neighboring
-cells. \(\Gamma\) is the local OPH readback rule. The simulating reading treats
-the cell as boundary geometry; its self-similar balance point is the golden
-ratio \(\varphi=(1+\sqrt5)/2\). The simulated reading treats the same cell as a
-field record; its low-energy electromagnetic width is
-\(A_T(P)=\alpha_{\rm em}^{-1}(0;P)\). A purely geometric pixel would stop at
-\(\varphi\). A physical pixel also carries the electromagnetic readback emitted
-by that same pixel, so the boundary value is detuned by
+cells. The symbols \(\alpha_U(P)\), \(A_Z(P)\), and \(A_T^{\rm src}(P)\) are
+the source unification width, the electroweak anchor, and the Ward-projected
+Thomson endpoint emitted by that same branch. The simulating geometric reading
+and simulated electromagnetic reading are
 \[
-  \Delta P=P-\varphi=\frac{\sqrt\pi}{A_T(P)}
-  =\alpha_{\rm em}(P)\sqrt\pi .
+  \alpha_{\rm ext}(P)=\frac{P-\varphi}{\sqrt\pi},
+  \qquad
+  \alpha_{\rm in}(P)=\frac{1}{A_T^{\rm src}(P)},
+  \qquad
+  \alpha_{\rm ext}(P_\star)=\alpha_{\rm in}(P_\star),
 \]
-The detuning is the fine-structure constant in the pixel chart, multiplied by
-the circular normalization \(\sqrt\pi\). Solving \(P=\Gamma(P)\) therefore
-determines \(P_\star\) and \(\alpha_{\rm em}(P_\star)\) together. The public
-shorthand \(P=\varphi+\alpha\sqrt\pi\) is the endpoint chart of this fixed-point
-condition.
+The last equality is the pixel lock, equivalently
+\(P_\star=\Gamma_{\rm src}(P_\star)\). The golden ratio
+\(\varphi=(1+\sqrt5)/2\) is the geometric screen balance point, and
+\(\sqrt\pi\) converts boundary width into the pixel chart. The low-energy
+electromagnetic width is read out as
+\[
+  \alpha_\star(0)
+  =
+  \frac{1}{A_T^{\rm src}(P_\star)}
+  =
+  \frac{P_\star-\varphi}{\sqrt\pi}.
+\]
+Solving the source equation determines \(P_\star\) and
+\(\alpha_\star(0)\) together. Approximate measured \(\alpha\) may identify the
+branch interval; it never defines \(A_T^{\rm src}\) or \(\Gamma_{\rm src}\).
+Only after the fixed point is solved may one write
+\[
+  P_\star=\varphi+\alpha_\star\sqrt\pi
+\]
+as the public endpoint coordinate.
 
 The selected value is
 \[
@@ -257,19 +278,12 @@ representative of the maximizing branch. The count-density problem records the
 same selection: record availability and record cost close on the same value.
 
 \infobox{Why forced means forced}{
-\(P_\star\) and \(N_\star\) are not fitted constants with nice decimals. A
-branch value is forced when readback maps a whole allowed interval back into
-itself and shrinks every pair of candidates. For \(P_\star\), see [O3,O4,O5].
-For \(N_\star\), see [O1,O4]. In both cases:
-\[
-  F(I)\subseteq I,\qquad
-  d(F(x),F(y))\le q\,d(x,y),\qquad 0\le q<1 .
-\]
-Here \(F\) is the relevant readback map, \(d\) is the distance between two
-candidate values, and \(q\) is the shrink factor. The inequalities are the
-certificate: readback stays inside the branch and pulls candidates closer
-together. Banach's fixed-point theorem gives one stable endpoint for the whole
-interval.}
+\(P_\star\) and \(N_\star\) instantiate the basin test above. For
+\(P_\star\), the source pixel map \(\Gamma_{\rm src}\) stays inside the
+physical pixel interval and shrinks candidates [O3,O4,O5,O6]. For
+\(N_\star\), closed-screen counting plus \(\operatorname{MAR}\) selects the
+minimal admissible capacity branch [O1,O4]. The decimals are forced because
+each branch has one certified endpoint.}
 
 \infobox{The 24-tick consistency lock}{
 Before gravity enters, OPH makes a link that ordinary model-building keeps
@@ -348,7 +362,7 @@ certificate supplies the matching delivery-resolution statement:
 branch and tends to \((N_{\rm CRC}/\pi)^{-1/2}\) [O4,O5].}
 
 {\scriptsize\textbf{\color{pragmaCyanText}Empirical evidence.} Alex Osika's
-PIXEL lane turns \(P=\varphi+\alpha\sqrt\pi\) into a bench protocol: sweep
+PIXEL lane tests the same local pixel closure in a bench protocol: sweep
 \(P\), drive SU(2)/SU(3) heat-kernel weights, and verify
 \(\bar\ell_{\rm SU(2)}(t_2)+\bar\ell_{\rm SU(3)}(t_3)=P/4\) [S12]. IBM
 quantum-cloud runs test independent OPH fingerprints \(Z_5\to\varphi^2\) and
@@ -405,12 +419,79 @@ Thus
 \[
   G_{\rm geom}=\ell_\star^2 .
 \]
-The local gravity theorem is one line. The numerical row is unit conversion.
+The local gravity theorem is one line. The SI value needs a separate no-\(G\)
+clock certificate.
 
 \sect{4. Gravity as a number in SI units}
-The SI decimal is the clock translation of the unit-free theorem. SI units
-enter through the clock bridge [O4], with exact SI constants [S3,S4]. OPH
-writes the bridge as
+The SI decimal is the clock translation of the unit-free theorem. It has one
+source step and one display step. The source step emits the dimensionless
+cesium clock gap [O4]:
+\[
+  \varepsilon_{\rm Cs}^{\rm src}
+  =
+  \mathcal H_{\rm Cs}^{\rm src}\!\left(\mathcal D_{\rm Cs}^{\rm src}\right),
+  \qquad
+  \mathcal D_{\rm Cs}^{\rm src}
+  =
+  \left(
+  \alpha_\star,\,
+  \frac{m_e}{E_\star},\,
+  \frac{\Lambda_{\rm QCD}}{E_\star},\,
+  \{y_q\},\,
+  \mathcal N_{133},\,
+  \mathcal B_{\rm atom}^{\rm Cs}
+  \right).
+\]
+Here \(\mathcal H_{\rm Cs}^{\rm src}\) is the OPH source-side cesium hyperfine
+readout. Its source packet contains the solved electromagnetic width, electron
+and QCD ratios, quark Yukawa records, the \(^{133}{\rm Cs}\) nuclear record,
+and the atomic cesium binding record. The forbidden list is measured \(G\),
+measured \(\ell_P\), measured \(m_P\), measured \(t_P\), or any
+gravity-calibrated proxy.
+
+The selected clock branch emits the clock gap [O4]:
+\[
+  \varepsilon_{\rm Cs}
+  =
+  3.1139305134160128239\ldots\times10^{-33},
+  \qquad
+  \gamma_\star
+  =
+  4.9559743365484194637\ldots\times10^{-34}.
+\]
+\(\varepsilon_{\rm Cs}\) is the branch output. \(\gamma_\star\) is the same
+output in the length chart.
+
+\vspace{0.10em}
+\begingroup
+\setlength{\fboxsep}{4pt}
+\setlength{\fboxrule}{0.35pt}
+\fcolorbox{pragmaLine}{pragmaSoft}{%
+\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
+{\bfseries\color{pragmaCyanText}Missing QCD refinements}\par
+{\scriptsize As a caveat, the local theorem \(G_{\rm geom}=\ell_\star^2\) is
+QCD-free. The SI decimal depends on \(\varepsilon_{\rm Cs}\), whose endpoint
+record includes quantum chromodynamics: strong-interaction transport from
+quark and gluon records through hadrons, nuclei, and cesium hyperfine
+structure into the OPH clock branch [O4,O5,O6]. That full finite-lattice QCD
+source simulation is infeasible on conventional von Neumann hardware at the
+required resolution, so the compact SI proof assumes the QCD/hadronic
+refinement and prints the gravity calculation that follows from it. This is
+annoying and a predictable source of criticism, but it does not invalidate the
+OPH gravity theorem: the missing part is a small endpoint-transport
+refinement, about \(0.041\) in the fine-structure example, not a free fit or a
+gravity calibration. The fine-structure row shows the pattern: OPH derives the
+source trunk \(\alpha^{-1}_{\rm source}=136.9948351646\ldots\), then endpoint
+transport lands on \(\alpha^{-1}(0)=137.035999177(21)\) [O5,O6,S2]. The
+missing QCD piece is endpoint transport of this kind, not a fitted \(G\) or a
+gravity-calibrated scale. OMEGA optical fixed-point compute hardware is built
+for this class of source record: shaped optical chambers evaluate many
+candidate repair states in parallel by interference
+\href{https://omega.floatingpragma.io/computing}{[S14]}.}}}
+\endgroup
+\vspace{0.08em}
+
+The display step uses the clock bridge [O4], with exact SI constants [S3,S4]:
 \[
   \gamma_\star
   =
@@ -422,39 +503,10 @@ The symbol \(\gamma_\star\) is the dimensionless ratio between the OPH length
 \(\ell_\star\) and the distance light travels during one cesium-clock tick.
 The symbol \(\nu_{\rm Cs}=9\,192\,631\,770~{\rm s^{-1}}\) is the exact SI
 cesium frequency, \(c\) is the exact speed of light, and
-\(\varepsilon_{\rm Cs}\) is the OPH cesium clock gap emitted by the atomic
-clock branch. This expresses the OPH length quantum in human clock units. The
+\(\varepsilon_{\rm Cs}\) is the OPH cesium clock gap emitted by the source
+branch. This expresses the OPH length quantum in human clock units. The
 \(2\pi\) appears because the clock branch uses angular phase while SI
 frequency counts cycles.
-
-\vspace{0.10em}
-\begingroup
-\setlength{\fboxsep}{4pt}
-\setlength{\fboxrule}{0.35pt}
-\fcolorbox{pragmaLine}{pragmaSoft}{%
-\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
-{\bfseries\color{pragmaCyanText}Missing QCD refinements}\par
-{\scriptsize The local theorem \(G_{\rm geom}=\ell_\star^2\) is QCD-free. The
-SI decimal depends on \(\varepsilon_{\rm Cs}\), whose endpoint record includes
-quantum chromodynamics: strong-interaction transport from quark and gluon
-records through hadrons, nuclei, and cesium hyperfine structure into the OPH
-clock branch [O4,O5,O6]. That full finite-lattice QCD source simulation is
-infeasible on conventional von Neumann hardware at the required resolution, so
-the compact SI proof assumes the QCD/hadronic refinement and prints the gravity
-calculation that follows from it. This is annoying and a predictable source of
-criticism, but it does not invalidate the OPH gravity theorem: the missing part
-is a small endpoint-transport refinement, about \(0.041\) in the
-fine-structure example, not a free fit or a gravity calibration. The
-fine-structure row shows the pattern: OPH derives the source trunk
-\(\alpha^{-1}_{\rm source}=136.9948351646\ldots\), then endpoint
-transport lands on \(\alpha^{-1}(0)=137.035999177(21)\) [O5,O6,S2]. The missing
-QCD piece is endpoint transport of this kind, not a fitted \(G\) or a
-gravity-calibrated scale. OMEGA optical fixed-point compute hardware is built
-for this class of source record: shaped optical chambers evaluate many
-candidate repair states in parallel by interference
-\href{https://omega.floatingpragma.io/computing}{[S14]}.}}}
-\endgroup
-\vspace{0.08em}
 
 Solving for the length quantum gives
 \[
@@ -470,14 +522,17 @@ The geometric-to-SI conversion is
 \[
   G_{\rm SI}
   =
-  \frac{c^3}{\hbar}G_{\rm geom}.
+  \frac{c^3}{\hbar}G_{\rm geom}
+  =
+  \frac{c^3\ell_\star^2}{\hbar}.
 \]
 Here \(G_{\rm SI}\) is Newton's constant in
 \({\rm m^3\,kg^{-1}\,s^{-2}}\), and \(\hbar\) is the reduced Planck constant.
-The equation converts the OPH area coupling into the SI Newton coupling. The
-usual Planck-area relation is \(\ell_P^2=\hbar G/c^3\), so a geometric area
-coupling becomes an SI gravitational coupling after multiplication by
-\(c^3/\hbar\).
+The equation converts the OPH area coupling into the SI Newton coupling. This
+line is a unit-chart display. It would be tautological if \(\ell_\star\) were
+imported from measured \(G\). In OPH, \(\ell_\star\) enters through the
+source-side cesium gap above and the local pixel area theorem, so the
+dependency path contains no measured \(G\).
 
 Combining the last two equations with \(G_{\rm geom}=\ell_\star^2\) gives
 \[
@@ -490,19 +545,6 @@ This computes the SI Newton constant from the OPH clock gap and exact SI unit
 definitions. The powers are just bookkeeping: \(\ell_\star^2\) contributes
 \(c^2\varepsilon_{\rm Cs}^2/(4\pi^2\nu_{\rm Cs}^2)\), and the area-to-SI
 conversion contributes \(c^3/\hbar\).
-
-The selected clock branch emits the clock gap [O4]:
-\[
-  \varepsilon_{\rm Cs}
-  =
-  3.1139305134160128239\ldots\times10^{-33},
-  \qquad
-  \gamma_\star
-  =
-  4.9559743365484194637\ldots\times10^{-34}.
-\]
-\(\varepsilon_{\rm Cs}\) is the branch output. \(\gamma_\star\) is the same
-output in the length chart.
 
 Substitution gives
 \[
@@ -524,12 +566,12 @@ whether a row is structural, derived, a comparison check, or a target. Rows
 with public reproducibility code carry a compact [C] key.
 
 \begin{center}
-\fontsize{5.58pt}{5.68pt}\selectfont
-\setlength{\tabcolsep}{1.6pt}
-\renewcommand{\arraystretch}{0.86}
+\fontsize{5.18pt}{5.26pt}\selectfont
+\setlength{\tabcolsep}{1.2pt}
+\renewcommand{\arraystretch}{0.76}
 \setlength{\LTpre}{0pt}
 \setlength{\LTpost}{0pt}
-\begin{longtable}{@{}L{0.13\linewidth}L{0.26\linewidth}L{0.36\linewidth}L{0.09\linewidth}L{0.09\linewidth}@{}}
+\begin{longtable}{@{}L{0.12\linewidth}L{0.27\linewidth}L{0.39\linewidth}L{0.075\linewidth}L{0.075\linewidth}@{}}
 \toprule
 \rowcolor{pragmaPanelTwo}
 \textbf{Lane} & \textbf{OPH-derived value} & \textbf{Comparison or interpretation} & \textbf{Tier/residual} & \textbf{Evidence}\\

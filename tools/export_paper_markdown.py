@@ -178,15 +178,23 @@ def postprocess_markdown(text: str) -> str:
 
 
 def ensure_release_banner(text: str, release_tag: str, release_date: str) -> str:
-    malformed_banner = re.compile(
-        r"\A\s*<div class=\"center\">\s*\n\s*\*\*Paper release:\*\*\s*\*\*Released:\*\*\s*\n\s*</div>\s*\n*",
-        re.MULTILINE,
-    )
-    text = malformed_banner.sub("", text)
-    if release_tag in text:
-        return text
+    lines = text.lstrip().splitlines()
+    cleaned: list[str] = []
+    for index, line in enumerate(lines):
+        stripped = line.strip()
+        is_top_banner_line = (
+            "Paper release:" in stripped
+            or stripped.startswith("**Released:**")
+            or stripped.startswith("Released:")
+            or stripped in {'<div class="center">', "</div>"}
+            or (stripped == "" and index < 8 and any("Paper release:" in candidate for candidate in lines[:8]))
+        )
+        if index < 12 and is_top_banner_line:
+            continue
+        cleaned.append(line)
+    text = "\n".join(cleaned).lstrip()
     banner = f"**Paper release:** `{release_tag}`\n**Released:** {release_date}\n\n"
-    return banner + text.lstrip()
+    return banner + text
 
 
 def strip_trailing_whitespace(text: str) -> str:
