@@ -177,7 +177,24 @@ def postprocess_markdown(text: str) -> str:
     return text
 
 
-def export_one(src: Path, dest: Path, pandoc_bin: str) -> None:
+def ensure_release_banner(text: str, release_tag: str, release_date: str) -> str:
+    malformed_banner = re.compile(
+        r"\A\s*<div class=\"center\">\s*\n\s*\*\*Paper release:\*\*\s*\*\*Released:\*\*\s*\n\s*</div>\s*\n*",
+        re.MULTILINE,
+    )
+    text = malformed_banner.sub("", text)
+    if release_tag in text:
+        return text
+    banner = f"**Paper release:** `{release_tag}`\n**Released:** {release_date}\n\n"
+    return banner + text.lstrip()
+
+
+def strip_trailing_whitespace(text: str) -> str:
+    trailing_newline = "\n" if text.endswith("\n") else ""
+    return "\n".join(line.rstrip() for line in text.splitlines()) + trailing_newline
+
+
+def export_one(src: Path, dest: Path, pandoc_bin: str, release_tag: str, release_date: str) -> None:
     export_src = MARKDOWN_SOURCE_OVERRIDES.get(src, src)
     subprocess.run(
         [
@@ -194,17 +211,22 @@ def export_one(src: Path, dest: Path, pandoc_bin: str) -> None:
         check=True,
         cwd=export_src.parent,
     )
-    dest.write_text(postprocess_markdown(dest.read_text(encoding="utf-8")), encoding="utf-8")
+    text = postprocess_markdown(dest.read_text(encoding="utf-8"))
+    text = ensure_release_banner(text, release_tag, release_date)
+    dest.write_text(strip_trailing_whitespace(text), encoding="utf-8")
     if not dest.read_text(encoding="utf-8").strip():
         raise SystemExit(f"empty markdown export for {src}")
 
 
-def current_release_id() -> str:
+def current_release_metadata() -> tuple[str, str]:
     release_info = (PAPER_DIR / "release_info.tex").read_text(encoding="utf-8")
-    match = re.search(r"\\newcommand\{\\OPHPaperReleaseID\}\{([^}]+)\}", release_info)
-    if not match:
+    id_match = re.search(r"\\newcommand\{\\OPHPaperReleaseID\}\{([^}]+)\}", release_info)
+    date_match = re.search(r"\\newcommand\{\\OPHPaperReleaseDate\}\{([^}]+)\}", release_info)
+    if not id_match:
         raise SystemExit("Could not read OPHPaperReleaseID from paper/release_info.tex")
-    return match.group(1)
+    if not date_match:
+        raise SystemExit("Could not read OPHPaperReleaseDate from paper/release_info.tex")
+    return id_match.group(1), date_match.group(1)
 
 
 def write_build_info(out_dir: Path, generated: list[str], release_tag: str) -> None:
@@ -260,14 +282,15 @@ def main() -> int:
     if shutil.which(pandoc_bin) is None and not Path(pandoc_bin).exists():
         raise SystemExit(f"pandoc not found: {pandoc_bin}")
 
+    release_tag, release_date = current_release_metadata()
     generated: list[str] = []
     for src in sources:
         dest = out_dir / f"{src.stem}.md"
-        export_one(src, dest, pandoc_bin)
+        export_one(src, dest, pandoc_bin, release_tag, release_date)
         generated.append(dest.name)
         print(dest)
 
-    write_build_info(out_dir, generated, current_release_id())
+    write_build_info(out_dir, generated, release_tag)
     print(out_dir / BUILD_INFO_NAME)
     return 0
 
