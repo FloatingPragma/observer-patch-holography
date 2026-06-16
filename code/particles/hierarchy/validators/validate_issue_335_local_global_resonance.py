@@ -113,11 +113,11 @@ def main(path: str = "certificates/R_local_global_hierarchy_resonance_closeout_3
         == "12"
         and "Gauss-Bonnet"
         in str(factor_origins.get("total_curvature_charge_12", {}).get("definition", "")),
-        "factor_origin_cell_entropy_disclosed": factor_origins.get(
+        "factor_origin_cell_entropy_scoped": factor_origins.get(
             "cell_entropy_factor_one_over_four", {}
         ).get("value")
         == "1/4"
-        and "honest_disclosure"
+        and "scope_note"
         in factor_origins.get("cell_entropy_factor_one_over_four", {}),
         "factor_origin_12_in_P_over_12_recorded": factor_origins.get(
             "projection_target_denominator_12_in_P_over_12", {}
@@ -133,13 +133,14 @@ def main(path: str = "certificates/R_local_global_hierarchy_resonance_closeout_3
         in str(branch_scope.get("screen_branch", "")),
         "branch_scope_records_product_gauge_branch": "product adjoint"
         in str(branch_scope.get("oph_product_gauge_branch", "")),
-        "branch_scope_includes_honest_disclosure": "cell-entropy"
-        in str(branch_scope.get("honest_disclosure", "")),
-        "honest_residual_disclosed_in_acceptance": acceptance.get(
-            "honest_residual_definitional_residue_disclosed"
+        "branch_scope_includes_scope_note": "cell-entropy"
+        in str(branch_scope.get("scope_note", "")),
+        "residual_residue_scoped_in_acceptance": acceptance.get(
+            "residual_definitional_residue_scoped_as_oph_identification"
         )
         is True
-        and "P/beta_EW" in str(acceptance.get("honest_residual_disclosure", "")),
+        and "P/beta_EW"
+        in str(acceptance.get("residual_definitional_residue_scope_note", "")),
     }
     payload = {"checks": validation, "pass": all(validation.values())}
     print(json.dumps(payload, indent=2))

@@ -4,7 +4,7 @@
   "status": "closed_full_local_global_hierarchy_resonance",
   "accepted": true,
   "full_theorem_grade_resonance_promoted": true,
-  "closeout_decision": "The eight prerequisite theorems compose into the umbrella resonance relation t_tr(P_*) = (P_*/12)*log(N_CRC^EW/pi) on the selected branch, with the icosahedral screen-sieve theorem supplying the geometric strengthening of the (P/12) factor that the EW tick-projection certificate previously disclosed as definitional. The full-theorem-grade promotion is computed from the conjunction of all dependency status checks; the only residual definitional residue is the OPH cell-entropy identification P/beta_EW, recorded honestly under factor_origins.",
+  "closeout_decision": "The eight prerequisite theorems compose into the umbrella resonance relation t_tr(P_*) = (P_*/12)*log(N_CRC^EW/pi) on the selected branch, with the icosahedral screen-sieve theorem supplying the geometric strengthening of the (P/12) factor that the EW tick-projection certificate previously scoped as definitional. The full-theorem-grade promotion is computed from the conjunction of all dependency status checks; the only residual definitional residue is the OPH cell-entropy identification P/beta_EW, recorded under factor_origins.",
   "target_relation": {
     "transport_time": "t_tr(P_star) = (P_star/12) * log(N_CRC^EW/pi)",
     "hierarchy_ratio": "v/E_cell = (N_CRC^EW/pi)^(-P_star/12)",
@@ -126,7 +126,7 @@
         "OPH cell-entropy identification P/4 = P/beta_EW"
       ],
       "conclusion": "local port reads X/12 of screen load X = log(N/pi); Gamma_EW = beta_EW * (P/4) * (1/12) * log(N/pi) = (P/12) * log(N/pi); v/E_cell = (N/pi)^(-P/12)",
-      "geometric_strengthening_note": "This step closes the gap previously honestly disclosed in the EW tick-projection certificate ('a deeper geometric derivation of the product target 4*P_star belongs to a separate strengthening theorem') by deriving the (1/12) port-read factor from icosahedral A5/C5 orbit geometry on the declared triangulated S^2 screen branch.",
+      "geometric_strengthening_note": "This step closes the scope previously disclosed in the EW tick-projection certificate ('a deeper geometric derivation of the product target 4*P_star belongs to a separate strengthening theorem') by deriving the (1/12) port-read factor from icosahedral A5/C5 orbit geometry on the declared triangulated S^2 screen branch.",
       "source": "certificates/R_screen_sieve_icosahedral_certificate.json"
     },
     {
@@ -212,7 +212,7 @@
       "definition": "1 / beta_EW",
       "role": "cell entropy P/4 = P/beta_EW: pixel-area entropy apportioned per electroweak channel",
       "source_theorem": "OPH structural identification (cell-per-channel apportionment)",
-      "honest_disclosure": "The cell-entropy identification P/beta_EW is an OPH structural choice consumed by the icosahedral screen-sieve theorem as input. It is not derived from a deeper geometric theorem at the level of this closeout; together with the icosahedral 1/12 port-read factor and the D10 channel multiplicity, it composes the (P/12) form. This is the residual definitional residue of the umbrella resonance on the selected branch."
+      "scope_note": "The cell-entropy identification P/beta_EW is an OPH structural choice consumed by the icosahedral screen-sieve theorem as input. It is not derived from a deeper geometric theorem at the level of this closeout; together with the icosahedral 1/12 port-read factor and the D10 channel multiplicity, it composes the (P/12) form. This is the residual definitional residue of the umbrella resonance on the selected branch."
     },
     "projection_target_factor_4_in_4P": {
       "value": "4",
@@ -234,7 +234,7 @@
     "screen_branch": "declared triangulated S^2 screen branch with finite Hilbert spaces on links, Gauss constraints at vertices, locally six-valent MaxEnt vacuum, convex positive defect cost, edge-center collars exposing irreducible positive defects as central ports, no-marked-point finite isotropy",
     "rg_branch": "selected exact source-to-Higgs RG/coarse-graining branch with epsilon_H in [0,0]",
     "joint_branch": "product-separated joint (P, log N_CRC) source map J(P,x) = (Gamma(P), C_hat(x)) with component contractions",
-    "honest_disclosure": "The umbrella resonance closes as a theorem on the conjunction of the five branches above. The composition is exact and machine-checkable; the residual definitional residue is the cell-entropy identification P/beta_EW (factor_origins.cell_entropy_factor_one_over_four). All other integer factors are derived from corpus theorems with explicit source artifacts."
+    "scope_note": "The umbrella resonance closes as a theorem on the conjunction of the five branches above. The composition is exact and machine-checkable; the residual definitional residue is the cell-entropy identification P/beta_EW (factor_origins.cell_entropy_factor_one_over_four). All other integer factors are derived from corpus theorems with explicit source artifacts."
   },
   "acceptance_criteria_status": {
     "states_precise_local_and_global_objects": true,
@@ -247,8 +247,8 @@
     "compatible_with_local_transmutation_certificate": true,
     "forbids_measured_weak_higgs_or_hierarchy_calibration": true,
     "public_hierarchy_packet_emitted": true,
-    "honest_residual_definitional_residue_disclosed": true,
-    "honest_residual_disclosure": "The OPH cell-entropy identification P/beta_EW (factor 1/4) is the only residual definitional residue of the umbrella resonance on the selected branch; all other integer factors are derived from corpus theorems with explicit source artifacts."
+    "residual_definitional_residue_scoped_as_oph_identification": true,
+    "residual_definitional_residue_scope_note": "The OPH cell-entropy identification P/beta_EW (factor 1/4) is the only residual definitional residue of the umbrella resonance on the selected branch; all other integer factors are derived from corpus theorems with explicit source artifacts."
   },
   "allowed_inputs": [
     "OPH local pixel fixed point P_star",
