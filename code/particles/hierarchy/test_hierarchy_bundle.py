@@ -317,8 +317,17 @@ def test_issue_335_local_global_resonance_closes_as_full_selected_branch_stateme
     assert checks["exact_capacity_supplied"] is True
     assert checks["finite_readback_supplied"] is True
     assert checks["round_count_supplied"] is True
+    assert checks["screen_sieve_supplied"] is True
+    assert checks["screen_sieve_dependency_present"] is True
     assert checks["rounded_capacity_rejected"] is True
     assert checks["no_promotion_gates_remain"] is True
+    assert checks["derivation_chain_has_nine_steps"] is True
+    assert checks["step_5_is_screen_sieve_geometric_strengthening"] is True
+    assert checks["step_8_composes_target_relation"] is True
+    assert checks["factor_origin_icosahedral_orbit_recorded"] is True
+    assert checks["factor_origin_cell_entropy_disclosed"] is True
+    assert checks["branch_scope_records_screen_branch"] is True
+    assert checks["honest_residual_disclosed_in_acceptance"] is True
 
     cert = json.loads((ROOT / "certificates/R_local_global_hierarchy_resonance_closeout_335.json").read_text())
     assert cert["accepted"] is True
@@ -330,4 +339,46 @@ def test_issue_335_local_global_resonance_closes_as_full_selected_branch_stateme
     assert acceptance["exact_capacity_source_certificate_supplied"] is True
     assert acceptance["finite_readback_resolution_supplied"] is True
     assert acceptance["round_count_derivation_supplied"] is True
+    assert acceptance["screen_sieve_geometric_strengthening_supplied"] is True
+    assert acceptance["honest_residual_definitional_residue_disclosed"] is True
+    assert "P/beta_EW" in acceptance["honest_residual_disclosure"]
     assert cert["remaining_promotion_gates"] == []
+
+    chain = cert["derivation_chain"]
+    assert len(chain) == 9
+    assert chain[0]["premise"] == "D10 forward transmutation theorem"
+    assert "icosahedral screen-sieve" in chain[4]["premise"]
+    assert "issue-#337" in chain[4]["geometric_strengthening_note"]
+    assert "(P/12)" in chain[4]["conclusion"]
+    assert "electroweak tick-projection bridge" in chain[5]["premise"]
+    assert "EW-refined exact-capacity" in chain[6]["premise"]
+    assert "(P_*/12)*log(N_CRC^EW/pi)" in chain[7]["conclusion"]
+    assert "RG/Higgs naturality" in chain[8]["premise"]
+
+    factors = cert["factor_origins"]
+    assert factors["beta_EW"]["value"] == "4"
+    assert factors["m_rep"]["value"] == "24"
+    assert factors["icosahedral_orbit_size_12"]["value"] == "12"
+    assert factors["icosahedral_orbit_size_12"]["definition"] == "|A5| / |C5| = 60 / 5"
+    assert factors["total_curvature_charge_12"]["value"] == "12"
+    assert factors["cell_entropy_factor_one_over_four"]["value"] == "1/4"
+    assert "honest_disclosure" in factors["cell_entropy_factor_one_over_four"]
+    assert (
+        "icosahedral"
+        in factors["projection_target_denominator_12_in_P_over_12"]["source_theorem"]
+    )
+
+    branch_scope = cert["branch_scope"]
+    assert "triangulated S^2" in branch_scope["screen_branch"]
+    assert "product adjoint" in branch_scope["oph_product_gauge_branch"]
+    assert "cell-entropy" in branch_scope["honest_disclosure"]
+
+    deps = cert["dependencies"]
+    assert deps["screen_sieve_icosahedral_geometric_strengthening"] is True
+
+    screen_sieve_summary = cert["screen_sieve_certificate"]
+    assert screen_sieve_summary["orbit_size"] == 12
+    assert screen_sieve_summary["gamma_EW"] == "(P/12)*log(N/pi)"
+    assert (
+        screen_sieve_summary["status"] == "closed_on_declared_triangulated_screen_branch"
+    )
