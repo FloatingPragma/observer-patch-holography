@@ -3,7 +3,7 @@
 
 The certificate composes corpus-side OPH foundational axioms (cited to the
 compact proof and the OBSERVERS synthesis fragments) with the machine-checkable
-EW-refined exact-capacity Banach contraction certificate (issue #344) to derive
+EW-refined exact-capacity Banach contraction certificate to derive
 the finite readback-resolution object rho_read(r,N) and its refinement-limit
 convergence rho_read -> rho_star = (N_CRC/pi)^(-1/2). The bridge witness for
 N_CRC is the source-side fixed point N_CRC^EW(P_*) supplied by
@@ -180,7 +180,7 @@ def build_certificate(
         "banach_contraction_lambda_one_half": {
             "value": "1/2",
             "role": "Banach contraction constant lambda for the EW-refined source-side capacity map C_EW(P,x)=(1-lambda)*x+lambda*6*pi/(P*alpha_U(P)); supplies the cofinal residual bound delta_r/(1-lambda)=2*delta_r",
-            "source_theorem": "EW-refined exact-capacity Banach contraction (issue #344)",
+            "source_theorem": "EW-refined exact-capacity Banach contraction",
             "source_artifact": "code/particles/hierarchy/certificates/R_EW_global_capacity_certificate.json (contraction_certificate.lambda)",
         },
         "derivative_bound_factor_two": {
@@ -395,7 +395,8 @@ def build_certificate(
             "scope": (
                 "Closed on the conjunction of the seven branches enumerated in "
                 "branch_scope. The corpus-side N_CRC is taken to be the EW-refined "
-                "source-side fixed point N_CRC^EW(P_*) supplied by issue #344; "
+                "source-side fixed point N_CRC^EW(P_*) supplied by the "
+                "EW-refined exact-capacity certificate; "
                 "the rounded 3.31e122 cosmological label is recorded as a "
                 "diagnostic-only display and rejected as a bridge witness."
             ),
@@ -482,7 +483,7 @@ def build_derivation_chain(
         },
         {
             "step": 7,
-            "premise": f"EW-refined exact-capacity Banach contraction (issue #344, lambda={ew_lambda})",
+            "premise": f"EW-refined exact-capacity Banach contraction with lambda={ew_lambda}",
             "uses": ["C_EW(P,x) = (1-lambda)*x + lambda*6*pi/(P*alpha_U(P))", "Banach fixed-point theorem on the source-side log-capacity coordinate"],
             "source_artifact": ew_cert_relpath,
             "conclusion": f"The unique fixed point is N_CRC^EW(P_*) = pi*exp[6*pi/(P_*alpha_U(P_*))] = {decstr(n_crc_ew)}, with B_EW(P_*,N_CRC^EW)=0 exactly. In particular F(N_CRC^EW)=N_CRC^EW>0, supplying the source-side fixed-point hypothesis required by the global repair-tick lemma.",

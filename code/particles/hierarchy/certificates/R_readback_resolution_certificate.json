@@ -160,7 +160,7 @@
     },
     {
       "step": 7,
-      "premise": "EW-refined exact-capacity Banach contraction (issue #344, lambda=0.5)",
+      "premise": "EW-refined exact-capacity Banach contraction with lambda=0.5",
       "uses": [
         "C_EW(P,x) = (1-lambda)*x + lambda*6*pi/(P*alpha_U(P))",
         "Banach fixed-point theorem on the source-side log-capacity coordinate"
@@ -199,7 +199,7 @@
     "banach_contraction_lambda_one_half": {
       "value": "1/2",
       "role": "Banach contraction constant lambda for the EW-refined source-side capacity map C_EW(P,x)=(1-lambda)*x+lambda*6*pi/(P*alpha_U(P)); supplies the cofinal residual bound delta_r/(1-lambda)=2*delta_r",
-      "source_theorem": "EW-refined exact-capacity Banach contraction (issue #344)",
+      "source_theorem": "EW-refined exact-capacity Banach contraction",
       "source_artifact": "code/particles/hierarchy/certificates/R_EW_global_capacity_certificate.json (contraction_certificate.lambda)"
     },
     "derivative_bound_factor_two": {
@@ -291,7 +291,7 @@
       "full local/global hierarchy-resonance closeout in R_local_global_hierarchy_resonance_closeout_335.json"
     ],
     "not_closed_here": [],
-    "scope": "Closed on the conjunction of the seven branches enumerated in branch_scope. The corpus-side N_CRC is taken to be the EW-refined source-side fixed point N_CRC^EW(P_*) supplied by issue #344; the rounded 3.31e122 cosmological label is recorded as a diagnostic-only display and rejected as a bridge witness."
+    "scope": "Closed on the conjunction of the seven branches enumerated in branch_scope. The corpus-side N_CRC is taken to be the EW-refined source-side fixed point N_CRC^EW(P_*) supplied by the EW-refined exact-capacity certificate; the rounded 3.31e122 cosmological label is recorded as a diagnostic-only display and rejected as a bridge witness."
   },
   "source_status": {
     "closes_gate": "finite_readback_resolution",
