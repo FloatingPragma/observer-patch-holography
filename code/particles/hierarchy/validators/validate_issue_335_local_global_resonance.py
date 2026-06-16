@@ -84,7 +84,8 @@ def main(path: str = "certificates/R_local_global_hierarchy_resonance_closeout_3
         "step_5_is_screen_sieve_geometric_strengthening": (
             "icosahedral screen-sieve theorem" in str(chain_steps.get(5, {}).get("premise", ""))
             and "geometric_strengthening_note" in chain_steps.get(5, {})
-            and "issue-#337" in str(chain_steps.get(5, {}).get("geometric_strengthening_note", ""))
+            and "EW tick-projection certificate"
+            in str(chain_steps.get(5, {}).get("geometric_strengthening_note", ""))
             and "(P/12)" in str(chain_steps.get(5, {}).get("conclusion", ""))
         ),
         "step_6_is_ew_projection_bridge": "electroweak tick-projection bridge"

@@ -180,7 +180,7 @@ def main() -> int:
                 "OPH cell-entropy identification P/4 = P/beta_EW",
             ],
             "conclusion": "local port reads X/12 of screen load X = log(N/pi); Gamma_EW = beta_EW * (P/4) * (1/12) * log(N/pi) = (P/12) * log(N/pi); v/E_cell = (N/pi)^(-P/12)",
-            "geometric_strengthening_note": "This step closes the gap previously honestly disclosed in the issue-#337 certificate ('a deeper geometric derivation of the product target 4*P_star belongs to a separate strengthening theorem') by deriving the (1/12) port-read factor from icosahedral A5/C5 orbit geometry on the declared triangulated S^2 screen branch.",
+            "geometric_strengthening_note": "This step closes the gap previously honestly disclosed in the EW tick-projection certificate ('a deeper geometric derivation of the product target 4*P_star belongs to a separate strengthening theorem') by deriving the (1/12) port-read factor from icosahedral A5/C5 orbit geometry on the declared triangulated S^2 screen branch.",
             "source": "certificates/R_screen_sieve_icosahedral_certificate.json",
         },
         {
@@ -303,11 +303,11 @@ def main() -> int:
             "The eight prerequisite theorems compose into the umbrella resonance "
             "relation t_tr(P_*) = (P_*/12)*log(N_CRC^EW/pi) on the selected branch, "
             "with the icosahedral screen-sieve theorem supplying the geometric "
-            "strengthening of the (P/12) factor that the issue-#337 certificate "
-            "previously disclosed as definitional. The full-theorem-grade promotion "
-            "is computed from the conjunction of all dependency status checks; the "
-            "only residual definitional residue is the OPH cell-entropy identification "
-            "P/beta_EW, recorded honestly under factor_origins."
+            "strengthening of the (P/12) factor that the EW tick-projection "
+            "certificate previously disclosed as definitional. The full-theorem-grade "
+            "promotion is computed from the conjunction of all dependency status "
+            "checks; the only residual definitional residue is the OPH cell-entropy "
+            "identification P/beta_EW, recorded honestly under factor_origins."
         ),
         "target_relation": {
             "transport_time": "t_tr(P_star) = (P_star/12) * log(N_CRC^EW/pi)",

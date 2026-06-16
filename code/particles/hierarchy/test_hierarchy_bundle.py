@@ -348,7 +348,7 @@ def test_issue_335_local_global_resonance_closes_as_full_selected_branch_stateme
     assert len(chain) == 9
     assert chain[0]["premise"] == "D10 forward transmutation theorem"
     assert "icosahedral screen-sieve" in chain[4]["premise"]
-    assert "issue-#337" in chain[4]["geometric_strengthening_note"]
+    assert "EW tick-projection certificate" in chain[4]["geometric_strengthening_note"]
     assert "(P/12)" in chain[4]["conclusion"]
     assert "electroweak tick-projection bridge" in chain[5]["premise"]
     assert "EW-refined exact-capacity" in chain[6]["premise"]
