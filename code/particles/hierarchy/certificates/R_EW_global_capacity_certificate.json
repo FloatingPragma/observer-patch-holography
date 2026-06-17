@@ -288,7 +288,7 @@
   "consumer_artifacts": {
     "ew_tick_projection_specialisation": "certificates/R_EW_tick_projection_certificate.json (consumes N_CRC^EW for the specialised Pi_EW(P_star, N_CRC^EW) = 4*P_star evaluation)",
     "finite_readback_resolution_dependency": "certificates/R_readback_resolution_certificate.json (loads the EW-refined Banach contraction and N_CRC^EW(P_star) as a hard dependency)",
-    "local_global_hierarchy_resonance_umbrella": "certificates/R_local_global_hierarchy_resonance_closeout_335.json (composes the EW-refined exact-capacity certificate with #336, #337, #342, #343 into the umbrella resonance theorem)"
+    "local_global_hierarchy_resonance_umbrella": "certificates/R_local_global_hierarchy_resonance_closeout_335.json (composes this certificate with R_N_global_repair_tick_certificate.json, R_EW_tick_projection_certificate.json, R_readback_resolution_certificate.json, and R_m_rep_24_certificate.json into the umbrella resonance theorem)"
   },
   "dependency_acyclicity_note": {
     "summary": "The bidirectional reference between R_EW_global_capacity_certificate.json and R_EW_tick_projection_certificate.json is a peer cross-reference, not a circular dependency. The proof-level dependency graph is acyclic.",
@@ -297,7 +297,7 @@
       "exact_capacity_primary": "This certificate solves the closed-form source-side fixed point N_CRC^EW(P_star) = pi*exp[6*pi/(P_star*alpha_U(P_star))] from the bridge residual B_EW(P_star,N) = 0 by Banach contraction on the log-capacity coordinate. The Pi_EW form is imported as a definitional input, not as a numerical-value supplier."
     },
     "specialised_corollary_is_a_composition_not_a_circle": "The specialised statement Pi_EW(P_star, N_CRC^EW) = 4*P_star is the composition of the Pi_EW definition (from R_EW_tick_projection_certificate.json) and the closed-form N_CRC^EW fixed point (from this certificate). Each cross-reference therefore consumes only the *statement* of the other certificate, not its proof.",
-    "umbrella_certificate_resolves_the_composition": "R_local_global_hierarchy_resonance_closeout_335.json composes both certificates (plus #336 and #343) into the full local/global hierarchy-resonance theorem. The umbrella depends on each peer; no peer depends on the umbrella.",
+    "umbrella_certificate_resolves_the_composition": "R_local_global_hierarchy_resonance_closeout_335.json composes both certificates (plus R_N_global_repair_tick_certificate.json and R_m_rep_24_certificate.json) into the full local/global hierarchy-resonance theorem. The umbrella depends on each peer; no peer depends on the umbrella.",
     "other_remaining_branches_are_upstream_only": "R_P_public_pixel_certificate.json, R_PN_joint_fixed_point_certificate_report.json, R_U_krawczyk_certificate.json, the D10 transmutation theorem, R_m_rep_24_certificate.json, and the Banach fixed-point theorem are strictly upstream sources for this certificate. The parallel source-audit pixel branch witness (R_P_source_audit_pixel_certificate.json) is recorded for transparency but is not consumed by the proof."
   },
   "verifier_command": "python3 code/particles/hierarchy/verify_issue_344_exact_capacity.py --check --output code/particles/hierarchy/certificates/R_EW_global_capacity_certificate.json"

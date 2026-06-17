@@ -351,8 +351,10 @@ def build_consumer_artifacts() -> dict[str, str]:
             "and N_CRC^EW(P_star) as a hard dependency)"
         ),
         "local_global_hierarchy_resonance_umbrella": (
-            "certificates/R_local_global_hierarchy_resonance_closeout_335.json (composes the EW-refined "
-            "exact-capacity certificate with #336, #337, #342, #343 into the umbrella resonance theorem)"
+            "certificates/R_local_global_hierarchy_resonance_closeout_335.json (composes this certificate "
+            "with R_N_global_repair_tick_certificate.json, R_EW_tick_projection_certificate.json, "
+            "R_readback_resolution_certificate.json, and R_m_rep_24_certificate.json into the umbrella "
+            "resonance theorem)"
         ),
     }
 
@@ -387,8 +389,9 @@ def build_dependency_acyclicity_note() -> dict[str, Any]:
         ),
         "umbrella_certificate_resolves_the_composition": (
             "R_local_global_hierarchy_resonance_closeout_335.json composes both certificates "
-            "(plus #336 and #343) into the full local/global hierarchy-resonance theorem. The umbrella "
-            "depends on each peer; no peer depends on the umbrella."
+            "(plus R_N_global_repair_tick_certificate.json and R_m_rep_24_certificate.json) into the "
+            "full local/global hierarchy-resonance theorem. The umbrella depends on each peer; no peer "
+            "depends on the umbrella."
         ),
         "other_remaining_branches_are_upstream_only": (
             "R_P_public_pixel_certificate.json, R_PN_joint_fixed_point_certificate_report.json, "
