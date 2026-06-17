@@ -49,12 +49,15 @@ DEFAULT_ROUNDED_N = Decimal("3.31e122")
 DEFAULT_LAMBDA = Decimal("0.5")
 DEFAULT_TOL = Decimal("1e-40")
 
-CORPUS_PIXEL_FIXED_POINT_SOURCE = "certificates/R_P_source_audit_pixel_certificate.json"
+CORPUS_PUBLIC_ENDPOINT_PIXEL_SOURCE = "certificates/R_P_public_pixel_certificate.json"
+CORPUS_PIXEL_FULL_PRECISION_SOURCE = "certificates/R_PN_joint_fixed_point_certificate_report.json"
+CORPUS_SOURCE_AUDIT_PIXEL_SOURCE = "certificates/R_P_source_audit_pixel_certificate.json"
 CORPUS_ALPHA_U_KRAWCZYK_SOURCE = "certificates/R_U_krawczyk_certificate.json"
 CORPUS_BETA_EW_D10_SOURCE = "extra/compact_proof_of_oph.tex#D10-transmutation-multiplicity"
 CORPUS_M_REP_24_SOURCE = "certificates/R_m_rep_24_certificate.json"
 CORPUS_PI_EW_SOURCE = "certificates/R_EW_tick_projection_certificate.json"
 CORPUS_BANACH_SOURCE = "extra/oph_finite_repair_lyapunov.tex#banach-fixed-point"
+PUBLIC_ENDPOINT_A_T = "137.035999177"
 
 
 def D(value: str | int | Decimal | None, default: Decimal | None = None) -> Decimal | None:
@@ -105,11 +108,30 @@ def build_derivation_chain() -> list[dict[str, Any]]:
     return [
         {
             "step": 1,
-            "premise": "OPH local pixel fixed point",
-            "uses": ["P_star", "alpha_U(P_star)"],
-            "source_artifact": CORPUS_PIXEL_FIXED_POINT_SOURCE,
+            "premise": "OPH local pixel fixed point on the public endpoint branch",
+            "uses": ["P_star = P_public", "alpha_U(P_star)"],
+            "branch_selection": "public_endpoint_branch",
+            "branch_locator": (
+                f"A_T_public = {PUBLIC_ENDPOINT_A_T} (declared endpoint convention from "
+                "R_P_public_pixel_certificate.json; allowed as a branch locator, "
+                "forbidden as an upstream source-map input)"
+            ),
+            "source_artifact": CORPUS_PUBLIC_ENDPOINT_PIXEL_SOURCE,
+            "full_precision_source_artifact": CORPUS_PIXEL_FULL_PRECISION_SOURCE,
             "alpha_u_source_artifact": CORPUS_ALPHA_U_KRAWCZYK_SOURCE,
-            "conclusion": "P_star and alpha_U(P_star) are the source-side OPH local pixel fixed-point values; both are corpus theorems independent of any measured weak-scale, Higgs, top, W, Z, G, Lambda, or hierarchy-ratio datum.",
+            "parallel_source_audit_branch_witness": CORPUS_SOURCE_AUDIT_PIXEL_SOURCE,
+            "conclusion": (
+                "P_star = P_public = 1.6309682094039593248792798477826489413359828516279250606661507533907793398933432 "
+                "is the public-endpoint OPH local pixel fixed point recorded with full precision by "
+                "R_PN_joint_fixed_point_certificate_report.json and defined by the closure equation "
+                "P = phi + sqrt(pi)/A_T(P) of R_P_public_pixel_certificate.json at the declared endpoint "
+                f"convention A_T_public = {PUBLIC_ENDPOINT_A_T}. alpha_U(P_star) = 0.041124336195630495 is "
+                "the Krawczyk-inclusion-certified unification width center from R_U_krawczyk_certificate.json. "
+                "Neither value uses the measured weak-scale v, Higgs, top, W, Z, G, Planck area, Lambda, "
+                "or hierarchy-ratio. The parallel source-audit branch (R_P_source_audit_pixel_certificate.json, "
+                "P_cand = 1.63097209569432901817967892561191884270169) is a separate witness whose full "
+                "endpoint proof is pending and is not used here."
+            ),
         },
         {
             "step": 2,
@@ -163,16 +185,28 @@ def build_derivation_chain() -> list[dict[str, Any]]:
 def build_factor_origins() -> dict[str, Any]:
     return {
         "P_star_pixel_fixed_point": {
-            "value": "1.6309682...",
-            "role": "OPH local pixel fixed point appearing in B_EW and x_EW",
-            "source_theorem": "OPH source-audit pixel fixed-point theorem",
-            "source_artifact": CORPUS_PIXEL_FIXED_POINT_SOURCE,
+            "value": "1.6309682094039593248792798477826489413359828516279250606661507533907793398933432",
+            "value_short": "1.6309682...",
+            "branch": "public_endpoint_branch",
+            "branch_locator": f"A_T_public = {PUBLIC_ENDPOINT_A_T}",
+            "role": "OPH public-endpoint local pixel fixed point appearing in B_EW and x_EW",
+            "source_theorem": (
+                "OPH public-endpoint pixel fixed-point closure P = phi + sqrt(pi)/A_T(P) at "
+                f"A_T_public = {PUBLIC_ENDPOINT_A_T} (declared endpoint convention / branch locator)"
+            ),
+            "source_artifact": CORPUS_PUBLIC_ENDPOINT_PIXEL_SOURCE,
+            "full_precision_source_artifact": CORPUS_PIXEL_FULL_PRECISION_SOURCE,
+            "parallel_source_audit_witness": CORPUS_SOURCE_AUDIT_PIXEL_SOURCE,
+            "parallel_source_audit_value": "1.63097209569432901817967892561191884270169",
         },
         "alpha_U_unification_width": {
             "value": "0.041124336195630495",
             "interval": ["0.041123336195630494", "0.041125336195630496"],
-            "role": "OPH source D10 unification width at the public endpoint branch",
-            "source_theorem": "OPH unification width Krawczyk-interval theorem",
+            "role": "OPH unification-width Krawczyk-inclusion-certified center used as alpha_U(P_star)",
+            "source_theorem": (
+                "OPH unification-width Krawczyk-interval root-inclusion theorem (Krawczyk operator "
+                "K(I) subset interior(I_U) on the unification-width interval)"
+            ),
             "source_artifact": CORPUS_ALPHA_U_KRAWCZYK_SOURCE,
         },
         "beta_EW_transmutation_multiplicity": {
@@ -229,9 +263,18 @@ def build_factor_origins() -> dict[str, Any]:
 
 def build_branch_scope() -> dict[str, str]:
     return {
-        "oph_local_pixel_branch": (
-            "P_star and alpha_U(P_star) are imported from the OPH source-audit pixel fixed-point "
-            "and Krawczyk-interval theorems"
+        "public_endpoint_pixel_branch": (
+            "P_star = P_public is the public-endpoint OPH local pixel fixed point from "
+            "R_P_public_pixel_certificate.json (closure P = phi + sqrt(pi)/A_T(P) at the declared "
+            f"endpoint convention A_T_public = {PUBLIC_ENDPOINT_A_T}), recorded with full precision "
+            "by R_PN_joint_fixed_point_certificate_report.json (P_public). This branch admits the "
+            "public Thomson endpoint as a declared branch locator (allowed list of "
+            "R_P_public_pixel_certificate.json) and forbids it as an upstream source-map input."
+        ),
+        "krawczyk_unification_width_branch": (
+            "alpha_U(P_star) = 0.041124336195630495 is the Krawczyk-inclusion-certified center from "
+            "R_U_krawczyk_certificate.json, with K(I_U) subset interior(I_U) on "
+            "I_U = [0.041123336195630494, 0.041125336195630496]"
         ),
         "d10_transmutation_branch": (
             "beta_EW = N_c + 1 = 4 is imported from the D10 transmutation theorem on the SU(N_c=3) colour branch"
@@ -244,15 +287,24 @@ def build_branch_scope() -> dict[str, str]:
             "are imported from the EW tick-projection bridge (R_EW_tick_projection_certificate.json)"
         ),
         "banach_contraction_branch": (
-            "the source-side log-capacity averaging map C_EW(P,x) = (1-lambda)*x + lambda*6*pi/(P*alpha_U(P)) "
+            "the OPH log-capacity averaging map C_EW(P,x) = (1-lambda)*x + lambda*6*pi/(P*alpha_U(P)) "
             "with lambda = 1/2 is certified by the Banach fixed-point theorem; the closed-form fixed point "
             "x_EW(P_star) is independent of lambda"
         ),
+        "parallel_source_audit_branch_note": (
+            "The source-audit branch witness (R_P_source_audit_pixel_certificate.json, "
+            "P_cand = 1.63097209569432901817967892561191884270169, alpha_U_P_cand = 0.04112424744557487) "
+            "is a parallel branch whose full endpoint proof is pending; it is not used by this certificate, "
+            "but its parallel B_EW = 0 statement on the source-audit branch is implied by the same "
+            "closed-form formula N_CRC^EW(P) = pi*exp[6*pi/(P*alpha_U(P))]"
+        ),
         "scope_note": (
-            "This certificate proves the closed-form source-side fixed point N_CRC^EW(P_star) = pi*exp[6*pi/(P_star*alpha_U(P_star))] "
-            "and the equivalent exact bridge residual B_EW(P_star, N_CRC^EW) = 0 on the OPH local-pixel + D10 + "
-            "representation-to-spectrum + EW tick-projection branches. No measured electroweak, gravitational, "
-            "or cosmological datum supplies any factor of the derivation."
+            "This certificate proves the closed-form fixed point N_CRC^EW(P_star) = pi*exp[6*pi/(P_star*alpha_U(P_star))] "
+            "and the equivalent exact bridge residual B_EW(P_star, N_CRC^EW) = 0 on the public-endpoint pixel "
+            "+ Krawczyk unification-width + D10 + representation-to-spectrum + EW tick-projection branches, "
+            f"with the public Thomson endpoint A_T_public = {PUBLIC_ENDPOINT_A_T} declared as a branch locator "
+            "(consistent with R_P_public_pixel_certificate.json's allowed list). No measured weak-scale v, "
+            "Higgs, top, W, Z, G, Planck area, Lambda, or hierarchy-ratio supplies any factor of the derivation."
         ),
     }
 
@@ -277,12 +329,14 @@ def build_acceptance_criteria_status(
 
 def build_dependency_artifacts() -> dict[str, str]:
     return {
-        "oph_local_pixel_fixed_point": CORPUS_PIXEL_FIXED_POINT_SOURCE,
+        "public_endpoint_local_pixel_closure": CORPUS_PUBLIC_ENDPOINT_PIXEL_SOURCE,
+        "public_endpoint_local_pixel_full_precision_record": CORPUS_PIXEL_FULL_PRECISION_SOURCE,
         "alpha_u_unification_width": CORPUS_ALPHA_U_KRAWCZYK_SOURCE,
         "d10_transmutation_theorem_beta_ew": CORPUS_BETA_EW_D10_SOURCE,
         "representation_to_spectrum_m_rep_24": CORPUS_M_REP_24_SOURCE,
         "ew_tick_projection_pi_ew_definition": CORPUS_PI_EW_SOURCE,
         "banach_fixed_point_theorem": CORPUS_BANACH_SOURCE,
+        "parallel_source_audit_pixel_branch_witness": CORPUS_SOURCE_AUDIT_PIXEL_SOURCE,
     }
 
 
@@ -337,9 +391,11 @@ def build_dependency_acyclicity_note() -> dict[str, Any]:
             "depends on each peer; no peer depends on the umbrella."
         ),
         "other_remaining_branches_are_upstream_only": (
-            "R_P_source_audit_pixel_certificate.json, R_U_krawczyk_certificate.json, the D10 "
-            "transmutation theorem, R_m_rep_24_certificate.json, and the Banach fixed-point theorem are "
-            "strictly upstream sources for this certificate."
+            "R_P_public_pixel_certificate.json, R_PN_joint_fixed_point_certificate_report.json, "
+            "R_U_krawczyk_certificate.json, the D10 transmutation theorem, R_m_rep_24_certificate.json, "
+            "and the Banach fixed-point theorem are strictly upstream sources for this certificate. "
+            "The parallel source-audit pixel branch witness (R_P_source_audit_pixel_certificate.json) "
+            "is recorded for transparency but is not consumed by the proof."
         ),
     }
 
@@ -426,7 +482,12 @@ def build_certificate(
         },
         "source_values": {
             "P_star": decstr(p_star),
+            "P_star_branch": "public_endpoint_branch",
+            "P_star_branch_locator": f"A_T_public = {PUBLIC_ENDPOINT_A_T}",
+            "P_star_source_artifact": CORPUS_PUBLIC_ENDPOINT_PIXEL_SOURCE,
+            "P_star_full_precision_source_artifact": CORPUS_PIXEL_FULL_PRECISION_SOURCE,
             "alpha_U": decstr(alpha_u),
+            "alpha_U_source_artifact": CORPUS_ALPHA_U_KRAWCZYK_SOURCE,
             "alpha_U_interval": [decstr(alpha_lo), decstr(alpha_hi)],
             "lambda": decstr(lam),
             "contraction_factor": decstr(contraction_factor),
@@ -466,17 +527,40 @@ def build_certificate(
             "relative_capacity_gap": decstr((target_n - rounded_n) / target_n),
         },
         "allowed_inputs": [
-            "OPH local pixel fixed point P_star",
-            "source D10 alpha_U(P_star) interval",
+            "public-endpoint OPH local pixel fixed point P_star = P_public from R_P_public_pixel_certificate.json (closure P = phi + sqrt(pi)/A_T(P)) recorded with full precision in R_PN_joint_fixed_point_certificate_report.json",
+            f"public Thomson endpoint A_T_public = {PUBLIC_ENDPOINT_A_T} as a declared endpoint convention / branch locator (allowed by R_P_public_pixel_certificate.json's dependency_boundary.allowed list)",
+            "Krawczyk-inclusion-certified unification width center alpha_U(P_star) = 0.041124336195630495 from R_U_krawczyk_certificate.json with K(I_U) subset interior(I_U)",
+            "D10 transmutation theorem fixing beta_EW = N_c + 1 = 4",
+            "representation-to-spectrum round-count theorem fixing m_rep = 24",
+            "EW tick-projection bridge fixing Pi_EW(P,N) = 24*pi/(alpha_U(P)*log(N/pi)) and the resonance target Pi_EW(P_star, N_CRC^EW) = 4*P_star",
             "pi and exp",
-            "the EW bridge residual isolated by the issue-337 projection theorem",
+            "Banach fixed-point theorem on the source-side log-capacity averaging map",
         ],
+        "branch_selection": {
+            "selected_branch": "public_endpoint_pixel_branch",
+            "branch_locator": (
+                f"A_T_public = {PUBLIC_ENDPOINT_A_T} is consumed strictly as a declared endpoint convention "
+                "(branch locator), not as an upstream source-map input; this is consistent with "
+                "R_P_public_pixel_certificate.json's dependency_boundary, which permits the public Thomson "
+                "endpoint as a branch locator while explicitly forbidding it as an upstream source-map input"
+            ),
+            "parallel_source_audit_branch": (
+                "R_P_source_audit_pixel_certificate.json (P_cand = 1.63097209569432901817967892561191884270169, "
+                "alpha_U_P_cand = 0.04112424744557487) records the source-only branch witness; its full "
+                "endpoint proof depends on same-scheme low-energy hadronic spectral transport, a Ward-projected "
+                "endpoint convention bridge, and an interval proof for the resulting A_T(P) self-map. Those "
+                "are not consumed here. The same closed-form B_EW(P, N_CRC^EW(P)) = 0 statement specialises "
+                "to that branch when those inputs are supplied, so the present certificate is parametrically "
+                "consistent with the source-audit branch."
+            ),
+        },
         "forbidden_calibrations": [
             "measured weak scale v as an input",
             "measured W, Z, Higgs, or top mass as an input",
             "measured G or Planck area as an input",
             "measured Lambda as an input",
             "observed hierarchy-ratio calibration",
+            "public Thomson endpoint A_T_public as an upstream source-map input (it is allowed only as a declared branch locator)",
             "rounded 3.31e122 capacity display as an exact bridge certificate",
         ],
         "claim_boundary": {

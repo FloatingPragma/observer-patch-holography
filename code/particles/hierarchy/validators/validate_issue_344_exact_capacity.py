@@ -29,6 +29,12 @@ def main(path: str = "certificates/R_EW_global_capacity_certificate.json") -> in
     deps = cert.get("dependency_artifacts", {})
     consumers = cert.get("consumer_artifacts", {})
     acyclic = cert.get("dependency_acyclicity_note", {})
+    source_values = cert.get("source_values", {})
+    branch_selection = cert.get("branch_selection", {})
+    allowed_inputs = cert.get("allowed_inputs", [])
+
+    p_star_factor = factors.get("P_star_pixel_fixed_point", {})
+    alpha_u_factor = factors.get("alpha_U_unification_width", {})
 
     derivation_steps = {item.get("step"): item for item in derivation if isinstance(item, dict)}
 
@@ -86,6 +92,28 @@ def main(path: str = "certificates/R_EW_global_capacity_certificate.json") -> in
         "step_1_imports_pixel_fixed_point": (
             "P_star" in _step_conclusion(1) and "alpha_U" in _step_conclusion(1)
         ),
+        "step_1_selects_public_endpoint_branch": (
+            derivation_steps.get(1, {}).get("branch_selection") == "public_endpoint_branch"
+        ),
+        "step_1_records_branch_locator_a_t_public": (
+            "A_T_public = 137.035999177" in derivation_steps.get(1, {}).get("branch_locator", "")
+            and "branch locator" in derivation_steps.get(1, {}).get("branch_locator", "")
+        ),
+        "step_1_cites_public_endpoint_pixel_artifact": (
+            derivation_steps.get(1, {}).get("source_artifact") == "certificates/R_P_public_pixel_certificate.json"
+        ),
+        "step_1_cites_full_precision_joint_artifact": (
+            derivation_steps.get(1, {}).get("full_precision_source_artifact")
+            == "certificates/R_PN_joint_fixed_point_certificate_report.json"
+        ),
+        "step_1_records_parallel_source_audit_branch_witness": (
+            derivation_steps.get(1, {}).get("parallel_source_audit_branch_witness")
+            == "certificates/R_P_source_audit_pixel_certificate.json"
+        ),
+        "step_1_distinguishes_p_public_from_p_source_audit": (
+            "P_public" in _step_conclusion(1)
+            and "P_cand = 1.63097209569432901817967892561191884270169" in _step_conclusion(1)
+        ),
         "step_2_imports_d10_beta_ew": "beta_EW" in _step_conclusion(2) and "= 4" in _step_conclusion(2),
         "step_3_imports_m_rep_24": (
             "m_rep = 24" in _step_conclusion(3)
@@ -107,7 +135,30 @@ def main(path: str = "certificates/R_EW_global_capacity_certificate.json") -> in
             "B_EW(P_star, N_CRC^EW) = 0" in _step_conclusion(8) and "3.31e122" in _step_conclusion(8)
         ),
         "factor_origin_p_star_recorded": "P_star_pixel_fixed_point" in factors,
+        "factor_origin_p_star_branch_is_public_endpoint": (
+            p_star_factor.get("branch") == "public_endpoint_branch"
+        ),
+        "factor_origin_p_star_source_is_public_endpoint_pixel_cert": (
+            p_star_factor.get("source_artifact") == "certificates/R_P_public_pixel_certificate.json"
+        ),
+        "factor_origin_p_star_full_precision_source_is_joint_cert": (
+            p_star_factor.get("full_precision_source_artifact")
+            == "certificates/R_PN_joint_fixed_point_certificate_report.json"
+        ),
+        "factor_origin_p_star_records_parallel_source_audit_witness": (
+            p_star_factor.get("parallel_source_audit_witness")
+            == "certificates/R_P_source_audit_pixel_certificate.json"
+            and p_star_factor.get("parallel_source_audit_value")
+            == "1.63097209569432901817967892561191884270169"
+        ),
+        "factor_origin_p_star_value_matches_p_public": (
+            p_star_factor.get("value")
+            == "1.6309682094039593248792798477826489413359828516279250606661507533907793398933432"
+        ),
         "factor_origin_alpha_u_recorded": "alpha_U_unification_width" in factors,
+        "factor_origin_alpha_u_source_is_krawczyk_cert": (
+            alpha_u_factor.get("source_artifact") == "certificates/R_U_krawczyk_certificate.json"
+        ),
         "factor_origin_beta_ew_value_4": (
             factors.get("beta_EW_transmutation_multiplicity", {}).get("value") == "4"
         ),
@@ -129,14 +180,54 @@ def main(path: str = "certificates/R_EW_global_capacity_certificate.json") -> in
             "factor_four_P_star_resonance_target" in factors
             and factors["factor_four_P_star_resonance_target"].get("value") == "4 * P_star"
         ),
-        "branch_scope_pixel_branch_present": "oph_local_pixel_branch" in branch_scope,
+        "branch_scope_public_endpoint_pixel_branch_present": (
+            "public_endpoint_pixel_branch" in branch_scope
+            and "P_public" in branch_scope.get("public_endpoint_pixel_branch", "")
+            and "R_P_public_pixel_certificate.json" in branch_scope.get("public_endpoint_pixel_branch", "")
+        ),
+        "branch_scope_krawczyk_unification_width_branch_present": (
+            "krawczyk_unification_width_branch" in branch_scope
+            and "R_U_krawczyk_certificate.json"
+            in branch_scope.get("krawczyk_unification_width_branch", "")
+        ),
         "branch_scope_d10_branch_present": "d10_transmutation_branch" in branch_scope,
         "branch_scope_rep_branch_present": "representation_to_spectrum_branch" in branch_scope,
         "branch_scope_pi_ew_branch_present": "ew_tick_projection_branch" in branch_scope,
         "branch_scope_banach_branch_present": "banach_contraction_branch" in branch_scope,
+        "branch_scope_records_parallel_source_audit_branch": (
+            "parallel_source_audit_branch_note" in branch_scope
+            and "R_P_source_audit_pixel_certificate.json"
+            in branch_scope.get("parallel_source_audit_branch_note", "")
+            and "P_cand = 1.63097209569432901817967892561191884270169"
+            in branch_scope.get("parallel_source_audit_branch_note", "")
+        ),
         "branch_scope_note_present": (
             "scope_note" in branch_scope
             and "N_CRC^EW(P_star) = pi*exp[6*pi/(P_star*alpha_U(P_star))]" in branch_scope.get("scope_note", "")
+            and "public-endpoint pixel" in branch_scope.get("scope_note", "")
+            and "A_T_public = 137.035999177" in branch_scope.get("scope_note", "")
+        ),
+        "source_values_record_p_star_branch": (
+            source_values.get("P_star_branch") == "public_endpoint_branch"
+            and source_values.get("P_star_source_artifact")
+            == "certificates/R_P_public_pixel_certificate.json"
+            and source_values.get("P_star_full_precision_source_artifact")
+            == "certificates/R_PN_joint_fixed_point_certificate_report.json"
+            and source_values.get("alpha_U_source_artifact")
+            == "certificates/R_U_krawczyk_certificate.json"
+        ),
+        "branch_selection_block_present_and_public_endpoint": (
+            branch_selection.get("selected_branch") == "public_endpoint_pixel_branch"
+            and "A_T_public = 137.035999177" in branch_selection.get("branch_locator", "")
+            and "branch locator" in branch_selection.get("branch_locator", "")
+            and "R_P_source_audit_pixel_certificate.json"
+            in branch_selection.get("parallel_source_audit_branch", "")
+        ),
+        "allowed_inputs_record_a_t_public_as_branch_locator": any(
+            "A_T_public = 137.035999177" in item and "branch locator" in item for item in allowed_inputs
+        ),
+        "forbidden_calibrations_block_a_t_public_as_upstream_input": any(
+            "A_T_public" in item and "upstream source-map input" in item for item in forbidden
         ),
         "acceptance_exact_global_capacity_fixed_point_defined": (
             acceptance.get("exact_global_capacity_fixed_point_defined") is True
@@ -159,8 +250,21 @@ def main(path: str = "certificates/R_EW_global_capacity_certificate.json") -> in
         "acceptance_downstream_unchanged": (
             acceptance.get("downstream_surfaces_unchanged_because_status_unchanged") is True
         ),
-        "dependency_artifacts_pixel_present": "oph_local_pixel_fixed_point" in deps,
-        "dependency_artifacts_alpha_u_present": "alpha_u_unification_width" in deps,
+        "dependency_artifacts_public_endpoint_pixel_closure_present": (
+            deps.get("public_endpoint_local_pixel_closure")
+            == "certificates/R_P_public_pixel_certificate.json"
+        ),
+        "dependency_artifacts_full_precision_joint_present": (
+            deps.get("public_endpoint_local_pixel_full_precision_record")
+            == "certificates/R_PN_joint_fixed_point_certificate_report.json"
+        ),
+        "dependency_artifacts_alpha_u_present": (
+            deps.get("alpha_u_unification_width") == "certificates/R_U_krawczyk_certificate.json"
+        ),
+        "dependency_artifacts_parallel_source_audit_present": (
+            deps.get("parallel_source_audit_pixel_branch_witness")
+            == "certificates/R_P_source_audit_pixel_certificate.json"
+        ),
         "dependency_artifacts_d10_present": "d10_transmutation_theorem_beta_ew" in deps,
         "dependency_artifacts_m_rep_present": "representation_to_spectrum_m_rep_24" in deps,
         "dependency_artifacts_pi_ew_present": "ew_tick_projection_pi_ew_definition" in deps,
