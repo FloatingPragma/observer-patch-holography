@@ -226,12 +226,75 @@ def test_issue_344_exact_capacity_certificate_is_fixed_point_source_record() -> 
     assert checks["fixed_point_residual_zero"] is True
     assert checks["residual_contracts"] is True
     assert checks["rounded_capacity_fails_bridge"] is True
+    assert checks["target_relation_states_zero_bridge_residual"] is True
+    assert checks["boundary_scope_present"] is True
+    assert checks["derivation_chain_has_eight_steps"] is True
+    assert checks["step_3_imports_m_rep_24"] is True
+    assert checks["step_5_equates_resonance_to_bridge_residual"] is True
+    assert checks["step_6_solves_closed_form_capacity"] is True
+    assert checks["step_7_certifies_banach_contraction"] is True
+    assert checks["step_8_records_numerical_witness_and_rejects_rounded"] is True
+    assert checks["factor_origin_six_recorded_as_m_rep_over_beta_ew"] is True
+    assert checks["factor_origin_lambda_one_half_recorded"] is True
+    assert checks["branch_scope_note_present"] is True
+    assert checks["dependency_artifacts_m_rep_present"] is True
+    assert checks["dependency_artifacts_pi_ew_present"] is True
+    assert checks["consumer_artifacts_umbrella_present"] is True
+    assert checks["acyclicity_summary_states_peer_cross_reference"] is True
+    assert checks["acyclicity_primary_theorems_independent"] is True
 
     cert = json.loads((ROOT / "certificates/R_EW_global_capacity_certificate.json").read_text())
     assert cert["accepted"] is True
     assert cert["status"] == "closed_bridge_refined_global_capacity_fixed_point_certificate"
+    assert cert["certificate_id"] == "issue-344-exact-ew-refined-global-capacity-v2"
     assert cert["contraction_certificate"]["lipschitz_constant"] == "0.5"
     assert cert["exact_capacity_fixed_point"]["bridge_residual"] == "0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+
+    chain = cert["derivation_chain"]
+    assert len(chain) == 8
+    assert {step["step"] for step in chain} == set(range(1, 9))
+    assert "P_star" in chain[0]["conclusion"]
+    assert "beta_EW" in chain[1]["conclusion"]
+    assert "m_rep = 24" in chain[2]["conclusion"]
+    assert "Pi_EW(P_star, N_CRC^EW) = 4*P_star" in chain[3]["conclusion"]
+    assert "B_EW(P_star,N) := alpha_U*log(N/pi) - 6*pi/P_star" in chain[4]["conclusion"]
+    assert "N_CRC^EW(P_star) = pi*exp[6*pi/(P_star*alpha_U(P_star))]" in chain[5]["conclusion"]
+    assert "Banach" in chain[6]["conclusion"] and "1 - lambda = 1/2" in chain[6]["conclusion"]
+    assert "3.31e122" in chain[7]["conclusion"]
+
+    factors = cert["factor_origins"]
+    assert factors["beta_EW_transmutation_multiplicity"]["value"] == "4"
+    assert factors["m_rep_doubled_sm_adjoint_round_count"]["value"] == "24"
+    assert factors["factor_six_in_bridge_residual"]["value"] == "6"
+    assert "m_rep / beta_EW" in factors["factor_six_in_bridge_residual"]["expression"]
+    assert factors["banach_contraction_lambda_one_half"]["value"] == "1/2"
+
+    branch_scope = cert["branch_scope"]
+    assert "scope_note" in branch_scope
+    assert "N_CRC^EW(P_star) = pi*exp[6*pi/(P_star*alpha_U(P_star))]" in branch_scope["scope_note"]
+    assert "lambda = 1/2" in branch_scope["banach_contraction_branch"]
+
+    acceptance = cert["acceptance_criteria_status"]
+    assert all(acceptance.values())
+    assert acceptance["bridge_residual_zero_on_source_side"] is True
+    assert acceptance["banach_contraction_certified_with_explicit_lipschitz_constant"] is True
+    assert acceptance["rounded_capacity_display_rejected_as_exact_witness"] is True
+
+    deps = cert["dependency_artifacts"]
+    assert "R_m_rep_24_certificate" in deps["representation_to_spectrum_m_rep_24"]
+    assert "R_EW_tick_projection_certificate" in deps["ew_tick_projection_pi_ew_definition"]
+
+    consumers = cert["consumer_artifacts"]
+    assert "R_EW_tick_projection_certificate" in consumers["ew_tick_projection_specialisation"]
+    assert "R_readback_resolution_certificate" in consumers["finite_readback_resolution_dependency"]
+    assert "R_local_global_hierarchy_resonance_closeout_335" in consumers["local_global_hierarchy_resonance_umbrella"]
+
+    acyclic = cert["dependency_acyclicity_note"]
+    assert "peer cross-reference" in acyclic["summary"]
+    assert "ew_tick_projection_primary" in acyclic["primary_theorems_are_independent"]
+    assert "exact_capacity_primary" in acyclic["primary_theorems_are_independent"]
+    assert "specialised_corollary_is_a_composition_not_a_circle" in acyclic
+    assert "umbrella_certificate_resolves_the_composition" in acyclic
 
 
 def test_issue_342_readback_resolution_certificate_is_singleton_resolution() -> None:
