@@ -11,10 +11,10 @@ into the closed-form source-side fixed point
 certified by a Banach contraction with lambda = 1/2 on the source-side log-capacity
 coordinate. Every factor 6, 24, 4 in the bridge residual and projection map is
 traced back to its source theorem (D10 beta_EW = N_c + 1 = 4; m_rep = 24 from
-issue #343; 6 = m_rep / beta_EW = 24 / 4). The cert emits derivation_chain,
-factor_origins, branch_scope, claim_boundary.scope, dependency_artifacts /
-consumer_artifacts pointers, dependency_acyclicity_note, and a
-descriptive-boolean acceptance_criteria_status.
+R_m_rep_24_certificate.json; 6 = m_rep / beta_EW = 24 / 4). The cert emits
+derivation_chain, factor_origins, branch_scope, claim_boundary.scope,
+dependency_artifacts / consumer_artifacts pointers, dependency_acyclicity_note,
+and a descriptive-boolean acceptance_criteria_status.
 
 The 110-digit Decimal numerical witness shows B_EW(P_*, N_CRC^EW) = 0 and the
 contraction sample residual ratio = 1/2 to absolute tolerance <= 1e-40, while
