@@ -336,15 +336,88 @@ def test_issue_343_m_rep_certificate_derives_twenty_four_rounds() -> None:
     assert checks["oriented_support_is_24"] is True
     assert checks["spectral_period_is_24"] is True
     assert checks["su5_negative_control_recorded"] is True
+    assert checks["doubled_su5_rejected"] is True
+    assert checks["graviton_excluded"] is True
     assert checks["no_forbidden_inputs_used"] is True
+    assert checks["target_relation_recorded"] is True
+    assert checks["full_cycle_decomposition_recorded"] is True
+    assert checks["claim_boundary_records_scope"] is True
+    assert checks["derivation_chain_has_eight_steps"] is True
+    assert checks["derivation_step1_realized_product_branch"] is True
+    assert checks["derivation_step4_orientation_doubling"] is True
+    assert checks["derivation_step7_specializes_tick_law"] is True
+    assert checks["every_derivation_step_has_source_artifact"] is True
+    assert checks["factor_origins_keys_complete"] is True
+    assert checks["factor_origin_unoriented_cites_corpus"] is True
+    assert checks["factor_origin_orientation_cites_corpus"] is True
+    assert checks["factor_origin_exponent_cites_global_repair_tick_cert"] is True
+    assert checks["branch_scope_keys_complete"] is True
+    assert checks["branch_scope_records_patch_carrier_pipeline"] is True
+    assert checks["branch_scope_includes_scope_note"] is True
+    assert checks["dependency_artifacts_keys_complete"] is True
+    assert checks["consumer_artifacts_keys_complete"] is True
+    assert checks["acceptance_criteria_keys_complete"] is True
+    assert checks["acceptance_criteria_all_satisfied"] is True
+    assert checks["used_inputs_cite_compact_proof_corpus"] is True
+    assert checks["certificate_id_v2"] is True
 
     cert = json.loads((ROOT / "certificates/R_m_rep_24_certificate.json").read_text())
     assert cert["accepted"] is True
     assert cert["status"] == "closed_representation_to_spectrum_round_count"
+    assert cert["certificate_id"] == "issue-343-m-rep-24-doubled-sm-adjoint-v2"
     assert cert["representation_sector"]["unoriented_adjoint_dimension"] == 12
     assert cert["representation_sector"]["oriented_support_dimension"] == 24
     assert cert["result"]["specialized_exponent"] == "-1/48"
+    assert cert["result"]["full_cycle_decomposition"] == "G_N = g_N^m_rep = g_N^24"
     assert cert["claim_boundary"]["not_closed_here"] == []
+    assert "(N_CRC/pi)^(-1/48)" in cert["claim_boundary"]["scope"]
+
+    chain = cert["derivation_chain"]
+    assert len(chain) == 8
+    assert chain[0]["premise"].startswith(
+        "OPH realized observer-visible product-gauge branch"
+    )
+    assert "compact_proof_of_oph.tex" in chain[0]["source_artifact"]
+    assert "orientation-doubling axiom" in chain[3]["premise"]
+    assert "compact_proof_of_oph.tex" in chain[3]["source_artifact"]
+    assert (
+        chain[6]["premise"]
+        == "Specialization of the parametric global repair-tick law"
+    )
+    assert (
+        "R_N_global_repair_tick_certificate.json" in chain[6]["source_artifact"]
+    )
+
+    factor_origins = cert["factor_origins"]
+    assert factor_origins["m_rep"]["value"] == 24
+    assert factor_origins["exponent_denominator"]["value"] == 48
+    assert (
+        factor_origins["orientation_multiplier"]["value"] == 2
+    )
+    assert (
+        "compact_proof_of_oph.tex"
+        in factor_origins["orientation_multiplier"]["source_artifact"]
+    )
+
+    branch_scope = cert["branch_scope"]
+    assert "(SU(3) x SU(2) x U(1))/Z6" in branch_scope[
+        "oph_realized_compact_gauge_branch"
+    ]
+    assert "patch-carrier" in branch_scope["reversible_repair_orientation_branch"]
+    assert "m_rep=24" in branch_scope["scope_note"]
+
+    consumers = cert["consumer_artifacts"]
+    assert (
+        "R_local_global_hierarchy_resonance_closeout_335.json"
+        in consumers["local_global_resonance_closeout"]
+    )
+
+    acceptance = cert["acceptance_criteria_status"]
+    assert acceptance["all_acceptance_criteria_satisfied"] is True
+    assert (
+        "(N_CRC/pi)^(-1/48)"
+        in acceptance["ac3_specialization_to_minus_one_over_48"]
+    )
 
 
 def test_issue_332_rg_higgs_naturality_certificate_is_zero_defect() -> None:
