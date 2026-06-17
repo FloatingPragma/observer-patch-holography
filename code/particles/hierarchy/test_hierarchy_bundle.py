@@ -412,6 +412,25 @@ def test_issue_343_m_rep_certificate_derives_twenty_four_rounds() -> None:
         in consumers["local_global_resonance_closeout"]
     )
 
+    acyclicity = cert["dependency_acyclicity_note"]
+    assert "peer cross-reference" in acyclicity["summary"]
+    assert "not a circular dependency" in acyclicity["summary"]
+    primary = acyclicity["primary_theorems_are_independent"]
+    assert "m is a free parameter" in primary["global_repair_tick_lemma_primary"]
+    assert "do not use the tick law" in primary["m_rep_24_primary"]
+    assert (
+        "composition of the two independent primary theorems"
+        in acyclicity["specialized_corollary_is_a_composition_not_a_circle"]
+    )
+    assert (
+        "R_local_global_hierarchy_resonance_closeout_335.json"
+        in acyclicity["umbrella_certificate_resolves_the_composition"]
+    )
+    assert (
+        "strictly upstream"
+        in acyclicity["other_remaining_branches_are_upstream_only"]
+    )
+
     acceptance = cert["acceptance_criteria_status"]
     assert acceptance["all_acceptance_criteria_satisfied"] is True
     assert (

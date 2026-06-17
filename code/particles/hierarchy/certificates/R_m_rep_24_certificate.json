@@ -220,6 +220,16 @@
     "ew_tick_projection_bridge": "code/particles/hierarchy/certificates/R_EW_tick_projection_certificate.json",
     "local_global_resonance_closeout": "code/particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json"
   },
+  "dependency_acyclicity_note": {
+    "summary": "The bidirectional reference between R_m_rep_24_certificate.json and R_N_global_repair_tick_certificate.json is a peer cross-reference, not a circular dependency. The proof-level dependency graph is acyclic.",
+    "primary_theorems_are_independent": {
+      "global_repair_tick_lemma_primary": "R_N_global_repair_tick_certificate.json derives the parametric per-tick exponent law |g_*'| = (N_CRC/pi)^(-1/(2*m)) for an m-tick homogeneous decomposition from the D6 screen-capacity normalization, readback fixed-point closure, and scale-free homogeneity. The integer m is a free parameter throughout this derivation; m_rep = 24 is not used in any step of the parametric proof.",
+      "m_rep_24_primary": "This certificate derives m_rep = 24 from the OPH realized product-gauge branch + reversible orientation-doubling axiom + Lie-algebra dimension formulas + cyclic-scheduler order. Steps 1-6 of the derivation chain do not use the tick law; the per-tick exponent -1/(2m) appears in no premise or conclusion of steps 1-6."
+    },
+    "specialized_corollary_is_a_composition_not_a_circle": "The specialized result |g_*'| = (N_CRC/pi)^(-1/48) is the composition of the two independent primary theorems above. It is recorded in both R_N_global_repair_tick_certificate.json (as the m=m_rep=24 specialization of the parametric law) and R_m_rep_24_certificate.json derivation_chain step 7 (as the specialization at the derived m_rep=24). Recording the composition in both certs is a documentation convenience; neither primary proof feeds back into the other.",
+    "umbrella_certificate_resolves_the_composition": "R_local_global_hierarchy_resonance_closeout_335.json composes both R_N_global_repair_tick_certificate.json and R_m_rep_24_certificate.json (and six other prerequisite theorems) as independent dependency artifacts. The umbrella is the canonical place where the -1/48 specialization is consumed without redundant cross-reference.",
+    "other_remaining_branches_are_upstream_only": "The realized product-gauge branch (extra/compact_proof_of_oph.tex), the reversible orientation-doubling axiom (same), the cyclic scheduler branch (recorded in branch_scope), and the source-side fixed point N_CRC^EW(P_*) (R_EW_global_capacity_certificate.json) are strictly upstream of this certificate or symbolic only; none participate in a cycle. N_CRC^EW from R_EW_global_capacity_certificate.json is referenced only symbolically in the specialized exponent (N_CRC/pi)^(-1/48); no concrete numerical value of N_CRC is used in the m_rep=24 derivation, and R_EW_global_capacity_certificate.json does not depend on this certificate."
+  },
   "negative_controls": [
     {
       "name": "unoriented product adjoint",

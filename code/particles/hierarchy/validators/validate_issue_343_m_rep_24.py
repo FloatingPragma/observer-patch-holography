@@ -50,6 +50,19 @@ REQUIRED_CONSUMER_KEYS = {
     "local_global_resonance_closeout",
 }
 
+REQUIRED_ACYCLICITY_KEYS = {
+    "summary",
+    "primary_theorems_are_independent",
+    "specialized_corollary_is_a_composition_not_a_circle",
+    "umbrella_certificate_resolves_the_composition",
+    "other_remaining_branches_are_upstream_only",
+}
+
+REQUIRED_PRIMARY_THEOREM_KEYS = {
+    "global_repair_tick_lemma_primary",
+    "m_rep_24_primary",
+}
+
 
 def _factor_value(cert: dict, key: str) -> object:
     return cert.get("factor_origins", {}).get(key, {}).get("value")
@@ -72,6 +85,8 @@ def main(path: str = "certificates/R_m_rep_24_certificate.json") -> int:
     consumer_artifacts = cert.get("consumer_artifacts", {})
     acceptance = cert.get("acceptance_criteria_status", {})
     claim_boundary = cert.get("claim_boundary", {})
+    acyclicity = cert.get("dependency_acyclicity_note", {})
+    primary_theorems = acyclicity.get("primary_theorems_are_independent", {})
 
     derivation_premises = [step.get("premise", "") for step in derivation_chain]
 
@@ -286,6 +301,40 @@ def main(path: str = "certificates/R_m_rep_24_certificate.json") -> int:
         ),
         "certificate_id_v2": (
             cert.get("certificate_id") == "issue-343-m-rep-24-doubled-sm-adjoint-v2"
+        ),
+        "dependency_acyclicity_note_emitted": isinstance(acyclicity, dict)
+        and bool(acyclicity),
+        "dependency_acyclicity_note_keys_complete": (
+            set(acyclicity.keys()) == REQUIRED_ACYCLICITY_KEYS
+        ),
+        "dependency_acyclicity_summary_records_peer_cross_reference": (
+            "peer cross-reference" in acyclicity.get("summary", "")
+            and "not a circular dependency" in acyclicity.get("summary", "")
+        ),
+        "primary_theorems_keys_complete": (
+            set(primary_theorems.keys()) == REQUIRED_PRIMARY_THEOREM_KEYS
+        ),
+        "primary_theorem_global_repair_tick_lemma_is_m_independent": (
+            "m is a free parameter"
+            in primary_theorems.get("global_repair_tick_lemma_primary", "")
+        ),
+        "primary_theorem_m_rep_24_is_tick_law_independent": (
+            "do not use the tick law"
+            in primary_theorems.get("m_rep_24_primary", "")
+        ),
+        "specialized_corollary_described_as_composition": (
+            "composition of the two independent primary theorems"
+            in acyclicity.get(
+                "specialized_corollary_is_a_composition_not_a_circle", ""
+            )
+        ),
+        "umbrella_resolves_composition_recorded": (
+            "R_local_global_hierarchy_resonance_closeout_335.json"
+            in acyclicity.get("umbrella_certificate_resolves_the_composition", "")
+        ),
+        "other_branches_recorded_as_upstream_only": (
+            "strictly upstream"
+            in acyclicity.get("other_remaining_branches_are_upstream_only", "")
         ),
     }
     payload = {"checks": validation, "pass": all(validation.values())}
