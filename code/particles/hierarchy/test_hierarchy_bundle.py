@@ -26,7 +26,7 @@ def test_hierarchy_bundle_validators_pass() -> None:
     result = _run("validators/validate_bundle.py")
     payload = json.loads(result.stdout)
 
-    assert len(payload) == 11
+    assert len(payload) == 12
     assert all(entry["returncode"] == 0 for entry in payload)
     validator_outputs = [json.loads(entry["stdout"]) for entry in payload]
     assert all(output["pass"] is True for output in validator_outputs)
@@ -249,6 +249,40 @@ def test_issue_342_readback_resolution_certificate_is_singleton_resolution() -> 
     assert checks["no_remaining_boundary"] is True
     assert checks["round_count_recorded_elsewhere"] is True
     assert checks["exact_capacity_recorded_elsewhere"] is True
+    assert checks["derivation_chain_has_eight_steps"] is True
+    assert checks["step_2_is_fixed_cutoff_confluence"] is True
+    assert checks["step_4_closes_single_resolution_criterion"] is True
+    assert checks["step_7_loads_ew_exact_capacity_certificate"] is True
+    assert checks["step_8_closes_positive_root_closure_criterion"] is True
+    assert checks["factor_origin_pi_recorded"] is True
+    assert checks["factor_origin_positive_root_one_half"] is True
+    assert checks["factor_origin_banach_lambda"] is True
+    assert checks["factor_origin_derivative_factor_two"] is True
+    assert checks["branch_scope_records_d6_branch"] is True
+    assert checks["branch_scope_records_ew_branch"] is True
+    assert checks["branch_scope_records_finite_repair_branch"] is True
+    assert checks["branch_scope_records_observer_branch"] is True
+    assert checks["branch_scope_includes_scope_note"] is True
+    assert checks["obstruction_records_rounded_diagnostic"] is True
+    assert checks["kappa_matches_ew_lambda"] is True
+    assert checks["rounded_capacity_in_forbidden_inputs"] is True
+    assert checks["claim_boundary_has_scope"] is True
+    assert checks["normal_form_cites_confluence_theorem_artifact"] is True
+    assert checks["observer_sector_cites_synthesis_artifact"] is True
+    assert checks["selected_atom_equals_n_crc_ew"] is True
+    assert checks["cap_read_equals_n_crc"] is True
+    assert checks["rho_read_equals_rho_star"] is True
+    assert checks["strict_residuals_at_or_below_tolerance"] is True
+    assert checks["acceptance_definitions_emitted"] is True
+    assert checks["acceptance_single_resolution_proved"] is True
+    assert checks["acceptance_finite_to_refinement_proved"] is True
+    assert checks["acceptance_positive_root_closure_proved"] is True
+    assert checks["acceptance_inputs_and_forbidden_calibrations"] is True
+    assert checks["acceptance_rounded_display_rejected"] is True
+    assert checks["acceptance_certificate_emitted"] is True
+    assert checks["acceptance_ew_dependency_loaded"] is True
+    assert checks["acceptance_exact_bridge_hypothesis_supplied"] is True
+    assert checks["ew_dependency_recorded"] is True
 
     cert = json.loads((ROOT / "certificates/R_readback_resolution_certificate.json").read_text())
     assert cert["accepted"] is True
@@ -256,6 +290,37 @@ def test_issue_342_readback_resolution_certificate_is_singleton_resolution() -> 
     assert cert["source_status"]["remaining_for_full_hierarchy_resonance"] == []
     assert cert["claim_boundary"]["not_closed_here"] == []
     assert cert["capacity_register"]["selected_variance"] == "0"
+
+    chain = cert["derivation_chain"]
+    assert len(chain) == 8
+    assert "single effective readback resolution" in {
+        step.get("acceptance_criterion_closed") for step in chain
+    }
+    assert "positive-root fixed-point closure forces rho_read -> rho_star" in {
+        step.get("acceptance_criterion_closed") for step in chain
+    }
+
+    factors = cert["factor_origins"]
+    assert factors["banach_contraction_lambda_one_half"]["value"] == "1/2"
+    assert "R_EW_global_capacity_certificate" in factors[
+        "banach_contraction_lambda_one_half"
+    ]["source_artifact"]
+
+    branch_scope = cert["branch_scope"]
+    assert "lambda=1/2" in branch_scope["ew_refined_exact_capacity_branch"]
+    assert "N_CRC^EW" in branch_scope["scope_note"]
+
+    obstruction = cert["obstruction_record"]
+    assert obstruction["rounded_N_CRC_status"] == "diagnostic_only_not_exact_bridge_witness"
+
+    acceptance = cert["acceptance_criteria_status"]
+    assert all(acceptance.values())
+
+    assert cert["dependencies"]["ew_refined_exact_capacity"] is True
+    assert (
+        "R_EW_global_capacity_certificate.json"
+        in cert["dependency_artifacts"]["ew_refined_exact_capacity"]
+    )
 
 
 def test_issue_343_m_rep_certificate_derives_twenty_four_rounds() -> None:

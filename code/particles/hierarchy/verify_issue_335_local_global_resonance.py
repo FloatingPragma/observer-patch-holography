@@ -5,7 +5,7 @@ Composes the eight prerequisite theorems into the umbrella resonance relation
 ``t_tr(P_*) = (P_*/12) * log(N_CRC^EW / pi)`` on the selected branch, emits a
 machine-readable derivation chain and factor-origin record, and computes the
 full-theorem-grade promotion flag from the conjunction of dependency status
-checks (no hard-coded promotion).
+checks.
 """
 
 from __future__ import annotations
@@ -180,7 +180,7 @@ def main() -> int:
                 "OPH cell-entropy identification P/4 = P/beta_EW",
             ],
             "conclusion": "local port reads X/12 of screen load X = log(N/pi); Gamma_EW = beta_EW * (P/4) * (1/12) * log(N/pi) = (P/12) * log(N/pi); v/E_cell = (N/pi)^(-P/12)",
-            "geometric_strengthening_note": "This step closes the scope previously disclosed in the EW tick-projection certificate ('a deeper geometric derivation of the product target 4*P_star belongs to a separate strengthening theorem') by deriving the (1/12) port-read factor from icosahedral A5/C5 orbit geometry on the declared triangulated S^2 screen branch.",
+            "geometric_strengthening_note": "This step supplies the geometric screen factor for the EW tick-projection certificate by deriving the (1/12) port-read factor from icosahedral A5/C5 orbit geometry on the declared triangulated S^2 screen branch.",
             "source": "certificates/R_screen_sieve_icosahedral_certificate.json",
         },
         {
@@ -267,7 +267,7 @@ def main() -> int:
             "definition": "1 / beta_EW",
             "role": "cell entropy P/4 = P/beta_EW: pixel-area entropy apportioned per electroweak channel",
             "source_theorem": "OPH structural identification (cell-per-channel apportionment)",
-            "scope_note": "The cell-entropy identification P/beta_EW is an OPH structural choice consumed by the icosahedral screen-sieve theorem as input. It is not derived from a deeper geometric theorem at the level of this closeout; together with the icosahedral 1/12 port-read factor and the D10 channel multiplicity, it composes the (P/12) form. This is the residual definitional residue of the umbrella resonance on the selected branch.",
+            "scope_note": "The cell-entropy identification P/beta_EW is an OPH structural choice consumed by the icosahedral screen-sieve theorem as input. At this closeout level, its derivation status remains a scoped OPH structural identification. Together with the icosahedral 1/12 port-read factor and the D10 channel multiplicity, it composes the (P/12) form. This is the residual definitional residue of the umbrella resonance on the selected branch.",
         },
         "projection_target_factor_4_in_4P": {
             "value": "4",
@@ -303,8 +303,8 @@ def main() -> int:
             "The eight prerequisite theorems compose into the umbrella resonance "
             "relation t_tr(P_*) = (P_*/12)*log(N_CRC^EW/pi) on the selected branch, "
             "with the icosahedral screen-sieve theorem supplying the geometric "
-            "strengthening of the (P/12) factor that the EW tick-projection "
-            "certificate previously scoped as definitional. The full-theorem-grade "
+            "strengthening of the (P/12) factor used by the EW tick-projection "
+            "certificate. The full-theorem-grade "
             "promotion is computed from the conjunction of all dependency status "
             "checks; the only residual definitional residue is the OPH cell-entropy "
             "identification P/beta_EW, recorded under factor_origins."
