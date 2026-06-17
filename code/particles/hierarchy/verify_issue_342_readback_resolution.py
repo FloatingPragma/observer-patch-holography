@@ -440,7 +440,7 @@ def build_derivation_chain(
     return [
         {
             "step": 1,
-            "premise": "OPH finite simulation pipeline (corpus axiom)",
+            "premise": "OPH finite patch-carrier pipeline (corpus axiom)",
             "uses": ["finite OPH patch system at fixed cutoff r and capacity coordinate N"],
             "source_artifact": "extra/compact_proof_of_oph.tex (OPH framework section); paper/tex_fragments/OBSERVERS_SYNTHESIS_SECTIONS.tex",
             "conclusion": "U_{r,N} is a finite, well-defined initial object on which the OPH repair-and-readback pipeline acts.",
