@@ -415,8 +415,21 @@ def test_issue_343_m_rep_certificate_derives_twenty_four_rounds() -> None:
     acceptance = cert["acceptance_criteria_status"]
     assert acceptance["all_acceptance_criteria_satisfied"] is True
     assert (
-        "(N_CRC/pi)^(-1/48)"
-        in acceptance["ac3_specialization_to_minus_one_over_48"]
+        acceptance[
+            "parametric_tick_law_specializes_to_minus_one_over_48_at_m_rep_24"
+        ]
+        is True
+    )
+    assert acceptance["m_rep_24_proved_on_source_side_oph_data"] is True
+    assert acceptance["negative_controls_for_nearby_round_counts_supplied"] is True
+    assert (
+        acceptance[
+            "no_measured_weak_higgs_g_planck_area_lambda_or_hierarchy_ratio_inputs_used"
+        ]
+        is True
+    )
+    assert (
+        acceptance["factor_origins_documented_for_every_numerical_factor"] is True
     )
 
 

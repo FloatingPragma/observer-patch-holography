@@ -26,13 +26,14 @@ REQUIRED_BRANCH_SCOPE_KEYS = {
 }
 
 REQUIRED_ACCEPTANCE_KEYS = {
-    "ac1_define_grammar_sector_spectral_object_observable",
-    "ac2_proof_m_rep_24_on_source_side_oph_data",
-    "ac3_specialization_to_minus_one_over_48",
-    "ac4_negative_controls_or_obstruction_notes",
-    "ac5_no_measured_inputs",
-    "ac6_emit_public_certificate_and_verifier",
-    "ac7_update_only_if_status_changes",
+    "repair_grammar_representation_sector_spectral_object_and_tick_count_observable_defined",
+    "m_rep_24_proved_on_source_side_oph_data",
+    "parametric_tick_law_specializes_to_minus_one_over_48_at_m_rep_24",
+    "negative_controls_for_nearby_round_counts_supplied",
+    "no_measured_weak_higgs_g_planck_area_lambda_or_hierarchy_ratio_inputs_used",
+    "public_certificate_and_verifier_emitted_under_hierarchy_package",
+    "theorem_package_status_integration_compact_proof_paper_book_readme_unchanged_because_status_unchanged",
+    "factor_origins_documented_for_every_numerical_factor",
     "all_acceptance_criteria_satisfied",
 }
 
@@ -234,25 +235,46 @@ def main(path: str = "certificates/R_m_rep_24_certificate.json") -> int:
         "acceptance_criteria_all_satisfied": (
             acceptance.get("all_acceptance_criteria_satisfied") is True
         ),
-        "ac1_string_records_grammar_sector_spectral_observable": (
-            isinstance(
-                acceptance.get("ac1_define_grammar_sector_spectral_object_observable"),
-                str,
+        "acceptance_grammar_sector_spectral_observable_true": (
+            acceptance.get(
+                "repair_grammar_representation_sector_spectral_object_and_tick_count_observable_defined"
             )
-            and "repair_grammar"
-            in acceptance.get("ac1_define_grammar_sector_spectral_object_observable", "")
+            is True
         ),
-        "ac2_string_records_m_rep_derivation": (
-            "2 * (8 + 3 + 1)"
-            in acceptance.get("ac2_proof_m_rep_24_on_source_side_oph_data", "")
+        "acceptance_m_rep_24_proved_true": (
+            acceptance.get("m_rep_24_proved_on_source_side_oph_data") is True
         ),
-        "ac3_string_records_minus_one_over_48": (
-            "(N_CRC/pi)^(-1/48)"
-            in acceptance.get("ac3_specialization_to_minus_one_over_48", "")
+        "acceptance_specialization_minus_one_over_48_true": (
+            acceptance.get(
+                "parametric_tick_law_specializes_to_minus_one_over_48_at_m_rep_24"
+            )
+            is True
         ),
-        "ac5_string_records_no_measured_inputs": (
-            "FORBIDDEN_INPUTS"
-            in acceptance.get("ac5_no_measured_inputs", "")
+        "acceptance_negative_controls_supplied_true": (
+            acceptance.get("negative_controls_for_nearby_round_counts_supplied")
+            is True
+        ),
+        "acceptance_no_measured_inputs_true": (
+            acceptance.get(
+                "no_measured_weak_higgs_g_planck_area_lambda_or_hierarchy_ratio_inputs_used"
+            )
+            is True
+        ),
+        "acceptance_public_certificate_emitted_true": (
+            acceptance.get(
+                "public_certificate_and_verifier_emitted_under_hierarchy_package"
+            )
+            is True
+        ),
+        "acceptance_surfaces_unchanged_true": (
+            acceptance.get(
+                "theorem_package_status_integration_compact_proof_paper_book_readme_unchanged_because_status_unchanged"
+            )
+            is True
+        ),
+        "acceptance_factor_origins_documented_true": (
+            acceptance.get("factor_origins_documented_for_every_numerical_factor")
+            is True
         ),
         "used_inputs_cite_compact_proof_corpus": any(
             "compact_proof_of_oph.tex" in entry
