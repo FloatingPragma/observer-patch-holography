@@ -226,12 +226,138 @@ def test_issue_344_exact_capacity_certificate_is_fixed_point_source_record() -> 
     assert checks["fixed_point_residual_zero"] is True
     assert checks["residual_contracts"] is True
     assert checks["rounded_capacity_fails_bridge"] is True
+    assert checks["target_relation_states_zero_bridge_residual"] is True
+    assert checks["boundary_scope_present"] is True
+    assert checks["derivation_chain_has_eight_steps"] is True
+    assert checks["step_1_selects_public_endpoint_branch"] is True
+    assert checks["step_1_records_branch_locator_a_t_public"] is True
+    assert checks["step_1_cites_public_endpoint_pixel_artifact"] is True
+    assert checks["step_1_cites_full_precision_joint_artifact"] is True
+    assert checks["step_1_records_parallel_source_audit_branch_witness"] is True
+    assert checks["step_1_distinguishes_p_public_from_p_source_audit"] is True
+    assert checks["step_3_imports_m_rep_24"] is True
+    assert checks["step_5_equates_resonance_to_bridge_residual"] is True
+    assert checks["step_6_solves_closed_form_capacity"] is True
+    assert checks["step_7_certifies_banach_contraction"] is True
+    assert checks["step_8_records_numerical_witness_and_rejects_rounded"] is True
+    assert checks["factor_origin_p_star_branch_is_public_endpoint"] is True
+    assert checks["factor_origin_p_star_source_is_public_endpoint_pixel_cert"] is True
+    assert checks["factor_origin_p_star_full_precision_source_is_joint_cert"] is True
+    assert checks["factor_origin_p_star_records_parallel_source_audit_witness"] is True
+    assert checks["factor_origin_p_star_value_matches_p_public"] is True
+    assert checks["factor_origin_alpha_u_source_is_krawczyk_cert"] is True
+    assert checks["factor_origin_six_recorded_as_m_rep_over_beta_ew"] is True
+    assert checks["factor_origin_lambda_one_half_recorded"] is True
+    assert checks["branch_scope_public_endpoint_pixel_branch_present"] is True
+    assert checks["branch_scope_krawczyk_unification_width_branch_present"] is True
+    assert checks["branch_scope_records_parallel_source_audit_branch"] is True
+    assert checks["branch_scope_note_present"] is True
+    assert checks["source_values_record_p_star_branch"] is True
+    assert checks["branch_selection_block_present_and_public_endpoint"] is True
+    assert checks["allowed_inputs_record_a_t_public_as_branch_locator"] is True
+    assert checks["forbidden_calibrations_block_a_t_public_as_upstream_input"] is True
+    assert checks["dependency_artifacts_public_endpoint_pixel_closure_present"] is True
+    assert checks["dependency_artifacts_full_precision_joint_present"] is True
+    assert checks["dependency_artifacts_parallel_source_audit_present"] is True
+    assert checks["dependency_artifacts_m_rep_present"] is True
+    assert checks["dependency_artifacts_pi_ew_present"] is True
+    assert checks["consumer_artifacts_umbrella_present"] is True
+    assert checks["acyclicity_summary_states_peer_cross_reference"] is True
+    assert checks["acyclicity_primary_theorems_independent"] is True
 
     cert = json.loads((ROOT / "certificates/R_EW_global_capacity_certificate.json").read_text())
     assert cert["accepted"] is True
     assert cert["status"] == "closed_bridge_refined_global_capacity_fixed_point_certificate"
+    assert cert["certificate_id"] == "issue-344-exact-ew-refined-global-capacity-v2"
     assert cert["contraction_certificate"]["lipschitz_constant"] == "0.5"
     assert cert["exact_capacity_fixed_point"]["bridge_residual"] == "0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+
+    chain = cert["derivation_chain"]
+    assert len(chain) == 8
+    assert {step["step"] for step in chain} == set(range(1, 9))
+    assert chain[0]["branch_selection"] == "public_endpoint_branch"
+    assert "A_T_public = 137.035999177" in chain[0]["branch_locator"]
+    assert chain[0]["source_artifact"] == "certificates/R_P_public_pixel_certificate.json"
+    assert chain[0]["full_precision_source_artifact"] == "certificates/R_PN_joint_fixed_point_certificate_report.json"
+    assert chain[0]["parallel_source_audit_branch_witness"] == "certificates/R_P_source_audit_pixel_certificate.json"
+    assert "P_public" in chain[0]["conclusion"]
+    assert "P_cand = 1.63097209569432901817967892561191884270169" in chain[0]["conclusion"]
+    assert "beta_EW" in chain[1]["conclusion"]
+    assert "m_rep = 24" in chain[2]["conclusion"]
+    assert "Pi_EW(P_star, N_CRC^EW) = 4*P_star" in chain[3]["conclusion"]
+    assert "B_EW(P_star,N) := alpha_U*log(N/pi) - 6*pi/P_star" in chain[4]["conclusion"]
+    assert "N_CRC^EW(P_star) = pi*exp[6*pi/(P_star*alpha_U(P_star))]" in chain[5]["conclusion"]
+    assert "Banach" in chain[6]["conclusion"] and "1 - lambda = 1/2" in chain[6]["conclusion"]
+    assert "3.31e122" in chain[7]["conclusion"]
+
+    factors = cert["factor_origins"]
+    p_star_factor = factors["P_star_pixel_fixed_point"]
+    assert p_star_factor["branch"] == "public_endpoint_branch"
+    assert p_star_factor["source_artifact"] == "certificates/R_P_public_pixel_certificate.json"
+    assert p_star_factor["full_precision_source_artifact"] == "certificates/R_PN_joint_fixed_point_certificate_report.json"
+    assert p_star_factor["parallel_source_audit_witness"] == "certificates/R_P_source_audit_pixel_certificate.json"
+    assert p_star_factor["parallel_source_audit_value"] == "1.63097209569432901817967892561191884270169"
+    assert p_star_factor["value"] == "1.6309682094039593248792798477826489413359828516279250606661507533907793398933432"
+    assert factors["alpha_U_unification_width"]["source_artifact"] == "certificates/R_U_krawczyk_certificate.json"
+    assert factors["beta_EW_transmutation_multiplicity"]["value"] == "4"
+    assert factors["m_rep_doubled_sm_adjoint_round_count"]["value"] == "24"
+    assert factors["factor_six_in_bridge_residual"]["value"] == "6"
+    assert "m_rep / beta_EW" in factors["factor_six_in_bridge_residual"]["expression"]
+    assert factors["banach_contraction_lambda_one_half"]["value"] == "1/2"
+
+    branch_scope = cert["branch_scope"]
+    assert "scope_note" in branch_scope
+    assert "N_CRC^EW(P_star) = pi*exp[6*pi/(P_star*alpha_U(P_star))]" in branch_scope["scope_note"]
+    assert "public-endpoint pixel" in branch_scope["scope_note"]
+    assert "A_T_public = 137.035999177" in branch_scope["scope_note"]
+    assert "P_public" in branch_scope["public_endpoint_pixel_branch"]
+    assert "R_P_public_pixel_certificate.json" in branch_scope["public_endpoint_pixel_branch"]
+    assert "R_U_krawczyk_certificate.json" in branch_scope["krawczyk_unification_width_branch"]
+    assert "R_P_source_audit_pixel_certificate.json" in branch_scope["parallel_source_audit_branch_note"]
+    assert "lambda = 1/2" in branch_scope["banach_contraction_branch"]
+
+    branch_selection = cert["branch_selection"]
+    assert branch_selection["selected_branch"] == "public_endpoint_pixel_branch"
+    assert "A_T_public = 137.035999177" in branch_selection["branch_locator"]
+    assert "branch locator" in branch_selection["branch_locator"]
+    assert "R_P_source_audit_pixel_certificate.json" in branch_selection["parallel_source_audit_branch"]
+
+    source_values = cert["source_values"]
+    assert source_values["P_star_branch"] == "public_endpoint_branch"
+    assert source_values["P_star_source_artifact"] == "certificates/R_P_public_pixel_certificate.json"
+    assert source_values["P_star_full_precision_source_artifact"] == "certificates/R_PN_joint_fixed_point_certificate_report.json"
+    assert source_values["alpha_U_source_artifact"] == "certificates/R_U_krawczyk_certificate.json"
+
+    allowed = cert["allowed_inputs"]
+    assert any("A_T_public = 137.035999177" in item and "branch locator" in item for item in allowed)
+    forbidden = cert["forbidden_calibrations"]
+    assert any("A_T_public" in item and "upstream source-map input" in item for item in forbidden)
+
+    acceptance = cert["acceptance_criteria_status"]
+    assert all(acceptance.values())
+    assert acceptance["bridge_residual_zero_on_source_side"] is True
+    assert acceptance["banach_contraction_certified_with_explicit_lipschitz_constant"] is True
+    assert acceptance["rounded_capacity_display_rejected_as_exact_witness"] is True
+
+    deps = cert["dependency_artifacts"]
+    assert deps["public_endpoint_local_pixel_closure"] == "certificates/R_P_public_pixel_certificate.json"
+    assert deps["public_endpoint_local_pixel_full_precision_record"] == "certificates/R_PN_joint_fixed_point_certificate_report.json"
+    assert deps["alpha_u_unification_width"] == "certificates/R_U_krawczyk_certificate.json"
+    assert deps["parallel_source_audit_pixel_branch_witness"] == "certificates/R_P_source_audit_pixel_certificate.json"
+    assert "R_m_rep_24_certificate" in deps["representation_to_spectrum_m_rep_24"]
+    assert "R_EW_tick_projection_certificate" in deps["ew_tick_projection_pi_ew_definition"]
+
+    consumers = cert["consumer_artifacts"]
+    assert "R_EW_tick_projection_certificate" in consumers["ew_tick_projection_specialisation"]
+    assert "R_readback_resolution_certificate" in consumers["finite_readback_resolution_dependency"]
+    assert "R_local_global_hierarchy_resonance_closeout_335" in consumers["local_global_hierarchy_resonance_umbrella"]
+
+    acyclic = cert["dependency_acyclicity_note"]
+    assert "peer cross-reference" in acyclic["summary"]
+    assert "ew_tick_projection_primary" in acyclic["primary_theorems_are_independent"]
+    assert "exact_capacity_primary" in acyclic["primary_theorems_are_independent"]
+    assert "specialised_corollary_is_a_composition_not_a_circle" in acyclic
+    assert "umbrella_certificate_resolves_the_composition" in acyclic
 
 
 def test_issue_342_readback_resolution_certificate_is_singleton_resolution() -> None:
