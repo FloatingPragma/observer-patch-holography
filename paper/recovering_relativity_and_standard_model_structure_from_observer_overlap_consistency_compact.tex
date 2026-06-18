@@ -3866,6 +3866,184 @@ G_{ab}+\Lambda g_{ab}=8\pi G\,\langle T_{ab}\rangle
 throughout the branch.
 \end{proof}
 
+\subsection{Edge-entropy/area law identifies the Einstein/Newton coupling}\label{subsec:edge-entropy-newton-coupling}
+
+The Jacobson-type chain of Theorems~\ref{thm:equilibrium}, \ref{thm:einstein} and Corollary~\ref{cor:einstein} produces an Einstein equation \(G_{ab}+\Lambda g_{ab}=8\pi G\,\langle T_{ab}\rangle\) on every connected locally Lorentzian \(d=4\) scaling branch. The next theorem identifies the coefficient \(G\) in that equation with the OPH edge-entropy/area-law ratio \(a_{\mathrm{cell}}/(4\bar\ell_{\mathrm{shared}})\) of Definition~\ref{def:newton}, and tracks the same \(G\) through the standard linearization into the Newton coupling of the weak-field, slow-motion, classical-source limit. The identification is structural: the same \(G\) propagates literally through the algebra from the edge-entropy/area-law dictionary into the Einstein equation and into the Newton-Poisson limit, with no separate Newton coefficient introduced or matched against a measured constant at any step.
+
+\begin{theorem}[Edge-entropy/area law identifies the Einstein/Newton coupling]\label{thm:edge-entropy-newton-coupling}
+Assume Axioms~\ref{ax:screen}--\ref{ax:entropy}, Assumption~\ref{ass:technical}, the hypotheses of Theorem~\ref{thm:bw} (BW scaling on the prime geometric subnet), Theorem~\ref{thm:stress} (half-line generator/null-stress identification), Lemma~\ref{lem:nullreconstruct} (null-data uniqueness modulo a metric term), Theorem~\ref{thm:equilibrium} (derived fixed-cap generalized-entropy stationarity), Lemma~\ref{lem:smallball} (internal \(d=4\) small-ball bridge), Theorem~\ref{thm:einstein} (Jacobson-type rest-frame relation), and Corollary~\ref{cor:einstein} (internal tensor upgrade). Work in the refinement-scaling regime of Definition~\ref{def:newton}, in which \(\mathrm{Tr}(\rho_C L_C)\approx N_\Sigma\,\bar\ell(t)\) and \(A(\partial C)\approx N_\Sigma\,a_{\mathrm{cell}}\). Define the OPH edge-entropy/area-law coupling
+\[
+G_{\mathrm{geom}}:=\frac{a_{\mathrm{cell}}}{4\bar\ell(t)}.
+\]
+Then on every connected locally Lorentzian \(d=4\) scaling branch:
+
+\textbf{(i) Einstein branch.} The coefficient \(G\) appearing in
+\[
+G_{ab}+\Lambda g_{ab}=8\pi G\,\langle T_{ab}\rangle
+\]
+of Corollary~\ref{cor:einstein} is exactly \(G_{\mathrm{geom}}\).
+
+\textbf{(ii) Realized product-group local-pixel form.} If, in addition, the realized product-group hypotheses of Proposition~\ref{prop:sharededgeentropy} hold and the local pixel branch satisfies the D10 pixel law, so that \(\bar\ell_{\mathrm{shared}}=P/4\) and \(a_{\mathrm{cell}}=P\,\ell_\star^2\) (Proposition~\ref{prop:gsi}), then
+\[
+G_{\mathrm{geom}}=\frac{a_{\mathrm{cell}}}{4\bar\ell_{\mathrm{shared}}}=\ell_\star^2,
+\]
+and the Einstein equation on that branch reads \(G_{ab}+\Lambda g_{ab}=8\pi\,\ell_\star^2\,\langle T_{ab}\rangle\).
+
+\textbf{(iii) Newton-Poisson weak-field limit.} On a static, weak-field background \(g_{ab}=\eta_{ab}+h_{ab}\) with \(|h_{ab}|\ll 1\), in the slow-motion (\(|v|\ll 1\) in geometric units) classical-source reduction \(T_{00}\to\rho\), \(|T_{ij}|\ll T_{00}\), the linearization of (i) in the harmonic gauge gives
+\[
+\nabla^2\Phi=4\pi\,G_{\mathrm{geom}}\,\rho,
+\qquad
+\ddot{\mathbf x}=-\nabla\Phi,
+\]
+where \(\Phi:=-\tfrac12 h_{00}\) is the Newtonian potential and the geodesic equation in the same limit yields the displayed acceleration. The Newton coupling in this limit is the same \(G_{\mathrm{geom}}=a_{\mathrm{cell}}/(4\bar\ell_{\mathrm{shared}})\) as in (i).
+
+In particular, the OPH edge-entropy/area-law ratio \(a_{\mathrm{cell}}/(4\bar\ell_{\mathrm{shared}})\) is the structural Einstein and Newton coupling on the realized branch.
+\end{theorem}
+
+\begin{proof}
+\textbf{(i)} The first variation of the generalized entropy on a fixed cap \(C\) is, by Proposition~\ref{prop:gensplit} together with the area-term identification of Definition~\ref{def:newton},
+\[
+\delta S_{\mathrm{gen}}(C)
+=\delta S_{\mathrm{bulk}}(C)
++\delta\!\Bigl(\frac{A(\partial C)}{4G_{\mathrm{geom}}}\Bigr)
+=\delta S_{\mathrm{bulk}}(C)+\frac{\delta A}{4G_{\mathrm{geom}}}.
+\]
+The coefficient \(1/(4G_{\mathrm{geom}})=\bar\ell(t)/a_{\mathrm{cell}}\) in front of \(\delta A\) is fixed by Definition~\ref{def:newton}: it is the refinement-scaling matching of \(\mathrm{Tr}(\rho_C L_C)\) to the area term, and uses no input outside the OPH edge-center entropy operator and the cell-area scaling. Theorem~\ref{thm:equilibrium} gives \(\delta S_{\mathrm{gen}}(C)=0\) on the admissible fixed-cap MaxEnt class, so the same coefficient enters the small-ball balance
+\[
+0=\delta S_{\mathrm{bulk}}(C)+\frac{\delta A}{4G_{\mathrm{geom}}}.
+\]
+Lemma~\ref{lem:smallball} expresses \(\delta S_{\mathrm{bulk}}(C)\) in terms of \(u^au^b\,\delta\langle T_{ab}\rangle\) using only the geometric cap generator and the D4 null-stress bridge, with no extra small-ball first law and no measured constant. The standard fixed-volume area-variation identity for a small geodesic ball in \(d=4\) gives
+\[
+\delta A\big|_{V,\Lambda}=-\frac{4\pi\ell^4}{15}\,\delta\!\Bigl[(G_{ab}+\Lambda g_{ab})u^au^b\Bigr],
+\]
+and the proof of Theorem~\ref{thm:einstein} divides through by \(\ell^4/(15)\) to obtain the rest-frame scalar relation. The factor of \(G\) on the right-hand side of Theorem~\ref{thm:einstein} is exactly the same \(G_{\mathrm{geom}}\) introduced through Definition~\ref{def:newton}, because nothing else has been substituted between \(\delta S_{\mathrm{gen}}(C)=0\) and the rest-frame relation. Corollary~\ref{cor:einstein} then promotes the rest-frame scalar relation to the tensor equation \(G_{ab}+\Lambda g_{ab}=8\pi G_{\mathrm{geom}}\,\langle T_{ab}\rangle\) using the Lorentz branch of Theorem~\ref{thm:bw}, the rest-frame coverage of timelike directions, and the null-data uniqueness of Lemma~\ref{lem:nullreconstruct}. Hence the coefficient \(G\) in Corollary~\ref{cor:einstein} is \(G_{\mathrm{geom}}\).
+
+\textbf{(ii)} On the realized product-group branch, Proposition~\ref{prop:sharededgeentropy} together with the D10 pixel law gives \(\bar\ell_{\mathrm{shared}}=P/4\), and Proposition~\ref{prop:gsi} gives \(a_{\mathrm{cell}}=P\,\ell_\star^2\). Therefore
+\[
+G_{\mathrm{geom}}=\frac{a_{\mathrm{cell}}}{4\bar\ell_{\mathrm{shared}}}=\frac{P\,\ell_\star^2}{4(P/4)}=\ell_\star^2.
+\]
+Substituting into part (i) yields the displayed local-pixel Einstein equation.
+
+\textbf{(iii)} Reduce (i) in the Newton-Poisson regime, using signature \((-,+,+,+)\) and geometric units \(c=1\). On laboratory and solar-system scales the curvature radius \(r\) of the Newtonian source is much smaller than the cosmological horizon \(r_{\mathrm{dS}}=\sqrt{3/\Lambda}\) (Corollary~\ref{cor:lambda-parameters}), so all \(\Lambda\)-dependent corrections to \(\Phi\) are bounded by \(\Lambda\,r^2\) and are dropped at this scale; the Newton-Poisson reduction of (i) therefore coincides with the reduction of \(G_{ab}=8\pi G_{\mathrm{geom}}\,\langle T_{ab}\rangle\). Write \(g_{ab}=\eta_{ab}+h_{ab}\) with \(|h_{ab}|\ll 1\), \(h:=\eta^{ab}h_{ab}\), and \(\bar h_{ab}:=h_{ab}-\tfrac12\eta_{ab}h\). In the harmonic gauge \(\partial^a\bar h_{ab}=0\) the linearization of \(G_{ab}=8\pi G_{\mathrm{geom}}\,\langle T_{ab}\rangle\) about flat space is the standard linearized-Einstein wave equation
+\[
+\Box\,\bar h_{ab}=-16\pi G_{\mathrm{geom}}\,T_{ab},
+\qquad
+\Box:=\eta^{ab}\partial_a\partial_b=-\partial_t^2+\nabla^2.
+\]
+For a static, classical, slow-motion source with \(T_{00}=\rho\) and \(|T_{0i}|,|T_{ij}|\ll T_{00}\), time derivatives drop and the dominant component is the time-time component:
+\[
+\nabla^2\bar h_{00}=-16\pi G_{\mathrm{geom}}\,\rho.
+\]
+On the static weak-field branch with the standard Newtonian-limit metric \(g_{00}=-(1+2\Phi)\), \(g_{ij}=(1-2\Phi)\delta_{ij}\), one has \(h_{00}=-2\Phi\), \(h_{ij}=-2\Phi\,\delta_{ij}\), and
+\[
+h=\eta^{ab}h_{ab}=-h_{00}+\delta^{ij}h_{ij}=2\Phi-6\Phi=-4\Phi,
+\qquad
+\bar h_{00}=h_{00}-\tfrac12\eta_{00}h=-2\Phi-\tfrac12(-1)(-4\Phi)=-4\Phi.
+\]
+Substituting \(\bar h_{00}=-4\Phi\) into the displayed wave equation gives
+\[
+\nabla^2(-4\Phi)=-16\pi G_{\mathrm{geom}}\,\rho
+\quad\Longleftrightarrow\quad
+\nabla^2\Phi=4\pi G_{\mathrm{geom}}\,\rho,
+\]
+which is the Newton-Poisson equation with coupling \(G_{\mathrm{geom}}\). The geodesic equation \(\ddot x^a+\Gamma^a_{bc}\dot x^b\dot x^c=0\) in the slow-motion limit reduces to \(\ddot x^i=-\Gamma^i_{00}=-\partial^i\Phi\), i.e.\ \(\ddot{\mathbf x}=-\nabla\Phi\). All factors of \(G\) in this reduction are the same \(G_{\mathrm{geom}}\) as in part (i): no measured Newton constant, no Planck area, and no measured cosmological constant has been substituted.
+\end{proof}
+
+\begin{remark}[Dependencies and forbidden inputs for Theorem~\ref{thm:edge-entropy-newton-coupling}]\label{rem:edge-entropy-newton-coupling-scope}
+\textbf{Dependencies.} The proof composes Axioms~\ref{ax:screen}--\ref{ax:entropy} (screen net, overlap consistency, MaxEnt, MAR, recoverable generalized entropy), Assumption~\ref{ass:technical}, Theorem~\ref{thm:bw} (BW scaling theorem on the prime geometric subnet), Theorem~\ref{thm:stress} (half-line generator/null-stress identification), Lemma~\ref{lem:nullreconstruct} (null-data uniqueness modulo a metric term), Proposition~\ref{prop:gensplit} (generalized-entropy split), Definition~\ref{def:newton} (refinement-scaling area-term identification), Theorem~\ref{thm:equilibrium} (derived fixed-cap generalized-entropy stationarity), Lemma~\ref{lem:smallball} (internal \(d=4\) small-ball bridge), Theorem~\ref{thm:einstein} (Jacobson-type rest-frame relation), and Corollary~\ref{cor:einstein} (internal tensor upgrade). Part (ii) additionally invokes Proposition~\ref{prop:sharededgeentropy} (shared edge-entropy identity on the realized product-group branch with the D10 pixel law) and Proposition~\ref{prop:gsi} (local scale-certificate package on the gravity row, supplying \(a_{\mathrm{cell}}=P\,\ell_\star^2\) from the no-\(G\) scale certificate of Theorem~\ref{thm:scale-bridge-desitter}). Part (iii) uses only the standard linearization of part (i) on a flat background; it imports no further OPH structure beyond the validity of the small-ball/scaling regime that already supports Theorem~\ref{thm:einstein} and Corollary~\ref{cor:einstein}.
+
+\textbf{Forbidden inputs.} The proof of Theorem~\ref{thm:edge-entropy-newton-coupling} does not use:
+\begin{itemize}[leftmargin=2em]
+\item the measured Newton constant \(G_N\) in any unit system;
+\item the measured Planck area \(\hbar G_N/c^3\) or any other \(G_N\)-derived length scale;
+\item the measured cosmological constant \(\Lambda_{\mathrm{obs}}\) (the cosmological constant appearing in (i) is the same branch constant isolated by Lemma~\ref{lem:nullreconstruct} and fixed by the global capacity closure of Proposition~\ref{prop:lambda}, not a measured input);
+\item a gravity-calibrated clock scale, in particular the cesium frequency \(\nu_{\mathrm{Cs}}\) tied to a chosen value of \(G_N\) or to a chosen Planck unit.
+\end{itemize}
+The constant \(G_{\mathrm{geom}}=a_{\mathrm{cell}}/(4\bar\ell_{\mathrm{shared}})\) is supplied entirely by the OPH edge-entropy/area-law data: \(a_{\mathrm{cell}}\) and \(\bar\ell_{\mathrm{shared}}\) come from Axioms~\ref{ax:screen}--\ref{ax:entropy}, Proposition~\ref{prop:sharededgeentropy}, and Proposition~\ref{prop:gsi}, with the cell-area scale \(\ell_\star^2\) supplied by the separate no-\(G\) scale certificate of Theorem~\ref{thm:scale-bridge-desitter}. The SI display \(G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar\) of Proposition~\ref{prop:gsi} is a downstream unit-translation step and is not used in the proof of (i)-(iii).
+
+\textbf{Claim boundary.} Theorem~\ref{thm:edge-entropy-newton-coupling} asserts only the identification of the coefficient \(G\) in (i)-(iii) with \(G_{\mathrm{geom}}\). It does not extend to non-scaling regimes, to fixed-cap variations outside the admissible MaxEnt class of Definition~\ref{def:equilibriumvariation}, or to gravitational regimes that violate the small-ball/scaling hypotheses of Lemma~\ref{lem:smallball}. The finite-cutoff remainder of Theorem~\ref{thm:einstein-remainder} controls the carried error before those limits are taken.
+
+\textbf{Refinement-scaling dictionary scope.} The structural content of (i)-(iii) is derived: the same \(G_{\mathrm{geom}}\) propagates literally through Theorems~\ref{thm:equilibrium}, \ref{thm:einstein} and Corollary~\ref{cor:einstein} into the Einstein equation and through the standard linearization into the Newton-Poisson limit. Theorem~\ref{thm:edge-entropy-newton-coupling} as stated takes the matching \(\mathrm{Tr}(\rho_C L_C)=A(\partial C)/(4G_{\mathrm{geom}})\) of Definition~\ref{def:newton} as a starting form, so the factor of \(4\) is inherited at the level of this theorem. Corollary~\ref{cor:factor-of-four-derived} below tightens this by running the same Jacobson chain with only the linear-in-area scaling \(\mathrm{Tr}(\rho_C L_C)\propto A(\partial C)\), itself derived inside OPH from the Markov-collar/refinement-stability structure of the screen net (Theorem~\ref{thm:markovcollar}, Proposition~\ref{prop:gensplit}, together with the discrete-to-continuum scaling \(\mathrm{Tr}(\rho_C L_C)\approx N_\Sigma\bar\ell(t)\) and \(A(\partial C)\approx N_\Sigma a_{\mathrm{cell}}\) of Definition~\ref{def:newton}), and identifying the factor of \(4\) as the ratio of the resulting OPH structural Einstein-equation coefficient to the constant \(8\pi\) entering the standard Newton-Poisson convention \(\nabla^2\Phi=4\pi G_N\rho\). The convention used by Corollary~\ref{cor:factor-of-four-derived} is the standard naming of the Newton coupling.
+\end{remark}
+
+\begin{corollary}[Factor of \(4\) in \(G_{\mathrm{geom}}\) from the OPH structural Einstein-equation coefficient and the Newton-Poisson convention]\label{cor:factor-of-four-derived}
+Assume Axioms~\ref{ax:screen}--\ref{ax:entropy}, Assumption~\ref{ass:technical}, and the hypotheses of Theorems~\ref{thm:bw}, \ref{thm:stress}, \ref{thm:equilibrium}, Lemma~\ref{lem:nullreconstruct}, and Lemma~\ref{lem:smallball}. Take as the only refinement-scaling input the linear-in-area scaling
+\[
+\mathrm{Tr}(\rho_C L_C)\approx\frac{\bar\ell(t)}{a_{\mathrm{cell}}}\,A(\partial C),
+\]
+which follows from \(\mathrm{Tr}(\rho_C L_C)\approx N_\Sigma\bar\ell(t)\) and \(A(\partial C)\approx N_\Sigma a_{\mathrm{cell}}\) (the two cell-decomposition identifications of Definition~\ref{def:newton}, with no \(1/(4G_{\mathrm{geom}})\) form invoked). Then on every connected locally Lorentzian \(d=4\) scaling branch:
+
+\textbf{(a) OPH structural Einstein-equation coefficient.} The Jacobson chain produces
+\[
+G_{ab}+\Lambda g_{ab}=\kappa_{\mathrm{OPH}}\,\langle T_{ab}\rangle,
+\qquad
+\kappa_{\mathrm{OPH}}=\frac{2\pi\,a_{\mathrm{cell}}}{\bar\ell(t)},
+\]
+where \(\kappa_{\mathrm{OPH}}\) is determined by the structural OPH inputs alone, with no naming convention chosen for the gravitational coupling.
+
+\textbf{(b) Newton coupling from the Newton-Poisson convention.} Repeating the slow-motion, weak-field, classical-source linearization of (a) as in part (iii) of Theorem~\ref{thm:edge-entropy-newton-coupling}, with the general coefficient \(\kappa\) in place of \(8\pi G_{\mathrm{geom}}\), yields
+\[
+\nabla^2\Phi=\frac{\kappa_{\mathrm{OPH}}}{2}\,\rho.
+\]
+Define the Newton coupling \(G_N\) by the standard physics convention \(\nabla^2\Phi=4\pi G_N\,\rho\). Then \(\kappa_{\mathrm{OPH}}=8\pi G_N\).
+
+\textbf{(c) Factor of \(4\).} Combining (a) and (b),
+\[
+G_N=\frac{\kappa_{\mathrm{OPH}}}{8\pi}=\frac{2\pi\,a_{\mathrm{cell}}/\bar\ell(t)}{8\pi}=\frac{a_{\mathrm{cell}}}{4\bar\ell(t)}=G_{\mathrm{geom}}.
+\]
+Hence the factor of \(4\) in \(G_{\mathrm{geom}}=a_{\mathrm{cell}}/(4\bar\ell(t))\) is the ratio of the OPH structural coefficient \(\kappa_{\mathrm{OPH}}=2\pi\,a_{\mathrm{cell}}/\bar\ell(t)\) to the Newton-Poisson constant \(8\pi\) entering the convention \(\nabla^2\Phi=4\pi G_N\rho\). Equivalently, the dictionary identification \(\mathrm{Tr}(\rho_C L_C)=A(\partial C)/(4G_{\mathrm{geom}})\) of Definition~\ref{def:newton} is recoverable from the structural OPH inputs and the Newton-Poisson convention via (c).
+\end{corollary}
+
+\begin{proof}
+\textbf{(a)} Theorem~\ref{thm:equilibrium} and Proposition~\ref{prop:gensplit} give
+\[
+0=\delta S_{\mathrm{gen}}(C)=\delta S_{\mathrm{bulk}}(C)+\delta\!\bigl(\mathrm{Tr}(\rho_C L_C)\bigr)=\delta S_{\mathrm{bulk}}(C)+\frac{\bar\ell(t)}{a_{\mathrm{cell}}}\,\delta A,
+\]
+where the last equality uses the linear-in-area scaling. By Lemma~\ref{lem:smallball},
+\[
+\delta S_{\mathrm{bulk}}(C)=\frac{8\pi^2\ell^4}{15}\,u^au^b\,\delta\langle T_{ab}\rangle+O(\ell^5\partial T)+o(\ell^4),
+\]
+and the standard fixed-volume area-variation identity for a small geodesic ball in \(d=4\) gives
+\[
+\delta A\big|_{V,\Lambda}=-\frac{4\pi\ell^4}{15}\,\delta\!\bigl[(G_{ab}+\Lambda g_{ab})u^au^b\bigr].
+\]
+Substituting,
+\[
+0=\frac{8\pi^2\ell^4}{15}\,u^au^b\,\delta\langle T_{ab}\rangle-\frac{\bar\ell(t)}{a_{\mathrm{cell}}}\,\frac{4\pi\ell^4}{15}\,\delta\!\bigl[(G_{ab}+\Lambda g_{ab})u^au^b\bigr]+O(\ell^5\partial T)+o(\ell^4).
+\]
+Dividing by \(\ell^4\) and taking the small-ball limit removes the remainder terms and yields
+\[
+\delta\!\bigl[(G_{ab}+\Lambda g_{ab})u^au^b\bigr]=\frac{2\pi\,a_{\mathrm{cell}}}{\bar\ell(t)}\,u^au^b\,\delta\langle T_{ab}\rangle.
+\]
+The tensor upgrade of Corollary~\ref{cor:einstein} (using the Lorentz branch of Theorem~\ref{thm:bw} and the null-data uniqueness of Lemma~\ref{lem:nullreconstruct}) promotes this rest-frame relation to \(G_{ab}+\Lambda g_{ab}=(2\pi\,a_{\mathrm{cell}}/\bar\ell(t))\,\langle T_{ab}\rangle\), which is the displayed equation with \(\kappa_{\mathrm{OPH}}=2\pi\,a_{\mathrm{cell}}/\bar\ell(t)\). This step uses the structural linear-in-area scaling before a \(1/(4G_{\mathrm{geom}})\) naming convention is introduced.
+
+\textbf{(b)} Linearize \(G_{ab}+\Lambda g_{ab}=\kappa\,\langle T_{ab}\rangle\) on a flat background as in part (iii) of Theorem~\ref{thm:edge-entropy-newton-coupling}, with the coefficient \(\kappa\) kept general. Signature \((-,+,+,+)\), geometric units \(c=1\). The harmonic-gauge linearized Einstein equation, with \(\Lambda\)-dependent corrections at scales \(r\ll r_{\mathrm{dS}}=\sqrt{3/\Lambda}\) bounded by \(\Lambda r^2\) and dropped exactly as in part (iii), is
+\[
+\Box\,\bar h_{ab}=-2\kappa\,T_{ab}.
+\]
+For a static, classical, slow-motion source with \(T_{00}=\rho\) and \(|T_{0i}|,|T_{ij}|\ll T_{00}\), this reduces to
+\[
+\nabla^2\bar h_{00}=-2\kappa\,\rho.
+\]
+The standard Newtonian-limit metric \(g_{00}=-(1+2\Phi)\), \(g_{ij}=(1-2\Phi)\delta_{ij}\) gives \(\bar h_{00}=-4\Phi\), so
+\[
+\nabla^2(-4\Phi)=-2\kappa\,\rho
+\quad\Longleftrightarrow\quad
+\nabla^2\Phi=\frac{\kappa}{2}\,\rho.
+\]
+Comparing with the Newton-Poisson convention \(\nabla^2\Phi=4\pi G_N\,\rho\) gives \(\kappa=8\pi G_N\). Substituting \(\kappa_{\mathrm{OPH}}\) from (a) yields \(\kappa_{\mathrm{OPH}}=8\pi G_N\), as displayed.
+
+\textbf{(c)} Solve (b) for \(G_N\) and substitute (a):
+\[
+G_N=\frac{\kappa_{\mathrm{OPH}}}{8\pi}=\frac{2\pi\,a_{\mathrm{cell}}/\bar\ell(t)}{8\pi}=\frac{a_{\mathrm{cell}}}{4\bar\ell(t)}.
+\]
+This is exactly \(G_{\mathrm{geom}}\) of Definition~\ref{def:newton}; the factor of \(4\) is the ratio of the OPH structural coefficient \(\kappa_{\mathrm{OPH}}\) to the Newton-Poisson constant \(8\pi\). Equivalently, the dictionary form \(\mathrm{Tr}(\rho_C L_C)=A(\partial C)/(4G_{\mathrm{geom}})\) of Definition~\ref{def:newton} follows by substituting \(G_{\mathrm{geom}}=a_{\mathrm{cell}}/(4\bar\ell(t))\) into the structural linear-in-area scaling \(\mathrm{Tr}(\rho_C L_C)=(\bar\ell(t)/a_{\mathrm{cell}})\,A(\partial C)\).
+\end{proof}
+
+\begin{remark}[Forbidden inputs preserved by Corollary~\ref{cor:factor-of-four-derived}]\label{rem:factor-of-four-forbidden-inputs}
+The forbidden-input list of Remark~\ref{rem:edge-entropy-newton-coupling-scope} carries through Corollary~\ref{cor:factor-of-four-derived} unchanged: the proof uses no measured Newton constant \(G_N\) (the symbol \(G_N\) appears only as the constant defined by the convention \(\nabla^2\Phi=4\pi G_N\rho\), with its OPH value derived in (c)), no measured Planck area, no measured cosmological constant, and no gravity-calibrated clock scale. The only convention imported beyond the OPH inputs is the standard physics naming of the Newton coupling via the Newton-Poisson equation.
+\end{remark}
+
 \subsection{Cosmological-constant / screen-capacity closure}
 
 \begin{lemma}[Vacuum-Energy Blindness]\label{lem:vac}
