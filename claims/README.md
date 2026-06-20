@@ -18,8 +18,7 @@ The registry is part of the working process:
   phenomenological failure modes.
 - `claims/dependency_graph.json` records cross-claim dependencies.
 - `claims/assumption_dictionary.md` gives stable names to recurring assumptions.
-- `bibliography/doi_audit.csv` and `predictions/prospective_predictions.json` are adjacent audit
-  surfaces.
+- `predictions/prospective_predictions.json` is the adjacent prospective-prediction audit surface.
 
 The validator is:
 

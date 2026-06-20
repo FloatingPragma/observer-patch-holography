@@ -9,8 +9,6 @@ on:
       - "README.md"
       - "README_FR.md"
       - "predictions/**"
-      - "negative_results/**"
-      - "bibliography/doi_audit.csv"
       - "tools/check_claim_registry.py"
   workflow_dispatch:
 
@@ -29,12 +27,12 @@ jobs:
           set -euo pipefail
           changed="$(git diff --name-only "origin/${{ github.base_ref }}...HEAD")"
           claim_surface="$(printf '%s\n' "$changed" | grep -E '^(paper/.*\.tex|extra/.*\.tex|README\.md|README_FR\.md)$' || true)"
-          registry_surface="$(printf '%s\n' "$changed" | grep -E '^(claims/|bibliography/doi_audit\.csv|predictions/|negative_results/|tools/check_claim_registry\.py|\.github/workflows/claim-registry\.yml)' || true)"
+          registry_surface="$(printf '%s\n' "$changed" | grep -E '^(claims/|predictions/|tools/check_claim_registry\.py|\.github/workflows/claim-registry\.yml)' || true)"
           if [ -n "$claim_surface" ] && [ -z "$registry_surface" ]; then
             echo "Public claim-surface files changed without touching the registry/check surface." >&2
             echo "Touched claim files:" >&2
             printf '%s\n' "$claim_surface" >&2
-            echo "Update claims/, bibliography/doi_audit.csv, predictions/, negative_results/, or the registry validator when claim language changes." >&2
+            echo "Update claims/, predictions/, or the registry validator when claim language changes." >&2
             exit 1
           fi
 
