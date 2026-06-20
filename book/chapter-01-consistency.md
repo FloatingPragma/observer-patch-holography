@@ -366,8 +366,10 @@ What is the output? Everything. Spacetime geometry emerges from entanglement pat
 
 The closure reading developed later in the book is internal. A standard
 simulation evolves surrogate universe states step by step. OPH describes a
-fixed-point computation whose settled output is read from inside as a world.
-Reality is implemented on real hardware inside the same overall structure. From
+certified fixed-point computation whose settled output is read from inside as a
+world. The fixed-point equation follows only after the repair, record,
+branch-elimination, and clock-closure tests are passed. Reality is implemented
+on real hardware inside the same overall structure. From
 within subjective time, that hardware sits in the future of the observers it
 supports. From the full structural view, the loop is timeless and
 self-consistent.

@@ -374,12 +374,12 @@ different categories.
 
 OPH supports a different perspective. Computation becomes a serious candidate
 organizing picture for reality. A conventional simulation evolves a surrogate
-history. OPH points to a fixed-point computation: observer patches, records,
-overlaps, and repair rules settle into a normal form whose internal readout is
-history. The screen is a quantum system processing information according to
-gauge constraints. Observers are patterns within that computation. The laws of
-physics are the rules that allow consistent information processing across
-patches.
+history. OPH points to a certified fixed-point computation: observer patches,
+records, overlaps, repair rules, branch elimination, and clock closure settle
+into a normal form whose internal readout is history. The screen is a quantum
+system processing information according to gauge constraints. Observers are
+patterns within that computation. The laws of physics are the rules that allow
+consistent information processing across patches.
 
 Computation is not being used here as a loose metaphor. It is the proposed
 organizing picture for reality.

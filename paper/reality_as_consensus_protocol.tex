@@ -62,6 +62,13 @@ a surrogate history. OPH computes the fixed point whose internal record order is
 The patch-net algorithm serves as a theorem device for fixed-point selection. The fundamental
 description contains no global timeline on which spacetime contents are rendered.
 
+A bare fixed point is not called an OPH simulation below.
+Definition~\ref{def:oph-simulation} requires recovery-derived endogenous update,
+nontrivial quotient-readable records, overlap repair with schedule-independent normal form,
+elimination of a proper candidate basin in the selected boundary/sector fiber, and
+implementation/clock closure. Theorem~\ref{thm:oph-simulation} proves those clauses on the
+named finite branch and supplies a generic fixed-point and variational counterexample.
+
 The resulting theorem package has two layers. The bare overlap network is only a finite
 constraint code: its codewords are the globally overlap-consistent states. Quantum
 error-correction, code-distance / min-cut resilience, exponential mixing, wall-clock BFT
@@ -88,7 +95,7 @@ central or quantitatively stable approximately commuting projectors. These resul
 patch-net formulation used in the broader OPH literature, including the fixed-cutoff Bell/CHSH
 package on the companion microphysics surface.
 
-This paper proves a constraint-code firewall and six core consensus results:
+This paper proves a constraint-code firewall and eight core consensus results:
 
 \begin{enumerate}
 \item \textbf{Constraint-code firewall.} A finite overlap net defines a finite constraint code:
@@ -102,6 +109,14 @@ min-cut formula for distance (Theorem~\ref{thm:no-free-mincut}).
 \item \textbf{Refinement-limit consensus classes.} On a separated cofinal refinement system whose restriction maps commute with the finite-stage normal-form and holonomy maps, the quotient normal forms and holonomy obstructions assemble into unique inverse-limit classes with finite-stage visibility (Theorem~\ref{thm:refinement-consensus}).
 \item \textbf{Coarse-graining compatibility.} On any refinement system whose coarse-graining maps shadow finite-stage normal forms and holonomy maps with declared errors, reconciling first and then coarse-graining gives the same macroscopic law data as coarse-graining first and then reconciling, up to those errors; in the exact natural case the error is zero (Theorem~\ref{thm:coarse-grain-consensus}).
 \item \textbf{Record algebra and stability.} On the fixed-cutoff observer-accessible surface, central record projectors carry Born/L\"uders measurement directly, and approximate record projectors inherit explicit \((\varepsilon,\delta_{\mathrm{rec}})\) stability bounds on the same event surface (Theorem~\ref{thm:crdt}).
+\item \textbf{OPH simulation firewall.} On a selected boundary/sector fiber,
+``simulation'' requires recovery-derived endogenous update, nontrivial quotient-readable
+records, strict overlap-repair descent with a schedule-independent normal form, collapse of a
+proper candidate basin to one consistent quotient state, and implementation/clock closure.
+Under the stated selected-fiber and record hypotheses, the finite OPH packet has this
+certificate; a generic identity fixed point or constant variational functional does not
+(Definition~\ref{def:oph-simulation}, Theorem~\ref{thm:oph-simulation}, and
+Remark~\ref{rem:oph-simulation-falsifiers}).
 \item \textbf{Conditional noisy fair-block consensus.} If a noisy asynchronous implementation admits fair repair blocks, a uniform expected contraction toward the exact quotient normal-form set, and controlled within-block excursions, then all long runs stay in a controlled expected tube around that exact normal-form set. In singleton boundary/sector fibers, Lipschitz observer readouts are approximately schedule-independent, and a finite Markov-kernel certificate checks the block contraction on finite exported nets (Theorem~\ref{thm:noisy-fair-block-consensus}, Corollaries~\ref{cor:approx-schedule-independence}--\ref{cor:high-prob-noisy-tube}, and Proposition~\ref{prop:finite-fair-block-certificate}).
 \end{enumerate}
 
@@ -1326,6 +1341,182 @@ repeated-read stability under the untouched-support hypothesis, and explicit
 to that central surface. The broader export problem asks whether richer branches keep physically
 relevant pointer surfaces close to one such central record algebra and whether the same control
 survives refinement and continuation.
+
+\section{OPH Simulation Criterion and Fixed-Point Firewall}
+\label{sec:oph-simulation}
+
+A fixed-point equation is necessary for a selected finite OPH packet, but it is not the
+definition of an OPH simulation. The additional clauses below are the nontrivial content.
+
+\begin{definition}[Nontrivial OPH simulation certificate]\label{def:oph-simulation}
+Work on the finite fixed-cutoff branch of Definition~\ref{def:packet-closure-simplex}. Write
+\[
+ Q:=\Sigma/\Gamma,
+ \qquad
+ n:=\overline{\operatorname{nf}}_\lambda:Q\to Q,
+ \qquad
+ N_\lambda:=q(C).
+\]
+Let \(B:Q\to\mathcal B\) be a boundary/sector map preserved by accepted quotient repairs,
+fix \(b\in\mathcal B\), and set
+\[
+ Q_b:=B^{-1}(b),
+ \qquad
+ C_b:=N_\lambda\cap Q_b.
+\]
+For \(u\in C_b\), let \(\mathfrak U_u:=\delta_u\in\Delta(Q)\). The selected pair
+\((b,u)\), equivalently the packet \(\mathfrak U_u\), has an \textbf{OPH simulation
+certificate} when all of the following hold.
+\begin{enumerate}[label=(S\arabic*),leftmargin=3.0em]
+\item \textbf{Endogenous update.} The local maps are the recovery-derived collar maps of
+Definition~\ref{def:repair}, descend to the physical quotient, and use only the declared
+patch, overlap, recovery, decoder, and acceptance data. No undeclared oracle variable is an
+argument of an accepted physical update.
+
+\item \textbf{Observer-readable records.} A declared observer-accessible region carries an
+exact record presentation \(\{\widehat P_a\}_a\) as in Definition~\ref{def:lattice}, with at
+least two nonzero orthogonal event projectors. Event probabilities, conditioned readouts, and
+any checkpoint/order relation interpreted as history are collected in a physical map
+\[
+ \operatorname{Read}:Q\to\mathcal Y_{\rm rec}
+\]
+whose terminal value depends only on the quotient normal form.
+
+\item \textbf{Overlap repair.} Every accepted nontrivial move strictly lowers the declared
+touched-overlap score, normal forms are exactly the globally consistent states, and the
+quotient normal form \(n\) is terminating and schedule-independent.
+
+\item \textbf{Nontrivial branch elimination.} The selected fiber has one consistent
+quotient state but more than one candidate:
+\[
+ C_b=\{u\},
+ \qquad
+ Q_b\setminus C_b\ne\varnothing,
+ \qquad
+ n(Q_b)=\{u\}.
+\]
+Thus at least one inconsistent candidate is genuinely removed rather than merely renamed a
+fixed point. A candidate with a nonzero declared holonomy or higher-gauge obstruction is
+rejected as obstructed and is not counted as an alternative selected world.
+
+\item \textbf{Implementation and clock closure.} The physical update and record readout
+have types
+\[
+ n:Q\to Q,
+ \qquad
+ \operatorname{Read}:Q\to\mathcal Y_{\rm rec},
+\]
+with no indispensable machine-state or external-time argument. More precisely, for any
+auxiliary implementation and clock sets \(\mathcal E_{\rm ext}\) and \(\Theta_{\rm ext}\),
+let
+\[
+ p:Q\times\mathcal E_{\rm ext}\times\Theta_{\rm ext}\to Q
+\]
+be the physical projection. An admissible lifted update \(\widetilde n\) and readout
+\(\widetilde{\operatorname{Read}}\) must satisfy
+\[
+ p\circ\widetilde n=n\circ p,
+ \qquad
+ \widetilde{\operatorname{Read}}=\operatorname{Read}\circ p.
+\]
+The asynchronous schedule and repair-step counter are proof data, not physical clock
+coordinates. Any history claimed by the branch is read from records in the terminal quotient
+state rather than supplied by an external clock.
+\end{enumerate}
+The identities
+\[
+ n(u)=u,
+ \qquad
+ \mathcal C_\lambda(\mathfrak U_u)=\mathfrak U_u
+\]
+are therefore consequences of the certificate, not its definition.
+\end{definition}
+
+\begin{theorem}[Selected OPH packet and fixed-point firewall]\label{thm:oph-simulation}
+Assume Definitions~\ref{def:repair}, \ref{def:localfit}, and \ref{def:assoc},
+Assumption~\ref{ass:complete}, and the quotient and record hypotheses of
+Theorems~\ref{thm:gauge}, \ref{thm:obsconfluence}, and \ref{thm:crdt}. Fix a preserved
+boundary/sector value \(b_{\rm OPH}\) for which
+\[
+ C_{b_{\rm OPH}}=\{u_{\rm OPH}\},
+ \qquad
+ Q_{b_{\rm OPH}}\setminus C_{b_{\rm OPH}}\ne\varnothing,
+\]
+and assume the selected observer surface has a nontrivial exact record presentation whose
+checkpoint/order data, when interpreted as history, are quotient-observable. Then the selected
+finite OPH packet
+\[
+ \mathfrak U_{\rm OPH}:=\delta_{u_{\rm OPH}}
+\]
+has an OPH simulation certificate in the sense of Definition~\ref{def:oph-simulation}. In
+particular,
+\[
+ n(u_{\rm OPH})=u_{\rm OPH},
+ \qquad
+ \mathcal C_\lambda(\mathfrak U_{\rm OPH})=\mathfrak U_{\rm OPH}.
+\]
+
+The converse is false: a fixed point, equilibrium, stationary point, or variational solution
+does not by itself imply an OPH simulation certificate. Indeed, for any set \(X\) with
+\(|X|>1\), the identity map \(F=\mathrm{id}_X\) satisfies \(F(x)=x\) for every \(x\in X\),
+and every \(x\) is a global minimizer and stationary point of the constant functional
+\(V\equiv0\). Nevertheless, \(F^{-1}(x)=\{x\}\), so no proper candidate basin collapses to
+\(x\); clause \emph{(S4)} fails. The fixed-point or variational equation alone also supplies
+none of clauses \emph{(S1)}--\emph{(S3)} or \emph{(S5)}.
+\end{theorem}
+
+\begin{proof}
+Clause \emph{(S1)} is Definition~\ref{def:repair} together with quotient descent from
+Theorem~\ref{thm:gauge}. Clause \emph{(S2)} follows from Theorem~\ref{thm:crdt}; terminal
+representative independence is Theorem~\ref{thm:obsconfluence}. Definition~\ref{def:localfit},
+Proposition~\ref{prop:lyapunov-termination}, Proposition~\ref{prop:local-confluence},
+Assumption~\ref{ass:complete}, and Theorem~\ref{thm:confluence} give clause \emph{(S3)}.
+
+For \(x\in Q_{b_{\rm OPH}}\), boundary preservation gives
+\(B(n(x))=b_{\rm OPH}\), while repair completeness gives \(n(x)\in N_\lambda\). Hence
+\(n(x)\in C_{b_{\rm OPH}}=\{u_{\rm OPH}\}\), proving
+\(n(Q_{b_{\rm OPH}})=\{u_{\rm OPH}\}\). The assumed nonempty difference
+\(Q_{b_{\rm OPH}}\setminus C_{b_{\rm OPH}}\) makes this elimination nontrivial. The
+holonomy and higher-gauge rejection statement is Theorems~\ref{thm:holonomy} and
+\ref{thm:higherdefects}. This proves clause \emph{(S4)}. Its proper-basin requirement is
+nonvacuous: on the verified rooted-tree packet domain of Theorem~\ref{thm:tree-packet-domain},
+fixing the root packet gives a singleton consistent fiber, while changing any non-root packet
+supplies an inconsistent candidate in that fiber.
+
+The quotient normal-form and physical-record maps are defined on the declared physical state
+alone. Schedule independence removes the scheduler from the output, and
+Corollary~\ref{cor:ancilla} proves invariance under inert carrier enlargement. The displayed
+projection identities are the admissibility condition for any more general carrier or clock
+realization. Thus an auxiliary implementation state or iteration counter cannot change the
+physical result, proving clause \emph{(S5)}. Finally,
+Theorem~\ref{thm:finite-packet-closure} gives
+\[
+ \mathcal C_\lambda(\delta_{u_{\rm OPH}})
+ =\delta_{n(u_{\rm OPH})}
+ =\delta_{u_{\rm OPH}},
+\]
+because \(u_{\rm OPH}\in N_\lambda\). The identity-map and constant-functional example
+proves the final non-implication.
+\end{proof}
+
+\begin{remark}[Structural falsification hooks]\label{rem:oph-simulation-falsifiers}
+An asserted OPH simulation certificate fails if any one of the following occurs: an accepted
+update depends on undeclared oracle, carrier, or external-clock data; the observer record
+algebra is trivial, unstable, or not quotient-readable; an accepted move fails strict mismatch
+descent; terminal states are not exactly the overlap-consistent states; two admissible schedules
+or two candidates in the selected boundary fiber produce different physical normal forms; the
+selected fiber has no inconsistent candidate to eliminate; a claimed global branch has nonzero
+holonomy or higher-gauge obstruction; or a carrier/clock lift changes the physical update or
+readout after projection. These are theorem-level failure conditions, not semantic disagreements
+about the word ``simulation.''
+\end{remark}
+
+\begin{remark}[Scope]\label{rem:oph-simulation-scope}
+Theorem~\ref{thm:oph-simulation} certifies the named finite fixed-cutoff branch and selected
+boundary/sector fiber. It does not promote the finite packet closure to an arbitrary habitat-level
+state-and-law space, and it does not remove the branch and record hypotheses stated in the
+theorem.
+\end{remark}
 
 \section{Noisy Fair-Block Approximate Consensus}
 \label{sec:noisy-fair-block-consensus}

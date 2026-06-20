@@ -52,16 +52,22 @@ Finite repair and support-visible modular geometry lead to the Jacobson-type Ein
 
 Physics is usually presented in two boxes. One box contains spacetime and gravity. The other contains the particle world. This paper asks whether both can be recovered from a smaller starting point: a finite screen whose neighboring observer patches must agree on their overlaps.
 
-The computation in this paper is a fixed-point computation. A conventional simulator would evolve
-surrogate universe states \(U_t\to U_{t+1}\to\cdots\). OPH instead studies a readback-and-repair
-operator on observer-facing world candidates and asks for the stable normal forms \(W\) satisfying
-\(\mathcal T(W)=W\). The repair schedule is a theorem device for selecting quotient normal forms;
+The computation in this paper uses fixed-point language, but OPH does not define simulation as a
+bare fixed point. A conventional simulator would evolve surrogate universe states
+\(U_t\to U_{t+1}\to\cdots\). OPH instead studies a readback-and-repair operator on
+observer-facing world candidates and asks for stable normal forms \(W\) satisfying
+\(\mathcal T(W)=W\). The companion consensus paper makes the firewall explicit:
+Definition~\texttt{def:oph-simulation} requires recovery-derived endogenous update, nontrivial
+quotient-readable records, overlap repair with schedule-independent normal form, elimination of a
+proper candidate basin in the selected boundary/sector fiber, and implementation/clock closure;
+Theorem~\texttt{thm:oph-simulation} proves those clauses for the selected finite packet under its
+stated branch and record hypotheses and gives a generic fixed-point/variational counterexample
+\cite{ophconsensus}. The repair schedule is a theorem device for selecting quotient normal forms;
 it is not a one-to-one clock for cosmic time. In the fundamental description there is no global
 timeline that renders spacetime contents tick by tick; history is the internal readout of the
-selected normal form. This is the OPH sense in which the universe is a simulation: the computation
-solves for the observer-facing fixed point whose internal record order is experienced as a world.
+selected normal form.
 
-That single requirement drives a long structural chain. It explains why the Lorentz group appears, why the low-energy spacetime description follows a Jacobson-type Einstein branch, why the gauge structure is
+That certified consistency requirement drives a long structural chain. It explains why the Lorentz group appears, why the low-energy spacetime description follows a Jacobson-type Einstein branch, why the gauge structure is
 \[
 \frac{\SU(3)\times\SU(2)\times\U(1)}{\mathbb Z_6},
 \]
@@ -6071,6 +6077,12 @@ B.~M\"uller, A.~Osika, M.~Poneder, K.~Xue, B.~Cassie, P.~Nguyen, M.~A.~Visser, a
 \emph{Observers Are All You Need},
 2026.
 Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.pdf}.
+
+\bibitem{ophconsensus}
+B.~M\"uller, K.~Xue, and K.~A.~Anirudha,
+\emph{Reality as a Consensus Protocol: The Fixed-Point Computation That Implements Physics},
+2026.
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/reality_as_consensus_protocol.pdf}.
 
 \bibitem{ophparticles}
 B.~M\"uller, A.~Osika, M.~Poneder, K.~Xue, and M.~A.~Visser,

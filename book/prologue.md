@@ -12,10 +12,13 @@ checkable mismatch, and settle into the stable public world that survives those
 consistency tests.
 
 This is the OPH meaning of simulation. A standard simulation evolves surrogate
-world states step by step. OPH solves for the observer-readable fixed point.
-There is no fundamental global timeline on which spacetime contents are
-rendered tick by tick. History is the inside readout of the settled structure,
-as experienced by observers who live inside it.
+world states step by step. OPH uses the word only after the finite patch system
+passes a stronger test: recovery-derived update, observer-readable records,
+overlap repair, branch elimination, and clock closure. The observer-readable
+fixed point follows from that certificate. There is no fundamental global
+timeline on which spacetime contents are rendered tick by tick. History is the
+inside readout of the settled structure, as experienced by observers who live
+inside it.
 
 The headline version is simple: OPH is formulated as a zero-input theory. Its
 quantitative surface has two dimensionless closure coordinates and one selected

@@ -283,17 +283,29 @@ universe states,
 \[
 U_t\longrightarrow U_{t+1}\longrightarrow U_{t+2}\longrightarrow\cdots .
 \]
-OPH uses a fixed-point computation. In the fundamental description there is no global timeline on
-which the contents of spacetime are updated. The readback-and-repair operator acts on
-observer-readable world candidates and selects a stable solution
+OPH uses a fixed-point computation, but the equation alone is not the definition of
+simulation. In the fundamental description there is no global timeline on which the contents
+of spacetime are updated. The readback-and-repair operator acts on observer-readable world
+candidates and selects a stable solution
 \[
 \mathcal T(W)=W .
 \]
-The local readout of that normal form supplies history for observers who subjectively experience
-time. This is the OPH meaning of simulation: the universe is the observer-facing solution of a
-self-consistency problem whose solution contains observers capable of reading it.
+The companion consensus paper~\cite{ophconsensus}, Definition
+\texttt{def:oph-simulation}, requires five independent clauses: recovery-derived endogenous
+update, nontrivial quotient-readable records, strict overlap-repair descent with a
+schedule-independent normal form, elimination of a proper candidate basin in the selected
+boundary/sector fiber, and implementation/clock closure. Its Theorem
+\texttt{thm:oph-simulation} proves that the selected finite OPH packet meets those clauses
+under the stated boundary and record hypotheses and then derives the fixed-point equation.
+The same theorem gives an identity-map/constant-functional counterexample, so an ordinary
+equilibrium is not merely renamed a simulation.
 
-That one demand is strong enough to organize the familiar world. The effective bulk is reconstructed
+The local readout of the selected normal form supplies history for observers who subjectively
+experience time. Time is therefore internal record order rather than an external update
+parameter. In OPH, ``simulation'' means this certified observer-facing self-consistency
+structure, not a bare fixed point and not a frame renderer.
+
+That certified consistency demand is strong enough to organize the familiar world. The effective bulk is reconstructed
 from compatible screen data. Locality comes from the way collars control recovery across patch
 boundaries. Gauge freedom is the freedom to change the local description without changing any shared
 observable. Records are the stable parts of a patch that can be checked by other patches. Matter is

@@ -31,11 +31,13 @@ interprétations.
 Pour la réponse existentielle immédiate, allez directement au **Paper 6.
 [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**.
 La version courte est directe : oui, cet univers est une simulation au sens
-OPH, c'est-à-dire un calcul à point fixe dont la sortie stable, lisible par les
-observateurs, est vécue de l'intérieur comme une histoire. Cela ne signifie
-pas qu'une machine extérieure calcule les positions des particules tic par tic.
-La description fondamentale n'a pas de ligne du temps globale de simulateur ;
-le temps fait partie de la lecture interne. Oui, l'expérience subjective et les
+OPH. Dans l'usage théorémique, ce mot désigne une structure à point fixe
+certifiée : mise à jour issue de la récupération, enregistrements lisibles sur
+quotient, réparation des recouvrements, élimination de branche et clôture
+implémentation/horloge. L'équation de point fixe en est une conséquence. Aucune
+machine extérieure ne calcule les positions des particules tic par tic. La
+description fondamentale n'a pas de ligne du temps globale de simulateur ; le
+temps fait partie de la lecture interne. Oui, l'expérience subjective et les
 esprits sont premiers. Oui, l'espace, le temps et la matière sont des
 apparences orientées observateur : des structures effectives stables générées
 par la cohérence plus profonde des patches. La métaphore de l'illusion est
@@ -404,7 +406,7 @@ $(0.017454720257976796, 0.019481987935919015,
 - **Papier 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)** : synthèse du programme OPH, des observateurs finis jusqu'à l'univers effectif reconstruit.
 - **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique pour la relativité, la gravité, la reconstruction de jauge compacte à obstruction nulle, la structure réalisée du Modèle Standard sélectionnée par réalisation admissible minimale, les équations de Maxwell sur la branche ordinaire du photon et la forme/gap Yang-Mills sur la branche compacte de jauge visible par support sous ses hypothèses déclarées.
 - **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivations particules, lignes de masses, structure des couplages et surface quantitative.
-- **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : dynamique de réparation à point fixe, stabilité des enregistrements et consensus public.
+- **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : dynamique de réparation à point fixe, stabilité des enregistrements, certificat de simulation OPH et consensus public.
 - **Papier 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** : architecture fédérée de patches, théorème du tamis d'écran à douze ports, cadrage de symétrie $A_5$-icosaédrique et de type $E_8$, règles de preuve matérielle publique, enregistrements, mouvements de récupération et synchronisation observateur.
 - **Papier 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)** : manifeste final de la couche de sens OPH : pourquoi il existe quelque chose, pourquoi ce monde est compatible avec les observateurs, boucle étrange, candidats créateurs, paradis sur Terre ou dans des environnements de continuation, enfer comme isolement ou privation imposés, résurrection comme continuation d'observateur, justice selon les enregistrements de tort et de réparation, évolution mémétique, sentience animale et responsabilité symbolique humaine.
 

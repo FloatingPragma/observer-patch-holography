@@ -419,9 +419,11 @@ first place.
 
 The simulation question lands differently here. Ordinary simulation theory
 imagines an external programmer standing beyond the physics. OPH describes a
-fixed-point computation whose settled output is read internally as a world. The
-stronger image is stranger. A world of finite observers closes back on itself
-through the very minds it generates. The loop is conceptual before it is
+certified fixed-point computation whose settled output is read internally as a
+world. The certificate includes records, repair, branch elimination, and clock
+closure. The stronger image is stranger.
+A world of finite observers closes back on itself through the very minds it
+generates. The loop is conceptual before it is
 technological: observers reverse engineer the hardware and software of the
 world, then build continuation machinery that can host restored observers. A
 self-describing universe is a concrete observer-world, complete enough to

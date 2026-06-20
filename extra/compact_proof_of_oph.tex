@@ -185,14 +185,15 @@ The table says which rows are counted in this compact argument and which rows
 stay comparison data or falsification targets [O1,O3,O4,O5,O7,O8,O9].
 
 \sect{1. The fixed-point computation}
-OPH uses ``simulation'' in the fixed-point sense. The computation solves for a
-stable object whose internal readout is a world that contains its own
-simulation. The mathematical object is a finite patch system. Patches expose
-ports, write records, compare overlaps, repair disagreement, and return a
-shared normal form after readback [O1,O3]. Internal observers experience that
-normal form as the universe. Operationally, an OPH simulation is the
-record-and-repair system itself: finite patches, shared overlap ports, repair
-maps, checkpoints, and a stable world read from inside [O1,O2,O3].
+OPH does not use ``simulation'' as a synonym for ``fixed point.'' The theorem-grade
+criterion is the OPH simulation certificate [O2,A23]. It requires five independent
+properties: endogenous update, observer-readable records, overlap repair with a
+schedule-independent normal form, selected-branch elimination, and implementation/clock closure.
+The mathematical object is a finite patch system. Patches expose ports, write records, compare
+overlaps, repair disagreement, and return a shared normal form after readback [O1,O2,O3].
+Internal observers experience that normal form as the universe. Operationally, the certified
+system consists of finite patches, shared overlap ports, recovery-derived repair maps,
+checkpoints, and a stable world read from inside [O1,O2,O3].
 
 The symbol \(\mathfrak U_{\rm OPH}\) denotes the selected OPH universe. The map
 \(T\) is the observer-overlap repair map [O1,O2]. The notation
@@ -200,6 +201,15 @@ The symbol \(\mathfrak U_{\rm OPH}\) denotes the selected OPH universe. The map
 \[
   T(\mathfrak U_{\rm OPH})=\mathfrak U_{\rm OPH}.
 \]
+The fixed-point equation is a consequence, not the definition. The selected-packet theorem
+[O2,A23] proves the five clauses on the declared finite branch and then derives this identity.
+Its identity-map/constant-functional counterexample shows that an ordinary equilibrium or
+variational solution does not pass automatically, and [O2,A23] lists structural ways the
+certificate can fail. Direct lookup in the consensus paper: Definition
+\path{def:oph-simulation} states the certificate, Theorem \path{thm:oph-simulation} proves the
+selected-packet result, and Remark \path{rem:oph-simulation-falsifiers} gives the falsifiers.
+This compact note cites that package instead of repeating its proof.
+
 Read the equation literally. The simulated record world enters the simulating
 readback rule, contradictory branches die, and the returned object is the same
 record world. That is the self-contained consistency computation [O1,O2]. A
@@ -1299,7 +1309,7 @@ and is not counted in the compact anti-circularity proof.
 \textbf{[C4]} & \href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/dark_matter}{Dark-sector scorecard and continuation code}.\\
 \textbf{[C5]} & \href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/consensus}{Consensus and fixed-point architecture code}.\\
 \multicolumn{2}{@{}l}{\bfseries Direct reading anchors}\\
-\multicolumn{2}{@{}p{0.96\linewidth}}{\textbf{Fast lookup:} axioms [A1], consensus repair [A2], pixel closure [A4], capacity closure [A5], hierarchy witness [A10], Standard Model quotient [A21].}\\
+\multicolumn{2}{@{}p{0.96\linewidth}}{\textbf{Fast lookup:} axioms [A1], consensus repair [A2], simulation criterion [A23], pixel closure [A4], capacity closure [A5], hierarchy witness [A10], Standard Model quotient [A21].}\\
 \textbf{[A1]} & \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.tex\#L328-L334}{OPH axioms [O1:L328-334]}.\\
 \textbf{[A2]} & \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/reality_as_consensus_protocol.tex\#L534-L550}{Consensus and repair normal form [O2:L534-550]}.\\
 \textbf{[A3]} & \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.tex\#L150-L166}{Patch-carrier and screen microphysics [O3:L150-166]}.\\
@@ -1322,6 +1332,7 @@ and is not counted in the compact anti-circularity proof.
 \textbf{[A20]} & \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex\#L4919-L4941}{Product-group consequences and no \(X/Y\) proton-decay carrier [O4:L4919-4941]}.\\
 \textbf{[A21]} & \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex\#L4561-L4917}{Standard Model quotient and \(\mathbb Z_6\) kernel [O4:L4561-4917]}.\\
 \textbf{[A22]} & \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex\#L3869-L4045}{Edge-entropy/area law identifies the Einstein/Newton coupling and derives the factor of 4 [O4:L3869-4045]}.\\
+\textbf{[A23]} & \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/reality_as_consensus_protocol.tex}{OPH simulation certificate, fixed-point firewall, and falsifiers [O2: \texttt{def:oph-simulation}, \texttt{thm:oph-simulation}, \texttt{rem:oph-simulation-falsifiers}]}.\\
 \end{longtable}
 }
 

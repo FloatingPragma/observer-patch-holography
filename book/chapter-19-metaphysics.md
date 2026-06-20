@@ -161,9 +161,10 @@ There is a deeper version of the same idea. Reality has strange-loop closure.
 
 This is also the point where OPH intersects most directly with what popular
 culture calls **simulation theory**. Ordinary simulation theory imagines a
-machine that renders a target world from the outside. OPH uses a fixed-point
-reading: physical reality is the observer-facing solution of a self-consistent
-information process. That is why OPH is publicly framed both as a concrete
+machine that renders a target world from the outside. OPH uses a certified
+fixed-point reading: physical reality is the observer-facing solution of a
+self-consistent information process whose records, repairs, branch selection,
+and clock closure are internal. That is why OPH is publicly framed both as a concrete
 implementation of simulation theory and as a concrete theory of everything.
 
 Consider the trajectory: reality is computational. Within this computation,
