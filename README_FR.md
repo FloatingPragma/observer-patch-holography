@@ -99,10 +99,11 @@ L'OPH est formulée comme une théorie sans entrée externe. Quantitativement, l
 lignes publiques sont organisées par trois quantités internes : un point fixe
 local de pixel $P_\star$, un point fixe global de capacité d'enregistrement
 $N_{\mathrm{CRC}}$ et un rapport de mise à l'échelle $\gamma_\star$. Ce ne sont
-pas des constantes ajustées. Les mesures peuvent indiquer sur quelle branche
-nous sommes, mais les valeurs elles-mêmes doivent venir des calculs de point
-fixe. La discussion d'échelle détaillée est rassemblée une seule fois ci-dessous
-dans **Géométrie, Symétrie Et Échelle**.
+pas des constantes ajustées côté source. Les mesures peuvent indiquer sur
+quelle branche nous sommes, mais les valeurs source doivent venir des calculs
+de point fixe. Les lignes à fermeture empirique sont marquées ci-dessous. La
+discussion d'échelle détaillée est rassemblée une seule fois ci-dessous dans
+**Géométrie, Symétrie Et Échelle**.
 
 ## Le piège de l'espace-temps
 
@@ -247,16 +248,16 @@ redérivés ici.
 
 ### Lignes quantitatives sélectionnées
 
-Ce tableau condensé garde les lignes OPH les plus faciles à comparer directement avec les valeurs
-PDG/NIST. Les résultats structurels comme la géométrie lorentzienne en $3+1$ dimensions, le quotient de jauge
-du Modèle Standard sélectionné par réalisation admissible minimale $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, le réseau exact des hypercharges, le triplet
-de couleur réalisé $N_c=3$ et le comptage des générations $N_g=3$ sont énoncés dans les papiers et ne sont pas répétés ici.
+Ce tableau garde les lignes les plus faciles à comparer avec PDG/NIST et nomme
+leur statut. Les résultats structurels comme l'espace-temps 3+1, le quotient
+du Modèle Standard, l'hypercharge exacte, $N_c=3$ et $N_g=3$ vivent dans les
+papiers.
 
-| Quantité | Symbole | OPH | PDG/NIST | Δ |
+| Quantité | Symbole | OPH / statut | PDG/NIST | Δ / note |
 | --- | --- | --- | --- | --- |
-| Constante gravitationnelle | G | 6.6742999959e-11 | 6.67430(15)e-11 | 0.00003σ |
-| Vitesse de la lumière | c | 299792458 | 299792458 (exact) | match |
-| Structure fine (inv.) | α⁻¹(0) | 137.035999177 | 137.035999177(21) | match |
+| Constante gravitationnelle | G | 6.6742999959e-11, affichage échelle/horloge | 6.67430(15)e-11 | 0.00003σ |
+| Vitesse de la lumière | c | vitesse lorentzienne structurelle; valeur SI conventionnelle | 299792458 exact par définition | pas une prédiction numérique |
+| Structure fine (inv.) | α⁻¹(0) | source seule 136.994835; point final 137.035999177 avec fermeture hadronique empirique | 137.035999177(21) | pas source seule |
 | Masse du photon | m_γ | 0 eV | <1e-18 eV | sous la borne |
 | Masse du gluon | m_g | 0 GeV | 0 GeV | match |
 | Masse du graviton | m_grav | 0 eV | <1.76e-23 eV | sous la borne |
@@ -301,7 +302,7 @@ $(0.017454720257976796, 0.019481987935919015,
 ## Articles supplémentaires
 
 - **[Photonic Fixed-Point Consensus for SHA-256d Proof of Work](extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf)** : enrichissement photonique de candidats pour la preuve de travail SHA-256d.
-- **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)** : dérivation à point fixe de la ligne de structure fine.
+- **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)** : point fixe source, frontière du point final hadronique empirique et ligne de comparaison.
 - **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)** : émergence des cordes comme description effective des dynamiques de bord OPH, témoin hétérotique Bouchard-Donagi à une paire de Higgs, couche de sûreté `Z4R` et portes de verrouillage des moduli.
 - **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)** : route OPH vers le problème de Yang-Mills de Clay sous les hypothèses de jauge compacte, avec identification du gap de Yang-Mills au gap de réparation OPH.
 - **[Observer-Patch Holography and the Dark Matter Phenomenon](extra/oph_dark_matter_paper.pdf)** : phénoménologie de la matière noire et limite galactique de type MOND.
@@ -323,7 +324,7 @@ La preuve compacte traite l'évidence comme un test de compression. Une ligne
 numérique ne compte que lorsque son calcul n'utilise pas la valeur mesurée, ni
 un proxy proche de cette valeur, comme entrée. Si $p_i$ borne la chance que la
 ligne $i$ tombe juste par accident après les lignes acceptées précédentes,
-alors $P_{\mathrm{acc}}\le\prod_i p_i$. Douze lignes indépendantes à un pour
+alors $P_{\mathrm{acc}}\le\prod_i p_i$. Douze lignes source-propres à un pour
 cent donnent $P_{\mathrm{acc}}\le10^{-24}$; vingt donnent $10^{-40}$. Les deux
 mêmes points fixes organisent aussi le problème de l'observateur, la
 reconstruction gravité/jauge, la
@@ -417,16 +418,14 @@ frontières des revendications vivent dans les papiers.
 
 ## Table de statut
 
-La ligne publique de structure fine utilise $\alpha^{-1}(0)=137.035999177(21)$ et
-$P\simeq1.6309682094$. Les enregistrements d'audit source et de résidu au point
-final vivent dans le papier particules, séparés de la ligne publique de point fixe.
-
-La paire faible est une ligne de validation. Les masses absolues des leptons
-chargés sont des témoins ancrés sur cible. La moyenne directe auxiliaire du top
-est une ligne de validation. Les lignes hadroniques source demandent le backend
-OPH de liaison forte avec données spectrales de production et systématiques; la
-fermeture empirique utilise une classe séparée de charge utile
-$e^+e^-\to\mathrm{hadrons}$.
+Statut abrégé : la structure fine source seule donne
+$\alpha_{\rm cand}^{-1}=136.9948351646\ldots$; la ligne publique
+$\alpha^{-1}(0)=137.035999177(21)$ utilise une fermeture hadronique empirique.
+Le $c$ SI est conventionnel; le $G$ SI est un affichage échelle/horloge. $W/Z$
+sont des lignes de validation en comparaison seule. Higgs/top est fermé sur la
+surface D10/D11 déclarée. Les quarks sont des lignes de théorème sur classe
+sélectionnée. Les neutrinos utilisent la branche à cycles pondérés. Les masses
+absolues des leptons chargés et les hadrons source seuls restent ouverts.
 
 La CP forte est en cours de travail dans le théorème des quarks sur classe
 sélectionnée : le corpus disponible ne dérive pas l'angle theta de QCD,

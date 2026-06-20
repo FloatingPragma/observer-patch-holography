@@ -6,6 +6,8 @@ across the public stack.
 It is an internal release-audit surface, not public reading-path material. Do not link the registry
 from the top-level public README files; point readers to the papers, falsifiability map, and public
 explainers instead.
+README numeric summaries should distinguish source-only rows, empirical closures, compare-only
+rows, and SI convention/display rows.
 
 The registry is part of the working process:
 

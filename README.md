@@ -85,10 +85,11 @@ the large-scale fixed points of that observer-network computation.
 OPH is formulated as a zero-input theory. Quantitatively, the public rows are
 organized by three internal quantities: a local pixel fixed point $P_\star$, a
 global record-capacity fixed point $N_{\mathrm{CRC}}$, and a scale-setting
-ratio $\gamma_\star$. They are not fitted constants. Measurements can tell us
-which branch we are on, but the values themselves must come from the fixed-point
-calculations. The detailed scale discussion is collected once below in
-**Geometry, Symmetry, And Scale**.
+ratio $\gamma_\star$. The source coordinates are not fitted constants.
+Measurements can tell us which branch we are on, but source values must come
+from the fixed-point calculations. Empirical closure rows are marked below. The
+detailed scale discussion is collected once below in **Geometry, Symmetry, And
+Scale**.
 
 ## The Spacetime Trap
 
@@ -217,18 +218,15 @@ papers rather than being rederived here.
 
 ### Selected Quantitative Rows
 
-This table keeps the rows that are easiest to compare directly with PDG and
-NIST values. Structural results such as the 3+1-dimensional Lorentzian spacetime, the
-Standard Model quotient selected by Minimal Admissible Realization, $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, the exact hypercharge
-lattice, the realized color triplet $N_c=3$, and the generation count
-$N_g=3$ live in the papers. The
-quick view here sticks to direct numeric rows and exact zeros.
+This table keeps the rows easiest to compare with PDG/NIST and names their
+status. Structural results such as 3+1 spacetime, the Standard Model quotient,
+exact hypercharge, $N_c=3$, and $N_g=3$ live in the papers.
 
-| Quantity | Symbol | OPH | PDG/NIST | Δ |
+| Quantity | Symbol | OPH / status | PDG/NIST | Δ / note |
 | --- | --- | --- | --- | --- |
-| Gravitational constant | G | 6.6742999959e-11 | 6.67430(15)e-11 | 0.00003σ |
-| Speed of light | c | 299792458 | 299792458 (exact) | match |
-| Fine-structure (inv) | α⁻¹(0) | 137.035999177 | 137.035999177(21) | match |
+| Gravitational constant | G | 6.6742999959e-11, scale/clock display | 6.67430(15)e-11 | 0.00003σ |
+| Speed of light | c | structural Lorentz speed; SI value conventional | 299792458 exact by definition | not a numeric prediction |
+| Fine-structure (inv) | α⁻¹(0) | source-only 136.994835; endpoint 137.035999177 with empirical hadron closure | 137.035999177(21) | not source-only |
 | Photon mass | m_γ | 0 eV | <1e-18 eV | below bound |
 | Gluon mass | m_g | 0 GeV | 0 GeV | match |
 | Graviton mass | m_grav | 0 eV | <1.76e-23 eV | below bound |
@@ -273,7 +271,7 @@ $(0.017454720257976796, 0.019481987935919015, 0.05307522145074924)\,\mathrm{eV}$
 ## Supplemental Papers
 
 - **[Photonic Fixed-Point Consensus for SHA-256d Proof of Work](extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf)**: photonic candidate enrichment for SHA-256d proof of work.
-- **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)**: fixed-point derivation of the fine-structure row.
+- **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)**: source fixed point, empirical hadron endpoint boundary, and comparison row.
 - **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)**: OPH edge-string emergence, the Bouchard-Donagi one-Higgs heterotic witness, the `Z4R` safety layer, and moduli-locking gates.
 - **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)**: OPH route to the Clay Yang-Mills problem under the compact-gauge assumptions, identifying the Yang-Mills gap with the OPH repair gap.
 - **[Observer-Patch Holography and the Dark Matter Phenomenon](extra/oph_dark_matter_paper.pdf)**: dark-matter phenomenology and MOND-like galaxy limit.
@@ -294,7 +292,7 @@ The compact proof treats the evidence as a compression test. A numeric row
 counts only when its calculation does not use the measured target, or a close
 proxy for that target, as an input. If $p_i$ bounds the chance that row $i$
 lands correctly by accident after earlier accepted rows, then
-$P_{\mathrm{acc}}\le\prod_i p_i$. Twelve independent one-percent rows give
+$P_{\mathrm{acc}}\le\prod_i p_i$. Twelve source-clean one-percent rows give
 $P_{\mathrm{acc}}\le10^{-24}$; twenty give $10^{-40}$. The same two fixed
 points also organize the observer problem, gravity/gauge reconstruction,
 electroweak hierarchy, dark energy, the dark-sector budget, gauge-proton-decay
@@ -383,17 +381,13 @@ formulas and claim boundaries live in the papers.
 
 ## Status Table
 
-The fine-structure display row uses the fixed-point value
-$\alpha^{-1}(0)=137.035999177(21)$ and
-$P\simeq1.6309682094$. The source-side audit and endpoint residual records
-live in the particle paper, where they are kept separate from the public
-fixed-point row.
-
-The weak-boson pair is a validation row. Charged-lepton absolute masses are
-target-anchored witness rows. The auxiliary direct-top average is a validation
-row. Hadron-controlled rows use the policy in [`HADRON.md`](HADRON.md):
-source-only OPH values stay separate from OPH plus empirical hadron closure
-values carried by the empirical $e^+e^-\to\mathrm{hadrons}$ payload class.
+Status shorthand: source-only fine structure is
+$\alpha_{\rm cand}^{-1}=136.9948351646\ldots$; the public
+$\alpha^{-1}(0)=137.035999177(21)$ row uses empirical hadron closure. SI $c$
+is conventional; SI $G$ is a scale/clock display. $W/Z$ are compare-only
+validation rows. Higgs/top is closed on the declared D10/D11 surface. Quarks
+are selected-class theorem rows. Neutrinos use the weighted-cycle branch.
+Charged-lepton absolute masses and source-only hadrons remain open.
 
 Strong CP is work in progress in the selected-class quark theorem:
 the available corpus does not derive the QCD theta angle, does not emit the
