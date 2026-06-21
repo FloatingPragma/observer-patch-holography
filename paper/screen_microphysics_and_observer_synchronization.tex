@@ -124,6 +124,14 @@ observer identity lives in the quotient data exposed by \(\mathsf O_i\), so a ch
 coordinates, port labels, or substrate presentation is physically silent when it preserves the
 visible interface and record process.
 
+The tuple \(\mathsf O_i\) does not impose equal primitive observer size. Fixed-cutoff OPH requires
+bounded accessible algebras and declared interfaces; it also permits different connected support
+regions and different finite or regulated algebras. In the carrier picture, an observer-supporting
+object may be a variable finite federation of screen cells. A theorem selecting isomorphic
+fixed-capacity elementary carriers would need extra hypotheses: homogeneous UV cellulation,
+isomorphic local cell algebras, equivariant overlaps, refinement preservation of the cell type, and a
+proof that one cell or a fixed block of cells is the primitive carrier.
+
 \begin{claim}[Implementation-invariance target]\label{claim:implementation-invariance}
 Two carrier patches that induce isomorphic visible interface algebras, record statistics, repair
 maps, and checkpoint continuation are physically equivalent for all OPH observables in the declared
@@ -227,6 +235,20 @@ particular observer-facing support cut looks like after quotienting hidden imple
 and choosing a geometric presentation. The microscopic carrier may be graph-like, federated,
 multi-patch, and locally polyhedral.
 
+The \(P,N\) closures supply the geometric side of that chart. If
+\(P_\star=a_{\mathrm{cell}}/\ell_\star^2\) and \(N_{\mathrm{CRC}}=A_{\mathrm{screen}}/(4\ell_\star^2)\),
+then an equal-area cellulation has
+\[
+K_{\mathrm{cell}}
+=\frac{A_{\mathrm{screen}}}{a_{\mathrm{cell}}}
+=\frac{4N_{\mathrm{CRC}}}{P_\star}
+\simeq 8.12\times10^{122}.
+\]
+This counts canonical geometric screen cells. It does not assign an independent Hilbert factor to
+each cell. In particular \(P_\star/4\simeq0.408\) nats is about \(0.588\) bits, so it is not by
+itself the logarithm of an integer-dimensional autonomous cell algebra. The area law lives on shared
+cuts, edge centers, and constrained overlap data.
+
 \begin{definition}[Federated patch carrier]
 A fixed-cutoff federated patch carrier is a tuple
 \[
@@ -321,6 +343,8 @@ The theorem fixes the canonical twelve-port branch. Its role is to give the
 reference patch enough boundary structure to support nontrivial overlap
 comparison, symmetry tests, verifier-shadow behavior, and cross-patch routing
 while remaining small enough for explicit evidence records.
+The theorem selects the exposed interface architecture. The dimension of the observer's internal
+algebra belongs to a separate carrier theorem over ports, records, repair maps, and refinement.
 
 \begin{remark}
 The word ``echosahedral'' is intentionally implementation-facing. In a mathematical theorem, one
