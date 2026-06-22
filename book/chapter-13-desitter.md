@@ -237,7 +237,7 @@ derivative-sign certificate. Informally, this is the single screen size where
 the universe reads back its own boundary without deficit or slack: below it,
 stable self-reading records do not have enough active capacity; above it, added
 capacity is slack, redundancy, or de Sitter dilution. On the observed branch
-this fixed point is the de Sitter entropy capacity. The current
+this fixed point is the de Sitter entropy capacity. The
 reverse-engineering claim is uniqueness plus observed read-off; a from-scratch
 prediction requires deriving $F$ or $A(N)$ from the finite grammar.
 
@@ -402,13 +402,15 @@ galaxy-scale response law itself is not part of the recovered-core theorem
 package. OPH conditionally identifies the collar scalar with uniform-density
 curvature, but primordial conservation and mode purity remain gated by
 source-stress, single-clock, freeze-out, isocurvature, phase-coherence,
-radial-lift, null-space, and forward-residual certificates. Until those
-receipts pass, CMB spectra are diagnostics or continuation tests, not
-source-only primordial predictions. A dark/anomaly CMB or growth claim has an
+source-provenance, pooled-reducer, radial-lift, null-space, and forward-residual
+certificates. Without those receipts, CMB spectra are diagnostics or
+continuation tests and do not count as source-only primordial predictions. A
+dark/anomaly CMB or growth claim has an
 additional gate: a finite covariant collar-packet parent must emit the stress
 moments, the anomaly-frame baryon response, any recipient stress for nonzero
-repair exchange, convergence receipts, and frozen source/solver/likelihood
-hashes before likelihood data are read.
+repair exchange, convergence receipts, a source-provenance record,
+global-pooling checks, and frozen source/solver/likelihood hashes before
+likelihood data are read.
 
 ---
 

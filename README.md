@@ -242,7 +242,7 @@ $\Lambda_{\mathrm{CRC}}=3\pi/(G_{\mathrm{geom}}N_{\mathrm{CRC}})$ with
 $G_{\mathrm{geom}}=\ell_\star^2$. The electroweak hierarchy bridge, the
 24-slot repair normalization, QCD/hadron policy, and hardware receipt rules
 live in the particle paper, [`HADRON.md`](HADRON.md), and the hardware-facing
-papers rather than being rederived here.
+papers. This README only points to them.
 
 ### Selected Quantitative Rows
 
@@ -335,12 +335,14 @@ Screen-spectrum and CMB continuations are gated separately. OPH conditionally
 identifies the low-mode-removed collar scalar with uniform-density curvature,
 but a source-only primordial spectrum requires source-stress, single-clock,
 repair-gap, freeze-out, adiabatic-mode, isocurvature, phase-coherence,
-screen-to-radial lift, radial null-space, and forward-residual receipts before
-`A_s`, `n_s`, running, or TT/TE/EE spectra count as OPH predictions. Any
+source-provenance, pooled-reducer, screen-to-radial lift, radial null-space,
+and forward-residual receipts before `A_s`, `n_s`, running, or TT/TE/EE spectra
+count as OPH predictions. Any
 dark/anomaly CMB or growth claim additionally needs a finite covariant
 collar-packet parent, explicit recipient stress for nonzero repair exchange,
-regulator convergence, CDM-limit recovery, and frozen source/solver/likelihood
-hashes before likelihood data are read.
+regulator convergence, a source-provenance record, global-pooling checks,
+CDM-limit recovery, and frozen source/solver/likelihood hashes before
+likelihood data are read.
 
 ## Applications And OMEGA Hardware
 

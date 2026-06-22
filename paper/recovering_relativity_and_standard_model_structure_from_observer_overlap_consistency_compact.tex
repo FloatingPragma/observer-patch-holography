@@ -45,7 +45,7 @@ from Observer Overlap Consistency}
 \begin{abstract}
 Observer-Patch Holography starts from a finite screen and one rule: neighboring observer patches must agree on their overlap. The compact argument takes that rule to the main structural branch of the theory.
 
-Finite repair and support-visible modular geometry lead to the Jacobson-type Einstein branch and compact gauge reconstruction. On the realized branch this gives the Standard Model quotient, exact hypercharge and charge quantization, three colors, three generations, the Maxwell sector, and the Yang--Mills form with a finite repair-gap mechanism whose Clay-facing continuum reading requires the stated compact-gauge transfer certificate. The cosmological term is closed by the de Sitter capacity relation. The quantitative layer is read from fixed points: the local pixel \(P\) feeds the fine-structure and particle branches, and the cosmic capacity \(N_{\mathrm{CRC}}\) feeds the dimensionless cosmological row. On the selected exact branch, the same stack emits the weak scale and gives Higgs naturality defect \(\epsilon_H=0\).
+Finite repair and modular geometry lead to the Jacobson-type Einstein branch and compact gauge reconstruction. On the realized branch this gives the Standard Model quotient, exact hypercharge and charge quantization, three colors, three generations, the Maxwell sector, and the Yang--Mills form with a finite repair gap and explicit compact-gauge transfer conditions. The cosmological term is closed by the de Sitter capacity relation. The quantitative layer is read from fixed points: the local pixel \(P\) feeds the fine-structure and particle branches, and the cosmic capacity \(N\) feeds the dimensionless cosmological row. On the selected exact branch, the same stack emits the weak scale and gives zero Higgs naturality defect.
 \end{abstract}
 
 \section{Introduction}
@@ -67,7 +67,7 @@ it is not a one-to-one clock for cosmic time. In the fundamental description the
 timeline that renders spacetime contents tick by tick; history is the internal readout of the
 selected normal form.
 
-The status of observer time is correspondingly narrow. The current recovered-core theorem gives a
+The status of observer time is correspondingly narrow. The recovered-core theorem in this paper gives a
 schedule-independent terminal quotient normal form and, on the BW branch, a modular parameter for
 the extracted support-visible cap pair. It does not by itself prove that worker counters, repair
 iterations, queue positions, packet latencies, or wall-clock timestamps define observer history or
@@ -320,14 +320,16 @@ expected quadratic release energy
 \[
 E_r=\mathbb E_{\mu_r}[q_r^{\mathsf T}K_rq_r],\qquad A_r=E_r/d_r,
 \]
-imply a unique MaxEnt Gaussian screen field whose covariance is \(A_rK_r^{-1}\). An exact-energy
+imply a unique MaxEnt Gaussian screen field whose covariance is \(A_rK_r^{-1}\). If the energy is
+instead written in the physics convention \(E_r^{\rm src}=\frac12\mathbb E[q_r^{\mathsf T}K_rq_r]\),
+the covariance amplitude is \(A_r=2E_r^{\rm src}/d_r\). An exact-energy
 constraint would instead give a microcanonical ellipsoid, not this Gaussian law. A primordial
 curvature spectrum follows only after separate operator-tilt, fixed expected scalar-release-energy,
 and screen-to-radial lift certificates. This package is a
 Phase III conditional continuation, not a recovered-core output. Full inflation replacement,
 physical TT/TE/EE scalar or parity transfer, \(H_0/S_8\) prediction, dark/anomaly growth kernels,
 and baryogenesis require their finite covariant Boltzmann-source, transfer, frozen-likelihood,
-and no-data-use contracts and are not promoted by the D6 capacity relation.
+source-provenance, pooled-reducer, and no-data-use contracts and are not promoted by the D6 capacity relation.
 \section{Five Axioms, the Phase-II Pixel Fixed Point, the Capacity Target, the Scale Certificate, and Theorem Checklist}\label{sec:theorem-ledger}
 
 This section states the theorem checklist and dependency map for this SM/GR derivation paper. The basis used below consists of the five core axioms, the quantitative quantities listed next, the support-visible BW scaling theorem, and the theorem-produced bosonic gauge-reconstruction chain. This is an algebraic-information basis: the screen-net, state, trace/probability, and generalized-entropy structures are starting ingredients of the OPH framework. The purpose is to test whether this basis supports a consistent and comprehensive theory-of-everything reconstruction of the observed effective universe. On the fixed-cutoff local finite-constraint MaxEnt branch, the local-Gibbs form, quasi-local dynamics, Lieb--Robinson propagation control, and endpoint-Lipschitz interval control are internal consequences. Any Dobrushin/local-Gibbs/mixing language used below names only a sufficient fixed-cutoff collar-recoverability mechanism on that branch. It is not an infinite-volume uniqueness claim for the refinement-limit theory. What Axiom~\ref{ax:maxent} fixes under refinement is the realized state-side MaxEnt branch itself. Theorem~\ref{thm:geosubnet} fixes the operational/geometric split at fixed cutoff, and Theorem~\ref{thm:bw} fixes the support-visible scaling-limit cap automorphism, its \(2\pi\) normalization, and the Lorentz-facing geometric cap action on that subnet. Corollary~\ref{cor:n2} then derives the null half-sided modular pair after the null blow-up step, and Lemma~\ref{lem:translation} promotes that pair to the explicit positive null-translation generator on its Stone domain with the affine half-line modular relation. Theorem~\ref{thm:equilibrium} internalizes the fixed-cap generalized-entropy stationarity step for admissible fixed-cap MaxEnt variations on the realized cap-label-preserving MaxEnt family. The compact-gauge realized branch is supplied by Theorem~\ref{thm:mar-witness-landing}. The bounded-interval transport/projective branch is a branch-local construction only where those interval formulas are invoked. Gluing-side path-independent transport is Theorem~\ref{thm:transport-from-gluing}. On the ordinary/central branch the zero obstruction is \([z]_\Sigma=0\); on the genuinely noncentral branch the zero obstruction is \(q_\Sigma=0\), and \(q_\Sigma\ne0\) is routed to the fixed-cutoff higher-gauge sector rather than to ordinary compact-group reconstruction.
@@ -1141,7 +1143,7 @@ Well-founded descent gives termination. For a one-step peak
 \(y\Leftarrow x\Rightarrow z\), let the two commits come from conflict components \(K\) and \(L\).
 If \(K=L\), canonical aggregation gives the same aggregate payload, hence \(y=z\). If \(K\ne L\),
 the components have disjoint read/write supports. Snapshot validity, unchanged-outside-write
-validation, and validation-complete read sets make each transaction still valid after the other
+validation, and validation-complete read sets preserve each transaction after the other
 commits; applying them in either order gives the same quotient state. Thus the aggregate relation
 has the local diamond. Newman's lemma~\cite{newman42} says that a terminating locally confluent
 rewrite system is confluent. If two terminal states \(y,z\) are reachable from the same \(x\),
@@ -6028,7 +6030,7 @@ Phase III phenomenological continuations (D12 and beyond) & Flavor ans\"atze, ch
 \end{longtable}
 \endgroup
 
-Phase I is the recovered-core tier, Phase II is adjacent but non-core, and Phase III contains phenomenological continuations. The D6 row permits the conditional holonomy reading of FLRW flatness in Lemma~\ref{lem:flrw-curvature-holonomy}; it does not promote an inflation replacement, CMB likelihood, or high-\(H_0\) branch. The conditional screen-spectrum theorem only promotes the declared finite-screen branch to a MaxEnt Gaussian screen covariance after the quotient-ensemble selector, scalar-readout, positive repair-operator, and fixed expected quadratic release-energy receipts pass; the tilt, scalar release amplitude, primordial radial lift, and physical TT/TE/EE spectra remain behind their separate finite-source, lift, Boltzmann, and likelihood gates. Current low-\(H_0\), Planck-like \(S_8\) dark/anomaly rows are therefore diagnostic continuation checks until a finite covariant collar-packet parent emits the homogeneous anomaly load, the perturbative source functions, any recipient stress, and the frozen source/solver/likelihood hashes before fitting cosmological data. On the exact finite packet-closed quotient branch, the fixed-cutoff consensus surface does define an affine OPH closure map: the schedule-independent normal-form projection pushes forward to a continuous idempotent self-map of the finite packet simplex, its image is exactly the normal-form simplex, and its fixed points are exactly the packets supported on quotient normal forms. That closure statement is not an ensemble selector; physical probabilities still require the quotient base measure/action or intrinsic projective prior stated near Axiom~\ref{ax:maxent}. That finite branch also supplies the grammar from which the cosmic readback map \(F\) and the self-closing observer-normal-form density \(\Omega^{\mathrm{sc}}_N\) are defined. The readback fixed point gives the D6 target, with the screen-normalized density as its count representation; interpretive strange-loop discussions and the full habitat theorem sit outside these tiers and are not needed for the finite packet-quotient fixed-point statement.
+Phase I is the recovered-core tier, Phase II is adjacent but non-core, and Phase III contains phenomenological continuations. The D6 row permits the conditional holonomy reading of FLRW flatness in Lemma~\ref{lem:flrw-curvature-holonomy}; it does not promote an inflation replacement, CMB likelihood, or high-\(H_0\) branch. The conditional screen-spectrum theorem only promotes the declared finite-screen branch to a MaxEnt Gaussian screen covariance after the quotient-ensemble selector, scalar-readout, positive repair-operator, and fixed expected quadratic release-energy receipts pass; the tilt, scalar release amplitude, primordial radial lift, and physical TT/TE/EE spectra require their separate finite-source, source-provenance, lift, Boltzmann, and likelihood gates. Low-\(H_0\), Planck-like \(S_8\) dark/anomaly rows are diagnostic continuation checks unless a finite covariant collar-packet parent emits the homogeneous anomaly load, the perturbative source functions, any recipient stress, a source-only dependency DAG, pooled global reducers, and the frozen source/solver/likelihood hashes before fitting cosmological data. On the exact finite packet-closed quotient branch, the fixed-cutoff consensus surface does define an affine OPH closure map: the schedule-independent normal-form projection pushes forward to a continuous idempotent self-map of the finite packet simplex, its image is exactly the normal-form simplex, and its fixed points are exactly the packets supported on quotient normal forms. That closure statement is not an ensemble selector; physical probabilities require the quotient base measure/action or intrinsic projective prior stated near Axiom~\ref{ax:maxent}. That finite branch also supplies the grammar from which the cosmic readback map \(F\) and the self-closing observer-normal-form density \(\Omega^{\mathrm{sc}}_N\) are defined. The readback fixed point gives the D6 target, with the screen-normalized density as its count representation; interpretive strange-loop discussions and the full habitat theorem sit outside these tiers and are not needed for the finite packet-quotient fixed-point statement.
 
 \begin{proposition}[Boltzmann-transfer and frozen-likelihood gate]\label{prop:compact-boltzmann-frozen-gate}
 A scalar dark/anomaly parent that emits only
@@ -6069,15 +6071,51 @@ stress moments and their reaction channels; total conservation then enforces
 \(\sum_z\nabla_\mu T_z^{\mu\nu}=0\) at the source level, and the anomaly-frame
 baryon density removes the gauge-fixed-density ambiguity in \(B_A\). Frozen
 hashes are the no-data-use firewall for the transfer and likelihood stage. Thus
-diagnostic CAMB/CLASS curves or compressed likelihood rows do not become
-physical OPH predictions until these receipts pass.
+diagnostic CAMB/CLASS curves or compressed likelihood rows become physical OPH
+predictions only with those receipts.
+\end{proof}
+
+\begin{proposition}[CMB source provenance and pooled-reducer gate]\label{prop:compact-cmb-source-provenance-gate}
+Promoting any of
+\[
+\eta_R,\quad \Gamma_{\mathrm{rec}},\quad A_\zeta,\quad q_{\mathrm{IR}},
+\quad \ell_{\mathrm{IR}},\quad B_A(k,a),\quad \rho_A(a),\quad N_{\mathrm{CRC}}
+\]
+requires an immutable source-provenance certificate.  The certificate is a
+finite dependency DAG whose nodes record the source report, source hash,
+parents, no-CMB-data flag, and measurement-use flags for each promoted
+quantity.  A node that simultaneously asserts no CMB data use and a
+measurement fit, for example \(\texttt{no\_cmb\_data\_used=true}\) and
+\(\texttt{fit\_to\_Planck=true}\), fails closed.  Nonlinear estimators for
+tilt, amplitude, inverse precision, rank, condition number, isocurvature
+leakage, \(B_A\), \(\rho_A\), and \(\Gamma_{\mathrm{rec}}\) are evaluated only
+after additive sufficient statistics have been pooled globally with validated
+units, coordinate grids, coverage, duplicate policy, interpolation policy, and
+covariance.  Shard-local nonlinear averages do not satisfy the gate.
+\(N_{\mathrm{CRC}}\) is treated as the D6 consensus invariant unless an
+additive capacity schema proves disjoint coverage before any summation.
+Official likelihood and CDM-limit checks are global checks; shard-local
+\(\texttt{any()}\) rollups do not promote a physical CMB input contract.
+\end{proposition}
+
+\begin{proof}
+The listed quantities are inputs to later primordial or Boltzmann claims.  If
+one of them is selected by a measurement-aware fit, a shard-local nonlinear
+average, or an additive count with overlapping coverage, the value fails the
+source-readback contract.  A dependency DAG fixes the
+measurement-firewall order, and pooled sufficient statistics are the invariant
+objects under repartition of the run.  Therefore only the DAG-plus-pooling
+certificate is stable under public re-execution; all other rows remain
+diagnostics.
 \end{proof}
 
 \begin{proposition}[Source-only screen-to-primordial gate]\label{prop:compact-source-only-primordial-gate}
-On a source-stress-complete rank-one normal-form branch, the relational collar
-Jacobian scalar
+The modular repair scalar \(R_C=I(A:D|B)\) is a repair/readback defect, not the
+geometric curvature perturbation.  On a source-stress-complete rank-one
+normal-form branch, the geometric scalar is the relational volume readout
 \[
 q_\zeta=\frac13\log(J_X/\bar J_X)
+=\frac13\log\frac{dV_h}{a^3dV_{\bar h}},
 \]
 equals uniform-total-density curvature after monopole and dipole removal.  If
 the total effective pressure is barotropic on that branch, then the exact
@@ -6088,13 +6126,21 @@ curvature covector obeys
 -\frac{\Theta}{3(\rho+p_{\rm eff})}\Gamma_a^{\rm eff}
 =0 .
 \]
-Primordial status additionally requires source-stress closure, the repair-gap
-and freeze-out receipts, the adiabatic growing-mode receipt, source-side
-isocurvature and phase-coherence bounds, a declared radial prior and Bessel
-screen-to-radial kernel, the radial null-space report, and a forward-projection
-residual certificate.  Until those receipts pass, \(A_s\), \(n_s\), running,
-isocurvature, phase coherence, and TT/TE/EE spectra remain Phase III
-continuation outputs rather than recovered-core predictions.
+The source clock is the unique future-oriented timelike eigenline of the total
+stress tensor when \(\rho+p>0\), the line is nondegenerate and hypersurface
+orthogonal, and the density is monotone.  Primordial status additionally
+requires source-stress closure, a freeze-tail certificate, the scalar
+refinement map \(R_r=J_{r+1,r}C_{r+1,r}\), simple isolated leading nonconstant
+eigenvalue with certified gap, conformal precision intertwiner, spatial
+curvature branch receipt, adiabatic growing-mode receipt, source-side
+isocurvature and phase-coherence bounds, a declared radial prior with the
+correct flat or curved shell kernel, the radial null-space report, and a
+forward-projection residual certificate.  The finite code must certify these
+quantities from source artifacts; it may not choose the eigenmode, sign,
+dimension, amplitude, or curvature branch by optimizing CMB data.  Without those
+receipts, \(A_s\), \(n_s\), running, isocurvature, phase coherence, and
+TT/TE/EE spectra are Phase III continuation outputs outside recovered-core
+prediction status.
 \end{proposition}
 
 \subsection{Recovered-core discriminators}

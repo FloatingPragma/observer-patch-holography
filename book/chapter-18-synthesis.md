@@ -384,8 +384,9 @@ repair-gap, freeze-out, adiabatic, isocurvature, phase-coherence,
 screen-to-radial lift, null-space, and forward-residual certificates are
 present. Dark/anomaly CMB and growth rows also need a finite covariant
 collar-packet parent, explicit recipient stress for nonzero repair exchange,
-regulator convergence, CDM-limit recovery, and frozen source/solver/likelihood
-hashes before they can leave diagnostic status.
+regulator convergence, a source-provenance record, global-pooling checks,
+CDM-limit recovery, and frozen source/solver/likelihood hashes. Without those
+receipts, the rows are diagnostic.
 
 ## 18.7 Why de Sitter Fits
 

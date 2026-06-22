@@ -378,12 +378,14 @@ Les continuations spectre d'écran et CMB sont sur une porte séparée. OPH
 identifie conditionnellement le scalaire de collier, après retrait monopôle et
 dipôle, avec la courbure à densité totale uniforme, mais un spectre primordial
 source-only exige les reçus de stress source, horloge unique, gap de réparation,
-freeze-out, mode adiabatique, isocourbure, cohérence de phase, lift
-écran-vers-radial, espace nul radial et résidu de projection avant que `A_s`,
-`n_s`, le running ou les spectres TT/TE/EE comptent comme prédictions OPH.
+freeze-out, mode adiabatique, isocourbure, cohérence de phase, provenance
+source, réducteur groupé, lift écran-vers-radial, espace nul radial et
+résidu de projection avant que `A_s`, `n_s`, le running ou les spectres TT/TE/EE
+comptent comme prédictions OPH.
 Toute revendication CMB ou croissance du secteur sombre/anomalie exige en plus
 un parent fini covariant de paquets de collier, un stress récepteur explicite
 pour tout échange de réparation non nul, la convergence du régulateur, la
+un dossier de provenance source, des contrôles de groupement global, la
 récupération de la limite CDM et des hachages source/solveur/vraisemblance
 gelés avant la lecture des données de vraisemblance.
 

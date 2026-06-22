@@ -418,8 +418,8 @@ run presents one finite universe only when it starts from one global carrier and
 projects to a legal monolithic repair path, a physical stutter, or a certified rollback to an
 earlier committed projection. The required certificate names the global graph, initial state,
 partition, cut interfaces, observer registry, run/config/code hashes, linearized commits,
-restart roots, final monolithic normal form, and recomputed readout. This does not yet identify
-executor order with observer history. Observer-clock naturality additionally requires a
+restart roots, final monolithic normal form, and recomputed readout. Executor order is separate
+from observer history. Observer-clock naturality additionally requires a
 history-augmented quotient with semantic event keys independent of worker ID, repair iteration,
 queue position, timestamp, and retry metadata; a global observer registry descended from local
 registry groupoids with disjoint patch/cap/future namespaces and explicit lineage arrows; a
@@ -496,8 +496,8 @@ quotient branch. It is not the full Appendix/habitat closure-map theorem for arb
 state-and-law data; the first operation not internalized at that level is the general habitat lift
 from this finite packet quotient to the full compact-convex observer-supporting sector.
 
-\textbf{Finite quotient ensemble theorem surface.} The closure map above is not yet an
-ensemble selector. It sends any input law to terminal quotient normal forms, but every law already
+\textbf{Finite quotient ensemble theorem surface.} The closure map above is an idempotent
+normal-form projector. It sends any input law to terminal quotient normal forms, and every law
 supported on those normal forms is a fixed point. Hence the physical probability law at regulator
 \(r\) must be supplied as an additional quotient-intrinsic object. Let
 \[
@@ -2671,7 +2671,7 @@ LHAASO-WCDA & 1--15 TeV & 5\ensuremath{\times}10\textsuperscript{5}--7\ensuremat
 \end{longtable}
 }
 
-\textbf{Detector resolution vs. intrinsic linewidth.} The continuation-level linewidth estimate is 3--5\% (mass-independent). Current detector energy resolutions:
+\textbf{Detector resolution vs. intrinsic linewidth.} The continuation-level linewidth estimate is 3--5\% (mass-independent). Published detector energy resolutions:
 
 \begin{itemize}
 \tightlist
@@ -2896,7 +2896,7 @@ The gravity sector makes symmetry-protected exact-zero predictions that can be c
 \frac{c_{\mathrm{GW}} - c}{c} = 0 \text{ exactly.}
 \]
 
-\emph{Current bound (GW170817 + GRB 170817A multi-messenger):}
+\emph{Published bound (GW170817 + GRB 170817A multi-messenger):}
 
 \[
 -3 \times 10^{-15} < \frac{c_{\mathrm{GW}} - c}{c} < +7 \times 10^{-16}
@@ -2911,7 +2911,7 @@ For a source at \(\sim 40\) Mpc, this fractional difference corresponds to only 
 m_g = 0 \text{ exactly.}
 \]
 
-\emph{Current bound (GW dispersion analysis, PDG 2025):}
+\emph{Published bound (GW dispersion analysis, PDG 2025):}
 
 \[
 m_g \le 1.76 \times 10^{-23} \text{ eV}/c^2 \quad (90\% \text{ credibility}).
@@ -2921,7 +2921,7 @@ This corresponds to a reduced Compton wavelength \(\bar{\lambda}_C \gtrsim 1.6 \
 
 \textbf{No dipole radiation.} Many modified gravity theories predict extra channels (scalar/vector) producing dipolar radiation at \((-1)\)PN order. The derived GR limit predicts no such channel.
 
-\emph{Current bound (GW170817 inspiral phasing, PDG 2025):}
+\emph{Published bound (GW170817 inspiral phasing, PDG 2025):}
 
 \[
 -4 \times 10^{-6} < \delta\hat{p}_{-2} < 2 \times 10^{-5}
@@ -3181,13 +3181,28 @@ anomaly-frame baryon density \(n_b^{(A)}=-u_{A\mu}J_b^\mu\).  If
 the repair term is not a closed stress-energy source.  Physical likelihood
 status additionally requires immutable source, solver, and likelihood hashes
 frozen before the data comparison.
+The same firewall applies to the promoted CMB-source inputs
+\[
+  \eta_R,\quad \Gamma_{\mathrm{rec}},\quad A_\zeta,\quad q_{\mathrm{IR}},
+  \quad \ell_{\mathrm{IR}},\quad B_A(k,a),\quad \rho_A(a),\quad N_{\mathrm{CRC}} .
+\]
+Each one must have an immutable source-provenance DAG node recording source
+report, source hash, parents, no-CMB-data status, and measurement-use flags.
+Contradictory provenance, such as declaring no CMB data use while also fitting
+to Planck, fails closed.  Reducers must pool additive sufficient statistics
+globally before any nonlinear estimate of tilt, amplitude, inverse precision,
+rank, condition number, isocurvature leakage, \(B_A\), \(\rho_A\), or
+\(\Gamma_{\mathrm{rec}}\); shard-local nonlinear averages and shard-local
+\(\texttt{any()}\) likelihood rollups are diagnostic only.  \(N_{\mathrm{CRC}}\)
+remains the D6 consensus invariant unless a separate additive capacity schema
+proves disjoint coverage.
 The cold transported limit is the check case: when exchange, pressure, sound-speed, and anisotropic
 stress corrections are turned off, the anomaly slot must reduce to a CDM-like component before
 recombination. Any nonzero-field response, late-time growth suppression, or \(S_8\)-relief branch
 has to be emitted by the finite-collar parent evaluator through \(B_A(k,a)\) and
 \(\Gamma_{\mathrm{rec}}(k,a)\), not fitted as a free environmental kernel to CMB, weak-lensing,
-SPARC, or cluster data. Current compressed \(H_0\), \(\Omega_m\), \(\sigma_8\), and \(S_8\) rows are
-therefore plumbing diagnostics for a low-\(H_0\), Planck-like branch, not theorem-grade cosmology.
+SPARC, or cluster data. The compressed \(H_0\), \(\Omega_m\), \(\sigma_8\), and \(S_8\) rows are
+plumbing diagnostics for a low-\(H_0\), Planck-like branch, not theorem-grade cosmology.
 
 This branch is a phenomenological continuation above D6 and D12 inputs. It contains structural ingredients and an IR benchmark, but it does not derive the precise galaxy-scale response from the recovered core.
 
@@ -4561,12 +4576,11 @@ program branches whose extra ans\"atze are not part of the recovered-core theore
 particular, the conditional screen-spectrum branch reaches a MaxEnt Gaussian screen covariance only
 after the quotient-ensemble selector, quotient-normal-form scalar field, positive repair operator,
 operator-tilt, and fixed expected quadratic scalar-release-energy receipts pass. A primordial
-curvature spectrum also needs a screen-to-radial lift receipt, and physical TT/TE/EE spectra remain
-behind finite covariant source, Boltzmann transfer, and frozen-likelihood gates.
+curvature spectrum also needs a screen-to-radial lift receipt, and physical TT/TE/EE spectra require
+finite covariant source, source-provenance, pooled-reducer, Boltzmann transfer, and frozen-likelihood gates.
 Low-\(\ell\) CMB kernels, parity envelopes, inflation-replacement claims, and dark/anomaly
-\(H_0/S_8\) growth modifications therefore remain continuation gates until their finite-collar
-source functions, recipient-stress closures, refinement ladders, and immutable likelihood contracts
-are supplied.
+\(H_0/S_8\) growth modifications are continuation gates unless their finite-collar source functions,
+recipient-stress closures, refinement ladders, and immutable likelihood contracts are supplied.
 
 The effective low-energy summary is
 \[
@@ -4625,7 +4639,7 @@ upper bounds on GR deviations wherever the Markov/mixing hypotheses apply.
 \item \textbf{Edge-sector tests}: Casimir-ratio predictions, including
 \(\Delta_8/\Delta_3=9/4\) for the SU(3) edge-sector benchmark, test the heat-kernel mechanism.
 \item \textbf{Quantitative particle checks}: the \(P\)-driven electroweak, Higgs/top, quark, charged, and
-neutrino lanes are compared on their declared surfaces in Ref.~\cite{ophparticles}, with \(W/Z\) compare-only, Higgs/top exact on the declared D10/D11 surface, quarks selected-class exact, charged absolute masses closed as a current-corpus no-go, and neutrinos theorem-grade on the weighted-cycle branch.
+neutrino lanes are compared on their declared surfaces in Ref.~\cite{ophparticles}, with \(W/Z\) compare-only, Higgs/top exact on the declared D10/D11 surface, quarks selected-class exact, charged absolute masses closed as a corpus-level no-go, and neutrinos theorem-grade on the weighted-cycle branch.
 \item \textbf{H3 record-token continuation}: Ref.~\cite{ophparticles} also contains a conditional
 \(H^3\) record-worldline stitch theorem. It is a certificate for localized observer-visible tokens
 crossing real chart or partition interfaces after sector/gauge transport, not a derivation of
@@ -4646,7 +4660,7 @@ late-stage spectroscopy templates;
 and cosmological dark/anomaly Boltzmann kernels beyond the contract stated in Section~\ref{515-dark-matter-as-modular-anomaly};
 \item a primordial curvature spectrum or physical TT/TE/EE spectra from the screen-spectrum
 continuation unless the operator-tilt, scalar-release-energy, radial-lift, finite covariant source,
-transfer, frozen-likelihood, and no-data-use receipts have passed;
+source-provenance, pooled-reducer, transfer, frozen-likelihood, and no-data-use receipts are present;
 \item Page-curve/island closure, PBH/LIGO comb claims, or critical-superstring completion;
 \item a theorem selecting equal-sized primitive observer carriers, fixed primitive observer
 capacity, or an isomorphic local cell algebra from \(P_\star\) and \(N_{\mathrm{CRC}}\) alone;

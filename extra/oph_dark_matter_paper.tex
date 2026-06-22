@@ -45,7 +45,7 @@
 \begin{abstract}
 In OPH, gravity is the stress bookkeeping of stable agreement between finite observer patches. Imperfect agreement leaves a record-repair remainder on overlap collars. That remainder is electromagnetically dark and gravitates as an information-defect stress correction.
 
-The continuation gives a galaxy-limit equation, cluster and cosmology contracts, and a coefficient target. In old, settled, low-acceleration galaxies the correction can approximate the MOND acceleration law. In clusters and cosmology it must be treated as transported stress with its own equations. A scalar source table is not enough for CMB or growth predictions; the full likelihood evaluation requires a finite covariant packet parent and frozen source/solver/likelihood hashes.
+The continuation gives a galaxy-limit equation, cluster and cosmology contracts, and a coefficient target. In old, settled, low-acceleration galaxies the correction can approximate the MOND acceleration law. In clusters and cosmology it must be treated as transported stress with its own equations. A scalar source table is not enough for CMB or growth predictions; the full likelihood evaluation requires a finite covariant packet parent, source provenance, global-pooling checks, and frozen source/solver/likelihood hashes.
 \end{abstract}
 
 \section*{What This Paper Contributes}
@@ -889,6 +889,12 @@ repair generator, \(Q_r\) records reaction channels, and \(D_r\) records any
 causal auxiliary response.  The parent must emit the stress moments and source
 projections consumed by the Boltzmann solver; otherwise CMB/BAO/growth rows
 remain diagnostics.
+Promoting \(\rho_A(a)\), \(B_A(k,a)\), \(\Gamma_{\mathrm{rec}}(k,a)\), or any
+associated primordial scalar input also requires a source-provenance DAG and a
+pooled-reducer receipt.  Contradictory no-data-use metadata fails closed, and
+nonlinear quantities such as amplitudes, ranks, condition numbers, and
+isocurvature leakage are computed only after additive sufficient statistics are
+pooled globally.
 
 For the source-only primordial bridge, this closed branch has the stricter
 contract
@@ -940,9 +946,9 @@ with an explicit transfer receipt:
   h^a{}_bQ_A^b=0
   \label{eq:repair-anomaly-primordial-contract}
 \end{equation}
-or with interval bounds on the two defects.  Current dark-sector work does not
-yet derive the homogeneous anomaly amplitude \(Q_A\), and the finite-collar
-kinetic stress construction remains conditional.  Therefore the first
+or with interval bounds on the two defects.  The dark-sector continuation in this
+paper does not derive the homogeneous anomaly amplitude \(Q_A\), and the
+finite-collar kinetic stress construction remains conditional.  Therefore the first
 source-only primordial certification run should use
 \[
   \texttt{dark\_continuation = OFF}.
@@ -1272,15 +1278,17 @@ The Boltzmann module exposes
   \Gamma_{\mathrm{rec}}(k,a),
 \]
 with the OPH neutrino mass sum in the same run.  Every entry must be derived
-from a frozen finite covariant parent artifact rather than fitted from CMB,
-BAO, lensing, SPARC, or cluster data.  It must recover the \(\LCDM\)
+from a frozen finite covariant parent artifact with no CMB, BAO, lensing,
+SPARC, or cluster fit in that source step.  It must recover the \(\LCDM\)
 cold-component limit when the exchange and stress corrections are turned off,
 reproduce the compressed diagnostic rows only as a plumbing check, and then run
 the full CMB TT/TE/EE, CMB lensing, BAO, supernova, weak-lensing, RSD, and
 \(S_8\) likelihoods under the same nuisance model used for \(\LCDM\) and
 \(w_0w_a\).  The physical likelihood run is frozen by immutable hashes for the
 source artifact, Boltzmann solver, and likelihood configuration before the data
-comparison.
+comparison.  The same run must expose official likelihood and CDM-limit
+reductions at global scope. Shard-local \(\texttt{any()}\) rollups do not
+promote the source artifact.
 
 \section{Numerical Galaxy Comparison}
 
@@ -1939,10 +1947,10 @@ densities and perturbation kernels, with no radial acceleration profile.  In
 addition, the RAR map contains \(\sqrt{g_b}\), so its first derivative is
 singular at \(g_b=0\) if treated as a homogeneous-background Taylor series.
 Therefore the static law cannot be linearized into CMB equations without an
-OPH parent functional.  Even a scalar parent functional must emit
-\(\rho_A(a)\) and \(B_A(k,a)\), but that is still only the source-candidate
-layer.  Physical Boltzmann status requires the finite covariant packet parent
-above. \(\square\)
+OPH parent functional.  A scalar parent functional must emit
+\(\rho_A(a)\) and \(B_A(k,a)\), which belongs to the source-candidate layer.
+Physical Boltzmann status requires the finite covariant packet parent above,
+its source-provenance certificate, and pooled global reducers. \(\square\)
 
 \subsection{Parent Collar Functional}
 
