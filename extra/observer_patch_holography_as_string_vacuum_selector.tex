@@ -105,7 +105,7 @@ continuation. It separates three layers:
 The first layer is OPH fixed-cutoff patch algebra. The second layer is the heat-kernel
 edge-sector read-off. The third layer is the Bouchard-Donagi heterotic Standard Model used as a
 named critical-string witness. The heat-kernel edge identity by itself does not prove a critical
-worldsheet CFT; the chiral central-charge gate below is an additional condition on the continuum
+worldsheet CFT; the critical-edge certificate below is an additional condition on the continuum
 edge branch.
 
 The target claim is conditional. If the OPH recovered-core theorem stack is accepted, if the
@@ -307,7 +307,7 @@ with full transverse rank after quotienting OPH-invisible redundancies.
 
 \begin{theorem}[Correct-string uniqueness theorem]
 Assume the OPH recovered-core target, the heterotic edge-sector branch including the
-central-charge gate, the certificate gates
+finite-carrier critical-edge certificate, the certificate gates
 listed in Section~\ref{sec:open-gates}, and the following comparison principle:
 OPH-correct presentations are ordered first by gate satisfaction, then by the minimality vector
 \[
@@ -942,7 +942,7 @@ normal modes gives the oscillator algebra in the scaling limit,
 \]
 At this stage the range of \(\mu\) is not fixed by the heat-kernel theorem or by the oscillator
 form alone. The critical dimension and the heterotic internal central charge require the
-central-charge gate in Section~\ref{sec:central-charge-gate}.
+critical-edge certificate in Section~\ref{sec:central-charge-gate}.
 The parameter \(\alpha'_{\OPH}\) is the continuum normalization of the edge diffusion/repair time
 after matching the four-dimensional Newton constant, the OPH pixel scale, and the selected
 compactification threshold.
@@ -996,7 +996,7 @@ sewn edge sector with a spectator CFT without changing
 Z_{\rm edge}(t)=\sum_R d_R^2e^{-tC_2(R)}=K_t(1),
 \]
 while shifting the total central charge. Therefore port counting and the heat-kernel trace feed a
-criticality test. Criticality requires the heterotic edge-polarization certificate below.
+criticality test. Criticality requires the finite-carrier critical-edge certificate below.
 
 \begin{theorem}[Boundary from OPH edge data]
 The OPH edge statements used here do not imply
@@ -1096,6 +1096,167 @@ structures, and the supercurrent OPE.
 
 The precise claim is conditional: a heterotic edge-CFT completion would make the ranks,
 stress-tensor equality, supercurrent, and critical dimension follow rigidly.
+
+\begin{definition}[Critical-edge finite-carrier receipts]
+Let \(V_{\rm port}\) be the real vector space of dynamical port-amplitude perturbations, distinct
+from the fixed curvature charges \(q_a=1\), and let
+\[
+\mathfrak g_{\rm SM}=
+\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1),
+\qquad
+\dim\mathfrak g_{\rm SM}=12.
+\]
+The finite-carrier critical-edge certificate consists of five receipts.
+\begin{enumerate}[leftmargin=2em]
+\item A visible-response map
+\[
+\calR_{\rm port}:\mathfrak g_{\rm SM}\to V_{\rm port}
+\]
+with
+\[
+\operatorname{rank}\calR_{\rm port}=12.
+\]
+\item Positive covariance levels in every icosahedral and oriented sector:
+\[
+\kappa_{\mathbf1},\kappa_{\mathbf3},\kappa_{\mathbf3'},\kappa_{\mathbf5}>0,
+\qquad
+\kappa_{\rho,\pm}>0
+\]
+for \(\rho\in\{\mathbf1,\mathbf3,\mathbf3',\mathbf5\}\).
+\item Scaled additive edge records whose continuum OPE is abelian Heisenberg:
+\[
+J_A(z)J_B(w)\sim\frac{k_{AB}}{(z-w)^2}.
+\]
+\item A local graded right-moving half-repair operator \(Q_N\) such that
+\[
+\{Q_N,(-1)^F\}=0,
+\qquad
+Q_N^2-H_{R,N}\to0
+\]
+in the refinement limit.
+\item A torus and spin-structure receipt
+\[
+Z_{\OPH}(\tau,\bar\tau)=q^{-1}\bar q^{-1/2}(1+\cdots)
+\]
+with the modular transformations of the heterotic spin-structure sum.
+\end{enumerate}
+\end{definition}
+
+\begin{lemma}[Port-spectrum and icosahedral rank tests]
+If every nonzero observer-visible repair generator changes some dynamical port record, then
+\(\calR_{\rm port}\) is an isomorphism. If the twelve ports transform as the vertex permutation
+representation of \(A_5\), then
+\[
+\mathbb R^{12}\cong\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5.
+\]
+For an \(A_5\)-invariant right-moving covariance matrix,
+\[
+k_R=\kappa_{\mathbf1}P_{\mathbf1}
++\kappa_{\mathbf3}P_{\mathbf3}
++\kappa_{\mathbf3'}P_{\mathbf3'}
++\kappa_{\mathbf5}P_{\mathbf5},
+\]
+and
+\[
+\operatorname{rank}k_R=12
+\quad\Longleftrightarrow\quad
+\kappa_{\mathbf1},\kappa_{\mathbf3},\kappa_{\mathbf3'},\kappa_{\mathbf5}>0.
+\]
+For the oriented space \(V_{\rm port}\otimes\mathbb R[C_2]\),
+\[
+\operatorname{rank}k_L=24
+\quad\Longleftrightarrow\quad
+\kappa_{\rho,\pm}>0
+\quad\text{for all eight oriented sectors.}
+\]
+\end{lemma}
+
+\begin{proof}
+The response-map condition says \(\ker\calR_{\rm port}=0\). Since the domain and codomain both
+have dimension \(12\), \(\calR_{\rm port}\) is invertible. The \(A_5\) permutation character on the
+twelve icosahedral vertices is
+\[
+\chi_V=(12,0,0,2,2),
+\]
+which decomposes as
+\[
+\chi_{\mathbf1}+\chi_{\mathbf3}+\chi_{\mathbf3'}+\chi_{\mathbf5}
+=(12,0,0,2,2).
+\]
+Schur's lemma then diagonalizes any \(A_5\)-invariant covariance by irreducible sector. Reflection
+positivity makes nonzero sector coefficients positive. The oriented statement is the same argument
+applied to the \(A_5\times C_2\) decomposition.
+\end{proof}
+
+\begin{lemma}[Observability and current emergence]
+If the current covariance is positive semidefinite, all invisible directions have been quotiented
+out, and every remaining nonzero port perturbation changes an observer-visible record statistic,
+then the current covariance is positive definite. If additive port records satisfy
+\[
+Q_A(I_1\cup I_2)=Q_A(I_1)+Q_A(I_2)
+\]
+and are conserved under accepted repairs away from interval endpoints, then in a local unitary
+scale-invariant sewn-edge limit they become chiral currents
+\[
+Q_A(I)=\int_I J_A(z)\,dz,
+\qquad
+\bar\partial J_A=0.
+\]
+If the fixed-cutoff integrated charges commute, their continuum current algebra is abelian:
+\[
+J_A(z)J_B(w)\sim\frac{k_{AB}}{(z-w)^2}.
+\]
+\end{lemma}
+
+\begin{proof}
+For a positive-semidefinite covariance, a nonzero vector \(v\) with \(v^Tkv=0\) defines a zero-norm
+combination \(J_v=v^AJ_A\), hence an invisible fluctuation in the observer-facing algebra. The
+quotient-observability hypotheses exclude such a vector. Additivity gives a local continuum
+density, conservation gives a conserved two-dimensional current, and chirality gives a holomorphic
+component of weight \((1,0)\). Commuting zero modes exclude a simple-pole affine term, leaving only
+the central \((z-w)^{-2}\) singularity.
+\end{proof}
+
+\begin{theorem}[Critical-edge certificate theorem]
+If the five finite-carrier receipts above hold, then the OPH sewn-edge scaling branch satisfies the
+heterotic edge-polarization hypothesis below. Consequently the physical edge CFT has
+\[
+(c_L^{\rm phys},c_R^{\rm phys})=(24,12),
+\]
+a right-moving \(N=1\) supercurrent, no residual coset, and an even self-dual rank-sixteen
+left-moving internal lattice.
+\end{theorem}
+
+\begin{proof}
+The rank and observability receipts make the right-moving port covariance positive definite of
+rank \(12\) and the oriented left-moving covariance positive definite of rank \(24\). The
+current-emergence receipt turns the additive records into abelian Heisenberg currents. The abelian
+Sugawara construction gives central charge equal to rank, hence \(c_R=12\) and \(c_L=24\) for the
+generated sectors.
+
+The torus vacuum exponent
+\[
+q^{-1}\bar q^{-1/2}=q^{-c_L/24}\bar q^{-c_R/24}
+\]
+fixes the total central charges to the same values. Therefore the residual stress tensor
+\[
+T_{\rm res}=T_{\OPH}-T_{\rm Sug}
+\]
+has \(c_{\rm res}=0\) in both chiralities. In a unitary positive-energy CFT with unique vacuum, a
+\(c=0\) Virasoro sector is null after quotienting null states, so there is no residual coset.
+
+The local graded half-repair operator supplies the refinement limit of a right-moving odd square
+root of translation. Its density is the supercurrent \(G_R\), and the free \(N=1\) OPE gives
+\[
+G_R(\bar z)G_R(\bar w)
+\sim
+\frac{2c_R/3}{(\bar z-\bar w)^3}
++
+\frac{2T_R(\bar w)}{\bar z-\bar w}.
+\]
+The modular spin-structure receipt then identifies the sixteen remaining left-moving units with an
+even self-dual rank-sixteen lattice sector.
+\end{proof}
 
 \begin{assumption}[Heterotic edge-polarization hypothesis]\label{ass:heterotic-edge-polarization}
 The physical sewn-edge scaling limit is isomorphic, as a graded chiral CFT, to
@@ -1218,6 +1379,39 @@ the matter central charges canceled by the bosonic ghosts on the left and the
 supersymmetric ghost system on the right.
 \end{proof}
 
+\begin{theorem}[Modular lattice and anomaly closure]
+The rank-sixteen internal lattice in Assumption~\ref{ass:heterotic-edge-polarization} must be even
+and self-dual. Hence
+\[
+\Gamma_{16}=E_8\oplus E_8
+\quad\text{or}\quad
+\Gamma_{16}=D_{16}^{+},
+\]
+corresponding to the heterotic gauge groups \(E_8\times E_8\) and
+\(\operatorname{Spin}(32)/\Z_2\). The Bouchard-Donagi selector used in this paper chooses the
+\(E_8\oplus E_8\) branch. With \(D=10\), the covariant Weyl anomalies cancel:
+\[
+(10+16)-26=0,
+\qquad
+\left(10+\frac{10}{2}\right)-15=0.
+\]
+\end{theorem}
+
+\begin{proof}
+For the internal bosons,
+\[
+Z_{\Gamma_{16}}(\tau)=\frac{\Theta_{\Gamma_{16}}(\tau)}{\eta(\tau)^{16}},
+\qquad
+\Theta_\Gamma(\tau)=\sum_{p\in\Gamma}q^{p^2/2}.
+\]
+Invariance under \(T:\tau\mapsto\tau+1\) requires \(p^2\in2\Z\), so the lattice is even. Under
+\(S:\tau\mapsto-1/\tau\), Poisson resummation maps \(\Gamma\) to its dual \(\Gamma^\ast\), so
+modular closure requires \(\Gamma^\ast=\Gamma\). The positive-definite even unimodular
+rank-sixteen lattices are \(E_8\oplus E_8\) and \(D_{16}^+\). The ghost central charges are
+\(-26\) on the bosonic left and \(-15\) on the supersymmetric right, giving the displayed anomaly
+cancellations. BRST nilpotency follows with the standard intercept and level-matching conditions.
+\end{proof}
+
 The OPH theorem target is precise:
 \[
 \boxed{
@@ -1231,9 +1425,19 @@ The OPH theorem target is precise:
 with no residual coset. It cannot be replaced by the numerical observation \(12\to24\). It must be
 established by constructing the edge transfer operator, identifying the gapless chiral fields,
 calculating their OPEs, deriving the fermionic grading and spin-structure sum, and proving stress
-exhaustion. Once that edge-VOA identification is proved, \(D=10\) and the left-moving
-\(c_{\rm internal}=16\) sector follow by the calculation above. The number \(26\) belongs to the
-left-moving bosonic matter central charge, not to twenty-six shared heterotic spacetime dimensions.
+exhaustion. Equivalently, the finite carrier must export the five receipts listed above:
+\[
+\operatorname{rank}\calR_{\rm port}=12,\quad
+\kappa_\rho>0,\quad
+\kappa_{\rho,\pm}>0,\quad
+J_AJ_B\sim k_{AB}(z-w)^{-2},\quad
+Q_N^2-H_{R,N}\to0,
+\]
+together with the torus receipt \(Z_{\OPH}=q^{-1}\bar q^{-1/2}(1+\cdots)\) and the correct modular
+spin-structure transformations. Once that edge-VOA identification is proved, \(D=10\) and the
+left-moving \(c_{\rm internal}=16\) sector follow by the calculation above. The number \(26\)
+belongs to the left-moving bosonic matter central charge, not to twenty-six shared heterotic
+spacetime dimensions.
 
 \section{The OPH Graviton and the String Graviton}
 
@@ -1407,7 +1611,7 @@ The augmented vacuum equations are:
 \begin{cases}
 \beta^G=\beta^B=\beta^\Phi=0, & \text{worldsheet consistency},\\
 (c_L^{\rm phys},c_R^{\rm phys})=(24,12),\quad G^2\sim T_R, &
-\text{central-charge/supercurrent gate},\\
+\text{critical-edge certificate},\\
 F^{0,2}=0,\quad J^2\wedge F=0, & \text{heterotic bundle stability/HYM},\\
 c_2(TX)-c_2(V_{\rm vis})-c_2(V_{\rm hid})=[W], & \text{Bianchi/anomaly condition},\\
 \chi(V_{\rm matter})=3,\quad n_H=1,\quad N_{\rm exotic}=0, & \text{visible cohomology target},\\
@@ -1581,7 +1785,7 @@ proof. \\
 String emergence & Sewn edge partition equals \(K_t(1)\). & Exact Peter-Weyl proof. \\
 Worldsheet criticality & The twelve-port and twenty-four oriented-register counts define only a
 heterotic central-charge target until the edge VOA is identified. & Non-implication theorem plus
-heterotic completion theorem; edge-polarization certificate work in progress. \\
+critical-edge certificate theorem; finite-carrier receipts work in progress. \\
 Moduli stabilization & Becomes \(\calF(m_\star)=\calO_{\OPH}\). & Target criterion; BD map is
 work in progress. \\
 Operator safety & The MSSM \(\ZfourR\) layer permits Yukawas and the Weinberg operator, and
@@ -2226,7 +2430,7 @@ n_H=1,\,
 \right).
 \]
 \item The effective string continuation is read through the heterotic edge-sector branch and
-satisfies the central-charge/supercurrent gate of Section~\ref{sec:central-charge-gate}.
+satisfies the finite-carrier critical-edge certificate of Section~\ref{sec:central-charge-gate}.
 \item The BD cohomology certificate realizes the one-Higgs, three-generation, no-exotics
 stratum with Wilson-line centralizer \(S(\U(3)\times\U(2))\).
 \item The same branch realizes \(\ZfourR\), or an OPH-equivalent safety rule, on the visible
@@ -2263,7 +2467,7 @@ BD_{n=1,+}^{\OPH}.
 \begin{proof}
 The recovered-core target fixes the observer-visible group, hypercharge lattice, generation
 count, Higgs count, exotic-matter gate, and operator-safety gate. The heterotic edge-sector branch,
-the central-charge/supercurrent gate, and the OPH minimality order restrict the comparison class to
+the finite-carrier critical-edge certificate, and the OPH minimality order restrict the comparison class to
 heterotic edge-sector completions at the audit boundary, with brane/orientifold and
 duality-rewritten presentations treated as separate presentation tests. The BD
 certificate supplies a nonempty \(\Z_2\)-quotient \(\SU(5)\)-bundle witness with the required
@@ -2282,8 +2486,8 @@ BD_{n=1}^{\SU(5),\Z_2}+\ZfourR
 \end{proof}
 
 \begin{remark}[Certificate boundary]
-The theorem gives the full proof shape. Its algebraic steps close in this paper. The
-central-charge table, cohomology table, \(\ZfourR\)-realization table, Yukawa/superpotential table,
+The theorem gives the full proof shape. Its algebraic steps close in this paper. The critical-edge
+receipt table, cohomology table, \(\ZfourR\)-realization table, Yukawa/superpotential table,
 threshold table, and Jacobian-rank table form the external certificate package.
 \end{remark}
 
@@ -2293,7 +2497,7 @@ The equality
 \mathcal V_{\rm crit}^{\OPH}/\Teq=\{BD_{n=1,+}^{\OPH}\}
 \]
 is fully certified once the seven certificates in Section~\ref{sec:open-gates}
-verify: central-charge/supercurrent closure, cohomology, \(\ZfourR\) realization, superpotential
+verify: critical-edge closure, cohomology, \(\ZfourR\) realization, superpotential
 safety, threshold matching, moduli locking with full transverse rank, and comparative uniqueness.
 If any of the first six
 certificates fails, the selected representative retracts. If the seventh certificate fails, uniqueness
@@ -2363,9 +2567,10 @@ the working contract for an independent heterotic reproduction:
 \toprule
 \textbf{Gate} & \textbf{Needed input} & \textbf{State of the paper claim} \\
 \midrule
-Central-charge and supercurrent certificate & Edge transfer operator, gapless chiral-field
-identification, OPEs, fermionic grading, spin-structure sum, and proof of no residual coset. &
-Non-implication theorem and heterotic completion theorem stated; edge-polarization certificate work
+Central-charge and supercurrent certificate & Response-map rank
+\(\operatorname{rank}\calR_{\rm port}=12\), positive \(A_5\times C_2\) covariance sectors, edge
+transfer OPEs, local graded half-repair \(Q_N^2\to H_R\), and torus/spin-structure receipt. &
+Non-implication theorem and finite critical-edge certificate theorem stated; carrier receipts work
 in progress. \\
 Cohomology certificate & Explicit \(X\), \(V\), and equivariant \(\Z_2\) action in
 cohomCalg, Sage, or Macaulay2 form. & Structural witness cited; raw computation work in
@@ -2466,7 +2671,7 @@ How are moduli stabilized? & The problem becomes the target-locking equation
 \(\calF(m_\star)=\calO_{\OPH}\) plus full transverse rank. & Numerical/rank certificate. \\
 What is the string graviton? & The closed-string vertex image of the OPH transverse-traceless
 metric perturbation. & Normalization match. \\
-What fixes the critical dimension? & The central-charge gate must identify the sewn-edge carrier
+What fixes the critical dimension? & The critical-edge certificate must identify the sewn-edge carrier
 with the heterotic edge VOA; then heterotic criticality gives \(D=10\) and
 \(c_{\rm internal}=16\). & Edge transfer, OPE, grading, spin-structure, and no-coset receipts. \\
 \bottomrule
@@ -2491,7 +2696,7 @@ problems are projections of the same finite patch-federation normal-form problem
 
 OPH gives a finite observer/record/overlap implementation layer for de Sitter holography. The
 same edge system admits a sewn-worldsheet language. Critical string theory enters as the
-effective completion of that language only after the central-charge gate closes. Conditional on
+effective completion of that language only after the critical-edge certificate closes. Conditional on
 that gate, the OPH visible-normal-form target selects the
 Bouchard-Donagi one-Higgs heterotic Standard Model as the geometric witness. Adding the MSSM
 \(\ZfourR\) safety layer gives the operator-safe selected candidate
@@ -2499,7 +2704,7 @@ Bouchard-Donagi one-Higgs heterotic Standard Model as the geometric witness. Add
 BD_{n=1,+}^{\OPH}=BD_{n=1}^{\OPH}+\ZfourR.
 \]
 
-The claim remains falsifiable. The central-charge, cohomology, safety-layer, threshold, and moduli
+The claim remains falsifiable. The critical-edge, cohomology, safety-layer, threshold, and moduli
 gates decide how far the operator-safe candidate goes.
 
 \begin{thebibliography}{99}
