@@ -50,7 +50,7 @@ a world exists that can produce observers capable of reconstructing it.
 In the paper stack, an observer patch means an abstract algebraic object with
 accessible algebra, state, record algebra, visible overlap interfaces, repair
 instruments, and checkpoint data. A support patch is a geometric chart for that
-object, such as a cap on \(S^2\) or a causal diamond. A carrier patch is a
+object, such as a cap on $S^2$ or a causal diamond. A carrier patch is a
 physical or digital realization of the same visible interface and record
 statistics within a declared error. This distinction keeps the theory from
 depending on a particular hardware analogy. The stronger claim that information
@@ -66,9 +66,9 @@ cells are the regulator that keeps the construction concrete before the smooth
 large-scale limit is taken. The technical paper gives the modular-flow and
 scaling assumptions needed for this step.
 The three spatial dimensions come from the same screen branch: once
-\(\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)\) is recovered, the observer-facing
-spatial chart is \(H^3\simeq\mathrm{SO}^+(3,1)/\mathrm{SO}(3)\), which has
-dimension \(6-3=3\).
+$\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ is recovered, the observer-facing
+spatial chart is $H^3\simeq\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$, which has
+dimension $6-3=3$.
 
 In the gauge part of the theory, OPH asks which internal charges and particle
 labels can be transported consistently across overlaps. That reconstruction

@@ -59,7 +59,7 @@ Dans la pile de papiers, un patch d'observateur désigne un objet algébrique
 abstrait avec algèbre accessible, état, algèbre d'enregistrements, interfaces
 visibles de recouvrement, instruments de réparation et données de checkpoint.
 Un patch de support est une carte géométrique de cet objet, par exemple un cap
-sur \(S^2\) ou un diamant causal. Un patch porteur est une réalisation physique
+sur $S^2$ ou un diamant causal. Un patch porteur est une réalisation physique
 ou numérique des mêmes statistiques d'interface visible et d'enregistrement, à
 erreur déclarée. Cette séparation empêche la théorie de dépendre d'une analogie
 matérielle particulière. La thèse plus forte selon laquelle l'information et le
@@ -76,9 +76,9 @@ servent de régulateur : elles gardent la construction concrète avant la limite
 lisse à grande échelle. Le papier technique donne les hypothèses de flot
 modulaire et d'échelle nécessaires pour cette étape.
 Les trois dimensions spatiales viennent de la même branche d'écran : une fois
-\(\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)\) obtenu, la carte spatiale de
-l'observateur est \(H^3\simeq\mathrm{SO}^+(3,1)/\mathrm{SO}(3)\), de dimension
-\(6-3=3\).
+$\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ obtenu, la carte spatiale de
+l'observateur est $H^3\simeq\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$, de dimension
+$6-3=3$.
 
 Dans la partie jauge de la théorie, l'OPH demande quelles charges internes et
 quelles étiquettes de particules peuvent être transportées de façon cohérente
