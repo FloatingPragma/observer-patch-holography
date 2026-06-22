@@ -91,6 +91,14 @@ from the fixed-point calculations. Empirical closure rows are marked below. The
 detailed scale discussion is collected once below in **Geometry, Symmetry, And
 Scale**.
 
+Distributed OPH simulations inherit the same boundary. A worker run counts as
+one-universe evidence only when it begins from one global finite carrier, emits
+the carrier graph, initial state, partition map, cut interfaces, observer
+registry, run/config/code hashes, and proves that committed worker events
+project to monolithic repairs, stutters, or certified rollbacks. Shard-local
+seeds, stale manifests, or synthetic seam animations are diagnostics, not
+physics receipts.
+
 ## The Spacetime Trap
 
 The first conceptual hurdle is that OPH does not treat spacetime as the
@@ -272,7 +280,7 @@ $(0.017454720257976796, 0.019481987935919015, 0.05307522145074924)\,\mathrm{eV}$
 
 - **[Photonic Fixed-Point Consensus for SHA-256d Proof of Work](extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf)**: photonic candidate enrichment for SHA-256d proof of work.
 - **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)**: source fixed point, empirical hadron endpoint boundary, and comparison row.
-- **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)**: OPH edge-string emergence, the Bouchard-Donagi one-Higgs heterotic witness, the `Z4R` safety layer, and moduli-locking gates.
+- **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)**: OPH edge-string emergence and conventional string-vacuum sieve, the Bouchard-Donagi one-Higgs heterotic witness, the `Z4R` safety layer, and moduli-locking gates; not an OPH-native vacuum-promotion shortcut.
 - **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)**: OPH route to the Clay Yang-Mills problem under the compact-gauge assumptions, identifying the Yang-Mills gap with the OPH repair gap.
 - **[Observer-Patch Holography and the Dark Matter Phenomenon](extra/oph_dark_matter_paper.pdf)**: dark-matter phenomenology and MOND-like galaxy limit.
 - **[Theoretical Bounds on chi-nu in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)**: conditional quotient-edge band `0.9343006394893864 <= chi_nu^can <= 1`; uniform-branch exact value `exp(-P/24)`; engineering chart values scale as `N_coh^-1`.
@@ -296,7 +304,7 @@ $P_{\mathrm{acc}}\le\prod_i p_i$. Twelve source-clean one-percent rows give
 $P_{\mathrm{acc}}\le10^{-24}$; twenty give $10^{-40}$. The same two fixed
 points also organize the observer problem, gravity/gauge reconstruction,
 electroweak hierarchy, dark energy, the dark-sector budget, gauge-proton-decay
-exclusion, particle inventory, and string-vacuum selection.
+exclusion, particle inventory, and the string-vacuum sieve.
 
 ## Applications And OMEGA Hardware
 

@@ -84,9 +84,11 @@ appearance, stable enough to carry clocks, rulers, fields, and observers.
 The fixed-cutoff microphysics paper plays a narrower role in that story. It
 treats the sphere as an observer-facing regulator chart and supplies a
 federated patch-carrier architecture for patches, overlaps, edge sectors,
-records, repair, Bell tests, and checkpoint/restoration. It provides the
-concrete implementation surface on which the broader OPH bookkeeping can be
-simulated and checked.
+records, repair, Bell tests, and checkpoint/restoration. Its distributed form
+counts as one carrier only when the global graph, initial state, partition, cut
+interfaces, observer registry, and projected event log certify a single
+monolithic repair system. It provides the concrete implementation surface on
+which the broader OPH bookkeeping can be simulated and checked.
 
 ## 18.5 How the Particle World Appears
 
@@ -373,7 +375,7 @@ chance around $10^{-24}$; twenty gives $10^{-40}$. The deeper point is the
 compression: the same two closure coordinates organize the observer problem,
 gravity/gauge reconstruction, hierarchy bridge, dark energy, the dark-sector
 budget, the absence of simple-GUT proton decay, particle inventory, and
-string-vacuum selection.
+the string-vacuum sieve.
 
 ## 18.7 Why de Sitter Fits
 

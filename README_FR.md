@@ -105,6 +105,16 @@ de point fixe. Les lignes à fermeture empirique sont marquées ci-dessous. La
 discussion d'échelle détaillée est rassemblée une seule fois ci-dessous dans
 **Géométrie, Symétrie Et Échelle**.
 
+Les simulations OPH distribuées héritent de la même frontière. Une exécution
+par travailleurs ne compte comme preuve d'un seul univers que si elle part d'un
+porteur fini global unique, émet le graphe porteur, l'état initial, la carte de
+partition, les interfaces de coupure, le registre des observateurs, les hachages
+d'exécution/configuration/code, et prouve que les événements validés par les
+travailleurs se projettent sur des réparations monolithiques, des stutters
+physiques ou des rollbacks certifiés. Les graines locales de shard, les
+manifestes périmés et les animations synthétiques de couture sont des
+diagnostics, pas des reçus physiques.
+
 ## Le piège de l'espace-temps
 
 Le premier obstacle conceptuel est que l'OPH ne traite pas l'espace-temps comme
@@ -303,7 +313,7 @@ $(0.017454720257976796, 0.019481987935919015,
 
 - **[Photonic Fixed-Point Consensus for SHA-256d Proof of Work](extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf)** : enrichissement photonique de candidats pour la preuve de travail SHA-256d.
 - **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)** : point fixe source, frontière du point final hadronique empirique et ligne de comparaison.
-- **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)** : émergence des cordes comme description effective des dynamiques de bord OPH, témoin hétérotique Bouchard-Donagi à une paire de Higgs, couche de sûreté `Z4R` et portes de verrouillage des moduli.
+- **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)** : émergence des cordes comme description effective des dynamiques de bord OPH et crible de vides de cordes conventionnels, témoin hétérotique Bouchard-Donagi à une paire de Higgs, couche de sûreté `Z4R` et portes de verrouillage des moduli ; ce n'est pas un raccourci de promotion vers un vide natif OPH.
 - **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)** : route OPH vers le problème de Yang-Mills de Clay sous les hypothèses de jauge compacte, avec identification du gap de Yang-Mills au gap de réparation OPH.
 - **[Observer-Patch Holography and the Dark Matter Phenomenon](extra/oph_dark_matter_paper.pdf)** : phénoménologie de la matière noire et limite galactique de type MOND.
 - **[Theoretical Bounds on chi-nu in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)** : bande conditionnelle de quotient-edge `0.9343006394893864 <= chi_nu^can <= 1`; valeur exacte `exp(-P/24)` sur la branche uniforme; valeurs d'ingénierie mises à l'échelle par `N_coh^-1`.

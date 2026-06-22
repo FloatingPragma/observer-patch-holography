@@ -374,6 +374,13 @@ within subjective time, that hardware sits in the future of the observers it
 supports. From the full structural view, the loop is timeless and
 self-consistent.
 
+The same standard applies when the computation is distributed across workers.
+There must be one finite global carrier before the split into shards, with a
+declared partition, real cut interfaces, stable observer identities, and a
+public event log proving that worker commits project to the same monolithic
+repair system. Worker queues, local seeds, restart files, and display seams are
+bookkeeping unless that projection certificate is present.
+
 You might ask: "If reality is a computation, what is it computing?" It is computing one closed
 structure whose geometry, particles, observers, records, and hardware belong to one
 self-referential loop. The patterns that persist are the patterns that are consistent. Observers

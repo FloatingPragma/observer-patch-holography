@@ -401,7 +401,14 @@ witnesses for nonzero holonomy. It also adds the RG-facing comparison: when a ch
 coarse-graining channel shadows the finite-stage normal forms and obstruction maps with declared
 defects \(\varepsilon^n\) and \(\varepsilon^h\), reconciling first and then coarse-graining gives
 the same macroscopic law readout as coarse-graining first and then reconciling, up to
-\(\max\{\varepsilon^n,\varepsilon^h\}\); exact naturality is the zero-defect case. The same
+\(\max\{\varepsilon^n,\varepsilon^h\}\); exact naturality is the zero-defect case. Exact
+normal-form naturality is discharged by a repair-morphism witness, and holonomy naturality by the
+corresponding cochain map. For distributed implementations, the same paper proves that a worker
+run presents one finite universe only when it starts from one global carrier and each event
+projects to a legal monolithic repair path, a physical stutter, or a certified rollback to an
+earlier committed projection. The required certificate names the global graph, initial state,
+partition, cut interfaces, observer registry, run/config/code hashes, linearized commits,
+restart roots, final monolithic normal form, and recomputed readout. The same
 consensus surface is classified explicitly as a
 finite-state exact theorem package plus this controlled inverse-limit bridge: decidable
 normal-form computation with the Lyapunov step bound, automatic approximate stability only
@@ -430,6 +437,251 @@ continuous affine self-map. Its image \(\Delta(Q_{\mathrm{nf}})\) is invariant, 
 quotient branch. It is not the full Appendix/habitat closure-map theorem for arbitrary OPH
 state-and-law data; the first operation not internalized at that level is the general habitat lift
 from this finite packet quotient to the full compact-convex observer-supporting sector.
+
+\textbf{Finite quotient ensemble theorem surface.} The closure map above is not yet an
+ensemble selector. It sends any input law to terminal quotient normal forms, but every law already
+supported on those normal forms is a fixed point. Hence the physical probability law at regulator
+\(r\) must be supplied as an additional quotient-intrinsic object. Let
+\[
+Q_r=\Sigma_r/\Gamma_r
+\]
+be the finite physical quotient, or let \(N_r=n_r(Q_r)\) be the quotient-normal-form subset when
+only settled configurations are intended to carry probability. The declared OPH quotient ensemble
+is specified by an intrinsic base weight and action
+\[
+m_r:Q_r\to \mathbb R_{>0},
+\qquad
+S_r:Q_r\to \mathbb R\cup\{+\infty\},
+\]
+and
+\[
+w_r(q)=m_r(q)e^{-S_r(q)},\qquad
+Z_r=\sum_{q\in Q_r}w_r(q),\qquad
+\mu_r(q)=Z_r^{-1}w_r(q).
+\]
+Equivalently, one may state an intrinsic projective prior \(\nu_r\) on \(Q_r\) and set
+\(\mu_r=(n_r)_\#\nu_r\). The choice of \(m_r\), \(S_r\), or \(\nu_r\) is load-bearing:
+uniform quotient counting, uniform representative counting pushed to the quotient, finite-groupoid
+weights, and trace weights of a declared quotient algebra are generally different.
+
+\textbf{Finite MaxEnt form.} For a finite \(Q\), positive \(m\), and quotient observables
+\(F_1,\ldots,F_k\), maximizing
+\[
+\mathcal H_m(\nu)=-\sum_q\nu(q)\log\frac{\nu(q)}{m(q)}
+\]
+over the affine constraint surface
+\[
+\sum_q\nu(q)=1,\qquad \sum_q\nu(q)F_a(q)=c_a
+\]
+has a unique full-support solution, when the feasible set has one, of the form
+\[
+\mu(q)=
+\frac{m(q)\exp[-\sum_a\theta_aF_a(q)]}{Z(\theta)}.
+\]
+This is the finite-dimensional Lagrange-multiplier argument with strict concavity of
+\(\mathcal H_m\); boundary optima obey the same formula after restricting to their support. On a
+finite noncommutative quotient algebra the corresponding density operator with faithful reference
+state \(\sigma_r\) is
+\[
+\rho_r=
+\frac{\exp(\log\sigma_r-\sum_a\theta_aF_{r,a})}
+{\operatorname{Tr}\exp(\log\sigma_r-\sum_a\theta_aF_{r,a})}.
+\]
+
+\textbf{Refinement and projective compatibility.} For \(s\succeq r\), let
+\(c_{sr}:Q_s\to Q_r\) be the physical coarse-graining map. Exact compatibility of the weighted
+ensembles is equivalent to the fiber-sum identity
+\[
+\sum_{q':\,c_{sr}(q')=q}m_s(q')e^{-S_s(q')}
+=
+\alpha_{sr}m_r(q)e^{-S_r(q)}
+\]
+for a constant \(\alpha_{sr}>0\) independent of \(q\); necessarily
+\(\alpha_{sr}=Z_s/Z_r\). The proof is just the equality
+\[
+(c_{sr})_\#\mu_s(q)
+=
+Z_s^{-1}\sum_{q':\,c_{sr}(q')=q}m_s(q')e^{-S_s(q')}
+\]
+compared with \(Z_r^{-1}m_r(q)e^{-S_r(q)}\). For the selected-prior route, if
+\[
+c_{sr}\circ n_s=n_r\circ c_{sr},
+\qquad
+(c_{sr})_\#\nu_s=\nu_r,
+\]
+then functoriality gives \((c_{sr})_\#(n_s)_\#\nu_s=(n_r)_\#\nu_r\). Along a chain, finite-stage
+compatibility defines a unique projective-limit probability measure on the cylinder
+\(\sigma\)-algebra. If the one-step defects are
+\[
+\delta_{k+1,k}
+=
+\left\|(c_{k+1,k})_\#\mu_{k+1}-\mu_k\right\|_{\mathrm{TV}},
+\]
+then total-variation contraction gives
+\[
+\left\|(c_{nr})_\#\mu_n-\mu_r\right\|_{\mathrm{TV}}
+\le
+\sum_{k=r}^{n-1}\delta_{k+1,k}.
+\]
+
+\textbf{Implementation invariance and representative lifting.} If two implementations \(A,B\)
+carry quotient bijections \(h_r:Q_r^A\to Q_r^B\) with
+\[
+m_r^B(h_rq)=m_r^A(q),\qquad
+S_r^B(h_rq)=S_r^A(q),
+\qquad
+h_r\circ c_{sr}^A=c_{sr}^B\circ h_s,
+\]
+then \((h_r)_\#\mu_r^A=\mu_r^B\). If the simulator stores representatives
+\(\pi_r:\Sigma_r\to Q_r\), a representative-level law must be a conditional lift
+\[
+\widetilde\mu_r(x)=\mu_r(\pi_r x)\kappa_r(x\mid \pi_r x),
+\qquad
+\sum_{x:\pi_r(x)=q}\kappa_r(x\mid q)=1.
+\]
+Then \((\pi_r)_\#\widetilde\mu_r=\mu_r\). Uniform representative sampling weights quotient
+states by orbit size and is physical only if representative counting is the declared base
+measure. A representative Markov kernel must also be quotient-lumpable: the transition
+probability to an orbit cannot depend on which representative of the source orbit is used.
+
+\textbf{Sampler correctness.} A production sampler is a separate interface from a deterministic
+settler:
+\[
+\texttt{settle}(q)\to n_r(q),\qquad
+\texttt{sample}(\mu_r)\to q.
+\]
+For \(w(q)=m(q)e^{-S(q)}\) and a proposal kernel \(R(q,q')\) with reciprocal support, the
+Metropolis--Hastings acceptance rule
+\[
+a(q,q')=\min\left\{1,
+\frac{w(q')R(q',q)}{w(q)R(q,q')}
+\right\}
+\]
+gives detailed balance
+\[
+\mu(q)R(q,q')a(q,q')=\mu(q')R(q',q)a(q',q),
+\]
+and hence \(\mu P=\mu\). Irreducibility and aperiodicity give uniqueness and convergence on the
+finite state space. If a repair-informed proposal is \(q'=R_{\rm repair}(q)+\eta\) with density
+\(g\), the Hastings ratio must include
+\[
+\frac{g(q-R_{\rm repair}(q'))}{g(q'-R_{\rm repair}(q))};
+\]
+dropping this term generally changes the stationary law. For a lazy reversible finite chain with
+spectral gap \(\gamma\),
+\[
+\|P^n(x,\cdot)-\mu\|_{\mathrm{TV}}
+\le
+\frac12\sqrt{\mu(x)^{-1}-1}\,(1-\gamma)^n,
+\]
+and the usual autocorrelation bound follows from the nontrivial spectral radius. Exact small
+regulators should therefore enumerate \(Q_r\), \(w_r\), \(P_r\), detailed-balance error,
+stationarity error, refinement residuals, lumpability/orbit-size checks, and the exact spectral
+gap.
+
+\textbf{Gaussian screen continuation.} For a real reduced screen field space \(V_r\) after
+background and dipole modes are removed, let \(K_r\) be positive definite and impose fixed
+expected quadratic release energy,
+\[
+\mathbb E[q]=0,
+\qquad
+\mathbb E[q^{\mathsf T}K_rq]=d_rA_r,\qquad d_r=\dim V_r.
+\]
+The unique maximum-entropy density relative to the declared Euclidean volume is
+\[
+p_r(q)=
+\frac{\sqrt{\det K_r}}{(2\pi A_r)^{d_r/2}}
+\exp\left[-\frac{1}{2A_r}q^{\mathsf T}K_rq\right],
+\qquad
+\operatorname{Cov}(q)=A_rK_r^{-1}.
+\]
+This is the relative-entropy proof against the displayed Gaussian. If instead every sample obeys
+\(q^{\mathsf T}K_rq=d_rA_r\), the MaxEnt law is uniform on the ellipsoid, not Gaussian. Under a
+linear coarse field map \(C_{sr}:V_s\to V_r\), exact Gaussian refinement is the covariance
+criterion
+\[
+A_rK_r^{-1}=C_{sr}(A_sK_s^{-1})C_{sr}^{\mathsf T}.
+\]
+For harmonic truncation, choose real modes \(Y_{\ell m}\), \(2\le\ell\le L\), set
+\[
+K_LY_{\ell m}=\kappa_\ell Y_{\ell m},
+\qquad
+\kappa_\ell=[\ell(\ell+1)]^{1+\theta/2},
+\]
+and sample independent coefficients
+\[
+a_{\ell m}\sim\mathcal N(0,A/\kappa_\ell).
+\]
+Projection from \(L'\) to \(L\) then discards high modes and is exactly refinement-compatible.
+For irregular meshes, covariance should be primary under coarse-graining:
+\[
+\Sigma_r=C_{sr}\Sigma_sC_{sr}^{\mathsf T},\qquad K_r=A_r\Sigma_r^{-1}.
+\]
+Equivalently, when eliminating fine variables from a precision matrix
+\[
+K_s=\begin{pmatrix}K_{cc}&K_{cf}\\ K_{fc}&K_{ff}\end{pmatrix},
+\]
+the coarse precision is the Schur complement
+\[
+K_r=K_{cc}-K_{cf}K_{ff}^{-1}K_{fc},
+\]
+not the principal block \(K_{cc}\).
+
+\textbf{Vacuum and primordial promotion gates.} A stationary sampler is not a physical vacuum:
+the identity transition kernel leaves every measure stationary. A finite vacuum theorem needs a
+physical transfer operator. If \(T_r\) is real symmetric, positive definite, and strictly positive,
+Perron--Frobenius gives a simple largest eigenvalue \(\lambda_{0,r}\) with positive eigenvector
+\(\Omega_r\). Then
+\[
+H_r=-a_t^{-1}\log(T_r/\lambda_{0,r})
+\]
+is positive semidefinite, \(\Omega_r\) is the unique zero-energy state, and the Doob kernel
+\[
+P_r(x,y)=\frac{T_r(x,y)\Omega_r(y)}{\lambda_{0,r}\Omega_r(x)}
+\]
+is stochastic and detailed-balanced with
+\[
+\mu_r(x)=\frac{\Omega_r(x)^2}{\sum_z\Omega_r(z)^2}.
+\]
+Continuum promotion further requires reflection positivity or an equivalent reconstruction
+certificate plus refinement compatibility of the transfer family. Likewise, a screen covariance
+does not by itself determine a primordial curvature spectrum: for finitely many \(C_\ell\), the
+thin-shell map
+\[
+C_\ell=4\pi\int_0^\infty\frac{dk}{k}\Delta_\zeta^2(k)j_\ell^2(k\chi_\star)
+\]
+has an infinite-dimensional null space unless a radial prior or finite parametric family is
+declared. The simulator may therefore run conventional free-scalar and lattice-gauge baselines,
+but those baselines carry closed OPH-native-vacuum and primordial-promotion receipts until these
+gates pass.
+
+\textbf{Receipt contract.} Every ensemble run must record the immutable ensemble id, claim tier,
+regulator id, representative schema hash, gauge action hash, quotient canonicalizer hash, base
+measure definition, action coefficients, coarse-map hashes, zero-mode projector hash, amplitude
+convention, sampler kernel hash, partition-invariant random-event schema, smoothing policy, source
+provenance, and explicit nonclaims. The seed belongs to the run receipt, not to the ensemble
+definition. Claim tiers are:
+\[
+\begin{array}{ll}
+E0:&\text{seed noise, proposal noise, repair jitter},\\
+E1:&\text{conventional reference ensemble},\\
+E2:&\text{OPH-native quotient ensemble},\\
+E3:&\text{OPH vacuum},\\
+E4:&\text{OPH primordial field},\\
+E5:&\text{observable cosmological prediction}.
+\end{array}
+\]
+Smoothing must preserve raw coefficients, raw spectra, smoothing kernels, smoothed coefficients,
+smoothed spectra, and hashes of each stage; it is not part of \(S_r\) unless explicitly declared.
+For bounded coarse observables \(O\), if the implemented law satisfies
+\(\|\widehat\mu_s-\mu_s\|_{\mathrm{TV}}\le\epsilon_{\rm samp}\) and the refinement defects sum to
+\(\epsilon_{\rm ref}\), then
+\[
+\left|\mathbb E_{\widehat\mu_s}[O\circ c_{sr}]-\mathbb E_{\mu_r}[O]\right|
+\le
+2\|O\|_\infty(\epsilon_{\rm samp}+\epsilon_{\rm ref}),
+\]
+which is the simulator accuracy statement attached to this theorem surface.
 
 \textbf{Theorem 2.3 (EC from regulated overlap gluing).} For a collar \(B_\delta\) around a cap boundary \(\Sigma\), there is a canonical decomposition
 
@@ -4072,9 +4324,10 @@ Phase I is the theorem-bearing core using the stated scaling, transport, and gau
 Phase II supplies quantitative closures on top of that core. Phase III contains
 program branches whose extra ans\"atze are not part of the recovered-core theorem package. In
 particular, the conditional screen-spectrum branch reaches a MaxEnt Gaussian screen covariance only
-after the quotient-normal-form scalar field, positive repair operator, operator-tilt, and
-scalar-release-energy receipts pass. A primordial curvature spectrum also needs a screen-to-radial
-lift receipt, and physical TT/TE/EE spectra remain behind Boltzmann transfer and likelihood gates.
+after the quotient-ensemble selector, quotient-normal-form scalar field, positive repair operator,
+operator-tilt, and fixed expected quadratic scalar-release-energy receipts pass. A primordial
+curvature spectrum also needs a screen-to-radial lift receipt, and physical TT/TE/EE spectra remain
+behind Boltzmann transfer and likelihood gates.
 Low-\(\ell\) CMB kernels, parity envelopes, inflation-replacement claims, and dark/anomaly
 \(H_0/S_8\) growth modifications therefore remain continuation gates until their finite-collar
 source functions and likelihood contracts are supplied.

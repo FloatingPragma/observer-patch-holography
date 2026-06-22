@@ -95,7 +95,7 @@ central or quantitatively stable approximately commuting projectors. These resul
 patch-net formulation used in the broader OPH literature, including the fixed-cutoff Bell/CHSH
 package on the companion microphysics surface.
 
-This paper proves a constraint-code firewall and eight core consensus results:
+This paper proves a constraint-code firewall and nine core consensus results:
 
 \begin{enumerate}
 \item \textbf{Constraint-code firewall.} A finite overlap net defines a finite constraint code:
@@ -117,6 +117,13 @@ Under the stated selected-fiber and record hypotheses, the finite OPH packet has
 certificate; a generic identity fixed point or constant variational functional does not
 (Definition~\ref{def:oph-simulation}, Theorem~\ref{thm:oph-simulation}, and
 Remark~\ref{rem:oph-simulation-falsifiers}).
+\item \textbf{Distributed one-universe realization.} A worker implementation is a presentation
+of one finite OPH universe only when the run starts from one global carrier and every distributed
+event projects to a legal monolithic repair path, a physical stutter, or a certified rollback to
+an earlier committed projection. Under those hypotheses, partition, worker count, schedule,
+restart history, and repartition metadata do not change quotient observables or observer readouts
+that factor through the monolithic normal form (Theorem~\ref{thm:distributed-one-universe} and
+Corollary~\ref{cor:distributed-invariance}).
 \item \textbf{Conditional noisy fair-block consensus.} If a noisy asynchronous implementation admits fair repair blocks, a uniform expected contraction toward the exact quotient normal-form set, and controlled within-block excursions, then all long runs stay in a controlled expected tube around that exact normal-form set. In singleton boundary/sector fibers, Lipschitz observer readouts are approximately schedule-independent, and a finite Markov-kernel certificate checks the block contraction on finite exported nets (Theorem~\ref{thm:noisy-fair-block-consensus}, Corollaries~\ref{cor:approx-schedule-independence}--\ref{cor:high-prob-noisy-tube}, and Proposition~\ref{prop:finite-fair-block-certificate}).
 \end{enumerate}
 
@@ -1139,6 +1146,64 @@ leaves uniform complexity bounds, automatic fair-block noisy-consensus certifica
 automatic normal-form naturality for arbitrary changing repair laws as separate branch conditions.
 \end{remark}
 
+\begin{definition}[Repair morphism]\label{def:repair-morphism}
+Let \((Q_s,\to_s,C_s,n_s)\) and \((Q_r,\to_r,C_r,n_r)\) be two finite quotient repair systems
+covered by Theorems~\ref{thm:confluence} and \ref{thm:gauge}. A map
+\[
+\rho_{sr}:Q_s\to Q_r
+\]
+is a \textbf{repair morphism} when:
+\begin{enumerate}[label=(\roman*),leftmargin=2em]
+\item every fine repair step \(x\to_s y\) maps to a coarse repair path or a stutter,
+\[
+\rho_{sr}(x)\to_r^*\rho_{sr}(y);
+\]
+\item fine consistency maps into coarse consistency,
+\[
+\rho_{sr}(C_s)\subseteq C_r.
+\]
+\end{enumerate}
+For a concrete local repair law this is checked by giving, for every fine repair generator, a
+coarse witness word in the accepted coarse repair generators or the empty word, and by verifying
+that the restriction maps carry every fine consistency equation to a coarse consistency equation.
+\end{definition}
+
+\begin{theorem}[Normal-form naturality from repair morphisms]\label{thm:repair-morphism-naturality}
+If \(\rho_{sr}:Q_s\to Q_r\) is a repair morphism, then
+\[
+\rho_{sr}\circ n_s=n_r\circ\rho_{sr}.
+\]
+\end{theorem}
+
+\begin{proof}
+Fix \(x\in Q_s\). Since \(x\to_s^* n_s(x)\), repeated use of the step-simulation clause gives
+\[
+\rho_{sr}(x)\to_r^*\rho_{sr}(n_s(x)).
+\]
+The consistency-preservation clause gives \(\rho_{sr}(n_s(x))\in C_r\), because
+\(n_s(x)\in C_s\). Thus \(\rho_{sr}(n_s(x))\) is a coarse normal form reachable from
+\(\rho_{sr}(x)\). The coarse system has a unique normal form reachable from each initial quotient
+state, so \(\rho_{sr}(n_s(x))=n_r(\rho_{sr}(x))\).
+\end{proof}
+
+\begin{definition}[Holonomy cochain morphism]\label{def:holonomy-cochain-morphism}
+For obstruction maps \(h_s:Q_s\to\mathcal H_s\) and \(h_r:Q_r\to\mathcal H_r\), a map
+\(\chi_{sr}:\mathcal H_s\to\mathcal H_r\) is a \textbf{holonomy cochain morphism} when the
+edge, cycle, or crossed-module cochains used to compute \(h_s\) restrict to the cochains used to
+compute \(h_r\), modulo the declared quotient identifications. Equivalently,
+\[
+\chi_{sr}\circ h_s=h_r\circ\rho_{sr}.
+\]
+\end{definition}
+
+\begin{remark}[How exact refinement naturality is discharged]\label{rem:exact-naturality-discharge}
+Definition~\ref{def:refinement-consensus} may be used as an interface contract, but on an
+implemented exact branch the normal-form part is proved by Theorem~\ref{thm:repair-morphism-naturality}
+from explicit coarse witness words for fine repairs. The holonomy part is proved by the cochain
+morphism check of Definition~\ref{def:holonomy-cochain-morphism}. Approximate RG branches use the
+controlled defects of Definition~\ref{def:controlled-coarse-consensus} instead.
+\end{remark}
+
 \begin{definition}[Controlled coarse-graining / reconciliation square]\label{def:controlled-coarse-consensus}
 Fix refinement stages \(r\preceq s\). Let \(Q_r,Q_s\) be the physical quotient state spaces,
 \(n_r,n_s\) their finite-stage normal-form maps, and \(h_r,h_s\) their holonomy or
@@ -1517,6 +1582,219 @@ boundary/sector fiber. It does not promote the finite packet closure to an arbit
 state-and-law space, and it does not remove the branch and record hypotheses stated in the
 theorem.
 \end{remark}
+
+\section{Distributed Presentations of One Finite Universe}
+\label{sec:distributed-one-universe}
+
+The implementation closure clause in Definition~\ref{def:oph-simulation} has a distributed
+form. A worker partition is allowed to accelerate or package the computation, but it is not a
+new physical ingredient. The physical question is whether the worker run presents the same
+finite quotient repair system as the monolithic carrier.
+
+\begin{definition}[Finite global OPH carrier]\label{def:finite-global-carrier}
+At refinement stage \(r\), a finite global OPH carrier consists of a finite patch graph
+\[
+G_r=(V_r,E_r),
+\]
+finite patch state sets \(S_i\), interface alphabets \(I_e\), endpoint maps
+\(\pi_{i,e}:S_i\to I_e\), an implementation-hiding group \(\Gamma_r\), a boundary/sector map
+\(B_r\), a mismatch potential \(\Phi_r\), accepted quotient repairs \(\to_r\), and an
+observer-readable map
+\[
+\operatorname{Read}_r:Q_r\to\mathcal Y_r,
+\qquad
+Q_r:=\left(\prod_{i\in V_r}S_i\right)/\Gamma_r.
+\]
+Let \(C_r\subseteq Q_r\) be the quotient consistency set. On the finite branch covered by
+Theorems~\ref{thm:confluence} and \ref{thm:gauge}, the accepted quotient repair relation has a
+unique normal-form map
+\[
+n_r:Q_r\to C_r.
+\]
+A one-universe input is the pair \(\mathbf U_r=(\mathfrak U_r,q_0)\), where
+\(\mathfrak U_r\) is the carrier data above and \(q_0\in Q_r\). A worker partition is not part
+of \(\mathfrak U_r\).
+\end{definition}
+
+\begin{definition}[Worker presentation and physical projection]\label{def:worker-presentation}
+Let \(\kappa:V_r\to W\) assign every patch to one authoritative worker. The cut set is
+\[
+E_\kappa^{\mathrm{cut}}
+:=
+\bigl\{\{i,j\}\in E_r:\kappa(i)\ne\kappa(j)\bigr\}.
+\]
+A distributed presentation for \(\kappa\) has worker-owned states, ghost or halo copies,
+message queues, transaction records, retries, worker identifiers, checkpoints, event logs, and
+scheduler state. Let \(\widetilde Q_{r,\kappa}\) be its quotient by purely local worker
+bookkeeping that leaves authoritative physical states unchanged. The physical projection
+\[
+p_{r,\kappa}:\widetilde Q_{r,\kappa}\to Q_r
+\]
+keeps only the authoritative patch states, quotients by \(\Gamma_r\), and discards queues, retry
+metadata, worker labels, and external clocks. Let
+\[
+D_r:=\bigsqcup_{\kappa}\{\kappa\}\times\widetilde Q_{r,\kappa},
+\qquad
+P_r(\kappa,\tilde q):=p_{r,\kappa}(\tilde q).
+\]
+A distributed readout is physical when it factors as
+\[
+\widetilde{\operatorname{Read}}_r=\operatorname{Read}_r\circ P_r.
+\]
+\end{definition}
+
+\begin{definition}[Admissible distributed event]\label{def:admissible-distributed-event}
+For \(d,d'\in D_r\), a distributed event \(d\Rightarrow d'\) is \textbf{admissible} when one of
+the following holds.
+\begin{enumerate}[label=(\alph*),leftmargin=2em]
+\item \textbf{Linearizable physical commit.} There is a nonempty monolithic accepted repair path
+\[
+P_r(d)\to_r^*P_r(d')
+\]
+whose repair word is recorded as the event's linearization witness.
+\item \textbf{Physical stutter.} \(P_r(d')=P_r(d)\). Message delivery, halo refresh, prepare,
+abort, checkpoint, worker start or stop, idempotent replay, and repartition metadata are allowed
+only in this class unless they also carry a physical commit witness.
+\item \textbf{Certified rollback.} There is an earlier committed state \(d_j\) in the same run
+history such that \(P_r(d')=P_r(d_j)\), and the rollback certificate names that committed
+projection root. Transparent restart from a committed frontier is a stutter.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Normal form is constant on an accepted reachability cone]\label{lem:nf-reachability-cone}
+If \(q\to_r^*q'\), then
+\[
+n_r(q')=n_r(q).
+\]
+\end{proposition}
+
+\begin{proof}
+The state \(q'\) is reachable from \(q\). The state \(n_r(q')\) is a normal form reachable from
+\(q'\), hence also reachable from \(q\). Theorem~\ref{thm:confluence} and
+Theorem~\ref{thm:gauge} give the unique quotient normal form reachable from \(q\), so
+\(n_r(q')=n_r(q)\).
+\end{proof}
+
+\begin{theorem}[Distributed realization of one finite OPH universe]\label{thm:distributed-one-universe}
+Fix a finite global carrier \(\mathbf U_r=(\mathfrak U_r,q_0)\) satisfying
+Theorems~\ref{thm:confluence} and \ref{thm:gauge}. Let
+\[
+d_0\Rightarrow d_1\Rightarrow\cdots\Rightarrow d_m
+\]
+be a finite distributed execution in \(D_r\) with \(P_r(d_0)=q_0\), and assume every event is
+admissible in the sense of Definition~\ref{def:admissible-distributed-event}. Then, for every
+\(t\),
+\[
+q_0\to_r^*P_r(d_t),
+\qquad
+n_r(P_r(d_t))=n_r(q_0).
+\]
+If the final projection is a monolithic normal form, then
+\[
+P_r(d_m)=n_r(q_0).
+\]
+For every physical observable or observer readout \(M:Q_r\to Y\),
+\[
+M(P_r(d_m))=M(n_r(q_0))
+\]
+whenever \(P_r(d_m)\) is normal. In particular,
+\(\widetilde{\operatorname{Read}}_r(d_m)=\operatorname{Read}_r(n_r(q_0))\) for every
+distributed readout that factors through \(P_r\).
+\end{theorem}
+
+\begin{proof}
+Induct on \(t\). The claim is true at \(t=0\). Suppose it holds at \(t\). For a linearizable
+physical commit, admissibility gives
+\[
+P_r(d_t)\to_r^*P_r(d_{t+1}),
+\]
+so \(q_0\to_r^*P_r(d_{t+1})\), and Lemma~\ref{lem:nf-reachability-cone} gives
+\[
+n_r(P_r(d_{t+1}))=n_r(P_r(d_t))=n_r(q_0).
+\]
+For a physical stutter, \(P_r(d_{t+1})=P_r(d_t)\), so both statements are unchanged. For a
+certified rollback, \(P_r(d_{t+1})\) is the projection of an earlier committed state; the
+induction hypothesis already proved reachability from \(q_0\) and equality of normal forms for
+that projection. This proves the two displayed identities for every \(t\).
+
+If \(P_r(d_m)\) is a monolithic normal form, then it is the unique quotient normal form reachable
+from \(q_0\), hence \(P_r(d_m)=n_r(q_0)\). The observable and readout statements follow by applying
+\(M\) or \(\operatorname{Read}_r\) to this equality and using
+\(\widetilde{\operatorname{Read}}_r=\operatorname{Read}_r\circ P_r\).
+\end{proof}
+
+\begin{corollary}[Partition, schedule, and restart invariance]\label{cor:distributed-invariance}
+Any two admissible distributed executions of the same finite carrier \(\mathbf U_r\), with the
+same initial quotient state \(q_0\), have the same terminal quotient observables and
+observer-readable outputs once their final projections are monolithic normal forms. The statement
+is independent of partition \(\kappa\), worker count, scheduler choices, restart history, and
+repartition metadata.
+\end{corollary}
+
+\begin{proof}
+Apply Theorem~\ref{thm:distributed-one-universe} to each execution. Both final projections equal
+\(n_r(q_0)\), so every quotient observable and every readout factoring through the projection has
+the same value.
+\end{proof}
+
+\begin{proposition}[Restart stabilization separates safety from liveness]\label{prop:restart-stabilization}
+Assume \(Q_r\) is finite, every physical commit strictly descends the accepted potential until
+normality, every rollback returns to an earlier committed projection, only finitely many
+progress-erasing rollbacks occur, and after the last such rollback the scheduler is fair enough
+to commit an enabled repair whenever the projected state is not normal. Then the distributed run
+reaches a monolithic normal form after finitely many physical commits.
+\end{proposition}
+
+\begin{proof}
+Safety is Theorem~\ref{thm:distributed-one-universe}. For liveness, ignore stutters and the
+finitely many progress-erasing rollbacks before the last one. After that time, each nonnormal
+projected state eventually takes a strict descending accepted repair. The set of possible
+potential values below the post-rollback value is finite, so strict descent can occur only
+finitely many times before a normal projected state is reached.
+\end{proof}
+
+\begin{theorem}[Distributed refinement cube]\label{thm:distributed-refinement-cube}
+Let \(r\preceq s\). Suppose \(\rho_{sr}:Q_s\to Q_r\) is a repair morphism, the corresponding
+holonomy maps form a cochain morphism, and distributed presentations at both stages are exact in
+the sense of Theorem~\ref{thm:distributed-one-universe}. If the lifted restriction
+\(\widetilde\rho_{sr}:D_s\to D_r\) commutes with physical projection,
+\[
+P_r\circ\widetilde\rho_{sr}=\rho_{sr}\circ P_s,
+\]
+then distributed execution and coarse restriction commute on normal forms and readouts:
+\[
+P_r\!\left(\widetilde\rho_{sr}(d_m^s)\right)
+=
+n_r\!\left(\rho_{sr}(q_0^s)\right)
+=
+\rho_{sr}\!\left(n_s(q_0^s)\right)
+\]
+whenever the fine final projection is normal. The same statement holds for holonomy readouts via
+\(\chi_{sr}\).
+\end{theorem}
+
+\begin{proof}
+The fine distributed theorem gives \(P_s(d_m^s)=n_s(q_0^s)\). Projection compatibility gives
+\[
+P_r(\widetilde\rho_{sr}(d_m^s))=\rho_{sr}(n_s(q_0^s)).
+\]
+Theorem~\ref{thm:repair-morphism-naturality} identifies this value with
+\(n_r(\rho_{sr}(q_0^s))\). The holonomy statement is exactly the cochain-morphism identity of
+Definition~\ref{def:holonomy-cochain-morphism}.
+\end{proof}
+
+\paragraph{Public certificate contract.}
+A run pack that claims Theorem~\ref{thm:distributed-one-universe} must emit enough evidence for
+a verifier to reconstruct the premises without trusting worker narration. The required fields are:
+a global carrier manifest and hash, the monolithic graph \(G_r\), the global initial quotient
+state \(q_0\), a partition map \(\kappa\), cut-interface records \(E_\kappa^{\mathrm{cut}}\)
+with restriction maps, a global observer registry, code/config/run hashes, a committed event log
+with a linearization witness for each physical commit, stutter records for noncommitting worker
+events, rollback records naming earlier committed projection roots, repartition records preserving
+the physical projection root, a final monolithic normal-form certificate, and a final readout
+recomputed from the projected state. Missing, stale, shard-local, or synthetic replacements for
+these fields fail closed. The exact branch uses this contract; noisy branches additionally need
+the fair-block constants of Theorem~\ref{thm:noisy-fair-block-consensus}.
 
 \section{Noisy Fair-Block Approximate Consensus}
 \label{sec:noisy-fair-block-consensus}
@@ -1936,7 +2214,8 @@ This paper proves the fixed-point consensus spine of OPH: schedule-independent n
 fixed initial quotient states, boundary-conditioned uniqueness when a preserved boundary/sector
 fiber has a unique consistent extension, holonomy obstructions, gauge-quotient invariance,
 separated cofinal refinement-limit consensus classes, controlled coarse-graining compatibility,
-the fixed-cutoff operator-record theorem, and conditional noisy fair-block convergence once a
+the fixed-cutoff operator-record theorem, distributed one-universe realization for admissible
+worker presentations of a single global carrier, and conditional noisy fair-block convergence once a
 separate contraction certificate is supplied.
 It also proves the full repair-completeness, Petz-domain, and quotient-compatibility package on
 the rooted-tree packet-net domain of Theorem~\ref{thm:tree-packet-domain}, and gives a clean
@@ -1984,6 +2263,8 @@ With those boundaries explicit, the consensus-paper boundaries and companion int
 \item \textbf{Defect classification and refinement-limit transportability.} The fixed-cutoff hierarchy extends from abelian frustrations to crossed-module classes \(q\in \check H^2(N,H\to G)\). The continuation task is to connect those higher-gauge defect sectors to the refinement-stable transportable sector category used in the broader compact-gauge reconstruction lane.
 
 \item \textbf{Observable-level confluence beyond the declared fixed-cutoff physical algebra.} Theorem~\ref{thm:obsconfluence} closes the fixed-cutoff quantum-lift statement when microscopic representatives differ by gauge relabelings globally or by sector/higher-gauge relabelings on the same declared quotient-local glued state. The continuation question is whether an analogous observable theorem survives on broader refinement-stable branches where the union-collar compatibility is only approximate or where the physical observable algebra itself changes under refinement.
+
+\item \textbf{Distributed implementation certificates.} Theorem~\ref{thm:distributed-one-universe} proves invariance for a worker presentation only after the implementation supplies one global carrier, authoritative ownership, cut interfaces, projection-preserving events, rollback roots, and final monolithic normal-form/readout certificates. Shard-local seeds, missing cut artifacts, stale manifests, synthetic seam trajectories, or worker-id histories do not certify a one-universe realization.
 
 \item \textbf{Global approximate-consensus stability.} Theorem~\ref{thm:splice} and Theorem~\ref{thm:crdt} supply the collar-local perturbative controls carried by this paper. The rooted-tree packet domain proves the exact finite repair package on one nontrivial exported domain. Theorem~\ref{thm:noisy-fair-block-consensus} closes the long-run noisy branch only after a fair-block contraction certificate is supplied. What remains absent is an automatic theorem showing that arbitrary approximate recovery moves on arbitrary packet-closed exported overlap nets are repair-complete, preserve support-local disjoint commutation and nested-collar restriction compatibility, satisfy the support/CPTP clause on every Petz branch used there, and meet that fair-block contraction certificate.
 
