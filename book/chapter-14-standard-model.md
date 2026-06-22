@@ -499,8 +499,8 @@ checkable.
 Why does the realized group have the form SU(3) x SU(2) x U(1) up to finite quotient?
 
 The reconstruction step by itself gives a compact gauge group from the
-transportable sector category. It does not yet say that Nature chose the
-Standard Model. That choice enters through minimal admissible selection: among the admissible one-Higgs
+transportable sector category. The Standard Model choice enters through minimal admissible
+selection: among the admissible one-Higgs
 low-energy sector packages, choose the minimal package that satisfies the
 transport, anomaly, refinement, Yukawa, CP, and weak-sector conditions.
 Equivalently, the logic factors into classification and selection. Overlap

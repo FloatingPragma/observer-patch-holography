@@ -460,7 +460,7 @@ So the correct statement is not:
 
 The correct statement is:
 
-> "Type I modular dynamics by itself does not yet guarantee the universal geometric modular action needed for the continuum Bisognano-Wichmann / Unruh / Hawking story."
+> "Type I modular dynamics by itself does not guarantee the universal geometric modular action needed for the continuum Bisognano-Wichmann / Unruh / Hawking story."
 
 That is a much narrower and more accurate objection.
 

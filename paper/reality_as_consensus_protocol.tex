@@ -242,8 +242,8 @@ of the input collar state encoded by \(s\):
 \end{enumerate}
 The decoder back to \(S_i\) is bookkeeping for the finite patch presentation; the physical content
 is the repaired collar state on the declared fixed-cutoff branch. Write
-\(s\rightsquigarrow_i t\) iff \(t=T_i^\lambda(s)\neq s\). These are primitive proposals, not yet
-accepted physical rewrite steps. A proposal is committed only through the transactional acceptance
+\(s\rightsquigarrow_i t\) iff \(t=T_i^\lambda(s)\neq s\). These are primitive proposals awaiting
+acceptance as physical rewrite steps. A proposal is committed only through the transactional acceptance
 layer below.
 \end{definition}
 
@@ -1876,7 +1876,7 @@ n_r(P_r(d_{t+1}))=n_r(P_r(d_t))=n_r(q_0).
 \]
 For a physical stutter, \(P_r(d_{t+1})=P_r(d_t)\), so both statements are unchanged. For a
 certified rollback, \(P_r(d_{t+1})\) is the projection of an earlier committed state; the
-induction hypothesis already proved reachability from \(q_0\) and equality of normal forms for
+induction hypothesis gives reachability from \(q_0\) and equality of normal forms for
 that projection. This proves the two displayed identities for every \(t\).
 
 If \(P_r(d_m)\) is a monolithic normal form, then it is the unique quotient normal form reachable

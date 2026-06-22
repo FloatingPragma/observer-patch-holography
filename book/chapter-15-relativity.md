@@ -378,6 +378,17 @@ support-visible geometric scaling branch, the cap modular automorphism acts as
 a real geometric motion, and the rigidity hypotheses identify that motion with
 the conformal action.
 
+The same step fixes the number of spatial directions in the observer-facing
+chart. A rest observer is represented by a future timelike direction. The
+Lorentz group can move that direction, while ordinary rotations leave it
+fixed. The spatial chart is therefore the quotient
+
+$$H^3 = SO^+(3,1)/SO(3)$$
+
+The Lorentz group has six generators. Rotations use three of them. The quotient
+leaves three boost directions, so the spatial chart has dimension $6-3=3$.
+This is why the recovered observer-facing bulk chart is three-dimensional.
+
 ### Why There Is No Privileged Reference Frame
 
 This deserves careful explanation, because it addresses a natural worry about OPH.
@@ -728,8 +739,8 @@ a fixed stage. Relativity overturns each part. The speed of light forces time
 and distance into one four-dimensional structure. Free fall reveals gravity as
 geometry. OPH pushes the logic one step deeper. On the controlled scaling
 branch, Lorentz symmetry becomes the geometry of how modular times mesh across
-patches, and gravity becomes the equilibrium condition that lets those patches
-share one spacetime.
+patches, the rest-space quotient gives three spatial directions, and gravity
+becomes the equilibrium condition that lets those patches share one spacetime.
 
 On this reading, the speed of light is the conversion factor between
 information flow on the screen and emergent geometry in the bulk. On the

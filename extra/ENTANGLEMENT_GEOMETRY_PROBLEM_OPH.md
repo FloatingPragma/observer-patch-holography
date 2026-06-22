@@ -6,13 +6,13 @@ This note responds from the OPH point of view to the following question:
 
 ## Overview
 
-In OPH, a Bell pair does not yet define a semiclassical wormhole, and entanglement entropy by itself does not determine geometry. In the semiclassical regime, the relevant quantity is the generalized entropy of the patch algebra, with the edge/center sector structure supplying the area term. A reduction in entanglement therefore does not by itself specify a metric deformation of the bridge. The actual chain is: state perturbation changes the modular Hamiltonian, that fixes the null stress profile, and the Einstein equation gives the metric backreaction. Entropy controls part of the area response, while the full tensor deformation requires more information.
+In OPH, a Bell pair is not a semiclassical wormhole, and entanglement entropy by itself does not determine geometry. In the semiclassical regime, the relevant quantity is the generalized entropy of the patch algebra, with the edge/center sector structure supplying the area term. A reduction in entanglement therefore does not by itself specify a metric deformation of the bridge. The actual chain is: state perturbation changes the modular Hamiltonian, that fixes the null stress profile, and the Einstein equation gives the metric backreaction. Entropy controls part of the area response, while the full tensor deformation requires more information.
 
 Arbitrary local spacetime reshaping is excluded because OPH geometry comes from a globally consistent net of overlapping observer algebras. Local operations can perturb a state inside one patch, and only overlap-consistent, Markov-recoverable deformations remain in the semiclassical geometric sector. Topology sits in the global holonomy and edge-sector structure of the net, so a local channel on one subsystem does not simply rewrite it.
 
 In brief:
 
-- a single Bell pair is not yet a semiclassical wormhole,
+- a single Bell pair is not a semiclassical wormhole,
 - geometry is not fixed by entanglement entropy alone,
 - the correct geometric object is the generalized entropy of patch algebras, including edge/center data,
 - the full metric response is obtained from modular Hamiltonian data and null stress reconstruction, not from one entropy scalar by itself,

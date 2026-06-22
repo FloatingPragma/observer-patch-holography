@@ -65,6 +65,10 @@ relativity part of the theory, that agreement requirement produces ordinary
 cells are the regulator that keeps the construction concrete before the smooth
 large-scale limit is taken. The technical paper gives the modular-flow and
 scaling assumptions needed for this step.
+The three spatial dimensions come from the same screen branch: once
+\(\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)\) is recovered, the observer-facing
+spatial chart is \(H^3\simeq\mathrm{SO}^+(3,1)/\mathrm{SO}(3)\), which has
+dimension \(6-3=3\).
 
 In the gauge part of the theory, OPH asks which internal charges and particle
 labels can be transported consistently across overlaps. That reconstruction
@@ -172,7 +176,9 @@ local cut data used by modular flow and entropy variation. The conformal group
 of the sphere is the celestial-sphere form of the connected Lorentz group,
 $\mathrm{SO}^+(3,1)$, so the same chart supplies the kinematic bridge to the
 emergent $(3+1)$-dimensional spacetime branch once the required cap and
-modular-flow conditions are met. Spherical harmonics organize angular modes.
+modular-flow conditions are met. The observer rest-space chart is
+$H^3\simeq\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$, hence exactly three-dimensional
+on that branch. Spherical harmonics organize angular modes.
 Finite cellulations of the same chart give the regulator surface on which patch
 ports, edge data, and overlap checks can be made explicit; they are not by
 themselves a Lorentz-invariant continuum.
@@ -431,9 +437,10 @@ Status shorthand: source-only fine structure is
 $\alpha_{\rm cand}^{-1}=136.9948351646\ldots$; the public
 $\alpha^{-1}(0)=137.035999177(21)$ row uses empirical hadron closure. SI $c$
 is conventional; SI $G$ is a scale/clock display. $W/Z$ are compare-only
-validation rows. Higgs/top is closed on the declared D10/D11 surface. Quarks
-are selected-class theorem rows. Neutrinos use the weighted-cycle branch.
-Charged-lepton absolute masses and source-only hadrons remain open.
+validation rows. Higgs/top is closed on the declared electroweak quantitative
+surface. Quarks are selected-class theorem rows. Neutrinos use the
+weighted-cycle branch. Charged-lepton absolute masses and source-only hadrons
+remain open.
 
 Strong CP is work in progress in the selected-class quark theorem:
 the available corpus does not derive the QCD theta angle, does not emit the

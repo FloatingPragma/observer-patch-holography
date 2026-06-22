@@ -75,6 +75,10 @@ dimensions et une équation de gravité de type Einstein. Les cellules finies
 servent de régulateur : elles gardent la construction concrète avant la limite
 lisse à grande échelle. Le papier technique donne les hypothèses de flot
 modulaire et d'échelle nécessaires pour cette étape.
+Les trois dimensions spatiales viennent de la même branche d'écran : une fois
+\(\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)\) obtenu, la carte spatiale de
+l'observateur est \(H^3\simeq\mathrm{SO}^+(3,1)/\mathrm{SO}(3)\), de dimension
+\(6-3=3\).
 
 Dans la partie jauge de la théorie, l'OPH demande quelles charges internes et
 quelles étiquettes de particules peuvent être transportées de façon cohérente
@@ -203,7 +207,10 @@ variation d'entropie. Le groupe conforme de la sphère est la forme céleste du
 groupe de Lorentz connexe, $\mathrm{SO}^+(3,1)$, ce qui donne le pont
 cinématique vers la branche d'espace-temps émergent en $3+1$ dimensions une
 fois satisfaites les conditions nécessaires sur les caps et le flot modulaire.
-Les harmoniques sphériques organisent les modes angulaires. Les cellulations finies de la même
+La carte de repos de l'observateur est
+$H^3\simeq\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$, donc exactement
+tridimensionnelle sur cette branche. Les harmoniques sphériques organisent les
+modes angulaires. Les cellulations finies de la même
 carte donnent la surface régulatrice où les ports de patches, les données
 d'arêtes et les contrôles de recouvrement deviennent explicites ; leur rôle est
 celui d'un régulateur fini, sans statut de continuum invariant de Lorentz.
@@ -479,9 +486,10 @@ $\alpha_{\rm cand}^{-1}=136.9948351646\ldots$; la ligne publique
 $\alpha^{-1}(0)=137.035999177(21)$ utilise une fermeture hadronique empirique.
 Le $c$ SI est conventionnel; le $G$ SI est un affichage échelle/horloge. $W/Z$
 sont des lignes de validation en comparaison seule. Higgs/top est fermé sur la
-surface D10/D11 déclarée. Les quarks sont des lignes de théorème sur classe
-sélectionnée. Les neutrinos utilisent la branche à cycles pondérés. Les masses
-absolues des leptons chargés et les hadrons source seuls restent ouverts.
+surface quantitative électrofaible déclarée. Les quarks sont des lignes de
+théorème sur classe sélectionnée. Les neutrinos utilisent la branche à cycles
+pondérés. Les masses absolues des leptons chargés et les hadrons source seuls
+restent ouverts.
 
 La CP forte est en cours de travail dans le théorème des quarks sur classe
 sélectionnée : le corpus disponible ne dérive pas l'angle theta de QCD,

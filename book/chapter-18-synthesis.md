@@ -60,7 +60,8 @@ selection principle. Minimality gives the economy.
 Once cap modular flow becomes geometric on the support-visible scaling branch,
 time stops looking imported from outside. It becomes the internal flow attached
 to a restricted state. When those local flows fit together across the smooth
-screen, Lorentz kinematics appears. When generalized entropy sits at
+screen, Lorentz kinematics appears, and the rest-space quotient
+$H^3=SO^+(3,1)/SO(3)$ gives three spatial directions. When generalized entropy sits at
 equilibrium under the allowed MaxEnt variations of a fixed cap, the Einstein
 relation appears as the public large-scale grammar of that equilibrium.
 

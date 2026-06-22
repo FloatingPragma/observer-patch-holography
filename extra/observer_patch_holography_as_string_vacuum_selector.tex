@@ -68,7 +68,7 @@ Observers, Clocks, Edge Strings, and the Bouchard-Donagi Witness}
 \begin{abstract}
 String theory is read here as an effective language for OPH edge dynamics. Finite observer patches compare shared records. Their settled repair histories can be read as worldsheet-like histories on the edge system.
 
-The paper uses that reading as a vacuum-selection sieve. Here ``vacuum'' is conventional string-vacuum terminology; OPH-native vacuum promotion still requires the quotient-ensemble selector and transfer/reflection-positive gate on the compact theorem surface. The compact OPH core supplies the target spacetime and Standard Model structure, and the finite carrier picture supplies records, interfaces, checkpoints, and synchronization. The worked witness is a heterotic Bouchard-Donagi type Standard Model candidate with one light Higgs pair and explicit safety gates. Geometric realization, threshold matching, and moduli locking are work in progress.
+The paper uses that reading as a vacuum-selection sieve. Here ``vacuum'' is conventional string-vacuum terminology. OPH-native vacuum promotion requires the quotient-ensemble selector and transfer/reflection-positive gate on the compact theorem surface. The compact OPH core supplies the target spacetime and Standard Model structure, and the finite carrier picture supplies records, interfaces, checkpoints, and synchronization. Worldsheet criticality is treated as a gate: the twelve-port and twenty-four oriented-register counts must be promoted to a heterotic edge-VOA identification before they become chiral central charges. The worked witness is a heterotic Bouchard-Donagi type Standard Model candidate with one light Higgs pair and explicit safety gates. Geometric realization, worldsheet critical closure, threshold matching, and moduli locking are work in progress.
 \end{abstract}
 
 \section*{What This Paper Contributes}
@@ -80,13 +80,13 @@ one-Higgs branch, records, clocks, and observer-facing boundary data. The
 string description then becomes an effective edge language for histories
 constrained by OPH.
 
-The worked contribution is a sieve rather than a new string landscape. A
+The worked contribution is a sieve for string-vacuum candidates. A
 Bouchard-Donagi type heterotic candidate is treated as a named witness and
 passed through OPH gates: one light Higgs pair, the Standard Model quotient,
-operator safety, threshold compatibility, and moduli locking. The open gates
+operator safety, worldsheet criticality, threshold compatibility, and moduli locking. The open gates
 are explicit. A vacuum survives only if its string data land on the OPH
-quantitative vector without retuning. This is a string-selection statement, not a declaration that
-a simulator reference ensemble or ordinary string vacuum has become the OPH-native vacuum.
+quantitative vector without retuning. The statement selects string data through OPH gates; it
+does not promote a simulator reference ensemble or ordinary string vacuum into the OPH-native vacuum.
 
 \tableofcontents
 \newpage
@@ -104,7 +104,9 @@ continuation. It separates three layers:
 \]
 The first layer is OPH fixed-cutoff patch algebra. The second layer is the heat-kernel
 edge-sector read-off. The third layer is the Bouchard-Donagi heterotic Standard Model used as a
-named critical-string witness.
+named critical-string witness. The heat-kernel edge identity by itself does not prove a critical
+worldsheet CFT; the chiral central-charge gate below is an additional condition on the continuum
+edge branch.
 
 The target claim is conditional. If the OPH recovered-core theorem stack is accepted, if the
 Bouchard-Donagi one-Higgs stratum locks to the OPH quantitative vector without free retuning,
@@ -304,7 +306,8 @@ with full transverse rank after quotienting OPH-invisible redundancies.
 \end{definition}
 
 \begin{theorem}[Correct-string uniqueness theorem]
-Assume the OPH recovered-core target, the heterotic edge-sector branch, the certificate gates
+Assume the OPH recovered-core target, the heterotic edge-sector branch including the
+central-charge gate, the certificate gates
 listed in Section~\ref{sec:open-gates}, and the following comparison principle:
 OPH-correct presentations are ordered first by gate satisfaction, then by the minimality vector
 \[
@@ -381,6 +384,9 @@ Finite de Sitter degrees & Static-patch matrix-carrier theorem: finite patch and
 algebras supply pre-geometric matrix degrees. \\
 DSSYK/QCD/string parallels & Edge-sum universality theorem: heat-kernel edge sums reorganize as
 large-\(N\) worldsheet expansions. \\
+Critical worldsheet closure & Heterotic edge-polarization gate: the sewn-edge scaling limit must
+realize \((\mathrm{Heis}_8\otimes V_{\Gamma_{16}})_L\otimes
+(\mathrm{Heis}_8\otimes\mathrm{Ferm}_8)_R\), with no residual coset. \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -394,6 +400,9 @@ The string/vacuum side of the agenda is:
 \midrule
 String landscape & OPH vacuum sieve theorem: critical completions must hit the observer-visible
 normal form. \\
+Worldsheet criticality & OPH edge-polarization theorem: the sewn-edge scaling limit must be
+identified with the heterotic edge VOA, including OPEs, grading, spin structures, and no residual
+coset. \\
 Global Standard Model group & Global group locking theorem:
 \(S(\U(3)\times\U(2))\cong(\SU(3)\times\SU(2)\times\U(1))/\Z_6\). \\
 GUT proton decay & No-\(X/Y\) gauge theorem: the product-group adjoint contains no mixed
@@ -931,6 +940,9 @@ normal modes gives the oscillator algebra in the scaling limit,
 \qquad
 [\tilde\alpha_m^\mu,\tilde\alpha_n^\nu]=m\delta_{m+n,0}\eta^{\mu\nu}.
 \]
+At this stage the range of \(\mu\) is not fixed by the heat-kernel theorem or by the oscillator
+form alone. The critical dimension and the heterotic internal central charge require the
+central-charge gate in Section~\ref{sec:central-charge-gate}.
 The parameter \(\alpha'_{\OPH}\) is the continuum normalization of the edge diffusion/repair time
 after matching the four-dimensional Newton constant, the OPH pixel scale, and the selected
 compactification threshold.
@@ -957,6 +969,271 @@ The exact fixed-cutoff theorem is the edge heat-kernel/sewing theorem. The conti
 oscillator algebra, and genus expansion require the large-edge/refinement hypotheses. OPH begins
 with finite edge data; string theory is the controlled language of its sewn-edge scaling branch.
 \end{remark}
+
+\section{Critical Central-Charge Gate}\label{sec:central-charge-gate}
+
+The OPH screen and particle papers supply the relevant integer targets for a heterotic branch
+\cite{OPHScreenMicrophysics,OPHParticleZoo}. Those integers become central charges only after the
+gate below. The screen-microphysics construction gives twelve primitive
+curvature/record ports,
+\[
+n_{\rm port}=12,
+\]
+and the reversible write/verify register gives the oriented count
+\[
+m_{\rm rep}
+=2\dim\bigl(\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)\bigr)
+=2(8+3+1)=24.
+\]
+These are finite-register counts. A worldsheet central charge counts gapless conformal degrees of
+freedom, weighted by field type. For example, twenty-four chiral bosons have \(c=24\), but
+twenty-four chiral Majorana fermions have \(c=12\), and massive fields do not contribute to the
+infrared central charge \cite{PolchinskiStringVol1,DiFrancescoCFT}.
+
+The heat-kernel identity also cannot determine \(c_L\) and \(c_R\) by itself. One can tensor the
+sewn edge sector with a spectator CFT without changing
+\[
+Z_{\rm edge}(t)=\sum_R d_R^2e^{-tC_2(R)}=K_t(1),
+\]
+while shifting the total central charge. Therefore port counting and the heat-kernel trace feed a
+criticality test. Criticality requires the heterotic edge-polarization certificate below.
+
+\begin{theorem}[Boundary from OPH edge data]
+The OPH edge statements used here do not imply
+\[
+\operatorname{rank}k_L=24,\qquad
+\operatorname{rank}k_R=12,\qquad
+T_{\OPH}=T_{\rm Sug},\qquad
+G^2\sim T_R.
+\]
+Indeed the rank equations are not invariantly meaningful until a continuum current algebra and its
+level matrices \(k_L,k_R\) have been specified.
+\end{theorem}
+
+\begin{proof}
+There are four independent obstructions.
+
+First, the twelve curvature ports are not themselves twelve independent currents. If one defines
+defect fluctuations \(q_a\), \(a=1,\ldots,12\), from the unit curvature defects, their total charge
+is fixed:
+\[
+\sum_{a=1}^{12}q_a=12.
+\]
+For currents \(J_a=\partial q_a\), this gives
+\[
+\sum_{a=1}^{12}J_a=0,
+\qquad
+\sum_a k_{ab}=0,
+\]
+so the all-ones vector lies in the kernel of the current two-point matrix and
+\[
+\operatorname{rank}k\le 11.
+\]
+On the exact unit-defect normal form, \(q_a=1\) for every port, these curvature currents vanish.
+Thus the curvature-defect variables cannot be the required twelve independent chiral fields; any
+such fields must be new dynamical variables living at the ports.
+
+Second, orientation labels do not by themselves double the rank. If verification is the reverse of
+writing, \(J_{a,-}=-J_{a,+}\), and the unoriented covariance is \(K\), then
+\[
+K_{\rm orient}=
+\begin{pmatrix}
+K&-K\\
+-K&K
+\end{pmatrix}
+\sim
+\begin{pmatrix}
+0&0\\
+0&2K
+\end{pmatrix}.
+\]
+Hence
+\[
+\operatorname{rank}K_{\rm orient}=\operatorname{rank}K,
+\]
+not twice that rank. Doubling would require an independent covariance block
+\[
+K_{\rm independent}=
+\begin{pmatrix}
+K&0\\
+0&K
+\end{pmatrix}.
+\]
+Both covariance structures are compatible with two operation labels. OPH counts write/verify
+operations; independent-field covariance is a separate certificate.
+
+Third, twelve Standard Model generators are not automatically central charge \(12\). For a
+nonabelian affine algebra \(\widehat{\mathfrak g}_k\), the Sugawara central charge is
+\[
+c(\mathfrak g_k)=\frac{k\,\dim\mathfrak g}{k+h^\vee}
+\]
+\cite{DiFrancescoCFT}. Interpreting the Standard Model algebra as level-one affine currents gives
+\[
+\mathfrak g_{\rm SM}
+=
+\mathfrak{su}(3)_1\oplus\mathfrak{su}(2)_1\oplus\mathfrak u(1),
+\]
+and hence
+\[
+c=\frac{8}{1+3}+\frac{3}{1+2}+1=2+1+1=4,
+\]
+not \(12\). Two independent copies would give \(c=8\), not \(24\). To obtain \(c=12\) or \(c=24\),
+the edge slots must be proved equivalent to independent Heisenberg/free-boson currents, or to
+another CFT with those central charges.
+
+Fourth, a current algebra can be a proper subsector of a larger CFT:
+\[
+T_{\OPH}=T_{\rm Sug}+T_{\rm coset},
+\qquad
+c_{\OPH}=c_{\rm Sug}+c_{\rm coset}.
+\]
+The equality \(T_{\OPH}=T_{\rm Sug}\) requires \(T_{\rm coset}=0\). Neither the twelve-port theorem
+nor \(Z_{\rm edge}=K_t(1)\) proves this. Likewise, a worldsheet supercurrent must be a local,
+fermion-odd field of conformal weight \(3/2\) satisfying the super-Virasoro OPE. A square root of a
+discrete repair operation is not enough; one needs a \(\Z_2\) grading, fermionic locality, spin
+structures, and the supercurrent OPE.
+\end{proof}
+
+The precise claim is conditional: a heterotic edge-CFT completion would make the ranks,
+stress-tensor equality, supercurrent, and critical dimension follow rigidly.
+
+\begin{assumption}[Heterotic edge-polarization hypothesis]\label{ass:heterotic-edge-polarization}
+The physical sewn-edge scaling limit is isomorphic, as a graded chiral CFT, to
+\[
+\operatorname{ScaleLim}(\text{OPH sewn-edge carrier})
+\cong
+\left(\mathrm{Heis}_8\otimes V_{\Gamma_{16}}\right)_L
+\otimes
+\left(\mathrm{Heis}_8\otimes \mathrm{Ferm}_8\right)_R,
+\]
+with no residual coset or spectator CFT. Here \(\mathrm{Heis}_8\) is generated by eight transverse
+free bosons, \(V_{\Gamma_{16}}\) is a rank-sixteen even self-dual lattice VOA on the left-moving
+side, and \(\mathrm{Ferm}_8\) is generated by eight right-moving Majorana fermions with a
+consistent spin-structure projection.
+\end{assumption}
+
+\begin{theorem}[Heterotic completion theorem]
+Under Assumption~\ref{ass:heterotic-edge-polarization}, the physical chiral central charges are
+\[
+\boxed{c_L^{\rm phys}=24,\qquad c_R^{\rm phys}=12,}
+\]
+the relevant Heisenberg level matrices have ranks \(24\) and \(12\), the stress tensors are
+Sugawara stress tensors for those Heisenberg currents, and the right-moving sector carries an
+\(N=1\) supercurrent. The shared target spacetime dimension is then forced to be \(D=10\), with
+left-moving internal central charge \(16\).
+\end{theorem}
+
+\begin{proof}
+On the left, write
+\[
+\Phi_L^A=(X_L^1,\ldots,X_L^8,Y_L^1,\ldots,Y_L^{16}),
+\qquad
+A=1,\ldots,24,
+\]
+with
+\[
+\Phi_L^A(z)\Phi_L^B(w)\sim-\delta^{AB}\log(z-w).
+\]
+The currents \(J_L^A=i\partial\Phi_L^A\) obey
+\[
+J_L^A(z)J_L^B(w)\sim\frac{\delta^{AB}}{(z-w)^2},
+\]
+so \(k_L=I_{24}\) and \(\operatorname{rank}k_L=24\). The abelian Sugawara tensor
+\[
+T_L=\frac12\sum_{A=1}^{24}:J_L^AJ_L^A:
+\]
+has Virasoro central charge \(c_L=24\), and by the no-coset clause it is the full left-moving stress
+tensor.
+
+On the right, take eight transverse bosons \(X_R^i\) and eight Majorana fermions \(\psi^i\):
+\[
+X_R^i(\bar z)X_R^j(\bar w)\sim-\delta^{ij}\log(\bar z-\bar w),
+\qquad
+\psi^i(\bar z)\psi^j(\bar w)\sim\frac{\delta^{ij}}{\bar z-\bar w}.
+\]
+Pairwise bosonization of the fermions,
+\[
+\frac{\psi^{2a-1}\pm i\psi^{2a}}{\sqrt2}=e^{\pm iH^a},
+\qquad
+a=1,\ldots,4,
+\]
+shows that their stress tensor is equivalent to four chiral bosons. A Heisenberg-current basis is
+\[
+J_R^\alpha=
+\left(
+i\bar\partial X_R^1,\ldots,i\bar\partial X_R^8,
+i\bar\partial H^1,\ldots,i\bar\partial H^4
+\right),
+\qquad
+\alpha=1,\ldots,12,
+\]
+with level matrix \(k_R=I_{12}\). Thus \(\operatorname{rank}k_R=12\), and the right-moving stress
+tensor is the full abelian Sugawara tensor in the bosonized basis:
+\[
+T_R=\frac12\sum_{\alpha=1}^{12}:J_R^\alpha J_R^\alpha:,
+\qquad
+c_R=8+\frac82=12.
+\]
+The unbosonized expression gives the standard \(N=1\) supercurrent
+\[
+G_R(\bar z)=i\sum_{i=1}^{8}\psi^i(\bar z)\bar\partial X_R^i(\bar z).
+\]
+Wick contraction yields
+\[
+G_R(\bar z)G_R(\bar w)
+\sim
+\frac{8}{(\bar z-\bar w)^3}
++
+\frac{2T_R(\bar w)}{\bar z-\bar w}.
+\]
+Since \(2c_R/3=2(12)/3=8\), this is precisely the \(N=1\) super-Virasoro OPE, so
+\[
+G^2\sim T_R.
+\]
+
+Let \(n=D-2\) be the number of physical transverse spacetime coordinates. On the supersymmetric
+chirality,
+\[
+c_R^{\rm phys}=n+\frac n2=\frac32 n.
+\]
+Setting \(c_R^{\rm phys}=12\) gives \(n=8\), hence
+\[
+\boxed{D=10.}
+\]
+On the bosonic chirality,
+\[
+c_L^{\rm phys}=n+c_{\rm internal}=24,
+\]
+so
+\[
+\boxed{c_{\rm internal}=16.}
+\]
+Covariantly,
+\[
+c_L^{\rm matter}=10+16=26,
+\qquad
+c_R^{\rm matter}=10+\frac{10}{2}=15,
+\]
+the matter central charges canceled by the bosonic ghosts on the left and the
+supersymmetric ghost system on the right.
+\end{proof}
+
+The OPH theorem target is precise:
+\[
+\boxed{
+\operatorname{ScaleLim}(\text{OPH sewn-edge carrier})
+\cong
+\left(\mathrm{Heis}_8\otimes V_{\Gamma_{16}}\right)_L
+\otimes
+\left(\mathrm{Heis}_8\otimes \mathrm{Ferm}_8\right)_R
+}
+\]
+with no residual coset. It cannot be replaced by the numerical observation \(12\to24\). It must be
+established by constructing the edge transfer operator, identifying the gapless chiral fields,
+calculating their OPEs, deriving the fermionic grading and spin-structure sum, and proving stress
+exhaustion. Once that edge-VOA identification is proved, \(D=10\) and the left-moving
+\(c_{\rm internal}=16\) sector follow by the calculation above. The number \(26\) belongs to the
+left-moving bosonic matter central charge, not to twenty-six shared heterotic spacetime dimensions.
 
 \section{The OPH Graviton and the String Graviton}
 
@@ -1129,6 +1406,8 @@ The augmented vacuum equations are:
 \[
 \begin{cases}
 \beta^G=\beta^B=\beta^\Phi=0, & \text{worldsheet consistency},\\
+(c_L^{\rm phys},c_R^{\rm phys})=(24,12),\quad G^2\sim T_R, &
+\text{central-charge/supercurrent gate},\\
 F^{0,2}=0,\quad J^2\wedge F=0, & \text{heterotic bundle stability/HYM},\\
 c_2(TX)-c_2(V_{\rm vis})-c_2(V_{\rm hid})=[W], & \text{Bianchi/anomaly condition},\\
 \chi(V_{\rm matter})=3,\quad n_H=1,\quad N_{\rm exotic}=0, & \text{visible cohomology target},\\
@@ -1300,6 +1579,9 @@ Higgs multiplicity & Selects \(n=1\) among BD \(n=0,1,2\) strata. & Selector pro
 Simple-GUT proton decay & Product-group adjoint excludes \(X/Y\) gauge bosons. & Exact Lie-algebra
 proof. \\
 String emergence & Sewn edge partition equals \(K_t(1)\). & Exact Peter-Weyl proof. \\
+Worldsheet criticality & The twelve-port and twenty-four oriented-register counts define only a
+heterotic central-charge target until the edge VOA is identified. & Non-implication theorem plus
+heterotic completion theorem; edge-polarization certificate work in progress. \\
 Moduli stabilization & Becomes \(\calF(m_\star)=\calO_{\OPH}\). & Target criterion; BD map is
 work in progress. \\
 Operator safety & The MSSM \(\ZfourR\) layer permits Yukawas and the Weinberg operator, and
@@ -1326,6 +1608,10 @@ Exotic matter & BD supplies the no-exotics MSSM spectrum witness. & Published ge
 certificate. \\
 Simple-GUT proton decay & The product-group adjoint excludes mixed \((3,2,\pm5/6)\) gauge
 bosons. & Exact Lie algebra. \\
+Critical dimension & If the sewn-edge carrier has the heterotic polarization
+\((\mathrm{Heis}_8\otimes V_{\Gamma_{16}})_L\otimes
+(\mathrm{Heis}_8\otimes\mathrm{Ferm}_8)_R\), then \(D=10\) and
+\(c_{\rm internal}=16\). & Conditional edge-VOA gate. \\
 RPV and \(\mu\)-problem & \(\ZfourR\) permits Yukawas, forbids perturbative RPV and
 dimension-five proton decay, forbids perturbative \(\mu\), and leaves matter parity. & Exact
 charge algebra; compactification certificate required. \\
@@ -1939,7 +2225,8 @@ n_H=1,\,
 \ZfourR\text{ safety}
 \right).
 \]
-\item The effective string continuation is read through the heterotic edge-sector branch.
+\item The effective string continuation is read through the heterotic edge-sector branch and
+satisfies the central-charge/supercurrent gate of Section~\ref{sec:central-charge-gate}.
 \item The BD cohomology certificate realizes the one-Higgs, three-generation, no-exotics
 stratum with Wilson-line centralizer \(S(\U(3)\times\U(2))\).
 \item The same branch realizes \(\ZfourR\), or an OPH-equivalent safety rule, on the visible
@@ -1975,10 +2262,10 @@ BD_{n=1,+}^{\OPH}.
 
 \begin{proof}
 The recovered-core target fixes the observer-visible group, hypercharge lattice, generation
-count, Higgs count, exotic-matter gate, and operator-safety gate. The heterotic edge-sector branch
-and the OPH minimality order restrict the comparison class to heterotic edge-sector completions at
-the audit boundary, with brane/orientifold and duality-rewritten presentations treated as separate
-presentation tests. The BD
+count, Higgs count, exotic-matter gate, and operator-safety gate. The heterotic edge-sector branch,
+the central-charge/supercurrent gate, and the OPH minimality order restrict the comparison class to
+heterotic edge-sector completions at the audit boundary, with brane/orientifold and
+duality-rewritten presentations treated as separate presentation tests. The BD
 certificate supplies a nonempty \(\Z_2\)-quotient \(\SU(5)\)-bundle witness with the required
 three-generation, no-exotics, one-Higgs spectrum. The centralizer and quotient theorems identify
 its Wilson-line centralizer with the OPH global Standard Model group. The \(\ZfourR\) safety
@@ -1996,8 +2283,8 @@ BD_{n=1}^{\SU(5),\Z_2}+\ZfourR
 
 \begin{remark}[Certificate boundary]
 The theorem gives the full proof shape. Its algebraic steps close in this paper. The
-cohomology table, \(\ZfourR\)-realization table, Yukawa/superpotential table, threshold table,
-and Jacobian-rank table form the external certificate package.
+central-charge table, cohomology table, \(\ZfourR\)-realization table, Yukawa/superpotential table,
+threshold table, and Jacobian-rank table form the external certificate package.
 \end{remark}
 
 \begin{theorem}[Certificate closure criterion]
@@ -2005,17 +2292,18 @@ The equality
 \[
 \mathcal V_{\rm crit}^{\OPH}/\Teq=\{BD_{n=1,+}^{\OPH}\}
 \]
-is fully certified once the six machine-readable certificates in Section~\ref{sec:open-gates}
-verify: cohomology, \(\ZfourR\) realization, superpotential safety, threshold matching, moduli
-locking with full transverse rank, and comparative uniqueness. If any of the first five
-certificates fails, the selected representative retracts. If the sixth certificate fails, uniqueness
+is fully certified once the seven certificates in Section~\ref{sec:open-gates}
+verify: central-charge/supercurrent closure, cohomology, \(\ZfourR\) realization, superpotential
+safety, threshold matching, moduli locking with full transverse rank, and comparative uniqueness.
+If any of the first six
+certificates fails, the selected representative retracts. If the seventh certificate fails, uniqueness
 retracts and the surviving OPH-admissible set requires a wider comparison audit.
 \end{theorem}
 
 \begin{proof}
-The exact candidate theorem is a conjunction of six independent certificate gates. Gates 1--5 are
-existence and safety gates for the named representative. Gate 6 is a comparison gate over the
-declared candidate class. If all six hold, the named representative exists and is the unique minimal
+The exact candidate theorem is a conjunction of seven independent certificate gates. Gates 1--6 are
+existence and safety gates for the named representative. Gate 7 is a comparison gate over the
+declared candidate class. If all seven hold, the named representative exists and is the unique minimal
 OPH-admissible survivor. If an existence or safety gate fails, the named representative misses the
 definition of OPH-correctness. If the comparison gate alone fails, the named representative may
 remain OPH-correct, with singleton status retracted. This proves the criterion.
@@ -2075,6 +2363,10 @@ the working contract for an independent heterotic reproduction:
 \toprule
 \textbf{Gate} & \textbf{Needed input} & \textbf{State of the paper claim} \\
 \midrule
+Central-charge and supercurrent certificate & Edge transfer operator, gapless chiral-field
+identification, OPEs, fermionic grading, spin-structure sum, and proof of no residual coset. &
+Non-implication theorem and heterotic completion theorem stated; edge-polarization certificate work
+in progress. \\
 Cohomology certificate & Explicit \(X\), \(V\), and equivariant \(\Z_2\) action in
 cohomCalg, Sage, or Macaulay2 form. & Structural witness cited; raw computation work in
 progress. \\
@@ -2113,6 +2405,8 @@ BD cohomology reproduction fails & Retracts \(BD_{n=1}^{\OPH}\) as selected geom
 operator-safe candidate. \\
 Dangerous operators survive without suppression & Severe pressure on the effective theory. \\
 No moduli point matches \(\calO_{\OPH}\) & Retracts the operator-safe candidate. \\
+Central-charge or supercurrent gate fails & Retracts the heterotic critical-worldsheet
+identification of the sewn edge branch. \\
 Critical-string lift fails & Weakens the string continuation; the OPH recovered core is a separate claim tier. \\
 \bottomrule
 \end{longtable}
@@ -2127,14 +2421,16 @@ The most persuasive route is compact:
 \item prove record-branch time-reversal breaking on the observer quotient;
 \item derive \(S_{\rm dS}=A/(4\ell_P^2)=N_{\rm scr}\) as edge-center record capacity;
 \item derive \(Z_{\rm edge}(t)=K_t(1)\) and the large-\(N_{\rm edge}\) worldsheet branch;
+\item prove the heterotic edge-polarization theorem for the sewn-edge scaling limit, including
+OPEs, fermionic grading, spin structures, and no residual coset;
 \item prove the OPH vacuum sieve, global group lock, \(\ZfourR\) safety table, no-\(X/Y\) gauge
 theorem, and moduli-locking criterion;
 \item reproduce the Bouchard-Donagi \(n=1\) cohomology, \(\ZfourR\) realization, and operator
 catalogue.
 \end{enumerate}
 
-The first two items target the de Sitter observer and time-reversal program. The last two items
-target the string community's demand for a reproducible vacuum selector.
+The first two items target the de Sitter observer and time-reversal program. The last three items
+target the string community's demand for a reproducible critical-worldsheet and vacuum selector.
 
 
 \section{What This Solves for De Sitter and String Theory}
@@ -2170,6 +2466,9 @@ How are moduli stabilized? & The problem becomes the target-locking equation
 \(\calF(m_\star)=\calO_{\OPH}\) plus full transverse rank. & Numerical/rank certificate. \\
 What is the string graviton? & The closed-string vertex image of the OPH transverse-traceless
 metric perturbation. & Normalization match. \\
+What fixes the critical dimension? & The central-charge gate must identify the sewn-edge carrier
+with the heterotic edge VOA; then heterotic criticality gives \(D=10\) and
+\(c_{\rm internal}=16\). & Edge transfer, OPE, grading, spin-structure, and no-coset receipts. \\
 \bottomrule
 \end{longtable}
 
@@ -2192,15 +2491,16 @@ problems are projections of the same finite patch-federation normal-form problem
 
 OPH gives a finite observer/record/overlap implementation layer for de Sitter holography. The
 same edge system admits a sewn-worldsheet language. Critical string theory enters as the
-effective completion of that language, and the OPH visible-normal-form target selects the
+effective completion of that language only after the central-charge gate closes. Conditional on
+that gate, the OPH visible-normal-form target selects the
 Bouchard-Donagi one-Higgs heterotic Standard Model as the geometric witness. Adding the MSSM
 \(\ZfourR\) safety layer gives the operator-safe selected candidate
 \[
 BD_{n=1,+}^{\OPH}=BD_{n=1}^{\OPH}+\ZfourR.
 \]
 
-The claim remains falsifiable. The cohomology, safety-layer, threshold, and moduli gates decide
-how far the operator-safe candidate goes.
+The claim remains falsifiable. The central-charge, cohomology, safety-layer, threshold, and moduli
+gates decide how far the operator-safe candidate goes.
 
 \begin{thebibliography}{99}
 
@@ -2309,6 +2609,16 @@ arXiv:2501.09423.
 S.\ Miyashita, Y.\ Sekino, and L.\ Susskind,
 \emph{DSSYK at Infinite Temperature: The Flat-Space Limit and the 't Hooft Model},
 arXiv:2506.18054.
+
+\bibitem{PolchinskiStringVol1}
+J.\ Polchinski,
+\emph{String Theory, Volume 1: An Introduction to the Bosonic String},
+Cambridge University Press, 1998.
+
+\bibitem{DiFrancescoCFT}
+P.\ Di Francesco, P.\ Mathieu, and D.\ Senechal,
+\emph{Conformal Field Theory},
+Springer, 1997.
 
 \bibitem{BouchardDonagi2005}
 V.\ Bouchard and R.\ Donagi,

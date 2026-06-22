@@ -220,12 +220,12 @@ kinematics emerges from screen dynamics.
 
 That statement is about sector or family identity. It should not be confused
 with the narrower bookkeeping question of whether two localized detector
-records are the same continuing token across a chart boundary. The paper now
-treats that second question as a conditional H3 certificate: the stitch needs a
-declared hyperboloid chart, common clock, real transverse interface,
-sector/gauge transport, an ID-independent assignment gap, and a refinement
-check. Without those receipts, the honest output is ambiguity, not a forced
-track.
+records are the same continuing token across a chart boundary. The particle
+paper treats that second question as a conditional hyperbolic-chart certificate:
+the stitch needs a declared spatial chart, common clock, real transverse
+interface, sector/gauge transport, an ID-independent assignment gap, and a
+refinement check. Without those receipts, OPH records ambiguity instead of a
+forced track.
 
 Mass tells you how the excitation answers time translations. Spin tells you how
 it answers rotations. Once Lorentz symmetry is in place, energy and momentum
