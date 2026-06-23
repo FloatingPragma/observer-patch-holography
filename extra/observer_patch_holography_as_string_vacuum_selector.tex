@@ -80,6 +80,12 @@ one-Higgs branch, records, clocks, and observer-facing boundary data. The
 string description then becomes an effective edge language for histories
 constrained by OPH.
 
+The sieve is not only a particle-spectrum filter. It also carries the interaction package:
+the OPH Einstein branch supplies the gravity target, the compact-gauge branch supplies the
+strong/electroweak target, and the exact Standard Model quotient fixes the visible charge lattice.
+The string representative must realize those forces and the particle content on the same
+observer-visible branch.
+
 The worked contribution is a sieve for string-vacuum candidates. A
 Bouchard-Donagi type heterotic candidate is treated as a named witness and
 passed through OPH gates: one light Higgs pair, the Standard Model quotient,
@@ -107,6 +113,51 @@ edge-sector read-off. The third layer is the Bouchard-Donagi heterotic Standard 
 named critical-string witness. The heat-kernel edge identity by itself does not prove a critical
 worldsheet CFT; the critical-edge certificate below is an additional condition on the continuum
 edge branch.
+
+\subsection{Forces, gauge group, and effective strings}
+
+The reader-facing phrase ``particles and forces'' is translated here into OPH gates. The particle
+package is not independent of the interaction package: matter representations, charges, gauge
+bosons, and the graviton are all read from the same observer-visible normal form.
+
+\begin{description}[leftmargin=2em]
+\item[Gravity.]
+The OPH target is a single Einstein-frame metric perturbation on the physical quotient, with one
+massless transverse-traceless graviton. The critical representative must identify its closed-string
+symmetric spin-two state with that OPH graviton and match
+\(G_4^{\rm string}=G_4^{\OPH}\).
+
+\item[Strong force.]
+The color factor is the \(\SU(3)_c\) part of the global quotient
+\((\SU(3)\times\SU(2)\times\U(1))/\Z_6\). The visible compactification must realize this charge
+lattice with no light chiral exotics.
+
+\item[Weak and electromagnetic forces.]
+The electroweak target is the \(\SU(2)\times\U(1)\) branch, the exact hypercharge lattice, the
+one-Higgs target, and the resulting low-energy \(U(1)_{\rm em}\). The candidate must land on that
+one-Higgs Standard Model branch and preserve the OPH hypercharge quotient.
+
+\item[Standard Model gauge group.]
+The target is the global group
+\[
+G_{\rm phys}=(\SU(3)\times\SU(2)\times\U(1))/\Z_6,
+\]
+not just the Lie algebra. The Bouchard-Donagi Wilson-line centralizer must equal
+\(S(\U(3)\times\U(2))\cong G_{\rm phys}\), excluding simple-GUT \(X/Y\) gauge bosons from the
+unbroken visible adjoint.
+
+\item[Effective string theory.]
+The OPH input is stable cyclic edge normal forms, collar sewing, records, and accepted repair
+histories. The fixed-cutoff read-off is \(Z_{\rm edge}=K_t(1)\); a controlled large-edge branch
+gives the perturbative worldsheet language, and the critical-edge certificate decides whether the
+branch is a heterotic critical string.
+\end{description}
+
+Thus the paper does not add forces after selecting particles. It first fixes the
+observer-visible interaction structure and then asks which string compactification realizes that
+whole structure. The three Standard Model gauge forces are the low-energy decomposition of the
+global quotient, while gravity is the OPH Einstein branch read as the closed-string graviton only
+after a critical lift.
 
 The target claim is conditional. If the OPH recovered-core theorem stack is accepted, if the
 Bouchard-Donagi one-Higgs stratum locks to the OPH quantitative vector without free retuning,
@@ -1141,6 +1192,72 @@ Z_{\OPH}(\tau,\bar\tau)=q^{-1}\bar q^{-1/2}(1+\cdots)
 with the modular transformations of the heterotic spin-structure sum.
 \end{enumerate}
 \end{definition}
+
+\subsection{Operational finite-carrier receipt protocol}
+
+The finite-carrier certificate is an executable protocol, not a synonym for a single
+twelve-port cavity. A single Echosahedron is a recurrent zero-spatial-dimensional patch: it evolves
+and self-reads, but it does not yet supply the spatial edge coordinate needed for a
+\((1+1)\)-dimensional scaling theory. Central charge, current modes, and Virasoro closure require
+a sewn edge cylinder
+\[
+\mathrm{EDGE\_CYLINDER}(L),
+\qquad
+\mathcal H_L=\bigotimes_{x=0}^{L-1}\mathcal H_{\mathrm{cell},x},
+\qquad x\equiv x+L.
+\]
+The local update on this cylinder must be inherited from the OPH read--compare--repair--commit
+cycle, not chosen to reproduce a desired CFT. Its exported object is a transfer operator
+\[
+T_L=e^{-aH_L},
+\]
+or, for a stochastic carrier, a Markov/Koopman transfer operator with a reflected-positive
+Euclidean interpretation.
+
+The operational receipt suite is:
+\begin{enumerate}[leftmargin=2em,label=\textbf{FC-\arabic*.}]
+\item \textbf{Carrier and refinement manifest.} Export model hashes, local factor dimensions,
+update/repair gates, transfer callbacks, \(A_5\) action, orientation involution, translation
+operator, record/port operators, refinement maps, precision model, and either a positive
+self-adjoint transfer matrix or reflected-positive Gram matrices.
+\item \textbf{Twelve-port dynamical rank.} Perturb the twelve ports around settled states, measure
+the full response matrix, decompose the \(A_5\) representation
+\(\mathbb R^{12}\cong\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5\), and require all
+irreducible response coefficients to remain nonzero under refinement.
+\item \textbf{Orientation independence.} Form
+\(V_{\rm port}\otimes\mathbb R[C_2]\), project to the \(A_5\times C_2\) sectors, and verify that
+both orientation parities survive dynamically. This is the immediate falsifier for mere
+write/verify duplication.
+\item \textbf{Conserved currents.} Discover local densities and currents satisfying the discrete
+continuity equation on the edge cylinder, then measure chiral level matrices whose stable ranks
+approach
+\[
+\operatorname{rank}k_L=24,\qquad \operatorname{rank}k_R=12.
+\]
+\item \textbf{Virasoro central charge.} Construct lattice stress-tensor modes and fit the
+Virasoro residuals on low-energy projectors, with independent finite-size energy checks, targeting
+\[
+c_L\to24,\qquad c_R\to12.
+\]
+\item \textbf{Sugawara exhaustion.} Build the Sugawara stress tensor from the measured currents
+and require \(T_{\OPH}-T_{\rm Sug}\to0\), equivalently no residual positive-central-charge coset.
+\item \textbf{Supercurrent.} Exhibit a genuine right-moving graded sector and a local odd
+supercurrent whose finite-carrier square-root receipt satisfies \(Q_N^2-H_{R,N}\to0\) on the
+low-energy projector.
+\item \textbf{Torus, spin structures, and internal lattice.} Export spin-structure partition
+functions, verify their modular transformation law after the full GSO projection, and identify the
+rank-sixteen even self-dual left-moving internal lattice. The Bouchard-Donagi witness belongs to
+the \(E_8\oplus E_8\) heterotic branch.
+\item \textbf{Blind refinement and falsification.} Pre-register several \((L,a)\) refinements,
+report all failures, and run controls that collapse orientation, permute ports, break icosahedral
+geometry, add spectators or masses, reverse chirality conventions, and disconnect seams.
+\end{enumerate}
+
+The existing twelve-port simulator can test FC-0, FC-1, and the precursor part of FC-2. It cannot
+by itself test \(\operatorname{rank}k_L=24\), \(\operatorname{rank}k_R=12\), \(T_{\OPH}=T_{\rm Sug}\),
+the right-moving supercurrent, or \((c_L,c_R)=(24,12)\). Those require the edge-cylinder extension.
+Until such receipts are exported, the heterotic central-charge identification remains an open gate,
+not a passed numerical result.
 
 \begin{lemma}[Port-spectrum and icosahedral rank tests]
 If every nonzero observer-visible repair generator changes some dynamical port record, then
