@@ -411,7 +411,7 @@ If the effective state space is finite and every value-admitted exploratory move
 \end{theorem}
 
 \begin{proof}
-The global state space is finite, so \(\Psi(\Sigma)\) is a finite set of values. A strictly decreasing sequence in a finite ordered set cannot be infinite.
+Finite descent applies to \(\Psi(\Sigma)\), so the exploratory phase terminates.
 \end{proof}
 
 \[
@@ -2388,7 +2388,7 @@ This is the same update class as a recurrent neural network or state-space model
 \end{theorem}
 
 \begin{proof}
-Linear wave propagation is represented by \(A\). Input injection contributes \(Bu_t\). Fixed reflectors, thresholds, or offsets contribute \(b\). Nonlinear junctions, TX/RX response, or saturating electronics contribute \(\sigma\). Recirculation feeds the revised field back as the next state. The displayed recurrence follows.
+Linear wave propagation is represented by \(A\). Input injection contributes \(Bu_t\). Fixed reflectors, thresholds, or offsets contribute \(b\). Nonlinear junctions, TX/RX response, or saturating electronics contribute \(\sigma\). Recirculation feeds the updated field back as the next state. The displayed recurrence follows.
 \end{proof}
 
 This theorem is why the optical chip and the brain belong in the same proof stack. They differ in substrate while sharing recurrence class.
