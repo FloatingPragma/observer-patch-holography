@@ -12,12 +12,9 @@ from datetime import datetime, timezone
 from typing import Any, Dict, List, Sequence, Tuple
 from xml.sax.saxutils import escape
 
-import yaml
-
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 RESULTS_JSON = ROOT / "particles" / "results_status.json"
-TASK_TRACKER_YAML = ROOT / "particles" / "task_tracker.yaml"
 EXACT_NONHADRON_JSON = ROOT / "particles" / "exact_nonhadron_masses.json"
 DEFAULT_OUTPUT = ROOT / "particles" / "particle_mass_derivation_graph.svg"
 PUBLIC_PIXEL_DISPLAY = "1.630968"
@@ -189,10 +186,9 @@ LANES: List[Dict[str, Any]] = [
             "and spin-2 carrier sectors remain massless at the structural level because their mass terms "
             "would break required gauge or diffeomorphism redundancies."
         ),
-        "tasks_text": "Ledger blocker list is empty for these structural massless rows.",
+        "frontier_text": "Claim-boundary list is empty for these structural massless rows.",
         "prediction_surface": "Structural massless carrier output surface.",
         "particles": ["photon", "gluon", "graviton"],
-        "tasks": [],
     },
     {
         "key": "d10",
@@ -206,13 +202,9 @@ LANES: List[Dict[str, Any]] = [
             "side is tracked separately as an outer/inner closure problem for the same pixel. The running-family "
             "anchor at the Z scale is a consistency surface outside final zero-momentum closure."
         ),
-        "tasks_text": "Frontier statement: this trunk records the W/Z comparison lane. The electromagnetic frontier is the direct zero-momentum closure for the same pixel.",
+        "frontier_text": "Frontier statement: this trunk records the W/Z comparison lane. The electromagnetic frontier is the direct zero-momentum closure for the same pixel.",
         "prediction_surface": "P-driven electroweak running family plus W/Z comparison lane. The low-energy electromagnetic row is tracked separately as a closure problem for the same pixel.",
         "particles": ["w_boson", "z_boson"],
-        "tasks": [
-            "particles.calibration.02-separate-p-resolution-from-d10-transport-mismatch",
-            "particles.calibration.04-push-single-p-exact-ew-closure-branch",
-        ],
     },
     {
         "key": "d11",
@@ -226,18 +218,17 @@ LANES: List[Dict[str, Any]] = [
             "with source-only residual selectors for the top and Higgs channels, then reads out "
             "`m_t = 172.3523553288312 GeV` and `m_H = 125.1995304097179 GeV`. The compare-only exact pair "
             "is a validation surface. The exact public running-top row is also carried by the selected-class "
-            "quark theorem. The auxiliary direct-top PDG row is compare-only with corpus-limited no-go status."
+            "quark theorem. The auxiliary direct-top PDG row is compare-only with a corpus-limited no-go boundary."
         ),
-        "tasks_text": "Ledger state: the exact source-only electroweak Higgs theorem is closed on the declared running, matching, and threshold surface; the one-scalar seed is a lower-rank fixed-ray branch; the exact inverse slice is compare-only; the direct-top auxiliary conversion has corpus-limited no-go status.",
+        "frontier_text": "Claim boundary: the exact source-only electroweak Higgs theorem is closed on the declared running, matching, and threshold surface; the one-scalar seed is a lower-rank fixed-ray branch; the exact inverse slice is compare-only; the direct-top auxiliary conversion has a corpus-limited no-go boundary.",
         "prediction_surface": "Electroweak split-theorem surface with an exact Higgs row and a companion top coordinate on the declared readout surface.",
         "particles": ["higgs"],
-        "tasks": [],
     },
     {
         "key": "leptons",
         "title": "Charged Leptons",
         "summary": "The charged-lepton lane contains an exact same-family readout, a source-side determinant character, a conditional determinant-line lift on theorem-grade physical charged data, and an algebraic charged-mass readout once the absolute anchor is supplied.",
-        "takeaway": "The theorem surface contains the exact same-family witness, the source-side determinant character, the conditional determinant-line lift, and the downstream algebraic mass readout. The available corpus does not emit the sector-isolated trace-lift attachment, so the absolute-mass row has corpus-limited no-go status.",
+        "takeaway": "The theorem surface contains the exact same-family witness, the source-side determinant character, the conditional determinant-line lift, and the downstream algebraic mass readout. The available corpus does not emit the sector-isolated trace-lift attachment, so the absolute-mass row has a corpus-limited no-go boundary.",
         "logic": (
             "The lane starts from the ordered charged package, proves that the realized support is a one-dimensional "
             "linear subray, exposes the canonical quadratic support-extension direction, maps that into the charged "
@@ -250,10 +241,9 @@ LANES: List[Dict[str, Any]] = [
             "The populated source-side determinant character exists for each fixed formal source exponent vector. "
             "The required closure object is the sector-isolated trace-lift attachment on the charged determinant channel."
         ),
-        "tasks_text": "Frontier statement: the same-family witness, the source-side determinant character, the conditional determinant-line lift, and the algebraic mass readout are part of the charged theorem surface. The absolute-mass lane has corpus-limited no-go status. Reopening requires a sector-isolated trace-lift attachment.",
+        "frontier_text": "Frontier statement: the same-family witness, the source-side determinant character, the conditional determinant-line lift, and the algebraic mass readout are part of the charged theorem surface. The absolute-mass lane has a corpus-limited no-go boundary. Promotion requires a sector-isolated trace-lift attachment.",
         "prediction_surface": "Charged theorem surface with an exact same-family witness, a conditional determinant-line lift on theorem-grade physical charged data, and an algebraic charged-mass readout from theorem-grade absolute charged data.",
         "particles": ["electron", "muon", "tau"],
-        "tasks": ["papers.compact.e.30e-derive-d10-to-charged-determinant-line-landing"],
     },
     {
         "key": "quarks",
@@ -275,10 +265,9 @@ LANES: List[Dict[str, Any]] = [
             "forward Yukawas. The theorem does not claim "
             "a global classification of all quark frame classes."
         ),
-        "tasks_text": "Selected-class theorem statement: the public physical quark frame class chosen by P carries the exact physical sigma datum. The affine mean law emits the quark means algebraically, and the exact forward construction emits the exact sextet together with explicit exact forward Yukawas. Global classification and alternative transfer routes are separate work.",
+        "frontier_text": "Selected-class theorem statement: the public physical quark frame class chosen by P carries the exact physical sigma datum. The affine mean law emits the quark means algebraically, and the exact forward construction emits the exact sextet together with explicit exact forward Yukawas. Global classification and alternative transfer routes remain outside this selected-class surface.",
         "prediction_surface": "Public quark surface: theorem-grade exact sextet on the selected public physical quark frame class, explicit exact forward Yukawas on that selected class, supporting exact witness surfaces, and the separate target-free mass bridge on the emitted ray.",
         "particles": ["up_quark", "down_quark", "strange_quark", "charm_quark", "bottom_quark", "top_quark"],
-        "tasks": [],
     },
     {
         "key": "neutrinos",
@@ -301,14 +290,9 @@ LANES: List[Dict[str, Any]] = [
             "That same compare-only branch also carries explicit bridge coordinates `(B_nu, C_nu)`, evaluated on the exact adapter without feeding back into theorem state. "
             "The bridge-rigidity theorem emits `C_nu`, the emitted proxy is `P_nu = I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1`, the paper-facing amplitude is `B_nu = P_nu * C_nu`, and the absolute-attachment theorem emits the positive normalization scalar and the absolute neutrino family."
         ),
-        "tasks_text": "Ledger state: the weighted-cycle bridge-rigidity and absolute-attachment pair emits the absolute neutrino family. Positive-segment exact adapters and bridge-coordinate readouts are diagnostic sidecars.",
+        "frontier_text": "Claim boundary: the weighted-cycle bridge-rigidity and absolute-attachment pair emits the absolute neutrino family. Positive-segment exact adapters and bridge-coordinate readouts are diagnostic sidecars.",
         "prediction_surface": "Weighted-cycle neutrino theorem surface with PMNS/hierarchy closure, emitted bridge invariant `C_nu`, emitted proxy `P_nu`, paper-facing amplitude `B_nu`, and the bridge-rigid absolute family. Exact positive-segment adapters remain compare-only diagnostics.",
         "particles": ["electron_neutrino", "muon_neutrino", "tau_neutrino"],
-        "tasks": [
-            "papers.compact.e.32-derive-neutrino-masses-from-screen-capacity-as-a-theorem",
-            "particles.neutrino.11-derive-majorana-phase-pullback-metric",
-            "particles.e.32b-close-neutrino-splittings-and-mixing",
-        ],
     },
     {
         "key": "hadrons",
@@ -323,28 +307,15 @@ LANES: List[Dict[str, Any]] = [
             "hadron masses require one production backend export bundle with publication-complete manifest provenance, real `pi_iso`, `N_iso_direct`, and `N_iso_exchange` arrays, the executed runtime receipt `(N_therm, N_sep)`, and then declared production continuum/volume/chiral/statistical systematics. "
             "The surrogate execution bridge is only a diagnostic proof that the schema closes; it is not a promotable hadron output surface."
         ),
-        "tasks_text": "Source-only scope: the hadron backend lane requires a GLORB/Echosahedron-class OPH backend with real correlator arrays and published statistical plus continuum/volume/chiral systematics on the seeded stable-channel branch. Empirical closure scope: e+e- spectral data can feed a separate display class.",
+        "frontier_text": "Source-only scope: the hadron backend lane requires a GLORB/Echosahedron-class OPH backend with real correlator arrays and published statistical plus continuum/volume/chiral systematics on the seeded stable-channel branch. Empirical closure scope: e+e- spectral data can feed a separate display class.",
         "prediction_surface": "Stable-channel hadron shell with source-backend prerequisites; source-only public hadron rows are withheld, while empirical closure rows use a separate data-driven class.",
         "particles": ["proton", "neutron", "neutral_pion", "rho_770_0"],
-        "tasks": [
-            "papers.compact.e.33-close-the-nonperturbative-qcd-hadron-branch",
-            "particles.e.33a-unquench-hadron-branch-and-publish-systematics",
-        ],
     },
 ]
 
 
 def load_results(path: pathlib.Path) -> Dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
-
-
-def load_task_tracker(path: pathlib.Path) -> Dict[str, Dict[str, Any]]:
-    payload = yaml.safe_load(path.read_text(encoding="utf-8"))
-    tasks: Dict[str, Dict[str, Any]] = {}
-    for stage in payload.get("stages", []):
-        for task in stage.get("tasks", []):
-            tasks[task["id"]] = task
-    return tasks
 
 
 def load_exact_nonhadron_bundle(path: pathlib.Path) -> Dict[str, Dict[str, Any]]:
@@ -650,59 +621,6 @@ def draw_vertical_arrow(
     return draw_polyline([(x, y1), (x, y2)], color=color, width=width, dashed=dashed, arrow=True)
 
 
-def task_badge_color(status: str) -> str:
-    if status == "completed":
-        return COLORS["task_complete"]
-    if status == "in_progress":
-        return COLORS["task_in_progress"]
-    if status == "deferred":
-        return COLORS["task_deferred"]
-    if status == "out_of_scope":
-        return COLORS["task_out_of_scope"]
-    if status == "blocked":
-        return COLORS["task_blocked"]
-    return COLORS["task_pending"]
-
-
-def task_card_height(task: Dict[str, Any], w: float) -> float:
-    task_id_lines = wrap_identifier(task["id"], char_capacity(w - 36, 14, mono=True))
-    return estimate_box_height(
-        title=task["title"],
-        body=[],
-        w=w,
-        title_size=18,
-        body_size=14,
-        body_family=MONO_FAMILY,
-        prewrapped_body_lines=["Task ID:"] + task_id_lines,
-        accent=True,
-    )
-
-
-def draw_task_card(task: Dict[str, Any], x: float, y: float, w: float) -> Tuple[str, float]:
-    task_id_lines = wrap_identifier(task["id"], char_capacity(w - 36, 14, mono=True))
-    height = task_card_height(task, w)
-    return (
-        draw_box(
-            x=x,
-            y=y,
-            w=w,
-            h=height,
-            title=task["title"],
-            body=[],
-            fill=COLORS["task_fill"],
-            stroke=COLORS["task_stroke"],
-            title_size=18,
-            body_size=14,
-            accent=task_badge_color(task["status"]),
-            badge=task["status"].replace("_", " "),
-            body_fill="#ffd2bf",
-            body_family=MONO_FAMILY,
-            prewrapped_body_lines=["Task ID:"] + task_id_lines,
-        ),
-        height,
-    )
-
-
 def _format_exact_output(entry: Dict[str, Any]) -> str:
     if "mass_gev" in entry:
         return f"{entry['mass_gev']} GeV"
@@ -733,7 +651,7 @@ def public_exact_caveat(row: Dict[str, Any], exact_entry: Dict[str, Any]) -> str
     if particle_id == "higgs":
         return "Exact Higgs row on the declared electroweak calibration surface. The companion top coordinate is carried by the same surface. The auxiliary direct-top average is compare-only."
     if particle_id in {"electron", "muon", "tau"}:
-        return "Exact same-family witness. The charged-lepton absolute-mass lane has corpus-limited no-go status because the determinant-line attachment is absent."
+        return "Exact same-family witness. The charged-lepton absolute-mass lane has a corpus-limited no-go boundary because the determinant-line attachment is absent."
     if particle_id.endswith("_quark"):
         return "Exact selected-class running quark row. The top coordinate uses the PDG cross-section mass convention. Global classification of all quark frame classes is outside this theorem."
     if particle_id.endswith("_neutrino"):
@@ -926,7 +844,6 @@ def lane_panel_height(
     lane: Dict[str, Any],
     rows_by_id: Dict[str, Dict[str, Any]],
     exact_by_id: Dict[str, Dict[str, Any]],
-    tasks: Dict[str, Dict[str, Any]],
     w: float,
 ) -> float:
     inner_w = w - 36
@@ -945,8 +862,8 @@ def lane_panel_height(
         body_size=15,
     )
     task_total_h = estimate_box_height(
-        title="Frontier status",
-        body=[lane["tasks_text"]],
+        title="Claim frontier",
+        body=[lane["frontier_text"]],
         w=inner_w,
         title_size=18,
         body_size=15,
@@ -985,7 +902,6 @@ def draw_lane_panel(
     lane: Dict[str, Any],
     rows_by_id: Dict[str, Dict[str, Any]],
     exact_by_id: Dict[str, Dict[str, Any]],
-    tasks: Dict[str, Dict[str, Any]],
     x: float,
     y: float,
     w: float,
@@ -1009,8 +925,8 @@ def draw_lane_panel(
         body_size=15,
     )
     task_total_h = estimate_box_height(
-        title="Frontier status",
-        body=[lane["tasks_text"]],
+        title="Claim frontier",
+        body=[lane["frontier_text"]],
         w=inner_w,
         title_size=18,
         body_size=15,
@@ -1146,8 +1062,8 @@ def draw_lane_panel(
     cursor += label_h + label_gap
 
     no_task_h = estimate_box_height(
-        title="Frontier status",
-        body=[lane["tasks_text"]],
+        title="Claim frontier",
+        body=[lane["frontier_text"]],
         w=inner_w,
         title_size=18,
         body_size=15,
@@ -1159,8 +1075,8 @@ def draw_lane_panel(
             y=cursor,
             w=inner_w,
             h=no_task_h,
-            title="Frontier status",
-            body=[lane["tasks_text"]],
+            title="Claim frontier",
+            body=[lane["frontier_text"]],
             fill=COLORS["green_note_fill"],
             stroke=COLORS["green_note_stroke"],
             title_size=18,
@@ -1223,7 +1139,7 @@ def draw_lane_panel(
     return "".join(parts), panel_h
 
 
-def build_svg(results: Dict[str, Any], tasks: Dict[str, Dict[str, Any]], exact_by_id: Dict[str, Dict[str, Any]]) -> str:
+def build_svg(results: Dict[str, Any], exact_by_id: Dict[str, Dict[str, Any]]) -> str:
     rows_by_id = {row["particle_id"]: row for row in results["rows"]}
     generated_utc = results["generated_utc"]
     built_utc = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -1368,15 +1284,15 @@ def build_svg(results: Dict[str, Any], tasks: Dict[str, Dict[str, Any]], exact_b
     row2_xs = row1_xs
     hadron_x = (WIDTH - HADRON_W) / 2.0
 
-    row1_heights = [lane_panel_height(lane, rows_by_id, exact_by_id, tasks, PANEL_W) for lane in row1]
+    row1_heights = [lane_panel_height(lane, rows_by_id, exact_by_id, PANEL_W) for lane in row1]
     row1_y = current_y
     row1_h = max(row1_heights)
 
-    row2_heights = [lane_panel_height(lane, rows_by_id, exact_by_id, tasks, PANEL_W) for lane in row2]
+    row2_heights = [lane_panel_height(lane, rows_by_id, exact_by_id, PANEL_W) for lane in row2]
     row2_y = row1_y + row1_h + PANEL_GAP_Y
     row2_h = max(row2_heights)
 
-    row3_h = lane_panel_height(row3[0], rows_by_id, exact_by_id, tasks, HADRON_W)
+    row3_h = lane_panel_height(row3[0], rows_by_id, exact_by_id, HADRON_W)
     row3_y = row2_y + row2_h + PANEL_GAP_Y
 
     total_panels_bottom = row3_y + row3_h
@@ -1556,12 +1472,12 @@ def build_svg(results: Dict[str, Any], tasks: Dict[str, Dict[str, Any]], exact_b
 
     # Panels
     for lane, x in zip(row1, row1_xs):
-        panel_markup, _ = draw_lane_panel(lane, rows_by_id, exact_by_id, tasks, x, row1_y, PANEL_W)
+        panel_markup, _ = draw_lane_panel(lane, rows_by_id, exact_by_id, x, row1_y, PANEL_W)
         parts.append(panel_markup)
     for lane, x in zip(row2, row2_xs):
-        panel_markup, _ = draw_lane_panel(lane, rows_by_id, exact_by_id, tasks, x, row2_y, PANEL_W)
+        panel_markup, _ = draw_lane_panel(lane, rows_by_id, exact_by_id, x, row2_y, PANEL_W)
         parts.append(panel_markup)
-    hadron_markup, _ = draw_lane_panel(row3[0], rows_by_id, exact_by_id, tasks, hadron_x, row3_y, HADRON_W)
+    hadron_markup, _ = draw_lane_panel(row3[0], rows_by_id, exact_by_id, hadron_x, row3_y, HADRON_W)
     parts.append(hadron_markup)
 
     # Footer
@@ -1589,15 +1505,13 @@ def build_svg(results: Dict[str, Any], tasks: Dict[str, Dict[str, Any]], exact_b
 def main() -> int:
     parser = argparse.ArgumentParser(description="Generate the particle mass derivation SVG.")
     parser.add_argument("--results-json", default=str(RESULTS_JSON), help="Path to the results JSON.")
-    parser.add_argument("--task-tracker-yaml", default=str(TASK_TRACKER_YAML), help="Path to the task tracker YAML.")
     parser.add_argument("--exact-nonhadron-json", default=str(EXACT_NONHADRON_JSON), help="Path to the exact non-hadron bundle JSON.")
     parser.add_argument("--output", default=str(DEFAULT_OUTPUT), help="Output SVG path.")
     args = parser.parse_args()
 
     results = load_results(pathlib.Path(args.results_json))
-    tasks = load_task_tracker(pathlib.Path(args.task_tracker_yaml))
     exact_by_id = load_exact_nonhadron_bundle(pathlib.Path(args.exact_nonhadron_json))
-    svg = build_svg(results=results, tasks=tasks, exact_by_id=exact_by_id)
+    svg = build_svg(results=results, exact_by_id=exact_by_id)
 
     output = pathlib.Path(args.output)
     output.write_text(svg, encoding="utf-8")

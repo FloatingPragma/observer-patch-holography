@@ -540,11 +540,11 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         "",
         ledger["purpose"],
         "",
-        "## P-Trunk Status",
+        "## P-Trunk Claim Boundary",
         "",
         f"- Artifact: `{p_trunk['artifact_path']}`",
         f"- Exists: `{p_trunk['exists']}`",
-        f"- Claim status: `{p_trunk['claim_status']}`",
+        f"- Claim label: `{p_trunk['claim_status']}`",
         f"- May feed promoted particle predictions: `{p_trunk['may_feed_live_particle_predictions']}`",
     ]
     if p_trunk.get("P") is not None:
@@ -558,11 +558,11 @@ def render_markdown(ledger: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
-            "## Electroweak Hierarchy Certificate",
-            "",
-            f"- Artifact: `{hierarchy['artifact_path']}`",
-            f"- Exists: `{hierarchy['exists']}`",
-            f"- Claim status: `{hierarchy['claim_status']}`",
+        "## Electroweak Hierarchy Certificate",
+        "",
+        f"- Artifact: `{hierarchy['artifact_path']}`",
+        f"- Exists: `{hierarchy['exists']}`",
+        f"- Claim label: `{hierarchy['claim_status']}`",
             f"- May feed local hierarchy claim: `{hierarchy['may_feed_local_hierarchy_claim']}`",
             f"- May feed Higgs naturality claim: `{hierarchy.get('may_feed_naturality_claim', False)}`",
         ]
@@ -603,11 +603,11 @@ def render_markdown(ledger: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
-            "## Bundle Execution Plan",
+            "## Bundle Claim Gates",
             "",
-            "Open work is grouped into coupled closure packets rather than a one-blocker-at-a-time queue.",
+            "Claim gates are grouped into coupled closure packets rather than a one-blocker-at-a-time queue.",
             "",
-            "| Bundle | Status | Gaps | Promotion question |",
+            "| Bundle | Claim label | Gaps | Promotion question |",
             "| --- | --- | --- | --- |",
         ]
     )
@@ -628,16 +628,15 @@ def render_markdown(ledger: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
-            "## Open Gates",
+            "## Claim Gates",
             "",
-            "| ID | Lane | Status | Issue | Next action |",
-            "| --- | --- | --- | --- | --- |",
+            "| ID | Lane | Claim label | Gate |",
+            "| --- | --- | --- | --- |",
         ]
     )
     for row in ledger["rows"]:
-        issue = f"#{row['github_issue']}" if row.get("github_issue") is not None else "n/a"
         lines.append(
-            f"| `{row['id']}` | {row['lane']} | `{_display_status(row['status'])}` | {issue} | {row['next_action']} |"
+            f"| `{row['id']}` | {row['lane']} | `{_display_status(row['status'])}` | {row['next_action']} |"
         )
     lines.extend(
         [
@@ -645,7 +644,7 @@ def render_markdown(ledger: dict[str, Any]) -> str:
             "## Claim Policy",
             "",
             "- The compressed P trunk is an audit/candidate artifact until the endpoint and certificate gates close.",
-            "- Open blockers should be worked as coupled bundles rather than isolated one-off fixes.",
+            "- Claim gates are handled as coupled bundles rather than isolated one-off fixes.",
             "- The particle pipeline must keep compare-only, continuation, selected-class, and theorem-grade rows mechanically distinct.",
             "- Golden-ratio torus or resonance language is not a derivation input unless a separate representation-to-spectrum theorem is supplied.",
         ]

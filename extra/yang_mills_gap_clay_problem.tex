@@ -359,26 +359,23 @@ GNS inner product. That orthogonal projection is the \(\pi_r\)-preserving condit
 
 \section{Exact Euclidean-Consensus Law}
 
-\begin{lemma}[Implementation hiding gives fiber permutation symmetry]
+\begin{lemma}[Fiber-homogeneous orbit condition]
 \label{lem:fiber-symmetry}
-Fix an active collar \(C\) and a repaired value \(y\in Y_C\). On the support-visible quotient,
+Fix an active collar \(C\) and a repaired value \(y\in Y_C\). If, on the support-visible quotient,
 the hidden fiber
 \[
 F_C(y)=\rho_C^{-1}(y)
 \]
-has no remaining observable labels. Consequently the conditioned local MaxEnt state is uniform on
-\(F_C(y)\), and the primitive collar relaxation commutes with all finite permutations of
-\(F_C(y)\).
+has no remaining observable labels, the conditioned local MaxEnt state is uniform on
+\(F_C(y)\), and the primitive collar relaxation is invariant under all measure-preserving
+permutations of \(F_C(y)\), then the fiber is homogeneous for the local repair receipt.
 \end{lemma}
 
 \begin{proof}
-The quotient removes implementation labels by construction: two representatives with the same
-repaired datum \(y\) and different hidden fiber coordinates define the same support-visible
-observable state. The MaxEnt rule conditioned on \(y\) therefore has no admissible
-support-visible constraint that can distinguish two points of \(F_C(y)\). The unique
-constraint-compatible conditioned state is the uniform state on that finite fiber. Any primitive
-collar relaxation preserving the OPH quotient must commute with the resulting full permutation
-action.
+This is the finite fiber-homogeneity receipt. Quotienting removes declared implementation labels,
+but the proof must also check that no remaining source constraint or relaxation rate distinguishes
+points in the fiber. Under that check, the conditioned MaxEnt state and primitive relaxation carry
+the stated permutation symmetry.
 \end{proof}
 
 \begin{lemma}[Scalar relaxation on a uniform hidden fiber]
@@ -402,9 +399,10 @@ therefore makes \(D_F\) a scalar on that subspace. Positivity and the kernel con
 scalar strictly positive. The formula follows.
 \end{proof}
 
-\begin{theorem}[Exact Euclidean repair law]
+\begin{theorem}[Exact Euclidean repair law under homogeneous fibers]
 \label{thm:ec-law}
-There are positive constants \(c_C>0\) such that the ground-state transformed physical Euclidean
+Under the fiber-homogeneous orbit condition for every active collar, there are positive constants
+\(c_C>0\) such that the ground-state transformed physical Euclidean
 generator is exactly
 \[
 L_r^{\Rep}=\sum_{C\in\mathcal C_r} c_C(I-E_C),
@@ -467,7 +465,7 @@ list gives \(c_*>0\).
 
 \section{Finite-Stage Gap}
 
-\begin{proposition}[Finite-stage repair gap]
+\begin{proposition}[Special commuting-color finite-stage repair gap]
 \label{prop:finite-gap}
 Assume that the collar family admits a bounded-color decomposition
 \[
@@ -518,6 +516,21 @@ nonconstant joint eigenspace has at least one color eigenvalue zero, so
 \]
 This proves (5), and the spectral gap bound (6) follows.
 \end{proof}
+
+\begin{remark}[Generic repair-gap certificate]
+The commuting-color proposition is a special certificate, not the generic repair-generator route.
+For overlapping collars one must instead compute
+\[
+\kappa_r=\inf_{f\perp 1}
+\frac{\sum_C\|(I-E_C)f\|^2}{\|f\|^2}.
+\]
+If local fiber rates have a lower bound \(\gamma_*>0\), then
+\[
+L_r^{\Rep}\ge \gamma_*\kappa_r(I-P_{0,r}).
+\]
+Finite repair completeness gives \(\kappa_r>0\) at fixed regulator; a uniform refinement lower
+bound is a separate receipt.
+\end{remark}
 
 \section{Continuum Extraction}
 
@@ -773,7 +786,7 @@ the four-dimensional compact-gauge mass-gap theorem surface~\cite{ophstringselec
 
 \begin{longtable}{@{}L{0.30\textwidth}L{0.62\textwidth}@{}}
 \toprule
-Clay/Jaffe--Witten target & OPH repair-dynamics status \\
+Clay/Jaffe--Witten target & OPH repair-dynamics boundary \\
 \midrule
 \endhead
 Compact simple gauge group \(G\) & \(G\) is arbitrary compact simple, provided it is carried by the OPH compact-gauge zero-obstruction branch. \\

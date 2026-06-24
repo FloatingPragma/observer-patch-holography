@@ -442,7 +442,7 @@ Even something as basic as "how long is a meter" requires solving the consistenc
 
 ## 2.13 The Map We've Built
 
-Let's step back and see the pattern.
+The pattern is clear.
 
 Plato points toward projection and holography. Zeno points toward the trouble
 inside naive continuity and therefore toward a cutoff. The skeptics point

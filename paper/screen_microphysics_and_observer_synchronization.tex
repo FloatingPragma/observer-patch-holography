@@ -72,7 +72,7 @@ The paper's contract is:
 \item state the fixed-cutoff theorem exports used by the other OPH papers;
 \item use federated patch carriers as the microphysical architecture;
 \item keep mathematical theorem surfaces separate from public hardware evidence surfaces;
-\item keep the octahedral \(\mathbb Z_2/S_3\) simulator at appendix-level calibration status;
+\item keep the octahedral \(\mathbb Z_2/S_3\) finite-group model at appendix-level calibration scope;
 \item require a public hardware evidence protocol before hardware claims receive paper
 weight.
 \end{enumerate}
@@ -161,7 +161,7 @@ QECC distance, min-cut resilience, spectral convergence, BFT liveness, and hardw
 their own certificates.
 
 \item \textbf{Regulator-chart claims.} These identify a convenient finite model, such as a
-spherical cellulation or a digital finite-group simulator, as a calculational chart. Their claim
+spherical cellulation or a digital finite-group calibration chart, as a calculational chart. Their claim
 level is regulator geometry and calibration.
 
 \item \textbf{Federated-carrier claims.} These define a candidate implementation architecture:
@@ -237,7 +237,28 @@ quotient-visible maps
 \mathsf{StressRead}_r,\qquad
 \mathsf{ScalarSourceMap}_r,\qquad
 \mathsf{ClockRead}_r,\qquad
-\mathsf{RepairTangent}_r .
+\mathsf{RepairTangent}_r,\qquad
+\mathsf{VolumeJacobianRead}_r,\qquad
+\mathsf{ScreenMassMatrixRead}_r,\qquad
+\mathsf{LowModeProjectorRead}_r,\qquad
+\mathsf{ScalarPrecisionRead}_r,\qquad
+\mathsf{QuotientMeasureRead}_r,\qquad
+\mathsf{ScalarReleaseEnergyRead}_r,\qquad
+\mathsf{DiamondRead}_r,\qquad
+\mathsf{ProperScaleRead}_r,\qquad
+\mathsf{ModularRemainderRead}_r,\qquad
+\mathsf{StressMomentRead}_r,\qquad
+\mathsf{FaceFluxRead}_r,\qquad
+\mathsf{ReactionRead}_r,\qquad
+\mathsf{TetradRead}_r,\qquad
+\mathsf{ScalarRefinementRead}_{sr},\qquad
+\mathsf{RadialWindowRead}_r,\qquad
+\mathsf{SpatialGeometryRead}_r,\qquad
+\mathsf{AreaVolumeRead}_r,\qquad
+\mathsf{LapseShiftRead}_r,\qquad
+\mathsf{LineageRead}_r,\qquad
+\mathsf{ScreenEmbeddingRead}_r,\qquad
+\mathsf{ModeFormRead}_r .
 \]
 They are defined on the same normal-form carrier used for the geometric record packet and must
 factor through the physical quotient: hidden carrier coordinates, port relabelings, and accepted
@@ -249,9 +270,19 @@ T_I^{ab},\quad Q_I^a,\quad u_I^a,\quad
 \]
 The source-bridge maps are instrumentation for the screen-to-radial theorem.  They do not turn a
 screen covariance into a primordial spectrum unless the source-stress, single-clock, repair-gap,
-freeze-out, isocurvature, phase-coherence, radial-prior, null-space, and forward-residual receipts
-also pass.
+freeze-out, geometric-screen-scalar, scalar-precision, source-release-energy, refinement-tilt,
+radial-prior, null-space, finite-window, and forward-residual receipts also pass.
 \end{definition}
+
+\begin{claim}[Geometry-readout quotient factorization]\label{claim:geometry-readout-factorization}
+The geometry-facing readouts in Definition~\ref{def:finite-source-bridge-readouts} must factor
+through the same quotient normal form as the source readouts.  In particular, a finite carrier
+patch, graph vertex, implementation point, or worker-local shard is not one canonical OPH screen cell
+unless a separate measure-realization theorem proves that identification.  A promotable evidence
+bundle must expose a geometry manifest, metric-form hashes, orientation and topology, boundary
+conditions, lineage maps, lapse and shift, source embedding, operator assembly, scale certificate,
+and refinement maps.
+\end{claim}
 
 A spherical screen is then a coarse chart over a federation of such patches. It is what a
 particular observer-facing support cut looks like after quotienting hidden implementation details
@@ -298,7 +329,7 @@ Choose the nested geodesic icosahedral subdivisions of \(S^2\). A regulator is
 r=(m,L,b),
 \]
 where \(m\) is the subdivision depth, \(L\) is the finite support or volume scale of the exported
-carrier, and \(b\) is a boundary/phase label. Every newly exposed cell, collar, edge-center, or
+carrier, and \(b\) is a boundary/phase label. Every added cell, collar, edge-center, or
 support-visible channel \(j\) carries a finite algebra
 \[
 D_j=\bigoplus_{\alpha\in S_j}M_{d_{j,\alpha}}(\mathbb C)
@@ -353,13 +384,31 @@ for the GNS/OS limit after positive energy and the declared vacuum-sector unique
 superselection condition have been proved.
 \end{remark}
 
-\begin{remark}[Simulator promotion rule]
-A simulator implements this regulator branch only when it exports the factor list, presentation
-circuit, refinement maps, conditional-expectation identities, transported state errors,
+\begin{remark}[Regulator promotion rule]
+A finite evidence bundle implements this regulator branch only when it exports the factor list,
+presentation circuit, refinement maps, conditional-expectation identities, transported state errors,
 renormalized observable tails, and positive-transfer or reflected-Gram certificates. A finite
 cellulation, finite-group score, or stable numerical extrapolation by itself remains a
 regulator-chart result.
 \end{remark}
+
+\begin{definition}[Clocked spatial readout package]\label{def:clocked-spatial-readout-package}
+A finite cosmological run that claims FLRW spatial curvature must export the clock and spatial
+geometry readouts separately from screen/collar defect bookkeeping:
+\[
+\mathsf{SpatialMetricRead}_r,\quad
+\mathsf{SpatialFrameRead}_r,\quad
+\mathsf{SpatialConnectionRead}_r,\quad
+\mathsf{SpatialTransportRead}_r,\quad
+\mathsf{CurvatureHolonomyRead}_r,\quad
+\mathsf{ProperRadiusRead}_r,\quad
+\mathsf{NestedCapacityRead}_r .
+\]
+The transport readout uses the spatial Levi--Civita connection on the clock slice. Finite
+permutation holonomy of an \(S^2\) screen triangulation or \(S_3\) collar defect is a repair/sieve
+diagnostic unless these readouts identify it with a spatial Levi--Civita holonomy under quotient,
+transport, and refinement naturality.
+\end{definition}
 
 \section{The Echosahedral Patch Object}
 
@@ -657,9 +706,10 @@ continuum or Lorentzian claim must therefore include the multiresolution regulat
 factor manifest, presentation-circuit hash, refinement/expectation identity defects,
 transported-state errors, renormalized-observable tails, and positive-transfer or reflected-Gram
 receipts.
-Conventional free-field or lattice-gauge vacuum baselines used for simulator calibration are
+Conventional free-field or lattice-gauge vacuum baselines used for calibration are
 reference ensembles only. They are not OPH-native vacuum promotion unless the quotient-ensemble
-selector and transfer/reflection-positive gate are supplied on the compact theorem surface.
+selector, source Euclidean slab data, and transfer/reflection-positive reconstruction gate are
+supplied on the compact theorem surface.
 
 \section{Relation to Hadrons and Backend Execution}
 
@@ -673,9 +723,9 @@ record and evidence requirements for such a backend. A backend fit for promotion
 \item a non-promotion boundary for surrogate or calibration runs.
 \end{enumerate}
 
-Echosahedral or GLORB-class hardware can be described as a candidate backend family when public
-evidence bundles exist. Before those bundles exist, it is an architectural target and a design
-motivation. Source-only hadron theorem status requires the backend evidence listed above.
+Echosahedral or GLORB-class hardware can be described as a candidate backend family only through
+public evidence bundles. Without those bundles, it is an architectural target and a design
+motivation. Source-only hadron theorem promotion requires the backend evidence listed above.
 
 \section{Validation Program}
 
@@ -683,11 +733,11 @@ The validation program has two independent tracks.
 
 \subsection{Mathematical and Digital Calibration}
 
-The octahedral \(\mathbb Z_2/S_3\) simulator is a digital calibration model. It gives exact
+The octahedral \(\mathbb Z_2/S_3\) finite-group model is a digital calibration model. It gives exact
 finite groups, explicit patch covers, controlled defects, frustrated cycles, record writes,
 repair schedules, and negative controls.
 \begin{quote}
-The simulator validates the finite interface logic. The primary physical picture is the
+The calibration model checks the finite interface logic. The primary physical picture is the
 federated patch-carrier architecture.
 \end{quote}
 
@@ -709,6 +759,37 @@ Required gates include dark baseline, low-power sweep, coupling matrix, discharg
 trace where applicable, ring-diversity or recurrence-sensitive metrics for toroidal bodies,
 duplicate-body checks, symmetric-reference or echosahedral shadow checks, exact-verifier receipts,
 and negative controls against hidden duplicate amplification or host-side filtering.
+
+\section{Finite Packet Source Bridge Schema}
+
+Cosmology-facing evidence bundles may not infer stress data from scalar source rows. A packet-source
+bridge exported from the microphysics layer must carry the primitive data needed by the finite
+covariant parent contract:
+\[
+(\mathcal C_r,g_r,e_r,U_r,Z_r,\omega_r,p_r,f_r,\Phi_r,\mathcal R_r,\mathcal G_r,\pi_r,\mathsf{Read}_r).
+\]
+In practical evidence bundles this means:
+\begin{enumerate}
+\item finite cell/face incidence, four-volumes, normals, areas, causal adjacency, and parallel
+transport maps;
+\item metric and tetrad data with the declared \((-+++)\) convention;
+\item packet sectors, local momenta, masses, positive invariant weights, occupations, and mass-shell
+residuals;
+\item signed face fluxes and reaction-channel stoichiometry with transported four-momentum
+residuals;
+\item quotient maps, local-frame covariance checks, and restriction/refinement maps;
+\item readout fields for stress moments, variational stress, exchange currents, and gauge-invariant
+or rest-frame perturbation variables.
+\end{enumerate}
+
+The corresponding finite evidence receipt is residual-based. A row labelled ``recipient'', a raw
+Newtonian/synchronous gauge comparison, a producer-declared detailed-balance boolean, or a frozen
+likelihood hash is not a substitute for primitive packet, stress, exchange, causal-response, and
+refinement evidence.
+
+\section{Finite Quotient Ensemble Compatibility}
+
+\input{tex_fragments/FINITE_QUOTIENT_ENSEMBLE_THEOREMS.tex}
 
 \section{Conclusion}
 
@@ -761,7 +842,7 @@ evidence/hardware/<bundle-id>/
 The manifest should state the strongest allowed claim and the non-claims. The paper may cite the
 bundle only at that claim level.
 
-\section{Digital Simulator Compatibility}
+\section{Digital Calibration Compatibility}
 
 The octahedral \(\mathbb Z_2/S_3\) build has the following reading rule:
 \begin{enumerate}[leftmargin=2em]

@@ -4,7 +4,7 @@
 
 **French version:** [README_FR.md](README_FR.md)
 
-**Quick links:** [OPH website](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [OPH Lab](https://oph-lab.floatingpragma.io) | [Applications](https://omega.floatingpragma.io/) | [OPH Blog](https://blog.floatingpragma.io/) | [Coherence map](https://coherence.floatingpragma.io/) | [Three-body demo](https://3body.floatingpragma.io/)
+**Quick links:** [OPH website](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [OPH Lab](https://oph-lab.floatingpragma.io) | [Applications](https://omega.floatingpragma.io/) | [OPH Blog](https://blog.floatingpragma.io/) | [Coherence map](https://coherence.floatingpragma.io/)
 
 **Falsifiability:** [OPH falsifiability map](extra/OPH_falsifiability.md)
 lists 40 hard OPH-killing outcomes and concrete IBM Quantum Cloud tests for
@@ -164,7 +164,7 @@ inventory.
 
 Sphere language in OPH is geometry language. In symmetric regulator charts, an
 observer-accessible cut can be represented by the two-sphere $S^2$. Those
-charts describe angular support geometry. The finite simulator implements the
+charts describe angular support geometry. Finite regulator models implement the
 patch-and-overlap algebraic constraints exposed by that geometry.
 
 OPH therefore uses one shared screen net idealization and many finite observer
@@ -253,10 +253,10 @@ papers. This README only points to them.
 ### Selected Quantitative Rows
 
 This table keeps the rows easiest to compare with PDG/NIST and names their
-status. Structural results such as 3+1 spacetime, the Standard Model quotient,
+claim tier. Structural results such as 3+1 spacetime, the Standard Model quotient,
 exact hypercharge, $N_c=3$, and $N_g=3$ live in the papers.
 
-| Quantity | Symbol | OPH / status | PDG/NIST | Δ / note |
+| Quantity | Symbol | OPH / claim tier | PDG/NIST | Δ / note |
 | --- | --- | --- | --- | --- |
 | Gravitational constant | G | 6.6742999959e-11, scale/clock display | 6.67430(15)e-11 | 0.00003σ |
 | Speed of light | c | structural Lorentz speed; SI value conventional | 299792458 exact by definition | not a numeric prediction |
@@ -313,9 +313,28 @@ derivation.
 - **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)**: source fixed point, empirical hadron endpoint boundary, and comparison row.
 - **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)**: OPH edge-string emergence and conventional string-vacuum sieve, the Bouchard-Donagi one-Higgs heterotic witness, the `Z4R` safety layer, and moduli-locking gates; not an OPH-native vacuum-promotion shortcut.
 - **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)**: OPH finite repair-gap mechanism and conditional Clay-facing route; the equality between the Yang-Mills gap and the OPH repair gap requires the stated four-dimensional continuum and transfer certificate.
-- **[Observer-Patch Holography and the Dark Matter Phenomenon](extra/oph_dark_matter_paper.pdf)**: dark-matter phenomenology and MOND-like galaxy limit.
 - **[Theoretical Bounds on chi-nu in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)**: conditional quotient-edge band `0.9343006394893864 <= chi_nu^can <= 1`; uniform-branch exact value `exp(-P/24)`; engineering chart values scale as `N_coh^-1`.
 - **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)**: cognition and qualia as recurrent patch consensus.
+
+## Cosmology And Simulation Program
+
+The cosmology branch lives in [`cosmology/`](cosmology/README.md). The
+released paper in this branch is **[Observer-Patch Holography and the Dark Matter
+Phenomenon](cosmology/oph_dark_matter_paper.pdf)**. Staged targets are:
+
+- **Finite-source CMB prediction program**: `cosmology/oph_cosmology_finite_source_cmb_program.tex`
+- **Inflation without inflaton**: `cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.tex`
+- **Cosmological vacuum and structure formation**: `cosmology/oph_cosmological_vacuum_and_structure_formation.tex`
+- **Data and likelihood contracts**: `cosmology/oph_cosmology_data_likelihood_contracts.tex`
+
+Detailed evidence references for the staged cosmology work are kept inside the staged cosmology branch.
+Physical CMB promotion requires proof-carrying source artifacts with transitive ancestry,
+global pooled reducers, a structured physical scale bridge, frozen model choices, and frozen
+source/solver/likelihood hashes. Imported FLRW geometry supports conditional physical plumbing
+tests only; OPH-native cosmology requires a quotient-derived geometry and source embedding.
+Flat FLRW is likewise claim-gated: clock-slice spatial Levi--Civita holonomy identifies
+\(\kappa=0\), but exact selection requires a direct theorem, conditional CMH selector, or explicit
+flat-branch assumption.
 
 ## Proof Status
 
@@ -337,18 +356,23 @@ points also organize the observer problem, gravity/gauge reconstruction,
 electroweak hierarchy, dark energy, the dark-sector budget, gauge-proton-decay
 exclusion, particle inventory, and the string-vacuum sieve.
 
-Screen-spectrum and CMB continuations are gated separately. OPH conditionally
-identifies the low-mode-removed collar scalar with uniform-density curvature,
-but a source-only primordial spectrum requires source-stress, single-clock,
-repair-gap, freeze-out, adiabatic-mode, isocurvature, phase-coherence,
+Screen-spectrum and CMB continuations are gated separately. The screen branch
+first needs a geometric collar-volume scalar, normalized scalar precision,
+source release energy, refinement tilt, and angular screen-covariance receipt.
+A source-only primordial spectrum then additionally requires source-stress,
+single-clock, freeze-out, adiabatic-mode, isocurvature, phase-coherence,
 source-provenance, pooled-reducer, screen-to-radial lift, radial null-space,
 and forward-residual receipts before `A_s`, `n_s`, running, or TT/TE/EE spectra
 count as OPH predictions. Any
 dark/anomaly CMB or growth claim additionally needs a finite covariant
-collar-packet parent, explicit recipient stress for nonzero repair exchange,
-regulator convergence, a source-provenance record, global-pooling checks,
-CDM-limit recovery, and frozen source/solver/likelihood hashes before
-likelihood data are read.
+collar-packet parent, explicit recipient stress and exchange-current closure
+for nonzero repair exchange, regulator convergence, physical-clock and
+active-response receipts for any promoted `Gamma_rec`, a source-provenance
+record, global-pooling checks, CDM-limit recovery, and frozen
+source/solver/likelihood hashes before likelihood data are read.
+Vacuum or quantum-foam diagnostic views are gated separately: seed noise, repair jitter, and
+free-field/lattice baselines are E0/E1 outputs unless a quotient ensemble, source Euclidean slab,
+transfer/reflection-positive reconstruction, and refinement receipts promote the run.
 
 ## Applications And OMEGA Hardware
 
@@ -368,7 +392,7 @@ consistency, useful machines can be built by driving small physical patches
 into the right fixed points. That gives low-cost implementation tracks for
 desktop fusion energy, room-temperature OMEGA supercomputing, OMEGA-based AGI,
 and local gravity or inertia control for hoverbikes and hoverboards. These are
-application tracks behind evidence gates; settled-output status belongs to
+application tracks behind evidence gates; settled-output claims belong to
 verifier receipts and experiments. The compute claim is narrower: a
 chamber-conditioned candidate distribution may reduce verifier work by a
 measured lift `B = p_Q/p_U`. The classical complexity-class problem remains
@@ -376,9 +400,7 @@ untouched.
 
 Read the public applications page at
 [omega.floatingpragma.io](https://omega.floatingpragma.io/). Source notes for
-the application tracks live in [`APPLICATIONS.md`](APPLICATIONS.md). The local
-gravity and inertia track also has a standalone engineering note:
-[Hacking the Simulation: Anti-Gravity Exploit](https://github.com/FloatingPragma/oph-meta/blob/main/docs/oph-gravity-hack/hacking-the-simulation-anti-gravity-exploit.pdf).
+the application tracks live in [`APPLICATIONS.md`](APPLICATIONS.md).
 
 ## Detailed Diagram And Quantitative Surface
 
@@ -418,10 +440,8 @@ formulas and claim boundaries live in the papers.
 
 - **Website:** [floatingpragma.io/oph](https://floatingpragma.io/oph)
 - **Theory explainer:** [floatingpragma.io/oph/theory-of-everything](https://floatingpragma.io/oph/theory-of-everything)
-- **Simulation-theory explainer:** [floatingpragma.io/oph/simulation-theory](https://floatingpragma.io/oph/simulation-theory/)
 - **Coherence map:** [coherence.floatingpragma.io](https://coherence.floatingpragma.io): public graph surface for OPH concepts, overlaps, and cross-domain routes.
 - **Applications:** [omega.floatingpragma.io](https://omega.floatingpragma.io): public applications page for OPH hardware, compute, energy, AGI, lift, and optical chamber consensus.
-- **Three-body OPH demo:** [3body.floatingpragma.io](https://3body.floatingpragma.io): an extra simulator and proof walk-through for the OPH finite patch-net formulation of the three-body problem, framed as a loop-holonomy gluing example. No closed-form elementary solution is claimed.
 - **Blog:** [blog.floatingpragma.io](https://blog.floatingpragma.io/) collects public OPH essays. Start with [Semiotics and the Physics of Meaning](https://blog.floatingpragma.io/semiotics-and-the-physics-of-meaning), [The Trigger](https://blog.floatingpragma.io/the-trigger), and [P = NP on the Observer Screen](https://blog.floatingpragma.io/p-equals-np-on-the-observer-screen). The computation essay treats `P = NP` as an observer-screen slogan; the classical complexity problem remains untouched.
 - **Book:** [oph-book.floatingpragma.io](https://oph-book.floatingpragma.io)
 - **Guided study app:** [learn.floatingpragma.io](https://learn.floatingpragma.io/)
@@ -433,17 +453,16 @@ formulas and claim boundaries live in the papers.
 
 ## Status Table
 
-Status shorthand: source-only fine structure is
+Claim shorthand: source-only fine structure is
 $\alpha_{\rm cand}^{-1}=136.9948351646\ldots$; the public
 $\alpha^{-1}(0)=137.035999177(21)$ row uses empirical hadron closure. SI $c$
 is conventional; SI $G$ is a scale/clock display. $W/Z$ are compare-only
 validation rows. Higgs/top is closed on the declared electroweak quantitative
 surface. Quarks are selected-class theorem rows. Neutrinos use the
 weighted-cycle branch. Charged-lepton absolute masses and source-only hadrons
-remain open.
+are outside the emitted source-only theorem surface.
 
-Strong CP is work in progress in the selected-class quark theorem:
-the available corpus does not derive the QCD theta angle, does not emit the
+The selected-class quark theorem does not derive the QCD theta angle, does not emit the
 physical strong-CP angle, and does not prove that the physical strong-CP phase
 vanishes. The required bridge is the phase, anomaly, and topological-angle
 descent on the realized branch.

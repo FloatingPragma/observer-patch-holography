@@ -2,7 +2,7 @@
 
 This directory contains the reproducibility code for the supplemental paper:
 
-- [Observer-Patch Holography and the Dark Matter Phenomenon](../../extra/oph_dark_matter_paper.pdf)
+- [Observer-Patch Holography and the Dark Matter Phenomenon](../../cosmology/oph_dark_matter_paper.pdf)
 
 The package is a pre-likelihood empirical surface. It reproduces the scorecard
 rows in the supplement from public SPARC tables, the OPH screen-capacity
@@ -32,7 +32,7 @@ code/dark_matter/outputs/dark_parent_collar_grid_diagnostic.json
 code/dark_matter/dark_empirical_implementation_status.md
 ```
 
-The generated Markdown status file gives the compact empirical table used in
+The generated Markdown claim-boundary file gives the compact empirical table used in
 the supplement.
 
 ## Optional CAMB Dependency
@@ -57,9 +57,10 @@ Implemented diagnostics:
 
 Paper-grade empirical tests require the modules listed in the supplement:
 a conservative disk-potential solver, hierarchical SPARC likelihood, finite
-collar parent evaluator, CAMB or CLASS anomaly module, cluster map forward
-model, joint likelihood runner, and reproducibility harness with fixed data
-hashes.
+collar-packet parent evaluator with stress and exchange-current closure,
+physical-clock receipts for any promoted `Gamma_rec`, CAMB or CLASS anomaly
+module, cluster map forward model, joint likelihood runner, and reproducibility
+harness with fixed data hashes.
 
 ## License And Patent Policy
 

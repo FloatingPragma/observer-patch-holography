@@ -141,7 +141,7 @@ Weaker rows:
 - `W` and `Z` masses are validation rows.
 - Charged leptons are target-anchored witness rows.
 - Direct top mass is compare-only outside the cross-section codomain.
-- Strong CP is work in progress.
+- Strong CP is not emitted by the selected-class quark theorem.
 - Empirical hadron closure uses measured electron-positron to hadron input.
 - The SI `G_OPH` display uses a cesium-clock branch where QCD/hadronic
   refinements are stated as a caveat. The QCD-free hierarchy witness is the
@@ -391,7 +391,7 @@ Minimum software stack:
 
 1. Python.
 2. Qiskit.
-3. Qiskit Aer simulator.
+3. Qiskit Aer local backend.
 4. IBM Quantum Runtime access.
 5. NumPy and SciPy for the analysis.
 
@@ -468,7 +468,7 @@ t2 = -log(p2 / p0) / 3
 Falsifying outcome:
 
 The two time estimates disagree outside the pre-fixed error window on clean
-hardware while simulator, leakage, and readout calibration pass.
+hardware while the local backend, leakage, and readout calibration pass.
 
 Why:
 

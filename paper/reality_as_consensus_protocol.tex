@@ -148,7 +148,7 @@ gives a clean mathematical model for finite-candidate law selection, not a unive
 a literal cosmological dynamics claim.
 
 The results here are exact theorems about a computational model. The companion
-OPH manuscript uses separate status categories for structural theorems, scaling
+OPH manuscript uses separate claim tiers for structural theorems, scaling
 limits, quantitative particle outputs, and phenomenological
 continuations~\cite{OPH}.
 
@@ -643,7 +643,7 @@ component rule in Definition~\ref{def:transactional-repair} gives the same aggre
 \(t=u\).
 
 Assume \(K\ne L\). Then no write set in one component intersects any read-or-write set in the
-other. Therefore each transaction's snapshot is still current after the other commits, and the
+other. Therefore each transaction's snapshot remains valid after the other commits, and the
 unchanged-outside-write test is unaffected. Validation-complete read sets ensure that every
 measure term whose value can change under one component was read by that component, so the
 descent check made at \(s\) remains the same after the other disjoint component is committed.
@@ -944,7 +944,7 @@ in increasing tree depth.
 \end{proposition}
 
 \begin{proof}
-Repairing \(v\) removes the \(v\)-term of weight \(w_v\). Only children of \(v\) can become newly
+Repairing \(v\) removes the \(v\)-term of weight \(w_v\). Only children of \(v\) can become
 unmatched, contributing at most \(\sum_{c:p(c)=v}w_c\), which is strictly smaller than \(w_v\).
 Thus the tree potential decreases. For a connected conflict component, applying parent repairs
 before child repairs is forced by the same extension equations, and any different
@@ -962,17 +962,22 @@ Theorem~\ref{thm:functional-selected-fiber}. If a selected boundary fiber has \(
 while \(Q_b\setminus C_b\ne\varnothing\). Thus multiple candidate interiors exist, inconsistent
 candidates are eliminated by repair, and all surviving candidates share one quotient normal form.
 If \(C_b=\varnothing\), the branch is obstructed. If a union solver returns two physically
-distinct consistent quotient endpoints for the same selected data, the correct status is
+distinct consistent quotient endpoints for the same selected data, the correct label is
 \textsc{ambiguous-union-repair} or an explicit continuation gate, not selection by hash.
 \end{corollary}
 
 \begin{remark}[Receipts do not replace the theorem]\label{rem:receipt-boundary}
-Simulator receipts named seam descent, atomic commit, distributed local diamond, repair
+Implementation receipts named seam descent, atomic commit, distributed local diamond, repair
 completeness, same-boundary multistart confluence, and quotient normal-form canonical hash are
 public evidence contracts for the finite theorem hypotheses above. They are not proof substitutes.
 In particular, a normal-form hash certifies that two emitted quotient normal forms agree after the
 declared quotienting; it is not allowed to choose between two physically distinct minimizing
 states.
+The same convention applies to continuation receipts used by implementation evidence. A receipt is a compact
+name for primitive evidence and residual checks. Producer-declared booleans, labels, hashes, or
+successful plots cannot override failed residuals, missing objects, or undeclared quotient maps.
+When a later paper names a physical receipt, the evidence bundle must expose the raw objects needed
+to recompute it.
 \end{remark}
 
 \begin{corollary}[Gauge-invariant law]\label{cor:gaugeinv}
@@ -2701,6 +2706,26 @@ The final inequality is the standard Fawzi--Renner recovery bound~\cite{fawziRen
 \end{proof}
 
 This appendix therefore uses exact splice identities in only two regimes: literal exact Markovity, or a controlled collar family on one fixed finite-dimensional model for which \(\delta^{\mathrm M}_{A:B:D}(\varepsilon)\to0\). Fawzi--Renner recovery supplies the constructive recovered comparison state; the fixed-collar modulus supplies the exact-Markov comparison. Small one-shot conditional mutual information is not silently upgraded to an exact normal form.
+
+For later dark-sector continuations, the exact finite identity is only an
+expectation identity. For a faithful finite state \(\rho_{ABD}\), with
+\(K_X=-\log\rho_X\),
+\[
+  \operatorname{Tr}\rho_{ABD}(K_{AB}+K_{BD}-K_B-K_{ABD})
+  =
+  I_\rho(A:D\mid B).
+\]
+This does not identify raw CMI with a state-independent local stress source.
+Moreover, near a full-rank exact Markov state \(\sigma\), a perturbation
+\(\rho(t)=\sigma+tX+O(t^2)\) has
+\[
+  \left.\frac{\mathrm d}{\mathrm d t}I_{\rho(t)}(A:D\mid B)\right|_{t=0}=0,
+\]
+while a fixed-reference modular-energy variation is generically linear in
+\(t\). Recovery bounds therefore do not by themselves prove a local
+stress-source theorem; source-specific coarse graining, collar localization,
+cover independence, and finite-model proof receipts are separate continuation
+data.
 
 \input{tex_fragments/CONSENSUS_TECHNICAL_SUPPLEMENT_PORT.tex}
 

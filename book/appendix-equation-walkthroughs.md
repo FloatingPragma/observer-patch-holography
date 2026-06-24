@@ -283,9 +283,9 @@ breaking in compact form.
 
 After symmetry breaking, weak gauge bosons gain mass, and fermions gain
 masses through Yukawa couplings. The details are part of the Standard Model
-status table. OPH's particle chapter is careful that not every mass row has the
-same status. Higgs and top relations, charged-lepton anchors, quark payloads,
-and neutrino assumptions must be tracked separately.
+claim ledger. OPH's particle chapter is careful that not every mass row has the
+same claim tier. Higgs and top relations, charged-lepton anchors, quark payloads,
+and neutrino assumptions must be separated by claim surface.
 
 The equation is a good example of how a simple-looking formula can carry a
 large experimental and theoretical world. It is a mechanism for why the low-energy world has massive weak bosons and massive
@@ -318,12 +318,11 @@ dipole moment. The empirical smallness is the strong-CP problem.
 The book is careful about this because it is easy to overclaim. The selected
 class quark theorem does not derive $\theta_{\mathrm{QCD}}$, does not emit a
 physical $\bar\theta$, and does not prove that the physical strong-CP phase
-vanishes. This work in progress boundary is visible in summaries, tables, and
-public copy.
+vanishes. This boundary is visible in summaries, tables, and public copy.
 
 This warning belongs in an equation appendix because not every important
 symbol is part of a successful derivation. Some symbols mark the edge of the
-OPH derivation. A good status table records those edges as clearly as its wins.
+OPH derivation. A good claim ledger records those edges as clearly as its wins.
 
 ## A Practical Audit Method for Equations
 
@@ -380,11 +379,11 @@ The appendices are not a detour from the book. They are scaffolding. A reader
 who wants the argument in one continuous line can read the prologue, chapters,
 and epilogue first, then return here. A reader who gets stuck on symbols can
 use the equation walkthroughs and concept glossary as a local repair map. A
-reader evaluating status claims can use the chapter table to check whether a
+reader evaluating claim-tier statements can use the chapter table to check whether a
 claim is established, assumption-dependent, target anchored, empirical-payload
 dependent, or open.
 
-The appendices also give the book a stable reference surface. A theorem-status
+The appendices also give the book a stable reference surface. A theorem-tier
 label in a chapter should match the table. A diagram should visualize a
 concept that the glossary or chapter ledger can name. A simplified public
 summary should be traceable to a more careful explanation inside the book.
@@ -398,13 +397,13 @@ the book means by its symbols, diagrams, and claims.
 The final reading discipline is simple: do not let beauty outrun auditability.
 A cover can invite the reader in. A diagram can orient them. A long narrative
 can keep them engaged. But the theory earns trust only when every equation,
-status label, and historical inheritance remains checkable.
+claim label, and historical inheritance remains checkable.
 
 ## The Publication Contract
 
 The book belongs to the same research surface as the papers. Paper claims,
-book passages, diagrams, and PDF downloads should carry the same status
-language. The common drift points are theorem-status language, particle-table
+book passages, diagrams, and PDF downloads should carry the same claim-tier
+language. The common drift points are theorem-tier language, particle-table
 rows, dark-sector claims, the strong-CP boundary, neutrino assumptions,
 charged-lepton anchors, hadron payload language, and metaphysical summaries
 that may sound more settled than the technical chapter permits.
@@ -436,7 +435,7 @@ order keeps the public book, downloadable PDF, and research record aligned.
 One more rule follows from the same discipline: never let a short public
 summary become the only place where a claim is explained. Summaries are useful
 for orientation, but the durable book should contain the slower version: the
-symbols, the assumptions, the known lineage, the status label, and the open
+symbols, the assumptions, the known lineage, the claim label, and the open
 edge. If a reader arrives from the website, a social post, a bot answer, or a
 download link, the PDF should give them enough context to audit the
 claim without guessing what the shorthand meant. That is why the appendices

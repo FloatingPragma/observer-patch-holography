@@ -349,7 +349,7 @@ be geometric. Entanglement wedges then say that two observers may reconstruct
 the same interior region from different boundary data. If they do, agreement
 is not optional. The shared wedge is the geometric version of an overlap.
 
-For the finite simulator, that overlap language has a strict neutral-bulk
+For finite evidence bundles, that overlap language has a strict neutral-bulk
 version. Observer features from different shards are comparable only after
 gauge and port presentation labels have been quotiented, terminal normal forms
 have been reached, and interface transport has glued the charts without hidden
@@ -367,7 +367,7 @@ correlations. Cut enough entanglement and you cut space itself.
 
 ---
 
-We've seen that space emerges from entanglement. But why is this structure stable? Why doesn't the entanglement web unravel?
+Space emerges from entanglement. But why is this structure stable? Why doesn't the entanglement web unravel?
 
 In the next chapter, this picture connects to quantum error correction. In controlled holographic
 settings, spacetime is encoded in a structure that can protect information. The OPH overlap

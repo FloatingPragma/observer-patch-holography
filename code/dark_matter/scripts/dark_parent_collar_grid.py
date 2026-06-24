@@ -102,7 +102,7 @@ def diagnostic_scalar_load(args: argparse.Namespace) -> dict[str, Any]:
             "paper_grade": False,
             "notes": [
                 "The default mu_eq is the flat capacity-saturated Omega_A/Omega_b diagnostic ratio.",
-                "This diagnostic tests the likelihood plumbing. A finite-collar derivation of the abundance is work in progress.",
+                "This diagnostic tests the likelihood plumbing. A finite-collar derivation of the abundance is not emitted by this code path.",
                 "B_A is set to a scale-independent contrast response for interface testing.",
             ],
         },

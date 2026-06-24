@@ -2,7 +2,7 @@
 """Refresh the pinned particle reference set from the official PDG API.
 
 This keeps `/particles` self-contained: we pin a compact machine-readable
-reference file locally, then build status tables from that file without
+reference file locally, then build claim tables from that file without
 needing network access on every run.
 """
 

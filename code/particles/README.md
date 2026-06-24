@@ -15,7 +15,7 @@ the particle paper:
 - quarks
 - neutrinos
 - hadrons
-- public status rendering
+- public claim rendering
 
 Historical Oracle batches, worker logs, and transient handoff material are not
 part of this canonical tree.
@@ -36,7 +36,6 @@ part of this canonical tree.
 - [GAP_BUNDLE_CAMPAIGN.md](GAP_BUNDLE_CAMPAIGN.md)
 - [campaigns/gap_bundle](campaigns/gap_bundle)
 - [particle_mass_derivation_graph.svg](particle_mass_derivation_graph.svg)
-- [task_tracker.yaml](task_tracker.yaml)
 
 ## High-Level Chain
 
@@ -116,7 +115,7 @@ Full SI gravity remains gated by the no-G clock stack.
 
 ## Main Outputs
 
-- status table:
+- claim table:
   [RESULTS_STATUS.md](RESULTS_STATUS.md)
 - systematic open-gap ledger after the compressed `P`-trunk simplification:
   [DERIVATION_GAP_LEDGER.md](DERIVATION_GAP_LEDGER.md)
@@ -128,13 +127,13 @@ Full SI gravity remains gated by the no-G clock stack.
   [EXACT_FITS_ONLY.md](EXACT_FITS_ONLY.md)
 - exact non-hadron mass bundle:
   [EXACT_NONHADRON_MASSES.md](EXACT_NONHADRON_MASSES.md)
-- machine-readable status:
+- machine-readable claim table:
   [results_status.json](results_status.json)
 - machine-readable exact-fits-only surface:
   [exact_fits_only.json](exact_fits_only.json)
 - machine-readable exact non-hadron mass bundle:
   [exact_nonhadron_masses.json](exact_nonhadron_masses.json)
-- frozen status artifact:
+- frozen claim-table artifact:
   [status_table_forward_current.json](runs/status/status_table_forward_current.json)
 - frozen exact-fits-only artifact:
   [exact_fits_only_current.json](runs/status/exact_fits_only_current.json)
@@ -241,7 +240,7 @@ python3 scripts/generate_mass_derivation_svg.py
 
 For a disposable runtime rebuild that re-runs the active D10/D11/UV builders,
 stages the canonical flavor/lepton/neutrino public-surface artifacts,
-and prints the resulting particle status table directly in the terminal:
+and prints the resulting particle claim table directly in the terminal:
 
 ```bash
 python3 compute_current_output_table.py

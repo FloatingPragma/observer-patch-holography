@@ -444,7 +444,7 @@ Different observers have different modular flows. On the geometric branch, the
 inter-observer relations are carried by conformal transformations of $S^2$.
 The Lorentz group is the corresponding symmetry of the shared causal structure.
 
-The neutral-bulk simulator gate is weaker and separate. It can certify a common
+The neutral-bulk evidence gate is weaker and separate. It can certify a common
 quotient-visible pseudometric or metric on observer features after chart
 transport, missingness, invariance, refinement, and held-out controls. A
 positive metric by itself is not Lorentzian spacetime. The relativity claim
@@ -694,16 +694,20 @@ side of a boundary is perfectly recoverable from the boundary itself, and the
 recovered gravity branch follows the Einstein relation. In the dark-sector
 continuation considered here, one moves away from that ideal limit and some
 correlation sits out of reach. That leftover correlation can feed an extra
-effective term.
+effective term only after a declared source route identifies the finite
+recovery defect with anomalous modular energy or proves the nonlinear
+CMI-to-modular-source matching theorem.
 
 It gravitates because missing recoverability has physical weight in the
 bookkeeping. This supplies a structural ingredient for a dark sector without
 introducing new particle species. For cosmology this structural ingredient is
 not enough by itself: scalar anomaly tables must be lifted to a finite
 covariant packet parent that closes stress-energy, keeps the baryon response
-gauge-independent, supplies recipient stress for nonzero repair exchange, and
-freezes source/solver/likelihood hashes after source-provenance and pooled
-global reducer receipts are present, before any CMB or growth likelihood is read.
+gauge-independent, supplies explicit recipient stress and a balanced exchange
+current for nonzero repair exchange, checks the physical clock for any promoted
+exchange rate, and freezes source/solver/likelihood hashes after
+source-provenance and pooled global reducer receipts are present, before any
+CMB or growth likelihood is read.
 
 ### Why It's Dark
 

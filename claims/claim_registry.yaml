@@ -132,13 +132,13 @@
     {
       "claim_id": "OPH-DM-CONT",
       "statement": "The OPH dark-sector continuation models dark gravity as transported record-repair collar stress, with a MOND-like settled-galaxy limit and separate cluster/cosmology contracts.",
-      "owner_paper": "extra/oph_dark_matter_paper.tex",
+      "owner_paper": "cosmology/oph_dark_matter_paper.tex",
       "tier": "phenomenological_continuation",
       "assumptions": ["dark_sector_collar_remainder", "galaxy_equilibrium_limit", "transported_stress_dynamics", "joint_likelihood_contract"],
       "imported_results": ["MOND_RAR_phenomenology", "LCDM_observational_targets", "weak_lensing_and_CMB_benchmarks"],
       "oph_specific_delta": "The missing gravitating sector is identified with electromagnetically dark observer-repair stress rather than a new luminous charge carrier.",
       "novelty_type": "phenomenological_continuation",
-      "evidence": ["extra/oph_dark_matter_paper.tex"],
+      "evidence": ["cosmology/oph_dark_matter_paper.tex"],
       "falsifier": "A frozen joint galaxy, cluster, CMB, BAO, lensing, and growth likelihood excludes the declared transport law.",
       "scope_if_false": "The dark-sector continuation falls; the recovered relativity and Standard Model core survive unless they import this stress law.",
       "status": "work_in_progress"

@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 """Summarize the exact remaining neutrino blockers on the live canonical tree.
 
-Chain role: consolidate the builder-facing isotropic neutrino status, the
+Chain role: consolidate the builder-facing isotropic neutrino claim label, the
 proof-facing scalar-certificate sufficiency theorem, and the remaining PMNS
 blockers into one machine-readable audit.
 
-Mathematics: no new neutrino formulas are introduced here. This is a status
+Mathematics: no new neutrino formulas are introduced here. This is a claim-label
 consolidation layer over the already-emitted isotropic forward bundle, the
 same-label scalar certificate shell, and the intrinsic eta-chain validation.
 
 OPH-derived inputs: the live forward neutrino closure bundle, the same-label
 scalar certificate shell, the proof-facing intrinsic eta demo, and the PMNS
-shared-basis status file.
+shared-basis claim file.
 
 Output: an exact blocker audit plus a smaller current-snapshot summary.
 """

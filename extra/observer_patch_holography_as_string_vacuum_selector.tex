@@ -68,7 +68,7 @@ Observers, Clocks, Edge Strings, and the Bouchard-Donagi Witness}
 \begin{abstract}
 String theory is read here as an effective language for OPH edge dynamics. Finite observer patches compare shared records. Their settled repair histories can be read as worldsheet-like histories on the edge system.
 
-The paper uses that reading as a vacuum-selection sieve. Here ``vacuum'' is conventional string-vacuum terminology. OPH-native vacuum promotion requires the quotient-ensemble selector and transfer/reflection-positive gate on the compact theorem surface. The compact OPH core supplies the target spacetime and Standard Model structure, and the finite carrier picture supplies records, interfaces, checkpoints, and synchronization. Worldsheet criticality is treated as a gate: the twelve-port and twenty-four oriented-register counts must be promoted to a heterotic edge-VOA identification before they become chiral central charges. The worked witness is a heterotic Bouchard-Donagi type Standard Model candidate with one light Higgs pair and explicit safety gates. Geometric realization, worldsheet critical closure, threshold matching, and moduli locking are work in progress.
+The paper uses that reading as a vacuum-selection sieve. Here ``vacuum'' is conventional string-vacuum terminology. OPH-native vacuum promotion requires the quotient-ensemble selector, source Euclidean slab data, and transfer/reflection-positive reconstruction gate on the compact theorem surface. The compact OPH core supplies the target spacetime and Standard Model structure, and the finite carrier picture supplies records, interfaces, checkpoints, and synchronization. Worldsheet criticality is treated as a gate: the twelve-port and twenty-four oriented-register counts must be promoted to a heterotic edge-VOA identification before they become chiral central charges. The worked witness is a heterotic Bouchard-Donagi type Standard Model candidate with one light Higgs pair and explicit safety gates. Geometric realization, worldsheet critical closure, threshold matching, and moduli locking remain certificate gates.
 \end{abstract}
 
 \section*{What This Paper Contributes}
@@ -92,7 +92,7 @@ passed through OPH gates: one light Higgs pair, the Standard Model quotient,
 operator safety, worldsheet criticality, threshold compatibility, and moduli locking. The open gates
 are explicit. A vacuum survives only if its string data land on the OPH
 quantitative vector without retuning. The statement selects string data through OPH gates; it
-does not promote a simulator reference ensemble or ordinary string vacuum into the OPH-native vacuum.
+does not promote a reference ensemble or ordinary string vacuum into the OPH-native vacuum.
 
 \tableofcontents
 \newpage
@@ -293,7 +293,7 @@ fine-structure input used by the electroweak target. &
 \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/fine_structure_constant_derivation.tex}{extra/source} \\
 Observer-Patch Holography and the Dark Matter Phenomenon & Quotient-edge coherent-matter branch,
 used as a phenomenology example of OPH gate logic. &
-\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/oph_dark_matter_paper.tex}{extra/source} \\
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/cosmology/oph_dark_matter_paper.tex}{cosmology/source} \\
 Theoretical Bounds on \(\chi_\nu\) & Collar survival and susceptibility bounds for the dark
 sector continuation. &
 \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/chi_nu_susceptibility_bounds.tex}{extra/source} \\
@@ -360,7 +360,7 @@ with full transverse rank after quotienting OPH-invisible redundancies.
 \begin{theorem}[Conditional correct-string selection theorem]
 Assume the OPH recovered-core target, the heterotic edge-sector branch including the
 finite-carrier critical-edge certificate, the certificate gates
-listed in Section~\ref{sec:open-gates}, and the following comparison principle:
+listed in Section~\ref{sec:claim-gates}, and the following comparison principle:
 OPH-correct presentations are ordered first by gate satisfaction, then by the minimality vector
 \[
 C(v)=
@@ -933,7 +933,7 @@ multi-string state is a finite disjoint union of such classes, modulo the same r
 \end{definition}
 
 The cycle is visible through representation data and records on overlaps. Its support is
-one-dimensional in the overlap nerve. Its physical status comes from survival under local repair
+one-dimensional in the overlap nerve. Its physical role comes from survival under local repair
 and refinement.
 
 \subsection{One string, many strings, and worldsheets}
@@ -1199,9 +1199,9 @@ with the modular transformations of the heterotic spin-structure sum.
 
 The finite-carrier certificate is an executable protocol, not a synonym for a single
 twelve-port cavity. A single Echosahedron is a recurrent zero-spatial-dimensional patch: it evolves
-and self-reads, but it does not yet supply the spatial edge coordinate needed for a
-\((1+1)\)-dimensional scaling theory. Central charge, current modes, and Virasoro closure require
-a sewn edge cylinder
+and self-reads, but the spatial edge coordinate needed for a
+\((1+1)\)-dimensional scaling theory is absent. Central charge, current modes, and Virasoro closure
+require a sewn edge cylinder
 \[
 \mathrm{EDGE\_CYLINDER}(L),
 \qquad
@@ -1255,7 +1255,7 @@ report all failures, and run controls that collapse orientation, permute ports, 
 geometry, add spectators or masses, reverse chirality conventions, and disconnect seams.
 \end{enumerate}
 
-The existing twelve-port simulator can test FC-0, FC-1, and the precursor part of FC-2. It cannot
+The existing twelve-port calibration model can test FC-0, FC-1, and the precursor part of FC-2. It cannot
 by itself test \(\operatorname{rank}k_L=24\), \(\operatorname{rank}k_R=12\), \(T_{\OPH}=T_{\rm Sug}\),
 the right-moving supercurrent, or \((c_L,c_R)=(24,12)\). Those require the edge-cylinder extension.
 Until such receipts are exported, the heterotic central-charge identification remains an open gate,
@@ -1881,13 +1881,13 @@ and Higgs-stratum selector.
 The table lists the string-theory gates. The word ``solved'' means solved at the
 selector or algebraic-gate level, relative to the OPH assumptions stated in the paper. Cohomology
 reproduction, geometric realization of the \(\ZfourR\) safety layer, full Yukawa computation, and
-moduli locking remain work in progress. The distinction matters: exact algebraic gates can close
+moduli locking remain certificate gates. The distinction matters: exact algebraic gates can close
 inside this paper; string-geometric gates require the full Bouchard-Donagi geometry and bundle
 maps.
 
 \begin{longtable}{p{0.26\linewidth}p{0.34\linewidth}p{0.30\linewidth}}
 \toprule
-\textbf{String-theory pressure point} & \textbf{OPH result} & \textbf{Status in this paper} \\
+\textbf{String-theory pressure point} & \textbf{OPH result} & \textbf{Claim boundary in this paper} \\
 \midrule
 Vacuum selection & Converts candidate vacua into a public sieve against
 \(\mathfrak S_{\OPH}\). & Exact selector definition; comparative audits can expand. \\
@@ -1904,9 +1904,8 @@ proof. \\
 String emergence & Sewn edge partition equals \(K_t(1)\). & Exact Peter-Weyl proof. \\
 Worldsheet criticality & The twelve-port and twenty-four oriented-register counts define only a
 heterotic central-charge target until the edge VOA is identified. & Non-implication theorem plus
-critical-edge certificate theorem; finite-carrier receipts work in progress. \\
-Moduli stabilization & Becomes \(\calF(m_\star)=\calO_{\OPH}\). & Target criterion; BD map is
-work in progress. \\
+critical-edge certificate theorem; finite-carrier receipts not emitted here. \\
+Moduli stabilization & Becomes \(\calF(m_\star)=\calO_{\OPH}\). & Target criterion; BD map not emitted here. \\
 Operator safety & The MSSM \(\ZfourR\) layer permits Yukawas and the Weinberg operator, and
 forbids perturbative RPV, dimension-five proton decay, and the perturbative \(\mu\)-term. &
 Charge algebra closes; BD geometric realization is a certificate gate. \\
@@ -2238,7 +2237,7 @@ K_t(1)=\sum_R d_R^2e^{-tC_2(R)}=Z_{\rm edge}(t).
 
 \subsection{Problem 8: moduli stabilization as target locking}
 
-The OPH contribution is a target criterion. A completed BD moduli computation is work in progress.
+The OPH contribution is a target criterion. This paper does not emit a completed BD moduli computation.
 
 \begin{theorem}[Local isolation by full rank]
 Let \(\calF:\mathcal M\to\mathbb R^K\) be smooth, and suppose
@@ -2615,7 +2614,7 @@ The equality
 \[
 \mathcal V_{\rm crit}^{\OPH}/\Teq=\{BD_{n=1,+}^{\OPH}\}
 \]
-is fully certified once the seven certificates in Section~\ref{sec:open-gates}
+is fully certified once the seven certificates in Section~\ref{sec:claim-gates}
 verify: critical-edge closure, cohomology, \(\ZfourR\) realization, superpotential
 safety, threshold matching, moduli locking with full transverse rank, and comparative uniqueness.
 If any of the first six
@@ -2629,7 +2628,7 @@ existence and safety gates for the named representative. Gate 7 is a comparison 
 declared candidate class. If all seven hold, the named representative exists and is the unique minimal
 OPH-admissible survivor. If an existence or safety gate fails, the named representative misses the
 definition of OPH-correctness. If the comparison gate alone fails, the named representative may
-remain OPH-correct, with singleton status retracted. This proves the criterion.
+remain OPH-correct, with singleton claim retracted. This proves the criterion.
 \end{proof}
 
 \section{Empirical Prediction Surface}
@@ -2677,7 +2676,7 @@ unclosed part is the full map
 \calF_{BD,n=1,+}(m_\star)=\calO_{\OPH}.
 \]
 
-\section{Open Gates}\label{sec:open-gates}
+\section{Claim Gates}\label{sec:claim-gates}
 
 The computation package reduces the full string-model task to explicit inputs. The gate table is
 the working contract for an independent heterotic reproduction:
@@ -2689,25 +2688,23 @@ the working contract for an independent heterotic reproduction:
 Central-charge and supercurrent certificate & Response-map rank
 \(\operatorname{rank}\calR_{\rm port}=12\), positive \(A_5\times C_2\) covariance sectors, edge
 transfer OPEs, local graded half-repair \(Q_N^2\to H_R\), and torus/spin-structure receipt. &
-Non-implication theorem and finite critical-edge certificate theorem stated; carrier receipts work
-in progress. \\
+Non-implication theorem and finite critical-edge certificate theorem stated; carrier receipts not
+emitted here. \\
 Cohomology certificate & Explicit \(X\), \(V\), and equivariant \(\Z_2\) action in
-cohomCalg, Sage, or Macaulay2 form. & Structural witness cited; raw computation work in
-progress. \\
+cohomCalg, Sage, or Macaulay2 form. & Structural witness cited; raw computation not emitted here. \\
 Safety-layer realization certificate & \(\ZfourR\), or an equivalent compactification selection rule,
-realized on the BD one-Higgs branch. & MSSM charge algebra closes; BD realization certificate
-work in progress. \\
+realized on the BD one-Higgs branch. & MSSM charge algebra closes; BD realization certificate not emitted here. \\
 Operator and superpotential certificate & Sheaf cup products, harmonic representatives, instanton
 data, and sector selection rules. & BCD trilinear result supports RPV vanishing; numeric
-textures work in progress. \\
+textures not emitted here. \\
 Threshold and spectrum certificate & Heavy spectrum, K\"ahler moduli, complex-structure moduli,
 string scale, hidden sector, mediation data, soft terms, and low-energy spectrum pipeline.
-& Target deltas computed; heavy-threshold and UV soft-term work in progress. \\
+& Target deltas computed; heavy-threshold and UV soft-term certificate not emitted here. \\
 Moduli-locking certificate & Full map \(D\calF_{BD,n=1}\) on the physical moduli slice. & Isolation
-criterion proved; rank computation work in progress. \\
+criterion proved; rank computation not emitted here. \\
 Comparative uniqueness certificate & Expanded heterotic edge-sector audit, plus any brane,
 orientifold, or duality-rewritten presentations claiming OPH equivalence. & Encoded audit selects
-\(BD_{n=1,+}^{\OPH}\); broader catalogue audit work in progress. \\
+\(BD_{n=1,+}^{\OPH}\); broader catalogue audit not emitted here. \\
 \bottomrule
 \end{longtable}
 
@@ -2760,7 +2757,7 @@ target the string community's demand for a reproducible critical-worldsheet and 
 \section{What This Solves for De Sitter and String Theory}
 
 The paper reduces the program to a finite observer-visible normal-form problem for critical strings.
-In that form, many familiar open issues become gates with explicit pass/fail certificates.
+In that form, many familiar unresolved questions become gates with explicit pass/fail certificates.
 
 \begin{longtable}{p{0.27\linewidth}p{0.43\linewidth}p{0.20\linewidth}}
 \toprule
@@ -2873,8 +2870,8 @@ Observer-Patch Holography extra paper source.
 \bibitem{OPHDarkMatter}
 B.\ M\"uller,
 \emph{Observer-Patch Holography and the Dark Matter Phenomenon},
-Observer-Patch Holography extra paper source.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/oph_dark_matter_paper.tex}.
+Observer-Patch Holography cosmology paper source.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/cosmology/oph_dark_matter_paper.tex}.
 
 \bibitem{OPHChiNuBounds}
 B.\ M\"uller,

@@ -314,23 +314,23 @@ def render_markdown(payload: dict[str, Any]) -> str:
         f"Generated: `{payload['generated_utc']}`",
         "",
         f"Scope: `{payload['scope']}`",
-        f"Claim status: `{payload['claim_status']}`",
+        f"Claim label: `{payload['claim_status']}`",
         "",
         "## P Closure",
         "",
         f"- Candidate `P`: `{payload['p_closure']['P']}`",
         f"- Candidate `alpha^-1`: `{payload['p_closure']['alpha_inv']}`",
-        f"- Claim status: `{payload['p_closure']['claim_status']}`",
+        f"- Claim label: `{payload['p_closure']['claim_status']}`",
         f"- May feed promoted particle predictions: `{payload['p_closure']['may_feed_live_particle_predictions']}`",
         "",
-        "## Particle-Five Gates",
+        "## Particle-Five Receipts",
         "",
-        "| Issue | State | Closable | Local artifact | Worker policy |",
-        "| --- | --- | --- | --- | --- |",
+        "| Receipt label | Closable | Local artifact | Worker policy |",
+        "| --- | --- | --- | --- |",
     ]
     for gate in payload["particle_five_issue_gates"]:
         lines.append(
-            f"| #{gate['issue']} | `{_display_status(gate['state'])}` | `{gate['closable_now']}` | "
+            f"| `{_display_status(gate['state'])}` | `{gate['closable_now']}` | "
             f"`{gate['local_next_artifact']}` | {gate['chrome_workers']} |"
         )
     companion_open_branches = payload.get("companion_open_branches") or []
@@ -338,9 +338,9 @@ def render_markdown(payload: dict[str, Any]) -> str:
         lines.extend(
             [
                 "",
-                "## Companion Open Branches",
+                "## Companion Claim Boundaries",
                 "",
-                "| Topic | State | Current boundary | Next action |",
+                "| Topic | Claim label | Boundary | Gate |",
                 "| --- | --- | --- | --- |",
             ]
         )
@@ -353,7 +353,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
             "",
             "## Predictions",
             "",
-            "| Particle | Prediction | Status | Scope | Promotable |",
+            "| Particle | Prediction | Claim label | Scope | Promotable |",
             "| --- | ---: | --- | --- | --- |",
         ]
     )
@@ -372,7 +372,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
             "",
             "## Fine Structure",
             "",
-            "| Output class | alpha^-1(0) | P | Status |",
+            "| Output class | alpha^-1(0) | P | Claim label |",
             "| --- | ---: | ---: | --- |",
         ]
     )
@@ -396,7 +396,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
             "",
             "## Hierarchy And Naturality",
             "",
-            f"- Resonance status: `{_display_status(hierarchy_status['resonance_status'])}`",
+            f"- Resonance label: `{_display_status(hierarchy_status['resonance_status'])}`",
             f"- Full theorem-grade resonance promoted: `{hierarchy_status['full_theorem_grade_resonance_promoted']}`",
             f"- Remaining promotion gates: `{hierarchy_status['remaining_promotion_gates']}`",
             f"- Exact EW bridge capacity: `{hierarchy_bridge['N_CRC_EW']}`",
@@ -415,7 +415,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
             f"- Auxiliary direct-top coordinate: `{direct['auxiliary_direct_top_gev']} GeV` on `{direct['auxiliary_direct_top_codomain']}`",
             f"- Difference: `{direct['direct_minus_current_coordinate_gev']} GeV`",
             f"- Pull: `{direct['pull_in_combined_sigma']}` combined sigma",
-            f"- Bridge status: `{_display_status(direct['bridge_status'])}`",
+            f"- Bridge label: `{_display_status(direct['bridge_status'])}`",
             "",
             "## Hadrons",
             "",

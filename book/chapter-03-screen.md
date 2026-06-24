@@ -134,7 +134,7 @@ Near a black hole, space is falling inward like a waterfall. The event horizon i
 
 Black holes are not the only source of horizons.
 
-**Cosmological horizons**: The universe is expanding, and cosmology distinguishes the observable-universe scale from the future event horizon. The key point here is that there are regions from which light cannot reach us, so observer access is finite.
+**Cosmological horizons**: The universe is expanding, and cosmology distinguishes the observable-universe scale from the future event horizon. Regions from which light cannot reach us make observer access finite.
 
 **Acceleration horizons**: If you accelerate continuously, there is a region behind you from which light can never catch up. You have a **Rindler horizon**. This produces the **Unruh effect**: an accelerating observer perceives the vacuum as a warm bath of particles.
 

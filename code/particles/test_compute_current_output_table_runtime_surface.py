@@ -55,7 +55,7 @@ def test_runtime_surface_preserves_repaired_neutrino_rows_and_canonical_refs(tmp
     assert uv["neutrino_local_bridge_candidate_context"] == (
         "code/particles/runs/neutrino/neutrino_lambda_nu_bridge_candidate.json"
     )
-    assert "## Companion Status" in markdown
+    assert "## Companion Claim Boundaries" in markdown
     assert "## Neutrino Oscillation Comparison" in markdown
     assert exact_nonhadron["status"] == "exact_output_lane_closed_nonhadron_only"
     assert exact_fit_surface["artifact"] == "oph_exact_fits_only_surface"

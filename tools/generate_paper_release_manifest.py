@@ -13,6 +13,9 @@ from pathlib import Path
 
 RELEASE_INFO_RELATIVE = Path("paper/release_info.tex")
 OUTPUT_RELATIVE = Path("paper/paper_release_manifest.json")
+RELEASED_COSMOLOGY_TEX = (
+    Path("cosmology/oph_dark_matter_paper.tex"),
+)
 RELEASE_TRACKED_PDFS = {
     "deriving_the_particle_zoo_from_observer_consistency": Path(
         "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
@@ -67,6 +70,17 @@ def discover_extra_pdfs(repo_root: Path) -> dict[str, Path]:
             raise SystemExit(
                 f"missing PDF for extra paper {tex_path.name}: {pdf_path}. "
                 "Run python3 tools/build_tex_papers.py --extra-only before regenerating the manifest."
+            )
+        discovered[tex_path.stem] = pdf_path.relative_to(repo_root)
+    for relative_tex_path in RELEASED_COSMOLOGY_TEX:
+        tex_path = repo_root / relative_tex_path
+        if not tex_path.is_file():
+            raise SystemExit(f"missing released cosmology paper source: {tex_path}")
+        pdf_path = tex_path.with_suffix(".pdf")
+        if not pdf_path.is_file():
+            raise SystemExit(
+                f"missing PDF for released cosmology paper {tex_path.name}: {pdf_path}. "
+                "Run python3 tools/build_tex_papers.py oph_dark_matter_paper before regenerating the manifest."
             )
         discovered[tex_path.stem] = pdf_path.relative_to(repo_root)
     return discovered

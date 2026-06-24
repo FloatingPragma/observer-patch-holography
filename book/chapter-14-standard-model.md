@@ -15,8 +15,8 @@ This view works for calculations, but it hides what is actually strange about ou
 The Standard Model is extremely successful, and it carries deep warnings. Its
 vacuum energy and loop integrals blow up in the ultraviolet. Its couplings run
 with scale. Its anomaly cancellations are delicate. Its chirality is startling.
-Taken together, these are clues that the Standard Model is an emergent
-effective description. It is not the foundation.
+These clues point to an emergent effective description. The Standard Model is
+not the foundation.
 
 ## 14.3 The Quantum Revolution
 
@@ -949,7 +949,7 @@ unification.
 
 ## 14.20 What the Model Explains
 
-Let's step back and see what the framework actually accounts for.
+The framework accounts for several concrete facts.
 
 **The integers.** Why three colors? Why three generations? Why those specific hypercharges? These are consequences of consistency requirements, not free parameters. Anomaly cancellation and Yukawa invariance fix the hypercharge lattice, the minimal coupled carrier fixes the color triplet, and CKM CP capability together with weak-sector ultraviolet consistency fixes the generation count.
 

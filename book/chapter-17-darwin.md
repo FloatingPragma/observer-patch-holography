@@ -368,6 +368,6 @@ observers it produces.
 
 ---
 
-We've seen how laws emerge through selection. But who are the observers that do the selecting? What are they made of? How do they fit into the picture?
+Laws emerge through selection. But who are the observers that do the selecting? What are they made of? How do they fit into the picture?
 
 That brings us to **Chapter 18: Synthesis**-where we step back and see the entire picture.

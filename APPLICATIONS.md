@@ -65,7 +65,7 @@ and exact verifier closure.
 The hardware does not have to replace the verifier. It has to make the
 verifier's job much smaller. The task is encoded as many local constraints.
 Optical paths, phase relations, and chamber geometry bias the output toward
-candidate strings with low mismatch. The computer still checks every candidate
+candidate strings with low mismatch. The computer checks every candidate
 exactly, so wrong answers are cheap to reject. The win comes from changing the
 candidate stream before brute-force search begins.
 
@@ -119,7 +119,7 @@ OPH treats this as geometry control. Gravity is the large-scale readout of
 overlap geometry and repair. The dark-matter paper uses the same idea at
 galaxy and cosmology scale: finite collars can carry an information-defect
 stress correction. That correction is electromagnetically dark because it is a
-record-repair remainder. It still gravitates because it enters the effective
+record-repair remainder. It gravitates because it enters the effective
 stress bookkeeping. In a settled galaxy it looks like a dark-matter or
 MOND-like correction. In a device, the same principle becomes a local
 engineering target.
@@ -151,7 +151,7 @@ where physical patch carriers, records, synchronization, and hardware evidence
 rules are part of the same stack.
 
 References: the OPH dark branch is described in
-[OPH Dark Matter Paper](extra/oph_dark_matter_paper.pdf). The observer-overlap route to Lorentzian geometry and
+[OPH Dark Matter Paper](cosmology/oph_dark_matter_paper.pdf). The observer-overlap route to Lorentzian geometry and
 Einstein/Jacobson dynamics is in
 [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf).
 The federated carrier model is in

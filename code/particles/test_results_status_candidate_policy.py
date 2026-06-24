@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Guard explicit public-surface policy helpers in the status table builder."""
+"""Guard explicit public-surface policy helpers in the claim table builder."""
 
 from __future__ import annotations
 

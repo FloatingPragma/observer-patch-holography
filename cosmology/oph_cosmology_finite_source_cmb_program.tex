@@ -62,20 +62,16 @@ Observer-Screen Synchronization, Dark Stress, and the Physical CMB Gate}
 \OPHPaperReleaseBanner
 
 \begin{abstract}
-This paper stages the OPH cosmology branch inside the public core repository without yet promoting
-it to the published paper set. It consolidates the inflation-free observer-screen synchronization
-draft, the dark/anomaly stress paper, the screen-microphysics paper, the compact OPH theorem stack,
-and the latest OPH-FPE simulator diagnostics into one finite-source prediction program. The central
-claim is deliberately conditional. OPH may replace the logical jobs of inflation by finite
-observer-screen synchronization: flatness by visible holonomy selection, horizon coherence by a
-same-boundary or low-\(k\) repair gate, near scale invariance by a screen Green spectrum, hot
-initial data by MaxEnt release, and acoustic peaks by ordinary Boltzmann transfer from source-only
-finite OPH artifacts. The latest 256k-patch OPH-FPE run strengthens the program because its best
-diagnostic CMB curve has shape correlation \(0.9951542364\), normalized RMSE \(0.0984455548\), and
-zero mean peak-location error against the local binned TT table. It also hardens the claim boundary:
-the physical CMB prediction receipt remains false until finite source provenance, physical scale
-calibration, a covariant collar-packet stress parent, physical \(\rho_A(a)\), \(B_A(k,a)\), and
-\(\Gamma_{\rm rec}(k,a)\) kernels, Boltzmann transfer, and frozen likelihood receipts pass.
+OPH cosmology asks whether finite observer-screen synchronization can do the jobs usually assigned
+to inflation and dark initial conditions. The program ties flatness to spatial holonomy, horizon
+coherence to same-boundary repair, near scale invariance to the screen spectrum, hot initial data to
+MaxEnt release, and acoustic peaks to ordinary Boltzmann transfer from finite OPH source artifacts.
+A 256k-patch simulator run gives a strong diagnostic CMB curve, with shape correlation
+\(0.9951542364\), normalized RMSE \(0.0984455548\), and zero mean peak-location error against the
+local binned TT table. The physical claim remains conditional. A CMB prediction needs finite source
+provenance, physical scale calibration, a covariant collar-packet stress parent, physical
+\(\rho_A(a)\), \(B_A(k,a)\), and \(\Gamma_{\rm rec}(k,a)\) kernels, Boltzmann transfer, and frozen
+likelihood receipts.
 \end{abstract}
 
 \section*{What This Paper Contributes}
@@ -85,18 +81,20 @@ structure, and finite screen microphysics. The cosmology work asks a different q
 large-scale data can be predicted once the finite observer-screen state is released into an
 Einstein-Boltzmann cosmology?
 
-This staging paper contributes four things.
+The program paper has four jobs.
 \begin{enumerate}[leftmargin=2em]
-\item It consolidates the inflation-free OPH cosmology branch into the core repository under
-\pathref{cosmology/}, while keeping it outside the release build until the theorem gates close.
+\item It consolidates the inflation-free OPH cosmology branch into the core repository's cosmology
+directory, while keeping it outside the release build until the theorem gates close.
 \item It separates diagnostic simulator outputs from physical predictions. A good visual or
 measurement-facing CMB overlay is not a physical CMB prediction unless its inputs are source-only
 finite OPH artifacts fixed before likelihood comparison.
-\item It names the finite objects that must exist before simulation work should resume on physical
-CMB, vacuum, or cosmological uses of the dark sector: source provenance, physical mode calibration,
+\item It names the finite objects required for physical promotion of simulation outputs in CMB,
+vacuum, or cosmological uses of the dark sector: source provenance, physical mode calibration,
 freezeout, covariant stress, anomaly kernels, transfer, likelihood, and quotient ensemble receipts.
-The dark-sector derivations themselves remain in \pathref{extra/}.
-\item It gives the open GitHub theorem issues a single paper-side target.
+The dark-sector derivations themselves are owned by the released cosmology paper
+\pathref{cosmology/oph_dark_matter_paper.tex}.
+\item It gives the staged cosmology branch one theorem surface for the finite-source and likelihood
+claim gates.
 \end{enumerate}
 
 \tableofcontents
@@ -105,16 +103,16 @@ The dark-sector derivations themselves remain in \pathref{extra/}.
 \section{Claim Boundary}
 
 This is a continuation paper, not a release checkpoint and not a published OPH paper bundle member.
-It is part of the public core repository so that later paper and simulator work can target one
-coherent cosmology contract.
+It is part of the public core repository as the shared cosmology contract for paper and simulator
+work.
 
 The branch claim is:
 \[
 \boxed{
 \begin{gathered}
 \text{OPH can replace the logical jobs of inflation on a finite-source branch:}\\
-\text{flatness by visible-holonomy selection, horizon coherence by same-boundary repair,}\\
-\text{near scale invariance by the screen Green spectrum, hot initial data by MaxEnt release,}\\
+\text{flatness by direct/CMH spatial-holonomy selection, horizon coherence by same-boundary repair,}\\
+\text{near scale invariance by the geometric screen spectrum, hot initial data by MaxEnt release,}\\
 \text{and acoustic peaks by Boltzmann transfer from source-only OPH artifacts.}
 \end{gathered}}
 \]
@@ -123,10 +121,10 @@ Here ``can'' means ``can on the declared Phase III finite-source continuation br
 source, stress, lift, transfer, and likelihood gates close.'' It does not mean that inflation
 replacement, CMB spectra, or dark-sector cosmology are part of the recovered Phase I SM/GR core.
 
-The branch does not currently claim a physical CMB prediction, a completed Planck/ACT likelihood
-run, an OPH-native quantum vacuum, a full cosmological dark-matter likelihood, or a production
-particle-formation simulation. The latest simulator run is measurement-facing and useful, but its
-own promotion receipts keep the physical claim closed.
+The branch has no physical CMB prediction, completed Planck/ACT likelihood run, OPH-native quantum
+vacuum, full cosmological dark-matter likelihood, or production particle-formation simulation. The
+256k simulator run is measurement-facing diagnostic evidence; its promotion receipts keep the
+physical claim closed.
 
 \begin{remark}[No simulator shortcut]
 The paper-side theorem gates are not bureaucratic checks. They are the distinction between a
@@ -135,14 +133,21 @@ without using CMB data. The simulator should not resume physical CMB promotion u
 mathematically specified here and then implemented as deterministic receipts.
 \end{remark}
 
-\section{Compatibility With the Current Core Stack}
+\section{Finite Quotient Ensembles and Claim Tiers}
 
-This section records the compatibility pass against the current core papers after the recent issue
-closures. It is the guardrail for importing the older inflation-free draft.
+\input{../paper/tex_fragments/FINITE_QUOTIENT_ENSEMBLE_THEOREMS.tex}
+
+\input{../paper/tex_fragments/SCREEN_SPECTRUM_THEOREMS.tex}
+
+\input{../paper/tex_fragments/PHYSICAL_SCALE_BRIDGE_THEOREMS.tex}
+
+\section{Compatibility With the Core Stack}
+
+The compatibility table fixes how the inflation-free draft is read against the core papers.
 
 \begin{longtable}{@{}p{0.28\textwidth}p{0.62\textwidth}@{}}
 \toprule
-Imported draft idea & Current core-compatible reading\\
+Imported draft idea & Core-compatible reading\\
 \midrule
 \endhead
 \bottomrule
@@ -155,29 +160,35 @@ Use quotient-level fixed-cutoff normal forms on the declared branch, unique only
 redundancy, implementation hiding, inert ancillary stabilization, and any required same-boundary
 unique-extension condition. Do not read the old draft as selecting a unique microscopic
 representative.\\
-Screen Green spectrum and \(n_s=1-P/48\) &
-Screen-level theorem or target until the source-only primordial bridge passes. Physical \(A_s\),
-\(n_s\), running, isocurvature, phase coherence, and TT/TE/EE spectra require the source-stress,
-single-clock, repair-gap, freezeout, radial-prior, null-space, and forward-residual receipts.\\
+Screen spectrum and \(n_s=1-P/48\) &
+Screen-level theorem only after geometric \(q_r\), normalized \(K_r\), source release energy,
+refinement tilt, and angular-spectrum receipts pass. The special \(P/48\) tilt is theorem-grade
+only after the edge-center reserve, half-collar projection, and reserve-to-RG receipts pass.
+Physical \(A_s\), \(n_s\), running, isocurvature, phase coherence, and TT/TE/EE spectra require the
+separate source-stress, single-clock, radial-prior, null-space, forward-residual, transfer, and
+likelihood receipts.\\
 Dark/anomaly slot &
-Imported from \pathref{extra/}. For a source-only primordial certification run, the dark
+Imported from \pathref{cosmology/oph_dark_matter_paper.tex}. For a source-only primordial certification run, the dark
 continuation is \texttt{OFF} unless a supplied abundance is explicitly typed
 \texttt{CONDITIONAL\_SOURCE\_STATE}; transported \(Q_A\) is not by itself an OPH derivation of the
 homogeneous anomaly abundance.\\
 Scalar anomaly rows &
 Rows for \(\rhoA\), \(\rhoAeq\), and \(\Bkernel\) are diagnostics unless the finite covariant
-parent also emits \(w_A\), \(\csA\), \(\sigmaA\), \(\QA\), \(\GammaRec\), recipient stress when
-\(\GammaRec>0\), gauge-independent variables, CDM-limit recovery, and refinement convergence.\\
+parent also emits \(w_A\), \(\csA\), \(\sigmaA\), \(\QA\), exchange-current closure, recipient
+stress for nonzero exchange, gauge-independent variables, CDM-limit recovery, and refinement
+convergence. A transition-matrix number is \(\gamma_{\mathrm{repair\ step}}\) until promoted to
+\(\GammaRec\) by the physical clock, active-fiber, and common-parent response receipts.\\
 Boltzmann and likelihood comparison &
 Physical promotion requires immutable source, solver, and likelihood hashes, official likelihood
 execution, and global CDM-limit reductions. Shard-local \texttt{any()} rollups or nonlinear
 averages before global pooling do not satisfy the contract.\\
 Vacuum language &
 Finite reference states and free-field/lattice baselines remain reference ensembles. OPH-native
-vacuum promotion requires the quotient-ensemble selector and positive-transfer or
-reflection-positive gate from the compact/screen-microphysics theorem surface.\\
+vacuum promotion requires the quotient-ensemble selector plus source Euclidean slab data and a
+transfer/reflection-positive reconstruction gate from the compact/screen-microphysics theorem
+surface.\\
 Simulator receipts &
-Any future receipt cited here must carry exact source/config/solver/likelihood hashes. The 256k run
+Any physical-promotion receipt cited here must carry exact source/config/solver/likelihood hashes. The 256k run
 used for diagnostics records \texttt{git\_commit=unknown}, so it is not used as exact replay
 provenance.\\
 \end{longtable}
@@ -192,31 +203,30 @@ Surface & Imported role\\
 \endhead
 \bottomrule
 \endfoot
-\pathref{cosmology/inflation_without_inflaton_observer_screen_synchronization.tex} &
-Main inflation-free branch: finite screen federation, flatness, horizon coherence, screen Green
-spectrum, amplitude, MaxEnt release, anomaly slot, transfer, and likelihood gates.\\
+\pathref{cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.tex} &
+Main inflation-free branch: finite screen federation, flatness, horizon coherence, geometric screen
+spectrum, screen amplitude, radial lift, MaxEnt release, anomaly slot, transfer, and likelihood gates.\\
 \pathref{cosmology/physical_cmb_theorem_program.md} &
-Recent theorem-roadmap file identifying the missing physical CMB source, scale, stress, kernel,
+Theorem-contract file identifying the physical CMB source, scale, stress, kernel,
 transfer, and likelihood contracts.\\
 \pathref{paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex} &
 Compact recovered-core claim boundary and the first surface for later propagation.\\
 \pathref{paper/tex_fragments/PAPER.tex} &
 Main technical paper surface for global OPH theorem language.\\
 \pathref{paper/tex_fragments/PRIMORDIAL_BRIDGE_THEOREMS.tex} &
-Primordial bridge theorem status and screen-to-primordial finite-source conditions.\\
+Primordial bridge theorem boundary and screen-to-primordial finite-source conditions.\\
 \pathref{paper/screen_microphysics_and_observer_synchronization.tex} &
 Finite observer-screen carriers, records, patch ports, evidence bundles, and implementation
 invariance.\\
-\pathref{extra/oph_dark_matter_paper.tex} &
+\pathref{cosmology/oph_dark_matter_paper.tex} &
 Collar-remainder dark/anomaly stress, galaxy equilibrium, dynamic stress, and cosmological kernel
 contracts. This paper imports those contracts by reference; it does not duplicate the dark-sector
 derivations.\\
 \pathref{oph-physics-sim/runs/gcp_large_vis_256k_modkernel_20260623} &
-Latest 256k-patch simulator evidence: strong CMB diagnostics, explicit false physical-prediction
+256k-patch simulator evidence: strong CMB diagnostics, explicit false physical-prediction
 receipt, and full visualizer export data. The run manifest records \texttt{git\_commit=unknown};
-the canonical simulator repository is \SimSourceRepo, and the current public source reference
-available during this consolidation is
-\SimSourceCommit.\\
+the canonical simulator repository is \SimSourceRepo, and the public source reference available for
+this consolidation is \SimSourceCommit.\\
 \end{longtable}
 
 \begin{remark}[Simulator receipt provenance]
@@ -224,26 +234,26 @@ Whenever this paper mentions simulator receipts, the receipt artifacts should be
 responsible commit in the canonical simulator repository, \SimSourceRepo. For the 256k run used here, the local artifact
 \pathref{runs/gcp_large_vis_256k_modkernel_20260623/manifest.json} reports
 \texttt{git\_commit=unknown}. Therefore the numerical run is cited as diagnostic evidence with
-incomplete commit provenance. The available public source context at the time of this consolidation
-is \SimSourceCommitURL, but that link is not asserted to be an exact run-replay hash for the 256k
-artifacts. Future physical-promotion receipts must carry exact source, config, solver, and
-likelihood hashes.
+incomplete commit provenance. The available public source context for this consolidation is
+\SimSourceCommitURL, but that link is not asserted to be an exact run-replay hash for the 256k
+artifacts. Physical-promotion receipts require exact source, config, solver, and likelihood hashes.
 \end{remark}
 
-\begin{remark}[Ownership boundary for extra papers]
-Published and staging papers under \pathref{extra/} keep ownership of the dark-sector theory:
-collar-remainder stress, galaxy equilibrium, dynamic repair-stress transport, cluster behavior, and
-the detailed perturbation-kernel derivations. This cosmology program paper only records the
-interface those papers must expose to the physical CMB/large-scale-structure pipeline. When it names
-\(\rhoA(a)\), \(\Bkernel(k,a)\), \(\GammaRec(k,a)\), stress closure, or repair-stress transport, it
-is naming imported source functions and receipts, not rederiving the dark sector here.
+\begin{remark}[Ownership boundary for the dark-matter paper]
+The released dark-matter paper \pathref{cosmology/oph_dark_matter_paper.tex} keeps ownership of
+the dark-sector theory: collar-remainder stress, galaxy equilibrium, dynamic repair-stress
+transport, cluster behavior, and the detailed perturbation-kernel derivations. This cosmology
+program paper only records the interface that paper must expose to the physical
+CMB/large-scale-structure pipeline. When it names
+\(\rhoA(a)\), \(\Bkernel(k,a)\), stress closure, repair-stress transport, or a certified
+\(\GammaRec(k,a)\), it is naming imported source functions and receipts, not rederiving the dark
+sector here.
 \end{remark}
 
 \section{Imported Theorem Map}
 
-The long inflation-free draft contains many theorem statements. This paper does not copy every proof
-verbatim. Instead it gives them one public-core landing surface and keeps their dependency roles
-visible.
+The inflation-free draft contains many theorem statements. The table gives them a public-core
+landing surface and keeps their dependency roles visible.
 
 \begin{longtable}{@{}p{0.30\textwidth}p{0.60\textwidth}@{}}
 \toprule
@@ -254,18 +264,20 @@ Imported theorem family & Role in this paper\\
 \endfoot
 Finite synchronization normal form &
 Defines the early observer-facing quotient state whose repair normal form replaces an assumed
-smooth primordial substrate, with uniqueness read modulo the current compact-paper quotient
+smooth primordial substrate, with uniqueness read modulo the compact-paper quotient
 equivalences.\\
-FLRW curvature holonomy, flat-sector selection, and curvature damping &
-Owns the flatness branch: exact \(k=0\) when zero visible holonomy is selected, or a bounded
-residual when the curvature-repair margin stays positive.\\
+Clocked FLRW curvature holonomy, flat-sector selection, and curvature bounds &
+Owns the flatness branch: zero clock-slice spatial Levi--Civita holonomy identifies
+\(\kappa=0\); exact selection requires a direct theorem, conditional CMH selector, or explicit
+flat-branch assumption. Curvature damping supplies only \(|K|\) or \(|\Omega_K|\) bounds.\\
 Diffusive horizon no-go, same-boundary coherence, and low-\(k\) repair gap &
 Separates a failed purely local diffusion story from the allowed same-boundary or uniform low-\(k\)
 synchronization mechanisms.\\
-Screen Green spectrum, Mellin lift, edge-center scalar opportunities, \(\Zsix\) reserve, and
-half-collar sampling &
-Owns the screen-level near-scale-invariant covariance and the red tilt target \(n_s=1-P/48\);
-physical primordial status waits for the source-only bridge receipts.\\
+Geometric screen scalar, precision operator, MaxEnt screen covariance, Mellin lift,
+edge-center scalar opportunities, \(\Zsix\) reserve, and half-collar sampling &
+Owns the screen-level near-scale-invariant covariance. The red tilt \(P/48\) is theorem-grade only
+after the reserve-to-RG receipts pass; physical primordial promotion waits for the source-only radial
+bridge receipts.\\
 Finite release collar state, scalar release code, and scalar amplitude theorem &
 Owns \(\Azeta\) as a finite source artifact rather than a fitted amplitude.\\
 MaxEnt release, entropy transport, BBN-safe release, recombination inheritance, and adiabaticity &
@@ -278,7 +290,7 @@ gap, freezeout, growing mode, isocurvature, phase coherence, radial prior, null-
 residual.\\
 Finite homogeneous anomaly charge, no double counting, packet moments, cold anomaly, Bianchi
 exchange, no-slip lensing, and linear anomaly transfer &
-Imported from the dark-sector papers in \pathref{extra/}; this paper only records the CMB/LSS
+Imported from \pathref{cosmology/oph_dark_matter_paper.tex}; this paper only records the CMB/LSS
 handoff interface and receipt gates.\\
 Universe Simulation certificate bundle, no-data-use theorem, finite-certificate branch, Boltzmann
 stability, likelihood promotion, and CMB admissibility &
@@ -291,26 +303,25 @@ Records secondary predictions to be tested only after the primary scalar/source/
 \section{Extended Cosmology Agenda}
 
 The local cosmology notes identify several OPH-native prediction surfaces beyond the immediate CMB
-gate. They are not independent claims yet; they are the next paper tracks once the finite-source
-contract is stable.
+gate. They are program tracks, not independent claims.
 
 \begin{enumerate}[leftmargin=2em]
-\item \textbf{CMB as observer-consensus fossil.} The highest-value target is still the CMB: largest
-observable scales should carry relics of finite observer synchronization, not merely a fitted
+\item \textbf{CMB as observer-consensus fossil.} The highest-value target is the CMB: largest
+observable scales should carry relics of finite observer synchronization rather than a fitted
 inflationary initial spectrum.
 \item \textbf{\(\Lambda\) from observer capacity.} The screen-capacity branch relates the de Sitter
 scale to finite horizon capacity. A full cosmology paper should derive the equation of state,
 possible time evolution, and any deviation from \(w=-1\).
 \item \textbf{Full cosmological dark sector.} The dark paper's galaxy layer is not enough. CMB,
 BAO, weak lensing, growth, and \(S_8\) need the transported repair-stress perturbation branch.
-\item \textbf{\(H_0\) and \(S_8\) predictions.} Once the scale bridge and anomaly kernels are fixed,
-the branch should emit blind values or intervals for \(H_0\) and \(S_8\), rather than tuning toward
-the current tensions.
+\item \textbf{\(H_0\) and \(S_8\) predictions.} With the scale bridge and anomaly kernels fixed,
+the branch should emit blind values or intervals for \(H_0\) and \(S_8\), without tuning toward
+observed tensions.
 \item \textbf{Large-scale topology.} Finite observer-accessible screens make global topology and
 matching-circle style signatures natural tests.
 \item \textbf{Consensus hierarchy of structure.} Galaxy, cluster, and supercluster formation should
-be investigated as a hierarchy of stable consensus attractors, not only as density perturbation
-growth in a fixed background.
+be investigated as a hierarchy of stable consensus attractors, with density perturbation growth in a
+fixed background as one layer of the story.
 \item \textbf{Cosmological arrow of time.} OPH has native records, checkpoints, and continuation
 laws; these should be used to formulate the low-entropy past condition as a finite-record boundary
 condition.
@@ -349,21 +360,101 @@ hashes are all frozen before likelihood evaluation, and all source functions are
 artifacts.
 \end{definition}
 
+\begin{definition}[Cosmology artifact promotion ladder]
+Cosmology artifacts first carry the three claim tiers of
+Definition~\ref{def:cosmology-claim-tiers}.  Within a tier, source artifacts also carry an explicit
+semantic type
+\[
+\textsc{DiagnosticProxy}
+\prec
+\textsc{FiniteScreenSource}
+\prec
+\textsc{FinitePrimordialSource}
+\prec
+\textsc{PhysicalBoltzmannSource}
+\prec
+\textsc{PhysicalCMBPrediction}.
+\]
+No receipt may skip a boundary in this order.  A close TT curve, a scalar CMI row, a cap-angle
+mode number, a repair-clock eigenvalue, or a visual freezeout surface is therefore
+\texttt{DIAGNOSTIC\_PROXY} until the required source, physical-scale, stress, transfer, and
+likelihood receipts promote it step by step.  Imported FLRW geometry can promote downstream labels
+only to \texttt{CONDITIONAL\_PHYSICAL}; \texttt{OPH\_NATIVE\_PHYSICAL} additionally requires
+Target~\ref{target:cosmo-geometry-extraction}.
+\end{definition}
+
+\begin{definition}[Proof-carrying source artifact]
+A promotable artifact is a record
+\[
+\mathfrak A_v=
+(id_v,\tau_v,x_v,\mathcal X_v,\mathcal U_v,\mathrm{Par}(v),
+\mathcal D_v,\mathcal E_v,h_v^{\rm theorem},h_v^{\rm witness},
+h_v^{\rm build},h_v^{\rm artifact}),
+\]
+where \(\tau_v\) is the semantic type, \(x_v\) is the value or tensor/function,
+\(\mathcal X_v\) records axes, domain, grid, and support, \(\mathcal U_v\)
+records units, gauge, frame, pivot, and conventions, \(\mathrm{Par}(v)\) is the
+complete parent set, \(\mathcal D_v\) is the data-class ledger,
+\(\mathcal E_v\) is the numerical and theorem error envelope, and the hashes
+commit to theorem version, witness, build environment, and artifact payload.
+\end{definition}
+
+\begin{theorem}[Sound promotion by source DAG induction]
+Let \(G=(V,E)\) be a finite acyclic artifact graph.  For each node \(v\), let
+\(P_v(\mathfrak A_v)\) be the mathematical predicate claimed by the artifact
+and let \(V_v(\mathfrak A_v,w_v)\) be a sound verifier, so
+\[
+V_v(\mathfrak A_v,w_v)=1\Longrightarrow P_v(\mathfrak A_v).
+\]
+Define
+\[
+\operatorname{Pass}(v)
+=V_v(\mathfrak A_v,w_v)
+\wedge\bigwedge_{p\in\operatorname{Par}(v)}\operatorname{Pass}(p)
+\wedge\operatorname{SourceOnly}(v).
+\]
+Then \(\operatorname{Pass}(v)=1\) implies \(P_v(\mathfrak A_v)\), and every
+required parent predicate holds.
+\end{theorem}
+
+\begin{proof}
+Order the finite DAG topologically. Root nodes satisfy their predicates by
+local verifier soundness. If every parent of \(v\) has passed, then the local
+verifier proves \(P_v\) and the parent hypotheses are available. The
+claim follows by induction.
+\end{proof}
+
+\begin{target}[Source ancestry and freeze receipts]
+Physical promotion requires
+\[
+\texttt{TRANSITIVE\_SOURCE\_ANCESTRY\_RECEIPT},\quad
+\texttt{HERMETIC\_READ\_SET\_RECEIPT},\quad
+\texttt{SOURCE\_MODEL\_FREEZE\_RECEIPT}.
+\]
+The first receipt walks every ancestor of every promoted quantity and rejects any CMB, BAO,
+supernova, weak-lensing, growth, cluster, or similar evaluation-data dependency.  The second
+requires an intercepted, content-addressed read set for files, network, environment, command-line
+configuration, caches, randomness, code, dependencies, and human-selected branch identifiers.  The
+third freezes branch, model family, basis, pivot, cutoff, packetization, smoothing, thresholds,
+freezeout tolerances, and hyperparameter ranges before comparison.
+\end{target}
+
 \section{Inflation-Free Branch}
 
 The inflation-free branch replaces inflation's jobs rather than reproducing an inflaton. Its
 load-bearing theorem stack is:
 \begin{enumerate}[leftmargin=2em]
 \item quotient-level observer-facing normal form for the early screen/collar federation, with the
-current compact-paper quotient equivalences;
-\item zero visible spatial holonomy or positive curvature-holonomy damping for flatness;
+compact-paper quotient equivalences;
+\item zero clock-slice spatial Levi--Civita holonomy to identify the flat branch, plus a direct
+flatness theorem, conditional CMH selector, or explicit flat-branch assumption to select it;
 \item same-boundary scalar normal form or a low-\(k\) repair gap for horizon coherence;
-\item screen Green spectrum for near scale invariance;
+\item geometric screen spectrum for near scale invariance;
 \item protected \(\Zsix\) half-collar reserve for the red spectral exponent;
 \item finite scalar release code for \(\Azeta\);
 \item MaxEnt release and common release clock for a hot adiabatic start;
 \item imported dark/anomaly stress variables for the pre-recombination CDM-like slot, when the
-\pathref{extra/} dark-sector source contract permits them;
+\pathref{cosmology/oph_dark_matter_paper.tex} source contract permits them;
 \item Boltzmann transfer and frozen likelihood for observational comparison.
 \end{enumerate}
 
@@ -371,11 +462,14 @@ current compact-paper quotient equivalences;
 Assume a cofinal family of finite early OPH screen federations has a quotient-level
 observer-facing normal-form projection on a declared branch, with uniqueness understood modulo
 boundary redundancy, implementation hiding, inert ancillary stabilization, and any same-boundary
-unique-extension condition required by the branch. Assume visible FLRW curvature holonomy is
-selected to zero or dynamically damped, every CMB-scale scalar mode shares the same boundary normal
-form or satisfies a uniform low-\(k\) repair gap, the scale-free scalar screen repair cascade realizes
-the half-collar spectral reserve, the source-only primordial bridge receipts pass, the finite release
-code emits \(\Azeta\), and the imported dark/anomaly sector supplies a permitted CDM-like source
+unique-extension condition required by the branch. Assume the clocked FLRW continuation boundary
+\(B_{\cos,r}\) supplies \(u_a=-N\nabla_a\chi\), \(h_{ab}=g_{ab}+u_au_b\),
+\(K(\tau)=\kappa/a^2\), and topology policy, and that one of the exact flat-sector gates is
+present: \textsc{DirectTheorem}, \textsc{ConditionalCMH}, or \textsc{ExplicitAssumption}. Assume
+every CMB-scale scalar mode shares the same boundary normal
+form or satisfies a uniform low-\(k\) repair gap, the finite screen-spectrum receipts derive a
+geometric \(q_r\), normalized \(K_r\), source release energy \(A_q\), and refinement tilt, the
+source-only radial bridge receipts pass, and the imported dark/anomaly sector supplies a permitted CDM-like source
 state through recombination. Then the branch supplies flatness, horizon coherence, near scale
 invariance, hot adiabatic initial data, and acoustic-transfer input without an inflaton degree of
 freedom.
@@ -383,27 +477,40 @@ freedom.
 
 \begin{proof}
 The proof is a dependency composition. The quotient normal-form projection gives a finite
-observer-facing early state on the declared branch, not a unique hidden representative. Visible
-holonomy selection or damping gives the flat sector. Same-boundary repair or a low-\(k\) gap gives
-coherence on the observed CMB band. The screen Green spectrum with half-collar reserve gives the
-screen-level power law
+observer-facing early state on the declared branch, not a unique hidden representative. The spatial
+Levi--Civita holonomy theorem identifies the \(\kappa=0\) branch; the direct, CMH, or
+explicit-assumption gate selects it. Curvature damping is not used as a selector. Same-boundary
+repair or a low-\(k\) gap gives
+coherence on the observed CMB band. The screen-spectrum theorem package first gives
 \[
-\Delta_\zeta^2(k)=\Azeta\left(\frac{k}{k_\star}\right)^{-P/48},
-\qquad
-n_s=1-\frac{P}{48}.
+C_\ell^q
+=A_q\frac{\Gamma(\ell-\theta/2)}{\Gamma(\ell+2+\theta/2)}.
 \]
-The source-only bridge receipts type that screen scalar as a primordial curvature source; without
-them it remains a screen theorem. The finite release code fixes the amplitude before comparison.
+The value \(\theta=P_\star/48\) follows only if the edge-center reserve, half-collar scalar projection,
+and reserve-to-RG receipts pass; otherwise \(\theta\) is measured from the actual scalar refinement
+operator or kept as a diagnostic hypothesis. The source-only bridge receipts then type that screen
+scalar as a primordial curvature source and convert \(A_q\) to \(\Azeta\) only after the exact
+thin-shell or finite-window radial lift, null-space, and forward-residual receipts pass. Without
+them it remains a screen theorem.
 MaxEnt release gives a hot radiation state and the common clock gives adiabatic leading
 perturbations. If the imported anomaly stress branch is an admissible source state through
 recombination, the acoustic peaks are computed by ordinary Einstein-Boltzmann transfer from those
 finite inputs.
 \end{proof}
 
-\begin{remark}[Current status of the theorem]
-The theorem is conditional because several premises are still open theorem issues. The branch is
-sharp enough to simulate, but not sharp enough to promote diagnostic CMB agreement to a physical
-prediction.
+\begin{proposition}[Curvature suppression is not sector selection]
+On a fixed clocked FLRW sector,
+\[
+K(\tau)=\kappa/a(\tau)^2,\qquad \dot K=-2HK .
+\]
+Any repair or expansion estimate that proves a finite bound on \(|K|\) or \(|\Omega_K|\) is an
+\textsc{ApproximateBound}. It does not change \(\kappa\), does not distinguish globally inequivalent
+flat topologies, and may not be reported as \textsc{DirectTheorem} or \textsc{ConditionalCMH}.
+\end{proposition}
+
+\begin{remark}[Theorem boundary]
+The theorem is conditional because several premises are open theorem issues. The branch is sharp
+enough for diagnostics, but not for promoting CMB agreement to a physical prediction.
 \end{remark}
 
 \section{Physical CMB Finite-Source Contract}
@@ -412,31 +519,111 @@ The simulator's false physical CMB receipt identified a precise theorem contract
 objects must be theorem-grade finite artifacts:
 \[
 \Azeta,\qquad q_{\rm IR},\qquad \ell_{\rm IR},\qquad
-\rhoA(a),\qquad \rhoAeq(a),\qquad \Bkernel(k,a),\qquad \GammaRec(k,a),
+\rhoA(a),\qquad \rhoAeq(a),\qquad \Bkernel(k,a),\qquad
+\gamma_{\mathrm{repair\ step}}(k,a)\ \hbox{or certified}\ \GammaRec(k,a),
 \]
 plus full stress variables, freezeout, physical mode calibration, and \(\NCRC\) provenance.
+
+\begin{definition}[Finite primordial source package]
+At regulator \(r\), a physical primordial-source claim is carried by
+\[
+\mathfrak S_r^{\rm prim}=
+(\mathcal Q_r,n_r,\mu_r,q_r,J_r,\Pi_r,K_r,M_r,\Xi_r,\Sigma_r,E_r^{\rm rel},
+A_{q,r},\theta_r,q_{{\rm IR},r},t_{{\rm IR},r},\Sigma_{\star,r},W_r,
+\Delta_{\zeta,r}^2,\mathcal P_{IJ,r},\mathcal E_r).
+\]
+Here \(\mathcal Q_r\) is the physical quotient state space, \(n_r\) the
+normal-form map, \(\mu_r\) the source probability law, \(q_r\) the
+quotient-visible scalar source, \(J_r\) the finite carrier-to-harmonic readout,
+\(\Pi_r\) the gauge/monopole/dipole projector, \(K_r\) the positive scalar
+precision operator, \(M_r\) the mobility or repair-response operator,
+\(\Xi_r\) the stochastic forcing covariance,
+\(\Sigma_r=\operatorname{Cov}_{\mu_r}(q_r)\), \(E_r^{\rm rel}\) the source
+release-energy artifact, \(A_{q,r}\) the finite screen amplitude, \(\theta_r\)
+the spatial/RG spectral exponent, \(q_{{\rm IR},r}\) the IR suppression depth,
+\(t_{{\rm IR},r}\) the IR semigroup time, \(\Sigma_{\star,r}\) the freezeout
+cut, \(W_r\) the radial window, \(\Delta_{\zeta,r}^2\) the lifted primordial
+spectrum, \(\mathcal P_{IJ,r}\) the species-level initial covariance, and
+\(\mathcal E_r\) the complete error and refinement envelope.
+\end{definition}
 
 \begin{target}[Finite-source input contract]
 The paper stack must define pass/fail receipts for:
 \begin{enumerate}[leftmargin=2em]
 \item a source-provenance dependency DAG for all CMB source inputs;
 \item globally pooled sufficient-statistic reducers before nonlinear source estimates;
-\item the status of \(\NCRC\) as a consensus invariant, additive capacity, or theorem-side constant;
+\item the role of \(\NCRC\) as a consensus invariant, additive capacity, or theorem-side constant;
 \item finite derivations of \(\Azeta\), \(q_{\rm IR}\), and \(\ell_{\rm IR}\);
 \item total stress closure, single-clock normal form, entropy repair gap, curvature evolution,
 adiabatic growing mode, isocurvature bound, phase coherence, screen-to-radial lift, radial null-space,
 forward residual, and finite freezeout receipts;
 \item physical \(k\), \(\ell\), scale-factor, and redshift calibration;
 \item source-only imported dark-sector functions \(\rhoA(a)\), \(\rhoAeq(a)\), \(w_A(a)\),
-\(\csA(k,a)\), \(\sigmaA(k,a)\), \(\QA\), \(\Bkernel(k,a)\), and \(\GammaRec(k,a)\), where the
-chosen dark-continuation mode permits them.
+\(\csA(k,a)\), \(\sigmaA(k,a)\), \(\QA\), \(\Bkernel(k,a)\), and the
+\(\gamma_{\mathrm{repair\ step}}\) diagnostic or certified \(\GammaRec(k,a)\), where the chosen
+dark-continuation mode permits them.
 \end{enumerate}
 \end{target}
 
-\begin{proposition}[Why the 256k CMB curve is not yet a physical prediction]
+\begin{target}[Scalar, harmonic, and IR source receipts]
+The scalar-source branch must supply
+\[
+\texttt{SCALAR\_SOURCE\_MAP\_RECEIPT},\quad
+\texttt{A5\_TO\_SO3\_INTERTWINER\_RECEIPT},\quad
+\texttt{SPHERICAL\_QUADRATURE\_RECEIPT},\quad
+\texttt{LOW\_MODE\_PROJECTOR\_RECEIPT}.
+\]
+The map \(\mathsf{ScalarSourceMap}_r:\operatorname{nf}(\mathcal Q_r)\to
+V_r^{\rm scalar}\) must be quotient-invariant, refinement-natural, and
+normalized without per-run standardization.  Harmonic reconstruction uses a
+weighted Gram matrix \(G_L=Y_L^\dagger W Y_L\) and the low-mode projector
+\[
+\Pi_{\ge2}=I-Y_{01}(Y_{01}^\dagger W Y_{01})^{-1}Y_{01}^\dagger W.
+\]
+The IR kernel is parameterized by the semigroup time
+\[
+S_{\rm IR}=I-q_{\rm IR}e^{-t_{\rm IR}L},\qquad
+F_{\rm IR}(\ell)=1-q_{\rm IR}e^{-t_{\rm IR}\ell(\ell+1)}.
+\]
+The validator must enforce \(0\le q_{\rm IR}\le1\), \(t_{\rm IR}\ge0\), and
+derive the display scale
+\[
+\ell_{\rm IR}=\frac{-1+\sqrt{1+4/t_{\rm IR}}}{2}
+\]
+when \(t_{\rm IR}>0\).  The old dimension count \(12+20+1=33\Rightarrow
+\ell_{\rm IR}=32\) is not a source theorem.
+\end{target}
+
+\begin{target}[Fluctuation covariance and tilt receipts]
+Deterministic settling does not choose a fluctuation ensemble.  The finite
+quotient ensemble must supply \(\mu_r(q)=m_r(q)e^{-S_r(q)}/Z_r\) with
+projective compatibility, sampler correctness, and implementation invariance.
+Repair drift does not determine covariance: \(D\Sigma+\Sigma D^{\mathsf T}=\Xi\)
+requires the noise covariance \(\Xi\).  A fluctuation-dissipation branch may
+use \(D=M_rK_r\), \(\Xi=2A_rM_r\), and \(\Sigma_r=A_rK_r^{-1}\), but only with
+\[
+\texttt{QUOTIENT\_ENSEMBLE\_RECEIPT},\quad
+\texttt{LYAPUNOV\_COVARIANCE\_RECEIPT},\quad
+\texttt{FLUCTUATION\_DISSIPATION\_RECEIPT},\quad
+\texttt{MODE\_RESOLVED\_PRECISION\_OPERATOR\_RECEIPT}.
+\]
+The temporal repair gap, spatial RG exponent, primordial tilt, and physical
+exchange-rate kernel are distinct types:
+\[
+\texttt{TEMPORAL\_REPAIR\_GAP},\quad
+\texttt{SPATIAL\_RG\_EIGENEXPONENT},\quad
+\texttt{PRIMORDIAL\_SPECTRAL\_TILT},\quad
+\texttt{PHYSICAL\_EXCHANGE\_RATE\_KERNEL}.
+\]
+Only after the radial theorem identifies
+\(\Delta_\zeta^2(k)\propto k^{-\theta}\) may the branch write
+\(n_s=1-\theta\).
+\end{target}
+
+\begin{proposition}[Why the 256k CMB curve is diagnostic]
 The 256k OPH-FPE run may be used as a measurement-facing diagnostic, but not as a physical CMB
 prediction, because its promotion report marks the finite-source input contract false and lists
-missing source provenance, missing pooled reducers, missing \(\NCRC\) invariant status, non-finite
+missing source provenance, missing pooled reducers, missing \(\NCRC\) invariant role, non-finite
 \(\Azeta\), missing screen-to-primordial lift, non-finite \(q_{\rm IR}\) and \(\ell_{\rm IR}\),
 non-finite \(\rhoA\) and \(\Bkernel\), missing finite covariant parent receipt, missing stress
 closure, missing full fluid/exchange variables, missing gauge/causal/refinement certificates,
@@ -446,39 +633,33 @@ and likelihood hashes.
 
 \section{Physical Scale Bridge}
 
-The screen simulator has natural finite labels: patches, caps, overlaps, spherical harmonics,
-repair depths, and collar coordinates. A physical CMB prediction needs more. It needs a theorem that
-maps those labels to physical comoving \(k\), multipole \(\ell\), scale factor \(a\), redshift
-\(z\), and freezeout surface.
-
-\begin{target}[OPH scale bridge]
-Define a finite bridge
+Section~\ref{sec:physical-scale-bridge} owns the bridge definitions, no-go propositions, and
+conditional physical-scale theorem.  The practical rule is:
 \[
-\mathcal S_{\rm OPH}:
-(r,\hbox{screen mode},\hbox{collar mode},\hbox{repair clock})
-\longmapsto
-(k,\ell,a,z,\eta)
+\texttt{inverse\_cap\_opening\_angle\_proxy},\quad
+\texttt{repair\_cycle},\quad
+\texttt{graph\_mode\_index}
 \]
-that is invariant under hidden carrier representatives, compatible with regulator refinement, and
-independent of post-hoc peak alignment.
-\end{target}
+are nonpromotable diagnostic labels unless the structured receipt conjunctions in
+Target~\ref{target:physical-scale-receipts} pass.  A frozen imported FLRW geometry packet can
+exercise the complete spectral/clock/freezeout/transfer pipeline at tier
+\texttt{CONDITIONAL\_PHYSICAL}.  Replacing that packet by a quotient-derived
+\(\mathsf{CosmoGeomRead}_r\) without changing downstream interfaces is the open
+\texttt{OPH\_NATIVE\_PHYSICAL} task.
 
-Proxy variables such as inverse cap opening angle can remain useful diagnostics. They cannot clear
-the physical \(k\)-gate unless the scale bridge proves that the proxy converges to the physical
-comoving mode label used by the transfer solver.
-
-\section{Dark/Anomaly Interface Imported from Extra}
+\section{Dark/Anomaly Interface Imported from the Dark-Matter Paper}
 
 The dark/anomaly slot is the largest cosmology-facing bridge between the OPH dark-matter paper and
-the CMB program. The dark-sector papers in \pathref{extra/} own the derivation: collar remainder
-stress, settled galaxy response, dynamic transport, cluster behavior, and perturbation kernels.
-This paper only states the interface the CMB program requires from those papers. Cosmology needs the
+the CMB program. The released dark-matter paper \pathref{cosmology/oph_dark_matter_paper.tex}
+owns the derivation: collar remainder stress, settled galaxy response, dynamic transport, cluster
+behavior, and perturbation kernels. This paper only states the interface the CMB program requires
+from that paper. Cosmology needs the
 imported dark sector to expose a transported stress component with background density,
 perturbations, exchange terms, gauge-invariant variables, and the CDM-limit switch-off check.
 
 \begin{definition}[Imported finite covariant collar-packet parent interface]
 For the purpose of this cosmology program, the finite covariant collar-packet parent is an imported
-\pathref{extra/}-owned finite artifact interface
+\pathref{cosmology/oph_dark_matter_paper.tex}-owned finite artifact interface
 \[
 \mathcal P_A=
 (\mathcal C_r,Z_r,A_r,R_r,G_r,\pi_r,L_r,Q_r,D_r)
@@ -493,19 +674,64 @@ moments
 and source variables
 \[
 \rhoA(a),\quad \rhoAeq(a),\quad w_A(a),\quad \csA(k,a),\quad
-\sigmaA(k,a),\quad \QA,\quad \Bkernel(k,a),\quad \GammaRec(k,a),
+\sigmaA(k,a),\quad \QA,\quad \Bkernel(k,a),\quad
+\gamma_{\mathrm{repair\ step}}(k,a)\ \hbox{or certified}\ \GammaRec(k,a),
 \]
 with explicit conservation or exchange equations, recipient stress for nonzero exchange, gauge
 projection, causal response, regulator-refinement convergence, and \(B_A\) built from the
 anomaly-frame baryon density \(n_b^{(A)}=-u_{A\mu}J_b^\mu\).
 \end{definition}
 
+\begin{definition}[Issue \#319 conditional source receipt]
+The imported dark-sector parent first has to pass
+\[
+\texttt{ISSUE\_319\_CONDITIONAL\_SOURCE\_RECEIPT}.
+\]
+This receipt is a conjunction of source-side receipts, not a scalar CMI row. It requires exactly
+one declared route,
+\[
+\texttt{SOURCE\_ROUTE\_RECEIPT},
+\]
+unit metadata
+\[
+\texttt{ENTROPY\_UNIT\_RECEIPT},
+\]
+the exact carried modular identity
+\[
+  \langle K_{AB}+K_{BD}-K_B-K_{ABD}\rangle=I(A:D|B),
+\]
+and the first-variation classification that prevents raw CMI from being silently identified with a
+linear fixed-reference modular-energy variation. The source route is either
+\texttt{FIXED\_REFERENCE\_MODULAR\_ENERGY} or \texttt{NONLINEAR\_CMI\_STRESS}. The second route also
+requires
+\[
+\texttt{CMI\_TO\_MODULAR\_SOURCE\_MATCHING\_RECEIPT}.
+\]
+Both routes require collar-localization, BW normalization, physical diamond scale, \(\ell^4\)
+scaling, cover-independence, and stress-tomography receipts before the proper-radius normalization
+\[
+  T_A^{ab}u_a u_b
+  =
+  \frac{15\hbar c}{8\pi^2\ell^4}R^{\rm src}_{r,\ell}
+\]
+may be imported. Classical diagonal CMI rows, cap-angle proxies, duplicated collar counts, or
+absolute-value rectified density rows do not satisfy this receipt by themselves.
+\end{definition}
+
 \begin{target}[Imported stress-parent receipt]
-The simulator receipt for the imported parent must fail unless the owning dark-sector paper and its
-evidence bundle certify all of the following:
+The simulator receipt
+\[
+\texttt{FINITE\_COVARIANT\_PARENT\_RECEIPT}
+\]
+must fail unless the owning dark-sector paper and its evidence bundle certify all of the following:
 \begin{enumerate}[leftmargin=2em]
+\item \(\texttt{ISSUE\_319\_CONDITIONAL\_SOURCE\_RECEIPT}\);
+\item \(\texttt{CMI\_TO\_MODULAR\_SOURCE\_MATCHING\_RECEIPT}\) on the nonlinear-CMI route, or
+\(\texttt{FIXED\_REFERENCE\_MODULAR\_ENERGY\_RECEIPT}\) on the fixed-reference route;
+\item \(\texttt{STRESS\_TOMOGRAPHY\_RECEIPT}\) and \(\texttt{SM\_CURRENT\_NULL\_RECEIPT}\);
 \item exact finite stress-energy closure for anomaly plus recipient stresses;
-\item explicit recipient stress whenever \(\GammaRec\ne0\);
+\item explicit recipient stress and equal-and-opposite exchange current whenever the exchange
+branch is nonzero;
 \item detailed balance or a declared nonequilibrium exchange law;
 \item gauge independence of the emitted perturbation variables, including the anomaly-frame
 baryon-density definition of \(B_A\);
@@ -514,44 +740,99 @@ baryon-density definition of \(B_A\);
 \item recovery of the CDM branch when exchange, pressure, sound speed, and anisotropic stress are
 switched off.
 \end{enumerate}
+The finite parent receipt is source-side.  It does not include official CMB likelihood execution.
+The later
+\(\texttt{PHYSICAL\_CMB\_PROMOTION\_RECEIPT}\) additionally requires the physical scale bridge,
+physical \(\rho_A\), \(B_A\), and \(\Gamma_{\rm rec}\) kernels, Boltzmann transfer, frozen
+source/solver/likelihood hashes, and the official likelihood run.
 \end{target}
 
 \begin{remark}[Dark continuation modes]
-For a source-only primordial certification run, the current dark-sector paper recommends
+For a source-only primordial certification run, the dark-sector paper recommends
 \texttt{dark\_continuation = OFF}. A supplied dark abundance may enter only as
-\texttt{dark\_continuation = CONDITIONAL\_SOURCE\_STATE} until the \pathref{extra/} theorem surface
-derives the homogeneous anomaly abundance and finite kinetic stress construction.
+\texttt{dark\_continuation = CONDITIONAL\_SOURCE\_STATE} until the dark-matter theorem surface
+derives the homogeneous anomaly abundance and finite kinetic stress construction. The physical
+cosmology branch may set \texttt{dark\_continuation = PHYSICAL\_PARENT} only after the finite
+covariant parent receipt, physical scale bridge, response/kernel receipts, and CDM-limit recovery
+all pass for the same frozen generation.
 \end{remark}
 
 \section{Physical Kernel Interface}
 
 The physical kernels are not scalar rows in a table. They are imported finite functionals with
 units, gauge-invariant definitions, paired controls, and refinement margins. Their derivation stays
-in \pathref{extra/}; this paper only states what the CMB/LSS pipeline must receive.
+in \pathref{cosmology/oph_dark_matter_paper.tex}; this paper only states what the CMB/LSS pipeline must receive.
 
 \begin{target}[Physical anomaly kernel interface]
-The \pathref{extra/} dark-sector papers must define deterministic receipts
+The released dark-matter paper must define deterministic receipts
 \[
 \texttt{RHO\_A\_SOURCE\_RECEIPT},\qquad
+\texttt{RHO\_A\_EQ\_SOURCE\_RECEIPT},\qquad
 \texttt{B\_A\_KERNEL\_RECEIPT},\qquad
 \texttt{GAMMA\_REC\_SOURCE\_RECEIPT}.
 \]
 These receipts pass only when \(\rhoA(a)\), \(\Bkernel(k,a)\), and \(\GammaRec(k,a)\) are emitted
-with \(\rhoAeq(a)\), \(w_A(a)\), \(\csA(k,a)\), \(\sigmaA(k,a)\), and \(\QA\) from the finite
-parent, physical scale calibration, gauge consistency, paired perturbation controls, CDM-limit
-recovery, and refinement convergence. The cosmology program consumes the emitted functions but does
+as certified physical functions with \(\rhoAeq(a)\), \(w_A(a)\), \(\csA(k,a)\), \(\sigmaA(k,a)\),
+and \(\QA\) from the finite parent, physical scale calibration, gauge consistency, paired
+perturbation controls, active-fiber/physical-clock response receipts, CDM-limit recovery, and
+refinement convergence. The cosmology program consumes the emitted functions but does
 not redefine the dark-sector source law.
 \end{target}
 
 Diagnostic rows remain useful for debugging. They should be plotted, stress-tested, and compared to
 controls. They should not be accepted by the physical CMB contract unless they are promoted by the
-kernel receipts above.
+kernel receipts above. Until the physical clock, active fiber, conserved-sector decomposition, and
+common-parent response pole are certified, the simulator should emit the transition number as
+\(\gamma_{\mathrm{repair\ step}}\), not as \(\Gamma_{\rm rec}\). Likewise finite rows for
+\(\rho_A\), \(\rho_{A,\mathrm{eq}}\), and \(B_A\) have label
+\texttt{DIAGNOSTIC\_SCALAR\_RESPONSE} until promoted by the parent and kernel receipts.
+
+\begin{target}[Finite covariant parent import]
+The imported dark-sector parent is not a readiness boolean.  The receipt consumed by this paper is
+the conjunction of primitive parent receipts owned by
+\pathref{cosmology/oph_dark_matter_paper.tex}:
+\[
+\begin{gathered}
+\texttt{SOURCE\_ROUTE\_RECEIPT},\quad
+\texttt{ENTROPY\_UNIT\_RECEIPT},\quad
+\texttt{MODULAR\_NONADDITIVITY\_IDENTITY\_RECEIPT},\\
+\texttt{CMI\_FIRST\_VARIATION\_CLASSIFICATION\_RECEIPT},\quad
+\texttt{SOURCE\_LOCALIZATION\_SATURATION\_RECEIPT},\\
+\texttt{BW\_BALL\_NORMALIZATION\_RECEIPT},\\
+\texttt{PHYSICAL\_DIAMOND\_SCALE\_RECEIPT},\\
+\texttt{ELL4\_SCALING\_PLATEAU\_RECEIPT},\\
+\texttt{COVER\_INDEPENDENCE\_RECEIPT},\quad
+\texttt{STRESS\_TOMOGRAPHY\_RECEIPT},\\
+\texttt{FINITE\_PACKET\_KINEMATICS\_RECEIPT},\\
+\texttt{PACKET\_MASS\_SHELL\_RECEIPT},\\
+\texttt{TRANSPORT\_COVARIANCE\_RECEIPT},\\
+\texttt{CHANNEL\_FOUR\_MOMENTUM\_RECEIPT},\\
+\texttt{FINITE\_PACKET\_STRESS\_READOUT\_RECEIPT},\\
+\texttt{VARIATIONAL\_MOMENT\_STRESS\_AGREEMENT\_RECEIPT},\\
+\texttt{LOCAL\_FRAME\_COVARIANCE\_RECEIPT},\\
+\texttt{CARRIER\_QUOTIENT\_INVARIANCE\_RECEIPT},\\
+\texttt{TOTAL\_STRESS\_CLOSURE\_RECEIPT},\\
+\texttt{EXPLICIT\_RECIPIENT\_STRESS\_RECEIPT},\\
+\texttt{EXCHANGE\_CURRENT\_CLOSURE\_RECEIPT},\\
+\texttt{SM\_CURRENT\_NULL\_RECEIPT},\\
+\texttt{COSMOLOGICAL\_GAUGE\_INVARIANCE\_RECEIPT},\\
+\texttt{FINITE\_DOMAIN\_OF\_DEPENDENCE\_RECEIPT},\\
+\texttt{SUBLUMINAL\_CHARACTERISTICS\_RECEIPT},\\
+\texttt{RETARDED\_RESPONSE\_RECEIPT},\quad
+\texttt{RESPONSE\_STABILITY\_RECEIPT},\\
+\texttt{REFINEMENT\_CONVERGENCE\_RECEIPT},\quad
+\texttt{CDM\_LIMIT\_RECOVERY\_RECEIPT}.
+\end{gathered}
+\]
+The source parent does not contain solver or likelihood hashes.  Those belong to the frozen
+generation and likelihood layer below.
+\end{target}
 
 \section{Boltzmann Transfer and Frozen Likelihood}
 
-Once source functions are finite and physical, the transfer problem becomes ordinary cosmology.
-OPH does not need a special CMB plotting rule. It needs a frozen handoff to CAMB, CLASS, or a
-declared independent Einstein-Boltzmann solver.
+For finite physical source functions, the transfer problem is ordinary cosmology. OPH does not need
+a special CMB plotting rule. It needs a frozen handoff to CAMB, CLASS, or a declared independent
+Einstein-Boltzmann solver.
 
 \begin{target}[Frozen transfer and likelihood protocol]
 A physical OPH CMB prediction requires:
@@ -562,9 +843,82 @@ A physical OPH CMB prediction requires:
 \item a no-data-use manifest showing that observational likelihood values did not enter source
 artifact generation;
 \item global pooled reducers for nonlinear source estimates and global CDM-limit checks;
-\item official likelihood execution readiness, not only a diagnostic binned-table comparison;
+\item official likelihood execution readiness beyond a diagnostic binned-table comparison;
 \item a falsification rule fixed before the likelihood run.
 \end{enumerate}
+\end{target}
+
+\begin{definition}[Model generation]\label{def:model-generation}
+A cosmology prediction generation is
+\[
+G_n=(H_{\rm source},H_{\rm scale},H_{\rm parent},H_{\rm kernel},H_{\rm init},
+H_{\rm solver},H_{\rm build},H_{\rm config},H_{\rm likelihood},H_{\rm data},
+H_{\rm priors},\mathcal A_n),
+\]
+where \(\mathcal A_n\) is the registry of observational datasets, residuals, posterior summaries,
+and diagnostic plots exposed during source development.  Hashing the final artifact is not enough:
+if a Planck residual influenced source or model selection, the generation is calibrated on Planck
+even when the final bytes are frozen.
+\end{definition}
+
+\begin{theorem}[Physical OPH cosmology promotion]\label{thm:physical-oph-cosmology-promotion}
+Let \(R_{\rm src}\) be source-only provenance and pooled-reducer receipt,
+\(R_{\rm scale}\) the physical mode/clock/lift receipt, \(R_{\rm parent}\) the finite covariant
+parent receipt, \(R_{\rm kernel}\) the physical response/kernel receipt, \(R_{\rm init}\) the
+regular initial-mode and Einstein-constraint receipt, \(R_{\rm transfer}\) the Boltzmann
+well-posedness and numerical-convergence receipt, \(R_{\rm freeze}\) the model-generation freeze
+receipt, and \(R_{\rm like}\) the official likelihood execution receipt.  Define
+\[
+R_{\rm physical}=
+R_{\rm src}\wedge R_{\rm scale}\wedge R_{\rm parent}\wedge R_{\rm kernel}
+\wedge R_{\rm init}\wedge R_{\rm transfer}\wedge R_{\rm freeze}\wedge R_{\rm like}.
+\]
+If every parent receipt is labelled \(\texttt{PASS}\), then the resulting TT/TE/EE, lensing, matter
+power, growth, BAO, or RSD spectra are physical predictions of the frozen generation \(G_n\).  If
+any receipt is \(\texttt{FAIL}\), \(\texttt{OPEN\_GATE}\), \(\texttt{INCOMPLETE}\), or
+\(\texttt{INVALIDATED}\), the spectra remain diagnostic or conditional according to the parameter
+ledger.
+\end{theorem}
+
+\begin{proof}
+Each receipt states a typed premise needed by the next map: source fields, physical coordinates,
+parent stress, response kernels, initial state, transfer evolution, freeze integrity, and likelihood
+execution.  Composition of certified maps gives a physical prediction only when every premise is
+available for the same frozen generation.  A failed or open receipt removes at least one premise, so
+downstream software cannot promote the output.
+\end{proof}
+
+\begin{target}[Outcome and prediction-class ledger]
+Likelihood outcomes are
+\[
+\begin{gathered}
+\texttt{INVALIDATED},\quad
+\texttt{NUMERICALLY\_INCONCLUSIVE},\quad
+\texttt{FALSIFIED\_ON\_DECLARED\_TEST},\\
+\texttt{PASSED\_DECLARED\_TEST}.
+\end{gathered}
+\]
+\texttt{INVALIDATED} is used when provenance or freeze integrity fails; it is not a physical
+falsification.  Inputs are typed as
+\[
+\begin{gathered}
+\texttt{OPH\_DERIVED},\quad
+\texttt{EXTERNAL\_FIXED},\quad
+\texttt{CONDITIONAL\_COSMOLOGY},\quad
+\texttt{NUISANCE},\\
+\texttt{MEASUREMENT\_CALIBRATED},
+\end{gathered}
+\]
+and outputs as
+\[
+\begin{gathered}
+\texttt{SOURCE\_ONLY\_OPH\_PREDICTION},\quad
+\texttt{CONDITIONAL\_OPH\_PREDICTION},\\
+\texttt{FITTED\_OPH\_MODEL},\quad
+\texttt{DIAGNOSTIC\_BASELINE}.
+\end{gathered}
+\]
+The 256k curve has label \(\texttt{CMB0\_LCDM\_DIAGNOSTIC\_BASELINE}\).
 \end{target}
 
 \begin{remark}[Global reducers only]
@@ -572,11 +926,12 @@ Shard-local nonlinear averages and shard-local \texttt{any()} rollups are not pr
 source artifact must pool additive sufficient statistics globally, with validated units, coordinate
 grids, coverage, duplicate policy, interpolation policy, and covariance, before any nonlinear
 quantity such as amplitude, rank, condition number, isocurvature leakage, \(\Bkernel\), \(\rhoA\),
-or \(\GammaRec\) is evaluated.
+or \(\GammaRec\) is evaluated; a transition diagnostic is recorded separately as
+\(\gamma_{\mathrm{repair\ step}}\).
 \end{remark}
 
 \begin{remark}[Comparison versus prediction]
-The current best OPH diagnostic model is scientifically useful because it is close: shape
+The best OPH diagnostic model in the 256k run is scientifically useful because it is close: shape
 correlation \(0.9951542364\), normalized RMSE \(0.0984455548\), amplitude-fit
 \(\chi^2/{\rm bin}=41.6684770597\), zero mean peak-location error, and mean peak-height fractional
 error about \(0.0704905\). Those numbers justify fixing the theorem gates. They do not replace the
@@ -590,66 +945,53 @@ reference free-field baselines are not an OPH-native quantum vacuum.
 
 \begin{target}[OPH-native vacuum gate]
 An OPH-native vacuum simulation needs a quotient ensemble measure or density operator on the
-observable quotient algebra, refinement compatibility, implementation invariance, and a sampler
-correctness proof such as exact sampling or detailed balance. Without this gate, vacuum-like fields
-in the simulator are reference baselines or diagnostics.
+observable quotient algebra, refinement compatibility, implementation invariance, a sampler
+correctness proof, and source Euclidean slab data \((Q_r,m_r^0,J_r,V_r,a_{t,r})\) whose transfer
+operator is derived independently of the target law and sampler. Without this gate, vacuum-like
+fields in the simulator are reference baselines or diagnostics.
 \end{target}
 
-\section{Issue Ledger}
+\section{Claim-Gate Summary}
 
-The paper-side open issues should target this manuscript before simulation promotion resumes.
+The paper-side gates are quotient ensemble measure, OPH-native vacuum promotion, Boltzmann transfer,
+frozen likelihood closure, finite-source CMB contract hardening, physical scale bridge, finite
+covariant collar-packet stress parent, physical anomaly kernels, flat-sector selection,
+screen-spectrum derivation, conditional collar source routing, repair-stress transport, and linear
+repair-stress perturbations. GitHub issues carry the mutable ownership, dependency, and completion
+state for those gates.
 
-\begin{longtable}{@{}p{0.16\textwidth}p{0.34\textwidth}p{0.40\textwidth}@{}}
-\toprule
-Issue & Paper-side theorem gate & Primary section here\\
-\midrule
-\endhead
-\bottomrule
-\endfoot
-\#360 & Quotient ensemble measure and OPH-native vacuum gate & Vacuum and quantum-fluctuation boundary\\
-\#363 & Boltzmann transfer and frozen likelihood closure & Boltzmann transfer and frozen likelihood\\
-\#371 & Physical CMB finite-source contract hardening & Physical CMB finite-source contract\\
-\#372 & OPH physical scale bridge and mode calibration & Physical scale bridge\\
-\#373 & Finite covariant collar-packet stress parent & Dark/anomaly interface imported from \pathref{extra/}\\
-\#374 & Physical \(B_A(k,a)\), \(\rho_A(a)\), and \(\Gamma_{\rm rec}(k,a)\) kernels & Physical kernel interface\\
-\#329 & Flat-sector selection for the inflation-free branch & Inflation-free branch\\
-\#330 & Screen-spectrum derivation for OPH inflation alternative & Inflation-free branch and source contract\\
-\#319 & Collar remainder stress source & Dark/anomaly interface imported from \pathref{extra/}\\
-\#322 & Repair-stress transport and relaxation & Dark/anomaly interface imported from \pathref{extra/}\\
-\#323 & Linear OPH repair-stress perturbations & Physical kernel interface\\
-\#375 & Consolidation under \pathref{/cosmology} & Closed by this staging paper\\
-\end{longtable}
+\section{Physical Promotion Rule}
 
-\section{Simulator Resumption Rule}
-
-The simulator should resume physical-promotion work only after the paper defines the exact receipt
-semantics for the objects it is being asked to produce. A good order is:
+Physical promotion requires exact receipt semantics for the objects the simulator is being asked to
+produce:
 \begin{enumerate}[leftmargin=2em]
 \item implement the finite-source dependency DAG and no-data-use firewall;
 \item implement global pooled reducers for all nonlinear source estimates;
-\item implement the physical scale bridge and freezeout certificate;
+\item implement the \texttt{CONDITIONAL\_PHYSICAL} imported-FLRW reference backend for the
+spectral, clock, freezeout, and transfer pipeline;
+\item implement the structured physical scale bridge and freezeout certificates from
+Target~\ref{target:physical-scale-receipts};
 \item implement the imported finite covariant parent and stress-closure receipts from the
-\pathref{extra/} dark-sector theory;
+\pathref{cosmology/oph_dark_matter_paper.tex} dark-sector theory;
 \item implement physical \(\rhoA\), \(\Bkernel\), and \(\GammaRec\) kernel receipts as imported
 dark-sector source functions;
 \item freeze source, solver, and likelihood hashes;
 \item run official likelihood comparisons and global CDM-limit reductions;
-\item only then label the result a physical CMB prediction.
+\item only then label the result \texttt{CONDITIONAL\_PHYSICAL} or, after
+Target~\ref{target:cosmo-geometry-extraction} passes, \texttt{OPH\_NATIVE\_PHYSICAL}.
 \end{enumerate}
 
-The simulator can still run diagnostics earlier, including visualization payloads, CMB overlays,
-vacuum baselines, defect worldlines, observer cameras, and H3 readouts. Those outputs should carry
+The simulator may run diagnostics before physical promotion: visualization payloads, CMB overlays,
+vacuum baselines, defect worldlines, observer cameras, and H3 readouts. Those outputs carry
 diagnostic labels until the relevant receipt passes.
 
 \section{Conclusion}
 
-The current OPH cosmology program is promising because the simulator almost-fits are not random
-noise: they expose stable structure close enough to make the theorem gates worth closing. The same
-data also explain why the gates are necessary. A physical cosmology prediction needs finite
-source-only objects, physical scale calibration, covariant stress closure, physical anomaly kernels,
-and frozen likelihoods. This paper is the staging surface for that work. Once its issue gates close,
-the simulator can resume with a precise target instead of trying to infer missing theorem semantics
-from diagnostic data.
+The 256k simulator almost-fits are not random noise. They expose stable structure close enough to
+justify the theorem gates, and they show why those gates are necessary. A physical cosmology
+prediction needs finite source-only objects, physical scale calibration, covariant stress closure,
+physical anomaly kernels, and frozen likelihoods. This paper is the staging surface for that work and
+the simulator contract for physical promotion.
 
 \begin{thebibliography}{99}
 
@@ -680,8 +1022,8 @@ OPH microphysics paper, release \OPHPaperReleaseID, 2026.
 \bibitem{ophdark}
 B.~M\"uller,
 \emph{Observer-Patch Holography and the Dark Matter Phenomenon},
-OPH extra paper, 2026.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/oph_dark_matter_paper.pdf}
+OPH cosmology paper, 2026.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/cosmology/oph_dark_matter_paper.pdf}
 
 \bibitem{ophinflationdraft}
 B.~M\"uller,

@@ -4,7 +4,7 @@
 
 **Version anglaise :** [README.md](README.md)
 
-**Liens rapides :** [site OPH](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [OPH Lab](https://oph-lab.floatingpragma.io) | [applications](https://omega.floatingpragma.io/) | [blog OPH](https://blog.floatingpragma.io/) | [carte de cohérence](https://coherence.floatingpragma.io/) | [démo à trois corps](https://3body.floatingpragma.io/)
+**Liens rapides :** [site OPH](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [OPH Lab](https://oph-lab.floatingpragma.io) | [applications](https://omega.floatingpragma.io/) | [blog OPH](https://blog.floatingpragma.io/) | [carte de cohérence](https://coherence.floatingpragma.io/)
 
 **Falsifiabilité :** [la carte de falsifiabilité OPH](extra/OPH_falsifiability.md)
 recense 40 résultats durs qui tueraient l'OPH et des tests concrets sur IBM
@@ -353,9 +353,22 @@ charge ou d'amplitude de diffusion.
 - **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)** : point fixe source, frontière du point final hadronique empirique et ligne de comparaison.
 - **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)** : émergence des cordes comme description effective des dynamiques de bord OPH et crible de vides de cordes conventionnels, témoin hétérotique Bouchard-Donagi à une paire de Higgs, couche de sûreté `Z4R` et portes de verrouillage des moduli ; ce n'est pas un raccourci de promotion vers un vide natif OPH.
 - **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)** : mécanisme OPH fini de gap de réparation et route conditionnelle vers le problème de Yang-Mills de Clay ; l'égalité entre le gap de Yang-Mills et le gap de réparation OPH exige le certificat quadridimensionnel de limite continue et de transfert.
-- **[Observer-Patch Holography and the Dark Matter Phenomenon](extra/oph_dark_matter_paper.pdf)** : phénoménologie de la matière noire et limite galactique de type MOND.
+- **[Observer-Patch Holography and the Dark Matter Phenomenon](cosmology/oph_dark_matter_paper.pdf)** : phénoménologie de la matière noire et limite galactique de type MOND.
 - **[Theoretical Bounds on chi-nu in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)** : bande conditionnelle de quotient-edge `0.9343006394893864 <= chi_nu^can <= 1`; valeur exacte `exp(-P/24)` sur la branche uniforme; valeurs d'ingénierie mises à l'échelle par `N_coh^-1`.
 - **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)** : cognition et qualia comme consensus récurrent de patches.
+
+La branche cosmologie en préparation vit dans [`cosmology/`](cosmology/README.md). Seul l'article
+sur la matière noire est publié dans le pipeline de release depuis ce dossier. Le programme CMB à
+source finie, inflation sans inflaton, vide/structure cosmologique et contrats
+données/vraisemblance sont des cibles publiques de travail pour les théorèmes et reçus de calcul fini.
+La promotion CMB physique exige des artefacts source avec preuve, ascendance transitive,
+réducteurs globaux groupés, pont d'échelle physique structuré, choix de modèle gelés et hachages
+source/solveur/vraisemblance gelés. Une géométrie FLRW importée ne certifie que des tests physiques
+conditionnels ; la cosmologie native OPH exige encore une géométrie et un plongement de source
+dérivés du quotient.
+La branche FLRW plate est elle aussi sous statut : l'holonomie de Levi--Civita spatiale sur une
+tranche d'horloge identifie \(\kappa=0\), mais la sélection exacte exige un théorème direct, un
+sélecteur CMH conditionnel, ou une hypothèse explicite de branche plate.
 
 ## Statut de preuve
 
@@ -381,20 +394,26 @@ l'exclusion de la désintégration du proton par bosons de jauge, l'inventaire
 des particules et la sélection du vide de corde comme une seule grammaire de
 fermeture.
 
-Les continuations spectre d'écran et CMB sont sur une porte séparée. OPH
-identifie conditionnellement le scalaire de collier, après retrait monopôle et
-dipôle, avec la courbure à densité totale uniforme, mais un spectre primordial
-source-only exige les reçus de stress source, horloge unique, gap de réparation,
-freeze-out, mode adiabatique, isocourbure, cohérence de phase, provenance
-source, réducteur groupé, lift écran-vers-radial, espace nul radial et
-résidu de projection avant que `A_s`, `n_s`, le running ou les spectres TT/TE/EE
-comptent comme prédictions OPH.
+Les continuations spectre d'écran et CMB sont sur une porte séparée. La branche
+écran exige d'abord un scalaire géométrique de volume de collier, une précision
+scalaire normalisée, une énergie de libération source, un tilt de raffinement et
+un reçu de covariance angulaire d'écran. Un spectre primordial source-only exige
+ensuite les reçus de stress source, horloge unique, freeze-out, mode adiabatique,
+isocourbure, cohérence de phase, provenance source, réducteur groupé, lift
+écran-vers-radial, espace nul radial et résidu de projection avant que `A_s`,
+`n_s`, le running ou les spectres TT/TE/EE comptent comme prédictions OPH.
 Toute revendication CMB ou croissance du secteur sombre/anomalie exige en plus
 un parent fini covariant de paquets de collier, un stress récepteur explicite
-pour tout échange de réparation non nul, la convergence du régulateur, la
-un dossier de provenance source, des contrôles de groupement global, la
-récupération de la limite CDM et des hachages source/solveur/vraisemblance
-gelés avant la lecture des données de vraisemblance.
+et une clôture du courant d'échange pour tout échange de réparation non nul, la
+convergence du régulateur, des reçus d'horloge physique et de réponse active
+pour tout `Gamma_rec` promu, un dossier de provenance source, des contrôles de
+groupement global, la récupération de la limite CDM et des hachages
+source/solveur/vraisemblance gelés avant la lecture des données de
+vraisemblance.
+Les vues diagnostiques de vide ou d'écume quantique sont aussi sur une porte séparée : bruit de seed,
+jitter de réparation et baselines champ libre/réseau sont des sorties E0/E1 tant qu'un ensemble
+quotient, une dalle euclidienne source, une reconstruction transfert/réflexion-positive et les
+reçus de raffinement ne promeuvent pas le run.
 
 ## Applications et matériel OMEGA
 
@@ -424,9 +443,7 @@ chambre peut réduire le travail du vérificateur exact par un facteur mesuré
 
 La page publique des applications est
 [omega.floatingpragma.io](https://omega.floatingpragma.io/). Les notes sources
-des pistes applicatives vivent dans [`APPLICATIONS.md`](APPLICATIONS.md). La
-voie gravité locale et inertie possède aussi une note d'ingénierie séparée :
-[Hacking the Simulation: Anti-Gravity Exploit](https://github.com/FloatingPragma/oph-meta/blob/main/docs/oph-gravity-hack/hacking-the-simulation-anti-gravity-exploit.pdf).
+des pistes applicatives vivent dans [`APPLICATIONS.md`](APPLICATIONS.md).
 
 ## Diagramme détaillé et surface quantitative
 
@@ -467,10 +484,8 @@ frontières des revendications vivent dans les papiers.
 
 - **Site officiel :** [floatingpragma.io/oph](https://floatingpragma.io/oph)
 - **Page theory of everything :** [floatingpragma.io/oph/theory-of-everything](https://floatingpragma.io/oph/theory-of-everything)
-- **Page simulation theory :** [floatingpragma.io/oph/simulation-theory](https://floatingpragma.io/oph/simulation-theory/)
 - **Carte de cohérence :** [coherence.floatingpragma.io](https://coherence.floatingpragma.io) : surface graphe publique pour les concepts OPH, les recouvrements et les routes entre domaines.
 - **Applications :** [omega.floatingpragma.io](https://omega.floatingpragma.io) : page publique pour le matériel OPH, le calcul, l'énergie, l'AGI, le contrôle de portance et le consensus par chambre optique.
-- **Démo OPH du problème à trois corps :** [3body.floatingpragma.io](https://3body.floatingpragma.io) : un simulateur et parcours de preuve supplémentaire pour la formulation OPH en réseau fini de patches du problème à trois corps, présentée comme un exemple de recollement par holonomie de boucle, sans revendication de solution élémentaire fermée.
 - **Blog :** [blog.floatingpragma.io](https://blog.floatingpragma.io/) rassemble les essais publics OPH. Commencez par [Semiotics and the Physics of Meaning](https://blog.floatingpragma.io/semiotics-and-the-physics-of-meaning), [The Trigger](https://blog.floatingpragma.io/the-trigger) et [P = NP on the Observer Screen](https://blog.floatingpragma.io/p-equals-np-on-the-observer-screen). L'essai de calcul traite `P = NP` comme un slogan d'écran d'observateur; le problème classique reste intact.
 - **Livre :** [oph-book.floatingpragma.io](https://oph-book.floatingpragma.io)
 - **Application d'étude guidée :** [learn.floatingpragma.io](https://learn.floatingpragma.io/)

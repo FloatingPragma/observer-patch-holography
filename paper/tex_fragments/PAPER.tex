@@ -286,7 +286,7 @@ for an induced map \(R_{\ell\to L}\) on one common finite-dimensional multiplier
 
 External mathematical inputs: SSA and recovery theorems (Petz 1986, 1988; Fawzi and Renner 2015), the fixed-volume area-variation identity for small geodesic balls used in the local Einstein rest-frame relation, and the local quadratic-polarization argument used in the tensor upgrade. The null modular bridge and the small-ball kernel are carried internally on the compact surface rather than imported from a separate EFT small-ball law. For SM contact we also use the Doplicher-Roberts reconstruction (Doplicher and Roberts 1989, 1990) once localized zero-obstruction sectors are assembled in the small-region limit. Full citations appear in the References.
 
-\textbf{Recovered-core theorem status.} The Lorentz/null-modular/Einstein recovered core runs through the support-visible automorphism theorem stated in Section 4.2. Fixed-cutoff statements remain regulator statements.
+\textbf{Recovered-core theorem boundary.} The Lorentz/null-modular/Einstein recovered core runs through the support-visible automorphism theorem stated in Section 4.2. Fixed-cutoff statements remain regulator statements.
 
 \subsubsection{Notation}\label{15-notation}
 
@@ -345,6 +345,8 @@ D_\delta := (S^2 \setminus C) \setminus B_\delta.
 \]
 
 Then \(S^2 = A_\delta \cup B_\delta \cup D_\delta\) with \(A_\delta\) and \(D_\delta\) interacting only through \(B_\delta\). The collar double-scaling hypothesis is the requirement that \(I(A_\delta:D_\delta \mid B_\delta) \to 0\) in the refinement limit. At fixed regulator scale, the same finite-dimensional realized presentation supplies the patch-net and overlap-gluing data used below. We therefore isolate that realized presentation first, then separate the exact-Markov and quantitative routes.
+
+\input{tex_fragments/FINITE_QUOTIENT_ENSEMBLE_THEOREMS.tex}
 
 \textbf{Derived regulator realization.} Choose a finite UV cellulation at scale \(\ell_{\mathrm{UV}}\) and let \(R\) be a finite union of cells. Hilbertize each cell\textquotesingle s finite local data to a finite-dimensional space \(\tilde{\mathcal H}_i\cong \mathbb C^{n_i}\). The extended algebra before quotienting by overlap redundancy is
 
@@ -428,7 +430,7 @@ state-preserving observer-algebra extraction functor from terminal augmented nor
 support-visible cap chart map natural with that extraction; and an operational clock instrument
 whose readout is calibrated up to the declared affine reparameterization and residual bound.
 Until those objects or proof-producing finite certificates are supplied, modular-time/readback
-naturality is a named gate, not a consequence of simulator bookkeeping. The same
+naturality is a named gate, not a consequence of implementation bookkeeping. The same
 quotient boundary applies to neutral-bulk readout. For each shard \(s\), raw record rows
 \(\Sigma_s\) must first be quotient by the declared presentation groupoid \(\Gamma_s\) and then
 sent through the terminal normal-form map \(n_s\), producing
@@ -591,7 +593,7 @@ S_r^B(h_rq)=S_r^A(q),
 \qquad
 h_r\circ c_{sr}^A=c_{sr}^B\circ h_s,
 \]
-then \((h_r)_\#\mu_r^A=\mu_r^B\). If the simulator stores representatives
+then \((h_r)_\#\mu_r^A=\mu_r^B\). If an implementation stores representatives
 \(\pi_r:\Sigma_r\to Q_r\), a representative-level law must be a conditional lift
 \[
 \widetilde\mu_r(x)=\mu_r(\pi_r x)\kappa_r(x\mid \pi_r x),
@@ -710,9 +712,9 @@ thin-shell map
 C_\ell=4\pi\int_0^\infty\frac{dk}{k}\Delta_\zeta^2(k)j_\ell^2(k\chi_\star)
 \]
 has an infinite-dimensional null space unless a radial prior or finite parametric family is
-declared. The simulator may therefore run conventional free-scalar and lattice-gauge baselines,
-but those baselines carry closed OPH-native-vacuum and primordial-promotion receipts until these
-gates pass.
+declared. Conventional free-scalar and lattice-gauge baselines may therefore be recorded,
+but those baselines carry closed OPH-native-vacuum and primordial-promotion receipts unless these
+gates are supplied.
 
 \input{tex_fragments/PRIMORDIAL_BRIDGE_THEOREMS.tex}
 
@@ -742,7 +744,7 @@ For bounded coarse observables \(O\), if the implemented law satisfies
 \le
 2\|O\|_\infty(\epsilon_{\rm samp}+\epsilon_{\rm ref}),
 \]
-which is the simulator accuracy statement attached to this theorem surface.
+which is the finite evidence accuracy statement attached to this theorem surface.
 
 \textbf{Theorem 2.3 (EC from regulated overlap gluing).} For a collar \(B_\delta\) around a cap boundary \(\Sigma\), there is a canonical decomposition
 
@@ -1068,7 +1070,7 @@ r=(m,L,b),
 where \(m\) is the refinement depth, \(L\) is the finite support or volume scale, and \(b\)
 is a boundary/phase label. The screen branch uses nested icosahedral subdivisions of \(S^2\);
 Euclidean branches use dyadic mesh \(a_m=a_0 2^{-m}\), with an additional temporal spacing
-\(a_t\) when a transfer matrix is present. Each newly exposed cell, collar, edge-center, or
+\(a_t\) when a transfer matrix is present. Each added cell, collar, edge-center, or
 support-visible channel \(j\) carries
 \[
 D_j=\bigoplus_{\alpha\in S_j}M_{d_{j,\alpha}}(\mathbb C)
@@ -1151,7 +1153,7 @@ M^{n-1}\sum_{k=1}^n\|A_k-\mathbb E_rA_k\|.
 Thus the operator mixing matrix and additive subtraction at finite cutoff are outputs of
 \(\mathcal R_r\), not free fits to the target continuum answer. Independent lattice-spacing,
 volume, and boundary sweeps must publish the corresponding martingale-tail or physical-error
-envelopes before a finite simulation is read as continuum evidence.
+envelopes before finite regulator data are read as continuum evidence.
 
 \textbf{Theorem 2.6f (compact-time modular convergence on fixed local algebras).}\label{thm:compact-time-modular-convergence}
 Let \(\rho^{\rm phys}_{s\downarrow r}\) be the density matrix of the physical state at fine stage
@@ -1203,7 +1205,7 @@ positivity plus either exact shell-additive direct-limit semigroup identities or
 strong-resolvent substitute, including vacuum-projection and intertwiner convergence. Weak-\(*\)
 state convergence alone is not a transfer theorem.
 
-\textbf{BW-side closure status.} Proposition 2.6a blocks the stronger unregularized full-algebra
+\textbf{BW-side closure boundary.} Proposition 2.6a blocks the stronger unregularized full-algebra
 conclusion from the proved finite-cutoff package. Theorems 2.6c--2.6g supply the explicit
 reference-tower certificate needed for the finite-to-continuum reading: continuum correlations
 come from the conditional-expectation renormalization map, compact-time modular group convergence
@@ -1211,7 +1213,7 @@ is only for transported regularized physical marginals on fixed support-visible 
 and Lorentzian transfer needs reflection positivity or an equivalent positive-transfer
 certificate. Theorem 4.2 then uses exactly the observer-facing support-visible content to close
 the BW/geometric cap-pair automorphism statement. Without the multiresolution regulator
-certificate, finite simulations remain regulator evidence. A black-box AQFT/BW reconstruction
+certificate, finite regulator data remain regulator evidence. A black-box AQFT/BW reconstruction
 route would require separately verifying conformal-net properties such as locality, additivity,
 duality, standardness, positive energy, and suitable modular inclusions.
 \subsection{Overlap Consistency and Gluing}\label{3-overlap-consistency-and-gluing}
@@ -2466,6 +2468,22 @@ This is a bookkeeping definition of the finite-stage remainder, not an upgrade o
 \frac{15\,C_C}{8\pi^2\ell^4}\,
 \eta_\delta.
 \]
+On a separate dark/anomaly continuation branch, this carried scalar remainder
+may be promoted to a repair stress only after a quotient-invariant
+source-localization receipt identifies the same collar operator with the
+small-ball Einstein remainder, and after a positive causal packet lift supplies
+the full tensor. In SI units that continuation has rest-energy normalization
+\[
+T_A^{ab}u_a u_b
+=
+\frac{15\hbar c}{8\pi^2\ell^4}R_{r,\ell}
++O(\epsilon_{\rm loc}),
+\]
+where \(R_{r,\ell}\) is measured in nats and \(\ell\) is the proper geodesic
+small-ball radius. The scalar quantity \(I(A:D\mid B)\) alone is not a stress
+tensor: packet factorization, causal directions, an allocation rule, a rest
+frame, source-localization map, and transport law are additional continuation
+data.
 
 The framework carries the Markov error through three distinct controls:
 \begin{enumerate}
@@ -3139,7 +3157,9 @@ This lies in the range of observed central halo surface densities, but it is not
 \begin{itemize}
 \tightlist
 \item
-  The modular anomaly term exists with fixed coefficient \(\frac{15}{8\pi^2}\)
+  The local BW branch fixes the coefficient \(\frac{15}{8\pi^2}\) for a source
+  variable proved to equal anomalous local modular energy; identifying raw
+  collar CMI with that variable is a separate D12 matching theorem
 \item
   screen capacity fixes the dimensionless de Sitter entropy relation; \(\Lambda\) and \(r_{dS}\)
   in SI units also require the selected scale certificate
@@ -3190,24 +3210,36 @@ finite covariant collar-packet parent
 whose finite packet states split the anomaly and any repair recipient, whose
 repair generator and reaction channels close the total stress tensor, and whose
 causal response data set the pressure, sound speed, anisotropic stress, exchange
-current, and repair rate.  \(B_A\) is gauge-invariant only when built from the
-anomaly-frame baryon density \(n_b^{(A)}=-u_{A\mu}J_b^\mu\).  If
-\(\Gamma_{\mathrm{rec}}>0\), explicit recipient stress is mandatory; otherwise
-the repair term is not a closed stress-energy source.  Physical likelihood
-status additionally requires immutable source, solver, and likelihood hashes
-frozen before the data comparison.
+current, and repair rate.  The parent must also declare exactly one local source
+route: fixed-reference anomalous modular energy, or nonlinear CMI stress with a
+CMI-to-modular-source matching theorem/hypothesis and residual ledger. Raw
+collar CMI is otherwise a recoverability diagnostic, not the \(15/(8\pi^2)\)
+BW source. \(B_A\) is gauge-invariant only when built from the
+anomaly-frame baryon density \(n_b^{(A)}=-u_{A\mu}J_b^\mu\).  If the exchange
+branch is nonzero, explicit recipient stress and an equal-and-opposite exchange
+current are mandatory; otherwise the repair term is not a closed stress-energy
+source. A transition spectral number is only \(\gamma_{\mathrm{repair\ step}}\)
+until the active fiber, physical clock, and common-parent response pole certify
+a physical \(\Gamma_{\mathrm{rec}}\).  Physical likelihood promotion additionally
+requires immutable source, solver, and likelihood hashes frozen before the data
+comparison.
+
+\input{tex_fragments/FINITE_COVARIANT_PARENT_THEOREMS.tex}
+
 The same firewall applies to the promoted CMB-source inputs
 \[
-  \eta_R,\quad \Gamma_{\mathrm{rec}},\quad A_\zeta,\quad q_{\mathrm{IR}},
+  \eta_R,\quad \gamma_{\mathrm{repair\ step}}\hbox{ or certified }\Gamma_{\mathrm{rec}},
+  \quad A_\zeta,\quad q_{\mathrm{IR}},
   \quad \ell_{\mathrm{IR}},\quad B_A(k,a),\quad \rho_A(a),\quad N_{\mathrm{CRC}} .
 \]
 Each one must have an immutable source-provenance DAG node recording source
-report, source hash, parents, no-CMB-data status, and measurement-use flags.
+report, source hash, parents, no-CMB-data flag, and measurement-use flags.
 Contradictory provenance, such as declaring no CMB data use while also fitting
 to Planck, fails closed.  Reducers must pool additive sufficient statistics
 globally before any nonlinear estimate of tilt, amplitude, inverse precision,
 rank, condition number, isocurvature leakage, \(B_A\), \(\rho_A\), or
-\(\Gamma_{\mathrm{rec}}\); shard-local nonlinear averages and shard-local
+\(\Gamma_{\mathrm{rec}}\); raw transition diagnostics remain
+\(\gamma_{\mathrm{repair\ step}}\). Shard-local nonlinear averages and shard-local
 \(\texttt{any()}\) likelihood rollups are diagnostic only.  \(N_{\mathrm{CRC}}\)
 remains the D6 consensus invariant unless a separate additive capacity schema
 proves disjoint coverage.
@@ -3215,9 +3247,40 @@ The cold transported limit is the check case: when exchange, pressure, sound-spe
 stress corrections are turned off, the anomaly slot must reduce to a CDM-like component before
 recombination. Any nonzero-field response, late-time growth suppression, or \(S_8\)-relief branch
 has to be emitted by the finite-collar parent evaluator through \(B_A(k,a)\) and
-\(\Gamma_{\mathrm{rec}}(k,a)\), not fitted as a free environmental kernel to CMB, weak-lensing,
+\(\Gamma_{\mathrm{rec}}(k,a)\) after the physical-clock and response receipts pass, not fitted as a free environmental kernel to CMB, weak-lensing,
 SPARC, or cluster data. The compressed \(H_0\), \(\Omega_m\), \(\sigma_8\), and \(S_8\) rows are
 plumbing diagnostics for a low-\(H_0\), Planck-like branch, not theorem-grade cosmology.
+
+\textbf{Finite cosmological source, transfer, and frozen prediction.}
+The continuation-level physical cosmology gate is the conjunction
+\[
+\mathsf{CMB\_READY}
+=
+\mathsf{SOURCE}\wedge
+\mathsf{SCALE}\wedge
+\mathsf{PARENT}\wedge
+\mathsf{KERNEL}\wedge
+\mathsf{INIT}\wedge
+\mathsf{TRANSFER}\wedge
+\mathsf{FREEZE}\wedge
+\mathsf{LIKE}.
+\]
+\(\mathsf{SOURCE}\) is the source-only DAG with transitive measurement-taint
+rejection and globally pooled sufficient statistics; \(\mathsf{SCALE}\) is the
+physical mode/clock/lift bridge; \(\mathsf{PARENT}\) is the finite covariant
+dark/anomaly parent with packet kinematics, mass shell, packet stress readout,
+reaction-channel four-momentum, recipient stress and exchange-current closure
+for nonzero exchange, total stress closure, local-frame/quotient invariance,
+cosmological gauge invariance, finite domain of dependence, subluminal
+retarded response, response stability, refinement, and CDM-limit recovery
+receipts; \(\mathsf{KERNEL}\) emits physical \(\rho_A\),
+\(\rho_{A,\mathrm{eq}}\), \(B_A\), and certified \(\Gamma_{\mathrm{rec}}\);
+\(\mathsf{INIT}\) supplies regular initial modes and Einstein constraints;
+\(\mathsf{TRANSFER}\) supplies Boltzmann well-posedness and numerical
+convergence; \(\mathsf{FREEZE}\) fixes the model generation; and
+\(\mathsf{LIKE}\) is the official likelihood execution.  While this conjunction
+is false, physical CMB, BAO, lensing, growth, RSD, and \(S_8\) outputs remain
+diagnostic or conditional, not recovered-core predictions.
 
 This branch is a phenomenological continuation above D6 and D12 inputs. It contains structural ingredients and an IR benchmark, but it does not derive the precise galaxy-scale response from the recovered core.
 
@@ -3374,7 +3437,7 @@ Einstein-like dynamics emerge up to \(\Lambda g_{ab}\);
 on the support-visible BW scaling branch, the realized scaling-limit cap modular action is geometric and may be outer on a non-type-I observer algebra.
 \end{enumerate}
 
-\textbf{BW-side status.} The Lorentz side is closed at the support-visible scaling level by Theorem 4.2. The theorem intentionally avoids the false stronger route through a full-algebra unregularized common floor; the automorphism statement on the observer-facing geometric cap pair is the required static-patch content.
+\textbf{BW-side boundary.} The Lorentz side is closed at the support-visible scaling level by Theorem 4.2. The theorem intentionally avoids the false stronger route through a full-algebra unregularized common floor; the automorphism statement on the observer-facing geometric cap pair is the required static-patch content.
 
 \textbf{Many observers, one \(\Lambda\).} In this framework, each timelike observer is associated with a horizon patch rather than a single global description. The dimensionless de Sitter capacity relation is the shared global constraint across overlap-consistent descriptions; its SI \(\Lambda\) display uses the selected scale certificate.
 
@@ -3421,7 +3484,7 @@ Consequently the EFT branch has a directed ladder \((\mathsf{Sect}^{\mathrm{bos}
 
 for the directed colimit retaining the sectors and intertwiners that persist in that system. The theorem below is neutral about whether \(\mathsf{Sect}_\infty\) is trivial or nontrivial: if the realized branch furnishes only the tensor unit, the reconstructed compact group is the trivial group.
 
-\textbf{Persistence lemma.} Write \(U_{rs}:\mathsf{Sect}^{\mathrm{bos}}_r\to\mathsf{Sect}^{\mathrm{bos}}_s\) for the refinement functor from a regulator scale \(r\) to a finer scale \(s\succeq r\). If a realized zero-obstruction edge-sector class \(\alpha_{r_0}\) appears on a sufficiently fine collar, has overlap-visible edge-center support, and has representatives \(\alpha_s\in\mathsf{Sect}^{\mathrm{bos}}_s\) on a cofinal refinement tail such that \(U_{st}\alpha_s\simeq\alpha_t\) for all later \(t\succeq s\) on that tail, then it determines a unique object \([\alpha]\in\mathsf{Sect}_\infty\). The reason is just the directed-colimit equivalence relation: two representatives define the same object once their images agree at a common finer stage. Therefore a later stage cannot erase, split, or change the zero-obstruction status of that class without either breaking the theorem-produced refinement-system hypotheses or introducing new overlap-visible support. This is a persistence result in the constructed ladder, not a proof that a nontrivial colimit exists.
+\textbf{Persistence lemma.} Write \(U_{rs}:\mathsf{Sect}^{\mathrm{bos}}_r\to\mathsf{Sect}^{\mathrm{bos}}_s\) for the refinement functor from a regulator scale \(r\) to a finer scale \(s\succeq r\). If a realized zero-obstruction edge-sector class \(\alpha_{r_0}\) appears on a sufficiently fine collar, has overlap-visible edge-center support, and has representatives \(\alpha_s\in\mathsf{Sect}^{\mathrm{bos}}_s\) on a cofinal refinement tail such that \(U_{st}\alpha_s\simeq\alpha_t\) for all later \(t\succeq s\) on that tail, then it determines a unique object \([\alpha]\in\mathsf{Sect}_\infty\). The reason is just the directed-colimit equivalence relation: two representatives define the same object once their images agree at a common finer stage. Therefore a later stage cannot erase, split, or change the zero-obstruction property of that class without either breaking the theorem-produced refinement-system hypotheses or introducing new overlap-visible support. This is a persistence result in the constructed ladder, not a proof that a nontrivial colimit exists.
 
 This gives a refinement-limit bosonic tensor category \(\mathsf{Sect}_\infty\) of edge charges:
 
@@ -4130,7 +4193,7 @@ where j is the SU(2) spin and n = 6Y is the integer hypercharge label. This give
 
 After electroweak breaking, Q = T\textsubscript{3} + Y. For integer j, T\textsubscript{3} \ensuremath{\in} \ensuremath{\mathbb{Z}} and Y \ensuremath{\in} \ensuremath{\mathbb{Z}}, so Q \ensuremath{\in} \ensuremath{\mathbb{Z}}. For half-integer j, T\textsubscript{3} \ensuremath{\in} \ensuremath{\mathbb{Z}} + 1/2 and Y \ensuremath{\in} \ensuremath{\mathbb{Z}} + 1/2, so Q = (half-integer) + (half-integer) \ensuremath{\in} \ensuremath{\mathbb{Z}}. In both cases, Q \ensuremath{\in} \ensuremath{\mathbb{Z}}. QED.
 
-\textbf{Experimental status}: No fractionally charged color-singlet particles have been observed. Three independent high-precision bounds confirm this:
+\textbf{Experimental bound}: No fractionally charged color-singlet particles have been observed. Three independent high-precision bounds confirm this:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -4264,7 +4327,7 @@ maximizer is automatically a Gibbs state with a quasi-local generator. The addit
 representation-theoretic step summarized here is the compact-group / Peter--Weyl refinement
 lift, together with its factorwise Laplacian identification. The fixed-cutoff same-overlap
 Casimir law is supplied on the microphysics surface; model-family uniqueness and large-edge
-continuations have their own status boundaries.
+continuations have their own claim boundaries.
 
 \textbf{Normalization anchor: 2D Yang-Mills.} The parameter t can be exactly matched to a conventional coupling in 2D Yang-Mills, where the physical Hamiltonian is literally the group Laplacian:
 
@@ -4378,7 +4441,7 @@ h & Measured ratio ln(p\textsubscript{2}/p\textsubscript{0})/ln(p\textsubscript{
 \end{longtable}
 }
 
-In the weak-field limit (h \ensuremath{\to} 0, strong magnetic coupling), the simulation converges to the golden ratio squared. This confirms that the vacuum entanglement spectrum encodes the precise geometric structure of the gauge group Laplacian.
+In the weak-field limit (h \ensuremath{\to} 0, strong magnetic coupling), the finite calculation converges to the golden ratio squared. This confirms that the vacuum entanglement spectrum encodes the precise geometric structure of the gauge group Laplacian.
 
 \textbf{Significance.} This validates the mathematical law (sector probabilities weighted by Laplacian eigenvalues) in explicit 2D gauge-invariant models with non-flat sector distributions. The Z\textsubscript{3} and Z\textsubscript{5} tests are structurally identical to SU(2)/SU(3): multiple irreps overconstrain the slope, and agreement confirms the mechanism works before jumping to nonabelian groups.
 
@@ -4540,7 +4603,7 @@ The Z\textsubscript{3} test achieves machine precision because it is exactly ove
 
 \subsubsection{IBM Quantum Cloud hardware benchmarks}\label{614a-ibm-quantum-cloud-hardware-benchmarks}
 
-The lattice calculations above are internal numerical validations. The IBM Quantum Cloud benchmarks add a hardware check of whether OPH-motivated reduced-sector structures survive preparation and readout on real superconducting-qubit devices. These runs are small-sector consistency benchmarks rather than a standalone confirmation of the full framework. Their value is that they probe the same recoverability and heat-kernel observables on physical hardware and in simulation.
+The lattice calculations above are internal numerical validations. The IBM Quantum Cloud benchmarks add a hardware check of whether OPH-motivated reduced-sector structures survive preparation and readout on real superconducting-qubit devices. These runs are small-sector consistency benchmarks rather than a standalone confirmation of the full framework. Their value is that they probe the same recoverability and heat-kernel observables on physical hardware and in finite reference calculations.
 
 Detailed circuits, representative raw outputs, and rerun instructions are public in the project write-up \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/IBM_QUANTUM_CLOUD.md}{\texttt{extra/IBM\_QUANTUM\_CLOUD.md}} and the associated code/data bundle \href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/ibm_quantum_cloud}{\texttt{code/ibm\_quantum\_cloud/}}.
 
@@ -4556,10 +4619,10 @@ Detailed circuits, representative raw outputs, and rerun instructions are public
   \textbf{S\textsubscript{3} nonabelian ratio test.} The first nonabelian hardware run revealed a real layout-dependent bias. After reversing the qubit layout, the mitigated ratio moves from \(1.8724\) to \(2.0299\) against the OPH target \(2.0000\), and a direct confirmation run returns \(2.0657\). The nonabelian target reappears once the hardware mapping is corrected, indicating an identifiable device/layout effect instead of a structural failure of the OPH prediction.
 \end{itemize}
 
-These IBM runs are best read as hardware benchmarks for the local edge-sector picture. They show that the predicted recoverability ordering survives on two real backends, the abelian exact-ratio tests land near the parameter-free targets, and the first nonabelian test returns to the expected ratio once a diagnosed layout bias is corrected. They add real-device evidence to the simulation-based checks, but they do not validate the full theorem stack by themselves.
+These IBM runs are best read as hardware benchmarks for the local edge-sector picture. They show that the predicted recoverability ordering survives on two real backends, the abelian exact-ratio tests land near the parameter-free targets, and the first nonabelian test returns to the expected ratio once a diagnosed layout bias is corrected. They add real-device evidence to the finite reference checks, but they do not validate the full theorem stack by themselves.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-\subsection{Status, Tests, and Scope Boundaries}\label{8-status-tests-and-open-problems}
+\subsection{Claim Boundaries, Tests, and Scope}\label{8-claim-tests-and-scope-boundaries}
 
 \subsubsection{Classification of results and dependencies}\label{81-classification-of-results}\label{16-summary-complete-axiom-set}
 

@@ -1,0 +1,267 @@
+\section{Finite Screen Spectrum Theorem Package}\label{sec:screen-spectrum-theorems}
+
+This fragment owns the screen-level spectrum theorem used by the staged cosmology branch.  It does
+not own TT, TE, EE, lensing, likelihoods, or physical CMB promotion.  Those remain downstream
+Boltzmann and data-contract gates.
+
+\begin{definition}[finite screen regulator]\label{def:oph-screen-regulator}
+For regulator \(r\), a finite screen regulator is
+\[
+  \mathfrak S_r=(\mathcal T_r,M_r,\Gamma_r,\mathcal Q_r,C_{sr},J_{rs}),
+\]
+where \(\mathcal T_r\) is a finite cellulation of the screen, \(M_r\succ0\) is the
+area/quadrature mass matrix, \(\Gamma_r\) is the hidden-presentation groupoid,
+\(\mathcal Q_r=\Sigma_r/\Gamma_r\) is the physical quotient, and \(C_{sr}\), \(J_{rs}\) are the
+coarse-graining and interpolation maps.  Shape regularity and quadrature convergence require
+\[
+  f^{\mathsf T}M_rg \to \int_{S^2}fg\,d\Omega
+\]
+with an explicit band-limited error bound
+\[
+  \left|f^{\mathsf T}M_rg-\int f g\,d\Omega\right|
+  \le \varepsilon_{M,r}(L)\|f\|_{H^s}\|g\|_{H^s}.
+\]
+Patch count alone is therefore not an angular-resolution certificate.
+\end{definition}
+
+\begin{definition}[geometric screen scalar]\label{def:oph-screen-scalar}
+Let the quotient-visible collar-volume readout be
+\[
+  J_{X,r}(x)=\lambda_r(x)\sqrt{\det\sigma_{AB,r}(x)}>0,
+\]
+and let \(\bar J_{X,r}\) be emitted by an independently defined homogeneous or frozen-background
+branch, not by a CMB fit.  Define
+\[
+  q_{0,r}=\frac13\log\frac{J_{X,r}}{\bar J_{X,r}}.
+\]
+On a certified spherical chart, with \(B_r=[1,n_x,n_y,n_z]\),
+\[
+  \Pi_{<2,r}=B_r(B_r^{\mathsf T}M_rB_r)^{-1}B_r^{\mathsf T}M_r,\qquad
+  q_r=(I-\Pi_{<2,r})q_{0,r}.
+\]
+On an irregular screen, \(B_r\) is replaced by the certified generalized eigenprojector onto the
+finite \(\ell=0,1\) subspace.  Hard-coded feature z-scores or observer-summary weights are
+diagnostic proxies, not \(q_r\).
+\end{definition}
+
+\begin{proposition}[quotient invariance]\label{prop:oph-screen-scalar-invariance}
+If a recharting \(U\) preserves the screen inner product and geometric readout,
+\[
+  U^{\mathsf T}M'_rU=M_r,\qquad q'_{0,r}=Uq_{0,r},\qquad B'_r=UB_r,
+\]
+then \(\Pi'_{\ge2,r}U=U\Pi_{\ge2,r}\), and \(q'_r=Uq_r\).
+\end{proposition}
+
+\begin{proof}
+Substitution gives
+\[
+\begin{aligned}
+\Pi'_{<2,r}U
+&=UB_r(B_r^{\mathsf T}U^{\mathsf T}M'_rUB_r)^{-1}B_r^{\mathsf T}U^{\mathsf T}M'_rU\\
+&=UB_r(B_r^{\mathsf T}M_rB_r)^{-1}B_r^{\mathsf T}M_r=U\Pi_{<2,r}.
+\end{aligned}
+\]
+Subtracting from \(U\) gives the high-mode identity.
+\end{proof}
+
+\begin{definition}[physical scalar precision and action]\label{def:oph-screen-precision}
+The scalar precision \(K_r\) must have a physical origin on \(V_r=\operatorname{im}\Pi_{\ge2,r}\).
+Allowed branches are:
+\[
+  K_r^{\rm Hess}=\left.\nabla^2\Phi_r\right|_{q=0},
+\]
+for a quotient-visible mismatch or release free energy; a repair Dirichlet form
+\[
+  K_r^{\rm diss}=H_r-T_r^{\mathsf T}H_rT_r,\qquad T_r^{\mathsf T}H_rT_r\preceq H_r;
+\]
+or the reversible generator form
+\[
+  K_r^{\rm Dir}=-\frac12(L_r+L_r^{\dagger_H}).
+\]
+A raw nonsymmetric repair matrix or caller-supplied \(\kappa\) is not a precision operator.  The
+absolute normalization must be fixed independently, for example by
+\[
+  K_0Y_{\ell m}=\ell(\ell+1)Y_{\ell m}
+\]
+on the \(\theta=0\) branch.  Once normalized,
+\[
+  S_{{\rm scr},r}[q]=\frac{1}{2A_{q,r}}\langle q,K_rq\rangle_r
+  =\frac{1}{2A_{q,r}}q^{\mathsf T}M_rK_rq .
+\]
+\end{definition}
+
+\begin{theorem}[finite MaxEnt screen covariance]\label{thm:oph-screen-maxent}
+Let \(K_re_i=\kappa_i e_i\) with an \(M_r\)-orthonormal basis of \(V_r\), \(\kappa_i>0\), and
+\(d_r=\dim V_r\).  Among continuous densities in coefficients \(q=\sum_i a_ie_i\) with
+\(\mathbb E[a_i]=0\) and
+\[
+  \frac12\mathbb E\langle q,K_rq\rangle_r=E^{\rm src}_{q,r},
+\]
+the unique entropy maximizer is
+\[
+  d\mu_r(q)=Z_r^{-1}
+  \exp\!\left[-\frac{1}{2A_{q,r}}\langle q,K_rq\rangle_r\right]dq,
+  \qquad
+  A_{q,r}=\frac{2E^{\rm src}_{q,r}}{d_r},
+\]
+and
+\[
+  \mathbb E[a_ia_j]=\delta_{ij}\frac{A_{q,r}}{\kappa_i}.
+\]
+\end{theorem}
+
+\begin{proof}
+The Euler--Lagrange equation for entropy with normalization and quadratic-energy constraints gives
+a Gaussian density with inverse temperature \(\beta_r\).  The expected energy is
+\[
+  E^{\rm src}_{q,r}=\frac12\sum_i\kappa_i\frac1{\beta_r\kappa_i}=\frac{d_r}{2\beta_r}.
+\]
+Thus \(A_{q,r}=\beta_r^{-1}=2E^{\rm src}_{q,r}/d_r\).  Strict concavity of entropy gives
+uniqueness.
+\end{proof}
+
+\begin{remark}[discrete quotient branch]
+For a discrete finite quotient with intrinsic base weight \(m_r(q)\), the exact Gibbs law is
+\[
+  \mu_r(q)=Z_r^{-1}m_r(q)e^{-\beta_r E_r(q)}.
+\]
+A Gaussian statement on that branch requires a separate Laplace or central-limit theorem with
+controlled higher-order terms.
+\end{remark}
+
+\begin{definition}[source release energy]\label{def:oph-screen-release-energy}
+The amplitude source is an independently selected quotient ensemble \(\nu^{\rm src}_r\) on frozen
+or released collar normal forms:
+\[
+  E^{\rm src}_{q,r}
+  =\frac12\int \langle q_r(x),K_rq_r(x)\rangle_r\,d\nu^{\rm src}_r(x).
+\]
+The receipt must expose \(\nu^{\rm src}_r\), the base measure, \(K_r\), \(d_r\),
+\(E^{\rm src}_{q,r}\), \(A_{q,r}\), no-observation ancestry, and the same operator normalization
+used in the action.  MaxEnt alone does not determine amplitude.
+\end{definition}
+
+\begin{theorem}[rotational screen spectrum]\label{thm:oph-screen-angular-spectrum}
+If the continuum precision \(K_\theta\) commutes with the \(SO(3)\) action on scalar functions,
+then by Schur's lemma each \(\mathcal H_\ell\) is an eigenspace.  For the exact conformal-shell
+family,
+\[
+  \Lambda_\ell(\theta)
+  =\frac{\Gamma(\ell+2+\theta/2)}{\Gamma(\ell-\theta/2)},\qquad \ell\ge2.
+\]
+Then \(\Lambda_\ell(0)=\ell(\ell+1)\), and the MaxEnt covariance gives
+\[
+  C_\ell^q
+  =A_q\,\frac{\Gamma(\ell-\theta/2)}{\Gamma(\ell+2+\theta/2)}.
+\]
+Consequently \(\mathcal D_\ell^q=\ell(\ell+1)C_\ell^q/(2\pi)\sim(A_q/2\pi)\ell^{-\theta}\).
+\end{theorem}
+
+\begin{theorem}[finite refinement error]\label{thm:oph-screen-refinement}
+Suppose that for \(2\le\ell\le L\)
+\[
+  \left|\frac{\lambda_{\ell m,r}}{\Lambda_\ell(\theta)}-1\right|\le\varepsilon_{K,r}(L),
+  \qquad
+  \left|\frac{A_{q,r}}{A_q}-1\right|\le\varepsilon_{A,r},
+  \qquad \varepsilon_{K,r}<1 .
+\]
+Then \(C_{\ell m,r}^q=A_{q,r}/\lambda_{\ell m,r}\) satisfies
+\[
+  \left|
+  \frac{C_{\ell m,r}^q}{A_q/\Lambda_\ell(\theta)}-1
+  \right|
+  \le
+  \frac{\varepsilon_{A,r}+\varepsilon_{K,r}}{1-\varepsilon_{K,r}} .
+\]
+\end{theorem}
+
+\begin{proof}
+Write \(A_{q,r}=A_q(1+a_r)\) and
+\(\lambda_{\ell m,r}=\Lambda_\ell(1+b_{\ell m,r})\).  Then
+\[
+  \frac{C_{\ell m,r}^q}{A_q/\Lambda_\ell}=\frac{1+a_r}{1+b_{\ell m,r}},
+\]
+and the displayed bound follows from \(|a_r|\le\varepsilon_A\),
+\(|b_{\ell m,r}|\le\varepsilon_K\).
+\end{proof}
+
+\begin{theorem}[refinement-semigroup tilt]\label{thm:oph-screen-tilt}
+Let \(R_b\) be the scalar refinement map for scale ratio \(b>1\).  If one isolated scalar
+covariance mode has positive eigenvalue \(\lambda(b)\), \(\lambda(b_1b_2)=\lambda(b_1)\lambda(b_2)\),
+and \(\lambda\) is continuous, then there is a unique real \(\theta\) with
+\[
+  \lambda(b)=b^{-\theta},\qquad
+  \theta=-\frac{\log\lambda(b)}{\log b}.
+\]
+\end{theorem}
+
+\begin{proof}
+Set \(g(t)=-\log\lambda(e^t)\).  The semigroup law gives \(g(t+s)=g(t)+g(s)\).  Continuity makes
+\(g(t)=\theta t\), hence the result.
+\end{proof}
+
+\begin{target}[edge-center \(P_\star/48\) tilt]\label{target:oph-p-over-48-tilt}
+The identity \(\theta=P_\star/48\) is a theorem-grade statement only after three lemmas pass:
+an oriented edge-center reserve \(\rho_{\rm full}=P_\star/24\), a scalar half-collar projector
+\(\rho_q=P_\star/48\), and a reserve-to-RG Ward identity equating this reserve with
+\(-d\log\mathcal D_\ell^q/d\log\ell\).  Until then \(P_\star/48\) and \(e(P_\star-\varphi)\) are
+distinct diagnostic hypotheses.
+\end{target}
+
+\begin{theorem}[thin-shell power-law lift]\label{thm:oph-thin-shell-powerlaw-lift}
+Assume \(q(\hat n)=Z_\star\Pi_{\ell\ge2}\zeta_\star(R_\star\hat n)\) and
+\[
+  \Delta_\zeta^2(k)=A_\zeta(k/k_\star)^{-\theta}.
+\]
+Then
+\[
+  C_\ell^q=4\pi Z_\star^2\int d\ln k\,
+  \Delta_\zeta^2(k)j_\ell^2(kR_\star),
+\]
+and, for \(-2<\theta<4\),
+\[
+  A_q
+  =\pi^{3/2}Z_\star^2A_\zeta(k_\star R_\star)^\theta
+  \frac{\Gamma(1+\theta/2)}{\Gamma(3/2+\theta/2)} .
+\]
+Thus
+\[
+  A_\zeta
+  =\frac{A_q}{\pi^{3/2}Z_\star^2(k_\star R_\star)^\theta}
+  \frac{\Gamma(3/2+\theta/2)}{\Gamma(1+\theta/2)} .
+\]
+\end{theorem}
+
+\begin{proposition}[finite-window bound]\label{prop:oph-finite-window-bound}
+Let \(\Psi_\ell(k)=\int dr\,W(r)j_\ell(kr)\), \(W\ge0\), \(\int Wdr=1\), with mean \(R_\star\)
+and variance \(\sigma_R^2\).  If
+\[
+  \delta_\ell(k)=\frac{k^2\sigma_R^2}{2}
+  \sup_{r\in{\rm supp}\,W}|j_\ell''(kr)|,
+\]
+then
+\[
+  |C_{\ell,W}^q-C_{\ell,{\rm shell}}^q|
+  \le
+  4\pi Z_\star^2\int d\ln k\,\Delta_\zeta^2(k)
+  \left[2\delta_\ell(k)+\delta_\ell(k)^2\right].
+\]
+\end{proposition}
+
+\begin{proposition}[radial non-identifiability]\label{prop:oph-radial-null}
+For a finite radial basis, \(C=Ap\).  If \(A\in\mathbb R^{N_\ell\times N_k}\) has rank \(r\),
+then \(\dim\ker A=N_k-r\), and every \(p+v\) with \(v\in\ker A\) gives the same screen spectrum.
+Radial promotion therefore requires either a source theorem restricting \(p\), or a declared prior
+with a published null basis, resolution kernels, positivity checks, and prior-sensitivity report.
+\end{proposition}
+
+\begin{target}[screen-spectrum receipt set]\label{target:oph-screen-spectrum-receipts}
+The theorem-grade screen spectrum requires the following receipt families before any primordial or
+CMB promotion:
+\begin{enumerate}[leftmargin=2em]
+\item geometry, scalar quotient, low-mode projector, scalar precision, and operator normalization;
+\item quotient ensemble selection, scalar release energy, and MaxEnt screen covariance;
+\item scalar refinement tilt and angular screen spectrum with a finite error budget;
+\item radial window, radial null-space, forward residual, and transfer firewall.
+\end{enumerate}
+\end{target}

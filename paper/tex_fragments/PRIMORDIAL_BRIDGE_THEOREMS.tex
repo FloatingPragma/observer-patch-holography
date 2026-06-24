@@ -7,6 +7,10 @@ objects and receipts.  The dependency chain is
 \boxed{
 \operatorname{nf}(\mathcal Q_r)
 \to
+(\chi_r,u_r,h_r)
+\to
+\mathsf{BackgroundCurvatureStatus}_r
+\to
 (g,T_I)
 \to
 q_\zeta=\zeta_\rho
@@ -22,6 +26,23 @@ q_\zeta=\zeta_\rho
 \]
 No successful fit of a screen \(C_\ell\) or a TT spectrum may replace one of
 these hypotheses.
+
+\textbf{Definition (background curvature branch label).}\label{def:background-curvature-branch-label}
+The primordial bridge carries a finite record
+\[
+\mathsf{BackgroundCurvatureStatus}_r
+=
+(\mathsf{BranchType},\kappa,I_K,I_{\Omega_K},\mathsf{Basis},\mathsf{Top})
+\]
+where
+\[
+\mathsf{BranchType}\in
+\{\textsc{FlatExact},\textsc{FlatAssumed},\textsc{OpenCurved},\textsc{ClosedCurved},\textsc{Unresolved}\}.
+\]
+\textsc{FlatExact} is allowed only after a direct theorem or conditional CMH receipt.  \textsc{FlatAssumed}
+may run flat kernels but its outputs remain assumption-conditioned.  \textsc{Unresolved} blocks
+physical promotion.  The \(H^3\) observer-facing atlas is not this record; this record comes from
+the clocked FLRW slice and its spatial Levi--Civita holonomy or declared branch input.
 
 \textbf{Definition (source stress readout).}\label{def:oph-source-stress}
 On a reconstructed branch with relational metric \(g_{ab}\), let
@@ -57,7 +78,7 @@ On the recovered Einstein branch,
 \[
 G_{ab}+\Lambda g_{ab}=8\pi G\,T^{\rm tot}_{ab}.
 \]
-The simulator must also report the non-circular comparison
+The evidence bundle must also report the non-circular comparison
 \[
 E_T^{ab}=
 T_{\rm src}^{ab}
@@ -136,8 +157,8 @@ q=\Pi_{\ell\ge2}q_\zeta=\Pi_{\ell\ge2}\zeta_\rho,
 \qquad
 Z_q=1.
 \]
-This is the source-only quotient scalar on the OPH screen; by itself it is
-still typed \textsc{ScreenCurvature}, not \textsc{PrimordialCurvature}.
+This is the source-only quotient scalar on the OPH screen; by itself it has type
+\textsc{ScreenCurvature}, not \textsc{PrimordialCurvature}.
 
 \textbf{Definition (rank-one single-clock branch).}\label{def:oph-single-clock}
 Let
@@ -215,30 +236,59 @@ decaying-mode fraction, and phase-convention defects as source diagnostics.
 Assume the geometric record and causal-area metric receipts, the collar
 identity \(q_\zeta=\zeta_\rho\), source-stress closure, rank-one normal form,
 positive repair gap, freeze-out, adiabatic growing-mode, isocurvature, and
-phase-coherence receipts all pass.  Then the low-mode-removed OPH screen
+phase-coherence receipts all pass.  Also assume the physical scale-bridge theorem: a source embedding with
+\texttt{source\_embedding\_hash}, a physical mode basis with
+\texttt{physical\_mode\_basis\_id}, a calibrated comoving coordinate \(\chi\),
+mode-normalization and density-of-states receipts, and a no-post-hoc-calibration
+receipt, and a \(\mathsf{BackgroundCurvatureStatus}_r\) that is not \textsc{Unresolved}.  Then the low-mode-removed OPH screen
 scalar is the source-only primordial curvature field restricted to the
 declared shell or radial window:
 \[
 q(\hat n)=
-\Pi_{\ell\ge2}\int dr\,W(r)\zeta_\star(r\hat n).
+\Pi_{\ell_{\rm src}\ge2}\int d\chi\,W(\chi)\zeta_\star(\chi\hat n).
 \]
-For a thin shell, \(q(\hat n)=\Pi_{\ell\ge2}\zeta_\star(R_\star\hat n)\).  The
+For a thin shell, \(q(\hat n)=\Pi_{\ell_{\rm src}\ge2}\zeta_\star(R_\star\hat n)\).  The
 forward spectrum is exactly
 \[
 C_\ell^q
 =
 4\pi\int_0^\infty d\ln k\,
-\Delta_\zeta^2(k)|\Psi_\ell(k)|^2,
+\Delta_\zeta^2(k)|\Psi_\ell^{\mathsf{BranchType}}(k)|^2,
 \qquad
-\Psi_\ell(k)=\int dr\,W(r)j_\ell(kr),
+\Psi_\ell^{\mathsf{BranchType}}(k)=
+\begin{cases}
+\int dr\,W(r)j_\ell(kr), & \mathsf{BranchType}=\textsc{FlatExact}\ \hbox{or}\ \textsc{FlatAssumed},\\
+\int dr\,W(r)\Phi^{(-)}_{\ell k}(r), & \mathsf{BranchType}=\textsc{OpenCurved},\\
+\int dr\,W(r)\Phi^{(+)}_{\ell k}(r), & \mathsf{BranchType}=\textsc{ClosedCurved},
+\end{cases}
 \]
 and for a thin shell
 \[
 C_\ell^q
 =
 4\pi\int_0^\infty d\ln k\,
-\Delta_\zeta^2(k)j_\ell^2(kR_\star).
+\Delta_\zeta^2(k)
+\left|\Psi_\ell^{\mathsf{BranchType}}(k;R_\star)\right|^2 .
 \]
+At finite regulator the continuum integral is represented by the finite
+spectral measure
+\[
+d\nu_r(k)=\sum_j w_{rj}\delta(k-k_{rj}),
+\]
+so the actual finite evidence receipt is
+\[
+C_{\ell_{\rm src},r}^q
+=4\pi\sum_j w^{\log k}_{rj}\,
+\Delta_{\zeta,r}^2(k_{rj})
+|\Psi^{\mathsf{BranchType}}_{\ell_{\rm src},r}(k_{rj})|^2.
+\]
+Every radial node, window, and mode bin is bound to the geometry hash,
+source-embedding hash, scale-certificate hash, boundary-condition hash, and
+mode-basis identifier, and the evidence bundle must emit
+\texttt{RADIAL\_KERNEL\_GEOMETRY\_COMPATIBILITY\_RECEIPT}.  The observed multipole \(L_{\rm CMB}\) is not
+\(\ell_{\rm src}\); it is the output index of the line-of-sight transfer solver.
+Cap eigenmodes, inverse cap-opening angles, and relabeled unit strings remain
+diagnostic by the dimensional, angular, cap-mode, and unit-string no-go propositions.
 
 \textbf{Radial prior, null space, and residual receipt.}
 The map above is a forward projection, not a free inversion.  With finite
@@ -249,16 +299,20 @@ b_j(k)|\Psi_\ell(k)|^2,
 \qquad
 C^q=Ap .
 \]
-The simulator must declare the basis, support, prior \(p_0,Q\), positivity
+The evidence bundle must declare the basis, support, prior \(p_0,Q\), positivity
 conditions, singular spectrum of \(AQ^{-1/2}\), effective rank, null basis,
 resolution kernels, prior sensitivity, and every forward residual
 \[
 r_\ell=C_\ell^q-\widehat C_\ell .
 \]
 Only after the radial prior, null-space report, positivity test, source-only
-ancestry proof, and forward residual pass may the run emit \(A_s\), \(n_s\),
+ancestry proof, finite mode-normalization receipt, common primordial/anomaly
+mode-basis receipt, and forward residual pass may the run emit \(A_s\), \(n_s\),
 and \(\alpha_s\).  Otherwise the typed output is
-\textsc{ScreenCurvature} or \textsc{ConditionalRadialContinuation}.
+\textsc{ScreenCurvature} or \textsc{ConditionalRadialContinuation}.  If the
+geometry packet is imported, the strongest possible claim tier is
+\texttt{CONDITIONAL\_PHYSICAL}; \texttt{OPH\_NATIVE\_PHYSICAL} requires the
+native \(\mathsf{CosmoGeomRead}_r\) theorem.
 
 \[
 \begin{array}{ll}
@@ -273,4 +327,76 @@ and \(\alpha_s\).  Otherwise the typed output is
 \mbox{\texttt{RADIAL\_NULL\_SPACE\_REPORT\_RECEIPT}} & \hbox{singular values, null basis, resolution kernels} \\
 \mbox{\texttt{FORWARD\_PROJECTION\_RESIDUAL\_RECEIPT}} & r_\ell,\hbox{ aggregate norms, quadrature and solver errors}.
 \end{array}
+\]
+
+\textbf{Source-provenance and pooled-reducer firewall.}\label{par:source-provenance-firewall}
+Let the source artifact DAG have parent-to-child edges and let \(M\) be the set
+of measurement, residual, likelihood, posterior, fitted-parameter, or
+measurement-calibrated nodes.  Define
+\[
+\tau(v)=\mathbf 1_{v\in M}\lor
+\bigvee_{p\in\operatorname{Parents}(v)}\tau(p).
+\]
+Then \(\tau(v)=1\) exactly when \(v\) has a forbidden measurement ancestor.  The
+proof is induction over a topological ordering of the DAG.  Every promoted
+source node for \(\eta_R,\Gamma_{\rm rec},A_\zeta,q_{\rm IR},\ell_{\rm IR}\),
+\(B_A(k,a)\), \(\rho_A(a)\), and \(N_{\rm CRC}\) must have \(\tau=0\).
+Unknown source metadata fails closed.
+
+For nonlinear estimates, shards may not average nonlinear quantities.
+Each row must emit additive sufficient statistics in a commutative monoid
+\((\mathcal M,\oplus)\), for example
+\[
+\sum w_i,\qquad \sum w_ix_i,\qquad \sum w_ix_ix_i^{\mathsf T}
+\]
+or, for weighted response regression,
+\[
+X^{\mathsf T}WX,\qquad X^{\mathsf T}Wy,\qquad y^{\mathsf T}Wy .
+\]
+Associativity, commutativity, complete coverage, and duplicate removal make the
+pooled statistic partition-invariant; the deterministic estimator is then
+evaluated only after pooling.
+
+\textbf{Three-dimensional homogeneous lift.}\label{par:three-d-lift}
+A rotationally invariant screen covariance about one observer is not a
+statistically homogeneous three-dimensional primordial field by itself.  A frozen lift
+\[
+\mathcal L_r:V_r^{\rm screen}\to\mathcal H_r^{(3)}
+\]
+must define
+\[
+\Sigma_r^{(3)}=\mathcal L_r\Sigma_r^{\rm screen}\mathcal L_r^\ast
+\]
+and certify positivity, refinement convergence, rotation covariance,
+translation covariance or an equivalent multicenter consistency theorem, and
+explicit null-space treatment.  If the limiting covariance commutes with
+translations and rotations, Fourier diagonalization gives
+\[
+\langle \zeta_a(\mathbf k)\zeta_b^\ast(\mathbf k')\rangle
+=(2\pi)^3\delta^{(3)}(\mathbf k-\mathbf k')P_{ab}(|\mathbf k|),
+\]
+with \(P_{ab}(k)\) positive semidefinite.
+
+\textbf{Transfer-ready initial data.}\label{par:transfer-ready-initial-data}
+The source-to-transfer map must emit a complete initial state
+\[
+Y(k,\eta_i)=\mathcal M_{\rm init}(k;\mathfrak B_{\rm src})\xi(k),
+\]
+including metric, photon, polarization, baryon, neutrino, anomaly, recipient,
+and auxiliary response variables.  Near a singular early-time point, regular
+Frobenius modes solve
+\[
+Y'=\left(\frac{M_{-1}}{\eta}+M_0+O(\eta)\right)Y,\qquad
+Y=\eta^s(v_0+v_1\eta+\cdots),\quad M_{-1}v_0=sv_0.
+\]
+The branch must classify regular adiabatic growing modes, allowed isocurvature
+modes, decaying modes, gauge modes, and singular interaction modes.  On the
+adiabatic branch,
+\[
+S_{IJ}=3(\zeta_I-\zeta_J)=0
+\]
+for all active sectors.  The finite evidence receipt must bound the initial
+Hamiltonian and momentum constraints and the propagated residual
+\[
+\epsilon_{\rm constraint}=\sup_{k,\eta}\|\mathcal C(k,\eta)Y(k,\eta)\|.
 \]

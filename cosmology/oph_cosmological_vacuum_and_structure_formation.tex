@@ -1,0 +1,122 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array,longtable}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xurl}
+
+\IfFileExists{../paper/release_info.tex}{
+  \input{../paper/release_info.tex}
+}{
+  \newcommand{\OPHPaperReleaseDate}{\today}
+  \newcommand{\OPHPaperReleaseBanner}{Draft}
+  \newcommand{\OPHPaperReleaseID}{local-cosmology-staging}
+}
+
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\setlength{\emergencystretch}{3em}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{target}[theorem]{Target}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\theoremstyle{plain}
+
+\newcommand{\pathref}[1]{\nolinkurl{#1}}
+\newcommand{\SimSourceRepo}{\url{https://github.com/muellerberndt/oph-physics-sim}}
+
+\title{OPH Cosmological Vacuum and Structure Formation:\\
+Finite Transfer Gates, Fluctuation Ensembles, and Proto-Object Receipts}
+\author{B.\ M\"uller}
+\date{\OPHPaperReleaseDate}
+
+\begin{document}
+\maketitle
+\OPHPaperReleaseBanner
+
+\begin{abstract}
+This staged paper owns the OPH cosmological vacuum and structure-formation lane.  It separates
+seed noise, conventional reference ensembles, OPH-native quotient ensembles, OPH vacuum claims,
+primordial fields, and observable cosmological predictions.  The new result imported here is the
+fail-closed vacuum gate: deterministic settlement, repair relaxation, positive transfer existence,
+or a visually plausible fluctuating field does not select a physical vacuum.  A vacuum claim
+requires source Euclidean slab data, a transfer/reflection-positive reconstruction gate, refinement
+compatibility, and simulator receipts.
+\end{abstract}
+
+\section{Status}
+
+This is a staged template, not a release-pipeline paper.  It coordinates the vacuum/fluctuation
+part of \pathref{cosmology/oph_cosmology_finite_source_cmb_program.tex}, the screen-microphysics
+finite carrier, the compact theorem stack, and OPH-FPE simulator outputs in \SimSourceRepo.
+
+\section{Shared Finite Quotient Theorem Surface}
+
+\input{../paper/tex_fragments/FINITE_QUOTIENT_ENSEMBLE_THEOREMS.tex}
+
+\section{Vacuum Claim Boundary}
+
+The strongest allowed simulator labels are:
+\[
+E0:\hbox{ seed noise or repair jitter},\qquad
+E1:\hbox{ conventional reference ensemble}.
+\]
+An OPH-native vacuum label requires an E3 receipt.  The source data must include
+\[
+\mathfrak S_r^E=(Q_r,m_r^0,J_r,V_r,a_{t,r})
+\]
+with \(J_r\), \(V_r\), and \(a_{t,r}\) derived from OPH source structure rather than from a target
+law or a desired visual spectrum.  Accepted repair moves are generally directed and cannot simply
+be reused as reversible Euclidean conductances.
+
+\section{Structure-Formation Targets}
+
+\begin{longtable}{@{}p{0.28\textwidth}p{0.62\textwidth}@{}}
+\toprule
+Object & Required source-side label\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Fluctuating screen field & E0 or E1 unless an E2 quotient ensemble receipt passes.\\
+OPH vacuum field & E3 only after source Euclidean slab, ground-state, Doob, reflection-positivity,
+and transfer-refinement receipts.\\
+Proto-object worldlines & Diagnostic until production matter/particle and observer-facing object
+population receipts pass.\\
+Growth seeds & E4 only after the primordial bridge, radial lift, null-space, positivity, and
+forward-projection receipts pass.\\
+LSS comparison & E5 only after frozen likelihood/data contracts pass in the data-contract paper.\\
+\end{longtable}
+
+\section{Simulator Contract}
+
+The simulator should emit the following receipt names even when they fail:
+\begin{itemize}[leftmargin=2em]
+\item \pathref{TRACIALLY_POINTED_QUOTIENT_RECEIPT}
+\item \pathref{SOURCE_EUCLIDEAN_SLAB_RECEIPT}
+\item \pathref{TRANSFER_REFINEMENT_RECEIPT}
+\item \pathref{STATIONARY_LAW_SCHEDULE_INVARIANCE_RECEIPT}
+\item \pathref{PATHWISE_PARTITION_INVARIANCE_RECEIPT}
+\end{itemize}
+False receipts are part of the scientific result.  They prevent a reference baseline or rendering
+field from being mislabeled as an OPH vacuum.
+
+\section{Open Work}
+
+\begin{enumerate}[leftmargin=2em]
+\item Derive the reversible source conductances \(J_r\), potential \(V_r\), and slab thickness
+\(a_{t,r}\) from finite OPH source data.
+\item Prove reflection positivity or an equivalent reconstruction theorem on the selected branch.
+\item Relate passed E3 vacuum receipts to E4 primordial growth seeds without using CMB or LSS data.
+\item Specify proto-object/worldline receipts that remain distinct from production particle claims.
+\end{enumerate}
+
+\end{document}

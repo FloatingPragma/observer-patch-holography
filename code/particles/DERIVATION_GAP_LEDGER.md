@@ -1,14 +1,14 @@
 # Particle Derivation Gap Ledger
 
-Generated: `2026-06-17T03:23:28Z`
+Generated: `2026-06-24T12:59:33Z`
 
 Systematic claim-safe queue after the five-equation P-trunk simplification.
 
-## P-Trunk Status
+## P-Trunk Claim Boundary
 
 - Artifact: `P_derivation/runtime/p_closure_trunk_current.json`
 - Exists: `True`
-- Claim status: `compressed_candidate_trunk_not_final_particle_root`
+- Claim label: `compressed_candidate_trunk_not_final_particle_root`
 - May feed promoted particle predictions: `False`
 - Candidate P: `1.63097210492078846050203640439`
 - Candidate alpha^-1: `136.994020662724205139718642793`
@@ -18,7 +18,7 @@ Systematic claim-safe queue after the five-equation P-trunk simplification.
 
 - Artifact: `particles/hierarchy`
 - Exists: `True`
-- Claim status: `closed_local_global_hierarchy_and_naturality_certificate`
+- Claim label: `closed_local_global_hierarchy_and_naturality_certificate`
 - May feed local hierarchy claim: `True`
 - May feed Higgs naturality claim: `True`
 - Public endpoint P: `1.630968209403959324879279847782648941`
@@ -44,11 +44,11 @@ Systematic claim-safe queue after the five-equation P-trunk simplification.
 - Higgs naturality interval: `[0, 0]`
 - Boundary: This certificate closes the selected local P -> alpha_U -> v/E_star hierarchy lane, the local/global resonance bridge, and the Higgs naturality defect epsilon_H=0. Separate non-promoted gates are the public Thomson endpoint transport, theorem-grade W/Z promotion, charged-lepton absolute masses, source-only hadron masses, Strong CP, and the full no-G clock stack for SI gravity.
 
-## Bundle Execution Plan
+## Bundle Claim Gates
 
-Open work is grouped into coupled closure packets rather than a one-blocker-at-a-time queue.
+Claim gates are grouped into coupled closure packets rather than a one-blocker-at-a-time queue.
 
-| Bundle | Status | Gaps | Promotion question |
+| Bundle | Claim label | Gaps | Promotion question |
 | --- | --- | --- | --- |
 | `electroweak-root-closure-bundle` | `endpoint_package_closed_source_measure_payload_absent` | `pclosure.compressed-trunk-artifact`, `d10.ward-projected-thomson-endpoint`, `d10.source-residual-map-and-interval-certificate`, `d10.rg-matching-threshold-scheme`, `pclosure.certified-codepath-adoption` | Can one source-emitted map Delta_Th(P), with declared matching and interval bounds, certify the compressed P trunk as the particle root without importing alpha(0)? |
 | `spectrum-source-bundle` | `closed_corpus_limited_source_boundaries_emitted` | `charged.determinant-normalization-transport`, `quark.selected-class-vs-global-classification`, `neutrino.pmns-status-and-absolute-rows` | Is there one OPH excitation dictionary and sector-isolated trace-lift theorem that explains the charged affine anchor, quark selected-class boundary, and neutrino PMNS comparison surface without hidden target fitting? |
@@ -66,26 +66,26 @@ Open work is grouped into coupled closure packets rather than a one-blocker-at-a
 - `top-codomain-bridge-bundle`: `closed_corpus_limited_codomain_no_go`. No-go result. The exact top theorem row remains on Q007TP4. The auxiliary direct-top row Q007TP is compare-only because the available corpus emits no source-side extraction-response kernel into that codomain.
 - `particle-root-integration-gate`: `keep_candidate_with_constructive_next_artifacts`. No promotion. The first wave emits constructive next artifacts, so the compressed P trunk remains candidate/audit metadata until those artifacts are populated and certified.
 
-## Open Gates
+## Claim Gates
 
-| ID | Lane | Status | Issue | Next action |
-| --- | --- | --- | --- | --- |
-| `pclosure.compressed-trunk-artifact` | P closure | `closed_canonical_guarded_candidate_artifact` | #224 | Keep emitting p_closure_trunk_current.json and block live prediction promotion. |
-| `d10.ward-projected-thomson-endpoint` | D10 electromagnetic endpoint | `closed_blocker_isolated_endpoint_package` | #223 | Keep the package as the closed blocker-isolation artifact for issue #223. |
-| `d10.source-residual-map-and-interval-certificate` | D10 electromagnetic endpoint | `closed_blocker_isolated_source_residual_no_go` | #235 | Populate the Ward-projected source spectral measure payload, including rho_had(s;P) or an equivalent spectral primitive, matching remainder, certified quadrature bounds, and the interval certificate for the final map. |
-| `d10.rg-matching-threshold-scheme` | D10 running and matching | `closed_declared_convention_contract` | #32 | Keep the declared-convention status visible in prediction surfaces and require a separate theorem before treating those conventions as OPH-derived. |
-| `pclosure.certified-codepath-adoption` | P closure | `closed_guarded_codepath_adoption` | #224 | Switch live particle builders only after the source spectral measure payload emits R_Q(P), the interval certificate proves the full map, and the compressed trunk is promoted beyond guarded candidate metadata. |
-| `charged.determinant-normalization-transport` | Charged leptons | `closed_corpus_limited_charged_end_to_end_no_go` | #201 | Keep charged masses suppressed on the public theorem lane. Reopen only for a theorem-grade uncentered trace lift proving 3 mu(r) = sum_e M_e^ch log q_e(r), equivalently zero normalization defect N_det(P), on the physical charged branch. |
-| `quark.selected-class-vs-global-classification` | Quarks | `selected_class_closed_global_classification_no_go` | #199 | Keep every public exact-quark claim explicitly selected-class. Reopen only for a new source-emitted global public-frame classifier artifact. |
-| `neutrino.pmns-status-and-absolute-rows` | Neutrinos | `theorem_rows_with_visible_comparison_tension` | #117 | Do not hide PMNS residuals behind the exact absolute-splitting rows; either prove a better branch or leave the comparison tension explicit. |
-| `qcd.strong-cp-angle` | Strong CP | `open_theta_qcd_bar_theta_vanishing_gap` | #155 | Keep strong CP explicit as an open branch. Reopen only for a theorem-grade descent from exact quark/Yukawa phase data to the determinant-line phase contribution, together with a theorem fixing the topological-angle contribution and proving the physical strong-CP phase vanishes on the realized branch. |
-| `calibration.direct-top-bridge` | D11/top codomain | `closed_corpus_limited_codomain_no_go` | #207 | Keep Q007TP compare-only while the theorem row remains anchored on Q007TP4. Reopen only for a concrete source-side extraction-response kernel. |
-| `hadron.production-backend-systematics` | Hadrons | `source_backend_absent_empirical_policy_emitted` | #153 | Keep source-only hadron rows suppressed. Use empirical hadron closure rows only through the documented e+e- spectral payload. Promote source-only hadron rows only after a working OPH hadron backend emits production hadron output, Ward-projected spectral data, and systematics. |
-| `hadron.empirical-ee-spectral-closure` | Hadrons | `policy_scaffold_emitted_dataset_absent` | n/a | Populate oph_empirical_ee_hadronic_spectral_measure from PDG, HEPData, alphaQED, or an equivalent documented compilation, then feed the empirical Thomson endpoint builder. |
+| ID | Lane | Claim label | Gate |
+| --- | --- | --- | --- |
+| `pclosure.compressed-trunk-artifact` | P closure | `closed_canonical_guarded_candidate_artifact` | Keep emitting p_closure_trunk_current.json and block live prediction promotion. |
+| `d10.ward-projected-thomson-endpoint` | D10 electromagnetic endpoint | `closed_blocker_isolated_endpoint_package` | Keep the package as the closed blocker-isolation artifact for issue #223. |
+| `d10.source-residual-map-and-interval-certificate` | D10 electromagnetic endpoint | `closed_blocker_isolated_source_residual_no_go` | Populate the Ward-projected source spectral measure payload, including rho_had(s;P) or an equivalent spectral primitive, matching remainder, certified quadrature bounds, and the interval certificate for the final map. |
+| `d10.rg-matching-threshold-scheme` | D10 running and matching | `closed_declared_convention_contract` | Keep the declared-convention status visible in prediction surfaces and require a separate theorem before treating those conventions as OPH-derived. |
+| `pclosure.certified-codepath-adoption` | P closure | `closed_guarded_codepath_adoption` | Switch live particle builders only after the source spectral measure payload emits R_Q(P), the interval certificate proves the full map, and the compressed trunk is promoted beyond guarded candidate metadata. |
+| `charged.determinant-normalization-transport` | Charged leptons | `closed_corpus_limited_charged_end_to_end_no_go` | Keep charged masses suppressed on the public theorem lane. Reopen only for a theorem-grade uncentered trace lift proving 3 mu(r) = sum_e M_e^ch log q_e(r), equivalently zero normalization defect N_det(P), on the physical charged branch. |
+| `quark.selected-class-vs-global-classification` | Quarks | `selected_class_closed_global_classification_no_go` | Keep every public exact-quark claim explicitly selected-class. Reopen only for a new source-emitted global public-frame classifier artifact. |
+| `neutrino.pmns-status-and-absolute-rows` | Neutrinos | `theorem_rows_with_visible_comparison_tension` | Do not hide PMNS residuals behind the exact absolute-splitting rows; either prove a better branch or leave the comparison tension explicit. |
+| `qcd.strong-cp-angle` | Strong CP | `open_theta_qcd_bar_theta_vanishing_gap` | Keep strong CP explicit as an open branch. Reopen only for a theorem-grade descent from exact quark/Yukawa phase data to the determinant-line phase contribution, together with a theorem fixing the topological-angle contribution and proving the physical strong-CP phase vanishes on the realized branch. |
+| `calibration.direct-top-bridge` | D11/top codomain | `closed_corpus_limited_codomain_no_go` | Keep Q007TP compare-only while the theorem row remains anchored on Q007TP4. Reopen only for a concrete source-side extraction-response kernel. |
+| `hadron.production-backend-systematics` | Hadrons | `source_backend_absent_empirical_policy_emitted` | Keep source-only hadron rows suppressed. Use empirical hadron closure rows only through the documented e+e- spectral payload. Promote source-only hadron rows only after a working OPH hadron backend emits production hadron output, Ward-projected spectral data, and systematics. |
+| `hadron.empirical-ee-spectral-closure` | Hadrons | `policy_scaffold_emitted_dataset_absent` | Populate oph_empirical_ee_hadronic_spectral_measure from PDG, HEPData, alphaQED, or an equivalent documented compilation, then feed the empirical Thomson endpoint builder. |
 
 ## Claim Policy
 
 - The compressed P trunk is an audit/candidate artifact until the endpoint and certificate gates close.
-- Open blockers should be worked as coupled bundles rather than isolated one-off fixes.
+- Claim gates are handled as coupled bundles rather than isolated one-off fixes.
 - The particle pipeline must keep compare-only, continuation, selected-class, and theorem-grade rows mechanically distinct.
 - Golden-ratio torus or resonance language is not a derivation input unless a separate representation-to-spectrum theorem is supplied.

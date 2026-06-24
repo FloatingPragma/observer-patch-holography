@@ -1,0 +1,265 @@
+\section{Physical Scale Bridge and Mode Calibration}\label{sec:physical-scale-bridge}
+
+This fragment owns the physical scale bridge used by the staged cosmology branch.  It separates
+finite labels that are useful diagnostic proxies from labels that are physically calibrated for a
+Boltzmann solver.
+
+\begin{definition}[cosmology claim tiers]\label{def:cosmology-claim-tiers}
+Every cosmology artifact has one of three claim tiers:
+\[
+\texttt{DIAGNOSTIC\_PROXY},\qquad
+\texttt{CONDITIONAL\_PHYSICAL},\qquad
+\texttt{OPH\_NATIVE\_PHYSICAL}.
+\]
+\texttt{DIAGNOSTIC\_PROXY} covers cap angles, graph mode numbers, repair cycles, and other finite
+labels with no physical calibration.  \texttt{CONDITIONAL\_PHYSICAL} imports a frozen external
+FLRW geometry packet and then proves the downstream spectral, clock, freezeout, and transfer
+contracts relative to that packet.  \texttt{OPH\_NATIVE\_PHYSICAL} requires the same packet to be
+derived from the OPH quotient carrier.
+\end{definition}
+
+\begin{definition}[notation firewall]\label{def:cosmology-notation-firewall}
+The branch uses separate symbols for separate objects:
+\[
+K_{\rm FLRW}\in\{-1,0,+1\},\qquad
+k,\qquad
+\ell_{\rm src},\qquad
+L_{\rm CMB},\qquad
+\ell_\star,\qquad
+L_{\rm IR}.
+\]
+\(K_{\rm FLRW}\) is spatial curvature, \(k\) is comoving wavenumber,
+\(\ell_{\rm src}\) is an angular sector on the primordial source shell, \(L_{\rm CMB}\) is the
+observed-sky transfer output multipole, \(\ell_\star\) is the OPH scale-certificate length, and
+\(L_{\rm IR}\) is an infrared domain size.  The canonical internal unit for comoving \(k\) is
+\({\rm Mpc}^{-1}\); \(h\,{\rm Mpc}^{-1}\) is only a display unit after \(h\) is frozen.
+\end{definition}
+
+\begin{definition}[finite cosmological geometry packet]\label{def:finite-cosmo-geometry-packet}
+At regulator \(r\), a finite cosmological geometry packet is
+\[
+\mathfrak G_r=
+\left(
+Q_r,\{\Sigma_{r,n}\},\{\mathcal K_{r,n}\},\{h_{r,n}\},\{\mu_{r,n}\},
+\{N_{r,n}\},\{\beta_{r,n}\},\{u_{r,n}\},\mathcal L_r,\mathcal B_r,
+\{\iota_{rs}\},\mathcal R_{\ell_\star}
+\right).
+\]
+Here \(Q_r\) is the physical quotient normal form, \(\Sigma_{r,n}\) are common-clock spatial
+slices, \(\mathcal K_{r,n}\) finite cell complexes, \(h_{r,n}\) positive spatial metric or
+Dirichlet-form data, \(\mu_{r,n}\) physical volume measures, \(N_{r,n}>0\) lapse, \(\beta_{r,n}\)
+shift, \(u_{r,n}\) the cosmological observer congruence, \(\mathcal L_r\) lineage, \(\mathcal B_r\)
+topology and boundary conditions, \(\iota_{rs}\) refinement maps, and \(\mathcal R_{\ell_\star}\)
+the independent dimensional-scale receipt.  The readout
+\[
+\mathsf{CosmoGeomRead}_r:\operatorname{nf}(Q_r)\to\mathfrak G_r
+\]
+is OPH-native only if it factors through the quotient and is invariant under hidden carrier
+coordinates, port labels, schedules, worker partitions, and equivalent checkpoint presentations.
+For the conditional branch the same packet may be imported, but must record
+\(\texttt{geometry\_origin=IMPORTED\_FLRW}\).
+\end{definition}
+
+\begin{definition}[source-screen embedding packet]\label{def:source-screen-embedding-packet}
+A screen mode has physical radial meaning only after an embedding packet
+\[
+\mathfrak E_r=
+\left(
+S_r,\jmath_r:S_r\hookrightarrow\Sigma_{r,n_\star},O_r,\chi_r,W_r(\chi),J_r
+\right)
+\]
+has been supplied.  \(S_r\) is the source screen, \(\jmath_r\) embeds it in the freezeout slice,
+\(O_r\) is the observer or radial origin, \(\chi_r\) is physical comoving geodesic distance,
+\(W_r\) is the radial release window, and \(J_r\) is the area/volume Jacobian.  The window must obey
+\[
+W_r(\chi)\ge0,\qquad \int W_r(\chi)\,d\chi=1.
+\]
+\end{definition}
+
+\begin{definition}[FLRW reduction and physical mode packets]\label{def:flrw-mode-packets}
+An FLRW reduction of \(\mathfrak G_r\) is
+\[
+\mathsf{FLRWReduce}_r(\mathfrak G_r)=
+\left(a_r(\tau),\gamma_{r,ij},K_{\rm FLRW},\bar u_r,\varepsilon_{{\rm FLRW},r}\right)
+\]
+with
+\[
+h^{\rm phys}_{r,ij}(\tau)=a_r(\tau)^2\gamma_{r,ij}+\delta h_{r,ij}.
+\]
+The residual packet bounds shear, vorticity, acceleration, density-gradient, spatial-curvature,
+Hamiltonian, momentum, and domain-backreaction errors.  A scalar mode packet supplies mass and
+stiffness forms
+\[
+M^{(0)}_{r,ij}=\int_{\Sigma_r}\phi_i\phi_j\,d\mu_{\gamma_r},\qquad
+K^{(0)}_{r,ij}=\int_{\Sigma_r}\gamma_r^{ab}\nabla_a\phi_i\nabla_b\phi_j\,d\mu_{\gamma_r},
+\]
+the generalized problem \(K^{(0)}_rv_{rj}=\lambda_{rj}M^{(0)}_rv_{rj}\), spectral projectors,
+mode lineage, interval eigenvalues, matrix hashes, topology and boundary hashes, and a safe
+resolved band.  Vector, tensor, and spin-\(2\) sectors require their own compatible operators when
+stress or polarization variables are used.
+\end{definition}
+
+\begin{definition}[proper time, scale factor, and freezeout packet]\label{def:time-scale-freezeout-packet}
+Proper time is read from lapse along the selected congruence after shift effects are accounted for.
+For a lineage-tracked comoving domain \(D_r\),
+\[
+a_{V,r}(\tau)=\left[\frac{V_r(\tau)}{V_r(\tau_0)}\right]^{1/3},\qquad
+\log\frac{a_{\Theta,r}(\tau)}{a_{\Theta,r}(\tau_0)}
+=\int_{\tau_0}^{\tau}\frac{\bar\Theta_r(\tau')}{3}\,d\tau',
+\]
+and the receipt records
+\[
+\varepsilon_{a,r}=\sup_\tau
+\left|\log a_{V,r}(\tau)-\log a_{\Theta,r}(\tau)\right|.
+\]
+The convention \(a(\tau_0)=1\) is fixed before reporting \(1+z=1/a\); outside the certified
+FLRW/geodesic branch redshift is
+\[
+1+z=\frac{(u_\mu p^\mu)_{\rm emit}}{(u_\mu p^\mu)_{\rm obs}}.
+\]
+Conformal time is \(\eta(\tau)-\eta(\tau_0)=\int_{\tau_0}^{\tau}d\tau'/a(\tau')\).
+Mode-wise freezeout requires persistent bounds on curvature, nonadiabatic, isocurvature,
+decaying-mode, repair-forcing, phase, and constraint residuals.  If the mode release times do not
+share a common surface within tolerance, the output is a
+\(\texttt{MODE\_DEPENDENT\_FREEZEOUT\_MAP}\), not a single freezeout surface.
+\end{definition}
+
+\begin{proposition}[dimensional rescaling no-go]\label{prop:scale-bridge-rescaling-nogo}
+If the finite data used by a proposed calibration are unchanged under \(h\mapsto s^2h\), then
+\(\Delta_{s^2h}=s^{-2}\Delta_h\) and physical wavenumber transforms as \(k\mapsto k/s\).  Therefore
+cap angle, graph incidence, patch count, and normalized covariance cannot determine nonzero
+physical \(k\) without a dimensional metric receipt.
+\end{proposition}
+
+\begin{proof}
+If \(-\Delta_hv=\lambda v\), then
+\(-\Delta_{s^2h}v=s^{-2}\lambda v\).  The finite input has not changed while the physical
+wavenumber has.  No function of the unchanged input can select the changed answer.
+\end{proof}
+
+\begin{proposition}[angular projection cannot determine radial \(k\)]\label{prop:angular-radial-nogo}
+At finite angular cutoff the map \(T:f(k)\mapsto\{\int d\log k\,\Psi_\ell(k)f(k)\}_{\ell\le L}\)
+has finite-dimensional codomain and infinite-dimensional domain.  Hence it has nontrivial kernel:
+angular screen modes do not uniquely determine a radial spectrum or physical \(k\)-label.
+\end{proposition}
+
+\begin{proposition}[rank-one clock and scale-factor no-goes]\label{prop:clock-scale-nogo}
+A rank-one source family \(\mathcal F=\widehat{\mathcal F}\circ\chi\) fixes a common ordering, not
+proper elapsed time, because \(f\circ\chi\) gives the same fibers for any strictly increasing \(f\).
+Likewise \(h=a^2\gamma\) is invariant under \(a\mapsto ca\), \(\gamma\mapsto c^{-2}\gamma\).  A
+lapse or operational clock receipt and the convention \(a_0=1\) are therefore separate physical
+inputs.
+\end{proposition}
+
+\begin{proposition}[cap modes and unit strings do not calibrate]\label{prop:cap-unit-nogo}
+Cap eigenmodes depend on a self-adjoint boundary or extension choice, so they are not full-sky
+multipoles until a full-sky extension or mode-coupling operator is certified.  Changing metadata
+from \(\texttt{inverse\_cap\_opening\_angle\_proxy}\) to \(\texttt{Mpc}^{-1}\) changes no numerical
+object and therefore proves no calibration.
+\end{proposition}
+
+\begin{theorem}[finite operator and angular multipole consistency]\label{thm:finite-operator-angular}
+For conforming shape-regular finite spaces with consistent mass and stiffness forms and fixed
+boundary sector, \(M_r=M_r^\dagger>0\), \(K_r=K_r^\dagger\ge0\), and the generalized Rayleigh
+quotient converges to the Laplace--Beltrami quotient on each resolved band.  For a closed source
+screen with area radius \(R_{A,r}\), the normalized operator
+\(\bar\Delta_{\Omega,r}=R_{A,r}^2\Delta_{S_r}\) calibrates \(\ell_{\rm src}\) when the spectral
+projector onto \(I_\ell=(\ell^2,(\ell+1)^2)\) has rank \(2\ell+1\), bounded residual from
+\(\ell(\ell+1)\), and converges under refinement.
+\end{theorem}
+
+\begin{proof}
+Positivity follows from the integral forms.  Min--max convergence of the quadratic forms gives
+eigenvalue-cluster convergence; degenerate sectors are identified by projectors.  The round-sphere
+eigenvalue \(\ell(\ell+1)\) is isolated with multiplicity \(2\ell+1\), so norm-resolvent
+convergence gives the Riesz projector.
+\end{proof}
+
+\begin{theorem}[physical comoving \(k\), scale factor, and freezeout]\label{thm:physical-k-a-freezeout}
+Assume a valid physical geometry packet, FLRW reduction, \(a_0=1\), dimensional ruler, topology and
+boundary sector, and finite spatial operator.  On the flat branch,
+\[
+-\Delta_{\gamma_r}v_{rj}=k_{rj}^2v_{rj}.
+\]
+If the finite eigenvalue uses \(h^{\rm phys}_r\), then
+\[
+k_{rj}=a_r\sqrt{\lambda^{\rm phys}_{rj}},
+\qquad
+k_{rj}=\frac{a_r}{\ell_\star}\sqrt{\widehat\lambda^{\rm phys}_{rj}}
+\]
+for the dimensionless eigenvalue \(\widehat\lambda^{\rm phys}_{rj}=\ell_\star^2\lambda^{\rm phys}_{rj}\).
+For \(K_{\rm FLRW}\ne0\) the branch must define the solver map
+\(k_{\rm solver}=\kappa_{K_{\rm FLRW}}(\lambda)\) and use the corresponding hyperspherical kernels.
+If the FLRW residual and volume/expansion consistency errors are below tolerance, \(a_D\), \(z\),
+and \(\eta\) are calibrated.  A single freezeout surface is promoted only when the persistent
+mode-wise residuals and common-surface bound pass.
+\end{theorem}
+
+\begin{proof}
+For \(h^{\rm phys}=a^2\gamma\), homogeneity makes \(\Delta_{h^{\rm phys}}=a^{-2}\Delta_\gamma\),
+so the eigenvalue relation follows.  The volume equation
+\(\mathcal L_udV=\Theta\,dV\) gives
+\(d\log a_D/d\tau=\langle\Theta\rangle_D/3\).  Curvature conservation follows by integrating
+\(|\zeta'|\le\varepsilon_\star\mathcal H|\zeta|\) over the persistent interval, while the other
+residuals certify adiabatic growing-mode dominance and constraint consistency.
+\end{proof}
+
+\begin{theorem}[finite physical scale bridge]\label{thm:finite-physical-scale-bridge}
+Assume valid receipts for geometry or imported conditional geometry, source-screen embedding, FLRW
+background reduction, dimensional ruler, angular and spatial mode operators, mode normalization,
+proper time and scale-factor history, freezeout, multi-limit convergence, and no post-hoc
+calibration.  Then the finite bridge
+\[
+\mathcal S_{{\rm OPH},r}:
+\left(P_{r,j},P_{r,\ell_{\rm src}},\chi_{r,n}\right)
+\longmapsto
+\left(k_{r,j},\ell_{\rm src},a_r(\chi_{r,n}),z_r(\chi_{r,n}),
+\eta_r(\chi_{r,n}),\Sigma_{\star,r}\right)
+\]
+is invariant under hidden carrier presentation, unique within the declared topology and boundary
+sector, and convergent on each resolved physical band.  The observed CMB multipole remains the
+transfer-solver output index:
+\[
+C_{L_{\rm CMB}}^{XY}=4\pi\int d\log k\,
+\mathcal P_\zeta(k)\Delta_{L_{\rm CMB}}^X(k)\Delta_{L_{\rm CMB}}^Y(k).
+\]
+\end{theorem}
+
+\begin{target}[exact physical-scale receipt conjunctions]\label{target:physical-scale-receipts}
+The code and papers use structured receipts, not bare booleans:
+\[
+\begin{aligned}
+\texttt{PHYSICAL\_K\_RECEIPT}
+&=R_{\rm geometry}\wedge R_{\rm embedding}\wedge R_{\rm scale}
+\wedge R_{\rm FLRW}\wedge R_{\rm operator}\wedge R_{\rm normalization}
+\wedge R_{\rm lineage}\wedge R_{\rm refinement}\wedge R_{\rm nofit},\\
+\texttt{SOURCE\_ANGULAR\_MODE\_RECEIPT}
+&=R_{\rm sphere/extension}\wedge R_{\rm angular\ operator}\wedge
+R_{\rm cluster}\wedge R_{\rm refinement},\\
+\texttt{CALIBRATED\_A\_EVOLUTION\_RECEIPT}
+&=R_{\rm proper\ time}\wedge R_{\rm lineage}\wedge R_{\rm FLRW}
+\wedge R_{\rm volume}\wedge R_\Theta\wedge R_{\rm consistency}
+\wedge R_{\rm refinement},\\
+\texttt{PHYSICAL\_FREEZEOUT\_SURFACE\_RECEIPT}
+&=R_{\rm spacelike}\wedge R_{\rm persistence}\wedge R_\zeta
+\wedge R_{\rm adiabatic}\wedge R_{\rm isocurvature}\wedge
+R_{\rm growing}\wedge R_{\rm constraints}\wedge R_{\rm matching}
+\wedge R_{\rm refinement}.
+\end{aligned}
+\]
+The aggregate bridge receipt is their conjunction with
+\(\texttt{SCALE\_BRIDGE\_REFINEMENT\_RECEIPT}\) and
+\(\texttt{NO\_POSTHOC\_CALIBRATION\_RECEIPT}\).  A unit string, cycle dictionary, cap angle, or
+common contract boolean cannot instantiate any of these receipts.
+\end{target}
+
+\begin{target}[native geometry extraction]\label{target:cosmo-geometry-extraction}
+The remaining OPH-native theorem is the construction of
+\[
+\mathsf{CosmoGeomRead}_r:\operatorname{nf}(Q_r)\to(\mathfrak G_r,\mathfrak E_r)
+\]
+as a quotient-natural, positive, nondegenerate, causal-order-compatible, observer-clock-compatible,
+executor-independent, refinement-convergent, physically scaled source embedding.  Without that
+theorem, the physical route is \(\texttt{CONDITIONAL\_PHYSICAL}\) with an imported frozen FLRW geometry
+packet.
+\end{target}

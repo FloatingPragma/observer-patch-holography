@@ -249,7 +249,7 @@ If information has a speed limit, every observer has limits. There are parts of 
 
 ### Cosmological Horizons
 
-The universe is expanding. Cosmology distinguishes several horizon scales. The observable-universe radius today is about 46 billion light-years, while the future event horizon is much smaller. The key point for us is that there are regions from which light cannot reach us, so every observer has a finite causal patch. A causal patch is the part of spacetime that can exchange signals with that observer.
+The universe is expanding. Cosmology distinguishes several horizon scales. The observable-universe radius today is about 46 billion light-years, while the future event horizon is much smaller. Regions from which light cannot reach us make every observer's causal patch finite. A causal patch is the part of spacetime that can exchange signals with that observer.
 
 This doesn't violate relativity. Nothing is moving through space faster than light. Space itself is expanding. But the effect is real: there's a boundary beyond which we cannot see.
 

@@ -292,11 +292,11 @@ python3 measured_endpoint_calibration.py
 ```
 
 The command prints the implemented transport term, the required endpoint
-transport term, the missing inverse-alpha contribution, and the theorem-status
+transport term, the missing inverse-alpha contribution, and the theorem-label
 manifest. This keeps any replacement of `Delta_Th(P)` easy to check.
 
 `measured_endpoint_calibration.py` emits the OPH plus empirical hadron closure
-surface for numeric tables and plots. The source-audit status belongs in
+surface for numeric tables and plots. The source-audit label belongs in
 ledgers, not in introductory prose.
 
 `thomson_endpoint_package.py` adds the conditional endpoint packet. At the

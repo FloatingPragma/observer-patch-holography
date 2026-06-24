@@ -429,7 +429,7 @@ Classical objectivity is quantum redundancy. The facts everyone agrees on are th
 
 ## 6.10 Reality as a Sheaf
 
-Let's step back and consider the big picture.
+The big picture is compact.
 
 We've been building toward a radical view of reality. We do not begin by requiring a single, global "state of the universe." A useful mathematical analogy is a sheaf-like gluing picture in which local data are stitched together by consistency conditions.
 
@@ -464,8 +464,6 @@ If Alice and Bob agree on their overlap (AB), and Bob and Carol agree on their o
 But beware of loops. Go from Alice to Bob to Carol and back to Alice-you should return with the same state on shared overlaps. If not, you have **frustration**: local assignments can't all be true simultaneously.
 
 This is analogous to gauge theory and geometry. Move a vector around a loop; if it comes back rotated, there is nontrivial holonomy. Holonomy is the leftover mismatch that appears after a full circuit. Likewise, a loop that does not close cleanly signals an obstruction to global gluing, with no simple globally consistent assignment.
-
-The public extra demo at [3body.floatingpragma.io](https://3body.floatingpragma.io) applies this gluing lens to the OPH finite patch-net formulation of the three-body problem. It treats the familiar three-body difficulty as a loop holonomy obstruction: pairwise Newtonian data can look locally simple while the closed three-body circuit has to glue.
 
 ## 6.11 Formal Statement
 

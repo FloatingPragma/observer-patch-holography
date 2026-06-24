@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Emit the theorem-status manifest for the missing Thomson transport layer."""
+"""Emit the theorem-label manifest for the missing Thomson transport layer."""
 
 from __future__ import annotations
 

@@ -325,7 +325,7 @@ The OPH formulation treats factorization as a patch-consensus problem:
 
 The collars carry low-bit windows, modular residues, partial products, carries, and final equality to the target. The solver enriches the candidate beam so the exact verifier finds the factor earlier.
 
-The software prototype in [prime-solver](../../prime-solver/README.md) and the cluster simulator in [omega-simulation](../../omega-simulation/README.md) supply the digital companions to the hardware.
+Digital companion tools belong with the application engineering surface, not with the core paper stack.
 
 ## Beyond Acceleration
 

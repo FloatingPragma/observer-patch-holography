@@ -402,7 +402,7 @@ physics. It is one of the mechanisms by which physics keeps itself coherent.
 Emmy Noether arrived at her theorem through a problem that looked technical:
 how to understand conservation laws in general relativity. Hilbert and Klein
 recognized her power, but the university system around her did not. She
-lectured for years without the status her work deserved. The theorem bearing
+lectured for years without the recognition her work deserved. The theorem bearing
 her name is one of the central pillars of theoretical physics.
 
 The theorem's lesson is simple enough to say without the machinery: if a

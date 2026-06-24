@@ -70,7 +70,7 @@ Delta_impl(P) =
 is useful as a reproducible diagnostic, but it is not an admissible theorem-path
 replacement for `Delta_Th(P)`.
 
-## Constructive Work Items
+## Required Claim-Gate Objects
 
 - Populate `sigma_q_scheme_lock`.
 - Populate `delta_lep_source_transport`.
@@ -78,6 +78,6 @@ replacement for `Delta_Th(P)`.
 - Populate `delta_ew_remainder`.
 - Populate `full_endpoint_interval_certificate`.
 
-Any future worker response on this packet must return one of those populated
-objects, a code/schema patch that moves one object forward, or a runnable local
-target.  Obstruction-only output is not an accepted result.
+The packet is satisfied only by one of those populated objects, a code/schema
+patch that emits one object, or a runnable local target. Obstruction-only
+output is not an accepted result.

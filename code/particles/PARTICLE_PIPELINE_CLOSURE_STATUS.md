@@ -1,6 +1,6 @@
 # Particle Pipeline Closure Status
 
-Generated: `2026-06-17T03:22:30Z`
+Generated: `2026-06-24T12:59:33Z`
 
 Single closure gate for source-only rows and empirical hadron closure rows.
 
@@ -12,31 +12,31 @@ Single closure gate for source-only rows and empirical hadron closure rows.
 - Chrome workers needed: `False`
 - Hadron scope reason: Source-only hadron rows require a working OPH hardware backend such as GLORB/Echosahedron. Empirical hadron closure stays in a separate output class; the e+e- spectral payload has a source registry and schema.
 
-## Issue Gates
+## Receipt Gates
 
-| Issue | State | Closable | Local next artifact | Chrome policy |
-| --- | --- | --- | --- | --- |
-| #332 | `closed_exact_selected_branch` | `True` | `particles/hierarchy/issue_332_rg_naturality_certificate.json` | not_needed_for_closed_certificate |
-| #337 | `closed_projection_bridge_with_exact_residual` | `True` | `particles/hierarchy/certificates/R_EW_tick_projection_certificate.json` | not_needed_for_closed_certificate |
-| #335 | `closed_full_local_global_hierarchy_resonance` | `True` | `particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json` | not_needed_for_closed_certificate |
-| #223 | `closed_blocker_isolated_endpoint_package` | `True` | `P_derivation/runtime/thomson_endpoint_package_current.json` | not_needed_for_closed_package |
-| #235 | `closed_blocker_isolated_source_residual_no_go` | `True` | `P_derivation/runtime/thomson_endpoint_contract_current.json` | not_needed_until_source_spectral_measure_payload_exists |
-| #224 | `closed_canonical_guarded_trunk_adoption` | `True` | `P_derivation/runtime/p_closure_trunk_current.json` | not_needed_for_guarded_codepath_closure |
-| #225 | `closed_material_sync_no_live_publish` | `True` | `paper/deriving_the_particle_zoo_from_observer_consistency.tex` | not_needed_for_material_sync |
-| #32 | `closed_declared_convention_contract` | `True` | `P_derivation/runtime/rg_matching_threshold_contract_current.json` | not_needed_for_closed_contract |
-| #153 | `closed_out_of_scope_computationally_blocked` | `True` | `particles/runs/hadron/ward_projected_spectral_measure_contract.json` | do_not_use_for_backend_execution |
-| #157 | `closed_out_of_scope_computationally_blocked` | `True` | `particles/runs/hadron/ward_projected_spectral_measure_contract.json` | do_not_use_for_backend_execution |
-| #201 | `closed_corpus_limited_charged_end_to_end_no_go` | `True` | `particles/runs/leptons/charged_end_to_end_impossibility_theorem.json` | not_needed_until_new_uncentered_trace_lift_source_exists |
-| #207 | `closed_corpus_limited_codomain_no_go` | `True` | `particles/runs/calibration/direct_top_bridge_contract.json` | not_needed_until_new_response_kernel_source_exists |
-| #234 | `closed_provenance_ledger_and_declared_sensitivity_taxonomy` | `True` | `particles/runs/status/blind_prediction_provenance.json` | not_needed_for_closed_provenance_taxonomy |
-| #117 | `closed_keep_visible_comparison_tension` | `True` | `particles/runs/neutrino/neutrino_lane_closure_contract.json` | not_needed |
-| #198 | `closed_selected_class_scope_visible` | `True` | `particles/runs/flavor/quark_lane_closure_contract.json` | not_needed |
-| #199 | `closed_corpus_limited_global_classification_no_go` | `True` | `particles/runs/flavor/quark_class_uniform_public_frame_descent_obstruction.json` | not_needed_until_new_global_public_frame_classifier_source_exists |
-| #155 | `open_theta_qcd_bar_theta_vanishing_gap` | `False` | `particles/runs/status/particle_derivation_gap_ledger.json` | not_needed_until_a_concrete_strong_cp_packet_exists |
+| Receipt label | Closable | Local artifact | Worker policy |
+| --- | --- | --- | --- |
+| `closed_exact_selected_branch` | `True` | `particles/hierarchy/issue_332_rg_naturality_certificate.json` | not_needed_for_closed_certificate |
+| `closed_projection_bridge_with_exact_residual` | `True` | `particles/hierarchy/certificates/R_EW_tick_projection_certificate.json` | not_needed_for_closed_certificate |
+| `closed_full_local_global_hierarchy_resonance` | `True` | `particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json` | not_needed_for_closed_certificate |
+| `closed_blocker_isolated_endpoint_package` | `True` | `P_derivation/runtime/thomson_endpoint_package_current.json` | not_needed_for_closed_package |
+| `closed_blocker_isolated_source_residual_no_go` | `True` | `P_derivation/runtime/thomson_endpoint_contract_current.json` | not_needed_until_source_spectral_measure_payload_exists |
+| `closed_canonical_guarded_trunk_adoption` | `True` | `P_derivation/runtime/p_closure_trunk_current.json` | not_needed_for_guarded_codepath_closure |
+| `closed_material_sync_no_live_publish` | `True` | `paper/deriving_the_particle_zoo_from_observer_consistency.tex` | not_needed_for_material_sync |
+| `closed_declared_convention_contract` | `True` | `P_derivation/runtime/rg_matching_threshold_contract_current.json` | not_needed_for_closed_contract |
+| `closed_out_of_scope_computationally_blocked` | `True` | `particles/runs/hadron/ward_projected_spectral_measure_contract.json` | do_not_use_for_backend_execution |
+| `closed_out_of_scope_computationally_blocked` | `True` | `particles/runs/hadron/ward_projected_spectral_measure_contract.json` | do_not_use_for_backend_execution |
+| `closed_corpus_limited_charged_end_to_end_no_go` | `True` | `particles/runs/leptons/charged_end_to_end_impossibility_theorem.json` | not_needed_until_new_uncentered_trace_lift_source_exists |
+| `closed_corpus_limited_codomain_no_go` | `True` | `particles/runs/calibration/direct_top_bridge_contract.json` | not_needed_until_new_response_kernel_source_exists |
+| `closed_provenance_ledger_and_declared_sensitivity_taxonomy` | `True` | `particles/runs/status/blind_prediction_provenance.json` | not_needed_for_closed_provenance_taxonomy |
+| `closed_keep_visible_comparison_tension` | `True` | `particles/runs/neutrino/neutrino_lane_closure_contract.json` | not_needed |
+| `closed_selected_class_scope_visible` | `True` | `particles/runs/flavor/quark_lane_closure_contract.json` | not_needed |
+| `closed_corpus_limited_global_classification_no_go` | `True` | `particles/runs/flavor/quark_class_uniform_public_frame_descent_obstruction.json` | not_needed_until_new_global_public_frame_classifier_source_exists |
+| `open_theta_qcd_bar_theta_vanishing_gap` | `False` | `particles/runs/status/particle_derivation_gap_ledger.json` | not_needed_until_a_concrete_strong_cp_packet_exists |
 
-## Companion Status Branches
+## Companion Claim Boundaries
 
-| Topic | State | Current boundary | Next action |
+| Topic | Claim label | Boundary | Gate |
 | --- | --- | --- | --- |
 | Strong CP | `open_theta_qcd_bar_theta_vanishing_gap` | The selected-class exact Yukawa theorem emits the PDG 2025 running-quark sextet and exact forward Yukawas on the public class f_P. The available corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes. | Keep strong CP explicit as an open branch. Reopen only for a theorem-grade descent from exact quark/Yukawa phase data to the determinant-line phase contribution, together with a theorem fixing the topological-angle contribution and proving the physical strong-CP phase vanishes on the realized branch. |
 

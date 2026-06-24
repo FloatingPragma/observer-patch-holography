@@ -21,7 +21,7 @@ def payload(args: argparse.Namespace) -> dict[str, Any]:
             "paper_grade": False,
             "solver": "conservative_potential",
             "branch_selector_fixed": True,
-            "reason": "axisymmetric disk-potential solver and hierarchical likelihood are work in progress",
+            "reason": "axisymmetric disk-potential solver and hierarchical likelihood are not emitted by this code path",
         },
         "field_equation": {
             "primary": "nabla^2 Phi = nabla dot [nu_lambda(|nabla Phi_b|/a0_OPH) nabla Phi_b]",

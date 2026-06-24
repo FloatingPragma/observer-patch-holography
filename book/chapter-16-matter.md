@@ -136,7 +136,7 @@ edge-center collars make them central ports, and $A_5$ symmetry places them on
 the icosahedral vertex orbit.
 
 The weak-boson compare-only validation pair and the familiar low-energy electromagnetic strength come
-from one continuous construction. The status table records the diagnostic
+from one continuous construction. The claim ledger records the diagnostic
 source trunk, the endpoint residual, and the empirical hadron closure row that
 uses a separate \(e^+e^-\to\mathrm{hadrons}\) payload class.
 
@@ -182,16 +182,15 @@ $$
 (0.017454720257976796,\ 0.019481987935919015,\ 0.05307522145074924)\,\mathrm{eV},
 $$
 
-together with definite Majorana phases in that construction. Taken together,
-the particle picture is larger than a handful of isolated numbers. The OPH
-status table carries structural massless carriers, the weak-sector compare-only validation pair,
+together with definite Majorana phases in that construction. The particle
+picture is larger than a handful of isolated numbers. The OPH
+claim ledger carries structural massless carriers, the weak-sector compare-only validation pair,
 the declared Higgs/top quantitative surface, the selected-class running quark sextet with
-Yukawas, and one weighted-cycle neutrino theorem branch. The late status ledger
+Yukawas, and one weighted-cycle neutrino theorem branch. The late claim ledger
 records the fine-structure audit trunk, the charged-lepton target-anchored witness surface, the
 global public quark-frame classification boundary, and the auxiliary direct-top
 compare-only codomain.
-Strong CP is work in progress in the selected-class quark theorem: the
-available corpus does not derive $\theta_{\mathrm{QCD}}$, does not emit
+The selected-class quark theorem does not derive $\theta_{\mathrm{QCD}}$, does not emit
 physical $\bar\theta$, and does not prove that the physical strong-CP phase
 vanishes.
 Hadrons require a separate nonperturbative bound-state step
@@ -426,7 +425,7 @@ be conserved, quantum field theory tells us what can propagate, QCD tells us
 how quarks bind, decoherence tells us what becomes classical, and observer
 overlap tells us what can become a shared fact.
 
-We've seen that spacetime, particles, and classical physics all emerge from the screen through consistency requirements. But why these particular laws? Why these constants? Could the universe have been different?
+Spacetime, particles, and classical physics emerge from the screen through consistency requirements. But why these particular laws? Why these constants? Could the universe have been different?
 
 The next chapter explores a radical idea: physical laws themselves are evolutionary survivors. Just as life evolves through natural selection, laws evolve through cosmic selection.
 

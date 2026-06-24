@@ -425,7 +425,7 @@ that this encoding carries the structure of quantum error correction.
 
 OPH stands apart from AdS/CFT in several concrete ways. It does not need a
 specific boundary CFT. It does not treat bulk and boundary as two complete
-descriptions with equal ontological status. It does not live at negative
+descriptions with equal ontological standing. It does not live at negative
 cosmological constant. It does not use a boundary at infinity. The screen is
 primary, the bulk is emergent, and the relevant boundary is the observer's
 finite horizon.
@@ -508,6 +508,6 @@ notes and force one public world into being.
 
 ---
 
-We've seen that boundaries can encode bulks. But what actually weaves the bulk together? What makes one point "close" to another? The answer is entanglement-the quantum correlations we've encountered throughout this book.
+Boundaries can encode bulks. But what actually weaves the bulk together? What makes one point "close" to another? The answer is entanglement-the quantum correlations used throughout this book.
 
 In the next chapter, we zoom in on the main glue of the bulk: entanglement. We'll see how the Ryu-Takayanagi formula extends to dynamics, how cutting entanglement can tear space apart, and how ER=EPR points toward spacetime being woven from quantum correlations.

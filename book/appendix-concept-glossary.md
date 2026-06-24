@@ -185,7 +185,7 @@ arguments. OPH uses it to connect cap entropy to emergent gravity.
 
 **Higgs field.** The Higgs field gives mass to weak gauge bosons and fermions
 through electroweak symmetry breaking and Yukawa couplings. In the book it
-appears as part of the Standard Model status table, where different mass claims
+appears as part of the Standard Model claim ledger, where different mass claims
 carry different support labels.
 
 **Hilbert space.** Hilbert space is the vector space of quantum states. Kets

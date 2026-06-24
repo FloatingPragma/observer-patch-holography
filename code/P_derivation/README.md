@@ -121,7 +121,7 @@ The important claim-boundary caveat is:
 - A separate pending hardware note reports an optical-cavity check of the same
   fixed-point geometry; this is treated as corroborating engineering evidence.
 
-## Full derivation status
+## Full derivation claim boundary
 
 `FULL_DERIVATION.md` records the complete derivation contract and the endpoint
 audit packet. `THOMSON_TRANSPORT_THEOREMS.md` records the theorem suite and its
@@ -174,7 +174,7 @@ P          = 1.63096820940395932487927984778...
 
 The JSON keeps audit guard fields for theorem tooling and carries row class
 `oph_plus_empirical_hadron_closure`. Consumer-facing prose should lead with the
-fixed-point readout and keep source-audit status in ledger sections:
+fixed-point readout and keep the source-audit label in ledger sections:
 
 ```text
 fine-structure endpoint uses OPH plus empirical hadron closure; finite source audit recorded in code/P_derivation ledgers

@@ -2,7 +2,7 @@
 
 ## Informal story
 
-If OPH is right, then the local quantum structure of reality has a specific form. Even in very small toy sectors, the allowed states should line up in a specific pattern. IBM quantum hardware lets us test whether that pattern actually shows up on real devices and agrees with notebook algebra and simulator code.
+If OPH is right, then the local quantum structure of reality has a specific form. Even in very small toy sectors, the allowed states should line up in a specific pattern. IBM quantum hardware lets us test whether that pattern actually shows up on real devices and agrees with notebook algebra and reference code.
 
 The experiments in this bundle are therefore small "fingerprint checks" of OPH structure on real quantum hardware.
 
@@ -313,7 +313,7 @@ This result matters because the initial low `S_3` values were largely a layout-d
 
 ## Assessment of the evidence
 
-> On IBM quantum hardware, the first exact-ratio and recoverability tests return the structure OPH predicts: `Z_3` passes cleanly, `Z_5` repeatedly lands near the golden-ratio target, and no tested branch shows a clean failure. Taken together with OPH's broader theoretical successes, this is substantial positive evidence for the framework.
+> On IBM quantum hardware, the first exact-ratio and recoverability tests return the structure OPH predicts: `Z_3` passes cleanly, `Z_5` repeatedly lands near the golden-ratio target, and no tested branch shows a clean failure. Alongside OPH's broader theoretical successes, this is substantial positive evidence for the framework.
 
 The main caveats are:
 

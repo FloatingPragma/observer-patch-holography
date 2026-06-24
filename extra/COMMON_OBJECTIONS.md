@@ -289,7 +289,7 @@ For the Lorentz issue, the relevant question is whether the observable patch net
 
 For the parameter/circularity issue, the relevant question is how `P` is used in the particle-physics chain. That is addressed separately in Objection 1 above.
 
-So even if one wanted to debate the status of `P`, that would not show that Lorentz invariance fails.
+So even if one wanted to debate the role of `P`, that would not show that Lorentz invariance fails.
 
 ---
 

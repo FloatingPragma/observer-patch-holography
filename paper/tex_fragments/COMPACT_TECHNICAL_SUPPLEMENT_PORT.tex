@@ -45,7 +45,7 @@ carried-collar schedule derived from the transported fixed-local-collar Markov/f
 on each fixed local collar model, followed by support-readable modular covariance and ordered
 cut-pair rigidity on the emitted scaling-limit geometric cap pair.
 
-\paragraph{Null-strip completion status.}
+\paragraph{Null-strip completion boundary.}
 On the D4 side, the fixed-cutoff strip package is more specific than the generic inherited-strip summary.
 The null cuts first transfer the same cut-center data as the spatial collar branch, which fixes
 the central sector-pair decomposition of the strip algebra. The stronger left/right tensor
@@ -160,7 +160,7 @@ N_{\mathrm{scr}}=S_{\mathrm{dS}}=\pi N_{\mathrm{patch}}
 Immediate from Corollary~\ref{cor:lambda-parameters}.
 \end{proof}
 
-\paragraph{Observed-age benchmark status.}
+\paragraph{Observed-age benchmark boundary.}
 The branch quantity \(t_\Lambda\) is the de Sitter static-patch timescale. The usual cosmic age \(t_0\) is a compare-only FLRW benchmark, with no additional D6 theorem output. On the flat \(\Lambda\)CDM benchmark
 \[
 t_0=\frac{2}{3H_0\sqrt{\Omega_\Lambda}}
@@ -182,9 +182,10 @@ if and only if \(K=0\). Thus a flat FLRW branch is the zero-visible-spatial-holo
 \paragraph{Flatness boundary.}
 This holonomy statement names a conditional cosmology bridge only. It does not add a D6 theorem
 output and does not solve the inflationary flatness or horizon problems. Selecting \(K=0\) requires
-an additional continuation premise: the preserved cosmological boundary datum carries no independent
-curvature charge and the same-boundary or MAR selector chooses the minimal visible geometric
-obstruction.
+an additional continuation theorem or premise: a direct flatness theorem, a conditional
+cosmological-minimal-holonomy selector on a clocked FLRW boundary, or an explicit flat-branch
+assumption. MAR acts on low-energy gauge/matter packages and is not a cosmological flatness
+selector.
 
 \begin{theorem}[D5--D6 cosmological-capacity closure stack]
 Assume the compact paper's local Einstein branch, the cosmic record-capacity fixed point
@@ -246,18 +247,22 @@ Gaussian screen field with covariance \(A_qK^{-1}\). Exact per-sample release en
 give a microcanonical ellipsoid. If the certified repair-scale measure is
 \(t^{\theta/2}\,dt/\Gamma(1+\theta/2)\), then
 \[
-K=(-\Delta_{S^2})^{1+\theta/2},
+K_{\rm asy}=(-\Delta_{S^2})^{1+\theta/2},
 \qquad
-C_\ell^q=A_q[\ell(\ell+1)]^{-1-\theta/2}.
+C_{\ell,{\rm asy}}^q=A_q[\ell(\ell+1)]^{-1-\theta/2},
 \]
-If instead \(q\) is certified as the thin-shell pullback of a homogeneous curvature field with
-\(\Delta_\zeta^2(k)=A_\zeta(k/k_\star)^{-\theta}\), the exact finite-\(\ell\) precision is the
-gamma-ratio shell operator
+as the large-\(\ell\) asymptotic model.  The theorem-grade finite-\(\ell\) conformal-shell family
+uses the normalized gamma-ratio precision
 \[
 \kappa_\ell(\theta)=
 \frac{\Gamma(\ell+2+\theta/2)}{\Gamma(\ell-\theta/2)},
 \]
-and the inverse amplitude relation is
+with
+\[
+C_\ell^q=A_q\frac{\Gamma(\ell-\theta/2)}{\Gamma(\ell+2+\theta/2)}.
+\]
+If \(q\) is additionally certified as the thin-shell pullback of a homogeneous curvature field with
+\(\Delta_\zeta^2(k)=A_\zeta(k/k_\star)^{-\theta}\), the corresponding inverse amplitude relation is
 \[
 A_\zeta=
 \frac{A_q^{\rm shell}\Gamma(3/2+\theta/2)}
@@ -269,7 +274,7 @@ upper bound on release observables, not an amplitude equality. No physical TT/TE
 follows without independent Boltzmann transfer and likelihood closure.
 \end{theorem}
 
-\paragraph{Screen-spectrum status.}
+\paragraph{Screen-spectrum boundary.}
 The theorem licenses a Phase III conditional continuation only. A derived screen spectrum requires
 the quotient-normal-form scalar field, positive repair operator, operator-tilt, and scalar-release
 energy receipts. A derived primordial curvature spectrum additionally requires the radial lift
@@ -509,20 +514,20 @@ Since \(\Phi_C(x)\in\mathcal N_C\) and \(\pi_r\) is faithful, this characterizes
 product. That projection is the \(\pi_r\)-preserving conditional expectation \(E_C\).
 \end{proof}
 
-\begin{lemma}[Implementation hiding gives fiber permutation symmetry]
+\begin{lemma}[Fiber-homogeneous orbit condition]
 \label{lem:ym-fiber-symmetry}
-Fix an active collar \(C\) and a repaired value \(y\in Y_C\). On the support-visible quotient,
-the hidden fiber \(F_C(y)=\rho_C^{-1}(y)\) has no remaining observable labels. The conditioned
-local MaxEnt state is uniform on \(F_C(y)\), and the primitive collar relaxation commutes with all
-finite permutations of \(F_C(y)\).
+Fix an active collar \(C\) and a repaired value \(y\in Y_C\). If the support-visible quotient
+removes every hidden label on the fiber \(F_C(y)=\rho_C^{-1}(y)\), the conditioned local MaxEnt
+state is uniform on \(F_C(y)\), and the primitive collar relaxation is invariant under all
+measure-preserving permutations of that fiber, then the fiber is homogeneous for the local repair
+receipt.
 \end{lemma}
 
 \begin{proof}
-The quotient removes implementation labels: representatives with the same repaired datum and
-different hidden fiber coordinates define the same support-visible observable state. Conditioned
-on the repaired datum, no admissible support-visible constraint distinguishes two fiber points.
-The MaxEnt state is therefore uniform, and quotient-preserving collar relaxation commutes with the
-full hidden-fiber permutation action.
+This is the finite fiber-homogeneity receipt. Quotienting removes declared implementation labels,
+but the proof must also check that no remaining source constraint or relaxation rate distinguishes
+points in the fiber. Under that check, the conditioned MaxEnt state and primitive relaxation carry
+the stated permutation symmetry.
 \end{proof}
 
 \begin{lemma}[Scalar relaxation on a uniform hidden fiber]
@@ -543,9 +548,10 @@ makes \(D_F\) scalar on that subspace, and positivity with the stated kernel mak
 strictly positive.
 \end{proof}
 
-\begin{theorem}[Exact Euclidean-consensus law]
+\begin{theorem}[Exact Euclidean-consensus law under homogeneous fibers]
 \label{thm:euclidean-consensus-law}
-There are positive constants \(c_C>0\) such that the ground-state transformed physical Euclidean
+Under the fiber-homogeneous orbit condition for every active collar, there are positive constants
+\(c_C>0\) such that the ground-state transformed physical Euclidean
 generator is exactly
 \[
 L_r^{\mathrm{EC}}=\sum_{C\in\mathcal C_r} c_C(I-E_C),
@@ -597,7 +603,7 @@ same bounded type templates with the same normalized local Euclidean repair sema
 minimum over the finite active type list gives \(c_*>0\).
 \end{proof}
 
-\begin{proposition}[Finite-stage repair gap]
+\begin{proposition}[Special commuting-color finite-stage repair gap]
 \label{prop:finite-stage-repair-gap}
 Assume the active collars admit a bounded-color decomposition
 \[
@@ -635,6 +641,21 @@ diagonalizable. On every nonconstant joint eigenspace at least one color eigenva
 Thus \(\widetilde L_r\ge c_*(I-P_{0,r})\), and the same lower bound holds for
 \(L_r^{\mathrm{EC}}\).
 \end{proof}
+
+\begin{remark}[Generic repair-gap certificate]
+The commuting-color proposition is a special certificate, not the generic repair-generator route.
+For overlapping collars one must instead compute
+\[
+\kappa_r=\inf_{f\perp 1}
+\frac{\sum_C\|(I-E_C)f\|^2}{\|f\|^2}.
+\]
+If local fiber rates have a lower bound \(\gamma_*>0\), then
+\[
+L_r^{\mathrm{EC}}\ge \gamma_*\kappa_r(I-P_{0,r}).
+\]
+Finite repair completeness gives \(\kappa_r>0\) at fixed regulator; a uniform refinement lower
+bound is a separate receipt.
+\end{remark}
 
 \begin{proposition}[Coherent refinement and compact-gauge extraction]
 \label{prop:compact-gauge-extraction-yang-mills}

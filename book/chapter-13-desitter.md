@@ -407,10 +407,11 @@ certificates. Without those receipts, CMB spectra are diagnostics or
 continuation tests and do not count as source-only primordial predictions. A
 dark/anomaly CMB or growth claim has an
 additional gate: a finite covariant collar-packet parent must emit the stress
-moments, the anomaly-frame baryon response, any recipient stress for nonzero
-repair exchange, convergence receipts, a source-provenance record,
-global-pooling checks, and frozen source/solver/likelihood hashes before
-likelihood data are read.
+moments, the anomaly-frame baryon response, explicit recipient stress and a
+balanced exchange current for any nonzero repair exchange, convergence checks,
+a source-provenance record, global-pooling checks, physical-clock response
+checks for any promoted exchange rate, and frozen source/solver/likelihood
+hashes before likelihood data are read.
 
 ---
 

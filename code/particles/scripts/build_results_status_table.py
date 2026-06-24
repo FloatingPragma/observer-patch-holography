@@ -1348,9 +1348,9 @@ def render_markdown(
     if companion_status_rows:
         lines.extend(
             [
-                "## Companion Status",
+                "## Companion Claim Boundaries",
                 "",
-                "| Topic | Status | Current boundary | Next action |",
+                "| Topic | Claim label | Boundary | Gate |",
                 "| --- | --- | --- | --- |",
             ]
         )
@@ -1405,7 +1405,7 @@ def render_markdown(
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Build the current `/particles` results status table.")
+    parser = argparse.ArgumentParser(description="Build the current `/particles` results claim table.")
     parser.add_argument("--P", type=float, default=P_DEFAULT, help="Metadata-only pixel constant.")
     parser.add_argument("--log-dim-H", type=float, default=LOG_DIM_H_DEFAULT, help="Metadata-only screen-capacity constant.")
     parser.add_argument("--loops", type=int, default=4, choices=[1, 2, 3, 4], help="Metadata-only loop-order tag.")

@@ -209,7 +209,7 @@ Why do we all agree on a "cosmic time"?
 
 If the global state synchronizes many local modular flows, a shared coarse-grained cosmic time can emerge as an effective collective clock. It is not a second fundamental time parameter.
 
-### Roadmap: From Modular Time to Gravity
+### From Modular Time to Gravity
 
 The chain is clean once the pieces are visible. Recovery structure from Chapter
 7 makes the time generator local near patch boundaries. A key theorem then
@@ -218,7 +218,7 @@ fixes its normalization. Geometric time flow gives Lorentz kinematics on the
 screen, and entanglement equilibrium together with the local energy bridge
 yields Einstein's equation.
 
-The time ingredient is in place. The next sections show how it feeds into gravity.
+The time ingredient feeds into gravity through those compatibility conditions.
 
 ## 11.7 Jacobson's Derivation
 
@@ -343,7 +343,7 @@ influence which, emerges from entanglement. Spacelike-separated regions can be
 correlated without signaling. Timelike-separated events can have causal
 influence. Null separation marks the dividing line between those two regimes.
 
-The modular flow provides the time direction. Entanglement provides correlations. No-signaling prevents faster-than-light communication. Taken together, these ingredients reproduce the Minkowski-style causal structure targeted by the program.
+The modular flow provides the time direction. Entanglement provides correlations. No-signaling prevents faster-than-light communication. These ingredients reproduce the Minkowski-style causal structure targeted by the program.
 
 ### Why This Matters
 

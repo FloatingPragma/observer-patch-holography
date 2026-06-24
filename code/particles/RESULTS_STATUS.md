@@ -1,6 +1,6 @@
 # Particle Results Status
 
-Generated: `2026-06-17T03:22:30Z`
+Generated: `2026-06-24T12:59:33Z`
 
 Inputs: `P=1.630968209403959` | `log_dim_H=1e+122` | `loops=4` | `with_hadrons=False` | `hadron_profile=suppressed`
 
@@ -37,9 +37,9 @@ Measured/reference values are pinned from the official Particle Data Group 2025 
 - Candidate extension route: Step 1: close the sole nonlatent lower input by emitting the eventual fixed-local-collar modular-transport common floor for transported marginals on every fixed collar model. On the local-Gibbs plus exponential-mixing pullback branch, that closes the faithfulness-weighted modular term once epsilon -> 0, while the recovery/Markov side is latent from that same epsilon-control; the carried-collar schedule and then the scaling-limit cap-pair extraction contract follow above the emitted realized transported cap-local system. Step 2: ordered null cut-pair rigidity that collapses the residual cap-preserving conformal freedom to the unique BW hyperbolic subgroup.
 - Candidate extension target: `sigma_t^{omega_infty^C} = alpha_{lambda_C(2 pi t)}`
 
-## Companion Status
+## Companion Claim Boundaries
 
-| Topic | Status | Current boundary | Next action |
+| Topic | Claim label | Boundary | Gate |
 | --- | --- | --- | --- |
 | Electroweak hierarchy/naturality bridge | selected_branch_theorem | Closed selected-branch theorem. The local/global resonance bridge has exact residual zero at N_CRC^EW, the 12-port screen sieve and 24-slot oriented repair register supply the hierarchy normalization, and the source-to-Higgs square has epsilon_H=0. | Keep this theorem scoped to hierarchy/naturality. W/Z mass promotion, the public Thomson endpoint, charged-lepton absolute masses, source-only hadrons, Strong CP, and full SI G stay in their own ledgers. |
 | Strong CP | open | Open. The selected-class exact quark theorem emits the running sextet and forward Yukawas on the public class f_P. The available corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes. | Emit a theorem-grade descent from exact quark/Yukawa phase data to the determinant-line phase contribution, together with a theorem fixing the topological-angle contribution on the realized branch and proving that the resulting physical strong-CP phase vanishes. |

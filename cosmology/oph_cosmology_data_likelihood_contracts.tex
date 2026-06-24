@@ -1,0 +1,209 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array,longtable}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xurl}
+
+\IfFileExists{../paper/release_info.tex}{
+  \input{../paper/release_info.tex}
+}{
+  \newcommand{\OPHPaperReleaseDate}{\today}
+  \newcommand{\OPHPaperReleaseBanner}{Draft}
+  \newcommand{\OPHPaperReleaseID}{local-cosmology-staging}
+}
+
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\setlength{\emergencystretch}{3em}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{target}[theorem]{Target}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\theoremstyle{plain}
+
+\newcommand{\pathref}[1]{\nolinkurl{#1}}
+\newcommand{\SimSourceRepo}{\url{https://github.com/muellerberndt/oph-physics-sim}}
+
+\title{OPH Cosmology Data and Likelihood Contracts:\\
+Frozen Sources, No-Data-Use Receipts, and Comparable Predictions}
+\author{B.\ M\"uller}
+\date{\OPHPaperReleaseDate}
+
+\begin{document}
+\maketitle
+\OPHPaperReleaseBanner
+
+\begin{abstract}
+This staged technical companion owns the data and likelihood contracts for OPH cosmology.  It
+defines what must be frozen before a simulator output can be compared with CMB, BAO, supernova,
+weak-lensing, growth, or large-scale-structure data as a prediction.  The central firewall is that
+diagnostic agreement, visual overlays, binned TT fits, and smoothed spectra do not promote a run to
+an observable cosmological prediction.  E5 requires immutable source, solver, likelihood,
+no-data-use, pooled-reducer, and falsification receipts.
+\end{abstract}
+
+\section{Status}
+
+This is a staged template under \pathref{reverse-engineering-reality/cosmology/}.  It is not part
+of the release pipeline.  It is the technical target for CMB/CAMB comparisons, other cosmological
+data products, and visualizer payload provenance emitted by \SimSourceRepo.
+
+\section{Shared Finite Quotient and Claim Tiers}
+
+\input{../paper/tex_fragments/FINITE_QUOTIENT_ENSEMBLE_THEOREMS.tex}
+
+\section{E5 Prediction Contract}
+
+An observable cosmological prediction requires all source artifacts to be fixed before likelihood
+comparison.  The minimum contract is:
+\begin{enumerate}[leftmargin=2em]
+\item immutable hashes for OPH source artifacts, schema versions, and regulator manifests;
+\item immutable hashes for Boltzmann solver source, version, tolerances, inputs, and build
+environment;
+\item immutable hashes for likelihood code, datasets, masks, covariances, and nuisance-prior
+definitions;
+\item a no-data-use manifest showing that likelihood values did not enter source artifact
+generation;
+\item global pooled reducers for nonlinear source estimates;
+\item a fixed falsification rule and reporting template before executing the likelihood.
+\end{enumerate}
+
+\begin{definition}[proof-carrying data artifact]
+A data-facing artifact is not represented by a value plus a receipt Boolean.  It is a typed object
+\[
+  \mathfrak A_v=(id_v,\tau_v,x_v,\mathcal X_v,\mathcal U_v,Par(v),
+  \mathcal D_v,\mathcal E_v,h_v^{\rm thm},h_v^{\rm wit},
+  h_v^{\rm build},h_v^{\rm art}),
+\]
+where \(\tau_v\) is the semantic type, \(\mathcal X_v\) records axes, domain, grid, and support,
+\(\mathcal U_v\) records units, gauge, frame, pivots, and conventions, \(Par(v)\) is the complete
+parent set, \(\mathcal D_v\) is the data-class ledger, \(\mathcal E_v\) is the error envelope, and
+the four hashes commit to the theorem version, witness, build environment, and artifact payload.
+All hashes are content-addressed commitments, not display labels.
+\end{definition}
+
+\begin{theorem}[no receipt-Boolean promotion]
+Let \(G\) be the finite acyclic graph of data-facing artifacts.  If every node verifier recomputes
+its predicate from its artifact, witness, complete parent set, data ledger, and error envelope, then
+a passed \textsc{PhysicalCMBPrediction} node implies that every required source, solver, likelihood,
+and no-data-use parent predicate also holds.  In particular, caller-supplied receipt Booleans cannot
+promote an artifact across a semantic type boundary.
+\end{theorem}
+
+\begin{proof}
+Topologically order \(G\).  A root passes only when its verifier recomputes the corresponding
+predicate from the committed artifact and witness.  A non-root node additionally requires every
+parent to pass.  Induction gives all parent predicates and the local predicate at each passing node.
+A Boolean supplied by the producer is merely input data unless it is itself recomputed by such a
+verifier.
+\end{proof}
+
+The promotion order used by this paper is
+\[
+  \begin{aligned}
+  \textsc{DiagnosticProxy}
+  &\prec \textsc{FiniteScreenSource}
+  \prec \textsc{FinitePrimordialSource}\\
+  &\prec \textsc{PhysicalBoltzmannSource}
+  \prec \textsc{PhysicalCMBPrediction}.
+  \end{aligned}
+\]
+No simulator export may jump over an intermediate node by relabelling a diagnostic scalar as a
+physical function.
+
+\section{Finite Primordial Source Artifact}
+
+The CMB-facing source object is
+\[
+\mathfrak S_r^{\rm prim}=
+(\mathcal Q_r,n_r,\mu_r,q_r,J_r,\Pi_r,K_r,M_r,\Xi_r,\Sigma_r,
+E_r^{\rm rel},A_{q,r},\theta_r,q_{{\rm IR},r},t_{{\rm IR},r},
+\Sigma_{\star,r},W_r,\Delta_{\zeta,r}^2,\mathcal P_{IJ,r},\mathcal E_r).
+\]
+Here \(\mathcal Q_r\) is the quotient state space, \(n_r\) the normal-form map, \(\mu_r\) the
+source law, \(q_r\) the quotient-visible scalar source, \(J_r\) the weighted carrier-to-harmonic
+readout, \(\Pi_r\) the projector removing gauge, monopole, and dipole directions, \(K_r\) a
+positive precision operator, \(M_r\) a mobility or repair-response operator, \(\Xi_r\) the
+stochastic forcing covariance, and \(\Sigma_r=\operatorname{Cov}_{\mu_r}(q_r)\).  The remaining
+entries record release energy, amplitude, spectral exponent, infrared suppression, freezeout cut,
+radial window, lifted primordial spectrum, species covariance, and errors.
+
+The old shorthand ``screen count plus fitted scalar curve'' is therefore only a diagnostic proxy.
+It does not determine amplitude, tilt, infrared suppression, species covariance, or physical
+Boltzmann inputs without the source artifact above.
+
+\section{Comparable Data Lanes}
+
+\begin{longtable}{@{}p{0.25\textwidth}p{0.30\textwidth}p{0.35\textwidth}@{}}
+\toprule
+Lane & Allowed diagnostic output & E5 promotion blocker\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+CMB TT/TE/EE/lensing & Binned overlays, CAMB/CLASS scaffolds, peak metrics & Missing frozen
+source, Boltzmann, official likelihood, or no-data-use receipt.\\
+BAO/SN/\(H_0\) & Distance-ladder and background-expansion diagnostics & Missing physical scale
+bridge and frozen background source functions.\\
+Weak lensing and growth & Diagnostic \(S_8\), growth, and lensing comparisons & Missing global
+stress closure, dark/anomaly kernels, and covariance-ready likelihood.\\
+Large-scale structure & Prototype transfer/growth tables & Missing source-only primordial and
+growth-seed receipts.\\
+Visualizer payloads & Observer cameras, screen fields, object/worldline diagnostics & Missing claim
+receipts; visual rendering is not a likelihood.\\
+\end{longtable}
+
+\section{Simulator Contract}
+
+Every data-facing export should carry:
+\begin{itemize}[leftmargin=2em]
+\item \pathref{NO_DATA_USE_RECEIPT}
+\item \pathref{SOURCE_PROVENANCE_RECEIPT}
+\item \pathref{POOLED_SOURCE_REDUCER_RECEIPT}
+\item \pathref{BOLTZMANN_TRANSFER_RECEIPT}
+\item \pathref{FROZEN_LIKELIHOOD_RECEIPT}
+\item \pathref{PHYSICAL_CMB_PREDICTION_RECEIPT}
+\end{itemize}
+The receipt may be false.  False is preferable to silently promoting a diagnostic curve.
+
+\section{Adversarial Contract Rejections}
+
+A conforming simulator contract must fail closed on the following cases.
+\begin{enumerate}[leftmargin=2em]
+\item negative or out-of-domain source parameters such as \(q_{\rm IR}<0\), missing freezeout
+surfaces, one-character hashes, and \(1\times1\) zero kernels;
+\item child artifacts declaring \pathref{source_only=true} while any transitive parent is
+measurement-fit, likelihood-fit, hand-tuned after looking at data, or outside the hermetic read set;
+\item local shard averages used as nonlinear global reducers;
+\item defaulting a single source row to a global pooled reducer when no pooled reducer receipt was
+constructed;
+\item accepting arbitrary labels such as ``anomaly'' or ``recipient'' as physical stress rows
+without a finite covariant parent and stress/exchange closure receipt;
+\item promoting temporal repair gaps, spatial refinement exponents, primordial tilt, and physical
+exchange rates as if they were the same semantic type.
+\end{enumerate}
+
+The no-data-use verifier must traverse the complete parent graph, including file reads, network
+reads, environment variables, configuration values, caches, random seeds, dependency versions, and
+human-selected branch identifiers.  A missing channel is a blocker.
+
+\section{Open Work}
+
+\begin{enumerate}[leftmargin=2em]
+\item Implement the finite primordial source artifact schema and verifier in the simulator.
+\item Specify official likelihood readiness for Planck, ACT, BAO, SN, weak lensing, and growth
+lanes.
+\item Make pooled reducers the only allowed source of nonlinear global quantities.
+\item Define the falsification thresholds before running any public comparison.
+\end{enumerate}
+
+\end{document}

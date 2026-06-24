@@ -755,12 +755,12 @@ the path do not change $S$ to first order. It is not always literally a
 minimum.
 
 The chapter lists particle masses and couplings, and the notes distinguish
-their status. A validation row checks the framework against known values. A
+their claim class. A validation row checks the framework against known values. A
 target-anchored witness uses an empirical anchor. A source-only prediction
 depends only on declared source inputs. A hadron row also needs QCD binding,
 which dominates hadron mass.
 
-The hierarchy/naturality row has its own status. The weak hierarchy is carried
+The hierarchy/naturality row has its own claim class. The weak hierarchy is carried
 by the selected local/global bridge between the pixel scale and the screen
 capacity, with twelve screen ports, a 24-slot oriented repair register, zero
 bridge residual, and zero Higgs naturality defect. That strengthens the particle
@@ -832,8 +832,8 @@ spectral payloads. Strong CP is encoded in a QCD angle often written
 $\theta$ or $\bar\theta$, and the book is careful that the selected-class
 quark theorem does not derive its vanishing.
 
-The synthesis chapter is also where status language matters most. A
-reconstruction can be impressive without being uniform in theorem status.
+The synthesis chapter is also where claim-class language matters most. A
+reconstruction can be impressive without being uniform in theorem boundary.
 Some parts are recovered-core structural consequences. Some are implemented
 Phase-II closures with conditional input-free theorem targets. Some are
 assumption-dependent continuations. Some are
@@ -1018,16 +1018,16 @@ overlap into a menu of observables. $\omega_i$ and $\omega_j$ are state
 assignments. The vertical bar restricts each state to the shared menu. The
 equation says both observers make the same predictions for shared questions.
 
-**Example 3: Reading a status claim.** Suppose a chapter says a row is a
+**Example 3: Reading a claim class.** Suppose a chapter says a row is a
 validation row, target-anchored witness, source-only row, or assumption-dependent
 continuation. These are not stylistic labels. A validation row checks known
 physics. A target-anchored witness uses an empirical target as part of the
 setup. A source-only row is more predictive because it uses only declared
 source inputs. An assumption-dependent continuation is a plausible extension whose
-assumptions have not all been promoted to theorem status. Keeping those labels
+assumptions have not all been promoted to theorem form. Keeping those labels
 visible is part of intellectual hygiene.
 
 The book's ambition is large, but its reading discipline is ordinary. Track
-the symbols. Track the status of each claim. Track which part of the human
+the symbols. Track the claim class of each row. Track which part of the human
 chain supplied each tool. Then ask whether the architecture makes the clues
 cohere better than the naive picture it replaces.

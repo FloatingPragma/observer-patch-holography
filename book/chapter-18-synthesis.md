@@ -8,7 +8,7 @@ Observers arrived late, as witnesses standing at the edge.
 
 The twentieth century kept cracking that image. Black holes stored entropy on
 surfaces. Quantum mechanics refused to hand out a hidden answer key. Horizons
-cut every observer off from part of the world. Time lost its absolute status.
+cut every observer off from part of the world. Time lost its absolute standing.
 The Standard Model looked powerful and fragile at once, full of symmetry and
 fine balance. The message hidden inside all of this was easy to miss. The old
 starting point was too simple.
@@ -125,8 +125,8 @@ nonzero repair eigenvalue as the first nonzero Yang-Mills energy requires the
 extra continuum certificate: renormalized correlations, reflection positivity,
 Euclidean covariance and locality, nontriviality, and transfer/intertwiner
 convergence. Thus the book should keep three layers separate: the exact
-multiresolution reference tower, a physical simulator's certified distance
-from that tower, and the field-theory identification of the continuum limit.
+multiresolution reference tower, certified finite evidence against that tower,
+and the field-theory identification of the continuum limit.
 
 The color triplet follows from the minimal coupled carrier, and the
 three-generation count follows from CKM phase counting, weak-sector

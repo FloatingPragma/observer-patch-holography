@@ -1,7 +1,7 @@
 \documentclass[11pt]{article}
 
 \usepackage[margin=1in]{geometry}
-\usepackage{amsmath,amssymb}
+\usepackage{amsmath,amssymb,amsthm}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{tabularx}
@@ -28,7 +28,10 @@
 \newcommand{\lambdac}{\lambda_{\mathrm{collar}}}
 \newcommand{\Zsix}{\mathbb Z_6}
 \newcommand{\dd}{\mathrm{d}}
-\newcommand{\status}[1]{\textsf{#1}}
+\newcommand{\claimlabel}[1]{\textsf{#1}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{target}[theorem]{Target}
 
 \title{Observer-Patch Holography and the Dark Matter Phenomenon}
 \author{Bernhard Mueller}
@@ -45,7 +48,7 @@
 \begin{abstract}
 In OPH, gravity is the stress bookkeeping of stable agreement between finite observer patches. Imperfect agreement leaves a record-repair remainder on overlap collars. That remainder is electromagnetically dark and gravitates as an information-defect stress correction.
 
-The continuation gives a galaxy-limit equation, cluster and cosmology contracts, and a coefficient target. In old, settled, low-acceleration galaxies the correction can approximate the MOND acceleration law. In clusters and cosmology it must be treated as transported stress with its own equations. A scalar source table is not enough for CMB or growth predictions; the full likelihood evaluation requires a finite covariant packet parent, source provenance, global-pooling checks, and frozen source/solver/likelihood hashes.
+The continuation gives a galaxy-limit equation, cluster and cosmology contracts, and a coefficient target. It also separates three objects that earlier drafts could blur: raw collar conditional mutual information, anomalous fixed-reference modular energy, and a covariant stress tensor. The local BW coefficient \(15/(8\pi^2)\) applies only after a declared source route and matching/localization receipts identify the finite source variable with the local modular source. In old, settled, low-acceleration galaxies the correction can approximate the MOND acceleration law. In clusters and cosmology it must be treated as transported stress with its own equations. A scalar source table is not enough for CMB or growth predictions; the full likelihood evaluation requires a finite covariant packet parent, source provenance, global-pooling checks, and frozen source/solver/likelihood hashes.
 \end{abstract}
 
 \section*{What This Paper Contributes}
@@ -94,6 +97,330 @@ The third layer is cosmological dark matter.  It uses the same stress in
 linear perturbation theory, with a background abundance, a relaxation rate,
 and an equilibrium kernel.  CMB, BAO, lensing, growth, and \(S_8\) test this
 layer.
+
+\section{Finite Covariant Parent Contract}
+
+The cosmology layer needs more than scalar rows.  The object consumed by a
+Boltzmann solver must be a finite covariant parent from which stress, exchange,
+response, and perturbation variables are calculated.  At regulator \(r\), write
+\[
+\mathfrak P_r=
+(\mathcal X_r,g_r,e_r,\Pi_r,Z_r,f_r,\mathsf T_r,\mathsf C_r,\mathsf M_r,\mathsf R_r).
+\]
+Here \(\mathcal X_r\) is a finite spacetime or cell complex, \(g_r\) the
+regulated metric, \(e_r\) tetrads, \(\Pi_r\) parallel transport between adjacent
+cells, \(Z_r=Z_{A,r}\sqcup Z_{R,r}\) anomaly and recipient packet states,
+\(f_{I,z}\ge0\) packet occupation, \(\mathsf T_r\) finite covariant transport,
+\(\mathsf C_r\) reaction or repair, \(\mathsf M_r\) the moment map to currents
+and stress, and \(\mathsf R_r\) the reconstruction/refinement comparison map. A
+packet \(z=(I,x,p,\lambda)\) must satisfy
+\[
+g_{\mu\nu}(x)p^\mu p^\nu=-m_I^2,\qquad p^0>0,
+\]
+with declared finite invariant phase-space weights \(w_z\). For anomaly packets
+the Standard Model currents vanish:
+\[
+  q_z^{\mathrm{EM}}=q_z^{\mathrm{color}}=q_z^{\mathrm{weak}}=0,
+\]
+or a separate neutral-commutant theorem must prove that the anomaly algebra
+induces no Standard Model current.
+
+The finite moments are
+\[
+J_{I,r}^{\mu}(x)=
+\frac{1}{V_x}\sum_{z:x_z=x} w_z f_{I,z}p_z^\mu,
+\qquad
+T_{I,r}^{\mu\nu}(x)=
+\frac{1}{V_x}\sum_{z:x_z=x}w_z f_{I,z}p_z^\mu p_z^\nu .
+\]
+If the anomaly stress cannot be represented by positive on-shell packets, the
+parent must declare an internal packet stress \(\Sigma_z^{\mu\nu}\) and replace
+\(p^\mu p^\nu\) by \(p^\mu p^\nu+\Sigma_z^{\mu\nu}\).  Thus the paper allows
+three parent branches: positive kinetic parent, kinetic parent with internal
+stress, or covariant action parent.  It does not assume every desired effective
+stress is pressureless positive dust.
+
+On the positive kinetic branch, \(w_zf_{I,z}\ge0\) and future causal momenta
+imply \(T_{ab}t^at^b\ge0\) for every future timelike \(t^a\). This is the
+packet-parent source of weak-energy positivity; it must not be manufactured by
+taking absolute values of scalar source rows.
+
+\paragraph{Finite total-stress closure.}
+Assume finite covariant summation by parts, equal-and-opposite face fluxes after
+parallel transport, reaction-channel four-momentum conservation
+\[
+\sum_{I,z}\nu_{\alpha,I,z}p_z^\mu=0,
+\]
+and moment-map compatibility with the discrete connection.  Multiplying the
+finite kinetic equation by \(w_zp_z^\nu\) and summing gives
+\[
+\operatorname{Div}_rT_{I,r}^{\mu\nu}=Q_{I,r}^{\nu},
+\qquad
+Q_{I,r}^{\nu}(x)=
+\frac{1}{V_x}\sum_{z:x_z=x} w_zp_z^\nu \mathsf C_{I,r,z}[f].
+\]
+Summing over sectors cancels all reaction channels, so
+\[
+\operatorname{Div}_r\sum_I T_{I,r}^{\mu\nu}=0.
+\]
+Continuum promotion additionally requires
+\[
+\left\|
+\mathsf R_r(\operatorname{Div}_rT_r)
+-
+\nabla_\mu\mathsf R_r(T_r)^{\mu\nu}
+\right\|_{\mathcal W}
+\le\epsilon_{\mathrm{div}}(r),
+\qquad
+\epsilon_{\mathrm{div}}(r)\to0.
+\]
+
+\paragraph{FLRW reduction and exchange.}
+If the homogeneous packet distribution is invariant under a spatial group with
+no invariant vector and no invariant traceless symmetric rank-two tensor, then
+\[
+\bar q_A^\mu=0,\qquad \bar\pi_A^{\mu\nu}=0,\qquad
+\bar T_A{}^\mu{}_\nu=\operatorname{diag}(-\bar\rho_A,\bar p_A,\bar p_A,\bar p_A).
+\]
+Reserve \(Q_A^\mu\) for exchange four-current:
+\[
+Q_A^\mu=Q_Au^\mu+F_A^\mu,\qquad u_\mu F_A^\mu=0,\qquad \sum_IQ_I^\mu=0.
+\]
+The conserved homogeneous anomaly load should be denoted separately, for
+example \(\mathcal N_A=a^3\bar\rho_A V_{\mathrm{com}}\).
+
+\paragraph{Retarded response.}
+Linearizing the parent around the FLRW background gives
+\[
+\delta x'=A(k,\eta)\delta x+B(k,\eta)\delta n_b^{(A)},\qquad
+\delta y_A=C(k,\eta)\delta x+D(k,\eta)\delta n_b^{(A)} ,
+\]
+where \(n_b^{(A)}=-u_{A\mu}J_b^\mu\).  With
+\(\partial_\eta U(\eta,\eta')=A(\eta)U(\eta,\eta')\),
+\[
+K_A(\eta,\eta')=C(\eta)U(\eta,\eta')B(\eta')+
+D(\eta)\delta(\eta-\eta')
+\]
+is the actual retarded response kernel.  A scalar \(B_A(k,a)\) and a scalar
+\(\Gamma_{\mathrm{rec}}(k,a)\) are controlled reductions of this realization,
+not primitive inputs.  If there exists \(H>0\) and \(\gamma>0\) with
+\[
+HA+A^\dagger H\preceq -2\gamma H,
+\]
+then \(\|U(\eta,\eta')\|_H\le e^{-\gamma(\eta-\eta')}\).  A one-pole
+relaxation rate is valid only when
+\(\|K_A-K_A^{(1)}\|_{\mathcal W}\le\epsilon_{\mathrm{one\ pole}}\) in a
+predeclared norm.
+
+\paragraph{Abundance no-go.}
+The conservation equation
+\[
+\bar\rho_A'+3\mathcal H\bar\rho_A=0
+\]
+implies \(\bar\rho_A=C_Aa^{-3}\), but it does not determine \(C_A\).  The
+missing OPH object is an abundance selector
+\[
+\mathcal E_{A,r}=
+F_{A,r}(\text{quotient ensemble},P_\star,N_{\mathrm{CRC}},
+\text{release state},\mathfrak P_r),
+\qquad
+\bar\rho_{A,r}(a)=\frac{\mathcal E_{A,r}}{a^3V_{\mathrm{com}}},
+\]
+with refinement compatibility.  Until this exists, cosmological abundance is a
+conditional source state, not a source-only OPH prediction.
+
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Receipt & Current label \\
+\midrule
+\texttt{PACKET\_MASS\_SHELL\_RECEIPT} & open finite-parent evidence gate \\
+\texttt{TOTAL\_STRESS\_CLOSURE\_RECEIPT} & open finite-parent evidence gate \\
+\texttt{RETARDED\_RESPONSE\_RECEIPT} & open response-realization gate \\
+\texttt{B\_A\_KERNEL\_RECEIPT} & conditional on response and mode calibration \\
+\texttt{ANOMALY\_ABUNDANCE\_SOURCE\_RECEIPT} & open selector gate \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\input{../paper/tex_fragments/FINITE_COVARIANT_PARENT_THEOREMS.tex}
+
+\section{Source Ontology, Units, and Matching}
+
+This paper uses metric signature \((-+++)\). Entropies are in nats unless a
+receipt explicitly declares bits and multiplies by \(\ln2\). The radius
+\(\ell\) in the local source formula is the proper geodesic radius of a small
+four-dimensional causal diamond or ball read in the local tetrad, with scale
+hierarchy
+\[
+  \ell_{\mathrm{UV}}\ll \delta_{\mathrm{collar}}\ll \ell
+  \ll L_{\mathrm{curvature}},L_{\mathrm{gradient}} .
+\]
+Natural units may set \(\hbar=c=1\). In SI units a dimensionless entropy
+source \(R\) has energy-density normalization
+\[
+  \rho_Ac^2=\frac{15\hbar c}{8\pi^2\ell^4}R .
+\]
+
+\subsection{Three Source Objects}
+
+The dark continuation distinguishes
+\[
+  R_C^{\mathrm{info}}:=I_\rho(A:D|B),\qquad
+  \mathcal M_C^{\mathrm{anom}},\qquad
+  T_A^{ab}.
+\]
+The first is raw finite conditional mutual information. The second is a
+source variable proved, or explicitly hypothesized on the continuation branch,
+to equal the anomalous local modular energy entering the BW ball calculation.
+The third is a tensor stress reconstructed from all-frame source readings and
+a finite packet parent. The paper does not identify these three objects by
+notation alone.
+
+\paragraph{Exact finite modular-nonadditivity identity.}
+For a faithful finite-dimensional state \(\rho_{ABD}\), define support
+modular Hamiltonians \(K_X=-\log\rho_X\), embedded in the full algebra, and
+\[
+  \Delta K_\rho=K_{AB}+K_{BD}-K_B-K_{ABD}.
+\]
+Then
+\[
+  \operatorname{Tr}\rho_{ABD}\Delta K_\rho
+  =S(AB)+S(BD)-S(B)-S(ABD)
+  =I_\rho(A:D|B).
+\]
+This is an expectation identity. It does not make \(\Delta K_\rho\) a positive
+operator, a state-independent geometric generator, or a local collar stress.
+
+\paragraph{First-variation obstruction.}
+If \(\sigma\) is full rank with \(I_\sigma(A:D|B)=0\) and
+\(\rho(t)=\sigma+tX+O(t^2)\), then
+\[
+  \left.\frac{\dd}{\dd t}I_{\rho(t)}(A:D|B)\right|_{t=0}=0
+\]
+because the nonnegative CMI functional has a local minimum on the exact Markov
+set. A fixed-reference modular-energy variation
+\(\delta\langle K_\sigma\rangle=t\,\operatorname{Tr}(XK_\sigma)+O(t^2)\) is
+generically linear. Therefore raw CMI is not generically the same object as
+the anomalous local modular energy on a perturbative Markov branch.
+
+\subsection{Declared Source Route}
+
+A source artifact must declare exactly one route:
+\[
+\texttt{source\_route}\in
+\{\texttt{FIXED\_REFERENCE\_MODULAR\_ENERGY},
+\texttt{NONLINEAR\_CMI\_STRESS}\}.
+\]
+There is no automatic mixed mode. On the fixed-reference route the source is
+\[
+  R_C^{\mathrm{src}}=\mathcal M_C^{\mathrm{anom}}
+  =\delta\langle K_C^{(\mathrm{anom})}[\sigma]\rangle,
+\]
+and CMI is a recovery/localization diagnostic. On the nonlinear-CMI route the
+source is \(R_C^{\mathrm{src}}=R_C^{\mathrm{info}}\) only after a named
+CMI-to-modular-source matching theorem or explicit continuation hypothesis
+with residual ledger.
+
+\begin{target}[CMI-to-modular-source matching]
+The nonlinear-CMI route must prove or declare a versioned hypothesis that, for
+each small ball \(B_\ell(x,u)\),
+\[
+  R^{\mathrm{info}}_{x,u,\ell}
+  =
+  \frac{2\pi}{\hbar c}
+  \int_{B_\ell}
+  \frac{\ell^2-r^2}{2\ell}\,
+  T^A_{ab}u^au^b\,\dd V
+  +\varepsilon_{\mathrm{match}},
+\]
+with refinement-stable matching residual. Strong subadditivity alone does not
+prove this statement. If a background value is subtracted, positivity no
+longer follows from CMI positivity and must be supplied separately by the
+packet parent or branch restrictions.
+\end{target}
+
+\begin{theorem}[Conditional local BW source normalization]
+Assume the scale hierarchy above, a declared source route, the matching/local
+modular representation
+\[
+  R^{\mathrm{src}}_{x,u,\ell}
+  =
+  \frac{2\pi}{\hbar c}
+  \int_{B_\ell}
+  \frac{\ell^2-r^2}{2\ell}\,
+  T^A_{ab}u^au^b\,\dd V
+  +\varepsilon_{\mathrm{match}},
+\]
+and smooth \(\varepsilon_A(x,u)=T^A_{ab}(x)u^au^b\) on the ball. Then
+\[
+R^{\mathrm{src}}_{x,u,\ell}
+=
+\frac{8\pi^2\ell^4}{15\hbar c}
+\left[
+\varepsilon_A(x,u)
++\frac{\ell^2}{14}D_\perp^2\varepsilon_A(x,u)
++O\!\left(\frac{\ell^4}{L_{\mathrm{gradient}}^4}
++\frac{\ell^2}{L_{\mathrm{curvature}}^2}\right)
+\right]
++\varepsilon_{\mathrm{match}}.
+\]
+Hence, on the controlled local branch,
+\[
+  \varepsilon_A(x,u)
+  =
+  \frac{15\hbar c}{8\pi^2}
+  \lim\frac{R^{\mathrm{src}}_{x,u,\ell}}{\ell^4}
+\]
+with the stated finite-ball, curvature, and matching corrections.
+\end{theorem}
+
+\begin{proof}
+The BW ball weight is \(w_\ell(r)=(\ell^2-r^2)/(2\ell)\). In flat
+Riemann-normal coordinates
+\[
+  \int_{B_\ell}w_\ell(r)\,\dd^3x
+  =4\pi\int_0^\ell r^2\frac{\ell^2-r^2}{2\ell}\,\dd r
+  =\frac{4\pi\ell^4}{15}.
+\]
+Multiplying by \(2\pi/(\hbar c)\) gives \(8\pi^2\ell^4/(15\hbar c)\). The
+next term follows from angular averaging
+\(\varepsilon_A(y)=\varepsilon_A(x)+r^2D_\perp^2\varepsilon_A(x)/6+\cdots\)
+and
+\(\int_{B_\ell}w_\ell(r)r^2\dd^3x=4\pi\ell^6/35\), whose ratio to the
+constant term gives \(\ell^2/14\). Curvature corrections are the usual
+Riemann-normal-coordinate corrections to the volume form and kernel.
+\end{proof}
+
+\subsection{Localization, Covers, and Tomography}
+
+Let \(E_{B,\mathrm{phys}}\) be the conditional expectation onto the
+quotient-visible physical collar algebra. A finite source receipt must bound
+\[
+  \left|
+  R_C^{\mathrm{src}}-
+  \langle E_{B,\mathrm{phys}}(\Delta K)\rangle
+  \right|
+  \le \varepsilon_{\mathrm{loc}}
+\]
+with hidden-carrier, port-relabeling, repair-schedule, and refinement
+invariance. Cover independence is a separate requirement: admissible collar
+covers must converge to the same weak source measure, or a
+Möbius/inclusion-exclusion valuation must prove that overlapping collars do
+not double count the same information defect.
+
+A scalar reading for one observer gives only \(T_A^{ab}u_au_b\). To reconstruct
+a symmetric tensor, the source must be read on enough timelike directions.
+For \(e_x(u)=\lim(15\hbar c/8\pi^2)R^{\mathrm{src}}_{x,u,\ell}/\ell^4\), define
+the homogeneous extension
+\[
+  Q_x(v)=[-g(v,v)]e_x\!\left(v/\sqrt{-g(v,v)}\right).
+\]
+If \(Q_x\) extends quadratically and satisfies the parallelogram identity,
+there is a unique symmetric \(T^A_{ab}\) recovered by polarization. The finite
+simulator version needs at least ten linearly independent timelike probes and
+held-out quadraticity tests; a single \(u^\mu=(1,0,0,0)\) row is not a stress
+theorem.
 
 \section{The Dark Matter Challenge}
 
@@ -264,23 +591,30 @@ inside the cap algebra, the OPH modular decomposition has the local form
 \begin{equation}
   K_C = 2\pi B_C + K_C^{(\mathrm{anom})}+\mathrm{const}.
 \end{equation}
-At finite regulator stage, the nonadditive modular part is carried on the
-overlap collar.  The dark branch packages the galaxy-scale positive remainder
-as
-\begin{equation}
-  R_C := I(A:D|B)\ge 0,
-\end{equation}
-where \(I(A:D|B)\) is conditional mutual information.  This is a
-phenomenological carried-defect variable on the continuation branch: small CMI
-supplies a recovered comparison state and a fixed-collar replacement modulus,
-not a one-shot exact Markov normal form or an exact finite-cutoff Einstein
-source. The corresponding
+At finite regulator stage, the nonadditive modular part is carried on an
+overlap collar.  The dark branch may use the raw finite diagnostic
+\[
+  R_C^{\mathrm{info}}=I_\omega(A:D|B)\ge0,
+\]
+but the physical density formula uses the routed source variable
+\(R_C^{\mathrm{src}}\).  On the fixed-reference route this is the anomalous
+modular-energy variation.  On the nonlinear-CMI route it is raw CMI only after
+the explicit CMI-to-modular-source matching theorem or hypothesis and its
+localization, cover, and tomography receipts pass. With those receipts, the
 effective rest-energy density is written
 \begin{equation}
   \rho_A c^2
-    = \frac{15}{8\pi^2\ell^4} R_C.
+    = \frac{15\hbar c}{8\pi^2\ell^4} R_C^{\mathrm{src}},
+  \qquad
+  \rho_A
+    = \frac{15\hbar}{8\pi^2 c\,\ell^4} R_C^{\mathrm{src}}.
   \label{eq:rhoA}
 \end{equation}
+Here \(\ell\) is the proper geodesic radius of the local four-dimensional
+small ball.  It is not a cap angle, a screen spacing, a collar thickness, a
+coordinate radius, or a fitted galaxy scale.  If the simulator records CMI in
+bits, the value must be multiplied by \(\ln2\) before using
+\eqref{eq:rhoA}.
 The weak-field Poisson equation becomes
 \begin{equation}
   \nabla^2 \Phi = 4\pi G(\rho_b+\rho_A).
@@ -288,17 +622,27 @@ The weak-field Poisson equation becomes
 \end{equation}
 
 \paragraph{Conditional theorem 1, attractive sign.}
-If the carried galaxy remainder is \(R_C=I(A:D|B)\) and the coarse-grained
-domain measure is nonnegative, then the anomaly is attractive in the
-Newtonian weak-field equation.
+If the routed source \(R_C^{\mathrm{src}}\) is nonnegative on the declared
+branch, then the anomaly is attractive in the Newtonian weak-field equation.
+For the nonlinear-CMI route this nonnegativity is inherited from raw CMI only
+when no background subtraction has been introduced; otherwise it must be
+certified by the packet parent or branch restriction.
 
 \paragraph{Proof.}
-Conditional mutual information is nonnegative, so \(R_C\ge0\).  Equation
-\eqref{eq:rhoA} gives \(\rho_A\ge0\).  Equation \eqref{eq:poisson} then shows
-that the anomaly enters with the same attractive sign as baryonic mass.
+The premise and \eqref{eq:rhoA} give \(\rho_A\ge0\).  Equation
+\eqref{eq:poisson} then shows that the anomaly enters with the same attractive
+sign as baryonic mass.
 \(\square\)
 
-The source identification is a theorem target.
+\paragraph{Finite-source receipt boundary.}
+The exact CMI modular identity, first-variation obstruction, declared route,
+matching theorem or hypothesis, collar localization, BW normalization,
+\(\ell^4\) plateau, cover independence, and timelike tomography receipts are
+the source-side content of Issue~\#319. Without them, \(R_C^{\mathrm{info}}\)
+is a recoverability/readback diagnostic and not a physical density source.
+After them, a finite positive packet parent must supply \(T_A^{ab}\),
+its Standard-Model-neutral charge condition, and the conserved anomaly plus
+recipient stress closure.
 
 \subsection{The Acceleration Variable}
 
@@ -525,6 +869,25 @@ effective density is the monotonicity condition
 Profiles that violate this condition need finite pressure, shear, or transport
 terms instead of the settled dust equilibrium alone.
 
+\paragraph{RAR/source matching target.}
+The local modular-source normalization and the settled-galaxy RAR activation
+law are separate claims. The RAR density
+\[
+  \rho_A^{\mathrm{RAR}}
+  =
+  \frac{1}{4\pi G}
+  \nabla\cdot\left[(\nu_{\OPH}-1)\nabla U_b\right]
+\]
+is matched to the collar source only after a branch theorem proves
+\[
+  \frac{15\hbar c}{8\pi^2\ell^4}\,
+  \bar R_\ell[\rho_b]
+  =
+  c^2\rho_A^{\mathrm{RAR}}[\rho_b]
+\]
+with no refit. Until that receipt passes, the RAR law is a settled-equilibrium
+continuation law, while the BW normalization is the local source theorem.
+
 \section{The Finite-Collar Coefficient}
 
 \subsection{Unit Branch}
@@ -671,27 +1034,32 @@ This stress is symmetric and future-positive.  Relative to an observer
 \begin{equation}
   T_{\mathcal I}^{ab}
   =
-  \rho_{\mathcal I}u^a u^b
+  \epsilon_{\mathcal I}u^a u^b
   +P_{\mathcal I}h^{ab}
-  +q_{\mathcal I}^{(a}u^{b)}
+  +2u^{(a}q_{\mathcal I}^{b)}
   +\pi_{\mathcal I}^{ab}.
   \label{eq:stressdecomposition}
 \end{equation}
-The settled galaxy branch is the monokinetic rest branch
-\(\dd\mathcal E_x(v)=\rho_{\mathcal I}(x)\delta(v-u_{\mathcal I})\dd\Omega\).
-Then
-\begin{equation}
-  T_{\mathcal I}^{ab}
-  =
-  \rho_{\mathcal I}u_{\mathcal I}^a u_{\mathcal I}^b,
-  \qquad
-  P_{\mathcal I}=0,
-  \qquad
-  q_{\mathcal I}^a=0,
-  \qquad
-  \pi_{\mathcal I}^{ab}=0.
-  \label{eq:duststress}
-\end{equation}
+The settled branch should not be modelled as an exactly static extended
+monokinetic dust halo. Separately conserved dust follows geodesics and cannot
+generically remain static in a nonconstant gravitational potential. The
+settled no-slip branch is instead a cold-isotropic kinetic branch
+\[
+  f_A(x,\mathbf p)=F(x,|\mathbf p|)
+\]
+in the local rest frame, or a stationary \(F(E)\) branch when an energy
+integral exists. Angular symmetry gives \(q_{\mathcal I}^a=0\) and
+\(\pi_{\mathcal I}^{ab}=0\), while a small pressure or velocity dispersion may
+support the halo. The cold condition is
+\[
+  0\le\frac{P_{\mathcal I}}{\epsilon_{\mathcal I}}\le\epsilon_{\mathrm{cold}}\ll1,
+\]
+with a Jeans or stationary-Vlasov residual such as
+\[
+  |\nabla_iP_{\mathcal I}+\rho_{\mathcal I}\nabla_iU|
+  \le\tau_{\mathrm{Jeans}}
+\]
+in the Newtonian regime.
 In Newtonian gauge,
 \begin{equation}
   \dd s^2
@@ -702,9 +1070,18 @@ The off-diagonal spatial Einstein equation gives
   k^2(\Phi-\Psi)
   =12\pi G a^2\sum_i(\rho_i+P_i)\sigma_i.
 \end{equation}
-The \(\mathcal I\)-sector contribution to the right-hand side vanishes on
-\eqref{eq:duststress}.  If baryonic, neutrino, radiation, and repair-sector
-anisotropic stresses are absent or handled separately, then
+The \(\mathcal I\)-sector intrinsic contribution to the right-hand side
+vanishes whenever the transported packet distribution is rotationally
+invariant in the local rest frame, so \(q_{\mathcal I}^a=0\) and
+\(\pi_{\mathcal I}^{ab}=0\). A velocity-spread or imperfectly isotropic branch
+must instead emit
+\[
+  \epsilon_\pi=\frac{|\pi_A|}{\epsilon_A+P_A}
+\]
+and an \(O(\epsilon_\pi)\) slip bound.
+If baryonic, neutrino, radiation, and repair-recipient anisotropic stresses are
+absent or handled separately, if there is one metric source, and if boundary
+conditions do not add an unmodelled transverse exchange, then
 \begin{equation}
   \Phi=\Psi.
 \end{equation}
@@ -712,6 +1089,19 @@ The lensing potential is therefore the same potential that controls dynamics:
 \begin{equation}
   \Phi_{\mathrm{lens}}=\frac{\Phi+\Psi}{2}=\Phi.
 \end{equation}
+In weak-field physical units, with \(U=c^2\Phi=c^2\Psi\) on this no-intrinsic
+slip branch,
+\[
+  \nabla^2U=4\pi G(\rho_b+\rho_A)
+  +\mathcal E_{\mathrm{PN}}+\mathcal E_P+\mathcal E_{\mathrm{match}}
+  +\mathcal E_{\mathrm{finite,ball}},
+\]
+and geometric-optics lensing uses
+\[
+  \boldsymbol\alpha=\frac2{c^2}\int\nabla_\perp U\,\dd z .
+\]
+A simulator that fits separate dynamical and lensing potentials has not passed
+the common-metric receipt.
 
 This is where OPH behaves differently from a force-only MOND law.  The
 correction is attached to stress bookkeeping, so the same potential controls
@@ -862,7 +1252,8 @@ homogeneous information-defect branch obeys
 where primes denote conformal time and \(\mathcal H=a'/a\).  This branch
 behaves like a cold stress component if its kinetic measure is monokinetic and
 its homogeneous charge \(Q_A=a^3\rho_A V_{\mathrm{com}}\) is selected by OPH
-screen data.
+screen data with an anomaly-current conservation receipt.  A source-localized
+CMI value without that current receipt does not imply the \(a^{-3}\) scaling.
 
 \paragraph{No-go boundary for scalar parents.}
 A scalar parent that emits only
@@ -889,18 +1280,64 @@ repair generator, \(Q_r\) records reaction channels, and \(D_r\) records any
 causal auxiliary response.  The parent must emit the stress moments and source
 projections consumed by the Boltzmann solver; otherwise CMB/BAO/growth rows
 remain diagnostics.
-Promoting \(\rho_A(a)\), \(B_A(k,a)\), \(\Gamma_{\mathrm{rec}}(k,a)\), or any
-associated primordial scalar input also requires a source-provenance DAG and a
-pooled-reducer receipt.  Contradictory no-data-use metadata fails closed, and
-nonlinear quantities such as amplitudes, ranks, condition numbers, and
-isocurvature leakage are computed only after additive sufficient statistics are
-pooled globally.
+
+\paragraph{Finite covariant parent object.}
+The theorem-grade parent is not a parent-shaped JSON object.  At regulator \(r\)
+it is a quotient-visible finite kinetic package
+\[
+\mathcal P_r[X,g]=
+(\mathcal C_r,g_r,e_r,U_r,Z_r,\omega_r,p_r,f_r,\Phi_r,
+\mathcal R_r,\mathcal G_r,\pi_r,\mathsf{Read}_r),
+\]
+with finite causal complex \(\mathcal C_r\), local tetrads \(e_r\), finite
+parallel transports \(U_r\), packet sectors
+\[
+Z_r=\bigsqcup_s Z_{s,r},
+\]
+positive quadrature weights, occupations \(f_{c,z}\ge0\), and momenta obeying
+the declared \((-+++)\) mass shell
+\[
+g_{ab}p_z^ap_z^b=-m_z^2,\qquad p_z^0>0.
+\]
+The quotient \(\mathcal G_r\) includes hidden carrier coordinates, equivalent
+packet labels, port relabelings, local-frame presentations, and accepted
+repair-schedule presentations.  The readout
+\[
+\mathsf{Read}_r=(\mathsf{StressRead}_r,\mathsf{ExchangeRead}_r,
+\mathsf{ScalarSourceMap}_r,\mathsf{ClockRead}_r,\mathsf{RepairTangent}_r)
+\]
+must factor through that quotient.
+
+\paragraph{Exact finite closure receipt.}
+For each sector define
+\[
+J_{s,c}^a=\frac1{V_c}\sum_{z\in Z_s}W_{c,z}p_z^a,\qquad
+T_{s,c}^{ab}=\frac1{V_c}\sum_{z\in Z_s}W_{c,z}p_z^ap_z^b .
+\]
+The simulator must reconstruct these moments from packet rows and emit
+residual ledgers
+\[
+R_{s,c}^a=(D_rT_s)^a-Q_{s,c}^a,\qquad
+R_{{\rm total},c}^a=D_rT_{\rm total}^a,
+\]
+including internal-face cancellation, boundary flux, geometry/redshift work,
+external work, reaction four-momentum, and conserved charges.  Producer
+booleans, zero-density labels, invented recipient rows, or scalar residuals
+are not stress closure.
+Promoting \(\rho_A(a)\), \(B_A(k,a)\), a certified
+\(\Gamma_{\mathrm{rec}}(k,a)\), or any associated primordial scalar input also
+requires a source-provenance DAG and a pooled-reducer receipt.  A transition
+spectral number remains \(\gamma_{\mathrm{repair\ step}}\) until active-fiber,
+physical-clock, and common-parent response receipts pass.  Contradictory
+no-data-use metadata fails closed, and nonlinear quantities such as amplitudes,
+ranks, condition numbers, and isocurvature leakage are computed only after
+additive sufficient statistics are pooled globally.
 
 For the source-only primordial bridge, this closed branch has the stricter
 contract
 \begin{equation}
   \nabla_aJ_A^a=0,\qquad
-  T_A^{ab}=\rho_Au^au^b,\qquad
+  T_A^{ab}=\epsilon_Au^au^b,\qquad
   Q_A^a=0 .
   \label{eq:closed-anomaly-primordial-contract}
 \end{equation}
@@ -959,14 +1396,15 @@ A supplied dark abundance may be used only as
 \]
 not as a derived OPH primordial prediction.
 
-If \(\Gamma_{\mathrm{rec}}>0\), the recipient sector is not optional.  The
-finite parent must expose a recipient stress \(T_R^{ab}\) and reaction channel
-such that
+If the exchange branch is nonzero, the recipient sector is not optional.  The
+finite parent must expose a recipient stress \(T_R^{ab}\), a reaction channel,
+and equal-and-opposite exchange currents such that
 \[
   \nabla_a(T_A^{ab}+T_R^{ab}+T_{\mathrm{other}}^{ab})=0 .
 \]
-Without that explicit stress, a repair sink/source can mimic a scalar damping
-term but cannot be promoted to an Einstein-source prediction.
+Without that explicit stress and current closure, a repair sink/source can
+mimic a scalar damping term but cannot be promoted to an Einstein-source
+prediction.
 
 The finite scalar-load repair diagnostic gives
 \[
@@ -1038,13 +1476,13 @@ the galaxy law.  The CMB branch has to declare its background anomaly charge
 and its perturbation kernel from OPH state selection or finite-collar
 microphysics.
 
-\subsection{Flat Capacity-Saturated State Selection}
+\subsection{Capacity-Saturated State Selection}
 
-One clean homogeneous branch is flat capacity saturation.  The de Sitter screen
-capacity fixes \(H_{\mathrm{dS}}\), and the flat Friedmann constraint at
-\(a=1\) gives
+One clean homogeneous benchmark is flat capacity saturation.  More generally, the de Sitter screen
+capacity fixes \(H_{\mathrm{dS}}\), and the Friedmann closure at \(a=1\) gives only the degenerate
+combination
 \begin{equation}
-  \Omega_{A0}
+  \Omega_{A0}+\Omega_{K0}
   =
   1-\Omega_{\Lambda,\OPH}-\Omega_{b0}-\Omega_{\nu0}-\Omega_{r0},
   \qquad
@@ -1053,6 +1491,8 @@ capacity fixes \(H_{\mathrm{dS}}\), and the flat Friedmann constraint at
   \left(\frac{H_{\mathrm{dS}}}{H_0}\right)^2.
   \label{eq:flatresidual}
 \end{equation}
+The displayed number becomes an \(\Omega_{A0}\) value only after an independent curvature readout or
+an explicit flat-branch assumption \(\Omega_{K0}=0\).  It cannot be used to prove flatness.
 The transported homogeneous dust branch is
 \begin{equation}
   \rho_A(a)=\rho_{A0}a^{-3}.
@@ -1070,17 +1510,26 @@ Quantity & Value \\
 \(\Omega_b\) & \(0.049243191\) \\
 \(\Omega_\nu\) & \(0.002127375\) \\
 \(\Omega_r\) & \(0.000091700\) \\
-\(\Omega_A\) & \(0.264114401\) \\
+\(\Omega_A+\Omega_K\) & \(0.264114401\) \\
 \(\Omega_m\) & \(0.315484968\) \\
 \(\rho_{A0}\) & \(2.253649933\times10^{-27}\,\mathrm{kg\,m^{-3}}\) \\
 \bottomrule
 \end{tabular}
 \end{center}
 This matches the Planck-like cold-matter budget at the compressed-parameter
-level.  The number is a state-selection residual.  The static galaxy RAR law
-does not determine it.  The OPH theorem that would make it standalone is a
-finite-screen additive-load selector for the conserved homogeneous anomaly
-charge.
+level only on the explicit flat benchmark.  The number is a closure residual,
+not an independent anomaly abundance and not a flatness proof.  The static galaxy RAR law
+does not determine it.  The OPH theorem that would make \(\Omega_{A0}\) standalone is a
+finite-screen additive-load selector for the conserved homogeneous anomaly charge together with an
+independent curvature label.
+
+Finite exports must therefore label
+\[
+\Omega_{A,\mathrm{source}}\in
+\{\textsc{IndependentOPH},\textsc{External},\textsc{ResidualDefinition},\textsc{Unknown}\}
+\]
+and separately label the curvature source.  A residual-defined \(\Omega_A\) cannot pass a
+Friedmann-curvature independence audit.
 
 The closed transported branch does give a theorem-grade current and charge.
 Let \(u_A^a\) be the branch four-velocity and let \(\rho_A\) be the
@@ -1154,12 +1603,36 @@ An isotropic environmental average gives
   \nu_{\OPH}(x)-1+\frac{x}{3}\nu_{\OPH}'(x).
 \end{equation}
 The contrast kernel used in perturbation equations is normalized by the
-background density ratio:
+equilibrium-background density ratio only after the response is diagonal in the calibrated physical mode basis:
 \begin{equation}
   B_A(k,a)
   =
-  \frac{\bar\rho_b(a)}{\bar\rho_A(a)}K_A^{(\rho)}(k,a).
+  \frac{\bar\rho_b(a)}{\bar\rho_{A,\mathrm{eq}}(a)}K_A^{(\rho)}(k,a).
 \end{equation}
+Using \(\bar\rho_A\) in the denominator would define the different variable
+\(\delta\rho_{A,\mathrm{eq}}/\bar\rho_A\) and would require rederiving the
+external \(q_A=\bar\rho_{A,\mathrm{eq}}/\bar\rho_A\) factor in the perturbation
+equations.  This paper uses the equilibrium-contrast convention globally.
+At finite regulator the primary object is the response operator
+\begin{equation}
+  (B_{A,r})_{jj'}(a)
+  =
+  \frac{\bar\rho_b(a)}{\bar\rho_{A,\mathrm{eq}}(a)}
+  \left\langle
+  v_{rj},
+  D\rho_{A,\mathrm{eq}}[\bar\rho_b]\,
+  v_{rj'}
+  \right\rangle ,
+\end{equation}
+where \(v_{rj}\) are the same calibrated comoving scalar modes used by the
+primordial source and transfer handoff.  A scalar table \(B_A(k_j,a)\) is
+promoted only if
+\[
+\|[B_{A,r},\Delta_{\mathrm{com},r}]\|\le\varepsilon_{\rm comm},\qquad
+\sum_{j'\ne j}|(B_{A,r})_{jj'}|^2\le\varepsilon_{\rm off}^2
+\]
+on the resolved band.  Otherwise the physical input is the mode-coupling matrix,
+not a diagonal function of \(k\).
 In a realistic cosmological calculation, this local expression has to be
 integrated against the distribution of environmental fields,
 \begin{equation}
@@ -1212,7 +1685,7 @@ excluded.
 \subsection{Compressed CMB, BAO, Growth, And \(S_8\) Diagnostic}
 
 The local Boltzmann plumbing test passes the anomaly as a cold pressureless
-component with the flat-residual diagnostic parent-grid ratio
+component with the flat-benchmark diagnostic parent-grid ratio
 \(\rho_A/\rho_b=5.363470441\).  It uses CAMB \(1.6.6\), the OPH neutrino mass
 sum, and diagonal Gaussian compressed rows:
 \begin{center}
@@ -1386,7 +1859,7 @@ fixed-M/L improvement alone is weak evidence for the \(\Zsix\) bridge theorem.
 \subsection{Empirical Implementation Scorecard}
 
 The executable empirical pass combines four diagnostic layers: public SPARC
-tables, the flat capacity-saturated homogeneous anomaly state, the finite
+tables, the flat-benchmark capacity-saturated homogeneous anomaly state, the finite
 repair matrix with a cluster timing gate, and the compressed CAMB rows.  The
 single-pass output is:
 \begin{center}
@@ -1395,9 +1868,9 @@ single-pass output is:
 \toprule
 Quantity & OPH output & Measurement comparison \\
 \midrule
-\(\Omega_A\) & \(0.264114401\) & Planck-like matter budget \\
+\(\Omega_A\) & \(0.264114401\) & Planck-like matter budget under \(\Omega_K=0\) benchmark \\
 \(\Omega_{\Lambda,\OPH}\) & \(0.684423332\) & capacity de Sitter branch \\
-\(\rho_A/\rho_b\) & \(5.363470441\) & flat residual ratio \\
+\(\rho_A/\rho_b\) & \(5.363470441\) & flat-benchmark residual ratio \\
 \(\gamma_{\mathrm{rec}}\) & \(0.050717471\) & finite repair matrix gap \\
 \(\aoph\) & \(1.029186271\times10^{-10}\) & \(8.070\%\) low versus best RAR \\
 \(\aeff\), \(\Zsix\)/Poisson & \(1.179018696\times10^{-10}\) & \(1.748\%\) low versus common empirical \(a_0\) \\
@@ -1527,7 +2000,7 @@ likelihood contract. \\
 CMB and growth & Flat capacity state selection gives a CDM-like homogeneous
 residual; the closed branch has a conserved load current; environmental
 kernels describe nonzero-field response. & Amplitude selector and real
-Boltzmann likelihood work in progress. \\
+Boltzmann likelihood are not emitted by this paper. \\
 \bottomrule
 \end{longtable}
 
@@ -1544,8 +2017,10 @@ cluster-offset scale under its tidal-mismatch premise.  Flat capacity state
 selection gives a Planck-like homogeneous information-defect residual, while
 closed-branch transport gives a conserved load current.  Cluster and
 CMB/growth likelihoods require measured cluster covariances, a finite-screen
-amplitude selector, a finite covariant source parent, recipient stress for any
-nonzero repair exchange, and a frozen Boltzmann/likelihood implementation.
+amplitude selector, a finite covariant source parent, recipient stress and
+exchange-current closure for any nonzero repair exchange, physical-clock
+receipts for any promoted \(\Gamma_{\mathrm{rec}}\), and a frozen
+Boltzmann/likelihood implementation.
 \end{quote}
 
 Claim outside this paper:
@@ -1581,10 +2056,12 @@ RAR kernel is blocked by a no-go theorem. &
 Finite-parent Boltzmann contract. \\
 Abundance history & Flat capacity state selection gives a CDM-like residual;
 the closed transported branch has a conserved load current and charge. &
-Amplitude selector work in progress. \\
+Amplitude selector not emitted by this paper. \\
 Linear transfer & The perturbation equation has a relaxation transfer
 solution between CDM-like and tracking limits. & Requires evaluated
-\(B_A(k,a)\), recipient stress for nonzero exchange, and frozen hashes. \\
+\(B_A(k,a)\), recipient stress and exchange-current closure for nonzero
+exchange, physical-clock receipts for any promoted \(\Gamma_{\mathrm{rec}}\),
+and frozen hashes. \\
 Parent functional & The finite collar expectation of the positive repair
 defect emits \(\rho_{A,\mathrm{eq}}\) and \(B_A\) if its FLRW limit is
 regular. & Scalar source target, not full stress closure. \\
@@ -1599,37 +2076,42 @@ dynamic repair scale under the Jacobi mismatch premise. & Conditional clock. \\
 \subsection{Positive Galaxy Source}
 
 \paragraph{Theorem target 0A.}
-Let a settled galaxy collar state be judged by a scalar repair defect \(D_C\)
-with these properties: \(D_C\ge0\); \(D_C=0\) exactly on locally recoverable
-Markov states; \(D_C\) is invariant under boundary redundancy; \(D_C\) is
-additive over independent collar components; and \(D_C\) is monotone under
-local recovery maps.  Then the minimal scalar branch is
-\begin{equation}
-  D_C=\kappa I(A:D|B),
-  \qquad
-  \kappa\ge0.
-\end{equation}
-The OPH dark branch uses \(R_C=I(A:D|B)\).
+The scalar carried charge is fixed by the exact modular-defect identity, not by
+a separate uniqueness principle.  For a faithful finite collar state
+\(\omega_{ABD}\),
+\[
+  -\langle K_{ABD}-K_{AB}-K_{BD}+K_B\rangle_\omega
+  =I_\omega(A:D|B).
+\]
+After reference subtraction on an exact Markov collar, this defines the
+canonical carried modular charge \(M_C=I_\omega(A:D|B)\) in nats.  A
+quotient-invariant collar allocation may sum these charges over a proper
+small-ball cover only when it passes the source-localization saturation receipt
+connecting the same carried operator to the finite-cutoff Einstein remainder.
 
 \paragraph{Explicit premise.}
-The galaxy-scale finite-stage modular nonadditivity is represented by this
-minimal scalar recoverability defect on settled collar states.
+The galaxy-scale finite-stage modular nonadditivity is the carried modular
+charge appearing in the fixed-cap small-ball remainder, with hidden carrier
+duplicates, port relabelings, repair schedules, and refinement-equivalent
+covers quotiented out.
 
 \paragraph{Conditional argument.}
-Conditional mutual information has all listed properties on a finite collar.
-A different scalar with the same zero set and additivity would add an
-independent scalar datum to the minimal branch.  The minimal scalar selector is
-therefore fixed up to a nonnegative multiplier.  The OPH unit convention sets
-that multiplier to one.  Since \(I(A:D|B)\ge0\), the weak-field density defined
-by the anomaly normalization is nonnegative. \(\square\)
+Conditional mutual information is nonnegative, so the source-localized carried
+charge is nonnegative.  Equation~\eqref{eq:rhoA} then gives a nonnegative
+rest-mass density after the source-localization receipt passes.  The scalar
+charge alone does not determine \(T_A^{ab}\); packet factorization, causal
+directions, allocation, rest frame, and transport law are required to lift it
+to a stress tensor. \(\square\)
 
 \paragraph{Proof obligation.}
-Derive the map from the finite-stage modular nonadditivity term to
-\(I(A:D|B)\) on the galaxy branch.
+Prove the operator-level source-localization relation between the finite-stage
+small-ball modular remainder and the quotient-invariant collar charge, then
+prove the positive packet allocation and covariant causal packet lift.
 
 \paragraph{Failure consequence.}
-If the modular remainder is not this positive defect, the attractive source and
-normalization formula must be replaced by the derived scalar.
+Without source localization, \(I(A:D|B)\) remains a recoverability and
+collar-diagnostic number.  Without the packet lift, it cannot support lensing,
+CMB, growth, or conservation claims as a physical stress source.
 
 \subsection{Quotient-Edge Scalar Opportunity}
 
@@ -1949,7 +2431,7 @@ singular at \(g_b=0\) if treated as a homogeneous-background Taylor series.
 Therefore the static law cannot be linearized into CMB equations without an
 OPH parent functional.  A scalar parent functional must emit
 \(\rho_A(a)\) and \(B_A(k,a)\), which belongs to the source-candidate layer.
-Physical Boltzmann status requires the finite covariant packet parent above,
+Physical Boltzmann promotion requires the finite covariant packet parent above,
 its source-provenance certificate, and pooled global reducers. \(\square\)
 
 \subsection{Parent Collar Functional}
@@ -1972,21 +2454,24 @@ Define
   \label{eq:parentcollar}
 \end{equation}
 Then \eqref{eq:parentcollar} is a scalar parent collar functional that emits a
-background equilibrium source and a linear kernel:
+background equilibrium source and a linear response operator:
 \begin{equation}
   \bar\rho_{A,\mathrm{eq}}(a)=
   \rho_{A,\mathrm{eq}}[\bar\rho_b](a),
 \end{equation}
 \begin{equation}
-  K_A^{(\rho)}(k,a)=
-  \widehat{
+  (K_{A,r}^{(\rho)})_{jj'}(a)=
+  \left\langle
+  v_{rj},
   \left.
   \frac{\delta\rho_{A,\mathrm{eq}}(x,a)}
        {\delta\rho_b(x',a)}
   \right|_{\bar\rho_b}
-  }(k),
+  v_{rj'}
+  \right\rangle,
   \qquad
-  B_A(k,a)=\frac{\rho_b(a)}{\rho_A(a)}K_A^{(\rho)}(k,a).
+  (B_{A,r})_{jj'}(a)
+  =\frac{\rho_b(a)}{\rho_{A,\mathrm{eq}}(a)}(K_{A,r}^{(\rho)})_{jj'}(a).
 \end{equation}
 
 \paragraph{Conditional argument.}
@@ -1996,21 +2481,27 @@ scalar density on the coarse FLRW cell.  Evaluating the functional on a
 homogeneous baryonic density gives the background equilibrium source.  Taking
 the first functional derivative around that homogeneous state gives a
 translation-invariant and rotation-invariant linear response kernel.  Its
-Fourier transform is \(K_A^{(\rho)}(k,a)\), and division by the background density gives
-\(B_A(k,a)\). \(\square\)
+finite mode-basis matrix is \(K_{A,r}^{(\rho)}(a)\), and division by the equilibrium background density gives
+\(B_{A,r}(a)\).  The scalar \(B_A(k,a)\) is the diagonal, mode-decoupled special case after the
+commutator and off-diagonal leakage receipts pass. \(\square\)
 
 The finite-collar evaluation of \eqref{eq:parentcollar} is the mathematical
 target for replacing a fitted dark-matter abundance, but it does not determine
 the full fluid closure.  The scalar parent leaves open \(w_A\), \(c_{s,A}^2\),
-\(\sigma_A\), \(Q_A^\mu\), \(\Gamma_{\mathrm{rec}}\), recipient stress, and
-causal response.  Those data must come from the finite covariant packet parent
-before the scalar tables can feed a physical Boltzmann module.
+\(\sigma_A\), \(Q_A^\mu\), exchange-current closure, a certified
+\(\Gamma_{\mathrm{rec}}\), recipient stress, local-frame/quotient covariance,
+gauge-invariant perturbations, and causal response.  Those data must come from
+the finite covariant packet parent before the scalar tables can feed a physical
+Boltzmann module.
 
 \paragraph{Proof obligation.}
 Evaluate the collar measure and selected state from finite OPH screen/collar
 data in the homogeneous, perturbative, galaxy, and cluster regimes; lift the
 result to a finite covariant packet parent; prove exact stress-energy closure,
-gauge independence of \(B_A\), causal/stable response, refinement convergence,
+gauge independence of \(B_{A,r}\), common mode-basis compatibility with the primordial source,
+physical-time calibration for \(\Gamma_{\mathrm{rec}}\), recipient stress for nonzero exchange,
+exchange-current closure, local-frame and carrier-quotient invariance,
+causal/stable response, refinement convergence,
 and CDM-limit recovery.
 
 \subsection{Finite Repair Matrix}
@@ -2086,20 +2577,36 @@ relaxation time used by clusters and perturbations is computable from the
 second eigenvalue.  If \(K\) is reversible with stationary distribution
 \(\pi_{\mathrm{eq}}\), then
 \begin{equation}
-  \gamma_{\mathrm{rec}}=1-\lambda_2(K)
+  r_\star=\max_{\lambda_j\ne 1}|\lambda_j(K)|,\qquad
+  g_{\mathrm{abs}}=1-r_\star
 \end{equation}
-in discrete repair-step units, where \(\lambda_2\) is the largest nontrivial
-eigenvalue in absolute value on the mean-zero subspace.  For continuous-time
-generator \(L=K-\mathbf 1\), the gap is the smallest positive eigenvalue of
-\(-L\).
+in discrete repair-step units.  If the commit interval is
+\(\Delta t_{\mathrm{commit}}\), the exact physical e-folding rate is
+\begin{equation}
+  \Gamma_{\mathrm{phys}}
+  =
+  -\frac{\log r_\star}{\Delta t_{\mathrm{commit}}},
+  \qquad
+  \tau_{\mathrm{phys}}
+  =
+  \frac{\Delta t_{\mathrm{commit}}}{-\log r_\star}.
+\end{equation}
+The expression \(\Delta t_{\mathrm{commit}}/(1-r_\star)\) is only the
+small-gap approximation.  For continuous-time generator \(L\), the rate is the
+smallest positive eigenvalue of \(-L\) on the mean-zero subspace.  On a
+nonequilibrium nonnormal branch, eigenvalues alone are not enough; the parent
+must instead provide a Lyapunov, singular-value, or logarithmic-norm bound that
+excludes transient amplification.
 
 \paragraph{Proof.}
 Reversibility makes \(K\) self-adjoint in
 \(L^2(\pi_{\mathrm{eq}})\).  The stationary vector has eigenvalue one.  Every
 mean-zero mode decomposes into eigenvectors and decays by its eigenvalue per
 repair step.  The slowest decaying nonstationary mode is therefore the largest
-nontrivial eigenvalue, giving \(\gamma_{\mathrm{rec}}=1-\lambda_2(K)\).  The
-continuous-time statement follows by exponentiating the generator. \(\square\)
+nontrivial absolute eigenvalue \(r_\star\).  After \(n=t/\Delta t_{\mathrm{commit}}\)
+commits, its amplitude is \(r_\star^n=\exp[-t(-\log r_\star)/\Delta t_{\mathrm{commit}}]\),
+which gives the stated physical rate.  The continuous-time statement follows by
+exponentiating the generator. \(\square\)
 
 This is an exact finite-matrix target for the repair/commit microphysics.  A
 cluster timescale is a prediction only after this matrix or its OPH state
@@ -2159,15 +2666,14 @@ than a repair-clock theorem.
 The static equilibrium equation contains \(\rho_{A,\mathrm{eq}}\) but no
 relaxation rate.  Replacing \(\Gamma_{\mathrm{rec}}\) by any positive function
 leaves the same settled solution.  The Jacobi clock is therefore a dynamic
-OPH premise and has no theorem status inside the static RAR law.
+OPH premise and has no theorem claim inside the static RAR law.
 
 \subsection{Homogeneous Anomaly State Selection}
 
 \paragraph{Theorem target 0N.}
-Under flat capacity-saturated FLRW state selection, the homogeneous anomaly
-abundance is
+Under capacity-saturated FLRW state selection, the homogeneous closure relation is
 \begin{equation}
-  \Omega_{A0}
+  \Omega_{A0}+\Omega_{K0}
   =
   1-\Omega_{\Lambda,\OPH}
    -\Omega_{b0}-\Omega_{\nu0}-\Omega_{r0},
@@ -2176,6 +2682,8 @@ abundance is
   =
   \left(\frac{H_{\mathrm{dS}}}{H_0}\right)^2.
 \end{equation}
+If \(\Omega_{K0}=0\) is separately selected or explicitly assumed, this reduces to the flat
+benchmark value for \(\Omega_{A0}\).  Otherwise it is only a sum rule.
 If the homogeneous anomaly charge is transported as dust with no homogeneous
 repair exchange, then
 \begin{equation}
@@ -2183,9 +2691,9 @@ repair exchange, then
 \end{equation}
 
 \paragraph{Explicit premise.}
-The homogeneous state is flat, capacity-saturated, and selected by a residual
-Friedmann constraint after \(H_0\), baryons, neutrinos, and radiation are
-supplied.
+The homogeneous state is capacity-saturated.  The flat version additionally assumes or derives
+\(\Omega_{K0}=0\).  A residual Friedmann constraint after \(H_0\), baryons, neutrinos, and radiation
+are supplied does not by itself select either the curvature sector or the anomaly abundance.
 
 \paragraph{Conditional argument.}
 The flat Friedmann equation at \(a=1\) is
@@ -2193,9 +2701,9 @@ The flat Friedmann equation at \(a=1\) is
   1
   =
   \Omega_{\Lambda,\OPH}
-  +\Omega_{b0}+\Omega_{\nu0}+\Omega_{r0}+\Omega_{A0}.
+  +\Omega_{b0}+\Omega_{\nu0}+\Omega_{r0}+\Omega_{A0}+\Omega_{K0}.
 \end{equation}
-Solving for \(\Omega_{A0}\) gives the displayed residual.  Pressureless
+Solving gives only \(\Omega_{A0}+\Omega_{K0}\).  Pressureless
 homogeneous transport with zero homogeneous exchange obeys
 \[
   \rho_A'+3\mathcal H\rho_A=0,
@@ -2204,25 +2712,26 @@ whose solution is \(\rho_A(a)=\rho_{A0}a^{-3}\). \(\square\)
 
 \paragraph{Proof obligation.}
 Derive the conserved homogeneous information-defect charge \(Q_A\) from OPH
-screen state data, or declare it as cosmological state data.
+screen state data and supply an independent curvature label, or declare the missing piece as
+cosmological state data.
 
 \paragraph{Failure consequence.}
 The CMB dark abundance is conditional if \(Q_A\) is not selected by OPH
-microphysics.  A nonzero \(\Gamma_{\mathrm{rec}}\) branch is also conditional
-unless the same finite parent exposes the recipient stress that balances the
-exchange.
+microphysics.  A nonzero exchange branch is also conditional unless the same
+finite parent exposes the recipient stress and equal-and-opposite exchange
+current that balances the exchange.
 
 \paragraph{Capacity boundary.}
 The screen capacity fixes the dimensionless de Sitter capacity relation; the
 SI de Sitter scale additionally uses the selected OPH scale certificate.  After
 \(H_0\) and that scale display are supplied, it fixes \(\Omega_{\Lambda,\OPH}\).
-It does not by itself fix the baryon density,
-the neutrino density, the radiation density, or a conserved homogeneous
+It does not by itself fix the baryon density, the neutrino density, the radiation density, the
+curvature sector, or a conserved homogeneous
 anomaly charge.  A standalone OPH cosmology needs a theorem of the form
 \[
   Q_A=F_{\OPH}(\hbox{screen capacity},P,\hbox{screen state data})
 \]
-or an explicitly declared state-selection premise such as
+or an explicitly declared state-selection premise such as a flat benchmark using
 \eqref{eq:flatresidual}.
 
 \section{Falsifiers}
@@ -2240,9 +2749,9 @@ for comparison models.
 \item Cluster lensing offsets require a relaxation law incompatible with old
 settled-galaxy RAR.
 \item CMB peaks, CMB lensing, BAO, weak lensing, or growth reject every frozen
-finite covariant parent whose \(\Gamma_{\mathrm{rec}}\), \(B_A(k,a)\),
-\(\rho_A(a)\), stress closure, recipient channel, and CDM-limit recovery remain
-compatible with the galaxy branch.
+finite covariant parent whose certified \(\Gamma_{\mathrm{rec}}\), \(B_A(k,a)\),
+\(\rho_A(a)\), stress closure, recipient/exchange-current channel, physical
+clock, and CDM-limit recovery remain compatible with the galaxy branch.
 \end{enumerate}
 
 \section{Reproducibility}

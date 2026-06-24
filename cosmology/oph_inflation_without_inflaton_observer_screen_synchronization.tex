@@ -1,0 +1,169 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array,longtable}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xurl}
+
+\IfFileExists{../paper/release_info.tex}{
+  \input{../paper/release_info.tex}
+}{
+  \newcommand{\OPHPaperReleaseDate}{\today}
+  \newcommand{\OPHPaperReleaseBanner}{Draft}
+  \newcommand{\OPHPaperReleaseID}{local-cosmology-staging}
+}
+
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\setlength{\emergencystretch}{3em}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{target}[theorem]{Target}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\theoremstyle{plain}
+
+\newcommand{\OPH}{\mathrm{OPH}}
+\newcommand{\LCDM}{\Lambda\mathrm{CDM}}
+\newcommand{\Zsix}{\mathbb Z_6}
+\newcommand{\pathref}[1]{\nolinkurl{#1}}
+\newcommand{\SimSourceRepo}{\url{https://github.com/muellerberndt/oph-physics-sim}}
+
+\title{Inflation Without an Inflaton:\\
+Observer-Screen Synchronization as an OPH Cosmology Branch}
+\author{B.\ M\"uller}
+\date{\OPHPaperReleaseDate}
+
+\begin{document}
+\maketitle
+\OPHPaperReleaseBanner
+
+\begin{abstract}
+This staged OPH cosmology paper isolates the inflation-free branch.  It asks whether finite
+observer-screen synchronization can do the logical jobs normally assigned to an inflaton: flatness,
+horizon coherence, near scale invariance, hot initial data, and acoustic-transfer initial
+conditions.  The branch is conditional.  Screen spectra, repair gaps, release amplitudes, and dark
+sector inputs become physical cosmological inputs only after the quotient-ensemble, primordial
+bridge, transfer, and likelihood receipts pass.  Until then, simulator outputs remain diagnostics
+or reference ensembles.
+\end{abstract}
+
+\section{Status}
+
+This is a public staged template under \pathref{reverse-engineering-reality/cosmology/}.  It is not
+part of the release pipeline.  It refines the older draft at
+\pathref{cosmology/inflation_without_inflaton_observer_screen_synchronization.tex} against the
+current compact, screen-microphysics, dark-sector, and finite-source CMB papers.
+
+\section{Finite Quotient and Claim-Tier Firewall}
+
+\input{../paper/tex_fragments/FINITE_QUOTIENT_ENSEMBLE_THEOREMS.tex}
+
+\input{../paper/tex_fragments/SCREEN_SPECTRUM_THEOREMS.tex}
+
+\section{Branch Thesis}
+
+The branch claim is:
+\[
+\boxed{
+\begin{gathered}
+\text{On a declared finite-source continuation branch, OPH may replace the logical jobs of}\\
+\text{inflation by direct/CMH spatial-holonomy selection, same-boundary or low-}k\text{ repair coherence,}\\
+\text{a geometric screen spectrum, MaxEnt release, and ordinary Boltzmann transfer.}
+\end{gathered}}
+\]
+This claim is not part of the recovered SM/GR core.  It becomes predictive only when the source
+objects are fixed before observational comparison.
+
+\section{Paper Targets}
+
+\begin{longtable}{@{}p{0.28\textwidth}p{0.62\textwidth}@{}}
+\toprule
+Target & Required theorem or receipt\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Finite early state & Quotient normal-form branch with declared base measure and implementation
+invariance.\\
+Flatness & Zero clock-slice spatial Levi--Civita holonomy identifies \(\kappa=0\). Exact selection
+requires \textsc{DirectTheorem}, \textsc{ConditionalCMH}, or \textsc{ExplicitAssumption}; damping
+is only an approximate \(|K|\) or \(|\Omega_K|\) bound.\\
+Horizon coherence & Same-boundary unique-extension theorem or a uniform low-\(k\) repair gap.\\
+Near scale invariance & Geometric screen scalar, normalized scalar precision, source release
+energy, refinement tilt, and angular screen-spectrum receipts.\\
+Amplitude & Source release-energy certificate for \(A_q\), followed by a separate radial lift for
+\(A_\zeta\); neither may be fitted from CMB data.\\
+Hot start & MaxEnt release into the realized radiation branch with a common release clock.\\
+Acoustic transfer & Frozen source functions and Boltzmann transfer owned by the finite-source CMB
+and data-contract papers.\\
+\end{longtable}
+
+\section{Simulator Contract}
+
+The simulator reference is \SimSourceRepo.  For this paper the simulator may emit diagnostic
+screen spectra, observer-screen synchronization receipts, and release-amplitude candidates.  It
+must not label them inflation replacement, OPH primordial field, or physical CMB prediction unless
+the E4 and E5 receipts in the shared theorem fragment pass in the concrete run bundle.
+
+\section{Flatness Status}
+
+The flatness branch is split into identification and selection.  On a clocked FLRW continuation
+with \(u_a=-N\nabla_a\chi\), \(h_{ab}=g_{ab}+u_au_b\), and
+\(K(\tau)=\kappa/a(\tau)^2\), the area-normalized small-loop holonomy of the spatial
+Levi--Civita connection identifies \(K=0\) and hence \(\kappa=0\).  It does not select that sector
+from the raw FLRW fiber.  The simulator must therefore report one of
+\(\textsc{DirectTheorem}\), \(\textsc{ConditionalCMH}\), \(\textsc{ExplicitAssumption}\), or
+\(\textsc{OpenTheorem}\).  S3 screen/collar defect decay is a repair diagnostic, not a spatial
+curvature holonomy.  Curvature damping can certify only an \(\textsc{ApproximateBound}\) on
+\(|K|\) or \(|\Omega_K|\).
+
+\section{Screen-Spectrum Branch}
+
+The load-bearing screen result is the angular screen covariance, not a CMB spectrum:
+\[
+  C_\ell^q
+  =
+  A_q\frac{\Gamma(\ell-\theta/2)}{\Gamma(\ell+2+\theta/2)}.
+\]
+This statement requires the geometric \(q_r\) of Definition~\ref{def:oph-screen-scalar}, a
+normalized positive precision operator \(K_r\), a source-only release ensemble and
+\(E^{\rm src}_{q,r}\), the MaxEnt covariance theorem, and a finite-to-continuum refinement error
+budget.  The value \(\theta=P_\star/48\) is theorem-grade only if the edge-center reserve,
+half-collar scalar projection, and reserve-to-RG Ward identity in
+Target~\ref{target:oph-p-over-48-tilt} pass.  Otherwise \(P_\star/48\) and
+\(e(P_\star-\varphi)\) are distinct diagnostic hypotheses.
+
+The primordial power law
+\[
+  \Delta_\zeta^2(k)=A_\zeta\left(\frac{k}{k_\star}\right)^{-\theta}
+\]
+enters this paper only after the thin-shell or finite-window lift fixes \(R_\star\), \(Z_\star\),
+the radial window, the null-space report, the forward-projection residual, and the amplitude
+conversion from \(A_q\) to \(A_\zeta\).  A screen theorem by itself does not prove TT, TE, EE,
+lensing, acoustic peaks, or an official likelihood result.
+
+\section{Open Work}
+
+\begin{enumerate}[leftmargin=2em]
+\item Prove the same-boundary or low-\(k\) coherence branch in quotient language.
+\item Replace diagnostic feature-weight scalar readouts with the geometric collar-volume
+\(q_r=\Pi_{\ge2,r}(1/3)\log(J_{X,r}/\bar J_{X,r})\).
+\item Specify the source-release-energy certificate for \(A_q\) without CMB data use.
+\item Prove or bound the refinement source of \(\theta\), including the separate \(P_\star/48\)
+edge-center reserve lemmas if that branch is retained.
+\item Connect the synchronized release state to the source-only primordial bridge.
+\item Hand the resulting frozen inputs to the CMB and likelihood-contract papers.
+\end{enumerate}
+
+\end{document}

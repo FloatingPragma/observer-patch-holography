@@ -442,14 +442,14 @@ def render_markdown(status: dict[str, Any]) -> str:
         f"- Chrome workers needed: `{status['scope']['chrome_workers_needed']}`",
         f"- Hadron scope reason: {status['scope']['hadron_scope_reason']}",
         "",
-        "## Issue Gates",
+        "## Receipt Gates",
         "",
-        "| Issue | State | Closable | Local next artifact | Chrome policy |",
-        "| --- | --- | --- | --- | --- |",
+        "| Receipt label | Closable | Local artifact | Worker policy |",
+        "| --- | --- | --- | --- |",
     ]
     for gate in status["issue_gates"]:
         lines.append(
-            f"| #{gate['issue']} | `{_display_status(gate['state'])}` | `{gate['closable_now']}` | "
+            f"| `{_display_status(gate['state'])}` | `{gate['closable_now']}` | "
             f"`{gate['local_next_artifact']}` | {gate['chrome_workers']} |"
         )
 
@@ -458,9 +458,9 @@ def render_markdown(status: dict[str, Any]) -> str:
         lines.extend(
             [
                 "",
-                "## Companion Status Branches",
+                "## Companion Claim Boundaries",
                 "",
-                "| Topic | State | Current boundary | Next action |",
+                "| Topic | Claim label | Boundary | Gate |",
                 "| --- | --- | --- | --- |",
             ]
         )

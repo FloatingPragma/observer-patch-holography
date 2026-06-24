@@ -44,10 +44,10 @@ to meet. A successful reverse-engineered architecture must explain why the
 symptoms cluster. It must reduce the number of arbitrary knobs. It must
 respect the known test suite. It must explain why legacy effective
 descriptions worked where they did. It must make failures local, not global:
-when an extension remains assumption-dependent, that status must be visible rather
+when an extension remains assumption-dependent, that claim tier must be visible rather
 than hidden.
 
-This is why the book keeps returning to ledgers and status labels. A ledger
+This is why the book keeps returning to ledgers and claim labels. A ledger
 is a way to avoid overclaiming. It records what was derived, what was
 validated, what was anchored by empirical input, and what remains a
 continuation. A reverse engineer who marks every inference as certain is not
@@ -373,7 +373,7 @@ Observatory, and many more. Cosmology is public reality at the largest scale.
 It is tempting, when reading a theory with numerical claims, to treat
 constants like trophies. A theory "gets" a number, and the reader is invited
 to be impressed. That is not a healthy way to read this book. Constants are
-only meaningful when their inputs, equations, uncertainty handling, and status
+only meaningful when their inputs, equations, uncertainty handling, and claim
 labels are visible.
 
 Take the fine-structure constant. The low-energy electromagnetic coupling is
@@ -405,7 +405,7 @@ lane.
 The reader should treat these labels as part of the theory, not as legal
 small print. They tell you how much weight each line can carry. They also
 make the project stronger. A theory with visible support labels can improve
-without pretending that every claim has the same status. It can downgrade,
+without pretending that every claim has the same claim tier. It can downgrade,
 promote, or revise rows as proofs and evidence change.
 
 The human chain behind constants is enormous. Metrology institutes, collider
@@ -430,7 +430,7 @@ consistency among many patches. That is almost the opposite of solipsism. The
 individual observer is not sovereign. The individual observer is constrained
 by every interface where records can be compared. A hallucination, a detector
 fault, and a genuine event can all be experiences inside some patch. They do
-not have the same public status because they do not survive the same
+not have the same public claim tier because they do not survive the same
 cross-checks.
 
 This is close to the actual practice of science. A single lab result is not
@@ -493,7 +493,7 @@ measured. If $c$ appears, relativity is converting space and time. If
 $\hbar$ appears, quantum action is involved. If $k_B$ appears, entropy and
 temperature units are being related. If $G$ appears, gravity is present.
 
-Fifth ask for status. Is the equation an established result from prior
+Fifth ask for claim tier. Is the equation an established result from prior
 physics? A definition? A derived OPH relation? A conjectural continuation? A
 numerical consistency check? The book should make that visible. If the label is
 missing, the reader should demand it.
@@ -534,7 +534,7 @@ symmetry, de Sitter capacity, and particle structure cluster together because
 they are one observer-consistency architecture.
 
 That is the attitude the reader should carry forward. The right response is
-inspection. Check the symbols. Check the status labels.
+inspection. Check the symbols. Check the claim labels.
 Check the bridge from known physics to OPH-specific claims. Check whether the
 diagrams clarify or oversimplify. Check whether public-facing summaries
 preserve the same caution as the technical sources. A theory about
@@ -565,7 +565,7 @@ an external clock. In Chapter 12, ask whether symmetry is presented as a
 translation rule for shared descriptions. In Chapter 13, ask whether the de
 Sitter horizon is understood as a finite capacity surface. In Chapter 14, ask
 whether Standard Model claims keep their theorem, validation, and empirical
-status labels distinct. In Chapter 15, ask whether relativity emerges through
+claim labels distinct. In Chapter 15, ask whether relativity emerges through
 modular geometry, generalized entropy, and the weak-field limit, with no
 assumption that it arrives whole.
 
@@ -589,7 +589,7 @@ losing its load-bearing content.
 A good OPH sentence should behave like a good interface. It should expose the
 right inputs. It should hide no critical dependency. It should fail visibly
 when the claim exceeds its support. If a symbol appears, the reader should
-know what physical job it performs. If a status label appears, the reader
+know what physical job it performs. If a claim label appears, the reader
 should know whether the line is structural, assumption-dependent, empirical, or
 in a declared derivation lane. If a diagram appears, the diagram should orient
 the reader before the next paragraph asks for more abstraction.
@@ -693,7 +693,7 @@ state spaces carry the real theorem content.
 The Tannaka-Krein and generation-count diagrams are closer to the technical
 program. They remind the reader that gauge structure can be reconstructed
 from representation data, and that generation claims have specific windows
-and conditions. Their edge is status: not every row in the particle program
+and conditions. Their edge is claim tier: not every row in the particle program
 has the same theorem grade.
 
 The modular-flow, null-blowup, and Newton-limit diagrams form a sequence.
@@ -716,7 +716,7 @@ The mathematical handles are the overlap-consistency axioms, recovery
 conditions, modular-flow route to Lorentz and Einstein behavior, and
 Tannaka-Krein reconstruction of the compact gauge structure.
 
-The phenomenological handles are particle status rows, source-only outputs,
+The phenomenological handles are particle claim rows, source-only outputs,
 empirical payload classes, the dark-sector continuation, neutrino assumptions,
 quark-sector scheme dependence, and uncertainty analysis.
 
@@ -724,7 +724,7 @@ The conceptual handles are observer-first language, operational structure,
 strange-loop closure, and restoration through interfaces.
 
 The editorial handles are the alignment among PDF, book source, diagrams,
-website text, public refresh surfaces, and status ledgers.
+website text, public refresh surfaces, and claim ledgers.
 
 Those handles make OPH easy to inspect. A theory about consistency should
 welcome hard consistency checks.
@@ -753,9 +753,9 @@ neutrino masses has to say what assumptions and anchors are being used.
 The fine-structure constant also has several faces. At low energy it is known
 with extraordinary precision. At higher energies it runs. The inverse value
 near 137 is culturally famous, but the fame is a trap. Without scale,
-scheme, uncertainty, and input status, a numerical match means little.
+scheme, uncertainty, and input role, a numerical match means little.
 
-OPH's status-table language exists to keep these distinctions visible. A source-only
+OPH's claim-ledger language exists to keep these distinctions visible. A source-only
 row is different from a validation row. A target-anchored witness is
 different from a prediction. A hadronic empirical payload is different from a
 first-principles quark-mass calculation. The reader should be suspicious of
@@ -813,7 +813,7 @@ before the reader has been given enough handles to use it. It can make the work
 of whole communities disappear behind a few famous names.
 
 Length has no automatic virtue. Padding is bad. Repetition is bad. Useful
-length serves the reader: historical context, symbol explanations, status
+length serves the reader: historical context, symbol explanations, claim
 labels, diagrams placed where they reduce cognitive load, and appendices that
 let a reader recover the thread after a difficult chapter.
 
@@ -886,7 +886,7 @@ backgrounds, blind selections, combine channels, estimate systematic
 uncertainties, and compare independent experiments. ATLAS and CMS did not
 share one eye. They built separate record chains that agreed.
 
-That is why particle tables deserve status labels. A mass value can be an
+That is why particle tables deserve claim labels. A mass value can be an
 experimental measurement, a derived structural output, a validation row, a
 target-anchored witness, or an empirical closure check. Those categories are
 different ways of saying how the fact chain is built. A reader who knows the
@@ -965,7 +965,7 @@ claim, the reader should be able to see the relay behind it.
 This relay also explains the book's precision around open particle derivations.
 The fine-structure branch, electroweak rows, Higgs/top surface, neutrino
 branch, quark sector, strong-CP boundary, and hadron payloads do not all have
-the same status. Some rows are structural. Some are compare-only validation rows. Some
+the same claim tier. Some rows are structural. Some are compare-only validation rows. Some
 depend on empirical payloads. Some remain in declared derivation lanes. A
 public fact built from a long chain has to show which links are welded and
 which links are scaffolds.
@@ -980,7 +980,7 @@ physics that constrains them.
 
 The reader can therefore treat each chapter as a fact-building exercise. What
 is the record? What is the instrument? What is the equation? What is the
-status label? What is inherited from established physics? What does OPH add?
+claim label? What is inherited from established physics? What does OPH add?
 What would break the claim? If those questions can be answered, the chapter is
 doing its job. If they cannot, the prose needs more work.
 
@@ -1006,9 +1006,10 @@ but it is not enough. Lensing, clusters, cosmic microwave background peaks,
 large-scale structure, galaxy diversity, and precision expansion history all
 matter.
 
-The matter status table needs continuous hygiene. Quark masses, hadron payloads,
+The matter claim ledger needs continuous hygiene. Quark masses, hadron payloads,
 neutrino assumptions, and electroweak scheme choices must stay explicit. The
-strong-CP branch is work in progress in the selected-class quark theorem as stated.
+selected-class quark theorem does not emit the physical strong-CP invariant or
+prove its vanishing.
 The book should not imply otherwise.
 
 The observer and restoration discussions use the fixed-cutoff

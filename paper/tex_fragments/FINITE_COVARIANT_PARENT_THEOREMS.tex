@@ -1,0 +1,106 @@
+\paragraph{Canonical finite covariant collar-packet parent.}
+For a regulator \(r\) and background \((X,g)\), the source object is
+\[
+\mathcal P_r[X,g]=
+(\mathcal C_r,g_r,e_r,U_r,Z_r,\omega_r,p_r,f_r,\Phi_r,\mathcal R_r,
+\mathcal G_r,\pi_r,\mathsf{Read}_r).
+\]
+Here \(\mathcal C_r\) is a finite causal cell complex with oriented faces, cell
+four-volumes, causal adjacency, and finite parallel transports \(U_{F\to c}\);
+\(e_r\) is the tetrad/local-frame data; \(Z_r=\bigsqcup_s Z_{s,r}\) is the
+packet state space for anomaly, recipient, radiation, standard matter, and any
+interaction sector; \(\omega_r,p_r,f_r\) are invariant weights, local momenta,
+and occupations; \(\Phi_r\) is the face flux; \(\mathcal R_r\) is the reaction
+channel list; \(\mathcal G_r\) is the finite gauge/quotient data; \(\pi_r\) is
+the restriction/refinement map; and \(\mathsf{Read}_r\) is the local observable
+readout.  With signature \((-+++)\), every packet used in a kinetic stress
+branch must satisfy \(g_{ab}p_z^ap_z^b=-m_z^2\), \(p_z^0>0\), and
+\(\omega_z f_{c,z}\ge0\), with the invariant measure convention declared
+explicitly.
+
+\paragraph{Scalar-to-stress nonuniqueness.}
+A scalar collar row, even a finite row for \(\rho_A(a)\), \(\rho_{A,\mathrm{eq}}(a)\),
+or \(B_A(k,a)\), does not determine a stress tensor.  Many inequivalent packet
+parents can have the same scalar density while differing in pressure, sound
+speed, anisotropic stress, exchange current, gauge-invariant perturbation
+variables, and causal response.  Therefore no evidence bundle may promote scalar rows
+to physical CMB, lensing, growth, or \(S_8\) inputs unless the parent supplies
+the missing stress and response variables.
+
+\paragraph{Finite MaxEnt lift.}
+When only finitely many one-cell source readings
+\(e_x(u_i)=T^A_{ab}(x)u_i^au_i^b\) are available, a stress lift is not unique
+until the branch supplies a finite selection rule.  The admissible MaxEnt lift
+minimizes no hidden observational residual: it maximizes the declared packet
+entropy subject to the source readings, mass shells, conserved charges, local
+frame covariance, and refinement restrictions.  The lift is physical only when
+held-out timelike probes pass a quadraticity/tomography test and the
+variational stress agrees with the packet-moment stress in the predeclared norm.
+
+\paragraph{Packet stress and exchange closure.}
+For a kinetic parent,
+\[
+T_{I,r}^{ab}(c)=
+\frac{1}{V_c}\sum_{z\in Z_{I,r}(c)}\omega_zf_{c,z}p_z^ap_z^b ,
+\qquad
+J_{I,r}^a(c)=
+\frac{1}{V_c}\sum_{z\in Z_{I,r}(c)}\omega_zf_{c,z}p_z^a .
+\]
+More general packet parents may add an internal stress \(\Sigma_z^{ab}\), but
+then \(\Sigma_z^{ab}\) is part of the primitive parent data and must obey the
+same local-frame and refinement checks.  The finite transport/reaction equation
+must imply
+\[
+\operatorname{Div}_r T_{I,r}^{ab}=Q_{I,r}^b,\qquad
+\sum_I Q_{I,r}^b=0.
+\]
+If the repair exchange is nonzero, a row labelled ``recipient'' is not enough:
+the recipient stress \(T_R^{ab}\), exchange current \(Q_R^b\), and closure
+residual \(Q_A^b+Q_R^b\) must be emitted and certified.  If exchange is off,
+the parent instead emits a repair-exchange-off receipt.
+
+\paragraph{Response, rate, and gauge receipts.}
+The finite causal response must provide a finite domain of dependence,
+subluminal characteristic bound, retarded support residual, and response
+stability residual.  The transition-matrix diagnostic may be called
+\(\gamma_{\mathrm{repair\ step}}\) until the active fiber, conserved-sector
+decomposition, physical clock \(\Delta\tau_{\mathrm{physical}}\), and common
+parent response pole are certified.  Only then may one write
+\[
+\Gamma_{\mathrm{rec}}=
+-\operatorname{Re}\lambda_{\mathrm{active}}/\Delta\tau_{\mathrm{physical}} .
+\]
+Gauge checks must be stated in gauge-invariant or rest-frame variables; raw
+Newtonian/synchronous agreement is a diagnostic, not a gauge-independence
+receipt.
+
+\paragraph{Receipt hierarchy.}
+The finite parent receipt is the conjunction of primitive evidence receipts,
+not a producer-declared boolean.  The source-side conjunction includes
+\[
+\begin{gathered}
+\texttt{SOURCE\_ROUTE},\ \texttt{ENTROPY\_UNIT},\
+\texttt{MODULAR\_NONADDITIVITY\_IDENTITY},\
+\texttt{SOURCE\_LOCALIZATION},\
+\texttt{STRESS\_TOMOGRAPHY},\\
+\texttt{FINITE\_PACKET\_KINEMATICS},\
+\texttt{PACKET\_MASS\_SHELL},\
+\texttt{TRANSPORT\_COVARIANCE},\
+\texttt{CHANNEL\_FOUR\_MOMENTUM},\
+\texttt{FINITE\_PACKET\_STRESS\_READOUT},\\
+\texttt{VARIATIONAL\_MOMENT\_STRESS\_AGREEMENT},\
+\texttt{LOCAL\_FRAME\_COVARIANCE},\
+\texttt{CARRIER\_QUOTIENT\_INVARIANCE},\\
+\texttt{TOTAL\_STRESS\_CLOSURE},\
+\texttt{EXCHANGE\_CURRENT\_CLOSURE},\
+\texttt{COSMOLOGICAL\_GAUGE\_INVARIANCE},\\
+\texttt{FINITE\_DOMAIN\_OF\_DEPENDENCE},\
+\texttt{SUBLUMINAL\_CHARACTERISTICS},\
+\texttt{RETARDED\_RESPONSE},\
+\texttt{RESPONSE\_STABILITY},\\
+\texttt{REFINEMENT\_CONVERGENCE},\
+\texttt{CDM\_LIMIT\_RECOVERY}.
+\end{gathered}
+\]
+Frozen source, solver, likelihood, and data hashes are later promotion receipts.
+They do not belong to the parent theorem and cannot rescue a failed parent.
