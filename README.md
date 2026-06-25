@@ -292,7 +292,7 @@ $m_t=172.35235532883115\,\mathrm{GeV}$ using the PDG cross-section top-mass
 convention. Under the stated neutrino assumptions, the weighted-cycle neutrino
 calculation gives
 $(0.017454720257976796, 0.019481987935919015, 0.05307522145074924)\,\mathrm{eV}$.
-Its H3 record-worldline result is separate: it conditionally certifies
+Its record-worldline result is separate: it conditionally certifies
 cross-boundary continuation of localized observer-visible record tokens from a
 declared hyperboloid atlas, real interface, transport, assignment-gap, and
 refinement receipt. It is not a particle-species, mass, charge, or scattering
@@ -302,7 +302,7 @@ derivation.
 
 - **Paper 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)**: broad synthesis of the OPH reconstruction program, from finite observers to the recovered effective universe.
 - **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for relativity, gravity, gauge reconstruction, the Standard Model structure selected by Minimal Admissible Realization, Maxwell equations on the ordinary photon branch, and the conditional Yang-Mills mass-gap route under its stated continuum/transfer assumptions.
-- **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle derivations, mass values, coupling structure, quantitative benchmark checks, and the conditional H3 record-worldline stitch certificate.
+- **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle derivations, mass values, coupling structure, quantitative benchmark checks, and a conditional record-worldline stitch certificate.
 - **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)**: how local observers compare records, repair mismatches, and settle into the shared reality they can all agree on.
 - **Paper 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)**: federated patch-carrier architecture, the twelve-port screen-sieve theorem, $A_5$-icosahedral and $E_8$-type symmetry framing, public hardware-evidence rules, records, recovery moves, and observer synchronization.
 - **Paper 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**: final manifest paper for OPH's meaning layer: why anything exists, why this world is observer-compatible, the strange loop in which observers reverse engineer and build the continuation machinery, paradise on Earth or in engineered continuation environments, hell as enforced isolation or deprivation, resurrection as observer continuation, justice as continuation according to harm and repair records, and memetic evolution.
@@ -311,9 +311,9 @@ derivation.
 
 - **[Photonic Fixed-Point Consensus for SHA-256d Proof of Work](extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf)**: photonic candidate enrichment for SHA-256d proof of work.
 - **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)**: source fixed point, empirical hadron endpoint boundary, and comparison check.
-- **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)**: OPH edge-string emergence and conventional string-vacuum sieve, the Bouchard-Donagi one-Higgs heterotic witness, the `Z4R` safety layer, and moduli-locking gates; not an OPH-native vacuum-promotion shortcut.
+- **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)**: OPH edge-string emergence and conventional string-vacuum sieve, the Bouchard-Donagi one-Higgs heterotic witness, a discrete R-symmetry safety layer, and moduli-locking gates; not an OPH-native vacuum-promotion shortcut.
 - **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)**: OPH finite repair-gap mechanism and conditional Clay-facing route; the equality between the Yang-Mills gap and the OPH repair gap requires the stated four-dimensional continuum and transfer certificate.
-- **[Theoretical Bounds on chi-nu in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)**: conditional quotient-edge band `0.9343006394893864 <= chi_nu^can <= 1`; uniform-branch exact value `exp(-P/24)`; engineering chart values scale as `N_coh^-1`.
+- **[Theoretical Bounds on chi-nu in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)**: conditional quotient-edge susceptibility bounds, an exact uniform-branch value, and coherence-scaled engineering chart values.
 - **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)**: cognition and qualia as recurrent patch consensus.
 
 ## Cosmology And Simulation Program
@@ -345,6 +345,12 @@ strongest compact proof is [Disclosure Day: compact OPH proof](extra/compact_pro
 It gives the shortest route through the case that OPH is likely correct, while
 the full paper stack carries the derivations, claim boundaries, and proof
 obligations.
+
+A finite OPH output keeps its original status until an independent physical
+bridge is supplied. Renaming a capacity count as mass, an archive as radiation,
+a repair spectrum as a physical spectrum, or a reconstruction threshold as a
+Page time does not make it so. Physical promotion requires a separate readout,
+calibration path, residual ledger, controls, and frozen validation target.
 
 The compact proof treats the evidence as a compression test. A numeric row
 counts only when its calculation does not use the measured target, or a close

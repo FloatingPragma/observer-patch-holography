@@ -413,6 +413,15 @@ reconstruction, the hierarchy bridge, dark energy, the dark-sector budget, the
 absence of simple-GUT proton decay, particle inventory, and the string-vacuum
 sieve.
 
+The same rule blocks a subtler mistake. A finite output does not become a
+physical observable just because we give it a physical name. A capacity count is
+not mass until an independent energy readout is supplied. An archive is not
+radiation until a source, propagation path, and detector are supplied. A repair
+spectrum is not a physical spectrum until the physical operator and readout are
+supplied. A reconstruction threshold is not a Page time until physical entropy
+and clock data are supplied. Renaming preserves the same bookkeeping; a physical
+claim needs a new bridge.
+
 The cosmology boundary is deliberately narrower. The de Sitter capacity closure
 belongs to the global gravity story. Screen spectra, CMB curves, growth curves,
 and dark-sector anomaly models remain diagnostic tests unless their

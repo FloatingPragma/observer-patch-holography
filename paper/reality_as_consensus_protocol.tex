@@ -31,9 +31,12 @@ The Fixed-Point Computation That Implements Physics}
 \OPHPaperReleaseBanner
 
 \begin{abstract}
-The consensus layer of OPH models a universe as a finite network of observer patches. Patches can carry mismatched overlap data. Repair moves reduce the mismatch until the public state settles. The computation is fixed-point selection of a public normal form, and cosmic history is the internal readout of that normal form.
+The consensus layer of OPH models a universe as a finite network of observer patches. Patches can disagree on their overlaps. Repair moves reduce those disagreements until the public state settles. The computation is fixed-point selection of a public normal form, and cosmic history is the internal readout of that form.
 
-The finite patch-net mechanics are the working layer used by the rest of the OPH stack. Accepted repair moves pass transactional validation and descend an exact measure until termination; atomic conflict-component commits and repair completeness give a schedule-independent normal form, and loop holonomy marks the exact places where local agreement fails globally. The same bookkeeping carries stable records with Born--L\"uders readout on the central event surface, refinement control, and a fair-block theorem for noisy consensus.
+The paper proves the finite mechanics used by the rest of the OPH stack:
+validated repair, exact descent, schedule-independent normal forms under the
+declared hypotheses, loop obstructions, stable records, refinement control, and
+a fair-block theorem for noisy consensus.
 \end{abstract}
 
 \section*{What This Paper Contributes}
@@ -104,7 +107,10 @@ This paper proves a constraint-code firewall and nine core consensus results:
 its codewords are exactly the globally consistent states, and \(C=\Phi^{-1}(0)\)
 (Proposition~\ref{prop:constraint-code}). This is the default meaning of ``the overlap network is
 a code.'' It is not, by itself, a quantum error-correcting code and does not imply a graph
-min-cut formula for distance (Theorem~\ref{thm:no-free-mincut}).
+min-cut formula for distance (Theorem~\ref{thm:no-free-mincut}). The same firewall blocks semantic
+promotion by relabeling: a finite constraint, archive, repair spectrum, or reconstruction threshold
+remains a finite diagnostic until a source-separated physical bridge supplies the relevant readout,
+residual ledger, controls, and frozen validation target.
 \item \textbf{Asynchronous confluence.} For the declared accepted repair law, primitive recovery proposals pass through transactional snapshot/read/write validation, boundary/sector preservation, and exact descent. Atomic conflict-component commits give the local diamond on the physical quotient; under repair completeness, every fixed initial quotient state has a unique normal form, independent of update schedule (Theorem~\ref{thm:confluence}).
 \item \textbf{Cycle obstruction.} For affine overlap constraints over an abelian group, global consistency holds if and only if the holonomy vanishes on every cycle (Theorem~\ref{thm:holonomy}). The parity triangle gives the minimal frustrated example, and Theorem~\ref{thm:higherdefects} extends the same logic to the crossed-module higher-gauge defect hierarchy used later in the framework.
 \item \textbf{Gauge quotient, selected fibers, and observable-level confluence.} When local repair is induced on the overlap-invariant quotient, the normal-form map descends to that quotient, and the induced terminal state on every declared physical observable algebra is unique there even when microscopic representatives differ by gauge or sector relabelings inside one quotient-local glued state. If a boundary/sector map is preserved and each consistent boundary fiber has at most one quotient extension, then all initial states with that boundary value settle to the same quotient normal form; the functional selected-fiber branch proves a nontrivial case where multiple same-boundary interiors exist, inconsistent candidates are eliminated, and surviving candidates share one quotient normal form (Theorems~\ref{thm:gauge}, \ref{thm:boundary-conditioned-uniqueness}, \ref{thm:functional-selected-fiber}, Corollary~\ref{cor:branch-elimination}, and Theorem~\ref{thm:obsconfluence}).

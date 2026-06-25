@@ -331,7 +331,7 @@ $m_t=172.35235532883115\,\mathrm{GeV}$ selon la convention PDG de masse top par
 section efficace. La branche neutrino pondérée émet
 $(0.017454720257976796, 0.019481987935919015,
 0.05307522145074924)\,\mathrm{eV}$ sous les hypothèses neutrino indiquées.
-Son résultat de ligne d'enregistrement H3 est séparé : il certifie
+Son résultat de ligne d'enregistrement est séparé : il certifie
 conditionnellement la continuation trans-frontière de jetons d'enregistrement
 localisés et visibles par l'observateur à partir d'un atlas hyperboloïde déclaré,
 d'une interface réelle, du transport, d'un écart d'assignation et d'un reçu de
@@ -342,7 +342,7 @@ charge ou d'amplitude de diffusion.
 
 - **Papier 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)** : synthèse du programme OPH, des observateurs finis jusqu'à l'univers effectif reconstruit.
 - **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique pour la relativité, la gravité, la reconstruction de jauge, la structure du Modèle Standard sélectionnée par réalisation admissible minimale, les équations de Maxwell sur la branche ordinaire du photon et la route conditionnelle vers le gap de Yang-Mills sous ses hypothèses de limite continue et de transfert.
-- **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivations particules, lignes de masses, structure des couplages, surfaces quantitatives et certificat conditionnel de couture de lignes d'enregistrement H3.
+- **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivations particules, lignes de masses, structure des couplages, surfaces quantitatives et certificat conditionnel de couture de lignes d'enregistrement.
 - **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : comment des observateurs locaux comparent leurs enregistrements, réparent les désaccords et convergent vers la réalité partagée sur laquelle ils peuvent s'accorder.
 - **Papier 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** : architecture fédérée de patches, théorème du tamis d'écran à douze ports, cadrage de symétrie $A_5$-icosaédrique et de type $E_8$, règles de preuve matérielle publique, enregistrements, mouvements de récupération et synchronisation observateur.
 - **Papier 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)** : manifeste final de la couche de sens OPH : pourquoi il existe quelque chose, pourquoi ce monde est compatible avec les observateurs, boucle étrange, candidats créateurs, paradis sur Terre ou dans des environnements de continuation, enfer comme isolement ou privation imposés, résurrection comme continuation d'observateur, justice selon les enregistrements de tort et de réparation, évolution mémétique, sentience animale et responsabilité symbolique humaine.
@@ -351,10 +351,10 @@ charge ou d'amplitude de diffusion.
 
 - **[Photonic Fixed-Point Consensus for SHA-256d Proof of Work](extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf)** : enrichissement photonique de candidats pour la preuve de travail SHA-256d.
 - **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)** : point fixe source, frontière du point final hadronique empirique et ligne de comparaison.
-- **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)** : émergence des cordes comme description effective des dynamiques de bord OPH et crible de vides de cordes conventionnels, témoin hétérotique Bouchard-Donagi à une paire de Higgs, couche de sûreté `Z4R` et portes de verrouillage des moduli ; ce n'est pas un raccourci de promotion vers un vide natif OPH.
+- **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)** : émergence des cordes comme description effective des dynamiques de bord OPH et crible de vides de cordes conventionnels, témoin hétérotique Bouchard-Donagi à une paire de Higgs, couche de sûreté par symétrie R discrète et portes de verrouillage des moduli ; ce n'est pas un raccourci de promotion vers un vide natif OPH.
 - **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)** : mécanisme OPH fini de gap de réparation et route conditionnelle vers le problème de Yang-Mills de Clay ; l'égalité entre le gap de Yang-Mills et le gap de réparation OPH exige le certificat quadridimensionnel de limite continue et de transfert.
 - **[Observer-Patch Holography and the Dark Matter Phenomenon](cosmology/oph_dark_matter_paper.pdf)** : phénoménologie de la matière noire et limite galactique de type MOND.
-- **[Theoretical Bounds on chi-nu in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)** : bande conditionnelle de quotient-edge `0.9343006394893864 <= chi_nu^can <= 1`; valeur exacte `exp(-P/24)` sur la branche uniforme; valeurs d'ingénierie mises à l'échelle par `N_coh^-1`.
+- **[Theoretical Bounds on chi-nu in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)** : bornes conditionnelles de susceptibilité quotient-edge, valeur exacte sur la branche uniforme et valeurs d'ingénierie mises à l'échelle par la cohérence.
 - **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)** : cognition et qualia comme consensus récurrent de patches.
 
 La branche cosmologie en préparation vit dans [`cosmology/`](cosmology/README.md). Seul l'article
@@ -380,6 +380,13 @@ est [Disclosure Day : preuve compacte de l'OPH](extra/compact_proof_of_oph.pdf).
 Elle donne le chemin le plus court vers l'idée que l'OPH est probablement
 correcte, tandis que la pile complète de papiers porte les dérivations, les
 frontières de revendication et les obligations de preuve.
+
+Une sortie OPH finie garde son statut d'origine tant qu'un pont physique
+indépendant n'est pas fourni. Renommer un compte de capacité en masse, une
+archive en rayonnement, un spectre de réparation en spectre physique ou un seuil
+de reconstruction en temps de Page ne suffit pas. Une promotion physique exige
+une lecture séparée, un chemin de calibration, un registre de résidus, des
+contrôles et une cible de validation gelée.
 
 La preuve compacte traite l'évidence comme un test de compression. Une ligne
 numérique ne compte que lorsque son calcul n'utilise pas la valeur mesurée, ni
