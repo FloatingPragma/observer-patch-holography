@@ -6,9 +6,12 @@ The intuitive picture is straightforward. The universe is made of particles.
 Forces act between them. The Standard Model is the final inventory of what
 exists.
 
-In this picture, an electron is a tiny object with definite properties, and fields are invisible fluids that fill space. You learn the Standard Model as a catalog: quarks, leptons, gauge bosons, the Higgs. That is the whole picture.
+In this picture, an electron is a tiny object with definite properties, and
+fields are invisible fluids that fill space. You learn the Standard Model as a
+catalog: quarks, leptons, gauge bosons, the Higgs. That is the whole picture.
 
-This view works for calculations, but it hides what is actually strange about our best theory of matter.
+This view works for calculations. It also hides what is actually strange about
+our best theory of matter.
 
 ## 14.2 The Surprising Hint: The Standard Model Is Not Fundamental
 
@@ -20,27 +23,42 @@ not the foundation.
 
 ## 14.3 The Quantum Revolution
 
-To understand what the Standard Model really says, we need to start with quantum mechanics itself. And quantum mechanics is deeply, irreducibly weird.
+To understand what the Standard Model really says, we need to start with
+quantum mechanics itself. Quantum mechanics is deeply, irreducibly weird.
 
 ### Planck's Desperate Act
 
-In December 1900, Max Planck presented a formula to the German Physical Society. He called it "an act of desperation."
+In December 1900, Max Planck presented a formula to the German Physical
+Society. He called it "an act of desperation."
 
-The problem was blackbody radiation. When you heat an object, it glows. At low temperatures, it glows red. Hotter, it glows white. The question was: how much light at each wavelength?
+The problem was blackbody radiation. When you heat an object, it glows. At low
+temperatures, it glows red. Hotter, it glows white. The question was: how much
+light at each wavelength?
 
-Classical physics gave a disastrous answer. The Rayleigh-Jeans formula predicted infinite energy at short wavelengths. Ovens should emit deadly gamma rays. This was the "ultraviolet catastrophe."
+Classical physics gave a disastrous answer. The Rayleigh-Jeans formula
+predicted infinite energy at short wavelengths. Ovens should emit deadly gamma
+rays. This was the "ultraviolet catastrophe."
 
-Planck found a formula that fit the data extremely well. But to derive it, he had to assume something absurd: energy comes in discrete packets. Light of frequency f carries energy in multiples of hf, where h is a tiny constant.
+Planck found a formula that fit the data extremely well. To derive it, he had
+to assume something absurd: energy comes in discrete packets. Light of
+frequency $f$ carries energy in multiples of $hf$, where $h$ is a tiny
+constant.
 
 $$E = nhf, \quad n = 0, 1, 2, 3, \ldots$$
 
-Planck didn't believe this was real physics. He thought it was a mathematical trick. It took Einstein to show it was genuine.
+Planck did not believe this was real physics. He thought it was a mathematical
+trick. It took Einstein to show it was genuine.
 
 ### Einstein's Light Quanta
 
-In 1905, Einstein explained the photoelectric effect. When light hits metal, electrons pop out. But the energy of those electrons depends only on the light's frequency, not its intensity. Brighter light produces more electrons, not faster ones.
+In 1905, Einstein explained the photoelectric effect. When light hits metal,
+electrons pop out. The energy of those electrons depends only on the light's
+frequency, not its intensity. Brighter light produces more electrons, not
+faster ones.
 
-Einstein's explanation: light really does come in packets. A photon of frequency f carries energy hf. One photon kicks out one electron. The photon's frequency determines the electron's energy.
+Einstein's explanation: light really does come in packets. A photon of
+frequency $f$ carries energy $hf$. One photon kicks out one electron. The
+photon's frequency determines the electron's energy.
 
 This was radical. For two centuries, physicists had proven that light was a wave. Young's double-slit experiment showed interference patterns. Maxwell's equations described electromagnetic waves. Einstein was saying light was particles?
 
@@ -48,37 +66,52 @@ Both were true. Light is neither purely wave nor purely particle. It's something
 
 ### Bohr's Atom
 
-In 1913, Niels Bohr proposed a model of the hydrogen atom. Electrons orbit the nucleus, but only in specific orbits. When an electron jumps between orbits, it emits or absorbs a photon.
+In 1913, Niels Bohr proposed a model of the hydrogen atom. Electrons orbit the
+nucleus, but only in specific orbits. When an electron jumps between orbits, it
+emits or absorbs a photon.
 
-The model was frankly bizarre. Why should only certain orbits be allowed? Bohr had no answer. He just declared that angular momentum must be quantized:
+The model was frankly bizarre. Why should only certain orbits be allowed? Bohr
+had no answer. He declared that angular momentum must be quantized:
 
 $$L = n\hbar, \quad n = 1, 2, 3, \ldots$$
 
-The model worked brilliantly for hydrogen. It explained the Balmer series, the specific wavelengths of light that hydrogen emits. But it failed for everything else. Helium was a mess. The model was obviously incomplete.
+The model worked brilliantly for hydrogen. It explained the Balmer series, the
+specific wavelengths of light that hydrogen emits. It failed for everything
+else. Helium was a mess. The model was obviously incomplete.
 
 ### de Broglie's Audacity
 
-In 1924, Louis de Broglie made a wild proposal in his PhD thesis. If light waves can behave like particles, maybe particles can behave like waves.
+In 1924, Louis de Broglie made a wild proposal in his PhD thesis. If light
+waves can behave like particles, maybe particles can behave like waves.
 
 He proposed that every particle has an associated wavelength:
 
 $$\lambda = \frac{h}{p}$$
 
-where p is momentum. For everyday objects, this wavelength is absurdly tiny. A baseball's de Broglie wavelength is about 10^-34 meters. But for electrons, it's comparable to atomic sizes.
+where $p$ is momentum. For everyday objects, this wavelength is absurdly tiny.
+A baseball's de Broglie wavelength is about $10^{-34}$ meters. For electrons,
+it is comparable to atomic sizes.
 
 In 1927, Davisson and Germer proved de Broglie right. They bounced electrons off a nickel crystal and saw interference patterns. Electrons really do behave like waves.
 
 ### Schrödinger's Equation
 
-Erwin Schrödinger took de Broglie's idea and ran with it. If electrons are waves, what's waving?
+Erwin Schrödinger took de Broglie's idea and ran with it. If electrons are
+waves, what is waving?
 
-Schrödinger proposed that electrons are described by a wave function psi(x,t). The equation governing this wave is:
+Schrödinger proposed that electrons are described by a wave function
+$\psi(x,t)$. The equation governing this wave is:
 
 $$i\hbar \frac{\partial \psi}{\partial t} = -\frac{\hbar^2}{2m}\nabla^2\psi + V\psi$$
 
-This is the Schrödinger equation, and it works spectacularly well. It predicts atomic spectra, chemical bonds, semiconductor behavior. It's the foundation of quantum chemistry and materials science.
+This is the Schrödinger equation, and it works spectacularly well. It predicts
+atomic spectra, chemical bonds, and semiconductor behavior. It is the
+foundation of quantum chemistry and materials science.
 
-But what is psi? Schrödinger initially thought it described a smeared-out electron, spread across space like a cloud. Max Born had a different interpretation: psi squared gives the probability of finding the electron at each location.
+What is $\psi$? Schrödinger initially thought it described a smeared-out
+electron, spread across space like a cloud. Max Born had a different
+interpretation: $\psi$ squared gives the probability of finding the electron at
+each location.
 
 $$P(x) = |\psi(x)|^2$$
 
@@ -207,7 +240,7 @@ value
 $$\alpha^{-1}(0)=137.035999177(21).$$
 
 The fine-structure constant belongs to the same transport family that yields
-the $W$ and $Z$ rows.
+the $W$ and $Z$ benchmarks.
 
 The strong force coupling runs the opposite way. At low energies, it's strong (hence the name). At high energies, it weakens. This is "asymptotic freedom," discovered by Gross, Wilczek, and Politzer in 1973.
 
@@ -250,7 +283,7 @@ Forces are mediated by bosons: particles with integer spin.
 The Yang-Mills mass gap is a statement about the spectrum of the compact
 nonabelian gauge theory, separate from assigning a hard mass to the gluon. In
 OPH, the gap is accounted for by repair dynamics on the declared
-support-visible compact-gauge branch: exact local repair gives a positive
+controlled compact-gauge construction: exact local repair gives a positive
 Euclidean relaxation generator, and its first nonzero repair eigenvalue is the
 first nonzero Yang-Mills energy.
 
@@ -429,7 +462,14 @@ gauge-invariant relevant dimension-four pure-gauge operators beyond the
 curvature-squared invariant produce the Euclidean action. Repair collars supply
 the spectral part: leaving the repaired vacuum sector costs a positive amount
 of Euclidean relaxation energy, and that cost is the Yang-Mills mass gap on the
-support-visible compact-gauge branch.
+controlled compact-gauge construction.
+
+Once the edge transports behave like a compact gauge group, the long-distance
+field theory has the usual Yang-Mills action. That action is the cost of
+bending the gauge connection. The mass gap is the first nonzero energy cost for
+leaving the repaired vacuum sector. The OPH claim keeps the branch conditions
+visible because a slogan about gluing is weaker than a field-theory continuum
+statement.
 
 ### Edge-Center Completion
 
@@ -478,6 +518,9 @@ symbol $\otimes$ means "combine these sectors." The integers
 $N_{\alpha\beta}^{\gamma}$ count how many times sector $\gamma$ appears when
 $\alpha$ and $\beta$ fuse. A tensor category is the organized collection of
 these sectors, their fusions, their duals, and their consistency rules.
+It is a bookkeeping machine for charges: which charges exist, how they combine,
+which charge is the mirror of which, and which combinations count as the same
+operation in different orders.
 
 The gauge group isn't put in by hand. It is reconstructed from the persistent
 sector data, not guessed in advance.
@@ -498,6 +541,11 @@ checkable.
 
 Why does the realized group have the form SU(3) x SU(2) x U(1) up to finite quotient?
 
+A quotient means that some formally different group elements act the same on
+all physical states and are counted once. It is like discovering that two labels
+on a wiring diagram name the same actual connection. The Standard Model quotient
+removes that duplicate counting across color, weak isospin, and hypercharge.
+
 The reconstruction step by itself gives a compact gauge group from the
 transportable sector category. The Standard Model choice enters through minimal admissible
 selection: among the admissible one-Higgs
@@ -507,6 +555,10 @@ Equivalently, the logic factors into classification and selection. Overlap
 gluing gives an obstruction class; zero obstruction gives an ordinary
 transportable sector category; tensor reconstruction gives a compact group.
 Only after that does the selector act on realized matter packages.
+
+An obstruction class is a precise mismatch detector. If it is nonzero, local
+transport fails to close consistently around loops. If it is zero, the local
+charge sectors can be treated as one transportable package.
 
 Once you ask for the smallest matter sector that can carry color, weak
 interactions, chirality, and ordinary charge, the answer is forced into a
@@ -537,27 +589,40 @@ transportability condition, not a Standard Model selector. In a chiral
 effective field theory, the same consistency burden reappears as anomaly
 cancelation, but the full bridge between the two is a separate step.
 
-Given one generation of chiral fermions with SU(3) x SU(2) x U(1) charges, and requiring Yukawa couplings to a Higgs doublet, the hypercharge ratios are determined. A standard normalization then fixes the absolute lattice.
+Given one generation of chiral fermions with
+$SU(3)\times SU(2)\times U(1)$ charges, and requiring Yukawa couplings to a
+Higgs doublet, the hypercharge ratios are determined. A standard normalization
+then fixes the absolute lattice.
 
 ### The Derivation
 
-Start with Yukawa invariance. Using the familiar physical hypercharges for the right-handed singlets gives:
+Start with Yukawa invariance. The Higgs coupling has to be neutral under
+hypercharge, so the charges of the left-handed doublets, right-handed
+singlets, and Higgs must add up in the allowed way:
 
 $$Y_u = Y_Q + Y_H, \quad Y_d = Y_Q - Y_H, \quad Y_e = Y_L - Y_H$$
 
-Add anomaly cancellation conditions:
+Add the anomaly cancellation conditions. The first line says that the weak
+doublets cannot leave a mixed weak-hypercharge anomaly:
 
 $$N_c Y_Q + Y_L = 0 \quad (SU(2)^2 U(1))$$
 
+The second line is the mixed gravitational condition. It says the chiral
+hypercharge assignment must remain consistent when the fermions couple to
+gravity:
+
 $$2N_c Y_Q - N_c Y_u - N_c Y_d + 2Y_L - Y_e = 0 \quad (\text{gravitational})$$
 
-Solve:
+Solving those constraints first fixes the lepton and Higgs charges in terms of
+the quark-doublet charge:
 
 $$Y_L = -N_c Y_Q, \quad Y_H = N_c Y_Q$$
 
+The right-handed singlet charges then follow from the Yukawa relations:
+
 $$Y_u = (N_c+1)Y_Q, \quad Y_d = -(N_c-1)Y_Q, \quad Y_e = -2N_c Y_Q$$
 
-With N_c = 3 and standard normalization:
+With $N_c=3$ and standard normalization, the familiar lattice appears:
 
 $$\boxed{Y_Q = \frac{1}{6}, \quad Y_L = -\frac{1}{2}, \quad Y_u = \frac{2}{3}, \quad Y_d = -\frac{1}{3}, \quad Y_e = -1, \quad Y_H = \frac{1}{2}}$$
 
@@ -574,11 +639,17 @@ $N_c$ is the number of colors. The boxed line is the familiar charge lattice
 written before electroweak mixing turns hypercharge and weak isospin into
 ordinary electric charge.
 
-That is what makes the derivation satisfying. The equations are not decorative bookkeeping. They explain why the charges come out in the strange pattern we observe. Quarks carry third-integer charges because the weak interaction, the Higgs couplings, and anomaly cancellation all have to coexist in one self-consistent chiral theory.
+That is what makes the derivation satisfying. The equations are doing one job:
+they explain why the charges come out in the strange pattern we observe.
+Quarks carry third-integer charges because the weak interaction, the Higgs
+couplings, and anomaly cancellation all have to coexist in one self-consistent
+chiral theory.
 
 ## 14.11 The Number of Colors: Why N_c = 3
 
-In the full argument, the color count is fixed directly by the same coupled carrier that emits the $SU(3)$ factor. The global $SU(2)$ anomaly is an important check on the realized structure. It is not what determines the count.
+In the full argument, the color count is fixed directly by the same coupled
+carrier that emits the $SU(3)$ factor. The global $SU(2)$ anomaly is an
+important check on the realized structure. It is not what determines the count.
 
 ### The Coupled Color Carrier
 
@@ -618,7 +689,9 @@ Anomaly cancellation works generation by generation. Each generation independent
 
 ### CKM CP Capability Requires Three
 
-The CKM matrix describes how quarks mix under the weak force. In general, it's a unitary N_g × N_g matrix. The number of physical CP-violating phases is:
+The CKM matrix describes how quarks mix under the weak force. In general, it is
+a unitary $N_g\times N_g$ matrix. The number of physical CP-violating phases
+is:
 
 CP means charge-parity reversal: swap particles with antiparticles and mirror
 space. A CP-violating phase is a built-in complex phase that lets those mirrored
@@ -627,8 +700,9 @@ rate differences in weak interactions.
 
 $$\text{(CP phases)} = \frac{(N_g - 1)(N_g - 2)}{2}$$
 
-For N_g = 1 or 2: 0 phases. **No intrinsic CKM CP capability.**
-For N_g = 3: 1 phase. **Intrinsic CKM CP capability is available.**
+For $N_g=1$ or $N_g=2$, the formula gives zero phases. For $N_g=3$, it gives
+one phase. The third generation is the first case with intrinsic CKM CP
+capability.
 
 So the realized quark branch requires at least three generations:
 
@@ -636,7 +710,8 @@ $$N_g \ge 3$$
 
 ### Weak-Sector UV Completability Limits
 
-Too many generations spoil asymptotic freedom. The SU(2) beta function coefficient is:
+Too many generations spoil asymptotic freedom. The $SU(2)$ beta function
+coefficient is:
 
 Asymptotic freedom means an interaction gets weaker at shorter distances or
 higher energies. The beta function is the bookkeeping rule for how a coupling
@@ -649,22 +724,24 @@ $b_{SU(2)} > 0$ (asymptotic freedom):
 
 $$N_g(N_c + 1) < \frac{43}{2}.$$
 
-With $N_c = 3$, this becomes
+With $N_c=3$, this becomes
 
 $$4 N_g < \frac{43}{2} \implies N_g \le 5$$
 
-Combining: $3 \le N_g \le 5$.
+Combining the lower and upper bounds gives the viable window:
+
+$$3 \le N_g \le 5.$$
 
 ### The Minimal Viable Window
 
 CKM CP capability and weak-sector UV completability define the viable window.
 Here UV completability means that the theory can keep making sense at shorter
-distances and higher energies, with no immediate breakdown when the
-resolution is increased:
+distances and higher energies, with no immediate breakdown when the resolution
+is increased.
 
-$$3 \le N_g \le 5.$$
-
-A minimal admissible realization principle then picks the smallest viable realization. "Minimal admissible" means the smallest option that satisfies the listed consistency tests:
+A minimal admissible realization principle then picks the smallest viable
+realization. "Minimal admissible" means the smallest option that satisfies the
+listed consistency tests:
 
 $$\boxed{N_g = 3}$$
 
@@ -711,16 +788,15 @@ identity across overlaps, and transforms in a repeatable way under the emergent
 symmetries, the theory has found a particle.
 
 There is a finer record-level question underneath that sentence. A stable
-sector can be transported without automatically proving that two localized
-detector records on opposite sides of a chart boundary are the same continuing
-token. OPH treats that token-stitch question as a separate H3 certificate: it
-requires a declared hyperboloid chart, common observer clock, real transverse
-interface, sector/gauge transport, an ID-independent assignment gap, and a
-refinement check. If those records do not separate the alternatives by a
-positive margin, the correct output is ambiguity.
+sector can be transported across a chart, yet two detector clicks on opposite
+sides of the chart boundary have to be linked as the same continuing track. OPH
+treats that as a separate stitching problem. The chart, clock,
+interface, charge transport, and refinement must leave one track clearly
+preferred. If they do not, the theory should say "ambiguous" instead of forcing
+a particle history.
 
-Put more simply, a particle is a recurring role in the screen's drama. Once the
-screen yields Lorentz kinematics, those roles sort themselves by mass and spin,
+In ordinary language, a particle is a recurring role in the screen data. Once
+the screen yields Lorentz kinematics, those roles sort themselves by mass and spin,
 just as Wigner taught physics to expect. An electron is a stable pattern with
 the electron's characteristic mass, spin, and behavior. A photon is the
 massless version of the same pattern.
@@ -729,16 +805,16 @@ That picture has teeth. The model does not place particles on the stage and
 then ask whether they fit. It reads which particle types can exist from the way
 the algebra net closes on itself.
 
-### The Particle Rows In One Picture
+### The Particle Structure In One Picture
 
-The particle picture can be told as one continuous line. The framework first reconstructs compact
-gauge data from zero-obstruction transportable sectors; minimal admissible selection then picks the realized Standard Model
-quotient, the hypercharge lattice, and the generation-color counting. The same
-structure keeps the photon, gluons, and graviton on protected zero lines. From
-there the pixel fixed point organizes the electroweak sector, the Higgs/top
-quantitative surface, the selected-class running quark masses, the charged
-lepton landing story, and the weighted-cycle neutrino branch. Hadrons then add
-the strong-binding problem on top of that particle-level picture.
+The particle picture can be told as one continuous line. The framework first
+reconstructs compact gauge data from sectors that can be transported without a
+loop mismatch. The small-economy selection then picks the realized Standard
+Model quotient, the hypercharge lattice, and the color-generation count. The
+same structure keeps the photon, gluons, and graviton massless. From there the
+pixel fixed point organizes the electroweak sector, the Higgs/top relation, the
+running quark masses, the charged-lepton story, and one neutrino branch.
+Hadrons add the strong-binding problem on top of that particle-level picture.
 
 The sphere ladder from Chapter 3 is useful here only as a logic map. It says
 seed, loop, screen, bulk. It does not say photon, gluon, graviton, hadron.
@@ -747,9 +823,9 @@ the unbroken electromagnetic carrier, gluons are color carriers, the graviton
 belongs to the geometric branch, $W$ and $Z$ are massive weak carriers, the
 Higgs is the scalar electroweak excitation, and hadrons are QCD composites.
 
-### How the Concrete Particle Rows Arise
+### How the Concrete Particle Entries Arise
 
-Stable patterns on the screen matter because they land on the particle rows a
+Stable patterns on the screen matter because they land on the particle entries a
 physicist actually cares about. First comes the structural side. Chapter 15
 supplies Lorentz kinematics, so stable excitations sort themselves by the usual
 labels of mass, spin, and helicity. The realized gauge quotient, hypercharge
@@ -772,12 +848,13 @@ time.
 
 The fine-structure constant belongs here beside the weak sector. It is the
 local electromagnetic width of the observer-supporting pixel. From there the
-same construction continues into the weak sector, the Higgs-top surface, the
-selected-class quark sector, and the weighted-cycle neutrino branch. Hadrons
-belong to the later strong-binding descent of the same picture. Source-only
-hadron masses require a real OPH hadron backend. The displayed fine-structure
-endpoint uses the measured Thomson value, while the empirical
-\(e^+e^-\to\mathrm{hadrons}\) payload class records the data-driven hadron path.
+same construction continues into the weak sector, the Higgs/top relation, the
+running quark sector, and one neutrino branch. Hadrons come later, because
+protons and mesons are bound states of quarks and gluons. A first-principles
+hadron calculation needs the strong-binding machinery. The displayed
+fine-structure endpoint uses the measured Thomson value, and the hadronic
+spectral data enter through the standard \(e^+e^-\to\mathrm{hadrons}\)
+channel.
 
 The interpretation is simple. The screen cell wants to sit at the golden-ratio
 balance point, the exact self-similar equilibrium of the local entropy
@@ -867,7 +944,7 @@ set by the gauge group itself. Read those costs carefully enough and the
 effective gauge couplings can be inferred from the vacuum.
 
 In simple test cases such as $\mathbb Z_5$ and $S_3$, that weighting pattern
-shows up with striking accuracy. Even the golden-ratio fingerprint of
+shows up with tight numerical accuracy. Even the golden-ratio fingerprint of
 $\mathbb Z_5$ appears where the group geometry says it should. Entanglement
 geometry leaves visible marks on the coupling structure.
 
@@ -882,9 +959,17 @@ spine of the chapter.
 
 One of the great puzzles of particle physics is why the three gauge couplings (for the strong, weak, and electromagnetic forces) have such different strengths at low energies, yet seem to converge when extrapolated to high energies.
 
-In the 1970s, physicists noticed something remarkable. If you run the couplings upward using the renormalization group equations, they almost meet at a single point around $10^{16}$ GeV. This suggested that all three forces might unify at high energies, the dream of Grand Unified Theories.
+In the 1970s, physicists noticed a numerical tease. If you run the couplings
+upward using the renormalization group equations, they almost meet at a single
+point around $10^{16}$ GeV. This suggested that all three forces might unify at
+high energies, the dream of Grand Unified Theories.
 
-But there was a problem. With just the Standard Model particle content, the three couplings don't quite meet. They miss each other. In the 1990s, physicists discovered that adding supersymmetric partners fixes this: with MSSM-like particle content, the couplings unify beautifully, predicting $\alpha_s(M_Z) \approx 0.117$, remarkably close to the measured value of $0.1177 \pm 0.0009$.
+The snag was immediate. With just the Standard Model particle content, the
+three couplings do not quite meet. They miss each other. In the 1990s,
+physicists discovered that adding supersymmetric partners fixes this: with
+MSSM-like particle content, the couplings unify beautifully, predicting
+$\alpha_s(M_Z) \approx 0.117$, close to the measured value of
+$0.1177 \pm 0.0009$.
 
 OPH separates two ideas that are often fused together. Couplings can display
 unification-like running without the Standard Model being embedded in a larger
@@ -898,7 +983,9 @@ That is what lets the beta-function shifts land near the familiar unification
 benchmark.
 
 At the unification-scale heat-kernel parameter $t_U \approx 1.64$, this gives:
+
 $$\Delta b_{\text{edge}} \approx (2.49,\ 4.38,\ 3.97)$$
+
 compared to the MSSM target $(2.50,\ 4.17,\ 4.00)$. The agreement is within 5%
 for all three coefficients in this edge-mode picture. What emerges here is
 unification-like running behavior, not an MSSM spectrum hidden inside OPH.
@@ -930,7 +1017,10 @@ embedding.
 
 The prediction is stark: **gauge-mediated proton decay is forbidden**.
 
-This is one of the cleanest experimental forks in the road. A simple-group unification scheme predicts new gauge bosons that eventually turn protons into lighter particles. The OPH route predicts that those bosons never exist. The difference would show up as one future detector signal versus none.
+This is one of the cleanest experimental forks in the road. A simple-group
+unification scheme predicts new gauge bosons that mediate proton decay. The OPH
+route predicts that those bosons never exist. The difference is a detector
+signal in those channels versus a structural null result.
 
 The claim is unusually valuable. Many high-energy ideas differ
 mainly in elegance or ultraviolet taste. Proton decay is harsher. Either the
@@ -942,10 +1032,9 @@ precision unification and proton decay. OPH separates those questions:
 the full connected gauge group has only the product-group adjoint content and
 no mixed leptoquark generators, so gauge-mediated proton decay is forbidden,
 while the edge-mode construction can display MSSM-like unification-style
-running without simple-group embedding. If Hyper-Kamiokande
-continues to see null results while precision measurements continue to favor
-unified couplings, that would support geometric edge-sector running over algebraic
-unification.
+running without simple-group embedding. Hyper-Kamiokande null results in those
+channels, combined with precision measurements that favor unified couplings,
+support geometric edge-sector running over algebraic unification.
 
 ## 14.20 What the Model Explains
 
@@ -956,31 +1045,35 @@ The framework accounts for several concrete facts.
 **The zeros.** The photon and graviton masses are exactly zero. This is a symmetry-protected prediction. The photon's masslessness follows from U(1) gauge invariance being a genuine overlap redundancy; any mass would break the consistency of how charged patches glue together. Similarly, the graviton's masslessness follows from diffeomorphism invariance being the redundancy structure of bulk spacetime. Experimental and observational upper bounds are consistent with these predictions to extraordinary precision: the photon mass is constrained below ~10⁻¹⁸ eV, often summarized as ~27 orders of magnitude, and the graviton mass is constrained below ~10⁻²³ eV by gravitational-wave dispersion, often summarized as ~22 orders of magnitude.
 
 **The particle structure.** Section 14.14 gives the concrete structure. The
-framework fixes the massless carriers. The particle surface carries the
-fine-structure fixed point, a weak-boson comparison pair, a Higgs/top quantitative surface,
-a selected-class six-quark running-mass sector with Yukawas,
-and one weighted-cycle neutrino branch with definite masses and Majorana
-phases. The charged-lepton, quark-frame, direct-top, hadron, and strong-CP
-stories sit around that same particle map as separate branches of the full
-particle program.
+framework fixes the massless carriers. It then organizes the fine-structure
+fixed point, the weak-boson benchmark pair, a Higgs/top relation, a six-quark
+running-mass sector with Yukawas, and one neutrino branch with definite masses
+and Majorana phases. Charged leptons, direct-top comparison, hadrons, and strong
+CP sit around that same map with different levels of support.
 
 The reason these numbers belong in one chapter is that the framework organizes
 them with one local fixed-point structure. The same pixel ratio feeds the
 electroweak scale, the low-energy electromagnetic endpoint, and the effective
 gravitational coupling. The reader does not need
 every intermediate symbol to see the point. OPH ties
-electroweak rows, the Higgs/top quantitative surface,
+electroweak relations, the Higgs/top quantitative relation,
 electromagnetism at low energy, and Newton's constant into one common
 structure.
 
-The hierarchy row is part of that same local story. The weak scale is emitted
-by the pixel transmutation law
-$v/E_\star=P_\star^{-1/2}\exp[-2\pi/(4\alpha_U(P_\star))]$. The particle paper
-and the Observers paper give the unique source value of $\alpha_U(P_\star)$.
-The selected source-to-Higgs
-coarse-graining square has zero defect, $\epsilon_H=0$, so the usual
-bare-Higgs-plus-cutoff split is a regulator coordinate description on that
-branch. The SI gravity decimal is a separate clock-scale readout.
+The hierarchy relation is part of that same local story. The weak scale is emitted
+by the pixel transmutation law:
+
+$$
+v/E_\star=P_\star^{-1/2}\exp[-2\pi/(4\alpha_U(P_\star))].
+$$
+
+Here $v$ is the weak scale, $E_\star$ is the branch energy scale used for the
+display, and $\alpha_U(P_\star)$ is the unified coupling read from the pixel
+branch. The particle paper and the Observers paper give the unique source
+value of that coupling. The selected source-to-Higgs coarse-graining square has
+zero defect, so the usual bare-Higgs-plus-cutoff split is a regulator
+coordinate description on that branch. The SI gravity decimal is a separate
+clock-scale readout.
 
 There is also a global capacity-side register story. OPH treats reality as a
 continual repair of disagreements between local observers. In the hierarchy
@@ -1023,9 +1116,9 @@ the repair tick.
 
 **Why hadrons are harder.** Quark masses are short-distance parameters.
 Hadrons are bound states. Their masses come from the nonperturbative dynamics
-of confined quarks and gluons. Source-only hadron masses require a working OPH
-hadron backend, such as the GLORB/Echosahedron route. Empirical hadron closure
-uses a separate \(e^+e^-\to\mathrm{hadrons}\) payload class.
+of confined quarks and gluons. A first-principles OPH hadron calculation needs
+a working strong-binding construction. Empirical hadron checks use the standard
+\(e^+e^-\to\mathrm{hadrons}\) spectral data.
 
 ## 14.21 The Big Picture
 
@@ -1049,10 +1142,10 @@ by hand. They follow there from the combined demands of anomaly cancellation,
 chirality, the minimal coupled color carrier, CKM CP capability, and
 ultraviolet consistency.
 
-It is a remarkably concrete result. The book points to a specific gauge
+The result is concrete. The book points to a specific gauge
 structure, charge pattern, color count, and generation count. It also reaches
-the massless carriers, the $W$ and $Z$ comparison row, a Higgs/top quantitative surface, one
-weighted-cycle neutrino branch, and a running quark sector on a selected
+the massless carriers, the $W$ and $Z$ benchmark pair, a Higgs/top quantitative relation, one
+weighted-cycle neutrino branch, and a running quark sector on a chosen
 physical basis. Strongly coupled bound states add the QCD problem on top of
 that particle-level structure.
 

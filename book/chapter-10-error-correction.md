@@ -49,7 +49,9 @@ To detect errors without measuring the data, you measure **parity**-whether pair
 
 ![A logical qubit is not copied into several carriers; it is hidden in a pattern that can survive local damage.](../assets/book_diagrams/error-correction-layers.svg){width=80%}
 
-Quantum error correction is possible. Information can be protected without copying by spreading it across entangled patterns. The universe permits robust quantum information.
+Quantum error correction is possible. Information can be protected without
+copying by spreading it across entangled patterns. The universe permits durable
+quantum information.
 
 That discovery came from a crowded decade. Shor gave the first shock. Andrew
 Steane found a different route using classical coding ideas. Calderbank,
@@ -75,7 +77,7 @@ a shared world, they need redundancy, overlap, and a correction protocol. That
 is exactly what error-correcting codes provide.
 
 **Reality can be read as error-corrected.** The consistency we observe requires
-robust encoding of shared information.
+durable encoding of shared information.
 
 For OPH, there is an important boundary. A bare overlap network is first a
 finite constraint code: its valid codewords are the globally consistent patch
@@ -191,7 +193,9 @@ Don Page argued that if evaporation is unitary, radiation entropy should rise un
 
 In 2019, the "island formula" showed how to derive this in specific semiclassical holographic models. After Page time, an **island** appears inside the black hole that is encoded in the radiation. Including the island contribution, radiation entropy follows the expected Page-curve turn and decreases as unitarity requires in those models.
 
-This is a vivid example of error correction in holography. But in OPH it should be read as external support for encoded interior data, not as a proved OPH evaporation theorem.
+This is a vivid example of error correction in holography. In OPH it functions
+as external support for encoded interior data. It is not a proved OPH
+evaporation theorem.
 
 ## 10.7 Observer Consistency as Error Correction
 
@@ -260,10 +264,10 @@ condition is correspondingly approximate, with corrections often organized in
 powers of \(1/N\). That is enough to make classical spacetime look stable in
 the controlled large-\(N\) settings where the code picture applies.
 
-The OPH consensus papers use this theorem only after that code data is present.
-Without a supplied projector, error family, and recovery certificate, overlap
-redundancy remains a finite consistency code, not a claim of quantum
-error-correction resilience.
+OPH uses this theorem only when the code data are actually present. One needs a
+protected subspace, an error family, and a recovery operation. Bare overlap
+redundancy is a finite consistency code; quantum error-correction resilience is
+a stronger claim.
 
 ## 10.9 The Threshold Theorem
 
@@ -294,7 +298,9 @@ right redundancy.
 
 Error correction costs energy.
 
-When you detect an error, you learn information (the syndrome). That information must eventually be erased. Erasing a bit costs at least k_B T ln 2 of energy-**Landauer's principle**.
+When you detect an error, you learn information (the syndrome). That
+information must be erased at some physical stage. Erasing a bit costs at
+least $k_B T\ln 2$ of energy. This is **Landauer's principle**.
 
 In formula form the cost is $k_B T\ln 2$. $k_B$ is Boltzmann's constant, $T$ is
 temperature, and $\ln 2$ appears because one erased bit removes two possible
@@ -361,6 +367,7 @@ local damage.
 
 ---
 
-We've built a static picture of reality as a protected code. But a static code isn't enough. The next question is about time. Why does the code evolve? Why does entropy increase?
+The protected-code picture is static. A physical world is not. The theory also
+has to explain time, evolution, and the growth of entropy.
 
 That brings us to **Chapter 11: MaxEnt and the Arrow**-where we discover that time itself emerges from incomplete knowledge, and the arrow of time is the direction of consistency-building.

@@ -266,7 +266,8 @@ The 1919 result was historically decisive, and later measurements confirmed the 
 
 In 2015, the LIGO detectors observed gravitational waves for the first time. Two black holes, each about 30 solar masses, spiraled together and merged. The resulting gravitational waves stretched and compressed space itself.
 
-The signal matched Einstein's predictions strikingly well. A century after he wrote down the equations, ripples in spacetime were finally detected.
+The signal matched Einstein's predictions within the measured uncertainties. A
+century after he wrote down the equations, ripples in spacetime were detected.
 
 ### Black Holes
 
@@ -305,9 +306,9 @@ through the patch's internal clock.
 
 In the continuum limit this operator formula is not always the right target.
 Continuum algebras can be non-type-I, so there may be no density matrix inside
-the cap algebra and no inner operator \(K=-\log\rho\). The theorem-level OPH
-statement is then the modular automorphism group itself, read on the extracted
-support-visible geometric cap pair.
+the cap algebra and no inner operator \(K=-\log\rho\). The more general OPH
+statement is about the modular automorphism group itself: the whole flow of the
+cap's observable algebra, read on the geometric cap pair.
 
 ### Geometric Modular Flow on Caps
 
@@ -318,26 +319,26 @@ relativity. A clock becomes a geometric device inside the math. Its flow becomes
 same kind of geometric motion that later shows up as boosts and time
 translations.
 
-On the support-visible scaling branch used in the paper stack, the modular
+On the controlled scaling construction used in the paper stack, the modular
 flow of the extracted cap pair matches a conformal motion of the sphere:
 
 $$\sigma_t^{\omega_C} = \alpha_{\lambda_C(2\pi t)}$$
 
-This is the exact theorem target. It is a conditional branch statement:
-support-visible cap-pair extraction, regularized modular transport,
-support-readable modular covariance, round-cap rigidity, and
-KMS/Bisognano-Wichmann normalization together identify the modular automorphism
-with the geometric cap dilation. It is not the claim that finite cells are
-Lorentz invariant. Only in the special type-I case can this be represented as
-\(K_C = 2\pi B_C + \text{const}\). In the generic continuum case, the
-automorphism identity is the result.
+The left side is the algebraic clock: how the cap's allowed questions flow
+under the state \(\omega_C\). The right side is a geometric motion of the
+sphere. The function \(\lambda_C\) says how much cap dilation corresponds to
+the modular-time parameter, and the \(2\pi\) fixes the thermal normalization.
+The equality says that the algebraic clock and the geometric motion act the
+same way on the cap observables.
 
-The finite-to-continuum version is narrower. A finite regulator can be
-compared to the geometric flow only through transported regularized modular
-actions on fixed support-visible local algebras, with a multiresolution
-reference tower, state-error bounds, and a cutoff schedule. Worker steps,
-finite-cell coordinates, and unregularized full finite-cap modular groups do
-not define Lorentz invariance.
+This is a conditional statement. The cap pair has to be extracted cleanly, the
+modular flow has to be transported through the regularized construction, the
+round caps have to be rigid, and the KMS/Bisognano-Wichmann normalization has
+to fix the \(2\pi\). Under those conditions, the algebraic flow and the
+geometric cap dilation are the same operation. Finite cells by themselves do
+not make Lorentz invariance. The geometric statement appears only after the
+finite regulator is carried through the continuum comparison with controlled
+state errors and a declared cutoff schedule.
 
 That is the bridge. The clock defined by the state becomes the same clock
 spacetime symmetry was looking for.
@@ -374,7 +375,7 @@ preservation on the celestial sphere and relativistic frame changes in
 spacetime.
 
 Lorentz kinematics is recovered when the observer-facing cap net reaches the
-support-visible geometric scaling branch, the cap modular automorphism acts as
+controlled geometric scaling branch, the cap modular automorphism acts as
 a real geometric motion, and the rigidity hypotheses identify that motion with
 the conformal action.
 
@@ -444,7 +445,7 @@ Different observers have different modular flows. On the geometric branch, the
 inter-observer relations are carried by conformal transformations of $S^2$.
 The Lorentz group is the corresponding symmetry of the shared causal structure.
 
-The neutral-bulk evidence gate is weaker and separate. It can certify a common
+The neutral-bulk evidence gate is weaker and separate. It can establish a common
 quotient-visible pseudometric or metric on observer features after chart
 transport, missingness, invariance, refinement, and held-out controls. A
 positive metric by itself is not Lorentzian spacetime. The relativity claim
@@ -498,7 +499,7 @@ $S_{\text{bulk}}(C)$ is the entropy of the bulk quantum fields assigned to the
 cap. The symbol $\delta$ means a small allowed variation. The equality says
 that a small entropy change matches a small modular-energy change.
 
-Once the support-visible BW branch has supplied the geometric modular
+Once the controlled BW construction has supplied the geometric modular
 automorphism, the special type-I realization may be written as
 $K_C = 2\pi B_C + \text{const}$. On that extra representation, the first law
 becomes:
@@ -538,11 +539,23 @@ local $d=4$ scaling regime:
 
 $$\delta A\big|_{V} = -\frac{\Omega_{d-2} \ell^d}{d^2-1}(G_{00} + \Lambda g_{00})$$
 
-the equilibrium condition yields:
+Here $\delta A|_V$ is the small change of area while the small diamond's
+volume is held fixed. $\Omega_{d-2}$ is the area of the unit
+$(d-2)$-sphere, $\ell$ is the diamond's characteristic size, $G_{00}$ is the
+time-time component of the Einstein tensor, $g_{00}$ is the time-time
+component of the metric, and $\Lambda$ is the cosmological-constant term. The
+formula says that the area response of the local screen is controlled by the
+same curvature combination that appears in Einstein's equation.
+
+The equilibrium condition then compares that geometric response with the
+matter-energy response:
 
 $$\delta\!\left(G_{00} + \Lambda g_{00}\right) = 8\pi G\,\delta\langle T_{00} \rangle$$
 
 This holds in the rest frame of each small cap for admissible first variations.
+$T_{00}$ is the local energy density, the angle brackets mean expectation
+value, and the factor $8\pi G$ is the Newton normalization on the selected
+gravity branch.
 
 ### Where Patch Consistency Actually Enters
 
@@ -623,10 +636,10 @@ metric $g_{ab}$ organizes the leading overlap relations between nearby modular
 flows. The metric is the compressed description that captures that common
 structure.
 
-This compression is not read from raw concatenated rows. The paper-level object
-under a neutral reconstruction is the quotient-visible distance on terminal
-normal-form observer features; only the separate modular and Einstein branch
-upgrades the relevant geometric data to spacetime dynamics.
+This compression is not read from raw observer logs. The neutral reconstruction
+first gives distances between features after redundant labels have been
+identified. The modular and Einstein steps then upgrade the relevant geometric
+data to spacetime dynamics.
 
 General relativity is the natural effective dynamics associated with this compression. It is the simplest theory that respects the recovered structure.
 
@@ -657,9 +670,19 @@ after the OPH scale branch is expressed in SI units, this gives a bare
 radius-squared ratio near $1.05\times10^{122}$ and an entropy capacity near
 $3.31\times10^{122}$.
 
-The "problem" exists only if you compute vacuum energy using QFT and assume that calculation is fundamental. OPH fixes the dimensionless global-capacity relation, while the numerical SI value of Lambda also requires the selected scale certificate. It is not obtained from a local QFT vacuum-energy sum. QFT vacuum fluctuations are emergent phenomena, not fundamental contributions to the stress tensor.
+The "problem" exists only if you compute vacuum energy using QFT and assume
+that calculation is fundamental. OPH fixes the dimensionless global-capacity
+relation. The numerical SI value of Lambda also needs the selected scale that
+connects the screen units to laboratory units. It is not obtained from a local
+QFT vacuum-energy sum. QFT vacuum fluctuations are emergent phenomena, not
+fundamental contributions to the stress tensor.
 
-The observed small value of Lambda isn't a fine-tuning miracle. It's simply what the screen structure produces. Understanding why the screen has this particular capacity is a question about initial conditions, not about cancellation of quantum corrections.
+The observed small value of Lambda is therefore not a cancellation between
+large local vacuum-energy terms. In OPH it belongs to the global
+capacity-closure branch. The dimensionless closure fixes the de Sitter
+capacity relation; the SI value also depends on the selected scale. The
+remaining hard task is to derive the fixed-point map directly from the finite
+observer grammar instead of tuning a QFT vacuum-energy sum.
 
 ### Black Hole Information: Screen Encoding and Recoverability
 
@@ -682,7 +705,9 @@ Galaxies rotate too fast. The stars at the outer edges orbit the galactic center
 
 The standard response: dark matter particles. Some new, weakly interacting particle that clumps around galaxies and provides the missing mass. Decades of searches have produced no confirmed new particle.
 
-An alternative: modify gravity (MOND). At low accelerations, perhaps gravity behaves differently. This explains galaxy rotation curves remarkably well, but struggles with galaxy clusters and the Bullet Cluster.
+An alternative: modify gravity (MOND). At low accelerations, perhaps gravity
+behaves differently. This fits many galaxy rotation curves, but struggles with
+galaxy clusters and the Bullet Cluster.
 
 ### A Third Route
 
@@ -694,20 +719,16 @@ side of a boundary is perfectly recoverable from the boundary itself, and the
 recovered gravity branch follows the Einstein relation. In the dark-sector
 continuation considered here, one moves away from that ideal limit and some
 correlation sits out of reach. That leftover correlation can feed an extra
-effective term only after a declared source route identifies the finite
-recovery defect with anomalous modular energy or proves the nonlinear
-CMI-to-modular-source matching theorem.
+effective gravitational term if the finite recovery defect can be tied to
+anomalous modular energy.
 
 It gravitates because missing recoverability has physical weight in the
-bookkeeping. This supplies a structural ingredient for a dark sector without
-introducing new particle species. For cosmology this structural ingredient is
-not enough by itself: scalar anomaly tables must be lifted to a finite
-covariant packet parent that closes stress-energy, keeps the baryon response
-gauge-independent, supplies explicit recipient stress and a balanced exchange
-current for nonzero repair exchange, checks the physical clock for any promoted
-exchange rate, and freezes source/solver/likelihood hashes after
-source-provenance and pooled global reducer receipts are present, before any
-CMB or growth likelihood is read.
+bookkeeping. This supplies a possible structural ingredient for a dark-sector
+completion without introducing new particle species. By itself, it is not a
+completed cosmology. To reach the CMB and structure-growth data, the theory
+must supply a finite source, a conserved stress-energy description, a baryon
+response, a physical clock, and a reproducible numerical fit before the sky data
+enter.
 
 ### Why It's Dark
 
@@ -728,13 +749,10 @@ $$a_0 = \frac{15}{8\pi^2} c^2 \sqrt{\frac{\Lambda}{3}} \approx 1.0 \times 10^{-1
 This lands near the empirical MOND acceleration scale. The proximity matters
 because it ties galaxy-scale anomalies back to the same de Sitter capacity
 logic that shaped the horizon from the start. That benchmark is
-continuation-level: it does not by itself derive a full galaxy-scale
-source/response law. The same boundary applies to early-universe claims:
-OPH can conditionally identify the collar scalar with uniform-density
-curvature, but a source-only primordial spectrum requires source-stress,
-single-clock, repair-gap, freeze-out, adiabatic-mode, isocurvature,
-phase-coherence, source-provenance, pooled-reducer, radial-lift, null-space,
-and forward-residual receipts.
+continuation-level: it does not by itself derive a full galaxy-scale response
+law. The same caution applies to early-universe claims. A primordial spectrum
+needs its source stress, clock, freeze-out, mode content, radial lift, and
+residual checks in place before it counts as a prediction.
 
 ## 15.13 Reverse Engineering Summary
 
@@ -752,12 +770,15 @@ Einstein branch, Einstein's equation is
 the public face of entanglement equilibrium written in the language of
 curvature.
 
-Newton's absolute time and space were beautiful ideas that served humanity well for two centuries. But they were always approximations. The deeper truth is that time and space are not the stage on which physics happens. They emerge from the physics itself.
+Newton's absolute time and space were beautiful ideas that served humanity
+well for two centuries. They were approximations. The deeper truth is that
+time and space are not the stage on which physics happens. They emerge from
+the physics itself.
 
 This yields emergent spacetime with Lorentz kinematics and
 the Einstein relation in the scaling regime. We have seen how both
-spacetime and particles emerge from the screen. The next question is what
-matter means inside that picture, and how the classical notions of particle,
-energy, and motion grow out of the deeper quantum structure.
+spacetime and particles emerge from the screen. Chapter 16 turns to matter
+inside that picture, and to the way classical notions of particle, energy, and
+motion grow out of the deeper quantum structure.
 
 That's the question of **Chapter 16: Matter, Motion, and Classical Physics**.

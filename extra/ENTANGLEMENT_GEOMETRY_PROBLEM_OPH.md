@@ -129,8 +129,8 @@ for every observable `X` supported on the interior side of the collar.
 
 For small but nonzero CMI, OPH does not silently use this exact identity. The
 finite-stage statement is a Fawzi-Renner recovered comparison state plus a
-fixed-collar exact-Markov replacement modulus; exact splice identities are
-used only at exact Markovity or in a controlled fixed-collar limit.
+controlled-collar exact-Markov replacement modulus; exact splice identities are
+used only at exact Markovity or in a controlled collar limit.
 
 This means that many local changes in an entangled environment have no interior geometric meaning. If the boundary-sector compatibility is preserved, large classes of exterior manipulations are invisible to interior observables.
 
@@ -181,7 +181,7 @@ sigma_t^(omega_C) = alpha_{lambda_C(2pi t)}
 Conf^+(S^2) ~= PSL(2,C) ~= SO^+(3,1)
 ```
 
-This is a support-visible scaling-limit statement on the extracted prime
+This is a controlled scaling-limit statement on the extracted prime
 geometric cap pair. It is not a claim that finite cells are Lorentz invariant
 and not a full-algebra matrix identity. Only in the special type-I
 representation may the automorphism identity be written as:
@@ -278,7 +278,7 @@ That is not the same thing as reducing one entanglement entropy.
 
 ### 5.3 Markov recoverability suppresses spurious "geometry changes"
 
-The OPH Markov structure says that interior data are recoverable from collar data with controlled error. The controlled error is carried explicitly: small CMI gives a recovered comparison state, while exact Markov splice requires exact zero CMI or a fixed-collar replacement limit. This means a large class of local manipulations either:
+The OPH Markov structure says that interior data are recoverable from collar data with controlled error. The controlled error is carried explicitly: small CMI gives a recovered comparison state, while exact Markov splice requires exact zero CMI or a controlled collar replacement limit. This means a large class of local manipulations either:
 
 - are purely gauge/record updates,
 - are absorbed as compatible environment changes,

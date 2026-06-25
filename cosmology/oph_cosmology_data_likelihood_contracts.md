@@ -1,3 +1,6 @@
+**Paper release:** `r1503`
+**Released:** June 24, 2026
+
 # Status
 
 This is a staged template under `reverse-engineering-reality/cosmology/`. It is not part of the release pipeline. It is the technical target for CMB/CAMB comparisons, other cosmological data products, and visualizer payload provenance emitted by <https://github.com/muellerberndt/oph-physics-sim>.
@@ -108,7 +111,7 @@ Boundary optima obey the same formula after restricting to their support. On a f
 \frac{\exp(\log\sigma_r-\sum_a\theta_aF_{r,a})}
 {\operatorname{Tr}\exp(\log\sigma_r-\sum_a\theta_aF_{r,a})}.
 ```
-The finite constraint ledger must name every $`F_{r,a}`$, its units and support, the target expectation and source, sector or zero-mode treatment, refinement transformation, and proof that no simulator or observational output entered the source definition.
+The finite constraint ledger must name every $`F_{r,a}`$, its units and support, the target expectation and source, sector or zero-mode treatment, refinement transformation, and proof that no run output or observational output entered the source definition.
 
 #### Refinement compatibility and RG closure.
 
@@ -159,7 +162,7 @@ then
 ```
 For tracially pointed quantum quotients the corresponding equivalence is a trace-preserving quotient equivalence. It is invariant under unitary intertwiners preserving the gauge action and sector, and under inert trivial ancillas $`A\mapsto A\otimes I_{\rm anc}`$. It is not invariant under arbitrary changes of gauge-representation multiplicities.
 
-If a simulator stores representatives, a representative-level law must be a conditional lift
+If an implementation stores representatives, a representative-level law must be a conditional lift
 ``` math
 \widetilde\mu_r(x)=\mu_r(\pi_r x)\kappa_r(x\mid \pi_r x),
 \qquad
@@ -206,7 +209,7 @@ L_{\rm rep}\ge \gamma_*\kappa_r(I-P_0).
 ```
 Finite repair completeness gives $`\kappa_r>0`$ at fixed regulator. A uniform refinement lower bound $`\inf_r\kappa_r>0`$ is a separate theorem or receipt.
 
-#### Simulator accuracy.
+#### Finite evidence accuracy.
 
 For bounded coarse observables $`O`$, if
 ``` math
@@ -267,7 +270,7 @@ E4:&\text{OPH primordial field},\\
 E5:&\text{observable cosmological prediction}.
 \end{array}
 ```
-The simulator must keep separate receipts for stationary-law schedule invariance, detailed balance of the aggregate kernel, and pathwise partition invariance. Deterministic replay of semantic random streams or a canonical serial chain is useful, but it is not pathwise partition invariance. Smoothing must preserve raw coefficients, raw spectra, smoothing kernels, smoothed coefficients, smoothed spectra, and hashes of each stage; it is not part of $`S_r`$ unless explicitly declared.
+The evidence bundle must keep separate receipts for stationary-law schedule invariance, detailed balance of the aggregate kernel, and pathwise partition invariance. Deterministic replay of semantic random streams or a canonical serial chain is useful, but it is not pathwise partition invariance. Smoothing must preserve raw coefficients, raw spectra, smoothing kernels, smoothed coefficients, smoothed spectra, and hashes of each stage; it is not part of $`S_r`$ unless explicitly declared.
 
 # E5 Prediction Contract
 
@@ -275,15 +278,17 @@ An observable cosmological prediction requires all source artifacts to be fixed 
 
 1.  immutable hashes for OPH source artifacts, schema versions, and regulator manifests;
 
-2.  immutable hashes for Boltzmann solver source, version, tolerances, inputs, and build environment;
+2.  immutable scale-bridge hashes for the generation, geometry, background, clock, scale certificate, source embedding, mode basis, mode lineage, boundary condition, solver convention, freezeout surface, and source DAG;
 
-3.  immutable hashes for likelihood code, datasets, masks, covariances, and nuisance-prior definitions;
+3.  immutable hashes for Boltzmann solver source, version, tolerances, inputs, and build environment;
 
-4.  a no-data-use manifest showing that likelihood values did not enter source artifact generation;
+4.  immutable hashes for likelihood code, datasets, masks, covariances, and nuisance-prior definitions;
 
-5.  global pooled reducers for nonlinear source estimates;
+5.  a no-data-use manifest showing that likelihood values did not enter source artifact generation;
 
-6.  a fixed falsification rule and reporting template before executing the likelihood.
+6.  global pooled reducers for nonlinear source estimates;
+
+7.  a fixed falsification rule and reporting template before executing the likelihood.
 
 <div class="definition">
 
@@ -297,9 +302,15 @@ where $`\tau_v`$ is the semantic type, $`\mathcal X_v`$ records axes, domain, gr
 
 </div>
 
+<div class="definition">
+
+**Definition 2** (scale-bridge cross-receipt manifest). *The physical scale bridge supplies a nonempty cross-receipt manifest. Every child receipt repeats the same regulator-family id, generation id, geometry hash, background hash, clock hash, scale-certificate hash, source-embedding hash, mode-basis hash, mode-lineage hash, boundary-condition hash, solver-convention hash, freezeout-surface hash, and source-DAG hash. An empty manifest or a missing identity field fails before likelihood execution.*
+
+</div>
+
 <div class="theorem">
 
-**Theorem 2** (no receipt-Boolean promotion). *Let $`G`$ be the finite acyclic graph of data-facing artifacts. If every node verifier recomputes its predicate from its artifact, witness, complete parent set, data ledger, and error envelope, then a passed <span class="smallcaps">PhysicalCMBPrediction</span> node implies that every required source, solver, likelihood, and no-data-use parent predicate also holds. In particular, caller-supplied receipt Booleans cannot promote an artifact across a semantic type boundary.*
+**Theorem 3** (no receipt-Boolean promotion). *Let $`G`$ be the finite acyclic graph of data-facing artifacts. If every node verifier recomputes its predicate from its artifact, witness, complete parent set, data ledger, and error envelope, then a passed <span class="smallcaps">PhysicalCMBPrediction</span> node implies that every required source, solver, likelihood, and no-data-use parent predicate also holds. In particular, caller-supplied receipt Booleans cannot promote an artifact across a semantic type boundary.*
 
 </div>
 

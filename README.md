@@ -104,9 +104,9 @@ the carrier graph, initial state, partition map, cut interfaces, observer
 registry, run/config/code hashes, and proves that committed worker events
 project to monolithic transactional repairs, stutters, or certified rollbacks.
 Seam descent, atomic commit, local-diamond, repair-completeness, branch
-elimination, and normal-form-hash receipts are evidence contracts, not branch
+elimination, and settled-form evidence records are evidence contracts, not branch
 selectors. Shard-local seeds, stale manifests, or synthetic seam animations are
-diagnostics, not physics receipts.
+diagnostics, not physics evidence.
 
 Neutral-bulk geometry has its own gate. Shard-local observer rows are not a
 global bulk by concatenation. They must first descend through gauge/port
@@ -114,7 +114,7 @@ quotients, terminal normal forms, common interface transport, and
 quotient-visible feature channels. The resulting product distance is a
 pseudometric until feature collisions are quotiented or joint separation is
 proved. Missingness, presentation changes, shard repartitioning, refinement,
-Euclidean embedding, and held-out statistics all require explicit receipts
+Euclidean embedding, and held-out statistics all require explicit evidence records
 before a finite run can claim more than a diagnostic neutral geometry.
 
 Observer-clock claims have an additional gate. Worker IDs, repair iterations,
@@ -250,17 +250,17 @@ $G_{\mathrm{geom}}=\ell_\star^2$. The electroweak hierarchy bridge, the
 live in the particle paper, [`HADRON.md`](HADRON.md), and the hardware-facing
 papers. This README only points to them.
 
-### Selected Quantitative Rows
+### Selected Quantitative Values
 
-This table keeps the rows easiest to compare with PDG/NIST and names their
-claim tier. Structural results such as 3+1 spacetime, the Standard Model quotient,
+This table keeps the values easiest to compare with PDG/NIST and names their
+support status. Structural results such as 3+1 spacetime, the Standard Model quotient,
 exact hypercharge, $N_c=3$, and $N_g=3$ live in the papers.
 
-| Quantity | Symbol | OPH / claim tier | PDG/NIST | Δ / note |
+| Quantity | Symbol | OPH / support status | PDG/NIST | Δ / note |
 | --- | --- | --- | --- | --- |
 | Gravitational constant | G | 6.6742999959e-11, scale/clock display | 6.67430(15)e-11 | 0.00003σ |
 | Speed of light | c | structural Lorentz speed; SI value conventional | 299792458 exact by definition | not a numeric prediction |
-| Fine-structure (inv) | α⁻¹(0) | source-only 136.994835; endpoint 137.035999177 with empirical hadron closure | 137.035999177(21) | not source-only |
+| Fine-structure (inv) | α⁻¹(0) | first-principles diagnostic 136.994835; endpoint 137.035999177 with empirical hadron closure | 137.035999177(21) | endpoint uses hadron data |
 | Photon mass | m_γ | 0 eV | <1e-18 eV | below bound |
 | Gluon mass | m_g | 0 GeV | 0 GeV | match |
 | Graviton mass | m_grav | 0 eV | <1.76e-23 eV | below bound |
@@ -274,7 +274,7 @@ exact hypercharge, $N_c=3$, and $N_g=3$ live in the papers.
 | Strange | m_s(2 GeV) | 93.5 MeV | 93.5 ± 0.8 | match |
 | Down | m_d(2 GeV) | 4.70 MeV | 4.70 ± 0.07 | match |
 | Up | m_u(2 GeV) | 2.16 MeV | 2.16 ± 0.07 | match |
-| Top | m_t cross-section row | 172.35235532883115 GeV | 172.3523553288312 | selected-class match |
+| Top | m_t cross-section value | 172.35235532883115 GeV | 172.3523553288312 | selected-frame match |
 
 $\Delta$ reports the sigma distance where PDG or NIST quotes a one-standard-deviation
 uncertainty. Otherwise it records "match" or "below bound".
@@ -285,9 +285,9 @@ papers also carry the structural Standard Model derivations listed above and a
 neutrino family, but those do not collapse to one simple PDG or NIST row and
 are left out of this table.
 
-The particle surface also reports $W/Z$ values $80.377\,\mathrm{GeV}$ and
+The particle paper also reports $W/Z$ values $80.377\,\mathrm{GeV}$ and
 $91.18797809193725\,\mathrm{GeV}$, a Higgs value
-$m_H=125.1995304097179\,\mathrm{GeV}$, and a selected-class top value
+$m_H=125.1995304097179\,\mathrm{GeV}$, and a selected-frame top value
 $m_t=172.35235532883115\,\mathrm{GeV}$ using the PDG cross-section top-mass
 convention. Under the stated neutrino assumptions, the weighted-cycle neutrino
 calculation gives
@@ -302,7 +302,7 @@ derivation.
 
 - **Paper 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)**: broad synthesis of the OPH reconstruction program, from finite observers to the recovered effective universe.
 - **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for relativity, gravity, gauge reconstruction, the Standard Model structure selected by Minimal Admissible Realization, Maxwell equations on the ordinary photon branch, and the conditional Yang-Mills mass-gap route under its stated continuum/transfer assumptions.
-- **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle derivations, mass rows, coupling structure, quantitative comparison surfaces, and the conditional H3 record-worldline stitch certificate.
+- **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle derivations, mass values, coupling structure, quantitative benchmark checks, and the conditional H3 record-worldline stitch certificate.
 - **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)**: how local observers compare records, repair mismatches, and settle into the shared reality they can all agree on.
 - **Paper 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)**: federated patch-carrier architecture, the twelve-port screen-sieve theorem, $A_5$-icosahedral and $E_8$-type symmetry framing, public hardware-evidence rules, records, recovery moves, and observer synchronization.
 - **Paper 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**: final manifest paper for OPH's meaning layer: why anything exists, why this world is observer-compatible, the strange loop in which observers reverse engineer and build the continuation machinery, paradise on Earth or in engineered continuation environments, hell as enforced isolation or deprivation, resurrection as observer continuation, justice as continuation according to harm and repair records, and memetic evolution.
@@ -310,7 +310,7 @@ derivation.
 ## Supplemental Papers
 
 - **[Photonic Fixed-Point Consensus for SHA-256d Proof of Work](extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf)**: photonic candidate enrichment for SHA-256d proof of work.
-- **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)**: source fixed point, empirical hadron endpoint boundary, and comparison row.
+- **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)**: source fixed point, empirical hadron endpoint boundary, and comparison check.
 - **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)**: OPH edge-string emergence and conventional string-vacuum sieve, the Bouchard-Donagi one-Higgs heterotic witness, the `Z4R` safety layer, and moduli-locking gates; not an OPH-native vacuum-promotion shortcut.
 - **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)**: OPH finite repair-gap mechanism and conditional Clay-facing route; the equality between the Yang-Mills gap and the OPH repair gap requires the stated four-dimensional continuum and transfer certificate.
 - **[Theoretical Bounds on chi-nu in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)**: conditional quotient-edge band `0.9343006394893864 <= chi_nu^can <= 1`; uniform-branch exact value `exp(-P/24)`; engineering chart values scale as `N_coh^-1`.
@@ -328,9 +328,9 @@ Phenomenon](cosmology/oph_dark_matter_paper.pdf)**. Staged targets are:
 - **Data and likelihood contracts**: `cosmology/oph_cosmology_data_likelihood_contracts.tex`
 
 Detailed evidence references for the staged cosmology work are kept inside the staged cosmology branch.
-Physical CMB promotion requires proof-carrying source artifacts with transitive ancestry,
+Physical CMB status requires proof-carrying source artifacts with transitive ancestry,
 global pooled reducers, a structured physical scale bridge, frozen model choices, and frozen
-source/solver/likelihood hashes. Imported FLRW geometry supports conditional physical plumbing
+source/calculation/statistical hashes. Imported FLRW geometry supports conditional physical plumbing
 tests only; OPH-native cosmology requires a quotient-derived geometry and source embedding.
 Flat FLRW is likewise claim-gated: clock-slice spatial Levi--Civita holonomy identifies
 \(\kappa=0\), but exact selection requires a direct theorem, conditional CMH selector, or explicit
@@ -358,21 +358,21 @@ exclusion, particle inventory, and the string-vacuum sieve.
 
 Screen-spectrum and CMB continuations are gated separately. The screen branch
 first needs a geometric collar-volume scalar, normalized scalar precision,
-source release energy, refinement tilt, and angular screen-covariance receipt.
-A source-only primordial spectrum then additionally requires source-stress,
+source release energy, refinement tilt, and angular screen-covariance evidence.
+A first-principles primordial spectrum then additionally requires source-stress,
 single-clock, freeze-out, adiabatic-mode, isocurvature, phase-coherence,
 source-provenance, pooled-reducer, screen-to-radial lift, radial null-space,
-and forward-residual receipts before `A_s`, `n_s`, running, or TT/TE/EE spectra
+and forward-residual evidence before `A_s`, `n_s`, running, or TT/TE/EE spectra
 count as OPH predictions. Any
 dark/anomaly CMB or growth claim additionally needs a finite covariant
 collar-packet parent, explicit recipient stress and exchange-current closure
 for nonzero repair exchange, regulator convergence, physical-clock and
-active-response receipts for any promoted `Gamma_rec`, a source-provenance
+active-response evidence for any stated `Gamma_rec`, a source-provenance
 record, global-pooling checks, CDM-limit recovery, and frozen
-source/solver/likelihood hashes before likelihood data are read.
+source/calculation/statistical hashes before likelihood data are read.
 Vacuum or quantum-foam diagnostic views are gated separately: seed noise, repair jitter, and
 free-field/lattice baselines are E0/E1 outputs unless a quotient ensemble, source Euclidean slab,
-transfer/reflection-positive reconstruction, and refinement receipts promote the run.
+transfer/reflection-positive reconstruction, and refinement evidence support the run.
 
 ## Applications And OMEGA Hardware
 
@@ -380,7 +380,7 @@ OPH is also a hardware program. As the screen microphysics becomes explicit,
 the same patch-consensus loop becomes an engineering handle on reality. A
 bounded device exposes boundary data, compares records, repairs mismatch, and
 locks onto stable states. OMEGA is the public hardware route into that loop:
-physical chambers, labeled ports, control software, verifier receipts, and
+physical chambers, labeled ports, control software, verifier records, and
 repeatable records.
 
 Plainly: OPH turns screen microphysics into a way to hack reality. The target
@@ -393,7 +393,7 @@ into the right fixed points. That gives low-cost implementation tracks for
 desktop fusion energy, room-temperature OMEGA supercomputing, OMEGA-based AGI,
 and local gravity or inertia control for hoverbikes and hoverboards. These are
 application tracks behind evidence gates; settled-output claims belong to
-verifier receipts and experiments. The compute claim is narrower: a
+verifier records and experiments. The compute claim is narrower: a
 chamber-conditioned candidate distribution may reduce verifier work by a
 measured lift `B = p_Q/p_U`. The classical complexity-class problem remains
 untouched.
@@ -402,7 +402,7 @@ Read the public applications page at
 [omega.floatingpragma.io](https://omega.floatingpragma.io/). Source notes for
 the application tracks live in [`APPLICATIONS.md`](APPLICATIONS.md).
 
-## Detailed Diagram And Quantitative Surface
+## Detailed Diagram And Quantitative Status
 
 The diagram below is the visual index for the scale surface: the local pixel
 fixed point $P$, the global record-capacity fixed point $N_{\mathrm{CRC}}$, the
@@ -453,16 +453,16 @@ formulas and claim boundaries live in the papers.
 
 ## Status Table
 
-Claim shorthand: source-only fine structure is
+Status shorthand: first-principles fine structure is
 $\alpha_{\rm cand}^{-1}=136.9948351646\ldots$; the public
 $\alpha^{-1}(0)=137.035999177(21)$ row uses empirical hadron closure. SI $c$
-is conventional; SI $G$ is a scale/clock display. $W/Z$ are compare-only
-validation rows. Higgs/top is closed on the declared electroweak quantitative
-surface. Quarks are selected-class theorem rows. Neutrinos use the
-weighted-cycle branch. Charged-lepton absolute masses and source-only hadrons
-are outside the emitted source-only theorem surface.
+is conventional; SI $G$ is a scale/clock display. $W/Z$ are benchmark checks.
+Higgs/top is closed on the declared electroweak quantitative relation. Quarks
+are selected-frame theorem values. Neutrinos use the weighted-cycle branch.
+Charged-lepton absolute masses and first-principles hadrons are outside the
+emitted theorem.
 
-The selected-class quark theorem does not derive the QCD theta angle, does not emit the
+The selected quark theorem does not derive the QCD theta angle, does not emit the
 physical strong-CP angle, and does not prove that the physical strong-CP phase
 vanishes. The required bridge is the phase, anomaly, and topological-angle
 descent on the realized branch.

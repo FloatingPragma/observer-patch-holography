@@ -10,7 +10,10 @@ This is the natural expectation from Newton through Einstein.
 
 Einstein himself added a "cosmological constant" to his equations in 1917 to create a static universe, a universe that neither expanded nor contracted. When Hubble discovered the universe is expanding, Einstein dropped the constant, calling it his "greatest blunder."
 
-Even after accepting expansion, the expectation was deceleration. Gravity attracts. The mutual pull of all the matter in the universe should slow the expansion, like a ball thrown upward gradually slowing. Eventually, the expansion might stop or even reverse.
+Even after accepting expansion, the expectation was deceleration. Gravity
+attracts. The mutual pull of all the matter in the universe should slow the
+expansion, like a ball thrown upward gradually slowing. The expansion might
+stop or even reverse.
 
 Supernova data broke that picture.
 
@@ -20,11 +23,15 @@ Supernova data broke that picture.
 
 In January 1998, two teams of astronomers independently announced results that overturned our understanding of the cosmos.
 
-Saul Perlmutter led the Supernova Cosmology Project. Brian Schmidt and Adam Riess led the High-Z Supernova Search Team. Both groups had spent years hunting Type Ia supernovae-the "standard candles" of cosmology.
+Saul Perlmutter led the Supernova Cosmology Project. Brian Schmidt and Adam
+Riess led the High-Z Supernova Search Team. Both groups had spent years hunting
+Type Ia supernovae, the "standard candles" of cosmology.
 
 Everyone expected to find that expansion is slowing. The data showed the opposite.
 
-Distant supernovae were fainter than expected-farther away than a decelerating universe would predict. The universe isn't slowing down. It's **speeding up**.
+Distant supernovae were fainter than expected, farther away than a decelerating
+universe would predict. The universe is not slowing down. It is **speeding
+up**.
 
 Something is pushing the cosmos apart. Something is fighting gravity and winning. The teams called it "dark energy."
 
@@ -38,15 +45,22 @@ calibrations, and arguments about what the sky was actually saying.
 
 ### The Cosmological Constant Returns
 
-A positive cosmological constant Lambda > 0 creates a repulsive large-scale tendency that grows with distance. At early times, when matter density was high, gravity dominated. As the universe expanded and matter diluted, Lambda took over.
+In the simplest late-time fit, a positive cosmological constant, Lambda greater
+than zero, creates a repulsive large-scale tendency that grows with distance.
+At early times, when matter density was high, gravity dominated. As the
+universe expanded and matter diluted, the dark-energy component took over.
 
-The expansion began accelerating about 5 billion years ago. The universe is about 68% dark energy.
+The expansion began accelerating about 5 billion years ago. The standard fit
+summarizes the universe as about 68% dark energy.
 
-The universe has a positive cosmological constant. It is accelerating toward a de Sitter future.
+If that component is a true cosmological constant, the future approaches a de
+Sitter phase. The DESI-era data keep dynamical dark energy on the table, so this
+chapter treats de Sitter as the standard branch used for the OPH capacity
+calculation.
 
 ## 13.3 The First-Principles Reframing: De Sitter Is the Natural Screen
 
-The deeper question is why the universe settled into a de Sitter patch.
+The deeper question is why late-time cosmology points toward a de Sitter patch.
 
 ### The Static Patch
 
@@ -58,11 +72,12 @@ Here $H$ is the Hubble expansion rate for the de Sitter phase. The formula says
 that expansion itself creates a distance beyond which signals cannot overcome
 the stretching of space.
 
-This defines your **cosmological horizon**-the boundary of your causal access.
+This defines your **cosmological horizon**, the boundary of your causal access.
 
 ![A de Sitter static patch gives one observer a finite horizon screen whose capacity scales with area.](../assets/book_diagrams/desitter-static-patch.svg){width=78%}
 
-Inside the horizon, you can use static coordinates. This region-the **static patch**-is all of de Sitter space that you can ever access.
+Inside the horizon, you can use static coordinates. This region, the
+**static patch**, is all of de Sitter space that you can ever access.
 
 ### De Sitter Fits OPH
 
@@ -79,11 +94,15 @@ The static patch is the natural arena for physics from an observer's perspective
 
 ## 13.4 The Gibbons-Hawking Temperature
 
-In 1977, Gary Gibbons and Stephen Hawking proved that the cosmological horizon radiates like a black body:
+In 1977, Gary Gibbons and Stephen Hawking proved that the cosmological horizon
+radiates like a black body:
 
 $$T_{dS} = \frac{\hbar H}{2\pi k_B}$$
 
-For our universe, this is about 10^{-30} Kelvin-undetectable. During inflation, horizon-scale quantum fluctuations were stretched and later seeded structure formation; the de Sitter temperature is one thermodynamic way of characterizing that regime.
+For our universe, this is about 10^{-30} Kelvin, far below direct detection.
+During inflation, horizon-scale quantum fluctuations were stretched and later
+seeded structure formation; the de Sitter temperature is one thermodynamic way
+of characterizing that regime.
 
 The symbols echo earlier horizon physics. $T_{dS}$ is the de Sitter
 temperature. $\hbar$ is Planck's constant divided by $2\pi$. $H$ is the Hubble
@@ -111,7 +130,8 @@ If the horizon has temperature, it must have entropy:
 
 $$S_{dS} = \frac{A}{4\ell_P^2} = \frac{\pi c^5}{G\hbar H^2}$$
 
-This is the entropy associated with one de Sitter static patch-the logarithm of the effective number of states accessible within that patch.
+This is the entropy associated with one de Sitter static patch, the logarithm
+of the effective number of states accessible within that patch.
 
 Here $A$ is the horizon area, $\ell_P$ is the Planck length, $c$ is the speed
 of light, $G$ is Newton's gravitational constant, and $H$ again sets the
@@ -199,22 +219,22 @@ The symbol $\Lambda$ is the cosmological constant, the part of Einstein's
 equation that acts like a uniform large-scale tendency for space to accelerate.
 It belongs to the global capacity branch at the cosmic record fixed point.
 
-So on the cosmological-capacity branch the dimensionless Lambda-capacity
-relation is fixed by a **global** self-reading constraint: the outside total
-horizon capacity must equal the inside observer-accessible public record. With
-the selected OPH scale certificate, the fixed point is displayed as
+On the cosmological-capacity branch the dimensionless Lambda-capacity relation
+is fixed by a **global** self-reading constraint: the outside total horizon
+capacity must equal the inside observer-accessible public record. With the
+selected OPH scale bridge, the fixed point is displayed as
 
 $$N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}),\qquad
 \Lambda_{\mathrm{CRC}}=\frac{3\pi}{G N_{\mathrm{CRC}}}.$$
 
-With that fixed point and scale certificate, the observed $\Lambda$ is the way the
-world announces its total screen capacity in SI units. The dimensionless
+With that fixed point and scale bridge, the observed $\Lambda$ is the way
+the world announces its total screen capacity in SI units. The dimensionless
 capacity relation is the global size parameter carried by every consistent
 patch.
 
-The input-free global closure is sharp. Let $F(N)$ be the active
-horizon capacity read back by stable observers inside the OPH universe supplied
-with capacity $N$. The cosmic record-closure capacity is
+The global closure is sharp. Let $F(N)$ be the active horizon capacity read
+back by stable observers inside the OPH universe supplied with capacity $N$.
+The cosmic record-closure capacity is
 
 $$
 N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}).
@@ -231,15 +251,23 @@ N_\star=\operatorname*{argmax}_{N\ \mathrm{admissible}}
 \left(\log|\Omega^{\mathrm{sc}}_N|-N\right).
 $$
 
-Equivalently, with $\ell(N)=\log|\Omega^{\mathrm{sc}}_N|-N$, the OPH-derived
-map $T_\eta(N)=N+\eta\ell'(N)$ has a unique stable fixed point under the stated
-derivative-sign certificate. Informally, this is the single screen size where
+$\Omega^{\mathrm{sc}}_N$ is the set of self-consistent observer-supported
+screen records at capacity $N$. The absolute-value bars count how many such
+records there are. The exponential factor $e^{-N}$ removes the trivial growth
+from increasing the raw screen capacity. The selected capacity $N_\star$ is the
+admissible value where this balance is largest.
+
+The same idea can be written as a fixed-point map. Define
+$\ell(N)=\log|\Omega^{\mathrm{sc}}_N|-N$. The OPH-derived map
+$T_\eta(N)=N+\eta\ell'(N)$ moves $N$ in the direction indicated by the slope of
+that balance function. Under the stated derivative-sign condition it has a
+unique stable fixed point. Informally, this is the single screen size where
 the universe reads back its own boundary without deficit or slack: below it,
 stable self-reading records do not have enough active capacity; above it, added
 capacity is slack, redundancy, or de Sitter dilution. On the observed branch
-this fixed point is the de Sitter entropy capacity. The
-reverse-engineering claim is uniqueness plus observed read-off; a from-scratch
-prediction requires deriving $F$ or $A(N)$ from the finite grammar.
+this fixed point is the de Sitter entropy capacity. The reverse-engineering
+claim is uniqueness plus observed read-off; a from-scratch prediction requires
+deriving the readback map from the finite grammar.
 
 This is the informal $N_{\mathrm{CRC}}$ story. From the outside the datum is
 total horizon capacity. From the inside the datum is total observer-accessible
@@ -248,12 +276,10 @@ own boundary. Observers exist inside it, and infer geometry, horizons, entropy,
 $\Lambda$, history, and records from the information available inside the
 universe.
 
-The symbol $\mathcal H_{\text{tot}}$ means the total Hilbert space available to
-the screen, and $\dim$ means its dimension, the number of independent quantum
-state directions before taking the logarithm. The logarithm converts that
-dimension into entropy. This equation is not a local particle-mass formula. It
-is a capacity formula: a larger total state space corresponds to a smaller
-positive cosmological constant.
+The capacity relation is not a local particle-mass formula. It is a global
+screen-size formula: a larger self-consistent record capacity corresponds to a
+smaller positive cosmological constant once the selected scale bridge is
+used for the SI display.
 
 ### Many Observers, One Lambda
 
@@ -301,16 +327,19 @@ Swampland arguments suggest that stable de Sitter vacua may be impossible in con
 
 Even if de Sitter vacua exist, why is Lambda so small (10^{-122} in Planck units)?
 
-The **anthropic principle** offers an answer: if Lambda were much larger, galaxies couldn't form. If it were negative, the universe would recollapse. We find ourselves in a universe with small positive Lambda because that's where observers can exist.
+The **anthropic principle** offers an answer: if Lambda were much larger,
+galaxies couldn't form. If it were negative, the universe would recollapse. In
+the simplest fit, we find ourselves in a universe with small positive Lambda
+because that is where observers can exist.
 
 ## 13.9 Reverse Engineering Summary
 
 Historical cosmology expected expansion to slow under gravity. The sky disagreed.
-The supernova data and positive cosmological constant point
-toward de Sitter behavior, and de Sitter fits the observer-first picture with
-almost suspicious neatness. Each observer has a static patch, a horizon, a
-temperature, an entropy budget, and finite accessible information. The
-cosmological horizon is not a nuisance in this reading. It is the natural
+The supernova data and the standard late-time fit point toward de Sitter
+behavior, and de Sitter fits the observer-first picture with almost suspicious
+neatness. Each observer has a static patch, a horizon, a temperature, an
+entropy budget, and finite accessible information. The cosmological horizon is
+not a nuisance in this reading. It is the natural
 screen.
 
 ## 13.10 Dark Sector as a Modular Anomaly
@@ -321,9 +350,15 @@ OPH suggests a different route.
 
 ### The Modular Anomaly
 
-In Chapter 11, we saw that a first-variation Einstein relation emerges from an entanglement-equilibrium argument in the scaling regime, and that the same branch can be upgraded to the semiclassical Einstein equation. The continuation below is not part of that recovered-core gravity chain. It asks what happens when one moves away from the ideal recoverability limit.
+Chapter 11 used entanglement equilibrium to recover the local Einstein
+relation in the scaling regime. The dark-sector idea begins one step outside
+that clean lane. It asks what remains when the boundary record almost screens
+inside from outside, yet leaves a small residue.
 
-In the phenomenological continuation considered here, the Markov condition is treated as only approximate. Some residual correlation is then not perfectly captured by the boundary alone. The primary BW theorem is the support-visible cap automorphism identity. In the special type-I or effective local representation where one can write a modular generator, that imperfection is packaged as an extra term:
+In this phenomenological continuation, the Markov condition is approximate.
+Some correlation escapes the boundary summary. In the special finite or
+effective representation where a modular generator can be written, that
+imperfection appears as an extra term:
 
 $$K_C = 2\pi B_C + K_C^{(\text{anom})} + \text{const}$$
 
@@ -341,14 +376,17 @@ energy and has no direct observational role.
 
 $$G_{00} + \Lambda g_{00} = 8\pi G \left( \langle T_{00} \rangle + \langle T_{00}^{\text{anom}} \rangle \right)$$
 
-The continuation highlighted here uses the coefficient $\frac{15}{8\pi^2} \approx 0.19$.
+The continuation highlighted here uses the coefficient
+$15/(8\pi^2)\approx0.19$. This coefficient belongs to the diagnostic
+dark-sector continuation, not to the recovered-core gravity theorem.
 
 ### Why This Is "Dark"
 
 In this continuation, the anomalous term $T_{00}^{\text{anom}}$ is dark at the
 level of its couplings. It arises from information structure at galaxy scale,
-it gravitates, and it carries no direct electromagnetic
-coupling in the effective description.
+it gravitates, and it carries no direct electromagnetic coupling in the
+effective description. This is a proposed infrared bridge, not a completed
+galaxy-scale source-and-response law.
 
 ### The Acceleration Scale
 
@@ -356,7 +394,9 @@ The de Sitter horizon introduces an unavoidable IR length scale:
 
 $$r_{dS} = \sqrt{\frac{3}{\Lambda}} \approx 1.66 \times 10^{26} \text{ m}$$
 
-Galaxy rotation anomalies are an infrared phenomenon. They appear at large distances where accelerations are tiny. Any modification from the modular anomaly must be controlled by this scale.
+Galaxy rotation anomalies are an infrared phenomenon. They appear at large
+distances where accelerations are tiny. Any modification from the modular
+anomaly must be controlled by this scale.
 
 A natural acceleration benchmark, carrying the anomaly coefficient, is:
 
@@ -368,8 +408,10 @@ $$a_0^{(\text{OPH})} \approx 1.03 \times 10^{-10} \text{ m/s}^2$$
 
 This lands near the empirical MOND acceleration scale
 $a_0 \sim 1.2 \times 10^{-10}\,\text{m/s}^2$ that fits galaxy rotation curves.
-The proximity matters because it ties galaxy-scale anomalies back to the same
-de Sitter capacity logic that fixed the horizon.
+The proximity matters because it ties a possible galaxy-scale anomaly back to
+the same de Sitter capacity logic that fixed the horizon. It is not a
+replacement for a full fit to galaxy diversity, clusters, lensing, structure
+growth, and precision expansion data.
 
 ### What This Continuation Looks Like
 
@@ -392,26 +434,18 @@ The same picture yields the baryonic Tully-Fisher relation:
 
 $$V^4 = G \cdot M_b \cdot a_0^{(\text{OPH})}$$
 
-This is the observed Tully-Fisher form that the continuation aims to
-reproduce, with its normalization benchmark set by screen capacity. In that
+This is the observed Tully-Fisher form that the continuation aims to reproduce,
+with its normalization benchmark set by screen capacity. In that
 phenomenological branch, the dark sector is read as an infrared correction to
-gravity. The statement does not introduce a new particle species. The
-cosmological constant and the galaxy-scale anomaly then sit inside one de
-Sitter picture, but the
-galaxy-scale response law itself is not part of the recovered-core theorem
-package. OPH conditionally identifies the collar scalar with uniform-density
-curvature, but primordial conservation and mode purity remain gated by
-source-stress, single-clock, freeze-out, isocurvature, phase-coherence,
-source-provenance, pooled-reducer, radial-lift, null-space, and forward-residual
-certificates. Without those receipts, CMB spectra are diagnostics or
-continuation tests and do not count as source-only primordial predictions. A
-dark/anomaly CMB or growth claim has an
-additional gate: a finite covariant collar-packet parent must emit the stress
-moments, the anomaly-frame baryon response, explicit recipient stress and a
-balanced exchange current for any nonzero repair exchange, convergence checks,
-a source-provenance record, global-pooling checks, physical-clock response
-checks for any promoted exchange rate, and frozen source/solver/likelihood
-hashes before likelihood data are read.
+gravity. No new particle species is introduced. The cosmological constant and
+the galaxy-scale anomaly then sit inside one de Sitter picture.
+
+That is the attractive part. The hard part is the rest of cosmology. A serious
+CMB or growth calculation must specify the finite source, the stress tensor, the
+physical clock, the lift from screen data to radial modes, the mode-purity
+checks, the pooling rule, the numerical calculation, and the statistical fit before
+the sky data are used. Until that whole chain is present, CMB spectra and growth
+curves remain tests of the continuation, not first-principles predictions.
 
 ---
 

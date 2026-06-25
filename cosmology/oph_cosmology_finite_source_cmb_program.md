@@ -1,3 +1,6 @@
+**Paper release:** `r1503`
+**Released:** June 24, 2026
+
 # What This Paper Contributes
 
 The OPH core papers recover local observer-facing geometry, records, modular flow, gauge/matter structure, and finite screen microphysics. The cosmology work asks a different question: which large-scale data can be predicted once the finite observer-screen state is released into an Einstein-Boltzmann cosmology?
@@ -143,7 +146,7 @@ Boundary optima obey the same formula after restricting to their support. On a f
 \frac{\exp(\log\sigma_r-\sum_a\theta_aF_{r,a})}
 {\operatorname{Tr}\exp(\log\sigma_r-\sum_a\theta_aF_{r,a})}.
 ```
-The finite constraint ledger must name every $`F_{r,a}`$, its units and support, the target expectation and source, sector or zero-mode treatment, refinement transformation, and proof that no simulator or observational output entered the source definition.
+The finite constraint ledger must name every $`F_{r,a}`$, its units and support, the target expectation and source, sector or zero-mode treatment, refinement transformation, and proof that no run output or observational output entered the source definition.
 
 #### Refinement compatibility and RG closure.
 
@@ -194,7 +197,7 @@ then
 ```
 For tracially pointed quantum quotients the corresponding equivalence is a trace-preserving quotient equivalence. It is invariant under unitary intertwiners preserving the gauge action and sector, and under inert trivial ancillas $`A\mapsto A\otimes I_{\rm anc}`$. It is not invariant under arbitrary changes of gauge-representation multiplicities.
 
-If a simulator stores representatives, a representative-level law must be a conditional lift
+If an implementation stores representatives, a representative-level law must be a conditional lift
 ``` math
 \widetilde\mu_r(x)=\mu_r(\pi_r x)\kappa_r(x\mid \pi_r x),
 \qquad
@@ -241,7 +244,7 @@ L_{\rm rep}\ge \gamma_*\kappa_r(I-P_0).
 ```
 Finite repair completeness gives $`\kappa_r>0`$ at fixed regulator. A uniform refinement lower bound $`\inf_r\kappa_r>0`$ is a separate theorem or receipt.
 
-#### Simulator accuracy.
+#### Finite evidence accuracy.
 
 For bounded coarse observables $`O`$, if
 ``` math
@@ -302,7 +305,7 @@ E4:&\text{OPH primordial field},\\
 E5:&\text{observable cosmological prediction}.
 \end{array}
 ```
-The simulator must keep separate receipts for stationary-law schedule invariance, detailed balance of the aggregate kernel, and pathwise partition invariance. Deterministic replay of semantic random streams or a canonical serial chain is useful, but it is not pathwise partition invariance. Smoothing must preserve raw coefficients, raw spectra, smoothing kernels, smoothed coefficients, smoothed spectra, and hashes of each stage; it is not part of $`S_r`$ unless explicitly declared.
+The evidence bundle must keep separate receipts for stationary-law schedule invariance, detailed balance of the aggregate kernel, and pathwise partition invariance. Deterministic replay of semantic random streams or a canonical serial chain is useful, but it is not pathwise partition invariance. Smoothing must preserve raw coefficients, raw spectra, smoothing kernels, smoothed coefficients, smoothed spectra, and hashes of each stage; it is not part of $`S_r`$ unless explicitly declared.
 
 # Finite Screen Spectrum Theorem Package
 
@@ -580,7 +583,7 @@ then
 
 # Physical Scale Bridge and Mode Calibration
 
-This fragment owns the physical scale bridge used by the staged cosmology branch. It separates finite labels that are useful simulator diagnostics from labels that are physically calibrated for a Boltzmann solver.
+This fragment owns the OPH physical scale bridge used by the staged cosmology branch. It separates physical comoving wavenumber, source-screen angular sectors, observed-sky transfer multipoles, finite graph labels, cap labels, and repair-cycle labels.
 
 <div id="def:cosmology-claim-tiers" class="definition">
 
@@ -590,22 +593,18 @@ This fragment owns the physical scale bridge used by the staged cosmology branch
 \texttt{CONDITIONAL\_PHYSICAL},\qquad
 \texttt{OPH\_NATIVE\_PHYSICAL}.
 ```
-`DIAGNOSTIC_PROXY` covers cap angles, graph mode numbers, repair cycles, and other finite labels with no physical calibration. `CONDITIONAL_PHYSICAL` imports a frozen external FLRW geometry packet and then proves the downstream spectral, clock, freezeout, and transfer contracts relative to that packet. `OPH_NATIVE_PHYSICAL` requires the same packet to be derived from the OPH quotient carrier.*
+`DIAGNOSTIC_PROXY` covers cap angles, graph mode numbers, repair cycles, sorted covariance indices, unit strings, and other finite labels without a physical scale bridge. `CONDITIONAL_PHYSICAL` imports a frozen FLRW geometry packet and proves the downstream spectral, clock, freezeout, source, transfer, and likelihood contracts relative to that packet. `OPH_NATIVE_PHYSICAL` requires the geometry packet and source embedding to be read from the OPH quotient carrier.*
 
 </div>
 
 <div id="def:cosmology-notation-firewall" class="definition">
 
-**Definition 18** (notation firewall). *The branch uses separate symbols for separate objects:
+**Definition 18** (notation firewall). *The bridge uses separate symbols for separate objects:
 ``` math
-K_{\rm FLRW}\in\{-1,0,+1\},\qquad
-k,\qquad
-\ell_{\rm src},\qquad
-L_{\rm CMB},\qquad
-\ell_\star,\qquad
-L_{\rm IR}.
+T_r,\qquad \tau,\qquad \eta,\qquad \chi,\qquad K_{\rm FLRW},\qquad
+k,\qquad \ell_{\rm src},\qquad L_{\rm CMB},\qquad \ell_\star,\qquad L_{\rm IR}.
 ```
-$`K_{\rm FLRW}`$ is spatial curvature, $`k`$ is comoving wavenumber, $`\ell_{\rm src}`$ is an angular sector on the primordial source shell, $`L_{\rm CMB}`$ is the observed-sky transfer output multipole, $`\ell_\star`$ is the OPH scale-certificate length, and $`L_{\rm IR}`$ is an infrared domain size. The canonical internal unit for comoving $`k`$ is $`{\rm Mpc}^{-1}`$; $`h\,{\rm Mpc}^{-1}`$ is only a display unit after $`h`$ is frozen.*
+$`T_r`$ is a finite source-clock label. $`\tau`$ is proper time, $`\eta`$ is conformal time, $`\chi`$ is comoving radial distance, and $`K_{\rm FLRW}\in\{-1,0,+1\}`$ is the spatial-curvature branch. $`k`$ is physical comoving wavenumber on a reconstructed spatial slice. $`\ell_{\rm src}`$ is an angular representation sector on the finite primordial source screen. $`L_{\rm CMB}`$ is the observed-sky multipole produced by Boltzmann line-of-sight transfer. Cap openings, graph mode numbers, and repair-cycle indices are diagnostic labels. The canonical internal unit for $`k`$ is $`{\rm Mpc}^{-1}`$; $`h\,{\rm Mpc}^{-1}`$ is a display unit only after $`h`$ is frozen and provenance-typed.*
 
 </div>
 
@@ -616,191 +615,475 @@ $`K_{\rm FLRW}`$ is spatial curvature, $`k`$ is comoving wavenumber, $`\ell_{\rm
 \mathfrak G_r=
 \left(
 Q_r,\{\Sigma_{r,n}\},\{\mathcal K_{r,n}\},\{h_{r,n}\},\{\mu_{r,n}\},
-\{N_{r,n}\},\{\beta_{r,n}\},\{u_{r,n}\},\mathcal L_r,\mathcal B_r,
-\{\iota_{rs}\},\mathcal R_{\ell_\star}
+\{N_{r,n}\},\{\beta^i_{r,n}\},\{u^a_{r,n}\},\mathcal L_r,\mathcal B_r,
+\{\iota_{sr}\},\mathcal R_{\ell_\star}
 \right).
 ```
-Here $`Q_r`$ is the physical quotient normal form, $`\Sigma_{r,n}`$ are common-clock spatial slices, $`\mathcal K_{r,n}`$ finite cell complexes, $`h_{r,n}`$ positive spatial metric or Dirichlet-form data, $`\mu_{r,n}`$ physical volume measures, $`N_{r,n}>0`$ lapse, $`\beta_{r,n}`$ shift, $`u_{r,n}`$ the cosmological observer congruence, $`\mathcal L_r`$ lineage, $`\mathcal B_r`$ topology and boundary conditions, $`\iota_{rs}`$ refinement maps, and $`\mathcal R_{\ell_\star}`$ the independent dimensional-scale receipt. The readout
+It consists of the quotient carrier $`Q_r`$, common-clock spatial slices, finite cell complexes, positive spatial metric or Dirichlet-form data, volume measures, lapse, shift, observer congruence, lineage, topology and boundary data, refinement maps, and a dimensional scale-certificate receipt. The native readout has type
 ``` math
-\mathsf{CosmoGeomRead}_r:\operatorname{nf}(Q_r)\to\mathfrak G_r
+\mathsf{CosmoGeomRead}_r:
+\operatorname{nf}(\Sigma_r/\Gamma_r)
+\longrightarrow
+[\mathfrak G_r]_{\rm diff/iso}.
 ```
-is OPH-native only if it factors through the quotient and is invariant under hidden carrier coordinates, port labels, schedules, worker partitions, and equivalent checkpoint presentations. For the conditional branch the same packet may be imported, but must record $`\texttt{geometry\_origin=IMPORTED\_FLRW}`$.*
+The codomain is modulo the declared discrete diffeomorphism, frame, and isometry redundancies. It is a quotient-natural OPH readout only when
+``` math
+x\sim_{\Gamma_r}y
+\quad\Longrightarrow\quad
+\mathsf{CosmoGeomRead}_r(x)\simeq\mathsf{CosmoGeomRead}_r(y),
+```
+and when port relabeling, worker partition, queue order, repair schedule, retry history, and hidden carrier coordinates leave the packet invariant. Positivity and nondegeneracy require
+``` math
+0<c^-_r |v|^2\le h_{r,n}(v,v)\le c^+_r |v|^2,\qquad
+N_{r,n}\ge N_{\min}>0.
+```
+Metric, volume, area, Jacobian, frame, connection, and transport readouts must agree within declared residuals; for instance $`d\mu_{h_r}=\sqrt{\det h_r}\,d^3x`$ must match $`\mathsf{AreaVolumeRead}`$ and $`\mathsf{VolumeJacobianRead}`$. Physical length is tied to the scale certificate by $`L_{\rm phys}=\ell_\star L_{\rm dimensionless}`$. Refinement naturality requires
+``` math
+\mathcal R_{sr}\circ\mathsf{CosmoGeomRead}_s
+\simeq
+\mathsf{CosmoGeomRead}_r\circ n_{sr},
+```
+with discrepancy tending to zero on the cofinal refinement family.*
+
+</div>
+
+<div id="def:physical-mode-basis" class="definition">
+
+**Definition 20** (physical mode basis). *For each sector $`s=0,1,2`$, let $`\{\phi_i^{(s)}\}`$ be a conforming finite basis on the reconstructed physical geometry. Define
+``` math
+M^{(s)}_{r,ij}=\int_{\Sigma_r}
+\langle\phi_i^{(s)},\phi_j^{(s)}\rangle\,d\mu_{\gamma_r},
+```
+``` math
+K^{(s)}_{r,ij}=
+\mathfrak a_r^{(s)}(\phi_i^{(s)},\phi_j^{(s)}).
+```
+For scalars,
+``` math
+\mathfrak a_r^{(0)}(f,g)=
+\int_{\Sigma_r}\gamma_r^{ab}\nabla_a f\nabla_b g\,d\mu_{\gamma_r}.
+```
+Vector and tensor sectors use declared Hodge and Lichnerowicz-type operators after gauge and constrained zero modes are removed. The physical basis solves
+``` math
+K_r^{(s)}V_r^{(s)}=M_r^{(s)}V_r^{(s)}\Lambda_r^{(s)},\qquad
+V_r^{(s)\dagger}M_r^{(s)}V_r^{(s)}=I.
+```
+The evidence bundle must report
+``` math
+\epsilon_{\rm orth}=\left|V^\dagger M V-I\right|
+```
+and, for every eigenpair,
+``` math
+\epsilon_{{\rm eig},j}
+=
+\frac{
+\left|Kv_j-\lambda_jMv_j\right|_{M^{-1}}
+}{
+\left(|K|+|\lambda_j||M|\right)|v_j|
+}.
+```
+Degenerate sectors are projector-valued. For a spectral interval $`I`$,
+``` math
+P_{r,I}=\frac{1}{2\pi i}
+\oint_{\partial I}\left(z-M_r^{-1}K_r\right)^{-1}dz,
+```
+and every physical result must be invariant under
+``` math
+V_{r,I}\longmapsto V_{r,I}U_I,\qquad
+U_I\in U(\operatorname{rank}P_{r,I}).
+```*
+
+</div>
+
+<div id="def:finite-spectral-measure" class="definition">
+
+**Definition 21** (finite spectral measure and quadrature). *The finite density of states is intrinsic to the physical operator:
+``` math
+\nu_r(f)=\frac1{V_r}\operatorname{Tr}
+f\!\left(\sqrt{M_r^{-1}K_r}\right).
+```
+Equivalently,
+``` math
+d\nu_r(k)=\frac1{V_r}\sum_I
+\operatorname{rank}(P_{r,I})\,\delta(k-k_{r,I})\,dk.
+```
+On a large flat domain the resolved-band target is
+``` math
+d\nu(k)=\frac{k^2}{2\pi^2}\,dk.
+```
+The $`d\ln k`$ quadrature weights used by the primordial bridge must be derived from this normalization or from another declared quadrature theorem.*
+
+</div>
+
+<div id="def:source-angular-sector" class="definition">
+
+**Definition 22** (source angular sector). *For a closed source screen $`S_r`$, set
+``` math
+R_{A,r}=\sqrt{\frac{\operatorname{Area}(S_r)}{4\pi}},
+\qquad
+\overline{\mathcal L}_{S,r}=-R_{A,r}^{2}\Delta_{S_r}.
+```
+A spectral projector $`P_{\ell,r}`$ may be labeled by $`\ell_{\rm src}`$ only if
+``` math
+\operatorname{rank}P_{\ell,r}=2\ell+1
+```
+and
+``` math
+\epsilon_{\ell,r}=
+\frac{
+\left|(\overline{\mathcal L}_{S,r}-\ell(\ell+1))P_{\ell,r}\right|
+}{
+1+\ell(\ell+1)
+}
+\le \bar\epsilon_\ell.
+```
+It must also refine by
+``` math
+\left|J_{sr}P_{\ell,r}-P_{\ell,s}J_{sr}\right|\to0.
+```
+The scalar primordial contract normally starts at $`\ell_{\rm src}\ge2`$. A cap or masked screen requires either a certified full-screen extension or a certified mode-coupling operator
+``` math
+\widetilde a_\alpha=\sum_{\ell m}\mathcal K_{\alpha,\ell m}a_{\ell m}.
+```
+Without that operator the label is $`\texttt{PSEUDO\_ELL}`$ or $`\texttt{CAP\_MODE\_INDEX}`$. The observed multipole is produced only after transfer:
+``` math
+C_{L_{\rm CMB}}^{XY}
+=4\pi\int d\ln k\,
+\mathcal P_\zeta(k)\Delta_{L_{\rm CMB}}^X(k)\Delta_{L_{\rm CMB}}^Y(k).
+```*
 
 </div>
 
 <div id="def:source-screen-embedding-packet" class="definition">
 
-**Definition 20** (source-screen embedding packet). *A screen mode has physical radial meaning only after an embedding packet
+**Definition 23** (source-screen embedding packet). *A screen mode has radial meaning only after an embedding packet
 ``` math
 \mathfrak E_r=
 \left(
-S_r,\jmath_r:S_r\hookrightarrow\Sigma_{r,n_\star},O_r,\chi_r,W_r(\chi),J_r
+S_r,\jmath_r:S_r\hookrightarrow\Sigma_{r,\star},O_r,\chi,W_r(\chi),J_r
 \right)
 ```
-has been supplied. $`S_r`$ is the source screen, $`\jmath_r`$ embeds it in the freezeout slice, $`O_r`$ is the observer or radial origin, $`\chi_r`$ is physical comoving geodesic distance, $`W_r`$ is the radial release window, and $`J_r`$ is the area/volume Jacobian. The window must obey
+has been supplied. $`S_r`$ is the source screen, $`\jmath_r`$ embeds it in the initial slice, $`O_r`$ is the observer or radial origin, $`\chi`$ is comoving geodesic distance, $`W_r`$ is the radial release window, and $`J_r`$ is the area/volume Jacobian. The window obeys
 ``` math
 W_r(\chi)\ge0,\qquad \int W_r(\chi)\,d\chi=1.
 ```*
 
 </div>
 
-<div id="def:flrw-mode-packets" class="definition">
-
-**Definition 21** (FLRW reduction and physical mode packets). *An FLRW reduction of $`\mathfrak G_r`$ is
-``` math
-\mathsf{FLRWReduce}_r(\mathfrak G_r)=
-\left(a_r(\tau),\gamma_{r,ij},K_{\rm FLRW},\bar u_r,\varepsilon_{{\rm FLRW},r}\right)
-```
-with
-``` math
-h^{\rm phys}_{r,ij}(\tau)=a_r(\tau)^2\gamma_{r,ij}+\delta h_{r,ij}.
-```
-The residual packet bounds shear, vorticity, acceleration, density-gradient, spatial-curvature, Hamiltonian, momentum, and domain-backreaction errors. A scalar mode packet supplies mass and stiffness forms
-``` math
-M^{(0)}_{r,ij}=\int_{\Sigma_r}\phi_i\phi_j\,d\mu_{\gamma_r},\qquad
-K^{(0)}_{r,ij}=\int_{\Sigma_r}\gamma_r^{ab}\nabla_a\phi_i\nabla_b\phi_j\,d\mu_{\gamma_r},
-```
-the generalized problem $`K^{(0)}_rv_{rj}=\lambda_{rj}M^{(0)}_rv_{rj}`$, spectral projectors, mode lineage, interval eigenvalues, matrix hashes, topology and boundary hashes, and a safe resolved band. Vector, tensor, and spin-$`2`$ sectors require their own compatible operators when stress or polarization variables are used.*
-
-</div>
-
-<div id="def:time-scale-freezeout-packet" class="definition">
-
-**Definition 22** (proper time, scale factor, and freezeout packet). *Proper time is read from lapse along the selected congruence after shift effects are accounted for. For a lineage-tracked comoving domain $`D_r`$,
-``` math
-a_{V,r}(\tau)=\left[\frac{V_r(\tau)}{V_r(\tau_0)}\right]^{1/3},\qquad
-\log\frac{a_{\Theta,r}(\tau)}{a_{\Theta,r}(\tau_0)}
-=\int_{\tau_0}^{\tau}\frac{\bar\Theta_r(\tau')}{3}\,d\tau',
-```
-and the receipt records
-``` math
-\varepsilon_{a,r}=\sup_\tau
-\left|\log a_{V,r}(\tau)-\log a_{\Theta,r}(\tau)\right|.
-```
-The convention $`a(\tau_0)=1`$ is fixed before reporting $`1+z=1/a`$; outside the certified FLRW/geodesic branch redshift is
-``` math
-1+z=\frac{(u_\mu p^\mu)_{\rm emit}}{(u_\mu p^\mu)_{\rm obs}}.
-```
-Conformal time is $`\eta(\tau)-\eta(\tau_0)=\int_{\tau_0}^{\tau}d\tau'/a(\tau')`$. Mode-wise freezeout requires persistent bounds on curvature, nonadiabatic, isocurvature, decaying-mode, repair-forcing, phase, and constraint residuals. If the mode release times do not share a common surface within tolerance, the output is a $`\texttt{MODE\_DEPENDENT\_FREEZEOUT\_MAP}`$, not a single freezeout surface.*
-
-</div>
-
 <div id="prop:scale-bridge-rescaling-nogo" class="proposition">
 
-**Proposition 23** (dimensional rescaling no-go). *If the finite data used by a proposed calibration are unchanged under $`h\mapsto s^2h`$, then $`\Delta_{s^2h}=s^{-2}\Delta_h`$ and physical wavenumber transforms as $`k\mapsto k/s`$. Therefore cap angle, graph incidence, patch count, and normalized covariance cannot determine nonzero physical $`k`$ without a dimensional metric receipt.*
-
-</div>
-
-<div class="proof">
-
-*Proof.* If $`-\Delta_hv=\lambda v`$, then $`-\Delta_{s^2h}v=s^{-2}\lambda v`$. The finite input has not changed while the physical wavenumber has. No function of the unchanged input can select the changed answer. ◻
+**Proposition 24** (dimensional rescaling no-go). *If the finite data used by a proposed calibration are unchanged under $`h\mapsto s^2h`$, then $`\Delta_{s^2h}=s^{-2}\Delta_h`$ and physical wavenumber transforms as $`k\mapsto k/s`$. Cap angle, graph incidence, patch count, sorted covariance index, and normalized covariance cannot determine nonzero physical $`k`$ without a dimensional metric receipt.*
 
 </div>
 
 <div id="prop:angular-radial-nogo" class="proposition">
 
-**Proposition 24** (angular projection cannot determine radial $`k`$). *At finite angular cutoff the map $`T:f(k)\mapsto\{\int d\log k\,\Psi_\ell(k)f(k)\}_{\ell\le L}`$ has finite-dimensional codomain and infinite-dimensional domain. Hence it has nontrivial kernel: angular screen modes do not uniquely determine a radial spectrum or physical $`k`$-label.*
+**Proposition 25** (angular projection cannot determine radial $`k`$). *At finite angular cutoff the map
+``` math
+T:f(k)\mapsto\left\{\int d\ln k\,\Psi_\ell(k)f(k)\right\}_{\ell\le L}
+```
+has finite-dimensional codomain and infinite-dimensional domain. Hence it has a nontrivial kernel. A single angular screen supplies a forward radial projection plus a null-space ledger, not a unique radial spectrum.*
 
 </div>
 
 <div id="prop:clock-scale-nogo" class="proposition">
 
-**Proposition 25** (rank-one clock and scale-factor no-goes). *A rank-one source family $`\mathcal F=\widehat{\mathcal F}\circ\chi`$ fixes a common ordering, not proper elapsed time, because $`f\circ\chi`$ gives the same fibers for any strictly increasing $`f`$. Likewise $`h=a^2\gamma`$ is invariant under $`a\mapsto ca`$, $`\gamma\mapsto c^{-2}\gamma`$. A lapse or operational clock receipt and the convention $`a_0=1`$ are therefore separate physical inputs.*
+**Proposition 26** (clock and unit-string no-goes). *A rank-one source family $`\mathcal F=\widehat{\mathcal F}\circ T_r`$ fixes a common ordering, not proper elapsed time, because $`f\circ T_r`$ gives the same fibers for any strictly increasing $`f`$. Likewise $`h=a^2\gamma`$ is invariant under $`a\mapsto ca,\ \gamma\mapsto c^{-2}\gamma`$. A lapse or operational clock receipt and the normalization $`a(\tau_0)=1`$ are separate physical inputs. Relabeling $`\texttt{inverse\_cap\_opening\_angle\_proxy}`$ as $`\texttt{Mpc}^{-1}`$ changes no numerical object and proves no calibration.*
 
 </div>
 
-<div id="prop:cap-unit-nogo" class="proposition">
+<div id="thm:physical-comoving-k" class="theorem">
 
-**Proposition 26** (cap modes and unit strings do not calibrate). *Cap eigenmodes depend on a self-adjoint boundary or extension choice, so they are not full-sky multipoles until a full-sky extension or mode-coupling operator is certified. Changing metadata from $`\texttt{inverse\_cap\_opening\_angle\_proxy}`$ to $`\texttt{Mpc}^{-1}`$ changes no numerical object and therefore proves no calibration.*
-
-</div>
-
-<div id="thm:finite-operator-angular" class="theorem">
-
-**Theorem 27** (finite operator and angular multipole consistency). *For conforming shape-regular finite spaces with consistent mass and stiffness forms and fixed boundary sector, $`M_r=M_r^\dagger>0`$, $`K_r=K_r^\dagger\ge0`$, and the generalized Rayleigh quotient converges to the Laplace–Beltrami quotient on each resolved band. For a closed source screen with area radius $`R_{A,r}`$, the normalized operator $`\bar\Delta_{\Omega,r}=R_{A,r}^2\Delta_{S_r}`$ calibrates $`\ell_{\rm src}`$ when the spectral projector onto $`I_\ell=(\ell^2,(\ell+1)^2)`$ has rank $`2\ell+1`$, bounded residual from $`\ell(\ell+1)`$, and converges under refinement.*
-
-</div>
-
-<div class="proof">
-
-*Proof.* Positivity follows from the integral forms. Min–max convergence of the quadratic forms gives eigenvalue-cluster convergence; degenerate sectors are identified by projectors. The round-sphere eigenvalue $`\ell(\ell+1)`$ is isolated with multiplicity $`2\ell+1`$, so norm-resolvent convergence gives the Riesz projector. ◻
-
-</div>
-
-<div id="thm:physical-k-a-freezeout" class="theorem">
-
-**Theorem 28** (physical comoving $`k`$, scale factor, and freezeout). *Assume a valid physical geometry packet, FLRW reduction, $`a_0=1`$, dimensional ruler, topology and boundary sector, and finite spatial operator. On the flat branch,
+**Theorem 27** (physical comoving $`k`$). *Assume a valid geometry packet, FLRW reduction, dimensional ruler, topology and boundary sector, solver convention, physical mode operator, projector-valued basis, density of states, and mode normalization. On the flat comoving branch,
 ``` math
--\Delta_{\gamma_r}v_{rj}=k_{rj}^2v_{rj}.
+-\Delta_{\gamma_r}v_{rj}=\lambda_{\gamma,rj}v_{rj},\qquad
+k_{rj}=\sqrt{\lambda_{\gamma,rj}}.
 ```
-If the finite eigenvalue uses $`h^{\rm phys}_r`$, then
+If the operator is assembled from $`h_{ij}^{\rm phys}(\tau)=a(\tau)^2\gamma_{ij}`$, then
 ``` math
-k_{rj}=a_r\sqrt{\lambda^{\rm phys}_{rj}},
+\lambda_{h,rj}=\frac{k_{rj}^2}{a_r^2},\qquad
+k_{rj}=a_r\sqrt{\lambda_{h,rj}}.
+```
+For dimensionless eigenvalue $`\widehat\lambda_{h,rj}=\ell_\star^2\lambda_{h,rj}`$,
+``` math
+k_{rj}=\frac{a_r}{\ell_\star}\sqrt{\widehat\lambda_{h,rj}}.
+```
+The verifier recomputes this equation and reports
+``` math
+\epsilon_{k,rj}
+=
+\frac{|k_{rj}^2-a_r^2\lambda_{h,rj}|}{k_{rj}^2+k_{\rm floor}^2}.
+```
+For $`K_{\rm FLRW}\ne0`$, the solver convention must specify
+``` math
+k_{\rm solver}=\kappa_{K_{\rm FLRW}}(\lambda)
+```
+and use the matching hyperspherical kernels.*
+
+</div>
+
+<div id="thm:screen-to-spatial-mode-association" class="theorem">
+
+**Theorem 28** (screen-to-spatial mode association). *There is no physical theorem of the form $`\ell_{\rm src}\mapsto k`$. The spatial geometry defines the physical $`k`$-basis, and the source embedding plus radial window define a forward projection from that basis to the screen:
+``` math
+\Psi_{\ell j}^{(K)}=
+\int d\chi\,W_r(\chi)\,\Phi_{\ell,k_j}^{(K)}(\chi),
+```
+where $`\Phi_{\ell,k}^{(0)}=j_\ell(k\chi)`$ on the flat branch and the curved branches use the declared hyperspherical functions. Then
+``` math
+C_{\ell_{\rm src},r}^{q}
+=4\pi\sum_j w_{rj}^{\ln k}
+\Delta_{\zeta,r}^{2}(k_{rj})
+\left|\Psi_{\ell_{\rm src},j}^{(K)}\right|^2.
+```
+If an inverse reconstruction $`C^q=Ap`$ is attempted, the evidence reports prior and support, positivity constraints, singular values, effective rank, null basis, resolution kernels, prior sensitivity, and forward residuals. The Limber estimate $`L+1/2\simeq k\chi_\star`$ is a projection check on a completed bridge; it does not define $`k`$, $`L_{\rm CMB}`$, or $`\chi_\star`$.*
+
+</div>
+
+<div id="thm:physical-time-scale" class="theorem">
+
+**Theorem 29** (proper time, scale factor, conformal time, and redshift). *Let the selected congruence be
+``` math
+u^a=N^{-1}\left[(\partial_t)^a-\beta^a\right].
+```
+Proper time is operationally $`d\tau=N\,dt`$ along the congruence, with shift and threading handled by the lineage map. For a lineage-tracked comoving domain $`D_r(\tau)`$,
+``` math
+V_{D,r}(\tau)=\int_{D_r(\tau)}d\mu_{h_r},\qquad
+a_{V,r}(\tau)=
+\left[\frac{V_{D,r}(\tau)}{V_{D,r}(\tau_0)}\right]^{1/3}.
+```
+Independently,
+``` math
+\log\frac{a_{\Theta,r}(\tau)}{a_{\Theta,r}(\tau_0)}
+=
+\int_{\tau_0}^{\tau}
+\frac{\langle\Theta\rangle_{D,r}}{3}\,d\tau',
 \qquad
-k_{rj}=\frac{a_r}{\ell_\star}\sqrt{\widehat\lambda^{\rm phys}_{rj}}
+\Theta=\nabla_a u^a.
 ```
-for the dimensionless eigenvalue $`\widehat\lambda^{\rm phys}_{rj}=\ell_\star^2\lambda^{\rm phys}_{rj}`$. For $`K_{\rm FLRW}\ne0`$ the branch must define the solver map $`k_{\rm solver}=\kappa_{K_{\rm FLRW}}(\lambda)`$ and use the corresponding hyperspherical kernels. If the FLRW residual and volume/expansion consistency errors are below tolerance, $`a_D`$, $`z`$, and $`\eta`$ are calibrated. A single freezeout surface is promoted only when the persistent mode-wise residuals and common-surface bound pass.*
+The scale-factor consistency residual is
+``` math
+\epsilon_{a,r}=
+\sup_\tau
+\left|\log a_{V,r}(\tau)-\log a_{\Theta,r}(\tau)\right|.
+```
+The Hubble variables are $`H=a^{-1}da/d\tau`$ and $`\mathcal H=aH`$, while
+``` math
+\eta(\tau)-\eta(\tau_0)=\int_{\tau_0}^{\tau}\frac{d\tau'}{a(\tau')}.
+```
+On a certified comoving FLRW branch $`1+z=1/a`$. Outside that branch,
+``` math
+1+z=\frac{(u_\mu p^\mu)_{\rm emit}}{(u_\mu p^\mu)_{\rm obs}}.
+```
+The FLRW residual vector contains normalized shear, vorticity, acceleration, spatial-curvature gradient, domain backreaction, Hamiltonian constraint, momentum constraint, and energy-conservation components. Friedmann and conservation equations are consistency checks, not definitions chosen to force a desired $`a(\tau)`$.*
 
 </div>
 
-<div class="proof">
+<div id="thm:mode-freezeout-common-surface" class="theorem">
 
-*Proof.* For $`h^{\rm phys}=a^2\gamma`$, homogeneity makes $`\Delta_{h^{\rm phys}}=a^{-2}\Delta_\gamma`$, so the eigenvalue relation follows. The volume equation $`\mathcal L_udV=\Theta\,dV`$ gives $`d\log a_D/d\tau=\langle\Theta\rangle_D/3`$. Curvature conservation follows by integrating $`|\zeta'|\le\varepsilon_\star\mathcal H|\zeta|`$ over the persistent interval, while the other residuals certify adiabatic growing-mode dominance and constraint consistency. ◻
+**Theorem 30** (mode freezeout and common initial surface). *For every resolved mode $`k_j`$, define
+``` math
+\mathcal E_j(\tau)=
+\left(
+\epsilon_{\zeta,j},
+\epsilon_{{\rm nad},j},
+\epsilon_{{\rm iso},j},
+\epsilon_{{\rm dec},j},
+\epsilon_{{\rm rep},j},
+\epsilon_{{\rm phase},j},
+\epsilon_{{\rm constr},j}
+\right).
+```
+The physical mode-freezeout time is
+``` math
+\tau_{\star,j}=
+\inf\left\{
+\tau:\mathcal E_j(\tau')\le\overline{\mathcal E}
+\quad\forall \tau'\in[\tau,\tau+\Delta\tau_{\rm pers}]
+\right\}.
+```
+This proves a $`\texttt{PHYSICAL\_MODE\_FREEZEOUT\_MAP\_RECEIPT}`$. A Boltzmann initial-value problem additionally requires a common spacelike Cauchy slice. For $`\Sigma_{\star,r}=\{x:T_r(x)=T_{\star,r}\}`$ and signature $`(-+++)`$, spacelikeness requires
+``` math
+g^{ab}\nabla_aT_r\nabla_bT_r<0
+```
+on the resolved surface. A common surface is certified either by coincident freezeout,
+``` math
+\Delta_\star=
+\sup_{j\in\mathcal B_{\rm safe}}
+\left|H_\star(\tau_{\star,j}-\bar\tau_\star)\right|
+\le\bar\delta_\star,
+```
+or by evolution to a later common slice $`\tau_c`$ with no independent stochastic source and a bounded conserved-state residual. The finite initial packet contains
+``` math
+\mathfrak I_{\star,r}=
+\left(
+\Sigma_{\star,r},h_{ij}^\star,K_{ij}^\star,
+\{X_{\star,rj}\},\{n^a\nabla_aX_{\star,rj}\},
+\mathcal C_{\rm H},\mathcal C_{\rm M},
+\hbox{phase convention},\hbox{basis hashes}
+\right).
+```
+A mode-dependent map alone cannot satisfy $`\texttt{PHYSICAL\_FREEZEOUT\_SURFACE\_RECEIPT}`$.*
+
+</div>
+
+<div id="thm:common-primordial-anomaly-basis" class="theorem">
+
+**Theorem 31** (common primordial and anomaly basis). *Primordial covariance and dark/anomaly response use the same physical mode projectors. For a finite anomaly response operator $`\mathcal K_{A,r}^{(\rho)}(a)`$,
+``` math
+K_{A,r;IJ}^{(\rho)}(a)=
+P_{r,I}\mathcal K_{A,r}^{(\rho)}(a)P_{r,J}.
+```
+The physical contrast response is initially a matrix,
+``` math
+B_{A,r;IJ}(a)=
+\frac{\bar\rho_b(a)}{\bar\rho_{A,\rm eq}(a)}
+K_{A,r;IJ}^{(\rho)}(a).
+```
+It may be reduced to a scalar $`B_A(k,a)`$ only when
+``` math
+\epsilon_{\rm off}(a)=
+\frac{\left(\sum_{I\ne J}|P_I\mathcal K_AP_J|^2\right)^{1/2}}
+{|\mathcal K_A|+\epsilon_0}
+\le\bar\epsilon_{\rm off}
+```
+and, inside each degenerate sector,
+``` math
+P_I\mathcal K_AP_I=b_I(a)P_I+E_I,\qquad
+\frac{|E_I|}{|b_I|+\epsilon_0}\le\bar\epsilon_{\rm iso}.
+```
+The same rule applies to repair rates. A transition eigenvalue per repair cycle is a diagnostic number. With certified physical interval $`\Delta\tau_r`$ and a contractive active response block,
+``` math
+\Gamma_{{\rm rec},I}
+=-\frac1{\Delta\tau_r}\log\rho(P_IL_{\perp,r}P_I),
+```
+or a declared Lyapunov/semigroup norm bound for a nonnormal block.*
+
+</div>
+
+<div id="thm:scale-bridge-regulator-convergence" class="theorem">
+
+**Theorem 32** (regulator convergence). *Let $`r`$ be a directed regulator containing UV mesh size, IR volume, time step, sampling size, and boundary approximation. Physical scale-bridge receipts require Cauchy or convergence statements:
+``` math
+\left|J_{sr}P_{r,I}-P_{s,I}J_{sr}\right|\le\epsilon_{sr}^{\rm spec},\qquad
+\epsilon_{sr}^{\rm spec}\to0,
+```
+``` math
+\left|\int f(k)\,d\nu_s(k)-\int f(k)\,d\nu_r(k)\right|\to0
+```
+for every bounded test function $`f`$,
+``` math
+|a_s-a_r|_\infty+|H_s-H_r|_\infty+|\eta_s-\eta_r|_\infty\to0,
+```
+and
+``` math
+d_H(\Sigma_{\star,s},J_{sr}\Sigma_{\star,r})\to0,\qquad
+\left|J_{sr}^{*}X_{\star,s}-X_{\star,r}\right|\to0.
+```
+The directed limit must be independent of the order in which UV, IR, sampling, and time refinements are taken. Every residual $`e_\alpha(r)`$ has a frozen tolerance $`\bar e_\alpha`$, a proof that $`e_\alpha(r)\le\bar e_\alpha`$, and a refinement statement $`e_\alpha(r)\to0`$.*
 
 </div>
 
 <div id="thm:finite-physical-scale-bridge" class="theorem">
 
-**Theorem 29** (finite physical scale bridge). *Assume valid receipts for geometry or imported conditional geometry, source-screen embedding, FLRW background reduction, dimensional ruler, angular and spatial mode operators, mode normalization, proper time and scale-factor history, freezeout, multi-limit convergence, and no post-hoc calibration. Then the finite bridge
+**Theorem 33** (finite physical scale bridge). *Assume valid receipts for geometry or imported conditional geometry, spatial physical $`k`$, screen-to-$`k`$ association, source angular sector, proper time and scale-factor history, mode-freezeout map, common primordial initial surface, common primordial/anomaly mode basis, regulator convergence, cross-receipt identity, source-only no-data-use provenance, and no post-hoc calibration. Then
 ``` math
 \mathcal S_{{\rm OPH},r}:
-\left(P_{r,j},P_{r,\ell_{\rm src}},\chi_{r,n}\right)
+\left(
+P^{\rm screen}_{r,\ell},P^{\rm spatial}_{r,I},T_{r,n}
+\right)
 \longmapsto
-\left(k_{r,j},\ell_{\rm src},a_r(\chi_{r,n}),z_r(\chi_{r,n}),
-\eta_r(\chi_{r,n}),\Sigma_{\star,r}\right)
+\left(
+k_{r,I},\ell_{\rm src},a_r(\tau_n),z_r(\tau_n),\eta_r(\tau_n),
+\Sigma_{\star,r},\mathfrak I_{\star,r}
+\right)
 ```
-is invariant under hidden carrier presentation, unique within the declared topology and boundary sector, and convergent on each resolved physical band. The observed CMB multipole remains the transfer-solver output index:
-``` math
-C_{L_{\rm CMB}}^{XY}=4\pi\int d\log k\,
-\mathcal P_\zeta(k)\Delta_{L_{\rm CMB}}^X(k)\Delta_{L_{\rm CMB}}^Y(k).
-```*
+is unique modulo the declared spatial diffeomorphism/isometry quotient, unitary rotations inside degenerate spectral projectors, frozen topology and boundary sector, curvature convention, and solver convention. It converges on the declared safe physical band. The tier is $`\texttt{CONDITIONAL\_PHYSICAL}`$ when $`\mathfrak G_r`$ is imported and frozen. The tier is $`\texttt{OPH\_NATIVE\_PHYSICAL}`$ when $`\mathsf{CosmoGeomRead}_r`$ and the source embedding are proved from the OPH quotient carrier.*
 
 </div>
 
 <div id="target:physical-scale-receipts" class="target">
 
-**Target 30** (exact physical-scale receipt conjunctions). *The code and papers use structured receipts, not bare booleans:
+**Target 34** (exact physical-scale receipt conjunctions). *The code and papers use recomputable receipt conjunctions. Physical spatial $`k`$ is
 ``` math
 \begin{aligned}
-\texttt{PHYSICAL\_K\_RECEIPT}
-&=R_{\rm geometry}\wedge R_{\rm embedding}\wedge R_{\rm scale}
-\wedge R_{\rm FLRW}\wedge R_{\rm operator}\wedge R_{\rm normalization}
-\wedge R_{\rm lineage}\wedge R_{\rm refinement}\wedge R_{\rm nofit},\\
-\texttt{SOURCE\_ANGULAR\_MODE\_RECEIPT}
-&=R_{\rm sphere/extension}\wedge R_{\rm angular\ operator}\wedge
-R_{\rm cluster}\wedge R_{\rm refinement},\\
-\texttt{CALIBRATED\_A\_EVOLUTION\_RECEIPT}
-&=R_{\rm proper\ time}\wedge R_{\rm lineage}\wedge R_{\rm FLRW}
-\wedge R_{\rm volume}\wedge R_\Theta\wedge R_{\rm consistency}
-\wedge R_{\rm refinement},\\
-\texttt{PHYSICAL\_FREEZEOUT\_SURFACE\_RECEIPT}
-&=R_{\rm spacelike}\wedge R_{\rm persistence}\wedge R_\zeta
-\wedge R_{\rm adiabatic}\wedge R_{\rm isocurvature}\wedge
-R_{\rm growing}\wedge R_{\rm constraints}\wedge R_{\rm matching}
-\wedge R_{\rm refinement}.
+R_{k,\rm spatial}={}&
+R_{\rm geometry}\wedge R_{\rm scale}\wedge R_{\rm FLRW}\wedge
+R_{\rm operator}\wedge R_{\rm eigenresidual}\wedge R_{\rm normalization}\\
+&\wedge R_{\rm k\ equation}\wedge R_{\rm lineage}\wedge
+R_{\rm refinement}\wedge R_{\rm nofit}.
 \end{aligned}
 ```
-The aggregate bridge receipt is their conjunction with $`\texttt{SCALE\_BRIDGE\_REFINEMENT\_RECEIPT}`$ and $`\texttt{NO\_POSTHOC\_CALIBRATION\_RECEIPT}`$. A unit string, cycle dictionary, cap angle, or common contract boolean cannot instantiate any of these receipts.*
+Then
+``` math
+\texttt{physical\_k\_units\_calibrated}
+\iff
+\texttt{PHYSICAL\_SPATIAL\_K\_RECEIPT}
+\iff
+R_{k,\rm spatial}.
+```
+The screen association is
+``` math
+R_{\rm screen\to k}
+=
+R_{k,\rm spatial}\wedge R_{\rm embedding}\wedge R_{\rm radial\ kernel}
+\wedge R_{\rm geometry\ compatibility}\wedge R_{\rm nullspace}
+\wedge R_{\rm forward\ residual}.
+```
+The angular sector is
+``` math
+R_{\ell_{\rm src}}=
+R_{\rm closed/extension}\wedge R_{\rm angular\ operator}\wedge
+R_{\rm cluster}\wedge R_{\rm multiplicity}\wedge R_{\rm angular\ refinement}.
+```
+The scale-factor history is
+``` math
+\begin{aligned}
+R_a={}&
+R_{\rm proper\ time}\wedge R_{\rm lineage}\wedge R_{\rm volume}
+\wedge R_{\Theta}\wedge R_{a_V=a_\Theta}\\
+&\wedge R_{\rm FLRW}\wedge R_{\rm constraints}\wedge
+R_{\rm refinement}\wedge R_{\rm nofit}.
+\end{aligned}
+```
+The mode-freezeout map is
+``` math
+R_{\rm modefreeze}=
+R_{\zeta}\wedge R_{\rm adiabatic}\wedge R_{\rm isocurvature}
+\wedge R_{\rm growing}\wedge R_{\rm repair}\wedge R_{\rm phase}
+\wedge R_{\rm constraints}\wedge R_{\rm persistence}.
+```
+The common surface is
+``` math
+R_{\Sigma_\star}=
+R_{\rm modefreeze}\wedge R_{\rm spacelike}
+\wedge (R_{\rm coincident}\vee R_{\rm transport\ to\ common})
+\wedge R_{\rm initial\ data}\wedge R_{\rm refinement}.
+```
+Only $`R_{\Sigma_\star}`$ instantiates $`\texttt{PHYSICAL\_FREEZEOUT\_SURFACE\_RECEIPT}`$. The aggregate scale bridge is
+``` math
+R_{\rm scale}=R_{k,\rm spatial}\wedge R_{\rm screen\to k}\wedge
+R_{\ell_{\rm src}}\wedge R_a\wedge R_{\Sigma_\star}\wedge
+R_{\rm common\ basis}\wedge R_{\rm cross}\wedge R_{\rm nofit}.
+```
+Every child receipt repeats the same regulator family, generation, geometry, background, clock, scale certificate, source embedding, mode basis, mode lineage, boundary condition, solver convention, freezeout-surface, and source-DAG hashes. An empty cross-receipt manifest fails.*
 
 </div>
 
 <div id="target:cosmo-geometry-extraction" class="target">
 
-**Target 31** (native geometry extraction). *The remaining OPH-native theorem is the construction of
+**Target 35** (native geometry extraction). *$`\texttt{OPH\_NATIVE\_PHYSICAL}`$ requires
 ``` math
-\mathsf{CosmoGeomRead}_r:\operatorname{nf}(Q_r)\to(\mathfrak G_r,\mathfrak E_r)
+\mathsf{CosmoGeomRead}_r:\operatorname{nf}(\Sigma_r/\Gamma_r)
+\to(\mathfrak G_r,\mathfrak E_r)
 ```
-as a quotient-natural, positive, nondegenerate, causal-order-compatible, observer-clock-compatible, executor-independent, refinement-convergent, physically scaled source embedding. Without that theorem, the physical route is $`\texttt{CONDITIONAL\_PHYSICAL}`$ with an imported frozen FLRW geometry packet.*
+as a quotient-natural, positive, nondegenerate, causal-order-compatible, observer-clock-compatible, executor-independent, refinement-convergent, physically scaled source embedding. Without that construction, the physical route has tier $`\texttt{CONDITIONAL\_PHYSICAL}`$ with an imported frozen FLRW geometry packet.*
+
+</div>
+
+<div id="target:physical-scale-falsifiers" class="target">
+
+**Target 36** (falsifiers). *The physical scale gate fails under any of the following conditions: dimensional rescaling failure; unit-string relabeling; direct cap-angle calibration; direct $`\ell_{\rm src}\to k`$ inversion from one angular shell without null-space and radial-prior receipts; CMB peak alignment; conflating $`\ell_{\rm src}`$ with $`L_{\rm CMB}`$; dependence on rotations inside degenerate eigenspaces; hidden mode mixing in scalar $`B_A(k,a)`$ tables; repair cycles used as proper time; excessive scale-factor, FLRW, or constraint residuals; a mode-dependent freezeout map reported as a common surface; non-spacelike release; lack of persistence; regulator drift; limit-order dependence; vacuous cross receipts; or imported geometry labeled as native.*
 
 </div>
 
@@ -832,17 +1115,17 @@ This paper consolidates these active surfaces.
 | `paper/tex_fragments/PRIMORDIAL_BRIDGE_THEOREMS.tex` | Primordial bridge theorem boundary and screen-to-primordial finite-source conditions. |
 | `paper/screen_microphysics_and_observer_synchronization.tex` | Finite observer-screen carriers, records, patch ports, evidence bundles, and implementation invariance. |
 | `cosmology/oph_dark_matter_paper.tex` | Collar-remainder dark/anomaly stress, galaxy equilibrium, dynamic stress, and cosmological kernel contracts. This paper imports those contracts by reference; it does not duplicate the dark-sector derivations. |
-| `oph-physics-sim/runs/gcp_large_vis_256k_modkernel_20260623` | 256k-patch simulator evidence: strong CMB diagnostics, explicit false physical-prediction receipt, and full visualizer export data. The run manifest records `git_commit=unknown`; the canonical simulator repository is <https://github.com/muellerberndt/oph-physics-sim>, and the public source reference available for this consolidation is `aeea9e502491a277b5e21a80bb89df6d089a074d`. |
+| `oph-physics-sim/runs/gcp_large_vis_256k_modkernel_20260623` | 256k-patch simulator evidence: strong CMB diagnostics, physical-prediction receipt with failed gates, and full visualizer export data. The run manifest records `git_commit=unknown`; the canonical simulator repository is <https://github.com/muellerberndt/oph-physics-sim>, and the public source reference available for this consolidation is `aeea9e502491a277b5e21a80bb89df6d089a074d`. |
 
 <div class="remark">
 
-*Remark 32* (Simulator receipt provenance). Whenever this paper mentions simulator receipts, the receipt artifacts should be traced to the responsible commit in the canonical simulator repository, <https://github.com/muellerberndt/oph-physics-sim>. For the 256k run used here, the local artifact `runs/gcp_large_vis_256k_modkernel_20260623/manifest.json` reports `git_commit=unknown`. Therefore the numerical run is cited as diagnostic evidence with incomplete commit provenance. The available public source context for this consolidation is <https://github.com/muellerberndt/oph-physics-sim/commit/aeea9e502491a277b5e21a80bb89df6d089a074d>, but that link is not asserted to be an exact run-replay hash for the 256k artifacts. Physical-promotion receipts require exact source, config, solver, and likelihood hashes.
+*Remark 37* (Simulator receipt provenance). Whenever this paper mentions simulator receipts, the receipt artifacts should be traced to the responsible commit in the canonical simulator repository, <https://github.com/muellerberndt/oph-physics-sim>. For the 256k run used here, the local artifact `runs/gcp_large_vis_256k_modkernel_20260623/manifest.json` reports `git_commit=unknown`. Therefore the numerical run is cited as diagnostic evidence with incomplete commit provenance. The available public source context for this consolidation is <https://github.com/muellerberndt/oph-physics-sim/commit/aeea9e502491a277b5e21a80bb89df6d089a074d>, but that link is not asserted to be an exact run-replay hash for the 256k artifacts. Physical-promotion receipts require exact source, config, solver, and likelihood hashes.
 
 </div>
 
 <div class="remark">
 
-*Remark 33* (Ownership boundary for the dark-matter paper). The released dark-matter paper `cosmology/oph_dark_matter_paper.tex` keeps ownership of the dark-sector theory: collar-remainder stress, galaxy equilibrium, dynamic repair-stress transport, cluster behavior, and the detailed perturbation-kernel derivations. This cosmology program paper only records the interface that paper must expose to the physical CMB/large-scale-structure pipeline. When it names $`\bar\rho_A(a)`$, $`B_A(k,a)`$, stress closure, repair-stress transport, or a certified $`\Gamma_{\rm rec}(k,a)`$, it is naming imported source functions and receipts, not rederiving the dark sector here.
+*Remark 38* (Ownership boundary for the dark-matter paper). The released dark-matter paper `cosmology/oph_dark_matter_paper.tex` keeps ownership of the dark-sector theory: collar-remainder stress, galaxy equilibrium, dynamic repair-stress transport, cluster behavior, and the detailed perturbation-kernel derivations. This cosmology program paper only records the interface that paper must expose to the physical CMB/large-scale-structure pipeline. When it names $`\bar\rho_A(a)`$, $`B_A(k,a)`$, stress closure, repair-stress transport, or a certified $`\Gamma_{\rm rec}(k,a)`$, it is naming imported source functions and receipts, not rederiving the dark sector here.
 
 </div>
 
@@ -853,9 +1136,9 @@ The inflation-free draft contains many theorem statements. The table gives them 
 | Imported theorem family | Role in this paper |
 |:---|:---|
 | Finite synchronization normal form | Defines the early observer-facing quotient state whose repair normal form replaces an assumed smooth primordial substrate, with uniqueness read modulo the compact-paper quotient equivalences. |
-| Clocked FLRW curvature holonomy, flat-sector selection, and curvature bounds | Owns the flatness branch: zero clock-slice spatial Levi–Civita holonomy identifies $`\kappa=0`$; exact selection requires a direct theorem, conditional CMH selector, or explicit flat-branch assumption. Curvature damping supplies only $`|K|`$ or $`|\Omega_K|`$ bounds. |
+| Clocked FLRW curvature holonomy, flat-sector selection, and curvature bounds | Owns the flatness branch: zero clock-slice spatial Levi–Civita holonomy identifies $`\kappa=0`$; exact selection requires a direct theorem, conditional CMH selector, or explicit flat-branch assumption. Curvature damping supplies only $`\vert{}K\vert{}`$ or $`\vert{}\Omega_K\vert{}`$ bounds. |
 | Diffusive horizon no-go, same-boundary coherence, and low-$`k`$ repair gap | Separates a failed purely local diffusion story from the allowed same-boundary or uniform low-$`k`$ synchronization mechanisms. |
-| Geometric screen scalar, precision operator, MaxEnt screen covariance, Mellin lift, edge-center scalar opportunities, $`\mathbb Z_6`$ reserve, and half-collar sampling | Owns the screen-level near-scale-invariant covariance. The red tilt $`P/48`$ is theorem-grade only after the reserve-to-RG receipts pass; physical primordial promotion requires the source-only radial bridge receipts. |
+| Geometric screen scalar, precision operator, MaxEnt screen covariance, Mellin lift, edge-center scalar opportunities, $`\mathbb Z_6`$ reserve, and half-collar sampling | Owns the screen-level near-scale-invariant covariance. The red tilt $`P/48`$ is theorem-grade only after the reserve-to-RG receipts pass; physical primordial promotion waits for the source-only radial bridge receipts. |
 | Finite release collar state, scalar release code, and scalar amplitude theorem | Owns $`A_\zeta`$ as a finite source artifact rather than a fitted amplitude. |
 | MaxEnt release, entropy transport, BBN-safe release, recombination inheritance, and adiabaticity | Connects the synchronized finite screen/collar state to a hot radiation branch with ordinary low-energy thermal history. |
 | Freezeout, scalar quotient record, gauge-invariant $`\zeta`$, isocurvature decay, and superhorizon conservation | Imported only through the stricter primordial bridge: total stress closure, single clock, repair gap, freezeout, growing mode, isocurvature, phase coherence, radial prior, null-space, and forward residual. |
@@ -887,7 +1170,7 @@ The local cosmology notes identify several OPH-native prediction surfaces beyond
 
 <div class="definition">
 
-**Definition 34** (Early OPH screen federation). *An early OPH cosmological state at regulator $`r`$ is a finite patch federation
+**Definition 39** (Early OPH screen federation). *An early OPH cosmological state at regulator $`r`$ is a finite patch federation
 ``` math
 \mathcal F_r=
 \left(
@@ -902,19 +1185,19 @@ with finite accessible algebras, record algebras, visible overlap interfaces, re
 
 <div class="definition">
 
-**Definition 35** (Source-only finite artifact). *A finite artifact $`X`$ is source-only for cosmology if it is a deterministic functional of declared OPH source data, release-branch constants, and standard non-CMB physical constants, and if its dependency manifest excludes CMB, BAO, supernova, weak-lensing, RSD, SPARC, cluster, or other observational likelihood values used to evaluate the prediction.*
+**Definition 40** (Source-only finite artifact). *A finite artifact $`X`$ is source-only for cosmology if it is a deterministic functional of declared OPH source data, release-branch constants, and standard non-CMB physical constants, and if its dependency manifest excludes CMB, BAO, supernova, weak-lensing, RSD, SPARC, cluster, or other observational likelihood values used to evaluate the prediction.*
 
 </div>
 
 <div class="definition">
 
-**Definition 36** (Physical CMB promotion). *An OPH CMB run is physically promoted only when the primordial source, scale bridge, dark/anomaly stress kernels, Boltzmann solver input files, solver version/tolerances, and likelihood code/data hashes are all frozen before likelihood evaluation, and all source functions are source-only finite artifacts.*
+**Definition 41** (Physical CMB promotion). *An OPH CMB run is physically promoted only when the primordial source, scale bridge, dark/anomaly stress kernels, Boltzmann solver input files, solver version/tolerances, and likelihood code/data hashes are all frozen before likelihood evaluation, and all source functions are source-only finite artifacts.*
 
 </div>
 
 <div class="definition">
 
-**Definition 37** (Cosmology artifact promotion ladder). *Cosmology artifacts first carry the three claim tiers of Definition <a href="#def:cosmology-claim-tiers" data-reference-type="ref" data-reference="def:cosmology-claim-tiers">17</a>. Within a tier, source artifacts also carry an explicit semantic type
+**Definition 42** (Cosmology artifact promotion ladder). *Cosmology artifacts first carry the three claim tiers of Definition <a href="#def:cosmology-claim-tiers" data-reference-type="ref" data-reference="def:cosmology-claim-tiers">17</a>. Within a tier, source artifacts also carry an explicit semantic type
 ``` math
 \textsc{DiagnosticProxy}
 \prec
@@ -926,13 +1209,13 @@ with finite accessible algebras, record algebras, visible overlap interfaces, re
 \prec
 \textsc{PhysicalCMBPrediction}.
 ```
-No receipt may skip a boundary in this order. A close TT curve, a scalar CMI row, a cap-angle mode number, a repair-clock eigenvalue, or a visual freezeout surface is therefore `DIAGNOSTIC_PROXY` until the required source, physical-scale, stress, transfer, and likelihood receipts promote it step by step. Imported FLRW geometry can promote downstream labels only to `CONDITIONAL_PHYSICAL`; `OPH_NATIVE_PHYSICAL` additionally requires Target <a href="#target:cosmo-geometry-extraction" data-reference-type="ref" data-reference="target:cosmo-geometry-extraction">31</a>.*
+No receipt may skip a boundary in this order. A close TT curve, a scalar CMI row, a cap-angle mode number, a repair-clock eigenvalue, or a visual freezeout surface is therefore `DIAGNOSTIC_PROXY` until the required source, physical-scale, stress, transfer, and likelihood receipts promote it step by step. Imported FLRW geometry can promote downstream labels only to `CONDITIONAL_PHYSICAL`; `OPH_NATIVE_PHYSICAL` additionally requires Target <a href="#target:cosmo-geometry-extraction" data-reference-type="ref" data-reference="target:cosmo-geometry-extraction">35</a>.*
 
 </div>
 
 <div class="definition">
 
-**Definition 38** (Proof-carrying source artifact). *A promotable artifact is a record
+**Definition 43** (Proof-carrying source artifact). *A promotable artifact is a record
 ``` math
 \mathfrak A_v=
 (id_v,\tau_v,x_v,\mathcal X_v,\mathcal U_v,\mathrm{Par}(v),
@@ -945,7 +1228,7 @@ where $`\tau_v`$ is the semantic type, $`x_v`$ is the value or tensor/function, 
 
 <div class="theorem">
 
-**Theorem 39** (Sound promotion by source DAG induction). *Let $`G=(V,E)`$ be a finite acyclic artifact graph. For each node $`v`$, let $`P_v(\mathfrak A_v)`$ be the mathematical predicate claimed by the artifact and let $`V_v(\mathfrak A_v,w_v)`$ be a sound verifier, so
+**Theorem 44** (Sound promotion by source DAG induction). *Let $`G=(V,E)`$ be a finite acyclic artifact graph. For each node $`v`$, let $`P_v(\mathfrak A_v)`$ be the mathematical predicate claimed by the artifact and let $`V_v(\mathfrak A_v,w_v)`$ be a sound verifier, so
 ``` math
 V_v(\mathfrak A_v,w_v)=1\Longrightarrow P_v(\mathfrak A_v).
 ```
@@ -968,7 +1251,7 @@ Then $`\operatorname{Pass}(v)=1`$ implies $`P_v(\mathfrak A_v)`$, and every requ
 
 <div class="target">
 
-**Target 40** (Source ancestry and freeze receipts). *Physical promotion requires
+**Target 45** (Source ancestry and freeze receipts). *Physical promotion requires
 ``` math
 \texttt{TRANSITIVE\_SOURCE\_ANCESTRY\_RECEIPT},\quad
 \texttt{HERMETIC\_READ\_SET\_RECEIPT},\quad
@@ -1002,7 +1285,7 @@ The inflation-free branch replaces inflation’s jobs rather than reproducing an
 
 <div class="theorem">
 
-**Theorem 41** (Conditional OPH replacement of inflation). *Assume a cofinal family of finite early OPH screen federations has a quotient-level observer-facing normal-form projection on a declared branch, with uniqueness understood modulo boundary redundancy, implementation hiding, inert ancillary stabilization, and any same-boundary unique-extension condition required by the branch. Assume the clocked FLRW continuation boundary $`B_{\cos,r}`$ supplies $`u_a=-N\nabla_a\chi`$, $`h_{ab}=g_{ab}+u_au_b`$, $`K(\tau)=\kappa/a^2`$, and topology policy, and that one of the exact flat-sector gates is present: <span class="smallcaps">DirectTheorem</span>, <span class="smallcaps">ConditionalCMH</span>, or <span class="smallcaps">ExplicitAssumption</span>. Assume every CMB-scale scalar mode shares the same boundary normal form or satisfies a uniform low-$`k`$ repair gap, the finite screen-spectrum receipts derive a geometric $`q_r`$, normalized $`K_r`$, source release energy $`A_q`$, and refinement tilt, the source-only radial bridge receipts pass, and the imported dark/anomaly sector supplies a permitted CDM-like source state through recombination. Then the branch supplies flatness, horizon coherence, near scale invariance, hot adiabatic initial data, and acoustic-transfer input without an inflaton degree of freedom.*
+**Theorem 46** (Conditional OPH replacement of inflation). *Assume a cofinal family of finite early OPH screen federations has a quotient-level observer-facing normal-form projection on a declared branch, with uniqueness understood modulo boundary redundancy, implementation hiding, inert ancillary stabilization, and any same-boundary unique-extension condition required by the branch. Assume the clocked FLRW continuation boundary $`B_{\cos,r}`$ supplies $`u_a=-N\nabla_a\chi`$, $`h_{ab}=g_{ab}+u_au_b`$, $`K(\tau)=\kappa/a^2`$, and topology policy, and that one of the exact flat-sector gates is present: <span class="smallcaps">DirectTheorem</span>, <span class="smallcaps">ConditionalCMH</span>, or <span class="smallcaps">ExplicitAssumption</span>. Assume every CMB-scale scalar mode shares the same boundary normal form or satisfies a uniform low-$`k`$ repair gap, the finite screen-spectrum receipts derive a geometric $`q_r`$, normalized $`K_r`$, source release energy $`A_q`$, and refinement tilt, the source-only radial bridge receipts pass, and the imported dark/anomaly sector supplies a permitted CDM-like source state through recombination. Then the branch supplies flatness, horizon coherence, near scale invariance, hot adiabatic initial data, and acoustic-transfer input without an inflaton degree of freedom.*
 
 </div>
 
@@ -1019,7 +1302,7 @@ The value $`\theta=P_\star/48`$ follows only if the edge-center reserve, half-co
 
 <div class="proposition">
 
-**Proposition 42** (Curvature suppression is not sector selection). *On a fixed clocked FLRW sector,
+**Proposition 47** (Curvature suppression is not sector selection). *On a fixed clocked FLRW sector,
 ``` math
 K(\tau)=\kappa/a(\tau)^2,\qquad \dot K=-2HK .
 ```
@@ -1029,13 +1312,13 @@ Any repair or expansion estimate that proves a finite bound on $`|K|`$ or $`|\Om
 
 <div class="remark">
 
-*Remark 43* (Theorem boundary). The theorem is conditional because several premises remain theorem gates. The branch is sharp enough for diagnostics, but not for promoting CMB agreement to a physical prediction.
+*Remark 48* (Theorem boundary). The theorem is conditional at the CMB-prediction tier unless the finite source package, physical scale bridge, stress parent, Boltzmann transfer, and frozen likelihood receipts all pass for the same generation. Imported frozen geometry can support the `CONDITIONAL_PHYSICAL` route. `OPH_NATIVE_PHYSICAL` also requires the quotient-derived $`\mathsf{CosmoGeomRead}_r`$ and source embedding theorem.
 
 </div>
 
 # Physical CMB Finite-Source Contract
 
-The simulator’s false physical CMB receipt identified a precise theorem contract. The following objects must be theorem-grade finite artifacts:
+The physical CMB source contract requires theorem-grade finite artifacts:
 ``` math
 A_\zeta,\qquad q_{\rm IR},\qquad \ell_{\rm IR},\qquad
 \bar\rho_A(a),\qquad \bar\rho_{A,\mathrm{eq}}(a),\qquad B_A(k,a),\qquad
@@ -1045,7 +1328,7 @@ plus full stress variables, freezeout, physical mode calibration, and $`N_{\rm C
 
 <div class="definition">
 
-**Definition 44** (Finite primordial source package). *At regulator $`r`$, a physical primordial-source claim is carried by
+**Definition 49** (Finite primordial source package). *At regulator $`r`$, a physical primordial-source claim is carried by
 ``` math
 \mathfrak S_r^{\rm prim}=
 (\mathcal Q_r,n_r,\mu_r,q_r,J_r,\Pi_r,K_r,M_r,\Xi_r,\Sigma_r,E_r^{\rm rel},
@@ -1058,7 +1341,7 @@ Here $`\mathcal Q_r`$ is the physical quotient state space, $`n_r`$ the normal-f
 
 <div class="target">
 
-**Target 45** (Finite-source input contract). *The paper stack must define pass/fail receipts for:*
+**Target 50** (Finite-source input contract). *The paper stack must define pass/fail receipts for:*
 
 1.  *a source-provenance dependency DAG for all CMB source inputs;*
 
@@ -1070,15 +1353,29 @@ Here $`\mathcal Q_r`$ is the physical quotient state space, $`n_r`$ the normal-f
 
 5.  *total stress closure, single-clock normal form, entropy repair gap, curvature evolution, adiabatic growing mode, isocurvature bound, phase coherence, screen-to-radial lift, radial null-space, forward residual, and finite freezeout receipts;*
 
-6.  *physical $`k`$, $`\ell`$, scale-factor, and redshift calibration;*
+6.  *$`\texttt{physical\_k\_units\_calibrated}`$, derived exactly from $`\texttt{PHYSICAL\_SPATIAL\_K\_RECEIPT}`$;*
 
-7.  *source-only imported dark-sector functions $`\bar\rho_A(a)`$, $`\bar\rho_{A,\mathrm{eq}}(a)`$, $`w_A(a)`$, $`c_{s,A}^2(k,a)`$, $`\sigma_A(k,a)`$, $`Q_A^\mu`$, $`B_A(k,a)`$, and the $`\gamma_{\mathrm{repair\ step}}`$ diagnostic or certified $`\Gamma_{\rm rec}(k,a)`$, where the chosen dark-continuation mode permits them.*
+7.  *$`\texttt{screen\_to\_physical\_k\_association\_calibrated}`$, derived from $`\texttt{SCREEN\_TO\_PHYSICAL\_K\_ASSOCIATION\_RECEIPT}`$;*
+
+8.  *$`\texttt{source\_angular\_sector\_calibrated}`$, derived from $`\texttt{SOURCE\_ANGULAR\_SECTOR\_RECEIPT}`$, with $`\ell_{\rm src}`$ kept distinct from $`L_{\rm CMB}`$;*
+
+9.  *$`\texttt{calibrated\_a\_evolution}`$, derived from $`\texttt{CALIBRATED\_A\_EVOLUTION\_RECEIPT}`$;*
+
+10. *$`\texttt{physical\_mode\_freezeout\_map\_calibrated}`$, derived from $`\texttt{PHYSICAL\_MODE\_FREEZEOUT\_MAP\_RECEIPT}`$;*
+
+11. *$`\texttt{common\_primordial\_initial\_surface\_calibrated}`$, derived from $`\texttt{PHYSICAL\_FREEZEOUT\_SURFACE\_RECEIPT}`$;*
+
+12. *a nonempty cross-receipt manifest with matching regulator-family, generation, geometry, background, clock, scale-certificate, source-embedding, mode-basis, mode-lineage, boundary, solver-convention, freezeout-surface, and source-DAG hashes;*
+
+13. *source-only imported dark-sector functions $`\bar\rho_A(a)`$, $`\bar\rho_{A,\mathrm{eq}}(a)`$, $`w_A(a)`$, $`c_{s,A}^2(k,a)`$, $`\sigma_A(k,a)`$, $`Q_A^\mu`$, $`B_A(k,a)`$, and the $`\gamma_{\mathrm{repair\ step}}`$ diagnostic or certified $`\Gamma_{\rm rec}(k,a)`$, where the chosen dark-continuation mode permits them.*
+
+*A mode-dependent freezeout map does not satisfy $`\texttt{PHYSICAL\_FREEZEOUT\_SURFACE\_RECEIPT}`$; the receipt denotes a common spacelike initial surface with initial data and normal derivatives in one frozen generation.*
 
 </div>
 
 <div class="target">
 
-**Target 46** (Scalar, harmonic, and IR source receipts). *The scalar-source branch must supply
+**Target 51** (Scalar, harmonic, and IR source receipts). *The scalar-source branch must supply
 ``` math
 \texttt{SCALAR\_SOURCE\_MAP\_RECEIPT},\quad
 \texttt{A5\_TO\_SO3\_INTERTWINER\_RECEIPT},\quad
@@ -1106,7 +1403,7 @@ when $`t_{\rm IR}>0`$. The old dimension count $`12+20+1=33\Rightarrow
 
 <div class="target">
 
-**Target 47** (Fluctuation covariance and tilt receipts). *Deterministic settling does not choose a fluctuation ensemble. The finite quotient ensemble must supply $`\mu_r(q)=m_r(q)e^{-S_r(q)}/Z_r`$ with projective compatibility, sampler correctness, and implementation invariance. Repair drift does not determine covariance: $`D\Sigma+\Sigma D^{\mathsf T}=\Xi`$ requires the noise covariance $`\Xi`$. A fluctuation-dissipation branch may use $`D=M_rK_r`$, $`\Xi=2A_rM_r`$, and $`\Sigma_r=A_rK_r^{-1}`$, but only with
+**Target 52** (Fluctuation covariance and tilt receipts). *Deterministic settling does not choose a fluctuation ensemble. The finite quotient ensemble must supply $`\mu_r(q)=m_r(q)e^{-S_r(q)}/Z_r`$ with projective compatibility, sampler correctness, and implementation invariance. Repair drift does not determine covariance: $`D\Sigma+\Sigma D^{\mathsf T}=\Xi`$ requires the noise covariance $`\Xi`$. A fluctuation-dissipation branch may use $`D=M_rK_r`$, $`\Xi=2A_rM_r`$, and $`\Sigma_r=A_rK_r^{-1}`$, but only with
 ``` math
 \texttt{QUOTIENT\_ENSEMBLE\_RECEIPT},\quad
 \texttt{LYAPUNOV\_COVARIANCE\_RECEIPT},\quad
@@ -1126,7 +1423,7 @@ Only after the radial theorem identifies $`\Delta_\zeta^2(k)\propto k^{-\theta}`
 
 <div class="proposition">
 
-**Proposition 48** (Why the 256k CMB curve is diagnostic). *The 256k OPH-FPE run may be used as a measurement-facing diagnostic, but not as a physical CMB prediction, because its promotion report marks the finite-source input contract false and lists missing source provenance, missing pooled reducers, missing $`N_{\rm CRC}`$ invariant role, non-finite $`A_\zeta`$, missing screen-to-primordial lift, non-finite $`q_{\rm IR}`$ and $`\ell_{\rm IR}`$, non-finite $`\bar\rho_A`$ and $`B_A`$, missing finite covariant parent receipt, missing stress closure, missing full fluid/exchange variables, missing gauge/causal/refinement certificates, missing freezeout, missing official likelihood and CDM-limit reductions, and missing frozen solver and likelihood hashes.*
+**Proposition 53** (Why the 256k CMB curve is diagnostic). *The 256k OPH-FPE run may be used as a measurement-facing diagnostic, but not as a physical CMB prediction, because its promotion report marks the finite-source input contract false and lists missing source provenance, missing pooled reducers, missing $`N_{\rm CRC}`$ invariant role, non-finite $`A_\zeta`$, missing screen-to-primordial lift, non-finite $`q_{\rm IR}`$ and $`\ell_{\rm IR}`$, non-finite $`\bar\rho_A`$ and $`B_A`$, missing finite covariant parent receipt, missing stress closure, missing full fluid/exchange variables, missing gauge/causal/refinement certificates, missing freezeout, missing official likelihood and CDM-limit reductions, and missing frozen solver and likelihood hashes.*
 
 </div>
 
@@ -1138,7 +1435,7 @@ Section <a href="#sec:physical-scale-bridge" data-reference-type="ref" data-ref
 \texttt{repair\_cycle},\quad
 \texttt{graph\_mode\_index}
 ```
-are nonpromotable diagnostic labels unless the structured receipt conjunctions in Target <a href="#target:physical-scale-receipts" data-reference-type="ref" data-reference="target:physical-scale-receipts">30</a> pass. A frozen imported FLRW geometry packet can exercise the complete spectral/clock/freezeout/transfer pipeline at tier `CONDITIONAL_PHYSICAL`. Replacing that packet by a quotient-derived $`\mathsf{CosmoGeomRead}_r`$ without changing downstream interfaces is the open `OPH_NATIVE_PHYSICAL` task.
+are nonpromotable diagnostic labels unless the structured receipt conjunctions in Target <a href="#target:physical-scale-receipts" data-reference-type="ref" data-reference="target:physical-scale-receipts">34</a> pass. A frozen imported FLRW geometry packet can exercise the complete spectral/clock/freezeout/transfer pipeline at tier `CONDITIONAL_PHYSICAL`. The `OPH_NATIVE_PHYSICAL` tier additionally requires a quotient-derived $`\mathsf{CosmoGeomRead}_r`$ and source embedding theorem with the same downstream interfaces.
 
 # Dark/Anomaly Interface Imported from the Dark-Matter Paper
 
@@ -1146,7 +1443,7 @@ The dark/anomaly slot is the largest cosmology-facing bridge between the OPH dar
 
 <div class="definition">
 
-**Definition 49** (Imported finite covariant collar-packet parent interface). *For the purpose of this cosmology program, the finite covariant collar-packet parent is an imported `cosmology/oph_dark_matter_paper.tex`-owned finite artifact interface
+**Definition 54** (Imported finite covariant collar-packet parent interface). *For the purpose of this cosmology program, the finite covariant collar-packet parent is an imported `cosmology/oph_dark_matter_paper.tex`-owned finite artifact interface
 ``` math
 \mathcal P_A=
 (\mathcal C_r,Z_r,A_r,R_r,G_r,\pi_r,L_r,Q_r,D_r)
@@ -1167,7 +1464,7 @@ with explicit conservation or exchange equations, recipient stress for nonzero e
 
 <div class="definition">
 
-**Definition 50** (Issue \#319 conditional source receipt). *The imported dark-sector parent first has to pass
+**Definition 55** (Issue \#319 conditional source receipt). *The imported dark-sector parent first has to pass
 ``` math
 \texttt{ISSUE\_319\_CONDITIONAL\_SOURCE\_RECEIPT}.
 ```
@@ -1199,7 +1496,7 @@ may be imported. Classical diagonal CMI rows, cap-angle proxies, duplicated coll
 
 <div class="target">
 
-**Target 51** (Imported stress-parent receipt). *The simulator receipt
+**Target 56** (Imported stress-parent receipt). *The simulator receipt
 ``` math
 \texttt{FINITE\_COVARIANT\_PARENT\_RECEIPT}
 ```
@@ -1231,7 +1528,7 @@ must fail unless the owning dark-sector paper and its evidence bundle certify al
 
 <div class="remark">
 
-*Remark 52* (Dark continuation modes). For a source-only primordial certification run, the dark-sector paper recommends `dark_continuation = OFF`. A supplied dark abundance may enter only as `dark_continuation = CONDITIONAL_SOURCE_STATE` until the dark-matter theorem surface derives the homogeneous anomaly abundance and finite kinetic stress construction. The physical cosmology branch may set `dark_continuation = PHYSICAL_PARENT` only after the finite covariant parent receipt, physical scale bridge, response/kernel receipts, and CDM-limit recovery all pass for the same frozen generation.
+*Remark 57* (Dark continuation modes). For a source-only primordial certification run, the dark-sector paper recommends `dark_continuation = OFF`. A supplied dark abundance may enter only as `dark_continuation = CONDITIONAL_SOURCE_STATE` until the dark-matter theorem surface derives the homogeneous anomaly abundance and finite kinetic stress construction. The physical cosmology branch may set `dark_continuation = PHYSICAL_PARENT` only after the finite covariant parent receipt, physical scale bridge, response/kernel receipts, and CDM-limit recovery all pass for the same frozen generation.
 
 </div>
 
@@ -1241,7 +1538,7 @@ The physical kernels are not scalar rows in a table. They are imported finite fu
 
 <div class="target">
 
-**Target 53** (Physical anomaly kernel interface). *The released dark-matter paper must define deterministic receipts
+**Target 58** (Physical anomaly kernel interface). *The released dark-matter paper must define deterministic receipts
 ``` math
 \texttt{RHO\_A\_SOURCE\_RECEIPT},\qquad
 \texttt{RHO\_A\_EQ\_SOURCE\_RECEIPT},\qquad
@@ -1252,11 +1549,11 @@ These receipts pass only when $`\bar\rho_A(a)`$, $`B_A(k,a)`$, and $`\Gamma_{\rm
 
 </div>
 
-Diagnostic rows remain useful for debugging. They should be plotted, stress-tested, and compared to controls. They should not be accepted by the physical CMB contract unless they are promoted by the kernel receipts above. Until the physical clock, active fiber, conserved-sector decomposition, and common-parent response pole are certified, the simulator should emit the transition number as $`\gamma_{\mathrm{repair\ step}}`$, not as $`\Gamma_{\rm rec}`$. Likewise finite rows for $`\rho_A`$, $`\rho_{A,\mathrm{eq}}`$, and $`B_A`$ carry the label `DIAGNOSTIC_SCALAR_RESPONSE` until promoted by the parent and kernel receipts.
+Diagnostic rows remain useful for debugging. They should be plotted, stress-tested, and compared to controls. They should not be accepted by the physical CMB contract unless they are promoted by the kernel receipts above. Until the physical clock, active fiber, conserved-sector decomposition, and common-parent response pole are certified, the simulator should emit the transition number as $`\gamma_{\mathrm{repair\ step}}`$, not as $`\Gamma_{\rm rec}`$. Likewise finite rows for $`\rho_A`$, $`\rho_{A,\mathrm{eq}}`$, and $`B_A`$ have label `DIAGNOSTIC_SCALAR_RESPONSE` until promoted by the parent and kernel receipts.
 
 <div class="target">
 
-**Target 54** (Finite covariant parent import). *The imported dark-sector parent is not a readiness boolean. The receipt consumed by this paper is the conjunction of primitive parent receipts owned by `cosmology/oph_dark_matter_paper.tex`:
+**Target 59** (Finite covariant parent import). *The imported dark-sector parent is not a readiness boolean. The receipt consumed by this paper is the conjunction of primitive parent receipts owned by `cosmology/oph_dark_matter_paper.tex`:
 ``` math
 \begin{gathered}
 \texttt{SOURCE\_ROUTE\_RECEIPT},\quad
@@ -1300,7 +1597,7 @@ For finite physical source functions, the transfer problem is ordinary cosmology
 
 <div class="target">
 
-**Target 55** (Frozen transfer and likelihood protocol). *A physical OPH CMB prediction requires:*
+**Target 60** (Frozen transfer and likelihood protocol). *A physical OPH CMB prediction requires:*
 
 1.  *immutable hashes for source artifacts;*
 
@@ -1320,7 +1617,7 @@ For finite physical source functions, the transfer problem is ordinary cosmology
 
 <div id="def:model-generation" class="definition">
 
-**Definition 56** (Model generation). *A cosmology prediction generation is
+**Definition 61** (Model generation). *A cosmology prediction generation is
 ``` math
 G_n=(H_{\rm source},H_{\rm scale},H_{\rm parent},H_{\rm kernel},H_{\rm init},
 H_{\rm solver},H_{\rm build},H_{\rm config},H_{\rm likelihood},H_{\rm data},
@@ -1332,7 +1629,7 @@ where $`\mathcal A_n`$ is the registry of observational datasets, residuals, pos
 
 <div id="thm:physical-oph-cosmology-promotion" class="theorem">
 
-**Theorem 57** (Physical OPH cosmology promotion). *Let $`R_{\rm src}`$ be source-only provenance and pooled-reducer receipt, $`R_{\rm scale}`$ the physical mode/clock/lift receipt, $`R_{\rm parent}`$ the finite covariant parent receipt, $`R_{\rm kernel}`$ the physical response/kernel receipt, $`R_{\rm init}`$ the regular initial-mode and Einstein-constraint receipt, $`R_{\rm transfer}`$ the Boltzmann well-posedness and numerical-convergence receipt, $`R_{\rm freeze}`$ the model-generation freeze receipt, and $`R_{\rm like}`$ the official likelihood execution receipt. Define
+**Theorem 62** (Physical OPH cosmology promotion). *Let $`R_{\rm src}`$ be source-only provenance and pooled-reducer receipt, $`R_{\rm scale}`$ the physical mode/clock/lift receipt, $`R_{\rm parent}`$ the finite covariant parent receipt, $`R_{\rm kernel}`$ the physical response/kernel receipt, $`R_{\rm init}`$ the regular initial-mode and Einstein-constraint receipt, $`R_{\rm transfer}`$ the Boltzmann well-posedness and numerical-convergence receipt, $`R_{\rm freeze}`$ the model-generation freeze receipt, and $`R_{\rm like}`$ the official likelihood execution receipt. Define
 ``` math
 R_{\rm physical}=
 R_{\rm src}\wedge R_{\rm scale}\wedge R_{\rm parent}\wedge R_{\rm kernel}
@@ -1350,7 +1647,7 @@ If every parent receipt is labelled $`\texttt{PASS}`$, then the resulting TT/TE/
 
 <div class="target">
 
-**Target 58** (Outcome and prediction-class ledger). *Likelihood outcomes are
+**Target 63** (Outcome and prediction-class ledger). *Likelihood outcomes are
 ``` math
 \begin{gathered}
 \texttt{INVALIDATED},\quad
@@ -1384,13 +1681,13 @@ The 256k curve has label $`\texttt{CMB0\_LCDM\_DIAGNOSTIC\_BASELINE}`$.*
 
 <div class="remark">
 
-*Remark 59* (Global reducers only). Shard-local nonlinear averages and shard-local `any()` rollups are not promotion rules. The source artifact must pool additive sufficient statistics globally, with validated units, coordinate grids, coverage, duplicate policy, interpolation policy, and covariance, before any nonlinear quantity such as amplitude, rank, condition number, isocurvature leakage, $`B_A`$, $`\bar\rho_A`$, or $`\Gamma_{\rm rec}`$ is evaluated; a transition diagnostic is recorded separately as $`\gamma_{\mathrm{repair\ step}}`$.
+*Remark 64* (Global reducers only). Shard-local nonlinear averages and shard-local `any()` rollups are not promotion rules. The source artifact must pool additive sufficient statistics globally, with validated units, coordinate grids, coverage, duplicate policy, interpolation policy, and covariance, before any nonlinear quantity such as amplitude, rank, condition number, isocurvature leakage, $`B_A`$, $`\bar\rho_A`$, or $`\Gamma_{\rm rec}`$ is evaluated; a transition diagnostic is recorded separately as $`\gamma_{\mathrm{repair\ step}}`$.
 
 </div>
 
 <div class="remark">
 
-*Remark 60* (Comparison versus prediction). The best OPH diagnostic model in the 256k run is scientifically useful because it is close: shape correlation $`0.9951542364`$, normalized RMSE $`0.0984455548`$, amplitude-fit $`\chi^2/{\rm bin}=41.6684770597`$, zero mean peak-location error, and mean peak-height fractional error about $`0.0704905`$. Those numbers justify fixing the theorem gates. They do not replace the gates.
+*Remark 65* (Comparison versus prediction). The best OPH diagnostic model in the 256k run is scientifically useful because it is close: shape correlation $`0.9951542364`$, normalized RMSE $`0.0984455548`$, amplitude-fit $`\chi^2/{\rm bin}=41.6684770597`$, zero mean peak-location error, and mean peak-height fractional error about $`0.0704905`$. Those numbers justify fixing the theorem gates. They do not replace the gates.
 
 </div>
 
@@ -1400,7 +1697,7 @@ The same finite-source discipline applies to vacuum claims. Seed noise, repair j
 
 <div class="target">
 
-**Target 61** (OPH-native vacuum gate). *An OPH-native vacuum simulation needs a quotient ensemble measure or density operator on the observable quotient algebra, refinement compatibility, implementation invariance, a sampler correctness proof, and source Euclidean slab data $`(Q_r,m_r^0,J_r,V_r,a_{t,r})`$ whose transfer operator is derived independently of the target law and sampler. Without this gate, vacuum-like fields in the simulator are reference baselines or diagnostics.*
+**Target 66** (OPH-native vacuum gate). *An OPH-native vacuum simulation needs a quotient ensemble measure or density operator on the observable quotient algebra, refinement compatibility, implementation invariance, a sampler correctness proof, and source Euclidean slab data $`(Q_r,m_r^0,J_r,V_r,a_{t,r})`$ whose transfer operator is derived independently of the target law and sampler. Without this gate, vacuum-like fields in the simulator are reference baselines or diagnostics.*
 
 </div>
 
@@ -1418,7 +1715,7 @@ Physical promotion requires exact receipt semantics for the objects the simulato
 
 3.  implement the `CONDITIONAL_PHYSICAL` imported-FLRW reference backend for the spectral, clock, freezeout, and transfer pipeline;
 
-4.  implement the structured physical scale bridge and freezeout certificates from Target <a href="#target:physical-scale-receipts" data-reference-type="ref" data-reference="target:physical-scale-receipts">30</a>;
+4.  implement the structured physical scale bridge and freezeout certificates from Target <a href="#target:physical-scale-receipts" data-reference-type="ref" data-reference="target:physical-scale-receipts">34</a>;
 
 5.  implement the imported finite covariant parent and stress-closure receipts from the `cosmology/oph_dark_matter_paper.tex` dark-sector theory;
 
@@ -1428,7 +1725,7 @@ Physical promotion requires exact receipt semantics for the objects the simulato
 
 8.  run official likelihood comparisons and global CDM-limit reductions;
 
-9.  only then label the result `CONDITIONAL_PHYSICAL` or, after Target <a href="#target:cosmo-geometry-extraction" data-reference-type="ref" data-reference="target:cosmo-geometry-extraction">31</a> passes, `OPH_NATIVE_PHYSICAL`.
+9.  label the result `CONDITIONAL_PHYSICAL` when all imported-geometry physical receipts pass, or `OPH_NATIVE_PHYSICAL` when Target <a href="#target:cosmo-geometry-extraction" data-reference-type="ref" data-reference="target:cosmo-geometry-extraction">35</a> also passes.
 
 The simulator may run diagnostics before physical promotion: visualization payloads, CMB overlays, vacuum baselines, defect worldlines, observer cameras, and H3 readouts. Those outputs carry diagnostic labels until the relevant receipt passes.
 

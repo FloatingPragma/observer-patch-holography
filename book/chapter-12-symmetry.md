@@ -106,7 +106,7 @@ Objects transforming under SU(2) are called **spinors**. They have half-integer 
 
 ### The Dirac Belt Trick
 
-Do not picture this as an ordinary arm twist. Human shoulders are the wrong
+An ordinary arm twist is the wrong model here. Human shoulders are the wrong
 prop for the lesson.
 
 Use a belt, a ribbon, or a plate attached to ribbons. Hold one end fixed and
@@ -148,7 +148,10 @@ That's it. Those are the only quantum numbers that follow from spacetime symmetr
 
 **Particles are representations of symmetries.** Spacetime symmetry fixes the mass-and-spin labels, while the realized internal charges and matter content require additional structure.
 
-That is a profound change in what a particle is. A particle is not a tiny marble with a fixed identity tag. It is an allowed transformation pattern. Mass tells you how the excitation sits with time translations. Spin tells you how it sits with rotations.
+That changes what a particle is. A particle is not a tiny marble with a fixed
+identity tag. It is an allowed transformation pattern. Mass tells you how the
+excitation sits with time translations. Spin tells you how it sits with
+rotations.
 
 The spare label set matters. Once the symmetry group is fixed, only a limited menu of stable transformation patterns is left. The particle table starts to look less like a box of arbitrary ingredients and more like a list of admissible roles.
 
@@ -232,7 +235,20 @@ A conserved current on the screen creates a gauge boson in the bulk.
 
 ### Our Route: Gauge Group from Gluing
 
-In this book we take a different route. The gauge group is not assumed in advance. Instead, we look at what happens when you glue observer patches together: fixed-cutoff edge charges fuse in specific ways, their transport data persists coherently across refinement, and the compatible multiplicity spaces descend with them. A reconstruction theorem then lets you work backward from that persistent sector package to the symmetry group behind it. This is classification rather than selection: zero obstruction says which sectors can be transported and which compact group their tensor data reconstructs. On the realized one-Higgs low-energy branch, minimal admissible selection picks the physical gauge group $SU(3) \times SU(2) \times U(1)/\mathbb{Z}_6$. On that same branch, the minimal coupled carrier fixes the realized color triplet, while CKM phase counting together with weak-sector ultraviolet consistency picks the minimal viable generation count.
+In this book we take a different route. The gauge group is not assumed in
+advance. Instead, we look at what happens when you glue observer patches
+together: fixed-cutoff edge charges fuse in specific ways, their transport data
+persists coherently across refinement, and the compatible multiplicity spaces
+descend with them. A reconstruction theorem then lets you work backward from
+that persistent sector package to the symmetry group behind it.
+
+This is classification before selection. Zero obstruction says which sectors
+can be transported and which compact group their tensor data reconstructs. On
+the realized one-Higgs low-energy branch, minimal admissible selection picks
+the physical gauge group $SU(3) \times SU(2) \times U(1)/\mathbb{Z}_6$. On
+that same branch, the minimal coupled carrier fixes the realized color triplet,
+while CKM phase counting together with weak-sector ultraviolet consistency
+picks the minimal viable generation count.
 
 The notation looks forbidding, but the roles are practical. $SU(3)$ is the
 color accounting system for quarks. $SU(2)$ is the weak doublet accounting
@@ -242,14 +258,11 @@ that some shared center labels are counted only once.
 
 ### Yang-Mills and the Gap
 
-Once a compact gauge group is reconstructed, the next question is the field
-theory carried by that group. On the declared support-visible compact-gauge
-branch, OPH uses compact-gauge reconstruction, local holonomy data, a
-four-dimensional scaling chart, a reflection-positive ordinary vacuum sector,
-support-visible continuum extraction, the local maximum-entropy Gibbs rule, and
-the branch condition that no additional gauge-invariant relevant dimension-four
-pure-gauge operator survives besides the positive curvature-squared invariant to
-obtain the Euclidean Yang-Mills action:
+Once a compact gauge group is reconstructed, the theory has to select the field
+theory carried by that group. In the OPH route, compact gauge data curve around
+small loops, the four-dimensional scaling limit makes that curvature smooth,
+and the local maximum-entropy rule leaves the curvature-squared term as the
+relevant pure-gauge action:
 
 $$
 S_E[A]=\frac{1}{4g^2}\int_{\mathbb R^4}\langle F_{\mu\nu},F_{\mu\nu}\rangle\,d^4x.
@@ -260,22 +273,22 @@ says that the action is built from curvature squared, integrated over
 four-dimensional Euclidean space. In OPH this is the continuum form of
 compact-gauge patch bookkeeping.
 
-The mass gap uses a separate spectral argument on the same branch. Exact local
-repair on an active collar acts as projection onto the repaired visible data.
-After the ground-state transform, Euclidean time evolution becomes a sum of
-active collar relaxations. A uniform positive repair rate gives a positive lower
-bound for the first nonzero compact-gauge repair energy. To read that as a
-four-dimensional Yang-Mills energy, the branch must also provide the continuum
-certificate: renormalized Schwinger-function convergence, reflection
-positivity, Euclidean covariance and locality, nontriviality, and convergence
-of transfer/intertwiner data. With that certificate, the accounting is literal:
+The mass gap uses a separate spectral argument. Exact local repair on an active
+collar acts as projection onto the repaired visible data. After the ground-state
+transform, Euclidean time evolution becomes a sum of active collar relaxations.
+A uniform positive repair rate gives a positive lower bound for the first
+nonzero compact-gauge repair energy. To read that as a four-dimensional
+Yang-Mills energy, the continuum limit must have the right renormalized
+correlations, reflection positivity, Euclidean covariance, locality,
+nontriviality, and transfer data. With those conditions, the accounting is
+literal:
 
 $$
 \Delta_{\mathrm{YM}}=\Delta_{\mathrm{rep}}.
 $$
 
-On that certified branch, the Yang-Mills gap is the repair gap. Without the
-certificate, the finite repair result remains a regulator mechanism, not a
+On that branch, the Yang-Mills gap is the repair gap. Without the continuum
+work, the finite repair result remains a regulator mechanism, not a
 Clay-admissible four-dimensional construction.
 
 ## 12.8 Symmetry Breaking
@@ -452,6 +465,8 @@ of that agreement.
 
 ---
 
-We've described the translation rules. The next question concerns the arena that carries them. Our universe expands, accelerates, and hides information behind a cosmological horizon. The arena itself has thermodynamics.
+The translation rules need an arena that carries them. Our universe expands,
+accelerates, and hides information behind a cosmological horizon. The arena
+itself has thermodynamics.
 
 That is the question for **Chapter 13: The de Sitter Patch**.

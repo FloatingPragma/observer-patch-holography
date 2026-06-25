@@ -35,14 +35,14 @@ views can be woven into one durable account.
 The horizon matters. It is where comparison becomes physical. It is
 where records meet. It is where the bookkeeping has to close.
 
-## 18.3 The Screen and the Ledger
+## 18.3 The Screen and the Shared Record
 
-The fundamental image is simple enough to keep in your head. Picture a shared
-screen net that can be drawn, in its symmetric chart, as finite quantum data
-organized on a two-sphere. No observer sees the whole net at once. Each observer
-has an access patch. Where patches overlap, the observables on that overlap
-have to match. The sphere is the chart for the gluing problem, not a literal
-ball outside the universe.
+The fundamental image is simple enough to keep in your head: a shared screen
+net that can be drawn, in its symmetric chart, as finite quantum data organized
+on a two-sphere. No observer sees the whole net at once. Each observer has an
+access patch. Where patches overlap, the observables on that overlap have to
+match. The sphere is the chart for the gluing problem, not a literal ball
+outside the universe.
 
 The state on the screen is selected by maximum entropy subject to a stable
 local family of constraints. Generalized entropy gives each cap both a bulk
@@ -57,7 +57,7 @@ selection principle. Minimality gives the economy.
 
 ## 18.4 How Spacetime Appears
 
-Once cap modular flow becomes geometric on the support-visible scaling branch,
+Once cap modular flow becomes geometric on the controlled scaling branch,
 time stops looking imported from outside. It becomes the internal flow attached
 to a restricted state. When those local flows fit together across the smooth
 screen, Lorentz kinematics appears, and the rest-space quotient
@@ -69,6 +69,14 @@ Read that sentence as a compressed recap. Modular flow is the clock a restricted
 state carries. Lorentz kinematics is the rulebook for relating moving
 observers. Generalized entropy is the horizon-plus-bulk entropy accounting that
 gravity has to respect.
+
+The quotient \(H^3=SO^+(3,1)/SO(3)\) has the same spirit as choosing what
+information matters. \(SO^+(3,1)\) is the connected Lorentz group, the
+transformations preserving the light-cone structure. \(SO(3)\) is the ordinary
+rotation group that changes spatial orientation while leaving the local rest
+frame's direction of time fixed. Dividing by \(SO(3)\) keeps the boost or
+velocity information and discards the redundant orientation label. What remains
+is hyperbolic three-space, the geometry of possible rest frames.
 
 In plain language, spacetime is the compressed way finite observers keep track
 of how their clocks, horizons, and correlations line up. Geometry is what the
@@ -87,8 +95,8 @@ treats the sphere as an observer-facing regulator chart and supplies a
 federated patch-carrier architecture for patches, overlaps, edge sectors,
 records, repair, Bell tests, and checkpoint/restoration. Its distributed form
 counts as one carrier only when the global graph, initial state, partition, cut
-interfaces, observer registry, and projected event log certify a single
-monolithic repair system. It provides the concrete implementation surface on
+interfaces, observer registry, and projected event log show a single
+monolithic repair system. It provides the concrete implementation setting on
 which the broader OPH bookkeeping can be simulated and checked.
 
 ## 18.5 How the Particle World Appears
@@ -112,21 +120,21 @@ ways. $SU(3)$ carries color, $SU(2)$ carries weak doublet structure, and
 $U(1)$ carries hypercharge. The $\mathbb Z_6$ quotient is the discrete
 identification that makes the Standard Model charge lattice fit together.
 
-The same declared support-visible compact-gauge branch also carries a
-four-dimensional Euclidean Yang-Mills form and a mass-gap account for compact
-simple gauge groups carried by that branch. The Euclidean action comes from
-compact-gauge holonomy data, the four-dimensional scaling chart, the
-reflection-positive ordinary vacuum sector, the local maximum-entropy Gibbs
-scaling limit, and the branch condition that no additional gauge-invariant
-relevant dimension-four pure-gauge operator survives besides the positive
-curvature-squared invariant. The gap mechanism comes from repair: exact local
-repair turns into a positive Euclidean relaxation generator. Reading the first
-nonzero repair eigenvalue as the first nonzero Yang-Mills energy requires the
-extra continuum certificate: renormalized correlations, reflection positivity,
-Euclidean covariance and locality, nontriviality, and transfer/intertwiner
-convergence. Thus the book should keep three layers separate: the exact
-multiresolution reference tower, certified finite evidence against that tower,
-and the field-theory identification of the continuum limit.
+The same compact-gauge lane also carries the four-dimensional Yang-Mills form
+and the mass-gap story for compact simple gauge groups. The Euclidean action
+comes from the way compact gauge data curves around loops in the
+four-dimensional scaling limit. The gap mechanism comes from repair: leaving
+the repaired vacuum sector costs a positive amount of relaxation energy. To
+read that cost as the first nonzero Yang-Mills energy, the continuum limit has
+to behave like a real four-dimensional field theory, with the right
+correlations, positivity, covariance, locality, and nontrivial dynamics.
+
+In this reading, Yang-Mills theory is the smooth field-theory language for
+compact gauge bookkeeping. Holonomy records how gauge data changes around a
+loop. The action measures the cost of that curvature. The mass gap says the
+first genuine excitation above the vacuum costs a positive amount of energy.
+The continuum work is what lets a finite screen construction be read as that
+smooth field theory.
 
 The color triplet follows from the minimal coupled carrier, and the
 three-generation count follows from CKM phase counting, weak-sector
@@ -134,10 +142,9 @@ consistency, and minimality on the same low-energy branch. The photon,
 gluons, and graviton stay massless because they ride on redundancy directions
 the architecture cannot break. The broader particle table then carries the
 weak-sector comparison pair, the low-energy electromagnetic endpoint, the
-Higgs/top quantitative surface, the selected-class quark sector, and
-one weighted-cycle neutrino branch. The charged-lepton, quark-frame,
-direct-top, hadron, and strong-CP stories sit around that same particle map as
-separate branches of the full particle program. Hadrons add the strong-binding
+Higgs/top relation, the running quark sector, and one neutrino branch. Charged
+leptons, direct-top comparison, hadrons, and strong CP sit around that same
+particle map with different support levels. Hadrons add the strong-binding
 problem on top of that particle-level picture.
 
 The particle words here refer to roles explained in Chapters 12-16: color is the
@@ -149,11 +156,12 @@ That is the twist. The Standard Model stops looking like a cabinet full of
 unrelated entries. It looks like the smallest admissible charged world that
 lets the observer records close.
 
-## 18.6 Closure Coordinates And Scale Certificate
+## 18.6 Closure Coordinates And Scale Bridge
 
 The quantitative side of the framework turns on two dimensionless closure
-coordinates and one selected no-G scale certificate. These quantities are
-selected by closure or certificate conditions. They are fixed branch data.
+coordinates and one selected scale bridge that does not take Newton's constant
+as input. These quantities are fixed by closure conditions. They are part of
+the branch data, not adjustable knobs.
 
 This is where reverse engineering enters legitimately. The observed universe
 can give a rough value or a branch interval because, in the OPH reading, those
@@ -177,24 +185,40 @@ $\mathcal B_\ell\ell_\star^2=3\pi$ and
 $\mathcal B_\ell a_{\mathrm{cell}}=3\pi P_\star$. A global rescaling of all
 lengths leaves $P_\star$ and $N_{\mathrm{CRC}}$ unchanged while changing
 $\mathcal B_\ell$ in SI units. The two closures supply the dimensionless
-geometry. The selected scale certificate supplies the SI display.
+geometry. The selected scale bridge supplies the SI display.
+
+Here "no-G" means that Newton's constant is not inserted as an input. The scale
+is selected from clock and curvature data first, and Newton's constant is
+displayed after that. The bridge is written as
+
+$$
+\gamma_\star=\frac{\ell_\star\nu_{\mathrm{Cs}}}{c},
+\qquad
+B_\star=\frac{3\pi}{\ell_\star^2},
+\qquad
+G_{\mathrm{SI}}=\frac{c^3\ell_\star^2}{\hbar}.
+$$
+
+This is the scale branch used for the Newton normalization. It supplies
+$\ell_\star^2=3\pi/B_\star$ before the Planck-area display is read in SI
+units.
 
 The first is global. The cosmic record fixed point \(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\)
 selects the total screen capacity, about $3.31\times10^{122}$ natural entropy
 units, or about $4.77\times10^{122}$ bits on the observed branch. This rounded
-number is a branch-scale display. The Newton row uses the fixed-point capacity
-together with the selected no-G scale certificate. The fixed point is the
-single capacity at which the outside horizon capacity and the inside
+number is a branch-scale display. The Newton normalization uses the fixed-point
+capacity together with the selected no-G scale bridge. The fixed point is the single
+capacity at which the outside horizon capacity and the inside
 observer-accessible public record agree. That gives the size of the accessible computation and fixes the
 dimensionless de Sitter capacity relation; the SI horizon scale uses the
-selected scale certificate.
+selected scale bridge.
 
 The same global scale can be written as a fixed-point problem: supply capacity
-$N$, let the terminal observer-supported normal form read back its active
-horizon capacity, and take the unique point where supplied capacity and
-readback capacity agree. Informally, this is the screen size where the universe
-reads back its own boundary without deficit or slack. On the observed branch,
-that fixed point is the de Sitter entropy capacity. The density
+$N$, let the closed observer record read back its active horizon capacity, and
+take the unique point where supplied capacity and readback capacity agree.
+Informally, this is the screen size where the universe reads back its own
+boundary without deficit or slack. On the observed branch, that fixed point is
+the de Sitter entropy capacity. The density
 $\log|\Omega^{\mathrm{sc}}_N|-N$ is the finite-count representation of the same
 closure.
 
@@ -218,14 +242,14 @@ acts as the ruler from which the electroweak scale and the low-energy
 electromagnetic coupling are displayed.
 
 $a_{\mathrm{cell}}$ is the effective area assigned to one screen cell.
-$\ell_\star^2$ is supplied by the selected scale certificate, usually written
+$\ell_\star^2$ is supplied by the selected scale bridge, usually written
 as a no-G clock ratio or equivalently as the curvature display
 $B_\star=3\pi/\ell_\star^2$. It is displayed as the Planck area only after the
-gravity row emits $G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar$. Dividing by
+gravity calculation emits $G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar$. Dividing by
 $\ell_\star^2$ makes $P$ dimensionless: it is a pure ratio between the cell
 area and the emitted scale area.
 
-The striking part is that this local ruler can be read from two sides of the
+The important point is that this local ruler can be read from two sides of the
 same world. Feed a trial value of $P$ through the electroweak chain and the
 theory returns an inner electromagnetic observation scale. Closure asks for the
 value of $P$ where the outer pixel reading and the inner observational reading
@@ -234,6 +258,10 @@ agree:
 $$
 P=\phi+\alpha_{\mathrm{in}}(P)\sqrt{\pi}.
 $$
+
+Equivalently, if $A_T(P)=\alpha_{\mathrm{in}}(P)^{-1}$ is the inverse Thomson
+endpoint readout, the realized pixel solves
+$P=\phi+\sqrt{\pi}/A_T(P)$.
 
 The computation has a definite order. The golden-ratio balance gives the
 reference value $\phi$. The boundary Gaussian normalization gives the
@@ -256,10 +284,10 @@ The electroweak hierarchy uses the same local branch. Once the unified coupling
 $\alpha_U(P_\star)$ is fixed by the source branch, the weak scale
 is read as
 $v/E_\star=P_\star^{-1/2}\exp[-2\pi/(4\alpha_U(P_\star))]$. The particle paper
-and the Observers paper give the exact local hierarchy row. The selected
+and the Observers paper give the exact local hierarchy relation. The selected
 source-to-Higgs coarse-graining square has
 $\epsilon_H=0$, so the Higgs naturality reading is carried by the same
-normal-form branch. An independent bare scalar input is absent from this
+source-to-Higgs branch. An independent bare scalar input is absent from this
 proof object. The full SI gravity readout depends on the complete no-G clock
 bridge.
 
@@ -288,6 +316,11 @@ screen-sieve theorem reads the weak-scale exponent as an icosahedral sampling
 law on the finite spherical screen: the refinement-stable screen has twelve
 unit fivefold defects, exposed as central ports on the \(A_5\) vertex orbit.
 
+A sieve is a finite sampling rule. Here it says that the stable spherical
+screen exposes twelve special ports, organized like the vertices of an
+icosahedron. The weak-scale exponent reads that twelve-port geometry in the
+local/global bridge.
+
 In the technical papers this bridge value is also written as a fixed point in
 log-capacity coordinates. The book-level point is simpler: the exact bridge
 value belongs to the repair rhythm, while the rounded value is the de Sitter
@@ -310,8 +343,8 @@ departure from silence: enough asymmetry for light, detectors, and durable
 differences, yet small enough for the screen geometry to remain coherent. The
 fine-structure constant measures that minimal electromagnetic disturbance.
 
-The Newton row uses the same local cell without using it to solve for the
-scale. Once the selected scale certificate supplies
+The Newton normalization uses the same local cell without using it to solve for the
+scale. Once the selected scale bridge supplies
 $\ell_\star^2=3\pi/B_\star$, the shared readings are
 $a_{\mathrm{cell}}=P\ell_\star^2$ and
 $\bar{\ell}_{\mathrm{shared}}=P/4$. The area-law expression gives
@@ -336,7 +369,7 @@ $\alpha^{-1}(0)$ means uncertainty in the last quoted digits. The number is
 the inverse fine-structure constant at zero momentum, the low-energy
 electromagnetic strength familiar from precision physics.
 
-The source-only calculation gives inverse alpha
+The first-principles calculation gives inverse alpha
 $136.9948351646\ldots$ at pixel $1.6309720956943290\ldots$. The displayed
 endpoint uses the same OPH fixed-point equation with measured
 \(e^+e^-\to\mathrm{hadrons}\) input for the empirical hadronic contribution.
@@ -346,25 +379,24 @@ into strongly interacting composite particles. Those data help account for the
 hadronic contribution to the long-distance electromagnetic running used in the
 displayed endpoint.
 
-Optical-cavity hardware work probes the same fixed-point geometry only under a
-strict evidence rule. The apparatus is a calibration body. Private bench notes
-carry no paper weight. A hardware claim counts only when its public bundle
-includes the body, firmware, calibration traces, controls, and exact-verifier
-receipts needed to audit it.
+Optical-cavity hardware would probe the same fixed-point geometry only under a
+strict evidence rule. The apparatus is a calibration body. A hardware claim
+would need public geometry, firmware, calibration traces, controls, and an
+independent verification path. Bench notes alone would not move the physics.
 
 One cell on the screen is then being described twice. From one side it is a
 pixel of the horizon. From the other it is the smallest electromagnetic step
 available to observers inside the encoded world.
 
-So the headline is: OPH is a zero-input closure program. The dimensionless
+The headline is compact: OPH is a zero-input closure program. The dimensionless
 closure coordinates are $N_{\mathrm{CRC}}$ and $P_\star$, and the gravity
-normalization is supplied by the selected no-G scale certificate. The rest of
-the quantitative stack follows from those fixed quantities
-together with the recovered relativity, gauge, matter, and observer-record
-branches.
+normalization comes from the selected scale bridge. The rest of the
+quantitative stack follows from those fixed quantities together with the
+recovered relativity, gauge, matter, and observer-record structure.
 
-Put informally, $P$ links the pixel area of the simulating-side screen to the
-electromagnetic interaction, or observation, inside the simulated-side universe.
+In the book's simulation-theory language, $P$ links the pixel area of the
+simulating-side screen to the electromagnetic interaction, or observation,
+inside the simulated-side universe.
 $N_{\mathrm{CRC}}$ links the outside total horizon capacity to the inside
 observer-accessible public record. $\ell_\star^2$ supplies the Newton scale on
 its own observed branch. The universe is a self-reading object:
@@ -372,22 +404,22 @@ observers inside infer geometry, horizons, entropy, $\Lambda$, history, and
 records from the information available inside the universe, and closure demands
 that this internal readback reconstruct the same boundary capacity.
 
-This is also the compact proof's odds logic. A source-certified row counts only
-when its source map has no path from the measured target or a calibrated proxy.
-A deliberately harsh count of twelve one-percent rows gives a coincidence
-chance around $10^{-24}$; twenty gives $10^{-40}$. The deeper point is the
-compression: the same two closure coordinates organize the observer problem,
-gravity/gauge reconstruction, hierarchy bridge, dark energy, the dark-sector
-budget, the absence of simple-GUT proton decay, particle inventory, and
-the string-vacuum sieve. Screen-spectrum and CMB continuations are not counted
-as source-only primordial rows until the source-stress, single-clock,
-repair-gap, freeze-out, adiabatic, isocurvature, phase-coherence,
-screen-to-radial lift, null-space, and forward-residual certificates are
-present. Dark/anomaly CMB and growth rows also need a finite covariant
-collar-packet parent, explicit recipient stress for nonzero repair exchange,
-regulator convergence, a source-provenance record, global-pooling checks,
-CDM-limit recovery, and frozen source/solver/likelihood hashes. Without those
-receipts, the rows are diagnostic.
+The odds logic is likewise simple. A prediction counts only when its calculation
+does not borrow the measured target or a calibrated proxy for it. A deliberately
+harsh count of twelve one-percent predictions gives a coincidence chance around
+$10^{-24}$; twenty gives $10^{-40}$. The deeper point is compression: the same
+two closure coordinates organize the observer problem, gravity and gauge
+reconstruction, the hierarchy bridge, dark energy, the dark-sector budget, the
+absence of simple-GUT proton decay, particle inventory, and the string-vacuum
+sieve.
+
+The cosmology boundary is deliberately narrower. The de Sitter capacity closure
+belongs to the global gravity story. Screen spectra, CMB curves, growth curves,
+and dark-sector anomaly models remain diagnostic tests unless their
+source, clock, stress tensor, screen-to-radius lift, mode checks, pooling rule,
+and statistical fit are fixed before the sky data enter. In that status, they
+guide the research program without counting as first-principles primordial
+predictions.
 
 ## 18.7 Why de Sitter Fits
 
@@ -433,21 +465,16 @@ first place.
 
 The simulation question lands differently here. Ordinary simulation theory
 imagines an external programmer standing beyond the physics. OPH describes a
-certified fixed-point computation whose settled output is read internally as a
-world. The certificate includes records, repair, branch elimination, and clock
-closure. Repair is transactional in the theorem-grade sense: an update must
-validate its read snapshot, preserve the selected boundary and sector data, and
-descend before it can count as a physical step. Branch elimination is likewise a
-quotient statement, not a hash picking one attractive endpoint. Observer time
-has its own gate: semantic record events, namespace-safe observer identities,
-lineage arrows, and an operational clock instrument have to survive scheduler
-changes before a distributed run can claim observer-clock naturality. The
-neutral-bulk gate is similarly quotient-first: raw observer rows must descend
-through gauge/port quotients, terminal normal forms, common interface
-transport, quotient-visible features, metric-safe missingness, presentation
-invariance, refinement, and batch-held-out controls before a finite run can
-claim more than a diagnostic neutral pseudometric. The
-stronger image is stranger.
+fixed-point computation whose settled output is read internally as a world. The
+settled output has to include records, repair, branch elimination, and clock
+closure. A repair step has to preserve the boundary and sector data it claims
+to preserve. Branch elimination has to identify genuinely equivalent
+descriptions, not pick a convenient endpoint. Observer time has to survive
+changes in scheduling through stable records, lineage, and a calibrated clock.
+The neutral-bulk test is similar: a finite run has to show that its apparent
+bulk survives changes of gauge, port labels, interface presentation,
+refinement, and held-out checks before it can claim more than a diagnostic
+distance. The stronger image is stranger.
 A world of finite observers closes back on itself through the very minds it
 generates. The loop is conceptual before it is
 technological: observers reverse engineer the hardware and software of the
@@ -498,11 +525,11 @@ massless carriers, Lorentz geometry, Einstein relation, and the
 electroweak, Higgs-top, quark, and neutrino surfaces form one organized
 reconstruction.
 
-The local-ruler story has several neighboring branches. The weak pair is a
-comparison surface, charged leptons sit on their own landing branch, selected-class
-quarks carry the running-mass story, the direct-top row is a comparison row,
-hadrons add strong binding and production data, and Strong CP belongs to the
-phase-bookkeeping side of the quark sector.
+The local-ruler story has several neighboring support levels. The weak pair is
+a benchmark, charged leptons use their own empirical anchors, selected quarks
+carry the running-mass story, direct top is a comparison check, hadrons add
+strong binding and production data, and Strong CP belongs to the phase
+bookkeeping side of the quark sector.
 
 The next chapter turns to the deepest metaphysical question. If observers,
 meaning, and world belong to one structure, what exactly should be said about

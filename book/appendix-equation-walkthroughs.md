@@ -22,10 +22,9 @@ tempt us to count capacity by volume. Gravity says that, at the deepest
 known limit, boundary area controls the count.
 
 OPH uses this equation as the first reason to take screens seriously. If the
-public world were fundamentally stored in a naive three-dimensional volume,
-one would expect volume scaling. The area formula says the fundamental
-bookkeeping is more subtle. The screen is not decorative. It is where the
-capacity accounting points.
+public world were stored in a naive three-dimensional volume, one would expect
+volume scaling. The area formula says the bookkeeping is more subtle. The
+screen is not decorative. It is where the capacity accounting points.
 
 ## The Carnot Efficiency Formula
 
@@ -154,7 +153,7 @@ recovery is possible with controlled error. This is why the quantity matters
 for the collar picture. The collar $B$ can contain the interface data needed
 to reconstruct relationships between inside and outside. The controlled
 recovery statement is not the same as an exact Markov factorization; exact
-splice formulas require zero CMI or a fixed-collar replacement limit.
+splice formulas require zero CMI or a controlled collar limit.
 
 OPH uses this formula to explain why a finite, noisy, horizon-limited world
 can have stable history. Information need not be copied into one place.
@@ -192,9 +191,9 @@ and state generate their own flow. This is why modular theory is so important
 for an observer-first framework. An observer patch has restricted access; the
 restricted state can carry an internal clock-like structure.
 
-Later chapters connect this to thermal time, the Unruh effect, Lorentz
-boosts, and eventually geometric time. Each connection has conditions, but
-the first step is this formula.
+Later chapters connect this to thermal time, the Unruh effect, Lorentz boosts,
+and geometric time. Each connection has conditions, and the first step is this
+formula.
 
 ## Noether's Conservation Equation
 
@@ -246,9 +245,9 @@ the observer-patch bookkeeping arena.
 
 The same radius appears in the dark-sector continuation through the
 acceleration scale $a_0^{(\mathrm{OPH})}=(15/8\pi^2)c^2/r_{dS}$. That formula
-should be read as a continuation. It is a proposed infrared bridge from de
-Sitter capacity to galaxy-scale acceleration anomalies, not a finished
-replacement for all dark-sector phenomenology.
+is a continuation: a proposed infrared bridge from de Sitter capacity to
+galaxy-scale acceleration anomalies, not a finished replacement for all
+dark-sector phenomenology.
 
 ## The Standard Model Gauge Group
 
@@ -283,9 +282,10 @@ breaking in compact form.
 
 After symmetry breaking, weak gauge bosons gain mass, and fermions gain
 masses through Yukawa couplings. The details are part of the Standard Model
-claim ledger. OPH's particle chapter is careful that not every mass row has the
-same claim tier. Higgs and top relations, charged-lepton anchors, quark payloads,
-and neutrino assumptions must be separated by claim surface.
+support boundary. OPH's particle chapter is careful that not every mass value
+has the same support level. Higgs and top relations, charged-lepton empirical
+anchors, quark running-mass values, and neutrino assumptions must be separated
+by status.
 
 The equation is a good example of how a simple-looking formula can carry a
 large experimental and theoretical world. It is a mechanism for why the low-energy world has massive weak bosons and massive
@@ -322,9 +322,10 @@ vanishes. This boundary is visible in summaries, tables, and public copy.
 
 This warning belongs in an equation appendix because not every important
 symbol is part of a successful derivation. Some symbols mark the edge of the
-OPH derivation. A good claim ledger records those edges as clearly as its wins.
+OPH derivation. A good support-status table records those edges as clearly as
+its closed results.
 
-## A Practical Audit Method for Equations
+## A Practical Reading Method for Equations
 
 For any equation in the book, the author or reviewer should be able to answer
 a fixed set of questions before the equation is allowed to stand.
@@ -368,7 +369,7 @@ ambiguity, a missing uncertainty estimate, or an invalid transfer from one
 mathematical setting to another can all break a claim. A book that explains
 failure conditions is more trustworthy than one that hides them.
 
-This audit method is part of the publication discipline. Equations should be
+This reading method is part of the publication discipline. Equations should be
 checked against it whenever a chapter or diagram depends on them. A beautiful
 PDF also has to make the intellectual contract with the reader visible on
 every page.
@@ -379,13 +380,13 @@ The appendices are not a detour from the book. They are scaffolding. A reader
 who wants the argument in one continuous line can read the prologue, chapters,
 and epilogue first, then return here. A reader who gets stuck on symbols can
 use the equation walkthroughs and concept glossary as a local repair map. A
-reader evaluating claim-tier statements can use the chapter table to check whether a
-claim is established, assumption-dependent, target anchored, empirical-payload
-dependent, or open.
+reader evaluating support statements can use the chapter table to check whether
+a claim is established, assumption-dependent, empirically anchored, dependent on
+external data, or open.
 
-The appendices also give the book a stable reference surface. A theorem-tier
+The appendices also give the book a stable reference surface. A theorem-status
 label in a chapter should match the table. A diagram should visualize a
-concept that the glossary or chapter ledger can name. A simplified public
+concept that the glossary or chapter guide can name. A simplified public
 summary should be traceable to a more careful explanation inside the book.
 
 This matters because OPH is a research program with several public surfaces:
@@ -435,12 +436,12 @@ order keeps the public book, downloadable PDF, and research record aligned.
 One more rule follows from the same discipline: never let a short public
 summary become the only place where a claim is explained. Summaries are useful
 for orientation, but the durable book should contain the slower version: the
-symbols, the assumptions, the known lineage, the claim label, and the open
+symbols, the assumptions, the known lineage, the support label, and the open
 edge. If a reader arrives from the website, a social post, a bot answer, or a
-download link, the PDF should give them enough context to audit the
-claim without guessing what the shorthand meant. That is why the appendices
-exist, and why the publication process should preserve them as first-class
-book material.
+download link, the PDF should give them enough context to check the claim
+without guessing what the shorthand meant. That is why the appendices exist,
+and why the publication process should preserve them as first-class book
+material.
 
 For the same reason, editorial passes should prefer clarification over
 compression when a chapter introduces unfamiliar notation. A concise paragraph

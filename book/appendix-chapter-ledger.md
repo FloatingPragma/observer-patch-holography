@@ -1,4 +1,4 @@
-# Appendix: Chapter-by-Chapter Symbol and Builder Ledger
+# Appendix: Chapter-by-Chapter Field Notes and Symbol Guide
 
 This appendix is a companion trail through the book. It has one purpose: make
 the technical vocabulary and the human lineage harder to miss. The main
@@ -7,7 +7,7 @@ path again, chapter by chapter, and asks three questions each time. What is
 the chapter trying to reverse engineer? Which symbols or equations should the
 reader keep steady? Which communities of builders made that chapter possible?
 
-The ledger is deliberately plain. It is not a second paper, and it is not a
+The guide is deliberately plain. It is not a second paper, and it is not a
 replacement for the chapters. It is a reader's workbench. If a symbol appears
 earlier than its full technical life in the book, the note here gives the
 plain-language meaning. If a discovery is associated with one famous name, the
@@ -106,8 +106,8 @@ entropy and recoverability come from semiclassical gravity and quantum
 information. The economy principle belongs to the selection part of the
 program, where the admissible low-energy sectors are narrowed.
 
-The chapter's diagram, the consensus funnel, should be read as a repair
-picture. Many local descriptions enter. Some mismatch. Some can be repaired.
+The chapter's diagram, the consensus funnel, is a repair picture. Many local
+descriptions enter. Some mismatch. Some can be repaired.
 Some are rejected. The final public structure is not the arithmetic average
 of opinions. It is the stable normal form that survives all allowed overlap
 checks.
@@ -155,8 +155,8 @@ single shadow is ambiguous. Several partial records, cross-checked through
 overlap, can begin to constrain a shared model.
 
 The human chain predates physics departments. It includes oral argument,
-geometry, astronomy, logic, theology, optics, mechanics, and eventually
-experimental science. A modern reader should not treat philosophy as a failed
+geometry, astronomy, logic, theology, optics, mechanics, and experimental
+science. A modern reader should not treat philosophy as a failed
 version of physics. Philosophy was the first debugging environment for
 assumptions beyond the instruments of the time.
 
@@ -344,7 +344,7 @@ $AB$, and similarly for the other terms. The quantity measures how much
 correlation remains between $A$ and $C$ once $B$ is known. If it is zero, the
 state has a quantum Markov property: $B$ screens off $A$ from $C$ in the
 right sense. If it is small, recovery is approximate, but exact Markov normal
-forms require exact zero CMI or a controlled fixed-collar replacement limit.
+forms require exact zero CMI or a controlled collar replacement limit.
 
 The Fawzi-Renner theorem says, roughly, that small CMI implies the existence of a recovery map. Petz gave an earlier
 canonical recovery map in the exact Markov setting. This recovery map supplies
@@ -458,8 +458,8 @@ $$|\psi_L\rangle=\alpha|000\rangle+\beta|111\rangle$$
 
 uses $|\psi_L\rangle$ for the encoded logical state. $\alpha$ and $\beta$ are
 complex amplitudes. The basis states $|000\rangle$ and $|111\rangle$ are
-physical three-qubit states. The key fact is that the code has not made three
-copies of an unknown qubit. It has stored one logical state in correlations.
+physical three-qubit states. The code has not made three copies of an unknown
+qubit. It has stored one logical state in correlations.
 
 The Knill-Laflamme condition
 
@@ -571,7 +571,7 @@ Later quotient structure identifies transformations that act the same on
 physical states.
 
 The compact-gauge branch also supplies the Euclidean Yang-Mills action in four
-dimensions on its support-visible branch, under its declared compact-gauge
+dimensions on its controlled branch, under its declared compact-gauge
 branch assumptions. The corresponding mass-gap statement identifies the first
 nonzero Yang-Mills energy with the first nonzero repair eigenvalue:
 
@@ -586,9 +586,9 @@ possibility of shared description across patches.
 
 ## Chapter 13: The de Sitter Patch
 
-Chapter 13 gives the cosmological arena. Our universe has a positive
-cosmological constant to good approximation at late times. That gives
-observer-dependent horizons and a finite entropy capacity. The relevant
+Chapter 13 gives the cosmological arena. The standard late-time fit is close to
+a positive cosmological constant. That gives observer-dependent horizons and a
+finite entropy capacity on the de Sitter branch. The relevant
 radius is
 
 $$r_{dS}=\sqrt{\frac{3}{\Lambda}}.$$
@@ -674,11 +674,11 @@ structure makes the symmetric point unstable so electroweak symmetry breaks.
 Yukawa couplings connect fermions to the Higgs and generate masses after the
 Higgs gets a vacuum expectation value.
 
-The generation-count diagram marks a theorem-grade OPH claim: the window begins
+The generation-count diagram marks a proved OPH statement: the window begins
 at three for intrinsic CP capability and closes above five from weak-sector
-ultraviolet consistency. The chapter is careful about which rows are
-theorem-grade, which are compare-only validation rows, which are target anchored, and
-which require external empirical payloads.
+ultraviolet consistency. The chapter is careful about which entries are proved,
+which are benchmark checks, which use an empirical anchor, and which require
+external data.
 
 The builders are too many for a short list, but the relay includes Dirac,
 Pauli, Fermi, Yang, Mills, Gell-Mann, Zweig, Glashow, Salam, Weinberg,
@@ -755,23 +755,23 @@ the path do not change $S$ to first order. It is not always literally a
 minimum.
 
 The chapter lists particle masses and couplings, and the notes distinguish
-their claim class. A validation row checks the framework against known values. A
-target-anchored witness uses an empirical anchor. A source-only prediction
-depends only on declared source inputs. A hadron row also needs QCD binding,
-which dominates hadron mass.
+their support level. A benchmark check tests the framework against known
+values. An empirically anchored witness uses a measured input. A
+first-principles prediction depends only on declared source inputs. A hadron
+calculation also needs QCD binding, which dominates hadron mass.
 
-The hierarchy/naturality row has its own claim class. The weak hierarchy is carried
+The hierarchy/naturality relation has its own support level. The weak hierarchy is carried
 by the selected local/global bridge between the pixel scale and the screen
 capacity, with twelve screen ports, a 24-slot oriented repair register, zero
 bridge residual, and zero Higgs naturality defect. That strengthens the particle
-prediction ledger without promoting the weak-boson comparison pair, charged
-lepton absolute masses, source-only hadrons, Strong CP, or the SI gravity
+prediction record without upgrading the weak-boson benchmark pair, charged
+lepton absolute masses, first-principles hadrons, Strong CP, or the SI gravity
 clock stack.
 
 The matter-stability diagram shows the ladder: screen excitations,
 particles, atoms, chemistry, and classical objects. A macroscopic object is
 not fundamental because it is large. It is public because environmental
-records make it robustly sampleable.
+records make it durably sampleable.
 
 The builders include Dalton, Mendeleev, Thomson, Rutherford, Bohr, Moseley,
 Chadwick, de Broglie, Schrodinger, Heisenberg, Dirac, Pauli, Fermi, Yukawa,
@@ -822,18 +822,18 @@ screens, algebras, overlaps, entropy, recovery, holography, entanglement,
 codes, modular time, symmetry, de Sitter capacity, particle structure,
 classical matter, and selection.
 
-The symbol ledger is mostly referential. The Standard Model
+The symbol guide is mostly referential. The Standard Model
 quotient by $\mathbb Z_6$ says that a shared discrete center is identified
 across the gauge factors. The pixel ratio $P$ is the local fixed point. The
 fine-structure constant $\alpha$ measures electromagnetic coupling, and
 $\alpha^{-1}$ is its inverse. The process $e^+e^-\to\mathrm{hadrons}$ is an
 electron-positron annihilation channel whose data constrain hadronic
 spectral payloads. Strong CP is encoded in a QCD angle often written
-$\theta$ or $\bar\theta$, and the book is careful that the selected-class
-quark theorem does not derive its vanishing.
+$\theta$ or $\bar\theta$, and the book is careful that the selected quark
+theorem does not derive its vanishing.
 
-The synthesis chapter is also where claim-class language matters most. A
-reconstruction can be impressive without being uniform in theorem boundary.
+The synthesis chapter is also where support language matters most. A
+reconstruction can be impressive without being uniform in theorem status.
 Some parts are recovered-core structural consequences. Some are implemented
 Phase-II closures with conditional input-free theorem targets. Some are
 assumption-dependent continuations. Some are
@@ -866,8 +866,8 @@ The chapter also uses $\varphi$, $P$, $\sqrt\pi$, and $\alpha^{-1}$ in the
 self-reference and pixel-fixed-point discussion. $\varphi$ is the golden
 ratio when it appears. $P$ is the local pixel ratio. $\sqrt\pi$ appears as a
 geometric normalization in the screen-side story. $\alpha^{-1}$ is the
-inverse fine-structure constant. Each symbol should be read as part of the
-fixed-point bookkeeping, not as numerology. The claim stands or falls by the
+inverse fine-structure constant. Each symbol belongs to the fixed-point
+bookkeeping, not numerology. The claim stands or falls by the
 declared equations and numerical checks.
 
 The observer-loop diagram shows the metaphysical closure: world, observers,
@@ -998,7 +998,7 @@ RT formula. Again, context decides. $\gamma_A$ is a geometric surface;
 $\gamma=1/\sqrt{1-v^2/c^2}$ is a boost factor.
 
 **$\theta_{\mathrm{QCD}}$ and $\bar\theta$** are strong-CP angle parameters.
-The book is careful that the selected-class quark theorem does not derive the
+The book is careful that the selected quark theorem does not derive the
 vanishing of the physical strong-CP phase.
 
 ## Three Worked Reading Examples
@@ -1018,16 +1018,16 @@ overlap into a menu of observables. $\omega_i$ and $\omega_j$ are state
 assignments. The vertical bar restricts each state to the shared menu. The
 equation says both observers make the same predictions for shared questions.
 
-**Example 3: Reading a claim class.** Suppose a chapter says a row is a
-validation row, target-anchored witness, source-only row, or assumption-dependent
-continuation. These are not stylistic labels. A validation row checks known
-physics. A target-anchored witness uses an empirical target as part of the
-setup. A source-only row is more predictive because it uses only declared
-source inputs. An assumption-dependent continuation is a plausible extension whose
-assumptions have not all been promoted to theorem form. Keeping those labels
-visible is part of intellectual hygiene.
+**Example 3: Reading support status.** Suppose a chapter says a value is a
+benchmark check, an empirically anchored witness, a first-principles prediction,
+or an assumption-dependent continuation. These are not stylistic labels. A
+benchmark check tests known physics. An empirically anchored witness uses a
+measured target as part of the setup. A first-principles prediction is stronger
+because it uses only declared source inputs. An assumption-dependent
+continuation is a plausible extension whose assumptions are not all theorem
+statements. Keeping those labels visible keeps the reader oriented.
 
 The book's ambition is large, but its reading discipline is ordinary. Track
-the symbols. Track the claim class of each row. Track which part of the human
+the symbols. Track the support status of each value. Track which part of the human
 chain supplied each tool. Then ask whether the architecture makes the clues
 cohere better than the naive picture it replaces.

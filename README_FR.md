@@ -397,7 +397,7 @@ fermeture.
 Les continuations spectre d'écran et CMB sont sur une porte séparée. La branche
 écran exige d'abord un scalaire géométrique de volume de collier, une précision
 scalaire normalisée, une énergie de libération source, un tilt de raffinement et
-un reçu de covariance angulaire d'écran. Un spectre primordial source-only exige
+un reçu de covariance angulaire d'écran. Un spectre primordial de premier principe exige
 ensuite les reçus de stress source, horloge unique, freeze-out, mode adiabatique,
 isocourbure, cohérence de phase, provenance source, réducteur groupé, lift
 écran-vers-radial, espace nul radial et résidu de projection avant que `A_s`,

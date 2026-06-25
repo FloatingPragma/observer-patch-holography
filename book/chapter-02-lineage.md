@@ -43,7 +43,10 @@ The shadows on the wall are 2D projections of 3D objects. The prisoners think th
 
 ### The Physics
 
-In 1993, Gerard 't Hooft proposed the holographic principle, motivated by black-hole entropy and related entropy-bound arguments. Leonard Susskind developed this into a more precise boundary-first formulation: everything that happens in a volume of space may be describable by data on its boundary.
+In 1993, Gerard 't Hooft proposed the holographic principle, motivated by
+black-hole entropy and related entropy-bound arguments. Leonard Susskind
+developed this into a sharper boundary-first formulation: everything that
+happens in a volume of space may be describable by data on its boundary.
 
 The 3D world is like a hologram-it looks solid and three-dimensional, but the information that generates that appearance may be organized on a 2D surface.
 
@@ -59,8 +62,8 @@ The denominator says that area is being counted in Planck-size units. The
 formula is the first compact hint that boundaries, not volumes, do the
 fundamental bookkeeping.
 
-Plato was working with myth and metaphysics, yet his cave analogy resonates
-strikingly with later projection-based pictures.
+Plato was working with myth and metaphysics, yet his cave analogy keeps
+meeting later projection-based pictures.
 
 ![A source, a shadow record, and several observers reconstructing a shared model from partial access.](../assets/book_diagrams/platos-cave-projection.svg){width=78%}
 
@@ -209,7 +212,7 @@ The holographic principle and emergent geometry resonate with this picture.
 
 The observer-facing data can be charted on a 2D holographic screen. This is not
 yet the familiar 3D bulk geometry; it is quantum information organized on a
-support-visible cut, often represented by a sphere in symmetric cases. Space is
+stable operational cut, often represented by a sphere in symmetric cases. Space is
 *reconstructed* from this data through the pattern of entanglement.
 
 The Ryu-Takayanagi formula makes the geometry-entanglement link precise in
@@ -228,7 +231,7 @@ $G_N$ is Newton's gravitational constant. The equation says that a quantum
 correlation measure on the boundary can be read as an area in the bulk.
 
 Kant was not deriving holographic geometry. His reconstruction-first stance
-resonates with later emergent-space programs.
+points in the same direction as later emergent-space programs.
 
 ## 2.7 Democritus vs. Aristotle: The Information Hint
 
@@ -304,7 +307,9 @@ The trick was self-reference. Gödel found a way for mathematics to talk about i
 
 ### The Intuitive Picture
 
-The intuitive picture assumes that descriptions and the things they describe are fundamentally separate. A map is not the territory. A theory is not the phenomenon. The observer is not the observed.
+The intuitive picture assumes that descriptions and the things they describe
+are separate at the base. A map is not the territory. A theory is not the
+phenomenon. The observer is not the observed.
 
 ### The Hint
 
@@ -322,7 +327,9 @@ Hofstadter argued that consciousness itself is a strange loop, a pattern that pe
 
 ### The Physics
 
-This has profound implications for OPH. If reality is computational, and observers are patterns within that computation that model reality, then we have a strange loop: reality contains observers that understand reality.
+This matters for OPH. If reality is computational, and observers are patterns
+within that computation that model reality, then we have a strange loop:
+reality contains observers that understand reality.
 
 But strange-loop thinkers argue for something deeper: the loop may be part of how reality closes on itself. Self-reference becomes possible and structurally important.
 
@@ -332,7 +339,9 @@ We will return to this idea in Chapter 18, where we consider the possibility tha
 
 The philosophical hints became physics in the 20th century.
 
-**Claude Shannon** founded information theory in 1948. He defined the **bit**-the fundamental unit of information, a single yes-or-no answer. He showed how to quantify information, how to compress it, how to transmit it reliably.
+**Claude Shannon** founded information theory in 1948. He defined the **bit**:
+the fundamental unit of information, a single yes-or-no answer. He showed how
+to quantify information, how to compress it, and how to transmit it reliably.
 
 Shannon's central point was simple. Information reduces uncertainty. Before you
 flip a coin, there are two possibilities. After you see the result, there is
@@ -374,9 +383,9 @@ different categories.
 
 OPH supports a different perspective. Computation becomes a serious candidate
 organizing picture for reality. A conventional simulation evolves a surrogate
-history. OPH points to a certified fixed-point computation: observer patches,
+history. OPH points to a constrained fixed-point computation: observer patches,
 records, overlaps, repair rules, branch elimination, and clock closure settle
-into a normal form whose internal readout is history. The screen is a quantum
+into a settled form whose internal readout is history. The screen is a quantum
 system processing information according to gauge constraints. Observers are
 patterns within that computation. The laws of physics are the rules that allow
 consistent information processing across patches.
@@ -402,7 +411,7 @@ through their eventual construction of the substrate that restores the records
 from which they themselves arose.
 
 This thread sits furthest out on the philosophical edge of the book. The
-physics does not depend on it, yet it gives the book a striking closure.
+physics does not depend on it, yet it gives the book a clean closure.
 
 Escher's hands draw each other. Reality produces observers who learn to produce
 the same kind of observer-readable closure.
@@ -454,7 +463,10 @@ Hofstadter point toward self-reference and strange loops.
 
 Each philosopher identified a crack in the intuitive picture. Each crack pointed toward a feature of physics that later became clear.
 
-The convergence is striking. The intuitive picture of an objective 3D reality independent of observers really is problematic. The philosophers found the problems through pure reason. The physicists confirmed them through experiment.
+The convergence matters. The intuitive picture of an objective 3D reality
+independent of observers really is problematic. The philosophers found the
+problems through pure reason. The physicists confirmed them through
+experiment.
 
 ### The Original Hackers Were a Network
 
@@ -526,7 +538,7 @@ those hints precise.
 
 ## 2.14 Where We Go Next
 
-The philosophers gave us hints. The next step is the machinery.
+The philosophers gave us hints. The machinery follows.
 
 Black-hole entropy and holographic arguments push strongly toward a boundary-first description, away from naive volume counting. The holographic principle suggests that 3D physics may admit an encoding on 2D surfaces.
 

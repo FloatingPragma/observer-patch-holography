@@ -290,6 +290,41 @@ mode-basis identifier, and the evidence bundle must emit
 Cap eigenmodes, inverse cap-opening angles, and relabeled unit strings remain
 diagnostic by the dimensional, angular, cap-mode, and unit-string no-go propositions.
 
+\textbf{Physical scale dependency.}
+The \(k_{rj}\) grid in the preceding equation is not a free producer field.  It is consumed only
+after
+\[
+\texttt{PHYSICAL\_SPATIAL\_K\_RECEIPT}
+\]
+recomputes the comoving \(k\)-intervals from the physical geometry, scale certificate, scale factor,
+finite eigenvalues, normalization, and refinement residuals.  The radial kernel and source-screen
+projection additionally require
+\[
+\texttt{SCREEN\_TO\_PHYSICAL\_K\_ASSOCIATION\_RECEIPT}.
+\]
+The source covariance is a finite positive operator on the common physical mode projectors:
+\[
+C_{\zeta,r}\succeq0.
+\]
+Homogeneity and isotropy on the safe band require
+\[
+P_I C_{\zeta,r}P_I=\mathcal P_\zeta(k_I)P_I+E_I
+\]
+with a declared residual bound, together with an off-diagonal leakage report
+\[
+\sum_{I\ne J}|P_I C_{\zeta,r}P_J|^2.
+\]
+The same physical projector family is used by primordial covariance and anomaly response:
+\[
+\texttt{COMMON\_PRIMORDIAL\_ANOMALY\_MODE\_BASIS\_RECEIPT}.
+\]
+Mode freezeout and common initial surface are separate gates:
+\[
+\texttt{PHYSICAL\_MODE\_FREEZEOUT\_MAP\_RECEIPT},\qquad
+\texttt{PHYSICAL\_FREEZEOUT\_SURFACE\_RECEIPT}.
+\]
+The latter contains initial data and normal derivatives on one common spacelike surface.
+
 \textbf{Radial prior, null space, and residual receipt.}
 The map above is a forward projection, not a free inversion.  With finite
 bins \(p_j\) for \(\Delta_\zeta^2\),

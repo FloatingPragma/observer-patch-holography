@@ -50,7 +50,7 @@ The table translates the OPH consensus picture developed in [Reality as a Consen
 
 OPH begins with finite observers and overlap consistency. A finite observer carries a local state, stores records, and can compare only the observables exposed on shared boundaries. OPH reconstructs objectivity as the durable agreement that remains after many local descriptions have been made consistent.
 
-That mechanism appears throughout the OPH corpus:
+That mechanism appears throughout the OPH papers and book:
 
 - The [book prologue](https://oph-book.floatingpragma.io/chapter/prologue) states the reader-facing premise: physics is reverse engineering from finite perspectives, and public reality is the stable agreement across them.
 - The [synthesis chapter](https://oph-book.floatingpragma.io/chapter/synthesis) compresses the whole picture: finite access, horizons, records, overlaps, modular flow, generalized entropy, and a shared world that survives comparison.
@@ -74,7 +74,7 @@ OPH begins with local descriptions that must agree on their overlaps. OMEGA make
 
 ## The Hardware Picture
 
-OMEGA-I1 is the contractor-buildable optical chamber cluster. Its role is to produce measured chamber operators, coupling maps, repeatability records, and exact-verifier benchmark receipts.
+OMEGA-I1 is the contractor-buildable optical chamber cluster. Its role is to produce measured chamber operators, coupling maps, repeatability records, and exact-verifier benchmark records.
 
 OMEGA-I1 uses safe classical optical hardware:
 
@@ -209,13 +209,13 @@ The AI system remains hybrid. Digital models supply language, symbolic tools, ex
 
 ## Expected Orders of Magnitude
 
-The table below gives engineering target bands. These bands become measured claims only when a public run bundle reports the body, firmware, calibration, controls, raw readout, candidate beam, and exact verifier receipts. The evidence discipline follows the [OMEGA claim-boundary note](../../omega/docs/claim-boundaries.md) and the public evidence rule in the [microphysics paper](../paper/screen_microphysics_and_observer_synchronization.pdf).
+The table below gives engineering target bands. These bands become measured claims only when a public run bundle reports the body, firmware, calibration, controls, raw readout, candidate beam, and exact verifier records. The evidence discipline follows the [OMEGA support-boundary note](../../omega/docs/claim-boundaries.md) and the public evidence rule in the [microphysics paper](../paper/screen_microphysics_and_observer_synchronization.pdf).
 
 | Surface | Digital baseline | OMEGA target | Why the target is plausible |
 | --- | --- | --- | --- |
 | Exact-verifier search | enumerate or randomly sample candidates | 10^2 to 10^6 fewer verifier checks on structured benchmark distributions | waves may bias candidate beams before exact verification; the claim is measured by `B = p_Q/p_U` |
 | Factor and residue tasks | scan factors or residue classes digitally | 10^1 to 10^4 candidate-work reduction on small and medium benchmarks | asymmetric mixing can separate residue-compatible modes |
-| Hash-style proof-of-work experiments | evaluate one candidate stream at a time | 10^1 to 10^5 lift in low-difficulty prefix or share-rate tests inside the lab claim boundary | recurrent bodies can favor modes that pass partial target collars |
+| Hash-style proof-of-work experiments | evaluate one candidate stream at a time | 10^1 to 10^5 lift in low-difficulty prefix or share-rate tests inside the lab support boundary | recurrent bodies can favor modes that pass partial target collars |
 | Continuous agent memory | re-encode memory through digital context and retrieval | 10^2 to 10^5 more low-power background state updates per watt for memory-like dynamics | the chamber state persists physically while the host samples it sparsely |
 | AI inference routing | call a large model on every candidate branch | 10^1 to 10^3 reduction in expensive model calls for search-heavy tasks | chamber and small models can pre-rank branches before large-model inference |
 | Physical simulation of patch dynamics | numerically simulate all paths and couplings | 10^2 to 10^6 lower effective cost for the chamber's own transfer response | the physical body performs its wave mixing directly |
@@ -323,7 +323,7 @@ The OPH formulation treats factorization as a patch-consensus problem:
 | Multiplication patch | multiplication and carry consistency |
 | Target patch | equality to the known target bits |
 
-The collars carry low-bit windows, modular residues, partial products, carries, and final equality to the target. The solver enriches the candidate beam so the exact verifier finds the factor earlier.
+The collars carry low-bit windows, modular residues, partial products, carries, and final equality to the target. The search loop enriches the candidate beam so the exact verifier finds the factor earlier.
 
 Digital companion tools belong with the application engineering surface, not with the core paper stack.
 

@@ -129,7 +129,7 @@ observations are noisy.
 
 ## 7.5 The Mathematics of Redundancy
 
-Let's build up the mathematics step by step.
+The mathematics starts with ordinary information.
 
 ### Shannon Entropy
 
@@ -147,7 +147,7 @@ Examples make the meaning concrete. A fair coin has $H=1$ bit, one yes-or-no
 question. A heavily loaded coin at 99% heads has about $0.08$ bits, because
 there is very little uncertainty left. A certain outcome has $H=0$.
 
-### Mutual Information: The Key Quantity
+### Mutual Information: Shared Predictive Content
 
 The mutual information between X and Y measures how much knowing one tells you about the other:
 
@@ -217,6 +217,11 @@ $$S(\rho) = -\text{Tr}(\rho \log \rho) = -\sum_i \lambda_i \log \lambda_i$$
 
 where the lambdas are the eigenvalues of rho.
 
+This is Shannon entropy with quantum bookkeeping. The eigenvalues
+$\lambda_i$ are the weights of the independent quantum alternatives after the
+density matrix is diagonalized. The trace expression is the coordinate-free way
+to compute the same uncertainty without choosing a favorite basis.
+
 The quantum CMI is:
 
 $$I(A:C|B) = S(AB) + S(BC) - S(B) - S(ABC)$$
@@ -241,15 +246,19 @@ The answer is yes, and Petz constructed the explicit procedure later called the 
 
 $$R_{B \to BC}(\sigma) = \rho_{BC}^{1/2} (\rho_B^{-1/2} \sigma \rho_B^{-1/2} \otimes I_C) \rho_{BC}^{1/2}$$
 
+This formula is shown because it is the repair operation made explicit. It is
+the quantum version of saying: take the state available on $B$, rebalance
+it using the reference correlations, then rebuild the missing $C$ side.
+
 In the formula, $\sigma$ is the state you actually have on $B$, while
 $\rho_{BC}$ is the reference correlation pattern telling the map how $B$ and
 $C$ fit together. The square roots and inverse square roots are matrix
 operations that rebalance the known state before rebuilding the missing side.
 
-Don't worry about the formula's details. This is a physical operation, in
-principle something you could implement on a quantum device. Given only B's
-state sigma, the Petz map outputs a comparison state on BC that reproduces the
-reference correlations in the exact Markov case.
+The formula's details are secondary for the main story. This is a physical
+operation, in principle something you could implement on a quantum device. Given
+only B's state sigma, the Petz map outputs a comparison state on BC that
+reproduces the reference correlations in the exact Markov case.
 
 Think of it like calibrating a distorted photograph. The original image (BC) got scrambled into a noisy version (B alone). The Petz map knows what the original "should" look like (from the reference state rho_BC) and applies the inverse distortion.
 
@@ -265,15 +274,21 @@ $$\|\rho_{ABC} - (\mathbb{I}_A \otimes R_{B \to BC})(\rho_{AB})\|_1 \leq 2\sqrt{
 
 Small CMI implies approximate recoverability. The smaller I(A:C|B), the better the recovery.
 
+The norm bars measure how distinguishable the original state and the recovered
+state are. $\mathbb I_A$ means that subsystem $A$ is left alone while the
+recovery map acts on $B$. The small number $\epsilon$ is the allowed CMI error.
+The theorem turns a small information leak into a concrete reconstruction
+bound.
+
 This is the mathematical heart of the recovery rule: **redundancy implies reconstruction**.
 Small CMI gives a recovered comparison state with controlled error. Exact HJPW
 factorization, exact splice identities, and exact modular additivity require
-either \(I(A:C|B)=0\) literally or a controlled fixed-collar family whose
+either \(I(A:C|B)=0\) literally or a controlled collar family whose
 distance to the exact Markov set tends to zero.
 
 ## 7.8 Example Calculations
 
-Let's see the recovery rule in action.
+The recovery rule becomes clearer in a toy state.
 
 ### A Bell Pair Plus Extra Qubit
 
@@ -289,7 +304,7 @@ The GHZ state is different:
 
 $$|\text{GHZ}\rangle = \frac{1}{\sqrt{2}}(|000\rangle + |111\rangle)$$
 
-Let's compute I(A:C|B).
+Compute $I(A:C|B)$ for this state.
 
 For a pure state |psi> of ABC, we have S(ABC) = 0 (pure states have zero entropy).
 
@@ -482,7 +497,9 @@ information does not need to sit in one place to survive.
 The recovery rule has a startling implication: in this recoverability picture,
 nothing is simply deleted from the full quantum description.
 
-If the universe is unitary and holographic encoding is robust, information is not destroyed. It is redistributed into increasingly nonlocal correlations of the full quantum state.
+If the universe is unitary and holographic encoding is stable, information is
+not destroyed. It is redistributed into increasingly nonlocal correlations of
+the full quantum state.
 
 The Library of Alexandria? The scrolls burned, and the information scrambled into smoke, heat, and light. That radiation spread across the cosmos at light speed. It is diluted across an unimaginably vast region of space. In principle, with a computer the size of the observable universe, you could run the Petz map and watch the smoke reconstitute into Sophocles.
 
@@ -520,6 +537,7 @@ analogies for spacetime and holographic encoding.
 
 We have the Screen. We have the Algebra. We have the Consistency Rules. We have Recovery.
 
-But where does space come from? Where does time come from? How does the abstract structure of quantum information become the geometry we navigate?
+Where does space come from? Where does time come from? How does the abstract
+structure of quantum information become the geometry we inhabit?
 
 The next chapters turn recovery into geometry. We'll see how boundaries encode interiors, how entanglement draws the map, and how the consistency conditions we've developed start to look suspiciously like gravity.

@@ -41,9 +41,9 @@ Useful background:
 | Repair | The settling step when two shared descriptions disagree. |
 | Fixed point | The stable answer after checking stops changing the result. |
 | Branch | A claim that works under stated assumptions. |
-| Validation row | A useful comparison with known data. Treat it as weaker than a fresh prediction. |
-| Target-anchored | The measured value helped set up the row. Do not sell it as a clean prediction. |
-| Source-certified | The displayed value is emitted by the declared OPH source map or theorem certificate, without the target value in the calculation path. |
+| Benchmark check | A useful comparison with known data. Treat it as weaker than a fresh prediction. |
+| Empirically anchored | The measured value helped set up the number. Do not sell it as a clean prediction. |
+| First-principles check | The displayed value is emitted by the declared OPH source map or theorem certificate, without the target value in the calculation path. |
 | Standard Model | The particle-physics rulebook for known particles and forces, except gravity. |
 | Gauge group | The symmetry bookkeeping behind forces. Plainly: allowed relabeling inside the force description that leaves physics unchanged. |
 | Hypercharge | A Standard Model charge label used to build electric charge. |
@@ -95,7 +95,7 @@ of silently moving the goalposts.
 | Standard Model | Force symmetry and matter content are inputs. | Zero obstruction is a transportability condition: the persistent sector category reconstructs a compact gauge group, while MAR plus the explicit one-Higgs matter package selects the realized Standard Model force quotient, exact hypercharges, three colors, and three generations. |
 | Constants | About 30 Standard-Model-plus-cosmology values are treated as independent measurements. | OPH compresses the displayed rows into two fixed points, `P_star` and `N_star`, tied by the 24-tick lock. |
 | Grand unification | Many extensions use one larger simple symmetry. | OPH uses a product-group structure. The usual leptoquark gauge bosons are absent. |
-| Dark matter | Usually a cold invisible component. | OPH uses a repair/modular response branch. The implementation is pre-likelihood grade. |
+| Dark matter | Usually a cold invisible component. | OPH uses a repair/modular response branch. The implementation is before full statistical closure. |
 | Hierarchy problem | The Higgs scale looks tuned against UV corrections. | The weak scale is a branch readout of the 24-tick repair lock with naturality defect `epsilon_H = 0`. |
 | Newton's constant | `G` is measured as an input constant. | OPH derives a dimensionless gravity relation and an SI display path for `G_OPH`; the SI display carries the stated QCD/cesium-clock caveat. |
 | Coding language | Code distance is fixed only after a concrete code is specified. | A bare OPH overlap net is only a finite constraint code; QECC distance and min-cut resilience require topological-code and error-model certificates. |
@@ -122,7 +122,7 @@ of silently moving the goalposts.
 | Fine structure | inverse fine-structure constant `137.035999177(21)`, with `P_star = 1.6309682094...` | public fixed-point row with empirical hadron closure |
 | Higgs | `125.1995304097179 GeV` | closed on the declared Higgs/top surface |
 | Top coordinate | `172.35235532883115 GeV` | selected public quark-frame and cross-section codomain |
-| Quarks | exact running sextet on the selected public frame | selected-class theorem |
+| Quarks | exact running sextet on the selected public frame | selected-frame theorem |
 | Neutrino masses | `0.017454720257976796`, `0.019481987935919015`, and `0.05307522145074924` electron-volts | weighted-cycle branch |
 | Neutrino sum | `0.09001192964464505` electron-volts | derived from that branch |
 | Neutrino mixing | solar angle `34.2259` degrees, atmospheric angle `49.7228`, reactor angle `8.68636`, CP phase `305.581` | weighted-cycle branch with visible tension |
@@ -130,23 +130,23 @@ of silently moving the goalposts.
 | IBM five-state cyclic test | ratio near the golden-ratio square, about `2.618033988749895` | reduced-sector hardware signature |
 | IBM six-state nonabelian test | ratio near `2` after clean layout accounting | reduced-sector hardware signature |
 | Bench `P` body | icosahedral coupling plateaus with golden-ratio ratios | engineering evidence claim |
-| Dark-sector cosmology | `Omega_A = 0.264114401`, CAMB `Omega_m = 0.315905206`, `sigma8 = 0.807787204`, `S8 = 0.828924037`, and `rho_A/rho_b = 5.363470441` | pre-likelihood branch with public scorecard |
-| `chi_nu` lift response | `chi_nu^can = exp(-P_star/24) = 0.9343006394893864...`; for `N_coh = 1e22`, `9.34e-23 <= chi_nu^eng <= 1e-22` | declared continuation branch |
-| Hadrons | no promoted source-only masses | backend gated |
+| Dark-sector cosmology | `Omega_A = 0.264114401`, CAMB `Omega_m = 0.315905206`, `sigma8 = 0.807787204`, `S8 = 0.828924037`, and `rho_A/rho_b = 5.363470441` | branch before full statistical closure, with public scorecard |
+| `chi_nu` lift response | `chi_nu^can = exp(-P_star/24) = 0.9343006394893864...`; for `N_coh = 1e22`, `9.34e-23 <= chi_nu^eng <= 1e-22` | scoped continuation branch |
+| Hadrons | no first-principles masses from the stated theorem | gated on a strong-binding construction |
 | Hardware proof-of-work | candidate enrichment or verified shares | engineering evidence claim |
 | QECC/min-cut resilience | no claim from a bare overlap graph; only certified topological-code branches may state distance/min-cut or Knill-Laflamme correction | certificate-gated extension |
 
 Weaker rows:
 
-- `W` and `Z` masses are validation rows.
-- Charged leptons are target-anchored witness rows.
-- Direct top mass is compare-only outside the cross-section codomain.
-- Strong CP is not emitted by the selected-class quark theorem.
+- `W` and `Z` masses are benchmark checks.
+- Charged leptons are empirically anchored witnesses.
+- Direct top mass is a benchmark check outside the cross-section codomain.
+- Strong CP is not emitted by the selected-frame quark theorem.
 - Empirical hadron closure uses measured electron-positron to hadron input.
 - The SI `G_OPH` display uses a cesium-clock branch where QCD/hadronic
   refinements are stated as a caveat. The QCD-free hierarchy witness is the
   cleaner compact-proof row.
-- Hardware claims need raw evidence bundles, controls, and verifier receipts. The promoted compute claim is a measured distributional lift `B = p_Q/p_U`, not a complexity-class theorem.
+- Hardware claims need raw evidence bundles, controls, and verifier records. The compute claim is a measured distributional lift `B = p_Q/p_U`, not a complexity-class theorem.
 - Bare overlap graphs do not determine code distance. Distance/min-cut and corrupted-observer correction claims need an explicit code subspace, logical operators, error family, and recovery certificate.
 
 ## The Two Fixed Points In Plain Language
@@ -227,7 +227,7 @@ G_OPH = 6.674299995910528...e-11 m^3 kg^-1 s^-2
 
 This display uses the OPH scale certificate and the cesium-clock branch. Its
 QCD/hadronic caveat is explicit. The dimensional gravity theorem and the
-hierarchy witness are the cleaner source-only checks.
+hierarchy witness are the cleaner first-principles checks.
 
 Hardware does not measure a fundamental Planck cell. The bench version tests an
 analogue: a self-reading twelve-port body. Pulse one port, read the other
@@ -676,8 +676,8 @@ Difficulty:
 | --- | --- | --- |
 | Repair confluence | A finite observer-patch network satisfies the OPH descent assumptions, and two accepted repair orders from the same initial quotient state settle into different observer-facing quotient normal forms with no declared holonomy or higher-gauge obstruction. | Descent only proves termination. OPH needs the local-diamond condition plus repair completeness for confluence. Same-boundary uniqueness also needs a preserved boundary/sector map with a unique consistent extension. If the final physical answer depends on repair order under those hypotheses, the proposed repair law fails as an OPH consensus mechanism. |
 | Mismatch descent | A repair move accepted by the OPH rules makes the mismatch larger and no compensating potential decreases. | Repair is supposed to settle disagreements. If an allowed move can make the system less consistent, the core dynamics points the wrong way. |
-| Relativity emergence | A model satisfies the support-visible BW branch certificate, cap-pair extraction, regularized modular transport, support-readable modular covariance, round-cap rigidity, and KMS/BW normalization, then fails to produce the Lorentzian cap/conformal light-cone structure. | OPH claims Lorentz kinematics on the certified support-visible geometric cap-pair branch. A countermodel satisfying that certificate while lacking the Lorentzian light-cone structure breaks the branch. |
-| Einstein branch | The entropy and modular assumptions hold, the controlled Markov-collar and support-visible modular remainders vanish in the stated limits, and the Einstein-gravity limit fails. | OPH claims ordinary gravity appears as a controlled scaling branch of the overlap rules. If the stated assumptions and vanishing carried remainders do not give that branch, the gravity reconstruction fails. |
+| Relativity emergence | A model satisfies the controlled BW branch certificate, cap-pair extraction, regularized modular transport, support-readable modular covariance, round-cap rigidity, and KMS/BW normalization, then fails to produce the Lorentzian cap/conformal light-cone structure. | OPH claims Lorentz kinematics on the controlled geometric cap-pair branch. A countermodel satisfying that certificate while lacking the Lorentzian light-cone structure breaks the branch. |
+| Einstein branch | The entropy and modular assumptions hold, the controlled Markov-collar and controlled modular remainders vanish in the stated limits, and the Einstein-gravity limit fails. | OPH claims ordinary gravity appears as a controlled scaling branch of the overlap rules. If the stated assumptions and vanishing carried remainders do not give that branch, the gravity reconstruction fails. |
 | Gauge reconstruction | The zero-obstruction compact-gauge reconstruction fails to produce a well-defined compact group from the stated transportable sector category. | This breaks the classification/reconstruction stage before any Standard Model selection claim can be made. |
 | MAR selection | A valid MAR-admissible one-Higgs low-energy sector package, satisfying the same anomaly, refinement, CP, and weak-sector clauses, is selected instead of the Standard Model package. | OPH does not claim cocycles alone force the Standard Model. The selection claim is MAR-local; a different MAR-minimal package would mean the theory did not derive the realized Standard Model branch. |
 | Charge lattice | The stated assumptions allow a different hypercharge lattice. | Hypercharge fixes electric charges. If OPH allows another lattice, the observed charge pattern was not forced by the theory. |
@@ -686,7 +686,7 @@ Difficulty:
 | Local pixel fixed point | The stated `P_star` fixed-point equations have no unique solution at `1.630968209403959324879279847782648941...`, or the source map reads the low-energy target value. | The local pixel closure is one of the two OPH constants. If it is not unique or it cheats, the numerical compression fails. |
 | Global screen fixed point | Closed-screen counting plus MAR does not select the displayed `N_star` capacity branch, or the same equations allow incompatible capacity branches. | The horizon-capacity closure is the second OPH constant. If it is not forced, the two-constant claim fails. |
 | 24-tick repair lock | The observer-visible product-adjoint repair spectrum is not `2 * (8 + 3 + 1) = 24`, or the local repair contraction fails to line up with the global screen step. | The repair resonance is the bridge between `P_star` and `N_star`. If it fails, the hierarchy solution and compact compression claim lose their main mechanism. |
-| QCD-free hierarchy witness | The declared source-only hierarchy map imports `G`, `Lambda`, `W`, `Z`, Higgs, low-energy Thomson, cesium-clock, or hadronic payloads, or it misses `v / E_star = 2.0199803239725553e-17`. | This is the compact proof's cleanest numerical row because it avoids QCD and clock assumptions. A miss kills the hierarchy-closure claim. |
+| QCD-free hierarchy witness | The declared first-principles hierarchy map imports `G`, `Lambda`, `W`, `Z`, Higgs, low-energy Thomson, cesium-clock, or hadronic inputs, or it misses `v / E_star = 2.0199803239725553e-17`. | This is the compact proof's cleanest numerical result because it avoids QCD and clock assumptions. A miss kills the hierarchy-closure claim. |
 | Newton constant display | The dimensionless gravity theorem fails, or the SI `G_OPH` display cannot be obtained after the declared scale certificate and caveated cesium-clock bridge are supplied. | OPH claims Newton coupling is a branch readout, not a fitted physical constant. The SI display is allowed to carry the stated QCD caveat; hiding that caveat would also be a failure. |
 | Low-energy uniqueness | The OPH axioms plus MAR allow many inequivalent low-energy physics worlds with the same admissibility predicates. | OPH claims the familiar world is selected by MAR on the admissible class. If many incompatible worlds pass the same rules, the selection claim fails. |
 
@@ -703,7 +703,7 @@ Difficulty:
 | Fractional color singlet | A stable color-singlet particle has fractional electric charge. | OPH inherits the Standard Model charge-quantization pattern for observable singlets. A stable fractional singlet breaks that pattern. |
 | Grand-unified leptoquark bosons | Simple-grand-unified leptoquark gauge bosons are discovered. | OPH uses a product-group force structure. Those bosons belong to a larger simple force and are absent in the OPH branch. |
 | Gauge-mediated proton decay | A proton decay channel mediated by simple-grand-unified gauge bosons is observed. | The proton cannot decay that way in OPH because the required leptoquark gauge bosons are not present. |
-| Extra Higgs sector | Additional light Higgs multiplets are discovered in the minimal OPH regime. | OPH's declared branch uses the observed one-Higgs structure. Extra light Higgs multiplets break that minimal branch. |
+| Extra Higgs sector | Additional light Higgs multiplets are discovered in the minimal OPH regime. | OPH uses the observed one-Higgs structure on its minimal branch. Extra light Higgs multiplets break that branch. |
 | Low-energy supersymmetry | A low-energy superpartner spectrum is discovered. | OPH's declared Standard Model branch does not contain that superpartner spectrum. Finding it means the branch is missing real particles. |
 | Higgs naturality defect | The selected source-to-Higgs normal form has a nonzero RG/coarse-graining defect instead of `epsilon_H = 0`. | OPH says the hierarchy problem collapses because the weak scale is emitted by the repair lock. A nonzero defect restores the fine-tuning problem. |
 | Higgs and top numbers | Scheme-controlled measurements exclude the declared Higgs and top rows. | These rows are sharp number outputs. If precision data exclude them in the declared scheme, OPH missed a key mass relation. |

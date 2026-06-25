@@ -223,8 +223,8 @@ Collar-remainder dark/anomaly stress, galaxy equilibrium, dynamic stress, and co
 contracts. This paper imports those contracts by reference; it does not duplicate the dark-sector
 derivations.\\
 \pathref{oph-physics-sim/runs/gcp_large_vis_256k_modkernel_20260623} &
-256k-patch simulator evidence: strong CMB diagnostics, explicit false physical-prediction
-receipt, and full visualizer export data. The run manifest records \texttt{git\_commit=unknown};
+256k-patch simulator evidence: strong CMB diagnostics, physical-prediction receipt with failed
+gates, and full visualizer export data. The run manifest records \texttt{git\_commit=unknown};
 the canonical simulator repository is \SimSourceRepo, and the public source reference available for
 this consolidation is \SimSourceCommit.\\
 \end{longtable}
@@ -509,14 +509,16 @@ flat topologies, and may not be reported as \textsc{DirectTheorem} or \textsc{Co
 \end{proposition}
 
 \begin{remark}[Theorem boundary]
-The theorem is conditional because several premises are open theorem issues. The branch is sharp
-enough for diagnostics, but not for promoting CMB agreement to a physical prediction.
+The theorem is conditional at the CMB-prediction tier unless the finite source package, physical
+scale bridge, stress parent, Boltzmann transfer, and frozen likelihood receipts all pass for the
+same generation. Imported frozen geometry can support the \texttt{CONDITIONAL\_PHYSICAL} route.
+\texttt{OPH\_NATIVE\_PHYSICAL} also requires the quotient-derived
+\(\mathsf{CosmoGeomRead}_r\) and source embedding theorem.
 \end{remark}
 
 \section{Physical CMB Finite-Source Contract}
 
-The simulator's false physical CMB receipt identified a precise theorem contract. The following
-objects must be theorem-grade finite artifacts:
+The physical CMB source contract requires theorem-grade finite artifacts:
 \[
 \Azeta,\qquad q_{\rm IR},\qquad \ell_{\rm IR},\qquad
 \rhoA(a),\qquad \rhoAeq(a),\qquad \Bkernel(k,a),\qquad
@@ -557,12 +559,30 @@ The paper stack must define pass/fail receipts for:
 \item total stress closure, single-clock normal form, entropy repair gap, curvature evolution,
 adiabatic growing mode, isocurvature bound, phase coherence, screen-to-radial lift, radial null-space,
 forward residual, and finite freezeout receipts;
-\item physical \(k\), \(\ell\), scale-factor, and redshift calibration;
+\item \(\texttt{physical\_k\_units\_calibrated}\), derived exactly from
+\(\texttt{PHYSICAL\_SPATIAL\_K\_RECEIPT}\);
+\item \(\texttt{screen\_to\_physical\_k\_association\_calibrated}\), derived from
+\(\texttt{SCREEN\_TO\_PHYSICAL\_K\_ASSOCIATION\_RECEIPT}\);
+\item \(\texttt{source\_angular\_sector\_calibrated}\), derived from
+\(\texttt{SOURCE\_ANGULAR\_SECTOR\_RECEIPT}\), with
+\(\ell_{\rm src}\) kept distinct from \(L_{\rm CMB}\);
+\item \(\texttt{calibrated\_a\_evolution}\), derived from
+\(\texttt{CALIBRATED\_A\_EVOLUTION\_RECEIPT}\);
+\item \(\texttt{physical\_mode\_freezeout\_map\_calibrated}\), derived from
+\(\texttt{PHYSICAL\_MODE\_FREEZEOUT\_MAP\_RECEIPT}\);
+\item \(\texttt{common\_primordial\_initial\_surface\_calibrated}\), derived from
+\(\texttt{PHYSICAL\_FREEZEOUT\_SURFACE\_RECEIPT}\);
+\item a nonempty cross-receipt manifest with matching regulator-family, generation, geometry,
+background, clock, scale-certificate, source-embedding, mode-basis, mode-lineage, boundary,
+solver-convention, freezeout-surface, and source-DAG hashes;
 \item source-only imported dark-sector functions \(\rhoA(a)\), \(\rhoAeq(a)\), \(w_A(a)\),
 \(\csA(k,a)\), \(\sigmaA(k,a)\), \(\QA\), \(\Bkernel(k,a)\), and the
 \(\gamma_{\mathrm{repair\ step}}\) diagnostic or certified \(\GammaRec(k,a)\), where the chosen
 dark-continuation mode permits them.
 \end{enumerate}
+A mode-dependent freezeout map does not satisfy
+\(\texttt{PHYSICAL\_FREEZEOUT\_SURFACE\_RECEIPT}\); the receipt denotes a common spacelike initial
+surface with initial data and normal derivatives in one frozen generation.
 \end{target}
 
 \begin{target}[Scalar, harmonic, and IR source receipts]
@@ -643,9 +663,9 @@ conditional physical-scale theorem.  The practical rule is:
 are nonpromotable diagnostic labels unless the structured receipt conjunctions in
 Target~\ref{target:physical-scale-receipts} pass.  A frozen imported FLRW geometry packet can
 exercise the complete spectral/clock/freezeout/transfer pipeline at tier
-\texttt{CONDITIONAL\_PHYSICAL}.  Replacing that packet by a quotient-derived
-\(\mathsf{CosmoGeomRead}_r\) without changing downstream interfaces is the open
-\texttt{OPH\_NATIVE\_PHYSICAL} task.
+\texttt{CONDITIONAL\_PHYSICAL}.  The \texttt{OPH\_NATIVE\_PHYSICAL} tier additionally requires a
+quotient-derived \(\mathsf{CosmoGeomRead}_r\) and source embedding theorem with the same downstream
+interfaces.
 
 \section{Dark/Anomaly Interface Imported from the Dark-Matter Paper}
 
@@ -977,8 +997,9 @@ Target~\ref{target:physical-scale-receipts};
 dark-sector source functions;
 \item freeze source, solver, and likelihood hashes;
 \item run official likelihood comparisons and global CDM-limit reductions;
-\item only then label the result \texttt{CONDITIONAL\_PHYSICAL} or, after
-Target~\ref{target:cosmo-geometry-extraction} passes, \texttt{OPH\_NATIVE\_PHYSICAL}.
+\item label the result \texttt{CONDITIONAL\_PHYSICAL} when all imported-geometry physical receipts
+pass, or \texttt{OPH\_NATIVE\_PHYSICAL} when Target~\ref{target:cosmo-geometry-extraction} also
+passes.
 \end{enumerate}
 
 The simulator may run diagnostics before physical promotion: visualization payloads, CMB overlays,

@@ -209,7 +209,9 @@ A **tensor network** builds a large quantum state from small pieces. Each tensor
 
 The **Multi-scale Entanglement Renormalization Ansatz** (MERA) handles critical systems by building in scale. Layer by layer, you move to larger scales. The network grows upward into a new dimension.
 
-In 2012, Brian Swingle noticed something striking: the geometry of a MERA network is **hyperbolic**-just like AdS space. The depth in the network plays the role of the radial direction in AdS.
+In 2012, Brian Swingle noticed that the geometry of a MERA network is
+**hyperbolic**, just like AdS space. The depth in the network plays the role of
+the radial direction in AdS.
 
 MERA isn't just a numerical trick. It is one influential discrete model showing
 how entanglement can organize geometry in an AdS-like way.
@@ -264,7 +266,9 @@ This is consistency made geometric. The structure of entanglement forces their r
 
 ### Black Holes and Islands
 
-In AdS/CFT and related semiclassical holographic models, there is a striking late-time effect: as Hawking radiation accumulates, the radiation's entanglement wedge can include a region **inside** the black hole-an "island."
+In AdS/CFT and related semiclassical holographic models, Hawking radiation can
+produce a late-time effect: the radiation's entanglement wedge can include a
+region **inside** the black hole, an "island."
 
 In those models, the island formula reproduces the Page curve and shows how the radiation can encode information that semiclassical bulk reasoning seemed to lose.
 

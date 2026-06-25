@@ -163,7 +163,7 @@ The runnable code and representative raw outputs are stored in:
 
 The public data bundle includes the main Stage 1, `Z_3`, `Z_5`, and `S_3` hardware outputs, plus the `S_3` layout diagnostic and a post-cleanup IBM usage snapshot.
 
-## Results so far
+## Results
 
 In the tables below, `Prepared t` is the operating point used to prepare the state. It is not the main tested observable in every experiment.
 

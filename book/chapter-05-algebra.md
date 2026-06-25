@@ -8,25 +8,34 @@ If you want to know an object's position and momentum, you measure one, then
 the other. It shouldn't matter which you measure first. The object has a
 position AND a momentum, and your measurements reveal pre-existing values.
 
-Classical physics works this way. A baseball has a definite position and velocity at every moment. Whether you measure position first or velocity first, you get the same values. The measurements commute.
+Classical physics works this way. A baseball has a definite position and
+velocity at every moment. Whether you measure position first or velocity first,
+you get the same values. The measurements commute.
 
 And then Heisenberg discovered something shocking.
 
-For quantum systems, the order of measurement matters. Measuring position then momentum gives different results than measuring momentum then position. Mathematically:
+For quantum systems, the order of measurement matters. Measuring position then
+momentum gives different results than measuring momentum then position.
+Mathematically:
 
 $$XP \neq PX$$
 
-The difference isn't zero-it's a fundamental constant:
+The difference is not zero. It is Planck's constant in operator form:
 
 $$[X, P] = XP - PX = i\hbar$$
 
 This is the **commutator**, and it's the heart of quantum mechanics.
 
-The symbols are the whole lesson. $X$ is the position operator. $P$ is the
+An operator is a mathematical action on a quantum state. It can represent
+asking a question, shifting a state, or extracting a possible measurement
+answer. The commutator measures whether two such actions can be swapped without
+changing the result. For position and momentum, they cannot.
+
+The symbols carry the lesson. $X$ is the position operator. $P$ is the
 momentum operator. Writing $XP$ and $PX$ means composing the two operations in
 opposite orders. The bracket $[X,P]$ measures the failure of those two
-compositions to agree. The number $i$ is the imaginary unit and $\hbar$ is Planck's
-constant divided by $2\pi$. Nature is not saying that our instruments are
+compositions to agree. The number $i$ is the imaginary unit, and $\hbar$ is
+Planck's constant divided by $2\pi$. Nature is not saying that our instruments are
 clumsy. It is saying that these two questions do not belong to one classical
 spreadsheet of pre-existing answers.
 
@@ -34,25 +43,27 @@ spreadsheet of pre-existing answers.
 
 **The hint**: Observable quantities don't commute. The order of questions changes the answers.
 
-**The lesson**: Objects don't have pre-existing values for all properties. Measurement is not passive reading-it's active intervention.
+**The lesson**: Objects don't have pre-existing values for all properties. Measurement is not passive reading; it is active intervention.
 
-**The first-principles reframing**: Questions come with an algebra-a set of rules for combining them. This algebra is non-commutative. The consistency conditions we seek must respect this algebraic structure.
+**The first-principles reframing**: Questions come with an algebra, a set of rules for combining them. This algebra is non-commutative. The consistency conditions we seek must respect this algebraic structure.
 
 ## 5.2 Heisenberg on Helgoland
 
 In June 1925, Werner Heisenberg was twenty-three years old and suffering from hay fever so severe his face was swollen. He retreated to Helgoland, a tiny rocky island in the North Sea, where the sea air was cleaner.
 
-Unable to sleep, he worked through the night on the hydrogen spectrum problem. When you heat hydrogen gas, it glows at specific wavelengths-the famous Balmer series known since 1885. The pattern was numerical, but no one understood why.
+Unable to sleep, he worked through the night on the hydrogen spectrum problem. When you heat hydrogen gas, it glows at specific wavelengths: the famous Balmer series known since 1885. The pattern was numerical, but no one understood why.
 
 The old quantum theory treated electrons as particles in orbits. This worked for hydrogen but failed for any atom with more than one electron.
 
 Heisenberg tried something radical. He decided to **abandon the idea of electron orbits entirely**.
 
-After all, no one had ever seen an electron orbiting. What we actually observe are the frequencies and intensities of spectral lines-the light that comes out when atoms are excited.
+No one had ever seen an electron orbiting. What we actually observe are the
+frequencies and intensities of spectral lines: the light that comes out when
+atoms are excited.
 
 So Heisenberg worked only with observable quantities. He set aside "where is the electron?" and asked "what are the relationships between observations?"
 
-He developed a mathematical scheme for these observables. The key quantities were transition probabilities-how likely is the atom to jump from state n to state m while emitting light?
+He developed a mathematical scheme for these observables. The key quantities were transition probabilities: how likely is the atom to jump from state n to state m while emitting light?
 
 These quantities formed arrays of numbers, organized in a grid. When Heisenberg tried to calculate energy, he needed to multiply these arrays. Something strange happened: **the order mattered**. Array A times array B was not the same as array B times array A.
 
@@ -64,7 +75,7 @@ Heisenberg sent his results to Max Born in Göttingen. Born immediately recogniz
 
 A matrix is a rectangular array of numbers. Matrix multiplication has a specific rule: the order matters. Matrices are "non-commutative."
 
-Heisenberg had never heard of matrices-he was a physicist, not a mathematician. He had reinvented them from physical requirements.
+Heisenberg had never heard of matrices; he was a physicist, not a mathematician. He had reinvented them from physical requirements.
 
 ### The Reverse Engineering Insight
 
@@ -75,13 +86,19 @@ commute. The reframing is that observable quantities form a non-commutative
 algebra, and that algebraic structure sits deeper than the supposed objects
 being measured.
 
-Heisenberg started with observations (spectral lines) and reverse-engineered the mathematical structure that must underlie them. The non-commutative algebra wasn't assumed-it was forced by the data.
+Heisenberg started with observations (spectral lines) and reverse-engineered the mathematical structure that must underlie them. The non-commutative algebra was forced by the data.
 
 ### Why Non-Commutativity Is Not Arbitrary
 
-The working idea is simple: non-commutativity is part of what makes overlap consistency nontrivial.
+The working idea is simple: non-commutativity is part of what makes overlap
+consistency nontrivial.
 
-Consider the overlap condition. When two observers compare notes, they must agree on their shared observables. In a commutative world-where all measurements are compatible-the problem is much closer to the classical marginal setting. Pre-existing values can often be assigned more straightforwardly, especially on simple overlap structures, but compatibility is not automatic on arbitrary overlap graphs.
+Consider the overlap condition. When two observers compare notes, they must
+agree on their shared observables. In a commutative world where all
+measurements are compatible, the problem is much closer to the classical
+marginal setting. Pre-existing values can often be assigned more
+straightforwardly, especially on simple overlap structures, but compatibility
+is not automatic on arbitrary overlap graphs.
 
 The Quantum Marginal Problem shows that the difficulty survives in a sharper form. Pairwise-compatible reduced states can fail to come from one global state. Non-commutativity intensifies the quantum consistency problem, but it is not the only obstruction to gluing.
 
@@ -93,15 +110,20 @@ Non-commutativity creates a tension between local freedom and global consistency
 
 ### The Stern-Gerlach Experiment
 
-In 1922, Otto Stern and Walther Gerlach sent a beam of silver atoms through a non-uniform magnetic field. Classical physics predicted the beam would spread out in a continuous smear. Instead, it split into exactly two beams: spin up and spin down.
+In 1922, Otto Stern and Walther Gerlach sent a beam of silver atoms through a
+non-uniform magnetic field. Classical physics predicted the beam would spread
+out in a continuous smear. Instead, it split into exactly two beams: spin up
+and spin down.
 
-This was shocking. Atomic magnetic moments are quantized-they take only discrete values.
+This was shocking. Atomic magnetic moments are quantized. They take only
+discrete values.
 
 The real surprise comes when you chain measurements. Measure spin along the
 $z$-axis and keep only the up atoms. Then measure along $x$, which gives a
 50/50 split. Measure along $z$ again and the final result is not fixed.
 
-The final z-measurement becomes random-50% up, 50% down. But if you skip step 2, the atoms stay "up" with certainty.
+The final z-measurement becomes random, 50% up and 50% down. If you skip the
+x-measurement, the atoms stay "up" with certainty.
 
 The x-measurement has disturbed the z-state. The order of questions changes the answers.
 
@@ -118,11 +140,11 @@ position and momentum measurements prepared in the same state. The inequality
 does not refer to one bad measurement. It refers to the shape of the state
 itself. A quantum state cannot make both spreads vanish.
 
-This does not come from clumsy measurement devices. It is a fundamental feature
-of reality. There is no state that has both precise position and precise
-momentum. Such a state does not exist.
+This does not come from clumsy measurement devices. It is a property of the
+state space itself. There is no state that has both precise position and
+precise momentum. Such a state does not exist.
 
-For a baseball, the uncertainty is negligible-about 10⁻³⁴ meters. For an electron confined to an atom-sized region, the momentum uncertainty corresponds to 0.3% of the speed of light. At atomic scales, quantum mechanics is unavoidable.
+For a baseball, the uncertainty is negligible, about 10⁻³⁴ meters. For an electron confined to an atom-sized region, the momentum uncertainty corresponds to 0.3% of the speed of light. At atomic scales, quantum mechanics is unavoidable.
 
 ### Compatible Questions
 
@@ -134,7 +156,7 @@ Two observers asking compatible questions can both get definite answers without 
 
 ### Classical Logic: Yes or No
 
-The oldest formal system for questions is logic. Aristotle developed syllogisms-chains of yes-or-no statements. Classical logic treats propositions as having definite truth values.
+The oldest formal system for questions is logic. Aristotle developed syllogisms, chains of yes-or-no statements. Classical logic treats propositions as having definite truth values.
 
 George Boole in 1854 turned this into algebra. He represented True as 1 and False as 0. This Boolean algebra is the foundation of digital computers.
 
@@ -158,13 +180,20 @@ This is one form of consistency. Bayesian reasoning shows how shared evidence ca
 
 ### From Sets to Hilbert Space
 
-In classical probability, a yes-or-no question corresponds to a set-the set of states where the answer is "yes."
+In classical probability, a yes-or-no question corresponds to a set: the set of states where the answer is "yes."
 
 In quantum mechanics we need a different stage. A **Hilbert space** is a vector space with an inner product. That inner product lets us turn geometry into probabilities. The length of a vector gives a probability, and angles encode interference.
 
+In ordinary space, arrows can point north or east. In Hilbert space, arrows
+point toward possible answers. A state is one arrow in that abstract answer
+space. Measurement asks how strongly that arrow points toward one of the
+allowed answer directions.
+
 Why use it here? Because experiments show that adding possibilities changes outcomes. In the double-slit experiment, "left path" plus "right path" does not behave like a classical sum of probabilities. A Hilbert space is the simplest structure that matches that behavior.
 
-In quantum mechanics, this picture changes fundamentally. Questions become **projectors** on a Hilbert space. A projector P is an operator satisfying P² = P.
+In quantum mechanics, this picture changes at the level of the question
+itself. Questions become **projectors** on a Hilbert space. A projector $P$ is
+an operator satisfying $P^2=P$.
 
 The difference is sharp: projectors do not form a Boolean algebra. The distributive law fails:
 
@@ -301,6 +330,11 @@ Smaller patches have less room to keep the world in view.
 
 John von Neumann classified operator algebras into types. This classification reveals deep structure.
 
+The type labels are a warning label for intuition. Type I behaves like finite
+or countable matrices, the kind of quantum system one can write on a blackboard.
+Type III behaves like local quantum field theory near horizons, where ordinary
+density matrices stop being the right local object.
+
 **Type I**: The simplest. These are essentially matrices on a Hilbert space. They have minimal projections-"atoms" that cannot be decomposed. Finite quantum systems have Type I algebras.
 
 **Type II**: No atoms, but a finite "trace"-a way to assign size to projections.
@@ -313,7 +347,9 @@ Type III algebras have strange properties. They don't admit the simple density-m
 
 The Unruh effect is a vivid illustration. An accelerating observer perceives empty space as a warm bath of particles. In the wedge/vacuum setting, the restricted description becomes thermal with respect to the relevant modular flow, and Type III local algebras are part of that algebraic framework.
 
-This connects directly to holography. When you restrict your view to a subregion, the local description is fundamentally subtler than the textbook finite-system picture.
+This connects directly to holography. When you restrict your view to a
+subregion, the local description is subtler than the textbook finite-system
+picture.
 
 ## 5.10 Modular Flow: Time from Algebra
 
@@ -332,13 +368,15 @@ where Δ is the "modular operator" associated with the algebra and state.
 
 ### The KMS Condition
 
-These modular automorphisms satisfy a remarkable property. The state Ω is a **KMS state** at inverse temperature β = 1:
+These modular automorphisms satisfy a thermal-equilibrium test. The state Ω is a **KMS state** at inverse temperature β = 1:
 
 $$\omega(A \sigma_{i}(B)) = \omega(BA)$$
 
 The KMS condition characterizes thermal equilibrium states. For a non-specialist,
 the important point is not the complex-time formula itself. KMS is the quantum
 signature of a state that behaves thermally with respect to the flow it carries.
+It is the equilibrium test that lets the modular clock and the temperature
+story speak the same language.
 
 ### Time from Algebra
 
@@ -358,8 +396,7 @@ The same caution applies to finite regulators. A finite matrix calculation can
 approximate a modular branch only after a declared multiresolution tower
 supplies compatible embeddings, conditional expectations, transported local
 state errors, and a cutoff schedule. Geometric modular flow is a theorem of the
-certified support-visible BW branch, not a property of arbitrary finite
-matrices.
+controlled BW construction; arbitrary finite matrices do not get it for free.
 
 ## 5.11 Commutation and Causality
 
@@ -385,7 +422,7 @@ That algebraic locality condition is the mathematical statement that consistency
 
 ## 5.12 The Reverse Engineering Summary
 
-Let us trace the logic explicitly. The intuitive picture says objects have
+The logic runs through the whole chapter. The intuitive picture says objects have
 definite properties and measurements simply reveal them. The hints keep
 breaking that image. Heisenberg's matrices do not commute. Stern-Gerlach shows
 that measurement order changes outcomes. The uncertainty principle limits

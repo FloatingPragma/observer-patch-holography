@@ -35,7 +35,7 @@ In OPH:
 
 - `a_cell` is a UV **area density** attached to cut elements of the screen net, not a preferred spatial ruler in emergent 3+1D spacetime.
 - The physical objects are patch algebras and their overlap maps, not coordinate cells in a background bulk.
-- Lorentz kinematics are derived on the certified support-visible BW branch: cap-pair extraction, regularized modular transport, support-readable modular covariance, round-cap rigidity, and KMS/BW normalization give `sigma_t^(omega_C) = alpha_{lambda_C(2pi t)}` on the extracted prime geometric cap pair. Only in the special type-I representation may this be written as `K_C = 2pi B_C`.
+- Lorentz kinematics are derived on the controlled BW branch: cap-pair extraction, regularized modular transport, support-readable modular covariance, round-cap rigidity, and KMS/BW normalization give `sigma_t^(omega_C) = alpha_{lambda_C(2pi t)}` on the extracted prime geometric cap pair. Only in the special type-I representation may this be written as `K_C = 2pi B_C`.
 - The entanglement first law is applied to these algebraic caps, and it is covariant under the induced Lorentz action.
 - The gravity derivation is explicitly upgraded from a scalar rest-frame statement to the **full tensor Einstein equation** by overlap consistency across all local timelike directions, `G_ab + Lambda g_ab = 8pi G <T_ab>`, so the framework does **not** stop at a Newtonian approximation. This is the published chain in *Observers Are All You Need*, Part I §4.2-4.3 and Part I §5.1-5.7, with the short-form theorem statements also summarized in Part V §2.1-2.5.
 
@@ -145,7 +145,7 @@ The criticism says OPH has not proved Lorentz invariance. But the published clai
 The key steps in the main paper are:
 
 1. Markov locality localizes the modular generator to the collar around a cap boundary.
-2. Support-visible cap-pair extraction and regularized modular transport identify the branch target: the extracted prime geometric cap pair, not the full finite regulator algebra.
+2. Controlled cap-pair extraction and regularized modular transport identify the branch target: the extracted prime geometric cap pair, not the full finite regulator algebra.
 3. Support-readable modular covariance turns the limiting modular group into a cap-local support map.
 4. Round-cap rigidity identifies that support map with the standard cap-preserving conformal dilation up to normalization.
 5. The KMS and Bisognano-Wichmann normalization fixes the modular scale to `2pi`.
@@ -174,7 +174,7 @@ collar-dependent Lojasiewicz-type rate, but it is not a dimension-free
 one-shot trace-norm theorem for arbitrary tripartite systems.
 
 The BW and Einstein branches then carry the finite-stage defects through
-regularized support-visible modular transport. The exact Lorentz/Einstein
+regularized controlled modular transport. The exact Lorentz/Einstein
 statements are controlled scaling-limit statements, not finite-cutoff exact
 identities inherited from approximate Markovity.
 
@@ -324,7 +324,7 @@ If one wants the reply in one compact chain, it is this:
 
 1. OPH does **not** identify physical entropy with a frame-dependent count of coordinate pixels.
 2. The physical objects are reduced states on cap algebras and their modular Hamiltonians.
-3. Under the certified support-visible BW branch, cap modular flow is support-readable, geometric, and KMS-normalized: `sigma_t^(omega_C) = alpha_{lambda_C(2pi t)}`. The operator shorthand `K_C = 2pi B_C` is only the special type-I representation.
+3. Under the controlled BW branch, cap modular flow is support-readable, geometric, and KMS-normalized: `sigma_t^(omega_C) = alpha_{lambda_C(2pi t)}`. The operator shorthand `K_C = 2pi B_C` is only the special type-I representation.
 4. The cap-preserving geometric group is conformal on `S^2`, hence `Conf^+(S^2) ≅ SO^+(3,1)`.
 5. Therefore boosts act as automorphisms of the cap net: `rho_C -> U(Lambda) rho_C U(Lambda)^dagger` and `K_C -> U(Lambda) K_C U(Lambda)^dagger`.
 6. Von Neumann entropy and the first-law pairing are invariant under this conjugation: `S(U rho U^dagger) = S(rho)` and `delta <U K U^dagger>_(U rho U^dagger) = delta <K>_rho`.
@@ -407,7 +407,7 @@ Bisognano-Wichmann / Unruh / Hawking / half-sided-modular package.
 That part is fair.
 
 But the OPH paper stack does not leave the core modular-geometric
-surface as an unproved gap. The recovered-core paper closes the support-visible
+surface as an unproved gap. The recovered-core paper closes the controlled
 Bisognano-Wichmann scaling theorem and the downstream Lorentz / null-modular / Einstein branch
 on its stated observer-facing surface. The microphysics paper supplies an
 explicit fixed-cutoff reference architecture for that
@@ -428,7 +428,7 @@ The contradiction claim implicitly treats two different layers of OPH as if they
 
 1. the **UV regulator premises**, where sufficiently small patches are finite-dimensional and Type I;
 2. the **emergent cap-net regime**, where OPH closes geometric modular flow as
-   an automorphism identity on the extracted support-visible cap pair, with the
+   an automorphism identity on the extracted controlled cap pair, with the
    `K_C = 2pi B_C` shorthand only on the special type-I representation.
 
 But the manuscript itself distinguishes those layers.
@@ -517,7 +517,7 @@ This is a useful objection when it is aimed at the right target.
 It is right to distinguish the finite Type I regulator layer from the
 observer-facing scaling-limit theorem surface. It is wrong to present that
 distinction as a fatal contradiction or as evidence that the core modular
-bridge is missing. In the corpus, the support-visible Bisognano-Wichmann theorem
+bridge is missing. In the OPH papers, the controlled Bisognano-Wichmann theorem
 and downstream Lorentz / null-modular / Einstein branch are closed on
 their declared surface, while the microphysics paper handles fixed-cutoff
 implementation and nonunique UV realization.
@@ -529,9 +529,9 @@ the modular-algebraic problem it raises; it answers a different question.
 
 - [Samir Dzolota, "Technical Critique and Resolution of the OPH Framework" (Zenodo)](https://zenodo.org/records/18902120)
 - [Observers Are All You Need PDF](../paper/observers_are_all_you_need.pdf)
-  Key sections used above: the support-visible Bisognano-Wichmann scaling theorem, the Lorentz branch, and the null modular bridge.
+  Key sections used above: the controlled Bisognano-Wichmann scaling theorem, the Lorentz branch, and the null modular bridge.
 - [Main manuscript source](../paper/tex_fragments/PAPER.tex)
-  Key sections used above: the regulator premises, the support-visible Bisognano-Wichmann cap theorem, and the null modular bridge.
+  Key sections used above: the regulator premises, the controlled Bisognano-Wichmann cap theorem, and the null modular bridge.
 
 ---
 

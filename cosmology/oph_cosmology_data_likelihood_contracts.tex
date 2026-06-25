@@ -67,6 +67,9 @@ An observable cosmological prediction requires all source artifacts to be fixed 
 comparison.  The minimum contract is:
 \begin{enumerate}[leftmargin=2em]
 \item immutable hashes for OPH source artifacts, schema versions, and regulator manifests;
+\item immutable scale-bridge hashes for the generation, geometry, background, clock, scale
+certificate, source embedding, mode basis, mode lineage, boundary condition, solver convention,
+freezeout surface, and source DAG;
 \item immutable hashes for Boltzmann solver source, version, tolerances, inputs, and build
 environment;
 \item immutable hashes for likelihood code, datasets, masks, covariances, and nuisance-prior
@@ -89,6 +92,14 @@ where \(\tau_v\) is the semantic type, \(\mathcal X_v\) records axes, domain, gr
 parent set, \(\mathcal D_v\) is the data-class ledger, \(\mathcal E_v\) is the error envelope, and
 the four hashes commit to the theorem version, witness, build environment, and artifact payload.
 All hashes are content-addressed commitments, not display labels.
+\end{definition}
+
+\begin{definition}[scale-bridge cross-receipt manifest]
+The physical scale bridge supplies a nonempty cross-receipt manifest.  Every child receipt repeats
+the same regulator-family id, generation id, geometry hash, background hash, clock hash,
+scale-certificate hash, source-embedding hash, mode-basis hash, mode-lineage hash,
+boundary-condition hash, solver-convention hash, freezeout-surface hash, and source-DAG hash.
+An empty manifest or a missing identity field fails before likelihood execution.
 \end{definition}
 
 \begin{theorem}[no receipt-Boolean promotion]

@@ -4,8 +4,7 @@
 
 ![Matter becomes public through a ladder of stability: screen excitations, protected particles, atoms, and classical records.](../assets/book_diagrams/matter-stability-ladder.svg){width=78%}
 
-Before we get technical, let's state the common-sense picture most of us grew
-up with.
+The common-sense picture most of us grew up with is easy to state.
 
 Matter is made of tiny objects moving around in space. Each object has a
 position and velocity. Forces push them, pull them, and bend their paths.
@@ -34,12 +33,12 @@ is why it works so well.
 
 Think of the screen chart as a high-resolution, quantum information canvas.
 Most patterns are noisy and ephemeral. Some are stable: they survive overlap
-consistency, persist under modular time, and, when the H3 record-worldline
-certificate passes, can be stitched across real patch interfaces.
+consistency, persist under modular time, and can be stitched across real patch
+interfaces when the records leave one clear track.
 Those stable patterns are what we call **particles**.
 
 Matter is not a primitive substance. Particles are not tiny billiard balls.
-Matter is the set of robust, localized excitations of the net of algebras on
+Matter is the set of durable, localized excitations of the net of algebras on
 the screen.
 
 A useful analogy is a ripple in a pond. The water is the substrate, but the
@@ -59,7 +58,8 @@ spin, and helicity. Once compact gauge structure is reconstructed from
 transportable sectors, the charge bookkeeping also stops looking arbitrary. The
 reconstruction step classifies the compact group carried by persistent
 zero-obstruction sectors; it does not by itself select the Standard Model. On
-the realized one-Higgs low-energy branch, minimal admissible selection picks the Standard Model quotient
+the realized one-Higgs low-energy branch, minimal admissible selection picks
+the Standard Model quotient
 $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, the exact hypercharge lattice, the
 realized color triplet $N_c=3$, and the generation count $N_g=3$. Those are
 structural answers about what kinds of matter can exist on that realized
@@ -78,32 +78,23 @@ From there the particle structure enters in a definite order. The structural
 carriers come first. The photon, the eight gluons, and the graviton are
 massless because they sit along redundancy directions of the overlap and
 gauge structure. A hard mass for any of them would spoil the gluing rules
-that let different patches describe the same physics. The same structural
-structure also blocks gauge-mediated proton decay, because the realized gauge
+that let different patches describe the same physics. The same structure
+also blocks gauge-mediated proton decay, because the realized gauge
 group is a product group and does not contain the extra leptoquark gauge
 bosons required by simple-group unification.
 
-The electroweak transport family records the weak-sector validation pair on a
-declared compare-only validation surface
+The electroweak transport family carries a weak-boson comparison pair:
 
 $$
 M_W = 80.37700001539531\,\mathrm{GeV}, \qquad
-M_Z = 91.18797807794321\,\mathrm{GeV},
-$$
-
-with exact frozen-adapter comparison values
-
-$$
-M_W^\dagger = 80.377\,\mathrm{GeV}, \qquad
-M_Z^\dagger = 91.18797809193725\,\mathrm{GeV}.
+M_Z = 91.18797807794321\,\mathrm{GeV}.
 $$
 
 $M_W$ and $M_Z$ are the masses of the charged weak boson and the neutral weak
 boson. A GeV is a billion electronvolts, a standard particle-physics energy
-unit used as a mass unit through $E=mc^2$. The dagger marks the frozen
-adapter comparison values used by the public calculation surface. They are not
-new particles. They are reference values for checking the same weak-boson
-transport family.
+unit used as a mass unit through $E=mc^2$. These displayed values are
+benchmarks for the weak-sector transport family. They are checks against known
+weak-boson masses, not a separate derivation lane for new particles.
 
 The same family follows the unbroken electromagnetic channel to the
 long-distance Thomson limit. The fixed point gives
@@ -135,12 +126,13 @@ a triangulated spherical screen carries twelve unit fivefold defects,
 edge-center collars make them central ports, and $A_5$ symmetry places them on
 the icosahedral vertex orbit.
 
-The weak-boson compare-only validation pair and the familiar low-energy electromagnetic strength come
-from one continuous construction. The claim ledger records the diagnostic
-source trunk, the endpoint residual, and the empirical hadron closure row that
-uses a separate \(e^+e^-\to\mathrm{hadrons}\) payload class.
+The weak-boson comparison pair and the familiar low-energy electromagnetic
+strength come from one continuous construction. The source side, the endpoint
+residual, and the empirical hadronic contribution are tracked separately
+because the long-distance electromagnetic endpoint uses
+\(e^+e^-\to\mathrm{hadrons}\) data.
 
-The same electroweak core carries the declared Higgs/top quantitative surface
+The same electroweak core carries the Higgs/top quantitative relation
 
 $$
 (m_H,m_t)=(125.1995304097179,\ 172.3523553288312)\,\mathrm{GeV}.
@@ -150,7 +142,7 @@ $m_H$ is the Higgs-boson mass and $m_t$ is the top-quark mass on this
 calculation surface. They are paired because the Higgs and top sectors are
 strongly linked in the electroweak bookkeeping.
 
-The selected-class quark sector gives the running mass structure
+The selected quark sector gives the running mass structure
 
 $$
 \begin{aligned}
@@ -159,10 +151,10 @@ $$
 \end{aligned}
 $$
 
-and these are running quark masses, not hadron masses. They belong to the
+These are running quark masses, not hadron masses. They belong to the
 short-distance particle description before QCD binds quarks into composite
-states. The top value is the selected-class theorem row on the PDG
-cross-section codomain; the auxiliary direct-top codomain is compare-only.
+states. The top value belongs to the selected running-mass branch; a direct
+top-mass display is a separate benchmark check.
 
 Running means the quoted mass depends on the energy scale at which the quark is
 probed. This is normal in quantum field theory. It is why a quark mass in a
@@ -183,20 +175,17 @@ $$
 $$
 
 together with definite Majorana phases in that construction. The particle
-picture is larger than a handful of isolated numbers. The OPH
-claim ledger carries structural massless carriers, the weak-sector compare-only validation pair,
-the declared Higgs/top quantitative surface, the selected-class running quark sextet with
-Yukawas, and one weighted-cycle neutrino theorem branch. The late claim ledger
-records the fine-structure audit trunk, the charged-lepton target-anchored witness surface, the
-global public quark-frame classification boundary, and the auxiliary direct-top
-compare-only codomain.
-The selected-class quark theorem does not derive $\theta_{\mathrm{QCD}}$, does not emit
-physical $\bar\theta$, and does not prove that the physical strong-CP phase
-vanishes.
-Hadrons require a separate nonperturbative bound-state step
-because protons, neutrons, and mesons are QCD composites, not elementary
-particle rows. Source-only hadron masses require an OPH backend. Empirical
-hadron closure uses a separate \(e^+e^-\to\mathrm{hadrons}\) payload class.
+picture is larger than a handful of isolated numbers. At book level, the map
+contains structural massless carriers, the weak-sector comparison pair, the
+Higgs/top quantitative relation, the selected running quark sextet with Yukawas,
+and one weighted-cycle neutrino branch.
+
+The selected quark branch leaves the strong-CP question open. It does not
+derive $\theta_{\mathrm{QCD}}$, it does not emit the physical $\bar\theta$, and
+it does not prove that the physical strong-CP phase vanishes. Hadrons require a
+separate nonperturbative bound-state step because protons, neutrons, and mesons
+are QCD composites. First-principles hadron masses are work in progress;
+empirical hadron checks use the standard \(e^+e^-\to\mathrm{hadrons}\) data.
 
 Majorana phases are extra neutrino mixing phases that matter if neutrinos are
 their own antiparticles in the relevant sense. QCD is quantum chromodynamics,
@@ -207,7 +196,7 @@ muon, and tau neutrino sectors. Their masses are quoted in eV, not GeV,
 because neutrinos are extraordinarily light. The symbols
 $\theta_{\mathrm{QCD}}$ and $\bar\theta$ name strong-CP angles, parameters
 that would measure a CP-violating strong-interaction phase. The chapter says
-plainly that this corpus does not derive their physical vanishing.
+plainly that OPH has not derived their physical vanishing.
 
 ## 16.5 What Is a Particle?
 
@@ -219,12 +208,10 @@ kinematics emerges from screen dynamics.
 
 That statement is about sector or family identity. It should not be confused
 with the narrower bookkeeping question of whether two localized detector
-records are the same continuing token across a chart boundary. The particle
-paper treats that second question as a conditional hyperbolic-chart certificate:
-the stitch needs a declared spatial chart, common clock, real transverse
-interface, sector/gauge transport, an ID-independent assignment gap, and a
-refinement check. Without those receipts, OPH records ambiguity instead of a
-forced track.
+records are the same continuing token across a chart boundary. For that, the
+stitch needs a declared spatial chart, a common clock, a real transverse
+interface, compatible charge transport, and enough separation to rule out rival
+tracks. Without that, OPH records ambiguity instead of forcing a history.
 
 Mass tells you how the excitation answers time translations. Spin tells you how
 it answers rotations. Once Lorentz symmetry is in place, energy and momentum
@@ -253,7 +240,7 @@ The Hamiltonian is the operator that generates time evolution. The stress tensor
 is the field-theory object that records where energy and momentum are and how
 they flow.
 
-Energy conservation survives the journey because once the emergent action
+Energy conservation survives the translation because once the emergent action
 respects time shifts, the usual conserved charge follows with it. The deep
 explanation changes. The operational behavior does not.
 
@@ -324,7 +311,11 @@ environment, and when observers coarse-grain over microscopic details.
 
 Decoherence is essential to OPH. It is part of what makes a stable shared classical description possible, not a lucky accident bolted on afterward.
 
-The overlap condition demands that observers agree on shared observables. Quantum mechanics permits states that are superpositions, "both A and B." If macroscopic interference remained broadly accessible at everyday scales, different observers sampling different environmental fragments would fail to recover a single robust public record.
+The overlap condition demands that observers agree on shared observables.
+Quantum mechanics permits states that are superpositions, "both A and B." If
+macroscopic interference remained broadly accessible at everyday scales,
+different observers sampling different environmental fragments would fail to
+recover a single durable public record.
 
 Decoherence solves this by rapidly entangling macroscopic objects with their environments. This entanglement has a specific structure: it correlates the object's state with environmental "records" that can be accessed by multiple observers independently.
 
@@ -373,12 +364,11 @@ action is the classical limit of quantum interference. The deterministic world
 of everyday life is the public face of a quantum reality that becomes
 shareable only after decoherence and redundancy have done their work.
 
-Ledger details: the weak-boson pair is a compare-only validation row. Charged-lepton rows
-are target-anchored same-family witnesses. They are not source-emitted public
-masses. Source-only hadron masses require the OPH strong-binding backend with
-production spectral data and systematics, and empirical hadron closure checks
-use the separate
-\(e^+e^-\to\mathrm{hadrons}\) payload class.
+The support levels differ. The weak-boson pair is a benchmark check.
+Charged-lepton absolute masses use empirical anchors. Hadron masses need the
+strong-binding calculation together with production data and systematics.
+Empirical hadron checks use the standard \(e^+e^-\to\mathrm{hadrons}\)
+channel.
 
 ### Matter as a Public Achievement
 
@@ -414,16 +404,15 @@ many experimental teams turned the particle zoo into the Standard Model.
 Modern mass measurements then require colliders, detectors, lattice QCD,
 spectral fits, and global averaging groups.
 
-This is why the ledger language in the chapter is careful. The weak-boson
-pair is a validation row because the framework can be checked against known
-values. Charged-lepton absolute masses are target-anchored witnesses
-because empirical anchors enter. Hadron masses require the strong-binding
-backend because most of a proton's mass is not the bare quark masses. It is
-QCD binding energy, confinement, condensates, and dynamics. The public matter
-we touch is therefore a layered consensus object: symmetry tells us what can
-be conserved, quantum field theory tells us what can propagate, QCD tells us
-how quarks bind, decoherence tells us what becomes classical, and observer
-overlap tells us what can become a shared fact.
+This is why the chapter separates support levels. The weak-boson pair checks
+the framework against known values. Charged-lepton absolute masses use
+empirical anchors. Hadron masses require the strong-binding problem because
+most of a proton's mass is not the bare quark masses. It is QCD binding energy,
+confinement, condensates, and dynamics. The public matter we touch is therefore
+a layered consensus object:
+symmetry tells us what can be conserved, quantum field theory tells us what can
+propagate, QCD tells us how quarks bind, decoherence tells us what becomes
+classical, and observer overlap tells us what can become a shared fact.
 
 Spacetime, particles, and classical physics emerge from the screen through consistency requirements. But why these particular laws? Why these constants? Could the universe have been different?
 

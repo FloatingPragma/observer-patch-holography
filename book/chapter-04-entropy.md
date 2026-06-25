@@ -289,9 +289,14 @@ pure final state. This is the **Page curve**.
 
 For decades, no one could derive the Page curve from gravity.
 
-In semiclassical holographic models, a major breakthrough came in 2019. Including **quantum extremal surfaces**-surfaces defined by extremizing the generalized entropy, which combines area and bulk-entropy terms-reproduces the Page curve in those models.
+In semiclassical holographic models, a major breakthrough came in 2019.
+Including **quantum extremal surfaces**, which are surfaces defined by
+extremizing the generalized entropy, reproduces the Page curve in those
+models. Generalized entropy combines the area term and the bulk-entropy term.
 
-In that framework, the key is an "island"-a region *inside* the black hole that contributes to the radiation's entanglement. After the Page time, the island appears, and radiation entropy decreases.
+In that framework, an "island" is a region *inside* the black hole that
+contributes to the radiation's entanglement. After the Page time, the island
+appears, and radiation entropy decreases.
 
 This is strong evidence for holographic encoding, but it is not by itself an OPH derivation of black-hole evaporation.
 
@@ -309,7 +314,12 @@ When two observers compare notes, they share information across patch boundaries
 
 ### The Information Budget
 
-For the late-time de Sitter horizon used in the OPH capacity closure, after the selected OPH scale certificate is expressed in SI units, the bare radius-squared count is about $1.05\times10^{122}$ and the Gibbons-Hawking entropy capacity is about $3.31\times10^{122}$ in natural units, or $4.77\times10^{122}$ bits. Other cosmological horizon conventions stay in the band from $10^{122}$ to $10^{123}$. The budget is enormous but finite.
+For the late-time de Sitter horizon used in the OPH capacity closure, after the
+selected OPH scale bridge is expressed in SI units, the bare radius-squared
+count is about $1.05\times10^{122}$ and the Gibbons-Hawking entropy capacity is
+about $3.31\times10^{122}$ in natural units, or $4.77\times10^{122}$ bits.
+Other cosmological horizon conventions stay in the band from $10^{122}$ to
+$10^{123}$. The budget is enormous but finite.
 
 But most of that entropy is in black holes, inaccessible. The entropy we can actually manipulate is far less.
 
@@ -419,4 +429,5 @@ those things worth tracking.
 
 The next chapter builds the algebra of observables-the mathematical structure describing what observers can measure and how their measurements must relate across patches.
 
-Once entropy limits what can be stored, the next question is what can be asked and compared.
+Once entropy limits what can be stored, the theory has to say what can be
+asked and compared.

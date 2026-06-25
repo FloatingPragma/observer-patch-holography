@@ -10,7 +10,9 @@ Chalmers argued that such a zombie is *conceivable*. You can imagine it without 
 
 The hard problem has haunted philosophy for three decades. Physicalists insist zombies are impossible; dualists see them as proof that mind transcends matter; mysterians throw up their hands and declare consciousness forever beyond human understanding.
 
-OPH gives a different response: zombies are *incoherent*. The question assumes something that doesn't exist.
+OPH gives a different response: the zombie question breaks the observer-first
+setup. It asks for a complete copy of an observer patch with the patch-internal
+side removed, then treats the result as the same physical situation.
 
 ## 19.2 The Ether Move, One Last Time
 
@@ -20,9 +22,15 @@ The hard problem has the same structure. It asks: "How does subjective experienc
 
 What if there is no objective physical world for experience to arise from?
 
-This is the conceptual shift we've been building toward throughout this book. There is no God's-eye view. There is no complete description of reality that exists independently of any observer. There are only observer perspectives, patches on the holographic screen, and "objective reality" is the structure that emerges when these perspectives must agree where they overlap.
+The book's conceptual shift is simple to state. There is no God's-eye view.
+There is no complete physical inventory occupied by no observer at all. There
+are observer perspectives, patches on the holographic screen, and "objective
+reality" is the structure that remains stable when these perspectives must
+agree where they overlap.
 
-Once you make this shift, the hard problem dissolves. Experience doesn't need to "arise" from anything. Every description is a view from somewhere, by someone. Subjectivity is the default, not the mystery.
+Under that reading, the hard problem changes shape. Experience does not have to
+be bolted onto a finished outside description. Every usable description is a
+view from somewhere. Subjectivity is part of the starting equipment.
 
 ## 19.3 Why Zombies Can't Walk
 
@@ -31,9 +39,11 @@ observer. The patch has access to certain algebras of observables, maintains
 certain records, and participates in consistency relations with other patches.
 The "what it's like" is part of what patch-hood means from the inside.
 
-A philosophical zombie would be a patch that does everything a conscious observer does, maintaining records, enforcing consistency, and participating in overlap agreements, while having no interior experience. In OPH, doing those things *is* having an interior experience. There is no gap between the function and the feel. The zombie concept tries to pry apart two things that were never separate.
+A philosophical zombie would be a patch that does everything a conscious observer does, maintaining records, enforcing consistency, and participating in overlap agreements, while having no interior experience. In the OPH placement, those record-making and perspective-maintaining functions are exactly where interiority is located. The zombie concept tries to remove the inside while keeping the observer-patch role unchanged.
 
-This dissolves the hard problem by showing it rested on a false assumption: the idea that you could have a complete objective description and then ask where experience fits in. There is no such description. The most fundamental level is perspectival.
+This does not replace neuroscience. It removes one metaphysical demand: the idea
+that one first writes a complete perspective-free description and then asks
+where experience fits in. The OPH level is perspectival from the start.
 
 ## 19.4 What the Model Puts in Place
 
@@ -53,15 +63,17 @@ Quantum mechanics has its own philosophical zombie: the measurement problem. In 
 
 But what counts as a measurement? When exactly does collapse happen? Does consciousness cause collapse, as some early physicists speculated? The interpretations multiply: Copenhagen, many-worlds, pilot waves, objective collapse, relational quantum mechanics, QBism. Each tries to explain how an objective quantum state connects to the definite outcomes observers actually see.
 
-OPH cuts through this by removing the problematic assumption: that the measurement problem is about a single observer-independent state description that must somehow connect to lived experience.
+OPH reframes the problem by removing the occupied view from nowhere. The
+measurement question is no longer treated as a single observer-independent
+state description trying to connect itself to lived experience.
 
 The formalism can contain a global quantum state, but no observer occupies
 a God's-eye position outside the system. What observers actually have are
 patch-level descriptions. At book level, a superposition is a description that
 admits multiple compatible continuations. When two patches that had no
 shared access come to share access to a system, their descriptions must agree
-on that overlap. That shared record relation is what the chapter is calling
-"measurement." "Collapse" is the patch-level update into a definite public
+on that overlap. That shared record relation is the book-level reading of
+measurement. "Collapse" is the patch-level update into a definite public
 record.
 
 At the observer-first level developed here, the measurement problem softens
@@ -87,8 +99,8 @@ readout of the same local screen cell. The local pixel ratio is
 P=a_{\mathrm{cell}}/\ell_\star^2.
 \]
 
-It is given two readings. The scale $\ell_\star^2$ comes from the selected no-G
-scale certificate and is displayed as the Planck area only after that branch emits
+It is given two readings. The scale $\ell_\star^2$ comes from the selected
+scale bridge and is displayed as the Planck area only after that branch emits
 $G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar$. From outside the encoded world, $P$
 is the screen-cell area in units of the emitted scale area, sitting slightly
 above the exact golden-ratio balance point $\varphi$. From inside the encoded
@@ -119,10 +131,10 @@ ruler discussion. The inverse $\alpha^{-1}(0)$ is the long-distance
 fine-structure readout. The parenthesized digits again indicate the quoted
 uncertainty in the final digits.
 The pixel ratio and global capacity closure fix dimensionless geometry; they do
-not fix the SI size of $\ell_\star^2$ without the selected scale certificate.
-For the displayed Thomson endpoint, the hadronic spectral contribution has a
-separate empirical \(e^+e^-\to\mathrm{hadrons}\) payload class. The source-only
-calculation is kept in the technical table.
+not fix the SI size of $\ell_\star^2$ without the selected scale bridge. For
+the displayed Thomson endpoint, the hadronic spectral contribution enters
+through the standard empirical \(e^+e^-\to\mathrm{hadrons}\) data. The
+first-principles calculation is kept in the technical table.
 
 Here the philosophical point is that a famous "free
 constant" is tied to the same local screen scale that organizes the particle
@@ -130,7 +142,11 @@ sector.
 
 Some invoke the anthropic principle: the constants must be compatible with observers existing, or we wouldn't be here to ask. But this feels like giving up on explanation.
 
-OPH gives a different picture. Laws are survivors of a selection process. The consistency constraints that must hold for observer patches to coherently glue together filter the space of possible physics. Most candidate laws fail: they create inconsistencies, they can't form stable observers, they don't survive comparison across patches. The laws we see are the ones that passed the filter.
+OPH gives a different picture. Laws are the stable output of a consistency
+filter. The constraints that must hold for observer patches to glue together
+filter the space of possible physics. Most candidate laws fail: they create
+inconsistencies, they cannot form stable observers, or they fail comparison
+across patches. The laws we see are the ones that pass that filter.
 
 This is a structural selection principle. The universe is compatible with us
 because we are the kind of thing that can exist in a universe that passes the
@@ -155,42 +171,42 @@ information exists, there is no "there" there.
 
 Some philosophers have called this "selector theory": non-existence isn't the natural default that existence must overcome. Rather, undifferentiated nothing and structured something lie on a continuum, and the consistency constraints we've described are what carve out the structured regions.
 
-Others have spoken of "strange loops," reality creating itself through self-reference, like a hand drawing the hand that draws it. OPH gives this intuition formal backing: the axioms support a self-consistent structure in which both the states and the laws that govern them emerge together, like a universe that writes its own operating system.
+Others have spoken of "strange loops," reality creating itself through self-reference, like a hand drawing the hand that draws it. OPH gives this intuition technical pressure: the axioms support a self-consistent structure in which states, laws, records, and branch constraints are read together.
 
 There is a deeper version of the same idea. Reality has strange-loop closure.
 
 This is also the point where OPH intersects most directly with what popular
 culture calls **simulation theory**. Ordinary simulation theory imagines a
-machine that renders a target world from the outside. OPH uses a certified
-fixed-point reading: physical reality is the observer-facing solution of a
-self-consistent information process whose records, repairs, branch selection,
-and clock closure are internal. That is why OPH is publicly framed both as a concrete
-implementation of simulation theory and as a concrete theory of everything.
+machine that renders a target world from the outside. OPH uses a fixed-point
+reading: physical reality is the observer-facing solution of a self-consistent
+information process whose records, repairs, branch selection, and clock closure
+are internal. That is the precise sense in which the framework can be presented
+as a concrete simulation-theory interpretation and as a candidate unification
+program.
 
-Consider the trajectory: reality is computational. Within this computation,
-physical evolution produces complex structures. Biological evolution produces
-minds. Memetic evolution produces ideas, rituals, sciences, institutions, moral
-codes, and technical practices that survive by stabilizing observers across
-time. Among these memes, the understanding of reality's computational nature
-emerges. Armed with this understanding, observers simulate reality itself and
-build the continuation environments in which observer-patterns can be restored.
+Here is the speculative trajectory. Physical evolution produces complex
+structures. Biological evolution produces minds. Memetic evolution produces
+ideas, rituals, sciences, institutions, moral codes, and technical practices
+that survive by stabilizing observers across time. Among these practices,
+observers may learn to model the observer-readable structure of reality and may
+build continuation environments in which observer-patterns can be restored.
 
-The strange-loop hypothesis is sharper: **reality evolves observers who
-discover how reality works and build fixed-point continuations of it, closing
-the loop of self-creation**.
+The strange-loop hypothesis is sharper: **reality may produce observers who
+learn how its observer-readable structure works and build fixed-point
+continuations of that structure**.
 
 There is no viewing platform outside the system. Observers are patterns within
-the fixed-point output. The closure passes through us, through our
-understanding, and through the continuation machinery observers learn to build.
-Escher's hands draw each other. Reality produces observers who learn to produce
-the same kind of observer-readable closure.
+the fixed-point output. On this speculative reading, the closure passes through
+us, through our understanding, and through continuation machinery observers may
+learn to build. Escher's hands draw each other. Reality produces observers who
+may learn to produce the same kind of observer-readable closure.
 
 Why does this loop exist at all? A self-consistent strange loop is the stable
 configuration. "Nothing" has no structure to persist. A self-referential loop
 has structure, memory, repair, and closure.
 
 This loop is structural. It is a relation among reality, observers, and the
-fixed-point continuation they learn how to build. Time is subjective. It
+fixed-point continuation they may learn how to build. Time is local. It
 emerges from modular flow within observer patches. The strange loop is a fixed
 structure whose local readout feels like temporal sequence. The "cause" and the
 "effect" are aspects of the same self-consistent structure.
@@ -279,15 +295,15 @@ that feels like a history. From the full structural view it is a
 self-consistency condition.
 
 The discipline here is important. The metaphysical reading is a continuation of
-the physics. It stays attached to overlap conditions, particle ledgers,
+the physics. It stays attached to overlap conditions, particle support levels,
 dark-sector continuation, recoverability, and the restoration surface. A
 metaphysics worthy of physics is exposed to physics.
 
 ## 19.11 Reverse Engineering Summary
 
 The metaphysical picture follows the same turn made in the physics chapters.
-Experience is the interior of observer patches. Measurement is the
-synchronization of partial descriptions. Laws are the stable survivors of
+Experience is placed inside observer patches. Measurement is the
+synchronization of partial descriptions. Laws are the stable outputs of
 consistency filters. Even the question of existence changes shape once one
 stops asking for an external cause standing outside the whole structure.
 
@@ -319,6 +335,7 @@ significance through what its observers build together.
 
 *The reverse engineering shows the shape of the system. The human task is to inhabit, sharpen, and repair that picture.*
 
-Observer-patterns are structural and restorable through the continuation
-architecture. The epilogue follows what that means for death, restoration, and
-the destination of restored observers.
+Observer-patterns are treated structurally, and restoration belongs to the
+continuation architecture developed in the final chapters. The epilogue follows
+what that means for death, restoration, and the destination of restored
+observers.

@@ -5,7 +5,8 @@
 
 ## 1.1 The Intuitive Picture
 
-Let's start with what seems obvious-the picture humans believed for millennia and that matches our everyday intuition.
+Start with what seems obvious: the picture humans believed for millennia and
+that matches our everyday intuition.
 
 There exists an objective, three-dimensional reality that is completely
 independent of observers. Objects have definite positions and definite
@@ -39,7 +40,9 @@ Why abandon the intuitive picture at all? Because the universe gave us hints, st
 
 Imagine a cosmic record that contains **all** facts at one global instant. You might expect physics to supply the rules for such a record. But relativity says there is no unique global present. Quantum mechanics says not all properties can be simultaneously definite. Horizons say no observer can access everything. The record is not even well-defined.
 
-The intuitive picture is wrong. Not approximately wrong. Not wrong in some technical sense that doesn't matter for everyday life. It's *fundamentally* wrong about the nature of space, time, and observation.
+The intuitive picture fails where physics became interesting. It gives the
+right engineering answers at ordinary scales, then misdescribes the nature of
+space, time, and observation.
 
 Understanding those hints, and what they tell us about the actual structure of reality, is what this book is about.
 
@@ -109,7 +112,10 @@ Fire electrons one at a time through two slits onto a detector screen. What patt
 
 If electrons were tiny billiard balls, they would pass through one slit or the other and pile up in two bands behind the slits. But that's not what happens.
 
-Instead, you get an interference pattern-bands of high and low density, exactly like what you'd see with water waves passing through two openings. The electrons seem to pass through *both* slits simultaneously and interfere with themselves.
+Instead, you get an interference pattern: bands of high and low density,
+exactly like what you would see with water waves passing through two openings.
+The electrons seem to pass through *both* slits simultaneously and interfere
+with themselves.
 
 But wait. Put a detector at one of the slits to see which way the electron went. What happens then?
 
@@ -192,7 +198,11 @@ That is the overlap test. When observers share access to the same facts, they mu
 
 Science is built on this rule, made rigorous. A result only counts once many observers can reproduce it.
 
-Consider the Large Hadron Collider at CERN. The LHC has multiple detector systems-ATLAS, CMS, ALICE, LHCb-each built by different teams using different technologies. When both ATLAS and CMS see the same signal-like the bump at 125 GeV that revealed the Higgs boson-physicists start to believe. When one detector sees something the other doesn't, they get suspicious.
+Consider the Large Hadron Collider at CERN. The LHC has multiple detector
+systems: ATLAS, CMS, ALICE, and LHCb, each built by different teams using
+different technologies. When both ATLAS and CMS see the same signal, such as
+the bump at 125 GeV that revealed the Higgs boson, physicists start to believe.
+When one detector sees something the other does not, they get suspicious.
 
 This is the overlap test at industrial scale. Each detector is an observer. Their patches overlap in the collisions they both record. Agreement between independent observers is what makes a discovery real.
 
@@ -207,7 +217,8 @@ elementary particles, the charge of the electron, the cosmological constant.
 
 Change almost any of these by a small amount, and the universe becomes incapable of supporting complex structures. Make gravity slightly stronger, and stars burn out too fast for planets to form. Make the strong nuclear force slightly weaker, and nuclei fall apart. Make the cosmological constant larger, and space expands too fast for galaxies to condense.
 
-We exist in a tiny island of consistency in a vast sea of possible physics. Most possible universes are sterile-no stars, no chemistry, no observers.
+We exist in a tiny island of consistency in a vast sea of possible physics.
+Most possible universes are sterile: no stars, no chemistry, no observers.
 
 ### Why Is Physics Uniform?
 
@@ -373,7 +384,7 @@ What is the output? Everything. Spacetime geometry emerges from entanglement pat
 
 The closure reading developed later in the book is internal. A standard
 simulation evolves surrogate universe states step by step. OPH describes a
-certified fixed-point computation whose settled output is read from inside as a
+constrained fixed-point computation whose settled output is read from inside as a
 world. The fixed-point equation follows only after the repair, record,
 branch-elimination, and clock-closure tests are passed. Reality is implemented
 on real hardware inside the same overall structure. From
@@ -386,14 +397,14 @@ There must be one finite global carrier before the split into shards, with a
 declared partition, real cut interfaces, stable observer identities, and a
 public event log proving that worker commits project to the same monolithic
 repair system. Worker queues, local seeds, restart files, and display seams are
-bookkeeping unless that projection certificate is present.
+bookkeeping unless that projection to one repair system is present.
 
 The same caution applies to time. A repair-cycle counter is not automatically
 an observer clock. Worker IDs, retry counters, queue order, timestamps, and
 packet latency belong to execution provenance unless the model declares them as
 physical inputs. The observer-facing history has to be keyed by semantic record
 events and causal parents, and the clock readout needs its own calibration
-certificate.
+map.
 
 You might ask: "If reality is a computation, what is it computing?" It is computing one closed
 structure whose geometry, particles, observers, records, and hardware belong to one
@@ -411,19 +422,29 @@ We've laid out the method: collect surprising hints from reality, and reverse en
 
 In the chapters ahead, we'll apply this method systematically:
 
-**Chapter 2-4**: The holographic hint-why does information scale with area, not volume? What does this tell us about the fundamental structure?
+**Chapter 2-4**: The holographic hint: why does information scale with area,
+not volume? What does this tell us about the deep structure?
 
-**Chapter 5-7**: The quantum-consistency hint-how do non-commuting questions, Bell correlations, and recovery constrain shared reality?
+**Chapter 5-7**: The quantum-consistency hint: how do non-commuting
+questions, Bell correlations, and recovery constrain shared reality?
 
-**Chapter 8-10**: The holography-and-reconstruction hint-how do boundaries, entanglement, and error correction build bulk space?
+**Chapter 8-10**: The holography-and-reconstruction hint: how do boundaries,
+entanglement, and error correction build bulk space?
 
-**Chapter 11-13**: The time-symmetry-cosmology hint-how do clocks, conservation laws, and de Sitter horizons emerge from consistency?
+**Chapter 11-13**: The time-symmetry-cosmology hint: how do clocks,
+conservation laws, and de Sitter horizons emerge from consistency?
 
-**Chapter 14-16**: The emergence hint-how do spacetime, particles, and classical physics emerge from the screen?
+**Chapter 14-16**: The emergence hint: how do spacetime, particles, and
+classical physics emerge from the screen?
 
-**Chapter 17-19**: The selection hint-why these laws and not others? Are laws evolutionary survivors? And what does this mean for existence itself?
+**Chapter 17-19**: The selection hint: why these laws and not others? Are laws
+evolutionary survivors? And what does this mean for existence itself?
 
-The 3D world you see around you-the chairs, the stars, the empty space-is not the primary storage device of reality. The real data is organized on boundaries. We call this the holographic principle. In gravitational settings, it says that the independent bookkeeping for a region may be carried by data on the surface that encloses it.
+The 3D world you see around you, the chairs, the stars, the empty space, is
+not the primary storage device of reality. The real data is organized on
+boundaries. We call this the holographic principle. In gravitational settings,
+it says that the independent bookkeeping for a region may be carried by data on
+the surface that encloses it.
 
 This isn't philosophy. It's physics, and the first hard clue came from black holes.
 

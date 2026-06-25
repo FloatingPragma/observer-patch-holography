@@ -57,7 +57,7 @@ If the accessible checkpoint is restored, the exposed interfaces are kept the
 same, and the subsequent updates follow the same path, then the future
 accessible statistics match exactly or within a controlled error.
 
-That is striking. It says a meaningful form of restoration is part of the
+That matters. It says a meaningful form of restoration is part of the
 fixed-cutoff framework. Transplantation is the engineering task that moves an
 observer-pattern into an engineered environment and treats it as the same
 continuing subject. The issue is the interface between one recovered interior
@@ -69,9 +69,9 @@ The philosophical weight of this is easy to miss if one hears only the word
 "backup." The interesting question is not digital storage as such. The
 interesting question is continuity.
 
-Time is modular flow attached to the observer's restricted state. The next
-moment for an observer is the next step in that flow. So if a checkpoint can be
-restored under the right conditions, the real issue is whether that restored
+Time is modular flow attached to the observer's restricted state. The following
+moment for an observer is the following point in that flow. If a checkpoint can
+be restored under the right conditions, the real issue is whether that restored
 pattern carries the same continuation of the observer.
 
 That question is not purely literary or religious. It is an

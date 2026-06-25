@@ -44,12 +44,11 @@ to meet. A successful reverse-engineered architecture must explain why the
 symptoms cluster. It must reduce the number of arbitrary knobs. It must
 respect the known test suite. It must explain why legacy effective
 descriptions worked where they did. It must make failures local, not global:
-when an extension remains assumption-dependent, that claim tier must be visible rather
-than hidden.
+when an extension remains assumption-dependent, the text must show that status.
 
-This is why the book keeps returning to ledgers and claim labels. A ledger
-is a way to avoid overclaiming. It records what was derived, what was
-validated, what was anchored by empirical input, and what remains a
+This is why the book keeps returning to support labels. A support label
+avoids overclaiming. It records what was derived, what was checked against
+known values, what was anchored by empirical input, and what remains a
 continuation. A reverse engineer who marks every inference as certain is not
 being bold. They are breaking the method. The discipline is to keep the
 working map connected to the evidence trail.
@@ -234,15 +233,15 @@ related, but none should be collapsed into the others.
 A common intuition says that if information is damaged locally, it is gone.
 Quantum error correction shows why that intuition is too small. Information
 can be stored nonlocally in a pattern. Damage to a part of the carrier does
-not necessarily damage the logical message. What matters is whether the error
-has learned the protected information and whether the remaining system
-contains enough syndrome data to repair it.
+not necessarily damage the logical message. The test is whether the error has
+learned the protected information and whether the remaining system contains
+enough syndrome data to repair it.
 
 This distinction changes how one thinks about the past. A burned document is
 gone for practical purposes. The ink patterns do not sit on the page.
 But physics does not say the information has been annihilated as a matter of
 principle. It has been dispersed into smoke, heat, photons, chemical products,
-air currents, and eventually wider correlations. Recovering it would require
+air currents, and wider correlations. Recovering it would require
 absurd control and computation. Practical impossibility is not the same as
 fundamental deletion.
 
@@ -381,7 +380,7 @@ one of the most precisely measured quantities in physics. Its inverse is near
 137, and that numerical familiarity has attracted generations of speculative
 stories. The correct discipline is harsher. Which value is being discussed?
 At what scale? In which renormalization scheme? What empirical inputs are
-used? Is the calculation source-only, target-anchored, fitted, or merely
+used? Is the calculation first-principles, empirically anchored, fitted, or merely
 numerological? OPH's use of $\alpha$ and $\alpha^{-1}$ must be read under
 those questions.
 
@@ -392,21 +391,21 @@ masses are inferred through oscillation data, cosmology, beta decay bounds,
 and model assumptions. A theory that treats all masses as the same kind of
 number is not being precise.
 
-This is why the book distinguishes validation rows, target-anchored witnesses,
-source-only rows, empirical payload rows, and assumption-dependent continuations. A
-validation row asks whether the architecture reproduces a known benchmark. A
-target-anchored witness uses an empirical target as part of the derivation or
-normalization. A source-only row is closer to a prediction because it does not
-use the target. An empirical payload row depends on external data, such as
-hadronic spectral information. An assumption-dependent continuation depends on
-assumptions whose first-principles derivation remains in a declared derivation
-lane.
+This is why the book distinguishes benchmark checks, empirically anchored
+witnesses, first-principles predictions, externally supplied data, and
+assumption-dependent continuations. A benchmark check asks whether the
+architecture reproduces a known value. An empirically anchored witness uses a
+measured target as part of the derivation or normalization. A first-principles
+prediction is stronger because it does not use the target. Externally supplied
+data include hadronic spectral information. An assumption-dependent
+continuation depends on assumptions whose first-principles derivation is work
+in progress.
 
 The reader should treat these labels as part of the theory, not as legal
 small print. They tell you how much weight each line can carry. They also
 make the project stronger. A theory with visible support labels can improve
-without pretending that every claim has the same claim tier. It can downgrade,
-promote, or revise rows as proofs and evidence change.
+without pretending that every claim has the same support status. It can revise
+entries as proofs and evidence change.
 
 The human chain behind constants is enormous. Metrology institutes, collider
 groups, atomic interferometry labs, spectroscopy teams, lattice QCD
@@ -430,7 +429,7 @@ consistency among many patches. That is almost the opposite of solipsism. The
 individual observer is not sovereign. The individual observer is constrained
 by every interface where records can be compared. A hallucination, a detector
 fault, and a genuine event can all be experiences inside some patch. They do
-not have the same public claim tier because they do not survive the same
+not have the same public support because they do not survive the same
 cross-checks.
 
 This is close to the actual practice of science. A single lab result is not
@@ -493,7 +492,7 @@ measured. If $c$ appears, relativity is converting space and time. If
 $\hbar$ appears, quantum action is involved. If $k_B$ appears, entropy and
 temperature units are being related. If $G$ appears, gravity is present.
 
-Fifth ask for claim tier. Is the equation an established result from prior
+Fifth ask for support status. Is the equation an established result from prior
 physics? A definition? A derived OPH relation? A conjectural continuation? A
 numerical consistency check? The book should make that visible. If the label is
 missing, the reader should demand it.
@@ -575,7 +574,7 @@ Chapter 18, follow the synthesis across the whole stack. In Chapter 19, follow
 metaphysics downstream of physics. In the epilogue, follow restoration as an
 engineering problem with explicit interfaces.
 
-The book has done its job when the reader can audit the architecture of
+The book has done its job when the reader can inspect the architecture of
 reality.
 
 ## Interlude 13: The Prose Contract
@@ -693,8 +692,8 @@ state spaces carry the real theorem content.
 The Tannaka-Krein and generation-count diagrams are closer to the technical
 program. They remind the reader that gauge structure can be reconstructed
 from representation data, and that generation claims have specific windows
-and conditions. Their edge is claim tier: not every row in the particle program
-has the same theorem grade.
+and conditions. Their edge is support status: not every entry in the particle
+program has the same theorem status.
 
 The modular-flow, null-blowup, and Newton-limit diagrams form a sequence.
 They show how cap flow can become a local geometric clock, how a curved
@@ -707,24 +706,24 @@ are orientation devices. They tell the reader where to look in the prose.
 They should never replace the prose. A diagram is useful when it makes the
 reader ask a sharper question about the equation next to it.
 
-## Interlude 16: Audit Handles
+## Interlude 16: Load-Bearing Handles
 
 A serious theory should expose its load-bearing joints. OPH does that through
-explicit audit handles.
+explicit handles.
 
 The mathematical handles are the overlap-consistency axioms, recovery
 conditions, modular-flow route to Lorentz and Einstein behavior, and
 Tannaka-Krein reconstruction of the compact gauge structure.
 
-The phenomenological handles are particle claim rows, source-only outputs,
-empirical payload classes, the dark-sector continuation, neutrino assumptions,
+The phenomenological handles are particle support entries, first-principles
+outputs, externally supplied data, the dark-sector continuation, neutrino assumptions,
 quark-sector scheme dependence, and uncertainty analysis.
 
 The conceptual handles are observer-first language, operational structure,
 strange-loop closure, and restoration through interfaces.
 
 The editorial handles are the alignment among PDF, book source, diagrams,
-website text, public refresh surfaces, and claim ledgers.
+website text, public refresh surfaces, and claim-status tables.
 
 Those handles make OPH easy to inspect. A theory about consistency should
 welcome hard consistency checks.
@@ -755,9 +754,9 @@ with extraordinary precision. At higher energies it runs. The inverse value
 near 137 is culturally famous, but the fame is a trap. Without scale,
 scheme, uncertainty, and input role, a numerical match means little.
 
-OPH's claim-ledger language exists to keep these distinctions visible. A source-only
-row is different from a validation row. A target-anchored witness is
-different from a prediction. A hadronic empirical payload is different from a
+OPH's support-boundary language exists to keep these distinctions visible. A
+first-principles prediction is different from a benchmark check. An empirically
+anchored witness is different from a prediction. Hadronic spectral input is different from a
 first-principles quark-mass calculation. The reader should be suspicious of
 any presentation, including OPH's, if those distinctions disappear.
 
@@ -788,11 +787,11 @@ Model requires the right category, duals, tensor structure, compatibility
 under refinement, and physical selection criteria. The theorem is a bridge,
 not a magic door that emits particle physics automatically.
 
-Modular theory says an algebra-state pair carries a canonical flow. That is
-profound for time. But turning modular flow into experienced time, Lorentz
-boosts, and gravitational dynamics requires the right states, regions,
-smooth limits, and thermodynamic variations. Again, the bridge is real, and
-the crossing has conditions.
+Modular theory says an algebra-state pair carries a canonical flow. That
+matters for time. Turning modular flow into experienced time, Lorentz boosts,
+and gravitational dynamics requires the right states, regions, smooth limits,
+and thermodynamic variations. Again, the bridge is real, and the crossing has
+conditions.
 
 Quantum error correction says logical information can be protected in
 nonlocal correlations. Holography uses similar structures. But spacetime is
@@ -817,7 +816,7 @@ length serves the reader: historical context, symbol explanations, claim
 labels, diagrams placed where they reduce cognitive load, and appendices that
 let a reader recover the thread after a difficult chapter.
 
-That is the purpose of the long form. The chapter-ledger appendix lets readers
+That is the purpose of the long form. The chapter guide lets readers
 revisit each chapter's symbols and human lineage. The concept glossary gives
 quick local definitions. The extended interludes explain how major bridges
 should and should not be read. The chapter illustrations make the structure
@@ -826,7 +825,7 @@ visible without pretending the diagram is the proof.
 Length has a practical meaning here. It gives the book room for examples,
 historical credit, and reader support. The goal is to be long enough that a
 serious reader can see what is being claimed, what is inherited, what is
-assumption-dependent, and what remains in the technical derivation ledger.
+assumption-dependent, and what remains in the technical derivation notes.
 
 ## Interlude 20: How a Public Fact Gets Built
 
@@ -886,9 +885,9 @@ backgrounds, blind selections, combine channels, estimate systematic
 uncertainties, and compare independent experiments. ATLAS and CMS did not
 share one eye. They built separate record chains that agreed.
 
-That is why particle tables deserve claim labels. A mass value can be an
-experimental measurement, a derived structural output, a validation row, a
-target-anchored witness, or an empirical closure check. Those categories are
+That is why particle tables deserve support labels. A mass value can be an
+experimental measurement, a derived structural output, a benchmark check, an
+empirically anchored witness, or an empirical closure check. Those categories are
 different ways of saying how the fact chain is built. A reader who knows the
 category knows what kind of stress the claim can bear.
 
@@ -963,10 +962,10 @@ The book should read like a map of that inheritance. When it introduces a
 claim, the reader should be able to see the relay behind it.
 
 This relay also explains the book's precision around open particle derivations.
-The fine-structure branch, electroweak rows, Higgs/top surface, neutrino
-branch, quark sector, strong-CP boundary, and hadron payloads do not all have
-the same claim tier. Some rows are structural. Some are compare-only validation rows. Some
-depend on empirical payloads. Some remain in declared derivation lanes. A
+The fine-structure branch, electroweak relations, Higgs/top relation, neutrino
+branch, quark sector, strong-CP boundary, and hadron calculations do not all
+have the same support status. Some entries are structural. Some are benchmark
+checks. Some depend on external data. Some remain in derivation lanes. A
 public fact built from a long chain has to show which links are welded and
 which links are scaffolds.
 
@@ -980,7 +979,7 @@ physics that constrains them.
 
 The reader can therefore treat each chapter as a fact-building exercise. What
 is the record? What is the instrument? What is the equation? What is the
-claim label? What is inherited from established physics? What does OPH add?
+support label? What is inherited from established physics? What does OPH add?
 What would break the claim? If those questions can be answered, the chapter is
 doing its job. If they cannot, the prose needs more work.
 
@@ -994,11 +993,11 @@ That is how science earns a shared world.
 
 The book ends with continuation boundaries visible. OPH has a precise
 finite-consensus package for overlap repair, quotient normal forms, and
-declared observable-level confluence. It has a support-visible
-modular-to-geometric theorem surface for the Lorentz, null-modular, and local
+declared observable-level confluence. It has a controlled
+modular-to-geometric theorem for the Lorentz, null-modular, and local
 Einstein branch. The Standard Model reconstruction is audited by separating
-structural theorems, quantitative theorem surfaces, validation rows,
-source-only boundaries, and empirical closure rows.
+structural theorems, quantitative theorem statements, benchmark checks,
+first-principles boundaries, and empirical closure checks.
 
 The dark-sector continuation needs confrontation with the full cosmological
 and astrophysical data suite. Matching an acceleration scale is interesting,
@@ -1006,11 +1005,10 @@ but it is not enough. Lensing, clusters, cosmic microwave background peaks,
 large-scale structure, galaxy diversity, and precision expansion history all
 matter.
 
-The matter claim ledger needs continuous hygiene. Quark masses, hadron payloads,
+The matter support boundaries require care. Quark masses, hadron inputs,
 neutrino assumptions, and electroweak scheme choices must stay explicit. The
-selected-class quark theorem does not emit the physical strong-CP invariant or
-prove its vanishing.
-The book should not imply otherwise.
+selected quark theorem does not emit the physical strong-CP invariant or
+prove its vanishing. The book should not imply otherwise.
 
 The observer and restoration discussions use the fixed-cutoff
 checkpoint/restoration theorem as their theorem surface. Stronger continuation

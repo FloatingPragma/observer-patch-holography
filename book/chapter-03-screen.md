@@ -20,13 +20,16 @@ This seems so obvious that nobody questioned it for most of physics history.
 
 And it's wrong.
 
-The universe gave us a hint-a spectacular, unexpected hint-that information doesn't work this way at all. The hint came from the strangest objects in the cosmos: black holes.
+The universe gave us a spectacular, unexpected hint that information does not
+work this way at all. The hint came from the strangest objects in the cosmos:
+black holes.
 
 ## 3.2 The Teacup Problem: The Hint
 
 In 1972, a graduate student named Jacob Bekenstein walked into John Wheeler's office at Princeton with a simple thought experiment.
 
-Imagine a cup of hot tea. The tea has entropy-it is hot and messy, with many microscopic arrangements of molecules that produce the same macroscopic state.
+Imagine a cup of hot tea. The tea has entropy: it is hot and messy, with many
+microscopic arrangements of molecules that produce the same macroscopic state.
 
 Lower the cup into a black hole.
 
@@ -38,19 +41,27 @@ If a black hole can erase entropy, the Second Law is wrong.
 
 ### Bekenstein's Bold Response
 
-Bekenstein proposed that black holes must have entropy. When the tea falls in, the entropy doesn't disappear-it shows up as an increase in the black hole's own entropy.
+Bekenstein proposed that black holes must have entropy. When the tea falls in,
+the entropy does not disappear. It shows up as an increase in the black hole's
+own entropy.
 
 But where could a black hole's entropy hide?
 
-Black holes are supposed to be simple. In general relativity, a black hole is fully described by just three numbers: its mass, its electric charge, and its spin. Wheeler called this the "no-hair theorem"-black holes have no distinguishing features.
+Black holes are supposed to be simple. In general relativity, a black hole is
+fully described by just three numbers: its mass, its electric charge, and its
+spin. Wheeler called this the "no-hair theorem": black holes have no
+distinguishing features.
 
 So where are the microstates? Where is the internal structure that entropy requires?
 
-Bekenstein looked at the only thing that changes when you throw stuff in: the size of the event horizon. He made a guess-an educated guess, constrained by dimensional analysis and theoretical consistency-that the entropy is proportional to the **area** of the horizon:
+Bekenstein looked at the only thing that changes when you throw stuff in: the
+size of the event horizon. He made an educated guess, constrained by
+dimensional analysis and theoretical consistency: the entropy is proportional
+to the **area** of the horizon:
 
 $$S \propto A$$
 
-Not the volume. The area.
+The volume does not appear. The area does.
 
 ### Hawking Confirms It
 
@@ -58,7 +69,10 @@ Stephen Hawking was skeptical. He set out to prove Bekenstein wrong by showing b
 
 He studied quantum fields near a black hole horizon. What he found shocked him.
 
-The vacuum of quantum field theory seethes with virtual particle pairs that pop into existence and annihilate. Near a horizon, one particle can fall in while the other escapes. To a distant observer, the black hole emits radiation-**Hawking radiation**.
+The vacuum of quantum field theory seethes with virtual particle pairs that pop
+into existence and annihilate. Near a horizon, one particle can fall in while
+the other escapes. To a distant observer, the black hole emits radiation,
+**Hawking radiation**.
 
 Hawking calculated the temperature:
 
@@ -82,7 +96,9 @@ denominator.
 
 **The hint**: Information scales with area, not volume.
 
-**The lesson**: The intuitive picture-that information content scales with the size of a container-is fundamentally wrong. Black-hole entropy and related bounds push strongly toward a boundary-sensitive description.
+**The lesson**: The intuitive picture that information content scales with the
+size of a container fails for gravitational capacity. Black-hole entropy and
+related bounds push strongly toward a boundary-sensitive description.
 
 **The first-principles reframing**: The 3D world we experience may not be the fundamental level. The bulk may be emergent and reconstructed from boundary data.
 
@@ -110,7 +126,7 @@ Chapter 8 returns to holography in full. For the present chapter, the conclusion
 
 ## 3.5 Black Holes and Horizons
 
-Let's make sure we understand what a horizon is-and why every observer has one.
+A horizon is the boundary of what one observer can ever check.
 
 ### The Event Horizon
 
@@ -167,7 +183,9 @@ In the symmetric cases used to motivate this construction, the screen is natural
 
 Light travels at the same speed in all directions. If you stand at a point and wait, the light that can reach you from a time $t$ ago forms a sphere of radius $ct$ around you.
 
-Your past light cone-the set of events that could have influenced you-has spherical cross-sections. Your future light cone also has spherical cross-sections.
+Your past light cone, the set of events that could have influenced you, has
+spherical cross-sections. Your future light cone also has spherical
+cross-sections.
 
 In those symmetric light-cone constructions, the sphere is a consequence of the geometry of causality.
 
@@ -175,7 +193,9 @@ In those symmetric light-cone constructions, the sphere is a consequence of the 
 
 The cosmic microwave background (CMB) illustrates this beautifully.
 
-The CMB is light from about 380,000 years after the Big Bang, when the universe cooled enough for atoms to form and light to travel freely. This light appears as a sphere around us-the **last scattering surface**.
+The CMB is light from about 380,000 years after the Big Bang, when the universe
+cooled enough for atoms to form and light to travel freely. This light appears
+as a sphere around us: the **last scattering surface**.
 
 We're at the center of this sphere, but so is everyone else. Every observer in the universe sees themselves at the center of their own CMB sphere.
 
@@ -335,11 +355,11 @@ physical.
 
 *The patch federation does the work. The screen is the chart. Reality is what observer patches agree on.*
 
-One concrete way to picture this is as a finite quantum machine. The specialist
-literature gives that family of pictures names such as quantum link models, but
-the image itself has to be handled carefully. The sphere is a working chart for
-what an observer-facing cut exposes. The physical picture is a federation of
-finite patches with shared boundary data.
+One concrete model is a finite quantum machine. The specialist literature gives
+that family of pictures names such as quantum link models, but the image itself
+has to be handled carefully. The sphere is a working chart for what an
+observer-facing cut exposes. The physical picture is a federation of finite
+patches with shared boundary data.
 
 This chart does real work. Caps and collars on the sphere identify the local
 questions an observer can ask. Overlaps between caps identify the data two
@@ -349,10 +369,10 @@ The finite patch federation supplies the machine underneath that chart.
 
 ### A Plausible Hardware Sketch
 
-The hardware itself does not need center stage. What matters is the feel of the
-architecture. Imagine a federation of finite patches with exposed overlap
-ports. Short local links connect neighbors. Local rules keep records stable,
-move correlations across the interfaces, and let nearby patches stay in sync.
+The hardware itself does not need center stage. The useful picture is the
+architecture: a federation of finite patches with exposed overlap ports. Short
+local links connect neighbors. Local rules keep records stable, move
+correlations across the interfaces, and let nearby patches stay in sync.
 
 That picture turns the screen from a metaphor into a regulator chart over a
 finite patch machine. It can be rebuilt in miniature with ordinary qubits,
@@ -393,7 +413,7 @@ structure, and the branch equations.
 
 ## 3.12 The Reverse Engineering
 
-Let us trace the reverse engineering explicitly. The intuitive picture says
+The reverse-engineering trail is short. The intuitive picture says
 information scales with volume and space is the container. The hint is that
 black-hole entropy scales with area, with gravitational entropy bounds pushing
 toward boundary-limited information. The lesson is that a boundary-first
@@ -408,11 +428,11 @@ The holographic principle enters as the strongest explanatory reading of the hin
 
 ## 3.13 Pixel Limits
 
-Let's put numbers on this.
+The numbers are small enough to state directly.
 
 The Planck length is $\ell_P \approx 1.6 \times 10^{-35}$ meters-about $10^{20}$ times smaller than a proton. The Planck area is $\ell_P^2 \approx 2.6 \times 10^{-70}$ m².
 
-**The de Sitter horizon**: After the selected OPH scale certificate is expressed in SI units, the radius is $R_{dS} \approx 1.66 \times 10^{26}$ m. The bare radius-squared count is $N_{\text{patch}} \approx 1.05\times10^{122}$. The corresponding Gibbons-Hawking entropy capacity is $N_{\text{scr}} \approx 3.31\times10^{122}$ in natural units, or about $4.77\times10^{122}$ bits. Other cosmological horizon conventions stay in the band from $10^{122}$ to $10^{123}$.
+**The de Sitter horizon**: After the selected OPH scale bridge is expressed in SI units, the radius is $R_{dS} \approx 1.66 \times 10^{26}$ m. The bare radius-squared count is $N_{\text{patch}} \approx 1.05\times10^{122}$. The corresponding Gibbons-Hawking entropy capacity is $N_{\text{scr}} \approx 3.31\times10^{122}$ in natural units, or about $4.77\times10^{122}$ bits. Other cosmological horizon conventions stay in the band from $10^{122}$ to $10^{123}$.
 
 This is a truly enormous number-but it is finite. The observable universe contains a finite amount of information.
 

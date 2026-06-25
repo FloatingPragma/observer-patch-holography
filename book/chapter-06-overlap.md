@@ -99,8 +99,8 @@ The reverse-engineering question is simple: why does nature behave this way? Wha
 
 ### Objectivity Is Agreement
 
-Let's begin with a parable. Imagine you're standing on a street corner in New
-York City. You see a bright red Ferrari parked across the street, gleaming and
+Stand on a street corner in New York City and look across the road. A bright
+red Ferrari is parked there, gleaming and
 expensive, the kind of car that makes people stop and stare. A second
 observer, Bob, is standing fifty feet down the block. He sees the side profile
 and the license plate. A third observer, Charlie, is looking out of a
@@ -128,7 +128,10 @@ When information is partial, we use probability distributions. Let rho_A be Alic
 
 $$\langle O \rangle_A = \int O(s)\rho_A(s)ds = \int O(s)\rho_B(s)ds = \langle O \rangle_B$$
 
-For tree-like overlap structures, the key fact is this: if marginals agree on overlaps, you can glue them into a joint distribution. If Alice's distribution over variable X matches Bob's marginal over X, and Bob's distribution over variable Y matches Carol's marginal over Y, there is a joint distribution P(X,Y,Z) that reproduces all the marginals.
+For tree-like overlap structures, agreeing marginals can be glued into a joint
+distribution. If Alice's distribution over variable X matches Bob's marginal
+over X, and Bob's distribution over variable Y matches Carol's marginal over Y,
+there is a joint distribution P(X,Y,Z) that reproduces all the marginals.
 
 The angle brackets mean expectation value, the average result predicted for
 observable $O$. The variable $s$ labels a classical state, and $\rho_A(s)$ and
@@ -146,7 +149,8 @@ Given reduced density matrices that are pairwise consistent on overlaps, does a 
 
 Unlike the classical case, the answer can be **NO**. This is the Quantum Marginal Problem (QMP).
 
-Why can't you just glue quantum marginals together? The answer involves one of quantum mechanics' most striking features: **entanglement is monogamous**.
+Why can't you just glue quantum marginals together? The answer involves one of
+quantum mechanics' sharpest constraints: **entanglement is monogamous**.
 
 If particles A and B are maximally entangled, then A cannot also be maximally entangled with C. You can't share maximal quantum correlation with more than one partner.
 
@@ -268,7 +272,8 @@ In quantum physics, local data constrain but don't determine global data. In
 the worst case, checking consistency is computationally hard-there is no known
 efficient general algorithm to decide whether quantum marginals are compatible.
 
-This shows that quantum mechanics hides global structure in a fundamentally complex way. You can't easily deduce the whole from the parts.
+This shows that quantum mechanics hides global structure in a deeply complex
+way. You cannot easily deduce the whole from the parts.
 
 ## 6.6 A Concrete Counterexample: Three Qubits
 
@@ -369,7 +374,8 @@ That gives the theorem a direct narrative role in the book. The world does not s
 
 ## 6.8 Wigner's Friend: Consistency Between Nested Observers
 
-The consistency challenge becomes even more striking when observers themselves become part of the system.
+The consistency challenge becomes sharper when observers themselves become part
+of the system.
 
 In 1961, Eugene Wigner proposed a thought experiment that troubles physicists today.
 
@@ -413,15 +419,19 @@ The mechanism is environmental copying. A quantum system interacts with air mole
 
 Consider Schrödinger's cat. If the cat is alive, air molecules bounce off it in a certain way. Light reflects off it in a certain way. Heat radiates from it in a certain way. Each of these environmental fragments carries partial information about the cat's state.
 
-When you look at the cat, you're not accessing the cat directly-you're reading information from these environmental fragments. Many observers can read many different fragments and agree.
+When you look at the cat, you are reading information from environmental
+fragments. Many observers can read different fragments and agree.
 
-The information that gets redundantly copied is the information that becomes "objective." It's the information that survives across multiple overlaps. Quantum superpositions don't get copied this way-only certain "pointer states" that are robust against environmental interaction.
+The information that gets redundantly copied is the information that becomes
+"objective." It is the information that survives across multiple overlaps.
+Quantum superpositions do not get copied this way. Only certain pointer states
+remain stable under environmental interaction.
 
 ### The Birth of Classical Facts
 
 A classical fact is quantum information that has been copied redundantly into
 the environment, made available through multiple independent channels, and made
-robust against small perturbations.
+stable against small perturbations.
 
 The red Ferrari is classical because trillions of photons have bounced off it, carrying correlated information to many observers. In the decoherence / quantum-Darwinism picture, the cat's environmentally stable pointer-state records become effectively classical for observers, while interference between alternatives becomes inaccessible in practice.
 
@@ -467,7 +477,7 @@ This is analogous to gauge theory and geometry. Move a vector around a loop; if 
 
 ## 6.11 Formal Statement
 
-Let's state the consistency condition precisely.
+The consistency condition can be stated directly.
 
 ### Setup
 

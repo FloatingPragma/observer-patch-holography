@@ -83,6 +83,11 @@ fully, the pair carries a preferred internal flow whether or not anyone inserts
 an external master clock. The formal machinery is called
 **Tomita-Takesaki theory**.
 
+An automorphism is a reshuffling of the allowed questions that preserves their
+algebraic rules. Modular flow is a continuous family of such reshufflings,
+indexed by a parameter that behaves like time. The concrete content is that the
+observer's restricted state tells the question menu how to move.
+
 An observer with partial access does not sit in a timeless fog. The
 restriction itself orders experience into before and after. The flow depends on
 the algebra-state pair, which is why different observers can inherit different
@@ -123,7 +128,9 @@ The modular temperature works out to:
 
 $$T_{Unruh} = \frac{\hbar a}{2\pi k_B c}$$
 
-The Unruh effect isn't a separate phenomenon-it's Tomita-Takesaki theory applied to spacetime. The "time" experienced by an observer is determined by their restricted access to the quantum state.
+The Unruh effect is Tomita-Takesaki theory applied to spacetime. The "time"
+experienced by an observer is determined by their restricted access to the
+quantum state.
 
 $T_{Unruh}$ is the temperature seen by the accelerating observer. $a$ is the
 observer's proper acceleration. The constants are the same ones used in the
@@ -201,7 +208,9 @@ state into the modular generator for the patch.
 
 ### Consistency of Clocks
 
-If two observers' patches overlap, their modular times have to agree on the shared operational content. On the support-visible BW/geometric branch, that compatibility is what later supports a shared causal structure.
+If two observers' patches overlap, their modular times have to agree on the
+shared operational content. On the controlled BW/geometric branch, that
+compatibility is what later supports a shared causal structure.
 
 ### Cosmic Time
 
@@ -234,9 +243,13 @@ temperature, proportional to surface gravity.
 
 He demanded the relation hold for all local horizons.
 
-Out popped **Einstein's field equations**:
+Einstein's field equations are the geometric form of that requirement:
 
 $$R_{\mu\nu} - \frac{1}{2}R g_{\mu\nu} = 8\pi G T_{\mu\nu}$$
+
+This displayed version omits the cosmological-constant term. In OPH, the local
+Einstein branch leaves that metric-proportional term open; the global
+screen-capacity branch closes it later.
 
 Jacobson inverted the logic of physics. Usually we think of gravity as fundamental, implying thermodynamic properties for horizons. Jacobson showed the reverse: **if you assume thermodynamics is fundamental, gravity is derived.**
 
@@ -244,7 +257,10 @@ Jacobson inverted the logic of physics. Usually we think of gravity as fundament
 
 The force of the argument lies in its austerity. Jacobson does not start with planets tracing curves through a manifold. He starts with heat flow, horizon entropy, and the insistence that the same thermodynamic accounting must work in every infinitesimal causal patch. Einstein's equation is what that insistence looks like when written geometrically.
 
-Put less formally, gravity becomes horizon bookkeeping done consistently everywhere. If every tiny causal patch has to balance heat, entropy, and temperature in the same way, the spacetime metric has to bend so that the bookkeeping closes. Curvature is the public face of that accounting rule.
+In plain language, gravity becomes horizon bookkeeping done consistently
+everywhere. If every tiny causal patch has to balance heat, entropy, and
+temperature in the same way, the spacetime metric has to bend so that the
+bookkeeping closes. Curvature is the public face of that accounting rule.
 
 ## 11.8 Complexity and the Growth of Interiors
 
@@ -313,7 +329,7 @@ Start with thermal structure. Ask: what is the natural notion of time evolution?
 
 This reverses the usual logic in QFT. We do not postulate Lorentz symmetry and then discover thermal horizons; the Bisognano-Wichmann theorem shows the boost structure is encoded in modular flow.
 
-That modular-boost link is the route by which the support-visible geometric
+That modular-boost link is the route by which the controlled geometric
 branch recovers Lorentz kinematics and a universal causal speed on the screen.
 
 ### Connection to OPH
@@ -321,12 +337,12 @@ branch recovers Lorentz kinematics and a universal causal speed on the screen.
 Each observer's patch has a boundary, that boundary carries a horizon
 temperature, and the modular flow of the horizon state generates the
 observer's time evolution. Finite screen cells serve as regulators in OPH.
-The support-visible BW branch extracts the prime geometric cap pair, carries
-modular data by regularized transport, reads the modular flow as a support map
-on cap-local regions, identifies the cap-preserving conformal subgroup by
-round-cap rigidity, and fixes the $2\pi$ normalization by KMS/BW matching. On
-that branch the cap modular automorphism becomes geometric on the sphere.
-That geometric action gives the Lorentz symmetry.
+The controlled BW construction extracts the prime geometric cap pair, carries
+modular data by regularized transport, reads the modular flow as a cap-local
+support map, identifies the cap-preserving conformal subgroup by round-cap
+rigidity, and fixes the $2\pi$ normalization by KMS/BW matching. On that
+construction the cap modular automorphism becomes geometric on the sphere. That
+geometric action gives the Lorentz symmetry.
 
 ### The Speed of Light
 
@@ -347,9 +363,17 @@ The modular flow provides the time direction. Entanglement provides correlations
 
 ### Why This Matters
 
-Einstein discovered special relativity in 1905 by thinking about light and motion. QFT gives the same structure another reading: Lorentz boosts are tied to horizon thermodynamics via the Bisognano-Wichmann theorem. In OPH the same pattern appears only on the certified support-visible BW branch, where the Lorentz group shows up as the geometry of modular automorphisms on extracted caps.
+Einstein discovered special relativity in 1905 by thinking about light and
+motion. QFT gives the same structure another reading: Lorentz boosts are tied
+to horizon thermodynamics via the Bisognano-Wichmann theorem. In OPH the same
+pattern appears on the controlled BW construction, where the Lorentz group
+shows up as the geometry of modular automorphisms on extracted caps.
 
-The laws of physics look the same to all inertial observers because thermal states on wedge-shaped regions naturally evolve via boosts. In the OPH program, the universal speed emerges on the support-visible geometric branch when that modular-boost structure is carried over to the screen and then read back into bulk kinematics.
+The laws of physics look the same to all inertial observers because thermal
+states on wedge-shaped regions naturally evolve via boosts. In the OPH program,
+the universal speed emerges on the controlled geometric branch when that
+modular-boost structure is carried over to the screen and then read back into
+bulk kinematics.
 
 ## 11.10 What Time Predicts
 
@@ -357,8 +381,8 @@ The thermal-time picture does not float free of physics. Tomita-Takesaki says
 an algebra-state pair carries its own flow. The KMS condition gives that flow
 the structure of thermal equilibrium. Bisognano-Wichmann shows that modular
 time becomes an actual Lorentz boost in the wedge setting, and OPH uses the
-corresponding cap statement only after the support-visible BW branch has been
-certified. Boltzmann explains why irreversible records emerge out of reversible
+corresponding cap statement only when the controlled BW construction is in
+place. Boltzmann explains why irreversible records emerge out of reversible
 microscopic laws.
 
 The physical world fits this picture with surprising loyalty. Accelerating

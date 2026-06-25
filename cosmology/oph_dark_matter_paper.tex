@@ -226,17 +226,17 @@ F_{A,r}(\text{quotient ensemble},P_\star,N_{\mathrm{CRC}},
 \qquad
 \bar\rho_{A,r}(a)=\frac{\mathcal E_{A,r}}{a^3V_{\mathrm{com}}},
 \]
-with refinement compatibility.  Until this exists, cosmological abundance is a
-conditional source state, not a source-only OPH prediction.
+with refinement compatibility.  Without that receipt, cosmological abundance is a
+conditional source state rather than a source-only OPH prediction.
 
 \begin{center}
 \begin{tabular}{@{}ll@{}}
 \toprule
-Receipt & Current label \\
+Receipt & Claim label \\
 \midrule
-\texttt{PACKET\_MASS\_SHELL\_RECEIPT} & open finite-parent evidence gate \\
-\texttt{TOTAL\_STRESS\_CLOSURE\_RECEIPT} & open finite-parent evidence gate \\
-\texttt{RETARDED\_RESPONSE\_RECEIPT} & open response-realization gate \\
+\texttt{PACKET\_MASS\_SHELL\_RECEIPT} & finite-parent evidence gate \\
+\texttt{TOTAL\_STRESS\_CLOSURE\_RECEIPT} & finite-parent evidence gate \\
+\texttt{RETARDED\_RESPONSE\_RECEIPT} & response-realization gate \\
 \texttt{B\_A\_KERNEL\_RECEIPT} & conditional on response and mode calibration \\
 \texttt{ANOMALY\_ABUNDANCE\_SOURCE\_RECEIPT} & open selector gate \\
 \bottomrule
@@ -2484,6 +2484,39 @@ translation-invariant and rotation-invariant linear response kernel.  Its
 finite mode-basis matrix is \(K_{A,r}^{(\rho)}(a)\), and division by the equilibrium background density gives
 \(B_{A,r}(a)\).  The scalar \(B_A(k,a)\) is the diagonal, mode-decoupled special case after the
 commutator and off-diagonal leakage receipts pass. \(\square\)
+
+The scalar reduction is accepted only on the physical projectors supplied by the scale bridge.  In
+projector notation,
+\[
+  K_{A,r;IJ}^{(\rho)}(a)=P_{r,I}\mathcal K_{A,r}^{(\rho)}(a)P_{r,J},
+  \qquad
+  B_{A,r;IJ}(a)=
+  \frac{\bar\rho_b(a)}{\bar\rho_{A,\mathrm{eq}}(a)}K_{A,r;IJ}^{(\rho)}(a).
+\]
+Reporting a scalar \(B_A(k,a)\) requires
+\[
+  \epsilon_{\mathrm{off}}(a)
+  =
+  \frac{
+    \left(\sum_{I\ne J}|P_{r,I}\mathcal K_A P_{r,J}|^2\right)^{1/2}
+  }{
+    |\mathcal K_A|+\epsilon_0
+  }
+  \le \bar\epsilon_{\mathrm{off}}
+\]
+and, inside every degenerate projector,
+\[
+  P_{r,I}\mathcal K_A P_{r,I}=b_I(a)P_{r,I}+E_I,\qquad
+  \frac{|E_I|}{|b_I|+\epsilon_0}\le\bar\epsilon_{\mathrm{iso}}.
+\]
+The evidence bundle records \(\texttt{mode\_basis\_hash}\),
+\(\texttt{background\_hash}\), \(\texttt{clock\_hash}\), and
+\(\texttt{scale\_bridge\_hash}\).  \(\rho_A(a)\), \(B_A(k,a)\), and
+\(\Gamma_{\mathrm{rec}}(k,a)\) must share one frozen geometry and clock generation.  A transition
+matrix eigenvalue per repair cycle is a diagnostic until a physical interval \(\Delta\tau_r\), an
+active response block, and either a spectral-radius formula or a Lyapunov/semigroup bound are
+certified.  A scalar \(B_A(k,a)\) fails when off-diagonal mode mixing exceeds its frozen tolerance
+or when the result depends on unitary rotations inside a degenerate physical projector.
 
 The finite-collar evaluation of \eqref{eq:parentcollar} is the mathematical
 target for replacing a fitted dark-matter abundance, but it does not determine

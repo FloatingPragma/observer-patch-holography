@@ -21,19 +21,21 @@ Fine-tuning makes that picture hard to keep.
 
 The parameters of our universe seem weirdly well-adjusted for the existence of complex structures:
 
-**The cosmological constant**: Lambda is approximately 10^{-122} in Planck units. If it were 10^{-120}, galaxies couldn't form-space would expand too fast. If it were negative, the universe would have recollapsed.
+**The cosmological constant**: Lambda is approximately 10^{-122} in Planck
+units. If it were 10^{-120}, galaxies could not form because space would
+expand too fast. If it were negative, the universe would have recollapsed.
 
 **The Higgs mass**: The Higgs boson mass is 125 GeV. In naive naturalness estimates, quantum corrections would drive it toward the UV cutoff, creating the usual hierarchy puzzle.
 
 GeV is a particle-physics energy unit. The UV cutoff is the short-distance
-scale where the current effective theory is expected to stop being valid.
+scale where the effective theory is expected to stop being valid.
 "Naturalness" asks why low-energy quantities are not dragged up toward that
 high-energy scale by quantum corrections.
 
 OPH answers the local electroweak part of this puzzle through the pixel
 transmutation branch. The weak scale is emitted as
 $v/E_\star=P_\star^{-1/2}\exp[-2\pi/(4\alpha_U(P_\star))]$, where the
-unified-coupling record has a unique source zero in the certified interval used
+unified-coupling record has a unique source zero in the stated interval used
 by the particle paper and the Observers paper. That is the scoped hierarchy
 solution. The stronger Higgs naturality reading also needs the RG
 coarse-graining defect bound for the Higgs normal form, and the SI gravity
@@ -84,8 +86,12 @@ those of the parent, small mutations occur in the bounce, and the universes
 that produce more black holes leave more descendants.
 
 This is Darwin on a cosmic scale. In Smolin's proposal, after countless
-generations we should find ourselves in a universe near a fitness peak-one
-optimized for black hole production.
+generations we should find ourselves in a universe near a fitness peak, one
+optimized for black-hole production.
+
+That is Smolin's mechanism, not an OPH theorem. OPH uses selection more
+narrowly in this chapter: candidate laws and records must pass the finite
+observer-overlap filter before they can belong to a public world.
 
 ### A Testable Prediction
 
@@ -97,10 +103,12 @@ If you could, our universe wouldn't be at a fitness peak.
 
 ### The Reframing
 
-**Laws are survivors of a selection process.** They persist because they work.
-This idea appears at several scales: cosmic selection in Smolin's picture,
-quantum selection in Zurek's Darwinism, and informational selection when
-compression schemes survive because they actually match the data.
+**Laws are survivors of a selection filter.** They persist because they let
+records agree. The same shape appears at several scales: cosmic selection in
+Smolin's picture, quantum selection in Zurek's Darwinism, and informational
+selection when compression schemes survive because they actually match the
+data. OPH uses only the last kind as part of its own machinery here: candidate
+laws must survive observer overlap.
 
 ## 17.4 Quantum Darwinism: Selection at the Quantum Scale
 
@@ -112,11 +120,11 @@ Wojciech Zurek's **quantum Darwinism** explains how the classical world emerges 
 
 The environment is constantly "measuring" quantum systems. Photons bounce off
 objects. Air molecules collide. Most quantum states are fragile, so
-superpositions rapidly become entangled with the environment. But some states
-are robust. Pointer states survive environmental bombardment. Dead cats stay
-dead under repeated scattering. Alive cats stay alive. Broad macroscopic
-superpositions do not remain public. The environment acts as a selection
-pressure.
+superpositions rapidly become entangled with the environment. Some states are
+stable under that assault. Pointer states survive environmental bombardment.
+Dead cats stay dead under repeated scattering. Alive cats stay alive. Broad
+macroscopic superpositions do not remain public. The environment acts as a
+selection pressure.
 
 Pointer states are the states that keep leaving the same kind of record in the
 environment. They are "pointer" states because a measuring device can point to
@@ -180,19 +188,16 @@ The electron is a vibration pattern that persists. The muon is a pattern that pe
 
 The "particle zoo" is a census of vibrational survivors.
 
-Within OPH, that census is uneven. Some particles sit on especially clean
-structural or near-structural surfaces: photon, gluons, graviton, and the weak
-validation pair. The Higgs and top are tied together on one declared
-electroweak surface, the neutrino sector sits on a weighted-cycle absolute
-branch, and quarks close on a selected public frame class. Charged leptons
-remain more target-anchored, and composite particles like hadrons demand
-stronger computational control of the strong interaction; empirical hadron
-closure values use a separate \(e^+e^-\to\mathrm{hadrons}\) payload class.
-Cross-boundary H3 record-worldline stitching is another conditional layer: it
-can certify that localized observer-visible records form a nonbranching token
-path, but only after the atlas, clock, interface, transport, assignment-gap, and
-refinement receipts pass. It does not by itself select a particle species or
-close a mass row.
+Within OPH, that census is uneven. Some entries are structurally cleaner:
+photon, gluons, graviton, and the weak-boson benchmark pair. The Higgs and top
+are tied together on one electroweak relation, the neutrino sector sits on one
+absolute branch, and quarks close on a selected running-mass frame. Charged
+leptons use more empirical anchoring. Composite particles like hadrons demand
+the hard strong-interaction calculation, and empirical hadron checks use the
+standard \(e^+e^-\to\mathrm{hadrons}\) data. Stitching a detector track across a
+chart boundary is another layer again: it can identify one nonbranching
+observer-visible path only when the atlas, clock, interface, transport, and
+separation checks leave no rival track.
 
 ### Topological Protection
 
@@ -237,9 +242,9 @@ stress them from different sides.
 
 Among all the memes that have evolved in human culture, one stands out as unique.
 
-The **fixed-point computation meme**, the idea that reality is computational
-and can be solved as an observer-readable closure, is the meme that allows
-reality to understand itself.
+The **fixed-point computation meme**, the idea that reality can be read as an
+observer-readable closure, is the meme that lets reality become explicit to
+some of its own observers.
 
 The path is easy to picture. Language lets memes replicate. Mathematics
 appears as a precise compression scheme. Physics appears as a family of memes
@@ -250,17 +255,16 @@ world read from inside. That is the meme that closes the loop.
 
 ### The Strange Loop of Memetic Evolution
 
-Reality is computational. Within this computation, biological evolution
-produces minds. Within minds, memetic evolution produces ideas. Among these
-ideas, the fixed-point computation meme appears as an understanding of reality
-at the computational level.
+On the strange-loop reading, reality is computational. Within this computation,
+biological evolution produces minds. Within minds, memetic evolution produces
+ideas. Among these ideas, the fixed-point computation meme appears as an
+understanding of reality at the computational level.
 
 Armed with this meme, observers can build computations that preserve and repair
 observer records. A sufficiently rich continuation could contain its own
-observers, who may in turn arrive at the same meme. Reality, on this reading,
-evolves memes until the fixed-point computation meme is discovered. The meme
-that explains reality is itself a product of reality. Chapter 18 takes up that
-strange-loop reading as a philosophical continuation of the framework.
+observers, who may in turn arrive at the same meme. The meme that explains
+reality is itself a product of reality. Chapter 18 treats that strange-loop
+reading as a philosophical continuation of the framework.
 
 ## 17.8 The Observer as Selector
 
@@ -356,18 +360,17 @@ measurement, memory, and action.
 ## 17.9 Reverse Engineering Summary
 
 Physical law need not be explained by a designer or by brute luck. Fine-tuning
-points to a space of possible laws, and OPH reads the realized laws as
-survivors of consistency filters. At the cosmic level, that looks like
-selection across universes. At the quantum level, it looks like pointer states
+points to a space of possible laws, and OPH reads the realized laws through
+consistency filters. At the quantum level, that looks like pointer states
 surviving environmental scrutiny. At the informational level, it looks like
-compression schemes that actually fit the data. Stable particles survive
-because they carry the right protections. Ideas survive because they spread,
-predict, and organize thought. The fixed-point computation meme matters
-because it is the point where reality may become explicit to itself through the
-observers it produces.
+compression schemes that actually fit the data. Cosmic natural selection
+remains a separate analogy unless a concrete cosmological mechanism is
+specified. Stable particles survive because they carry the right protections.
+Ideas survive because they spread, predict, and organize thought. The
+fixed-point computation meme matters because it is one way reality may become
+explicit to itself through the observers it produces.
 
 ---
 
-Laws emerge through selection. But who are the observers that do the selecting? What are they made of? How do they fit into the picture?
-
-That brings us to **Chapter 18: Synthesis**-where we step back and see the entire picture.
+Laws emerge through selection filters. The synthesis chapter puts those filters
+back beside spacetime, particles, and observers.

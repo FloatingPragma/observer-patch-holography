@@ -6,8 +6,8 @@ Start with the ordinary intuition about storage.
 
 Information fills space. The more volume you have, the more stuff you can pack
 into it. Double the size of a box, and you can store twice as much
-information. Triple it, triple the storage. This is so obvious it hardly seems
-worth stating.
+information. Triple it, triple the storage. This feels obvious because it is
+how ordinary containers work.
 
 If you want to describe a region of the universe completely, you need to specify what's happening at every point in the volume. A cubic meter has more information capacity than a square meter, which has more than a linear meter. The three-dimensional interior is where the action is; surfaces are just boundaries, interfaces, the thin walls separating volumes from each other.
 
@@ -21,7 +21,11 @@ Black holes broke that picture.
 
 The first hint came from black holes.
 
-In the 1970s, Bekenstein and Hawking showed that black hole entropy is proportional to surface area, not volume. A black hole with twice the horizon area has twice the entropy-twice the information content. This was strange. Normal systems have entropy proportional to volume. A box twice as big can hold twice as much stuff.
+In the 1970s, Bekenstein and Hawking showed that black hole entropy is
+proportional to surface area. A black hole with twice the horizon area has
+twice the entropy, hence twice the information capacity. This was strange.
+Normal systems usually scale with volume. A box twice as big can hold twice as
+much stuff.
 
 But black holes are different. Their information lives on the surface:
 
@@ -38,7 +42,9 @@ scale, so the second expression reads as area counted in Planck units.
 
 Bekenstein realized this wasn't just about black holes. It was a universal limit.
 
-Lower a box of entropy toward a black hole on a rope. As it approaches the horizon, energy is redshifted. When the box finally crosses the horizon, the universe seems to lose the entropy that was in the box.
+Lower a box of entropy toward a black hole on a rope. As it approaches the
+horizon, energy is redshifted. When the box crosses the horizon, the universe
+seems to lose the entropy that was in the box.
 
 This would violate the second law of thermodynamics-unless the black hole gains enough entropy to compensate. But how much entropy can the box hold?
 
@@ -46,7 +52,7 @@ If you try to pack too much entropy into a small region, the energy required cre
 
 $$S_{BH} \sim \frac{R^2}{\ell_P^2}$$
 
--proportional to the area, not the volume.
+The radius appears squared. The saturation law is an area law.
 
 The original **Bekenstein bound** is
 
@@ -60,7 +66,9 @@ unlimited information.
 
 ### The Holographic Principle
 
-In 1993, Dutch physicist Gerard 't Hooft made a wild suggestion. He proposed that this isn't just true for black holes. It is true for everything.
+In 1993, Dutch physicist Gerard 't Hooft made a wild suggestion. The black-hole
+lesson, he argued, reaches beyond black holes. It applies to any region with a
+gravitational boundary.
 
 **The Holographic Principle**: The maximum information in any region of space is proportional to its surface area. Volume is the wrong counting variable.
 
@@ -70,7 +78,7 @@ Leonard Susskind developed these ideas further, connecting them to string theory
 
 Information capacity scales with area. The bulk seems three-dimensional, while its information fits on a two-dimensional surface.
 
-## 8.3 The First-Principles Reframing: Boundaries Are Consistency Ledgers
+## 8.3 The First-Principles Reframing: Boundaries Carry Shared Records
 
 The deeper question is why nature keeps pushing bulk physics to the boundary.
 
@@ -95,7 +103,7 @@ blurred, incomplete, yet tied to the same world. The overlap between
 patches plays the role of the interference pattern. That is how the shared
 account stays consistent.
 
-### The Consistency Ledger
+### The Consistency Bookkeeping
 
 **Boundaries are shared records where observers compare notes.**
 
@@ -119,7 +127,10 @@ Imagine you live inside a soup can. This one is infinitely tall and wide, yet a 
 
 This is **anti-de Sitter space**, or AdS. It's a spacetime with constant negative curvature. If flat space is a sheet of paper, AdS is a saddle that keeps curving in every direction. Light rays curve back toward the center. Nothing drifts away forever.
 
-Our universe is different. It has positive curvature, with an accelerating expansion driven by dark energy. AdS is a remarkable training ground. It has a clear boundary, clean symmetry, and a setting where gravity and quantum physics meet in calculable ways.
+Our universe is different. Its late-time expansion is accelerating, and the
+simplest fit uses a positive dark-energy component. AdS is the clean
+laboratory. It has a clear boundary, clean symmetry, and a setting where
+gravity and quantum physics meet in calculable ways.
 
 Imagine the label on the can as a living quantum field theory with particles, forces, and fluctuations. It has no gravity of its own. It just lives on the surface.
 
@@ -169,7 +180,7 @@ The gauge theory on the boundary is equivalent to string theory (including gravi
 
 The physics community was stunned. Within months, Edward Witten worked out how to compute correlation functions. Tests piled up. AdS/CFT became one of the most heavily checked ideas in theoretical physics.
 
-## 8.6 Conformal Field Theory: The Universal Ledger
+## 8.6 Conformal Field Theory: The Universal Record Book
 
 The "CFT" in AdS/CFT stands for Conformal Field Theory. What makes these theories special?
 
@@ -179,10 +190,14 @@ Why does this matter for observers? A conformal theory embodies scale-free agree
 
 ### Key Properties
 
-**Scaling dimensions**: Under rescaling x goes to lambda times x, a field with dimension Delta transforms as:
+**Scaling dimensions**: Under rescaling, $x$ goes to $\lambda x$. A field with
+dimension $\Delta$ transforms as:
+
 $$\mathcal{O}(x) \to \lambda^{-\Delta} \mathcal{O}(\lambda x)$$
 
-This determines correlation functions:
+This line says how an operator changes when the ruler changes. The same number
+$\Delta$ controls the two-point correlation:
+
 $$\langle \mathcal{O}(x) \mathcal{O}(y) \rangle = \frac{C}{|x-y|^{2\Delta}}$$
 
 No characteristic scale means power-law decay-the same form at all distances.
@@ -367,7 +382,7 @@ geometry becomes one language for certain entanglement structures.
 ### Gravity from Thermodynamics
 
 Ted Jacobson's 1995 paper takes this further. In ordinary spacetime QFT, he
-showed that Einstein's equations - the dynamical laws of gravity - follow from
+showed that Einstein's equations, the dynamical laws of gravity, follow from
 thermodynamic requirements on horizons.
 
 The argument is spare. Every point in spacetime comes with local Rindler
@@ -402,16 +417,18 @@ entropy bookkeeping under matter constraints.
 
 This should not be confused with a neutral-bulk data analysis shortcut. OPH
 does not let shard-local observer tables become a bulk merely by being joined.
-Before a neutral geometry claim is available, raw rows must descend to terminal
-quotient charts, interface transports must have no hidden holonomy, features
-must be quotient-visible, and the resulting distance is only a pseudometric
-until feature collisions are removed or joint separation is proved. The
-thermodynamic and modular arguments identify the physical branch only after
-that certificate surface has been cleared.
+Before a neutral geometry claim is available, raw observer records have to
+survive changes of chart and interface transport. Hidden holonomy, duplicate
+feature labels, or unresolved collisions turn the distance into a diagnostic
+pseudometric instead of physical geometry. The thermodynamic and modular
+arguments identify the physical branch only after that ambiguity is removed.
 
 ## 8.13 What We Borrow from AdS/CFT (and What We Don't)
 
-Our universe isn't AdS. It's closer to de Sitter space, with positive cosmological constant, accelerating expansion, and a cosmological horizon. There's no timelike boundary at infinity. So what is the relationship between OPH and AdS/CFT?
+Our universe is not AdS. The standard late-time fit is closer to de Sitter
+space, with accelerating expansion, a positive Lambda-like component, and a
+cosmological horizon. There is no timelike boundary at infinity. So what is the
+relationship between OPH and AdS/CFT?
 
 ### What We Inherit
 
@@ -470,9 +487,10 @@ The finite horizon in de Sitter provides a natural cutoff, a finite Hilbert spac
 
 ### Why "dS Holography Is Unsolved" Doesn't Apply Here
 
-When physicists say "de Sitter holography is unsolved," they mean something specific: we don't have a clean boundary CFT at infinity that's dual to the bulk, like we do in AdS/CFT. This is a real problem if you're trying to do "AdS/CFT but with positive Lambda."
-
-But that's not what we're doing.
+When physicists say "de Sitter holography is unsolved," they mean something
+specific: there is no clean boundary CFT at infinity that plays the AdS/CFT
+role for a positive-Lambda bulk. That is a real problem for attempts to copy
+the AdS recipe into de Sitter space.
 
 **The usual dS/CFT approach** tries to put a CFT on future infinity. Problems abound: the would-be dual has complex weights, potentially non-unitary dynamics, and no clear operational meaning. How does an observer ever "access" future infinity?
 
@@ -489,9 +507,33 @@ De Sitter horizons are not a problem to be solved. They are the feature that
 makes observer-patch holography natural. Each observer has a horizon, a patch
 of screen, and overlap conditions tying that patch to neighboring ones.
 
-The cosmological constant appears through a **global capacity relation**, the total number of degrees of freedom on the screen. It does not come from the local null-modular derivation in OPH. The input-free global closure is a readback fixed point: supply capacity $N$, form the terminal observer-supported normal form, and ask what active horizon capacity observers inside that universe can read back. The physical capacity is the unique point $N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})$ where supplied capacity and readback capacity agree. The density $\log|\Omega^{\mathrm{sc}}_N|-N$ is the finite-count representation of this target after division by the full screen Hilbert-space size $e^N$. On the observed branch, that fixed point is the de Sitter entropy capacity and fixes dimensionless products such as $\Lambda\ell_\star^2$; the numerical SI value of $\Lambda$ also requires the selected OPH scale certificate. Informally, observers inside infer geometry, horizons, entropy, Lambda, history, and records from information available inside the universe, and closure requires that this public record reconstruct the same boundary capacity. From the scale-certified Lambda, we infer a bare de Sitter horizon ratio of about $1.05\times10^{122}$ and a screen-entropy capacity of about $3.31\times10^{122}$ natural units, or $4.77\times10^{122}$ bits. This is the "size" of reality, just as the pixel area is its "resolution."
+The cosmological constant appears through a **global capacity relation**, the
+total number of degrees of freedom on the screen. It does not come from the
+local null-modular derivation in OPH. The local Einstein branch leaves the
+metric term open, and the global screen-capacity closure fixes that term.
 
-This sidesteps that specific "boundary theory at infinity" version of the unsolved problem. We're not trying to build a global boundary theory at infinity. We're building local patch descriptions that must agree on overlaps. The bulk emerges from that agreement, with the dimensionless Lambda-capacity relation as the global readout of the cosmic record-closure fixed point.
+The closure can be said without asking the reader to parse every symbol at
+once. Supply a possible total capacity. Let the settled observer-supported
+world read back how much active horizon capacity it contains. The physical
+capacity is the point where the supplied capacity and the read-back capacity
+agree. The compact notation for that fixed point is
+$N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})$.
+
+The count expression $\log|\Omega^{\mathrm{sc}}_N|-N$ is the finite-count
+version of the same target after dividing by the full screen Hilbert-space
+size. On the observed branch, the fixed point is the de Sitter entropy
+capacity. It fixes dimensionless products such as
+$\Lambda\ell_\star^2$; the numerical SI value of $\Lambda$ also requires the
+selected OPH scale bridge. From the scale-bridged Lambda, the bare
+de Sitter horizon ratio is about $1.05\times10^{122}$ and the screen-entropy
+capacity is about $3.31\times10^{122}$ natural units, or
+$4.77\times10^{122}$ bits. This is the "size" of reality, just as the pixel
+area is its "resolution."
+
+This avoids the boundary-at-infinity problem by changing the primitive object.
+OPH builds local patch descriptions that must agree on overlaps. The bulk
+emerges from that agreement, with the dimensionless Lambda-capacity relation as
+the global readout of the cosmic record-closure fixed point.
 
 ## 8.14 Reverse Engineering Summary
 

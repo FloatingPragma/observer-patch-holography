@@ -17,6 +17,7 @@
 \newtheorem{assumption}[theorem]{Assumption}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{claim}[theorem]{Claim}
+\newtheorem{target}[theorem]{Target}
 \newtheorem{conjecture}[theorem]{Conjecture}
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
@@ -58,10 +59,10 @@ calibration records, raw or reduced traces, and exact verifier receipts carry th
 \section{Scope}
 
 OPH microphysics uses finite observer patches with echosahedral interfaces. A spherical screen is
-a geometry chart for support-visible cuts. The cellulated-sphere gauge-register construction is a
+a geometry chart for observer-visible cuts. The cellulated-sphere gauge-register construction is a
 regulator and digital calibration chart. The premise is:
 \begin{quote}
-Observers access finite support-visible cuts. A spherical screen is a geometry chart for such
+Observers access finite observer-visible cuts. A spherical screen is a geometry chart for such
 cuts. The underlying fixed-cutoff implementation surface is a federation of finite
 overlap-facing observer patches, with echosahedral local interfaces and recurrent toroidal
 subchannels.
@@ -138,7 +139,7 @@ maps, and checkpoint continuation are physically equivalent for all OPH observab
 quotient.
 \end{claim}
 
-This claim is theorem-grade only on a branch that supplies the required quotient isomorphism and
+This claim is theorem-level only on a branch that supplies the required quotient isomorphism and
 error bound. It fails if a predicted OPH observable depends on hidden carrier coordinates after the
 visible algebra, record statistics, repair maps, and checkpoint data have been held fixed.
 
@@ -174,7 +175,7 @@ files, and exact-verifier receipts.
 
 \item \textbf{Boundary statements.} This paper leaves laboratory-hardware identification, unique
 UV completion, hardware solution of the Yang--Mills mass gap, computational complexity collapse,
-and backend-gated hadron rows outside its claim surface.
+and first-principles hadron masses outside its support boundary.
 \end{enumerate}
 
 \section{The Public Evidence Rule}
@@ -184,7 +185,7 @@ Hardware-facing language is admissible only under the following rule.
 \begin{quote}
 Any hardware evidence cited as evidence in this paper must be represented by a public evidence
 bundle in the OPH repository, or by a public pinned subrepository commit, with enough raw data and
-metadata for an external reader to audit the claim.
+metadata for an external reader to check the claim.
 \end{quote}
 
 Private notebooks, local runtime logs, unpublished bench transcripts, and development-repo notes
@@ -209,11 +210,11 @@ algebras, declared patch interfaces, and stated branch assumptions.
 
 The spherical screen is useful because an observer-accessible cut often has an effective closed
 two-surface description. A cellulated sphere can encode finite capacity, caps, collars, edge
-centers, and support-visible cuts. The microscopic carrier is the finite patch federation. The
-chart is the observer-facing presentation of its support-visible data.
+centers, and observer-visible cuts. The microscopic carrier is the finite patch federation. The
+chart is the observer-facing presentation of its visible data.
 
 The sphere also fixes the symmetry bridge used by the rest of OPH. Caps on \(S^2\) are the
-geometric support regions whose modular flows become Lorentz boosts in the support-visible
+geometric support regions whose modular flows become Lorentz boosts in the controlled
 scaling branch. The conformal group of \(S^2\) is \(\mathrm{SO}^+(3,1)\), so the same
 observer-facing chart supplies the kinematic bridge to emergent \(3+1\)D spacetime. Finite
 cellulations of the chart supply the regulator side: patch ports, edge sectors, collars, and
@@ -231,7 +232,7 @@ Each patch has:
 \end{enumerate}
 
 \begin{definition}[Finite source-bridge readouts]\label{def:finite-source-bridge-readouts}
-For cosmology runs that attempt a source-only primordial bridge, the carrier must also expose
+For cosmology runs that attempt a first-principles primordial bridge, the carrier must also expose
 quotient-visible maps
 \[
 \mathsf{StressRead}_r,\qquad
@@ -258,9 +259,16 @@ quotient-visible maps
 \mathsf{LapseShiftRead}_r,\qquad
 \mathsf{LineageRead}_r,\qquad
 \mathsf{ScreenEmbeddingRead}_r,\qquad
-\mathsf{ModeFormRead}_r .
+\mathsf{ModeFormRead}_r,\qquad
+\mathsf{CosmoGeomRead}_r,\qquad
+\mathsf{ProperTimeRead}_r,\qquad
+\mathsf{ComovingMetricRead}_r,\qquad
+\mathsf{SpatialModeRead}_r,\qquad
+\mathsf{AngularProjectorRead}_r,\qquad
+\mathsf{FreezeoutMapRead}_r,\qquad
+\mathsf{FreezeoutSurfaceRead}_r .
 \]
-They are defined on the same normal-form carrier used for the geometric record packet and must
+They are defined on the same settled-form carrier used for the geometric record packet and must
 factor through the physical quotient: hidden carrier coordinates, port relabelings, and accepted
 repair schedules cannot change their output.  The finite packet must expose enough data to
 reconstruct, for every active sector,
@@ -274,7 +282,7 @@ freeze-out, geometric-screen-scalar, scalar-precision, source-release-energy, re
 radial-prior, null-space, finite-window, and forward-residual receipts also pass.
 \end{definition}
 
-\begin{claim}[Geometry-readout quotient factorization]\label{claim:geometry-readout-factorization}
+\begin{target}[Geometry-readout quotient factorization]\label{claim:geometry-readout-factorization}
 The geometry-facing readouts in Definition~\ref{def:finite-source-bridge-readouts} must factor
 through the same quotient normal form as the source readouts.  In particular, a finite carrier
 patch, graph vertex, implementation point, or worker-local shard is not one canonical OPH screen cell
@@ -282,7 +290,7 @@ unless a separate measure-realization theorem proves that identification.  A pro
 bundle must expose a geometry manifest, metric-form hashes, orientation and topology, boundary
 conditions, lineage maps, lapse and shift, source embedding, operator assembly, scale certificate,
 and refinement maps.
-\end{claim}
+\end{target}
 
 A spherical screen is then a coarse chart over a federation of such patches. It is what a
 particular observer-facing support cut looks like after quotienting hidden implementation details
@@ -330,7 +338,7 @@ r=(m,L,b),
 \]
 where \(m\) is the subdivision depth, \(L\) is the finite support or volume scale of the exported
 carrier, and \(b\) is a boundary/phase label. Every added cell, collar, edge-center, or
-support-visible channel \(j\) carries a finite algebra
+observer-visible channel \(j\) carries a finite algebra
 \[
 D_j=\bigoplus_{\alpha\in S_j}M_{d_{j,\alpha}}(\mathbb C)
 \]
@@ -659,7 +667,7 @@ overlap collar. Suppose the local thermalized edge dynamics has stationary weigh
 \]
 For finite groups, \(C_2(\alpha)\) is the declared sector penalty or finite-group Casimir
 surrogate. For compact groups, the Peter--Weyl lift belongs to the companion D10/compact-gauge
-handoff rather than to hardware evidence.
+handoff instead of hardware evidence.
 
 \begin{theorem}[Fixed-cutoff edge-sector handoff]
 If a declared finite overlap collar has sector labels \(\alpha\), degeneracies \(d_\alpha\), and
@@ -694,11 +702,11 @@ supplies:
 \begin{enumerate}[leftmargin=2em]
 \item the fixed-cutoff patch, overlap, record, and repair interface;
 \item the finite edge-sector Casimir law on declared collars;
-\item the local repair semantics that the compact-gauge branch later reads in support-visible
+\item the local repair semantics that the compact-gauge branch later reads in controlled
 quotient form.
 \end{enumerate}
 
-The four-dimensional Yang--Mills form, reflection-positive ordinary vacuum branch, support-visible
+The four-dimensional Yang--Mills form, reflection-positive ordinary vacuum branch, controlled
 continuum extraction, and equality between the Yang--Mills gap and the repair gap belong to the
 compact/Yang--Mills theorem surface. Hardware evidence may test implementation discipline, but it
 does not supply the Clay-admissible construction. A public evidence bundle that is used for any
@@ -711,10 +719,10 @@ reference ensembles only. They are not OPH-native vacuum promotion unless the qu
 selector, source Euclidean slab data, and transfer/reflection-positive reconstruction gate are
 supplied on the compact theorem surface.
 
-\section{Relation to Hadrons and Backend Execution}
+\section{Relation to Hadrons and Strong-Binding Execution}
 
-Source-only hadron masses require a working OPH hadron backend. This microphysics states the
-record and evidence requirements for such a backend. A backend fit for promotion must emit:
+First-principles hadron masses require a working OPH strong-binding construction. This microphysics states the
+record and evidence requirements for such a construction. A construction fit for promotion must emit:
 \begin{enumerate}[leftmargin=2em]
 \item Ward-projected hadronic spectral data;
 \item provenance tying every spectrum to body, controller, firmware, geometry, and scorebook;
@@ -723,9 +731,9 @@ record and evidence requirements for such a backend. A backend fit for promotion
 \item a non-promotion boundary for surrogate or calibration runs.
 \end{enumerate}
 
-Echosahedral or GLORB-class hardware can be described as a candidate backend family only through
+Echosahedral or related hardware can be described as a candidate construction family only through
 public evidence bundles. Without those bundles, it is an architectural target and a design
-motivation. Source-only hadron theorem promotion requires the backend evidence listed above.
+motivation. First-principles hadron theorem promotion requires the evidence listed above.
 
 \section{Validation Program}
 
@@ -743,7 +751,7 @@ federated patch-carrier architecture.
 
 \subsection{Public Hardware Evidence}
 
-A public hardware run may support only the claim class its evidence bundle can audit. The minimal
+A public hardware run may support only the support level its evidence bundle can justify. The minimal
 claim form is:
 \begin{quote}
 Module set \(M\) produced candidate enrichment or reproducible readout signature on benchmark
