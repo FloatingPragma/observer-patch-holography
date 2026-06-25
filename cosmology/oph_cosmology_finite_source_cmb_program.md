@@ -1,6 +1,3 @@
-**Paper release:** `r1503`
-**Released:** June 24, 2026
-
 # What This Paper Contributes
 
 The OPH core papers recover local observer-facing geometry, records, modular flow, gauge/matter structure, and finite screen microphysics. The cosmology work asks a different question: which large-scale data can be predicted once the finite observer-screen state is released into an Einstein-Boltzmann cosmology?
@@ -1136,7 +1133,7 @@ The inflation-free draft contains many theorem statements. The table gives them 
 | Imported theorem family | Role in this paper |
 |:---|:---|
 | Finite synchronization normal form | Defines the early observer-facing quotient state whose repair normal form replaces an assumed smooth primordial substrate, with uniqueness read modulo the compact-paper quotient equivalences. |
-| Clocked FLRW curvature holonomy, flat-sector selection, and curvature bounds | Owns the flatness branch: zero clock-slice spatial Levi–Civita holonomy identifies $`\kappa=0`$; exact selection requires a direct theorem, conditional CMH selector, or explicit flat-branch assumption. Curvature damping supplies only $`\vert{}K\vert{}`$ or $`\vert{}\Omega_K\vert{}`$ bounds. |
+| Clocked FLRW curvature holonomy, flat-sector selection, and curvature bounds | Owns the flatness branch: zero clock-slice spatial Levi–Civita holonomy identifies $`\kappa=0`$; exact selection requires a direct theorem, conditional CMH selector, or explicit flat-branch assumption. Curvature damping supplies only $`|K|`$ or $`|\Omega_K|`$ bounds. |
 | Diffusive horizon no-go, same-boundary coherence, and low-$`k`$ repair gap | Separates a failed purely local diffusion story from the allowed same-boundary or uniform low-$`k`$ synchronization mechanisms. |
 | Geometric screen scalar, precision operator, MaxEnt screen covariance, Mellin lift, edge-center scalar opportunities, $`\mathbb Z_6`$ reserve, and half-collar sampling | Owns the screen-level near-scale-invariant covariance. The red tilt $`P/48`$ is theorem-grade only after the reserve-to-RG receipts pass; physical primordial promotion waits for the source-only radial bridge receipts. |
 | Finite release collar state, scalar release code, and scalar amplitude theorem | Owns $`A_\zeta`$ as a finite source artifact rather than a fitted amplitude. |
@@ -1538,14 +1535,44 @@ The physical kernels are not scalar rows in a table. They are imported finite fu
 
 <div class="target">
 
-**Target 58** (Physical anomaly kernel interface). *The released dark-matter paper must define deterministic receipts
-``` math
-\texttt{RHO\_A\_SOURCE\_RECEIPT},\qquad
-\texttt{RHO\_A\_EQ\_SOURCE\_RECEIPT},\qquad
-\texttt{B\_A\_KERNEL\_RECEIPT},\qquad
-\texttt{GAMMA\_REC\_SOURCE\_RECEIPT}.
-```
-These receipts pass only when $`\bar\rho_A(a)`$, $`B_A(k,a)`$, and $`\Gamma_{\rm rec}(k,a)`$ are emitted as certified physical functions with $`\bar\rho_{A,\mathrm{eq}}(a)`$, $`w_A(a)`$, $`c_{s,A}^2(k,a)`$, $`\sigma_A(k,a)`$, and $`Q_A^\mu`$ from the finite parent, physical scale calibration, gauge consistency, paired perturbation controls, active-fiber/physical-clock response receipts, CDM-limit recovery, and refinement convergence. The cosmology program consumes the emitted functions but does not redefine the dark-sector source law.*
+**Target 58** (Physical anomaly kernel interface). *The released dark-matter paper must define deterministic receipts*
+
+<div class="center">
+
+|                              |
+|:-----------------------------|
+| *`RHO_A_SOURCE_RECEIPT`*     |
+| *`RHO_A_EQ_SOURCE_RECEIPT`*  |
+| *`B_A_KERNEL_RECEIPT`*       |
+| *`GAMMA_REC_SOURCE_RECEIPT`* |
+
+</div>
+
+*These receipts pass only when $`\bar\rho_A(a)`$, $`B_A(k,a)`$, and $`\Gamma_{\rm rec}(k,a)`$ are emitted as certified physical functions with $`\bar\rho_{A,\mathrm{eq}}(a)`$, $`w_A(a)`$, $`c_{s,A}^2(k,a)`$, $`\sigma_A(k,a)`$, and $`Q_A^\mu`$ from the finite parent, physical scale calibration, gauge consistency, paired perturbation controls, active-fiber/physical-clock response receipts, CDM-limit recovery, and refinement convergence. The cosmology program consumes the emitted functions but does not redefine the dark-sector source law.*
+
+*The physical kernel receipt imports these inner receipts from the dark/anomaly paper:*
+
+<div class="center">
+
+|                                                 |
+|:------------------------------------------------|
+| *`COMMON_SOURCE_FUNCTIONAL_RECEIPT`*            |
+| *`ADMISSIBLE_SOURCE_TANGENT_RECEIPT`*           |
+| *`CONSTRAINT_PRESERVING_RETRACTION_RECEIPT`*    |
+| *`SOURCE_VECTOR_SUFFICIENCY_RECEIPT`*           |
+| *`B_A_SOURCE_LIFT_INDEPENDENCE_RECEIPT`*        |
+| *`SOURCE_DESIGN_IDENTIFIABILITY_RECEIPT`*       |
+| *`FINITE_DIFFERENCE_ORDER_RECEIPT`*             |
+| *`C1_REFINEMENT_RECEIPT`*                       |
+| *`ORDER_OF_LIMITS_RECEIPT`*                     |
+| *`NATIVE_REPAIR_GENERATOR_RECEIPT`*             |
+| *`PHYSICAL_RATE_UNIT_RECEIPT`*                  |
+| *`QUOTIENT_LUMPABILITY_RECEIPT`*                |
+| *`STATIC_DYNAMIC_RESPONSE_CONSISTENCY_RECEIPT`* |
+
+</div>
+
+*A diagnostic candidate may contain paired finite differences, controls, and refinement rows. The physical receipt is false unless the source functional, delivered source tangent, source-vector sufficiency, lift-independence, native generator, and static-dynamic consistency receipts pass in the same frozen generation.*
 
 </div>
 
@@ -1631,17 +1658,21 @@ where $`\mathcal A_n`$ is the registry of observational datasets, residuals, pos
 
 **Theorem 62** (Physical OPH cosmology promotion). *Let $`R_{\rm src}`$ be source-only provenance and pooled-reducer receipt, $`R_{\rm scale}`$ the physical mode/clock/lift receipt, $`R_{\rm parent}`$ the finite covariant parent receipt, $`R_{\rm kernel}`$ the physical response/kernel receipt, $`R_{\rm init}`$ the regular initial-mode and Einstein-constraint receipt, $`R_{\rm transfer}`$ the Boltzmann well-posedness and numerical-convergence receipt, $`R_{\rm freeze}`$ the model-generation freeze receipt, and $`R_{\rm like}`$ the official likelihood execution receipt. Define
 ``` math
-R_{\rm physical}=
+R_{\rm spectrum}=
 R_{\rm src}\wedge R_{\rm scale}\wedge R_{\rm parent}\wedge R_{\rm kernel}
-\wedge R_{\rm init}\wedge R_{\rm transfer}\wedge R_{\rm freeze}\wedge R_{\rm like}.
+\wedge R_{\rm init}\wedge R_{\rm transfer}\wedge R_{\rm freeze},
 ```
-If every parent receipt is labelled $`\texttt{PASS}`$, then the resulting TT/TE/EE, lensing, matter power, growth, BAO, or RSD spectra are physical predictions of the frozen generation $`G_n`$. If any receipt is $`\texttt{FAIL}`$, $`\texttt{OPEN\_GATE}`$, $`\texttt{INCOMPLETE}`$, or $`\texttt{INVALIDATED}`$, the spectra remain diagnostic or conditional according to the parameter ledger.*
+and for an observational dataset family $`D`$,
+``` math
+R_{\rm tested}^{(D)}=R_{\rm spectrum}\wedge R_{\rm like}^{(D)}.
+```
+If every receipt in $`R_{\rm spectrum}`$ is labelled $`\texttt{PASS}`$, then the resulting TT/TE/EE, lensing, matter power, growth, BAO, or RSD spectra are $`\texttt{FROZEN\_PHYSICAL\_SPECTRUM}`$ outputs of generation $`G_n`$. If $`R_{\rm tested}^{(D)}`$ also passes for a frozen dataset and likelihood family $`D`$, the output is a $`\texttt{LIKELIHOOD\_EVALUATED\_PHYSICAL\_PREDICTION}`$. If any receipt is $`\texttt{FAIL}`$, $`\texttt{OPEN\_GATE}`$, $`\texttt{INCOMPLETE}`$, or $`\texttt{INVALIDATED}`$, the spectra remain diagnostic or conditional according to the parameter ledger.*
 
 </div>
 
 <div class="proof">
 
-*Proof.* Each receipt states a typed premise needed by the next map: source fields, physical coordinates, parent stress, response kernels, initial state, transfer evolution, freeze integrity, and likelihood execution. Composition of certified maps gives a physical prediction only when every premise is available for the same frozen generation. A failed or open receipt removes at least one premise, so downstream software cannot promote the output. ◻
+*Proof.* Each receipt states a typed premise needed by the next map: source fields, physical coordinates, parent stress, response kernels, initial state, transfer evolution, freeze integrity, and likelihood execution. Composition through $`R_{\rm spectrum}`$ gives a frozen physical spectrum. Composing that frozen spectrum with $`R_{\rm like}^{(D)}`$ evaluates it against $`D`$. A failed or open receipt removes at least one premise, so downstream software cannot promote the output. ◻
 
 </div>
 

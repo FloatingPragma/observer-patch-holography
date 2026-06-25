@@ -1132,19 +1132,25 @@ field:
 Velocity-spread branches use the moment equations of
 \eqref{eq:stressdecomposition} instead of \eqref{eq:transport1}.
 
-The repair-commit theorem gives the form of the relaxation term.  Once the
-finite collar packet algebra is declared, the fixed-cutoff packet state space,
-proposal rule, equilibrium weights, reversible transition matrix, and spectral
-gap are determined by packet microphysics.  Let \(\gamma_{\mathrm{rec}}\) be
-that dimensionless gap and \(t_{\mathrm{commit}}\) the physical commit time.
-Then
+The repair-commit theorem gives the form of the relaxation term.  A transition
+matrix has a dimensionless step eigenvalue.  Physical relaxation uses its
+logarithmic decay together with the physical commit time.  Let \(r_\star\) be
+the largest nonstationary step eigenvalue in modulus,
+\(g_{\mathrm{step}}=1-r_\star\), and
+\(\gamma_{\log}=-\log |r_\star|\).  With physical commit time
+\(t_{\mathrm{commit}}\),
 \begin{equation}
   \Gamma_{\mathrm{rec}}
-   =\frac{\gamma_{\mathrm{rec}}}{t_{\mathrm{commit}}},
+   =\frac{\gamma_{\log}}{t_{\mathrm{commit}}},
   \qquad
   \tau_{\mathrm{rec}}
-   =\frac{t_{\mathrm{commit}}}{\gamma_{\mathrm{rec}}}.
+   =\frac{t_{\mathrm{commit}}}{\gamma_{\log}}.
 \end{equation}
+The small-gap approximation is
+\(\Gamma_{\mathrm{rec}}=g_{\mathrm{step}}/t_{\mathrm{commit}}
+ +O(g_{\mathrm{step}}^2)\).  The symbols \(r_\star\),
+\(g_{\mathrm{step}}\), \(\gamma_{\log}\), and \(\Gamma_{\mathrm{rec}}\)
+denote different artifact types.
 
 Bianchi consistency requires a repair-exchange stress:
 \begin{equation}
@@ -1202,7 +1208,7 @@ The conditional physical-time conversion is
   \Gamma_{\mathrm{rec}}(x,t)=\Gamma_J(x,t),
   \qquad
   t_{\mathrm{commit}}(x,t)
-  =\frac{\gamma_{\mathrm{rec}}(x,t)}{\Gamma_J(x,t)} .
+  =\frac{\gamma_{\log}(x,t)}{\Gamma_J(x,t)} .
 \end{equation}
 The static RAR law does not determine this clock.  Any positive relaxation
 rate leaves the same equilibrium density.  The Jacobi clock requires the
@@ -1408,9 +1414,7 @@ prediction.
 
 The finite scalar-load repair diagnostic gives
 \[
-  \gamma_{\mathrm{rec}}=0.050717471,
-  \qquad
-  \tau_{\mathrm{rec}}/t_{\mathrm{commit}}=19.717071 .
+  \gamma_{\mathrm{repair\ step}}=0.050717471.
 \]
 It maps a cluster-scale relaxation window to the following commit times:
 \begin{center}
@@ -1663,17 +1667,17 @@ The implementation contract uses one parent finite-collar functional:
   =
   \frac{15}{8\pi^2\ell(X)^4}
   \int_{\mathcal C_X}\dd\mu_C\,
-  I_{\omega_C}(A:D|B).
+  R_C^{\mathrm{src}}[\omega_C].
   \label{eq:parentfunctional}
 \end{equation}
 For finite samples \(s\) with weights \(w_s\), define
 \begin{align}
-  R(X)&=\frac{\sum_s w_s I_s}{\sum_s w_s},\\
+  R(X)&=\frac{\sum_s w_s R_s^{\mathrm{src}}}{\sum_s w_s},\\
   K_A^{(\rho)}(k,a)
   &=\frac{1}{\bar\rho_b}
     \frac{\partial \rho_{A,\mathrm{eq}}}{\partial \delta_b(k,a)},\\
   B_A(k,a)
-  &=\frac{\bar\rho_b(a)}{\bar\rho_A(a)}K_A^{(\rho)}(k,a).
+  &=\frac{\bar\rho_b(a)}{\bar\rho_{A,\mathrm{eq}}(a)}K_A^{(\rho)}(k,a).
 \end{align}
 The same evaluator emits the homogeneous equilibrium density, the linear
 density-response kernel, the settled galaxy source, and the cluster
@@ -1681,6 +1685,165 @@ equilibrium source.  A theorem-grade prediction requires the OPH collar
 measure \(\dd\mu_C\), the finite-screen ensemble, and the small-field support
 condition.  Fitting \(\Pi\) to CMB, weak-lensing, SPARC, or cluster data is
 excluded.
+
+\subsection{Physical Source And Kernel Promotion}
+
+The scalar tables used by Boltzmann codes are the last stage of a finite
+source construction.  Let \(Q_{r,a}\) be the finite quotient state space at
+regulator \(r\) and background scale factor \(a\).  A physical anomaly source
+is a quotient-visible \(C^1\) functional
+\begin{equation}
+  \mathcal E_{A,r}:Q_{r,a}\times\mathcal A\longrightarrow\mathbb R
+\end{equation}
+such that
+\begin{equation}
+  \bar\rho_{A,\mathrm{eq},r}(a)
+  =
+  \mathcal E_{A,r}(q_{0,r}(a),a),
+  \qquad
+  D\mathcal E_{A,r}|_{q_0}
+  \ \hbox{is the anomaly response used in }B_{A,r}.
+\end{equation}
+For the fixed-reference modular-energy route one may write, on each frozen
+reference patch,
+\begin{equation}
+  \mathcal E_{A,r}(q,a)
+  =
+  \rho_{A,\mathrm{eq},r}^{(0)}(a)
+  +\mathcal N_{r,a}\,
+  \operatorname{Tr}\!\left[
+    \bigl(\rho_r(q)-\sigma_{r,a}\bigr)
+    K^{\rm anom}_{\sigma,r,a}
+  \right]
+  +\mathcal R_{2,r}(q,a),
+\end{equation}
+with \(\mathcal R_{2,r}(q_0,a)=0\) and
+\(D\mathcal R_{2,r}|_{q_0}=0\).  Then
+\[
+  D\mathcal E_{A,r}|_{q_0}[v]
+  =
+  \mathcal N_{r,a}
+  \operatorname{Tr}\!\left[D\rho_r|_{q_0}[v]\,K^{\rm anom}_{\sigma,r,a}\right].
+\]
+The shift \(K^{\rm anom}_{\sigma,r,a}\mapsto
+K^{\rm anom}_{\sigma,r,a}+cI\) leaves this tangent term invariant because
+\(\operatorname{Tr} D\rho_r[v]=0\).  The baseline
+\(\rho_{A,\mathrm{eq},r}^{(0)}\) is separate finite source data; a modular
+variation alone gives a response, not an absolute positive abundance.
+For a nonlinear-CMI route at an exact Markov reference, the first variation
+vanishes and the leading object is the Hessian.  A nonzero linear response
+from CMI therefore requires a declared non-Markov background and its residual.
+
+Let finite packet occupations satisfy
+\[
+  \mathcal M_{r,a}
+  =
+  \{f\in\mathbb R_{\ge0}^{N_r}:A_{r,a}f=b_{r,a}\},
+  \qquad
+  Q_{r,a}=\mathcal M_{r,a}/\mathcal G_{r,a}.
+\]
+At an interior background \(f_0>0\),
+\begin{equation}
+  T_{[f_0]}Q_{r,a}
+  =
+  \ker A_{r,a}/T_{f_0}(\mathcal G_{r,a}\cdot f_0).
+\end{equation}
+Boundary backgrounds use the corresponding tangent cone.  A symmetric
+\(\pm\epsilon\) finite difference is admissible only when both perturbed
+states stay in the same admissible support.  For a retraction
+\(\mathcal R_{q_0}(0)=q_0\), \(D\mathcal R_{q_0}(0)=I\), and a \(C^3\)
+readout \(E_r\),
+\[
+  \frac{
+  E_r(\mathcal R_{q_0}(\epsilon v))
+  -E_r(\mathcal R_{q_0}(-\epsilon v))
+  }{2\epsilon}
+  =
+  DE_r[v]+O(\epsilon^2).
+\]
+If the third directional derivative is bounded by \(M_v\), the truncation
+error is at most \(M_v\epsilon^2/6\).
+
+Let \(S_r:Q_{r,a}\to U_r\) be the delivered baryon-source map and
+\(E_r:Q_{r,a}\to Y_r\) the anomaly source map.  A physical response depending
+only on the delivered source exists exactly when
+\begin{equation}
+  \ker DS_r|_{q_0}\subseteq\ker DE_r|_{q_0}.
+\end{equation}
+Then there is a unique linear operator
+\[
+  B_{A,r}:\operatorname{im}DS_r|_{q_0}\to Y_r
+\]
+such that \(DE_r|_{q_0}=B_{A,r}DS_r|_{q_0}\).  This is the
+lift-independence condition: perturbing a collar width, packet occupation, or
+port current gives the same kernel only if those microscopic lifts deliver the
+same physical source tangent.
+
+The delivered source should initially be the vector
+\[
+  \mathcal S_b=
+  \bigl(
+    \Delta_b^{(A)},\Theta_b^{(A)},\delta T_b^{[\tau]},
+    \delta x_e^{[\tau]},\Phi_{\rm GI},\Psi_{\rm GI},\ldots
+  \bigr),
+\]
+and the anomaly output the vector
+\[
+  \mathcal Y_A=
+  \bigl(
+    \delta\rho_A,\delta p_A,q_A,\pi_A,\delta Q_A,F_A,\ldots
+  \bigr).
+\]
+A scalar \(B_A(k,a)\) is licensed only when non-density columns are below the
+declared frozen residual threshold.  If geometry feedback is present, the
+Boltzmann handoff normally receives the bare partial derivatives
+\((E_b,E_g)\), while the dressed static gain is
+\[
+  B_{\rm dressed}=(I-E_gG_A)^{-1}(E_b+E_gG_b).
+\]
+Passing the dressed gain into a solver that separately evolves metric
+feedback would count gravity twice.
+
+The physical repair rate has the same source discipline.  An equilibrium
+sampler kernel does not determine physical time.  The finite parent must
+provide native rates \(q_u(x,y)\) and a physical clock,
+\[
+  (L_uf)(x)=\sum_{y\ne x}q_u(x,y)[f(y)-f(x)].
+\]
+The generator descends to the quotient iff, for any two representatives
+\(\pi(x)=\pi(x')\),
+\[
+  \sum_{y:\pi(y)=q'}q_u(x,y)
+  =
+  \sum_{y:\pi(y)=q'}q_u(x',y)
+  \quad\hbox{for every quotient state }q'.
+\]
+Only this native generator, together with quotient lumpability and physical
+rate units, can promote \(\Gamma_{\rm rec}\).  Static settled-state response,
+step response, and the integrated retarded kernel must agree in the common
+parent model before a one-pole reduction is emitted.
+
+The physical kernel receipts are therefore
+\begin{center}
+\begin{tabular}{@{}l@{}}
+\texttt{COMMON\_SOURCE\_FUNCTIONAL\_RECEIPT}\\
+\texttt{ADMISSIBLE\_SOURCE\_TANGENT\_RECEIPT}\\
+\texttt{CONSTRAINT\_PRESERVING\_RETRACTION\_RECEIPT}\\
+\texttt{SOURCE\_VECTOR\_SUFFICIENCY\_RECEIPT}\\
+\texttt{B\_A\_SOURCE\_LIFT\_INDEPENDENCE\_RECEIPT}\\
+\texttt{SOURCE\_DESIGN\_IDENTIFIABILITY\_RECEIPT}\\
+\texttt{FINITE\_DIFFERENCE\_ORDER\_RECEIPT}\\
+\texttt{C1\_REFINEMENT\_RECEIPT}\\
+\texttt{ORDER\_OF\_LIMITS\_RECEIPT}\\
+\texttt{NATIVE\_REPAIR\_GENERATOR\_RECEIPT}\\
+\texttt{PHYSICAL\_RATE\_UNIT\_RECEIPT}\\
+\texttt{QUOTIENT\_LUMPABILITY\_RECEIPT}\\
+\texttt{STATIC\_DYNAMIC\_RESPONSE\_CONSISTENCY\_RECEIPT}
+\end{tabular}
+\end{center}
+The simulator may emit diagnostic candidates before these receipts pass, but
+those candidates are not physical \(B_A\), \(\rho_{A,\mathrm{eq}}\), or
+\(\Gamma_{\rm rec}\) kernels.
 
 \subsection{Compressed CMB, BAO, Growth, And \(S_8\) Diagnostic}
 
@@ -1871,7 +2034,7 @@ Quantity & OPH output & Measurement comparison \\
 \(\Omega_A\) & \(0.264114401\) & Planck-like matter budget under \(\Omega_K=0\) benchmark \\
 \(\Omega_{\Lambda,\OPH}\) & \(0.684423332\) & capacity de Sitter branch \\
 \(\rho_A/\rho_b\) & \(5.363470441\) & flat-benchmark residual ratio \\
-\(\gamma_{\mathrm{rec}}\) & \(0.050717471\) & finite repair matrix gap \\
+\(\gamma_{\mathrm{repair\ step}}\) & \(0.050717471\) & finite repair matrix step-gap diagnostic \\
 \(\aoph\) & \(1.029186271\times10^{-10}\) & \(8.070\%\) low versus best RAR \\
 \(\aeff\), \(\Zsix\)/Poisson & \(1.179018696\times10^{-10}\) & \(1.748\%\) low versus common empirical \(a_0\) \\
 SPARC systematic \(\chi^2/\mathrm{pt}\), unit & \(1.016589\) & best scaffold row \\
@@ -2049,7 +2212,7 @@ No-slip stress & Positive kinetic collar measure; settled monokinetic branch
 has dust stress and vanishing information-sector anisotropic stress. &
 Conditional stress theorem. \\
 Repair relaxation & Fixed repair-commit chain gives
-\(\tau_{\mathrm{rec}}=t_{\mathrm{commit}}/\gamma_{\mathrm{rec}}\). &
+\(\tau_{\mathrm{rec}}=t_{\mathrm{commit}}/\gamma_{\log}\). &
 Conditional packet theorem and clock candidate. \\
 CMB and growth & Nonzero-environment kernel is explicit; exact FLRW static
 RAR kernel is blocked by a no-go theorem. &
@@ -2232,25 +2395,48 @@ equation must include those terms and no-slip is regime-dependent.
 \paragraph{Theorem 0E.}
 Let \(K\) be the fixed-cutoff repair-commit transition matrix for one local
 coarse cell at fixed baryonic source.  If \(K\) is finite, irreducible, and
-aperiodic, with spectral gap \(\gamma_{\mathrm{rec}}\), then
+aperiodic, with largest nonstationary eigenvalue \(r_\star\) in modulus, then
 \begin{equation}
   \tau_{\mathrm{rec}}
-  =\frac{t_{\mathrm{commit}}}{\gamma_{\mathrm{rec}}}.
+  =\frac{t_{\mathrm{commit}}}{-\log |r_\star|}.
 \end{equation}
 If every allowed repair move has probability at least \(q_{\min}>0\) and the
 comparison chain has conductance \(\Phi_K\), then
 \begin{equation}
-  \gamma_{\mathrm{rec}}\ge \frac12 q_{\min}\Phi_K^2.
+  1-|r_\star|\ge \frac12 q_{\min}\Phi_K^2.
 \end{equation}
 
 \paragraph{Proof.}
 A finite irreducible aperiodic chain has a unique stationary state.  Every
-nonstationary mode decays as \(\exp(-\gamma_n n)\) in repair-step time, and
-the slowest nonzero mode has rate \(\gamma_{\mathrm{rec}}\).  One physical
+nonstationary mode decays as \(|r_j|^n\) in repair-step time.  One physical
 commit step takes \(t_{\mathrm{commit}}\), so physical relaxation has rate
-\(\gamma_{\mathrm{rec}}/t_{\mathrm{commit}}\).  The conductance bound follows
+\(-\log |r_\star|/t_{\mathrm{commit}}\).  The conductance bound follows
 from the standard Cheeger comparison for the reversible comparison chain and
 the lower move probability \(q_{\min}\). \(\square\)
+
+\paragraph{Theorem 0E'.}
+Equilibrium data do not select physical repair kinetics.  Let \(P\) be an
+irreducible finite transition matrix with stationary law \(\pi P=\pi\).
+For any \(0<\alpha\le1\), define
+\[
+  P_\alpha=(1-\alpha)I+\alpha P.
+\]
+Then \(\pi P_\alpha=\pi\).  If \(r_j\) is an eigenvalue of \(P\), the
+corresponding eigenvalue of \(P_\alpha\) is
+\[
+  r_j(\alpha)=1-\alpha+\alpha r_j,
+\]
+and the physical decay rate at commit time \(\Delta t_{\mathrm{physical}}\) is
+\[
+  \Gamma_j(\alpha)
+  =
+  -\frac{\log |1-\alpha+\alpha r_j|}{\Delta t_{\mathrm{physical}}}.
+\]
+Thus the same equilibrium law, \(\rho_{A,\mathrm{eq}}\), \(B_A\), and detailed
+balance can support different kinetics.  A sampler built from an equilibrium
+functional is a valid equilibrium evaluator only after its proposal law,
+attempt frequency, causal neighborhood, active fiber, and physical clock are
+declared as part of the OPH repair generator. \(\square\)
 
 \subsection{Environmental Kernel Around A Nonzero Field}
 
@@ -2277,7 +2463,7 @@ The contrast kernel is
 \begin{equation}
   B_A(k,a)
   =
-  \frac{\bar\rho_b(a)}{\bar\rho_A(a)}K_A^{(\rho)}(k,a).
+  \frac{\bar\rho_b(a)}{\bar\rho_{A,\mathrm{eq}}(a)}K_A^{(\rho)}(k,a).
 \end{equation}
 
 \paragraph{Proof.}
@@ -2440,9 +2626,17 @@ its source-provenance certificate, and pooled global reducers. \(\square\)
 Let \(\mathcal C_x(a)\) be the finite collar family contributing to a coarse
 FLRW cell \(x\) at scale factor \(a\).  Assume this finite-collar state
 selection has a regular FLRW limit.  Let \(\omega[\rho_b]\) be the OPH collar
-state selected by the baryonic source, and let
+state selected by the baryonic source, and let \(R_C^{\mathrm{src}}\) be the
+typed source routed by the source-route theorem:
 \begin{equation}
-  R_C[\omega]=I_\omega(A:D|B).
+  R_C^{\mathrm{src}}[\omega]
+  =
+  \begin{cases}
+  \delta\langle K_C^{\mathrm{anom}}[\sigma]\rangle,
+  & \texttt{FIXED\_REFERENCE\_MODULAR\_ENERGY},\\
+  I_\omega(A:D|B),
+  & \texttt{NONLINEAR\_CMI\_STRESS}\text{ with matching receipt}.
+  \end{cases}
 \end{equation}
 Define
 \begin{equation}
@@ -2450,7 +2644,7 @@ Define
   =
   \frac{15}{8\pi^2\ell(a)^4}
   \int_{\mathcal C_x(a)}\dd\mu_C\,
-  R_C[\omega[\rho_b]].
+  R_C^{\mathrm{src}}[\omega[\rho_b]].
   \label{eq:parentcollar}
 \end{equation}
 Then \eqref{eq:parentcollar} is a scalar parent collar functional that emits a
@@ -2595,7 +2789,7 @@ with truncation at \(40\), nearest-neighbor inverse-closed proposals, and
 hold probability \(0.25\).  The resulting matrix has row-sum error
 \(1.110\times10^{-16}\), detailed-balance error \(6.939\times10^{-18}\), and
 \[
-  \gamma_{\mathrm{rec}}=0.050717471.
+  \gamma_{\mathrm{repair\ step}}=0.050717471.
 \]
 This diagnostic is a finite packet schema.  The OPH task is to derive that
 schema, or its replacement, from the finite collar states and then attach the

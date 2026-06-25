@@ -785,18 +785,44 @@ in \pathref{cosmology/oph_dark_matter_paper.tex}; this paper only states what th
 
 \begin{target}[Physical anomaly kernel interface]
 The released dark-matter paper must define deterministic receipts
-\[
-\texttt{RHO\_A\_SOURCE\_RECEIPT},\qquad
-\texttt{RHO\_A\_EQ\_SOURCE\_RECEIPT},\qquad
-\texttt{B\_A\_KERNEL\_RECEIPT},\qquad
-\texttt{GAMMA\_REC\_SOURCE\_RECEIPT}.
-\]
+\begin{center}
+\begin{tabular}{@{}l@{}}
+\texttt{RHO\_A\_SOURCE\_RECEIPT}\\
+\texttt{RHO\_A\_EQ\_SOURCE\_RECEIPT}\\
+\texttt{B\_A\_KERNEL\_RECEIPT}\\
+\texttt{GAMMA\_REC\_SOURCE\_RECEIPT}
+\end{tabular}
+\end{center}
 These receipts pass only when \(\rhoA(a)\), \(\Bkernel(k,a)\), and \(\GammaRec(k,a)\) are emitted
 as certified physical functions with \(\rhoAeq(a)\), \(w_A(a)\), \(\csA(k,a)\), \(\sigmaA(k,a)\),
 and \(\QA\) from the finite parent, physical scale calibration, gauge consistency, paired
 perturbation controls, active-fiber/physical-clock response receipts, CDM-limit recovery, and
 refinement convergence. The cosmology program consumes the emitted functions but does
 not redefine the dark-sector source law.
+
+The physical kernel receipt imports these inner receipts from the dark/anomaly paper:
+\begin{center}
+\begin{tabular}{@{}l@{}}
+\texttt{COMMON\_SOURCE\_FUNCTIONAL\_RECEIPT}\\
+\texttt{ADMISSIBLE\_SOURCE\_TANGENT\_RECEIPT}\\
+\texttt{CONSTRAINT\_PRESERVING\_RETRACTION\_RECEIPT}\\
+\texttt{SOURCE\_VECTOR\_SUFFICIENCY\_RECEIPT}\\
+\texttt{B\_A\_SOURCE\_LIFT\_INDEPENDENCE\_RECEIPT}\\
+\texttt{SOURCE\_DESIGN\_IDENTIFIABILITY\_RECEIPT}\\
+\texttt{FINITE\_DIFFERENCE\_ORDER\_RECEIPT}\\
+\texttt{C1\_REFINEMENT\_RECEIPT}\\
+\texttt{ORDER\_OF\_LIMITS\_RECEIPT}\\
+\texttt{NATIVE\_REPAIR\_GENERATOR\_RECEIPT}\\
+\texttt{PHYSICAL\_RATE\_UNIT\_RECEIPT}\\
+\texttt{QUOTIENT\_LUMPABILITY\_RECEIPT}\\
+\texttt{STATIC\_DYNAMIC\_RESPONSE\_CONSISTENCY\_RECEIPT}
+\end{tabular}
+\end{center}
+A diagnostic candidate may contain paired finite differences, controls, and
+refinement rows.  The physical receipt is false unless the source functional,
+delivered source tangent, source-vector sufficiency, lift-independence,
+native generator, and static-dynamic consistency receipts pass in the same
+frozen generation.
 \end{target}
 
 Diagnostic rows remain useful for debugging. They should be plotted, stress-tested, and compared to
@@ -889,13 +915,20 @@ regular initial-mode and Einstein-constraint receipt, \(R_{\rm transfer}\) the B
 well-posedness and numerical-convergence receipt, \(R_{\rm freeze}\) the model-generation freeze
 receipt, and \(R_{\rm like}\) the official likelihood execution receipt.  Define
 \[
-R_{\rm physical}=
+R_{\rm spectrum}=
 R_{\rm src}\wedge R_{\rm scale}\wedge R_{\rm parent}\wedge R_{\rm kernel}
-\wedge R_{\rm init}\wedge R_{\rm transfer}\wedge R_{\rm freeze}\wedge R_{\rm like}.
+\wedge R_{\rm init}\wedge R_{\rm transfer}\wedge R_{\rm freeze},
 \]
-If every parent receipt is labelled \(\texttt{PASS}\), then the resulting TT/TE/EE, lensing, matter
-power, growth, BAO, or RSD spectra are physical predictions of the frozen generation \(G_n\).  If
-any receipt is \(\texttt{FAIL}\), \(\texttt{OPEN\_GATE}\), \(\texttt{INCOMPLETE}\), or
+and for an observational dataset family \(D\),
+\[
+R_{\rm tested}^{(D)}=R_{\rm spectrum}\wedge R_{\rm like}^{(D)}.
+\]
+If every receipt in \(R_{\rm spectrum}\) is labelled \(\texttt{PASS}\), then the resulting
+TT/TE/EE, lensing, matter power, growth, BAO, or RSD spectra are
+\(\texttt{FROZEN\_PHYSICAL\_SPECTRUM}\) outputs of generation \(G_n\).  If \(R_{\rm tested}^{(D)}\)
+also passes for a frozen dataset and likelihood family \(D\), the output is a
+\(\texttt{LIKELIHOOD\_EVALUATED\_PHYSICAL\_PREDICTION}\).  If any receipt is
+\(\texttt{FAIL}\), \(\texttt{OPEN\_GATE}\), \(\texttt{INCOMPLETE}\), or
 \(\texttt{INVALIDATED}\), the spectra remain diagnostic or conditional according to the parameter
 ledger.
 \end{theorem}
@@ -903,9 +936,9 @@ ledger.
 \begin{proof}
 Each receipt states a typed premise needed by the next map: source fields, physical coordinates,
 parent stress, response kernels, initial state, transfer evolution, freeze integrity, and likelihood
-execution.  Composition of certified maps gives a physical prediction only when every premise is
-available for the same frozen generation.  A failed or open receipt removes at least one premise, so
-downstream software cannot promote the output.
+execution.  Composition through \(R_{\rm spectrum}\) gives a frozen physical spectrum.  Composing
+that frozen spectrum with \(R_{\rm like}^{(D)}\) evaluates it against \(D\).  A failed or open
+receipt removes at least one premise, so downstream software cannot promote the output.
 \end{proof}
 
 \begin{target}[Outcome and prediction-class ledger]
