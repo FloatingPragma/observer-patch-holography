@@ -51,7 +51,6 @@
 \newcommand{\calI}{\mathcal I}
 \newcommand{\calU}{\mathcal U}
 \newcommand{\ZfourR}{\mathbb Z_4^R}
-\newcommand{\Tcorr}{\mathcal T_{\mathrm{correct}}^{\OPH}}
 \newcommand{\Teq}{\sim_{\OPH}}
 \newcommand{\Mgrav}{\mathfrak M_{\mathrm{grav}}}
 \newcommand{\TT}{\mathrm{TT}}
@@ -197,13 +196,13 @@ acts as a selector by imposing the observer-visible normal form.
 \toprule
 \textbf{Goal} & \textbf{Paper claim} & \textbf{Receipt carried here} \\
 \midrule
-Exact string representative & OPH selects the operator-safe Bouchard-Donagi one-Higgs heterotic
-Standard Model candidate \(BD_{n=1,+}^{\OPH}\). & Selector gates, global group proof, safety
+Named string witness & OPH tests the operator-safe Bouchard-Donagi one-Higgs heterotic
+Standard Model candidate \(BD_{n=1,+}^{\OPH}\) as a passing named witness. & Selector gates, global group proof, safety
 charge table, candidate sieve. \\
 String-theory pressure points & The landscape, global group, Higgs multiplicity, exotics,
 operator danger, proton decay, and moduli problems become explicit gates. & Gate table,
 acceptance table, falsifier matrix. \\
-Empirical prediction surface & The selected branch makes low-energy and threshold-level
+Empirical prediction surface & The named branch makes low-energy and threshold-level
 claims that can fail. & Higgs/top targets, stop-threshold proxy, string/GUT threshold proxy,
 operator table. \\
 \bottomrule
@@ -244,7 +243,7 @@ problem \cite{OPHYangMillsGap}.
 The particle-sector paper carries the electroweak, Higgs/top, quark, charged-lepton, neutrino, and
 hadron audit lanes \cite{OPHParticleZoo}. The fine-structure note isolates the local pixel fixed
 point that feeds the quantitative electroweak target \cite{OPHFineStructure}. These papers supply
-the numerical vector that the selected string representative has to match.
+the numerical vector that the named string witness has to match.
 
 \paragraph{4. Why observers and records are literal inputs.}
 The screen-microphysics paper turns patches into finite record-bearing carriers with ports,
@@ -306,13 +305,13 @@ record and repair machine. &
 \bottomrule
 \end{longtable}
 
-\section{Main Result: Conditional Correct-String Selection up to OPH Equivalence}
+\section{Main Result: Conditional BD Witness Selection up to OPH Equivalence}
 
 An OPH-correct critical string is defined only after the equivalence relation has been fixed. The
-claim concerns the observer-visible physical class. Notation, duality frame, worldsheet gauge, and
-coordinate presentation are chart data. Once the stated certificate gates close and
-observer-visible data are fixed, admissible critical-string presentations collapse to a single
-OPH-equivalence class.
+claim concerns observer-visible physical data, not notation, duality frame, worldsheet gauge, or
+coordinate presentation. This paper supplies a named BD witness target and a finite encoded audit
+set. A global singleton statement requires an exhaustive candidate-class certificate in addition to
+the witness certificates.
 
 \begin{definition}[OPH-equivalent critical presentations]
 Two critical-string presentations \(\mathcal T_1\) and \(\mathcal T_2\) are OPH-equivalent,
@@ -357,35 +356,16 @@ with full transverse rank after quotienting OPH-invisible redundancies.
 \end{enumerate}
 \end{definition}
 
-\begin{theorem}[Conditional correct-string selection theorem]
+\begin{theorem}[Conditional BD witness theorem]
 Assume the OPH recovered-core target, the heterotic edge-sector branch including the
-finite-carrier critical-edge certificate, the certificate gates
-listed in Section~\ref{sec:claim-gates}, and the following comparison principle:
-OPH-correct presentations are ordered first by gate satisfaction, then by the minimality vector
+finite-carrier critical-edge certificate, and the BD certificate gates listed in
+Section~\ref{sec:claim-gates}. Assume also that the Bouchard--Donagi one-Higgs branch with the
+operator-safety layer satisfies the cohomology, global-group, safety, threshold, and moduli-locking
+gates. Then
 \[
-C(v)=
-\bigl(
-N_{\rm parent},N_{\rm corridor},|\Gamma|,n_H,N_{\rm exotic},
-N_{U(1),{\rm extra}},N_{\rm safety},D_{\rm moduli}
-\bigr),
+\boxed{BD_{n=1,+}^{\OPH}}
 \]
-with ties quotienting by \(\Teq\). Then the set of OPH-correct critical-string presentations is a
-singleton:
-\[
-\boxed{
-\{
-\mathcal T:\mathcal T\text{ is OPH-correct}
-\}/\Teq
-=
-\{BD_{n=1,+}^{\OPH}\}.
-}
-\]
-Equivalently,
-\[
-\boxed{
-\Tcorr=BD_{n=1,+}^{\OPH}.
-}
-\]
+is a passing named OPH-correct critical-string witness, modulo \(\Teq\).
 \end{theorem}
 
 \begin{proof}
@@ -393,24 +373,57 @@ The recovered-core target, after MAR selection of the admissible one-Higgs branc
 observer-visible endpoint: the global Standard Model quotient, three colors, three generations,
 exact hypercharge lattice, one-Higgs electroweak branch, no light
 chiral exotics, no extra visible low-scale \(\U(1)\), and the product-group absence of \(X/Y\)
-gauge bosons. The edge-string continuation restricts the UV completion to critical presentations
+gauge bosons. The edge-string continuation restricts the witness to critical presentations
 whose worldsheet branch is the sewn OPH edge system and whose massless spin-two mode is the
 quantized OPH metric perturbation. The Bouchard--Donagi \(\Z_2\)-quotient \(\SU(5)\)-bundle
-with one Higgs pair supplies a nonempty heterotic witness with the required three-generation,
+with one Higgs pair supplies the named heterotic witness with the required three-generation,
 no-exotics visible spectrum and Wilson-line centralizer. The \(\ZfourR\) layer closes the visible
-operator gate. The moduli-locking hypothesis isolates the physical target point. All other encoded
-competitors in the declared encoded candidate class fail at least one gate or have a larger
-minimality vector. Quotienting by \(\Teq\) removes pure duality-frame duplicates. The passing
-minimal OPH-equivalence class is the singleton
-\(BD_{n=1,+}^{\OPH}\).
+operator gate. The moduli-locking hypothesis isolates the physical target point for that witness.
+Those conditions are exactly the OPH-correctness gates for the named witness. Quotienting by
+\(\Teq\) removes pure presentation duplicates of the same observer-visible data.
+\end{proof}
+
+\begin{proposition}[Global singleton certificate criterion]
+Let \(\mathcal C\) be an explicitly enumerated candidate class containing every critical-string
+presentation allowed to compete for the same OPH-visible target. Suppose every row of
+\(\mathcal C\) has a reproducible gate certificate, and suppose the certified survivors are ordered
+first by gate satisfaction, then by the minimality vector
+\[
+C(v)=
+\bigl(
+N_{\rm parent},N_{\rm corridor},|\Gamma|,n_H,N_{\rm exotic},
+N_{U(1),{\rm extra}},N_{\rm safety},D_{\rm moduli}
+\bigr),
+\]
+with ties quotienting by \(\Teq\). If the only row in \(\mathcal C/\Teq\) that passes all gates and
+attains the minimality bound is \(BD_{n=1,+}^{\OPH}\), then the singleton statement holds for that
+enumerated class:
+\[
+\boxed{
+\{
+\mathcal T\in\mathcal C:\mathcal T\text{ is OPH-correct}
+\}/\Teq
+=
+\{BD_{n=1,+}^{\OPH}\}.
+}
+\]
+\end{proposition}
+
+\begin{proof}
+This is the finite-selector normal-form argument. The enumerated certificate table supplies the
+candidate set, the gate vector, and the minimality vector for every row. The hypothesis says that
+all rows outside \(BD_{n=1,+}^{\OPH}\) either fail a gate or lose the minimality comparison after
+quotienting by \(\Teq\). Therefore the certified survivor set in \(\mathcal C/\Teq\) is the stated
+singleton. Without the exhaustive table for \(\mathcal C\), this proposition is a certificate
+criterion rather than a global landscape theorem.
 \end{proof}
 
 \begin{remark}[How strong this is]
-BD is not decoration here. OPH supplies an external observer-visible target, so the landscape is
-filtered by a normal-form equation. The claim is falsifiable by construction: failure of the BD
-cohomology,
-safety-layer realization, threshold target, or transverse moduli rank retracts the selected critical
-representative without retracting the OPH recovered core.
+BD is not decoration here. OPH supplies an external observer-visible target, so a named branch can
+be tested by a normal-form equation. The claim is falsifiable by construction: failure of the BD
+cohomology, safety-layer realization, threshold target, or transverse moduli rank retracts the
+named witness without retracting the OPH recovered core. Global uniqueness is a separate
+comparative-catalogue certificate.
 \end{remark}
 
 \section{Theorem Agenda}
@@ -1746,7 +1759,7 @@ be internally consistent and fail the OPH observer-visible target map.
 
 \subsection{Predictions available after selection}
 
-Once the selected class is fixed, the theory makes gates that generic landscape reasoning lacks:
+Once the named witness class is fixed, the theory makes gates that generic landscape reasoning lacks:
 \begin{enumerate}[leftmargin=2em]
 \item \textbf{One visible Higgs pair at the compactification target.} Extra light Higgs pairs fail
 the OPH one-Higgs electroweak branch.
@@ -1789,7 +1802,7 @@ n_H=1,\,
 \ZfourR\text{ safety}
 \right).
 \]
-The selected geometric witness in the package is
+The named geometric witness in the package is
 \[
 \boxed{
 BD_{n=1}^{\OPH}
@@ -1798,7 +1811,7 @@ BD_{n=1}^{\OPH}
 \text{ heterotic }\SU(5)\text{ Standard Model, one-Higgs-pair stratum}.
 }
 \]
-The selected operator-safe candidate is
+The named operator-safe candidate is
 \[
 \boxed{
 BD_{n=1,+}^{\OPH}
@@ -1829,7 +1842,7 @@ A critical string vacuum \(\mathcal T\) is OPH-admissible only if
 \[
 \Pi_{\rm IR}^{\OPH}(\mathcal T)=\mathfrak S_{\OPH}.
 \]
-For the package studied here, the selected geometric witness is \(BD_{n=1}^{\OPH}\), and the
+For the package studied here, the named geometric witness is \(BD_{n=1}^{\OPH}\), and the
 operator-safe candidate is \(BD_{n=1,+}^{\OPH}\).
 \end{theorem}
 
@@ -1909,7 +1922,7 @@ Moduli stabilization & Becomes \(\calF(m_\star)=\calO_{\OPH}\). & Target criteri
 Operator safety & The MSSM \(\ZfourR\) layer permits Yukawas and the Weinberg operator, and
 forbids perturbative RPV, dimension-five proton decay, and the perturbative \(\mu\)-term. &
 Charge algebra closes; BD geometric realization is a certificate gate. \\
-Empirical predictions & Converts the selected branch into a compact list of failure-prone
+Empirical predictions & Converts the named branch into a compact list of failure-prone
 low-energy and threshold targets. & Prediction table and computed target equations. \\
 \bottomrule
 \end{longtable}
@@ -2324,7 +2337,7 @@ matter-parity remnant after nonperturbative breaking.
 
 \section{Acceptance Gates}
 
-The package is adversarial by design. The selected operator-safe candidate has to pass the same
+The package is adversarial by design. The named operator-safe candidate has to pass the same
 gates as any competitor:
 \begin{longtable}{p{0.33\linewidth}p{0.57\linewidth}}
 \toprule
@@ -2384,7 +2397,7 @@ equivalent selection rule, directly in the compactification data.
 
 \section{Open Computation Audit and Moduli-Locking Target}
 
-The selected operator-safe string candidate has to match the OPH quantitative vector. The local proxy
+The named operator-safe string candidate has to match the OPH quantitative vector. The local proxy
 computes
 \begin{longtable}{p{0.44\linewidth}p{0.44\linewidth}}
 \toprule
@@ -2526,12 +2539,13 @@ transverse to OPH-stable equivalence makes \(m_\star\) locally isolated as a phy
 solution of the target equation.
 \end{theorem}
 
-\section{Exact Candidate Theorem}
+\section{Exact BD Witness Theorem}
 
-The strongest mathematically clean statement has certificate form. It separates what the paper
-proves by algebra from what the BD computation has to certify.
+The strongest mathematically clean witness statement has certificate form. It separates what the
+paper proves by algebra from what the BD computation has to certify. It does not assert global
+uniqueness without a complete comparison catalogue.
 
-\begin{theorem}[Exact OPH-selected critical-string representative]
+\begin{theorem}[Exact OPH BD critical-string witness]
 Assume the following data.
 \begin{enumerate}[leftmargin=2em]
 \item The OPH recovered-core target is
@@ -2559,20 +2573,10 @@ operator algebra.
 \qquad
 \operatorname{rank}D\calF_{BD,n=1,+}(m_\star)=\dim\mathcal M_{\rm phys}.
 \]
-\item The comparison class is ordered by the OPH gate count and the minimality vector
-\[
-C(v)=
-\bigl(
-N_{\rm parent},N_{\rm corridor},|\Gamma|,n_H,N_{\rm exotic},
-N_{U(1),{\rm extra}},N_{\rm safety},D_{\rm moduli}
-\bigr).
-\]
 \end{enumerate}
-The selected effective critical-string representative, modulo OPH-stable equivalence, is
+Then the following OPH-stable equivalence class is a passing named critical-string witness:
 \[
 \boxed{
-\mathcal T_{\rm correct}^{\OPH}
-=
 \left[
 BD_{n=1}^{\SU(5),\Z_2}+\ZfourR
 \right]_{\OPH}
@@ -2584,56 +2588,56 @@ BD_{n=1,+}^{\OPH}.
 
 \begin{proof}
 The recovered-core target fixes the observer-visible group, hypercharge lattice, generation
-count, Higgs count, exotic-matter gate, and operator-safety gate. The heterotic edge-sector branch,
-the finite-carrier critical-edge certificate, and the OPH minimality order restrict the comparison class to
-heterotic edge-sector completions at the audit boundary, with brane/orientifold and
-duality-rewritten presentations treated as separate presentation tests. The BD
-certificate supplies a nonempty \(\Z_2\)-quotient \(\SU(5)\)-bundle witness with the required
+count, Higgs count, exotic-matter gate, and operator-safety gate. The heterotic edge-sector branch
+and the finite-carrier critical-edge certificate place the named witness on the critical edge
+route. The BD certificate supplies a nonempty \(\Z_2\)-quotient \(\SU(5)\)-bundle witness with the required
 three-generation, no-exotics, one-Higgs spectrum. The centralizer and quotient theorems identify
 its Wilson-line centralizer with the OPH global Standard Model group. The \(\ZfourR\) safety
 layer closes the visible operator algebra gate. The moduli-locking rank hypothesis isolates
-\(m_\star\) modulo OPH-stable equivalence. The comparison order removes the encoded competitors:
-\(n=0\) fails the Higgs gate, \(n=2\) adds visible Higgs matter, BHOP carries an extra visible
-\(\U(1)\) corridor in the audit, and the generic \(\mathrm{Spin}(32)/\Z_2\) branch misses the
-minimal OPH corridor. The passing minimal class is the singleton
+\(m_\star\) modulo OPH-stable equivalence. Therefore the named class
 \[
 \left[
 BD_{n=1}^{\SU(5),\Z_2}+\ZfourR
 \right]_{\OPH}.
 \]
+satisfies the OPH-correct witness gates.
 \end{proof}
 
 \begin{remark}[Certificate boundary]
-The theorem gives the full proof shape. Its algebraic steps close in this paper. The critical-edge
+The theorem gives the witness proof shape. Its algebraic steps close in this paper. The critical-edge
 receipt table, cohomology table, \(\ZfourR\)-realization table, Yukawa/superpotential table,
-threshold table, and Jacobian-rank table form the external certificate package.
+threshold table, and Jacobian-rank table form the external witness package. A comparison table
+over an exhaustive candidate class is an additional package.
 \end{remark}
 
 \begin{theorem}[Certificate closure criterion]
-The equality
+The class-restricted equality
 \[
-\mathcal V_{\rm crit}^{\OPH}/\Teq=\{BD_{n=1,+}^{\OPH}\}
+\{\mathcal T\in\mathcal C:\mathcal T\text{ is OPH-correct}\}/\Teq=\{BD_{n=1,+}^{\OPH}\}
 \]
-is fully certified once the seven certificates in Section~\ref{sec:claim-gates}
+is fully certified for an explicitly enumerated candidate class \(\mathcal C\) once the seven
+certificates in Section~\ref{sec:claim-gates}
 verify: critical-edge closure, cohomology, \(\ZfourR\) realization, superpotential
 safety, threshold matching, moduli locking with full transverse rank, and comparative uniqueness.
 If any of the first six
-certificates fails, the selected representative retracts. If the seventh certificate fails, uniqueness
-retracts and the surviving OPH-admissible set requires a wider comparison audit.
+certificates fails, the named witness retracts. If the seventh certificate fails, uniqueness
+retracts and the surviving OPH-admissible set requires a wider comparison audit. Without an
+exhaustive \(\mathcal C\), the criterion does not assert a global critical-string singleton.
 \end{theorem}
 
 \begin{proof}
-The exact candidate theorem is a conjunction of seven independent certificate gates. Gates 1--6 are
-existence and safety gates for the named representative. Gate 7 is a comparison gate over the
-declared candidate class. If all seven hold, the named representative exists and is the unique minimal
-OPH-admissible survivor. If an existence or safety gate fails, the named representative misses the
-definition of OPH-correctness. If the comparison gate alone fails, the named representative may
-remain OPH-correct, with singleton claim retracted. This proves the criterion.
+The criterion is a conjunction of seven independent certificate gates. Gates 1--6 are
+existence and safety gates for the named witness. Gate 7 is a comparison gate over the declared
+candidate class. If all seven hold for an exhaustive \(\mathcal C\), the named witness exists and is
+the unique minimal OPH-admissible survivor inside \(\mathcal C/\Teq\). If an existence or safety
+gate fails, the named witness misses the definition of OPH-correctness. If the comparison gate
+alone fails, the named witness may remain OPH-correct, with singleton claim retracted. This proves
+the criterion.
 \end{proof}
 
 \section{Empirical Prediction Surface}
 
-The selected branch is useful only because it can lose. The predictions below are phrased as
+The named branch is useful only because it can lose. The predictions below are phrased as
 observer-visible constraints and threshold targets, since those are the quantities a string
 compactification, spectrum pipeline, or experiment can attack.
 
@@ -2642,7 +2646,7 @@ compactification, spectrum pipeline, or experiment can attack.
 \textbf{Prediction} & \textbf{Numerical or structural target} & \textbf{Failure meaning} \\
 \midrule
 Global Standard Model group &
-\((\SU(3)\times\SU(2)\times\U(1))/\Z_6\). & Retracts the selected visible branch. \\
+\((\SU(3)\times\SU(2)\times\U(1))/\Z_6\). & Retracts the named visible branch. \\
 Color and generations & \(N_c=3\), \(N_g=3\), with
 \(|c_3(\widetilde V)|=12\), \(|\Gamma|=2\). & Retracts the BD witness. \\
 Higgs sector & One Higgs pair in the string branch, decoupling to the observed light Higgs
@@ -2669,7 +2673,7 @@ String/GUT threshold & \(\Delta(\alpha_3^{-1})_{\rm needed}\simeq -0.52175425540
 \bottomrule
 \end{longtable}
 
-The empirical content is sharper than a generic landscape statement. The selected
+The empirical content is sharper than a generic landscape statement. The named
 string branch predicts a narrow visible package and a numerical threshold corridor. The
 unclosed part is the full map
 \[
@@ -2704,7 +2708,7 @@ Moduli-locking certificate & Full map \(D\calF_{BD,n=1}\) on the physical moduli
 criterion proved; rank computation not emitted here. \\
 Comparative uniqueness certificate & Expanded heterotic edge-sector audit, plus any brane,
 orientifold, or duality-rewritten presentations claiming OPH equivalence. & Encoded audit selects
-\(BD_{n=1,+}^{\OPH}\); broader catalogue audit not emitted here. \\
+\(BD_{n=1,+}^{\OPH}\) inside its declared rows; broader catalogue audit not emitted here. \\
 \bottomrule
 \end{longtable}
 
@@ -2715,13 +2719,13 @@ orientifold, or duality-rewritten presentations claiming OPH equivalence. & Enco
 \textbf{Failure mode} & \textbf{Consequence} \\
 \midrule
 Wrong global Standard Model group & Retracts the OPH visible landing branch. \\
-Wrong hypercharge lattice & Retracts the selected visible branch. \\
+Wrong hypercharge lattice & Retracts the named visible branch. \\
 Fourth chiral generation & Retracts the realized branch. \\
 Light chiral exotics & Retracts the BD one-Higgs witness. \\
 Irreducible second light Higgs pair & Retracts the one-Higgs low-energy projection. \\
 Extra visible low-scale \(\U(1)\) & Severe pressure on the OPH normal-form sieve. \\
 Gauge-mediated \(X/Y\) proton decay & Conflicts with the product-group branch. \\
-BD cohomology reproduction fails & Retracts \(BD_{n=1}^{\OPH}\) as selected geometric witness. \\
+BD cohomology reproduction fails & Retracts \(BD_{n=1}^{\OPH}\) as named geometric witness. \\
 \(\ZfourR\) or equivalent safety layer absent & Retracts \(BD_{n=1,+}^{\OPH}\) as
 operator-safe candidate. \\
 Dangerous operators survive without suppression & Severe pressure on the effective theory. \\
@@ -2773,8 +2777,9 @@ Where is de Sitter entropy? & Edge-center record capacity,
 \(S_{\rm dS}=A/(4\ell_P^2)=N_{\rm scr}\). & Capacity normalization. \\
 Why do strings appear? & Sewn OPH edge partitions are heat-kernel sums; the controlled
 large-edge continuation is a worldsheet expansion. & Large-edge control. \\
-Which string theory passes the OPH selector? & Conditional on the stated gates, the selected
-critical-string equivalence class is \(BD_{n=1,+}^{\OPH}\). & BD/Z4R/moduli certificate. \\
+Which string theory passes the OPH selector? & Conditional on the stated gates,
+\(BD_{n=1,+}^{\OPH}\) is the named passing witness. Global uniqueness requires an exhaustive
+comparison audit. & BD/Z4R/moduli certificate. \\
 Why anthropic landscape selection is absent & OPH provides a target normal form
 \(\Pi_{\rm IR}^{\OPH}(\mathcal T)=\mathfrak S_{\OPH}\), with no statistical sampling weight. & Exhaustive audits. \\
 Why the exact SM global group? & Wilson-line centralizer and OPH quotient both give
@@ -2813,9 +2818,9 @@ problems are projections of the same finite patch-federation normal-form problem
 OPH gives a finite observer/record/overlap implementation layer for de Sitter holography. The
 same edge system admits a sewn-worldsheet language. Critical string theory enters as the
 effective completion of that language only after the critical-edge certificate closes. Conditional on
-that gate, the OPH visible-normal-form target selects the
+that gate, the OPH visible-normal-form target tests the
 Bouchard-Donagi one-Higgs heterotic Standard Model as the geometric witness. Adding the MSSM
-\(\ZfourR\) safety layer gives the operator-safe selected candidate
+\(\ZfourR\) safety layer gives the named operator-safe candidate
 \[
 BD_{n=1,+}^{\OPH}=BD_{n=1}^{\OPH}+\ZfourR.
 \]
