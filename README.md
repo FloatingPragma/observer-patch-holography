@@ -457,28 +457,6 @@ formulas and claim boundaries live in the papers.
 - **Common objections:** [extra/COMMON_OBJECTIONS.md](extra/COMMON_OBJECTIONS.md)
 - **IBM Quantum note:** [extra/IBM_QUANTUM_CLOUD.md](extra/IBM_QUANTUM_CLOUD.md)
 
-## Status Table
-
-Status shorthand: first-principles fine structure starts from the root value
-$\alpha_{\rm root}^{-1}=136.9948351646\ldots$; the public
-$\alpha^{-1}(0)=137.035999177(21)$ row uses empirical hadron closure. Adding
-the emitted bare $\alpha_U(P_\star)=0.041124336195630495$ contribution gives
-the source-side no-hadron prediction
-$137.0359595008\ldots$; the calibrated endpoint residual is
-$\alpha_U C_{24,Q}$ with $C_{24,Q}=1.00096478597323262538\ldots$ and requires
-source-only Ward-projected hadronic spectral transport with no Thomson-target
-leakage. SI $c$
-is conventional; SI $G$ is a scale/clock display. $W/Z$ are benchmark checks.
-Higgs/top is closed on the declared electroweak quantitative relation. Quarks
-are selected-frame theorem values. Neutrinos use the weighted-cycle branch.
-Charged-lepton absolute masses and first-principles hadrons are outside the
-emitted theorem.
-
-The selected quark theorem does not derive the QCD theta angle, does not emit the
-physical strong-CP angle, and does not prove that the physical strong-CP phase
-vanishes. The required bridge is the phase, anomaly, and topological-angle
-descent on the realized branch.
-
 ## Repository Guide
 
 - **[`paper/`](paper):** PDFs, LaTeX sources, and release metadata.

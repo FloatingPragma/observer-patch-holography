@@ -501,30 +501,6 @@ frontières des revendications vivent dans les papiers.
 - **Objections courantes :** [extra/COMMON_OBJECTIONS.md](extra/COMMON_OBJECTIONS.md)
 - **Note IBM Quantum :** [extra/IBM_QUANTUM_CLOUD.md](extra/IBM_QUANTUM_CLOUD.md)
 
-## Table de statut
-
-Statut abrégé : la structure fine source seule part de la valeur racine
-$\alpha_{\rm root}^{-1}=136.9948351646\ldots$; la ligne publique
-$\alpha^{-1}(0)=137.035999177(21)$ utilise une fermeture hadronique empirique.
-Ajouter la contribution source nue $\alpha_U(P_\star)=0.041124336195630495$
-donne la prédiction source sans transport hadronique,
-$137.0359595008\ldots$; le résidu calibré du point final vaut
-$\alpha_U C_{24,Q}$ avec $C_{24,Q}=1.00096478597323262538\ldots$ et exige
-un transport spectral hadronique de Ward source seul, sans fuite depuis la
-cible Thomson. Le $c$ SI est
-conventionnel; le $G$ SI est un affichage échelle/horloge. $W/Z$
-sont des lignes de validation en comparaison seule. Higgs/top est fermé sur la
-surface quantitative électrofaible déclarée. Les quarks sont des lignes de
-théorème sur classe sélectionnée. Les neutrinos utilisent la branche à cycles
-pondérés. Les masses absolues des leptons chargés et les hadrons source seuls
-restent ouverts.
-
-La CP forte est en cours de travail dans le théorème des quarks sur classe
-sélectionnée : le corpus disponible ne dérive pas l'angle theta de QCD,
-n'émet pas l'angle CP fort physique et ne prouve pas que la phase CP forte
-physique s'annule. Le pont requis est la descente de phase, d'anomalie et
-d'angle topologique sur la branche réalisée.
-
 ## Guide du dépôt
 
 - **[`paper/`](paper)** : PDF, sources LaTeX et métadonnées de release.
