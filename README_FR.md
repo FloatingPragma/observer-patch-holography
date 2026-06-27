@@ -18,11 +18,11 @@ est énoncée.
 Pour la réponse existentielle immédiate, allez directement au **Paper 6.
 [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**.
 La version courte est directe : oui, cet univers est une simulation au sens
-OPH. Cela ne veut pas dire qu'un ordinateur extérieur calcule les positions des
-particules image par image. Cela veut dire que le monde se construit à partir
-de points de vue locaux qui gardent des enregistrements, comparent ce qu'ils
-peuvent voir en commun, réparent les désaccords et convergent vers les motifs
-stables que tous les observateurs peuvent partager. Le temps appartient à ces
+OPH, un monde construit à partir de points de vue locaux qui gardent des
+enregistrements, comparent ce qu'ils peuvent voir en commun, réparent les
+désaccords et convergent vers les motifs stables que tous les observateurs
+peuvent partager. Aucun ordinateur extérieur n'a besoin de calculer les
+positions des particules image par image. Le temps appartient à ces
 observateurs. Il n'existe pas d'horloge maîtresse extérieure à l'univers que
 tout suivrait en secret. Une horloge est un système interne qui produit des
 enregistrements, et le temps est l'ordre qu'un observateur reconstruit à partir
@@ -49,8 +49,8 @@ données visibles dans leurs recouvrements, réparent les désaccords par des
 mouvements de récupération déclarés et convergent vers des points fixes stables
 qui survivent au raffinement. Le monde public est ce qui reste stable lorsque
 ces vues locales deviennent mutuellement cohérentes. Quand l'OPH utilise le
-langage de la simulation, il s'agit de ce réseau d'observateurs auto-cohérent,
-pas d'une machine cachée qui dessine un film. Le dossier en faveur de l'OPH est
+langage de la simulation, il s'agit de ce réseau d'observateurs auto-cohérent
+plutôt que d'une machine cachée qui dessine un film. Le dossier en faveur de l'OPH est
 mathématique et empirique : la même architecture de cohérence d'observateurs
 retrouve la physique établie et explique pourquoi il existe un monde capable de
 produire des observateurs qui le reconstruisent.
@@ -299,7 +299,7 @@ papiers.
 | --- | --- | --- | --- | --- |
 | Constante gravitationnelle | G | 6.6742999959e-11, affichage échelle/horloge | 6.67430(15)e-11 | 0.00003σ |
 | Vitesse de la lumière | c | vitesse lorentzienne structurelle; valeur SI conventionnelle | 299792458 exact par définition | pas une prédiction numérique |
-| Structure fine (inv.) | α⁻¹(0) | source seule 136.994835; point final 137.035999177 avec fermeture hadronique empirique | 137.035999177(21) | pas source seule |
+| Structure fine (inv.) | \(A_{\alpha_U}^{\mathrm{fp}}\) | meilleure prédiction source \(137.0359595008\), depuis \(\alpha_{\mathrm{root}}^{-1}=136.994835\) plus \(\alpha_U(P_\star)\) nu; l'écart restant au point final \(3.9676\times10^{-5}\) est le payload de fermeture QCD/hadronique | 137.035999177(21) | plus bas de \(2.90\times10^{-7}\) relatif |
 | Masse du photon | m_γ | 0 eV | <1e-18 eV | sous la borne |
 | Masse du gluon | m_g | 0 GeV | 0 GeV | match |
 | Masse du graviton | m_grav | 0 eV | <1.76e-23 eV | sous la borne |
@@ -354,7 +354,7 @@ charge ou d'amplitude de diffusion.
 - **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)** : émergence des cordes comme description effective des dynamiques de bord OPH et crible de vides de cordes conventionnels, témoin hétérotique Bouchard-Donagi à une paire de Higgs, couche de sûreté par symétrie R discrète et portes de verrouillage des moduli ; ce n'est pas un raccourci de promotion vers un vide natif OPH.
 - **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)** : mécanisme OPH fini de gap de réparation et route conditionnelle vers le problème de Yang-Mills de Clay ; l'égalité entre le gap de Yang-Mills et le gap de réparation OPH exige le certificat quadridimensionnel de limite continue et de transfert.
 - **[Observer-Patch Holography and the Dark Matter Phenomenon](cosmology/oph_dark_matter_paper.pdf)** : phénoménologie de la matière noire et limite galactique de type MOND.
-- **[Theoretical Bounds on chi-nu in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)** : bornes conditionnelles de susceptibilité quotient-edge, valeur exacte sur la branche uniforme et valeurs d'ingénierie mises à l'échelle par la cohérence.
+- **[Theoretical Bounds on \(\chi_\nu\) in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)** : bornes conditionnelles de susceptibilité quotient-edge, valeur exacte sur la branche uniforme et valeurs d'ingénierie mises à l'échelle par la cohérence.
 - **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)** : cognition et qualia comme consensus récurrent de patches.
 
 La branche cosmologie en préparation vit dans [`cosmology/`](cosmology/README.md). Seul l'article
@@ -503,10 +503,16 @@ frontières des revendications vivent dans les papiers.
 
 ## Table de statut
 
-Statut abrégé : la structure fine source seule donne
-$\alpha_{\rm cand}^{-1}=136.9948351646\ldots$; la ligne publique
+Statut abrégé : la structure fine source seule part de la valeur racine
+$\alpha_{\rm root}^{-1}=136.9948351646\ldots$; la ligne publique
 $\alpha^{-1}(0)=137.035999177(21)$ utilise une fermeture hadronique empirique.
-Le $c$ SI est conventionnel; le $G$ SI est un affichage échelle/horloge. $W/Z$
+Ajouter la contribution source nue $\alpha_U(P_\star)=0.041124336195630495$
+donne la prédiction source sans transport hadronique,
+$137.0359595008\ldots$; le résidu calibré du point final vaut
+$\alpha_U C_{24,Q}$ avec $C_{24,Q}=1.00096478597323262538\ldots$ et exige
+un transport spectral hadronique de Ward source seul, sans fuite depuis la
+cible Thomson. Le $c$ SI est
+conventionnel; le $G$ SI est un affichage échelle/horloge. $W/Z$
 sont des lignes de validation en comparaison seule. Higgs/top est fermé sur la
 surface quantitative électrofaible déclarée. Les quarks sont des lignes de
 théorème sur classe sélectionnée. Les neutrinos utilisent la branche à cycles

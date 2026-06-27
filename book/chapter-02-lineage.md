@@ -327,9 +327,9 @@ Hofstadter argued that consciousness itself is a strange loop, a pattern that pe
 
 ### The Physics
 
-This matters for OPH. If reality is computational, and observers are patterns
-within that computation that model reality, then we have a strange loop:
-reality contains observers that understand reality.
+OPH uses the same self-reference. If reality is computational, and observers
+are patterns within that computation that model reality, then reality contains
+observers that understand reality.
 
 But strange-loop thinkers argue for something deeper: the loop may be part of how reality closes on itself. Self-reference becomes possible and structurally important.
 
@@ -349,7 +349,8 @@ one. The flip provides one bit of information.
 
 **Rolf Landauer** added a physical insight in 1961: erasing information costs energy. If you have a bit in an unknown state and you want to reset it to zero, you must dump at least $k_B T \ln 2$ of energy into the environment.
 
-This sounds technical. It changed physics. It means **information is physical**. Bits are not abstract mathematical objects; they have thermodynamic weight. Processing information costs energy and produces entropy.
+The point changed physics: **information is physical**. Bits have
+thermodynamic weight. Processing information costs energy and produces entropy.
 
 ### The Synthesis
 

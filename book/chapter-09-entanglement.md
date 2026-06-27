@@ -213,8 +213,8 @@ In 2012, Brian Swingle noticed that the geometry of a MERA network is
 **hyperbolic**, just like AdS space. The depth in the network plays the role of
 the radial direction in AdS.
 
-MERA isn't just a numerical trick. It is one influential discrete model showing
-how entanglement can organize geometry in an AdS-like way.
+MERA is more than a numerical trick. It is one influential discrete model
+showing how entanglement can organize geometry in an AdS-like way.
 
 ### The HaPPY Code
 
@@ -272,11 +272,11 @@ region **inside** the black hole, an "island."
 
 In those models, the island formula reproduces the Page curve and shows how the radiation can encode information that semiclassical bulk reasoning seemed to lose.
 
-This matters because it shows what holographic encoding can do. Information
-that looks lost in one description can remain stored in a nonlocal way and
-reappear when the right radiation data are assembled. That is the lesson the
-book needs. The black-hole interior is not a second hidden storage room. It is
-an encoded part of the same quantum description.
+The island formula shows what holographic encoding can do. Information that
+looks lost in one description can remain stored in a nonlocal way and reappear
+when the right radiation data are assembled. That is the lesson the book needs.
+The black-hole interior is an encoded part of the same quantum description
+rather than a second hidden storage room.
 
 ## 9.10 From Entanglement to the Classical World
 

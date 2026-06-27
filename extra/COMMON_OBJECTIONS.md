@@ -19,7 +19,7 @@ This note collects rebuttals to common objections to the OPH framework, with lon
 >
 > "(...) technical derivation of the metric in Chapter 3/4 of your framework.
 >
-> Here is the logical failure:
+> The logical failure:
 >
 > To recover semiclassical gravity (General Relativity), your 'Overlap Consistency' must satisfy the First Law of Entanglement Entropy (\delta S = \delta \langle H_{mod} \rangle). However, because OPH assumes finite, discrete observer patches with a fixed cell size (a_{cell}), you are introducing a fundamental 'lattice' to spacetime.
 >
@@ -550,7 +550,7 @@ overlap/gluing data
 -> obstruction class
 -> transportable sector category
 -> compact group by DR/Tannaka reconstruction
--> MAR-selected realized one-Higgs matter package
+-> one-Higgs matter package selected by Minimal Admissible Realization
 ```
 
 The first four steps classify and reconstruct. They can return a trivial

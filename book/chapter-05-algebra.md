@@ -343,7 +343,10 @@ density matrices stop being the right local object.
 
 ### Why Type III Matters
 
-Type III algebras have strange properties. They don't admit the simple density-matrix picture familiar from finite quantum systems. This matters because the algebra of any bounded spacetime region, including the region around a horizon, turns out to be Type III.
+Type III algebras have strange properties. They do not admit the simple
+density-matrix picture familiar from finite quantum systems. The algebra of any
+bounded spacetime region, including the region around a horizon, turns out to
+be Type III.
 
 The Unruh effect is a vivid illustration. An accelerating observer perceives empty space as a warm bath of particles. In the wedge/vacuum setting, the restricted description becomes thermal with respect to the relevant modular flow, and Type III local algebras are part of that algebraic framework.
 

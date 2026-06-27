@@ -97,7 +97,10 @@ benchmarks for the weak-sector transport family. They are checks against known
 weak-boson masses, not a separate derivation lane for new particles.
 
 The same family follows the unbroken electromagnetic channel to the
-long-distance Thomson limit. The fixed point gives
+long-distance Thomson limit. The source-side no-hadron trunk gives
+$\alpha_{\rm root}^{-1}=136.9948351646\ldots$, and source plus bare
+$\alpha_U(P_\star)$ gives $137.0359595008\ldots$. With the empirical hadron
+closure supplied, the endpoint branch displays
 
 $$
 \alpha^{-1}(0)=137.035999177(21), \qquad
@@ -108,7 +111,8 @@ $\alpha$ is the electromagnetic fine-structure constant. The inverse
 $\alpha^{-1}(0)$ is quoted in the long-distance, zero-momentum Thomson limit.
 The number in parentheses gives the uncertainty in the last digits. $P$ is the
 screen pixel ratio, the local ruler that the OPH fixed-point calculation reads
-from both geometric and electromagnetic sides.
+from both geometric and electromagnetic sides. The endpoint row includes the
+low-energy hadronic spectral contribution in the same electromagnetic scheme.
 
 The calculation starts with the golden-ratio screen balance, uses the boundary
 $\sqrt{\pi}$ normalization for the electromagnetic detuning, runs the source

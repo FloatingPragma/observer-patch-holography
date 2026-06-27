@@ -432,6 +432,51 @@ endpoint. The realized cell solves \(P=\varphi+\sqrt{\pi}/A_T(P)\).
 The fine-structure value is forced on this branch because the same local pixel
 must satisfy the outer entropy-detuning equation and the inner electromagnetic
 endpoint equation with no remaining free local scale.
+The source-only diagnostic trunk, before the low-energy hadronic endpoint
+transport is supplied, emits
+\[
+\alpha_{\mathrm{root}}^{-1}
+=136.994835164621649457949994585787\ldots.
+\]
+Adding the emitted public-branch unification width gives the source-side
+no-hadron prediction,
+\[
+A_{\alpha_U}^{\mathrm{fp}}
+=136.994835164621649457949994585787\ldots
++0.041124336195630495
+=137.035959500817279952949994585787\ldots.
+\]
+An observer inside the realized branch does not measure either no-hadron
+source-side value as the Thomson-limit fine-structure constant. A low-energy
+measurement probes the dressed \(\U(1)_Q\) current after charged-lepton vacuum
+polarization, confined-quark/hadron spectral transport, and same-scheme endpoint
+matching have been transported to \(q^2=0\). Calibrated to the CODATA/NIST endpoint, the
+fixed-point residual is
+\[
+\Delta^{\mathrm{fp}}_{\mathrm{H,cal}}
+=137.035999177
+-136.994835164621649457949994585787\ldots
+=0.041164012378350542050005414212807\ldots.
+\]
+Normalized by the public-branch \(\alpha_U(P_\star)=0.041124336195630495\),
+this residual is
+\[
+\Delta^{\mathrm{fp}}_{\mathrm{H,cal}}
+=\alpha_U(P_\star)\,C_{24,Q},\qquad
+C_{24,Q}=1.0009647859732326253849511140702475\ldots.
+\]
+The proximity to \(\alpha_U\) is a branch-scale clue rather than an identity or
+source-only endpoint prediction. The 24-register count explains the scale. It
+does not determine the nonconstant Ward-projected hadronic spectral functional.
+A source-only fine-structure endpoint requires
+\(\texttt{WARD\_Q\_SPECTRAL\_MEASURE\_RECEIPT}\),
+\(\texttt{J24Q\_SOURCE\_JACOBI\_RECEIPT}\),
+\(\texttt{OMEGAQ\_NORMALIZATION\_RECEIPT}\),
+\(\texttt{XI\_SAME\_SCHEME\_REMAINDER\_RECEIPT}\),
+\(\texttt{NO\_THOMSON\_TARGET\_LEAK\_DAG}\),
+\(\texttt{FULL\_PIXEL\_CONTRACTION\_INTERVAL}\), and
+\(\texttt{ALPHA\_PREDICTION\_BEATS\_DIRECT\_MEASUREMENT}\) under the
+direct-measurement interval adopted for that release.
 A separate hardware note reports an optical-cavity check of the same fixed-point
 geometry; this is treated as corroborating engineering evidence. The technical
 endpoint table in Section~\ref{sec:claim-tiers} records the source-side diagnostic
@@ -6190,7 +6235,7 @@ Tier & Representative outputs & What would actually falsify the tier \\
 \endfoot
 Phase I recovered core (Theorem~\ref{thm:master}; D1--D5, D7--D9) & Confluence of overlap repair, Lorentz kinematics, the three-dimensional observer-facing spatial chart, the Jacobson-type Einstein branch in the stated scaling regime, compact gauge reconstruction in the bosonic branch, the controlled four-dimensional Euclidean Yang--Mills form and compact-gauge repair-gap mechanism under the declared compact-gauge continuum/transfer assumptions, the realized Standard Model quotient chain on the explicit realized matter package, the exact hypercharge lattice on that realized matter package, the realized color triplet \(N_c=3\), the generation count \(N_g=3\), and the product-group consequence of no gauge-mediated proton decay & A mathematical failure in the derivation chain, loss of the Yang--Mills form or exact repair-gap branch conditions, or data that require a different realized gauge quotient, different realized hypercharges, a different color or generation count on the admissible branch, or gauge-mediated proton decay \\
 Phase II zero-input global closure (D6) & \(\Lambda_{\mathrm{CRC}}\ell_\star^2=3\pi/N_{\mathrm{CRC}}\), \(S_{\mathrm{dS}}=N_{\mathrm{CRC}}\), and, after the selected OPH scale certificate, \(\Lambda_{\mathrm{CRC}}=\frac{3\pi}{G N_{\mathrm{CRC}}}\), \(r_{\mathrm{dS}}=\sqrt{3/\Lambda_{\mathrm{CRC}}}\), and \(t_\Lambda=r_{\mathrm{dS}}/c\) from the cosmic record-closure fixed point \(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\), with \(F(N)=\operatorname{Cap}_{\mathrm{read}}(\operatorname{Obs}(\operatorname{nf}(\mathfrak U_N)))\), represented in counts by \(N_\star=\operatorname{MAR}\arg\max_N(\log|\Omega^{\mathrm{sc}}_N|-N)\); any retained capacity-level neutrino side estimate on that branch value is legacy bookkeeping instead of the weighted-cycle neutrino theorem lane; the observed cosmic age is a downstream FLRW benchmark & Failure of the readback fixed-point certificate or of the specific global capacity relation would falsify the D6 closure without erasing the recovered core \\
-Phase II quantitative-closure branch (D10) & forward transmutation data \(\alpha_U(P)\), \(t_U(P)\), \(t_{\mathrm{tr}}(P)\), pixel-closure gauge-coupling consistency, \(\alpha_i(m_Z)\), the source-locked anchor \(a_0(P)=\alpha_{\mathrm{em}}^{-1}(m_Z^2;P)\), the declared electroweak transport family \((W,Z,\alpha_{\mathrm{em}}^{-1}(q^2),\sin^2\theta_W(q^2),v)\), and the Thomson endpoint \(\alpha_{\mathrm{Th}}^{-1}=137.035999177(21)\) on the OPH plus empirical hadron closure row. The source-side diagnostic trunk emits \(\alpha_{\mathrm{cand}}^{-1}\simeq136.9948351646\) at \(P_{\mathrm{cand}}\simeq1.6309720957\). The endpoint residual table records \(0.0414658610\ldots\) inverse-alpha units at the public endpoint pixel, with \(S_{\mathrm{required}}\simeq0.8954001326\) and \(c_Q\simeq0.6580257599\). Empirical \(e^+e^-\to\mathrm{hadrons}\) input is kept separate from the first-principles theorem & Failure of the integrated quantitative closure once \(P\) and the printed running/matching/scheme conventions are imposed, or failure of the explicit source spectral payload, same-scheme remainder, empirical source disclosure, and interval-certificate records \\
+Phase II quantitative-closure branch (D10) & forward transmutation data \(\alpha_U(P)\), \(t_U(P)\), \(t_{\mathrm{tr}}(P)\), pixel-closure gauge-coupling consistency, \(\alpha_i(m_Z)\), the source-locked anchor \(a_0(P)=\alpha_{\mathrm{em}}^{-1}(m_Z^2;P)\), and the declared electroweak transport family \((W,Z,\alpha_{\mathrm{em}}^{-1}(q^2),\sin^2\theta_W(q^2),v)\). The Thomson endpoint \(\alpha_{\mathrm{Th}}^{-1}=137.035999177(21)\) is on the OPH plus empirical hadron closure row. The source-side diagnostic trunk emits the root value \(\alpha_{\mathrm{root}}^{-1}\simeq136.9948351646\) at \(P_{\mathrm{cand}}\simeq1.6309720957\). Adding the emitted \(\alpha_U(P_\star)\) gives the source-side no-hadron prediction \(A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\). The CODATA-calibrated fixed-point residual is \(\Delta^{\mathrm{fp}}_{\mathrm{H,cal}}=0.04116401237835\ldots=\alpha_U(P_\star)C_{24,Q}\), with \(C_{24,Q}=1.00096478597323262538\ldots\). The endpoint residual table also records \(0.0414658610\ldots\) inverse-alpha units at the public endpoint pixel, with \(S_{\mathrm{required}}\simeq0.8954001326\) and \(c_Q\simeq0.6580257599\). Empirical \(e^+e^-\to\mathrm{hadrons}\) input is kept separate from the first-principles theorem. The 24-register count does not determine the nonconstant hadronic spectral functional & Failure of the integrated quantitative closure once \(P\) and the printed running/matching/scheme conventions are imposed, or failure of the explicit Ward-projected hadronic spectral payload, same-scheme remainder, no-target-leak dependency record, empirical source disclosure, and interval-certificate records \\
 Phase III phenomenological continuations (D12 and beyond) & Flavor ans\"atze, charged-lepton continuation ans\"atze beyond exact centered readback, \(H^3\) record-worldline stitching certificates, texture branches, the weighted-cycle / Majorana-holonomy neutrino branch above the legacy D6 side estimate, further neutrino mass/mixing refinements, dark-sector response laws, conditional screen-spectrum and CMB/inflation-replacement kernels, \(H_0/S_8\) and growth continuations, heuristic baryogenesis continuations, proton-spin bookkeeping, proton-lifetime estimates beyond the gauge-channel exclusion, black-hole spectroscopy templates, physical black-hole evaporation/ringdown bridge programs, controlled large-\(N_{\mathrm{edge}}\) string/worldsheet effective descriptions, conjectural critical-superstring extensions, and other downstream phenomenology & Retraction of the corresponding continuation only. These branches are not part of the recovered core and their failure is not, by itself, a falsification of relativity-plus-Standard-Model recovery \\
 \end{longtable}
 \endgroup
@@ -6526,7 +6571,7 @@ The framework is strongest where the outputs are discrete or structurally rigid:
 The local MaxEnt branch gives a finite-range interacting fixed-cutoff dynamics, Propositions~\ref{prop:gauge} and \ref{prop:ancillauv} fix uniqueness of the UV branch only modulo OPH-stable equivalence, and Theorems~\ref{thm:hgdatum}--\ref{thm:hgtransport} with Proposition~\ref{prop:hginteracting} close the genuinely noncentral topological branch at fixed cutoff. The continuum BW/geometric lift is closed in the support-visible sense by Theorem~\ref{thm:bw}. The unregularized full-algebra common-floor route is deliberately not claimed, because Proposition~\ref{prop:commonfloor-collapse} shows that off-support directions can collapse while every finite stage remains faithful and Markov. The observer-facing theorem uses regularized modular transport, weak-\(*\)/GNS extraction of the support-visible prime cap pair, support-readable modular covariance, ordered cut-pair rigidity, and KMS/BW normalization; this is the content needed for the Lorentz, null-stress, and local Einstein branches.
 
 \paragraph{Shared excitation dictionary and flavor theorem boundaries.}
-The D10 quantitative-closure branch gives integrated gauge-coupling closure on the displayed carrier. The pixel fixed-point equation fixes the arithmetic bridge from \(P\) through \(\alpha_U(P)\), the transmutation data, the electroweak source anchor, and the Ward-projected Thomson endpoint on that branch. The exact \(W/Z\) chart is a compare-only validation sidecar on the public validation surface; source spectral measure payloads, same-scheme remainders, and interval certificates document that surface. They do not supply a missing fine-structure bridge. On the declared runtime surface the running/matching packet is a declared-convention contract with displayed scope; a theorem deriving every coefficient, threshold, and conversion is outside that contract. The separate D6 cosmological-parameter package closes at the cosmic record-capacity fixed point \(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\). On the flavor side the manuscript treats one shared OPH excitation dictionary as the only proof-facing family datum; lane-specific integers are not introduced independently. For each realized same-label refinement arrow \(e\) on the three-generation bundle, let \(\omega_e\) be the same-label overlap holonomy scalar, let
+The D10 quantitative-closure branch gives integrated gauge-coupling closure on the displayed carrier. The pixel fixed-point equation fixes the arithmetic bridge from \(P\) through \(\alpha_U(P)\), the transmutation data, and the electroweak source anchor. The public Ward-projected Thomson endpoint is downstream of a low-energy transport layer: charged-lepton vacuum polarization is explicit, while the confined-quark/hadron spectral measure and same-scheme finite endpoint remainder are separate payloads. The exact \(W/Z\) chart is a compare-only validation sidecar on the public validation surface; source spectral measure payloads, same-scheme remainders, and interval certificates document that surface, but empirical hadron closure does not promote the fine-structure endpoint to a source-only theorem. On the declared runtime surface the running/matching packet is a declared-convention contract with displayed scope; a theorem deriving every coefficient, threshold, and conversion is outside that contract. The separate D6 cosmological-parameter package closes at the cosmic record-capacity fixed point \(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\). On the flavor side the manuscript treats one shared OPH excitation dictionary as the only proof-facing family datum; lane-specific integers are not introduced independently. For each realized same-label refinement arrow \(e\) on the three-generation bundle, let \(\omega_e\) be the same-label overlap holonomy scalar, let
 \[
 d_e:=1-\omega_e
 \]

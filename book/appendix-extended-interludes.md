@@ -156,12 +156,11 @@ momentum are not two columns in a hidden spreadsheet. They are incompatible
 questions inside one algebra. The uncertainty relation is the statistical
 shadow of that incompatibility.
 
-This matters for OPH because public reality is built from shared answers, and
-quantum theory says answers are not free. Which question is asked, in what
-context, and on which algebra matters. A patch is therefore not a bucket of
-little objects. It is a structured menu of observables, a state assigning
-expectations, and a boundary where some of those observables can be compared
-with another patch.
+OPH builds public reality from shared answers, and quantum theory says answers
+are not free. Which question is asked, in what context, and on which algebra
+matters. A patch is therefore a structured menu of observables, a state
+assigning expectations, and a boundary where some of those observables can be
+compared with another patch.
 
 Bell sharpened the lesson. If quantum probabilities merely reflected hidden
 local variables, Bell inequalities would hold. Experiments violate them while
@@ -639,13 +638,13 @@ clocks, gravitational-wave interferometers, satellites, and data pipelines.
 An observer patch in the operational sense includes those extensions because
 they are the physical means by which records are formed and compared.
 
-This matters for OPH because a record is never merely mental. A detector hit
-is a physical transition. A spectrum is a stabilized record of many photon
-events. A collider event display is the end product of fields, electronics,
-trigger decisions, calibration constants, reconstruction algorithms, and
-statistical cuts. A sky map is the result of instruments scanning, filtering,
-subtracting foregrounds, estimating noise, and stitching observations into a
-shared coordinate system. Public reality is built through these record chains.
+For OPH, a record is never merely mental. A detector hit is a physical
+transition. A spectrum is a stabilized record of many photon events. A collider
+event display is the end product of fields, electronics, trigger decisions,
+calibration constants, reconstruction algorithms, and statistical cuts. A sky
+map is the result of instruments scanning, filtering, subtracting foregrounds,
+estimating noise, and stitching observations into a shared coordinate system.
+Public reality is built through these record chains.
 
 The Large Hadron Collider is a good example. When the Higgs boson was
 announced, no one had seen a little object called the Higgs with unaided
@@ -916,12 +915,11 @@ entanglement wedges, and island formulas turned that thermodynamic clue into
 a deep statement about encoding. Each step changed the record chain. A black
 hole was no mere sink. It became a surface with countable capacity.
 
-This matters because OPH leans heavily on the idea that records live on
-accessible boundaries. The statement is not free poetry. It inherits the
-labor of black-hole thermodynamics, quantum field theory, quantum
-information, and holographic duality. The book has to keep that inheritance
-visible. If the prose makes boundary language sound too easy, it has failed
-the reader.
+OPH leans heavily on the idea that records live on accessible boundaries. That
+statement inherits the labor of black-hole thermodynamics, quantum field
+theory, quantum information, and holographic duality. The book has to keep that
+inheritance visible. If the prose makes boundary language sound too easy, it
+has failed the reader.
 
 Public facts also depend on error correction. A detector has noise. A
 telescope has atmosphere, foregrounds, dust, instrument drift, and missing

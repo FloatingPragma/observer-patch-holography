@@ -208,14 +208,16 @@ first-principles diagnostic trunk records
 \[
 \begin{aligned}
 P&=\decnum{1.63097209569432901817967892561191884270169},\\
-\alpha_{\mathrm{cand}}^{-1}
+\alpha_{\mathrm{root}}^{-1}
 &=\decnum{136.994835164621649457949994585787193262029}.
 \end{aligned}
 \]
 The approximately \(0.041\) inverse-alpha gap to the public Thomson endpoint is the declared
 QCD/hadronic electromagnetic input. The endpoint row is therefore a public fixed-point result with
 empirical hadron closure records, while the QCD-free hierarchy witness is the cleaner first-principles
-stress test. The detailed endpoint table appears in Section~\ref{sec:particle-input-ledger}.
+stress test. Adding the emitted \(\alpha_U(P_\star)\) width gives the source-side no-hadron
+inverse-alpha prediction, \(137.0359595008\ldots\), below the Thomson endpoint.
+The detailed endpoint table appears in Section~\ref{sec:particle-input-ledger}.
 The separate
 cosmic record-closure target \(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\), with count representation
 \(N_\star=\operatorname{MAR}\arg\max_N[\log|\Omega^{\mathrm{sc}}_N|-N]\), belongs to the cosmological-capacity branch and
@@ -337,7 +339,7 @@ OPH diagnostic trunk emits the source-side diagnostic point
 \[
 \begin{aligned}
 P&=\decnum{1.63097209569432901817967892561191884270169},\\
-\alpha_{\mathrm{cand}}^{-1}
+\alpha_{\mathrm{root}}^{-1}
 &=\decnum{136.994835164621649457949994585787193262029}.
 \end{aligned}
 \]
@@ -424,7 +426,7 @@ Detailed scope statements are collected in the support sections that follow.
 \toprule
 Chain & OPH output & Role \\
 \midrule
-\(P\)-closure and fine structure & \(\alpha^{-1}(0)=137.035999177(21)\), \(P\simeq1.6309682094\) & local fixed-point scale \\
+\(P\)-closure and fine structure & \(\alpha_{\mathrm{root}}^{-1}=136.9948351646\ldots\); \(A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\); endpoint \(\alpha^{-1}(0)=137.035999177(21)\) & source-side no-hadron prediction plus empirical endpoint closure \\
 Structural massless carriers & \(m_\gamma=m_g=m_{\mathrm{grav}}=0\) & symmetry-protected zeros \\
 Electroweak \(W/Z\) & \(\begin{gathered}80.377\\91.18797809193725\end{gathered}~\mathrm{GeV}\) & weak-sector benchmark pair \\
 Electroweak hierarchy/naturality & \(\begin{gathered}N_{\mathrm{CRC}}^{\mathrm{EW}}\simeq3.53235\times10^{122}\\ \mathcal B_{\mathrm{EW}}=0,\ \epsilon_H=0\end{gathered}\) & selected local/global bridge \\
@@ -555,7 +557,30 @@ Thomson residual. At the implemented fixed point the residual is
 \[
 0.041164012378350542050005414212806738
 \]
-inverse-alpha units. At the public endpoint pixel value
+inverse-alpha units. Adding only the bare public-branch \(\alpha_U\) contribution gives the
+source-side no-hadron prediction
+\[
+A_{\alpha_U}^{\mathrm{fp}}
+=136.994835164621649457949994585787\ldots
++0.041124336195630495
+=137.035959500817279952949994585787\ldots,
+\]
+The bare \(\alpha_U\) or 24-register scale contribution lands close to the Thomson endpoint
+and does not reach it. OPH source-only closure requires the Ward-projected hadronic spectral
+transport. The remaining inverse-alpha shortfall is
+\[
+137.035999177-A_{\alpha_U}^{\mathrm{fp}}
+=0.000039676182720047050005414212807\ldots.
+\]
+Equivalently, the calibrated fixed-point residual can be written
+\[
+\Delta^{\mathrm{fp}}_{\mathrm{H,cal}}
+=\alpha_U(P_\star)\,C_{24,Q},
+\qquad
+C_{24,Q}
+=1.0009647859732326253849511140702475\ldots.
+\]
+The \(C_{24,Q}\) factor is endpoint accounting rather than a source-emitted theorem. At the public endpoint pixel value
 \[
 P\simeq1.6309682094
 \]
@@ -570,6 +595,11 @@ the display row through the measured Thomson endpoint while the
 path. The first-principles transport row excludes an inserted comparison endpoint. The
 electroweak support record names the residual map and the
 RG/matching/threshold/scheme packet.
+An observer inside the branch measures the dressed Thomson coupling, not the
+undressed source diagnostic \(1/136.994835\ldots\), because a zero-momentum
+electromagnetic measurement sees the Ward-projected \(\U(1)_Q\) current after
+charged-lepton vacuum polarization, confined-quark/hadron spectral transport,
+and same-scheme finite endpoint matching have been included.
 The electroweak \(W/Z\) row is therefore a benchmark check. Charged leptons carry a corpus-limited
 no-go because the determinant trace-lift attachment from the D10 descendants of \(P\) to physical charged data is absent. The auxiliary
 direct-top PDG row differs from the theorem coordinate by \(0.20673301656674425~\mathrm{GeV}\),
@@ -1524,6 +1554,16 @@ Ward-projected transport kernel satisfies
 \lim_{q^2\to0}\alpha_{\mathrm{em}}^{-1}(q^2;P)=\alpha_{\mathrm{Th}}^{-1}(P),
 \]
 on the same source-locked family and without any separate endpoint value feeding that lane.
+Concretely, the release packet must contain
+\(\texttt{WARD\_Q\_SPECTRAL\_MEASURE\_RECEIPT}\),
+\(\texttt{J24Q\_SOURCE\_JACOBI\_RECEIPT}\),
+\(\texttt{OMEGAQ\_NORMALIZATION\_RECEIPT}\),
+\(\texttt{XI\_SAME\_SCHEME\_REMAINDER\_RECEIPT}\),
+\(\texttt{NO\_THOMSON\_TARGET\_LEAK\_DAG}\),
+\(\texttt{FULL\_PIXEL\_CONTRACTION\_INTERVAL}\), and
+\(\texttt{ALPHA\_PREDICTION\_BEATS\_DIRECT\_MEASUREMENT}\) under the direct-measurement interval
+adopted for that release. Until those objects are emitted, the public endpoint remains an
+empirical hadron-closure row.
 \end{corollary}
 
 The endpoint table records the source-locked anchor from the runtime candidate,
@@ -1539,7 +1579,7 @@ a built-in reference inverse-\(\alpha\) value. The public endpoint value is excl
 source-only closure-solve input.
 The source-side audit trunk emits
 \[
-\alpha_{\mathrm{cand}}^{-1}
+\alpha_{\mathrm{root}}^{-1}
 =
 \decnum{136.994835164621649457949994585787193262029},
 \]
@@ -2711,8 +2751,8 @@ Against the charged references, this continuation-centered shape has residual no
 2.13\times10^{-5},
 \]
 so this compare-only branch is a near-exact centered-shape closure up to one common absolute
-scale. It does not promote the theorem lane: the centered charged shape is nearly exact on this
-branch, but the public affine absolute anchor is external. The compare-only common scale
+scale. The theorem lane remains unpromoted because the public affine absolute anchor is external
+to this near-exact centered charged-shape branch. The compare-only common scale
 required for exact absolute masses is
 \[
 g_e^\star = 0.04577885783568762.
@@ -3591,12 +3631,10 @@ The algebraic OPH version of the same statement is Axioms~\ref{ax:screen} and
 \ref{ax:overlap}: local physical data are carried by patch algebras \(\mathcal A(P)\), and those local
 states must agree on shared subalgebras whenever patches overlap.
 
-This matters for particles because OPH does not begin with a single absolute global particle
-basis. It begins with patch-local algebras, overlap-visible observables, edge sectors, and
-transport data. A particle row in the reported derivation is therefore not best
-understood as an isolated primitive label. It is a readout claim about a stable or
-candidate-stable excitation structure visible to a family of observer patches and consistent on
-their overlaps.
+The particle interpretation starts from patch-local algebras, overlap-visible observables, edge
+sectors, and transport data rather than a single absolute global particle basis. A particle row in
+the reported derivation is a readout claim about a stable or candidate-stable excitation structure
+visible to a family of observer patches and consistent on their overlaps.
 
 In the observer formulation, an observer is represented by
 \[
@@ -4028,8 +4066,9 @@ on the weighted-cycle branch. The ledger also marks four separate row classes: t
 \(P\)-closure source audit, the electroweak \(W/Z\) validation row, the charged-lepton
 absolute-mass landing, and the hadron backend plus empirical closure split.
 The \(W/Z\) row is a frozen compare-only adapter with its own public validation records. The
-Ward-projected Thomson lane supplies the fine-structure endpoint on the declared \(P\)-closure
-surface. In the charged lane the theorem surface carries an exact
+Ward-projected Thomson lane records a source-side no-hadron value, the source-plus-bare-\(\alpha_U\)
+prediction, and the empirical hadron-completed endpoint as separate rows on the declared
+\(P\)-closure surface. In the charged lane the theorem surface carries an exact
 same-family witness, a determinant-line lift, and an algebraic mass readout from
 theorem-grade \(A_{\mathrm{ch}}(P)\), while the source landing from the D10 quantitative
 descendants of \(P\) to physical charged data is closed as a corpus-limited no-go. Source-only

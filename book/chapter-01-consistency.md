@@ -60,7 +60,7 @@ Physicists invented the "luminiferous aether," a hypothetical substance filling 
 
 If the aether existed, it should have measurable effects. Earth moves through its orbit at about 30 km/s. If we're plowing through an aether that fills space, we should detect an "aether wind." Light traveling with the wind should move faster than light traveling against it.
 
-In 1887, Albert Michelson and Edward Morley built the most precise instrument of their era to detect this wind. Their interferometer split a light beam, sent the halves in perpendicular directions, reflected them back, and recombined them. If Earth was moving through the aether, the beams would take different times to complete their journeys.
+In 1887, Albert Michelson and Edward Morley built the most precise instrument of their era to detect this wind. Their interferometer split a light beam, sent the halves in perpendicular directions, reflected them back, and recombined them. If Earth was moving through the aether, the beams would take different times to complete their paths.
 
 They floated their apparatus on a pool of mercury to eliminate vibrations. They measured at different times of day as Earth rotated. They measured at different times of year as Earth's orbital velocity changed direction.
 
@@ -130,9 +130,9 @@ This has nothing to do with technological limitations or clumsy detectors distur
 The wave function $|\psi\rangle$ describes probabilities, not definite properties. When you measure, the wave function "collapses" to a definite state. That raises the measurement question. What counts as a measurement? Who is the observer? When exactly does collapse happen?
 
 The notation $|\psi\rangle$ is just the standard quantum way to name a state.
-It does not mean the electron is secretly a little object with an unknown
-classical path. It means the theory is assigning amplitudes, numbers whose
-squares give probabilities for possible measurement outcomes.
+The electron is not being treated as a little object with an unknown classical
+path. The theory assigns amplitudes, numbers whose squares give probabilities
+for possible measurement outcomes.
 
 These questions have haunted physics for a century. Different interpretations of quantum mechanics give different answers. But they all agree on the experimental facts: observation affects outcomes in ways that have no classical analogue.
 
@@ -287,7 +287,10 @@ What picture explains all these hints?
 
 **What we call objective reality is reconstructed from a network of subjective perspectives that must agree where they overlap.**
 
-This sounds radical, but think about what "reality" actually means operationally. It means agreement. If I see a red car parked on the street, and you look at the same spot and see a blue elephant, we have a problem. If a third person sees a red car, and a fourth person sees a red car, we conclude the red car is "real."
+The operational test is agreement. If I see a red car parked on the street, and
+you look at the same spot and see a blue elephant, we have a problem. If a
+third person sees a red car, and a fourth person sees a red car, we conclude
+the red car is "real."
 
 But notice what just happened. We did not verify that there's a car "out there" independent of all observers. We verified that observers agree. What we call "objective" is actually *intersubjective*: the consistent overlap of many viewpoints. There is no view from nowhere, no God's-eye perspective that sees reality as it "really is." There are only views from somewhere, and the requirement that they cohere.
 

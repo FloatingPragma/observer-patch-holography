@@ -39,7 +39,7 @@ In any semiclassical ER = EPR discussion, one needs a regime with:
 
 The OPH analysis therefore begins by separating the qubit example from the semiclassical question. A smooth bridge metric and its infinitesimal deformation only appear in the semiclassical limit.
 
-This matters because the question moves from "change a qubit entanglement entropy" to "deform a semiclassical wormhole metric." Those are different levels of description.
+The question moves from "change a qubit entanglement entropy" to "deform a semiclassical wormhole metric." Those are different levels of description.
 
 Relevant OPH sources: *Observers Are All You Need*, Part I Section 4 and Section 5; Part V Section 2.1 through 2.5.
 

@@ -99,10 +99,37 @@ closure, and comparison display.
 The goal is to make every mathematical step visible and keep the physics boundary clear.
 
 \begin{quote}\small
-\textbf{Pure source calculation.} The executable source map solves the OPH fixed point without importing the measured Thomson value. Its output is \(\alphainv_{\mathrm{cand}}=136.9948351646\ldots\).
+\textbf{Pure source calculation.} The executable source map solves the OPH fixed point without importing the measured Thomson value. Its no-hadron output is \(\alphainv_{\mathrm{root}}=136.9948351646\ldots\). Adding the emitted public-branch unification width \(\alpha_U(P_\star)\) gives the source-side no-hadron prediction \(A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\), a number close to the laboratory Thomson endpoint and distinct from it.
 
 \textbf{Hadron-completed endpoint target.} The public endpoint value is \(\alphainv(0)=137.035999177(21)\). The OPH source calculation reaches it only if the low-energy hadronic spectral step is supplied in the same endpoint convention as the source map. The published electroweak number \(\Delta\alpha_{\mathrm{had}}^{(5)}(M_Z^2)\simeq0.0276\) is the measured running-alpha input behind that physics, but it is not itself the additive inverse-alpha correction used here.
 \end{quote}
+
+\paragraph*{Folklore version.}
+The OPH source-plus-bare-\(\alpha_U\) calculation lands at
+\[
+A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots.
+\]
+The 2020 rubidium recoil benchmark gives
+\[
+1/\alpha_{\mathrm{Rb}}=137.035999206(11),
+\]
+so the no-hadron OPH number is within one part in about \(3.4\) million of that laboratory
+benchmark. The remaining sliver has a physical address. It is the low-energy quark/gluon
+vacuum-polarization cloud and same-scheme endpoint transport that a zero-momentum photon sees
+when it probes an electron. OPH fences that piece off instead of fitting it.
+
+Strip that quark cloud away and the source problem becomes a piece of geometry: one observer cell
+has to agree with itself. The stripped source value is
+\[
+\alpha_{\mathrm{root}}^{-1}=136.9948351646\ldots.
+\]
+Putting back the high-energy unification-width contribution shifts the root value to
+\[
+A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots.
+\]
+The remaining difference to the measured Thomson endpoint is the hadronic endpoint package.
+One observer cell, asked to agree with itself, fixes the strength of electromagnetism up to that
+explicit QCD endpoint boundary.
 
 This paper uses observation in the OPH reverse-engineering sense. The measured universe can point to
 the basin and to the endpoint convention because, in the OPH reading, the realized universe is a
@@ -180,6 +207,8 @@ Symbol & Definition & Informal meaning \\
 \(\Dcalc(P)\) & Calculated charged-fermion transport contribution & The exact lepton term plus the screened quark continuation used by the source calculation. \\
 \(\Dcalib^{\mathrm{fp}}\) & CODATA-calibrated hadronic endpoint correction for the fixed point & The inverse-alpha amount needed to move the pure source fixed-point value to the CODATA/NIST central endpoint. \\
 \(\Rq(P)\) & \(\ATh(P)-[\AZ(P)+\Dcalc(P)]\) & The remaining same-scheme hadronic endpoint contribution. \\
+\(A_{\alpha_U}^{\mathrm{fp}}\) & \(\alpha_{\mathrm{root}}^{-1}+\alpha_U(P_\star)\) & Source-side no-hadron prediction before the Ward-projected hadronic transport is supplied. \\
+\(J_{24,Q}(P),\omega_Q(P),\Xi_Q(P)\) & Source-side hadronic spectral objects required for a final endpoint theorem & The Jacobi/Stieltjes spectral payload, normalization, and finite same-scheme remainder that must be emitted without looking at the Thomson target. \\
 \(\Ppub\) & Public endpoint pixel & The pixel obtained from the CODATA/NIST Thomson endpoint under the OPH outer equation. \\
 \bottomrule
 \end{longtable}
@@ -622,33 +651,33 @@ G_{\mathrm{calc}}(P)
 \end{equation}
 The numerical solve uses
 \begin{equation}
-G_{\mathrm{calc}}(P_{\mathrm{cand}})=P_{\mathrm{cand}}
-\label{eq:Pcand}
+G_{\mathrm{calc}}(P_{\mathrm{root}})=P_{\mathrm{root}}
+\label{eq:Proot}
 \end{equation}
 and emits
 \begin{align}
-P_{\mathrm{cand}}
+P_{\mathrm{root}}
 &=
 1.63097209569432901817967892561191884270169,
-\label{eq:Pcandnum}\\
-\alphainv_{\mathrm{cand}}
+\label{eq:Prootnum}\\
+\alphainv_{\mathrm{root}}
 &=
 136.994835164621649457949994585787193262029.
-\label{eq:alphacand}
+\label{eq:alpharoot}
 \end{align}
-The source anchor at that candidate point is
+The source anchor at that root point is
 \begin{equation}
-\AZ(P_{\mathrm{cand}})
+\AZ(P_{\mathrm{root}})
 =
 128.308268045165213892552005990181778935450.
-\label{eq:AZcand}
+\label{eq:AZroot}
 \end{equation}
 The calculated transport contribution is
 \begin{equation}
-\Dcalc(P_{\mathrm{cand}})
+\Dcalc(P_{\mathrm{root}})
 =
 8.68656711945643556539798859560541432657857.
-\label{eq:Dcalccand}
+\label{eq:Dcalcroot}
 \end{equation}
 
 Informally: the fixed-point algebra lands at a stable value near \(137\), with no measured alpha inserted into the solve. The remaining gap has a precise address: low-energy hadronic transport in the same endpoint convention.
@@ -728,9 +757,9 @@ Why this step is needed: this accounting prevents the hadronic contribution from
 
 The fixed-point calculation uses
 \begin{equation}
-A_{\mathrm{calc}}(P_{\mathrm{cand}})
+A_{\mathrm{calc}}(P_{\mathrm{root}})
 =
-\alphainv_{\mathrm{cand}}
+\alphainv_{\mathrm{root}}
 =
 \decnum{136.994835164621649457949994585787193262029}
 \label{eq:Acalcfp}
@@ -739,7 +768,7 @@ The hadronic correction required on that calculation, when calibrated to the COD
 \begin{equation}
 \Dcalib^{\mathrm{fp}}
 =
-A_{\mathrm C}-A_{\mathrm{calc}}(P_{\mathrm{cand}})
+A_{\mathrm C}-A_{\mathrm{calc}}(P_{\mathrm{root}})
 =
 \decnum{0.041164012378350542050005414212806737971}
 \label{eq:Dempfp}
@@ -748,7 +777,7 @@ Therefore
 \begin{align}
 A_{\mathrm{closed}}^{\mathrm{fp}}
 &=
-A_{\mathrm{calc}}(P_{\mathrm{cand}})+\Dcalib^{\mathrm{fp}}
+A_{\mathrm{calc}}(P_{\mathrm{root}})+\Dcalib^{\mathrm{fp}}
 \nonumber\\
 &=
 137.035999177
@@ -756,7 +785,7 @@ A_{\mathrm{calc}}(P_{\mathrm{cand}})+\Dcalib^{\mathrm{fp}}
 \end{align}
 The two inputs in that addition are
 \begin{align}
-A_{\mathrm{calc}}(P_{\mathrm{cand}})
+A_{\mathrm{calc}}(P_{\mathrm{root}})
 &=
 \decnum{136.994835164621649457949994585787193262029}
 \label{eq:exactaddition-source}\\
@@ -777,9 +806,41 @@ A_{\mathrm C}=137.035999177,
 \qquad
 \sigma_A=0.000000021.
 \end{equation}
-Here \(A_{\mathrm C}\) is the CODATA/NIST 2022 inverse fine-structure constant \cite{nist-value,nist-2022}. The source value \(A_{\mathrm{calc}}(P_{\mathrm{cand}})\) is the reproducible OPH fixed-point solve \cite{oph-code}. Equation~\eqref{eq:Dempfp} is a calibrated hadronic correction in inverse-alpha units.
+Here \(A_{\mathrm C}\) is the CODATA/NIST 2022 inverse fine-structure constant \cite{nist-value,nist-2022}. The source value \(A_{\mathrm{calc}}(P_{\mathrm{root}})=\alpha_{\mathrm{root}}^{-1}\) is the reproducible OPH fixed-point solve \cite{oph-code}. Equation~\eqref{eq:Dempfp} is a calibrated hadronic correction in inverse-alpha units.
 
-Informally: the source calculation lands short by a small number with a known physical meaning. Adding the hadronic correction calibrated from the measured value lands on the CODATA/NIST central value. It does not predict extra digits, because the hadronic part has not been derived mathematically inside OPH.
+It is tempting to identify the correction with the public-branch unification width
+\(\alpha_U(P_\star)=0.041124336195630495\), but the exact arithmetic does not support that
+identity. Adding only the bare 24-register-scale contribution gives
+\begin{equation}
+A_{\alpha_U}^{\mathrm{fp}}
+=\alpha_{\mathrm{root}}^{-1}+\alpha_U(P_\star)
+=137.035959500817279952949994585787\ldots,
+\label{eq:barealphaUaddition}
+\end{equation}
+or
+\begin{equation}
+\alpha_{\mathrm{src}+U}^{\mathrm{fp}}
+=\bigl(A_{\alpha_U}^{\mathrm{fp}}\bigr)^{-1}
+=0.00729735467714250592971405837329\ldots.
+\label{eq:barealphaUalpha}
+\end{equation}
+The \(A_{\alpha_U}^{\mathrm{fp}}\) value is the source-side prediction without the missing
+hadronic spectral transport. It falls short of the CODATA/NIST central endpoint by
+\[
+0.000039676182720047050005414212807\ldots
+\]
+in inverse-alpha units. Equivalently, the calibrated fixed-point residual is
+\begin{equation}
+\Dcalib^{\mathrm{fp}}
+=\alpha_U(P_\star)\,C_{24,Q},
+\qquad
+C_{24,Q}=1.0009647859732326253849511140702475\ldots.
+\label{eq:c24qfactor}
+\end{equation}
+The factor \(C_{24,Q}\) is a compact accounting of the finite same-scheme hadronic endpoint
+transport missing from the source-only proof; the 24-register argument does not emit it.
+
+Informally: the source calculation lands short by a small number with a known physical meaning. The source plus bare-\(\alpha_U\) result is the OPH no-hadron prediction. Adding the hadronic correction calibrated from the measured value lands on the CODATA/NIST central value. It does not predict extra digits, because the hadronic part has not been derived mathematically inside OPH.
 
 Why this step is needed: this is the public numerical result, and it marks the limit of the calculation. More digits require a source-derived hadronic spectral calculation, not more decimal padding.
 
@@ -907,6 +968,106 @@ Informally: the measured hadronic input supplies the electromagnetic spectral in
 
 Why this step is needed: the dispersion relation explains why measured \(e^+e^-\to\mathrm{hadrons}\) data are the right empirical input. They measure the electromagnetic spectral function that the endpoint transport requires.
 
+\section{No-Go: The 24-Register Scale Does Not Determine the Hadronic Residual}
+
+\begin{theorem}[Coarse 24-register data do not determine the Thomson residual]
+The specified OPH source objects \(P\), \(\alpha_U(P)\), \(N_c=3\), \(N_g=3\), and the
+24-slot repair-register count do not determine the exact low-energy Thomson residual.
+\end{theorem}
+
+\begin{proof}
+The hadronic endpoint contribution depends on the Ward-projected spectral functional
+\begin{equation}
+\Delta_{\mathrm{had}}(P)
+=
+\frac{m_Z(P)^2}{3\pi}
+\int_0^\infty
+\frac{\rho_Q(s;P)}{s[s+m_Z(P)^2]}\dd s
+\label{eq:hadronkernelnogo}
+\end{equation}
+up to the same-scheme finite endpoint remainder. Let
+\[
+K_P(s)=\frac{m_Z(P)^2}{3\pi s[s+m_Z(P)^2]}.
+\]
+This kernel is not constant. Two positive spectral measures can therefore have the same coarse
+register count, the same leading normalization, and the same electroweak branch data while giving
+different residuals. For example, with \(s_1\ne s_2\),
+\[
+\rho_1(s)=M\delta(s-s_1),
+\qquad
+\rho_2(s)=M\delta(s-s_2)
+\]
+have equal total mass, but
+\[
+\int K_P(s)\rho_1(s)\dd s=M K_P(s_1),
+\qquad
+\int K_P(s)\rho_2(s)\dd s=M K_P(s_2),
+\]
+which are generically unequal. Thus the 24-register scale explains the size of the correction but
+does not select the spectral measure that fixes its exact value.
+\end{proof}
+
+\begin{theorem}[Tautological 24-Jacobi realization]
+For any positive residual \(R>0\), there is an exact 24-point Jacobi/Stieltjes representation that
+reproduces \(R\). Such a representation is non-predictive unless its nodes, weights,
+normalization, and finite remainder are emitted by OPH source rules before comparison with the
+Thomson endpoint.
+\end{theorem}
+
+\begin{proof}
+Choose any positive spectral nodes \(s_1,\ldots,s_{24}>0\) and any positive normalized weights
+\(u_j>0\) with \(\sum_j u_j=1\). The finite inverse Stieltjes/Favard construction gives a
+positive \(24\times24\) Jacobi matrix \(J_{24,Q}\) whose \(e_1\)-spectral measure is
+\[
+\dd\mu_0(s)=\sum_{j=1}^{24}u_j\delta(s-s_j).
+\]
+Equivalently,
+\[
+e_1^\top f(J_{24,Q})e_1=\sum_{j=1}^{24}u_j f(s_j)
+\]
+for every function \(f\) on the spectrum. Define
+\[
+D(J_{24,Q};m)
+=
+e_1^\top\!\left[J_{24,Q}^{-1}-(J_{24,Q}+m^2I)^{-1}\right]e_1.
+\]
+Since \(s_j>0\),
+\[
+D(J_{24,Q};m)=
+\sum_{j=1}^{24}u_j\left(\frac1{s_j}-\frac1{s_j+m^2}\right)>0.
+\]
+For any same-scheme finite remainder \(\Xi_Q<R\), set
+\[
+\omega_Q=\frac{3\pi(R-\Xi_Q)}{D(J_{24,Q};m)}.
+\]
+Then
+\[
+\frac{\omega_Q}{3\pi}
+e_1^\top\!\left[J_{24,Q}^{-1}-(J_{24,Q}+m^2I)^{-1}\right]e_1
++\Xi_Q
+=R.
+\]
+The construction reproduces the chosen residual exactly, but the freedom in \(s_j\), \(u_j\),
+\(\omega_Q\), and \(\Xi_Q\) means it is a back-solving theorem rather than a source derivation.
+\end{proof}
+
+The source-side object needed for a final OPH endpoint theorem is therefore
+\begin{equation}
+\Rq(P)
+=
+\frac{\omega_Q(P)}{3\pi}
+e_1^\top\!\left[
+J_{24,Q}(P)^{-1}
+-
+\bigl(J_{24,Q}(P)+m_Z(P)^2I\bigr)^{-1}
+\right]e_1
++\Xi_Q(P),
+\label{eq:sourceJ24Q}
+\end{equation}
+or equivalently the source-emitted spectral density \(\rho_Q(s;P)\) plus the same-scheme finite
+remainder. The required dependency graph must have no path from the measured Thomson endpoint into
+\(J_{24,Q}\), \(\omega_Q\), \(\Xi_Q\), or \(\rho_Q\).
+
 \section{Step 21: The Conditional Pure Source Theorem}
 
 \begin{theorem}[OPH fine-structure endpoint, conditional pure source form]
@@ -939,6 +1100,28 @@ The left side is \(\alpha_{\mathrm{ext}}(P_\star)\), and the right side is \(\al
 \end{proof}
 
 Informally: a source-derived hadronic spectral endpoint map would close the last open transport step. With the interval proof included, the fine-structure constant is the unique fixed point of the full source map.
+
+The release gate for promoting this row from empirical endpoint comparison to source-only theorem is
+explicit. The packet must contain
+\[
+\texttt{WARD\_Q\_SPECTRAL\_MEASURE\_RECEIPT},\quad
+\texttt{J24Q\_SOURCE\_JACOBI\_RECEIPT},\quad
+\texttt{OMEGAQ\_NORMALIZATION\_RECEIPT},
+\]
+\[
+\texttt{XI\_SAME\_SCHEME\_REMAINDER\_RECEIPT},\quad
+\texttt{NO\_THOMSON\_TARGET\_LEAK\_DAG},\quad
+\texttt{FULL\_PIXEL\_CONTRACTION\_INTERVAL},
+\]
+and \(\texttt{ALPHA\_PREDICTION\_BEATS\_DIRECT\_MEASUREMENT}\) under the direct-measurement
+interval adopted for that release. For the present comparison standard, the direct rubidium recoil
+result of Morel, Yao, Cladé, and Guellati-Khélifa reports
+\(\alpha^{-1}=137.035999206(11)\) with 81 parts-per-trillion relative precision
+\cite{morel2020}. The operational receipt is therefore
+\[
+\operatorname{rad}(\alpha_{\mathrm{pred}}^{-1})<1.1\times10^{-8}
+\]
+in inverse-alpha units, unless a later release updates the adopted direct-measurement interval.
 
 \section{Step 22: The Public Endpoint Value}
 
@@ -1011,8 +1194,9 @@ Heat-kernel closure & Eq.~\eqref{eq:pixelclosure} & Defined and calculated. \\
 Electroweak anchor & \(\AZ=\alpha_{\mathrm{em}}^{-1}(m_Z^2;P)\) & Defined and calculated. \\
 Charged spectrum & Eqs.~\eqref{eq:quarkmasses} and \eqref{eq:lepmasses} & Calculated continuation. \\
 Fermion kernel & Eqs.~\eqref{eq:kernelint} and \eqref{eq:kernelclosed} & Exact one-loop kernel. \\
-Calculated endpoint & \(A_{\mathrm{calc}}=\AZ+\Dcalc\) & Pure source value. \\
-Calibrated hadronic correction & \(\Dcalib^{\mathrm{fp}}\), Eq.~\eqref{eq:Dempfp} & Hadron-completed endpoint value. \\
+Calculated endpoint & \(A_{\mathrm{calc}}=\AZ+\Dcalc\) & Raw no-hadron source value. \\
+Bare-\(\alpha_U\) source prediction & \(A_{\alpha_U}^{\mathrm{fp}}\), Eq.~\eqref{eq:barealphaUaddition} & Source-side no-hadron prediction. \\
+Calibrated hadronic correction & \(\Dcalib^{\mathrm{fp}}\), Eq.~\eqref{eq:Dempfp} & Empirical endpoint-closure correction, not a source-only prediction. \\
 Hadronic/scheme residual & \(\Rq=\ATh-A_{\mathrm{calc}}\) & Isolated endpoint contribution. \\
 Public endpoint & \(\ATh=137.035999177(21)\) & CODATA/NIST endpoint comparison value. \\
 Raw PDG diagnostic & Eq.~\eqref{eq:pdgdiag} & Comparison diagnostic in a different endpoint convention. \\
@@ -1024,9 +1208,9 @@ Interval theorem & Banach/contraction certificate for full \(G\) & Required for 
 
 The fine-structure constant is the coupling that makes one OPH screen cell internally consistent. The outside reading says that the cell is displaced from the golden-ratio balance by \((P-\varphi)/\sqrt\pi\). The inside reading sends the same \(P\) through the source map, gauge closure, electroweak anchor, and Ward-projected Thomson transport, producing \(1/\ATh(P)\). The physical cell is the fixed point where those two readings agree.
 
-The pure source calculation computes the fixed-point witness
+The pure source calculation computes the root witness
 \[
-\alphainv_{\mathrm{cand}}
+\alphainv_{\mathrm{root}}
 =
 \decnum{136.994835164621649457949994585787193262029}.
 \]
@@ -1038,7 +1222,11 @@ with
 \[
 P=1.630968209403959324879279847782648941\ldots.
 \]
-The gap is a named low-energy hadronic and same-scheme endpoint contribution. The public exact-value row is a calibrated endpoint comparison, not a source-only prediction. The pure source theorem requires the Ward-projected hadronic spectral measure, the same-scheme endpoint bridge, and the interval-certificate step.
+Adding the emitted unification-width scale gives the source-side no-hadron prediction,
+\[
+A_{\alpha_U}^{\mathrm{fp}}=137.035959500817279952949994585787\ldots.
+\]
+The remaining gap is a named low-energy hadronic and same-scheme endpoint contribution. The public exact-value row is a calibrated endpoint comparison, not a source-only prediction. The pure source theorem requires the Ward-projected hadronic spectral measure, the same-scheme endpoint bridge, and the interval-certificate step.
 
 \section*{Declarations}
 
@@ -1142,6 +1330,12 @@ A.\ Keshavarzi, D.\ Nomura, and T.\ Teubner,
 \emph{The \(g-2\) of charged leptons, \(\alpha(M_Z^2)\) and the hyperfine splitting of muonium},
 Phys.\ Rev.\ D \textbf{101}, 014029 (2020).
 \url{https://arxiv.org/abs/1911.00367}.
+
+\bibitem{morel2020}
+L.\ Morel, Z.\ Yao, P.\ Cladé, and S.\ Guellati-Khélifa,
+\emph{Determination of the fine-structure constant with an accuracy of 81 parts per trillion},
+Nature \textbf{588}, 61--65 (2020).
+\url{https://doi.org/10.1038/s41586-020-2964-7}.
 
 \bibitem{erler-ferro}
 J.\ Erler and R.\ Ferro-Hernandez,

@@ -93,7 +93,8 @@ $\alpha^{-1}(0)=137.035999177(21)$? Why three spatial
 dimensions, not four or seven?
 
 The fine-structure lane treats the public Thomson-limit value as a fixed-point
-readout of the same local screen cell. The local pixel ratio is
+endpoint readout of the same local screen cell after the hadronic endpoint
+transport is supplied. The local pixel ratio is
 
 \[
 P=a_{\mathrm{cell}}/\ell_\star^2.
@@ -112,7 +113,7 @@ $$P=\varphi+\alpha_{\mathrm{in}}(P)\sqrt{\pi}.$$
 Here $\alpha_{\mathrm{in}}(P)$ is the inside electromagnetic observation
 strength. The source-side computation sends the same trial pixel through the
 unification scale, running gauge couplings, electroweak anchor, and
-long-distance electromagnetic endpoint. The fixed point gives
+long-distance electromagnetic endpoint. The endpoint branch gives
 
 $$P\simeq1.6309682094.$$
 
@@ -120,9 +121,13 @@ with
 
 $$\alpha^{-1}(0)=137.035999177(21).$$
 
-The constant represents the electromagnetic width of the smallest
-observer-supporting pixel. Its value is forced because the inside and outside
-descriptions of that pixel have to land on the same number.
+The no-hadron source value is
+$\alpha_{\rm root}^{-1}=136.9948351646\ldots$, and source plus bare
+$\alpha_U(P_\star)$ gives $137.0359595008\ldots$. The public value includes the
+same-scheme hadronic endpoint correction. The constant represents the
+electromagnetic width of the smallest observer-supporting pixel. Its value is
+fixed because the inside and outside descriptions of that pixel have to land on
+the same number.
 
 The symbol $\varphi$ is the golden ratio. $P$ is the pixel area ratio,
 the area of a screen cell in units of $\ell_\star^2$.
@@ -184,7 +189,7 @@ are internal. That is the precise sense in which the framework can be presented
 as a concrete simulation-theory interpretation and as a candidate unification
 program.
 
-Here is the speculative trajectory. Physical evolution produces complex
+The speculative trajectory is blunt. Physical evolution produces complex
 structures. Biological evolution produces minds. Memetic evolution produces
 ideas, rituals, sciences, institutions, moral codes, and technical practices
 that survive by stabilizing observers across time. Among these practices,

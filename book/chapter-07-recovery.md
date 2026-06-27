@@ -193,7 +193,8 @@ When $X$ leads to $Y$ leads to $Z$, we say $Y$ screens off $X$ from $Z$. Once
 you know $Y$, $X$ adds nothing new about $Z$. All $X$-$Z$ correlation is
 mediated through $Y$. The middle system carries everything relevant.
 
-This matters. It means you can throw away X and keep full access to anything X could have told you about Z-as long as you keep Y.
+With $Y$ in hand, $X$ can be discarded without losing what $X$ could have told
+you about $Z$.
 
 ### Physical Examples
 
@@ -203,7 +204,9 @@ This is **locality**. Effects propagate through space. Distant regions communica
 
 Your skin is a Markov blanket. It screens your internal organs from the external world. Everything the world knows about your liver, it knows through your skin (and other body surfaces). Everything your liver knows about the world, it knows through your skin.
 
-An observer's patch works the same way. It carries all accessible information about what lies beyond. In the ideal recovery limit, the patch isn't just a window-it is a sufficient summary.
+An observer's patch works the same way. It carries all accessible information
+about what lies beyond. In the ideal recovery limit, the patch is a sufficient
+summary rather than a window.
 
 ## 7.7 Quantum Recovery: The Petz Map
 
@@ -318,9 +321,11 @@ Similarly, S(BC) = 1 bit and S(B) = 1 bit.
 So:
 $$I(A:C|B) = S(AB) + S(BC) - S(B) - S(ABC) = 1 + 1 - 1 - 0 = 1$$
 
-The GHZ state has nonzero, genuinely tripartite CMI. B doesn't screen A from C at all. The correlation between A and C is genuinely tripartite: you need all three systems to see it.
+The GHZ state has nonzero, genuinely tripartite CMI. B does not screen A from C
+at all. The correlation between A and C is genuinely tripartite: you need all
+three systems to see it.
 
-This means you can't recover C from B alone. The GHZ state is non-Markov.
+You cannot recover C from B alone. The GHZ state is non-Markov.
 
 ## 7.9 The Fourth Axiom: Local Markov/Recoverability
 

@@ -192,10 +192,9 @@ $SU(2)$ and $SU(3)$ are non-abelian, which means the order can matter. That is
 why the weak and strong interactions have richer self-interactions than plain
 electromagnetism.
 
-The multiplication sign does not mean ordinary numerical multiplication. It
-means the Standard Model has three independent internal transformation systems
-running side by side. A particle can carry color, weak isospin, and
-hypercharge labels at the same time.
+The multiplication sign names three independent internal transformation systems
+running side by side. It is not ordinary numerical multiplication. A particle
+can carry color, weak isospin, and hypercharge labels at the same time.
 
 A **gauge group** is a group of transformations that change the mathematical
 description without changing the physical situation. The word gauge adds one

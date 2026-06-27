@@ -459,10 +459,9 @@ setup. Each observer accesses a region bounded by a cosmological horizon, the
 shared parts of those horizons have to agree, and no global boundary theory is
 needed to make this work.
 
-This does not mean every observer carries a separate literal screen. It means
-each observer has a local access cut in the shared patch net. The horizon is
-where that local access is bounded, and the overlap is where two such cuts can
-be compared.
+Each observer has a local access cut in the shared patch net, not a separate
+literal screen. The horizon is where that local access is bounded, and the
+overlap is where two such cuts can be compared.
 
 For that reason, OPH is not a dS/CFT proposal. A hypothetical dS/CFT would posit a CFT at future infinity dual to de Sitter bulk physics. The claim here is weaker and more concrete:
 

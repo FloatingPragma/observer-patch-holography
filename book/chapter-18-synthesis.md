@@ -373,6 +373,15 @@ The first-principles calculation gives inverse alpha
 $136.9948351646\ldots$ at pixel $1.6309720956943290\ldots$. The displayed
 endpoint uses the same OPH fixed-point equation with measured
 \(e^+e^-\to\mathrm{hadrons}\) input for the empirical hadronic contribution.
+Adding the bare \(\alpha_U(P_\star)=0.041124336195630495\) scale contribution
+gives the source-side no-hadron inverse alpha,
+\(137.0359595008\ldots\), below the Thomson endpoint.
+The calibrated endpoint residual is
+\(\alpha_U C_{24,Q}\), with
+\(C_{24,Q}=1.00096478597323262538\ldots\). That factor names the remaining
+same-scheme hadronic endpoint transport. Source-only closure requires an OPH
+source derivation with no target leakage. An exact 24-register spectral fit made
+after seeing the residual would be accounting, not a source prediction.
 
 The phrase $e^+e^-\to\mathrm{hadrons}$ names electron-positron annihilation
 into strongly interacting composite particles. Those data help account for the

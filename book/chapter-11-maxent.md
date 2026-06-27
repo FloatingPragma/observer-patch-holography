@@ -308,11 +308,11 @@ $$H_{mod} = 2\pi K$$
 In this wedge case, **the modular automorphism group is the Lorentz boost
 flow**.
 
-This does not mean that every clock in the universe is literally an
-accelerating rocket clock. It means that, in this clean wedge example, the
-abstract modular flow attached to a restricted quantum state becomes a familiar
-geometric transformation from relativity. The theorem gives a bridge between
-operator algebra and spacetime motion.
+The claim is about this clean wedge example, not about every clock in the
+universe being an accelerating rocket clock. The abstract modular flow attached
+to a restricted quantum state becomes a familiar geometric transformation from
+relativity. The theorem gives a bridge between operator algebra and spacetime
+motion.
 
 $$\Delta^{it} = e^{-2\pi i K t}$$
 

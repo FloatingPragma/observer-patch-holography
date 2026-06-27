@@ -342,7 +342,10 @@ Kochen-Specker says: no such cheat sheet exists.
 
 The sharp lesson is narrower and more precise: there is no single noncontextual cheat sheet assigning pre-existing values to all observables at once. Any viable hidden-variable picture must therefore be contextual, and the measurement setting cannot be treated as irrelevant bookkeeping.
 
-This matters because it closes one of the most attractive escape routes from quantum strangeness. You cannot say, "The system carries a full secret list of answers, and measurement merely reveals whichever answer belongs to the question I happened to ask." Kochen-Specker says that picture cannot be made globally consistent. The question itself belongs to the physics.
+Kochen-Specker closes one of the most attractive escape routes from quantum
+strangeness. A system cannot carry a full secret list of answers, with
+measurement merely revealing whichever answer belongs to the question an
+experimenter happened to ask. The question itself belongs to the physics.
 
 The practical consequence is easy to state. Quantum systems do not come with a sealed answer key that every possible experiment simply reads out. A measuring setup selects a compatible family of questions, and the consistency conditions live inside that family. Change the family, and the bookkeeping changes with it. OPH leans on exactly that point. What observers can stably compare depends on the overlap algebra they actually share.
 

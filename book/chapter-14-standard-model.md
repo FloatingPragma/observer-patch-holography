@@ -226,16 +226,20 @@ Renormalization works for some theories (called "renormalizable") but not others
 
 A strange consequence of renormalization: coupling constants change with energy.
 
-The fine structure constant alpha measures the strength of electromagnetism. In
-the long-distance Thomson limit, OPH gives
-$\alpha^{-1}(0)=137.035999177(21)$. At higher energies, it increases. At the Z
-boson mass, it is about $1/128$.
+The fine structure constant alpha measures the strength of electromagnetism. The
+source-side no-hadron OPH trunk gives
+$\alpha_{\rm root}^{-1}=136.9948351646\ldots$. Adding the bare
+$\alpha_U(P_\star)$ contribution gives the no-hadron source prediction
+$137.0359595008\ldots$. The public long-distance Thomson row is
+$\alpha^{-1}(0)=137.035999177(21)$ after empirical hadron closure. At higher
+energies, it increases. At the Z boson mass, it is about $1/128$.
 
 That low-energy number sits inside the same particle sector as the weak bosons.
 Once the electroweak transport family is read from the selected local fixed point,
 electromagnetism is read as the unbroken channel left after the weak and
-hypercharge sectors mix. The OPH $P$-closure gives the long-distance Thomson
-value
+hypercharge sectors mix. On the endpoint branch, the OPH $P$-closure reads the
+long-distance Thomson value only after Ward-projected transport includes the
+empirical hadron closure:
 
 $$\alpha^{-1}(0)=137.035999177(21).$$
 
@@ -835,7 +839,7 @@ they decide which charged excitations can exist and how they transform.
 Then comes the fixed-point closure. The same screen cell is read twice. From the
 outside it is a small displacement from golden-ratio balance. From the inside it
 is the electromagnetic observation step available to observers in the encoded
-world. Matching those two descriptions gives
+world. On the endpoint branch, matching those two descriptions displays
 $\alpha^{-1}(0)=137.035999177(21)$ and
 $P\simeq1.6309682094$.
 The calculation runs from golden-ratio entropy balance to the boundary
@@ -855,10 +859,21 @@ hadron calculation needs the strong-binding machinery. The displayed
 fine-structure endpoint uses the measured Thomson value, and the hadronic
 spectral data enter through the standard \(e^+e^-\to\mathrm{hadrons}\)
 channel.
+This is why an observer does not measure the undressed source diagnostic
+\(1/136.994835\ldots\) as the laboratory fine-structure constant. A low-energy
+electromagnetic measurement sees the dressed Thomson current after lepton
+vacuum polarization, confined-quark/hadron spectral transport, and finite
+endpoint matching. Adding only the bare \(\alpha_U(P_\star)=0.041124336195630495\)
+shift gives the source-side no-hadron inverse alpha,
+\(137.0359595008\ldots\), below the public endpoint. The calibrated residual is \(\alpha_U C_{24,Q}\), with
+\(C_{24,Q}=1.00096478597323262538\ldots\). Source-only closure requires the
+hadronic spectral factor without target leakage. A 24-register hadronic spectral
+object fitted after seeing the residual would reproduce the number but would not
+be a prediction.
 
-The interpretation is simple. The screen cell wants to sit at the golden-ratio
-balance point, the exact self-similar equilibrium of the local entropy
-hierarchy. A universe with observers cannot remain perfectly silent. It needs a
+The screen cell wants to sit at the golden-ratio balance point, the exact
+self-similar equilibrium of the local entropy hierarchy. A universe with
+observers cannot remain perfectly silent. It needs a
 small displacement so that records can form, photons can carry information, and
 measurements can leave durable traces. The fine-structure lane reads the
 Thomson-limit value as that small displacement.

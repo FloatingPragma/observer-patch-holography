@@ -110,7 +110,10 @@ rate for the de Sitter phase. $k_B$ is Boltzmann's constant, which converts
 energy units into temperature units. The denominator $2\pi$ is the same
 circle factor that appears in Unruh and Hawking horizon temperatures.
 
-This temperature does not mean that empty space is glowing brightly around us. It means that an observer confined to one static patch sees the horizon as a thermal environment. Part of the quantum state is inaccessible beyond the horizon, and that loss of access has the same thermodynamic signature that horizons have elsewhere in gravitational physics.
+Empty space is not glowing brightly around us. An observer confined to one
+static patch sees the horizon as a thermal environment. Part of the quantum
+state is inaccessible beyond the horizon, and that loss of access has the same
+thermodynamic signature that horizons have elsewhere in gravitational physics.
 
 ### Why This Temperature? The Unruh Connection
 

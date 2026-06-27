@@ -371,9 +371,9 @@ counted once across the gauge factors. Quotients remove duplicate labels from
 the physical bookkeeping.
 
 **Recoverability.** Recoverability means information that appears missing
-locally can be reconstructed from other correlated data. It does not mean
-easy practical access. It means the encoding structure preserves enough
-information in principle or within controlled error.
+locally can be reconstructed from other correlated data. Easy practical access
+is a separate question. The encoding structure preserves enough information in
+principle or within controlled error.
 
 **Record.** A record is physical information that can be consulted later or
 by another observer. Records cost entropy to create and maintain. They are

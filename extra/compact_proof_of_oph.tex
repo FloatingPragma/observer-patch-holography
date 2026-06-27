@@ -65,8 +65,9 @@ OPH makes a falsifiable compression claim: five axioms plus two closure constant
 generate the observer-facing structure of our Universe, including many measured
 quantities, without using those measurements as inputs. A single lucky hit
 would mean little; OPH asks the same fixed branch to produce quantum readout,
-Standard Model integer structure, a charged-family shape, the QCD-free weak
-hierarchy, and geometric gravity normalization.
+Standard Model integer structure, a parameter-free fine-structure near-endpoint,
+a charged-family shape, the QCD-free weak hierarchy, and geometric gravity
+normalization.
 
 Once the rules and readout maps are fixed before comparison, the finite branch
 has one output. OPH is wrong if that output leaks targets, admits an equally
@@ -82,8 +83,9 @@ longer derivations. Standard tools keep their usual meanings.
 OPH adds finite observer-patch closure, \(P_{\rm src}=P_{\rm cand}\),
 \(N_\star\), and the rule that a row counts only when the declared map emits
 it. That small source has to carry observer patches, quantum readout, Standard
-Model branch integers, charged-family shape, weak hierarchy, gravity
-normalization, and failure tests in one argument.}
+Model branch integers, the source-side fine-structure prediction,
+charged-family shape, weak hierarchy, gravity normalization, and failure tests
+in one argument.}
 
 \infobox{Anti-fitting rule}{
 A numerical row is counted in our argument only if the paper or code
@@ -193,7 +195,7 @@ observer-invisible equivalence.  Let
 \]
 be source-only contractions.  Suppose their dependency graphs contain no
 held-out target path, no admissible source-map deformation survives the
-axioms/MAR rules, and the finite packet passes the simulation test of
+axioms and branch-selection rules, and the finite packet passes the simulation test of
 [O2,A23].  Then
 \[
   P_\star=\Gamma_P(P_\star),\qquad N_\star=\Gamma_N(N_\star)
@@ -300,9 +302,10 @@ Local loop: try a pixel \(P_k\). The OPH branch reads its field width
   P_{k+1}=\Gamma_P(P_k)=\varphi+\alpha_k\sqrt\pi .
 \]
 Solving \(P=\Gamma_P(P)\) gives the simulating-side pixel setting for that
-branch. In the compact hierarchy row this coordinate is \(P_{\rm src}=P_{\rm cand}\). The
-simulated-side field width comes from the same endpoint:
-\(\alpha_{\rm src}=R_P(P_{\rm src})\).
+branch. In the compact hierarchy row this coordinate is
+\(P_{\rm src}=P_{\rm cand}\). The simulated-side field width comes from the
+same endpoint:
+\(\alpha_{\mathrm{root}}=R_P(P_{\rm src})\).
 
 Global loop: try a capacity \(N_k\). The capacity map counts closed-screen
 normal forms, charges the screen budget, applies the Minimal Admissible
@@ -380,7 +383,11 @@ tolerance. In fixed-point notation, the same loop is
   P_{k+1}=\varphi+\alpha_{k+1}\sqrt\pi .
 \]
 The compact hierarchy output is the pair
-\((P_{\rm src},\alpha_{\rm src})=(P_{\rm cand},\alpha_{\rm cand})\).
+\[
+  P_{\rm src}=P_{\rm cand},
+  \qquad
+  \alpha_{\mathrm{root}}^{-1}=136.9948351646\ldots .
+\]
 CODATA never enters this map; it can only be printed after the solve as a
 comparison.
 
@@ -400,7 +407,7 @@ boundary width into the pixel chart, and the electromagnetic width supplies
 the detuning. The low-energy electromagnetic
 width is read out as
 \[
-  \alpha_{\rm src}(0)
+  \alpha_{\mathrm{root}}
   =
   \frac{1}{A_T^{\rm src}(P_{\rm src})}
   =
@@ -411,34 +418,62 @@ width together. Approximate measured \(\alpha\) may identify the branch
 interval; it never defines \(A_T^{\rm src}\) or \(\Gamma_{\rm src}\).
 At the fixed point one may write
 \[
-  P_{\rm src}=\varphi+\alpha_{\rm src}\sqrt\pi
+  P_{\rm src}=\varphi+\alpha_{\mathrm{root}}\sqrt\pi
 \]
 as the readout identity of the solved loop.
 
-\infobox{Measured \(\alpha\) is only a comparison}{
-The equation is a self-reference with two outputs. The outer screen reading
-\(\alpha_{\rm ext}(P)=(P-\varphi)/\sqrt\pi\) must equal the inner
-electromagnetic reading \(\alpha_{\rm in}(P)=1/A_T^{\rm src}(P)\) emitted by
-the same candidate pixel. Solving the loop gives both values. The
-fine-structure constant is an output of the same solve:
+\vspace{0.16em}
+{\bfseries\color{pragmaCyanText}Measured \(\alpha\) is only a comparison}\par
+{\small
+The pixel equation has two readings of the same cell: the outer screen width
+\(\alpha_{\rm ext}(P)=(P-\varphi)/\sqrt\pi\) and the inner electromagnetic
+reading \(\alpha_{\rm in}(P)=1/A_T^{\rm src}(P)\). The fixed point is their
+shared value:
 \[
 P_{\rm src}=\Gamma_{\rm src}(P_{\rm src}),
 \qquad
-\alpha_{\rm src}=\alpha_{\rm ext}(P_{\rm src})=\alpha_{\rm in}(P_{\rm src}).
+\alpha_{\mathrm{root}}=\alpha_{\rm ext}(P_{\rm src})=\alpha_{\rm in}(P_{\rm src}).
 \]
-Reading the final identity backward with CODATA \(\alpha(0)\) gives
-\(P_C=\varphi+\alpha_{\rm CODATA}\sqrt\pi\). That is a useful comparison
-coordinate. The OPH calculation is the closure solve. The code path in [C1] keeps external
-comparison values out of the solver.}
+Reading the identity backward with CODATA \(\alpha(0)\) gives the comparison
+coordinate \(P_C=\varphi+\alpha_{\rm CODATA}\sqrt\pi\). The counted OPH
+calculation is the closure solve. The code path in [C1] keeps comparison values
+out of the solver.\par}
 
-\infobox{OPH has one major weakpoint: hadronic refinements}{
-The weakpoint is precise. The compact standalone proof excludes the public
-Thomson endpoint from its core count. The pure OPH trunk emits
-\(\alpha_{\rm cand}^{-1}=136.9948351646\ldots\). The measured CODATA endpoint
-is \(\alpha^{-1}(0)=137.035999177(21)\). The OPH trunk value is too low by
-\(\Delta_{\alpha^{-1}}=0.0411640124\ldots\), about \(3.0\times10^{-4}\)
-relative. That miss is small on the scale of \(\alpha^{-1}\), but large
-compared with CODATA precision, so the QCD endpoint must close.
+\vspace{0.16em}
+{\bfseries\color{pragmaCyanText}Fine-structure prediction and QCD endpoint}\par
+{\small
+The fine-structure row is the sharp numerical stress test in this compact proof.
+The source map solves the OPH pixel loop with no measured \(\alpha(0)\), no
+Thomson endpoint, and no hadron data in the input path. The trunk emits
+\(\alpha_{\mathrm{root}}^{-1}=136.9948351646\ldots\), and the same branch emits
+\(\alpha_U(P_\star)=0.041124336195630495\). Together they give the source-side
+no-hadron prediction
+\[
+A_{\alpha_U}^{\mathrm{fp}}
+=\alpha_{\mathrm{root}}^{-1}+\alpha_U(P_\star)
+=137.035959500817279952949994585787\ldots,
+\]
+compared with the measured Thomson endpoint
+\(\alpha^{-1}(0)=137.035999177(21)\). The remaining gap is
+\[
+0.000039676182720047050005414213\ldots,
+\]
+only \(2.8953\times10^{-7}\) relative, or \(0.000028953\%\). This is a
+one-part-in-\(3.45\times10^6\) parameter-free near-endpoint prediction. The
+residual sits exactly where the compact proof says the source trunk stops:
+low-energy electromagnetic dressing by confined quark and hadron spectral
+transport.
+
+In calibrated endpoint accounting, that residual is packaged as
+\[
+\Delta_{\mathrm H,cal}^{\mathrm{fp}}
+=\alpha_U(P_\star)\,C_{24,Q},\qquad
+C_{24,Q}=1.0009647859732326253849511140702475\ldots.
+\]
+The factor \(C_{24,Q}\) names the same-scheme low-energy hadronic endpoint
+transport required for source-only closure. A 24-register spectral object fit
+after looking at the Thomson residual is exact accounting rather than
+prediction.
 
 The parameter-free trunk value is reproducible from the public solver and
 checked runtime report [C1]:
@@ -449,20 +484,19 @@ The saved report \(\texttt{runtime/full\_p\_alpha\_report\_current.json}\)
 prints \(\alpha^{-1}=136.994835164621649457949994585787\ldots\).
 The measured CODATA value never enters that command path [C1].
 
-What is missing is the low-energy QCD/hadronic correction: confined quark and
-hadron effects in the electromagnetic endpoint. The missing term is a concrete
-finite-lattice QCD calculation that has to be emitted from the OPH rules. At
-the required resolution, the
-calculation is beyond conventional von Neumann hardware; OMEGA is the
-optical fixed-point compute lane for it [S14]. The source-side QCD map is
-absent from the compact proof. Public \(\alpha(0)\) therefore stays in the
-calibrated comparison lane [O5,O6].
+The open piece is the low-energy QCD/hadronic correction: confined quark and
+hadron effects in the electromagnetic endpoint. OPH source-only closure requires
+the Ward-projected hadronic spectral measure and same-scheme finite endpoint
+remainder without Thomson-target leakage. That finite-lattice QCD calculation is
+outside this compact proof; OMEGA is the optical fixed-point compute lane for
+such payloads [S14]. Public \(\alpha(0)\) therefore stays in the calibrated
+comparison lane [O5,O6].
 
 The compact proof keeps the public \(\alpha(0)\) endpoint, hadron masses, and
 SI \(G\) clock row outside its core count. It uses the QCD-free hierarchy
 witness below, which avoids the hadronic correction completely.
 \(P_{\rm full}\) names the hadron-completed endpoint defined by that OPH QCD
-map.}
+map.\par}
 
 The global constant is computed from the screen-capacity readback equation
 [O1,O4]:
@@ -505,7 +539,7 @@ cosmological constant comes from that same capacity:
   \Lambda_\star a_{\rm cell}=\frac{3\pi P_{\rm src}}{N_\star}.
 \]
 So \(N_\star\) and \(\Lambda_\star\) are computed together in the global
-closure, the same way \(P_{\rm src}\) and \(\alpha_{\rm src}\) are computed together
+closure, the same way \(P_{\rm src}\) and \(\alpha_{\mathrm{root}}\) are computed together
 in the local closure [O1,O4].
 
 \vspace{0.22em}
@@ -629,8 +663,8 @@ charged-family shape misses the sorted lepton direction
 \vspace{0.22em}
 {\bfseries\color{pragmaCyanText}The QCD-free hierarchy witness}\par
 {\small
-OPH naturally solves the hierarchy problem. This is the second independent
-numerical witness from the same structural branch, and it also stays away from
+The hierarchy problem becomes a QCD-free branch-output calculation. The second
+independent numerical witness from the same structural branch stays away from
 QCD. A route through the public
 Thomson endpoint, hadron masses, or the cesium clock would import the
 Ward-projected hadronic correction as an assumption. That criticism is fair,
@@ -927,7 +961,9 @@ Prediction escrow &
 External data accept or exclude the frozen branch.\\
 \(\alpha(0)\) &
 Empirical endpoint closure &
-OPH hadronic spectral map emits the missing QCD correction.\\
+\(\alpha_{\mathrm{root}}^{-1}=136.9948351646\ldots\), and
+\(A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\); OPH hadronic
+spectral map must emit the remaining QCD correction without target leakage.\\
 \(G_{\rm SI}\) &
 Clock-hierarchy display &
 No-\(G\) cesium gap is emitted without a gravity-calibrated proxy.\\
@@ -1079,7 +1115,7 @@ anti-circularity argument keeps them outside its count. &
 
 PIXEL, IBM, OMEGA, and hardware lanes &
 Experimental surface &
-Hardware lanes test named lemmas. The universe claim still depends on the
+Hardware lanes test named lemmas. The universe claim depends on the
 source rows and data comparison. They count only with public task definitions,
 raw readouts, controls, manifests, and verifier logs. &
 [S12,S13,S14]\\
@@ -1142,8 +1178,8 @@ chart, the Jacobson-Einstein branch, compact gauge reconstruction, the Standard 
 quotient, hypercharge, three colors, and three generations in one
 observer-overlap reconstruction stack [O3,O4,O5].
 \par\smallskip
-\textbf{Hierarchy problem:} OPH naturally solves the hard Higgs naturality
-problem. The 12-port screen sieve, the \(24\)-slot oriented repair register,
+\textbf{Hierarchy problem:} OPH turns hard Higgs naturality into a branch-output
+calculation. The 12-port screen sieve, the \(24\)-slot oriented repair register,
 and the selected local/global capacity bridge emit the weak scale with
 \(\epsilon_H=0\), so the usual fine-tuning term disappears [O4,O5,C3].
 \par\smallskip
@@ -1228,7 +1264,7 @@ likelihood execution. The promoted quantities
 dependency DAG; contradictory no-data-use metadata fails closed, shard-local
 nonlinear averages are diagnostics, and \(N_{\rm CRC}\) is the consensus
 invariant unless a disjoint additive capacity schema is supplied. A scalar
-\(\rho_A(a),B_A(k,a)\) table plus a transition spectral number still fails the
+\(\rho_A(a),B_A(k,a)\) table plus a transition spectral number fails the
 promotion test: the latter remains \(\gamma_{\rm repair\ step}\) until the active fiber,
 physical clock, and common-parent response pole are checked. If the exchange
 branch is nonzero, the source packet must also carry explicit recipient stress

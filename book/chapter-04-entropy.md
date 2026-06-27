@@ -170,7 +170,8 @@ In 1961, Rolf Landauer showed that erasing information costs energy.
 
 Erasing one bit at temperature $T$ requires dissipating at least $k_B T \ln 2$ of energy as heat.
 
-This sounds technical. It changed physics. It means **information is physical**. Bits are not abstract. They are thermodynamic objects with energy costs.
+Landauer's result changed physics: **information is physical**. Bits are
+thermodynamic objects with energy costs.
 
 ### Maxwell's Demon
 

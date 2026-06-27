@@ -12,7 +12,7 @@ The compact claim is simple:
 
 The sharp OPH claim has three parts.
 
-1. The local pixel constant `P_star` and the global screen capacity `N_star`
+1. The local pixel constant \(P_\star\) and the global screen capacity \(N_\star\)
    are unique closure fixed points.
 2. The two fixed points resonate through the 24-tick repair lock.
 3. The same two fixed points compress the source-certified outputs: hierarchy,
@@ -20,7 +20,7 @@ The sharp OPH claim has three parts.
    masses, neutrino targets, dark-sector rows, and hardware signatures.
 
 The theory loses if the math fails, if a calculation reads the answer it claims
-to predict, if `P_star` or `N_star` are not unique fixed points, if the 24-tick
+to predict, if \(P_\star\) or \(N_\star\) are not unique fixed points, if the 24-tick
 lock fails, if the compact Newton-constant derivation fails, if the particle
 numbers miss precision data, if hardware signatures fail blind replication, or
 if a weak row is presented as a strong one.
@@ -54,14 +54,14 @@ Useful background:
 | Qubit | A quantum bit. It carries richer structure than a normal 0/1 bit before measurement. |
 | Conditional mutual information | How much information two regions share after the middle region is known. |
 | Quantum recovery | A test of whether a missing piece can be reconstructed from the middle piece. |
-| `P_star` | OPH's local pixel constant. It is the unique local closure value, not a fitted variable. |
-| `N_star` | OPH's global screen-capacity fixed point, about `3.31e122` in the de Sitter capacity display. |
-| 24-tick repair lock | One global screen step equals 24 rounds of local repair. The number is `2 * (8 + 3 + 1)`, the reversible write/check spectrum of the Standard Model gauge algebra. |
-| `N_CRC^EW` | The electroweak-refined capacity used in the hierarchy bridge, `3.5323546226929906511...e122`. |
-| `G_OPH` | The OPH SI display for Newton's constant, `6.674299995910528...e-11 m^3 kg^-1 s^-2`, with the stated QCD/clock caveat. |
+| \(P_\star\) | OPH's local pixel constant. It is the unique local closure value, not a fitted variable. |
+| \(N_\star\) | OPH's global screen-capacity fixed point, about \(3.31\times10^{122}\) in the de Sitter capacity display. |
+| 24-tick repair lock | One global screen step equals 24 rounds of local repair. The number is \(2(8+3+1)\), the reversible write/check spectrum of the Standard Model gauge algebra. |
+| \(N_{\mathrm{CRC}}^{\mathrm{EW}}\) | The electroweak-refined capacity used in the hierarchy bridge, \(3.5323546226929906511\ldots\times10^{122}\). |
+| \(G_{\mathrm{OPH}}\) | The OPH SI display for Newton's constant, \(6.674299995910528\ldots\times10^{-11}\,\mathrm{m^3\,kg^{-1}\,s^{-2}}\), with the stated QCD/clock caveat. |
 | QCD-free witness | A test route that avoids hadronic payloads, so it cannot be accused of importing QCD estimates. |
-| `chi_nu` | The coherent scalar susceptibility continuation used in the lift-response note. It has canonical and engineering charts. |
-| Golden ratio | The number about `1.618` that appears in five-fold symmetry. |
+| \(\chi_\nu\) | The coherent scalar susceptibility continuation used in the lift-response note. It has canonical and engineering charts. |
+| Golden ratio | The number about \(1.618\) that appears in five-fold symmetry. |
 
 ## What OPH Claims
 
@@ -71,14 +71,16 @@ physics follows from that agreement rule.
 The claims fall into three buckets:
 
 1. **Core reconstruction.** Relativity, an Einstein-gravity branch, compact
-   force-symmetry reconstruction, and the MAR-selected Standard Model quotient
-   with hypercharges, three colors, and three generations.
-2. **Two-constant numerical closure.** `P_star` and `N_star` are forced fixed
+   force-symmetry reconstruction, and the Standard Model quotient selected by
+   Minimal Admissible Realization (MAR), with hypercharges, three colors, and
+   three generations.
+2. **Two-constant numerical closure.** The local pixel fixed point \(P_\star\)
+   and the global screen-capacity fixed point \(N_\star\) are forced fixed
    points. Their 24-tick resonance emits the QCD-free hierarchy witness,
-   dimensionless gravity, the SI `G_OPH` display, and the source-certified
+   dimensionless gravity, the SI Newton display, and the source-certified
    number rows.
 3. **Continuations and empirical branches.** Dark matter phenomenology,
-   `chi_nu` lift response, hadrons, cognition, metaphysics, and proof-of-work
+   \(\chi_\nu\) lift response, hadrons, cognition, metaphysics, and proof-of-work
    hardware. These require their own assumptions, controls, and evidence
    bundles.
 
@@ -92,12 +94,12 @@ of silently moving the goalposts.
 | --- | --- | --- |
 | Spacetime | Geometry is basic in general relativity. | Geometry is recovered from observer-patch consistency. |
 | Quantum theory | Fields and Hilbert spaces carry the theory. | Quantum algebra is the local record language of patches. |
-| Standard Model | Force symmetry and matter content are inputs. | Zero obstruction is a transportability condition: the persistent sector category reconstructs a compact gauge group, while MAR plus the explicit one-Higgs matter package selects the realized Standard Model force quotient, exact hypercharges, three colors, and three generations. |
-| Constants | About 30 Standard-Model-plus-cosmology values are treated as independent measurements. | OPH compresses the displayed rows into two fixed points, `P_star` and `N_star`, tied by the 24-tick lock. |
+| Standard Model | Force symmetry and matter content are inputs. | Zero obstruction is a transportability condition: the persistent sector category reconstructs a compact gauge group, while Minimal Admissible Realization plus the explicit one-Higgs matter package selects the realized Standard Model force quotient, exact hypercharges, three colors, and three generations. |
+| Constants | About 30 Standard-Model-plus-cosmology values are treated as independent measurements. | OPH compresses the displayed rows into two fixed points, \(P_\star\) and \(N_\star\), tied by the 24-tick lock. |
 | Grand unification | Many extensions use one larger simple symmetry. | OPH uses a product-group structure. The usual leptoquark gauge bosons are absent. |
 | Dark matter | Usually a cold invisible component. | OPH uses a repair/modular response branch. The implementation is before full statistical closure. |
-| Hierarchy problem | The Higgs scale looks tuned against UV corrections. | The weak scale is a branch readout of the 24-tick repair lock with naturality defect `epsilon_H = 0`. |
-| Newton's constant | `G` is measured as an input constant. | OPH derives a dimensionless gravity relation and an SI display path for `G_OPH`; the SI display carries the stated QCD/cesium-clock caveat. |
+| Hierarchy problem | The Higgs scale looks tuned against UV corrections. | The weak scale is a branch readout of the 24-tick repair lock with naturality defect \(\epsilon_H=0\). |
+| Newton's constant | \(G\) is measured as an input constant. | OPH derives a dimensionless gravity relation and an SI display path for Newton's constant; the SI display carries the stated QCD/cesium-clock caveat. |
 | Coding language | Code distance is fixed only after a concrete code is specified. | A bare OPH overlap net is only a finite constraint code; QECC distance and min-cut resilience require topological-code and error-model certificates. |
 | Hardware | Digital search runs candidates one by one. | OPH hardware claims use measured candidate enrichment plus exact digital verification. Evidence requires public bundles. |
 
@@ -112,14 +114,14 @@ of silently moving the goalposts.
 | Photon, gluon, graviton | zero mass | structural zero |
 | Gauge-mediated proton decay | forbidden by the OPH product-group branch | clean experimental fork |
 | Grand-unified leptoquark gauge bosons | absent | product-group consequence |
-| Local pixel closure | `P_star = 1.630968209403959324879279847782648941...` | unique fixed-point claim |
-| Global screen closure | `N_star ~= 3.31e122` in the de Sitter screen-capacity display | unique fixed-point claim |
-| Electroweak-refined capacity | `N_CRC^EW = 3.5323546226929906511...e122` | hierarchy-bridge capacity |
-| 24-tick repair lock | `m_rep = 2 * (8 + 3 + 1) = 24` | parameter-free resonance claim |
-| QCD-free hierarchy | `v / E_star = 2.0199803239725553e-17` | source-certified hierarchy witness |
-| Higgs naturality | `epsilon_H = 0` with interval `[0,0]` | hierarchy-problem solution |
-| Newton constant display | `G_OPH = 6.674299995910528...e-11 m^3 kg^-1 s^-2` | SI display with QCD/clock caveat |
-| Fine structure | inverse fine-structure constant `137.035999177(21)`, with `P_star = 1.6309682094...` | public fixed-point row with empirical hadron closure |
+| Local pixel closure | \(P_\star=1.630968209403959324879279847782648941\ldots\) | unique fixed-point claim |
+| Global screen closure | \(N_\star\simeq3.31\times10^{122}\) in the de Sitter screen-capacity display | unique fixed-point claim |
+| Electroweak-refined capacity | \(N_{\mathrm{CRC}}^{\mathrm{EW}}=3.5323546226929906511\ldots\times10^{122}\) | hierarchy-bridge capacity |
+| 24-tick repair lock | \(m_{\mathrm{rep}}=2(8+3+1)=24\) | parameter-free resonance claim |
+| QCD-free hierarchy | \(v/E_\star=2.0199803239725553\times10^{-17}\) | source-certified hierarchy witness |
+| Higgs naturality | \(\epsilon_H=0\) with interval \([0,0]\) | hierarchy-problem solution |
+| Newton constant display | \(G_{\mathrm{OPH}}=6.674299995910528\ldots\times10^{-11}\,\mathrm{m^3\,kg^{-1}\,s^{-2}}\) | SI display with QCD/clock caveat |
+| Fine structure | \(\alpha_{\mathrm{root}}^{-1}=136.994835\ldots\); source plus bare \(\alpha_U\) gives \(137.0359595008\ldots\); public endpoint \(137.035999177(21)\) | endpoint row uses empirical hadron closure |
 | Higgs | `125.1995304097179 GeV` | closed on the declared Higgs/top surface |
 | Top coordinate | `172.35235532883115 GeV` | selected public quark-frame and cross-section codomain |
 | Quarks | exact running sextet on the selected public frame | selected-frame theorem |
@@ -131,64 +133,64 @@ of silently moving the goalposts.
 | IBM six-state nonabelian test | ratio near `2` after clean layout accounting | reduced-sector hardware signature |
 | Bench `P` body | icosahedral coupling plateaus with golden-ratio ratios | engineering evidence claim |
 | Dark-sector cosmology | `Omega_A = 0.264114401`, CAMB `Omega_m = 0.315905206`, `sigma8 = 0.807787204`, `S8 = 0.828924037`, and `rho_A/rho_b = 5.363470441` | branch before full statistical closure, with public scorecard |
-| `chi_nu` lift response | `chi_nu^can = exp(-P_star/24) = 0.9343006394893864...`; for `N_coh = 1e22`, `9.34e-23 <= chi_nu^eng <= 1e-22` | scoped continuation branch |
+| \(\chi_\nu\) lift response | \(\chi_\nu^{\mathrm{can}}=\exp(-P_\star/24)=0.9343006394893864\ldots\); for \(N_{\mathrm{coh}}=10^{22}\), \(9.34\times10^{-23}\le\chi_\nu^{\mathrm{eng}}\le10^{-22}\) | scoped continuation branch |
 | Hadrons | no first-principles masses from the stated theorem | gated on a strong-binding construction |
 | Hardware proof-of-work | candidate enrichment or verified shares | engineering evidence claim |
 | QECC/min-cut resilience | no claim from a bare overlap graph; only certified topological-code branches may state distance/min-cut or Knill-Laflamme correction | certificate-gated extension |
 
 Weaker rows:
 
-- `W` and `Z` masses are benchmark checks.
+- \(W\) and \(Z\) masses are benchmark checks.
 - Charged leptons are empirically anchored witnesses.
 - Direct top mass is a benchmark check outside the cross-section codomain.
 - Strong CP is not emitted by the selected-frame quark theorem.
 - Empirical hadron closure uses measured electron-positron to hadron input.
-- The SI `G_OPH` display uses a cesium-clock branch where QCD/hadronic
+- The SI Newton display uses a cesium-clock branch where QCD/hadronic
   refinements are stated as a caveat. The QCD-free hierarchy witness is the
   cleaner compact-proof row.
-- Hardware claims need raw evidence bundles, controls, and verifier records. The compute claim is a measured distributional lift `B = p_Q/p_U`, not a complexity-class theorem.
+- Hardware claims need raw evidence bundles, controls, and verifier records. The compute claim is a measured distributional lift \(B=p_Q/p_U\), not a complexity-class theorem.
 - Bare overlap graphs do not determine code distance. Distance/min-cut and corrupted-observer correction claims need an explicit code subspace, logical operators, error family, and recovery certificate.
 
 ## The Two Fixed Points In Plain Language
 
-`P_star` is OPH's local pixel number:
+The local pixel number is
 
-```text
-P_star = 1.630968209403959324879279847782648941...
-```
+\[
+P_\star=1.630968209403959324879279847782648941\ldots.
+\]
 
 The golden-ratio base is:
 
-```text
-golden ratio = 1.618033988749894848204586834365638117...
-```
+\[
+\varphi=1.618033988749894848204586834365638117\ldots.
+\]
 
 The gap is:
 
-```text
-P_star minus the golden ratio = 0.012934220654064476674693013417010824...
-```
+\[
+P_\star-\varphi=0.012934220654064476674693013417010824\ldots.
+\]
 
-OPH ties that gap to electromagnetism:
+On the public endpoint branch, OPH ties that gap to electromagnetism:
 
-```text
-P_star minus the golden ratio = square-root of pi divided by 137.035999177
-```
+\[
+P_\star-\varphi=\frac{\sqrt{\pi}}{137.035999177}.
+\]
 
 Plainly: the pixel cannot remain exactly golden. The same cell has to read as a
 geometric boundary object and as an electromagnetic field-width object. The
-tiny detuning from the golden ratio is the electromagnetic width read back by
-that same cell.
+public endpoint detuning is the electromagnetic width read back by that same
+cell after the empirical hadron closure is included.
 
-`N_star` is OPH's global capacity number:
+The global capacity number is
 
-```text
-N_star ~= 3.31e122
-```
+\[
+N_\star \simeq 3.31\times10^{122}.
+\]
 
 Plainly: the universe has to contain exactly the record capacity needed by the
 screen that contains the universe. The capacity is selected by closed-screen
-readback plus MAR, the Minimal Admissible Realization axiom.
+readback plus Minimal Admissible Realization (MAR).
 
 The local and global numbers are locked together:
 
@@ -204,26 +206,31 @@ the OPH repair resonance between pixel and screen.
 
 The QCD-free hierarchy witness is the cleanest numerical stress test:
 
-```text
-v / E_star = 2.0199803239725553e-17
-epsilon_H = 0
-```
+\[
+\frac{v}{E_\star}=2.0199803239725553\times10^{-17},
+\qquad
+\epsilon_H=0.
+\]
 
 This row does not use the public Thomson endpoint, hadron masses, the cesium
-clock, `G`, `Lambda`, `W`, `Z`, or the Higgs mass as ancestors. That is why it
+clock, \(G\), \(\Lambda\), \(W\), \(Z\), or the Higgs mass as ancestors. That is why it
 is the compact proof's answer to the QCD-circularity criticism.
 
 The fine-structure weakpoint is precise. The pure source-side trunk gives
-`alpha_cand^-1 = 136.9948351646...`, about `0.041` inverse-alpha units below
-the public Thomson endpoint. The missing piece is the declared QCD/hadronic
-electromagnetic payload. The public fine-structure endpoint is therefore
-tracked separately from the QCD-free hierarchy witness.
+\(\alpha_{\mathrm{root}}^{-1}=136.9948351646\ldots\). Adding the emitted bare \(\alpha_U\) term gives
+the source-side no-hadron prediction \(137.0359595008\ldots\). The public Thomson
+endpoint \(137.035999177(21)\) requires the same-scheme QCD/hadronic
+electromagnetic payload, equivalently the calibrated factor
+\(C_{24,Q}=1.00096478597323262538\ldots\) multiplying \(\alpha_U\). The public
+fine-structure endpoint is therefore tracked separately from the QCD-free
+hierarchy witness.
 
 The SI display for Newton's constant is:
 
-```text
-G_OPH = 6.674299995910528...e-11 m^3 kg^-1 s^-2
-```
+\[
+G_{\mathrm{OPH}}=6.674299995910528\ldots\times10^{-11}\,
+\mathrm{m^3\,kg^{-1}\,s^{-2}}.
+\]
 
 This display uses the OPH scale certificate and the cesium-clock branch. Its
 QCD/hadronic caveat is explicit. The dimensional gravity theorem and the
@@ -246,48 +253,53 @@ These tests are written as kill conditions. A successful attack does not have
 to dislike OPH. It only has to satisfy the declared protocol and miss the
 declared number.
 
-### 1. `chi_nu` Lift Response
+### 1. \(\chi_\nu\) Lift Response
 
 Canonical prediction:
 
-```text
-chi_nu^can = exp(-P_star / 24) = 0.9343006394893864...
-0.9343006394893864 <= chi_nu^can <= 1
-```
+\[
+\chi_\nu^{\mathrm{can}}=\exp(-P_\star/24)=0.9343006394893864\ldots,
+\qquad
+0.9343006394893864\le\chi_\nu^{\mathrm{can}}\le1.
+\]
 
 Engineering chart:
 
-```text
-chi_nu^eng = chi_nu^can / N_coh
-```
+\[
+\chi_\nu^{\mathrm{eng}}=\frac{\chi_\nu^{\mathrm{can}}}{N_{\mathrm{coh}}}.
+\]
 
-For `N_coh = 1e22`:
+For \(N_{\mathrm{coh}}=10^{22}\):
 
-```text
-9.34e-23 <= chi_nu^eng <= 1.00e-22
-```
+\[
+9.34\times10^{-23}\le\chi_\nu^{\mathrm{eng}}\le1.00\times10^{-22}.
+\]
 
 Hoverboard-class areal load:
 
-```text
-Sigma = 200 to 600 kg m^-2
-Delta S_coh^can ~= 2e-8 to 6e-8 for full response
-```
+\[
+\Sigma=200\text{ to }600\,\mathrm{kg\,m^{-2}},
+\qquad
+\Delta S_{\mathrm{coh}}^{\mathrm{can}}\simeq2\times10^{-8}\text{ to }6\times10^{-8}
+\]
+for full response.
 
 Test:
 
 1. Build a substrate that produces and logs the declared vertical canonical
    coherence contrast.
-2. Measure vertical force with `A_perp`, `Sigma`, `Delta S_coh`, temperature,
+2. Measure vertical force with \(A_\perp\), \(\Sigma\), \(\Delta S_{\mathrm{coh}}\), temperature,
    acoustic drive, EM pickup, and mechanical coupling recorded in the same
    evidence bundle.
 3. Use a blind pass/fail threshold before the lift run.
 
 Null bound:
 
-```text
-|chi_nu^eng| <= 4 pi G F_min / (g^2 A_perp |Delta S_coh^eng|)
-```
+\[
+|\chi_\nu^{\mathrm{eng}}|
+\le
+\frac{4\pi G F_{\min}}{g^2 A_\perp|\Delta S_{\mathrm{coh}}^{\mathrm{eng}}|}.
+\]
 
 Falsification:
 
@@ -683,11 +695,11 @@ Difficulty:
 | Charge lattice | The stated assumptions allow a different hypercharge lattice. | Hypercharge fixes electric charges. If OPH allows another lattice, the observed charge pattern was not forced by the theory. |
 | Generation count | A valid OPH construction has two or four light matter generations. | OPH claims exactly three generations. A valid two-generation or four-generation world breaks that count. |
 | Fermions and chirality | Chiral fermions have to be imported from the Standard Model by hand. | OPH says matter structure follows from observer consistency. If the key fermion structure has to be assumed, the reconstruction fails. |
-| Local pixel fixed point | The stated `P_star` fixed-point equations have no unique solution at `1.630968209403959324879279847782648941...`, or the source map reads the low-energy target value. | The local pixel closure is one of the two OPH constants. If it is not unique or it cheats, the numerical compression fails. |
-| Global screen fixed point | Closed-screen counting plus MAR does not select the displayed `N_star` capacity branch, or the same equations allow incompatible capacity branches. | The horizon-capacity closure is the second OPH constant. If it is not forced, the two-constant claim fails. |
-| 24-tick repair lock | The observer-visible product-adjoint repair spectrum is not `2 * (8 + 3 + 1) = 24`, or the local repair contraction fails to line up with the global screen step. | The repair resonance is the bridge between `P_star` and `N_star`. If it fails, the hierarchy solution and compact compression claim lose their main mechanism. |
-| QCD-free hierarchy witness | The declared first-principles hierarchy map imports `G`, `Lambda`, `W`, `Z`, Higgs, low-energy Thomson, cesium-clock, or hadronic inputs, or it misses `v / E_star = 2.0199803239725553e-17`. | This is the compact proof's cleanest numerical result because it avoids QCD and clock assumptions. A miss kills the hierarchy-closure claim. |
-| Newton constant display | The dimensionless gravity theorem fails, or the SI `G_OPH` display cannot be obtained after the declared scale certificate and caveated cesium-clock bridge are supplied. | OPH claims Newton coupling is a branch readout, not a fitted physical constant. The SI display is allowed to carry the stated QCD caveat; hiding that caveat would also be a failure. |
+| Local pixel fixed point | The stated \(P_\star\) fixed-point equations have no unique solution at \(1.630968209403959324879279847782648941\ldots\), or the source map reads the low-energy target value. | The local pixel closure is one of the two OPH constants. If it is not unique or it cheats, the numerical compression fails. |
+| Global screen fixed point | Closed-screen counting plus MAR does not select the displayed \(N_\star\) capacity branch, or the same equations allow incompatible capacity branches. | The horizon-capacity closure is the second OPH constant. If it is not forced, the two-constant claim fails. |
+| 24-tick repair lock | The observer-visible product-adjoint repair spectrum is not \(2(8+3+1)=24\), or the local repair contraction fails to line up with the global screen step. | The repair resonance is the bridge between \(P_\star\) and \(N_\star\). If it fails, the hierarchy solution and compact compression claim lose their main mechanism. |
+| QCD-free hierarchy witness | The declared first-principles hierarchy map imports \(G\), \(\Lambda\), \(W\), \(Z\), Higgs, low-energy Thomson, cesium-clock, or hadronic inputs, or it misses \(v/E_\star=2.0199803239725553\times10^{-17}\). | This is the compact proof's cleanest numerical result because it avoids QCD and clock assumptions. A miss kills the hierarchy-closure claim. |
+| Newton constant display | The dimensionless gravity theorem fails, or the SI Newton display cannot be obtained after the declared scale certificate and caveated cesium-clock bridge are supplied. | OPH claims Newton coupling is a branch readout, not a fitted physical constant. The SI display is allowed to carry the stated QCD caveat; hiding that caveat would also be a failure. |
 | Low-energy uniqueness | The OPH axioms plus MAR allow many inequivalent low-energy physics worlds with the same admissibility predicates. | OPH claims the familiar world is selected by MAR on the admissible class. If many incompatible worlds pass the same rules, the selection claim fails. |
 
 ### Particle And Precision Physics
@@ -705,10 +717,10 @@ Difficulty:
 | Gauge-mediated proton decay | A proton decay channel mediated by simple-grand-unified gauge bosons is observed. | The proton cannot decay that way in OPH because the required leptoquark gauge bosons are not present. |
 | Extra Higgs sector | Additional light Higgs multiplets are discovered in the minimal OPH regime. | OPH uses the observed one-Higgs structure on its minimal branch. Extra light Higgs multiplets break that branch. |
 | Low-energy supersymmetry | A low-energy superpartner spectrum is discovered. | OPH's declared Standard Model branch does not contain that superpartner spectrum. Finding it means the branch is missing real particles. |
-| Higgs naturality defect | The selected source-to-Higgs normal form has a nonzero RG/coarse-graining defect instead of `epsilon_H = 0`. | OPH says the hierarchy problem collapses because the weak scale is emitted by the repair lock. A nonzero defect restores the fine-tuning problem. |
+| Higgs naturality defect | The selected source-to-Higgs normal form has a nonzero RG/coarse-graining defect instead of \(\epsilon_H=0\). | OPH says the hierarchy problem collapses because the weak scale is emitted by the repair lock. A nonzero defect restores the fine-tuning problem. |
 | Higgs and top numbers | Scheme-controlled measurements exclude the declared Higgs and top rows. | These rows are sharp number outputs. If precision data exclude them in the declared scheme, OPH missed a key mass relation. |
 | Quark running masses | Scheme-controlled data exclude the declared quark running sextet. | OPH claims a selected quark frame. If the full sextet is excluded, the quark reconstruction fails. |
-| Fine structure | A scheme-clean evaluation excludes the OPH fine-structure fixed-point value. | OPH ties the electromagnetic coupling to `P`. If the coupling misses, the fixed-point number row fails. |
+| Fine structure | A scheme-clean evaluation excludes the OPH fine-structure fixed-point value. | OPH ties the electromagnetic coupling to \(P\). If the coupling misses, the fixed-point number row fails. |
 
 ### Neutrinos
 
@@ -731,7 +743,7 @@ Difficulty:
 | Cluster lensing | Merger lensing, gas maps, and age covariance reject the OPH offset branch. | Galaxy clusters test whether the dark response tracks the right material. The wrong offset pattern breaks the branch. |
 | Microwave background and growth | A full cosmology implementation fails microwave-background, acoustic-scale, growth, and clustering tests. | OPH has to fit the early universe and structure growth, beyond galaxy curves. A full cosmology miss destroys the dark-sector branch. |
 | Dark-sector fixed decimals | A joint CMB, BAO, SPARC, cluster, and weak-lensing likelihood rejects the fixed `Omega_A`, `Omega_m^CAMB`, `sigma8`, `S8`, and `rho_A/rho_b` branch values. | These values are the dark-sector branch's numerical target. A rejected joint likelihood kills that branch. |
-| `chi_nu` lift response | A substrate reaches the declared vertical coherence contrast, control channels stay null, and the predicted force fraction is absent. | This is the scoped "hoverboard doesn't work" falsifier for the `chi_nu` continuation. It kills the lift-response continuation, not the recovered SM/GR core by itself. |
+| \(\chi_\nu\) lift response | A substrate reaches the declared vertical coherence contrast, control channels stay null, and the predicted force fraction is absent. | This is the scoped "hoverboard doesn't work" falsifier for the \(\chi_\nu\) continuation. It kills the lift-response continuation, not the recovered SM/GR core by itself. |
 | Dark particle abundance | A stable particle is found that explains the dark abundance in conflict with the OPH dark branch. | OPH's dark branch is not the usual cold-particle story. A confirmed incompatible particle explanation removes that branch. |
 | Black-hole entropy | Black-hole entropy data contradict the OPH screen-counting rule. | OPH treats screens and records as physical bookkeeping. Wrong black-hole entropy breaks that bookkeeping. |
 | Page curve | Quantum black-hole information data contradict the OPH record claim. | OPH says records and overlap consistency control what can be recovered. A wrong Page-curve pattern breaks that claim. |
@@ -742,9 +754,9 @@ Difficulty:
 
 If someone wants the fastest attack plan:
 
-1. Break uniqueness of `P_star` or `N_star`.
+1. Break uniqueness of \(P_\star\) or \(N_\star\).
 2. Break the 24-tick repair lock or the QCD-free hierarchy witness.
-3. Break the dimensionless gravity theorem or the caveated SI `G_OPH` display.
+3. Break the dimensionless gravity theorem or the caveated SI Newton display.
 4. Look for gauge-mediated proton decay.
 5. Establish a nonzero photon, gluon, or graviton mass.
 6. Discover a fourth light matter generation or a charge-lattice outlier.
@@ -753,7 +765,7 @@ If someone wants the fastest attack plan:
 9. Build a repair-order counterexample.
 10. Build a valid OPH countermodel with no relativistic light cone.
 11. Reject the dark-sector branch with full cosmology and galaxy data.
-12. Run the `chi_nu` lift-response test. If the calibrated substrate reaches
+12. Run the \(\chi_\nu\) lift-response test. If the calibrated substrate reaches
     the declared contrast and "hoverboard doesn't work", that continuation
     loses.
 13. Use the IBM cloud tests to kill the reduced-sector hardware claim.
@@ -762,5 +774,5 @@ If someone wants the fastest attack plan:
 
 OPH has scientific bite where it gives exact failure conditions. Treat the
 fixed-point simulation language as the architecture claim. Treat the closure
-equations, theorem certificates, number rows, IBM tests, `chi_nu` protocol, and
+equations, theorem certificates, number rows, IBM tests, \(\chi_\nu\) protocol, and
 hardware evidence bundles as the test surface.

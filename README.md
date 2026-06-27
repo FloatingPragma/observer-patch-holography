@@ -16,10 +16,10 @@ or neutrino data excluding the OPH branch would destroy OPH as stated.
 If you want the existential answer first, jump straight to **Paper 6.
 [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**.
 The short version is direct: yes, this universe is a simulation in the OPH
-sense. This does not mean an outside computer renders particle positions one
-frame at a time. It means the world is built from local points of view that
-keep records, compare what they can see in common, repair mismatches, and
-settle on the stable patterns all observers can share. Time belongs to those
+sense: a world built from local points of view that keep records, compare what
+they can see in common, repair mismatches, and settle on the stable patterns
+all observers can share. No outside computer has to render particle positions
+frame by frame. Time belongs to those
 observers. There is no master clock outside the universe that everything
 secretly follows. A clock is a record-making system inside the world, and time
 is the ordering an observer reconstructs from changes in its own records.
@@ -41,9 +41,9 @@ follow from overlap consistency. At the operating level, finite observer
 patches carry local records, compare only what their overlaps expose, repair
 mismatches through declared recovery moves, and settle into stable fixed points
 that survive refinement. The public world is what remains stable after those
-local views are made mutually consistent. When OPH uses simulation language, it
-means this self-consistent observer network, not a hidden machine drawing a
-movie. The case for OPH is mathematical and empirical: the same
+local views are made mutually consistent. OPH simulation language names this
+self-consistent observer network rather than a hidden machine drawing a movie.
+The case for OPH is mathematical and empirical: the same
 observer-consistency architecture recovers established physics and explains why
 a world exists that can produce observers capable of reconstructing it.
 
@@ -260,7 +260,7 @@ exact hypercharge, $N_c=3$, and $N_g=3$ live in the papers.
 | --- | --- | --- | --- | --- |
 | Gravitational constant | G | 6.6742999959e-11, scale/clock display | 6.67430(15)e-11 | 0.00003σ |
 | Speed of light | c | structural Lorentz speed; SI value conventional | 299792458 exact by definition | not a numeric prediction |
-| Fine-structure (inv) | α⁻¹(0) | first-principles diagnostic 136.994835; endpoint 137.035999177 with empirical hadron closure | 137.035999177(21) | endpoint uses hadron data |
+| Fine-structure (inv) | \(A_{\alpha_U}^{\mathrm{fp}}\) | best source prediction \(137.0359595008\), from \(\alpha_{\mathrm{root}}^{-1}=136.994835\) plus bare \(\alpha_U(P_\star)\); remaining endpoint gap \(3.9676\times10^{-5}\) is the QCD/hadronic closure payload | 137.035999177(21) | low by \(2.90\times10^{-7}\) relative |
 | Photon mass | m_γ | 0 eV | <1e-18 eV | below bound |
 | Gluon mass | m_g | 0 GeV | 0 GeV | match |
 | Graviton mass | m_grav | 0 eV | <1.76e-23 eV | below bound |
@@ -313,7 +313,7 @@ derivation.
 - **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)**: source fixed point, empirical hadron endpoint boundary, and comparison check.
 - **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)**: OPH edge-string emergence and conventional string-vacuum sieve, the Bouchard-Donagi one-Higgs heterotic witness, a discrete R-symmetry safety layer, and moduli-locking gates; not an OPH-native vacuum-promotion shortcut.
 - **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)**: OPH finite repair-gap mechanism and conditional Clay-facing route; the equality between the Yang-Mills gap and the OPH repair gap requires the stated four-dimensional continuum and transfer certificate.
-- **[Theoretical Bounds on chi-nu in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)**: conditional quotient-edge susceptibility bounds, an exact uniform-branch value, and coherence-scaled engineering chart values.
+- **[Theoretical Bounds on \(\chi_\nu\) in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)**: conditional quotient-edge susceptibility bounds, an exact uniform-branch value, and coherence-scaled engineering chart values.
 - **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)**: cognition and qualia as recurrent patch consensus.
 
 ## Cosmology And Simulation Program
@@ -459,9 +459,15 @@ formulas and claim boundaries live in the papers.
 
 ## Status Table
 
-Status shorthand: first-principles fine structure is
-$\alpha_{\rm cand}^{-1}=136.9948351646\ldots$; the public
-$\alpha^{-1}(0)=137.035999177(21)$ row uses empirical hadron closure. SI $c$
+Status shorthand: first-principles fine structure starts from the root value
+$\alpha_{\rm root}^{-1}=136.9948351646\ldots$; the public
+$\alpha^{-1}(0)=137.035999177(21)$ row uses empirical hadron closure. Adding
+the emitted bare $\alpha_U(P_\star)=0.041124336195630495$ contribution gives
+the source-side no-hadron prediction
+$137.0359595008\ldots$; the calibrated endpoint residual is
+$\alpha_U C_{24,Q}$ with $C_{24,Q}=1.00096478597323262538\ldots$ and requires
+source-only Ward-projected hadronic spectral transport with no Thomson-target
+leakage. SI $c$
 is conventional; SI $G$ is a scale/clock display. $W/Z$ are benchmark checks.
 Higgs/top is closed on the declared electroweak quantitative relation. Quarks
 are selected-frame theorem values. Neutrinos use the weighted-cycle branch.

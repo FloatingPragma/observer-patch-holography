@@ -389,11 +389,11 @@ label in a chapter should match the table. A diagram should visualize a
 concept that the glossary or chapter guide can name. A simplified public
 summary should be traceable to a more careful explanation inside the book.
 
-This matters because OPH is a research program with several public surfaces:
-papers, book chapters, diagrams, PDF downloads, websites, and explanatory
-systems. The same idea can drift as it moves across those surfaces. The
-appendices are one defense against drift. They say, in slower language, what
-the book means by its symbols, diagrams, and claims.
+OPH has several public surfaces: papers, book chapters, diagrams, PDF
+downloads, websites, and explanatory systems. The same idea can drift as it
+moves across those surfaces. The appendices are one defense against drift. They
+say, in slower language, what the book means by its symbols, diagrams, and
+claims.
 
 The final reading discipline is simple: do not let beauty outrun auditability.
 A cover can invite the reader in. A diagram can orient them. A long narrative
