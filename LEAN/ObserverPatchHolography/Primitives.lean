@@ -277,3 +277,240 @@ theorem obsMap_demoCarrier_nonconstant :
   exact absurd (congrArg Prod.snd hpt) (by decide)
 
 end OPH
+
+/-! ## Global termination & completeness from LOCAL repair laws
+
+This section discharges two of OPH's open *dynamical* obligations —
+**Termination** and **Completeness** (cf. the `Termination`/`Completeness`
+`def`s above) — as genuine theorems, derived from explicit, faithful, **local**
+repair properties of an abstract single-site recovery move.
+
+It is deliberately **self-contained and axiom-clean**: it does *not* reference
+the `sorry`-defined `localRepair`/`Repair`. The repair move and its laws enter
+as `section variable`s (`lr`, `H1`, `H2`, `H3`), so each theorem here closes
+with `#print axioms` reporting only `[propext, Classical.choice, Quot.sound]`
+(no `sorryAx`, no new `axiom`). Because the file's own `Termination`/
+`Completeness` are stated over the `sorry`-defined `acceptedStep`, they cannot
+be discharged without touching that `sorry`; the honest, axiom-clean statements
+are therefore phrased over the hypothesis-bearing move `lr` (`acceptedStepLR`,
+`NormalFormLR`) and are mathematically the same theorems for the real operator
+once it satisfies `H1`/`H2`/`H3`.
+
+### Hypotheses are LOCAL; conclusions are GLOBAL (no assume-the-conclusion)
+
+The hypotheses are genuine **single-site** statements:
+* `H1` (`lr` changes only site `i`): firing at `i` touches patch `i` only.
+* `H2` (`lr` fires iff a local edge is broken): the move at `i` changes `x`
+  *iff* some edge incident to `i` is currently inconsistent — a purely local
+  trigger.
+* `H3` (local satisfiability / frustration-freeness): when the move at `i`
+  fires it makes *all* of `i`'s own incident edges consistent. This honestly
+  restricts to carriers where a single patch *can* satisfy all its overlaps at
+  once (frustration-free); it is a local property, **not** the global claim.
+
+The conclusions are **global** dynamical facts about all of `Records C`:
+* `termination`: the asynchronous accepted-step relation is `WellFounded`.
+* `completeness`: a record is a global normal form *iff* it is globally
+  `Consistent` (`Φ = 0`).
+
+None of the forbidden shortcuts is assumed: we never assume `mismatchCount`
+decreases, nor `WellFounded`, nor `Termination`, nor `NormalForm ↔ Consistent`.
+Those are *proved* from the three local laws (plus the already-discharged
+`consistent_iff_edgeConsistent`).
+
+### The Lyapunov / Inter-Basin termination pattern
+
+The proof is the well-founded-measure pattern: every accepted repair strictly
+lowers a **structural `ℕ` surrogate** `mismatchCount` (the number of broken
+edges), exactly as every SKI reduction strictly lowers `basin_size` in the
+Inter-Basin termination theorem. A `ℕ` surrogate is *needed* because the
+carrier potential `Φ : ℝ≥0` is **not** `<`-well-founded; `mismatchCount` is the
+well-founded shadow of `Φ` that makes asynchronous descent terminate.
+
+### What remains open (honest scoping; no `sorry`)
+
+`Confluence`/`LocallyConfluent` is **not** provided: asynchronous repairs at
+different sites need not commute (`lr i (lr j x)` and `lr j (lr i x)` can
+differ), so a frustration-free carrier may still reach distinct normal forms
+under distinct schedules — schedule independence / unique normal forms is out
+of scope for these hypotheses. There is no `sorry`, `admit`, or new `axiom`
+anywhere in this section. -/
+
+namespace OPH
+
+section LocalRepairDynamics
+
+variable {C : OPHCarrier}
+
+/-- An edge is consistent at `x` when its two interface projections agree.
+    A `Prop` (no `DecidableEq (Iface e)` needed). By `dist_eq_zero` this is
+    equivalent to the edge's per-edge distance vanishing
+    (`edgeConsistentAt_iff_dist`). Definitionally, `EdgeConsistent C x` is
+    `∀ e, edgeConsistentAt e x`. -/
+def edgeConsistentAt (e : C.Edge) (x : Records C) : Prop :=
+  C.projSrc e (x (C.src e)) = C.projTgt e (x (C.tgt e))
+
+/-- Bridge to the decidable surrogate used by `mismatchCount`: an edge is
+    consistent iff its per-edge distance is `0` (uses `dist_eq_zero`). -/
+theorem edgeConsistentAt_iff_dist (e : C.Edge) (x : Records C) :
+    edgeConsistentAt e x ↔
+      C.dist e (C.projSrc e (x (C.src e))) (C.projTgt e (x (C.tgt e))) = 0 :=
+  (C.dist_eq_zero e _ _).symm
+
+/-- The set of broken edges of `x`: those whose per-edge distance is nonzero.
+    This is decidable *without* `DecidableEq (Iface e)`, because `ℝ≥0` has
+    `DecidableEq` (from its `LinearOrder`), so `(· ≠ 0)` is a `DecidablePred`. -/
+def brokenSet (x : Records C) : Finset C.Edge :=
+  Finset.univ.filter
+    (fun e => C.dist e (C.projSrc e (x (C.src e))) (C.projTgt e (x (C.tgt e))) ≠ 0)
+
+/-- The well-founded `ℕ` surrogate for `Φ`: the number of broken edges.
+    (`Φ : ℝ≥0` is not `<`-well-founded; this `ℕ` shadow is.) -/
+def mismatchCount (x : Records C) : Nat := (brokenSet x).card
+
+theorem mem_brokenSet {x : Records C} {e : C.Edge} :
+    e ∈ brokenSet x ↔
+      C.dist e (C.projSrc e (x (C.src e))) (C.projTgt e (x (C.tgt e))) ≠ 0 := by
+  unfold brokenSet
+  rw [Finset.mem_filter]
+  exact ⟨fun h => h.2, fun h => ⟨Finset.mem_univ e, h⟩⟩
+
+/-- An edge is broken at `x` exactly when it is *not* consistent there.
+    (`mem_brokenSet` composed with the `dist`-bridge `edgeConsistentAt_iff_dist`,
+    using `Ne` `=` `¬ (· = ·)` definitionally.) -/
+theorem mem_brokenSet_iff_not_consistent {x : Records C} {e : C.Edge} :
+    e ∈ brokenSet x ↔ ¬ edgeConsistentAt e x :=
+  mem_brokenSet.trans (not_congr (edgeConsistentAt_iff_dist e x)).symm
+
+/-- The abstract local-repair move under study (a `section variable`):
+    `lr i x` applies the recovery move at site `i` to record `x`. -/
+variable (lr : C.Patch → Records C → Records C)
+
+/-- One accepted asynchronous repair step *for the abstract move `lr`*: some
+    site's local move changes the record. Self-contained analogue of the file's
+    `acceptedStep`, but over the hypothesis-bearing `lr`, so this section never
+    touches the `sorry`-defined `localRepair`. -/
+def acceptedStepLR (x y : Records C) : Prop :=
+  ∃ i : C.Patch, y = lr i x ∧ lr i x ≠ x
+
+/-- A normal form for `lr`: no accepted `lr`-step applies. -/
+def NormalFormLR (x : Records C) : Prop :=
+  ∀ y : Records C, ¬ acceptedStepLR lr x y
+
+/-- **H1 (local: changes only site `i`).** Firing the move at site `i` alters
+    the state of patch `i` only; every other patch keeps its state. -/
+variable
+  (H1 : ∀ (i : C.Patch) (x : Records C) (j : C.Patch), j ≠ i → (lr i x) j = x j)
+/-- **H2 (local trigger: fires iff a local edge is broken).** The move at `i`
+    changes `x` *iff* some edge incident to `i` is currently inconsistent. -/
+  (H2 : ∀ (i : C.Patch) (x : Records C),
+      lr i x ≠ x ↔
+        ∃ e : C.Edge, (C.src e = i ∨ C.tgt e = i) ∧ ¬ edgeConsistentAt e x)
+/-- **H3 (local satisfiability / frustration-freeness).** When the move at `i`
+    fires, it makes *all* of `i`'s incident edges consistent. This restricts to
+    carriers where a single patch *can* satisfy all of its overlaps at once. -/
+  (H3 : ∀ (i : C.Patch) (x : Records C),
+      lr i x ≠ x →
+        ∀ e : C.Edge, (C.src e = i ∨ C.tgt e = i) → edgeConsistentAt e (lr i x))
+
+-- Thread `lr`, `H1`, `H2`, `H3` uniformly through every theorem below, in this
+-- fixed order, so cross-references are unambiguous. (Some lemmas don't use all
+-- four; the extra hypotheses are harmless and keep call sites uniform.)
+include lr H1 H2 H3
+
+/-- A non-incident edge keeps both its endpoint states, hence its broken-ness,
+    when site `i` fires (immediate from `H1`). -/
+theorem brokenSet_eq_of_not_incident
+    {i : C.Patch} {x : Records C} {e : C.Edge}
+    (hs : C.src e ≠ i) (ht : C.tgt e ≠ i) :
+    (e ∈ brokenSet (lr i x) ↔ e ∈ brokenSet x) := by
+  have hsrc : (lr i x) (C.src e) = x (C.src e) := H1 i x (C.src e) hs
+  have htgt : (lr i x) (C.tgt e) = x (C.tgt e) := H1 i x (C.tgt e) ht
+  rw [mem_brokenSet, mem_brokenSet, hsrc, htgt]
+
+/-- **Key lemma — Lyapunov descent on the `ℕ` surrogate.** Every accepted step
+    strictly lowers `mismatchCount`: the broken-edge set strictly shrinks. This
+    is the Inter-Basin `basin_size`-strictly-decreases analogue. -/
+theorem mismatchCount_lt {x y : Records C}
+    (h : acceptedStepLR lr x y) : mismatchCount y < mismatchCount x := by
+  obtain ⟨i, rfl, hfire⟩ := h
+  -- It suffices to show `brokenSet (lr i x) ⊂ brokenSet x`; then `card_lt_card`.
+  -- (1) Subset: an edge broken in `lr i x` cannot be incident to `i` (those are
+  -- made consistent by `H3`), and on non-incident edges broken-ness transfers
+  -- back to `x` (`brokenSet_eq_of_not_incident`).
+  have hsub : brokenSet (lr i x) ⊆ brokenSet x := by
+    intro e he
+    by_cases hinc : C.src e = i ∨ C.tgt e = i
+    · have hcon : edgeConsistentAt e (lr i x) := H3 i x hfire e hinc
+      exact absurd hcon (mem_brokenSet_iff_not_consistent.1 he)
+    · have hs : C.src e ≠ i := fun h => hinc (Or.inl h)
+      have ht : C.tgt e ≠ i := fun h => hinc (Or.inr h)
+      exact (brokenSet_eq_of_not_incident lr H1 H2 H3 hs ht).1 he
+  -- (2) Strictness: `H2` exhibits an incident broken edge of `x`; it lies in
+  -- `brokenSet x` but not in `brokenSet (lr i x)` (incident → consistent there).
+  obtain ⟨e₀, hinc₀, hbroken₀⟩ := (H2 i x).1 hfire
+  have hmem_x : e₀ ∈ brokenSet x := mem_brokenSet_iff_not_consistent.2 hbroken₀
+  have hcon₀ : edgeConsistentAt e₀ (lr i x) := H3 i x hfire e₀ hinc₀
+  have hnot_mem : e₀ ∉ brokenSet (lr i x) :=
+    fun hm => mem_brokenSet_iff_not_consistent.1 hm hcon₀
+  have hssub : brokenSet (lr i x) ⊂ brokenSet x :=
+    (Finset.ssubset_iff_of_subset hsub).2 ⟨e₀, hmem_x, hnot_mem⟩
+  exact Finset.card_lt_card hssub
+
+/-- **THEOREM — Termination (global).** The accepted asynchronous-repair
+    relation is well-founded. Derived purely from the local laws via the `ℕ`
+    measure `mismatchCount`, as the inverse image of `<` on `ℕ` and a
+    sub-relation thereof. -/
+theorem termination :
+    WellFounded (fun y x : Records C => acceptedStepLR lr x y) :=
+  -- Same idiom as `Finset.lt_wf`: the step relation is a sub-relation of the
+  -- inverse image of `<` on `ℕ` under `mismatchCount`, which is well-founded.
+  have H : Subrelation (fun y x : Records C => acceptedStepLR lr x y)
+      (InvImage (· < ·) mismatchCount) :=
+    fun {_ _} hxy => mismatchCount_lt lr H1 H2 H3 hxy
+  Subrelation.wf H <| InvImage.wf _ wellFounded_lt
+
+/-- Local characterisation behind completeness: site `i` is quiescent
+    (`lr i x = x`) iff every edge incident to `i` is consistent
+    (`H2`, contrapositive). -/
+theorem lr_fixed_iff_incident_consistent (i : C.Patch) (x : Records C) :
+    lr i x = x ↔ ∀ e : C.Edge, (C.src e = i ∨ C.tgt e = i) → edgeConsistentAt e x := by
+  constructor
+  · intro hfix e hinc
+    by_contra hcon
+    exact (H2 i x).mpr ⟨e, hinc, hcon⟩ hfix
+  · intro hall
+    by_contra hfire
+    obtain ⟨e, hinc, hcon⟩ := (H2 i x).mp hfire
+    exact hcon (hall e hinc)
+
+/-- A record is a normal form iff *no* site fires (`lr i x = x` for all `i`).
+    Unfolds `acceptedStepLR`/`NormalFormLR`. -/
+theorem normalForm_iff_all_quiescent (x : Records C) :
+    NormalFormLR lr x ↔ ∀ i : C.Patch, lr i x = x := by
+  constructor
+  · intro hnf i
+    by_contra hfire
+    exact hnf (lr i x) ⟨i, rfl, hfire⟩
+  · intro hquiet y hstep
+    obtain ⟨i, _, hfire⟩ := hstep
+    exact hfire (hquiet i)
+
+/-- **THEOREM — Completeness (global).** A record is a normal form of the
+    accepted-step relation iff it is globally `Consistent` (`Φ = 0`). The
+    bridge: no site fires ↔ every incident edge of every site is consistent ↔
+    every edge is consistent (each edge is incident to its own `src`) ↔
+    `EdgeConsistent` ↔ (`consistent_iff_edgeConsistent`) `Consistent`. -/
+theorem completeness (x : Records C) :
+    NormalFormLR lr x ↔ Consistent C x := by
+  rw [normalForm_iff_all_quiescent lr H1 H2 H3 x, consistent_iff_edgeConsistent C x]
+  constructor
+  · intro hquiet e
+    exact (lr_fixed_iff_incident_consistent lr H1 H2 H3 (C.src e) x).1
+      (hquiet (C.src e)) e (Or.inl rfl)
+  · intro hcons i
+    exact (lr_fixed_iff_incident_consistent lr H1 H2 H3 i x).2 (fun e _ => hcons e)
+
+end LocalRepairDynamics
+
+end OPH
