@@ -38,6 +38,8 @@ CI checks that the count stays fixed until the primitives are discharged.
 
 namespace OPH
 
+open Relation  -- `ReflTransGen` lives in the `Relation` namespace (cf. AbstractRewriting.lean)
+
 def Records : Type := sorry
 def Patch : Type := sorry
 def Obs : Type := sorry
