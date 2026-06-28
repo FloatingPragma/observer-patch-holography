@@ -57,9 +57,9 @@ jobs:
           fi
           unexpected="$(printf '%s\n' "$sorry_warnings" | grep -v 'warning: ObserverPatchHolography/Primitives.lean:' || true)"
 
-          if [ "$sorry_count" -ne 10 ] || [ -n "$unexpected" ]; then
+          if [ "$sorry_count" -ne 3 ] || [ -n "$unexpected" ]; then
             echo "Unexpected Lean proof-debt state." >&2
-            echo "Expected exactly 10 sorry warnings, all in ObserverPatchHolography/Primitives.lean." >&2
+            echo "Expected exactly 3 sorry warnings, all in ObserverPatchHolography/Primitives.lean." >&2
             echo "Actual sorry warnings:" >&2
             printf '%s\n' "$sorry_warnings" >&2
             exit 1
