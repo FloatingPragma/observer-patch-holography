@@ -360,13 +360,13 @@ theorem edgeConsistentAt_iff_dist (e : C.Edge) (x : Records C) :
 /-- The set of broken edges of `x`: those whose per-edge distance is nonzero.
     This is decidable *without* `DecidableEq (Iface e)`, because `ℝ≥0` has
     `DecidableEq` (from its `LinearOrder`), so `(· ≠ 0)` is a `DecidablePred`. -/
-def brokenSet (x : Records C) : Finset C.Edge :=
+noncomputable def brokenSet (x : Records C) : Finset C.Edge :=
   Finset.univ.filter
     (fun e => C.dist e (C.projSrc e (x (C.src e))) (C.projTgt e (x (C.tgt e))) ≠ 0)
 
 /-- The well-founded `ℕ` surrogate for `Φ`: the number of broken edges.
     (`Φ : ℝ≥0` is not `<`-well-founded; this `ℕ` shadow is.) -/
-def mismatchCount (x : Records C) : Nat := (brokenSet x).card
+noncomputable def mismatchCount (x : Records C) : Nat := (brokenSet x).card
 
 theorem mem_brokenSet {x : Records C} {e : C.Edge} :
     e ∈ brokenSet x ↔
@@ -382,8 +382,8 @@ theorem mem_brokenSet_iff_not_consistent {x : Records C} {e : C.Edge} :
     e ∈ brokenSet x ↔ ¬ edgeConsistentAt e x :=
   mem_brokenSet.trans (not_congr (edgeConsistentAt_iff_dist e x)).symm
 
-/-- The abstract local-repair move under study (a `section variable`):
-    `lr i x` applies the recovery move at site `i` to record `x`. -/
+-- The abstract local-repair move under study (a section variable):
+-- `lr i x` applies the recovery move at site `i` to record `x`.
 variable (lr : C.Patch → Records C → Records C)
 
 /-- One accepted asynchronous repair step *for the abstract move `lr`*: some
@@ -397,18 +397,18 @@ def acceptedStepLR (x y : Records C) : Prop :=
 def NormalFormLR (x : Records C) : Prop :=
   ∀ y : Records C, ¬ acceptedStepLR lr x y
 
-/-- **H1 (local: changes only site `i`).** Firing the move at site `i` alters
-    the state of patch `i` only; every other patch keeps its state. -/
+-- H1 (local: changes only site i): firing the move at site i alters the state
+-- of patch i only; every other patch keeps its state.
+-- H2 (local trigger: fires iff a local edge is broken): the move at i changes x
+-- iff some edge incident to i is currently inconsistent.
+-- H3 (local satisfiability / frustration-freeness): when the move at i fires it
+-- makes all of i's incident edges consistent (restricts to carriers where a
+-- single patch can satisfy all its overlaps at once).
 variable
   (H1 : ∀ (i : C.Patch) (x : Records C) (j : C.Patch), j ≠ i → (lr i x) j = x j)
-/-- **H2 (local trigger: fires iff a local edge is broken).** The move at `i`
-    changes `x` *iff* some edge incident to `i` is currently inconsistent. -/
   (H2 : ∀ (i : C.Patch) (x : Records C),
       lr i x ≠ x ↔
         ∃ e : C.Edge, (C.src e = i ∨ C.tgt e = i) ∧ ¬ edgeConsistentAt e x)
-/-- **H3 (local satisfiability / frustration-freeness).** When the move at `i`
-    fires, it makes *all* of `i`'s incident edges consistent. This restricts to
-    carriers where a single patch *can* satisfy all of its overlaps at once. -/
   (H3 : ∀ (i : C.Patch) (x : Records C),
       lr i x ≠ x →
         ∀ e : C.Edge, (C.src e = i ∨ C.tgt e = i) → edgeConsistentAt e (lr i x))
