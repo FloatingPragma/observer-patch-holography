@@ -100,7 +100,7 @@ denominator.
 size of a container fails for gravitational capacity. Black-hole entropy and
 related bounds push strongly toward a boundary-sensitive description.
 
-**The first-principles reframing**: The 3D world we experience may not be the fundamental level. The bulk may be emergent and reconstructed from boundary data.
+**The first-principles reframing**: The 3D world we experience can be an emergent bulk reconstructed from boundary data.
 
 ## 3.3 Why Entropy Points to the Boundary
 
@@ -130,7 +130,7 @@ A horizon is the boundary of what one observer can ever check.
 
 ### The Event Horizon
 
-A black hole is not a physical object in the usual sense-it's a region of spacetime. The **event horizon** is the boundary of that region. Once you cross it, you cannot escape.
+A black hole is a region of spacetime rather than a physical object in the usual sense. The **event horizon** is the boundary of that region. Once you cross it, you cannot escape.
 
 The Schwarzschild radius of a black hole of mass $M$ is:
 
@@ -251,9 +251,9 @@ accesses a different patch. Where patches overlap, observers can compare notes.
 
 If the screen net is charted by $S^2$ and observer $i$ has access patch $P_i$,
 then two observers can compare data on the overlap $P_i \cap P_j$. That overlap
-is the seed of consistency. What $i$ sees is not the whole screen net. It is the
-local algebra, state, and records supported on $P_i$. What $i$ and $j$ can make
-public is the part of those descriptions that agrees on $P_i \cap P_j$.
+is the seed of consistency. Observer $i$ sees the local algebra, state, and
+records supported on $P_i$. What $i$ and $j$ can make public is the part of
+those descriptions that agrees on $P_i \cap P_j$.
 
 ![Two observer patches on the S^2 screen share a lens-shaped overlap where their descriptions can be compared.](../assets/book_diagrams/s2-screen.svg){width=74%}
 
@@ -409,8 +409,8 @@ where finite observers expose overlap data. $S^3$ is the reconstructed bulk,
 the three-dimensional habitat that observers experience when the screen data
 and entanglement pattern close coherently.
 
-This ladder is a teaching map. It does not replace the particle taxonomy. The
-photon belongs to the recovered electromagnetic branch, gluons to color gauge
+This ladder is a teaching map, with the full particle taxonomy carried by the
+later chapters. The photon belongs to the recovered electromagnetic branch, gluons to color gauge
 transport, the graviton to emergent geometry and diffeomorphism structure,
 $W$, $Z$, and $H$ to the electroweak and Higgs sectors, and hadrons to QCD
 composites. The ladder explains how OPH moves from seed, to loop, to screen,

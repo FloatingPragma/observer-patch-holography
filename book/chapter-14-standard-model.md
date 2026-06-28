@@ -400,9 +400,8 @@ to the weak bosons and fermions.
 
 The field "falls" to some point in this valley. The symmetry is broken spontaneously. The equations are symmetric; the ground state is not.
 
-That settled nonzero value is called the vacuum expectation value. It is not
-empty space doing nothing. It is the background value of the Higgs field that
-other particles move through.
+That settled nonzero value is called the vacuum expectation value: the
+background value of the Higgs field that other particles move through.
 
 ### Eating Goldstone Bosons
 
@@ -489,8 +488,8 @@ recovered.
 The letter $\mathcal H$ names a Hilbert space, the quantum state space for a
 piece of the system. "Collar" means the thin overlap zone near a boundary. The
 superscript $\alpha$ says that each left and right Hilbert space belongs to one
-shared edge-charge sector. The formula is not an extra postulate about
-particles. It is the bookkeeping form that makes boundary agreement possible.
+shared edge-charge sector. The formula is the bookkeeping form that makes
+boundary agreement possible, not an extra postulate about particles.
 
 ### Fusion Rules Define the Group
 
@@ -647,7 +646,8 @@ chiral theory.
 
 In the full argument, the color count is fixed directly by the same coupled
 carrier that emits the $SU(3)$ factor. The global $SU(2)$ anomaly is an
-important check on the realized structure. It is not what determines the count.
+important check on the realized structure, while the coupled carrier determines
+the count.
 
 ### The Coupled Color Carrier
 
@@ -848,8 +848,8 @@ The fine-structure constant belongs here beside the weak sector. It is the
 local electromagnetic width of the observer-supporting pixel. From there the
 same construction continues into the weak sector, the Higgs/top relation, the
 running quark sector, and one neutrino branch. Hadrons come later, because
-protons and mesons are bound states of quarks and gluons. A first-principles
-hadron calculation needs the strong-binding machinery.
+protons and mesons are bound states of quarks and gluons. Their masses live in
+the strong-binding problem, not in the bare quark table.
 
 For that reason, a laboratory observer does not measure the undressed source
 diagnostic as the fine-structure constant. A low-energy electromagnetic
@@ -857,9 +857,9 @@ measurement sees the dressed Thomson current after lepton vacuum polarization,
 confined-quark/hadron spectral transport, and finite endpoint matching. The
 source calculation with the unified gauge-width contribution reaches
 $137.0359595008\ldots$, just below the public endpoint. The remaining gap has a
-specific address: the same-scheme hadronic endpoint transport. Fitting that gap
-after seeing the Thomson value would reproduce the number. That fit would be
-accounting, with no source-prediction status.
+specific address: the same-scheme hadronic endpoint transport, the place where
+quark-level bookkeeping has to pass through confined hadrons before a Thomson
+measurement sees it.
 
 The screen cell wants to sit at the golden-ratio balance point, the exact
 self-similar equilibrium of the local entropy hierarchy. A universe with
@@ -1059,8 +1059,8 @@ CP sit around that same map with different levels of support.
 The reason these numbers belong in one chapter is that the framework organizes
 them with one local fixed-point structure. The same pixel ratio feeds the
 electroweak scale, the low-energy electromagnetic endpoint, and the effective
-gravitational coupling. The reader does not need
-every intermediate symbol to see the point. OPH ties
+gravitational coupling. The point does not require every intermediate symbol.
+OPH ties
 electroweak relations, the Higgs/top quantitative relation,
 electromagnetism at low energy, and Newton's constant into one common
 structure.
@@ -1121,9 +1121,9 @@ the repair tick.
 
 **Why hadrons are harder.** Quark masses are short-distance parameters.
 Hadrons are bound states. Their masses come from the nonperturbative dynamics
-of confined quarks and gluons. A first-principles OPH hadron calculation needs
-a working strong-binding construction. Empirical hadron checks use the standard
-\(e^+e^-\to\mathrm{hadrons}\) spectral data.
+of confined quarks and gluons. The OPH hadron story therefore has to pass
+through strong binding, the same hard physics that makes most of the proton's
+mass come from confinement rather than from the bare quark masses.
 
 ## 14.21 The Big Picture
 
@@ -1141,9 +1141,9 @@ decisive: adding a hard mass term would break a redundancy the model requires.
 String theory is often credited with predicting gravity. OPH reaches the same
 kind of conclusion through its own architecture.
 
-The quarks and leptons are not arbitrary. Their charges are fixed on the
-minimally selected gauge-consistency branch. Three colors and three generations are not inserted
-by hand. They follow there from the combined demands of anomaly cancellation,
+The quark and lepton charges are fixed on the minimally selected
+gauge-consistency branch. Three colors and three generations follow there from
+the combined demands of anomaly cancellation,
 chirality, the minimal coupled color carrier, CKM CP capability, and
 ultraviolet consistency.
 

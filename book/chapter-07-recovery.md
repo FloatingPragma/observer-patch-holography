@@ -23,7 +23,7 @@ The first shock came from quantum mechanics. In 1982, William Wootters and Wojci
 
 If you have a qubit in state |psi> and want to create |psi>|psi>, you cannot. The linearity of quantum mechanics forbids it.
 
-This does not reflect any shortfall in our tools. It is a fundamental law.
+The obstruction is a fundamental law rather than a shortfall in our tools.
 Quantum information cannot be copied. You cannot make a backup of a quantum
 state. You cannot read it out and write it elsewhere without disturbing the
 original.
@@ -491,9 +491,9 @@ small enough, there is a map that rebuilds what looked lost.
 The physics mirrors the mathematics. Ordinary quantum evolution keeps
 information in play. Black-hole evaporation is read through the Page curve.
 Entanglement wedges reconstruct bulk data from boundary data. Quantum error
-correction works in the lab, which means the core logic of encoded recovery is
-not speculative hand-waving. The world keeps telling us the same thing:
-information does not need to sit in one place to survive.
+correction works in the lab, which means encoded recovery has operational
+teeth. The world keeps telling us the same thing: information can survive
+without sitting in one place.
 
 ---
 
@@ -503,8 +503,7 @@ The recovery rule has a startling implication: in this recoverability picture,
 nothing is simply deleted from the full quantum description.
 
 If the universe is unitary and holographic encoding is stable, information is
-not destroyed. It is redistributed into increasingly nonlocal correlations of
-the full quantum state.
+redistributed into increasingly nonlocal correlations of the full quantum state.
 
 The Library of Alexandria? The scrolls burned, and the information scrambled into smoke, heat, and light. That radiation spread across the cosmos at light speed. It is diluted across an unimaginably vast region of space. In principle, with a computer the size of the observable universe, you could run the Petz map and watch the smoke reconstitute into Sophocles.
 
@@ -522,7 +521,7 @@ garbage.
 
 This distinction matters enormously. The past is recoverable in principle but
 inaccessible in practice. That gives us both unitarity and the lived arrow of
-time. The past is not erased. It is encrypted with a key we will never find.
+time. The past is encrypted with a key we will never find.
 
 ## 7.14 Reverse Engineering Summary
 

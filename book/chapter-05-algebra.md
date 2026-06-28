@@ -20,7 +20,7 @@ Mathematically:
 
 $$XP \neq PX$$
 
-The difference is not zero. It is Planck's constant in operator form:
+The difference equals Planck's constant in operator form:
 
 $$[X, P] = XP - PX = i\hbar$$
 
@@ -140,8 +140,8 @@ position and momentum measurements prepared in the same state. The inequality
 does not refer to one bad measurement. It refers to the shape of the state
 itself. A quantum state cannot make both spreads vanish.
 
-This does not come from clumsy measurement devices. It is a property of the
-state space itself. There is no state that has both precise position and
+The limit comes from the state space itself rather than clumsy measurement
+devices. There is no state that has both precise position and
 precise momentum. Such a state does not exist.
 
 For a baseball, the uncertainty is negligible, about 10⁻³⁴ meters. For an electron confined to an atom-sized region, the momentum uncertainty corresponds to 0.3% of the speed of light. At atomic scales, quantum mechanics is unavoidable.
@@ -440,7 +440,7 @@ Neumann algebras carry modular flow, and causality requires commutation for
 spacelike-separated regions. Non-commutativity is the feature that makes the
 quantum consistency problem genuinely hard.
 
-The algebraic structure is not optional. It is what the hints from quantum mechanics force us to accept. OPH then explores a stronger interpretation: non-commutativity is deeply tied to the difficulty of global consistency, not an arbitrary extra feature. The "strangeness" of quantum mechanics is thereby read as part of the price of a structured reality, not as a standalone theorem from consistency alone.
+The algebraic structure is forced by the hints from quantum mechanics. OPH then explores a stronger interpretation: non-commutativity is deeply tied to the difficulty of global consistency, not an arbitrary extra feature. The "strangeness" of quantum mechanics is thereby read as part of the price of a structured reality, not as a standalone theorem from consistency alone.
 
 ### The People Behind the Algebra
 
@@ -460,8 +460,8 @@ The historical point is not ornamental. It tells us why the algebra should be
 taken seriously. The non-commuting product was not invented because anyone
 wanted nature to be strange. It was forced by spectral lines, scattering,
 atomic stability, and the failure of the old orbit picture. The notation
-$XP\neq PX$ is therefore not a philosophical slogan. It is a compressed
-record of a long experimental and mathematical reconstruction.
+$XP\neq PX$ is therefore a compressed record of a long experimental and
+mathematical reconstruction, not a philosophical slogan.
 
 The same is true for the uncertainty relation. When the book writes
 $\Delta X\,\Delta P\geq \hbar/2$, the symbol $\Delta X$ means the spread of

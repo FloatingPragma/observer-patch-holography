@@ -83,8 +83,8 @@ AdS/CFT setting in which a boundary theory and a gravitational bulk could be
 compared. Ryu and Takayanagi found the sharp area formula. Hubeny, Rangamani,
 Takayanagi, Faulkner, Lewkowycz, Maldacena, Engelhardt, Wall, Harlow, and many
 others then turned the slogan into a working toolkit. OPH uses that inherited
-toolkit. It is not replacing the accumulated labor. It is asking what common
-observer-first architecture those clues are pointing toward.
+toolkit and asks what common observer-first architecture those clues are
+pointing toward.
 
 ### A Simple Example
 
@@ -121,9 +121,9 @@ Quantum mechanics allows a stronger pattern and reaches the Tsirelson limit
 
 $$|S| \leq 2\sqrt{2}.$$
 
-This $S$ is not entropy. It is the Bell-CHSH correlation combination, a number
-built from four correlation measurements chosen by the two experimenters. The
-vertical bars mean absolute value. Classical local hidden-variable models keep
+Here $S$ means the Bell-CHSH correlation combination, a number built from four
+correlation measurements chosen by the two experimenters. The vertical bars
+mean absolute value. Classical local hidden-variable models keep
 that number at or below 2. Quantum mechanics permits a larger value, but not an
 arbitrary one. The ceiling $2\sqrt{2}$ is the quantum limit.
 
@@ -340,7 +340,7 @@ measured by a geometric area in the bulk. If area changes, entropy changes.
 If entropy changes, the emergent geometry changes.
 
 The Bell inequality in the same chapter uses the symbol $S$ in a different
-way. There it is not entropy. It is the CHSH combination of correlations,
+way, for the CHSH combination of correlations,
 usually written as a sum and difference of expectation values for four
 measurement settings. The classical limit is $|S|\leq 2$. Quantum theory can
 reach $2\sqrt 2$. The repeated letter is unfortunate but common. The book
@@ -351,7 +351,7 @@ OPH needs both meanings. Bell-type entanglement says local classical
 bookkeeping is too small. RT-type entanglement says quantum bookkeeping can
 be geometric. Entanglement wedges then say that two observers may reconstruct
 the same interior region from different boundary data. If they do, agreement
-is not optional. The shared wedge is the geometric version of an overlap.
+is forced. The shared wedge is the geometric version of an overlap.
 
 For finite evidence bundles, that overlap language has a strict neutral-bulk
 version. Observer features from different shards are comparable only after
@@ -363,8 +363,8 @@ or the features are proved jointly separating.
 
 ## 9.12 Reverse Engineering Summary
 
-Space is not a passive backdrop. The vacuum is a web of quantum correlations,
-and the structure of that web is what becomes geometry. Area-law scaling,
+Space acts less like a passive backdrop than a web of quantum correlations,
+with the structure of that web becoming geometry. Area-law scaling,
 Ryu-Takayanagi, entanglement wedges, tensor networks, and the ER=EPR intuition
 all point in the same direction. Distance is a measure of shared
 correlations. Cut enough entanglement and you cut space itself.

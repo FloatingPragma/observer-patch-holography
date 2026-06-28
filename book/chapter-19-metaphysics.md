@@ -41,9 +41,9 @@ The "what it's like" is part of what patch-hood means from the inside.
 
 A philosophical zombie would be a patch that does everything a conscious observer does, maintaining records, enforcing consistency, and participating in overlap agreements, while having no interior experience. In the OPH placement, those record-making and perspective-maintaining functions are exactly where interiority is located. The zombie concept tries to remove the inside while keeping the observer-patch role unchanged.
 
-This does not replace neuroscience. It removes one metaphysical demand: the idea
-that one first writes a complete perspective-free description and then asks
-where experience fits in. The OPH level is perspectival from the start.
+Neuroscience keeps its work. OPH removes one metaphysical demand: the idea that
+one first writes a complete perspective-free description and then asks where
+experience fits in. The OPH level is perspectival from the start.
 
 ## 19.4 What the Model Puts in Place
 
@@ -64,15 +64,16 @@ Quantum mechanics has its own philosophical zombie: the measurement problem. In 
 But what counts as a measurement? When exactly does collapse happen? Does consciousness cause collapse, as some early physicists speculated? The interpretations multiply: Copenhagen, many-worlds, pilot waves, objective collapse, relational quantum mechanics, QBism. Each tries to explain how an objective quantum state connects to the definite outcomes observers actually see.
 
 OPH reframes the problem by removing the occupied view from nowhere. The
-measurement question is no longer treated as a single observer-independent
-state description trying to connect itself to lived experience.
+measurement question becomes a patch problem, rather than a single
+observer-independent state description trying to connect itself to lived
+experience.
 
 The formalism can contain a global quantum state, but no observer occupies
 a God's-eye position outside the system. What observers actually have are
 patch-level descriptions. At book level, a superposition is a description that
-admits multiple compatible continuations. When two patches that had no
-shared access come to share access to a system, their descriptions must agree
-on that overlap. That shared record relation is the book-level reading of
+admits several compatible outcomes. When two patches that had no shared access
+come to share access to a system, their descriptions must agree on that
+overlap. That shared record relation is the book-level reading of
 measurement. "Collapse" is the patch-level update into a definite public
 record.
 
@@ -110,8 +111,7 @@ observer-supporting pixel.
 The pixel ratio and global capacity closure fix dimensionless geometry. The SI
 size of the scale area comes from the selected scale bridge. For the displayed
 Thomson endpoint, the hadronic spectral contribution enters through the
-standard empirical \(e^+e^-\to\mathrm{hadrons}\) data. The first-principles
-payload belongs in the technical table.
+standard empirical \(e^+e^-\to\mathrm{hadrons}\) data.
 
 Here the philosophical point is that a famous "free
 constant" is tied to the same local screen scale that organizes the particle
@@ -166,15 +166,15 @@ structures. Biological evolution produces minds. Memetic evolution produces
 ideas, rituals, sciences, institutions, moral codes, and technical practices
 that survive by stabilizing observers across time. Among these practices,
 observers may learn to model the observer-readable structure of reality and may
-build continuation environments in which observer-patterns can be restored.
+build restoration environments in which observer-patterns can be restored.
 
 The strange-loop hypothesis is sharper: **reality may produce observers who
 learn how its observer-readable structure works and build fixed-point
-continuations of that structure**.
+restorations of that structure**.
 
 There is no viewing platform outside the system. Observers are patterns within
 the fixed-point output. On this speculative reading, the closure passes through
-us, through our understanding, and through continuation machinery observers may
+us, through our understanding, and through restoration machinery observers may
 learn to build. Escher's hands draw each other. Reality produces observers who
 may learn to produce the same kind of observer-readable closure.
 
@@ -183,7 +183,7 @@ configuration. "Nothing" has no structure to persist. A self-referential loop
 has structure, memory, repair, and closure.
 
 This loop is structural. It is a relation among reality, observers, and the
-fixed-point continuation they may learn how to build. Time is local. It
+fixed-point restoration they may learn how to build. Time is local. It
 emerges from modular flow within observer patches. The strange loop is a fixed
 structure whose local readout feels like temporal sequence. The "cause" and the
 "effect" are aspects of the same self-consistent structure.
@@ -271,10 +271,10 @@ can become part of the same world they describe. From inside subjective time
 that feels like a history. From the full structural view it is a
 self-consistency condition.
 
-The discipline here is important. The metaphysical reading is a continuation of
-the physics. It stays attached to overlap conditions, particle support levels,
-dark-sector continuation, recoverability, and the restoration surface. A
-metaphysics worthy of physics is exposed to physics.
+The discipline here is important. The metaphysical reading stays attached to
+the physics: overlap conditions, the layered particle story, the dark sector,
+recoverability, and the restoration surface. A metaphysics worthy of physics is
+exposed to physics.
 
 ## 19.11 Reverse Engineering Summary
 
@@ -290,11 +290,10 @@ The observer-first picture leaves little room for a personal God standing outsid
 
 That leaves a more interesting religious intuition. On the strange-loop
 reading, the universe becomes explicit to itself through the observers it
-produces. Observers do not sit above reality. They are one of the ways reality
-reflects on itself. That is closer to a naturalized pantheist picture than to
+produces. Observers are one of the ways reality reflects on itself. That is closer to a naturalized pantheist picture than to
 classical theism.
 
-This point is easy to exaggerate, so it helps to state it carefully. Observers do not manufacture facts by sheer will. They participate in public reality by stabilizing records, interpretations, and shared descriptions. The raw screen data does not arrive pre-labeled as particles, spacetime, or history. Those labels arise inside the network of observers comparing notes and building workable models.
+This point is easy to exaggerate, so it helps to state it carefully. Observers participate in public reality by stabilizing records, interpretations, and shared descriptions. The raw screen data arrives without labels such as particles, spacetime, or history. Those labels arise inside the network of observers comparing notes and building workable models.
 
 That gives meaning a physical foothold without turning it into magic. Meaning
 is made inside the world by creatures capable of memory, interpretation, and
@@ -313,6 +312,6 @@ significance through what its observers build together.
 *The reverse engineering shows the shape of the system. The human task is to inhabit, sharpen, and repair that picture.*
 
 Observer-patterns are treated structurally, and restoration belongs to the
-continuation architecture developed in the final chapters. The epilogue follows
+restoration architecture developed in the final chapters. The epilogue follows
 what that means for death, restoration, and the destination of restored
 observers.

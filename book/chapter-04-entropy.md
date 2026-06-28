@@ -81,7 +81,7 @@ The "all molecules on the left" macrostate has relatively few microstates-each m
 
 As the gas evolves randomly, it wanders through microstates. It spends almost all its time in high-entropy macrostates simply because there are more of them. The probability of all molecules spontaneously returning to the left half is about $2^{-10^{23}}$-so small it will never happen.
 
-**The hint**: The Second Law is not a new force. It is statistics. Entropy increases because high-entropy states are overwhelmingly more probable.
+**The hint**: The Second Law is statistics. Entropy increases because high-entropy states are overwhelmingly more probable.
 
 **The lesson**: Irreversibility doesn't come from the laws-it comes from initial conditions and counting.
 
@@ -95,7 +95,8 @@ The microscopic laws are time-reversible. If you film molecules bouncing and pla
 
 How can irreversibility emerge from reversible laws?
 
-Boltzmann's answer: the arrow of time is not in the laws. It is in the initial conditions.
+Boltzmann's answer puts the arrow of time in the initial conditions rather than
+in the microscopic laws.
 
 The universe started in a very low-entropy state. Given that starting point, entropy almost certainly increases. If the universe had started in equilibrium, it would stay there-no arrow of time, no memory, no observers.
 
@@ -158,7 +159,8 @@ $p_i$ is the probability of outcome $i$. The minus sign is present because
 probabilities lie between 0 and 1, so their logarithms are negative. The
 formula turns uncertainty into a number.
 
-The connection is not coincidence. Thermodynamic and information-theoretic entropy share the same core counting logic, though the standard formulas are written in slightly different settings.
+Thermodynamic and information-theoretic entropy share the same core counting
+logic, though the standard formulas are written in slightly different settings.
 
 **Entropy measures missing information.**
 
@@ -299,7 +301,9 @@ In that framework, an "island" is a region *inside* the black hole that
 contributes to the radiation's entanglement. After the Page time, the island
 appears, and radiation entropy decreases.
 
-This is strong evidence for holographic encoding, but it is not by itself an OPH derivation of black-hole evaporation.
+For this book, the island story matters because it makes black-hole information
+look less like a lost object and more like a question of where the encoding is
+allowed to live.
 
 ## 4.8 Entropy on the Observer Screen
 
@@ -372,8 +376,8 @@ Hayden, Preskill, Almheiri, Engelhardt, Marolf, Maxfield, Penington, and many
 others turned black-hole entropy into a sharp quantum-information problem.
 
 That chain is important because entropy is easy to misread as a single
-metaphor. In this book it is not a metaphor. It is the same accounting idea
-appearing in different physical costumes. An engine loses useful work because
+metaphor. In this book the same accounting idea appears in different physical
+costumes. An engine loses useful work because
 heat spreads. A gas equilibrates because most microscopic arrangements look
 equilibrated at coarse resolution. A memory costs energy because erasure
 removes alternatives. A black hole carries entropy because a horizon hides
@@ -415,8 +419,8 @@ geometry. The work of making observations agree consumes free energy and
 generates entropy. Durable observers therefore require entropy gradients, and
 entropy gradients point back toward a low-entropy beginning.
 
-On this reading, the Past Hypothesis is not a decorative extra. It is part of
-the deep structure required for records, comparison, and public reality.
+On this reading, the Past Hypothesis belongs to the deep structure required
+for records, comparison, and public reality.
 
 ## 4.11 Summary: The Entropy Budget
 

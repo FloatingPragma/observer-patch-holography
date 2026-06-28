@@ -399,8 +399,8 @@ freedom, why isn't there a "God's eye view" of the whole chart? Wouldn't that be
 a privileged reference frame?
 
 The answer is that **there is no observer outside the screen net**. The sphere
-is not an external object that someone can inspect from above. It is the
-symmetric chart for observer-facing support data. OPH does not include any
+serves as the symmetric chart for observer-facing support data, with no
+external inspection platform above it. OPH does not include any
 external vantage point. Observers have no user seat outside the computation.
 They are patterns *within* the screen data itself.
 
@@ -417,7 +417,7 @@ structure, and avoid turning any one patch into the privileged center of the
 world. A natural symmetry group that does that is the conformal group of
 $S^2$, and $\text{Conf}(S^2)\cong \mathrm{SO}(3,1)$ is the Lorentz group.
 
-So Lorentz invariance is not imposed from outside. It is the natural symmetry class relating observer perspectives without privileging any one of them.
+So Lorentz invariance appears as the natural symmetry class relating observer perspectives without privileging any one of them.
 
 **The screen degrees of freedom do not need to move.** What we call "motion" in
 the emergent 4D spacetime is not the substrate rearranging itself inside a
@@ -636,8 +636,8 @@ metric $g_{ab}$ organizes the leading overlap relations between nearby modular
 flows. The metric is the compressed description that captures that common
 structure.
 
-This compression is not read from raw observer logs. The neutral reconstruction
-first gives distances between features after redundant labels have been
+This compression comes after neutral reconstruction, which first gives
+distances between features after redundant labels have been
 identified. The modular and Einstein steps then upgrade the relevant geometric
 data to spacetime dynamics.
 
@@ -661,8 +661,8 @@ This is like asking "what happens to temperature below one molecule?" The questi
 
 The "cosmological constant problem" assumes quantum field theory is fundamental. QFT predicts vacuum energy 10^120 times larger than observed. Something must cancel it.
 
-QFT is not fundamental here. It is an effective description that emerges from
-the screen. The effective cosmological constant is tied to the reference
+QFT is an effective description that emerges from the screen. The effective
+cosmological constant is tied to the reference
 curvature and global screen capacity discussed in Chapter 13 through
 dimensionless products such as $\Lambda\ell_\star^2$. In natural units, the
 Gibbons-Hawking entropy is $S = A/(4G)$. For the late-time de Sitter horizon,
@@ -673,16 +673,16 @@ $3.31\times10^{122}$.
 The "problem" exists only if you compute vacuum energy using QFT and assume
 that calculation is fundamental. OPH fixes the dimensionless global-capacity
 relation. The numerical SI value of Lambda also needs the selected scale that
-connects the screen units to laboratory units. It is not obtained from a local
-QFT vacuum-energy sum. QFT vacuum fluctuations are emergent phenomena, not
+connects the screen units to laboratory units, rather than a local QFT
+vacuum-energy sum. QFT vacuum fluctuations are emergent phenomena, not
 fundamental contributions to the stress tensor.
 
 The observed small value of Lambda is therefore not a cancellation between
 large local vacuum-energy terms. In OPH it belongs to the global
 capacity-closure branch. The dimensionless closure fixes the de Sitter
 capacity relation; the SI value also depends on the selected scale. The
-remaining hard task is to derive the fixed-point map directly from the finite
-observer grammar instead of tuning a QFT vacuum-energy sum.
+fixed-point map must come directly from the finite observer grammar rather than
+from tuning a QFT vacuum-energy sum.
 
 ### Black Hole Information: Screen Encoding and Recoverability
 
@@ -711,48 +711,39 @@ galaxy clusters and the Bullet Cluster.
 
 ### A Third Route
 
-One phenomenological OPH continuation gives a third route. Extra
-gravitational pull may come from imperfect information recovery.
+OPH gives a third route. Extra gravitational pull can come from imperfect
+information recovery rather than from a new particle species.
 
 The underlying logic is simple. In the ideal Markov limit, information on one
-side of a boundary is perfectly recoverable from the boundary itself, and the
-recovered gravity branch follows the Einstein relation. In the dark-sector
-continuation considered here, one moves away from that ideal limit and some
-correlation sits out of reach. That leftover correlation can feed an extra
-effective gravitational term if the finite recovery defect can be tied to
-anomalous modular energy.
+side of a boundary is recoverable from the boundary itself, and the gravity
+branch follows the Einstein relation. Away from that ideal limit, some
+correlation sits out of reach. That leftover correlation has physical weight in
+the modular bookkeeping, so it can appear as an extra gravitational term.
 
-It gravitates because missing recoverability has physical weight in the
-bookkeeping. This supplies a possible structural ingredient for a dark-sector
-completion without introducing new particle species. By itself, it is not a
-completed cosmology. To reach the CMB and structure-growth data, the theory
-must supply a finite source, a conserved stress-energy description, a baryon
-response, a physical clock, and a reproducible numerical fit before the sky data
-enter.
+This makes the dark sector a screen problem. Visible matter supplies the
+baryonic pull. The residual recovery defect supplies another gravitational
+contribution, dark to telescopes because it has no ordinary electromagnetic
+handle.
 
 ### Why It's Dark
 
-In that continuation, the sector is dark at the level of its couplings. It
-comes from information structure, it gravitates, and it does not couple
-electromagnetically. Any successful phenomenological completion then has to
-confront rotation curves, lensing, clusters, and cosmology with the same
-information-recovery term.
+The sector is dark at the level of its couplings. It comes from information
+structure, it gravitates, and it does not couple electromagnetically. Rotation
+curves, lensing, clusters, and cosmology then become different views of the
+same recovery term rather than separate excuses for invisible material.
 
 ### The MOND Scale
 
-In that continuation, the cosmological constant supplies the natural infrared
-scale. The de Sitter radius then singles out a characteristic acceleration
-benchmark:
+The cosmological constant supplies the natural infrared scale. The de Sitter
+radius then singles out a characteristic acceleration:
 
 $$a_0 = \frac{15}{8\pi^2} c^2 \sqrt{\frac{\Lambda}{3}} \approx 1.0 \times 10^{-10} \text{ m/s}^2$$
 
 This lands near the empirical MOND acceleration scale. The proximity matters
 because it ties galaxy-scale anomalies back to the same de Sitter capacity
-logic that shaped the horizon from the start. That benchmark is
-continuation-level: it does not by itself derive a full galaxy-scale response
-law. The same caution applies to early-universe claims. A primordial spectrum
-needs its source stress, clock, freeze-out, mode content, radial lift, and
-residual checks in place before it counts as a prediction.
+logic that shaped the horizon from the start. Chapter 13 tells the longer
+cosmological version: the galaxy-scale anomaly and the dark-energy horizon are
+two faces of the same finite-patch story.
 
 ## 15.13 Reverse Engineering Summary
 
@@ -772,8 +763,7 @@ curvature.
 
 Newton's absolute time and space were beautiful ideas that served humanity
 well for two centuries. They were approximations. The deeper truth is that
-time and space are not the stage on which physics happens. They emerge from
-the physics itself.
+time and space emerge from the physics itself.
 
 This yields emergent spacetime with Lorentz kinematics and
 the Einstein relation in the scaling regime. We have seen how both

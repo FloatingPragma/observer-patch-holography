@@ -57,9 +57,8 @@ excitation is sorted by the familiar labels of relativistic physics: mass,
 spin, and helicity. Once compact gauge structure is reconstructed from
 transportable sectors, the charge bookkeeping also stops looking arbitrary. The
 reconstruction step classifies the compact group carried by persistent
-zero-obstruction sectors; it does not by itself select the Standard Model. On
-the realized one-Higgs low-energy branch, minimal admissible selection picks
-the Standard Model quotient
+zero-obstruction sectors. On the realized one-Higgs low-energy branch, minimal
+admissible selection then picks the Standard Model quotient
 $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, the exact hypercharge lattice, the
 realized color triplet $N_c=3$, and the generation count $N_g=3$. Those are
 structural answers about what kinds of matter can exist on that realized
@@ -152,10 +151,9 @@ $$
 \end{aligned}
 $$
 
-These are running quark masses, not hadron masses. They belong to the
-short-distance particle description before QCD binds quarks into composite
-states. The top value belongs to the selected running-mass branch; a direct
-top-mass display is a separate benchmark check.
+These are running quark masses. They belong to the short-distance particle
+description before QCD binds quarks into hadrons. The top value belongs to the selected running-mass branch; a direct
+top-mass display is a separate comparison.
 
 Running means the quoted mass depends on the energy scale at which the quark is
 probed. This is normal in quantum field theory. It is why a quark mass in a
@@ -181,12 +179,11 @@ contains structural massless carriers, the weak-sector comparison pair, the
 Higgs/top quantitative relation, the selected running quark sextet with Yukawas,
 and one weighted-cycle neutrino branch.
 
-The selected quark branch leaves the strong-CP question open. It does not
-derive $\theta_{\mathrm{QCD}}$, it does not emit the physical $\bar\theta$, and
-it does not prove that the physical strong-CP phase vanishes. Hadrons require a
-separate nonperturbative bound-state step because protons, neutrons, and mesons
-are QCD composites. First-principles hadron masses are work in progress;
-empirical hadron checks use the standard \(e^+e^-\to\mathrm{hadrons}\) data.
+The selected quark branch also shows where the particle story changes gear. It
+names running quark masses and their Yukawa pattern, while the strong-CP phase
+and the physical hadron masses live downstream. Protons, neutrons, and mesons
+are QCD composites, so their masses require the nonperturbative bound-state
+physics of confinement.
 
 Majorana phases are extra neutrino mixing phases that matter if neutrinos are
 their own antiparticles in the relevant sense. QCD is quantum chromodynamics,
@@ -343,7 +340,7 @@ So classical physics is the **stable, compressible limit** of the deeper quantum
 
 This resolves an old puzzle: why does the quantum world give rise to classical physics at all?
 
-In the standard picture, classical physics is an approximation that breaks down at small scales. OPH inverts this: classical physics is what emerges when consistency constraints are satisfied. The classical world is not fundamental reality poorly approximating quantum mechanics. It is the consistent core that multiple observers can share.
+In the standard picture, classical physics is an approximation that breaks down at small scales. OPH inverts this: classical physics is what emerges when consistency constraints are satisfied. The classical world is the consistent core that multiple observers can share.
 
 The quantum world is larger but less shareable. Superpositions exist, but broad
 decohered superpositions do not survive as public records that many observers
@@ -360,16 +357,15 @@ geometric, and overlap consistency enforces locality. Matter is not primitive
 stuff. It is a family of stable excitation patterns. The particle catalogue is
 not arbitrary. It comes with a constrained pattern of charges, carriers,
 couplings, and masses. Energy is the charge of time
-translations. Motion does not need a separate mystical principle. Stationary
-action is the classical limit of quantum interference. The deterministic world
+translations. Stationary action is the classical limit of quantum interference. The deterministic world
 of everyday life is the public face of a quantum reality that becomes
 shareable only after decoherence and redundancy have done their work.
 
-The support levels differ. The weak-boson pair is a benchmark check.
-Charged-lepton absolute masses use empirical anchors. Hadron masses need the
-strong-binding calculation together with production data and systematics.
-Empirical hadron checks use the standard \(e^+e^-\to\mathrm{hadrons}\)
-channel.
+The particle map is layered. Weak bosons, charged leptons, running quarks,
+neutrinos, and hadrons do not enter the story in the same way, because nature
+does not present them in the same way. A W boson is an electroweak carrier. A
+proton is a bound QCD object. Treating those as the same kind of number would
+erase the physics that makes matter recognizable.
 
 ### Matter as a Public Achievement
 
@@ -405,12 +401,10 @@ many experimental teams turned the particle zoo into the Standard Model.
 Modern mass measurements then require colliders, detectors, lattice QCD,
 spectral fits, and global averaging groups.
 
-This is why the chapter separates support levels. The weak-boson pair checks
-the framework against known values. Charged-lepton absolute masses use
-empirical anchors. Hadron masses require the strong-binding problem because
-most of a proton's mass is not the bare quark masses. It is QCD binding energy,
-confinement, condensates, and dynamics. The public matter we touch is therefore
-a layered consensus object:
+That history is also why the chapter refuses to flatten the particle table into
+one kind of entry. Most of a proton's mass comes from QCD binding energy,
+confinement, condensates, and dynamics rather than the bare quark masses. The
+public matter we touch is therefore a layered consensus object:
 symmetry tells us what can be conserved, quantum field theory tells us what can
 propagate, QCD tells us how quarks bind, decoherence tells us what becomes
 classical, and observer overlap tells us what can become a shared fact.

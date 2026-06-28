@@ -62,7 +62,7 @@ think about the cosmological constant before cosmic acceleration was observed.
 Inflationary cosmology, string theory, quantum measurement theory, and
 statistical learning all gave physicists different versions of selection in a
 space of possibilities. The book does not need all of those proposals to be
-right. It needs the shared lesson: what becomes real to observers is often the
+right. It uses the shared lesson: what becomes real to observers is often the
 part of a larger possibility space that can survive a filter.
 
 ## 17.3 The First-Principles Reframing: Laws Are Survivors
@@ -89,9 +89,9 @@ This is Darwin on a cosmic scale. In Smolin's proposal, after countless
 generations we should find ourselves in a universe near a fitness peak, one
 optimized for black-hole production.
 
-That is Smolin's mechanism, not an OPH theorem. OPH uses selection more
-narrowly in this chapter: candidate laws and records must pass the finite
-observer-overlap filter before they can belong to a public world.
+OPH borrows the selection instinct, not Smolin's whole mechanism. Candidate
+laws and records must pass the finite observer-overlap filter before they can
+belong to a public world.
 
 ### A Testable Prediction
 
@@ -261,10 +261,10 @@ ideas. Among these ideas, the fixed-point computation meme appears as an
 understanding of reality at the computational level.
 
 Armed with this meme, observers can build computations that preserve and repair
-observer records. A sufficiently rich continuation could contain its own
+observer records. A sufficiently rich restored world could contain its own
 observers, who may in turn arrive at the same meme. The meme that explains
 reality is itself a product of reality. Chapter 18 treats that strange-loop
-reading as a philosophical continuation of the framework.
+reading as a philosophical extension of the framework.
 
 ## 17.8 The Observer as Selector
 
@@ -278,7 +278,7 @@ Physics has laws because the consistency requirement forces reality into structu
 
 **The laws of physics are what allow observers to agree on what the data means.**
 
-This statement cuts to the heart of OPH. Lorentz invariance is not an arbitrary symmetry. It exists because different observers moving through the same region must arrive at consistent descriptions. Gauge symmetry is not a mathematical curiosity. It exists because overlapping patches must identify shared observables without ambiguity. Conservation laws are not coincidences. They exist because the same quantities must be conserved across all perspectives.
+This statement cuts to the heart of OPH. Lorentz invariance exists because different observers moving through the same region must arrive at consistent descriptions. Gauge symmetry exists because overlapping patches must identify shared observables without ambiguity. Conservation laws hold because the same quantities must be conserved across all perspectives.
 
 The selection filter is severe. A candidate law must support stable records,
 local repair, transport across overlaps, and enough redundancy for many
@@ -288,7 +288,7 @@ does not become part of a public world.
 
 ![Candidate patterns become public physics only after passing consistency, record, compression, and observer-support filters.](../assets/book_diagrams/selection-filters.svg){width=80%}
 
-The laws are not imposed from outside. They are the conditions that make agreement possible.
+The laws are the conditions that make agreement possible.
 
 ### Co-Evolution of Laws and Observers
 

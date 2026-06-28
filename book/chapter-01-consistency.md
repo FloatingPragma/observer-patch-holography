@@ -142,7 +142,7 @@ These questions have haunted physics for a century. Different interpretations of
 
 **The lesson**: The intuitive picture-where objects carry a full set of classical-style definite properties whether or not we observe them-doesn't work at the quantum level. Which properties can be treated as definite depends on the measurement context and the interpretation.
 
-**The first-principles reframing**: Observers are not outside physics looking in. They are part of the physical system. Reality is a conversation we participate in.
+**The first-principles reframing**: Observers belong to the physical system. Reality is a conversation we participate in.
 
 ### The Measurement Problem Reframed
 
@@ -152,7 +152,7 @@ OPH reframes this problem.
 
 The puzzle assumes a God's-eye view where the wave function is "really" in superposition, followed by something magical called "collapse." There is no God's-eye view. There are only observer patches.
 
-From within a patch, measurement is registered through definite records on the operational readout surface. The "superposition" is not a mysterious state waiting for a magic event. It is a description of how different observers' potential records relate to each other before they compare notes.
+From within a patch, measurement is registered through definite records on the operational readout surface. The "superposition" describes how different observers' potential records relate to each other before they compare notes.
 
 When Alice measures an electron's spin, her instrument writes one definite record on that readout surface. The wave function describes the consistency relations between Alice's possible records and Bob's possible records. When they meet and compare, those records must agree on the shared event surface. That agreement is the operational content behind textbook collapse language.
 
@@ -187,8 +187,8 @@ Picture two friends, Mira and Sam, walking through a city. Mira turns down a sid
 
 "I didn't see any truck," says Sam.
 
-This is not a paradox. They had partial views. Their accounts only have to
-agree where their views overlap. When Sam walks down the street and finds tire
+The tension dissolves once the views are treated as partial. Their accounts
+only have to agree where their views overlap. When Sam walks down the street and finds tire
 marks and a taco wrapper, he updates his account: "Okay, I guess there was a
 truck. I just didn't see it."
 
@@ -260,7 +260,7 @@ If information has a speed limit, every observer has limits. There are parts of 
 
 ### Cosmological Horizons
 
-The universe is expanding. Cosmology distinguishes several horizon scales. The observable-universe radius today is about 46 billion light-years, while the future event horizon is much smaller. Regions from which light cannot reach us make every observer's causal patch finite. A causal patch is the part of spacetime that can exchange signals with that observer.
+The universe is expanding. Cosmology distinguishes several horizon scales. The observable-universe radius is about 46 billion light-years, while the future event horizon is much smaller. Regions from which light cannot reach us make every observer's causal patch finite. A causal patch is the part of spacetime that can exchange signals with that observer.
 
 This doesn't violate relativity. Nothing is moving through space faster than light. Space itself is expanding. But the effect is real: there's a boundary beyond which we cannot see.
 
@@ -415,7 +415,7 @@ self-referential loop. The patterns that persist are the patterns that are consi
 are patterns that learn to model other patterns. Consciousness is what it feels like to be one of
 those self-modeling patterns.
 
-This view changes many traditional puzzles. "Why does anything exist at all?" becomes a question about the coherence of a closed self-referential structure. On this reading, the loop does not need an external cause because it is not a temporal chain with a first step waiting to be triggered from outside.
+This view changes many traditional puzzles. "Why does anything exist at all?" becomes a question about the coherence of a closed self-referential structure. On this reading, the loop needs no external cause because it has no temporal first step waiting to be triggered from outside.
 
 "What is the universe made of?" becomes, within OPH, "What substrate best realizes the computational picture?" The construction studied here uses finite-dimensional quantum systems on a 2D surface, constrained by gauge invariance, organized by maximum entropy, and narrowed at low energy by the minimal admissible realization rule. It is concrete enough to do physics, and broad enough to keep the focus on structure without borrowing a material picture from everyday life.
 
@@ -444,11 +444,11 @@ classical physics emerge from the screen?
 evolutionary survivors? And what does this mean for existence itself?
 
 The 3D world you see around you, the chairs, the stars, the empty space, is
-not the primary storage device of reality. The real data is organized on
+secondary to the boundary bookkeeping. The real data is organized on
 boundaries. We call this the holographic principle. In gravitational settings,
 it says that the independent bookkeeping for a region may be carried by data on
 the surface that encloses it.
 
-This isn't philosophy. It's physics, and the first hard clue came from black holes.
+The first hard clue came from black holes.
 
 The next chapter traces the lineage of that suspicion. It moves from philosophy to physics and shows how the long argument about appearance and reality became a concrete argument about information and geometry.

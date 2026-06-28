@@ -137,8 +137,8 @@ Imagine the label on the can as a living quantum field theory with particles, fo
 The bold claim is exact in that duality: **everything happening inside the can
 is exactly the same as what happens on the label**. A falling particle in the
 bulk corresponds to ripples on the boundary. A black hole forming inside
-corresponds to hot plasma on the surface. This isn't an approximation. It's a
-perfect translation within AdS/CFT.
+corresponds to hot plasma on the surface. AdS/CFT gives a perfect translation
+inside that setting.
 
 This is the **AdS/CFT correspondence**, the most important theoretical discovery in physics of the past thirty years.
 
@@ -313,7 +313,7 @@ $$\phi(z, x) = \int d^d x' \, K(z, x; x') \, \mathcal{O}(x')$$
 
 The kernel $K$ answers a practical question: which boundary observables do you need if you want to describe one local excitation in the bulk? Near the boundary, $K$ is narrow, so the answer is "mostly nearby ones." Deep in the bulk, $K$ spreads out, so the answer becomes "a coordinated patch of the boundary."
 
-This is the mechanism behind the slogan that the bulk is encoded on the boundary. A bulk point is not stored in one place. It is reconstructed from a weighted average of many boundary observables.
+This is the mechanism behind the slogan that the bulk is encoded on the boundary. A bulk point is reconstructed from a weighted average of many boundary observables.
 
 HKLL is valuable because it answers the skeptical question hovering over holography. If the boundary is fundamental, why does the interior ever look local? The answer is that certain collective boundary patterns reconstruct localized bulk operators with semiclassical accuracy. Locality is emergent and physically real at the semiclassical level.
 
@@ -438,7 +438,7 @@ entanglement and geometry are deeply linked. Holography supplies the broad idea
 that boundary data can encode bulk physics. Almheiri, Dong, and Harlow show
 that this encoding carries the structure of quantum error correction.
 
-### What OPH Does Not Require
+### What OPH Leaves Out
 
 OPH stands apart from AdS/CFT in several concrete ways. It does not need a
 specific boundary CFT. It does not treat bulk and boundary as two complete
@@ -469,7 +469,8 @@ For that reason, OPH is not a dS/CFT proposal. A hypothetical dS/CFT would posit
 entanglement-equilibrium / Jacobson-style branch, can yield semiclassical
 gravity in the bulk.**
 
-The bulk and boundary do not need to be complete dual descriptions. The bulk emerges from the boundary through consistency and compression. It is the consistency/compression readout of the boundary.
+The bulk emerges from the boundary through consistency and compression, as the
+readout of boundary data under overlap constraints.
 
 ### Why This Matters
 
@@ -502,14 +503,14 @@ CFT dual to the bulk. Our approach begins from the observer's horizon, uses
 local algebras and overlap consistency, and treats observer-dependence as the
 feature that makes the physics readable in the first place.
 
-De Sitter horizons are not a problem to be solved. They are the feature that
-makes observer-patch holography natural. Each observer has a horizon, a patch
-of screen, and overlap conditions tying that patch to neighboring ones.
+De Sitter horizons make observer-patch holography natural. Each observer has a
+horizon, a patch of screen, and overlap conditions tying that patch to
+neighboring ones.
 
 The cosmological constant appears through a **global capacity relation**, the
-total number of degrees of freedom on the screen. It does not come from the
-local null-modular derivation in OPH. The local Einstein branch leaves the
-metric term open, and the global screen-capacity closure fixes that term.
+total number of degrees of freedom on the screen. The local null-modular
+derivation leaves the metric term open, and the global screen-capacity closure
+fixes that term.
 
 The closure can be said without asking the reader to parse every symbol at
 once. Supply a possible total capacity. Let the settled observer-supported

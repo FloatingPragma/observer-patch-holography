@@ -371,7 +371,10 @@ constraints. Any viable account must therefore treat value assignment as
 context-dependent. This is **contextuality** in the sense highlighted by the
 theorem.
 
-That is exactly why this theorem fits OPH so well. Observer overlap is never the overlap of two perfect God's-eye inventories. It is the overlap of actual measurement contexts, actual accessible observables, and actual records. Context is not an embarrassment to be removed. It is part of the structure.
+That is exactly why this theorem fits OPH so well. Observer overlap happens
+between actual measurement contexts, actual accessible observables, and actual
+records, not between perfect God's-eye inventories. Context belongs to the
+structure.
 
 That gives the theorem a direct narrative role in the book. The world does not stay coherent because every observer secretly samples one master spreadsheet. It stays coherent because local contexts can be glued where they genuinely overlap. Kochen-Specker tells you why the stronger fantasy fails.
 
@@ -380,7 +383,7 @@ That gives the theorem a direct narrative role in the book. The world does not s
 The consistency challenge becomes sharper when observers themselves become part
 of the system.
 
-In 1961, Eugene Wigner proposed a thought experiment that troubles physicists today.
+In 1961, Eugene Wigner proposed a thought experiment that puts the observer inside the measurement problem.
 
 Wigner's friend is in a sealed laboratory, measuring a quantum system. From the friend's perspective, the measurement has produced a definite outcome record-say, spin-up. In standard textbook language, the friend would update the system to the corresponding outcome state.
 
@@ -545,9 +548,8 @@ patches.
 That matters because the gluing problem is hard. Quantum marginals can fail to
 fit together even when pairwise overlaps look harmless, and the combinatorics
 become vicious as more observers are involved. Bell-violating entanglement
-is not an embarrassment in this setting. It is part of the efficient
-bookkeeping that allows many local perspectives to remain compatible without
-an impossible burden of pre-coordination.
+becomes part of the efficient bookkeeping that allows many local perspectives
+to remain compatible without an impossible burden of pre-coordination.
 
 ---
 

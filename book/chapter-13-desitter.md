@@ -30,8 +30,7 @@ Type Ia supernovae, the "standard candles" of cosmology.
 Everyone expected to find that expansion is slowing. The data showed the opposite.
 
 Distant supernovae were fainter than expected, farther away than a decelerating
-universe would predict. The universe is not slowing down. It is **speeding
-up**.
+universe would predict. The universe is **speeding up**.
 
 Something is pushing the cosmos apart. Something is fighting gravity and winning. The teams called it "dark energy."
 
@@ -177,8 +176,8 @@ Leonard Susskind and collaborators proposed **de Sitter complementarity**: opera
 
 Alice describes physics in her patch using her Hilbert space. Bob describes physics in his patch using his Hilbert space. Where their patches overlap, their descriptions must be consistent. In the complementarity reading adopted here, patch-relative descriptions are primary.
 
-A Hilbert space here is not a private mental space. It is the quantum state
-space for the degrees of freedom accessible inside one observer's horizon.
+A Hilbert space here is the quantum state space for the degrees of freedom
+accessible inside one observer's horizon, not a private mental space.
 
 This fits naturally with OPH. Reality is a collection of consistent patches. You can't step outside and view the universe from nowhere.
 
@@ -213,10 +212,10 @@ This is a different target. The "unsolved problem" of dS holography is about fin
 
 ### The Lambda-Capacity Relation
 
-A key point: the cosmological constant is not a local patch datum. Null
-modular probes reconstruct the stress tensor only up to a term proportional to
-the metric itself, so $\Lambda g_{ab}$ enters as the one global scale the local
-construction cannot erase.
+A key point: the cosmological constant belongs to global capacity rather than
+local patch data. Null modular probes reconstruct the stress tensor only up to
+a term proportional to the metric itself, so $\Lambda g_{ab}$ enters as the one
+global scale the local construction cannot erase.
 
 The symbol $\Lambda$ is the cosmological constant, the part of Einstein's
 equation that acts like a uniform large-scale tendency for space to accelerate.
@@ -268,9 +267,11 @@ unique stable fixed point. Informally, this is the single screen size where
 the universe reads back its own boundary without deficit or slack: below it,
 stable self-reading records do not have enough active capacity; above it, added
 capacity is slack, redundancy, or de Sitter dilution. On the observed branch
-this fixed point is the de Sitter entropy capacity. The reverse-engineering
-claim is uniqueness plus observed read-off; a from-scratch prediction requires
-deriving the readback map from the finite grammar.
+this fixed point is the de Sitter entropy capacity.
+
+The image is the important part. The small positive Lambda is read as the size
+label of a finite self-reading horizon. It is the number every observer patch
+inherits when the universe can reconstruct its own boundary from inside.
 
 This is the informal $N_{\mathrm{CRC}}$ story. From the outside the datum is
 total horizon capacity. From the inside the datum is total observer-accessible
@@ -279,10 +280,9 @@ own boundary. Observers exist inside it, and infer geometry, horizons, entropy,
 $\Lambda$, history, and records from the information available inside the
 universe.
 
-The capacity relation is not a local particle-mass formula. It is a global
-screen-size formula: a larger self-consistent record capacity corresponds to a
-smaller positive cosmological constant once the selected scale bridge is
-used for the SI display.
+The capacity relation belongs to global screen size: a larger
+self-consistent record capacity corresponds to a smaller positive cosmological
+constant once the selected scale bridge is used for the SI display.
 
 ### Many Observers, One Lambda
 
@@ -342,54 +342,51 @@ The supernova data and the standard late-time fit point toward de Sitter
 behavior, and de Sitter fits the observer-first picture with almost suspicious
 neatness. Each observer has a static patch, a horizon, a temperature, an
 entropy budget, and finite accessible information. The cosmological horizon is
-not a nuisance in this reading. It is the natural
-screen.
+the natural screen in this reading.
 
-## 13.10 Dark Sector as a Modular Anomaly
+## 13.10 The Dark Sector: Missing Gravity Without New Particles
 
-There's another cosmic mystery we haven't addressed: dark matter. Galaxies rotate too fast. Galaxy clusters hold together too tightly. The cosmic microwave background fluctuations require extra gravitational pull. The standard explanation: invisible particles that interact gravitationally but not electromagnetically.
+In 1933, Fritz Zwicky looked at galaxies in the Coma Cluster and found a
+problem. They were moving as if the cluster contained far more mass than the
+telescopes could see. Four decades later, Vera Rubin and Kent Ford found the
+same kind of problem inside spiral galaxies. The outer stars were orbiting too
+fast. If the visible stars and gas were all the mass there was, those outskirts
+should have behaved differently.
 
-OPH suggests a different route.
+The modern evidence is broader than rotation curves. Galaxy clusters bend light
+more strongly than their visible matter allows. The Bullet Cluster separates
+hot gas from the gravitational lensing map. The cosmic microwave background
+carries the imprint of extra gravitational weight in the early universe. This
+is what physicists call the dark sector: the part of the cosmic budget inferred
+from gravity rather than from light.
 
-### The Modular Anomaly
+The standard answer is dark matter: new particles that clump around galaxies,
+pull on stars and light, and mostly ignore electromagnetism. That answer works
+well in large-scale cosmology, but the particles themselves have not shown up
+in detectors. MOND takes the opposite route and changes the low-acceleration
+law of gravity. It captures a surprising amount of galaxy phenomenology, while
+clusters and the early universe remain difficult terrain.
+
+OPH reads the same evidence through the observer screen. A galaxy is luminous
+matter, dust, gas, and dark gravitational behavior inside a finite de Sitter
+patch. The question becomes: what does gravity read when the boundary
+bookkeeping is nearly, but not perfectly, additive?
+
+### The Modular Leftover
 
 Chapter 11 used entanglement equilibrium to recover the local Einstein
-relation in the scaling regime. The dark-sector idea begins one step outside
-that clean lane. It asks what remains when the boundary record almost screens
-inside from outside, yet leaves a small residue.
+relation. In the ideal case, the boundary record screens inside from outside
+cleanly enough that local gravity takes the familiar form.
 
-In this phenomenological continuation, the Markov condition is approximate.
-Some correlation escapes the boundary summary. In the special finite or
-effective representation where a modular generator can be written, that
-imperfection appears as an extra term:
+The dark-sector idea starts where that idealization stops. A small amount of
+correlation can remain outside the boundary summary. OPH calls this a modular
+anomaly because it appears in the same modular bookkeeping that turns a
+restricted observer state into a clock and an energy accounting. An anomaly in
+this sense is the leftover term produced by imperfect additivity.
 
-$$K_C = 2\pi B_C + K_C^{(\text{anom})} + \text{const}$$
-
-where the "anomaly" captures the deviation from perfect modular additivity. This anomaly contributes to the stress-energy:
-
-An anomaly here means a controlled leftover term, not a mistake. It is what
-remains when the ideal additivity of the modular bookkeeping is only
-approximately true.
-
-$K_C$ is the modular Hamiltonian associated with cap $C$. $B_C$ is the
-geometric boost-like generator that would appear in the ideal local form.
-$K_C^{(\text{anom})}$ is the extra contribution left when the ideal Markov
-recovery condition is imperfect. The constant shifts the zero of modular
-energy and has no direct observational role.
-
-$$G_{00} + \Lambda g_{00} = 8\pi G \left( \langle T_{00} \rangle + \langle T_{00}^{\text{anom}} \rangle \right)$$
-
-The continuation highlighted here uses the coefficient
-$15/(8\pi^2)\approx0.19$. This coefficient belongs to the diagnostic
-dark-sector continuation, not to the recovered-core gravity theorem.
-
-### Why This Is "Dark"
-
-In this continuation, the anomalous term $T_{00}^{\text{anom}}$ is dark at the
-level of its couplings. It arises from information structure at galaxy scale,
-it gravitates, and it carries no direct electromagnetic coupling in the
-effective description. This is a proposed infrared bridge, not a completed
-galaxy-scale source-and-response law.
+That leftover gravitates. It changes the effective stress-energy seen by an
+inside observer, but it does not shine, scatter light, or behave like ordinary
+gas. For a telescope it is dark. For the geometry it has weight.
 
 ### The Acceleration Scale
 
@@ -398,10 +395,10 @@ The de Sitter horizon introduces an unavoidable IR length scale:
 $$r_{dS} = \sqrt{\frac{3}{\Lambda}} \approx 1.66 \times 10^{26} \text{ m}$$
 
 Galaxy rotation anomalies are an infrared phenomenon. They appear at large
-distances where accelerations are tiny. Any modification from the modular
-anomaly must be controlled by this scale.
+distances where accelerations are tiny. The same de Sitter scale that set the
+horizon therefore supplies the natural ruler for the effect.
 
-A natural acceleration benchmark, carrying the anomaly coefficient, is:
+A natural acceleration scale, carrying the modular coefficient, is:
 
 $$a_0^{(\text{OPH})} = \frac{15}{8\pi^2} \cdot \frac{c^2}{r_{dS}}$$
 
@@ -412,15 +409,13 @@ $$a_0^{(\text{OPH})} \approx 1.03 \times 10^{-10} \text{ m/s}^2$$
 This lands near the empirical MOND acceleration scale
 $a_0 \sim 1.2 \times 10^{-10}\,\text{m/s}^2$ that fits galaxy rotation curves.
 The proximity matters because it ties a possible galaxy-scale anomaly back to
-the same de Sitter capacity logic that fixed the horizon. It is not a
-replacement for a full fit to galaxy diversity, clusters, lensing, structure
-growth, and precision expansion data.
+the same de Sitter capacity logic that fixed the horizon.
 
-### What This Continuation Looks Like
+### Why Galaxies Flatten
 
-If the modular anomaly is read as part of the dark sector, one MOND-like
-continuation takes a familiar deep-infrared form. In the regime where $g<a_0$,
-the effective gravitational acceleration is written as
+In the deep-infrared regime, where the acceleration from visible matter falls
+below $a_0$, the effective gravitational acceleration takes the familiar
+MOND-like form
 
 $$g_{\text{obs}} \approx \sqrt{a_0 \cdot g_b}$$
 
@@ -437,23 +432,33 @@ The same picture yields the baryonic Tully-Fisher relation:
 
 $$V^4 = G \cdot M_b \cdot a_0^{(\text{OPH})}$$
 
-This is the observed Tully-Fisher form that the continuation aims to reproduce,
-with its normalization benchmark set by screen capacity. In that
-phenomenological branch, the dark sector is read as an infrared correction to
-gravity. No new particle species is introduced. The cosmological constant and
-the galaxy-scale anomaly then sit inside one de Sitter picture.
+Astronomers discovered this relation empirically: the fourth power of a
+galaxy's flat rotation speed tracks its visible baryonic mass. In the OPH
+reading, the normalization is tied to the de Sitter horizon through the
+acceleration scale above.
 
-That is the attractive part. The hard part is the rest of cosmology. A serious
-CMB or growth calculation must specify the finite source, the stress tensor, the
-physical clock, the lift from screen data to radial modes, the mode-purity
-checks, the pooling rule, the numerical calculation, and the statistical fit before
-the sky data are used. Until that whole chain is present, CMB spectra and growth
-curves remain tests of the continuation, not first-principles predictions.
+This is how OPH resolves the dark-sector puzzle in the language of this
+chapter. The missing gravity is read as an infrared residue of screen
+bookkeeping, dark to light but visible to geometry. No new particle species has
+to be added for galaxy rotation curves to feel extra pull. The cosmological
+constant and the galaxy-scale anomaly sit inside one de Sitter picture: the
+horizon fixes the capacity, and the residual modular term shows up where
+accelerations become cosmologically small.
+
+The whole sky matters. Clusters, lensing, the Bullet Cluster, the CMB,
+and structure growth are the places where any dark-sector account has to
+survive contact with the data. OPH enters that problem by changing the
+question: the dark sector becomes a question about what a finite self-reading
+horizon leaves behind in gravity once visible matter has done its part.
 
 ---
 
 The arena is a finite static patch bounded by a holographic horizon. What populates this arena? What are the particles and forces we observe, and why do they have the peculiar properties they do?
 
-The next chapter treats the Standard Model of particle physics as an effective structure. It does not follow from gluing in one jump. First, overlap gluing classifies which sectors can be transported as ordinary compact-gauge data. Then compact-gauge reconstruction reads a compact group from those sectors. The one-Higgs matter package and minimal admissible selection pick the realized Standard Model branch.
+The next chapter treats the Standard Model of particle physics as an effective
+structure. The path has three steps: overlap gluing classifies which sectors can
+be transported as ordinary compact-gauge data, compact-gauge reconstruction
+reads a compact group from those sectors, and the one-Higgs matter package with
+minimal admissible selection picks the realized Standard Model branch.
 
 This is **Chapter 14: The Standard Model from Consistency**.

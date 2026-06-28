@@ -9,7 +9,7 @@ lopsided, or irregular, but it happens to be symmetric in certain ways.
 Physicists chose to study symmetric systems because they're easier to analyze
 and more beautiful. Symmetry is a convenience, not a necessity.
 
-This view treats symmetry as a happy accident or an unexplained gift. The laws of physics happen to look the same in all directions (rotational symmetry). They happen to be the same today as yesterday (time translation symmetry). But there's no deeper reason for this. The universe could have been otherwise.
+This view treats symmetry as a happy accident or an unexplained gift. The laws of physics happen to look the same in all directions (rotational symmetry). They happen to be stable from one day to the next (time translation symmetry). But there's no deeper reason for this. The universe could have been otherwise.
 
 Noether broke that picture.
 
@@ -38,7 +38,7 @@ symmetry gives conservation of charge.
 
 Conservation laws aren't arbitrary rules. They're geometric consequences of symmetry.
 
-This is where physics stops looking like a cabinet full of separate rules. Energy conservation, momentum conservation, and charge conservation are not independent miracles. They are what remain fixed when the same action can be read from shifted, rotated, or phase-twisted points of view.
+This is where physics stops looking like a cabinet full of separate rules. Energy conservation, momentum conservation, and charge conservation are the quantities that remain fixed when the same action can be read from shifted, rotated, or phase-twisted points of view.
 
 Once that connection lands, symmetry stops being decorative. It becomes the reason repeated measurements made by different observers can be stitched into one account without inventing conservation laws by decree.
 
@@ -193,8 +193,9 @@ why the weak and strong interactions have richer self-interactions than plain
 electromagnetism.
 
 The multiplication sign names three independent internal transformation systems
-running side by side. It is not ordinary numerical multiplication. A particle
-can carry color, weak isospin, and hypercharge labels at the same time.
+running side by side, a tensor-product bookkeeping rather than ordinary
+numerical multiplication. A particle can carry color, weak isospin, and
+hypercharge labels at the same time.
 
 A **gauge group** is a group of transformations that change the mathematical
 description without changing the physical situation. The word gauge adds one

@@ -144,8 +144,9 @@ the architecture cannot break. The broader particle table then carries the
 weak-sector comparison pair, the low-energy electromagnetic endpoint, the
 Higgs/top relation, the running quark sector, and one neutrino branch. Charged
 leptons, direct-top comparison, hadrons, and strong CP sit around that same
-particle map with different support levels. Hadrons add the strong-binding
-problem on top of that particle-level picture.
+particle map as neighboring pieces of physics rather than identical kinds of
+entry. Hadrons add the strong-binding problem on top of the particle-level
+picture.
 
 The particle words here refer to roles explained in Chapters 12-16: color is the
 three-way strong-force bookkeeping, CKM phases describe quark mixing under the
@@ -399,13 +400,12 @@ supplied. A reconstruction threshold is not a Page time until physical entropy
 and clock data are supplied. Renaming preserves the same bookkeeping; a physical
 claim needs a new bridge.
 
-The cosmology boundary is deliberately narrower. The de Sitter capacity closure
-belongs to the global gravity story. Screen spectra, CMB curves, growth curves,
-and dark-sector anomaly models remain diagnostic tests unless their
-source, clock, stress tensor, screen-to-radius lift, mode checks, pooling rule,
-and statistical fit are fixed before the sky data enter. In that status, they
-guide the research program without counting as first-principles primordial
-predictions.
+The cosmology story is narrower where the sky becomes finely detailed. The
+de Sitter capacity closure belongs to the global gravity story. Screen spectra,
+CMB curves, growth curves, and dark-sector anomaly models then ask for source
+physics, clocks, stress-energy, and statistical confrontation with data. The
+questions stay at the edge of the story without turning the chapter into a lab
+notebook.
 
 ## 18.7 Why de Sitter Fits
 
@@ -464,7 +464,7 @@ distance. The stronger image is stranger.
 A world of finite observers closes back on itself through the very minds it
 generates. The loop is conceptual before it is
 technological: observers reverse engineer the hardware and software of the
-world, then build continuation machinery that can host restored observers. A
+world, then build restoration machinery that can host restored observers. A
 self-describing universe is a concrete observer-world, complete enough to
 understand and repair its own construction.
 
@@ -511,11 +511,10 @@ massless carriers, Lorentz geometry, Einstein relation, and the
 electroweak, Higgs-top, quark, and neutrino surfaces form one organized
 reconstruction.
 
-The local-ruler story has several neighboring support levels. The weak pair is
-a benchmark, charged leptons use their own empirical anchors, selected quarks
-carry the running-mass story, direct top is a comparison check, hadrons add
-strong binding and production data, and Strong CP belongs to the phase
-bookkeeping side of the quark sector.
+The local-ruler story is therefore a cluster of related claims rather than one
+flat table. The weak pair, charged leptons, running quarks, direct-top
+comparison, hadrons, and Strong CP each touch a different layer of the particle
+problem.
 
 The next chapter turns to the deepest metaphysical question. If observers,
 meaning, and world belong to one structure, what exactly should be said about

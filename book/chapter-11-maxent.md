@@ -47,7 +47,7 @@ into it.
 
 This is the **problem of time** in quantum gravity. If the fundamental description has no time, where does time come from?
 
-Time is not a fundamental external parameter. The microscopic laws are time-symmetric. Something else must generate the arrow of time we experience.
+Time enters this story without a fundamental external clock. The microscopic laws are time-symmetric. Something else must generate the arrow of time we experience.
 
 ## 11.3 The First-Principles Reframing: Time Emerges from Modular Flow
 
@@ -216,7 +216,7 @@ compatibility is what later supports a shared causal structure.
 
 Why do we all agree on a "cosmic time"?
 
-If the global state synchronizes many local modular flows, a shared coarse-grained cosmic time can emerge as an effective collective clock. It is not a second fundamental time parameter.
+If the global state synchronizes many local modular flows, a shared coarse-grained cosmic time can emerge as an effective collective clock rather than a second fundamental time parameter.
 
 ### From Modular Time to Gravity
 
@@ -286,7 +286,7 @@ $$T_U = \frac{\hbar a}{2\pi c k_B}$$
 
 where a is the acceleration. An inertial observer sees vacuum. An accelerating observer sees heat.
 
-This isn't a quirk or approximation. It's an exact result of quantum field theory. The vacuum looks different depending on your state of motion.
+This is an exact result of quantum field theory. The vacuum looks different depending on your state of motion.
 
 Why? Acceleration creates a **Rindler horizon**-a boundary beyond which signals can never reach the accelerating observer. This horizon has thermodynamic properties identical to a black hole horizon. The temperature comes from quantum fluctuations near this horizon.
 
@@ -406,8 +406,8 @@ The arrow of time is the arrow of record-keeping. Time flows in the direction we
 
 ## 11.12 Reverse Engineering Summary
 
-Time does not need to be laid down as a primitive external river. General
-relativity removes any preferred slicing. Quantum gravity sharpens that loss.
+Time need not be laid down as a primitive external river. General relativity
+removes any preferred slicing. Quantum gravity sharpens that loss.
 OPH reads time from the inside, through the modular flow attached to a
 restricted state. The arrow points in the direction records can be made and
 kept. Boltzmann explains why entropy rises. Jaynes explains why ignorance has

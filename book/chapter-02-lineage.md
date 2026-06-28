@@ -4,7 +4,7 @@
 
 Before physicists discovered that reality behaves strangely, philosophers had raised questions that resonate with later problems in fundamental physics.
 
-The resemblance is not accidental. The ancients did not have particle
+The resemblance has teeth. The ancients did not have particle
 accelerators or interferometers. They had something close in spirit: pure
 logical reasoning applied to careful observation. They asked what *must* be
 true if experience is to make any sense at all.
@@ -176,7 +176,7 @@ You cannot start with the world because you may be wrong about the world. You ca
 
 OPH takes this seriously. It does not start with a global state of the universe and ask what local observers see. It starts with local observers, each with their own patch of data, and asks how they can agree.
 
-The observer is not added to physics as an afterthought. The observer is the starting point. Reality is what observers can agree on.
+The observer enters at the starting point. Reality is what observers can agree on.
 
 This is exactly Descartes' move. Start with the one thing you can't doubt-the existence of the observer-and build from there.
 
@@ -210,10 +210,10 @@ We don't perceive space directly. Our minds construct spatial experience from mo
 
 The holographic principle and emergent geometry resonate with this picture.
 
-The observer-facing data can be charted on a 2D holographic screen. This is not
-yet the familiar 3D bulk geometry; it is quantum information organized on a
-stable operational cut, often represented by a sphere in symmetric cases. Space is
-*reconstructed* from this data through the pattern of entanglement.
+The observer-facing data can be charted on a 2D holographic screen. Before it
+becomes the familiar 3D bulk geometry, it is quantum information organized on a
+stable operational cut, often represented by a sphere in symmetric cases. Space
+is *reconstructed* from this data through the pattern of entanglement.
 
 The Ryu-Takayanagi formula makes the geometry-entanglement link precise in
 holographic settings: the amount of entanglement across a boundary is computed
@@ -263,7 +263,7 @@ The pattern is what matters. The same pattern can be realized in different subst
 
 Quantum field theory provides a modern analogue to Aristotle's emphasis on form over material substrate.
 
-Particles are not fundamental objects. They are excitations of fields-ripples in an underlying substrate. An electron is not a tiny ball. It is a stable vibration of the electron field.
+Particles are field excitations, ripples in an underlying substrate. An electron is a stable vibration of the electron field rather than a tiny ball.
 
 From the information-theoretic view, we see the ultimate revenge of Aristotle. The universe is best read as structured information-relations, distinctions, and quantum degrees of freedom, not as little hard atoms alone.
 
@@ -291,7 +291,7 @@ This is exactly our thesis about laws.
 
 Why are the laws of physics true? Not because they were written before the Big Bang. They are true because they *work*-they survive the overlap test, they enable agreement between observers, they keep generating correct predictions.
 
-Laws are not eternal truths discovered by humans. They are patterns stable enough to survive the consistency filter. They are the configurations that kept working when observers compared notes.
+Laws become patterns stable enough to survive the consistency filter, the configurations that keep working when observers compare notes.
 
 The pragmatists were reverse-engineering the evolutionary nature of physical law.
 
@@ -391,25 +391,25 @@ system processing information according to gauge constraints. Observers are
 patterns within that computation. The laws of physics are the rules that allow
 consistent information processing across patches.
 
-Computation is not being used here as a loose metaphor. It is the proposed
-organizing picture for reality.
+Computation is used here as the proposed organizing picture for reality, not
+as a loose metaphor.
 
-### The Strange Loop of Fixed-Point Continuation
+### The Strange Loop of Fixed-Point Restoration
 
 But there is a deeper speculative possibility, one that connects to the strange loops we discussed earlier.
 
 If reality is computational, observers can evolve inside the fixed-point
 output, model their environment, develop science, and understand the rules well
-enough to build continuation systems from them.
+enough to build restoration systems from them.
 
 This would be the strange loop: **reality evolves observers who discover how
-reality works and build fixed-point continuations of it, closing the loop of
+reality works and build fixed-point restorations of it, closing the loop of
 self-creation**.
 
-In this speculative continuation, observers are patterns inside the
-observer-facing output. The computation closes through their understanding and
-through their eventual construction of the substrate that restores the records
-from which they themselves arose.
+In this speculative reading, observers are patterns inside the observer-facing
+output. The computation closes through their understanding and through their
+eventual construction of the substrate that restores the records from which
+they themselves arose.
 
 This thread sits furthest out on the philosophical edge of the book. The
 physics does not depend on it, yet it gives the book a clean closure.
@@ -490,7 +490,7 @@ Bell tests, algebraic quantum field theory, or particle data. But each is a
 pressure mark. Each says that the most naive inventory of the world, objects
 sitting in space and being inspected from nowhere, is probably not the final
 description. The book treats those marks the way a reverse engineer treats
-crash logs. A crash log is not the source code. It is a clue about where the
+crash logs. A crash log gives a clue about the source code and where the
 architecture cannot be what the manual said.
 
 The historical lesson also matters ethically. Fundamental physics is never
@@ -524,8 +524,8 @@ so it measures how many distinguishable possibilities can be stored or
 encoded. $A$ is an area, specifically the boundary area associated with the
 region being described. $\ell_P$ is the Planck length, the tiny scale built
 from $G$, $\hbar$, and $c$. Squaring it gives a Planck area. The factor of
-four is not decorative. It is the normalization that appears in the
-Bekenstein-Hawking black-hole entropy formula. The formula says that
+four carries the normalization that appears in the Bekenstein-Hawking
+black-hole entropy formula. The formula says that
 gravitational information capacity is counted by boundary area measured in
 Planck-area units.
 

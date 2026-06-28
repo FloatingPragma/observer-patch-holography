@@ -79,12 +79,12 @@ is exactly what error-correcting codes provide.
 **Reality can be read as error-corrected.** The consistency we observe requires
 durable encoding of shared information.
 
-For OPH, there is an important boundary. A bare overlap network is first a
-finite constraint code: its valid codewords are the globally consistent patch
-assignments. It is not automatically a quantum error-correcting code, and its
-graph min-cut does not by itself determine code distance. Quantum-code distance,
-Knill-Laflamme correction, and topological min-cut statements require an
-explicit code subspace, logical operators, error model, and recovery map.
+For OPH, the first object is a finite constraint code. Its valid codewords are
+the globally consistent patch assignments. To become a quantum error-correcting
+code in the usual technical sense, the story has to name the protected
+subspace, the logical operators, the error model, and the recovery map. The
+overlap network supplies the discipline; the quantum-code structure supplies
+the machinery.
 
 ### Holographic Error Correction
 
@@ -356,8 +356,8 @@ industrial and experimental campaign. It requires materials, fabrication,
 cryogenics, microwave control, lasers or traps, calibration, decoding
 algorithms, and patient accounting of every error source. Physics becomes
 public through that labor. The same is true in the book's cosmological
-language: a public world is not a pristine message sitting untouched. It is a
-message continually protected by redundancy, repair, and thermodynamic work.
+language: a public world is a message continually protected by redundancy,
+repair, and thermodynamic work.
 
 ## 10.12 Reverse Engineering Summary
 

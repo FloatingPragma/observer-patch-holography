@@ -19,9 +19,9 @@ public because many perspectives can read it back. It is stable because failed
 comparisons have been eliminated.
 
 This is the OPH meaning of simulation: a self-reading system settling into
-public records. It is not an outside machine rendering a global timeline frame
-by frame. History is the inside readout of the settled structure, as
-experienced by observers who live inside it.
+public records. No outside machine renders a global timeline frame by frame.
+History is the inside readout of the settled structure, as experienced by
+observers who live inside it.
 
 The equations come later, where the reader has the right handles for them. One
 chapter deals with the local grain of the screen and its electromagnetic
@@ -168,10 +168,10 @@ observers must agree on.
 This is a significant shift from the traditional view, and it works. Gravity
 emerges from how observers share entanglement across their screens. The
 particle world emerges after compact-gauge reconstruction and minimal
-admissible selection on the low-energy branch. A dark-sector continuation
-appears through modular anomalies, residual mismatches in the bookkeeping that
-turns local observer time into geometry. The question of why anything exists
-at all enters through a self-referential closure picture.
+admissible selection on the low-energy branch. The dark-sector problem is read
+through modular anomalies, residual mismatches in the bookkeeping that turns
+local observer time into geometry. The question of why anything exists at all
+enters through a self-referential closure picture.
 
 Once you make this shift, strange features of reality start making sense.
 The "weird" behaviors of physics, the ones that seem bizarre or paradoxical
