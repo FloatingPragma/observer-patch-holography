@@ -523,6 +523,46 @@ theorem completeness (x : Records C) :
   · intro hcons i
     exact (lr_fixed_iff_incident_consistent lr H1 H2 H3 i x).2 (fun e _ => hcons e)
 
+-- ── Boundary-fiber observer-uniqueness (issue #304) ──────────────────────────
+-- The boundary / sector map `B` (#304): a coarse invariant the repair PRESERVES.
+-- `HB` = repair preserves `B`; `Hfib` = within a fixed boundary fiber, consistent
+-- states are a gauge-singleton. These are #304's STATED hypotheses, not proven here.
+variable {β : Type} (B : Records C → β)
+  (HB : ∀ (i : C.Patch) (x : Records C), B (lr i x) = B x)
+  (Hfib : ∀ x y : Records C, B x = B y → Consistent C x → Consistent C y → gaugeEquiv C x y)
+
+/-- The boundary map is invariant along an entire accepted-repair reduction. -/
+include HB in
+theorem boundary_preserved_reduction {a b : Records C}
+    (h : ReflTransGen (acceptedStepLR lr) a b) : B b = B a := by
+  induction h with
+  | refl => rfl
+  | tail _ hstep ih =>
+      obtain ⟨i, hc, _⟩ := hstep
+      rw [hc, HB]; exact ih
+
+/-- **THEOREM — Boundary-fiber observer-uniqueness (issue #304, observer-facing half).**
+    Any two records with the SAME boundary value settle to the same observer-facing
+    normal form (`gaugeEquiv`). It needs only `completeness` (normal form ⟹ consistent)
+    + boundary preservation (`HB`) + the singleton-consistent-fiber hypothesis (`Hfib`)
+    — confluence does NOT enter. Conditional on H1–H3 + HB + Hfib (exactly #304's stated
+    hypotheses). A non-vacuous witness needs a boundary-PINNING (directional) repair:
+    a single shared edge has two consistent states `(0,0)`/`(1,1)` and the symmetric
+    copy-move reaches either, so the singleton fiber fails for it
+    (cf. `demoCarrier_not_confluent`). -/
+include H1 H2 H3 HB Hfib in
+theorem boundary_fiber_observer_unique {x y nfx nfy : Records C}
+    (hB : B x = B y)
+    (hx : ReflTransGen (acceptedStepLR lr) x nfx) (hxn : NormalFormLR lr nfx)
+    (hy : ReflTransGen (acceptedStepLR lr) y nfy) (hyn : NormalFormLR lr nfy) :
+    gaugeEquiv C nfx nfy := by
+  have hBx : B nfx = B x := boundary_preserved_reduction lr H1 H2 H3 B HB hx
+  have hBy : B nfy = B y := boundary_preserved_reduction lr H1 H2 H3 B HB hy
+  have hCx : Consistent C nfx := (completeness lr H1 H2 H3 nfx).1 hxn
+  have hCy : Consistent C nfy := (completeness lr H1 H2 H3 nfy).1 hyn
+  have hBB : B nfx = B nfy := by rw [hBx, hB, ← hBy]
+  exact Hfib nfx nfy hBB hCx hCy
+
 -- H4 (GLOBAL commutation): EVERY ordered pair of sites `i, j` commutes on every
 -- record (the classical *diamond* condition, stated globally). This is a STRONG
 -- hypothesis: it demands even adjacent, edge-sharing sites commute, which the
