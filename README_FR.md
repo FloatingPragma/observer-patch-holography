@@ -279,27 +279,10 @@ papiers.
 | Masse du gluon | m_g | 0 GeV, zéro structurel | pas de ligne de masse de gluon libre isolé | porteur de jauge confiné |
 | Masse du graviton | m_grav | 0 GeV, zéro structurel | <1e-32 GeV | sous la borne |
 
-**Secteur des quarks**
-
-| Quark | Symbole | OPH | PDG | Δ |
-| --- | --- | --- | --- | --- |
-| Bottom | m_b(m_b) | retenu hors de la table publique de prédiction | 4.183 ± 0.007 | témoin d'audit sélectionné ancré sur cible |
-| Charm | m_c(m_c) | retenu hors de la table publique de prédiction | 1.2730 ± 0.0046 | témoin d'audit sélectionné ancré sur cible |
-| Strange | m_s(2 GeV) | retenu hors de la table publique de prédiction | 93.5 ± 0.8 | témoin d'audit sélectionné ancré sur cible |
-| Down | m_d(2 GeV) | retenu hors de la table publique de prédiction | 4.70 ± 0.07 | témoin d'audit sélectionné ancré sur cible |
-| Up | m_u(2 GeV) | retenu hors de la table publique de prédiction | 2.16 ± 0.07 | témoin d'audit sélectionné ancré sur cible |
-| Top | m_t, ligne section efficace | retenu hors de la table publique de prédiction | 172.3523553288312 | témoin d'audit sélectionné ancré sur cible |
-
 `Δ` donne l'écart en sigma lorsque le PDG ou le NIST publie une incertitude à un sigma. Sinon, il
 indique le statut de support déclaré. Un accord numérique sur une surface cible
 ou témoin n'est pas une prédiction de masse source seule promue, sauf si le
 statut dit qu'il est structurel.
-
-Pour les quarks, le PDG utilise ses conventions standard : `u`, `d` et `s` à `2 GeV`, et `c` et
-`b` dans le schéma `MS` à leur propre échelle de masse.
-Les papiers contiennent aussi les dérivations structurelles du Modèle Standard listées plus haut
-ainsi qu'une famille neutrino, qui n'apparaît pas dans ce tableau faute de ligne de comparaison
-PDG/NIST directe à un seul nombre.
 
 Le statut courant du code particules est plus strict qu'une table de nombres
 qui coïncident. Il n'y a pas de ligne publique de prédiction de masse $W/Z$
@@ -311,8 +294,9 @@ $m_H=125.1995304097179\,\mathrm{GeV}$ est une candidate conditionnelle sur la
 surface D10/D11 déclarée, non promue tant que la réparation D10 sans cible
 n'est pas fermée. Les masses des leptons chargés et des quarks sont des témoins
 exacts ancrés sur cible sur leurs surfaces d'audit déclarées de famille courante
-ou de classe sélectionnée; leurs valeurs numériques sont donc retenues hors des
-colonnes publiques de prédiction. Sous les hypothèses neutrino indiquées, la
+ou de classe sélectionnée; leurs valeurs numériques restent donc seulement dans
+les artefacts d'audit et ne sont pas listées ici comme lignes publiques de
+prédiction. Sous les hypothèses neutrino indiquées, la
 branche pondérée sans échelle garde les masses absolues comme attachements en
 comparaison seule; ces valeurs absolues sont donc elles aussi retenues hors des
 colonnes publiques de prédiction. Les surfaces de statut générées sont

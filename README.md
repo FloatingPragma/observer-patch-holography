@@ -247,27 +247,10 @@ exact hypercharge, $N_c=3$, and $N_g=3$ live in the papers.
 | Gluon mass | m_g | 0 GeV, structural zero | no isolated free-gluon mass row | confined gauge carrier |
 | Graviton mass | m_grav | 0 GeV, structural zero | <1e-32 GeV | below bound |
 
-**Quark sector**
-
-| Quark | Symbol | OPH | PDG | Δ |
-| --- | --- | --- | --- | --- |
-| Bottom | m_b(m_b) | withheld from public prediction table | 4.183 ± 0.007 | selected-class target-anchored audit witness |
-| Charm | m_c(m_c) | withheld from public prediction table | 1.2730 ± 0.0046 | selected-class target-anchored audit witness |
-| Strange | m_s(2 GeV) | withheld from public prediction table | 93.5 ± 0.8 | selected-class target-anchored audit witness |
-| Down | m_d(2 GeV) | withheld from public prediction table | 4.70 ± 0.07 | selected-class target-anchored audit witness |
-| Up | m_u(2 GeV) | withheld from public prediction table | 2.16 ± 0.07 | selected-class target-anchored audit witness |
-| Top | m_t cross-section value | withheld from public prediction table | 172.3523553288312 | selected-class target-anchored audit witness |
-
 $\Delta$ reports the sigma distance where PDG or NIST quotes a one-standard-deviation
 uncertainty. Otherwise it records the declared support status. A numeric match
 on a target or witness surface is not a promotable source-only mass prediction
 unless the status says structural.
-
-For quarks, PDG uses its standard mass conventions: `u`, `d`, and `s` at
-`2 GeV`, with `c` and `b` in the `MS` scheme at their own mass scale. The
-papers also carry the structural Standard Model derivations listed above and a
-neutrino family, but those do not collapse to one simple PDG or NIST row and
-are left out of this table.
 
 Current particle-code status is stricter than a table of matching numbers.
 There is no public $W/Z$ mass prediction row right now; the frozen-target
@@ -278,7 +261,8 @@ $m_H=125.1995304097179\,\mathrm{GeV}$ is a conditional declared D10/D11
 surface candidate, not promoted until the D10 target-free repair closes.
 Charged-lepton and quark masses are exact target-anchored witnesses on their
 declared current-family or selected-class audit surfaces, so their numeric
-values are withheld from public prediction columns. Under the stated neutrino
+values are kept only in audit artifacts and are not listed as public prediction
+rows here. Under the stated neutrino
 assumptions, the scale-free weighted-cycle branch keeps absolute masses as
 compare-only attachments, so those absolute values are also withheld from
 public prediction columns. The generated status surfaces are
