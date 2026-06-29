@@ -523,12 +523,17 @@ theorem completeness (x : Records C) :
   · intro hcons i
     exact (lr_fixed_iff_incident_consistent lr H1 H2 H3 i x).2 (fun e _ => hcons e)
 
--- H4 (commutation / non-interference of distinct sites): the classical *diamond*
--- condition. Single local moves commute: applying site `i` then `j` equals `j`
--- then `i`. This is the one extra law that upgrades Termination to global
--- Confluence — i.e. a schedule-independent objective public reality. It is NOT
--- implied by H1–H3: see `demoCarrier_repairs_dont_commute`, where two adjacent
--- patches sharing an edge have non-commuting copy-moves.
+-- H4 (GLOBAL commutation): EVERY ordered pair of sites `i, j` commutes on every
+-- record (the classical *diamond* condition, stated globally). This is a STRONG
+-- hypothesis: it demands even adjacent, edge-sharing sites commute, which the
+-- natural copy-repair does NOT satisfy (`demoCarrier_repairs_dont_commute`). So
+-- H4 is a SUFFICIENT extra law for global Confluence, not a necessary one, and it
+-- has no non-trivial witness in this file — the only carrier, `demoCarrier`,
+-- violates it (and is in fact non-confluent, `demoCarrier_not_confluent`). The
+-- honest weaker hypothesis would restrict commutation to NON-INCIDENT pairs
+-- (sites sharing no edge, expressible via the incidence predicate already used in
+-- H2/H3), but that alone does not close the diamond when incident repairs
+-- genuinely diverge. H4 is NOT implied by H1–H3.
 variable
   (H4 : ∀ (i j : C.Patch) (x : Records C), lr i (lr j x) = lr j (lr i x))
 
@@ -536,6 +541,10 @@ variable
 -- abstract relation `acceptedStepLR lr`), so force its inclusion explicitly.
 include H4
 
+-- H1/H2/H3 are unused by the diamond argument (it needs only `H4`); drop them
+-- from THIS lemma so its type honestly reads "commuting moves are locally
+-- confluent". `confluence_of_commute` below still carries them (for `termination`).
+omit H1 H2 H3 in
 /-- **Local confluence from single-step commutation** (the diamond condition).
     From two accepted steps at sites `i`, `j`, the common join is
     `lr j (lr i x) = lr i (lr j x)` (by `H4`); each side reaches it in ≤ 1 step
@@ -555,14 +564,19 @@ theorem locallyConfluent_of_commute :
 /-- **THEOREM — Confluence (Church–Rosser) under commutation.** Termination
     (H1–H3, via `termination`) together with local confluence (H4, via
     `locallyConfluent_of_commute`) yields global confluence, through Newman's
-    lemma. Operationally: every record repairs to a UNIQUE normal form regardless
-    of the order in which sites fire — the schedule-independent "objective public
-    reality" the consensus picture needs, now contingent on the *stated* law H4
-    rather than left implicit. -/
+    lemma. With `termination` this further gives UNIQUE normal forms (the repo's
+    `AbstractRewriting.newman_unique_nf`) — a schedule-independent "objective
+    public reality" — but only the join property `Confluent` is concluded here.
+    CAVEAT (read with `demoCarrier_not_confluent`): this is the SUFFICIENT
+    direction, conditional on the strong, GLOBAL law `H4`, which has no
+    non-trivial witness in this file — the only carrier, `demoCarrier`, provably
+    violates `H4` and is in fact non-confluent. So this theorem says precisely
+    "IF every pair of repairs commutes, schedules agree"; the witnessed,
+    load-bearing fact is the negative one. -/
 theorem confluence_of_commute :
     AbstractRewriting.Confluent (acceptedStepLR lr) :=
   AbstractRewriting.newman_lemma (acceptedStepLR lr)
-    (termination lr H1 H2 H3) (locallyConfluent_of_commute lr H1 H2 H3 H4)
+    (termination lr H1 H2 H3) (locallyConfluent_of_commute lr H4)
 
 end LocalRepairDynamics
 
@@ -644,18 +658,58 @@ theorem demoCarrier_terminates :
     WellFounded (fun y x : Records demoCarrier => acceptedStepLR demoLR x y) :=
   termination demoLR demoLR_H1 demoLR_H2 demoLR_H3
 
-/-- **H4 is necessary, not free.** On `demoCarrier` the two patches share one
-    edge, so their copy-moves do NOT commute: starting from the identity record
+/-- **H4 fails for the natural repair.** On `demoCarrier` the two patches share
+    one edge, so their copy-moves do NOT commute: from the identity record
     `id = (fun b => b)`, repairing `false` then `true` gives the constant `true`,
-    whereas `true` then `false` gives the constant `false`. Hence `demoLR` does
-    not satisfy `H4`, and `confluence_of_commute` genuinely needs the extra
-    hypothesis — async repair is schedule-DEPENDENT in general, and only the
-    commuting (non-adjacent) regime enjoys a unique objective public reality. -/
+    whereas `true` then `false` gives the constant `false`. Hence `demoLR` violates
+    `H4`, so `confluence_of_commute` does not apply to it. This is not merely a
+    failed sufficient condition — `demoLR` is in fact NON-CONFLUENT
+    (`demoCarrier_not_confluent` below): the two firing orders reach two distinct
+    normal forms, so on this carrier there is genuinely no unique objective public
+    reality. -/
 theorem demoCarrier_repairs_dont_commute :
     ∃ x : Records demoCarrier,
       demoLR true (demoLR false x) ≠ demoLR false (demoLR true x) := by
   refine ⟨(fun b => b), fun h => ?_⟩
   have h2 : (true : Bool) = false := congrFun h false
+  exact absurd h2 (by decide)
+
+/-- **THE WITNESSED PAYOFF — `demoLR` is genuinely NON-CONFLUENT.** From the
+    identity record `id = (fun b => b)`, firing patch `false` reaches the constant
+    `true` and firing patch `true` reaches the constant `false`; both are normal
+    forms (no patch fires on a constant record) and they differ. So a single
+    record has two distinct normal forms — `¬ Confluent (acceptedStepLR demoLR)` —
+    the concrete failure of a unique "objective public reality" that `H4` (and
+    hence `confluence_of_commute`) rules out by hypothesis. Unlike
+    `confluence_of_commute` (conditional on the witness-less global `H4`), THIS
+    result holds outright on the concrete `demoCarrier`: it is the load-bearing
+    half of the pair "async repair is generically non-confluent; commutation is
+    sufficient to recover confluence; the natural copy-repair does not commute."
+    Proof: `AbstractRewriting.unique_normal_form` forces any two normal forms
+    reached from one record to coincide; the two we exhibit do not. -/
+theorem demoCarrier_not_confluent :
+    ¬ AbstractRewriting.Confluent (acceptedStepLR demoLR) := by
+  intro hc
+  have hfire_f : demoLR false (fun b => b) ≠ (fun b => b) := by
+    rw [ne_eq, demoLR_eq_self_iff]; decide
+  have hfire_t : demoLR true (fun b => b) ≠ (fun b => b) := by
+    rw [ne_eq, demoLR_eq_self_iff]; decide
+  -- both single-step results are normal forms: no patch fires on a constant record
+  have hnf_y : AbstractRewriting.IsNormalForm (acceptedStepLR demoLR)
+      (demoLR false (fun b => b)) := by
+    rintro w ⟨i, _, hne⟩; apply hne; rw [demoLR_eq_self_iff]; cases i <;> rfl
+  have hnf_z : AbstractRewriting.IsNormalForm (acceptedStepLR demoLR)
+      (demoLR true (fun b => b)) := by
+    rintro w ⟨i, _, hne⟩; apply hne; rw [demoLR_eq_self_iff]; cases i <;> rfl
+  have hy : AbstractRewriting.ReducesToNF (acceptedStepLR demoLR)
+      (fun b => b) (demoLR false (fun b => b)) :=
+    ⟨ReflTransGen.single ⟨false, rfl, hfire_f⟩, hnf_y⟩
+  have hz : AbstractRewriting.ReducesToNF (acceptedStepLR demoLR)
+      (fun b => b) (demoLR true (fun b => b)) :=
+    ⟨ReflTransGen.single ⟨true, rfl, hfire_t⟩, hnf_z⟩
+  -- if confluent, the two normal forms would be equal — but const true ≠ const false
+  have heq := AbstractRewriting.unique_normal_form (acceptedStepLR demoLR) hc hy hz
+  have h2 : (true : Bool) = false := congrFun heq false
   exact absurd h2 (by decide)
 
 end OPH
