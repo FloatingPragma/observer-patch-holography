@@ -591,6 +591,7 @@ theorem demoLR_has_step :
     ∃ x y : Records demoCarrier, acceptedStepLR demoLR x y := by
   refine ⟨(fun b => b), demoLR false (fun b => b), false, rfl, ?_⟩
   rw [ne_eq, demoLR_eq_self_iff]
+  show (!false : Bool) ≠ false
   decide
 
 /-- **Non-vacuity payoff.** `termination` instantiated on the real, non-trivial
