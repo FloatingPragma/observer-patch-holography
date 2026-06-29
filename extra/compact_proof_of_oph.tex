@@ -268,14 +268,15 @@ For every counted compact calculation, write
   1.630972095694329\ldots .
 \]
 This is the source-side pixel candidate emitted by the declared OPH trunk. The
-public comparison coordinate is
+CODATA/NIST comparison coordinate is
 \[
-  P_C:=\varphi+\alpha_{\rm CODATA}\sqrt\pi
+  P_C:=\varphi+\frac{\sqrt\pi}{A_{\rm C}},
+  \qquad A_{\rm C}:=137.035999177
   =
   1.630968209403959\ldots .
 \]
-The public endpoint is a branch locator and comparison column only; it supplies
-no upstream source-map input. The hadron-completed endpoint is
+The CODATA/NIST measured endpoint is a branch locator and comparison column only; it supplies
+no upstream source-map input. The hadron-completed OPH endpoint is
 \(P_{\rm full}\). It becomes a counted endpoint row only when the missing
 QCD/hadronic electromagnetic endpoint map is emitted by the OPH rules [O5,O6].
 The global screen target remains
@@ -434,8 +435,8 @@ P_{\rm src}=\Gamma_{\rm src}(P_{\rm src}),
 \qquad
 \alpha_{\mathrm{root}}=\alpha_{\rm ext}(P_{\rm src})=\alpha_{\rm in}(P_{\rm src}).
 \]
-Reading the identity backward with CODATA \(\alpha(0)\) gives the comparison
-coordinate \(P_C=\varphi+\alpha_{\rm CODATA}\sqrt\pi\). The counted OPH
+Reading the identity backward with CODATA/NIST \(A_{\rm C}=\alpha^{-1}(0)\) gives the comparison
+coordinate \(P_C=\varphi+\sqrt\pi/A_{\rm C}\). The counted OPH
 calculation is the closure solve. The code path in [C1] keeps comparison values
 out of the solver.\par}
 
@@ -453,8 +454,8 @@ A_{\alpha_U}^{\mathrm{fp}}
 =\alpha_{\mathrm{root}}^{-1}+\alpha_U(P_\star)
 =137.035959500817279952949994585787\ldots,
 \]
-compared with the measured Thomson endpoint
-\(\alpha^{-1}(0)=137.035999177(21)\). The remaining gap is
+compared with the CODATA/NIST measured Thomson endpoint
+\(A_{\rm C}=\alpha^{-1}(0)=137.035999177(21)\). The remaining CODATA/NIST comparison gap is
 \[
 0.000039676182720047050005414213\ldots,
 \]
@@ -464,11 +465,22 @@ residual sits exactly where the compact proof says the source trunk stops:
 low-energy electromagnetic dressing by confined quark and hadron spectral
 transport.
 
-In calibrated endpoint accounting, that residual is packaged as
+In the fine-structure notation, the post-\(\alpha_U\) missing correction is
+\[
+\Delta_{\mathrm H,req}^{\mathrm{fp}}
+=A_{\rm C}-A_{\alpha_U}^{\mathrm{fp}}
+=\alpha_U(P_\star)\,(C_{24,Q}-1),
+\]
+with
+\[
+C_{24,Q}=1.0009647859732326253849511140702475\ldots.
+\]
+The full root-to-CODATA difference is only bookkeeping:
 \[
 \Delta_{\mathrm H,cal}^{\mathrm{fp}}
-=\alpha_U(P_\star)\,C_{24,Q},\qquad
-C_{24,Q}=1.0009647859732326253849511140702475\ldots.
+=A_{\rm C}-\alpha_{\mathrm{root}}^{-1}
+=0.041164012378350542050005414213\ldots
+=\alpha_U(P_\star)C_{24,Q}.
 \]
 The factor \(C_{24,Q}\) names the same-scheme low-energy hadronic endpoint
 transport required for source-only closure. A 24-register spectral object fit
@@ -489,10 +501,10 @@ hadron effects in the electromagnetic endpoint. OPH source-only closure requires
 the Ward-projected hadronic spectral measure and same-scheme finite endpoint
 remainder without Thomson-target leakage. That finite-lattice QCD calculation is
 outside this compact proof; OMEGA is the optical fixed-point compute lane for
-such payloads [S14]. Public \(\alpha(0)\) therefore stays in the calibrated
+such payloads [S14]. CODATA/NIST \(\alpha(0)\) therefore stays in the calibrated
 comparison lane [O5,O6].
 
-The compact proof keeps the public \(\alpha(0)\) endpoint, hadron masses, and
+The compact proof keeps the CODATA/NIST \(\alpha(0)\) endpoint, hadron masses, and
 SI \(G\) clock row outside its core count. It uses the QCD-free hierarchy
 witness below, which avoids the hadronic correction completely.
 \(P_{\rm full}\) names the hadron-completed endpoint defined by that OPH QCD
@@ -1094,10 +1106,10 @@ Internal identity &
 Newton decimal needs the separate clock row. &
 [O3,O4,A7]\\
 
-Public \(\alpha(0)\) and \(P_C\) &
+CODATA/NIST \(\alpha(0)\) and \(P_C\) &
 Comparison only &
-The public endpoint uses the missing QCD/hadronic electromagnetic transport.
-\(P_C=\varphi+\alpha_{\rm CODATA}\sqrt\pi\) is a comparison coordinate under
+The measured endpoint requires the missing QCD/hadronic electromagnetic transport.
+\(P_C=\varphi+\sqrt\pi/A_{\rm C}\) is a comparison coordinate under
 the declared missing-map condition. &
 [O5,O6,A13]\\
 

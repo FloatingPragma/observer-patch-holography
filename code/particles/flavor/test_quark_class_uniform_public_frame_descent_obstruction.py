@@ -24,7 +24,8 @@ def test_quark_class_uniform_public_frame_descent_obstruction_closes_issue_199_a
     assert payload["github_issue"] == 199
     assert payload["issue_199_acceptance_met_as_obstruction"] is True
     assert payload["theorem_grade_global_descent"] is False
-    assert payload["selected_class_descent"]["closed"] is False
+    assert payload["selected_class_descent"]["closed"] is True
+    assert payload["selected_class_descent"]["source_only_sigma_emitted"] is False
     assert payload["selected_class_descent"]["theorem_scope"] == "selected_public_physical_quark_frame_class_only"
     assert payload["lane_closure_verdict"]["closure_kind"] == "hard_no_go_current_corpus"
     assert "oph_arbitrary_P_public_quark_frame_transport_classification" in payload["missing_global_objects"]

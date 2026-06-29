@@ -20,6 +20,10 @@ ARTIFACTS = {
     "d10_readout": PARTICLES / "runs" / "calibration" / "d10_ew_source_transport_readout.json",
     "d11_split": PARTICLES / "runs" / "calibration" / "d11_live_exact_split_pair_theorem.json",
     "quark_sigma": PARTICLES / "runs" / "flavor" / "quark_public_physical_sigma_datum_descent.json",
+    "quark_sigma_required": PARTICLES
+    / "runs"
+    / "flavor"
+    / "quark_sigma_source_datum_no_target_leak_required.json",
     "quark_yukawa": PARTICLES / "runs" / "flavor" / "quark_public_exact_yukawa_end_to_end_theorem.json",
     "neutrino_bridge": PARTICLES / "runs" / "neutrino" / "neutrino_bridge_rigidity_theorem.json",
     "neutrino_absolute": PARTICLES / "runs" / "neutrino" / "neutrino_absolute_attachment_theorem.json",
@@ -62,13 +66,40 @@ def validate() -> dict[str, Any]:
     if sigma_nc.get("target_derived_sigma_datum_used") is True:
         _require(quark_sigma.get("public_promotion_allowed") is False, failures, "target-derived quark sigma datum promotes")
         _require(sigma_nc.get("promotion_allowed") is False, failures, "target-derived quark sigma non-circularity gate promotes")
+        _require(
+            quark_sigma.get("source_only_sigma_emitted") is False,
+            failures,
+            "target-derived quark sigma is marked source-only",
+        )
+        _require(
+            "QUARK_SIGMA_SOURCE_SELECTOR" in quark_sigma.get("missing_for_promotion", []),
+            failures,
+            "quark sigma source-selector gate is not recorded",
+        )
+
+    quark_sigma_required = payloads["quark_sigma_required"]
+    _require(
+        quark_sigma_required.get("status") == "missing_theorem",
+        failures,
+        "quark sigma required artifact is not marked missing",
+    )
+    _require(
+        quark_sigma_required.get("source_only_sigma_emitted") is False,
+        failures,
+        "quark sigma required artifact emits source sigma",
+    )
+    _require(
+        "QUARK_SIGMA_SOURCE_SELECTOR" in quark_sigma_required.get("missing_for_promotion", []),
+        failures,
+        "quark sigma required artifact lacks selector gate",
+    )
 
     quark_yukawa = payloads["quark_yukawa"]
     yukawa_nc = dict(quark_yukawa.get("non_circularity_status") or {})
     if yukawa_nc.get("target_derived_sigma_datum_used") is True:
         _require(quark_yukawa.get("public_promotion_allowed") is False, failures, "target-derived quark Yukawa theorem promotes")
         _require(
-            quark_yukawa.get("proof_status") == "blocked_by_target_derived_public_sigma_datum",
+            quark_yukawa.get("proof_status") == "blocked_target_derived_sigma_source_missing",
             failures,
             "target-derived quark Yukawa proof status is not blocked",
         )
@@ -112,6 +143,23 @@ def validate() -> dict[str, Any]:
             withheld_entries.get(particle_id, {}).get("promotable") is False,
             failures,
             f"{particle_id} target-anchored quark witness promotes",
+        )
+        _require(
+            withheld_entries.get(particle_id, {}).get("claim_tier")
+            == "selected_class_conditional_on_source_sigma",
+            failures,
+            f"{particle_id} quark witness has wrong claim tier",
+        )
+        _require(
+            withheld_entries.get(particle_id, {}).get("source_only_sigma_emitted") is False,
+            failures,
+            f"{particle_id} quark witness is marked source-only sigma",
+        )
+        _require(
+            "QUARK_SIGMA_SOURCE_SELECTOR"
+            in withheld_entries.get(particle_id, {}).get("missing_for_promotion", []),
+            failures,
+            f"{particle_id} missing quark sigma selector gate is not recorded",
         )
     for particle_id in ("electron", "muon", "tau"):
         _require(particle_id not in entries, failures, f"{particle_id} target-anchored charged witness is a public entry")

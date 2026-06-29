@@ -165,15 +165,16 @@ def build_payload() -> dict[str, Any]:
                 else "selected_class_target_anchored_exact_witness_not_strict_source"
             ),
             "claim_level": (
-                predictions.get("top_quark", {}).get("exact_kind")
-                or "selected_class_target_anchored_exact_witness_withheld_not_public_output"
+                withheld_by_id.get("top_quark", {}).get("claim_tier")
+                or predictions.get("top_quark", {}).get("exact_kind")
+                or "selected_class_conditional_on_source_sigma"
             ),
             "outputs": {},
             "withheld_non_prediction_rows": [withheld_by_id[pid] for pid in quark_withheld],
             "promotable": bool(predictions.get("top_quark", {}).get("promotable", False)),
             "open_gates": []
             if predictions.get("top_quark", {}).get("promotable")
-            else ["quark_public_physical_sigma_source_datum_no_target_leak"],
+            else ["QUARK_SIGMA_SOURCE_SELECTOR", "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE"],
             "closed_issue_refs": [199, 207, 212],
             "next_artifact": "code/particles/runs/flavor/quark_class_uniform_public_frame_descent_obstruction.json",
             "global_classification_obstruction": quark_global.get("proof_status"),

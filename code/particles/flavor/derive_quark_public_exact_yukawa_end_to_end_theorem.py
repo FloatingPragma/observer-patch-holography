@@ -16,6 +16,14 @@ EXACT_PDG_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_exact_pdg_end_t
 EXACT_YUKAWA_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_exact_yukawa_end_to_end_theorem.json"
 DEFAULT_OUT = ROOT / "particles" / "runs" / "flavor" / "quark_public_exact_yukawa_end_to_end_theorem.json"
 
+MISSING_FOR_PROMOTION = [
+    "QUARK_SIGMA_SOURCE_QUOTIENT",
+    "QUARK_SIGMA_SOURCE_SELECTOR",
+    "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
+    "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
+    "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE",
+]
+
 
 def _timestamp() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -36,32 +44,44 @@ def build_artifact(
     promotion_allowed = (
         public_sigma_theorem.get("public_promotion_allowed") is True
         and sigma_non_circularity.get("promotion_allowed", public_sigma_theorem.get("public_promotion_allowed")) is True
-        and public_sigma_theorem.get("proof_status") == "closed_target_free_public_physical_sigma_datum_descent"
+        and public_sigma_theorem.get("proof_status") == "closed_source_only_public_physical_sigma_datum_descent"
     )
     proof_status = (
-        "closed_target_free_public_exact_yukawa_end_to_end_theorem"
+        "closed_source_only_public_exact_yukawa_end_to_end_theorem"
         if promotion_allowed
-        else "blocked_by_target_derived_public_sigma_datum"
+        else "blocked_target_derived_sigma_source_missing"
     )
     return {
         "artifact": "oph_quark_public_exact_yukawa_end_to_end_theorem",
         "generated_utc": _timestamp(),
         "proof_status": proof_status,
-        "target_name": "target_free_public_exact_forward_quark_yukawas",
+        "target_name": (
+            "source_only_public_exact_forward_quark_yukawas"
+            if promotion_allowed
+            else "selected_class_conditional_forward_quark_yukawas"
+        ),
         "theorem_scope": public_sigma_theorem["theorem_scope"],
+        "claim_tier": (
+            "source_only_public_yukawa_theorem"
+            if promotion_allowed
+            else "selected_class_conditional_on_source_sigma"
+        ),
         "public_promotion_allowed": promotion_allowed,
+        "source_only_sigma_emitted": bool(public_sigma_theorem.get("source_only_sigma_emitted")),
+        "downstream_algebra_closed": True,
         "display_allowed_as_selected_class_exact_witness": True,
         "non_circularity_status": {
             "promotion_allowed": promotion_allowed,
             "public_sigma_promotion_allowed": public_sigma_theorem.get("public_promotion_allowed"),
             "public_sigma_proof_status": public_sigma_theorem.get("proof_status"),
             "target_derived_sigma_datum_used": sigma_non_circularity.get("target_derived_sigma_datum_used"),
+            "source_sigma_selector_closed": sigma_non_circularity.get("source_sigma_selector_closed"),
             "missing_source_object": None
             if promotion_allowed
-            else "quark_public_physical_sigma_source_datum_no_target_leak",
+            else "quark_sigma_source_datum_no_target_leak_required",
             "strict_audit_label": "source_only_public_yukawa_theorem"
             if promotion_allowed
-            else "selected_class_target_anchored_exact_witness",
+            else "selected_class_conditional_on_source_sigma",
         },
         "supporting_theorem_artifacts": {
             "public_sigma_datum_descent": public_sigma_theorem["artifact"],
@@ -69,11 +89,12 @@ def build_artifact(
             "local_exact_yukawa_wrapper": exact_yukawa_theorem["artifact"],
         },
         "theorem_statement": (
-            "From OPH axioms + P, the public quark frame class selected by P carries, by target_free_public_"
-            "physical_sigma_datum_descent, the unique theorem-grade physical sigma datum already realized on the closed "
-            "transport-frame chain. The affine mean law then emits the absolute sector scales algebraically, the "
-            "ordered three-point readout yields the exact running quark sextet, and the exact forward construction "
-            "emits explicit exact Yukawa matrices Y_u and Y_d on that public selected class."
+            "Conditional on a no-target source theorem emitting the physical sigma datum on the public quark frame "
+            "class selected by P, the selected bridge-fiber descent makes that datum representative-independent, "
+            "the affine mean law emits the absolute sector scales algebraically, the ordered three-point readout "
+            "yields the running quark sextet, and the exact forward construction emits explicit Yukawa matrices "
+            "Y_u and Y_d on that selected class. The current artifact displays the selected-class exact witness but "
+            "does not promote it because the sigma datum is inherited from the current-family exact target surface."
         ),
         "selected_public_physical_frame_class": public_sigma_theorem["selected_public_physical_frame_class"],
         "descended_physical_sigma_datum": public_sigma_theorem["descended_physical_sigma_datum"],
@@ -89,7 +110,7 @@ def build_artifact(
         ],
         "minimal_exact_blocker_set": []
         if promotion_allowed
-        else ["quark_public_physical_sigma_source_datum_no_target_leak"],
+        else MISSING_FOR_PROMOTION,
         "notes": [
             (
                 "This is the theorem wrapper that upgrades the closed declared-carrier exact Yukawa chain to the selected public class."

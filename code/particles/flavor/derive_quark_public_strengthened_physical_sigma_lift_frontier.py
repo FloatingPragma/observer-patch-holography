@@ -111,9 +111,10 @@ def build_artifact(
         "algebraic_consequence_after_closure": {
             "supporting_algebraic_collapse_artifact": absolute_collapse["artifact"],
             "statement": (
-                "Once the theorem-grade physical sigma datum is public, the affine mean law algebraically emits "
-                "(g_u, g_d), the ordered three-point readout yields the exact running quark sextet, and the "
-                "already-closed exact forward construction emits explicit quark Yukawa matrices Y_u and Y_d."
+                "Once a no-target source theorem emits the physical sigma datum and the selected bridge-fiber descent "
+                "makes it representative-independent, the affine mean law algebraically emits (g_u, g_d), the ordered "
+                "three-point readout yields the running quark sextet, and the already-closed exact forward construction "
+                "emits explicit quark Yukawa matrices Y_u and Y_d."
             ),
             "forced_running_values_gev": masses,
             "forced_exact_yukawas": {
@@ -129,8 +130,8 @@ def build_artifact(
         "algebraic_consequence_if_closed": {
             "supporting_algebraic_collapse_artifact": absolute_collapse["artifact"],
             "statement": (
-                "This consequence is now realized: the theorem-grade physical sigma datum is public on the selected "
-                "class, so the affine mean law and exact forward construction emit the exact masses and Yukawas."
+                "This consequence is realized only after a source-only sigma selector supplies the physical sigma "
+                "datum. The current selected-class descent is representative independence, not source selection."
             ),
             "forced_running_values_gev": masses,
             "forced_exact_yukawas": {
@@ -178,12 +179,12 @@ def build_artifact(
         },
         "notes": [
             (
-                "This artifact now records the direct public theorem as closed on the selected physical quark frame class."
+                "This artifact records a source-only public sigma theorem as closed on the selected physical quark frame class."
                 if public_promotion_allowed
-                else "This artifact records the selected-class exact witness but leaves public promotion blocked by the target-derived sigma datum."
+                else "This artifact records the selected-class exact witness but leaves public promotion blocked because the target-derived sigma datum has no source selector."
             ),
-            "The upstream generator route remains an alternative historical route, but it is no longer needed for the selected-class closure.",
-            "The exact masses and Yukawas already forced after closure are preserved here for contract-level readout.",
+            "The upstream generator route remains a historical route toward a source sigma selector.",
+            "The exact masses and Yukawas forced after a source sigma closure are preserved here for contract-level readout.",
         ],
     }
 

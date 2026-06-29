@@ -68,7 +68,8 @@ def test_derivation_chain_closure_matrix_keeps_stage_gates_explicit() -> None:
     assert rows["selected_class_quarks"]["status"] == "selected_class_target_anchored_exact_witness_not_strict_source"
     assert rows["selected_class_quarks"]["promotable"] is False
     assert rows["selected_class_quarks"]["open_gates"] == [
-        "quark_public_physical_sigma_source_datum_no_target_leak"
+        "QUARK_SIGMA_SOURCE_SELECTOR",
+        "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE",
     ]
     assert rows["selected_class_quarks"]["closed_issue_refs"] == [199, 207, 212]
     assert rows["neutrino_absolute_attachment"]["status"] == (

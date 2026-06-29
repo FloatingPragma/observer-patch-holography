@@ -44,7 +44,7 @@
       "label": "Strong CP",
       "next_action": "Keep strong CP explicit as an open branch. Reopen only for a theorem-grade descent from exact quark/Yukawa phase data to the determinant-line phase contribution, together with a theorem fixing the topological-angle contribution and proving the physical strong-CP phase vanishes on the realized branch.",
       "state": "open_theta_qcd_bar_theta_vanishing_gap",
-      "summary": "The selected-class exact Yukawa theorem emits the PDG 2025 running-quark sextet and exact forward Yukawas on the public class f_P. The available corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes."
+      "summary": "The selected-class quark support wrapper conditionally carries the running-quark sextet and exact forward Yukawas on the public class f_P, but its sigma datum is still target-derived. The available corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes."
     }
   ],
   "direct_top_auxiliary_comparison": {
@@ -135,7 +135,7 @@
       "status": "source_side_prediction_missing_only_small_qcd_hadronic_endpoint_correction"
     }
   },
-  "generated_utc": "2026-06-29T09:20:15Z",
+  "generated_utc": "2026-06-29T10:27:30Z",
   "hadron_policy": {
     "empirical_hadron_closure_allowed_for_display": true,
     "empirical_payload_schema": "particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json",
@@ -441,6 +441,58 @@
       "value": 125.1995304097179
     }
   ],
+  "quark_sigma_source_boundary": {
+    "artifact": "oph_quark_sigma_source_datum_no_target_leak_required",
+    "claim_tier": "selected_class_conditional_on_source_sigma",
+    "downstream_algebra_closed": true,
+    "forbidden_ancestors": [
+      "particle_reference_values",
+      "quark_current_family_exact_readout",
+      "quark_current_family_exact_sigma_target",
+      "quark_current_family_exact_pdg_theorem",
+      "quark_current_family_transport_frame_strengthened_physical_sigma_lift_theorem",
+      "target_centered_log_u",
+      "target_centered_log_d",
+      "reference_targets_u",
+      "reference_targets_d",
+      "exact_fit_residuals",
+      "PDG",
+      "CODATA",
+      "compare_only"
+    ],
+    "missing_for_promotion": [
+      "QUARK_SIGMA_SOURCE_QUOTIENT",
+      "QUARK_SIGMA_SOURCE_SELECTOR",
+      "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
+      "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
+      "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE"
+    ],
+    "required_identity": "P -> f_P -> Sigma_ud_phys -> (sigma_u,sigma_d,sigma_seed_ud,eta_ud)",
+    "source_only_sigma_emitted": false,
+    "status": "missing_theorem",
+    "strongest_current_source_candidate": {
+      "S13": 5.407843949508826,
+      "S23": 3.346451912983049,
+      "delta21": 0.3023656602589083,
+      "formula_sigma_d_edge": "S_23 + delta21/(2*(1+rho_ord-x2^2))",
+      "formula_sigma_u_edge": "S_13 + rho_ord*delta21/(1+rho_ord)",
+      "mean_denominator": 2.026389321714338,
+      "required_R_d": -0.1247947151634663,
+      "required_R_eta": 0.060152168743091705,
+      "required_R_seed": -0.06464254642037481,
+      "required_R_u": -0.004490377677282886,
+      "rho_ord": 1.2942849363777058,
+      "sigma_d_edge": 3.4210589139721543,
+      "sigma_u_edge": 5.578418804072826,
+      "x2": -0.5175863354681689
+    },
+    "target_values_for_future_source_theorem": {
+      "eta_ud": 1.1388321137934274,
+      "sigma_d": 3.296264198808688,
+      "sigma_seed_ud": 4.4350963126021155,
+      "sigma_u": 5.573928426395543
+    }
+  },
   "runtime_inputs": {
     "P": 1.630968209403959,
     "hadron_profile": "suppressed",
@@ -463,6 +515,7 @@
     "measured_endpoint_calibration": "code/P_derivation/runtime/measured_endpoint_calibration_current.json",
     "p_trunk": "code/P_derivation/runtime/p_closure_trunk_current.json",
     "pipeline_status": "code/particles/runs/status/particle_pipeline_closure_status.json",
+    "quark_sigma_source_datum_no_target_leak_required": "code/particles/runs/flavor/quark_sigma_source_datum_no_target_leak_required.json",
     "results_status": "code/particles/results_status.json",
     "thomson_endpoint_package": "code/P_derivation/runtime/thomson_endpoint_package_current.json"
   },
@@ -534,58 +587,262 @@
       "source_only": false
     },
     {
+      "claim_tier": "selected_class_conditional_on_source_sigma",
+      "downstream_algebra_closed": true,
       "exact_kind": "selected_class_target_anchored_exact_witness",
+      "exact_sigma_target": {
+        "eta_ud": 1.1388321137934274,
+        "sigma_d": 3.296264198808688,
+        "sigma_seed_ud": 4.4350963126021155,
+        "sigma_u": 5.573928426395543
+      },
       "label": "Up Quark",
+      "missing_for_promotion": [
+        "QUARK_SIGMA_SOURCE_QUOTIENT",
+        "QUARK_SIGMA_SOURCE_SELECTOR",
+        "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
+        "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
+        "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE"
+      ],
       "particle_id": "up_quark",
       "promotable": false,
+      "promotion_gate_artifact": "code/particles/runs/flavor/quark_sigma_source_datum_no_target_leak_required.json",
       "reason": "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction",
       "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
-      "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json"
+      "selected_class": "f_P",
+      "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
+      "source_only_sigma_emitted": false,
+      "strongest_source_candidate": {
+        "S13": 5.407843949508826,
+        "S23": 3.346451912983049,
+        "delta21": 0.3023656602589083,
+        "formula_sigma_d_edge": "S_23 + delta21/(2*(1+rho_ord-x2^2))",
+        "formula_sigma_u_edge": "S_13 + rho_ord*delta21/(1+rho_ord)",
+        "mean_denominator": 2.026389321714338,
+        "required_R_d": -0.1247947151634663,
+        "required_R_eta": 0.060152168743091705,
+        "required_R_seed": -0.06464254642037481,
+        "required_R_u": -0.004490377677282886,
+        "rho_ord": 1.2942849363777058,
+        "sigma_d_edge": 3.4210589139721543,
+        "sigma_u_edge": 5.578418804072826,
+        "x2": -0.5175863354681689
+      }
     },
     {
+      "claim_tier": "selected_class_conditional_on_source_sigma",
+      "downstream_algebra_closed": true,
       "exact_kind": "selected_class_target_anchored_exact_witness",
+      "exact_sigma_target": {
+        "eta_ud": 1.1388321137934274,
+        "sigma_d": 3.296264198808688,
+        "sigma_seed_ud": 4.4350963126021155,
+        "sigma_u": 5.573928426395543
+      },
       "label": "Charm Quark",
+      "missing_for_promotion": [
+        "QUARK_SIGMA_SOURCE_QUOTIENT",
+        "QUARK_SIGMA_SOURCE_SELECTOR",
+        "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
+        "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
+        "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE"
+      ],
       "particle_id": "charm_quark",
       "promotable": false,
+      "promotion_gate_artifact": "code/particles/runs/flavor/quark_sigma_source_datum_no_target_leak_required.json",
       "reason": "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction",
       "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
-      "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json"
+      "selected_class": "f_P",
+      "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
+      "source_only_sigma_emitted": false,
+      "strongest_source_candidate": {
+        "S13": 5.407843949508826,
+        "S23": 3.346451912983049,
+        "delta21": 0.3023656602589083,
+        "formula_sigma_d_edge": "S_23 + delta21/(2*(1+rho_ord-x2^2))",
+        "formula_sigma_u_edge": "S_13 + rho_ord*delta21/(1+rho_ord)",
+        "mean_denominator": 2.026389321714338,
+        "required_R_d": -0.1247947151634663,
+        "required_R_eta": 0.060152168743091705,
+        "required_R_seed": -0.06464254642037481,
+        "required_R_u": -0.004490377677282886,
+        "rho_ord": 1.2942849363777058,
+        "sigma_d_edge": 3.4210589139721543,
+        "sigma_u_edge": 5.578418804072826,
+        "x2": -0.5175863354681689
+      }
     },
     {
+      "claim_tier": "selected_class_conditional_on_source_sigma",
+      "downstream_algebra_closed": true,
       "exact_kind": "selected_class_target_anchored_exact_witness",
+      "exact_sigma_target": {
+        "eta_ud": 1.1388321137934274,
+        "sigma_d": 3.296264198808688,
+        "sigma_seed_ud": 4.4350963126021155,
+        "sigma_u": 5.573928426395543
+      },
       "label": "Top Quark",
+      "missing_for_promotion": [
+        "QUARK_SIGMA_SOURCE_QUOTIENT",
+        "QUARK_SIGMA_SOURCE_SELECTOR",
+        "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
+        "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
+        "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE"
+      ],
       "particle_id": "top_quark",
       "promotable": false,
+      "promotion_gate_artifact": "code/particles/runs/flavor/quark_sigma_source_datum_no_target_leak_required.json",
       "reason": "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction",
       "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
-      "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json"
+      "selected_class": "f_P",
+      "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
+      "source_only_sigma_emitted": false,
+      "strongest_source_candidate": {
+        "S13": 5.407843949508826,
+        "S23": 3.346451912983049,
+        "delta21": 0.3023656602589083,
+        "formula_sigma_d_edge": "S_23 + delta21/(2*(1+rho_ord-x2^2))",
+        "formula_sigma_u_edge": "S_13 + rho_ord*delta21/(1+rho_ord)",
+        "mean_denominator": 2.026389321714338,
+        "required_R_d": -0.1247947151634663,
+        "required_R_eta": 0.060152168743091705,
+        "required_R_seed": -0.06464254642037481,
+        "required_R_u": -0.004490377677282886,
+        "rho_ord": 1.2942849363777058,
+        "sigma_d_edge": 3.4210589139721543,
+        "sigma_u_edge": 5.578418804072826,
+        "x2": -0.5175863354681689
+      }
     },
     {
+      "claim_tier": "selected_class_conditional_on_source_sigma",
+      "downstream_algebra_closed": true,
       "exact_kind": "selected_class_target_anchored_exact_witness",
+      "exact_sigma_target": {
+        "eta_ud": 1.1388321137934274,
+        "sigma_d": 3.296264198808688,
+        "sigma_seed_ud": 4.4350963126021155,
+        "sigma_u": 5.573928426395543
+      },
       "label": "Down Quark",
+      "missing_for_promotion": [
+        "QUARK_SIGMA_SOURCE_QUOTIENT",
+        "QUARK_SIGMA_SOURCE_SELECTOR",
+        "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
+        "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
+        "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE"
+      ],
       "particle_id": "down_quark",
       "promotable": false,
+      "promotion_gate_artifact": "code/particles/runs/flavor/quark_sigma_source_datum_no_target_leak_required.json",
       "reason": "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction",
       "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
-      "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json"
+      "selected_class": "f_P",
+      "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
+      "source_only_sigma_emitted": false,
+      "strongest_source_candidate": {
+        "S13": 5.407843949508826,
+        "S23": 3.346451912983049,
+        "delta21": 0.3023656602589083,
+        "formula_sigma_d_edge": "S_23 + delta21/(2*(1+rho_ord-x2^2))",
+        "formula_sigma_u_edge": "S_13 + rho_ord*delta21/(1+rho_ord)",
+        "mean_denominator": 2.026389321714338,
+        "required_R_d": -0.1247947151634663,
+        "required_R_eta": 0.060152168743091705,
+        "required_R_seed": -0.06464254642037481,
+        "required_R_u": -0.004490377677282886,
+        "rho_ord": 1.2942849363777058,
+        "sigma_d_edge": 3.4210589139721543,
+        "sigma_u_edge": 5.578418804072826,
+        "x2": -0.5175863354681689
+      }
     },
     {
+      "claim_tier": "selected_class_conditional_on_source_sigma",
+      "downstream_algebra_closed": true,
       "exact_kind": "selected_class_target_anchored_exact_witness",
+      "exact_sigma_target": {
+        "eta_ud": 1.1388321137934274,
+        "sigma_d": 3.296264198808688,
+        "sigma_seed_ud": 4.4350963126021155,
+        "sigma_u": 5.573928426395543
+      },
       "label": "Strange Quark",
+      "missing_for_promotion": [
+        "QUARK_SIGMA_SOURCE_QUOTIENT",
+        "QUARK_SIGMA_SOURCE_SELECTOR",
+        "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
+        "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
+        "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE"
+      ],
       "particle_id": "strange_quark",
       "promotable": false,
+      "promotion_gate_artifact": "code/particles/runs/flavor/quark_sigma_source_datum_no_target_leak_required.json",
       "reason": "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction",
       "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
-      "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json"
+      "selected_class": "f_P",
+      "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
+      "source_only_sigma_emitted": false,
+      "strongest_source_candidate": {
+        "S13": 5.407843949508826,
+        "S23": 3.346451912983049,
+        "delta21": 0.3023656602589083,
+        "formula_sigma_d_edge": "S_23 + delta21/(2*(1+rho_ord-x2^2))",
+        "formula_sigma_u_edge": "S_13 + rho_ord*delta21/(1+rho_ord)",
+        "mean_denominator": 2.026389321714338,
+        "required_R_d": -0.1247947151634663,
+        "required_R_eta": 0.060152168743091705,
+        "required_R_seed": -0.06464254642037481,
+        "required_R_u": -0.004490377677282886,
+        "rho_ord": 1.2942849363777058,
+        "sigma_d_edge": 3.4210589139721543,
+        "sigma_u_edge": 5.578418804072826,
+        "x2": -0.5175863354681689
+      }
     },
     {
+      "claim_tier": "selected_class_conditional_on_source_sigma",
+      "downstream_algebra_closed": true,
       "exact_kind": "selected_class_target_anchored_exact_witness",
+      "exact_sigma_target": {
+        "eta_ud": 1.1388321137934274,
+        "sigma_d": 3.296264198808688,
+        "sigma_seed_ud": 4.4350963126021155,
+        "sigma_u": 5.573928426395543
+      },
       "label": "Bottom Quark",
+      "missing_for_promotion": [
+        "QUARK_SIGMA_SOURCE_QUOTIENT",
+        "QUARK_SIGMA_SOURCE_SELECTOR",
+        "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
+        "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
+        "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE"
+      ],
       "particle_id": "bottom_quark",
       "promotable": false,
+      "promotion_gate_artifact": "code/particles/runs/flavor/quark_sigma_source_datum_no_target_leak_required.json",
       "reason": "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction",
       "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
-      "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json"
+      "selected_class": "f_P",
+      "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
+      "source_only_sigma_emitted": false,
+      "strongest_source_candidate": {
+        "S13": 5.407843949508826,
+        "S23": 3.346451912983049,
+        "delta21": 0.3023656602589083,
+        "formula_sigma_d_edge": "S_23 + delta21/(2*(1+rho_ord-x2^2))",
+        "formula_sigma_u_edge": "S_13 + rho_ord*delta21/(1+rho_ord)",
+        "mean_denominator": 2.026389321714338,
+        "required_R_d": -0.1247947151634663,
+        "required_R_eta": 0.060152168743091705,
+        "required_R_seed": -0.06464254642037481,
+        "required_R_u": -0.004490377677282886,
+        "rho_ord": 1.2942849363777058,
+        "sigma_d_edge": 3.4210589139721543,
+        "sigma_u_edge": 5.578418804072826,
+        "x2": -0.5175863354681689
+      }
     },
     {
       "exact_kind": "scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate",

@@ -142,7 +142,8 @@ $m_H$ is the Higgs-boson mass and $m_t$ is the top-quark mass on this
 calculation surface. They are paired because the Higgs and top sectors are
 strongly linked in the electroweak bookkeeping.
 
-The selected quark sector gives the running mass structure
+The selected quark sector currently gives a conditional running-mass support
+surface. Given a source-only physical sigma datum, the downstream algebra emits
 
 $$
 \begin{aligned}
@@ -151,9 +152,11 @@ $$
 \end{aligned}
 $$
 
-These are running quark masses. They belong to the short-distance particle
-description before QCD binds quarks into hadrons. The top value belongs to the selected running-mass branch; a direct
-top-mass display is a separate comparison.
+as the running quark sextet and the corresponding Yukawa pattern. In the current
+pipeline these numbers are target-anchored audit witnesses, not public
+source-only quark mass predictions, because the physical sigma/spread datum is
+not yet emitted by a no-target source theorem. The top value belongs to that
+selected audit surface; a direct top-mass display is a separate comparison.
 
 Running means the quoted mass depends on the energy scale at which the quark is
 probed. This is normal in quantum field theory. It is why a quark mass in a
@@ -176,14 +179,15 @@ $$
 together with definite Majorana phases in that construction. The particle
 picture is larger than a handful of isolated numbers. At book level, the map
 contains structural massless carriers, the weak-sector comparison pair, the
-Higgs/top quantitative relation, the selected running quark sextet with Yukawas,
-and one weighted-cycle neutrino branch.
+Higgs/top quantitative relation, the selected conditional quark support surface
+with Yukawas, and one weighted-cycle neutrino branch.
 
 The selected quark branch also shows where the particle story changes gear. It
-names running quark masses and their Yukawa pattern, while the strong-CP phase
-and the physical hadron masses live downstream. Protons, neutrons, and mesons
-are QCD composites, so their masses require the nonperturbative bound-state
-physics of confinement.
+closes the downstream algebra from a physical sigma datum to running quark
+masses and their Yukawa pattern, while the source sigma selector, the strong-CP
+phase, and the physical hadron masses remain separate downstream or upstream
+burdens. Protons, neutrons, and mesons are QCD composites, so their masses
+require the nonperturbative bound-state physics of confinement.
 
 Majorana phases are extra neutrino mixing phases that matter if neutrinos are
 their own antiparticles in the relevant sense. QCD is quantum chromodynamics,

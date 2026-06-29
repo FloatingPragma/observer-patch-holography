@@ -23,6 +23,7 @@ DIRECT_TOP = PARTICLES_ROOT / "runs" / "calibration" / "direct_top_bridge_contra
 CHARGED_TRACE_LIFT_REQUIRED = (
     PARTICLES_ROOT / "runs" / "leptons" / "charged_determinant_trace_lift_attachment_required.json"
 )
+QUARK_SIGMA_REQUIRED = PARTICLES_ROOT / "runs" / "flavor" / "quark_sigma_source_datum_no_target_leak_required.json"
 EMPIRICAL_EE_REGISTRY = PARTICLES_ROOT / "hadron" / "empirical_ee_hadrons_sources.yaml"
 EMPIRICAL_EE_SCHEMA = PARTICLES_ROOT / "hadron" / "empirical_ee_hadronic_spectral_measure.schema.json"
 HIERARCHY_ROOT = PARTICLES_ROOT / "hierarchy"
@@ -268,6 +269,7 @@ def build_payload() -> dict[str, Any]:
     results = _load_json(RESULTS_STATUS)
     direct_top = _load_json(DIRECT_TOP)
     charged_trace_required = _load_optional_json(CHARGED_TRACE_LIFT_REQUIRED) or {}
+    quark_sigma_required = _load_optional_json(QUARK_SIGMA_REQUIRED) or {}
     by_id = {entry["particle_id"]: _prediction_entry(entry) for entry in exact["entries"]}
     predictions = [by_id[particle_id] for particle_id in PARTICLE_ORDER if particle_id in by_id]
     particle_five_gates = [
@@ -293,6 +295,9 @@ def build_payload() -> dict[str, Any]:
             "direct_top_bridge": "code/particles/runs/calibration/direct_top_bridge_contract.json",
             "charged_determinant_trace_lift_attachment_required": (
                 "code/particles/runs/leptons/charged_determinant_trace_lift_attachment_required.json"
+            ),
+            "quark_sigma_source_datum_no_target_leak_required": (
+                "code/particles/runs/flavor/quark_sigma_source_datum_no_target_leak_required.json"
             ),
             "hadron_policy": "HADRON.md",
             "empirical_ee_hadrons_source_registry": (
@@ -338,6 +343,22 @@ def build_payload() -> dict[str, Any]:
             "missing_for_promotion": charged_trace_required.get("missing_for_promotion", []),
             "forbidden_ancestors": charged_trace_required.get("forbidden_ancestors", []),
             "current_closed_chain": charged_trace_required.get("current_closed_chain", {}),
+        },
+        "quark_sigma_source_boundary": {
+            "artifact": quark_sigma_required.get("artifact"),
+            "status": quark_sigma_required.get("status"),
+            "claim_tier": quark_sigma_required.get("claim_tier"),
+            "required_identity": quark_sigma_required.get("required_identity"),
+            "source_only_sigma_emitted": quark_sigma_required.get("source_only_sigma_emitted"),
+            "downstream_algebra_closed": quark_sigma_required.get("downstream_algebra_closed"),
+            "missing_for_promotion": quark_sigma_required.get("missing_for_promotion", []),
+            "forbidden_ancestors": quark_sigma_required.get("forbidden_ancestors", []),
+            "target_values_for_future_source_theorem": quark_sigma_required.get(
+                "target_values_for_future_source_theorem", {}
+            ),
+            "strongest_current_source_candidate": quark_sigma_required.get(
+                "strongest_current_source_candidate", {}
+            ),
         },
         "fine_structure": _fine_structure_surface(measured_endpoint),
         "hierarchy_and_naturality": _hierarchy_surface(),
@@ -440,8 +461,9 @@ def render_markdown(payload: dict[str, Any]) -> str:
             missing_gate = ", ".join(row.get("missing_for_promotion") or [])
             if not missing_gate:
                 missing_gate = "n/a"
+            claim_label = row.get("claim_tier", row["exact_kind"])
             lines.append(
-                f"| `{row['particle_id']}` | `{row['exact_kind']}` | {row['reason']} | {missing_gate} |"
+                f"| `{row['particle_id']}` | `{claim_label}` | {row['reason']} | {missing_gate} |"
             )
     charged_boundary = payload.get("charged_lepton_anchor_boundary") or {}
     if charged_boundary.get("artifact"):
@@ -456,6 +478,27 @@ def render_markdown(payload: dict[str, Any]) -> str:
                 f"- Equivalent defect: `{charged_boundary['equivalent_defect']}`",
                 f"- Closed downstream: `{charged_boundary.get('current_closed_chain', {}).get('A_ch_to_charged_masses')}`",
                 f"- Closed upstream from `P`: `{charged_boundary.get('current_closed_chain', {}).get('P_to_A_ch')}`",
+            ]
+        )
+    quark_boundary = payload.get("quark_sigma_source_boundary") or {}
+    if quark_boundary.get("artifact"):
+        candidate = quark_boundary.get("strongest_current_source_candidate") or {}
+        lines.extend(
+            [
+                "",
+                "## Quark Sigma Source Boundary",
+                "",
+                f"- Artifact: `{quark_boundary['artifact']}`",
+                f"- Status: `{quark_boundary['status']}`",
+                f"- Claim tier: `{quark_boundary['claim_tier']}`",
+                f"- Required identity: `{quark_boundary['required_identity']}`",
+                f"- Source-only sigma emitted: `{quark_boundary['source_only_sigma_emitted']}`",
+                f"- Closed downstream algebra: `{quark_boundary['downstream_algebra_closed']}`",
+                f"- Missing gates: `{quark_boundary.get('missing_for_promotion', [])}`",
+                f"- Edge candidate: `sigma_u_edge={candidate.get('sigma_u_edge')}`, "
+                f"`sigma_d_edge={candidate.get('sigma_d_edge')}`",
+                f"- Required source correction target: `R_u={candidate.get('required_R_u')}`, "
+                f"`R_d={candidate.get('required_R_d')}`",
             ]
         )
     direct = payload["direct_top_auxiliary_comparison"]

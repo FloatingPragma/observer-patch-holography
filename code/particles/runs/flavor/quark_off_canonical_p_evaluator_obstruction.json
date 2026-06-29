@@ -103,7 +103,7 @@
       }
     ]
   },
-  "generated_utc": "2026-06-29T07:35:28Z",
+  "generated_utc": "2026-06-29T10:25:42Z",
   "input_artifacts": {
     "edge_statistics_candidate": "oph_quark_edge_statistics_spread_candidate",
     "odd_response": "oph_quark_odd_response_law",
@@ -285,11 +285,17 @@
   "scope": "arbitrary_P_off_canonical_quark_evaluator",
   "selected_public_exact_surface": {
     "closed": false,
+    "conditional_downstream_closed": true,
     "minimal_exact_blocker_set": [
-      "quark_public_physical_sigma_source_datum_no_target_leak"
+      "QUARK_SIGMA_SOURCE_QUOTIENT",
+      "QUARK_SIGMA_SOURCE_SELECTOR",
+      "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
+      "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
+      "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE"
     ],
-    "proof_status": "blocked_by_target_derived_public_sigma_datum",
+    "proof_status": "blocked_target_derived_sigma_source_missing",
     "selected_by": "P",
+    "source_only_sigma_emitted": false,
     "theorem_scope": "selected_public_physical_quark_frame_class_only"
   },
   "selected_public_pure_B_payload": {

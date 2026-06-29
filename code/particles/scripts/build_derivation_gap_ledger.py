@@ -294,10 +294,10 @@ def build_gap_rows() -> list[dict[str, Any]]:
             "github_issue": 155,
             "title": "Keep the strong-CP branch explicit until the physical invariant is emitted",
             "current_boundary": (
-                "The selected-class exact Yukawa theorem emits the PDG 2025 running-quark sextet "
-                "and exact forward Yukawas on the public class f_P. The available corpus does "
-                "not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), "
-                "and does not prove that the physical strong-CP phase vanishes."
+                "The selected-class quark support wrapper conditionally carries the running-quark sextet "
+                "and exact forward Yukawas on the public class f_P, but its sigma datum is still target-derived. "
+                "The available corpus does not derive theta_QCD, does not emit the physical anomaly-invariant "
+                "bar(theta), and does not prove that the physical strong-CP phase vanishes."
             ),
             "next_action": (
                 "Keep strong CP explicit as an open branch. Reopen only for a theorem-grade descent "
@@ -429,10 +429,10 @@ def build_bundles() -> list[dict[str, Any]]:
                 "including theta_QCD, bar(theta), and a vanishing theorem on the realized branch?"
             ),
             "result": (
-                "No promotion. The selected-class exact quark theorem fixes the running sextet and "
-                "forward Yukawas on the public class f_P. The available corpus does not emit the "
-                "determinant-line phase contribution, the bare theta_QCD term, or a theorem forcing "
-                "the physical strong-CP phase to vanish."
+                "No promotion. The selected-class quark support wrapper conditionally carries the running sextet "
+                "and forward Yukawas on the public class f_P, but the source sigma selector is still missing. "
+                "The available corpus does not emit the determinant-line phase contribution, the bare theta_QCD "
+                "term, or a theorem forcing the physical strong-CP phase to vanish."
             ),
         },
         {

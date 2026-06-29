@@ -47,6 +47,7 @@
 \newcommand{\Dhad}{\Delta_{\mathrm{had}}}
 \newcommand{\DEW}{\Delta_{\mathrm{EW}}}
 \newcommand{\Dreq}{\Delta_{\mathrm{req}}}
+\newcommand{\Dhadreq}{\Delta_{\mathrm{H,req}}}
 \newcommand{\Dmiss}{\Delta_{\mathrm{miss}}}
 \newcommand{\Nc}{N_c}
 \newcommand{\Ng}{N_g}
@@ -74,7 +75,19 @@ One OPH screen cell has two readings. From the outside, the cell has a dimension
 \[
 P=\varphi+\frac{\sqrt\pi}{\ATh(P)}.
 \]
-Solving the source branch gives the fine-structure fixed point and lands close to the Thomson-limit value. The remaining gap has a specific address: low-energy hadronic and endpoint transport in the same electromagnetic scheme. With that empirical endpoint correction stated separately, the public display is \(\alpha^{-1}(0)=137.035999177(21)\) and \(P\simeq1.6309682094\).
+Solving this self-referential pixel equation with the OPH source map gives a fine-structure fixed point close to the Thomson-limit value. Informally, the calculation starts from the OPH screen-cell rules and uses zero fitted parameters. Its current output is the source-plus-unified-gauge-width value
+\[
+A_{\alpha_U}^{\mathrm{fp}}=137.035959500817279952949994585787\ldots.
+\]
+The most precise direct measurement, the 2020 rubidium recoil result, is
+\[
+\alpha^{-1}_{\mathrm{Rb}}=137.035999206(11),
+\]
+so the OPH output is low by
+\[
+0.000039705182720047050005414213\ldots,
+\]
+about \(2.89743\times10^{-7}\) relative in inverse-alpha units. The remaining gap has a specific address: low-energy hadronic and endpoint transport in the same electromagnetic scheme. The source map has not yet emitted the Ward-projected QCD spectral contribution needed to dress the no-hadron value into the laboratory Thomson endpoint.
 \end{abstract}
 
 \section*{What This Paper Contributes}
@@ -88,11 +101,11 @@ observers on the same branch.
 
 The source map gets close without importing the Thomson value. The remaining
 gap has an explicit address: the same-scheme hadronic endpoint transport that
-must be supplied to turn the source diagnostic into the public endpoint. That
+must be supplied to turn the source diagnostic into the measured endpoint. That
 split is the contribution: a fixed-point
 equation for the pixel branch, a visible address for the missing low-energy
 QCD step, and a clear boundary between source theorem, empirical endpoint
-closure, and comparison display.
+closure, and measured comparison.
 
 \section{Introduction}
 
@@ -101,7 +114,7 @@ The goal is to make every mathematical step visible and keep the physics boundar
 \begin{quote}\small
 \textbf{Pure source calculation.} The executable source map solves the OPH fixed point without importing the measured Thomson value. Its no-hadron output is the undressed source/root inverse coupling \(\alphainv_{\mathrm{root}}=136.9948351646\ldots\). Adding the emitted finite-screen unified gauge-width contribution \(\alpha_U(P_\star)\) gives the source-side no-hadron near-endpoint \(A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\), a number close to the laboratory Thomson endpoint and distinct from it.
 
-\textbf{Hadron-completed endpoint target.} The public endpoint value is \(\alphainv(0)=137.035999177(21)\). The OPH source calculation reaches it only if the low-energy hadronic spectral step is supplied in the same endpoint convention as the source map. The published electroweak number \(\Delta\alpha_{\mathrm{had}}^{(5)}(M_Z^2)\simeq0.0276\) is the measured running-alpha input behind that physics, but it is not itself the additive inverse-alpha correction used here.
+\textbf{CODATA/NIST measured endpoint.} The measured comparison value is \(\alphainv(0)=137.035999177(21)\). It is the CODATA/NIST value used to size the remaining endpoint correction. The OPH source calculation reaches it when the low-energy hadronic spectral step is supplied in the same endpoint convention as the source map. The published electroweak number \(\Delta\alpha_{\mathrm{had}}^{(5)}(M_Z^2)\simeq0.0276\) is the measured running-alpha input behind that physics, but it is not itself the additive inverse-alpha correction used here.
 \end{quote}
 
 \paragraph*{Intuitive picture: three readings of one pixel.}
@@ -251,11 +264,12 @@ Symbol & Definition & Informal meaning \\
 \(\Dhad(P)\) & Hadronic transport contribution & The low-energy QCD spectral contribution needed for the pure source calculation. \\
 \(\DEW(P)\) & Electroweak/scheme endpoint remainder & Same-scheme finite remainder needed to connect the source anchor to the endpoint. \\
 \(\Dcalc(P)\) & Calculated charged-fermion transport contribution & The exact lepton term plus the screened quark continuation used by the source calculation. \\
-\(\Dcalib^{\mathrm{fp}}\) & CODATA-calibrated hadronic endpoint correction for the fixed point & The inverse-alpha amount needed to move the pure source fixed-point value to the CODATA/NIST central endpoint. \\
+\(\Dcalib^{\mathrm{fp}}\) & Root-to-CODATA bookkeeping difference & The inverse-alpha amount between the naked root value and the CODATA/NIST central endpoint; it includes the emitted \(\alpha_U(P_\star)\) contribution and is not the post-\(\alpha_U\) hadronic gap. \\
+\(\Dhadreq^{\mathrm{fp}}\) & Required hadronic endpoint correction after \(A_{\alpha_U}^{\mathrm{fp}}\) & The inverse-alpha amount by which the current OPH output misses the CODATA/NIST central endpoint. \\
 \(\Rq(P)\) & \(\ATh(P)-[\AZ(P)+\Dcalc(P)]\) & The remaining same-scheme hadronic endpoint contribution. \\
 \(A_{\alpha_U}^{\mathrm{fp}}\) & \(\alpha_{\mathrm{root}}^{-1}+\alpha_U(P_\star)\) & Source-side no-hadron prediction before the Ward-projected hadronic transport is supplied. \\
 \(J_{24,Q}(P),\omega_Q(P),\Xi_Q(P)\) & Source-side hadronic spectral objects required for a final endpoint theorem & The Jacobi/Stieltjes spectral payload, normalization, and finite same-scheme remainder that must be emitted without looking at the Thomson target. \\
-\(\Ppub\) & Public endpoint pixel & The pixel obtained from the CODATA/NIST Thomson endpoint under the OPH outer equation. \\
+\(\Ppub\) & CODATA/NIST comparison pixel & The pixel obtained from the CODATA/NIST Thomson endpoint under the OPH outer equation. \\
 \bottomrule
 \end{longtable}
 
@@ -730,7 +744,7 @@ Informally: the fixed-point algebra lands at a stable value near \(137\), with n
 
 Why this step is needed: this is the non-circular check. It shows what the OPH source chain produces before the calibrated hadronic endpoint correction is added.
 
-\section{Step 16: The Public Endpoint Pixel}
+\section{Step 16: The CODATA/NIST Measured Endpoint and Comparison Pixel}
 
 The CODATA/NIST 2022 inverse fine-structure constant is
 \begin{equation}
@@ -739,7 +753,7 @@ A_{\mathrm C}=137.035999177,
 \sigma_A=0.000000021,
 \label{eq:codata}
 \end{equation}
-with concise form \(137.035999177(21)\). The corresponding OPH public pixel is
+with concise form \(137.035999177(21)\). The corresponding comparison pixel is
 \begin{equation}
 \Ppub
 =
@@ -748,7 +762,7 @@ with concise form \(137.035999177(21)\). The corresponding OPH public pixel is
 \decnum{1.6309682094039593248792798477826489413359828516279250606661507533907793398933432}
 \label{eq:Ppub}
 \end{equation}
-The public coupling is
+The CODATA/NIST central coupling is
 \begin{equation}
 \alpha(0)
 =
@@ -758,11 +772,11 @@ The public coupling is
 \label{eq:alphapub}
 \end{equation}
 
-Informally: once the Thomson endpoint is known, the outer OPH equation fixes the pixel immediately. It is the direct readout of one equation.
+Informally: once the measured Thomson endpoint is supplied, the outer OPH equation fixes the corresponding comparison pixel immediately. It is the direct readout of one equation.
 
-Why this step is needed: the public endpoint and the public pixel are two forms of the same fixed-point statement. Reporting both makes it clear how the measured inverse coupling maps back to the screen cell.
+Why this step is needed: the measured endpoint and the comparison pixel are two forms of the same fixed-point statement. Reporting both makes it clear how the measured inverse coupling maps back to the screen cell.
 
-\section{Step 17: Endpoint Accounting at the Public Pixel}
+\section{Step 17: Endpoint Accounting at the CODATA/NIST Comparison Pixel}
 
 At \(P=\Ppub\), the source point gives
 \begin{align}
@@ -775,7 +789,7 @@ At \(P=\Ppub\), the source point gives
 \decnum{8.6865678427085284009854425428859697682672217376487364233784577389993784459106783080961179590}
 \label{eq:Dcalcpub}
 \end{align}
-The transport required by the public endpoint is
+The transport required by the CODATA/NIST measured endpoint is
 \begin{equation}
 \Dreq(\Ppub)
 =
@@ -784,7 +798,7 @@ A_{\mathrm C}-\AZ(\Ppub)
 \decnum{8.72803370371375179003889125824328381275452381963464353994657830364882215831714355921275272}
 \label{eq:Dreqpub}
 \end{equation}
-Therefore the source-side residual at the public pixel is
+Therefore the source-side residual at the CODATA/NIST comparison pixel is
 \begin{align}
 \Rq(\Ppub)
 &=
@@ -795,68 +809,26 @@ Therefore the source-side residual at the public pixel is
 \label{eq:RQpub}
 \end{align}
 
-Informally: the public value differs from the pure source calculation by a small, precisely localized inverse-alpha contribution. The golden-ratio equation, the heat-kernel closure, and the numerical fixed-point solve all point to the same address for the difference: the same-scheme low-energy hadronic transport.
+Informally: the CODATA/NIST measured value differs from the pure source calculation by a small, precisely localized inverse-alpha contribution. The golden-ratio equation, the heat-kernel closure, and the numerical fixed-point solve all point to the same address for the difference: the same-scheme low-energy hadronic transport.
 
 Why this step is needed: this accounting prevents the hadronic contribution from being hidden inside the final number. It shows the source anchor, the calculated transport, the required transport, and the residual in the same units.
 
-\section{Step 18: The Calibrated Hadronic Correction}
+\section{Step 18: The OPH Output and the Required Hadronic Correction}
 
-The fixed-point calculation uses
+The fixed-point calculation first emits
 \begin{equation}
 A_{\mathrm{calc}}(P_{\mathrm{root}})
 =
 \alphainv_{\mathrm{root}}
 =
-\decnum{136.994835164621649457949994585787193262029}
+\decnum{136.994835164621649457949994585787193262029}.
 \label{eq:Acalcfp}
 \end{equation}
-The hadronic correction required on that calculation, when calibrated to the CODATA/NIST central value, is
-\begin{equation}
-\Dcalib^{\mathrm{fp}}
-=
-A_{\mathrm C}-A_{\mathrm{calc}}(P_{\mathrm{root}})
-=
-\decnum{0.041164012378350542050005414212806737971}
-\label{eq:Dempfp}
-\end{equation}
-Therefore
-\begin{align}
-A_{\mathrm{closed}}^{\mathrm{fp}}
-&=
-A_{\mathrm{calc}}(P_{\mathrm{root}})+\Dcalib^{\mathrm{fp}}
-\nonumber\\
-&=
-137.035999177
-\label{eq:exactaddition}
-\end{align}
-The two inputs in that addition are
-\begin{align}
-A_{\mathrm{calc}}(P_{\mathrm{root}})
-&=
-\decnum{136.994835164621649457949994585787193262029}
-\label{eq:exactaddition-source}\\
-\Dcalib^{\mathrm{fp}}
-&=
-\decnum{0.041164012378350542050005414212806737971}
-\label{eq:exactaddition-emp}
-\end{align}
-This number is not an independently measured hadronic constant with 39 significant decimal places. It is the difference between the measured CODATA/NIST central value and the pure OPH source calculation. Its uncertainty is therefore limited by the CODATA/NIST uncertainty, apart from the much smaller numerical error in the source solve:
-\begin{equation}
-\Dcalib^{\mathrm{fp}}
-=0.041164012\pm0.000000021.
-\label{eq:Dcalibuncertainty}
-\end{equation}
-Equivalently, the central value and uncertainty of the final inverse coupling are
-\begin{equation}
-A_{\mathrm C}=137.035999177,
-\qquad
-\sigma_A=0.000000021.
-\end{equation}
-Here \(A_{\mathrm C}\) is the CODATA/NIST 2022 inverse fine-structure constant \cite{nist-value,nist-2022}. The source value \(A_{\mathrm{calc}}(P_{\mathrm{root}})=\alpha_{\mathrm{root}}^{-1}\) is the reproducible OPH fixed-point solve \cite{oph-code}. Equation~\eqref{eq:Dempfp} is a calibrated hadronic correction in inverse-alpha units.
-
-It is tempting to identify the correction with the finite-screen unified gauge-width contribution
-\(\alpha_U(P_\star)=0.041124336195630495\), but the exact arithmetic does not support that
-identity. Adding only the bare 24-register-scale contribution gives
+The finite-screen unified gauge-width contribution is
+\[
+\alpha_U(P_\star)=0.041124336195630495.
+\]
+Adding that emitted gauge-width contribution gives the current OPH no-hadron output
 \begin{equation}
 A_{\alpha_U}^{\mathrm{fp}}
 =\alpha_{\mathrm{root}}^{-1}+\alpha_U(P_\star)
@@ -870,25 +842,68 @@ or
 =0.00729735467714250592971405837329\ldots.
 \label{eq:barealphaUalpha}
 \end{equation}
-The \(A_{\alpha_U}^{\mathrm{fp}}\) value is the source-side prediction without the missing
-hadronic spectral transport. It falls short of the CODATA/NIST central endpoint by
-\[
-0.000039676182720047050005414212807\ldots
-\]
-in inverse-alpha units. Equivalently, the calibrated fixed-point residual is
+This \(A_{\alpha_U}^{\mathrm{fp}}\) value is the numerical output of the OPH fine-structure calculation in this paper. It is the source-side prediction before the missing Ward-projected hadronic spectral transport is supplied.
+
+Compared with the CODATA/NIST central measured endpoint,
 \begin{equation}
+A_{\mathrm C}=137.035999177,
+\qquad
+\sigma_A=0.000000021,
+\end{equation}
+the required same-scheme hadronic endpoint correction is
+\begin{equation}
+\Dhadreq^{\mathrm{fp}}
+=
+A_{\mathrm C}-A_{\alpha_U}^{\mathrm{fp}}
+=
+\decnum{0.000039676182720047050005414213}\ldots.
+\label{eq:Dempfp}
+\end{equation}
+Equivalently,
+\begin{equation}
+\Dhadreq^{\mathrm{fp}}
+=0.0000396762\pm0.000000021,
+\qquad
+\frac{\Dhadreq^{\mathrm{fp}}}{A_{\mathrm C}}
+=2.89531\times10^{-7}.
+\label{eq:Dhadrequncertainty}
+\end{equation}
+This is the amount by which the current OPH output misses the CODATA/NIST central value in inverse-alpha units. Its physical address is the low-energy QCD/hadronic vacuum-polarization and same-scheme endpoint transport of the Ward-projected electromagnetic current.
+
+For bookkeeping, the full root-to-CODATA difference is
+\begin{align}
 \Dcalib^{\mathrm{fp}}
-=\alpha_U(P_\star)\,C_{24,Q},
+&=
+A_{\mathrm C}-A_{\mathrm{calc}}(P_{\mathrm{root}})
+\nonumber\\
+&=
+\decnum{0.041164012378350542050005414212806737971}
+\nonumber\\
+&=
+\alpha_U(P_\star)+\Dhadreq^{\mathrm{fp}}.
+\label{eq:rootcodatafp}
+\end{align}
+This larger difference is not itself the missing hadronic endpoint correction after the OPH output, because it also contains the emitted finite-screen unified gauge-width contribution.
+
+Equivalently, the CODATA/NIST central value can be written as
+\begin{equation}
+A_{\mathrm C}
+=
+\alpha_{\mathrm{root}}^{-1}+\alpha_U(P_\star)\,C_{24,Q},
 \qquad
 C_{24,Q}=1.0009647859732326253849511140702475\ldots.
 \label{eq:c24qfactor}
 \end{equation}
 The factor \(C_{24,Q}\) is a compact accounting of the finite same-scheme hadronic endpoint
-transport missing from the source-only proof; the 24-register argument does not emit it.
+transport missing from the source-only proof. Equivalently,
+\(\Dhadreq^{\mathrm{fp}}=\alpha_U(P_\star)(C_{24,Q}-1)\). The 24-register argument emits
+\(\alpha_U(P_\star)\), but it does not emit this hadronic correction factor.
 
-Informally: the source calculation lands short by a small number with a known physical meaning. The source plus finite-screen unified gauge-width result is the OPH no-hadron prediction. Adding the hadronic correction calibrated from the measured value lands on the CODATA/NIST central value. It does not predict extra digits, because the hadronic part has not been derived mathematically inside OPH.
+Here \(A_{\mathrm C}\) is the CODATA/NIST 2022 inverse fine-structure constant \cite{nist-value,nist-2022}. The source value \(A_{\mathrm{calc}}(P_{\mathrm{root}})=\alpha_{\mathrm{root}}^{-1}\) and the source-plus-unified-gauge-width value \(A_{\alpha_U}^{\mathrm{fp}}\) are reproducible OPH fixed-point outputs \cite{oph-code}. Equation~\eqref{eq:Dempfp} is the measured-comparison residual in inverse-alpha units.
 
-Why this step is needed: this is the public numerical result, and it marks the limit of the calculation. More digits require a source-derived hadronic spectral calculation, not more decimal padding.
+Informally: the OPH calculation currently outputs \(137.035959500817\ldots\). The CODATA/NIST measured value is \(137.035999177(21)\). The difference is a small number with a known physical meaning: the hadronic/QCD endpoint contribution in the same electromagnetic-current convention. OPH has not yet computed that hadronic piece from source data.
+
+Why this step is needed: this marks the present limit of the calculation. More digits require a source-derived hadronic spectral calculation, not more decimal padding or relabeling the CODATA/NIST value as an OPH output.
 
 The endpoint decomposition is
 \begin{equation}
@@ -987,7 +1002,7 @@ The standard measured hadronic vacuum-polarization relation uses
 \end{equation}
 where \(R(s)\) is the measured ratio of the bare \(e^+e^-\to\mathrm{hadrons}\) cross section to the pointlike \(e^+e^-\to\mu^+\mu^-\) cross section.
 
-The independently documented measured quantity in the standard electroweak literature is usually quoted as \(\Delta\alpha_{\mathrm{had}}^{(5)}(M_Z^2)\). It is a dimensionless change in the running electromagnetic coupling at the \(Z\)-boson mass, not the inverse-alpha correction \(\Dcalib^{\mathrm{fp}}\) used in Eq.~\eqref{eq:Dempfp}. For example, Davier, Hoecker, Malaescu, and Zhang report
+The independently documented measured quantity in the standard electroweak literature is usually quoted as \(\Delta\alpha_{\mathrm{had}}^{(5)}(M_Z^2)\). It is a dimensionless change in the running electromagnetic coupling at the \(Z\)-boson mass, not the inverse-alpha correction \(\Dhadreq^{\mathrm{fp}}\) used in Eq.~\eqref{eq:Dempfp}. For example, Davier, Hoecker, Malaescu, and Zhang report
 \[
 \Delta\alpha_{\mathrm{had}}^{(5)}(M_Z^2)=(275.7\pm1.0)\times10^{-4}
 \]
@@ -998,7 +1013,7 @@ from \(e^+e^-\)-based data \cite{dhmz}. A more recent perturbative update by Erl
 \]
 when low-energy cross-section data are used as input \cite{erler-ferro}.
 
-The OPH correction in Eq.~\eqref{eq:Dempfp} is different. It is expressed in inverse-alpha units and in the endpoint convention used by \(\AZ(P)\). The standard published hadronic-running values document the physics source of the correction. They do not by themselves give the OPH same-scheme inverse-alpha correction to arbitrary precision. The community does publish the data machinery needed for this kind of calculation. Jegerlehner's alphaQED package provides hadronic running routines, covariance data, and an integration routine for custom kernels \cite{alphaqed}. That is the right empirical route once the OPH endpoint kernel and finite same-scheme remainder are fixed.
+The comparison residual in Eq.~\eqref{eq:Dempfp} is different. It is expressed in inverse-alpha units and in the endpoint convention used by \(\AZ(P)\). The standard published hadronic-running values document the physics source of the correction. They do not by themselves give the OPH same-scheme inverse-alpha correction to arbitrary precision. The community does publish the data machinery needed for this kind of calculation. Jegerlehner's alphaQED package provides hadronic running routines, covariance data, and an integration routine for custom kernels \cite{alphaqed}. That is the right empirical route once the OPH endpoint kernel and finite same-scheme remainder are fixed.
 
 In the OPH endpoint convention this is represented as a same-current spectral functional,
 \begin{equation}
@@ -1169,13 +1184,13 @@ result of Morel, Yao, Cladé, and Guellati-Khélifa reports
 \]
 in inverse-alpha units, unless a later release updates the adopted direct-measurement interval.
 
-\section{Step 22: The Public Endpoint Value}
+\section{Step 22: The CODATA/NIST Comparison Endpoint}
 
-With the CODATA/NIST endpoint value
+With the CODATA/NIST measured endpoint value
 \begin{equation}
 \ATh(\Ppub)=A_{\mathrm C}=137.035999177(21),
 \end{equation}
-Eq.~\eqref{eq:G} gives the corresponding public endpoint pixel:
+Eq.~\eqref{eq:G} gives the corresponding comparison pixel:
 \begin{align}
 \boxed{
 \Ppub
@@ -1216,7 +1231,7 @@ To run the raw PDG/CERN diagnostic discussed in Section~19:
 python3 fine_structure_fixed_point_demo.py --compare-alpha-inv 137.035999177
 \end{verbatim}
 
-Informally: the command line separates the pure source value, the measured-hadron value, and the diagnostic values. The mathematical paper uses the same separation.
+Informally: the command line separates the pure source value, the CODATA/NIST comparison value, and the diagnostic values. The mathematical paper uses the same separation.
 
 \section{Checklist of Non-Omitted Steps}
 
@@ -1242,9 +1257,9 @@ Charged spectrum & Eqs.~\eqref{eq:quarkmasses} and \eqref{eq:lepmasses} & Calcul
 Fermion kernel & Eqs.~\eqref{eq:kernelint} and \eqref{eq:kernelclosed} & Exact one-loop kernel. \\
 Calculated endpoint & \(A_{\mathrm{calc}}=\AZ+\Dcalc\) & Raw no-hadron source value. \\
 Bare-\(\alpha_U\) source prediction & \(A_{\alpha_U}^{\mathrm{fp}}\), Eq.~\eqref{eq:barealphaUaddition} & Source-side no-hadron prediction. \\
-Calibrated hadronic correction & \(\Dcalib^{\mathrm{fp}}\), Eq.~\eqref{eq:Dempfp} & Empirical endpoint-closure correction, not a source-only prediction. \\
+Required hadronic correction & \(\Dhadreq^{\mathrm{fp}}\), Eq.~\eqref{eq:Dempfp} & CODATA/NIST comparison residual attributed to the missing same-scheme hadronic endpoint transport. \\
 Hadronic/scheme residual & \(\Rq=\ATh-A_{\mathrm{calc}}\) & Isolated endpoint contribution. \\
-Public endpoint & \(\ATh=137.035999177(21)\) & CODATA/NIST endpoint comparison value. \\
+CODATA/NIST endpoint & \(\ATh=137.035999177(21)\) & Measured endpoint comparison value. \\
 Raw PDG diagnostic & Eq.~\eqref{eq:pdgdiag} & Comparison diagnostic in a different endpoint convention. \\
 Interval theorem & Banach/contraction certificate for full \(G\) & Required for pure source theorem. \\
 \bottomrule
@@ -1260,7 +1275,7 @@ The pure source calculation computes the root witness
 =
 \decnum{136.994835164621649457949994585787193262029}.
 \]
-The public endpoint value is
+The CODATA/NIST measured endpoint value is
 \[
 \alphainv(0)=137.035999177(21),
 \]
@@ -1272,7 +1287,7 @@ Adding the emitted finite-screen unified gauge-width contribution gives the sour
 \[
 A_{\alpha_U}^{\mathrm{fp}}=137.035959500817279952949994585787\ldots.
 \]
-The remaining gap is a named low-energy hadronic and same-scheme endpoint contribution. The public exact-value row is a calibrated endpoint comparison, not a source-only prediction. The pure source theorem requires the Ward-projected hadronic spectral measure, the same-scheme endpoint bridge, and the interval-certificate step.
+The remaining gap is a named low-energy hadronic and same-scheme endpoint contribution. The CODATA/NIST exact-value row is a measured endpoint comparison. The pure source theorem requires the Ward-projected hadronic spectral measure, the same-scheme endpoint bridge, and the interval-certificate step.
 
 \section*{Declarations}
 

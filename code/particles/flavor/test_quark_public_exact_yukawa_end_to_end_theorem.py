@@ -31,11 +31,15 @@ def test_quark_public_exact_yukawa_end_to_end_theorem_closes_public_target() -> 
     )
 
     assert payload["artifact"] == "oph_quark_public_exact_yukawa_end_to_end_theorem"
-    assert payload["proof_status"] == "blocked_by_target_derived_public_sigma_datum"
-    assert payload["target_name"] == "target_free_public_exact_forward_quark_yukawas"
+    assert payload["proof_status"] == "blocked_target_derived_sigma_source_missing"
+    assert payload["target_name"] == "selected_class_conditional_forward_quark_yukawas"
+    assert payload["claim_tier"] == "selected_class_conditional_on_source_sigma"
     assert payload["public_promotion_allowed"] is False
+    assert payload["source_only_sigma_emitted"] is False
+    assert payload["downstream_algebra_closed"] is True
     assert payload["display_allowed_as_selected_class_exact_witness"] is True
-    assert payload["minimal_exact_blocker_set"] == ["quark_public_physical_sigma_source_datum_no_target_leak"]
+    assert "QUARK_SIGMA_SOURCE_SELECTOR" in payload["minimal_exact_blocker_set"]
+    assert "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE" in payload["minimal_exact_blocker_set"]
     assert payload["non_circularity_status"]["target_derived_sigma_datum_used"] is True
     outputs = payload["public_exact_outputs"]["forward_yukawa_artifact"]
     assert outputs["artifact"] == "oph_quark_current_family_transport_frame_exact_forward_yukawas"

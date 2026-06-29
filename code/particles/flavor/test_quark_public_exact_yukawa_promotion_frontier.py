@@ -38,13 +38,13 @@ def test_quark_public_exact_yukawa_promotion_frontier_records_single_remaining_p
     )
 
     assert payload["artifact"] == "oph_quark_public_exact_yukawa_promotion_frontier"
-    assert payload["proof_status"] == "blocked_by_target_derived_public_sigma_datum"
+    assert payload["proof_status"] == "blocked_target_derived_sigma_source_missing"
     assert payload["public_promotion_allowed"] is False
     assert payload["non_circularity_status"]["missing_source_object"] == (
-        "quark_public_physical_sigma_source_datum_no_target_leak"
+        "quark_sigma_source_datum_no_target_leak_required"
     )
     assert payload["resolved_by_theorem_artifact"] == "oph_quark_public_exact_yukawa_end_to_end_theorem"
-    assert payload["final_public_theorem_candidate"]["id"] == "target_free_public_physical_sigma_datum_descent"
+    assert payload["final_public_theorem_candidate"]["id"] == "selected_bridge_fiber_sigma_descent_not_source_selection"
     assert payload["alternate_upstream_route"]["id"] == "oph_generation_bundle_branch_generator_splitting"
     assert payload["closed_local_endpoint"]["artifact"] == "oph_quark_exact_yukawa_end_to_end_theorem"
     induced = payload["closed_public_endpoint"]["public_exact_outputs"]["forward_yukawa_artifact"]

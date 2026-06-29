@@ -34,14 +34,14 @@ def test_public_strengthened_physical_sigma_lift_frontier_records_final_routes()
         public_sigma_theorem,
     )
 
-    assert payload["proof_status"] == "blocked_by_target_derived_public_sigma_datum"
+    assert payload["proof_status"] == "blocked_target_derived_sigma_datum_descent"
     assert payload["public_promotion_allowed"] is False
     assert payload["non_circularity_status"]["missing_source_object"] == (
-        "quark_public_physical_sigma_source_datum_no_target_leak"
+        "quark_sigma_source_datum_no_target_leak_required"
     )
     assert payload["resolved_by_theorem_artifact"] == "oph_quark_public_physical_sigma_datum_descent"
     final = payload["final_public_theorem_candidate"]
-    assert final["id"] == "target_free_public_physical_sigma_datum_descent"
+    assert final["id"] == "selected_bridge_fiber_sigma_descent_not_source_selection"
     assert final["induces_global_contract"]["id"] == "strengthened_quark_physical_sigma_ud_lift"
     sigma = final["must_emit"]["physical_sigma_datum"]
     assert abs(float(sigma["sigma_u"]) - 5.573928426395543) < 1.0e-12

@@ -31,7 +31,7 @@
       ],
       "id": "strong-cp-closure-bundle",
       "promotion_question": "Can the exact quark/Yukawa branch be extended to the physical strong-CP invariant, including theta_QCD, bar(theta), and a vanishing theorem on the realized branch?",
-      "result": "No promotion. The selected-class exact quark theorem fixes the running sextet and forward Yukawas on the public class f_P. The available corpus does not emit the determinant-line phase contribution, the bare theta_QCD term, or a theorem forcing the physical strong-CP phase to vanish.",
+      "result": "No promotion. The selected-class quark support wrapper conditionally carries the running sextet and forward Yukawas on the public class f_P, but the source sigma selector is still missing. The available corpus does not emit the determinant-line phase contribution, the bare theta_QCD term, or a theorem forcing the physical strong-CP phase to vanish.",
       "status": "open_physical_invariant_gap"
     },
     {
@@ -119,7 +119,7 @@
     },
     "v_over_E_cell_source": "2.5797040595276223506583341903922018695490035369903290256096683452314630559578761079150341073645683725521032233E-17"
   },
-  "generated_utc": "2026-06-29T06:58:53Z",
+  "generated_utc": "2026-06-29T10:22:10Z",
   "p_trunk": {
     "P": "1.63097210492078846050203640439",
     "alpha_inv": "136.994020662724205139718642793",
@@ -267,7 +267,7 @@
       "title": "Keep neutrino theorem rows and comparison tension separated"
     },
     {
-      "current_boundary": "The selected-class exact Yukawa theorem emits the PDG 2025 running-quark sextet and exact forward Yukawas on the public class f_P. The available corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes.",
+      "current_boundary": "The selected-class quark support wrapper conditionally carries the running-quark sextet and exact forward Yukawas on the public class f_P, but its sigma datum is still target-derived. The available corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes.",
       "github_issue": 155,
       "id": "qcd.strong-cp-angle",
       "lane": "Strong CP",

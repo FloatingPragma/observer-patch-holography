@@ -32,6 +32,7 @@ CURRENT_FAMILY_TRANSPORT_COMPLETION_SCRIPT = ROOT / "particles" / "flavor" / "de
 CURRENT_FAMILY_TRANSPORT_FORWARD_YUKAWAS_SCRIPT = ROOT / "particles" / "flavor" / "derive_quark_current_family_transport_frame_exact_forward_yukawas.py"
 CURRENT_FAMILY_TRANSPORT_YUKAWA_THEOREM_SCRIPT = ROOT / "particles" / "flavor" / "derive_quark_current_family_transport_frame_exact_yukawa_theorem.py"
 EXACT_YUKAWA_END_TO_END_SCRIPT = ROOT / "particles" / "flavor" / "derive_quark_exact_yukawa_end_to_end_theorem.py"
+SIGMA_SOURCE_REQUIRED_SCRIPT = ROOT / "particles" / "flavor" / "derive_quark_sigma_source_datum_no_target_leak_required.py"
 PUBLIC_SIGMA_THEOREM_SCRIPT = ROOT / "particles" / "flavor" / "derive_quark_public_physical_sigma_datum_descent.py"
 PUBLIC_EXACT_YUKAWA_THEOREM_SCRIPT = ROOT / "particles" / "flavor" / "derive_quark_public_exact_yukawa_end_to_end_theorem.py"
 PUBLIC_EXACT_YUKAWA_PROMOTION_FRONTIER_SCRIPT = ROOT / "particles" / "flavor" / "derive_quark_public_exact_yukawa_promotion_frontier.py"
@@ -65,6 +66,7 @@ def test_quark_lane_closure_contract_records_closed_exact_pdg_target_and_open_pu
         CURRENT_FAMILY_TRANSPORT_FORWARD_YUKAWAS_SCRIPT,
         CURRENT_FAMILY_TRANSPORT_YUKAWA_THEOREM_SCRIPT,
         EXACT_YUKAWA_END_TO_END_SCRIPT,
+        SIGMA_SOURCE_REQUIRED_SCRIPT,
         PUBLIC_SIGMA_THEOREM_SCRIPT,
         PUBLIC_STRENGTHENED_FRONTIER_SCRIPT,
         PUBLIC_EXACT_YUKAWA_THEOREM_SCRIPT,
@@ -80,7 +82,7 @@ def test_quark_lane_closure_contract_records_closed_exact_pdg_target_and_open_pu
     assert payload["proof_status"] == "selected_class_exact_witness_blocked_by_target_derived_sigma_datum"
     assert payload["public_promotion_allowed"] is False
     assert payload["non_circularity_status"]["missing_source_object"] == (
-        "quark_public_physical_sigma_source_datum_no_target_leak"
+        "quark_sigma_source_datum_no_target_leak_required"
     )
     exact_target = payload["exact_pdg_derivation_target"]
     assert exact_target["target_name"] == "exact_running_quark_sextet_on_declared_current_family_transport_frame"
@@ -97,7 +99,7 @@ def test_quark_lane_closure_contract_records_closed_exact_pdg_target_and_open_pu
     assert exact_yukawa_target["wrapper_theorem"] == "oph_quark_exact_yukawa_end_to_end_theorem"
     assert exact_yukawa_target["forward_certified"] is True
     public_exact_yukawa_target = payload["public_exact_yukawa_derivation_target"]
-    assert public_exact_yukawa_target["status"] == "blocked_by_target_derived_public_sigma_datum"
+    assert public_exact_yukawa_target["status"] == "blocked_target_derived_sigma_source_missing"
     assert public_exact_yukawa_target["artifact"] == "oph_quark_public_exact_yukawa_end_to_end_theorem"
     assert public_exact_yukawa_target["forward_yukawa_artifact"]["artifact"] == "oph_quark_current_family_transport_frame_exact_forward_yukawas"
     assert payload["selected_local_sheet_status"]["sigma_id"] == "sigma_ref"
@@ -132,10 +134,10 @@ def test_quark_lane_closure_contract_records_closed_exact_pdg_target_and_open_pu
     assert target_surface["end_to_end_exact_pdg_derivation_chain"]["exact_running_values_gev"]["d"] == 0.004699999999999999
     public_frontier = payload["public_final_theorem_frontier"]
     assert public_frontier["artifact"] == "oph_quark_public_strengthened_physical_sigma_lift_frontier"
-    assert public_frontier["proof_status"] == "blocked_by_target_derived_public_sigma_datum"
+    assert public_frontier["proof_status"] == "blocked_target_derived_sigma_datum_descent"
     assert public_frontier["public_promotion_allowed"] is False
     assert public_frontier["resolved_by_theorem_artifact"] == "oph_quark_public_physical_sigma_datum_descent"
-    assert public_frontier["final_public_theorem_candidate"]["id"] == "target_free_public_physical_sigma_datum_descent"
+    assert public_frontier["final_public_theorem_candidate"]["id"] == "selected_bridge_fiber_sigma_descent_not_source_selection"
     assert public_frontier["final_public_theorem_candidate"]["induces_global_contract"]["id"] == (
         "strengthened_quark_physical_sigma_ud_lift"
     )
@@ -143,20 +145,20 @@ def test_quark_lane_closure_contract_records_closed_exact_pdg_target_and_open_pu
     assert public_frontier["alternate_upstream_route"]["status"] == "upstream_alternative_route_currently_deprioritized"
     public_yukawa_frontier = payload["public_exact_yukawa_promotion_frontier"]
     assert public_yukawa_frontier["artifact"] == "oph_quark_public_exact_yukawa_promotion_frontier"
-    assert public_yukawa_frontier["target_name"] == "target_free_public_exact_forward_quark_yukawas"
-    assert public_yukawa_frontier["proof_status"] == "blocked_by_target_derived_public_sigma_datum"
+    assert public_yukawa_frontier["target_name"] == "selected_class_conditional_forward_quark_yukawas"
+    assert public_yukawa_frontier["proof_status"] == "blocked_target_derived_sigma_source_missing"
     assert public_yukawa_frontier["public_promotion_allowed"] is False
     assert public_yukawa_frontier["resolved_by_theorem_artifact"] == "oph_quark_public_exact_yukawa_end_to_end_theorem"
-    assert public_yukawa_frontier["final_public_theorem_candidate"]["id"] == "target_free_public_physical_sigma_datum_descent"
+    assert public_yukawa_frontier["final_public_theorem_candidate"]["id"] == "selected_bridge_fiber_sigma_descent_not_source_selection"
     assert public_yukawa_frontier["closed_public_endpoint"]["public_exact_outputs"]["forward_yukawa_artifact"]["artifact"] == (
         "oph_quark_current_family_transport_frame_exact_forward_yukawas"
     )
     compression = payload["candidate_one_theorem_physical_compression"]
-    assert compression["status"] == "blocked_by_target_derived_public_sigma_datum"
+    assert compression["status"] == "blocked_target_derived_sigma_source_missing"
     assert compression["artifact"] == "oph_quark_public_physical_sigma_datum_descent"
     assert compression["supporting_algebraic_collapse_artifact"] == "oph_quark_absolute_readout_algebraic_collapse"
     assert compression["remaining_nonalgebraic_theorem"] == (
-        "quark_public_physical_sigma_source_datum_no_target_leak"
+        "QUARK_SIGMA_SOURCE_SELECTOR"
     )
     assert compression["remaining_exact_gap"] == "target_derived_sigma_datum_used_for_selected_class_exact_witness"
     assert payload["continuation_only_mass_sidecar"]["closed_mass_side_package"]["t1"] == 0.6715870378831591

@@ -44,7 +44,7 @@ def build_artifact(
     promotion_allowed = (
         public_exact_yukawa_theorem.get("public_promotion_allowed") is True
         and public_exact_yukawa_theorem.get("proof_status")
-        == "closed_target_free_public_exact_yukawa_end_to_end_theorem"
+        == "closed_source_only_public_exact_yukawa_end_to_end_theorem"
     )
     return {
         "artifact": "oph_quark_public_exact_yukawa_promotion_frontier",
@@ -77,17 +77,17 @@ def build_artifact(
             "statement": (
                 "The final public theorem candidate is now closed, so this conditional closure is realized."
                 if promotion_allowed
-                else "The final public theorem candidate is not strict-source promotable until a public sigma source datum with no target leak is supplied."
+                else "The final public theorem candidate is not strict-source promotable until a source-only quark sigma selector with no target leak is supplied."
             ),
             "induced_exact_outputs": public_exact_yukawa_theorem["public_exact_outputs"]["forward_yukawa_artifact"],
         },
         "notes": [
             (
-                "This frontier is now resolved: the direct public sigma-datum descent theorem is closed, and the public exact Yukawa theorem is emitted explicitly."
+                "This frontier is now resolved: a source-only public sigma-datum theorem is closed, and the public exact Yukawa theorem is emitted explicitly."
                 if promotion_allowed
-                else "This frontier is blocked under strict non-circularity by the target-derived public sigma datum."
+                else "This frontier is blocked under strict non-circularity by the missing source-only quark sigma selector."
             ),
-            "The alternate upstream route remains only as an unused alternative derivation route.",
+            "The alternate upstream route remains a route toward the missing sigma selector.",
             "The local declared-carrier exact Yukawa theorem is retained as the representative closed local endpoint beneath the public theorem.",
         ],
     }

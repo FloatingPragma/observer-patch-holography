@@ -1,0 +1,86 @@
+{
+  "artifact": "oph_quark_sigma_source_datum_no_target_leak_required",
+  "claim_tier": "selected_class_conditional_on_source_sigma",
+  "conditional_downstream_if_closed": {
+    "eta_ud": "(sigma_u - sigma_d)/2",
+    "g_d": "g_ch*exp(-(A_ud*sigma_seed_ud + B_ud*eta_ud))",
+    "g_u": "g_ch*exp(-(A_ud*sigma_seed_ud - B_ud*eta_ud))",
+    "sigma_seed_ud": "(sigma_u + sigma_d)/2",
+    "then": "ordered_three_point_readout_and_exact_forward_Yu_Yd"
+  },
+  "current_exact_path_is_target_derived": [
+    "quark_current_family_exact_readout",
+    "quark_current_family_exact_sigma_target",
+    "quark_current_family_transport_frame_strengthened_physical_sigma_lift_theorem",
+    "quark_public_physical_sigma_datum_descent",
+    "quark_public_exact_yukawa_end_to_end_theorem"
+  ],
+  "downstream_algebra_closed": true,
+  "forbidden_ancestors": [
+    "particle_reference_values",
+    "quark_current_family_exact_readout",
+    "quark_current_family_exact_sigma_target",
+    "quark_current_family_exact_pdg_theorem",
+    "quark_current_family_transport_frame_strengthened_physical_sigma_lift_theorem",
+    "target_centered_log_u",
+    "target_centered_log_d",
+    "reference_targets_u",
+    "reference_targets_d",
+    "exact_fit_residuals",
+    "PDG",
+    "CODATA",
+    "compare_only"
+  ],
+  "generated_utc": "2026-06-29T10:27:30Z",
+  "missing_for_promotion": [
+    "QUARK_SIGMA_SOURCE_QUOTIENT",
+    "QUARK_SIGMA_SOURCE_SELECTOR",
+    "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
+    "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
+    "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE"
+  ],
+  "notes": [
+    "The edge-statistics candidate is retained as the strongest current source-side theorem target.",
+    "The required corrections may not be defined as residuals against running-quark target values.",
+    "This artifact blocks promotion; it does not emit a replacement sigma datum."
+  ],
+  "promotion_allowed": false,
+  "proof_status": "missing_theorem",
+  "public_promotion_allowed": false,
+  "required_identity": "P -> f_P -> Sigma_ud_phys -> (sigma_u,sigma_d,sigma_seed_ud,eta_ud)",
+  "required_theorem_package": {
+    "Q\u03a3-0": "sigma descent is representative independence, not source selection",
+    "Q\u03a3-1": "selected-frame quark masses remain underdetermined without a source sigma selector",
+    "Q\u03a3-2": "conditional quark masses follow once a no-target source sigma datum is supplied",
+    "Q\u03a3-A": "QUARK_SIGMA_SOURCE_QUOTIENT",
+    "Q\u03a3-B": "QUARK_SIGMA_SOURCE_SELECTOR",
+    "Q\u03a3-C": "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
+    "Q\u03a3-D": "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
+    "Q\u03a3-E": "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE"
+  },
+  "selected_class": "f_P",
+  "source_only_sigma_emitted": false,
+  "status": "missing_theorem",
+  "strongest_current_source_candidate": {
+    "S13": 5.407843949508826,
+    "S23": 3.346451912983049,
+    "delta21": 0.3023656602589083,
+    "formula_sigma_d_edge": "S_23 + delta21/(2*(1+rho_ord-x2^2))",
+    "formula_sigma_u_edge": "S_13 + rho_ord*delta21/(1+rho_ord)",
+    "mean_denominator": 2.026389321714338,
+    "required_R_d": -0.1247947151634663,
+    "required_R_eta": 0.060152168743091705,
+    "required_R_seed": -0.06464254642037481,
+    "required_R_u": -0.004490377677282886,
+    "rho_ord": 1.2942849363777058,
+    "sigma_d_edge": 3.4210589139721543,
+    "sigma_u_edge": 5.578418804072826,
+    "x2": -0.5175863354681689
+  },
+  "target_values_for_future_source_theorem": {
+    "eta_ud": 1.1388321137934274,
+    "sigma_d": 3.296264198808688,
+    "sigma_seed_ud": 4.4350963126021155,
+    "sigma_u": 5.573928426395543
+  }
+}

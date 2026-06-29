@@ -1,5 +1,6 @@
 {
   "artifact": "oph_quark_public_exact_yukawa_end_to_end_theorem",
+  "claim_tier": "selected_class_conditional_on_source_sigma",
   "descended_physical_sigma_datum": {
     "eta_ud": 1.1388321137934274,
     "sigma_d": 3.296264198808688,
@@ -7,7 +8,8 @@
     "sigma_u": 5.573928426395543
   },
   "display_allowed_as_selected_class_exact_witness": true,
-  "generated_utc": "2026-06-29T07:35:28Z",
+  "downstream_algebra_closed": true,
+  "generated_utc": "2026-06-29T10:27:30Z",
   "lemma_chain": [
     "oph_quark_public_physical_sigma_datum_descent",
     "oph_quark_absolute_readout_algebraic_collapse",
@@ -15,21 +17,26 @@
     "oph_quark_exact_yukawa_end_to_end_theorem"
   ],
   "minimal_exact_blocker_set": [
-    "quark_public_physical_sigma_source_datum_no_target_leak"
+    "QUARK_SIGMA_SOURCE_QUOTIENT",
+    "QUARK_SIGMA_SOURCE_SELECTOR",
+    "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
+    "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
+    "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE"
   ],
   "non_circularity_status": {
-    "missing_source_object": "quark_public_physical_sigma_source_datum_no_target_leak",
+    "missing_source_object": "quark_sigma_source_datum_no_target_leak_required",
     "promotion_allowed": false,
     "public_sigma_promotion_allowed": false,
-    "public_sigma_proof_status": "blocked_by_target_derived_public_sigma_datum",
-    "strict_audit_label": "selected_class_target_anchored_exact_witness",
+    "public_sigma_proof_status": "blocked_target_derived_sigma_datum_descent",
+    "source_sigma_selector_closed": false,
+    "strict_audit_label": "selected_class_conditional_on_source_sigma",
     "target_derived_sigma_datum_used": true
   },
   "notes": [
     "This artifact displays the selected-class exact witness but is not promotable under the strict non-circularity audit because the public sigma datum descends from an exact target surface.",
     "The exact matrices Y_u and Y_d are the same numerical matrices already emitted on the closed local chain."
   ],
-  "proof_status": "blocked_by_target_derived_public_sigma_datum",
+  "proof_status": "blocked_target_derived_sigma_source_missing",
   "public_exact_outputs": {
     "exact_running_values_gev": {
       "b": 4.182999999999994,
@@ -223,12 +230,13 @@
     "selected_by": "P",
     "symbol": "[F0^dagger F1]"
   },
+  "source_only_sigma_emitted": false,
   "supporting_theorem_artifacts": {
     "local_exact_pdg_wrapper": "oph_quark_exact_pdg_end_to_end_theorem",
     "local_exact_yukawa_wrapper": "oph_quark_exact_yukawa_end_to_end_theorem",
     "public_sigma_datum_descent": "oph_quark_public_physical_sigma_datum_descent"
   },
-  "target_name": "target_free_public_exact_forward_quark_yukawas",
+  "target_name": "selected_class_conditional_forward_quark_yukawas",
   "theorem_scope": "selected_public_physical_quark_frame_class_only",
-  "theorem_statement": "From OPH axioms + P, the public quark frame class selected by P carries, by target_free_public_physical_sigma_datum_descent, the unique theorem-grade physical sigma datum already realized on the closed transport-frame chain. The affine mean law then emits the absolute sector scales algebraically, the ordered three-point readout yields the exact running quark sextet, and the exact forward construction emits explicit exact Yukawa matrices Y_u and Y_d on that public selected class."
+  "theorem_statement": "Conditional on a no-target source theorem emitting the physical sigma datum on the public quark frame class selected by P, the selected bridge-fiber descent makes that datum representative-independent, the affine mean law emits the absolute sector scales algebraically, the ordered three-point readout yields the running quark sextet, and the exact forward construction emits explicit Yukawa matrices Y_u and Y_d on that selected class. The current artifact displays the selected-class exact witness but does not promote it because the sigma datum is inherited from the current-family exact target surface."
 }

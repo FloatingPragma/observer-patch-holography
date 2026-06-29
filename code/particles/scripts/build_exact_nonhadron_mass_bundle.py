@@ -36,6 +36,7 @@ QUARK_TRANSPORT_COMPLETION_JSON = ROOT / "particles" / "runs" / "flavor" / "quar
 QUARK_TRANSPORT_FORWARD_YUKAWAS_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_current_family_transport_frame_exact_forward_yukawas.json"
 QUARK_END_TO_END_CHAIN_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_current_family_end_to_end_exact_pdg_derivation_chain.json"
 QUARK_PUBLIC_YUKAWA_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_public_exact_yukawa_end_to_end_theorem.json"
+QUARK_SIGMA_REQUIRED_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_sigma_source_datum_no_target_leak_required.json"
 NEUTRINO_JSON = ROOT / "particles" / "runs" / "neutrino" / "neutrino_absolute_attachment_theorem.json"
 NEUTRINO_BRIDGE_RIGIDITY_JSON = ROOT / "particles" / "runs" / "neutrino" / "neutrino_bridge_rigidity_theorem.json"
 DEFAULT_MD_OUT = ROOT / "particles" / "EXACT_NONHADRON_MASSES.md"
@@ -84,7 +85,7 @@ def _quark_public_promotable(payload: dict[str, Any] | None) -> bool:
     return (
         bool(payload)
         and payload.get("public_promotion_allowed") is True
-        and payload.get("proof_status") == "closed_target_free_public_exact_yukawa_end_to_end_theorem"
+        and payload.get("proof_status") == "closed_source_only_public_exact_yukawa_end_to_end_theorem"
         and _non_circularity_promotable(payload, default=True)
     )
 
@@ -132,6 +133,12 @@ def _withheld_entry(entry: dict[str, Any]) -> dict[str, Any]:
         "conditional_anchor_symbol",
         "missing_for_promotion",
         "promotion_gate_artifact",
+        "claim_tier",
+        "source_only_sigma_emitted",
+        "downstream_algebra_closed",
+        "selected_class",
+        "exact_sigma_target",
+        "strongest_source_candidate",
     ):
         if key in entry:
             withheld[key] = entry[key]
@@ -167,6 +174,7 @@ def build_all_entries() -> list[dict[str, Any]]:
     quark_transport_forward_yukawas = _load_optional_json(QUARK_TRANSPORT_FORWARD_YUKAWAS_JSON)
     quark_end_to_end_chain = _load_optional_json(QUARK_END_TO_END_CHAIN_JSON)
     quark_public_exact_yukawa = _load_optional_json(QUARK_PUBLIC_YUKAWA_JSON)
+    quark_sigma_required = _load_optional_json(QUARK_SIGMA_REQUIRED_JSON)
     neutrino = _load_json(NEUTRINO_JSON)
     neutrino_bridge_rigidity = _load_json(NEUTRINO_BRIDGE_RIGIDITY_JSON)
     quark_exact_values = (
@@ -201,6 +209,42 @@ def build_all_entries() -> list[dict[str, Any]]:
         else quark["theorem_scope"]
     )
     quark_exact_source = _repo_ref(QUARK_PUBLIC_YUKAWA_JSON) if quark_public_exact_yukawa else _repo_ref(QUARK_JSON)
+    quark_missing_for_promotion = list(
+        (quark_sigma_required or {}).get(
+            "missing_for_promotion",
+            [
+                "QUARK_SIGMA_SOURCE_QUOTIENT",
+                "QUARK_SIGMA_SOURCE_SELECTOR",
+                "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
+                "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
+                "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE",
+            ],
+        )
+    )
+    quark_common_metadata = {
+        "claim_tier": (
+            (quark_public_exact_yukawa or {}).get("claim_tier")
+            or (quark_sigma_required or {}).get("claim_tier")
+            or "selected_class_conditional_on_source_sigma"
+        ),
+        "source_only_sigma_emitted": bool(
+            (quark_public_exact_yukawa or {}).get(
+                "source_only_sigma_emitted",
+                (quark_sigma_required or {}).get("source_only_sigma_emitted", False),
+            )
+        ),
+        "downstream_algebra_closed": bool(
+            (quark_public_exact_yukawa or {}).get(
+                "downstream_algebra_closed",
+                (quark_sigma_required or {}).get("downstream_algebra_closed", True),
+            )
+        ),
+        "selected_class": (quark_sigma_required or {}).get("selected_class", "f_P"),
+        "missing_for_promotion": quark_missing_for_promotion,
+        "promotion_gate_artifact": _repo_ref(QUARK_SIGMA_REQUIRED_JSON),
+        "exact_sigma_target": (quark_sigma_required or {}).get("target_values_for_future_source_theorem"),
+        "strongest_source_candidate": (quark_sigma_required or {}).get("strongest_current_source_candidate"),
+    }
     quark_public_note_prefix = (
         "Theorem-grade exact quark output on the selected public physical quark frame class chosen by `P`, "
         if quark_exact_promotable
@@ -209,7 +253,7 @@ def build_all_entries() -> list[dict[str, Any]]:
     quark_public_nonpromotion_note = (
         ""
         if quark_exact_promotable
-        else "Under the strict non-circularity audit it is not promotable because the public sigma datum is target-derived. "
+        else "Under the strict non-circularity audit it is not promotable because the public sigma descent proves representative independence only; the source-only sigma selector is still missing. "
     )
     quark_exact_note = (
         (
@@ -238,7 +282,7 @@ def build_all_entries() -> list[dict[str, Any]]:
         "chain emits explicit exact forward Yukawas `Y_u` and `Y_d` with certification status "
         f"`{(quark_transport_forward_yukawas or {}).get('certification_status', 'forward_matrix_certified')}`. The full declared-carrier chain is "
         f"recorded in `{(quark_end_to_end_chain or {}).get('artifact', 'oph_quark_current_family_end_to_end_exact_pdg_derivation_chain')}`. The target-free mass bridge closes separately "
-        "on the emitted D12 ray. "
+        "on the emitted D12 ray, but it does not emit the physical sigma/spread datum. "
         + (
             "This theorem is selected-class closure only. It does not claim a global classification of all quark frame classes."
             if quark_public_exact_yukawa
@@ -430,6 +474,7 @@ def build_all_entries() -> list[dict[str, Any]]:
             "supporting_transport_frame_completion_artifact": _repo_ref(QUARK_TRANSPORT_COMPLETION_JSON),
             "supporting_transport_frame_forward_yukawas_artifact": _repo_ref(QUARK_TRANSPORT_FORWARD_YUKAWAS_JSON),
             "supporting_end_to_end_chain_artifact": _repo_ref(QUARK_END_TO_END_CHAIN_JSON),
+            **quark_common_metadata,
             "note": quark_exact_note,
         },
         {
@@ -446,6 +491,7 @@ def build_all_entries() -> list[dict[str, Any]]:
             "supporting_transport_frame_completion_artifact": _repo_ref(QUARK_TRANSPORT_COMPLETION_JSON),
             "supporting_transport_frame_forward_yukawas_artifact": _repo_ref(QUARK_TRANSPORT_FORWARD_YUKAWAS_JSON),
             "supporting_end_to_end_chain_artifact": _repo_ref(QUARK_END_TO_END_CHAIN_JSON),
+            **quark_common_metadata,
             "note": quark_exact_note,
         },
         {
@@ -462,6 +508,7 @@ def build_all_entries() -> list[dict[str, Any]]:
             "supporting_transport_frame_completion_artifact": _repo_ref(QUARK_TRANSPORT_COMPLETION_JSON),
             "supporting_transport_frame_forward_yukawas_artifact": _repo_ref(QUARK_TRANSPORT_FORWARD_YUKAWAS_JSON),
             "supporting_end_to_end_chain_artifact": _repo_ref(QUARK_END_TO_END_CHAIN_JSON),
+            **quark_common_metadata,
             "note": quark_exact_note,
         },
         {
@@ -478,6 +525,7 @@ def build_all_entries() -> list[dict[str, Any]]:
             "supporting_transport_frame_completion_artifact": _repo_ref(QUARK_TRANSPORT_COMPLETION_JSON),
             "supporting_transport_frame_forward_yukawas_artifact": _repo_ref(QUARK_TRANSPORT_FORWARD_YUKAWAS_JSON),
             "supporting_end_to_end_chain_artifact": _repo_ref(QUARK_END_TO_END_CHAIN_JSON),
+            **quark_common_metadata,
             "note": quark_exact_note,
         },
         {
@@ -494,6 +542,7 @@ def build_all_entries() -> list[dict[str, Any]]:
             "supporting_transport_frame_completion_artifact": _repo_ref(QUARK_TRANSPORT_COMPLETION_JSON),
             "supporting_transport_frame_forward_yukawas_artifact": _repo_ref(QUARK_TRANSPORT_FORWARD_YUKAWAS_JSON),
             "supporting_end_to_end_chain_artifact": _repo_ref(QUARK_END_TO_END_CHAIN_JSON),
+            **quark_common_metadata,
             "note": quark_exact_note,
         },
         {
@@ -510,6 +559,7 @@ def build_all_entries() -> list[dict[str, Any]]:
             "supporting_transport_frame_completion_artifact": _repo_ref(QUARK_TRANSPORT_COMPLETION_JSON),
             "supporting_transport_frame_forward_yukawas_artifact": _repo_ref(QUARK_TRANSPORT_FORWARD_YUKAWAS_JSON),
             "supporting_end_to_end_chain_artifact": _repo_ref(QUARK_END_TO_END_CHAIN_JSON),
+            **quark_common_metadata,
             "note": quark_exact_note,
         },
         {

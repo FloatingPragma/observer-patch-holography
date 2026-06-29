@@ -182,9 +182,11 @@ Full SI gravity remains gated by the no-G clock stack.
   [quark_current_family_transport_frame_exact_forward_yukawas.json](runs/flavor/quark_current_family_transport_frame_exact_forward_yukawas.json)
 - restricted current-family common-refinement end-to-end exact PDG derivation chain:
   [quark_current_family_end_to_end_exact_pdg_derivation_chain.json](runs/flavor/quark_current_family_end_to_end_exact_pdg_derivation_chain.json)
-- public exact physical sigma-datum descent theorem:
+- missing source-only sigma selector gate:
+  [quark_sigma_source_datum_no_target_leak_required.json](runs/flavor/quark_sigma_source_datum_no_target_leak_required.json)
+- selected-class physical sigma-datum descent witness:
   [quark_public_physical_sigma_datum_descent.json](runs/flavor/quark_public_physical_sigma_datum_descent.json)
-- public exact end-to-end Yukawa theorem:
+- selected-class conditional end-to-end Yukawa witness:
   [quark_public_exact_yukawa_end_to_end_theorem.json](runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json)
 - public exact Yukawa promotion frontier:
   [quark_public_exact_yukawa_promotion_frontier.json](runs/flavor/quark_public_exact_yukawa_promotion_frontier.json)
@@ -204,19 +206,21 @@ quark reference sextet exactly on that declared target surface; its top coordina
 the PDG 2025 cross-section mass entry. The auxiliary direct-top entry is
 compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207)
 is closed as a corpus-limited codomain no-go. A separate restricted theorem chain on the explicit
-`current_family_common_refinement_transport_frame_only` carrier emits a
+  `current_family_common_refinement_transport_frame_only` carrier emits a
 sector-attached `Sigma_ud^phys` element, the exact physical sigma datum, the
 restricted absolute sector readout, the same sextet, and explicit exact
 forward Yukawas `Y_u` and `Y_d`. The declared end-to-end exact chain closes on
-that carrier. A separate direct public descent theorem closes on the selected
-public physical quark frame class chosen by `P`, but the physical sigma datum
-is target-derived on the current public surface. The affine mean law emits
-`(g_u, g_d)` algebraically, and the exact forward construction emits the same
-sextet together with explicit exact forward Yukawas `Y_u` and `Y_d`. This is a
-selected-class target-anchored exact witness only. It does not claim a global
+that carrier. A separate direct public descent witness proves representative
+independence on the selected public physical quark frame class chosen by `P`,
+but the physical sigma datum is target-derived on the current public surface.
+Promotion requires `QUARK_SIGMA_SOURCE_SELECTOR` and
+`NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE`. Once a source-only sigma datum is
+supplied, the affine mean law emits `(g_u, g_d)` algebraically, and the exact
+forward construction emits the same sextet together with explicit exact forward
+Yukawas `Y_u` and `Y_d`. Until then this is selected-class conditional support
+only, not a public source-only quark mass prediction. It does not claim a global
 classification of all quark frame classes. The upstream generation-bundle
-transfer route is an alternative route, not a blocker on this selected-class
-surface.
+transfer route is an alternative source-sigma route, not a closed theorem.
 
 ## Typical Rebuild
 

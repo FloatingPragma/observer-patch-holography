@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """Emit the global public quark-frame descent obstruction for issue #199.
 
-The selected public quark frame class ``f_P`` is closed: the existing public
-sigma-datum descent theorem proves constancy on the declared bridge fiber
+The selected public quark frame class ``f_P`` has a closed representative-
+independence statement: the existing public sigma-datum descent theorem proves constancy on the declared bridge fiber
 ``R_decl(f_P)``. Issue #199 asks for the stronger class-uniform/global theorem
 over arbitrary public quark-frame classes. The present corpus does not emit the
 ambient classifier or quotient-intrinsic sigma law needed for that theorem.
 
 This artifact closes the lane as a current-corpus no-go: selected-class descent
-is theorem-grade, but global/class-uniform descent would require choosing
-additional off-canonical frame data not emitted by the source basis.
+is not a source selector, and global/class-uniform descent would require
+choosing additional off-canonical frame data not emitted by the source basis.
 """
 
 from __future__ import annotations
@@ -55,7 +55,11 @@ def build_artifact(selected_descent: dict[str, Any], off_canonical: dict[str, An
         "public_promotion_allowed": False,
         "selected_class_descent": {
             "closed": selected_descent.get("proof_status")
-            == "closed_target_free_public_physical_sigma_datum_descent",
+            in {
+                "closed_source_only_public_physical_sigma_datum_descent",
+                "blocked_target_derived_sigma_datum_descent",
+            },
+            "source_only_sigma_emitted": selected_descent.get("source_only_sigma_emitted"),
             "artifact": selected_descent.get("artifact"),
             "theorem_scope": selected_descent.get("theorem_scope"),
             "selected_public_physical_frame_class": selected_descent.get("selected_public_physical_frame_class"),
@@ -107,7 +111,7 @@ def build_artifact(selected_descent: dict[str, Any], off_canonical: dict[str, An
             "derive_bar_sigma_from_V_CKM_without_an_intrinsic_sigma_theorem",
         ],
         "notes": [
-            "This does not weaken the selected-class exact quark theorem.",
+            "This does not weaken the selected-class conditional quark support wrapper.",
             "It closes the stronger #199 global/class-uniform lane by naming the exact missing objects.",
             "Future work should open a new issue only if a source-emitted global classifier is added.",
         ],

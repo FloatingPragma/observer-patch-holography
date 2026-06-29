@@ -60,7 +60,7 @@
       "t": 172.35235532883115,
       "u": 0.0021600000000000005
     },
-    "statement": "Once the theorem-grade physical sigma datum is public, the affine mean law algebraically emits (g_u, g_d), the ordered three-point readout yields the exact running quark sextet, and the already-closed exact forward construction emits explicit quark Yukawa matrices Y_u and Y_d.",
+    "statement": "Once a no-target source theorem emits the physical sigma datum and the selected bridge-fiber descent makes it representative-independent, the affine mean law algebraically emits (g_u, g_d), the ordered three-point readout yields the running quark sextet, and the already-closed exact forward construction emits explicit quark Yukawa matrices Y_u and Y_d.",
     "supporting_algebraic_collapse_artifact": "oph_quark_absolute_readout_algebraic_collapse"
   },
   "algebraic_consequence_if_closed": {
@@ -124,7 +124,7 @@
       "t": 172.35235532883115,
       "u": 0.0021600000000000005
     },
-    "statement": "This consequence is now realized: the theorem-grade physical sigma datum is public on the selected class, so the affine mean law and exact forward construction emit the exact masses and Yukawas.",
+    "statement": "This consequence is realized only after a source-only sigma selector supplies the physical sigma datum. The current selected-class descent is representative independence, not source selection.",
     "supporting_algebraic_collapse_artifact": "oph_quark_absolute_readout_algebraic_collapse"
   },
   "alternate_upstream_route": {
@@ -144,7 +144,7 @@
   },
   "artifact": "oph_quark_public_strengthened_physical_sigma_lift_frontier",
   "final_public_theorem_candidate": {
-    "id": "target_free_public_physical_sigma_datum_descent",
+    "id": "selected_bridge_fiber_sigma_descent_not_source_selection",
     "induces_global_contract": {
       "id": "strengthened_quark_physical_sigma_ud_lift",
       "role": "public_same_label_left_handed_sigma_datum_on_selected_physical_frame_class"
@@ -222,23 +222,24 @@
       "selected_by": "P",
       "symbol": "[F0^dagger F1]"
     },
-    "statement": "Let f_P be the physical quark frame class selected by P, represented on the realized quark lane by the explicit same-label common-refinement transport-frame class [F0^dagger F1]. For any two declared current-family/common-refinement transport-frame realizations r,r' in the selected same-label bridge fiber R_decl(f_P), the emitted Sigma_ud^phys element and attached exact physical sigma datum (sigma_seed_ud, eta_ud, sigma_u, sigma_d) agree. Equivalently, the exact sigma readout is constant on R_decl(f_P) and descends uniquely to a target-free public datum on the physical quark frame class selected by P.",
-    "why_sufficient": "Once this descent holds, the theorem-grade physical sigma datum is intrinsic public data on the selected physical quark frame class. The affine mean law then emits the absolute sector scales algebraically, and the already-closed exact forward construction lifts from the local transport-frame representative to the public selected class."
+    "statement": "Let f_P be the physical quark frame class selected by P, represented on the realized quark lane by the explicit same-label common-refinement transport-frame class [F0^dagger F1]. For any two declared current-family/common-refinement transport-frame realizations r,r' in the selected same-label bridge fiber R_decl(f_P), the emitted Sigma_ud^phys element and attached exact physical sigma datum (sigma_seed_ud, eta_ud, sigma_u, sigma_d) agree. Equivalently, the exact sigma readout is constant on R_decl(f_P) and descends uniquely to a representative-independent datum on the selected physical quark frame class. This descent proves constancy on the selected bridge fiber only; it does not select the sigma value from P. If the attached sigma value is inherited from the current-family exact target surface, the descended public value remains target-derived.",
+    "why_sufficient": "Once a source-only sigma selector is supplied and this descent holds, the physical sigma datum is intrinsic public data on the selected physical quark frame class. The affine mean law then emits the absolute sector scales algebraically, and the already-closed exact forward construction lifts from the local transport-frame representative to the public selected class. In the current artifact the descent is only an audit/support witness because the descended sigma datum is target-derived."
   },
   "frontier_role": "blocked_direct_public_descent_candidate_plus_historical_upstream_alternative",
-  "generated_utc": "2026-06-29T07:35:28Z",
+  "generated_utc": "2026-06-29T10:25:42Z",
   "non_circularity_status": {
-    "missing_source_object": "quark_public_physical_sigma_source_datum_no_target_leak",
+    "missing_source_object": "quark_sigma_source_datum_no_target_leak_required",
     "promotion_allowed": false,
-    "strict_audit_label": "target_derived_selected_class_sigma_witness",
+    "source_sigma_selector_closed": false,
+    "strict_audit_label": "selected_class_conditional_on_source_sigma",
     "target_derived_sigma_datum_used": true
   },
   "notes": [
-    "This artifact records the selected-class exact witness but leaves public promotion blocked by the target-derived sigma datum.",
-    "The upstream generator route remains an alternative historical route, but it is no longer needed for the selected-class closure.",
-    "The exact masses and Yukawas already forced after closure are preserved here for contract-level readout."
+    "This artifact records the selected-class exact witness but leaves public promotion blocked because the target-derived sigma datum has no source selector.",
+    "The upstream generator route remains a historical route toward a source sigma selector.",
+    "The exact masses and Yukawas forced after a source sigma closure are preserved here for contract-level readout."
   ],
-  "proof_status": "blocked_by_target_derived_public_sigma_datum",
+  "proof_status": "blocked_target_derived_sigma_datum_descent",
   "public_promotion_allowed": false,
   "resolved_by_theorem_artifact": "oph_quark_public_physical_sigma_datum_descent",
   "supporting_local_artifacts": {

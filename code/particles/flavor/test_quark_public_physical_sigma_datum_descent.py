@@ -25,14 +25,20 @@ def test_quark_public_physical_sigma_datum_descent_closes_selected_public_class(
     )
 
     assert payload["artifact"] == "oph_quark_public_physical_sigma_datum_descent"
-    assert payload["proof_status"] == "blocked_by_target_derived_public_sigma_datum"
-    assert payload["theorem_id"] == "target_free_public_physical_sigma_datum_descent"
+    assert payload["proof_status"] == "blocked_target_derived_sigma_datum_descent"
+    assert payload["theorem_id"] == "selected_bridge_fiber_sigma_descent_not_source_selection"
+    assert payload["claim_tier"] == "selected_class_conditional_on_source_sigma"
     assert payload["public_promotion_allowed"] is False
+    assert payload["source_only_sigma_emitted"] is False
+    assert payload["downstream_algebra_closed"] is True
+    assert payload["sigma_descent_is_sigma_selection"] is False
     assert payload["display_allowed_as_selected_class_witness"] is True
     assert payload["non_circularity_status"]["target_derived_sigma_datum_used"] is True
+    assert payload["non_circularity_status"]["source_sigma_selector_closed"] is False
     assert payload["non_circularity_status"]["missing_source_object"] == (
-        "quark_public_physical_sigma_source_datum_no_target_leak"
+        "quark_sigma_source_datum_no_target_leak_required"
     )
+    assert "QUARK_SIGMA_SOURCE_SELECTOR" in payload["missing_for_promotion"]
     assert payload["induces_global_contract"]["id"] == "strengthened_quark_physical_sigma_ud_lift"
     assert payload["realized_transport_frame_section_uniqueness"]["common_refinement_level"] == 1
     assert payload["realized_transport_frame_section_uniqueness"]["refinement_functoriality_closed"] is True

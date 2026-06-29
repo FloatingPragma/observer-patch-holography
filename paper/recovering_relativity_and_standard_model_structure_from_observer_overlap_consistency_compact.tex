@@ -451,20 +451,29 @@ source-side value as the Thomson-limit fine-structure constant. A low-energy
 measurement probes the dressed \(\U(1)_Q\) current after charged-lepton vacuum
 polarization, confined-quark/hadron spectral transport, and same-scheme endpoint
 matching have been transported to \(q^2=0\). Calibrated to the CODATA/NIST endpoint, the
-fixed-point residual is
+post-\(\alpha_U\) missing correction is
 \[
-\Delta^{\mathrm{fp}}_{\mathrm{H,cal}}
+\Delta^{\mathrm{fp}}_{\mathrm{H,req}}
 =137.035999177
--136.994835164621649457949994585787\ldots
-=0.041164012378350542050005414212807\ldots.
+-137.035959500817279952949994585787\ldots
+=0.000039676182720047050005414213\ldots.
 \]
-Normalized by the public-branch \(\alpha_U(P_\star)=0.041124336195630495\),
-this residual is
+Normalized by the branch \(\alpha_U(P_\star)=0.041124336195630495\),
+this correction is
 \[
-\Delta^{\mathrm{fp}}_{\mathrm{H,cal}}
-=\alpha_U(P_\star)\,C_{24,Q},\qquad
+\Delta^{\mathrm{fp}}_{\mathrm{H,req}}
+=\alpha_U(P_\star)\,(C_{24,Q}-1),\qquad
 C_{24,Q}=1.0009647859732326253849511140702475\ldots.
 \]
+The full root-to-CODATA difference
+\[
+\Delta^{\mathrm{fp}}_{\mathrm{H,cal}}
+=137.035999177-\alpha_{\mathrm{root}}^{-1}
+=0.041164012378350542050005414213\ldots
+=\alpha_U(P_\star)C_{24,Q}
+\]
+is bookkeeping; it includes the emitted \(\alpha_U(P_\star)\) contribution and is
+not the remaining correction after the OPH output \(A_{\alpha_U}^{\mathrm{fp}}\).
 The proximity to \(\alpha_U\) is a branch-scale clue rather than an identity or
 source-only endpoint prediction. The 24-register count explains the scale. It
 does not determine the nonconstant Ward-projected hadronic spectral functional.

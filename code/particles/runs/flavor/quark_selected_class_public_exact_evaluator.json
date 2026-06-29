@@ -22,13 +22,21 @@
     },
     "source_artifact": "oph_quark_target_free_bridge_theorem"
   },
+  "claim_tier": "selected_class_conditional_on_source_sigma",
   "closure": {
     "global_frame_classification_claimed": false,
-    "minimal_exact_blocker_set": [],
+    "minimal_exact_blocker_set": [
+      "QUARK_SIGMA_SOURCE_QUOTIENT",
+      "QUARK_SIGMA_SOURCE_SELECTOR",
+      "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
+      "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
+      "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE"
+    ],
     "off_canonical_P_family_claimed": false,
     "selected_class_exact": true
   },
-  "generated_utc": "2026-06-29T07:35:29Z",
+  "downstream_algebra_closed": true,
+  "generated_utc": "2026-06-29T10:25:42Z",
   "masses": {
     "b": 4.182999999999994,
     "c": 1.2729999999999992,
@@ -38,7 +46,7 @@
     "u": 0.0021600000000000005
   },
   "notes": [
-    "Use this artifact for theorem-grade selected-class exact masses and Yukawas.",
+    "Use this artifact for selected-class conditional exact masses and Yukawas, not public source-only predictions.",
     "Use quark_p_driven_shared_evaluator_contract only for the candidate off-canonical slider surface."
   ],
   "off_canonical_boundary": {
@@ -49,14 +57,14 @@
     ],
     "reason": "The selected-class theorem does not classify all public quark frame classes and does not emit a continuous arbitrary-P sigma(P) or mass(P) family."
   },
-  "proof_status": "closed_selected_public_class_exact_evaluator",
+  "proof_status": "selected_class_conditional_exact_evaluator_blocked_by_source_sigma_selector",
   "provenance": {
     "absolute_readout_algebraic_collapse": "oph_quark_absolute_readout_algebraic_collapse",
     "public_exact_yukawa_end_to_end_theorem": "oph_quark_public_exact_yukawa_end_to_end_theorem",
     "public_physical_sigma_datum_descent": "oph_quark_public_physical_sigma_datum_descent",
     "target_free_bridge_theorem": "oph_quark_target_free_bridge_theorem"
   },
-  "public_promotion_allowed": true,
+  "public_promotion_allowed": false,
   "selector": {
     "input": "P",
     "output": "f_P",
@@ -124,8 +132,9 @@
     "sigma_seed_ud": 4.4350963126021155,
     "sigma_u": 5.573928426395543
   },
+  "source_only_sigma_emitted": false,
   "theorem_scope": "selected_public_physical_quark_frame_class_only",
-  "theorem_statement": "From OPH axioms + P, the selected public quark frame class f_P carries the descended theorem-grade sigma datum. The affine absolute readout then emits the sector scales, and the exact forward construction emits the exact running quark sextet and explicit Y_u, Y_d on that selected class.",
+  "theorem_statement": "Conditional on a no-target source theorem emitting the physical sigma datum, the selected public quark frame class f_P carries a representative-independent sigma datum. The affine absolute readout then emits the sector scales, and the exact forward construction emits the running quark sextet and explicit Y_u, Y_d on that selected class. The current sigma datum is target-derived and is therefore audit/support only.",
   "yukawas": {
     "V_CKM": {
       "imag": [

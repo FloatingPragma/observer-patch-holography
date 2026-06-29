@@ -171,7 +171,9 @@ def build_artifact(
             "public_source_payload": None if public_source_payload is None else public_source_payload.get("artifact"),
         },
         "selected_public_exact_surface": {
-            "closed": public_yukawa.get("proof_status") == "closed_target_free_public_exact_yukawa_end_to_end_theorem",
+            "closed": public_yukawa.get("proof_status") == "closed_source_only_public_exact_yukawa_end_to_end_theorem",
+            "conditional_downstream_closed": bool(public_yukawa.get("downstream_algebra_closed")),
+            "source_only_sigma_emitted": bool(public_yukawa.get("source_only_sigma_emitted")),
             "proof_status": public_yukawa.get("proof_status"),
             "theorem_scope": public_yukawa.get("theorem_scope"),
             "minimal_exact_blocker_set": public_yukawa.get("minimal_exact_blocker_set"),

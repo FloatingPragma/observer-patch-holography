@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
-"""Emit the exact quark closure contract after closing the public sigma descent.
+"""Emit the current quark closure contract and sigma-source promotion boundary.
 
 Chain role: collect the current theorem boundary and the strongest exact sidecar
 surfaces for the quark lane into one machine-readable contract.
 
 Mathematics: the local code surface now internalizes the one-scalar D12 mass
 theorem `quark_d12_t1_value_law`, the closed local exact current-family
-transport-frame chain, and the direct public descent theorem
-`target_free_public_physical_sigma_datum_descent`.
+transport-frame chain, and the selected bridge-fiber sigma descent theorem.
 
-With that descent theorem closed on the public quark frame class selected by P,
-the algebraic absolute readout and exact forward-Yukawa construction upgrade
-from the declared transport-frame carrier to the selected public class.
+That descent theorem proves representative independence on the public quark
+frame class selected by P. It does not select the sigma datum from P, so the
+algebraic absolute readout and exact forward-Yukawa construction remain
+conditional on a source-only sigma selector.
 """
 
 from __future__ import annotations
@@ -129,7 +129,7 @@ def build_payload(
     public_yukawa_promotable = (
         public_exact_yukawa_theorem.get("public_promotion_allowed") is True
         and public_exact_yukawa_theorem.get("proof_status")
-        == "closed_target_free_public_exact_yukawa_end_to_end_theorem"
+        == "closed_source_only_public_exact_yukawa_end_to_end_theorem"
         and (public_exact_yukawa_theorem.get("non_circularity_status") or {}).get("promotion_allowed") is True
     )
     exact_masses = {
@@ -197,18 +197,18 @@ def build_payload(
         },
         "public_exact_yukawa_derivation_target": {
             "target_name": public_exact_yukawa_theorem["target_name"],
-            "status": "closed" if public_yukawa_promotable else "blocked_by_target_derived_public_sigma_datum",
+            "status": "closed" if public_yukawa_promotable else "blocked_target_derived_sigma_source_missing",
             "artifact": public_exact_yukawa_theorem["artifact"],
             "theorem_scope": public_exact_yukawa_theorem["theorem_scope"],
             "minimal_exact_blocker_set": public_exact_yukawa_theorem["minimal_exact_blocker_set"],
             "exact_running_values_gev": public_exact_yukawa_theorem["public_exact_outputs"]["exact_running_values_gev"],
             "forward_yukawa_artifact": public_exact_yukawa_theorem["public_exact_outputs"]["forward_yukawa_artifact"],
             "why_closed": (
-                "The public sigma-datum descent theorem now identifies the selected public quark frame class with the "
-                "same exact sigma datum already realized on the closed local chain, so the algebraic absolute readout "
-                "and exact forward construction lift to the selected public class."
+                "The source-only sigma selector and public sigma-datum descent theorem identify the selected public "
+                "quark frame class with a no-target physical sigma datum, so the algebraic absolute readout and exact "
+                "forward construction lift to the selected public class."
                 if public_yukawa_promotable
-                else "The selected-class exact witness is displayed, but strict public promotion is blocked because the sigma datum descends from an exact target surface."
+                else "The selected-class exact witness is displayed, but strict public promotion is blocked because descent proves representative independence only; the sigma datum still comes from an exact target surface."
             ),
         },
         "selected_local_sheet_status": {
@@ -358,7 +358,7 @@ def build_payload(
             "closed_public_endpoint": public_exact_yukawa_promotion_frontier["closed_public_endpoint"],
         },
         "candidate_one_theorem_physical_compression": {
-            "status": "closed" if public_yukawa_promotable else "blocked_by_target_derived_public_sigma_datum",
+            "status": "closed" if public_yukawa_promotable else "blocked_target_derived_sigma_source_missing",
             "artifact": public_sigma_theorem["artifact"],
             "supporting_algebraic_collapse_artifact": absolute_collapse["artifact"],
             "conditional_statement": absolute_collapse["theorem_statement"],
@@ -366,7 +366,7 @@ def build_payload(
             "public_strengthened_theorem_statement": public_sigma_theorem["theorem_statement"],
             "remaining_nonalgebraic_theorem": None
             if public_yukawa_promotable
-            else "quark_public_physical_sigma_source_datum_no_target_leak",
+            else "QUARK_SIGMA_SOURCE_SELECTOR",
             "remaining_exact_gap": None
             if public_yukawa_promotable
             else "target_derived_sigma_datum_used_for_selected_class_exact_witness",
@@ -441,19 +441,19 @@ def build_payload(
         "exact_missing_theorems": [],
         "closure_chain": [
             "(axioms + light-data transport) => light_quark_overlap_defect_value_law => Delta_ud_overlap => quark_d12_t1_value_law => t1 => (eta_Q_centered, kappa_Q, tau_u, tau_d)",
-            "(selected public quark frame class chosen by P) => target_free_public_physical_sigma_datum_descent => strengthened_quark_physical_sigma_ud_lift",
-            "(axioms + public Sigma_ud^phys datum) => quark_absolute_readout_algebraic_collapse => (g_u, g_d) => (m_u, m_d, m_s, m_c, m_b, m_t)",
-            "(public selected class + exact forward construction) => oph_quark_public_exact_yukawa_end_to_end_theorem => exact forward Y_u, Y_d",
+            "(selected public quark frame class chosen by P) => selected_bridge_fiber_sigma_descent_not_source_selection => representative-independent target-derived sigma witness",
+            "(missing source Sigma_ud^phys datum) => quark_absolute_readout_algebraic_collapse => (g_u, g_d) => (m_u, m_d, m_s, m_c, m_b, m_t)",
+            "(public selected class + exact forward construction + source sigma selector) => oph_quark_public_exact_yukawa_end_to_end_theorem => exact forward Y_u, Y_d",
         ],
         "notes": [
             "The mass bridge is now internalized on the local code surface: light_quark_overlap_defect_value_law and quark_d12_t1_value_law are no longer part of the remaining exact frontier.",
             "The exact-PDG derivation target is closed on the declared current-family/common-refinement transport-frame carrier and is recorded explicitly above.",
             "The exact forward-Yukawa derivation target is also closed on that declared carrier and is recorded explicitly above.",
-            "The direct public sigma-datum descent theorem is now also closed on the selected public quark frame class.",
-            "That public descent closes the previously open physical-sheet promotion frontier and lifts the exact Yukawa package to a target-free public theorem on the selected class.",
+            "The direct public sigma-datum descent theorem proves selected bridge-fiber representative independence only.",
+            "That public descent does not close the physical sigma source-selector frontier and does not lift the exact Yukawa package to a target-free public theorem on the selected class.",
             "The exact current-family witness and the D12 internal backread sidecar still exhibit the mass data on sidecar surfaces, but they do not repair the physical CKM branch by themselves.",
             "The selected local same-label left-handed sheet closes negatively to sigma_ref; the remaining physical quark burden is not another local selector search.",
-            "The historical public physical-sheet contract named Theta_ud^phys and Theta_ud^abs separately, but after public sigma descent the absolute readout is algebraic and no exact blocker remains on the selected class.",
+            "The historical public physical-sheet contract named Theta_ud^phys and Theta_ud^abs separately; after source sigma selection the absolute readout is algebraic, but the source sigma selector itself remains the blocker.",
         ],
     }
 

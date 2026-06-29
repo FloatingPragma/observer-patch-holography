@@ -140,7 +140,7 @@ consistency, and minimality on the same low-energy branch. The photon,
 gluons, and graviton stay massless because they ride on redundancy directions
 the architecture cannot break. The broader particle table then carries the
 weak-sector comparison pair, the low-energy electromagnetic endpoint, the
-Higgs/top relation, the running quark sector, and one neutrino branch. Charged
+Higgs/top relation, the conditional running-quark support sector, and one neutrino branch. Charged
 leptons, direct-top comparison, hadrons, and strong CP sit around that same
 particle map as neighboring pieces of physics rather than identical kinds of
 entry. Hadrons add the strong-binding problem on top of the particle-level
@@ -501,11 +501,11 @@ views mutually legible without erasing their differences.
 
 The gauge quotient, charge lattice, counting chain, Yang-Mills repair gap,
 massless carriers, Lorentz geometry, Einstein relation, and the
-electroweak, Higgs-top, quark, and neutrino surfaces form one organized
+electroweak, Higgs-top, conditional quark, and neutrino surfaces form one organized
 reconstruction.
 
 The local-ruler story is therefore a cluster of related claims rather than one
-flat table. The weak pair, charged leptons, running quarks, direct-top
+flat table. The weak pair, charged leptons, conditional running quarks, direct-top
 comparison, hadrons, and Strong CP each touch a different layer of the particle
 problem.
 

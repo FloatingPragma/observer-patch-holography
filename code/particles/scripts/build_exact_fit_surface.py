@@ -193,12 +193,11 @@ def build_entries() -> list[dict[str, Any]]:
                 "A separate target-free mass bridge closes `Delta_ud_overlap = (1/6) * log(c_d / c_u)`, "
                 "equivalently `quark_d12_t1_value_law`, on the emitted D12 ray. "
                 + (
-                    "A separate public theorem closes on the selected public physical quark frame class chosen by `P`: "
-                    f"`{quark_public_sigma_descent['artifact']}` makes the exact physical sigma datum target-free "
-                    "public on that selected class, and "
-                    f"`{quark_public_exact_yukawa['artifact']}` emits the same exact sextet together with explicit "
-                    "exact forward Yukawas `Y_u` and `Y_d`. This entry remains an exact-fit surface rather than that "
-                    "public selected-class theorem."
+                    "A separate selected-class support wrapper exists on the public physical quark frame class chosen by `P`: "
+                    f"`{quark_public_sigma_descent['artifact']}` proves representative independence on the selected bridge "
+                    "fiber, but the exact physical sigma datum remains target-derived until a source sigma selector closes. "
+                    f"`{quark_public_exact_yukawa['artifact']}` therefore records the same exact sextet together with explicit "
+                    "exact forward Yukawas `Y_u` and `Y_d` as an audit/support witness."
                     if quark_public_sigma_descent and quark_public_exact_yukawa
                     else "This entry is the strongest exact carrier-restricted quark surface present in the local artifact set."
                 )
@@ -247,7 +246,7 @@ def build_entries() -> list[dict[str, Any]]:
     quark_public_promotable = (
         bool(quark_public_exact_yukawa)
         and quark_public_exact_yukawa.get("public_promotion_allowed") is True
-        and quark_public_exact_yukawa.get("proof_status") == "closed_target_free_public_exact_yukawa_end_to_end_theorem"
+        and quark_public_exact_yukawa.get("proof_status") == "closed_source_only_public_exact_yukawa_end_to_end_theorem"
         and (quark_public_exact_yukawa.get("non_circularity_status") or {}).get("promotion_allowed") is True
     )
     if quark_public_sigma_descent and quark_public_exact_yukawa:
@@ -325,10 +324,12 @@ def build_entries() -> list[dict[str, Any]]:
                         else "Selected-class exact witness on the public physical quark frame class chosen by `P`; strict promotion is blocked because the sigma datum is target-derived. "
                     )
                     +
-                    f"`{quark_public_sigma_descent['artifact']}` makes the exact physical sigma datum target-free public "
-                    "on that selected class, and "
-                    f"`{quark_public_exact_yukawa['artifact']}` emits the exact PDG 2025 running-quark sextet together "
-                    "with explicit exact forward Yukawas `Y_u` and `Y_d`. The top coordinate uses PDG summary "
+                    f"`{quark_public_sigma_descent['artifact']}` proves representative independence on the selected "
+                    "bridge fiber, but the attached physical sigma datum remains target-derived until a no-target "
+                    "source sigma selector closes. "
+                    f"`{quark_public_exact_yukawa['artifact']}` therefore records the exact PDG 2025 running-quark "
+                    "sextet and explicit exact forward Yukawas `Y_u` and `Y_d` as an audit/support witness. "
+                    "The top coordinate uses PDG summary "
                     f"`{references['top_quark']['source']['summary_id']}`. The auxiliary direct-top entry "
                     f"`{references['top_quark_direct_aux']['source']['summary_id']}` is compare-only; "
                     "[#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by "

@@ -18,7 +18,18 @@ STRENGTHENED_LOCAL_JSON = (
     ROOT / "particles" / "runs" / "flavor" / "quark_current_family_transport_frame_strengthened_physical_sigma_lift_theorem.json"
 )
 LINE_LIFT_JSON = ROOT / "particles" / "runs" / "flavor" / "overlap_edge_line_lift.json"
+SOURCE_SIGMA_REQUIRED_JSON = (
+    ROOT / "particles" / "runs" / "flavor" / "quark_sigma_source_datum_no_target_leak_required.json"
+)
 DEFAULT_OUT = ROOT / "particles" / "runs" / "flavor" / "quark_public_physical_sigma_datum_descent.json"
+
+MISSING_FOR_PROMOTION = [
+    "QUARK_SIGMA_SOURCE_QUOTIENT",
+    "QUARK_SIGMA_SOURCE_SELECTOR",
+    "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
+    "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
+    "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE",
+]
 
 
 def _timestamp() -> str:
@@ -29,10 +40,27 @@ def _load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _load_optional_json(path: Path) -> dict[str, Any] | None:
+    if not path.exists():
+        return None
+    return _load_json(path)
+
+
+def _source_sigma_closed(source_sigma_required: dict[str, Any] | None) -> bool:
+    if not source_sigma_required:
+        return False
+    return (
+        source_sigma_required.get("status") == "theorem_grade"
+        and source_sigma_required.get("no_target_leak") is True
+        and source_sigma_required.get("identity") == "P_to_selected_public_quark_sigma_datum"
+    )
+
+
 def build_artifact(
     sector_attached_lift: dict[str, Any],
     strengthened_local: dict[str, Any],
     line_lift: dict[str, Any],
+    source_sigma_required: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     selected_class = dict(sector_attached_lift["common_refinement_frame_class"])
     sigma_element = dict(strengthened_local["restricted_sigma_ud_phys_element"])
@@ -40,11 +68,12 @@ def build_artifact(
     overlap_certificate = dict(line_lift["common_refinement_overlap_certificate"])
     supporting_artifacts = dict(strengthened_local.get("supporting_artifacts") or {})
     target_derived_sigma_datum_used = "exact_sigma_target" in supporting_artifacts
-    promotion_allowed = not target_derived_sigma_datum_used
+    source_sigma_closed = _source_sigma_closed(source_sigma_required)
+    promotion_allowed = source_sigma_closed and not target_derived_sigma_datum_used
     proof_status = (
-        "closed_target_free_public_physical_sigma_datum_descent"
+        "closed_source_only_public_physical_sigma_datum_descent"
         if promotion_allowed
-        else "blocked_by_target_derived_public_sigma_datum"
+        else "blocked_target_derived_sigma_datum_descent"
     )
     declared_fiber_statement = (
         "Let R_decl(f_P) be the set of declared current-family/common-refinement transport-frame realizations "
@@ -65,25 +94,45 @@ def build_artifact(
         "artifact": "oph_quark_public_physical_sigma_datum_descent",
         "generated_utc": _timestamp(),
         "proof_status": proof_status,
-        "theorem_id": "target_free_public_physical_sigma_datum_descent",
+        "theorem_id": (
+            "source_only_public_physical_sigma_datum_descent"
+            if promotion_allowed
+            else "selected_bridge_fiber_sigma_descent_not_source_selection"
+        ),
         "theorem_scope": "selected_public_physical_quark_frame_class_only",
+        "claim_tier": (
+            "source_only_public_sigma_datum"
+            if promotion_allowed
+            else "selected_class_conditional_on_source_sigma"
+        ),
         "public_promotion_allowed": promotion_allowed,
+        "source_only_sigma_emitted": promotion_allowed,
+        "downstream_algebra_closed": True,
+        "sigma_descent_is_sigma_selection": False,
         "display_allowed_as_selected_class_witness": True,
         "non_circularity_status": {
             "promotion_allowed": promotion_allowed,
             "target_derived_sigma_datum_used": target_derived_sigma_datum_used,
+            "source_sigma_selector_closed": source_sigma_closed,
             "missing_source_object": None
             if promotion_allowed
-            else "quark_public_physical_sigma_source_datum_no_target_leak",
+            else "quark_sigma_source_datum_no_target_leak_required",
             "strict_audit_label": "source_only_public_sigma_datum"
             if promotion_allowed
-            else "target_derived_selected_class_sigma_witness",
+            else "selected_class_conditional_on_source_sigma",
         },
+        "missing_for_promotion": [] if promotion_allowed else MISSING_FOR_PROMOTION,
+        "source_sigma_selector_required_artifact": (
+            None if promotion_allowed else "particles/runs/flavor/quark_sigma_source_datum_no_target_leak_required.json"
+        ),
         "supporting_artifacts": {
             "restricted_sector_attached_lift": sector_attached_lift["artifact"],
             "restricted_strengthened_physical_sigma_lift": strengthened_local["artifact"],
             "restricted_strengthened_physical_sigma_lift_supports": supporting_artifacts,
             "same_label_line_lift": line_lift["artifact"],
+            "source_sigma_required_gate": None
+            if source_sigma_required is None
+            else source_sigma_required.get("artifact"),
         },
         "theorem_statement": (
             "Let f_P be the physical quark frame class selected by P, represented on the realized quark lane by the "
@@ -91,8 +140,10 @@ def build_artifact(
             "current-family/common-refinement transport-frame realizations r,r' in the selected same-label bridge "
             "fiber R_decl(f_P), the emitted Sigma_ud^phys element and attached exact physical sigma datum "
             "(sigma_seed_ud, eta_ud, sigma_u, sigma_d) agree. Equivalently, the exact sigma readout is constant on "
-            "R_decl(f_P) and descends uniquely to a target-free public datum on the physical quark frame class "
-            "selected by P."
+            "R_decl(f_P) and descends uniquely to a representative-independent datum on the selected physical quark "
+            "frame class. This descent proves constancy on the selected bridge fiber only; it does not select the "
+            "sigma value from P. If the attached sigma value is inherited from the current-family exact target "
+            "surface, the descended public value remains target-derived."
         ),
         "selected_public_physical_frame_class": {
             "symbol": selected_class["symbol"],
@@ -175,17 +226,26 @@ def build_artifact(
                     "attached exact sigma datum are constant on the selected declared bridge fiber and factor through f_P."
                 ),
             },
+            {
+                "step": 6,
+                "statement": (
+                    "Factoring through f_P is not a selector theorem: any constant sigma map on R_decl(f_P) would "
+                    "descend. Promotion therefore still requires a no-target source theorem emitting the physical "
+                    "sigma datum before the affine readout can be counted as a public quark-mass prediction."
+                ),
+            },
         ],
         "why_sufficient": (
-            "Once this descent holds, the theorem-grade physical sigma datum is intrinsic public data on the selected "
-            "physical quark frame class. The affine mean law then emits the absolute sector scales algebraically, and "
-            "the already-closed exact forward construction lifts from the local transport-frame representative to the "
-            "public selected class."
+            "Once a source-only sigma selector is supplied and this descent holds, the physical sigma datum is "
+            "intrinsic public data on the selected physical quark frame class. The affine mean law then emits the "
+            "absolute sector scales algebraically, and the already-closed exact forward construction lifts from the "
+            "local transport-frame representative to the public selected class. In the current artifact the descent "
+            "is only an audit/support witness because the descended sigma datum is target-derived."
         ),
         "notes": [
-            "This theorem closes the direct public route rather than the upstream generation-bundle route.",
+            "This theorem closes representative independence on the selected bridge fiber, not source selection of the sigma datum.",
             "It is a descent theorem on the selected public frame class only; it does not claim a global classification of all quark frame classes.",
-            "The selected exact sigma datum is the same one already emitted on the closed local transport-frame chain.",
+            "The selected exact sigma datum is the same target-derived one already emitted on the closed local transport-frame chain.",
         ],
     }
 
@@ -195,6 +255,7 @@ def main() -> int:
     parser.add_argument("--sector-attached-lift", default=str(SECTOR_ATTACHED_JSON))
     parser.add_argument("--strengthened-local", default=str(STRENGTHENED_LOCAL_JSON))
     parser.add_argument("--line-lift", default=str(LINE_LIFT_JSON))
+    parser.add_argument("--source-sigma-required", default=str(SOURCE_SIGMA_REQUIRED_JSON))
     parser.add_argument("--output", default=str(DEFAULT_OUT))
     args = parser.parse_args()
 
@@ -202,6 +263,7 @@ def main() -> int:
         _load_json(Path(args.sector_attached_lift)),
         _load_json(Path(args.strengthened_local)),
         _load_json(Path(args.line_lift)),
+        _load_optional_json(Path(args.source_sigma_required)),
     )
     out_path = Path(args.output)
     out_path.parent.mkdir(parents=True, exist_ok=True)
