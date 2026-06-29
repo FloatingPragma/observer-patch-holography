@@ -536,6 +536,11 @@ the laws are decidable propositions. -/
 def demoLR : demoCarrier.Patch → Records demoCarrier → Records demoCarrier :=
   fun i x => Function.update x i (x (!i))
 
+-- `Records demoCarrier` is defeq `Bool → Bool` (a finite function type); expose the
+-- `Fintype`/`DecidableEq` instances so the laws below are `decide`-checkable.
+instance : DecidableEq (Records demoCarrier) := inferInstanceAs (DecidableEq (Bool → Bool))
+instance : Fintype (Records demoCarrier) := inferInstanceAs (Fintype (Bool → Bool))
+
 theorem demoLR_H1 :
     ∀ (i : demoCarrier.Patch) (x : Records demoCarrier) (j : demoCarrier.Patch),
       j ≠ i → (demoLR i x) j = x j := by decide
