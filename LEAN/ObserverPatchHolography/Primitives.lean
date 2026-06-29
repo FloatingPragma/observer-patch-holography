@@ -563,7 +563,7 @@ theorem demoLR_H3 :
             edgeConsistentAt e (demoLR i x) := by
   intro i x _ e _
   show (demoLR i x) false = (demoLR i x) true
-  cases i <;> simp [demoLR, Function.update_apply]
+  cases i <;> simp [demoLR, Function.update_apply, Bool.not_false, Bool.not_true]
 
 theorem demoLR_H2 :
     ∀ (i : demoCarrier.Patch) (x : Records demoCarrier),
@@ -572,10 +572,14 @@ theorem demoLR_H2 :
           (demoCarrier.src e = i ∨ demoCarrier.tgt e = i) ∧ ¬ edgeConsistentAt e x := by
   intro i x
   rw [ne_eq, demoLR_eq_self_iff]
-  have hiff : (x (!i) ≠ x i) ↔ (x false ≠ x true) := by cases i <;> simp [ne_comm]
+  have hiff : (x (!i) ≠ x i) ↔ (x false ≠ x true) := by
+    cases i <;> simp [ne_comm, Bool.not_false, Bool.not_true]
   constructor
   · intro h
-    exact ⟨(), by cases i <;> simp, hiff.mp h⟩
+    refine ⟨(), ?_, hiff.mp h⟩
+    cases i
+    · exact Or.inl rfl
+    · exact Or.inr rfl
   · rintro ⟨_, _, hnc⟩
     exact hiff.mpr hnc
 
