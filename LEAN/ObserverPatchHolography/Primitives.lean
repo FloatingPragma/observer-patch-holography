@@ -532,6 +532,10 @@ theorem completeness (x : Records C) :
 variable
   (H4 : ∀ (i j : C.Patch) (x : Records C), lr i (lr j x) = lr j (lr i x))
 
+-- H4 is used only inside the proofs below (the statements quantify over the
+-- abstract relation `acceptedStepLR lr`), so force its inclusion explicitly.
+include H4
+
 /-- **Local confluence from single-step commutation** (the diamond condition).
     From two accepted steps at sites `i`, `j`, the common join is
     `lr j (lr i x) = lr i (lr j x)` (by `H4`); each side reaches it in ≤ 1 step
