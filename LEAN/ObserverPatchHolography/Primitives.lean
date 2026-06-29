@@ -1,4 +1,5 @@
 import Mathlib
+import ObserverPatchHolography.AbstractRewriting
 
 /-!
 # OPH Primitives — concrete carrier model (partial discharge)
@@ -347,6 +348,8 @@ anywhere in this section. -/
 
 namespace OPH
 
+open Relation  -- `ReflTransGen` (used by the confluence theorems below)
+
 section LocalRepairDynamics
 
 variable {C : OPHCarrier}
@@ -520,6 +523,43 @@ theorem completeness (x : Records C) :
   · intro hcons i
     exact (lr_fixed_iff_incident_consistent lr H1 H2 H3 i x).2 (fun e _ => hcons e)
 
+-- H4 (commutation / non-interference of distinct sites): the classical *diamond*
+-- condition. Single local moves commute: applying site `i` then `j` equals `j`
+-- then `i`. This is the one extra law that upgrades Termination to global
+-- Confluence — i.e. a schedule-independent objective public reality. It is NOT
+-- implied by H1–H3: see `demoCarrier_repairs_dont_commute`, where two adjacent
+-- patches sharing an edge have non-commuting copy-moves.
+variable
+  (H4 : ∀ (i j : C.Patch) (x : Records C), lr i (lr j x) = lr j (lr i x))
+
+/-- **Local confluence from single-step commutation** (the diamond condition).
+    From two accepted steps at sites `i`, `j`, the common join is
+    `lr j (lr i x) = lr i (lr j x)` (by `H4`); each side reaches it in ≤ 1 step
+    (zero if that site is already quiescent there). -/
+theorem locallyConfluent_of_commute :
+    AbstractRewriting.LocallyConfluent (acceptedStepLR lr) := by
+  rintro x _ _ ⟨i, rfl, _⟩ ⟨j, rfl, _⟩
+  refine ⟨lr j (lr i x), ?_, ?_⟩
+  · rcases eq_or_ne (lr j (lr i x)) (lr i x) with h | h
+    · rw [h]
+    · exact ReflTransGen.single ⟨j, rfl, h⟩
+  · rw [← H4 i j x]
+    rcases eq_or_ne (lr i (lr j x)) (lr j x) with h | h
+    · rw [h]
+    · exact ReflTransGen.single ⟨i, rfl, h⟩
+
+/-- **THEOREM — Confluence (Church–Rosser) under commutation.** Termination
+    (H1–H3, via `termination`) together with local confluence (H4, via
+    `locallyConfluent_of_commute`) yields global confluence, through Newman's
+    lemma. Operationally: every record repairs to a UNIQUE normal form regardless
+    of the order in which sites fire — the schedule-independent "objective public
+    reality" the consensus picture needs, now contingent on the *stated* law H4
+    rather than left implicit. -/
+theorem confluence_of_commute :
+    AbstractRewriting.Confluent (acceptedStepLR lr) :=
+  AbstractRewriting.newman_lemma (acceptedStepLR lr)
+    (termination lr H1 H2 H3) (locallyConfluent_of_commute lr H1 H2 H3 H4)
+
 end LocalRepairDynamics
 
 /-! ## Non-vacuity witness: the local laws are satisfiable by a real repair
@@ -599,5 +639,19 @@ theorem demoLR_has_step :
 theorem demoCarrier_terminates :
     WellFounded (fun y x : Records demoCarrier => acceptedStepLR demoLR x y) :=
   termination demoLR demoLR_H1 demoLR_H2 demoLR_H3
+
+/-- **H4 is necessary, not free.** On `demoCarrier` the two patches share one
+    edge, so their copy-moves do NOT commute: starting from the identity record
+    `id = (fun b => b)`, repairing `false` then `true` gives the constant `true`,
+    whereas `true` then `false` gives the constant `false`. Hence `demoLR` does
+    not satisfy `H4`, and `confluence_of_commute` genuinely needs the extra
+    hypothesis — async repair is schedule-DEPENDENT in general, and only the
+    commuting (non-adjacent) regime enjoys a unique objective public reality. -/
+theorem demoCarrier_repairs_dont_commute :
+    ∃ x : Records demoCarrier,
+      demoLR true (demoLR false x) ≠ demoLR false (demoLR true x) := by
+  refine ⟨(fun b => b), fun h => ?_⟩
+  have h2 : (true : Bool) = false := congrFun h false
+  exact absurd h2 (by decide)
 
 end OPH
