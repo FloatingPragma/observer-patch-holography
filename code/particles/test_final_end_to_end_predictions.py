@@ -76,6 +76,14 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
     assert "electron_neutrino" not in predictions
     withheld = {row["particle_id"]: row for row in payload["withheld_non_prediction_rows"]}
     assert withheld["electron"]["reason"] == "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction"
+    assert withheld["electron"]["public_theorem_value"] is None
+    assert withheld["electron"]["formula_if_anchor_exists"] == "m_e(P)=exp(A_ch(P)-4.495210108808081)"
+    assert "charged_determinant_trace_lift_attachment" in withheld["electron"]["missing_for_promotion"]
+    charged_boundary = payload["charged_lepton_anchor_boundary"]
+    assert charged_boundary["status"] == "missing_theorem"
+    assert charged_boundary["required_identity"] == "3*A_ch(P)=sum_psi M_ch[psi]*log(q_psi(P))"
+    assert charged_boundary["current_closed_chain"]["A_ch_to_charged_masses"] is True
+    assert charged_boundary["current_closed_chain"]["P_to_A_ch"] is False
     assert withheld["top_quark"]["reason"] == "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction"
     assert withheld["electron_neutrino"]["reason"] == (
         "compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table"

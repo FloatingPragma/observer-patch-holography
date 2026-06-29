@@ -148,6 +148,13 @@ The post-promotion lift slot is packaged in carrier form:
   descendants of `P` to theorem-grade physical charged data or the charged
   determinant line.
 
+- `oph_charged_determinant_trace_lift_attachment_required`
+  This is the explicit missing-theorem gate for public charged-lepton masses.
+  The downstream map `A_ch(P) -> m_e,m_mu,m_tau` is algebraic, but the live
+  corpus does not prove `P -> A_ch(P)`. Promotion requires
+  `3*A_ch(P)=sum_psi M_ch[psi]*log(q_psi(P))` with source-emitted `M_ch`,
+  source-emitted same-label `q_psi(P)`, and a no-target-leak parent DAG.
+
 Layered frontier ledger on disk:
 
 - `oph_charged_absolute_frontier_factorization`

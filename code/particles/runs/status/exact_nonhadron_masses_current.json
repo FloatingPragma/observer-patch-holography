@@ -47,35 +47,74 @@
     }
   ],
   "excluded_lane": "hadrons_compute_bound",
-  "generated_utc": "2026-06-29T07:33:23Z",
+  "generated_utc": "2026-06-29T09:20:15Z",
   "status": "public_mass_outputs_with_target_anchored_witnesses_withheld",
   "withheld_entries": [
     {
+      "centered_log": -4.495210108808081,
+      "conditional_anchor_symbol": "A_ch(P)",
       "exact_kind": "exact_target_anchored_current_family_witness",
+      "formula_if_anchor_exists": "m_e(P)=exp(A_ch(P)-4.495210108808081)",
       "label": "Electron",
+      "missing_for_promotion": [
+        "charged_branch_generator_splitting_promotion",
+        "sector_isolated_charged_determinant_exponent_vector_M_ch",
+        "source_side_same_label_q_psi_readout_certificate",
+        "charged_determinant_trace_lift_attachment",
+        "NO_TARGET_LEAK_DAG_CHARGED_A_CH"
+      ],
       "particle_id": "electron",
       "promotable": false,
+      "promotion_gate_artifact": "code/particles/runs/leptons/charged_determinant_trace_lift_attachment_required.json",
+      "public_theorem_value": null,
       "reason": "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction",
       "scope": "current_family_only",
-      "source_artifact": "code/particles/runs/leptons/lepton_current_family_exact_readout.json"
+      "source_artifact": "code/particles/runs/leptons/lepton_current_family_exact_readout.json",
+      "source_only": false
     },
     {
+      "centered_log": 0.8363886515979087,
+      "conditional_anchor_symbol": "A_ch(P)",
       "exact_kind": "exact_target_anchored_current_family_witness",
+      "formula_if_anchor_exists": "m_mu(P)=exp(A_ch(P)+0.836388651597909)",
       "label": "Muon",
+      "missing_for_promotion": [
+        "charged_branch_generator_splitting_promotion",
+        "sector_isolated_charged_determinant_exponent_vector_M_ch",
+        "source_side_same_label_q_psi_readout_certificate",
+        "charged_determinant_trace_lift_attachment",
+        "NO_TARGET_LEAK_DAG_CHARGED_A_CH"
+      ],
       "particle_id": "muon",
       "promotable": false,
+      "promotion_gate_artifact": "code/particles/runs/leptons/charged_determinant_trace_lift_attachment_required.json",
+      "public_theorem_value": null,
       "reason": "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction",
       "scope": "current_family_only",
-      "source_artifact": "code/particles/runs/leptons/lepton_current_family_exact_readout.json"
+      "source_artifact": "code/particles/runs/leptons/lepton_current_family_exact_readout.json",
+      "source_only": false
     },
     {
+      "centered_log": 3.6588214572101716,
+      "conditional_anchor_symbol": "A_ch(P)",
       "exact_kind": "exact_target_anchored_current_family_witness",
+      "formula_if_anchor_exists": "m_tau(P)=exp(A_ch(P)+3.658821457210172)",
       "label": "Tau",
+      "missing_for_promotion": [
+        "charged_branch_generator_splitting_promotion",
+        "sector_isolated_charged_determinant_exponent_vector_M_ch",
+        "source_side_same_label_q_psi_readout_certificate",
+        "charged_determinant_trace_lift_attachment",
+        "NO_TARGET_LEAK_DAG_CHARGED_A_CH"
+      ],
       "particle_id": "tau",
       "promotable": false,
+      "promotion_gate_artifact": "code/particles/runs/leptons/charged_determinant_trace_lift_attachment_required.json",
+      "public_theorem_value": null,
       "reason": "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction",
       "scope": "current_family_only",
-      "source_artifact": "code/particles/runs/leptons/lepton_current_family_exact_readout.json"
+      "source_artifact": "code/particles/runs/leptons/lepton_current_family_exact_readout.json",
+      "source_only": false
     },
     {
       "exact_kind": "selected_class_target_anchored_exact_witness",

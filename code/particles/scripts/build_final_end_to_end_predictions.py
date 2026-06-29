@@ -20,6 +20,9 @@ PIPELINE_STATUS = PARTICLES_ROOT / "runs" / "status" / "particle_pipeline_closur
 EXACT_NONHADRON = PARTICLES_ROOT / "exact_nonhadron_masses.json"
 RESULTS_STATUS = PARTICLES_ROOT / "results_status.json"
 DIRECT_TOP = PARTICLES_ROOT / "runs" / "calibration" / "direct_top_bridge_contract.json"
+CHARGED_TRACE_LIFT_REQUIRED = (
+    PARTICLES_ROOT / "runs" / "leptons" / "charged_determinant_trace_lift_attachment_required.json"
+)
 EMPIRICAL_EE_REGISTRY = PARTICLES_ROOT / "hadron" / "empirical_ee_hadrons_sources.yaml"
 EMPIRICAL_EE_SCHEMA = PARTICLES_ROOT / "hadron" / "empirical_ee_hadronic_spectral_measure.schema.json"
 HIERARCHY_ROOT = PARTICLES_ROOT / "hierarchy"
@@ -264,6 +267,7 @@ def build_payload() -> dict[str, Any]:
     exact = _load_json(EXACT_NONHADRON)
     results = _load_json(RESULTS_STATUS)
     direct_top = _load_json(DIRECT_TOP)
+    charged_trace_required = _load_optional_json(CHARGED_TRACE_LIFT_REQUIRED) or {}
     by_id = {entry["particle_id"]: _prediction_entry(entry) for entry in exact["entries"]}
     predictions = [by_id[particle_id] for particle_id in PARTICLE_ORDER if particle_id in by_id]
     particle_five_gates = [
@@ -287,6 +291,9 @@ def build_payload() -> dict[str, Any]:
             "exact_nonhadron": "code/particles/exact_nonhadron_masses.json",
             "results_status": "code/particles/results_status.json",
             "direct_top_bridge": "code/particles/runs/calibration/direct_top_bridge_contract.json",
+            "charged_determinant_trace_lift_attachment_required": (
+                "code/particles/runs/leptons/charged_determinant_trace_lift_attachment_required.json"
+            ),
             "hadron_policy": "HADRON.md",
             "empirical_ee_hadrons_source_registry": (
                 "code/particles/hadron/empirical_ee_hadrons_sources.yaml"
@@ -323,6 +330,15 @@ def build_payload() -> dict[str, Any]:
             "work_in_progress",
         ],
         "withheld_non_prediction_rows": exact.get("withheld_entries", []),
+        "charged_lepton_anchor_boundary": {
+            "artifact": charged_trace_required.get("artifact"),
+            "status": charged_trace_required.get("status"),
+            "required_identity": charged_trace_required.get("required_identity"),
+            "equivalent_defect": charged_trace_required.get("equivalent_defect"),
+            "missing_for_promotion": charged_trace_required.get("missing_for_promotion", []),
+            "forbidden_ancestors": charged_trace_required.get("forbidden_ancestors", []),
+            "current_closed_chain": charged_trace_required.get("current_closed_chain", {}),
+        },
         "fine_structure": _fine_structure_surface(measured_endpoint),
         "hierarchy_and_naturality": _hierarchy_surface(),
         "finalization_gates": pipeline["finalization_gates"],
@@ -416,14 +432,32 @@ def render_markdown(payload: dict[str, Any]) -> str:
                 "",
                 "These rows are retained in audit surfaces but are not numeric predictions.",
                 "",
-                "| Particle | Claim label | Reason |",
-                "| --- | --- | --- |",
+                "| Particle | Claim label | Reason | Missing gate |",
+                "| --- | --- | --- | --- |",
             ]
         )
         for row in withheld:
+            missing_gate = ", ".join(row.get("missing_for_promotion") or [])
+            if not missing_gate:
+                missing_gate = "n/a"
             lines.append(
-                f"| `{row['particle_id']}` | `{row['exact_kind']}` | {row['reason']} |"
+                f"| `{row['particle_id']}` | `{row['exact_kind']}` | {row['reason']} | {missing_gate} |"
             )
+    charged_boundary = payload.get("charged_lepton_anchor_boundary") or {}
+    if charged_boundary.get("artifact"):
+        lines.extend(
+            [
+                "",
+                "## Charged-Lepton Anchor Boundary",
+                "",
+                f"- Artifact: `{charged_boundary['artifact']}`",
+                f"- Status: `{charged_boundary['status']}`",
+                f"- Required identity: `{charged_boundary['required_identity']}`",
+                f"- Equivalent defect: `{charged_boundary['equivalent_defect']}`",
+                f"- Closed downstream: `{charged_boundary.get('current_closed_chain', {}).get('A_ch_to_charged_masses')}`",
+                f"- Closed upstream from `P`: `{charged_boundary.get('current_closed_chain', {}).get('P_to_A_ch')}`",
+            ]
+        )
     direct = payload["direct_top_auxiliary_comparison"]
     hierarchy = payload["hierarchy_and_naturality"]
     hierarchy_status = hierarchy["status"]

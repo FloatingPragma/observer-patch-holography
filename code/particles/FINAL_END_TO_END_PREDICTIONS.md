@@ -1,6 +1,6 @@
 # Final End-to-End Particle Predictions
 
-Generated: `2026-06-29T07:54:13Z`
+Generated: `2026-06-29T09:20:15Z`
 
 Scope: `nonhadron_particle_pipeline_with_empirical_hadron_closure_policy`
 Claim label: `final_nonhadron_predictions_with_separate_empirical_hadron_closure_surface`
@@ -46,20 +46,29 @@ Claim label: `final_nonhadron_predictions_with_separate_empirical_hadron_closure
 
 These rows are retained in audit surfaces but are not numeric predictions.
 
-| Particle | Claim label | Reason |
-| --- | --- | --- |
-| `electron` | `exact_target_anchored_current_family_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
-| `muon` | `exact_target_anchored_current_family_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
-| `tau` | `exact_target_anchored_current_family_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
-| `up_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
-| `charm_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
-| `top_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
-| `down_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
-| `strange_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
-| `bottom_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
-| `electron_neutrino` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table |
-| `muon_neutrino` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table |
-| `tau_neutrino` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table |
+| Particle | Claim label | Reason | Missing gate |
+| --- | --- | --- | --- |
+| `electron` | `exact_target_anchored_current_family_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | charged_branch_generator_splitting_promotion, sector_isolated_charged_determinant_exponent_vector_M_ch, source_side_same_label_q_psi_readout_certificate, charged_determinant_trace_lift_attachment, NO_TARGET_LEAK_DAG_CHARGED_A_CH |
+| `muon` | `exact_target_anchored_current_family_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | charged_branch_generator_splitting_promotion, sector_isolated_charged_determinant_exponent_vector_M_ch, source_side_same_label_q_psi_readout_certificate, charged_determinant_trace_lift_attachment, NO_TARGET_LEAK_DAG_CHARGED_A_CH |
+| `tau` | `exact_target_anchored_current_family_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | charged_branch_generator_splitting_promotion, sector_isolated_charged_determinant_exponent_vector_M_ch, source_side_same_label_q_psi_readout_certificate, charged_determinant_trace_lift_attachment, NO_TARGET_LEAK_DAG_CHARGED_A_CH |
+| `up_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | n/a |
+| `charm_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | n/a |
+| `top_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | n/a |
+| `down_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | n/a |
+| `strange_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | n/a |
+| `bottom_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | n/a |
+| `electron_neutrino` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table | n/a |
+| `muon_neutrino` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table | n/a |
+| `tau_neutrino` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table | n/a |
+
+## Charged-Lepton Anchor Boundary
+
+- Artifact: `oph_charged_determinant_trace_lift_attachment_required`
+- Status: `missing_theorem`
+- Required identity: `3*A_ch(P)=sum_psi M_ch[psi]*log(q_psi(P))`
+- Equivalent defect: `N_det(P)=s_det(P)-sum_psi M_ch[psi]*log(q_psi(P))=0`
+- Closed downstream: `True`
+- Closed upstream from `P`: `False`
 
 ## Fine Structure
 

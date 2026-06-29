@@ -34,6 +34,9 @@ PHYSICAL_CLASS_AFFINE_SCALAR_REDUCTION_JSON = RUNS_DIR / "charged_physical_class
 PHYSICAL_CANONICAL_LIFT_JSON = RUNS_DIR / "charged_physical_determinant_line_canonical_uncentered_lift.json"
 MASS_READOUT_FROM_AFFINE_JSON = RUNS_DIR / "charged_mass_readout_from_affine_anchor.json"
 DETERMINANT_CHARACTER_FRONTIER_JSON = RUNS_DIR / "charged_determinant_character_frontier.json"
+DETERMINANT_TRACE_LIFT_ATTACHMENT_REQUIRED_JSON = (
+    RUNS_DIR / "charged_determinant_trace_lift_attachment_required.json"
+)
 
 
 def load_json(path: Path) -> dict[str, Any]:

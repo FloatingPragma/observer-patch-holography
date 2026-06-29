@@ -120,6 +120,17 @@ def validate() -> dict[str, Any]:
             failures,
             f"{particle_id} target-anchored charged witness is not withheld",
         )
+        _require(
+            withheld_entries.get(particle_id, {}).get("source_only") is False,
+            failures,
+            f"{particle_id} target-anchored charged witness is marked source-only",
+        )
+        _require(
+            "charged_determinant_trace_lift_attachment"
+            in withheld_entries.get(particle_id, {}).get("missing_for_promotion", []),
+            failures,
+            f"{particle_id} missing determinant trace-lift gate is not recorded",
+        )
     for particle_id in ("electron_neutrino", "muon_neutrino", "tau_neutrino"):
         _require(particle_id not in entries, failures, f"{particle_id} compare-only absolute attachment is a public entry")
         _require(

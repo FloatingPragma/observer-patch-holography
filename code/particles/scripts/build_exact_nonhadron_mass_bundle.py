@@ -27,6 +27,9 @@ QUARK_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_current_family_exac
 CHARGED_THEOREM_JSON = ROOT / "particles" / "runs" / "leptons" / "lepton_current_family_quadratic_readout_theorem.json"
 QUARK_THEOREM_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_current_family_quadratic_readout_theorem.json"
 CHARGED_AFFINE_JSON = ROOT / "particles" / "runs" / "leptons" / "lepton_current_family_affine_anchor_theorem.json"
+CHARGED_TRACE_LIFT_REQUIRED_JSON = (
+    ROOT / "particles" / "runs" / "leptons" / "charged_determinant_trace_lift_attachment_required.json"
+)
 QUARK_CLOSURE_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_current_family_selected_sheet_closure.json"
 QUARK_TRANSPORT_LIFT_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_current_family_transport_frame_sector_attached_lift.json"
 QUARK_TRANSPORT_COMPLETION_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_current_family_transport_frame_exact_pdg_completion.json"
@@ -112,7 +115,7 @@ def _withheld_entry(entry: dict[str, Any]) -> dict[str, Any]:
         reason = "compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table"
     else:
         reason = "not_public_prediction_output"
-    return {
+    withheld = {
         "particle_id": entry["particle_id"],
         "label": entry.get("label"),
         "exact_kind": exact_kind,
@@ -121,6 +124,32 @@ def _withheld_entry(entry: dict[str, Any]) -> dict[str, Any]:
         "source_artifact": entry.get("source_artifact"),
         "reason": reason,
     }
+    for key in (
+        "public_theorem_value",
+        "source_only",
+        "centered_log",
+        "formula_if_anchor_exists",
+        "conditional_anchor_symbol",
+        "missing_for_promotion",
+        "promotion_gate_artifact",
+    ):
+        if key in entry:
+            withheld[key] = entry[key]
+    return withheld
+
+
+CHARGED_MISSING_FOR_PROMOTION = [
+    "charged_branch_generator_splitting_promotion",
+    "sector_isolated_charged_determinant_exponent_vector_M_ch",
+    "source_side_same_label_q_psi_readout_certificate",
+    "charged_determinant_trace_lift_attachment",
+    "NO_TARGET_LEAK_DAG_CHARGED_A_CH",
+]
+
+
+def _charged_formula(symbol: str, centered_log: float) -> str:
+    sign = "+" if centered_log >= 0.0 else "-"
+    return f"{symbol}(P)=exp(A_ch(P){sign}{abs(centered_log):.15f})"
 
 
 def build_all_entries() -> list[dict[str, Any]]:
@@ -337,10 +366,17 @@ def build_all_entries() -> list[dict[str, Any]]:
             "exact_kind": "exact_target_anchored_current_family_witness",
             "scope": charged["theorem_scope"],
             "promotable": False,
+            "source_only": False,
+            "public_theorem_value": None,
+            "centered_log": charged["centered_log_shape_exact"][0],
+            "formula_if_anchor_exists": _charged_formula("m_e", float(charged["centered_log_shape_exact"][0])),
+            "conditional_anchor_symbol": "A_ch(P)",
+            "missing_for_promotion": CHARGED_MISSING_FOR_PROMOTION,
+            "promotion_gate_artifact": _repo_ref(CHARGED_TRACE_LIFT_REQUIRED_JSON),
             "source_artifact": _repo_ref(CHARGED_JSON),
             "supporting_theorem_artifact": _repo_ref(CHARGED_THEOREM_JSON),
             "supporting_scope_closure_artifact": _repo_ref(CHARGED_AFFINE_JSON),
-            "note": "Exact `current_family_only` charged-lepton witness on a closed ordered-three-point readout chain, with the scoped affine coordinate `A_ch_current_family` closed on the same exact family.",
+            "note": "Exact `current_family_only` charged-lepton witness. Public promotion requires a source-only charged determinant trace-lift attachment emitting A_ch(P); the same-family A_ch_current_family checksum is forbidden ancestry for that theorem.",
         },
         {
             "particle_id": "muon",
@@ -349,10 +385,17 @@ def build_all_entries() -> list[dict[str, Any]]:
             "exact_kind": "exact_target_anchored_current_family_witness",
             "scope": charged["theorem_scope"],
             "promotable": False,
+            "source_only": False,
+            "public_theorem_value": None,
+            "centered_log": charged["centered_log_shape_exact"][1],
+            "formula_if_anchor_exists": _charged_formula("m_mu", float(charged["centered_log_shape_exact"][1])),
+            "conditional_anchor_symbol": "A_ch(P)",
+            "missing_for_promotion": CHARGED_MISSING_FOR_PROMOTION,
+            "promotion_gate_artifact": _repo_ref(CHARGED_TRACE_LIFT_REQUIRED_JSON),
             "source_artifact": _repo_ref(CHARGED_JSON),
             "supporting_theorem_artifact": _repo_ref(CHARGED_THEOREM_JSON),
             "supporting_scope_closure_artifact": _repo_ref(CHARGED_AFFINE_JSON),
-            "note": "Exact `current_family_only` charged-lepton witness on a closed ordered-three-point readout chain, with the scoped affine coordinate `A_ch_current_family` closed on the same exact family.",
+            "note": "Exact `current_family_only` charged-lepton witness. Public promotion requires a source-only charged determinant trace-lift attachment emitting A_ch(P); the same-family A_ch_current_family checksum is forbidden ancestry for that theorem.",
         },
         {
             "particle_id": "tau",
@@ -361,10 +404,17 @@ def build_all_entries() -> list[dict[str, Any]]:
             "exact_kind": "exact_target_anchored_current_family_witness",
             "scope": charged["theorem_scope"],
             "promotable": False,
+            "source_only": False,
+            "public_theorem_value": None,
+            "centered_log": charged["centered_log_shape_exact"][2],
+            "formula_if_anchor_exists": _charged_formula("m_tau", float(charged["centered_log_shape_exact"][2])),
+            "conditional_anchor_symbol": "A_ch(P)",
+            "missing_for_promotion": CHARGED_MISSING_FOR_PROMOTION,
+            "promotion_gate_artifact": _repo_ref(CHARGED_TRACE_LIFT_REQUIRED_JSON),
             "source_artifact": _repo_ref(CHARGED_JSON),
             "supporting_theorem_artifact": _repo_ref(CHARGED_THEOREM_JSON),
             "supporting_scope_closure_artifact": _repo_ref(CHARGED_AFFINE_JSON),
-            "note": "Exact `current_family_only` charged-lepton witness on a closed ordered-three-point readout chain, with the scoped affine coordinate `A_ch_current_family` closed on the same exact family.",
+            "note": "Exact `current_family_only` charged-lepton witness. Public promotion requires a source-only charged determinant trace-lift attachment emitting A_ch(P); the same-family A_ch_current_family checksum is forbidden ancestry for that theorem.",
         },
         {
             "particle_id": "up_quark",

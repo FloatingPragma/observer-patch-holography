@@ -1,0 +1,107 @@
+{
+  "artifact": "oph_charged_determinant_trace_lift_attachment_required",
+  "claim_tier": "exact_target_anchored_current_family_witness / continuation_gap",
+  "conditional_readout_if_closed": {
+    "centered_log_source_boundary": "The displayed centered logs are the exact same-family witness checksum, not a source-only charged-mass prediction.",
+    "centered_logs": {
+      "ell_e": -4.495210108808081,
+      "ell_mu": 0.8363886515979087,
+      "ell_tau": 3.6588214572101716
+    },
+    "formulas": {
+      "electron": "m_e(P)=exp(A_ch(P)-4.495210108808081)",
+      "muon": "m_mu(P)=exp(A_ch(P)+0.836388651597909)",
+      "tau": "m_tau(P)=exp(A_ch(P)+3.658821457210172)"
+    }
+  },
+  "current_closed_chain": {
+    "A_ch_to_charged_masses": true,
+    "P_to_A_ch": false,
+    "downstream_readout": {
+      "m_e(P)": "exp(A_ch(P)+ell_e(P))",
+      "m_mu(P)": "exp(A_ch(P)+ell_mu(P))",
+      "m_tau(P)": "exp(A_ch(P)+ell_tau(P))"
+    }
+  },
+  "equivalent_defect": "N_det(P)=s_det(P)-sum_psi M_ch[psi]*log(q_psi(P))=0",
+  "forbidden_ancestors": [
+    "particle_reference_values",
+    "lepton_current_family_exact_readout",
+    "charged_lepton_reference_targets",
+    "target_centered_log_shape_exact",
+    "m_e",
+    "m_mu",
+    "m_tau",
+    "log_m_e_m_mu_m_tau",
+    "g_e_star",
+    "Delta_e_abs_star",
+    "PDG",
+    "CODATA",
+    "compare_only"
+  ],
+  "generated_utc": "2026-06-29T09:20:24Z",
+  "missing_for_promotion": [
+    "charged_branch_generator_splitting_promotion",
+    "sector_isolated_charged_determinant_exponent_vector_M_ch",
+    "source_side_same_label_q_psi_readout_certificate",
+    "charged_determinant_trace_lift_attachment",
+    "NO_TARGET_LEAK_DAG_CHARGED_A_CH"
+  ],
+  "non_promotion_rule": [
+    "centered charged logs",
+    "charged log ratios",
+    "Koide-like shape identities",
+    "target-centered exact same-family witnesses",
+    "same-family determinant anchors",
+    "compare-only g_e_star",
+    "compare-only Delta_e_abs_star",
+    "debug singular values",
+    "fitted M_ch vectors",
+    "PDG/CODATA charged-lepton rows"
+  ],
+  "promotable": false,
+  "promotion_allowed": false,
+  "proof_status": "missing_theorem",
+  "public_promotion_allowed": false,
+  "public_theorem_value": null,
+  "required_identity": "3*A_ch(P)=sum_psi M_ch[psi]*log(q_psi(P))",
+  "required_objects": {
+    "charged_branch_generator": "C_hat_e, not only C_hat_e^{cand}",
+    "determinant_trace_lift": "s_det^phys(P)=sum_psi M_ch[psi]*log(q_psi(P))",
+    "no_target_leak_receipt": "NO_TARGET_LEAK_DAG_CHARGED_A_CH",
+    "same_label_source_readout": "q_psi(P) emitted source-only",
+    "sector_isolated_exponent_vector": "M_ch emitted before charged-mass comparison"
+  },
+  "source_only": false,
+  "status": "missing_theorem",
+  "supporting_artifacts": {
+    "determinant_character_frontier": {
+      "artifact": "oph_charged_determinant_character_frontier",
+      "artifact_ref": "code/particles/runs/leptons/charged_determinant_character_frontier.json",
+      "proof_status": "source_character_defined_additive_normalization_open"
+    },
+    "same_family_exact_readout_checksum": {
+      "artifact": "oph_lepton_current_family_exact_readout",
+      "artifact_ref": "code/particles/runs/leptons/lepton_current_family_exact_readout.json",
+      "proof_status": "current_family_exact_witness"
+    },
+    "trace_normalization_no_go": {
+      "artifact": "oph_charged_determinant_trace_normalization_no_go",
+      "artifact_ref": "code/particles/runs/leptons/charged_determinant_trace_normalization_no_go.json",
+      "proof_status": "source_character_defined_additive_normalization_open"
+    }
+  },
+  "target_anchored_checksum_only": {
+    "A_ch_current_family": -3.083932913749122,
+    "artifact_ref": "code/particles/runs/leptons/lepton_current_family_affine_anchor_theorem.json",
+    "g_e_current_family": 0.0457788578356876,
+    "status": "checksum_not_promotion",
+    "why": "A_ch_current_family is computed from the same-family charged determinant. It is useful as an audit checksum but is a forbidden ancestor for a source-only A_ch(P) theorem."
+  },
+  "unit_convention": {
+    "conversion": "A_ch^GeV=log(v(P)/(sqrt(2)*GeV))+a_ch",
+    "dimensionless_yukawa_anchor": "a_ch=(1/3)*log(det(Y_e))",
+    "mass_space_anchor": "A_ch^GeV=(1/3)*log((m_e*m_mu*m_tau)/GeV^3)",
+    "preference": "derive dimensionless a_ch source-only, then display GeV masses after electroweak-scale convention is fixed"
+  }
+}
