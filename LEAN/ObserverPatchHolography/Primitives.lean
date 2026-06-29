@@ -659,11 +659,12 @@ theorem demoCarrier_terminates :
   termination demoLR demoLR_H1 demoLR_H2 demoLR_H3
 
 /-- **H4 fails for the natural repair.** On `demoCarrier` the two patches share
-    one edge, so their copy-moves do NOT commute: from the identity record
-    `id = (fun b => b)`, repairing `false` then `true` gives the constant `true`,
-    whereas `true` then `false` gives the constant `false`. Hence `demoLR` violates
-    `H4`, so `confluence_of_commute` does not apply to it. This is not merely a
-    failed sufficient condition — `demoLR` is in fact NON-CONFLUENT
+    one edge, so their copy-moves can fail to commute. Concretely, from the
+    identity record `id = (fun b => b)`, repairing `false` then `true` gives the
+    constant `true`, whereas `true` then `false` gives the constant `false` — a
+    single record witnessing `lr i (lr j ·) ≠ lr j (lr i ·)`. Hence `demoLR`
+    violates `H4`, so `confluence_of_commute` does not apply to it. This is not
+    merely a failed sufficient condition — `demoLR` is in fact NON-CONFLUENT
     (`demoCarrier_not_confluent` below): the two firing orders reach two distinct
     normal forms, so on this carrier there is genuinely no unique objective public
     reality. -/
@@ -682,9 +683,12 @@ theorem demoCarrier_repairs_dont_commute :
     the concrete failure of a unique "objective public reality" that `H4` (and
     hence `confluence_of_commute`) rules out by hypothesis. Unlike
     `confluence_of_commute` (conditional on the witness-less global `H4`), THIS
-    result holds outright on the concrete `demoCarrier`: it is the load-bearing
-    half of the pair "async repair is generically non-confluent; commutation is
-    sufficient to recover confluence; the natural copy-repair does not commute."
+    result holds outright on the concrete `demoCarrier`. Together the three
+    theorems give a self-contained picture *on this carrier*: the async copy-repair
+    `demoLR` is non-confluent (here); commutation `H4` is a SUFFICIENT condition for
+    confluence (`confluence_of_commute`, abstract); and `demoLR` fails it
+    (`demoCarrier_repairs_dont_commute`). No claim is made that *every* async repair
+    is non-confluent — only this one is exhibited.
     Proof: `AbstractRewriting.unique_normal_form` forces any two normal forms
     reached from one record to coincide; the two we exhibit do not. -/
 theorem demoCarrier_not_confluent :
