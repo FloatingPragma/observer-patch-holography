@@ -545,10 +545,9 @@ theorem demoLR_eq_self_iff (i : demoCarrier.Patch) (x : Records demoCarrier) :
     exact hi
   · intro h
     funext k
-    simp only [demoLR, Function.update_apply]
-    split
-    · next hk => rw [hk]; exact h
-    · rfl
+    rcases eq_or_ne k i with hk | hk
+    · subst hk; simpa only [demoLR, Function.update_self] using h
+    · simp only [demoLR, Function.update_of_ne hk]
 
 theorem demoLR_H1 :
     ∀ (i : demoCarrier.Patch) (x : Records demoCarrier) (j : demoCarrier.Patch),
@@ -564,7 +563,10 @@ theorem demoLR_H3 :
             edgeConsistentAt e (demoLR i x) := by
   intro i x _ e _
   show (demoLR i x) false = (demoLR i x) true
-  cases i <;> simp [demoLR, Function.update_apply]
+  have hni : (!i) ≠ i := by cases i <;> decide
+  have e1 : (demoLR i x) i = x (!i) := by simp only [demoLR, Function.update_self]
+  have e2 : (demoLR i x) (!i) = x (!i) := by simp only [demoLR, Function.update_of_ne hni]
+  cases i <;> simp_all
 
 theorem demoLR_H2 :
     ∀ (i : demoCarrier.Patch) (x : Records demoCarrier),
@@ -573,15 +575,12 @@ theorem demoLR_H2 :
           (demoCarrier.src e = i ∨ demoCarrier.tgt e = i) ∧ ¬ edgeConsistentAt e x := by
   intro i x
   rw [ne_eq, demoLR_eq_self_iff]
+  have hiff : (x (!i) ≠ x i) ↔ (x false ≠ x true) := by cases i <;> simp [ne_comm]
   constructor
   · intro h
-    refine ⟨(), ?_, ?_⟩
-    · cases i <;> simp
-    · show ¬ (x false = x true)
-      cases i <;> intro hc <;> simp_all [eq_comm]
+    exact ⟨(), by cases i <;> simp, hiff.mp h⟩
   · rintro ⟨_, _, hnc⟩
-    have hnc' : ¬ (x false = x true) := hnc
-    cases i <;> intro hc <;> simp_all [eq_comm]
+    exact hiff.mpr hnc
 
 /-- The accepted-step relation for `demoLR` is non-empty: the identity record has
     a broken edge (`false ≠ true`), so `demoLR false` fires. -/
@@ -589,7 +588,7 @@ theorem demoLR_has_step :
     ∃ x y : Records demoCarrier, acceptedStepLR demoLR x y := by
   refine ⟨(fun b => b), demoLR false (fun b => b), false, rfl, ?_⟩
   rw [ne_eq, demoLR_eq_self_iff]
-  decide
+  simp
 
 /-- **Non-vacuity payoff.** `termination` instantiated on the real, non-trivial
     witness `(demoCarrier, demoLR)`. -/
