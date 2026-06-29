@@ -290,8 +290,9 @@ faithful, single-site properties. It does **not** close the file's own
 defined); it establishes the theorems for the abstract move `lr` instead. The laws are
 satisfiable by a genuine repair (e.g. a two-`Bool`-patch carrier with one
 edge, each patch copying its neighbour to snap the edge consistent), so the
-result is conditional, not vacuous; a machine-checked witness instance of
-`(carrier, repair)` discharging these laws is a natural follow-up.
+result is conditional, not vacuous — and that satisfiability is itself
+machine-checked below as `demoCarrier_terminates` (a concrete `(carrier, repair)`
+instance discharging `H1`/`H2`/`H3` with a real, non-empty repair step).
 
 It is deliberately **self-contained and axiom-clean**: it does *not* reference
 the `sorry`-defined `localRepair`/`Repair`. The repair move and its laws enter
@@ -521,9 +522,78 @@ theorem completeness (x : Records C) :
 
 end LocalRepairDynamics
 
-/- A machine-checked non-vacuity witness — a concrete `(carrier, repair)`
-   instance (e.g. two `Bool` patches, one edge, neighbour-copy repair)
-   satisfying `H1`/`H2`/`H3` with a non-empty accepted-step relation, thereby
-   instantiating `termination` for a real repair — is a routine follow-up. -/
+/-! ## Non-vacuity witness: the local laws are satisfiable by a real repair
+
+`demoCarrier` (two `Bool` patches, one edge) with the neighbour-copy repair
+`demoLR` satisfies `H1`/`H2`/`H3` and has a non-empty accepted-step relation, so
+`demoCarrier_terminates` is a genuine, non-vacuous instance of `termination` —
+not a claim about an unsatisfiable hypothesis set. -/
+
+/-- A genuine local repair on `demoCarrier`: patch `i` copies its neighbour `!i`,
+    snapping the single edge consistent. Changes only patch `i`. -/
+def demoLR : demoCarrier.Patch → Records demoCarrier → Records demoCarrier :=
+  fun i x => Function.update x i (x (!i))
+
+/-- `demoLR` fires (changes the record) exactly when patch `i` disagrees with its
+    neighbour. -/
+theorem demoLR_eq_self_iff (i : demoCarrier.Patch) (x : Records demoCarrier) :
+    demoLR i x = x ↔ x (!i) = x i := by
+  constructor
+  · intro h
+    have hi := congrFun h i
+    rwa [demoLR, Function.update_self] at hi
+  · intro h
+    funext k
+    rw [demoLR, Function.update_apply]
+    split
+    · next hk => rw [hk]; exact h
+    · rfl
+
+theorem demoLR_H1 :
+    ∀ (i : demoCarrier.Patch) (x : Records demoCarrier) (j : demoCarrier.Patch),
+      j ≠ i → (demoLR i x) j = x j := by
+  intro i x j hj
+  rw [demoLR, Function.update_of_ne hj]
+
+theorem demoLR_H3 :
+    ∀ (i : demoCarrier.Patch) (x : Records demoCarrier),
+      demoLR i x ≠ x →
+        ∀ e : demoCarrier.Edge,
+          (demoCarrier.src e = i ∨ demoCarrier.tgt e = i) →
+            edgeConsistentAt e (demoLR i x) := by
+  intro i x _ e _
+  show (demoLR i x) false = (demoLR i x) true
+  cases i <;> simp [demoLR, Function.update_apply]
+
+theorem demoLR_H2 :
+    ∀ (i : demoCarrier.Patch) (x : Records demoCarrier),
+      demoLR i x ≠ x ↔
+        ∃ e : demoCarrier.Edge,
+          (demoCarrier.src e = i ∨ demoCarrier.tgt e = i) ∧ ¬ edgeConsistentAt e x := by
+  intro i x
+  rw [ne_eq, demoLR_eq_self_iff]
+  constructor
+  · intro h
+    refine ⟨(), ?_, ?_⟩
+    · cases i <;> simp
+    · show ¬ (x false = x true)
+      cases i <;> intro hc <;> simp_all [eq_comm]
+  · rintro ⟨_, _, hnc⟩
+    have hnc' : ¬ (x false = x true) := hnc
+    cases i <;> intro hc <;> simp_all [eq_comm]
+
+/-- The accepted-step relation for `demoLR` is non-empty: the identity record has
+    a broken edge (`false ≠ true`), so `demoLR false` fires. -/
+theorem demoLR_has_step :
+    ∃ x y : Records demoCarrier, acceptedStepLR demoLR x y := by
+  refine ⟨(fun b => b), demoLR false (fun b => b), false, rfl, ?_⟩
+  rw [ne_eq, demoLR_eq_self_iff]
+  decide
+
+/-- **Non-vacuity payoff.** `termination` instantiated on the real, non-trivial
+    witness `(demoCarrier, demoLR)`. -/
+theorem demoCarrier_terminates :
+    WellFounded (fun y x : Records demoCarrier => acceptedStepLR demoLR x y) :=
+  termination demoLR demoLR_H1 demoLR_H2 demoLR_H3
 
 end OPH
