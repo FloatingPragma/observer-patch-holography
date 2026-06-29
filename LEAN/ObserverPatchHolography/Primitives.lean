@@ -280,10 +280,16 @@ end OPH
 
 /-! ## Global termination & completeness from LOCAL repair laws
 
-This section discharges two of OPH's open *dynamical* obligations —
-**Termination** and **Completeness** (cf. the `Termination`/`Completeness`
-`def`s above) — as genuine theorems, derived from explicit, faithful, **local**
-repair properties of an abstract single-site recovery move.
+This section proves the mathematical content of two of OPH's open *dynamical*
+obligations — **Termination** and **Completeness** (cf. the `Termination`/
+`Completeness` `def`s above) — **conditionally, for any local repair move
+satisfying the local laws `H1`/`H2`/`H3` below**, derived from those explicit,
+faithful, single-site properties. It does **not** close the file's own
+`Termination`/`Completeness` `def`s (those are stated over the still-placeholder
+`sorry`-defined `localRepair`, so cannot be discharged until `localRepair` is
+defined); it establishes the theorems for the abstract move `lr` instead, and
+exhibits a concrete witness (`demoCarrier_terminates`) that the laws are
+satisfiable by a genuine, non-trivial repair — so the result is not vacuous.
 
 It is deliberately **self-contained and axiom-clean**: it does *not* reference
 the `sorry`-defined `localRepair`/`Repair`. The repair move and its laws enter
@@ -512,5 +518,53 @@ theorem completeness (x : Records C) :
     exact (lr_fixed_iff_incident_consistent lr H1 H2 H3 i x).2 (fun e _ => hcons e)
 
 end LocalRepairDynamics
+
+/-! ## Non-vacuity witness: the local laws are satisfiable by a real repair
+
+The theorems above are conditional on `H1`/`H2`/`H3`. To certify those hypotheses
+are not contradictory (which would make `termination`/`completeness` vacuous), we
+exhibit a concrete instance: `demoCarrier` (two `Bool` patches, one edge) with
+`demoLR`, where each patch repairs by copying its single neighbour — snapping the
+lone edge consistent. `demoLR` satisfies H1/H2/H3 and its accepted-step relation
+is non-empty (a record with a broken edge really does fire a repair), so
+`demoCarrier_terminates` is a genuine, non-vacuous instance of `termination`.
+Everything is `decide`-checked: `demoCarrier` is finite (two `Bool` patches), so
+the laws are decidable propositions. -/
+
+/-- A genuine local repair on `demoCarrier`: patch `i` copies its neighbour `!i`,
+    snapping the single edge consistent. Changes only patch `i`. -/
+def demoLR : demoCarrier.Patch → Records demoCarrier → Records demoCarrier :=
+  fun i x => Function.update x i (x (!i))
+
+theorem demoLR_H1 :
+    ∀ (i : demoCarrier.Patch) (x : Records demoCarrier) (j : demoCarrier.Patch),
+      j ≠ i → (demoLR i x) j = x j := by decide
+
+theorem demoLR_H2 :
+    ∀ (i : demoCarrier.Patch) (x : Records demoCarrier),
+      demoLR i x ≠ x ↔
+        ∃ e : demoCarrier.Edge,
+          (demoCarrier.src e = i ∨ demoCarrier.tgt e = i) ∧ ¬ edgeConsistentAt e x := by
+  decide
+
+theorem demoLR_H3 :
+    ∀ (i : demoCarrier.Patch) (x : Records demoCarrier),
+      demoLR i x ≠ x →
+        ∀ e : demoCarrier.Edge,
+          (demoCarrier.src e = i ∨ demoCarrier.tgt e = i) →
+            edgeConsistentAt e (demoLR i x) := by decide
+
+/-- The accepted-step relation for `demoLR` is non-empty: the identity record has
+    a broken edge (`false ≠ true`), so `demoLR` fires — the dynamics are
+    non-trivial, not the empty relation. -/
+theorem demoLR_has_step :
+    ∃ x y : Records demoCarrier, acceptedStepLR demoLR x y := by decide
+
+/-- **Non-vacuity payoff.** `termination` instantiated on the real, non-trivial
+    witness `(demoCarrier, demoLR)`: the hypotheses are satisfiable, so the
+    abstract termination theorem is not a claim about an empty hypothesis set. -/
+theorem demoCarrier_terminates :
+    WellFounded (fun y x : Records demoCarrier => acceptedStepLR demoLR x y) :=
+  termination demoLR demoLR_H1 demoLR_H2 demoLR_H3
 
 end OPH
