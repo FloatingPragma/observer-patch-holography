@@ -541,10 +541,11 @@ theorem demoLR_eq_self_iff (i : demoCarrier.Patch) (x : Records demoCarrier) :
   constructor
   · intro h
     have hi := congrFun h i
-    rwa [demoLR, Function.update_self] at hi
+    simp only [demoLR, Function.update_self] at hi
+    exact hi
   · intro h
     funext k
-    rw [demoLR, Function.update_apply]
+    simp only [demoLR, Function.update_apply]
     split
     · next hk => rw [hk]; exact h
     · rfl
@@ -553,7 +554,7 @@ theorem demoLR_H1 :
     ∀ (i : demoCarrier.Patch) (x : Records demoCarrier) (j : demoCarrier.Patch),
       j ≠ i → (demoLR i x) j = x j := by
   intro i x j hj
-  rw [demoLR, Function.update_of_ne hj]
+  simp only [demoLR, Function.update_of_ne hj]
 
 theorem demoLR_H3 :
     ∀ (i : demoCarrier.Patch) (x : Records demoCarrier),
