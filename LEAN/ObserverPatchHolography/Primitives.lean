@@ -531,8 +531,8 @@ variable {β : Type} (B : Records C → β)
   (HB : ∀ (i : C.Patch) (x : Records C), B (lr i x) = B x)
   (Hfib : ∀ x y : Records C, B x = B y → Consistent C x → Consistent C y → gaugeEquiv C x y)
 
-/-- The boundary map is invariant along an entire accepted-repair reduction. -/
 include HB in
+/-- The boundary map is invariant along an entire accepted-repair reduction. -/
 theorem boundary_preserved_reduction {a b : Records C}
     (h : ReflTransGen (acceptedStepLR lr) a b) : B b = B a := by
   induction h with
@@ -541,6 +541,7 @@ theorem boundary_preserved_reduction {a b : Records C}
       obtain ⟨i, hc, _⟩ := hstep
       rw [hc, HB]; exact ih
 
+include H1 H2 H3 HB Hfib in
 /-- **THEOREM — Boundary-fiber observer-uniqueness (issue #304, observer-facing half).**
     Any two records with the SAME boundary value settle to the same observer-facing
     normal form (`gaugeEquiv`). It needs only `completeness` (normal form ⟹ consistent)
@@ -550,7 +551,6 @@ theorem boundary_preserved_reduction {a b : Records C}
     a single shared edge has two consistent states `(0,0)`/`(1,1)` and the symmetric
     copy-move reaches either, so the singleton fiber fails for it
     (cf. `demoCarrier_not_confluent`). -/
-include H1 H2 H3 HB Hfib in
 theorem boundary_fiber_observer_unique {x y nfx nfy : Records C}
     (hB : B x = B y)
     (hx : ReflTransGen (acceptedStepLR lr) x nfx) (hxn : NormalFormLR lr nfx)
