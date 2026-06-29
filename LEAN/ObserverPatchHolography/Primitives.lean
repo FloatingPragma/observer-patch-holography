@@ -691,9 +691,9 @@ theorem demoCarrier_not_confluent :
     ¬ AbstractRewriting.Confluent (acceptedStepLR demoLR) := by
   intro hc
   have hfire_f : demoLR false (fun b => b) ≠ (fun b => b) := by
-    rw [ne_eq, demoLR_eq_self_iff]; decide
+    rw [ne_eq, demoLR_eq_self_iff]; show (!false : Bool) ≠ false; decide
   have hfire_t : demoLR true (fun b => b) ≠ (fun b => b) := by
-    rw [ne_eq, demoLR_eq_self_iff]; decide
+    rw [ne_eq, demoLR_eq_self_iff]; show (!true : Bool) ≠ true; decide
   -- both single-step results are normal forms: no patch fires on a constant record
   have hnf_y : AbstractRewriting.IsNormalForm (acceptedStepLR demoLR)
       (demoLR false (fun b => b)) := by
