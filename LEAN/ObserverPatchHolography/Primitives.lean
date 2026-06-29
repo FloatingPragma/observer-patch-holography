@@ -756,4 +756,90 @@ theorem demoCarrier_not_confluent :
   have h2 : (true : Bool) = false := congrFun heq false
   exact absurd h2 (by decide)
 
+/-! ### The SYMMETRIC half of the #304 dichotomy — `demoCarrier` witnesses `Hfib` failing
+
+`boundary_fiber_observer_unique` shows: IF the repair pins each boundary-fiber to a
+single gauge class (`Hfib`), the observer reconstructs a unique public branch — and it
+does so WITHOUT confluence. The theorems below exhibit the complementary countermodel:
+the symmetric copy-repair `demoLR` makes `Hfib` FALSE, so the same inputs that
+`boundary_fiber_observer_unique` consumes hold while its conclusion fails. The witness is
+the SAME two normal forms `demoCarrier_not_confluent` already exhibits: `(1,1)` and `(0,0)`.
+
+HONEST SCOPE: this is the FORWARD direction (`Hfib` ⟹ unique; symmetric ⟹ countermodel),
+NOT a biconditional — observer-uniqueness is keyed to `Hfib` (a static fiber hypothesis),
+which is logically independent of confluence. And `demoBoundary` is the trivial boundary,
+legitimate as the COARSEST `B` (the fairest test of whether symmetric repair can pin its
+fiber) but carrying no interior/boundary split. -/
+
+/-- The trivial (constant) boundary on `demoCarrier` records — the concrete instance of the
+    abstract `B : Records C → β` from `boundary_fiber_observer_unique`. On a single-edge
+    carrier the only repair-invariant boundary is the trivial one (the coarsest `B`). -/
+def demoBoundary : Records demoCarrier → Unit := fun _ => ()
+
+/-- `demoLR` preserves `demoBoundary` (the `HB` premise of #304), trivially. -/
+theorem demoBoundary_HB (i : demoCarrier.Patch) (x : Records demoCarrier) :
+    demoBoundary (demoLR i x) = demoBoundary x := rfl
+
+/-- Every constant record is `Consistent` (`Φ = 0`): the single edge's two identity
+    projections agree on a constant record. -/
+theorem demoCarrier_const_consistent (v : Bool) :
+    Consistent demoCarrier (fun _ => v) := by
+  rw [consistent_iff_edgeConsistent]; intro e; rfl
+
+/-- The two constant normal forms are NOT gauge-equivalent: their `obsMap`s differ on the
+    single edge's source projection. Mirrors `obsMap_demoCarrier_nonconstant`, read on
+    `Prod.fst`. (`h` is `gaugeEquiv` = `obsMap _ = obsMap _` definitionally.) -/
+theorem demoCarrier_consts_not_gaugeEquiv :
+    ¬ gaugeEquiv demoCarrier (fun _ => true) (fun _ => false) := by
+  intro h
+  have h' : obsMap demoCarrier (fun _ => true) = obsMap demoCarrier (fun _ => false) := h
+  have hpt : ((true : Bool), (true : Bool)) = ((false : Bool), (false : Bool)) :=
+    congrFun h' ()
+  exact absurd (congrArg Prod.fst hpt) (by decide)
+
+/-- **COMPLEMENT THEOREM — `demoCarrier` WITNESSES `Hfib` FAILING (static form).**
+    The literal negation, in #304's own vocabulary, of the singleton-consistent-fiber
+    hypothesis `Hfib` of `boundary_fiber_observer_unique`, at `B := demoBoundary`:
+    two `Consistent` records with equal boundary that are NOT `gaugeEquiv`. -/
+theorem demoCarrier_Hfib_fails :
+    ¬ (∀ x y : Records demoCarrier,
+          demoBoundary x = demoBoundary y →
+          Consistent demoCarrier x → Consistent demoCarrier y →
+          gaugeEquiv demoCarrier x y) := by
+  intro Hfib
+  exact demoCarrier_consts_not_gaugeEquiv
+    (Hfib (fun _ => true) (fun _ => false) rfl
+      (demoCarrier_const_consistent true) (demoCarrier_const_consistent false))
+
+/-- **COMPLEMENT THEOREM (reachability-explicit) — the SYMMETRIC half of the dichotomy.**
+    From ONE start (`id`), `demoLR` reaches two normal forms with the SAME boundary that are
+    NOT `gaugeEquiv`. The inputs match exactly what `boundary_fiber_observer_unique` consumes
+    (reductions + `NormalFormLR` + equal boundary), yet the conclusion `gaugeEquiv` is FALSE —
+    because the symmetric repair makes the one premise it does not supply, `Hfib`, fail. -/
+theorem demoCarrier_boundary_fiber_not_unique :
+    ∃ start nf₁ nf₂ : Records demoCarrier,
+      Relation.ReflTransGen (acceptedStepLR demoLR) start nf₁ ∧ NormalFormLR demoLR nf₁ ∧
+      Relation.ReflTransGen (acceptedStepLR demoLR) start nf₂ ∧ NormalFormLR demoLR nf₂ ∧
+      demoBoundary nf₁ = demoBoundary nf₂ ∧
+      Consistent demoCarrier nf₁ ∧ Consistent demoCarrier nf₂ ∧
+      ¬ gaugeEquiv demoCarrier nf₁ nf₂ := by
+  have hfire_f : demoLR false (fun b => b) ≠ (fun b => b) := by
+    rw [ne_eq, demoLR_eq_self_iff]; show (!false : Bool) ≠ false; decide
+  have hfire_t : demoLR true (fun b => b) ≠ (fun b => b) := by
+    rw [ne_eq, demoLR_eq_self_iff]; show (!true : Bool) ≠ true; decide
+  have hnf₁ : NormalFormLR demoLR (demoLR false (fun b => b)) := by
+    rw [normalForm_iff_all_quiescent demoLR demoLR_H1 demoLR_H2 demoLR_H3]
+    intro i; rw [demoLR_eq_self_iff]; cases i <;> rfl
+  have hnf₂ : NormalFormLR demoLR (demoLR true (fun b => b)) := by
+    rw [normalForm_iff_all_quiescent demoLR demoLR_H1 demoLR_H2 demoLR_H3]
+    intro i; rw [demoLR_eq_self_iff]; cases i <;> rfl
+  have heq₁ : demoLR false (fun b => b) = (fun _ => true) := by funext k; cases k <;> rfl
+  have heq₂ : demoLR true (fun b => b) = (fun _ => false) := by funext k; cases k <;> rfl
+  refine ⟨(fun b => b), demoLR false (fun b => b), demoLR true (fun b => b),
+    Relation.ReflTransGen.single ⟨false, rfl, hfire_f⟩, hnf₁,
+    Relation.ReflTransGen.single ⟨true, rfl, hfire_t⟩, hnf₂, rfl, ?_, ?_, ?_⟩
+  · rw [heq₁]; exact demoCarrier_const_consistent true
+  · rw [heq₂]; exact demoCarrier_const_consistent false
+  · rw [heq₁, heq₂]; exact demoCarrier_consts_not_gaugeEquiv
+
 end OPH
