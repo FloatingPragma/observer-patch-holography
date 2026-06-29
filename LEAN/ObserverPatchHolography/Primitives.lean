@@ -563,10 +563,7 @@ theorem demoLR_H3 :
             edgeConsistentAt e (demoLR i x) := by
   intro i x _ e _
   show (demoLR i x) false = (demoLR i x) true
-  have hni : (!i) ≠ i := by cases i <;> decide
-  have e1 : (demoLR i x) i = x (!i) := by simp only [demoLR, Function.update_self]
-  have e2 : (demoLR i x) (!i) = x (!i) := by simp only [demoLR, Function.update_of_ne hni]
-  cases i <;> simp_all
+  cases i <;> simp [demoLR, Function.update_apply]
 
 theorem demoLR_H2 :
     ∀ (i : demoCarrier.Patch) (x : Records demoCarrier),
