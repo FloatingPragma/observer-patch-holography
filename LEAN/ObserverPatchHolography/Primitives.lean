@@ -563,7 +563,7 @@ theorem demoLR_H3 :
             edgeConsistentAt e (demoLR i x) := by
   intro i x _ e _
   show (demoLR i x) false = (demoLR i x) true
-  cases i <;> simp [demoLR, Function.update_apply, Bool.not_false, Bool.not_true]
+  cases i <;> rfl
 
 theorem demoLR_H2 :
     ∀ (i : demoCarrier.Patch) (x : Records demoCarrier),
@@ -573,7 +573,9 @@ theorem demoLR_H2 :
   intro i x
   rw [ne_eq, demoLR_eq_self_iff]
   have hiff : (x (!i) ≠ x i) ↔ (x false ≠ x true) := by
-    cases i <;> simp [ne_comm, Bool.not_false, Bool.not_true]
+    cases i
+    · exact ne_comm
+    · exact Iff.rfl
   constructor
   · intro h
     refine ⟨(), ?_, hiff.mp h⟩
@@ -589,7 +591,7 @@ theorem demoLR_has_step :
     ∃ x y : Records demoCarrier, acceptedStepLR demoLR x y := by
   refine ⟨(fun b => b), demoLR false (fun b => b), false, rfl, ?_⟩
   rw [ne_eq, demoLR_eq_self_iff]
-  simp
+  decide
 
 /-- **Non-vacuity payoff.** `termination` instantiated on the real, non-trivial
     witness `(demoCarrier, demoLR)`. -/
