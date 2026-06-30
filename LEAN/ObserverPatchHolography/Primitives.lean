@@ -842,4 +842,51 @@ theorem demoCarrier_boundary_fiber_not_unique :
   · rw [heq₂]; exact demoCarrier_const_consistent false
   · rw [heq₁, heq₂]; exact demoCarrier_consts_not_gaugeEquiv
 
+/-! ### The two POSITIVE routes to observer-uniqueness (the corrected #304 cut)
+
+`demoCarrier_Hfib_fails` shows the symmetric repair + trivial boundary breaks uniqueness. TWO
+DIFFERENT levers restore it, and they are NOT the same theorem:
+  ROUTE A — refine the BOUNDARY so the fiber is a gauge-singleton (Hfib holds). A property of B,
+            repair-free.
+  ROUTE B — use a SELECTING (deterministic) repair, which is CONFLUENT: a unique normal form per
+            input, schedule-independent (Church-Rosser; a last-writer-wins / strong-eventual-
+            consistency style resolver). A property of the repair dynamics, independent of Hfib. -/
+
+/-- **ROUTE A — a finer boundary makes `Hfib` HOLD.** With `B := obsMap` (the finest sector map)
+    the fiber is a gauge-singleton, so the singleton-fiber premise of `boundary_fiber_observer_unique`
+    is satisfied — definitionally, since `gaugeEquiv` unfolds to `obsMap`-equality. The positive
+    complement of `demoCarrier_Hfib_fails`: `Hfib` is bought by REFINING B (a boundary property),
+    not by choosing a repair (which is why "selecting repair proves Hfib" was a category error). -/
+theorem demoCarrier_Hfib_holds_finerB :
+    ∀ x y : Records demoCarrier, obsMap demoCarrier x = obsMap demoCarrier y →
+      Consistent demoCarrier x → Consistent demoCarrier y → gaugeEquiv demoCarrier x y :=
+  fun _ _ h _ _ => h
+
+/-- A SELECTING (directional) repair on `demoCarrier`: deterministically snap the edge to
+    patch-`false`'s value. Unlike the symmetric `demoLR`, this is a single-valued operator (a
+    last-writer-wins style resolver), so its induced rewriting is deterministic. -/
+def demoDirT : Records demoCarrier → Records demoCarrier := fun x => fun _ => x false
+
+/-- Descent potential for `demoDirT`: 1 if the edge is broken, else 0. -/
+def demoDirΦ : Records demoCarrier → ℕ := fun x => if x true = x false then 0 else 1
+
+theorem demoDirΦ_desc (x : Records demoCarrier) :
+    demoDirT x ≠ x → demoDirΦ (demoDirT x) < demoDirΦ x := by
+  intro hne
+  have hb : x true ≠ x false := fun h => hne (by funext k; cases k <;> simp [demoDirT, h])
+  have hL : demoDirΦ (demoDirT x) = 0 := by simp [demoDirΦ, demoDirT]
+  have hR : demoDirΦ x = 1 := by simp [demoDirΦ, hb]
+  omega
+
+/-- **ROUTE B — the SELECTING repair is CONFLUENT (positive twin of `demoCarrier_not_confluent`).**
+    `demoDirT` is deterministic, so its induced rewriting reaches a UNIQUE normal form per input,
+    schedule-independent (Newman's lemma via the `DeterministicRepair` route). This is CONFLUENCE —
+    the lever a directional/selecting repair actually buys — and a DIFFERENT theorem from the `Hfib`
+    boundary route above. The symmetric `demoLR` provably fails it (`demoCarrier_not_confluent`). -/
+theorem demoCarrier_dir_confluent :
+    AbstractRewriting.Confluent (AbstractRewriting.stepRel demoDirT) :=
+  AbstractRewriting.newman_lemma (AbstractRewriting.stepRel demoDirT)
+    (AbstractRewriting.descent_terminating demoDirT demoDirΦ demoDirΦ_desc)
+    (AbstractRewriting.deterministic_locally_confluent demoDirT)
+
 end OPH
