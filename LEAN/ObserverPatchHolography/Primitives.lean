@@ -893,4 +893,39 @@ theorem demoCarrier_dir_confluent :
     (AbstractRewriting.descent_terminating demoDirT demoDirΦ demoDirΦ_desc)
     (AbstractRewriting.deterministic_locally_confluent demoDirT)
 
+/-- **THE CRUX — confluence is NOT observer-uniqueness.** `demoDirT` is confluent
+    (`demoCarrier_dir_confluent`: same input → one normal form). But that is a property of
+    the REPAIR, not of the boundary. Here are TWO inputs with the SAME (trivial) boundary that
+    reach DIFFERENT normal forms `(1,1)` and `(0,0)` under that very confluent repair — so the
+    observer, seeing only the boundary, still cannot reconstruct a unique reality. Confluence
+    fixes order/races ("same input → same NF"); it does NOT give observer-facing uniqueness
+    ("same boundary → same NF"). The lever for the latter is the boundary (`Hfib`), not the
+    repair's directionality. -/
+theorem demoCarrier_dir_not_observer_unique :
+    ∃ x y nfx nfy : Records demoCarrier,
+      Relation.ReflTransGen (AbstractRewriting.stepRel demoDirT) x nfx ∧
+      AbstractRewriting.IsNormalForm (AbstractRewriting.stepRel demoDirT) nfx ∧
+      Relation.ReflTransGen (AbstractRewriting.stepRel demoDirT) y nfy ∧
+      AbstractRewriting.IsNormalForm (AbstractRewriting.stepRel demoDirT) nfy ∧
+      demoBoundary x = demoBoundary y ∧
+      ¬ gaugeEquiv demoCarrier nfx nfy := by
+  have hx : demoDirT (fun b => !b) = (fun _ => true) := by funext k; rfl
+  have hy : demoDirT (fun b => b) = (fun _ => false) := by funext k; rfl
+  have hfpT : demoDirT (fun _ => true) = (fun _ => true) := by funext k; rfl
+  have hfpF : demoDirT (fun _ => false) = (fun _ => false) := by funext k; rfl
+  have hstepx : AbstractRewriting.stepRel demoDirT (fun b => !b) (fun _ => true) := by
+    refine ⟨hx.symm, ?_⟩
+    rw [hx]; intro h; simpa using congrFun h true
+  have hstepy : AbstractRewriting.stepRel demoDirT (fun b => b) (fun _ => false) := by
+    refine ⟨hy.symm, ?_⟩
+    rw [hy]; intro h; simpa using congrFun h true
+  have hnfT : AbstractRewriting.IsNormalForm (AbstractRewriting.stepRel demoDirT) (fun _ => true) := by
+    rintro z ⟨_, hne⟩; exact hne hfpT
+  have hnfF : AbstractRewriting.IsNormalForm (AbstractRewriting.stepRel demoDirT) (fun _ => false) := by
+    rintro z ⟨_, hne⟩; exact hne hfpF
+  exact ⟨fun b => !b, fun b => b, fun _ => true, fun _ => false,
+    Relation.ReflTransGen.single hstepx, hnfT,
+    Relation.ReflTransGen.single hstepy, hnfF,
+    rfl, demoCarrier_consts_not_gaugeEquiv⟩
+
 end OPH
