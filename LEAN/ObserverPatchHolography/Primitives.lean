@@ -550,7 +550,12 @@ include H1 H2 H3 HB Hfib in
     hypotheses). A non-vacuous witness needs a boundary-PINNING (directional) repair:
     a single shared edge has two consistent states `(0,0)`/`(1,1)` and the symmetric
     copy-move reaches either, so the singleton fiber fails for it
-    (cf. `demoCarrier_not_confluent`). -/
+    (cf. `demoCarrier_not_confluent`).
+    SCOPE (honest): `HB` and `Hfib` are jointly satisfiable in principle, but NO single carrier in this
+    file instantiates BOTH — `demoBoundary` has `HB` (`demoBoundary_HB`) but fails `Hfib`
+    (`demoCarrier_Hfib_fails`); `obsMap`/`demoSeedBoundary` give `Hfib` but are not `demoLR`-preserved.
+    The two premises are exhibited on separate carriers; a joint witness on a richer multi-edge carrier
+    is future work. So this is an honestly-scoped conditional, not vacuous. -/
 theorem boundary_fiber_observer_unique {x y nfx nfy : Records C}
     (hB : B x = B y)
     (hx : ReflTransGen (acceptedStepLR lr) x nfx) (hxn : NormalFormLR lr nfx)
@@ -842,21 +847,27 @@ theorem demoCarrier_boundary_fiber_not_unique :
   · rw [heq₂]; exact demoCarrier_const_consistent false
   · rw [heq₁, heq₂]; exact demoCarrier_consts_not_gaugeEquiv
 
-/-! ### The two POSITIVE routes to observer-uniqueness (the corrected #304 cut)
+/-! ### Two DIFFERENT uniqueness notions, two DIFFERENT levers (the corrected #304 cut)
 
-`demoCarrier_Hfib_fails` shows the symmetric repair + trivial boundary breaks uniqueness. TWO
-DIFFERENT levers restore it, and they are NOT the same theorem:
-  ROUTE A — refine the BOUNDARY so the fiber is a gauge-singleton (Hfib holds). A property of B,
-            repair-free.
-  ROUTE B — use a SELECTING (deterministic) repair, which is CONFLUENT: a unique normal form per
-            input, schedule-independent (Church-Rosser; a last-writer-wins / strong-eventual-
-            consistency style resolver). A property of the repair dynamics, independent of Hfib. -/
+`demoCarrier_Hfib_fails` shows the symmetric repair + trivial boundary breaks OBSERVER-uniqueness
+("same boundary → same normal form"). Two levers act, on two DIFFERENT notions — do not conflate them:
+  ROUTE A — refine the BOUNDARY so the consistent fiber is a gauge-singleton (`Hfib` holds). This buys
+            OBSERVER-uniqueness directly; a property of B, repair-free (`demoCarrier_Hfib_holds_seed`).
+  ROUTE B — use a SELECTING (deterministic) repair: it is CONFLUENT — a unique normal form per INPUT,
+            schedule-independent (Church-Rosser; last-writer-wins / strong-eventual-consistency). This
+            is per-INPUT uniqueness, a property of the repair dynamics — and it is NOT observer-
+            uniqueness: under a coarse boundary the SAME confluent repair still fails it
+            (`demoCarrier_dir_not_observer_unique`). Observer-uniqueness returns only once the boundary
+            is also refined (`demoCarrier_dir_observer_unique_under_seed`) — i.e. via Route A. -/
 
-/-- **ROUTE A — a finer boundary makes `Hfib` HOLD.** With `B := obsMap` (the finest sector map)
-    the fiber is a gauge-singleton, so the singleton-fiber premise of `boundary_fiber_observer_unique`
-    is satisfied — definitionally, since `gaugeEquiv` unfolds to `obsMap`-equality. The positive
-    complement of `demoCarrier_Hfib_fails`: `Hfib` is bought by REFINING B (a boundary property),
-    not by choosing a repair (which is why "selecting repair proves Hfib" was a category error). -/
+/-- **ROUTE A (DEFINITIONAL endpoint) — at the finest boundary `Hfib` holds verbatim.** With
+    `B := obsMap`, `Hfib`'s conclusion `gaugeEquiv x y` IS its hypothesis `obsMap x = obsMap y`
+    (`gaugeEquiv` unfolds definitionally to `obsMap`-equality), so the proof is `fun _ _ h _ _ => h`
+    and discards BOTH `Consistent` premises. This endpoint therefore CANNOT fail and is NOT independent
+    evidence — it is the trivial top of the boundary lattice, recorded only for completeness. The
+    load-bearing positive result is `demoCarrier_Hfib_holds_seed` (a strictly coarser boundary that
+    genuinely uses consistency). `Hfib` is a property of B, not of the repair (which is why "selecting
+    repair proves Hfib" was a category error). -/
 theorem demoCarrier_Hfib_holds_finerB :
     ∀ x y : Records demoCarrier, obsMap demoCarrier x = obsMap demoCarrier y →
       Consistent demoCarrier x → Consistent demoCarrier y → gaugeEquiv demoCarrier x y :=
@@ -866,14 +877,19 @@ theorem demoCarrier_Hfib_holds_finerB :
     the trivial `demoBoundary` (reads nothing) and the full `obsMap` (reads the whole overlap). -/
 def demoSeedBoundary : Records demoCarrier → Bool := fun x => x false
 
-/-- **GENERATIVE / SEED base case (issue #304, Boundary-Fiber Confluence).** `Hfib` holds for the
-    one-cell seed boundary: reading patch `false` already separates the consistent states `(0,0)`
-    and `(1,1)`, because the agreement constraint forces the other cell to follow. So a boundary
-    need NOT be the full observable — a *generative* seed suffices, and reconstruction propagates
-    from it. This is the singleton-fiber base case: a coarse-but-generative boundary reconstructs
-    the bulk. (`demoSeedBoundary` is the boundary-fineness criterion only; it is NOT preserved by
-    the symmetric `demoLR`, so pairing a seed boundary with a boundary-preserving repair — the
-    `HB` premise — is a separate modeling step. That independence is exactly the two-lever point.) -/
+/-- **SEED base case (issue #304, Boundary-Fiber Confluence).** `Hfib` holds for the one-cell seed
+    boundary: reading patch `false` PLUS the consistency premise already pins the whole record, because
+    edge-agreement (`consistent_iff_edgeConsistent`) forces the unread cell to follow the read one. So
+    `Hfib` does NOT require the full observable — a single seed cell suffices. The proof genuinely
+    consumes both `Consistent` hypotheses (unlike `demoCarrier_Hfib_holds_finerB`, which is
+    definitional), so this is real singleton-consistent-fiber content. SCOPE (honest): on this 1-edge
+    carrier every `Consistent` record is constant, so the "bulk" is just the one other cell, and on the
+    consistent fiber `demoSeedBoundary` has the SAME separating power as the full `obsMap` — genuine
+    seed-determines-record, but the multi-edge *propagation* the name evokes is future work, not
+    exhibited here. (`demoSeedBoundary` is the boundary-fineness criterion only; it is NOT preserved by
+    the symmetric `demoLR` — pairing it with a boundary-preserving repair, the `HB` premise, is a
+    separate modeling step. It IS preserved by the selecting `demoDirT`, which is how
+    `demoCarrier_dir_observer_unique_under_seed` uses it.) -/
 theorem demoCarrier_Hfib_holds_seed :
     ∀ x y : Records demoCarrier, demoSeedBoundary x = demoSeedBoundary y →
       Consistent demoCarrier x → Consistent demoCarrier y → gaugeEquiv demoCarrier x y := by
@@ -921,14 +937,17 @@ theorem demoCarrier_dir_confluent :
     (AbstractRewriting.descent_terminating demoDirT demoDirΦ demoDirΦ_desc)
     (AbstractRewriting.deterministic_locally_confluent demoDirT)
 
-/-- **THE CRUX — confluence is NOT observer-uniqueness.** `demoDirT` is confluent
-    (`demoCarrier_dir_confluent`: same input → one normal form). But that is a property of
-    the REPAIR, not of the boundary. Here are TWO inputs with the SAME (trivial) boundary that
-    reach DIFFERENT normal forms `(1,1)` and `(0,0)` under that very confluent repair — so the
-    observer, seeing only the boundary, still cannot reconstruct a unique reality. Confluence
-    fixes order/races ("same input → same NF"); it does NOT give observer-facing uniqueness
-    ("same boundary → same NF"). The lever for the latter is the boundary (`Hfib`), not the
-    repair's directionality. -/
+/-- **THE CRUX — confluence ALONE is not observer-uniqueness.** `demoDirT` is confluent
+    (`demoCarrier_dir_confluent`: same input → one normal form). But that is a property of the REPAIR,
+    not of the boundary. Here are TWO inputs with the SAME *trivial* boundary (`demoBoundary : … → Unit`,
+    which reads nothing, so equality holds for ALL inputs by `rfl`) that reach DIFFERENT normal forms
+    `(1,1)` and `(0,0)` under that very confluent repair — so confluence ("same input → same NF") does
+    NOT by itself give observer-facing uniqueness ("same boundary → same NF"). This is a separation,
+    exhibited against the COARSEST boundary; it does NOT claim the repair's directionality is irrelevant
+    in general. The controlled converse is machine-checked next: hold THIS SAME confluent repair fixed
+    and REFINE the boundary to the one-cell `demoSeedBoundary`, and observer-uniqueness is RESTORED
+    (`demoCarrier_dir_observer_unique_under_seed`). So the lever that flips reconstructability — with the
+    repair held constant — is the boundary's fineness. -/
 theorem demoCarrier_dir_not_observer_unique :
     ∃ x y nfx nfy : Records demoCarrier,
       Relation.ReflTransGen (AbstractRewriting.stepRel demoDirT) x nfx ∧
@@ -956,6 +975,55 @@ theorem demoCarrier_dir_not_observer_unique :
     Relation.ReflTransGen.single hstepy, hnfF,
     rfl, demoCarrier_consts_not_gaugeEquiv⟩
 
+/-- **POSITIVE COMPANION TO THE CRUX — the boundary is the controlling lever, machine-checked.**
+    Hold the SAME confluent repair `demoDirT` fixed and REFINE the boundary from the trivial
+    `demoBoundary` (under which `demoCarrier_dir_not_observer_unique` shows observer-uniqueness FAILS)
+    to the one-cell `demoSeedBoundary`: observer-uniqueness is RESTORED — any two inputs with equal
+    seed-boundary reach `gaugeEquiv` normal forms under that very confluent repair. So with the repair
+    held constant, varying ONLY the boundary flips reconstructability; the lever is the boundary's
+    fineness, not the repair's directionality. Proof: `demoDirT` snaps every record to `(x false, x false)`,
+    so it (i) preserves `demoSeedBoundary` along every reduction and (ii) has only `Consistent`
+    (edge-constant) normal forms; then equal-seed-boundary consistent records are `gaugeEquiv` by
+    `demoCarrier_Hfib_holds_seed`. -/
+theorem demoCarrier_dir_observer_unique_under_seed :
+    ∀ x y nfx nfy : Records demoCarrier,
+      Relation.ReflTransGen (AbstractRewriting.stepRel demoDirT) x nfx →
+      AbstractRewriting.IsNormalForm (AbstractRewriting.stepRel demoDirT) nfx →
+      Relation.ReflTransGen (AbstractRewriting.stepRel demoDirT) y nfy →
+      AbstractRewriting.IsNormalForm (AbstractRewriting.stepRel demoDirT) nfy →
+      demoSeedBoundary x = demoSeedBoundary y →
+      gaugeEquiv demoCarrier nfx nfy := by
+  -- `demoSeedBoundary` is invariant along every `demoDirT` reduction.
+  have seed_inv : ∀ z w : Records demoCarrier,
+      Relation.ReflTransGen (AbstractRewriting.stepRel demoDirT) z w →
+      demoSeedBoundary w = demoSeedBoundary z := by
+    intro z w h
+    induction h with
+    | refl => rfl
+    | tail _ hstep ih =>
+        obtain ⟨hw, _⟩ := hstep
+        rw [hw]
+        simpa only [demoSeedBoundary, demoDirT] using ih
+  -- A `demoDirT` normal form is a fixed point, hence edge-constant, hence `Consistent`.
+  have nf_consistent : ∀ nf : Records demoCarrier,
+      AbstractRewriting.IsNormalForm (AbstractRewriting.stepRel demoDirT) nf →
+      Consistent demoCarrier nf := by
+    intro nf hnf
+    have hfix : demoDirT nf = nf := by
+      by_contra hne
+      exact hnf (demoDirT nf) ⟨rfl, hne⟩
+    have hcell : nf false = nf true := by
+      have h2 := congrFun hfix true
+      simpa only [demoDirT] using h2
+    rw [consistent_iff_edgeConsistent]
+    intro _; exact hcell
+  intro x y nfx nfy hx hxn hy hyn hseed
+  have hcx : Consistent demoCarrier nfx := nf_consistent nfx hxn
+  have hcy : Consistent demoCarrier nfy := nf_consistent nfy hyn
+  have hbb : demoSeedBoundary nfx = demoSeedBoundary nfy := by
+    rw [seed_inv x nfx hx, hseed, ← seed_inv y nfy hy]
+  exact demoCarrier_Hfib_holds_seed nfx nfy hbb hcx hcy
+
 /-! ### Axiom audit — the reconstruction layer depends only on standard axioms.
 The `#print axioms` outputs below confirm that the boundary-fiber reconstruction theorem
 and all its concrete witnesses depend ONLY on the standard Lean/Mathlib axioms
@@ -969,5 +1037,8 @@ claim for observer-reconstruction is sorry-free. -/
 #print axioms demoCarrier_Hfib_holds_seed
 #print axioms demoCarrier_dir_confluent
 #print axioms demoCarrier_dir_not_observer_unique
+#print axioms demoCarrier_dir_observer_unique_under_seed
+#print axioms termination
+#print axioms completeness
 
 end OPH
