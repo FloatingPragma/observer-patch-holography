@@ -862,6 +862,34 @@ theorem demoCarrier_Hfib_holds_finerB :
       Consistent demoCarrier x → Consistent demoCarrier y → gaugeEquiv demoCarrier x y :=
   fun _ _ h _ _ => h
 
+/-- The SEED boundary: read a SINGLE cell (patch `false`). A coarse boundary — strictly between
+    the trivial `demoBoundary` (reads nothing) and the full `obsMap` (reads the whole overlap). -/
+def demoSeedBoundary : Records demoCarrier → Bool := fun x => x false
+
+/-- **GENERATIVE / SEED base case (issue #304, Boundary-Fiber Confluence).** `Hfib` holds for the
+    one-cell seed boundary: reading patch `false` already separates the consistent states `(0,0)`
+    and `(1,1)`, because the agreement constraint forces the other cell to follow. So a boundary
+    need NOT be the full observable — a *generative* seed suffices, and reconstruction propagates
+    from it. This is the singleton-fiber base case: a coarse-but-generative boundary reconstructs
+    the bulk. (`demoSeedBoundary` is the boundary-fineness criterion only; it is NOT preserved by
+    the symmetric `demoLR`, so pairing a seed boundary with a boundary-preserving repair — the
+    `HB` premise — is a separate modeling step. That independence is exactly the two-lever point.) -/
+theorem demoCarrier_Hfib_holds_seed :
+    ∀ x y : Records demoCarrier, demoSeedBoundary x = demoSeedBoundary y →
+      Consistent demoCarrier x → Consistent demoCarrier y → gaugeEquiv demoCarrier x y := by
+  intro x y hseed hcx hcy
+  simp only [demoSeedBoundary] at hseed
+  rw [consistent_iff_edgeConsistent] at hcx hcy
+  have hx : x false = x true := hcx ()
+  have hy : y false = y true := hcy ()
+  have hxy : x = y := by
+    funext k
+    cases k
+    · exact hseed
+    · rw [← hx, hseed, hy]
+  subst hxy
+  rfl
+
 /-- A SELECTING (directional) repair on `demoCarrier`: deterministically snap the edge to
     patch-`false`'s value. Unlike the symmetric `demoLR`, this is a single-valued operator (a
     last-writer-wins style resolver), so its induced rewriting is deterministic. -/
@@ -938,6 +966,7 @@ claim for observer-reconstruction is sorry-free. -/
 #print axioms boundary_preserved_reduction
 #print axioms demoCarrier_Hfib_fails
 #print axioms demoCarrier_Hfib_holds_finerB
+#print axioms demoCarrier_Hfib_holds_seed
 #print axioms demoCarrier_dir_confluent
 #print axioms demoCarrier_dir_not_observer_unique
 
