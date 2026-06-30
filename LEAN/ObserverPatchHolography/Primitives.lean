@@ -867,16 +867,20 @@ theorem demoCarrier_Hfib_holds_finerB :
     last-writer-wins style resolver), so its induced rewriting is deterministic. -/
 def demoDirT : Records demoCarrier → Records demoCarrier := fun x => fun _ => x false
 
-/-- Descent potential for `demoDirT`: 1 if the edge is broken, else 0. -/
-def demoDirΦ : Records demoCarrier → ℕ := fun x => if x true = x false then 0 else 1
+/-- Descent potential for `demoDirT`: 1 if the edge is broken (the two patches differ),
+    else 0. Phrased with `Bool.xor`/`toNat` to stay first-order — no `Decidable` synthesis
+    through the dependent (semireducible) `Records demoCarrier` type. -/
+def demoDirΦ : Records demoCarrier → ℕ := fun x => (Bool.xor (x true) (x false)).toNat
 
 theorem demoDirΦ_desc (x : Records demoCarrier) :
     demoDirT x ≠ x → demoDirΦ (demoDirT x) < demoDirΦ x := by
   intro hne
   have hb : x true ≠ x false := fun h => hne (by funext k; cases k <;> simp [demoDirT, h])
-  have hL : demoDirΦ (demoDirT x) = 0 := by simp [demoDirΦ, demoDirT]
-  have hR : demoDirΦ x = 1 := by simp [demoDirΦ, hb]
-  omega
+  have key : Bool.xor (x true) (x false) = true := by
+    cases hxt : x true <;> cases hxf : x false <;> simp_all
+  simp only [demoDirΦ, demoDirT]
+  rw [key]
+  cases hxf : x false <;> decide
 
 /-- **ROUTE B — the SELECTING repair is CONFLUENT (positive twin of `demoCarrier_not_confluent`).**
     `demoDirT` is deterministic, so its induced rewriting reaches a UNIQUE normal form per input,
