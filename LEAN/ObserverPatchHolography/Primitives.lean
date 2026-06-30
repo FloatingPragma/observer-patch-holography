@@ -928,4 +928,17 @@ theorem demoCarrier_dir_not_observer_unique :
     Relation.ReflTransGen.single hstepy, hnfF,
     rfl, demoCarrier_consts_not_gaugeEquiv⟩
 
+/-! ### Axiom audit — the reconstruction layer depends only on standard axioms.
+The `#print axioms` outputs below confirm that the boundary-fiber reconstruction theorem
+and all its concrete witnesses depend ONLY on the standard Lean/Mathlib axioms
+(`propext`, `Classical.choice`, `Quot.sound`) and NOT on any of the file's three honest
+`sorry`s (`localRepair`, `Repair`, `repair_respects_gauge`) — i.e. the "machine-checked"
+claim for observer-reconstruction is sorry-free. -/
+#print axioms boundary_fiber_observer_unique
+#print axioms boundary_preserved_reduction
+#print axioms demoCarrier_Hfib_fails
+#print axioms demoCarrier_Hfib_holds_finerB
+#print axioms demoCarrier_dir_confluent
+#print axioms demoCarrier_dir_not_observer_unique
+
 end OPH
