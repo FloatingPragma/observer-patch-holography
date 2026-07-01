@@ -116,8 +116,8 @@ theorem rule90_Hfib_good :
   simp only [rule90BoundaryGood, Prod.mk.injEq] at hB
   obtain ⟨hB0, hB1⟩ := hB
   -- CA redundancy: bottom cell 2 = bottom cell 0 (both are seed cell 1).
-  have ex : (x true).2.2 = (x true).1 := by rw [← hx]
-  have ey : (y true).2.2 = (y true).1 := by rw [← hy]
+  have ex : (x true).2.2 = (x true).1 := by rw [← hx]; rfl
+  have ey : (y true).2.2 = (y true).1 := by rw [← hy]; rfl
   have hB2 : (x true).2.2 = (y true).2.2 := by rw [ex, ey, hB0]
   -- Hence the whole bottom rows agree.
   have hxtrue : x true = y true :=
@@ -164,7 +164,7 @@ theorem rule90_gauge_nontrivial :
       gaugeEquiv rule90Carrier x y := by
   refine ⟨fun _ => (false, false, false),
           fun b => bif b then (false, false, false) else (true, false, true), ?_, ?_, ?_, ?_⟩
-  · decide
+  · show ((false, false, false) : Bool × Bool × Bool) ≠ (true, false, true); decide
   · rw [consistent_iff_edgeConsistent]; intro e; cases e; rfl
   · rw [consistent_iff_edgeConsistent]; intro e; cases e; rfl
   · show obsMap rule90Carrier _ = obsMap rule90Carrier _
