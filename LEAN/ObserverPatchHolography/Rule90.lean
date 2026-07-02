@@ -39,8 +39,15 @@ whose outer cells are **equal** — a built-in redundancy. Hence:
   `Hfib`: two consistent diagrams agree on the boundary yet differ observably.
 * `rule90_gauge_nontrivial` — the CA map is *non-injective* (its `𝔽₂`-kernel
   is 1-dimensional: `(a,b,c)` and `(a⊕1,b,c⊕1)` share an image), so two
-  records with **different seeds** are `gaugeEquiv`. The gauge is real: it is
-  precisely the CA map's kernel (the unobservable part of the seed).
+  records with **different seeds** are `gaugeEquiv`. The gauge is real: it
+  contains the CA map's kernel (a kernel-pair exhibit — that inclusion
+  direction is what is machine-checked here).
+* `rule90_no_frustrationFree_repair` — **no** frustration-free local repair
+  (the `H1 ∧ H2 ∧ H3` binder forms of `Primitives.lean`'s
+  `LocalRepairDynamics` section) exists on this carrier: a bottom row with
+  unequal outer cells lies outside the Rule-90 image for *every* seed, yet
+  `H2` forces the seed-patch move to fire and `H1` pins the bottom row, so
+  `H3` is unsatisfiable.
 
 ## Honest scope
 
@@ -49,7 +56,10 @@ than `demoCarrier`'s seed tautology (a proper, failable information set + a
 non-trivial gauge). It does **not** yet supply the `HB` (repair-preserved
 boundary) premise, so it does not by itself instantiate the *joint* `HB ∧
 Hfib` witness that `boundary_fiber_observer_unique`'s doc-comment flags as
-future work; a boundary-pinning repair on this carrier is the next step. No
+future work. Indeed it never can: `rule90_no_frustrationFree_repair` below
+proves that **no** frustration-free local repair (`H1 ∧ H2 ∧ H3`) exists on
+this carrier at all — the repair route is provably closed here, and the
+injectivity reading of `Hfib` (#304) is the one that survives. No
 `sorry`, no new axioms (the theorems reduce pointwise; no `native_decide`).
 -/
 
@@ -151,12 +161,13 @@ theorem rule90_Hfib_bad_fails :
       congrArg Prod.snd (congrFun hg ())
     exact absurd h2 (by decide)
 
-/-- **The gauge is non-trivial — it is the CA map's kernel.** Rule 90 on
+/-- **The gauge is non-trivial — it contains the CA map's kernel.** Rule 90 on
     width 3 is non-injective: seeds `(0,0,0)` and `(1,0,1)` both map to the
     zero row (`a⊕c = 0`, `b = 0`). So two consistent records with **different
     seeds** expose the same observable and are `gaugeEquiv`. The unobservable
-    part of the seed — the erasure that `Hfib` correctly quotients away — is
-    exactly `ker(Rule90)`. -/
+    part of the seed — the erasure that `Hfib` correctly quotients away —
+    contains `ker(Rule90)` (a kernel-pair exhibit: that inclusion direction
+    is what is machine-checked here). -/
 theorem rule90_gauge_nontrivial :
     ∃ x y : Records rule90Carrier,
       x false ≠ y false ∧
@@ -170,9 +181,66 @@ theorem rule90_gauge_nontrivial :
   · show obsMap rule90Carrier _ = obsMap rule90Carrier _
     funext e; cases e; rfl
 
+/-- Both outer cells of any Rule-90 image row coincide — each equals the middle
+    seed cell — so a bottom row with **unequal** outer cells lies outside the
+    image of `rule90t` for *every* seed. -/
+theorem rule90t_outer_eq (s : Bool × Bool × Bool) :
+    (rule90t s).1 = (rule90t s).2.2 := rfl
+
+/-- **No frustration-free local repair exists on this carrier.** There is no
+    local move `lr` satisfying the `LocalRepairDynamics` hypotheses of
+    `Primitives.lean` (binder forms verbatim): `H1` — firing at `i` changes
+    patch `i` only; `H2` — the move at `i` fires **iff** some edge incident to
+    `i` is inconsistent; `H3` — after firing at `i`, all edges incident to `i`
+    are consistent. Reason: the record whose bottom row is `(0,0,1)` has
+    unequal outer cells, hence its only edge is broken for **every** seed row
+    (`rule90t_outer_eq`). `H2` then forces the *seed*-patch move to fire, `H1`
+    pins the bottom row, and `H3` demands a Rule-90 preimage of `(0,0,1)` —
+    which cannot exist. The repair route is closed on this carrier; the
+    injectivity reading of `Hfib` (#304) is the one that survives. -/
+theorem rule90_no_frustrationFree_repair :
+    ¬ ∃ lr : rule90Carrier.Patch → Records rule90Carrier → Records rule90Carrier,
+      (∀ (i : rule90Carrier.Patch) (x : Records rule90Carrier) (j : rule90Carrier.Patch),
+          j ≠ i → (lr i x) j = x j) ∧
+      (∀ (i : rule90Carrier.Patch) (x : Records rule90Carrier),
+          lr i x ≠ x ↔
+            ∃ e : rule90Carrier.Edge,
+              (rule90Carrier.src e = i ∨ rule90Carrier.tgt e = i) ∧
+                ¬ edgeConsistentAt e x) ∧
+      (∀ (i : rule90Carrier.Patch) (x : Records rule90Carrier),
+          lr i x ≠ x →
+            ∀ e : rule90Carrier.Edge,
+              (rule90Carrier.src e = i ∨ rule90Carrier.tgt e = i) →
+                edgeConsistentAt e (lr i x)) := by
+  rintro ⟨lr, H1, H2, H3⟩
+  -- It suffices to refute any record whose bottom row is the out-of-image (0,0,1).
+  suffices main : ∀ x : Records rule90Carrier, x true = (false, false, true) → False by
+    exact main (fun b => bif b then (false, false, true) else (false, false, false)) rfl
+  intro x hxt
+  -- The single edge is broken at `x`, whatever the seed row is.
+  have hbroken : ¬ edgeConsistentAt (C := rule90Carrier) () x := by
+    intro h
+    have h' : rule90t (x false) = x true := h
+    have h02 := rule90t_outer_eq (x false)
+    rw [h', hxt] at h02
+    exact absurd h02 (by decide)
+  -- H2 (⇐): a broken edge incident to the seed patch forces its move to fire.
+  have hfire : lr false x ≠ x := (H2 false x).mpr ⟨(), Or.inl rfl, hbroken⟩
+  -- H3: after firing at the seed patch, the edge must be consistent …
+  have hcons : rule90t ((lr false x) false) = (lr false x) true :=
+    H3 false x hfire () (Or.inl rfl)
+  -- … while H1 keeps the bottom row untouched (`true ≠ false`).
+  have htgt : (lr false x) true = (false, false, true) :=
+    (H1 false x true (fun h => Bool.noConfusion h)).trans hxt
+  -- So (0,0,1) would be a Rule-90 image — its outer cells would coincide.
+  have h02 := rule90t_outer_eq ((lr false x) false)
+  rw [hcons, htgt] at h02
+  exact absurd h02 (by decide)
+
 -- Axiom audit: these must report only `[propext, Classical.choice, Quot.sound]`.
 #print axioms rule90_Hfib_good
 #print axioms rule90_Hfib_bad_fails
 #print axioms rule90_gauge_nontrivial
+#print axioms rule90_no_frustrationFree_repair
 
 end OPH
