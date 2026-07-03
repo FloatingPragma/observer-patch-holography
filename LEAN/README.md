@@ -16,6 +16,12 @@ This project is **early-stage scaffolding**. What is currently present:
   `ObserverPatchHolography/Primitives.lean` (Records, Patch, Obs, Repair,
   local accepted repair steps, Φ, gauge equivalence, OPH-Confluence, and
   repair-completeness).
+- A sorry-free **#304 boundary-fiber carrier witness** in
+  `ObserverPatchHolography/Rule90.lean` (PR #385): the linear Rule 90 carrier
+  discharges the `Hfib` binder of `boundary_fiber_observer_unique` on a proper
+  information-set boundary, with a bad-boundary counterexample, a non-trivial
+  gauge, and a local-repair no-go (`H1`–`H3` route only). A carrier-level
+  witness; it does **not** advance the Prop 4.2 target. See `PROOF_INDEX.md`.
 
 What is **not** yet present and is the target:
 

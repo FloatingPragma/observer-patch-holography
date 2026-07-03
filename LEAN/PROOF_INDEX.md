@@ -17,6 +17,10 @@ Mapping between Lean 4 theorems in this project and statements in
   2 quotient/NF construction items)
 - Abstract-rewriting skeleton (preliminary): 5 / 5 proofs → 100%
 - OPH primitives (declared, sorry-bearing): 0 / 10 discharged → 0%
+- #304 boundary-fiber carrier witness (`Rule90.lean`, PR #385): 5 / 5 theorems, sorry-free → 100%
+  (first non-degenerate `Hfib` discharge on a linear information-set carrier +
+  `H1`–`H3` local-repair no-go; a carrier-level witness only — does **not** bear
+  on the Prop 4.2 / Def 4.1 counts above, which remain 0%)
 
 The headline number is **0% of Proposition 4.2** until the OPH-specific
 structures are in place. The 100% skeleton number is preliminary
@@ -83,6 +87,26 @@ proof will eventually instantiate.
 | `OPH.AbstractRewriting.newman_unique_nf` | `AbstractRewriting` | 🟡 | Combined: terminating + locally confluent → unique normal forms. |
 | `OPH.AbstractRewriting.deterministic_full` | `AbstractRewriting` | 🟡 | Deterministic op with descent potential → unique fixed-point reached. |
 | `OPH.AbstractRewriting.fixedPt_zero_potential` | `AbstractRewriting` | 🔸 | Any fixed point of a repair op has `Φ = 0`. **No paper anchor** — the passage at lines 330–334 is prose, not a labelled corollary; paper makes no formal `Φ(W) = 0` claim. Kept as preliminary ARS decoration only. |
+
+## #304 — Boundary-fiber observer uniqueness: Rule 90 carrier witness
+
+> `Hfib`: within a fixed boundary fiber, consistent states are a gauge-singleton
+> — the hypothesis binder of `boundary_fiber_observer_unique` (`Primitives.lean`).
+
+Instantiated on a linear (Rule 90) two-patch carrier — the first case where the
+`#304` `Hfib` binder is non-degenerate (a proper, failable information set + a
+non-trivial gauge), unlike `demoCarrier`'s seed tautology. A carrier-level
+witness, **not** a Prop 4.2 / Def 4.1 item. Module:
+`ObserverPatchHolography/Rule90.lean` (PR #385). Sorry-free, standard axioms
+only (`propext`, `Classical.choice`, `Quot.sound`; no `native_decide`).
+
+| Lean name | Module | Status | Notes |
+|---|---|---|---|
+| `OPH.rule90_Hfib_good` | `Rule90` | ✅ | Reading bottom cells {0,1} discharges `Hfib` on the consistent set — the `boundary_fiber_observer_unique` binder, instantiated. |
+| `OPH.rule90_Hfib_bad_fails` | `Rule90` | ✅ | Reading {0,2} fails: same carrier, coarser boundary. `Hfib` is about *which* cells `B` reads, not how many. |
+| `OPH.rule90_gauge_nontrivial` | `Rule90` | ✅ | Seeds (0,0,0), (1,0,1) observably identical: the gauge contains `ker(Rule90)` (kernel-pair exhibit). |
+| `OPH.rule90_no_frustrationFree_repair` | `Rule90` | ✅ | No `H1`–`H3` local repair exists on this carrier. Scope: transactional/multi-patch repair and relaxed `H2` are **not** ruled out. |
+| `OPH.rule90t_outer_eq` | `Rule90` | ✅ | Helper: every Rule 90 image has equal outer cells. |
 
 ## Gap analysis: skeleton → theorem-grade Prop 4.2
 

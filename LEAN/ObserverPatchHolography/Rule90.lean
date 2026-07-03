@@ -58,8 +58,10 @@ boundary) premise, so it does not by itself instantiate the *joint* `HB ∧
 Hfib` witness that `boundary_fiber_observer_unique`'s doc-comment flags as
 future work. Indeed it never can: `rule90_no_frustrationFree_repair` below
 proves that **no** frustration-free local repair (`H1 ∧ H2 ∧ H3`) exists on
-this carrier at all — the repair route is provably closed here, and the
-injectivity reading of `Hfib` (#304) is the one that survives. No
+this carrier at all — the `H1`–`H3` *local*-repair route is closed on this
+carrier (this does **not** rule out transactional/multi-patch repair, a
+different repair-site carrier, or a relaxed `H2`), and the injectivity
+reading of `Hfib` (#304) is the one that survives. No
 `sorry`, no new axioms (the theorems reduce pointwise; no `native_decide`).
 -/
 
@@ -196,8 +198,10 @@ theorem rule90t_outer_eq (s : Bool × Bool × Bool) :
     unequal outer cells, hence its only edge is broken for **every** seed row
     (`rule90t_outer_eq`). `H2` then forces the *seed*-patch move to fire, `H1`
     pins the bottom row, and `H3` demands a Rule-90 preimage of `(0,0,1)` —
-    which cannot exist. The repair route is closed on this carrier; the
-    injectivity reading of `Hfib` (#304) is the one that survives. -/
+    which cannot exist. The `H1`–`H3` *local*-repair route is closed on this
+    carrier (transactional/multi-patch repair, a different repair-site carrier,
+    and a relaxed `H2` are **not** ruled out); the injectivity reading of
+    `Hfib` (#304) is the one that survives. -/
 theorem rule90_no_frustrationFree_repair :
     ¬ ∃ lr : rule90Carrier.Patch → Records rule90Carrier → Records rule90Carrier,
       (∀ (i : rule90Carrier.Patch) (x : Records rule90Carrier) (j : rule90Carrier.Patch),
