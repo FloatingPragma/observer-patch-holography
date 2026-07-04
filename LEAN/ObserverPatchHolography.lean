@@ -1,5 +1,6 @@
 import ObserverPatchHolography.AbstractRewriting
 import ObserverPatchHolography.Primitives
+import ObserverPatchHolography.Rule90
 
 /-!
 # Observer-Patch Holography — Lean 4 library root

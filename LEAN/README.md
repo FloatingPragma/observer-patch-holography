@@ -23,6 +23,12 @@ surface for the OPH consensus layer. What is currently present:
 - Honest `sorry`-bearing signatures for the still paper-incomplete
   asynchronous/transactional repair machinery: `localRepair`, `Repair`, and
   `repair_respects_gauge`.
+- A sorry-free **#304 boundary-fiber carrier witness** in
+  `ObserverPatchHolography/Rule90.lean` (PR #385): the linear Rule 90 carrier
+  discharges the `Hfib` binder of `boundary_fiber_observer_unique` on a proper
+  information-set boundary, with a bad-boundary counterexample, a non-trivial
+  gauge, and a local-repair no-go (`H1`–`H3` route only). A carrier-level
+  witness; it does **not** advance the Prop 4.2 target. See `PROOF_INDEX.md`.
 
 What is **not** yet present and is the target:
 
@@ -73,8 +79,8 @@ tracker.
 
 Lean CI is manual. Use GitHub Actions, `Lean CI`, `Run workflow` when the
 Lean formalisation changes need a hosted check. The workflow allows exactly
-the 10 intentional `sorry` warnings in `Primitives.lean` and fails if new
-proof debt appears elsewhere or the count changes.
+the 3 intentional `sorry` warnings in `Primitives.lean` and fails if new proof
+debt appears elsewhere or the count changes.
 
 ## Provenance
 
