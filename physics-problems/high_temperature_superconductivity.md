@@ -133,7 +133,7 @@ The finite-temperature partition function is
 ```math
 Z_{\mathbf x}[h]
 =
-\operatorname{Tr}
+\mathrm{Tr}
 \exp[-\beta(H_{\mathbf x}[h]-\mu N)].
 ```
 
@@ -225,7 +225,7 @@ If the pair functional contains
 ```math
 E_{\rm rep}
 =
-\sum_{(p,q)}J_{pq}\operatorname{Re}(\Delta_p^\ast\Delta_q),
+\sum_{(p,q)}J_{pq}\mathrm{Re}(\Delta_p^\ast\Delta_q),
 ```
 
 then the minimizing phase relation across a dominant edge is
@@ -238,7 +238,7 @@ then the minimizing phase relation across a dominant edge is
 **Proof.** Write $\Delta_p=|\Delta_p|e^{i\theta_p}$. For one dominant edge,
 
 ```math
-J_{pq}\operatorname{Re}(\Delta_p^\ast\Delta_q)
+J_{pq}\mathrm{Re}(\Delta_p^\ast\Delta_q)
 =
 J_{pq}|\Delta_p||\Delta_q|\cos(\theta_q-\theta_p).
 ```
@@ -424,7 +424,7 @@ stability, and synthesis filters, and if $J_{\rm OPH}$ is bounded above and
 upper semicontinuous, then a maximizer exists:
 
 ```math
-\mathbf x_\star\in\operatorname{argmax}_{\mathbf x\in\mathfrak X}J_{\rm OPH}(\mathbf x).
+\mathbf x_\star\in\mathrm{arg\,max}_{\mathbf x\in\mathfrak X}J_{\rm OPH}(\mathbf x).
 ```
 
 $\mathbf x_\star$ is the best predicted OPH build target under the declared

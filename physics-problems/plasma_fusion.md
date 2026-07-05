@@ -407,7 +407,7 @@ repair/readout operator:
 ```math
 T^{\rm BR}_{\Delta t,u}(q)
 =
-\operatorname*{argmin}_{q'\in Q_r}
+\mathrm{arg\,min}_{q'\in Q_r}
 \left\{
 \Phi^{\rm fus}_r(q')
 +
@@ -429,7 +429,7 @@ and edge ledger $\Phi_E(z_E;q_C,q_X)$. The local edge map is
 ```math
 T_E(z_E)
 =
-\operatorname{prox}^{G_E}_{\eta\Phi_E}
+\mathrm{prox}^{G_E}_{\eta\Phi_E}
 \left(
 z_E+\eta f_E(z_E;q_C,q_X,u)
 \right),
@@ -438,9 +438,9 @@ z_E+\eta f_E(z_E;q_C,q_X,u)
 with
 
 ```math
-\operatorname{prox}^{G_E}_{\eta\Phi_E}(y)
+\mathrm{prox}^{G_E}_{\eta\Phi_E}(y)
 =
-\operatorname*{argmin}_{z}
+\mathrm{arg\,min}_{z}
 \left\{
 \Phi_E(z)
 +
@@ -501,7 +501,7 @@ The OPH controller solves the constrained repair problem
 ```math
 u_t^\star
 =
-\operatorname*{argmin}_{u}
+\mathrm{arg\,min}_{u}
 \mathbb E
 \left[
 \Phi_{\rm fus}(q_{t+\Delta t})
@@ -609,7 +609,7 @@ declared confinement normal forms or obstruction states. Then the terminal
 fusion state
 
 ```math
-\operatorname{nf}_{\mathfrak L}(q_0)
+\mathrm{nf}_{\mathfrak L}(q_0)
 ```
 
 is unique and schedule-independent.
@@ -631,7 +631,7 @@ Suppose noisy fair blocks satisfy
 0<\lambda<1,
 ```
 
-where $D(q)=\operatorname{dist}(q,\mathcal N)$, and within-block excursions
+where $D(q)=\mathrm{dist}(q,\mathcal N)$, and within-block excursions
 are bounded by $A D(q)+\beta$. Then
 
 ```math
@@ -695,7 +695,7 @@ s_{\rm ped}\ge1.
 Let the edge map be
 
 ```math
-T_E=\operatorname{prox}^{G_E}_{\eta\Phi_E}\circ (I+\eta f_E).
+T_E=\mathrm{prox}^{G_E}_{\eta\Phi_E}\circ (I+\eta f_E).
 ```
 
 Assume $\Phi_E$ is $m_E$ strongly convex in the edge metric on the relevant
@@ -826,7 +826,7 @@ w_7\frac{D_{\rm wall}}{D_{\rm wall}^{\max}}.
 The comparison passes at effect size $\delta$ only when
 
 ```math
-\operatorname{LCB}_{95}(\log G_{\rm OPH})
+\mathrm{LCB}_{95}(\log G_{\rm OPH})
 >
 \log(1+\delta).
 ```
@@ -1088,7 +1088,7 @@ $\mathsf{Gate}_r$, the following hold:
 
 1. A confinement regime is a quotient normal form
    ```math
-   \operatorname{nf}_{\mathfrak L}(q_0).
+   \mathrm{nf}_{\mathfrak L}(q_0).
    ```
 2. H-mode is the contracting edge normal form
    ```math
@@ -1112,7 +1112,7 @@ $\mathsf{Gate}_r$, the following hold:
 7. A reactor-enabling OPH controller must beat matched conventional controllers
    by the declared lower-confidence-bound score:
    ```math
-   \operatorname{LCB}_{95}(\log G_{\rm OPH})
+   \mathrm{LCB}_{95}(\log G_{\rm OPH})
    >
    \log(1+\delta).
    ```

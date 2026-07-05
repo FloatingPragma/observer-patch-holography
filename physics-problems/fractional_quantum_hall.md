@@ -218,7 +218,7 @@ non-Abelian higher-holonomy datum. $\mathcal C_r$ is the defect/fusion
 category. $\mathfrak e_r$ is the local electron object. The charge grading is
 
 ```math
-\chi_r:\operatorname{Obj}(\mathcal C_r)\to \mathbb R/\mathbb Z.
+\chi_r:\mathrm{Obj}(\mathcal C_r)\to \mathbb R/\mathbb Z.
 ```
 
 $\Theta_r$ is the spin, braid, and modular-data package.
@@ -226,12 +226,12 @@ $\Theta_r$ is the spin, braid, and modular-data package.
 The readout map is
 
 ```math
-\operatorname{HallRead}_r:
+\mathrm{HallRead}_r:
 N_r^{\mathrm{Hall}}\to\mathcal Y_r^{\mathrm{Hall}},
 ```
 
 ```math
-\operatorname{HallRead}_r(n)
+\mathrm{HallRead}_r(n)
 =
 \left(
 \nu,
@@ -535,7 +535,7 @@ in neutral sector, chirality, edge content, particle-hole realization, and
 thermal Hall response. Since the map
 
 ```math
-\operatorname{HallRead}_{\rm charge}:
+\mathrm{HallRead}_{\mathrm{charge}}:
 N_r^{5/2}\to
 \{(\nu,e^\ast)\}
 ```
@@ -633,7 +633,7 @@ m_r,
 S_r,
 c_{sr},
 \{P_{r,X}\}_{X\in\mathcal X},
-\operatorname{HallRead}_r
+\mathrm{HallRead}_r
 \right).
 ```
 

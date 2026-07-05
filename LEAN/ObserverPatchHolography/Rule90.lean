@@ -15,9 +15,9 @@ witness** and a **non-trivial gauge** exhibit.
 `demoCarrier` (in `Primitives.lean`) has a single edge whose only consistent
 records are globally constant, so its only `Hfib` witnesses are the trivial
 top (`obsMap` itself, `demoCarrier_Hfib_holds_finerB`) and the seed cell
-(`demoCarrier_Hfib_holds_seed`) — where the seed already carries the whole
+(`demoCarrier_Hfib_holds_seed`) — where the seed carries the whole
 observable. There is no room for a boundary that is *strictly between* "reads
-nothing" and "reads everything" yet still identifies the fiber, and none that
+nothing" and "reads everything" while identifying the fiber, and none that
 can *fail*.
 
 Rule 90 supplies exactly that room. Encode one CA time-step as a two-patch
@@ -49,14 +49,14 @@ whose outer cells are **equal** — a built-in redundancy. Hence:
   `H2` forces the seed-patch move to fire and `H1` pins the bottom row, so
   `H3` is unsatisfiable.
 
-## Honest scope
+## Declared scope
 
 This is the **`Hfib` half** of #304 on a real CA carrier — strictly richer
 than `demoCarrier`'s seed tautology (a proper, failable information set + a
-non-trivial gauge). It does **not** yet supply the `HB` (repair-preserved
+non-trivial gauge). It does **not** supply the `HB` (repair-preserved
 boundary) premise, so it does not by itself instantiate the *joint* `HB ∧
 Hfib` witness that `boundary_fiber_observer_unique`'s doc-comment flags as
-future work. Indeed it never can: `rule90_no_frustrationFree_repair` below
+open modeling task. Indeed it never can: `rule90_no_frustrationFree_repair` below
 proves that **no** frustration-free local repair (`H1 ∧ H2 ∧ H3`) exists on
 this carrier at all — the `H1`–`H3` *local*-repair route is closed on this
 carrier (this does **not** rule out transactional/multi-patch repair, a

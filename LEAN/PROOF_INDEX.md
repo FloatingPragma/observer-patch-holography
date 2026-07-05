@@ -78,7 +78,7 @@ Paper: `paper/paradise_as_fixed_point_consensus.tex` §4, lines 321–328.
 
 Generic results over `r : X → X → Prop` and `T : X → X`. Verified
 sorry-free. These are not Prop 4.2 — they are the abstract layer the OPH
-proof will eventually instantiate.
+proof instantiates after the concrete repair layer is supplied.
 
 | Lean name | Module | Status | Notes |
 |---|---|---|---|

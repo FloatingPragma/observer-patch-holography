@@ -4,10 +4,10 @@ Lean 4 / Mathlib formalisation effort for *Paradise as Fixed-Point Consensus*
 (B. Müller, 2026; source in `paper/paradise_as_fixed_point_consensus.tex`),
 with **Proposition 4.2** as the primary target.
 
-## Scope and current state
+## Scope
 
 This project is an active Lean 4 / Mathlib formalisation and proof-audit
-surface for the OPH consensus layer. What is currently present:
+surface for the OPH consensus layer. Contents:
 
 - Lake project with pinned `leanprover/lean4:v4.29.1` and Mathlib `v4.29.1`.
 - An abstract-rewriting skeleton (Newman's lemma, normal-form uniqueness,
@@ -20,7 +20,7 @@ surface for the OPH consensus layer. What is currently present:
   including boundary-fiber observer uniqueness, commutation-based confluence,
   concrete countermodels separating confluence from observer-facing uniqueness,
   and axiom audits for the discharged reconstruction statements.
-- Honest `sorry`-bearing signatures for the still paper-incomplete
+- Declared `sorry`-bearing signatures for the paper-incomplete
   asynchronous/transactional repair machinery: `localRepair`, `Repair`, and
   `repair_respects_gauge`.
 - A sorry-free **#304 boundary-fiber carrier witness** in
@@ -93,7 +93,7 @@ debt appears elsewhere or the count changes.
 - Jonathan Hill contributed the substantive Lean formalisation and proof-audit
   work that closed concrete carrier/reconstruction subclaims, added non-vacuity
   witnesses, separated confluence from observer-facing uniqueness, and exposed
-  the remaining asynchronous repair obligations honestly.
+  the remaining asynchronous repair obligations explicitly.
 - Coordination: "OPH LEAN Proofs" working group (Bernhard Mueller, Ben
   Cassie, Dula, Jonathan Hill). Cross-audit between auditors is required before
   PRs are merged.

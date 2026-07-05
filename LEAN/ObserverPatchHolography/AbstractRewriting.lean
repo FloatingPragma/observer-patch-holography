@@ -106,7 +106,7 @@ section DeterministicRepair
 variable (T : X → X)
 
 /-- The one-step rewriting relation induced by `T`: `x` steps to `T x`
-    precisely when `x` is not already a fixed point. -/
+    precisely when `x` is not a fixed point. -/
 def stepRel (T : X → X) (x y : X) : Prop := y = T x ∧ T x ≠ x
 
 /-- A normal form of `stepRel T` is a fixed point of `T`. -/

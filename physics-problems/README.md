@@ -12,11 +12,6 @@ records, repair moves, and public evidence receipts. Normal forms classify what
 survives repair; selection, yield, power, or material performance requires a
 branch-specific source law, action, repair ledger, or receipt bundle.
 
-Use GitHub-safe math delimiters in this folder: inline math as `$...$` and
-display math as fenced `math` blocks. Avoid `\(...\)` and `\[...\]`, because
-GitHub Markdown can treat equation lines such as `=` as headings before math
-rendering.
-
 ## Writeups
 
 - [Fractional Quantum Hall States](fractional_quantum_hall.md): fractional Hall
