@@ -350,15 +350,15 @@ Sage. Ils n'entrent pas dans le pipeline de rendu TeX/PDF ou de publication.
   acoustique porteur/contrôle, et les promotions DD/chaleur/charge/puissance
   nette comme niveaux de reçus séparés.
 - **[Supraconductivité à haute température](physics-problems/high_temperature_superconductivity.md)** :
-  haut-\(T_c\) comme réparation de charge \(2e\) plus confluence de phase
-  \(U(1)_Q\). Il énonce les prédicats cuprates, pnictides/chalcogénures,
+  haut $T_c$ comme réparation de charge $2e$ plus confluence de phase
+  $U(1)_Q$. Il énonce les prédicats cuprates, pnictides/chalcogénures,
   trempe sous pression, hétérostructures et conception inverse sans les
   transformer en recettes expérimentales.
 - **[États de Hall quantique fractionnaire](physics-problems/fractional_quantum_hall.md)** :
   phases de Hall fractionnaires comme formes normales de bord/holonomie,
-  récupération de la forme \(K\)-matrice abélienne, raffinement hiérarchique,
+  récupération de la forme matricielle abélienne $K$, raffinement hiérarchique,
   conditions de secteurs de réparation non abéliens et théorème de
-  non-sélection à \(5/2\).
+  non-sélection à $5/2$.
 
 ## Statut de preuve
 

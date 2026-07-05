@@ -16,6 +16,49 @@ are its repair normal forms. Abelian plateaus become the ordinary integral
 edge/holonomy ledger; $5/2$ becomes the branch that requires a noncentral
 repair sector.
 
+## Why Legacy Physics Gets Stuck
+
+Legacy fractional Hall physics has powerful local ingredients: Landau-level
+projection, trial wavefunctions, composite-fermion constructions, Chern-Simons
+effective theories, edge conformal field theories, and numerical spectra. The
+hard part is that the laboratory plateau is a boundary-visible transport record,
+while the proposed explanation usually lives in a microscopic state, an
+effective topological field theory, or an edge model. Several gauge-distinct
+presentations can produce the same coarse transport plateau, and several
+physically different edge or defect sectors can agree on part of the readout.
+
+The $\nu=5/2$ sector is the sharp failure mode. Pfaffian, anti-Pfaffian,
+PH-Pfaffian, Abelian, and reconstructed candidates can share filling fraction
+and partial charge data while disagreeing about fusion, chirality, thermal
+transport, interferometry, and edge reconstruction. A plateau alone therefore
+does not select the observer-facing sector. Legacy physics can name candidate
+phases and compute many invariants, but it lacks a single substrate-neutral
+normal-form object that says which public boundary records identify the phase
+and which hidden details are gauge.
+
+In that framing, the classification target is underdetermined: the same public
+plateau can sit over more than one observer-distinct sector.
+
+## Why OPH Makes It Solvable
+
+OPH makes the finite Hall collar, not the hidden bulk presentation, the object
+being classified. The physical state is the quotient of droplet, flux, active
+Landau level, source Hamiltonian, edge algebra, records, repair instruments, and
+checkpoint data by gauge representatives, basis choices, mesh labels, electron
+labels, edge charts, port labels, repair schedules, hidden carrier coordinates,
+and inert ancillas.
+
+That quotient turns the problem into a normal-form classification. Abelian
+plateaus are identified by an integral edge/holonomy ledger. Non-Abelian
+branches require defect and higher-defect data. The $5/2$ branch becomes
+solvable only when the boundary record includes enough data to distinguish the
+noncentral repair sector: charge, heat, tunneling, interferometry, fusion,
+braiding, chirality, and refinement-stable gap information. OPH is unique here
+because it makes the observer-facing equivalence relation load-bearing. Two
+presentations that differ only by hidden labels collapse to one state, while two
+sectors that differ in boundary-visible fusion or transport receipts remain
+distinct.
+
 ## Abstract
 
 Fractional Hall systems fit the OPH pattern as regulated Hall-collar quotients.

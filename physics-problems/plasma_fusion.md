@@ -14,6 +14,49 @@ a boundary-repair ledger: H-mode is the contracting edge-collar branch, ELMs are
 obstruction/reset cycles, Lawson is one energy projection, and reactor relevance
 requires a matched-controller score plus a closed plant ledger.
 
+## Why Legacy Physics Gets Stuck
+
+Legacy fusion physics has accurate local models for many pieces: cross
+sections, magnetohydrodynamic stability, kinetic turbulence, confinement
+scalings, edge physics, neutral transport, wall loading, tritium breeding, and
+plant engineering. The reactor claim gets stuck because those pieces live on
+different ledgers. A device can produce fusion products without capturing useful
+heat. A target can reach a high gain relative to target input while the facility
+ledger remains energy-negative. A plasma can improve confinement while creating
+edge bursts, divertor overload, ash accumulation, or wall damage. A small
+desktop device can produce a detector event while failing calorimetry, load
+delivery, or whole-system accounting.
+
+That makes “fusion solved” ambiguous in legacy language. Lawson and triple
+product are real gates, but they are scalar projections of a larger boundary
+and plant problem. Product evidence, captured heat, electricity, net plant
+output, and useful availability are different claims. Without a single typed
+ledger that keeps those tiers separate, a partial success can be promoted into a
+reactor story before the missing receipt is visible.
+
+In that framing, the reactor target is underdetermined: a scalar or detector
+gate can pass while the plant claim still fails.
+
+## Why OPH Makes It Solvable
+
+OPH makes the reactor a boundary-repair ledger. The state includes the plasma or
+carrier, actuator state, diagnostics, wall state, hard constraints, mismatch
+residuals, repair/control moves, and claim gates. Gauge labels, mesh labels,
+diagnostic order, port labels, hidden carrier coordinates, worker IDs, and
+scheduler metadata are quotiented away when they do not change the physical
+record.
+
+The OPH-specific solvable object is a typed promotion ladder. H-mode is treated
+as an edge-collar contraction. ELMs are obstruction/reset cycles. Lawson is the
+scalar energy-record projection. Loss-channel closure, matched-controller
+comparison, and plant accounting decide reactor relevance. Desktop branches
+such as the twelve-port acoustic carrier can promote only the tier they
+actually receipt: carrier/control, DD products, captured heat, delivered load
+power, or net plant output. OPH is unique here because it forbids promotion
+across missing ledgers. A self-reading carrier does not imply DD fusion; DD
+products do not imply captured heat; captured heat does not imply delivered
+power; delivered power does not imply net plant power.
+
 ## Abstract
 
 Fusion confinement is a quotient-visible boundary-repair problem. The primitive
@@ -821,10 +864,10 @@ without radiative collapse.
 Validation uses five gates:
 
 1. Offline scorebook: freeze
-   $$
+   ```math
    \mathfrak L^{\rm fus}
    =(Q_r,\Phi_{\rm fus},T_E,\kappa_E,P_{LH}^{\rm OPH},R_{\rm audit})
-   $$
+   ```
    and test whether $\kappa_E<1$ predicts L-H transition better than a
    declared empirical threshold baseline.
 2. Digital twin: run the OPH controller in a validated simulator and reduce
@@ -834,7 +877,7 @@ Validation uses five gates:
    stellarator campaign and test lower $P_{LH}$, improved pedestal control,
    lower ELM burden, and controlled divertor heat flux.
 4. Integrated high-performance plasma: satisfy
-   $$
+   ```math
    \kappa_E<1,
    \qquad
    s_{\rm ped}<1,
@@ -842,16 +885,16 @@ Validation uses five gates:
    q_{\rm div}<q_{\rm div}^{\max},
    \qquad
    Z_{\rm eff}<Z_{\rm eff}^{\max}
-   $$
+   ```
    in the same campaign.
 5. Burning-plasma integration: promote only after
-   $$
+   ```math
    P_\alpha+P_{\rm aux}\ge P_{\rm loss}
-   $$
+   ```
    with the ignition subcase
-   $$
+   ```math
    P_\alpha\ge P_{\rm loss}
-   $$
+   ```
    and the plant condition $L_{\rm plant}>5u_L$.
 
 The OPH-favored reactor lane is compact high-field magnetic confinement with
@@ -866,11 +909,41 @@ twelve-port self-reading acoustic boundary outperforms matched non-OPH acoustic
 controls. DD and power claims require the promotion gates below.
 
 Hydrosahedron is the internal name for a small receipt-gated OPH acoustic test
-cell: a bounded liquid chamber with twelve drive/readback ports, controller
-records, record-conditioned feedback moves, checkpoint continuation, and public
-evidence bundles. This writeup describes the mathematical role and claim
-boundary only. Detailed mechanical schematics, electrical schematics, CAD
-files, component selections, and operating procedures are private.
+cell. In public OPH language, it is a bounded liquid carrier whose boundary has
+twelve addressable ports. Each port is part actuator and part readback surface:
+the controller drives a declared acoustic pattern, reads the boundary response,
+records the transfer result, and chooses the next repair/control move from that
+record. The object under test is not a hidden internal fluid state by itself; it
+is the self-reading boundary ledger that links drive, readback, checkpoint, and
+public receipt.
+
+The public architecture is deliberately schematic:
+
+```mermaid
+flowchart TB
+    chamber["bounded liquid chamber<br/>hidden carrier state"]
+    ports["12 boundary ports<br/>drive + readback"]
+    readout["readout surfaces<br/>acoustic / optical / thermal"]
+    ledger["record ledger<br/>transfer matrix + checkpoints"]
+    controller["controller<br/>record-conditioned repair moves"]
+    receipts["public evidence bundle<br/>held-out scores + receipts"]
+
+    ports <--> chamber
+    chamber --> readout
+    readout --> ledger
+    ledger --> controller
+    controller --> ports
+    ledger --> receipts
+    controller --> receipts
+```
+
+This diagram is not a build schematic. It omits dimensions, materials, wiring,
+drive waveforms, calibration tables, safety procedures, and operating recipes.
+Those detailed mechanical and electrical schematics, CAD files, component
+selections, calibration artifacts, and procedures are private engineering
+material in the private `oph-fusion` repository. Public claims from that branch
+must be exported as redacted receipt bundles or benchmark reports; possession of
+private schematics is not itself a public OPH claim.
 
 A twelve-port acoustic carrier has source branch
 
@@ -1016,39 +1089,39 @@ map $T_E$, hard constraints $\mathcal H_r$, and claim gates
 $\mathsf{Gate}_r$, the following hold:
 
 1. A confinement regime is a quotient normal form
-   $$
+   ```math
    \operatorname{nf}_{\mathfrak L}(q_0).
-   $$
+   ```
 2. H-mode is the contracting edge normal form
-   $$
+   ```math
    \{q:T_E(q)=q,\ \kappa_E(q)<1,\ 
    \Phi_{\rm stab},\Phi_{\rm exhaust}\le\epsilon\}.
-   $$
+   ```
 3. The OPH L-H threshold is
-   $$
+   ```math
    P_{LH}^{\rm OPH}
    =
    \inf\{P_{\rm aux}:\kappa_E<1
    \text{ under hard constraints}\}.
-   $$
+   ```
 4. ELMs are obstruction/reset cycles.
 5. Lawson is the scalar energy-record projection
-   $$
+   ```math
    P_{\rm ch}+P_{\rm aux}\ge W/\tau_E.
-   $$
+   ```
 6. A twelve-port acoustic carrier is a carrier-patch/control specialization,
    with DD and power claims separated by receipt tier.
 7. A reactor-enabling OPH controller must beat matched conventional controllers
    by the declared lower-confidence-bound score:
-   $$
+   ```math
    \operatorname{LCB}_{95}(\log G_{\rm OPH})
    >
    \log(1+\delta).
-   $$
+   ```
 8. Net plant promotion uses
-   $$
+   ```math
    L_{\rm plant}>5u_L.
-   $$
+   ```
 
 **Proof.** The quotient and visibility statements follow from Theorem 1.
 Record survival and Lawson recovery follow from Theorems 2 and 3. Finite exact

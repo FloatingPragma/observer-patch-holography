@@ -314,13 +314,13 @@ TeX/PDF rendering or publication pipeline.
   as an acoustic carrier/control specialization, and DD/heat/load/net-power
   promotion as separate receipt tiers.
 - **[High-Temperature Superconductivity](physics-problems/high_temperature_superconductivity.md)**:
-  high-\(T_c\) as charge-\(2e\) repair plus \(U(1)_Q\) phase confluence. It
+  high $T_c$ as charge $2e$ repair plus $U(1)_Q$ phase confluence. It
   states cuprate, pnictide/chalcogenide, pressure-quench, heterostructure, and
   inverse-design predicates without turning them into recipe claims.
 - **[Fractional Quantum Hall States](physics-problems/fractional_quantum_hall.md)**:
-  fractional Hall phases as edge/holonomy normal forms, Abelian \(K\)-matrix
+  fractional Hall phases as edge/holonomy normal forms, Abelian $K$ matrix
   recovery, hierarchy refinement, non-Abelian repair-sector conditions, and the
-  \(5/2\) selector no-go theorem.
+  $5/2$ selector no-go theorem.
 
 ## Proof Status
 

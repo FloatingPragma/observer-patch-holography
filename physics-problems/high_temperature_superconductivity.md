@@ -17,6 +17,49 @@ becomes a bottleneck problem, with $T_c$ set by the weakest surviving gate and
 with material claims promoted only by structural, transport, magnetic, and bulk
 receipts.
 
+## Why Legacy Physics Gets Stuck
+
+Legacy superconductivity has excellent special-case explanations. BCS theory
+works for conventional low-temperature materials. Eliashberg methods, Hubbard
+and $t$-$J$ models, density-functional pipelines, spin-fluctuation models,
+phonon models, and strong-correlation numerics each explain part of the high
+$T_c$ record. The obstruction is that high-temperature superconductivity is not
+one scalar mechanism. Strong local pairing can coexist with weak phase
+stiffness. A promising gap symmetry can be destroyed by disorder or competing
+orders. A high-pressure hydride can have a large pairing scale while failing
+ambient retention. A cuprate can have a strong pair branch while grain
+boundaries, vortices, oxygen history, or processing scars block a reproducible
+macroscopic state.
+
+That makes the room-temperature problem underdetermined in legacy framing. A
+candidate can look good in one diagnostic and fail the observer-facing claim.
+Transport alone can be fooled by geometry, contacts, filamentary paths, or
+inhomogeneous phases. A computed pairing scale alone does not prove a material
+that carries bulk current without loss. The missing object is a single predicate
+that says which pair, phase, defect, process-retention, and public evidence
+records must all survive together.
+
+In that framing, the problem is unsolved because each submodel can optimize its
+own variable while the public material claim remains unclosed.
+
+## Why OPH Makes It Solvable
+
+OPH turns high $T_c$ into a finite material-quotient and repair-gate problem.
+The source branch keeps the physical facts that matter: composition, structure,
+doping, strain, pressure, disorder, competing channels, and processing history.
+It quotients away hidden coordinates, basis labels, gauge choices, mesh labels,
+and presentation data that do not change the observer-facing material record.
+
+The OPH-specific solvable object is the conjunction of three gates: local
+charge-$2e$ pair amplitude, global phase stiffness, and defect/holonomy
+clearance. The predicted transition is the weakest surviving gate,
+$\min(T_{\rm amp},T_{\rm phase},T_{\rm hol})$, with penalties for instability,
+disorder, toxicity, and synthesis failure. OPH is unique here because it makes
+the bottleneck structure explicit: a material is not promoted by a strong pair
+kernel unless stiffness, holonomy clearance, ambient retention, and public
+receipts close with it. The search therefore becomes an inverse-design protocol
+rather than a mechanism contest.
+
 ## Abstract
 
 High $T_c$ superconductivity is the OPH normal form of a material whose
