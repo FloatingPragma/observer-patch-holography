@@ -23,8 +23,8 @@ Legacy superconductivity has excellent special-case explanations. BCS theory
 works for conventional low-temperature materials. Eliashberg methods, Hubbard
 and $t$-$J$ models, density-functional pipelines, spin-fluctuation models,
 phonon models, and strong-correlation numerics each explain part of the high
-$T_c$ record. The obstruction is that high-temperature superconductivity is not
-one scalar mechanism. Strong local pairing can coexist with weak phase
+$T_c$ record. The obstruction is simple: high-temperature superconductivity has
+more than one failure mode. Strong local pairing can coexist with weak phase
 stiffness. A promising gap symmetry can be destroyed by disorder or competing
 orders. A high-pressure hydride can have a large pairing scale while failing
 ambient retention. A cuprate can have a strong pair branch while grain
@@ -55,22 +55,18 @@ charge-$2e$ pair amplitude, global phase stiffness, and defect/holonomy
 clearance. The predicted transition is the weakest surviving gate,
 $\min(T_{\rm amp},T_{\rm phase},T_{\rm hol})$, with penalties for instability,
 disorder, toxicity, and synthesis failure. OPH is unique here because it makes
-the bottleneck structure explicit: a material is not promoted by a strong pair
-kernel unless stiffness, holonomy clearance, ambient retention, and public
-receipts close with it. The search therefore becomes an inverse-design protocol
-rather than a mechanism contest.
+the bottleneck structure explicit: a strong pair kernel promotes only with
+stiffness, holonomy clearance, ambient retention, and public receipts. The
+search becomes an inverse-design protocol rather than a mechanism contest.
 
 ## Abstract
 
-High $T_c$ superconductivity is the OPH normal form of a material whose
-charge $2e$ repair kernel goes unstable at high temperature and whose phase
-field reaches global $U(1)_Q$ confluence. Cuprates, pnictides, nickelates, and
-hydrides are different material branches of the same predicate: local pair
-amplitude, phase stiffness, and holonomy clearance. The design problem is an
-inverse problem over composition, structure, strain, pressure, disorder, and
-processing history. OPH ranks candidates by the bottleneck
-$\min(T_{\rm amp},T_{\rm phase},T_{\rm hol})$, with penalties for instability,
-disorder, toxicity, and synthesis failure.
+High $T_c$ superconductivity is treated as a material quotient with three gates:
+local pair amplitude, global phase stiffness, and loop/defect clearance.
+Cuprates, pnictides, nickelates, and hydrides are different branches of that
+same bottleneck problem. OPH ranks material and processing candidates by the
+weakest surviving gate, with penalties for instability, disorder, toxicity, and
+synthesis failure.
 
 ## Source Branch
 

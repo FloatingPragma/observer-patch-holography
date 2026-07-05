@@ -41,36 +41,31 @@ plateau can sit over more than one observer-distinct sector.
 
 ## Why OPH Makes It Solvable
 
-OPH makes the finite Hall collar, not the hidden bulk presentation, the object
-being classified. The physical state is the quotient of droplet, flux, active
-Landau level, source Hamiltonian, edge algebra, records, repair instruments, and
-checkpoint data by gauge representatives, basis choices, mesh labels, electron
-labels, edge charts, port labels, repair schedules, hidden carrier coordinates,
-and inert ancillas.
+OPH classifies the finite Hall collar. The hidden bulk presentation enters
+through the declared source law, then passes through quotienting. The physical
+state is the quotient of droplet, flux, active Landau level, source Hamiltonian,
+edge algebra, records, repair instruments, and checkpoint data by gauge
+representatives, basis choices, mesh labels, electron labels, edge charts, port
+labels, repair schedules, hidden carrier coordinates, and inert ancillas.
 
 That quotient turns the problem into a normal-form classification. Abelian
 plateaus are identified by an integral edge/holonomy ledger. Non-Abelian
 branches require defect and higher-defect data. The $5/2$ branch becomes
 solvable only when the boundary record includes enough data to distinguish the
 noncentral repair sector: charge, heat, tunneling, interferometry, fusion,
-braiding, chirality, and refinement-stable gap information. OPH is unique here
-because it makes the observer-facing equivalence relation load-bearing. Two
-presentations that differ only by hidden labels collapse to one state, while two
-sectors that differ in boundary-visible fusion or transport receipts remain
-distinct.
+braiding, chirality, and refinement-stable gap information. The OPH step that
+matters is the observer-facing equivalence relation. Hidden-label differences
+collapse. Boundary-visible differences in fusion or transport receipts remain
+physical.
 
 ## Abstract
 
-Fractional Hall systems fit the OPH pattern as regulated Hall-collar quotients.
-On the gapped branch, local bulk mismatch repairs inside a fixed topological
-sector, while the quotient-visible residue lives in the edge algebra, charge
-holonomy, and defect or higher-defect data. The Abelian branch reduces to the
-usual integral $K$ matrix normal form. Laughlin states, Jain sequences, and
-the Abelian hierarchy appear as one-generator or iterated holonomy-refinement
-normal forms. At $\nu=5/2$, Ising/Majorana fusion forces a noncentral repair
-sector. Normal-form projection classifies Pfaffian, anti-Pfaffian,
-PH-Pfaffian, Abelian, and reconstructed sectors, while material selection
-requires a quotient-intrinsic action and refinement-stable sector gap.
+Fractional Hall systems become Hall-collar quotients in OPH. Bulk repair stays
+inside a topological sector; the public residue lives at the edge, in charge
+holonomy, and in defect data. Abelian plateaus recover the standard integral
+ledger. The $\nu=5/2$ branch needs noncentral repair data, which separates the
+Pfaffian, anti-Pfaffian, PH-Pfaffian, Abelian, and reconstructed sectors by
+boundary-visible receipts.
 
 ## Source Branch
 
