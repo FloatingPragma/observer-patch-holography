@@ -35,7 +35,7 @@ ledger that keeps those tiers separate, a partial success can be promoted into a
 reactor story before the missing receipt is visible.
 
 In that framing, the reactor target is underdetermined: a scalar or detector
-gate can pass while the plant claim still fails.
+gate can pass while the plant claim fails.
 
 ## Why OPH Makes It Solvable
 
@@ -53,20 +53,18 @@ comparison, and plant accounting decide reactor relevance. Desktop branches
 such as the twelve-port acoustic carrier can promote only the tier they
 actually receipt: carrier/control, DD products, captured heat, delivered load
 power, or net plant output. OPH is unique here because it forbids promotion
-across missing ledgers. A self-reading carrier does not imply DD fusion; DD
-products do not imply captured heat; captured heat does not imply delivered
-power; delivered power does not imply net plant power.
+across missing ledgers. A carrier receipt stops at carrier/control status. DD
+products stop at product status. Heat, delivered power, and net plant output
+each require their own ledger.
 
 ## Abstract
 
-Fusion confinement is a quotient-visible boundary-repair problem. The primitive
-object is the OPH Fusion Repair Ledger $\mathfrak L^{\rm fus}_r$, a typed
-record of plasma state, actuator state, diagnostics, wall state, hard
-constraints, mismatch residuals, repair maps, and claim gates. Confinement
-regimes are normal forms of this ledger. H-mode is the edge-collar branch where
-the edge repair map becomes contracting. ELMs are obstruction/reset cycles.
-Lawson is the scalar energy-record projection. DD products, heat, delivered
-power, and net plant power live in separate receipt tiers.
+Fusion confinement is a boundary-repair ledger. The ledger keeps plasma state,
+actuators, diagnostics, wall state, hard constraints, residuals, repair/control
+moves, and claim gates in one typed record. H-mode is the edge-collar
+contraction branch. ELMs are obstruction/reset cycles. Lawson is the scalar
+energy projection. DD products, heat, delivered power, and net plant power live
+in separate receipt tiers.
 
 ## External Benchmarks and Plant Gate
 
