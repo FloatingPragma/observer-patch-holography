@@ -221,7 +221,7 @@ and the refinement defects sum to $`\epsilon_{\rm ref}`$, then
 \le
 2\|O\|_\infty(\epsilon_{\rm samp}+\epsilon_{\rm ref}).
 ```
-Continuum-facing observables require a realization map and correlation Cauchy bound, not just a finite histogram.
+Continuum-facing observables require a realization map and correlation Cauchy bound in addition to a finite histogram.
 
 #### Vacuum promotion gate.
 
@@ -289,6 +289,8 @@ An observable cosmological prediction requires all source artifacts to be fixed 
 6.  global pooled reducers for nonlinear source estimates;
 
 7.  a fixed falsification rule and reporting template before executing the likelihood.
+
+A source-only anomaly abundance belongs to the source-artifact layer. It must be frozen before the Boltzmann run and before likelihood comparison.
 
 <div class="definition">
 
@@ -388,6 +390,20 @@ A conforming simulator contract must fail closed on the following cases.
 5.  accepting arbitrary labels such as “anomaly” or “recipient” as physical stress rows without a finite covariant parent and stress/exchange closure receipt;
 
 6.  promoting temporal repair gaps, spatial refinement exponents, primordial tilt, and physical exchange rates as if they were the same semantic type.
+
+7.  accepting a source-only `rho_A` or `Omega_A` claim unless `RHO_A_SOURCE_RECEIPT` passes;
+
+8.  accepting a `RHO_A_SOURCE_RECEIPT` whose receipt decomposition is not `RHO_A_TRANSPORT_RECEIPT` plus `ANOMALY_ABUNDANCE_SOURCE_RECEIPT`;
+
+9.  accepting an `ANOMALY_ABUNDANCE_SOURCE_RECEIPT` whose load observable is computed from an amplitude-loaded parent occupation field normalized by an external `Omega_A`, Planck residual, SPARC fit, cluster fit, Boltzmann residual, or likelihood comparison;
+
+10. accepting an anomaly abundance selector whose source DAG reads CMB, BAO, supernova, weak-lensing, RSD, SPARC, cluster, posterior, likelihood, nuisance-fit, or diagnostic residual data;
+
+11. accepting a selector whose release law lacks a quotient-intrinsic ensemble law or source MaxEnt constraint ledger;
+
+12. accepting a selector whose refinement defect exceeds the declared `LOAD_REFINEMENT_COMPATIBILITY` tolerance;
+
+13. accepting a selector whose hidden carrier coordinates, port labels, repair schedules, or worker metadata change $`\mathsf L_A`$.
 
 The no-data-use verifier must traverse the complete parent graph, including file reads, network reads, environment variables, configuration values, caches, random seeds, dependency versions, and human-selected branch identifiers. A missing channel is a blocker.
 

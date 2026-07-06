@@ -9,7 +9,7 @@ is not yet the exact closure branch?
 The immediate tool is an implied-`P` audit. For each D10 observable, solve for
 the pixel constant that would make the current implementation hit the declared
 target exactly. If different observables imply different `P` values, then the
-present bottleneck is not just decimal precision in `P`.
+present bottleneck extends beyond decimal precision in `P`.
 
 The second tool is a scheme-freezing artifact for the current D10 branch. That
 artifact records the exact single-`P` running electroweak family realized by

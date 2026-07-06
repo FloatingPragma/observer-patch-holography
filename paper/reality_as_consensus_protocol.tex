@@ -79,13 +79,18 @@ liveness, and hardware speedup are separate certified branches with additional d
 core consensus layer concerns convergence: primitive recovery proposals are eligible only when
 they satisfy the touched-overlap local-fit contract, but a proposal becomes physical only through
 transactional acceptance with snapshot validation, protected-boundary preservation, and exact
-well-founded descent. Connected conflict components commit atomically through canonical
-union-collar payloads, so under repair completeness every initial quotient state has a unique
-schedule-independent normal form. The stronger claim that all interiors with the same boundary
-data settle to the same state requires preservation of that boundary data plus a unique consistent
-extension in the corresponding fiber; the functional selected-fiber branch proves that condition
-by constructing the single rooted extension and checking the remaining sector/holonomy
-obstructions. The second concerns obstructions: pairwise overlap agreement does not ensure a
+well-founded descent. This accepted finite relation induces a total, idempotent,
+boundary-preserving quotient normal-form map
+\[
+\operatorname{Rep}_\lambda:Q\to Q.
+\]
+Connected conflict components commit atomically through canonical union-collar payloads, so under
+repair completeness every initial quotient state has a unique schedule-independent normal form.
+The stronger claim that all interiors with the same boundary data settle to the same state
+requires preservation of that boundary data plus a unique consistent extension in the
+corresponding fiber; the layered functional carrier proves a finite multi-edge witness for this
+condition, and the functional selected-fiber branch gives the rooted obstruction-check form. The
+second concerns obstructions: pairwise overlap agreement does not ensure a
 global solution, and the obstruction is holonomic. On the abelian branch it is the cycle sum of
 edge data; on the genuinely noncentral branch it is a crossed-module \v{C}ech class.
 
@@ -111,9 +116,9 @@ min-cut formula for distance (Theorem~\ref{thm:no-free-mincut}). The same firewa
 promotion by relabeling: a finite constraint, archive, repair spectrum, or reconstruction threshold
 remains a finite diagnostic until a source-separated physical bridge supplies the relevant readout,
 residual ledger, controls, and frozen validation target.
-\item \textbf{Asynchronous confluence.} For the declared accepted repair law, primitive recovery proposals pass through transactional snapshot/read/write validation, boundary/sector preservation, and exact descent. Atomic conflict-component commits give the local diamond on the physical quotient; under repair completeness, every fixed initial quotient state has a unique normal form, independent of update schedule (Theorem~\ref{thm:confluence}).
+\item \textbf{Asynchronous confluence.} For the declared accepted repair law, primitive recovery proposals pass through transactional snapshot/read/write validation, boundary/sector preservation, and exact descent. The accepted relation induces a total local quotient repair map \(\operatorname{locRep}_\lambda:Q\to Q\) and a total idempotent global repair map \(\operatorname{Rep}_\lambda=\overline{\operatorname{nf}}_\lambda:Q\to Q\). Atomic conflict-component commits give the local diamond on the physical quotient; under repair completeness, every fixed initial quotient state has a unique normal form, independent of update schedule (Proposition~\ref{prop:local-quotient-repair}, Theorems~\ref{thm:quotient-repair-normal-form} and \ref{thm:confluence}).
 \item \textbf{Cycle obstruction.} For affine overlap constraints over an abelian group, global consistency holds if and only if the holonomy vanishes on every cycle (Theorem~\ref{thm:holonomy}). The parity triangle gives the minimal frustrated example, and Theorem~\ref{thm:higherdefects} extends the same logic to the crossed-module higher-gauge defect hierarchy used later in the framework.
-\item \textbf{Gauge quotient, selected fibers, and observable-level confluence.} When local repair is induced on the overlap-invariant quotient, the normal-form map descends to that quotient, and the induced terminal state on every declared physical observable algebra is unique there even when microscopic representatives differ by gauge or sector relabelings inside one quotient-local glued state. If a boundary/sector map is preserved and each consistent boundary fiber has at most one quotient extension, then all initial states with that boundary value settle to the same quotient normal form; the functional selected-fiber branch proves a nontrivial case where multiple same-boundary interiors exist, inconsistent candidates are eliminated, and surviving candidates share one quotient normal form (Theorems~\ref{thm:gauge}, \ref{thm:boundary-conditioned-uniqueness}, \ref{thm:functional-selected-fiber}, Corollary~\ref{cor:branch-elimination}, and Theorem~\ref{thm:obsconfluence}).
+\item \textbf{Gauge quotient, selected fibers, and observable-level confluence.} When local repair is induced on the overlap-invariant quotient, the normal-form map descends to that quotient, \(\operatorname{Rep}_\lambda\circ q\) is invariant under gauge/implementation hiding, and the induced terminal state on every declared physical observable algebra is unique there even when microscopic representatives differ by gauge or sector relabelings inside one quotient-local glued state. If a boundary/sector map is preserved and each consistent boundary fiber has at most one quotient extension, then all initial states with that boundary value settle to the same quotient normal form; the layered functional carrier proves \(H_B\wedge H_{\mathrm{fib}}\) on a finite multi-edge, multi-step carrier, while the functional selected-fiber branch proves a nontrivial rooted case where multiple same-boundary interiors exist, inconsistent candidates are eliminated, and surviving candidates share one quotient normal form (Theorems~\ref{thm:gauge}, \ref{thm:boundary-conditioned-uniqueness}, \ref{thm:layered-carrier-HB-Hfib}, \ref{thm:functional-selected-fiber}, Corollaries~\ref{cor:repair-respects-gauge}, \ref{cor:layered-carrier-reconstruction}, \ref{cor:branch-elimination}, and Theorem~\ref{thm:obsconfluence}).
 \item \textbf{Refinement-limit consensus classes.} On a separated cofinal refinement system whose restriction maps commute with the finite-stage normal-form and holonomy maps, the quotient normal forms and holonomy obstructions assemble into unique inverse-limit classes with finite-stage visibility (Theorem~\ref{thm:refinement-consensus}).
 \item \textbf{Coarse-graining compatibility.} On any refinement system whose coarse-graining maps shadow finite-stage normal forms and holonomy maps with declared errors, reconciling first and then coarse-graining gives the same macroscopic law data as coarse-graining first and then reconciling, up to those errors; in the exact natural case the error is zero (Theorem~\ref{thm:coarse-grain-consensus}).
 \item \textbf{Record algebra and stability.} On the fixed-cutoff observer-accessible surface, central record projectors carry Born/L\"uders measurement directly, and approximate record projectors inherit explicit \((\varepsilon,\delta_{\mathrm{rec}})\) stability bounds on the same event surface (Theorem~\ref{thm:crdt}).
@@ -146,7 +151,8 @@ payload used for atomic conflict-component commits. What sits above that step is
 completeness and, on the Petz branch, the support/CPTP clause stated later in
 Proposition~\ref{prop:petz-cptp}.
 A nontrivial exported rooted-tree packet domain where these clauses are proved is recorded in
-Definition~\ref{def:tree-packet-domain} and Theorem~\ref{thm:tree-packet-domain}.
+Definition~\ref{def:tree-packet-domain} and Theorem~\ref{thm:tree-packet-domain}; the separate
+layered functional carrier records the finite multi-edge boundary-reconstruction witness.
 
 We also define a fitness functional over a finite candidate space of reconciliation laws and prove
 that replicator dynamics monotonically increases mean fitness (Theorem~\ref{thm:replicator}). This
@@ -206,7 +212,8 @@ C=\Phi^{-1}(0).
 \]
 This proposition is the theorem-grade content of the unqualified phrase ``the overlap network is
 a code.'' It supplies a finite constraint code, not a quantum error-correcting code, not a
-topological code, and not a graph-theoretic formula for code distance.
+topological code, not a graph-theoretic formula for code distance, and not a Lorentzian or
+Einstein-geometry theorem.
 \end{proposition}
 
 \begin{proof}
@@ -216,6 +223,77 @@ Since each \(w_e>0\) and \(d_e(a,b)=0\) exactly when \(a=b\), every term in \(\P
 nonnegative and vanishes exactly on a satisfied edge constraint. Therefore all edge constraints
 hold if and only if \(\Phi(s)=0\).
 \end{proof}
+
+\begin{definition}[Bare finite consensus reduct]\label{def:bare-finite-consensus-reduct}
+A bare finite consensus reduct at regulator \(r\) is
+\[
+\mathsf{Cons}_r
+=
+(\Sigma_r,\Gamma_r,Q_r,\Phi_r,\to_r,n_r,C_r),
+\]
+where \(\Sigma_r\) is the finite presentation space, \(\Gamma_r\) is the
+presentation-redundancy groupoid, \(Q_r=\Sigma_r/\Gamma_r\) is the physical
+quotient, \(\Phi_r\) is the mismatch functional, \(\to_r\) is the accepted
+repair relation, \(n_r\) is the quotient normal-form map, and
+\[
+C_r=\Phi_r^{-1}(0)
+\]
+is the globally overlap-consistent set.
+\end{definition}
+
+\begin{theorem}[Bare finite consensus is not Einstein-complete]
+\label{thm:bare-consensus-not-einstein-complete}
+The bare finite consensus reduct \(\mathsf{Cons}_r\) does not determine a
+Lorentzian metric \(g_{ab}\), stress tensor \(T_{ab}\), Newton coupling \(G\),
+area/edge operator \(L_C\), generalized entropy \(S_{\mathrm{gen}}\), modular
+geometric flow, or the equation
+\[
+G_{ab}+\Lambda g_{ab}=8\pi G\,T_{ab}.
+\]
+Consequently, Einstein geometry is not a theorem of the bare finite consensus
+language.
+\end{theorem}
+
+\begin{proof}
+The symbols of \(\mathsf{Cons}_r\) describe finite states, quotienting,
+mismatch, accepted repair, normal forms, and consistency. They do not include a
+metric, curvature tensor, stress tensor, cap modular automorphism, area
+operator, or entropy-area normalization. Hence two model extensions can share
+the same \(\mathsf{Cons}_r\) while assigning different geometry/stress data.
+One extension may attach Minkowski metric, \(T_{ab}=0\), and \(\Lambda=0\), so
+Einstein holds. Another may attach a Lorentzian metric \(g'_{ab}\) and stress
+tensor \(T'_{ab}\) for which
+\[
+G'_{ab}+\Lambda' g'_{ab}\ne 8\pi G' T'_{ab}
+\]
+somewhere. All bare consensus statements have the same truth value in the two
+extensions, while the Einstein equation has different truth values. Therefore
+the Einstein equation is not entailed by the bare reduct.
+\end{proof}
+
+\[
+\boxed{
+\mathsf{Cons}_r\Rightarrow\text{quotient normal forms, not geometry.}
+}
+\]
+The gravity theorem used elsewhere in OPH has the separate dependency spine
+\[
+\boxed{
+\begin{gathered}
+\mathsf{Cons}_r+\mathsf{GeomRead}
++\mathrm{BW}^{\mathrm{sv}}_{S^2}
++\mathsf{NullStress}\\
++\mathsf{BoundedInterval}
++\mathsf{FixedCapStat}
++\mathsf{SmallBallArea}\\
++\mathsf{TensorUpgrade}
+\Rightarrow
+\mathsf{Einstein}.
+\end{gathered}
+}
+\]
+That branch is carried by the compact SM/GR and microphysics papers, not by the
+bare constraint-code theorem above.
 
 So $\Phi$ is the total disagreement energy of the universe. Consistent states have zero energy. Everything else is frustrated.
 
@@ -351,6 +429,200 @@ Each connected conflict component \(K\) is replaced by exactly one canonical agg
 let \(\to^*\) be its reflexive-transitive closure. A state is a \textbf{normal form} when no
 aggregate transaction is enabled.
 \end{definition}
+
+\subsection{The quotient repair operator}
+
+The transactional layer above defines the physically accepted one-step relation.  The object used
+as law is the induced finite normal-form map on the physical quotient, not a hidden-representative
+rewrite.
+
+\begin{definition}[Finite quotient repair presentation]\label{def:finite-quotient-repair-presentation}
+A \textbf{finite quotient repair presentation} is a tuple
+\[
+\mathcal P=(\Sigma,\Gamma,q,Q,C_Q,B,\mu,\mathsf A,\prec_{\mathsf A})
+\]
+where
+\[
+Q=\Sigma/\Gamma,\qquad q:\Sigma\to Q
+\]
+is the physical quotient by hidden representative data, \(C_Q\subseteq Q\) is the
+quotient-level consistency set,
+\[
+B:Q\to\mathcal B
+\]
+is the protected boundary, sector, root-packet, charge, or holonomy-sector map, and
+\[
+\mu:Q\to(W,\prec)
+\]
+is a well-founded exact descent measure whose image on \(Q\) is finite.  The finite set
+\(\mathsf A\) consists of accepted aggregate repair transactions, equipped with a fixed total
+order \(\prec_{\mathsf A}\).  Each \(a\in\mathsf A\) has a domain \(D_a\subseteq Q\) and a map
+\[
+a:D_a\to Q.
+\]
+The accepted one-step relation is
+\[
+x\to_{\mathcal P} y
+\quad\Longleftrightarrow\quad
+\exists a\in\mathsf A,\ x\in D_a,\ y=a(x).
+\]
+The presentation is \textbf{OPH-admissible} when:
+\[
+(H_B)\qquad x\to_{\mathcal P}y\implies B(y)=B(x),
+\]
+\[
+(H_\downarrow)\qquad x\to_{\mathcal P}y\implies \mu(y)\prec\mu(x),
+\]
+\[
+(H_\diamond)\qquad \to_{\mathcal P}\text{ is locally confluent on }Q,
+\]
+and
+\[
+(H_{\mathrm{comp}})\qquad
+x\in C_Q
+\quad\Longleftrightarrow\quad
+\text{no accepted aggregate transaction is enabled at }x.
+\]
+\end{definition}
+
+\begin{definition}[Local quotient repair operator]\label{def:local-quotient-repair-operator}
+For \(x\in Q\), let
+\[
+\mathsf A(x):=\{\,a\in\mathsf A:x\in D_a\,\}
+\]
+be the enabled aggregate transaction set.  Define
+\[
+\operatorname{locRep}_\lambda(x):=
+\begin{cases}
+a_{\min}(x),& \mathsf A(x)\ne\varnothing,\\
+x,& \mathsf A(x)=\varnothing,
+\end{cases}
+\]
+where \(a_{\min}\) is the \(\prec_{\mathsf A}\)-least enabled aggregate transaction.
+\end{definition}
+
+\begin{proposition}[Local quotient repair is total, protected, and descending]\label{prop:local-quotient-repair}
+For every OPH-admissible finite quotient repair presentation,
+\[
+\operatorname{locRep}_\lambda:Q\to Q
+\]
+is a total map.  Moreover, for every \(x\in Q\),
+\[
+B(\operatorname{locRep}_\lambda(x))=B(x),
+\]
+and either \(\operatorname{locRep}_\lambda(x)=x\) or
+\[
+\mu(\operatorname{locRep}_\lambda(x))\prec\mu(x).
+\]
+Finally,
+\[
+\operatorname{locRep}_\lambda(x)=x
+\quad\Longleftrightarrow\quad
+x\in C_Q.
+\]
+\end{proposition}
+
+\begin{proof}
+The set \(\mathsf A\) is finite and totally ordered, so a least enabled transaction exists whenever
+\(\mathsf A(x)\ne\varnothing\).  If no transaction is enabled, the definition returns \(x\).  Hence
+\(\operatorname{locRep}_\lambda\) is total.
+
+If no transaction is enabled, boundary preservation is immediate.  If \(a_{\min}\) is enabled,
+\((H_B)\) gives \(B(a_{\min}(x))=B(x)\).  The descent statement is immediate from
+\((H_\downarrow)\).  Since strict descent excludes \(a_{\min}(x)=x\), the local operator fixes
+exactly those states with no enabled aggregate transaction.  By \((H_{\mathrm{comp}})\), these are
+exactly the elements of \(C_Q\).
+\end{proof}
+
+\begin{definition}[Global quotient repair operator]\label{def:global-quotient-repair-operator}
+For \(x\in Q\), define the canonical local-repair iterates by
+\[
+x_0=x,\qquad x_{n+1}=\operatorname{locRep}_\lambda(x_n).
+\]
+By Proposition~\ref{prop:local-quotient-repair}, the sequence either stops or strictly descends
+inside the finite value set \(\mu(Q)\).  Hence there is a least \(N(x)\) such that
+\[
+x_{N(x)+1}=x_{N(x)}.
+\]
+The \textbf{global quotient repair operator} is
+\[
+\operatorname{Rep}_\lambda(x):=x_{N(x)}.
+\]
+\end{definition}
+
+\begin{theorem}[Global Repair is the finite quotient normal-form map]\label{thm:quotient-repair-normal-form}
+For every OPH-admissible finite quotient repair presentation,
+\[
+\operatorname{Rep}_\lambda:Q\to Q
+\]
+is total and satisfies
+\[
+\operatorname{Rep}_\lambda(x)\in C_Q,\qquad
+B(\operatorname{Rep}_\lambda(x))=B(x),
+\]
+\[
+\operatorname{Rep}_\lambda(\operatorname{Rep}_\lambda(x))
+=
+\operatorname{Rep}_\lambda(x),
+\]
+and
+\[
+\operatorname{Rep}_\lambda(x)=x
+\quad\Longleftrightarrow\quad
+x\in C_Q.
+\]
+If \(x\to_{\mathcal P}^{\!*}y\) and \(y\) is terminal, then
+\[
+y=\operatorname{Rep}_\lambda(x).
+\]
+Thus
+\[
+\operatorname{Rep}_\lambda=\overline{\operatorname{nf}}_\lambda:Q\to Q
+\]
+is independent of the accepted asynchronous repair schedule.
+\end{theorem}
+
+\begin{proof}
+Totality follows from finite descent.  If \(x_{n+1}\ne x_n\), then
+Proposition~\ref{prop:local-quotient-repair} gives
+\[
+\mu(x_{n+1})\prec\mu(x_n).
+\]
+Since \(\mu(Q)\) is finite and well founded, no infinite strictly descending sequence exists.
+Thus the canonical iteration reaches a fixed point \(x_N\).  By
+Proposition~\ref{prop:local-quotient-repair},
+\[
+x_N=\operatorname{locRep}_\lambda(x_N)
+\quad\Longleftrightarrow\quad
+x_N\in C_Q,
+\]
+so \(\operatorname{Rep}_\lambda(x)\in C_Q\).  Boundary preservation follows by induction from
+\((H_B)\), hence \(B(\operatorname{Rep}_\lambda(x))=B(x)\).  Idempotence follows because every
+point of \(C_Q\) is fixed by Proposition~\ref{prop:local-quotient-repair}.
+
+For schedule independence, \((H_\downarrow)\) gives termination of \(\to_{\mathcal P}\), and
+\((H_\diamond)\) gives local confluence.  Newman's lemma gives confluence.  A terminating
+confluent rewrite system has a unique terminal normal form reachable from each initial state.  The
+canonical iteration defining \(\operatorname{Rep}_\lambda\) is one accepted repair execution, so it
+reaches that unique terminal normal form.  Therefore every other maximal accepted repair execution
+from \(x\) reaches the same value.
+\end{proof}
+
+\begin{center}
+\small
+\begin{tabular}{@{}p{0.24\linewidth}p{0.46\linewidth}p{0.20\linewidth}@{}}
+\textbf{Closure item} & \textbf{Paper object} & \textbf{Result} \\
+\hline
+physical one-step repair & \(\operatorname{locRep}_\lambda:Q\to Q\) &
+Proposition~\ref{prop:local-quotient-repair} \\
+physical global repair & \(\operatorname{Rep}_\lambda=\overline{\operatorname{nf}}_\lambda\) &
+Theorem~\ref{thm:quotient-repair-normal-form} \\
+protected data & boundary/sector map \(B\) preserved by accepted transactions &
+Theorem~\ref{thm:quotient-repair-normal-form} \\
+quotient normal form & terminal point in \(C_Q\), idempotent and schedule-independent &
+Theorem~\ref{thm:quotient-repair-normal-form} \\
+\end{tabular}
+\end{center}
 
 \begin{proposition}[Validation support for local mismatch measures]\label{prop:validation-support}
 Suppose the exact repair measure has finite local supports,
@@ -868,6 +1140,50 @@ $q(\operatorname{nf}_\lambda(s))$ depends only on $q(s)=[s]$. This makes
 well-defined on $\Sigma/\Gamma$.
 \end{proof}
 
+\begin{corollary}[Repair respects gauge]\label{cor:repair-respects-gauge}
+Let \(Q=\Sigma/\Gamma\), let \(q:\Sigma\to Q\) be the quotient map, and let
+\[
+\operatorname{Rep}^{\Sigma}_\lambda
+:=
+\operatorname{Rep}_\lambda\circ q
+:
+\Sigma\to Q
+\]
+be the quotient-valued physical repair of a representative.  Then for every
+\(\gamma\in\Gamma\) and \(s\in\Sigma\),
+\[
+\operatorname{Rep}^{\Sigma}_\lambda(\gamma\cdot s)
+=
+\operatorname{Rep}^{\Sigma}_\lambda(s).
+\]
+Equivalently,
+\[
+\operatorname{Rep}_\lambda(q(\gamma\cdot s))
+=
+\operatorname{Rep}_\lambda(q(s)).
+\]
+If \(M:Q\to Y\) is any physical observable, then
+\[
+M(\operatorname{Rep}^{\Sigma}_\lambda(\gamma\cdot s))
+=
+M(\operatorname{Rep}^{\Sigma}_\lambda(s)).
+\]
+\end{corollary}
+
+\begin{proof}
+Since \(q\) is the quotient map, \(q(\gamma\cdot s)=q(s)\).  Therefore
+\[
+\operatorname{Rep}^{\Sigma}_\lambda(\gamma\cdot s)
+=
+\operatorname{Rep}_\lambda(q(\gamma\cdot s))
+=
+\operatorname{Rep}_\lambda(q(s))
+=
+\operatorname{Rep}^{\Sigma}_\lambda(s).
+\]
+Applying \(M\) gives the observable statement.
+\end{proof}
+
 \begin{theorem}[Boundary-conditioned quotient uniqueness]\label{thm:boundary-conditioned-uniqueness}
 Let
 \[
@@ -906,6 +1222,159 @@ If \(B([s])=B([s'])=b\), both quotient normal forms lie in \(C_b\). By the uniqu
 extension assumption, \(C_b\) has at most one element, so the quotient normal forms are equal.
 \end{proof}
 
+\subsection{A multi-edge finite carrier for boundary reconstruction}
+
+\begin{definition}[Layered functional boundary carrier]\label{def:layered-functional-boundary-carrier}
+A \textbf{layered functional boundary carrier} is a finite directed layered graph
+\[
+G=(V,E),\qquad V=L_0\sqcup L_1\sqcup\cdots\sqcup L_D,
+\]
+with \(D\ge2\).  The boundary layer is \(L_0\).  For each \(v\in L_d\), \(d\ge1\), choose a
+nonempty parent set
+\[
+P(v)\subseteq L_0\sqcup\cdots\sqcup L_{d-1}
+\]
+and a finite alphabet \(A_v\).  Each interior vertex has a deterministic local rule
+\[
+F_v:\prod_{u\in P(v)}A_u\to A_v.
+\]
+The carrier is genuinely multi-edge when at least two dependency edges occur and at least one layer
+contains more than one dependency or more than one repaired vertex.
+
+The quotient state space is
+\[
+Q=\prod_{v\in V}A_v,
+\]
+and the boundary map is
+\[
+B:Q\to\prod_{v\in L_0}A_v,\qquad B(a)=a|_{L_0}.
+\]
+Given boundary data \(b\in\prod_{v\in L_0}A_v\), define its functional extension \(E(b)\in Q\)
+recursively by
+\[
+E(b)_v=b_v\quad(v\in L_0),
+\]
+and, for \(v\in L_d\), \(d\ge1\),
+\[
+E(b)_v=F_v\bigl((E(b)_u)_{u\in P(v)}\bigr).
+\]
+Optional cross-check edges may be included by choosing finite predicates
+\[
+\chi_e(a_u,a_v)=0.
+\]
+A state \(a\in Q\) is consistent when every interior functional equation
+\[
+a_v=F_v\bigl((a_u)_{u\in P(v)}\bigr)
+\]
+holds and all cross-check predicates pass.  Let \(C_Q\) be the set of consistent states.  A
+boundary \(b\) is admissible when \(E(b)\in C_Q\); equivalently,
+\[
+C_Q=\{\,E(b):b\text{ admissible}\,\}.
+\]
+For each layer \(d=1,\ldots,D\), define a layer repair map \(R_d:Q\to Q\) by
+\[
+(R_d(a))_v=
+\begin{cases}
+F_v((a_u)_{u\in P(v)}),& v\in L_d,\\
+a_v,& v\notin L_d.
+\end{cases}
+\]
+The full staged repair sweep is
+\[
+R_{\mathrm{sweep}}=R_D\circ R_{D-1}\circ\cdots\circ R_1.
+\]
+Gauge representatives may be added by replacing \(A_v\) with \(A_v\times H_v\), letting
+\(\Gamma_v\) act only on \(H_v\), and defining all boundary and consistency maps through the
+\(A_v\)-coordinate.  The quotient is then the \(Q\) above.
+\end{definition}
+
+\begin{theorem}[Layered carrier proves \(H_B\wedge H_{\mathrm{fib}}\)]\label{thm:layered-carrier-HB-Hfib}
+Let \(G\) be a layered functional boundary carrier.  For every initial quotient state \(a\in Q\),
+set
+\[
+a^{(0)}=a,\qquad a^{(d)}=R_d(a^{(d-1)}),\quad d=1,\ldots,D.
+\]
+Let \(b=B(a)\).  Then
+\[
+B(a^{(d)})=b
+\qquad
+\text{for all }d=0,\ldots,D.
+\]
+If \(b\) is admissible, then
+\[
+a^{(D)}=E(b)\in C_Q.
+\]
+Moreover, the consistent boundary fiber is a singleton:
+\[
+C_Q\cap B^{-1}(b)=\{E(b)\}.
+\]
+Thus preserved boundary data plus consistency reconstruct the observer-facing quotient bulk on this
+carrier.
+\end{theorem}
+
+\begin{proof}
+Boundary preservation is immediate because each \(R_d\) writes only layer \(L_d\), with \(d\ge1\).
+No \(R_d\) writes \(L_0\), so \(B(a^{(d)})=B(a)=b\) for every stage.
+
+We prove by induction on \(d\) that after stage \(d\),
+\[
+a^{(d)}_v=E(b)_v
+\qquad
+\text{for every }v\in L_0\sqcup\cdots\sqcup L_d.
+\]
+For \(d=0\), this is the definition of \(b\).  Assume the claim holds through layer \(d-1\), and
+let \(v\in L_d\).  Every parent \(u\in P(v)\) lies in an earlier layer, so
+\(a^{(d-1)}_u=E(b)_u\).  The layer repair therefore gives
+\[
+a^{(d)}_v
+=
+F_v\bigl((a^{(d-1)}_u)_{u\in P(v)}\bigr)
+=
+F_v\bigl((E(b)_u)_{u\in P(v)}\bigr)
+=
+E(b)_v.
+\]
+Earlier layers are not modified by \(R_d\), so the induction closes.  At \(d=D\), all layers agree
+with \(E(b)\).  If \(b\) is admissible, \(E(b)\in C_Q\).
+
+For boundary-fiber uniqueness, let \(c\in C_Q\cap B^{-1}(b)\).  Since \(c\) has boundary \(b\), it
+agrees with \(E(b)\) on \(L_0\).  Since \(c\in C_Q\), every interior vertex satisfies
+\[
+c_v=F_v((c_u)_{u\in P(v)}).
+\]
+The same induction on layers gives \(c_v=E(b)_v\) for every vertex.  Hence \(c=E(b)\).
+\end{proof}
+
+\begin{corollary}[Boundary reconstruction by global Repair]\label{cor:layered-carrier-reconstruction}
+Assume the layered carrier's layer updates are included among the accepted aggregate transactions
+of an OPH-admissible finite quotient repair presentation, and let \(b=B(x)\) be admissible.  Then
+\[
+\operatorname{Rep}_\lambda(x)=E(b).
+\]
+Consequently, for every physical readout
+\[
+\operatorname{Read}:Q\to\mathcal Y
+\]
+that factors through the quotient normal form,
+\[
+\operatorname{Read}(\operatorname{Rep}_\lambda(x))
+=
+\operatorname{Read}(E(B(x))).
+\]
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:quotient-repair-normal-form},
+\[
+\operatorname{Rep}_\lambda(x)\in C_Q
+\qquad\text{and}\qquad
+B(\operatorname{Rep}_\lambda(x))=B(x)=b.
+\]
+Therefore \(\operatorname{Rep}_\lambda(x)\in C_Q\cap B^{-1}(b)\).  Theorem~\ref{thm:layered-carrier-HB-Hfib}
+identifies this fiber with \(\{E(b)\}\), so \(\operatorname{Rep}_\lambda(x)=E(b)\).  Applying
+\(\operatorname{Read}\) gives the readout statement.
+\end{proof}
+
 \begin{theorem}[Functional selected-fiber uniqueness]\label{thm:functional-selected-fiber}
 Let \(Q_b:=B^{-1}(b)\subseteq\Sigma/\Gamma\) be a same-boundary quotient fiber presented on a
 rooted finite overlap graph with spanning tree \(T\), root \(r\), and patch state sets \(X_v\).
@@ -934,6 +1403,10 @@ exactly the non-tree overlaps, sector equations, and holonomy checks. If they pa
 consistent state and no other state can be. If one fails, the only tree-compatible candidate is
 inconsistent, so no element of \(C_b\) exists.
 \end{proof}
+
+The layered functional carrier of Theorem~\ref{thm:layered-carrier-HB-Hfib} is the finite
+multi-edge, multi-step witness that the boundary-fiber hypothesis is non-vacuous beyond
+one-dimensional propagation intuition.
 
 \begin{proposition}[Tree repair realizes the selected extension]\label{prop:tree-selected-descent}
 Under the hypotheses of Theorem~\ref{thm:functional-selected-fiber}, choose positive weights
@@ -2480,10 +2953,12 @@ This paper provides the finite patch-net foundation for the broader companion co
 
 \section{Discussion and Scope Boundaries}
 
-This paper proves the fixed-point consensus spine of OPH: schedule-independent normal forms from
-fixed initial quotient states, boundary-conditioned uniqueness when a preserved boundary/sector
-fiber has a unique consistent extension, nontrivial functional selected-fiber branch elimination,
-holonomy obstructions, gauge-quotient invariance,
+The fixed-point consensus spine of OPH consists of a total, idempotent,
+boundary-preserving quotient repair operator on the declared finite branch; schedule-independent
+normal forms from fixed initial quotient states; boundary-conditioned uniqueness when a preserved
+boundary/sector fiber has a unique consistent extension; a finite layered carrier proving
+\(H_B\wedge H_{\mathrm{fib}}\); nontrivial functional selected-fiber branch elimination;
+holonomy obstructions; gauge-quotient invariance,
 separated cofinal refinement-limit consensus classes, controlled coarse-graining compatibility,
 the fixed-cutoff operator-record theorem, distributed one-universe realization for admissible
 worker presentations of a single global carrier, and conditional noisy fair-block convergence once a
@@ -2586,6 +3061,10 @@ assumption-dependent or conjectural and are not part of the core theorem package
 \textbf{Desired statement} & \textbf{Required certificate} \\
 \hline
 Overlap network is a code & finite constraint-code data of Proposition~\ref{prop:constraint-code} \\
+Local repair is a physical map & \(\operatorname{locRep}_\lambda:Q\to Q\) on the finite quotient presentation, with boundary preservation and exact descent \\
+Global repair is a physical normal-form map & \(\operatorname{Rep}_\lambda=\overline{\operatorname{nf}}_\lambda:Q\to Q\), total, idempotent, schedule-independent, and landing in \(C_Q\) \\
+Repair respects gauge & quotient-valued \(\operatorname{Rep}^{\Sigma}_\lambda=\operatorname{Rep}_\lambda\circ q\), hence invariant under \(\Gamma\) \\
+Boundary reconstruction & layered finite carrier with \(H_B\wedge H_{\mathrm{fib}}\) and \(\operatorname{Rep}_\lambda(x)=E(B(x))\) on admissible fibers \\
 Repair converges & finite exact descent; confluence additionally needs atomic conflict-component local diamond and repair completeness \\
 Distance equals min-cut & topological-code certificate with homological logicals and matching systole/min-cut geometry \\
 Corrects \(t\) corrupted carriers & code projector, error family, Knill--Laflamme condition, and certified \(t<d/2\) distance bound \\
@@ -2761,10 +3240,10 @@ data.
 \begin{thebibliography}{99}
 
 \bibitem{OPH}
-B.~M\"uller, A.~Osika, M.~Poneder, K.~Xue, B.~Cassie, P.~Nguyen, M.~A.~Visser, K.~A.~Anirudha, and J.~Hill,
+B.~M\"uller, A.~Osika, M.~Poneder, K.~Xue, B.~Cassie, P.~Nguyen, M.~A.~Visser, K.~A.~Anirudha, D.~Matscheko, and J.~Hill,
 \emph{Observers Are All You Need},
 2026.\\
-Available at \url{https://oph-book.floatingpragma.io/papers/observers_are_all_you_need.pdf}.
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.pdf}.
 
 \bibitem{newman42}
 M.~H.~A.~Newman,

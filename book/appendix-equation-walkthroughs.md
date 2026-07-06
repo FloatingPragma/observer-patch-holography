@@ -359,8 +359,10 @@ asks which value remains stable.
 
 Fifth, where does the equation enter the architecture? Some equations are
 load-bearing. The horizon entropy formula supports the screen idea. The
-overlap restriction equation supports objectivity-as-consistency. CMI supports recovery. Einstein's equation is a recovery
-target for smooth gravity. Other equations are illustrative or historical.
+overlap restriction equation supports objectivity-as-consistency. CMI supports
+recovery. Einstein's equation is a recovery target for smooth gravity on the
+geometric branch. The finite consensus theorem supplies its
+quotient-normal-form input. Other equations are illustrative or historical.
 The reader should know which is which.
 
 Sixth, what would make the equation fail in this context? A mismatch with

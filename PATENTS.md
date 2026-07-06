@@ -70,7 +70,7 @@ Existing copyright licenses govern copying, redistribution, and adaptation of
 authored files such as text, figures, code, datasets, and generated artifacts.
 This file states the project's patent policy and open-use intent for
 OPH-derived work. If a file-specific license grants broader rights, those
-rights still carry this anti-patent covenant unless that file explicitly says
+rights carry this anti-patent covenant unless that file explicitly says
 otherwise.
 
 ## Copy/Paste Website Notices

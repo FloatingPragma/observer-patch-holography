@@ -18,7 +18,7 @@ The endpoint package closes #223 as blocker isolation. The remaining root
 package is #235/#32/#224, so the result is a constructive local contract rather
 than a no-go.
 The compressed `P` trunk can remain a candidate/audit artifact, and the next
-implementation target is now explicit:
+implementation target is explicit:
 
 ```text
 code/P_derivation/runtime/thomson_endpoint_contract_current.json

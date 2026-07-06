@@ -32,10 +32,11 @@
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{target}[theorem]{Target}
+\newtheorem{definition}[theorem]{Definition}
 
 \title{Observer-Patch Holography and the Dark Matter Phenomenon}
-\author{Bernhard Mueller}
-\date{May 3, 2026}
+\author{Bernhard Mueller \and David Matscheko}
+\date{\OPHPaperReleaseDate}
 \input{../paper/release_info}
 
 \begin{document}
@@ -71,7 +72,7 @@ collar remainder. It has no luminous charge, so electromagnetic probes read no m
 gravitates because OPH puts stable collar remainders into the effective stress bookkeeping.
 In settled low-acceleration galaxies the same mechanism yields the RAR-shaped response. In
 clusters and cosmology it becomes a transported component with its own relaxation and likelihood
-contracts. The paper is a continuation surface, so the joint fit remains the decisive gate.
+contracts. The paper is a continuation surface; the joint fit is the decisive gate.
 
 \tableofcontents
 
@@ -219,13 +220,13 @@ relaxation rate is valid only when
 \(\|K_A-K_A^{(1)}\|_{\mathcal W}\le\epsilon_{\mathrm{one\ pole}}\) in a
 predeclared norm.
 
-\paragraph{Abundance no-go.}
+\paragraph{Abundance selector boundary.}
 The conservation equation
 \[
 \bar\rho_A'+3\mathcal H\bar\rho_A=0
 \]
 implies \(\bar\rho_A=C_Aa^{-3}\), but it does not determine \(C_A\).  The
-missing OPH object is an abundance selector
+source-only OPH abundance requires the finite selector
 \[
 \mathcal E_{A,r}=
 F_{A,r}(\text{quotient ensemble},P_\star,N_{\mathrm{CRC}},
@@ -233,8 +234,10 @@ F_{A,r}(\text{quotient ensemble},P_\star,N_{\mathrm{CRC}},
 \qquad
 \bar\rho_{A,r}(a)=\frac{\mathcal E_{A,r}}{a^3V_{\mathrm{com}}},
 \]
-with refinement compatibility.  Without that receipt, cosmological abundance is a
-conditional source state rather than a source-only OPH prediction.
+with refinement compatibility.  Section~\ref{sec:source-only-anomaly-abundance-selector}
+defines this selector.  Promotion to a source-only abundance requires
+\texttt{ANOMALY\_ABUNDANCE\_SOURCE\_RECEIPT}; without that receipt, cosmological
+abundance is a conditional source state rather than a source-only OPH prediction.
 
 \begin{center}
 \begin{tabular}{@{}ll@{}}
@@ -245,7 +248,7 @@ Receipt & Claim label \\
 \texttt{TOTAL\_STRESS\_CLOSURE\_RECEIPT} & finite-parent evidence gate \\
 \texttt{RETARDED\_RESPONSE\_RECEIPT} & response-realization gate \\
 \texttt{B\_A\_KERNEL\_RECEIPT} & conditional on response and mode calibration \\
-\texttt{ANOMALY\_ABUNDANCE\_SOURCE\_RECEIPT} & open selector gate \\
+\texttt{ANOMALY\_ABUNDANCE\_SOURCE\_RECEIPT} & source-side finite selector gate \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -930,6 +933,21 @@ gives
   \epsilon_{\Zsix}=0.06795700872516496.
 \end{equation}
 
+\paragraph{Trace convention.}
+The exponent mean is the normalized quotient expectation:
+\[
+\tau_q(Z_{6,r,C})=\epsilon_{\Zsix}=\frac{P}{24}.
+\]
+The reciprocal reserve-depth trace is
+\[
+\operatorname{Tr}^{\#}_q(Z_{6,r,C})=\frac{24}{P}.
+\]
+The Poisson factor is
+\[
+e^{-\tau_q(Z_{6,r,C})}=e^{-P/24},
+\]
+not \(e^{-\operatorname{Tr}^{\#}_q(Z_{6,r,C})}\).
+
 \paragraph{Conditional bridge 4, quotient-edge co-registration.}
 Galaxy scalar repair opportunities are quotient-edge cut-register events on
 the same edge-center resolution that carries the protected \(\Zsix\) reserve.
@@ -942,10 +960,54 @@ inactive for scalar sourcing.  If the scalar count and the protected reserve
 are forced onto the same center-projector resolution, the reserve removes
 active scalar opportunities from that same layer. \(\square\)
 
-\paragraph{Proof obligation.}
-The fixed-cutoff screen-net construction must prove that galaxy scalar
-activation cannot live in a separate bulk, screen-area, or noncentral collar
-channel.
+\paragraph{Imported scalar-slot closure.}
+This bridge is discharged, on the quotient-edge scalar branch, by the quotient-edge
+collar theorem stack of the screen-microphysics paper~\cite{ophmicro}. That
+paper defines
+\[
+\mathsf{Scal}_{r,C}=\mathcal E_{r,C}
+\]
+on the edge-center scalar-completeness branch and proves the imported
+statements labeled
+\[
+\texttt{thm:scalar-activation-edge-center},\quad
+\texttt{thm:scalar-z6-same-register-commute},\quad
+\texttt{thm:scalar-channel-exhaustion},\quad
+\texttt{thm:no-separate-scalar-carrier},\quad
+\texttt{thm:coherent-matter-same-channel-forcing},\quad
+\texttt{thm:unique-scalar-linear-response}.
+\]
+Thus
+\[
+\Pi^{\rm scal}_{r,C}\in\mathcal E_{r,C},
+\qquad
+Z_{6,r,C}\in\mathcal E_{r,C},
+\qquad
+[\Pi^{\rm scal}_{r,C},Z_{6,r,C}]=0,
+\]
+and the scalar activation channel has no independent scalar bulk, screen-area,
+or noncentral collar carrier unless the scalar-completeness or
+scalar-activation-channel completeness branch fails. For a nondegenerate
+OPH-coherent material subfederation, the imported source readout is
+\[
+S_{\mathrm{coh}}^{\mathrm{can}}
+=\mathbf 1_{\rm self-read}\,\mathsf R_U\,\mathsf P_U\,\mathsf C_U>0
+\]
+and coherent-matter same-channel forcing places this source in
+\(\mathcal E_{r,C}\). This is a scalar-channel identity theorem. It supplies no
+finite covariant dark-stress parent, no abundance prediction, and no
+Boltzmann-likelihood closure.
+The scalar source route is
+\[
+R_C^{\mathrm{src}}
+\longmapsto
+\mathcal N_{\nu,r,C}
+\longmapsto
+\nu_{\OPH}.
+\]
+The exact \(\Zsix\) coefficient additionally requires the imported gate
+\texttt{UNIFORM\_PRODUCT\_THICKENING\_EXACT}; co-registration alone is not the
+same as scalar-reserve unbiasedness.
 
 \paragraph{Conditional bridge 5, local Poisson reserve survival.}
 If the reserve occupancy in a co-registered local scalar slot at transverse
@@ -979,6 +1041,33 @@ The finite-thickness branch gives
    =\int \dd y\, w(y)\exp[-\epsilon_{\Zsix}(y)].
   \label{eq:thick}
 \end{equation}
+
+\paragraph{Scalar-conditioned reserve mean.}
+The unconditioned reserve mean
+\[
+\tau_q(Z_{6,r,C})=P/24
+\]
+does not automatically imply
+\[
+\frac{\tau_q(\Pi^{\rm scal}_{r,C}Z_{6,r,C})}
+{\tau_q(\Pi^{\rm scal}_{r,C})}
+=
+P/24.
+\]
+The finite-thickness branch uses the scalar-weighted reserve profile
+\[
+\epsilon_{\Zsix}(y)
+=
+\frac{\tau(\Pi^{\rm scal}Z_6p_y)}
+{\tau(\Pi^{\rm scal}p_y)}.
+\]
+Thus the mean condition entering Jensen is
+\[
+\int \dd y\,w(y)\epsilon_{\Zsix}(y)=P/24.
+\]
+This is a scalar-weighted mean receipt. It follows on the uniform
+product-thickening branch, but not from co-registration alone.
+
 If
 \begin{equation}
   \int \dd y\,w(y)\epsilon_{\Zsix}(y)=P/24,
@@ -991,20 +1080,57 @@ Equality holds when \(\epsilon_{\Zsix}(y)\) is constant on the weighted
 collar.
 
 \paragraph{Conditional bridge 6, exact finite-thickness coefficient.}
-On the product transverse regulator with one quotient trace, the exact
-finite-thickness coefficient is \(\lambdac=\exp(-P/24)\).
+The exact finite-thickness coefficient requires the uniform product-thickening
+branch of the screen-microphysics paper:
+\[
+\mathcal A^{\rm thick}_{r,C}
+\cong
+\mathcal E_{r,C}\otimes\mathcal T_r(Y),
+\]
+\[
+\tau^{\rm thick}_{q,r,C}
+=
+\tau^{\mathcal E}_{q,r,C}\otimes\tau^Y_r,
+\]
+\[
+Z^{\rm thick}_{6,r,C}=Z_{6,r,C}\otimes1_Y,
+\]
+and, essentially,
+\[
+\frac{
+\tau^{\mathcal E}_{q,r,C}
+\!\left(\Pi^{\rm scal}_{r,C}(y)Z_{6,r,C}\right)
+}{
+\tau^{\mathcal E}_{q,r,C}
+\!\left(\Pi^{\rm scal}_{r,C}(y)\right)
+}
+=
+\frac{P}{24}
+\]
+for every scalar-active transverse slice \(y\). Product trace alone is not
+enough. The scalar-active sampler must be reserve-unbiased.
 
 \paragraph{Conditional argument.}
-If the finite-thickness reserve density is uniform on the scalar-weighted
-collar layer, then \(\epsilon_{\Zsix}(y)=\epsilon_{\Zsix}\).  Equation
-\eqref{eq:thick}
-becomes
+With local Poisson reserve survival and the uniform product-thickening branch,
+the imported theorem labeled
+\texttt{thm:exact-uniform-product-thickening-coefficient} gives
 \begin{equation}
   \lambdac
-  =\exp(-\epsilon_{\Zsix})\int \dd y\,w(y)
-  =\exp(-\epsilon_{\Zsix}).
+  =
+  \exp(-P/24)
+  =
+  0.9343006394893864\ldots .
 \end{equation}
-Using \(\epsilon_{\Zsix}=P/24\) proves the claim. \(\square\)
+Without the uniform branch, the theorem-grade coefficient is
+\[
+\lambdac
+=
+\int \dd y\,w(y)e^{-\epsilon_{\Zsix}(y)}.
+\]
+If the scalar-weighted protected reserve mean is \(P/24\), Jensen gives only
+\[
+e^{-P/24}\le\lambdac\le1.
+\]
 
 On that exact branch,
 \begin{equation}
@@ -1264,9 +1390,11 @@ homogeneous information-defect branch obeys
 \end{equation}
 where primes denote conformal time and \(\mathcal H=a'/a\).  This branch
 behaves like a cold stress component if its kinetic measure is monokinetic and
-its homogeneous charge \(Q_A=a^3\rho_A V_{\mathrm{com}}\) is selected by OPH
-screen data with an anomaly-current conservation receipt.  A source-localized
-CMI value without that current receipt does not imply the \(a^{-3}\) scaling.
+its homogeneous charge \(Q_A=a^3\rho_A V_{\mathrm{com}}\) is transported by an
+anomaly-current conservation receipt and selected by the source-only anomaly
+abundance receipt of Section~\ref{sec:source-only-anomaly-abundance-selector}.
+A source-localized CMI value without those receipts does not imply the
+\(a^{-3}\) scaling or the homogeneous amplitude.
 
 \paragraph{No-go boundary for scalar parents.}
 A scalar parent that emits only
@@ -1397,9 +1525,20 @@ with an explicit transfer receipt:
   \label{eq:repair-anomaly-primordial-contract}
 \end{equation}
 or with interval bounds on the two defects.  The dark-sector continuation in this
-paper does not derive the homogeneous anomaly amplitude \(Q_A\), and the
-finite-collar kinetic stress construction remains conditional.  Therefore the first
-source-only primordial certification run should use
+paper separates transport of a supplied homogeneous load from source selection
+of that load.  Transport alone has label
+\[
+  \texttt{PHYSICAL\_PARENT\_WITH\_CONDITIONAL\_ABUNDANCE}.
+\]
+A source-only homogeneous abundance requires
+\[
+  \texttt{RHO\_A\_SOURCE\_RECEIPT}
+  =
+  \texttt{RHO\_A\_TRANSPORT\_RECEIPT}
+  \wedge
+  \texttt{ANOMALY\_ABUNDANCE\_SOURCE\_RECEIPT}.
+\]
+For primordial certification without that receipt, use
 \[
   \texttt{dark\_continuation = OFF}.
 \]
@@ -1561,16 +1700,22 @@ is independent of the homogeneous slice.  In FLRW this gives
   \rho_A(a)=\frac{Q_A}{a^3V_{\mathrm{com}}}.
 \end{equation}
 This proves transport of a supplied homogeneous load.  It does not fix the
-amplitude \(Q_A\).  The missing OPH object is a nontrivial finite-screen
-additive load invariant
+amplitude \(Q_A\).  The source-only selector is the quotient expectation of the
+parent-emitted anomaly load on a release hypersurface,
 \begin{equation}
-  Q_A=
-  F_{\OPH}\!\left(
-    N_{\mathrm{scr}},P,\text{screen normal-form data}
-  \right).
+  \mathcal E_{A,r}
+  =
+  F_{A,r}\!\left(
+    Q^{\rm rel}_{A,r},\mu^{\rm rel}_{A,r},P_\star,N_{\rm CRC},
+    \mathfrak R^{\rm rel}_{A,r},\mathcal P_r
+  \right),
+  \qquad
+  \rho_A(a)=\frac{\mathcal E_{A,r}}{a^3V_{\mathrm{com},r}} .
 \end{equation}
-Without that invariant, the abundance is cosmological state data or the flat
-capacity-saturated residual \eqref{eq:flatresidual}.
+Section~\ref{sec:source-only-anomaly-abundance-selector} gives the finite
+selector and receipt.  Without that source selector receipt, the abundance is
+cosmological state data or the flat capacity-saturated residual
+\eqref{eq:flatresidual}.
 
 \subsection{Environmental Kernel}
 
@@ -2112,6 +2257,50 @@ extensions.
 unit checks, and independent numerical replication of the scorecard rows.
 \end{enumerate}
 
+\subsection{Executable Dark-Sector Simulation Ladder}
+
+The simulator counterpart is organized as a promotion ladder, not as a single
+dark-matter model run.  The integration command is
+\begin{verbatim}
+python3 -m oph_fpe.cli dark-sector-simulation-plan --run-dir runs/<run_id> \
+  --out runs/<run_id>/dark_sector_simulation_plan
+\end{verbatim}
+and emits \texttt{DARK\_SECTOR\_SIMULATION\_PLAN\_RECEIPT}.  The report reads
+the static galaxy, finite covariant parent, finite-collar Boltzmann bundle,
+Boltzmann-input, CMB-anomaly, and frozen-likelihood reports, records the first
+blocked gate, and names the next simulator command.  It is a receipt-audit and
+work-queue object.  It is not a physical dark-sector prediction, not a fitted
+likelihood, and not a substitute for source-generation receipts.
+
+The gate order is:
+\begin{enumerate}
+\item Static galaxy diagnostic:
+\texttt{run-galaxy-static} must emit
+\texttt{STATIC\_GALAXY\_RAR\_BTFR\_RECEIPT}.  This checks only the settled
+RAR/BTFR bridge.
+\item Finite covariant parent:
+\texttt{finite-covariant-collar-parent} must emit
+\texttt{FINITE\_COVARIANT\_COLLAR\_PACKET\_PARENT\_RECEIPT}.  This is the
+covariant source artifact required before physical stress and exchange-current
+claims can be promoted.
+\item Finite-collar Boltzmann source bundle:
+\texttt{finite-collar-boltzmann-bundle} must emit the diagnostic source-bundle
+receipt and, for physical promotion,
+\texttt{PHYSICAL\_BOLTZMANN\_EXPORT\_CERTIFICATE}.
+\item Boltzmann input bridge:
+\texttt{oph-boltzmann-inputs} must expose the CDM-limit solver row and keep
+diagnostic repair-exchange rows separate from physical inputs.
+\item Frozen transfer and likelihood closure:
+\texttt{frozen-transfer-likelihood} must certify source freeze, solver pins,
+CDM-limit regression, Standard-Model-off controls, blinded setup, and official
+likelihood execution before the dark branch can claim a likelihood-evaluated
+physical prediction.
+\end{enumerate}
+
+The planner also records optional \texttt{cmb-anomaly-report} output.  That
+diagnostic can guide anomaly studies.  The physical dark-matter promotion gate
+uses it only with passing finite-parent, Boltzmann, and likelihood receipts.
+
 \subsection{Correction Audit}
 
 The comparison mostly tests normalization because the OPH static law uses the
@@ -2212,9 +2401,16 @@ Galaxy source & Minimal scalar recoverability defect
 \(R_C=I(A:D|B)\). & Conditional source target. \\
 Quotient-edge locality & Scalar repair opportunities are edge-center
 cut-register events on the physical quotient. & Conditional bridge. \\
-Finite thickness & Product transverse regulator with one quotient trace makes
-the protected center reserve uniform through the weighted collar. &
-Conditional bridge. \\
+Coherent material source lift & A nondegenerate OPH-coherent material source
+\(S_{\mathrm{coh}}^{\mathrm{can}}\) descends to the quotient and is forced into
+the same edge-center scalar channel by Scalar Edge-Center Exhaustion. &
+Theorem-grade scalar-channel identity in the screen microphysics and
+\(\chi_\nu\) papers; finite stress-parent, abundance, and Boltzmann gates are
+separate obligations. \\
+Finite thickness & Uniform product-thickening plus slice-wise
+scalar-reserve unbiasedness licenses the exact coefficient; otherwise the
+profile integral and, when scalar-weighted mean passes, Jensen band apply. &
+Conditional imported theorem. \\
 No-slip stress & Positive kinetic collar measure; settled monokinetic branch
 has dust stress and vanishing information-sector anisotropic stress. &
 Conditional stress theorem. \\
@@ -2279,78 +2475,106 @@ small-ball modular remainder and the quotient-invariant collar charge, then
 prove the positive packet allocation and covariant causal packet lift.
 
 \paragraph{Failure consequence.}
-Without source localization, \(I(A:D|B)\) remains a recoverability and
+Without source localization, \(I(A:D|B)\) is only a recoverability and
 collar-diagnostic number.  Without the packet lift, it cannot support lensing,
 CMB, growth, or conservation claims as a physical stress source.
 
 \subsection{Quotient-Edge Scalar Opportunity}
 
-\paragraph{Theorem target 0B.}
-At fixed cutoff, physical collar observables live on the quotient-local
-fixed-point algebra.  A settled galaxy scalar repair opportunity is the local
-event that the quotient-local recoverability defect on a collar cut is
-nonzero.  Then the scalar opportunity is counted on the edge-center cut
-register.
+\paragraph{Imported theorem.}
+The fixed-cutoff uniqueness statement is discharged in the microphysics paper
+by
+\[
+\mathsf{Scal}_{r,C}=\mathcal E_{r,C}
+\]
+on the edge-center scalar-completeness branch, and by the following
+imports:
+\[
+\Pi^{\rm scal}_{r,C}\in\mathcal E_{r,C},
+\qquad
+Z_{6,r,C}\in\mathcal E_{r,C},
+\qquad
+[\Pi^{\rm scal}_{r,C},Z_{6,r,C}]=0.
+\]
+The relevant theorem labels in the microphysics paper are
+\[
+\texttt{thm:scalar-activation-edge-center},\quad
+\texttt{thm:scalar-z6-same-register-commute},\quad
+\texttt{thm:scalar-channel-exhaustion},\quad
+\texttt{thm:no-separate-scalar-carrier},\quad
+\texttt{thm:coherent-matter-same-channel-forcing},\quad
+\texttt{thm:unique-scalar-linear-response}.
+\]
+For coherent material support the imported source is
+\[
+S_{\mathrm{coh}}^{\mathrm{can}}
+=\mathbf 1_{\rm self-read}\,\mathsf R_U\,\mathsf P_U\,\mathsf C_U
+\in\mathcal E_{r,C}
+\]
+on the nondegenerate branch. This import fixes the scalar channel used by the
+\(\chi_\nu\) coefficient and does not supply a finite covariant dark-stress
+parent.
 
-\paragraph{Explicit premise.}
-The scalar recoverability event has no independent bulk, screen-area, or
-noncentral collar channel.
-
-\paragraph{Conditional argument.}
-The defect is a physical scalar.  Boundary-redundant representatives produce
-the same defect value because the quotient repair law descends through the
-projection onto physical collar states.  The event that the defect is nonzero
-is therefore an observable event on the quotient-local collar algebra.  For a
-connected cut, the fixed-cutoff edge-center decomposition supplies the central
-projectors that resolve physical cut sectors.  A scalar event with no vector,
-tensor, or bulk label selects support through those central projectors.  Thus
-the scalar opportunity count is a quotient-edge cut-register count.  The
-protected \(\Zsix\) center reserve is supported on the same register.
-\(\square\)
-
-\paragraph{Proof obligation.}
-Prove the fixed-cutoff uniqueness statement: every quotient-local scalar
-recoverability event is resolved on the edge-center cut register.
-
-\paragraph{Failure consequence.}
-If a separate scalar channel exists, the \(\Zsix\) reserve does not fix
-\(\lambdac\) without an additional co-registration theorem.
+\paragraph{Branch boundary.}
+The import is conditional on the microphysics assumptions labeled
+\texttt{ass:edge-center-scalar-completeness} and
+\texttt{ass:scalar-activation-channel-completeness}. If either fails, then
+scalar activation may require an additional quotient-visible scalar carrier,
+and the \(\Zsix\) reserve cannot determine \(\lambdac\) without a new
+co-registration theorem.
 
 \subsection{Uniform Finite-Thickness Reserve}
 
-\paragraph{Theorem target 0C.}
-Let the finite collar be a transverse thickening of one quotient-edge cut
-algebra with normalized transverse weight \(w(y)\) and a single quotient trace
-on the edge algebra.  Let the protected \(\Zsix\) reserve be a central edge
-projector whose mean on that trace is \(\epsilon_{\Zsix}=P/24\).  Then
-\begin{equation}
-  \lambdac=\exp(-P/24).
-\end{equation}
-
-\paragraph{Explicit premise.}
-The scalar-weighted transverse regulator is a product thickening with one
-quotient trace and uniform protected-center density.
-
-\paragraph{Conditional argument.}
-The protected reserve belongs to the edge-center algebra.  The transverse
-coordinate belongs to the regulator thickening.  With one quotient trace on the
-edge algebra, the trace of the protected central projector is the same on every
-transverse slice that carries scalar activation weight.  Hence
-\(\epsilon_{\Zsix}(y)=\epsilon_{\Zsix}\).  Poisson zero-reserve survival gives
-\(\exp(-\epsilon_{\Zsix})\) at each slice.  Averaging with \(w(y)\) leaves the
-same value.  Using \(\epsilon_{\Zsix}=P/24\) gives the stated coefficient.
-\(\square\)
-
-\paragraph{Proof obligation.}
-Derive \(w(y)\), the transverse regulator, and the quotient trace from base OPH
-screen/collar data.
-
-\paragraph{Failure consequence.}
-If the reserve density is nonuniform, the coefficient is
+\paragraph{Correct exact-value premise.}
+The exact finite-thickness coefficient requires the uniform product-thickening
+branch of the microphysics paper:
 \[
-  \int\dd y\,w(y)\exp[-\epsilon_{\Zsix}(y)],
+\mathcal A^{\rm thick}_{r,C}
+\cong
+\mathcal E_{r,C}\otimes\mathcal T_r(Y),
 \]
-not necessarily \(\exp(-P/24)\).
+\[
+\tau^{\rm thick}_{q,r,C}
+=
+\tau^{\mathcal E}_{q,r,C}\otimes\tau^Y_r,
+\]
+\[
+Z^{\rm thick}_{6,r,C}=Z_{6,r,C}\otimes1_Y,
+\]
+and, essentially,
+\[
+\frac{
+\tau^{\mathcal E}_{q,r,C}
+\!\left(\Pi^{\rm scal}_{r,C}(y)Z_{6,r,C}\right)
+}{
+\tau^{\mathcal E}_{q,r,C}
+\!\left(\Pi^{\rm scal}_{r,C}(y)\right)
+}
+=
+\frac{P}{24}
+\]
+for every scalar-active transverse slice \(y\). Product trace alone is not
+enough. The scalar-active sampler must be reserve-unbiased.
+
+\paragraph{Imported theorem.}
+With local Poisson reserve survival and the uniform product-thickening branch,
+the microphysics theorem labeled
+\texttt{thm:exact-uniform-product-thickening-coefficient} gives
+\[
+\lambdac=e^{-P/24}
+=
+0.9343006394893864\ldots .
+\]
+Without the uniform branch, the theorem-grade coefficient is
+\[
+\lambdac
+=
+\int \dd y\,w(y)e^{-\epsilon_{\Zsix}(y)}.
+\]
+If the scalar-weighted protected reserve mean is \(P/24\), Jensen gives only
+\[
+e^{-P/24}\le\lambdac\le1.
+\]
 
 \subsection{No-Slip Settled Stress}
 
@@ -2945,15 +3169,17 @@ homogeneous transport with zero homogeneous exchange obeys
 whose solution is \(\rho_A(a)=\rho_{A0}a^{-3}\). \(\square\)
 
 \paragraph{Proof obligation.}
-Derive the conserved homogeneous information-defect charge \(Q_A\) from OPH
-screen state data and supply an independent curvature label, or declare the missing piece as
-cosmological state data.
+Derive the conserved homogeneous information-defect charge \(Q_A\) by the
+source-only anomaly abundance selector of
+Section~\ref{sec:source-only-anomaly-abundance-selector} and supply an
+independent curvature label, or declare the abundance as cosmological state
+data.
 
 \paragraph{Failure consequence.}
-The CMB dark abundance is conditional if \(Q_A\) is not selected by OPH
-microphysics.  A nonzero exchange branch is also conditional unless the same
-finite parent exposes the recipient stress and equal-and-opposite exchange
-current that balances the exchange.
+The CMB dark abundance is conditional when \(Q_A\) lacks
+\texttt{RHO\_A\_SOURCE\_RECEIPT}.  A nonzero exchange branch is also
+conditional unless the same finite parent exposes the recipient stress and
+equal-and-opposite exchange current that balances the exchange.
 
 \paragraph{Capacity boundary.}
 The screen capacity fixes the dimensionless de Sitter capacity relation; the
@@ -2963,10 +3189,553 @@ It does not by itself fix the baryon density, the neutrino density, the radiatio
 curvature sector, or a conserved homogeneous
 anomaly charge.  A standalone OPH cosmology needs a theorem of the form
 \[
-  Q_A=F_{\OPH}(\hbox{screen capacity},P,\hbox{screen state data})
+  Q_A
+  \equiv
+  \mathcal E_{A,r}
+  =
+  F_{A,r}(Q^{\rm rel}_{A,r},\mu^{\rm rel}_{A,r},P_\star,N_{\rm CRC},
+  \mathfrak R^{\rm rel}_{A,r},\mathcal P_r)
 \]
 or an explicitly declared state-selection premise such as a flat benchmark using
 \eqref{eq:flatresidual}.
+
+\subsection{Source-Only Anomaly Abundance Selector}
+\label{sec:source-only-anomaly-abundance-selector}
+
+\begin{definition}[C.52. Anomaly release state]
+\label{def:anomaly-release-state}
+An anomaly release state at regulator \(r\) is
+\[
+\mathfrak R^{\rm rel}_{A,r}
+=
+(
+\Sigma^{\rm rel}_r,
+n^a_r,
+a_{\rm rel,r},
+V_{{\rm com},r},
+\Pi^{(0)}_r,
+\mathfrak B^{\rm rel}_r,
+h_{\rm rel},
+\mathfrak L_{\rm no\,data}
+).
+\]
+Here \(\Sigma^{\rm rel}_r\) is the finite release hypersurface; \(n^a_r\) is
+its future unit normal in the parent tetrad; \(a_{\rm rel,r}\) is the release
+scale factor; \(V_{{\rm com},r}\) is the declared comoving volume;
+\(\Pi^{(0)}_r\) is the homogeneous FLRW zero-mode projector; and
+\(\mathfrak B^{\rm rel}_r\) is the release-branch boundary and sector data,
+including declared \(P_\star\), \(N_{\rm CRC}\), compact-gauge branch,
+ordinary-sector branch, and exchange branch.  The hash \(h_{\rm rel}\) freezes
+the generation.  The ledger \(\mathfrak L_{\rm no\,data}\) records the source
+dependency graph.
+
+The release state is source-admissible only if all of its fields are fixed
+before CMB, BAO, supernova, weak-lensing, RSD, SPARC, cluster, and other
+likelihood comparisons.
+\end{definition}
+
+\begin{definition}[C.53. Finite anomaly load observable]
+\label{def:finite-anomaly-load-observable}
+Let
+\[
+\mathcal P_r[X,g]
+\]
+be the finite covariant collar-packet parent, or its source-side pre-load parent
+before total homogeneous amplitude selection.  For a quotient state
+\(q\in Q^{\rm rel}_{A,r}\), define the local anomaly energy density on the
+release hypersurface by
+\[
+\varepsilon_{A,r}(c;q):=T^{ab}_{A,r}(c;q)n_an_b .
+\]
+On the BW source route this readout has the form
+\[
+\varepsilon_{A,r}(c;q)
+=
+\frac{15\hbar c}{8\pi^2}
+\frac{R^{\rm src}_{A,r}(c,n,\ell;q)}{\ell^4}
++
+\Delta^{\rm BW}_{A,r}(c;q),
+\]
+where \(\Delta^{\rm BW}_{A,r}\) is the finite-ball, curvature, gradient,
+localization, tomography, and variational/moment residual package required by
+the finite parent receipt.
+
+The finite anomaly load observable is
+\[
+\boxed{
+\mathsf L_{A,r}(q)
+:=
+\Pi^{(0)}_r
+\sum_{c\subset\Sigma^{\rm rel}_r(q)}
+V^{\rm phys}_{c,r}(q)\,
+\varepsilon_{A,r}(c;q).
+}
+\]
+It has units of energy.  It is defined on the physical quotient.  Hidden
+representatives are not valid selector inputs.
+
+The abundance selector is circular and invalid if \(\mathsf L_{A,r}\) is
+computed from a parent occupation field whose normalization was set by an
+externally supplied \(\Omega_A\), \(\rho_{A0}\), Planck residual, SPARC fit,
+cluster fit, Boltzmann residual, or likelihood comparison.
+\end{definition}
+
+\begin{definition}[C.54. Source-only anomaly abundance selector]
+\label{def:source-only-anomaly-abundance-selector}
+Let \(Q^{\rm rel}_{A,r}\) be the release quotient state space and let
+\(\mu^{\rm rel}_{A,r}\) be the declared OPH release law on that quotient.  The
+source-only anomaly abundance selector is the deterministic functional
+\[
+\boxed{
+F_{A,r}
+(
+Q^{\rm rel}_{A,r},
+\mu^{\rm rel}_{A,r},
+P_\star,
+N_{\rm CRC},
+\mathfrak R^{\rm rel}_{A,r},
+\mathcal P_r
+)
+:=
+\mathbb E_{\mu^{\rm rel}_{A,r}}
+[
+\mathsf L_{A,r}
+].
+}
+\]
+Equivalently,
+\[
+\boxed{
+\mathcal E_{A,r}
+=
+\sum_{q\in Q^{\rm rel}_{A,r}}
+\mu^{\rm rel}_{A,r}(q)\,
+\mathsf L_{A,r}(q).
+}
+\]
+The emitted homogeneous anomaly density is
+\[
+\boxed{
+\bar\rho_{A,r}(a)
+=
+\frac{\mathcal E_{A,r}}{a^3V_{{\rm com},r}}
+}
+\]
+on the conserved dust branch.
+\end{definition}
+
+\begin{definition}[C.55. Source MaxEnt release law]
+\label{def:source-maxent-release-law}
+The release law \(\mu^{\rm rel}_{A,r}\) is source-admissible if it is either
+\[
+\mu^{\rm rel}_{A,r}=\mu_r\vert_{Q^{\rm rel}_{A,r}}
+\]
+renormalized on the release branch, where \(\mu_r\) is a certified OPH quotient
+law, or the finite MaxEnt law
+\[
+\mu^{\rm rel}_{A,r}(q)
+=
+\frac{
+m^{\rm rel}_{A,r}(q)
+\exp[-S^{\rm rel}_{A,r}(q)-\sum_j\theta_jF^{\rm rel}_{j,r}(q)]
+}{
+Z^{\rm rel}_{A,r}
+}
+\]
+on \(Q^{\rm rel}_{A,r}\), where every constraint \(F^{\rm rel}_{j,r}\), target
+\(c_{j,r}\), unit, support, zero-mode treatment, sector convention, and
+refinement map is declared in the source constraint ledger.
+
+No simulator output, Boltzmann residual, likelihood value, observational target,
+or tuned visual diagnostic may appear in \(m^{\rm rel}_{A,r}\),
+\(S^{\rm rel}_{A,r}\), \(F^{\rm rel}_{j,r}\), \(c_{j,r}\), or the
+branch-selection ledger.
+\end{definition}
+
+\begin{theorem}[C.56. Source-only anomaly abundance selection]
+\label{thm:source-only-anomaly-abundance-selection}
+Assume:
+\begin{enumerate}
+\item \(Q^{\rm rel}_{A,r}\), \(\mu^{\rm rel}_{A,r}\), \(P_\star\),
+\(N_{\rm CRC}\), \(\mathfrak R^{\rm rel}_{A,r}\), and \(\mathcal P_r\) are
+source-only artifacts.
+\item \(\mathsf L_{A,r}\) factors through the physical quotient.
+\item The local BW/source route, tomography, finite parent, stress closure,
+gauge, and refinement receipts required by the parent pass.
+\item \(\mu^{\rm rel}_{A,r}\) is a certified OPH quotient law or a source
+MaxEnt law.
+\item The no-data-use ledger excludes all observational likelihoods and all
+diagnostic solver outputs used to evaluate the prediction.
+\end{enumerate}
+Then
+\[
+\mathcal E_{A,r}
+=
+F_{A,r}
+(
+Q^{\rm rel}_{A,r},
+\mu^{\rm rel}_{A,r},
+P_\star,
+N_{\rm CRC},
+\mathfrak R^{\rm rel}_{A,r},
+\mathcal P_r
+)
+\]
+is a source-only OPH anomaly abundance artifact.  If the conserved dust branch
+holds, then
+\[
+\bar\rho_{A,r}(a)
+=
+\frac{\mathcal E_{A,r}}{a^3V_{{\rm com},r}}
+\]
+is a source-only homogeneous anomaly density.
+\end{theorem}
+
+\begin{proof}
+The load observable \(\mathsf L_{A,r}\) is constructed from the parent-emitted
+anomaly stress or from the BW-normalized source route followed by stress
+tomography.  By assumption it factors through \(Q^{\rm rel}_{A,r}\), so hidden
+carrier coordinates, port labels, repair schedules, gauge representatives, and
+worker metadata do not change it.
+
+The release law \(\mu^{\rm rel}_{A,r}\) is either a certified OPH quotient law
+or the finite MaxEnt law determined by source constraints.  Hence the
+expectation
+\[
+\mathbb E_{\mu^{\rm rel}_{A,r}}[\mathsf L_{A,r}]
+\]
+is a deterministic finite functional of source artifacts.
+
+No observational likelihood or diagnostic solver output enters the source DAG
+by assumption.  Therefore the artifact is source-only.  On the conserved dust
+branch, the background parent equation gives
+\[
+(a^3\bar\rho_A V_{\rm com})'=0,
+\]
+so the selected release load transports as
+\[
+\bar\rho_A(a)=\mathcal E_{A,r}/(a^3V_{\rm com}).
+\]
+\end{proof}
+
+\begin{theorem}[C.57. No-data-use proof for \(F_{A,r}\)]
+\label{thm:abundance-selector-no-data-use}
+Let \(G_A^{\rm load}\) be the source DAG whose terminal node is
+\(\mathcal E_{A,r}\).  Suppose every node verifier recomputes its predicate
+from committed artifacts, theorem witnesses, parent predicates, dependency
+manifests, and error envelopes, and suppose every root node is one of
+\[
+Q^{\rm rel}_{A,r},\quad
+m^{\rm rel}_{A,r},\quad
+S^{\rm rel}_{A,r},\quad
+F^{\rm rel}_{j,r},\quad
+c_{j,r},\quad
+P_\star,\quad
+N_{\rm CRC},\quad
+\mathfrak R^{\rm rel}_{A,r},\quad
+\mathcal P_r
+\]
+or a standard non-CMB physical constant allowed by the cosmology contract.
+
+If the dependency ledger contains no CMB, BAO, supernova, weak-lensing, RSD,
+SPARC, cluster, likelihood, posterior, nuisance-fit, simulator residual, or
+diagnostic visual-comparison input, then
+\[
+\texttt{ANOMALY\_ABUNDANCE\_SOURCE\_RECEIPT}
+\]
+passes.
+\end{theorem}
+
+\begin{proof}
+Topologically order \(G_A^{\rm load}\).  Root nodes are source-only by
+hypothesis.  For a non-root node, the verifier accepts only if every parent has
+passed and the node value is recomputed from its declared parents and theorem
+witness.  Induction over the DAG proves that the terminal value
+\(\mathcal E_{A,r}\) is a deterministic function of source-only inputs.  Since
+the ledger excludes every observational or likelihood target used for
+evaluation, no target-leakage path exists.  A producer Boolean is not a proof
+because it is not a recomputation from the committed artifacts.
+\end{proof}
+
+\begin{theorem}[C.58. Exact refinement compatibility of the abundance selector]
+\label{thm:abundance-selector-exact-refinement}
+Let \(s\succeq r\) and let
+\[
+c_{sr}:Q^{\rm rel}_{A,s}\to Q^{\rm rel}_{A,r}
+\]
+be the physical coarse map.  Suppose:
+\begin{enumerate}
+\item the release laws are exactly compatible:
+\[
+(c_{sr})_\#\mu^{\rm rel}_{A,s}
+=
+\mu^{\rm rel}_{A,r};
+\]
+\item the load observable is exactly natural:
+\[
+\mathsf L_{A,s}(q_s)
+=
+\mathsf L_{A,r}(c_{sr}q_s)
+\qquad
+\forall q_s\in Q^{\rm rel}_{A,s};
+\]
+\item the release volume and homogeneous projector commute with refinement.
+\end{enumerate}
+Then
+\[
+\boxed{
+\mathcal E_{A,s}
+=
+\mathcal E_{A,r}.
+}
+\]
+\end{theorem}
+
+\begin{proof}
+By definition,
+\[
+\mathcal E_{A,s}
+=
+\sum_{q_s}
+\mu^{\rm rel}_{A,s}(q_s)\mathsf L_{A,s}(q_s).
+\]
+Using load naturality,
+\[
+\mathcal E_{A,s}
+=
+\sum_{q_s}
+\mu^{\rm rel}_{A,s}(q_s)\mathsf L_{A,r}(c_{sr}q_s).
+\]
+Push the fine law forward along \(c_{sr}\).  Exact law compatibility gives
+\[
+\sum_{q_s:c_{sr}q_s=q_r}\mu^{\rm rel}_{A,s}(q_s)
+=
+\mu^{\rm rel}_{A,r}(q_r).
+\]
+Therefore
+\[
+\mathcal E_{A,s}
+=
+\sum_{q_r}
+\mu^{\rm rel}_{A,r}(q_r)\mathsf L_{A,r}(q_r)
+=
+\mathcal E_{A,r}.
+\]
+\end{proof}
+
+\begin{theorem}[C.59. Approximate refinement bound for the abundance selector]
+\label{thm:abundance-selector-approx-refinement}
+Let \(s\succeq r\).  Suppose
+\[
+\left\|(c_{sr})_\#\mu^{\rm rel}_{A,s}
+-
+\mu^{\rm rel}_{A,r}
+\right\|_{\rm TV}
+\le
+\delta^\mu_{sr},
+\]
+and
+\[
+\sup_{q_s}
+\left|
+\mathsf L_{A,s}(q_s)
+-
+\mathsf L_{A,r}(c_{sr}q_s)
+\right|
+\le
+\delta^L_{sr}.
+\]
+Let
+\[
+L_{\max,r}:=\|\mathsf L_{A,r}\|_\infty.
+\]
+Then
+\[
+\boxed{
+|\mathcal E_{A,s}-\mathcal E_{A,r}|
+\le
+\delta^L_{sr}
++
+2L_{\max,r}\delta^\mu_{sr}.
+}
+\]
+For a refinement chain \(r=r_0\preceq r_1\preceq\cdots\preceq r_n=s\),
+\[
+|\mathcal E_{A,s}-\mathcal E_{A,r}|
+\le
+\sum_{k=0}^{n-1}
+\left(
+\delta^L_{r_{k+1}r_k}
++
+2L_{\max,r_k}\delta^\mu_{r_{k+1}r_k}
+\right).
+\]
+If the right-hand side tends to zero along a cofinal family, the selected
+anomaly load has a regulator-independent limit.
+\end{theorem}
+
+\begin{proof}
+Insert and subtract the coarse load pulled back to the fine law:
+\[
+\begin{aligned}
+|\mathcal E_{A,s}-\mathcal E_{A,r}|
+&\le
+\left|
+\mathbb E_{\mu_s}[
+\mathsf L_{A,s}
+-
+\mathsf L_{A,r}\circ c_{sr}
+]
+\right|
+\\
+&\quad+
+\left|
+\mathbb E_{\mu_s}[\mathsf L_{A,r}\circ c_{sr}]
+-
+\mathbb E_{\mu_r}[\mathsf L_{A,r}]
+\right|.
+\end{aligned}
+\]
+The first term is at most \(\delta^L_{sr}\).  The second term is bounded by the
+total-variation estimate
+\[
+2\|\mathsf L_{A,r}\|_\infty\delta^\mu_{sr}.
+\]
+Summing the one-step bounds gives the chain estimate.  Cofinal convergence
+follows immediately.
+\end{proof}
+
+\begin{theorem}[C.60. Source-only \(\rho_A\) promotion]
+\label{thm:source-only-rhoA-promotion}
+The receipt
+\[
+\texttt{RHO\_A\_SOURCE\_RECEIPT}
+\]
+passes iff
+\[
+\texttt{RHO\_A\_TRANSPORT\_RECEIPT}
+\wedge
+\texttt{ANOMALY\_ABUNDANCE\_SOURCE\_RECEIPT}
+\]
+passes under the same frozen generation, unit ledger, release state, and parent
+generation.  When this receipt passes, \(\bar\rho_A(a)\) may be labelled
+\[
+\texttt{SOURCE\_ONLY\_ANOMALY\_ABUNDANCE}.
+\]
+If only the transport receipt passes, the label is
+\[
+\texttt{PHYSICAL\_PARENT\_WITH\_CONDITIONAL\_ABUNDANCE}.
+\]
+\end{theorem}
+
+\begin{proof}
+The transport receipt proves that the finite parent evolves a homogeneous
+anomaly load consistently once that load is supplied.  The abundance source
+receipt proves that the load itself is selected by the OPH source functional
+\(F_{A,r}\), without target leakage and with refinement compatibility.  Their
+conjunction is exactly the statement that \(\rho_A\) is both physically
+transported and source-selected.  Without the selector, the amplitude is
+external state data.
+\end{proof}
+
+The closed paper-side abundance receipt is
+\[
+\begin{aligned}
+\texttt{ANOMALY\_ABUNDANCE\_SOURCE\_RECEIPT}
+= {}&
+\texttt{ANOMALY\_RELEASE\_STATE\_RECEIPT}
+\wedge
+\texttt{ANOMALY\_LOAD\_OBSERVABLE\_RECEIPT}
+\\
+&\wedge
+\texttt{SOURCE\_MAXENT\_RELEASE\_LAW\_RECEIPT}
+\wedge
+\texttt{LOAD\_QUOTIENT\_INVARIANCE\_RECEIPT}
+\\
+&\wedge
+\texttt{LOAD\_NO\_CIRCULARITY\_RECEIPT}
+\wedge
+\texttt{LOAD\_NO\_DATA\_USE\_RECEIPT}
+\\
+&\wedge
+\texttt{LOAD\_REFINEMENT\_COMPATIBILITY\_RECEIPT}.
+\end{aligned}
+\]
+Then
+\[
+\texttt{RHO\_A\_SOURCE\_RECEIPT}
+=
+\texttt{RHO\_A\_TRANSPORT\_RECEIPT}
+\wedge
+\texttt{ANOMALY\_ABUNDANCE\_SOURCE\_RECEIPT}.
+\]
+The source-ready dark Boltzmann handoff is
+\[
+\begin{aligned}
+\texttt{DARK\_PHYSICAL\_BOLTZMANN\_SOURCE\_RECEIPT}
+= {}&
+\texttt{FINITE\_COVARIANT\_PARENT\_RECEIPT\_V2}
+\wedge
+\texttt{PHYSICAL\_ANOMALY\_KERNEL\_RECEIPT\_V2}
+\\
+&\wedge
+\texttt{RHO\_A\_TRANSPORT\_RECEIPT}
+\wedge
+\texttt{FROZEN\_GENERATION\_MANIFEST\_RECEIPT}
+\\
+&\wedge
+\texttt{BOLTZMANN\_INITIAL\_CONSTRAINT\_RECEIPT}
+\wedge
+\texttt{BOLTZMANN\_ADAPTER\_WELLPOSEDNESS\_RECEIPT}
+\\
+&\wedge
+\texttt{CDM\_LIMIT\_RECOVERY\_RECEIPT}.
+\end{aligned}
+\]
+For a source-only dark abundance claim,
+\[
+\texttt{SOURCE\_ONLY\_ANOMALY\_ABUNDANCE}
+\Longleftrightarrow
+\texttt{RHO\_A\_SOURCE\_RECEIPT}.
+\]
+
+Equivalently, the selector computes
+\[
+\boxed{
+F_{A,r}
+=
+\mathbb E_{\mu^{\rm rel}_{A,r}}
+\left[
+\Pi^{(0)}_r
+\sum_{c\subset\Sigma^{\rm rel}_r}
+V^{\rm phys}_{c,r}\,
+T^{ab}_{A,r}(c)n_an_b
+\right].
+}
+\]
+On the BW source branch,
+\[
+\boxed{
+F_{A,r}
+=
+\mathbb E_{\mu^{\rm rel}_{A,r}}
+\left[
+\Pi^{(0)}_r
+\sum_{c\subset\Sigma^{\rm rel}_r}
+V^{\rm phys}_{c,r}
+\left(
+\frac{15\hbar c}{8\pi^2}
+\frac{R^{\rm src}_{A,r}(c,n,\ell)}{\ell^4}
++
+\Delta^{\rm BW}_{A,r}(c)
+\right)
+\right].
+}
+\]
+The selector integrates the finite source stress over the release hypersurface
+and averages it over the declared source quotient ensemble.  It does not read a
+Friedmann residual, a Planck fit, a SPARC fit, a cluster fit, or a Boltzmann
+likelihood.
 
 \section{Falsifiers}
 
@@ -2985,7 +3754,7 @@ settled-galaxy RAR.
 \item CMB peaks, CMB lensing, BAO, weak lensing, or growth reject every frozen
 finite covariant parent whose certified \(\Gamma_{\mathrm{rec}}\), \(B_A(k,a)\),
 \(\rho_A(a)\), stress closure, recipient/exchange-current channel, physical
-clock, and CDM-limit recovery remain compatible with the galaxy branch.
+clock, and CDM-limit recovery are compatible with the galaxy branch.
 \end{enumerate}
 
 \section{Reproducibility}
@@ -3006,6 +3775,8 @@ python3 cosmology/scripts/dark_parent_collar_grid.py --diagnostic-scalar-load \
 python3 cosmology/scripts/dark_cmb_bao_growth_s8_likelihood.py \
   --parent-grid cosmology/outputs/dark_parent_flat_capacity_state_selection.json
 python3 cosmology/scripts/camb_fixed_neutrino_compare.py
+python3 -m oph_fpe.cli dark-sector-simulation-plan --run-dir runs/<run_id> \
+  --out runs/<run_id>/dark_sector_simulation_plan
 \end{verbatim}
 The SPARC data files used are public measurement tables from the SPARC page
 \cite{sparcpage}.
@@ -3015,25 +3786,25 @@ The SPARC data files used are public measurement tables from the SPARC page
 \bibitem{ophcompact}
 B. Mueller, A. Osika, M. Poneder, K. Xue, P. Nguyen, and M. A. Visser,
 \emph{Recovering Relativity and the Standard Model from Observer Overlap Consistency},
-OPH compact paper, release r1411, May 3, 2026.
+OPH compact paper, release \OPHPaperReleaseID, \OPHPaperReleaseDate.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf}
 
 \bibitem{ophsynthesis}
-B. Mueller, A. Osika, M. Poneder, K. Xue, B. Cassie, P. Nguyen, M. A. Visser, K. A. Anirudha, and J. Hill,
-\emph{Observers Are All You Need}, OPH synthesis paper, release r1411,
-May 3, 2026.
+B. Mueller, A. Osika, M. Poneder, K. Xue, B. Cassie, P. Nguyen, M. A. Visser, K. A. Anirudha, David Matscheko, and J. Hill,
+\emph{Observers Are All You Need}, OPH synthesis paper, release \OPHPaperReleaseID,
+\OPHPaperReleaseDate.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.pdf}
 
 \bibitem{ophmicro}
 B. Mueller, A. Osika, K. Xue, B. Cassie, and M. A. Visser,
 \emph{Federated Echosahedral Screen Microphysics: Patch Hardware, Records, and Observer Synchronization in OPH},
-OPH microphysics paper.
+OPH microphysics paper, release \OPHPaperReleaseID, \OPHPaperReleaseDate.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.pdf}
 
 \bibitem{ophparticles}
 B. Mueller, A. Osika, M. Poneder, K. Xue, and M. A. Visser,
 \emph{Deriving the Particle Zoo from Observer Consistency},
-OPH particle paper, release r1411, May 3, 2026.
+OPH particle paper, release \OPHPaperReleaseID, \OPHPaperReleaseDate.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.pdf}
 
 \bibitem{planck2018}

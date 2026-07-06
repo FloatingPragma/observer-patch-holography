@@ -80,7 +80,7 @@ are rejected as source inputs. They are target diagnostics, not spectral data.
 ## Constructive No-External-Input Closeout
 
 The current corpus cannot determine exact `alpha` without a populated source
-spectral payload. This is not just a caveat; it has an explicit countermodel.
+spectral payload. The limitation has an explicit countermodel.
 
 Use the dimensionless spectral coordinate
 
@@ -102,7 +102,7 @@ mu_A = delta(y-2)
 mu_B = delta(y-3).
 ```
 
-Both project to the same invariants currently emitted by the corpus: the D10
+Both project to the same invariants emitted by the corpus: the D10
 family, the `U(1)_Q` lane, the anchor `a0(P)`, `mZ(P)`, the lepton kernel, and
 the fact that no finite-volume levels, current residues, continuum
 pushforward, or same-scheme source remainder have been emitted. They also have

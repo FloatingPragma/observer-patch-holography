@@ -13,7 +13,7 @@ The live chain is:
 
 ## How To Read The Active Charged-Lepton Files
 
-The live charged scripts now use the same compact derivation header:
+The live charged scripts use the same compact derivation header:
 
 - `Chain role`: where the file sits between the shared flavor carrier and the
   forward charged candidate

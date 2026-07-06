@@ -30,7 +30,7 @@ code/particles/hadron/ward_projected_spectral_measure.schema.json
 ```
 
 The stable-channel backend remains a production/export surface for stable
-hadron rows such as `pi_iso` and `N_iso`, while the Thomson endpoint now has a
+hadron rows such as `pi_iso` and `N_iso`, while the Thomson endpoint has a
 separate Ward-projected electromagnetic current-current spectral-measure target.
 
 The future endpoint backend must emit either `rho_had(s;P)` directly or a more
@@ -58,7 +58,7 @@ It must be non-surrogate and unquenched, and it must include:
 ## Claim Boundary
 
 - Stable `pi_iso`/`N_iso` backend contract: selected-class production contract,
-  still requiring real arrays and budgets for public rows.
+  requiring real arrays and budgets for public rows.
 - Stable-channel surrogate bridge: diagnostic only.
 - `rho`/finite-volume resonance and Ward-projected spectral readout:
   missing production primitive.

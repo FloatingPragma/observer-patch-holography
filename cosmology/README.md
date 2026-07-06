@@ -6,8 +6,10 @@ This directory holds OPH cosmology papers inside the public core repository.
 
 - `oph_dark_matter_paper.tex`
   - release-bundle paper for the dark/anomaly stress branch, the galaxy limit,
-    cluster and cosmology contracts, and the dark-sector source interface used
-    by later CMB/LSS work
+    quotient-edge scalar/\(Z_6\) finite-thickness coefficient gates, cluster
+    and cosmology contracts, the source-only anomaly abundance selector, the
+    simulator promotion ladder, and the dark-sector source interface used by
+    later CMB/LSS work
 
 ## Companion Papers
 
@@ -38,7 +40,7 @@ branch, while direct theorem, conditional CMH, or explicit-assumption labels sel
 
 Two cosmology papers would be too compressed. The split is five papers:
 
-1. **Dark sector and structure**: the released dark-matter paper, including galaxy phenomenology, transported stress, cluster behavior, and the dark/anomaly source contract.
+1. **Dark sector and structure**: the released dark-matter paper, including galaxy phenomenology, the local quotient-edge scalar coefficient gates, transported stress, the source-only abundance selector, cluster behavior, simulator promotion gates, and the dark/anomaly source contract.
 2. **Finite-source CMB prediction program**: source-only inputs, scale calibration, Boltzmann transfer, frozen likelihoods, and simulator checks.
 3. **Inflation without inflaton**: observer-screen synchronization, flatness, horizon coherence, geometric screen spectrum, screen release amplitude, radial lift, and hot source data.
 4. **Cosmological vacuum and structure formation**: OPH-native vacuum boundary, fluctuation ensembles, proto-object/worldline formation, and visualization-facing checks.

@@ -20,7 +20,7 @@ function that enters the Ward-projected Thomson transport.
 
 ## Terminology
 
-The hard barrier is nonperturbative QCD. Perturbative QCD can still be useful
+The hard barrier is nonperturbative QCD. Perturbative QCD is useful
 for high-energy tails, matching windows, and consistency checks. It cannot
 replace the low-energy resonance-region spectrum. That region contains the
 \(\rho\), \(\omega\), \(\phi\), charm threshold, and other hadronic structures
@@ -234,4 +234,3 @@ That is the strongest available empirical closure: it measures the spectral
 function that the theorem requires. Source-only OPH and OPH plus empirical
 hadron closure are shown as separate output classes.
 ```
-

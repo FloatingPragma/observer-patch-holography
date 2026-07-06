@@ -3,8 +3,7 @@
 This directory holds the `/particles` neutrino sandbox on the current local
 prediction chain.
 
-The current goal is not to overclaim closure. The goal is to keep the active
-forward objects explicit:
+The purpose is controlled scope. The active forward objects are:
 
 - a local neutrino scale anchor from the D10 core
 - a real symmetric family-response tensor
@@ -17,7 +16,7 @@ forward objects explicit:
 
 ## Header Convention
 
-The active neutrino scripts now begin with a short derivation header that says:
+The active neutrino scripts begin with a short derivation header that says:
 
 - `Chain role`: where the file sits in the local neutrino chain
 - `Mathematics`: the main projector, phase, pullback, or spectral step
@@ -26,7 +25,7 @@ The active neutrino scripts now begin with a short derivation header that says:
 - `Output`: which artifact is emitted and what it unlocks downstream
 
 That convention is there to make the neutrino lane readable without mixing the
-local standard-math selector closure with the still-open stricter OPH-only
+local standard-math selector closure with the work-in-progress stricter OPH-only
 promotion questions.
 
 ## Current Working Split
@@ -45,14 +44,14 @@ promotion questions.
   isotropic branch it closes the residual metric class up to scale and leaves
   the upstream OPH Hessian origin theorem explicit.
 - [`derive_majorana_overlap_defect_hessian.py`](derive_majorana_overlap_defect_hessian.py)
-  Exports the exact upstream Hessian-shaped object now isolating the remaining
+  Exports the exact upstream Hessian-shaped object isolating the remaining
   OPH-only neutrino blocker.
 - [`derive_majorana_overlap_defect_action_germ.py`](derive_majorana_overlap_defect_action_germ.py)
-  Exports the local quadratic overlap-defect action germ that now sits between
+  Exports the local quadratic overlap-defect action germ that sits between
   the selector center and the exact scalar-evaluator obstruction.
 - [`derive_majorana_phase_pullback_metric.py`](derive_majorana_phase_pullback_metric.py)
   Exports the pullback metric and finite-angle chordal-distortion action behind
-  the selector law. In the sandbox this now closes the law under a
+  the selector law. In the sandbox this closes the law under a
   standard-math-fixed Hilbert-Schmidt/Frobenius route, while the stricter
   OPH-only ambient-metric derivation remains separate.
 - [`build_forward_majorana_matrix.py`](build_forward_majorana_matrix.py)
@@ -152,14 +151,14 @@ Current closure split:
   splittings
 - the phase envelope is the compulsory support check for sharp splittings or
   ordering
-- the selector point now closes on the current isotropic branch as a principal
+- the selector point closes on the current isotropic branch as a principal
   equal split
-- the selector law now closes locally under the standard-math-fixed
+- the selector law closes locally under the standard-math-fixed
   Hilbert-Schmidt pullback route
-- the stricter OPH-only route now has a concrete artifact boundary:
+- the stricter OPH-only route has a concrete artifact boundary:
   `majorana_overlap_defect_action_germ.json`,
   `majorana_overlap_defect_hessian.json`, and
-  `majorana_deformation_bilinear_form.json` now separate the local quadratic
+  `majorana_deformation_bilinear_form.json` separate the local quadratic
   theorem from the exact missing scalar-evaluator object
 - the weighted-cycle bridge-rigidity theorem emits
   `C_nu = sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5`

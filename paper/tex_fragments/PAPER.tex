@@ -4,7 +4,7 @@ Observer-Patch Holography is a reconstruction program for fundamental physics. P
 on a horizon screen \(S^2\), and the effective world is encoded by the mutual consistency of
 overlapping patch descriptions. This recovered-core section develops the structural branch:
 fixed-cutoff overlap repair, the separated cofinal refinement-limit consensus bridge, collar
-recovery, the Lorentz and Einstein route, compact gauge reconstruction in the bosonic branch, and
+recovery, the separate geometry-readout route to Lorentz and Einstein structure, compact gauge reconstruction in the bosonic branch, and
 the realized-branch Standard Model quotient.
 
 \subsection{Overview}\label{overview}
@@ -12,9 +12,11 @@ the realized-branch Standard Model quotient.
 The recovered core has a simple conceptual order. First, overlap consistency turns local patch
 states into a constrained gluing problem. The fixed-cutoff branch gives collar decompositions,
 edge centers, and finite repair dynamics on the declared physical quotient. Second, the continuum
-geometric branch turns modular flow on caps into Lorentz kinematics, a three-dimensional
-observer-facing spatial chart, and then into the Einstein
-relation through fixed-cap generalized-entropy stationarity. Third, the transportable edge-sector
+geometric branch first reads quotient normal forms as cap, stress, diamond, tetrad, and scale
+data; it then turns modular flow on caps into Lorentz kinematics, a three-dimensional
+observer-facing spatial chart, and finally into the Einstein
+relation through fixed-cap generalized-entropy stationarity plus the null-stress, small-ball,
+and tensor-upgrade clauses. Bare finite consensus stops at quotient normal forms. Third, the transportable edge-sector
 branch first classifies zero-obstruction transportable sectors and reconstructs some compact
 internal gauge group in the bosonic branch; Minimal Admissible Realization (MAR), anomaly constraints, and
 the explicit CKM/weak-sector clauses then select the realized Standard Model quotient with
@@ -367,7 +369,13 @@ This is the fixed-cutoff realized presentation used throughout the collar analys
 When the consensus paper speaks of quotient repair, the physical repair law is defined on
 this fixed-point / overlap-invariant data and any representative-level map is only a lift of that
 quotient update. Descent to the gauge quotient is therefore built into the physical-algebra
-formulation as quotient-level repair. On the
+formulation as quotient-level repair: the local map is
+\(\operatorname{locRep}_\lambda:Q\to Q\), and the global map is the finite quotient
+normal-form operator
+\[
+\operatorname{Rep}_\lambda=\overline{\operatorname{nf}}_\lambda:Q\to Q.
+\]
+On the
 declared fixed-cutoff collar branch, the local repair step itself is read from exact Markov splice
 or a declared Petz/Fawzi--Renner recovery channel. The declared fixed-cutoff branch adds
 repair completeness, together with control on the declared Petz domain
@@ -397,12 +405,13 @@ The logic is not ``termination implies uniqueness'': exact descent gives termina
 atomic conflict-component diamond on the physical quotient plus repair completeness gives
 confluence. The theorem therefore gives one schedule-independent terminal quotient normal form
 from a fixed initial quotient state. A stronger same-boundary conclusion requires a preserved
-boundary/sector map and at most one consistent quotient extension in that boundary fiber; the
-functional selected-fiber theorem discharges that condition on rooted packet presentations by
-constructing the single candidate from the boundary/root data and then checking all non-tree,
-sector, and holonomy obstructions. On that branch, multiple same-boundary candidate interiors can
-be present, inconsistent candidates are eliminated, and all surviving candidates share one
-quotient normal form. Normal-form hashes are public equality receipts after quotienting, not
+boundary/sector map and at most one consistent quotient extension in that boundary fiber. The
+layered functional carrier in the consensus paper proves the finite multi-edge, multi-step witness
+for \(H_B\wedge H_{\mathrm{fib}}\); the functional selected-fiber theorem gives the rooted
+obstruction-check form by constructing the single candidate from the boundary/root data and then
+checking all non-tree, sector, and holonomy obstructions. On that branch, multiple same-boundary
+candidate interiors can be present, inconsistent candidates are eliminated, and all surviving
+candidates share one quotient normal form. Normal-form hashes are public equality receipts after quotienting, not
 selectors among physically distinct minimizing endpoints. If accepted schedules terminate at
 different observer-facing quotient normal forms without a declared holonomy or higher-gauge
 obstruction, that repair law is outside the OPH consensus theorem.
@@ -2174,6 +2183,12 @@ Using the split above and the first law for the bulk term,
 
 \subsubsection{Einstein equation from fixed-cap generalized-entropy stationarity}\label{56-einstein-equation-from-cap-equilibrium}
 
+This subsection is a branch theorem. The finite consensus reduct supplies quotient normal forms; the Einstein branch
+requires the geometry readout, support-visible BW modular covariance, the
+null-stress bridge, bounded-interval transport, fixed-cap MaxEnt stationarity,
+the fixed-volume small-ball area variation, carried-remainder control, and the
+timelike scalar-to-tensor upgrade.
+
 In the d=4 scaling regime, the small-ball bridge is internal to the derived gravity chain once the separate bounded-interval projective branch is included. The only extra standard geometric input is the fixed-volume area-variation identity for a small geodesic ball. The modular kernel itself is not imported from a separate EFT law: on the extracted prime geometric subnet, a sufficiently small cap is the tangent causal diamond \(D_\ell\), whose preserving conformal Killing field is
 \[
 \xi_{D_\ell}
@@ -2565,15 +2580,15 @@ Given the Einstein branch (Theorem 5.1) and the classical Raychaudhuri identity 
 
 \textbf{Significance.} This section shows how the Recoverable Generalized Entropy focusing package is internally supported inside the same null-modular branch once the stress-tensor identification and Einstein relation are in place. That package is part of the stated axiom set.
 
-\textbf{Theorem 5.1 (Observer-consistency implies a scaling-limit Einstein branch).} Under the five OPH axioms, the collar and null-strip hypotheses of Sections 2 and 5, the hypotheses of Theorem 4.2, the derived fixed-cap generalized-entropy stationarity theorem for admissible fixed-cap MaxEnt variations on the realized cap-label-preserving MaxEnt family, the half-line generator/charge identification of Section 5.2 together with the bounded-interval projective branch used there, and admissible fixed-cap MaxEnt variations about a maximally symmetric reference state, the fixed-cap generalized-entropy stationarity condition implies the rest-frame first-variation relation
+\textbf{Theorem 5.1 (OPH Einstein-branch closure in the scaling regime).} Under the five OPH axioms, the collar and null-strip hypotheses of Sections 2 and 5, the geometry readout through quotient normal forms, the hypotheses of Theorem 4.2, the derived fixed-cap generalized-entropy stationarity theorem for admissible cap-label-preserving MaxEnt variations, the half-line generator/charge identification of Section 5.2 together with the bounded-interval projective branch used there, the fixed-volume small-ball area-variation identity, carried-remainder control at \(o(\ell^4)\), and admissible fixed-cap MaxEnt variations about a maximally symmetric reference state, the fixed-cap generalized-entropy stationarity condition implies the rest-frame first-variation relation
 
 \[
 \delta\!\left(G_{00}+\Lambda g_{00}\right)=8\pi G\,\delta\langle T_{00}\rangle.
 \]
 
-If this relation holds for all local directions and reference states in the locally Lorentzian scaling regime, overlap consistency upgrades it to the semiclassical Einstein equation modulo the expected \(\Lambda g_{ab}\) ambiguity.
+If this relation holds for all local directions and reference states in the locally Lorentzian scaling regime, the timelike scalar-to-tensor upgrade promotes it to the semiclassical Einstein equation modulo the expected \(\Lambda g_{ab}\) ambiguity. The D6 capacity branch closes that metric term globally.
 
-\textbf{Proof sketch.} The cap first law identifies \(\delta S_C\) with \(\delta\langle K_C\rangle\), while the null bridge together with the bounded-interval projective branch relates the bulk modular variation to the required null stress-tensor charge on the diamond. Since the reference state is maximally symmetric, the fixed-volume small-ball area identity enters at first order in the perturbation, and the derived fixed-cap generalized-entropy stationarity theorem for admissible fixed-cap MaxEnt variations on the realized cap-label-preserving MaxEnt family yields the displayed rest-frame relation. Overlap consistency then supplies all local directions, and the null-to-tensor lemma upgrades the relation to the tensor equation modulo \(\Lambda g_{ab}\). QED.
+\textbf{Proof sketch.} The geometry readout turns the quotient normal form into the cap/diamond data used below. The cap first law identifies \(\delta S_C\) with \(\delta\langle K_C\rangle\), while the null bridge together with the bounded-interval projective branch relates the bulk modular variation to the required null stress-tensor charge on the diamond. Since the reference state is maximally symmetric, the fixed-volume small-ball area identity enters at first order in the perturbation, and the derived fixed-cap generalized-entropy stationarity theorem for admissible fixed-cap MaxEnt variations on the realized cap-label-preserving MaxEnt family yields the displayed rest-frame relation. Overlap consistency supplies all local timelike directions, the scalar-to-tensor theorem upgrades the relation to the tensor equation modulo \(\Lambda g_{ab}\), and D6 supplies the global capacity closure for that remaining metric term. QED.
 
 \subsubsection{Black-hole structural statements and continuation-level spectroscopy}\label{511-discrete-horizon-area-spectrum-and-hawking-emission-established}
 
@@ -3277,6 +3292,14 @@ cosmological gauge invariance, finite domain of dependence, subluminal
 retarded response, response stability, refinement, and CDM-limit recovery
 receipts; \(\mathsf{KERNEL}\) emits physical \(\rho_A\),
 \(\rho_{A,\mathrm{eq}}\), \(B_A\), and certified \(\Gamma_{\mathrm{rec}}\);
+the source-only \(\rho_A\) row additionally requires the anomaly abundance
+selector
+\[
+\mathcal E_{A,r}
+=
+\mathbb E_{\mu^{\rm rel}_{A,r}}[\mathsf L_{A,r}]
+\]
+and its no-data-use and refinement receipts;
 \(\mathsf{INIT}\) supplies regular initial modes and Einstein constraints;
 \(\mathsf{TRANSFER}\) supplies Boltzmann well-posedness and numerical
 convergence; \(\mathsf{FREEZE}\) fixes the model generation; and
@@ -3975,7 +3998,7 @@ A loop-coherent global gluing exists iff {[}z{]} = 0.
 
 \subsubsection{EFT reduction to anomaly cancellation}\label{67-eft-reduction-to-anomaly-cancellation}
 
-Assume ExtEFT: a low-energy 3+1D chiral gauge theory exists with group \(G\). Then the obstruction class \([z]\) is structurally analogous to the EFT \textquotesingle t Hooft anomaly class and is expected to map to it after a separate anomaly-descent construction. That map is not constructed in this manuscript, so \([z]=0\) is used here as an internal gluing/transportability condition rather than a proved equivalence to EFT anomaly cancellation.
+Assume ExtEFT: a low-energy 3+1D chiral gauge theory exists with group \(G\). Then the obstruction class \([z]\) is structurally analogous to the EFT \textquotesingle t Hooft anomaly class and is expected to map to it after a separate anomaly-descent construction. That map lies outside this manuscript, so \([z]=0\) is used here as an internal gluing/transportability condition rather than a proved equivalence to EFT anomaly cancellation.
 
 \subsubsection{Hypercharge from anomaly freedom and Yukawas}\label{68-hypercharge-from-anomaly-freedom-and-yukawas}
 
@@ -4694,8 +4717,9 @@ UV-sensitive and continuation-level corrections outside the recovered core.
 
 \begin{itemize}
 \tightlist
-\item \textbf{Dynamics}: the GR chain runs through geometric modular covariance, the null bridge,
-fixed-cap generalized-entropy stationarity, and the tensor upgrade. The scaling branch uses
+\item \textbf{Dynamics}: the GR chain runs through geometry readout, geometric modular covariance, the null bridge,
+bounded-interval transport, fixed-cap generalized-entropy stationarity, fixed-volume small-ball
+area variation, carried-remainder control, and the tensor upgrade. The scaling branch uses
 the support-visible BW scaling theorem on the prime geometric subnet.
 \item \textbf{Gauge structure}: compact gauge reconstruction uses the transportable bosonic
 sector package. MAR plus anomaly algebra and the explicit CKM/weak-sector clauses on the same

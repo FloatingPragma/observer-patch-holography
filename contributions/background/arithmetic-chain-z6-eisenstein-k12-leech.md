@@ -21,7 +21,7 @@ not_claimed:
 
 $$(\mathbb{Z}/6\mathbb{Z})^\times \to \mathbb{Z}[\omega] \to K_{12} \to \Lambda_{24} \to \mathbb{M}$$
 
-*Background note / expository map — May 2026*
+*Background note / expository map, May 2026*
 
 ---
 
@@ -35,7 +35,7 @@ We present an expository account of a five-step chain of standard mathematical s
 
 $$(\mathbb{Z}/6\mathbb{Z})^\times \to \mathbb{Z}[\omega] \to K_{12} \to \Lambda_{24} \to \mathbb{M}.$$
 
-Each bridge requires substantial independent mathematical data: algebraic number theory for Bridge 1, the ternary Golay code for Bridge 2, the binary Golay code for Bridge 3, and vertex operator algebra theory for Bridge 4. All results cited are standard, due to Coxeter, Todd, Conway, Sloane, Griess, Frenkel–Lepowsky–Meurman, Borcherds, and others. **No new theorems are claimed**, and **the chain is ancestral, not constructive**: $`(\mathbb{Z}/6\mathbb{Z})^\times`$ does not generate the later structures; it indexes a single arithmetic dichotomy that initiates the chain. For OPH, the relevance is as background: the note records how finite residue classes, Eisenstein/$`A_2`$ geometry, code glue, exceptional lattices, and sporadic symmetry already form a standard mathematical ladder that OPH can reference when studying finite boundary codes and exceptional symmetry patterns.
+Each bridge requires substantial independent mathematical data: algebraic number theory for Bridge 1, the ternary Golay code for Bridge 2, the binary Golay code for Bridge 3, and vertex operator algebra theory for Bridge 4. All results cited are standard, due to Coxeter, Todd, Conway, Sloane, Griess, Frenkel-Lepowsky-Meurman, Borcherds, and others. **No new theorems are claimed**, and **the chain is ancestral, not constructive**: $`(\mathbb{Z}/6\mathbb{Z})^\times`$ does not generate the later structures; it indexes a single arithmetic dichotomy that initiates the chain. For OPH, the relevance is as background: the note records how finite residue classes, Eisenstein/$`A_2`$ geometry, code glue, exceptional lattices, and sporadic symmetry form a standard mathematical ladder that OPH can reference when studying finite boundary codes and exceptional symmetry patterns.
 
 ---
 
@@ -55,7 +55,7 @@ The group of units modulo 6 is $`(\mathbb{Z}/6\mathbb{Z})^\times = \{1, 5\}`$, a
 
 $$\mathbb{Z}[\omega] = \{a + b\omega : a, b \in \mathbb{Z}\} \subset \mathbb{C}.$$
 
-As a real lattice, $`\mathbb{Z}[\omega]`$ is the $`A_2`$ root lattice — a hexagonal lattice. The norm of $`a + b\omega`$ is
+As a real lattice, $`\mathbb{Z}[\omega]`$ is the $`A_2`$ root lattice, a hexagonal lattice. The norm of $`a + b\omega`$ is
 
 $$N(a + b\omega) = a^2 - ab + b^2.$$
 
@@ -90,7 +90,7 @@ This bridge requires more than a single congruence condition. The Coxeter–Todd
 
 $$(z_1 \bmod \theta, \ldots, z_6 \bmod \theta) \in \mathcal{C}_6,$$
 
-where the reduction $`\mathbb{Z}[\omega]^6 \to \mathbb{F}_3^6`$ is applied componentwise. The constraint requires the residue vector mod $`\theta`$ to be a codeword of the ternary Golay code, not merely to sum to zero.
+where the reduction $`\mathbb{Z}[\omega]^6 \to \mathbb{F}_3^6`$ is applied componentwise. The constraint requires the residue vector mod $`\theta`$ to be a codeword of the ternary Golay code. The zero-sum condition is insufficient by itself.
 
 The index of $`K_{12}`$ in $`\mathbb{Z}[\omega]^6`$ is $`|\mathbb{F}_3^6 / \mathcal{C}_6| = 3^{6-3} = 27`$.
 
@@ -124,7 +124,7 @@ The third bridge also requires Golay code data, this time the **binary** Golay c
 
 This is the standard construction from Conway–Sloane [1], Chapter 4. Several equivalent formulations exist; see Remark 4.3.
 
-**Remark 4.3** (Why naive Construction A is insufficient). The naive Construction A applied to $`G_{24}`$ — namely $`\{x \in \mathbb{Z}^{24} : x \bmod 2 \in G_{24}\}`$ scaled by $`\frac{1}{\sqrt{8}}`$ — gives a related but distinct 24-dimensional even unimodular lattice that *does* contain norm-2 vectors. The Leech lattice $`\Lambda_{24}`$ is *rootless* (no norm-2 vectors), which requires the additional mod-4 and parity conditions above. Equivalent constructions exist via:
+**Remark 4.3** (Why naive Construction A is insufficient). The naive Construction A applied to $`G_{24}`$, namely $`\{x \in \mathbb{Z}^{24} : x \bmod 2 \in G_{24}\}`$ scaled by $`\frac{1}{\sqrt{8}}`$, gives a related but distinct 24-dimensional even unimodular lattice that *does* contain norm-2 vectors. The Leech lattice $`\Lambda_{24}`$ is *rootless* (no norm-2 vectors), which requires the additional mod-4 and parity conditions above. Equivalent constructions exist via:
 
 - Construction $`A_4`$ applied to a lift of $`G_{24}`$ to $`\mathbb{Z}/4\mathbb{Z}`$, with a parity check appended (Conway–Sloane).
 - Construction B applied to $`G_{24}`$ followed by point-doubling (Forney's cubing construction).
@@ -148,7 +148,7 @@ It is the unique even unimodular lattice in $`\mathbb{R}^{24}`$ with no roots (N
 
 ## 5. Bridge 4: From $`\Lambda_{24}`$ to the Monster Group $`\mathbb{M}`$
 
-This bridge is qualitatively different from the previous three. The Monster does not arise as a lattice or code, but as the symmetry group of a vertex operator algebra constructed from the Leech lattice.
+This bridge differs from the previous three. The Monster arises as the symmetry group of a vertex operator algebra constructed from the Leech lattice, rather than as a lattice or code.
 
 ### 5.1 The Conway groups
 
@@ -184,7 +184,7 @@ The graded character of $`V^\natural`$ is $`j(\tau) - 744`$, and for each $`g \i
 
 | Step | Object | Bridge | Tool required |
 |---:|---|---|---|
-| 0 | $`(\mathbb{Z}/6\mathbb{Z})^\times`$ | (starting point) | — |
+| 0 | $`(\mathbb{Z}/6\mathbb{Z})^\times`$ | (starting point) | none |
 | 1 | $`\mathbb{Z}[\omega]`$ | $`B_1`$ | Algebraic number theory |
 | 2 | $`K_{12}`$ | $`B_2`$ | Ternary Golay code over $`\mathbb{F}_3 \cong \mathbb{Z}[\omega]/(\theta)`$ |
 | 3 | $`\Lambda_{24}`$ | $`B_3`$ | Binary Golay code with mod-4 / parity conditions |
@@ -207,7 +207,7 @@ Each bridge requires a genuinely new ingredient that is not contained in the pre
 
 3. **The chain is ancestral, not generative.** $`(\mathbb{Z}/6\mathbb{Z})^\times`$ does not build, generate, or determine the later structures. It indexes a single arithmetic dichotomy. Each subsequent structure requires substantial independent mathematical data: the Eisenstein integers exist independently of mod-6 arithmetic, the Coxeter–Todd lattice requires the ternary Golay code as additional input, the Leech lattice requires the binary Golay code with mod-4 conditions, and the Monster requires the entirety of vertex operator algebra theory.
 
-4. **The Monster's relationship to $`\Lambda_{24}`$ is genuinely indirect.** Unlike Bridges 1–3, where each output is constructed directly from the input plus auxiliary code data, Bridge 4 produces a *VOA from the lattice*, and the Monster is the symmetry group of that VOA — not of $`\Lambda_{24}`$ itself. The Monster does not act on the Leech lattice; $`\mathrm{Aut}(\Lambda_{24}) = \mathrm{Co}_0`$, and $`\mathrm{Co}_1`$ appears inside $`\mathbb{M}`$ only as a maximal subgroup of an involution centralizer.
+4. **The Monster's relationship to $`\Lambda_{24}`$ is genuinely indirect.** Unlike Bridges 1-3, where each output is constructed directly from the input plus auxiliary code data, Bridge 4 produces a *VOA from the lattice*. The Monster is the symmetry group of that VOA, not of $`\Lambda_{24}`$ itself. The Monster does not act on the Leech lattice; $`\mathrm{Aut}(\Lambda_{24}) = \mathrm{Co}_0`$, and $`\mathrm{Co}_1`$ appears inside $`\mathbb{M}`$ only as a maximal subgroup of an involution centralizer.
 
 5. **No connection to physics is claimed.** Some physics models use a quotient of the form
 
@@ -223,9 +223,9 @@ $$G_{\mathrm{phys}} = \mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)/
 
 The arithmetic of $`(\mathbb{Z}/6\mathbb{Z})^\times = \{1, 5\}`$ enters the foundational ancestry of five major mathematical structures: the Eisenstein integers (via the splitting dichotomy), the Coxeter–Todd lattice (via the ternary Golay code), the Leech lattice (via the binary Golay code), the Conway groups (as lattice automorphisms), and the Monster sporadic simple group (via the Moonshine module).
 
-The chain crosses four fields — number theory, lattice theory, coding theory, and vertex operator algebra theory — and each crossing is mathematically substantial. The connections are real and well-known to specialists, appearing in standard references including Conway–Sloane [1] and Frenkel–Lepowsky–Meurman [6].
+The chain crosses four fields: number theory, lattice theory, coding theory, and vertex operator algebra theory. Each crossing is mathematically substantial. The connections are real and well-known to specialists, appearing in standard references including Conway-Sloane [1] and Frenkel-Lepowsky-Meurman [6].
 
-The value of understanding this chain lies not in any new theorem it proves, but in providing a precise mathematical map of how a tiny arithmetic object — the units modulo 6 — indexes the very first link of a sequence that culminates, five non-trivial steps later, in the largest sporadic simple group. The role of $`(\mathbb{Z}/6\mathbb{Z})^\times`$ throughout is that of an indexing label, not a generator.
+The value of understanding this chain is the precise mathematical map it provides: a tiny arithmetic object, the units modulo 6, indexes the first link of a sequence that culminates, five non-trivial steps later, in the largest sporadic simple group. The role of $`(\mathbb{Z}/6\mathbb{Z})^\times`$ throughout is that of an indexing label, not a generator.
 
 ---
 

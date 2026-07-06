@@ -319,11 +319,11 @@ outside the universe smuggled into the account.
 
 So the "early universe" in this book means the hot dense side of the
 reconstructed record: the side where the effective plasma is opaque, radiation
-dominates the bookkeeping, and the later CMB surface has not yet become
-transparent. It names a record-side limit rather than an absolute origin of
-being. Likewise, "cosmic time" is an effective clock that appears when many
-local records synchronize, an internal clock rather than an external stopwatch
-measuring spacetime from outside.
+dominates the bookkeeping, and the CMB surface is not transparent. It names a
+record-side limit rather than an absolute origin of being. Likewise, "cosmic
+time" is an effective clock that appears when many local records synchronize,
+an internal clock rather than an external stopwatch measuring spacetime from
+outside.
 
 Inflation is where this distinction becomes operational. Standard cosmology
 introduces an inflaton field to explain flatness, horizon coherence, and the
@@ -405,9 +405,10 @@ bookkeeping is nearly, but not perfectly, additive?
 
 ### The Modular Leftover
 
-Chapter 11 used entanglement equilibrium to recover the local Einstein
-relation. In the ideal case, the boundary record screens inside from outside
-cleanly enough that local gravity takes the familiar form.
+Chapter 11 used the branch-qualified entanglement-equilibrium route to recover
+the local Einstein relation. In the ideal case, the geometric readout,
+null-stress bridge, small-ball area identity, and tensor upgrade close cleanly
+enough that local gravity takes the familiar form.
 
 The dark-sector idea starts where that idealization stops. A small amount of
 correlation can remain outside the boundary summary. OPH calls this a modular
@@ -468,19 +469,23 @@ galaxy's flat rotation speed tracks its visible baryonic mass. In the OPH
 reading, the normalization is tied to the de Sitter horizon through the
 acceleration scale above.
 
-This is how OPH resolves the dark-sector puzzle in the language of this
-chapter. The missing gravity is read as an infrared residue of screen
-bookkeeping, dark to light but visible to geometry. No new particle species has
-to be added for galaxy rotation curves to feel extra pull. The cosmological
-constant and the galaxy-scale anomaly sit inside one de Sitter picture: the
-horizon fixes the capacity, and the residual modular term shows up where
-accelerations become cosmologically small.
+This is the OPH dark-sector route in the language of this chapter. At the
+settled-galaxy level, the missing gravity is read as an infrared residue of
+screen bookkeeping, dark to light but visible to geometry. No new particle
+species has to be added for galaxy rotation curves to feel extra pull. The
+cosmological constant and the galaxy-scale anomaly sit inside one de Sitter
+picture: the horizon fixes the capacity, and the residual modular term shows up
+where accelerations become cosmologically small.
 
 The whole sky matters. Clusters, lensing, the Bullet Cluster, the CMB,
 and structure growth are the places where any dark-sector account has to
 survive contact with the data. OPH enters that problem by changing the
 question: the dark sector becomes a question about what a finite self-reading
-horizon leaves behind in gravity once visible matter has done its part.
+horizon leaves behind in gravity once visible matter has done its part. The
+homogeneous dark abundance is source-only only when the anomaly load is selected
+as a finite quotient expectation on the release hypersurface. The full claim
+requires the source, abundance-selector, Boltzmann, simulator, and likelihood
+receipts that live outside this chapter.
 
 ---
 

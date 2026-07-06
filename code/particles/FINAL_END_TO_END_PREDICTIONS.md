@@ -31,7 +31,7 @@ Claim label: `final_nonhadron_predictions_with_separate_empirical_hadron_closure
 
 | Topic | Claim label | Boundary | Gate |
 | --- | --- | --- | --- |
-| Strong CP | `open_theta_qcd_bar_theta_vanishing_gap` | The selected-class quark support wrapper conditionally carries the running-quark sextet and exact forward Yukawas on the public class f_P, but its sigma datum is still target-derived. The available corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes. | Keep strong CP explicit as an open branch. Reopen only for a theorem-grade descent from exact quark/Yukawa phase data to the determinant-line phase contribution, together with a theorem fixing the topological-angle contribution and proving the physical strong-CP phase vanishes on the realized branch. |
+| Strong CP | `open_theta_qcd_bar_theta_vanishing_gap` | The selected-class quark support wrapper conditionally carries the running-quark sextet and exact forward Yukawas on the public class f_P, with a target-derived sigma datum. The available corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes. | Keep strong CP explicit as an open branch. Reopen only for a theorem-grade descent from exact quark/Yukawa phase data to the determinant-line phase contribution, together with a theorem fixing the topological-angle contribution and proving the physical strong-CP phase vanishes on the realized branch. |
 
 ## Predictions
 

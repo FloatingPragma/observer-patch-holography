@@ -465,6 +465,11 @@ together into a tensor law. MaxEnt supplies the equilibrium state, modular
 flow supplies the local clock, and the null-modular and bounded-interval
 bridges let generalized-entropy stationarity feed the Einstein branch.
 
+The finite consensus theorem has a narrower job. It supplies quotient normal
+forms for visible records. The Einstein branch starts after those normal forms
+are read as cap, diamond, stress, tetrad, and scale data on the geometric
+branch.
+
 ### Jacobson's Insight (1995, 2016)
 
 The thermodynamic route predates OPH. In 1995, Ted Jacobson showed that
@@ -484,6 +489,11 @@ $$\delta S_{\text{gen}}(C) = 0$$
 
 Entropy is stationary because the chosen state sits at the maximum
 allowed by the local consistency data.
+
+The word admissible carries the load. The cap, boundary sector, charges, and
+declared constraint values are held fixed, apart from the stress-energy
+perturbation channel. Hidden carriers, port labels, gauge presentations, and
+repair schedules are not extra variation knobs in this theorem.
 
 **The first law:** For a small cap C with generalized entropy:
 
@@ -535,17 +545,19 @@ framework.
 
 Combining the entropy variation with the geometric identity for area variation
 at fixed volume, one obtains the first-variation Einstein relation in the same
-local $d=4$ scaling regime:
+local $d=4$ scaling regime. In four dimensions the small-ball area variation
+used by the compact paper is
 
-$$\delta A\big|_{V} = -\frac{\Omega_{d-2} \ell^d}{d^2-1}(G_{00} + \Lambda g_{00})$$
+$$\delta A|_{V,\Lambda} = -\frac{4\pi \ell^4}{15}\,
+\delta\!\left[(G_{ab}+\Lambda g_{ab})u^a u^b\right]+o(\ell^4)$$
 
-Here $\delta A|_V$ is the small change of area while the small diamond's
-volume is held fixed. $\Omega_{d-2}$ is the area of the unit
-$(d-2)$-sphere, $\ell$ is the diamond's characteristic size, $G_{00}$ is the
-time-time component of the Einstein tensor, $g_{00}$ is the time-time
-component of the metric, and $\Lambda$ is the cosmological-constant term. The
-formula says that the area response of the local screen is controlled by the
-same curvature combination that appears in Einstein's equation.
+Here $\delta A|_{V,\Lambda}$ is the small change of area while the small
+diamond's volume and the metric-term convention are held fixed. $\ell$ is the
+diamond's characteristic size, $u^a$ is the local rest-frame four-velocity,
+$G_{ab}$ is the Einstein tensor, $g_{ab}$ is the metric, and $\Lambda$ is the
+cosmological-constant term. The formula says that the area response of the
+local screen is controlled by the same curvature combination that appears in
+Einstein's equation.
 
 The equilibrium condition then compares that geometric response with the
 matter-energy response:
@@ -561,15 +573,19 @@ gravity branch.
 
 Here the distinctive OPH move enters. Different observers through the same
 bulk point carry different rest frames. The equilibrium argument gives the
-first-variation relation in each of those frames. Patch consistency then
-forces those local relations to fit one common tensor law. If observer A and
-observer B agree on the overlap physics, their frame-dependent equations have
-to be shadows of one frame-independent tensor relation:
+first-variation relation in each of those frames. The branch must cover all
+local timelike directions and reference states. Under that condition, the
+scalar relations fit one common tensor law. If observer A and observer B agree
+on the overlap physics, their frame-dependent equations have to be shadows of
+one frame-independent tensor relation:
 
 $$G_{ab} + \Lambda g_{ab} = 8\pi G \langle T_{ab} \rangle$$
 
 On the stated scaling branch, this is the semiclassical Einstein equation,
-obtained by combining the thermodynamic argument with patch consistency.
+obtained by combining the thermodynamic argument, geometry readout, the
+null-stress bridge, bounded-interval transport, and the timelike
+scalar-to-tensor upgrade. The local argument leaves the metric term open; the
+capacity branch fixes it.
 
 The lower-case indices $a,b$ again label spacetime directions. The angle
 brackets around $T_{ab}$ mean expectation value: matter remains quantum, so
@@ -638,8 +654,9 @@ structure.
 
 This compression comes after neutral reconstruction, which first gives
 distances between features after redundant labels have been
-identified. The modular and Einstein steps then upgrade the relevant geometric
-data to spacetime dynamics.
+identified. The geometry readout, modular bridge, fixed-cap stationarity,
+small-ball area variation, and tensor-upgrade steps then upgrade the relevant
+geometric data to spacetime dynamics.
 
 General relativity is the natural effective dynamics associated with this compression. It is the simplest theory that respects the recovered structure.
 
@@ -716,7 +733,7 @@ information recovery rather than from a new particle species.
 
 The underlying logic is simple. In the ideal Markov limit, information on one
 side of a boundary is recoverable from the boundary itself, and the gravity
-branch follows the Einstein relation. Away from that ideal limit, some
+branch follows the Einstein relation on the declared geometric branch. Away from that ideal limit, some
 correlation sits out of reach. That leftover correlation has physical weight in
 the modular bookkeeping, so it can appear as an extra gravitational term.
 
@@ -730,7 +747,9 @@ handle.
 The sector is dark at the level of its couplings. It comes from information
 structure, it gravitates, and it does not couple electromagnetically. Rotation
 curves, lensing, clusters, and cosmology then become different views of the
-same recovery term rather than separate excuses for invisible material.
+same recovery term rather than separate excuses for invisible material. That is
+the organizing claim; paper-grade promotion requires separate source,
+abundance-selector, simulator, Boltzmann, and likelihood receipts.
 
 ### The MOND Scale
 
@@ -745,7 +764,8 @@ logic that shaped the horizon from the start. Chapter 13 tells the longer
 cosmological version: the galaxy-scale anomaly and the dark-energy horizon are
 linked by the same infrared capacity scale. The galaxy law is the settled,
 low-acceleration limit. Clusters, the CMB, and structure growth require the
-transported stress version of the story.
+transported stress version of the story, plus a source-only selector for the
+homogeneous anomaly abundance.
 
 ## 15.13 Reverse Engineering Summary
 
@@ -755,7 +775,8 @@ and distance into one four-dimensional structure. Free fall reveals gravity as
 geometry. OPH pushes the logic one step deeper. On the controlled scaling
 branch, Lorentz symmetry becomes the geometry of how modular times mesh across
 patches, the rest-space quotient gives three spatial directions, and gravity
-becomes the equilibrium condition that lets those patches share one spacetime.
+becomes the fixed-cap equilibrium condition after the geometry readout, null
+bridge, small-ball area identity, and tensor upgrade have all been supplied.
 
 On this reading, the speed of light is the conversion factor between
 information flow on the screen and emergent geometry in the bulk. On the
@@ -768,7 +789,7 @@ well for two centuries. They were approximations. The deeper truth is that
 time and space emerge from the physics itself.
 
 This yields emergent spacetime with Lorentz kinematics and
-the Einstein relation in the scaling regime. We have seen how both
+the Einstein relation on the stated scaling branch. We have seen how both
 spacetime and particles emerge from the screen. Chapter 16 turns to matter
 inside that picture, and to the way classical notions of particle, energy, and
 motion grow out of the deeper quantum structure.

@@ -1,4 +1,4 @@
-# Observer-Patch Holography — Lean 4 Formalisation
+# Observer-Patch Holography: Lean 4 Formalisation
 
 Lean 4 / Mathlib formalisation effort for *Paradise as Fixed-Point Consensus*
 (B. Müller, 2026; source in `paper/paradise_as_fixed_point_consensus.tex`),
@@ -46,8 +46,8 @@ A theorem-grade Lean statement matching Prop 4.2 requires:
   repair-step relation as concrete Lean structures matching paper
   Definition 4.1 and the OPH preliminaries. Note: several names are TeX
   macros in *Paradise* (lines 28–31) whose structural content lives in the
-  companion paper *Reality as a Consensus Protocol* — i.e. the target is
-  **paper-incomplete**, not just Lean-incomplete.
+  companion paper *Reality as a Consensus Protocol*; i.e. the target is
+  **paper-incomplete** as well as Lean-incomplete.
 - The mismatch potential `Φ : Records → NNReal` with the paper's concrete
   formula `Φ(x) = Σ_e w_e · d_e(π_{i,e}(x_i), π_{j,e}(x_j))`
   (*Paradise* line 300).
@@ -58,7 +58,7 @@ A theorem-grade Lean statement matching Prop 4.2 requires:
   recovery moves (line 297), with those local repairs composed under the
   asynchronous update schedules used by the consensus companion.
 - OPH-specific Lyapunov descent/termination, `Confluence`, and
-  `Completeness` obligations as Lean definitions (Prop 4.2 hypothesis —
+  `Completeness` obligations as Lean definitions (Prop 4.2 hypothesis,
   line 326, with details supplied by the consensus companion).
 - Schedule independence on the physical quotient, transferring the
   abstract-rewriting confluence result to the structured OPH setting.

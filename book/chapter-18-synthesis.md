@@ -62,8 +62,10 @@ time stops looking imported from outside. It becomes the internal flow attached
 to a restricted state. When those local flows fit together across the smooth
 screen, Lorentz kinematics appears, and the rest-space quotient
 $H^3=SO^+(3,1)/SO(3)$ gives three spatial directions. When generalized entropy sits at
-equilibrium under the allowed MaxEnt variations of a fixed cap, the Einstein
-relation appears as the public large-scale grammar of that equilibrium.
+equilibrium under the allowed MaxEnt variations of a fixed cap, and the null
+bridge, small-ball area variation, geometry readout, and tensor upgrade are in
+place, the Einstein relation appears as the public large-scale grammar of that
+equilibrium.
 
 Read that sentence as a compressed recap. Modular flow is the clock a restricted
 state carries. Lorentz kinematics is the rulebook for relating moving
@@ -400,9 +402,9 @@ claim needs a new bridge.
 The cosmology story is narrower where the sky becomes finely detailed. The
 de Sitter capacity closure belongs to the global gravity story. Screen patterns
 become CMB curves, growth curves, and dark-sector sky predictions only after
-source physics, clocks, stress-energy, and statistical confrontation with data
-enter the story. The questions stay at the edge of the book without turning
-the chapter into a lab notebook.
+source physics, clocks, stress-energy, the source-only dark abundance selector,
+and statistical confrontation with data enter the story. The questions stay at
+the edge of the book without turning the chapter into a lab notebook.
 
 ## 18.7 Why de Sitter Fits
 
@@ -500,7 +502,7 @@ information theorist sees a code. A good theory earns its keep by making those
 views mutually legible without erasing their differences.
 
 The gauge quotient, charge lattice, counting chain, Yang-Mills repair gap,
-massless carriers, Lorentz geometry, Einstein relation, and the
+massless carriers, Lorentz geometry, the branch-qualified Einstein relation, and the
 electroweak, Higgs-top, conditional quark, and neutrino surfaces form one organized
 reconstruction.
 

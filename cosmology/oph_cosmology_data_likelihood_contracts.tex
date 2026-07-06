@@ -82,6 +82,8 @@ generation;
 \item global pooled reducers for nonlinear source estimates;
 \item a fixed falsification rule and reporting template before executing the likelihood.
 \end{enumerate}
+A source-only anomaly abundance belongs to the source-artifact layer.  It must be
+frozen before the Boltzmann run and before likelihood comparison.
 
 \begin{definition}[proof-carrying data artifact]
 A data-facing artifact is not represented by a value plus a receipt Boolean.  It is a typed object
@@ -133,6 +135,18 @@ The promotion order used by this paper is
 \]
 No simulator export may jump over an intermediate node by relabelling a diagnostic scalar as a
 physical function.
+
+The coherent-matter same-channel theorem fixes a local scalar-channel identity:
+\[
+S_{\rm coh}^{\rm can}
+=\mathbf 1_{\rm self\mbox{-}read}R_UP_UC_U\in\mathcal E_{r,C}
+\]
+for nondegenerate OPH-coherent material sources under Scalar Edge-Center
+Exhaustion. That identity is insufficient for a physical dark/anomaly row in a
+likelihood contract. Physical promotion also requires the finite covariant
+parent to emit \(w_A\), \(c_{s,A}^2\), \(\sigma_A\), \(Q_A^\mu\),
+exchange-current closure, recipient stress, gauge-independent variables,
+CDM-limit recovery, and refinement convergence.
 
 \section{Finite Primordial Source Artifact}
 
@@ -204,6 +218,24 @@ constructed;
 without a finite covariant parent and stress/exchange closure receipt;
 \item promoting temporal repair gaps, spatial refinement exponents, primordial tilt, and physical
 exchange rates as if they were the same semantic type.
+\item accepting a source-only \(\rho_A\) or \(\Omega_A\) claim unless
+\texttt{RHO\_A\_SOURCE\_RECEIPT} passes;
+\item accepting a \texttt{RHO\_A\_SOURCE\_RECEIPT} whose receipt decomposition is anything other
+than
+\texttt{RHO\_A\_TRANSPORT\_RECEIPT} plus
+\texttt{ANOMALY\_ABUNDANCE\_SOURCE\_RECEIPT};
+\item accepting an \texttt{ANOMALY\_ABUNDANCE\_SOURCE\_RECEIPT} whose load observable is
+computed from an amplitude-loaded parent occupation field normalized by an external \(\Omega_A\),
+Planck residual, SPARC fit, cluster fit, Boltzmann residual, or likelihood comparison;
+\item accepting an anomaly abundance selector whose source DAG reads CMB, BAO, supernova,
+weak-lensing, RSD, SPARC, cluster, posterior, likelihood, nuisance-fit, or diagnostic residual
+data;
+\item accepting a selector whose release law lacks a quotient-intrinsic ensemble law or source
+MaxEnt constraint ledger;
+\item accepting a selector whose refinement defect exceeds the declared
+\texttt{LOAD\_REFINEMENT\_COMPATIBILITY} tolerance;
+\item accepting a selector whose hidden carrier coordinates, port labels, repair schedules, or
+worker metadata change \(\mathsf L_A\).
 \end{enumerate}
 
 The no-data-use verifier must traverse the complete parent graph, including file reads, network

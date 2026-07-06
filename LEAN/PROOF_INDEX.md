@@ -19,7 +19,7 @@ Mapping between Lean 4 theorems in this project and statements in
 - OPH primitives (declared, sorry-bearing): 0 / 10 discharged → 0%
 - #304 boundary-fiber carrier witness (`Rule90.lean`, PR #385): 5 / 5 theorems, sorry-free → 100%
   (first non-degenerate `Hfib` discharge on a linear information-set carrier +
-  `H1`–`H3` local-repair no-go; a carrier-level witness only — does **not** bear
+  `H1`–`H3` local-repair no-go; a carrier-level witness only. It does **not** bear
   on the Prop 4.2 / Def 4.1 counts above, which remain 0%)
 
 The headline number is **0% of Proposition 4.2** until the OPH-specific
@@ -35,7 +35,7 @@ math-seat audit (2026-05-19): previous "3+2" undercounted by ≈3×.
 - ⬜  declared as `sorry` or thin placeholder / not yet formalised
 - ❌  stated, contains unintended `sorry` or `admit`
 
-## Definition 4.1 — Public world
+## Definition 4.1: Public world
 
 > `World = NF(x) / ∼_gauge`, where `NF(x)` is the terminal state reached by
 > accepted repair and `∼_gauge` identifies hidden local presentations with
@@ -57,7 +57,7 @@ Paper: `paper/paradise_as_fixed_point_consensus.tex` §4, lines 305–313.
 | `OPH.NF` | (TODO) | ⬜ | Terminal state of accepted repair (local recovery moves). |
 | `OPH.World` | (TODO) | ⬜ | Quotient `Records / ∼_gauge` restricted to `NF` representatives. |
 
-## Proposition 4.2 — Fixed-point reading of reality
+## Proposition 4.2: Fixed-point reading of reality
 
 > `World ∈ Fix(Repair)`, `Repair(World) = World`, and (under confluence +
 > completeness) terminal public state is independent of update schedule on
@@ -77,7 +77,7 @@ Paper: `paper/paradise_as_fixed_point_consensus.tex` §4, lines 321–328.
 ## Abstract-rewriting skeleton (preliminary)
 
 Generic results over `r : X → X → Prop` and `T : X → X`. Verified
-sorry-free. These are not Prop 4.2 — they are the abstract layer the OPH
+sorry-free. These are the abstract layer the OPH
 proof instantiates after the concrete repair layer is supplied.
 
 | Lean name | Module | Status | Notes |
@@ -86,14 +86,14 @@ proof instantiates after the concrete repair layer is supplied.
 | `OPH.AbstractRewriting.unique_normal_form` | `AbstractRewriting` | 🟡 | Confluent → unique normal forms. |
 | `OPH.AbstractRewriting.newman_unique_nf` | `AbstractRewriting` | 🟡 | Combined: terminating + locally confluent → unique normal forms. |
 | `OPH.AbstractRewriting.deterministic_full` | `AbstractRewriting` | 🟡 | Deterministic op with descent potential → unique fixed-point reached. |
-| `OPH.AbstractRewriting.fixedPt_zero_potential` | `AbstractRewriting` | 🔸 | Any fixed point of a repair op has `Φ = 0`. **No paper anchor** — the passage at lines 330–334 is prose, not a labelled corollary; paper makes no formal `Φ(W) = 0` claim. Kept as preliminary ARS decoration only. |
+| `OPH.AbstractRewriting.fixedPt_zero_potential` | `AbstractRewriting` | 🔸 | Any fixed point of a repair op has `Φ = 0`. **No paper anchor**: the passage at lines 330-334 is prose, not a labelled corollary; paper makes no formal `Φ(W) = 0` claim. Kept as preliminary ARS decoration only. |
 
-## #304 — Boundary-fiber observer uniqueness: Rule 90 carrier witness
+## #304: Boundary-fiber observer uniqueness: Rule 90 carrier witness
 
 > `Hfib`: within a fixed boundary fiber, consistent states are a gauge-singleton
-> — the hypothesis binder of `boundary_fiber_observer_unique` (`Primitives.lean`).
+> the hypothesis binder of `boundary_fiber_observer_unique` (`Primitives.lean`).
 
-Instantiated on a linear (Rule 90) two-patch carrier — the first case where the
+Instantiated on a linear (Rule 90) two-patch carrier, the first case where the
 `#304` `Hfib` binder is non-degenerate (a proper, failable information set + a
 non-trivial gauge), unlike `demoCarrier`'s seed tautology. A carrier-level
 witness, **not** a Prop 4.2 / Def 4.1 item. Module:
@@ -102,7 +102,7 @@ only (`propext`, `Classical.choice`, `Quot.sound`; no `native_decide`).
 
 | Lean name | Module | Status | Notes |
 |---|---|---|---|
-| `OPH.rule90_Hfib_good` | `Rule90` | ✅ | Reading bottom cells {0,1} discharges `Hfib` on the consistent set — the `boundary_fiber_observer_unique` binder, instantiated. |
+| `OPH.rule90_Hfib_good` | `Rule90` | ✅ | Reading bottom cells {0,1} discharges `Hfib` on the consistent set, instantiating the `boundary_fiber_observer_unique` binder. |
 | `OPH.rule90_Hfib_bad_fails` | `Rule90` | ✅ | Reading {0,2} fails: same carrier, coarser boundary. `Hfib` is about *which* cells `B` reads, not how many. |
 | `OPH.rule90_gauge_nontrivial` | `Rule90` | ✅ | Seeds (0,0,0), (1,0,1) observably identical: the gauge contains `ker(Rule90)` (kernel-pair exhibit). |
 | `OPH.rule90_no_frustrationFree_repair` | `Rule90` | ✅ | No `H1`–`H3` local repair exists on this carrier. Scope: transactional/multi-patch repair and relaxed `H2` are **not** ruled out. |
@@ -119,7 +119,7 @@ only (`propext`, `Classical.choice`, `Quot.sound`; no `native_decide`).
 | `IsNormalForm` (opaque) | `NF` as terminal state of accepted repair built from local recovery moves, with local steps executed under asynchronous schedules in OPHConsensus | line 297; OPHConsensus §3 |
 | `Φ : X → NNReal` (opaque) | Concrete `Φ(x) = Σ_e w_e · d_e(π_{i,e}(x_i), π_{j,e}(x_j))` on patch-overlap data | line 300 |
 | (none) | `∼_gauge` is an equivalence relation | line 311 |
-| (none) | **`∼_gauge` is a `Repair`-congruence** — descent to the physical quotient depends on this | line 327 ("on the physical quotient") |
+| (none) | **`∼_gauge` is a `Repair`-congruence**; descent to the physical quotient depends on this | line 327 ("on the physical quotient") |
 | (none) | Quotient construction `World = NF(x) / ∼_gauge` | lines 305–313 |
 | `Terminating r` (assumption) | OPH Lyapunov descent plus finite patch-net/value-set control gives termination of `acceptedStep`; repair completeness is a separate normal-form/consistency condition | OPHConsensus Prop. `lyapunov-termination`, Assumption `complete` |
 | `LocallyConfluent r` (assumption) | OPH `Confluence` predicate (structurally defined per OPHConsensus) implies local confluence on patch repairs | line 326 |
@@ -127,8 +127,8 @@ only (`propext`, `Classical.choice`, `Quot.sound`; no `native_decide`).
 
 Closing each row of this table is the work that takes the skeleton to a
 theorem-grade Prop 4.2 statement. Several rows depend on the companion
-paper *Reality as a Consensus Protocol* (OPHConsensus) — the target is
-paper-incomplete, not just Lean-incomplete.
+paper *Reality as a Consensus Protocol* (OPHConsensus); the target is
+paper-incomplete as well as Lean-incomplete.
 
 ## Update protocol
 

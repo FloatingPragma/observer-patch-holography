@@ -688,8 +688,8 @@ scale measurement artifact.
 ## Chapter 15: Relativity
 
 Chapter 15 reconstructs spacetime behavior from modular and screen
-constraints. It moves from light cones and boosts to Einstein's equation and
-the Newtonian limit.
+constraints. It moves from light cones and boosts to the branch-qualified
+Einstein equation and the Newtonian limit.
 
 The Lorentz factor
 
@@ -715,6 +715,11 @@ thermodynamics to gravitational dynamics. The modular Hamiltonian $K$ is
 defined by $\rho\propto e^{-K}$ for a reduced state $\rho$. It can differ from
 ordinary energy; in special wedge or cap limits it behaves like a boost
 generator.
+
+In OPH, the finite consensus theorem supplies quotient normal forms for visible
+records. The Einstein row additionally uses geometric readout, BW modular
+covariance, the null-stress bridge, fixed-cap stationarity, the small-ball area
+identity, and the timelike tensor upgrade.
 
 The modular-flow, null-blowup, and Newton-limit diagrams in the chapter are
 three steps of the same story. Smooth modular flow gives a local clock.

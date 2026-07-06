@@ -99,7 +99,7 @@ state, \(\mathcal R_i\subseteq Z(\mathcal A_i)\) is the exact central record alg
 approximate record algebra, \(\mathcal I_e\) is an overlap-visible interface algebra,
 \(\pi_{i,e}:\mathcal A_i\to\mathcal I_e\) is the visible restriction map, \(\mathcal U_i\) is the
 allowed family of update and repair instruments, and \(\mathrm{Chk}_i\) is checkpoint data
-sufficient for the declared continuation problem.
+sufficient for the target reconstruction problem.
 
 \begin{definition}[Abstract observer patch]
 An abstract observer patch is the tuple \(\mathsf O_i\) above, considered up to isomorphism of
@@ -267,6 +267,1234 @@ overlaps, updates records, and reaches the accepted normal form. Folding names t
 chart presentation of that repaired quotient state. In plain language, sphere folding is what
 overlap repair looks like on the observer-facing screen.
 
+The finite carrier vocabulary is compatible with the layered functional carrier of the consensus
+paper: the carrier is a quotient-visible finite implementation surface, and hidden port labels or
+substrate coordinates are silent when visible interface data, record statistics, repair maps, and
+checkpoint continuation are preserved.
+
+\subsection{Edge-center scalar-slot register}
+\label{sec:edge-center-scalar-slot-register}
+
+The downstream dark-sector and coherent-matter papers need one fixed-cutoff
+microphysics export: on the declared scalar quotient of an edge-center collar
+register, first-order scalar observables have only the canonical opportunity
+count as their nonconstant direction.
+
+\begin{definition}[Finite scalar-slot register]\label{def:finite-scalar-slot-register}
+Fix a regulator \(r\), physical quotient \(Q_r=\Sigma_r/\Gamma_r\), and collar
+or local support region \(C\). Let \(E_{\nu,r}(C)\) be the finite set of
+edge-center scalar slots on the physical quotient. For each
+\(e\in E_{\nu,r}(C)\), let
+\[
+p_{e,\nu}:Q_r\to\{0,1\}
+\]
+be the quotient-visible central indicator that slot \(e\) carries an active
+scalar repair opportunity, and let \(a_e>0\) be the declared scalar-slot weight.
+The canonical quotient-edge scalar opportunity count is
+\[
+\mathcal N_{\nu,r,C}(q)
+=
+\sum_{e\in E_{\nu,r}(C)}a_e\,p_{e,\nu}(q).
+\]
+The normalized scalar readout is
+\[
+S_{\nu,r,C}(q)
+=
+\frac{\mathcal N_{\nu,r,C}(q)}
+{\sum_{e\in E_{\nu,r}(C)}a_e}.
+\]
+\end{definition}
+
+The indicators \(p_{e,\nu}\) live on \(Q_r\), not on hidden presentations in
+\(\Sigma_r\). Gauge representatives, port labels, implementation coordinates,
+and accepted repair schedules are removed by the quotient before
+\(\mathcal N_{\nu,r,C}\) is read.
+
+\begin{theorem}[Rank-one scalar-slot completeness on the quotient-edge branch]
+\label{thm:scalar-slot-completeness}
+Let \(G_C\) be the quotient-preserving relabeling group of scalar slots in
+collar \(C\). Assume:
+\begin{enumerate}[leftmargin=2em,label=(\roman*)]
+\item \(G_C\) preserves the physical quotient and the scalar-slot weights
+\(a_e\);
+\item the scalar branch keeps only quotient-visible central observables
+invariant under \(G_C\);
+\item the scalar slots form one scalar orbit after transverse finite-thickness
+averaging, equivalently the declared scalar observable is the weighted orbit sum.
+\end{enumerate}
+Then every first-order quotient-visible scalar observable on the edge-center
+scalar register is an affine function of \(\mathcal N_{\nu,r,C}\):
+\[
+F_{\mathrm{sc}}(q)=\alpha+\beta\,\mathcal N_{\nu,r,C}(q).
+\]
+Equivalently, after constants are removed,
+\[
+\mathcal S^{(1)}_{\mathrm{sc}}(C)
+=
+\operatorname{span}\{\mathcal N_{\nu,r,C}\}.
+\]
+\end{theorem}
+
+\begin{proof}
+A first-order scalar observable on the slot register has the form
+\[
+F(q)=\alpha+\sum_{e\in E_{\nu,r}(C)}b_e\,p_{e,\nu}(q).
+\]
+Quotient-visible scalar status requires invariance under \(G_C\). If \(G_C\)
+acts transitively on the scalar slot orbit, invariance forces \(b_e/a_e\) to be
+constant on that orbit. Therefore
+\[
+F(q)
+=
+\alpha+\beta\sum_e a_ep_{e,\nu}(q)
+=
+\alpha+\beta\,\mathcal N_{\nu,r,C}(q).
+\]
+With finite transverse thickness the same argument applies orbitwise before the
+declared weight integral over the transverse coordinate. The finite-thickness
+scalar is the weighted orbit sum, so the first-order scalar subspace is
+one-dimensional after constants are removed.
+\end{proof}
+
+This theorem is only about the scalar quotient of the edge-center register. It
+does not select a primitive observer size, a unique hardware carrier, a
+probability law on \(Q_r\), or a full finite covariant stress parent.
+
+\subsection{Quotient-edge scalar register and protected center reserve}
+\label{sec:quotient-edge-scalar-z6}
+
+The scalar-slot theorem above is the rank-one first-order export.  The
+dark-sector and coherent-matter papers also need the local event-algebra
+version: scalar activation, the protected \(\mathbb Z_6\) reserve, and
+finite-thickness collar survival have to live on one quotient-visible
+edge-center register before any coefficient can be promoted.
+
+\paragraph{Trace convention.}
+Throughout this subsection, \(\tau_{q,r,C}\) denotes the normalized quotient
+expectation on the finite physical collar quotient algebra. Thus
+\[
+\tau_{q,r,C}(1)=1.
+\]
+For a nonzero projection \(p\), define the reciprocal reserve-depth trace by
+\[
+\operatorname{Tr}^{\#}_{q,r,C}(p):=\tau_{q,r,C}(p)^{-1}.
+\]
+The Poisson reserve exponent always uses the normalized mean \(\tau_q\), not
+the reciprocal trace. Thus
+\[
+\tau_q(Z_{6,r,C})=\frac{P}{24}
+\quad\text{is the exponent mean,}
+\]
+while
+\[
+\operatorname{Tr}^{\#}_q(Z_{6,r,C})=\frac{24}{P}
+\quad\text{is the reciprocal slot-depth trace.}
+\]
+If legacy prose writes \(\operatorname{Tr}_q(Z_{6,r,C})=24/P\), it must either
+be changed to \(\operatorname{Tr}^{\#}_q\), or the prose must explicitly say
+that \(\operatorname{Tr}_q\) is being used as a reciprocal slot-count trace in
+that paragraph.
+
+\begin{definition}[Physical collar quotient and edge-center map]
+\label{def:physical-collar-edge-center-map}
+Fix a finite regulator \(r\) and a connected collar cut \(C\). Let
+\[
+Q_{r,C}
+\]
+be the physical collar quotient obtained from the fixed-cutoff presentation
+after quotienting gauge representatives, hidden carrier coordinates, port
+labels, repair-schedule identifiers, mesh labels, shard or worker identifiers,
+and inert ancillary labels.
+
+Let
+\[
+\mathcal A^{\rm phys}_{r,C}
+\]
+be the finite physical collar algebra, with center
+\[
+Z(\mathcal A^{\rm phys}_{r,C}).
+\]
+The connected cut exposes a quotient-visible edge-center sector map
+\[
+\eta_{r,C}:Q_{r,C}\longrightarrow \Xi_{r,C},
+\]
+where \(\Xi_{r,C}\) is the finite set of edge-center cut sectors visible on
+the repaired collar normal form.
+
+For each \(\xi\in\Xi_{r,C}\), let
+\[
+e_{\xi,r,C}
+\]
+be the central sector projection corresponding to the fiber
+\(\eta_{r,C}^{-1}(\xi)\). In the classical quotient algebra this is the
+indicator function of the fiber. In the finite quantum quotient algebra this is
+the central summand projection for the same quotient-visible sector.
+\end{definition}
+
+\begin{definition}[Edge-center quotient algebra]
+\label{def:edge-center-quotient-algebra}
+The edge-center quotient algebra of the connected collar cut \(C\) is
+\[
+\boxed{
+\mathcal E_{r,C}
+:=
+\operatorname{Alg}\{e_{\xi,r,C}:\xi\in\Xi_{r,C}\}
+\subseteq
+Z(\mathcal A^{\rm phys}_{r,C}).
+}
+\]
+Equivalently,
+\[
+\mathcal E_{r,C}\cong \ell^\infty(\Xi_{r,C}),
+\qquad
+1_{\mathcal E_{r,C}}=\sum_{\xi\in\Xi_{r,C}}e_{\xi,r,C}.
+\]
+\end{definition}
+
+\begin{theorem}[Edge-center quotient algebra]
+\label{thm:edge-center-quotient-algebra}
+On the fixed-cutoff connected-collar branch, \(\mathcal E_{r,C}\) is a finite
+commutative central subalgebra of \(\mathcal A^{\rm phys}_{r,C}\).
+\end{theorem}
+
+\begin{proof}
+The fibers \(\eta_{r,C}^{-1}(\xi)\) partition the physical collar quotient.
+Therefore the corresponding sector projectors satisfy
+\[
+e_{\xi,r,C}e_{\xi',r,C}
+=
+\delta_{\xi\xi'}e_{\xi,r,C},
+\qquad
+\sum_{\xi\in\Xi_{r,C}}e_{\xi,r,C}=1.
+\]
+Because the edge-center label is quotient-visible superselection data of the
+connected cut, its sector projectors commute with every physical collar
+observable and lie in \(Z(\mathcal A^{\rm phys}_{r,C})\). The algebra generated
+by finitely many mutually orthogonal central projections is finite,
+commutative, and isomorphic to \(\ell^\infty(\Xi_{r,C})\).
+\end{proof}
+
+\begin{definition}[Quotient scalar readout algebra]
+\label{def:quotient-scalar-readout-algebra}
+Let
+\[
+\mathsf{Scal}_{r,C}
+\subseteq
+\mathcal A^{\rm phys}_{r,C}
+\]
+be the subalgebra generated by all quotient-local collar readouts whose values
+are invariant under orientation choice, vector/tensor frame choice,
+bulk-coordinate choice, hidden carrier coordinate, port relabeling, accepted
+repair schedule, mesh label, shard label, and inert ancillary label.
+
+Elements of \(\mathsf{Scal}_{r,C}\) are the physical scalar collar readouts of
+the connected cut.
+\end{definition}
+
+\begin{assumption}[Edge-center scalar completeness]
+\label{ass:edge-center-scalar-completeness}
+On the declared fixed-cutoff scalar branch, every quotient-local scalar collar
+readout on a connected cut is resolved by the edge-center sector map:
+\[
+\boxed{
+\mathsf{Scal}_{r,C}=\mathcal E_{r,C}.
+}
+\]
+Equivalently, there is no independent scalar event algebra carried by bulk
+coordinates, screen-area labels, noncentral matrix directions, hidden carrier
+coordinates, port labels, or repair-schedule identifiers after the physical
+quotient has been taken.
+\end{assumption}
+
+\begin{definition}[Scalar recoverability defect and activation projector]
+\label{def:scalar-activation-projector}
+Let
+\[
+R_{r,C}\in\mathsf{Scal}_{r,C,+}
+\]
+be the quotient-local scalar recoverability defect on the collar cut. On the
+positive scalar source branch,
+\[
+R_{r,C}=I(A:D\mid B)
+\]
+or the corresponding quotient-local finite-collar representative of that
+recoverability defect.
+
+Define the scalar activation projector by
+\[
+\boxed{
+\Pi^{\rm scal}_{r,C}
+:=
+\mathbf 1_{(0,\infty)}(R_{r,C}).
+}
+\]
+Inside this subsection we may also write
+\[
+S_{r,C}:=\Pi^{\rm scal}_{r,C}
+\]
+when matching the dark-sector notation.
+\end{definition}
+
+\begin{theorem}[Scalar activation is an edge-center event]
+\label{thm:scalar-activation-edge-center}
+Assume edge-center scalar completeness. Then
+\[
+\boxed{
+\Pi^{\rm scal}_{r,C}\in\mathcal E_{r,C}.
+}
+\]
+\end{theorem}
+
+\begin{proof}
+By definition, \(R_{r,C}\) is a quotient-local scalar collar readout, hence
+\[
+R_{r,C}\in\mathsf{Scal}_{r,C}.
+\]
+By Assumption~\ref{ass:edge-center-scalar-completeness},
+\[
+\mathsf{Scal}_{r,C}=\mathcal E_{r,C}.
+\]
+Therefore \(R_{r,C}\in\mathcal E_{r,C}\). Since \(\mathcal E_{r,C}\) is a
+finite commutative algebra, functional calculus is internal to
+\(\mathcal E_{r,C}\). Thus
+\[
+\Pi^{\rm scal}_{r,C}
+=
+\mathbf 1_{(0,\infty)}(R_{r,C})
+\in
+\mathcal E_{r,C}.
+\]
+\end{proof}
+
+\begin{definition}[Protected \(Z_6\) reserve projector]
+\label{def:z6-reserve-projector}
+Let the realized Standard Model quotient be
+\[
+G_{\rm phys}
+=
+\frac{SU(3)\times SU(2)\times U(1)}{\mathbb Z_6}.
+\]
+On the protected-center finite-collar branch, let
+\[
+\zeta_{6,r,C}:\Xi_{r,C}\to\{0,1\}
+\]
+be the quotient-visible indicator that an edge-center sector carries the
+protected \(Z_6\) reserve class.
+
+Define
+\[
+\boxed{
+Z_{6,r,C}
+:=
+\sum_{\xi:\zeta_{6,r,C}(\xi)=1}e_{\xi,r,C}.
+}
+\]
+Then
+\[
+Z_{6,r,C}\in\mathcal E_{r,C}.
+\]
+\end{definition}
+
+\begin{theorem}[Same-register and commutation theorem]
+\label{thm:scalar-z6-same-register-commute}
+Assume edge-center scalar completeness and protected-center realization. Then
+\[
+\boxed{
+\Pi^{\rm scal}_{r,C},Z_{6,r,C}\in\mathcal E_{r,C}
+}
+\]
+and therefore
+\[
+\boxed{
+[\Pi^{\rm scal}_{r,C},Z_{6,r,C}]=0
+}
+\]
+inside the physical quotient collar algebra.
+\end{theorem}
+
+\begin{proof}
+Theorem~\ref{thm:scalar-activation-edge-center} gives
+\[
+\Pi^{\rm scal}_{r,C}\in\mathcal E_{r,C}.
+\]
+Definition~\ref{def:z6-reserve-projector} gives
+\[
+Z_{6,r,C}\in\mathcal E_{r,C}.
+\]
+The algebra \(\mathcal E_{r,C}\cong\ell^\infty(\Xi_{r,C})\) is finite and
+commutative. Hence any two of its elements commute in
+\(\mathcal A^{\rm phys}_{r,C}\).
+\end{proof}
+
+\begin{assumption}[Scalar activation channel completeness]
+\label{ass:scalar-activation-channel-completeness}
+The scalar activation channel on the connected collar cut is the quotient event
+algebra generated by the nonzero recoverability-defect event:
+\[
+\boxed{
+\mathcal C^{\rm scal}_{r,C}
+=
+\operatorname{Alg}\{\Pi^{\rm scal}_{r,C}\}
+\subseteq
+\mathcal E_{r,C}.
+}
+\]
+Equivalently, there is no second independent scalar activation generator after
+the physical quotient has been taken.
+\end{assumption}
+
+\begin{theorem}[Scalar-channel exhaustion]
+\label{thm:scalar-channel-exhaustion}
+Assume edge-center scalar completeness, scalar activation channel completeness,
+and protected-center realization. Then the scalar activation channel is
+exhausted by \(\Pi^{\rm scal}_{r,C}\), and the protected reserve splits it as
+\[
+\boxed{
+\Pi^{\rm scal}_{r,C}
+=
+\Pi^{\rm scal}_{r,C}(1-Z_{6,r,C})
++
+\Pi^{\rm scal}_{r,C}Z_{6,r,C}.
+}
+\]
+The first summand is the reserve-surviving scalar channel. The second summand
+is the reserve-blocked scalar channel.
+\end{theorem}
+
+\begin{proof}
+By Assumption~\ref{ass:scalar-activation-channel-completeness}, every scalar
+activation event is generated by \(\Pi^{\rm scal}_{r,C}\). Thus no scalar
+activation support exists outside this projector.
+
+By Theorem~\ref{thm:scalar-z6-same-register-commute},
+\(\Pi^{\rm scal}_{r,C}\) and \(Z_{6,r,C}\) commute. Therefore
+\[
+\Pi^{\rm scal}_{r,C}(1-Z_{6,r,C})
+\quad\text{and}\quad
+\Pi^{\rm scal}_{r,C}Z_{6,r,C}
+\]
+are commuting orthogonal projections. Their sum is
+\[
+\Pi^{\rm scal}_{r,C}
+-
+\Pi^{\rm scal}_{r,C}Z_{6,r,C}
++
+\Pi^{\rm scal}_{r,C}Z_{6,r,C}
+=
+\Pi^{\rm scal}_{r,C}.
+\]
+Hence the reserve split exhausts the scalar activation channel.
+\end{proof}
+
+\begin{theorem}[No separate scalar carrier]
+\label{thm:no-separate-scalar-carrier}
+Assume edge-center scalar completeness. Let \(B\) be any proposed alternative
+scalar activation projector, possibly represented on a bulk, screen-area,
+noncentral, implementation-local, or hidden-carrier algebra.
+
+If \(B\) changes scalar activation but does not factor through
+\(\mathcal E_{r,C}\), then the physical quotient observable algebra has been
+changed. If \(B\) does not change quotient observables, then its scalar content
+is the same as its edge-center central support in \(\mathcal E_{r,C}\), and
+the extra carrier is inert.
+\end{theorem}
+
+\begin{proof}
+A physical scalar activation event must be a quotient-local scalar observable.
+By Assumption~\ref{ass:edge-center-scalar-completeness}, every such observable
+factors through the edge-center sector map
+\[
+\eta_{r,C}:Q_{r,C}\to\Xi_{r,C}.
+\]
+Equivalently, every such event is represented by a projection in
+\[
+\mathcal E_{r,C}.
+\]
+
+Suppose \(B\) is a bulk, screen-area, hidden-carrier, implementation-local, or
+noncentral event that does not factor through \(\eta_{r,C}\). Then there are
+physical presentations that agree on the edge-center quotient sector but differ
+in the value of \(B\). If that difference changes scalar activation, then
+scalar activation is not determined by the declared physical scalar quotient.
+The observable algebra has therefore been enlarged or changed.
+
+If that difference does not change any quotient observable, then the degrees of
+freedom in \(B\) outside the edge-center quotient are physically silent. The
+scalar part of \(B\) is obtained by passing to the central edge-center event
+with the same quotient-visible activation support. That central support lies
+in \(\mathcal E_{r,C}\).
+
+For a noncentral operator \(B\), the same argument is internal to
+\(\mathcal A^{\rm phys}_{r,C}\). If the noncentral matrix part affects scalar
+readout, then the readout is not a scalar central event on the declared
+quotient. If it does not affect scalar readout, only its central support
+contributes to scalar activation, and that support lies in
+\(\mathcal E_{r,C}\).
+
+Thus a separate scalar carrier either changes quotient observables or collapses
+to the edge-center scalar event represented in \(\mathcal E_{r,C}\).
+\end{proof}
+
+\subsection{Coherent-matter scalar-source forcing}
+\label{sec:coherent-matter-scalar-source-forcing}
+
+The scalar-slot exhaustion theorem fixes the available local scalar carrier.  It
+does not make raw mass, heat, stored energy, or an engineering substrate factor
+into a scalar source.  The source is a quotient-visible coherent-material receipt
+with explicit readback and boundary-prediction closure.
+
+\begin{definition}[OPH-coherent material subfederation]
+\label{def:oph-coherent-material-subfederation}
+Fix a screen collar \(C\), a finite material region \(U\subset C\), and a
+refinement scale \(r\).  An OPH-coherent material subfederation is a finite
+family
+\[
+  \mathfrak M=(\mathfrak F_U,\mathsf R_U,\mathsf P_U,\mathsf C_U)
+\]
+where \(\mathfrak F_U\) is a self-reading subfederation over \(U\),
+\(\mathsf R_U\) is a stable internal record readout, \(\mathsf P_U\) is a
+boundary prediction operator against neighboring screen states, and
+\(\mathsf C_U\) is a coherent mismatch-reduction certificate.  The datum is
+nondegenerate when all four factors survive quotienting and refinement,
+\[
+  \mathbf 1_{\rm self-read}(\mathfrak F_U)\,
+  \mathsf R_U\,\mathsf P_U\,\mathsf C_U>0 .
+\]
+Presentations with the same quotient record, boundary prediction, and coherence
+certificate define the same subfederation class.
+\end{definition}
+
+\begin{definition}[Canonical coherent-matter scalar source]
+\label{def:canonical-coherent-matter-scalar-source}
+For an OPH-coherent material subfederation \(\mathfrak M\), define the canonical
+scalar source readout
+\[
+  S_{\mathrm{coh}}^{\mathrm{can}}(U,t;h)
+  :=
+  \mathbf 1_{\rm self-read}(\mathfrak F_U)\,
+  \mathsf R_U(U,t;h)\,\mathsf P_U(U,t;h)\,\mathsf C_U(U,t;h) .
+\]
+The readout is zero exactly when one of the self-read, record, boundary
+prediction, or coherent mismatch-reduction receipts vanishes.  Rest mass, heat,
+and arbitrary coherent energy are outside this definition.
+\end{definition}
+
+\begin{claim}[Quotient descent of coherent-material source]
+\label{lem:coherent-material-source-quotient-descent}
+The functional \(S_{\mathrm{coh}}^{\mathrm{can}}\) descends to the screen quotient.
+It is invariant under relabelings of internal coordinates, duplicate
+micro-presentations, and record refinements that preserve
+\((\mathsf R_U,\mathsf P_U,\mathsf C_U)\) in the quotient.
+\end{claim}
+
+\begin{proof}
+Each factor in
+Definition~\ref{def:canonical-coherent-matter-scalar-source} is a screen-record
+observable: self-read existence is a boundary-stable record property,
+\(\mathsf R_U\) is the internal record value, \(\mathsf P_U\) is read through
+neighboring boundary records, and \(\mathsf C_U\) is the observed reduction of
+prediction mismatch.  The quotient identifies presentations with identical
+boundary-visible records and predictions.  Hence the product is constant on
+quotient classes and descends.
+\end{proof}
+
+\begin{theorem}[Nonzero coherent scalar source]
+\label{thm:nonzero-coherent-scalar-source}
+Every nondegenerate OPH-coherent material subfederation has
+\[
+  S_{\mathrm{coh}}^{\mathrm{can}}(U,t;h)>0 .
+\]
+The zero branch is precisely the degenerate branch in which at least one
+coherent-material receipt vanishes.
+\end{theorem}
+
+\begin{proof}
+Nondegeneracy is the strict positivity of the product in
+Definition~\ref{def:oph-coherent-material-subfederation}.  The canonical source
+is that product.
+\end{proof}
+
+\begin{theorem}[Coherent-matter same-channel forcing]
+\label{thm:coherent-matter-same-channel-forcing}
+Assume Scalar Edge-Center Exhaustion
+\(\mathrm{SCALAR\_EDGE\_CENTER\_EXHAUSTION}\),
+Theorem~\ref{thm:scalar-channel-exhaustion}.  For every nondegenerate
+OPH-coherent material subfederation on a collar \(C\), the source
+\[
+  S_{\mathrm{coh}}^{\mathrm{can}}(U,t;h)
+\]
+is valued in the unique scalar edge-center register \(\mathcal E_{r,C}\).
+Consequently the coherent-material scalar source uses the same scalar channel
+that is priced by the \(Z_6\) edge-center collar theorem.
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lem:coherent-material-source-quotient-descent},
+\(S_{\mathrm{coh}}^{\mathrm{can}}\) is a quotient-local scalar observable: it has
+no boundary direction, no spin frame, and no unscreened vector index.  Scalar
+Edge-Center Exhaustion states that every quotient-local scalar perturbation that
+can affect a collar record factors through \(\mathcal E_{r,C}\).  The source
+therefore lies in \(\mathcal E_{r,C}\).  Theorem~\ref{thm:scalar-z6-same-register-commute}
+identifies this register with the same edge-center scalar slot used by the
+\(Z_6\) collar computation, so the channel identity follows.
+\end{proof}
+
+\begin{theorem}[Unique scalar linear response]
+\label{thm:unique-scalar-linear-response}
+On the weak-field branch, any infinitesimal frequency response to a
+nondegenerate OPH-coherent material source has the form
+\[
+  \delta \nu_C
+  =
+  \chi_{\nu,C}^{\mathrm{can}}\,
+  \langle \eta_C,S_{\mathrm{coh}}^{\mathrm{can}}\rangle_C
+  +O\!\left((S_{\mathrm{coh}}^{\mathrm{can}})^2\right),
+\]
+where \(\eta_C\) is the local edge-center test functional.  No independent local
+scalar susceptibility can be added without violating
+Theorem~\ref{thm:scalar-channel-exhaustion}.
+\end{theorem}
+
+\begin{proof}
+The previous theorem places the perturbation in the unique scalar register
+\(\mathcal E_{r,C}\).  Linearization of a one-register scalar perturbation gives a
+single edge-center test functional.  An additional scalar susceptibility would
+define another quotient-local scalar carrier on the same collar, contradicting
+Scalar Edge-Center Exhaustion.
+\end{proof}
+
+\noindent The finite receipt names for this package are
+\[
+\begin{gathered}
+\texttt{OPH\_COHERENT\_MATERIAL\_RECEIPT},\quad
+\texttt{COHERENT\_MATTER\_SCALAR\_SOURCE\_BINDING},\\
+\texttt{NONZERO\_COHERENT\_SCALAR},\quad
+\texttt{COHERENT\_MATTER\_SAME\_CHANNEL\_FORCING},\quad
+\texttt{UNIQUE\_SCALAR\_LINEAR\_RESPONSE}.
+\end{gathered}
+\]
+
+\begin{definition}[Oriented 24-slot repair register]
+\label{def:oriented-24-slot-register}
+On the twelve-port screen-sieve branch, let
+\[
+\mathsf P_{12,r,C}
+\]
+be the twelve exposed central screen ports of the connected cut. Reversible
+write/check orientation gives the oriented repair-slot set
+\[
+\mathsf R_{24,r,C}
+:=
+\mathsf P_{12,r,C}\times\{+,-\},
+\]
+so
+\[
+|\mathsf R_{24,r,C}|=24.
+\]
+The corresponding oriented slot algebra is
+\[
+\mathcal R^{\rm or}_{24,r,C}
+:=
+\ell^\infty(\mathsf R_{24,r,C}).
+\]
+The oriented register is a bookkeeping refinement of the same quotient-edge cut
+surface. It does not create an independent scalar carrier.
+\end{definition}
+
+\begin{theorem}[Protected reserve mean and reciprocal trace]
+\label{thm:z6-reserve-trace}
+On the shared-edge protected-reserve branch,
+\[
+\boxed{
+\tau_{q,r,C}(Z_{6,r,C})=\frac{P}{24}.
+}
+\]
+Equivalently, for the reciprocal reserve-depth trace,
+\[
+\boxed{
+\operatorname{Tr}^{\#}_{q,r,C}(Z_{6,r,C})=\frac{24}{P}.
+}
+\]
+Using
+\[
+P=1.630968209403959,
+\]
+one has
+\[
+\frac{P}{24}=0.06795700872516496,
+\]
+\[
+\frac{24}{P}=14.715185655746689,
+\]
+and
+\[
+e^{-P/24}=0.9343006394893864.
+\]
+\end{theorem}
+
+\begin{proof}
+The shared cut entropy density on this branch is
+\[
+\bar\ell_{\rm shared}=\frac{P}{4}.
+\]
+The protected reserve is the realized \(\mathbb Z_6\) center quotient reserve.
+Splitting the shared-edge reserve over the six protected center classes gives
+\[
+\epsilon_{\mathbb Z_6}
+=
+\frac{\bar\ell_{\rm shared}}{|\mathbb Z_6|}
+=
+\frac{P/4}{6}
+=
+\frac{P}{24}.
+\]
+
+The oriented register gives the same denominator from the local screen side:
+the twelve-port screen-sieve branch supplies twelve central ports, and
+reversible write/check orientation doubles the repair register to twenty-four
+oriented slots. This \(24\)-slot register is the local oriented accounting
+surface for the same shared-edge reserve. It does not replace the normalized
+quotient expectation.
+
+Thus the normalized quotient reserve mean is
+\[
+\tau_q(Z_{6,r,C})=\frac{P}{24}.
+\]
+By definition of the reciprocal reserve-depth trace,
+\[
+\operatorname{Tr}^{\#}_q(Z_{6,r,C})
+=
+\frac{1}{\tau_q(Z_{6,r,C})}
+=
+\frac{24}{P}.
+\]
+\end{proof}
+
+\begin{definition}[Finite-thickness scalar opportunity profile]
+\label{def:finite-thickness-scalar-profile}
+Let \(Y_{r,C}\) be the finite transverse collar-coordinate set at regulator
+\(r\). Let
+\[
+p_y,\qquad y\in Y_{r,C},
+\]
+be the transverse slice projectors, with
+\[
+\sum_{y\in Y_{r,C}}p_y=1.
+\]
+Let
+\[
+\mathcal A^{\rm thick}_{r,C}
+\]
+be the finite-thickness collar algebra containing the edge-center algebra and
+the transverse slice algebra:
+\[
+\mathcal A^{\rm thick}_{r,C}
+\supseteq
+\mathcal E_{r,C}\vee \operatorname{Alg}\{p_y:y\in Y_{r,C}\}.
+\]
+
+Let
+\[
+\Pi^{\rm scal,thick}_{r,C}
+\]
+be the scalar activation projector lifted to the thickened collar, and let
+\[
+Z^{\rm thick}_{6,r,C}
+\]
+be the protected reserve projector lifted to the thickened collar.
+
+Define the scalar activation mass at slice \(y\) by
+\[
+a_r(y)
+:=
+\tau^{\rm thick}_{q,r,C}
+\!\left(\Pi^{\rm scal,thick}_{r,C}p_y\right).
+\]
+Assume
+\[
+A_r:=\sum_{y\in Y_{r,C}}a_r(y)>0.
+\]
+The normalized finite-thickness scalar activation profile is
+\[
+\boxed{
+w_r(y):=\frac{a_r(y)}{A_r}.
+}
+\]
+Then
+\[
+\sum_{y\in Y_{r,C}}w_r(y)=1.
+\]
+
+For every scalar-active slice, \(a_r(y)>0\), define the scalar-opportunity
+conditional reserve profile by
+\[
+\boxed{
+\epsilon_{\mathbb Z_6,r}(y)
+:=
+\frac{
+\tau^{\rm thick}_{q,r,C}
+\!\left(
+\Pi^{\rm scal,thick}_{r,C}
+Z^{\rm thick}_{6,r,C}
+p_y
+\right)
+}{
+\tau^{\rm thick}_{q,r,C}
+\!\left(
+\Pi^{\rm scal,thick}_{r,C}
+p_y
+\right)
+}.
+}
+\]
+Slices with \(a_r(y)=0\) do not contribute to \(w_r\) and may be assigned any
+harmless value.
+
+The scalar-weighted protected reserve mean is
+\[
+\boxed{
+\bar\epsilon_{\mathbb Z_6,r}^{\rm scal}
+:=
+\sum_{y\in Y_{r,C}}w_r(y)\epsilon_{\mathbb Z_6,r}(y)
+=
+\frac{
+\tau^{\rm thick}_{q,r,C}
+\!\left(\Pi^{\rm scal,thick}_{r,C}Z^{\rm thick}_{6,r,C}\right)
+}{
+\tau^{\rm thick}_{q,r,C}
+\!\left(\Pi^{\rm scal,thick}_{r,C}\right)
+}.
+}
+\]
+
+In continuum notation,
+\[
+w_r(y)\to w(y),
+\qquad
+\epsilon_{\mathbb Z_6,r}(y)\to\epsilon_{\mathbb Z_6}(y),
+\]
+with
+\[
+\int dy\,w(y)=1
+\]
+and
+\[
+\bar\epsilon_{\mathbb Z_6}^{\rm scal}
+=
+\int dy\,w(y)\epsilon_{\mathbb Z_6}(y).
+\]
+\end{definition}
+
+\begin{theorem}[Finite-thickness mean reserve disintegration]
+\label{thm:finite-thickness-mean-reserve}
+At fixed regulator,
+\[
+\boxed{
+\sum_{y\in Y_{r,C}}w_r(y)\epsilon_{\mathbb Z_6,r}(y)
+=
+\frac{
+\tau^{\rm thick}_{q,r,C}
+\!\left(\Pi^{\rm scal,thick}_{r,C}Z^{\rm thick}_{6,r,C}\right)
+}{
+\tau^{\rm thick}_{q,r,C}
+\!\left(\Pi^{\rm scal,thick}_{r,C}\right)
+}.
+}
+\]
+Consequently, if the scalar-weighted protected reserve mean receipt holds,
+\[
+\boxed{
+\frac{
+\tau^{\rm thick}_{q,r,C}
+\!\left(\Pi^{\rm scal,thick}_{r,C}Z^{\rm thick}_{6,r,C}\right)
+}{
+\tau^{\rm thick}_{q,r,C}
+\!\left(\Pi^{\rm scal,thick}_{r,C}\right)
+}
+=
+\frac{P}{24},
+}
+\]
+then
+\[
+\boxed{
+\sum_{y\in Y_{r,C}}w_r(y)\epsilon_{\mathbb Z_6,r}(y)=\frac{P}{24}.
+}
+\]
+In the continuum limit,
+\[
+\boxed{
+\int dy\,w(y)\epsilon_{\mathbb Z_6}(y)=\frac{P}{24}.
+}
+\]
+\end{theorem}
+
+\begin{proof}
+Temporarily write \(\tau=\tau^{\rm thick}_{q,r,C}\),
+\(\Pi^{\rm scal}=\Pi^{\rm scal,thick}_{r,C}\), and
+\(Z_6=Z^{\rm thick}_{6,r,C}\). Using the definitions,
+\[
+\sum_y w_r(y)\epsilon_{\mathbb Z_6,r}(y)
+=
+\sum_y
+\frac{\tau(\Pi^{\rm scal}p_y)}{\tau(\Pi^{\rm scal})}
+\cdot
+\frac{\tau(\Pi^{\rm scal}Z_6p_y)}{\tau(\Pi^{\rm scal}p_y)}.
+\]
+Canceling the slice factors gives
+\[
+\sum_y w_r(y)\epsilon_{\mathbb Z_6,r}(y)
+=
+\frac{1}{\tau(\Pi^{\rm scal})}
+\sum_y\tau(\Pi^{\rm scal}Z_6p_y).
+\]
+Since \(\sum_y p_y=1\),
+\[
+\sum_y\tau(\Pi^{\rm scal}Z_6p_y)
+=
+\tau(\Pi^{\rm scal}Z_6).
+\]
+Therefore
+\[
+\sum_y w_r(y)\epsilon_{\mathbb Z_6,r}(y)
+=
+\frac{\tau(\Pi^{\rm scal}Z_6)}{\tau(\Pi^{\rm scal})}.
+\]
+If that scalar-weighted quotient mean is \(P/24\), the displayed identity
+follows. The continuum expression is the weak-limit version of the same finite
+disintegration.
+\end{proof}
+
+\begin{remark}[Unconditioned trace is not enough]
+\label{rem:unconditioned-trace-not-enough}
+The identity
+\[
+\tau_q(Z_{6,r,C})=P/24
+\]
+does not by itself imply
+\[
+\frac{\tau_q(\Pi^{\rm scal}_{r,C}Z_{6,r,C})}
+{\tau_q(\Pi^{\rm scal}_{r,C})}
+=
+P/24.
+\]
+The latter is a scalar-weighted reserve mean receipt. It follows from
+scalar-reserve unbiasedness. Co-registration or commutation alone is
+insufficient.
+\end{remark}
+
+\begin{assumption}[Local Poisson reserve survival]
+\label{ass:local-poisson-reserve-survival}
+At transverse coordinate \(y\), the protected reserve occupancy in a
+co-registered scalar slot is Poisson with mean
+\[
+\epsilon_{\mathbb Z_6}(y).
+\]
+That is,
+\[
+N_{\mathbb Z_6}(y)\sim{\rm Pois}(\epsilon_{\mathbb Z_6}(y)).
+\]
+\end{assumption}
+
+\begin{theorem}[Finite-thickness collar survival]
+\label{thm:finite-thickness-collar-survival}
+Assume local Poisson reserve survival. Then the local scalar survival factor is
+\[
+\lambda_{\rm slot}(y)=e^{-\epsilon_{\mathbb Z_6}(y)}.
+\]
+The finite-thickness collar survival coefficient is
+\[
+\boxed{
+\lambda_{\rm collar}
+=
+\int dy\,w(y)e^{-\epsilon_{\mathbb Z_6}(y)}.
+}
+\]
+At finite regulator this is
+\[
+\boxed{
+\lambda_{\rm collar,r}
+=
+\sum_{y\in Y_{r,C}}w_r(y)e^{-\epsilon_{\mathbb Z_6,r}(y)}.
+}
+\]
+\end{theorem}
+
+\begin{proof}
+A Poisson variable of mean \(\epsilon\) has zero-count probability
+\[
+\Pr[N=0]=e^{-\epsilon}.
+\]
+A scalar opportunity survives exactly when its co-registered protected reserve
+count is zero. Therefore the local survival factor at \(y\) is
+\[
+e^{-\epsilon_{\mathbb Z_6}(y)}.
+\]
+Averaging over scalar opportunities with normalized profile \(w(y)\) gives
+\[
+\lambda_{\rm collar}
+=
+\int dy\,w(y)e^{-\epsilon_{\mathbb Z_6}(y)}.
+\]
+The finite-regulator formula is the corresponding finite sum.
+\end{proof}
+
+\begin{corollary}[Finite-thickness Jensen band]
+\label{cor:finite-thickness-jensen-band}
+If
+\[
+\int dy\,w(y)\epsilon_{\mathbb Z_6}(y)=\frac{P}{24},
+\]
+then
+\[
+\boxed{
+e^{-P/24}\le \lambda_{\rm collar}\le1.
+}
+\]
+Numerically,
+\[
+\boxed{
+0.9343006394893864\ldots
+\le
+\lambda_{\rm collar}
+\le
+1.
+}
+\]
+More generally, without the scalar-weighted \(P/24\) receipt,
+\[
+\boxed{
+e^{-\bar\epsilon_{\mathbb Z_6}^{\rm scal}}
+\le
+\lambda_{\rm collar}
+\le
+1.
+}
+\]
+\end{corollary}
+
+\begin{proof}
+The function \(x\mapsto e^{-x}\) is convex. Jensen's inequality gives
+\[
+\lambda_{\rm collar}
+=
+\int dy\,w(y)e^{-\epsilon_{\mathbb Z_6}(y)}
+\ge
+\exp\!\left[-\int dy\,w(y)\epsilon_{\mathbb Z_6}(y)\right].
+\]
+If the scalar-weighted mean is \(P/24\), this lower bound is \(e^{-P/24}\).
+If the scalar-weighted mean is
+\(\bar\epsilon_{\mathbb Z_6}^{\rm scal}\), the lower bound is
+\(e^{-\bar\epsilon_{\mathbb Z_6}^{\rm scal}}\).
+
+Since \(\epsilon_{\mathbb Z_6}(y)\ge0\),
+\[
+e^{-\epsilon_{\mathbb Z_6}(y)}\le1.
+\]
+Therefore
+\[
+\lambda_{\rm collar}\le \int dy\,w(y)=1.
+\]
+\end{proof}
+
+\begin{definition}[Uniform product-thickening branch]
+\label{def:uniform-product-thickening-branch}
+The uniform product-thickening branch consists of the following clauses.
+
+\begin{enumerate}[leftmargin=2em]
+\item Product collar algebra:
+\[
+\mathcal A^{\rm thick}_{r,C}
+\cong
+\mathcal E_{r,C}\otimes\mathcal T_r(Y).
+\]
+
+\item Product quotient trace:
+\[
+\tau^{\rm thick}_{q,r,C}
+=
+\tau^{\mathcal E}_{q,r,C}\otimes\tau^Y_r.
+\]
+
+\item Reserve pullback from the edge-center register:
+\[
+Z^{\rm thick}_{6,r,C}
+=
+Z_{6,r,C}\otimes1_Y.
+\]
+
+\item Scalar activation disintegration:
+\[
+\Pi^{\rm scal,thick}_{r,C}
+=
+\sum_{y\in Y_{r,C}}
+\Pi^{\rm scal}_{r,C}(y)\otimes p_y,
+\]
+with each \(\Pi^{\rm scal}_{r,C}(y)\in\mathcal E_{r,C}\).
+
+\item Slice-wise scalar-reserve unbiasedness: for every scalar-active slice,
+\[
+\boxed{
+\frac{
+\tau^{\mathcal E}_{q,r,C}
+\!\left(\Pi^{\rm scal}_{r,C}(y)Z_{6,r,C}\right)
+}{
+\tau^{\mathcal E}_{q,r,C}
+\!\left(\Pi^{\rm scal}_{r,C}(y)\right)
+}
+=
+\tau^{\mathcal E}_{q,r,C}(Z_{6,r,C})
+=
+\frac{P}{24}.
+}
+\]
+\end{enumerate}
+
+The fifth clause is essential. Product algebra and product trace alone do not
+force the scalar-active edge sampler to be reserve-unbiased.
+\end{definition}
+
+\begin{theorem}[Exact uniform product-thickening coefficient]
+\label{thm:exact-uniform-product-thickening-coefficient}
+On the uniform product-thickening branch, assuming local Poisson reserve
+survival,
+\[
+\boxed{
+\lambda_{\rm collar}=e^{-P/24}.
+}
+\]
+Numerically,
+\[
+\boxed{
+\lambda_{\rm collar}
+=
+0.9343006394893864\ldots .
+}
+\]
+\end{theorem}
+
+\begin{proof}
+By slice-wise scalar-reserve unbiasedness,
+\[
+\epsilon_{\mathbb Z_6}(y)=P/24
+\]
+for every scalar-active transverse slice. Substituting this into the
+finite-thickness survival formula gives
+\[
+\lambda_{\rm collar}
+=
+\int dy\,w(y)e^{-P/24}.
+\]
+Since \(w\) is normalized,
+\[
+\int dy\,w(y)=1.
+\]
+Therefore
+\[
+\lambda_{\rm collar}=e^{-P/24}.
+\]
+\end{proof}
+
+\begin{remark}[Exact value gate]
+\label{rem:exact-value-gate}
+The exact value \(e^{-P/24}\) is licensed only when the uniform
+product-thickening branch passes, including slice-wise scalar-reserve
+unbiasedness. Without that receipt the theorem-grade coefficient is
+\[
+\lambda_{\rm collar}
+=
+\int dy\,w(y)e^{-\epsilon_{\mathbb Z_6}(y)}.
+\]
+If the scalar-weighted mean is \(P/24\), the available theorem-grade band is
+\[
+e^{-P/24}\le\lambda_{\rm collar}\le1.
+\]
+\end{remark}
+
+\subsection{Local scalar receipt ledger and review checks}
+\label{sec:local-scalar-receipt-ledger}
+
+The local quotient-edge theorem stack emits the following receipt names:
+\[
+\begin{gathered}
+\texttt{EDGE\_CENTER\_MAP\_DEFINED},\quad
+\texttt{EDGE\_CENTER\_QUOTIENT\_ALGEBRA\_DEFINED},\quad
+\texttt{QUOTIENT\_SCALAR\_READOUT\_ALGEBRA\_DEFINED},\\
+\texttt{EDGE\_CENTER\_SCALAR\_COMPLETENESS},\quad
+\texttt{SCALAR\_ACTIVATION\_PROJECTOR\_DEFINED},\quad
+\texttt{SCALAR\_ACTIVATION\_EDGE\_CENTER},\\
+\texttt{Z6\_RESERVE\_PROJECTOR\_DEFINED},\quad
+\texttt{SCALAR\_Z6\_SAME\_REGISTER},\quad
+\texttt{SCALAR\_Z6\_COMMUTATION},\\
+\texttt{SCALAR\_CHANNEL\_COMPLETENESS},\quad
+\texttt{SCALAR\_CHANNEL\_EXHAUSTION},\quad
+\texttt{NO\_SEPARATE\_SCALAR\_CARRIER},\\
+\texttt{ORIENTED\_24\_SLOT\_REGISTER},\quad
+\texttt{Z6\_NORMALIZED\_TRACE\_P\_OVER\_24},\quad
+\texttt{Z6\_RECIPROCAL\_TRACE\_24\_OVER\_P},\\
+\texttt{FINITE\_THICKNESS\_SCALAR\_PROFILE},\quad
+\texttt{FINITE\_THICKNESS\_RESERVE\_PROFILE},\quad
+\texttt{SCALAR\_WEIGHTED\_Z6\_MEAN},\\
+\texttt{FINITE\_THICKNESS\_MEAN\_RESERVE},\quad
+\texttt{LOCAL\_POISSON\_RESERVE\_SURVIVAL},\quad
+\texttt{FINITE\_THICKNESS\_SURVIVAL},\\
+\texttt{FINITE\_THICKNESS\_JENSEN\_BAND},\quad
+\texttt{PRODUCT\_THICKENING\_ALGEBRA},\quad
+\texttt{PRODUCT\_THICKENING\_TRACE},\\
+\texttt{Z6\_RESERVE\_PULLBACK},\quad
+\texttt{SCALAR\_ACTIVATION\_DISINTEGRATION},\quad
+\texttt{SLICEWISE\_SCALAR\_RESERVE\_UNBIASEDNESS},\\
+\texttt{UNIFORM\_PRODUCT\_THICKENING\_EXACT}.
+\end{gathered}
+\]
+The exact coefficient gate is
+\[
+\begin{aligned}
+\texttt{UNIFORM\_PRODUCT\_THICKENING\_EXACT}
+={}&
+\texttt{PRODUCT\_THICKENING\_ALGEBRA}
+\wedge \texttt{PRODUCT\_THICKENING\_TRACE}\\
+&\wedge \texttt{Z6\_RESERVE\_PULLBACK}
+\wedge \texttt{SCALAR\_ACTIVATION\_DISINTEGRATION}\\
+&\wedge \texttt{SLICEWISE\_SCALAR\_RESERVE\_UNBIASEDNESS}
+\wedge \texttt{LOCAL\_POISSON\_RESERVE\_SURVIVAL}\\
+&\wedge \texttt{Z6\_NORMALIZED\_TRACE\_P\_OVER\_24}.
+\end{aligned}
+\]
+The Jensen-band gate is
+\[
+\begin{aligned}
+\texttt{FINITE\_THICKNESS\_JENSEN\_BAND}
+={}&
+\texttt{FINITE\_THICKNESS\_SCALAR\_PROFILE}
+\wedge \texttt{FINITE\_THICKNESS\_RESERVE\_PROFILE}\\
+&\wedge \texttt{SCALAR\_WEIGHTED\_Z6\_MEAN}
+\wedge \texttt{LOCAL\_POISSON\_RESERVE\_SURVIVAL}.
+\end{aligned}
+\]
+Only after \texttt{UNIFORM\_PRODUCT\_THICKENING\_EXACT} passes may downstream
+text write \(\lambda_{\rm collar}=e^{-P/24}\). Otherwise it must write
+\[
+\lambda_{\rm collar}
+=
+\int dy\,w(y)e^{-\epsilon_{\mathbb Z_6}(y)}.
+\]
+If \texttt{SCALAR\_WEIGHTED\_Z6\_MEAN} also passes, it may add
+\[
+e^{-P/24}\le\lambda_{\rm collar}\le1.
+\]
+
+Release review should apply the following checks.  No Poisson exponent may use
+\(24/P\); occurrences of \(\operatorname{Tr}_q(Z_6)\) with \(24/P\) must be
+renamed to \(\operatorname{Tr}^{\#}_q\) or explicitly declared reciprocal;
+every exact \(e^{-P/24}\) coefficient claim must cite
+\texttt{UNIFORM\_PRODUCT\_THICKENING\_EXACT} or
+Theorem~\ref{thm:exact-uniform-product-thickening-coefficient}; every Jensen
+lower bound must cite \texttt{SCALAR\_WEIGHTED\_Z6\_MEAN}; and every statement
+that the \(Z_6\) reserve fixes scalar opportunities must cite
+\texttt{SCALAR\_CHANNEL\_EXHAUSTION} and
+\texttt{NO\_SEPARATE\_SCALAR\_CARRIER}.
+
 \begin{definition}[Finite source-bridge readouts]\label{def:finite-source-bridge-readouts}
 For cosmology runs that attempt a first-principles primordial bridge, the carrier must also expose
 quotient-visible maps
@@ -274,6 +1502,7 @@ quotient-visible maps
 \begin{gathered}
 \mathsf{StressRead}_r,\quad
 \mathsf{ScalarSourceMap}_r,\quad
+\mathsf{CoherentMatterScalarRead}_r,\quad
 \mathsf{ClockRead}_r,\quad
 \mathsf{RepairTangent}_r,\\
 \mathsf{VolumeJacobianRead}_r,\quad
@@ -303,7 +1532,11 @@ quotient-visible maps
 \mathsf{SpatialModeRead}_r,\quad
 \mathsf{AngularProjectorRead}_r,\\
 \mathsf{FreezeoutMapRead}_r,\quad
-\mathsf{FreezeoutSurfaceRead}_r .
+\mathsf{FreezeoutSurfaceRead}_r,\quad
+\mathsf{ReleaseSurfaceRead}_r,\quad
+\mathsf{HomogeneousProjectorRead}_r,\\
+\mathsf{AnomalyLoadRead}_r,\quad
+\mathsf{LoadNoDataLedgerRead}_r .
 \end{gathered}
 \]
 They are defined on the same settled-form carrier used for the geometric record packet and must
@@ -314,21 +1547,105 @@ reconstruct, for every active sector,
 T_I^{ab},\quad Q_I^a,\quad u_I^a,\quad
 \rho_I,\quad p_I,\quad \pi_I^{ab}.
 \]
+Under Scalar Edge-Center Exhaustion,
+\[
+\mathsf{CoherentMatterScalarRead}_r(U,t;h)
+=S_{\mathrm{coh}}^{\mathrm{can}}(U,t;h)
+\]
+is an edge-center scalar readout of OPH-coherent material support.  It is a
+material scalar receipt, not a rest-mass, heat, or raw energy counter.
+For anomaly abundance selection, the added release maps supply the release
+hypersurface, tetrad normal and physical cell volumes, FLRW zero-mode
+projector, finite anomaly load observable \(\mathsf L_{A,r}\), and
+no-data-use manifest used by
+\texttt{ANOMALY\_ABUNDANCE\_SOURCE\_RECEIPT}.
 The source-bridge maps are instrumentation for the screen-to-radial theorem.  They do not turn a
 screen covariance into a primordial spectrum unless the source-stress, single-clock, repair-gap,
 freeze-out, geometric-screen-scalar, scalar-precision, source-release-energy, refinement-tilt,
 radial-prior, null-space, finite-window, and forward-residual receipts also pass.
 \end{definition}
 
-\begin{target}[Geometry-readout quotient factorization]\label{claim:geometry-readout-factorization}
-The geometry-facing readouts in Definition~\ref{def:finite-source-bridge-readouts} must factor
-through the same quotient normal form as the source readouts.  In particular, a finite carrier
-patch, graph vertex, implementation point, or worker-local shard is not one canonical OPH screen cell
-unless a separate measure-realization theorem proves that identification.  A promotable evidence
-bundle must expose a geometry manifest, metric-form hashes, orientation and topology, boundary
-conditions, lineage maps, lapse and shift, source embedding, operator assembly, scale certificate,
-and refinement maps.
-\end{target}
+\begin{theorem}[Carrier invariance of the anomaly load readout]
+\label{thm:carrier-invariance-anomaly-load}
+If two carrier presentations induce the same quotient state in
+\(Q^{\rm rel}_{A,r}\), the same parent stress readout, the same release
+hypersurface, and the same homogeneous projector, then they emit the same
+\(\mathsf L_{A,r}\).
+\end{theorem}
+
+\begin{proof}
+Every term in
+\[
+\mathsf L_{A,r}
+=
+\Pi^{(0)}_r
+\sum_cV^{\rm phys}_{c,r}T^{ab}_{A,r}n_an_b
+\]
+is quotient-visible by hypothesis.  Hidden carrier coordinates, port labels,
+repair schedule identifiers, and worker metadata are quotiented out by the
+physical quotient.  Therefore the load readout is invariant.
+\end{proof}
+
+\begin{definition}[Einstein-branch geometry readout]\label{def:einstein-branch-geometry-readout}
+An Einstein-branch geometry readout is a cofinal family of maps
+\[
+\mathsf{Geom}_r:Q_{r,\mathrm{nf}}\to \mathsf{GeoData}_r,
+\qquad
+Q_{r,\mathrm{nf}}=n_r(Q_r),
+\]
+where the emitted data include
+\[
+\begin{gathered}
+\mathsf{Chart}_{S,r},\quad
+\mathcal A^{\mathrm{geo}}_{r}(C),\quad
+\omega^{\mathrm{geo},C}_{r},\quad
+\lambda_{C,r},\quad B_{C,r},\quad L_{C,r},\\
+\mathsf{AreaRead}_r,\quad
+\mathsf{StressRead}_r,\quad
+\mathsf{DiamondRead}_r,\quad
+\mathsf{TetradRead}_r,\quad
+\mathsf{ScaleRead}_r,\quad
+c^{\mathrm{geo}}_{sr}.
+\end{gathered}
+\]
+It must be insensitive to hidden carrier coordinates, gauge representatives,
+port relabelings, worker/shard labels, and accepted repair schedules. It must
+also be refinement-compatible:
+\[
+c^{\mathrm{geo}}_{sr}\circ \mathsf{Geom}_s
+=
+\mathsf{Geom}_r\circ c^{\mathrm{nf}}_{sr}
++O(\epsilon^{\mathrm{geo}}_{sr}),
+\qquad
+\epsilon^{\mathrm{geo}}_{sr}\to0.
+\]
+\end{definition}
+
+\begin{theorem}[Geometry-readout quotient factorization]\label{claim:geometry-readout-factorization}
+If the geometry-facing readouts of
+Definition~\ref{def:finite-source-bridge-readouts} are packaged as an
+Einstein-branch geometry readout \(\mathsf{Geom}_r\) that factors through
+\(Q_{r,\mathrm{nf}}\), then every geometry-facing observable extracted from
+\(\mathsf{Geom}_r\) is independent of hidden carrier coordinates, gauge
+representatives, port relabelings, worker/shard labels, accepted repair path,
+and repair schedule.
+\end{theorem}
+
+\begin{proof}
+By construction, every extracted geometry-facing observable is a function of
+\(\mathsf{Geom}_r(q_{\mathrm{nf}})\) for a repaired quotient normal form
+\(q_{\mathrm{nf}}\in Q_{r,\mathrm{nf}}\). Any hidden carrier coordinate, gauge
+representative, port label, worker/shard label, accepted repair path, or repair
+schedule that presents the same quotient normal form therefore has the same
+geometry readout. The conclusion is exactly quotient factorization.
+\end{proof}
+
+In particular, a finite carrier patch, graph vertex, implementation point, or
+worker-local shard is not one canonical OPH screen cell unless a separate
+measure-realization theorem proves that identification. A promotable evidence
+bundle must expose a geometry manifest, metric-form hashes, orientation and
+topology, boundary conditions, lineage maps, lapse and shift, source embedding,
+operator assembly, scale certificate, and refinement maps.
 
 A spherical screen is then a coarse chart over a federation of such patches. It is what a
 particular observer-facing support cut looks like after quotienting hidden implementation details
@@ -915,7 +2232,7 @@ B.\ M\"uller, A.\ Osika, M.\ Poneder, K.\ Xue, P.\ Nguyen, and M.\ A.\ Visser,
 \emph{Recovering Relativity and the Standard Model from Observer Overlap Consistency}.
 
 \bibitem{ophsynthesis}
-B.\ M\"uller, A.\ Osika, M.\ Poneder, K.\ Xue, B.\ Cassie, P.\ Nguyen, M.\ A.\ Visser, K.\ A.\ Anirudha, and J.\ Hill,
+B.\ M\"uller, A.\ Osika, M.\ Poneder, K.\ Xue, B.\ Cassie, P.\ Nguyen, M.\ A.\ Visser, K.\ A.\ Anirudha, D.\ Matscheko, and J.\ Hill,
 \emph{Observers Are All You Need}.
 
 \bibitem{ophparticles}

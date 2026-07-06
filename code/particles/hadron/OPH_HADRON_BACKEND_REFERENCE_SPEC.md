@@ -1,18 +1,18 @@
 # OPH Hadron Reference Backend and Export Contract v1
 
 This document is a concrete reference backend specification for the current OPH
-stable-channel hadron lane. It is designed to remove the remaining operational
-underspecification called out in the RHMC/HMC handoff dossier and to make one
-thing implementable right now:
+stable-channel hadron lane. It removes the remaining operational
+underspecification called out in the RHMC/HMC handoff dossier and fixes the
+implementable target:
 
 - a real backend/export path with a supported emission path
   `backend_correlator_dump.production.json`
 - on the frozen seeded `2+1`, QED-off geometry
 - for the first promotable stable channels `pi_iso` and `N_iso`
 
-It does **not** claim that the papers uniquely force this backend choice.
-Rather, it fixes one supported, explicit, production-capable reference path so the
-engine can be coded without hidden conventions.
+The papers do not uniquely force this backend choice. The contract fixes one
+supported, explicit, production-capable reference path so the engine can be
+coded without hidden conventions.
 
 ## 1. Branch and scope
 
@@ -29,7 +29,7 @@ engine can be coded without hidden conventions.
 This contract is **only** for the stable-channel branch. `rho` remains outside
 scope and stays a separate finite-volume scattering problem.
 
-The Ward-projected Thomson endpoint now has a constructive companion contract
+The Ward-projected Thomson endpoint has a constructive companion contract
 instead of an obstruction-only handoff:
 
 - schema: `ward_projected_spectral_measure.schema.json`
@@ -161,7 +161,7 @@ The backend must record these exact values in
 
 Use deterministic local point sources only.
 
-- source coordinates: exactly the `src0` / `src1` coordinates already fixed by
+- source coordinates: exactly the `src0` / `src1` coordinates fixed by
   the receipt/payload contract
 - gauge fixing: none
 - source smearing: none
@@ -293,5 +293,5 @@ existing requirement for:
 - published continuum / volume / chiral systematics
 
 So this profile is the supported coding surface that upgrades the hadron engine
-from “a JSON skeleton exists” to “an external RHMC/HMC code now has an exact,
+from “a JSON skeleton exists” to “an external RHMC/HMC code has an exact,
 fillable production export contract.”

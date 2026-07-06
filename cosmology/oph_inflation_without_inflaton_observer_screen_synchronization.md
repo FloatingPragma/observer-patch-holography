@@ -218,7 +218,7 @@ and the refinement defects sum to $`\epsilon_{\rm ref}`$, then
 \le
 2\|O\|_\infty(\epsilon_{\rm samp}+\epsilon_{\rm ref}).
 ```
-Continuum-facing observables require a realization map and correlation Cauchy bound, not just a finite histogram.
+Continuum-facing observables require a realization map and correlation Cauchy bound in addition to a finite histogram.
 
 #### Vacuum promotion gate.
 
@@ -555,6 +555,8 @@ The branch claim is:
 \end{gathered}}
 ```
 This claim is not part of the recovered SM/GR core. It becomes predictive only when the source objects are fixed before observational comparison.
+
+The anomaly abundance selector is owned by `cosmology/oph_dark_matter_paper.tex`. The finite-source branch may use a source-only $`\bar\rho_A(a)`$ only when `ANOMALY_ABUNDANCE_SOURCE_RECEIPT` passes. Otherwise the dark continuation is either `OFF` or `CONDITIONAL_SOURCE_STATE`.
 
 # Paper Targets
 

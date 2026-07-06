@@ -234,8 +234,9 @@ The chain is clean once the pieces are visible. Recovery structure from Chapter
 7 makes the time generator local near patch boundaries. A key theorem then
 identifies that local flow with a standard geometric motion on the sphere and
 fixes its normalization. Geometric time flow gives Lorentz kinematics on the
-screen, and entanglement equilibrium together with the local energy bridge
-yields Einstein's equation.
+screen. With the fixed-cap variation class, local energy bridge, small-ball
+area identity, and scalar-to-tensor upgrade added, entanglement equilibrium
+yields Einstein's equation on the stated branch.
 
 The time ingredient feeds into gravity through those compatibility conditions.
 
@@ -260,6 +261,12 @@ $$R_{\mu\nu} - \frac{1}{2}R g_{\mu\nu} = 8\pi G T_{\mu\nu}$$
 This displayed version omits the cosmological-constant term. In OPH, the local
 Einstein branch leaves that metric-proportional term open; the global
 screen-capacity branch closes it later.
+
+OPH uses Jacobson's route only after the consensus layer has done its smaller
+job. Finite repair gives quotient normal forms. The gravity claim then needs
+the geometric readout of caps and diamonds, the BW modular branch, the
+null-stress bridge, fixed-cap stationarity, the small-ball area identity, and
+the tensor upgrade across local observer directions.
 
 Jacobson inverted the logic of physics. Usually we think of gravity as fundamental, implying thermodynamic properties for horizons. Jacobson showed the reverse: **if you assume thermodynamics is fundamental, gravity is derived.**
 

@@ -218,7 +218,7 @@ and the refinement defects sum to $`\epsilon_{\rm ref}`$, then
 \le
 2\|O\|_\infty(\epsilon_{\rm samp}+\epsilon_{\rm ref}).
 ```
-Continuum-facing observables require a realization map and correlation Cauchy bound, not just a finite histogram.
+Continuum-facing observables require a realization map and correlation Cauchy bound in addition to a finite histogram.
 
 #### Vacuum promotion gate.
 

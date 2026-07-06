@@ -3,7 +3,7 @@
 URL: https://github.com/FloatingPragma/observer-patch-holography/issues/32
 State checked: OPEN on 2026-05-04
 Title: [OPH Task] papers.compact.e.26-derive-rg-matching-and-threshold-structure-from-oph: 26. Derive RG matching and threshold structure from OPH
-Labels: surface: compact, dag:ready-now
+Labels: surface: compact, ready DAG marker
 
 ## Scope
 
@@ -13,10 +13,10 @@ placement, decoupling, and scheme conversion.
 
 ## Current Boundary
 
-The live derivation path now avoids hidden Thomson/CODATA endpoint inputs, and
+The live derivation path avoids hidden Thomson/CODATA endpoint inputs, and
 measured alpha values are compare-only metadata when supplied explicitly.
 
-This issue still owns the OPH-internal RG matching, threshold placement, and
+This issue owns the OPH-internal RG matching, threshold placement, and
 scheme-conversion theorem beneath the electroweak source branch. It stays open
 until the running/matching package is derived rather than imported as background
 convention.
@@ -29,4 +29,3 @@ convention.
   rather than hidden in packaging or rhetoric.
 - Companion surfaces stay aligned with the updated status of the primary
   surface.
-

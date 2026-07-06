@@ -70,11 +70,13 @@ La plupart des théories commencent en supposant l'espace-temps, les champs
 quantiques et une liste de constantes. L'OPH commence un cran plus tôt, avec
 des patches d'observateurs finis algébriques-quantiques dont les descriptions
 doivent s'accorder sur leurs recouvrements. Dans la partie relativité de la
-théorie, cette exigence d'accord produit l'espace-temps ordinaire en 3+1
-dimensions et une équation de gravité de type Einstein. Les cellules finies
-servent de régulateur : elles gardent la construction concrète avant la limite
-lisse à grande échelle. Le papier technique donne les hypothèses de flot
-modulaire et d'échelle nécessaires pour cette étape.
+théorie, le consensus fini fournit des formes normales quotient. La lecture
+d'espace-temps ordinaire en 3+1 dimensions et l'équation de gravité de type
+Einstein exigent la branche géométrique séparée : lecture géométrique, flot
+modulaire contrôlé, pont de contrainte nulle, stationnarité entropique à cap
+fixe, variation d'aire de petite boule, passage scalaire-tenseur et fermeture
+de capacité. Les cellules finies servent de régulateur : elles gardent la
+construction concrète avant la limite lisse à grande échelle.
 Les trois dimensions spatiales viennent de la même branche d'écran : une fois
 $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ obtenu, la carte spatiale de
 l'observateur est $H^3\simeq\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$, de dimension
@@ -295,11 +297,11 @@ et [`code/particles/EXACT_NONHADRON_MASSES.md`](code/particles/EXACT_NONHADRON_M
 Ordre recommandé pour un lecteur technique. Les résumés les plus longs
 correspondent aux textes qui portent la surface théorématique centrale.
 
-- **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique compact de la branche OPH reconstruite. Il donne la route par cohérence de recouvrement vers la structure de Lorentz, une gravité de type Einstein, la reconstruction de jauge compacte, le quotient du Modèle Standard et le paquet matière sélectionnés, Maxwell sur la branche ordinaire du photon et la route conditionnelle vers le gap de Yang-Mills sous ses hypothèses de continuum, positivité par réflexion, transfert/intertwiner et non-trivialité.
+- **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique compact de la branche OPH reconstruite. Il donne la route par cohérence de recouvrement vers la structure de Lorentz, la branche de gravité de type Einstein avec ses dépendances de lecture géométrique et de stationnarité entropique, la reconstruction de jauge compacte, le quotient du Modèle Standard et le paquet matière sélectionnés, Maxwell sur la branche ordinaire du photon et la route conditionnelle vers le gap de Yang-Mills sous ses hypothèses de continuum, positivité par réflexion, transfert/intertwiner et non-trivialité.
 - **Papier 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)** : synthèse large et meilleure porte d'entrée. Il explique les patches d'observateurs finis, la cohérence de recouvrement, les enregistrements, les mouvements de réparation, l'univers effectif reconstruit, l'histoire d'échelle et les frontières publiques des affirmations sans remplacer le registre théorématique du papier compact.
 - **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivation et audit du secteur particules. Il porte la reconstruction pilotée par \(P_\star\), les porteurs structurels, les branches électrofaible/Higgs/top, quarks, leptons chargés, neutrinos et hadrons, les vérifications quantitatives et la couture conditionnelle de lignes d'enregistrement.
-- **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : mécanique du consensus fini entre patches. Il montre comment les observateurs comparent les enregistrements de recouvrement, appliquent des réparations, traitent les défauts et convergent vers des formes normales quotient quand les hypothèses de cutoff fixe sont satisfaites.
-- **Papier 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** : surface de porteurs finis et d'enregistrements observateurs. Il donne l'architecture de porteurs échosaédriques multiports, le théorème du tamis d'écran à douze ports, le cadrage \(A_5\)-icosaédrique et de type \(E_8\), les règles de preuve matérielle publique, les enregistrements, les mouvements de récupération, la restauration de checkpoint et la synchronisation des observateurs.
+- **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : mécanique du consensus fini entre patches. Il montre comment les observateurs comparent les enregistrements de recouvrement, appliquent des réparations, traitent les défauts et convergent vers des formes normales quotient quand les hypothèses de cutoff fixe sont satisfaites. Le résultat de consensus s'arrête aux formes normales quotient ; la géométrie lorentzienne et einsteinienne entre par la branche géométrique séparée du papier compact. L'opérateur de réparation est formulé sur le quotient physique, les lectures réparées sont invariantes sous les choix d'implémentation cachés, et un porteur fini en couches témoigne de la reconstruction depuis la frontière.
+- **Papier 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** : surface de porteurs finis et d'enregistrements observateurs. Il donne l'architecture de porteurs échosaédriques multiports, le théorème du tamis d'écran à douze ports, la complétude des emplacements scalaires au centre des arêtes, la réserve \(Z_6\) quotient-edge et les portes du coefficient scalaire à épaisseur finie, le cadrage \(A_5\)-icosaédrique et de type \(E_8\), les règles de preuve matérielle publique, les enregistrements, les mouvements de récupération, la restauration de checkpoint et la synchronisation des observateurs.
 - **Papier 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)** : synthèse de la couche de sens. Il lit la même mécanique OPH comme théorie de la continuation d'observateur, du paradis et de l'enfer comme environnements de continuation, de la résurrection comme continuation préservant les enregistrements, de la justice comme comptabilité tort-réparation et de la boucle où des observateurs reconstruisent puis construisent la machinerie de continuation.
 
 ## Articles et notes supplémentaires
@@ -315,11 +317,10 @@ plus brièvement.
 - **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)** : théorie des cordes comme langage effectif de bord OPH et crible de vides. Le témoin Bouchard-Donagi est un candidat de cordes conventionnel, pas un raccourci autour des portes de sélection OPH natives.
 - **[Photonic Fixed-Point Consensus for SHA-256d Proof of Work](extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf)** : test matériel d'enrichissement photonique de candidats SHA-256d de style OPH, jugé par le vérificateur numérique exact.
 - **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)** : cognition et qualia comme consensus récurrent de patches sur substrats neuronaux ou artificiels auto-relecteurs.
-- **[Theoretical Bounds on \(\chi_\nu\) in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)** : bornes conditionnelles de susceptibilité du secteur sombre, valeur de branche uniforme et valeurs d'ingénierie mises à l'échelle par la cohérence.
+- **[Theoretical Bounds on \(\chi_\nu\) in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)** : théorème de canal commun pour la matière cohérente, coefficient de collier à réserve protégée \(\chi_\nu^{\rm can}=e^{-P_\chi/24}\), bande à épaisseur finie et valeurs d'ingénierie, avec la force de dispositif et le stress sombre cosmologique gardés comme portes de reçus séparées.
 - **[Entanglement Geometry Problem in OPH](extra/ENTANGLEMENT_GEOMETRY_PROBLEM_OPH.md)** : note sur la géométrie de l'intrication comme problème de recouvrement d'observateurs et de surfaces d'enregistrement.
 - **[Tests IBM Quantum Cloud](extra/IBM_QUANTUM_CLOUD.md)** : notes de tests matériels en secteur réduit pour des expériences IBM Quantum orientées OPH.
 - **[Common Objections](extra/COMMON_OBJECTIONS.md)** : réponses brèves aux objections conceptuelles et techniques fréquentes.
-- **[Résumé OMEGA](extra/omega_summary.md)** : résumé compact des implications OMEGA/OPH côté applications.
 - **[Hacking the Simulation: Anti-Gravity Exploit](extra/hacking-the-simulation-anti-gravity-exploit.pdf)** : note spéculative d'ingénierie adjacente à l'OPH ; ce n'est pas un papier central à statut théorématique.
 
 ## Articles de cosmologie
@@ -329,8 +330,8 @@ affirmations sont conditionnelles aux frontières OPH natives de source,
 transfert et vraisemblance ; la machinerie FLRW peut servir de comparaison,
 mais elle ne promeut pas à elle seule un résultat cosmologique natif OPH.
 
-- **[Observer-Patch Holography and the Dark Matter Phenomenon](cosmology/oph_dark_matter_paper.pdf)** : papier de cosmologie du paquet de publication. Il traite le stress sombre/anomal comme comptabilité de réparation imparfaite des patches d'observateurs, donne le comportement galactique de type MOND et énonce les contrats amas/cosmologie nécessaires avant toute promotion à plus grande échelle.
-- **[OPH Cosmology as a Finite-Source Prediction Program](cosmology/oph_cosmology_finite_source_cmb_program.pdf)** : programme orienté CMB pour entrées source seules, calibration d'échelle, transfert de Boltzmann, contrôles de simulateur, frontières physiques CMB et étiquettes d'affirmation.
+- **[Observer-Patch Holography and the Dark Matter Phenomenon](cosmology/oph_dark_matter_paper.pdf)** : papier de cosmologie du paquet de publication. Il traite le stress sombre/anomal comme comptabilité de réparation imparfaite des patches d'observateurs, importe la pile théorématique quotient-edge scalaire et \(Z_6\) à épaisseur finie pour le coefficient local, donne le comportement galactique de type MOND, définit le sélecteur d'abondance anomal source seule et énonce les contrats amas/cosmologie et les contrats de promotion du simulateur pour la promotion à plus grande échelle.
+- **[OPH Cosmology as a Finite-Source Prediction Program](cosmology/oph_cosmology_finite_source_cmb_program.pdf)** : programme orienté CMB pour entrées source seules, calibration d'échelle, transfert de Boltzmann, contrôles de simulateur, frontières physiques CMB et étiquettes d'affirmation. Il traite l'abondance sombre source seule comme un reçu source distinct de la promotion par transfert CMB et vraisemblance.
 - **[Inflation Without an Inflaton](cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf)** : branche sans inflaton fondée sur la synchronisation écran-observateur, la cohérence d'horizon, les conditions de platitude, le spectre géométrique d'écran, l'amplitude de libération d'écran, la levée radiale et les données de source chaude.
 - **[OPH Cosmological Vacuum and Structure Formation](cosmology/oph_cosmological_vacuum_and_structure_formation.pdf)** : frontière de vide native OPH, ensembles de fluctuations, formation de proto-objets et de lignes de monde, et contrôles de graines de structure.
 - **[OPH Cosmology Data and Likelihood Contracts](cosmology/oph_cosmology_data_likelihood_contracts.pdf)** : artefacts source gelés, reçus de non-utilisation des données, réducteurs agrégés, comparaisons de transfert de Boltzmann et protocoles de vraisemblance officiels.
@@ -395,9 +396,10 @@ Les continuations de spectre d'écran et de CMB sont provisoires sans l'échelle
 géométrique de la branche écran, sa dynamique source, son horloge, son
 comportement de raffinement et sa lecture observationnelle depuis des
 enregistrements natifs OPH. Les vues du secteur sombre, des anomalies, du vide
-et de l'écume quantique sont diagnostiques ; les revendications de
-vraisemblance physique exigent un ensemble dérivé du quotient, une
-reconstruction stable sous régulateur et une cible de validation gelée avant la
+et de l'écume quantique sont diagnostiques sauf lorsque les reçus source
+pertinents passent ; les revendications de vraisemblance physique exigent un
+ensemble dérivé du quotient, une reconstruction stable sous régulateur, une
+abondance source seule le cas échéant et une cible de validation gelée avant la
 lecture des données de vraisemblance.
 
 ## Applications et matériel OMEGA

@@ -13,9 +13,9 @@ Default decision: `keep_candidate`.
 
 `keep_candidate_with_constructive_next_artifacts`.
 
-All three first-wave packets failed to close the full theorem gates, but the
-campaign now treats obstruction-only output as unacceptable.  The useful result
-is the constructive artifact set:
+All three first-wave packets failed to close the full theorem gates. The
+campaign treats obstruction-only output as unacceptable. The useful result is
+the constructive artifact set:
 
 - `code/P_derivation/runtime/thomson_endpoint_contract_current.json`
 - `code/particles/hadron/ward_projected_spectral_measure.schema.json`

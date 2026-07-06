@@ -253,7 +253,7 @@ and the refinement defects sum to $`\epsilon_{\rm ref}`$, then
 \le
 2\|O\|_\infty(\epsilon_{\rm samp}+\epsilon_{\rm ref}).
 ```
-Continuum-facing observables require a realization map and correlation Cauchy bound, not just a finite histogram.
+Continuum-facing observables require a realization map and correlation Cauchy bound in addition to a finite histogram.
 
 #### Vacuum promotion gate.
 
@@ -1093,7 +1093,7 @@ The compatibility table fixes how the inflation-free draft is read against the c
 | Inflation-free replacement | Phase III conditional branch. The compact paper’s recovered core covers the SM/GR package; inflation replacement, physical CMB likelihood, the $`H_0/S_8`$ branch, and dark-sector cosmology sit outside that core. |
 | Finite normal form | Use quotient-level fixed-cutoff normal forms on the declared branch, unique only modulo boundary redundancy, implementation hiding, inert ancillary stabilization, and any required same-boundary unique-extension condition. Do not read the old draft as selecting a unique microscopic representative. |
 | Screen spectrum and $`n_s=1-P/48`$ | Screen-level theorem only after geometric $`q_r`$, normalized $`K_r`$, source release energy, refinement tilt, and angular-spectrum receipts pass. The special $`P/48`$ tilt is theorem-grade only after the edge-center reserve, half-collar projection, and reserve-to-RG receipts pass. Physical $`A_s`$, $`n_s`$, running, isocurvature, phase coherence, and TT/TE/EE spectra require the separate source-stress, single-clock, radial-prior, null-space, forward-residual, transfer, and likelihood receipts. |
-| Dark/anomaly slot | Imported from `cosmology/oph_dark_matter_paper.tex`. For a source-only primordial certification run, the dark continuation is `OFF` unless a supplied abundance is explicitly typed `CONDITIONAL_SOURCE_STATE`; transported $`Q_A`$ is not by itself an OPH derivation of the homogeneous anomaly abundance. |
+| Dark/anomaly slot | Imported from `cosmology/oph_dark_matter_paper.tex`. For a source-only primordial certification run, the dark continuation is `OFF` unless the dark paper's source-only anomaly abundance selector passes. A supplied abundance is explicitly typed `CONDITIONAL_SOURCE_STATE`. Transported $`Q_A`$ without the selector has label `PHYSICAL_PARENT_WITH_CONDITIONAL_ABUNDANCE`. |
 | Scalar anomaly rows | Rows for $`\bar\rho_A`$, $`\bar\rho_{A,\mathrm{eq}}`$, and $`B_A`$ are diagnostics unless the finite covariant parent also emits $`w_A`$, $`c_{s,A}^2`$, $`\sigma_A`$, $`Q_A^\mu`$, exchange-current closure, recipient stress for nonzero exchange, gauge-independent variables, CDM-limit recovery, and refinement convergence. A transition-matrix number is $`\gamma_{\mathrm{repair\ step}}`$ until promoted to $`\Gamma_{\rm rec}`$ by the physical clock, active-fiber, and common-parent response receipts. |
 | Boltzmann and likelihood comparison | Physical promotion requires immutable source, solver, and likelihood hashes, official likelihood execution, and global CDM-limit reductions. Shard-local `any()` rollups or nonlinear averages before global pooling do not satisfy the contract. |
 | Vacuum language | Finite reference states and free-field/lattice baselines remain reference ensembles. OPH-native vacuum promotion requires the quotient-ensemble selector plus source Euclidean slab data and a transfer/reflection-positive reconstruction gate from the compact/screen-microphysics theorem surface. |
@@ -1133,7 +1133,7 @@ The inflation-free draft contains many theorem statements. The table gives them 
 | Imported theorem family | Role in this paper |
 |:---|:---|
 | Finite synchronization normal form | Defines the early observer-facing quotient state whose repair normal form replaces an assumed smooth primordial substrate, with uniqueness read modulo the compact-paper quotient equivalences. |
-| Clocked FLRW curvature holonomy, flat-sector selection, and curvature bounds | Owns the flatness branch: zero clock-slice spatial Levi–Civita holonomy identifies $`\kappa=0`$; exact selection requires a direct theorem, conditional CMH selector, or explicit flat-branch assumption. Curvature damping supplies only $`|K|`$ or $`|\Omega_K|`$ bounds. |
+| Clocked FLRW curvature holonomy, flat-sector selection, and curvature bounds | Owns the flatness branch: zero clock-slice spatial Levi-Civita holonomy identifies $`\kappa=0`$; exact selection requires a direct theorem, conditional CMH selector, or explicit flat-branch assumption. Curvature damping supplies only $`|K|`$ or $`|\Omega_K|`$ bounds. |
 | Diffusive horizon no-go, same-boundary coherence, and low-$`k`$ repair gap | Separates a failed purely local diffusion story from the allowed same-boundary or uniform low-$`k`$ synchronization mechanisms. |
 | Geometric screen scalar, precision operator, MaxEnt screen covariance, Mellin lift, edge-center scalar opportunities, $`\mathbb Z_6`$ reserve, and half-collar sampling | Owns the screen-level near-scale-invariant covariance. The red tilt $`P/48`$ is theorem-grade only after the reserve-to-RG receipts pass; physical primordial promotion waits for the source-only radial bridge receipts. |
 | Finite release collar state, scalar release code, and scalar amplitude theorem | Owns $`A_\zeta`$ as a finite source artifact rather than a fitted amplitude. |
@@ -1264,7 +1264,7 @@ The inflation-free branch replaces inflation’s jobs rather than reproducing an
 
 1.  quotient-level observer-facing normal form for the early screen/collar federation, with the compact-paper quotient equivalences;
 
-2.  zero clock-slice spatial Levi–Civita holonomy to identify the flat branch, plus a direct flatness theorem, conditional CMH selector, or explicit flat-branch assumption to select it;
+2.  zero clock-slice spatial Levi-Civita holonomy to identify the flat branch, plus a direct flatness theorem, conditional CMH selector, or explicit flat-branch assumption to select it;
 
 3.  same-boundary scalar normal form or a low-$`k`$ repair gap for horizon coherence;
 
@@ -1288,7 +1288,7 @@ The inflation-free branch replaces inflation’s jobs rather than reproducing an
 
 <div class="proof">
 
-*Proof.* The proof is a dependency composition. The quotient normal-form projection gives a finite observer-facing early state on the declared branch, not a unique hidden representative. The spatial Levi–Civita holonomy theorem identifies the $`\kappa=0`$ branch; the direct, CMH, or explicit-assumption gate selects it. Curvature damping is not used as a selector. Same-boundary repair or a low-$`k`$ gap gives coherence on the observed CMB band. The screen-spectrum theorem package first gives
+*Proof.* The proof is a dependency composition. The quotient normal-form projection gives a finite observer-facing early state on the declared branch and leaves hidden representatives unselected. The spatial Levi-Civita holonomy theorem identifies the $`\kappa=0`$ branch; the direct, CMH, or explicit-assumption gate selects it. Curvature damping is not used as a selector. Same-boundary repair or a low-$`k`$ gap gives coherence on the observed CMB band. The screen-spectrum theorem package first gives
 ``` math
 C_\ell^q
 =A_q\frac{\Gamma(\ell-\theta/2)}{\Gamma(\ell+2+\theta/2)}.
@@ -1525,7 +1525,7 @@ must fail unless the owning dark-sector paper and its evidence bundle certify al
 
 <div class="remark">
 
-*Remark 57* (Dark continuation modes). For a source-only primordial certification run, the dark-sector paper recommends `dark_continuation = OFF`. A supplied dark abundance may enter only as `dark_continuation = CONDITIONAL_SOURCE_STATE` until the dark-matter theorem surface derives the homogeneous anomaly abundance and finite kinetic stress construction. The physical cosmology branch may set `dark_continuation = PHYSICAL_PARENT` only after the finite covariant parent receipt, physical scale bridge, response/kernel receipts, and CDM-limit recovery all pass for the same frozen generation.
+*Remark 57* (Dark continuation modes). For a source-only primordial certification run, the dark-sector paper recommends `dark_continuation = OFF`. A supplied dark abundance may enter only as `dark_continuation = CONDITIONAL_SOURCE_STATE`. A source-selected abundance may enter as `SOURCE_ONLY_ANOMALY_ABUNDANCE` only when `ANOMALY_ABUNDANCE_SOURCE_RECEIPT` passes. A parent with physical transport and no selector is labelled `PHYSICAL_PARENT_WITH_CONDITIONAL_ABUNDANCE`. The physical cosmology branch may set `dark_continuation = PHYSICAL_PARENT` only after the finite covariant parent receipt, physical scale bridge, response/kernel receipts, and CDM-limit recovery all pass for the same frozen generation.
 
 </div>
 
@@ -1549,6 +1549,8 @@ The physical kernels are not scalar rows in a table. They are imported finite fu
 </div>
 
 *These receipts pass only when $`\bar\rho_A(a)`$, $`B_A(k,a)`$, and $`\Gamma_{\rm rec}(k,a)`$ are emitted as certified physical functions with $`\bar\rho_{A,\mathrm{eq}}(a)`$, $`w_A(a)`$, $`c_{s,A}^2(k,a)`$, $`\sigma_A(k,a)`$, and $`Q_A^\mu`$ from the finite parent, physical scale calibration, gauge consistency, paired perturbation controls, active-fiber/physical-clock response receipts, CDM-limit recovery, and refinement convergence. The cosmology program consumes the emitted functions but does not redefine the dark-sector source law.*
+
+The imported `RHO_A_SOURCE_RECEIPT` is the conjunction of `RHO_A_TRANSPORT_RECEIPT` and `ANOMALY_ABUNDANCE_SOURCE_RECEIPT`. The second receipt is supplied by the source-only anomaly abundance selector in `cosmology/oph_dark_matter_paper.tex`.
 
 *The physical kernel receipt imports these inner receipts from the dark/anomaly paper:*
 
@@ -1641,6 +1643,8 @@ For finite physical source functions, the transfer problem is ordinary cosmology
 7.  *a falsification rule fixed before the likelihood run.*
 
 </div>
+
+Passing `ANOMALY_ABUNDANCE_SOURCE_RECEIPT` promotes the dark abundance inside the source species. It does not promote CMB spectra. The later `PHYSICAL_CMB_PREDICTION_RECEIPT` requires frozen transfer and official likelihood execution.
 
 <div id="def:model-generation" class="definition">
 
@@ -1768,15 +1772,15 @@ The 256k simulator almost-fits are not random noise. They expose stable structur
 
 99
 
-B. Müller, A. Osika, K. Xue, and P. Nguyen, *Recovering Relativity and the Standard Model from Observer Overlap Consistency*, OPH compact paper, release , 2026. <https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf>
+B. Müller, A. Osika, M. Poneder, K. Xue, P. Nguyen, and M. A. Visser, *Recovering Relativity and the Standard Model from Observer Overlap Consistency*, OPH compact paper, release r1514, 2026. <https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf>
 
-B. Müller, A. Osika, M. Poneder, K. Xue, B. Cassie, P. Nguyen, M. A. Visser, K. A. Anirudha, and J. Hill, *Observers Are All You Need*, OPH synthesis paper, release , 2026. <https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.pdf>
+B. Müller, A. Osika, M. Poneder, K. Xue, B. Cassie, P. Nguyen, M. A. Visser, K. A. Anirudha, D. Matscheko, and J. Hill, *Observers Are All You Need*, OPH synthesis paper, release r1514, 2026. <https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.pdf>
 
-B. Müller, K. Xue, K. A. Anirudha, and J. Hill, *Reality as a Consensus Protocol*, OPH consensus paper, release , 2026. <https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/reality_as_consensus_protocol.pdf>
+B. Müller, K. Xue, K. A. Anirudha, and J. Hill, *Reality as a Consensus Protocol*, OPH consensus paper, release r1514, 2026. <https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/reality_as_consensus_protocol.pdf>
 
-B. Müller and K. Xue, *Federated Echosahedral Screen Microphysics: Patch Hardware, Records, and Observer Synchronization in OPH*, OPH microphysics paper, release , 2026. <https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.pdf>
+B. Müller, A. Osika, K. Xue, B. Cassie, and M. A. Visser, *Federated Echosahedral Screen Microphysics: Patch Hardware, Records, and Observer Synchronization in OPH*, OPH microphysics paper, release r1514, 2026. <https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.pdf>
 
-B. Müller, *Observer-Patch Holography and the Dark Matter Phenomenon*, OPH cosmology paper, 2026. <https://github.com/FloatingPragma/observer-patch-holography/blob/main/cosmology/oph_dark_matter_paper.pdf>
+B. Müller and D. Matscheko, *Observer-Patch Holography and the Dark Matter Phenomenon*, OPH cosmology paper, 2026. <https://github.com/FloatingPragma/observer-patch-holography/blob/main/cosmology/oph_dark_matter_paper.pdf>
 
 B. Müller, *Inflation Without an Inflaton: Observer-Screen Synchronization as an OPH Cosmology Branch*, workspace cosmology draft, 2026.
 

@@ -359,7 +359,9 @@ microwave background peaks, structure formation, and precision cosmology all
 constrain the dark sector. OPH treats the settled galaxy law as one limit of a
 transported stress story. The book's value here is narrower: it ties a possible
 infrared anomaly scale to the same de Sitter capacity that belongs to the
-observer-patch architecture.
+observer-patch architecture. The homogeneous dark abundance is a source claim
+only when a finite quotient release law selects the anomaly load before
+Boltzmann transfer and likelihood comparison.
 
 The human chain includes observers and instrument builders as much as
 theorists: Leavitt, Slipher, Hubble, Friedmann, Lemaitre, Zwicky, Rubin,

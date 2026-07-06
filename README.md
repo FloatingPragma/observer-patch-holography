@@ -60,11 +60,13 @@ supplies a distinct empirical discriminator.
 Most theories begin by assuming spacetime, quantum fields, and a list of
 constants. OPH starts one step earlier, with finite quantum-algebraic observer
 patches whose descriptions must agree where their patches overlap. In the
-relativity part of the theory, that agreement requirement produces ordinary
-3+1-dimensional spacetime and an Einstein-like gravity equation. The finite
-cells are the regulator that keeps the construction concrete before the smooth
-large-scale limit is taken. The technical paper gives the modular-flow and
-scaling assumptions needed for this step.
+relativity part of the theory, finite consensus supplies quotient normal
+forms. The ordinary 3+1-dimensional spacetime readout and the Einstein-like
+gravity equation require the separate geometry-readout branch, controlled
+modular flow, the null-stress bridge, admissible fixed-cap entropy
+stationarity, small-ball area variation, tensor upgrade, and capacity closure.
+The finite cells are the regulator that keeps the construction concrete before
+the smooth large-scale limit is taken.
 The three spatial dimensions come from the same screen branch: once
 $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ is recovered, the observer-facing
 spatial chart is $H^3\simeq\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$, which has
@@ -258,14 +260,14 @@ and [`code/particles/EXACT_NONHADRON_MASSES.md`](code/particles/EXACT_NONHADRON_
 
 ## Papers
 
-Ordered by importance for a new technical reader. Longer summaries mark the
+Ordered by importance for a technical reader. Longer summaries mark the
 papers that carry the core theorem surface.
 
-- **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for the recovered OPH branch. It states the observer-overlap route to Lorentz structure, Einstein-like gravity, compact-gauge reconstruction, the selected Standard Model quotient and matter package, Maxwell on the ordinary photon branch, and the conditional Yang-Mills mass-gap route under its continuum, reflection-positivity, transfer/intertwiner, and nontriviality assumptions.
+- **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for the recovered OPH branch. It states the observer-overlap route to Lorentz structure, the Einstein-like gravity branch with its geometry-readout and entropy-stationarity dependencies, compact-gauge reconstruction, the selected Standard Model quotient and matter package, Maxwell on the ordinary photon branch, and the conditional Yang-Mills mass-gap route under its continuum, reflection-positivity, transfer/intertwiner, and nontriviality assumptions.
 - **Paper 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)**: broad synthesis and best first read for the full program. It explains finite observer patches, overlap consistency, records, repair moves, the recovered effective universe, the scale story, and the public claim boundaries without replacing the compact paper's theorem ledger.
 - **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle-sector derivation and audit surface. It carries the \(P_\star\)-driven particle reconstruction, structural carriers, electroweak/Higgs/top, quark, charged-lepton, neutrino, and hadron lanes, quantitative benchmark checks, and conditional record-worldline stitching.
-- **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)**: finite patch-net consensus mechanics. It proves how local observers compare overlap records, apply repair moves, handle defects, and converge to quotient normal forms when the fixed-cutoff assumptions hold.
-- **Paper 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)**: finite carrier and observer-record surface. It gives the echosahedral multi-port patch-carrier architecture, twelve-port screen-sieve theorem, $A_5$-icosahedral and $E_8$-type symmetry framing, public hardware-evidence rules, records, recovery moves, checkpoint restoration, and observer synchronization.
+- **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)**: finite patch-net consensus mechanics. It proves how local observers compare overlap records, apply repair moves, handle defects, and converge to quotient normal forms when the fixed-cutoff assumptions hold. The consensus result stops at quotient normal forms; Lorentzian and Einstein geometry enter through the separate geometric branch in the compact paper. The repair operator is stated on the physical quotient, repaired readouts are invariant under hidden implementation choices, and a finite layered carrier witnesses boundary reconstruction.
+- **Paper 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)**: finite carrier and observer-record surface. It gives the echosahedral multi-port patch-carrier architecture, twelve-port screen-sieve theorem, edge-center scalar-slot completeness, the quotient-edge \(Z_6\) reserve and finite-thickness scalar coefficient gates, $A_5$-icosahedral and $E_8$-type symmetry framing, public hardware-evidence rules, records, recovery moves, checkpoint restoration, and observer synchronization.
 - **Paper 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**: meaning-layer synthesis. It reads the same OPH machinery as a theory of observer continuation, paradise and hell as continuation environments, resurrection as record-preserving continuation, justice as harm-and-repair bookkeeping, and the strange loop in which observers reverse engineer and build continuation machinery.
 
 ## Supplemental Papers And Notes
@@ -280,11 +282,10 @@ lower-level notes are linked with shorter summaries.
 - **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)**: string theory as an effective OPH edge language and vacuum-selection sieve. The Bouchard-Donagi witness is a conventional-string candidate, not a shortcut around OPH-native selection gates.
 - **[Photonic Fixed-Point Consensus for SHA-256d Proof of Work](extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf)**: hardware-facing test of OPH-style photonic candidate enrichment for SHA-256d, judged by the exact digital verifier.
 - **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)**: cognition and qualia as recurrent patch consensus across neural or artificial self-reading substrates.
-- **[Theoretical Bounds on \(\chi_\nu\) in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)**: conditional dark-sector susceptibility bounds, uniform-branch value, and coherence-scaled engineering chart values.
+- **[Theoretical Bounds on \(\chi_\nu\) in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)**: coherent-matter same-channel theorem, protected-reserve collar coefficient \(\chi_\nu^{\rm can}=e^{-P_\chi/24}\), finite-thickness band, and engineering chart values with device force and cosmological dark stress kept as separate receipt gates.
 - **[Entanglement Geometry Problem in OPH](extra/ENTANGLEMENT_GEOMETRY_PROBLEM_OPH.md)**: note on entanglement geometry as an observer-overlap and record-surface problem.
 - **[IBM Quantum Cloud Tests](extra/IBM_QUANTUM_CLOUD.md)**: reduced-sector hardware-test notes for OPH-facing IBM Quantum experiments.
 - **[Common Objections](extra/COMMON_OBJECTIONS.md)**: short responses to frequent conceptual and technical objections.
-- **[OMEGA Summary](extra/omega_summary.md)**: compact application-facing summary of OMEGA/OPH implications.
 - **[Hacking the Simulation: Anti-Gravity Exploit](extra/hacking-the-simulation-anti-gravity-exploit.pdf)**: speculative OPH-adjacent engineering note; not a theorem-status core paper.
 
 ## Cosmology Papers
@@ -294,8 +295,8 @@ are conditional on OPH-native source, transfer, and likelihood boundaries; FLRW
 machinery can serve as comparison plumbing but does not by itself promote an
 OPH-native cosmology result.
 
-- **[Observer-Patch Holography and the Dark Matter Phenomenon](cosmology/oph_dark_matter_paper.pdf)**: release-bundle cosmology paper. It treats dark/anomaly stress as imperfect observer-patch repair bookkeeping, gives the galaxy-limit/MOND-like behavior, and states the cluster and cosmology contracts needed before larger-scale promotion.
-- **[OPH Cosmology as a Finite-Source Prediction Program](cosmology/oph_cosmology_finite_source_cmb_program.pdf)**: CMB-facing program for source-only inputs, scale calibration, Boltzmann transfer, simulator checks, physical CMB boundaries, and claim labels.
+- **[Observer-Patch Holography and the Dark Matter Phenomenon](cosmology/oph_dark_matter_paper.pdf)**: release-bundle cosmology paper. It treats dark/anomaly stress as imperfect observer-patch repair bookkeeping, imports the quotient-edge scalar and \(Z_6\) finite-thickness theorem stack for the local coefficient, gives the galaxy-limit/MOND-like behavior, defines the source-only anomaly abundance selector, and states the cluster, cosmology, and simulator promotion contracts for larger-scale promotion.
+- **[OPH Cosmology as a Finite-Source Prediction Program](cosmology/oph_cosmology_finite_source_cmb_program.pdf)**: CMB-facing program for source-only inputs, scale calibration, Boltzmann transfer, simulator checks, physical CMB boundaries, and claim labels. It treats source-only dark abundance as a separate source receipt from CMB transfer and likelihood promotion.
 - **[Inflation Without an Inflaton](cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf)**: inflation-free branch using observer-screen synchronization, horizon coherence, flatness conditions, geometric screen spectrum, screen release amplitude, radial lift, and hot source data.
 - **[OPH Cosmological Vacuum and Structure Formation](cosmology/oph_cosmological_vacuum_and_structure_formation.pdf)**: OPH-native vacuum boundary, fluctuation ensembles, proto-object/worldline formation, and structure-seed checks.
 - **[OPH Cosmology Data and Likelihood Contracts](cosmology/oph_cosmology_data_likelihood_contracts.pdf)**: frozen source artifacts, no-data-use receipts, pooled reducers, Boltzmann-transfer comparisons, and official likelihood protocols.
@@ -351,9 +352,10 @@ exclusion, particle inventory, and the string-vacuum sieve.
 Screen-spectrum and CMB continuations are provisional without the screen
 branch's geometric scale, source dynamics, clock, refinement behavior, and
 observational readout from OPH-native records. Dark-sector, anomaly, vacuum,
-and quantum-foam views are diagnostic; physical likelihood claims require a
-quotient-derived ensemble, regulator-stable reconstruction, and frozen
-validation target before likelihood data are read.
+and quantum-foam views are diagnostic unless the relevant source receipts pass;
+physical likelihood claims require a quotient-derived ensemble,
+regulator-stable reconstruction, source-only abundance where applicable, and a
+frozen validation target before likelihood data are read.
 
 ## Applications And OMEGA Hardware
 

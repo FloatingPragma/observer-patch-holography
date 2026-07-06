@@ -169,9 +169,10 @@ separate source-stress, single-clock, radial-prior, null-space, forward-residual
 likelihood receipts.\\
 Dark/anomaly slot &
 Imported from \pathref{cosmology/oph_dark_matter_paper.tex}. For a source-only primordial certification run, the dark
-continuation is \texttt{OFF} unless a supplied abundance is explicitly typed
-\texttt{CONDITIONAL\_SOURCE\_STATE}; transported \(Q_A\) is not by itself an OPH derivation of the
-homogeneous anomaly abundance.\\
+continuation is \texttt{OFF} unless the dark paper's source-only anomaly abundance selector
+passes. A supplied abundance is explicitly typed
+\texttt{CONDITIONAL\_SOURCE\_STATE}. Transported \(Q_A\) without the selector has label
+\texttt{PHYSICAL\_PARENT\_WITH\_CONDITIONAL\_ABUNDANCE}.\\
 Scalar anomaly rows &
 Rows for \(\rhoA\), \(\rhoAeq\), and \(\Bkernel\) are diagnostics unless the finite covariant
 parent also emits \(w_A\), \(\csA\), \(\sigmaA\), \(\QA\), exchange-current closure, recipient
@@ -677,6 +678,35 @@ from that paper. Cosmology needs the
 imported dark sector to expose a transported stress component with background density,
 perturbations, exchange terms, gauge-invariant variables, and the CDM-limit switch-off check.
 
+\paragraph{Local scalar coefficient import.}
+The quotient-edge \(Z_6\) coefficient imported from the microphysics,
+dark-matter, and \(\chi_\nu\) papers is a local scalar-channel coefficient:
+\[
+\lambda_{\rm collar}
+=
+\int \dd y\,w(y)e^{-\epsilon_{\mathbb Z_6}(y)}.
+\]
+The exact value
+\[
+\lambda_{\rm collar}=e^{-P/24}
+\]
+requires the uniform product-thickening receipt, including slice-wise
+scalar-reserve unbiasedness. The unconditioned trace \(\tau_q(Z_6)=P/24\) is
+not by itself enough.
+
+Coherent-matter same-channel forcing closes the local scalar-channel identity
+for a nondegenerate OPH-coherent material source,
+\[
+S_{\rm coh}^{\rm can}
+=\mathbf 1_{\rm self\mbox{-}read}R_UP_UC_U\in\mathcal E_{r,C},
+\]
+under Scalar Edge-Center Exhaustion. This theorem supplies the scalar channel
+used by \(\chi_\nu\). Boltzmann-ready dark-sector stress requires the finite
+covariant packet parent, stress closure, exchange-current closure,
+gauge-invariant perturbation variables, causal response, refinement
+convergence, frozen source hashes, solver hashes, likelihood receipts, and
+no-data-use receipts.
+
 \begin{definition}[Imported finite covariant collar-packet parent interface]
 For the purpose of this cosmology program, the finite covariant collar-packet parent is an imported
 \pathref{cosmology/oph_dark_matter_paper.tex}-owned finite artifact interface
@@ -770,11 +800,18 @@ source/solver/likelihood hashes, and the official likelihood run.
 \begin{remark}[Dark continuation modes]
 For a source-only primordial certification run, the dark-sector paper recommends
 \texttt{dark\_continuation = OFF}. A supplied dark abundance may enter only as
-\texttt{dark\_continuation = CONDITIONAL\_SOURCE\_STATE} until the dark-matter theorem surface
-derives the homogeneous anomaly abundance and finite kinetic stress construction. The physical
-cosmology branch may set \texttt{dark\_continuation = PHYSICAL\_PARENT} only after the finite
-covariant parent receipt, physical scale bridge, response/kernel receipts, and CDM-limit recovery
-all pass for the same frozen generation.
+\texttt{dark\_continuation = CONDITIONAL\_SOURCE\_STATE}. A source-selected abundance may enter as
+\texttt{SOURCE\_ONLY\_ANOMALY\_ABUNDANCE} only when
+\[
+\texttt{ANOMALY\_ABUNDANCE\_SOURCE\_RECEIPT}
+\]
+passes. A parent with physical transport and no selector is labelled
+\[
+\texttt{PHYSICAL\_PARENT\_WITH\_CONDITIONAL\_ABUNDANCE}.
+\]
+The physical cosmology branch may set \texttt{dark\_continuation = PHYSICAL\_PARENT} only after
+the finite covariant parent receipt, physical scale bridge, response/kernel receipts, and CDM-limit
+recovery all pass for the same frozen generation.
 \end{remark}
 
 \section{Physical Kernel Interface}
@@ -799,6 +836,15 @@ and \(\QA\) from the finite parent, physical scale calibration, gauge consistenc
 perturbation controls, active-fiber/physical-clock response receipts, CDM-limit recovery, and
 refinement convergence. The cosmology program consumes the emitted functions but does
 not redefine the dark-sector source law.
+
+The imported \texttt{RHO\_A\_SOURCE\_RECEIPT} is the conjunction
+\[
+\texttt{RHO\_A\_TRANSPORT\_RECEIPT}
+\wedge
+\texttt{ANOMALY\_ABUNDANCE\_SOURCE\_RECEIPT}.
+\]
+The second receipt is supplied by the source-only anomaly abundance selector in
+\pathref{cosmology/oph_dark_matter_paper.tex}.
 
 The physical kernel receipt imports these inner receipts from the dark/anomaly paper:
 \begin{center}
@@ -825,7 +871,7 @@ native generator, and static-dynamic consistency receipts pass in the same
 frozen generation.
 \end{target}
 
-Diagnostic rows remain useful for debugging. They should be plotted, stress-tested, and compared to
+Diagnostic rows are useful for debugging. They should be plotted, stress-tested, and compared to
 controls. They should not be accepted by the physical CMB contract unless they are promoted by the
 kernel receipts above. Until the physical clock, active fiber, conserved-sector decomposition, and
 common-parent response pole are certified, the simulator should emit the transition number as
@@ -894,6 +940,11 @@ artifact generation;
 \end{enumerate}
 \end{target}
 
+Passing \texttt{ANOMALY\_ABUNDANCE\_SOURCE\_RECEIPT} promotes the dark abundance inside the
+source species.  It does not promote CMB spectra.  The later
+\texttt{PHYSICAL\_CMB\_PREDICTION\_RECEIPT} requires frozen transfer and official
+likelihood execution.
+
 \begin{definition}[Model generation]\label{def:model-generation}
 A cosmology prediction generation is
 \[
@@ -929,7 +980,7 @@ TT/TE/EE, lensing, matter power, growth, BAO, or RSD spectra are
 also passes for a frozen dataset and likelihood family \(D\), the output is a
 \(\texttt{LIKELIHOOD\_EVALUATED\_PHYSICAL\_PREDICTION}\).  If any receipt is
 \(\texttt{FAIL}\), \(\texttt{OPEN\_GATE}\), \(\texttt{INCOMPLETE}\), or
-\(\texttt{INVALIDATED}\), the spectra remain diagnostic or conditional according to the parameter
+\(\texttt{INVALIDATED}\), the spectra are diagnostic or conditional according to the parameter
 ledger.
 \end{theorem}
 
@@ -1050,33 +1101,33 @@ the simulator contract for physical promotion.
 \begin{thebibliography}{99}
 
 \bibitem{ophcompact}
-B.~M\"uller, A.~Osika, K.~Xue, and P.~Nguyen,
+B.~M\"uller, A.~Osika, M.~Poneder, K.~Xue, P.~Nguyen, and M.~A.~Visser,
 \emph{Recovering Relativity and the Standard Model from Observer Overlap Consistency},
-OPH compact paper, release \OPHPaperReleaseID, 2026.
+OPH compact paper, release \OPHPaperReleaseID, \OPHPaperReleaseDate.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf}
 
 \bibitem{ophsynthesis}
-B.~M\"uller, A.~Osika, M.~Poneder, K.~Xue, B.~Cassie, P.~Nguyen, M.~A.~Visser, K.~A.~Anirudha, and J.~Hill,
+B.~M\"uller, A.~Osika, M.~Poneder, K.~Xue, B.~Cassie, P.~Nguyen, M.~A.~Visser, K.~A.~Anirudha, D.~Matscheko, and J.~Hill,
 \emph{Observers Are All You Need},
-OPH synthesis paper, release \OPHPaperReleaseID, 2026.
+OPH synthesis paper, release \OPHPaperReleaseID, \OPHPaperReleaseDate.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.pdf}
 
 \bibitem{ophconsensus}
 B.~M\"uller, K.~Xue, K.~A.~Anirudha, and J.~Hill,
-\emph{Reality as a Consensus Protocol},
-OPH consensus paper, release \OPHPaperReleaseID, 2026.
+\emph{Reality as a Consensus Protocol: The Fixed-Point Computation That Implements Physics},
+OPH consensus paper, release \OPHPaperReleaseID, \OPHPaperReleaseDate.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/reality_as_consensus_protocol.pdf}
 
 \bibitem{ophmicro}
-B.~M\"uller and K.~Xue,
+B.~M\"uller, A.~Osika, K.~Xue, B.~Cassie, and M.~A.~Visser,
 \emph{Federated Echosahedral Screen Microphysics: Patch Hardware, Records, and Observer Synchronization in OPH},
-OPH microphysics paper, release \OPHPaperReleaseID, 2026.
+OPH microphysics paper, release \OPHPaperReleaseID, \OPHPaperReleaseDate.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.pdf}
 
 \bibitem{ophdark}
-B.~M\"uller,
+B.~M\"uller and D.~Matscheko,
 \emph{Observer-Patch Holography and the Dark Matter Phenomenon},
-OPH cosmology paper, 2026.
+OPH cosmology paper, release \OPHPaperReleaseID, \OPHPaperReleaseDate.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/cosmology/oph_dark_matter_paper.pdf}
 
 \bibitem{ophinflationdraft}

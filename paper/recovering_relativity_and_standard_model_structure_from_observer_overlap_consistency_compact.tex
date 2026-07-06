@@ -130,7 +130,7 @@ construction.
 \item The same Einstein branch closes globally at the cosmic record-capacity fixed point, tying the dimensionless cosmological-constant relation to global screen capacity instead of local vacuum energy; the SI scale display is supplied separately.
 \item Exclusion of gauge-mediated proton decay follows from product-group structure; any stronger proton-lifetime claim is UV/EFT/QCD-dependent.
 \item Dark-sector, heuristic baryogenesis continuations, string, and spectroscopy branches are kept visible only as phenomenological continuations or, where additional ans\"atze are involved, conjectural phenomenology.
-\item A bare overlap net is a finite constraint code: codewords are the globally overlap-consistent states \(C=\Phi^{-1}(0)\). Overlap repair admits a unique schedule-independent normal form from each fixed initial physical quotient state on the stated finite patch-net hypotheses, where strict descent gives termination and atomic conflict-component transactions plus repair completeness give confluence. Same-boundary uniqueness additionally requires a preserved boundary/sector map whose consistent quotient fiber has a unique extension; on the functional selected-fiber branch, multiple same-boundary candidate interiors are nontrivially eliminated and all surviving candidates share one quotient normal form. Settled-form hashes are evidence records for quotient equality, not selectors among physically distinct endpoints. The same package induces refinement-limit normal-form and holonomy classes on separated cofinal refinement systems with compatible projections, and makes reconciliation commute with coarse-graining up to explicitly declared normal-form and obstruction defects. QECC distance, min-cut resilience, exponential convergence, BFT wall-clock liveness, and hardware speedup are separate certified branches, not consequences of a generic overlap graph.
+\item A bare overlap net is a finite constraint code: codewords are the globally overlap-consistent states \(C=\Phi^{-1}(0)\). On the declared finite quotient branch, overlap repair induces a total local map \(\operatorname{locRep}_\lambda:Q\to Q\) and a total idempotent global repair map \(\operatorname{Rep}_\lambda:Q\to Q\) that is boundary-preserving, schedule-independent, and lands in \(C_Q\). Strict descent gives termination, while atomic conflict-component transactions plus repair completeness give confluence. Same-boundary uniqueness additionally requires a preserved boundary/sector map whose consistent quotient fiber has a unique extension; the layered finite carrier proves \(H_B\wedge H_{\mathrm{fib}}\), and on the functional selected-fiber branch multiple same-boundary candidate interiors are nontrivially eliminated while all surviving candidates share one quotient normal form. Settled-form hashes are evidence records for quotient equality, not selectors among physically distinct endpoints. The same package induces refinement-limit normal-form and holonomy classes on separated cofinal refinement systems with compatible projections, and makes reconciliation commute with coarse-graining up to explicitly declared normal-form and obstruction defects. QECC distance, min-cut resilience, exponential convergence, BFT wall-clock liveness, and hardware speedup are separate certified branches, not consequences of a generic overlap graph.
 \item The fixed-cutoff topological UV package closes on the ordinary branch, the central-defect branch, and the genuinely noncentral branch through a compact crossed-module higher-gauge collar theorem; the controlled continuum BW/geometric lift is supplied by Theorem~\ref{thm:bw}, while the realized compact-gauge branch is supplied by the compact-gauge witness and physical-UV landing theorem below.
 \end{enumerate}
 
@@ -217,7 +217,7 @@ the cosmological term.
 \begin{proof}
 The added clauses are exactly the hypotheses and outputs of Theorem~\ref{thm:bw},
 Theorem~\ref{thm:stress}, Theorem~\ref{thm:equilibrium}, Lemma~\ref{lem:smallball},
-Corollary~\ref{cor:einstein}, and Theorem~\ref{thm:lambda-stack}. Removing those clauses leaves
+Theorem~\ref{cor:einstein}, and Theorem~\ref{thm:lambda-stack}. Removing those clauses leaves
 the Jacobson-type limit described above; keeping them is the OPH-specific branch.
 \end{proof}
 
@@ -257,8 +257,12 @@ patch-net families is a separate consensus-paper complexity boundary instead of 
 dependency. The same firewall applies to coding
 language: the default code is a finite constraint code, while topological-code distance/min-cut and
 Knill--Laflamme resilience require explicit topological-code and error-model certificates.
-The imported consensus package is the fixed-cutoff theorem stack: asynchronous confluence
-for the declared recovery-derived repair law after transactional acceptance, with termination separated from the atomic conflict-component local diamond and repair-completeness clauses, the functional selected-fiber branch-elimination theorem, the cycle-obstruction / higher-gauge defect package,
+The imported consensus package is the fixed-cutoff theorem stack: the quotient repair operators
+\(\operatorname{locRep}_\lambda\) and \(\operatorname{Rep}_\lambda\) for the declared
+recovery-derived repair law after transactional acceptance; asynchronous confluence, with
+termination separated from the atomic conflict-component local diamond and repair-completeness
+clauses; the layered \(H_B\wedge H_{\mathrm{fib}}\) carrier; the functional selected-fiber
+branch-elimination theorem; the cycle-obstruction / higher-gauge defect package,
 gauge-quotient descent, observable-level confluence on the declared physical observable algebras,
 the refinement-limit normal-form / holonomy theorem, the repair-morphism criterion that discharges
 exact normal-form naturality, the distributed one-universe realization theorem for admissible
@@ -302,11 +306,11 @@ Node & Output & Immediate internal ingredients & Standard mathematics used & Bra
 \endhead
 \bottomrule
 \endfoot
-\textbf{D1} & Unique schedule-independent normal form from each fixed initial physical quotient state, boundary-conditioned uniqueness under a preserved boundary/sector map with unique consistent extension, nontrivial same-boundary branch elimination on the functional selected-fiber branch, observable-level confluence on the declared fixed-cutoff physical algebras for the recovery-derived repair relation, inverse-limit normal-form / holonomy classes on separated cofinal refinement systems, distributed one-universe realization for admissible worker presentations of a single global carrier, and controlled reconciliation/coarse-graining compatibility & overlap-consistency problem on a finite patch net together with the declared fixed-cutoff collar recovery proposal, its touched-overlap local-fit eligibility contract, transactional snapshot/read/write validation with boundary/sector preservation and exact descent, support-local disjoint commutation, restriction-compatible union-collar gluing for canonical conflict-component payloads on the physical quotient, the fixed-point / quotient-local physical observable algebras carried by that same collar package, cofinal refinement projections compatible with finite-stage normal forms and holonomy maps, a distributed physical projection from authoritative worker state to the monolithic quotient, and a coarse-graining channel with declared normal-form and obstruction defects & local-to-global well-founded descent; local-diamond completion from atomic conflict-component commits using validation-complete read sets; Newman's lemma; rooted functional extension for selected fibers; inverse limits of separated finite quotient systems; reachability invariance of the quotient normal form under projected repair paths, physical stutters, and certified rollbacks; pseudometric control of commuting coarse-graining diagrams & repair completeness; stated Petz support/CPTP control where that branch is used; for same-boundary uniqueness, preservation of the boundary/sector map and at most one consistent quotient extension in the fiber, or the functional selected-fiber theorem with explicit obstruction/ambiguity gates; repair-morphism normal-form naturality, holonomy cochain naturality, visible separation, explicit coarse-graining defect bounds for the refinement system, and distributed certificates for global carrier, partition, cut interfaces, linearized commits, restart roots, final monolithic readout, and normal-form hash evidence only after quotient equality is proved & Phase I structural theorem \\
+\textbf{D1} & Total local and global quotient repair maps \(\operatorname{locRep}_\lambda,\operatorname{Rep}_\lambda:Q\to Q\); unique schedule-independent normal form from each fixed initial physical quotient state; boundary-conditioned uniqueness under a preserved boundary/sector map with unique consistent extension; layered finite \(H_B\wedge H_{\mathrm{fib}}\) carrier; nontrivial same-boundary branch elimination on the functional selected-fiber branch; observable-level confluence on the declared fixed-cutoff physical algebras for the recovery-derived repair relation, inverse-limit normal-form / holonomy classes on separated cofinal refinement systems, distributed one-universe realization for admissible worker presentations of a single global carrier, and controlled reconciliation/coarse-graining compatibility & overlap-consistency problem on a finite patch net together with the declared fixed-cutoff collar recovery proposal, its touched-overlap local-fit eligibility contract, transactional snapshot/read/write validation with boundary/sector preservation and exact descent, support-local disjoint commutation, restriction-compatible union-collar gluing for canonical conflict-component payloads on the physical quotient, the fixed-point / quotient-local physical observable algebras carried by that same collar package, cofinal refinement projections compatible with finite-stage normal forms and holonomy maps, a distributed physical projection from authoritative worker state to the monolithic quotient, and a coarse-graining channel with declared normal-form and obstruction defects & local-to-global well-founded descent; local-diamond completion from atomic conflict-component commits using validation-complete read sets; Newman's lemma; layered functional boundary reconstruction; rooted functional extension for selected fibers; inverse limits of separated finite quotient systems; reachability invariance of the quotient normal form under projected repair paths, physical stutters, and certified rollbacks; pseudometric control of commuting coarse-graining diagrams & repair completeness; stated Petz support/CPTP control where that branch is used; for same-boundary uniqueness, preservation of the boundary/sector map and at most one consistent quotient extension in the fiber, or the layered/functional selected-fiber theorem with explicit obstruction/ambiguity gates; repair-morphism normal-form naturality, holonomy cochain naturality, visible separation, explicit coarse-graining defect bounds for the refinement system, and distributed certificates for global carrier, partition, cut interfaces, linearized commits, restart roots, final monolithic readout, and normal-form hash evidence only after quotient equality is proved & Phase I structural theorem \\
 \textbf{D2} & Collar Markov/entropy split and \(G\)-dictionary setup (Theorem~\ref{thm:markovcollar}, Propositions~\ref{prop:approxrecover}, \ref{prop:splice}, \ref{prop:gensplit}, Definition~\ref{def:newton}) & Axioms~\ref{ax:screen}--\ref{ax:entropy} & HJPW Markov structure theorem; Petz and Fawzi--Renner recovery theory & exact block-factorized identities require exact Markovity or an explicitly stated idealized limit; the \(A/(4G)\) step is the coarse-grained dictionary of Definition~\ref{def:newton} & Phase I structural lemma/proposition layer \\
 \textbf{D3} & Lorentz branch and three-dimensional spatial chart \(\Conf^+(S^2)\cong \mathrm{SO}^+(3,1)\), \(H^3\simeq\mathrm{SO}^+(3,1)/\mathrm{SO}(3)\) (Theorem~\ref{thm:bw}, Corollaries~\ref{cor:lorentz}, \ref{cor:h3-spatial-chart}) & Axioms~\ref{ax:screen}--\ref{ax:entropy}, Theorem~\ref{thm:geosubnet}, and the fixed-cutoff collar/consensus package & Bisognano--Wichmann modular geometry; conformal-group classification; weak-\(*\)/GNS extraction; Lorentz homogeneous-space geometry & controlled regularized modular transport on the prime geometric cap net; support-readable modular covariance; ordered cut-pair rigidity; the scaling-limit observer algebra may leave the finite type-I regulator class, so the theorem is automorphism-level there and \(K_C=2\pi B_C\) is only the special type-I limit form & Phase I scaling-limit theorem \\
 \textbf{D4} & Null modular bridge to \(T_{kk}\), including exact-or-controlled strip additivity, endpoint-Lipschitz renormalized half-line families, the weak tail generator, the derived half-sided modular inclusion, the explicit positive half-line null-translation generator on its Stone domain with affine half-line modular relations, and the exact half-line generator/charge identification with the local null-stress charge (Propositions~\ref{prop:nullec}, \ref{prop:n3}; Corollaries~\ref{cor:n1}, \ref{cor:n2}; Theorem~\ref{lem:density}, Lemma~\ref{lem:translation}; Theorem~\ref{thm:stress}) & D2+D3 and Axioms~\ref{ax:screen}--\ref{ax:entropy} & Borchers--Wiesbrock positive-generator theorem for standard half-sided inclusions; Stone's theorem; distributional differentiation on half-lines & the theorem-local null-cut center transfer, the inherited left/right strip-split package used for the spatial-collar-type tensor decomposition, and the exact-or-controlled Markov hypotheses of Proposition~\ref{prop:nullec} and Corollary~\ref{cor:n1}; quasi-local propagation and endpoint-Lipschitz control are supplied internally by Axiom~\ref{ax:maxent} on the local finite-constraint branch, the geometric scaling action on the null half-line blow-up net derives the half-sided modular pair, and bounded-interval formulas use the separate interval-preserving projective branch & Phase I bridge theorem \\
-\textbf{D5} & Jacobson-type Einstein branch: rest-frame relation plus tensor upgrade (Theorem~\ref{thm:equilibrium}, Lemma~\ref{lem:smallball}, Theorem~\ref{thm:einstein}, Corollary~\ref{cor:einstein}) & D3+D4 and Axioms~\ref{ax:screen}--\ref{ax:entropy} & fixed-volume area-variation identity for small geodesic balls; local quadratic-polarization argument for the tensor upgrade & Theorem~\ref{thm:equilibrium}, which fixes the admissible fixed-cap MaxEnt variation class and derives generalized-entropy stationarity on the realized cap-label-preserving MaxEnt family; the internal small-ball bridge of Lemma~\ref{lem:smallball}, which uses the geometric cap generator together with the D4 half-line generator/charge identification and the separate interval-preserving projective branch; locally Lorentzian \(d=4\) scaling regime; small-ball constancy assumptions; D4 carried remainder negligible at order \(\ell^4\); all local directions/reference states for the tensor upgrade & Phase I scaling-limit theorem/corollary \\
+\textbf{D5} & Jacobson-type Einstein branch: rest-frame relation plus tensor upgrade (Theorem~\ref{thm:equilibrium}, Lemma~\ref{lem:smallball}, Theorems~\ref{thm:fixed-volume-small-ball-area}, \ref{thm:einstein}, \ref{cor:einstein}) & D3+D4 and Axioms~\ref{ax:screen}--\ref{ax:entropy} & fixed-volume area-variation identity for small geodesic balls; local quadratic-polarization argument for the tensor upgrade & Theorem~\ref{thm:equilibrium}, which fixes the admissible fixed-cap MaxEnt variation class and derives generalized-entropy stationarity on the realized cap-label-preserving MaxEnt family; the internal small-ball bridge of Lemma~\ref{lem:smallball}, which uses the geometric cap generator together with the D4 half-line generator/charge identification and the separate interval-preserving projective branch; Theorem~\ref{thm:fixed-volume-small-ball-area}; locally Lorentzian \(d=4\) scaling regime; small-ball constancy assumptions; D4 carried remainder negligible at order \(\ell^4\); all local directions/reference states for the tensor upgrade & Phase I scaling-limit theorem package \\
 \textbf{D6} & Local/global theorem stack for \(\Lambda\): null-invisible metric ambiguity, screen-capacity closure of the same Einstein branch, the de Sitter entropy relation with scale-certified static-patch display, and the cosmic record-closure fixed point on the observed branch, plus a legacy capacity-level neutrino side estimate (Theorem~\ref{thm:lambda-stack}) & D5 local Einstein recovery leaves a \(+\Lambda g_{ab}\) ambiguity & de Sitter entropy relation, static-patch radius/time formulas after scale certification, finite self-closing normal-form density/readback map, and dimensional analysis & cosmic record-capacity fixed point \(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\) and its observed de Sitter entropy readout & Phase II zero-input global closure \\
 \textbf{D7} & Construction of the refinement-stable bosonic sector category plus compact gauge reconstruction (Theorem~\ref{thm:refinement-functor-fiber-descent}, Theorem~\ref{thm:sector-colimit}, Theorem~\ref{thm:compactgauge}), the four-dimensional Euclidean Yang--Mills form (Theorem~\ref{thm:oph-4d-euclidean-yang-mills-form}), and the conditional controlled compact-gauge repair-gap theorem (Theorem~\ref{thm:oph-yang-mills-gap}) & Axioms~\ref{ax:screen}--\ref{ax:entropy} & directed-colimit descent for monoidal \(C^*\)-categories; Doplicher--Roberts / Tannaka reconstruction; holonomy-to-curvature expansion; finite-dimensional conditional expectations and spectral comparison for commuting collar projections & Theorems~\ref{thm:transport-from-gluing}, \ref{thm:fixed-cutoff-bosonic-sector-category}, and \ref{thm:refinement-functor-fiber-descent} on the ordinary or central-defect bosonic zero-obstruction branch; the compact-gauge witness theorem supplies nonempty realized MAR-admissible witness data, while the Standard Model selection step belongs to D8--D9; the Euclidean-form and repair-gap results additionally use the four-dimensional scaling chart, reflection-positive ordinary vacuum, active exact-Markov repair collars, bounded-color collar covers, repair completeness, controlled continuum extraction, and the transfer/intertwiner/nontriviality certificate; the genuinely noncentral fixed-cutoff branch is handled separately by Theorems~\ref{thm:hgdatum}--\ref{thm:hgtransport} and is not itself the ordinary compact-group reconstruction theorem & Phase I structural theorem \\
 \textbf{D8} & Product gauge structure up to finite quotient (Lemmas~\ref{lem:mincontent}--\ref{lem:commutant}, Theorem~\ref{thm:sm}) & D7 + Axiom~\ref{ax:mar} & compact Lie representation classification; Schur's lemma & the same ordinary or central-defect bosonic branch as D7, together with a connected positive-dimensional Lie admissible class, one connected abelian factor, and faithful action on the minimal coupled carrier & Phase I realized-branch theorem \\
@@ -1053,11 +1057,11 @@ Node & Theorem labels and output & Immediate OPH ingredients & Standard mathemat
 \endhead
 \bottomrule
 \endfoot
-\textbf{D1} & Theorems~\ref{thm:confluence}, \ref{thm:boundary-conditioned-uniqueness}, \ref{thm:functional-selected-fiber}, and Corollary~\ref{cor:branch-elimination}: unique quotient normal form and schedule independence from a fixed initial quotient state, same-boundary uniqueness under unique consistent extension, and nontrivial selected-fiber branch elimination & overlap-consistency problem on a finite patch net together with the declared fixed-cutoff collar recovery proposal, its touched-overlap local-fit eligibility contract, transactional snapshot/read/write validation, boundary/sector preservation, and restriction-compatible union-collar gluing for canonical conflict-component payloads on the physical quotient & local-to-global well-founded descent; local-diamond completion from atomic conflict-component commits with validation-complete read sets; Newman's lemma; rooted functional extension in selected fibers & repair completeness; stated Petz support/CPTP control where that branch is used; for same-boundary uniqueness, boundary/sector preservation and either at most one consistent quotient extension in the boundary fiber or the functional selected-fiber theorem; obstruction/ambiguity gates when no unique quotient endpoint exists; normal-form hashes as equality receipts, not selectors & structural theorem \\
+\textbf{D1} & Theorems~\ref{thm:confluence}, \ref{thm:boundary-conditioned-uniqueness}, \ref{thm:layered-carrier-HB-Hfib}, \ref{thm:functional-selected-fiber}, and Corollary~\ref{cor:branch-elimination}: total quotient repair maps \(\operatorname{locRep}_\lambda,\operatorname{Rep}_\lambda:Q\to Q\), unique quotient normal form and schedule independence from a fixed initial quotient state, same-boundary uniqueness under unique consistent extension, layered \(H_B\wedge H_{\mathrm{fib}}\), and nontrivial selected-fiber branch elimination & overlap-consistency problem on a finite patch net together with the declared fixed-cutoff collar recovery proposal, its touched-overlap local-fit eligibility contract, transactional snapshot/read/write validation, boundary/sector preservation, and restriction-compatible union-collar gluing for canonical conflict-component payloads on the physical quotient & local-to-global well-founded descent; local-diamond completion from atomic conflict-component commits with validation-complete read sets; Newman's lemma; layered functional boundary reconstruction; rooted functional extension in selected fibers & repair completeness; stated Petz support/CPTP control where that branch is used; for same-boundary uniqueness, boundary/sector preservation and either at most one consistent quotient extension in the boundary fiber or the layered/functional selected-fiber theorem; obstruction/ambiguity gates when no unique quotient endpoint exists; normal-form hashes as equality receipts, not selectors & structural theorem \\
 \textbf{D2} & Theorem~\ref{thm:markovcollar}, Propositions~\ref{prop:approxrecover}, \ref{prop:splice}, \ref{prop:gensplit}, Definition~\ref{def:newton}: collar Markov/entropy layer & Axioms~\ref{ax:screen}--\ref{ax:entropy} & HJPW Markov structure theorem; Petz and Fawzi--Renner recovery theory & exact Markov identities require exact Markovity or an explicitly stated idealized recoverability limit; the \(A/(4G)\) identification is the coarse-grained dictionary of Definition~\ref{def:newton} & structural lemma/\newline proposition layer \\
 \textbf{D3} & Theorem~\ref{thm:bw}, Corollaries~\ref{cor:lorentz}, \ref{cor:h3-spatial-chart}: support-visible BW scaling theorem, Lorentz branch, and three-dimensional spatial chart & Axioms~\ref{ax:screen}--\ref{ax:entropy}, Theorem~\ref{thm:geosubnet}, and the fixed-cutoff collar/consensus package & Bisognano--Wichmann modular geometry;\newline conformal classification on \(S^2\);\newline weak-\(*\)/GNS extraction;\newline Lorentz homogeneous-space geometry & support-visible regularized modular transport on the prime geometric cap net; support-readable modular covariance; ordered cut-pair rigidity; the scaling-limit observer algebra may leave the finite type-I regulator class, so the theorem is automorphism-level there and \(K_C=2\pi B_C\) is only the special type-I limit form & scaling-limit\newline theorem \\
 \textbf{D4} & Propositions~\ref{prop:nullec}, \ref{prop:n3}; Corollaries~\ref{cor:n1}, \ref{cor:n2}; Theorem~\ref{lem:density}, Lemma~\ref{lem:translation}; Theorem~\ref{thm:stress}: null modular bridge to \(T_{kk}\), including exact-or-controlled strip additivity, endpoint-Lipschitz renormalized half-line families, the weak tail generator, the derived half-sided modular inclusion, the explicit positive half-line null-translation generator on its Stone domain with affine half-line modular relations, and the exact half-line generator/charge identification with the local null-stress charge & D2+D3 and Axioms~\ref{ax:screen}--\ref{ax:entropy} & Borchers--Wiesbrock positive-generator theorem for standard half-sided inclusions; Stone's theorem; distributional differentiation on half-lines & the theorem-local null-cut center transfer, the inherited left/right strip-split package used for the spatial-collar-type tensor decomposition, and the exact-or-controlled Markov hypotheses of Proposition~\ref{prop:nullec} and Corollary~\ref{cor:n1}; quasi-local propagation and endpoint-Lipschitz control are supplied internally by Axiom~\ref{ax:maxent} on the local finite-constraint branch, the geometric scaling action on the null half-line blow-up net derives the half-sided modular pair, and bounded-interval formulas use the separate interval-preserving projective branch & bridge theorem \\
-\textbf{D5} & Theorem~\ref{thm:equilibrium}, Lemma~\ref{lem:smallball}, Theorem~\ref{thm:einstein}, Corollary~\ref{cor:einstein}: Jacobson-type Einstein branch via a rest-frame relation plus tensor upgrade & D3+D4 and Axioms~\ref{ax:screen}--\ref{ax:entropy} & fixed-volume area-variation identity for small geodesic balls; local quadratic-polarization argument for the tensor upgrade & Theorem~\ref{thm:equilibrium}, which fixes the admissible fixed-cap MaxEnt variation class and derives generalized-entropy stationarity on the realized cap-label-preserving MaxEnt family; the internal small-ball bridge of Lemma~\ref{lem:smallball}, which uses the geometric cap generator together with the D4 half-line generator/charge identification and the separate interval-preserving projective branch; locally Lorentzian \(d=4\) scaling regime; small-ball constancy assumptions; D4 carried remainder negligible at order \(\ell^4\); all local directions/reference states for the tensor upgrade & scaling-limit theorem/corollary \\
+\textbf{D5} & Theorem~\ref{thm:equilibrium}, Lemma~\ref{lem:smallball}, Theorems~\ref{thm:fixed-volume-small-ball-area}, \ref{thm:einstein}, \ref{cor:einstein}: Jacobson-type Einstein branch via a rest-frame relation plus tensor upgrade & D3+D4 and Axioms~\ref{ax:screen}--\ref{ax:entropy} & fixed-volume area-variation identity for small geodesic balls; local quadratic-polarization argument for the tensor upgrade & Theorem~\ref{thm:equilibrium}, which fixes the admissible fixed-cap MaxEnt variation class and derives generalized-entropy stationarity on the realized cap-label-preserving MaxEnt family; the internal small-ball bridge of Lemma~\ref{lem:smallball}, which uses the geometric cap generator together with the D4 half-line generator/charge identification and the separate interval-preserving projective branch; Theorem~\ref{thm:fixed-volume-small-ball-area}; locally Lorentzian \(d=4\) scaling regime; small-ball constancy assumptions; D4 carried remainder negligible at order \(\ell^4\); all local directions/reference states for the tensor upgrade & scaling-limit theorem package \\
 \textbf{D6} & Theorem~\ref{thm:lambda-stack}: local/global theorem stack for \(\Lambda\), namely the null-invisible metric ambiguity, the screen-capacity closure of the same Einstein branch, the de Sitter entropy relation with scale-certified static-patch display, and the cosmic record-closure readback fixed point, plus a legacy neutrino side estimate & D5 local Einstein recovery, which leaves the \(+\Lambda g_{ab}\) ambiguity & de Sitter entropy relation, static-patch radius/time formulas after scale certification, finite self-closing normal-form counting/readback, and dimensional analysis & cosmic record-capacity fixed point \(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\) and its observed de Sitter entropy readout & zero-input global closure \\
 \textbf{D7} & Theorem~\ref{thm:refinement-functor-fiber-descent}, Theorem~\ref{thm:sector-colimit}, Theorem~\ref{thm:compactgauge}: construction of the refinement-stable bosonic sector category and compact gauge reconstruction; Theorem~\ref{thm:oph-4d-euclidean-yang-mills-form}: four-dimensional Euclidean Yang--Mills form; Theorem~\ref{thm:oph-yang-mills-gap}: conditional support-visible compact-gauge Yang--Mills repair gap & Axioms~\ref{ax:screen}--\ref{ax:entropy} & directed-colimit descent for monoidal \(C^*\)-categories; Doplicher--Roberts / Tannaka reconstruction; holonomy-to-curvature expansion; finite-dimensional conditional expectations and spectral comparison for commuting collar projections & Theorem~\ref{thm:transport-from-gluing}, Theorem~\ref{thm:fixed-cutoff-bosonic-sector-category}, and Theorem~\ref{thm:refinement-functor-fiber-descent} on the ordinary or central-defect bosonic zero-obstruction branch; Theorem~\ref{thm:mar-witness-landing} supplies nonempty realized MAR-admissible witness data, while the Standard Model selection step belongs to D8--D9; the Euclidean-form and repair-gap theorems additionally use the four-dimensional scaling chart, reflection-positive ordinary vacuum, active exact-Markov repair collars, bounded-color collar covers, repair completeness, support-visible continuum extraction, and the transfer/intertwiner/nontriviality certificate; the genuinely noncentral fixed-cutoff branch is handled separately by Theorems~\ref{thm:hgdatum}--\ref{thm:hgtransport} and is not itself the ordinary compact-group reconstruction theorem & structural theorem \\
 \textbf{D8} & Lemmas~\ref{lem:mincontent}--\ref{lem:commutant}, Theorem~\ref{thm:sm}: product gauge structure up to finite quotient & D7 + Axiom~\ref{ax:mar} & compact Lie representation classification; Schur's lemma & the same ordinary or central-defect bosonic branch as D7, together with a connected positive-dimensional Lie admissible class, one connected abelian factor, and faithful action on the minimal coupled carrier & realized-branch theorem \\
@@ -1111,7 +1115,7 @@ with the exact Standard Model hypercharge lattice on the realized matter package
 \end{theorem}
 
 \begin{proof}
-Items (i)--(iii) are collected from Theorem~\ref{thm:confluence}, Corollaries~\ref{cor:lorentz} and \ref{cor:h3-spatial-chart}, Theorem~\ref{thm:einstein}, and Corollary~\ref{cor:einstein}. On the gauge side, Theorem~\ref{thm:transport-from-gluing} supplies the strict zero-obstruction transport criterion, Theorem~\ref{thm:fixed-cutoff-bosonic-sector-category} constructs the fixed-cutoff bosonic collar-sector categories, and Theorem~\ref{thm:refinement-functor-fiber-descent} constructs the monoidal refinement transport and compatible finite multiplicity fibers. Theorem~\ref{thm:sector-colimit} descends those data to the refinement-limit category and fiber functor, and compact gauge reconstruction is then Theorem~\ref{thm:compactgauge}. Theorem~\ref{thm:gauge-selection-factorization} separates this classification stage from the MAR selection stage. The realized nontrivial branch is supplied by Theorem~\ref{thm:mar-witness-landing}. The product gauge structure up to finite quotient is Theorem~\ref{thm:sm}; and the final identification of the exact Standard Model quotient and structural electroweak content is Theorem~\ref{thm:realized-sm-branch}, Theorem~\ref{thm:hypercharge} together with Corollaries~\ref{cor:nc}, \ref{cor:ng}, \ref{cor:electroweak-force}, and Proposition~\ref{prop:z6}.
+Items (i)--(iii) are collected from Theorem~\ref{thm:confluence}, Corollaries~\ref{cor:lorentz} and \ref{cor:h3-spatial-chart}, Theorem~\ref{thm:einstein}, and Theorem~\ref{cor:einstein}. On the gauge side, Theorem~\ref{thm:transport-from-gluing} supplies the strict zero-obstruction transport criterion, Theorem~\ref{thm:fixed-cutoff-bosonic-sector-category} constructs the fixed-cutoff bosonic collar-sector categories, and Theorem~\ref{thm:refinement-functor-fiber-descent} constructs the monoidal refinement transport and compatible finite multiplicity fibers. Theorem~\ref{thm:sector-colimit} descends those data to the refinement-limit category and fiber functor, and compact gauge reconstruction is then Theorem~\ref{thm:compactgauge}. Theorem~\ref{thm:gauge-selection-factorization} separates this classification stage from the MAR selection stage. The realized nontrivial branch is supplied by Theorem~\ref{thm:mar-witness-landing}. The product gauge structure up to finite quotient is Theorem~\ref{thm:sm}; and the final identification of the exact Standard Model quotient and structural electroweak content is Theorem~\ref{thm:realized-sm-branch}, Theorem~\ref{thm:hypercharge} together with Corollaries~\ref{cor:nc}, \ref{cor:ng}, \ref{cor:electroweak-force}, and Proposition~\ref{prop:z6}.
 \end{proof}
 
 Theorem~\ref{thm:master} therefore packages only the recovered relativity-plus-Standard-Model core: D1--D5 together with D7--D9. D6 is not a detached second gravity lane: it is the global closure of the same Einstein branch at the cosmic record-capacity fixed point. The quantitative-closure branch and phenomenological continuations are outside the theorem's scope.
@@ -1135,7 +1139,7 @@ Cosmological constant & local vacuum-energy puzzle & dimensionless global screen
 \bottomrule
 \end{tabular}
 \endgroup
-\section{Observer-Overlap Consistency as a Fixed-Point Problem}
+\section{Observer Overlap Consistency as a Fixed-Point Problem}
 
 The discrete overlap problem is the mathematical skeleton of the framework.
 
@@ -1226,6 +1230,52 @@ the union collar/component support. Primitive members of \(K\) do not commit sep
 \(x\Rightarrow y\) for a successful aggregate commit.
 \end{definition}
 
+\begin{definition}[Quotient repair operators]\label{def:quotient-repair-operators}
+For a fixed finite transactional quotient repair branch, let \(\mathsf A\) be the finite set of
+accepted aggregate transactions, each with a domain \(D_a\subseteq Q\), equipped with a fixed total
+order \(\prec_{\mathsf A}\).  For \(x\in Q\), write
+\[
+\mathsf A(x)=\{a\in\mathsf A:x\in D_a\}
+\]
+for the enabled aggregate transactions at \(x\).  The local quotient repair map is
+\[
+\operatorname{locRep}_\lambda(x):=
+\begin{cases}
+a_{\min}(x),& \mathsf A(x)\ne\varnothing,\\
+x,& \mathsf A(x)=\varnothing,
+\end{cases}
+\]
+where \(a_{\min}\) is the \(\prec_{\mathsf A}\)-least enabled transaction.  Iterating
+\[
+x_0=x,\qquad x_{n+1}=\operatorname{locRep}_\lambda(x_n)
+\]
+reaches a least fixed stage because every nontrivial accepted step strictly descends in the finite
+set \(\mu(Q)\).  Define
+\[
+\operatorname{Rep}_\lambda(x):=x_{N(x)}.
+\]
+\end{definition}
+
+\begin{proposition}[Local quotient repair closure]\label{prop:local-quotient-repair-closure}
+On any branch satisfying boundary preservation, exact descent, and repair completeness,
+\[
+\operatorname{locRep}_\lambda:Q\to Q
+\]
+is total, preserves \(B\), and either fixes \(x\) or strictly lowers \(\mu\).  Moreover,
+\[
+\operatorname{locRep}_\lambda(x)=x
+\quad\Longleftrightarrow\quad
+x\in C_Q.
+\]
+\end{proposition}
+
+\begin{proof}
+Finiteness and the fixed order on \(\mathsf A\) give the least enabled transaction whenever one
+exists; if none exists, the definition returns \(x\).  Boundary preservation and exact descent are
+the transaction acceptance tests.  Strict descent excludes a nontrivial fixed move, and repair
+completeness identifies states with no enabled aggregate transaction with \(C_Q\).
+\end{proof}
+
 \begin{lemma}[Validation support for local mismatch measures]\label{lem:validation-support}
 Suppose the exact measure has local finite supports,
 \[
@@ -1257,9 +1307,18 @@ Assume:
 \end{enumerate}
 Then every initial quotient state \(x\in Q\) has a unique terminal normal form
 \[
-N_Q(x)\in C_Q,
+N_Q(x)=\operatorname{Rep}_\lambda(x)\in C_Q,
 \]
-and \(N_Q(x)\) is independent of asynchronous repair order.
+and \(N_Q(x)\) is independent of asynchronous repair order.  The map
+\[
+\operatorname{Rep}_\lambda:Q\to Q
+\]
+is total, boundary-preserving, and idempotent, and
+\[
+\operatorname{Rep}_\lambda(x)=x
+\quad\Longleftrightarrow\quad
+x\in C_Q.
+\]
 \end{theorem}
 
 \begin{proof}
@@ -1273,7 +1332,12 @@ has the local diamond. Newman's lemma~\cite{newman42} says that a terminating lo
 rewrite system is confluent. If two terminal states \(y,z\) are reachable from the same \(x\),
 confluence gives a common descendant \(w\). Since \(y\) and \(z\) are terminal, \(y=w=z\). Repair
 completeness identifies the terminal state with an element of \(C_Q\), so \(N_Q:Q\to C_Q\) is
-well defined and schedule-independent.
+well defined and schedule-independent.  The canonical iteration in
+Definition~\ref{def:quotient-repair-operators} is one valid accepted repair execution, hence
+\(\operatorname{Rep}_\lambda(x)=N_Q(x)\).  Boundary preservation follows by induction along
+accepted transactions.  Idempotence and the fixed-point characterization follow from
+Proposition~\ref{prop:local-quotient-repair-closure}, since every element of \(C_Q\) has no enabled
+aggregate transaction.
 \end{proof}
 
 \begin{remark}[Confluence is an extra obligation]
@@ -1302,7 +1366,7 @@ B:Q\to\mathcal B
 record fixed external boundary data, conserved charge, root packet, holonomy sector, or task
 input. Assume \(B\) is preserved by accepted repairs:
 \[
-x\to y\implies B(x)=B(y).
+x\Rightarrow y\implies B(x)=B(y).
 \]
 If for each \(b\in\mathcal B\) the consistent quotient fiber
 \[
@@ -1321,6 +1385,64 @@ preservation along repair sequences gives \(B(N_Q(x))=B(x)\) and
 \(B(N_Q(x'))=B(x')\). If \(B(x)=B(x')=b\), then both normal forms lie in \(C_b\). The unique
 consistent extension assumption says \(C_b\) has at most one element, hence the two normal forms
 are equal.
+\end{proof}
+
+\begin{definition}[Layered functional boundary carrier]\label{def:layered-functional-boundary-carrier}
+A layered functional boundary carrier is a finite directed layered graph
+\[
+V=L_0\sqcup L_1\sqcup\cdots\sqcup L_D,\qquad D\ge2,
+\]
+with boundary layer \(L_0\), finite alphabets \(A_v\), nonempty parent sets
+\[
+P(v)\subseteq L_0\sqcup\cdots\sqcup L_{d-1}\qquad(v\in L_d,\ d\ge1),
+\]
+and deterministic local rules
+\[
+F_v:\prod_{u\in P(v)}A_u\to A_v.
+\]
+Let
+\[
+Q=\prod_{v\in V}A_v,\qquad B(a)=a|_{L_0}.
+\]
+For boundary data \(b\), define \(E(b)\in Q\) recursively by \(E(b)_v=b_v\) on \(L_0\) and
+\[
+E(b)_v=F_v((E(b)_u)_{u\in P(v)})
+\qquad(v\in L_d,\ d\ge1).
+\]
+Optional cross-check predicates may be added.  A state is consistent when all functional equations
+and cross-check predicates pass; let \(C_Q\) be the consistent state set.  A boundary \(b\) is
+admissible when \(E(b)\in C_Q\).  The layer repair map \(R_d\) rewrites exactly layer \(L_d\) to
+the displayed functional value and fixes all other layers.
+\end{definition}
+
+\begin{theorem}[Layered carrier proves \(H_B\wedge H_{\mathrm{fib}}\)]\label{thm:layered-carrier-HB-Hfib}
+For a layered functional boundary carrier, set
+\[
+a^{(0)}=a,\qquad a^{(d)}=R_d(a^{(d-1)}),\quad d=1,\ldots,D,
+\]
+and let \(b=B(a)\).  Then
+\[
+B(a^{(d)})=b\qquad(d=0,\ldots,D).
+\]
+If \(b\) is admissible, then \(a^{(D)}=E(b)\in C_Q\), and
+\[
+C_Q\cap B^{-1}(b)=\{E(b)\}.
+\]
+Consequently, on any accepted quotient repair presentation whose aggregate transactions include
+the layer repairs and whose boundary value \(b=B(x)\) is admissible,
+\[
+\operatorname{Rep}_\lambda(x)=E(B(x)).
+\]
+\end{theorem}
+
+\begin{proof}
+Each \(R_d\) writes only \(L_d\) with \(d\ge1\), so no stage changes \(B\).  Induct on \(d\): after
+stage \(d\), every vertex in \(L_0\sqcup\cdots\sqcup L_d\) agrees with \(E(b)\), because all
+parents of a layer-\(d\) vertex lie in earlier layers.  Thus \(a^{(D)}=E(b)\), and admissibility
+puts it in \(C_Q\).  If \(c\in C_Q\cap B^{-1}(b)\), the same induction applied to the functional
+equations for \(c\) gives \(c=E(b)\).  The final equality follows because
+Theorem~\ref{thm:confluence} makes \(\operatorname{Rep}_\lambda(x)\) a boundary-preserving element
+of \(C_Q\).
 \end{proof}
 
 \begin{theorem}[Functional selected-fiber uniqueness]\label{thm:functional-selected-fiber}
@@ -1428,6 +1550,30 @@ By Proposition~\ref{prop:repairquot}, every repair step has quotient image deter
 current orbit. Iterating, the quotient image of any repair sequence depends only on the initial
 orbit. Theorem~\ref{thm:confluence} gives a unique terminal quotient normal form \(N_Q([s])\)
 from that orbit. This makes \(\overline N_\lambda\) well-defined.
+\end{proof}
+
+\begin{corollary}[Repair respects gauge]\label{cor:repair-respects-gauge}
+Define the quotient-valued representative repair map
+\[
+\operatorname{Rep}^{\Sigma}_\lambda
+:=
+\operatorname{Rep}_\lambda\circ q
+:
+\Sigma\to\Sigma/\Gamma.
+\]
+Then for every \(\gamma\in\Gamma\) and \(s\in\Sigma\),
+\[
+\operatorname{Rep}^{\Sigma}_\lambda(\gamma\cdot s)
+=
+\operatorname{Rep}^{\Sigma}_\lambda(s).
+\]
+Consequently every physical observable \(M:\Sigma/\Gamma\to Y\) has the same repaired value on
+gauge-equivalent representatives.
+\end{corollary}
+
+\begin{proof}
+The quotient map satisfies \(q(\gamma\cdot s)=q(s)\).  Applying \(\operatorname{Rep}_\lambda\)
+gives the displayed equality, and applying \(M\) gives the observable statement.
 \end{proof}
 
 On the fixed-cutoff quantum lift, the same quotient-local carrier does more than fix the terminal
@@ -4123,7 +4269,7 @@ The c.12-local bridge ends with explicit theorem-level objects: the positive sel
 \end{remark}
 \subsection{Generalized entropy and the Einstein equation}
 
-From this point through Corollary~\ref{cor:einstein} we specialize to the physical $d=4$ scaling branch. The claim boundary is explicit. The only standard geometric input used below, beyond D3 and D4, is the fixed-volume area-variation identity for a small geodesic ball. The small-ball modular kernel used below is \emph{not} imported from a separate EFT law: it is the local expression of the geometric cap generator $B_C$ from Theorem~\ref{thm:bw}, evaluated using the half-line null-stress identification of Theorem~\ref{thm:stress} together with the separate interval-preserving projective branch that transports it to bounded null intervals.
+From this point through Theorem~\ref{cor:einstein} we specialize to the physical $d=4$ scaling branch. The claim boundary is explicit. The only standard geometric input used below, beyond D3 and D4, is the fixed-volume area-variation identity for a small geodesic ball. The small-ball modular kernel used below is \emph{not} imported from a separate EFT law: it is the local expression of the geometric cap generator $B_C$ from Theorem~\ref{thm:bw}, evaluated using the half-line null-stress identification of Theorem~\ref{thm:stress} together with the separate interval-preserving projective branch that transports it to bounded null intervals.
 
 For a reference state $\omega$ and a small cap $C$,
 \[
@@ -4150,14 +4296,19 @@ Fix a cap \(C\) and a realized reference state \(\omega_C\) on the cap-reduced r
 along a \(C^1\) curve \(s\mapsto \rho_C(s)\) such that:
 \begin{enumerate}[leftmargin=2em]
 \item every \(\rho_C(s)\) lies in the same cap-label-preserving block class of Proposition~\ref{prop:gensplit}, so the same edge-center operator \(L_C\) and sector projectors \(P_\alpha\) apply;
-\item the cap \(C\), its size/volume, and the optional conserved charges \(Q_b\) are held fixed; and
-\item the Axiom~\ref{ax:maxent} constraint values are fixed to first order:
+\item the cap \(C\), its boundary sector, charge labels, size/volume, and the optional conserved charges \(Q_b\) are held fixed;
+\item the support-visible cap geometry varies only through the declared geometric tangent readout and does not change hidden carrier representatives, port labels, worker schedule, or gauge presentation;
+\item the Axiom~\ref{ax:maxent} constraint values are fixed to first order, except for the declared stress-energy perturbation channel:
 \[
 \frac{d}{ds}\Big|_{s=0}\mathrm{Tr}(\rho_C(s) O_a(x))=0,
 \qquad
 \frac{d}{ds}\Big|_{s=0}\mathrm{Tr}(\rho_C(s) Q_b)=0
 \]
-for every retained local constraint \(O_a(x)\) supported in the fixed cap neighborhood and every retained conserved charge \(Q_b\).
+for every retained local constraint \(O_a(x)\) supported in the fixed cap neighborhood and every retained conserved charge \(Q_b\); and
+\item in the associated small-ball/diamond readout, the carried modular/stress remainder satisfies the Einstein-branch scaling condition
+\[
+\delta\langle E^{(\eta)}_{C,\ell}\rangle=o(\ell^4).
+\]
 \end{enumerate}
 Shape or null-cut deformations are denoted separately by \(\delta_{\mathrm{shape}}\) or \(\partial_\lambda\); they are not part of this fixed-cap variation class.
 \end{definition}
@@ -4333,8 +4484,39 @@ those receipts pass, finite collar CMI is a recoverability and diagnostic
 quantity instead of a physical dark/anomaly density source.
 \end{remark}
 
+\begin{theorem}[Fixed-volume small-ball area variation]\label{thm:fixed-volume-small-ball-area}
+For a small geodesic ball \(B_\ell\) centered at \(p\) with local rest-frame
+velocity \(u^a\), the fixed-volume first variation of the boundary area is
+\[
+\delta A\big|_{V,\Lambda}
+=
+-\frac{4\pi\ell^4}{15}\,
+\delta\!\left[(G_{ab}+\Lambda g_{ab})u^a u^b\right]
++o(\ell^4).
+\]
+Therefore the area part of the generalized entropy satisfies
+\[
+\delta S_{\mathrm{area}}
+=
+\frac{\delta A}{4G}
+=
+-\frac{1}{4G}\frac{4\pi\ell^4}{15}\,
+\delta\!\left[(G_{ab}+\Lambda g_{ab})u^a u^b\right]
++o(\ell^4).
+\]
+\end{theorem}
+
+\begin{proof}
+This is the standard fixed-volume small-geodesic-ball identity used in
+Jacobson-style entanglement-equilibrium derivations. In \(3+1\) dimensions the
+coefficient is \(\Omega_2\ell^4/(4^2-1)=4\pi\ell^4/15\). The sign is fixed by
+the fact that positive curvature decreases the area of a fixed-volume small
+ball. The metric-term ambiguity left by null data is represented by
+\(\Lambda g_{ab}\).
+\end{proof}
+
 \begin{theorem}[Jacobson-type rest-frame relation from derived fixed-cap generalized-entropy stationarity]\label{thm:einstein}
-Assume Axioms~\ref{ax:screen}--\ref{ax:entropy}, Assumption~\ref{ass:technical}, and the hypotheses of Theorem~\ref{thm:stress} and Lemma~\ref{lem:smallball}. Then, for every sufficiently small cap centered at $p$ and every admissible fixed-cap MaxEnt variation $\delta$ about a realized reference state $\omega$ in the locally Lorentzian $d=4$ scaling regime, if $u^a$ is the future-directed unit tangent of the local diamond rest frame at $p$, one has
+Assume Axioms~\ref{ax:screen}--\ref{ax:entropy}, Assumption~\ref{ass:technical}, and the hypotheses of Theorem~\ref{thm:stress}, Lemma~\ref{lem:smallball}, Theorem~\ref{thm:equilibrium}, and Theorem~\ref{thm:fixed-volume-small-ball-area}. Then, for every sufficiently small cap centered at $p$ and every admissible fixed-cap MaxEnt variation $\delta$ about a realized reference state $\omega$ in the locally Lorentzian $d=4$ scaling regime, if $u^a$ is the future-directed unit tangent of the local diamond rest frame at $p$, one has
 \[
 \delta\!\Bigl[(G_{ab}+\Lambda g_{ab})u^a u^b\Bigr]
 =
@@ -4362,7 +4544,7 @@ By Lemma~\ref{lem:smallball},
 \]
 where in the adapted rest frame the contraction is $\delta\langle T_{00}\rangle$.
 
-For a fixed-volume small geodesic ball in $d=4$, the standard area-variation identity gives
+By Theorem~\ref{thm:fixed-volume-small-ball-area}, the fixed-volume small-ball area variation gives
 \[
 \delta A\big|_{V,\Lambda}
 =
@@ -4387,13 +4569,13 @@ Dividing by $\ell^4$ and taking the small-ball limit removes the $O(\ell^5\parti
 This is precisely the desired rest-frame scalar relation.
 \end{proof}
 
-\begin{corollary}[Internal tensor upgrade in the scaling regime]\label{cor:einstein}
+\begin{theorem}[Timelike scalar data upgrade to tensor Einstein]\label{cor:einstein}
 If the first-variation relation of Theorem~\ref{thm:einstein} holds for all local observer four-velocities and all reference states in a connected scaling branch, then
 \[
 G_{ab}+\Lambda g_{ab}=8\pi G\,\langle T_{ab}\rangle
 \]
 throughout that branch. The only local ambiguity is the metric term isolated by Lemma~\ref{lem:nullreconstruct}, and that ambiguity is exactly the same branch constant $\Lambda$.
-\end{corollary}
+\end{theorem}
 
 \begin{proof}
 Define
@@ -4450,10 +4632,10 @@ throughout the branch.
 
 \subsection{Edge-entropy/area law identifies the Einstein/Newton coupling}\label{subsec:edge-entropy-newton-coupling}
 
-The Jacobson-type chain of Theorems~\ref{thm:equilibrium}, \ref{thm:einstein} and Corollary~\ref{cor:einstein} produces an Einstein equation \(G_{ab}+\Lambda g_{ab}=8\pi G\,\langle T_{ab}\rangle\) on every connected locally Lorentzian \(d=4\) scaling branch. The next theorem identifies the coefficient \(G\) in that equation with the OPH edge-entropy/area-law ratio \(a_{\mathrm{cell}}/(4\bar\ell_{\mathrm{shared}})\) of Definition~\ref{def:newton}, and tracks the same \(G\) through the standard linearization into the Newton coupling of the weak-field, slow-motion, classical-source limit. The identification is structural: the same \(G\) propagates literally through the algebra from the edge-entropy/area-law dictionary into the Einstein equation and into the Newton-Poisson limit, with no separate Newton coefficient introduced or matched against a measured constant at any step.
+The Jacobson-type chain of Theorems~\ref{thm:equilibrium}, \ref{thm:einstein}, and \ref{cor:einstein} produces an Einstein equation \(G_{ab}+\Lambda g_{ab}=8\pi G\,\langle T_{ab}\rangle\) on every connected locally Lorentzian \(d=4\) scaling branch. The next theorem identifies the coefficient \(G\) in that equation with the OPH edge-entropy/area-law ratio \(a_{\mathrm{cell}}/(4\bar\ell_{\mathrm{shared}})\) of Definition~\ref{def:newton}, and tracks the same \(G\) through the standard linearization into the Newton coupling of the weak-field, slow-motion, classical-source limit. The identification is structural: the same \(G\) propagates literally through the algebra from the edge-entropy/area-law dictionary into the Einstein equation and into the Newton-Poisson limit, with no separate Newton coefficient introduced or matched against a measured constant at any step.
 
 \begin{theorem}[Edge-entropy/area law identifies the Einstein/Newton coupling]\label{thm:edge-entropy-newton-coupling}
-Assume Axioms~\ref{ax:screen}--\ref{ax:entropy}, Assumption~\ref{ass:technical}, the hypotheses of Theorem~\ref{thm:bw} (BW scaling on the prime geometric subnet), Theorem~\ref{thm:stress} (half-line generator/null-stress identification), Lemma~\ref{lem:nullreconstruct} (null-data uniqueness modulo a metric term), Theorem~\ref{thm:equilibrium} (derived fixed-cap generalized-entropy stationarity), Lemma~\ref{lem:smallball} (internal \(d=4\) small-ball bridge), Theorem~\ref{thm:einstein} (Jacobson-type rest-frame relation), and Corollary~\ref{cor:einstein} (internal tensor upgrade). Work in the refinement-scaling regime of Definition~\ref{def:newton}, in which \(\mathrm{Tr}(\rho_C L_C)\approx N_\Sigma\,\bar\ell(t)\) and \(A(\partial C)\approx N_\Sigma\,a_{\mathrm{cell}}\). Define the OPH edge-entropy/area-law coupling
+Assume Axioms~\ref{ax:screen}--\ref{ax:entropy}, Assumption~\ref{ass:technical}, the hypotheses of Theorem~\ref{thm:bw} (BW scaling on the prime geometric subnet), Theorem~\ref{thm:stress} (half-line generator/null-stress identification), Lemma~\ref{lem:nullreconstruct} (null-data uniqueness modulo a metric term), Theorem~\ref{thm:equilibrium} (derived fixed-cap generalized-entropy stationarity), Lemma~\ref{lem:smallball} (internal \(d=4\) small-ball bridge), Theorem~\ref{thm:einstein} (Jacobson-type rest-frame relation), and Theorem~\ref{cor:einstein} (internal tensor upgrade). Work in the refinement-scaling regime of Definition~\ref{def:newton}, in which \(\mathrm{Tr}(\rho_C L_C)\approx N_\Sigma\,\bar\ell(t)\) and \(A(\partial C)\approx N_\Sigma\,a_{\mathrm{cell}}\). Define the OPH edge-entropy/area-law coupling
 \[
 G_{\mathrm{geom}}:=\frac{a_{\mathrm{cell}}}{4\bar\ell(t)}.
 \]
@@ -4463,7 +4645,7 @@ Then on every connected locally Lorentzian \(d=4\) scaling branch:
 \[
 G_{ab}+\Lambda g_{ab}=8\pi G\,\langle T_{ab}\rangle
 \]
-of Corollary~\ref{cor:einstein} is exactly \(G_{\mathrm{geom}}\).
+of Theorem~\ref{cor:einstein} is exactly \(G_{\mathrm{geom}}\).
 
 \textbf{(ii) Realized product-group local-pixel form.} If, in addition, the realized product-group hypotheses of Proposition~\ref{prop:sharededgeentropy} hold and the local pixel branch satisfies the D10 pixel law, so that \(\bar\ell_{\mathrm{shared}}=P/4\) and \(a_{\mathrm{cell}}=P\,\ell_\star^2\) (Proposition~\ref{prop:gsi}), then
 \[
@@ -4498,7 +4680,7 @@ Lemma~\ref{lem:smallball} expresses \(\delta S_{\mathrm{bulk}}(C)\) in terms of 
 \[
 \delta A\big|_{V,\Lambda}=-\frac{4\pi\ell^4}{15}\,\delta\!\Bigl[(G_{ab}+\Lambda g_{ab})u^au^b\Bigr],
 \]
-and the proof of Theorem~\ref{thm:einstein} divides through by \(\ell^4/(15)\) to obtain the rest-frame scalar relation. The factor of \(G\) on the right-hand side of Theorem~\ref{thm:einstein} is exactly the same \(G_{\mathrm{geom}}\) introduced through Definition~\ref{def:newton}, because nothing else has been substituted between \(\delta S_{\mathrm{gen}}(C)=0\) and the rest-frame relation. Corollary~\ref{cor:einstein} then promotes the rest-frame scalar relation to the tensor equation \(G_{ab}+\Lambda g_{ab}=8\pi G_{\mathrm{geom}}\,\langle T_{ab}\rangle\) using the Lorentz branch of Theorem~\ref{thm:bw}, the rest-frame coverage of timelike directions, and the null-data uniqueness of Lemma~\ref{lem:nullreconstruct}. Hence the coefficient \(G\) in Corollary~\ref{cor:einstein} is \(G_{\mathrm{geom}}\).
+and the proof of Theorem~\ref{thm:einstein} divides through by \(\ell^4/(15)\) to obtain the rest-frame scalar relation. The factor of \(G\) on the right-hand side of Theorem~\ref{thm:einstein} is exactly the same \(G_{\mathrm{geom}}\) introduced through Definition~\ref{def:newton}, because nothing else has been substituted between \(\delta S_{\mathrm{gen}}(C)=0\) and the rest-frame relation. Theorem~\ref{cor:einstein} then promotes the rest-frame scalar relation to the tensor equation \(G_{ab}+\Lambda g_{ab}=8\pi G_{\mathrm{geom}}\,\langle T_{ab}\rangle\) using the Lorentz branch of Theorem~\ref{thm:bw}, the rest-frame coverage of timelike directions, and the null-data uniqueness of Lemma~\ref{lem:nullreconstruct}. Hence the coefficient \(G\) in Theorem~\ref{cor:einstein} is \(G_{\mathrm{geom}}\).
 
 \textbf{(ii)} On the realized product-group branch, Proposition~\ref{prop:sharededgeentropy} together with the D10 pixel law gives \(\bar\ell_{\mathrm{shared}}=P/4\), and Proposition~\ref{prop:gsi} gives \(a_{\mathrm{cell}}=P\,\ell_\star^2\). Therefore
 \[
@@ -4532,7 +4714,7 @@ which is the Newton-Poisson equation with coupling \(G_{\mathrm{geom}}\). The ge
 \end{proof}
 
 \begin{remark}[Dependencies and forbidden inputs for Theorem~\ref{thm:edge-entropy-newton-coupling}]\label{rem:edge-entropy-newton-coupling-scope}
-\textbf{Dependencies.} The proof composes Axioms~\ref{ax:screen}--\ref{ax:entropy} (screen net, overlap consistency, MaxEnt, MAR, recoverable generalized entropy), Assumption~\ref{ass:technical}, Theorem~\ref{thm:bw} (BW scaling theorem on the prime geometric subnet), Theorem~\ref{thm:stress} (half-line generator/null-stress identification), Lemma~\ref{lem:nullreconstruct} (null-data uniqueness modulo a metric term), Proposition~\ref{prop:gensplit} (generalized-entropy split), Definition~\ref{def:newton} (refinement-scaling area-term identification), Theorem~\ref{thm:equilibrium} (derived fixed-cap generalized-entropy stationarity), Lemma~\ref{lem:smallball} (internal \(d=4\) small-ball bridge), Theorem~\ref{thm:einstein} (Jacobson-type rest-frame relation), and Corollary~\ref{cor:einstein} (internal tensor upgrade). Part (ii) additionally invokes Proposition~\ref{prop:sharededgeentropy} (shared edge-entropy identity on the realized product-group branch with the D10 pixel law) and Proposition~\ref{prop:gsi} (local scale-certificate package on the gravity row, supplying \(a_{\mathrm{cell}}=P\,\ell_\star^2\) from the no-\(G\) scale certificate of Theorem~\ref{thm:scale-bridge-desitter}). Part (iii) uses only the standard linearization of part (i) on a flat background; it imports no further OPH structure beyond the validity of the small-ball/scaling regime that supports Theorem~\ref{thm:einstein} and Corollary~\ref{cor:einstein}.
+\textbf{Dependencies.} The proof composes Axioms~\ref{ax:screen}--\ref{ax:entropy} (screen net, overlap consistency, MaxEnt, MAR, recoverable generalized entropy), Assumption~\ref{ass:technical}, Theorem~\ref{thm:bw} (BW scaling theorem on the prime geometric subnet), Theorem~\ref{thm:stress} (half-line generator/null-stress identification), Lemma~\ref{lem:nullreconstruct} (null-data uniqueness modulo a metric term), Proposition~\ref{prop:gensplit} (generalized-entropy split), Definition~\ref{def:newton} (refinement-scaling area-term identification), Theorem~\ref{thm:equilibrium} (derived fixed-cap generalized-entropy stationarity), Lemma~\ref{lem:smallball} (internal \(d=4\) small-ball bridge), Theorem~\ref{thm:einstein} (Jacobson-type rest-frame relation), and Theorem~\ref{cor:einstein} (internal tensor upgrade). Part (ii) additionally invokes Proposition~\ref{prop:sharededgeentropy} (shared edge-entropy identity on the realized product-group branch with the D10 pixel law) and Proposition~\ref{prop:gsi} (local scale-certificate package on the gravity row, supplying \(a_{\mathrm{cell}}=P\,\ell_\star^2\) from the no-\(G\) scale certificate of Theorem~\ref{thm:scale-bridge-desitter}). Part (iii) uses only the standard linearization of part (i) on a flat background; it imports no further OPH structure beyond the validity of the small-ball/scaling regime that supports Theorems~\ref{thm:einstein} and \ref{cor:einstein}.
 
 \textbf{Forbidden inputs.} The proof of Theorem~\ref{thm:edge-entropy-newton-coupling} does not use:
 \begin{itemize}[leftmargin=2em]
@@ -4545,7 +4727,7 @@ The constant \(G_{\mathrm{geom}}=a_{\mathrm{cell}}/(4\bar\ell_{\mathrm{shared}})
 
 \textbf{Claim boundary.} Theorem~\ref{thm:edge-entropy-newton-coupling} asserts only the identification of the coefficient \(G\) in (i)-(iii) with \(G_{\mathrm{geom}}\). It does not extend to non-scaling regimes, to fixed-cap variations outside the admissible MaxEnt class of Definition~\ref{def:equilibriumvariation}, or to gravitational regimes that violate the small-ball/scaling hypotheses of Lemma~\ref{lem:smallball}. The finite-cutoff remainder of Theorem~\ref{thm:einstein-remainder} controls the carried error before those limits are taken.
 
-\textbf{Refinement-scaling dictionary scope.} The structural content of (i)-(iii) is derived: the same \(G_{\mathrm{geom}}\) propagates literally through Theorems~\ref{thm:equilibrium}, \ref{thm:einstein} and Corollary~\ref{cor:einstein} into the Einstein equation and through the standard linearization into the Newton-Poisson limit. Theorem~\ref{thm:edge-entropy-newton-coupling} as stated takes the matching \(\mathrm{Tr}(\rho_C L_C)=A(\partial C)/(4G_{\mathrm{geom}})\) of Definition~\ref{def:newton} as a starting form, so the factor of \(4\) is inherited at the level of this theorem. Corollary~\ref{cor:factor-of-four-derived} below tightens this by running the same Jacobson chain with only the linear-in-area scaling \(\mathrm{Tr}(\rho_C L_C)\propto A(\partial C)\), itself derived inside OPH from the Markov-collar/refinement-stability structure of the screen net (Theorem~\ref{thm:markovcollar}, Proposition~\ref{prop:gensplit}, together with the discrete-to-continuum scaling \(\mathrm{Tr}(\rho_C L_C)\approx N_\Sigma\bar\ell(t)\) and \(A(\partial C)\approx N_\Sigma a_{\mathrm{cell}}\) of Definition~\ref{def:newton}), and identifying the factor of \(4\) as the ratio of the resulting OPH structural Einstein-equation coefficient to the constant \(8\pi\) entering the standard Newton-Poisson convention \(\nabla^2\Phi=4\pi G_N\rho\). The convention used by Corollary~\ref{cor:factor-of-four-derived} is the standard naming of the Newton coupling.
+\textbf{Refinement-scaling dictionary scope.} The structural content of (i)-(iii) is derived: the same \(G_{\mathrm{geom}}\) propagates literally through Theorems~\ref{thm:equilibrium}, \ref{thm:einstein}, and \ref{cor:einstein} into the Einstein equation and through the standard linearization into the Newton-Poisson limit. Theorem~\ref{thm:edge-entropy-newton-coupling} as stated takes the matching \(\mathrm{Tr}(\rho_C L_C)=A(\partial C)/(4G_{\mathrm{geom}})\) of Definition~\ref{def:newton} as a starting form, so the factor of \(4\) is inherited at the level of this theorem. Corollary~\ref{cor:factor-of-four-derived} below tightens this by running the same Jacobson chain with only the linear-in-area scaling \(\mathrm{Tr}(\rho_C L_C)\propto A(\partial C)\), itself derived inside OPH from the Markov-collar/refinement-stability structure of the screen net (Theorem~\ref{thm:markovcollar}, Proposition~\ref{prop:gensplit}, together with the discrete-to-continuum scaling \(\mathrm{Tr}(\rho_C L_C)\approx N_\Sigma\bar\ell(t)\) and \(A(\partial C)\approx N_\Sigma a_{\mathrm{cell}}\) of Definition~\ref{def:newton}), and identifying the factor of \(4\) as the ratio of the resulting OPH structural Einstein-equation coefficient to the constant \(8\pi\) entering the standard Newton-Poisson convention \(\nabla^2\Phi=4\pi G_N\rho\). The convention used by Corollary~\ref{cor:factor-of-four-derived} is the standard naming of the Newton coupling.
 \end{remark}
 
 \begin{corollary}[Factor of \(4\) in \(G_{\mathrm{geom}}\) from the OPH structural Einstein-equation coefficient and the Newton-Poisson convention]\label{cor:factor-of-four-derived}
@@ -4597,7 +4779,7 @@ Dividing by \(\ell^4\) and taking the small-ball limit removes the remainder ter
 \[
 \delta\!\bigl[(G_{ab}+\Lambda g_{ab})u^au^b\bigr]=\frac{2\pi\,a_{\mathrm{cell}}}{\bar\ell(t)}\,u^au^b\,\delta\langle T_{ab}\rangle.
 \]
-The tensor upgrade of Corollary~\ref{cor:einstein} (using the Lorentz branch of Theorem~\ref{thm:bw} and the null-data uniqueness of Lemma~\ref{lem:nullreconstruct}) promotes this rest-frame relation to \(G_{ab}+\Lambda g_{ab}=(2\pi\,a_{\mathrm{cell}}/\bar\ell(t))\,\langle T_{ab}\rangle\), which is the displayed equation with \(\kappa_{\mathrm{OPH}}=2\pi\,a_{\mathrm{cell}}/\bar\ell(t)\). This step uses the structural linear-in-area scaling before a \(1/(4G_{\mathrm{geom}})\) naming convention is introduced.
+The tensor upgrade of Theorem~\ref{cor:einstein} (using the Lorentz branch of Theorem~\ref{thm:bw} and the null-data uniqueness of Lemma~\ref{lem:nullreconstruct}) promotes this rest-frame relation to \(G_{ab}+\Lambda g_{ab}=(2\pi\,a_{\mathrm{cell}}/\bar\ell(t))\,\langle T_{ab}\rangle\), which is the displayed equation with \(\kappa_{\mathrm{OPH}}=2\pi\,a_{\mathrm{cell}}/\bar\ell(t)\). This step uses the structural linear-in-area scaling before a \(1/(4G_{\mathrm{geom}})\) naming convention is introduced.
 
 \textbf{(b)} Linearize \(G_{ab}+\Lambda g_{ab}=\kappa\,\langle T_{ab}\rangle\) on a flat background as in part (iii) of Theorem~\ref{thm:edge-entropy-newton-coupling}, with the coefficient \(\kappa\) kept general. Signature \((-,+,+,+)\), geometric units \(c=1\). The harmonic-gauge linearized Einstein equation, with \(\Lambda\)-dependent corrections at scales \(r\ll r_{\mathrm{dS}}=\sqrt{3/\Lambda}\) bounded by \(\Lambda r^2\) and dropped exactly as in part (iii), is
 \[
@@ -4663,7 +4845,7 @@ The SI value of \(\Lambda_{\mathrm{CRC}}\) or of the scale product
 \end{corollary}
 
 \begin{corollary}[Global screen-capacity closure of the Einstein branch]\label{cor:lambda-global}
-Assume the hypotheses of Corollaries~\ref{cor:einstein} and \ref{cor:lambda}. Then on the same connected scaling branch,
+Assume the hypotheses of Theorem~\ref{cor:einstein} and Corollary~\ref{cor:lambda}. Then on the same connected scaling branch,
 \[
 G_{ab}+\frac{3\pi}{G N_{\mathrm{CRC}}}\,g_{ab}=8\pi G\,\langle T_{ab}\rangle.
 \]
@@ -4672,7 +4854,7 @@ Thus the local Einstein recovery closes globally at the cosmic record-capacity f
 \end{corollary}
 
 \begin{proof}
-Corollary~\ref{cor:einstein} gives
+Theorem~\ref{cor:einstein} gives
 \[
 G_{ab}+\Lambda g_{ab}=8\pi G\,\langle T_{ab}\rangle
 \]
@@ -4682,6 +4864,65 @@ on the connected scaling branch. Corollary~\ref{cor:lambda} identifies
 \]
 at the cosmic record-capacity fixed point. Substituting that value of \(\Lambda\) yields the stated equation.
 \end{proof}
+
+\begin{theorem}[OPH Einstein-branch closure theorem]\label{thm:oph-einstein-branch-closure}
+For a cofinal OPH regulator family, assume:
+\begin{enumerate}[leftmargin=2em,label=(\roman*)]
+\item quotient confluence and normal forms for the finite consensus reduct;
+\item an Einstein-branch geometry readout factoring through quotient normal
+forms;
+\item the support-visible BW theorem on the extracted prime geometric subnet;
+\item the null-stress bridge, including inherited null-strip split,
+half-sided modular inclusion, Borchers positive generator, and half-line
+generator/charge identity;
+\item bounded-interval transport from null charge to the small-ball modular
+kernel;
+\item the central edge/area operator \(L_C\) and generalized entropy
+\[
+S_{\mathrm{gen}}(C)=\mathrm{Tr}(\rho L_C)+S_{\mathrm{bulk}}(C);
+\]
+\item fixed-cap MaxEnt stationarity for admissible cap-label-preserving
+variations;
+\item fixed-volume small-ball area variation; and
+\item timelike-direction completeness from overlapping observers on the
+Lorentzian scaling branch.
+\end{enumerate}
+Then the scaling-limit Einstein branch satisfies
+\[
+G_{ab}+\Lambda g_{ab}=8\pi G\,\langle T_{ab}\rangle
+\]
+modulo the expected local null-data ambiguity in \(\Lambda g_{ab}\). With D6
+capacity closure,
+\[
+\Lambda=\frac{3\pi}{G N_{\mathrm{CRC}}}.
+\]
+\end{theorem}
+
+\begin{proof}
+Consensus gives a unique quotient normal form on the declared branch. Geometry
+readout promotes that normal form to support-visible cap and diamond data. The
+BW theorem identifies cap modular flow with the \(2\pi\)-normalized geometric
+dilation, and the null bridge identifies the modular generator variation with
+local stress charge. Bounded-interval transport gives the ball kernel and hence
+the bulk entropy variation coefficient \(8\pi^2\ell^4/15\). The area operator
+and Theorem~\ref{thm:fixed-volume-small-ball-area} give the area variation
+coefficient \(-\pi\ell^4/(15G)\). Theorem~\ref{thm:equilibrium} forces their
+sum to vanish, yielding Theorem~\ref{thm:einstein}. The timelike scalar data
+upgrade in Theorem~\ref{cor:einstein} gives the tensor equation. The remaining
+metric term is fixed by Corollary~\ref{cor:lambda-global}.
+\end{proof}
+
+\begin{remark}[Einstein-branch falsifiers]\label{rem:einstein-branch-falsifiers}
+The OPH Einstein branch fails if quotient-normal-form confluence fails; geometry
+readout depends on hidden carrier coordinates, port labels, worker schedule, or
+repair schedule; support-visible BW modular flow does not become the
+\(2\pi\)-normalized cap-preserving conformal flow; the null-stress bridge fails
+to identify the half-line generator with local stress charge; bounded-interval
+transport fails to give the ball kernel with \(o(\ell^4)\) remainder;
+fixed-cap MaxEnt stationarity fails for the declared admissible variations; the
+small-ball area coefficient or area-law normalization fails; timelike-direction
+completeness fails; or D6 capacity closure is nonunique or target-leaking.
+\end{remark}
 
 \begin{corollary}[De Sitter static-patch parameter display on the D6 branch]\label{cor:lambda-parameters}
 Assume the hypotheses of Corollary~\ref{cor:lambda} and a supplied geometric scale
@@ -4879,7 +5120,7 @@ minimizer into the flat sector, and the topology policy turns the zero set into 
 \end{proof}
 
 \begin{theorem}[Cosmological-constant / screen-capacity closure stack]\label{thm:lambda-stack}
-Assume the hypotheses of Corollary~\ref{cor:einstein}, the cosmic record-capacity fixed point
+Assume the hypotheses of Theorem~\ref{cor:einstein}, the cosmic record-capacity fixed point
 \[
 N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}),
 \]
@@ -6286,6 +6527,11 @@ radiation entropy curve and exterior time calibration.
 
 Phase I is the recovered-core level, Phase II is adjacent but non-core, and Phase III contains phenomenological continuations. The D6 row permits the conditional holonomy reading of FLRW flatness in Lemma~\ref{lem:flrw-curvature-holonomy}; it does not support an inflation replacement, CMB likelihood, or high-\(H_0\) branch. The conditional screen-spectrum theorem supports the declared finite-screen branch as a MaxEnt Gaussian screen covariance after the quotient-ensemble selector, scalar-readout, positive repair-operator, and fixed expected quadratic release-energy evidence pass; the tilt, scalar release amplitude, primordial radial lift, and physical TT/TE/EE spectra require their separate finite-source, source-provenance, lift, Boltzmann, and likelihood gates. Low-\(H_0\), Planck-like \(S_8\) dark/anomaly rows are diagnostic continuation checks unless a finite covariant collar-packet parent emits the homogeneous anomaly load, perturbative source functions, recipient stress and exchange-current closure for any nonzero exchange branch, active-fiber and physical-clock evidence for any stated \(\Gamma_{\mathrm{rec}}\), a first-principles dependency DAG, pooled global reducers, and frozen source/calculation/statistical hashes before fitting cosmological data. On the exact finite packet-closed quotient branch, the fixed-cutoff consensus surface does define an affine OPH closure map: the schedule-independent settled-form projection pushes forward to a continuous idempotent self-map of the finite packet simplex, its image is exactly the settled-form simplex, and its fixed points are exactly the packets supported on quotient settled forms. That closure statement is not an ensemble selector; physical probabilities require the quotient base measure/action or intrinsic projective prior stated near Axiom~\ref{ax:maxent}. That finite branch also supplies the grammar from which the cosmic readback map \(F\) and the self-closing observer settled-form density \(\Omega^{\mathrm{sc}}_N\) are defined. The readback fixed point gives the D6 target, with the screen-normalized density as its count representation; interpretive strange-loop discussions and the full habitat theorem sit outside these levels and are not needed for the finite packet-quotient fixed-point statement.
 
+The dark-cosmology abundance selector in
+\texttt{cosmology/oph\_dark\_matter\_paper.tex} is an application of the
+quotient-ensemble surface: it is the finite expectation of a quotient-visible
+load observable under a declared source release law.
+
 \begin{proposition}[Boltzmann-transfer and frozen-likelihood gate]\label{prop:compact-boltzmann-frozen-gate}
 A scalar dark/anomaly parent that emits only
 \(\rho_A(a)\), \(\rho_{A,\mathrm{eq}}(a)\), and \(B_A(k,a)\) does not determine a
@@ -6557,8 +6803,10 @@ This is analogous to ordinary lattice field theory: one computes at finite regul
 
 At fixed cutoff, Axiom~\ref{ax:maxent} yields a quasi-local finite-range interacting branch, and Propositions~\ref{prop:gauge} and \ref{prop:ancillauv} show that the physical normal form is unique only modulo quotient-level OPH-stable equivalence, while the terminal expectation functionals on the declared fixed-point / quotient-local physical algebras are schedule-independent on that carrier even when microscopic representatives differ by gauge labels globally or by sector labels on one regional quotient-local glued state. The invariant fixed by the axiom language is the class \([\mathfrak U]_{\mathrm{OPH}}\) of the physical branch modulo implementation hiding and inert ancillary stabilization, not a unique microscopic representative. The genuinely noncentral topological case is also closed at fixed cutoff by the higher-gauge package of Theorems~\ref{thm:hgdatum}--\ref{thm:hgtransport} and Proposition~\ref{prop:hginteracting}, so the fixed-cutoff topological UV surface is closed on the ordinary, central-defect, and crossed-module branches alike. Beyond fixed cutoff, Theorem~\ref{thm:bw} closes the support-visible continuum modular/geometric lift on the prime geometric subnet; on the bosonic compact-gauge lane, the zero-obstruction sector category, monoidal refinement ladder, \(3+1\)-dimensional symmetric braiding, faithful bosonic fiber functor, and realized witness package are supplied by Theorems~\ref{thm:transport-from-gluing}, \ref{thm:fixed-cutoff-bosonic-sector-category}, \ref{thm:refinement-functor-fiber-descent}, \ref{thm:sector-colimit}, and \ref{thm:mar-witness-landing}.
 The consensus paper also classifies that D1 lane explicitly: on each fixed finite patch net,
-normal-form computation is finite-state and decidable with the Lyapunov step bound, the
-automatic approximate-stability inputs are the collar-local splice and record controls, and
+the accepted relation induces the quotient maps \(\operatorname{locRep}_\lambda\) and
+\(\operatorname{Rep}_\lambda\), normal-form computation is finite-state and decidable with the
+Lyapunov step bound, the layered carrier gives the finite \(H_B\wedge H_{\mathrm{fib}}\) witness,
+the automatic approximate-stability inputs are the collar-local splice and record controls, and
 long-run noisy approximate consensus requires the separate fair-block contraction certificate.
 Computational universality for growing patch-net families is an expressive-power question in the
 consensus paper, not a premise for the Lorentz, local Einstein, compact-gauge, or realized
@@ -6796,7 +7044,7 @@ The framework therefore presents general relativity and the Standard Model as ef
 
 \begin{thebibliography}{99}
 \bibitem{ophsynthesis}
-B.~M\"uller, A.~Osika, M.~Poneder, K.~Xue, B.~Cassie, P.~Nguyen, M.~A.~Visser, K.~A.~Anirudha, and J.~Hill,
+B.~M\"uller, A.~Osika, M.~Poneder, K.~Xue, B.~Cassie, P.~Nguyen, M.~A.~Visser, K.~A.~Anirudha, D.~Matscheko, and J.~Hill,
 \emph{Observers Are All You Need},
 2026.
 Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.pdf}.
