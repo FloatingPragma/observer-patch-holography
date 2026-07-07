@@ -1375,6 +1375,59 @@ identifies this fiber with \(\{E(b)\}\), so \(\operatorname{Rep}_\lambda(x)=E(b)
 \(\operatorname{Read}\) gives the readout statement.
 \end{proof}
 
+\subsection{Rule-90 audit fixture: a sharp finite reconstruction carrier}
+\label{subsec:rule90-audit-fixture}
+
+The layered carrier above proves boundary reconstruction for a feed-forward
+finite class.  A useful stress test for the same logic is the elementary
+Rule-90 cellular automaton on a finite cylinder.  A row is a function
+\[
+x_t:\mathbb Z_n\to\mathbb F_2,
+\]
+and the update rule is
+\[
+x_{t+1}(j)=x_t(j-1)+x_t(j+1)\pmod 2.
+\]
+Rule 90 is not a proposed microscopic physics law.  It is a minimal
+finite-consensus fixture: the local rule is linear, all records are exact
+finite objects, and boundary reconstruction can be tested without continuum
+or geometric assumptions.
+
+For the time slab \(0,\ldots,t\), a two-column timelike tube
+\[
+\{j_0,j_0+g\}\times\{0,\ldots,t\}
+\]
+is an information set when its values determine the whole Rule-90 spacetime
+record.  The external Lean audit proves the sharp two-column classification:
+\[
+\text{tube}(g)\text{ is an information set}
+\quad\Longleftrightarrow\quad
+\gcd(g,n)=1\ \text{ and }\ n\le 2(t+1).
+\]
+Thus adjacent columns (\(g=1\)) achieve the full capacity threshold, while a
+non-coprime stride loses information at every horizon.  The same fixture also
+separates realizable from unrealizable boundary readings: if a tube reading is
+not carried by any consistent Rule-90 record, no boundary-preserving repair
+operator can make it consistent without changing the boundary.
+
+The audit then assembles a Route-A repair on this same carrier.  The positive
+operator is a local transactional decoder: each transaction writes one
+non-tube cell using a bounded edge-local window, the declared rank schedule
+terminates in one finite pass, and the tube reading is preserved at every
+accepted step.  At the sharp threshold \(n\le2(t+1)\), any two records with
+the same tube reading settle to the same normal form; the settled world is
+consistent exactly when the tube fiber is realizable.
+
+The same formal fixture supplies the important negative controls.  On the
+Rule-90 cylinder there is no single-patch frustration-free local repair
+satisfying the strongest \(H_1\wedge H_2\wedge H_3\) binder form.  The
+canonical single-patch repair can also stall on the smallest audit witness
+\((n,t)=(3,2)\), leaving a broken edge in normal form.  This is not a failure
+of the positive decoder; the stalled record has an unrealizable tube fiber.
+The lesson for OPH is structural: boundary reconstruction is theorem-grade
+only after the preserved boundary, realizable-fiber condition, and declared
+repair roster are specified.  A bare local-update slogan is too weak.
+
 \begin{theorem}[Functional selected-fiber uniqueness]\label{thm:functional-selected-fiber}
 Let \(Q_b:=B^{-1}(b)\subseteq\Sigma/\Gamma\) be a same-boundary quotient fiber presented on a
 rooted finite overlap graph with spanning tree \(T\), root \(r\), and patch state sets \(X_v\).

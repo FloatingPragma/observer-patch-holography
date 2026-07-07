@@ -3296,6 +3296,27 @@ hence
 Step 6: operator versus automorphism form. If the limit cap algebra is type I, one can represent the modular automorphism group by a modular Hamiltonian \(K_C=-\log\rho_C\) and recover \(K_C=2\pi B_C\). If the limit algebra leaves the regulator class, the modular automorphism group is well defined while the inner operator representative need not exist inside \(\mathcal A_\infty^{\mathrm{geo,sv}}(C)\). In that case the automorphism identity is the full theorem statement. This is exactly the observer-facing content needed for Lorentz kinematics, the null half-sided modular bridge, and the local Einstein branch.
 \end{proof}
 
+\begin{remark}[Finite modular-flow core versus BW geometry]\label{rem:finite-modular-flow-core}
+At finite regulator and on finite-dimensional faithful cap algebras, the
+modular clock itself has a purely algebraic core: a positive density matrix
+\(\rho\) has a modular Hamiltonian \(H=-\log\rho\), the maps
+\[
+\sigma_z(A)=e^{izH}Ae^{-izH}
+\]
+form a complex-parameter automorphism family, real \(z=t\) gives the
+one-parameter \(^*\)-automorphism flow, the state is invariant under the flow,
+and the \(z=i\) boundary value is the modular operator appearing in the KMS
+identity.  A finite Lean audit formalizes this matrix-algebra core, including
+the KMS boundary condition and uniqueness within Hamiltonian-implemented flows
+up to the additive scalar in \(H\).
+
+This finite result is not the BW theorem.  It proves that the finite
+density-matrix modular object really is a real-time modular flow.  The OPH
+physics in Theorem~\ref{thm:bw} is the additional support-visible scaling-limit
+identification of that modular flow with the geometric cap-dilation subgroup
+\(\alpha_{\lambda_C(2\pi t)}\).
+\end{remark}
+
 \begin{definition}[BW-branch observer-relative time reading]\label{def:modulartime}
 On the branch satisfying the hypotheses of Theorem~\ref{thm:bw}, OPH uses the modular
 automorphism parameter \(t\) of the extracted cap pair
@@ -4630,6 +4651,50 @@ G_{ab}+\Lambda g_{ab}=8\pi G\,\langle T_{ab}\rangle
 throughout the branch.
 \end{proof}
 
+\begin{lemma}[Constancy of the metric-term residue]\label{lem:lambda-constancy}
+Let \(U\) be a connected local chart on the Lorentzian scaling branch. Suppose
+the pointwise null-data/Jacobson step gives
+\[
+F_{ab}=\kappa T_{ab}+\lambda(x)g_{ab}
+\]
+on \(U\), where \(F_{ab}\) is the geometric side, \(T_{ab}\) is the matter
+stress tensor, \(\nabla^aF_{ab}=0\), \(\nabla^aT_{ab}=0\), and
+\(\nabla_cg_{ab}=0\). Then \(\lambda(x)\) is constant on \(U\). Thus the
+local metric-term ambiguity is one branch constant \(\Lambda\), not an
+arbitrary scalar field, once the Bianchi identity, local stress conservation,
+and chart connectivity are present.
+\end{lemma}
+
+\begin{proof}
+Taking the divergence of the displayed equation gives
+\[
+0=\nabla^aF_{ab}
+=\kappa\nabla^aT_{ab}+\nabla^a(\lambda g_{ab})
+=\nabla_b\lambda.
+\]
+Hence the gradient of \(\lambda\) vanishes. On a connected chart, a scalar with
+zero gradient is constant. Without connectivity the same pointwise null-data
+argument can assign different constants on different components, so the
+connectivity hypothesis is load-bearing.
+\end{proof}
+
+\begin{remark}[Formal algebra core of the Einstein branch]\label{rem:formal-einstein-core}
+The finite-algebra audit now has a sorry-free Lean formalization of the
+algebraic part of this subsection. The formalized core includes: the
+rest-frame arithmetic in Theorem~\ref{thm:einstein}; the upgrade from all
+future unit timelike directions to the full tensor equation in
+Theorem~\ref{cor:einstein}; the null-cone/Jacobson residue
+\(F=\kappa T+\lambda g\); and Lemma~\ref{lem:lambda-constancy} in a discrete
+chart model with an explicit connectivity hypothesis. This formalization does
+not derive the branch hypotheses themselves. Fixed-cap generalized-entropy
+stationarity, the internal small-ball bridge, the fixed-volume area-variation
+identity, bounded-interval transport, and the support-visible BW/geometric
+scaling branch remain exactly the named inputs listed in the dependency table.
+It therefore sharpens the status of the Einstein result: the algebra after
+those branch inputs is theorem-grade, while bare finite consensus alone is not
+Einstein-complete.
+\end{remark}
+
 \subsection{Edge-entropy/area law identifies the Einstein/Newton coupling}\label{subsec:edge-entropy-newton-coupling}
 
 The Jacobson-type chain of Theorems~\ref{thm:equilibrium}, \ref{thm:einstein}, and \ref{cor:einstein} produces an Einstein equation \(G_{ab}+\Lambda g_{ab}=8\pi G\,\langle T_{ab}\rangle\) on every connected locally Lorentzian \(d=4\) scaling branch. The next theorem identifies the coefficient \(G\) in that equation with the OPH edge-entropy/area-law ratio \(a_{\mathrm{cell}}/(4\bar\ell_{\mathrm{shared}})\) of Definition~\ref{def:newton}, and tracks the same \(G\) through the standard linearization into the Newton coupling of the weak-field, slow-motion, classical-source limit. The identification is structural: the same \(G\) propagates literally through the algebra from the edge-entropy/area-law dictionary into the Einstein equation and into the Newton-Poisson limit, with no separate Newton coefficient introduced or matched against a measured constant at any step.
@@ -5772,6 +5837,20 @@ H:\ (-1)\eta^3=1.
 \]
 Its powers therefore generate a subgroup of order six acting trivially on all realized states. Conversely, any central element acting trivially on $e^c$ must have $\U(1)$ part $\eta^n$, and triviality on $Q$ then fixes the $\SU(3)$ and $\SU(2)$ center factors uniquely. Hence every trivial central element is a power of $g_0$, so the kernel is exactly $\mathbb Z_6$.
 \end{proof}
+
+\begin{remark}[Formal algebra core of hypercharge and the \(Z_6\) quotient]
+\label{rem:formal-hypercharge-z6-core}
+The algebraic part of Theorem~\ref{thm:hypercharge} and
+Proposition~\ref{prop:z6} has a finite Lean audit: Yukawa invariance together
+with the stated anomaly equations fixes the hypercharge ray, the neutrino
+neutrality convention fixes the normalized lattice \(Y_Q=1/(2N_c)\), and for
+\(N_c=3\) the subgroup acting trivially on the realized one-generation
+matter-plus-Higgs package is exactly the cyclic group generated by
+\((\omega_3,-1,e^{i\pi/3})\), hence is isomorphic to \(\mathbb Z_6\).  The
+formalization covers this algebra; it does not replace the MAR-admissibility
+and realized matter-package hypotheses that select the branch on which the
+algebra is applied.
+\end{remark}
 
 \begin{remark}[Arithmetic toy model for finite quotient labels]
 DULA's congruence-grading construction gives a simple number-theoretic analogue of this

@@ -587,6 +587,14 @@ null-stress bridge, bounded-interval transport, and the timelike
 scalar-to-tensor upgrade. The local argument leaves the metric term open; the
 capacity branch fixes it.
 
+The word "branch" is important. Bare finite consensus by itself does not
+contain a metric, a stress tensor, an area law, or an Einstein equation. Those
+objects enter through the geometric-modular scaling branch. The algebraic
+upgrade after those inputs is tight: all timelike rest-frame relations give the
+full tensor equation, and the local metric-term residue becomes one constant
+Lambda only after the contracted Bianchi identity, local stress conservation,
+metric compatibility, and connectedness are in place.
+
 The lower-case indices $a,b$ again label spacetime directions. The angle
 brackets around $T_{ab}$ mean expectation value: matter remains quantum, so
 the geometry responds to the averaged stress-energy seen in the effective

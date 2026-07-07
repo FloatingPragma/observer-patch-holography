@@ -75,7 +75,7 @@ Observer Patch Holography (OPH) is the finite observer-overlap framework introdu
 \[
 P=\varphi+\frac{\sqrt\pi}{\ATh(P)}.
 \]
-Solving this self-referential pixel equation with the OPH source map gives a fine-structure fixed point close to the measured low-energy value. Informally, the calculation starts from the OPH screen-cell rules and uses zero fitted parameters. The source-plus-unified-gauge-width value is
+Solving this self-referential pixel equation with the OPH source map gives a fine-structure fixed point close to the measured low-energy value. Informally, the source-side no-hadron branch starts from the OPH screen-cell rules without fitted parameters; the public Thomson endpoint still requires the separate low-energy hadronic transport closure below. The source-plus-unified-gauge-width value is
 \[
 A_{\alpha_U}^{\mathrm{fp}}=137.035959500817279952949994585787\ldots.
 \]
@@ -757,6 +757,18 @@ Informally: once the measured Thomson endpoint is supplied, the outer OPH equati
 
 Why this step is needed: the measured endpoint and the comparison pixel are two forms of the same fixed-point statement. Reporting both makes it clear how the measured inverse coupling maps back to the screen cell.
 
+\paragraph{Two-\(P\) provenance audit.}
+There are two distinct pixel numerals in this paper.  The zero-input source
+solve gives \(P_{\mathrm{root}}\) in Eq.~\eqref{eq:Prootnum}; it is the
+branch used to audit what the OPH source chain emits before a same-scheme
+hadronic endpoint correction is supplied.  The comparison value \(\Ppub\) in
+Eq.~\eqref{eq:Ppub} is different by about \(3.9\times10^{-6}\) in \(P\)-space
+because it is defined from the measured CODATA/NIST Thomson endpoint.  Thus
+the published comparison pixel is a measured-endpoint display, not a
+derivation of \(\alpha\).  Downstream quantities that use \(\Ppub\) inherit
+that measured endpoint by definition; downstream quantities that use
+\(P_{\mathrm{root}}\) are source-branch diagnostics.
+
 \section{Step 17: Endpoint Accounting at the CODATA/NIST Comparison Pixel}
 
 At \(P=\Ppub\), the source point gives
@@ -1243,6 +1255,7 @@ Bare-\(\alpha_U\) source prediction & \(A_{\alpha_U}^{\mathrm{fp}}\), Eq.~\eqref
 Required hadronic correction & \(\Dhadreq^{\mathrm{fp}}\), Eq.~\eqref{eq:Dempfp} & CODATA/NIST comparison residual attributed to the missing same-scheme hadronic endpoint transport. \\
 Hadronic/scheme residual & \(\Rq=\ATh-A_{\mathrm{calc}}\) & Isolated endpoint contribution. \\
 CODATA/NIST endpoint & \(\ATh=137.035999177(21)\) & Measured endpoint comparison value. \\
+Two-\(P\) provenance & \(P_{\mathrm{root}}\) versus \(\Ppub\) & Source-branch root and measured-endpoint comparison pixel are distinct; \(\Ppub\) inherits CODATA/NIST by definition. \\
 Raw PDG diagnostic & Eq.~\eqref{eq:pdgdiag} & Comparison diagnostic in a different endpoint convention. \\
 Interval theorem & Banach/contraction certificate for full \(G\) & Required for pure source theorem. \\
 \bottomrule
