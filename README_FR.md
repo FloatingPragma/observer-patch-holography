@@ -4,7 +4,7 @@
 
 **Version anglaise :** [README.md](README.md)
 
-**Liens rapides :** [site OPH](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [OPH Lab](https://oph-lab.floatingpragma.io) | [applications](https://omega.floatingpragma.io/) | [blog OPH](https://blog.floatingpragma.io/) | [carte de cohérence](https://coherence.floatingpragma.io/)
+**Liens rapides :** [site OPH](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Book: Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [Ω](https://omega.floatingpragma.io/) | [Blog](https://blog.floatingpragma.io/) | [Tech](https://omega.floatingpragma.io/) | [Simulation](https://simulation.floatingpragma.io)
 
 **Falsifiabilité :** [la carte de falsifiabilité OPH](extra/OPH_falsifiability.md)
 recense 40 résultats durs qui tueraient l'OPH et des tests concrets sur IBM
@@ -489,6 +489,7 @@ frontières des revendications vivent dans les papiers.
 - **Site officiel :** [floatingpragma.io/oph](https://floatingpragma.io/oph)
 - **Page theory of everything :** [floatingpragma.io/oph/theory-of-everything](https://floatingpragma.io/oph/theory-of-everything)
 - **Carte de cohérence :** [coherence.floatingpragma.io](https://coherence.floatingpragma.io) : surface graphe publique pour les concepts OPH, les recouvrements et les routes entre domaines.
+- **Simulation :** [simulation.floatingpragma.io](https://simulation.floatingpragma.io) : explorateur interactif de mini-univers OPH montrant patches d'observateurs, relecture des recouvrements, réparation des incohérences, enregistrements et géométrie émergente.
 - **Applications :** [omega.floatingpragma.io](https://omega.floatingpragma.io) : page publique pour le matériel OPH, le calcul, l'énergie, l'AGI, le contrôle de portance et le consensus par chambre optique.
 - **Blog :** [blog.floatingpragma.io](https://blog.floatingpragma.io/) rassemble les essais publics OPH. Commencez par [Semiotics and the Physics of Meaning](https://blog.floatingpragma.io/semiotics-and-the-physics-of-meaning), [The Trigger](https://blog.floatingpragma.io/the-trigger) et [P = NP on the Observer Screen](https://blog.floatingpragma.io/p-equals-np-on-the-observer-screen). L'essai de calcul traite `P = NP` comme un slogan d'écran d'observateur; le problème classique reste intact.
 - **Livre :** [oph-book.floatingpragma.io](https://oph-book.floatingpragma.io)

@@ -4,7 +4,7 @@
 
 **French version:** [README_FR.md](README_FR.md)
 
-**Quick links:** [OPH website](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [OPH Lab](https://oph-lab.floatingpragma.io) | [Applications](https://omega.floatingpragma.io/) | [OPH Blog](https://blog.floatingpragma.io/) | [Coherence map](https://coherence.floatingpragma.io/)
+**Quick links:** [OPH website](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Book: Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [Ω](https://omega.floatingpragma.io/) | [Blog](https://blog.floatingpragma.io/) | [Tech](https://omega.floatingpragma.io/) | [Simulation](https://simulation.floatingpragma.io)
 
 **Falsifiability:** [OPH falsifiability map](extra/OPH_falsifiability.md)
 lists 40 hard OPH-killing outcomes and concrete IBM Quantum Cloud tests for
@@ -439,6 +439,7 @@ formulas and claim boundaries live in the papers.
 - **Website:** [floatingpragma.io/oph](https://floatingpragma.io/oph)
 - **Theory explainer:** [floatingpragma.io/oph/theory-of-everything](https://floatingpragma.io/oph/theory-of-everything)
 - **Coherence map:** [coherence.floatingpragma.io](https://coherence.floatingpragma.io): public graph surface for OPH concepts, overlaps, and cross-domain routes.
+- **Simulation:** [simulation.floatingpragma.io](https://simulation.floatingpragma.io): interactive OPH mini-universe explorer showing observer patches, overlap readback, inconsistency repair, records, and emergent geometry.
 - **Applications:** [omega.floatingpragma.io](https://omega.floatingpragma.io): public applications page for OPH hardware, compute, energy, AGI, lift, and optical chamber consensus.
 - **Blog:** [blog.floatingpragma.io](https://blog.floatingpragma.io/) collects public OPH essays. Start with [Semiotics and the Physics of Meaning](https://blog.floatingpragma.io/semiotics-and-the-physics-of-meaning), [The Trigger](https://blog.floatingpragma.io/the-trigger), and [P = NP on the Observer Screen](https://blog.floatingpragma.io/p-equals-np-on-the-observer-screen). The computation essay treats `P = NP` as an observer-screen slogan; the classical complexity problem remains untouched.
 - **Book:** [oph-book.floatingpragma.io](https://oph-book.floatingpragma.io)
