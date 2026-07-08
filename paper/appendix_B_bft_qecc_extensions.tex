@@ -24,8 +24,11 @@ compensating change to the argument.
         A node that has voted in view~$v$ ignores any later request
         to vote in view~$v$.
   \item \textbf{Certificate semantics.}
-        A decision requires a valid quorum certificate: $2f+1$ distinct,
-        unforgeable, authenticated votes for the same value in the same view.
+        A decision requires a valid quorum certificate: in the classical
+        exact-size case used below, $q=2f+1$ distinct, unforgeable,
+        authenticated votes for the same value in the same view.  For
+        larger validator sets at fixed fault budget, the quorum threshold must
+        be scaled so that the overlap condition in (A6) remains true.
   \item \textbf{DLS-style view-change.}
         If no certificate is produced within a timeout, every nonfaulty node
         increments the view number by one and a new leader is selected by a
@@ -46,10 +49,15 @@ satisfies (P1)--(P3) and is the intended instance.
         \emph{liveness} holds after the Global Stabilisation Time (\textrm{GST}).
   \item \textbf{Byzantine fault model.}
         At most $f$ observers behave arbitrarily; the remaining $n-f$ are nonfaulty.
-  \item \textbf{Optimal fault bound.}
-        $n \geq 3f+1$ (necessary: \cite{Lamport1982}; sufficient: \cite{Lamport1982}).
+  \item \textbf{Classical exact sizing for this fixed-quorum theorem.}
+        $n = 3f+1$, so that $q=2f+1$ certificates have a nonfaulty overlap
+        witness.  The usual resilience condition $n\ge 3f+1$ is necessary for
+        the fault model, but when $n>3f+1$ a fixed $q=2f+1$ quorum no longer
+        guarantees the overlap used in the safety proof; one must either
+        impose (A6) directly or choose a threshold $q$ with
+        $2q\ge n+f+1$.
   \item \textbf{Strong quorum connectivity.}
-        Every quorum $Q$ with $|Q|=2f+1$ is strongly connected within~$G$:
+        Every quorum $Q$ with $|Q|=q$ is strongly connected within~$G$:
         for any $u,v\in Q$ there is a directed path in~$G$ contained
         entirely in~$Q$.
         This is strictly stronger than requiring the overlap graph of
@@ -58,8 +66,11 @@ satisfies (P1)--(P3) and is the intended instance.
   \item \textbf{Message authentication.}
         All messages carry unforgeable digital signatures.
   \item \textbf{OPH quorum overlap.}
-        Any two quorums $Q_a, Q_b$ of size $2f+1$ satisfy
-        $|Q_a\cap Q_b|\geq f+1$ (guaranteed by (A3)).
+        Any two quorums $Q_a, Q_b$ of size $q$ satisfy
+        $|Q_a\cap Q_b|\geq f+1$.  For $q=2f+1$ this is guaranteed by the
+        exact sizing $n=3f+1$ in (A3); for general $n$ it is the separate
+        threshold condition $2q\ge n+f+1$, not a consequence of
+        $n\ge3f+1$ alone.
 \end{enumerate}
 
 \begin{theorem}[QBFT Safety Bound
@@ -80,8 +91,10 @@ Under assumptions (A1)--(A6), any consensus protocol satisfying
 \begin{proof}[Proof sketch]
 \textit{Safety.}
 Suppose $O_a$ and $O_b$ finalise $s_a\neq s_b$ in the same view.
-By (P2), each required a certificate of $q=2f+1$ votes: sets $Q_a,Q_b$.
-By (A3): $|Q_a\cap Q_b|\geq(2f+1)+(2f+1)-(3f+1)=f+1$.
+By (P2), each required a certificate of $q$ votes: sets $Q_a,Q_b$.
+By (A6), $|Q_a\cap Q_b|\geq f+1$.  In the classical exact-size case this is
+the inclusion-exclusion calculation
+$|Q_a\cap Q_b|\geq(2f+1)+(2f+1)-(3f+1)=f+1$.
 By (A2), at most $f$ are Byzantine, so $Q_a\cap Q_b$ contains a
 nonfaulty $O^*$.
 By (A4), $O^*$'s signed vote is path-reachable within both quorums.

@@ -51,9 +51,11 @@
 \newcommand{\E}{\mathcal E}
 \newcommand{\Sol}{\operatorname{Sol}}
 \newcommand{\poly}{\operatorname{poly}}
-\InputIfFileExists{../paper/release_info}{}{%
-  \newcommand{\OPHPaperReleaseID}{standalone}
-  \newcommand{\OPHPaperReleaseDate}{undated standalone build}
+\InputIfFileExists{paper/release_info}{}{%
+  \InputIfFileExists{../paper/release_info}{}{%
+    \newcommand{\OPHPaperReleaseID}{r1518}
+    \newcommand{\OPHPaperReleaseDate}{July 7, 2026}
+  }%
 }
 
 \title{\textbf{Photonic Fixed-Point Consensus for SHA-256d Proof of Work}\\[0.25em]
@@ -2001,27 +2003,27 @@ public educational guide, 2026.
 \bibitem{OPHObserversCurrent}
 B. Mueller, A. Osika, M. Poneder, K. Xue, B. Cassie, P. Nguyen, M. A. Visser, K. A. Anirudha, D. Matscheko, and J. Hill,
 ``Observers Are All You Need,''
-GitHub release \OPHPaperReleaseID{} PDF, \OPHPaperReleaseDate.
-\href{https://github.com/FloatingPragma/observer-patch-holography/releases/download/\OPHPaperReleaseID/observers_are_all_you_need.pdf}{release PDF}.
+GitHub main PDF.
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.pdf}{GitHub main PDF}.
 
 \bibitem{OPHCompactCurrent}
-B. Mueller, A. Osika, M. Poneder, K. Xue, P. Nguyen, and M. A. Visser,
+B. Mueller, A. Osika, M. Poneder, K. Xue, P. Nguyen, M. A. Visser, and D. Matscheko,
 ``Recovering Relativity and the Standard Model from Observer Overlap
 Consistency,''
-GitHub release \OPHPaperReleaseID{} PDF, \OPHPaperReleaseDate.
-\href{https://github.com/FloatingPragma/observer-patch-holography/releases/download/\OPHPaperReleaseID/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf}{release PDF}.
+GitHub main PDF.
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf}{GitHub main PDF}.
 
 \bibitem{OPHConsensusCurrent}
-B. Mueller, K. Xue, K. A. Anirudha, and J. Hill,
+B. Mueller, K. Xue, K. A. Anirudha, D. Matscheko, and J. Hill,
 ``Reality as a Consensus Protocol: The Fixed-Point Computation That Implements Physics,''
-GitHub release \OPHPaperReleaseID{} PDF, \OPHPaperReleaseDate.
-\href{https://github.com/FloatingPragma/observer-patch-holography/releases/download/\OPHPaperReleaseID/reality_as_consensus_protocol.pdf}{release PDF}.
+GitHub main PDF.
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/reality_as_consensus_protocol.pdf}{GitHub main PDF}.
 
 \bibitem{OPHScreenCurrent}
-B. Mueller, A. Osika, K. Xue, B. Cassie, and M. A. Visser,
+B. Mueller, A. Osika, K. Xue, B. Cassie, M. A. Visser, and D. Matscheko,
 ``Federated Echosahedral Screen Microphysics: Patch Hardware, Records, and Observer Synchronization in OPH,''
-GitHub release \OPHPaperReleaseID{} PDF, \OPHPaperReleaseDate.
-\href{https://github.com/FloatingPragma/observer-patch-holography/releases/download/\OPHPaperReleaseID/screen_microphysics_and_observer_synchronization.pdf}{release PDF}.
+GitHub main PDF.
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.pdf}{GitHub main PDF}.
 
 \end{thebibliography}
 

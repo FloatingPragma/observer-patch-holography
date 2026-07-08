@@ -187,6 +187,13 @@ correspondence. This is why $A_5$-icosahedral and $E_8$-type language can
 belong to one symmetry story. These names mark symmetry constraints and
 regulator structure.
 
+A finite sidecar records the exact $E_8/\mathrm{Spin}(8)$ triality certificate:
+an $A_8$ root subsystem inside $E_8$, an $\mathrm{Alt}(9)$ subgroup, a
+nonsplit $2.\mathrm{Alt}(9)$ spin lift, an $E_8$-preserving half-spin image,
+and distinct mod-2 orbit fingerprints fused by triality. Its claim level is
+algebraic support for exceptional representation-closure bookkeeping. Public
+receipt status requires the raw Sage, matrix, check-output, and hash bundle.
+
 The scale story has three roles, kept together here. The local coordinate
 $P_\star$ is the screen-pixel fixed point. The global coordinate
 $N_{\mathrm{CRC}}$ is the record-capacity fixed point. The scale ratio

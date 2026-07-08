@@ -9,12 +9,19 @@
 \usepackage{hyperref}
 \usepackage{xurl}
 
-\IfFileExists{../paper/release_info.tex}{
-  \input{../paper/release_info.tex}
+\IfFileExists{paper/release_info.tex}{
+  \input{paper/release_info.tex}
 }{
-  \newcommand{\OPHPaperReleaseDate}{\today}
-  \newcommand{\OPHPaperReleaseBanner}{Draft}
-  \newcommand{\OPHPaperReleaseID}{local-cosmology-staging}
+  \IfFileExists{../paper/release_info.tex}{
+    \input{../paper/release_info.tex}
+  }{
+    \newcommand{\OPHPaperReleaseID}{r1518}
+    \newcommand{\OPHPaperReleaseDate}{July 7, 2026}
+    \newcommand{\OPHPaperReleaseBanner}{%
+      \begin{center}
+      \small\textbf{Paper release:} \texttt{\OPHPaperReleaseID}\quad\textbf{Released:} \OPHPaperReleaseDate
+      \end{center}}
+  }
 }
 
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
@@ -1101,33 +1108,33 @@ the simulator contract for physical promotion.
 \begin{thebibliography}{99}
 
 \bibitem{ophcompact}
-B.~M\"uller, A.~Osika, M.~Poneder, K.~Xue, P.~Nguyen, and M.~A.~Visser,
+B.~M\"uller, A.~Osika, M.~Poneder, K.~Xue, P.~Nguyen, M.~A.~Visser, and D.~Matscheko,
 \emph{Recovering Relativity and the Standard Model from Observer Overlap Consistency},
-OPH compact paper, release \OPHPaperReleaseID, \OPHPaperReleaseDate.
+OPH compact paper, GitHub main PDF.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf}
 
 \bibitem{ophsynthesis}
 B.~M\"uller, A.~Osika, M.~Poneder, K.~Xue, B.~Cassie, P.~Nguyen, M.~A.~Visser, K.~A.~Anirudha, D.~Matscheko, and J.~Hill,
 \emph{Observers Are All You Need},
-OPH synthesis paper, release \OPHPaperReleaseID, \OPHPaperReleaseDate.
+OPH synthesis paper, GitHub main PDF.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.pdf}
 
 \bibitem{ophconsensus}
-B.~M\"uller, K.~Xue, K.~A.~Anirudha, and J.~Hill,
+B.~M\"uller, K.~Xue, K.~A.~Anirudha, D.~Matscheko, and J.~Hill,
 \emph{Reality as a Consensus Protocol: The Fixed-Point Computation That Implements Physics},
-OPH consensus paper, release \OPHPaperReleaseID, \OPHPaperReleaseDate.
+OPH consensus paper, GitHub main PDF.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/reality_as_consensus_protocol.pdf}
 
 \bibitem{ophmicro}
-B.~M\"uller, A.~Osika, K.~Xue, B.~Cassie, and M.~A.~Visser,
+B.~M\"uller, A.~Osika, K.~Xue, B.~Cassie, M.~A.~Visser, and D.~Matscheko,
 \emph{Federated Echosahedral Screen Microphysics: Patch Hardware, Records, and Observer Synchronization in OPH},
-OPH microphysics paper, release \OPHPaperReleaseID, \OPHPaperReleaseDate.
+OPH microphysics paper, GitHub main PDF.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.pdf}
 
 \bibitem{ophdark}
 B.~M\"uller and D.~Matscheko,
 \emph{Observer-Patch Holography and the Dark Matter Phenomenon},
-OPH cosmology paper, release \OPHPaperReleaseID, \OPHPaperReleaseDate.
+OPH cosmology paper, GitHub main PDF.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/cosmology/oph_dark_matter_paper.pdf}
 
 \bibitem{ophinflationdraft}

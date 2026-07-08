@@ -35,7 +35,7 @@
 
 \title{Recovering Relativity and the Standard Model\\
 from Observer Overlap Consistency}
-\author{B.\ M\"uller \and Alexander Osika \and Mario Poneder \and Kai Xue \and Peter Nguyen \and Maarten Antonie Visser}
+\author{B.\ M\"uller \and Alexander Osika \and Mario Poneder \and Kai Xue \and Peter Nguyen \and Maarten Antonie Visser \and David Matscheko}
 \date{\OPHPaperReleaseDate}
 
 \begin{document}
@@ -163,6 +163,18 @@ The later quantitative rows use the structural branch as their carrier. They add
 declared uniqueness tests. Failure of one quantitative row does not erase the recovered core unless
 that row is a parent of the theorem being used.
 
+D.\ Matscheko's OPHProofChain Lean 4 audit supplies an independent
+machine-checked finite-algebra companion for the parts of this paper that are
+genuinely finite: the consensus repair and Rule-90 boundary-reconstruction
+fixtures, the finite modular-flow core, the Einstein-branch tensor algebra and
+\(\lambda\)-constancy step, the hypercharge/\(\mathbb Z_6\) algebra, the scalar
+channel/collar/channel bookkeeping, and selected numerical cage checks.  That
+audit does not discharge the physical or scaling-limit branch hypotheses
+themselves: BW/geometric identification, generalized-entropy stationarity, MAR,
+collar instantiation, \(P\)'s source branch, record-to-gravity calibration, and
+the continuum transfer assumptions remain exactly the declared inputs tracked
+in the dependency table.
+
 \subsection*{Jacobson comparison and reduction limit}
 
 The gravity result is Jacobson-type by design. The intellectual debt is explicit: Jacobson's 1995
@@ -236,7 +248,7 @@ Recovered formula or output & Support status & Display & Boundary \\
 \bottomrule
 \endfoot
 Lorentz transformations and light cone & core theorem & \(\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)\) & prime geometric BW branch \\
-Einstein field equation & core theorem & \(G_{ab}+\Lambda g_{ab}=8\pi G\,\langle T_{ab}\rangle\) & local branch leaves \(\Lambda\) open \\
+Einstein field equation & core theorem & \(G_{ab}+\Lambda g_{ab}=8\pi G\,\langle T_{ab}\rangle\) & E0 dependency discharge; local branch leaves \(\Lambda\) open \\
 Newton-Poisson limit & inherited limit & \(\nabla^2\Phi=4\pi G\rho\), \(\ddot{\mathbf x}=-\nabla\Phi\) & weak field, slow motion \\
 Maxwell equations & corollary & \(F_Q=dA_Q,\ dF_Q=0,\ d{*}F_Q=g_Q^2{*}J_Q\) & ordinary photon branch \\
 Yang--Mills equations & corollary & \(F=dA+A\wedge A,\ DF=0,\ D{*}F=g^2{*}J\) & compact-gauge branch \\
@@ -321,6 +333,19 @@ Node & Output & Immediate internal ingredients & Standard mathematics used & Bra
 \endgroup
 
 The recovered core of this SM/GR derivation paper is D1--D5 together with D7--D9. Within that package, D7 is the bosonic sector-category construction plus compact-gauge reconstruction stage, while D8--D9 are realized-branch results that keep the realized one-generation chiral matter plus one-Higgs package and MAR admissibility inputs explicit. D6 sits outside that recovered core because the cosmological-capacity closure is the separate global completion of the Einstein branch. D5 leaves the metric term undetermined, D6 closes that same branch at the cosmic record-capacity fixed point \(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\), and the same D6 stack emits the de Sitter entropy relation and static-patch display once the selected no-\(G\) scale certificate supplies \(\ell_\star^2\). The density \(\log|\Omega^{\mathrm{sc}}_N|-N\) is the finite-count representation of the same target after division by the full screen Hilbert-space dimension \(e^N\). Informally, that point is where the universe reads back its own boundary without deficit or slack. D10 is the integrated quantitative-closure branch, and D12 collects phenomenological continuations. The modular-anomaly dark-sector branch belongs to D12: it imports the D6 static-patch scale only as an IR benchmark and does not derive MOND/RAR-style response laws, a controlled galaxy-scale source/response law, or galaxy/cluster phenomenology. The branch data used downstream are \(P_\star\), \(N_{\mathrm{CRC}}\), and the selected scale certificate \(\gamma_\star\) or \(B_\star\); descendants use their branch-appropriate readouts.
+
+\paragraph{Exceptional finite-symmetry sidecar.}
+The finite \(E_8/\mathrm{Spin}(8)\) triality certificate belongs beside D7 as an algebraic
+representation-closure sidecar, not as a new recovered-core input. It records an exact
+matrix-level \(A_8\subset E_8\) root subsystem, the even subgroup
+\(\mathrm{Alt}(9)\subset W(A_8)\cong\mathrm{Sym}(9)\), a nonsplit
+\(2\!\cdot\!\mathrm{Alt}(9)\) lift in \(\mathrm{Spin}(8)\), and a positive half-spin image that
+preserves an \(E_8\) lattice. The vector and half-spin presentations have different mod-2 orbit
+fingerprints on \(E_8/2E_8\setminus\{0\}\), namely \(\{9,36,84,126\}\) and \(\{120,135\}\), and
+are identified only after adjoining the outer triality automorphism. This supports finite
+exceptional representation bookkeeping on the compact-gauge side. It does not select the realized
+Standard Model quotient, add a force or particle, prove OPH, close a heterotic critical-edge gate,
+or count as hardware evidence.
 
 Cosmology continuations above D6 obey the same firewall. The flat-FLRW reading is allowed only as a
 clocked-FLRW holonomy identification statement: spatial curvature is read from the spatial
@@ -3306,7 +3331,8 @@ modular clock itself has a purely algebraic core: a positive density matrix
 form a complex-parameter automorphism family, real \(z=t\) gives the
 one-parameter \(^*\)-automorphism flow, the state is invariant under the flow,
 and the \(z=i\) boundary value is the modular operator appearing in the KMS
-identity.  A finite Lean audit formalizes this matrix-algebra core, including
+identity.  The OPHProofChain finite Lean audit formalizes this
+matrix-algebra core, including
 the KMS boundary condition and uniqueness within Hamiltonian-implemented flows
 up to the additive scalar in \(H\).
 
@@ -4679,7 +4705,7 @@ connectivity hypothesis is load-bearing.
 \end{proof}
 
 \begin{remark}[Formal algebra core of the Einstein branch]\label{rem:formal-einstein-core}
-The finite-algebra audit contains a sorry-free Lean formalization of the
+The OPHProofChain finite-algebra audit contains a sorry-free Lean formalization of the
 algebraic part of this subsection. The formalized core includes: the
 rest-frame arithmetic in Theorem~\ref{thm:einstein}; the upgrade from all
 future unit timelike directions to the full tensor equation in
@@ -5984,7 +6010,7 @@ Its powers therefore generate a subgroup of order six acting trivially on all re
 \begin{remark}[Formal algebra core of hypercharge and the \(Z_6\) quotient]
 \label{rem:formal-hypercharge-z6-core}
 The algebraic part of Theorem~\ref{thm:hypercharge} and
-Proposition~\ref{prop:z6} has a finite Lean audit: Yukawa invariance together
+Proposition~\ref{prop:z6} has an OPHProofChain finite Lean audit: Yukawa invariance together
 with the stated anomaly equations fixes the hypercharge ray, the neutrino
 neutrality convention fixes the normalized lattice \(Y_Q=1/(2N_c)\), and for
 \(N_c=3\) the subgroup acting trivially on the realized one-generation
@@ -7272,13 +7298,13 @@ B.~M\"uller, A.~Osika, M.~Poneder, K.~Xue, B.~Cassie, P.~Nguyen, M.~A.~Visser, K
 Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.pdf}.
 
 \bibitem{ophconsensus}
-B.~M\"uller, K.~Xue, K.~A.~Anirudha, and J.~Hill,
+B.~M\"uller, K.~Xue, K.~A.~Anirudha, D.~Matscheko, and J.~Hill,
 \emph{Reality as a Consensus Protocol: The Fixed-Point Computation That Implements Physics},
 2026.
 Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/reality_as_consensus_protocol.pdf}.
 
 \bibitem{ophparticles}
-B.~M\"uller, A.~Osika, M.~Poneder, K.~Xue, and M.~A.~Visser,
+B.~M\"uller, A.~Osika, M.~Poneder, K.~Xue, M.~A.~Visser, and D.~Matscheko,
 \emph{Deriving the Particle Zoo from Observer Consistency},
 2026.
 Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.pdf}.

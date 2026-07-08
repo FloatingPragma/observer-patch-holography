@@ -25,7 +25,7 @@
 
 \title{Federated Echosahedral Screen Microphysics:\\
 Patch Hardware, Records, and Observer Synchronization in OPH}
-\author{B.\ M\"uller \and Alexander Osika \and Kai Xue \and Ben Cassie \and Maarten Antonie Visser}
+\author{B.\ M\"uller \and Alexander Osika \and Kai Xue \and Ben Cassie \and Maarten Antonie Visser \and David Matscheko}
 \date{\OPHPaperReleaseDate}
 
 \begin{document}
@@ -56,6 +56,12 @@ quantitative branch, central records give the Born--L\"uders event surface, Bell
 the Tsirelson bound, and checkpoint restoration states what it means for an observer to continue
 after repair. Hardware claims are kept behind a public evidence rule: manifests, hashes,
 calibration records, raw or reduced traces, and exact verifier receipts carry the weight.
+
+D.\ Matscheko's OPHProofChain Lean audit machine-checks the finite
+scalar-response, scalar-channel packaging, collar-gate skeleton, and
+\(e^{-P/24}\) arithmetic used by this surface.  That formal audit does not
+replace the Scalar Edge-Center Exhaustion, uniform product-thickening, local
+Poisson survival, or hardware-evidence gates stated below.
 
 \tableofcontents
 \newpage
@@ -129,6 +135,20 @@ observer identity lives in the quotient data exposed by \(\mathsf O_i\), so a ch
 coordinates, port labels, or substrate presentation is physically silent when it preserves the
 visible interface and record process.
 
+\begin{definition}[Algebraic audit instrument]
+An algebraic audit instrument is an exact computable map on finite quotient-visible representation
+data. It is used to certify invariance, nonconjugacy, orbit structure, lattice preservation, or
+automorphism fusion inside a declared regulator chart. It is not a physical actuator unless a
+carrier implementation realizes the same visible map with a public evidence bundle.
+\end{definition}
+
+The \(E_8/\mathrm{Spin}(8)\) triality sidecar is an algebraic audit instrument in this sense. It
+certifies, by exact finite matrices, that the vector \(\mathrm{Alt}(9)\) and positive-half-spin
+\(2\!\cdot\!\mathrm{Alt}(9)\) presentations preserve \(E_8\)-lattice data, have different
+mod-2 orbit fingerprints on \(E_8/2E_8\), and are identified only by the Spin(8) triality outer
+automorphism. The result belongs to finite exceptional representation bookkeeping, not to hardware
+promotion.
+
 The tuple \(\mathsf O_i\) does not impose equal primitive observer size. Fixed-cutoff OPH requires
 bounded accessible algebras and declared interfaces; it also permits different connected support
 regions and different finite or regulated algebras. In the carrier picture, an observer-supporting
@@ -161,7 +181,9 @@ The paper uses five claim levels.
 \begin{enumerate}[leftmargin=2em,label=\textbf{C\arabic*.}]
 \item \textbf{Mathematical fixed-cutoff claims.} These are finite-algebra statements about
 patches, overlaps, records, repair interfaces, event algebras, and checkpoint laws. They are
-allowed to be theorem-bearing. The generic overlap network is a finite constraint code only;
+allowed to be theorem-bearing. Finite representation and lattice audit instruments belong here
+when their matrices, exact checks, and quotient-visible invariants are public. The generic overlap
+network is a finite constraint code only;
 QECC distance, min-cut resilience, spectral convergence, BFT liveness, and hardware speedup need
 their own certificates.
 
@@ -2231,6 +2253,18 @@ evidence/hardware/<bundle-id>/
 The manifest should state the strongest allowed claim and the non-claims. The paper may cite the
 bundle only at that claim level.
 
+Algebraic audit bundles use a different namespace and claim level:
+\begin{verbatim}
+code/e8_triality/
+  README.md
+  manifest.json
+  sage/
+  data/
+  receipts/
+\end{verbatim}
+Such a bundle may support a mathematical fixed-cutoff or regulator-chart claim when the raw matrices,
+scripts, exact checks, and hashes are present. It is not a hardware evidence bundle.
+
 \section{Digital Calibration Compatibility}
 
 The octahedral \(\mathbb Z_2/S_3\) build has the following reading rule:
@@ -2245,11 +2279,11 @@ The octahedral \(\mathbb Z_2/S_3\) build has the following reading rule:
 \begin{thebibliography}{99}
 
 \bibitem{ophconsensus}
-B.\ M\"uller, K.\ Xue, K.\ A.\ Anirudha, and J.\ Hill,
+B.\ M\"uller, K.\ Xue, K.\ A.\ Anirudha, D.\ Matscheko, and J.\ Hill,
 \emph{Reality as a Consensus Protocol: The Fixed-Point Computation That Implements Physics}.
 
 \bibitem{ophcompact}
-B.\ M\"uller, A.\ Osika, M.\ Poneder, K.\ Xue, P.\ Nguyen, and M.\ A.\ Visser,
+B.\ M\"uller, A.\ Osika, M.\ Poneder, K.\ Xue, P.\ Nguyen, M.\ A.\ Visser, and D.\ Matscheko,
 \emph{Recovering Relativity and the Standard Model from Observer Overlap Consistency}.
 
 \bibitem{ophsynthesis}
@@ -2257,7 +2291,7 @@ B.\ M\"uller, A.\ Osika, M.\ Poneder, K.\ Xue, B.\ Cassie, P.\ Nguyen, M.\ A.\ V
 \emph{Observers Are All You Need}.
 
 \bibitem{ophparticles}
-B.\ M\"uller, A.\ Osika, M.\ Poneder, K.\ Xue, and M.\ A.\ Visser,
+B.\ M\"uller, A.\ Osika, M.\ Poneder, K.\ Xue, M.\ A.\ Visser, and D.\ Matscheko,
 \emph{Deriving the Particle Zoo from Observer Consistency}.
 
 \bibitem{ophym}

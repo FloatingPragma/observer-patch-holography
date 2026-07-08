@@ -9,12 +9,19 @@
 \usepackage{hyperref}
 \usepackage{xurl}
 
-\IfFileExists{../paper/release_info.tex}{
-  \input{../paper/release_info.tex}
+\IfFileExists{paper/release_info.tex}{
+  \input{paper/release_info.tex}
 }{
-  \newcommand{\OPHPaperReleaseDate}{\today}
-  \newcommand{\OPHPaperReleaseBanner}{Draft}
-  \newcommand{\OPHPaperReleaseID}{local-cosmology-staging}
+  \IfFileExists{../paper/release_info.tex}{
+    \input{../paper/release_info.tex}
+  }{
+    \newcommand{\OPHPaperReleaseID}{r1518}
+    \newcommand{\OPHPaperReleaseDate}{July 7, 2026}
+    \newcommand{\OPHPaperReleaseBanner}{%
+      \begin{center}
+      \small\textbf{Paper release:} \texttt{\OPHPaperReleaseID}\quad\textbf{Released:} \OPHPaperReleaseDate
+      \end{center}}
+  }
 }
 
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}

@@ -1,0 +1,63 @@
+{
+  "certificate_id": "E8_SPIN8_TRIALITY_ALT9_DOUBLE_COVER_CERTIFICATE",
+  "repository_receipt_status": "pending_raw_bundle",
+  "claim_class": "finite_exceptional_symmetry_receipt",
+  "claim_boundary": [
+    "finite algebraic representation-closure support",
+    "not a proof of OPH",
+    "not a Standard Model quotient selector",
+    "not a heterotic critical-edge CFT receipt",
+    "not hardware evidence"
+  ],
+  "mathematical_content": {
+    "root_subsystem": "A8 inside E8",
+    "weyl_group": "W(A8) ~= Sym(9)",
+    "finite_group": "Alt(9)",
+    "spin_lift": "nonsplit 2.Alt(9) in Spin(8)",
+    "lattice_statement": "positive half-spin image preserves an E8 lattice",
+    "vector_mod2_orbits": [9, 36, 84, 126],
+    "spin_mod2_orbits": [120, 135],
+    "fusion": "Spin(8) triality identifies the vector and half-spin presentations"
+  },
+  "required_public_bundle": {
+    "sage": [
+      "e8_roots.sage",
+      "clifford_spin8.sage",
+      "alt9_lifts.sage",
+      "delta_plus_lattice.sage",
+      "mod2_orbits.sage"
+    ],
+    "data": [
+      "E8_basis.json",
+      "A8_chain.json",
+      "gamma_matrices.json",
+      "alt9_generators.json",
+      "spin_lift_generators.json",
+      "delta_plus_generators.json",
+      "lattice_basis.json"
+    ],
+    "receipts": [
+      "checks.json",
+      "stdout.txt",
+      "sha256sums.txt"
+    ]
+  },
+  "expected_checks": [
+    "A8_chain_inside_E8",
+    "W_A8_is_Sym9",
+    "Alt9_even_subgroup",
+    "lift_1234_square_minus_one",
+    "preimage_is_nonsplit_2Alt9",
+    "gamma_clifford_relations_exact",
+    "spin_lift_conjugation_correct",
+    "Delta_plus_well_defined",
+    "Delta_plus_preserves_form",
+    "Delta_plus_1234_square_minus_I",
+    "Delta_plus_lattice_even_unimodular_det1",
+    "Delta_plus_lattice_is_E8",
+    "spin_copy_integral_in_E8_basis",
+    "nonconjugate_in_O8plus2",
+    "triality_fuses_presentations"
+  ],
+  "remaining_gate": "full 2.Sym(9) extension with odd Clifford lifts"
+}

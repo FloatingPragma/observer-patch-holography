@@ -215,6 +215,14 @@ de McKay. C'est pourquoi le langage $A_5$-icosaédrique et le langage de type
 $E_8$ appartiennent à une même histoire de symétrie. Ces noms désignent des
 contraintes de symétrie et une structure de régulateur.
 
+Un certificat fini séparé précise ce rôle : un sous-système de racines $A_8$
+dans $E_8$, un sous-groupe $\mathrm{Alt}(9)$, un relèvement spinoriel
+nonscindé $2.\mathrm{Alt}(9)$, une image demi-spinorielle préservant $E_8$ et
+des empreintes d'orbites modulo 2 distinctes, fusionnées par la trialité. Son
+statut est un soutien algébrique pour la fermeture exceptionnelle des
+représentations. Le statut de reçu public exige le paquet brut Sage, matrices,
+sorties de vérification et hachages.
+
 La discussion d'échelle a trois rôles, rassemblés ici. La coordonnée locale
 $P_\star$ est le point fixe du pixel d'écran. La coordonnée globale
 $N_{\mathrm{CRC}}$ est le point fixe de capacité d'enregistrement. Le rapport

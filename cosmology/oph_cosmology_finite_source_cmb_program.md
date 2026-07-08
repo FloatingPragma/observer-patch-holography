@@ -1772,13 +1772,13 @@ The 256k simulator almost-fits are not random noise. They expose stable structur
 
 99
 
-B. Müller, A. Osika, M. Poneder, K. Xue, P. Nguyen, and M. A. Visser, *Recovering Relativity and the Standard Model from Observer Overlap Consistency*, OPH compact paper, release r1514, 2026. <https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf>
+B. Müller, A. Osika, M. Poneder, K. Xue, P. Nguyen, M. A. Visser, and D. Matscheko, *Recovering Relativity and the Standard Model from Observer Overlap Consistency*, OPH compact paper, GitHub main PDF. <https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf>
 
-B. Müller, A. Osika, M. Poneder, K. Xue, B. Cassie, P. Nguyen, M. A. Visser, K. A. Anirudha, D. Matscheko, and J. Hill, *Observers Are All You Need*, OPH synthesis paper, release r1514, 2026. <https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.pdf>
+B. Müller, A. Osika, M. Poneder, K. Xue, B. Cassie, P. Nguyen, M. A. Visser, K. A. Anirudha, D. Matscheko, and J. Hill, *Observers Are All You Need*, OPH synthesis paper, GitHub main PDF. <https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.pdf>
 
-B. Müller, K. Xue, K. A. Anirudha, and J. Hill, *Reality as a Consensus Protocol*, OPH consensus paper, release r1514, 2026. <https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/reality_as_consensus_protocol.pdf>
+B. Müller, K. Xue, K. A. Anirudha, D. Matscheko, and J. Hill, *Reality as a Consensus Protocol*, OPH consensus paper, GitHub main PDF. <https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/reality_as_consensus_protocol.pdf>
 
-B. Müller, A. Osika, K. Xue, B. Cassie, and M. A. Visser, *Federated Echosahedral Screen Microphysics: Patch Hardware, Records, and Observer Synchronization in OPH*, OPH microphysics paper, release r1514, 2026. <https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.pdf>
+B. Müller, A. Osika, K. Xue, B. Cassie, M. A. Visser, and D. Matscheko, *Federated Echosahedral Screen Microphysics: Patch Hardware, Records, and Observer Synchronization in OPH*, OPH microphysics paper, GitHub main PDF. <https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.pdf>
 
 B. Müller and D. Matscheko, *Observer-Patch Holography and the Dark Matter Phenomenon*, OPH cosmology paper, 2026. <https://github.com/FloatingPragma/observer-patch-holography/blob/main/cosmology/oph_dark_matter_paper.pdf>
 

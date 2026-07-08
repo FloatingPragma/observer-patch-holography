@@ -1,5 +1,5 @@
-**Paper release:** `r1503`
-**Released:** June 24, 2026
+**Paper release:** `r1518`
+**Released:** July 7, 2026
 
 # Scope
 

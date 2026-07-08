@@ -8,15 +8,22 @@
 \usepackage[shortlabels]{enumitem}
 \usepackage{hyperref}
 \usepackage{xurl}
-\IfFileExists{../paper/release_info.tex}{%
-  \input{../paper/release_info.tex}%
+\IfFileExists{paper/release_info.tex}{%
+  \input{paper/release_info.tex}%
 }{%
-  \IfFileExists{../reverse-engineering-reality/paper/release_info.tex}{%
-    \input{../reverse-engineering-reality/paper/release_info.tex}%
+  \IfFileExists{../paper/release_info.tex}{%
+    \input{../paper/release_info.tex}%
   }{%
-    \newcommand{\OPHPaperReleaseDate}{Working paper, \today}%
-    \newcommand{\OPHPaperReleaseBanner}{%
-      \begin{center}\small\textbf{String selector working paper:} local standalone compile\end{center}}
+    \IfFileExists{../reverse-engineering-reality/paper/release_info.tex}{%
+      \input{../reverse-engineering-reality/paper/release_info.tex}%
+    }{%
+      \newcommand{\OPHPaperReleaseID}{r1518}%
+      \newcommand{\OPHPaperReleaseDate}{July 7, 2026}%
+      \newcommand{\OPHPaperReleaseBanner}{%
+        \begin{center}
+        \small\textbf{Paper release:} \texttt{\OPHPaperReleaseID}\quad\textbf{Released:} \OPHPaperReleaseDate
+        \end{center}}
+    }%
   }%
 }
 
@@ -1265,6 +1272,13 @@ report all failures, and run controls that collapse orientation, permute ports, 
 geometry, add spectators or masses, reverse chirality conventions, and disconnect seams.
 \end{enumerate}
 
+The \(E_8/\mathrm{Spin}(8)\) triality sidecar is useful only as a local algebraic witness for this
+last internal-lattice lane. It gives exact finite matrix evidence that one \(E_8\) lattice can carry
+triality-related vector and positive-half-spin \(2\!\cdot\!\mathrm{Alt}(9)\) presentations with
+distinct mod-2 orbit fingerprints. It is not a rank-sixteen \(E_8\oplus E_8\) certificate, not a
+spin-structure or supercurrent receipt, and not a replacement for the heterotic edge-polarization
+gate above.
+
 The existing twelve-port calibration model can test FC-0, FC-1, and the precursor part of FC-2. It cannot
 by itself test \(\operatorname{rank}k_L=24\), \(\operatorname{rank}k_R=12\), \(T_{\OPH}=T_{\rm Sug}\),
 the right-moving supercurrent, or \((c_L,c_R)=(24,12)\). Those require the edge-cylinder extension.
@@ -1540,6 +1554,16 @@ rank-sixteen lattices are \(E_8\oplus E_8\) and \(D_{16}^+\). The ghost central 
 \(-26\) on the bosonic left and \(-15\) on the supersymmetric right, giving the displayed anomaly
 cancellations. BRST nilpotency follows with the standard intercept and level-matching conditions.
 \end{proof}
+
+\begin{remark}[Local \(E_8\) triality receipt]
+The finite \(E_8/\mathrm{Spin}(8)\) triality certificate can be used as a sanity check for the
+\(E_8\)-side automorphism and representation bookkeeping in the \(E_8\oplus E_8\) branch. It
+constructs a nonsplit \(2\!\cdot\!\mathrm{Alt}(9)\) subgroup whose positive-half-spin image preserves
+an \(E_8\) lattice and whose vector and spin-side mod-2 orbit fingerprints are not conjugate before
+triality fusion. This is a local \(E_8\) subgroup certificate. It does not identify the full
+rank-sixteen internal lattice, prove modular invariance, supply the GSO/spin-structure sum, or close
+the OPH critical-edge CFT gate.
+\end{remark}
 
 The OPH theorem target is precise:
 \[
@@ -2834,25 +2858,25 @@ Observer-Patch Holography paper source.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.tex}.
 
 \bibitem{OPHCompactCore}
-B.\ M\"uller, A.\ Osika, M.\ Poneder, K.\ Xue, P.\ Nguyen, and M.\ A.\ Visser,
+B.\ M\"uller, A.\ Osika, M.\ Poneder, K.\ Xue, P.\ Nguyen, M.\ A.\ Visser, and D.\ Matscheko,
 \emph{Recovering Relativity and the Standard Model from Observer Overlap Consistency},
 Observer-Patch Holography compact paper source.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex}.
 
 \bibitem{OPHRealityConsensus}
-B.\ M\"uller, K.\ Xue, K.\ A.\ Anirudha, and J.\ Hill,
+B.\ M\"uller, K.\ Xue, K.\ A.\ Anirudha, D.\ Matscheko, and J.\ Hill,
 \emph{Reality as a Consensus Protocol: The Fixed-Point Computation That Implements Physics},
 Observer-Patch Holography paper source.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/reality_as_consensus_protocol.tex}.
 
 \bibitem{OPHScreenMicrophysics}
-B.\ M\"uller, A.\ Osika, K.\ Xue, B.\ Cassie, and M.\ A.\ Visser,
+B.\ M\"uller, A.\ Osika, K.\ Xue, B.\ Cassie, M.\ A.\ Visser, and D.\ Matscheko,
 \emph{Federated Echosahedral Screen Microphysics: Patch Hardware, Records, and Observer Synchronization in OPH},
 Observer-Patch Holography paper source.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.tex}.
 
 \bibitem{OPHParticleZoo}
-B.\ M\"uller, A.\ Osika, M.\ Poneder, K.\ Xue, and M.\ A.\ Visser,
+B.\ M\"uller, A.\ Osika, M.\ Poneder, K.\ Xue, M.\ A.\ Visser, and D.\ Matscheko,
 \emph{Deriving the Particle Zoo from Observer Consistency},
 Observer-Patch Holography paper source.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.tex}.

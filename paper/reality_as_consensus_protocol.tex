@@ -23,7 +23,7 @@
 
 \title{Reality as a Consensus Protocol:\\
 The Fixed-Point Computation That Implements Physics}
-\author{B.\ M\"uller \and Kai Xue \and Kale Arnav Anirudha \and Jonathan Hill}
+\author{B.\ M\"uller \and Kai Xue \and Kale Arnav Anirudha \and David Matscheko \and Jonathan Hill}
 \date{\OPHPaperReleaseDate}
 
 \begin{document}
@@ -1401,7 +1401,8 @@ For the time slab \(0,\ldots,t\), a two-column timelike tube
 \{j_0,j_0+g\}\times\{0,\ldots,t\}
 \]
 is an information set when its values determine the whole Rule-90 spacetime
-record.  The external Lean audit proves the sharp two-column classification:
+record.  Matscheko's OPHProofChain Lean audit proves the sharp two-column
+classification:
 \[
 \text{tube}(g)\text{ is an information set}
 \quad\Longleftrightarrow\quad
@@ -1513,6 +1514,17 @@ name for primitive evidence and residual checks. Producer-declared booleans, lab
 successful plots cannot override failed residuals, missing objects, or undeclared quotient maps.
 When a later paper names a physical receipt, the evidence bundle must expose the raw objects needed
 to recompute it.
+\end{remark}
+
+\begin{remark}[Triality as finite quotient-fusion example]\label{rem:triality-quotient-fusion}
+The \(E_8/\mathrm{Spin}(8)\) triality certificate is a finite exact example of the quotient
+discipline used here. Before quotienting by the allowed outer symmetry, the vector
+\(\mathrm{Alt}(9)\) and positive-half-spin \(2\!\cdot\!\mathrm{Alt}(9)\) presentations have
+different orbit partitions on \(E_8/2E_8\setminus\{0\}\), namely \(\{9,36,84,126\}\) and
+\(\{120,135\}\), so they are not conjugate in \(O_8^+(2)\). After adjoining Spin(8) triality they
+become different charts of one triality-fused exceptional datum. This is not a new confluence
+theorem and does not imply repair termination, noisy convergence, code distance, BFT liveness, or
+hardware speedup.
 \end{remark}
 
 \begin{corollary}[Gauge-invariant law]\label{cor:gaugeinv}
@@ -3094,8 +3106,9 @@ inputs.
 The consensus formalism of \textrm{OPH} has natural analogies to classical and quantum
 distributed Byzantine agreement. Observer patches correspond to protocol nodes, overlap repair
 corresponds to a quorum vote, and the repair fixed-point corresponds to a consensus state. Under
-explicit structural assumptions (quorum size $\geq 2f+1$, partial synchrony, one-vote-per-view,
-certificate semantics, and \textrm{DLS}-style view-change), a \textrm{QBFT}-style interpretation
+explicit structural assumptions (partial synchrony, one-vote-per-view, certificate semantics,
+authentication, and quorum overlap: either the classical exact sizing \(n=3f+1,q=2f+1\) or a
+general threshold \(q\) with \(2q\ge n+f+1\)), a \textrm{QBFT}-style interpretation
 of \textrm{OPH} repair satisfies safety and liveness (Appendix~\ref{app:bft-qecc},
 Theorem~\ref{thm:qbft-safety}). On the fixed-cutoff collar branch used here, the repair map is
 written in exact-splice / Petz form; the assumption-dependent item is the \textrm{CPTP}
@@ -3126,7 +3139,7 @@ Distance equals min-cut & topological-code certificate with homological logicals
 Corrects \(t\) corrupted carriers & code projector, error family, Knill--Laflamme condition, and certified \(t<d/2\) distance bound \\
 Exponential convergence & declared transfer/channel operator with stationary projection and spectral gap \\
 Long-run noisy approximate consensus & fair-block contraction certificate \((\lambda,\varepsilon,A,\beta,L)\) for distance to the exact quotient normal-form set \\
-Wall-clock BFT liveness & partial synchrony, quorum certificates, authentication, and \(n\ge3f+1\) \\
+Wall-clock BFT liveness & partial synchrony, quorum certificates, authentication, and quorum-overlap sizing: \(n=3f+1,q=2f+1\) or \(2q\ge n+f+1\) \\
 Hardware search work reduction & exact-verifier candidate-enrichment factor measured under controls \\
 \end{tabular}
 \end{center}
