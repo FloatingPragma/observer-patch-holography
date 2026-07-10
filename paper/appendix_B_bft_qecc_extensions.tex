@@ -52,8 +52,8 @@ satisfies (P1)--(P3) and is the intended instance.
   \item \textbf{Classical exact sizing for this fixed-quorum theorem.}
         $n = 3f+1$, so that $q=2f+1$ certificates have a nonfaulty overlap
         witness.  The usual resilience condition $n\ge 3f+1$ is necessary for
-        the fault model, but when $n>3f+1$ a fixed $q=2f+1$ quorum no longer
-        guarantees the overlap used in the safety proof; one must either
+        the fault model, but when $n>3f+1$ a fixed $q=2f+1$ quorum is
+        insufficient for the overlap used in the safety proof; one must either
         impose (A6) directly or choose a threshold $q$ with
         $2q\ge n+f+1$.
   \item \textbf{Strong quorum connectivity.}
@@ -72,6 +72,10 @@ satisfies (P1)--(P3) and is the intended instance.
         threshold condition $2q\ge n+f+1$, not a consequence of
         $n\ge3f+1$ alone.
 \end{enumerate}
+
+D.\ Matscheko's Lean audit of this appendix checks the finite quorum-overlap
+core and records the same boundary caveat: at fixed \(q=2f+1\), the overlap
+step is exact-size \(n=3f+1\) logic unless (A6) is imposed separately.
 
 \begin{theorem}[QBFT Safety Bound
   {\normalfont\small [Established under A1--A6]}]

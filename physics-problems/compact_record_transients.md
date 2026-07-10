@@ -80,7 +80,7 @@ The complete compact-transient lane also requires
 \mathsf{Promote}_r.
 ```
 
-`Hist_r` stores compact-object histories, not just single events. `ObsWin`
+`Hist_r` stores compact-object histories across multiple events. `ObsWin`
 records survey time, cadence, dead time, sky coverage, and non-detection
 intervals. `Thin_c` is the detector selection kernel. `Cens_c` records upper
 limits, vetoes, and exposure-only non-detections. `Ctrl_c` is the frozen control

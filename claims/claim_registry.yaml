@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "release_id": "r1520",
+  "release_id": "r1522",
   "source_commit_policy": "The release commit is supplied by git and the paper release manifest at release packaging time; this working registry is validated against paper/release_info.tex.",
   "claims": [
     {
@@ -46,11 +46,25 @@
       "status": "proved_on_branch"
     },
     {
+      "claim_id": "OPH-FINITE-AUDIT-MATSCHEKO",
+      "statement": "Matscheko's OPHProofChain audit supplies a machine-checked finite-algebra companion for quotient repair, boundary reconstruction, finite modular flow, lambda constancy, hypercharge and Z6 algebra, scalar-channel bookkeeping, twelve-port surface bookkeeping, selected numerical cage checks, and the QBFT quorum-overlap caveat.",
+      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "tier": "finite_audit_receipt",
+      "assumptions": ["finite_or_regulated_branch", "OPHProofChain Lean audit provenance", "standard Lean and Mathlib axioms"],
+      "imported_results": ["finite quotient repair", "finite modular KMS flow", "matrix-algebra uniqueness", "lambda constancy under conservation and connectivity", "hypercharge and Z6 algebra", "scalar channel bridge", "twelve-port surface bookkeeping", "finite energy cage arithmetic", "QBFT quorum-overlap caveat"],
+      "oph_specific_delta": "The audit converts several finite OPH proof obligations into checkable finite theorem packets while leaving physical branch-entry and scaling assumptions explicit.",
+      "novelty_type": "independent_formal_audit",
+      "evidence": ["paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "paper/screen_microphysics_and_observer_synchronization.tex", "paper/appendix_B_bft_qecc_extensions.tex"],
+      "falsifier": "A cited finite audit theorem fails to build, imports a nonstandard axiom not listed in the audit, or is used to discharge a physical or scaling-limit hypothesis it only assumes.",
+      "scope_if_false": "The corresponding finite receipt is reopened; physical branch hypotheses and unrelated fixed-cutoff results must be assessed separately.",
+      "status": "finite_audit_imported_with_physics_residues"
+    },
+    {
       "claim_id": "OPH-GR-D5",
       "statement": "The Lorentz/null-modular branch and fixed-cap generalized-entropy stationarity produce a Jacobson-type Einstein branch in the stated scaling regime.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "conditional_scaling_theorem",
-      "assumptions": ["support_visible_BW_scaling", "null_stress_bridge", "fixed_cap_MaxEnt_variation_family", "small_ball_bridge", "all_directions_tensor_upgrade"],
+      "assumptions": ["support_visible_BW_scaling", "cap_normal_H3_chart", "null_stress_bridge", "fixed_cap_MaxEnt_variation_family", "small_ball_bridge", "all_directions_tensor_upgrade"],
       "imported_results": ["Bisognano_Wichmann_modular_theory", "Jacobson_1995", "Jacobson_2016", "small_ball_area_variation", "quadratic_polarization_tensor_upgrade"],
       "oph_specific_delta": "OPH supplies support-visible cap modular extraction, finite collar recovery, explicit remainder bookkeeping, observer-overlap direction completion, and a separate capacity closure for the cosmological term.",
       "novelty_type": "application_and_extension",
@@ -58,6 +72,34 @@
       "falsifier": "No physically realizable support-visible modular limit exists, the collar remainder fails to vanish on the branch, or the all-directions tensor upgrade fails.",
       "scope_if_false": "The OPH gravity branch falls; fixed-cutoff consensus and purely gauge-sector results do not automatically fall.",
       "status": "proved_on_branch"
+    },
+    {
+      "claim_id": "OPH-GR-D3-CAP-H3",
+      "statement": "On the support-visible oriented-round-cap BW branch, the projective future null cone realizes S2, oriented round caps are unit spacelike de Sitter normals transforming equivariantly under SO+(3,1), and the canonical observer-frame symmetric space is H3 = SO+(3,1)/SO(3), with caps dual to geodesic half-spaces rather than observer points.",
+      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "tier": "conditional_scaling_geometric_theorem",
+      "assumptions": ["support_visible_BW_scaling", "oriented_round_cap_rigidity", "consistent_orientation_and_time_orientation"],
+      "imported_results": ["projective_future_null_cone_geometry", "global_conformal_classification_of_S2", "SL2C_PSL2C_Lorentz_identification", "hyperboloid_model_of_H3"],
+      "oph_specific_delta": "The standard cap-normal and hyperbolic-boundary geometry is inserted explicitly into the OPH support-visible BW dependency chain, with a proved non-populated-bulk boundary and a no-go theorem against selecting an observer point from one cap alone.",
+      "novelty_type": "standard_geometry_integrated_into_OPH_branch",
+      "evidence": ["paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "paper/observers_are_all_you_need.tex"],
+      "falsifier": "A declared oriented round cap fails the unit-normal or signed-incidence identities, a declared Lorentz transition fails cap-normal equivariance, or the paper identifies a cap normal with an H3 observer point without additional frame-selection data.",
+      "scope_if_false": "The OPH Lorentz/H3 chart claim falls or must be weakened; finite consensus, compact-gauge reconstruction, and unrelated fixed-cutoff results do not automatically fall.",
+      "status": "proved_on_branch"
+    },
+    {
+      "claim_id": "OPH-GR-D3-H3-LOCALIZATION",
+      "statement": "Given the observer-facing H3 chart, calibrated record-conditioned modular cap responses stably localize a quotient-visible record token when they factor through one point-local H3 source on a compact domain with a quantitatively observable cap frame, bounded total error, and certified residual-gap controls.",
+      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "tier": "conditional_continuation_theorem",
+      "assumptions": ["cap_normal_H3_chart", "record_conditioned_modular_cap_response", "point_local_cap_response_factorization", "compact_H3_source_domain", "quantitative_cap_observability", "bounded_localization_error_budget", "positive_localization_gap_for_unique_finite_output"],
+      "imported_results": ["hyperbolic_halfspace_separation", "finite_frame_inverse_stability", "finite_epsilon_nets_on_compact_metric_spaces", "residual_minimizer_error_bound"],
+      "oph_specific_delta": "OPH attaches the standard inverse-stability geometry to quotient-visible record tokens through modular cap-response operators and simulator receipt semantics, while keeping point locality, neutral bulk, stress, and species outside the theorem.",
+      "novelty_type": "conditional_record_population_theorem",
+      "evidence": ["paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "paper/screen_microphysics_and_observer_synchronization.tex", "paper/deriving_the_particle_zoo_from_observer_consistency.tex"],
+      "falsifier": "A localization receipt uses a noncompact domain without truncation, lacks alpha>0, promotes qualitative separation to a noisy inverse bound, ignores calibration/model error, or reports a unique finite point when Delta_loc <= 0.",
+      "scope_if_false": "Record-populated observer-facing H3 localization is weakened or reopened; the cap-normal chart theorem, gauge reconstruction, and Einstein branch do not automatically fall.",
+      "status": "conditional_theorem"
     },
     {
       "claim_id": "OPH-GR-D6-CAPACITY",

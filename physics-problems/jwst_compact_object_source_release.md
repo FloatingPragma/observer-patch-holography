@@ -27,9 +27,9 @@ observations. It asks how OPH should treat JWST high-redshift compact objects,
 early massive galaxy candidates, little red dots, and apparently mature
 black-hole candidates without claiming that JWST has confirmed OPH.
 
-The issue is not just that JWST sees bright early objects. The audit question is
-whether luminosity, color, compactness, apparent maturity, AGN contribution, and
-selection effects have been collapsed into one physical claim too quickly.
+JWST sees bright early objects. The audit question is whether luminosity, color,
+compactness, apparent maturity, AGN contribution, and selection effects have
+been collapsed into one physical claim too quickly.
 
 The OPH answer is:
 

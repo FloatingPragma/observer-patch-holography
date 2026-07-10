@@ -181,17 +181,20 @@ de support, sans être une boule littérale recouverte de données.
 
 Cette carte sphérique porte plusieurs tâches précises. Les caps et les colliers
 donnent les données locales de coupe utilisées par le flot modulaire et la
-variation d'entropie. Le groupe conforme de la sphère est la forme céleste du
-groupe de Lorentz connexe, $\mathrm{SO}^+(3,1)$, ce qui donne le pont
-cinématique vers la branche d'espace-temps émergent en $3+1$ dimensions une
-fois satisfaites les conditions nécessaires sur les caps et le flot modulaire.
-La carte de repos de l'observateur est
-$H^3\simeq\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$, donc exactement
-tridimensionnelle sur cette branche. Les harmoniques sphériques organisent les
-modes angulaires. Les cellulations finies de la même
-carte donnent la surface régulatrice où les ports de patches, les données
-d'arêtes et les contrôles de recouvrement deviennent explicites ; leur rôle est
-celui d'un régulateur fini, sans statut de continuum invariant de Lorentz.
+variation d'entropie. La symétrie conforme de la sphère est la forme céleste du
+groupe de Lorentz connexe, donc la même carte fournit le pont cinématique vers
+la branche d'espace-temps émergent en \(3+1\) dimensions quand les conditions
+sur les caps et le flot modulaire sont satisfaites. Sur cette branche
+contrôlée, la carte spatiale orientée observateur est exactement
+tridimensionnelle. Les caps marquent des coupes et des côtés de la carte, pas
+des points d'observateur privilégiés. Les jetons d'enregistrement ne peuplent
+la carte que lorsque des réponses de caps calibrées et un budget d'erreur
+permettent la localisation. Les preuves finies peuvent signaler une ambiguïté. Les
+harmoniques sphériques organisent les modes angulaires. Les cellulations finies
+de la même carte donnent la surface régulatrice où les ports de patches, les
+données d'arêtes et les contrôles de recouvrement deviennent explicites ; leur
+rôle est celui d'un régulateur fini, sans statut de continuum invariant de
+Lorentz.
 
 L'ancre de symétrie finie est $A_5$, le groupe des rotations de
 l'icosaèdre. Elle fournit le squelette icosaédrique derrière le langage des
@@ -202,9 +205,10 @@ le porteur comme une boule lisse.
 La même géométrie donne une échelle de sphères utile pour le lecteur. $S^0$
 est la première distinction de germe ou de lecture. $S^1$ est la récurrence,
 la boucle où un enregistrement peut revenir sur lui-même. $S^2$ est l'écran
-d'horizon et l'archive publique. $S^3$ est la géométrie de bulk reconstruite
-et vécue par les observateurs. Cette échelle nomme des rôles dans
-l'architecture de relecture OPH ; la taxonomie des particules reste portée par
+d'horizon et l'archive publique. Le dernier échelon signifie le rôle de bulk
+orienté observateur en trois dimensions ; sur la branche de Lorentz contrôlée,
+sa carte cinématique canonique est $H^3$. Aucune topologie globale $S^3$ ne
+découle de ce moyen mnémotechnique. La taxonomie des particules reste portée par
 les branches de Lorentz et de jauge.
 
 L'ancre exceptionnelle est le groupe de Lie $E_8$ et sa structure de réseau
@@ -310,7 +314,7 @@ correspondent aux textes qui portent la surface théorématique centrale.
 - **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique compact de la branche OPH reconstruite. Il donne la route par cohérence de recouvrement vers la structure de Lorentz, la branche de gravité de type Einstein sur le coeur récupéré à cinq axiomes, le noyau algébrique formel qui promeut les données de repère au tenseur complet et fixe le résidu métrique en un seul \(\Lambda\) sur les branches connexes conservées, la reconstruction de jauge compacte, le quotient du Modèle Standard et le paquet matière sélectionnés avec noyau algébrique formel hypercharge/\(Z_6\), le porteur local de Borel-Weil pour le créneau à un Higgs, Maxwell sur la branche ordinaire du photon et la route conditionnelle vers le gap de Yang-Mills sous ses hypothèses de continuum, positivité par réflexion, transfert/intertwiner et non-trivialité.
 - **Papier 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)** : synthèse large et meilleure porte d'entrée. Il explique les patches d'observateurs finis, la cohérence de recouvrement, les enregistrements, les mouvements de réparation, l'univers effectif reconstruit, l'histoire d'échelle et les frontières publiques des affirmations sans remplacer le registre théorématique du papier compact.
 - **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivation et audit du secteur particules. Il porte la reconstruction pilotée par \(P_\star\), les porteurs structurels, le pont de porteur à un Higgs de Borel-Weil, les branches électrofaible/Higgs/top, quarks, leptons chargés, neutrinos et hadrons, les vérifications quantitatives et la couture conditionnelle de lignes d'enregistrement.
-- **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : mécanique du consensus fini entre patches. Il montre comment les observateurs comparent les enregistrements de recouvrement, appliquent des réparations, traitent les défauts et convergent vers des formes normales quotient quand les hypothèses de cutoff fixe sont satisfaites. Le résultat de consensus s'arrête aux formes normales quotient ; la géométrie lorentzienne et einsteinienne entre par la branche géométrique séparée du papier compact. L'opérateur de réparation est formulé sur le quotient physique, les lectures réparées sont invariantes sous les choix d'implémentation cachés, un porteur fini en couches témoigne de la reconstruction depuis la frontière, et le dispositif Rule-90 donne des tests finis positifs/négatifs nets pour réparation et reconstruction de frontière.
+- **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : mécanique du consensus fini entre patches. Il montre comment les observateurs comparent les enregistrements de recouvrement, appliquent des réparations, traitent les défauts et convergent vers des formes normales quotient quand les hypothèses de cutoff fixe sont satisfaites. Le résultat de consensus s'arrête aux formes normales quotient ; la géométrie lorentzienne et einsteinienne entre par la branche géométrique séparée du papier compact. L'opérateur de réparation est formulé sur le quotient physique, les lectures réparées sont invariantes sous les choix d'implémentation cachés, un porteur fini en couches témoigne de la reconstruction depuis la frontière, et un dispositif fini binaire donne des tests finis positifs/négatifs nets pour réparation et reconstruction de frontière.
 - **Papier 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** : surface de porteurs finis et d'enregistrements observateurs. Il donne l'architecture de porteurs échosaédriques multiports, le théorème du tamis d'écran à douze ports, la complétude des emplacements scalaires au centre des arêtes, le pont fini du canal scalaire, la réserve \(Z_6\) quotient-edge et les portes du coefficient scalaire à épaisseur finie, le cadrage \(A_5\)-icosaédrique et de type \(E_8\), les règles de preuve matérielle publique, les enregistrements, les mouvements de récupération, la restauration de checkpoint et la synchronisation des observateurs.
 - **Papier 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)** : synthèse de la couche de sens. Il lit la même mécanique OPH comme théorie de la continuation d'observateur, du paradis et de l'enfer comme environnements de continuation, de la résurrection comme continuation préservant les enregistrements, de la justice comme comptabilité tort-réparation et de la boucle où des observateurs reconstruisent puis construisent la machinerie de continuation.
 
@@ -348,84 +352,12 @@ mais elle ne promeut pas à elle seule un résultat cosmologique natif OPH.
 
 ## Articles sur des problèmes de physique
 
-Des notes Markdown autonomes pour des problèmes de physique appliqués
-vivent dans [`physics-problems/`](physics-problems/README.md). Elles agissent
-comme articles supplémentaires pour la lecture publique et l'ingestion par OPH
-Sage. Les notes spécifiques à un problème sont en Markdown seulement et
-n'entrent pas dans le pipeline de publication des papiers de release.
-
-- **[Fusion plasma et confinement](physics-problems/plasma_fusion.md)** :
-  fusion comme paquet théorématique de registre de réparation OPH. Le texte
-  définit le registre de réparation de fusion, H-mode comme branche de
-  contraction de collier de bord, les ELM comme cycles obstruction/reset,
-  Lawson comme projection scalaire d'énergie, Hydrosahedron comme spécialisation
-  acoustique porteur/contrôle, et les promotions DD/chaleur/charge/puissance
-  nette comme niveaux de reçus séparés.
-- **[Supraconductivité à haute température](physics-problems/high_temperature_superconductivity.md)** :
-  haut $T_c$ comme réparation de charge $2e$ plus confluence de phase
-  $U(1)_Q$. Il énonce les prédicats cuprates, pnictides/chalcogénures,
-  trempe sous pression, hétérostructures et conception inverse sans les
-  transformer en recettes expérimentales.
-- **[Universalité des solides amorphes à basse température](physics-problems/low_temperature_amorphous_universality.md)** :
-  l'atténuation des verres à basse température comme branche source seule
-  saturée de registres rigides. Le texte traite chaque matériau comme un patch
-  borné auto-relecteur, avec ports visibles à la déformation, enregistrements
-  à deux bassins, mouvements de réparation ou de tunneling, et reçus
-  acoustiques ou thermiques publics, puis dérive
-  $\lambda/\ell=3.2441\times10^{-3}$ sans utiliser les mesures comme entrées
-  source.
-- **[États de Hall quantique fractionnaire](physics-problems/fractional_quantum_hall.md)** :
-  phases de Hall fractionnaires comme formes normales de bord/holonomie,
-  récupération de la forme matricielle abélienne $K$, raffinement hiérarchique,
-  conditions de secteurs de réparation non abéliens et théorème de
-  non-sélection à $5/2$. L'extension aux excitons fractionnaires ajoute modules
-  optiques et reçus de faisceau de raies pour les bancs d'essai matériels de
-  fractionalisation ; la note compacte associée est
-  [Fractional Excitons as OPH Quotient-Sector Readouts](physics-problems/fractional_excitons_as_oph_quotient_sector_readouts.md).
-  Ses reçus de simulation sont miroités dans `oph-physics-sim/oph_fractional/`
-  et `code/particles/fractional/`, avec la promotion matérielle toujours
-  bloquée au niveau de la preuve hamiltonienne/de loi source.
-- **[Point final hadronique de précision](physics-problems/hadronic_precision_endpoint.md)** :
-  backend hadronique source-ouvert partagé pour le point final de structure
-  fine, HVP \(g-2\), HLbL \(g-2\) et les amplitudes de longue distance des
-  désintégrations rares. Il exige un ensemble quotient OPH-QCD, une carte de
-  paramètres QCD source, un transfert de vide euclidien fini, un registre de
-  courant normalisé par Ward, une exportation spectrale positive
-  Stieltjes/Jacobi, un reste de point final dans le même schéma et un DAG sans
-  fuite de cible avant toute revendication de précision source-seule.
-- **[Objets compacts JWST comme surfaces d'enregistrement de libération de source](physics-problems/jwst_compact_object_source_release.md)** :
-  voie d'audit pour objets compacts à haut redshift, candidats de galaxies
-  massives précoces, petits points rouges et candidats de trous noirs
-  apparemment mûrs. Elle garde compacité, couleur rouge, luminosité,
-  contribution AGN, libération de source, sélection et interprétation
-  masse/âge dans des niveaux de reçus séparés ; les catalogues JWST ne
-  confirment pas OPH par eux-mêmes.
-- **[Compact Record Transients](physics-problems/compact_record_transients.md)** :
-  voie conditionnelle pour FRB, recyclage de trous noirs et surfaces
-  d'enregistrements compacts. Elle définit histoires, amincissement détecteur,
-  censure, vraisemblances de processus ponctuels, contrôles, raffinement et
-  reçus de promotion, tout en bloquant toute affirmation selon laquelle OPH
-  expliquerait les transitoires compacts sans preuves de taux, hôte, minutage,
-  forme d'onde, exposition et vraisemblance gelée.
-- **[Gamma-Ray Morphology Claims in OPH](physics-problems/gamma_ray_morphology_claims_in_oph.md)** :
-  voie d'audit morphologique pour dipôles gamma, résidus du centre galactique
-  ou du halo, et grands gabarits gamma. Elle traite les signatures gamma OPH
-  comme des morphologies source gelées, non comme un simple excès de photons,
-  et exige réponse instrumentale en espace de comptage, alternatives
-  d'avant-plan, identifiabilité, validation tenue à part, tests de traceurs
-  croisés et tests nuls avant toute promotion candidate.
-- **[High-Energy Messenger Coefficient Emission](physics-problems/high_energy_messenger_coefficients.md)** :
-  théorème de coefficients source seuls pour registres de sources neutrino à
-  haute énergie, rayons cosmiques et gamma. Il émet des coefficients MaxEnt
-  finis depuis les moments de charge de source des moteurs compacts, bloque la
-  fuite de données d'événements UHE, et exige un coefficient source partagé
-  avant les noyaux de propagation et de détecteur propres à chaque messager.
-- **[CMB Simulation Promotion to a Physical Prediction](physics-problems/cmb_simulation_promotion_to_physical_prediction.md)** :
-  registre de promotion pour le champ de bordure de type CMB du simulateur
-  public de mini-univers. Il garde séparés les diagnostics visuels/de spectre,
-  les artefacts finis source seule, le routage physique conditionnel avec
-  géométrie FLRW importée, le `CosmoGeomRead_r` natif OPH et les prédictions
-  CMB physiques évaluées par vraisemblance gelée.
+Les notes appliquées vivent dans
+[`physics-problems/`](physics-problems/README.md). Ce dossier porte la liste
+des articles, les résumés, les liens vers les résultats motivants, les
+frontières de revendication et les notes d'ingestion OPH Sage. Les notes sont
+en Markdown seulement et restent hors du pipeline de release des papiers, de
+l'index web des papiers et des artefacts GitHub Release.
 
 ## Statut de preuve
 
@@ -467,6 +399,19 @@ pertinents passent ; les revendications de vraisemblance physique exigent un
 ensemble dérivé du quotient, une reconstruction stable sous régulateur, une
 abondance source seule le cas échéant et une cible de validation gelée avant la
 lecture des données de vraisemblance.
+
+Le papier compact contient aussi trois énoncés géométriques conditionnels. Si
+les données finies de caps portent les bonnes preuves d'ordre, d'orientation,
+de comportement modulaire et de normalisation thermique, elles convergent vers
+le flot géométrique de cap attendu. La dérivation de ces preuves depuis le
+consensus fini nu fait partie du problème d'entrée de la branche d'Einstein.
+Sur cette branche contrôlée, la carte spatiale orientée observateur est
+exactement tridimensionnelle. Le théorème ne peuple pas la carte avec des
+objets, ne dérive pas un rayon de courbure physique, ne produit pas un bulk
+neutre et ne ferme pas la branche d'Einstein. Les jetons d'enregistrement ne
+peuvent être localisés que lorsque les réponses de caps calibrées et un budget
+d'erreur complet soutiennent cette revendication ; sinon la bonne sortie est
+l'ambiguïté.
 
 ## Applications et matériel OMEGA
 

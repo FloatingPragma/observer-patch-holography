@@ -326,19 +326,25 @@ $$\sigma_t^{\omega_C} = \alpha_{\lambda_C(2\pi t)}$$
 
 The left side is the algebraic clock: how the cap's allowed questions flow
 under the state \(\omega_C\). The right side is a geometric motion of the
-sphere. The function \(\lambda_C\) says how much cap dilation corresponds to
-the modular-time parameter, and the \(2\pi\) fixes the thermal normalization.
-The equality says that the algebraic clock and the geometric motion act the
-same way on the cap observables.
+sphere. The cap data also have to fix which side of the cap is meant, which
+orientation is being used, and which geometric normalization is being compared
+with the modular clock. The theorem is careful about those receipts instead of
+quietly assuming them.
 
 This is a conditional statement. The cap pair has to be extracted cleanly, the
 modular flow has to be transported through the regularized construction, the
-round caps have to be rigid, and the KMS/Bisognano-Wichmann normalization has
-to fix the \(2\pi\). Under those conditions, the algebraic flow and the
-geometric cap dilation are the same operation. Finite cells by themselves do
-not make Lorentz invariance. The geometric statement appears only after the
-finite regulator is carried through the continuum comparison with controlled
-state errors and a declared cutoff schedule.
+round caps have to be rigid, and the thermal normalization has to be fixed.
+Under those conditions, the algebraic flow and the geometric cap dilation are
+the same operation. Finite cells by themselves do not make Lorentz invariance,
+and a permutation of cap labels on a finite mesh is not a continuous boost. The
+geometric statement appears only after the finite regulator is compared with
+the continuum using controlled state errors and a declared cutoff schedule.
+
+This closes one conditional implication: certified finite cap data lead to the
+support-visible geometric cap flow. It does not prove that bare finite
+consensus produces the needed evidence package. The observer-facing spatial
+chart and the record-localization step are downstream gates with their own
+conditions.
 
 That is the bridge. The clock defined by the state becomes the same clock
 spacetime symmetry was looking for.
@@ -358,6 +364,11 @@ This is the main reason the sphere is the right observer-facing chart. It gives
 each observer a celestial sky, it gives local caps whose modular clocks can
 become geometric flows, and it gives the exact symmetry group that relativity
 uses to compare inertial observers.
+
+The precise proof uses null rays and oriented caps, but the picture is simple:
+a cap on the sky marks a side of the observer's celestial screen. It helps
+define cuts and half-spaces in the recovered spatial chart. It is not itself
+the observer's position.
 
 $\text{Conf}^+(S^2)$ is the orientation-preserving conformal group of the
 two-sphere. $PSL(2,\mathbb C)$ is the projective special linear group acting
@@ -389,6 +400,16 @@ $$H^3 = SO^+(3,1)/SO(3)$$
 The Lorentz group has six generators. Rotations use three of them. The quotient
 leaves three boost directions, so the spatial chart has dimension $6-3=3$.
 This is why the recovered observer-facing bulk chart is three-dimensional.
+
+A cap is not an observer point. Observer data, such as a clock, a tetrad, or a
+stable record frame, select where an observer sits in the chart. The chart's
+overall physical scale is still a separate gravity-branch question.
+
+Record-populated space is also a separate step. A record token enters the
+observer-facing chart only when its calibrated cap responses behave like one
+source and the error budget is complete. With finite noisy data, OPH may return
+a certified region or an ambiguity report. This is record localization, not a
+derivation of particle species, stress energy, or neutral third-person bulk.
 
 ### Why There Is No Privileged Reference Frame
 

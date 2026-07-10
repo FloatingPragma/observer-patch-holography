@@ -374,6 +374,9 @@ This chart does real work. Caps and collars on the sphere identify the local
 questions an observer can ask. Overlaps between caps identify the data two
 observers can compare. The conformal symmetries of the same sphere become the
 Lorentz symmetries of the shared spacetime description in the smooth regime.
+On that branch the same chart also carries Lorentz meaning: sky directions and
+cap sides transform together. A cap has Lorentzian meaning as well as its
+screen-picture meaning.
 The finite patch federation supplies the machine underneath that chart.
 
 ### A Plausible Hardware Sketch
@@ -408,9 +411,9 @@ The screen notation can be read as a small ladder of logical roles.
 $S^0$ is the first distinction, the seed of a readout. Something can be marked
 as this, with silence as the alternative. $S^1$ is recurrence: a loop in which a record can
 return to itself and be checked again. $S^2$ is the screen, the public archive
-where finite observers expose overlap data. $S^3$ is the reconstructed bulk,
-the three-dimensional habitat that observers experience when the screen data
-and entanglement pattern close coherently.
+where finite observers expose overlap data. The final rung names the
+three-dimensional observer-facing bulk role. On the controlled Lorentz branch,
+its canonical kinematic chart is $H^3$, not a proved global $S^3$ topology.
 
 This ladder is a teaching map, with the full particle taxonomy carried by the
 later chapters. The photon belongs to the recovered electromagnetic branch, gluons to color gauge

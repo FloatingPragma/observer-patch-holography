@@ -2,10 +2,9 @@
 
 ## Motivating Result
 
-This certificate note entered the queue for a different reason: not a recent
-laboratory anomaly, but a finite mathematical surprise. The group `2.Alt(9)`
-appears naturally in exceptional lattice and moonshine bookkeeping through
-triality and gluing data
+This certificate note starts from a finite mathematical surprise. The group
+`2.Alt(9)` appears naturally in exceptional lattice and moonshine bookkeeping
+through triality and gluing data
 ([Hohn, "A moonshine path from E8 to the Monster"](https://arxiv.org/abs/0910.2057)).
 The OPH question is whether the same kind of finite, public, representation
 certificate can be kept separate from physical `E8` speculation.

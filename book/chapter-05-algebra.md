@@ -251,6 +251,12 @@ $$\langle A \rangle = \text{Tr}(\rho A)$$
 
 **Two observers using the same information set should agree on the relevant reduced state.** This is how consistency appears in the formalism.
 
+OPH uses the same conditioning idea for record-localization probes. First
+condition on a stable record token. Then ask where that conditioned record fits
+in the observer-facing spatial chart. The answer is conditional: a good run can
+localize the record, while an underdetermined run must say that the location is
+ambiguous.
+
 ## 5.6 Algebras of Observables
 
 Observables form an algebraic structure. The formal phrase sounds heavier than

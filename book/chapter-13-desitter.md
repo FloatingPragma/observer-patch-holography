@@ -160,6 +160,11 @@ This finite entropy has major implications. An observer's accessible patch has a
 finite information capacity. The smooth continuum starts to look like an
 effective description laid over a screen with a hard budget.
 
+There is one naming trap. The cap-normal theorem in the papers also uses the
+phrase "de Sitter," but there it names a bookkeeping space for oriented round
+caps and circles. It is not the cosmological de Sitter spacetime whose static
+patch and entropy are discussed in this chapter.
+
 ### Why This Matters for Gravity
 
 Jacobson's derivation of Einstein's equations requires horizons with a

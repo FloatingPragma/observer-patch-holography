@@ -58,10 +58,25 @@ with an observer-accessible patch or a subregion used in entropy and
 modular-flow arguments. Caps have boundaries and collars, and their generalized
 entropy plays a role in the gravity reconstruction.
 
+**Cap normal.** A cap normal is the orientation datum attached to a round cap
+on the observer sky. It tells which side of the cap is being used. It marks a
+cut or half-space in the recovered spatial chart, not an observer point.
+
+**Cap-response localization.** A conditional record-population theorem for the
+observer-facing spatial chart. A quotient-visible record token is localized
+when its calibrated cap responses behave like one source and the error budget
+is complete. Exact data identify one point; finite noisy data produce a
+certified region, or an ambiguity report when the evidence is not strong
+enough.
+
 **Capacity-electroweak bridge.** The bridge reads the weak scale as a local
 projection of the global screen-capacity repair rhythm. The exact bridge
 capacity is separate from the rounded de Sitter capacity display. The
 screen-sieve theorem gives the factor $12$ in the projection.
+
+**Celestial sphere.** The observer sky $S^2$ is the angular screen used to
+organize directions, caps, and overlap checks. In the technical papers it is
+also the bridge to null-ray and Lorentz geometry.
 
 **Causal structure.** Causal structure determines which events can influence
 which. Relativity encodes it through light cones. OPH reads causal structure
@@ -260,6 +275,10 @@ relations in spacetime. General relativity treats the metric as dynamical.
 OPH aims to recover smooth metric geometry from screen data, entanglement,
 modular flow, and entropy equilibrium.
 
+**Observer-frame chart.** The controlled Lorentz branch gives a
+three-dimensional chart for future observer frames. The book uses it as the
+observer-facing spatial chart; the technical construction lives in the papers.
+
 **Modular flow.** Modular flow is the natural flow associated with an
 algebra-state pair in Tomita-Takesaki theory. It is written
 $\sigma_t(A)=\Delta^{it}A\Delta^{-it}$. OPH uses modular flow as a source of
@@ -413,9 +432,10 @@ regions and specifies when matching local data glue into a global section.
 OPH uses sheaf logic as a formal cousin of observer-overlap consistency.
 
 **Sphere ladder.** The ladder $S^0\to S^1\to S^2\to S^3$ names four roles:
-seed or readout, recurrence loop, horizon screen or public archive, and
-reconstructed bulk geometry. It is a teaching map for OPH's readback
-architecture. Particle identities come from Lorentz and gauge structure.
+seed or readout, recurrence loop, horizon screen or public archive, and the
+three-dimensional observer-facing bulk role. It is a teaching map, not a proof
+of global bulk topology. Particle identities come from Lorentz and gauge
+structure.
 
 **Static patch.** A static patch is the region of de Sitter space accessible
 to one observer inside their cosmological horizon. It is finite and bounded,

@@ -373,11 +373,11 @@ $$\|\rho_{ABC} - (\mathrm{id}\otimes\mathcal R)(\rho_{AB})\|_1 \le 2\sqrt{\ln 2\
 (CMI in bits), and errors accumulate at most additively (capped by 2).
 
 Loopy covers ask for one more check. If several overlaps wrap around and return
-to the starting point, the gluing has to close cleanly on the full loop, not
-just pair by pair. If it fails, the reconstruction accumulates a genuine
-global defect. In a chiral effective field theory, the same consistency burden
-reappears as anomaly cancellation, although the precise bridge is a later EFT
-step.
+to the starting point, the gluing has to close cleanly on the full loop.
+Pairwise gluing is insufficient. If it fails, the reconstruction accumulates a
+genuine global defect. In a chiral effective field theory, the same consistency
+burden reappears as anomaly cancellation, although the precise bridge is a
+later EFT step.
 
 This matches holographic expectations. In AdS/CFT, entanglement between
 boundary regions scales with the area of the minimal surface connecting them.

@@ -60,9 +60,12 @@ selection principle. Minimality gives the economy.
 Once cap modular flow becomes geometric on the controlled scaling branch,
 time stops looking imported from outside. It becomes the internal flow attached
 to a restricted state. When those local flows fit together across the smooth
-screen, Lorentz kinematics appears, and the rest-space quotient
-$H^3=SO^+(3,1)/SO(3)$ gives three spatial directions. When the recovered-core
-branch supplies geometry readout, the null bridge, the bounded-interval kernel,
+screen, Lorentz kinematics appears, and the observer-facing spatial chart has
+three dimensions. The compact-paper geometry statements keep the branch
+conditional: caps organize the chart, records populate it only under a separate
+localization certificate, and ambiguous finite evidence must remain ambiguous.
+When the recovered-core branch
+supplies geometry readout, the null bridge, the bounded-interval kernel,
 small-ball area variation, remainder control, and tensor upgrade, the Einstein
 relation appears as the public large-scale grammar of the fixed-cap
 generalized-entropy equilibrium.

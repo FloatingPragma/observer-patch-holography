@@ -211,9 +211,12 @@ kinematics emerges from screen dynamics.
 That statement is about sector or family identity. It should not be confused
 with the narrower bookkeeping question of whether two localized detector
 records are the same continuing token across a chart boundary. For that, the
-stitch needs a declared spatial chart, a common clock, a real transverse
-interface, compatible charge transport, and enough separation to rule out rival
-tracks. Without that, OPH records ambiguity instead of forcing a history.
+stitch first needs a certified localization region for each record token and
+clock slice. A guessed point is insufficient. Distinct records need enough
+separation before they can be treated as different sources. After that, the stitch still
+needs a declared spatial chart, a common clock, a real transverse interface,
+compatible charge transport, and enough evidence to rule out rival tracks.
+Without those gaps, OPH records ambiguity instead of forcing a history.
 
 Mass tells you how the excitation answers time translations. Spin tells you how
 it answers rotations. Once Lorentz symmetry is in place, energy and momentum

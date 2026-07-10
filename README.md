@@ -156,15 +156,18 @@ An observer screen is a local access cut on that net, not a separate private
 sphere. The $S^2$ chart is not a literal ball with data painted on it.
 
 That spherical chart carries several concrete jobs. Caps and collars give the
-local cut data used by modular flow and entropy variation. The conformal group
-of the sphere is the celestial-sphere form of the connected Lorentz group,
-$\mathrm{SO}^+(3,1)$, so the same chart supplies the kinematic bridge to the
-emergent $(3+1)$-dimensional spacetime branch once the required cap and
-modular-flow conditions are met. The observer rest-space chart is
-$H^3\simeq\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$, hence exactly three-dimensional
-on that branch. Spherical harmonics organize angular modes.
-Finite cellulations of the same chart give the regulator surface on which patch
-ports, edge data, and overlap checks can be made explicit; they are not by
+local cut data used by modular flow and entropy variation. The conformal
+symmetry of the sphere is the celestial-sphere form of the connected Lorentz
+group, so the same chart supplies the kinematic bridge to the emergent
+$(3+1)$-dimensional spacetime branch once the required cap and modular-flow
+conditions are met. On that controlled branch the observer-facing rest-space
+chart is exactly three-dimensional. Caps mark cuts and sides of the chart, not
+preferred observer points. Record tokens populate the chart only when
+calibrated cap responses and an error budget support localization. Finite
+evidence may still report ambiguity. Spherical harmonics organize angular modes.
+Finite cellulations of
+the same chart give the regulator surface on which patch ports, edge data, and
+overlap checks can be made explicit; they are not by
 themselves a Lorentz-invariant continuum.
 
 The finite symmetry anchor is $A_5$, the rotational symmetry group of the
@@ -174,10 +177,11 @@ and local comparison data without treating the carrier as a smooth ball.
 
 The same geometry gives a useful sphere ladder for readers. $S^0$ is the first
 seed or readout distinction. $S^1$ is recurrence, the loop in which a record
-can return to itself. $S^2$ is the horizon screen and public archive. $S^3$ is
-the reconstructed bulk geometry experienced by observers. The ladder names
-roles in the OPH readback architecture; particle taxonomy stays with the
-Lorentz and gauge branches.
+can return to itself. $S^2$ is the horizon screen and public archive. The final
+rung means the three-dimensional observer-facing bulk role; on the controlled
+Lorentz branch its canonical kinematic chart is $H^3$. No $S^3$ global topology
+follows from this mnemonic. Particle taxonomy stays with the Lorentz and gauge
+branches.
 
 The exceptional symmetry anchor is the $E_8$ Lie group and its root-lattice
 structure. $E_8$ matters because it gives the exceptional closure language
@@ -275,7 +279,7 @@ papers that carry the core theorem surface.
 - **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for the recovered OPH branch. It states the observer-overlap route to Lorentz structure, the Einstein-like gravity branch on the five-axiom recovered core, the formal algebra core that upgrades rest-frame data to the tensor equation and fixes the metric residue to one \(\Lambda\) on connected conserved branches, compact-gauge reconstruction, the selected Standard Model quotient and matter package with formal hypercharge/\(Z_6\) algebra core, the Borel-Weil local carrier for the one-Higgs slot, Maxwell on the ordinary photon branch, and the conditional Yang-Mills mass-gap route under its continuum, reflection-positivity, transfer/intertwiner, and nontriviality assumptions.
 - **Paper 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)**: broad synthesis and best first read for the full program. It explains finite observer patches, overlap consistency, records, repair moves, the recovered effective universe, the scale story, and the public claim boundaries without replacing the compact paper's theorem ledger.
 - **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle-sector derivation and audit surface. It carries the \(P_\star\)-driven particle reconstruction, structural carriers, the Borel-Weil one-Higgs carrier bridge, electroweak/Higgs/top, quark, charged-lepton, neutrino, and hadron lanes, quantitative benchmark checks, and conditional record-worldline stitching.
-- **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)**: finite patch-net consensus mechanics. It proves how local observers compare overlap records, apply repair moves, handle defects, and converge to quotient normal forms when the fixed-cutoff assumptions hold. The consensus result stops at quotient normal forms; Lorentzian and Einstein geometry enter through the separate geometric branch in the compact paper. The repair operator is stated on the physical quotient, repaired readouts are invariant under hidden implementation choices, a finite layered carrier witnesses boundary reconstruction, and the Rule-90 fixture gives sharp positive/negative repair and boundary-reconstruction tests.
+- **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)**: finite patch-net consensus mechanics. It proves how local observers compare overlap records, apply repair moves, handle defects, and converge to quotient normal forms when the fixed-cutoff assumptions hold. The consensus result stops at quotient normal forms; Lorentzian and Einstein geometry enter through the separate geometric branch in the compact paper. The repair operator is stated on the physical quotient, repaired readouts are invariant under hidden implementation choices, a finite layered carrier witnesses boundary reconstruction, and a finite binary audit fixture gives sharp positive/negative repair and boundary-reconstruction tests.
 - **Paper 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)**: finite carrier and observer-record surface. It gives the echosahedral multi-port patch-carrier architecture, twelve-port screen-sieve theorem, edge-center scalar-slot completeness, the finite scalar channel bridge, the quotient-edge \(Z_6\) reserve and finite-thickness scalar coefficient gates, $A_5$-icosahedral and $E_8$-type symmetry framing, public hardware-evidence rules, records, recovery moves, checkpoint restoration, and observer synchronization.
 - **Paper 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**: meaning-layer synthesis. It reads the same OPH machinery as a theory of observer continuation, paradise and hell as continuation environments, resurrection as record-preserving continuation, justice as harm-and-repair bookkeeping, and the strange loop in which observers reverse engineer and build continuation machinery.
 
@@ -312,76 +316,11 @@ OPH-native cosmology result.
 
 ## Physics Problems Articles
 
-Standalone markdown notes for applied physics problems live in
-[`physics-problems/`](physics-problems/README.md). They act as supplemental
-articles for public reading and OPH Sage ingestion. Problem-specific notes are
-Markdown-only and do not enter the release-paper rendering, website paper-index,
-or GitHub release-asset pipeline.
-
-- **[Plasma Fusion and Confinement](physics-problems/plasma_fusion.md)**:
-  fusion as an OPH repair-ledger theorem package. It defines the fusion repair
-  ledger, H-mode as an edge-collar contraction branch, ELMs as
-  obstruction/reset cycles, Lawson as a scalar energy projection, Hydrosahedron
-  as an acoustic carrier/control specialization, and DD/heat/load/net-power
-  promotion as separate receipt tiers.
-- **[High-Temperature Superconductivity](physics-problems/high_temperature_superconductivity.md)**:
-  high $T_c$ as charge $2e$ repair plus $U(1)_Q$ phase confluence. It
-  states cuprate, pnictide/chalcogenide, pressure-quench, heterostructure, and
-  inverse-design predicates without turning them into recipe claims.
-- **[Universality of Low-Temperature Amorphous Solids](physics-problems/low_temperature_amorphous_universality.md)**:
-  low-temperature glass attenuation as a source-only saturated rigid-record
-  branch. It treats each material as a bounded self-reading patch with
-  strain-visible ports, two-basin records, repair or tunneling moves, and
-  public acoustic or thermal receipts, deriving
-  $\lambda/\ell=3.2441\times10^{-3}$ without using the measurements as source
-  inputs.
-- **[Fractional Quantum Hall States](physics-problems/fractional_quantum_hall.md)**:
-  fractional Hall phases as edge/holonomy normal forms, Abelian $K$ matrix
-  recovery, hierarchy refinement, non-Abelian repair-sector conditions, and the
-  $5/2$ selector no-go theorem. The fractional-exciton extension adds optical
-  module and line-fan receipts for material fractionalization sandboxes; the
-  compact companion note is
-  [Fractional Excitons as OPH Quotient-Sector Readouts](physics-problems/fractional_excitons_as_oph_quotient_sector_readouts.md).
-  Its simulator receipts are mirrored in `oph-physics-sim/oph_fractional/` and
-  `code/particles/fractional/`, with material promotion still blocked at the
-  Hamiltonian/source-law proof.
-- **[Hadronic Precision Endpoint](physics-problems/hadronic_precision_endpoint.md)**:
-  shared source-open hadronic backend for the fine-structure endpoint, HVP
-  \(g-2\), HLbL \(g-2\), and rare-decay long-distance amplitudes. It requires
-  an OPH-QCD quotient ensemble, QCD source-parameter map, finite Euclidean
-  vacuum transfer, Ward-normalized current ledger, positive Stieltjes/Jacobi
-  spectral export, same-scheme endpoint remainder, and no-target-leak DAG before
-  any source-only precision claim.
-- **[JWST Compact Objects as Source-Release Record Surfaces](physics-problems/jwst_compact_object_source_release.md)**:
-  audit lane for high-redshift compact objects, early massive-galaxy
-  candidates, little red dots, and apparently mature black-hole candidates. It
-  treats compactness, redness, luminosity, AGN contribution, source release,
-  selection, and mass/age interpretation as separate receipt tiers; JWST object
-  catalogs are not, by themselves, OPH confirmations.
-- **[Compact Record Transients](physics-problems/compact_record_transients.md)**:
-  conditional lane for FRBs, black-hole recycling, and compact record surfaces.
-  It defines histories, detector thinning, censoring, point-process likelihoods,
-  controls, refinement, and promotion receipts, while blocking any claim that
-  OPH explains compact transients without rate, host, timing, waveform,
-  exposure, and frozen-likelihood evidence.
-- **[Gamma-Ray Morphology Claims in OPH](physics-problems/gamma_ray_morphology_claims_in_oph.md)**:
-  morphology-first audit lane for gamma-ray dipoles, Galactic Center or halo
-  residuals, and large-scale gamma templates. It treats OPH gamma signatures as
-  frozen source-derived morphology claims, not extra-photon claims, and requires
-  count-space instrument response, foreground alternatives, identifiability,
-  held-out validation, cross-tracer tests, and null tests before any candidate
-  promotion.
-- **[High-Energy Messenger Coefficient Emission](physics-problems/high_energy_messenger_coefficients.md)**:
-  source-only coefficient theorem for high-energy neutrino, cosmic-ray, and
-  gamma source ledgers. It emits finite MaxEnt coefficients from compact-engine
-  source-load moments, blocks UHE event-data leakage, and requires a shared
-  source coefficient before messenger-specific propagation and detector
-  kernels.
-- **[CMB Simulation Promotion to a Physical Prediction](physics-problems/cmb_simulation_promotion_to_physical_prediction.md)**:
-  promotion ledger for the public mini-universe simulator's CMB-like boundary
-  record. It keeps visual/spectrum diagnostics, source-only finite artifacts,
-  conditional imported-FLRW routing, OPH-native `CosmoGeomRead_r`, and frozen
-  likelihood-evaluated physical CMB predictions as separate claim tiers.
+Applied problem notes live in [`physics-problems/`](physics-problems/README.md).
+That folder carries the article list, summaries, motivating-result links, claim
+boundaries, and OPH Sage ingestion notes. The notes are Markdown-only and stay
+outside the paper release, website paper-index, and GitHub release-asset
+pipeline.
 
 ## Proof Status
 
@@ -408,6 +347,17 @@ $P_{\mathrm{acc}}\le10^{-24}$; twenty give $10^{-40}$. The same two fixed
 points also organize the observer problem, gravity/gauge reconstruction,
 electroweak hierarchy, dark energy, the dark-sector budget, gauge-proton-decay
 exclusion, particle inventory, and the string-vacuum sieve.
+
+The compact paper contains three conditional geometry statements. If finite cap
+data carry the right order, orientation, modular behavior, and thermal
+normalization evidence, they converge to the expected geometric cap flow. The
+derivation of that evidence from bare finite consensus is part of the Einstein
+branch-entry problem. On that controlled branch the observer-facing spatial
+chart is exactly three-dimensional. The theorem does not populate the chart
+with objects, derive a physical curvature radius, produce a neutral bulk, or
+close the Einstein branch. Record tokens can be localized only when calibrated
+cap responses and a complete error budget support that claim; otherwise the
+correct output is ambiguity.
 
 Screen-spectrum and CMB continuations are provisional without the screen
 branch's geometric scale, source dynamics, clock, refinement behavior, and

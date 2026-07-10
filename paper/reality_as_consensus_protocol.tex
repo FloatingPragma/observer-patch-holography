@@ -224,6 +224,17 @@ nonnegative and vanishes exactly on a satisfied edge constraint. Therefore all e
 hold if and only if \(\Phi(s)=0\).
 \end{proof}
 
+\begin{remark}[Bare consensus does not supply the cap-normal \(H^3\) chart]
+Bare finite consensus supplies quotient normal forms, boundary data, and
+obstruction classes. It does not itself supply the future null cone, a
+round-cap support chart, conformal transport, a time orientation, or the
+\(H^3\) observer-frame homogeneous space. The cap-normal theorem in the
+compact paper applies only after the separate geometric-readout/BW branch has
+emitted an oriented conformal \(S^2\), nondegenerate oriented round caps, and
+proper-orthochronous conformal transport. This is why the finite-consensus to
+Einstein branch-entry arrow remains a separate proof burden.
+\end{remark}
+
 \begin{definition}[Bare finite consensus reduct]\label{def:bare-finite-consensus-reduct}
 A bare finite consensus reduct at regulator \(r\) is
 \[
@@ -1378,12 +1389,12 @@ identifies this fiber with \(\{E(b)\}\), so \(\operatorname{Rep}_\lambda(x)=E(b)
 \(\operatorname{Read}\) gives the readout statement.
 \end{proof}
 
-\subsection{Rule-90 audit fixture: a sharp finite reconstruction carrier}
-\label{subsec:rule90-audit-fixture}
+\subsection{Finite binary audit fixture: a sharp reconstruction carrier}
+\label{subsec:finite-binary-audit-fixture}
 
 The layered carrier above proves boundary reconstruction for a feed-forward
-finite class.  A useful stress test for the same logic is the elementary
-Rule-90 cellular automaton on a finite cylinder.  A row is a function
+finite class.  A useful stress test for the same logic is a two-neighbor
+linear binary update on a finite cylinder.  A row is a function
 \[
 x_t:\mathbb Z_n\to\mathbb F_2,
 \]
@@ -1391,16 +1402,16 @@ and the update rule is
 \[
 x_{t+1}(j)=x_t(j-1)+x_t(j+1)\pmod 2.
 \]
-Rule 90 is not a proposed microscopic physics law.  It is a minimal
+This update is not a proposed microscopic physics law.  It is a minimal
 finite-consensus fixture: the local rule is linear, all records are exact
-finite objects, and boundary reconstruction can be tested without continuum
-or geometric assumptions.
+finite objects, and boundary reconstruction can be tested without continuum or
+geometric assumptions.
 
 For the time slab \(0,\ldots,t\), a two-column timelike tube
 \[
 \{j_0,j_0+g\}\times\{0,\ldots,t\}
 \]
-is an information set when its values determine the whole Rule-90 spacetime
+is an information set when its values determine the whole finite spacetime
 record.  Matscheko's OPHProofChain Lean audit proves the sharp two-column
 classification:
 \[
@@ -1411,7 +1422,7 @@ classification:
 Thus adjacent columns (\(g=1\)) achieve the full capacity threshold, while a
 non-coprime stride loses information at every horizon.  The same fixture also
 separates realizable from unrealizable boundary readings: if a tube reading is
-not carried by any consistent Rule-90 record, no boundary-preserving repair
+not carried by any consistent record, no boundary-preserving repair
 operator can make it consistent without changing the boundary.
 
 The audit then assembles a Route-A repair on this same carrier.  The positive
@@ -1422,8 +1433,8 @@ accepted step.  At the sharp threshold \(n\le2(t+1)\), any two records with
 the same tube reading settle to the same normal form; the settled world is
 consistent exactly when the tube fiber is realizable.
 
-The same formal fixture supplies the important negative controls.  On the
-Rule-90 cylinder there is no single-patch frustration-free local repair
+The same formal fixture supplies the important negative controls.  On this
+binary cylinder there is no single-patch frustration-free local repair
 satisfying the strongest \(H_1\wedge H_2\wedge H_3\) binder form.  The
 canonical single-patch repair can also stall on the smallest audit witness
 \((n,t)=(3,2)\), leaving a broken edge in normal form.  This is not a failure

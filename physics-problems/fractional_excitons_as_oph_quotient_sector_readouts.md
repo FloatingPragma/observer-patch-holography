@@ -194,7 +194,7 @@ The public line fan is the quotient readout of this decomposition.*
 ```
 then a measured slope determines $Q_{\mathrm{tot}}(m)$ only up to that bound. For a neutral fractional exciton, the leading charge slope can vanish while $\tau(m)\ne 1$.*
 
-*Proof.* The measured slope is the derivative of the whole optical energy, not only the electromagnetic charge term. Binding drift can mimic or mask a charge slope. When its derivative is bounded, the residual interval gives the certified charge range. When the total charge is zero, the charge slope can vanish even though the sector shadow remains topologically nontrivial. $\square$
+*Proof.* The measured slope is the derivative of the whole optical energy, including terms beyond the electromagnetic charge contribution. Binding drift can mimic or mask a charge slope. When its derivative is bounded, the residual interval gives the certified charge range. When the total charge is zero, the charge slope can vanish even though the sector shadow remains topologically nontrivial. $\square$
 
 **Theorem 10** (Optical identifiability). *Let
 ``` math

@@ -232,11 +232,12 @@ branch, not a God's-eye age of spacetime.
 
 The chain is clean once the pieces are visible. Recovery structure from Chapter
 7 makes the time generator local near patch boundaries. A key theorem then
-identifies that local flow with a standard geometric motion on the sphere and
-fixes its normalization. Geometric time flow gives Lorentz kinematics on the
-screen. With the fixed-cap variation class, local energy bridge, small-ball
-area identity, and scalar-to-tensor upgrade added, entanglement equilibrium
-yields Einstein's equation on the stated branch.
+identifies that local flow with a standard geometric motion on the sphere once
+the finite cap data carry the right order, orientation, modular
+convergence, and thermal normalization evidence. Geometric time flow gives
+Lorentz kinematics on the screen. With the fixed-cap variation class, local
+energy bridge, small-ball area identity, and scalar-to-tensor upgrade added,
+entanglement equilibrium yields Einstein's equation on the stated branch.
 
 The time ingredient feeds into gravity through those compatibility conditions.
 
@@ -357,10 +358,10 @@ temperature, and the modular flow of the horizon state generates the
 observer's time evolution. Finite screen cells serve as regulators in OPH.
 The controlled BW construction extracts the prime geometric cap pair, carries
 modular data by regularized transport, reads the modular flow as a cap-local
-support map, identifies the cap-preserving conformal subgroup by round-cap
-rigidity, and fixes the $2\pi$ normalization by KMS/BW matching. On that
-construction the cap modular automorphism becomes geometric on the sphere. That
-geometric action gives the Lorentz symmetry.
+support map, and checks that the cap flow has the right support behavior and
+thermal normalization. On that construction the cap modular automorphism
+becomes geometric on the sphere. That geometric action gives the Lorentz
+symmetry.
 
 ### The Speed of Light
 

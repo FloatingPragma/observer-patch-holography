@@ -413,7 +413,7 @@ At that moment, their descriptions must agree. The consistency condition forces 
 
 This is observer-relativity, but with teeth. The "facts" depend on who's asking, but not arbitrarily-the overlap conditions constrain what facts can coexist.
 
-Recent no-go arguments and related experimental discussions have pushed these ideas further, showing that even sophisticated extensions of quantum mechanics struggle to maintain consistency when observers observe observers. The consistency conditions are doing real work.
+No-go arguments and related experimental discussions show that even sophisticated extensions of quantum mechanics struggle to maintain consistency when observers observe observers. The consistency conditions are doing real work.
 
 ## 6.9 Quantum Darwinism: How Overlaps Build Objectivity
 

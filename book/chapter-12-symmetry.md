@@ -406,6 +406,11 @@ structure, angular harmonics, and the conformal bridge to Lorentz symmetry.
 Spinors fit naturally on that sphere. Wigner shows that once relativity is in
 place, particles are classified by how they transform.
 
+On the controlled cap branch, this bridge is explicit in the technical papers:
+sky directions, cap boundaries, and cap sides transform together under Lorentz
+motion. The book-level point is that the same symmetry moves the screen view
+and the recovered spacetime view.
+
 The world obeys the script. Conservation laws hold. CPT remains intact.
 Spin-statistics stays locked. Symmetry is not decorative embroidery on top of
 physics. It is one of the mechanisms by which physics keeps itself coherent.

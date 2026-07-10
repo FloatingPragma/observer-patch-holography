@@ -3,7 +3,7 @@
 ## Motivating Result
 
 This note entered the queue after Fermi-LAT analyses reported a diffuse
-gamma-ray dipole-like feature larger than expected and not simply aligned with
+gamma-ray dipole-like feature larger than expected, with an axis different from
 the CMB dipole
 ([NASA Goddard, 2024](https://svs.gsfc.nasa.gov/14476/)). The older Galactic
 Center excess debate supplied the second pressure point: the same gamma-ray
@@ -151,8 +151,8 @@ The transported-stress route starts from a finite covariant parent
 (\mathcal X_r,g_r,e_r,\Pi_r,Z_r,f_r,\mathsf T_r,\mathsf C_r,\mathsf M_r,\mathsf R_r).
 ```
 
-This parent must emit the anomaly stress tensor \(T_A^{\mu\nu}\), not merely a
-scalar row. Given the baryonic rest-frame four-velocity
+This parent must emit the anomaly stress tensor \(T_A^{\mu\nu}\). A scalar row
+is insufficient. Given the baryonic rest-frame four-velocity
 
 ```math
 u_b^\mu
