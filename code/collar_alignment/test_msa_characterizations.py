@@ -150,6 +150,33 @@ def test_no_modulus_controls_alignment_distance():
         assert defect > 1.0, "alignment defect stays O(2 ln 2)"
 
 
+def test_bell_smoothing_is_excluded_from_central_interface_gibbs_class():
+    """Theorem thm:msaderivation, exclusion clause.
+
+    Every Gibbs state of a central-interface package is EC-aligned (and
+    faithful). Faithful smoothings of the Bell counterexample keep a
+    cross-cut component of log rho outside M_L + M_R and keep
+    I(A:B_R) > 0, so neither the counterexample nor its faithful
+    neighborhood arises on the declared central-interface branch.
+    """
+    bell = bell_counterexample()[0][1]
+    dims = (2, 2, 2, 2)
+    ident = np.eye(16) / 16.0
+    rng = np.random.default_rng(17)
+    for eps in (1e-2, 1e-3):
+        rho = (1.0 - eps) * bell + eps * ident
+        blocks = [(1.0, rho, dims)]
+        # faithful, so the modular criteria are defined -- and they fail:
+        assert modular_splitting_defect(blocks) > 1e-2, \
+            "log rho must keep a cross-cut term outside M_L + M_R"
+        assert takesaki_defect(blocks, rng) > 1e-2, \
+            "no rho-preserving conditional expectation onto M_L exists"
+        # the entropic witness of the exclusion:
+        i_a_br = mutual_information(rho, list(dims), [0], [2])
+        assert i_a_br > LN2, "I(A:B_R) stays bounded away from zero"
+        assert not is_ec_aligned(blocks)
+
+
 if __name__ == "__main__":
     import pytest
 
