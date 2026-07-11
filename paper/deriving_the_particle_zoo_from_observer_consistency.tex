@@ -3113,9 +3113,14 @@ the intrinsic neutrino-side basis.
 Fix the cycle sum
 \[
 \Omega=\psi_{12}+\psi_{23}+\psi_{31},
-\qquad |\Omega|<\frac{3\pi}{2},
 \]
-and a positive weight family \(\mu_e\). On the principal branch
+and a positive weight family \(\mu_e\). Define
+\[
+\mu_{\min}=\min_e\mu_e,
+\qquad
+F_{\max}=\sum_e\arcsin\!\left(\frac{\mu_{\min}}{\mu_e}\right).
+\]
+If \(|\Omega|<F_{\max}\), then on the principal branch
 \(\psi_e\in(-\pi/2,\pi/2)\), the affine energy
 \[
 A(\psi)=\sum_e \mu_e(1-\cos\psi_e)
@@ -3142,7 +3147,8 @@ is strictly increasing because
 \[
 F'(\lambda)=\sum_e\frac{1}{\sqrt{\mu_e^2-\lambda^2}}>0.
 \]
-Its range is \((-3\pi/2,3\pi/2)\), so \(F(\lambda)=\Omega\) has a unique solution. Strict
+Its range on \((-\mu_{\min},\mu_{\min})\) is \((-F_{\max},F_{\max})\), so
+\(F(\lambda)=\Omega\) has a unique solution under the stated condition. Strict
 convexity follows because the Hessian of \(A\) is
 \[
 \nabla^2A=\mathrm{diag}(\mu_e\cos\psi_e),
@@ -3150,6 +3156,14 @@ convexity follows because the Hessian of \(A\) is
 which is positive definite on the principal branch and is positive definite after
 restriction to the affine plane \(\sum_e\psi_e=\Omega\).
 \end{proof}
+
+For the live normalized family
+\[
+(\mu_{12},\mu_{23},\mu_{31})=(1.4497003,\ 0.9968526,\ 0.5534471),
+\]
+one has \(F_{\max}=2.5511001\), \(|\Omega|=1.7561443\), and positive domain margin
+\(0.7949558\). The corrected theorem domain therefore leaves the stored numerical selector
+unchanged.
 
 Let
 \[
