@@ -22,6 +22,7 @@ This dictionary gives stable names to the assumptions used in the claim registry
 | `positive_localization_gap_for_unique_finite_output` | A noisy finite localization emits a unique point only when the certified residual gap \(\Delta_{\mathrm{loc}}\) is positive. | Compact SM/GR paper, simulator spec |
 | `null_stress_bridge` | The null modular branch identifies the half-line generator with the local null-stress charge on its stated family. | Compact SM/GR paper |
 | `fixed_cap_MaxEnt_variation_family` | The entropy-stationarity variation is taken inside the realized cap-label-preserving MaxEnt family. | Compact SM/GR paper |
+| `maxent_refinement_closure_clause` | Coarse-graining keeps the realized state in the homogeneous global-sum MaxEnt family: the closure defect of the I-projection residual-bound lemma vanishes along the realized branch. | Compact SM/GR paper, observers synthesis |
 | `small_ball_bridge` | The OPH cap generator and bounded-interval projective branch supply the local small-ball comparison. | Compact SM/GR paper |
 | `zero_obstruction_bosonic_branch` | The bosonic sector category is taken on the ordinary or central-defect zero-obstruction branch. | Compact SM/GR paper |
 | `MAR_admissible_class` | Minimal Admissible Realization is evaluated only over the declared admissible realization space. | Compact SM/GR paper |

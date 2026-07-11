@@ -282,7 +282,7 @@ The discussion above is heuristic support for the tangent-limit package used in 
 \Phi_{\ell\to L}\bigl(\omega_{\ell}(\lambda)\bigr)=\omega_{L}\!\bigl(R_{\ell\to L}(\lambda)\bigr),
 \]
 
-for an induced map \(R_{\ell\to L}\) on the common finite-dimensional homogeneous multiplier family. The existence of \(R_{\ell\to L}\) as a self-map of that same finite-dimensional family is exactly the closure clause, not a bookkeeping consequence of reusing the labels \(a\): coarse-graining a finite-range Gibbs family generically generates interactions outside the retained density list, and the axiom asserts that on the realized branch those generated directions vanish or are absorbed into the retained family; no closure/projection theorem with truncation errors is proved here. Granting closure, the regulator states lie in that shared multiplier family rather than in unrelated state spaces at different cutoffs, and the realized branch is the persistent trajectory or invariant subset selected inside it under the induced refinement maps. This is a state-side persistence statement; it does not by itself upgrade fixed-cutoff edge labels to a transportable refinement-persistent sector colimit.
+for an induced map \(R_{\ell\to L}\) on the common finite-dimensional homogeneous multiplier family. The existence of \(R_{\ell\to L}\) as a self-map of that same finite-dimensional family is exactly the closure clause, not a bookkeeping consequence of reusing the labels \(a\): coarse-graining a finite-range Gibbs family generically generates interactions outside the retained density list, and the axiom asserts that on the realized branch those generated directions vanish or are absorbed into the retained family; the closure defect, the moment-matching I-projection realizing \(R_{\ell\to L}\), and its trace-norm residual bound are constructed in Definition 2.6a and Lemma 2.6b, and what remains assumed rather than proved is that the defect vanishes along the realized branch. Granting closure, the regulator states lie in that shared multiplier family rather than in unrelated state spaces at different cutoffs, and the realized branch is the persistent trajectory or invariant subset selected inside it under the induced refinement maps. This is a state-side persistence statement; it does not by itself upgrade fixed-cutoff edge labels to a transportable refinement-persistent sector colimit.
 
 \textbf{Fixed-cutoff realized presentation.} At a UV scale \(\ell_{\mathrm{UV}}\), local patch algebras are type-I with finite-dimensional Hilbert spaces, and gauge-as-gluing is realized as a boundary action on a lifted finite-dimensional presentation. Section 2.3 proves the resulting fixed-cutoff collar package directly from overlap consistency on this realized presentation, while distinguishing the lifted fixed-point algebra from the sector-preserving collar algebra used in the EC theorem.
 
@@ -861,6 +861,28 @@ where the sum runs over UV cells \(x\) and density labels \(a\), with one cell-i
 \]
 
 Strict concavity of von Neumann entropy ensures uniqueness. Here the constrained operators are the \(N_{\mathrm{con}}\) global sums \(O_a := \sum_x O_a(x)\) plus the finitely many global terms, so the exponent is \(\sum_a \lambda_a \sum_x O_a(x) + \text{(global terms)}\): a sum of local terms with one shared multiplier per density label. Had the constraints instead been imposed per cell, \(\langle O_a(x)\rangle = c_a(x)\), the multipliers would be cell-dependent fields \(\lambda_a(x)\) and the family would grow with the lattice; that enlarged family belongs to the non-equilibrium approximation regime of the clarification above and is not the branch used in the refinement argument. QED.
+\end{quote}
+
+\begin{quote}
+\textbf{Definition 2.6a (closure defect and induced refinement map).} Fix successive regulator scales \(\ell\) (finer) and \(L\) (coarser), let \(\{\omega_L(\lambda')\}\) be the homogeneous global-sum exponential family at scale \(L\), and let \(\Phi_{\ell\to L}\) be an admissible coarse-graining channel. For fine-scale multipliers \(\lambda\) set \(\sigma := \Phi_{\ell\to L}(\omega_\ell(\lambda))\) and define the \textbf{closure defect}
+
+\[
+\varepsilon_{\ell\to L}(\lambda) := \inf_{\lambda'} D\bigl(\sigma \,\big\|\, \omega_L(\lambda')\bigr),
+\]
+
+with \(D\) the quantum relative entropy. When the infimum is attained at a unique \(\lambda^\ast\), set \(R_{\ell\to L}(\lambda) := \lambda^\ast\).
+
+\textbf{Lemma 2.6b (I-projection residual bound).} If the constrained operators at scale \(L\) together with the identity are linearly independent, then \(\lambda' \mapsto D(\sigma\|\omega_L(\lambda'))\) is smooth and strictly convex; for faithful \(\sigma\) the minimizer \(\lambda^\ast = R_{\ell\to L}(\lambda)\) exists, is unique, and is characterized by moment matching \(\langle S_c\rangle_{\omega_L(\lambda^\ast)} = \langle S_c\rangle_\sigma\) for every constrained operator \(S_c\); and
+
+\[
+\bigl\|\sigma - \omega_L(R_{\ell\to L}(\lambda))\bigr\|_1 \le \sqrt{2\,\varepsilon_{\ell\to L}(\lambda)},
+\]
+
+so the family reproduces every bounded expectation up to \(\|B\|\sqrt{2\varepsilon_{\ell\to L}(\lambda)}\). The refinement-closure clause of Axiom 3 is exactly the statement \(\varepsilon_{\ell\to L}(\lambda) = 0\) along the realized branch, in which case \(\sigma = \omega_L(R_{\ell\to L}(\lambda))\) and the induced refinement map is this moment-matching I-projection.
+
+\textbf{Proof.} Writing \(\log\omega_L(\lambda') = -\sum_c \lambda'_c S_c - \log Z_L(\lambda')\), the objective is \(-S(\sigma) + \sum_c \lambda'_c \langle S_c\rangle_\sigma + \log Z_L(\lambda')\), and the Hessian of \(\log Z_L\) is the Duhamel (Kubo--Mori) covariance matrix of the constrained operators, positive definite under the stated independence; this gives strict convexity, uniqueness, and the moment-matching first-order condition, while attainment for faithful \(\sigma\) is standard finite-dimensional exponential-family duality~\cite{wichmann63}. The displayed residual bound is the quantum Pinsker inequality \(D(\rho\|\tau) \ge \tfrac12\|\rho-\tau\|_1^2\)~\cite{hiaiOhyaTsukada81} evaluated at \(\lambda^\ast\), and \(\varepsilon_{\ell\to L}(\lambda) = 0\) forces \(\sigma = \omega_L(\lambda^\ast)\) by strict positivity of relative entropy off the diagonal. QED.
+
+\textbf{Acceptance check.} A finite two-lattice test implementing this package---the constraint/multiplier count against the displayed \(N_{\mathrm{con}}\)-dimensional family on successive lattices, the moment-matching projection, the residual bound, a generic decimation channel with strictly positive closure defect, and the exactly closed transverse-field subfamily where \(R_{\ell\to L}\) acts as the identity---is included with the repository sources (\texttt{code/maxent/}).
 \end{quote}
 
 \textbf{Exponential mixing hypothesis.} There exist constants \(c\) and correlation length \(\xi = O(\ell_{\mathrm{UV}})\) such that
@@ -3990,7 +4012,7 @@ After canonical electromagnetic normalization, these are Maxwell's equations. Th
 
 \subsubsection{Refinement stability and unprotected relevant operators}\label{63-refinement-stability-and-unprotected-relevant-operators}
 
-The refinement-stability used later in the gauge branch is contained in the third OPH axiom through its refinement-closure clause. By that clause the same finite local constraint family is preserved across cutoffs, so the realized UV states lie in one common finite-dimensional MaxEnt family rather than in a new coupling space at every refinement step. The selected stable branch of this family is therefore not an extra axiom beyond the MaxEnt branch itself, but the closure clause it relies on is a substantive renormalization condition: coarse-graining a finite-range Gibbs family generically generates interactions outside any fixed finite density list, and no closure/projection theorem with truncation errors is proved here.
+The refinement-stability used later in the gauge branch is contained in the third OPH axiom through its refinement-closure clause. By that clause the same finite local constraint family is preserved across cutoffs, so the realized UV states lie in one common finite-dimensional MaxEnt family rather than in a new coupling space at every refinement step. The selected stable branch of this family is therefore not an extra axiom beyond the MaxEnt branch itself, but the closure clause it relies on is a substantive renormalization condition: coarse-graining a finite-range Gibbs family generically generates interactions outside any fixed finite density list. The closure defect, the moment-matching I-projection realizing \(R_{\ell\to L}\), and its trace-norm residual bound are quantified in Definition 2.6a and Lemma 2.6b; the clause is exactly the statement that the defect vanishes along the realized branch, and that vanishing remains assumed rather than proved.
 
 Concretely, if
 \[

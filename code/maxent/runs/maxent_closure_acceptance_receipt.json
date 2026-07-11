@@ -1,0 +1,107 @@
+{
+  "issue": 539,
+  "model": "transverse-field Ising densities O_1(x)=Z_x Z_{x+1}, O_2(x)=X_x on a ring; homogeneous global-sum constraints; decimation refinement channel",
+  "generic_branch": [
+    {
+      "lattice_pair": [
+        6,
+        3
+      ],
+      "fine_multipliers": [
+        0.7,
+        0.4
+      ],
+      "displayed_dimension_N_con_plus_N_glob": 2,
+      "independent_global_sum_constraints": {
+        "fine": 2,
+        "coarse": 2
+      },
+      "rejected_per_cell_constraint_count": {
+        "fine": 12,
+        "coarse": 6
+      },
+      "induced_map_R_multipliers": [
+        -0.36570009854342267,
+        0.32931350170322293
+      ],
+      "moment_matching_residual": 3.279676236287591e-13,
+      "duhamel_hessian_min_eigenvalue": 2.2928720275360988,
+      "closure_defect_nats": 0.00018189324934492213,
+      "trace_norm_residual": 0.01588760389443024,
+      "pinsker_residual_bound": 0.019073187952983746,
+      "counts_match_displayed_dimension": true,
+      "projection_unique": true,
+      "residual_bound_holds": true
+    },
+    {
+      "lattice_pair": [
+        8,
+        4
+      ],
+      "fine_multipliers": [
+        0.7,
+        0.4
+      ],
+      "displayed_dimension_N_con_plus_N_glob": 2,
+      "independent_global_sum_constraints": {
+        "fine": 2,
+        "coarse": 2
+      },
+      "rejected_per_cell_constraint_count": {
+        "fine": 16,
+        "coarse": 8
+      },
+      "induced_map_R_multipliers": [
+        -0.36564998277153327,
+        0.32884472036811857
+      ],
+      "moment_matching_residual": 5.978733960281817e-14,
+      "duhamel_hessian_min_eigenvalue": 3.0626262143830596,
+      "closure_defect_nats": 0.00025049078018479776,
+      "trace_norm_residual": 0.014028884754533174,
+      "pinsker_residual_bound": 0.02238261737084373,
+      "counts_match_displayed_dimension": true,
+      "projection_unique": true,
+      "residual_bound_holds": true
+    }
+  ],
+  "closed_subfamily": {
+    "lattice_pair": [
+      6,
+      3
+    ],
+    "fine_multipliers": [
+      0.0,
+      0.4
+    ],
+    "displayed_dimension_N_con_plus_N_glob": 2,
+    "independent_global_sum_constraints": {
+      "fine": 2,
+      "coarse": 2
+    },
+    "rejected_per_cell_constraint_count": {
+      "fine": 12,
+      "coarse": 6
+    },
+    "induced_map_R_multipliers": [
+      1.0696477834063956e-17,
+      0.39999999999999963
+    ],
+    "moment_matching_residual": 2.220446049250313e-16,
+    "duhamel_hessian_min_eigenvalue": 2.5669163582435375,
+    "closure_defect_nats": 0.0,
+    "trace_norm_residual": 8.788594662152371e-16,
+    "pinsker_residual_bound": 0.0,
+    "counts_match_displayed_dimension": true,
+    "projection_unique": true,
+    "residual_bound_holds": true
+  },
+  "checks": {
+    "multiplier_and_constraint_counts_cutoff_independent": true,
+    "i_projection_unique_everywhere": true,
+    "pinsker_residual_bound_holds_everywhere": true,
+    "generic_closure_defect_strictly_positive": true,
+    "transverse_field_subfamily_exactly_closed": true
+  },
+  "all_checks_pass": true
+}
