@@ -364,13 +364,26 @@ own calculation and checks satisfy that protocol.
 
 The conditional geometry statements require finite cap data with evidence for
 order, orientation, modular behavior, and thermal normalization. Under those
-conditions the data converge to the expected geometric cap flow. Deriving that
-evidence from bare finite consensus is an Einstein branch-entry obligation. On
-the controlled branch the observer-facing spatial chart is exactly
-three-dimensional. The theorem does not populate the chart with objects,
-derive a physical curvature radius, produce a neutral bulk, or close the
-Einstein branch. Record tokens require calibrated cap responses and a complete
-error budget for localization; without them the result is ambiguous.
+conditions the data converge to the expected geometric cap flow. The compact
+paper's geometry-producer packet now derives that evidence package from the
+repaired quotient normal forms themselves, on a branch defined by four
+decidable receipts (spherical incidence, cap mesh, modular cross-ratios, and
+the independently normalized 2-pi thermal comparison), and proves with explicit
+countermodels that bare finite consensus underdetermines topology, dimension,
+framing, and normalization --- so the receipts are the irreducible remaining
+Einstein branch-entry content. On the controlled branch the observer-facing
+spatial chart is exactly three-dimensional. The chart theorem still does not
+by itself populate the chart with objects, derive a physical curvature radius,
+or close the Einstein branch. The null-net packet proves the standardness and
+positive-translation structure the null bridge consumes (with an explicit
+counterexample showing finite-range Gibbs locality does not imply modular
+locality), and the event-manifold packet conditionally assembles localized
+records into a 3+1-dimensional Lorentzian event spacetime of signature (-+++),
+with H^3 strictly the fiber of rest frames over events, valid exactly on its
+named population, separation, frame, and overlap receipts. Record tokens
+require calibrated cap responses and a complete error budget for localization;
+without them the result is ambiguous, and without the event receipts the
+corpus claim is Lorentz-frame kinematics only.
 
 Screen-spectrum and CMB continuations are provisional without the screen
 branch's geometric scale, source dynamics, clock, refinement behavior, and

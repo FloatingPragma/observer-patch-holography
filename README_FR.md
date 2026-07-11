@@ -408,14 +408,29 @@ lorsque son calcul et ses contrôles satisfont ce protocole.
 Les énoncés géométriques conditionnels exigent des données finies de caps avec
 des preuves d'ordre, d'orientation, de comportement modulaire et de
 normalisation thermique. Sous ces conditions, les données convergent vers le
-flot géométrique de cap attendu. La dérivation de ces preuves depuis le
-consensus fini nu est une obligation d'entrée de la branche d'Einstein. Sur la
+flot géométrique de cap attendu. Le paquet producteur de géométrie du papier
+compact dérive désormais ce paquet de preuves depuis les formes normales de
+quotient réparées elles-mêmes, sur une branche définie par quatre reçus
+décidables (incidence sphérique, maille de caps, birapports modulaires et
+comparaison thermique 2-pi normalisée indépendamment), et prouve par des
+contre-modèles explicites que le consensus fini nu sous-détermine la topologie,
+la dimension, le cadrage et la normalisation --- les reçus sont donc le contenu
+irréductible restant de l'entrée de la branche d'Einstein. Sur la
 branche contrôlée, la carte spatiale orientée observateur est exactement
-tridimensionnelle. Le théorème ne peuple pas la carte avec des objets, ne dérive
-pas un rayon de courbure physique, ne produit pas un bulk neutre et ne ferme pas
-la branche d'Einstein. La localisation des jetons d'enregistrement exige des
+tridimensionnelle. Le théorème de carte ne peuple toujours pas, à lui seul, la
+carte avec des objets, ne dérive pas un rayon de courbure physique et ne ferme
+pas la branche d'Einstein. Le paquet de réseau nul prouve la standardité et la
+structure de translations positives que le pont nul consomme (avec un
+contre-exemple explicite montrant que la localité de Gibbs à portée finie
+n'implique pas la localité modulaire), et le paquet de variété d'événements
+assemble conditionnellement les enregistrements localisés en un espace-temps
+d'événements lorentzien de dimension 3+1 et de signature (-+++), avec H^3
+strictement fibre des repères de repos au-dessus des événements, valable
+exactement sur ses reçus nommés de population, de séparation, de repère et de
+recouvrement. La localisation des jetons d'enregistrement exige des
 réponses de caps calibrées et un budget d'erreur complet ; sans ces éléments,
-le résultat est ambigu.
+le résultat est ambigu, et sans les reçus d'événements la revendication du
+corpus reste une cinématique de repères de Lorentz seulement.
 
 Les continuations de spectre d'écran et de CMB sont provisoires sans l'échelle
 géométrique de la branche écran, sa dynamique source, son horloge, son

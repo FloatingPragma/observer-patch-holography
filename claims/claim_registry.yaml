@@ -194,6 +194,92 @@
       "status": "conditional_theorem"
     },
     {
+      "claim_id": "OPH-GR-D3H-GEOMETRY-PRODUCER",
+      "statement": "The support-visible incidence complex is computable from repaired quotient normal forms and is schedule/gauge/refinement invariant; on towers carrying the spherical-incidence, disk/mesh, modular cross-ratio, and 2pi-normalization receipts, the round S2, its conformal structure, the oriented round-cap family, and every clause of the finite cap-normal BW certificate are produced with quantitative error envelopes; and repair confluence alone underdetermines topology, dimension, orientation framing, and modular normalization (explicit T2, boundary-of-4-simplex, wedge, and wrong-beta countermodels).",
+      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "tier": "producer_theorem_plus_underdetermination_no_go",
+      "assumptions": [
+        "repair_completeness",
+        "local_diamond",
+        "spherical_incidence_receipt",
+        "mesh_crossratio_normalization_receipts"
+      ],
+      "imported_results": [
+        "classification_of_closed_combinatorial_surfaces",
+        "Rado_uniqueness_of_surface_PL_structure",
+        "Mobius_cross_ratio_rigidity_on_S2"
+      ],
+      "oph_specific_delta": "The certificate consumed by the BW scaling theorem is no longer a monolithic declared hypothesis: it is produced from normal-form data under decidable finite-stage receipts, and the receipts are proved to be the irreducible geometric branch content of Einstein branch entry.",
+      "novelty_type": "producer_theorem_with_countermodels",
+      "evidence": [
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "code/geometry/quotient_cap_readout.py",
+        "code/geometry/test_quotient_cap_readout.py"
+      ],
+      "falsifier": "A receipt-carrying tower fails to produce a certificate clause with the stated envelope, an incidence readout depends on schedule/gauge/refinement presentation, or a countermodel is shown to violate a D1 clause it claims to satisfy.",
+      "scope_if_false": "The producer branch reopens and the certificate reverts to a declared hypothesis; the conditional BW/Lorentz theorems and unrelated branches survive on their declared forms.",
+      "status": "proved_on_receipt_branch"
+    },
+    {
+      "claim_id": "OPH-GR-D4-NULLNET-STANDARDNESS",
+      "statement": "On the producer branch, the null blow-up net is standard (cyclic/separating reference vector) given stagewise MaxEnt faithfulness, the mixed-GNS Cauchy clause, and one half-line cyclicity receipt, with interval cyclicity derived by Reeh-Schlieder; the half-sided modular inclusion is derived from the produced cap flow without assuming translations; reduced modular Hamiltonians are endpoint-Lipschitz local exactly on the exact-Markov/central-interface branch, with a machine-verified finite Gibbs counterexample outside it; Mobius bounded-interval covariance holds; and on the modular-intersection receipt branch the per-direction Borchers generators assemble into one positive-energy Poincare translation representation with future-cone joint spectrum.",
+      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "tier": "conditional_scaling_theorem_package",
+      "assumptions": [
+        "support_visible_BW_scaling",
+        "maxent_refinement_closure_clause",
+        "halfline_cyclicity_receipt",
+        "modular_intersection_receipt"
+      ],
+      "imported_results": [
+        "Borchers_Wiesbrock_half_sided_modular_inclusions",
+        "Araki_Zsido_extension",
+        "Guido_Longo_Wiesbrock_Mobius_covariance",
+        "Wiesbrock_modular_intersections",
+        "Hayden_Jozsa_Petz_Winter_Markov_structure"
+      ],
+      "oph_specific_delta": "The standardness, noncircular production, Markov-locality boundary, and four-translation compatibility hypotheses previously implicit in the null bridge are stated, proved on their branches, or exhibited as receipts with counterexample boundaries.",
+      "novelty_type": "standardness_and_assembly_package",
+      "evidence": [
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "code/geometry/null_net_standardness.py",
+        "code/geometry/test_null_net_standardness.py"
+      ],
+      "falsifier": "A Borchers-Wiesbrock invocation is found whose standardness input is neither proved nor carried as a receipt, the Markov modular-locality theorem fails on the central-interface branch, or the assembly relations fail on a tower carrying the modular-intersection receipts.",
+      "scope_if_false": "The null bridge reverts to its earlier conditional form; the Einstein branch inherits the weakened status.",
+      "status": "proved_on_receipt_branch"
+    },
+    {
+      "claim_id": "OPH-GR-D4B-EVENT-MANIFOLD",
+      "statement": "Events are coincidence classes of record germs, invariant under schedule, gauge, refinement, and Lorentz chart change; unconditionally the event space is second-countable and completely regular; under receipts E1-E4 (population density, certified separation gaps, rank-four response frames, Poincare overlap cocycle) it is a Hausdorff topological four-manifold with locally bi-Lipschitz atlas, causal cones of signature (-+++), repair-oriented time orientation, tetrads, produced conformal metric, C11 connection/curvature readout, and glued scheduler-independent modular clocks; H3 is strictly the frame fiber over events with no equivariant section; and explicit countermodels show dim H3 = 3 promotes nothing by itself.",
+      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "tier": "conditional_construction_theorem",
+      "assumptions": [
+        "cap_normal_H3_chart",
+        "point_local_cap_response_factorization",
+        "quantitative_cap_observability",
+        "positive_localization_gap_for_unique_finite_output",
+        "event_manifold_receipts_E1_E4",
+        "modular_intersection_receipt",
+        "record_cauchy_and_stable_causality"
+      ],
+      "imported_results": [
+        "bi_Lipschitz_atlas_arguments",
+        "convex_cone_quadric_signature_classification",
+        "Rademacher_Caratheodory_regularity"
+      ],
+      "oph_specific_delta": "The step from Lorentz-group/observer-frame kinematics to an actual 3+1 Lorentzian event spacetime is a quotient-intrinsic construction with named receipts, a strict event-base/frame-fiber separation, honest unconditional regularity, and countermodels; without the receipts the corpus claim is exactly Lorentz kinematics.",
+      "novelty_type": "conditional_event_manifold_construction",
+      "evidence": [
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "code/geometry/event_manifold_reconstruction.py",
+        "code/geometry/test_event_manifold_reconstruction.py"
+      ],
+      "falsifier": "A receipt-carrying region fails Hausdorffness/dimension/signature as constructed, the event classes depend on schedule/gauge/refinement presentation, H3 is identified with a spatial slice, or a global causality claim is made beyond the named assumptions.",
+      "scope_if_false": "The event-manifold continuation reopens and all corpus surfaces revert to Lorentz-group and observer-frame kinematics language; the kinematic chart and localization theorems survive.",
+      "status": "conditional_theorem"
+    },
+    {
       "claim_id": "OPH-GR-D6-CAPACITY",
       "statement": "The local Einstein branch closes globally at the cosmic record-capacity fixed point, giving the dimensionless cosmological relation on the observed de Sitter branch.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",

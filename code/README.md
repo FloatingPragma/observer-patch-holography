@@ -8,6 +8,12 @@ Primary derivation surfaces:
 - `particles/`: particle-spectrum builders, status surfaces, gap campaigns, and
   the electroweak hierarchy certificate bundle under `particles/hierarchy/`.
 - `consensus/`: packet-net, consensus-protocol, and fixed-cutoff Z2/S3 reference-architecture benchmark artifacts.
+- `geometry/`: machine receipts for the Einstein branch-entry packets (GitHub
+  #523/#524/#525): the quotient-intrinsic incidence/cap readout with its
+  topology countermodels, the null-net standardness and Markov modular-locality
+  witnesses (including the Gibbs nonlocality counterexample), and the synthetic
+  end-to-end event-manifold reconstruction with its dimension/Hausdorff
+  countermodels. Run with `python3 -m pytest code/geometry/`.
 
 Supplemental and benchmark surfaces:
 
