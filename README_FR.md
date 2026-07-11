@@ -7,27 +7,15 @@
 **Liens rapides :** [site OPH](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Book: Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [Ω](https://omega.floatingpragma.io/) | [Blog](https://blog.floatingpragma.io/) | [Tech](https://omega.floatingpragma.io/) | [Simulation](https://simulation.floatingpragma.io)
 
 **Falsifiabilité :** [la carte de falsifiabilité OPH](extra/OPH_falsifiability.md)
-recense 40 résultats durs qui tueraient l'OPH. L'ancien programme IBM Quantum
-Cloud est gelé comme archive d'ingénierie, car ses circuits programmés ne
-distinguent pas l'OPH de la mécanique quantique standard. La falsifiabilité est
-la façon dont une théorie physique paie son loyer. L'OPH est fortement
-falsifiable : un graviton massif, une désintégration du proton médiée par jauge,
-une quatrième génération légère de matière, un outlier du réseau de charges ou
-une exclusion prospective d'une branche neutrino fermée côté source
-réfuteraient l'affirmation OPH correspondante. L'ancien point neutrino à cycle
-pondéré n'a jamais atteint ce statut : il descend d'un gabarit de saveur écrit à
-la main, son sélecteur a été choisi après comparaison aux cibles, et le profil
-corrélé NuFIT 6.1 l'exclut. Le transport vers la base partagée annule la
-matrice des leptons chargés par construction ; il ne dérive pas leur base
-physique. Ce candidat ne fournit donc ni matrice PMNS physique ni masses
-absolues des neutrinos. L'audit a également corrigé une erreur du pipeline
-intrinsèque, qui exportait les vecteurs singuliers gauches à la place de la
-matrice de Takagi de Majorana ; le point conditionnel corrigé est lui aussi
-très éloigné des données d'oscillation.
+recense 40 résultats empiriques qui réfutent des affirmations OPH précises, dont
+un graviton massif, une désintégration du proton médiée par jauge, une quatrième
+génération légère de matière et un outlier du réseau de charges. La dérivation
+du mélange physique des neutrinos et de leurs masses absolues est un travail en
+cours.
 
 Pour la réponse existentielle immédiate, allez directement au **Paper 6.
 [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**.
-La version courte est directe : oui, cet univers est une simulation au sens
+Oui, cet univers est une simulation au sens
 OPH, un monde construit à partir de points de vue locaux qui gardent des
 enregistrements, comparent ce qu'ils peuvent voir en commun, réparent les
 désaccords et convergent vers les motifs stables que tous les observateurs
@@ -284,7 +272,7 @@ $G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar$. Les observations peuvent identifier
 le voisinage ou la branche, mais elles ne remplacent pas ces calculs de point
 fixe.
 
-Les rôles en aval sont simples. $P_\star$ alimente la ligne de structure fine,
+$P_\star$ alimente la ligne de structure fine,
 la structure de jauge, les lignes de particules, les enregistrements et la
 synchronisation des observateurs. $N_{\mathrm{CRC}}$ alimente la ligne
 cosmologique. La règle d'échelle fixe la normalisation de Newton et l'affichage
@@ -307,22 +295,18 @@ papiers.
 | --- | --- | --- | --- | --- |
 | Constante gravitationnelle | G | 6.6742999959e-11, affichage échelle/horloge | 6.67430(15)e-11 | 0.00003σ |
 | Vitesse de la lumière | c | vitesse lorentzienne structurelle; valeur SI conventionnelle | 299792458 exact par définition | pas une prédiction numérique |
-| Structure fine (inv.) | $A_{\alpha_U}^{\mathrm{fp}}=\alpha_{\mathrm{root}}^{-1}+\alpha_U(P_C)$ | diagnostic comparatif sans hadrons à provenance mixte 137.03595950081728 ; tronc d'audit racine seul et côté source 136.99483516462165 ; $P_C$ est le pixel de comparaison CODATA | 137.035999177(21) | écart comptable CODATA moins diagnostic : 0.00003967618 en unités d'alpha inverse ; la promotion côté source exige toujours le backend OPH-QCD/hadronique du point final dans le même schéma |
+| Structure fine (inv.) | $A_{\alpha_U}^{\mathrm{fp}}=\alpha_{\mathrm{root}}^{-1}+\alpha_U(P_C)$ | diagnostic comparatif sans hadrons à provenance mixte 137.03595950081728 ; tronc d'audit racine seul et côté source 136.99483516462165 ; $P_C$ est le pixel de comparaison CODATA | 137.035999177(21) | écart comptable CODATA moins diagnostic : 0.00003967618 en unités d'alpha inverse ; le statut côté source exige le backend OPH-QCD/hadronique du point final dans le même schéma |
 | Boson de Higgs | $m_H$ | 125.1995304097179 GeV, candidat conditionnel sur la surface de réparation déclarée | 125.20 ± 0.11 GeV | ligne conditionnelle à porte de réparation sans cible |
 | Masse du photon | m_γ | 0 GeV, zéro structurel | <1e-18 eV | sous la borne |
 | Masse du gluon | m_g | 0 GeV, zéro structurel | pas de ligne de masse de gluon libre isolé | porteur de jauge confiné |
 | Masse du graviton | m_grav | 0 GeV, zéro structurel | <1e-32 GeV | sous la borne |
-| Point neutrino à cycle pondéré | $(\sin^2\theta_{23},\delta_{\rm CP})$ | $(0.582056,-54.419^\circ)$, candidat-gabarit informé par les cibles et exclu | profil corrélé NuFIT 6.1 | $\Delta\chi^2=20.12$ avec la vraisemblance atmosphérique tabulée et $18.44$ sans elle ; les deux dépassent le contour 3σ à deux paramètres, $11.83$ |
 
 `Δ` donne l'écart en sigma lorsque le PDG ou le NIST publie une incertitude à un sigma. Sinon, il
-indique le statut de support déclaré. Les accords numériques sur des surfaces
-cibles ou témoins ne sont pas des prédictions publiques de masse source seule,
-sauf si la ligne déclare un statut structurel ou un statut théorématique
-conditionnel explicite. Le statut complet du code particules, y compris les
-lignes $W/Z$, leptons chargés, quarks et neutrinos retenues,
-est généré dans
-[`code/particles/FINAL_END_TO_END_PREDICTIONS.md`](code/particles/FINAL_END_TO_END_PREDICTIONS.md)
-et [`code/particles/EXACT_NONHADRON_MASSES.md`](code/particles/EXACT_NONHADRON_MASSES.md).
+indique le statut de support déclaré. Un accord numérique compte comme
+prédiction de masse côté source uniquement lorsque la ligne lui donne un statut
+structurel ou un statut de théorème conditionnel explicite. Le papier sur les
+particules donne le statut des dérivations électrofaible, leptons chargés,
+quarks, neutrinos et hadrons.
 
 ## Articles
 
@@ -331,8 +315,8 @@ correspondent aux textes qui portent la surface théorématique centrale.
 
 - **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique compact de la branche OPH reconstruite. Il donne la route par cohérence de recouvrement vers la structure de Lorentz, la branche de gravité de type Einstein sur le coeur récupéré à cinq axiomes, le noyau algébrique formel qui promeut les données de repère au tenseur complet et fixe le résidu métrique en un seul \(\Lambda\) sur les branches connexes conservées, la reconstruction de jauge compacte, le quotient du Modèle Standard et le paquet matière sélectionnés avec noyau algébrique formel hypercharge/\(Z_6\), le porteur local de Borel-Weil pour le créneau à un Higgs, Maxwell sur la branche ordinaire du photon et la route conditionnelle vers le gap de Yang-Mills sous ses hypothèses de continuum, positivité par réflexion, transfert/intertwiner et non-trivialité.
 - **Papier 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)** : synthèse large et meilleure porte d'entrée. Il explique les patches d'observateurs finis, la cohérence de recouvrement, les enregistrements, les mouvements de réparation, l'univers effectif reconstruit, l'histoire d'échelle et les frontières publiques des affirmations sans remplacer le registre théorématique du papier compact.
-- **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivation et audit du secteur particules. Il porte la reconstruction pilotée par \(P_\star\), les porteurs structurels, le pont de porteur à un Higgs de Borel-Weil, les branches électrofaible/Higgs/top, quarks, leptons chargés, neutrinos et hadrons, les vérifications quantitatives et la couture conditionnelle de lignes d'enregistrement. Son audit neutrino établit que le candidat-gabarit à cycle pondéré, informé par les cibles, échoue au profil corrélé NuFIT 6.1 ; aucune prédiction neutrino fermée côté source n'est revendiquée.
-- **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : mécanique du consensus fini entre patches. Il montre comment les observateurs comparent les enregistrements de recouvrement, appliquent des réparations, traitent les défauts et convergent vers des formes normales quotient quand les hypothèses de cutoff fixe sont satisfaites. Le résultat de consensus s'arrête aux formes normales quotient ; la géométrie lorentzienne et einsteinienne entre par la branche géométrique séparée du papier compact. L'opérateur de réparation est formulé sur le quotient physique, les lectures réparées sont invariantes sous les choix d'implémentation cachés, un porteur fini en couches témoigne de la reconstruction depuis la frontière, et un dispositif fini binaire donne des tests finis positifs/négatifs nets pour réparation et reconstruction de frontière. Le compagnon mathématique neutre prouve le critère générique entre sources, mais l'unicité physique à frontière identique exige encore que la frontière déclarée identifie le quotient cohérent ; la confluence depuis une même source et la vivacité sont des obligations distinctes.
+- **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivation et audit du secteur particules. Il porte la reconstruction pilotée par \(P_\star\), les porteurs structurels, le pont de porteur à un Higgs de Borel-Weil, les branches électrofaible/Higgs/top, quarks, leptons chargés, neutrinos et hadrons, les vérifications quantitatives et la couture conditionnelle de lignes d'enregistrement. La dérivation du mélange physique des neutrinos et de leurs masses absolues est un travail en cours.
+- **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : mécanique du consensus fini entre patches. Il montre comment les observateurs comparent les enregistrements de recouvrement, appliquent des réparations, traitent les défauts et convergent vers des formes normales quotient quand les hypothèses de cutoff fixe sont satisfaites. Le résultat de consensus s'arrête aux formes normales quotient ; la géométrie lorentzienne et einsteinienne entre par la branche géométrique séparée du papier compact. L'opérateur de réparation est formulé sur le quotient physique, les lectures réparées sont invariantes sous les choix d'implémentation cachés, un porteur fini en couches témoigne de la reconstruction depuis la frontière, et un dispositif fini binaire donne des tests finis positifs/négatifs nets pour réparation et reconstruction de frontière. Le compagnon mathématique neutre prouve le critère générique entre sources, mais l'unicité physique à frontière identique exige que la frontière déclarée identifie le quotient cohérent ; la confluence depuis une même source et la vivacité sont des obligations distinctes.
 - **Papier 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** : surface de porteurs finis et d'enregistrements observateurs. Il donne l'architecture de porteurs échosaédriques multiports, le théorème du tamis d'écran à douze ports, la complétude des emplacements scalaires au centre des arêtes, le pont fini du canal scalaire, la réserve \(Z_6\) quotient-edge et les portes du coefficient scalaire à épaisseur finie, le cadrage \(A_5\)-icosaédrique et de type \(E_8\), les règles de preuve matérielle publique, les enregistrements, les mouvements de récupération, la restauration de checkpoint et la synchronisation des observateurs.
 - **Papier 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)** : synthèse spéculative de la couche de sens, hors du paquet de théorèmes de physique récupérés. Il lit la même mécanique OPH comme théorie de la continuation d'observateur, du paradis et de l'enfer comme environnements de continuation, de la résurrection comme continuation préservant les enregistrements, de la justice comme comptabilité tort-réparation et d'une boucle où des observateurs reconstruisent puis construisent la machinerie de continuation.
 
@@ -344,7 +328,7 @@ plus brièvement.
 
 - **[Observation-Determined Normal Forms](extra/observable_normal_forms.pdf)** : mathématiques autonomes et neutres vis-à-vis du substrat pour les systèmes de contraintes et de réécriture. Le papier sépare la confluence depuis une même source, l'identification entre sources à partir d'observations protégées, la normalisation et la vivacité, ainsi que la réparabilité locale. Il ajoute des modules de stabilité résiduelle et d'observation inverse, des bornes de raffinement et de limite projective, le projecteur fini d'espérance conditionnelle pondérée avec un reçu matriciel non circulaire, et un artefact Lean dédié au sous-ensemble formalisé des théorèmes.
 - **[Compact Proof That We Most Likely Inhabit an OPH Simulation](extra/compact_proof_of_oph.pdf)** : argument de compression le plus court en faveur de l'OPH. Il rassemble la route en cinq axiomes, les sorties de branche fixe, les points d'échec et la raison pour laquelle l'accord numérique ne compte que si la fuite de cible est exclue.
-- **[Carte de falsifiabilité OPH](extra/OPH_falsifiability.md)** : liste publique de résultats qui tueraient l'OPH. Elle nomme 40 modes d'échec durs, dont graviton massif, désintégration du proton médiée par jauge, générations légères supplémentaires et outliers du réseau de charges. Une exclusion neutrino ne teste l'OPH qu'après le verrouillage pré-données d'une branche fermée côté source ; le gabarit à cycle pondéré exclu ne remplissait pas cette condition.
+- **[Carte de falsifiabilité OPH](extra/OPH_falsifiability.md)** : liste publique de résultats qui tueraient l'OPH. Elle nomme 40 modes d'échec durs, dont graviton massif, désintégration du proton médiée par jauge, générations légères supplémentaires et outliers du réseau de charges. Un résultat neutrino ne teste l'OPH que s'il exclut une prédiction fixée indépendamment des données de test. La dérivation du mélange physique des neutrinos et de leurs masses absolues est un travail en cours.
 - **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)** : calcul de point fixe source pour la ligne de structure fine. Il sépare la valeur source OPH, la frontière empirique du point final à basse énergie, la provenance à deux \(P\) entre racine source et pixel de comparaison CODATA, et la correction QCD/hadronique restante.
 - **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)** : mécanisme OPH fini de gap de réparation et route conditionnelle vers le problème de Clay. L'identification au Yang-Mills quadridimensionnel exige le certificat de continuum et de transfert déclaré.
 - **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)** : théorie des cordes comme langage effectif de bord OPH et crible de vides. Le résultat de Bouchard–Donagi fournit un candidat au niveau de la cohomologie du spectre visible sans masse ; les certificats non émis ici comprennent le bord critique, la reproduction brute de la cohomologie, la réalisation de la couche de sûreté, le spectre lourd, le passage vers la basse énergie, les seuils et le verrouillage des moduli.
@@ -352,7 +336,6 @@ plus brièvement.
 - **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)** : cognition et qualia comme consensus récurrent de patches sur substrats neuronaux ou artificiels auto-relecteurs.
 - **[Theoretical Bounds on \(\chi_\nu\) in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)** : théorème de canal commun pour la matière cohérente, pont fini de canal, coefficient de collier à réserve protégée \(\chi_\nu^{\rm can}=e^{-P_\chi/24}\), bande à épaisseur finie, cage énergétique de conservation et valeurs d'ingénierie, avec la force de dispositif et le stress sombre cosmologique gardés comme portes de reçus séparées.
 - **[Entanglement Geometry Problem in OPH](extra/ENTANGLEMENT_GEOMETRY_PROBLEM_OPH.md)** : note sur la géométrie de l'intrication comme problème de recouvrement d'observateurs et de surfaces d'enregistrement.
-- **[Archive d'ingénierie IBM Quantum Cloud gelée](extra/IBM_QUANTUM_CLOUD.md)** : démonstrations matérielles achevées en secteurs réduits et à rétroaction conditionnée par enregistrement. Elles sont conservées pour la reproductibilité, et non comme preuve distinguant l'OPH de la mécanique quantique, dans l'attente d'un discriminateur quantitatif.
 - **[Common Objections](extra/COMMON_OBJECTIONS.md)** : réponses brèves aux objections conceptuelles et techniques fréquentes.
 - **[Hacking the Simulation: Anti-Gravity Exploit](extra/hacking-the-simulation-anti-gravity-exploit.pdf)** : livre de vulgarisation et d'ingénierie adjacent à l'OPH sur le test local de levée \(\chi_\nu\). Les [chapitres sources Markdown](extra/hacking-the-simulation-anti-gravity-exploit/) sont inclus dans le dépôt afin qu'OPH Sage ingère le même texte lors de la ré-ingestion.
 
@@ -495,7 +478,7 @@ frontières des revendications vivent dans les papiers.
   </a>
 </p>
 
-<p align="center"><sub>Vue compacte actuelle de la voie particules, avec les frontières de revendication strictes et le reçu de capacité pixel-écran. Cliquez pour ouvrir le SVG complet.</sub></p>
+<p align="center"><sub>Vue compacte de la voie particules, avec les frontières de revendication strictes et le reçu de capacité pixel-écran. Cliquez pour ouvrir le SVG complet.</sub></p>
 
 ## Plus
 
@@ -510,7 +493,6 @@ frontières des revendications vivent dans les papiers.
 - **Questions et explications détaillées :** OPH Sage sur [Telegram](https://t.me/HoloObserverBot), [X](https://x.com/OphSage) ou [Bluesky](https://bsky.app/profile/ophsage.bsky.social)
 - **Lab :** [oph-lab.floatingpragma.io](https://oph-lab.floatingpragma.io)
 - **Objections courantes :** [extra/COMMON_OBJECTIONS.md](extra/COMMON_OBJECTIONS.md)
-- **Archive d'ingénierie IBM Quantum gelée :** [extra/IBM_QUANTUM_CLOUD.md](extra/IBM_QUANTUM_CLOUD.md)
 
 ## Guide du dépôt
 

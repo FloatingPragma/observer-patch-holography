@@ -105,8 +105,10 @@ def main():
 
     from scipy.interpolate import CubicSpline
     ell_bins = bins["ell"]
+    curves_out = {}
     for name, ns in TILT_CANDIDATES.items():
         D = cl_from_sources(bg, ks, _taus, S, ELLS, n_s=ns, A_s=p.A_s)
+        curves_out[name] = D
         spl = CubicSpline(ELLS, D)
         D_at_bins = spl(ell_bins)
         obs, sig = bins["observed_D_ell"], bins["minus_dD_ell"]
@@ -127,10 +129,7 @@ def main():
               f"(scaled {chi2_scaled:.3f}, A={A_fit:.4f})")
 
     np.savez_compressed(HERE / "runtime" / "dl_curves.npz",
-                        ells=ELLS,
-                        **{n: cl_from_sources(bg, ks, _taus, S, ELLS,
-                                              n_s=v, A_s=p.A_s)
-                           for n, v in TILT_CANDIDATES.items()})
+                        ells=ELLS, **curves_out)
     out = HERE / "runtime" / "end_to_end_receipt.json"
     out.write_text(json.dumps(report, indent=2))
     print("receipt:", out)

@@ -25,7 +25,11 @@ def cl_from_sources(bg, k_coarse, taus, S, ells, n_s, A_s, k_pivot=0.05,
                     dk_fine=1.2e-4):
     """S: array (n_k_coarse, n_tau). Returns D_ell [muK^2] at requested ells."""
     tau0 = bg.tau0
-    k_fine = np.arange(k_coarse[0], k_coarse[-1], dk_fine)
+    # log spacing at low k (plateau/ISW region), linear through the acoustic range
+    k_fine = np.concatenate([
+        np.geomspace(k_coarse[0], 0.004, 600, endpoint=False),
+        np.arange(0.004, k_coarse[-1], dk_fine),
+    ])
     # spline sources in k at each tau (S is smooth in k on the acoustic scale)
     S_fine = np.empty((k_fine.size, taus.size))
     for j in range(taus.size):

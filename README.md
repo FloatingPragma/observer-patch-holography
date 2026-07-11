@@ -6,26 +6,15 @@
 
 **Quick links:** [OPH website](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Book: Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [Ω](https://omega.floatingpragma.io/) | [Blog](https://blog.floatingpragma.io/) | [Tech](https://omega.floatingpragma.io/) | [Simulation](https://simulation.floatingpragma.io)
 
-**Falsifiability:** [OPH falsifiability map](extra/OPH_falsifiability.md)
-lists 40 hard OPH-killing outcomes. The former IBM Quantum Cloud program is
-frozen as an engineering archive because its programmed circuits do not
-distinguish OPH from standard quantum mechanics. Falsifiability is how a
-physics theory pays rent. OPH is highly falsifiable: a massive graviton, a gauge-mediated
-proton decay event, a fourth light matter generation, a charge-lattice outlier,
-or a prospective exclusion of a source-closed neutrino branch would destroy the
-corresponding OPH claim. The former weighted-cycle neutrino point never reached
-that status: it descends from a hand-written flavor template, used target-ranked
-selector development, and is rejected by the NuFIT 6.1 correlated profile. The
-shared-basis transport cancels the charged-lepton matrix by construction; it
-does not derive the physical charged-lepton basis. No physical PMNS matrix or
-absolute neutrino masses follow from this candidate. The audit also corrected
-an intrinsic-pipeline error that had exported left singular vectors instead of
-the Majorana Takagi matrix; the corrected conditional point is also far from
-the oscillation data.
+**Falsifiability:** The [OPH falsifiability map](extra/OPH_falsifiability.md)
+lists 40 empirical outcomes that rule out specific OPH claims, including a
+massive graviton, gauge-mediated proton decay, a fourth light matter generation
+and a charge-lattice outlier. The derivation of physical neutrino mixing and
+absolute neutrino masses is work in progress.
 
 If you want the existential answer first, jump straight to **Paper 6.
 [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**.
-The short version is direct: yes, this universe is a simulation in the OPH
+Yes, this universe is a simulation in the OPH
 sense: a world built from local points of view that keep records, compare what
 they can see in common, repair mismatches, and settle on the stable patterns
 all observers can share. No outside computer has to render particle positions
@@ -180,7 +169,7 @@ conditions are met. On that controlled branch the observer-facing rest-space
 chart is exactly three-dimensional. Caps mark cuts and sides of the chart, not
 preferred observer points. Record tokens populate the chart only when
 calibrated cap responses and an error budget support localization. Finite
-evidence may still report ambiguity. Spherical harmonics organize angular modes.
+evidence may report ambiguity. Spherical harmonics organize angular modes.
 Finite cellulations of
 the same chart give the regulator surface on which patch ports, edge data, and
 overlap checks can be made explicit; they are not by
@@ -252,7 +241,7 @@ with $B_\star=3\pi/\ell_\star^2$ and
 $G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar$. Observations can identify the
 neighborhood or branch, but they do not replace these fixed-point calculations.
 
-The downstream roles are simple. $P_\star$ feeds the fine-structure row, gauge
+$P_\star$ feeds the fine-structure row, gauge
 structure, particle rows, records, and observer synchronization.
 $N_{\mathrm{CRC}}$ feeds the cosmological row. The scale rule fixes the Newton
 normalization and Planck-scale display. In geometric units,
@@ -272,21 +261,18 @@ exact hypercharge, $N_c=3$, and $N_g=3$ live in the papers.
 | --- | --- | --- | --- | --- |
 | Gravitational constant | G | 6.6742999959e-11, scale/clock display | 6.67430(15)e-11 | 0.00003σ |
 | Speed of light | c | structural Lorentz speed; SI value conventional | 299792458 exact by definition | not a numeric prediction |
-| Fine-structure (inv) | $A_{\alpha_U}^{\mathrm{fp}}=\alpha_{\mathrm{root}}^{-1}+\alpha_U(P_C)$ | mixed-provenance no-hadron comparison diagnostic 137.03595950081728; source-only root audit trunk 136.99483516462165; $P_C$ is the CODATA comparison pixel | 137.035999177(21) | CODATA-minus-diagnostic bookkeeping gap: 0.00003967618 inverse-alpha units; source-only promotion still requires the same-scheme OPH-QCD/hadronic endpoint backend |
+| Fine-structure (inv) | $A_{\alpha_U}^{\mathrm{fp}}=\alpha_{\mathrm{root}}^{-1}+\alpha_U(P_C)$ | mixed-provenance no-hadron comparison diagnostic 137.03595950081728; source-only root audit trunk 136.99483516462165; $P_C$ is the CODATA comparison pixel | 137.035999177(21) | CODATA-minus-diagnostic bookkeeping gap: 0.00003967618 inverse-alpha units; source-only status requires the same-scheme OPH-QCD/hadronic endpoint backend |
 | Higgs boson | $m_H$ | 125.1995304097179 GeV, conditional repair-gate surface candidate | 125.20 ± 0.11 GeV | conditional target-free repair-gate row |
 | Photon mass | m_γ | 0 GeV, structural zero | <1e-18 eV | below bound |
 | Gluon mass | m_g | 0 GeV, structural zero | no isolated free-gluon mass row | confined gauge carrier |
 | Graviton mass | m_grav | 0 GeV, structural zero | <1e-32 GeV | below bound |
-| Neutrino weighted-cycle point | $(\sin^2\theta_{23},\delta_{\rm CP})$ | $(0.582056,-54.419^\circ)$, rejected target-informed template candidate | NuFIT 6.1 correlated profile | $\Delta\chi^2=20.12$ with the tabulated atmospheric likelihood and $18.44$ without it; both exceed the two-parameter 3σ contour value $11.83$ |
 
 $\Delta$ reports the sigma distance where PDG or NIST quotes a one-standard-deviation
-uncertainty. Otherwise it records the declared support status. Numeric matches
-on target or witness surfaces are not public source-only mass predictions unless
-the row states a structural or explicit conditional theorem status. The full
-particle-code status, including withheld $W/Z$, charged-lepton, quark, and
-neutrino rows, is generated in
-[`code/particles/FINAL_END_TO_END_PREDICTIONS.md`](code/particles/FINAL_END_TO_END_PREDICTIONS.md)
-and [`code/particles/EXACT_NONHADRON_MASSES.md`](code/particles/EXACT_NONHADRON_MASSES.md).
+uncertainty. Otherwise it records the declared support status. A numerical
+match counts as a source-only mass prediction only when the row gives it a
+structural or explicit conditional theorem status. The particle paper gives
+the support status for the electroweak, charged-lepton, quark, neutrino and
+hadron derivations.
 
 ## Papers
 
@@ -295,8 +281,8 @@ papers that carry the core theorem surface.
 
 - **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for the recovered OPH branch. It states the observer-overlap route to Lorentz structure, the Einstein-like gravity branch on the five-axiom recovered core, the formal algebra core that upgrades rest-frame data to the tensor equation and fixes the metric residue to one \(\Lambda\) on connected conserved branches, compact-gauge reconstruction, the selected Standard Model quotient and matter package with formal hypercharge/\(Z_6\) algebra core, the Borel-Weil local carrier for the one-Higgs slot, Maxwell on the ordinary photon branch, and the conditional Yang-Mills mass-gap route under its continuum, reflection-positivity, transfer/intertwiner, and nontriviality assumptions.
 - **Paper 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)**: broad synthesis and best first read for the full program. It explains finite observer patches, overlap consistency, records, repair moves, the recovered effective universe, the scale story, and the public claim boundaries without replacing the compact paper's theorem ledger.
-- **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle-sector derivation and audit surface. It carries the \(P_\star\)-driven particle reconstruction, structural carriers, the Borel-Weil one-Higgs carrier bridge, electroweak/Higgs/top, quark, charged-lepton, neutrino, and hadron lanes, quantitative benchmark checks, and conditional record-worldline stitching. Its neutrino audit records that the target-informed weighted-cycle template candidate fails the NuFIT 6.1 correlated profile; no source-only neutrino prediction is claimed.
-- **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)**: finite patch-net consensus mechanics. It proves how local observers compare overlap records, apply repair moves, handle defects, and converge to quotient normal forms when the fixed-cutoff assumptions hold. The consensus result stops at quotient normal forms; Lorentzian and Einstein geometry enter through the separate geometric branch in the compact paper. The repair operator is stated on the physical quotient, repaired readouts are invariant under hidden implementation choices, a finite layered carrier witnesses boundary reconstruction, and a finite binary audit fixture gives sharp positive/negative repair and boundary-reconstruction tests. The neutral mathematical companion proves the generic cross-source criterion, but same-boundary physical uniqueness still requires the declared boundary map to identify the consistent quotient; same-source confluence and liveness are separate obligations.
+- **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle-sector derivation and audit surface. It carries the \(P_\star\)-driven particle reconstruction, structural carriers, the Borel-Weil one-Higgs carrier bridge, electroweak/Higgs/top, quark, charged-lepton, neutrino, and hadron lanes, quantitative benchmark checks, and conditional record-worldline stitching. The derivation of physical neutrino mixing and absolute neutrino masses is work in progress.
+- **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)**: finite patch-net consensus mechanics. It proves how local observers compare overlap records, apply repair moves, handle defects, and converge to quotient normal forms when the fixed-cutoff assumptions hold. The consensus result stops at quotient normal forms; Lorentzian and Einstein geometry enter through the separate geometric branch in the compact paper. The repair operator is stated on the physical quotient, repaired readouts are invariant under hidden implementation choices, a finite layered carrier witnesses boundary reconstruction, and a finite binary audit fixture gives sharp positive/negative repair and boundary-reconstruction tests. The neutral mathematical companion proves the generic cross-source criterion, but same-boundary physical uniqueness requires the declared boundary map to identify the consistent quotient; same-source confluence and liveness are separate obligations.
 - **Paper 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)**: finite carrier and observer-record surface. It gives the echosahedral multi-port patch-carrier architecture, twelve-port screen-sieve theorem, edge-center scalar-slot completeness, the finite scalar channel bridge, the quotient-edge \(Z_6\) reserve and finite-thickness scalar coefficient gates, $A_5$-icosahedral and $E_8$-type symmetry framing, public hardware-evidence rules, records, recovery moves, checkpoint restoration, and observer synchronization.
 - **Paper 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**: speculative meaning-layer synthesis outside the recovered physics theorem package. It reads the same OPH machinery as a theory of observer continuation, paradise and hell as continuation environments, resurrection as record-preserving continuation, justice as harm-and-repair bookkeeping, and a strange loop in which observers reverse engineer and build continuation machinery.
 
@@ -307,7 +293,7 @@ lower-level notes are linked with shorter summaries.
 
 - **[Observation-Determined Normal Forms](extra/observable_normal_forms.pdf)**: standalone, substrate-neutral mathematics for constraint and rewrite systems. It separates same-source confluence, cross-source identification from protected observations, normalization and liveness, and local repairability. It adds residual and inverse-observation stability moduli, refinement and inverse-limit bounds, the finite weighted conditional-expectation projector with a noncircular matrix receipt, and a dedicated Lean artifact for the formalized theorem subset.
 - **[Compact Proof That We Most Likely Inhabit an OPH Simulation](extra/compact_proof_of_oph.pdf)**: shortest compression-style argument for OPH. It collects the five-axiom route, the fixed-branch outputs, the failure points, and the reason numerical agreement only matters when target leakage is excluded.
-- **[OPH Falsifiability Map](extra/OPH_falsifiability.md)**: public kill-list for OPH. It names 40 hard failure modes, including massive gravitons, gauge-mediated proton decay, extra light matter generations, and charge-lattice outliers. A neutrino exclusion becomes an OPH test only after a source-closed branch is frozen before the tested data; the rejected weighted-cycle template did not meet that condition.
+- **[OPH Falsifiability Map](extra/OPH_falsifiability.md)**: public kill-list for OPH. It names 40 hard failure modes, including massive gravitons, gauge-mediated proton decay, extra light matter generations, and charge-lattice outliers. A neutrino result tests OPH only when it excludes a prediction fixed independently of the test data. The derivation of physical neutrino mixing and absolute neutrino masses is work in progress.
 - **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)**: source fixed-point calculation for the fine-structure row. It separates the OPH source value, the low-energy empirical endpoint boundary, the two-\(P\) provenance distinction between the source root and the CODATA comparison pixel, and the remaining QCD/hadronic correction.
 - **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)**: finite OPH repair-gap mechanism and conditional Clay-facing route. The four-dimensional Yang-Mills identification requires the stated continuum and transfer certificate.
 - **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)**: string theory as an effective OPH edge language and vacuum-selection sieve. The Bouchard–Donagi result supplies a visible massless-cohomology candidate; certificates not emitted here include the critical edge, raw cohomology reproduction, safety-layer realization, heavy spectrum, low-energy decoupling, thresholds, and moduli locking.
@@ -315,7 +301,6 @@ lower-level notes are linked with shorter summaries.
 - **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)**: cognition and qualia as recurrent patch consensus across neural or artificial self-reading substrates.
 - **[Theoretical Bounds on \(\chi_\nu\) in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)**: coherent-matter same-channel theorem, finite channel bridge, protected-reserve collar coefficient \(\chi_\nu^{\rm can}=e^{-P_\chi/24}\), finite-thickness band, conservation-law energy cage, and engineering chart values with device force and cosmological dark stress kept as separate receipt gates.
 - **[Entanglement Geometry Problem in OPH](extra/ENTANGLEMENT_GEOMETRY_PROBLEM_OPH.md)**: note on entanglement geometry as an observer-overlap and record-surface problem.
-- **[Frozen IBM Quantum Cloud Engineering Archive](extra/IBM_QUANTUM_CLOUD.md)**: completed reduced-sector and record-gated hardware demonstrations. They are retained for reproducibility, not as OPH-versus-QM evidence, pending a quantitative discriminator.
 - **[Common Objections](extra/COMMON_OBJECTIONS.md)**: short responses to frequent conceptual and technical objections.
 - **[Hacking the Simulation: Anti-Gravity Exploit](extra/hacking-the-simulation-anti-gravity-exploit.pdf)**: pop-science OPH-adjacent engineering book about the local chi-nu lift test. The [Markdown source chapters](extra/hacking-the-simulation-anti-gravity-exploit/) are included with the repo so OPH Sage can ingest the same text during re-ingestion.
 
@@ -445,7 +430,7 @@ formulas and claim boundaries live in the papers.
   </a>
 </p>
 
-<p align="center"><sub>A compact current view of the particle lane, including the strict claim boundaries and the pixel-screen capacity receipt. Click to open the full SVG.</sub></p>
+<p align="center"><sub>A compact view of the particle lane, including the strict claim boundaries and the pixel-screen capacity receipt. Click to open the full SVG.</sub></p>
 
 ## More
 
@@ -461,7 +446,6 @@ formulas and claim boundaries live in the papers.
 - **OPH Notebook:** [NotebookLM source notebook](https://notebooklm.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a) with explainer videos and additional study material.
 - **Lab:** [oph-lab.floatingpragma.io](https://oph-lab.floatingpragma.io)
 - **Common objections:** [extra/COMMON_OBJECTIONS.md](extra/COMMON_OBJECTIONS.md)
-- **Frozen IBM Quantum engineering archive:** [extra/IBM_QUANTUM_CLOUD.md](extra/IBM_QUANTUM_CLOUD.md)
 
 ## Repository Guide
 
