@@ -27,7 +27,7 @@ Status legend:
 | Paper result | Lean declaration | Status | Scope |
 |---|---|---:|---|
 | Cross-source uniqueness modulo an equivalence, `thm:cross-source-modulo` | `boundaryIdentifiesModulo_iff_observerEndpointUniqueModulo` | ✅ | Exact equivalence between identification of consistent states modulo an arbitrary relation and cross-source normal-endpoint uniqueness, assuming observation preservation and exact normal-form completeness. |
-| Weak-normalization endpoint existence | `exists_equivalent_observer_endpoints` | ✅ | Every equally observed source pair has normal endpoints, and every selected pair is equivalent modulo the chosen relation. |
+| Weak-normalization endpoint existence | `exists_equivalent_observer_endpoints` | ✅ | Every equally observed source pair has at least one pair of normal endpoints, which are equivalent; universal comparison is supplied by the preceding iff theorem. |
 | Fine/coarse two-bit separation | `TwoBitRepair.observerEndpointUnique`; `TwoBitRepair.exists_equal_endpoints`; `TwoBitRepair.coarse_confluent`; `TwoBitRepair.coarse_boundary_does_not_identify`; `TwoBitRepair.coarse_observerEndpointUnique_fails` | ✅ | Complete one-step repair system with a protected bit: the relation remains same-source confluent, while discarding the protected bit fails both boundary identification and cross-source endpoint uniqueness. |
 
 ## Observational stability
@@ -79,7 +79,7 @@ Status legend:
 
 | Paper result | Lean declaration | Status | Scope |
 |---|---|---:|---|
-| Fiber averaging is conditional expectation, `thm:fiber-conditional-expectation` | `FiniteWeightedObservation.transition_nonneg`; `FiniteWeightedObservation.transition_sum_one`; `FiniteWeightedObservation.resample_eq_self_iff_observationMeasurable`; `FiniteWeightedObservation.resample_idempotent`; `FiniteWeightedObservation.resample_weighted_self_adjoint`; `FiniteWeightedObservation.resample_weighted_energy_identity`; `FiniteWeightedObservation.resample_weighted_energy_le` | ✅ | Strictly positive finite state weights; stochasticity, exact fixed space, projector properties, Pythagorean identity, and weighted-`L2` contraction. |
+| Fiber averaging is conditional expectation, `thm:fiber-conditional-expectation` | `FiniteWeightedObservation.transition_nonneg`; `FiniteWeightedObservation.transition_sum_one`; `FiniteWeightedObservation.resample_eq_fiber_average`; `FiniteWeightedObservation.observationMeasurable_iff_exists_factor`; `FiniteWeightedObservation.resample_eq_self_iff_observationMeasurable`; `FiniteWeightedObservation.resample_idempotent`; `FiniteWeightedObservation.resample_weighted_self_adjoint`; `FiniteWeightedObservation.resample_weighted_energy_identity`; `FiniteWeightedObservation.resample_weighted_energy_le`; `FiniteWeightedObservation.kernel_eq_conditionalResamplingKernel_iff_recognition` | ✅ | Strictly positive finite state weights; stochasticity, exact weighted fiber formula and fixed space, projector properties, Pythagorean identity, weighted-`L2` contraction, and the exact R1 fiber-support/R2 equal-row/R3 weighted-detailed-balance matrix-recognition equivalence. |
 
 ## Ranked functional systems and examples
 

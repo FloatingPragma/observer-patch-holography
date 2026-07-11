@@ -5,8 +5,8 @@
 On 8 October 2014, Matteo Bachetti and the NuSTAR team reported a clock inside
 M82 X-2. It ticked every 1.37 seconds, and its arrival time moved through a
 2.5-day orbit. The pulsed component alone radiated an isotropic-equivalent
-\(4.9\times10^{39}\ \mathrm{erg\,s^{-1}}\) between 3 and 30 keV; the associated
-source had reached \(1.8\times10^{40}\ \mathrm{erg\,s^{-1}}\) in the 0.3 to
+$4.9\times10^{39}\ \mathrm{erg\,s^{-1}}$ between 3 and 30 keV; the associated
+source had reached $1.8\times10^{40}\ \mathrm{erg\,s^{-1}}$ in the 0.3 to
 10 keV band. The clock was a rotating neutron star
 [Bachetti et al. (2014)](https://doi.org/10.1038/nature13791).
 
@@ -14,7 +14,7 @@ That observation broke the convenient habit of reading an X-ray luminosity as
 a mass label. A source shining at an apparent hundred times the classical
 neutron-star Eddington luminosity could, in fact, contain a neutron star. NGC
 5907 ULX-1 later made the point at an apparent luminosity near
-\(10^{41}\ \mathrm{erg\,s^{-1}}\), while its spin changed from 1.43 to 1.13
+$10^{41}\ \mathrm{erg\,s^{-1}}$, while its spin changed from 1.43 to 1.13
 seconds [Israel et al. (2017)](https://doi.org/10.1126/science.aai8635).
 
 Issue
@@ -61,13 +61,13 @@ ULXs.
 Ultraluminous X-ray sources form a luminosity-selected mixture. Their correct
 classifier output is set-valued and factorized by accretor identity, mass,
 intrinsic Eddington ratio, emission anisotropy, viewing angle, and source mode.
-The isotropic-equivalent bolometric luminosity measures only \(M\lambda/b\)
-for a fixed declared effective opacity, where \(M\) is
-compact-object mass, \(\lambda=L_{\rm true}/L_{\rm Edd}\), and
-\(b=L_{\rm true}/L_{\rm iso}\) for a beam directed toward the observer. A
+The isotropic-equivalent bolometric luminosity measures only $M\lambda/b$
+for a fixed declared effective opacity, where $M$ is
+compact-object mass, $\lambda=L_{\rm true}/L_{\rm Edd}$, and
+$b=L_{\rm true}/L_{\rm iso}$ for a beam directed toward the observer. A
 luminosity by itself therefore identifies none of the three quantities. At
-\(10^{40}\ \mathrm{erg\,s^{-1}}\), a beamed supercritical neutron star, a
-supercritical stellar black hole, a sub-Eddington \(10^3M_\odot\) black hole,
+$10^{40}\ \mathrm{erg\,s^{-1}}$, a beamed supercritical neutron star, a
+supercritical stellar black hole, a sub-Eddington $10^3M_\odot$ black hole,
 and an unresolved blend all survive.
 
 The candidate OPH carrier specified here is a bounded, self-reading software
@@ -86,11 +86,11 @@ refuses a unique label when several frozen models remain viable.
 
 A ULX is conventionally an off-nuclear, point-like extragalactic source with
 an apparent X-ray luminosity above about
-\(10^{39}\ \mathrm{erg\,s^{-1}}\). The exact band varies among catalogs. The
+$10^{39}\ \mathrm{erg\,s^{-1}}$. The exact band varies among catalogs. The
 threshold is a catalog convention rather than a phase boundary. “Extreme ULX”
 and “hyperluminous X-ray source” introduce higher conventional thresholds.
-Sutton and collaborators selected extreme ULXs above \(5\times10^{40}\) and
-used the HLX label above \(10^{41}\ \mathrm{erg\,s^{-1}}\)
+Sutton and collaborators selected extreme ULXs above $5\times10^{40}$ and
+used the HLX label above $10^{41}\ \mathrm{erg\,s^{-1}}$
 [Sutton et al. (2012)](https://doi.org/10.1111/j.1365-2966.2012.20944.x).
 
 The public claim boundary is:
@@ -129,11 +129,11 @@ exposure and censoring rules in
 
 One classifier patch is declared for each triple
 
-\[
+$$
 (\text{source identity},\ \text{frozen data generation},
 \text{frozen model generation}).
 \tag{1}
-\]
+$$
 
 Its observer-like structure is operational and testable:
 
@@ -166,35 +166,35 @@ those mechanisms in this article.
 For a **single compact-accretor hypothesis**, let the latent source description
 be
 
-\[
+$$
 z=(a,M,\kappa_{\rm eff},\lambda,b,i,s),
 \tag{2}
-\]
+$$
 
 where
 
-- \(a\) is accretor identity: neutron star, black hole, white dwarf, another
+- $a$ is accretor identity: neutron star, black hole, white dwarf, another
   declared object, or unknown;
-- \(M\) is mass, with “stellar” and “intermediate” treated as declared ranges
+- $M$ is mass, with “stellar” and “intermediate” treated as declared ranges
   rather than laws of nature;
-- \(\kappa_{\rm eff}\) is the composition-, field-, and geometry-dependent
+- $\kappa_{\rm eff}$ is the composition-, field-, and geometry-dependent
   opacity entering the declared Eddington reference;
-- \(\lambda=L_{\rm true}/L_{\rm Edd}\) is the intrinsic accretion-luminosity
+- $\lambda=L_{\rm true}/L_{\rm Edd}$ is the intrinsic accretion-luminosity
   regime;
-- \(b\) and inclination \(i\) describe angular transfer and viewing geometry;
-- \(s\) distinguishes persistent binary, transient binary, and other declared
+- $b$ and inclination $i$ describe angular transfer and viewing geometry;
+- $s$ distinguishes persistent binary, transient binary, and other declared
   single-engine modes.
 
 An unresolved blend instead has a finite collection or point process
-\(\{z_j\}_{j=1}^N\) plus the instrument confusion model. A foreground star,
+$\{z_j\}_{j=1}^N$ plus the instrument confusion model. A foreground star,
 background AGN, supernova, or remnant is a separate contaminant hypothesis
-whose accretor coordinates \((a,M,\kappa_{\rm eff},\lambda,b,i)\) may be
+whose accretor coordinates $(a,M,\kappa_{\rm eff},\lambda,b,i)$ may be
 undefined. The classifier must not force those alternatives into the scalar
 tuple (2).
 
 The legacy single-engine labels are projections of (2):
 
-\[
+$$
 \begin{aligned}
 \mathcal B_{\rm NS,beam}
   &=\{z:a={\rm NS},\ b<b_{\rm cut}\},\\
@@ -204,7 +204,7 @@ The legacy single-engine labels are projections of (2):
   &=\{z:a={\rm BH},\ M\in\mathcal M_{\rm IMBH}\}.
 \end{aligned}
 \tag{3}
-\]
+$$
 
 Equation (3) exposes the defect in the original ansatz. The first family fixes
 identity and geometry, the second fixes identity, mass scale, and accretion
@@ -231,7 +231,7 @@ leaves the physical ULX catalog. Ambiguity is likewise not an “other” object
 
 A minimum record packet is
 
-\[
+$$
 \begin{aligned}
 R_{\rm ULX}=(&D,F_X,N_H,C_{\rm bol},S(E,t),P,\dot P,
 \operatorname{PSD},P_{\rm orb},K_2,e_{\rm orb},\\
@@ -239,54 +239,54 @@ R_{\rm ULX}=(&D,F_X,N_H,C_{\rm bol},S(E,t),P,\dot P,
 \mathcal W_{\rm obs},\mathcal S_{\rm survey}).
 \end{aligned}
 \tag{4}
-\]
+$$
 
-Here \(D\) is a distance posterior rather than a point copied from a catalog,
-\(C_{\rm bol}\) records the band-to-bolometric transformation, and
-\(\mathcal W_{\rm obs}\) contains good-time intervals, cadence, gaps, energy
+Here $D$ is a distance posterior rather than a point copied from a catalog,
+$C_{\rm bol}$ records the band-to-bolometric transformation, and
+$\mathcal W_{\rm obs}$ contains good-time intervals, cadence, gaps, energy
 selection, pile-up treatment, and dead time. The survey term records sky
 coverage, sensitivity, source confusion, and non-detections.
 
 For nearby sources,
 
-\[
+$$
 L_{\rm iso,bol}=4\pi D^2F_{X,{\rm unabs}}C_{\rm bol}
 \tag{5}
-\]
+$$
 
 or numerically
 
-\[
+$$
 L_{\rm iso,bol}=1.1965\times10^{40}
 \left(\frac{D}{10\ {\rm Mpc}}\right)^2
 \left(\frac{F_{\rm bol}}{10^{-12}\,
 {\rm erg\,cm^{-2}\,s^{-1}}}\right)
 \ {\rm erg\,s^{-1}}.
 \tag{6}
-\]
+$$
 
 Ignoring covariance, the leading propagated uncertainty is
 
-\[
+$$
 \sigma_{\ln L}^2\simeq
 4\left(\frac{\sigma_D}{D}\right)^2
 +\left(\frac{\sigma_{F_{X,{\rm unabs}}}}{F_{X,{\rm unabs}}}\right)^2
 +\sigma_{\ln C_{\rm bol}}^2.
 \tag{7}
-\]
+$$
 
 A spectral model is compared to detector counts rather than to an unfolded
-plot. For epoch \(e\) and detector channel \(k\), a conventional forward model
+plot. For epoch $e$ and detector channel $k$, a conventional forward model
 has expected counts
 
-\[
+$$
 \mu_{ek}(h,\theta_h)=t_e\int
 R_{ek}(E)A_e(E)S_h(E;\theta_h)\,dE+B_{ek},
 \tag{8}
-\]
+$$
 
-where \(R\) is redistribution, \(A\) effective area, \(B\) background, and
-\(h\) a candidate family. Timing models are multiplied by the actual window
+where $R$ is redistribution, $A$ effective area, $B$ background, and
+$h$ a candidate family. Timing models are multiplied by the actual window
 and dead-time operator before comparison with event arrivals. This is why
 “luminosity plus timing plus environment” is too small a public record:
 spectrum, instrument response, source association, and selection are
@@ -294,37 +294,37 @@ load-bearing.
 
 ## 5. Luminosity identifiability theorem
 
-For fully ionized material with hydrogen mass fraction \(X\), the
+For fully ionized material with hydrogen mass fraction $X$, the
 electron-scattering opacity and classical Eddington luminosity are
 
-\[
+$$
 \kappa_{\rm es}\simeq0.20(1+X)\ \mathrm{cm^2\,g^{-1}},
 \qquad
 L_{\rm Edd}=\frac{4\pi GMc}{\kappa_{\rm es}}
 \simeq\frac{2.50\times10^{38}}{1+X}
 \frac{M}{M_\odot}\ \mathrm{erg\,s^{-1}}.
 \tag{9}
-\]
+$$
 
 For pure hydrogen, retaining the unrounded
-\(\kappa_{\rm es}=\sigma_T/m_p=0.39773\ \mathrm{cm^2\,g^{-1}}\), this is
-\(1.2571\times10^{38}(M/M_\odot)\ \mathrm{erg\,s^{-1}}\); the rounded
-\(0.40\ \mathrm{cm^2\,g^{-1}}\) opacity gives \(1.2500\times10^{38}\).
+$\kappa_{\rm es}=\sigma_T/m_p=0.39773\ \mathrm{cm^2\,g^{-1}}$, this is
+$1.2571\times10^{38}(M/M_\odot)\ \mathrm{erg\,s^{-1}}$; the rounded
+$0.40\ \mathrm{cm^2\,g^{-1}}$ opacity gives $1.2500\times10^{38}$.
 Composition changes the coefficient. Strong magnetic fields change the
 scattering cross-section and column geometry, so (9) is a reference scale
 rather than a universal neutron-star ceiling.
 
-In equations (10) through (17), \(L_{\rm iso}\) and \(L_{\rm true}\) are
+In equations (10) through (17), $L_{\rm iso}$ and $L_{\rm true}$ are
 bolometric luminosities. A band-limited measurement enters only after the
 declared absorption and bolometric transformation in equation (5). For
 emission collimated toward the observer, define
 
-\[
+$$
 b=\frac{L_{\rm true}}{L_{\rm iso}},\quad 0<b\le1,
 \qquad
 \lambda=\frac{L_{\rm true}}{L_{\rm Edd}}.
 \tag{10}
-\]
+$$
 
 Some papers use the reciprocal beaming convention. A general angular transfer
 function can also describe off-axis views; equation (10) is the convention for
@@ -338,31 +338,31 @@ beam with uniform intensity inside a total solid angle $4\pi f_\Omega$, no
 off-axis detection, and the same angle-integrated luminosity does
 $b=f_\Omega$. Population corrections below use $f_\Omega$, not $b$.
 
-Let \(L_{\rm Edd,\odot}\) be the one-solar-mass coefficient for the declared
+Let $L_{\rm Edd,\odot}$ be the one-solar-mass coefficient for the declared
 composition. Then
 
-\[
+$$
 q:=\frac{L_{\rm iso}}{L_{\rm Edd,\odot}}
 =\frac{\lambda}{b}\frac{M}{M_\odot}.
 \tag{11}
-\]
+$$
 
 ### Identifiability result 1: luminosity cannot classify the accretor
 
-For any observed \(q>0\) and any proposed \(M>0\), positive values of
-\(\lambda\) and \(b\) can satisfy (11). In logarithmic coordinates,
+For any observed $q>0$ and any proposed $M>0$, positive values of
+$\lambda$ and $b$ can satisfy (11). In logarithmic coordinates,
 
-\[
+$$
 \ln q=\ln(M/M_\odot)+\ln\lambda-\ln b
 \tag{12}
-\]
+$$
 
 has a one-row Jacobian with respect to three unknowns. Perturbations satisfying
 
-\[
+$$
 \delta\ln M+\delta\ln\lambda-\delta\ln b=0
 \tag{13}
-\]
+$$
 
 are invisible to luminosity. Two parameter directions remain unidentified.
 This proves that luminosity alone cannot distinguish a neutron star, a stellar
@@ -370,72 +370,72 @@ black hole, or an IMBH.
 
 For a comparator family with
 
-\[
+$$
 M\in[M_-,M_+],\quad
 \lambda\in[\lambda_-,\lambda_+],\quad
 b\in[b_-,b_+],
 \tag{14}
-\]
+$$
 
 the luminosity-feasible interval is
 
-\[
+$$
 q\in\left[
 \frac{\lambda_-M_-}{b_+M_\odot},
 \frac{\lambda_+M_+}{b_-M_\odot}
 \right].
 \tag{15}
-\]
+$$
 
 A branch survives whenever its interval overlaps the uncertainty interval for
-\(q\). If external evidence establishes \(b\ge b_{\min}\) and
-\(\lambda\le\lambda_{\max}\), luminosity gives the conditional bound
+$q$. If external evidence establishes $b\ge b_{\min}$ and
+$\lambda\le\lambda_{\max}$, luminosity gives the conditional bound
 
-\[
+$$
 \frac{M}{M_\odot}\ge
 \frac{L_{\rm iso,-}}{L_{\rm Edd,\odot}}
 \frac{b_{\min}}{\lambda_{\max}}.
 \tag{16}
-\]
+$$
 
-With no positive lower bound on \(b\), or no finite upper bound on
-\(\lambda\), equation (16) supplies no positive mass bound.
+With no positive lower bound on $b$, or no finite upper bound on
+$\lambda$, equation (16) supplies no positive mass bound.
 
-### A reproducible \(10^{40}\ \mathrm{erg\,s^{-1}}\) example
+### A reproducible $10^{40}\ \mathrm{erg\,s^{-1}}$ example
 
-Take \(D=10\) Mpc and
-\(F_{\rm bol}=8.358\times10^{-13}\,
-\mathrm{erg\,cm^{-2}\,s^{-1}}\). Equation (5) gives exactly
-\(L_{\rm iso}=10^{40}\ \mathrm{erg\,s^{-1}}\) to the shown precision. Using
-the pure-hydrogen reference in (9), \(q=79.55\).
+Take $D=10$ Mpc and
+$F_{\rm bol}=8.358\times10^{-13}\,\mathrm{erg\,cm^{-2}\,s^{-1}}$.
+Equation (5) gives exactly
+$L_{\rm iso}=10^{40}\ \mathrm{erg\,s^{-1}}$ to the shown precision. Using
+the pure-hydrogen reference in (9), $q=79.55$.
 
-| Candidate | Assumed mass | Required \(\lambda/b\) | One feasible realization |
+| Candidate | Assumed mass | Required $\lambda/b$ | One feasible realization |
 |---|---:|---:|---|
-| neutron star | \(1.4M_\odot\) | 56.82 | \(\lambda=4.42,\ b=0.0778\) |
-| stellar black hole | \(10M_\odot\) | 7.955 | \(\lambda=3.55,\ b=0.446\) |
-| heavy stellar black hole | \(30M_\odot\) | 2.652 | \(\lambda=2.65,\ b=1\) |
-| IMBH | \(1000M_\odot\) | 0.0795 | \(\lambda=0.0795,\ b=1\) |
-| unresolved blend | ten \(10M_\odot\) binaries | 0.795 per source | ten nearly Eddington components |
+| neutron star | $1.4M_\odot$ | 56.82 | $\lambda=4.42,\ b=0.0778$ |
+| stellar black hole | $10M_\odot$ | 7.955 | $\lambda=3.55,\ b=0.446$ |
+| heavy stellar black hole | $30M_\odot$ | 2.652 | $\lambda=2.65,\ b=1$ |
+| IMBH | $1000M_\odot$ | 0.0795 | $\lambda=0.0795,\ b=1$ |
+| unresolved blend | ten $10M_\odot$ binaries | 0.795 per source | ten nearly Eddington components |
 
 The first two realizations come from the illustrative supercritical
 prescription. Here King’s convention is
-\(\dot m:=0.1\dot M c^2/L_{\rm Edd}\), equivalently
-\(\dot M/[L_{\rm Edd}/(0.1c^2)]\); changing the reference efficiency changes
-the numerical \(\dot m\). With that convention,
+$\dot m:=0.1\dot M c^2/L_{\rm Edd}$, equivalently
+$\dot M/[L_{\rm Edd}/(0.1c^2)]$; changing the reference efficiency changes
+the numerical $\dot m$. With that convention,
 
-\[
+$$
 \lambda\simeq1+\ln\dot m,
 \qquad
 b\simeq\min\left(1,\frac{73}{\dot m^2}\right),
 \tag{17}
-\]
+$$
 
-which gives \(\dot m=30.63\) for the neutron star and 12.79 for the
-\(10M_\odot\) black hole. King proposed the beaming law for
-\(\dot m\gtrsim8.5\)
+which gives $\dot m=30.63$ for the neutron star and 12.79 for the
+$10M_\odot$ black hole. King proposed the beaming law for
+$\dot m\gtrsim8.5$
 [King (2009)](https://doi.org/10.1111/j.1745-3933.2008.00594.x).
 Poutanen and collaborators derived a related supercritical model with
-\(L/L_{\rm Edd}\simeq1+0.6\ln\dot m\) and face-on amplification of roughly
+$L/L_{\rm Edd}\simeq1+0.6\ln\dot m$ and face-on amplification of roughly
 2 to 7
 [Poutanen et al. (2007)](https://doi.org/10.1111/j.1365-2966.2007.11668.x).
 These prescriptions demonstrate feasibility. Neither is a universal inversion
@@ -450,27 +450,27 @@ rotating magnetic accretor. They identify a neutron star when the period and
 other records exclude the declared magnetic-white-dwarf family. For the cited
 PULXs that conclusion uses the full fast-period, hard-X-ray luminosity,
 spin-up or torque, and orbital record; the period alone is not a universal
-white-dwarf exclusion. They do not determine \(b\). Pulse absence only
+white-dwarf exclusion. They do not determine $b$. Pulse absence only
 supplies an upper limit over the searched period, acceleration, energy band,
 pulsed fraction, and window; scattering, dilution, geometry, and intermittency
 can hide a neutron star.
 
 Spin-up gives an accretion-torque consistency check:
 
-\[
+$$
 N_{\rm obs}=2\pi I\dot\nu
 =-2\pi I\frac{\dot P}{P^2},
 \tag{18}
-\]
+$$
 
-\[
+$$
 R_{\rm co}=\left(\frac{GMP^2}{4\pi^2}\right)^{1/3},
 \qquad
 R_m\simeq\xi\left(\frac{\mu^4}{2GM\dot M^2}\right)^{1/7}.
 \tag{19}
-\]
+$$
 
-Accretion requires approximately \(R_m\lesssim R_{\rm co}\). Torque, a
+Accretion requires approximately $R_m\lesssim R_{\rm co}$. Torque, a
 propeller transition, and luminosity can jointly constrain magnetic moment,
 accretion rate, and beaming, although the result inherits the torque model.
 A secure cyclotron feature can constrain the local field. Particle
@@ -479,24 +479,24 @@ survive the audit.
 
 ### Dynamics and black-hole mass
 
-For donor radial-velocity amplitude \(K_2\), orbital period \(P_{\rm orb}\),
-and eccentricity \(e\),
+For donor radial-velocity amplitude $K_2$, orbital period $P_{\rm orb}$,
+and eccentricity $e$,
 
-\[
+$$
 f(M_X)=\frac{P_{\rm orb}K_2^3}{2\pi G}(1-e^2)^{3/2}
 =\frac{M_X^3\sin^3 i}{(M_X+M_2)^2}\le M_X.
 \tag{20}
-\]
+$$
 
 In convenient units,
 
-\[
+$$
 \frac{f(M_X)}{M_\odot}=1.036\times10^{-7}
 \left(\frac{P_{\rm orb}}{\rm day}\right)
 \left(\frac{K_2}{\rm km\,s^{-1}}\right)^3
 (1-e^2)^{3/2}.
 \tag{21}
-\]
+$$
 
 A verified donor line and mass function provide the most direct route from the
 record to mass. Irradiated winds and disk emission can move the line away from
@@ -515,23 +515,23 @@ interval. None of these results fixes $\lambda$ or $b$.
 
 The gravitational clock and a Keplerian frequency are
 
-\[
+$$
 t_g=\frac{GM}{c^3}=4.9256\ \mu{\rm s}\frac{M}{M_\odot},
 \tag{22}
-\]
+$$
 
-\[
+$$
 f_K(R)=3.231\times10^4
 \left(\frac{M}{M_\odot}\right)^{-1}R^{-3/2}\ {\rm Hz},
 \qquad R=r/r_g.
 \tag{23}
-\]
+$$
 
-A 0.1 Hz feature can correspond to \(R\simeq1014r_g\) for a
-\(10M_\odot\) object or \(R\simeq47r_g\) for a \(1000M_\odot\) object.
-Frequency identifies \(M^{-1}f(\text{mode},R,a_*)\), not mass alone. The
-3:2 peaks at \(3.32\pm0.06\) and \(5.07\pm0.06\) Hz in M82 X-1 gave
-\(428\pm105M_\odot\) under stellar-black-hole inverse-frequency scaling
+A 0.1 Hz feature can correspond to $R\simeq1014r_g$ for a
+$10M_\odot$ object or $R\simeq47r_g$ for a $1000M_\odot$ object.
+Frequency identifies $M^{-1}f(\text{mode},R,a_*)$, not mass alone. The
+3:2 peaks at $3.32\pm0.06$ and $5.07\pm0.06$ Hz in M82 X-1 gave
+$428\pm105M_\odot$ under stellar-black-hole inverse-frequency scaling
 [Pasham, Strohmayer, and Mushotzky (2014)](https://doi.org/10.1038/nature13710).
 That is conditional IMBH evidence rather than a dynamical mass.
 
@@ -546,7 +546,7 @@ The phenotype supports thick or supercritical flow models. It cannot by itself
 separate a neutron star from a black hole, and a fitted cool component is not
 an IMBH thermometer when a wind photosphere obscures the inner disk.
 
-Resolved lines in NGC 1313 X-1 and NGC 5408 X-1 indicate winds near \(0.2c\)
+Resolved lines in NGC 1313 X-1 and NGC 5408 X-1 indicate winds near $0.2c$
 [Pinto, Middleton, and Fabian (2016)](https://doi.org/10.1038/nature17417).
 This is direct evidence for fast outflowing gas and strong evidence favoring a
 supercritical-flow model. Wind power depends on ionization, density, filling
@@ -559,23 +559,23 @@ A surrounding nebula reads the source in directions other than our line of
 sight and over a longer clock. Under case-B recombination, an ionization-bounded
 He III region gives approximately
 
-\[
+$$
 Q({\rm He^+})=
 \frac{\alpha_B({\rm He^{++}})}{\alpha^{\rm eff}_{4686}}
 \frac{L_{4686}}{h\nu_{4686}}.
 \tag{24}
-\]
+$$
 
 The covering fraction, density, abundance, unobserved extreme-UV spectrum,
 and recombination history enter the conversion. For Holmberg II X-1,
-\(L_{4686}=2.7\times10^{36}\ \mathrm{erg\,s^{-1}}\) and photoionization
-models inferred a lower bound of about \(4\) to
-\(6\times10^{39}\ \mathrm{erg\,s^{-1}}\) on the X-ray luminosity, conditional
+$L_{4686}=2.7\times10^{36}\ \mathrm{erg\,s^{-1}}$ and photoionization
+models inferred a lower bound of about $4$ to
+$6\times10^{39}\ \mathrm{erg\,s^{-1}}$ on the X-ray luminosity, conditional
 on extrapolating the fitted spectrum from 300 eV down to the 54 eV ionization
 edge. The morphology was inconsistent with narrow beaming
 [Kaaret, Ward, and Zezas (2004)](https://doi.org/10.1111/j.1365-2966.2004.08020.x).
 That receipt constrains the angular emission pattern and, conditional on the
-extreme-UV and nebular model, \(b\) for this source. It does not establish
+extreme-UV and nebular model, $b$ for this source. It does not establish
 exact isotropy at every epoch.
 
 Young, metal-poor star-forming regions raise the prior probability for
@@ -588,9 +588,9 @@ classification must carry exposure, sensitivity, source confusion, and the
 non-detections. For an ideal two-sided top-hat beam covering total solid-angle
 fraction $f_\Omega$ under random orientation, the parent population scales as
 
-\[
+$$
 N_{\rm parent}\sim\frac{N_{\rm detected}}{f_\Omega}
-\]
+$$
 
 before other selection corrections. For a structured beam or a flux-limited
 survey, $f_\Omega$ must instead be computed by integrating the detection
@@ -601,15 +601,15 @@ population-count check even when it fits one source’s luminosity.
 
 ## 7. Frozen classifier and identifiability rule
 
-For hypothesis family \(h\), parameters \(\theta_h\), port data \(D_e\), and
-forward prediction \(F_{h,e}\), define a predeclared mismatch
+For hypothesis family $h$, parameters $\theta_h$, port data $D_e$, and
+forward prediction $F_{h,e}$, define a predeclared mismatch
 
-\[
+$$
 \Phi_h(\theta_h;R)=
 \sum_e w_e\,d_e\!\left(D_e,F_{h,e}(\theta_h)\right)
 +\Phi_{\rm audit}.
 \tag{25}
-\]
+$$
 
 The distances may be Poisson likelihood terms for counts, event likelihoods
 for timing, astrometric association probabilities, or calibrated residuals for
@@ -620,20 +620,20 @@ rather than masquerading as measurements of identity.
 
 The viable fiber is
 
-\[
+$$
 \mathcal C_R=
 \left\{(h,\theta_h):
 \text{every mandatory adequacy, calibration, and held-out gate passes}
 \right\}.
 \tag{26}
-\]
+$$
 
 Project this parameter fiber to the declared factorized normal-form cells:
 
-\[
+$$
 \mathcal V_R=\pi_{\rm NF}(\mathcal C_R).
 \tag{27}
-\]
+$$
 
 The projection removes silent implementation labels and groups parameter
 points only when they occupy the same published accretor, mass-range, regime,
@@ -643,11 +643,11 @@ ranges.
 
 The specified canonical report is
 
-\[
+$$
 \operatorname{NF}_{\rm spec}(R):=
 \operatorname{Canon}(\mathcal V_R,\ \text{missing mask},
 \text{domain status},\ \text{claim tier}),
-\]
+$$
 
 with a frozen sort order and serialization. This is a normal-form contract,
 not an earned confluence theorem. An implementation may claim the OPH normal
@@ -660,14 +660,14 @@ than those implementation receipts.
 
 The output has three mathematical cases:
 
-\[
+$$
 \begin{array}{c|l}
 \mathcal V_R=\varnothing & \text{no declared normal-form cell closes}\\
 |\mathcal V_R|=1 & \text{one identifiable cell within the frozen model set}\\
 |\mathcal V_R|>1 & \text{ambiguity among the surviving physical cells.}
 \end{array}
 \tag{28}
-\]
+$$
 
 A highest posterior probability does not change the cardinality in (28).
 Within the frozen family list, a conditionally unique output requires
@@ -684,7 +684,7 @@ The decision order is:
    identity, and deblending;
 2. apply hard identity receipts such as coherent pulsations or a reliable mass
    function;
-3. test the full \((M,\lambda,b,X,C_{\rm bol})\) feasibility intervals;
+3. test the full $(M,\lambda,b,X,C_{\rm bol})$ feasibility intervals;
 4. evaluate spectra, timing, winds, nebulae, orbital data, and environment by
    their own forward models;
 5. run held-out epochs or instruments, alternatives, and selection/censoring
@@ -695,15 +695,15 @@ The decision order is:
 
 | Source or evidence | Receipt | Valid normal-form statement | Unresolved coordinate |
 |---|---|---|---|
-| M82 X-2 | 1.37 s pulsations, 2.5-day orbital modulation, pulsed \(L_{3-30}=4.9\times10^{39}\ \mathrm{erg\,s^{-1}}\) | neutron-star accretor identified | true luminosity, beaming, magnetic geometry |
-| NGC 5907 ULX-1 | spin changed 1.43 to 1.13 s; apparent peak near \(10^{41}\) to \(2\times10^{41}\ \mathrm{erg\,s^{-1}}\) | neutron star identified; hyperluminous appearance does not require an IMBH | split among beaming, magnetic-opacity effects, and intrinsic supercritical power |
+| M82 X-2 | 1.37 s pulsations, 2.5-day orbital modulation, pulsed $L_{3-30}=4.9\times10^{39}\ \mathrm{erg\,s^{-1}}$ | neutron-star accretor identified | true luminosity, beaming, magnetic geometry |
+| NGC 5907 ULX-1 | spin changed 1.43 to 1.13 s; apparent peak near $10^{41}$ to $2\times10^{41}\ \mathrm{erg\,s^{-1}}$ | neutron star identified; hyperluminous appearance does not require an IMBH | split among beaming, magnetic-opacity effects, and intrinsic supercritical power |
 | NGC 7793 P13 | 0.42 s pulsations and persistent spin-up | neutron star identified | torque-derived field and beaming remain model-dependent |
-| NGC 1313 X-1 and NGC 5408 X-1 | resolved \(\sim0.2c\) winds | fast outflow identified; supercritical-flow model strongly favored | accretor identity and intrinsic Eddington ratio |
+| NGC 1313 X-1 and NGC 5408 X-1 | resolved $\sim0.2c$ winds | fast outflow identified; supercritical-flow model strongly favored | accretor identity and intrinsic Eddington ratio |
 | Holmberg II X-1 | He II nebular photon counter and non-narrow morphology | substantial angle-integrated power; narrow beam disfavored | mass and accretor identity |
-| M101 ULX-1 | reported 8.2-day orbit, mass function \(0.18\pm0.03M_\odot\), likely \(20\) to \(30M_\odot\) solution | stellar-black-hole candidate; supersoft temperature alone did not require an IMBH | line origin, donor mass, inclination, and exact regime |
-| ESO 243-49 HLX-1 | host-consistent Hα redshift, peak near \(1.1\) to \(1.3\times10^{42}\ \mathrm{erg\,s^{-1}}\), state changes and transient radio emission | strong IMBH candidate under modest anisotropy and sub- or near-Eddington scaling | no dynamical mass; beamed supercritical alternatives are not mathematically excluded |
-| M82 X-1 | stable 3:2 QPO pair and conditional \(428\pm105M_\odot\) scaling | model-dependent IMBH candidate | mode identity, scaling transfer, crowding, dynamical mass |
-| IC 4320 projected HLX candidate | optical spectrum found a background \(z\simeq2.84\) quasar | host association fails; remove from physical ULX class | none within the ULX engine classifier |
+| M101 ULX-1 | reported 8.2-day orbit, mass function $0.18\pm0.03M_\odot$, likely $20$ to $30M_\odot$ solution | stellar-black-hole candidate; supersoft temperature alone did not require an IMBH | line origin, donor mass, inclination, and exact regime |
+| ESO 243-49 HLX-1 | host-consistent Hα redshift, peak near $1.1$ to $1.3\times10^{42}\ \mathrm{erg\,s^{-1}}$, state changes and transient radio emission | strong IMBH candidate under modest anisotropy and sub- or near-Eddington scaling | no dynamical mass; beamed supercritical alternatives are not mathematically excluded |
+| M82 X-1 | stable 3:2 QPO pair and conditional $428\pm105M_\odot$ scaling | model-dependent IMBH candidate | mode identity, scaling transfer, crowding, dynamical mass |
+| IC 4320 projected HLX candidate | optical spectrum found a background $z\simeq2.84$ quasar | host association fails; remove from physical ULX class | none within the ULX engine classifier |
 
 The M101 result is from
 [Liu et al. (2013)](https://doi.org/10.1038/nature12762); the HLX-1 discovery
@@ -780,7 +780,7 @@ conclusions; it is not a complete physical account of ULXs:
 - A single-compact-accretor hypothesis factors into accretor, mass, opacity,
   intrinsic regime, geometry, viewing angle, and source mode; blends and
   contaminants use separate composite or alternative state spaces.
-- Luminosity measures \(M\lambda/b\); equations (11) to (16) prove the
+- Luminosity measures $M\lambda/b$; equations (11) to (16) prove the
   two-dimensional degeneracy and state the assumptions needed for a mass bound.
 - Neutron-star-specific pulsation records identify neutron stars, dynamics
   constrain mass, winds provide strong evidence favoring supercritical-flow

@@ -54,7 +54,7 @@ def classify_path(path: str) -> str:
         return "code"
     if path.startswith("assets/"):
         return "assets"
-    if path.startswith("LEAN/"):
+    if path.lower().startswith("lean/"):
         return "lean"
     return "other"
 

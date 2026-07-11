@@ -1,0 +1,48 @@
+{
+  "artifact": "nufit_6_1_official_profile_source_manifest",
+  "citation": {
+    "article": "I. Esteban et al., NuFit-6.0: Updated global analysis of three-flavor neutrino oscillations, JHEP 12 (2024) 216",
+    "doi": "https://doi.org/10.1007/JHEP12(2024)216",
+    "release": "NuFIT 6.1 (2025), www.nu-fit.org"
+  },
+  "data_cutoff": "November 2025",
+  "files": {
+    "TBoff-IO": {
+      "bytes": 4083980,
+      "ordering": "inverted",
+      "sha256": "6e14ce52503d053ce4d8d0171ffecae24c2dd3dc41be99c3c5c952f321331f16",
+      "url": "https://www.nu-fit.org/sites/default/files/v61.release-TBoff-IO.txt.xz"
+    },
+    "TBoff-NO": {
+      "atmospheric_treatment": "IC23 without the tabulated Super-Kamiokande atmospheric likelihood",
+      "bytes": 3996028,
+      "ordering": "normal",
+      "sha256": "58b113927c13f55925558e1ef0a598b357a237cde5c466b9f660cc08569970f6",
+      "url": "https://www.nu-fit.org/sites/default/files/v61.release-TBoff-NO.txt.xz"
+    },
+    "TByes-IO": {
+      "bytes": 4087336,
+      "ordering": "inverted",
+      "sha256": "d92fbd1886a85738080a394a6af513ec1ac49d5e474a6517cada0c2c6f3b96b2",
+      "url": "https://www.nu-fit.org/sites/default/files/v61.release-TByes-IO.txt.xz"
+    },
+    "TByes-NO": {
+      "atmospheric_treatment": "IC24 with the tabulated Super-Kamiokande atmospheric likelihood",
+      "bytes": 3996408,
+      "ordering": "normal",
+      "sha256": "c74bd6df84297a8429cd3b9e1239751cd0762756f1ec0c2a31248d78570b26e4",
+      "url": "https://www.nu-fit.org/sites/default/files/v61.release-TByes-NO.txt.xz"
+    }
+  },
+  "license": "NOASSERTION",
+  "license_note": "NuFIT publishes these tables and requests citation, but no explicit redistribution license was found on the result page, in the release notes, or in the file headers. The tables are hash-pinned here and are not vendored.",
+  "official_result_page": "https://www.nu-fit.org/?q=node/309",
+  "release_notes": {
+    "bytes": 400835,
+    "sha256": "b809159c6b03360a2c7d7e06ada3516ebb62356d718682b0c1b901dd67397aa6",
+    "url": "https://www.nu-fit.org/sites/default/files/v61.release-notes.pdf"
+  },
+  "retrieved_utc": "2026-07-11T03:34:00Z",
+  "security_note": "The official HTTPS host did not present a valid certificate chain at retrieval. Acquisition used the official HTTP and HTTPS endpoints as two byte-identical channels, followed by the hashes in this manifest. Automated code must never disable TLS verification silently.",
+  "version": "6.1"
+}

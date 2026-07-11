@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
-"""Emit the exact neutrino closure summary at the current theorem boundary.
+"""Emit the neutrino closure summary with transitive status gates.
 
-Chain role: collect the present weighted-cycle theorem boundary, the exact
-irreducibility/no-go already proved on disk, and the exact optimizer statement
-inside the finite audited family-assisted class.
+Chain role: collect the weighted-cycle candidate boundary, the exact
+irreducibility/no-go results, and the bridge/absolute-attachment status.
 
 Mathematics:
-1. The weighted-cycle branch fixes the full scale-free PMNS/hierarchy shape.
-2. The bridge rigidity theorem emits the reduced bridge invariant C_nu.
-3. The absolute attachment theorem emits B_nu, lambda_nu, the absolute masses,
-   and the absolute splittings on that branch.
+1. The weighted-cycle matrix fixes a scale-free PMNS/hierarchy point once its
+   template and declared selectors are supplied.
+2. The bridge rigidity artifact contains a compare-only reduced invariant.
+3. The absolute attachment remains compare-only.
 """
 
 from __future__ import annotations
@@ -43,6 +42,11 @@ def build_payload(
 ) -> dict[str, Any]:
     pmns = weighted_cycle["pmns_observables"]
     ratio = float(weighted_cycle["dimensionless_ratio_dm21_over_dm32"])
+    scale_free_promotable = (
+        weighted_cycle.get("prediction_promotion_allowed") is True
+        and weighted_cycle.get("source_only_prediction_eligible") is True
+        and weighted_cycle.get("historical_target_exposure") is False
+    )
     absolute_promotable = (
         absolute_attachment.get("status") == "theorem_grade_emitted"
         and absolute_attachment.get("public_surface_candidate_allowed") is True
@@ -57,17 +61,21 @@ def build_payload(
         "generated_utc": _timestamp(),
         "scope": "weighted_cycle_bridge_rigidity_plus_absolute_attachment",
         "proof_status": (
-            "theorem_grade_emitted"
-            if absolute_promotable
-            else "scale_free_weighted_cycle_with_compare_only_absolute_attachment_candidate"
+            "source_closed_neutrino_prediction"
+            if scale_free_promotable and absolute_promotable
+            else "target_informed_weighted_cycle_candidate_with_compare_only_absolute_attachment"
         ),
-        "public_promotion_allowed": absolute_promotable,
+        "public_promotion_allowed": scale_free_promotable and absolute_promotable,
+        "scale_free_prediction_promotion_allowed": scale_free_promotable,
+        "source_closure_status": weighted_cycle.get("source_closure_status"),
+        "historical_target_exposure": bool(weighted_cycle.get("historical_target_exposure", True)),
         "non_circularity_status": absolute_attachment.get("non_circularity_status"),
         "current_branch_status": {
             "branch": "weighted_cycle_majorana_holonomy",
             "pmns_observables": pmns,
             "dimensionless_ratio_dm21_over_dm32": ratio,
-            "no_hidden_discrete_branch": True,
+            "no_hidden_discrete_branch": False,
+            "status": "target_informed_template_candidate",
             "absolute_family": "m_i = lambda_nu * mhat_i, Delta m^2_ij = lambda_nu^2 * Delta_hat_ij",
         },
         "emitted_bridge_rigidity_theorem": {
@@ -89,8 +97,8 @@ def build_payload(
             "delta_m_sq_eV2": absolute_attachment["outputs"]["delta_m_sq_eV2"],
         },
         "closure_chain": [
-            "weighted-cycle branch => (mhat_i, Delta_hat_ij, U_PMNS)",
-            "weighted-cycle bridge rigidity theorem => C_nu = sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5",
+            "declared weighted-cycle candidate => (mhat_i, Delta_hat_ij, U_PMNS)",
+            "compare-only bridge candidate => C_nu = sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5",
             "B_nu = P_nu * C_nu",
             "lambda_nu = (m_star_eV / q_mean^p_nu) * P_nu * C_nu",
             "m_i = lambda_nu * mhat_i and Delta m^2_ij = lambda_nu^2 * Delta_hat_ij",
@@ -99,9 +107,9 @@ def build_payload(
             (
                 "The compare-only continuation adapter is retired from the proof-facing neutrino lane."
                 if absolute_promotable
-                else "The absolute attachment is displayed as a compare-only candidate; the scale-free weighted-cycle branch remains the promoted theorem surface."
+                else "The absolute attachment is displayed as a compare-only candidate; the scale-free weighted-cycle point also fails source and historical-blindness gates."
             ),
-            "The bridge corridor and residual correction audits remain diagnostic-only surfaces beneath the emitted weighted-cycle branch.",
+            "The bridge corridor and residual correction audits remain diagnostic-only surfaces beneath the weighted-cycle candidate.",
         ],
     }
 

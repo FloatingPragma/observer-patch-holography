@@ -27,35 +27,52 @@
       0.05307522145074924
     ]
   },
+  "absolute_attachment_status": "compare_only_blocked",
   "artifact": "oph_forward_neutrino_closure_bundle",
   "bridge_rigidity": {
-    "C_nu": 0.9994295999075177,
+    "C_nu": null,
     "P_nu": 6.699825740519345,
     "artifact": "oph_neutrino_bridge_rigidity_theorem",
     "formula": "sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5"
   },
-  "certification_status": "theorem_grade_emitted",
-  "closure_tier": "theorem_grade_emitted_weighted_cycle_absolute_family",
+  "certification_status": "candidate_rejected_and_source_closure_failed",
+  "closure_tier": "retrospective_target_informed_weighted_cycle_candidate",
   "delta_m21_sq_gev2": 7.488059465106852e-23,
   "delta_m31_sq_gev2": 2.5123118727618474e-21,
   "delta_m32_sq_gev2": 2.437431278110779e-21,
-  "generated_utc": "2026-04-03T02:55:38Z",
+  "display_allowed_as_compare_only": true,
+  "generated_utc": "2026-07-11T04:06:17Z",
+  "legacy_absolute_fields_are_compare_only": true,
   "masses_gev_sorted": [
     1.7454720257976798e-11,
     1.9481987935919017e-11,
     5.307522145074924e-11
   ],
   "notes": [
-    "This bundle packages the emitted weighted-cycle bridge rigidity theorem together with the emitted absolute attachment theorem on one forward surface.",
-    "The two-parameter exact adapter and the bridge corridor remain diagnostic-only sidecars beneath this theorem-grade bundle.",
-    "The emitted absolute family is the proof-facing neutrino lane used by public status reporting."
+    "The weighted-cycle values are exact linear-algebra outputs conditional on a target-informed template branch.",
+    "The NuFIT 6.1 correlated profile rejects the candidate under the declared two-parameter 3-sigma gate.",
+    "The absolute attachment and legacy absolute fields are compare-only and cannot feed a prediction table."
   ],
-  "ordering_phase_certified": "normal_hierarchy_weighted_cycle_absolute_family",
-  "phase_mode": "weighted_cycle_bridge_rigid",
-  "pmns_status": "closed_on_weighted_cycle_branch",
-  "public_surface_candidate_allowed": true,
-  "selector_law_certified": true,
+  "ordering_phase_certified": false,
+  "phase_mode": "weighted_cycle_candidate",
+  "pmns_status": "target_informed_template_candidate_rejected_by_nufit61_profile",
+  "prediction_promotion_allowed": false,
+  "profile_score": {
+    "TBoff_NO_T23_DCP_delta_chi2": 18.435275228909504,
+    "TByes_NO_T23_DCP_delta_chi2": 20.119548723965472,
+    "artifact": "oph_neutrino_nufit61_retrospective_profile_score",
+    "current_weighted_cycle_candidate_rejected_by_declared_gate": true
+  },
+  "public_surface_candidate_allowed": false,
+  "selector_law_certified": false,
   "splitting_ratio_r": 0.030721110097966534,
+  "transitive_promotion_gate": {
+    "absolute_attachment_prediction_promotion_allowed": false,
+    "all_required": true,
+    "bridge_prediction_promotion_allowed": false,
+    "correlated_profile_rejected": true,
+    "weighted_cycle_prediction_promotion_allowed": false
+  },
   "weighted_cycle_branch": {
     "D_nu": 1.127883690210334,
     "dimensionless_dm2": {

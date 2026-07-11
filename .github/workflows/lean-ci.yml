@@ -19,7 +19,7 @@ jobs:
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
 
       - name: Print toolchain
-        working-directory: LEAN
+        working-directory: Lean
         run: |
           lean --version
           lake --version
@@ -27,27 +27,39 @@ jobs:
       - name: Cache Lake build
         uses: actions/cache@v4
         with:
-          path: LEAN/.lake
-          key: lake-${{ runner.os }}-${{ hashFiles('LEAN/lean-toolchain', 'LEAN/lakefile.lean', 'LEAN/lake-manifest.json') }}
+          path: |
+            Lean/.lake
+            Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/.lake
+          key: lake-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lean-toolchain', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lakefile.lean', 'Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/lake-manifest.json') }}
           restore-keys: |
             lake-${{ runner.os }}-
 
       - name: Resolve deps if manifest missing
-        working-directory: LEAN
+        working-directory: Lean
         run: |
           if [ ! -f lake-manifest.json ]; then
             lake update
           fi
 
       - name: Fetch Mathlib cache
-        working-directory: LEAN
+        working-directory: Lean
         run: lake exe cache get || true
 
       - name: Build and check proof-debt allowlist
-        working-directory: LEAN
+        working-directory: Lean
         run: |
           set -euo pipefail
           lake build 2>&1 | tee lake-build.log
+
+          (
+            cd ObserverPatchHolography/Proofs/ObservableNormalForms
+            lake build
+            if rg -n '^\s*(sorry|admit)\b|:=\s*(sorry|admit)\b' \
+                ObservableNormalForms --glob '*.lean'; then
+              echo "Unexpected admission in neutral submission artifact." >&2
+              exit 1
+            fi
+          )
 
           sorry_warnings="$(grep -F 'declaration uses `sorry`' lake-build.log || true)"
           if [ -n "$sorry_warnings" ]; then
@@ -55,11 +67,11 @@ jobs:
           else
             sorry_count=0
           fi
-          unexpected="$(printf '%s\n' "$sorry_warnings" | grep -v 'warning: ObserverPatchHolography/Primitives.lean:' || true)"
+          unexpected="$(printf '%s\n' "$sorry_warnings" | grep -Ev 'warning: (ObserverPatchHolography/Primitives\.lean|ObserverPatchHolography/Source/ObserverPatchHolography/Primitives\.lean):' || true)"
 
           if [ "$sorry_count" -ne 3 ] || [ -n "$unexpected" ]; then
             echo "Unexpected Lean proof-debt state." >&2
-            echo "Expected exactly 3 sorry warnings, all in ObserverPatchHolography/Primitives.lean." >&2
+            echo "Expected exactly 3 sorry warnings, all in the concrete Primitives.lean module." >&2
             echo "Actual sorry warnings:" >&2
             printf '%s\n' "$sorry_warnings" >&2
             exit 1

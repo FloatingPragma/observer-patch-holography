@@ -93,7 +93,7 @@ compact-object quotient
 
 In symbols, the required paper-side object family is:
 
-```math
+$$
 Q^{obj}_r
 \rightarrow
 \mu^{obj}_r
@@ -109,7 +109,7 @@ Q^{obj}_r
 \mathsf{Audit}_{deg}
 \rightarrow
 \mathcal L_{frozen}.
-```
+$$
 
 The simulator can instantiate and test this chain. It cannot replace the
 source law, quotient, finite parent, or promotion theorem.
@@ -118,9 +118,9 @@ source law, quotient, finite parent, or promotion theorem.
 
 At regulator `r`, the compact-object presentation space is:
 
-```math
+$$
 \Sigma^{obj}_r.
-```
+$$
 
 An element contains finite causal cells, metric/tetrad/parallel transport data,
 baryon/gas/star/dust/black-hole/accretion/radiation sectors, object-facing
@@ -133,9 +133,9 @@ counters, and random-number bookkeeping. Physical ports, release surfaces,
 packet species, repair histories, and any label that changes emission, lensing,
 selection, or dynamics remain quotient-visible:
 
-```math
+$$
 Q^{obj}_r=\Sigma^{obj}_r/\Gamma^{obj}_r.
-```
+$$
 
 Only quotient-visible functions may enter source laws, abundance selectors,
 physical parents, forward mocks, or claim-tier receipts.
@@ -144,15 +144,15 @@ physical parents, forward mocks, or claim-tier receipts.
 
 A source-only compact-object claim requires:
 
-```math
+$$
 \mu^{obj}_r(q)
 =
 Z^{-1}_{obj,r}m^{obj}_r(q)
 \exp[-S^{obj}_r(q)].
-```
+$$
 
-For a finite classical branch, \(m_r^{obj}\ge0\), the action is dimensionless,
-and \(0<Z_{obj,r}=\sum_qm_r^{obj}(q)e^{-S_r^{obj}(q)}<\infty\). A
+For a finite classical branch, $m_r^{obj}\ge0$, the action is dimensionless,
+and $0<Z_{obj,r}=\sum_qm_r^{obj}(q)e^{-S_r^{obj}(q)}<\infty$. A
 continuous branch must declare its base measure, domain, and integrability; a
 quantum branch requires a positive trace-one density operator. Writing a Gibbs
 symbol does not establish any of these properties.
@@ -187,18 +187,18 @@ galaxy formation.
 
 A compact record surface records:
 
-```math
+$$
 \mathcal C^{rec}_r
 =
 (C_r,E_{rec,r},p_{e,rec},a_e,x_e,A_{rec},R_{rec},
 \mathcal E_{env},\Phi_{sync},\mathsf{Emit}_r).
-```
+$$
 
 Useful compactness/readout indices must compare quantities in one plane. Under
 a locally constant scalar magnification, define
-\(A^{src}=A^{img}/\mu_{lens}\) for both the object and PSF. Then
+$A^{src}=A^{img}/\mu_{lens}$ for both the object and PSF. Then
 
-```math
+$$
 \kappa_R = R_{rec}^{src}/R_{halo}^{src},
 \qquad
 \kappa_{PSF}
@@ -208,12 +208,12 @@ a locally constant scalar magnification, define
 \frac{A_{rec}^{src}}{A_{PSF}^{src}},
 \qquad
 \Sigma_{rec}=\frac{\sum_e a_ep_{e,rec}}{A_{rec}^{src}}.
-```
+$$
 
 For anisotropic lensing, the full Jacobian and source-plane PSF are required;
-a scalar \(\mu_{lens}\) is insufficient. The record activation
-\(p_{e,rec}\) is dimensionless, while \(a_e\) must declare its record-weight
-units, so \(\Sigma_{rec}\) has record weight per physical area.
+a scalar $\mu_{lens}$ is insufficient. The record activation
+$p_{e,rec}$ is dimensionless, while $a_e$ must declare its record-weight
+units, so $\Sigma_{rec}$ has record weight per physical area.
 
 Low synchronization residual `Phi_sync` means observer-facing records align
 coherently across the compact surface. It does not imply that the system is
@@ -223,29 +223,29 @@ old, massive, or fully assembled.
 
 For an observer bin `B`, define compact-object record load:
 
-```math
+$$
 \mathsf L_{obj,r}(q;B)
 =
 \sum_C\sum_{e\in E_{rec,r}(C)}
 a_ep_{e,rec}(q)
 \mathbf 1_B[\mathsf{Read}_{obj,r}(e,q)].
-```
+$$
 
-With \(a_e\) in record-weight units, \(\mathsf L\) is a record weight and
-\(\rho_{rec}\) below is record weight per comoving volume. A volume-weighted
+With $a_e$ in record-weight units, $\mathsf L$ is a record weight and
+$\rho_{rec}$ below is record weight per comoving volume. A volume-weighted
 field is a different construction: it must introduce a proper-volume density
-\(w^{vol}_{e,C}\), use \(V_C^{phys}w^{vol}_{e,C}\), and apply the explicit
-proper-to-comoving factor. The surface weight \(a_e\) must not be multiplied
+$w^{vol}_{e,C}$, use $V_C^{phys}w^{vol}_{e,C}$, and apply the explicit
+proper-to-comoving factor. The surface weight $a_e$ must not be multiplied
 by cell volume without that new definition.
 
 The source-side record density is:
 
-```math
+$$
 \rho_{rec,r}(B)
 =
 V^{-1}_{com,r}
 \mathbb E_{\mu^{obj}_r}[\mathsf L_{obj,r}(q;B)].
-```
+$$
 
 This is an object-lane abundance analogue. It is not automatically stellar-mass
 density, halo-mass density, black-hole mass density, or galaxy number density.
@@ -253,9 +253,9 @@ density, halo-mass density, black-hole mass density, or galaxy number density.
 ## Theorem Gates
 
 1. **Normal forms do not select compact-object probability laws.**  
-   Let \(c:Q_r^{obj}\to Q_r^{obj}\) satisfy \(c^2=c\), with normal-form
-   image \(N=\operatorname{im}c\). Then \(c_\#(c_\#\mu)=c_\#\mu\), and
-   every law supported on \(N\) is fixed. Idempotence therefore leaves many
+   Let $c:Q_r^{obj}\to Q_r^{obj}$ satisfy $c^2=c$, with normal-form
+   image $N=\operatorname{im}c$. Then $c_\#(c_\#\mu)=c_\#\mu$, and
+   every law supported on $N$ is fixed. Idempotence therefore leaves many
    laws possible; a source law must be supplied separately.
 
 2. **Record density is quotient-invariant.**  
@@ -281,10 +281,10 @@ density, halo-mass density, black-hole mass density, or galaxy number density.
    likelihood residuals, or hand-selected interesting objects.
 
 6. **Exact readout degeneracy gives a minimax lower bound.**
-   Let maturity values lie in a metric space \((M,d_M)\). If two admissible
+   Let maturity values lie in a metric space $(M,d_M)$. If two admissible
    states have the same frozen JWST readout but
-   \(d_M(m_1,m_2)=\Delta\), then every estimator from that readout has
-   worst-case error at least \(\Delta/2\), by the triangle inequality. A
+   $d_M(m_1,m_2)=\Delta$, then every estimator from that readout has
+   worst-case error at least $\Delta/2$, by the triangle inequality. A
    noisy or approximate version needs an explicit readout metric, noise ball,
    and stability modulus; "large degeneracy support" alone is not a theorem.
 
@@ -307,13 +307,13 @@ density, halo-mass density, black-hole mass density, or galaxy number density.
    `mu^{obj}_r` through the frozen JWST forward operator.
 
 10. **Refinement compatibility bounds bounded loads.**
-    For a coarse map \(c_{sr}:Q_s\to Q_r\), assume
-    \(\|L_r\|_\infty\le M\),
-    \(\|\mu_r-c_{sr\#}\mu_s\|_{TV}\le\epsilon_\mu\), and
-    \(\sup_{q\in Q_s}|L_s(q)-L_r(c_{sr}q)|\le\epsilon_L\). Then
-    \(|\mathbb E_{\mu_s}L_s-\mathbb E_{\mu_r}L_r|\le
-    \epsilon_L+M\epsilon_\mu\), using the convention
-    \(|E_\mu f-E_\nu f|\le\|f\|_\infty\|\mu-\nu\|_{TV}\).
+    For a coarse map $c_{sr}:Q_s\to Q_r$, assume
+    $\|L_r\|_\infty\le M$,
+    $\|\mu_r-c_{sr\#}\mu_s\|_{TV}\le\epsilon_\mu$, and
+    $\sup_{q\in Q_s}|L_s(q)-L_r(c_{sr}q)|\le\epsilon_L$. Then
+    $|\mathbb E_{\mu_s}L_s-\mathbb E_{\mu_r}L_r|\le\epsilon_L+M\epsilon_\mu$,
+    using the convention
+    $|E_\mu f-E_\nu f|\le\|f\|_\infty\|\mu-\nu\|_{TV}$.
     The convention and finite bound must be recorded. A refinement failure
     blocks source-only promotion.
 
@@ -342,7 +342,7 @@ M4_FORWARD_MOCK_PHYSICAL_SPECTRUM
 M5_LIKELIHOOD_EVALUATED_PHYSICAL_PREDICTION
 ```
 
-Every result receives a pair \((O_i,M_j)\). Better observations can raise the
+Every result receives a pair $(O_i,M_j)$. Better observations can raise the
 first coordinate without providing an OPH source model; a sophisticated OPH
 mock can raise the second only if its parent receipts pass. This prevents a
 catalog-quality improvement from being mistaken for OPH confirmation.
@@ -403,7 +403,7 @@ JWST_LIKELIHOOD_EVALUATED_PHYSICAL_PREDICTION_RECEIPT
 ## Simulator Contract
 
 A future physical simulator must implement this chain. A schema-only run may
-display it, but must remain \((O0,M0)\) and mark every uninstantiated parent
+display it, but must remain $(O0,M0)$ and mark every uninstantiated parent
 receipt false:
 
 ```text

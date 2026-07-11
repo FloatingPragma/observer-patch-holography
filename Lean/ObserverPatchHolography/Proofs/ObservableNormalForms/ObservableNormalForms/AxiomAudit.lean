@@ -48,6 +48,7 @@ open ObservableNormalForms
 #print axioms FiniteWeightedObservation.resample_weighted_self_adjoint
 #print axioms FiniteWeightedObservation.resample_weighted_energy_identity
 #print axioms FiniteWeightedObservation.resample_weighted_energy_le
+#print axioms FiniteWeightedObservation.kernel_eq_conditionalResamplingKernel_iff_recognition
 #print axioms Rule90.kernel_exact
 #print axioms Rule90.image_exact
 #print axioms Rule90.read01_injective_on_image

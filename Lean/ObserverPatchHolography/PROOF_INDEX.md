@@ -97,7 +97,7 @@ Instantiated on a linear (Rule 90) two-patch carrier, the first case where the
 `#304` `Hfib` binder is non-degenerate (a proper, failable information set + a
 non-trivial gauge), unlike `demoCarrier`'s seed tautology. A carrier-level
 witness, **not** a Prop 4.2 / Def 4.1 item. Module:
-`ObserverPatchHolography/Rule90.lean` (PR #385). Sorry-free, standard axioms
+`Source/ObserverPatchHolography/Rule90.lean` (PR #385). Sorry-free, standard axioms
 only (`propext`, `Classical.choice`, `Quot.sound`; no `native_decide`).
 
 | Lean name | Module | Status | Notes |
@@ -107,6 +107,26 @@ only (`propext`, `Classical.choice`, `Quot.sound`; no `native_decide`).
 | `OPH.rule90_gauge_nontrivial` | `Rule90` | ✅ | Seeds (0,0,0), (1,0,1) observably identical: the gauge contains `ker(Rule90)` (kernel-pair exhibit). |
 | `OPH.rule90_no_frustrationFree_repair` | `Rule90` | ✅ | No `H1`–`H3` local repair exists on this carrier. Scope: transactional/multi-patch repair and relaxed `H2` are **not** ruled out. |
 | `OPH.rule90t_outer_eq` | `Rule90` | ✅ | Helper: every Rule 90 image has equal outer cells. |
+
+## #304: Generic theorem and concrete bridge
+
+The standalone proof package at `Proofs/ObservableNormalForms/` proves the
+exact substrate-neutral equivalence
+
+```text
+boundary identification on consistent states modulo E
+  ↔ cross-source normal-endpoint uniqueness modulo E.
+```
+
+`OPH.boundaryIdentifiesModulo_iff_observerEndpointUniqueModuloLR` in
+`Source/ObserverPatchHolography/Bridges/ObservableNormalForms.lean`
+machine-checks that Jonathan's H1--H3 completeness theorem and boundary
+preservation instantiate that equivalence for `acceptedStepLR`.
+
+This completes the generic observer-confluence interface but does not close
+the live application obligation.  Closure still requires a declared physical
+boundary map `B` and a proof that any two concrete consistent records with the
+same `B` value are `gaugeEquiv`.
 
 ## Gap analysis: skeleton → theorem-grade Prop 4.2
 

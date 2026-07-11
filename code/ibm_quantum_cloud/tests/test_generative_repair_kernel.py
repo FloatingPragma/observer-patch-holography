@@ -36,6 +36,12 @@ def test_builtin_kernel_is_stochastic_stationary_and_detailed_balanced() -> None
         assert np.allclose(recovered, target, atol=1e-10)
 
 
+def test_random_decoy_is_reproducible_from_public_seed() -> None:
+    assert kernel.seeded_random_decoy_penalties() == (0.0, 2.439032, 5.520575, 8.547983)
+    spectrum = kernel.builtin_spectra()["random_seeded_decoy"]
+    assert spectrum.penalties == kernel.seeded_random_decoy_penalties(50920260711)
+
+
 def test_nonabelian_dimension_exponent_is_identifiable() -> None:
     spectra = kernel.builtin_spectra()
     for name in ("s3_primary", "a4_nonabelian_decoy", "random_seeded_decoy"):
@@ -115,3 +121,39 @@ def test_validation_bundle_hash_is_deterministic() -> None:
     unhashed = dict(first)
     unhashed.pop("bundle_sha256")
     assert claimed_hash == kernel.sha256_json(unhashed)
+
+
+def test_record_gated_z5_kernel_has_frozen_generated_stationary_law() -> None:
+    model = kernel.builtin_cayley_models()["z5"]
+    transition = kernel.record_gated_cayley_kernel(model)
+    stationary = kernel.stationary_distribution_from_kernel(transition)
+    expected = np.array([21.0, 5.0, 1.0, 1.0, 5.0]) / 33.0
+    assert np.allclose(stationary, expected, atol=1e-12)
+    assert math.isclose(kernel.mean_mismatch(stationary, model), 14.0 / 33.0, abs_tol=1e-12)
+
+    open_loop = kernel.open_loop_cayley_null(model)
+    open_stationary = kernel.stationary_distribution_from_kernel(open_loop)
+    assert np.allclose(open_stationary, np.full(5, 0.2), atol=1e-12)
+    assert math.isclose(kernel.mean_mismatch(open_stationary, model), 6.0 / 5.0, abs_tol=1e-12)
+
+
+def test_record_gated_s3_kernel_has_frozen_generated_stationary_law() -> None:
+    model = kernel.builtin_cayley_models()["s3"]
+    transition = kernel.record_gated_cayley_kernel(model)
+    stationary = kernel.stationary_distribution_from_kernel(transition)
+    expected = np.array([0.5, 1.0 / 6.0, 1.0 / 6.0, 1.0 / 6.0, 0.0, 0.0])
+    assert np.allclose(stationary, expected, atol=1e-12)
+    assert math.isclose(kernel.mean_mismatch(stationary, model), 0.5, abs_tol=1e-12)
+
+    open_loop = kernel.open_loop_cayley_null(model)
+    open_stationary = kernel.stationary_distribution_from_kernel(open_loop)
+    assert np.allclose(open_stationary, np.full(6, 1.0 / 6.0), atol=1e-12)
+    assert math.isclose(kernel.mean_mismatch(open_stationary, model), 7.0 / 6.0, abs_tol=1e-12)
+
+
+def test_cayley_primary_is_process_identifiable_from_open_loop_heat() -> None:
+    for model in kernel.builtin_cayley_models().values():
+        receipt = kernel.cayley_kernel_certificate(model)
+        assert receipt["record_gated_vs_open_loop_kl_rate"] > 0.0
+        assert receipt["checks"]["record_gated_row_error"] < 1e-12
+        assert receipt["checks"]["record_gated_stationary_residual"] < 1e-12

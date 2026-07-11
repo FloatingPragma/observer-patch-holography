@@ -1,0 +1,248 @@
+{
+  "artifact": "oph_neutrino_nufit61_retrospective_profile_score",
+  "candidate": {
+    "artifact": "oph_neutrino_weighted_cycle_repair",
+    "coordinates": {
+      "delta_cp_deg_wrapped": -54.419387685502045,
+      "ratio_dm21_over_dm32": 0.030721110097966534,
+      "sin2_theta12": 0.31635817043298914,
+      "sin2_theta13": 0.022808675997350793,
+      "sin2_theta23": 0.5820560367018955
+    },
+    "filename": "neutrino_weighted_cycle_repair.json",
+    "ordering": "normal",
+    "sha256": "b67e5e3467b1691e0b616ca875c970a16c2916a1f2269a8c89a506e8dfeed6a6"
+  },
+  "decision": {
+    "criterion": "The candidate fails the published 3-sigma two-parameter compatibility gate if the conservative lower bound exceeds Delta chi-square 11.829158 in both declared atmospheric treatments.",
+    "current_weighted_cycle_candidate_rejected_by_declared_gate": true,
+    "oph_core_falsified": false,
+    "reason_core_not_falsified": "The candidate is target-informed and descends from a template flavor kernel, so rejection applies to this weighted-cycle continuation branch rather than to finite OPH.",
+    "threshold_delta_chi2_2d_3sigma": 11.829158081900795
+  },
+  "generated_utc": "2026-07-11T03:45:00Z",
+  "nufit_release": {
+    "data_cutoff": "November 2025",
+    "official_result_page": "https://www.nu-fit.org/?q=node/309",
+    "source_manifest_filename": "nufit61_sources.json",
+    "source_manifest_sha256": "8fab3d1228e7d5945cbae9a62c68028f177c9fc3a0b2fc7e3f1c287818ea9b94",
+    "version": "6.1"
+  },
+  "scores": {
+    "TBoff-NO": {
+      "joint_fixed_candidate_delta_chi2_lower_bound": 18.435275228909504,
+      "limiting_projection": "T23/DCP",
+      "lower_bound_reason": "Each published surface profiles over undisplayed parameters. Their maximum, not their sum, is therefore a lower bound on the unavailable full fixed-candidate Delta chi-square.",
+      "passes_published_3sigma_2d_compatibility": false,
+      "profiles": {
+        "DMS/DMA_ratio_profile": {
+          "cell": {
+            "corner_delta_chi2": [
+              0.03783378,
+              0.0,
+              0.08427304,
+              0.04643926
+            ],
+            "x": [
+              -4.124,
+              -4.123
+            ],
+            "y": [
+              2.52,
+              2.525
+            ]
+          },
+          "curve": "Delta_m21^2 = [r/(1+r)] Delta_m31^2, r = Delta_m21^2/Delta_m32^2",
+          "delta_chi2": 0.05429777762398864,
+          "delta_m21_sq_eV2": 7.516325309899325e-05,
+          "delta_m31_sq_eV2": 0.002521795320081768,
+          "delta_m32_sq_eV2": 0.0024466320669827746,
+          "half_resolution_delta_chi2_difference": 0.0009239268667106046,
+          "half_resolution_samples": 10001,
+          "interpolation": "bilinear_no_extrapolation",
+          "point": [
+            -4.123994431706583,
+            2.5217953200817678
+          ],
+          "profiled_nuisance": "one positive common oscillation scale",
+          "samples": 20001
+        },
+        "T13/T12": {
+          "cell": {
+            "corner_delta_chi2": [
+              1.43059,
+              1.662666,
+              2.147757,
+              2.380177
+            ],
+            "x": [
+              0.0228,
+              0.0229
+            ],
+            "y": [
+              0.316,
+              0.318
+            ]
+          },
+          "delta_chi2": 1.5791642599450353,
+          "interpolation": "bilinear_no_extrapolation",
+          "point": [
+            0.022808675997350793,
+            0.31635817043298914
+          ]
+        },
+        "T23/DCP": {
+          "cell": {
+            "corner_delta_chi2": [
+              17.46081,
+              19.98173,
+              16.93549,
+              19.43224
+            ],
+            "x": [
+              0.58,
+              0.585
+            ],
+            "y": [
+              -55.0,
+              -50.0
+            ]
+          },
+          "delta_chi2": 18.435275228909504,
+          "interpolation": "bilinear_no_extrapolation",
+          "point": [
+            0.5820560367018955,
+            -54.419387685502045
+          ]
+        }
+      },
+      "source": {
+        "atmospheric_treatment": "IC23 without the tabulated Super-Kamiokande atmospheric likelihood",
+        "bytes": 3996028,
+        "filename": "v61.release-TBoff-NO.txt.xz",
+        "sha256": "58b113927c13f55925558e1ef0a598b357a237cde5c466b9f660cc08569970f6",
+        "source_id": "TBoff-NO",
+        "url": "https://www.nu-fit.org/sites/default/files/v61.release-TBoff-NO.txt.xz"
+      },
+      "wilks_two_dof_reference_p_for_limiting_projection": 9.927293177505813e-05
+    },
+    "TByes-NO": {
+      "joint_fixed_candidate_delta_chi2_lower_bound": 20.119548723965472,
+      "limiting_projection": "T23/DCP",
+      "lower_bound_reason": "Each published surface profiles over undisplayed parameters. Their maximum, not their sum, is therefore a lower bound on the unavailable full fixed-candidate Delta chi-square.",
+      "passes_published_3sigma_2d_compatibility": false,
+      "profiles": {
+        "DMS/DMA_ratio_profile": {
+          "cell": {
+            "corner_delta_chi2": [
+              0.1389387,
+              0.05112566,
+              0.1918546,
+              0.1040415
+            ],
+            "x": [
+              -4.125,
+              -4.124
+            ],
+            "y": [
+              2.515,
+              2.52
+            ]
+          },
+          "curve": "Delta_m21^2 = [r/(1+r)] Delta_m31^2, r = Delta_m21^2/Delta_m32^2",
+          "delta_chi2": 0.13164110702979584,
+          "delta_m21_sq_eV2": 7.510366164668509e-05,
+          "delta_m31_sq_eV2": 0.0025197959728029892,
+          "delta_m32_sq_eV2": 0.0024446923111563043,
+          "half_resolution_delta_chi2_difference": 0.0015170653578344129,
+          "half_resolution_samples": 10001,
+          "interpolation": "bilinear_no_extrapolation",
+          "point": [
+            -4.12433888863919,
+            2.519795972802989
+          ],
+          "profiled_nuisance": "one positive common oscillation scale",
+          "samples": 20001
+        },
+        "T13/T12": {
+          "cell": {
+            "corner_delta_chi2": [
+              1.479973,
+              1.728205,
+              2.19714,
+              2.445716
+            ],
+            "x": [
+              0.0228,
+              0.0229
+            ],
+            "y": [
+              0.316,
+              0.318
+            ]
+          },
+          "delta_chi2": 1.629948954077029,
+          "interpolation": "bilinear_no_extrapolation",
+          "point": [
+            0.022808675997350793,
+            0.31635817043298914
+          ]
+        },
+        "T23/DCP": {
+          "cell": {
+            "corner_delta_chi2": [
+              18.86419,
+              21.97081,
+              18.67822,
+              21.77414
+            ],
+            "x": [
+              0.58,
+              0.585
+            ],
+            "y": [
+              -55.0,
+              -50.0
+            ]
+          },
+          "delta_chi2": 20.119548723965472,
+          "interpolation": "bilinear_no_extrapolation",
+          "point": [
+            0.5820560367018955,
+            -54.419387685502045
+          ]
+        }
+      },
+      "source": {
+        "atmospheric_treatment": "IC24 with the tabulated Super-Kamiokande atmospheric likelihood",
+        "bytes": 3996408,
+        "filename": "v61.release-TByes-NO.txt.xz",
+        "sha256": "c74bd6df84297a8429cd3b9e1239751cd0762756f1ec0c2a31248d78570b26e4",
+        "source_id": "TByes-NO",
+        "url": "https://www.nu-fit.org/sites/default/files/v61.release-TByes-NO.txt.xz"
+      },
+      "wilks_two_dof_reference_p_for_limiting_projection": 4.276569215493636e-05
+    }
+  },
+  "source_boundary": {
+    "allowed_claim": "retrospective target-informed template candidate stress test",
+    "family_transport_kernel_filename": "family_transport_kernel.json",
+    "family_transport_kernel_proof_status": "conjugacy_riesz_candidate",
+    "family_transport_kernel_sha256": "712f4ac9ac065bb5349eda86f168c5aca5f011771cefc5e50ededea56c17152a",
+    "family_transport_kernel_status": "template",
+    "historical_target_exposure": true,
+    "historical_target_exposure_evidence": [
+      "The weighted-cycle builder entered git with PDG windows and an atmospheric comparison anchor.",
+      "Commit 802d93a ranked exponent-law candidates against the PDG mass-squared ratio before commit decd4a9 promoted the midpoint law."
+    ],
+    "prospective_evidence_eligible": false,
+    "source_only_prediction_eligible": false
+  },
+  "statistical_scope": {
+    "absolute_scale_policy": "profiled on the DMS/DMA ratio curve; no OPH absolute-mass attachment is used",
+    "full_six_dimensional_likelihood_publicly_available": false,
+    "profiles_summed": false,
+    "retrospective_p_values_are_prospective_evidence": false,
+    "wilks_p_values_are_descriptive_only": true
+  }
+}

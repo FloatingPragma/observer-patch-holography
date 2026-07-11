@@ -1,4 +1,4 @@
-import Mathlib
+import ObservableNormalForms.Stochastic
 
 /-!
 # Finite conditional resampling
@@ -92,6 +92,64 @@ theorem transition_sum_one (M : FiniteWeightedObservation S O) (x : S) :
     split_ifs <;> simp]
   rw [show (∑ y ∈ M.fiber x, M.weight y) = M.fiberMass x by rfl]
   exact div_self (M.fiberMass_ne_zero x)
+
+/-- The conditional-resampling transition matrix as a finite Markov kernel. -/
+noncomputable def conditionalResamplingKernel
+    (M : FiniteWeightedObservation S O) : FiniteMarkovKernel S where
+  probability := M.transition
+  probability_nonneg := M.transition_nonneg
+  probability_sum_one := M.transition_sum_one
+
+/-- R1: transitions do not leave an observation fiber. -/
+def FiberSupported (M : FiniteWeightedObservation S O)
+    (K : FiniteMarkovKernel S) : Prop :=
+  ∀ ⦃x y : S⦄, M.observe x ≠ M.observe y → K.probability x y = 0
+
+/-- R2: starting states in the same observation fiber have identical rows. -/
+def FiberRowConstant (M : FiniteWeightedObservation S O)
+    (K : FiniteMarkovKernel S) : Prop :=
+  ∀ ⦃x x' : S⦄, M.observe x = M.observe x' →
+    K.probability x = K.probability x'
+
+/-- R3: detailed balance with respect to the prescribed positive weights. -/
+def WeightedDetailedBalance (M : FiniteWeightedObservation S O)
+    (K : FiniteMarkovKernel S) : Prop :=
+  ∀ x y : S,
+    M.weight x * K.probability x y = M.weight y * K.probability y x
+
+theorem conditionalResamplingKernel_fiberSupported
+    (M : FiniteWeightedObservation S O) :
+    M.FiberSupported M.conditionalResamplingKernel := by
+  intro x y hxy
+  have hyx : M.observe y ≠ M.observe x := fun hyx => hxy hyx.symm
+  simp [conditionalResamplingKernel, transition, hyx]
+
+theorem conditionalResamplingKernel_fiberRowConstant
+    (M : FiniteWeightedObservation S O) :
+    M.FiberRowConstant M.conditionalResamplingKernel := by
+  intro x x' hxx'
+  funext y
+  show M.transition x y = M.transition x' y
+  by_cases hyx : M.observe y = M.observe x
+  · have hyx' : M.observe y = M.observe x' := hyx.trans hxx'
+    rw [transition, transition, if_pos hyx, if_pos hyx',
+      M.fiberMass_eq_of_observe_eq hxx']
+  · have hyx' : M.observe y ≠ M.observe x' :=
+      fun hyx' => hyx (hyx'.trans hxx'.symm)
+    rw [transition, transition, if_neg hyx, if_neg hyx']
+
+theorem conditionalResamplingKernel_weightedDetailedBalance
+    (M : FiniteWeightedObservation S O) :
+    M.WeightedDetailedBalance M.conditionalResamplingKernel := by
+  intro x y
+  show M.weight x * M.transition x y = M.weight y * M.transition y x
+  by_cases hxy : M.observe x = M.observe y
+  · rw [transition, transition, if_pos hxy.symm, if_pos hxy,
+      M.fiberMass_eq_of_observe_eq hxy]
+    ring
+  · have hyx : M.observe y ≠ M.observe x := fun hyx => hxy hyx.symm
+    rw [transition, transition, if_neg hyx, if_neg hxy]
+    ring
 
 /-- Conditional resampling of a real-valued function. -/
 noncomputable def resample (M : FiniteWeightedObservation S O)
@@ -238,6 +296,100 @@ theorem pairWeight_comm (M : FiniteWeightedObservation S O) (x y : S) :
     rw [pairWeight, pairWeight, transition, transition,
       if_neg hxy, if_neg hyx]
     ring
+
+theorem finiteMarkovKernel_ext
+    {K L : FiniteMarkovKernel S}
+    (hProbability : K.probability = L.probability) : K = L := by
+  cases K
+  cases L
+  cases hProbability
+  rfl
+
+/-- R1--R3 recognize the conditional-resampling kernel.  Row stochasticity
+and nonnegativity are carried by `FiniteMarkovKernel`; strict positivity of
+the prescribed weights makes normalization on every occupied fiber unique. -/
+theorem kernel_eq_conditionalResamplingKernel_of_recognition
+    (M : FiniteWeightedObservation S O) (K : FiniteMarkovKernel S)
+    (hSupport : M.FiberSupported K)
+    (hRows : M.FiberRowConstant K)
+    (hBalance : M.WeightedDetailedBalance K) :
+    K = M.conditionalResamplingKernel := by
+  apply finiteMarkovKernel_ext
+  funext x y
+  show K.probability x y = M.transition x y
+  by_cases hyx : M.observe y = M.observe x
+  · have hentryOf : ∀ ⦃z : S⦄, M.observe z = M.observe x →
+        K.probability x z =
+          M.weight z * (K.probability x x / M.weight x) := by
+      intro z hzx
+      have hrow_zx : K.probability z x = K.probability x x := by
+        have hrow : K.probability z = K.probability x := hRows hzx
+        exact congrFun hrow x
+      have hbal := hBalance x z
+      rw [hrow_zx] at hbal
+      calc
+        K.probability x z =
+            (M.weight x * K.probability x z) / M.weight x :=
+          (mul_div_cancel_left₀ (K.probability x z)
+            (M.weight_pos x).ne').symm
+        _ = (M.weight z * K.probability x x) / M.weight x := by rw [hbal]
+        _ = M.weight z * (K.probability x x / M.weight x) := by ring
+    have hentry := hentryOf hyx
+    have hsumFiber :
+        (∑ z ∈ M.fiber x, K.probability x z) = 1 := by
+      calc
+        (∑ z ∈ M.fiber x, K.probability x z) =
+            ∑ z : S,
+              if M.observe z = M.observe x then K.probability x z else 0 := by
+          simp only [fiber, Finset.sum_filter]
+        _ = ∑ z : S, K.probability x z := by
+          apply Finset.sum_congr rfl
+          intro z _
+          by_cases hzx : M.observe z = M.observe x
+          · rw [if_pos hzx]
+          · rw [if_neg hzx]
+            exact (hSupport (fun hxz => hzx hxz.symm)).symm
+        _ = 1 := K.probability_sum_one x
+    have hnormal :
+        M.fiberMass x * (K.probability x x / M.weight x) = 1 := by
+      calc
+        M.fiberMass x * (K.probability x x / M.weight x) =
+            ∑ z ∈ M.fiber x,
+              M.weight z * (K.probability x x / M.weight x) := by
+          rw [fiberMass, Finset.sum_mul]
+        _ = ∑ z ∈ M.fiber x, K.probability x z := by
+          apply Finset.sum_congr rfl
+          intro z hz
+          have hzx : M.observe z = M.observe x := (M.mem_fiber_iff x z).mp hz
+          exact (hentryOf hzx).symm
+        _ = 1 := hsumFiber
+    have hconstant :
+        K.probability x x / M.weight x = 1 / M.fiberMass x := by
+      apply (eq_div_iff (M.fiberMass_ne_zero x)).2
+      simpa [mul_comm] using hnormal
+    rw [transition, if_pos hyx, hentry, hconstant]
+    ring
+  · have hxy : M.observe x ≠ M.observe y := fun hxy => hyx hxy.symm
+    rw [hSupport hxy, transition, if_neg hyx]
+
+/-- Exact matrix recognition: a finite Markov kernel is the conditional
+fiber-resampling kernel if and only if it satisfies R1 fiber support, R2
+identical rows inside fibers, and R3 weighted detailed balance. -/
+theorem kernel_eq_conditionalResamplingKernel_iff_recognition
+    (M : FiniteWeightedObservation S O) (K : FiniteMarkovKernel S) :
+    K = M.conditionalResamplingKernel ↔
+      M.FiberSupported K ∧
+      M.FiberRowConstant K ∧
+      M.WeightedDetailedBalance K := by
+  constructor
+  · intro hK
+    subst K
+    exact ⟨M.conditionalResamplingKernel_fiberSupported,
+      M.conditionalResamplingKernel_fiberRowConstant,
+      M.conditionalResamplingKernel_weightedDetailedBalance⟩
+  · rintro ⟨hSupport, hRows, hBalance⟩
+    exact M.kernel_eq_conditionalResamplingKernel_of_recognition K
+      hSupport hRows hBalance
 
 theorem weightedInner_resample_expand
     (M : FiniteWeightedObservation S O) (f g : S → ℝ) :

@@ -44,7 +44,8 @@ content and build logs are intentionally excluded.
   finite-state tail bound.
 - `ConditionalResampling.lean`: finite weighted conditional-resampling
   kernels, fixed-point characterization, idempotence, weighted
-  self-adjointness, Pythagorean energy identity, and contraction.
+  self-adjointness, Pythagorean energy identity, contraction, and the exact
+  fiber-support/equal-row/detailed-balance matrix-recognition converse.
 - `Examples/Rule90.lean`: standalone width-three kernel, image, readout, and
   reverse-repair obstruction proofs.
 - `AxiomAudit.lean`: theorem-level `#print axioms` receipt.

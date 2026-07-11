@@ -242,6 +242,21 @@
       "status": "experimental_protocol"
     },
     {
+      "claim_id": "OPH-IBM-GENERATIVE-REPAIR",
+      "statement": "The IBM issue-509 protocol defines a blinded finite self-reading repair instrument whose complete transition records can be compared with matched open-loop heat, calibrated-noise, label, and decoy kernels without preparing the target law in the initial amplitudes.",
+      "owner_paper": "code/ibm_quantum_cloud/protocols/BLINDED_GENERATIVE_REPAIR_KERNEL.md",
+      "tier": "hardware_experiment_protocol",
+      "assumptions": ["finite_patch_net", "self_read", "durable_records", "mismatch_repair", "blinded_routes", "label_shuffle_controls", "public_receipts"],
+      "imported_results": ["finite_Markov_chain_theory", "Born_Luders_measurement", "dynamic_quantum_circuits", "likelihood_and_Bayes_factor_model_comparison"],
+      "oph_specific_delta": "A bounded group-mismatch patch reads its own disturbed state, writes a durable descent record, conditions its repair move on that record, and publishes the complete transition and reveal receipts.",
+      "novelty_type": "blinded_hardware_experiment_protocol",
+      "evidence": ["code/ibm_quantum_cloud/protocols/BLINDED_GENERATIVE_REPAIR_KERNEL.md", "code/ibm_quantum_cloud/programs/generative_repair_kernel.py", "code/ibm_quantum_cloud/programs/record_gated_cayley_circuits.py"],
+      "falsifier": "A valid two-system blinded run favors the frozen open-loop or other nulls, excludes the full calibrated repair transition law, or shows that shuffled labels and decoys match the semantic controller.",
+      "scope_if_false": "The reduced-sector self-reading hardware kernel falls; no OPH core theorem, Einstein, Standard Model, or cosmology branch is decided.",
+      "status": "implemented_pre_hardware_preregistration_pending",
+      "github_gates": [509, 325, 507, 512]
+    },
+    {
       "claim_id": "OPH-THINKING-PATCH",
       "statement": "The thinking paper models cognition as biological fixed-point consensus in a self-reading recurrent patch federation.",
       "owner_paper": "extra/thinking_as_patch_net_fixed_point_search.tex",

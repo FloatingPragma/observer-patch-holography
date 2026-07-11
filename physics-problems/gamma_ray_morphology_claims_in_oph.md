@@ -3,8 +3,8 @@
 ## Motivating Result
 
 This note entered the queue after a 13-year Fermi-LAT analysis reported a
-diffuse gamma-ray-background dipole of roughly \(6.5\)--\(7\%\) over
-\(2.74<E\le115.5\,\mathrm{GeV}\), with an axis close to the Pierre Auger UHECR
+diffuse gamma-ray-background dipole of roughly $6.5$--$7\%$ over
+$2.74<E\le115.5\,\mathrm{GeV}$, with an axis close to the Pierre Auger UHECR
 dipole rather than the CMB dipole
 ([Kashlinsky, Atrio-Barandela, and Korotkov, 2024](https://arxiv.org/abs/2401.04564)).
 The older Galactic Center excess debate supplies a separate pressure point:
@@ -62,7 +62,7 @@ Throughout this note:
 
 The closed paper-side objects are
 
-```math
+$$
 \mathfrak G_{\gamma,r},
 \quad
 \mathcal C_{\gamma,T},
@@ -74,7 +74,7 @@ The closed paper-side objects are
 \mathfrak B_{\partial,r},
 \quad
 R_\gamma .
-```
+$$
 
 These objects define admissible OPH gamma morphologies. They do not guarantee a
 detected signal. The simulator answers the separate empirical question: whether
@@ -84,7 +84,7 @@ tests, and null tests.
 
 The pre-instrument expected sky intensity is
 
-```math
+$$
 I_\gamma^{\rm sky}(\hat n,E)
 =
 I_{\rm iso}(E)
@@ -94,7 +94,7 @@ I_{\rm gal}(\hat n,E)
 I_{\rm src}(\hat n,E)
 +
 I_{\rm OPH}^{\rm sky}(\hat n,E).
-```
+$$
 
 Foreground-model discrepancy may be represented by separately declared
 nuisance fields or priors. It is not an additive random count after a Poisson
@@ -103,7 +103,7 @@ count model has already been specified.
 The OPH component is allowed only when it is a forward projection of a frozen
 source artifact:
 
-```math
+$$
 I_{\rm OPH}^{\rm sky}
 =
 \Pi_{\gamma,r}(\mathfrak G_{\gamma,r}),
@@ -115,7 +115,7 @@ I_{\rm OPH}^{\rm sky}
 \mathcal R_{\gamma,r}
 \circ
 \mathcal C_{\gamma,r}.
-```
+$$
 
 A component chosen by fitting gamma residuals is not an OPH prediction.
 
@@ -123,7 +123,7 @@ A component chosen by fitting gamma residuals is not an OPH prediction.
 
 The proof-carrying gamma artifact is
 
-```math
+$$
 \mathfrak G_{\gamma,r}
 :=
 (
@@ -145,7 +145,7 @@ Q_r,
 \mathcal M_{\rm freeze,r},
 \mathcal E_{\rm err,r}
 ).
-```
+$$
 
 The route is one of:
 
@@ -157,17 +157,17 @@ BOTH
 
 The quotient and source law are mandatory:
 
-```math
+$$
 Q_r=\Sigma_r/\Gamma_r,
 \qquad
 \mu_r(q)=Z_r^{-1}m_r(q)e^{-S_r(q)} .
-```
+$$
 
-Here \(\Sigma_r\) and the action of \(\Gamma_r\) must be declared, and only
+Here $\Sigma_r$ and the action of $\Gamma_r$ must be declared, and only
 genuine gauge or presentation redundancies may be quotiented out; physical
-ports and currents remain visible. On a finite state space, \(m_r\ge0\),
-\(S_r\) is dimensionless, and
-\(0<Z_r=\sum_qm_r(q)e^{-S_r(q)}<\infty\). On a continuous space the base
+ports and currents remain visible. On a finite state space, $m_r\ge0$,
+$S_r$ is dimensionless, and
+$0<Z_r=\sum_qm_r(q)e^{-S_r(q)}<\infty$. On a continuous space the base
 measure, domain, and integrability condition must be stated. A quantum source
 branch needs a positive trace-one density operator rather than this classical
 Gibbs notation.
@@ -181,33 +181,33 @@ diagnostic map.
 
 The transported-stress route starts from a finite covariant parent
 
-```math
+$$
 \mathfrak P_{A,r}
 =
 (\mathcal X_r,g_r,e_r,\Pi_r,Z_r,f_r,\mathsf T_r,\mathsf C_r,\mathsf M_r,\mathsf R_r).
-```
+$$
 
-This parent must emit the anomaly stress tensor \(T_A^{\mu\nu}\). A scalar row
+This parent must emit the anomaly stress tensor $T_A^{\mu\nu}$. A scalar row
 is insufficient. Given the baryonic rest-frame four-velocity
 
-```math
+$$
 u_b^\mu
 =
 \frac{J_b^\mu}
 {\sqrt{-g_{\alpha\beta}J_b^\alpha J_b^\beta}},
-```
+$$
 
 the default OPH gamma morphology scalar is
 
-```math
+$$
 \sigma_{T,r}
 =
 T_A^{\mu\nu}u_{b,\mu}u_{b,\nu}.
-```
+$$
 
 This contraction is nonnegative only on a branch that supplies a
-future-timelike \(u_b\) and an energy condition such as
-\(T_A^{\mu\nu}u_\mu u_\nu\ge0\). That condition is an assumption to be
+future-timelike $u_b$ and an energy condition such as
+$T_A^{\mu\nu}u_\mu u_\nu\ge0$. That condition is an assumption to be
 checked, not a consequence of the contraction notation. The simulator must
 not replace it by `abs(rho_A)`. Any use of flux,
 anisotropic stress, gradients, smoothing axes, or extended contractions is an
@@ -219,17 +219,17 @@ Gamma rays are electromagnetic Standard Model radiation. On the declared
 neutral, electromagnetically decoupled anomaly branch, anomaly packets carry no
 Standard Model electromagnetic, color, or weak current:
 
-```math
+$$
 q_z^{\rm EM}=q_z^{\rm color}=q_z^{\rm weak}=0.
-```
+$$
 
 Neutral charge alone is insufficient: a neutral composite can still couple
 electromagnetically through moments or polarizability. Therefore the following
 zero-current statement additionally requires a decoupling/current theorem:
 
-```math
+$$
 j_{\gamma,\rm direct}[T_A]=0
-```
+$$
 
 unless an `ANOMALY_EM_CURRENT_RECEIPT` passes. Transported OPH stress can only
 modulate ordinary photon-production channels or enter through a boundary-record
@@ -239,13 +239,13 @@ projection.
 
 The response decomposes as
 
-```math
+$$
 \mathcal R_{\gamma,r}
 =
 \mathcal R_{\gamma,T,r}
 \oplus
 \mathcal R_{\gamma,D,r}.
-```
+$$
 
 For transported stress, the ordinary frozen channel basis is
 
@@ -258,10 +258,10 @@ Phi
 
 where `pi0` is gas/cosmic-ray hadronic emission, `IC` is inverse-Compton
 emission, `brem` is bremsstrahlung, and `Phi` is a declared baryonic-potential
-or stress-lensing-correlated response. For a channel \(c\), a dimensionally
+or stress-lensing-correlated response. For a channel $c$, a dimensionally
 explicit **illustrative linear-response ansatz** is
 
-```math
+$$
 j_{\gamma,T,r}^{(c)}(x,E)
 =
 j_{0,c,r}(x,E)
@@ -269,10 +269,10 @@ j_{0,c,r}(x,E)
 1+\kappa_{c,r}(E)
 \frac{\bar\sigma_{T,r}(x)}{\sigma_{0,r}}
 \right].
-```
+$$
 
-Here \(\kappa\) is dimensionless, \(\sigma_0\) is a positive reference
-stress in the same units as \(\bar\sigma_T\), and positivity of the bracket
+Here $\kappa$ is dimensionless, $\sigma_0$ is a positive reference
+stress in the same units as $\bar\sigma_T$, and positivity of the bracket
 is required. A different response is admissible if its units, normalization,
 smoothing, and ordinary emissivity fields are frozen before comparison. This
 response is assumed until derived from a microscopic OPH-matter coupling; no
@@ -282,7 +282,7 @@ arbitrary residual-shaped spectrum is allowed.
 
 The boundary-record route lives directly on the observer-facing screen:
 
-```math
+$$
 \mathfrak B_{\partial,r}
 =
 (
@@ -297,26 +297,26 @@ s_{D,r}(E),
 \mathcal H_{\partial,r},
 \mathcal E_{\partial,r}
 ).
-```
+$$
 
-Remove the monopole from the source-side boundary scalar \(b_{\partial,r}\),
+Remove the monopole from the source-side boundary scalar $b_{\partial,r}$,
 then compute the dipole vector
 
-```math
+$$
 \mathbf a_{\partial,r}
 =
 \frac{3}{4\pi}
 \int_{S^2}
 b'_{\partial,r}(\hat n)\hat n\,d\Omega .
-```
+$$
 
 The dipole axis is
 
-```math
+$$
 \mathbf d_{\rm OPH,r}
 =
 \frac{\mathbf a_{\partial,r}}{|\mathbf a_{\partial,r}|}.
-```
+$$
 
 If the dipole amplitude is zero or fails a predeclared source-side numerical
 threshold, the axis is undefined and the boundary-dipole route is disabled.
@@ -326,11 +326,11 @@ the claim fails closed.
 
 The signed dipole template is
 
-```math
+$$
 \tau_{D,r}(\hat n,E)
 =
 s_{D,r}(E)\,\mathbf a_{\partial,r}\cdot\hat n .
-```
+$$
 
 Because this is signed, predicted counts must remain positive in every
 pixel-energy bin.
@@ -342,7 +342,7 @@ maps. The instrument operator contains exposure, PSF, energy dispersion, event
 class/type, zenith cuts, time interval, mask, pixelization, energy bins, and
 invalid-bin policy:
 
-```math
+$$
 \mathcal I_{\gamma,r}
 =
 (
@@ -354,11 +354,11 @@ invalid-bin policy:
 \mathcal C_{{\rm event},r},
 \mathcal Z_r
 ).
-```
+$$
 
 The count model is
 
-```math
+$$
 \mu_{pe}
 =
 \mathcal I_{\gamma,r}
@@ -369,30 +369,30 @@ I_{\rm gal}
 +
 I_{\rm src}+I_{\rm OPH}^{\rm sky}
 \right]_{pe}.
-```
+$$
 
 Two amplitude conventions are allowed, and they must not be mixed:
 
 1. **Source-amplitude prediction.** The frozen source projection supplies
-   \(I_{\rm OPH}^{\rm sky}\) with physical intensity units, including the
-   normalization of \(\bar\sigma_T\), \(\mathbf a_\partial\), and
-   \(s_D(E)\). No extra fitted amplitude is applied; equivalently every
+   $I_{\rm OPH}^{\rm sky}$ with physical intensity units, including the
+   normalization of $\bar\sigma_T$, $\mathbf a_\partial$, and
+   $s_D(E)$. No extra fitted amplitude is applied; equivalently every
    multiplier is fixed to one.
 2. **Morphology-only test.** Each raw template is divided by a preregistered
-   nonzero norm \(N_j\), giving \(\widehat\tau_j=\tau_j/N_j\), and
-   \(I_{\rm OPH}^{\rm sky}=\sum_jA_j\widehat\tau_j\). The fitted \(A_j\)
+   nonzero norm $N_j$, giving $\widehat\tau_j=\tau_j/N_j$, and
+   $I_{\rm OPH}^{\rm sky}=\sum_jA_j\widehat\tau_j$. The fitted $A_j$
    carries the intensity units. This can test a frozen shape, axis, and spectrum
    family, but it is not a source-derived amplitude or absolute-intensity
    prediction.
 
 The template norm, sign convention, energy dependence, and positivity range are
-frozen before data comparison. Allowing \(A_D\), \(s_D\), and
-\(|\mathbf a_\partial|\) all to float would be an unidentifiable
+frozen before data comparison. Allowing $A_D$, $s_D$, and
+$|\mathbf a_\partial|$ all to float would be an unidentifiable
 rescaling, not an OPH prediction.
 
 The likelihood is binned Poisson:
 
-```math
+$$
 \ln\mathcal L
 =
 \sum_{p,e}
@@ -403,7 +403,7 @@ k_{pe}\ln\mu_{pe}
 -
 \ln(k_{pe}!)
 \right].
-```
+$$
 
 For a public Fermi implementation, the data/source release must be pinned. The
 Fermi 4FGL-DR4 page describes the 14-year LAT catalog over 50 MeV to 1 TeV
@@ -416,61 +416,61 @@ truth
 
 ## Identifiability
 
-Let \(\tilde\tau_{\rm OPH}\) be the instrument-convolved OPH template and
-let the columns of \(B\) span the local nuisance tangent space at a strictly
-positive baseline \(\mu_0\). With
+Let $\tilde\tau_{\rm OPH}$ be the instrument-convolved OPH template and
+let the columns of $B$ span the local nuisance tangent space at a strictly
+positive baseline $\mu_0$. With
 
-```math
+$$
 \langle X,Y\rangle_W
 =
 \sum_{p,e}\frac{X_{pe}Y_{pe}}{\mu_{0,pe}},
-```
+$$
 
-let \(P_B\) be the \(W\)-orthogonal projector onto that span and project it
+let $P_B$ be the $W$-orthogonal projector onto that span and project it
 away:
 
-```math
+$$
 \tilde\tau_\perp
 =
 (I-P_B)\tilde\tau_{\rm OPH}.
-```
+$$
 
 The identifiability metric is
 
-```math
+$$
 \eta_{\rm id}
 =
 \frac{\|\tilde\tau_\perp\|_W}
 {\|\tilde\tau_{\rm OPH}\|_W}.
-```
+$$
 
-This ratio is defined only when \(\|\tilde\tau_{\rm OPH}\|_W>0\); a zero
+This ratio is defined only when $\|\tilde\tau_{\rm OPH}\|_W>0$; a zero
 template disables the route rather than earning an identifiability score.
 
-If \(\eta_{\rm id}\) is below the declared threshold, the OPH amplitude is not
+If $\eta_{\rm id}$ is below the declared threshold, the OPH amplitude is not
 identifiable under the foreground model. A likelihood improvement alone cannot
 promote the claim.
 
 ## Promotion Receipt
 
-Let \(U_T\) and \(U_D\) indicate whether the declared route uses transported
+Let $U_T$ and $U_D$ indicate whether the declared route uses transported
 stress and boundary dipole, respectively. Define
 
-```math
+$$
 R_T=(\neg U_T)\vee
 \left(R_{\rm parent}\wedge R_{\mathcal C}\wedge R_{\rm neutral}\right),
 \qquad
 R_D=(\neg U_D)\vee R_{\rm boundary}.
-```
+$$
 
 Thus a boundary-only model does not need a neutral-anomaly or stress-parent
 receipt, while a transported-stress model does; `BOTH` must pass both branches.
 The route declaration itself must be one of the three allowed values and agree
-with \((U_T,U_D)\).
+with $(U_T,U_D)$.
 
 The gamma promotion receipt is
 
-```math
+$$
 R_\gamma
 =
 R_Q
@@ -491,7 +491,7 @@ R_Q
 \wedge R_{\rm heldout}
 \wedge R_{\rm cross}
 \wedge R_{\rm null}.
-```
+$$
 
 The simulator promotion ladder is:
 
@@ -530,7 +530,7 @@ The gamma branch fails closed if any of these occur:
   residuals;
 - direct anomaly gamma is nonzero without an electromagnetic-current theorem;
 - a transported template is generated from scalar rows alone;
-- signed templates make any predicted count \(\mu_{pe}\le0\);
+- signed templates make any predicted count $\mu_{pe}\le0$;
 - the OPH template is collinear with foreground, source, or dark-matter
   templates;
 - random rotations perform comparably;
@@ -561,7 +561,7 @@ from gamma residuals.
 This note supplies a conditional audit specification for admissible gamma
 morphology claims. It remains open both at the OPH source-derivation level and
 at the empirical detection level. A future claim must first derive or
-explicitly assume a nonzero source morphology and then pass \(R_\gamma\),
+explicitly assume a nonzero source morphology and then pass $R_\gamma$,
 including frozen source provenance, count-space instrument response,
 foreground alternatives, identifiability, held-out validation, cross-tracer
 tests, and null tests.

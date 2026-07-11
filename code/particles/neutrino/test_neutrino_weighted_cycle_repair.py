@@ -17,6 +17,7 @@ COCYCLE = ROOT / "particles" / "runs" / "flavor" / "overlap_edge_transport_cocyc
 PHASE_SOURCE = ROOT / "particles" / "runs" / "neutrino" / "intrinsic_neutrino_mass_eigenstate_bundle_from_scalar_certificate.json"
 ISOTROPIC = ROOT / "particles" / "runs" / "neutrino" / "forward_majorana_matrix.json"
 SELECTOR = ROOT / "particles" / "runs" / "neutrino" / "neutrino_transport_load_segment_selector.json"
+FAMILY_KERNEL = ROOT / "particles" / "runs" / "flavor" / "family_transport_kernel.json"
 
 
 def test_repaired_weighted_cycle_branch_matches_expected_live_numbers() -> None:
@@ -36,6 +37,8 @@ def test_repaired_weighted_cycle_branch_matches_expected_live_numbers() -> None:
                 str(ISOTROPIC),
                 "--selector",
                 str(SELECTOR),
+                "--family-kernel",
+                str(FAMILY_KERNEL),
                 "--output",
                 str(out),
             ],
@@ -44,9 +47,14 @@ def test_repaired_weighted_cycle_branch_matches_expected_live_numbers() -> None:
         )
         payload = json.loads(out.read_text(encoding="utf-8"))
         assert payload["artifact"] == "oph_neutrino_weighted_cycle_repair"
-        assert payload["final_verdict"] == "scale_free_physical_branch_closed_absolute_normalization_open"
-        assert payload["theorem_status"] == "dimensionless_physical_branch_closed_absolute_normalization_open"
-        assert payload["physical_window_status"] == "pmns_and_hierarchy_repaired"
+        assert payload["final_verdict"] == "target_informed_template_weighted_cycle_candidate"
+        assert payload["theorem_status"] == "exact_linear_algebra_conditional_on_declared_candidate_inputs"
+        assert payload["physical_window_status"] == "separate_marginal_box_comparison_only"
+        assert payload["historical_target_exposure"] is True
+        assert payload["source_only_prediction_eligible"] is False
+        assert payload["prediction_promotion_allowed"] is False
+        assert payload["public_surface_candidate_allowed"] is False
+        assert payload["source_closure_status"]["family_transport_kernel_status"] == "template"
         assert payload["symbolic_absolute_family"]["family_parameter"] == "lambda_nu > 0"
         assert payload["compare_only_atmospheric_anchor"]["adapter_status"] == "hard_separated_compare_only_adapter"
         assert payload["transport_load_selector_status"] == "standard_math_fixed_balanced_segment_selector_closed"

@@ -16,6 +16,6 @@ Generic formalization accompanying the manuscript
 *Observation-Determined Normal Forms: Stability, Obstructions, and Refinement
 in Constraint and Rewrite Systems*.
 
-See `ObservableNormalForms/PROOF_INDEX.md` for the theorem-to-source audit and
+See `PROOF_INDEX.md` for the theorem-to-source audit and
 the explicit list of manuscript claims not yet formalized.
 -/

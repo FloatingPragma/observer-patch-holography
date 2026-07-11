@@ -37,24 +37,26 @@
     0.03079142408841061
   ],
   "dimensionless_ratio_dm21_over_dm32": 0.030721110097966534,
+  "display_allowed_as_compare_only": true,
   "edge_weights": {
     "psi12": 0.016054473183336446,
     "psi23": 0.009521121609161645,
     "psi31": 0.004189533594250126
   },
-  "final_verdict": "scale_free_physical_branch_closed_absolute_normalization_open",
+  "final_verdict": "target_informed_template_weighted_cycle_candidate",
   "gamma": 0.30236566025890826,
   "gamma_half": 0.15118283012945413,
   "gamma_times_eps": 0.03162277660168382,
-  "generated_utc": "2026-06-29T07:35:38Z",
+  "generated_utc": "2026-07-11T04:06:16Z",
+  "historical_target_exposure": true,
   "holonomy_orientation": "021",
-  "neutrino_branch_status": "repaired_shared_basis_weighted_cycle_lift",
+  "neutrino_branch_status": "retrospective_weighted_cycle_comparison_candidate",
   "notes": [
-    "The repaired weighted-cycle branch closes PMNS angles and the neutrino splitting hierarchy from live OPH artifacts.",
-    "The weight exponent is fixed by the live same-label certificate, the overlap-edge cocycle invariants, and the log-affine midpoint selector on the positive segment between chi and 1 + gamma_half.",
-    "The theorem-grade repaired branch is scale-free: it emits PMNS observables, J, the hierarchy ratio, and one symbolic positive absolute family parameterized by lambda_nu > 0.",
-    "The proof-facing absolute family is emitted one step above this artifact by the weighted-cycle bridge-rigidity theorem and the absolute-attachment theorem; the atmospheric-anchored numbers remain hard-separated compare-only outputs.",
-    "This artifact supersedes the old isotropic continuation branch as the strongest supported neutrino branch on disk."
+    "The PMNS observables and hierarchy ratio are exact readouts of the declared weighted-cycle candidate.",
+    "The upstream family transport kernel is a hand-written template, and the exponent law was promoted after target-ranked candidate comparison.",
+    "Separate PDG marginal-window checks do not establish compatibility with the correlated oscillation likelihood.",
+    "The atmospheric-anchored values remain hard-separated compare-only outputs.",
+    "A source-emitted kernel and a new pre-reference law are required before any neutrino prediction can be promoted."
   ],
   "old_isotropic_no_go": {
     "a_gev": 2.4617526608923523e-12,
@@ -101,7 +103,7 @@
       "theta23_deg": true
     }
   },
-  "physical_window_status": "pmns_and_hierarchy_repaired",
+  "physical_window_status": "separate_marginal_box_comparison_only",
   "pmns_abs": [
     [
       0.8173425625636912,
@@ -169,6 +171,8 @@
     "mu",
     "tau"
   ],
+  "prediction_promotion_allowed": false,
+  "public_surface_candidate_allowed": false,
   "remaining_object": "one_positive_neutrino_bridge_correction_invariant",
   "remaining_object_contract": "emit_one_positive_neutrino_bridge_correction_invariant_above_the_emitted_proxy",
   "repaired_cycle_matrix_imag": [
@@ -233,12 +237,25 @@
     "psi31": 0.9637237704217096
   },
   "source_artifacts": {
+    "family_transport_kernel": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/family_transport_kernel.json",
     "isotropic_reference_bundle": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/forward_majorana_matrix.json",
     "overlap_edge_transport_cocycle": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/overlap_edge_transport_cocycle.json",
     "same_label_scalar_certificate": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/same_label_scalar_certificate.json",
     "selector_phase_source": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/intrinsic_neutrino_mass_eigenstate_bundle_from_scalar_certificate.json",
     "transport_load_selector": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/neutrino_transport_load_segment_selector.json"
   },
+  "source_closure_status": {
+    "closed": false,
+    "family_transport_kernel_proof_status": "conjugacy_riesz_candidate",
+    "family_transport_kernel_status": "template",
+    "missing_objects": [
+      "source_emitted_family_transport_kernel",
+      "source_derived_weight_exponent_and_cycle_matrix_law",
+      "source_derived_basis_permutation_and_holonomy_orientation",
+      "pre_reference_hash_lock"
+    ]
+  },
+  "source_only_prediction_eligible": false,
   "symbolic_absolute_family": {
     "absolute_dm2": {
       "21": "Delta m21^2 = lambda_nu^2 * 2.520259180367675e-05",
@@ -252,7 +269,7 @@
     ],
     "family_parameter": "lambda_nu > 0"
   },
-  "theorem_status": "dimensionless_physical_branch_closed_absolute_normalization_open",
+  "theorem_status": "exact_linear_algebra_conditional_on_declared_candidate_inputs",
   "transport_load_selector_equivalence_statement": "On a one-dimensional affine segment, the balanced barycentric selector and the least-distortion selector for any positive translation-invariant quadratic form coincide uniquely at the midpoint.",
   "transport_load_selector_family": [
     "balanced",

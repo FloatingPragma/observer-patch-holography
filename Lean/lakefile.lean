@@ -11,11 +11,12 @@ package «ObserverPatchHolography» where
   ]
 
 @[default_target]
-lean_lib «ObserverPatchHolography» where
+lean_lib «ObservableNormalForms» where
+  srcDir := "ObserverPatchHolography/Proofs/ObservableNormalForms"
 
 @[default_target]
-lean_lib «ObservableNormalForms» where
-  srcDir := "ObservableNormalForms"
+lean_lib «ObserverPatchHolography» where
+  srcDir := "ObserverPatchHolography/Source"
 
 lean_exe «oph» where
   root := `Main

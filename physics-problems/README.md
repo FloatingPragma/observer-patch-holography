@@ -41,7 +41,7 @@ Use the following evidence vocabulary consistently:
   a conditional, factorized, set-valued classifier for accretor identity,
   mass, intrinsic Eddington ratio, anisotropy, viewing geometry, and source
   mode. On a single-engine branch with declared opacity, it shows that
-  luminosity identifies only \(M\lambda/b\); blends and contaminants retain
+  luminosity identifies only $M\lambda/b$; blends and contaminants retain
   separate state spaces. It audits pulsation, dynamics, spectrum, wind,
   nebular, environment, and contaminant receipts, and keeps ambiguity and
   model-set failure distinct from a physical “other” branch.
@@ -83,8 +83,8 @@ Use the following evidence vocabulary consistently:
   and the boundary between a diagnostic fractionalization sandbox and a
   material-specific Hamiltonian/source-law proof.
 - [Hadronic Precision Endpoint](hadronic_precision_endpoint.md): shared
-  source-open hadronic backend for the fine-structure endpoint, HVP \(g-2\),
-  HLbL \(g-2\), and rare-decay long-distance amplitudes. It requires an
+  source-open hadronic backend for the fine-structure endpoint, HVP $g-2$,
+  HLbL $g-2$, and rare-decay long-distance amplitudes. It requires an
   OPH-QCD quotient ensemble, QCD source-parameter map, finite Euclidean vacuum
   transfer, Ward-normalized current ledger, positive Stieltjes/Jacobi spectral
   export, same-scheme endpoint remainder, and no-target-leak DAG before any

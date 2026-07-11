@@ -79,7 +79,7 @@ equivalence, synchronous dependency-depth theorem, and finite weighted
 conditional-resampling projection are Lean-backed in the standalone artifact.
 The finite Markov drift-iteration and endpoint-tail core is Lean-backed, while
 its complete kernel-law/support wrapper is only partially packaged.  The R1--R3
-matrix recognition converse is proved in the paper but is not yet formalized.
+matrix-recognition equivalence is also Lean-backed.
 None of these generic results is automatically an application bridge merely
 because its notation resembles an OPH issue.
 
@@ -160,7 +160,7 @@ independently extracted transition matrix must preserve fibers, have rows equal
 within a fiber, and satisfy weighted detailed balance. Those checks force the
 matrix to equal the conditional-resampling kernel. The receipt explicitly
 forbids constructing the tested matrix from the target conditional-expectation
-formula.
+formula. The exact R1--R3 equivalence is now Lean-backed as well.
 
 This resolves the substrate-neutral mathematical core, but not the live issue
 as a repository application task. The actual repair matrix must still be

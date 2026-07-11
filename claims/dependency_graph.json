@@ -4,6 +4,7 @@
     "OPH-SYN-FORMAL-BASIS",
     "OPH-OBS-PATCH-DEF",
     "OPH-CONS-D1",
+    "OPH-FINITE-AUDIT-MATSCHEKO",
     "OPH-GR-D3-CAP-H3",
     "OPH-GR-D3-H3-LOCALIZATION",
     "OPH-GR-D5",
@@ -17,6 +18,7 @@
     "OPH-CHI-NU",
     "OPH-STRING-SELECTOR",
     "OPH-POW-PHOTONIC",
+    "OPH-IBM-GENERATIVE-REPAIR",
     "OPH-THINKING-PATCH",
     "OPH-PARADISE"
   ],
@@ -40,6 +42,8 @@
     {"from": "OPH-DM-CONT", "to": "OPH-CHI-NU", "role": "supplies dark-sector scalar channel"},
     {"from": "OPH-GAUGE-D7-D9", "to": "OPH-STRING-SELECTOR", "role": "supplies target Standard Model branch"},
     {"from": "OPH-CONS-D1", "to": "OPH-POW-PHOTONIC", "role": "supplies patch-net constraint and repair language"},
+    {"from": "OPH-OBS-PATCH-DEF", "to": "OPH-IBM-GENERATIVE-REPAIR", "role": "supplies the bounded state, readback, record, feedback, and evidence-bundle interface"},
+    {"from": "OPH-CONS-D1", "to": "OPH-IBM-GENERATIVE-REPAIR", "role": "supplies finite mismatch and normal-form semantics only; the experimental transition kernel remains declared and independently falsifiable"},
     {"from": "OPH-CONS-D1", "to": "OPH-THINKING-PATCH", "role": "supplies fixed-point consensus model"},
     {"from": "OPH-SYN-FORMAL-BASIS", "to": "OPH-PARADISE", "role": "supplies observer record and continuation vocabulary"}
   ]

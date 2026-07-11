@@ -12,11 +12,11 @@ Mathlib commit 5e932f97dd25535344f80f9dd8da3aab83df0fe6
 Both integration modes succeeded:
 
 ```text
-cd reverse-engineering-reality/LEAN
+cd reverse-engineering-reality/Lean
 lake build ObservableNormalForms
 Build completed successfully (8259 jobs).
 
-cd reverse-engineering-reality/LEAN/ObservableNormalForms
+cd reverse-engineering-reality/Lean/ObserverPatchHolography/Proofs/ObservableNormalForms
 lake build
 Build completed successfully (8259 jobs).
 ```
@@ -24,9 +24,9 @@ Build completed successfully (8259 jobs).
 The full parent project also succeeded:
 
 ```text
-cd reverse-engineering-reality/LEAN
+cd reverse-engineering-reality/Lean
 lake build
-Build completed successfully (8264 jobs).
+Build completed successfully (8265 jobs).
 ```
 
 That full build replays the pre-existing `ObserverPatchHolography` target and

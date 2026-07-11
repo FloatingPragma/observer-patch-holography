@@ -46,7 +46,10 @@ def test_neutrino_lane_closure_contract_records_emitted_theorem_pair() -> None:
 
     payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
     assert payload["artifact"] == "oph_neutrino_lane_closure_contract"
-    assert payload["proof_status"] == "scale_free_weighted_cycle_with_compare_only_absolute_attachment_candidate"
+    assert payload["proof_status"] == "target_informed_weighted_cycle_candidate_with_compare_only_absolute_attachment"
+    assert payload["scale_free_prediction_promotion_allowed"] is False
+    assert payload["historical_target_exposure"] is True
+    assert payload["current_branch_status"]["no_hidden_discrete_branch"] is False
     rigidity = payload["emitted_bridge_rigidity_theorem"]
     assert rigidity["emitted_formula"] == "sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5"
     assert rigidity["emitted_value"] is None

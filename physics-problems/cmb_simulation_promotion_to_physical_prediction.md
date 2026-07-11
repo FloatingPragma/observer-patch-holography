@@ -73,11 +73,11 @@ comparison to standard cosmology and alternative models.
 
 For a scalar diagnostic $X_r(\hat n)$, the reproducible angular diagnostic is
 
-\[
+$$
 a^{X,r}_{\ell m}=\int_{S^2}X_r(\hat n)Y^*_{\ell m}(\hat n)\,d\Omega,
 \qquad
 C^{XX,r}_\ell=\frac{1}{2\ell+1}\sum_m|a^{X,r}_{\ell m}|^2.
-\]
+$$
 
 At diagnostic tier, $X_r$ is a boundary scalar with declared units and is not
 silently identified with $\Delta T/T$. A physical CMB tier must separately define
@@ -115,19 +115,19 @@ they do not prove that a model is physically correct.
 
 ## Finite Source Object
 
-At regulator \(r\), the CMB branch object is:
+At regulator $r$, the CMB branch object is:
 
-\[
+$$
 \mathfrak C_r=
 (\mathcal F_r,\Gamma_r,Q_r,\mu_r,\mathfrak S^{\rm scr}_r,
 \mathfrak S^{\rm prim}_r,\mathcal S_{{\rm OPH},r},
 \mathfrak I_{\star,r},\mathfrak B_r,\mathcal L_D,\mathsf{DAG}_r).
-\]
+$$
 
-Here \(\mathcal F_r\) is the early OPH screen federation: bounded
+Here $\mathcal F_r$ is the early OPH screen federation: bounded
 observer-like patches with local state, ports or overlap boundaries, readback,
 records, feedback or repair moves, and public evidence receipts. The quotient
-\(Q_r=\Sigma_r/\Gamma_r\) removes only transformations demonstrated to
+$Q_r=\Sigma_r/\Gamma_r$ removes only transformations demonstrated to
 preserve the source law, admissible transitions, public readouts, and receipt
 validators. These may include gauge representatives and inert mesh, worker,
 retry, or port *names*. A physical boundary, port placement, carrier variable,
@@ -136,15 +136,15 @@ or schedule that changes a future readout is not a quotient artifact.
 The source law is not the settled state. For a finite quotient it may be written
 as
 
-\[
+$$
 \mu_r(q)=Z_r^{-1}m_r(q)e^{-S_r(q)}.
-\]
+$$
 
 Here $m_r(q)\ge0$, $S_r(q)$ is dimensionless, and
 
-\[
+$$
 Z_r=\sum_{q\in Q_r}m_r(q)e^{-S_r(q)}\in(0,\infty).
-\]
+$$
 
 For a continuous quotient, the sum must be replaced by a declared base measure
 and integral. Normal forms classify representatives; they do not select the
@@ -163,16 +163,16 @@ that the declared law is the physical primordial source.
 
 Define the route-dependent gates
 
-\[
+$$
 R_{\rm geom}:=R_{\rm FLRW\ import}\vee R_{\rm CosmoGeomRead},
 \qquad
 R_{\rm dark}:=(\mathrm{dark\ continuation}=\mathrm{OFF})
 \vee(R_{\rm parent}\wedge R_{\rm kernel}).
-\]
+$$
 
 The compact readiness predicate is then
 
-\[
+$$
 \begin{aligned}
 \mathsf{CMB\_READY}_r={}&
 R_Q \wedge R_\mu \wedge R_{\rm DAG} \wedge R_{\rm no\ data}
@@ -183,7 +183,7 @@ R_Q \wedge R_\mu \wedge R_{\rm DAG} \wedge R_{\rm no\ data}
 \wedge R_{\rm transfer} \wedge R_{\rm freeze}
 \wedge R_{\rm like} \wedge R_{\rm fals}.
 \end{aligned}
-\]
+$$
 
 The symbols are gate names, not additional derived equations. Their detailed
 artifact schemas and thresholds live in
@@ -193,10 +193,10 @@ and
 The geometry route is a typed alternative: the conditional route requires an
 imported-FLRW receipt, while the native route requires `CosmoGeomRead_r`; a run
 does not need to satisfy both mutually exclusive origins. An
-`OPH_NATIVE_PHYSICAL` label specifically requires \(R_{\rm CosmoGeomRead}\),
+`OPH_NATIVE_PHYSICAL` label specifically requires $R_{\rm CosmoGeomRead}$,
 not merely the disjunction.
 
-The definition of \(R_{\rm dark}\) makes the optionality explicit: parent and
+The definition of $R_{\rm dark}$ makes the optionality explicit: parent and
 kernel receipts are bypassed only when the declared run has
 `dark_continuation: OFF`. If the claim includes OPH dark/anomaly cosmology,
 both become mandatory.
@@ -220,12 +220,12 @@ environment variable, dependency version, random stream, network read, file
 read, model-selection rule, or human branch choice has a path from forbidden
 observational data. Forbidden data include CMB maps, spectra, residuals,
 likelihoods, and posteriors; BAO; supernovae; weak lensing; RSD; SPARC;
-clusters; \(H_0/S_8\) target values; diagnostic overlays; and residual plots.
+clusters; $H_0/S_8$ target values; diagnostic overlays; and residual plots.
 
 This forbids common quiet shortcuts:
 
 - choosing the scale bridge by CMB peak alignment;
-- fitting \(A_\zeta\), \(q_{\rm IR}\), \(\ell_{\rm IR}\), or kernels from a
+- fitting $A_\zeta$, $q_{\rm IR}$, $\ell_{\rm IR}$, or kernels from a
   Planck residual;
 - using a cached posterior or trained emulator that saw the target spectra;
 - exposing a human branch choice to CMB overlays before source freeze;

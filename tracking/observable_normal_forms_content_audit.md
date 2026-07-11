@@ -23,16 +23,20 @@ The physical \(\chi_\nu\) hypothesis is explicitly out of scope. This report doe
 
 | Surface | State audited |
 |---|---|
-| Repo-native manuscript | `extra/observable_normal_forms.tex`, SHA-256 `8ec9713f1222aebc1b776b7a4aa059d1e0e4555631555ea1b813d3104fcefd7a` |
+| Repo-native manuscript | `extra/observable_normal_forms.tex`, SHA-256 `c5918b90c95436d8539d5490257b85f2ef8c02955659306f57312ccab7754aed` |
 | Bibliography | `extra/observable_normal_forms.bib`, SHA-256 `a183a981f984a2c1674bca7fddbbda356cea05dca467ee0102ae853b3a1e2ad3` |
-| Current PDF | `extra/observable_normal_forms.pdf`, SHA-256 `885178fc9f991df6efc0c6d6f80910f42d7a5fe2d0ab5c2d6e36eefc49819a41`; rebuilt from the audited TeX/BibTeX sources |
-| Standalone Lean artifact | `LEAN/ObservableNormalForms/`, Lean and Mathlib `v4.29.1`, pinned by `lean-toolchain`, `lakefile.lean`, and `lake-manifest.json` |
+| Current PDF | `extra/observable_normal_forms.pdf`, SHA-256 `074f6a76de7325076361e1c794ca01998ee78cf38e7873cdd2092940ae075054`; rebuilt from the audited TeX/BibTeX sources |
+| Standalone Lean artifact | `Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/`, Lean and Mathlib `v4.29.1`, pinned by `lean-toolchain`, `lakefile.lean`, and `lake-manifest.json` |
 | Independent Lean build in this audit | standalone build succeeded through target 8259; the full parent build succeeded through target 8264; all new-paper theorem dependencies were subsets of `propext`, `Classical.choice`, and `Quot.sound` |
 | Intended `chi_nu_test` comparison repo | Clean `main...origin/main` at `0f9e43b36386ad15e94947751500bf32ee9ccc58`, proof-chain v10 |
 | Independent comparison build | `chi_nu_test/proof_chain/formal: lake build` succeeded through target 8287; linter warnings only |
 | Mathematical \(\chi_\nu\) note | `extra/chi_nu_susceptibility_bounds.tex` |
 
-The current paper and artifact are still untracked workspace files, and `LEAN/lakefile.lean` has an uncommitted integration change. This report records mathematical and submission state; it does not authorize or perform a release.
+The paper and base artifact were captured in local commit `c69dccb` during this
+audit; the final R1--R3 formalization and synchronization refinements remain
+working-tree changes. Local `main` is one commit ahead of `origin/main`. This
+report records mathematical and submission state; it does not authorize or
+perform a release.
 
 ## Executive verdict
 
@@ -281,7 +285,7 @@ Completed:
 
 The standalone project contains eleven library source files plus its Lake
 configuration, zero `sorry`, zero `admit`, zero custom `axiom`
-declarations, and 35 theorem-level `#print axioms` commands. Fresh
+declarations, and 36 theorem-level `#print axioms` commands. Fresh
 standalone and parent `lake build` runs succeeded during this audit. Every
 printed theorem depended only on a subset of the standard Mathlib axioms
 `propext`, `Classical.choice`, and `Quot.sound`; several
@@ -307,6 +311,8 @@ results were axiom-free.
 - the finite weighted resampling kernel, its measurable fixed space,
   idempotence, weighted self-adjointness, Pythagorean energy identity, and
   \(L^2\) contraction;
+- the exact R1 fiber-support, R2 equal-row, and R3 weighted-detailed-balance
+  matrix-recognition equivalence for conditional resampling;
 - synchronous dependency-depth settling and generated-extension uniqueness;
 - standalone width-three Rule-90 kernel, image, good/bad readouts, and no-reverse-repair results.
 
@@ -333,7 +339,6 @@ results were axiom-free.
 - cofinal common-limit and inverse-limit normalizer theorems;
 - equivariant-section/stabilizer theorem;
 - the silent-quotient packaging of the modulo-identification theorem;
-- the R1--R3 matrix-recognition converse for conditional resampling;
 - the acyclic Boolean-circuit compiler wrapper;
 - asynchronous functional update count and path-gain estimate;
 - linear quotient/rank/singular-value results;
@@ -344,7 +349,7 @@ This is substantial, honest partial formalization, not complete mechanization of
 ## Relationship to Jonathan Hill's existing Lean development
 
 The dedicated artifact does **not** supersede
-`LEAN/ObserverPatchHolography/` as a whole.  The two developments have different
+`Lean/ObserverPatchHolography/Source/` as a whole.  The two developments have different
 roles:
 
 - `ObserverPatchHolography` supplies the concrete carrier interface
@@ -361,13 +366,15 @@ The new theorem
 *generic logical packaging* around
 `OPH.boundary_fiber_observer_unique`: it proves both directions of the
 boundary-identification/cross-source-endpoint equivalence and does not bake in
-one carrier or one gauge relation.  Its global completeness hypothesis is not
-identical to the older theorem's locally supplied endpoint hypotheses, so this
-is not a theorem-for-theorem logical replacement.  It also does not prove that the concrete
-declared boundary of the older carrier identifies its actual consistent
-quotient.  The old Rule-90 good/bad information-set results remain the concrete
-finite witnesses, and the old same-input confluence machinery remains useful
-for repair-law questions.
+one carrier or one gauge relation.  More precisely, Jonathan's H1--H3 laws
+establish the neutral `CompleteFor` premise, boundary preservation gives
+`ObservationPreserving`, and Hfib is the forward boundary-identification
+condition; the old endpoint theorem is therefore recovered as the forward
+direction of the new equivalence.  The converse is new generic packaging.  It
+still does not prove that the concrete declared boundary of the older carrier
+identifies its actual consistent quotient.  The old Rule-90 good/bad
+information-set results remain the concrete finite witnesses, and the old
+same-input confluence machinery remains useful for repair-law questions.
 
 The full parent build succeeds, but the older `Primitives.lean` intentionally
 retains exactly three admissions: `localRepair`, `Repair`, and
@@ -388,7 +395,7 @@ artifact rather than the obsolete three-file snapshot. They record:
 - the independently successful parent and standalone builds;
 - the theorem-level axiom audit and absence of `sorryAx`;
 - the exact, partial, and unformalized coverage boundary from
-  `LEAN/ObservableNormalForms/PROOF_INDEX.md`;
+  `Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/PROOF_INDEX.md`;
 - the build receipt, submission manifest, and relative hashes.
 
 The manuscript does not claim complete mechanization. Its formalization table

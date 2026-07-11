@@ -18,11 +18,10 @@ OPH-derived inputs: same-label scalar certificate, overlap-edge transport
 cocycle, and the principal selector phases already emitted on the exact
 intrinsic eta branch.
 
-Output: a repaired neutrino branch artifact that is physically good at the
-dimensionless oscillation-pattern level, while keeping the overall positive
-mass normalization explicit as still open unless supplied externally. The
-canonical theorem surface is scale-free; any absolute eV-scale readout is
-carried only by a hard-separated compare-only adapter.
+Output: a target-informed weighted-cycle comparison candidate and its exact
+linear-algebra readout. The overall positive mass normalization remains open;
+any absolute eV-scale readout is carried only by a hard-separated compare-only
+adapter.
 """
 
 from __future__ import annotations
@@ -43,6 +42,7 @@ DEFAULT_COCYCLE = ROOT / "particles" / "runs" / "flavor" / "overlap_edge_transpo
 DEFAULT_PHASE_SOURCE = ROOT / "particles" / "runs" / "neutrino" / "intrinsic_neutrino_mass_eigenstate_bundle_from_scalar_certificate.json"
 DEFAULT_ISOTROPIC = ROOT / "particles" / "runs" / "neutrino" / "forward_majorana_matrix.json"
 DEFAULT_SELECTOR = ROOT / "particles" / "runs" / "neutrino" / "neutrino_transport_load_segment_selector.json"
+DEFAULT_FAMILY_KERNEL = ROOT / "particles" / "runs" / "flavor" / "family_transport_kernel.json"
 DEFAULT_OUT = ROOT / "particles" / "runs" / "neutrino" / "neutrino_weighted_cycle_repair.json"
 EDGE_ORDER = ("psi12", "psi23", "psi31")
 PDG_2025_NO_3SIGMA = {
@@ -127,6 +127,7 @@ def main() -> int:
     parser.add_argument("--phase-source", default=str(DEFAULT_PHASE_SOURCE))
     parser.add_argument("--isotropic", default=str(DEFAULT_ISOTROPIC))
     parser.add_argument("--selector", default=str(DEFAULT_SELECTOR))
+    parser.add_argument("--family-kernel", default=str(DEFAULT_FAMILY_KERNEL))
     parser.add_argument("--delta-m32-anchor-ev2", type=float, default=2.438e-3)
     parser.add_argument("--output", default=str(DEFAULT_OUT))
     args = parser.parse_args()
@@ -136,6 +137,7 @@ def main() -> int:
     phase_source = _load_json(Path(args.phase_source))
     isotropic = _load_json(Path(args.isotropic))
     selector = _load_json(Path(args.selector))
+    family_kernel = _load_json(Path(args.family_kernel))
 
     q = {edge: float(certificate["q_e"][edge]) for edge in EDGE_ORDER}
     gamma = float(cocycle["theorem_gap_gamma"])
@@ -211,15 +213,32 @@ def main() -> int:
     payload = {
         "artifact": "oph_neutrino_weighted_cycle_repair",
         "generated_utc": _timestamp(),
-        "final_verdict": "scale_free_physical_branch_closed_absolute_normalization_open",
-        "neutrino_branch_status": "repaired_shared_basis_weighted_cycle_lift",
-        "theorem_status": "dimensionless_physical_branch_closed_absolute_normalization_open",
+        "final_verdict": "target_informed_template_weighted_cycle_candidate",
+        "neutrino_branch_status": "retrospective_weighted_cycle_comparison_candidate",
+        "theorem_status": "exact_linear_algebra_conditional_on_declared_candidate_inputs",
+        "historical_target_exposure": True,
+        "source_only_prediction_eligible": False,
+        "prediction_promotion_allowed": False,
+        "public_surface_candidate_allowed": False,
+        "display_allowed_as_compare_only": True,
+        "source_closure_status": {
+            "closed": False,
+            "family_transport_kernel_status": family_kernel.get("status"),
+            "family_transport_kernel_proof_status": family_kernel.get("proof_status"),
+            "missing_objects": [
+                "source_emitted_family_transport_kernel",
+                "source_derived_weight_exponent_and_cycle_matrix_law",
+                "source_derived_basis_permutation_and_holonomy_orientation",
+                "pre_reference_hash_lock",
+            ],
+        },
         "source_artifacts": {
             "same_label_scalar_certificate": str(Path(args.certificate)),
             "overlap_edge_transport_cocycle": str(Path(args.cocycle)),
             "selector_phase_source": str(Path(args.phase_source)),
             "isotropic_reference_bundle": str(Path(args.isotropic)),
             "transport_load_selector": str(Path(args.selector)),
+            "family_transport_kernel": str(Path(args.family_kernel)),
         },
         "old_isotropic_no_go": {
             "status": "closed",
@@ -275,7 +294,7 @@ def main() -> int:
         "pmns_real": np.real(unitary).tolist(),
         "pmns_imag": np.imag(unitary).tolist(),
         "pmns_observables": pmns,
-        "physical_window_status": "pmns_and_hierarchy_repaired",
+        "physical_window_status": "separate_marginal_box_comparison_only",
         "pdg_2025_no_3sigma_window": {
             "source": "PDG 2025 neutrino review Table 14.7, Ref. [193] with SK-ATM and IC24, normal ordering, 3sigma window",
             "ranges": {
@@ -321,11 +340,11 @@ def main() -> int:
             "emit_one_positive_neutrino_bridge_correction_invariant_above_the_emitted_proxy"
         ),
         "notes": [
-            "The repaired weighted-cycle branch closes PMNS angles and the neutrino splitting hierarchy from live OPH artifacts.",
-            "The weight exponent is fixed by the live same-label certificate, the overlap-edge cocycle invariants, and the log-affine midpoint selector on the positive segment between chi and 1 + gamma_half.",
-            "The theorem-grade repaired branch is scale-free: it emits PMNS observables, J, the hierarchy ratio, and one symbolic positive absolute family parameterized by lambda_nu > 0.",
-            "The proof-facing absolute family is emitted one step above this artifact by the weighted-cycle bridge-rigidity theorem and the absolute-attachment theorem; the atmospheric-anchored numbers remain hard-separated compare-only outputs.",
-            "This artifact supersedes the old isotropic continuation branch as the strongest supported neutrino branch on disk.",
+            "The PMNS observables and hierarchy ratio are exact readouts of the declared weighted-cycle candidate.",
+            "The upstream family transport kernel is a hand-written template, and the exponent law was promoted after target-ranked candidate comparison.",
+            "Separate PDG marginal-window checks do not establish compatibility with the correlated oscillation likelihood.",
+            "The atmospheric-anchored values remain hard-separated compare-only outputs.",
+            "A source-emitted kernel and a new pre-reference law are required before any neutrino prediction can be promoted.",
         ],
     }
 

@@ -12,8 +12,8 @@ surface for the OPH consensus layer. Contents:
 - Lake project with pinned `leanprover/lean4:v4.29.1` and Mathlib `v4.29.1`.
 - An abstract-rewriting skeleton (Newman's lemma, normal-form uniqueness,
   descent termination, fixed-point zero-potential corollary) in
-  `ObserverPatchHolography/AbstractRewriting.lean`.
-- A concrete OPH carrier layer in `ObserverPatchHolography/Primitives.lean`
+  `Source/ObserverPatchHolography/AbstractRewriting.lean`.
+- A concrete OPH carrier layer in `Source/ObserverPatchHolography/Primitives.lean`
   for records, patch/interface data, observable overlap maps, the mismatch
   potential `Φ`, gauge equivalence, edge-consistency, and non-vacuity witnesses.
 - Machine-checked proof-audit material for the consensus/reconstruction layer,
@@ -24,11 +24,17 @@ surface for the OPH consensus layer. Contents:
   asynchronous/transactional repair machinery: `localRepair`, `Repair`, and
   `repair_respects_gauge`.
 - A sorry-free **#304 boundary-fiber carrier witness** in
-  `ObserverPatchHolography/Rule90.lean` (PR #385): the linear Rule 90 carrier
+  `Source/ObserverPatchHolography/Rule90.lean` (PR #385): the linear Rule 90 carrier
   discharges the `Hfib` binder of `boundary_fiber_observer_unique` on a proper
   information-set boundary, with a bad-boundary counterexample, a non-trivial
   gauge, and a local-repair no-go (`H1`–`H3` route only). A carrier-level
   witness; it does **not** advance the Prop 4.2 target. See `PROOF_INDEX.md`.
+- A standalone, application-neutral proof package in
+  `Proofs/ObservableNormalForms/`.  Its generic endpoint theorem is connected
+  to the concrete local-repair interface by
+  `Source/ObserverPatchHolography/Bridges/ObservableNormalForms.lean`.  This
+  bridge characterizes the remaining #304 premise; it does not prove the
+  declared physical boundary map injective.
 
 What is **not** yet present and is the target:
 
@@ -72,7 +78,7 @@ tracker.
 
 ## Building
 
-    cd LEAN
+    cd Lean
     lake exe cache get        # fetch pre-built Mathlib oleans
     lake build                # build the library + Main executable
     ./.lake/build/bin/oph     # optional: run the entry point
@@ -101,4 +107,4 @@ debt appears elsewhere or the count changes.
 ## License And Patent Policy
 
 This formalisation surface is part of the OPH public repository. See the main
-[LICENSE](../LICENSE) and [OPH Open Use And Anti-Patent Covenant](../PATENTS.md).
+[LICENSE](../../LICENSE) and [OPH Open Use And Anti-Patent Covenant](../../PATENTS.md).

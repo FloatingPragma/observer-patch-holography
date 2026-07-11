@@ -115,7 +115,7 @@ are frozen.
 The source branch is the finite observer-patch quotient branch. A candidate
 material is represented by
 
-```math
+$$
 \mathcal B_{\rm mat}
 =
 \left(
@@ -128,7 +128,7 @@ H_{\mathbf x},
 \mathcal C_{\rm comp},
 \mathcal P_{\rm proc}
 \right).
-```
+$$
 
 $\mathbf x$ encodes composition, structure, doping, strain, pressure,
 disorder, and processing history. $G_{\mathbf x}$ is the finite patch graph.
@@ -144,13 +144,13 @@ $\mathcal P_{\rm proc}$ is the processing map.
 
 The physical quotient is
 
-```math
+$$
 Q_{\mathbf x,r}=\Sigma_{\mathbf x,r}/\Gamma_{\mathbf x,r}.
-```
+$$
 
 A material patch is an observer-like OPH object:
 
-```math
+$$
 \mathsf O_i^{\rm mat}
 =
 \left(
@@ -158,7 +158,7 @@ A material patch is an observer-like OPH object:
 \{(\mathcal I_e,\pi_{i,e})\}_{e\ni i},
 \mathcal U_i,\mathrm{Chk}_i
 \right).
-```
+$$
 
 Here $\mathcal A_i$ is the local accessible material algebra, $\rho_i$ is
 the local state, $\mathcal R_i$ is the material record algebra, $\mathcal I_e$
@@ -168,7 +168,7 @@ The material record algebra contains density, current, energy, pair-correlation,
 phase, fluxoid/gauge-field, defect, quasiparticle, aggregate-transport, and
 process-history records:
 
-```math
+$$
 \mathcal R_i^{\rm mat}
 =
 \mathcal R_i^n\vee\mathcal R_i^J\vee\mathcal R_i^E
@@ -176,7 +176,7 @@ process-history records:
 \vee\mathcal R_i^{\rm flux}\vee\mathcal R_i^{\rm def}
 \vee\mathcal R_i^{\rm qp}\vee\mathcal R_i^{\rm agg}
 \vee\mathcal R_i^{\rm proc}.
-```
+$$
 
 The observer-like claim is operational rather than metaphorical only after a
 material implementation is supplied: local order and defect state are the
@@ -192,12 +192,12 @@ Normal-form projection by itself leaves the material law unselected. A
 simulator or material proof must declare a source law, either as a finite
 quotient law
 
-```math
+$$
 \mu_{\mathbf x,r,T}(q)
 =
 Z_{\mathbf x,r,T}^{-1}
 m_{\mathbf x,r,T}(q)e^{-S_{\mathbf x,r,T}(q)}
-```
+$$
 
 Here $S$ is dimensionless; if an energy functional is used instead, the
 Boltzmann factor is $e^{-\beta E}$ and the base measure and normalization must
@@ -205,11 +205,11 @@ be declared. In the quantum expression below, $\beta=(k_BT)^{-1}$.
 
 or as a quantum density operator on the declared quotient physical algebra:
 
-```math
+$$
 \rho_{\mathbf x,r,T}
 =
 Z^{-1}e^{-\beta(H_{\mathbf x,r}-\mu N)}.
-```
+$$
 
 The source type must be explicit:
 `EXTERNAL_FIXED_REFERENCE`, `OPH_NATIVE_QUOTIENT_ENSEMBLE`,
@@ -226,9 +226,9 @@ repair does not select the material source law.
 
 **Proof.** Since $n$ is a normal-form map, $n\circ n=n$. Hence
 
-```math
+$$
 \mathcal C_Q^2(\mu)=(n\circ n)_\#\mu=n_\#\mu=\mathcal C_Q(\mu).
-```
+$$
 
 Every law supported on $Q_{\rm nf}$ is fixed by $n_\#$, so repair leaves many
 possible material ensembles. A physical branch therefore requires a declared
@@ -249,53 +249,53 @@ gauge-invariant measure of preformed local pairs.
 Let $B_{i,a}$ be a local charge $2e$ pair operator in channel $a$. Couple
 it to a source field $h_{i,a}$:
 
-```math
+$$
 H_{\mathbf x}[h]
 =
 H_{\mathbf x}
 -
 \sum_{i,a}
 \left(h_{i,a}^\ast B_{i,a}+h_{i,a}B_{i,a}^\dagger\right).
-```
+$$
 
 The finite-temperature partition function is
 
-```math
+$$
 Z_{\mathbf x}[h]
 =
 \mathrm{Tr}
 \exp[-\beta(H_{\mathbf x}[h]-\mu N)].
-```
+$$
 
 The induced pair field is
 
-```math
+$$
 \Delta_{i,a}[h]
 =
 \frac1\beta
 \frac{\partial \log Z_{\mathbf x}[h]}{\partial h_{i,a}^{\ast}}.
-```
+$$
 
 In a fixed gauge, or in the corresponding neutral effective model, the ordered
 thermodynamic/source-limit order parameter is
 
-```math
+$$
 \Delta_{i,a}
 =
 \lim_{h\to0^+}\lim_{r\to\infty}\Delta_{i,a}[h].
-```
+$$
 
 For the local-pair gate, use instead a declared gauge-invariant pair
 correlator or pair susceptibility, for example
 
-```math
+$$
 \chi^{\rm pair}_{ia}(T)
 =
 \int_0^\beta d\tau\,
 \left\langle
 B_{i,a}(\tau)B_{i,a}^\dagger(0)
 \right\rangle_{\!c}.
-```
+$$
 
 A nonlocal pair-correlation matrix must include the appropriate gauge
 connector between its endpoints.
@@ -308,7 +308,7 @@ be large while the source-free anomalous expectation remains zero.
 After integrating out or jointly minimizing the competing channels $\Xi$, the
 effective action near $\Delta=0$ is
 
-```math
+$$
 \Gamma_{\mathbf x,T}^{\rm eff}[\Delta]
 =
 \Gamma_{\mathbf x,T}^{\rm eff}[0]
@@ -318,19 +318,19 @@ effective action near $\Delta=0$ is
 \Gamma_4[\Delta]
 +
 \cdots.
-```
+$$
 
 For a continuous instability of the normal state, define the inverse-pair
 susceptibility or quadratic kernel
 
-```math
+$$
 K_{\mathbf x,T}^{(2e)}
 =
 \left.
 \frac{\partial^2\Gamma_{\mathbf x,T}^{\rm eff}}
 {\partial\Delta^\ast\partial\Delta}
 \right|_{\Delta=0}.
-```
+$$
 
 ## Conditional Lemma 1: Quadratic Instability at a Continuous Transition
 
@@ -339,9 +339,9 @@ transition is continuous, the kernel is Hermitian on the declared pair space,
 and higher-order terms stabilize the ordered state. Under these assumptions,
 the normal state is locally unstable when
 
-```math
+$$
 \lambda_{\min}(K_{\mathbf x,T}^{(2e)})<0.
-```
+$$
 
 At the continuous onset the lowest eigenvalue crosses zero. A nondegenerate
 leading eigenvector gives the symmetry of the incipient order within the
@@ -349,17 +349,17 @@ declared model space.
 
 **Proof.** Diagonalize $K$:
 
-```math
+$$
 K v_n=\lambda_n v_n,
 \qquad
 \Delta=\sum_n a_n v_n.
-```
+$$
 
 Then
 
-```math
+$$
 \Gamma^{(2)}[\Delta]=\sum_n \lambda_n |a_n|^2.
-```
+$$
 
 If every $\lambda_n>0$, $\Delta=0$ is locally stable against infinitesimal
 perturbations in this model space. If $\lambda_0<0$, the quadratic action
@@ -378,32 +378,32 @@ functional, not an OPH derivation of the microscopic interaction.
 **Statement.** Let the dominant pair scattering between patches or pockets be
 repulsive:
 
-```math
+$$
 J_{pq}>0.
-```
+$$
 
 If the pair functional contains
 
-```math
+$$
 E_{\rm rep}
 =
 \sum_{(p,q)}J_{pq}\mathrm{Re}(\Delta_p^\ast\Delta_q),
-```
+$$
 
 then the minimizing phase relation across a dominant edge is
 
-```math
+$$
 \theta_q-\theta_p=\pi
 \quad (\mathrm{mod}\ 2\pi).
-```
+$$
 
 **Proof.** Write $\Delta_p=|\Delta_p|e^{i\theta_p}$. For one dominant edge,
 
-```math
+$$
 J_{pq}\mathrm{Re}(\Delta_p^\ast\Delta_q)
 =
 J_{pq}|\Delta_p||\Delta_q|\cos(\theta_q-\theta_p).
-```
+$$
 
 Since $J_{pq}>0$, the minimum occurs at
 $\cos(\theta_q-\theta_p)=-1$. Repulsive mismatch repairs by phase reversal.
@@ -415,11 +415,11 @@ $\square$
 repulsion, nearest-neighbor singlet repair, and $C_{4v}$ symmetry, the
 dominant bond-pair kernel diagonalizes into
 
-```math
+$$
 A_{1g}:\quad \Delta_x+\Delta_y,
 \qquad
 B_{1g}:\quad \Delta_x-\Delta_y.
-```
+$$
 
 If the repulsive repair coefficient between the $x$ and $y$ bond channels is
 positive, the selected leading channel is $B_{1g}$, the
@@ -429,26 +429,26 @@ $d_{x^2-y^2}$ type branch.
 nearest-neighbor exchange supplies bond singlet repair. In the two-dimensional
 bond subspace $(\Delta_x,\Delta_y)$, $C_{4v}$ symmetry gives the kernel
 
-```math
+$$
 K_{\rm bond}
 =
 \begin{pmatrix}
 a & b\\
 b & a
 \end{pmatrix}.
-```
+$$
 
 Its eigenvectors are
 
-```math
+$$
 \Delta_s=(1,1),\qquad \lambda_s=a+b,
-```
+$$
 
 and
 
-```math
+$$
 \Delta_d=(1,-1),\qquad \lambda_d=a-b.
-```
+$$
 
 For repulsive inter-bond repair $b>0$, $\lambda_d<\lambda_s$. If the
 pairing instability occurs first in this subspace, the selected normal form is
@@ -464,21 +464,21 @@ first-order transition or a larger competing pair space.
 real reduced kernel is symmetrized in the declared pocket measure and there is
 a bipartite sign assignment
 
-```math
+$$
 P=P_+\sqcup P_-.
-```
+$$
 
 such that, after the sign transformation by
-\(D_\sigma=\operatorname{diag}(\sigma_p)\), every off-diagonal entry of
-\(D_\sigma K D_\sigma\) is nonpositive and the resulting matrix is
+$D_\sigma=\operatorname{diag}(\sigma_p)$, every off-diagonal entry of
+$D_\sigma K D_\sigma$ is nonpositive and the resulting matrix is
 irreducible. Then a nondegenerate lowest eigenmode can be chosen with opposite
 signs on the two parts. This is an $s_\pm$-type branch.
 
 **Proof.** Let $\sigma_p=+1$ on $P_+$ and $\sigma_p=-1$ on $P_-$. Write
 
-```math
+$$
 \Delta_p=\sigma_p\eta_p.
-```
+$$
 
 By assumption the sign-transformed matrix is an irreducible symmetric
 Z-matrix. After subtracting it from a sufficiently large scalar multiple of
@@ -500,7 +500,7 @@ spectroscopy.
 A gauge-invariant edge record can be stored without choosing a branch of the
 angle:
 
-```math
+$$
 u_{ij}
 =
 \exp\!\left[
@@ -509,16 +509,16 @@ i\left(
 -\frac{q}{\hbar}\int_i^j A\cdot dl
 \right)
 \right].
-```
+$$
 
 For a closed loop,
 
-```math
+$$
 U_\gamma=\prod_{(i,j)\in\gamma}u_{ij}
 =\exp\!\left(-i\frac{q}{\hbar}\Phi_\gamma\right),
 \qquad
 \Phi_\gamma=\int_{\Sigma_\gamma}B\cdot dS,
-```
+$$
 
 provided the phase is single-valued along the sampled contour. $U_\gamma$ need
 not equal one in a coherent, current-carrying superconductor. Reducing every
@@ -527,19 +527,19 @@ winding information, so the winding ledger is stored separately.
 
 In the London regime, away from vortex cores, the fluxoid receipt is
 
-```math
+$$
 \Phi_\gamma
 +\mu_0\oint_\gamma \lambda_L^2\,\mathbf j_s\cdot d\mathbf l
 =n_\gamma\Phi_0,
 \qquad
 \Phi_0=\frac{h}{2e},
 \qquad n_\gamma\in\mathbb Z.
-```
+$$
 
 For a declared contour and measurement uncertainty, a dimensionless fluxoid
 residual is therefore
 
-```math
+$$
 R_\gamma^{\rm flux}
 =
 \frac{1}{\Phi_0}
@@ -548,7 +548,7 @@ R_\gamma^{\rm flux}
 +\mu_0\oint_\gamma\lambda_L^2\mathbf j_s\cdot d\mathbf l
 -n_\gamma\Phi_0
 \right|.
-```
+$$
 
 This is a consistency receipt, not an independent necessary-and-sufficient
 gate for superconductivity. Applied fields, persistent currents, grain
@@ -560,14 +560,14 @@ defect-limited transport predicate. Depending on dimensionality and experiment,
 it may use free-vortex density, phase-slip rate, percolating weak-link
 probability, and linear resistivity:
 
-```math
+$$
 \mathcal D(T;J,B,L,\tau_{\rm obs}):
 \begin{cases}
 \Gamma_{\rm ps}\tau_{\rm obs}<\varepsilon_{\rm ps},\\
 \rho_{\rm lin}<\rho_{\max},\\
 p_{\rm perc}<p_{\max},
 \end{cases}
-```
+$$
 
 Here $p_{\rm perc}$ is the probability of a percolating resistive obstruction,
 not the probability of a superconducting path. Every threshold, unit, field,
@@ -580,19 +580,19 @@ description; in three dimensions no universal stiffness threshold is implied.
 
 **Model assumptions.** For a chosen material family, dimensionality, field,
 current, sample geometry, and observation window, define three operational
-diagnostics. For example, let \(\chi^{\rm pair}(T)\) be the declared finite
+diagnostics. For example, let $\chi^{\rm pair}(T)$ be the declared finite
 pair-susceptibility matrix and define
-\(A_{\rm pair}(T)=\lambda_{\max}(\chi^{\rm pair}(T))\), with its units and
+$A_{\rm pair}(T)=\lambda_{\max}(\chi^{\rm pair}(T))$, with its units and
 normalization retained. The local-pair diagnostic is then
 
-```math
+$$
 \mathcal A(T):A_{\rm pair}(T)>A_{\min}.
-```
+$$
 
 The phase stiffness is the helicity-modulus response in a declared twist
 convention,
 
-```math
+$$
 \rho_{s,\mu\nu}
 =\left.\frac{1}{V}
 \frac{\partial^2F(\boldsymbol\varphi)}
@@ -600,16 +600,16 @@ convention,
 \right|_{\boldsymbol\varphi=0},
 \qquad
 \Theta(T):\rho_s(T)>\rho_{\min}(T).
-```
+$$
 
 Here $\boldsymbol\varphi$ denotes the uniform twist density used in this
 formula. The units of $\rho_s$ and $\rho_{\min}$ must be stated for that convention. In
 a strictly two-dimensional phase-only model, the BKT transition instead uses
 the standard universal-jump relation
 
-```math
+$$
 k_BT_{\rm BKT}=\frac{\pi}{2}\rho_s(T_{\rm BKT}^{-}),
-```
+$$
 
 when $\rho_s$ is expressed as an energy. A three-dimensional material has no
 universal threshold of this form. The defect-limited transport diagnostic is
@@ -617,11 +617,11 @@ $\mathcal D(T;J,B,L,\tau_{\rm obs})$ from the preceding section.
 
 The conjunction
 
-```math
+$$
 \mathsf{SC}_{\rm model}(T)
 =
 \mathcal A(T)\wedge\Theta(T)\wedge\mathcal D(T)
-```
+$$
 
 is a conditional ranking predicate for the declared model. It is not claimed
 to be necessary and sufficient for every superconducting phase.
@@ -632,7 +632,7 @@ freezing field, geometry, demagnetization correction, zero-field-cooled and
 field-cooled protocol, and thresholds on quantities such as penetration depth,
 susceptibility, internal field, magnetization, and shielding fraction:
 
-```math
+$$
 \mathcal M_{\rm bulk}(T)
 =
 \operatorname{Pass}
@@ -640,46 +640,46 @@ susceptibility, internal field, magnetization, and shielding fraction:
 \lambda_L,\chi_{\rm dia},B_{\rm in}/B_{\rm ext},M,
 f_{\rm shield};\ \text{declared controls}
 \right).
-```
+$$
 
 Then
 
-```math
+$$
 \mathsf{SC}_{\rm verified}(T,\mathbf x,L,\tau_{\rm obs})
 =
 \mathsf{SC}_{\rm model}(T)
 \wedge\mathcal R_{\rm transport}(T,L,\tau_{\rm obs})
 \wedge\mathcal M_{\rm bulk}(T).
-```
+$$
 
 The highest verified temperature is an evidence boundary, not a redefinition
 of the material's physical transition:
 
-```math
+$$
 T_{\rm verified}(\mathbf x,L,\tau_{\rm obs})
 =
 \sup\{T:\mathsf{SC}_{\rm verified}(T,\mathbf x,L,\tau_{\rm obs})\}.
-```
+$$
 
 ## Conditional Bottleneck-Score Identity
 
 Define the individual operational thresholds by
 
-```math
+$$
 T_{\rm pair}=\sup\{T:\mathcal A(T)\},\quad
 T_{\rm phase}=\sup\{T:\Theta(T)\},\quad
 T_{\rm def}=\sup\{T:\mathcal D(T)\}.
-```
+$$
 
 If all three pass sets are downward-closed over the declared temperature
 interval, then the model score
 
-```math
+$$
 T_{\rm bottleneck}(\mathbf x)
 =
 \sup\{T:\mathsf{SC}_{\rm model}(T)\}
 =\min(T_{\rm pair},T_{\rm phase},T_{\rm def}).
-```
+$$
 
 **Proof.** Under downward closure, each pass set is an interval ending at its
 declared threshold. Their intersection ends at the smallest threshold.
@@ -694,7 +694,7 @@ The defect sector is the quotient-visible sector of vortex records,
 phase-slip records, branch cuts, grain-boundary obstructions, and fluxoid
 consistency residuals:
 
-```math
+$$
 D_{\mathbf x,r}
 =
 \{
@@ -702,7 +702,7 @@ v_\gamma,n_\gamma,\text{vortex records},\text{phase-slip records},
 \text{branch cuts},\text{grain-boundary obstructions},
 \text{fluxoid residuals}
 \}/\Gamma_{\mathbf x,r}.
-```
+$$
 
 **Model status.** The following clearance operator is an optional finite-state
 kinetic model, not a material-independent law. A lowest smooth
@@ -714,15 +714,15 @@ orthogonal repair projections on $L^2(D_{\mathbf x,r},\mu_D)$. Let $c_C\ge0$
 have units of inverse time and be derived from a declared kinetic model or
 measurement. Define
 
-```math
+$$
 L_{\rm clear}^{\rm def}
 =
 \sum_C c_C(I-E_C),
-```
+$$
 
 and
 
-```math
+$$
 \Delta_{\rm clear}^{\rm def}
 =
 \inf_{f\perp\ker L_{\rm clear}^{\rm def}}
@@ -731,26 +731,26 @@ and
 }{
 \langle f,f\rangle_{\mu_D}
 }.
-```
+$$
 
 Let $S_{\rm pass}=\{q:\mathcal D(q)\text{ passes}\}$. For a time-homogeneous
 continuous-time defect generator $K_D$, an upper bound on the defect escape or
 nucleation rate is
 
-```math
+$$
 \lambda_{\rm esc}^{\rm def}
 =
 \sup_{q\in S_{\rm pass}}
 \sum_{q'\notin S_{\rm pass}}K_D(q,q').
-```
+$$
 
 For a discrete simulator kernel $P_D$, use
 
-```math
+$$
 p_{\rm esc}^{\rm step}
 =
 \sup_{q\in S_{\rm pass}}P_D(q,S_{\rm pass}^c).
-```
+$$
 
 ## Mathematical Defect-Model Decay Bound
 
@@ -758,11 +758,11 @@ p_{\rm esc}^{\rm step}
 $L_{\rm clear}^{\rm def}$ is self-adjoint and nonnegative, then for
 $f\perp\ker L_{\rm clear}^{\rm def}$,
 
-```math
+$$
 \langle f,e^{-tL_{\rm clear}^{\rm def}}f\rangle_{\mu_D}
 \le
 e^{-t\Delta_{\rm clear}^{\rm def}}\langle f,f\rangle_{\mu_D}.
-```
+$$
 
 **Proof.** Diagonalize the finite self-adjoint generator. All components
 orthogonal to the kernel have eigenvalue at least
@@ -774,16 +774,16 @@ bound term by term. $\square$
 **Statement.** Within the finite jump model above, a large clearance gap alone
 does not guarantee a quiet observation window. A sufficient declared check is
 
-```math
+$$
 \lambda_{\rm esc}^{\rm def}\tau_{\rm obs}\ll1
-```
+$$
 
 and
 
-```math
+$$
 \tau_{\rm clear}:=(\Delta_{\rm clear}^{\rm def})^{-1}
 \ll\tau_{\rm allow},
-```
+$$
 
 where $\tau_{\rm allow}$ is the maximum accepted clearance time. In a
 time-homogeneous finite jump process, the probability of at least one escape
@@ -796,11 +796,11 @@ laboratory superconductor. $\square$
 
 Define a transport mismatch functional
 
-```math
+$$
 \Phi_{\rm tr}(q)
 =
 \Phi_J(q)+\Phi_V(q)+\Phi_{\rm slip}(q)+\Phi_{\rm heat}(q),
-```
+$$
 
 where $\Phi_V$ includes voltage-lead mismatch and $\Phi_{\rm slip}$ counts
 unresolved phase-slip events in the observation window.
@@ -827,7 +827,7 @@ processing histories. Let the penalties be dimensionless probabilities or
 normalized costs, and let every $\lambda$ carry units of kelvin in this
 convention. Define the conditional utility
 
-```math
+$$
 U_{\rm OPH}(\mathbf x)
 =
 \mathbb E[T_{\rm bottleneck}(\mathbf x)]
@@ -839,7 +839,7 @@ U_{\rm OPH}(\mathbf x)
 \lambda_{\rm tox}\mathcal P_{\rm tox}(\mathbf x)
 -
 \lambda_{\rm synth}\mathcal P_{\rm synth}(\mathbf x).
-```
+$$
 
 The penalties record instability, disorder, toxicity or unusability, and
 synthesis failure. Their weights, uncertainty model, and training data must be
@@ -851,9 +851,9 @@ frozen before a held-out ranking test.
 stability, and synthesis filters, and if $U_{\rm OPH}$ is bounded above and
 upper semicontinuous, then a maximizer exists:
 
-```math
+$$
 \mathbf x_\star\in\mathrm{arg\,max}_{\mathbf x\in\mathfrak X}U_{\rm OPH}(\mathbf x).
-```
+$$
 
 $\mathbf x_\star$ is the highest-scoring target under the declared utility, not
 an assurance that it is synthesizable or superconducting.
@@ -873,30 +873,30 @@ the identified pair kernel, stiffness, and declared defect score of a
 high-pressure or
 processed phase. Suppose a retained ambient phase $R$ satisfies
 
-```math
+$$
 \|K^R_T-K^P_T\|\le \epsilon_K,
 \qquad
 |\rho_s^R(T)-\rho_s^P(T)|\le\epsilon_\rho,
 \qquad
 |D_{\rm def}^R(T)-D_{\rm def}^P(T)|\le\epsilon_D,
-```
+$$
 
 after a declared identification of the two kernel spaces. Suppose these errors
 are smaller than the three operational margins below
 $T_{\rm bottleneck}^P-\delta T$, and suppose a measured or modeled lifetime
 obeys
 
-```math
+$$
 \tau_{\rm life}\simeq\nu_0^{-1}
 \exp(\Delta G^\ddagger/k_BT)\ge\tau_{\rm use}.
-```
+$$
 
 Then the retained phase passes the same model diagnostics up to that
 temperature:
 
-```math
+$$
 T_{\rm bottleneck}^R\ge T_{\rm bottleneck}^P-\delta T.
-```
+$$
 
 **Proof.** The amplitude condition is stable under small Hermitian perturbations
 by Weyl's eigenvalue inequality. The phase-stiffness condition is stable under
@@ -913,17 +913,17 @@ Suppose layer $A$ has high $T_{\rm pair}$ and low stiffness,
 while layer $B$ has high stiffness and compatible pair symmetry. If the
 Josephson coupling
 
-```math
+$$
 E_J=-\sum_{\langle A,B\rangle}J_{AB}\cos(\theta_A-\theta_B-\phi_{AB})
-```
+$$
 
 adds stiffness without frustrating the phase relation or suppressing the pair
 amplitude through inverse proximity, then a coupled calculation may raise the
 declared bottleneck score
 
-```math
+$$
 \min(T_{\rm pair},T_{\rm phase},T_{\rm def})
-```
+$$
 
 above either weak isolated bottleneck.
 
@@ -957,9 +957,9 @@ response under the declared sample geometry and contacts.
 One recent empirical case study for the retention audit is pressure-quenched
 Hg-1223,
 
-```math
+$$
 \mathrm{HgBa_2Ca_2Cu_3O_{8+\delta}}.
-```
+$$
 
 This is a reported materials result, not a prediction derived by OPH. The 2026
 study reports an ambient-pressure transition up to 151 K after pressure
@@ -968,11 +968,11 @@ retention for at least three days at 77 K, and degradation after heating above
 200 K. Independent replication and scalable processing remain separate
 receipts. The OPH interpretation is a retained-observable problem:
 
-```math
+$$
 \mathcal O_{\rm high\ pressure}
 \longrightarrow
 \mathcal O_{\rm metastable\ ambient}.
-```
+$$
 
 The pressure protocol tries to retain the high-pressure structural and
 superconducting observables while preserving phase stiffness and controlled
@@ -990,11 +990,11 @@ a reported superconducting transition around $250\,\mathrm K$ near
 $170\,\mathrm{GPa}$. That transition does not independently measure the
 local-pair scale used in this note. In the present audit language,
 
-```math
+$$
 T_c^{\rm reported}\ \text{is high under pressure},
 \qquad
 \text{ambient stability and retention remain open design constraints}.
-```
+$$
 
 The actionable hydride program searches for metastable descendants whose
 retained structure keeps the high-pressure pair kernel after decompression.
@@ -1030,11 +1030,11 @@ No quantitative OPH ranking is reported here. Illustrative research lanes are:
 
 The compact conditional ranking rule is
 
-```math
+$$
 T_{\rm bottleneck}
 =
 \min(T_{\rm pair},T_{\rm phase},T_{\rm def}).
-```
+$$
 
 Pairing strength alone is not a sufficient objective. The score targets the
 weakest declared diagnostic and must not be relabeled physical $T_c$ until
