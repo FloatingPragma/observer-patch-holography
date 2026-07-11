@@ -5,11 +5,6 @@ import math
 import sys
 from pathlib import Path
 
-import pytest
-
-pytest.importorskip("qiskit")
-pytest.importorskip("qiskit_aer")
-
 
 PROGRAMS = Path(__file__).resolve().parents[1] / "programs"
 sys.path.insert(0, str(PROGRAMS))

@@ -25,17 +25,16 @@ The physical \(\chi_\nu\) hypothesis is explicitly out of scope. This report doe
 |---|---|
 | Repo-native manuscript | `extra/observable_normal_forms.tex`, SHA-256 `ce9d9dda9febec0ee9cfedc6797724b01767f5c198be94720ff7a9e8a3371817` |
 | Bibliography | `extra/observable_normal_forms.bib`, SHA-256 `a183a981f984a2c1674bca7fddbbda356cea05dca467ee0102ae853b3a1e2ad3` |
-| Current PDF | `extra/observable_normal_forms.pdf`, SHA-256 `b377a0512b217b8554db6d2ff1c8502a169f02eba1583d79e34ef79b02400256`; rebuilt from the audited TeX/BibTeX sources with visible global release `r1525` |
+| Current PDF | `extra/observable_normal_forms.pdf`, SHA-256 `b57d0ab6c39626df9a048fed85e9dbe691573486d8cf12f1b24b1ae955634289`; rebuilt from the audited TeX/BibTeX sources with visible global release `r1526` |
 | Standalone Lean artifact | `Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/`, Lean and Mathlib `v4.29.1`, pinned by `lean-toolchain`, `lakefile.lean`, and `lake-manifest.json` |
 | Independent Lean build in this audit | standalone build succeeded through target 8259; the merged parent build succeeded through target 8265; all new-paper and bridge theorem dependencies were subsets of `propext`, `Classical.choice`, and `Quot.sound` |
 | Intended `chi_nu_test` comparison repo | Clean `main...origin/main` at `0f9e43b36386ad15e94947751500bf32ee9ccc58`, proof-chain v10 |
 | Independent comparison build | `chi_nu_test/proof_chain/formal: lake build` succeeded through target 8287; linter warnings only |
 | Mathematical \(\chi_\nu\) note | `extra/chi_nu_susceptibility_bounds.tex` |
 
-The paper, dedicated artifact, and merged Lean hierarchy are tracked on the
-current `main` line; the final bridge/hash verification may remain as
-working-tree changes until the next normal commit boundary. This report records
-mathematical and submission state; it does not authorize or perform a release.
+The paper, dedicated artifact, merged Lean hierarchy, and consistency updates
+are tracked on the current `main` line. This audit records the released `r1526`
+state and its final bridge/hash verification.
 
 ## Executive verdict
 
@@ -69,9 +68,9 @@ remaining submission decisions are editorial rather than hidden proof claims:
    uniformity, linear certificates, and complexity results;
 3. the candidate-new cross-level/refinement package still needs external
    specialist priority review.
-4. the PDF is a local draft, not a published shared-release artifact; before
-   publication, use the normal global release bump and rebuild workflow so it
-   receives the same visible release line as every other paper.
+4. venue-specific submission metadata and external specialist review remain
+   editorial gates; the repository and public paper surfaces are synchronized
+   at release `r1526`.
 
 ## Completed manuscript corrections
 
@@ -506,8 +505,9 @@ control characters. A fresh isolated Tectonic build succeeded with no undefined
 citations, undefined references, TeX errors, or overfull boxes. The resulting
 PDF is 28 pages, carries the current title and all three authors in its metadata,
 and embeds all fonts. The repository build helper reproduced the same current
-paper surface. It remains explicitly a draft; no release ID was bumped and no
-release manifest or public surface was changed.
+paper surface. Release `r1526` rebuilt the full paper bundle, regenerated the
+release manifest and Markdown exports, and synchronized the public paper
+surface.
 
 ## Final recommendation
 
