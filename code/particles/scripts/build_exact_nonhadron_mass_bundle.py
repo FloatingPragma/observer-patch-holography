@@ -39,6 +39,7 @@ QUARK_PUBLIC_YUKAWA_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_publi
 QUARK_SIGMA_REQUIRED_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_sigma_source_datum_no_target_leak_required.json"
 NEUTRINO_JSON = ROOT / "particles" / "runs" / "neutrino" / "neutrino_absolute_attachment_theorem.json"
 NEUTRINO_BRIDGE_RIGIDITY_JSON = ROOT / "particles" / "runs" / "neutrino" / "neutrino_bridge_rigidity_theorem.json"
+CARRIER_ACCEPTANCE_JSON = ROOT / "particles" / "runs" / "status" / "carrier_mode_acceptance.json"
 DEFAULT_MD_OUT = ROOT / "particles" / "EXACT_NONHADRON_MASSES.md"
 DEFAULT_JSON_OUT = ROOT / "particles" / "exact_nonhadron_masses.json"
 DEFAULT_FORWARD_OUT = ROOT / "particles" / "runs" / "status" / "exact_nonhadron_masses_current.json"
@@ -60,6 +61,22 @@ def _load_optional_json(path: pathlib.Path) -> dict[str, Any] | None:
 
 def _repo_ref(path: pathlib.Path) -> str:
     return str(path.relative_to(ROOT.parent))
+
+
+def _carrier_summary(entry: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "carrier_id": entry["carrier_id"],
+        "label": entry["label"],
+        "claim_kind": entry["claim_kind"],
+        "branch": entry["branch"],
+        "hard_quadratic_mass_parameter_squared": entry[
+            "hard_quadratic_mass_parameter_squared"
+        ],
+        "classical_carrier_gate": entry["classical_carrier_gate"],
+        "quantum_particle_gate": entry["quantum_particle_gate"],
+        "particle_promotion_allowed": entry["particle_promotion_allowed"],
+        "source_artifact": "code/particles/runs/status/carrier_mode_acceptance.json",
+    }
 
 
 def _non_circularity_promotable(payload: dict[str, Any] | None, default: bool = False) -> bool:
@@ -103,6 +120,11 @@ def _neutrino_absolute_promotable(payload: dict[str, Any] | None) -> bool:
 
 
 def _is_public_mass_output(entry: dict[str, Any]) -> bool:
+    if entry.get("particle_id") in {"photon", "gluon", "graviton"}:
+        # A zero hard parameter in a declared quadratic action is not a public
+        # quantum-particle rest-mass prediction.  Those modes live in the
+        # separate carrier acceptance receipt.
+        return False
     if entry.get("legacy_particle_id_slot") is True:
         # Oscillation eigenmasses are not masses of flavor states. A future
         # physical theorem must use dedicated mass-eigenstate identifiers.
@@ -330,39 +352,6 @@ def build_all_entries() -> list[dict[str, Any]]:
         c_nu_display = neutrino_bridge_rigidity.get("display_value")
 
     return [
-        {
-            "particle_id": "photon",
-            "label": "Photon",
-            "mass_gev": 0.0,
-            "exact_kind": "structural_zero",
-            "scope": "structural",
-            "promotable": True,
-            "depends_on_quantitative_particle_pipeline": False,
-            "source_artifact": "structural_gauge_redundancy_surface",
-            "note": "Exact structural zero from the nonbroken U(1) overlap-gluing redundancy.",
-        },
-        {
-            "particle_id": "gluon",
-            "label": "Gluon",
-            "mass_gev": 0.0,
-            "exact_kind": "structural_zero",
-            "scope": "structural",
-            "promotable": True,
-            "depends_on_quantitative_particle_pipeline": False,
-            "source_artifact": "structural_color_gauge_surface",
-            "note": "Exact structural zero for the color gauge sector.",
-        },
-        {
-            "particle_id": "graviton",
-            "label": "Graviton",
-            "mass_gev": 0.0,
-            "exact_kind": "structural_zero",
-            "scope": "structural",
-            "promotable": True,
-            "depends_on_quantitative_particle_pipeline": False,
-            "source_artifact": "structural_diffeomorphism_redundancy_surface",
-            "note": "Exact structural zero from bulk diffeomorphism redundancy.",
-        },
         {
             "particle_id": "higgs",
             "label": "Higgs Boson",
@@ -651,7 +640,11 @@ def build_entries() -> list[dict[str, Any]]:
     return [entry for entry in build_all_entries() if _is_public_mass_output(entry)]
 
 
-def build_markdown(generated_utc: str, entries: list[dict[str, Any]]) -> str:
+def build_markdown(
+    generated_utc: str,
+    entries: list[dict[str, Any]],
+    carrier_modes: list[dict[str, Any]],
+) -> str:
     lines = [
         "# Public Non-Hadron Mass Outputs",
         "",
@@ -661,6 +654,7 @@ def build_markdown(generated_utc: str, entries: list[dict[str, Any]]) -> str:
         "Target-anchored exact fits and compare-only absolute attachments are withheld from this prediction table and kept in `EXACT_FITS_ONLY.md` for audit/debug use.",
         "Charged-lepton and quark exact same-family/current-family surfaces remain available as exact-fit audit witnesses, but their numeric values are not public mass outputs under the strict non-circularity policy.",
         "Absolute neutrino masses are likewise withheld here while the absolute attachment remains compare-only; dimensionless PMNS and mass-splitting-ratio comparisons stay in `RESULTS_STATUS.md`.",
+        "Photon, gluon, and graviton labels are not emitted as `0 GeV` particle predictions. Their zero hard quadratic parameters are tracked separately as conditional classical/perturbative carrier modes in `CARRIER_MODE_ACCEPTANCE.md`; the quantum-particle gate remains open.",
         "",
         "| Particle | Mass Output | Kind | Scope | Source |",
         "| --- | ---: | --- | --- | --- |",
@@ -673,6 +667,21 @@ def build_markdown(generated_utc: str, entries: list[dict[str, Any]]) -> str:
         lines.append(
             f"| {entry['label']} | {value} | `{entry['exact_kind']}` | `{entry['scope']}` | `{entry['source_artifact']}` |"
         )
+    lines.extend(
+        [
+            "",
+            "## Separated Classical Carrier Modes",
+            "",
+            "| Carrier | Hard quadratic mass parameter squared | Classical mode gate | Quantum particle gate |",
+            "| --- | ---: | --- | --- |",
+        ]
+    )
+    for carrier in carrier_modes:
+        lines.append(
+            f"| {carrier['label']} | `{carrier['hard_quadratic_mass_parameter_squared']}` | "
+            f"`{carrier['classical_carrier_gate']['status']}` | "
+            f"`{carrier['quantum_particle_gate']['status']}` |"
+        )
     return "\n".join(lines).rstrip()
 
 
@@ -684,22 +693,31 @@ def main() -> int:
     args = parser.parse_args()
 
     generated_utc = _timestamp()
+    carrier_acceptance = _load_json(CARRIER_ACCEPTANCE_JSON)
+    carrier_modes = [
+        _carrier_summary(entry) for entry in carrier_acceptance.get("carriers", [])
+    ]
     all_entries = build_all_entries()
     entries = [entry for entry in all_entries if _is_public_mass_output(entry)]
     withheld_entries = [_withheld_entry(entry) for entry in all_entries if not _is_public_mass_output(entry)]
     payload = {
         "artifact": "oph_exact_nonhadron_mass_bundle",
         "generated_utc": generated_utc,
-        "status": "public_mass_outputs_with_target_anchored_witnesses_withheld",
+        "status": "public_mass_outputs_with_classical_carriers_separated_and_target_anchored_witnesses_withheld",
         "entries": entries,
         "withheld_entries": withheld_entries,
+        "classical_carrier_modes": carrier_modes,
+        "carrier_acceptance_artifact": "code/particles/runs/status/carrier_mode_acceptance.json",
         "excluded_lane": "hadrons_compute_bound",
         "audit_surface": "code/particles/EXACT_FITS_ONLY.md",
     }
 
     markdown_out = pathlib.Path(args.markdown_out)
     markdown_out.parent.mkdir(parents=True, exist_ok=True)
-    markdown_out.write_text(build_markdown(generated_utc, entries) + "\n", encoding="utf-8")
+    markdown_out.write_text(
+        build_markdown(generated_utc, entries, carrier_modes) + "\n",
+        encoding="utf-8",
+    )
 
     json_out = pathlib.Path(args.json_out)
     json_out.parent.mkdir(parents=True, exist_ok=True)

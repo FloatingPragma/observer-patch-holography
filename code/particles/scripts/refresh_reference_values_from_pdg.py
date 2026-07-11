@@ -182,7 +182,11 @@ def build_reference_payload() -> Dict[str, Any]:
             label="GW dispersion observational context",
             reference_kind="upper_limit",
             display="<1e-32 GeV",
-            notes="No direct graviton rest-mass measurement exists. Gravitational-wave propagation constrains any hard graviton mass to be extremely small; OPH predicts an exact structural zero on the dynamical-metric branch.",
+            notes=(
+                "No direct graviton-particle rest-mass measurement exists. Gravitational-wave propagation "
+                "constrains dispersive modifications or a hard mass parameter on specified wave models; "
+                "the conditional pure-Einstein classical tensor mode is tracked separately and is not a quantum-particle mass prediction."
+            ),
             url="https://floatingpragma.io",
             value_gev=1.0e-32,
         ),

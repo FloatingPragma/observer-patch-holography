@@ -39,6 +39,7 @@ HADRON_SPECTRAL_CONTRACT = PARTICLES_ROOT / "runs" / "hadron" / "ward_projected_
 EMPIRICAL_EE_REGISTRY = PARTICLES_ROOT / "hadron" / "empirical_ee_hadrons_sources.yaml"
 EMPIRICAL_EE_SCHEMA = PARTICLES_ROOT / "hadron" / "empirical_ee_hadronic_spectral_measure.schema.json"
 EXACT_NONHADRON = PARTICLES_ROOT / "exact_nonhadron_masses.json"
+CARRIER_ACCEPTANCE = PARTICLES_ROOT / "runs" / "status" / "carrier_mode_acceptance.json"
 RESULTS_STATUS = PARTICLES_ROOT / "results_status.json"
 HIERARCHY_ROOT = PARTICLES_ROOT / "hierarchy"
 HIERARCHY_NATURALITY = HIERARCHY_ROOT / "issue_332_rg_naturality_certificate.json"
@@ -128,6 +129,27 @@ def _latest_nonhadron_predictions(exact_payload: dict[str, Any] | None) -> dict[
     return predictions
 
 
+def _carrier_summaries(payload: dict[str, Any] | None) -> list[dict[str, Any]]:
+    if not payload:
+        return []
+    return [
+        {
+            "carrier_id": row["carrier_id"],
+            "label": row["label"],
+            "claim_kind": row["claim_kind"],
+            "branch": row["branch"],
+            "hard_quadratic_mass_parameter_squared": row[
+                "hard_quadratic_mass_parameter_squared"
+            ],
+            "classical_carrier_gate": row["classical_carrier_gate"],
+            "quantum_particle_gate": row["quantum_particle_gate"],
+            "particle_promotion_allowed": row["particle_promotion_allowed"],
+            "source_artifact": "code/particles/runs/status/carrier_mode_acceptance.json",
+        }
+        for row in payload.get("carriers", [])
+    ]
+
+
 def build_status() -> dict[str, Any]:
     p_trunk = _load_json(P_TRUNK)
     measured_endpoint = _load_json(MEASURED_ENDPOINT)
@@ -146,6 +168,7 @@ def build_status() -> dict[str, Any]:
     neutrino = _load_json(NEUTRINO_CONTRACT)
     hadron_spectral = _load_json(HADRON_SPECTRAL_CONTRACT)
     exact = _load_json(EXACT_NONHADRON)
+    carrier_acceptance = _load_json(CARRIER_ACCEPTANCE)
     results_status = _load_json(RESULTS_STATUS)
     hierarchy_naturality = _load_json(HIERARCHY_NATURALITY)
     hierarchy_ew_projection = _load_json(HIERARCHY_EW_PROJECTION)
@@ -193,6 +216,7 @@ def build_status() -> dict[str, Any]:
             "direct_top_bridge_contract": _artifact_status(DIRECT_TOP_CONTRACT, direct_top),
             "gap_ledger": _artifact_status(GAP_LEDGER, gap_ledger),
             "blind_prediction_provenance": _artifact_status(BLIND_PROVENANCE, blind_provenance),
+            "carrier_mode_acceptance": _artifact_status(CARRIER_ACCEPTANCE, carrier_acceptance),
             "quark_lane_closure_contract": _artifact_status(QUARK_CONTRACT, quark),
             "quark_global_classification_obstruction": _artifact_status(QUARK_GLOBAL_OBSTRUCTION, quark_global),
             "charged_end_to_end_impossibility_theorem": _artifact_status(CHARGED_NONCLOSURE, charged_nonclosure),
@@ -227,6 +251,17 @@ def build_status() -> dict[str, Any]:
             ),
         },
         "issue_gates": [
+            {
+                "issue": 536,
+                "title": "Classical carrier versus quantum-particle gate",
+                "state": "closed_claim_scope_repaired_quantum_particle_gate_fail_closed",
+                "closable_now": True,
+                "local_next_artifact": _rel(CARRIER_ACCEPTANCE),
+                "classical_carrier_modes_recorded": True,
+                "zero_gev_particle_rows_emitted": False,
+                "quantum_particle_promotion_allowed": False,
+                "chrome_workers": "not_needed_for_analytic_claim_gate",
+            },
             {
                 "issue": 332,
                 "title": "RG/Higgs naturality closure",
@@ -433,9 +468,18 @@ def build_status() -> dict[str, Any]:
             "pixel_screen_resonance_summary_closed": bool(
                 (hierarchy_pixel_screen or {}).get("accepted", False)
             ),
+            "symmetry_only_particle_promotion_blocked": bool(
+                carrier_acceptance
+                and carrier_acceptance.get("abstract_symmetry_group_alone_passes_quantum_gate") is False
+                and all(
+                    row.get("particle_promotion_allowed") is False
+                    for row in carrier_acceptance.get("carriers", [])
+                )
+            ),
         },
         "latest_nonhadron_predictions": _latest_nonhadron_predictions(exact),
         "withheld_non_prediction_rows": (exact or {}).get("withheld_entries", []),
+        "classical_carrier_modes": _carrier_summaries(carrier_acceptance),
     }
 
 
@@ -493,6 +537,24 @@ def render_markdown(status: dict[str, Any]) -> str:
     )
     for particle_id, prediction in sorted(status["latest_nonhadron_predictions"].items()):
         lines.append(f"| `{particle_id}` | `{prediction['value']} {prediction['unit']}` |")
+
+    carrier_modes = status.get("classical_carrier_modes") or []
+    if carrier_modes:
+        lines.extend(
+            [
+                "",
+                "## Conditional Classical Carrier Modes",
+                "",
+                "| Carrier | Hard parameter squared | Classical gate | Quantum gate |",
+                "| --- | ---: | --- | --- |",
+            ]
+        )
+        for row in carrier_modes:
+            lines.append(
+                f"| `{row['carrier_id']}` | `{row['hard_quadratic_mass_parameter_squared']}` | "
+                f"`{row['classical_carrier_gate']['status']}` | "
+                f"`{row['quantum_particle_gate']['status']}` |"
+            )
 
     withheld = status.get("withheld_non_prediction_rows") or []
     if withheld:

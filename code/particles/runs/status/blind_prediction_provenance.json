@@ -1,5 +1,40 @@
 {
   "artifact": "oph_blind_prediction_provenance_audit",
+  "carrier_mode_rows": [
+    {
+      "blind_status": "not_a_quantum_particle_prediction",
+      "branch": "unbroken_deconfined_Maxwell_branch_with_Z_A_positive",
+      "carrier_id": "photon",
+      "classical_carrier_gate": "conditional_pass_on_declared_action_phase_branch",
+      "hard_quadratic_mass_parameter_squared": 0,
+      "particle_promotion_allowed": false,
+      "quantum_particle_gate": "not_passed",
+      "row_class": "conditional_classical_carrier_mode_not_particle_mass_prediction",
+      "target_use": "no_particle_mass_target_used"
+    },
+    {
+      "blind_status": "not_a_quantum_particle_prediction",
+      "branch": "pure_Yang-Mills_quadratic_expansion_before_nonperturbative_confinement",
+      "carrier_id": "gluon",
+      "classical_carrier_gate": "conditional_pass_on_declared_action_phase_branch",
+      "hard_quadratic_mass_parameter_squared": 0,
+      "particle_promotion_allowed": false,
+      "quantum_particle_gate": "not_passed",
+      "row_class": "conditional_classical_carrier_mode_not_particle_mass_prediction",
+      "target_use": "no_particle_mass_target_used"
+    },
+    {
+      "blind_status": "not_a_quantum_particle_prediction",
+      "branch": "pure_Einstein-Hilbert_linearization_about_a_suitable_Ricci-flat_background",
+      "carrier_id": "graviton",
+      "classical_carrier_gate": "conditional_pass_on_declared_action_phase_branch",
+      "hard_quadratic_mass_parameter_squared": 0,
+      "particle_promotion_allowed": false,
+      "quantum_particle_gate": "not_passed",
+      "row_class": "conditional_classical_carrier_mode_not_particle_mass_prediction",
+      "target_use": "no_particle_mass_target_used"
+    }
+  ],
   "closure_gate": {
     "closable_now": true,
     "close_issue_when": [
@@ -35,9 +70,10 @@
     "paper_material_sync_complete_without_live_publish": true,
     "pixel_screen_resonance_summary_closed": true,
     "source_only_hadrons_suppressed_by_default": true,
-    "source_spectral_stage_gate": "populated source spectral measure payload plus interval certificate"
+    "source_spectral_stage_gate": "populated source spectral measure payload plus interval certificate",
+    "symmetry_only_particle_promotion_blocked": true
   },
-  "generated_utc": "2026-07-11T06:25:23Z",
+  "generated_utc": "2026-07-11T17:56:21Z",
   "github_issue": 234,
   "pipeline_inputs": {
     "P": 1.630968209403959,
@@ -73,55 +109,14 @@
   ],
   "promotion_allowed": false,
   "row_counts": {
-    "blind_or_conditionally_blind": 4,
+    "blind_or_conditionally_blind": 1,
     "not_promotable": 1,
-    "promotable": 3,
-    "total": 4,
+    "promotable": 0,
+    "separated_classical_carrier_modes": 3,
+    "total": 1,
     "withheld_non_prediction": 12
   },
   "rows": [
-    {
-      "blind_status": "blind_structural",
-      "convention_sensitivity": "none_for_mass_zero",
-      "exact_kind": "structural_zero",
-      "particle_id": "photon",
-      "promotable": true,
-      "row_class": "structural_blind_zero",
-      "scope": "structural",
-      "source_artifact": "structural_gauge_redundancy_surface",
-      "supporting_scope_closure_artifact": null,
-      "target_use": "no_mass_target_used",
-      "unit": "GeV",
-      "value": 0.0
-    },
-    {
-      "blind_status": "blind_structural",
-      "convention_sensitivity": "none_for_mass_zero",
-      "exact_kind": "structural_zero",
-      "particle_id": "gluon",
-      "promotable": true,
-      "row_class": "structural_blind_zero",
-      "scope": "structural",
-      "source_artifact": "structural_color_gauge_surface",
-      "supporting_scope_closure_artifact": null,
-      "target_use": "no_mass_target_used",
-      "unit": "GeV",
-      "value": 0.0
-    },
-    {
-      "blind_status": "blind_structural",
-      "convention_sensitivity": "none_for_mass_zero",
-      "exact_kind": "structural_zero",
-      "particle_id": "graviton",
-      "promotable": true,
-      "row_class": "structural_blind_zero",
-      "scope": "structural",
-      "source_artifact": "structural_diffeomorphism_redundancy_surface",
-      "supporting_scope_closure_artifact": null,
-      "target_use": "no_mass_target_used",
-      "unit": "GeV",
-      "value": 0.0
-    },
     {
       "blind_status": "conditionally_blind_on_declared_surface",
       "convention_sensitivity": "depends_on_declared_D10_D11_running_matching_threshold_surface",
@@ -139,6 +134,7 @@
   ],
   "scope": "public_quantitative_particle_rows",
   "source_surfaces": {
+    "carrier_mode_acceptance": "code/particles/runs/status/carrier_mode_acceptance.json",
     "exact_nonhadron": "code/particles/exact_nonhadron_masses.json",
     "pipeline_closure_status": "code/particles/runs/status/particle_pipeline_closure_status.json",
     "results_status": "code/particles/results_status.json",

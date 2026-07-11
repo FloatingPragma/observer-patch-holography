@@ -1,0 +1,202 @@
+{
+  "abstract_symmetry_group_alone_passes_classical_gate": false,
+  "abstract_symmetry_group_alone_passes_quantum_gate": false,
+  "artifact": "oph_massless_carrier_mode_acceptance",
+  "carriers": [
+    {
+      "abstract_symmetry_group_alone_sufficient": false,
+      "branch": "unbroken_deconfined_Maxwell_branch_with_Z_A_positive",
+      "branch_is_additional_input_not_group_output": true,
+      "carrier_id": "photon",
+      "claim_kind": "conditional_classical_carrier_mode",
+      "classical_carrier_gate": {
+        "missing": [],
+        "passed": true,
+        "status": "conditional_pass_on_declared_action_phase_branch"
+      },
+      "classical_spectrum": "omega(k)^2=|k|^2; characteristic surface k^2=0",
+      "conditional_free_two_point_function": "D^T_{mu nu}(k)=-i P^T_{mu nu}/[Z_A(k^2+i0)]",
+      "conditional_two_point_boundary": "Displayed only as the result of a further standard free-field quantization assumption; the OPH construction has not supplied the required physical Hilbert-space and pole receipts.",
+      "evidence": {
+        "abstract_symmetry_group_alone_sufficient": false,
+        "abstract_symmetry_group_reconstructed": true,
+        "action_branch_declared": true,
+        "asymptotic_or_deconfined_particle_state": false,
+        "gauge_fixing_exhibited": true,
+        "massless_characteristic_or_hamiltonian_exhibited": true,
+        "phase_and_field_content_declared": true,
+        "physical_degrees_of_freedom_counted": true,
+        "physical_two_point_or_hamiltonian_spectrum_constructed": false,
+        "positive_kinetic_coefficient_declared": true,
+        "positive_physical_hilbert_space": false,
+        "positive_residue_massless_pole": false,
+        "quadratic_operator_exhibited": true,
+        "quantization_constructed_from_oph": false
+      },
+      "explicit_nonclaims": [
+        "the compact group alone produces a connection or Maxwell kinetic term",
+        "the OPH construction supplies a photon Fock space or LSZ pole",
+        "absence of every effective photon mass in every phase or medium"
+      ],
+      "gauge_fixing": "Lorenz covariant gauge partial_mu A^mu=0; quotient residual gauge directions",
+      "hard_mass_parameter_semantics": "Coefficient in the displayed free quadratic operator on the declared branch; not a measured rest mass and not by itself a quantum-particle pole claim.",
+      "hard_quadratic_mass_parameter_squared": 0,
+      "label": "Electromagnetic carrier",
+      "particle_promotion_allowed": false,
+      "phase_boundary": "Requires an unbroken U(1), a nonzero Maxwell kinetic term, and a deconfined phase. A Higgs or Stueckelberg realization and medium-induced effective masses are not excluded by symmetry alone.",
+      "physical_degrees_of_freedom": "two transverse classical polarizations in four dimensions",
+      "quadratic_action": "S2[A]=-(Z_A/4) int F_{mu nu}F^{mu nu} -(Z_A/(2 xi)) int (partial_mu A^mu)^2",
+      "quadratic_operator": "K_{mu nu}=Z_A[-k^2 eta_{mu nu}+(1-xi^{-1})k_mu k_nu]",
+      "quantum_particle_gate": {
+        "missing": [
+          "quantization_constructed_from_oph",
+          "positive_physical_hilbert_space",
+          "physical_two_point_or_hamiltonian_spectrum_constructed",
+          "positive_residue_massless_pole",
+          "asymptotic_or_deconfined_particle_state"
+        ],
+        "passed": false,
+        "status": "not_passed"
+      },
+      "reduced_classical_hamiltonian": "H2=(Z_A/2) int (|E_T|^2+|B|^2), positive for Z_A>0"
+    },
+    {
+      "abstract_symmetry_group_alone_sufficient": false,
+      "branch": "pure_Yang-Mills_quadratic_expansion_before_nonperturbative_confinement",
+      "branch_is_additional_input_not_group_output": true,
+      "carrier_id": "gluon",
+      "claim_kind": "conditional_classical_carrier_mode",
+      "classical_carrier_gate": {
+        "missing": [],
+        "passed": true,
+        "status": "conditional_pass_on_declared_action_phase_branch"
+      },
+      "classical_spectrum": "omega(k)^2=|k|^2 for the free quadratic modes; characteristic surface k^2=0",
+      "conditional_free_two_point_function": "D^{T,ab}_{mu nu}(k)=-i delta^{ab} P^T_{mu nu}/[Z_g(k^2+i0)]",
+      "conditional_two_point_boundary": "Displayed only as the result of a further standard free-field quantization assumption; the OPH construction has not supplied the required physical Hilbert-space and pole receipts.",
+      "evidence": {
+        "abstract_symmetry_group_alone_sufficient": false,
+        "abstract_symmetry_group_reconstructed": true,
+        "action_branch_declared": true,
+        "asymptotic_or_deconfined_particle_state": false,
+        "gauge_fixing_exhibited": true,
+        "massless_characteristic_or_hamiltonian_exhibited": true,
+        "phase_and_field_content_declared": true,
+        "physical_degrees_of_freedom_counted": true,
+        "physical_two_point_or_hamiltonian_spectrum_constructed": false,
+        "positive_kinetic_coefficient_declared": true,
+        "positive_physical_hilbert_space": false,
+        "positive_residue_massless_pole": false,
+        "quadratic_operator_exhibited": true,
+        "quantization_constructed_from_oph": false
+      },
+      "explicit_nonclaims": [
+        "a deconfined asymptotic gluon in four-dimensional confining QCD",
+        "a continuum Yang-Mills mass-gap proof",
+        "absence of gauge-invariant massive bound states"
+      ],
+      "gauge_fixing": "covariant gauge with the usual constraint/BRST quotient at the perturbative free level",
+      "hard_mass_parameter_semantics": "Coefficient in the displayed free quadratic operator on the declared branch; not a measured rest mass and not by itself a quantum-particle pole claim.",
+      "hard_quadratic_mass_parameter_squared": 0,
+      "label": "Color gauge carrier",
+      "particle_promotion_allowed": false,
+      "phase_boundary": "This is a classical/perturbative pre-confinement statement. On the confining QCD phase, a colored gauge-potential pole is not an asymptotic gluon particle.",
+      "physical_degrees_of_freedom": "two perturbative transverse modes per Lie-algebra generator",
+      "quadratic_action": "S2[A]=-(Z_g/4) int (partial_mu A_nu^a-partial_nu A_mu^a)^2 -(Z_g/(2 xi)) int (partial_mu A^{a mu})^2",
+      "quadratic_operator": "K^{ab}_{mu nu}=delta^{ab} Z_g[-k^2 eta_{mu nu}+(1-xi^{-1})k_mu k_nu]",
+      "quantum_particle_gate": {
+        "missing": [
+          "quantization_constructed_from_oph",
+          "positive_physical_hilbert_space",
+          "physical_two_point_or_hamiltonian_spectrum_constructed",
+          "positive_residue_massless_pole",
+          "asymptotic_or_deconfined_particle_state"
+        ],
+        "passed": false,
+        "status": "not_passed"
+      },
+      "reduced_classical_hamiltonian": "H2=(Z_g/2) sum_a int (|E_T^a|^2+|B^a|^2), positive at the free level for Z_g>0"
+    },
+    {
+      "abstract_symmetry_group_alone_sufficient": false,
+      "branch": "pure_Einstein-Hilbert_linearization_about_a_suitable_Ricci-flat_background",
+      "branch_is_additional_input_not_group_output": true,
+      "carrier_id": "graviton",
+      "claim_kind": "conditional_classical_carrier_mode",
+      "classical_carrier_gate": {
+        "missing": [],
+        "passed": true,
+        "status": "conditional_pass_on_declared_action_phase_branch"
+      },
+      "classical_spectrum": "omega(k)^2=|k|^2 on Minkowski; null characteristic k^2=0",
+      "conditional_free_two_point_function": "D_TT(k)=i P^(2)_TT/[Z_h(k^2+i0)]",
+      "conditional_two_point_boundary": "Displayed only as the result of a further standard free-field quantization assumption; the OPH construction has not supplied the required physical Hilbert-space and pole receipts.",
+      "evidence": {
+        "abstract_symmetry_group_alone_sufficient": false,
+        "abstract_symmetry_group_reconstructed": true,
+        "action_branch_declared": true,
+        "asymptotic_or_deconfined_particle_state": false,
+        "gauge_fixing_exhibited": true,
+        "massless_characteristic_or_hamiltonian_exhibited": true,
+        "phase_and_field_content_declared": true,
+        "physical_degrees_of_freedom_counted": true,
+        "physical_two_point_or_hamiltonian_spectrum_constructed": false,
+        "positive_kinetic_coefficient_declared": true,
+        "positive_physical_hilbert_space": false,
+        "positive_residue_massless_pole": false,
+        "quadratic_operator_exhibited": true,
+        "quantization_constructed_from_oph": false
+      },
+      "explicit_nonclaims": [
+        "the classical Einstein equation constructs a graviton Hilbert space",
+        "an OPH-derived quantum graviton pole or interacting S-matrix",
+        "exclusion of every additional massive scalar or spin-two mode in extended theories"
+      ],
+      "gauge_fixing": "de Donder gauge; on Minkowski reduce to the transverse-traceless sector",
+      "hard_mass_parameter_semantics": "Coefficient in the displayed free quadratic operator on the declared branch; not a measured rest mass and not by itself a quantum-particle pole claim.",
+      "hard_quadratic_mass_parameter_squared": 0,
+      "label": "Einstein tensor carrier",
+      "particle_promotion_allowed": false,
+      "phase_boundary": "Requires the pure Einstein kinetic branch and a background admitting the stated mode decomposition. Other diffeomorphism-invariant field content or higher-derivative terms may add massive modes.",
+      "physical_degrees_of_freedom": "two transverse-traceless classical tensor polarizations in four dimensions",
+      "quadratic_action": "S2[h]=(Z_h/2) int [-1/2 partial_lambda h_mu_nu partial^lambda h^mu_nu + partial_mu h^mu_nu partial^lambda h_lambda_nu - partial_mu h^mu_nu partial_nu h + 1/2 partial_lambda h partial^lambda h], the Fierz-Pauli quadratic action from pure Einstein-Hilbert",
+      "quadratic_operator": "K_TT=Z_h k^2 P^(2)_TT",
+      "quantum_particle_gate": {
+        "missing": [
+          "quantization_constructed_from_oph",
+          "positive_physical_hilbert_space",
+          "physical_two_point_or_hamiltonian_spectrum_constructed",
+          "positive_residue_massless_pole",
+          "asymptotic_or_deconfined_particle_state"
+        ],
+        "passed": false,
+        "status": "not_passed"
+      },
+      "reduced_classical_hamiltonian": "H2_TT=(Z_h/2) int (|dot h_TT|^2+|grad h_TT|^2), positive for Z_h>0"
+    }
+  ],
+  "classical_required_receipts": [
+    "action_branch_declared",
+    "positive_kinetic_coefficient_declared",
+    "phase_and_field_content_declared",
+    "quadratic_operator_exhibited",
+    "gauge_fixing_exhibited",
+    "physical_degrees_of_freedom_counted",
+    "massless_characteristic_or_hamiltonian_exhibited"
+  ],
+  "common_speed_semantics": {
+    "si_decimal": "299792458 m/s is the exact SI metre/second unit convention, not a predicted decimal magnitude",
+    "structural_output": "shared invariant null cone / characteristic speed on the declared branch"
+  },
+  "github_issue": 536,
+  "policy": "A reconstructed compact group is not a particle. Public particle promotion requires every classical-action receipt and every independent quantum/phase/pole receipt.",
+  "quantum_required_receipts": [
+    "quantization_constructed_from_oph",
+    "positive_physical_hilbert_space",
+    "physical_two_point_or_hamiltonian_spectrum_constructed",
+    "positive_residue_massless_pole",
+    "asymptotic_or_deconfined_particle_state"
+  ],
+  "schema": "oph_carrier_mode_quantum_particle_gate_v1",
+  "status": "classical_action_branch_modes_recorded_quantum_particle_gate_open"
+}

@@ -57,7 +57,12 @@ def test_runtime_surface_preserves_rejected_neutrino_rows_and_canonical_refs(tmp
     )
     assert "## Companion Claim Boundaries" in markdown
     assert "## Neutrino Oscillation Comparison" in markdown
-    assert exact_nonhadron["status"] == "public_mass_outputs_with_target_anchored_witnesses_withheld"
+    assert exact_nonhadron["status"] == (
+        "public_mass_outputs_with_classical_carriers_separated_and_target_anchored_witnesses_withheld"
+    )
+    carriers = {row["carrier_id"]: row for row in exact_nonhadron["classical_carrier_modes"]}
+    assert set(carriers) == {"photon", "gluon", "graviton"}
+    assert all(row["particle_promotion_allowed"] is False for row in carriers.values())
     assert exact_fit_surface["artifact"] == "oph_exact_fits_only_surface"
     withheld_entries = {entry["particle_id"]: entry for entry in exact_nonhadron["withheld_entries"]}
     assert "top_quark" not in exact_entries
@@ -88,12 +93,9 @@ def test_runtime_surface_preserves_rejected_neutrino_rows_and_canonical_refs(tmp
     assert (current_dir / "BLIND_PREDICTION_PROVENANCE.md").exists()
     final_predictions = json.loads((current_dir / "runs" / "status" / "final_end_to_end_predictions.json").read_text())
     assert final_predictions["artifact"] == "oph_final_current_end_to_end_particle_predictions"
-    assert {entry["particle_id"] for entry in final_predictions["predictions"]} == {
-        "photon",
-        "gluon",
-        "graviton",
-        "higgs",
-    }
+    assert {entry["particle_id"] for entry in final_predictions["predictions"]} == {"higgs"}
+    assert (current_dir / "runs" / "status" / "carrier_mode_acceptance.json").exists()
+    assert (current_dir / "CARRIER_MODE_ACCEPTANCE.md").exists()
     assert (current_dir / "FINAL_END_TO_END_PREDICTIONS.md").exists()
     direct_top = json.loads((current_dir / "runs" / "calibration" / "direct_top_bridge_contract.json").read_text())
     assert direct_top["status"] == "hard_no_go_current_corpus_compare_only_direct_top_codomain"

@@ -1,6 +1,6 @@
 # Particle Pipeline Closure Status
 
-Generated: `2026-07-11T06:25:23Z`
+Generated: `2026-07-11T17:56:21Z`
 
 Single closure gate for source-only rows and empirical hadron closure rows.
 
@@ -16,6 +16,7 @@ Single closure gate for source-only rows and empirical hadron closure rows.
 
 | Receipt label | Closable | Local artifact | Worker policy |
 | --- | --- | --- | --- |
+| `closed_claim_scope_repaired_quantum_particle_gate_fail_closed` | `True` | `particles/runs/status/carrier_mode_acceptance.json` | not_needed_for_analytic_claim_gate |
 | `closed_exact_selected_branch` | `True` | `particles/hierarchy/issue_332_rg_naturality_certificate.json` | not_needed_for_closed_certificate |
 | `closed_projection_bridge_with_exact_residual` | `True` | `particles/hierarchy/certificates/R_EW_tick_projection_certificate.json` | not_needed_for_closed_certificate |
 | `closed_full_local_global_hierarchy_resonance` | `True` | `particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json` | not_needed_for_closed_certificate |
@@ -44,10 +45,15 @@ Single closure gate for source-only rows and empirical hadron closure rows.
 
 | Particle ID | Mass |
 | --- | ---: |
-| `gluon` | `0.0 GeV` |
-| `graviton` | `0.0 GeV` |
 | `higgs` | `125.1995304097179 GeV` |
-| `photon` | `0.0 GeV` |
+
+## Conditional Classical Carrier Modes
+
+| Carrier | Hard parameter squared | Classical gate | Quantum gate |
+| --- | ---: | --- | --- |
+| `photon` | `0` | `conditional_pass_on_declared_action_phase_branch` | `not_passed` |
+| `gluon` | `0` | `conditional_pass_on_declared_action_phase_branch` | `not_passed` |
+| `graviton` | `0` | `conditional_pass_on_declared_action_phase_branch` | `not_passed` |
 
 ## Withheld Non-Prediction Rows
 
@@ -79,3 +85,4 @@ Single closure gate for source-only rows and empirical hadron closure rows.
 - `hierarchy_local_global_resonance_closed`: `True`
 - `higgs_naturality_defect_closed`: `True`
 - `pixel_screen_resonance_summary_closed`: `True`
+- `symmetry_only_particle_promotion_blocked`: `True`

@@ -282,7 +282,7 @@ def build_payload() -> dict[str, Any]:
         "artifact": "oph_final_current_end_to_end_particle_predictions",
         "generated_utc": _now_utc(),
         "scope": "nonhadron_particle_pipeline_with_empirical_hadron_closure_policy",
-        "claim_status": "final_nonhadron_predictions_with_separate_empirical_hadron_closure_surface",
+        "claim_status": "final_nonhadron_predictions_with_classical_carriers_and_empirical_hadrons_separated",
         "source_surfaces": {
             "p_trunk": "code/P_derivation/runtime/p_closure_trunk_current.json",
             "measured_endpoint_calibration": (
@@ -291,6 +291,7 @@ def build_payload() -> dict[str, Any]:
             "thomson_endpoint_package": "code/P_derivation/runtime/thomson_endpoint_package_current.json",
             "pipeline_status": "code/particles/runs/status/particle_pipeline_closure_status.json",
             "exact_nonhadron": "code/particles/exact_nonhadron_masses.json",
+            "carrier_mode_acceptance": "code/particles/runs/status/carrier_mode_acceptance.json",
             "results_status": "code/particles/results_status.json",
             "direct_top_bridge": "code/particles/runs/calibration/direct_top_bridge_contract.json",
             "charged_determinant_trace_lift_attachment_required": (
@@ -333,8 +334,10 @@ def build_payload() -> dict[str, Any]:
             "oph_plus_empirical_hadron_closure",
             "compare_only",
             "work_in_progress",
+            "conditional_classical_carrier_mode_not_particle_mass_prediction",
         ],
         "withheld_non_prediction_rows": exact.get("withheld_entries", []),
+        "classical_carrier_modes": exact.get("classical_carrier_modes", []),
         "charged_lepton_anchor_boundary": {
             "artifact": charged_trace_required.get("artifact"),
             "status": charged_trace_required.get("status"),
@@ -444,6 +447,26 @@ def render_markdown(payload: dict[str, Any]) -> str:
             f"| `{entry['particle_id']}` | `{entry['value']} {entry['unit']}` | "
             f"`{entry['exact_kind']}` | `{entry['scope']}` | `{entry['promotable']}` |"
         )
+    carrier_modes = payload.get("classical_carrier_modes") or []
+    if carrier_modes:
+        lines.extend(
+            [
+                "",
+                "## Separated Classical Carrier Modes",
+                "",
+                "These rows are zero hard parameters in declared quadratic actions, not `0 GeV` quantum-particle predictions.",
+                "",
+                "| Carrier | Hard parameter squared | Classical gate | Quantum gate | Particle promotion |",
+                "| --- | ---: | --- | --- | --- |",
+            ]
+        )
+        for row in carrier_modes:
+            lines.append(
+                f"| `{row['carrier_id']}` | `{row['hard_quadratic_mass_parameter_squared']}` | "
+                f"`{row['classical_carrier_gate']['status']}` | "
+                f"`{row['quantum_particle_gate']['status']}` | "
+                f"`{row['particle_promotion_allowed']}` |"
+            )
     withheld = payload.get("withheld_non_prediction_rows") or []
     if withheld:
         lines.extend(

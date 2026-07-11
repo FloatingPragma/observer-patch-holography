@@ -104,7 +104,7 @@ def build_derivation_chain(
             "conclusion": (
                 "The realized OPH compact-gauge branch is (SU(3)xSU(2)xU(1))/Z6 "
                 "with connected adjoint (8,1,0)(+)(1,3,0)(+)(1,1,0); there are "
-                "no mixed (3,2,+/-5/6) X/Y gauge bosons and no extra visible "
+                "no mixed (3,2,+/-5/6) X/Y connected-adjoint generators and no extra visible "
                 "low-scale U(1) on this branch."
             ),
         },
@@ -209,7 +209,7 @@ def build_derivation_chain(
             "step": 8,
             "premise": "Negative-control rejection of nearby round counts",
             "uses": [
-                "step 1 (no X/Y mixed gauge bosons; no simple-GUT carrier on the realized branch)",
+                "step 1 (no X/Y mixed connected-adjoint generators; no particle-spectrum conclusion)",
                 "step 4 (orientation doubling required by reversible record-preserving repair)",
                 "the graviton is the dynamical metric branch, not an internal compact-gauge adjoint repair channel",
             ],
@@ -303,7 +303,7 @@ def build_branch_scope() -> dict[str, Any]:
         "oph_realized_compact_gauge_branch": (
             "the realized observer-visible compact-gauge branch with global group "
             "(SU(3) x SU(2) x U(1))/Z6, MAR-minimal one-Higgs sector, no extra "
-            "visible low-scale U(1), and no mixed (3,2,+/-5/6) X/Y gauge bosons "
+            "visible low-scale U(1), and no mixed (3,2,+/-5/6) X/Y connected-adjoint generators "
             "(corpus theorem in extra/compact_proof_of_oph.tex)"
         ),
         "reversible_repair_orientation_branch": (
@@ -371,7 +371,7 @@ def build_negative_controls(
             "m": su_dim(5),
             "exponent_at_m": f"-1/{2 * su_dim(5)}",
             "status": "reject_despite_same_integer",
-            "reason": "wrong support: includes the (3,2,+/-5/6) X/Y mixed gauge bosons absent on the realized OPH branch and lacks the orientation-doubling factor",
+            "reason": "wrong support: includes the (3,2,+/-5/6) X/Y mixed adjoint generators absent on the realized OPH branch and lacks the orientation-doubling factor",
             "violated_branch": "oph_realized_compact_gauge_branch + reversible_repair_orientation_branch",
         },
         {
@@ -591,7 +591,7 @@ def build_certificate() -> dict[str, Any]:
                 "realized compact-gauge branch",
                 "MAR-minimal one-Higgs branch",
                 "no extra visible low-scale U(1)",
-                "no simple-GUT X/Y mixed gauge bosons",
+                "no simple-GUT X/Y mixed connected-adjoint generators",
                 "observer-visible product adjoint only",
             ],
         },

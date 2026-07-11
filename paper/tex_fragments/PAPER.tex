@@ -3200,12 +3200,17 @@ These predictions are fixed functions of \(G\) and known source parameters, and 
 
 \subsubsection{Precision gravity predictions and experimental bounds}\label{513-precision-gravity-predictions-and-experimental-bounds}
 
-The gravity sector makes symmetry-protected exact-zero predictions that can be confronted with the tightest available experimental bounds. This section translates the theoretical predictions into the specific observables that experiments actually constrain.
+The pure Einstein linearization makes classical dispersion and polarization statements that can be
+confronted with the tightest available experimental bounds. This section translates those
+branch-scoped statements into the observables that experiments constrain; it does not infer a
+quantum graviton pole from the classical equation.
 
-\textbf{Speed of gravitational waves.} The derived GR regime implies massless gravitons propagating on the same null cones as photons:
+\textbf{Speed of gravitational waves.} On a suitable background, the two transverse-traceless
+classical modes of the pure Einstein linearization propagate on the same invariant null cone as
+the Maxwell modes:
 
 \[
-\frac{c_{\mathrm{GW}} - c}{c} = 0 \text{ exactly.}
+\frac{c_{\mathrm{GW}} - c_\star}{c_\star} = 0 \text{ exactly on this action/background branch.}
 \]
 
 \emph{Published bound (GW170817 + GRB 170817A multi-messenger):}
@@ -3217,16 +3222,24 @@ The gravity sector makes symmetry-protected exact-zero predictions that can be c
 
 For a source at \(\sim 40\) Mpc, this fractional difference corresponds to only a few seconds of propagation-time mismatch across \(\sim 10^8\) years of travel.
 
-\textbf{Graviton mass.} The gauge redundancy (diffeomorphism invariance) forbids a hard mass term:
+\textbf{Einstein quadratic mass parameter.} On the additional pure two-derivative
+Einstein--Hilbert action branch, the transverse-traceless quadratic operator has no
+Fierz--Pauli hard-mass parameter:
 
 \[
-m_g = 0 \text{ exactly.}
+\mu_{\mathrm{FP,hard}}^2=0.
 \]
+
+This is an action-content statement, not a graviton-particle mass prediction from diffeomorphism
+redundancy alone. A quantum mass or pole claim requires Definition 6.18, while diffeomorphism-
+invariant Stueckelberg/bimetric completions and extra-field theories lie outside the pure-Einstein
+field-content branch.
 
 \emph{Published bound (GW dispersion analysis, PDG 2025):}
 
 \[
-m_g \le 1.76 \times 10^{-23} \text{ eV}/c^2 \quad (90\% \text{ credibility}).
+m_{\mathrm{grav,disp}} \le 1.76 \times 10^{-23} \text{ eV}/c^2
+\quad (90\% \text{ credibility; model-dependent dispersion fit}).
 \]
 
 This corresponds to a reduced Compton wavelength \(\bar{\lambda}_C \gtrsim 1.6 \times 10^{16}\) m, i.e., order \(\sim 1.6\) light-years.
@@ -3240,7 +3253,11 @@ This corresponds to a reduced Compton wavelength \(\bar{\lambda}_C \gtrsim 1.6 \
 \quad (90\% \text{ credibility}).
 \]
 
-\textbf{Only tensor polarizations.} The GR outcome means only the two tensor (helicity-2) modes propagate. Pure non-tensor hypotheses are disfavored by observational constraints, and mixed tensor-scalar/vector models are tightly constrained.
+\textbf{Tensor polarizations on the selected field-content branch.} The pure Einstein
+linearization contains two tensor polarizations. It does not prove that every broader
+diffeomorphism-invariant EFT lacks additional scalar, vector, or massive modes. Pure non-tensor
+hypotheses are disfavored by observational constraints, and mixed tensor-scalar/vector models are
+tightly constrained.
 
 \textbf{Equivalence principle tests.} Additional null checks from the derived GR structure:
 
@@ -3256,7 +3273,7 @@ This corresponds to a reduced Compton wavelength \(\bar{\lambda}_C \gtrsim 1.6 \
 
 \subsubsection{State--observable error propagation and the dynamical bridge}\label{514-theory-side-error-propagation-from-markov-bounds}
 
-On the ideal derived Einstein branch, the framework states the equalities recorded in Section~\ref{513-precision-gravity-predictions-and-experimental-bounds}. Finite Markov/recovery control supplies a separate and more limited quantitative statement. This subsection therefore keeps two error ledgers separate. The \emph{state--observable ledger} tracks expectation values of specified bounded local observables in a recovered state; the Markov/recovery machinery controls this ledger. The \emph{dynamical-parameter ledger} tracks spectral and dispersion properties of an evolution generator---propagation speeds, graviton mass, and correlator poles. The trace-distance chain alone does \emph{not} control that ledger.
+On the additional pure-Einstein action/background branch, the framework states the classical equalities recorded in Section~\ref{513-precision-gravity-predictions-and-experimental-bounds}. Finite Markov/recovery control supplies a separate and more limited quantitative statement. This subsection therefore keeps two error ledgers separate. The \emph{state--observable ledger} tracks expectation values of specified bounded local observables in a recovered state; the Markov/recovery machinery controls this ledger. The \emph{dynamical-parameter ledger} tracks spectral and dispersion properties of an evolution generator---propagation speeds, particle-pole masses, and correlator poles. The trace-distance chain alone does \emph{not} control that ledger.
 
 \textbf{The key quantitative hook.} From Theorem 3.1, if the target state satisfies
 
@@ -3296,13 +3313,13 @@ Combining these gives an explicit precision dial for bounded local observables:
 
 For an operator normalized by \(\|O\|_\infty\le1\), an independently chosen absolute expectation-error target \(\tau_O\) is guaranteed at one step if \(\delta_{\mathrm{step}}\le\tau_O\); the theorem therefore gives the sufficient CMI condition \(\varepsilon\le(\tau_O/2)^2/\ln2\). The target \(\tau_O\) belongs only to the state--observable ledger and cannot be set by importing a gravitational-wave speed tolerance.
 
-\textbf{What the dial does not certify: dynamical parameters.} The gravitational-wave propagation speed and the graviton mass are not bounded local observables. They are spectral/dispersion properties of the dynamical generator---poles of retarded correlators, or long-time wave-packet phase and group velocities---so the trace-distance inequality supplies neither their norm nor their Lipschitz constant. Two states can be close in trace distance at one time while being vacua of generators with different dispersion relations, and a small equal-time expectation error does not control phase accumulation over the \(\sim 10^8\)-year propagation baseline of GW170817. Consequently, \(\delta \lesssim 10^{-15}\) is \emph{not} a theory-side certificate for the multimessenger bound \(|c_{\mathrm{GW}}/c - 1| \lesssim 10^{-15}\) of Section~\ref{513-precision-gravity-predictions-and-experimental-bounds}, and the recovery error must not be presented as the precision dial for that published bound. The ideal equalities \(m_g = 0\), \(c_{\mathrm{GW}} = c\) belong to the exact derived-Einstein branch recorded there; stability of those equalities away from that branch is not a consequence of the trace-distance chain.
+\textbf{What the dial does not certify: dynamical parameters.} The gravitational-wave propagation speed and any graviton pole or dispersion-mass parameter are not bounded local observables. They are spectral/dispersion properties of the dynamical generator---poles of retarded correlators, or long-time wave-packet phase and group velocities---so the trace-distance inequality supplies neither their norm nor their Lipschitz constant. Two states can be close in trace distance at one time while being vacua of generators with different dispersion relations, and a small equal-time expectation error does not control phase accumulation over the \(\sim 10^8\)-year propagation baseline of GW170817. Consequently, \(\delta \lesssim 10^{-15}\) is \emph{not} a theory-side certificate for the multimessenger bound \(|c_{\mathrm{GW}}/c - 1| \lesssim 10^{-15}\) of Section~\ref{513-precision-gravity-predictions-and-experimental-bounds}, and the recovery error must not be presented as the precision dial for that published bound. The ideal classical relation \(c_{\mathrm{GW}}=c_\star\) and the vanishing pure-Einstein hard parameter \(\mu_{\mathrm{FP,hard}}^2=0\) belong to the additional action-level branch recorded there; neither stability away from that branch nor a quantum graviton pole follows from the trace-distance chain.
 
-\textbf{Required bridge (dynamical-parameter ledger; open).} A sufficient acceptance gate can be stated precisely, but its hypotheses have not been derived from the Markov remainder in this paper. Let \(\mathcal B=[k_{\min},k_{\max}]\), with \(0<k_{\min}<k_{\max}\), be the declared experimental wave-number band. Suppose a future construction supplies, for each tensor helicity, a \(C^1\) self-adjoint finite-regulator generator \(H_\nu^{\mathrm{TT}}(k)\) and the GR reference generator \(H_0^{\mathrm{TT}}(k)\), expressed in angular-frequency units (\(\hbar=1\)) on one specified common finite-dimensional helicity fiber or after a declared \(C^1\) unitary identification of the two fibers. Assume that the reference graviton eigenvalue \(\omega_0(k)=ck\) is simple in the helicity block and is separated from the rest of the spectrum by a uniform gap \(g_{\mathcal B}>0\). Define
+\textbf{Required bridge (dynamical-parameter ledger; open).} A sufficient acceptance gate can be stated precisely, but its hypotheses have not been derived from the Markov remainder in this paper. Let \(\mathcal B=[k_{\min},k_{\max}]\), with \(0<k_{\min}<k_{\max}\), be the declared experimental wave-number band. Suppose a future construction supplies, for each tensor helicity, a \(C^1\) self-adjoint finite-regulator generator \(H_\nu^{\mathrm{TT}}(k)\) and the GR reference generator \(H_0^{\mathrm{TT}}(k)\), expressed in angular-frequency units (\(\hbar=1\)) on one specified common finite-dimensional helicity fiber or after a declared \(C^1\) unitary identification of the two fibers. Assume that the reference TT tensor-mode eigenvalue \(\omega_0(k)=c_\star k\) is simple in the helicity block and is separated from the rest of the spectrum by a uniform gap \(g_{\mathcal B}>0\). Define
 
 \[
 M_{\mathcal B}
-:=\frac{1}{c}\sup_{k\in\mathcal B}
+:=\frac{1}{c_\star}\sup_{k\in\mathcal B}
 \left\|\partial_k H_0^{\mathrm{TT}}(k)\right\|_\infty
 \]
 
@@ -3313,7 +3330,7 @@ and the dimensionless dynamical error
 :=\max\!\left\{
 \frac{1}{g_{\mathcal B}}\sup_{k\in\mathcal B}
 \left\|H_\nu^{\mathrm{TT}}(k)-H_0^{\mathrm{TT}}(k)\right\|_\infty,
-\frac{1}{c}\sup_{k\in\mathcal B}
+\frac{1}{c_\star}\sup_{k\in\mathcal B}
 \left\|\partial_k H_\nu^{\mathrm{TT}}(k)-\partial_k H_0^{\mathrm{TT}}(k)\right\|_\infty
 \right\}.
 \]
@@ -3322,7 +3339,7 @@ For \(\eta_{\mathrm{dyn},\nu}<1/4\), let \(\omega_\nu(k)\) be the continued isol
 
 \[
 \sup_{k\in\mathcal B}
-\left|\frac{c_{\mathrm{GW},\nu}(k)}{c}-1\right|
+\left|\frac{c_{\mathrm{GW},\nu}(k)}{c_\star}-1\right|
 \le L_{\mathcal B}\,\eta_{\mathrm{dyn},\nu},
 \qquad
 L_{\mathcal B}:=1+4M_{\mathcal B}.
@@ -3331,10 +3348,10 @@ L_{\mathcal B}:=1+4M_{\mathcal B}.
 Indeed, if \(P_\nu(k)\) and \(P_0(k)\) are the rank-one spectral projectors, then \(\|P_\nu-P_0\|_\infty\le2\eta_{\mathrm{dyn},\nu}\), hence \(\|P_\nu-P_0\|_1\le4\eta_{\mathrm{dyn},\nu}\). Differentiating the isolated eigenvalue therefore bounds the group-velocity change by the derivative perturbation plus \(4M_{\mathcal B}c\,\eta_{\mathrm{dyn},\nu}\). This displays a dimensionless constant derived from a specified generator and uniform over the declared band. If \(q:=L_{\mathcal B}\eta_{\mathrm{dyn},\nu}<1\), then stationary propagation at fixed group velocity over path length \(D\) obeys the group-delay bound
 
 \[
-|\Delta t|\le \frac{D}{c}\frac{q}{1-q}.
+|\Delta t|\le \frac{D}{c_\star}\frac{q}{1-q}.
 \]
 
-The same bound applies to varying propagation only if it holds pointwise along the entire path; on a cosmological path, the redshifted wave number must remain inside \(\mathcal B\). A wave-packet phase bound likewise requires uniform control of the inverse dispersion \(k_\nu(\omega)\) on the corresponding frequency band. A graviton-mass bound is a separate spectral estimate at \(k=0\); it is not a corollary of the band-limited speed estimate.
+The same bound applies to varying propagation only if it holds pointwise along the entire path; on a cosmological path, the redshifted wave number must remain inside \(\mathcal B\). A wave-packet phase bound likewise requires uniform control of the inverse dispersion \(k_\nu(\omega)\) on the corresponding frequency band. A model-dependent particle dispersion-mass bound is a separate spectral estimate at \(k=0\); it is not a corollary of the band-limited speed estimate.
 
 What remains open is the OPH-specific bridge. One must
 
@@ -3366,14 +3383,15 @@ No estimate \(\eta_{\mathrm{dyn},\nu}\le C_{\mathcal B}r_N\) is proved here. Sub
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  The ideal derived-Einstein-branch statements \(m_g = 0\) and \(c_{\mathrm{GW}} = c\).
+  The ideal pure-Einstein linearization statements \(\mu_{\mathrm{FP,hard}}^2=0\) and
+  \(c_{\mathrm{GW}}=c_\star\), without promotion to a quantum graviton pole.
 \item
   Translation of those ideal equalities into the specific observables experiments constrain (Section~\ref{513-precision-gravity-predictions-and-experimental-bounds}).
 \item
   Explicit bounds on how far expectation values of bounded local observables in the recovered state can drift, using the conditional mutual information \ensuremath{\to} trace distance \ensuremath{\to} observable error chain.
 \end{enumerate}
 
-It therefore provides quantitative error control on recovered states and bounded observables, but no present theory-side certificate for the published GW-speed or graviton-mass bounds. Dynamical-parameter certification remains in the separate open ledger above.
+It therefore provides quantitative error control on recovered states and bounded observables, but no present theory-side certificate for the published GW-speed or model-dependent particle dispersion-mass bounds. Dynamical-parameter certification remains in the separate open ledger above.
 
 \subsubsection{Dark-sector response from the modular anomaly}\label{515-dark-matter-as-modular-anomaly}
 
@@ -4222,11 +4240,11 @@ e^{i\alpha T_3}e^{i\beta Y}\phi_0
 \]
 so exact vector invariance ties the phases by \(\beta=\alpha\), locally, and leaves \(\mathrm U(1)_Q\). The projective ray \([\phi_0]\), however, is unchanged for independent \(\alpha\) and \(\beta\): its stabilizer is the two-torus \(\mathrm U(1)_{T_3}\times\mathrm U(1)_Y\), modulo the inherited finite center. Projectivization therefore classifies the carrier ray but cannot by itself select the electromagnetic diagonal. Thus the recovered structural package contains the weak charged-current carriers \(W^\pm\), the neutral weak carrier \(Z\), the electromagnetic carrier \(A\), and the exact charge operator \(Q=T_3+Y\). The mixing angle, \(v\), and numerical \(W/Z\) masses belong to the D10 running/matching surface rather than to this recovered-core structural corollary. QED.
 
-\textbf{Corollary 6.6d (Maxwell sector on the realized electromagnetic branch).} On the ordinary one-Higgs branch, let \(A_Q\) be the support-visible connection component on the unbroken electromagnetic factor \(\mathrm U(1)_Q\). The abelian restriction of the compact-gauge curvature gives
+\textbf{Corollary 6.6d (conditional Maxwell sector on the realized electromagnetic branch).} On the ordinary one-Higgs branch, let \(A_Q\) be the support-visible connection component on the unbroken electromagnetic factor \(\mathrm U(1)_Q\). The abelian restriction of the compact-gauge curvature gives
 \[
 F_Q=dA_Q.
 \]
-With the Lorentzian low-energy electromagnetic action
+Assume in addition the Lorentzian low-energy Maxwell action
 \[
 S_{\mathrm{EM}}[A_Q,J_Q]
 =
@@ -4239,7 +4257,7 @@ dF_Q=0,
 \qquad
 d*F_Q=g_Q^2 *J_Q.
 \]
-After canonical electromagnetic normalization, these are Maxwell's equations. The numerical value of \(g_Q\), equivalently \(\alpha_{\mathrm{em}}\), belongs to the Ward-projected electromagnetic readout. QED.
+After canonical electromagnetic normalization, these are Maxwell's equations. The numerical value of \(g_Q\), equivalently \(\alpha_{\mathrm{em}}\), belongs to the Ward-projected electromagnetic readout. The compact-group reconstruction and connection label do not themselves supply this action or its nonzero kinetic coefficient. QED.
 
 \subsubsection{Refinement stability and unprotected relevant operators}\label{63-refinement-stability-and-unprotected-relevant-operators}
 
@@ -4636,49 +4654,189 @@ So the realized triplet-doublet package is globally consistent generation by gen
 
 In tensor-network or code realizations, gauge actions act on edge factors of size \ensuremath{\chi}, so emergent compact gauge groups embed in U(\ensuremath{\chi}). This shows a capacity constraint: accommodating SU(3) color and SU(2) weak factors shows \ensuremath{\chi} \ensuremath{\geq} 6 in the minimal case, consistent with the MAR-derived gauge group.
 
-\subsubsection{Inevitability of photon and graviton}\label{611-inevitability-of-photon-and-graviton}
+\subsubsection{Classical carrier modes and the quantum-particle gate}\label{611-classical-carrier-modes-and-quantum-particle-gate}
 
-The model requires photons and gravitons.
+An abstract compact group identifies a symmetry type, and a classical field equation identifies a
+classical dynamical branch. Neither datum alone constructs a propagating quantum particle. The
+following receipt separates those levels.
 
-\textbf{Photon inevitability chain:}
+The upstream structural results remain separate receipts. Conditional on the compact-gauge
+refinement receipt, Theorem 6.1 constructs the refinement-limit bosonic edge-sector category and
+its compact group; a field-algebra realization with that group as a local gauge symmetry still
+requires the DHR/DR hypotheses (R1)--(R6) of Definition 6.1r. On the realized electroweak branch,
+a chosen nonzero neutral Higgs vacuum \emph{vector} has stabilizer
+\(\mathrm U(1)_Q\), whereas its projective ray alone has the larger two-torus stabilizer recorded
+above. On the gravitational side, Theorems 4.3c--4.3e and 5.1 conditionally supply the
+observer-facing geometry, Lorentzian event-manifold, and classical Einstein branch. None of these
+structural outputs supplies the action Hessian or quantum data required below.
+
+\textbf{Definition 6.18 (carrier-mode and quantum-particle receipts).} Fix a structural invariant
+speed \(c_\star\). This is the common invariant null-cone conversion speed. Its representation as
+\(299\,792\,458\ \mathrm{m\,s^{-1}}\) is exact by the SI definition of the metre and is not a
+prediction of that decimal magnitude. A \emph{classical massless carrier-mode receipt} for a
+field \(q_X\) consists
+of: (C1) a stated background and phase; (C2) an explicit quadratic action with positive nonzero
+physical kinetic coefficient; (C3) a gauge fixing or constraint reduction with a finite physical projector
+\(\Pi_X\); and (C4) a positive reduced Hamiltonian. Separately, the action Hessian restricted to
+the physical subspace must have the form
+\[
+K_X^{\mathrm{phys}}(\omega,\mathbf k)
+=Z_X\bigl(\omega^2-c_\star^2|\mathbf k|^2\bigr)\Pi_X,
+\qquad Z_X>0.
+\]
+Equivalently, the free reduced Green function exhibits the action-level pole
+\[
+D_X^{\mathrm{phys}}(\omega,\mathbf k)
+=\frac{i\,\Pi_X/Z_X}
+{\omega^2-c_\star^2|\mathbf k|^2+i0}.
+\]
+This receipt proves a classical massless carrier mode and the absence of an algebraic mass term in
+that declared quadratic action. It does not yet prove a particle.
+
+A \emph{quantum-particle receipt} additionally requires: (Q1) a positive-energy vacuum
+quantization and a physical Hilbert space obtained by constraint reduction or BRST cohomology;
+(Q2) a physical two-point function whose K\"all\'en--Lehmann measure contains a
+positive-residue massless contribution
+\[
+d\rho_X(\mu^2)
+=Z_X^{\mathrm{pole}}\,\delta(\mu^2)d\mu^2+d\rho_X^{\mathrm{cont}}(\mu^2),
+\qquad Z_X^{\mathrm{pole}}>0;
+\]
+or an equivalent joint energy--momentum spectrum containing a positive-residue
+\(p^0>0,\ p^2=0\) mass shell (at fixed \(\mathbf k\),
+\(\omega=c_\star|\mathbf k|\));
+and (Q3) the stability/asymptotic-state or LSZ hypotheses appropriate to the phase, including a
+deconfined asymptotic sector for a colored carrier. Only a receipt passing (C1)--(C4) and
+(Q1)--(Q3) licenses a quantum-particle claim. A reconstructed group, a connection label, or a
+classical field equation by itself fails this gate.
+
+\textbf{Theorem 6.18 (action-level modes on the Maxwell, pure-Yang--Mills, and Einstein
+branches).} The following statements hold on the stated additional action and phase branches.
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Gauge-as-gluing states that overlap identifications have redundancy forming a local groupoid.
-\item
-  Theorem 2.3 (edge-center completion) decomposes collar Hilbert spaces into sectors labeled by boundary gauge representations.
-\item
-  Conditional on the compact-gauge refinement receipt, Theorem 6.1 constructs the refinement-limit bosonic edge-sector category from the fixed-stage category, surjective pullback functors, and forgetful fibers, then recovers a compact gauge group G from it.
-\item
-  Corollary 6.1 (on the zero-obstruction sector system of TransportabilityFromOverlapGluing) yields the compact group G at the Tannakian level; the field-algebra statement with G as a local gauge symmetry holds under the DHR/DR realization hypotheses (R1)--(R6) of Definition 6.1r.
-\item
-  For the Standard Model, a chosen nonzero neutral Higgs vacuum vector leaves the \(Q=T_3+Y\) vector stabilizer \(\mathrm U(1)_Q\) after electroweak symmetry breaking; its projective ray alone would have the larger two-torus stabilizer described above.
-\item
-  A gauge boson is the quantum of the gauge field. Once \(\mathrm U(1)_Q\) emerges from overlap redundancy, its gauge field exists, and its quantum (the photon) must exist.
+\def\labelenumi{\roman{enumi}.}
+\item \textbf{Electromagnetic branch.} Suppose the source-free ordinary electromagnetic vacuum
+\(J_Q=0\) has an unbroken \(\mathrm U(1)_Q\) connection with
+the Lorentzian Maxwell action
+\[
+S_Q=-\frac{1}{4g_Q^2}\int F_{Q,\mu\nu}F_Q^{\mu\nu}\,d^4x,
+\qquad 0<g_Q^2<\infty,
+\]
+about the ordinary vacuum, with no Higgs, Stueckelberg, medium, or nonlocal quadratic mass
+operator. In radiation gauge the reduced variables are the two transverse components and
+\[
+H_Q^{(2)}=\frac{1}{2g_Q^2}\int
+\bigl(|\mathbf E_T|^2+|\mathbf B|^2\bigr)d^3x,
+\qquad
+K_{Q,T}=g_Q^{-2}
+\bigl(\omega^2-c_\star^2|\mathbf k|^2\bigr)\Pi_T,
+\qquad \operatorname{rank}\Pi_T=2.
+\]
+Equivalently, covariant \(\xi\)-gauge gives
+\[
+D^Q_{\mu\nu}(k)
+=\frac{-ig_Q^2}{k^2+i0}
+\left(\eta_{\mu\nu}-(1-\xi)\frac{k_\mu k_\nu}{k^2+i0}\right),
+\]
+whose longitudinal part decouples from a conserved current. Thus this branch has two classical
+massless electromagnetic carrier modes. Calling them photons requires the quantum-particle
+receipt.
+
+\item \textbf{Pure Yang--Mills branch.} Suppose a compact group \(G\) is supplied with the
+Lorentzian two-derivative pure Yang--Mills action with \(0<g^2<\infty\), expanded about the
+topologically trivial background in a gauge \(\bar A_\mu=0\), in a perturbative or deconfined
+phase with no Higgs condensate. Writing the perturbation as \(a_\mu^a\), its quadratic action is
+\[
+S_{\mathrm{YM}}^{(2)}
+=-\frac{1}{4g^2}\sum_a\int
+\bigl(\partial_\mu a_\nu^a-\partial_\nu a_\mu^a\bigr)
+\bigl(\partial^\mu a^{a,\nu}-\partial^\nu a^{a,\mu}\bigr)d^4x.
+\]
+Lorenz gauge gives the standard covariant inverse, while Gauss' law and radiation gauge leave two
+transverse components per generator, with
+\[
+H_{\mathrm{YM}}^{(2)}
+=\frac{1}{2g^2}\sum_a\int
+\bigl(|\mathbf E_T^a|^2+|\mathbf B^a|^2\bigr)d^3x\geq0,
+\]
+with strict positivity on nonzero reduced finite-energy modes of \(\mathbf k\neq0\) under the
+stated boundary conditions. Their quadratic transverse kernel and free Green function are
+\[
+K^{ab}_{\mathrm{YM},T}
+=\delta^{ab}g^{-2}
+\bigl(\omega^2-c_\star^2|\mathbf k|^2\bigr)\Pi_T,
+\qquad
+D^{ab}_{\mathrm{YM},T}
+=\frac{i g^2\delta^{ab}\Pi_T}
+{\omega^2-c_\star^2|\mathbf k|^2+i0},
+\qquad
+\operatorname{rank}\Pi_T=2
+\]
+so there are \(2\dim G\) perturbative classical transverse modes and no hard mass in that
+quadratic expansion.
+It does not produce a gauge-invariant asymptotic gluon. In the confining QCD phase, and on a
+gauge-invariant Yang--Mills branch with a positive physical gap, the colored free pole need not
+occur in the physical spectrum.
+
+\item \textbf{Pure Einstein branch.} Suppose, in addition to the derived classical Einstein
+equation, that the field-content branch is the two-derivative Einstein--Hilbert action with \(G>0\) about a
+Minkowski vacuum with \(\Lambda=0\), without higher-curvature kinetic terms, bimetric mixing, or
+extra scalar/vector fields. After de Donder gauge and residual-gauge reduction, the two
+transverse-traceless components obey
+\[
+S_{\mathrm{TT}}^{(2)}
+=\frac{1}{64\pi G}\int
+\left[
+(\partial_t h_{ij}^{\mathrm{TT}})^2
+-c_\star^2(\nabla h_{ij}^{\mathrm{TT}})^2
+\right]d^4x,
+\]
+\[
+H_{\mathrm{TT}}^{(2)}
+=\frac{1}{64\pi G}\int
+\left[
+(\partial_t h_{ij}^{\mathrm{TT}})^2
++c_\star^2(\nabla h_{ij}^{\mathrm{TT}})^2
+\right]d^3x,
+\qquad
+D^{\mathrm{TT}}_{ij,kl}(k)
+\propto
+\frac{i\Pi^{\mathrm{TT}}_{ij,kl}}{k^2+i0},
+\qquad \operatorname{rank}\Pi^{\mathrm{TT}}=2.
+\]
+Thus the pure Einstein linearization has two classical massless spin-two wave modes on this
+background. On a curved Einstein background the relevant statement is instead about the
+Lichnerowicz operator and its boundary conditions; a Poincar\'e particle pole is not automatic.
+The present OPH derivation does not construct the metric-field quantization, physical graviton
+Hilbert space, or positive-residue two-point pole required by (Q1)--(Q3).
 \end{enumerate}
 
-The photon is not postulated. It is forced by the axioms through the chain above. The photon mediates the correlations between charged excitations in different patches; it is how the \(\mathrm U(1)_Q\) redundancy structure propagates through the algebra net.
+\textbf{Proof.} For (i), expand the Maxwell action to second order. Gauss' law removes the
+longitudinal canonical pair, leaving two transverse polarizations with the displayed positive
+Hamiltonian and dispersion \(\omega^2=c_\star^2|\mathbf k|^2\). Inverting the gauge-fixed Hessian
+gives the displayed covariant Green function. For (ii), write
+\(F^a_{\mu\nu}=\partial_\mu A^a_\nu-\partial_\nu A^a_\mu+O(A^2)\); the quadratic Hessian is one
+Maxwell Hessian per Lie-algebra generator, while the nonabelian interactions begin at cubic order.
+For (iii), the second variation of the Einstein--Hilbert action is the Fierz--Pauli kinetic form.
+De Donder gauge and its residual gauge freedom reduce it to the transverse-traceless action shown,
+with the \(+\) and \(\times\) polarizations. These Hessian calculations establish (C1)--(C4).
+None constructs the quantum data in (Q1)--(Q3), so no unconditional particle conclusion follows.
+\(\square\)
 
-\textbf{Graviton inevitability chain:}
+\textbf{Corollary 6.18a (conditional particle interpretation).} If a branch in Theorem 6.18 is
+also supplied with its quantum-particle receipt, its positive-residue \(\delta(\mu^2)\) term defines
+a massless particle pole with the displayed physical polarizations. Without that receipt, this
+paper claims only the corresponding classical or perturbative carrier mode. In particular, the
+Tannaka group alone does not imply a Maxwell kinetic term or deconfined phase, and the classical
+Einstein equation alone does not imply a graviton state.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Theorem 4.2 (BW\_\{S\textsuperscript{2}\}) shows that on the support-visible prime geometric cap net, with collar Markov locality and controlled refinement-limit transport, modular flow on caps becomes geometric conformal dilation.
-\item
-  Theorem 4.3 identifies the induced kinematic group as Conf\textsuperscript{+}(S\textsuperscript{2}) \ensuremath{\cong} PSL(2,\ensuremath{\mathbb{C}}) \ensuremath{\cong} SO\textsuperscript{+}(3,1), the Lorentz group.
-\item
-  Theorem 5.1 shows that, under OPH5 on the recovered-core E0 branch, the condition \ensuremath{\delta}S\_gen = 0 implies the rest-frame first-variation Einstein relation, with cap-pair timelike coverage upgrading it to the semiclassical Einstein equations in the EFT regime.
-\item
-  The metric tensor emerges as the compression of modular flow data, and its dynamics are fixed by the derived fixed-cap generalized-entropy stationarity theorem.
-\item
-  A dynamical metric in a quantum theory requires a spin-2 quantum field. Its quantum (the graviton) must exist.
-\end{enumerate}
-
-The graviton is not postulated. It is forced by the axioms through the chain above. Diffeomorphism invariance emerges because the bulk spacetime description is a compression of screen data; different coordinate descriptions are redundancies in how that compression is presented.
+\textbf{Hard-term versus physical-spectrum boundary.} The vanishing quadratic parameters
+\(\mu_{Q,\mathrm{quad}}^2\), \(\mu_{\mathrm{YM},\mathrm{quad}}^2\), and
+\(\mu_{\mathrm{EH},\mathrm{TT}}^2\) in the displayed actions are action-level statements, not
+universal exact particle masses. Gauge or diffeomorphism redundancy can coexist with
+Higgs/Stueckelberg completions, plasma or medium self-energies, confinement, higher-derivative
+poles, bimetric sectors, or additional massive fields. Excluding those possibilities requires the
+declared field-content and phase hypotheses rather than the symmetry label alone.
 
 \subsubsection{Quotient-protected charge quantization}\label{612-mass-predictions-from-symmetry}
 
@@ -5228,10 +5386,10 @@ separate theorem stack on the ordinary or central branch.
 The recovered stack does not leave any known long-range or Standard Model gauge force unassigned:
 \begin{itemize}
 \tightlist
-\item \textbf{Gravity}: D3--D6 recover Lorentz kinematics, the three-dimensional observer-facing spatial chart, the null-stress bridge, and the Jacobson-type Einstein branch, with \(T_{ab}\) as the stress-energy source and the graviton as the quantum of the dynamical metric branch.
+\item \textbf{Gravity}: D3--D6 recover Lorentz kinematics, the three-dimensional observer-facing spatial chart, the null-stress bridge, and the Jacobson-type Einstein branch, with \(T_{ab}\) as the stress-energy source. On the additional pure Einstein--Hilbert/Minkowski action branch, Theorem 6.18 gives two classical transverse-traceless modes; a graviton quantum requires the separate particle receipt.
 \item \textbf{Strong interaction}: D8--D9 recover the \(\mathrm{SU}(3)_c\) color factor, the color triplet \(N_c=3\), quark color triplet/antitriplet assignments, and the eight gluon generators \((8,1,0)\). Confinement and hadron spectra are separate infrared QCD questions, not missing gauge-charge assignments.
 \item \textbf{Weak interaction}: D8--D9 recover the \(\mathrm{SU}(2)_L\) weak doublet structure, the one-Higgs branch, and the charged weak carriers \(W^\pm\) from the broken \(\mathrm{SU}(2)_L\) generators. D10 supplies the quantitative running/matching readout for \(v\) and the \(W/Z\) validation rows.
-\item \textbf{Hypercharge and electromagnetism}: The hypercharge theorem, the \(\mathbb Z_6\) quotient, and Corollary 6.6c fix the \(\mathrm U(1)_Y\) lattice, the unbroken generator \(Q=T_3+Y\), integer charge for color singlets, and the photon \(A\) as the massless \(\mathrm U(1)_Q\) carrier. Corollary 6.6d gives \(F_Q=dA_Q\), \(dF_Q=0\), and \(d*F_Q=g_Q^2*J_Q\) on the ordinary photon branch. The Thomson-limit fine-structure endpoint is a D10 quantitative closure.
+\item \textbf{Hypercharge and electromagnetism}: The hypercharge theorem, the \(\mathbb Z_6\) quotient, and Corollary 6.6c fix the \(\mathrm U(1)_Y\) lattice, the unbroken generator \(Q=T_3+Y\), integer charge for color singlets, and the electromagnetic connection label \(A_Q\). Corollary 6.6d gives \(F_Q=dA_Q\), \(dF_Q=0\), and \(d*F_Q=g_Q^2*J_Q\) only after the low-energy Maxwell action is supplied. Theorem 6.18 then gives two classical massless transverse modes; a photon particle additionally requires its quantum-pole receipt. The Thomson-limit fine-structure endpoint is a D10 quantitative closure.
 \end{itemize}
 
 \subsubsection{Testable Items and Phenomenological Branches}\label{83-novel-testable-predictions}
@@ -5240,8 +5398,11 @@ The detailed prediction surfaces live in the companion papers. The synthesis-lev
 
 \begin{itemize}
 \tightlist
-\item \textbf{Exact structural tests}: massless photon/gluons/graviton, exact color and electroweak
-charge assignments, exact hypercharge quantization, \(N_c=3\), \(N_g=3\), and no gauge-mediated proton decay on the product-group branch.
+\item \textbf{Structural and action-level tests}: exact color and electroweak charge assignments,
+exact hypercharge quantization, \(N_c=3\), \(N_g=3\), and no gauge-mediated proton decay on the
+product-group branch; plus the classical Maxwell, perturbative pure-Yang--Mills, and pure-Einstein
+quadratic carrier-mode tests of Theorem 6.18. Quantum particle poles are separate receipt-gated
+claims.
 \item \textbf{Information-theoretic gravity bound}: modular-additivity defects give explicit
 upper bounds on GR deviations wherever the Markov/mixing hypotheses apply.
 \item \textbf{Edge-sector tests}: Casimir-ratio predictions, including
@@ -5319,11 +5480,18 @@ Most unification stories pick a gauge group and work out consequences. Emergent-
 
 \emph{Resolution:} Gauge symmetry is recast as redundancy in overlap identifications (gauge-as-gluing). The visible fixed-cutoff carriers generate a rigid tensor subcategory with the ordinary forgetful fiber. When the explicit compact-gauge refinement receipt supplies coherent surjective group pullbacks, block-algebra embeddings, and tensor realizations, the refinement-limit category is constructed and Tannaka-Krein / Doplicher-Roberts reconstruction yields a compact group G on that certified bosonic branch. "Gauge symmetry" names the gluing redundancy at the conceptual level. "Compact group" is the mathematical form compatible with finite-dimensional objectwise fibers; the finite-state refinement maps alone do not produce it.
 
-\textbf{6. Massless photon and graviton usually hand-imposed.}
+\textbf{6. Classical carrier modes versus quantum particles.}
 
-Getting massless gauge bosons is easy if exact gauge invariance is assumed, but that restates the problem. Massless graviton is more delicate (mass terms, vDVZ discontinuity, strong coupling scales).
+Writing a symmetry group or a classical Einstein equation is not enough to produce a kinetic term,
+a physical phase, a quantization, or a particle pole. Conversely, a displayed free quadratic pole
+does not by itself establish an interacting asymptotic particle.
 
-\emph{Resolution:} Once gauge and diffeomorphism invariance are emergent redundancies of description (from gluing consistency / emergent geometry), hard mass terms are forbidden: "a coordinate system\textquotesingle s Jacobian can\textquotesingle t show up as a physical mass." These symmetry-protected zeros emerge from the same consistency machinery that gives the symmetries.
+\emph{Resolution:} Definition 6.18 separates a classical carrier-mode receipt from a quantum-
+particle receipt. The stated Maxwell, pure-Yang--Mills, and pure-Einstein actions yield transverse
+or TT classical modes and action-level zero hard-mass parameters on their declared backgrounds and
+phases. Higgs/Stueckelberg completions, media, confinement, higher-derivative terms, and extra fields
+remain possible outside those branches; a photon, gluon, or graviton particle is claimed only when
+the physical Hilbert-space, positive-residue pole, and asymptotic/phase gates pass.
 
 \textbf{7. Global consistency, anomalies, and loop patching.}
 
@@ -5359,7 +5527,7 @@ Unified programs struggle to give sharp, finite microscopic definitions. Formal 
 
 Unified models often explode in parameters, sectors, or vacua, becoming hard to test directly because everything depends on choices.
 
-\emph{Resolution:} The framework compresses freedom into a "pixel area" (resolution) parameter and a total Hilbert space capacity (size) parameter, then derives structure from consistency (Lorentz, Einstein form, compact gauge group reconstruction, exact zeros, quantization patterns). The explicit MAR selector then picks the SM factors and sector factorization on the admissible class discussed in Section 6.2.
+\emph{Resolution:} The framework compresses freedom into a "pixel area" (resolution) parameter and a total Hilbert space capacity (size) parameter, then derives structure from consistency (Lorentz form, the conditional Einstein branch, receipt-certified compact-group reconstruction, charge-quantization patterns, and action-level carrier modes only on explicitly selected phases). The explicit MAR selector then picks the SM factors and sector factorization on the admissible class discussed in Section 6.2. Quantum-particle poles remain a separate receipt rather than an exact-zero output of symmetry.
 
 \textbf{Structural pattern.} The framework treats locality, Lorentz invariance, gauge symmetry, and
 gravity as consequences of consistency conditions among overlapping descriptions together with

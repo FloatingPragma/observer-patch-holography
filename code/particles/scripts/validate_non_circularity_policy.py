@@ -28,6 +28,7 @@ ARTIFACTS = {
     "neutrino_bridge": PARTICLES / "runs" / "neutrino" / "neutrino_bridge_rigidity_theorem.json",
     "neutrino_absolute": PARTICLES / "runs" / "neutrino" / "neutrino_absolute_attachment_theorem.json",
     "exact_nonhadron": PARTICLES / "exact_nonhadron_masses.json",
+    "carrier_acceptance": PARTICLES / "runs" / "status" / "carrier_mode_acceptance.json",
 }
 
 
@@ -125,12 +126,31 @@ def validate() -> dict[str, Any]:
     withheld_entries = {
         entry["particle_id"]: entry for entry in payloads["exact_nonhadron"].get("withheld_entries", [])
     }
+    carrier_modes = {
+        entry["carrier_id"]: entry for entry in payloads["carrier_acceptance"].get("carriers", [])
+    }
     for particle_id in ("photon", "gluon", "graviton"):
-        _require(entries[particle_id].get("promotable") is True, failures, f"{particle_id} structural zero is not promotable")
+        _require(particle_id not in entries, failures, f"{particle_id} leaked into public particle mass entries")
+        _require(particle_id in carrier_modes, failures, f"{particle_id} conditional carrier mode is absent")
         _require(
-            entries[particle_id].get("depends_on_quantitative_particle_pipeline") is False,
+            carrier_modes.get(particle_id, {}).get("hard_quadratic_mass_parameter_squared") == 0,
             failures,
-            f"{particle_id} structural zero depends on quantitative particle pipeline",
+            f"{particle_id} hard quadratic zero is absent",
+        )
+        _require(
+            carrier_modes.get(particle_id, {}).get("abstract_symmetry_group_alone_sufficient") is False,
+            failures,
+            f"{particle_id} treats the abstract group as sufficient",
+        )
+        _require(
+            carrier_modes.get(particle_id, {}).get("quantum_particle_gate", {}).get("passed") is False,
+            failures,
+            f"{particle_id} passes the quantum-particle gate without receipts",
+        )
+        _require(
+            carrier_modes.get(particle_id, {}).get("particle_promotion_allowed") is False,
+            failures,
+            f"{particle_id} conditional carrier mode promotes as a particle",
         )
     for particle_id in ("up_quark", "down_quark", "strange_quark", "charm_quark", "bottom_quark", "top_quark"):
         _require(particle_id not in entries, failures, f"{particle_id} target-anchored quark witness is a public entry")

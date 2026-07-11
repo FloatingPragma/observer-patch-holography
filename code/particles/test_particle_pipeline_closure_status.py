@@ -26,6 +26,7 @@ def test_particle_pipeline_closure_status_scope_locks_hadrons_and_workers() -> N
     assert status["finalization_gates"]["hierarchy_local_global_resonance_closed"] is True
     assert status["finalization_gates"]["higgs_naturality_defect_closed"] is True
     assert status["finalization_gates"]["pixel_screen_resonance_summary_closed"] is True
+    assert status["finalization_gates"]["symmetry_only_particle_promotion_blocked"] is True
     assert status["artifacts"]["measured_endpoint_calibration"]["status"] == (
         "oph_plus_empirical_hadron_closure_endpoint"
     )
@@ -36,6 +37,10 @@ def test_particle_pipeline_closure_status_scope_locks_hadrons_and_workers() -> N
     assert status["artifacts"]["empirical_ee_hadrons_source_registry"]["exists"] is True
     assert status["artifacts"]["empirical_ee_hadronic_spectral_measure_schema"]["exists"] is True
     gates = {gate["issue"]: gate for gate in status["issue_gates"]}
+    assert gates[536]["state"] == "closed_claim_scope_repaired_quantum_particle_gate_fail_closed"
+    assert gates[536]["closable_now"] is True
+    assert gates[536]["zero_gev_particle_rows_emitted"] is False
+    assert gates[536]["quantum_particle_promotion_allowed"] is False
     assert gates[153]["state"] == "closed_out_of_scope_computationally_blocked"
     assert gates[153]["closable_now"] is True
     assert gates[153]["requires_oph_hardware_backend"] is True
@@ -84,6 +89,10 @@ def test_particle_pipeline_closure_status_scope_locks_hadrons_and_workers() -> N
     assert gates[198]["closable_now"] is True
     assert status["latest_nonhadron_predictions"]["higgs"]["value"] == 125.1995304097179
     assert status["latest_nonhadron_predictions"]["higgs"]["unit"] == "GeV"
+    assert "photon" not in status["latest_nonhadron_predictions"]
+    carrier_modes = {row["carrier_id"]: row for row in status["classical_carrier_modes"]}
+    assert set(carrier_modes) == {"photon", "gluon", "graviton"}
+    assert carrier_modes["graviton"]["quantum_particle_gate"]["passed"] is False
     assert "top_quark" not in status["latest_nonhadron_predictions"]
     assert "electron_neutrino" not in status["latest_nonhadron_predictions"]
     withheld = {row["particle_id"]: row for row in status["withheld_non_prediction_rows"]}

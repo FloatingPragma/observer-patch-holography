@@ -62,11 +62,18 @@ def test_exact_nonhadron_mass_bundle_is_complete() -> None:
         )
         payload = json.loads(js.read_text(encoding="utf-8"))
         assert payload["artifact"] == "oph_exact_nonhadron_mass_bundle"
-        assert payload["status"] == "public_mass_outputs_with_target_anchored_witnesses_withheld"
+        assert payload["status"] == (
+            "public_mass_outputs_with_classical_carriers_separated_and_target_anchored_witnesses_withheld"
+        )
         entries = {entry["particle_id"]: entry for entry in payload["entries"]}
+        carriers = {entry["carrier_id"]: entry for entry in payload["classical_carrier_modes"]}
         withheld = {entry["particle_id"]: entry for entry in payload["withheld_entries"]}
-        assert len(entries) == 4
-        assert entries["photon"]["mass_gev"] == pytest.approx(0.0, abs=1.0e-18)
+        assert len(entries) == 1
+        assert not {"photon", "gluon", "graviton"} & set(entries)
+        assert set(carriers) == {"photon", "gluon", "graviton"}
+        assert all(row["hard_quadratic_mass_parameter_squared"] == 0 for row in carriers.values())
+        assert all(row["quantum_particle_gate"]["passed"] is False for row in carriers.values())
+        assert all(row["particle_promotion_allowed"] is False for row in carriers.values())
         assert "w_boson" not in entries
         assert "z_boson" not in entries
         assert entries["higgs"]["mass_gev"] == pytest.approx(125.1995304097179, abs=1.0e-12)
@@ -84,5 +91,7 @@ def test_exact_nonhadron_mass_bundle_is_complete() -> None:
         assert withheld["tau_neutrino"]["reason"] == "target_informed_candidate_rejected_by_correlated_profile"
         markdown = md.read_text(encoding="utf-8")
         assert "Public Non-Hadron Mass Outputs" in markdown
+        assert "Separated Classical Carrier Modes" in markdown
+        assert "not emitted as `0 GeV` particle predictions" in markdown
         assert "Bottom Quark" not in markdown
         assert "Tau Neutrino" not in markdown

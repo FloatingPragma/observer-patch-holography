@@ -114,7 +114,7 @@ The results emphasized in this paper are ordered below by a combination of impac
 \[
 \frac{\SU(3)\times\SU(2)\times\U(1)}{\mathbb Z_6}
 \]
-is recovered on the receipt-certified realized MAR-admissible branch of the bosonic compact-gauge theorem; together with the one-Higgs package it fixes the structural electroweak force content \(\SU(2)_L\times\U(1)_Y\to\U(1)_Q\) and the \(W^\pm/Z/A\) gauge-boson basis. The ordinary \(\U(1)_Q\) photon branch then gives \(F_Q=dA_Q\), \(dF_Q=0\), and \(d*F_Q=g_Q^2*J_Q\), i.e. Maxwell's equations after canonical electromagnetic normalization. This is a realized-branch gauge result with explicit refinement-receipt, matter-package, and admissibility inputs; numerical \(W/Z\) masses and mixing are D10 quantitative readouts.
+is recovered on the receipt-certified realized MAR-admissible branch of the bosonic compact-gauge theorem; together with the one-Higgs package it fixes the structural electroweak force content \(\SU(2)_L\times\U(1)_Y\to\U(1)_Q\) and the \(W^\pm/Z/A_Q\) generator and connection directions. The abelian connection has \(F_Q=dA_Q\). After independently assuming the low-energy Maxwell action and a nonzero kinetic coefficient, its variation also gives \(dF_Q=0\) and \(d*F_Q=g_Q^2*J_Q\), i.e. Maxwell's equations after canonical electromagnetic normalization. The structural part is a realized-branch gauge result with explicit refinement-receipt, matter-package, and admissibility inputs; the action, numerical \(W/Z\) masses, and mixing are additional quantitative-branch data.
 \item On the controlled compact-gauge branch, OPH derives the four-dimensional
 Euclidean Yang--Mills form from compact-gauge holonomy data and the local MaxEnt/Gibbs
 continuum limit. On a finite weighted quotient, observation-fiber resampling is the orthogonal
@@ -256,11 +256,11 @@ Recovered formula or output & Support status & Display & Boundary \\
 Lorentz transformations and light cone & core theorem & \(\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)\) & prime geometric BW branch \\
 Einstein field equation & core theorem & \(G_{ab}+\Lambda g_{ab}=8\pi G\,\langle T_{ab}\rangle\) & E0 dependency discharge; local branch leaves \(\Lambda\) open \\
 Newton-Poisson limit & inherited limit & \(\nabla^2\Phi=4\pi G\rho\), \(\ddot{\mathbf x}=-\nabla\Phi\) & weak field, slow motion \\
-Maxwell equations & corollary & \(F_Q=dA_Q,\ dF_Q=0,\ d{*}F_Q=g_Q^2{*}J_Q\) & ordinary photon branch \\
-Yang--Mills equations & corollary & \(F=dA+A\wedge A,\ DF=0,\ D{*}F=g^2{*}J\) & compact-gauge branch \\
+Maxwell equations & conditional corollary & \(F_Q=dA_Q,\ dF_Q=0,\ d{*}F_Q=g_Q^2{*}J_Q\) & electromagnetic connection branch plus explicit Maxwell action/current hypothesis \\
+Yang--Mills equations & conditional corollary & \(F=dA+A\wedge A,\ DF=0,\ D{*}F=g^2{*}J\) & compact-gauge connection branch plus explicit Yang--Mills action/current hypothesis \\
 Bekenstein--Hawking / de Sitter area law & global closure & \(N_{\mathrm{scr}}=A/(4\ell_P^2)=3\pi/(G\Lambda)\) & capacity fixed point \\
 Charge quantization & core theorem & \(Q=T_3+Y\), observable color singlets have \(Q\in\mathbb Z\) & fractional quarks are confined colored fields \\
-Structural zero masses & core theorem & \(m_\gamma=m_g=m_{\mathrm{grav}}=0\) & gluons appear as confined carriers \\
+Classical carrier-mode poles & conditional action theorem & \(K_X^{\mathrm{phys}}\propto(\omega^2-c_\star^2|\mathbf k|^2)\Pi_X\) & Maxwell, perturbative pure-Yang--Mills, or pure-Einstein action/phase receipt; quantum particle gate separate \\
 Colors and generations & core theorem & \(N_c=3,\quad N_g=3\) & flavor masses are separate continuations \\
 \end{longtable}
 \endgroup
@@ -1200,7 +1200,7 @@ N_c=3,
 \qquad
 N_g=3,
 \]
-with the exact Standard Model hypercharge lattice on the realized matter package. The same package also fixes the structural electroweak force content: the weak \(\SU(2)_L\) factor, the hypercharge \(\U(1)_Y\) factor, the nonzero neutral-Higgs vacuum-vector stabilizer \(\U(1)_Q\), and the \(W^\pm/Z/A\) gauge-boson basis. Here the count statements are internal to the same realized branch: the D8 minimal coupled-carrier theorem stack fixes the color triplet and hence \(N_c=3\); CKM phase counting and weak-sector asymptotic freedom then bound \(N_g\) on that same one-Higgs branch; MAR fixes the smallest realized value \(N_g=3\); and Witten's \(\SU(2)\) anomaly is retained only as a consistency check on the resulting triplet-doublet package.
+with the exact Standard Model hypercharge lattice on the realized matter package. The same package also fixes the structural electroweak force content: the weak \(\SU(2)_L\) factor, the hypercharge \(\U(1)_Y\) factor, the nonzero neutral-Higgs vacuum-vector stabilizer \(\U(1)_Q\), and the \(W^\pm/Z/A_Q\) generator and connection directions. Here the count statements are internal to the same realized branch: the D8 minimal coupled-carrier theorem stack fixes the color triplet and hence \(N_c=3\); CKM phase counting and weak-sector asymptotic freedom then bound \(N_g\) on that same one-Higgs branch; MAR fixes the smallest realized value \(N_g=3\); and Witten's \(\SU(2)\) anomaly is retained only as a consistency check on the resulting triplet-doublet package.
 \end{theorem}
 
 \begin{proof}
@@ -3316,15 +3316,15 @@ More generally, if \(\widehat L(P)\), \(\widehat T(P)\), \(\widehat E(P)\), and
 \[
 L_{\mathrm{loc}}=\sqrt{a_{\mathrm{cell}}}\,\widehat L(P),
 \qquad
-t_{\mathrm{loc}}=\frac{\sqrt{a_{\mathrm{cell}}}}{c}\,\widehat T(P),
+t_{\mathrm{loc}}=\frac{\sqrt{a_{\mathrm{cell}}}}{c_\star}\,\widehat T(P),
 \]
 \[
-E_{\mathrm{loc}}=\frac{\hbar c}{\sqrt{a_{\mathrm{cell}}}}\,\widehat E(P),
+E_{\mathrm{loc}}=\frac{\hbar c_\star}{\sqrt{a_{\mathrm{cell}}}}\,\widehat E(P),
 \qquad
-\Theta_{\mathrm{loc}}=\frac{\hbar c}{k_B\sqrt{a_{\mathrm{cell}}}}\,\widehat\Theta(P).
+\Theta_{\mathrm{loc}}=\frac{\hbar c_\star}{k_B\sqrt{a_{\mathrm{cell}}}}\,\widehat\Theta(P).
 \]
 Thus, at fixed \(P\), local lengths scale with \(a_{\mathrm{cell}}^{1/2}\) alone, local times
-use that same \(a_{\mathrm{cell}}^{1/2}\) scale divided by the structural Lorentz output \(c\),
+use that same \(a_{\mathrm{cell}}^{1/2}\) scale divided by the structural Lorentz output \(c_\star\),
 and local mass/energy and temperature rows use the inverse \(a_{\mathrm{cell}}^{1/2}\) scale
 dressed only by the familiar-unit display conventions \(\hbar\) and \(k_B\).
 \end{proposition}
@@ -8856,7 +8856,7 @@ and the unbroken gauge factor is \(\U(1)_Q\). The charged weak generators give
 \[
 W^\pm=\frac{1}{\sqrt2}(W^1\mp iW^2),
 \]
-while the neutral \(\SU(2)_L\) and \(\U(1)_Y\) gauge fields span the \(Z/A\) basis on the D10 quantitative branch. Thus the recovered structural package contains the weak charged-current carriers \(W^\pm\), the neutral weak carrier \(Z\), the electromagnetic carrier \(A\), and the exact charge operator \(Q=T_3+Y\). The mixing angle, \(v\), and the numerical \(W/Z\) masses belong to the D10 running/matching surface instead of this recovered-core structural corollary.
+while the neutral \(\SU(2)_L\) and \(\U(1)_Y\) gauge fields span the \(Z/A_Q\) connection basis on the D10 quantitative branch. Thus the recovered structural package contains the charged \(W^\pm\) connection directions, the neutral broken \(Z\) direction, the unbroken electromagnetic connection direction \(A_Q\), and the exact charge operator \(Q=T_3+Y\). These algebraic and connection labels alone assert neither a propagating mode nor a quantum particle. The mixing angle, \(v\), and the numerical \(W/Z\) masses belong to the D10 running/matching surface instead of this recovered-core structural corollary.
 \end{corollary}
 
 \begin{proof}
@@ -8865,15 +8865,15 @@ The D8 result fixes the weak-type role to the \(\SU(2)\) doublet and the connect
 e^{i\alpha T_3}e^{i\beta Y}\phi_0
 =e^{i(\beta-\alpha)/2}\phi_0.
 \]
-Thus the vector is fixed exactly by the diagonal relation \(\beta=\alpha\), locally, and its connected stabilizer is generated by \(Q=T_3+Y\). By contrast, its projective ray is fixed for independent \(\alpha\) and \(\beta\); that larger projective stabilizer is not the unbroken gauge group. The two noncommuting charged \(\SU(2)\) generators are broken directions and combine into \(W^\pm\); the orthogonal neutral broken direction is the \(Z\) carrier, while the gauge field of the unbroken vector stabilizer is the photon \(A\). The global \(\mathbb Z_6\) quotient fixes the compatible charge lattice used in Proposition~\ref{prop:z6} and only adds the corresponding finite central identification to this stabilizer calculation.
+Thus the vector is fixed exactly by the diagonal relation \(\beta=\alpha\), locally, and its connected stabilizer is generated by \(Q=T_3+Y\). By contrast, its projective ray is fixed for independent \(\alpha\) and \(\beta\); that larger projective stabilizer is not the unbroken gauge group. The two noncommuting charged \(\SU(2)\) generators are broken directions and combine into the \(W^\pm\) connection components; the orthogonal neutral broken direction defines the \(Z\) connection component, while the gauge field of the unbroken vector stabilizer is the electromagnetic connection component \(A_Q\). The global \(\mathbb Z_6\) quotient fixes the compatible charge lattice used in Proposition~\ref{prop:z6} and only adds the corresponding finite central identification to this stabilizer calculation. None of these algebraic labels alone asserts a kinetic term, propagating mode, or quantum particle.
 \end{proof}
 
-\begin{corollary}[Maxwell sector from the realized \texorpdfstring{\(\U(1)_Q\)}{U(1)Q} branch]\label{cor:maxwell-sector}
+\begin{corollary}[Conditional Maxwell sector on the realized \texorpdfstring{\(\U(1)_Q\)}{U(1)Q} branch]\label{cor:maxwell-sector}
 On the realized ordinary zero-obstruction one-Higgs branch, let \(A_Q\) be the support-visible connection component on the unbroken electromagnetic factor \(\U(1)_Q\) of Corollary~\ref{cor:electroweak-force}. Then
 \[
 F_Q=dA_Q.
 \]
-The low-energy Lorentzian electromagnetic action with conserved current \(J_Q\) is
+Assume in addition the low-energy Lorentzian Maxwell action with conserved current \(J_Q\),
 \[
 S_{\mathrm{EM}}[A_Q,J_Q]
 =
@@ -8899,7 +8899,7 @@ In local coordinates,
 \qquad
 \partial_\mu F_Q^{\mu\nu}=g_Q^2 J_Q^\nu.
 \]
-After canonical electromagnetic normalization, these are Maxwell's equations. The numerical value of \(g_Q\), equivalently \(\alpha_{\mathrm{em}}\), belongs to the D10 Ward-projected electromagnetic readout.
+After canonical electromagnetic normalization, these are Maxwell's equations. The numerical value of \(g_Q\), equivalently \(\alpha_{\mathrm{em}}\), belongs to the D10 Ward-projected electromagnetic readout. The compact-group reconstruction and connection label do not themselves supply this action or its nonzero kinetic coefficient; they are independent hypotheses of this corollary.
 \end{corollary}
 
 \begin{proof}
@@ -8936,8 +8936,169 @@ d*F_Q=g_Q^2 *J_Q.
 Applying \(d\) to the sourced equation gives \(d*J_Q=0\), the current-conservation compatibility condition. The component equations are the standard homogeneous and inhomogeneous Maxwell equations with the OPH coupling convention.
 \end{proof}
 
+\begin{definition}[Carrier-mode and quantum-particle receipts]
+\label{def:carrier-particle-receipts}
+Fix the structural invariant speed \(c_\star\). A classical massless carrier-mode receipt for a
+field \(q_X\) consists of a stated background and phase, an explicit quadratic action
+with positive nonzero physical kinetic coefficient, a gauge fixing or constraint reduction with physical projector
+\(\Pi_X\), and a positive reduced Hamiltonian. Separately, the action Hessian restricted to the
+physical subspace must have
+\[
+K_X^{\mathrm{phys}}(\omega,\mathbf k)
+=Z_X\bigl(\omega^2-c_\star^2|\mathbf k|^2\bigr)\Pi_X,
+\qquad Z_X>0,
+\]
+so the free reduced Green function is
+\[
+D_X^{\mathrm{phys}}(\omega,\mathbf k)
+=\frac{i\,\Pi_X/Z_X}
+{\omega^2-c_\star^2|\mathbf k|^2+i0}.
+\]
+This is an action-level classical-mode statement, not a particle-mass statement.
+
+A quantum-particle receipt additionally supplies: a positive-energy vacuum quantization; a
+physical Hilbert space obtained by constraint reduction or BRST cohomology; a physical two-point
+function with K\"all\'en--Lehmann measure
+\[
+d\rho_X(\mu^2)
+=Z_X^{\mathrm{pole}}\delta(\mu^2)d\mu^2+d\rho_X^{\mathrm{cont}}(\mu^2),
+\qquad Z_X^{\mathrm{pole}}>0;
+\]
+or an equivalent joint energy--momentum spectrum containing a positive-residue
+\(p^0>0,\ p^2=0\) mass shell (at fixed \(\mathbf k\),
+\(\omega=c_\star|\mathbf k|\));
+and the stability/asymptotic-state or LSZ hypotheses appropriate to the phase, including a
+deconfined asymptotic sector for a colored carrier. Only the combined classical and quantum
+receipt licenses a massless quantum-particle claim. A compact group, connection label, or
+classical field equation alone does not pass either missing step.
+\end{definition}
+
+\begin{theorem}[Action-level carrier modes on the Maxwell, pure-Yang--Mills, and Einstein branches]
+\label{thm:carrier-mode-gates}
+The following statements hold under the displayed additional action, background, field-content,
+and phase hypotheses.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2em]
+\item On the source-free ordinary electromagnetic vacuum branch \(J_Q=0\), assume the Maxwell action of
+Corollary~\ref{cor:maxwell-sector} with \(0<g_Q^2<\infty\) and no Higgs, Stueckelberg, medium, or
+nonlocal quadratic mass operator. Radiation gauge leaves two transverse components and
+\[
+H_Q^{(2)}=\frac{1}{2g_Q^2}\int
+\bigl(|\mathbf E_T|^2+|\mathbf B|^2\bigr)d^3x,
+\qquad
+K_{Q,T}=g_Q^{-2}
+\bigl(\omega^2-c_\star^2|\mathbf k|^2\bigr)\Pi_T,
+\qquad \operatorname{rank}\Pi_T=2.
+\]
+In covariant \(\xi\)-gauge the free kernel has inverse
+\[
+D^Q_{\mu\nu}(k)
+=\frac{-ig_Q^2}{k^2+i0}
+\left(\eta_{\mu\nu}-(1-\xi)\frac{k_\mu k_\nu}{k^2+i0}\right),
+\]
+whose longitudinal part decouples from a conserved current. Hence the branch has two classical
+massless electromagnetic carrier modes.
+
+\item Let a compact group \(G\) carry the Lorentzian two-derivative pure Yang--Mills action with
+\(0<g^2<\infty\), expanded about the topologically trivial background in a gauge
+\(\bar A_\mu=0\), in a perturbative or deconfined phase with no Higgs condensate. Writing the
+perturbation as \(a_\mu^a\), its quadratic action is
+\[
+S_{\mathrm{YM}}^{(2)}
+=-\frac{1}{4g^2}\sum_a\int
+\bigl(\partial_\mu a_\nu^a-\partial_\nu a_\mu^a\bigr)
+\bigl(\partial^\mu a^{a,\nu}-\partial^\nu a^{a,\mu}\bigr)d^4x.
+\]
+Lorenz gauge gives the standard covariant inverse, while Gauss' law and radiation gauge leave two
+transverse components per generator, with
+\[
+H_{\mathrm{YM}}^{(2)}
+=\frac{1}{2g^2}\sum_a\int
+\bigl(|\mathbf E_T^a|^2+|\mathbf B^a|^2\bigr)d^3x\geq0,
+\]
+with strict positivity on nonzero reduced finite-energy modes of
+\(\mathbf k\neq0\) under the stated boundary conditions. Their kernel and free transverse Green
+function are
+\[
+K^{ab}_{\mathrm{YM},T}
+=\delta^{ab}g^{-2}
+\bigl(\omega^2-c_\star^2|\mathbf k|^2\bigr)\Pi_T,
+\qquad
+D^{ab}_{\mathrm{YM},T}
+=\frac{i g^2\delta^{ab}\Pi_T}
+{\omega^2-c_\star^2|\mathbf k|^2+i0}.
+\]
+Consequently there are \(2\dim G\) transverse classical modes and the corresponding gauge-fixed
+free \(k^2=0\) pole. This is a perturbative quadratic statement. It does not give a gauge-invariant
+asymptotic gluon on the confined QCD branch; the positive gauge-invariant Yang--Mills gap and the
+colored connection pole concern different spectral questions.
+
+\item In addition to the derived classical Einstein equation, assume the two-derivative
+Einstein--Hilbert action with \(G>0\) about a Minkowski vacuum with \(\Lambda=0\), without higher-curvature
+kinetic terms, bimetric mixing, or extra scalar/vector fields. De Donder gauge and residual-gauge
+reduction give the two transverse-traceless components with
+\[
+S_{\mathrm{TT}}^{(2)}
+=\frac{1}{64\pi G}\int
+\left[(\partial_t h_{ij}^{\mathrm{TT}})^2
+-c_\star^2(\nabla h_{ij}^{\mathrm{TT}})^2\right]d^4x,
+\]
+\[
+H_{\mathrm{TT}}^{(2)}
+=\frac{1}{64\pi G}\int
+\left[(\partial_t h_{ij}^{\mathrm{TT}})^2
++c_\star^2(\nabla h_{ij}^{\mathrm{TT}})^2\right]d^3x,
+\qquad
+D^{\mathrm{TT}}_{ij,kl}(k)
+\propto\frac{i\Pi^{\mathrm{TT}}_{ij,kl}}{k^2+i0},
+\qquad \operatorname{rank}\Pi^{\mathrm{TT}}=2.
+\]
+Thus the pure Einstein linearization has two classical massless spin-two wave modes. On a curved
+Einstein background the appropriate object is the Lichnerowicz spectrum with stated boundary
+conditions, not an automatic Poincar\'e particle pole.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+For item~\textup{(i)}, the second variation of the Maxwell action is the standard vector kinetic
+Hessian. Gauss' law removes the longitudinal canonical pair, leaving two transverse polarizations
+with positive Hamiltonian and dispersion \(\omega^2=c_\star^2|\mathbf k|^2\); inversion after
+gauge fixing gives the displayed propagator. For item~\textup{(ii)},
+\(F^a_{\mu\nu}=\partial_\mu A^a_\nu-\partial_\nu A^a_\mu+O(A^2)\), so the quadratic Hessian is
+one Maxwell Hessian per Lie-algebra generator and the nonabelian interactions begin at cubic
+order. For item~\textup{(iii)}, the second variation of the Einstein--Hilbert action is the
+Fierz--Pauli kinetic form. De Donder gauge and its residual freedom reduce it to the displayed
+transverse-traceless action with \(+\) and \(\times\) polarizations. These calculations establish
+the classical receipt of Definition~\ref{def:carrier-particle-receipts}; none constructs its
+quantum Hilbert-space, physical spectral-measure, or asymptotic-state clauses.
+\end{proof}
+
+\begin{corollary}[Conditional particle interpretation]
+\label{cor:conditional-carrier-particles}
+If a branch in Theorem~\ref{thm:carrier-mode-gates} is also supplied with the quantum-particle
+receipt of Definition~\ref{def:carrier-particle-receipts}, its positive-residue
+\(\delta(\mu^2)\) contribution defines a massless particle pole with the displayed physical
+polarizations. Without that receipt, this paper claims only the corresponding classical or
+perturbative carrier mode. In particular, compact-group reconstruction does not itself create a
+Maxwell kinetic term or deconfined phase, and the classical Einstein equation does not itself
+create a graviton state.
+\end{corollary}
+
+\begin{remark}[Hard quadratic terms versus the physical spectrum]
+The zero hard parameters in the displayed Maxwell, pure-Yang--Mills, and pure-Einstein quadratic
+operators are branch-specific action statements, not universal exact particle masses. Gauge or
+diffeomorphism redundancy can coexist with Higgs/Stueckelberg completions, plasma or medium
+self-energies, confinement, higher-derivative poles, bimetric sectors, or additional massive
+fields. Excluding those possibilities requires the declared field-content and phase hypotheses.
+\end{remark}
+
 \begin{remark}[Maxwell branch boundary]
-Corollary~\ref{cor:maxwell-sector} concerns the ordinary photon branch. Topologically singular electromagnetic sectors with magnetic sources obey modified homogeneous equations. On the certified support-visible compact simple nonabelian branch, Theorem~\ref{thm:oph-yang-mills-gap} gives a positive repair gap under its named finite and continuum receipts; the abelian electromagnetic branch has the symmetry-protected massless photon of Corollary~\ref{cor:electroweak-force}.
+Corollary~\ref{cor:maxwell-sector} concerns the ordinary electromagnetic branch. Topologically
+singular sectors with magnetic sources obey modified homogeneous equations. On the certified
+support-visible compact simple nonabelian branch, Theorem~\ref{thm:oph-yang-mills-gap} gives a
+positive gauge-invariant repair gap under its named finite and continuum receipts. On the abelian
+branch, the Maxwell action and phase hypotheses of Theorem~\ref{thm:carrier-mode-gates} give two
+classical massless transverse modes; a photon particle requires
+Corollary~\ref{cor:conditional-carrier-particles}.
 \end{remark}
 
 \begin{theorem}[Realized compact-gauge witness and physical UV landing]\label{thm:mar-witness-landing}
@@ -9068,7 +9229,11 @@ Equivalently, the adjoint representation of the derived gauge group contains onl
 \[
 (8,1,0)\oplus(1,3,0).
 \]
-There are no mixed $(3,2,\pm 5/6)$ gauge bosons. Hence gauge-mediated proton decay is absent. The unbroken gauge symmetries forbid elementary gauge-boson mass terms: the photon is massless, while gluons are massless gauge fields of the unbroken color symmetry.
+There are no mixed $(3,2,\pm 5/6)$ gauge generators. Hence the ordinary simple-GUT
+gauge-mediated proton-decay channel is absent. This adjoint-content statement does not by itself
+supply a gauge-field kinetic term, select a phase, or determine a particle mass; those questions
+are governed by Definition~\ref{def:carrier-particle-receipts} and
+Theorem~\ref{thm:carrier-mode-gates}.
 \end{corollary}
 
 \begin{remark}
@@ -9759,15 +9924,15 @@ Evidence that the realized low-energy gauge structure or realized hypercharges d
 
 This paper does not leave any known long-range or Standard Model gauge force unassigned. The coverage is explicit by tier:
 \begin{itemize}[leftmargin=2em]
-\item \textbf{Gravity}: D3--D6 recover Lorentz kinematics, the three-dimensional observer-facing spatial chart, the null-stress bridge, and the Jacobson-type Einstein branch, with \(T_{ab}\) as the stress-energy source and the graviton as the quantum of the dynamical metric branch.
+\item \textbf{Gravity}: D3--D6 recover Lorentz kinematics, the three-dimensional observer-facing spatial chart, the null-stress bridge, and the Jacobson-type Einstein branch, with \(T_{ab}\) as the stress-energy source. On the additional pure Einstein--Hilbert/Minkowski action branch, Theorem~\ref{thm:carrier-mode-gates} gives two classical transverse-traceless modes; a graviton state requires the quantum-particle receipt.
 \item \textbf{Strong interaction}: D8--D9 recover the \(\SU(3)_c\) color factor, the color triplet \(N_c=3\), quark color triplet/antitriplet assignments, and the eight gluon generators \((8,1,0)\). Confinement and hadron spectra are separate infrared QCD questions, not missing gauge-charge assignments.
 \item \textbf{Weak interaction}: D8--D9 recover the \(\SU(2)_L\) weak doublet structure, the one-Higgs branch, and the charged weak carriers \(W^\pm\) from the broken \(\SU(2)_L\) generators. D10 supplies the quantitative running/matching readout for \(v\) and the \(W/Z\) validation rows.
-\item \textbf{Hypercharge and electromagnetism}: Theorem~\ref{thm:hypercharge}, Proposition~\ref{prop:z6}, and Corollary~\ref{cor:electroweak-force} fix the \(\U(1)_Y\) lattice, the unbroken generator \(Q=T_3+Y\), integer charge for color singlets, and the photon \(A\) as the massless \(\U(1)_Q\) carrier. Corollary~\ref{cor:maxwell-sector} gives the Maxwell equations \(dF_Q=0\) and \(d*F_Q=g_Q^2*J_Q\) on the ordinary photon branch. The Thomson-limit fine-structure endpoint is a D10 quantitative closure.
+\item \textbf{Hypercharge and electromagnetism}: Theorem~\ref{thm:hypercharge}, Proposition~\ref{prop:z6}, and Corollary~\ref{cor:electroweak-force} fix the \(\U(1)_Y\) lattice, the unbroken generator \(Q=T_3+Y\), integer charge for color singlets, and the electromagnetic connection label \(A_Q\). Corollary~\ref{cor:maxwell-sector} gives the Maxwell equations \(dF_Q=0\) and \(d*F_Q=g_Q^2*J_Q\) only after the low-energy Maxwell action is supplied. Theorem~\ref{thm:carrier-mode-gates} then gives two classical transverse modes; a photon particle requires Corollary~\ref{cor:conditional-carrier-particles}. The Thomson-limit fine-structure endpoint is a D10 quantitative closure.
 \end{itemize}
 
 \subsubsection{Product-group corollary}
 
-Because the realized gauge structure is a product group up to the finite central quotient fixed above, there are no mixed \((3,2,\pm 5/6)\) gauge bosons. Hence
+Because the realized gauge structure is a product group up to the finite central quotient fixed above, its connected adjoint has no mixed \((3,2,\pm 5/6)\) generator or connection component. This algebraic statement is not a particle-spectrum claim. Hence
 \[
 \tau_p^{(\mathrm{gauge})}=\infty
 \]
@@ -9952,13 +10117,17 @@ Ref.~\cite{ophparticles}. On the compact-paper surface, the dictionary serves as
 family-side input beneath those continuations. Old base-6 exponents are compare-only
 compressions of excitation action and have no role as primitive flavor data.
 
-\paragraph{Exact non-hadron output lane.}
-For reader-facing exact hits, the non-hadron surface is explicit and lane-split. The structural carrier chain
+\paragraph{Non-hadron output lane.}
+For reader-facing outputs, the non-hadron surface is explicit and lane-split. The gauge and
+gravity chains fix connection and metric carrier roles. Under the additional action/background
+hypotheses of Theorem~\ref{thm:carrier-mode-gates}, their reduced quadratic kernels have
 \[
-\text{Axioms }1\text{--}5 \longrightarrow D7\text{--}D9 \longrightarrow
-\bigl(m_\gamma,m_g,m_{\mathrm{grav}}\bigr)=(0,0,0)
+K_X^{\mathrm{phys}}
+=Z_X\bigl(\omega^2-c_\star^2|\mathbf k|^2\bigr)\Pi_X,
 \]
-is theorem-grade structural exactness. The electroweak quantitative-closure chain
+which is a classical or perturbative mode receipt rather than a zero-GeV particle-mass output.
+No photon, gluon, or graviton mass row is promoted until the quantum-particle receipt of
+Definition~\ref{def:carrier-particle-receipts} passes. The electroweak quantitative-closure chain
 \[
 \text{Axioms }1\text{--}5 \longrightarrow D7\text{--}D10
 \]
@@ -10067,15 +10236,15 @@ from the selected scale certificate.
 The same proposition fixes the full familiar-unit package:
 \[
 L_{\mathrm{loc}}=\sqrt{a_{\mathrm{cell}}}\,\widehat L(P),\qquad
-t_{\mathrm{loc}}=\frac{\sqrt{a_{\mathrm{cell}}}}{c}\,\widehat T(P),
+t_{\mathrm{loc}}=\frac{\sqrt{a_{\mathrm{cell}}}}{c_\star}\,\widehat T(P),
 \]
 \[
-E_{\mathrm{loc}}=\frac{\hbar c}{\sqrt{a_{\mathrm{cell}}}}\,\widehat E(P),\qquad
-\Theta_{\mathrm{loc}}=\frac{\hbar c}{k_B\sqrt{a_{\mathrm{cell}}}}\,\widehat\Theta(P),
+E_{\mathrm{loc}}=\frac{\hbar c_\star}{\sqrt{a_{\mathrm{cell}}}}\,\widehat E(P),\qquad
+\Theta_{\mathrm{loc}}=\frac{\hbar c_\star}{k_B\sqrt{a_{\mathrm{cell}}}}\,\widehat\Theta(P),
 \]
 with dimensionless \(\widehat L,\widehat T,\widehat E,\widehat\Theta\). Meters and seconds are
 therefore read from the single local ruler \(\sqrt{a_{\mathrm{cell}}}\) together with the
-structural Lorentz output \(c\), while GeV and Kelvin are downstream familiar-unit displays of the
+structural Lorentz output \(c_\star\), while GeV and Kelvin are downstream familiar-unit displays of the
 inverse local ruler through \(\hbar\) and \(k_B\).
 On that declared extension surface the local release values are
 \[
@@ -10088,7 +10257,9 @@ G&=6.674299995910528\times10^{-11}\,\mathrm{m^3\,kg^{-1}\,s^{-2}},
 (M_W,M_Z,M_H)=
 (80.377,\ 91.18797809193725,\ 125.1995304097179)\,\mathrm{GeV}.
 \]
-The displayed \(c\) row is structural from the Lorentz branch instead of \(P\)-fitted, and the
+The structural result is the common invariant null cone and speed \(c_\star\). The displayed
+decimal \(c=299792458\,\mathrm{m/s}\) is exact by the SI definition of the metre and is therefore
+a unit convention, not a predicted magnitude. The
 displayed \(G\) row is emitted by the selected scale certificate instead of by
 back-solving \(a_{\mathrm{cell}}/P\) against the rounded benchmark \(6.6743\times10^{-11}\). The
 same certificate turns the dimensionless \(\Lambda_{\mathrm{CRC}}\ell_\star^2\)
@@ -10103,9 +10274,9 @@ The paper does not claim complete closure of all low-energy observables.\footnot
 
 \section{Conclusion}
 
-Observer-Patch Holography starts from overlap consistency of observer patches and yields, within one framework, several effective structures usually treated separately in modern fundamental physics. This SM/GR derivation paper supports a unique schedule-independent quotient normal form for overlap repair from each fixed initial physical quotient state, with same-boundary uniqueness only under the additional unique-extension condition, and hence a quotient-level physical UV branch only modulo boundary redundancy, implementation hiding, and inert ancillary stabilization. It also supports a Lorentz branch on the extracted prime geometric cap pair, a Jacobson-type Einstein branch whose OPH5 recovered-core dependencies are discharged by Theorem~\ref{thm:einstein-bridge-discharge}, the global closure of that same gravity lane at the cosmic record-capacity fixed point, the Standard Model gauge quotient with exact hypercharges and structural electroweak force content on the realized matter package on the realized MAR one-Higgs branch in the bosonic internal-gauge sector, the realized color triplet \(N_c=3\) and generation count \(N_g=3\) on that branch, the Maxwell equations on the ordinary \(\U(1)_Q\) photon branch, a conditional support-visible compact-gauge Yang--Mills form together with repair-gap accounting of the Yang--Mills mass gap under the separately named finite and continuum receipts, and a separate integrated quantitative-closure branch. Phenomenological continuations are discussed separately from the recovered core.
+Observer-Patch Holography starts from overlap consistency of observer patches and yields, within one framework, several effective structures usually treated separately in modern fundamental physics. This SM/GR derivation paper supports a unique schedule-independent quotient normal form for overlap repair from each fixed initial physical quotient state, with same-boundary uniqueness only under the additional unique-extension condition, and hence a quotient-level physical UV branch only modulo boundary redundancy, implementation hiding, and inert ancillary stabilization. It also supports a Lorentz branch on the extracted prime geometric cap pair, a Jacobson-type Einstein branch whose OPH5 recovered-core dependencies are discharged by Theorem~\ref{thm:einstein-bridge-discharge}, the global closure of that same gravity lane at the cosmic record-capacity fixed point, the Standard Model gauge quotient with exact hypercharges and structural electroweak force content on the realized matter package on the realized MAR one-Higgs branch in the bosonic internal-gauge sector, and the realized color triplet \(N_c=3\) and generation count \(N_g=3\) on that branch. After an independently supplied Maxwell action, the electromagnetic connection branch gives Maxwell's equations and two classical transverse modes; a photon particle remains conditional on the quantum receipt. The paper also gives a conditional support-visible compact-gauge Yang--Mills form together with repair-gap accounting of the Yang--Mills mass gap under the separately named finite and continuum receipts, and a separate integrated quantitative-closure branch. Phenomenological continuations are discussed separately from the recovered core.
 
-The framework therefore presents general relativity and the Standard Model as effective descriptions arising from the five-axiom basis together with the support-visible BW scaling theorem, geometric-subnet construction, and categorical gauge reconstruction. The local quantitative claim surface is equally explicit: the declared pixel fixed point \(P\) controls the electroweak/Higgs mass trunk and the shared cell/edge identity used by the Newton area law, the selected no-\(G\) scale certificate controls the classical-regime gravity normalization through \(\ell_\star^2=3\pi/B_\star\), the invariant causal speed \(c\) is the structural Lorentz output, and the familiar-unit package reads meters, seconds, GeV, and Kelvin from the single local ruler \(\sqrt{a_{\mathrm{cell}}}=\sqrt{P}\,\ell_\star\) with \(\hbar\) and \(k_B\) used only as display conventions. Separate continuation boundaries concern sharper quantitative control, a fuller fermionic gauge branch, and theorem-side local exact-release objects beyond the corpus-backed surfaces stated here.
+The framework therefore presents general relativity and the Standard Model as effective descriptions arising from the five-axiom basis together with the support-visible BW scaling theorem, geometric-subnet construction, and categorical gauge reconstruction. The local quantitative claim surface is equally explicit: the declared pixel fixed point \(P\) controls the electroweak/Higgs mass trunk and the shared cell/edge identity used by the Newton area law, the selected no-\(G\) scale certificate controls the classical-regime gravity normalization through \(\ell_\star^2=3\pi/B_\star\), the invariant causal speed \(c_\star\) is the structural Lorentz output, and the familiar-unit package reads meters, seconds, GeV, and Kelvin from the single local ruler \(\sqrt{a_{\mathrm{cell}}}=\sqrt{P}\,\ell_\star\) with \(\hbar\) and \(k_B\) used only as display conventions. The exact SI coordinate \(c=299792458\,\mathrm{m/s}\) remains a unit convention, not a predicted decimal. Separate continuation boundaries concern sharper quantitative control, a fuller fermionic gauge branch, and theorem-side local exact-release objects beyond the corpus-backed surfaces stated here.
 
 \appendix
 \input{tex_fragments/COMPACT_TECHNICAL_SUPPLEMENT_PORT.tex}

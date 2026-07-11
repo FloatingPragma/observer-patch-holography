@@ -67,7 +67,13 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
     companion = {branch["label"]: branch for branch in payload["companion_open_branches"]}
     assert companion["Strong CP"]["state"] == "open_theta_qcd_bar_theta_vanishing_gap"
     predictions = {entry["particle_id"]: entry for entry in payload["predictions"]}
-    assert predictions["photon"]["value"] == 0.0
+    assert "photon" not in predictions
+    assert "gluon" not in predictions
+    assert "graviton" not in predictions
+    carrier_modes = {row["carrier_id"]: row for row in payload["classical_carrier_modes"]}
+    assert set(carrier_modes) == {"photon", "gluon", "graviton"}
+    assert carrier_modes["photon"]["hard_quadratic_mass_parameter_squared"] == 0
+    assert carrier_modes["photon"]["particle_promotion_allowed"] is False
     assert "w_boson" not in predictions
     assert "z_boson" not in predictions
     assert predictions["higgs"]["value"] == 125.1995304097179
@@ -77,7 +83,7 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
     withheld = {row["particle_id"]: row for row in payload["withheld_non_prediction_rows"]}
     assert withheld["electron"]["reason"] == "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction"
     assert withheld["electron"]["public_theorem_value"] is None
-    assert withheld["electron"]["formula_if_anchor_exists"] == "m_e(P)=exp(A_ch(P)-4.495210107907882)"
+    assert withheld["electron"]["formula_if_anchor_exists"] == "m_e(P)=exp(A_ch(P)-4.495209645475038)"
     assert "charged_determinant_trace_lift_attachment" in withheld["electron"]["missing_for_promotion"]
     charged_boundary = payload["charged_lepton_anchor_boundary"]
     assert charged_boundary["status"] == "missing_theorem"

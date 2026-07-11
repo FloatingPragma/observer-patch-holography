@@ -269,25 +269,25 @@ INVENTORY: List[Dict[str, Any]] = [
         "particle_id": "photon",
         "label": "gamma",
         "group": "Bosons",
-        "prediction_key": "m_gamma",
-        "ledger_id": "structural.massless.photon",
-        "note": "Structural massless gauge sector.",
+        "prediction_key": "conditional_maxwell_carrier_mode_not_mass_output",
+        "ledger_id": "conditional.carrier_mode.photon",
+        "note": "Conditional classical Maxwell carrier on the declared unbroken, deconfined action branch; not a 0 GeV quantum-particle prediction.",
     },
     {
         "particle_id": "gluon",
         "label": "g (8 color states)",
         "group": "Bosons",
-        "prediction_key": "m_gluon",
-        "ledger_id": "structural.massless.gluons",
-        "note": "Structural massless color gauge sector.",
+        "prediction_key": "conditional_yang_mills_carrier_modes_not_mass_output",
+        "ledger_id": "conditional.carrier_mode.gluons",
+        "note": "Conditional perturbative Yang-Mills carrier before confinement; no asymptotic colored-gluon particle is claimed on the confining QCD phase.",
     },
     {
         "particle_id": "graviton",
         "label": "graviton",
         "group": "Bosons",
-        "prediction_key": "m_graviton",
-        "ledger_id": "structural.massless.graviton",
-        "note": "Structural massless spin-2 sector from the OPH dynamical-metric and diffeomorphism branch.",
+        "prediction_key": "conditional_einstein_tensor_mode_not_mass_output",
+        "ledger_id": "conditional.carrier_mode.graviton",
+        "note": "Conditional transverse-traceless classical mode of the pure Einstein linearization on a suitable background; no graviton Hilbert space or pole is constructed.",
     },
     {
         "particle_id": "higgs",
@@ -769,10 +769,6 @@ def apply_local_candidate_overrides(prediction: Dict[str, Any]) -> Dict[str, Any
     if prediction.get("m_t") is not None and updated.get("d12_m_t_sidecar_gev") is None:
         updated["d12_m_t_sidecar_gev"] = float(prediction["m_t"])
 
-    updated.setdefault("m_gamma", 0.0)
-    updated.setdefault("m_gluon", 0.0)
-    updated.setdefault("m_graviton", 0.0)
-
     if D10_SOURCE_TRANSPORT_READOUT.exists():
         readout = json.loads(D10_SOURCE_TRANSPORT_READOUT.read_text(encoding="utf-8"))
         mass_pair = dict(readout.get("mass_pair_predictive_candidate", {}))
@@ -1183,7 +1179,7 @@ def prediction_surface_for_row(row_spec: Dict[str, Any], surface_state: Dict[str
     active = dict(surface_state["active_local_public_candidates"])
     particle_id = row_spec["particle_id"]
     if particle_id in {"photon", "gluon", "graviton"}:
-        return "particles_structural_massless"
+        return "conditional_classical_carrier_mode_quantum_gate_open"
     if particle_id in {"electron", "muon", "tau"} and active.get("charged_local_candidate"):
         return "local_charged_public_candidate"
     if particle_id in {"electron_neutrino", "muon_neutrino", "tau_neutrino"}:
@@ -1350,6 +1346,8 @@ def render_markdown(
         f"`hadrons_enabled={surface_state['active_local_public_candidates']['hadrons_enabled']}`",
         "",
         "This table is a `/particles`-native audit surface. If a sector has no live local public candidate, the value is reported as `n/a`; legacy fallback predictors are not used.",
+        "",
+        "The photon, gluon, and graviton inventory rows report conditional classical/perturbative carrier-mode branches only. Their hard quadratic mass parameter is zero on the displayed action branch, but no `0 GeV` quantum-particle prediction is emitted and the independent quantization/phase/pole gate remains open.",
         "",
         "Source-only hadron rows are suppressed by default because promotable rows require a real OPH production backend export bundle plus production systematics. Empirical hadron closure values stay in a separate output class with an e+e- source registry and schema. Re-enable local hadron rows only for explicit backend debugging with `--with-hadrons`.",
         "",

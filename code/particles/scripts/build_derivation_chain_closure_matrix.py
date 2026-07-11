@@ -15,6 +15,7 @@ PARTICLES_ROOT = ROOT / "particles"
 FINAL_PREDICTIONS = PARTICLES_ROOT / "runs" / "status" / "final_end_to_end_predictions.json"
 PIPELINE_STATUS = PARTICLES_ROOT / "runs" / "status" / "particle_pipeline_closure_status.json"
 BLIND_PROVENANCE = PARTICLES_ROOT / "runs" / "status" / "blind_prediction_provenance.json"
+CARRIER_ACCEPTANCE = PARTICLES_ROOT / "runs" / "status" / "carrier_mode_acceptance.json"
 CHARGED_NONCLOSURE = PARTICLES_ROOT / "runs" / "leptons" / "charged_end_to_end_impossibility_theorem.json"
 QUARK_GLOBAL_OBSTRUCTION = (
     PARTICLES_ROOT / "runs" / "flavor" / "quark_class_uniform_public_frame_descent_obstruction.json"
@@ -51,6 +52,7 @@ def build_payload() -> dict[str, Any]:
     final_predictions = _load_json(FINAL_PREDICTIONS)
     pipeline = _load_json(PIPELINE_STATUS)
     provenance = _load_json(BLIND_PROVENANCE)
+    carrier_acceptance = _load_json(CARRIER_ACCEPTANCE)
     charged_nonclosure = _load_json(CHARGED_NONCLOSURE)
     quark_global = _load_json(QUARK_GLOBAL_OBSTRUCTION)
     direct_top = _load_json(DIRECT_TOP_CONTRACT)
@@ -81,13 +83,26 @@ def build_payload() -> dict[str, Any]:
             "next_artifact": "code/P_derivation/runtime/r_q_residual_contract_current.json + code/P_derivation/runtime/fine_structure_interval_certificate_current.json",
         },
         {
-            "chain": "structural_massless_bosons",
-            "status": "closed_structural_zero",
-            "claim_level": "structural",
-            "outputs": {key: predictions[key]["value"] for key in ("photon", "gluon", "graviton")},
-            "promotable": True,
-            "open_gates": [],
-            "next_artifact": None,
+            "chain": "conditional_classical_carrier_modes",
+            "status": "closed_scoped_classical_modes_quantum_particle_gate_open",
+            "claim_level": "conditional_classical_or_perturbative_mode",
+            "outputs": {
+                row["carrier_id"]: {
+                    "hard_quadratic_mass_parameter_squared": row[
+                        "hard_quadratic_mass_parameter_squared"
+                    ],
+                    "classical_carrier_gate": row["classical_carrier_gate"]["status"],
+                    "quantum_particle_gate": row["quantum_particle_gate"]["status"],
+                }
+                for row in carrier_acceptance["carriers"]
+            },
+            "promotable": False,
+            "open_gates": list(carrier_acceptance["quantum_required_receipts"]),
+            "closure_reason": (
+                "Issue #536 is closed by separating the conditional classical-mode theorem from the "
+                "unmet quantum-particle gate; no 0 GeV particle row is emitted."
+            ),
+            "next_artifact": "code/particles/runs/status/carrier_mode_acceptance.json",
         },
         {
             "chain": "electroweak_massive_bosons",
@@ -236,7 +251,7 @@ def build_payload() -> dict[str, Any]:
         for row in rows
         if row["status"]
         in {
-            "closed_structural_zero",
+            "closed_scoped_classical_modes_quantum_particle_gate_open",
             "closed_on_declared_d10_d11_surface_direct_top_no_go",
             "closed_current_corpus_charged_end_to_end_no_go",
             "closed_selected_public_class_global_classification_no_go",

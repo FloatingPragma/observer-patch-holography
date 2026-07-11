@@ -299,7 +299,8 @@ Clay-admissible four-dimensional construction.
 
 The universe has beautiful symmetries. But the symmetries are also hidden.
 
-The photon is massless while W and Z bosons are heavy. Why?
+In the minimal electroweak action and its ordinary vacuum, the electromagnetic
+quadratic field has no hard mass term while the W and Z fields do. Why?
 
 ### The Mexican Hat
 
@@ -329,6 +330,12 @@ $U(1)_{\mathrm{em}}$.
 "Absorbed" is physicists' shorthand. The would-be massless Goldstone degrees of
 freedom do not appear as separate particles. They become the extra polarization
 states needed by massive $W$ and $Z$ bosons.
+
+That comparison is action- and phase-specific. The surviving
+$U(1)_{\mathrm{em}}$ label alone does not create a Maxwell kinetic term,
+choose a deconfined phase, or prove a photon particle. The familiar particle
+statement additionally uses the quantized electroweak theory, its physical
+Hilbert space, and the positive-residue electromagnetic pole.
 
 Symmetry breaking corresponds to the screen "freezing" into a specific
 configuration. We live in a frozen shard of a more symmetric world.

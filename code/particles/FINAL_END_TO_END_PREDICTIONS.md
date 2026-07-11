@@ -1,9 +1,9 @@
 # Final End-to-End Particle Predictions
 
-Generated: `2026-07-11T06:25:23Z`
+Generated: `2026-07-11T17:56:21Z`
 
 Scope: `nonhadron_particle_pipeline_with_empirical_hadron_closure_policy`
-Claim label: `final_nonhadron_predictions_with_separate_empirical_hadron_closure_surface`
+Claim label: `final_nonhadron_predictions_with_classical_carriers_and_empirical_hadrons_separated`
 
 ## P Closure
 
@@ -37,10 +37,17 @@ Claim label: `final_nonhadron_predictions_with_separate_empirical_hadron_closure
 
 | Particle | Prediction | Claim label | Scope | Promotable |
 | --- | ---: | --- | --- | --- |
-| `photon` | `0.0 GeV` | `structural_zero` | `structural` | `True` |
-| `gluon` | `0.0 GeV` | `structural_zero` | `structural` | `True` |
-| `graviton` | `0.0 GeV` | `structural_zero` | `structural` | `True` |
 | `higgs` | `125.1995304097179 GeV` | `conditional_declared_surface_higgs_top_candidate` | `declared_d10_d11_running_matching_threshold_surface_only` | `False` |
+
+## Separated Classical Carrier Modes
+
+These rows are zero hard parameters in declared quadratic actions, not `0 GeV` quantum-particle predictions.
+
+| Carrier | Hard parameter squared | Classical gate | Quantum gate | Particle promotion |
+| --- | ---: | --- | --- | --- |
+| `photon` | `0` | `conditional_pass_on_declared_action_phase_branch` | `not_passed` | `False` |
+| `gluon` | `0` | `conditional_pass_on_declared_action_phase_branch` | `not_passed` | `False` |
+| `graviton` | `0` | `conditional_pass_on_declared_action_phase_branch` | `not_passed` | `False` |
 
 ## Withheld Non-Prediction Rows
 

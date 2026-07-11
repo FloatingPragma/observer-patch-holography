@@ -3,7 +3,7 @@
   "closure_summary": {
     "all_derivation_chains_claimed_closed": false,
     "closed_or_scoped_chains": [
-      "structural_massless_bosons",
+      "conditional_classical_carrier_modes",
       "hierarchy_naturality_bridge",
       "charged_leptons"
     ],
@@ -22,7 +22,7 @@
       "hadrons"
     ]
   },
-  "generated_utc": "2026-07-11T06:58:14Z",
+  "generated_utc": "2026-07-11T17:56:21Z",
   "particle_five_gates": {
     "153": {
       "chrome_workers": "do_not_use_for_backend_execution",
@@ -178,17 +178,36 @@
       "status": "candidate_not_live_root"
     },
     {
-      "chain": "structural_massless_bosons",
-      "claim_level": "structural",
-      "next_artifact": null,
-      "open_gates": [],
+      "chain": "conditional_classical_carrier_modes",
+      "claim_level": "conditional_classical_or_perturbative_mode",
+      "closure_reason": "Issue #536 is closed by separating the conditional classical-mode theorem from the unmet quantum-particle gate; no 0 GeV particle row is emitted.",
+      "next_artifact": "code/particles/runs/status/carrier_mode_acceptance.json",
+      "open_gates": [
+        "quantization_constructed_from_oph",
+        "positive_physical_hilbert_space",
+        "physical_two_point_or_hamiltonian_spectrum_constructed",
+        "positive_residue_massless_pole",
+        "asymptotic_or_deconfined_particle_state"
+      ],
       "outputs": {
-        "gluon": 0.0,
-        "graviton": 0.0,
-        "photon": 0.0
+        "gluon": {
+          "classical_carrier_gate": "conditional_pass_on_declared_action_phase_branch",
+          "hard_quadratic_mass_parameter_squared": 0,
+          "quantum_particle_gate": "not_passed"
+        },
+        "graviton": {
+          "classical_carrier_gate": "conditional_pass_on_declared_action_phase_branch",
+          "hard_quadratic_mass_parameter_squared": 0,
+          "quantum_particle_gate": "not_passed"
+        },
+        "photon": {
+          "classical_carrier_gate": "conditional_pass_on_declared_action_phase_branch",
+          "hard_quadratic_mass_parameter_squared": 0,
+          "quantum_particle_gate": "not_passed"
+        }
       },
-      "promotable": true,
-      "status": "closed_structural_zero"
+      "promotable": false,
+      "status": "closed_scoped_classical_modes_quantum_particle_gate_open"
     },
     {
       "chain": "electroweak_massive_bosons",
@@ -256,10 +275,10 @@
       "status": "closed_current_corpus_charged_end_to_end_no_go",
       "withheld_non_prediction_rows": [
         {
-          "centered_log": -4.495210108808081,
+          "centered_log": -4.495209645475038,
           "conditional_anchor_symbol": "A_ch(P)",
           "exact_kind": "exact_target_anchored_current_family_witness",
-          "formula_if_anchor_exists": "m_e(P)=exp(A_ch(P)-4.495210108808081)",
+          "formula_if_anchor_exists": "m_e(P)=exp(A_ch(P)-4.495209645475038)",
           "label": "Electron",
           "missing_for_promotion": [
             "charged_branch_generator_splitting_promotion",
@@ -278,10 +297,10 @@
           "source_only": false
         },
         {
-          "centered_log": 0.8363886515979087,
+          "centered_log": 0.8363891135806538,
           "conditional_anchor_symbol": "A_ch(P)",
           "exact_kind": "exact_target_anchored_current_family_witness",
-          "formula_if_anchor_exists": "m_mu(P)=exp(A_ch(P)+0.836388651597909)",
+          "formula_if_anchor_exists": "m_mu(P)=exp(A_ch(P)+0.836389113580654)",
           "label": "Muon",
           "missing_for_promotion": [
             "charged_branch_generator_splitting_promotion",
@@ -300,10 +319,10 @@
           "source_only": false
         },
         {
-          "centered_log": 3.6588214572101716,
+          "centered_log": 3.658820531894384,
           "conditional_anchor_symbol": "A_ch(P)",
           "exact_kind": "exact_target_anchored_current_family_witness",
-          "formula_if_anchor_exists": "m_tau(P)=exp(A_ch(P)+3.658821457210172)",
+          "formula_if_anchor_exists": "m_tau(P)=exp(A_ch(P)+3.658820531894384)",
           "label": "Tau",
           "missing_for_promotion": [
             "charged_branch_generator_splitting_promotion",
@@ -346,10 +365,10 @@
           "downstream_algebra_closed": true,
           "exact_kind": "selected_class_target_anchored_exact_witness",
           "exact_sigma_target": {
-            "eta_ud": 1.1388321137934274,
-            "sigma_d": 3.296264198808688,
-            "sigma_seed_ud": 4.4350963126021155,
-            "sigma_u": 5.573928426395543
+            "eta_ud": 1.139688878603012,
+            "sigma_d": 3.300314452061615,
+            "sigma_seed_ud": 4.440003330664627,
+            "sigma_u": 5.579692209267639
           },
           "label": "Up Quark",
           "missing_for_promotion": [
@@ -389,10 +408,10 @@
           "downstream_algebra_closed": true,
           "exact_kind": "selected_class_target_anchored_exact_witness",
           "exact_sigma_target": {
-            "eta_ud": 1.1388321137934274,
-            "sigma_d": 3.296264198808688,
-            "sigma_seed_ud": 4.4350963126021155,
-            "sigma_u": 5.573928426395543
+            "eta_ud": 1.139688878603012,
+            "sigma_d": 3.300314452061615,
+            "sigma_seed_ud": 4.440003330664627,
+            "sigma_u": 5.579692209267639
           },
           "label": "Down Quark",
           "missing_for_promotion": [
@@ -432,10 +451,10 @@
           "downstream_algebra_closed": true,
           "exact_kind": "selected_class_target_anchored_exact_witness",
           "exact_sigma_target": {
-            "eta_ud": 1.1388321137934274,
-            "sigma_d": 3.296264198808688,
-            "sigma_seed_ud": 4.4350963126021155,
-            "sigma_u": 5.573928426395543
+            "eta_ud": 1.139688878603012,
+            "sigma_d": 3.300314452061615,
+            "sigma_seed_ud": 4.440003330664627,
+            "sigma_u": 5.579692209267639
           },
           "label": "Strange Quark",
           "missing_for_promotion": [
@@ -475,10 +494,10 @@
           "downstream_algebra_closed": true,
           "exact_kind": "selected_class_target_anchored_exact_witness",
           "exact_sigma_target": {
-            "eta_ud": 1.1388321137934274,
-            "sigma_d": 3.296264198808688,
-            "sigma_seed_ud": 4.4350963126021155,
-            "sigma_u": 5.573928426395543
+            "eta_ud": 1.139688878603012,
+            "sigma_d": 3.300314452061615,
+            "sigma_seed_ud": 4.440003330664627,
+            "sigma_u": 5.579692209267639
           },
           "label": "Charm Quark",
           "missing_for_promotion": [
@@ -518,10 +537,10 @@
           "downstream_algebra_closed": true,
           "exact_kind": "selected_class_target_anchored_exact_witness",
           "exact_sigma_target": {
-            "eta_ud": 1.1388321137934274,
-            "sigma_d": 3.296264198808688,
-            "sigma_seed_ud": 4.4350963126021155,
-            "sigma_u": 5.573928426395543
+            "eta_ud": 1.139688878603012,
+            "sigma_d": 3.300314452061615,
+            "sigma_seed_ud": 4.440003330664627,
+            "sigma_u": 5.579692209267639
           },
           "label": "Bottom Quark",
           "missing_for_promotion": [
@@ -561,10 +580,10 @@
           "downstream_algebra_closed": true,
           "exact_kind": "selected_class_target_anchored_exact_witness",
           "exact_sigma_target": {
-            "eta_ud": 1.1388321137934274,
-            "sigma_d": 3.296264198808688,
-            "sigma_seed_ud": 4.4350963126021155,
-            "sigma_u": 5.573928426395543
+            "eta_ud": 1.139688878603012,
+            "sigma_d": 3.300314452061615,
+            "sigma_seed_ud": 4.440003330664627,
+            "sigma_u": 5.579692209267639
           },
           "label": "Top Quark",
           "missing_for_promotion": [

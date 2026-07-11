@@ -103,6 +103,11 @@ FINAL_PIPELINE_STEPS: tuple[PipelineStep, ...] = (
         "Refresh the coupled derivation-gap ledger.",
     ),
     PipelineStep(
+        "carrier_mode_acceptance",
+        "particles/scripts/build_carrier_mode_acceptance.py",
+        "Refresh the fail-closed classical-carrier / quantum-particle gate.",
+    ),
+    PipelineStep(
         "results_status_table",
         "particles/scripts/build_results_status_table.py",
         "Refresh the current public results table.",

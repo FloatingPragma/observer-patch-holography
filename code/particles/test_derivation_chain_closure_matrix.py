@@ -26,7 +26,7 @@ def test_derivation_chain_closure_matrix_keeps_stage_gates_explicit() -> None:
     rows = {row["chain"]: row for row in payload["rows"]}
     assert set(rows) == {
         "p_closure_root",
-        "structural_massless_bosons",
+        "conditional_classical_carrier_modes",
         "electroweak_massive_bosons",
         "hierarchy_naturality_bridge",
         "higgs_top_declared_surface",
@@ -41,7 +41,12 @@ def test_derivation_chain_closure_matrix_keeps_stage_gates_explicit() -> None:
     assert rows["p_closure_root"]["stage_gate"] == (
         "populated source spectral measure payload + full interval certificate"
     )
-    assert rows["structural_massless_bosons"]["promotable"] is True
+    carrier_row = rows["conditional_classical_carrier_modes"]
+    assert carrier_row["status"] == "closed_scoped_classical_modes_quantum_particle_gate_open"
+    assert carrier_row["promotable"] is False
+    assert carrier_row["open_gates"]
+    assert carrier_row["outputs"]["photon"]["hard_quadratic_mass_parameter_squared"] == 0
+    assert carrier_row["outputs"]["photon"]["quantum_particle_gate"] == "not_passed"
     assert rows["electroweak_massive_bosons"]["outputs"] == {}
     assert rows["electroweak_massive_bosons"]["promotable"] is False
     assert rows["electroweak_massive_bosons"]["status"] == (

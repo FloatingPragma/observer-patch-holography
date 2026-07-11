@@ -48,7 +48,8 @@ a Theorem-Conditional Reduction}
 This note derives the general-relativistic photon--baryon Boltzmann transport
 used in CMB computations \emph{inside} the OPH branch, as a theorem-conditional
 reduction: given the Einstein-branch geometry theorem, the recovered
-$\mathrm U(1)$ electromagnetic sector, and the reversible repair-register
+$\mathrm U(1)$ electromagnetic sector, the independently assumed Maxwell action
+and positive-residue physical photon pole, and the reversible repair-register
 structure, the observer-facing photon record dynamics obeys the standard
 Liouville equation with the Thomson collision functional, and its linearization
 on the capacity-closure FRW background is exactly the standard multipole
@@ -84,12 +85,17 @@ $\Lambda\ell_\star^2=3\pi/N_\star$ from capacity closure. Provenance:
 branch theorem (paper stack A22/A5); not re-proved here.
 \end{assumption}
 
-\begin{assumption}[A-QED: recovered electromagnetic sector]\label{a:qed}
-The realized branch carries the Standard Model quotient with a protected
-massless photon and a $\mathrm U(1)$ vertex of strength
-$\alpha=\alpha_{\rm root}$ (source-side). Charged-lepton \emph{ratios} are
-branch outputs; the absolute electron mass $m_e$ is empirically anchored.
-Provenance: branch theorem (A20/A21) plus one declared import ($m_e$).
+\begin{assumption}[A-QED: electromagnetic action and photon-pole receipt]\label{a:qed}
+The realized branch carries the Standard Model quotient and the Maxwell
+kinetic action with a $\mathrm U(1)$ vertex of strength
+$\alpha=\alpha_{\rm root}$ (source-side). In addition, this transport note
+assumes a positive-energy physical QED quantization with two transverse
+states and a positive-residue isolated pole at $k^2=0$ on the ordinary
+Lorentz-vacuum, unbroken electromagnetic phase. This extra photon-pole
+receipt is not implied by the reconstructed abstract group. Charged-lepton
+\emph{ratios} are branch outputs; the absolute electron mass $m_e$ is
+empirically anchored. Provenance: branch theorem (A20/A21), the explicit
+quantum-pole assumption just stated, and one declared import ($m_e$).
 \end{assumption}
 
 \begin{assumption}[A-BG: background]\label{a:bg}
@@ -123,9 +129,10 @@ inputs and derives nothing about them.
 
 \section{Theorem B1: reversible repair gives Liouville transport}
 
-\begin{definition}[One-particle record density]
-Let $\mathcal E_\gamma$ be the photon-class excitation sector of the patch
-bundle. Between record commits, a single excitation is a record continued
+\begin{definition}[One-photon record density]
+Conditional on the physical pole in Assumption~\ref{a:qed}, let
+$\mathcal E_\gamma$ be its positive-energy photon sector. Between record
+commits, a single excitation is a record continued
 across patch overlaps. Coarse-graining patch position and overlap momentum
 labels defines the phase-space record density $f(x^i,q,\hat n,\tau)$ on the
 forward mass shell, where $q$ is comoving momentum magnitude and $\hat n$ the
@@ -133,8 +140,9 @@ direction.
 \end{definition}
 
 \begin{theorem}[Refinement Liouville]\label{t:liouville}
-On a branch passing the simulation test, with (i) the protected massless
-photon row and overlap Lorentz kinematics (A-QED, A-GEOM), and (ii) repair
+On a branch passing the simulation test, with (i) the Maxwell action,
+quantum photon-pole receipt, and overlap Lorentz kinematics (A-QED, A-GEOM),
+and (ii) repair
 moves organized in reversible write/check pairs (the orientation doubling in
 $m_{\rm rep}=2\dim(\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak
 u(1))=24$), the between-commit record flow satisfies, in the refinement

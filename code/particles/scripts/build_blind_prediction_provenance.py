@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[2]
 PARTICLES_ROOT = ROOT / "particles"
 P_ROOT = ROOT / "P_derivation"
 EXACT_NONHADRON = PARTICLES_ROOT / "exact_nonhadron_masses.json"
+CARRIER_ACCEPTANCE = PARTICLES_ROOT / "runs" / "status" / "carrier_mode_acceptance.json"
 RESULTS_STATUS = PARTICLES_ROOT / "results_status.json"
 PIPELINE_STATUS = PARTICLES_ROOT / "runs" / "status" / "particle_pipeline_closure_status.json"
 RG_CONTRACT = P_ROOT / "runtime" / "rg_matching_threshold_contract_current.json"
@@ -41,12 +42,7 @@ def _classify_entry(entry: dict[str, Any]) -> dict[str, Any]:
     promotable = bool(entry.get("promotable"))
     particle_id = entry["particle_id"]
 
-    if exact_kind == "structural_zero":
-        row_class = "structural_blind_zero"
-        target_use = "no_mass_target_used"
-        blind_status = "blind_structural"
-        convention_sensitivity = "none_for_mass_zero"
-    elif "frozen_target" in exact_kind:
+    if "frozen_target" in exact_kind:
         row_class = "compare_only_reproduction"
         target_use = "target_used_as_frozen_reference"
         blind_status = "not_blind"
@@ -135,8 +131,23 @@ def _classify_withheld_entry(entry: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _classify_carrier_mode(entry: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "carrier_id": entry["carrier_id"],
+        "row_class": "conditional_classical_carrier_mode_not_particle_mass_prediction",
+        "hard_quadratic_mass_parameter_squared": entry["hard_quadratic_mass_parameter_squared"],
+        "target_use": "no_particle_mass_target_used",
+        "blind_status": "not_a_quantum_particle_prediction",
+        "classical_carrier_gate": entry["classical_carrier_gate"]["status"],
+        "quantum_particle_gate": entry["quantum_particle_gate"]["status"],
+        "particle_promotion_allowed": bool(entry["particle_promotion_allowed"]),
+        "branch": entry["branch"],
+    }
+
+
 def build_payload() -> dict[str, Any]:
     exact = _load_json(EXACT_NONHADRON)
+    carrier_acceptance = _load_json(CARRIER_ACCEPTANCE)
     results = _load_json(RESULTS_STATUS)
     pipeline = _load_json(PIPELINE_STATUS)
     rg = _load_json(RG_CONTRACT)
@@ -144,6 +155,9 @@ def build_payload() -> dict[str, Any]:
     thomson_package = _load_json(THOMSON_PACKAGE)
     rows = [_classify_entry(entry) for entry in exact.get("entries", [])]
     withheld_rows = [_classify_withheld_entry(entry) for entry in exact.get("withheld_entries", [])]
+    carrier_mode_rows = [
+        _classify_carrier_mode(entry) for entry in carrier_acceptance.get("carriers", [])
+    ]
 
     return {
         "artifact": "oph_blind_prediction_provenance_audit",
@@ -154,6 +168,7 @@ def build_payload() -> dict[str, Any]:
         "promotion_allowed": False,
         "source_surfaces": {
             "exact_nonhadron": _repo_ref(EXACT_NONHADRON),
+            "carrier_mode_acceptance": _repo_ref(CARRIER_ACCEPTANCE),
             "results_status": _repo_ref(RESULTS_STATUS),
             "pipeline_closure_status": _repo_ref(PIPELINE_STATUS),
             "rg_matching_threshold_contract": _repo_ref(RG_CONTRACT),
@@ -167,12 +182,17 @@ def build_payload() -> dict[str, Any]:
             "withheld_non_prediction": len(withheld_rows),
             "promotable": sum(1 for row in rows if row["promotable"]),
             "not_promotable": sum(1 for row in rows if not row["promotable"]),
+            "separated_classical_carrier_modes": len(carrier_mode_rows),
             "blind_or_conditionally_blind": sum(
-                1 for row in rows if row["blind_status"] in {"blind_structural", "conditionally_blind_on_declared_surface", "blind_absolute_mass_branch"}
+                1
+                for row in rows
+                if row["blind_status"]
+                in {"conditionally_blind_on_declared_surface", "blind_absolute_mass_branch"}
             ),
         },
         "rows": rows,
         "withheld_rows": withheld_rows,
+        "carrier_mode_rows": carrier_mode_rows,
         "convention_sensitivity": {
             "status": "declared_taxonomy_emitted_numeric_sweep_stage_gated",
             "rg_contract_status": rg.get("status"),
@@ -272,6 +292,25 @@ def render_markdown(payload: dict[str, Any]) -> str:
             lines.append(
                 f"| `{row['particle_id']}` | `{row['exact_kind']}` | `{row['blind_status']}` | "
                 f"{row['target_use']} | {row['reason']} |"
+            )
+    carrier_rows = payload.get("carrier_mode_rows") or []
+    if carrier_rows:
+        lines.extend(
+            [
+                "",
+                "## Separated Classical Carrier Modes",
+                "",
+                "These zero hard quadratic parameters are branch-conditional mode statements, not public quantum-particle mass predictions.",
+                "",
+                "| Carrier | Hard parameter squared | Classical gate | Quantum gate | Particle promotion |",
+                "| --- | ---: | --- | --- | --- |",
+            ]
+        )
+        for row in carrier_rows:
+            lines.append(
+                f"| `{row['carrier_id']}` | `{row['hard_quadratic_mass_parameter_squared']}` | "
+                f"`{row['classical_carrier_gate']}` | `{row['quantum_particle_gate']}` | "
+                f"`{row['particle_promotion_allowed']}` |"
             )
     lines.extend(
         [

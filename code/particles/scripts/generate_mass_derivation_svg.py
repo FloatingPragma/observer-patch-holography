@@ -71,6 +71,7 @@ COLORS = {
 
 STATUS_BAR = {
     "structural": "#38bdf8",
+    "conditional_carrier_mode": "#f59e0b",
     "calibration": "#06b6d4",
     "candidate_trunk_compare_only": "#06b6d4",
     "secondary_quantitative": "#8b5cf6",
@@ -83,6 +84,7 @@ STATUS_BAR = {
 
 STATUS_TEXT = {
     "structural": "structural",
+    "conditional_carrier_mode": "classical mode / quantum gate open",
     "calibration": "electroweak closure",
     "candidate_trunk_compare_only": "EW frontier",
     "secondary_quantitative": "secondary",
@@ -94,9 +96,9 @@ STATUS_TEXT = {
 }
 
 PARTICLE_INFO: Dict[str, Dict[str, str]] = {
-    "photon": {"symbol": "gamma", "plain": "Particle of light; the electromagnetic force carrier."},
-    "gluon": {"symbol": "g", "plain": "Strong-force carrier. Free gluons are not seen because they are confined."},
-    "graviton": {"symbol": "graviton", "plain": "Massless spin-2 quantum of the OPH dynamical-metric branch."},
+    "photon": {"symbol": "gamma mode", "plain": "Two transverse classical Maxwell modes on the declared unbroken/deconfined action branch; quantum-particle gate open."},
+    "gluon": {"symbol": "g mode", "plain": "Perturbative transverse Yang-Mills modes before confinement; no asymptotic colored particle is claimed."},
+    "graviton": {"symbol": "TT mode", "plain": "Two classical TT modes of pure Einstein linearization; no graviton Hilbert space or particle pole is constructed."},
     "w_boson": {"symbol": "W", "plain": "Charged weak-force boson used in beta-decay-type processes."},
     "z_boson": {"symbol": "Z", "plain": "Neutral weak-force boson from the same electroweak sector as the W."},
     "higgs": {"symbol": "H", "plain": "Higgs boson tied to the Standard Model mass-giving field."},
@@ -127,6 +129,7 @@ GROUP_ROW_TEXT = {
 
 STATUS_EXPLAINER = {
     "structural": "exact structural theorem surface",
+    "conditional_carrier_mode": "declared classical-action mode with the quantum-particle gate open",
     "calibration": "implemented P-driven electroweak quantitative-closure surface",
     "candidate_trunk_compare_only": "electroweak massive-boson frontier without public W/Z rows",
     "secondary_quantitative": "quantitative secondary branch with a separate proof package",
@@ -138,7 +141,8 @@ STATUS_EXPLAINER = {
 }
 
 STATUS_NEXT_STEP = {
-    "structural": "This row belongs to the structural zero surface.",
+    "structural": "This row belongs to a structural theorem surface; any particle interpretation still requires the explicit carrier gates.",
+    "conditional_carrier_mode": "This row records a zero hard quadratic parameter only; quantization, phase, spectrum, and positive-residue pole receipts remain required for particle promotion.",
     "calibration": "This row belongs to the implemented P-driven electroweak closure surface.",
     "candidate_trunk_compare_only": "This row belongs to the electroweak massive-boson frontier.",
     "secondary_quantitative": "This row belongs to a quantitative secondary branch with its own proof surface.",
@@ -177,17 +181,17 @@ PARTICLE_TITLE = {
 LANES: List[Dict[str, Any]] = [
     {
         "key": "structural",
-        "title": "Structural Massless Carriers",
-        "summary": "Massless photon, gluon, and graviton sectors from the structural gauge and gravity branches.",
-        "takeaway": "These carrier sectors stay massless on the structural OPH surface, so the outputs are exact zeros.",
+        "title": "Conditional Classical Carrier Modes",
+        "summary": "Maxwell, perturbative Yang-Mills, and pure-Einstein quadratic branches have massless classical modes under their stated action and phase assumptions.",
+        "takeaway": "The displayed zero is a hard quadratic action parameter, not a 0 GeV quantum-particle prediction.",
         "logic": (
-            "Use the realized gauge/content branch for photon and gluons, and the dynamical-metric "
-            "Einstein branch for the graviton. OPH says the electromagnetic, color, "
-            "and spin-2 carrier sectors remain massless at the structural level because their mass terms "
-            "would break required gauge or diffeomorphism redundancies."
+            "After separately selecting a positive Maxwell/Yang-Mills kinetic action or the pure Einstein-Hilbert "
+            "kinetic branch, gauge fixing exposes two transverse modes per gauge generator or two TT tensor modes. "
+            "The abstract compact group alone supplies neither the connection nor its kinetic term. Higgs/Stueckelberg "
+            "phases, confinement, media, and extended gravitational field content remain outside the selected branch."
         ),
-        "frontier_text": "Claim-boundary list is empty for these structural massless rows.",
-        "prediction_surface": "Structural massless carrier output surface.",
+        "frontier_text": "Quantum-particle promotion requires a constructed quantization, positive physical Hilbert/Hamiltonian spectrum, positive-residue massless pole, and a stable deconfined/asymptotic state. The confining QCD phase does not pass the gluon-particle gate.",
+        "prediction_surface": "No public particle mass is emitted. The separate receipt records only conditional classical/perturbative mode gates and their zero hard quadratic parameters.",
         "particles": ["photon", "gluon", "graviton"],
     },
     {
@@ -1011,7 +1015,13 @@ def draw_lane_panel(
         render_wrapped_text(
             inner_x,
             summary_bottom_y + 18 + len(takeaway_lines) * 18 + 12,
-            [f"{len(visible_particles)} tracked particle rows shown in this lane"],
+            [
+                (
+                    f"{len(visible_particles)} tracked carrier-mode gate rows shown in this lane"
+                    if lane.get("key") == "structural"
+                    else f"{len(visible_particles)} tracked particle rows shown in this lane"
+                )
+            ],
             font_size=14,
             fill=COLORS["subtle"],
             line_height=16,
@@ -1131,7 +1141,11 @@ def draw_lane_panel(
         draw_section_label(
             inner_x,
             cursor,
-            "Tracked particle outputs",
+            (
+                "Tracked carrier-mode gates"
+                if lane.get("key") == "structural"
+                else "Tracked particle outputs"
+            ),
             fill="#122219",
             stroke=COLORS["prediction_stroke"],
             text_fill=COLORS["ink"],
@@ -1313,7 +1327,7 @@ def build_svg(results: Dict[str, Any], exact_by_id: Dict[str, Dict[str, Any]]) -
         (
             "Status colors",
             [
-                "structural = massless or exact structural rows",
+                "classical carrier = zero hard quadratic parameter on a declared branch; quantum-particle gate open",
                 "electroweak frontier = no public W/Z row until target-free D10 repair promotes",
                 "secondary = quantitative branch built on a declared electroweak layer",
                 "selected-class = quark theorem/frontier with target-anchored numeric witness withheld",

@@ -111,7 +111,7 @@ of silently moving the goalposts.
 | Hypercharges | exact Standard Model rational charge lattice | realized-branch theorem claim |
 | Color count | exactly three colors | realized-branch theorem claim |
 | Generation count | exactly three matter generations | realized-branch theorem claim |
-| Photon, gluon, graviton | zero mass | structural zero |
+| Electromagnetic, color, and tensor carriers | \(k^2=0\) classical modes on the stated Maxwell, perturbative/deconfined Yang--Mills, and pure-Einstein branches | conditional action-level receipts; quantum-particle gates remain separate |
 | Gauge-mediated proton decay | forbidden by the OPH product-group branch | clean experimental fork |
 | Grand-unified leptoquark gauge bosons | absent | product-group consequence |
 | Local pixel closure | \(P_\star=1.630968209403959324879279847782648941\ldots\) | unique fixed-point claim |
@@ -709,9 +709,9 @@ Difficulty:
 
 | Test | Outcome that kills OPH | Why it kills OPH |
 | --- | --- | --- |
-| Photon mass | A settled nonzero photon mass is measured. | OPH's gauge branch keeps the photon exactly massless. A photon mass means the electromagnetic symmetry is not the OPH one. |
-| Gluon mass | A settled nonzero gluon mass is measured. | OPH treats the gluon as the massless carrier of color gauge symmetry. A gluon mass breaks the recovered color sector. |
-| Graviton mass | Gravitational-wave dispersion establishes a hard graviton mass. | OPH's Einstein branch has a massless graviton. A massive graviton means the recovered gravity branch is wrong. |
+| Maxwell carrier | With the Maxwell kinetic term, ordinary Lorentz vacuum, and no Higgs, Stückelberg, or medium mass all fixed, the reduced quadratic theory lacks its two transverse \(k^2=0\) modes. | This falsifies the scoped classical Maxwell carrier theorem. A photon-particle mass test applies only after a physical-Hilbert-space and positive-residue pole receipt is also supplied. |
+| Color carrier | With the pure Yang--Mills kinetic term about the trivial flat connection and the perturbative/deconfined phase fixed, the reduced quadratic theory lacks its \(2\dim G\) transverse \(k^2=0\) modes. | This falsifies the scoped quadratic Yang--Mills theorem. Confinement can remove a free physical gluon pole and is not a counterexample to that theorem. |
+| Einstein tensor carrier | With the pure two-derivative Einstein--Hilbert action, flat vacuum, and no extra fields or higher-curvature terms fixed, the reduced quadratic theory lacks its two transverse-traceless null modes. | This falsifies the scoped Einstein linearization theorem. A graviton-particle mass test applies only after quantization and a positive-residue physical pole have been established. |
 | Fourth light generation | A fourth light chiral matter generation is discovered. | OPH claims the realized branch has exactly three generations. A fourth light generation breaks that branch. |
 | Color count | A real fourth QCD color degree of freedom is found. | OPH fixes the color count at three. More colors mean the recovered strong-force sector has the wrong size. |
 | Hypercharge outlier | A real elementary particle has charges outside the OPH hypercharge lattice. | OPH claims the Standard Model charge lattice is forced. One real outlier breaks the charge reconstruction. |
@@ -758,7 +758,9 @@ If someone wants the fastest attack plan:
 2. Break the 24-tick repair lock or the QCD-free hierarchy witness.
 3. Break the dimensionless gravity theorem or the caveated SI Newton display.
 4. Look for gauge-mediated proton decay.
-5. Establish a nonzero photon, gluon, or graviton mass.
+5. Break one of the fully specified Maxwell, perturbative/deconfined Yang--Mills,
+   or pure-Einstein classical carrier receipts; where a quantum-particle receipt
+   has also been supplied, test its claimed physical pole and spectral mass.
 6. Discover a fourth light matter generation or a charge-lattice outlier.
 7. Demand a source-closed, preregistered neutrino operator, basis, and mass-label
    law, then try to exclude it. The existing weighted-cycle tuple is already a

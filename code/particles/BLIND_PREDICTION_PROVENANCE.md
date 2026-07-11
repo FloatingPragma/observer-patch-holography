@@ -1,6 +1,6 @@
 # Blind Prediction Provenance
 
-Generated: `2026-07-11T06:25:23Z`
+Generated: `2026-07-11T17:56:21Z`
 
 This ledger records target-use and convention-sensitivity status for the public quantitative particle rows.
 
@@ -14,9 +14,6 @@ This ledger records target-use and convention-sensitivity status for the public 
 
 | Particle | Value | Class | Blind status | Target use | Promotable | Convention sensitivity |
 | --- | ---: | --- | --- | --- | --- | --- |
-| `photon` | `0.0 GeV` | `structural_blind_zero` | `blind_structural` | no_mass_target_used | `True` | none_for_mass_zero |
-| `gluon` | `0.0 GeV` | `structural_blind_zero` | `blind_structural` | no_mass_target_used | `True` | none_for_mass_zero |
-| `graviton` | `0.0 GeV` | `structural_blind_zero` | `blind_structural` | no_mass_target_used | `True` | none_for_mass_zero |
 | `higgs` | `125.1995304097179 GeV` | `conditional_declared_surface_candidate` | `conditionally_blind_on_declared_surface` | candidate_upstream_d10_repair_not_source_promoted | `False` | depends_on_declared_D10_D11_running_matching_threshold_surface |
 
 ## Withheld Non-Prediction Rows
@@ -37,6 +34,16 @@ These rows have audit artifacts but no public prediction value in the output tab
 | `electron_neutrino` | `rejected_target_informed_weighted_cycle_candidate` | `withheld_not_blind_rejected_candidate` | target_ranked_selector_development_and_correlated_profile_rejection | target_informed_candidate_rejected_by_correlated_profile |
 | `muon_neutrino` | `rejected_target_informed_weighted_cycle_candidate` | `withheld_not_blind_rejected_candidate` | target_ranked_selector_development_and_correlated_profile_rejection | target_informed_candidate_rejected_by_correlated_profile |
 | `tau_neutrino` | `rejected_target_informed_weighted_cycle_candidate` | `withheld_not_blind_rejected_candidate` | target_ranked_selector_development_and_correlated_profile_rejection | target_informed_candidate_rejected_by_correlated_profile |
+
+## Separated Classical Carrier Modes
+
+These zero hard quadratic parameters are branch-conditional mode statements, not public quantum-particle mass predictions.
+
+| Carrier | Hard parameter squared | Classical gate | Quantum gate | Particle promotion |
+| --- | ---: | --- | --- | --- |
+| `photon` | `0` | `conditional_pass_on_declared_action_phase_branch` | `not_passed` | `False` |
+| `gluon` | `0` | `conditional_pass_on_declared_action_phase_branch` | `not_passed` | `False` |
+| `graviton` | `0` | `conditional_pass_on_declared_action_phase_branch` | `not_passed` | `False` |
 
 ## Preregistered Workflows
 

@@ -150,9 +150,10 @@ smooth field theory.
 
 The color triplet follows from the minimal coupled carrier, and the
 three-generation count follows from CKM phase counting, weak-sector
-consistency, and minimality on the same low-energy branch. The photon,
-gluons, and graviton stay massless because they ride on redundancy directions
-the architecture cannot break. The broader particle table then carries the
+consistency, and minimality on the same low-energy branch. The electromagnetic,
+color, and metric carrier roles acquire classical transverse or TT modes only
+after their explicit action and phase receipts; their quantum particle poles
+remain a stronger gate. The broader particle table then carries the
 weak-sector comparison pair, the low-energy electromagnetic endpoint, the
 Higgs/top relation, the conditional running-quark support sector, and a
 target-informed weighted-cycle neutrino candidate rejected by the correlated
@@ -517,7 +518,7 @@ information theorist sees a code. A good theory earns its keep by making those
 views mutually legible without erasing their differences.
 
 The gauge quotient, charge lattice, counting chain, Yang-Mills repair gap,
-massless carriers, Lorentz geometry, the branch-qualified Einstein relation, and the
+receipt-gated classical carrier modes, Lorentz geometry, the branch-qualified Einstein relation, and the
 electroweak, Higgs-top, and conditional quark surfaces form one organized
 reconstruction. The weighted-cycle neutrino candidate sits in its failure
 ledger: NuFIT 6.1 rejects the frozen point, while the open charged basis prevents

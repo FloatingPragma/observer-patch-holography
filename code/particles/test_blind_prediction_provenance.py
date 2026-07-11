@@ -23,8 +23,12 @@ def test_blind_prediction_provenance_records_target_use_and_declared_sensitivity
     assert payload["closure_gate"]["closable_now"] is True
     assert payload["convention_sensitivity"]["status"] == "declared_taxonomy_emitted_numeric_sweep_stage_gated"
     row_map = {row["particle_id"]: row for row in payload["rows"]}
+    carrier_map = {row["carrier_id"]: row for row in payload["carrier_mode_rows"]}
     withheld_map = {row["particle_id"]: row for row in payload["withheld_rows"]}
-    assert row_map["photon"]["blind_status"] == "blind_structural"
+    assert "photon" not in row_map
+    assert carrier_map["photon"]["blind_status"] == "not_a_quantum_particle_prediction"
+    assert carrier_map["photon"]["particle_promotion_allowed"] is False
+    assert carrier_map["gluon"]["quantum_particle_gate"] == "not_passed"
     assert "w_boson" not in row_map
     assert "z_boson" not in row_map
     assert "electron" not in row_map

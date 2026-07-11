@@ -272,11 +272,15 @@ Historically, the Standard Model by itself does not explain why there are three 
 
 Forces are mediated by bosons: particles with integer spin.
 
-**Photon** (spin 1): Carries the electromagnetic force. Massless, travels at light speed. Couples to electric charge.
+**Photon** (spin 1): The observed quantum of the electromagnetic field. In the
+ordinary Maxwell vacuum it has a massless pole, travels at the invariant null
+speed, and couples to electric charge.
 
 **W and Z bosons** (spin 1): Carry the weak force. W has charge plus or minus 1. Z is neutral. Both are massive: about 80-90 GeV. The weak force is weak at low energies because its carriers are heavy.
 
-**Gluons** (spin 1): Carry the strong force. Eight types, distinguished by color charge. Massless, but the strong force is short-range because gluons themselves carry color and interact.
+**Gluons** (spin 1): Carry the strong interaction in perturbative descriptions.
+There are eight color components. The pure Yang--Mills quadratic action has no
+hard mass term, but confined QCD has no isolated free-gluon particle pole.
 
 The Yang-Mills mass gap is a statement about the spectrum of the compact
 nonabelian gauge theory, separate from assigning a hard mass to the gluon. In
@@ -382,7 +386,9 @@ normalization, they are the solution that lets the gluing hold together.
 
 ## 14.8 The Higgs Mechanism
 
-The Standard Model has a puzzle. Gauge symmetry requires massless gauge bosons. But W and Z are massive. How?
+The Standard Model has a puzzle. A pure gauge kinetic action has massless
+quadratic modes, yet the W and Z are massive. Gauge redundancy can coexist
+with their mass because the Higgs field changes the physical phase.
 
 ### Spontaneous Symmetry Breaking
 
@@ -409,7 +415,10 @@ When a continuous symmetry is spontaneously broken, massless particles appear: G
 
 In a gauge theory, something special happens. The gauge bosons "eat" the Goldstone bosons and become massive. This is the Higgs mechanism.
 
-For the electroweak group SU(2) x U(1), three Goldstone bosons get eaten. The W+, W-, and Z become massive. One combination of generators remains unbroken. This is the photon, which stays massless.
+For the electroweak group SU(2) x U(1), three Goldstone bosons get eaten. The
+W+, W-, and Z become massive. One combination of generators remains unbroken.
+On the ordinary vacuum with the Maxwell kinetic term, that electromagnetic
+combination has the familiar massless transverse pole.
 
 ### Fermion Masses
 
@@ -849,7 +858,9 @@ Think about what an observer actually sees. Each observer has a patch on the
 holographic screen and a collection of allowed questions. When the answers
 settle into a stable excitation that survives local time evolution, keeps its
 identity across overlaps, and transforms in a repeatable way under the emergent
-symmetries, the theory has found a particle.
+symmetries, the theory has found a candidate carrier pattern. Calling that
+pattern a quantum particle requires the physical-Hilbert-space, spectrum, and
+pole or asymptotic-state receipts stated below.
 
 There is a finer record-level question underneath that sentence. A stable
 sector can be transported across a chart, yet two detector clicks on opposite
@@ -859,15 +870,17 @@ interface, charge transport, and refinement must leave one track clearly
 preferred. If they do not, the theory should say "ambiguous" instead of forcing
 a particle history.
 
-In ordinary language, a particle is a recurring role in the screen data. Once
-the screen yields Lorentz kinematics, those roles sort themselves by mass and spin,
-just as Wigner taught physics to expect. An electron is a stable pattern with
-the electron's characteristic mass, spin, and behavior. A photon is the
-massless version of the same pattern.
+In ordinary language, a particle is a recurring role in the screen data. A
+quantum particle claim needs more: a physical Hilbert-space representation, a
+positive-energy spectrum, and the appropriate stable pole or asymptotic state.
+An electron has such a massive quantum role in the Standard Model. A photon has
+the corresponding massless spin-one role only after the electromagnetic
+quantum-pole receipt passes.
 
-That picture has teeth. The model does not place particles on the stage and
-then ask whether they fit. It reads which particle types can exist from the way
-the algebra net closes on itself.
+That picture has teeth. The model does not place representations on the stage
+and then ask whether they fit. It reads candidate charge and carrier roles from
+the way the algebra net closes on itself; actions and physical spectra decide
+which of those roles propagate as particles.
 
 ### The Particle Structure In One Picture
 
@@ -875,7 +888,9 @@ The particle picture can be told as one continuous line. The framework first
 reconstructs compact gauge data from sectors that can be transported without a
 loop mismatch. The small-economy selection then picks the realized Standard
 Model quotient, the hypercharge lattice, and the color-generation count. The
-same structure keeps the photon, gluons, and graviton massless. From there the
+same structure identifies electromagnetic, color, and metric carrier roles.
+Explicit action and phase receipts give their classical transverse or TT
+modes; quantum particle poles require a stronger receipt. From there the
 pixel fixed point organizes the electroweak sector, the Higgs/top relation, the
 conditional running-quark support surface, the charged-lepton story, and a
 target-informed weighted-cycle neutrino comparison candidate rejected by the
@@ -886,9 +901,10 @@ Hadrons add the strong-binding problem on top of that particle-level picture.
 
 The sphere ladder from Chapter 3 is useful here only as a logic map. It says
 seed, loop, screen, bulk. It does not say photon, gluon, graviton, hadron.
-Those labels come from the recovered Lorentz and gauge structure. The photon is
-the unbroken electromagnetic carrier, gluons are color carriers, the graviton
-belongs to the geometric branch, $W$ and $Z$ are massive weak carriers, the
+Those role labels come from the recovered Lorentz and gauge structure. The
+unbroken electromagnetic direction, color directions, and metric tensor mode
+become photon, gluon, and graviton particle labels only after their respective
+quantum receipts pass. $W$ and $Z$ are massive weak carriers on the declared quantitative branch, the
 Higgs is the scalar electroweak excitation, and hadrons are QCD composites.
 
 ### How the Concrete Particle Entries Arise
@@ -940,73 +956,64 @@ small displacement so that records can form, photons can carry information, and
 measurements can leave durable traces. The fine-structure lane reads the
 Thomson-limit value as that small displacement.
 
-## 14.15 Why the Photon Is Inevitable
+## 14.15 What the Electromagnetic Branch Supplies
 
-The photon is woven into the model from the start. When two observer patches
-share a charged region, they can describe that region in slightly different
-local ways without changing the underlying physics. That freedom is gauge
-freedom.
+When two observer patches share a charged region, they may use different local
+descriptions without changing the shared data. The recovered charge
+bookkeeping closes on an unbroken $U(1)$ factor. That result identifies the
+electromagnetic symmetry and connection role. A group label alone does not yet
+provide a propagating field or a photon.
 
-Follow the charge bookkeeping around patch boundaries and the hidden symmetry
-stops looking optional. The pattern closes on a $U(1)$ factor. Once that
-happens, an electromagnetic mode comes with it. That mode is the photon.
+The next step is an explicit Maxwell branch. If the low-energy action contains
+the usual positive $F^2$ kinetic term, and the selected vacuum has no Higgs,
+Stueckelberg, medium, or nonlocal mass operator, gauge reduction leaves two
+transverse classical waves. Their quadratic Green function has a pole at
+$\omega^2=c_*^2|\mathbf k|^2$. This is a precise massless classical
+carrier-mode statement.
 
-Electromagnetism is part of the way charged patches identify the same shared
-world. Give the photon a hard mass and
-the overlap bookkeeping tears. The glue between charged descriptions stops
-closing cleanly.
+A photon is the quantum interpretation of that mode. To earn that word from
+the OPH construction, one still needs a positive-energy quantization, a
+physical Hilbert space, a positive-residue two-point-function pole, and a stable
+asymptotic state. The present group and Maxwell-equation derivation does not by
+itself supply those objects.
 
-The same branch gives the field equations. The electromagnetic connection is
-the patch field that keeps charged descriptions aligned. Its field strength is
-the change of that connection around small loops. Because the photon branch is
-abelian, the curvature is just $F=dA$. That automatically gives the homogeneous
-Maxwell equations. Varying the usual quadratic field energy with an electric
-current gives the sourced Maxwell equations. In ordinary units, these are the
-familiar laws for electric fields, magnetic fields, charges, and currents. In
-OPH language, they are the continuum equations for the recovered $U(1)$ photon
-branch.
+## 14.16 What the Gravitational Branch Supplies
 
-## 14.16 Why the Graviton Is Inevitable
+Chapter 15 explains how modular screen geometry leads to a classical Einstein
+branch. On a flat background, the additional pure Einstein--Hilbert action can
+be linearized and gauge-reduced. The result has two transverse-traceless
+classical wave modes, conventionally called the plus and cross polarizations,
+with the same invariant null speed $c_*$.
 
-The graviton follows the same pattern, this time on the geometric side.
-Chapter 15 argues that once modular flow on screen caps becomes
-geometric, the sphere carries compressed information that observers read as
-spacetime.
-
-In OPH, geometry is allowed to respond, bend, and fluctuate. Once it
-does, the effective theory needs a massless spin-2 messenger for those
-fluctuations. Physics gives that messenger a familiar name: the graviton.
-
-The same redundancy logic returns here as well. Bulk spacetime is a compressed
-way of organizing screen correlations, so changing coordinates does not change
-the underlying physics. Give the graviton a hard mass and that compression
-stops being faithful. The bulk would begin to privilege one description over
-another, which is exactly what the construction forbids.
+That calculation is not yet a graviton construction. A classical Einstein
+equation does not quantize the metric, define a graviton Hilbert space, or prove
+a positive-residue particle pole. Diffeomorphism invariance also does not rule
+out every massive or additional mode: extra fields, higher-derivative terms,
+bimetric sectors, and Stueckelberg descriptions can preserve a gauge
+redundancy while changing the physical spectrum.
 
 ## 14.17 Why This Matters: Comparison to String Theory
 
-The claim that a theoretical model "predicts gravity" is significant. String theory is famous for this: it was discovered that consistent string theories necessarily contain a massless spin-2 excitation that couples universally, a graviton. This was one of string theory's great selling points: gravity emerges from the consistency requirements of the theory.
+String theory provides a useful contrast. After the worldsheet theory is
+quantized, its physical spectrum can contain a massless spin-two state. The
+state, its norm, and its pole belong to the same quantum construction.
 
-OPH makes a related claim with a different logical structure. In string theory, you start with strings propagating in a background spacetime, quantize them, and discover that the spectrum includes a graviton. The graviton's existence is tied to the specific dynamics of string vibrations.
-
-Start with observers on a holographic screen, impose consistency conditions on
-how their descriptions must agree, and the low-energy effective description
-must include both gauge fields and dynamical geometry. The photon emerges
-because electromagnetic gauge symmetry is the redundancy structure of
-charged-patch overlaps. The graviton emerges because diffeomorphism invariance
-is the redundancy structure of the bulk compression.
-
-Both particles are forced by consistency. Both are exactly massless because their associated symmetries are structural features of how observers compare notes.
+The present OPH core reaches a different checkpoint. It reconstructs a gauge
+classification, an electromagnetic action branch, and a classical Einstein
+branch. Those results support classical transverse and spin-two waves under
+their stated action and phase assumptions. A later string or field-theory lift
+may supply the missing quantization and particle pole, but it must do so
+explicitly. The particle interpretation is not automatic from overlap
+redundancy alone.
 
 ## 14.18 Why Composite Masses Are Different
 
 Consider the proton. Its mass is 938.272 MeV, measured to extraordinary
-precision. Can OPH compute it at the same level as the symmetry-protected
-zero lines?
+precision. Can OPH compute it from the same quadratic carrier analysis?
 
-Not in the same clean way as the massless carriers. The photon, gluons, and
-graviton sit on symmetry-protected zero lines. Their values are fixed by the
-architecture itself. The proton is harder. It is a bound state, and bound
+No. Even the carrier analysis is conditional on an action, background, phase,
+and, for a particle, a quantum pole receipt. The proton is harder still. It is
+a bound state, and bound
 states ask for the full nonperturbative drama of quarks, gluons, and
 confinement.
 
@@ -1120,10 +1127,18 @@ The framework accounts for several concrete facts.
 
 **The integers.** Why three colors? Why three generations? Why those specific hypercharges? These are consequences of consistency requirements, not free parameters. Anomaly cancellation and Yukawa invariance fix the hypercharge lattice, the minimal coupled carrier fixes the color triplet, and CKM CP capability together with weak-sector ultraviolet consistency fixes the generation count.
 
-**The zeros.** The photon and graviton masses are exactly zero. This is a symmetry-protected prediction. The photon's masslessness follows from U(1) gauge invariance being a genuine overlap redundancy; any mass would break the consistency of how charged patches glue together. Similarly, the graviton's masslessness follows from diffeomorphism invariance being the redundancy structure of bulk spacetime. Experimental and observational upper bounds are consistent with these predictions to extraordinary precision: the photon mass is constrained below ~10⁻¹⁸ eV, often summarized as ~27 orders of magnitude, and the graviton mass is constrained below ~10⁻²³ eV by gravitational-wave dispersion, often summarized as ~22 orders of magnitude.
+**The carrier modes.** On the declared Maxwell vacuum, the quadratic
+electromagnetic action has two transverse massless classical modes. On the
+declared pure-Einstein flat branch, the quadratic metric action has two
+transverse-traceless massless classical modes. These statements concern the
+displayed actions. They do not follow from symmetry alone and do not yet
+construct photon or graviton particles. The experimental photon-mass and
+gravitational-wave dispersion bounds become tests of OPH only after the
+corresponding quantum spectral receipt is supplied.
 
 **The particle structure.** Section 14.14 gives the concrete structure. The
-framework fixes the massless carriers. It then organizes the fine-structure
+framework fixes the carrier roles and states the conditional classical-mode
+receipts. It then organizes the fine-structure
 fixed point, the weak-boson benchmark pair, a Higgs/top relation, a conditional
 six-quark running-mass support surface with Yukawas, and a target-informed
 weighted-cycle neutrino candidate rejected by the correlated NuFIT 6.1 profile.
@@ -1208,14 +1223,16 @@ the simplest admissible low-energy sector package that can be transported by
 OPH's gluing rules, reconstructed as compact gauge data, and survive under
 refinement?
 
-The photon and graviton are particles the theory forces upon us. The photon
-exists because $U(1)$ gauge redundancy emerges from how charged patches glue
-together once the gauge reconstruction is in place. The graviton
-exists because diffeomorphism invariance emerges from the fact that bulk
-spacetime is a compression of screen data. In both cases the structure is
-decisive: adding a hard mass term would break a redundancy the model requires.
-String theory is often credited with predicting gravity. OPH reaches the same
-kind of conclusion through its own architecture.
+The reconstruction fixes symmetry and geometric roles, not quantum particles.
+On an additional Maxwell-action branch, gauge reduction leaves two transverse
+classical null modes. On an additional pure Einstein--Hilbert branch about a
+suitable flat background, constraint reduction leaves two
+transverse-traceless classical null modes. A photon or graviton claim needs
+more: a positive-energy physical Hilbert space, a positive-residue pole in the
+physical spectrum, and the relevant stability or asymptotic-state conditions.
+Gauge or diffeomorphism redundancy by itself does not supply those receipts,
+nor does it exclude Higgs, Stückelberg, medium, higher-derivative, or
+extra-field effects outside the declared branch.
 
 The quark and lepton charges are fixed on the minimally selected
 gauge-consistency branch. Three colors and three generations follow there from
@@ -1225,9 +1242,9 @@ ultraviolet consistency.
 
 The result is concrete. The book points to a specific gauge
 structure, charge pattern, color count, and generation count. It also reaches
-the massless carriers, the $W$ and $Z$ benchmark pair, a Higgs/top quantitative
-relation, and a conditional running-quark support sector on a chosen physical
-basis. The weighted-cycle neutrino point belongs to the comparison ledger:
+conditional action-level carrier modes, the $W$ and $Z$ benchmark pair, a
+Higgs/top quantitative relation, and a conditional running-quark support
+sector on a chosen physical basis. The weighted-cycle neutrino point belongs to the comparison ledger:
 NuFIT 6.1 rejects it. The charged basis is open and has nearly degenerate
 singular values, leaving physical mixing, mass ordering, and absolute masses
 unresolved. Strongly coupled bound states add the QCD problem on top of that

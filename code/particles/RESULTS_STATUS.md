@@ -1,6 +1,6 @@
 # Particle Results Status
 
-Generated: `2026-07-11T06:58:13Z`
+Generated: `2026-07-11T17:56:21Z`
 
 Inputs: `P=1.630968209403959` | `log_dim_H=1e+122` | `loops=4` | `with_hadrons=False` | `hadron_profile=suppressed`
 
@@ -11,6 +11,8 @@ Surface Policy: `local_candidate_or_gap_only`
 Active Local Public Candidates: `D10=False` | `D11=True` | `charged=False` | `neutrinos=False` | `neutrino_repaired=False` | `quarks=False` | `hadrons_enabled=False`
 
 This table is a `/particles`-native audit surface. If a sector has no live local public candidate, the value is reported as `n/a`; legacy fallback predictors are not used.
+
+The photon, gluon, and graviton inventory rows report conditional classical/perturbative carrier-mode branches only. Their hard quadratic mass parameter is zero on the displayed action branch, but no `0 GeV` quantum-particle prediction is emitted and the independent quantization/phase/pole gate remains open.
 
 Source-only hadron rows are suppressed by default because promotable rows require a real OPH production backend export bundle plus production systematics. Empirical hadron closure values stay in a separate output class with an e+e- source registry and schema. Re-enable local hadron rows only for explicit backend debugging with `--with-hadrons`.
 
@@ -48,9 +50,9 @@ Measured/reference values are pinned from the official Particle Data Group 2026 
 
 | Particle | Status | OPH value (GeV) | Measured / reference | Delta | Note |
 | --- | --- | ---: | --- | --- | --- |
-| gamma | structural | 0 | <1.000000e-27 GeV | within limit | Structural massless gauge sector. |
-| g (8 color states) | structural | 0 | no direct free-particle mass measurement | n/a | Structural massless color gauge sector. Free gluons are confined; there is no direct measured gluon rest mass entry comparable to other particle masses. |
-| graviton | structural | 0 | <1.000000e-32 GeV | within limit | Structural massless spin-2 sector from the OPH dynamical-metric and diffeomorphism branch. No direct graviton rest-mass measurement exists. Gravitational-wave propagation constrains any hard graviton mass to be extremely small; OPH predicts an exact structural zero on the dynamical-metric branch. |
+| gamma | conditional_carrier_mode | n/a | <1.000000e-27 GeV | n/a | Conditional classical Maxwell carrier on the declared unbroken, deconfined action branch; not a 0 GeV quantum-particle prediction. |
+| g (8 color states) | conditional_carrier_mode | n/a | no direct free-particle mass measurement | n/a | Conditional perturbative Yang-Mills carrier before confinement; no asymptotic colored-gluon particle is claimed on the confining QCD phase. Free gluons are confined; there is no direct measured gluon rest mass entry comparable to other particle masses. |
+| graviton | conditional_carrier_mode | n/a | <1.000000e-32 GeV | n/a | Conditional transverse-traceless classical mode of the pure Einstein linearization on a suitable background; no graviton Hilbert space or pole is constructed. No direct graviton-particle rest-mass measurement exists. Gravitational-wave propagation constrains dispersive modifications or a hard mass parameter on specified wave models; the conditional pure-Einstein classical tensor mode is tracked separately and is not a quantum-particle mass prediction. |
 | H | declared_surface_theorem | n/a | 125.13 +- 0.11 GeV | n/a | Derived from `derive_d11_declared_calibration_surface.py -> derive_d10_ew_source_transport_pair.py -> derive_d10_ew_target_free_repair_value_law.py -> derive_d11_fixed_ray_no_go_theorem.py -> derive_d11_live_exact_split_pair_theorem.py`, which makes the declared D10/D11 running, matching, and threshold surface explicit, emits the source-side D10 repair tuple `(eta_source, beta_EW, lambda_EW, tau2_tree_exact, delta_n_tree_exact)`, and then emits a conditional Higgs/top split candidate. The old one-scalar fixed ray remains a lower companion branch. The live split theorem uses the shared scalar `rho_HT = log(1 + tau2_tree_exact)` together with the source-only residual selectors `R_T = -tau2_tree_exact * eta_source^2 + (1 + beta_EW/28) * eta_source^6 + eta_source^8/14 + eta_source^9/27` and `R_H = eta_source^5 - (3/25) * eta_source^6 + lambda_EW * eta_source^6 / 18 + eta_source^8 / (2 * beta_EW)`. The forward split coordinates are `pi_y = (eta_source + (3/2 + beta_EW/4) * rho_HT + R_T) / sqrt(pi)` and `pi_lambda = (eta_source - (4/3 - beta_EW/54) * rho_HT + R_H) / sqrt(pi)`, and the declared D11 Jacobian reads out `m_t = 172.3523553288312 GeV` and `m_H = 125.1995304097179 GeV` on that same surface. Strict promotion of the Higgs mass row is blocked until the D10 target-free repair closes. The same surface emits a companion top coordinate `m_t = 172.3523553288312 GeV`. The selected-class quark numeric witness uses the PDG 2025 cross-section top entry `Q007TP4`, but its values are withheld from public OPH-value columns because the witness remains target-anchored. The auxiliary direct-top average `Q007TP = 172.56 +- 0.31 GeV` is a compare-only extraction codomain; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. The old one-scalar seed `sigma_D11_HT = alpha_u * cos(2*theta_W0) / sqrt(pi)` remains on disk as the fixed-ray companion branch beneath this split theorem. The compare-only exact Higgs/top inverse slice remains a validation surface and does not define the predictive lane. The repo-wide selected-class top witness is audit-only until the target-derived sigma datum is replaced by a no-target source theorem. |
 
 ## Leptons

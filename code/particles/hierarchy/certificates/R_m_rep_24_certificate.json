@@ -14,7 +14,7 @@
       "realized compact-gauge branch",
       "MAR-minimal one-Higgs branch",
       "no extra visible low-scale U(1)",
-      "no simple-GUT X/Y mixed gauge bosons",
+      "no simple-GUT X/Y mixed connected-adjoint generators",
       "observer-visible product adjoint only"
     ]
   },
@@ -77,7 +77,7 @@
         "anomaly cancellation, Yukawa invariance, and the central kernel of the realized action fix the hypercharge lattice and the Z6 quotient"
       ],
       "source_artifact": "extra/compact_proof_of_oph.tex (realized compact-gauge branch theorem: overlap holonomy + Tannaka reconstruction + MAR + anomaly cancellation, lines 482-504 establishing connected adjoint (8,1,0)(+)(1,3,0)(+)(1,1,0) and no mixed X/Y carrier); paper/deriving_the_particle_zoo_from_observer_consistency.tex",
-      "conclusion": "The realized OPH compact-gauge branch is (SU(3)xSU(2)xU(1))/Z6 with connected adjoint (8,1,0)(+)(1,3,0)(+)(1,1,0); there are no mixed (3,2,+/-5/6) X/Y gauge bosons and no extra visible low-scale U(1) on this branch."
+      "conclusion": "The realized OPH compact-gauge branch is (SU(3)xSU(2)xU(1))/Z6 with connected adjoint (8,1,0)(+)(1,3,0)(+)(1,1,0); there are no mixed (3,2,+/-5/6) X/Y connected-adjoint generators and no extra visible low-scale U(1) on this branch."
     },
     {
       "step": 2,
@@ -148,7 +148,7 @@
       "step": 8,
       "premise": "Negative-control rejection of nearby round counts",
       "uses": [
-        "step 1 (no X/Y mixed gauge bosons; no simple-GUT carrier on the realized branch)",
+        "step 1 (no X/Y mixed connected-adjoint generators; no particle-spectrum conclusion)",
         "step 4 (orientation doubling required by reversible record-preserving repair)",
         "the graviton is the dynamical metric branch, not an internal compact-gauge adjoint repair channel"
       ],
@@ -204,7 +204,7 @@
     }
   },
   "branch_scope": {
-    "oph_realized_compact_gauge_branch": "the realized observer-visible compact-gauge branch with global group (SU(3) x SU(2) x U(1))/Z6, MAR-minimal one-Higgs sector, no extra visible low-scale U(1), and no mixed (3,2,+/-5/6) X/Y gauge bosons (corpus theorem in extra/compact_proof_of_oph.tex)",
+    "oph_realized_compact_gauge_branch": "the realized observer-visible compact-gauge branch with global group (SU(3) x SU(2) x U(1))/Z6, MAR-minimal one-Higgs sector, no extra visible low-scale U(1), and no mixed (3,2,+/-5/6) X/Y connected-adjoint generators (corpus theorem in extra/compact_proof_of_oph.tex)",
     "reversible_repair_orientation_branch": "the OPH finite patch-carrier pipeline operates on a completed compare/write/verify slice; for each unoriented adjoint generator the alphabet contains exactly two oriented primitive repair ticks (action/coaction, write/verify, ket/bra)",
     "cyclic_scheduler_branch": "the global repair cycle visits each oriented primitive exactly once per cycle, so the induced linear shift on the oriented support is a cyclic permutation whose order equals m_rep",
     "scope_note": "the representation-to-spectrum round-count theorem m_rep=24 and the specialization |g_*'| = (N_CRC/pi)^(-1/48) are theorems on the conjunction of the three branches above; the parametric law |g_*'| = (N_CRC/pi)^(-1/(2*m)) at the m-tick decomposition is supplied by the global repair-tick lemma."
@@ -268,7 +268,7 @@
       "m": 24,
       "exponent_at_m": "-1/48",
       "status": "reject_despite_same_integer",
-      "reason": "wrong support: includes the (3,2,+/-5/6) X/Y mixed gauge bosons absent on the realized OPH branch and lacks the orientation-doubling factor",
+      "reason": "wrong support: includes the (3,2,+/-5/6) X/Y mixed adjoint generators absent on the realized OPH branch and lacks the orientation-doubling factor",
       "violated_branch": "oph_realized_compact_gauge_branch + reversible_repair_orientation_branch"
     },
     {

@@ -193,6 +193,7 @@ def _copy_outputs(work_particles: Path, current_dir: Path) -> None:
         "exact_fits_only.json",
         "particle_mass_derivation_graph.svg",
         "runs/status/status_table_forward_current.json",
+        "runs/status/carrier_mode_acceptance.json",
         "runs/status/exact_fits_only_current.json",
         "runs/status/exact_nonhadron_masses_current.json",
         "runs/status/particle_derivation_gap_ledger.json",
@@ -203,6 +204,7 @@ def _copy_outputs(work_particles: Path, current_dir: Path) -> None:
         "BLIND_PREDICTION_PROVENANCE.md",
         "FINAL_END_TO_END_PREDICTIONS.md",
         "DERIVATION_CHAIN_CLOSURE_MATRIX.md",
+        "CARRIER_MODE_ACCEPTANCE.md",
         "runs/calibration/direct_top_bridge_contract.json",
         "runs/flavor/quark_lane_closure_contract.json",
         "runs/flavor/quark_class_uniform_public_frame_descent_obstruction.json",
@@ -595,6 +597,7 @@ def build_runtime(runtime_root: Path, *, with_hadrons: bool, verbose: bool) -> P
         verbose=verbose,
     )
 
+    carrier_acceptance_cmd = ["python3", "particles/scripts/build_carrier_mode_acceptance.py"]
     status_cmd = ["python3", "particles/scripts/build_results_status_table.py"]
     exact_nonhadron_cmd = ["python3", "particles/scripts/build_exact_nonhadron_mass_bundle.py"]
     exact_fit_cmd = ["python3", "particles/scripts/build_exact_fit_surface.py"]
@@ -602,6 +605,7 @@ def build_runtime(runtime_root: Path, *, with_hadrons: bool, verbose: bool) -> P
     svg_cmd = ["python3", "particles/scripts/generate_mass_derivation_svg.py"]
     if with_hadrons:
         status_cmd.append("--with-hadrons")
+    _run(carrier_acceptance_cmd, cwd=work_code, verbose=verbose)
     _run(status_cmd, cwd=work_code, verbose=verbose)
     _run(exact_nonhadron_cmd, cwd=work_code, verbose=verbose)
     _run(exact_fit_cmd, cwd=work_code, verbose=verbose)

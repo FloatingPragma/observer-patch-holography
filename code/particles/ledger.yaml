@@ -7,33 +7,33 @@ notes:
   - "Issues #199, #201, #207, #223, #224, #234, #235, and #32 have closed blocker, no-go, guarded-adoption, provenance, or declared-convention status."
   - "Issues #332, #335, and #337 close the selected-branch electroweak hierarchy/naturality bridge with zero bridge residual and epsilon_H=0."
 entries:
-  - id: structural.massless.photon
-    output_keys: ["m_gamma"]
-    label: "Photon"
-    tier: structural
+  - id: conditional.carrier_mode.photon
+    output_keys: []
+    label: "Conditional Maxwell carrier mode"
+    tier: conditional_carrier_mode
     branch: D9
-    oph_derived_piece: "realized gauge quotient and unbroken U(1)_em branch"
-    borrowed_qft_piece: "gauge invariance forbids a mass term"
-    extra_ansatz: null
-    blocked_by: []
-  - id: structural.massless.gluons
-    output_keys: ["m_gluon"]
-    label: "Gluons"
-    tier: structural
+    oph_derived_piece: "receipt-conditional realized gauge quotient and U(1)_em representation branch"
+    borrowed_qft_piece: "on an additionally selected unbroken deconfined Maxwell action with positive kinetic coefficient, the gauge-fixed quadratic operator has two transverse k^2=0 classical modes"
+    extra_ansatz: "Maxwell connection and kinetic term, unbroken/deconfined phase, and field content excluding Higgs/Stueckelberg mass generation on the selected branch"
+    blocked_by: ["OPH-derived quantization", "positive physical Hilbert space", "physical two-point/Hamiltonian spectrum", "positive-residue massless pole", "stable deconfined asymptotic particle state"]
+  - id: conditional.carrier_mode.gluons
+    output_keys: []
+    label: "Conditional perturbative Yang-Mills carrier modes"
+    tier: conditional_carrier_mode
     branch: D9
-    oph_derived_piece: "realized SU(3)_c branch"
-    borrowed_qft_piece: "unbroken nonabelian gauge invariance forbids a mass term"
-    extra_ansatz: null
-    blocked_by: []
-  - id: structural.massless.graviton
-    output_keys: ["m_graviton"]
-    label: "Graviton"
-    tier: structural
+    oph_derived_piece: "receipt-conditional realized SU(3)_c representation branch"
+    borrowed_qft_piece: "the pure Yang-Mills quadratic expansion has two transverse k^2=0 perturbative modes per generator before nonperturbative confinement"
+    extra_ansatz: "Yang-Mills connection and positive kinetic term plus a specified perturbative/pre-confinement phase"
+    blocked_by: ["OPH-derived quantization", "positive physical Hilbert/BRST construction", "physical positive-residue pole", "deconfined asymptotic colored state; false on the confining QCD phase"]
+  - id: conditional.carrier_mode.graviton
+    output_keys: []
+    label: "Conditional Einstein tensor carrier mode"
+    tier: conditional_carrier_mode
     branch: D5
-    oph_derived_piece: "conditional Einstein branch plus dynamical-metric redundancy"
-    borrowed_qft_piece: "diffeomorphism invariance forbids a hard graviton mass term"
-    extra_ansatz: null
-    blocked_by: []
+    oph_derived_piece: "conditional classical Einstein equation and dynamical-metric redundancy"
+    borrowed_qft_piece: "pure Einstein-Hilbert linearization on a suitable Ricci-flat background has two transverse-traceless k^2=0 classical tensor modes"
+    extra_ansatz: "pure Einstein kinetic action, suitable background, and field content; extended diffeomorphism-invariant theories may add massive modes"
+    blocked_by: ["OPH-derived metric quantization", "positive graviton Hilbert space", "physical two-point/Hamiltonian spectrum", "positive-residue massless pole", "stable asymptotic/EFT particle interpretation"]
   - id: calibration.d10.electroweak
     output_keys:
       ["alpha1_at_mZrun", "alpha2_at_mZrun", "alpha3_at_mZrun", "alpha_em_at_mZrun", "alpha_em_inv_at_mZrun", "sin2w_at_mZrun", "v", "mW_run", "mZ_run", "MZ_pole_stage3"]

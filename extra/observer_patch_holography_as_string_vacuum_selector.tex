@@ -123,14 +123,17 @@ edge branch.
 \subsection{Forces, gauge group, and effective strings}
 
 The reader-facing phrase ``particles and forces'' is translated here into OPH gates. The particle
-package is not independent of the interaction package: matter representations, charges, gauge
-bosons, and the graviton are all read from the same observer-visible normal form.
+is implemented through separate gates. The observer-visible normal form supplies representation
+and charge data; explicit action and phase hypotheses supply classical carrier modes; and a
+physical Hilbert space with a positive-residue pole supplies a particle. None of the latter two
+steps follows from an abstract reconstructed group.
 
 \begin{description}[leftmargin=2em]
 \item[Gravity.]
-The OPH target is a single Einstein-frame metric perturbation on the physical quotient, with one
-massless transverse-traceless graviton. The critical representative must identify its closed-string
-symmetric spin-two state with that OPH graviton and match
+The OPH target is a single Einstein-frame metric on the physical quotient whose pure-Einstein,
+flat-background quadratic action has two transverse-traceless classical null modes. The critical
+representative must supply the quantum-particle receipt for a closed-string symmetric spin-two state,
+identify its classical limit with those metric modes, and match
 \(G_4^{\rm string}=G_4^{\OPH}\).
 
 \item[Strong force.]
@@ -152,8 +155,8 @@ The target is the global group
 G_{\rm phys}=(\SU(3)\times\SU(2)\times\U(1))/\Z_6,
 \]
 including the finite quotient. The Bouchard-Donagi Wilson-line centralizer must equal
-\(S(\U(3)\times\U(2))\cong G_{\rm phys}\), excluding simple-GUT \(X/Y\) gauge bosons from the
-unbroken visible adjoint.
+\(S(\U(3)\times\U(2))\cong G_{\rm phys}\), excluding simple-GUT \(X/Y\) generators from the
+unbroken visible adjoint. Connection dynamics and particles require separate receipts.
 
 \item[Effective string theory.]
 The OPH input is stable cyclic edge normal forms, collar sewing, records, and accepted repair
@@ -165,8 +168,8 @@ branch is a heterotic critical string.
 Thus the paper does not add forces after selecting particles. It first fixes the
 observer-visible interaction structure and then asks which string compactification realizes that
 whole structure. The three Standard Model gauge forces are the low-energy decomposition of the
-global quotient, while gravity is the OPH Einstein branch read as the closed-string graviton only
-after a critical lift.
+global quotient, while the pure-Einstein tensor carrier is read as a closed-string graviton only
+after a critical lift supplies the required physical-state and pole receipts.
 
 The target claim is conditional. If the OPH recovered-core theorem stack is accepted, if the
 Bouchard-Donagi one-Higgs stratum locks to the OPH quantitative vector without free retuning,
@@ -288,7 +291,7 @@ screen-capacity language, and the recovered-branch map. &
 \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.tex}{paper/source} \\
 Recovering Relativity and the Standard Model from Observer Overlap Consistency & Compact theorem surface for Lorentz, Einstein,
 receipt-conditional zero-obstruction compact-gauge reconstruction, MAR-selected global Standard Model quotient,
-hypercharge, colors, generations, and no massless mixed \(X/Y\) generator in the connected
+hypercharge, colors, generations, and no mixed \(X/Y\) generator in the connected
 visible adjoint. &
 \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex}{paper/source} \\
 Reality as a Consensus Protocol: The Fixed-Point Computation That Implements Physics & Fixed-cutoff consensus theorem: mismatch functional, accepted
@@ -335,7 +338,7 @@ written
 when they induce the same observer-visible data:
 \begin{enumerate}[leftmargin=2em]
 \item the same edge-sewn heat-kernel partition on the compact gauge branch;
-\item the same four-dimensional graviton normalization and Einstein-frame metric perturbation;
+\item the same four-dimensional tensor-mode normalization and Einstein-frame metric perturbation;
 \item the same global visible gauge group
 \[
 G_{\rm phys}=(\SU(3)\times\SU(2)\times\U(1))/\Z_6;
@@ -353,7 +356,8 @@ A critical-string presentation \(\mathcal T\) is OPH-correct if it satisfies all
 \begin{enumerate}[leftmargin=2em]
 \item a critical completion of the OPH sewn-edge worldsheet branch, with the same
 observer-visible edge data.
-\item Its massless spin-two field is the quantization of the OPH Einstein-frame metric mode.
+\item Its BRST-physical massless spin-two state supplies a positive-residue quantum completion of
+the OPH Einstein-frame classical tensor mode.
 \item Its visible compact gauge sector descends to
 \((\SU(3)\times\SU(2)\times\U(1))/\Z_6\).
 \item Its visible chiral spectrum is exactly three generations, no light chiral exotics, and the
@@ -385,10 +389,11 @@ is a passing named OPH-correct critical-string witness, modulo \(\Teq\).
 The recovered-core target, after MAR selection of the admissible one-Higgs branch, fixes the
 observer-visible endpoint: the global Standard Model quotient, three colors, three generations,
 exact hypercharge lattice, one-Higgs electroweak branch, no light
-chiral exotics, no extra visible low-scale \(\U(1)\), and the product-group absence of massless
-\(X/Y\) gauge bosons. The edge-string continuation restricts the witness to critical presentations
-whose worldsheet branch is the sewn OPH edge system and whose massless spin-two mode is the
-quantized OPH metric perturbation. The Bouchard--Donagi \(\Z_2\)-quotient \(\SU(5)\)-bundle
+chiral exotics, no extra visible low-scale \(\U(1)\), and the product-group absence of mixed
+\(X/Y\) connected-adjoint generators. The edge-string continuation restricts the witness to critical presentations
+whose worldsheet branch is the sewn OPH edge system and whose BRST-physical massless spin-two state
+has the OPH metric perturbation as its classical limit. The Bouchard--Donagi
+\(\Z_2\)-quotient \(\SU(5)\)-bundle
 with one Higgs pair supplies the named heterotic witness with the required three-generation,
 no-exotics visible massless cohomology and Wilson-line centralizer. The \(\ZfourR\) layer closes the visible
 operator gate. The assumed threshold/spectrum and decoupling certificate supplies the physical
@@ -486,8 +491,8 @@ identified with the heterotic edge VOA, including OPEs, grading, spin structures
 coset. \\
 Global Standard Model group & Global group locking theorem:
 \(S(\U(3)\times\U(2))\cong(\SU(3)\times\SU(2)\times\U(1))/\Z_6\). \\
-Massless unified-gauge carriers & Connected-adjoint theorem: the massless product-group adjoint
-contains no mixed \((3,2,\pm5/6)\) generator; massive carriers remain a spectrum gate. \\
+Connected unified-gauge adjoint & The product-group adjoint
+contains no mixed \((3,2,\pm5/6)\) generator; connection dynamics and particle spectra remain separate gates. \\
 Moduli stabilization & OPH moduli-locking criterion:
 \(\calF(m_\star)=\calO_{\OPH}\) with full transverse rank. \\
 \bottomrule
@@ -1603,11 +1608,12 @@ left-moving \(c_{\rm internal}=16\) sector follow by the calculation above. The 
 belongs to the left-moving bosonic matter central charge, not to twenty-six shared heterotic
 spacetime dimensions.
 
-\section{The OPH Graviton and the String Graviton}
+\section{The OPH Tensor Carrier and the String Graviton}
 
-The graviton dictionary is the conceptual hinge. The string graviton is the left-right edge-mode
-factorization of the OPH graviton. OPH identifies its metric quantum with the ordinary massless
-closed-string spin-two state.
+The tensor dictionary is the conceptual hinge. OPH supplies an action-level classical
+transverse-traceless metric carrier on the stated pure-Einstein branch. The critical-string
+candidate must separately supply a physical quantum state and pole and show that its classical
+limit is that same carrier.
 
 \subsection{OPH side: metric from modular geometry}
 
@@ -1622,7 +1628,9 @@ The transverse-traceless part
 \[
 h_{ab}^{\OPH,\TT}
 \]
-is the propagating spin-two perturbation. Quantizing this field gives the OPH graviton.
+is the propagating classical spin-two perturbation. This statement alone does not construct a
+graviton Hilbert space or a particle pole. Those are additional receipts demanded from the
+critical-string representative below.
 
 \subsection{String side: metric from the closed-string vertex}
 
@@ -1682,8 +1690,9 @@ polarized state decomposes as
 \frac1D\eta_{\mu\nu}\epsilon^\lambda{}_{\lambda}
 \alpha_{-1}^{\mu}\tilde\alpha_{-1}^{\nu}|0;k\rangle .
 \]
-The OPH graviton is the symmetric transverse-traceless component of the two-sided collar excitation
-read in the critical worldsheet language:
+The proposed quantum completion of the OPH tensor carrier is the symmetric
+transverse-traceless component of the two-sided collar excitation, read in the critical worldsheet
+language:
 \[
 h_{\mu\nu}^{\OPH,\TT}
 \longleftrightarrow
@@ -1692,7 +1701,7 @@ h_{\mu\nu}^{\OPH,\TT}
 
 \subsection{The map}
 
-Define the OPH-to-string graviton map by
+Define the OPH-carrier-to-string-state map by
 \[
 \Mgrav:
 [h_{ab}^{\OPH,\TT}]
@@ -1705,28 +1714,33 @@ G_4^{\rm string}(m_\star,\alpha',g_s,V_6)
 =
 G_4^{\OPH}(N_{\rm scr},P).
 \]
-OPH fixes the Einstein-frame graviton normalization, and the string representative supplies
-the critical worldsheet realization.
+OPH fixes the classical Einstein-frame tensor normalization. The string representative must supply
+the critical worldsheet realization, BRST-physical state space, positive norm, and massless pole.
 
-\begin{theorem}[Graviton identification theorem]
-On an OPH-correct critical-string presentation, the massless closed-string symmetric spin-two
-state is exactly the quantized OPH metric perturbation:
+\begin{theorem}[Conditional tensor-carrier quantum completion]
+Suppose a critical-string presentation satisfies all of the following: (i) the OPH pure-Einstein
+flat-background quadratic receipt with two transverse-traceless null modes; (ii) a BRST-physical,
+positive-norm closed-string symmetric spin-two state with a positive-residue pole at \(k^2=0\);
+(iii) equality of the four-dimensional normalization and classical background deformation; and
+(iv) the selector condition that no second independent visible spin-two sector survives. Then the
+string state is a quantum completion of the OPH classical metric carrier:
 \[
 \Mgrav(h^{\OPH,\TT})=h^{\rm string,\TT}.
 \]
-No additional independent massless spin-two field is allowed in the OPH-visible sector.
+The absence of an additional visible spin-two particle is condition (iv) of the selector receipt,
+not a consequence of the classical Einstein equation alone.
 \end{theorem}
 
 \begin{proof}
 The OPH gravity branch produces a single observer-facing Einstein-frame metric on the physical
-quotient. Its propagating transverse-traceless perturbation is a massless spin-two field. A critical
-closed string contains a massless symmetric spin-two state, represented by the vertex
-\(\epsilon_{\mu\nu}\partial X^\mu\bar\partial X^\nu e^{ik\cdot X}\). In an OPH-correct lift, the
-worldsheet background metric is the same observer-facing metric that OPH reconstructs. Its
-symmetric transverse-traceless vertex is the quantization of the OPH metric perturbation. If an
-extra independent massless spin-two field survived in the same visible sector, the four-dimensional
-low-energy theory would contain an additional graviton or bigravity degree of freedom, changing the
-OPH Einstein branch and failing OPH-equivalence. The two gravitons are the same field.
+quotient. Under (i), its reduced quadratic action and Hamiltonian have two classical null tensor
+modes. Assumption (ii) places the displayed string vertex in the physical Hilbert space and gives
+it the required particle pole; this is precisely the information absent from a classical Einstein
+equation. By (iii), the vertex deforms the same normalized metric and has the OPH tensor mode as its
+classical limit, so the displayed map identifies one classical carrier with one quantum state.
+Condition (iv) rejects any candidate with an additional independent visible spin-two state. Thus
+the particle statement follows from all four receipts together, without promoting the classical
+field equation by itself.
 \end{proof}
 
 \begin{center}
@@ -1738,7 +1752,8 @@ OPH Einstein branch and failing OPH-equivalence. The two gravitons are the same 
 Cap modular geometry & Target-space metric background \(G_{\mu\nu}(X)\). \\
 Fixed-cap generalized entropy stationarity & Low-energy Einstein equation / vanishing metric beta function on the selected background. \\
 Metric perturbation \(h^{\OPH}_{ab}\) & Closed-string background deformation \(h_{\mu\nu}\partial X^\mu\bar\partial X^\nu\). \\
-OPH graviton & Symmetric transverse-traceless massless closed-string state. \\
+OPH classical tensor carrier & BRST-physical symmetric transverse-traceless closed-string state,
+conditional on its positive-residue pole receipt. \\
 Screen-capacity normalization & Four-dimensional Newton constant after compactification. \\
 Edge record/collar sewing & Worldsheet sewing and genus expansion in the controlled large-edge branch. \\
 \bottomrule
@@ -1799,14 +1814,15 @@ the OPH one-Higgs electroweak branch.
 package and fails the cohomology target.
 \item \textbf{No extra visible low-scale \(\U(1)\).} Additional visible abelian gauge bosons change
 the OPH global group quotient.
-\item \textbf{No massless \(X/Y\) gauge bosons in the connected visible adjoint.} The selected visible
-group is the product quotient. Massive Wilson-line and Kaluza--Klein modes require the separate
-heavy-spectrum and coupling calculation.
+\item \textbf{No mixed \(X/Y\) generator in the connected visible adjoint.} The selected visible
+group is the product quotient. A propagating connection component requires an action receipt, while
+Wilson-line and Kaluza--Klein particle modes require the separate spectrum and coupling calculation.
 \item \textbf{Operator-safety pattern.} Perturbative R-parity violation, perturbative
 dimension-five proton decay, and a perturbative \(\mu\)-term are forbidden on the operator-safe
 branch; Yukawas and the Weinberg neutrino operator are allowed.
-\item \textbf{One visible graviton.} Any additional massless spin-two field, bimetric sector, or
-independent low-energy tensor polarization fails the OPH graviton-identity gate.
+\item \textbf{One visible spin-two sector.} Any additional physical spin-two pole, bimetric sector,
+or independent low-energy tensor polarization fails the string-selector uniqueness gate; the
+classical Einstein equation alone does not establish this exclusion.
 \end{enumerate}
 
 \section{String-Community Pressure Points}
@@ -1947,9 +1963,9 @@ Yukawa admissibility & One-Higgs Yukawa terms are gauge invariant. & Exact charg
 Three generations & \(\Z_2\)-cover arithmetic gives \(N_g=3\). & Exact index arithmetic,
 assuming the BD \(c_3\) input. \\
 Higgs multiplicity & Selects \(n=1\) among BD \(n=0,1,2\) strata. & Selector proof. \\
-Massless unified-gauge carriers & The connected massless product-group adjoint excludes an
-\(X/Y\) generator. Massive BD modes remain in the heavy-spectrum gate. & Exact massless Lie-algebra proof
-plus external heavy-mode certificate. \\
+Connected unified-gauge adjoint & The connected product-group adjoint excludes an
+\(X/Y\) generator. Connection and BD particle modes remain in their action/spectrum gates. & Exact
+Lie-algebra proof plus external action and heavy-mode certificates. \\
 String emergence & Sewn edge partition equals \(K_t(1)\). & Exact Peter-Weyl proof. \\
 Worldsheet criticality & The twelve-port and twenty-four oriented-register counts define only a
 heterotic central-charge target until the edge VOA is identified. & Non-implication theorem plus
@@ -1977,8 +1993,9 @@ Higgs multiplicity & The \(n=1\) stratum is the minimal massless-cohomology stra
 declared zero-mode score. & Selector theorem. \\
 Exotic matter & BD supplies the no-exotics visible massless MSSM cohomology witness. &
 Published zero-mode geometry certificate; heavy and vectorlike modes are outside it. \\
-Massless unified-gauge carriers & The connected massless product-group adjoint excludes mixed
-\((3,2,\pm5/6)\) generators; no conclusion about massive carriers follows. & Exact massless Lie algebra. \\
+Connected unified-gauge adjoint & The connected product-group adjoint excludes mixed
+\((3,2,\pm5/6)\) generators; no connection or particle-spectrum conclusion follows from this
+algebra alone. & Exact Lie-algebra statement. \\
 Critical dimension & If the sewn-edge carrier has the heterotic polarization
 \((\mathrm{Heis}_8\otimes V_{\Gamma_{16}})_L\otimes
 (\mathrm{Heis}_8\otimes\mathrm{Ferm}_8)_R\), then \(D=10\) and
@@ -2229,10 +2246,11 @@ This proof does not exclude an \(n=2\) low-energy branch: moduli-dependent masse
 decoupling calculation could lift its additional pair.
 \end{proof}
 
-\subsection{Problem 6: massless unified-gauge carriers}
+\subsection{Problem 6: connected unified-gauge adjoint}
 
-The connected massless product-group adjoint contains no simple-\(\SU(5)\) \(X/Y\) generator.
-This Lie-algebra statement does not decide whether massive carriers induce proton decay.
+The connected product-group adjoint contains no simple-\(\SU(5)\) \(X/Y\) generator.
+This Lie-algebra statement does not supply connection dynamics or decide whether particle modes
+induce proton decay.
 
 \begin{theorem}[Product-group adjoint]
 The connected adjoint of
@@ -2243,7 +2261,8 @@ is
 \[
 (8,1,0)\oplus(1,3,0)\oplus(1,1,0).
 \]
-It contains no \((3,2,\pm5/6)\) gauge bosons.
+It contains no \((3,2,\pm5/6)\) adjoint generator; this algebraic conclusion alone does not
+assert a propagating connection component or particle.
 \end{theorem}
 
 \begin{proof}
@@ -2388,7 +2407,7 @@ Higgs sector & The low-energy branch has one Higgs pair and decouples to the obs
 doublet. \\
 Exotics & No light chiral exotics appear. \\
 Extra visible gauge factors & No extra visible low-scale \(\U(1)\) appears. \\
-Massless unified-gauge carriers & The connected massless product-group adjoint contains no
+Connected unified-gauge adjoint & The product-group adjoint contains no
 mixed \((3,2,\pm5/6)\) generator. \\
 Operator safety & The MSSM \(\ZfourR\) safety layer forbids perturbative RPV, dimension-five
 proton decay, and the perturbative \(\mu\)-term, with exact matter parity after
@@ -2398,16 +2417,17 @@ Moduli and thresholds & The branch must solve
 \bottomrule
 \end{longtable}
 
-\begin{theorem}[No massless \(X/Y\) connected-adjoint carrier]
-On the selected product-group zero-mode branch, the connected massless gauge adjoint is
+\begin{theorem}[No mixed \(X/Y\) connected-adjoint generator]
+On the selected product-group branch, the connected gauge adjoint is
 \[
 (8,1,0)\oplus(1,3,0)\oplus(1,1,0).
 \]
 The adjoint contains no mixed \((3,2,\pm5/6)\) generator.
 \end{theorem}
 
-This theorem is an algebraic statement about the connected massless OPH product-group adjoint.
-The Bouchard--Donagi computation is a zero-mode calculation. It does not enumerate massive
+This theorem is an algebraic statement about the connected OPH product-group adjoint and does not
+by itself produce a connection action or a particle. The Bouchard--Donagi computation is a
+separate zero-mode calculation. It does not enumerate massive
 Wilson-line or Kaluza--Klein \(X/Y\)-type modes, calculate their couplings, or bound the proton
 decay operators obtained by integrating them out. Those questions belong to the heavy-spectrum
 and threshold certificate.
@@ -2774,9 +2794,9 @@ Visible exotics & No massless visible chiral exotics in the published cohomology
 minimal zero-mode branch. \\
 Visible gauge factors & No extra visible low-scale \(\U(1)\). & Severe pressure on the
 normal-form sieve. \\
-Massless unified-gauge carriers & No mixed \((3,2,\pm5/6)\) generator in the connected
-massless product-group adjoint. & A massless mixed generator conflicts with the product-group
-branch; massive BD modes require the heavy-spectrum audit. \\
+Connected unified-gauge adjoint & No mixed \((3,2,\pm5/6)\) generator in the connected
+product-group adjoint. & A mixed generator conflicts with the product-group
+branch; connection dynamics and BD particle modes require separate audits. \\
 Operator safety & \(\ZfourR\) permits Yukawas and the Weinberg operator, forbids perturbative
 RPV, dimension-five proton decay, and the perturbative \(\mu\)-term, and leaves matter parity
 after nonperturbative breaking \cite{LeeRabyRatzRossSchierenSchmidtHobergVaudrevange2010}. &
@@ -2860,7 +2880,7 @@ Fourth chiral generation & Retracts the realized branch. \\
 Light chiral exotics & Retracts the BD one-Higgs witness. \\
 Irreducible second light Higgs pair & Retracts the one-Higgs low-energy projection. \\
 Extra visible low-scale \(\U(1)\) & Severe pressure on the OPH normal-form sieve. \\
-Massless mixed \(X/Y\) generator & Conflicts with the connected product-group branch. \\
+Mixed connected-adjoint \(X/Y\) generator & Conflicts with the connected product-group branch. \\
 Massive BD \(X/Y\)-type modes or induced operators & Evaluated by the heavy-spectrum and
 coupling certificate; the zero-mode adjoint theorem does not decide them. \\
 BD cohomology reproduction fails & Retracts \(BD_{n=1}^{\OPH}\) as named geometric witness. \\
@@ -2886,8 +2906,8 @@ The most persuasive route is compact:
 \item derive \(Z_{\rm edge}(t)=K_t(1)\) and the large-\(N_{\rm edge}\) worldsheet branch;
 \item prove the heterotic edge-polarization theorem for the sewn-edge scaling limit, including
 OPEs, fermionic grading, spin structures, and no residual coset;
-\item prove the OPH vacuum sieve, global group lock, \(\ZfourR\) safety table, connected-massless-
-adjoint theorem, and moduli-locking criterion;
+\item prove the OPH vacuum sieve, global group lock, \(\ZfourR\) safety table, connected-adjoint
+theorem, and moduli-locking criterion;
 \item reproduce the Bouchard-Donagi \(n=1\) cohomology, \(\ZfourR\) realization, and operator
 catalogue;
 \item freeze the nonzero-mode and hidden spectra, all physical moduli and scales, either a
@@ -2928,16 +2948,17 @@ Why anthropic landscape selection is absent & OPH provides a target normal form
 \(\Pi_{\rm IR}^{\OPH}(\mathcal T)=\mathfrak S_{\OPH}\), with no statistical sampling weight. & Exhaustive audits. \\
 Why the exact SM global group? & Wilson-line centralizer and OPH quotient both give
 \((\SU(3)\times\SU(2)\times\U(1))/\Z_6\). & Algebraic proof in paper. \\
-Why no massless simple-GUT proton-decay carrier? & The connected product-group adjoint has no
-\((3,2,\pm5/6)\) gauge bosons. Massive BD modes and induced operators remain in the
-heavy-spectrum gate. & Algebraic massless-adjoint proof plus heavy-mode certificate. \\
+Why no connected simple-GUT \(X/Y\) generator? & The connected product-group adjoint has no
+\((3,2,\pm5/6)\) generator. Connection dynamics, BD particle modes, and induced operators remain
+in their action and heavy-spectrum gates. & Algebraic adjoint proof plus action/heavy-mode certificates. \\
 How is the \(\mu\)-problem controlled? & The \(\ZfourR\) safety layer forbids perturbative
 \(H_uH_d\) and allows nonperturbative generation. & Compactification realization. \\
 How are moduli stabilization claims tested? & The candidate must solve the target-locking equation
 \(\calF(m_\star)=\calO_{\OPH}\) with full transverse rank. No solution point is emitted. &
 Numerical/rank certificate. \\
-What is the string graviton? & The closed-string vertex image of the OPH transverse-traceless
-metric perturbation. & Normalization match. \\
+What is the string graviton? & A BRST-physical closed-string vertex with a positive-residue
+massless pole whose classical limit is the OPH transverse-traceless metric perturbation. &
+Quantum-particle receipt plus normalization match. \\
 What fixes the critical dimension? & The critical-edge certificate must identify the sewn-edge carrier
 with the heterotic edge VOA; then heterotic criticality gives \(D=10\) and
 \(c_{\rm internal}=16\). & Edge transfer, OPE, grading, spin-structure, and no-coset receipts. \\

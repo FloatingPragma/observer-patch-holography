@@ -77,10 +77,11 @@ and the LHC collaborations turned it into a discovery. OPH enters after that
 century of work. Its question is why the ladder has this shape.
 
 From there the particle structure enters in a definite order. The structural
-carriers come first. The photon, the eight gluons, and the graviton are
-massless because they sit along redundancy directions of the overlap and
-gauge structure. A hard mass for any of them would spoil the gluing rules
-that let different patches describe the same physics. The same structure
+carrier roles come first. Explicit Maxwell, perturbative pure-Yang--Mills, and
+pure-Einstein actions then give classical transverse or TT modes on their
+stated backgrounds and phases. Photon, gluon, and graviton particles require a
+separate quantum Hilbert-space and pole receipt; redundancy alone does not fix
+their physical spectrum. The same product-group structure
 also blocks gauge-mediated proton decay, because the realized gauge
 group is a product group and does not contain the extra leptoquark gauge
 bosons required by simple-group unification.
@@ -183,7 +184,8 @@ Majorana values belong only to diagnostic attachments of the rejected
 candidate.
 
 The particle picture is larger than a handful of isolated numbers. At book
-level, the map contains structural massless carriers, the weak-sector
+level, the map contains receipt-gated classical carrier modes with no promoted
+photon/gluon/graviton mass rows, the weak-sector
 comparison pair, the Higgs/top quantitative relation, the selected conditional
 quark support surface with Yukawas, and the rejected weighted-cycle neutrino
 comparison candidate.

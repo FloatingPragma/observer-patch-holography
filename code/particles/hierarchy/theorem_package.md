@@ -305,7 +305,8 @@ m_{\rm rep}
 
 The cyclic repair scheduler on this oriented support has period 24. The SU(5)
 adjoint has the same single-orientation integer for a different support: it
-contains X/Y mixed gauge bosons, which are excluded by the OPH product branch.
+contains mixed X/Y adjoint generators, which are excluded by the OPH product
+branch. This algebraic comparison does not assert a propagating particle.
 The certificate is `certificates/R_m_rep_24_certificate.json`.
 
 ## Lemma H: Global repair-tick lemma

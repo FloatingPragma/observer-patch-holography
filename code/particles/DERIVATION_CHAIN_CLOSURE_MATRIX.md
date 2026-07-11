@@ -1,6 +1,6 @@
 # Particle Derivation Chain Closure Matrix
 
-Generated: `2026-07-11T06:58:14Z`
+Generated: `2026-07-11T17:56:21Z`
 
 Status: `executable_nonhadron_chain_matrix_emitted`
 All derivation chains claimed closed: `False`
@@ -11,7 +11,7 @@ Reason: Hadron issues #153/#157 have a source-backend boundary and an empirical 
 | Chain | Status | Promotable | Open gates | Outputs | Next artifact |
 | --- | --- | --- | --- | --- | --- |
 | `p_closure_root` | `candidate_not_certified_root` | `False` | none | `P=1.63097210492078846050203640439`, `alpha_inv=136.994020662724205139718642793` | code/P_derivation/runtime/r_q_residual_contract_current.json + code/P_derivation/runtime/fine_structure_interval_certificate_current.json |
-| `structural_massless_bosons` | `closed_structural_zero` | `True` | none | `photon=0.0`, `gluon=0.0`, `graviton=0.0` | none |
+| `conditional_classical_carrier_modes` | `closed_scoped_classical_modes_quantum_particle_gate_open` | `False` | #quantization_constructed_from_oph, #positive_physical_hilbert_space, #physical_two_point_or_hamiltonian_spectrum_constructed, #positive_residue_massless_pole, #asymptotic_or_deconfined_particle_state | `photon={'hard_quadratic_mass_parameter_squared': 0, 'classical_carrier_gate': 'conditional_pass_on_declared_action_phase_branch', 'quantum_particle_gate': 'not_passed'}`, `gluon={'hard_quadratic_mass_parameter_squared': 0, 'classical_carrier_gate': 'conditional_pass_on_declared_action_phase_branch', 'quantum_particle_gate': 'not_passed'}`, `graviton={'hard_quadratic_mass_parameter_squared': 0, 'classical_carrier_gate': 'conditional_pass_on_declared_action_phase_branch', 'quantum_particle_gate': 'not_passed'}` | code/particles/runs/status/carrier_mode_acceptance.json |
 | `electroweak_massive_bosons` | `no_public_prediction_row_target_free_d10_repair_not_promoted` | `False` | none | n/a | code/P_derivation/runtime/r_q_residual_contract_current.json |
 | `hierarchy_naturality_bridge` | `closed_selected_branch_local_global_hierarchy_naturality` | `True` | none | `N_CRC_EW=3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122`, `bridge_residual=0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`, `epsilon_H=0` | none |
 | `higgs_top_declared_surface` | `conditional_declared_surface_higgs_top_candidate` | `False` | #closed_promotable_EWTargetFreeRepairValueLaw_D10 | `higgs=125.1995304097179` | code/particles/runs/calibration/direct_top_bridge_contract.json |
