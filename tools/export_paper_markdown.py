@@ -209,6 +209,12 @@ def strip_trailing_whitespace(text: str) -> str:
 
 def export_one(src: Path, dest: Path, pandoc_bin: str, release_tag: str, release_date: str) -> None:
     export_src = MARKDOWN_SOURCE_OVERRIDES.get(src, src)
+    if export_src.is_relative_to(PAPER_DIR):
+        pandoc_cwd = PAPER_DIR
+        pandoc_input = str(export_src.relative_to(PAPER_DIR))
+    else:
+        pandoc_cwd = export_src.parent
+        pandoc_input = export_src.name
     subprocess.run(
         [
             pandoc_bin,
@@ -217,12 +223,12 @@ def export_one(src: Path, dest: Path, pandoc_bin: str, release_tag: str, release
             "-t",
             "gfm",
             "--wrap=none",
-            export_src.name,
+            pandoc_input,
             "-o",
             str(dest),
         ],
         check=True,
-        cwd=export_src.parent,
+        cwd=pandoc_cwd,
     )
     text = postprocess_markdown(dest.read_text(encoding="utf-8"))
     text = ensure_release_banner(text, release_tag, release_date)
