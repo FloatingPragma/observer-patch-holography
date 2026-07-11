@@ -1,0 +1,36 @@
+{
+  "schema_version": "oph.ibm-quantum.evidence-checksums.v1",
+  "compression": "gzip -9 -n",
+  "artifact_file_sha256": {
+    "README.md": "4198c995b0d5fe0eb9e6fcc016f95209eb851e661642084d7330226bd5e0f8dd",
+    "result_summary.json": "aa1851fc57ef3f8883f8c987155b9415a642229f3ca22c7df7ece28e19a5a93b",
+    "job_receipts.json": "fbb218c6582bed7c3c10e09c5b39a9d012a32d0a1e5ca62c7726155e10d239fe",
+    "v1_pre_submission_abort.json": "4270be6a93872fea5af846471c2a39472b233903013df630e5e42435661d504b",
+    "blind_freeze_receipt.json": "e85044ca14e1d062448232283a37b0a268b877094b667add5dcd53a2a4dba366",
+    "public_manifest.json": "31e056de2ac61642cf48396bc1f2d2e298f789dfd20488d8a847405890944738",
+    "analysis_lock.json.gz": "881919a241f4f08631ca93934479f383fd5a87e5809428473fccadd5492253ba",
+    "reveal.json.gz": "be0d047f458edcaed36e4ee5aae790a41f246ab53a8afd5c3d1f16f17df8e770",
+    "runtime_development_submission_events.ndjson.gz": "257fa0ec8d4112db483eaa20036e0a4224c01905fb6425f0af6b4af1c6d66f2b",
+    "runtime_heldout_submission_events.ndjson.gz": "c306e6910416c606728881dcab4f395edbcd57ac94debc429f831e2d06870e7d",
+    "runtime_harvest_events.ndjson.gz": "97fe27f47a9f5830004cabf5d4fa0669250b2fc50eedd9a8cc6cfb44a03771dc",
+    "blinded_hardware_data_packet.json.gz": "14bbfcb2272d3ca142b0d4242c87b9a6c526007b7c1aaf736411c4e14fc56779",
+    "blind_hardware_report.json.gz": "1f8369b3be0e3fb18493ac52eb25ef34c4bfd8511163aad82c60b7789992f65d"
+  },
+  "decompressed_file_sha256": {
+    "analysis_lock.json": "5fa8972fce072e9c3005c079d14add73dce1fcb7d47d2369aa6aaf833c661d31",
+    "reveal.json": "9f865172b731c724db727f1886c317bc26fd623cdd3a9f806ed9f7cef6964377",
+    "runtime_development_submission_events.ndjson": "f6937f1ac4ed996db82d08e9cbd4ae9acaaeb98859e15bf5ed3b79f348fb7705",
+    "runtime_heldout_submission_events.ndjson": "36ea5784c522352c1d445e4c87260299c9c8bdf7d8aa09397f1fca28947b6029",
+    "runtime_harvest_events.ndjson": "a5bcf148d571967f4107ab8a87713790332d5008aaebadf82cd5a681ffe05f45",
+    "blinded_hardware_data_packet.json": "569225fcd949698a710405224c65d64e4a9e323ce1699de782ab713a037a2a0c",
+    "blind_hardware_report.json": "9d60d6939a41f59184b2dee859a5fa5b223eff6d6309a223a1f16ab25e8317ab"
+  },
+  "internal_commitment_sha256": {
+    "catalog_precommitment": "ae335e03ca9a70dc6b611f3e95151af8dc4e5b63de1836625d2bce60dc5f0e9c",
+    "manifest": "78868d2ea896e1fad2b032114fd2b103ad7564ca2ceff072bac7444574bc7ff3",
+    "analysis_lock": "d5658535a03a8f89159554013256f7e0e024f175a4c605d0393872d7a27577fb",
+    "analysis_code": "4056149348a1dc80a9370854b5a0d398e9546f65ada566fa42bfa7666dffaef4",
+    "data_packet": "16e1272ff6c76eac6f0c7bf8d3c141245744820cf5409bfa6bc75796e6f63691",
+    "blind_report": "d6c7373ec7a21ac1194144e976864122fbddcc10e9abf47df2855a0e7539b49e"
+  }
+}

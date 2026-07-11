@@ -1,0 +1,22 @@
+{
+  "schema_version": "oph.ibm-quantum.job-receipts.v1",
+  "run_id": "issue509-20260711-v2",
+  "all_statuses": "DONE",
+  "provider_quantum_seconds": 196,
+  "jobs": [
+    {"backend":"ibm_fez","role":"development","family":"cayley","job_id":"d98tdcif47jc73a8bckg","pubs":300,"shots_per_pub":192,"quantum_seconds":18},
+    {"backend":"ibm_fez","role":"development","family":"cayley","job_id":"d98te8otcv6s73dmid2g","pubs":300,"shots_per_pub":192,"quantum_seconds":18},
+    {"backend":"ibm_fez","role":"development","family":"cayley","job_id":"d98tf84qp3as739tcl90","pubs":300,"shots_per_pub":192,"quantum_seconds":18},
+    {"backend":"ibm_fez","role":"development","family":"cayley","job_id":"d98tfs0tcv6s73dmifpg","pubs":300,"shots_per_pub":192,"quantum_seconds":18},
+    {"backend":"ibm_fez","role":"development","family":"cayley","job_id":"d98tgkaf47jc73a8bha0","pubs":280,"shots_per_pub":192,"quantum_seconds":17},
+    {"backend":"ibm_fez","role":"development","family":"mh","job_id":"d98th8otcv6s73dmiilg","pubs":56,"shots_per_pub":192,"quantum_seconds":5},
+    {"backend":"ibm_fez","role":"development","family":"readout_calibration","job_id":"d98thrt2su3c739jn8ng","pubs":16,"shots_per_pub":512,"quantum_seconds":4},
+    {"backend":"ibm_kingston","role":"heldout","family":"cayley","job_id":"d98tj6t2su3c739jnaog","pubs":300,"shots_per_pub":192,"quantum_seconds":18},
+    {"backend":"ibm_kingston","role":"heldout","family":"cayley","job_id":"d98tk20tcv6s73dmimlg","pubs":300,"shots_per_pub":192,"quantum_seconds":18},
+    {"backend":"ibm_kingston","role":"heldout","family":"cayley","job_id":"d98tkuaf47jc73a8bnlg","pubs":300,"shots_per_pub":192,"quantum_seconds":18},
+    {"backend":"ibm_kingston","role":"heldout","family":"cayley","job_id":"d98tlusqp3as739td150","pubs":300,"shots_per_pub":192,"quantum_seconds":18},
+    {"backend":"ibm_kingston","role":"heldout","family":"cayley","job_id":"d98tp9af47jc73a8bvtg","pubs":280,"shots_per_pub":192,"quantum_seconds":17},
+    {"backend":"ibm_kingston","role":"heldout","family":"mh","job_id":"d98tq04qp3as739td830","pubs":56,"shots_per_pub":192,"quantum_seconds":5},
+    {"backend":"ibm_kingston","role":"heldout","family":"readout_calibration","job_id":"d98tqud2su3c739jnnb0","pubs":16,"shots_per_pub":512,"quantum_seconds":4}
+  ]
+}

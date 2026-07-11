@@ -1,0 +1,134 @@
+{
+  "schema_version": "oph.ibm-quantum.hardware-result-summary.v1",
+  "run_id": "issue509-20260711-v2",
+  "execution": {
+    "provider": "IBM Quantum",
+    "primitive": "SamplerV2",
+    "qiskit_version": "2.5.0",
+    "qiskit_ibm_runtime_version": "0.47.0",
+    "qiskit_aer_version": "0.17.2",
+    "backends": {
+      "development": {
+        "name": "ibm_fez",
+        "physical_layout": [10, 18, 94, 124]
+      },
+      "heldout": {
+        "name": "ibm_kingston",
+        "physical_layout": [21, 47, 50, 107]
+      }
+    },
+    "jobs": 14,
+    "circuits": 3104,
+    "dynamic_circuits": 3072,
+    "diagnostic_calibration_circuits": 32,
+    "shots": 606208,
+    "provider_quantum_seconds": 196,
+    "all_jobs_complete": true,
+    "postselection": false,
+    "dropped_shots": 0
+  },
+  "commitments": {
+    "catalog_precommitment_sha256": "ae335e03ca9a70dc6b611f3e95151af8dc4e5b63de1836625d2bce60dc5f0e9c",
+    "manifest_sha256": "78868d2ea896e1fad2b032114fd2b103ad7564ca2ceff072bac7444574bc7ff3",
+    "analysis_lock_sha256": "d5658535a03a8f89159554013256f7e0e024f175a4c605d0393872d7a27577fb",
+    "analysis_code_sha256": "4056149348a1dc80a9370854b5a0d398e9546f65ada566fa42bfa7666dffaef4",
+    "data_packet_sha256": "16e1272ff6c76eac6f0c7bf8d3c141245744820cf5409bfa6bc75796e6f63691",
+    "blind_report_sha256": "d6c7373ec7a21ac1194144e976864122fbddcc10e9abf47df2855a0e7539b49e",
+    "reveal_commitment_verified": true,
+    "all_logical_circuits_rebuilt_and_verified": true,
+    "logical_circuits_verified": 3104,
+    "reference_component_id": "lbl_0625bffe5d250e6ca1d50df25e68a991"
+  },
+  "validity": {
+    "overall_validity_gate_pass": true,
+    "calibration_gate_pass": true,
+    "leakage_gate_pass": true,
+    "shot_conservation_passed": true,
+    "all_expected_rows_present": true,
+    "all_submitted_jobs_included": true,
+    "maximum_basis_error_fraction": {
+      "ibm_fez": 0.03515625,
+      "ibm_kingston": 0.029296875,
+      "frozen_limit": 0.15
+    },
+    "pooled_leakage_fraction": {
+      "ibm_fez_cayley": 0.03362190315315315,
+      "ibm_fez_mh": 0.01097470238095238,
+      "ibm_kingston_cayley": 0.011891188063063064,
+      "ibm_kingston_mh": 0.00902157738095238,
+      "frozen_limit": 0.1
+    },
+    "maximum_individual_circuit_leakage_fraction": 0.19791666666666666,
+    "maximum_individual_circuit_leakage_limit": 0.25,
+    "global_99_percent_simultaneous_envelope": {
+      "pass": true,
+      "family_size": 55296,
+      "violation_count": 0,
+      "max_absolute_fraction_error": 0.11395833333333333
+    }
+  },
+  "primary_endpoint": {
+    "name": "primary_s3",
+    "rows": 432,
+    "verdict": "passes_frozen_reduced_repair_kernel_gate",
+    "primary_pass": true,
+    "per_backend_lr_threshold": 10.0,
+    "pooled_lr_threshold": 100.0,
+    "conditional_log_likelihood_ratio_repair_over_null": {
+      "ibm_fez": {
+        "lazy_heat": 136738.53747017554,
+        "delayed_record": 77145.22160409231,
+        "shuffled_record": 93252.7061716418,
+        "inverted_record": 275461.3302856289,
+        "state_preparation_only": 99891.885891887,
+        "calibrated_noise": 171961.76659609203,
+        "label_only": 5.545177444479123
+      },
+      "ibm_kingston": {
+        "lazy_heat": 141443.84885879394,
+        "delayed_record": 78954.39559537504,
+        "shuffled_record": 96396.8754871372,
+        "inverted_record": 284142.44742121943,
+        "state_preparation_only": 103598.34232415669,
+        "calibrated_noise": 180409.44192635576,
+        "label_only": 5.545177444479123
+      },
+      "pooled": {
+        "lazy_heat": 278182.3863289695,
+        "delayed_record": 156099.61719946735,
+        "shuffled_record": 189649.581658779,
+        "inverted_record": 559603.7777068485,
+        "state_preparation_only": 203490.2282160437,
+        "calibrated_noise": 352371.2085224478,
+        "label_only": 5.545177444480942
+      }
+    },
+    "label_layout_multiplicity": {
+      "components": 256,
+      "reference_component_is_unique_top": true,
+      "reference_component_rank": 1,
+      "reference_component_posterior_within_label_model": 1.0,
+      "top_to_second_log_weighted_likelihood_gap": 184295.0102490954,
+      "conditional_likelihood_ratio_repair_over_label_mixture": 256.00000000035305
+    }
+  },
+  "secondary_mh": {
+    "does_not_select_primary": true,
+    "conditional_log_likelihood_ratio_kappa_1_over_null": {
+      "s3": {"kappa_0": 46.21590910916757, "kappa_2": 83.63542686582173},
+      "a4_nonabelian_decoy": {"kappa_0": 28.275649318205524, "kappa_2": 14.092267154741648},
+      "random_seeded_decoy": {"kappa_0": 189.0255321804184, "kappa_2": 926.0727263289771},
+      "z3_cyclic_negative_control": {"kappa_0": 0.0, "kappa_2": 0.0},
+      "z5_cyclic_negative_control": {"kappa_0": 0.0, "kappa_2": 0.0}
+    },
+    "negative_control_exact_zero_checks_pass": true,
+    "holm_family_alpha": 0.01,
+    "goodness_of_fit_tests": 14,
+    "holm_rejections": 0
+  },
+  "claim_boundary": {
+    "supported": "On two IBM QPUs, the engineered bounded four-qubit patch used local state, a measured boundary record, conditional feedback, final readback, append-only execution records, and a public evidence bundle. Its record-gated repair behavior passed the frozen reduced-controller comparisons on both preregistered layouts.",
+    "not_supported": "This is not evidence against unrestricted quantum mechanics, not a test of OPH against standard quantum theory, and not evidence for OPH claims about relativity, the Standard Model, cosmology, or ontology. Standard quantum mechanics predicts the programmed dynamic instrument.",
+    "evidence_measure": "Frozen conditional likelihood ratios, not Bayes factors; calibration uncertainty is probed by preregistered sensitivity bounds rather than fully marginalized."
+  }
+}

@@ -25,10 +25,6 @@ class FakeCircuit:
         self.blob = blob
 
 
-def fake_qpy_dump(circuits, handle) -> None:
-    handle.write(b"|".join(circuit.blob for circuit in circuits))
-
-
 def make_bundle_files(tmp_path: Path):
     opaque_id = "opaque-circuit-1"
     heldout_opaque_id = "opaque-circuit-2"
@@ -38,7 +34,7 @@ def make_bundle_files(tmp_path: Path):
     heldout_public_backend = "backend-opaque-kingston"
     public_layout = "layout-opaque-fez"
     heldout_public_layout = "layout-opaque-kingston"
-    qpy_sha = hashlib.sha256(b"logical").hexdigest()
+    logical_sha = hashlib.sha256(b"logical").hexdigest()
     resources = {
         "account_quota_seconds": 600,
         "account_reserve_seconds": 180,
@@ -77,13 +73,13 @@ def make_bundle_files(tmp_path: Path):
         "circuits": [
             {
                 "opaque_id": opaque_id,
-                "qpy_sha256": qpy_sha,
+                "logical_circuit_sha256": logical_sha,
                 "shots": 256,
                 "backend_role": public_role,
             },
             {
                 "opaque_id": heldout_opaque_id,
-                "qpy_sha256": qpy_sha,
+                "logical_circuit_sha256": logical_sha,
                 "shots": 256,
                 "backend_role": heldout_public_role,
             },
@@ -110,7 +106,7 @@ def make_bundle_files(tmp_path: Path):
         "backend_role": "development",
         "backend_role_opaque_id": public_role,
         "shots": 256,
-        "qpy_sha256": qpy_sha,
+        "logical_circuit_sha256": logical_sha,
         "circuit_name": opaque_id,
         "circuit_metadata": {},
         "parameters": {},
@@ -124,6 +120,7 @@ def make_bundle_files(tmp_path: Path):
         }
     )
     payload = {
+        "mode": "deterministic_test_only",
         "public_manifest_core_sha256": core_sha,
         "protocol_id": "opaque-protocol",
         "backend_slots": [
@@ -186,7 +183,7 @@ def test_operator_bundle_verifies_full_digest_dag_without_exposing_secret(tmp_pa
             "circuits_checked": len(rows),
             "families": {"cayley": len(rows)},
         },
-        qpy_dump=fake_qpy_dump,
+        logical_digest=lambda circuit: hashlib.sha256(circuit.blob).hexdigest(),
     )
     assert bundle.backend_slots[0]["role"] == "development"
     assert bundle.backend_slots[0]["backend"] == "ibm_fez"
@@ -218,12 +215,18 @@ def test_operator_bundle_rejects_tampered_analysis_lock(tmp_path: Path) -> None:
             analysis_path,
             circuit_rebuilder=lambda _opaque_id, _descriptor: FakeCircuit(),
             ideal_validator=lambda rows: {"passed": True, "circuits_checked": len(rows)},
-            qpy_dump=fake_qpy_dump,
+            logical_digest=lambda circuit: hashlib.sha256(circuit.blob).hexdigest(),
         )
 
 
 def test_submission_requires_flag_and_both_literal_hashes() -> None:
-    bundle = SimpleNamespace(manifest_sha256="aa" * 32, analysis_lock_sha256="bb" * 32)
+    bundle = SimpleNamespace(
+        manifest_sha256="aa" * 32,
+        analysis_lock_sha256="bb" * 32,
+        reveal_mode="production_random",
+        analysis_lock_document={"catalog_precommitment_sha256": "cc" * 32},
+        manifest={"catalog_precommitment_sha256": "cc" * 32},
+    )
     with pytest.raises(runtime.RuntimeSafetyError, match="confirm-submit"):
         runtime.validate_submission_confirmation(
             confirm_submit=False,
@@ -243,7 +246,23 @@ def test_submission_requires_flag_and_both_literal_hashes() -> None:
         confirmed_manifest_sha256="aa" * 32,
         confirmed_analysis_lock_sha256="bb" * 32,
         bundle=bundle,
+        analysis_validator=lambda _document, verify_code_hash: verify_code_hash,
     )
+
+
+def test_submission_refuses_deterministic_preregistration_even_with_exact_hashes() -> None:
+    bundle = SimpleNamespace(
+        manifest_sha256="aa" * 32,
+        analysis_lock_sha256="bb" * 32,
+        reveal_mode="deterministic_test_only",
+    )
+    with pytest.raises(runtime.RuntimeSafetyError, match="deterministic test"):
+        runtime.validate_submission_confirmation(
+            confirm_submit=True,
+            confirmed_manifest_sha256="aa" * 32,
+            confirmed_analysis_lock_sha256="bb" * 32,
+            bundle=bundle,
+        )
 
 
 def test_qpu_guard_preserves_preregistered_reserve() -> None:
@@ -378,7 +397,7 @@ def test_canonical_prereg_dispatcher_and_ideal_gate_cover_all_families() -> None
             "backend_role": "development",
             "backend_role_opaque_id": "opaque-role",
             "shots": 256,
-            "qpy_sha256": "0" * 64,
+            "logical_circuit_sha256": "0" * 64,
             "circuit_name": opaque_id,
             "circuit_metadata": {
                 "schema_version": prereg.BLINDED_CIRCUIT_SCHEMA_VERSION,
@@ -388,7 +407,7 @@ def test_canonical_prereg_dispatcher_and_ideal_gate_cover_all_families() -> None
             "parameters": parameters,
         }
         circuit = prereg.rebuild_blinded_circuit(opaque_id, descriptor)
-        descriptor["qpy_sha256"] = prereg.qpy_sha256(circuit)
+        descriptor["logical_circuit_sha256"] = prereg.logical_circuit_sha256(circuit)
         rows.append((opaque_id, descriptor, circuit))
 
     for protocol in prereg.CAYLEY_PROTOCOLS:
@@ -429,7 +448,7 @@ def test_canonical_prereg_dispatcher_and_ideal_gate_cover_all_families() -> None
     }
 
 
-def test_generated_prereg_bundle_passes_runtime_digest_qpy_and_ideal_gates(
+def test_generated_prereg_bundle_passes_runtime_logical_digest_and_ideal_gates(
     tmp_path: Path,
 ) -> None:
     pytest.importorskip("qiskit")
@@ -462,6 +481,7 @@ def test_generated_prereg_bundle_passes_runtime_digest_qpy_and_ideal_gates(
         "families": {"cayley": 160, "mh": 12, "readout_calibration": 2},
         "passed": True,
     }
+    assert runtime.hardened_analysis_lock_status(bundle) is False
 
 
 def test_dynamic_backend_validation_rejects_missing_control_flow() -> None:
@@ -491,6 +511,7 @@ class FakeSamplerOptions:
     def __init__(self) -> None:
         self.dynamical_decoupling = SimpleNamespace(enable=None)
         self.twirling = SimpleNamespace(enable_gates=None, enable_measure=None)
+        self.execution = SimpleNamespace(meas_type=None, init_qubits=None)
         self.environment = SimpleNamespace(job_tags=None)
         self.max_execution_time = None
 
@@ -530,6 +551,120 @@ class FakeService:
         return self.jobs_by_id[job_id]
 
 
+def _one_group_prepared_run(compiled_qpy: bytes, nonce: str) -> runtime.PreparedRun:
+    group_id = "12" * 32
+    compiled_digest = runtime.sha256_bytes(compiled_qpy)
+    circuit = runtime.PreparedCircuit(
+        opaque_id="opaque",
+        family="cayley",
+        shots=256,
+        backend_role="public-role",
+        logical_circuit_sha256="aa" * 32,
+        compiled_qpy_sha256=compiled_digest,
+        compiled_duration_seconds=0.001,
+        logical_circuit=object(),
+        compiled_circuit=object(),
+    )
+    group = runtime.PreparedGroup(
+        group_id=group_id,
+        backend_role="development",
+        backend_role_opaque_id="public-role",
+        family="cayley",
+        backend_name="ibm_fez",
+        layout_opaque_id="opaque-layout",
+        physical_layout=(10, 18, 94, 124),
+        properties_last_update="2026-07-11T10:15:57+07:00",
+        shots=256,
+        estimated_qpu_seconds=3.0,
+        circuits=(circuit,),
+        compiled_qpy=compiled_qpy,
+    )
+    artifact = runtime.compiled_qpy_artifact(group_id, compiled_qpy)
+    plan = {
+        "schema_version": runtime.RUNTIME_SCHEMA,
+        "selected_backend_role": "development",
+        "operator_source_sha256": runtime.operator_source_sha256(),
+        "test_recompile_nonce": nonce,
+        "groups": [
+            {
+                "group_id": group_id,
+                "compiled_qpy_bundle_sha256": artifact["sha256"],
+                "compiled_qpy_artifact": artifact,
+            }
+        ],
+    }
+    plan["plan_sha256"] = runtime.sha256_json(plan)
+    return runtime.PreparedRun(
+        plan=plan,
+        groups=(group,),
+        backends={"public-role": "backend-object"},
+    )
+
+
+def test_dry_plan_then_submit_replans_content_address_divergent_qpy(
+    tmp_path: Path,
+) -> None:
+    dry_plan = _one_group_prepared_run(b"process-a-qpy", "dry-plan")
+    submit_plan = _one_group_prepared_run(b"process-b-qpy", "submit-recompile")
+    repeat_plan = _one_group_prepared_run(b"process-c-qpy", "repeat-recompile")
+
+    plan_paths = [
+        runtime.persist_prepared_run(prepared, tmp_path)
+        for prepared in (dry_plan, submit_plan, repeat_plan)
+    ]
+    assert len(set(plan_paths)) == 3
+    artifact_paths = [
+        tmp_path / prepared.plan["groups"][0]["compiled_qpy_artifact"]["relative_path"]
+        for prepared in (dry_plan, submit_plan, repeat_plan)
+    ]
+    assert len(set(artifact_paths)) == 3
+    assert [path.read_bytes() for path in artifact_paths] == [
+        b"process-a-qpy",
+        b"process-b-qpy",
+        b"process-c-qpy",
+    ]
+    # A retry of an identical plan is idempotent as well.
+    assert runtime.persist_prepared_run(dry_plan, tmp_path) == plan_paths[0]
+
+    service = FakeService()
+
+    class FakeSampler:
+        def __init__(self, mode, options) -> None:
+            assert mode == "backend-object"
+
+        def run(self, circuits, shots):
+            job = FakeJob("job-content-addressed")
+            service.jobs_by_id[job.job_id()] = job
+            return job
+
+    bindings = SimpleNamespace(SamplerV2=FakeSampler, SamplerOptions=FakeSamplerOptions)
+    bundle = SimpleNamespace(
+        manifest={
+            "resources": {
+                "account_quota_seconds": 600,
+                "account_reserve_seconds": 180,
+                "estimated_qpu_seconds_ceiling": 420,
+                "max_execution_time_seconds": 420,
+            }
+        },
+        manifest_sha256="dd" * 32,
+        analysis_lock_sha256="ee" * 32,
+    )
+    journal = tmp_path / "runtime_development_submission_events.ndjson"
+    submitted = runtime.submit_prepared_run(
+        submit_plan, bundle, service, bindings, tmp_path, submission_journal=journal
+    )
+    assert [event["job_id"] for event in submitted] == ["job-content-addressed"]
+    assert submitted[0]["circuit_bindings"][0]["compiled_qpy_sha256"] == (
+        runtime.sha256_bytes(b"process-b-qpy")
+    )
+    # A third process-local QPY serialization can persist, but resumability
+    # prevents a duplicate provider job for the already-registered group.
+    assert runtime.submit_prepared_run(
+        repeat_plan, bundle, service, bindings, tmp_path, submission_journal=journal
+    ) == []
+
+
 def test_submit_is_resumable_and_submits_only_one_completed_group_at_a_time(tmp_path: Path) -> None:
     service = FakeService()
     counter = {"value": 0}
@@ -540,6 +675,8 @@ def test_submit_is_resumable_and_submits_only_one_completed_group_at_a_time(tmp_
             assert options.dynamical_decoupling.enable is False
             assert options.twirling.enable_gates is False
             assert options.twirling.enable_measure is False
+            assert options.execution.meas_type == "classified"
+            assert options.execution.init_qubits is True
 
         def run(self, circuits, shots):
             counter["value"] += 1
@@ -553,7 +690,7 @@ def test_submit_is_resumable_and_submits_only_one_completed_group_at_a_time(tmp_
         family="cayley",
         shots=256,
         backend_role="public-role",
-        logical_qpy_sha256="aa" * 32,
+        logical_circuit_sha256="aa" * 32,
         compiled_qpy_sha256="bb" * 32,
         compiled_duration_seconds=0.001,
         logical_circuit=object(),
@@ -567,18 +704,19 @@ def test_submit_is_resumable_and_submits_only_one_completed_group_at_a_time(tmp_
             backend_role_opaque_id="public-role",
             family=f"family-{number}",
             backend_name="ibm_fez",
+            layout_opaque_id="opaque-layout",
             physical_layout=(10, 18, 94, 124),
             properties_last_update="2026-07-11T10:15:57+07:00",
             shots=256,
             estimated_qpu_seconds=3.0,
             circuits=(circuit,),
-            logical_qpy=b"logical",
             compiled_qpy=b"compiled",
         )
 
     prepared = runtime.PreparedRun(
         plan={
             "selected_backend_role": "development",
+            "operator_source_sha256": runtime.operator_source_sha256(),
             "plan_sha256": "cc" * 32,
         },
         groups=(group(1), group(2)),

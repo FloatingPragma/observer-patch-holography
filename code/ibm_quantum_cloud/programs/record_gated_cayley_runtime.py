@@ -42,6 +42,7 @@ COMMITMENT_DOMAIN = b"oph-509-blind-v1\0"
 HEX64 = re.compile(r"[0-9a-f]{64}\Z")
 EXPECTED_RUNTIME_VERSION = "0.47.0"
 EXPECTED_QISKIT_MAJOR_MINOR = (2, 5)
+LOGICAL_CIRCUIT_SERIALIZATION = "normalized-openqasm3-utf8-v1"
 LOGICAL_QUBITS = 4
 IBM_SUBJOB_OVERHEAD_SECONDS = 2.0
 ESTIMATE_SAFETY_FACTOR = 1.25
@@ -71,10 +72,14 @@ class VerifiedBundle:
     manifest: dict[str, Any]
     manifest_sha256: str
     analysis_lock_sha256: str
+    analysis_lock_document: Mapping[str, Any]
     public_manifest_core_sha256: str
     reveal_mode: str
     backend_slots: tuple[dict[str, Any], ...]
     circuit_families: Mapping[str, str]
+    circuit_descriptors: Mapping[str, Mapping[str, Any]] = dataclasses.field(
+        repr=False, compare=False
+    )
     ideal_validation: Mapping[str, Any]
     circuits: tuple[tuple[dict[str, Any], Any], ...]
 
@@ -85,7 +90,7 @@ class PreparedCircuit:
     family: str
     shots: int
     backend_role: str
-    logical_qpy_sha256: str
+    logical_circuit_sha256: str
     compiled_qpy_sha256: str
     compiled_duration_seconds: float
     logical_circuit: Any = dataclasses.field(repr=False, compare=False)
@@ -99,12 +104,12 @@ class PreparedGroup:
     backend_role_opaque_id: str
     family: str
     backend_name: str
+    layout_opaque_id: str
     physical_layout: tuple[int, ...]
     properties_last_update: str
     shots: int
     estimated_qpu_seconds: float
     circuits: tuple[PreparedCircuit, ...]
-    logical_qpy: bytes = dataclasses.field(repr=False, compare=False)
     compiled_qpy: bytes = dataclasses.field(repr=False, compare=False)
 
 
@@ -149,6 +154,27 @@ def sha256_bytes(value: bytes) -> str:
 
 def sha256_json(value: Any) -> str:
     return sha256_bytes(canonical_json_bytes(value))
+
+
+def operator_source_sha256() -> str:
+    """Hash the exact operator source file used to build runtime receipts."""
+
+    try:
+        source = Path(__file__).resolve().read_bytes()
+    except OSError as exc:
+        raise RuntimeSafetyError("could not hash the Runtime operator source") from exc
+    return sha256_bytes(source)
+
+
+def compiled_qpy_artifact(group_id: str, payload: bytes) -> dict[str, str]:
+    """Describe a process-local compiled-QPY receipt by content, not job group."""
+
+    group_id = _require_hex64(group_id, "compiled-QPY group_id")
+    digest = sha256_bytes(payload)
+    return {
+        "relative_path": f"runtime_compiled_{group_id}_{digest}.qpy",
+        "sha256": digest,
+    }
 
 
 def _without(mapping: Mapping[str, Any], *keys: str) -> dict[str, Any]:
@@ -252,7 +278,7 @@ def verify_manifest(manifest: Mapping[str, Any]) -> tuple[str, str]:
     for row in circuit_rows:
         if not isinstance(row, dict) or set(row) != {
             "opaque_id",
-            "qpy_sha256",
+            "logical_circuit_sha256",
             "shots",
             "backend_role",
         }:
@@ -261,7 +287,9 @@ def verify_manifest(manifest: Mapping[str, Any]) -> tuple[str, str]:
         if not isinstance(opaque_id, str) or not opaque_id or opaque_id in opaque_ids:
             raise RuntimeSafetyError("opaque circuit identifiers must be unique")
         opaque_ids.add(opaque_id)
-        _require_hex64(row["qpy_sha256"], "circuit qpy_sha256")
+        _require_hex64(
+            row["logical_circuit_sha256"], "circuit logical_circuit_sha256"
+        )
         if type(row["shots"]) is not int or row["shots"] <= 0:
             raise RuntimeSafetyError("circuit shots must be a positive integer")
         if row["backend_role"] not in roles:
@@ -659,7 +687,7 @@ def verify_operator_bundle(
     ideal_validator: Callable[
         [Sequence[tuple[str, Mapping[str, Any], Any]]], Mapping[str, Any]
     ] = validate_ideal_reveal_circuits,
-    qpy_dump: Callable[[Sequence[Any], Any], None] | None = None,
+    logical_digest: Callable[[Any], str] | None = None,
 ) -> VerifiedBundle:
     manifest = _require_mapping(load_json(manifest_path, "public manifest"), "public manifest")
     manifest_sha, core_sha = verify_manifest(manifest)
@@ -673,12 +701,21 @@ def verify_operator_bundle(
     payload = verify_reveal(reveal, manifest, core_sha)
     resolved_slots = resolve_backend_slots(manifest["backend_slots"], payload)
 
-    if qpy_dump is None:
+    if logical_digest is None:
         try:
-            from qiskit import qpy
+            from blind_preregister import (
+                LOGICAL_CIRCUIT_SERIALIZATION as prereg_logical_serialization,
+                logical_circuit_sha256,
+            )
         except ImportError as exc:
-            raise RuntimeSafetyError("Qiskit is unavailable for QPY verification") from exc
-        qpy_dump = qpy.dump
+            raise RuntimeSafetyError(
+                "canonical logical-circuit hashing is unavailable"
+            ) from exc
+        if prereg_logical_serialization != LOGICAL_CIRCUIT_SERIALIZATION:
+            raise RuntimeSafetyError(
+                "preregistration logical-circuit serialization contract drifted"
+            )
+        logical_digest = logical_circuit_sha256
 
     public_by_id = {row["opaque_id"]: row for row in manifest["circuits"]}
     resolved_by_public_role = {slot["public_role"]: slot for slot in resolved_slots}
@@ -691,7 +728,7 @@ def verify_operator_bundle(
             "backend_role",
             "backend_role_opaque_id",
             "shots",
-            "qpy_sha256",
+            "logical_circuit_sha256",
             "circuit_name",
             "circuit_metadata",
             "parameters",
@@ -720,10 +757,26 @@ def verify_operator_bundle(
         ):
             raise RuntimeSafetyError("private circuit role, shots, or name does not match public row")
         circuit = circuit_rebuilder(opaque_id, descriptor)
-        observed_qpy = sha256_bytes(qpy_bytes([circuit], qpy_dump))
-        revealed_qpy = _require_hex64(descriptor.get("qpy_sha256"), "reveal qpy_sha256")
-        if observed_qpy != revealed_qpy or observed_qpy != public["qpy_sha256"]:
-            raise RuntimeSafetyError("reconstructed circuit QPY digest does not verify")
+        try:
+            observed_logical_raw = logical_digest(circuit)
+        except Exception as exc:
+            raise RuntimeSafetyError(
+                "could not serialize the reconstructed logical circuit canonically"
+            ) from exc
+        observed_logical = _require_hex64(
+            observed_logical_raw, "reconstructed logical circuit digest"
+        )
+        revealed_logical = _require_hex64(
+            descriptor.get("logical_circuit_sha256"),
+            "reveal logical_circuit_sha256",
+        )
+        if (
+            observed_logical != revealed_logical
+            or observed_logical != public["logical_circuit_sha256"]
+        ):
+            raise RuntimeSafetyError(
+                "reconstructed canonical logical-circuit digest does not verify"
+            )
         verified.append((public, circuit))
         ideal_rows.append((opaque_id, descriptor, circuit))
     validation = _safe_json(ideal_validator(ideal_rows))
@@ -733,10 +786,12 @@ def verify_operator_bundle(
         manifest=dict(manifest),
         manifest_sha256=manifest_sha,
         analysis_lock_sha256=analysis_sha,
+        analysis_lock_document=analysis_document,
         public_manifest_core_sha256=core_sha,
         reveal_mode=payload["mode"],
         backend_slots=resolved_slots,
         circuit_families={row[0]: row[1]["family"] for row in ideal_rows},
+        circuit_descriptors={row[0]: row[1] for row in ideal_rows},
         ideal_validation=validation,
         circuits=tuple(verified),
     )
@@ -1235,7 +1290,7 @@ def prepare_runtime_run(
                 family=bundle.circuit_families[public["opaque_id"]],
                 shots=public["shots"],
                 backend_role=role,
-                logical_qpy_sha256=public["qpy_sha256"],
+                logical_circuit_sha256=public["logical_circuit_sha256"],
                 compiled_qpy_sha256=sha256_bytes(compiled_blob),
                 compiled_duration_seconds=estimate_compiled_duration(compiled, backend),
                 logical_circuit=logical,
@@ -1295,7 +1350,6 @@ def prepare_runtime_run(
                 (rep_delay + item.compiled_duration_seconds) * shots for item in chunk
             )
             guarded_estimate = raw_estimate * ESTIMATE_SAFETY_FACTOR
-            logical_blob = _qpy_blob([item.logical_circuit for item in chunk], bindings)
             compiled_blob = _qpy_blob([item.compiled_circuit for item in chunk], bindings)
             groups.append(
                 PreparedGroup(
@@ -1304,12 +1358,12 @@ def prepare_runtime_run(
                     backend_role_opaque_id=role,
                     family=family,
                     backend_name=slot_map[role]["backend"],
+                    layout_opaque_id=slot_map[role]["public_layout"],
                     physical_layout=tuple(slot_map[role]["layout"]),
                     properties_last_update=slot_map[role]["properties_last_update"],
                     shots=shots,
                     estimated_qpu_seconds=guarded_estimate,
                     circuits=tuple(chunk),
-                    logical_qpy=logical_blob,
                     compiled_qpy=compiled_blob,
                 )
             )
@@ -1319,6 +1373,7 @@ def prepare_runtime_run(
     guard = guard_qpu_usage(usage, resources, estimate)
     plan_groups = []
     for group in groups:
+        compiled_artifact = compiled_qpy_artifact(group.group_id, group.compiled_qpy)
         plan_groups.append(
             {
                 "group_id": group.group_id,
@@ -1326,12 +1381,21 @@ def prepare_runtime_run(
                 "backend_role_opaque_id": group.backend_role_opaque_id,
                 "family": group.family,
                 "backend_name": group.backend_name,
+                "layout_id": group.layout_opaque_id,
                 "physical_layout": list(group.physical_layout),
                 "properties_last_update": group.properties_last_update,
                 "shots": group.shots,
                 "opaque_ids": [item.opaque_id for item in group.circuits],
-                "logical_qpy_sha256": sha256_bytes(group.logical_qpy),
-                "compiled_qpy_sha256": sha256_bytes(group.compiled_qpy),
+                "logical_circuit_sha256_by_opaque_id": {
+                    item.opaque_id: item.logical_circuit_sha256
+                    for item in group.circuits
+                },
+                "compiled_qpy_sha256_by_opaque_id": {
+                    item.opaque_id: item.compiled_qpy_sha256
+                    for item in group.circuits
+                },
+                "compiled_qpy_bundle_sha256": compiled_artifact["sha256"],
+                "compiled_qpy_artifact": compiled_artifact,
                 "compiled_duration_seconds_by_opaque_id": {
                     item.opaque_id: item.compiled_duration_seconds for item in group.circuits
                 },
@@ -1343,23 +1407,28 @@ def prepare_runtime_run(
         "artifact_type": "pre_submission_dry_run",
         "created_at_utc": utc_now(),
         "submission_performed": False,
+        "operator_source_sha256": operator_source_sha256(),
         "manifest_sha256": bundle.manifest_sha256,
         "analysis_lock_sha256": bundle.analysis_lock_sha256,
         "public_manifest_core_sha256": bundle.public_manifest_core_sha256,
         "private_reveal_commitment_verified": True,
-        "logical_qpy_hashes_verified": True,
+        "logical_circuit_hashes_verified": True,
         "ideal_recipe_validation": bundle.ideal_validation,
+        "hardened_analysis_lock_verified": hardened_analysis_lock_status(bundle),
         "selected_backend_role": backend_role,
         "runtime": {
             "qiskit_version": bindings.qiskit_version,
             "qiskit_ibm_runtime_version": bindings.runtime_version,
             "primitive": "SamplerV2",
             "execution_mode": "backend_job",
+            "logical_circuit_serialization": LOGICAL_CIRCUIT_SERIALIZATION,
             "sessions": False,
             "batches": False,
             "dynamical_decoupling": False,
             "gate_twirling": False,
             "measurement_twirling": False,
+            "measurement_type": "classified",
+            "init_qubits_each_shot": True,
         },
         "resource_estimate": {
             "ibm_subjob_overhead_seconds": IBM_SUBJOB_OVERHEAD_SECONDS,
@@ -1381,9 +1450,8 @@ def validate_submission_confirmation(
     confirmed_manifest_sha256: str | None,
     confirmed_analysis_lock_sha256: str | None,
     bundle: VerifiedBundle,
+    analysis_validator: Callable[..., Any] | None = None,
 ) -> None:
-    if bundle.reveal_mode != "production_random":
-        raise RuntimeSafetyError("submission refuses deterministic test preregistrations")
     if not confirm_submit:
         raise RuntimeSafetyError("submission requires the explicit --confirm-submit flag")
     if confirmed_manifest_sha256 is None or confirmed_analysis_lock_sha256 is None:
@@ -1394,6 +1462,39 @@ def validate_submission_confirmation(
         raise RuntimeSafetyError("confirmed manifest digest does not match")
     if confirmed_analysis_lock_sha256 != bundle.analysis_lock_sha256:
         raise RuntimeSafetyError("confirmed analysis-lock digest does not match")
+    if bundle.reveal_mode != "production_random":
+        raise RuntimeSafetyError("submission refuses deterministic test preregistrations")
+    validate_hardened_analysis_lock(bundle, analysis_validator=analysis_validator)
+
+
+def validate_hardened_analysis_lock(
+    bundle: VerifiedBundle,
+    *,
+    analysis_validator: Callable[..., Any] | None = None,
+) -> None:
+    if analysis_validator is None:
+        try:
+            from cayley_blind_likelihood_analysis import validate_analysis_lock
+        except ImportError as exc:
+            raise RuntimeSafetyError("hardened blinded analysis validator is unavailable") from exc
+        analysis_validator = validate_analysis_lock
+    try:
+        analysis_validator(bundle.analysis_lock_document, verify_code_hash=True)
+    except Exception as exc:
+        raise RuntimeSafetyError("hardened blinded analysis lock does not verify") from exc
+    if (
+        bundle.analysis_lock_document.get("catalog_precommitment_sha256")
+        != bundle.manifest["catalog_precommitment_sha256"]
+    ):
+        raise RuntimeSafetyError("hardened analysis lock binds a different catalog")
+
+
+def hardened_analysis_lock_status(bundle: VerifiedBundle) -> bool:
+    try:
+        validate_hardened_analysis_lock(bundle)
+    except RuntimeSafetyError:
+        return False
+    return True
 
 
 def _new_sampler_options(bindings: RuntimeBindings, resources: Mapping[str, Any], group: PreparedGroup) -> Any:
@@ -1401,6 +1502,8 @@ def _new_sampler_options(bindings: RuntimeBindings, resources: Mapping[str, Any]
     options.dynamical_decoupling.enable = False
     options.twirling.enable_gates = False
     options.twirling.enable_measure = False
+    options.execution.meas_type = "classified"
+    options.execution.init_qubits = True
     # IBM accepts [1, 10800].  Use the preregistered 420-second hard cap,
     # rather than a tiny ceil(estimate) value that can reject a valid job due
     # to control-electronics overhead not represented in local timing.
@@ -1417,6 +1520,8 @@ def _new_sampler_options(bindings: RuntimeBindings, resources: Mapping[str, Any]
         bool(options.dynamical_decoupling.enable)
         or bool(options.twirling.enable_gates)
         or bool(options.twirling.enable_measure)
+        or options.execution.meas_type != "classified"
+        or options.execution.init_qubits is not True
     ):
         raise RuntimeSafetyError("Sampler options unexpectedly enabled suppression or twirling")
     return options
@@ -1489,18 +1594,45 @@ def write_or_verify_bytes(path: Path, payload: bytes) -> None:
 
 
 def persist_prepared_run(prepared: PreparedRun, output_dir: Path) -> Path:
+    claimed_plan_sha = _require_hex64(
+        prepared.plan.get("plan_sha256"), "pre-submission plan_sha256"
+    )
+    if sha256_json(_without(prepared.plan, "plan_sha256")) != claimed_plan_sha:
+        raise RuntimeSafetyError("pre-submission plan digest does not verify")
     role = prepared.plan["selected_backend_role"]
     plan_path = output_dir / (
-        f"runtime_{role}_pre_submission_plan_{prepared.plan['plan_sha256']}.json"
+        f"runtime_{role}_pre_submission_plan_{claimed_plan_sha}.json"
     )
-    write_new_json(plan_path, prepared.plan)
+    plan_groups = prepared.plan.get("groups")
+    if not isinstance(plan_groups, list):
+        raise RuntimeSafetyError("pre-submission plan lacks compiled artifact bindings")
+    plan_by_group = {
+        row.get("group_id"): row for row in plan_groups if isinstance(row, Mapping)
+    }
+    if len(plan_by_group) != len(plan_groups):
+        raise RuntimeSafetyError("pre-submission plan has duplicate or malformed groups")
+    prepared_group_ids = {group.group_id for group in prepared.groups}
+    if set(plan_by_group) != prepared_group_ids:
+        raise RuntimeSafetyError("prepared groups differ from the pre-submission plan")
     for group in prepared.groups:
+        planned = plan_by_group.get(group.group_id)
+        if planned is None:
+            raise RuntimeSafetyError("prepared group is absent from the pre-submission plan")
+        expected_artifact = compiled_qpy_artifact(group.group_id, group.compiled_qpy)
+        if (
+            planned.get("compiled_qpy_artifact") != expected_artifact
+            or planned.get("compiled_qpy_bundle_sha256") != expected_artifact["sha256"]
+        ):
+            raise RuntimeSafetyError(
+                "compiled QPY bytes differ from their pre-submission artifact binding"
+            )
         write_or_verify_bytes(
-            output_dir / f"runtime_logical_{group.group_id}.qpy", group.logical_qpy
+            output_dir / expected_artifact["relative_path"], group.compiled_qpy
         )
-        write_or_verify_bytes(
-            output_dir / f"runtime_compiled_{group.group_id}.qpy", group.compiled_qpy
-        )
+    plan_payload = (
+        json.dumps(prepared.plan, indent=2, sort_keys=True).encode("utf-8") + b"\n"
+    )
+    write_or_verify_bytes(plan_path, plan_payload)
     return plan_path
 
 
@@ -1529,6 +1661,13 @@ def submit_prepared_run(
     output_dir: Path,
     submission_journal: Path | None = None,
 ) -> list[dict[str, Any]]:
+    planned_operator_source = _require_hex64(
+        prepared.plan.get("operator_source_sha256"), "operator_source_sha256"
+    )
+    if planned_operator_source != operator_source_sha256():
+        raise RuntimeSafetyError(
+            "Runtime operator source differs from the pre-submission plan"
+        )
     journal = submission_journal or (
         output_dir / f"runtime_{prepared.plan['selected_backend_role']}_submission_events.ndjson"
     )
@@ -1569,6 +1708,7 @@ def submit_prepared_run(
                 "event_type": "pre_next_submission_status_check",
                 "timestamp_utc": utc_now(),
                 "manifest_sha256": bundle.manifest_sha256,
+                "operator_source_sha256": planned_operator_source,
                 "group_id": registration["group_id"],
                 "job_id": registration["job_id"],
                 "status": prior_status,
@@ -1599,9 +1739,11 @@ def submit_prepared_run(
             "timestamp_utc": utc_now(),
             "manifest_sha256": bundle.manifest_sha256,
             "analysis_lock_sha256": bundle.analysis_lock_sha256,
+            "operator_source_sha256": planned_operator_source,
             "plan_sha256": prepared.plan["plan_sha256"],
             "group_id": group.group_id,
             "backend_name": group.backend_name,
+            "layout_id": group.layout_opaque_id,
             "backend_role": group.backend_role,
             "backend_role_opaque_id": group.backend_role_opaque_id,
             "family": group.family,
@@ -1612,7 +1754,7 @@ def submit_prepared_run(
             "circuit_bindings": [
                 {
                     "opaque_id": item.opaque_id,
-                    "logical_qpy_sha256": item.logical_qpy_sha256,
+                    "logical_circuit_sha256": item.logical_circuit_sha256,
                     "compiled_qpy_sha256": item.compiled_qpy_sha256,
                 }
                 for item in group.circuits
@@ -1640,6 +1782,7 @@ def submit_prepared_run(
                 "event_type": "submission_failed_without_registered_job",
                 "timestamp_utc": utc_now(),
                 "manifest_sha256": bundle.manifest_sha256,
+                "operator_source_sha256": planned_operator_source,
                 "group_id": group.group_id,
                 "job_tag": tag,
                 "failure_type": type(exc).__name__,
@@ -1657,11 +1800,13 @@ def submit_prepared_run(
             "timestamp_utc": utc_now(),
             "manifest_sha256": bundle.manifest_sha256,
             "analysis_lock_sha256": bundle.analysis_lock_sha256,
+            "operator_source_sha256": planned_operator_source,
             "plan_sha256": prepared.plan["plan_sha256"],
             "group_id": group.group_id,
             "job_id": job_id,
             "job_tag": tag,
             "backend_name": group.backend_name,
+            "layout_id": group.layout_opaque_id,
             "backend_role": group.backend_role,
             "backend_role_opaque_id": group.backend_role_opaque_id,
             "family": group.family,
@@ -1672,7 +1817,7 @@ def submit_prepared_run(
             "circuit_bindings": [
                 {
                     "opaque_id": item.opaque_id,
-                    "logical_qpy_sha256": item.logical_qpy_sha256,
+                    "logical_circuit_sha256": item.logical_circuit_sha256,
                     "compiled_qpy_sha256": item.compiled_qpy_sha256,
                 }
                 for item in group.circuits
@@ -1803,7 +1948,9 @@ def extract_pub_result(
     if circuit_binding is not None:
         if circuit_binding.get("opaque_id") != opaque_id:
             raise RuntimeSafetyError("result order differs from registered circuit bindings")
-        result["logical_qpy_sha256"] = circuit_binding["logical_qpy_sha256"]
+        result["logical_circuit_sha256"] = circuit_binding[
+            "logical_circuit_sha256"
+        ]
         result["compiled_qpy_sha256"] = circuit_binding["compiled_qpy_sha256"]
     return result
 
@@ -1835,8 +1982,13 @@ def harvest_registered_jobs(
 ) -> list[dict[str, Any]]:
     registered = read_registered_jobs(submission_journal, bundle.manifest_sha256)
     harvest_journal = output_dir / "runtime_harvest_events.ndjson"
+    harvester_source_sha = operator_source_sha256()
     events: list[dict[str, Any]] = []
     for registration in registered:
+        submission_operator_source = _require_hex64(
+            registration.get("operator_source_sha256"),
+            "registered operator_source_sha256",
+        )
         job_id = registration["job_id"]
         try:
             job = service.job(job_id)
@@ -1848,6 +2000,8 @@ def harvest_registered_jobs(
                     "event_type": "job_lookup_failed",
                     "timestamp_utc": utc_now(),
                     "manifest_sha256": bundle.manifest_sha256,
+                    "operator_source_sha256": submission_operator_source,
+                    "harvester_source_sha256": harvester_source_sha,
                     "job_id": job_id,
                     "group_id": registration["group_id"],
                     "failure_type": type(exc).__name__,
@@ -1865,10 +2019,14 @@ def harvest_registered_jobs(
             "timestamp_utc": utc_now(),
             "manifest_sha256": bundle.manifest_sha256,
             "analysis_lock_sha256": bundle.analysis_lock_sha256,
+            "operator_source_sha256": submission_operator_source,
+            "harvester_source_sha256": harvester_source_sha,
+            "plan_sha256": registration["plan_sha256"],
             "submission_event_sha256": registration["event_sha256"],
             "job_id": job_id,
             "group_id": registration["group_id"],
             "backend_name": registration["backend_name"],
+            "layout_id": registration["layout_id"],
             "backend_role": registration["backend_role"],
             "backend_role_opaque_id": registration["backend_role_opaque_id"],
             "family": registration["family"],
@@ -1916,6 +2074,7 @@ def harvest_registered_jobs(
             "event_type": "harvest_usage_snapshot",
             "timestamp_utc": utc_now(),
             "manifest_sha256": bundle.manifest_sha256,
+            "harvester_source_sha256": harvester_source_sha,
             "instance_usage": usage,
         },
     )
@@ -2009,7 +2168,6 @@ def main(argv: Sequence[str] | None = None) -> int:
             args.manifest,
             args.reveal,
             args.analysis_lock,
-            qpy_dump=bindings.qpy_dump,
         )
         if args.action == "submit":
             validate_submission_confirmation(

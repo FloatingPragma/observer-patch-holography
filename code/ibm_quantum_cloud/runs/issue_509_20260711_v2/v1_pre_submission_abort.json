@@ -1,0 +1,12 @@
+{
+  "schema_version": "oph.issue509.pre_submission_abort.v1",
+  "run_id": "issue509-20260711-v1",
+  "status": "aborted_before_any_qpu_submission",
+  "manifest_sha256": "679599a9185d38333d5f3cba9267c442d3b830ebad685ff3e63b0a00628989b7",
+  "analysis_lock_sha256": "0636cdfbd90df6d3b223458091ca8333686bb42974982da32a9272f237b14b1a",
+  "catalog_precommitment_sha256": "193d04118d8d2abc5388194f82ccf99d15cc07d00d9245d7d934f8bc2b77a272",
+  "submitted_job_ids": [],
+  "qpu_submission_performed": false,
+  "reason": "Fresh-process verification showed that QPY byte SHA-256 is not a canonical identity for equal Qiskit control-flow circuits. The logical commitment is being migrated to a normalized OpenQASM 3 digest; QPY hashes remain execution-artifact receipts only.",
+  "replacement_policy": "Do not modify or submit this seal. Generate a fresh production-random v2 catalog after the stable logical-circuit digest migration passes cross-process tests."
+}

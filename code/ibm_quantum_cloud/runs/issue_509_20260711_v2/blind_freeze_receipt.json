@@ -1,0 +1,20 @@
+{
+  "schema_version": "oph.ibm-quantum.blind-freeze-receipt.v1",
+  "run_id": "issue509-20260711-v2",
+  "frozen_utc": "2026-07-11T06:17:04Z",
+  "blinded": true,
+  "revealed": false,
+  "catalog_precommitment_sha256": "ae335e03ca9a70dc6b611f3e95151af8dc4e5b63de1836625d2bce60dc5f0e9c",
+  "manifest_sha256": "78868d2ea896e1fad2b032114fd2b103ad7564ca2ceff072bac7444574bc7ff3",
+  "analysis_lock_sha256": "d5658535a03a8f89159554013256f7e0e024f175a4c605d0393872d7a27577fb",
+  "analysis_code_sha256": "4056149348a1dc80a9370854b5a0d398e9546f65ada566fa42bfa7666dffaef4",
+  "data_packet_sha256": "16e1272ff6c76eac6f0c7bf8d3c141245744820cf5409bfa6bc75796e6f63691",
+  "data_packet_file_sha256": "569225fcd949698a710405224c65d64e4a9e323ce1699de782ab713a037a2a0c",
+  "blind_report_sha256": "d6c7373ec7a21ac1194144e976864122fbddcc10e9abf47df2855a0e7539b49e",
+  "blind_report_file_sha256": "9d60d6939a41f59184b2dee859a5fa5b223eff6d6309a223a1f16ab25e8317ab",
+  "submission_journal_sha256": "0534b466ee1ac17dafd659410ac418194ca7576689db528d0c97a705ab4105b1",
+  "harvest_journal_sha256": "a5bcf148d571967f4107ab8a87713790332d5008aaebadf82cd5a681ffe05f45",
+  "verdict": "passes_frozen_reduced_repair_kernel_gate",
+  "primary_pass": true,
+  "report_reveal_state_verified_before_unblinding": true
+}

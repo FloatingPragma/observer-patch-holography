@@ -40,6 +40,7 @@ import math
 import re
 import sys
 from datetime import datetime, timezone
+from itertools import product
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
@@ -83,11 +84,14 @@ POOLED_LR_THRESHOLD = 100.0
 SIMULTANEOUS_LEVEL = 0.99
 SECONDARY_FAMILY_ALPHA = 0.01
 CALIBRATION_CONTROL_MIN_P_VALUE = 0.01
+CALIBRATION_MAX_BASIS_ERROR_FRACTION = 0.15
 DEFAULT_MAX_LEAKAGE_FRACTION = 0.10
+INDIVIDUAL_CIRCUIT_CATASTROPHIC_LEAKAGE_FRACTION = 0.25
 CALIBRATION_UNCERTAINTY_MODE = "conditional_plugin_positive_dirichlet_sensitivity"
 
 _OUTCOME_RE = re.compile(r"^h([0-7])\|d([01])\|f([0-7])\|l([01])$")
 _QISKIT_JOINED_RE = re.compile(r"^[01]{7}$")
+_QISKIT_CALIBRATION_RE = re.compile(r"^[01]{4}$")
 _SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 _FORBIDDEN_BLIND_KEYS = {
     "api_key",
@@ -265,6 +269,129 @@ def qiskit_joined_counts_to_analysis_counts(
     return converted
 
 
+def _binomial_upper_tail(trials: int, errors: int, probability: float) -> float:
+    """Exact P[Binomial(trials, probability) >= errors]."""
+
+    if trials < 0 or errors < 0 or errors > trials or not 0.0 < probability < 1.0:
+        raise AnalysisValidationError("invalid binomial calibration request")
+    if errors == 0:
+        return 1.0
+    return min(
+        1.0,
+        float(
+            sum(
+                math.comb(trials, count)
+                * (probability**count)
+                * ((1.0 - probability) ** (trials - count))
+                for count in range(errors, trials + 1)
+            )
+        ),
+    )
+
+
+def basis_calibration_control_result(
+    *,
+    diagnostic_counts_by_opaque_id: Mapping[str, Mapping[str, Any]],
+    control_rule: Mapping[str, Any],
+    provider_job_ids: Sequence[str],
+    calibration_receipt_sha256: str,
+) -> dict[str, Any]:
+    """Build the job/count-bound 4-bit basis-calibration validity result.
+
+    Each prepared code receives an exact one-sided binomial test of the null
+    that its wrong-code probability is no greater than the frozen maximum.
+    Bonferroni correction across every prepared code is valid without assuming
+    independence between code-specific tests.
+    """
+
+    _require_sha256(calibration_receipt_sha256, "calibration_receipt_sha256")
+    if not isinstance(diagnostic_counts_by_opaque_id, Mapping):
+        raise AnalysisValidationError("diagnostic calibration counts must be a mapping")
+    expected_codes = control_rule.get("expected_basis_code_by_opaque_id")
+    if not isinstance(expected_codes, Mapping) or set(expected_codes) != set(
+        diagnostic_counts_by_opaque_id
+    ):
+        raise AnalysisValidationError("diagnostic calibration circuit set is incomplete")
+    if list(control_rule.get("diagnostic_opaque_ids", ())) != sorted(expected_codes):
+        raise AnalysisValidationError("diagnostic calibration order differs from frozen rule")
+    maximum_error = float(control_rule.get("maximum_basis_error_fraction"))
+    if maximum_error != CALIBRATION_MAX_BASIS_ERROR_FRACTION:
+        raise AnalysisValidationError("basis calibration error threshold changed")
+    if control_rule.get("multiple_test_correction") != "Bonferroni":
+        raise AnalysisValidationError("basis calibration correction changed")
+    if (
+        not isinstance(provider_job_ids, Sequence)
+        or isinstance(provider_job_ids, (str, bytes))
+        or not provider_job_ids
+        or len(set(provider_job_ids)) != len(provider_job_ids)
+        or any(not isinstance(job_id, str) or not job_id for job_id in provider_job_ids)
+    ):
+        raise AnalysisValidationError("calibration provider job IDs are invalid")
+
+    per_code: list[dict[str, Any]] = []
+    raw_counts: dict[str, dict[str, int]] = {}
+    for opaque_id in sorted(expected_codes):
+        expected_code = expected_codes[opaque_id]
+        if isinstance(expected_code, bool) or not isinstance(expected_code, int) or expected_code not in range(16):
+            raise AnalysisValidationError("expected calibration basis code is invalid")
+        supplied_counts = diagnostic_counts_by_opaque_id[opaque_id]
+        if not isinstance(supplied_counts, Mapping) or not supplied_counts:
+            raise AnalysisValidationError("diagnostic count table is empty")
+        normalized: dict[str, int] = {}
+        for key, raw_count in supplied_counts.items():
+            bit_string = str(key)
+            if _QISKIT_CALIBRATION_RE.fullmatch(bit_string) is None:
+                raise AnalysisValidationError(
+                    "basis diagnostic outcomes must be exactly four binary bits"
+                )
+            if isinstance(raw_count, bool) or not isinstance(raw_count, int) or raw_count < 0:
+                raise AnalysisValidationError("basis diagnostic counts must be integers")
+            normalized[bit_string] = raw_count
+        shots = sum(normalized.values())
+        if shots <= 0:
+            raise AnalysisValidationError("basis diagnostic has no shots")
+        expected_key = f"{expected_code:04b}"
+        correct = normalized.get(expected_key, 0)
+        errors = shots - correct
+        raw_p_value = _binomial_upper_tail(shots, errors, maximum_error)
+        per_code.append(
+            {
+                "opaque_id": opaque_id,
+                "expected_basis_code": expected_code,
+                "shots": shots,
+                "correct_count": correct,
+                "error_count": errors,
+                "error_fraction": errors / shots,
+                "raw_upper_tail_p_value": raw_p_value,
+            }
+        )
+        raw_counts[opaque_id] = normalized
+    family_size = len(per_code)
+    adjusted_p_value = min(
+        1.0,
+        family_size * min(record["raw_upper_tail_p_value"] for record in per_code),
+    )
+    summary = {
+        "method": "exact one-sided binomial upper-tail with Bonferroni correction",
+        "maximum_basis_error_fraction": maximum_error,
+        "family_size": family_size,
+        "per_code": per_code,
+    }
+    return {
+        "calibration_receipt_sha256": calibration_receipt_sha256,
+        "diagnostic_counts_sha256": sha256_json(raw_counts),
+        "diagnostic_summary_sha256": sha256_json(summary),
+        "diagnostic_opaque_ids": sorted(expected_codes),
+        "provider_job_ids": list(provider_job_ids),
+        "all_diagnostic_jobs_complete": True,
+        "all_diagnostic_shots_included": True,
+        "postselected": False,
+        "gof_p_value": adjusted_p_value,
+        "minimum_count_per_prepared_state": min(record["shots"] for record in per_code),
+        "summary": summary,
+    }
+
+
 def probability_mapping_to_vector(
     probabilities: Mapping[str, Any],
     valid_codes: Sequence[int],
@@ -304,6 +431,31 @@ def vector_to_probability_mapping(
             heated, decision, final = joint_tuple(index)
             result[outcome_key(heated, decision, final, valid_codes)] = float(probability)
     return result
+
+
+def state_preparation_only_joint_null(
+    repair_probabilities: Mapping[str, Any],
+    valid_codes: Sequence[int],
+) -> dict[str, float]:
+    """Match marginals while destroying heated/decision-to-final dependence.
+
+    The null retains the repair hypothesis' ``p(h,d)`` and ``p(f)`` exactly but
+    factorizes them as ``p(h,d,f)=p(h,d)p(f)``.  It therefore cannot gain
+    evidence merely by matching the final-state histogram.
+    """
+
+    repair = probability_mapping_to_vector(repair_probabilities, valid_codes).reshape(
+        STATE_CARDINALITY,
+        DECISION_CARDINALITY,
+        STATE_CARDINALITY,
+    )
+    heated_decision = np.sum(repair, axis=2)
+    final = np.sum(repair, axis=(0, 1))
+    factorized = heated_decision[:, :, np.newaxis] * final[np.newaxis, np.newaxis, :]
+    return vector_to_probability_mapping(
+        factorized.reshape(JOINT_CARDINALITY),
+        valid_codes,
+    )
 
 
 def _validate_stochastic_matrix(
@@ -446,6 +598,7 @@ def validate_calibration(calibration_id: str, calibration: Mapping[str, Any]) ->
         raise AnalysisValidationError("calibration control p-value threshold changed")
     required_count = control_rule.get("minimum_count_per_prepared_state")
     diagnostic_ids = control_rule.get("diagnostic_opaque_ids")
+    expected_codes = control_rule.get("expected_basis_code_by_opaque_id")
     if (
         isinstance(required_count, bool)
         or not isinstance(required_count, int)
@@ -454,6 +607,17 @@ def validate_calibration(calibration_id: str, calibration: Mapping[str, Any]) ->
         or not diagnostic_ids
         or len(set(diagnostic_ids)) != len(diagnostic_ids)
         or any(not isinstance(value, str) or not value for value in diagnostic_ids)
+        or diagnostic_ids != sorted(diagnostic_ids)
+        or not isinstance(expected_codes, Mapping)
+        or set(expected_codes) != set(diagnostic_ids)
+        or any(
+            isinstance(code, bool) or not isinstance(code, int) or code not in range(16)
+            for code in expected_codes.values()
+        )
+        or len(set(expected_codes.values())) != len(expected_codes)
+        or control_rule.get("maximum_basis_error_fraction")
+        != CALIBRATION_MAX_BASIS_ERROR_FRACTION
+        or control_rule.get("multiple_test_correction") != "Bonferroni"
     ):
         raise AnalysisValidationError("calibration control rule is invalid")
 
@@ -588,6 +752,7 @@ def factorized_calibration_packet(
     derivation_sha256: str | None = None,
     dirichlet_pseudocount: float = 0.5,
     diagnostic_opaque_ids: Sequence[str] = ("synthetic-calibration",),
+    diagnostic_expected_codes: Mapping[str, int] | None = None,
 ) -> dict[str, Any]:
     """Create a diagnostic-only factorized object for simulation/tests.
 
@@ -603,6 +768,11 @@ def factorized_calibration_packet(
     lower_decision = max(1e-6, decision_error * 0.75)
     upper_state = min(0.99, max(1e-6, state_error * 1.25))
     upper_decision = min(0.99, max(1e-6, decision_error * 1.25))
+    diagnostic_ids = sorted(str(value) for value in diagnostic_opaque_ids)
+    if diagnostic_expected_codes is None:
+        diagnostic_expected_codes = {
+            opaque_id: index for index, opaque_id in enumerate(diagnostic_ids)
+        }
     return {
         "frozen_before_heldout": True,
         "uses_heldout_outputs": False,
@@ -614,7 +784,10 @@ def factorized_calibration_packet(
         "control_rule": {
             "minimum_gof_p_value": CALIBRATION_CONTROL_MIN_P_VALUE,
             "minimum_count_per_prepared_state": 128,
-            "diagnostic_opaque_ids": list(diagnostic_opaque_ids),
+            "diagnostic_opaque_ids": diagnostic_ids,
+            "expected_basis_code_by_opaque_id": dict(diagnostic_expected_codes),
+            "maximum_basis_error_fraction": CALIBRATION_MAX_BASIS_ERROR_FRACTION,
+            "multiple_test_correction": "Bonferroni",
         },
         "channel_mode": "factorized_assignment_diagnostic_only",
         "primary_eligible": False,
@@ -659,6 +832,7 @@ def contamination_calibration_packet(
     minimum_required_count: int = 128,
     max_age_seconds: float = 86400.0,
     diagnostic_opaque_ids: Sequence[str] = ("synthetic-calibration",),
+    diagnostic_expected_codes: Mapping[str, int] | None = None,
 ) -> dict[str, Any]:
     """Build a positive, explicit contamination prior for a tractable run.
 
@@ -681,6 +855,11 @@ def contamination_calibration_packet(
                 "contamination_distribution": uniform,
             }
         )
+    diagnostic_ids = sorted(str(value) for value in diagnostic_opaque_ids)
+    if diagnostic_expected_codes is None:
+        diagnostic_expected_codes = {
+            opaque_id: index for index, opaque_id in enumerate(diagnostic_ids)
+        }
     packet = {
         "frozen_before_heldout": True,
         "uses_heldout_outputs": False,
@@ -692,7 +871,10 @@ def contamination_calibration_packet(
         "control_rule": {
             "minimum_gof_p_value": CALIBRATION_CONTROL_MIN_P_VALUE,
             "minimum_count_per_prepared_state": minimum_required_count,
-            "diagnostic_opaque_ids": list(diagnostic_opaque_ids),
+            "diagnostic_opaque_ids": diagnostic_ids,
+            "expected_basis_code_by_opaque_id": dict(diagnostic_expected_codes),
+            "maximum_basis_error_fraction": CALIBRATION_MAX_BASIS_ERROR_FRACTION,
+            "multiple_test_correction": "Bonferroni",
         },
         "channel_mode": "contamination_mixture",
         "primary_eligible": True,
@@ -758,11 +940,16 @@ def _validate_valid_codes(raw_codes: Any, row_id: str) -> tuple[int, ...]:
 def build_candidate_provenance(
     candidate_probabilities: Mapping[str, Mapping[str, Any]],
     derivation_sha256_by_model: Mapping[str, str],
+    logical_circuit_sha256: str,
 ) -> dict[str, dict[str, str]]:
     """Bind every frozen point-hypothesis table to data and derivation hashes."""
 
     if set(candidate_probabilities) != set(derivation_sha256_by_model):
         raise AnalysisValidationError("candidate provenance model set is incomplete")
+    logical_digest = _require_sha256(
+        logical_circuit_sha256,
+        "candidate logical_circuit_sha256",
+    )
     result: dict[str, dict[str, str]] = {}
     for model, probabilities in candidate_probabilities.items():
         result[model] = {
@@ -771,6 +958,7 @@ def build_candidate_provenance(
                 derivation_sha256_by_model[model],
                 f"candidate derivation for {model}",
             ),
+            "logical_circuit_sha256": logical_digest,
         }
     return result
 
@@ -780,6 +968,7 @@ def _validate_candidate_provenance(
     provenance: Any,
     *,
     field: str,
+    logical_circuit_sha256: str,
 ) -> None:
     if not isinstance(provenance, Mapping) or set(provenance) != set(candidates):
         raise AnalysisValidationError(f"{field} does not match the candidate table set")
@@ -787,7 +976,21 @@ def _validate_candidate_provenance(
         record = provenance[model]
         if not isinstance(record, Mapping):
             raise AnalysisValidationError(f"{field}.{model} must be a mapping")
+        if set(record) != {
+            "probability_table_sha256",
+            "derivation_sha256",
+            "logical_circuit_sha256",
+        }:
+            raise AnalysisValidationError(f"{field}.{model} has an unexpected schema")
         _require_sha256(record.get("derivation_sha256"), f"{field}.{model}.derivation_sha256")
+        bound_logical_digest = _require_sha256(
+            record.get("logical_circuit_sha256"),
+            f"{field}.{model}.logical_circuit_sha256",
+        )
+        if bound_logical_digest != logical_circuit_sha256:
+            raise AnalysisValidationError(
+                f"{field}.{model} binds a different logical circuit"
+            )
         claimed_table_hash = _require_sha256(
             record.get("probability_table_sha256"),
             f"{field}.{model}.probability_table_sha256",
@@ -809,6 +1012,10 @@ def _validate_expected_row(
         raise AnalysisValidationError(
             f"row {row_id!r} must use its unique opaque circuit ID as row_id"
         )
+    if "logical_qpy_sha256" in row:
+        raise AnalysisValidationError(
+            f"row {row_id!r} uses removed logical_qpy_sha256 identity"
+        )
     family = row.get("family")
     if family not in ("cayley", "mh"):
         raise AnalysisValidationError(f"row {row_id!r} has an unsupported analysis family")
@@ -821,9 +1028,9 @@ def _validate_expected_row(
     ):
         if not isinstance(row.get(field), str) or not row[field]:
             raise AnalysisValidationError(f"row {row_id!r} needs {field}")
-    _require_sha256(
-        row.get("logical_qpy_sha256"),
-        f"expected_rows.{row_id}.logical_qpy_sha256",
+    logical_circuit_sha256 = _require_sha256(
+        row.get("logical_circuit_sha256"),
+        f"expected_rows.{row_id}.logical_circuit_sha256",
     )
     physical_layout = row.get("physical_layout")
     if (
@@ -847,7 +1054,10 @@ def _validate_expected_row(
         leakage_limit = float(raw_leakage_limit)
     except (TypeError, ValueError) as exc:
         raise AnalysisValidationError(f"row {row_id!r} leakage limit is invalid") from exc
-    if not math.isfinite(leakage_limit) or not 0.0 <= leakage_limit < 1.0:
+    if (
+        not math.isfinite(leakage_limit)
+        or leakage_limit != INDIVIDUAL_CIRCUIT_CATASTROPHIC_LEAKAGE_FRACTION
+    ):
         raise AnalysisValidationError(f"row {row_id!r} leakage limit is invalid")
     valid_codes = _validate_valid_codes(row.get("valid_codes"), row_id)
     candidates = row.get("candidate_probabilities")
@@ -862,10 +1072,29 @@ def _validate_expected_row(
         )
     for model in expected_candidate_models:
         probability_mapping_to_vector(candidates[model], valid_codes)
+    if family == "cayley":
+        stratum_id = row.get("state_preparation_stratum_id")
+        if not isinstance(stratum_id, str) or not stratum_id:
+            raise AnalysisValidationError(
+                f"row {row_id!r} lacks an opaque state-preparation stratum"
+            )
+    if family == "mh":
+        identifiability_role = row.get("identifiability_role")
+        if identifiability_role not in ("identifiable", "abelian_negative_control"):
+            raise AnalysisValidationError(f"row {row_id!r} has an invalid MH role")
+        kappa_hashes = {
+            sha256_json(candidates[model])
+            for model in ("kappa_1", "kappa_0", "kappa_2")
+        }
+        if identifiability_role == "abelian_negative_control" and len(kappa_hashes) != 1:
+            raise AnalysisValidationError(
+                f"row {row_id!r} abelian control must be exactly nonidentifiable"
+            )
     _validate_candidate_provenance(
         candidates,
         row.get("candidate_provenance"),
         field=f"expected_rows.{row_id}.candidate_provenance",
+        logical_circuit_sha256=logical_circuit_sha256,
     )
 
 
@@ -937,17 +1166,20 @@ def _validate_label_layout_model(
 ) -> None:
     if not isinstance(label_model, Mapping):
         raise AnalysisValidationError("analysis lock lacks the global label/layout model")
-    if label_model.get("mapping_scope") != "global_shared_across_dynamic_rows":
+    if label_model.get("mapping_scope") != "global_shared_across_primary_rows":
         raise AnalysisValidationError("label/layout mapping scope is not globally shared")
     _require_sha256(
         label_model.get("component_set_derivation_sha256"),
         "label_layout_model.component_set_derivation_sha256",
     )
-    analysis_row_ids = set(rows_by_id)
+    analysis_row_ids = {
+        row_id for row_id, row in rows_by_id.items() if row["endpoint"] == PRIMARY_ENDPOINT
+    }
     components = label_model.get("components")
     if not isinstance(components, list) or len(components) < 2:
         raise AnalysisValidationError("label/layout model needs at least two frozen components")
     component_ids: set[str] = set()
+    component_table_hashes: set[str] = set()
     weight_total = 0.0
     for index, component in enumerate(components):
         if not isinstance(component, Mapping):
@@ -979,7 +1211,7 @@ def _validate_label_layout_model(
         row_provenance = component.get("row_provenance")
         if not isinstance(row_probabilities, Mapping) or set(row_probabilities) != analysis_row_ids:
             raise AnalysisValidationError(
-                f"label/layout component {component_id!r} must cover every dynamic analysis circuit"
+                f"label/layout component {component_id!r} must cover every primary circuit"
             )
         if not isinstance(row_provenance, Mapping) or set(row_provenance) != analysis_row_ids:
             raise AnalysisValidationError(
@@ -1002,8 +1234,14 @@ def _validate_label_layout_model(
                 raise AnalysisValidationError(
                     f"label/layout component {component_id!r} row {row_id!r} hash mismatch"
                 )
+        table_set_hash = sha256_json(row_probabilities)
+        if table_set_hash in component_table_hashes:
+            raise AnalysisValidationError("label/layout components contain duplicate table sets")
+        component_table_hashes.add(table_set_hash)
     if not math.isclose(weight_total, 1.0, rel_tol=0.0, abs_tol=1e-12):
         raise AnalysisValidationError("label/layout component prior weights must sum to one")
+    if label_model.get("reference_component_id") not in component_ids:
+        raise AnalysisValidationError("label/layout reference component is absent")
 
 
 def _validate_lock_body(lock: Mapping[str, Any], *, verify_code_hash: bool) -> None:
@@ -1034,6 +1272,10 @@ def _validate_lock_body(lock: Mapping[str, Any], *, verify_code_hash: bool) -> N
         "simultaneous_prediction_level": SIMULTANEOUS_LEVEL,
         "secondary_holm_family_alpha": SECONDARY_FAMILY_ALPHA,
         "calibration_control_min_p_value": CALIBRATION_CONTROL_MIN_P_VALUE,
+        "pooled_backend_family_max_leakage_fraction": DEFAULT_MAX_LEAKAGE_FRACTION,
+        "individual_circuit_catastrophic_leakage_fraction": (
+            INDIVIDUAL_CIRCUIT_CATASTROPHIC_LEAKAGE_FRACTION
+        ),
     }
     if thresholds != expected_thresholds:
         raise AnalysisValidationError("analysis thresholds differ from the frozen protocol")
@@ -1093,6 +1335,68 @@ def _validate_lock_body(lock: Mapping[str, Any], *, verify_code_hash: bool) -> N
         raise AnalysisValidationError("calibration set must exactly match referenced circuit rows")
     if len(primary_backends) < 2:
         raise AnalysisValidationError("primary S3 endpoint needs two independent backends")
+    mh_by_endpoint: dict[str, list[Mapping[str, Any]]] = {}
+    for row in rows:
+        if row["family"] == "mh":
+            mh_by_endpoint.setdefault(row["endpoint"], []).append(row)
+    for endpoint, endpoint_rows in mh_by_endpoint.items():
+        roles = {row["identifiability_role"] for row in endpoint_rows}
+        if len(roles) != 1:
+            raise AnalysisValidationError(f"MH endpoint {endpoint!r} mixes identifiability roles")
+        if next(iter(roles)) == "identifiable" and not any(
+            len(
+                {
+                    sha256_json(row["candidate_probabilities"][model])
+                    for model in ("kappa_1", "kappa_0", "kappa_2")
+                }
+            )
+            > 1
+            for row in endpoint_rows
+        ):
+            raise AnalysisValidationError(
+                f"MH endpoint {endpoint!r} is declared identifiable but has zero separation"
+            )
+    state_preparation_strata: dict[str, list[Mapping[str, Any]]] = {}
+    for row in rows:
+        if row["family"] == "cayley":
+            state_preparation_strata.setdefault(
+                row["state_preparation_stratum_id"], []
+            ).append(row)
+    for stratum_id, stratum_rows in state_preparation_strata.items():
+        if len({row["backend_role"] for row in stratum_rows}) != 1:
+            raise AnalysisValidationError(
+                f"state-preparation stratum {stratum_id!r} crosses backend roles"
+            )
+        valid_code_sets = {tuple(row["valid_codes"]) for row in stratum_rows}
+        if len(valid_code_sets) != 1:
+            raise AnalysisValidationError(
+                f"state-preparation stratum {stratum_id!r} crosses physical encodings"
+            )
+        valid_codes = stratum_rows[0]["valid_codes"]
+        total_shots = sum(int(row["shots"]) for row in stratum_rows)
+        aggregate_repair = sum(
+            int(row["shots"])
+            * probability_mapping_to_vector(
+                row["candidate_probabilities"][REPAIR_MODEL], valid_codes
+            )
+            for row in stratum_rows
+        ) / total_shots
+        expected_null = probability_mapping_to_vector(
+            state_preparation_only_joint_null(
+                vector_to_probability_mapping(aggregate_repair, valid_codes),
+                valid_codes,
+            ),
+            valid_codes,
+        )
+        for row in stratum_rows:
+            supplied = probability_mapping_to_vector(
+                row["candidate_probabilities"][STATE_PREPARATION_MODEL],
+                valid_codes,
+            )
+            if not np.allclose(supplied, expected_null, atol=1e-12, rtol=0.0):
+                raise AnalysisValidationError(
+                    f"state-preparation stratum {stratum_id!r} does not preserve/factorize marginals"
+                )
     if len({row["shots"] for row in rows}) != 1:
         raise AnalysisValidationError("all locked benchmark circuits must use the same shot count")
     rows_by_id = {row["row_id"]: row for row in rows}
@@ -1160,6 +1464,10 @@ def build_analysis_lock(
             "simultaneous_prediction_level": SIMULTANEOUS_LEVEL,
             "secondary_holm_family_alpha": SECONDARY_FAMILY_ALPHA,
             "calibration_control_min_p_value": CALIBRATION_CONTROL_MIN_P_VALUE,
+            "pooled_backend_family_max_leakage_fraction": DEFAULT_MAX_LEAKAGE_FRACTION,
+            "individual_circuit_catastrophic_leakage_fraction": (
+                INDIVIDUAL_CIRCUIT_CATASTROPHIC_LEAKAGE_FRACTION
+            ),
         },
         "execution_contract": {
             "row_granularity": "one_locked_row_per_opaque_circuit",
@@ -1222,9 +1530,13 @@ def _validate_data_row(data_row: Mapping[str, Any], expected_row: Mapping[str, A
     row_id = expected_row["row_id"]
     if data_row.get("row_id") != row_id:
         raise AnalysisValidationError(f"data row ID does not match expected row {row_id!r}")
+    if "logical_qpy_sha256" in data_row:
+        raise AnalysisValidationError(
+            f"data row {row_id!r} uses removed logical_qpy_sha256 identity"
+        )
     for field in (
         "opaque_id",
-        "logical_qpy_sha256",
+        "logical_circuit_sha256",
         "backend_role",
         "backend_name",
         "layout_id",
@@ -1349,6 +1661,13 @@ def validate_data_packet(
             result.get("diagnostic_counts_sha256"),
             f"calibration_results.{calibration_id}.diagnostic_counts_sha256",
         )
+        claimed_summary_hash = _require_sha256(
+            result.get("diagnostic_summary_sha256"),
+            f"calibration_results.{calibration_id}.diagnostic_summary_sha256",
+        )
+        summary = result.get("summary")
+        if not isinstance(summary, Mapping) or sha256_json(summary) != claimed_summary_hash:
+            raise AnalysisValidationError("calibration diagnostic summary hash mismatch")
         if result.get("diagnostic_opaque_ids") != calibration["control_rule"][
             "diagnostic_opaque_ids"
         ]:
@@ -1380,6 +1699,49 @@ def validate_data_packet(
             or minimum_count < 0
         ):
             raise AnalysisValidationError("calibration result validation fields are invalid")
+        per_code = summary.get("per_code")
+        if not isinstance(per_code, list) or len(per_code) != len(
+            calibration["control_rule"]["diagnostic_opaque_ids"]
+        ):
+            raise AnalysisValidationError("calibration diagnostic summary is incomplete")
+        recomputed_raw_p_values: list[float] = []
+        recomputed_minimum_count: int | None = None
+        for record in per_code:
+            if not isinstance(record, Mapping):
+                raise AnalysisValidationError("calibration per-code summary is malformed")
+            shots = record.get("shots")
+            errors = record.get("error_count")
+            if (
+                isinstance(shots, bool)
+                or not isinstance(shots, int)
+                or shots <= 0
+                or isinstance(errors, bool)
+                or not isinstance(errors, int)
+                or errors < 0
+                or errors > shots
+            ):
+                raise AnalysisValidationError("calibration per-code counts are invalid")
+            recomputed_raw_p_values.append(
+                _binomial_upper_tail(
+                    shots,
+                    errors,
+                    calibration["control_rule"]["maximum_basis_error_fraction"],
+                )
+            )
+            recomputed_minimum_count = (
+                shots
+                if recomputed_minimum_count is None
+                else min(recomputed_minimum_count, shots)
+            )
+        recomputed_gof = min(
+            1.0,
+            len(per_code) * min(recomputed_raw_p_values),
+        )
+        if (
+            not math.isclose(gof_p_value, recomputed_gof, rel_tol=0.0, abs_tol=1e-12)
+            or minimum_count != recomputed_minimum_count
+        ):
+            raise AnalysisValidationError("calibration result does not match frozen exact test")
     claimed_hash = _require_sha256(data.get("data_packet_sha256"), "data_packet_sha256")
     unhashed = dict(data)
     unhashed.pop("data_packet_sha256", None)
@@ -1566,53 +1928,43 @@ def _label_log_likelihood_ratio_sensitivity_bounds(
     grouped: dict[str, list[Mapping[str, Any]]] = {}
     for row in rows:
         grouped.setdefault(row["calibration_id"], []).append(row)
-
-    reference_lower = 0.0
-    reference_upper = 0.0
-    component_lower = {component["component_id"]: 0.0 for component in label_model["components"]}
-    component_upper = dict(component_lower)
-    for calibration_id, selected_rows in grouped.items():
-        reference_options: list[float] = []
-        component_options: dict[str, list[float]] = {
-            component["component_id"]: [] for component in label_model["components"]
+    calibration_ids = sorted(grouped)
+    channel_families = [
+        _calibration_variants(calibrations[calibration_id])
+        for calibration_id in calibration_ids
+    ]
+    combination_count = math.prod(len(family) for family in channel_families)
+    if combination_count > 64:
+        raise AnalysisValidationError(
+            "label sensitivity grid exceeds the frozen exact Cartesian-product limit"
+        )
+    paired_log_likelihood_ratios: list[float] = []
+    for selected_channels in product(*channel_families):
+        reference_score = 0.0
+        component_scores = {
+            component["component_id"]: 0.0 for component in label_model["components"]
         }
-        for channel in _calibration_variants(calibrations[calibration_id]):
-            reference_options.append(
-                float(
-                    sum(
-                        _row_table_log_likelihood(
-                            row,
-                            counts_by_row[row["row_id"]],
-                            row["candidate_probabilities"][reference_model],
-                            channel,
-                        )
-                        for row in selected_rows
-                    )
+        for calibration_id, channel in zip(calibration_ids, selected_channels):
+            for row in grouped[calibration_id]:
+                reference_score += _row_table_log_likelihood(
+                    row,
+                    counts_by_row[row["row_id"]],
+                    row["candidate_probabilities"][reference_model],
+                    channel,
                 )
-            )
-            for component in label_model["components"]:
-                component_options[component["component_id"]].append(
-                    float(
-                        sum(
-                            _row_table_log_likelihood(
-                                row,
-                                counts_by_row[row["row_id"]],
-                                component["row_probabilities"][row["row_id"]],
-                                channel,
-                            )
-                            for row in selected_rows
-                        )
+                for component in label_model["components"]:
+                    component_scores[component["component_id"]] += _row_table_log_likelihood(
+                        row,
+                        counts_by_row[row["row_id"]],
+                        component["row_probabilities"][row["row_id"]],
+                        channel,
                     )
-                )
-        reference_lower += min(reference_options)
-        reference_upper += max(reference_options)
-        for component_id, options in component_options.items():
-            component_lower[component_id] += min(options)
-            component_upper[component_id] += max(options)
-
-    label_lower = _label_log_marginal(component_lower, label_model)
-    label_upper = _label_log_marginal(component_upper, label_model)
-    return float(reference_lower - label_upper), float(reference_upper - label_lower)
+        label_marginal = _label_log_marginal(component_scores, label_model)
+        paired_log_likelihood_ratios.append(reference_score - label_marginal)
+    return (
+        float(min(paired_log_likelihood_ratios)),
+        float(max(paired_log_likelihood_ratios)),
+    )
 
 
 def simultaneous_hoeffding_envelope(
@@ -1757,7 +2109,7 @@ def _row_shot_audit(
     return {
         "row_id": expected_row["row_id"],
         "opaque_id": expected_row["opaque_id"],
-        "logical_qpy_sha256": expected_row["logical_qpy_sha256"],
+        "logical_circuit_sha256": expected_row["logical_circuit_sha256"],
         "endpoint": expected_row["endpoint"],
         "backend_role": expected_row["backend_role"],
         "backend_name": expected_row["backend_name"],
@@ -1809,7 +2161,7 @@ def run_blind_analysis(
         }
         probabilities_by_row[row_id] = {}
         likelihoods_by_row[row_id] = {}
-        for model in point_models:
+        for model in expected_row["candidate_probabilities"]:
             probabilities = _candidate_observed_probabilities(
                 expected_row,
                 calibration,
@@ -1870,12 +2222,14 @@ def run_blind_analysis(
                 counts_by_row,
                 lock["calibrations"],
                 lock["label_layout_model"],
+                REPAIR_MODEL,
             )
         else:
             sensitivity_bounds = _point_log_likelihood_ratio_sensitivity_bounds(
                 primary_rows,
                 counts_by_row,
                 lock["calibrations"],
+                REPAIR_MODEL,
                 null,
             )
         pooled_likelihood_ratios[null] = {
@@ -1900,12 +2254,14 @@ def run_blind_analysis(
                     counts_by_row,
                     lock["calibrations"],
                     lock["label_layout_model"],
+                    REPAIR_MODEL,
                 )
             else:
                 sensitivity_bounds = _point_log_likelihood_ratio_sensitivity_bounds(
                     backend_rows,
                     counts_by_row,
                     lock["calibrations"],
+                    REPAIR_MODEL,
                     null,
                 )
             per_backend_likelihood_ratios[backend_name][null] = {
@@ -1917,6 +2273,58 @@ def run_blind_analysis(
                     and sensitivity_bounds[0] > math.log(PER_BACKEND_LR_THRESHOLD)
                 ),
             }
+
+    mh_rows_by_endpoint: dict[str, list[Mapping[str, Any]]] = {}
+    for row in lock["expected_rows"]:
+        if row["family"] == "mh":
+            mh_rows_by_endpoint.setdefault(row["endpoint"], []).append(row)
+    mh_secondary_families: dict[str, dict[str, Any]] = {}
+    for endpoint, rows in mh_rows_by_endpoint.items():
+        scores = {
+            model: float(
+                sum(likelihoods_by_row[row["row_id"]][model] for row in rows)
+            )
+            for model in MH_POINT_MODELS
+        }
+        ratios: dict[str, dict[str, Any]] = {}
+        for null in MH_POINT_MODELS[1:]:
+            log_lr = scores[MH_REFERENCE_MODEL] - scores[null]
+            bounds = _point_log_likelihood_ratio_sensitivity_bounds(
+                rows,
+                counts_by_row,
+                lock["calibrations"],
+                MH_REFERENCE_MODEL,
+                null,
+            )
+            ratios[null] = {
+                "conditional_log_likelihood_ratio_kappa_1_over_null": log_lr,
+                "conditional_likelihood_ratio_kappa_1_over_null": _safe_likelihood_ratio(
+                    log_lr
+                ),
+                "sensitivity_log_likelihood_ratio_bounds": list(bounds),
+            }
+        role = rows[0]["identifiability_role"]
+        mh_secondary_families[endpoint] = {
+            "identifiability_role": role,
+            "row_count": len(rows),
+            "log_likelihoods": scores,
+            "conditional_likelihood_ratios": ratios,
+            "negative_control_exact_zero_check": bool(
+                role != "abelian_negative_control"
+                or all(
+                    math.isclose(
+                        ratios[null][
+                            "conditional_log_likelihood_ratio_kappa_1_over_null"
+                        ],
+                        0.0,
+                        rel_tol=0.0,
+                        abs_tol=1e-12,
+                    )
+                    for null in ("kappa_0", "kappa_2")
+                )
+            ),
+            "does_not_select_primary": True,
+        }
 
     global_envelope_records = [
         (
@@ -1972,7 +2380,32 @@ def run_blind_analysis(
         _row_shot_audit(row, counts_by_row[row["row_id"]])
         for row in lock["expected_rows"]
     ]
-    leakage_gate_pass = all(row["leakage_gate_pass"] for row in shot_audit)
+    individual_catastrophic_leakage_pass = all(
+        row["leakage_gate_pass"] for row in shot_audit
+    )
+    leakage_groups: dict[tuple[str, str], dict[str, int]] = {}
+    for row in shot_audit:
+        key = (row["backend_name"], expected_rows[row["row_id"]]["family"])
+        group = leakage_groups.setdefault(key, {"shots": 0, "leakage_shots": 0})
+        group["shots"] += row["declared_submitted_retrieved_counted_shots"]
+        group["leakage_shots"] += row["leakage_shots"]
+    pooled_leakage_gates = {
+        f"{backend_name}|{family}": {
+            "backend_name": backend_name,
+            "family": family,
+            "shots": values["shots"],
+            "leakage_shots": values["leakage_shots"],
+            "leakage_fraction": values["leakage_shots"] / values["shots"],
+            "maximum_fraction": DEFAULT_MAX_LEAKAGE_FRACTION,
+            "pass": values["leakage_shots"] / values["shots"]
+            <= DEFAULT_MAX_LEAKAGE_FRACTION,
+        }
+        for (backend_name, family), values in sorted(leakage_groups.items())
+    }
+    pooled_leakage_pass = all(details["pass"] for details in pooled_leakage_gates.values())
+    leakage_gate_pass = bool(
+        individual_catastrophic_leakage_pass and pooled_leakage_pass
+    )
     data_rows_by_id = {row["row_id"]: row for row in data["rows"]}
     calibration_gate_details: dict[str, dict[str, Any]] = {}
     for calibration_id, calibration in lock["calibrations"].items():
@@ -2024,8 +2457,23 @@ def run_blind_analysis(
     every_pooled_lr_passes = all(
         result["passes_pooled_threshold"] for result in pooled_likelihood_ratios.values()
     )
-    best_label_score = max(pooled_label_component_scores.values())
-    label_unique_preference = pooled_scores[REPAIR_MODEL] > best_label_score
+    label_weighted_scores = sorted(
+        (
+            (
+                component["component_id"],
+                math.log(float(component["prior_weight"]))
+                + pooled_label_component_scores[component["component_id"]],
+            )
+            for component in lock["label_layout_model"]["components"]
+        ),
+        key=lambda item: (-item[1], item[0]),
+    )
+    label_top_gap = label_weighted_scores[0][1] - label_weighted_scores[1][1]
+    label_unique_preference = bool(
+        label_top_gap > 0.0
+        and label_weighted_scores[0][0]
+        == lock["label_layout_model"]["reference_component_id"]
+    )
     primary_pass = bool(
         validity_gate_pass
         and every_backend_lr_passes
@@ -2082,14 +2530,7 @@ def run_blind_analysis(
         item["posterior_within_label_model"] = math.exp(
             item["log_weighted_likelihood"] - pooled_scores[LABEL_MODEL]
         )
-    label_top_gap = (
-        label_ranked[0]["log_weighted_likelihood"]
-        - label_ranked[1]["log_weighted_likelihood"]
-    )
-    repair_rank = 1 + sum(
-        score >= pooled_scores[REPAIR_MODEL]
-        for score in pooled_label_component_scores.values()
-    )
+    best_label_score = max(pooled_label_component_scores.values())
 
     report_body = {
         "schema_version": REPORT_SCHEMA_VERSION,
@@ -2112,6 +2553,11 @@ def run_blind_analysis(
             "calibration_gate_pass": calibration_gate_pass,
             "calibration_gates": calibration_gate_details,
             "leakage_gate_pass": leakage_gate_pass,
+            "individual_catastrophic_leakage_pass": (
+                individual_catastrophic_leakage_pass
+            ),
+            "pooled_backend_family_leakage_pass": pooled_leakage_pass,
+            "pooled_backend_family_leakage_gates": pooled_leakage_gates,
             "overall_validity_gate_pass": validity_gate_pass,
         },
         "conditional_likelihood": {
@@ -2137,17 +2583,19 @@ def run_blind_analysis(
             "global_99_percent_simultaneous_envelope": global_envelope,
             "per_backend_99_percent_simultaneous_envelopes": backend_envelopes,
             "label_layout_multiplicity": {
-                "mapping_scope": "global_shared_across_dynamic_rows",
+                "mapping_scope": "global_shared_across_primary_rows",
                 "component_count": len(label_ranked),
                 "log_marginal_likelihood": pooled_scores[LABEL_MODEL],
                 "ranked_components": label_ranked,
+                "reference_component_id": lock["label_layout_model"][
+                    "reference_component_id"
+                ],
+                "reference_component_is_unique_top": label_unique_preference,
                 "top_to_second_log_weighted_likelihood_gap": label_top_gap,
                 "repair_log_likelihood_gap_to_best_label_component": pooled_scores[
                     REPAIR_MODEL
                 ]
                 - best_label_score,
-                "repair_rank_against_label_components": repair_rank,
-                "repair_uniquely_preferred": repair_rank == 1,
                 "per_backend_component_log_likelihoods": per_backend_label_component_scores,
             },
             "passes_gate": primary_pass,
@@ -2158,17 +2606,35 @@ def run_blind_analysis(
             "does_not_select_primary": True,
             "tests": holm_results,
         },
+        "mh_secondary_families": mh_secondary_families,
         "shot_audit": shot_audit,
         "candidate_probability_hashes": {
             row_id: {
-                model: sha256_json(
-                    vector_to_probability_mapping(
-                        probabilities,
-                        expected_rows[row_id]["valid_codes"],
-                        include_zeros=True,
-                    )
-                )
-                for model, probabilities in candidates.items()
+                model: {
+                    "logical_circuit_sha256": expected_rows[row_id][
+                        "logical_circuit_sha256"
+                    ],
+                    "latent_probability_table_sha256": expected_rows[row_id][
+                        "candidate_provenance"
+                    ][model]["probability_table_sha256"],
+                    "derivation_sha256": expected_rows[row_id]["candidate_provenance"][
+                        model
+                    ]["derivation_sha256"],
+                    "conditional_observed_prediction_sha256": sha256_json(
+                        {
+                            "logical_circuit_sha256": expected_rows[row_id][
+                                "logical_circuit_sha256"
+                            ],
+                            "latent_probability_table_sha256": expected_rows[row_id][
+                                "candidate_provenance"
+                            ][model]["probability_table_sha256"],
+                            "calibration_sha256": sha256_json(
+                                lock["calibrations"][expected_rows[row_id]["calibration_id"]]
+                            ),
+                        }
+                    ),
+                }
+                for model in candidates
             }
             for row_id, candidates in probabilities_by_row.items()
         },
@@ -2209,16 +2675,24 @@ def simulate_data_packet(
     """Generate a clearly labeled synthetic packet for tests and power checks."""
 
     validate_analysis_lock(lock, verify_code_hash=True)
-    if generating_model not in ROW_POINT_MODELS:
-        raise AnalysisValidationError("unknown synthetic generating model")
     rng = np.random.default_rng(seed)
     rows = []
     for expected_row in lock["expected_rows"]:
+        selected_generating_model = generating_model
+        if (
+            expected_row["family"] == "mh"
+            and generating_model == REPAIR_MODEL
+        ):
+            selected_generating_model = MH_REFERENCE_MODEL
+        if selected_generating_model not in expected_row["candidate_probabilities"]:
+            raise AnalysisValidationError(
+                "synthetic generating model does not match an expected row family"
+            )
         calibration = lock["calibrations"][expected_row["calibration_id"]]
         probabilities = _candidate_observed_probabilities(
             expected_row,
             calibration,
-            generating_model,
+            selected_generating_model,
         )
         shots = int(expected_row["shots"])
         counts = rng.multinomial(shots, probabilities)
@@ -2231,7 +2705,7 @@ def simulate_data_packet(
             {
                 "row_id": expected_row["row_id"],
                 "opaque_id": expected_row["opaque_id"],
-                "logical_qpy_sha256": expected_row["logical_qpy_sha256"],
+                "logical_circuit_sha256": expected_row["logical_circuit_sha256"],
                 "backend_role": expected_row["backend_role"],
                 "backend_name": expected_row["backend_name"],
                 "layout_id": expected_row["layout_id"],
@@ -2259,25 +2733,19 @@ def simulate_data_packet(
         harvest_journal_sha256="d" * 64,
         source_kind="synthetic_preflight",
         calibration_results={
-            calibration_id: {
-                "calibration_receipt_sha256": sha256_json(
+            calibration_id: basis_calibration_control_result(
+                diagnostic_counts_by_opaque_id={
+                    opaque_id: {f"{basis_code:04b}": 512}
+                    for opaque_id, basis_code in calibration["control_rule"][
+                        "expected_basis_code_by_opaque_id"
+                    ].items()
+                },
+                control_rule=calibration["control_rule"],
+                provider_job_ids=[f"synthetic-calibration-job-{calibration_id}"],
+                calibration_receipt_sha256=sha256_json(
                     {"synthetic_calibration": calibration_id}
                 ),
-                "diagnostic_counts_sha256": sha256_json(
-                    {"synthetic_diagnostic_counts": calibration_id}
-                ),
-                "diagnostic_opaque_ids": list(
-                    calibration["control_rule"]["diagnostic_opaque_ids"]
-                ),
-                "provider_job_ids": [f"synthetic-calibration-job-{calibration_id}"],
-                "all_diagnostic_jobs_complete": True,
-                "all_diagnostic_shots_included": True,
-                "postselected": False,
-                "gof_p_value": 1.0,
-                "minimum_count_per_prepared_state": calibration["control_rule"][
-                    "minimum_count_per_prepared_state"
-                ],
-            }
+            )
             for calibration_id, calibration in lock["calibrations"].items()
         },
         created_utc=created_utc,
