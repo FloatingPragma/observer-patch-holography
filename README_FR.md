@@ -363,57 +363,63 @@ l'index web des papiers et des artefacts GitHub Release.
 
 ## Statut de preuve
 
-Aucune théorie physique n'est prouvée à 100 % au sens mathématique. Une théorie
-physique gagne sa crédibilité en dérivant beaucoup de faits indépendants depuis
-peu d'hypothèses, en gardant les cibles mesurées hors de ses cartes sources et
-en exposant des façons claires d'échouer. Notre preuve compacte la plus forte
-est [Disclosure Day : preuve compacte de l'OPH](extra/compact_proof_of_oph.pdf).
-Elle donne le chemin le plus court vers l'idée que l'OPH est probablement
-correcte, tandis que la pile complète de papiers porte les dérivations, les
-frontières de revendication et les obligations de preuve.
+La [preuve compacte de l'OPH](extra/compact_proof_of_oph.pdf) formule un
+théorème de fermeture conditionnel et un protocole de test empirique par
+compression. Ses cinq axiomes, règles de branche, cartes sources et cartes de
+lecture doivent être fixés indépendamment des données du test. Si les deux
+cartes sources ont des points fixes uniques, si aucune carte source rivale ne
+satisfait les règles déclarées et si le paquet fini passe le test de simulation
+en cinq parties, les observables déclarés sont engendrés de façon unique, à une
+équivalence invisible pour les observateurs près. L'identification physique
+exige une comparaison aux données. Le théorème établit l'unicité sur la branche
+déclarée ; ses prémisses portent leurs obligations de preuve.
 
-Une sortie OPH finie garde son statut d'origine. Renommer un compte de capacité
-en masse, une archive en rayonnement, un spectre de réparation en spectre
-physique ou un seuil de reconstruction en temps de Page laisse la revendication
-au même niveau. Une promotion physique exige une lecture séparée, un chemin de
-calibration, un registre de résidus, des contrôles et une cible de validation
-gelée.
+Le décompte compact comprend des résultats mathématiques sur la forme normale
+des patches d'observateurs finis, la surface d'événements quantiques, la branche
+structurelle du Modèle Standard, l'intervalle du couplage unifié et la
+normalisation géométrique de la gravité. La forme des familles chargées à phase
+fixée et la hiérarchie faible sans QCD sont des accords rétrodictifs calculés
+côté source. L'artefact vérifié par machine couvre une partie finie du consensus
+et des réparations ; le théorème de consensus propre à l'OPH est une obligation
+de formalisation ouverte. La structure fine à basse énergie et la valeur SI
+de la constante de Newton sont des lignes de comparaison. Les résultats sur les
+particules, les neutrinos, le secteur sombre, la cosmologie, les collisionneurs
+et le matériel sont hors du décompte compact, avec leurs propres classes de
+preuve.
 
-La preuve compacte traite l'évidence comme un test de compression. Une ligne
-numérique ne compte que lorsque son calcul n'utilise pas la valeur mesurée, ni
-un proxy proche de cette valeur, comme entrée. Si $p_i$ borne la chance que la
-ligne $i$ tombe juste par accident après les lignes acceptées précédentes,
-alors $P_{\mathrm{acc}}\le\prod_i p_i$. Douze lignes source-propres à un pour
-cent donnent $P_{\mathrm{acc}}\le10^{-24}$; vingt donnent $10^{-40}$. Les deux
-mêmes points fixes organisent aussi le problème de l'observateur, la
-reconstruction gravité/jauge, la
-hiérarchie électrofaible, l'énergie noire, le budget du secteur sombre,
-l'exclusion de la désintégration du proton par bosons de jauge, l'inventaire
-des particules et la sélection du vide de corde comme une seule grammaire de
-fermeture.
+Le budget numérique des coïncidences est une illustration. Ses fenêtres,
+choisies généreusement en faveur du hasard, donnent un produit proche de
+$10^{-9}$, soit environ 30 bits, et proche de $10^{-3}$ lorsque les fenêtres
+sont élargies d'un facteur cent. Ces nombres ne sont pas une probabilité
+postérieure. La taille des fenêtres relève d'un choix, leur indépendance est
+approximative et la recherche parmi les branches écartées doit être comptée.
+L'affirmation empirique formelle exige une théorie, des cartes sources, des
+sélecteurs de branche, des tolérances, un modèle d'incertitude et des théories
+de comparaison fixés avant le test, ainsi qu'un jeu de données réservé et un
+seuil de compression déclaré. Le décompte compact admet un résultat uniquement
+lorsque son calcul et ses contrôles satisfont ce protocole.
+
+Les énoncés géométriques conditionnels exigent des données finies de caps avec
+des preuves d'ordre, d'orientation, de comportement modulaire et de
+normalisation thermique. Sous ces conditions, les données convergent vers le
+flot géométrique de cap attendu. La dérivation de ces preuves depuis le
+consensus fini nu est une obligation d'entrée de la branche d'Einstein. Sur la
+branche contrôlée, la carte spatiale orientée observateur est exactement
+tridimensionnelle. Le théorème ne peuple pas la carte avec des objets, ne dérive
+pas un rayon de courbure physique, ne produit pas un bulk neutre et ne ferme pas
+la branche d'Einstein. La localisation des jetons d'enregistrement exige des
+réponses de caps calibrées et un budget d'erreur complet ; sans ces éléments,
+le résultat est ambigu.
 
 Les continuations de spectre d'écran et de CMB sont provisoires sans l'échelle
 géométrique de la branche écran, sa dynamique source, son horloge, son
 comportement de raffinement et sa lecture observationnelle depuis des
-enregistrements natifs OPH. Les vues du secteur sombre, des anomalies, du vide
-et de l'écume quantique sont diagnostiques sauf lorsque les reçus source
-pertinents passent ; les revendications de vraisemblance physique exigent un
-ensemble dérivé du quotient, une reconstruction stable sous régulateur, une
-abondance source seule le cas échéant et une cible de validation gelée avant la
-lecture des données de vraisemblance.
-
-Le papier compact contient aussi trois énoncés géométriques conditionnels. Si
-les données finies de caps portent les bonnes preuves d'ordre, d'orientation,
-de comportement modulaire et de normalisation thermique, elles convergent vers
-le flot géométrique de cap attendu. La dérivation de ces preuves depuis le
-consensus fini nu fait partie du problème d'entrée de la branche d'Einstein.
-Sur cette branche contrôlée, la carte spatiale orientée observateur est
-exactement tridimensionnelle. Le théorème ne peuple pas la carte avec des
-objets, ne dérive pas un rayon de courbure physique, ne produit pas un bulk
-neutre et ne ferme pas la branche d'Einstein. Les jetons d'enregistrement ne
-peuvent être localisés que lorsque les réponses de caps calibrées et un budget
-d'erreur complet soutiennent cette revendication ; sinon la bonne sortie est
-l'ambiguïté.
+enregistrements natifs OPH. La ligne galactique du secteur sombre est un bilan
+pré-vraisemblance hors du décompte compact. Les vues des anomalies,
+du vide et de l'écume quantique sont diagnostiques. Les revendications de
+vraisemblance physique exigent un ensemble dérivé du quotient, une
+reconstruction stable sous régulateur, une abondance côté source le cas échéant
+et une cible de validation gelée avant la lecture des données de vraisemblance.
 
 ## Applications et matériel OMEGA
 
@@ -429,7 +435,7 @@ L'OPH transforme la microphysique d'écran en voie de hack de
 la réalité. La cible est le contrôle physique de petits patches qui peuvent être
 pilotés, mesurés, réparés et vérifiés.
 
-La thèse applicative décrit des machines utiles qui forcent de petits patches
+La thèse applicative repose sur des machines qui forcent de petits patches
 physiques vers les points fixes sélectionnés par la cohérence de patches
 d'observateurs. Cela donne des pistes
 de mise en œuvre à bas coût pour l'énergie de fusion de bureau, le supercalcul

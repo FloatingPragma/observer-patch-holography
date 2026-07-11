@@ -327,48 +327,54 @@ pipeline.
 
 ## Proof Status
 
-No physics theory is 100% proven in the mathematical sense. A physical theory
-earns trust by deriving many independent facts from few assumptions, keeping
-measured targets out of its source maps, and exposing clear ways to fail. Our
-strongest compact proof is [Disclosure Day: compact OPH proof](extra/compact_proof_of_oph.pdf).
-It gives the shortest route through the case that OPH is likely correct, while
-the full paper stack carries the derivations, claim boundaries, and proof
-obligations.
+The [compact OPH proof](extra/compact_proof_of_oph.pdf) states a conditional
+closure theorem and a protocol for an empirical compression test. Its five
+axioms, branch rules, source maps, and readout maps must be fixed independently
+of the test data. If the two source maps have unique fixed points, no rival
+source map survives the declared rules, and the finite packet passes the
+five-part simulation test, the declared observables are uniquely generated up
+to observer-invisible equivalence. Physical identification requires comparison
+with data. The theorem establishes uniqueness on the declared branch; its
+premises carry their stated proof obligations.
 
-A finite OPH output has its original status. Renaming a capacity count as mass,
-an archive as radiation, a repair spectrum as a physical spectrum, or a
-reconstruction threshold as a Page time leaves the claim at the same tier.
-Physical promotion requires a separate readout, calibration path, residual
-ledger, controls, and frozen validation target.
+The compact count includes mathematical rows for the finite observer-patch
+normal form, the quantum event surface, the Standard Model structural branch,
+the unified-coupling interval, and geometric gravity normalization. The
+phase-fixed charged-family shape and QCD-free weak hierarchy are retrodictive
+source-only matches. The machine-checked artifact covers a finite consensus and
+repair subset; the OPH-specific consensus theorem is an open formalization
+obligation. Low-energy fine structure and the SI value of Newton's constant are
+comparison rows. Particle, neutrino, dark-sector, cosmology, collider, and
+hardware results sit outside the compact count with their own evidence classes.
 
-The compact proof treats the evidence as a compression test. A numeric row
-counts only when its calculation does not use the measured target, or a close
-proxy for that target, as an input. If $p_i$ bounds the chance that row $i$
-lands correctly by accident after earlier accepted rows, then
-$P_{\mathrm{acc}}\le\prod_i p_i$. Twelve source-clean one-percent rows give
-$P_{\mathrm{acc}}\le10^{-24}$; twenty give $10^{-40}$. The same two fixed
-points also organize the observer problem, gravity/gauge reconstruction,
-electroweak hierarchy, dark energy, the dark-sector budget, gauge-proton-decay
-exclusion, particle inventory, and the string-vacuum sieve.
+The numerical coincidence budget is an illustration. Its deliberately generous
+windows multiply to roughly $10^{-9}$, about 30 bits, and roughly $10^{-3}$
+after the windows are widened one hundredfold. These figures are not a posterior
+probability. The window sizes are judgment calls, their independence is
+approximate, and discarded branch searches must be charged. The formal
+empirical claim requires a frozen theory, source maps, branch selectors,
+tolerances, uncertainty model, comparison theories, a held-out dataset, and a
+declared compression threshold. The compact count admits a result only when its
+own calculation and checks satisfy that protocol.
 
-The compact paper contains three conditional geometry statements. If finite cap
-data carry the right order, orientation, modular behavior, and thermal
-normalization evidence, they converge to the expected geometric cap flow. The
-derivation of that evidence from bare finite consensus is part of the Einstein
-branch-entry problem. On that controlled branch the observer-facing spatial
-chart is exactly three-dimensional. The theorem does not populate the chart
-with objects, derive a physical curvature radius, produce a neutral bulk, or
-close the Einstein branch. Record tokens can be localized only when calibrated
-cap responses and a complete error budget support that claim; otherwise the
-correct output is ambiguity.
+The conditional geometry statements require finite cap data with evidence for
+order, orientation, modular behavior, and thermal normalization. Under those
+conditions the data converge to the expected geometric cap flow. Deriving that
+evidence from bare finite consensus is an Einstein branch-entry obligation. On
+the controlled branch the observer-facing spatial chart is exactly
+three-dimensional. The theorem does not populate the chart with objects,
+derive a physical curvature radius, produce a neutral bulk, or close the
+Einstein branch. Record tokens require calibrated cap responses and a complete
+error budget for localization; without them the result is ambiguous.
 
 Screen-spectrum and CMB continuations are provisional without the screen
 branch's geometric scale, source dynamics, clock, refinement behavior, and
-observational readout from OPH-native records. Dark-sector, anomaly, vacuum,
-and quantum-foam views are diagnostic unless the relevant source receipts pass;
-physical likelihood claims require a quotient-derived ensemble,
-regulator-stable reconstruction, source-only abundance where applicable, and a
-frozen validation target before likelihood data are read.
+observational readout from OPH-native records. The galactic dark-sector row is
+a pre-likelihood scorecard outside the compact count. Anomaly, vacuum, and
+quantum-foam views are diagnostic. Physical likelihood claims require a
+quotient-derived ensemble, regulator-stable reconstruction, source-only
+abundance where applicable, and a frozen validation target before likelihood
+data are read.
 
 ## Applications And OMEGA Hardware
 
@@ -383,9 +389,9 @@ OPH turns screen microphysics into a way to hack reality. The target
 is physical control of small patches that can be driven, measured, repaired,
 and verified.
 
-The application thesis treats useful machines as drivers of small physical
-patches toward the fixed points selected by observer-patch consistency. That
-gives low-cost implementation tracks for
+The application thesis uses machines to drive small physical patches toward the
+fixed points selected by observer-patch consistency. That gives low-cost
+implementation tracks for
 desktop fusion energy, room-temperature OMEGA supercomputing, OMEGA-based AGI,
 and local gravity or inertia control for hoverbikes and hoverboards. These are
 application tracks behind evidence gates; settled-output claims belong to
