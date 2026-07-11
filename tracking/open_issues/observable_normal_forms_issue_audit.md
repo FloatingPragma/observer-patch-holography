@@ -4,7 +4,7 @@ Final live snapshot date: 2026-07-11
 Repository audited: FloatingPragma/observer-patch-holography  
 Draft audited for issue mapping: pro/observable_normal_forms_submission_bundle.zip  
 Current repo-native paper: extra/observable_normal_forms.tex  
-Audit mode: read-only GitHub review; no issue, label, milestone, project, or comment was changed
+Audit mode: final live review with authorized issue synchronization
 
 ## Retrieval receipt and state drift
 
@@ -19,33 +19,38 @@ gh issue list \
   --json number,title,url,body,labels,milestone,assignees,comments,createdAt,updatedAt
 ~~~
 
-The final query returned 115 open issues. Of these, 60 carry the
-physics-problems label and 55 are proof packets, publication tasks,
+The final query returned 114 open issues. Of these, 60 carry the
+physics-problems label and 54 are proof packets, publication tasks,
 continuation items, or repository-specific theorem tasks. The inventory below
-covers all 115 currently open issues.
+covers all 114 currently open issues.
 
 State-drift receipt: an earlier query on the same date returned 112. During this
 work, #293, #303, #368, #454, and #492 changed independently to closed. They are not
 included in the final open inventory; #505 and #506--#512 were created
-independently during final verification and are included. This report makes no claim that the
-Observation-Determined Normal Forms paper caused any state change.
+independently during final verification and are included. Issue #305 was then
+closed as completed by this release after its finite theorem, independent
+R1--R3 receipt, and downstream propagation were verified. The other state
+changes listed here were independent of this paper.
 
 ## Executive verdict
 
-The Observation-Determined Normal Forms manuscript, by itself, justifies
-closing none of the 115 issues in the final live snapshot.
+The Observation-Determined Normal Forms release justifies and has completed one
+issue closure:
 
-Five issues receive a direct but incomplete mathematical advance:
+- [#305](https://github.com/FloatingPragma/observer-patch-holography/issues/305):
+  finite observation-fiber resampling is proved to be the weighted conditional
+  expectation, with idempotence, weighted self-adjointness, contraction, and
+  fixed-space characterization; an independently extracted transition matrix
+  is recognized by the Lean-backed R1--R3 receipt, and the result has been
+  propagated through the compact paper and downstream claim surfaces.
+
+Four open issues receive a direct but incomplete mathematical advance:
 
 - [#304](https://github.com/FloatingPragma/observer-patch-holography/issues/304):
   the paper separates same-input confluence from same-boundary reconstruction
   and proves the exact generic equivalence between boundary identification
   modulo a silent relation and cross-source endpoint uniqueness modulo that
   relation;
-- [#305](https://github.com/FloatingPragma/observer-patch-holography/issues/305):
-  finite observation-fiber resampling is proved to be the weighted conditional
-  expectation, with its projection, fixed-space, and contraction properties and
-  a noncircular matrix-recognition receipt;
 - [#312](https://github.com/FloatingPragma/observer-patch-holography/issues/312):
   the equivariant-section theorem supplies a rigorous generic selection
   firewall, but no compact-gauge or Standard Model selection theorem;
@@ -92,7 +97,7 @@ because its notation resembles an OPH issue.
 | C | Context only | The paper supplies useful vocabulary, a warning, or a supporting lemma, but no issue acceptance criterion is completed. |
 | U | Unaffected | The issue needs domain-specific mathematics, physics, computation, evidence, or publication work absent from the paper. |
 
-Counts in the 115-row live inventory: M = 5, A = 0, C = 6, U = 104.
+Counts in the 114-row live open inventory: M = 4, A = 0, C = 6, U = 104.
 
 ## Detailed candidate analysis
 
@@ -149,7 +154,7 @@ discharge the Standard Model selection hypotheses, prove anomaly or
 matter-package results, or update simulator gate language. It is a supporting
 selection firewall, not closure of #312.
 
-### #305 Finite Quotient Repair Projection — modify, do not close
+### #305 Finite Quotient Repair Projection — closed as completed
 
 The paper now proves the finite abstract projection core requested by #305. On
 a finite full-support weighted space, it defines resampling from the conditional
@@ -166,11 +171,17 @@ matrix to equal the conditional-resampling kernel. The receipt explicitly
 forbids constructing the tested matrix from the target conditional-expectation
 formula. The exact R1--R3 equivalence is now Lean-backed as well.
 
-This resolves the substrate-neutral mathematical core, but not the live issue
-as a repository application task. The actual repair matrix must still be
-extracted from the named local transitions, checked against R1--R3, and carried
-through the compact/main paper and downstream claim surfaces. Keep #305 open
-until that application receipt and propagation exist.
+The application receipt is now documented in `code/consensus/README.md`: the
+tested matrix is extracted independently from local transition rows, then R1
+(fiber support), R2 (equal rows within a fiber), and R3 (stationary detailed
+balance) are checked. The compact paper was updated first; the result and claim
+boundary were then propagated through the core papers, book, READMEs, diagrams,
+learning surfaces, and simulator documentation. These steps satisfy #305, which
+was closed as completed on 2026-07-11.
+
+That closure does not establish a uniform positive repair-rate floor, a finite
+Poincare inequality, a continuum/GNS gap transfer, or a Yang--Mills mass gap.
+Those stronger obligations remain open in #295 and #306.
 
 ### #326 Finite Markov-Kernel Fair-Block Certificate — modify, do not close
 
@@ -250,10 +261,8 @@ The compact neutral additions authorized for this pass are now in the paper.
 The remaining work either needs an application bridge outside this paper or a
 materially stronger neutral theorem.
 
-1. For #305, extract the application repair matrix from actual local
-   transitions, check the paper's R1--R3 receipt, and propagate the resulting
-   status through the core surfaces. This is no longer missing generic
-   mathematics in this paper.
+1. For #304, define the concrete physical boundary map and prove its
+   injectivity modulo gauge on the intended consistent-state domain.
 2. If #326 is to be advanced further, add a separate pathwise
    theorem under explicit bounded-jump or bounded-excursion assumptions. Keep
    expected distance, one-time endpoint tails, interval maxima, and stationary
@@ -279,7 +288,7 @@ The issue crosswalk in this report remains the correct place to record
 downstream relevance. Regeneration from the original bundle must not reintroduce
 the removed application section or citations into the neutral paper.
 
-## Complete 115-row live issue inventory
+## Complete 114-row live open-issue inventory
 
 | Issue | Title | Class | Short relevance assessment |
 |---|---|---:|---|
@@ -289,7 +298,6 @@ the removed application section or citations into the neutral paper.
 | [#297](https://github.com/FloatingPragma/observer-patch-holography/issues/297) | Publication: branch-scope Yang-Mills claim audit | U | No public Yang-Mills surfaces are audited or updated by this mathematics paper. |
 | [#298](https://github.com/FloatingPragma/observer-patch-holography/issues/298) | Three-body: tighten holonomy demo claim boundary | C | Generic normal-form/refinement language may support cautious wording; no three-body theorem or site edit is supplied. |
 | [#304](https://github.com/FloatingPragma/observer-patch-holography/issues/304) | Proof packet: Boundary-Fiber Identifiability | M | The exact generic equivalence and its `acceptedStepLR` bridge are Lean-backed; injectivity of the declared physical boundary on the actual consistent quotient remains open. |
-| [#305](https://github.com/FloatingPragma/observer-patch-holography/issues/305) | Proof packet: Finite Quotient Repair Projection | M | The finite weighted conditional-expectation theorem and noncircular matrix receipt are supplied; extraction and verification of the application transition matrix and downstream propagation remain. |
 | [#306](https://github.com/FloatingPragma/observer-patch-holography/issues/306) | Proof packet: Uniform Collar Projection Gap | C | A finite conditional projector and normalizer-defect telescoping do not prove a finite Poincare bound or continuum spectral-gap transfer. |
 | [#307](https://github.com/FloatingPragma/observer-patch-holography/issues/307) | Proof packet: Collar CMI Decay from Finite-Range Gibbs Mixing | U | No Gibbs mixing, conditional mutual information, recovery, or double-scaling estimate appears. |
 | [#311](https://github.com/FloatingPragma/observer-patch-holography/issues/311) | Proof packet: Particle-Like Defect Criterion | U | No localization, persistence, charge, fusion, scattering, or particle-promotion theorem is present. |
@@ -397,19 +405,19 @@ the removed application section or citations into the neutral paper.
 | [#509](https://github.com/FloatingPragma/observer-patch-holography/issues/509) | [Scientific audit] Run a blinded generative IBM benchmark that discriminates OPH from state preparation | U | No hardware benchmark, blinded generative protocol, or state-preparation discriminator is supplied. |
 | [#510](https://github.com/FloatingPragma/observer-patch-holography/issues/510) | [Scientific audit] Derive or rule out the finite information-defect to covariant stress map | U | Generic finite normal forms do not derive a covariant stress map or a no-go theorem for one. |
 | [#511](https://github.com/FloatingPragma/observer-patch-holography/issues/511) | [Scientific audit] Preregister a source-calibrated blinded chi_nu force test | U | Physical force hypotheses, source calibration, preregistration, and blinded testing are outside the paper's scope. |
-| [#512](https://github.com/FloatingPragma/observer-patch-holography/issues/512) | [Scientific audit] Make claim status and open-problem ledgers fail closed against live gates | U | This read-only crosswalk is not repository automation that fail-closes claim ledgers against live gates. |
+| [#512](https://github.com/FloatingPragma/observer-patch-holography/issues/512) | [Scientific audit] Make claim status and open-problem ledgers fail closed against live gates | U | This issue crosswalk is not repository automation that fail-closes claim ledgers against live gates. |
 
 ## Recommended tracking actions
 
-1. Do not infer issue closure solely because this paper is added.
-2. On #304, cite the exact generic equivalence when release-ready, but retain
-   the concrete physical boundary-injectivity gate.
-3. On #305, record that the mathematical projection core and matrix-recognition
-   receipt are complete, but retain the extracted-transition and downstream
-   propagation gates.
-4. On #312, #326, and #328, record the exact paper theorem and the remaining
+1. #305 is closed as completed; keep its closure explicitly limited to the
+   finite repair-projection theorem and R1--R3 receipt.
+2. #304 now records the completed generic equivalence while retaining the
+   concrete physical boundary-injectivity gate.
+3. On #312, #326, and #328, retain the exact paper theorem and the remaining
    acceptance criteria; do not mark them complete on this paper alone.
+4. #295 and #306 may consume #305 as a finite algebraic prerequisite, but still
+   require the rate-floor, Poincare, and continuum-transfer theorems.
 5. Keep all physical chi_nu, source, device, susceptibility, lift, and experiment
    issues unchanged.
-6. Regenerate the open-state portion of this audit before any issue-status action
-   because GitHub is the live source of truth.
+6. Regenerate this inventory before future issue-status actions because GitHub
+   remains the live source of truth.

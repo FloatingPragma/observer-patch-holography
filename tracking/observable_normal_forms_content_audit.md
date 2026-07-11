@@ -32,10 +32,9 @@ The physical \(\chi_\nu\) hypothesis is explicitly out of scope. This report doe
 | Independent comparison build | `chi_nu_test/proof_chain/formal: lake build` succeeded through target 8287; linter warnings only |
 | Mathematical \(\chi_\nu\) note | `extra/chi_nu_susceptibility_bounds.tex` |
 
-The paper, dedicated artifact, and merged Lean hierarchy are tracked on the
-current `main` line; the final bridge/hash verification may remain as
-working-tree changes until the next normal commit boundary. This report records
-mathematical and submission state; it does not authorize or perform a release.
+The paper, dedicated artifact, merged Lean hierarchy, and consistency updates
+are tracked on the current `main` line. This audit records the released `r1526`
+state and its final bridge/hash verification.
 
 ## Executive verdict
 
@@ -69,9 +68,9 @@ remaining submission decisions are editorial rather than hidden proof claims:
    uniformity, linear certificates, and complexity results;
 3. the candidate-new cross-level/refinement package still needs external
    specialist priority review.
-4. the PDF is a local draft, not a published shared-release artifact; before
-   publication, use the normal global release bump and rebuild workflow so it
-   receives the same visible release line as every other paper.
+4. venue-specific submission metadata and external specialist review remain
+   editorial gates; the repository and public paper surfaces are synchronized
+   at release `r1526`.
 
 ## Completed manuscript corrections
 
@@ -506,8 +505,9 @@ control characters. A fresh isolated Tectonic build succeeded with no undefined
 citations, undefined references, TeX errors, or overfull boxes. The resulting
 PDF is 28 pages, carries the current title and all three authors in its metadata,
 and embeds all fonts. The repository build helper reproduced the same current
-paper surface. It remains explicitly a draft; no release ID was bumped and no
-release manifest or public surface was changed.
+paper surface. Release `r1526` rebuilt the full paper bundle, regenerated the
+release manifest and Markdown exports, and synchronized the public paper
+surface.
 
 ## Final recommendation
 
