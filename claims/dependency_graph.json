@@ -10,6 +10,10 @@
     "OPH-GR-D3H-GEOMETRY-PRODUCER",
     "OPH-GR-D4-NULLNET-STANDARDNESS",
     "OPH-GR-D4B-EVENT-MANIFOLD",
+    "OPH-GR-D4C-LOCAL-STRESS",
+    "OPH-GR-D4D-ENTROPY-BRIDGE",
+    "OPH-GR-D5A-ABSOLUTE-EINSTEIN",
+    "OPH-GR-E2E-BRANCH-ENTRY",
     "OPH-GR-D5",
     "OPH-GR-D6-CAPACITY",
     "OPH-GAUGE-D7-D9",
@@ -56,6 +60,14 @@
     {"from": "OPH-GR-D3-H3-LOCALIZATION", "to": "OPH-GR-D4B-EVENT-MANIFOLD", "role": "supplies certified localization balls as the germ inputs of event classes"},
     {"from": "OPH-GR-D4-NULLNET-STANDARDNESS", "to": "OPH-GR-D4B-EVENT-MANIFOLD", "role": "supplies derived modular clocks and the four-translation assembly used for cones and signature"},
     {"from": "OPH-GR-D4B-EVENT-MANIFOLD", "to": "OPH-GR-D5", "role": "supplies, conditionally on receipts E1-E4, the locally Lorentzian d=4 regime consumed by the Einstein package"},
+    {"from": "OPH-GR-D4-NULLNET-STANDARDNESS", "to": "OPH-GR-D4C-LOCAL-STRESS", "role": "supplies positive directional generators, bounded-interval kernels, and the MI linearity clause consumed by null tomography"},
+    {"from": "OPH-GR-D4B-EVENT-MANIFOLD", "to": "OPH-GR-D4C-LOCAL-STRESS", "role": "supplies the event atlas, charts, and E4 transitions on which locality/covariance/conservation are stated"},
+    {"from": "OPH-GR-D4C-LOCAL-STRESS", "to": "OPH-GR-D4D-ENTROPY-BRIDGE", "role": "identifies the MaxEnt constraint charge with the constructed modular stress channel"},
+    {"from": "OPH-GR-D4D-ENTROPY-BRIDGE", "to": "OPH-GR-D5A-ABSOLUTE-EINSTEIN", "role": "supplies the exact split first law and the coupled Clausius balance consumed by the small-diamond limit"},
+    {"from": "OPH-GR-D4C-LOCAL-STRESS", "to": "OPH-GR-D5A-ABSOLUTE-EINSTEIN", "role": "supplies the conserved source tensor and Ward identity for the Bianchi/constancy step"},
+    {"from": "OPH-GR-D5A-ABSOLUTE-EINSTEIN", "to": "OPH-GR-D5", "role": "upgrades the Jacobson-type first-variation package to the absolute per-component equation under VR/UC"},
+    {"from": "OPH-GR-D3H-GEOMETRY-PRODUCER", "to": "OPH-GR-E2E-BRANCH-ENTRY", "role": "first arrow of the composed chain; its receipts carry the realized-branch nonemptiness clause"},
+    {"from": "OPH-GR-D5A-ABSOLUTE-EINSTEIN", "to": "OPH-GR-E2E-BRANCH-ENTRY", "role": "final arrow of the composed chain"},
     {"from": "OPH-SYN-FORMAL-BASIS", "to": "OPH-PARADISE", "role": "supplies observer record and continuation vocabulary"}
   ]
 }

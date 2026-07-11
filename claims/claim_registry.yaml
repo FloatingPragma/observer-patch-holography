@@ -280,6 +280,105 @@
       "status": "conditional_theorem"
     },
     {
+      "claim_id": "OPH-GR-D4C-LOCAL-STRESS",
+      "statement": "On the event region with the MI/assembly branch, the smeared endpoint-derivative modular charges satisfy the null-tomography linearity relations and define a symmetric, local, Poincare-covariant, commonly normalized semiclassical stress tensor whose null projections equal the positive Borchers generators on a common core and which is weakly conserved on the C11 atlas; the ambiguity is exactly phi*g plus improvement terms; per-direction generators without the linearity relations admit no rank-two source, and scalar CMI is never promoted.",
+      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "tier": "conditional_construction_theorem",
+      "assumptions": [
+        "modular_intersection_receipt",
+        "event_manifold_receipts_E1_E4",
+        "kernel_residual_scaling_receipt",
+        "universal_coupling_receipt"
+      ],
+      "imported_results": [
+        "null_polarization_tomography_of_symmetric_tensors",
+        "least_squares_stability"
+      ],
+      "oph_specific_delta": "T_ab is constructed from finite OPH modular data by tomography of directional charges rather than named after an assumed EFT stress tensor; the linearity receipt is exactly the existence boundary for a rank-two source.",
+      "novelty_type": "stress_construction_from_modular_charges",
+      "evidence": [
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "code/geometry/einstein_closure_receipts.py",
+        "code/geometry/test_einstein_closure_receipts.py"
+      ],
+      "falsifier": "A consistent charge family fails reconstruction, the Ward identity fails on a receipt region, or a corpus surface identifies the abstract generator with a local density without the tomography step.",
+      "scope_if_false": "The stress arrow reopens; the null bridge and event manifold survive on their own receipts.",
+      "status": "proved_on_receipt_branch"
+    },
+    {
+      "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE",
+      "statement": "Exact finite first law delta S = 2pi delta<B> + delta<Z>; edge identification delta<Z> = delta S_edge on z_alpha = log d_alpha; corrected split delta S = 2pi delta<B> + delta S_edge with no dropped term; the naive step delta S_bulk = 2pi delta<B> holds exactly on the fixed-edge-sector class and otherwise carries the central flux sum z_alpha dp_alpha; the changing stress channel is supplied by the exact MaxEnt multiplier identity dS/dt = lambda = 2pi, giving the Clausius balance delta S_edge = lambda dt - 2pi delta<B> on the coupled class; the Axiom-4 leading term and edge normalization remain named branch axioms.",
+      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "tier": "exact_finite_theorem_plus_conditional_bridge",
+      "assumptions": [
+        "maxent_refinement_closure_clause",
+        "central_interface_clause",
+        "edge_normalization_log_d"
+      ],
+      "imported_results": [
+        "finite_first_law_delta_S_equals_K_pairing",
+        "maxent_envelope_identity"
+      ],
+      "oph_specific_delta": "The dropped-edge-term and fixed-surface/changing-channel defects flagged in the audit are repaired with exact machine-verified identities and explicit countermodels for wrong coefficients and wrong edge normalizations.",
+      "novelty_type": "first_law_repair_with_countermodels",
+      "evidence": [
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "code/geometry/einstein_closure_receipts.py"
+      ],
+      "falsifier": "A blockwise state violates the exact split, the multiplier identity fails along a MaxEnt family, or a corpus surface uses the naive step off the fixed-weight class without the central flux term.",
+      "scope_if_false": "The entropy bridge reopens; Axiom-4 status is unchanged.",
+      "status": "proved_finite_plus_receipt_branch"
+    },
+    {
+      "claim_id": "OPH-GR-D5A-ABSOLUTE-EINSTEIN",
+      "statement": "One uniform scaling family (region-uniform collar decay constants plus o(ell^4) kernel residuals on a single declared family) replaces the per-radius diagonal choice; variation coverage of all local timelike directions follows from population plus the produced Lorentz orbit; and the vacuum-reference receipt VR fixes the first-variation integration constant, yielding the absolute semiclassical expectation-value equation G_ab + Lambda g_ab = 8 pi G <T_ab> per connected component with structural G and no measured constant; without VR the conclusion is constancy of the residue tensor only, with de Sitter and flat baselines producing identical first-variation data.",
+      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "tier": "conditional_scaling_theorem",
+      "assumptions": [
+        "uniform_collar_decay_constants",
+        "kernel_residual_scaling_receipt",
+        "event_manifold_receipts_E1_E4",
+        "universal_coupling_receipt",
+        "vacuum_reference_receipt"
+      ],
+      "imported_results": [
+        "fixed_volume_small_ball_area_identity",
+        "contracted_Bianchi_identity"
+      ],
+      "oph_specific_delta": "The diagonal-subsequence and unfixed-baseline defects flagged in the audit are replaced by a single declared scaling family and an explicit irreducible base-condition receipt with failure examples for uniformity, coverage, connectedness, and baseline.",
+      "novelty_type": "uniformity_and_base_condition_package",
+      "evidence": [
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "code/geometry/einstein_closure_receipts.py"
+      ],
+      "falsifier": "A receipt family fails the ell^5 remainder bound, coverage fails on a populated region, or an absolute equation is asserted without VR.",
+      "scope_if_false": "The absolute form degrades to per-component constancy; the first-variation identity survives.",
+      "status": "proved_on_receipt_branch"
+    },
+    {
+      "claim_id": "OPH-GR-E2E-BRANCH-ENTRY",
+      "statement": "The full chain from repaired finite quotient normal forms to the semiclassical Einstein equation is composed into one typed theorem with partitioned inputs (foundational axioms; decidable finite receipts; scaling receipts; physical-identification receipts), composable error envelopes, and a no-hidden-geometry proposition showing the receipt list is minimal (deleting any family readmits its countermodel). Nonemptiness of the realized branch is machine-checkable; the current evaluation is negative: the verified rooted-tree packet-net domain fails spherical incidence and the only passing mesh is declared geometry, so the realized geometric branch is not yet certified nonempty and issue #503 remains open on exactly this clause.",
+      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "tier": "composed_conditional_theorem_with_open_nonemptiness",
+      "assumptions": [
+        "all_receipt_families_of_D3h_D4_D4b_D4c_D4d_D5a",
+        "realized_branch_nonemptiness"
+      ],
+      "imported_results": [
+        "composition_of_the_packet_theorems"
+      ],
+      "oph_specific_delta": "The Einstein branch-entry umbrella is reduced to a single machine-checkable nonemptiness clause with a standing negative evaluation on current realized artifacts, honestly separating derivation completeness from realization.",
+      "novelty_type": "composed_branch_entry_theorem",
+      "evidence": [
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "code/geometry/realized_branch_receipts.py",
+        "code/geometry/runs/realized_branch_receipt_report.json"
+      ],
+      "falsifier": "An arrow of the composition fails on its stated inputs, a hidden geometric input is found in the input form, or the nonemptiness evaluation is misreported.",
+      "scope_if_false": "The composed theorem reopens at the failing arrow; individual packets keep their own statuses.",
+      "status": "conditional_composed_theorem_nonemptiness_open"
+    },
+    {
       "claim_id": "OPH-GR-D6-CAPACITY",
       "statement": "The local Einstein branch closes globally at the cosmic record-capacity fixed point, giving the dimensionless cosmological relation on the observed de Sitter branch.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",

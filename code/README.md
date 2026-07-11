@@ -13,7 +13,14 @@ Primary derivation surfaces:
   topology countermodels, the null-net standardness and Markov modular-locality
   witnesses (including the Gibbs nonlocality counterexample), and the synthetic
   end-to-end event-manifold reconstruction with its dimension/Hausdorff
-  countermodels. Run with `python3 -m pytest code/geometry/`.
+  countermodels, plus the Einstein-closure receipts (#526-#528, #503): null
+  tomography of the stress tensor, the exact first-law split with edge term,
+  the MaxEnt multiplier identity, baseline countermodels, and the
+  realized-branch receipt evaluation
+  (`python3 code/geometry/realized_branch_receipts.py` writes
+  `code/geometry/runs/realized_branch_receipt_report.json`; current verdict:
+  realized geometric branch not certified nonempty). Run with
+  `python3 -m pytest code/geometry/`.
 
 Supplemental and benchmark surfaces:
 

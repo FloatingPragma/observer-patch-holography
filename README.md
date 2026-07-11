@@ -383,7 +383,19 @@ with H^3 strictly the fiber of rest frames over events, valid exactly on its
 named population, separation, frame, and overlap receipts. Record tokens
 require calibrated cap responses and a complete error budget for localization;
 without them the result is ambiguous, and without the event receipts the
-corpus claim is Lorentz-frame kinematics only.
+corpus claim is Lorentz-frame kinematics only. The closure packets complete
+the derivation chain: a local conserved stress tensor is constructed from the
+modular charges by null tomography, the generalized-entropy first law is
+repaired to the exact split (total entropy variation = Clausius flux + edge/area
+response, with the earlier bulk-only step valid only at fixed edge sectors),
+one uniform scaling family replaces per-radius choices, and a vacuum-reference
+receipt yields the absolute semiclassical Einstein equation with the
+structural coupling. The whole chain is composed into one branch-entry
+theorem whose single remaining gate is machine-checkable and currently
+negative: no exported realized consensus artifact yet carries the spherical
+incidence receipt (the verified tree packet-net domain fails it, as a tree
+must), so the realized geometric branch is not yet certified nonempty ---
+derivation complete on the receipt branch, realized receipt production open.
 
 Screen-spectrum and CMB continuations are provisional without the screen
 branch's geometric scale, source dynamics, clock, refinement behavior, and

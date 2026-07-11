@@ -490,7 +490,14 @@ four-dimensional Lorentzian manifold with signature $(-+++)$, a repair-oriented
 arrow of time, and $H^3$ strictly as the fiber of possible rest frames over
 each event --- never as space itself. Countermodels show that without those
 receipts the event set can be one-dimensional, five-dimensional, or not even
-Hausdorff, while all the Lorentz kinematics stays intact.
+Hausdorff, while all the Lorentz kinematics stays intact. The closure packets
+then finish the chain: the stress tensor is built from the modular charges
+themselves (nine null directions determine it, up to the trace term a vacuum
+reference fixes), the entropy first law is corrected to carry the edge term
+exactly, and the whole route composes into one branch-entry theorem. Its one
+remaining gate is empirical and machine-checkable: no realized consensus run
+has yet produced a spherical record layer, so the realized branch is not yet
+certified nonempty.
 
 ## 15.9 Recovering General Relativity
 

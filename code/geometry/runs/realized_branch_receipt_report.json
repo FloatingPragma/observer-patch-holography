@@ -1,0 +1,35 @@
+{
+  "artifact": "einstein_branch_realized_receipt_evaluation",
+  "issue": 503,
+  "paper_anchor": "rem:realized-branch-status",
+  "evaluations": {
+    "verified_tree_packet_net_domain": {
+      "source": "code/consensus/runs/verified_tree_packet_net_domain.json",
+      "provenance": "consensus_product (issue #238 verified export)",
+      "n_vertices": 4,
+      "n_edges": 3,
+      "n_triangles": 0,
+      "euler_characteristic": 1,
+      "connected": true,
+      "closed_surface": false,
+      "orientable_coherent": false,
+      "spherical_incidence_receipt": false,
+      "surface_classification": "NOT_A_CLOSED_SURFACE"
+    },
+    "designed_cellulated_sphere_icosahedron": {
+      "source": "code/geometry/quotient_cap_readout.py:icosahedron()",
+      "provenance": "declared_geometry (NOT a consensus product)",
+      "n_vertices": 12,
+      "n_edges": 30,
+      "n_triangles": 20,
+      "euler_characteristic": 2,
+      "connected": true,
+      "closed_surface": true,
+      "orientable_coherent": true,
+      "spherical_incidence_receipt": true,
+      "surface_classification": "S2"
+    }
+  },
+  "realized_geometric_branch_certified_nonempty": false,
+  "status": "OPEN: no realized consensus artifact carries the spherical incidence receipt; the composed branch-entry theorem is conditional and #503 remains open on its nonemptiness clause."
+}

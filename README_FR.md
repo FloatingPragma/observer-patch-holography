@@ -430,7 +430,20 @@ exactement sur ses reçus nommés de population, de séparation, de repère et d
 recouvrement. La localisation des jetons d'enregistrement exige des
 réponses de caps calibrées et un budget d'erreur complet ; sans ces éléments,
 le résultat est ambigu, et sans les reçus d'événements la revendication du
-corpus reste une cinématique de repères de Lorentz seulement.
+corpus reste une cinématique de repères de Lorentz seulement. Les paquets de
+clôture achèvent la chaîne de dérivation : un tenseur d'énergie-impulsion
+local et conservé est construit à partir des charges modulaires par
+tomographie nulle, la première loi d'entropie généralisée est réparée en la
+scission exacte (variation d'entropie totale = flux de Clausius + réponse de
+bord/aire), une seule famille d'échelle uniforme remplace les choix par
+rayon, et un reçu de référence de vide donne l'équation d'Einstein
+semi-classique absolue avec le couplage structurel. La chaîne complète est
+composée en un théorème d'entrée de branche dont la seule porte restante est
+vérifiable par machine et actuellement négative : aucun artefact de consensus
+réalisé exporté ne porte encore le reçu d'incidence sphérique, donc la
+branche géométrique réalisée n'est pas encore certifiée non vide ---
+dérivation complète sur la branche des reçus, production réalisée des reçus
+ouverte.
 
 Les continuations de spectre d'écran et de CMB sont provisoires sans l'échelle
 géométrique de la branche écran, sa dynamique source, son horloge, son
