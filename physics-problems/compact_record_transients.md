@@ -89,7 +89,7 @@ implemented or validated.
 
 The compact-record surface uses
 
-$$
+```math
 Q_r^{\rm CR},\quad
 B_r,\quad
 \Phi_R,\quad
@@ -99,11 +99,11 @@ E_c,\quad
 \mathcal P_{\rm prop},\quad
 \mathcal R_{\rm det},\quad
 \Lambda_c.
-$$
+```
 
 The complete compact-transient lane also requires
 
-$$
+```math
 \mathsf{Hist}_r,\quad
 \mathsf{ObsWin},\quad
 \mathsf{Thin}_c,\quad
@@ -112,7 +112,7 @@ $$
 \mathsf{Ref}_{sr},\quad
 \mathsf{Err}_r,\quad
 \mathsf{Promote}_r.
-$$
+```
 
 `Hist_r` stores compact-object histories across multiple events. `ObsWin`
 records survey time, cadence, dead time, sky coverage, and non-detection
@@ -125,13 +125,13 @@ family. `Ref_sr` compares regulators. `Err_r` is the simulator error ledger.
 
 For regulator $r$, define the compact-transient history space
 
-$$
+```math
 \mathsf{Hist}_r^{\rm CR}
 =
 \left\{
 H=(q_0,\gamma_1,\Pi_1,\tau_1,\ldots,\gamma_N,\Pi_N,\tau_N,q_N)
 \right\}.
-$$
+```
 
 Here $q_k\in Q_r^{\rm CR}$ is a compact record-surface quotient state,
 $\gamma_k:q_{k-1}\to q_k$ is an accepted compact repair path, $\Pi_k$ is the
@@ -141,11 +141,11 @@ clock map. A history is source-valid when $q_0$ is drawn from
 $\mu_r^{\rm CR}$, each
 transition is drawn from $K_{\Gamma,r}$, and each emitted packet ledger obeys
 
-$$
+```math
 C(B(q_{k-1}))-C(B(q_k))
 =
 C_{\rm pkt}(\Pi_k)+C_{\rm env,k}+\rho_k.
-$$
+```
 
 Here $C$ is a declared vector of conserved quantities, such as four-momentum,
 angular momentum, and charge, with a sign convention, common units, and a
@@ -166,11 +166,11 @@ they are histories, not independent catalog rows.
 
 An observing window is
 
-$$
+```math
 \mathsf{ObsWin}_c
 =
 (T_{\rm start},T_{\rm stop},\Omega_{\rm sky},\mathcal E_c,\mathcal D_c,\mathcal S_c).
-$$
+```
 
 For FRBs this includes beam pattern, time-on-source, fluence threshold,
 bandwidth, dispersion-measure search range, and downtime. For gravitational
@@ -179,36 +179,36 @@ threshold, and parameter-estimation prior.
 
 The detector thinning kernel is
 
-$$
+```math
 \mathsf{Thin}_c(d\mathcal O\mid y_c,\mathsf{ObsWin}_c)
 =
 p_{\rm det}(y_c;\mathsf{ObsWin}_c)
 \mathcal R_{{\rm det},c}(d\mathcal O\mid y_c).
-$$
+```
 
 The complement
 
-$$
+```math
 p_{\rm miss}(y_c;\mathsf{ObsWin}_c)=1-p_{\rm det}(y_c;\mathsf{ObsWin}_c)
-$$
+```
 
 describes a latent missed event. It is not automatically an observed censored
 row. A censoring or upper-limit kernel is appropriate only when a trial,
 follow-up observation, or externally triggered event is itself known:
 
-$$
+```math
 \mathsf{Cens}_c(dU\mid y_c,w)
 =p_{\rm cens}(y_c;w)\mathcal U_c(dU\mid y_c,w).
-$$
+```
 
 For a blind survey, a window with no detected events is scored by the
 point-process compensator or zero-count probability, not by fabricating one row
 for every latent missed event. The observed record space, when both kinds of
 records genuinely exist, is
 
-$$
+```math
 \mathcal Z_c=\mathcal O_c\sqcup\mathcal U_c.
-$$
+```
 
 Detected events, known upper limits, and zero-detection exposure must be scored
 together without double counting.
@@ -221,7 +221,7 @@ must define a normalized source law $\mu_r^{\rm CR}(dq_0,d\zeta)$ and measurable
 kernels for history, emission, propagation, and observation. Its trial-level
 pushforward is
 
-$$
+```math
 \mathbb P_{c,r}^{\rm CT}
 =
 \mu_r^{\rm CR}
@@ -233,11 +233,11 @@ E_{c,r}
 \mathcal P_{\rm prop,c}
 \to
 \mathsf{Obs}_c.
-$$
+```
 
 Expanded, with every latent variable bound:
 
-$$
+```math
 \begin{aligned}
 \mathbb P_{c,r}^{\rm CT}(dZ)
 &=
@@ -251,7 +251,7 @@ E_{c,r}(dy\mid H,\zeta) \\
 \int \mathcal P_{\rm prop,c}(dy'\mid y,\zeta)
 \mathsf{Obs}_c(dZ\mid y',\mathsf{ObsWin}_c).
 \end{aligned}
-$$
+```
 
 $\mathsf{Obs}_c$ may include detection and genuine censoring outcomes for a known
 trial. A blind catalog additionally requires a source-event intensity and
@@ -266,14 +266,14 @@ are attached; no such attachment is claimed in this note.
 An astrophysical compact object is modeled as an OPH compact record surface
 only when its finite presentation instantiates observer-like material:
 
-$$
+```math
 \mathsf O_i=
 \left(
 \mathcal A_i,\rho_i,\mathcal R_i,
 \{(\mathcal I_e,\pi_{i,e})\}_{e\ni i},
 \mathcal U_i,\mathrm{Chk}_i
 \right)
-$$
+```
 
 with compact support and boundary data.
 
@@ -307,7 +307,7 @@ $N_r^{\rm CR}\subseteq Q_r^{\rm CR}$. It does not determine FRB rates, burst tim
 black-hole generation rates, host distributions, or waveform residual
 amplitudes.
 
-**Proof.** The pushforward $\mathcal C_Q(\mu)=n_{r\#}\mu$ is idempotent, and
+**Proof.** The pushforward $`\mathcal C_Q(\mu)=n_{r\#}\mu`$ is idempotent, and
 every law supported on $N_r^{\rm CR}$ is fixed. Therefore many source laws are
 compatible with the same normal-form map. $\square$
 
@@ -330,13 +330,13 @@ A compact repair path is promoted as physical only if each accepted local step
 obeys a declared vector conservation law and the path emits a packet ledger
 $\Pi(\gamma)$ satisfying
 
-$$
+```math
 C(B(q_0))-C(B(q_N))
 =
 C_{\rm pkt}(\Pi(\gamma))+C_{\rm env}(\gamma)+\rho_{\rm cons}(\gamma),
 \qquad
 \|\rho_{\rm cons}\|\le\varepsilon_{\rm cons}.
-$$
+```
 
 **Proof.** Local conservation holds at each accepted step. Summing over steps
 telescopes the intermediate boundary terms. $\square$
@@ -370,13 +370,13 @@ physical step duration supplied by
 $\Delta\tau_{\rm phys}=\mathcal T_{\rm clock}(q,\ell;b,\theta,h)$.
 When $0<r_\star<1$, its slowest spectral relaxation rate is
 
-$$
+```math
 \Gamma_{\rm phys}
 =
 -\frac{\log r_\star}{\Delta\tau_{\rm phys}},
 \qquad
 r_\star=\max_{\lambda_j\ne1}|\lambda_j(K_{\Gamma,r}^Q)|.
-$$
+```
 
 **Proof.** Under the assumptions above, $r_\star$ controls asymptotic
 $L^2$ contraction per step, and physical relaxation rates are logarithmic
@@ -391,13 +391,13 @@ channel-specific physical derivation or calibration.
 **Statement.** The observer-facing compact-transient law is the composed
 Markov law
 
-$$
+```math
 \mathsf{Obs}_c
 \circ\mathcal P_{\rm prop,c}
 \circ E_{c,r}
 \circ K_{\Gamma,r}^{\rm hist}
 \circ\mu_r^{\rm CR}.
-$$
+```
 
 **Proof.** Composition of normalized measurable Markov kernels gives a
 probability law on the declared observation records. Quotient invariance
@@ -424,13 +424,13 @@ external trigger.
 an inhomogeneous marked Poisson process with intensity density $\lambda_c$
 relative to base measure $\nu_c$. Then
 
-$$
+```math
 \log\mathcal L(D\mid M)
 =
 \sum_{i=1}^N\log \lambda_c(\mathcal O_i)
 -
 \int_{\mathsf{ObsWin}_c}\lambda_c(\mathcal O)\,\nu_c(d\mathcal O).
-$$
+```
 
 **Proof.** This is the likelihood of an inhomogeneous marked Poisson process:
 observed events contribute the log intensity and the compensator scores the
@@ -443,7 +443,7 @@ sources with history-dependent intensity are not Poisson catalogs. $\square$
 If $\lambda_s(t,m\mid\mathcal H_t)$ is the source intensity and the complete
 latent history $\mathcal H_t$ is known, independent detector thinning gives
 
-$$
+```math
 \log\mathcal L_s
 =
 \sum_k\log\!\left[
@@ -451,7 +451,7 @@ p_{\rm det}(t_k,m_k)\lambda_s(t_k,m_k\mid\mathcal H_{t_k})
 \right]
 -
 \int_{T_{\rm obs}}\int\lambda_s(t,m\mid\mathcal H_t)p_{\rm det}(t,m)\,dm\,dt.
-$$
+```
 
 **Proof.** This is the conditional-intensity likelihood with detector thinning.
 The compensator subtracts expected detectable bursts across the exposure
@@ -462,14 +462,14 @@ parameter-independent constant. If missed bursts change a reservoir or future
 hazard, the latent history is not known. The observed conditional intensity
 must then be filtered,
 
-$$
+```math
 \lambda_{\rm obs}(t,m\mid\mathcal H_t^{\rm obs})
 =p_{\rm det}(t,m)\,
 \mathbb E\!\left[
 \lambda_s(t,m\mid\mathcal H_t^{\rm latent})
 \mid\mathcal H_t^{\rm obs}
 \right],
-$$
+```
 
 and $\lambda_{\rm obs}$ is used in both event and compensator terms.
 
@@ -521,11 +521,11 @@ A hierarchical black-hole population model may represent a merger as a
 record-surface recycling morphism that consumes two compact boundary ledgers
 and an orbital ledger, emits a GW packet, and updates a genealogy DAG:
 
-$$
+```math
 \mathcal G_3=\operatorname{Join}(\mathcal G_1,\mathcal G_2,y_{\rm GW}),
 \qquad
 g_3=1+\max(g_1,g_2).
-$$
+```
 
 This is genealogy bookkeeping. A physical implementation must use
 numerical-relativity remnant mass, spin, radiated energy, angular momentum, and
@@ -595,13 +595,13 @@ If an implementation approximates source, kernel, emission,
 propagation, detector, canonicalization, clock, and Monte Carlo steps with
 declared errors, then
 
-$$
+```math
 \|\mathbb P_{\rm approx}-\mathbb P_{\rm model}\|_{\rm TV}
 \le
 \varepsilon_\mu+\mathbb E[N]\varepsilon_K+\varepsilon_E+\varepsilon_P
 +\varepsilon_D+\varepsilon_{\rm canon}+\varepsilon_{\rm clock}
 +\varepsilon_{\rm MC}.
-$$
+```
 
 **Proof.** Couple each stage. The final observer-record law differs only if at
 least one coupling fails. This bound requires uniform per-kernel total-
@@ -733,13 +733,13 @@ M3 = young+old/GC with the frozen reservoir-reload timing law
 
 The promotion condition is
 
-$$
+```math
 S_{\rm heldout}(M_3)
 -
 \max_{j<3}S_{\rm heldout}(M_j)
 >
 \Delta_{\rm min}.
-$$
+```
 
 $S$ is a preregistered proper score with its per-event normalization,
 uncertainty, and calibrated $\Delta_{\min}$ stated before evaluation. Passing

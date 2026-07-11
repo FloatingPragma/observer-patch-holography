@@ -37,7 +37,7 @@
     "source_only_hadrons_suppressed_by_default": true,
     "source_spectral_stage_gate": "populated source spectral measure payload plus interval certificate"
   },
-  "generated_utc": "2026-06-29T07:33:23Z",
+  "generated_utc": "2026-07-11T04:19:04Z",
   "github_issue": 234,
   "pipeline_inputs": {
     "P": 1.630968209403959,
@@ -239,34 +239,34 @@
       "target_use": "target_values_or_target_derived_datum_used"
     },
     {
-      "blind_status": "withheld_compare_only",
-      "exact_kind": "scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate",
+      "blind_status": "withheld_not_blind_rejected_candidate",
+      "exact_kind": "rejected_target_informed_weighted_cycle_candidate",
       "particle_id": "electron_neutrino",
       "promotable": false,
-      "reason": "compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table",
+      "reason": "target_informed_candidate_rejected_by_correlated_profile",
       "scope": "weighted_cycle_bridge_rigid_absolute_family",
       "source_artifact": "code/particles/runs/neutrino/neutrino_absolute_attachment_theorem.json",
-      "target_use": "compare_only_reference_or_absolute_attachment_used"
+      "target_use": "target_ranked_selector_development_and_correlated_profile_rejection"
     },
     {
-      "blind_status": "withheld_compare_only",
-      "exact_kind": "scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate",
+      "blind_status": "withheld_not_blind_rejected_candidate",
+      "exact_kind": "rejected_target_informed_weighted_cycle_candidate",
       "particle_id": "muon_neutrino",
       "promotable": false,
-      "reason": "compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table",
+      "reason": "target_informed_candidate_rejected_by_correlated_profile",
       "scope": "weighted_cycle_bridge_rigid_absolute_family",
       "source_artifact": "code/particles/runs/neutrino/neutrino_absolute_attachment_theorem.json",
-      "target_use": "compare_only_reference_or_absolute_attachment_used"
+      "target_use": "target_ranked_selector_development_and_correlated_profile_rejection"
     },
     {
-      "blind_status": "withheld_compare_only",
-      "exact_kind": "scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate",
+      "blind_status": "withheld_not_blind_rejected_candidate",
+      "exact_kind": "rejected_target_informed_weighted_cycle_candidate",
       "particle_id": "tau_neutrino",
       "promotable": false,
-      "reason": "compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table",
+      "reason": "target_informed_candidate_rejected_by_correlated_profile",
       "scope": "weighted_cycle_bridge_rigid_absolute_family",
       "source_artifact": "code/particles/runs/neutrino/neutrino_absolute_attachment_theorem.json",
-      "target_use": "compare_only_reference_or_absolute_attachment_used"
+      "target_use": "target_ranked_selector_development_and_correlated_profile_rejection"
     }
   ]
 }

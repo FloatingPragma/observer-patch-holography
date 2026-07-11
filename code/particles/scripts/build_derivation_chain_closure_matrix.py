@@ -184,11 +184,12 @@ def build_payload() -> dict[str, Any]:
             "status": (
                 "closed_weighted_cycle_absolute_attachment_with_comparison_tension_visible"
                 if predictions.get("electron_neutrino", {}).get("promotable")
-                else "scale_free_weighted_cycle_with_compare_only_absolute_attachment_candidate"
+                else "rejected_target_informed_weighted_cycle_candidate"
             ),
             "claim_level": (
                 predictions.get("electron_neutrino", {}).get("exact_kind")
-                or "scale_free_weighted_cycle_with_compare_only_absolute_attachment_withheld"
+                or withheld_by_id.get("electron_neutrino", {}).get("exact_kind")
+                or "rejected_target_informed_weighted_cycle_candidate"
             ),
             "outputs": {
                 particle: predictions[particle]["value"]
@@ -204,7 +205,12 @@ def build_payload() -> dict[str, Any]:
             "promotable": bool(predictions.get("electron_neutrino", {}).get("promotable", False)),
             "open_gates": []
             if predictions.get("electron_neutrino", {}).get("promotable")
-            else ["source_emitted_neutrino_C_nu_no_compare_target"],
+            else [
+                "source_emitted_family_transport_kernel",
+                "source_derived_weight_exponent_and_cycle_matrix_law",
+                "source_derived_basis_permutation_and_holonomy_orientation",
+                "pre_reference_hash_lock",
+            ],
             "next_artifact": None,
         },
         {

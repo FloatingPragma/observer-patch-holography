@@ -123,6 +123,10 @@ Evidence status:
 
 - the cross-source equivalence, counterexample, and two-bit separation are
   Lean-backed paper theorems and examples;
+- the merged Lean tree now includes
+  `OPH.boundaryIdentifiesModulo_iff_observerEndpointUniqueModuloLR`, which
+  proves that Jonathan's H1--H3 completeness theorem and a preserved boundary
+  instantiate the neutral equivalence for `acceptedStepLR`;
 - issue comments report a machine-checked boundary_fiber_observer_unique theorem
   and Rule 90 witnesses already merged into the repository;
 - no application bridge establishes injectivity of the declared physical
@@ -284,7 +288,7 @@ the removed application section or citations into the neutral paper.
 | [#296](https://github.com/FloatingPragma/observer-patch-holography/issues/296) | Clay YM: build the submission dependency map | U | The paper is not the requested Yang-Mills dependency map and carries none of its branch bookkeeping. |
 | [#297](https://github.com/FloatingPragma/observer-patch-holography/issues/297) | Publication: branch-scope Yang-Mills claim audit | U | No public Yang-Mills surfaces are audited or updated by this mathematics paper. |
 | [#298](https://github.com/FloatingPragma/observer-patch-holography/issues/298) | Three-body: tighten holonomy demo claim boundary | C | Generic normal-form/refinement language may support cautious wording; no three-body theorem or site edit is supplied. |
-| [#304](https://github.com/FloatingPragma/observer-patch-holography/issues/304) | Proof packet: Boundary-Fiber Identifiability | M | The exact generic equivalence between boundary identification modulo gauge and cross-source endpoint uniqueness is Lean-backed; injectivity of the declared physical boundary on the actual consistent quotient remains open. |
+| [#304](https://github.com/FloatingPragma/observer-patch-holography/issues/304) | Proof packet: Boundary-Fiber Identifiability | M | The exact generic equivalence and its `acceptedStepLR` bridge are Lean-backed; injectivity of the declared physical boundary on the actual consistent quotient remains open. |
 | [#305](https://github.com/FloatingPragma/observer-patch-holography/issues/305) | Proof packet: Finite Quotient Repair Projection | M | The finite weighted conditional-expectation theorem and noncircular matrix receipt are supplied; extraction and verification of the application transition matrix and downstream propagation remain. |
 | [#306](https://github.com/FloatingPragma/observer-patch-holography/issues/306) | Proof packet: Uniform Collar Projection Gap | C | A finite conditional projector and normalizer-defect telescoping do not prove a finite Poincare bound or continuum spectral-gap transfer. |
 | [#307](https://github.com/FloatingPragma/observer-patch-holography/issues/307) | Proof packet: Collar CMI Decay from Finite-Range Gibbs Mixing | U | No Gibbs mixing, conditional mutual information, recovery, or double-scaling estimate appears. |

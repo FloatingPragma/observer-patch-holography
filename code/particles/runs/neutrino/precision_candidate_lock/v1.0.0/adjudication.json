@@ -1,0 +1,43 @@
+{
+  "artifact": "oph_neutrino_precision_candidate_adjudication",
+  "baseline": {
+    "candidate_rejected_by_declared_3sigma_gate": true,
+    "convention_rescue_found": false,
+    "dataset": "NuFIT 6.1 official marginalized profile tables",
+    "profiles_are_never_summed": true,
+    "retrospective": true,
+    "scores": {
+      "TBoff-NO": {
+        "T23_DCP_delta_chi2": 18.435275228909504,
+        "lower_bound_delta_chi2": 18.435275228909504,
+        "passes_3sigma_2d": false
+      },
+      "TByes-NO": {
+        "T23_DCP_delta_chi2": 20.119548723965472,
+        "lower_bound_delta_chi2": 20.119548723965472,
+        "passes_3sigma_2d": false
+      }
+    }
+  },
+  "future_decision_levels": {
+    "disfavored": "calibrated p < 0.05",
+    "falsified_candidate": "calibrated p < 2.87e-7 or an official joint 5-sigma exclusion",
+    "strongly_disfavored": "calibrated p < 0.0027"
+  },
+  "future_no_rescue_rule": {
+    "ordering_may_change_after_lock": false,
+    "orientation_or_label_mapping_may_change_after_lock": false,
+    "point_may_change_after_lock": false,
+    "theory_uncertainty_may_be_added_after_lock": false
+  },
+  "future_test_statistic": "official joint likelihood ratio against the free three-neutrino model, profiling one common positive oscillation scale and shared experimental nuisances",
+  "invalid_lock_conditions": [
+    "hash mismatch",
+    "post-lock target use",
+    "unrecorded convention change",
+    "likelihood unavailable or incompatible with the locked observable definition"
+  ],
+  "lock_id": "OPH-NU-CAND-001",
+  "oph_core_falsified_by_candidate_rejection": false,
+  "version": "1.0.0"
+}

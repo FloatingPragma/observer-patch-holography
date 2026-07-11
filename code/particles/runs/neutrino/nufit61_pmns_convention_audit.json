@@ -1,0 +1,5361 @@
+{
+  "artifact": "oph_neutrino_nufit61_pmns_convention_audit",
+  "assignments": [
+    {
+      "column_permutation_indices": [
+        0,
+        1,
+        2
+      ],
+      "declared_flavor_assignment": true,
+      "mass_labels_interpreted_as_1_2_3": [
+        "1",
+        "2",
+        "3"
+      ],
+      "normal_ordering_mass_assignment_consistent": true,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "e",
+        "mu",
+        "tau"
+      ],
+      "row_permutation_indices": [
+        0,
+        1,
+        2
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "T13/T12_delta_chi2": 1.5791642599450353,
+          "T23/DCP_delta_chi2": 18.435275228909504,
+          "coordinates": {
+            "delta_cp_deg_wrapped": -54.419387685502045,
+            "sin2_theta12": 0.31635817043298914,
+            "sin2_theta13": 0.022808675997350793,
+            "sin2_theta23": 0.5820560367018955
+          },
+          "observables": {
+            "J": -0.02753115613565372,
+            "delta_deg": 305.58061231449796,
+            "delta_rad": 5.333387815148319,
+            "theta12_deg": 34.225904631810025,
+            "theta12_rad": 0.5973547252986625,
+            "theta13_deg": 8.686355527700156,
+            "theta13_rad": 0.15160550395717723,
+            "theta23_deg": 49.72282845058266,
+            "theta23_rad": 0.867827069866978
+          },
+          "passes_3sigma_2d_gate": false,
+          "score_status": "scored",
+          "two_profile_lower_bound": 18.435275228909504
+        },
+        "TByes-NO": {
+          "T13/T12_delta_chi2": 1.629948954077029,
+          "T23/DCP_delta_chi2": 20.119548723965472,
+          "coordinates": {
+            "delta_cp_deg_wrapped": -54.419387685502045,
+            "sin2_theta12": 0.31635817043298914,
+            "sin2_theta13": 0.022808675997350793,
+            "sin2_theta23": 0.5820560367018955
+          },
+          "observables": {
+            "J": -0.02753115613565372,
+            "delta_deg": 305.58061231449796,
+            "delta_rad": 5.333387815148319,
+            "theta12_deg": 34.225904631810025,
+            "theta12_rad": 0.5973547252986625,
+            "theta13_deg": 8.686355527700156,
+            "theta13_rad": 0.15160550395717723,
+            "theta23_deg": 49.72282845058266,
+            "theta23_rad": 0.867827069866978
+          },
+          "passes_3sigma_2d_gate": false,
+          "score_status": "scored",
+          "two_profile_lower_bound": 20.119548723965472
+        }
+      },
+      "worst_declared_dataset_lower_bound": 20.119548723965472
+    },
+    {
+      "column_permutation_indices": [
+        0,
+        2,
+        1
+      ],
+      "declared_flavor_assignment": true,
+      "mass_labels_interpreted_as_1_2_3": [
+        "1",
+        "3",
+        "2"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "e",
+        "mu",
+        "tau"
+      ],
+      "row_permutation_indices": [
+        0,
+        1,
+        2
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 56.61987068049666,
+            "sin2_theta12": 0.033015020692036746,
+            "sin2_theta13": 0.30914245942446833,
+            "sin2_theta23": 0.3613073265370233
+          },
+          "observables": {
+            "J": 0.0275311561356537,
+            "delta_deg": 56.61987068049667,
+            "delta_rad": 0.9882031654280692,
+            "theta12_deg": 10.468816631649652,
+            "theta12_rad": 0.18271531900982882,
+            "theta13_deg": 33.78002036908793,
+            "theta13_rad": 0.5895725768313345,
+            "theta23_deg": 36.947892080991075,
+            "theta23_rad": 0.6448623684848336
+          },
+          "reason": "x=0.30914245942446833 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 56.61987068049666,
+            "sin2_theta12": 0.033015020692036746,
+            "sin2_theta13": 0.30914245942446833,
+            "sin2_theta23": 0.3613073265370233
+          },
+          "observables": {
+            "J": 0.0275311561356537,
+            "delta_deg": 56.61987068049667,
+            "delta_rad": 0.9882031654280692,
+            "theta12_deg": 10.468816631649652,
+            "theta12_rad": 0.18271531900982882,
+            "theta13_deg": 33.78002036908793,
+            "theta13_rad": 0.5895725768313345,
+            "theta23_deg": 36.947892080991075,
+            "theta23_rad": 0.6448623684848336
+          },
+          "reason": "x=0.30914245942446833 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        1,
+        0,
+        2
+      ],
+      "declared_flavor_assignment": true,
+      "mass_labels_interpreted_as_1_2_3": [
+        "2",
+        "1",
+        "3"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "e",
+        "mu",
+        "tau"
+      ],
+      "row_permutation_indices": [
+        0,
+        1,
+        2
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "T13/T12_delta_chi2": 232.13526271381713,
+          "T23/DCP_delta_chi2": 10.475030368828401,
+          "coordinates": {
+            "delta_cp_deg_wrapped": 125.58061231449767,
+            "sin2_theta12": 0.6836418295670116,
+            "sin2_theta13": 0.022808675997350793,
+            "sin2_theta23": 0.5820560367018955
+          },
+          "observables": {
+            "J": 0.02753115613565372,
+            "delta_deg": 125.58061231449767,
+            "delta_rad": 2.191795161558521,
+            "theta12_deg": 55.77409536819002,
+            "theta12_rad": 0.9734416014962348,
+            "theta13_deg": 8.686355527700156,
+            "theta13_rad": 0.15160550395717723,
+            "theta23_deg": 49.72282845058266,
+            "theta23_rad": 0.867827069866978
+          },
+          "passes_3sigma_2d_gate": false,
+          "score_status": "scored",
+          "two_profile_lower_bound": 232.13526271381713
+        },
+        "TByes-NO": {
+          "T13/T12_delta_chi2": 232.18598458016672,
+          "T23/DCP_delta_chi2": 13.686838374395691,
+          "coordinates": {
+            "delta_cp_deg_wrapped": 125.58061231449767,
+            "sin2_theta12": 0.6836418295670116,
+            "sin2_theta13": 0.022808675997350793,
+            "sin2_theta23": 0.5820560367018955
+          },
+          "observables": {
+            "J": 0.02753115613565372,
+            "delta_deg": 125.58061231449767,
+            "delta_rad": 2.191795161558521,
+            "theta12_deg": 55.77409536819002,
+            "theta12_rad": 0.9734416014962348,
+            "theta13_deg": 8.686355527700156,
+            "theta13_rad": 0.15160550395717723,
+            "theta23_deg": 49.72282845058266,
+            "theta23_rad": 0.867827069866978
+          },
+          "passes_3sigma_2d_gate": false,
+          "score_status": "scored",
+          "two_profile_lower_bound": 232.18598458016672
+        }
+      },
+      "worst_declared_dataset_lower_bound": 232.18598458016672
+    },
+    {
+      "column_permutation_indices": [
+        1,
+        2,
+        0
+      ],
+      "declared_flavor_assignment": true,
+      "mass_labels_interpreted_as_1_2_3": [
+        "2",
+        "3",
+        "1"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "e",
+        "mu",
+        "tau"
+      ],
+      "row_permutation_indices": [
+        0,
+        1,
+        2
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -126.30728359119246,
+            "sin2_theta12": 0.06871094436344446,
+            "sin2_theta13": 0.6680488645781815,
+            "sin2_theta23": 0.5470925701684308
+          },
+          "observables": {
+            "J": -0.02753115613565369,
+            "delta_deg": 233.69271640880754,
+            "delta_rad": 4.078707339263071,
+            "theta12_deg": 15.196351370725598,
+            "theta12_rad": 0.2652263657091151,
+            "theta13_deg": 54.819652056194954,
+            "theta13_rad": 0.9567834231782815,
+            "theta23_deg": 47.702210751374565,
+            "theta23_rad": 0.8325606380917243
+          },
+          "reason": "x=0.6680488645781815 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -126.30728359119246,
+            "sin2_theta12": 0.06871094436344446,
+            "sin2_theta13": 0.6680488645781815,
+            "sin2_theta23": 0.5470925701684308
+          },
+          "observables": {
+            "J": -0.02753115613565369,
+            "delta_deg": 233.69271640880754,
+            "delta_rad": 4.078707339263071,
+            "theta12_deg": 15.196351370725598,
+            "theta12_rad": 0.2652263657091151,
+            "theta13_deg": 54.819652056194954,
+            "theta13_rad": 0.9567834231782815,
+            "theta23_deg": 47.702210751374565,
+            "theta23_rad": 0.8325606380917243
+          },
+          "reason": "x=0.6680488645781815 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        2,
+        0,
+        1
+      ],
+      "declared_flavor_assignment": true,
+      "mass_labels_interpreted_as_1_2_3": [
+        "3",
+        "1",
+        "2"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "e",
+        "mu",
+        "tau"
+      ],
+      "row_permutation_indices": [
+        0,
+        1,
+        2
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -123.38012931950323,
+            "sin2_theta12": 0.966984979307964,
+            "sin2_theta13": 0.30914245942446833,
+            "sin2_theta23": 0.3613073265370233
+          },
+          "observables": {
+            "J": -0.027531156135653698,
+            "delta_deg": 236.6198706804968,
+            "delta_rad": 4.129795819017865,
+            "theta12_deg": 79.53118336835048,
+            "theta12_rad": 1.38808100778507,
+            "theta13_deg": 33.78002036908793,
+            "theta13_rad": 0.5895725768313345,
+            "theta23_deg": 36.947892080991075,
+            "theta23_rad": 0.6448623684848336
+          },
+          "reason": "x=0.30914245942446833 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -123.38012931950323,
+            "sin2_theta12": 0.966984979307964,
+            "sin2_theta13": 0.30914245942446833,
+            "sin2_theta23": 0.3613073265370233
+          },
+          "observables": {
+            "J": -0.027531156135653698,
+            "delta_deg": 236.6198706804968,
+            "delta_rad": 4.129795819017865,
+            "theta12_deg": 79.53118336835048,
+            "theta12_rad": 1.38808100778507,
+            "theta13_deg": 33.78002036908793,
+            "theta13_rad": 0.5895725768313345,
+            "theta23_deg": 36.947892080991075,
+            "theta23_rad": 0.6448623684848336
+          },
+          "reason": "x=0.30914245942446833 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        2,
+        1,
+        0
+      ],
+      "declared_flavor_assignment": true,
+      "mass_labels_interpreted_as_1_2_3": [
+        "3",
+        "2",
+        "1"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "e",
+        "mu",
+        "tau"
+      ],
+      "row_permutation_indices": [
+        0,
+        1,
+        2
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 53.69271640880726,
+            "sin2_theta12": 0.9312890556365575,
+            "sin2_theta13": 0.6680488645781815,
+            "sin2_theta23": 0.5470925701684308
+          },
+          "observables": {
+            "J": 0.02753115613565369,
+            "delta_deg": 53.69271640880726,
+            "delta_rad": 0.9371146856732724,
+            "theta12_deg": 74.80364862927463,
+            "theta12_rad": 1.3055699610857854,
+            "theta13_deg": 54.819652056194954,
+            "theta13_rad": 0.9567834231782815,
+            "theta23_deg": 47.702210751374565,
+            "theta23_rad": 0.8325606380917243
+          },
+          "reason": "x=0.6680488645781815 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 53.69271640880726,
+            "sin2_theta12": 0.9312890556365575,
+            "sin2_theta13": 0.6680488645781815,
+            "sin2_theta23": 0.5470925701684308
+          },
+          "observables": {
+            "J": 0.02753115613565369,
+            "delta_deg": 53.69271640880726,
+            "delta_rad": 0.9371146856732724,
+            "theta12_deg": 74.80364862927463,
+            "theta12_rad": 1.3055699610857854,
+            "theta13_deg": 54.819652056194954,
+            "theta13_rad": 0.9567834231782815,
+            "theta23_deg": 47.702210751374565,
+            "theta23_rad": 0.8325606380917243
+          },
+          "reason": "x=0.6680488645781815 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        0,
+        1,
+        2
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "1",
+        "2",
+        "3"
+      ],
+      "normal_ordering_mass_assignment_consistent": true,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "e",
+        "tau",
+        "mu"
+      ],
+      "row_permutation_indices": [
+        0,
+        2,
+        1
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "T13/T12_delta_chi2": 1.5791642599450353,
+          "T23/DCP_delta_chi2": 48.561524484306,
+          "coordinates": {
+            "delta_cp_deg_wrapped": 125.5806123144979,
+            "sin2_theta12": 0.31635817043298914,
+            "sin2_theta13": 0.022808675997350793,
+            "sin2_theta23": 0.417943963298104
+          },
+          "observables": {
+            "J": 0.027531156135653705,
+            "delta_deg": 125.58061231449793,
+            "delta_rad": 2.1917951615585256,
+            "theta12_deg": 34.225904631810025,
+            "theta12_rad": 0.5973547252986625,
+            "theta13_deg": 8.686355527700156,
+            "theta13_rad": 0.15160550395717723,
+            "theta23_deg": 40.27717154941732,
+            "theta23_rad": 0.7029692569279182
+          },
+          "passes_3sigma_2d_gate": false,
+          "score_status": "scored",
+          "two_profile_lower_bound": 48.561524484306
+        },
+        "TByes-NO": {
+          "T13/T12_delta_chi2": 1.629948954077029,
+          "T23/DCP_delta_chi2": 56.39711323009345,
+          "coordinates": {
+            "delta_cp_deg_wrapped": 125.5806123144979,
+            "sin2_theta12": 0.31635817043298914,
+            "sin2_theta13": 0.022808675997350793,
+            "sin2_theta23": 0.417943963298104
+          },
+          "observables": {
+            "J": 0.027531156135653705,
+            "delta_deg": 125.58061231449793,
+            "delta_rad": 2.1917951615585256,
+            "theta12_deg": 34.225904631810025,
+            "theta12_rad": 0.5973547252986625,
+            "theta13_deg": 8.686355527700156,
+            "theta13_rad": 0.15160550395717723,
+            "theta23_deg": 40.27717154941732,
+            "theta23_rad": 0.7029692569279182
+          },
+          "passes_3sigma_2d_gate": false,
+          "score_status": "scored",
+          "two_profile_lower_bound": 56.39711323009345
+        }
+      },
+      "worst_declared_dataset_lower_bound": 56.39711323009345
+    },
+    {
+      "column_permutation_indices": [
+        0,
+        2,
+        1
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "1",
+        "3",
+        "2"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "e",
+        "tau",
+        "mu"
+      ],
+      "row_permutation_indices": [
+        0,
+        2,
+        1
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -123.38012931950328,
+            "sin2_theta12": 0.033015020692036746,
+            "sin2_theta13": 0.30914245942446833,
+            "sin2_theta23": 0.6386926734629768
+          },
+          "observables": {
+            "J": -0.027531156135653698,
+            "delta_deg": 236.61987068049672,
+            "delta_rad": 4.129795819017863,
+            "theta12_deg": 10.468816631649652,
+            "theta12_rad": 0.18271531900982882,
+            "theta13_deg": 33.78002036908793,
+            "theta13_rad": 0.5895725768313345,
+            "theta23_deg": 53.05210791900893,
+            "theta23_rad": 0.9259339583100631
+          },
+          "reason": "x=0.30914245942446833 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -123.38012931950328,
+            "sin2_theta12": 0.033015020692036746,
+            "sin2_theta13": 0.30914245942446833,
+            "sin2_theta23": 0.6386926734629768
+          },
+          "observables": {
+            "J": -0.027531156135653698,
+            "delta_deg": 236.61987068049672,
+            "delta_rad": 4.129795819017863,
+            "theta12_deg": 10.468816631649652,
+            "theta12_rad": 0.18271531900982882,
+            "theta13_deg": 33.78002036908793,
+            "theta13_rad": 0.5895725768313345,
+            "theta23_deg": 53.05210791900893,
+            "theta23_rad": 0.9259339583100631
+          },
+          "reason": "x=0.30914245942446833 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        1,
+        0,
+        2
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "2",
+        "1",
+        "3"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "e",
+        "tau",
+        "mu"
+      ],
+      "row_permutation_indices": [
+        0,
+        2,
+        1
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "T13/T12_delta_chi2": 232.13526271381713,
+          "T23/DCP_delta_chi2": 20.784446083590932,
+          "coordinates": {
+            "delta_cp_deg_wrapped": -54.419387685502045,
+            "sin2_theta12": 0.6836418295670116,
+            "sin2_theta13": 0.022808675997350793,
+            "sin2_theta23": 0.417943963298104
+          },
+          "observables": {
+            "J": -0.0275311561356537,
+            "delta_deg": 305.58061231449796,
+            "delta_rad": 5.33338781514832,
+            "theta12_deg": 55.77409536819002,
+            "theta12_rad": 0.9734416014962348,
+            "theta13_deg": 8.686355527700156,
+            "theta13_rad": 0.15160550395717723,
+            "theta23_deg": 40.27717154941732,
+            "theta23_rad": 0.7029692569279182
+          },
+          "passes_3sigma_2d_gate": false,
+          "score_status": "scored",
+          "two_profile_lower_bound": 232.13526271381713
+        },
+        "TByes-NO": {
+          "T13/T12_delta_chi2": 232.18598458016672,
+          "T23/DCP_delta_chi2": 25.95436825439965,
+          "coordinates": {
+            "delta_cp_deg_wrapped": -54.419387685502045,
+            "sin2_theta12": 0.6836418295670116,
+            "sin2_theta13": 0.022808675997350793,
+            "sin2_theta23": 0.417943963298104
+          },
+          "observables": {
+            "J": -0.0275311561356537,
+            "delta_deg": 305.58061231449796,
+            "delta_rad": 5.33338781514832,
+            "theta12_deg": 55.77409536819002,
+            "theta12_rad": 0.9734416014962348,
+            "theta13_deg": 8.686355527700156,
+            "theta13_rad": 0.15160550395717723,
+            "theta23_deg": 40.27717154941732,
+            "theta23_rad": 0.7029692569279182
+          },
+          "passes_3sigma_2d_gate": false,
+          "score_status": "scored",
+          "two_profile_lower_bound": 232.18598458016672
+        }
+      },
+      "worst_declared_dataset_lower_bound": 232.18598458016672
+    },
+    {
+      "column_permutation_indices": [
+        1,
+        2,
+        0
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "2",
+        "3",
+        "1"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "e",
+        "tau",
+        "mu"
+      ],
+      "row_permutation_indices": [
+        0,
+        2,
+        1
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 53.69271640880763,
+            "sin2_theta12": 0.06871094436344446,
+            "sin2_theta13": 0.6680488645781815,
+            "sin2_theta23": 0.45290742983157095
+          },
+          "observables": {
+            "J": 0.027531156135653687,
+            "delta_deg": 53.69271640880763,
+            "delta_rad": 0.9371146856732788,
+            "theta12_deg": 15.196351370725598,
+            "theta12_rad": 0.2652263657091151,
+            "theta13_deg": 54.819652056194954,
+            "theta13_rad": 0.9567834231782815,
+            "theta23_deg": 42.297789248625534,
+            "theta23_rad": 0.738235688703174
+          },
+          "reason": "x=0.6680488645781815 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 53.69271640880763,
+            "sin2_theta12": 0.06871094436344446,
+            "sin2_theta13": 0.6680488645781815,
+            "sin2_theta23": 0.45290742983157095
+          },
+          "observables": {
+            "J": 0.027531156135653687,
+            "delta_deg": 53.69271640880763,
+            "delta_rad": 0.9371146856732788,
+            "theta12_deg": 15.196351370725598,
+            "theta12_rad": 0.2652263657091151,
+            "theta13_deg": 54.819652056194954,
+            "theta13_rad": 0.9567834231782815,
+            "theta23_deg": 42.297789248625534,
+            "theta23_rad": 0.738235688703174
+          },
+          "reason": "x=0.6680488645781815 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        2,
+        0,
+        1
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "3",
+        "1",
+        "2"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "e",
+        "tau",
+        "mu"
+      ],
+      "row_permutation_indices": [
+        0,
+        2,
+        1
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 56.619870680496405,
+            "sin2_theta12": 0.966984979307964,
+            "sin2_theta13": 0.30914245942446833,
+            "sin2_theta23": 0.6386926734629768
+          },
+          "observables": {
+            "J": 0.027531156135653698,
+            "delta_deg": 56.6198706804964,
+            "delta_rad": 0.9882031654280644,
+            "theta12_deg": 79.53118336835048,
+            "theta12_rad": 1.38808100778507,
+            "theta13_deg": 33.78002036908793,
+            "theta13_rad": 0.5895725768313345,
+            "theta23_deg": 53.05210791900893,
+            "theta23_rad": 0.9259339583100631
+          },
+          "reason": "x=0.30914245942446833 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 56.619870680496405,
+            "sin2_theta12": 0.966984979307964,
+            "sin2_theta13": 0.30914245942446833,
+            "sin2_theta23": 0.6386926734629768
+          },
+          "observables": {
+            "J": 0.027531156135653698,
+            "delta_deg": 56.6198706804964,
+            "delta_rad": 0.9882031654280644,
+            "theta12_deg": 79.53118336835048,
+            "theta12_rad": 1.38808100778507,
+            "theta13_deg": 33.78002036908793,
+            "theta13_rad": 0.5895725768313345,
+            "theta23_deg": 53.05210791900893,
+            "theta23_rad": 0.9259339583100631
+          },
+          "reason": "x=0.30914245942446833 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        2,
+        1,
+        0
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "3",
+        "2",
+        "1"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "e",
+        "tau",
+        "mu"
+      ],
+      "row_permutation_indices": [
+        0,
+        2,
+        1
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -126.30728359119212,
+            "sin2_theta12": 0.9312890556365575,
+            "sin2_theta13": 0.6680488645781815,
+            "sin2_theta23": 0.45290742983157095
+          },
+          "observables": {
+            "J": -0.027531156135653687,
+            "delta_deg": 233.69271640880785,
+            "delta_rad": 4.078707339263076,
+            "theta12_deg": 74.80364862927463,
+            "theta12_rad": 1.3055699610857854,
+            "theta13_deg": 54.819652056194954,
+            "theta13_rad": 0.9567834231782815,
+            "theta23_deg": 42.297789248625534,
+            "theta23_rad": 0.738235688703174
+          },
+          "reason": "x=0.6680488645781815 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -126.30728359119212,
+            "sin2_theta12": 0.9312890556365575,
+            "sin2_theta13": 0.6680488645781815,
+            "sin2_theta23": 0.45290742983157095
+          },
+          "observables": {
+            "J": -0.027531156135653687,
+            "delta_deg": 233.69271640880785,
+            "delta_rad": 4.078707339263076,
+            "theta12_deg": 74.80364862927463,
+            "theta12_rad": 1.3055699610857854,
+            "theta13_deg": 54.819652056194954,
+            "theta13_rad": 0.9567834231782815,
+            "theta23_deg": 42.297789248625534,
+            "theta23_rad": 0.738235688703174
+          },
+          "reason": "x=0.6680488645781815 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        0,
+        1,
+        2
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "1",
+        "2",
+        "3"
+      ],
+      "normal_ordering_mass_assignment_consistent": true,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "mu",
+        "e",
+        "tau"
+      ],
+      "row_permutation_indices": [
+        1,
+        0,
+        2
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 49.999697750977475,
+            "sin2_theta12": 0.5788505964100447,
+            "sin2_theta13": 0.5687801091484599,
+            "sin2_theta23": 0.052893376398546826
+          },
+          "observables": {
+            "J": 0.027531156135653715,
+            "delta_deg": 49.99969775097748,
+            "delta_rad": 0.8726593507565609,
+            "theta12_deg": 49.536745168201975,
+            "theta12_rad": 0.8645793039065167,
+            "theta13_deg": 48.95334554401146,
+            "theta13_rad": 0.8543970596094947,
+            "theta23_deg": 13.296223985277216,
+            "theta23_rad": 0.23206288662572946
+          },
+          "reason": "x=0.5687801091484599 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 49.999697750977475,
+            "sin2_theta12": 0.5788505964100447,
+            "sin2_theta13": 0.5687801091484599,
+            "sin2_theta23": 0.052893376398546826
+          },
+          "observables": {
+            "J": 0.027531156135653715,
+            "delta_deg": 49.99969775097748,
+            "delta_rad": 0.8726593507565609,
+            "theta12_deg": 49.536745168201975,
+            "theta12_rad": 0.8645793039065167,
+            "theta13_deg": 48.95334554401146,
+            "theta13_rad": 0.8543970596094947,
+            "theta23_deg": 13.296223985277216,
+            "theta23_rad": 0.23206288662572946
+          },
+          "reason": "x=0.5687801091484599 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        0,
+        2,
+        1
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "1",
+        "3",
+        "2"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "mu",
+        "e",
+        "tau"
+      ],
+      "row_permutation_indices": [
+        1,
+        0,
+        2
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -20.38655966974102,
+            "sin2_theta12": 0.7579812397466341,
+            "sin2_theta13": 0.24961189100328832,
+            "sin2_theta23": 0.41197675671833317
+          },
+          "observables": {
+            "J": -0.027531156135653698,
+            "delta_deg": 339.61344033025904,
+            "delta_rad": 5.927372717788319,
+            "theta12_deg": 60.53090508868636,
+            "theta12_rad": 1.0564635930097672,
+            "theta13_deg": 29.974316264910936,
+            "theta13_rad": 0.5231505098567847,
+            "theta23_deg": 39.93021854812872,
+            "theta23_rad": 0.696913784705756
+          },
+          "reason": "x=0.24961189100328832 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -20.38655966974102,
+            "sin2_theta12": 0.7579812397466341,
+            "sin2_theta13": 0.24961189100328832,
+            "sin2_theta23": 0.41197675671833317
+          },
+          "observables": {
+            "J": -0.027531156135653698,
+            "delta_deg": 339.61344033025904,
+            "delta_rad": 5.927372717788319,
+            "theta12_deg": 60.53090508868636,
+            "theta12_rad": 1.0564635930097672,
+            "theta13_deg": 29.974316264910936,
+            "theta13_rad": 0.5231505098567847,
+            "theta23_deg": 39.93021854812872,
+            "theta23_rad": 0.696913784705756
+          },
+          "reason": "x=0.24961189100328832 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        1,
+        0,
+        2
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "2",
+        "1",
+        "3"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "mu",
+        "e",
+        "tau"
+      ],
+      "row_permutation_indices": [
+        1,
+        0,
+        2
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -130.0003022490224,
+            "sin2_theta12": 0.42114940358995473,
+            "sin2_theta13": 0.5687801091484599,
+            "sin2_theta23": 0.052893376398546826
+          },
+          "observables": {
+            "J": -0.02753115613565372,
+            "delta_deg": 229.99969775097756,
+            "delta_rad": 4.014252004346355,
+            "theta12_deg": 40.46325483179799,
+            "theta12_rad": 0.7062170228883793,
+            "theta13_deg": 48.95334554401146,
+            "theta13_rad": 0.8543970596094947,
+            "theta23_deg": 13.296223985277216,
+            "theta23_rad": 0.23206288662572946
+          },
+          "reason": "x=0.5687801091484599 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -130.0003022490224,
+            "sin2_theta12": 0.42114940358995473,
+            "sin2_theta13": 0.5687801091484599,
+            "sin2_theta23": 0.052893376398546826
+          },
+          "observables": {
+            "J": -0.02753115613565372,
+            "delta_deg": 229.99969775097756,
+            "delta_rad": 4.014252004346355,
+            "theta12_deg": 40.46325483179799,
+            "theta12_rad": 0.7062170228883793,
+            "theta13_deg": 48.95334554401146,
+            "theta13_rad": 0.8543970596094947,
+            "theta23_deg": 13.296223985277216,
+            "theta23_rad": 0.23206288662572946
+          },
+          "reason": "x=0.5687801091484599 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        1,
+        2,
+        0
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "2",
+        "3",
+        "1"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "mu",
+        "e",
+        "tau"
+      ],
+      "row_permutation_indices": [
+        1,
+        0,
+        2
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 26.28006132256553,
+            "sin2_theta12": 0.6949971517842245,
+            "sin2_theta13": 0.18160799984825152,
+            "sin2_theta23": 0.8162944706867981
+          },
+          "observables": {
+            "J": 0.027531156135653687,
+            "delta_deg": 26.280061322565533,
+            "delta_rad": 0.4586735977047841,
+            "theta12_deg": 56.477072476656055,
+            "theta12_rad": 0.9857108666051165,
+            "theta13_deg": 25.223786813013618,
+            "theta13_rad": 0.4402381297082149,
+            "theta23_deg": 64.6206946353968,
+            "theta23_rad": 1.1278438863135107
+          },
+          "reason": "x=0.18160799984825152 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 26.28006132256553,
+            "sin2_theta12": 0.6949971517842245,
+            "sin2_theta13": 0.18160799984825152,
+            "sin2_theta23": 0.8162944706867981
+          },
+          "observables": {
+            "J": 0.027531156135653687,
+            "delta_deg": 26.280061322565533,
+            "delta_rad": 0.4586735977047841,
+            "theta12_deg": 56.477072476656055,
+            "theta12_rad": 0.9857108666051165,
+            "theta13_deg": 25.223786813013618,
+            "theta13_rad": 0.4402381297082149,
+            "theta23_deg": 64.6206946353968,
+            "theta23_rad": 1.1278438863135107
+          },
+          "reason": "x=0.18160799984825152 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        2,
+        0,
+        1
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "3",
+        "1",
+        "2"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "mu",
+        "e",
+        "tau"
+      ],
+      "row_permutation_indices": [
+        1,
+        0,
+        2
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 159.61344033025898,
+            "sin2_theta12": 0.24201876025336552,
+            "sin2_theta13": 0.24961189100328832,
+            "sin2_theta23": 0.41197675671833317
+          },
+          "observables": {
+            "J": 0.027531156135653698,
+            "delta_deg": 159.613440330259,
+            "delta_rad": 2.785780064198525,
+            "theta12_deg": 29.46909491131362,
+            "theta12_rad": 0.514332733785129,
+            "theta13_deg": 29.974316264910936,
+            "theta13_rad": 0.5231505098567847,
+            "theta23_deg": 39.93021854812872,
+            "theta23_rad": 0.696913784705756
+          },
+          "reason": "x=0.24961189100328832 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 159.61344033025898,
+            "sin2_theta12": 0.24201876025336552,
+            "sin2_theta13": 0.24961189100328832,
+            "sin2_theta23": 0.41197675671833317
+          },
+          "observables": {
+            "J": 0.027531156135653698,
+            "delta_deg": 159.613440330259,
+            "delta_rad": 2.785780064198525,
+            "theta12_deg": 29.46909491131362,
+            "theta12_rad": 0.514332733785129,
+            "theta13_deg": 29.974316264910936,
+            "theta13_rad": 0.5231505098567847,
+            "theta23_deg": 39.93021854812872,
+            "theta23_rad": 0.696913784705756
+          },
+          "reason": "x=0.24961189100328832 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        2,
+        1,
+        0
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "3",
+        "2",
+        "1"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "mu",
+        "e",
+        "tau"
+      ],
+      "row_permutation_indices": [
+        1,
+        0,
+        2
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -153.71993867743436,
+            "sin2_theta12": 0.30500284821577517,
+            "sin2_theta13": 0.18160799984825152,
+            "sin2_theta23": 0.8162944706867981
+          },
+          "observables": {
+            "J": -0.02753115613565369,
+            "delta_deg": 206.28006132256562,
+            "delta_rad": 3.600266251294579,
+            "theta12_deg": 33.52292752334393,
+            "theta12_rad": 0.5850854601897798,
+            "theta13_deg": 25.223786813013618,
+            "theta13_rad": 0.4402381297082149,
+            "theta23_deg": 64.6206946353968,
+            "theta23_rad": 1.1278438863135107
+          },
+          "reason": "x=0.18160799984825152 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -153.71993867743436,
+            "sin2_theta12": 0.30500284821577517,
+            "sin2_theta13": 0.18160799984825152,
+            "sin2_theta23": 0.8162944706867981
+          },
+          "observables": {
+            "J": -0.02753115613565369,
+            "delta_deg": 206.28006132256562,
+            "delta_rad": 3.600266251294579,
+            "theta12_deg": 33.52292752334393,
+            "theta12_rad": 0.5850854601897798,
+            "theta13_deg": 25.223786813013618,
+            "theta13_rad": 0.4402381297082149,
+            "theta23_deg": 64.6206946353968,
+            "theta23_rad": 1.1278438863135107
+          },
+          "reason": "x=0.18160799984825152 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        0,
+        1,
+        2
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "1",
+        "2",
+        "3"
+      ],
+      "normal_ordering_mass_assignment_consistent": true,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "mu",
+        "tau",
+        "e"
+      ],
+      "row_permutation_indices": [
+        1,
+        2,
+        0
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -130.00030224902287,
+            "sin2_theta12": 0.5788505964100447,
+            "sin2_theta13": 0.5687801091484599,
+            "sin2_theta23": 0.9471066236014521
+          },
+          "observables": {
+            "J": -0.027531156135653694,
+            "delta_deg": 229.99969775097713,
+            "delta_rad": 4.014252004346348,
+            "theta12_deg": 49.536745168201975,
+            "theta12_rad": 0.8645793039065167,
+            "theta13_deg": 48.95334554401146,
+            "theta13_rad": 0.8543970596094947,
+            "theta23_deg": 76.70377601472265,
+            "theta23_rad": 1.3387334401691648
+          },
+          "reason": "x=0.5687801091484599 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -130.00030224902287,
+            "sin2_theta12": 0.5788505964100447,
+            "sin2_theta13": 0.5687801091484599,
+            "sin2_theta23": 0.9471066236014521
+          },
+          "observables": {
+            "J": -0.027531156135653694,
+            "delta_deg": 229.99969775097713,
+            "delta_rad": 4.014252004346348,
+            "theta12_deg": 49.536745168201975,
+            "theta12_rad": 0.8645793039065167,
+            "theta13_deg": 48.95334554401146,
+            "theta13_rad": 0.8543970596094947,
+            "theta23_deg": 76.70377601472265,
+            "theta23_rad": 1.3387334401691648
+          },
+          "reason": "x=0.5687801091484599 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        0,
+        2,
+        1
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "1",
+        "3",
+        "2"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "mu",
+        "tau",
+        "e"
+      ],
+      "row_permutation_indices": [
+        1,
+        2,
+        0
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 159.6134403302591,
+            "sin2_theta12": 0.7579812397466341,
+            "sin2_theta13": 0.24961189100328832,
+            "sin2_theta23": 0.5880232432816668
+          },
+          "observables": {
+            "J": 0.02753115613565368,
+            "delta_deg": 159.61344033025912,
+            "delta_rad": 2.785780064198527,
+            "theta12_deg": 60.53090508868636,
+            "theta12_rad": 1.0564635930097672,
+            "theta13_deg": 29.974316264910936,
+            "theta13_rad": 0.5231505098567847,
+            "theta23_deg": 50.06978145187128,
+            "theta23_rad": 0.8738825420891405
+          },
+          "reason": "x=0.24961189100328832 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 159.6134403302591,
+            "sin2_theta12": 0.7579812397466341,
+            "sin2_theta13": 0.24961189100328832,
+            "sin2_theta23": 0.5880232432816668
+          },
+          "observables": {
+            "J": 0.02753115613565368,
+            "delta_deg": 159.61344033025912,
+            "delta_rad": 2.785780064198527,
+            "theta12_deg": 60.53090508868636,
+            "theta12_rad": 1.0564635930097672,
+            "theta13_deg": 29.974316264910936,
+            "theta13_rad": 0.5231505098567847,
+            "theta23_deg": 50.06978145187128,
+            "theta23_rad": 0.8738825420891405
+          },
+          "reason": "x=0.24961189100328832 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        1,
+        0,
+        2
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "2",
+        "1",
+        "3"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "mu",
+        "tau",
+        "e"
+      ],
+      "row_permutation_indices": [
+        1,
+        2,
+        0
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 49.99969775097762,
+            "sin2_theta12": 0.42114940358995473,
+            "sin2_theta13": 0.5687801091484599,
+            "sin2_theta23": 0.9471066236014521
+          },
+          "observables": {
+            "J": 0.0275311561356537,
+            "delta_deg": 49.99969775097761,
+            "delta_rad": 0.8726593507565631,
+            "theta12_deg": 40.46325483179799,
+            "theta12_rad": 0.7062170228883793,
+            "theta13_deg": 48.95334554401146,
+            "theta13_rad": 0.8543970596094947,
+            "theta23_deg": 76.70377601472265,
+            "theta23_rad": 1.3387334401691648
+          },
+          "reason": "x=0.5687801091484599 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 49.99969775097762,
+            "sin2_theta12": 0.42114940358995473,
+            "sin2_theta13": 0.5687801091484599,
+            "sin2_theta23": 0.9471066236014521
+          },
+          "observables": {
+            "J": 0.0275311561356537,
+            "delta_deg": 49.99969775097761,
+            "delta_rad": 0.8726593507565631,
+            "theta12_deg": 40.46325483179799,
+            "theta12_rad": 0.7062170228883793,
+            "theta13_deg": 48.95334554401146,
+            "theta13_rad": 0.8543970596094947,
+            "theta23_deg": 76.70377601472265,
+            "theta23_rad": 1.3387334401691648
+          },
+          "reason": "x=0.5687801091484599 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        1,
+        2,
+        0
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "2",
+        "3",
+        "1"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "mu",
+        "tau",
+        "e"
+      ],
+      "row_permutation_indices": [
+        1,
+        2,
+        0
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -153.7199386774344,
+            "sin2_theta12": 0.6949971517842245,
+            "sin2_theta13": 0.18160799984825152,
+            "sin2_theta23": 0.1837055293132026
+          },
+          "observables": {
+            "J": -0.027531156135653705,
+            "delta_deg": 206.2800613225656,
+            "delta_rad": 3.600266251294578,
+            "theta12_deg": 56.477072476656055,
+            "theta12_rad": 0.9857108666051165,
+            "theta13_deg": 25.223786813013618,
+            "theta13_rad": 0.4402381297082149,
+            "theta23_deg": 25.37930536460325,
+            "theta23_rad": 0.44295244048138666
+          },
+          "reason": "x=0.18160799984825152 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -153.7199386774344,
+            "sin2_theta12": 0.6949971517842245,
+            "sin2_theta13": 0.18160799984825152,
+            "sin2_theta23": 0.1837055293132026
+          },
+          "observables": {
+            "J": -0.027531156135653705,
+            "delta_deg": 206.2800613225656,
+            "delta_rad": 3.600266251294578,
+            "theta12_deg": 56.477072476656055,
+            "theta12_rad": 0.9857108666051165,
+            "theta13_deg": 25.223786813013618,
+            "theta13_rad": 0.4402381297082149,
+            "theta23_deg": 25.37930536460325,
+            "theta23_rad": 0.44295244048138666
+          },
+          "reason": "x=0.18160799984825152 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        2,
+        0,
+        1
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "3",
+        "1",
+        "2"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "mu",
+        "tau",
+        "e"
+      ],
+      "row_permutation_indices": [
+        1,
+        2,
+        0
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -20.38655966974102,
+            "sin2_theta12": 0.24201876025336552,
+            "sin2_theta13": 0.24961189100328832,
+            "sin2_theta23": 0.5880232432816668
+          },
+          "observables": {
+            "J": -0.027531156135653677,
+            "delta_deg": 339.61344033025904,
+            "delta_rad": 5.927372717788319,
+            "theta12_deg": 29.46909491131362,
+            "theta12_rad": 0.514332733785129,
+            "theta13_deg": 29.974316264910936,
+            "theta13_rad": 0.5231505098567847,
+            "theta23_deg": 50.06978145187128,
+            "theta23_rad": 0.8738825420891405
+          },
+          "reason": "x=0.24961189100328832 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -20.38655966974102,
+            "sin2_theta12": 0.24201876025336552,
+            "sin2_theta13": 0.24961189100328832,
+            "sin2_theta23": 0.5880232432816668
+          },
+          "observables": {
+            "J": -0.027531156135653677,
+            "delta_deg": 339.61344033025904,
+            "delta_rad": 5.927372717788319,
+            "theta12_deg": 29.46909491131362,
+            "theta12_rad": 0.514332733785129,
+            "theta13_deg": 29.974316264910936,
+            "theta13_rad": 0.5231505098567847,
+            "theta23_deg": 50.06978145187128,
+            "theta23_rad": 0.8738825420891405
+          },
+          "reason": "x=0.24961189100328832 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        2,
+        1,
+        0
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "3",
+        "2",
+        "1"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "mu",
+        "tau",
+        "e"
+      ],
+      "row_permutation_indices": [
+        1,
+        2,
+        0
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 26.280061322565587,
+            "sin2_theta12": 0.30500284821577517,
+            "sin2_theta13": 0.18160799984825152,
+            "sin2_theta23": 0.1837055293132026
+          },
+          "observables": {
+            "J": 0.027531156135653708,
+            "delta_deg": 26.280061322565594,
+            "delta_rad": 0.45867359770478516,
+            "theta12_deg": 33.52292752334393,
+            "theta12_rad": 0.5850854601897798,
+            "theta13_deg": 25.223786813013618,
+            "theta13_rad": 0.4402381297082149,
+            "theta23_deg": 25.37930536460325,
+            "theta23_rad": 0.44295244048138666
+          },
+          "reason": "x=0.18160799984825152 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 26.280061322565587,
+            "sin2_theta12": 0.30500284821577517,
+            "sin2_theta13": 0.18160799984825152,
+            "sin2_theta23": 0.1837055293132026
+          },
+          "observables": {
+            "J": 0.027531156135653708,
+            "delta_deg": 26.280061322565594,
+            "delta_rad": 0.45867359770478516,
+            "theta12_deg": 33.52292752334393,
+            "theta12_rad": 0.5850854601897798,
+            "theta13_deg": 25.223786813013618,
+            "theta13_rad": 0.4402381297082149,
+            "theta23_deg": 25.37930536460325,
+            "theta23_rad": 0.44295244048138666
+          },
+          "reason": "x=0.18160799984825152 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        0,
+        1,
+        2
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "1",
+        "2",
+        "3"
+      ],
+      "normal_ordering_mass_assignment_consistent": true,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "tau",
+        "e",
+        "mu"
+      ],
+      "row_permutation_indices": [
+        2,
+        0,
+        1
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -119.68711066167327,
+            "sin2_theta12": 0.7458654738755534,
+            "sin2_theta13": 0.4084112148541889,
+            "sin2_theta23": 0.03855494994167115
+          },
+          "observables": {
+            "J": -0.027531156135653698,
+            "delta_deg": 240.3128893383267,
+            "delta_rad": 4.194251153934578,
+            "theta12_deg": 59.72720768670489,
+            "theta12_rad": 1.042436427155466,
+            "theta13_deg": 39.72255035696403,
+            "theta13_rad": 0.6932892910182712,
+            "theta23_deg": 11.323839790164447,
+            "theta23_rad": 0.1976382883067134
+          },
+          "reason": "x=0.4084112148541889 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -119.68711066167327,
+            "sin2_theta12": 0.7458654738755534,
+            "sin2_theta13": 0.4084112148541889,
+            "sin2_theta23": 0.03855494994167115
+          },
+          "observables": {
+            "J": -0.027531156135653698,
+            "delta_deg": 240.3128893383267,
+            "delta_rad": 4.194251153934578,
+            "theta12_deg": 59.72720768670489,
+            "theta12_rad": 1.042436427155466,
+            "theta13_deg": 39.72255035696403,
+            "theta13_rad": 0.6932892910182712,
+            "theta23_deg": 11.323839790164447,
+            "theta23_rad": 0.1976382883067134
+          },
+          "reason": "x=0.4084112148541889 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        0,
+        2,
+        1
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "1",
+        "3",
+        "2"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "tau",
+        "e",
+        "mu"
+      ],
+      "row_permutation_indices": [
+        2,
+        0,
+        1
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 19.659888393046458,
+            "sin2_theta12": 0.7309316062443684,
+            "sin2_theta13": 0.44124564957224327,
+            "sin2_theta23": 0.5532707874002286
+          },
+          "observables": {
+            "J": 0.027531156135653698,
+            "delta_deg": 19.65988839304646,
+            "delta_rad": 0.34312978303327785,
+            "theta12_deg": 58.75370134961296,
+            "theta12_rad": 1.0254455362841821,
+            "theta13_deg": 41.625827833860065,
+            "theta13_rad": 0.7265077495691573,
+            "theta23_deg": 48.05799527701649,
+            "theta23_rad": 0.8387702494918221
+          },
+          "reason": "x=0.44124564957224327 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 19.659888393046458,
+            "sin2_theta12": 0.7309316062443684,
+            "sin2_theta13": 0.44124564957224327,
+            "sin2_theta23": 0.5532707874002286
+          },
+          "observables": {
+            "J": 0.027531156135653698,
+            "delta_deg": 19.65988839304646,
+            "delta_rad": 0.34312978303327785,
+            "theta12_deg": 58.75370134961296,
+            "theta12_rad": 1.0254455362841821,
+            "theta13_deg": 41.625827833860065,
+            "theta13_rad": 0.7265077495691573,
+            "theta23_deg": 48.05799527701649,
+            "theta23_rad": 0.8387702494918221
+          },
+          "reason": "x=0.44124564957224327 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        1,
+        0,
+        2
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "2",
+        "1",
+        "3"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "tau",
+        "e",
+        "mu"
+      ],
+      "row_permutation_indices": [
+        2,
+        0,
+        1
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 60.31288933832673,
+            "sin2_theta12": 0.25413452612444626,
+            "sin2_theta13": 0.4084112148541889,
+            "sin2_theta23": 0.03855494994167115
+          },
+          "observables": {
+            "J": 0.027531156135653705,
+            "delta_deg": 60.312889338326734,
+            "delta_rad": 1.0526585003447857,
+            "theta12_deg": 30.272792313295096,
+            "theta12_rad": 0.5283598996394302,
+            "theta13_deg": 39.72255035696403,
+            "theta13_rad": 0.6932892910182712,
+            "theta23_deg": 11.323839790164447,
+            "theta23_rad": 0.1976382883067134
+          },
+          "reason": "x=0.4084112148541889 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 60.31288933832673,
+            "sin2_theta12": 0.25413452612444626,
+            "sin2_theta13": 0.4084112148541889,
+            "sin2_theta23": 0.03855494994167115
+          },
+          "observables": {
+            "J": 0.027531156135653705,
+            "delta_deg": 60.312889338326734,
+            "delta_rad": 1.0526585003447857,
+            "theta12_deg": 30.272792313295096,
+            "theta12_rad": 0.5283598996394302,
+            "theta13_deg": 39.72255035696403,
+            "theta13_rad": 0.6932892910182712,
+            "theta23_deg": 11.323839790164447,
+            "theta23_rad": 0.1976382883067134
+          },
+          "reason": "x=0.4084112148541889 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        1,
+        2,
+        0
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "2",
+        "3",
+        "1"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "tau",
+        "e",
+        "mu"
+      ],
+      "row_permutation_indices": [
+        2,
+        0,
+        1
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -24.07957832757097,
+            "sin2_theta12": 0.48067782648927365,
+            "sin2_theta13": 0.15034313557356754,
+            "sin2_theta23": 0.7862572440100901
+          },
+          "observables": {
+            "J": -0.027531156135653687,
+            "delta_deg": 335.92042167242903,
+            "delta_rad": 5.862917382871603,
+            "theta12_deg": 43.8926452721791,
+            "theta12_rad": 0.766071177409448,
+            "theta13_deg": 22.81401486504256,
+            "theta13_rad": 0.39817967499392243,
+            "theta23_deg": 62.462877719811,
+            "theta23_rad": 1.09018287648131
+          },
+          "reason": "x=0.15034313557356754 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -24.07957832757097,
+            "sin2_theta12": 0.48067782648927365,
+            "sin2_theta13": 0.15034313557356754,
+            "sin2_theta23": 0.7862572440100901
+          },
+          "observables": {
+            "J": -0.027531156135653687,
+            "delta_deg": 335.92042167242903,
+            "delta_rad": 5.862917382871603,
+            "theta12_deg": 43.8926452721791,
+            "theta12_rad": 0.766071177409448,
+            "theta13_deg": 22.81401486504256,
+            "theta13_rad": 0.39817967499392243,
+            "theta23_deg": 62.462877719811,
+            "theta23_rad": 1.09018287648131
+          },
+          "reason": "x=0.15034313557356754 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        2,
+        0,
+        1
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "3",
+        "1",
+        "2"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "tau",
+        "e",
+        "mu"
+      ],
+      "row_permutation_indices": [
+        2,
+        0,
+        1
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -160.34011160695354,
+            "sin2_theta12": 0.2690683937556311,
+            "sin2_theta13": 0.44124564957224327,
+            "sin2_theta23": 0.5532707874002286
+          },
+          "observables": {
+            "J": -0.0275311561356537,
+            "delta_deg": 199.65988839304646,
+            "delta_rad": 3.4847224366230707,
+            "theta12_deg": 31.24629865038702,
+            "theta12_rad": 0.545350790510714,
+            "theta13_deg": 41.625827833860065,
+            "theta13_rad": 0.7265077495691573,
+            "theta23_deg": 48.05799527701649,
+            "theta23_rad": 0.8387702494918221
+          },
+          "reason": "x=0.44124564957224327 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -160.34011160695354,
+            "sin2_theta12": 0.2690683937556311,
+            "sin2_theta13": 0.44124564957224327,
+            "sin2_theta23": 0.5532707874002286
+          },
+          "observables": {
+            "J": -0.0275311561356537,
+            "delta_deg": 199.65988839304646,
+            "delta_rad": 3.4847224366230707,
+            "theta12_deg": 31.24629865038702,
+            "theta12_rad": 0.545350790510714,
+            "theta13_deg": 41.625827833860065,
+            "theta13_rad": 0.7265077495691573,
+            "theta23_deg": 48.05799527701649,
+            "theta23_rad": 0.8387702494918221
+          },
+          "reason": "x=0.44124564957224327 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        2,
+        1,
+        0
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "3",
+        "2",
+        "1"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "tau",
+        "e",
+        "mu"
+      ],
+      "row_permutation_indices": [
+        2,
+        0,
+        1
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 155.92042167242892,
+            "sin2_theta12": 0.5193221735107262,
+            "sin2_theta13": 0.15034313557356754,
+            "sin2_theta23": 0.7862572440100901
+          },
+          "observables": {
+            "J": 0.027531156135653687,
+            "delta_deg": 155.92042167242894,
+            "delta_rad": 2.7213247292818084,
+            "theta12_deg": 46.10735472782089,
+            "theta12_rad": 0.8047251493854485,
+            "theta13_deg": 22.81401486504256,
+            "theta13_rad": 0.39817967499392243,
+            "theta23_deg": 62.462877719811,
+            "theta23_rad": 1.09018287648131
+          },
+          "reason": "x=0.15034313557356754 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 155.92042167242892,
+            "sin2_theta12": 0.5193221735107262,
+            "sin2_theta13": 0.15034313557356754,
+            "sin2_theta23": 0.7862572440100901
+          },
+          "observables": {
+            "J": 0.027531156135653687,
+            "delta_deg": 155.92042167242894,
+            "delta_rad": 2.7213247292818084,
+            "theta12_deg": 46.10735472782089,
+            "theta12_rad": 0.8047251493854485,
+            "theta13_deg": 22.81401486504256,
+            "theta13_rad": 0.39817967499392243,
+            "theta23_deg": 62.462877719811,
+            "theta23_rad": 1.09018287648131
+          },
+          "reason": "x=0.15034313557356754 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        0,
+        1,
+        2
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "1",
+        "2",
+        "3"
+      ],
+      "normal_ordering_mass_assignment_consistent": true,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "tau",
+        "mu",
+        "e"
+      ],
+      "row_permutation_indices": [
+        2,
+        1,
+        0
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 60.31288933832727,
+            "sin2_theta12": 0.7458654738755534,
+            "sin2_theta13": 0.4084112148541889,
+            "sin2_theta23": 0.9614450500583281
+          },
+          "observables": {
+            "J": 0.0275311561356537,
+            "delta_deg": 60.31288933832727,
+            "delta_rad": 1.052658500344795,
+            "theta12_deg": 59.72720768670489,
+            "theta12_rad": 1.042436427155466,
+            "theta13_deg": 39.72255035696403,
+            "theta13_rad": 0.6932892910182712,
+            "theta23_deg": 78.67616020983546,
+            "theta23_rad": 1.3731580384881814
+          },
+          "reason": "x=0.4084112148541889 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 60.31288933832727,
+            "sin2_theta12": 0.7458654738755534,
+            "sin2_theta13": 0.4084112148541889,
+            "sin2_theta23": 0.9614450500583281
+          },
+          "observables": {
+            "J": 0.0275311561356537,
+            "delta_deg": 60.31288933832727,
+            "delta_rad": 1.052658500344795,
+            "theta12_deg": 59.72720768670489,
+            "theta12_rad": 1.042436427155466,
+            "theta13_deg": 39.72255035696403,
+            "theta13_rad": 0.6932892910182712,
+            "theta23_deg": 78.67616020983546,
+            "theta23_rad": 1.3731580384881814
+          },
+          "reason": "x=0.4084112148541889 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        0,
+        2,
+        1
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "1",
+        "3",
+        "2"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "tau",
+        "mu",
+        "e"
+      ],
+      "row_permutation_indices": [
+        2,
+        1,
+        0
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -160.34011160695366,
+            "sin2_theta12": 0.7309316062443684,
+            "sin2_theta13": 0.44124564957224327,
+            "sin2_theta23": 0.4467292125997712
+          },
+          "observables": {
+            "J": -0.02753115613565367,
+            "delta_deg": 199.65988839304637,
+            "delta_rad": 3.4847224366230694,
+            "theta12_deg": 58.75370134961296,
+            "theta12_rad": 1.0254455362841821,
+            "theta13_deg": 41.625827833860065,
+            "theta13_rad": 0.7265077495691573,
+            "theta23_deg": 41.942004722983505,
+            "theta23_rad": 0.7320260773030743
+          },
+          "reason": "x=0.44124564957224327 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -160.34011160695366,
+            "sin2_theta12": 0.7309316062443684,
+            "sin2_theta13": 0.44124564957224327,
+            "sin2_theta23": 0.4467292125997712
+          },
+          "observables": {
+            "J": -0.02753115613565367,
+            "delta_deg": 199.65988839304637,
+            "delta_rad": 3.4847224366230694,
+            "theta12_deg": 58.75370134961296,
+            "theta12_rad": 1.0254455362841821,
+            "theta13_deg": 41.625827833860065,
+            "theta13_rad": 0.7265077495691573,
+            "theta23_deg": 41.942004722983505,
+            "theta23_rad": 0.7320260773030743
+          },
+          "reason": "x=0.44124564957224327 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        1,
+        0,
+        2
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "2",
+        "1",
+        "3"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "tau",
+        "mu",
+        "e"
+      ],
+      "row_permutation_indices": [
+        2,
+        1,
+        0
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -119.68711066167333,
+            "sin2_theta12": 0.25413452612444626,
+            "sin2_theta13": 0.4084112148541889,
+            "sin2_theta23": 0.9614450500583281
+          },
+          "observables": {
+            "J": -0.0275311561356537,
+            "delta_deg": 240.31288933832667,
+            "delta_rad": 4.1942511539345775,
+            "theta12_deg": 30.272792313295096,
+            "theta12_rad": 0.5283598996394302,
+            "theta13_deg": 39.72255035696403,
+            "theta13_rad": 0.6932892910182712,
+            "theta23_deg": 78.67616020983546,
+            "theta23_rad": 1.3731580384881814
+          },
+          "reason": "x=0.4084112148541889 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -119.68711066167333,
+            "sin2_theta12": 0.25413452612444626,
+            "sin2_theta13": 0.4084112148541889,
+            "sin2_theta23": 0.9614450500583281
+          },
+          "observables": {
+            "J": -0.0275311561356537,
+            "delta_deg": 240.31288933832667,
+            "delta_rad": 4.1942511539345775,
+            "theta12_deg": 30.272792313295096,
+            "theta12_rad": 0.5283598996394302,
+            "theta13_deg": 39.72255035696403,
+            "theta13_rad": 0.6932892910182712,
+            "theta23_deg": 78.67616020983546,
+            "theta23_rad": 1.3731580384881814
+          },
+          "reason": "x=0.4084112148541889 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        1,
+        2,
+        0
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "2",
+        "3",
+        "1"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "tau",
+        "mu",
+        "e"
+      ],
+      "row_permutation_indices": [
+        2,
+        1,
+        0
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 155.92042167242897,
+            "sin2_theta12": 0.48067782648927365,
+            "sin2_theta13": 0.15034313557356754,
+            "sin2_theta23": 0.2137427559899106
+          },
+          "observables": {
+            "J": 0.02753115613565371,
+            "delta_deg": 155.92042167242897,
+            "delta_rad": 2.7213247292818092,
+            "theta12_deg": 43.8926452721791,
+            "theta12_rad": 0.766071177409448,
+            "theta13_deg": 22.81401486504256,
+            "theta13_rad": 0.39817967499392243,
+            "theta23_deg": 27.53712228018906,
+            "theta23_rad": 0.4806134503135876
+          },
+          "reason": "x=0.15034313557356754 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 155.92042167242897,
+            "sin2_theta12": 0.48067782648927365,
+            "sin2_theta13": 0.15034313557356754,
+            "sin2_theta23": 0.2137427559899106
+          },
+          "observables": {
+            "J": 0.02753115613565371,
+            "delta_deg": 155.92042167242897,
+            "delta_rad": 2.7213247292818092,
+            "theta12_deg": 43.8926452721791,
+            "theta12_rad": 0.766071177409448,
+            "theta13_deg": 22.81401486504256,
+            "theta13_rad": 0.39817967499392243,
+            "theta23_deg": 27.53712228018906,
+            "theta23_rad": 0.4806134503135876
+          },
+          "reason": "x=0.15034313557356754 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        2,
+        0,
+        1
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "3",
+        "1",
+        "2"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "tau",
+        "mu",
+        "e"
+      ],
+      "row_permutation_indices": [
+        2,
+        1,
+        0
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 19.65988839304643,
+            "sin2_theta12": 0.2690683937556311,
+            "sin2_theta13": 0.44124564957224327,
+            "sin2_theta23": 0.4467292125997712
+          },
+          "observables": {
+            "J": 0.027531156135653677,
+            "delta_deg": 19.659888393046437,
+            "delta_rad": 0.3431297830332774,
+            "theta12_deg": 31.24629865038702,
+            "theta12_rad": 0.545350790510714,
+            "theta13_deg": 41.625827833860065,
+            "theta13_rad": 0.7265077495691573,
+            "theta23_deg": 41.942004722983505,
+            "theta23_rad": 0.7320260773030743
+          },
+          "reason": "x=0.44124564957224327 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 19.65988839304643,
+            "sin2_theta12": 0.2690683937556311,
+            "sin2_theta13": 0.44124564957224327,
+            "sin2_theta23": 0.4467292125997712
+          },
+          "observables": {
+            "J": 0.027531156135653677,
+            "delta_deg": 19.659888393046437,
+            "delta_rad": 0.3431297830332774,
+            "theta12_deg": 31.24629865038702,
+            "theta12_rad": 0.545350790510714,
+            "theta13_deg": 41.625827833860065,
+            "theta13_rad": 0.7265077495691573,
+            "theta23_deg": 41.942004722983505,
+            "theta23_rad": 0.7320260773030743
+          },
+          "reason": "x=0.44124564957224327 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        2,
+        1,
+        0
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "3",
+        "2",
+        "1"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "declared_021",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "tau",
+        "mu",
+        "e"
+      ],
+      "row_permutation_indices": [
+        2,
+        1,
+        0
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -24.07957832757097,
+            "sin2_theta12": 0.5193221735107262,
+            "sin2_theta13": 0.15034313557356754,
+            "sin2_theta23": 0.2137427559899106
+          },
+          "observables": {
+            "J": -0.027531156135653708,
+            "delta_deg": 335.920421672429,
+            "delta_rad": 5.862917382871602,
+            "theta12_deg": 46.10735472782089,
+            "theta12_rad": 0.8047251493854485,
+            "theta13_deg": 22.81401486504256,
+            "theta13_rad": 0.39817967499392243,
+            "theta23_deg": 27.53712228018906,
+            "theta23_rad": 0.4806134503135876
+          },
+          "reason": "x=0.15034313557356754 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -24.07957832757097,
+            "sin2_theta12": 0.5193221735107262,
+            "sin2_theta13": 0.15034313557356754,
+            "sin2_theta23": 0.2137427559899106
+          },
+          "observables": {
+            "J": -0.027531156135653708,
+            "delta_deg": 335.920421672429,
+            "delta_rad": 5.862917382871602,
+            "theta12_deg": 46.10735472782089,
+            "theta12_rad": 0.8047251493854485,
+            "theta13_deg": 22.81401486504256,
+            "theta13_rad": 0.39817967499392243,
+            "theta23_deg": 27.53712228018906,
+            "theta23_rad": 0.4806134503135876
+          },
+          "reason": "x=0.15034313557356754 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        0,
+        1,
+        2
+      ],
+      "declared_flavor_assignment": true,
+      "mass_labels_interpreted_as_1_2_3": [
+        "1",
+        "2",
+        "3"
+      ],
+      "normal_ordering_mass_assignment_consistent": true,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "e",
+        "mu",
+        "tau"
+      ],
+      "row_permutation_indices": [
+        0,
+        1,
+        2
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "T13/T12_delta_chi2": 1.5791642599450353,
+          "T23/DCP_delta_chi2": 13.135672393419231,
+          "coordinates": {
+            "delta_cp_deg_wrapped": 54.41938768550207,
+            "sin2_theta12": 0.31635817043298914,
+            "sin2_theta13": 0.022808675997350793,
+            "sin2_theta23": 0.5820560367018955
+          },
+          "observables": {
+            "J": 0.02753115613565372,
+            "delta_deg": 54.41938768550207,
+            "delta_rad": 0.9497974920312676,
+            "theta12_deg": 34.225904631810025,
+            "theta12_rad": 0.5973547252986625,
+            "theta13_deg": 8.686355527700156,
+            "theta13_rad": 0.15160550395717723,
+            "theta23_deg": 49.72282845058266,
+            "theta23_rad": 0.867827069866978
+          },
+          "passes_3sigma_2d_gate": false,
+          "score_status": "scored",
+          "two_profile_lower_bound": 13.135672393419231
+        },
+        "TByes-NO": {
+          "T13/T12_delta_chi2": 1.629948954077029,
+          "T23/DCP_delta_chi2": 20.122922106646257,
+          "coordinates": {
+            "delta_cp_deg_wrapped": 54.41938768550207,
+            "sin2_theta12": 0.31635817043298914,
+            "sin2_theta13": 0.022808675997350793,
+            "sin2_theta23": 0.5820560367018955
+          },
+          "observables": {
+            "J": 0.02753115613565372,
+            "delta_deg": 54.41938768550207,
+            "delta_rad": 0.9497974920312676,
+            "theta12_deg": 34.225904631810025,
+            "theta12_rad": 0.5973547252986625,
+            "theta13_deg": 8.686355527700156,
+            "theta13_rad": 0.15160550395717723,
+            "theta23_deg": 49.72282845058266,
+            "theta23_rad": 0.867827069866978
+          },
+          "passes_3sigma_2d_gate": false,
+          "score_status": "scored",
+          "two_profile_lower_bound": 20.122922106646257
+        }
+      },
+      "worst_declared_dataset_lower_bound": 20.122922106646257
+    },
+    {
+      "column_permutation_indices": [
+        0,
+        2,
+        1
+      ],
+      "declared_flavor_assignment": true,
+      "mass_labels_interpreted_as_1_2_3": [
+        "1",
+        "3",
+        "2"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "e",
+        "mu",
+        "tau"
+      ],
+      "row_permutation_indices": [
+        0,
+        1,
+        2
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -56.61987068049666,
+            "sin2_theta12": 0.033015020692036746,
+            "sin2_theta13": 0.30914245942446833,
+            "sin2_theta23": 0.3613073265370233
+          },
+          "observables": {
+            "J": -0.0275311561356537,
+            "delta_deg": 303.38012931950334,
+            "delta_rad": 5.294982141751517,
+            "theta12_deg": 10.468816631649652,
+            "theta12_rad": 0.18271531900982882,
+            "theta13_deg": 33.78002036908793,
+            "theta13_rad": 0.5895725768313345,
+            "theta23_deg": 36.947892080991075,
+            "theta23_rad": 0.6448623684848336
+          },
+          "reason": "x=0.30914245942446833 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -56.61987068049666,
+            "sin2_theta12": 0.033015020692036746,
+            "sin2_theta13": 0.30914245942446833,
+            "sin2_theta23": 0.3613073265370233
+          },
+          "observables": {
+            "J": -0.0275311561356537,
+            "delta_deg": 303.38012931950334,
+            "delta_rad": 5.294982141751517,
+            "theta12_deg": 10.468816631649652,
+            "theta12_rad": 0.18271531900982882,
+            "theta13_deg": 33.78002036908793,
+            "theta13_rad": 0.5895725768313345,
+            "theta23_deg": 36.947892080991075,
+            "theta23_rad": 0.6448623684848336
+          },
+          "reason": "x=0.30914245942446833 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        1,
+        0,
+        2
+      ],
+      "declared_flavor_assignment": true,
+      "mass_labels_interpreted_as_1_2_3": [
+        "2",
+        "1",
+        "3"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "e",
+        "mu",
+        "tau"
+      ],
+      "row_permutation_indices": [
+        0,
+        1,
+        2
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "T13/T12_delta_chi2": 232.13526271381713,
+          "T23/DCP_delta_chi2": 15.12778626144655,
+          "coordinates": {
+            "delta_cp_deg_wrapped": -125.58061231449767,
+            "sin2_theta12": 0.6836418295670116,
+            "sin2_theta13": 0.022808675997350793,
+            "sin2_theta23": 0.5820560367018955
+          },
+          "observables": {
+            "J": -0.02753115613565372,
+            "delta_deg": 234.41938768550233,
+            "delta_rad": 4.091390145621065,
+            "theta12_deg": 55.77409536819002,
+            "theta12_rad": 0.9734416014962348,
+            "theta13_deg": 8.686355527700156,
+            "theta13_rad": 0.15160550395717723,
+            "theta23_deg": 49.72282845058266,
+            "theta23_rad": 0.867827069866978
+          },
+          "passes_3sigma_2d_gate": false,
+          "score_status": "scored",
+          "two_profile_lower_bound": 232.13526271381713
+        },
+        "TByes-NO": {
+          "T13/T12_delta_chi2": 232.18598458016672,
+          "T23/DCP_delta_chi2": 14.752989946090931,
+          "coordinates": {
+            "delta_cp_deg_wrapped": -125.58061231449767,
+            "sin2_theta12": 0.6836418295670116,
+            "sin2_theta13": 0.022808675997350793,
+            "sin2_theta23": 0.5820560367018955
+          },
+          "observables": {
+            "J": -0.02753115613565372,
+            "delta_deg": 234.41938768550233,
+            "delta_rad": 4.091390145621065,
+            "theta12_deg": 55.77409536819002,
+            "theta12_rad": 0.9734416014962348,
+            "theta13_deg": 8.686355527700156,
+            "theta13_rad": 0.15160550395717723,
+            "theta23_deg": 49.72282845058266,
+            "theta23_rad": 0.867827069866978
+          },
+          "passes_3sigma_2d_gate": false,
+          "score_status": "scored",
+          "two_profile_lower_bound": 232.18598458016672
+        }
+      },
+      "worst_declared_dataset_lower_bound": 232.18598458016672
+    },
+    {
+      "column_permutation_indices": [
+        1,
+        2,
+        0
+      ],
+      "declared_flavor_assignment": true,
+      "mass_labels_interpreted_as_1_2_3": [
+        "2",
+        "3",
+        "1"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "e",
+        "mu",
+        "tau"
+      ],
+      "row_permutation_indices": [
+        0,
+        1,
+        2
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 126.30728359119246,
+            "sin2_theta12": 0.06871094436344446,
+            "sin2_theta13": 0.6680488645781815,
+            "sin2_theta23": 0.5470925701684308
+          },
+          "observables": {
+            "J": 0.02753115613565369,
+            "delta_deg": 126.30728359119247,
+            "delta_rad": 2.204477967916516,
+            "theta12_deg": 15.196351370725598,
+            "theta12_rad": 0.2652263657091151,
+            "theta13_deg": 54.819652056194954,
+            "theta13_rad": 0.9567834231782815,
+            "theta23_deg": 47.702210751374565,
+            "theta23_rad": 0.8325606380917243
+          },
+          "reason": "x=0.6680488645781815 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 126.30728359119246,
+            "sin2_theta12": 0.06871094436344446,
+            "sin2_theta13": 0.6680488645781815,
+            "sin2_theta23": 0.5470925701684308
+          },
+          "observables": {
+            "J": 0.02753115613565369,
+            "delta_deg": 126.30728359119247,
+            "delta_rad": 2.204477967916516,
+            "theta12_deg": 15.196351370725598,
+            "theta12_rad": 0.2652263657091151,
+            "theta13_deg": 54.819652056194954,
+            "theta13_rad": 0.9567834231782815,
+            "theta23_deg": 47.702210751374565,
+            "theta23_rad": 0.8325606380917243
+          },
+          "reason": "x=0.6680488645781815 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        2,
+        0,
+        1
+      ],
+      "declared_flavor_assignment": true,
+      "mass_labels_interpreted_as_1_2_3": [
+        "3",
+        "1",
+        "2"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "e",
+        "mu",
+        "tau"
+      ],
+      "row_permutation_indices": [
+        0,
+        1,
+        2
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 123.38012931950317,
+            "sin2_theta12": 0.966984979307964,
+            "sin2_theta13": 0.30914245942446833,
+            "sin2_theta23": 0.3613073265370233
+          },
+          "observables": {
+            "J": 0.027531156135653698,
+            "delta_deg": 123.38012931950317,
+            "delta_rad": 2.153389488161721,
+            "theta12_deg": 79.53118336835048,
+            "theta12_rad": 1.38808100778507,
+            "theta13_deg": 33.78002036908793,
+            "theta13_rad": 0.5895725768313345,
+            "theta23_deg": 36.947892080991075,
+            "theta23_rad": 0.6448623684848336
+          },
+          "reason": "x=0.30914245942446833 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 123.38012931950317,
+            "sin2_theta12": 0.966984979307964,
+            "sin2_theta13": 0.30914245942446833,
+            "sin2_theta23": 0.3613073265370233
+          },
+          "observables": {
+            "J": 0.027531156135653698,
+            "delta_deg": 123.38012931950317,
+            "delta_rad": 2.153389488161721,
+            "theta12_deg": 79.53118336835048,
+            "theta12_rad": 1.38808100778507,
+            "theta13_deg": 33.78002036908793,
+            "theta13_rad": 0.5895725768313345,
+            "theta23_deg": 36.947892080991075,
+            "theta23_rad": 0.6448623684848336
+          },
+          "reason": "x=0.30914245942446833 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        2,
+        1,
+        0
+      ],
+      "declared_flavor_assignment": true,
+      "mass_labels_interpreted_as_1_2_3": [
+        "3",
+        "2",
+        "1"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "e",
+        "mu",
+        "tau"
+      ],
+      "row_permutation_indices": [
+        0,
+        1,
+        2
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -53.69271640880726,
+            "sin2_theta12": 0.9312890556365575,
+            "sin2_theta13": 0.6680488645781815,
+            "sin2_theta23": 0.5470925701684308
+          },
+          "observables": {
+            "J": -0.02753115613565369,
+            "delta_deg": 306.30728359119274,
+            "delta_rad": 5.346070621506314,
+            "theta12_deg": 74.80364862927463,
+            "theta12_rad": 1.3055699610857854,
+            "theta13_deg": 54.819652056194954,
+            "theta13_rad": 0.9567834231782815,
+            "theta23_deg": 47.702210751374565,
+            "theta23_rad": 0.8325606380917243
+          },
+          "reason": "x=0.6680488645781815 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -53.69271640880726,
+            "sin2_theta12": 0.9312890556365575,
+            "sin2_theta13": 0.6680488645781815,
+            "sin2_theta23": 0.5470925701684308
+          },
+          "observables": {
+            "J": -0.02753115613565369,
+            "delta_deg": 306.30728359119274,
+            "delta_rad": 5.346070621506314,
+            "theta12_deg": 74.80364862927463,
+            "theta12_rad": 1.3055699610857854,
+            "theta13_deg": 54.819652056194954,
+            "theta13_rad": 0.9567834231782815,
+            "theta23_deg": 47.702210751374565,
+            "theta23_rad": 0.8325606380917243
+          },
+          "reason": "x=0.6680488645781815 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        0,
+        1,
+        2
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "1",
+        "2",
+        "3"
+      ],
+      "normal_ordering_mass_assignment_consistent": true,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "e",
+        "tau",
+        "mu"
+      ],
+      "row_permutation_indices": [
+        0,
+        2,
+        1
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "T13/T12_delta_chi2": 1.5791642599450353,
+          "T23/DCP_delta_chi2": 19.380017943049676,
+          "coordinates": {
+            "delta_cp_deg_wrapped": -125.5806123144979,
+            "sin2_theta12": 0.31635817043298914,
+            "sin2_theta13": 0.022808675997350793,
+            "sin2_theta23": 0.417943963298104
+          },
+          "observables": {
+            "J": -0.027531156135653705,
+            "delta_deg": 234.41938768550207,
+            "delta_rad": 4.091390145621061,
+            "theta12_deg": 34.225904631810025,
+            "theta12_rad": 0.5973547252986625,
+            "theta13_deg": 8.686355527700156,
+            "theta13_rad": 0.15160550395717723,
+            "theta23_deg": 40.27717154941732,
+            "theta23_rad": 0.7029692569279182
+          },
+          "passes_3sigma_2d_gate": false,
+          "score_status": "scored",
+          "two_profile_lower_bound": 19.380017943049676
+        },
+        "TByes-NO": {
+          "T13/T12_delta_chi2": 1.629948954077029,
+          "T23/DCP_delta_chi2": 23.655588109139266,
+          "coordinates": {
+            "delta_cp_deg_wrapped": -125.5806123144979,
+            "sin2_theta12": 0.31635817043298914,
+            "sin2_theta13": 0.022808675997350793,
+            "sin2_theta23": 0.417943963298104
+          },
+          "observables": {
+            "J": -0.027531156135653705,
+            "delta_deg": 234.41938768550207,
+            "delta_rad": 4.091390145621061,
+            "theta12_deg": 34.225904631810025,
+            "theta12_rad": 0.5973547252986625,
+            "theta13_deg": 8.686355527700156,
+            "theta13_rad": 0.15160550395717723,
+            "theta23_deg": 40.27717154941732,
+            "theta23_rad": 0.7029692569279182
+          },
+          "passes_3sigma_2d_gate": false,
+          "score_status": "scored",
+          "two_profile_lower_bound": 23.655588109139266
+        }
+      },
+      "worst_declared_dataset_lower_bound": 23.655588109139266
+    },
+    {
+      "column_permutation_indices": [
+        0,
+        2,
+        1
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "1",
+        "3",
+        "2"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "e",
+        "tau",
+        "mu"
+      ],
+      "row_permutation_indices": [
+        0,
+        2,
+        1
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 123.38012931950334,
+            "sin2_theta12": 0.033015020692036746,
+            "sin2_theta13": 0.30914245942446833,
+            "sin2_theta23": 0.6386926734629768
+          },
+          "observables": {
+            "J": 0.027531156135653698,
+            "delta_deg": 123.38012931950333,
+            "delta_rad": 2.1533894881617237,
+            "theta12_deg": 10.468816631649652,
+            "theta12_rad": 0.18271531900982882,
+            "theta13_deg": 33.78002036908793,
+            "theta13_rad": 0.5895725768313345,
+            "theta23_deg": 53.05210791900893,
+            "theta23_rad": 0.9259339583100631
+          },
+          "reason": "x=0.30914245942446833 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 123.38012931950334,
+            "sin2_theta12": 0.033015020692036746,
+            "sin2_theta13": 0.30914245942446833,
+            "sin2_theta23": 0.6386926734629768
+          },
+          "observables": {
+            "J": 0.027531156135653698,
+            "delta_deg": 123.38012931950333,
+            "delta_rad": 2.1533894881617237,
+            "theta12_deg": 10.468816631649652,
+            "theta12_rad": 0.18271531900982882,
+            "theta13_deg": 33.78002036908793,
+            "theta13_rad": 0.5895725768313345,
+            "theta23_deg": 53.05210791900893,
+            "theta23_rad": 0.9259339583100631
+          },
+          "reason": "x=0.30914245942446833 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        1,
+        0,
+        2
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "2",
+        "1",
+        "3"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "e",
+        "tau",
+        "mu"
+      ],
+      "row_permutation_indices": [
+        0,
+        2,
+        1
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "T13/T12_delta_chi2": 232.13526271381713,
+          "T23/DCP_delta_chi2": 48.77788993437177,
+          "coordinates": {
+            "delta_cp_deg_wrapped": 54.41938768550199,
+            "sin2_theta12": 0.6836418295670116,
+            "sin2_theta13": 0.022808675997350793,
+            "sin2_theta23": 0.417943963298104
+          },
+          "observables": {
+            "J": 0.0275311561356537,
+            "delta_deg": 54.419387685502,
+            "delta_rad": 0.9497974920312664,
+            "theta12_deg": 55.77409536819002,
+            "theta12_rad": 0.9734416014962348,
+            "theta13_deg": 8.686355527700156,
+            "theta13_rad": 0.15160550395717723,
+            "theta23_deg": 40.27717154941732,
+            "theta23_rad": 0.7029692569279182
+          },
+          "passes_3sigma_2d_gate": false,
+          "score_status": "scored",
+          "two_profile_lower_bound": 232.13526271381713
+        },
+        "TByes-NO": {
+          "T13/T12_delta_chi2": 232.18598458016672,
+          "T23/DCP_delta_chi2": 59.33680849612787,
+          "coordinates": {
+            "delta_cp_deg_wrapped": 54.41938768550199,
+            "sin2_theta12": 0.6836418295670116,
+            "sin2_theta13": 0.022808675997350793,
+            "sin2_theta23": 0.417943963298104
+          },
+          "observables": {
+            "J": 0.0275311561356537,
+            "delta_deg": 54.419387685502,
+            "delta_rad": 0.9497974920312664,
+            "theta12_deg": 55.77409536819002,
+            "theta12_rad": 0.9734416014962348,
+            "theta13_deg": 8.686355527700156,
+            "theta13_rad": 0.15160550395717723,
+            "theta23_deg": 40.27717154941732,
+            "theta23_rad": 0.7029692569279182
+          },
+          "passes_3sigma_2d_gate": false,
+          "score_status": "scored",
+          "two_profile_lower_bound": 232.18598458016672
+        }
+      },
+      "worst_declared_dataset_lower_bound": 232.18598458016672
+    },
+    {
+      "column_permutation_indices": [
+        1,
+        2,
+        0
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "2",
+        "3",
+        "1"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "e",
+        "tau",
+        "mu"
+      ],
+      "row_permutation_indices": [
+        0,
+        2,
+        1
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -53.692716408807655,
+            "sin2_theta12": 0.06871094436344446,
+            "sin2_theta13": 0.6680488645781815,
+            "sin2_theta23": 0.45290742983157095
+          },
+          "observables": {
+            "J": -0.027531156135653687,
+            "delta_deg": 306.30728359119234,
+            "delta_rad": 5.346070621506307,
+            "theta12_deg": 15.196351370725598,
+            "theta12_rad": 0.2652263657091151,
+            "theta13_deg": 54.819652056194954,
+            "theta13_rad": 0.9567834231782815,
+            "theta23_deg": 42.297789248625534,
+            "theta23_rad": 0.738235688703174
+          },
+          "reason": "x=0.6680488645781815 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -53.692716408807655,
+            "sin2_theta12": 0.06871094436344446,
+            "sin2_theta13": 0.6680488645781815,
+            "sin2_theta23": 0.45290742983157095
+          },
+          "observables": {
+            "J": -0.027531156135653687,
+            "delta_deg": 306.30728359119234,
+            "delta_rad": 5.346070621506307,
+            "theta12_deg": 15.196351370725598,
+            "theta12_rad": 0.2652263657091151,
+            "theta13_deg": 54.819652056194954,
+            "theta13_rad": 0.9567834231782815,
+            "theta23_deg": 42.297789248625534,
+            "theta23_rad": 0.738235688703174
+          },
+          "reason": "x=0.6680488645781815 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        2,
+        0,
+        1
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "3",
+        "1",
+        "2"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "e",
+        "tau",
+        "mu"
+      ],
+      "row_permutation_indices": [
+        0,
+        2,
+        1
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -56.619870680496376,
+            "sin2_theta12": 0.966984979307964,
+            "sin2_theta13": 0.30914245942446833,
+            "sin2_theta23": 0.6386926734629768
+          },
+          "observables": {
+            "J": -0.027531156135653698,
+            "delta_deg": 303.3801293195036,
+            "delta_rad": 5.294982141751522,
+            "theta12_deg": 79.53118336835048,
+            "theta12_rad": 1.38808100778507,
+            "theta13_deg": 33.78002036908793,
+            "theta13_rad": 0.5895725768313345,
+            "theta23_deg": 53.05210791900893,
+            "theta23_rad": 0.9259339583100631
+          },
+          "reason": "x=0.30914245942446833 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -56.619870680496376,
+            "sin2_theta12": 0.966984979307964,
+            "sin2_theta13": 0.30914245942446833,
+            "sin2_theta23": 0.6386926734629768
+          },
+          "observables": {
+            "J": -0.027531156135653698,
+            "delta_deg": 303.3801293195036,
+            "delta_rad": 5.294982141751522,
+            "theta12_deg": 79.53118336835048,
+            "theta12_rad": 1.38808100778507,
+            "theta13_deg": 33.78002036908793,
+            "theta13_rad": 0.5895725768313345,
+            "theta23_deg": 53.05210791900893,
+            "theta23_rad": 0.9259339583100631
+          },
+          "reason": "x=0.30914245942446833 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        2,
+        1,
+        0
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "3",
+        "2",
+        "1"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "e",
+        "tau",
+        "mu"
+      ],
+      "row_permutation_indices": [
+        0,
+        2,
+        1
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 126.30728359119217,
+            "sin2_theta12": 0.9312890556365575,
+            "sin2_theta13": 0.6680488645781815,
+            "sin2_theta23": 0.45290742983157095
+          },
+          "observables": {
+            "J": 0.027531156135653687,
+            "delta_deg": 126.30728359119216,
+            "delta_rad": 2.2044779679165107,
+            "theta12_deg": 74.80364862927463,
+            "theta12_rad": 1.3055699610857854,
+            "theta13_deg": 54.819652056194954,
+            "theta13_rad": 0.9567834231782815,
+            "theta23_deg": 42.297789248625534,
+            "theta23_rad": 0.738235688703174
+          },
+          "reason": "x=0.6680488645781815 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 126.30728359119217,
+            "sin2_theta12": 0.9312890556365575,
+            "sin2_theta13": 0.6680488645781815,
+            "sin2_theta23": 0.45290742983157095
+          },
+          "observables": {
+            "J": 0.027531156135653687,
+            "delta_deg": 126.30728359119216,
+            "delta_rad": 2.2044779679165107,
+            "theta12_deg": 74.80364862927463,
+            "theta12_rad": 1.3055699610857854,
+            "theta13_deg": 54.819652056194954,
+            "theta13_rad": 0.9567834231782815,
+            "theta23_deg": 42.297789248625534,
+            "theta23_rad": 0.738235688703174
+          },
+          "reason": "x=0.6680488645781815 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        0,
+        1,
+        2
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "1",
+        "2",
+        "3"
+      ],
+      "normal_ordering_mass_assignment_consistent": true,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "mu",
+        "e",
+        "tau"
+      ],
+      "row_permutation_indices": [
+        1,
+        0,
+        2
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -49.999697750977475,
+            "sin2_theta12": 0.5788505964100447,
+            "sin2_theta13": 0.5687801091484599,
+            "sin2_theta23": 0.052893376398546826
+          },
+          "observables": {
+            "J": -0.027531156135653715,
+            "delta_deg": 310.0003022490225,
+            "delta_rad": 5.410525956423025,
+            "theta12_deg": 49.536745168201975,
+            "theta12_rad": 0.8645793039065167,
+            "theta13_deg": 48.95334554401146,
+            "theta13_rad": 0.8543970596094947,
+            "theta23_deg": 13.296223985277216,
+            "theta23_rad": 0.23206288662572946
+          },
+          "reason": "x=0.5687801091484599 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -49.999697750977475,
+            "sin2_theta12": 0.5788505964100447,
+            "sin2_theta13": 0.5687801091484599,
+            "sin2_theta23": 0.052893376398546826
+          },
+          "observables": {
+            "J": -0.027531156135653715,
+            "delta_deg": 310.0003022490225,
+            "delta_rad": 5.410525956423025,
+            "theta12_deg": 49.536745168201975,
+            "theta12_rad": 0.8645793039065167,
+            "theta13_deg": 48.95334554401146,
+            "theta13_rad": 0.8543970596094947,
+            "theta23_deg": 13.296223985277216,
+            "theta23_rad": 0.23206288662572946
+          },
+          "reason": "x=0.5687801091484599 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        0,
+        2,
+        1
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "1",
+        "3",
+        "2"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "mu",
+        "e",
+        "tau"
+      ],
+      "row_permutation_indices": [
+        1,
+        0,
+        2
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 20.38655966974096,
+            "sin2_theta12": 0.7579812397466341,
+            "sin2_theta13": 0.24961189100328832,
+            "sin2_theta23": 0.41197675671833317
+          },
+          "observables": {
+            "J": 0.027531156135653698,
+            "delta_deg": 20.38655966974097,
+            "delta_rad": 0.3558125893912677,
+            "theta12_deg": 60.53090508868636,
+            "theta12_rad": 1.0564635930097672,
+            "theta13_deg": 29.974316264910936,
+            "theta13_rad": 0.5231505098567847,
+            "theta23_deg": 39.93021854812872,
+            "theta23_rad": 0.696913784705756
+          },
+          "reason": "x=0.24961189100328832 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 20.38655966974096,
+            "sin2_theta12": 0.7579812397466341,
+            "sin2_theta13": 0.24961189100328832,
+            "sin2_theta23": 0.41197675671833317
+          },
+          "observables": {
+            "J": 0.027531156135653698,
+            "delta_deg": 20.38655966974097,
+            "delta_rad": 0.3558125893912677,
+            "theta12_deg": 60.53090508868636,
+            "theta12_rad": 1.0564635930097672,
+            "theta13_deg": 29.974316264910936,
+            "theta13_rad": 0.5231505098567847,
+            "theta23_deg": 39.93021854812872,
+            "theta23_rad": 0.696913784705756
+          },
+          "reason": "x=0.24961189100328832 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        1,
+        0,
+        2
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "2",
+        "1",
+        "3"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "mu",
+        "e",
+        "tau"
+      ],
+      "row_permutation_indices": [
+        1,
+        0,
+        2
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 130.00030224902247,
+            "sin2_theta12": 0.42114940358995473,
+            "sin2_theta13": 0.5687801091484599,
+            "sin2_theta23": 0.052893376398546826
+          },
+          "observables": {
+            "J": 0.02753115613565372,
+            "delta_deg": 130.00030224902247,
+            "delta_rad": 2.2689333028332315,
+            "theta12_deg": 40.46325483179799,
+            "theta12_rad": 0.7062170228883793,
+            "theta13_deg": 48.95334554401146,
+            "theta13_rad": 0.8543970596094947,
+            "theta23_deg": 13.296223985277216,
+            "theta23_rad": 0.23206288662572946
+          },
+          "reason": "x=0.5687801091484599 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 130.00030224902247,
+            "sin2_theta12": 0.42114940358995473,
+            "sin2_theta13": 0.5687801091484599,
+            "sin2_theta23": 0.052893376398546826
+          },
+          "observables": {
+            "J": 0.02753115613565372,
+            "delta_deg": 130.00030224902247,
+            "delta_rad": 2.2689333028332315,
+            "theta12_deg": 40.46325483179799,
+            "theta12_rad": 0.7062170228883793,
+            "theta13_deg": 48.95334554401146,
+            "theta13_rad": 0.8543970596094947,
+            "theta23_deg": 13.296223985277216,
+            "theta23_rad": 0.23206288662572946
+          },
+          "reason": "x=0.5687801091484599 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        1,
+        2,
+        0
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "2",
+        "3",
+        "1"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "mu",
+        "e",
+        "tau"
+      ],
+      "row_permutation_indices": [
+        1,
+        0,
+        2
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -26.28006132256553,
+            "sin2_theta12": 0.6949971517842245,
+            "sin2_theta13": 0.18160799984825152,
+            "sin2_theta23": 0.8162944706867981
+          },
+          "observables": {
+            "J": -0.027531156135653687,
+            "delta_deg": 333.71993867743447,
+            "delta_rad": 5.824511709474802,
+            "theta12_deg": 56.477072476656055,
+            "theta12_rad": 0.9857108666051165,
+            "theta13_deg": 25.223786813013618,
+            "theta13_rad": 0.4402381297082149,
+            "theta23_deg": 64.6206946353968,
+            "theta23_rad": 1.1278438863135107
+          },
+          "reason": "x=0.18160799984825152 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -26.28006132256553,
+            "sin2_theta12": 0.6949971517842245,
+            "sin2_theta13": 0.18160799984825152,
+            "sin2_theta23": 0.8162944706867981
+          },
+          "observables": {
+            "J": -0.027531156135653687,
+            "delta_deg": 333.71993867743447,
+            "delta_rad": 5.824511709474802,
+            "theta12_deg": 56.477072476656055,
+            "theta12_rad": 0.9857108666051165,
+            "theta13_deg": 25.223786813013618,
+            "theta13_rad": 0.4402381297082149,
+            "theta23_deg": 64.6206946353968,
+            "theta23_rad": 1.1278438863135107
+          },
+          "reason": "x=0.18160799984825152 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        2,
+        0,
+        1
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "3",
+        "1",
+        "2"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "mu",
+        "e",
+        "tau"
+      ],
+      "row_permutation_indices": [
+        1,
+        0,
+        2
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -159.61344033025898,
+            "sin2_theta12": 0.24201876025336552,
+            "sin2_theta13": 0.24961189100328832,
+            "sin2_theta23": 0.41197675671833317
+          },
+          "observables": {
+            "J": -0.027531156135653698,
+            "delta_deg": 200.386559669741,
+            "delta_rad": 3.497405242981061,
+            "theta12_deg": 29.46909491131362,
+            "theta12_rad": 0.514332733785129,
+            "theta13_deg": 29.974316264910936,
+            "theta13_rad": 0.5231505098567847,
+            "theta23_deg": 39.93021854812872,
+            "theta23_rad": 0.696913784705756
+          },
+          "reason": "x=0.24961189100328832 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -159.61344033025898,
+            "sin2_theta12": 0.24201876025336552,
+            "sin2_theta13": 0.24961189100328832,
+            "sin2_theta23": 0.41197675671833317
+          },
+          "observables": {
+            "J": -0.027531156135653698,
+            "delta_deg": 200.386559669741,
+            "delta_rad": 3.497405242981061,
+            "theta12_deg": 29.46909491131362,
+            "theta12_rad": 0.514332733785129,
+            "theta13_deg": 29.974316264910936,
+            "theta13_rad": 0.5231505098567847,
+            "theta23_deg": 39.93021854812872,
+            "theta23_rad": 0.696913784705756
+          },
+          "reason": "x=0.24961189100328832 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        2,
+        1,
+        0
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "3",
+        "2",
+        "1"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "mu",
+        "e",
+        "tau"
+      ],
+      "row_permutation_indices": [
+        1,
+        0,
+        2
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 153.71993867743436,
+            "sin2_theta12": 0.30500284821577517,
+            "sin2_theta13": 0.18160799984825152,
+            "sin2_theta23": 0.8162944706867981
+          },
+          "observables": {
+            "J": 0.02753115613565369,
+            "delta_deg": 153.71993867743438,
+            "delta_rad": 2.6829190558850073,
+            "theta12_deg": 33.52292752334393,
+            "theta12_rad": 0.5850854601897798,
+            "theta13_deg": 25.223786813013618,
+            "theta13_rad": 0.4402381297082149,
+            "theta23_deg": 64.6206946353968,
+            "theta23_rad": 1.1278438863135107
+          },
+          "reason": "x=0.18160799984825152 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 153.71993867743436,
+            "sin2_theta12": 0.30500284821577517,
+            "sin2_theta13": 0.18160799984825152,
+            "sin2_theta23": 0.8162944706867981
+          },
+          "observables": {
+            "J": 0.02753115613565369,
+            "delta_deg": 153.71993867743438,
+            "delta_rad": 2.6829190558850073,
+            "theta12_deg": 33.52292752334393,
+            "theta12_rad": 0.5850854601897798,
+            "theta13_deg": 25.223786813013618,
+            "theta13_rad": 0.4402381297082149,
+            "theta23_deg": 64.6206946353968,
+            "theta23_rad": 1.1278438863135107
+          },
+          "reason": "x=0.18160799984825152 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        0,
+        1,
+        2
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "1",
+        "2",
+        "3"
+      ],
+      "normal_ordering_mass_assignment_consistent": true,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "mu",
+        "tau",
+        "e"
+      ],
+      "row_permutation_indices": [
+        1,
+        2,
+        0
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 130.00030224902287,
+            "sin2_theta12": 0.5788505964100447,
+            "sin2_theta13": 0.5687801091484599,
+            "sin2_theta23": 0.9471066236014521
+          },
+          "observables": {
+            "J": 0.027531156135653694,
+            "delta_deg": 130.00030224902287,
+            "delta_rad": 2.268933302833238,
+            "theta12_deg": 49.536745168201975,
+            "theta12_rad": 0.8645793039065167,
+            "theta13_deg": 48.95334554401146,
+            "theta13_rad": 0.8543970596094947,
+            "theta23_deg": 76.70377601472265,
+            "theta23_rad": 1.3387334401691648
+          },
+          "reason": "x=0.5687801091484599 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 130.00030224902287,
+            "sin2_theta12": 0.5788505964100447,
+            "sin2_theta13": 0.5687801091484599,
+            "sin2_theta23": 0.9471066236014521
+          },
+          "observables": {
+            "J": 0.027531156135653694,
+            "delta_deg": 130.00030224902287,
+            "delta_rad": 2.268933302833238,
+            "theta12_deg": 49.536745168201975,
+            "theta12_rad": 0.8645793039065167,
+            "theta13_deg": 48.95334554401146,
+            "theta13_rad": 0.8543970596094947,
+            "theta23_deg": 76.70377601472265,
+            "theta23_rad": 1.3387334401691648
+          },
+          "reason": "x=0.5687801091484599 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        0,
+        2,
+        1
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "1",
+        "3",
+        "2"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "mu",
+        "tau",
+        "e"
+      ],
+      "row_permutation_indices": [
+        1,
+        2,
+        0
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -159.6134403302591,
+            "sin2_theta12": 0.7579812397466341,
+            "sin2_theta13": 0.24961189100328832,
+            "sin2_theta23": 0.5880232432816668
+          },
+          "observables": {
+            "J": -0.02753115613565368,
+            "delta_deg": 200.38655966974088,
+            "delta_rad": 3.4974052429810594,
+            "theta12_deg": 60.53090508868636,
+            "theta12_rad": 1.0564635930097672,
+            "theta13_deg": 29.974316264910936,
+            "theta13_rad": 0.5231505098567847,
+            "theta23_deg": 50.06978145187128,
+            "theta23_rad": 0.8738825420891405
+          },
+          "reason": "x=0.24961189100328832 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -159.6134403302591,
+            "sin2_theta12": 0.7579812397466341,
+            "sin2_theta13": 0.24961189100328832,
+            "sin2_theta23": 0.5880232432816668
+          },
+          "observables": {
+            "J": -0.02753115613565368,
+            "delta_deg": 200.38655966974088,
+            "delta_rad": 3.4974052429810594,
+            "theta12_deg": 60.53090508868636,
+            "theta12_rad": 1.0564635930097672,
+            "theta13_deg": 29.974316264910936,
+            "theta13_rad": 0.5231505098567847,
+            "theta23_deg": 50.06978145187128,
+            "theta23_rad": 0.8738825420891405
+          },
+          "reason": "x=0.24961189100328832 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        1,
+        0,
+        2
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "2",
+        "1",
+        "3"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "mu",
+        "tau",
+        "e"
+      ],
+      "row_permutation_indices": [
+        1,
+        2,
+        0
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -49.99969775097759,
+            "sin2_theta12": 0.42114940358995473,
+            "sin2_theta13": 0.5687801091484599,
+            "sin2_theta23": 0.9471066236014521
+          },
+          "observables": {
+            "J": -0.0275311561356537,
+            "delta_deg": 310.0003022490224,
+            "delta_rad": 5.410525956423023,
+            "theta12_deg": 40.46325483179799,
+            "theta12_rad": 0.7062170228883793,
+            "theta13_deg": 48.95334554401146,
+            "theta13_rad": 0.8543970596094947,
+            "theta23_deg": 76.70377601472265,
+            "theta23_rad": 1.3387334401691648
+          },
+          "reason": "x=0.5687801091484599 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -49.99969775097759,
+            "sin2_theta12": 0.42114940358995473,
+            "sin2_theta13": 0.5687801091484599,
+            "sin2_theta23": 0.9471066236014521
+          },
+          "observables": {
+            "J": -0.0275311561356537,
+            "delta_deg": 310.0003022490224,
+            "delta_rad": 5.410525956423023,
+            "theta12_deg": 40.46325483179799,
+            "theta12_rad": 0.7062170228883793,
+            "theta13_deg": 48.95334554401146,
+            "theta13_rad": 0.8543970596094947,
+            "theta23_deg": 76.70377601472265,
+            "theta23_rad": 1.3387334401691648
+          },
+          "reason": "x=0.5687801091484599 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        1,
+        2,
+        0
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "2",
+        "3",
+        "1"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "mu",
+        "tau",
+        "e"
+      ],
+      "row_permutation_indices": [
+        1,
+        2,
+        0
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 153.7199386774344,
+            "sin2_theta12": 0.6949971517842245,
+            "sin2_theta13": 0.18160799984825152,
+            "sin2_theta23": 0.1837055293132026
+          },
+          "observables": {
+            "J": 0.027531156135653705,
+            "delta_deg": 153.7199386774344,
+            "delta_rad": 2.6829190558850082,
+            "theta12_deg": 56.477072476656055,
+            "theta12_rad": 0.9857108666051165,
+            "theta13_deg": 25.223786813013618,
+            "theta13_rad": 0.4402381297082149,
+            "theta23_deg": 25.37930536460325,
+            "theta23_rad": 0.44295244048138666
+          },
+          "reason": "x=0.18160799984825152 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 153.7199386774344,
+            "sin2_theta12": 0.6949971517842245,
+            "sin2_theta13": 0.18160799984825152,
+            "sin2_theta23": 0.1837055293132026
+          },
+          "observables": {
+            "J": 0.027531156135653705,
+            "delta_deg": 153.7199386774344,
+            "delta_rad": 2.6829190558850082,
+            "theta12_deg": 56.477072476656055,
+            "theta12_rad": 0.9857108666051165,
+            "theta13_deg": 25.223786813013618,
+            "theta13_rad": 0.4402381297082149,
+            "theta23_deg": 25.37930536460325,
+            "theta23_rad": 0.44295244048138666
+          },
+          "reason": "x=0.18160799984825152 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        2,
+        0,
+        1
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "3",
+        "1",
+        "2"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "mu",
+        "tau",
+        "e"
+      ],
+      "row_permutation_indices": [
+        1,
+        2,
+        0
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 20.38655966974096,
+            "sin2_theta12": 0.24201876025336552,
+            "sin2_theta13": 0.24961189100328832,
+            "sin2_theta23": 0.5880232432816668
+          },
+          "observables": {
+            "J": 0.027531156135653677,
+            "delta_deg": 20.38655966974096,
+            "delta_rad": 0.3558125893912676,
+            "theta12_deg": 29.46909491131362,
+            "theta12_rad": 0.514332733785129,
+            "theta13_deg": 29.974316264910936,
+            "theta13_rad": 0.5231505098567847,
+            "theta23_deg": 50.06978145187128,
+            "theta23_rad": 0.8738825420891405
+          },
+          "reason": "x=0.24961189100328832 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 20.38655966974096,
+            "sin2_theta12": 0.24201876025336552,
+            "sin2_theta13": 0.24961189100328832,
+            "sin2_theta23": 0.5880232432816668
+          },
+          "observables": {
+            "J": 0.027531156135653677,
+            "delta_deg": 20.38655966974096,
+            "delta_rad": 0.3558125893912676,
+            "theta12_deg": 29.46909491131362,
+            "theta12_rad": 0.514332733785129,
+            "theta13_deg": 29.974316264910936,
+            "theta13_rad": 0.5231505098567847,
+            "theta23_deg": 50.06978145187128,
+            "theta23_rad": 0.8738825420891405
+          },
+          "reason": "x=0.24961189100328832 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        2,
+        1,
+        0
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "3",
+        "2",
+        "1"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "mu",
+        "tau",
+        "e"
+      ],
+      "row_permutation_indices": [
+        1,
+        2,
+        0
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -26.280061322565643,
+            "sin2_theta12": 0.30500284821577517,
+            "sin2_theta13": 0.18160799984825152,
+            "sin2_theta23": 0.1837055293132026
+          },
+          "observables": {
+            "J": -0.027531156135653708,
+            "delta_deg": 333.7199386774344,
+            "delta_rad": 5.824511709474801,
+            "theta12_deg": 33.52292752334393,
+            "theta12_rad": 0.5850854601897798,
+            "theta13_deg": 25.223786813013618,
+            "theta13_rad": 0.4402381297082149,
+            "theta23_deg": 25.37930536460325,
+            "theta23_rad": 0.44295244048138666
+          },
+          "reason": "x=0.18160799984825152 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -26.280061322565643,
+            "sin2_theta12": 0.30500284821577517,
+            "sin2_theta13": 0.18160799984825152,
+            "sin2_theta23": 0.1837055293132026
+          },
+          "observables": {
+            "J": -0.027531156135653708,
+            "delta_deg": 333.7199386774344,
+            "delta_rad": 5.824511709474801,
+            "theta12_deg": 33.52292752334393,
+            "theta12_rad": 0.5850854601897798,
+            "theta13_deg": 25.223786813013618,
+            "theta13_rad": 0.4402381297082149,
+            "theta23_deg": 25.37930536460325,
+            "theta23_rad": 0.44295244048138666
+          },
+          "reason": "x=0.18160799984825152 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        0,
+        1,
+        2
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "1",
+        "2",
+        "3"
+      ],
+      "normal_ordering_mass_assignment_consistent": true,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "tau",
+        "e",
+        "mu"
+      ],
+      "row_permutation_indices": [
+        2,
+        0,
+        1
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 119.68711066167327,
+            "sin2_theta12": 0.7458654738755534,
+            "sin2_theta13": 0.4084112148541889,
+            "sin2_theta23": 0.03855494994167115
+          },
+          "observables": {
+            "J": 0.027531156135653698,
+            "delta_deg": 119.68711066167329,
+            "delta_rad": 2.088934153245008,
+            "theta12_deg": 59.72720768670489,
+            "theta12_rad": 1.042436427155466,
+            "theta13_deg": 39.72255035696403,
+            "theta13_rad": 0.6932892910182712,
+            "theta23_deg": 11.323839790164447,
+            "theta23_rad": 0.1976382883067134
+          },
+          "reason": "x=0.4084112148541889 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 119.68711066167327,
+            "sin2_theta12": 0.7458654738755534,
+            "sin2_theta13": 0.4084112148541889,
+            "sin2_theta23": 0.03855494994167115
+          },
+          "observables": {
+            "J": 0.027531156135653698,
+            "delta_deg": 119.68711066167329,
+            "delta_rad": 2.088934153245008,
+            "theta12_deg": 59.72720768670489,
+            "theta12_rad": 1.042436427155466,
+            "theta13_deg": 39.72255035696403,
+            "theta13_rad": 0.6932892910182712,
+            "theta23_deg": 11.323839790164447,
+            "theta23_rad": 0.1976382883067134
+          },
+          "reason": "x=0.4084112148541889 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        0,
+        2,
+        1
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "1",
+        "3",
+        "2"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "tau",
+        "e",
+        "mu"
+      ],
+      "row_permutation_indices": [
+        2,
+        0,
+        1
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -19.659888393046458,
+            "sin2_theta12": 0.7309316062443684,
+            "sin2_theta13": 0.44124564957224327,
+            "sin2_theta23": 0.5532707874002286
+          },
+          "observables": {
+            "J": -0.027531156135653698,
+            "delta_deg": 340.34011160695354,
+            "delta_rad": 5.940055524146309,
+            "theta12_deg": 58.75370134961296,
+            "theta12_rad": 1.0254455362841821,
+            "theta13_deg": 41.625827833860065,
+            "theta13_rad": 0.7265077495691573,
+            "theta23_deg": 48.05799527701649,
+            "theta23_rad": 0.8387702494918221
+          },
+          "reason": "x=0.44124564957224327 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -19.659888393046458,
+            "sin2_theta12": 0.7309316062443684,
+            "sin2_theta13": 0.44124564957224327,
+            "sin2_theta23": 0.5532707874002286
+          },
+          "observables": {
+            "J": -0.027531156135653698,
+            "delta_deg": 340.34011160695354,
+            "delta_rad": 5.940055524146309,
+            "theta12_deg": 58.75370134961296,
+            "theta12_rad": 1.0254455362841821,
+            "theta13_deg": 41.625827833860065,
+            "theta13_rad": 0.7265077495691573,
+            "theta23_deg": 48.05799527701649,
+            "theta23_rad": 0.8387702494918221
+          },
+          "reason": "x=0.44124564957224327 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        1,
+        0,
+        2
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "2",
+        "1",
+        "3"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "tau",
+        "e",
+        "mu"
+      ],
+      "row_permutation_indices": [
+        2,
+        0,
+        1
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -60.31288933832673,
+            "sin2_theta12": 0.25413452612444626,
+            "sin2_theta13": 0.4084112148541889,
+            "sin2_theta23": 0.03855494994167115
+          },
+          "observables": {
+            "J": -0.027531156135653705,
+            "delta_deg": 299.6871106616733,
+            "delta_rad": 5.230526806834801,
+            "theta12_deg": 30.272792313295096,
+            "theta12_rad": 0.5283598996394302,
+            "theta13_deg": 39.72255035696403,
+            "theta13_rad": 0.6932892910182712,
+            "theta23_deg": 11.323839790164447,
+            "theta23_rad": 0.1976382883067134
+          },
+          "reason": "x=0.4084112148541889 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -60.31288933832673,
+            "sin2_theta12": 0.25413452612444626,
+            "sin2_theta13": 0.4084112148541889,
+            "sin2_theta23": 0.03855494994167115
+          },
+          "observables": {
+            "J": -0.027531156135653705,
+            "delta_deg": 299.6871106616733,
+            "delta_rad": 5.230526806834801,
+            "theta12_deg": 30.272792313295096,
+            "theta12_rad": 0.5283598996394302,
+            "theta13_deg": 39.72255035696403,
+            "theta13_rad": 0.6932892910182712,
+            "theta23_deg": 11.323839790164447,
+            "theta23_rad": 0.1976382883067134
+          },
+          "reason": "x=0.4084112148541889 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        1,
+        2,
+        0
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "2",
+        "3",
+        "1"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "tau",
+        "e",
+        "mu"
+      ],
+      "row_permutation_indices": [
+        2,
+        0,
+        1
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 24.07957832757097,
+            "sin2_theta12": 0.48067782648927365,
+            "sin2_theta13": 0.15034313557356754,
+            "sin2_theta23": 0.7862572440100901
+          },
+          "observables": {
+            "J": 0.027531156135653687,
+            "delta_deg": 24.07957832757097,
+            "delta_rad": 0.4202679243079831,
+            "theta12_deg": 43.8926452721791,
+            "theta12_rad": 0.766071177409448,
+            "theta13_deg": 22.81401486504256,
+            "theta13_rad": 0.39817967499392243,
+            "theta23_deg": 62.462877719811,
+            "theta23_rad": 1.09018287648131
+          },
+          "reason": "x=0.15034313557356754 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 24.07957832757097,
+            "sin2_theta12": 0.48067782648927365,
+            "sin2_theta13": 0.15034313557356754,
+            "sin2_theta23": 0.7862572440100901
+          },
+          "observables": {
+            "J": 0.027531156135653687,
+            "delta_deg": 24.07957832757097,
+            "delta_rad": 0.4202679243079831,
+            "theta12_deg": 43.8926452721791,
+            "theta12_rad": 0.766071177409448,
+            "theta13_deg": 22.81401486504256,
+            "theta13_rad": 0.39817967499392243,
+            "theta23_deg": 62.462877719811,
+            "theta23_rad": 1.09018287648131
+          },
+          "reason": "x=0.15034313557356754 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        2,
+        0,
+        1
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "3",
+        "1",
+        "2"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "tau",
+        "e",
+        "mu"
+      ],
+      "row_permutation_indices": [
+        2,
+        0,
+        1
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 160.34011160695354,
+            "sin2_theta12": 0.2690683937556311,
+            "sin2_theta13": 0.44124564957224327,
+            "sin2_theta23": 0.5532707874002286
+          },
+          "observables": {
+            "J": 0.0275311561356537,
+            "delta_deg": 160.34011160695354,
+            "delta_rad": 2.7984628705565155,
+            "theta12_deg": 31.24629865038702,
+            "theta12_rad": 0.545350790510714,
+            "theta13_deg": 41.625827833860065,
+            "theta13_rad": 0.7265077495691573,
+            "theta23_deg": 48.05799527701649,
+            "theta23_rad": 0.8387702494918221
+          },
+          "reason": "x=0.44124564957224327 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 160.34011160695354,
+            "sin2_theta12": 0.2690683937556311,
+            "sin2_theta13": 0.44124564957224327,
+            "sin2_theta23": 0.5532707874002286
+          },
+          "observables": {
+            "J": 0.0275311561356537,
+            "delta_deg": 160.34011160695354,
+            "delta_rad": 2.7984628705565155,
+            "theta12_deg": 31.24629865038702,
+            "theta12_rad": 0.545350790510714,
+            "theta13_deg": 41.625827833860065,
+            "theta13_rad": 0.7265077495691573,
+            "theta23_deg": 48.05799527701649,
+            "theta23_rad": 0.8387702494918221
+          },
+          "reason": "x=0.44124564957224327 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        2,
+        1,
+        0
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "3",
+        "2",
+        "1"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "tau",
+        "e",
+        "mu"
+      ],
+      "row_permutation_indices": [
+        2,
+        0,
+        1
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -155.92042167242892,
+            "sin2_theta12": 0.5193221735107262,
+            "sin2_theta13": 0.15034313557356754,
+            "sin2_theta23": 0.7862572440100901
+          },
+          "observables": {
+            "J": -0.027531156135653687,
+            "delta_deg": 204.07957832757106,
+            "delta_rad": 3.561860577897778,
+            "theta12_deg": 46.10735472782089,
+            "theta12_rad": 0.8047251493854485,
+            "theta13_deg": 22.81401486504256,
+            "theta13_rad": 0.39817967499392243,
+            "theta23_deg": 62.462877719811,
+            "theta23_rad": 1.09018287648131
+          },
+          "reason": "x=0.15034313557356754 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -155.92042167242892,
+            "sin2_theta12": 0.5193221735107262,
+            "sin2_theta13": 0.15034313557356754,
+            "sin2_theta23": 0.7862572440100901
+          },
+          "observables": {
+            "J": -0.027531156135653687,
+            "delta_deg": 204.07957832757106,
+            "delta_rad": 3.561860577897778,
+            "theta12_deg": 46.10735472782089,
+            "theta12_rad": 0.8047251493854485,
+            "theta13_deg": 22.81401486504256,
+            "theta13_rad": 0.39817967499392243,
+            "theta23_deg": 62.462877719811,
+            "theta23_rad": 1.09018287648131
+          },
+          "reason": "x=0.15034313557356754 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        0,
+        1,
+        2
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "1",
+        "2",
+        "3"
+      ],
+      "normal_ordering_mass_assignment_consistent": true,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "tau",
+        "mu",
+        "e"
+      ],
+      "row_permutation_indices": [
+        2,
+        1,
+        0
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -60.312889338327295,
+            "sin2_theta12": 0.7458654738755534,
+            "sin2_theta13": 0.4084112148541889,
+            "sin2_theta23": 0.9614450500583281
+          },
+          "observables": {
+            "J": -0.0275311561356537,
+            "delta_deg": 299.6871106616727,
+            "delta_rad": 5.230526806834791,
+            "theta12_deg": 59.72720768670489,
+            "theta12_rad": 1.042436427155466,
+            "theta13_deg": 39.72255035696403,
+            "theta13_rad": 0.6932892910182712,
+            "theta23_deg": 78.67616020983546,
+            "theta23_rad": 1.3731580384881814
+          },
+          "reason": "x=0.4084112148541889 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -60.312889338327295,
+            "sin2_theta12": 0.7458654738755534,
+            "sin2_theta13": 0.4084112148541889,
+            "sin2_theta23": 0.9614450500583281
+          },
+          "observables": {
+            "J": -0.0275311561356537,
+            "delta_deg": 299.6871106616727,
+            "delta_rad": 5.230526806834791,
+            "theta12_deg": 59.72720768670489,
+            "theta12_rad": 1.042436427155466,
+            "theta13_deg": 39.72255035696403,
+            "theta13_rad": 0.6932892910182712,
+            "theta23_deg": 78.67616020983546,
+            "theta23_rad": 1.3731580384881814
+          },
+          "reason": "x=0.4084112148541889 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        0,
+        2,
+        1
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "1",
+        "3",
+        "2"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "tau",
+        "mu",
+        "e"
+      ],
+      "row_permutation_indices": [
+        2,
+        1,
+        0
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 160.34011160695366,
+            "sin2_theta12": 0.7309316062443684,
+            "sin2_theta13": 0.44124564957224327,
+            "sin2_theta23": 0.4467292125997712
+          },
+          "observables": {
+            "J": 0.02753115613565367,
+            "delta_deg": 160.34011160695363,
+            "delta_rad": 2.798462870556517,
+            "theta12_deg": 58.75370134961296,
+            "theta12_rad": 1.0254455362841821,
+            "theta13_deg": 41.625827833860065,
+            "theta13_rad": 0.7265077495691573,
+            "theta23_deg": 41.942004722983505,
+            "theta23_rad": 0.7320260773030743
+          },
+          "reason": "x=0.44124564957224327 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 160.34011160695366,
+            "sin2_theta12": 0.7309316062443684,
+            "sin2_theta13": 0.44124564957224327,
+            "sin2_theta23": 0.4467292125997712
+          },
+          "observables": {
+            "J": 0.02753115613565367,
+            "delta_deg": 160.34011160695363,
+            "delta_rad": 2.798462870556517,
+            "theta12_deg": 58.75370134961296,
+            "theta12_rad": 1.0254455362841821,
+            "theta13_deg": 41.625827833860065,
+            "theta13_rad": 0.7265077495691573,
+            "theta23_deg": 41.942004722983505,
+            "theta23_rad": 0.7320260773030743
+          },
+          "reason": "x=0.44124564957224327 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        1,
+        0,
+        2
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "2",
+        "1",
+        "3"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "tau",
+        "mu",
+        "e"
+      ],
+      "row_permutation_indices": [
+        2,
+        1,
+        0
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 119.68711066167333,
+            "sin2_theta12": 0.25413452612444626,
+            "sin2_theta13": 0.4084112148541889,
+            "sin2_theta23": 0.9614450500583281
+          },
+          "observables": {
+            "J": 0.0275311561356537,
+            "delta_deg": 119.68711066167334,
+            "delta_rad": 2.0889341532450088,
+            "theta12_deg": 30.272792313295096,
+            "theta12_rad": 0.5283598996394302,
+            "theta13_deg": 39.72255035696403,
+            "theta13_rad": 0.6932892910182712,
+            "theta23_deg": 78.67616020983546,
+            "theta23_rad": 1.3731580384881814
+          },
+          "reason": "x=0.4084112148541889 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 119.68711066167333,
+            "sin2_theta12": 0.25413452612444626,
+            "sin2_theta13": 0.4084112148541889,
+            "sin2_theta23": 0.9614450500583281
+          },
+          "observables": {
+            "J": 0.0275311561356537,
+            "delta_deg": 119.68711066167334,
+            "delta_rad": 2.0889341532450088,
+            "theta12_deg": 30.272792313295096,
+            "theta12_rad": 0.5283598996394302,
+            "theta13_deg": 39.72255035696403,
+            "theta13_rad": 0.6932892910182712,
+            "theta23_deg": 78.67616020983546,
+            "theta23_rad": 1.3731580384881814
+          },
+          "reason": "x=0.4084112148541889 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        1,
+        2,
+        0
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "2",
+        "3",
+        "1"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "tau",
+        "mu",
+        "e"
+      ],
+      "row_permutation_indices": [
+        2,
+        1,
+        0
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -155.92042167242897,
+            "sin2_theta12": 0.48067782648927365,
+            "sin2_theta13": 0.15034313557356754,
+            "sin2_theta23": 0.2137427559899106
+          },
+          "observables": {
+            "J": -0.02753115613565371,
+            "delta_deg": 204.07957832757103,
+            "delta_rad": 3.561860577897777,
+            "theta12_deg": 43.8926452721791,
+            "theta12_rad": 0.766071177409448,
+            "theta13_deg": 22.81401486504256,
+            "theta13_rad": 0.39817967499392243,
+            "theta23_deg": 27.53712228018906,
+            "theta23_rad": 0.4806134503135876
+          },
+          "reason": "x=0.15034313557356754 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -155.92042167242897,
+            "sin2_theta12": 0.48067782648927365,
+            "sin2_theta13": 0.15034313557356754,
+            "sin2_theta23": 0.2137427559899106
+          },
+          "observables": {
+            "J": -0.02753115613565371,
+            "delta_deg": 204.07957832757103,
+            "delta_rad": 3.561860577897777,
+            "theta12_deg": 43.8926452721791,
+            "theta12_rad": 0.766071177409448,
+            "theta13_deg": 22.81401486504256,
+            "theta13_rad": 0.39817967499392243,
+            "theta23_deg": 27.53712228018906,
+            "theta23_rad": 0.4806134503135876
+          },
+          "reason": "x=0.15034313557356754 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        2,
+        0,
+        1
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "3",
+        "1",
+        "2"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "tau",
+        "mu",
+        "e"
+      ],
+      "row_permutation_indices": [
+        2,
+        1,
+        0
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -19.659888393046458,
+            "sin2_theta12": 0.2690683937556311,
+            "sin2_theta13": 0.44124564957224327,
+            "sin2_theta23": 0.4467292125997712
+          },
+          "observables": {
+            "J": -0.027531156135653677,
+            "delta_deg": 340.34011160695354,
+            "delta_rad": 5.940055524146309,
+            "theta12_deg": 31.24629865038702,
+            "theta12_rad": 0.545350790510714,
+            "theta13_deg": 41.625827833860065,
+            "theta13_rad": 0.7265077495691573,
+            "theta23_deg": 41.942004722983505,
+            "theta23_rad": 0.7320260773030743
+          },
+          "reason": "x=0.44124564957224327 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": -19.659888393046458,
+            "sin2_theta12": 0.2690683937556311,
+            "sin2_theta13": 0.44124564957224327,
+            "sin2_theta23": 0.4467292125997712
+          },
+          "observables": {
+            "J": -0.027531156135653677,
+            "delta_deg": 340.34011160695354,
+            "delta_rad": 5.940055524146309,
+            "theta12_deg": 31.24629865038702,
+            "theta12_rad": 0.545350790510714,
+            "theta13_deg": 41.625827833860065,
+            "theta13_rad": 0.7265077495691573,
+            "theta23_deg": 41.942004722983505,
+            "theta23_rad": 0.7320260773030743
+          },
+          "reason": "x=0.44124564957224327 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    },
+    {
+      "column_permutation_indices": [
+        2,
+        1,
+        0
+      ],
+      "declared_flavor_assignment": false,
+      "mass_labels_interpreted_as_1_2_3": [
+        "3",
+        "2",
+        "1"
+      ],
+      "normal_ordering_mass_assignment_consistent": false,
+      "orientation": "opposite_012_complex_conjugate",
+      "passes_both_declared_3sigma_gates": false,
+      "row_labels_interpreted_as_e_mu_tau": [
+        "tau",
+        "mu",
+        "e"
+      ],
+      "row_permutation_indices": [
+        2,
+        1,
+        0
+      ],
+      "scores": {
+        "TBoff-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 24.079578327571028,
+            "sin2_theta12": 0.5193221735107262,
+            "sin2_theta13": 0.15034313557356754,
+            "sin2_theta23": 0.2137427559899106
+          },
+          "observables": {
+            "J": 0.027531156135653708,
+            "delta_deg": 24.079578327571024,
+            "delta_rad": 0.42026792430798404,
+            "theta12_deg": 46.10735472782089,
+            "theta12_rad": 0.8047251493854485,
+            "theta13_deg": 22.81401486504256,
+            "theta13_rad": 0.39817967499392243,
+            "theta23_deg": 27.53712228018906,
+            "theta23_rad": 0.4806134503135876
+          },
+          "reason": "x=0.15034313557356754 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        },
+        "TByes-NO": {
+          "coordinates": {
+            "delta_cp_deg_wrapped": 24.079578327571028,
+            "sin2_theta12": 0.5193221735107262,
+            "sin2_theta13": 0.15034313557356754,
+            "sin2_theta23": 0.2137427559899106
+          },
+          "observables": {
+            "J": 0.027531156135653708,
+            "delta_deg": 24.079578327571024,
+            "delta_rad": 0.42026792430798404,
+            "theta12_deg": 46.10735472782089,
+            "theta12_rad": 0.8047251493854485,
+            "theta13_deg": 22.81401486504256,
+            "theta13_rad": 0.39817967499392243,
+            "theta23_deg": 27.53712228018906,
+            "theta23_rad": 0.4806134503135876
+          },
+          "reason": "x=0.15034313557356754 lies outside [0.0, 0.07]; extrapolation is forbidden",
+          "score_status": "outside_official_grid"
+        }
+      },
+      "worst_declared_dataset_lower_bound": null
+    }
+  ],
+  "best_normal_ordering_consistent_assignment": {
+    "column_permutation_indices": [
+      0,
+      1,
+      2
+    ],
+    "declared_flavor_assignment": true,
+    "mass_labels_interpreted_as_1_2_3": [
+      "1",
+      "2",
+      "3"
+    ],
+    "normal_ordering_mass_assignment_consistent": true,
+    "orientation": "declared_021",
+    "passes_both_declared_3sigma_gates": false,
+    "row_labels_interpreted_as_e_mu_tau": [
+      "e",
+      "mu",
+      "tau"
+    ],
+    "row_permutation_indices": [
+      0,
+      1,
+      2
+    ],
+    "scores": {
+      "TBoff-NO": {
+        "T13/T12_delta_chi2": 1.5791642599450353,
+        "T23/DCP_delta_chi2": 18.435275228909504,
+        "coordinates": {
+          "delta_cp_deg_wrapped": -54.419387685502045,
+          "sin2_theta12": 0.31635817043298914,
+          "sin2_theta13": 0.022808675997350793,
+          "sin2_theta23": 0.5820560367018955
+        },
+        "observables": {
+          "J": -0.02753115613565372,
+          "delta_deg": 305.58061231449796,
+          "delta_rad": 5.333387815148319,
+          "theta12_deg": 34.225904631810025,
+          "theta12_rad": 0.5973547252986625,
+          "theta13_deg": 8.686355527700156,
+          "theta13_rad": 0.15160550395717723,
+          "theta23_deg": 49.72282845058266,
+          "theta23_rad": 0.867827069866978
+        },
+        "passes_3sigma_2d_gate": false,
+        "score_status": "scored",
+        "two_profile_lower_bound": 18.435275228909504
+      },
+      "TByes-NO": {
+        "T13/T12_delta_chi2": 1.629948954077029,
+        "T23/DCP_delta_chi2": 20.119548723965472,
+        "coordinates": {
+          "delta_cp_deg_wrapped": -54.419387685502045,
+          "sin2_theta12": 0.31635817043298914,
+          "sin2_theta13": 0.022808675997350793,
+          "sin2_theta23": 0.5820560367018955
+        },
+        "observables": {
+          "J": -0.02753115613565372,
+          "delta_deg": 305.58061231449796,
+          "delta_rad": 5.333387815148319,
+          "theta12_deg": 34.225904631810025,
+          "theta12_rad": 0.5973547252986625,
+          "theta13_deg": 8.686355527700156,
+          "theta13_rad": 0.15160550395717723,
+          "theta23_deg": 49.72282845058266,
+          "theta23_rad": 0.867827069866978
+        },
+        "passes_3sigma_2d_gate": false,
+        "score_status": "scored",
+        "two_profile_lower_bound": 20.119548723965472
+      }
+    },
+    "worst_declared_dataset_lower_bound": 20.119548723965472
+  },
+  "candidate_filename": "neutrino_weighted_cycle_repair.json",
+  "candidate_sha256": "b67e5e3467b1691e0b616ca875c970a16c2916a1f2269a8c89a506e8dfeed6a6",
+  "decision": {
+    "any_normal_ordering_consistent_assignment_passes_both_3sigma_gates": false,
+    "convention_error_found": false,
+    "declared_assignment_is_best_by_worst_dataset_score": true,
+    "post_hoc_relabeling_allowed_as_rescue": false
+  },
+  "declared_assignment": {
+    "column_permutation_indices": [
+      0,
+      1,
+      2
+    ],
+    "declared_flavor_assignment": true,
+    "mass_labels_interpreted_as_1_2_3": [
+      "1",
+      "2",
+      "3"
+    ],
+    "normal_ordering_mass_assignment_consistent": true,
+    "orientation": "declared_021",
+    "passes_both_declared_3sigma_gates": false,
+    "row_labels_interpreted_as_e_mu_tau": [
+      "e",
+      "mu",
+      "tau"
+    ],
+    "row_permutation_indices": [
+      0,
+      1,
+      2
+    ],
+    "scores": {
+      "TBoff-NO": {
+        "T13/T12_delta_chi2": 1.5791642599450353,
+        "T23/DCP_delta_chi2": 18.435275228909504,
+        "coordinates": {
+          "delta_cp_deg_wrapped": -54.419387685502045,
+          "sin2_theta12": 0.31635817043298914,
+          "sin2_theta13": 0.022808675997350793,
+          "sin2_theta23": 0.5820560367018955
+        },
+        "observables": {
+          "J": -0.02753115613565372,
+          "delta_deg": 305.58061231449796,
+          "delta_rad": 5.333387815148319,
+          "theta12_deg": 34.225904631810025,
+          "theta12_rad": 0.5973547252986625,
+          "theta13_deg": 8.686355527700156,
+          "theta13_rad": 0.15160550395717723,
+          "theta23_deg": 49.72282845058266,
+          "theta23_rad": 0.867827069866978
+        },
+        "passes_3sigma_2d_gate": false,
+        "score_status": "scored",
+        "two_profile_lower_bound": 18.435275228909504
+      },
+      "TByes-NO": {
+        "T13/T12_delta_chi2": 1.629948954077029,
+        "T23/DCP_delta_chi2": 20.119548723965472,
+        "coordinates": {
+          "delta_cp_deg_wrapped": -54.419387685502045,
+          "sin2_theta12": 0.31635817043298914,
+          "sin2_theta13": 0.022808675997350793,
+          "sin2_theta23": 0.5820560367018955
+        },
+        "observables": {
+          "J": -0.02753115613565372,
+          "delta_deg": 305.58061231449796,
+          "delta_rad": 5.333387815148319,
+          "theta12_deg": 34.225904631810025,
+          "theta12_rad": 0.5973547252986625,
+          "theta13_deg": 8.686355527700156,
+          "theta13_rad": 0.15160550395717723,
+          "theta23_deg": 49.72282845058266,
+          "theta23_rad": 0.867827069866978
+        },
+        "passes_3sigma_2d_gate": false,
+        "score_status": "scored",
+        "two_profile_lower_bound": 20.119548723965472
+      }
+    },
+    "worst_declared_dataset_lower_bound": 20.119548723965472
+  },
+  "enumeration": {
+    "column_permutations": 6,
+    "orientations": 2,
+    "row_permutations": 6,
+    "total_assignments": 72,
+    "two_parameter_3sigma_threshold": 11.829158081900795
+  },
+  "generated_utc": "2026-07-11T04:05:00Z",
+  "mathematical_convention_checks": {
+    "delta_wrap": "delta in [0,360) is mapped to the equivalent NuFIT coordinate in [-180,180].",
+    "jarlskog_sign": "J = Im(U_e1 U_mu2 U_e2^* U_mu1^*) uses the PDG sign convention.",
+    "normal_ordering_column_rule": "Ascending eigenvalues are (m1,m2,m3); other column permutations change physical mass labels.",
+    "takagi_relation": "For U^T M U = D, the columns of U diagonalize M^dagger M.",
+    "transpose_or_dagger_allowed": false
+  },
+  "source_manifest_sha256": "8fab3d1228e7d5945cbae9a62c68028f177c9fc3a0b2fc7e3f1c287818ea9b94",
+  "source_receipts": {
+    "TBoff-NO": {
+      "atmospheric_treatment": "IC23 without the tabulated Super-Kamiokande atmospheric likelihood",
+      "bytes": 3996028,
+      "filename": "v61.release-TBoff-NO.txt.xz",
+      "sha256": "58b113927c13f55925558e1ef0a598b357a237cde5c466b9f660cc08569970f6",
+      "source_id": "TBoff-NO",
+      "url": "https://www.nu-fit.org/sites/default/files/v61.release-TBoff-NO.txt.xz"
+    },
+    "TByes-NO": {
+      "atmospheric_treatment": "IC24 with the tabulated Super-Kamiokande atmospheric likelihood",
+      "bytes": 3996408,
+      "filename": "v61.release-TByes-NO.txt.xz",
+      "sha256": "c74bd6df84297a8429cd3b9e1239751cd0762756f1ec0c2a31248d78570b26e4",
+      "source_id": "TByes-NO",
+      "url": "https://www.nu-fit.org/sites/default/files/v61.release-TByes-NO.txt.xz"
+    }
+  }
+}

@@ -80,8 +80,10 @@ tracker.
 
     cd Lean
     lake exe cache get        # fetch pre-built Mathlib oleans
-    lake build                # build the library + Main executable
-    ./.lake/build/bin/oph     # optional: run the entry point
+    lake build                # build both proof libraries
+
+The `Main` console entry point is optional and not part of the proof receipt;
+build it separately with `lake build oph:exe` if needed.
 
 Lean CI is manual. Use GitHub Actions, `Lean CI`, `Run workflow` when the
 Lean formalisation changes need a hosted check. The workflow allows exactly

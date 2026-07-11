@@ -1236,6 +1236,18 @@ If \(B([s])=B([s'])=b\), both quotient normal forms lie in \(C_b\). By the uniqu
 extension assumption, \(C_b\) has at most one element, so the quotient normal forms are equal.
 \end{proof}
 
+\begin{remark}[Same-source and cross-source quantifiers]
+Theorem~\ref{thm:confluence} compares repair schedules from one fixed initial source.  The
+stronger comparison of endpoints reached from different sources with the same protected boundary
+is controlled by the consistent boundary fibers.  Under boundary preservation and
+\(\operatorname{NF}=q(C)\), Ref.~\cite{observableNormalForms} proves that cross-source endpoint
+agreement, modulo any declared silent equivalence, is equivalent to injectivity of the induced
+boundary map on the consistent quotient.  Weak normalization and all-schedule liveness are
+separate obligations.  The layered and functional carriers below establish the injectivity premise
+only on their named finite domains; same-source confluence alone does not establish it for an
+arbitrary physical boundary map.
+\end{remark}
+
 \subsection{A multi-edge finite carrier for boundary reconstruction}
 
 \begin{definition}[Layered functional boundary carrier]\label{def:layered-functional-boundary-carrier}
@@ -3016,10 +3028,14 @@ observer-facing regulator chart, not a required literal substrate.
 the four-dimensional Euclidean Yang--Mills form from compact-gauge holonomy data and the local
 MaxEnt/Gibbs continuum limit only with the branch's renormalized four-dimensional identification
 receipt. The compact paper separately proves projective weak-* / GNS extraction from its finite
-cylinder system. Active exact-Markov repairs become conditional expectations on the finite support
-quotient, but identification with Euclidean transfer, vacuum persistence, OS reconstruction,
-noncollapse, and passage of the uniform repair gap require their separately named finite and
-continuum receipts. On that certified branch the Yang--Mills gap equals the repair gap; coherent
+cylinder system. On a finite support quotient, weighted resampling inside observation fibers is the
+orthogonal conditional-expectation projector. A concrete active repair kernel has that status only
+when its independently extracted transition matrix satisfies the support, equal-fiber-row, and
+weighted detailed-balance receipt of Ref.~\cite{observableNormalForms}; constructing the tested
+matrix from the target projector formula is not a verification. Identification with Euclidean
+transfer, vacuum persistence, OS reconstruction, noncollapse, and passage of the uniform repair
+gap require their separately named finite and continuum receipts. On that certified branch the
+Yang--Mills gap equals the repair gap; coherent
 cylinder extraction alone does not make that identification or supply a Clay-admissible theory.
 \item The coarse-graining compatibility theorem (Theorem~\ref{thm:coarse-grain-consensus}) is the link between the finite reconciliation protocol and the refinement/RG language used by the OPH branches: the macroscopic law space is stable when the selected coarse-graining channel shadows the normal-form and obstruction maps with controlled defects.
 \item Stable defects (Corollary~\ref{cor:defects}) become the topologically protected excitations identified with particles on the declared branch.
@@ -3075,6 +3091,10 @@ expected tube around the exact quotient normal-form set only after a fair-block 
 certificate \((\lambda,\varepsilon,A,\beta,L)\) is supplied for the chosen implementation. It does
 not follow from finite descent or fairness alone, and it gives a unique approximate readout only
 inside singleton boundary/sector fibers.
+Ref.~\cite{observableNormalForms} supplies a complementary receipt-only endpoint estimate from a
+residual error-bound modulus and an inverse-observation modulus, together with refinement
+comparison bounds. Those results do not manufacture the fair-block contraction used here and do
+not imply pathwise long-run confinement under persistent noise.
 
 \paragraph{Expressive-power boundary.}
 The law-selection model of Theorem~\ref{thm:replicator} is a finite-candidate monotonicity result.
@@ -3319,6 +3339,13 @@ data.
 \input{appendix_B_bft_qecc_extensions}
 
 \begin{thebibliography}{99}
+
+\bibitem{observableNormalForms}
+B.~M\"uller, D.~Matscheko, and J.~Hill,
+\emph{Observation-Determined Normal Forms: Stability, Obstructions, and Refinement in Constraint
+and Rewrite Systems},
+2026.\\
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/observable_normal_forms.pdf}.
 
 \bibitem{OPH}
 B.~M\"uller, A.~Osika, M.~Poneder, K.~Xue, B.~Cassie, P.~Nguyen, M.~A.~Visser, K.~A.~Anirudha, D.~Matscheko, and J.~Hill,

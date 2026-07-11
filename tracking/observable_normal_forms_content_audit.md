@@ -27,16 +27,15 @@ The physical \(\chi_\nu\) hypothesis is explicitly out of scope. This report doe
 | Bibliography | `extra/observable_normal_forms.bib`, SHA-256 `a183a981f984a2c1674bca7fddbbda356cea05dca467ee0102ae853b3a1e2ad3` |
 | Current PDF | `extra/observable_normal_forms.pdf`, SHA-256 `074f6a76de7325076361e1c794ca01998ee78cf38e7873cdd2092940ae075054`; rebuilt from the audited TeX/BibTeX sources |
 | Standalone Lean artifact | `Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/`, Lean and Mathlib `v4.29.1`, pinned by `lean-toolchain`, `lakefile.lean`, and `lake-manifest.json` |
-| Independent Lean build in this audit | standalone build succeeded through target 8259; the full parent build succeeded through target 8264; all new-paper theorem dependencies were subsets of `propext`, `Classical.choice`, and `Quot.sound` |
+| Independent Lean build in this audit | standalone build succeeded through target 8259; the merged parent build succeeded through target 8265; all new-paper and bridge theorem dependencies were subsets of `propext`, `Classical.choice`, and `Quot.sound` |
 | Intended `chi_nu_test` comparison repo | Clean `main...origin/main` at `0f9e43b36386ad15e94947751500bf32ee9ccc58`, proof-chain v10 |
 | Independent comparison build | `chi_nu_test/proof_chain/formal: lake build` succeeded through target 8287; linter warnings only |
 | Mathematical \(\chi_\nu\) note | `extra/chi_nu_susceptibility_bounds.tex` |
 
-The paper and base artifact were captured in local commit `c69dccb` during this
-audit; the final R1--R3 formalization and synchronization refinements remain
-working-tree changes. Local `main` is one commit ahead of `origin/main`. This
-report records mathematical and submission state; it does not authorize or
-perform a release.
+The paper, dedicated artifact, and merged Lean hierarchy are tracked on the
+current `main` line; the final bridge/hash verification may remain as
+working-tree changes until the next normal commit boundary. This report records
+mathematical and submission state; it does not authorize or perform a release.
 
 ## Executive verdict
 
@@ -349,8 +348,8 @@ This is substantial, honest partial formalization, not complete mechanization of
 ## Relationship to Jonathan Hill's existing Lean development
 
 The dedicated artifact does **not** supersede
-`Lean/ObserverPatchHolography/Source/` as a whole.  The two developments have different
-roles:
+`Lean/ObserverPatchHolography/Source/` as a whole.  The two developments have
+different roles:
 
 - `ObserverPatchHolography` supplies the concrete carrier interface
   (`OPHCarrier`, dependent records, exposed overlap data, gauge equivalence),
@@ -375,6 +374,13 @@ still does not prove that the concrete declared boundary of the older carrier
 identifies its actual consistent quotient.  The old Rule-90 good/bad
 information-set results remain the concrete finite witnesses, and the old
 same-input confluence machinery remains useful for repair-law questions.
+
+The merged hierarchy now records that correspondence explicitly in
+`OPH.boundaryIdentifiesModulo_iff_observerEndpointUniqueModuloLR`, under
+`Lean/ObserverPatchHolography/Source/ObserverPatchHolography/Bridges/`.
+Its axiom audit contains only standard axioms.  The bridge deliberately leaves
+the actual boundary map and its consistent-quotient injectivity as inputs, so
+it clarifies rather than hides the remaining live #304 obligation.
 
 The full parent build succeeds, but the older `Primitives.lean` intentionally
 retains exactly three admissions: `localRepair`, `Repair`, and

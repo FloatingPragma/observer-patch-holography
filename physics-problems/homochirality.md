@@ -135,11 +135,11 @@ Let $L(t),R(t)\ge 0$ be the amounts of two enantiomeric record carriers in
 one well-mixed compartment. The symmetric Frank normal form combines equal
 net autocatalytic growth $g=a-d$ with mutual inhibition at rate $b>0$:
 
-$$
+```math
 \dot L=gL-bLR,\qquad
 \dot R=gR-bLR.
 \tag{1}
-$$
+```
 
 If $L$ and $R$ are amounts, $g$ has units of inverse time and $b$ has units of
 inverse amount per unit time, so $\kappa=bx/2$ below has units of inverse time.
@@ -150,20 +150,20 @@ It is not asserted to be a complete prebiotic reaction mechanism.
 
 Define total record abundance and signed enantiomeric excess
 
-$$
+```math
 x=L+R,\qquad y=L-R,\qquad e=\frac{y}{x}\in[-1,1]
 \quad (x>0).
 \tag{2}
-$$
+```
 
 Since $LR=x^2(1-e^2)/4$, direct substitution gives
 
-$$
+```math
 \dot e=\frac{bx}{2}\,e(1-e^2)
        =\kappa(t)e(1-e^2),
 \qquad \kappa(t):=\frac{b x(t)}{2}.
 \tag{3}
-$$
+```
 
 ### Proposition 1: symmetry does not choose a hand
 
@@ -184,30 +184,30 @@ Equation (3) does not generally have constant $\kappa$, because
 $\kappa(t)=b x(t)/2$ changes as total abundance grows or depletes. Define the
 cumulative dimensionless amplification exposure
 
-$$
+```math
 K(t):=\int_0^t\kappa(s)\,ds.
-$$
+```
 
 For $e_0\ne0$, equation (3) integrates to
 
-$$
+```math
 e(t)^2=
 \left[1+\bigl(e_0^{-2}-1\bigr)e^{-2K(t)}\right]^{-1}.
 \tag{4}
-$$
+```
 
 The sign of $e$ is conserved. The limit $|e|\to1$ follows only if
 $K(t)\to\infty$; resource depletion can leave a finite final excess. The
 exposure needed to reach a target $0<e_\star<1$ is
 
-$$
+```math
 K_\star=
 \frac12\log\!\left[
 \frac{e_\star^2}{1-e_\star^2}
 \frac{1-e_0^2}{e_0^2}
 \right].
 \tag{5}
-$$
+```
 
 For constant $\kappa$, $K(t)=\kappa t$ is the special case used for a clock
 estimate. Thus $e_0=10^{-2}\to e_\star=0.99$ requires $K_\star=6.554$,
@@ -220,10 +220,10 @@ hydrolysis, racemization, depletion, or dispersal is an experimental question.
 
 A useful biased, error-prone quotient is
 
-$$
+```math
 \dot e=(1-e^2)(\kappa e+h)-2\mu e.
 \tag{6}
-$$
+```
 
 Here $h$ is a signed source bias and $\mu$ is an effective racemization,
 wrong-handed copying, or record-erasure rate. Equation (6) is a phenomenological
@@ -237,17 +237,17 @@ effective-model assumption.
 For constant $\kappa>0$ and $\mu\ge0$ with the source switched off
 $(h=0)$, the non-racemic fixed points are
 
-$$
+```math
 e_\star=\pm\sqrt{1-\frac{2\mu}{\kappa}},
 \tag{7}
-$$
+```
 
 and they exist only if
 
-$$
+```math
 \boxed{\kappa>2\mu.}
 \tag{8}
-$$
+```
 
 Within this autonomous normal form, the linearization at $e=0$ is
 $\dot e\simeq(\kappa-2\mu)e$. Below the threshold the racemic fixed point is
@@ -268,12 +268,12 @@ timescale.
 Let $e_i$ describe compartment $i$ in a graph of ponds, pores, films, or
 droplets. A minimal spatial stochastic extension is
 
-$$
+```math
 de_i=\left[(1-e_i^2)(\kappa_i e_i+h_i)-2\mu_i e_i
 +D\sum_j A_{ij}(e_j-e_i)\right]dt
 +\sqrt{\frac{2\sigma_i^2}{N_i}(1-e_i^2)}\,dW_i.
 \tag{9}
-$$
+```
 
 The adjacency matrix $A$ declares material exchange, $D$ its rate,
 $N_i$ the effective molecular population, and $W_i$ independent noise
@@ -325,8 +325,8 @@ of those boundaries must enter the ledger.
 
 The circular-polarization result is similarly a credible seed receipt, not a
 complete origin scenario. Extraterrestrial material can also contain much
-larger excesses: L-isovaline excesses of $18.5\pm2.6\%$ in Murchison and
-$15.2\pm4.0\%$ in Orgueil were reported by
+larger excesses: L-isovaline excesses of $`18.5\pm2.6\,\%`$ in Murchison and
+$`15.2\pm4.0\,\%`$ in Orgueil were reported by
 [Glavin and Dworkin (2009)](https://doi.org/10.1073/pnas.0811618106).
 Those authors associated the enrichment with parent-body aqueous alteration;
 the observation does not identify circular polarization as the sole cause or
@@ -338,11 +338,11 @@ important conformational dependence
 [Tranter (1985)](https://doi.org/10.1080/00268978500102741). At $300\ \mathrm K$,
 a two-state equilibrium estimate gives
 
-$$
+```math
 |e_{\rm eq}|\simeq\frac{|\Delta E_{\rm PV}|}{2RT}
 \sim2.0\times10^{-18}.
 \tag{10}
-$$
+```
 
 The exact molecular value and even the preferred sign can depend on molecule,
 conformation, solvation, and calculation. Equation (10) is therefore a scale
@@ -362,14 +362,14 @@ Consequently, OPH may not assume that every possible replicator rewards the
 same-hand branch. The proposed prebiotic carrier must measure its own
 stereochemical copying matrix:
 
-$$
+```math
 K=
 \begin{pmatrix}
 k_{L\leftarrow L} & k_{L\leftarrow R}\\
 k_{R\leftarrow L} & k_{R\leftarrow R}
 \end{pmatrix},
 \tag{11}
-$$
+```
 
 together with degradation, inhibition, and resource-consumption rates. The
 branch claim is earned only if the measured dynamics reduce to a positive

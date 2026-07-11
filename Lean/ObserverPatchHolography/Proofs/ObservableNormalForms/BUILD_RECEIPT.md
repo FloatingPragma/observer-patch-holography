@@ -12,11 +12,11 @@ Mathlib commit 5e932f97dd25535344f80f9dd8da3aab83df0fe6
 Both integration modes succeeded:
 
 ```text
-cd reverse-engineering-reality/Lean
+cd <repository>/Lean
 lake build ObservableNormalForms
 Build completed successfully (8259 jobs).
 
-cd reverse-engineering-reality/Lean/ObserverPatchHolography/Proofs/ObservableNormalForms
+cd <artifact-root>
 lake build
 Build completed successfully (8259 jobs).
 ```
@@ -24,12 +24,12 @@ Build completed successfully (8259 jobs).
 The full parent project also succeeded:
 
 ```text
-cd reverse-engineering-reality/Lean
+cd <repository>/Lean
 lake build
 Build completed successfully (8265 jobs).
 ```
 
-That full build replays the pre-existing `ObserverPatchHolography` target and
+That full build replays the repository's pre-existing concrete target and
 therefore reports its three intentionally declared admissions in
 `Primitives.lean` (`localRepair`, `Repair`, and `repair_respects_gauge`).  Those
 declarations are outside this standalone artifact.  The

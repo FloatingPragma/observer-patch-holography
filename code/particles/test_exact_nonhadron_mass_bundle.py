@@ -57,7 +57,7 @@ def test_exact_nonhadron_mass_bundle_is_complete() -> None:
         assert "charged_determinant_trace_lift_attachment" in withheld["electron"]["missing_for_promotion"]
         assert "NO_TARGET_LEAK_DAG_CHARGED_A_CH" in withheld["electron"]["missing_for_promotion"]
         assert withheld["top_quark"]["reason"] == "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction"
-        assert withheld["tau_neutrino"]["reason"] == "compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table"
+        assert withheld["tau_neutrino"]["reason"] == "target_informed_candidate_rejected_by_correlated_profile"
         markdown = md.read_text(encoding="utf-8")
         assert "Public Non-Hadron Mass Outputs" in markdown
         assert "Bottom Quark" not in markdown

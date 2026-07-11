@@ -102,7 +102,7 @@ Abelian and non-Abelian candidates.
 
 The source branch is
 
-$$
+```math
 \mathsf{OPH}_{\mathrm{FQH}}
 =
 \mathsf{ObserverPatch}
@@ -114,18 +114,18 @@ $$
 \mathsf{EdgeCasimir}
 +
 \mathsf{FiniteQuotientEnsemble}.
-$$
+```
 
 The fixed-cutoff observer patch is
 
-$$
+```math
 \mathsf O_i=
 \left(
 \mathcal A_i,\rho_i,\mathcal R_i,
 (\mathcal I_e,\pi_{i,e})_{e\ni i},
 \mathcal U_i,\mathrm{Chk}_i
 \right),
-$$
+```
 
 where $\mathcal A_i$ is the accessible algebra, $\rho_i$ the state,
 $\mathcal R_i$ the record algebra, $\mathcal I_e$ the overlap-visible
@@ -146,7 +146,7 @@ tunneling, and interferometry readouts. Their source presentations differ.
 
 The continuum Landau-level FQH branch is
 
-$$
+```math
 \mathrm{FQH}_r =
 \left(
 2+1\mathrm{D},
@@ -158,12 +158,12 @@ P_{\mathrm{LL},r},
 \mathcal A_{\partial,r},
 \mathcal R_{\partial,r}
 \right).
-$$
+```
 
 The zero-field fractional-Chern or fractional-quantum-anomalous-Hall branch
-motivated by twisted MoTe$_2$ is instead
+motivated by twisted $`\mathrm{MoTe}_2`$ is instead
 
-$$
+```math
 \mathrm{FCI/FQAH}_r =
 \left(
 2+1\mathrm{D},
@@ -176,7 +176,7 @@ C_r\ne0,
 \mathcal A_{\partial,r},
 \mathcal R_{\partial,r}
 \right),
-$$
+```
 
 with a Chern-band projector, moire-cell filling, and a declared explicit or
 spontaneous time-reversal-breaking source and record. $N_\phi$ and a
@@ -190,7 +190,7 @@ either phase.
 For the continuum FQH branch, let the finite presentation space
 $\Sigma_r^{\mathrm{FQH}}$ consist of tuples
 
-$$
+```math
 s=
 \left(
 \mathcal D_r,
@@ -206,7 +206,7 @@ H_r^{\mathrm{eff}},
 \mathcal U_{\partial,r},
 \mathrm{Chk}_r
 \right).
-$$
+```
 
 Here $\mathcal D_r$ is the finite droplet, annulus, cylinder, sphere, or torus
 geometry; $\partial\mathcal D_r$ is the Hall collar; $B_r$ is flux data;
@@ -223,11 +223,11 @@ choices, mesh labels, electron labels, edge charts, port labels, repair
 schedules, hidden carrier coordinates, and inert ancillas. The physical
 quotient is
 
-$$
+```math
 Q_r^{\mathrm{FQH}}
 =
 \Sigma_r^{\mathrm{FQH}}/\Gamma_r^{\mathrm{FQH}}.
-$$
+```
 
 For the FCI/FQAH branch, replace $(B_r,N_{\phi,r},P_{\mathrm{LL},r})$ by the
 lattice or moire geometry, active Chern-band projector $P_{C,r}$, unit-cell
@@ -238,11 +238,11 @@ quotients, not a single presentation containing incompatible inputs.
 
 For the $\nu=5/2$ branch,
 
-$$
+```math
 \Sigma_r^{5/2}\subset \Sigma_r^{\mathrm{FQH}},
 \qquad
 \nu_r=\frac{N_{e,r}}{N_{\phi,r}}\to \frac52.
-$$
+```
 
 The arrow is a thermodynamic statement; finite spherical systems also carry a
 topological shift, so $N_\phi=\nu^{-1}N_e-\mathcal S$ rather than an exact
@@ -250,20 +250,20 @@ finite-size ratio.
 
 After subtracting two filled lower Landau levels,
 
-$$
+```math
 \nu_{\rm active,r}\to \frac12,
 \qquad
 Q_r^{5/2}=\Sigma_r^{5/2}/\Gamma_r^{5/2}.
-$$
+```
 
 ## Hall Normal Form
 
 The accepted repair map is
 
-$$
+```math
 n_r^{\mathrm{Hall}}:
 Q_r^{\mathrm{Hall}}\to N_r^{\mathrm{Hall}}.
-$$
+```
 
 Here $N_r^{\mathrm{Hall}}$ is either embedded in $Q_r^{\mathrm{Hall}}$ as a
 chosen set of representatives or supplied with an inclusion
@@ -273,7 +273,7 @@ idempotent or applying its pushforward twice.
 
 A Hall normal form is
 
-$$
+```math
 n_r^{\mathrm{Hall}}(q)
 =
 \left(
@@ -284,7 +284,7 @@ n_r^{\mathrm{Hall}}(q)
 \chi_r,
 \Theta_r
 \right).
-$$
+```
 
 $\mathcal E_{\partial,r}$ is a declared edge/collar realization, not by itself
 a bulk invariant: distinct reconstructed edges can bound the same bulk order.
@@ -292,20 +292,20 @@ $\mathcal H_{\mathrm{hol},r}$ is the Abelian holonomy lattice or
 non-Abelian higher-holonomy datum. $\mathcal C_r$ is the defect/fusion
 category. $\mathfrak e_r$ is the local electron object. The charge grading is
 
-$$
+```math
 \chi_r:\mathrm{Obj}(\mathcal C_r)\to \mathbb R/\mathbb Z.
-$$
+```
 
 $\Theta_r$ is the spin, braid, and modular-data package.
 
 The readout map is
 
-$$
+```math
 \mathrm{HallRead}_r:
 N_r^{\mathrm{Hall}}\to\mathcal Y_r^{\mathrm{Hall}},
-$$
+```
 
-$$
+```math
 \mathrm{HallRead}_r(n)
 =
 \left(
@@ -320,7 +320,7 @@ c_-,
 \mathcal S,
 \mathcal I_{\mathrm{int}}
 \right).
-$$
+```
 
 The components are filling fraction, electrical Hall conductance, minimal
 quasiparticle charge, chiral central charge, anyon set, fusion rules, exchange
@@ -336,7 +336,7 @@ this branch is terminating, quotient-descended, locally confluent, and
 repair-complete. Then every stable Hall phase has a schedule-independent normal
 form
 
-$$
+```math
 n_r^{\mathrm{Hall}}(q)
 =
 \left(
@@ -345,7 +345,7 @@ n_r^{\mathrm{Hall}}(q)
 \text{defect/higher-defect data},
 \text{record readout}
 \right).
-$$
+```
 
 If the residual defect datum is Abelian, it is recorded by an integral
 holonomy lattice together with its charge and quadratic/braiding pairing. If it
@@ -375,31 +375,31 @@ normal form. $\square$
 On the Abelian branch, let $\Lambda\simeq\mathbb Z^N$ be the stable defect
 lattice, let
 
-$$
+```math
 K:\Lambda\times\Lambda\to\mathbb Z
-$$
+```
 
 be a nondegenerate symmetric integral pairing, and let $t\in\Lambda^\ast$ be
 the electromagnetic charge vector. On an electronic branch require a primitive
 unit-charge vector and the fermionic parity condition
 
-$$
+```math
 n^TKn\equiv t^Tn\pmod 2
 \qquad(n\in\mathbb Z^N).
-$$
+```
 
 **Statement.** On the Abelian branch,
 
-$$
+```math
 n_r^{\mathrm{Hall}}(q)=[K,t]
-$$
+```
 
 where the brackets identify
 
-$$
+```math
 (K,t)\sim(W^TKW,W^Tt),
 \qquad W\in GL(N,\mathbb Z),
-$$
+```
 
 and, when declared, stable addition or removal of explicitly specified
 counter-propagating null-response blocks. An arbitrary unimodular block is not
@@ -407,34 +407,34 @@ automatically trivial: an invertible Hall or neutral chiral phase can change
 electrical or thermal response. Without the stated quotient, $(K,t)$ is a
 coordinate presentation rather than a normal form. Its readouts are
 
-$$
+```math
 \nu=t^TK^{-1}t,
 \qquad
 \mathcal A_{\rm qp}=\Lambda^\ast/K\Lambda
 \simeq\mathbb Z^N/K\mathbb Z^N,
-$$
+```
 
-$$
+```math
 Q_\ell/e=t^TK^{-1}\ell,
 \qquad
 \theta_\ell=\pi\ell^TK^{-1}\ell,
-$$
+```
 
-$$
+```math
 \theta_{\ell,\ell'}=2\pi\ell^TK^{-1}\ell'.
-$$
+```
 
 Charges are defined modulo local integer charge and the angles modulo $2\pi$
 (with the transparent-local-fermion qualification on a spin theory). The
 transport units are
 
-$$
+```math
 \sigma_{xy}=\nu\frac{e^2}{h},
 \qquad
 \frac{\kappa_{xy}}{T}
 =
 c_-\frac{\pi^2k_B^2}{3h}
-$$
+```
 
 when the edge is thermally equilibrated.
 For a minimal Abelian Chern--Simons presentation $c_-=\operatorname{sig}(K)$;
@@ -445,39 +445,39 @@ removed.
 $\ell\in\Lambda^\ast\simeq\mathbb Z^N$. Local excitations form the sublattice
 $K\Lambda\subset\Lambda^\ast$. Hence quotient-visible quasiparticles are
 
-$$
+```math
 \mathcal A_{\rm qp}
 =
 \Lambda^\ast/K\Lambda
 \simeq
 \mathbb Z^N/K\mathbb Z^N.
-$$
+```
 
 The electromagnetic charge readout pairs $t$ with the inverse holonomy
 pairing:
 
-$$
+```math
 Q_\ell/e=t^TK^{-1}\ell.
-$$
+```
 
 The Abelian linking form gives mutual braiding
 
-$$
+```math
 \theta_{\ell,\ell'}=2\pi\ell^TK^{-1}\ell',
-$$
+```
 
 and self-statistics
 
-$$
+```math
 \theta_\ell=\pi\ell^TK^{-1}\ell.
-$$
+```
 
 The response of the edge/collar current to the background electromagnetic
 connection is
 
-$$
+```math
 \nu=t^TK^{-1}t.
-$$
+```
 
 Thus a declared Abelian $U(1)^N$ Chern-Simons branch has the standard
 $K$-matrix readout. This is a recovery of conventional mathematics in the OPH
@@ -488,20 +488,20 @@ topological order. $\square$
 
 For one generator,
 
-$$
+```math
 K=(m),\qquad t=(1),
-$$
+```
 
 so
 
-$$
+```math
 \nu=\frac1m,\qquad
 \mathcal A_{\rm qp}=\mathbb Z_m,
 \qquad
 Q_\ell/e=\frac{\ell}{m},
 \qquad
 \theta_\ell=\frac{\pi\ell^2}{m}.
-$$
+```
 
 Odd $m$ gives the fermionic Laughlin branch.
 
@@ -510,35 +510,35 @@ Odd $m$ gives the fermionic Laughlin branch.
 For the Jain branch with $n$ filled composite-fermion levels and $2p$ flux
 attachments, take
 
-$$
+```math
 K=I_n+2p\,\mathbf 1_n\mathbf 1_n^T,
 \qquad
 t=(1,\ldots,1)^T.
-$$
+```
 
 Using Sherman-Morrison,
 
-$$
+```math
 K^{-1}
 =
 I_n-\frac{2p}{1+2pn}\mathbf 1_n\mathbf 1_n^T,
-$$
+```
 
 which gives
 
-$$
+```math
 \nu=t^TK^{-1}t
 =
 n-\frac{2pn^2}{1+2pn}
 =
 \frac{n}{2pn+1}.
-$$
+```
 
 For the reverse-flux convention use
 
-$$
+```math
 K=-I_n+2p\,\mathbf 1_n\mathbf 1_n^T,
-$$
+```
 
 which gives $\nu=n/(2pn-1)$ when $2pn>1$.
 
@@ -547,7 +547,7 @@ which gives $\nu=n/(2pn-1)$ when $2pn>1$.
 **Statement.** In the conventional Haldane-Halperin daughter-fluid
 construction, adjoining one statistical gauge field gives the presentation
 
-$$
+```math
 K'=
 \begin{pmatrix}
 K & \ell\\
@@ -559,7 +559,7 @@ t'=
 t\\
 0
 \end{pmatrix},
-$$
+```
 
 provided $\ell$ and $m$ obey the required integrality, fermionic parity,
 nondegeneracy, and charge-conservation conditions. Iterating an admissible step
@@ -580,9 +580,9 @@ An Abelian normal form is pointed: every simple sector is invertible and fusion
 is group-like. A non-Abelian normal form contains at least one simple object
 $a$ with quantum dimension $d_a>1$, equivalently a fusion product
 
-$$
+```math
 a\times b=\sum_c N_{ab}^c\,c
-$$
+```
 
 with more than one allowed output or a non-invertible simple object.
 
@@ -610,17 +610,17 @@ must therefore retain its non-pointed fusion and braid data. $\square$
 **Statement.** Let $q\in Q_r^{5/2}$ be a Hall quotient state whose observed
 readout includes
 
-$$
+```math
 \nu=\frac52,\qquad e^\ast=\frac e4,
-$$
+```
 
 and an Ising/Majorana fusion package
 
-$$
+```math
 \sigma\times\sigma=1+\psi,\qquad
 \psi\times\psi=1,\qquad
 \sigma\times\psi=\sigma.
-$$
+```
 
 Then $n_r^{5/2}(q)$ cannot be purely Abelian. It must include a noncentral
 neutral repair sector.
@@ -633,9 +633,9 @@ form the finite Abelian group $\mathbb Z^N/K\mathbb Z^N$, and fusion is group
 addition. Fusion of two simple sectors gives a single simple sector. The Ising
 rule
 
-$$
+```math
 \sigma\times\sigma=1+\psi
-$$
+```
 
 has two distinct outputs. Thus $\sigma$ is non-invertible and has quantum
 dimension $\sqrt2$. By Theorem 4, this is impossible in a pointed Abelian
@@ -647,9 +647,9 @@ sector. $\square$
 **Statement.** The readout consisting only of filling fraction and minimal
 charge,
 
-$$
+```math
 (\nu,e^\ast)=\left(\frac52,\frac e4\right),
-$$
+```
 
 does not injectively determine the $5/2$ topological order.
 
@@ -659,13 +659,13 @@ carry a charge $e/4$ quasiparticle and the same filling fraction. They differ
 in neutral sector, chirality, edge content, particle-hole realization, and
 thermal Hall response. Since the map
 
-$$
+```math
 \mathrm{HallRead}_{\mathrm{charge}}:
 N_r^{5/2}\to
 \mathbb R^2,
 \qquad
 n\longmapsto(\nu(n),e^\ast(n)/e)
-$$
+```
 
 collapses those neutral and edge distinctions, it is not injective. Charge
 holonomy alone cannot select the material $5/2$ topological order. $\square$
@@ -674,39 +674,39 @@ holonomy alone cannot select the material $5/2$ topological order. $\square$
 
 **Statement.** Let
 
-$$
+```math
 N_r^{5/2}
 =
 N_{\rm Pf}\sqcup N_{\rm APf}\sqcup N_{\rm PH}\sqcup N_{\rm Ab}\sqcup\cdots
-$$
+```
 
 be a finite or regulated set of candidate $5/2$ normal-form sectors. The
 normal-form projector
 
-$$
+```math
 n_r:Q_r^{5/2}\to N_r^{5/2}
-$$
+```
 
 does not select a unique material sector unless the branch supplies an
 additional quotient-intrinsic ensemble or action
 
-$$
+```math
 \mu_r(q)=Z_r^{-1}m_r(q)e^{-S_r(q)}.
-$$
+```
 
 **Proof.** Let $i_r:N_r^{5/2}\hookrightarrow Q_r^{5/2}$ be the declared
 inclusion with $n_r\circ i_r=\mathrm{id}$. The induced self-map on probability
 laws over $Q_r^{5/2}$ is
 
-$$
+```math
 \mathcal C(\mu)=(i_r)_\#(n_r)_\#\mu.
-$$
+```
 
 It is idempotent:
 
-$$
+```math
 \mathcal C^2=\mathcal C.
-$$
+```
 
 Every law supported on the embedded normal forms is fixed. In particular, a law supported
 entirely on $N_{\rm Pf}$, a law supported entirely on $N_{\rm APf}$, and a
@@ -718,11 +718,11 @@ material sector requires extra source-side weights or action data. $\square$
 
 **Statement.** For any probability vector
 
-$$
+```math
 (p_X)_{X\in\mathcal X},
 \qquad
 \sum_X p_X=1,
-$$
+```
 
 over a finite set of candidate $5/2$ sectors $\mathcal X$, there exists a
 quotient-intrinsic action $S_r$ whose induced sector probabilities are
@@ -732,20 +732,20 @@ $(p_X)$. Therefore normal-form data alone cannot imply a unique sector.
 $Q_{r,X}=n_r^{-1}(N_{r,X})$. At finite regulator choose a base measure $m_r$
 with $0<M_X:=m_r(Q_{r,X})<\infty$. Define an extended action on $Q_r$ by
 
-$$
+```math
 e^{-S_r(q)}=\frac{p_X}{M_X}
 \quad
 \text{for } q\in Q_{r,X},
-$$
+```
 
 where $p_X=0$ means $S_r=+\infty$ on that sector.
 
 Then the partition function is
 
-$$
+```math
 Z_r=\sum_X\int_{Q_{r,X}}m_r(dq)\frac{p_X}{M_X}
 =\sum_X p_X=1.
-$$
+```
 
 The induced probability of sector $X$ is $p_X$. Since every probability
 vector over candidate sectors can be realized by some quotient action, the
@@ -757,7 +757,7 @@ material outcome would violate the no-target-leak rule. $\square$
 
 A positive $5/2$ selector requires the object
 
-$$
+```math
 \mathfrak S_r^{5/2}
 =
 \left(
@@ -768,7 +768,7 @@ c_{sr},
 \{P_{r,X}\}_{X\in\mathcal X},
 \mathrm{HallRead}_r
 \right).
-$$
+```
 
 $Q_r^{5/2}$ is the finite physical quotient. $m_r$ is the base measure.
 $S_r$ is a dimensionless source-side action (or an explicitly declared
@@ -786,24 +786,24 @@ and any substrate-specific term used by the claimed selector.
 **Statement.** Suppose $\mathfrak S_r^{5/2}$ is supplied and the sector
 weights
 
-$$
+```math
 W_r(X)
 =
 \sum_{q\in P_{r,X}Q_r^{5/2}}
 m_r(q)e^{-S_r(q)}
-$$
+```
 
 are positive and have a unique maximizer $X_\star$. Define the log-weight
 margin
 
-$$
+```math
 g_r^W
 =
 \min_{Y\ne X_\star}
 \left[
 -\log W_r(Y)+\log W_r(X_\star)
 \right]
-$$
+```
 
 If $g_r^W\to+\infty$ for the same eventual sector $X_\star$, then its
 sector probability tends to one. A finite positive margin identifies only the
@@ -812,26 +812,26 @@ refinement stability by itself.
 
 **Proof.** The sector probability is
 
-$$
+```math
 \Pr_r(X)=\frac{W_r(X)}{\sum_Y W_r(Y)}.
-$$
+```
 
 For $Y\ne X_\star$,
 
-$$
+```math
 \frac{W_r(Y)}{W_r(X_\star)}
 \le e^{-g_r^W}.
-$$
+```
 
 Thus
 
-$$
+```math
 \Pr_r(X_\star)
 =
 \frac{1}{1+\sum_{Y\ne X_\star}W_r(Y)/W_r(X_\star)}
 \ge
 \frac{1}{1+(|\mathcal X|-1)e^{-g_r^W}}.
-$$
+```
 
 If $g_r^W\to+\infty$, the bound tends to one. $\square$
 
@@ -839,48 +839,48 @@ If $g_r^W\to+\infty$, the bound tends to one. $\square$
 
 **Statement.** Let $c_{sr}:Q_s\to Q_r$ be refinement maps. If
 
-$$
+```math
 (c_{sr})_\#\mu_s=\mu_r
-$$
+```
 
 and the sector labels intertwine with refinement up to null sets,
 
-$$
+```math
 P_{s,X}Q_s
 =
 c_{sr}^{-1}(P_{r,X}Q_r)
 \quad(\mathrm{mod}\ \mu_s),
-$$
+```
 
 for each sector $X$, then the sector probabilities are refinement-compatible:
 
-$$
+```math
 \Pr_s(X)=\Pr_r(X).
-$$
+```
 
 More generally, let $\epsilon_{sr}$ bound the total-variation defect of the
 pushforward law and define the sector-label mismatch
 
-$$
+```math
 \delta_{sr,X}
 =
 \mu_s\!\left(
 P_{s,X}Q_s\,\triangle\,
 c_{sr}^{-1}(P_{r,X}Q_r)
 \right).
-$$
+```
 
 Then
 
-$$
+```math
 |\Pr_s(X)-\Pr_r(X)|
 \le
 \epsilon_{sr}+\delta_{sr,X}.
-$$
+```
 
 **Proof.** Exact compatibility gives
 
-$$
+```math
 \Pr_s(X)
 =
 \mu_s(P_{s,X}Q_s)
@@ -890,7 +890,7 @@ $$
 \mu_r(P_{r,X}Q_r)
 =
 \Pr_r(X).
-$$
+```
 
 The approximate statement follows by adding and subtracting
 $\mu_s(c_{sr}^{-1}(P_{r,X}Q_r))$, then applying total variation and the
@@ -915,7 +915,7 @@ The fractional-exciton sandbox uses the same quotient logic with one extra
 public readout layer. A fractional Chern or fractional Hall material is
 presented as
 
-$$
+```math
 \mathcal F_{x,r}
 =
 \left(
@@ -928,23 +928,23 @@ Q_{x,r},
 \right),
 \qquad
 Q_{x,r}=\Sigma^{\mathrm{mat}}_{x,r}/\Gamma_{x,r}.
-$$
+```
 
 The source law or Hamiltonian is mandatory. A normal form classifies the
 surviving sector, but it does not select which material phase a sample realizes.
 The required source-side tags are
 
-$$
+```math
 \mathrm{SOURCE\_LAW\_REQUIRED},
 \qquad
 \mathrm{NORMAL\_FORM\_IS\_NOT\_SELECTOR}.
-$$
+```
 
 For a fractional Chern sandbox, a projected interacting Chern-band Hamiltonian
 and its optical extension are only candidate source objects until they emit a
 material promotion certificate:
 
-$$
+```math
 \mathrm{PhaseCert}_{x,r}
 =
 \left(
@@ -952,7 +952,7 @@ C,\nu,\Delta,G,\sigma_{xy},\mathrm{Pump},
 \mathrm{Edge},\mathrm{Ent},\mathrm{Anyon},\mathrm{Modular},
 \mathrm{Refine}
 \right).
-$$
+```
 
 The certificate must freeze the source Hamiltonian before comparison and carry
 public receipts for the active band projector, Chern number, band geometry,
@@ -963,9 +963,9 @@ correct result is `SECTOR_AMBIGUOUS`.
 
 Optical fractional excitons add a module category
 
-$$
+```math
 \mathcal M_{\mathrm{opt}}
-$$
+```
 
 over the topological sector category. Each optically active object has a
 predicted topological shadow $\tau_{\mathrm{pred}}$, modeled total
@@ -974,29 +974,29 @@ binding-energy data. Those topological labels are candidate annotations. A
 minimal measured record instead lies in an observable space
 $\mathcal Y_{\mathrm{opt}}$:
 
-$$
+```math
 y=(\Delta E,I,\partial_g\Delta E,\mathrm{pol},\eta,\ldots)
 \in\mathcal Y_{\mathrm{opt}}.
-$$
+```
 
 Each frozen candidate $m$ supplies an acceptance region
 $R_m\subseteq\mathcal Y_{\mathrm{opt}}$. The annotated prediction ledger is
 
-$$
+```math
 \widehat{\mathcal L}_{\mathrm{opt}}
 =
 \{(R_m,\tau_{\mathrm{pred}}(m),Q_{\mathrm{tot}}(m)):m\in\mathcal X\}.
-$$
+```
 
 A gate or field slope identifies charge only when the lever arm and all
 binding or nuisance derivatives are independently bounded. A neutral
 composite may have
 
-$$
+```math
 Q_{\mathrm{tot}}=0,
 \qquad
 \tau_{\mathrm{pred}}^{\mathrm{rel}}\ne 1,
-$$
+```
 
 so its leading charge slope may vanish while an internal relative fusion
 channel remains nontrivial. A strictly local photon operator preserves the
@@ -1027,15 +1027,15 @@ packages its bulk invariants, compatible edge realization, readback, and
 evidence receipts as a self-reading patch. On the Abelian $U(1)^N$
 Chern-Simons branch the normal form is an equivalence class $[K,t]$, with
 
-$$
+```math
 \nu=t^TK^{-1}t,\qquad
 \mathcal A_{\rm qp}=\Lambda^\ast/K\Lambda,
-$$
+```
 
-$$
+```math
 Q_\ell/e=t^TK^{-1}\ell,\qquad
 \theta_\ell=\pi\ell^TK^{-1}\ell.
-$$
+```
 
 The conventional hierarchy admits block-matrix presentations subject to its
 integrality, parity, and charge constraints. At $\nu=5/2$, an independently

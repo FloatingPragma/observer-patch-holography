@@ -130,7 +130,7 @@
       "exists": true,
       "path": "particles/runs/neutrino/neutrino_lane_closure_contract.json",
       "promotion_allowed": null,
-      "status": "scale_free_weighted_cycle_with_compare_only_absolute_attachment_candidate"
+      "status": "target_informed_weighted_cycle_candidate_with_compare_only_absolute_attachment"
     },
     "p_trunk": {
       "artifact": "oph_p_closure_trunk_current",
@@ -217,7 +217,7 @@
     "source_only_hadrons_suppressed_by_default": true,
     "source_spectral_stage_gate": "populated source spectral measure payload plus interval certificate"
   },
-  "generated_utc": "2026-06-29T10:22:10Z",
+  "generated_utc": "2026-07-11T04:19:04Z",
   "issue_gates": [
     {
       "chrome_workers": "not_needed_for_closed_certificate",
@@ -530,7 +530,7 @@
         "formula_sigma_u_edge": "S_13 + rho_ord*delta21/(1+rho_ord)",
         "mean_denominator": 2.026389321714338,
         "required_R_d": -0.1247947151634663,
-        "required_R_eta": 0.06015216874309148,
+        "required_R_eta": 0.060152168743091705,
         "required_R_seed": -0.06464254642037481,
         "required_R_u": -0.004490377677282886,
         "rho_ord": 1.2942849363777058,
@@ -573,7 +573,7 @@
         "formula_sigma_u_edge": "S_13 + rho_ord*delta21/(1+rho_ord)",
         "mean_denominator": 2.026389321714338,
         "required_R_d": -0.1247947151634663,
-        "required_R_eta": 0.06015216874309148,
+        "required_R_eta": 0.060152168743091705,
         "required_R_seed": -0.06464254642037481,
         "required_R_u": -0.004490377677282886,
         "rho_ord": 1.2942849363777058,
@@ -616,7 +616,7 @@
         "formula_sigma_u_edge": "S_13 + rho_ord*delta21/(1+rho_ord)",
         "mean_denominator": 2.026389321714338,
         "required_R_d": -0.1247947151634663,
-        "required_R_eta": 0.06015216874309148,
+        "required_R_eta": 0.060152168743091705,
         "required_R_seed": -0.06464254642037481,
         "required_R_u": -0.004490377677282886,
         "rho_ord": 1.2942849363777058,
@@ -659,7 +659,7 @@
         "formula_sigma_u_edge": "S_13 + rho_ord*delta21/(1+rho_ord)",
         "mean_denominator": 2.026389321714338,
         "required_R_d": -0.1247947151634663,
-        "required_R_eta": 0.06015216874309148,
+        "required_R_eta": 0.060152168743091705,
         "required_R_seed": -0.06464254642037481,
         "required_R_u": -0.004490377677282886,
         "rho_ord": 1.2942849363777058,
@@ -702,7 +702,7 @@
         "formula_sigma_u_edge": "S_13 + rho_ord*delta21/(1+rho_ord)",
         "mean_denominator": 2.026389321714338,
         "required_R_d": -0.1247947151634663,
-        "required_R_eta": 0.06015216874309148,
+        "required_R_eta": 0.060152168743091705,
         "required_R_seed": -0.06464254642037481,
         "required_R_u": -0.004490377677282886,
         "rho_ord": 1.2942849363777058,
@@ -745,7 +745,7 @@
         "formula_sigma_u_edge": "S_13 + rho_ord*delta21/(1+rho_ord)",
         "mean_denominator": 2.026389321714338,
         "required_R_d": -0.1247947151634663,
-        "required_R_eta": 0.06015216874309148,
+        "required_R_eta": 0.060152168743091705,
         "required_R_seed": -0.06464254642037481,
         "required_R_u": -0.004490377677282886,
         "rho_ord": 1.2942849363777058,
@@ -755,29 +755,29 @@
       }
     },
     {
-      "exact_kind": "scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate",
+      "exact_kind": "rejected_target_informed_weighted_cycle_candidate",
       "label": "Electron Neutrino",
       "particle_id": "electron_neutrino",
       "promotable": false,
-      "reason": "compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table",
+      "reason": "target_informed_candidate_rejected_by_correlated_profile",
       "scope": "weighted_cycle_bridge_rigid_absolute_family",
       "source_artifact": "code/particles/runs/neutrino/neutrino_absolute_attachment_theorem.json"
     },
     {
-      "exact_kind": "scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate",
+      "exact_kind": "rejected_target_informed_weighted_cycle_candidate",
       "label": "Muon Neutrino",
       "particle_id": "muon_neutrino",
       "promotable": false,
-      "reason": "compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table",
+      "reason": "target_informed_candidate_rejected_by_correlated_profile",
       "scope": "weighted_cycle_bridge_rigid_absolute_family",
       "source_artifact": "code/particles/runs/neutrino/neutrino_absolute_attachment_theorem.json"
     },
     {
-      "exact_kind": "scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate",
+      "exact_kind": "rejected_target_informed_weighted_cycle_candidate",
       "label": "Tau Neutrino",
       "particle_id": "tau_neutrino",
       "promotable": false,
-      "reason": "compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table",
+      "reason": "target_informed_candidate_rejected_by_correlated_profile",
       "scope": "weighted_cycle_bridge_rigid_absolute_family",
       "source_artifact": "code/particles/runs/neutrino/neutrino_absolute_attachment_theorem.json"
     }

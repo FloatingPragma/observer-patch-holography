@@ -1,6 +1,6 @@
 # Particle Pipeline Closure Status
 
-Generated: `2026-06-29T10:22:10Z`
+Generated: `2026-07-11T04:19:04Z`
 
 Single closure gate for source-only rows and empirical hadron closure rows.
 
@@ -38,7 +38,7 @@ Single closure gate for source-only rows and empirical hadron closure rows.
 
 | Topic | Claim label | Boundary | Gate |
 | --- | --- | --- | --- |
-| Strong CP | `open_theta_qcd_bar_theta_vanishing_gap` | The selected-class quark support wrapper conditionally carries the running-quark sextet and exact forward Yukawas on the public class f_P, with a target-derived sigma datum. The available corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes. | Keep strong CP explicit as an open branch. Reopen only for a theorem-grade descent from exact quark/Yukawa phase data to the determinant-line phase contribution, together with a theorem fixing the topological-angle contribution and proving the physical strong-CP phase vanishes on the realized branch. |
+| Strong CP | `open_theta_qcd_bar_theta_vanishing_gap` | The selected-class quark support wrapper conditionally carries the running-quark sextet and exact forward Yukawas on the public class f_P, but its sigma datum is still target-derived. The available corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes. | Keep strong CP explicit as an open branch. Reopen only for a theorem-grade descent from exact quark/Yukawa phase data to the determinant-line phase contribution, together with a theorem fixing the topological-angle contribution and proving the physical strong-CP phase vanishes on the realized branch. |
 
 ## Latest Non-Hadron Predictions
 
@@ -62,9 +62,9 @@ Single closure gate for source-only rows and empirical hadron closure rows.
 | `down_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
 | `strange_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
 | `bottom_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
-| `electron_neutrino` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table |
-| `muon_neutrino` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table |
-| `tau_neutrino` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table |
+| `electron_neutrino` | `rejected_target_informed_weighted_cycle_candidate` | target_informed_candidate_rejected_by_correlated_profile |
+| `muon_neutrino` | `rejected_target_informed_weighted_cycle_candidate` | target_informed_candidate_rejected_by_correlated_profile |
+| `tau_neutrino` | `rejected_target_informed_weighted_cycle_candidate` | target_informed_candidate_rejected_by_correlated_profile |
 
 ## Finalization Gates
 

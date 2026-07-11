@@ -6,7 +6,7 @@ This note entered the queue because several precision results kept pointing at
 the same hadronic boundary. The immediate trigger was the final Fermilab muon
 `g-2` result: the combined Run 1--6 value reached 127 ppb precision, while the
 new experimental world average reached 124 ppb
-([Muon $g-2$ Collaboration, 2025](https://muon-g-2.fnal.gov/result2025.pdf)).
+([Muon g−2 Collaboration, 2025](https://muon-g-2.fnal.gov/result2025.pdf)).
 The same hadronic boundary also appears in rare-decay audits: LHCb reported the
 rare `Sigma+ -> p mu+ mu-` observation in 2024
 ([CERN](https://home.cern/lhcb-investigates-rare-s-pmm-decay/)), while updated
@@ -36,7 +36,7 @@ correlators, operators, and analytic continuations. A useful common interface
 is therefore a typed hadronic precision backend rather than one informal
 `rho_had(s)`:
 
-$$
+```math
 \mathscr H_{\rm had}^{\rm OPH}(P)
 =
 \left(
@@ -50,7 +50,7 @@ d\rho_Q^{(2)}(s;P),
 \Xi_Q(P),
 \mathcal E_{\rm sys}(P)
 \right).
-$$
+```
 
 ## Shared Backend, Distinct Observables
 
@@ -60,11 +60,11 @@ $g-2$. It is not enough for hadronic light-by-light or rare-decay
 long-distance amplitudes. Those require tensor-valued four-current correlators
 and generally complex transition amplitudes:
 
-$$
+```math
 \Gamma_{QQQQ}^{(4)}(P),
 \qquad
 \mathcal A_{\rm tr}^{B,\Sigma}(P).
-$$
+```
 
 The scalar two-point measure is therefore one marginal of a larger hadronic
 precision functor, not the whole backend.
@@ -92,7 +92,7 @@ evidence that the property holds.
 
 For regulator $r$, the source QCD ensemble is
 
-$$
+```math
 \mathfrak Q_r^{\rm QCD}(P)
 =
 \left(
@@ -107,7 +107,7 @@ c_{sr},
 \right),
 \qquad
 Q_r^{\rm QCD}=\Sigma_r^{\rm QCD}/\Gamma_r^{\rm QCD}.
-$$
+```
 
 $\Sigma_r^{\rm QCD}$ contains finite gauge links, quark fields, boundary
 conditions, source masses, couplings, current insertions, operator basis,
@@ -121,11 +121,11 @@ redundancy; it cannot be obtained by listing a physical label as hidden.
 
 The source law is
 
-$$
+```math
 \mu_r^{\rm QCD}(q;P)
 =
 Z_r^{-1}m_r^{\rm QCD}(q)\exp[-S_r^{\rm QCD}(q;P)].
-$$
+```
 
 This positive Gibbs notation is appropriate only when the Euclidean weight is
 real, nonnegative, normalizable, and dimensionless--for example the standard
@@ -158,7 +158,7 @@ calibration, not source-only OPH.
 
 The missing source map is
 
-$$
+```math
 \mathcal P_{\rm QCD}^{\rm src}:
 P
 \mapsto
@@ -168,7 +168,7 @@ g_3(P),
 m_u(P),m_d(P),m_s(P),m_c(P),m_b(P),m_t(P),
 Z_{\rm scheme}(P)
 \right).
-$$
+```
 
 Without this map, a lattice or simulator backend can be a high-quality
 Standard Model/QCD comparison engine, but not a fully OPH-native source theorem.
@@ -180,7 +180,7 @@ hadron spectroscopy, the row is not source-only.
 For receipt testing, one may introduce the following finite graph transfer
 surrogate:
 
-$$
+```math
 \mathfrak S_r^{E,{\rm QCD}}(P)
 =
 \left(
@@ -191,18 +191,18 @@ V_r,
 a_{t,r},
 \Theta_r^{\rm RP}
 \right).
-$$
+```
 
 With $J_r(q,q')=J_r(q',q)\ge0$, the finite Euclidean Hamiltonian has form
 
-$$
+```math
 (H_r^E f)(q)
 =
 \frac{1}{m_r^0(q)}
 \sum_{q'}J_r(q,q')\bigl(f(q)-f(q')\bigr)
 +
 V_r(q)f(q).
-$$
+```
 
 If $J_r$ is symmetric nonnegative, the event graph is connected,
 $m_r^0(q)>0$, and $V_r:Q_r\to\mathbb R$ is real, this finite operator
@@ -211,15 +211,15 @@ nondegenerate strictly positive ground state by
 $\sum_q|\Omega_r(q)|^2m_r^0(q)=1$. It defines the finite ground-state
 Born measure
 
-$$
+```math
 \mu_r^{\rm vac}(q;P)=|\Omega_r(q;P)|^2m_r^0(q),
-$$
+```
 
 The Euclidean transfer operator is
 
-$$
+```math
 T_r=e^{-a_{t,r}(H_r^E-E_{0,r})}.
-$$
+```
 
 It is not generally a Markov kernel because $T_r1\ne1$. If the semigroup
 is positivity preserving, the ground-state/Doob transform
@@ -239,11 +239,11 @@ alone is not automatically an OPH vacuum.
 
 Assuming a valid OPH-QCD continuum and confinement certificate, define
 
-$$
+```math
 \mathcal H_{\rm had}(P)
 =
 \overline{\mathcal H_{\rm phys}^{\rm QCD}(P)}.
-$$
+```
 
 Here $\mathcal H_{\rm phys}^{\rm QCD}$ denotes gauge-invariant physical
 states satisfying the declared constraints and carrying the relevant
@@ -266,7 +266,7 @@ The electromagnetic current must be a declared conserved or renormalized
 current on the same $U(1)_Q$ branch as the Maxwell endpoint. For a local
 continuum-like lattice current, the schematic definition is
 
-$$
+```math
 J_Q^{R,\mu}(x;P)
 =
 Z_V(P)
@@ -275,22 +275,22 @@ Z_V(P)
 \right]
 +
 J_{\rm improvement}^{\mu}(x;P).
-$$
+```
 
 An exactly conserved discretized current may instead have $Z_V=1$. Contact
 terms belong to time-ordered correlator Ward identities, not generically to
 the one-current operator. After their declared subtraction, the correlator
 must satisfy
 
-$$
+```math
 \partial_\mu J_Q^{W,R,\mu}=0,
 \qquad
 q_\mu\Pi_Q^{\mu\nu}(q;P)=0.
-$$
+```
 
 The current-normalization ledger is
 
-$$
+```math
 \mathcal N_Q(P)
 =
 \left(
@@ -302,7 +302,7 @@ J_{\rm contact},
 \Omega_Q,
 \text{scheme}
 \right).
-$$
+```
 
 Without this ledger, the spectral measure has an arbitrary normalization
 ambiguity.
@@ -322,13 +322,13 @@ function or finite-volume operator and set
 $\psi_\lambda=J_Q^{R,\lambda}(f)\Omega_P$. The positive two-current
 spectral marginal is the quadratic spectral measure
 
-$$
+```math
 d\rho_Q^{(2)}(s;P)
 =
 \frac13\sum_{\lambda=1}^{3}
 \langle\psi_\lambda,
 E_{\rm had}(ds;P)\psi_\lambda\rangle.
-$$
+```
 
 If $\mathcal H_{\rm had}(P)$ exists and the smeared current states lie in
 it, then
@@ -343,10 +343,10 @@ The simulator should not fit a free continuous spectrum as the primary object.
 It should export a positive Stieltjes representation. Raw positive moments
 need not exist in an ultraviolet QFT, so use either a declared cutoff:
 
-$$
+```math
 \mu_n^{(\Lambda)}(P)=\int_{s_{\rm th}}^{\Lambda^2}
 s^n\,d\rho_Q^{(2)}(s;P),
-$$
+```
 
 or finite inverse moments such as
 $\nu_n(Q_0^2)=\int(s+Q_0^2)^{-n-1}d\rho(s)$, with the subtraction and
@@ -354,13 +354,13 @@ kernel stated. For any resulting finite positive moment sequence, the
 corresponding Hankel matrices must be positive semidefinite.
 The endpoint export is
 
-$$
+```math
 \left(
 J_{24,Q}(P),
 \omega_Q(P),
 \Xi_Q(P)
 \right).
-$$
+```
 
 $J_{24,Q}$ must come from the moment sequence or a Lanczos/Stieltjes
 procedure. If its nodes and weights are chosen after seeing $\alpha(0)$, the
@@ -370,7 +370,7 @@ object is a back-solve.
 
 The remainder is a mutually exclusive same-scheme ledger:
 
-$$
+```math
 \Xi_Q(P)
 =
 \Xi_{\rm sub}
@@ -388,7 +388,7 @@ $$
 \Xi_{\rm cont}
 +
 \Xi_{\rm contact}.
-$$
+```
 
 All terms must be in the same electromagnetic convention as $A_Z(P)$ and
 $A_{\rm Th}(P)$. `QED` and `EW` here may contain only corrections not
@@ -401,7 +401,7 @@ counted. Each row needs an inclusion/exclusion definition and units.
 If OPH emits $d\rho_Q^{(2)}(s;P)$ and $\Xi_Q(P)$, then the following
 declared spacelike kernel is a conditional endpoint map:
 
-$$
+```math
 \Delta_{\rm had}(P)
 =
 \frac{m_Z(P)^2}{3\pi}
@@ -410,7 +410,7 @@ $$
 {s[s+m_Z(P)^2]}
 +
 \Xi_Q(P)
-$$
+```
 
 is source-side under the normalization used to define $d\rho$. The plus sign
 in $s+m_Z^2$ makes this a spacelike Euclidean kernel. A timelike
@@ -418,7 +418,7 @@ $Z$-pole quantity requires the corresponding analytic continuation,
 principal-value/resonance treatment, and scheme conversion; it cannot be
 silently identified with this integral. If
 
-$$
+```math
 A_{\rm Th}(P)
 =
 A_Z(P)
@@ -428,7 +428,7 @@ A_Z(P)
 \Delta_{\rm had}(P)
 +
 \Delta_{\rm EW}(P)
-$$
+```
 
 and $G(P)=\varphi+\sqrt\pi/A_{\rm Th}(P)$ is a contraction on the declared
 interval, then the pixel fixed point $P_\star$ is unique and
@@ -438,7 +438,7 @@ $\alpha(0)=1/A_{\rm Th}(P_\star)$.
 
 The common interface must preserve object type. Define schematically
 
-$$
+```math
 \mathscr R_{\rm had}^{\rm OPH}
 :
 (J_1,\ldots,J_n;\mathcal O_i;H_i\to H_f)
@@ -449,33 +449,33 @@ $$
 \mathcal A^{\rm tr}_{H_i\to H_f;i},
 \Xi
 \right).
-$$
+```
 
 Required special cases:
 
-$$
+```math
 \mathscr R_{\rm had}^{\rm OPH}(J_Q,J_Q)=\Pi_Q^{\mu\nu}
 \quad\leftrightarrow\quad d\rho_Q^{(2)},
-$$
+```
 
-$$
+```math
 \mathscr R_{\rm had}^{\rm OPH}(J_Q,J_Q,J_Q,J_Q)=\Gamma_{QQQQ}^{\mu\nu\rho\sigma},
-$$
+```
 
-$$
+```math
 \mathscr R_{\rm had}^{\rm OPH}(\mathcal O_i^{b\to s},J_Q;B\to K^{(*)})
 \quad=\mathcal A_{B\to K^{(*)};i}^{\rm tr},
-$$
+```
 
-$$
+```math
 \mathscr R_{\rm had}^{\rm OPH}(\mathcal O_i^{\Delta S=1},J_Q;\Sigma\to p)
 \quad=\mathcal A_{\Sigma\to p;i}^{\rm tr}.
-$$
+```
 
 The four-current and transition objects are tensor-valued correlators or
 complex amplitudes, not generally one positive scalar spectral measure. The
 scalar insufficiency statement is immediate: the two-current measure is
-sufficient for running-$\alpha$ hadronic transport and HVP $g-2$, but it is
+sufficient for running $`\alpha`$ hadronic transport and HVP $g-2$, but it is
 insufficient for HLbL $g-2$ and rare-decay long-distance amplitudes.
 
 ## Simulator Claim Tiers
@@ -569,14 +569,14 @@ If any forbidden target enters the source DAG, the claim must fail closed as
 
 Construct, from OPH source data alone, a refinement-compatible family
 
-$$
+```math
 \left(
 \mathfrak Q_r^{\rm QCD}(P),
 \mathfrak S_r^{E,{\rm QCD}}(P),
 J_{Q,r}^{W,R,\mu}(P),
 c_{sr}
 \right)
-$$
+```
 
 such that the quotient ensemble law is declared, the QCD parameter map is
 source-emitted, the Euclidean slab promotes to a physical vacuum, the continuum

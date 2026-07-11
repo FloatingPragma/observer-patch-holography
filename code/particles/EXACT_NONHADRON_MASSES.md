@@ -1,6 +1,6 @@
 # Public Non-Hadron Mass Outputs
 
-Generated: `2026-06-29T10:27:30Z`
+Generated: `2026-07-11T04:18:52Z`
 
 This bundle gives numeric non-hadron mass outputs that are not target-anchored witness rows.
 Target-anchored exact fits and compare-only absolute attachments are withheld from this prediction table and kept in `EXACT_FITS_ONLY.md` for audit/debug use.

@@ -84,8 +84,8 @@ def test_surface_state_exposes_particles_native_policy_and_local_public_candidat
         "hadrons_enabled",
     }
     assert active["charged_local_candidate"] is False
-    assert active["neutrino_local_candidate"] is True
-    assert active["neutrino_repaired_branch"] is True
+    assert active["neutrino_local_candidate"] is False
+    assert active["neutrino_repaired_branch"] is False
     assert active["hadrons_enabled"] is False
 
 
@@ -109,7 +109,7 @@ def test_neutrino_rows_get_repaired_branch_surface_before_absolute_scale() -> No
         },
         with_hadrons=False,
     )
-    assert surface == "local_neutrino_weighted_cycle_absolute_attachment"
+    assert surface == "rejected_target_informed_neutrino_candidate"
 
 
 def test_premise_boundaries_use_repo_stable_artifact_refs() -> None:

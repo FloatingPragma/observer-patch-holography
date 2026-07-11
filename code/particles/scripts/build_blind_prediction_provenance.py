@@ -77,15 +77,10 @@ def _classify_entry(entry: dict[str, Any]) -> dict[str, Any]:
         blind_status = "conditionally_blind_on_declared_surface"
         convention_sensitivity = "depends_on_declared_D10_D11_running_matching_threshold_surface"
     elif "weighted_cycle" in exact_kind:
-        if "compare_only_absolute_attachment" in exact_kind:
-            row_class = "scale_free_theorem_with_compare_only_absolute_attachment_candidate"
-            target_use = "compare_only_C_nu_used_for_absolute_attachment_candidate"
-            blind_status = "scale_free_blind_absolute_scale_not_promoted"
-        else:
-            row_class = "theorem_branch_no_direct_mass_target"
-            target_use = "no_absolute_mass_target_input"
-            blind_status = "blind_absolute_mass_branch"
-        convention_sensitivity = "pmns_comparison_tension_reported_separately"
+        row_class = "rejected_target_informed_template_candidate"
+        target_use = "target_ranked_selector_development_and_compare_only_absolute_attachment"
+        blind_status = "withheld_not_blind_rejected_candidate"
+        convention_sensitivity = "all_row_column_and_cycle_orientations_audited_no_nufit61_rescue"
     else:
         row_class = "unclassified"
         target_use = "requires_manual_audit"
@@ -122,6 +117,9 @@ def _classify_withheld_entry(entry: dict[str, Any]) -> dict[str, Any]:
     elif "compare_only" in exact_kind:
         target_use = "compare_only_reference_or_absolute_attachment_used"
         blind_status = "withheld_compare_only"
+    elif "target_informed" in exact_kind or "rejected" in exact_kind:
+        target_use = "target_ranked_selector_development_and_correlated_profile_rejection"
+        blind_status = "withheld_not_blind_rejected_candidate"
     else:
         target_use = "withheld_by_public_output_policy"
         blind_status = "withheld"

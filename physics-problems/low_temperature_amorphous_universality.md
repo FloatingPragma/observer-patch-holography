@@ -41,33 +41,33 @@ ordinary rigid-record normal form.
 On the illustrative single-active-pair branch, the declared Bernoulli event
 probability per wavelength-sized cell is
 
-$$
+```math
 p_{\rm cell}
 =
 \frac{e^{-P_{\rm src}/24}}{12\cdot24}
 =
 3.2440989\times10^{-3}.
-$$
+```
 
 If, in addition, this cell event is identified with exponential acoustic
 scattering, the exact attenuation exponent and acoustic tunneling-strength
 readout are
 
-$$
+```math
 \frac{\lambda}{\ell}
 =
 -\log(1-p_{\rm cell})
 =
 3.2493724\times10^{-3},
-$$
+```
 
-$$
+```math
 C_\ast^{\rm OPH}
 =
 \frac{-\log(1-p_{\rm cell})}{\pi^2}
 =
 3.2923026\times10^{-4}.
-$$
+```
 
 Those values use the OPH source-side pixel, twelve exposed acoustic ports, a
 twenty-four-state oriented repair register, and protected-reserve survival.
@@ -91,11 +91,11 @@ The standard tunneling-state model is empirically successful. It represents
 low-energy defects in glasses as two-level systems coupled to strain and then
 summarizes the acoustic response through
 
-$$
+```math
 C_i
 =
 \frac{\bar P\gamma_i^2}{\rho v_i^2}.
-$$
+```
 
 Here $\bar P$ is a density of tunneling states, $\gamma_i$ is an elastic
 coupling, $\rho$ is mass density, and $v_i$ is sound speed. The difficulty is
@@ -138,19 +138,19 @@ port/register construction is a provisional specialization of that
 presentation, not a consequence of ordinary elasticity. On the illustrative
 branch the visibility space and probability law are separately declared as
 
-$$
+```math
 \mathcal V_{\rm LTAS}
 =
 \mathcal P_{12}^{\rm ac}
 \times
 \mathcal R_{24}^{\rm or}.
-$$
+```
 
-$$
+```math
 \mu_{\rm LTAS}
 =
 \mu_{12}^{\rm unif}\otimes\mu_{24}^{\rm unif}.
-$$
+```
 
 The Cartesian product specifies the classical outcome set. It does not license
 multiplication of probabilities; the product measure is an additional
@@ -196,13 +196,13 @@ The epistemic ledger is:
 Equal attenuation across every amorphous solid is outside the claim. The branch
 claim is the quotient-visible leading scattering probability for
 
-$$
+```math
 \text{ordinary disordered rigid materials}
 \quad
 \text{with}
 \quad
 \text{saturated scale-flat strain-coupled rigid records}
-$$
+```
 
 on the saturated branch.
 
@@ -215,42 +215,42 @@ protected-reserve behavior, or with suppressed elastic coupling to strain.
 Pohl, Liu, and Thompson review the low-temperature glass data and report that
 the phonon wavelength to mean-free-path ratio is typically in the band
 
-$$
+```math
 10^{-3}
 \lesssim
 \frac{\lambda}{\ell}
 \lesssim
 10^{-2},
-$$
+```
 
 The tunneling-strength band is
 
-$$
+```math
 10^{-4}
 \lesssim
 C
 \lesssim
 10^{-3}.
-$$
+```
 
 They also describe exceptions, including some amorphous Si, Ge, and C films
 with much lower attenuation.
 
 The acoustic readout convention is
 
-$$
+```math
 \frac{\lambda}{\ell}
 =
 \pi^2 C.
-$$
+```
 
 For the dominant transverse thermal-phonon convention,
 
-$$
+```math
 \frac{\lambda_{\rm dom}}{\ell}
 \simeq
 12.5 C_t.
-$$
+```
 
 The OPH target is this empirical band with no material-by-material fit of
 $C$, $\bar P$, $\gamma$, $\rho$, or $v$.
@@ -259,7 +259,7 @@ $C$, $\bar P$, $\gamma$, $\rho$, or $v$.
 
 The source branch is
 
-$$
+```math
 \mathsf{OPH}_{\rm LTAS}
 =
 \mathsf{ObserverPatch}
@@ -271,23 +271,23 @@ $$
 \mathsf{RigidRecordTLS}
 +
 \mathsf{FiniteQuotientEnsemble}.
-$$
+```
 
 The OPH source-audit pixel candidate used here is
 
-$$
+```math
 P_{\rm src}
 =
 1.630972095694329\ldots .
-$$
+```
 
 The public comparison endpoint
 
-$$
+```math
 P_C
 =
 1.630968209403959\ldots
-$$
+```
 
 changes the result by about $1.6\times10^{-7}$ relatively. It is negligible at
 four significant figures but visible in the long decimal displays, so the two
@@ -306,7 +306,7 @@ record.
 
 For a material $x$ and regulator $r$, define the LTAS material branch
 
-$$
+```math
 \mathcal B_{\rm LTAS}(x,r)
 =
 \left(
@@ -319,7 +319,7 @@ H_x,
 \mathcal C_{\rm el},
 \mathcal P_{\rm proc}
 \right).
-$$
+```
 
 Here $x$ contains composition, bond topology, density, elastic tensor,
 coordination constraints, disorder, quench history, anneal history, and defect
@@ -331,20 +331,20 @@ and $\mathcal P_{\rm proc}$ records processing history.
 
 The physical quotient is
 
-$$
+```math
 Q_{x,r}
 =
 \Sigma_{x,r}/\Gamma_{x,r}.
-$$
+```
 
 The source law is
 
-$$
+```math
 \mu_{x,r,T}(q)
 =
 Z_{x,r,T}^{-1}
 m_{x,r}(q)e^{-S_{x,r,T}(q)}.
-$$
+```
 
 Material law selection belongs to the source branch. Normal-form projection
 states the surviving ordinary low-energy rigid-record ensemble.
@@ -353,31 +353,31 @@ states the surviving ordinary low-energy rigid-record ensemble.
 
 A rigid-record pair is a local two-basin quotient sector
 
-$$
+```math
 R_j
 =
 \{q_{j,+},q_{j,-}\}
 \subset
 Q_{x,r}.
-$$
+```
 
 Its asymmetry is
 
-$$
+```math
 \Delta_j
 =
 E(q_{j,+})-E(q_{j,-}).
-$$
+```
 
 Its repair or tunneling amplitude is
 
-$$
+```math
 \Delta_j^0.
-$$
+```
 
 For strain component $s$, its elastic dipole is
 
-$$
+```math
 \gamma_{j,s}
 =
 \frac12
@@ -386,15 +386,15 @@ $$
 -
 \frac{\partial E(q_{j,-})}{\partial\varepsilon_s}
 \right).
-$$
+```
 
 The level splitting is
 
-$$
+```math
 E_j
 =
 \sqrt{\Delta_j^2+(\Delta_j^0)^2}.
-$$
+```
 
 The pair is a record because the two basins are locally stable, readably
 different under strain, and connected by a permitted repair move.
@@ -403,35 +403,35 @@ different under strain, and connected by a permitted repair move.
 
 Choose finite physical cutoffs
 
-$$
+```math
 |\Delta|\le \Delta_{\max},
 \qquad
 u_{\min}\le u\le u_{\max},
 \qquad
 u=-\log(\Delta^0/E_0).
-$$
+```
 
 The rigid-record spectral measure on this regulated domain is
 
-$$
+```math
 \nu_{x,r}
 =
 \frac1{V_r}
 \sum_{j\in{\rm RR}(x,r)}
 \delta_{(\Delta_j,u_j,\gamma_j;\rho_r,v_r)},
-$$
+```
 
 where
 
-$$
+```math
 u_j
 =
 -\log(\Delta_j^0/E_0).
-$$
+```
 
 The energy-resolved density of states is
 
-$$
+```math
 g_r(E)
 =
 \frac{d}{dE}
@@ -439,28 +439,28 @@ g_r(E)
 \left[
 \frac1{V_r}\#\{j:E_j\le E\}
 \right].
-$$
+```
 
 It need not equal the joint TLS distribution coefficient. Denote that
 coefficient by $\bar P_{0,r}$ through
 
-$$
+```math
 dN
 =
 \bar P_{0,r}\,dV\,d\Delta\,du
-$$
+```
 
 within the stated low-energy window. The cutoffs are essential: exact
 translation invariance on an unbounded $u$ axis is not normalizable.
 
 The elastic repair strength is
 
-$$
+```math
 C_{s,r}
 =
 \frac{\bar P_{0,r}\langle\gamma_s^2\rangle_r}
 {\rho_r v_{s,r}^2}.
-$$
+```
 
 This is the standard material-facing TLS quantity. The conditional OPH branch
 assigns its benchmark by first specifying a quotient-visible event probability;
@@ -472,7 +472,7 @@ the physical equality requires the material bridge below.
 the leading tunneling amplitude is real and neglecting off-diagonal strain
 coupling, an isolated two-basin rigid record reduces to
 
-$$
+```math
 H_j
 =
 \frac12
@@ -482,7 +482,7 @@ H_j
 +
 \sum_s
 \gamma_{j,s}\varepsilon_s(x_j)\sigma_j^z.
-$$
+```
 
 **Proof.** A two-basin quotient sector has a two-dimensional low-energy
 subspace. Any Hermitian operator on it is a scalar plus Pauli terms. A
@@ -501,29 +501,29 @@ term by term under an arbitrary two-state rotation. $\square$
 **Statement.** If the regulated rigid-record density is smooth in $\Delta$
 near zero and approximately translation-invariant in
 
-$$
+```math
 u
 =
 -\log(\Delta^0/E_0),
-$$
+```
 
 then
 
-$$
+```math
 dN
 =
 \bar P_0\,dV\,d\Delta\,|du|
 =
 \bar P_0\,dV\,d\Delta\,\frac{|d\Delta^0|}{\Delta^0},
-$$
+```
 
 or
 
-$$
+```math
 P(\Delta,\Delta^0)
 =
 \frac{\bar P_0}{\Delta^0}
-$$
+```
 
 over the declared finite window.
 
@@ -537,45 +537,45 @@ follows. $\square$
 
 **Assumptions.** The LTAS visibility space factors as
 
-$$
+```math
 \mathcal V_{\rm LTAS}
 =
 \mathcal P_{12}^{\rm ac}
 \times
 \mathcal R_{24}^{\rm or}.
-$$
+```
 
 The probability law, which does not follow from the Cartesian-product sample space,
 is the uniform product law
 
-$$
+```math
 \Pr(a,o)
 =
 \frac1{12}\frac1{24}.
-$$
+```
 
 A subset
 
-$$
+```math
 \mathcal A_{\rm scat}
 \subseteq
 \mathcal P_{12}^{\rm ac}\times\mathcal R_{24}^{\rm or}
-$$
+```
 
 must declare which pairs count as scattering events. The numerical benchmark
 uses the **single-active-pair ansatz** $|\mathcal A_{\rm scat}|=1$. Reserve
 survival is assumed independent of the selected pair and, on the uniform
 Poisson product-thickening branch, has probability
 
-$$
+```math
 \Pr(\text{reserve survives})
 =
 e^{-P_{\rm src}/24}.
-$$
+```
 
 **Proposition.** Under those assumptions,
 
-$$
+```math
 p_{\rm cell}
 =
 \Pr[(a,o)\in\mathcal A_{\rm scat}]\,
@@ -583,15 +583,15 @@ p_{\rm cell}
 =
 \frac{|\mathcal A_{\rm scat}|}{12\cdot24}
 e^{-P_{\rm src}/24}.
-$$
+```
 
 For $|\mathcal A_{\rm scat}|=1$,
 
-$$
+```math
 p_{\rm cell}
 =
 3.244098917358505\times10^{-3}.
-$$
+```
 
 This is a conditional finite-event calculation. The port and slot counts alone
 do not select $\mathcal A_{\rm scat}$ and do not establish that a real phonon
@@ -602,25 +602,25 @@ samples one independent cell per wavelength.
 On the uniform product-thickening branch with local Poisson reserve occupancy,
 the protected-reserve factor is assumed to be
 
-$$
+```math
 \lambda_{\rm collar}
 =
 e^{-P/24}.
-$$
+```
 
 Using the source-audit pixel candidate,
 
-$$
+```math
 \lambda_{\rm collar}^{\rm src}
 =
 e^{-1.630972095694329/24}
 =
 0.9343004881992495.
-$$
+```
 
 The single-active-pair cell probability is therefore
 
-$$
+```math
 p_{\rm cell}
 =
 \frac{1}{12}
@@ -628,7 +628,7 @@ p_{\rm cell}
 e^{-P_{\rm src}/24}
 =
 3.244098917358505\times10^{-3}.
-$$
+```
 
 This is a within-model cell probability, not yet a universal inverse relative
 mean free path.
@@ -639,11 +639,11 @@ mean free path.
 $\sigma_{\rm TLS}(\omega,T)$ the total scattering cross section derived from
 the TLS Hamiltonian. The material bridge is
 
-$$
+```math
 p_{\rm cell}(\omega,T)
 =
 1-\exp[-n_{\rm TLS}\sigma_{\rm TLS}(\omega,T)\lambda].
-$$
+```
 
 This equation is dimensionally coherent and makes explicit the object missing
 from a purely combinatorial count. It must be derived or empirically certified
@@ -653,21 +653,21 @@ for a material before promotion.
 scattering event removes the carrier from the unscattered beam, then after $n$
 cells the survival probability is
 
-$$
+```math
 (1-p_{\rm cell})^n
 =
 \exp[n\log(1-p_{\rm cell})].
-$$
+```
 
 Consequently the exponential attenuation convention gives
 
-$$
+```math
 \frac{\lambda}{\ell}
 =
 -\log(1-p_{\rm cell})
 =
 3.249372414504198\times10^{-3}.
-$$
+```
 
 Only at leading order for $p_{\rm cell}\ll1$ is
 $\lambda/\ell\simeq p_{\rm cell}$. $\square$
@@ -677,49 +677,49 @@ $\lambda/\ell\simeq p_{\rm cell}$. $\square$
 **Statement.** For the TLS ensemble of Theorem 1 and Proposition 2, in the weak-drive
 relaxation plateau and the stated acoustic attenuation convention,
 
-$$
+```math
 Q_0^{-1}
 =
 \frac{\pi}{2}C,
-$$
+```
 
 and
 
-$$
+```math
 \frac{\lambda}{\ell}
 =
 \pi^2C
-$$
+```
 
 in the acoustic plateau convention. In the dominant transverse thermal-phonon
 convention,
 
-$$
+```math
 \frac{\lambda_{\rm dom}}{\ell}
 \simeq
 12.5C_t.
-$$
+```
 
 The thermal coefficient additionally assumes transverse-dominant heat
 transport, the dominant-phonon approximation, and the empirical
 longitudinal/transverse velocity and coupling relations used in the cited
 review. Under the event-to-attenuation bridge, the conditional OPH benchmark is
 
-$$
+```math
 C_\ast^{\rm OPH}
 =
 \frac{-\log(1-p_{\rm cell})}{\pi^2}.
-$$
+```
 
 **Proof.** The standard TLS attenuation calculation integrates the
 strain-coupled TLS matrix element over the scale-flat distribution
 $P(\Delta,\Delta_0)=\bar P_0/\Delta_0$. The leading material combination is
 
-$$
+```math
 C
 =
 \frac{\bar P_0\langle\gamma^2\rangle}{\rho v^2}.
-$$
+```
 
 The acoustic plateau relation maps $\lambda/\ell$ to $\pi^2C$. The dominant
 thermal relation maps the same source branch to $12.5C_t$. Combining these
@@ -732,33 +732,33 @@ a receipt. $\square$
 
 The conditional single-active-pair benchmark values are:
 
-$$
+```math
 \frac{\lambda}{\ell}
 =
 3.249372414504198\times10^{-3},
-$$
+```
 
-$$
+```math
 C_\ast^{\rm OPH}
 =
 3.292302591323264\times10^{-4},
-$$
+```
 
-$$
+```math
 Q_0^{-1}
 =
 \frac{\pi}{2}C_\ast
 =
 5.171536817147902\times10^{-4},
-$$
+```
 
-$$
+```math
 \frac{\lambda_{\rm dom}}{\ell}
 =
 12.5C_\ast
 =
 4.115378239154080\times10^{-3}.
-$$
+```
 
 | quantity | OPH conditional benchmark | empirical target |
 | --- | ---: | ---: |
@@ -782,7 +782,7 @@ $C_t$ columns, in units of $10^{-4}$.
 Because the empirical spread is multiplicative, the comparison is done in
 log space:
 
-$$
+```math
 \mu_{\log C}
 =
 \frac1N\sum_{j=1}^N\log_{10}C_j,
@@ -794,72 +794,72 @@ $$
 \sum_{j=1}^N
 \left(\log_{10}C_j-\mu_{\log C}\right)^2
 }.
-$$
+```
 
 For the ordinary-amorphous pool,
 
-$$
+```math
 N=83,
 \qquad
 \mu_{\log C}=-3.512277129,
 \qquad
 \sigma_{\log C}=0.330270631\ {\rm dex}.
-$$
+```
 
 The corresponding geometric mean is
 
-$$
+```math
 C_{\rm meas,geo}
 =
 3.0741345\times10^{-4}.
-$$
+```
 
 The OPH value has
 
-$$
+```math
 \log_{10}C_\ast^{\rm OPH}
 =
 -3.482500256,
-$$
+```
 
 so its measured-table sigma displacement is
 
-$$
+```math
 z_C
 =
 \frac{\log_{10}C_\ast^{\rm OPH}-\mu_{\log C}}
 {\sigma_{\log C}}
 =
 0.0902.
-$$
+```
 
 The acoustic $\lambda/\ell$ comparison uses the same sigma, since
 $\lambda/\ell=\pi^2C$ shifts all log values by the same constant. The measured
 ordinary-pool geometric mean maps to
 
-$$
+```math
 \left(\frac{\lambda}{\ell}\right)_{\rm meas,geo}
 =
 \pi^2C_{\rm meas,geo}
 =
 3.0340492\times10^{-3}.
-$$
+```
 
 The OPH value
 
-$$
+```math
 \left(\frac{\lambda}{\ell}\right)_{\rm OPH}
 =
 3.2493724\times10^{-3}
-$$
+```
 
 is again
 
-$$
+```math
 z_{\lambda/\ell}
 =
 0.0902.
-$$
+```
 
 Ordinary amorphous-solid pool, from Pohl/Liu/Thompson Tables I-IV:
 
@@ -874,7 +874,7 @@ Ordinary amorphous-solid pool, from Pohl/Liu/Thompson Tables I-IV:
 The Table V exception films have a separate transverse-strength pool. For the
 listed amorphous Si, Ge, and C films,
 
-$$
+```math
 C_{t,{\rm exc,geo}}
 =
 8.8169\times10^{-6},
@@ -882,7 +882,7 @@ C_{t,{\rm exc,geo}}
 \sigma_{\log C,{\rm exc}}
 =
 0.7811\ {\rm dex}.
-$$
+```
 
 Relative to that exception pool, the conditional ordinary-branch benchmark
 sits about $2.01\sigma$ above the exception-pool center.
@@ -890,16 +890,16 @@ sits about $2.01\sigma$ above the exception-pool center.
 The two standardized locations answer different descriptive questions. The
 ordinary-pool value is
 
-$$
+```math
 z_{\rm ordinary}=0.0902.
-$$
+```
 
 The exception-pool statistic asks how far the conditional benchmark lies from
 the historical low-attenuation film pool. The answer,
 
-$$
+```math
 z_{\rm exception}=2.01,
-$$
+```
 
 does not by itself establish class separation: the entries are pooled
 measurements rather than independent material draws, include multiple
@@ -912,49 +912,49 @@ hierarchical or held-out analysis.
 
 The universal branch covers this class:
 
-$$
+```math
 \text{ordinary disordered rigid materials whose low-energy quotient has}
-$$
+```
 
-$$
+```math
 \text{a saturated, scale-flat, strain-coupled rigid-record ensemble}
-$$
+```
 
-$$
+```math
 \text{with reserve-unbiased port/register activation.}
-$$
+```
 
 The branch fails if any of the following fail:
 
-$$
+```math
 \text{scale-flat }P(\Delta,u),
-$$
+```
 
-$$
+```math
 \mathcal V_{\rm LTAS}
 =
 \mathcal P_{12}^{\rm ac}
 \times
 \mathcal R_{24}^{\rm or},
-$$
+```
 
-$$
+```math
 \lambda_{\rm collar}
 =
 e^{-P/24},
-$$
+```
 
-$$
+```math
 S_{\rm rr}^{\rm sat}
 \simeq
 1,
-$$
+```
 
-$$
+```math
 \gamma_s
 \ne
 0.
-$$
+```
 
 Here $S_{\rm rr}^{\rm sat}$ is the saturation score for the active
 low-energy rigid-record ensemble. A material with sparse active records,
@@ -970,11 +970,11 @@ counterexamples to the branch prediction.
 
 A future simulator should freeze the conditional cell probability
 
-$$
+```math
 p_{\rm cell}
 =
 \frac{e^{-P_{\rm src}/24}}{12\cdot24}
-$$
+```
 
 Experimental data enter after this benchmark and the branch-classification
 rule are frozen. The following objects and receipts specify the required audit;

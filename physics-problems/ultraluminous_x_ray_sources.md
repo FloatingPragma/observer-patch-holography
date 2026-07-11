@@ -129,11 +129,11 @@ exposure and censoring rules in
 
 One classifier patch is declared for each triple
 
-$$
+```math
 (\text{source identity},\ \text{frozen data generation},
 \text{frozen model generation}).
 \tag{1}
-$$
+```
 
 Its observer-like structure is operational and testable:
 
@@ -166,10 +166,10 @@ those mechanisms in this article.
 For a **single compact-accretor hypothesis**, let the latent source description
 be
 
-$$
+```math
 z=(a,M,\kappa_{\rm eff},\lambda,b,i,s),
 \tag{2}
-$$
+```
 
 where
 
@@ -186,15 +186,15 @@ where
   single-engine modes.
 
 An unresolved blend instead has a finite collection or point process
-$\{z_j\}_{j=1}^N$ plus the instrument confusion model. A foreground star,
+$`\{z_j\}_{j=1}^N`$ plus the instrument confusion model. A foreground star,
 background AGN, supernova, or remnant is a separate contaminant hypothesis
-whose accretor coordinates $(a,M,\kappa_{\rm eff},\lambda,b,i)$ may be
+whose accretor coordinates $`(a,M,\kappa_{\rm eff},\lambda,b,i)`$ may be
 undefined. The classifier must not force those alternatives into the scalar
 tuple (2).
 
 The legacy single-engine labels are projections of (2):
 
-$$
+```math
 \begin{aligned}
 \mathcal B_{\rm NS,beam}
   &=\{z:a={\rm NS},\ b<b_{\rm cut}\},\\
@@ -204,7 +204,7 @@ $$
   &=\{z:a={\rm BH},\ M\in\mathcal M_{\rm IMBH}\}.
 \end{aligned}
 \tag{3}
-$$
+```
 
 Equation (3) exposes the defect in the original ansatz. The first family fixes
 identity and geometry, the second fixes identity, mass scale, and accretion
@@ -231,7 +231,7 @@ leaves the physical ULX catalog. Ambiguity is likewise not an “other” object
 
 A minimum record packet is
 
-$$
+```math
 \begin{aligned}
 R_{\rm ULX}=(&D,F_X,N_H,C_{\rm bol},S(E,t),P,\dot P,
 \operatorname{PSD},P_{\rm orb},K_2,e_{\rm orb},\\
@@ -239,7 +239,7 @@ R_{\rm ULX}=(&D,F_X,N_H,C_{\rm bol},S(E,t),P,\dot P,
 \mathcal W_{\rm obs},\mathcal S_{\rm survey}).
 \end{aligned}
 \tag{4}
-$$
+```
 
 Here $D$ is a distance posterior rather than a point copied from a catalog,
 $C_{\rm bol}$ records the band-to-bolometric transformation, and
@@ -249,41 +249,41 @@ coverage, sensitivity, source confusion, and non-detections.
 
 For nearby sources,
 
-$$
+```math
 L_{\rm iso,bol}=4\pi D^2F_{X,{\rm unabs}}C_{\rm bol}
 \tag{5}
-$$
+```
 
 or numerically
 
-$$
+```math
 L_{\rm iso,bol}=1.1965\times10^{40}
 \left(\frac{D}{10\ {\rm Mpc}}\right)^2
 \left(\frac{F_{\rm bol}}{10^{-12}\,
 {\rm erg\,cm^{-2}\,s^{-1}}}\right)
 \ {\rm erg\,s^{-1}}.
 \tag{6}
-$$
+```
 
 Ignoring covariance, the leading propagated uncertainty is
 
-$$
+```math
 \sigma_{\ln L}^2\simeq
 4\left(\frac{\sigma_D}{D}\right)^2
 +\left(\frac{\sigma_{F_{X,{\rm unabs}}}}{F_{X,{\rm unabs}}}\right)^2
 +\sigma_{\ln C_{\rm bol}}^2.
 \tag{7}
-$$
+```
 
 A spectral model is compared to detector counts rather than to an unfolded
 plot. For epoch $e$ and detector channel $k$, a conventional forward model
 has expected counts
 
-$$
+```math
 \mu_{ek}(h,\theta_h)=t_e\int
 R_{ek}(E)A_e(E)S_h(E;\theta_h)\,dE+B_{ek},
 \tag{8}
-$$
+```
 
 where $R$ is redistribution, $A$ effective area, $B$ background, and
 $h$ a candidate family. Timing models are multiplied by the actual window
@@ -297,14 +297,14 @@ load-bearing.
 For fully ionized material with hydrogen mass fraction $X$, the
 electron-scattering opacity and classical Eddington luminosity are
 
-$$
+```math
 \kappa_{\rm es}\simeq0.20(1+X)\ \mathrm{cm^2\,g^{-1}},
 \qquad
 L_{\rm Edd}=\frac{4\pi GMc}{\kappa_{\rm es}}
 \simeq\frac{2.50\times10^{38}}{1+X}
 \frac{M}{M_\odot}\ \mathrm{erg\,s^{-1}}.
 \tag{9}
-$$
+```
 
 For pure hydrogen, retaining the unrounded
 $\kappa_{\rm es}=\sigma_T/m_p=0.39773\ \mathrm{cm^2\,g^{-1}}$, this is
@@ -319,12 +319,12 @@ bolometric luminosities. A band-limited measurement enters only after the
 declared absorption and bolometric transformation in equation (5). For
 emission collimated toward the observer, define
 
-$$
+```math
 b=\frac{L_{\rm true}}{L_{\rm iso}},\quad 0<b\le1,
 \qquad
 \lambda=\frac{L_{\rm true}}{L_{\rm Edd}}.
 \tag{10}
-$$
+```
 
 Some papers use the reciprocal beaming convention. A general angular transfer
 function can also describe off-axis views; equation (10) is the convention for
@@ -341,28 +341,28 @@ $b=f_\Omega$. Population corrections below use $f_\Omega$, not $b$.
 Let $L_{\rm Edd,\odot}$ be the one-solar-mass coefficient for the declared
 composition. Then
 
-$$
+```math
 q:=\frac{L_{\rm iso}}{L_{\rm Edd,\odot}}
 =\frac{\lambda}{b}\frac{M}{M_\odot}.
 \tag{11}
-$$
+```
 
 ### Identifiability result 1: luminosity cannot classify the accretor
 
 For any observed $q>0$ and any proposed $M>0$, positive values of
 $\lambda$ and $b$ can satisfy (11). In logarithmic coordinates,
 
-$$
+```math
 \ln q=\ln(M/M_\odot)+\ln\lambda-\ln b
 \tag{12}
-$$
+```
 
 has a one-row Jacobian with respect to three unknowns. Perturbations satisfying
 
-$$
+```math
 \delta\ln M+\delta\ln\lambda-\delta\ln b=0
 \tag{13}
-$$
+```
 
 are invisible to luminosity. Two parameter directions remain unidentified.
 This proves that luminosity alone cannot distinguish a neutron star, a stellar
@@ -370,33 +370,33 @@ black hole, or an IMBH.
 
 For a comparator family with
 
-$$
+```math
 M\in[M_-,M_+],\quad
 \lambda\in[\lambda_-,\lambda_+],\quad
 b\in[b_-,b_+],
 \tag{14}
-$$
+```
 
 the luminosity-feasible interval is
 
-$$
+```math
 q\in\left[
 \frac{\lambda_-M_-}{b_+M_\odot},
 \frac{\lambda_+M_+}{b_-M_\odot}
 \right].
 \tag{15}
-$$
+```
 
 A branch survives whenever its interval overlaps the uncertainty interval for
 $q$. If external evidence establishes $b\ge b_{\min}$ and
 $\lambda\le\lambda_{\max}$, luminosity gives the conditional bound
 
-$$
+```math
 \frac{M}{M_\odot}\ge
 \frac{L_{\rm iso,-}}{L_{\rm Edd,\odot}}
 \frac{b_{\min}}{\lambda_{\max}}.
 \tag{16}
-$$
+```
 
 With no positive lower bound on $b$, or no finite upper bound on
 $\lambda$, equation (16) supplies no positive mass bound.
@@ -423,12 +423,12 @@ $\dot m:=0.1\dot M c^2/L_{\rm Edd}$, equivalently
 $\dot M/[L_{\rm Edd}/(0.1c^2)]$; changing the reference efficiency changes
 the numerical $\dot m$. With that convention,
 
-$$
+```math
 \lambda\simeq1+\ln\dot m,
 \qquad
 b\simeq\min\left(1,\frac{73}{\dot m^2}\right),
 \tag{17}
-$$
+```
 
 which gives $\dot m=30.63$ for the neutron star and 12.79 for the
 $10M_\odot$ black hole. King proposed the beaming law for
@@ -457,18 +457,18 @@ can hide a neutron star.
 
 Spin-up gives an accretion-torque consistency check:
 
-$$
+```math
 N_{\rm obs}=2\pi I\dot\nu
 =-2\pi I\frac{\dot P}{P^2},
 \tag{18}
-$$
+```
 
-$$
+```math
 R_{\rm co}=\left(\frac{GMP^2}{4\pi^2}\right)^{1/3},
 \qquad
 R_m\simeq\xi\left(\frac{\mu^4}{2GM\dot M^2}\right)^{1/7}.
 \tag{19}
-$$
+```
 
 Accretion requires approximately $R_m\lesssim R_{\rm co}$. Torque, a
 propeller transition, and luminosity can jointly constrain magnetic moment,
@@ -482,21 +482,21 @@ survive the audit.
 For donor radial-velocity amplitude $K_2$, orbital period $P_{\rm orb}$,
 and eccentricity $e$,
 
-$$
+```math
 f(M_X)=\frac{P_{\rm orb}K_2^3}{2\pi G}(1-e^2)^{3/2}
 =\frac{M_X^3\sin^3 i}{(M_X+M_2)^2}\le M_X.
 \tag{20}
-$$
+```
 
 In convenient units,
 
-$$
+```math
 \frac{f(M_X)}{M_\odot}=1.036\times10^{-7}
 \left(\frac{P_{\rm orb}}{\rm day}\right)
 \left(\frac{K_2}{\rm km\,s^{-1}}\right)^3
 (1-e^2)^{3/2}.
 \tag{21}
-$$
+```
 
 A verified donor line and mass function provide the most direct route from the
 record to mass. Irradiated winds and disk emission can move the line away from
@@ -515,17 +515,17 @@ interval. None of these results fixes $\lambda$ or $b$.
 
 The gravitational clock and a Keplerian frequency are
 
-$$
+```math
 t_g=\frac{GM}{c^3}=4.9256\ \mu{\rm s}\frac{M}{M_\odot},
 \tag{22}
-$$
+```
 
-$$
+```math
 f_K(R)=3.231\times10^4
 \left(\frac{M}{M_\odot}\right)^{-1}R^{-3/2}\ {\rm Hz},
 \qquad R=r/r_g.
 \tag{23}
-$$
+```
 
 A 0.1 Hz feature can correspond to $R\simeq1014r_g$ for a
 $10M_\odot$ object or $R\simeq47r_g$ for a $1000M_\odot$ object.
@@ -559,12 +559,12 @@ A surrounding nebula reads the source in directions other than our line of
 sight and over a longer clock. Under case-B recombination, an ionization-bounded
 He III region gives approximately
 
-$$
+```math
 Q({\rm He^+})=
 \frac{\alpha_B({\rm He^{++}})}{\alpha^{\rm eff}_{4686}}
 \frac{L_{4686}}{h\nu_{4686}}.
 \tag{24}
-$$
+```
 
 The covering fraction, density, abundance, unobserved extreme-UV spectrum,
 and recombination history enter the conversion. For Holmberg II X-1,
@@ -588,9 +588,9 @@ classification must carry exposure, sensitivity, source confusion, and the
 non-detections. For an ideal two-sided top-hat beam covering total solid-angle
 fraction $f_\Omega$ under random orientation, the parent population scales as
 
-$$
+```math
 N_{\rm parent}\sim\frac{N_{\rm detected}}{f_\Omega}
-$$
+```
 
 before other selection corrections. For a structured beam or a flux-limited
 survey, $f_\Omega$ must instead be computed by integrating the detection
@@ -604,12 +604,12 @@ population-count check even when it fits one source’s luminosity.
 For hypothesis family $h$, parameters $\theta_h$, port data $D_e$, and
 forward prediction $F_{h,e}$, define a predeclared mismatch
 
-$$
+```math
 \Phi_h(\theta_h;R)=
 \sum_e w_e\,d_e\!\left(D_e,F_{h,e}(\theta_h)\right)
 +\Phi_{\rm audit}.
 \tag{25}
-$$
+```
 
 The distances may be Poisson likelihood terms for counts, event likelihoods
 for timing, astrometric association probabilities, or calibrated residuals for
@@ -620,20 +620,20 @@ rather than masquerading as measurements of identity.
 
 The viable fiber is
 
-$$
+```math
 \mathcal C_R=
 \left\{(h,\theta_h):
 \text{every mandatory adequacy, calibration, and held-out gate passes}
 \right\}.
 \tag{26}
-$$
+```
 
 Project this parameter fiber to the declared factorized normal-form cells:
 
-$$
+```math
 \mathcal V_R=\pi_{\rm NF}(\mathcal C_R).
 \tag{27}
-$$
+```
 
 The projection removes silent implementation labels and groups parameter
 points only when they occupy the same published accretor, mass-range, regime,
@@ -643,11 +643,11 @@ ranges.
 
 The specified canonical report is
 
-$$
+```math
 \operatorname{NF}_{\rm spec}(R):=
 \operatorname{Canon}(\mathcal V_R,\ \text{missing mask},
 \text{domain status},\ \text{claim tier}),
-$$
+```
 
 with a frozen sort order and serialization. This is a normal-form contract,
 not an earned confluence theorem. An implementation may claim the OPH normal
@@ -660,14 +660,14 @@ than those implementation receipts.
 
 The output has three mathematical cases:
 
-$$
+```math
 \begin{array}{c|l}
 \mathcal V_R=\varnothing & \text{no declared normal-form cell closes}\\
 |\mathcal V_R|=1 & \text{one identifiable cell within the frozen model set}\\
 |\mathcal V_R|>1 & \text{ambiguity among the surviving physical cells.}
 \end{array}
 \tag{28}
-$$
+```
 
 A highest posterior probability does not change the cardinality in (28).
 Within the frozen family list, a conditionally unique output requires

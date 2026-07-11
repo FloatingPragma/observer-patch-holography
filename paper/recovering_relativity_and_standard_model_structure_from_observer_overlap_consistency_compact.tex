@@ -117,8 +117,11 @@ The results emphasized in this paper are ordered below by a combination of impac
 is recovered on the realized MAR-admissible branch of the bosonic compact-gauge theorem; together with the one-Higgs package it fixes the structural electroweak force content \(\SU(2)_L\times\U(1)_Y\to\U(1)_Q\) and the \(W^\pm/Z/A\) gauge-boson basis. The ordinary \(\U(1)_Q\) photon branch then gives \(F_Q=dA_Q\), \(dF_Q=0\), and \(d*F_Q=g_Q^2*J_Q\), i.e. Maxwell's equations after canonical electromagnetic normalization. This is a realized-branch gauge result with explicit matter-package and admissibility inputs; numerical \(W/Z\) masses and mixing are D10 quantitative readouts.
 \item On the controlled compact-gauge branch, OPH derives the four-dimensional
 Euclidean Yang--Mills form from compact-gauge holonomy data and the local MaxEnt/Gibbs
-continuum limit. Local repair collars generate Euclidean time through conditional
-expectations. A uniform positive repair gap transfers to the compact-gauge Hamiltonian only on a
+continuum limit. On a finite weighted quotient, observation-fiber resampling is the orthogonal
+conditional-expectation projector, with the noncircular matrix-recognition criterion proved in
+Ref.~\cite{observableNormalForms}. A concrete collar repair kernel has that status only after its
+independently extracted transition matrix passes that receipt. A uniform positive repair gap
+transfers to the compact-gauge Hamiltonian only on a
 branch with the multiresolution continuum, reflection-positivity, transfer/intertwiner, and
 nontriviality certificate. On that certified branch the Yang--Mills gap is the repair gap for
 every compact simple group carried by the OPH branch. Without that certificate, the finite repair
@@ -1438,6 +1441,18 @@ preservation along repair sequences gives \(B(N_Q(x))=B(x)\) and
 consistent extension assumption says \(C_b\) has at most one element, hence the two normal forms
 are equal.
 \end{proof}
+
+\begin{remark}[Generic cross-source criterion]
+For an observation-preserving repair relation whose normal forms are exactly the consistent
+states, Ref.~\cite{observableNormalForms} proves that agreement, modulo any declared silent
+equivalence, of normal endpoints reached from every pair of same-boundary sources is equivalent
+to injectivity of the induced boundary map on the consistent quotient. This cross-source
+criterion is distinct from same-source confluence and from liveness. In this paper,
+Theorem~\ref{thm:confluence} supplies the same-source endpoint result, while
+Theorem~\ref{thm:boundary-conditioned-uniqueness} applies only after the consistent boundary
+fiber is proved singleton. The layered and functional results discharge that premise only on
+their named finite carrier branches.
+\end{remark}
 
 \begin{definition}[Layered functional boundary carrier]\label{def:layered-functional-boundary-carrier}
 A layered functional boundary carrier is a finite directed layered graph
@@ -3554,11 +3569,11 @@ At finite regulator and on finite-dimensional faithful cap algebras, the
 modular clock itself has a purely algebraic core: a positive density matrix
 \(\rho\) has a modular Hamiltonian \(H=-\log\rho\), the maps
 \[
-\sigma_z(A)=e^{izH}Ae^{-izH}
+\sigma_z(A)=e^{-izH}Ae^{izH}
 \]
 form a complex-parameter automorphism family, real \(z=t\) gives the
 one-parameter \(^*\)-automorphism flow, the state is invariant under the flow,
-and the \(z=i\) boundary value is the modular operator appearing in the KMS
+and the \(z=-i\) boundary value is the modular operator appearing in the KMS
 identity.  The OPHProofChain finite Lean audit formalizes this
 matrix-algebra core, including
 the KMS boundary condition and uniqueness within Hamiltonian-implemented flows
@@ -8567,6 +8582,12 @@ The framework therefore presents general relativity and the Standard Model as ef
 \input{tex_fragments/COMPACT_TECHNICAL_SUPPLEMENT_PORT.tex}
 
 \begin{thebibliography}{99}
+\bibitem{observableNormalForms}
+B.~M\"uller, D.~Matscheko, and J.~Hill,
+\emph{Observation-Determined Normal Forms: Stability, Obstructions, and Refinement in Constraint and Rewrite Systems},
+2026.
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/observable_normal_forms.pdf}.
+
 \bibitem{ophsynthesis}
 B.~M\"uller, A.~Osika, M.~Poneder, K.~Xue, B.~Cassie, P.~Nguyen, M.~A.~Visser, K.~A.~Anirudha, D.~Matscheko, and J.~Hill,
 \emph{Observers Are All You Need},

@@ -183,9 +183,9 @@ def validate() -> dict[str, Any]:
         _require(particle_id not in entries, failures, f"{particle_id} compare-only absolute attachment is a public entry")
         _require(
             withheld_entries.get(particle_id, {}).get("exact_kind")
-            == "scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate",
+            == "rejected_target_informed_weighted_cycle_candidate",
             failures,
-            f"{particle_id} compare-only absolute attachment is not withheld",
+            f"{particle_id} rejected target-informed candidate is not withheld",
         )
         _require(
             withheld_entries.get(particle_id, {}).get("promotable") is False,

@@ -1,8 +1,8 @@
 {
   "artifact": "oph_neutrino_lane_closure_contract",
   "closure_chain": [
-    "weighted-cycle branch => (mhat_i, Delta_hat_ij, U_PMNS)",
-    "weighted-cycle bridge rigidity theorem => C_nu = sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5",
+    "declared weighted-cycle candidate => (mhat_i, Delta_hat_ij, U_PMNS)",
+    "compare-only bridge candidate => C_nu = sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5",
     "B_nu = P_nu * C_nu",
     "lambda_nu = (m_star_eV / q_mean^p_nu) * P_nu * C_nu",
     "m_i = lambda_nu * mhat_i and Delta m^2_ij = lambda_nu^2 * Delta_hat_ij"
@@ -11,7 +11,7 @@
     "absolute_family": "m_i = lambda_nu * mhat_i, Delta m^2_ij = lambda_nu^2 * Delta_hat_ij",
     "branch": "weighted_cycle_majorana_holonomy",
     "dimensionless_ratio_dm21_over_dm32": 0.030721110097966534,
-    "no_hidden_discrete_branch": true,
+    "no_hidden_discrete_branch": false,
     "pmns_observables": {
       "J": -0.02753115613565372,
       "delta_deg": 305.58061231449796,
@@ -22,7 +22,8 @@
       "theta13_rad": 0.15160550395717723,
       "theta23_deg": 49.72282845058266,
       "theta23_rad": 0.867827069866978
-    }
+    },
+    "status": "target_informed_template_candidate"
   },
   "emitted_absolute_attachment_theorem": {
     "B_nu": 6.696004159297337,
@@ -50,7 +51,8 @@
     "statement": "On the live weighted-cycle branch, the physical reduced bridge invariant is the distinguished exact optimizer on the emitted family-assisted reduced-correction class.",
     "status": "candidate_from_compare_only_reduced_bridge_search"
   },
-  "generated_utc": "2026-06-29T07:35:38Z",
+  "generated_utc": "2026-07-11T04:27:34Z",
+  "historical_target_exposure": true,
   "non_circularity_status": {
     "bridge_public_surface_candidate_allowed": false,
     "bridge_status": "candidate_from_compare_only_reduced_bridge_search",
@@ -60,10 +62,22 @@
     "strict_audit_label": "compare_only_absolute_attachment_candidate"
   },
   "notes": [
-    "The absolute attachment is displayed as a compare-only candidate; the scale-free weighted-cycle branch remains the promoted theorem surface.",
-    "The bridge corridor and residual correction audits remain diagnostic-only surfaces beneath the emitted weighted-cycle branch."
+    "The absolute attachment is displayed as a compare-only candidate; the scale-free weighted-cycle point also fails source and historical-blindness gates.",
+    "The bridge corridor and residual correction audits remain diagnostic-only surfaces beneath the weighted-cycle candidate."
   ],
-  "proof_status": "scale_free_weighted_cycle_with_compare_only_absolute_attachment_candidate",
+  "proof_status": "target_informed_weighted_cycle_candidate_with_compare_only_absolute_attachment",
   "public_promotion_allowed": false,
-  "scope": "weighted_cycle_bridge_rigidity_plus_absolute_attachment"
+  "scale_free_prediction_promotion_allowed": false,
+  "scope": "weighted_cycle_bridge_rigidity_plus_absolute_attachment",
+  "source_closure_status": {
+    "closed": false,
+    "family_transport_kernel_proof_status": "conjugacy_riesz_candidate",
+    "family_transport_kernel_status": "template",
+    "missing_objects": [
+      "source_emitted_family_transport_kernel",
+      "source_derived_weight_exponent_and_cycle_matrix_law",
+      "source_derived_basis_permutation_and_holonomy_orientation",
+      "pre_reference_hash_lock"
+    ]
+  }
 }

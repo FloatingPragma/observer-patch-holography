@@ -117,7 +117,7 @@ def build_recipe(
     if protocol == "inverted_record":
         decision = 1 - decision
 
-    if protocol == "record_gated":
+    if protocol != "open_loop_heat":
         open_loop_generator = None
         final = repair_target if decision else heated
     else:
@@ -194,7 +194,15 @@ def build_circuit(recipe: CayleyCircuitRecipe, name: str | None = None) -> Quant
     if recipe.protocol != "open_loop_heat":
         with circuit.if_test((decision_record[0], 1)):
             _apply_xor(circuit, sector, heated_code, final_code)
+        # Match the open-loop arm's unconditional three-operation envelope.
+        for bit in range(SECTOR_QUBITS):
+            circuit.id(sector[bit])
     else:
+        # Keep the same record-conditioned control-flow envelope while making
+        # the actual second lazy-heat move independent of the record.
+        with circuit.if_test((decision_record[0], 1)):
+            for bit in range(SECTOR_QUBITS):
+                circuit.id(sector[bit])
         _apply_xor(circuit, sector, heated_code, final_code)
 
     circuit.reset(decision_qubit[0])

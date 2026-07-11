@@ -35,8 +35,10 @@ path is not part of the archive.
 cd Lean
 lake exe cache get
 lake build
-./.lake/build/bin/oph
 ```
+
+The proof receipt is the library build above.  The tiny console entry point is
+optional and requires a native executable build (`lake build oph:exe`).
 
 The neutral submission artifact also builds independently:
 

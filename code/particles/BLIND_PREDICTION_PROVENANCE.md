@@ -1,6 +1,6 @@
 # Blind Prediction Provenance
 
-Generated: `2026-06-29T07:33:23Z`
+Generated: `2026-07-11T04:19:04Z`
 
 This ledger records target-use and convention-sensitivity status for the public quantitative particle rows.
 
@@ -34,9 +34,9 @@ These rows have audit artifacts but no public prediction value in the output tab
 | `down_quark` | `selected_class_target_anchored_exact_witness` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
 | `strange_quark` | `selected_class_target_anchored_exact_witness` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
 | `bottom_quark` | `selected_class_target_anchored_exact_witness` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
-| `electron_neutrino` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | `withheld_compare_only` | compare_only_reference_or_absolute_attachment_used | compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table |
-| `muon_neutrino` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | `withheld_compare_only` | compare_only_reference_or_absolute_attachment_used | compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table |
-| `tau_neutrino` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | `withheld_compare_only` | compare_only_reference_or_absolute_attachment_used | compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table |
+| `electron_neutrino` | `rejected_target_informed_weighted_cycle_candidate` | `withheld_not_blind_rejected_candidate` | target_ranked_selector_development_and_correlated_profile_rejection | target_informed_candidate_rejected_by_correlated_profile |
+| `muon_neutrino` | `rejected_target_informed_weighted_cycle_candidate` | `withheld_not_blind_rejected_candidate` | target_ranked_selector_development_and_correlated_profile_rejection | target_informed_candidate_rejected_by_correlated_profile |
+| `tau_neutrino` | `rejected_target_informed_weighted_cycle_candidate` | `withheld_not_blind_rejected_candidate` | target_ranked_selector_development_and_correlated_profile_rejection | target_informed_candidate_rejected_by_correlated_profile |
 
 ## Preregistered Workflows
 

@@ -88,5 +88,5 @@ def test_particle_pipeline_closure_status_scope_locks_hadrons_and_workers() -> N
     withheld = {row["particle_id"]: row for row in status["withheld_non_prediction_rows"]}
     assert withheld["top_quark"]["reason"] == "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction"
     assert withheld["electron_neutrino"]["reason"] == (
-        "compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table"
+        "target_informed_candidate_rejected_by_correlated_profile"
     )

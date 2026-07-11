@@ -1,6 +1,6 @@
 # Final End-to-End Particle Predictions
 
-Generated: `2026-06-29T10:27:30Z`
+Generated: `2026-07-11T04:19:04Z`
 
 Scope: `nonhadron_particle_pipeline_with_empirical_hadron_closure_policy`
 Claim label: `final_nonhadron_predictions_with_separate_empirical_hadron_closure_surface`
@@ -31,7 +31,7 @@ Claim label: `final_nonhadron_predictions_with_separate_empirical_hadron_closure
 
 | Topic | Claim label | Boundary | Gate |
 | --- | --- | --- | --- |
-| Strong CP | `open_theta_qcd_bar_theta_vanishing_gap` | The selected-class quark support wrapper conditionally carries the running-quark sextet and exact forward Yukawas on the public class f_P, with a target-derived sigma datum. The available corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes. | Keep strong CP explicit as an open branch. Reopen only for a theorem-grade descent from exact quark/Yukawa phase data to the determinant-line phase contribution, together with a theorem fixing the topological-angle contribution and proving the physical strong-CP phase vanishes on the realized branch. |
+| Strong CP | `open_theta_qcd_bar_theta_vanishing_gap` | The selected-class quark support wrapper conditionally carries the running-quark sextet and exact forward Yukawas on the public class f_P, but its sigma datum is still target-derived. The available corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes. | Keep strong CP explicit as an open branch. Reopen only for a theorem-grade descent from exact quark/Yukawa phase data to the determinant-line phase contribution, together with a theorem fixing the topological-angle contribution and proving the physical strong-CP phase vanishes on the realized branch. |
 
 ## Predictions
 
@@ -57,9 +57,9 @@ These rows are retained in audit surfaces but are not numeric predictions.
 | `down_quark` | `selected_class_conditional_on_source_sigma` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | QUARK_SIGMA_SOURCE_QUOTIENT, QUARK_SIGMA_SOURCE_SELECTOR, QUARK_EDGE_STATISTICS_CORRECTION_THEOREM, QUARK_SIGMA_REFINEMENT_COMPATIBILITY, NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE |
 | `strange_quark` | `selected_class_conditional_on_source_sigma` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | QUARK_SIGMA_SOURCE_QUOTIENT, QUARK_SIGMA_SOURCE_SELECTOR, QUARK_EDGE_STATISTICS_CORRECTION_THEOREM, QUARK_SIGMA_REFINEMENT_COMPATIBILITY, NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE |
 | `bottom_quark` | `selected_class_conditional_on_source_sigma` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | QUARK_SIGMA_SOURCE_QUOTIENT, QUARK_SIGMA_SOURCE_SELECTOR, QUARK_EDGE_STATISTICS_CORRECTION_THEOREM, QUARK_SIGMA_REFINEMENT_COMPATIBILITY, NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE |
-| `electron_neutrino` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table | n/a |
-| `muon_neutrino` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table | n/a |
-| `tau_neutrino` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table | n/a |
+| `electron_neutrino` | `rejected_target_informed_weighted_cycle_candidate` | target_informed_candidate_rejected_by_correlated_profile | n/a |
+| `muon_neutrino` | `rejected_target_informed_weighted_cycle_candidate` | target_informed_candidate_rejected_by_correlated_profile | n/a |
+| `tau_neutrino` | `rejected_target_informed_weighted_cycle_candidate` | target_informed_candidate_rejected_by_correlated_profile | n/a |
 
 ## Charged-Lepton Anchor Boundary
 

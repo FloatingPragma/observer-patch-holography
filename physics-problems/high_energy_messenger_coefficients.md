@@ -74,7 +74,7 @@ the MaxEnt mathematics or source-identification problem uniquely OPH.
 
 For regulator $r$, the finite UHE coefficient artifact is
 
-$$
+```math
 C_r^{\rm UHE}
 =
 (
@@ -89,7 +89,7 @@ N_r,
 {\rm Solve}_r,
 H_r
 ).
-$$
+```
 
 The components are:
 
@@ -124,7 +124,7 @@ The components are:
 The compact-engine source-load observable is not a fitted UHE coefficient. It is
 source-side scalar-slot bookkeeping:
 
-$$
+```math
 L_{\alpha,r}^{\rm CE}(q;g)
 =
 \Pi_{g,r}
@@ -132,7 +132,7 @@ L_{\alpha,r}^{\rm CE}(q;g)
 V_{C,r}^{\rm phys}(q)\,
 \omega_{\alpha,r}(C;q)\,
 S_{\nu,r,C}(q).
-$$
+```
 
 The gate $\omega_{\alpha,r}$ must be quotient-visible. Allowed channel gates
 include compact-record activation, transported stress, compact-engine support,
@@ -143,7 +143,7 @@ coefficient is not source-only.
 
 The source-emitted target moment is
 
-$$
+```math
 c_{\alpha,r}(g)
 =
 N_{\alpha,r}\,
@@ -151,7 +151,7 @@ N_{\alpha,r}\,
 \left[
 L_{\alpha,r}^{\rm CE}(Q;g)
 \right].
-$$
+```
 
 This is a modeling bridge, not yet an OPH derivation. The normalization
 $N_{\alpha,r}$ must state units and map the load vector to the same
@@ -177,29 +177,29 @@ no target leakage: no UHE target data path reaches the source ledger or solver
 
 Define
 
-$$
+```math
 A_{r,g}(\eta)
 =
 \log
 \sum_{u\in U_{r,g}}
 m_{0,r}(u)\exp[\eta\cdot F_r(u)].
-$$
+```
 
 Then there is a unique coefficient vector $\eta_r(g)$ satisfying
 
-$$
+```math
 \nabla_\eta A_{r,g}(\eta_r(g))=c_r(g),
-$$
+```
 
 equivalently minimizing
 
-$$
+```math
 A_{r,g}(\eta)-\eta\cdot c_r(g).
-$$
+```
 
 It defines the source probability mass function
 
-$$
+```math
 p_{\eta,r,g}(u)
 =
 m_{0,r}(u)
@@ -207,17 +207,17 @@ m_{0,r}(u)
 \eta_r(g)\cdot F_r(u)-A_{r,g}(\eta_r(g))
 ],
 \qquad u\in U_{r,g}.
-$$
+```
 
 and the OPH source weight
 
-$$
+```math
 W_{\rm OPH}(u|g)
 =
 \exp[
 \eta_r(g)\cdot F_r(u)-A_{r,g}(\eta_r(g))
 ].
-$$
+```
 
 **Proof.** The gradient of $A$ is the expectation of $F$ under the exponential
 family. The Hessian is the covariance of $F$. Minimality makes the covariance
@@ -229,7 +229,7 @@ same optimum is the relative-entropy MaxEnt law relative to $m_{0,r}$. $\square$
 
 For a binary source gate $B$,
 
-$$
+```math
 \eta_B
 =
 \operatorname{logit}(p_{\rm OPH})
@@ -239,15 +239,15 @@ $$
 \log
 \frac{p_{\rm OPH}(1-p_0)}
 {p_0(1-p_{\rm OPH})}.
-$$
+```
 
 For a Poisson opportunity count $K$,
 
-$$
+```math
 \eta_K
 =
 \log(\lambda_{\rm OPH}/\lambda_0).
-$$
+```
 
 This Poisson relation is a separate count-family example on infinite support;
 it is not a corollary of the finite-support theorem without an explicit
@@ -255,13 +255,13 @@ truncation-and-limit argument.
 
 For small moment displacement $\delta c$ around the baseline,
 
-$$
+```math
 \eta
 =
 \Sigma_0^{-1}\delta c
 +
 O(|\delta c|^2),
-$$
+```
 
 where $\Sigma_0$ is the baseline covariance of the feature map.
 
@@ -302,19 +302,19 @@ event patterns.
 Let $N_g$ be the declared total compact-engine number density in source cell
 $g$, and identify the physical baseline density with the MaxEnt base mass by
 
-$$
+```math
 \rho_{\rm HCE}^{0}(u|g)=N_gm_{0,r}(u|g),
 \qquad \sum_{u\in U_{r,g}}m_{0,r}(u|g)=1.
-$$
+```
 
 The shared compact-engine density is then
 
-$$
+```math
 \rho_{\rm HCE}^{\rm OPH}(u|g)
 =
 \rho_{\rm HCE}^{0}(u|g)
 \exp[\eta_r(g)\cdot F_r(u)-A_{r,g}(\eta_r(g))].
-$$
+```
 
 It sums to $N_g$. If a different $\rho^0$ is used, its normalized shape
 must replace $m_0$ in the partition function; multiplying an unrelated
@@ -322,17 +322,17 @@ baseline by the MaxEnt weight would not preserve normalization.
 
 Species emissivities are downstream:
 
-$$
+```math
 S_\nu = \rho_{\rm HCE}^{\rm OPH} Q_\nu,
 \qquad
 S_{\rm CR} = \rho_{\rm HCE}^{\rm OPH}\pi(Z|\theta) Q_{\rm CR},
 \qquad
 S_\gamma = \rho_{\rm HCE}^{\rm OPH} Q_\gamma.
-$$
+```
 
 An observed intensity has the form
 
-$$
+```math
 \lambda_a(y)
 =
 b_a(y)
@@ -342,7 +342,7 @@ S_a(E_s,Z,u)
 P_a^{\rm prop}(y_{\rm true}|E_s,Z,u)
 R_a(y|y_{\rm true})
 \,dE_s\,du.
-$$
+```
 
 For neutrinos or photons the discrete composition sum is replaced by the
 appropriate species sum. Every source yield and kernel must state its measure
@@ -361,12 +361,12 @@ common compact subset of the moment-polytope interior and the smallest Hessian
 eigenvalue there is bounded below by $\kappa>0$, the inverse-function
 estimate has the conditional form
 
-$$
+```math
 \|\eta_r-\eta_s\|
 \le
 \kappa^{-1}
 O(\epsilon_\mu+\epsilon_L+\epsilon_F).
-$$
+```
 
 Vanishing adjacent defects alone does not imply convergence: increments can go
 to zero while their sum diverges. A stable refinement limit additionally needs

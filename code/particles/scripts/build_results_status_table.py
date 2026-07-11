@@ -53,6 +53,7 @@ NEUTRINO_BRIDGE_RIGIDITY_THEOREM = ROOT / "particles" / "runs" / "neutrino" / "n
 NEUTRINO_ABSOLUTE_ATTACHMENT_THEOREM = ROOT / "particles" / "runs" / "neutrino" / "neutrino_absolute_attachment_theorem.json"
 NEUTRINO_EXACT_BLOCKERS = ROOT / "particles" / "runs" / "neutrino" / "exact_blocking_items.json"
 NEUTRINO_WEIGHTED_CYCLE_REPAIR = ROOT / "particles" / "runs" / "neutrino" / "neutrino_weighted_cycle_repair.json"
+NEUTRINO_NUFIT61_SCORE = ROOT / "particles" / "runs" / "neutrino" / "nufit61_weighted_cycle_retrospective_score.json"
 NEUTRINO_TWO_PARAMETER_EXACT_ADAPTER = ROOT / "particles" / "runs" / "neutrino" / "neutrino_two_parameter_exact_adapter.json"
 NEUTRINO_EXACT_ADAPTER_BRIDGE_COORDINATE = ROOT / "particles" / "runs" / "neutrino" / "neutrino_exact_adapter_bridge_coordinate.json"
 NEUTRINO_LAMBDA_BRIDGE_CANDIDATE = ROOT / "particles" / "runs" / "neutrino" / "neutrino_lambda_nu_bridge_candidate.json"
@@ -241,19 +242,14 @@ QUARK_CONTINUATION_NOTE = (
 )
 NEUTRINO_CONTINUATION_NOTE = (
     "Derived from `derive_neutrino_weighted_cycle_repair.py -> "
-    "derive_neutrino_bridge_rigidity_theorem.py -> derive_neutrino_absolute_attachment_theorem.py -> "
-    "export_forward_neutrino_closure_bundle.py`. The isotropic intrinsic branch is excluded by the exact atmospheric cap, "
-    "and the weighted-cycle / Majorana-holonomy branch fixes the full scale-free PMNS/hierarchy shape with "
+    "score_neutrino_nufit61.py -> export_forward_neutrino_closure_bundle.py`. The isotropic intrinsic branch is excluded by the exact atmospheric cap. "
+    "The weighted-cycle / Majorana-holonomy point is a target-informed template candidate with "
     "`theta12 = 34.2259 deg`, `theta23 = 49.7228 deg`, `theta13 = 8.68636 deg`, `delta = 305.581 deg`, "
     "`J = -0.02753`, and `Delta m21^2 / Delta m32^2 = 0.03072111`. "
-    "The weighted-cycle bridge rigidity theorem emits the physical reduced bridge invariant "
-    "`C_nu = sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5 = 0.9994295999075177`, "
-    "and the emitted proxy is `P_nu = 6.699825740519345`. "
-    "The absolute attachment theorem then emits `B_nu = P_nu * C_nu = 6.696004159297337`, "
-    "`lambda_nu = (m_star_eV / q_mean^p_nu) * P_nu * C_nu = 1.7237014208357415`, and therefore one absolute family "
-    "`m_i = lambda_nu * mhat_i`, `Delta m^2_ij = lambda_nu^2 * Delta_hat_ij`. "
-    "The proof-facing neutrino lane uses the emitted theorem pair. The compare-only adapter, bridge corridor, "
-    "and reduced-correction candidate audit remain on disk as diagnostic surfaces beneath the theorem lane."
+    "NuFIT 6.1 gives correlated `T23/DCP` profile values `Delta chi2 = 20.11955` with the tabulated atmospheric likelihood and "
+    "`18.43528` without it, above the two-parameter 3-sigma threshold `11.82916`. The candidate is rejected by the declared gate. "
+    "The family kernel is a hand-written template, the exponent law followed target-ranked model selection, and the basis/orientation choices are not source-derived. "
+    "The bridge invariant, absolute attachment, and Majorana values remain compare-only. No neutrino row is eligible for prediction promotion."
 )
 HADRON_CONTINUATION_NOTE = (
     "Source-only hadron masses are suppressed by default because they require a working OPH production backend. Empirical hadron closure values stay in a separate output class with an e+e- source registry and schema. Issues #153/#157 are closed as source-backend boundaries with empirical closure policy documented. The active hadron scaffold path is `derive_lambda_msbar_descendant.py -> "
@@ -715,9 +711,8 @@ def build_surface_state(*, with_hadrons: bool) -> Dict[str, Any]:
         bundle = json.loads(FORWARD_NEUTRINO_BUNDLE.read_text(encoding="utf-8"))
         neutrino_active = _neutrino_public_candidate_allowed(bundle)
         neutrino_repaired_branch = neutrino_repaired_branch or neutrino_active
-    if NEUTRINO_EXACT_BLOCKERS.exists():
-        blockers = json.loads(NEUTRINO_EXACT_BLOCKERS.read_text(encoding="utf-8"))
-        neutrino_repaired_branch = neutrino_repaired_branch or _neutrino_repaired_branch_waiting_absolute_scale(blockers)
+    # Exact blocker artifacts cannot promote a branch after the transitive source
+    # and correlated-profile gates have failed.
 
     if QUARK_PUBLIC_EXACT_YUKAWA_THEOREM.exists():
         theorem = json.loads(QUARK_PUBLIC_EXACT_YUKAWA_THEOREM.read_text(encoding="utf-8"))
@@ -831,9 +826,6 @@ def apply_local_candidate_overrides(prediction: Dict[str, Any]) -> Dict[str, Any
 
 
 def build_neutrino_oscillation_comparison_rows(surface_state: Dict[str, Any]) -> List[Dict[str, Any]]:
-    active = dict(surface_state["active_local_public_candidates"])
-    if not active.get("neutrino_repaired_branch"):
-        return []
     if not NEUTRINO_WEIGHTED_CYCLE_REPAIR.exists():
         return []
 
@@ -853,6 +845,11 @@ def build_neutrino_oscillation_comparison_rows(surface_state: Dict[str, Any]) ->
     ratio_value = repair.get("dimensionless_ratio_dm21_over_dm32")
     ratio_reference = (
         NEUTRINO_PDG_2025_NO_CENTRAL["delta_m21_sq_eV2"] / NEUTRINO_PDG_2025_NO_CENTRAL["delta_m32_sq_eV2"]
+    )
+    profile_score = (
+        json.loads(NEUTRINO_NUFIT61_SCORE.read_text(encoding="utf-8"))
+        if NEUTRINO_NUFIT61_SCORE.exists()
+        else None
     )
 
     def _row(
@@ -891,46 +888,46 @@ def build_neutrino_oscillation_comparison_rows(surface_state: Dict[str, Any]) ->
         _row(
             observable_id="theta12_deg",
             observable="theta12",
-            status="weighted_cycle_dimensionless",
+            status="rejected_target_informed_candidate",
             prediction_value=float(pmns["theta12_deg"]),
             reference_value=NEUTRINO_PDG_2025_NO_CENTRAL["theta12_deg"],
             err_plus=NEUTRINO_PDG_2025_NO_1SIGMA["theta12_deg"]["plus"],
             err_minus=NEUTRINO_PDG_2025_NO_1SIGMA["theta12_deg"]["minus"],
             unit="deg",
-            note="Direct PMNS angle from the current weighted-cycle branch; no absolute mass anchor is used.",
+            note="Frozen coordinate of the target-informed weighted-cycle template candidate; no prediction promotion is allowed.",
         ),
         _row(
             observable_id="theta23_deg",
             observable="theta23",
-            status="weighted_cycle_dimensionless",
+            status="rejected_target_informed_candidate",
             prediction_value=float(pmns["theta23_deg"]),
             reference_value=NEUTRINO_PDG_2025_NO_CENTRAL["theta23_deg"],
             err_plus=NEUTRINO_PDG_2025_NO_1SIGMA["theta23_deg"]["plus"],
             err_minus=NEUTRINO_PDG_2025_NO_1SIGMA["theta23_deg"]["minus"],
             unit="deg",
-            note="Direct PMNS angle from the current weighted-cycle branch; this lands inside the PDG 3sigma NO window near its upper edge.",
+            note="A marginal PDG interval contains this coordinate, but the official NuFIT 6.1 theta23-delta correlation rejects the pair.",
         ),
         _row(
             observable_id="theta13_deg",
             observable="theta13",
-            status="weighted_cycle_dimensionless",
+            status="rejected_target_informed_candidate",
             prediction_value=float(pmns["theta13_deg"]),
             reference_value=NEUTRINO_PDG_2025_NO_CENTRAL["theta13_deg"],
             err_plus=NEUTRINO_PDG_2025_NO_1SIGMA["theta13_deg"]["plus"],
             err_minus=NEUTRINO_PDG_2025_NO_1SIGMA["theta13_deg"]["minus"],
             unit="deg",
-            note="Direct PMNS angle from the current weighted-cycle branch; no absolute mass anchor is used.",
+            note="Frozen coordinate of the target-informed weighted-cycle template candidate; no prediction promotion is allowed.",
         ),
         _row(
             observable_id="delta_cp_deg",
             observable="delta_CP",
-            status="weighted_cycle_dimensionless",
+            status="rejected_target_informed_candidate",
             prediction_value=float(pmns["delta_deg"]),
             reference_value=NEUTRINO_PDG_2025_NO_CENTRAL["delta_deg"],
             err_plus=NEUTRINO_PDG_2025_NO_1SIGMA["delta_deg"]["plus"],
             err_minus=NEUTRINO_PDG_2025_NO_1SIGMA["delta_deg"]["minus"],
             unit="deg",
-            note="Direct PMNS phase from the current weighted-cycle branch; inside the PDG 3sigma NO window but displaced from the NO best fit.",
+            note="A marginal PDG interval contains this phase, but its correlation with theta23 rejects the candidate.",
         ),
     ]
 
@@ -939,18 +936,39 @@ def build_neutrino_oscillation_comparison_rows(surface_state: Dict[str, Any]) ->
             {
                 "observable_id": "delta_m21_sq_over_delta_m32_sq",
                 "observable": "Delta m21^2 / Delta m32^2",
-                "status": "weighted_cycle_dimensionless",
+                "status": "rejected_target_informed_candidate",
                 "prediction_value": float(ratio_value),
                 "prediction_display": format_scalar(float(ratio_value)),
                 "reference_value": float(ratio_reference),
                 "reference_display": format_scalar(float(ratio_reference)),
                 "delta_display": format_observable_delta(float(ratio_value), float(ratio_reference), ""),
-                "note": "Dimensionless hierarchy ratio from the current weighted-cycle branch; this is the cleanest split comparison because it does not depend on the missing absolute normalization scalar.",
+                "note": "Frozen scale-free ratio of the target-informed candidate. Its numerical closeness followed target-ranked selector development and is not blind evidence.",
                 "reference_source_url": NEUTRINO_OSCILLATION_SOURCE_URL,
                 "reference_label": NEUTRINO_OSCILLATION_REFERENCE_LABEL,
                 "unit": "",
             }
         )
+
+    if profile_score is not None:
+        threshold = float(profile_score["decision"]["threshold_delta_chi2_2d_3sigma"])
+        for source_id in ("TByes-NO", "TBoff-NO"):
+            delta_chi2 = float(profile_score["scores"][source_id]["profiles"]["T23/DCP"]["delta_chi2"])
+            rows.append(
+                {
+                    "observable_id": f"nufit61_{source_id.lower().replace('-', '_')}_t23_dcp_delta_chi2",
+                    "observable": f"NuFIT 6.1 {source_id} T23/DCP Delta chi2",
+                    "status": "candidate_rejection",
+                    "prediction_value": delta_chi2,
+                    "prediction_display": format_scalar(delta_chi2),
+                    "reference_value": threshold,
+                    "reference_display": f"3sigma/2d threshold {format_scalar(threshold)}",
+                    "delta_display": format_observable_delta(delta_chi2, threshold, ""),
+                    "note": "Official correlated-profile score for the frozen candidate. Overlapping profile projections are not summed.",
+                    "reference_source_url": "https://www.nu-fit.org/?q=node/309",
+                    "reference_label": "NuFIT 6.1 official profile table",
+                    "unit": "",
+                }
+            )
 
     if absolute_theorem and _neutrino_absolute_theorem_allowed(absolute_theorem):
         theorem_dm2 = dict(absolute_theorem["outputs"]["delta_m_sq_eV2"])
@@ -1050,10 +1068,6 @@ def _majorana_emitted_degrees(theorem: Dict[str, Any]) -> tuple[float, float] | 
 
 
 def build_majorana_phase_surface_rows(surface_state: Dict[str, Any]) -> List[Dict[str, Any]]:
-    active = dict(surface_state["active_local_public_candidates"])
-    if not active.get("neutrino_repaired_branch"):
-        return []
-
     theorem = (
         json.loads(NEUTRINO_PHYSICAL_MAJORANA_PHASE_THEOREM.read_text(encoding="utf-8"))
         if NEUTRINO_PHYSICAL_MAJORANA_PHASE_THEOREM.exists()
@@ -1073,18 +1087,13 @@ def build_majorana_phase_surface_rows(surface_state: Dict[str, Any]) -> List[Dic
             )
         else:
             alpha21_deg, alpha31_deg = emitted
-            alpha21_note = (
-                "Theorem-grade physical Majorana phase on the repaired shared-basis weighted-cycle surface. "
-                "The readout uses the canonical Takagi congruence of the emitted symmetric cycle matrix together with the readout-only electron-row gauge `U_e1 in R_{>0}`, so it is insensitive to computational column rephasings of the intermediate unitary."
-            )
-            alpha31_note = (
-                "Same theorem surface as `alpha21^(Maj)`: emitted by the same canonical Takagi readout after the readout-only electron-row gauge on the repaired shared-basis weighted-cycle matrix."
-            )
+            alpha21_note = "Canonical Takagi readout of the rejected target-informed weighted-cycle candidate. The value has comparison-only status."
+            alpha31_note = "Same rejected target-informed candidate and comparison-only status as `alpha21^(Maj)`."
             return [
                 {
                     "observable_id": "alpha21_majorana",
                     "observable": "alpha21^(Maj)",
-                    "status": "theorem_grade",
+                    "status": "rejected_target_informed_candidate",
                     "prediction_value": alpha21_deg,
                     "prediction_display": format_observable_value(alpha21_deg, "deg"),
                     "unit": "deg",
@@ -1093,7 +1102,7 @@ def build_majorana_phase_surface_rows(surface_state: Dict[str, Any]) -> List[Dic
                 {
                     "observable_id": "alpha31_majorana",
                     "observable": "alpha31^(Maj)",
-                    "status": "theorem_grade",
+                    "status": "rejected_target_informed_candidate",
                     "prediction_value": alpha31_deg,
                     "prediction_display": format_observable_value(alpha31_deg, "deg"),
                     "unit": "deg",
@@ -1152,10 +1161,8 @@ def prediction_surface_for_row(row_spec: Dict[str, Any], surface_state: Dict[str
         return "particles_structural_massless"
     if particle_id in {"electron", "muon", "tau"} and active.get("charged_local_candidate"):
         return "local_charged_public_candidate"
-    if particle_id in {"electron_neutrino", "muon_neutrino", "tau_neutrino"} and (
-        active.get("neutrino_local_candidate") or active.get("neutrino_repaired_branch")
-    ):
-        return "local_neutrino_weighted_cycle_absolute_attachment"
+    if particle_id in {"electron_neutrino", "muon_neutrino", "tau_neutrino"}:
+        return "rejected_target_informed_neutrino_candidate"
     if particle_id in {
         "up_quark",
         "down_quark",

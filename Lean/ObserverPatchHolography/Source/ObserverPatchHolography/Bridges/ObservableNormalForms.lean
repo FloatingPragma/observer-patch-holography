@@ -21,17 +21,6 @@ section LocalRepairBridge
 
 variable {C : OPHCarrier}
 variable (lr : C.Patch → Records C → Records C)
-variable
-  (H1 : ∀ (i : C.Patch) (x : Records C) (j : C.Patch),
-    j ≠ i → (lr i x) j = x j)
-  (H2 : ∀ (i : C.Patch) (x : Records C),
-    lr i x ≠ x ↔
-      ∃ e : C.Edge,
-        (C.src e = i ∨ C.tgt e = i) ∧ ¬ edgeConsistentAt e x)
-  (H3 : ∀ (i : C.Patch) (x : Records C),
-    lr i x ≠ x →
-      ∀ e : C.Edge,
-        (C.src e = i ∨ C.tgt e = i) → edgeConsistentAt e (lr i x))
 
 /-- A boundary invariant for every local repair is an observation-preservation
 certificate for the induced rewrite relation. -/
@@ -45,7 +34,17 @@ theorem acceptedStepLR_observationPreserving
 
 /-- Jonathan's H1--H3 completeness theorem is exactly the `CompleteFor`
 premise of the neutral normal-form theorem. -/
-theorem acceptedStepLR_completeFor :
+theorem acceptedStepLR_completeFor
+    (H1 : ∀ (i : C.Patch) (x : Records C) (j : C.Patch),
+      j ≠ i → (lr i x) j = x j)
+    (H2 : ∀ (i : C.Patch) (x : Records C),
+      lr i x ≠ x ↔
+        ∃ e : C.Edge,
+          (C.src e = i ∨ C.tgt e = i) ∧ ¬ edgeConsistentAt e x)
+    (H3 : ∀ (i : C.Patch) (x : Records C),
+      lr i x ≠ x →
+        ∀ e : C.Edge,
+          (C.src e = i ∨ C.tgt e = i) → edgeConsistentAt e (lr i x)) :
     CompleteFor (acceptedStepLR lr) {x | Consistent C x} := by
   intro x
   change NormalFormLR lr x ↔ Consistent C x
@@ -58,6 +57,16 @@ This recovers the logical core of `boundary_fiber_observer_unique` as the
 forward implication and additionally exposes the converse.  It deliberately
 leaves the boundary map and its injectivity proof as explicit inputs. -/
 theorem boundaryIdentifiesModulo_iff_observerEndpointUniqueModuloLR
+    (H1 : ∀ (i : C.Patch) (x : Records C) (j : C.Patch),
+      j ≠ i → (lr i x) j = x j)
+    (H2 : ∀ (i : C.Patch) (x : Records C),
+      lr i x ≠ x ↔
+        ∃ e : C.Edge,
+          (C.src e = i ∨ C.tgt e = i) ∧ ¬ edgeConsistentAt e x)
+    (H3 : ∀ (i : C.Patch) (x : Records C),
+      lr i x ≠ x →
+        ∀ e : C.Edge,
+          (C.src e = i ∨ C.tgt e = i) → edgeConsistentAt e (lr i x))
     {β : Type u} (B : Records C → β)
     (HB : ∀ (i : C.Patch) (x : Records C), B (lr i x) = B x) :
     BoundaryIdentifiesModulo {x | Consistent C x} B (gaugeEquiv C) ↔

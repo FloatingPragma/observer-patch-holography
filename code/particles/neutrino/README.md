@@ -3,6 +3,26 @@
 This directory holds the `/particles` neutrino sandbox on the current local
 prediction chain.
 
+## Scientific Status
+
+The intrinsic isotropic ansatz fails its exact atmospheric-splitting cap. The
+weighted-cycle replacement is a retrospective, target-informed template
+candidate. Its family transport kernel consists of two hand-written matrices,
+and its exponent law was promoted after candidate laws had been ranked against
+the measured splitting ratio.
+
+NuFIT 6.1 rejects the frozen point on the official correlated
+`T23/DCP` profile. The profile value is `20.11955` with the tabulated
+atmospheric likelihood and `18.43528` without it; the two-parameter 3σ contour
+value is `11.82916`. Exhaustive enumeration of both cycle orientations, all six
+flavor-row assignments, and all six mass-column assignments finds no
+normal-ordering-consistent convention that passes both gates. The PMNS/Takagi
+linear algebra is correct. The failure belongs to the weighted-cycle
+continuation candidate, while finite OPH is unaffected because the source
+kernel and selector law were never derived.
+
+No neutrino value in this directory has source-only prediction status.
+
 The purpose is controlled scope. The active forward objects are:
 
 - a local neutrino scale anchor from the D10 core
@@ -85,6 +105,17 @@ promotion questions.
 - [`derive_neutrino_absolute_attachment_theorem.py`](derive_neutrino_absolute_attachment_theorem.py)
   Emits `B_nu`, `lambda_nu`, and the absolute weighted-cycle neutrino family
   from the bridge-rigidity theorem and the internal proxy `P_nu`.
+- [`score_neutrino_nufit61.py`](score_neutrino_nufit61.py)
+  Scores the frozen scale-free point against hash-pinned official NuFIT 6.1
+  profile tables. Overlapping profile projections are reported separately and
+  never summed.
+- [`audit_neutrino_pmns_conventions.py`](audit_neutrino_pmns_conventions.py)
+  Enumerates the phase orientation and every row/column assignment, separating
+  genuine convention checks from post-hoc model changes.
+- [`build_neutrino_precision_candidate_lock.py`](build_neutrino_precision_candidate_lock.py)
+  Freezes the failed point as an immutable anti-rescue record. The lock records
+  `prediction_promotion_allowed: false` until a new source-emitted construction
+  is frozen before reference data are opened.
 
 ## Guards
 
@@ -145,6 +176,11 @@ python3 particles/neutrino/test_overlap_defect_action_germ_class.py
 python3 particles/neutrino/test_overlap_defect_action_scale_requires_evaluator.py
 ```
 
+The NuFIT scorer reads official compressed tables supplied on the command
+line. Their URLs, byte counts, and SHA-256 values are pinned in
+[`nufit61_sources.json`](nufit61_sources.json). The tables are not vendored
+because NuFIT publishes no explicit redistribution license.
+
 Current closure split:
 
 - the real symmetric branch can carry scale, family shape, and real-seed
@@ -166,13 +202,14 @@ Current closure split:
   neutrino masses, and the absolute splittings on that weighted-cycle branch
 - the exact positive-segment adapter, bridge corridor, and correction audit are
   retained only as diagnostic sidecars beneath the theorem lane
-- the weighted-cycle theorem branch emits the PMNS/hierarchy shape and the
-  absolute neutrino family on its declared surface
+- the weighted-cycle calculation emits a frozen target-informed candidate;
+  the NuFIT 6.1 correlated profile rejects it
 - the separate shared-basis PMNS constructor remains a distinct diagnostic
   surface tied to the charged-lepton left-basis artifact
 
-The outputs stay under `particles/runs/neutrino/` until an actual OPH-derived
-family-response and Majorana phase theorem exists.
+The outputs stay under `particles/runs/neutrino/`. Prediction promotion
+requires a source-emitted family transport kernel, source-derived cycle and
+label laws, refinement stability, and a pre-reference hash lock.
 
 ## License And Patent Policy
 

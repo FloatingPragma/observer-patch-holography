@@ -105,6 +105,8 @@ def _is_public_mass_output(entry: dict[str, Any]) -> bool:
         return False
     if "compare_only" in exact_kind:
         return False
+    if "target_informed" in exact_kind or "rejected" in exact_kind:
+        return False
     return True
 
 
@@ -114,6 +116,8 @@ def _withheld_entry(entry: dict[str, Any]) -> dict[str, Any]:
         reason = "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction"
     elif "compare_only" in exact_kind:
         reason = "compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table"
+    elif "target_informed" in exact_kind or "rejected" in exact_kind:
+        reason = "target_informed_candidate_rejected_by_correlated_profile"
     else:
         reason = "not_public_prediction_output"
     withheld = {
@@ -305,12 +309,12 @@ def build_all_entries() -> list[dict[str, Any]]:
     neutrino_exact_kind = (
         "theorem_grade_weighted_cycle_absolute_attachment"
         if neutrino_promotable
-        else "scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate"
+        else "rejected_target_informed_weighted_cycle_candidate"
     )
     neutrino_note_prefix = (
         "Theorem-grade weighted-cycle absolute neutrino mass from the emitted bridge-rigidity and absolute-attachment pair, "
         if neutrino_promotable
-        else "Scale-free weighted-cycle neutrino branch with compare-only absolute attachment candidate, "
+        else "Rejected target-informed weighted-cycle candidate with compare-only absolute attachment, "
     )
     c_nu_display = neutrino_bridge_rigidity.get("emitted_value")
     if c_nu_display is None:

@@ -81,11 +81,21 @@ def test_nontrivial_encoding_changes_physical_codes_not_semantic_kernel() -> Non
     assert np.allclose(empirical, kernel.record_gated_cayley_kernel(model), atol=1e-12)
 
 
-def test_ideal_dynamic_preflight_has_zero_process_error() -> None:
+@pytest.mark.parametrize(
+    "protocol",
+    [
+        "record_gated",
+        "open_loop_heat",
+        "delayed_record",
+        "shuffled_record",
+        "inverted_record",
+    ],
+)
+def test_ideal_dynamic_preflight_has_zero_process_error(protocol: str) -> None:
     model = kernel.builtin_cayley_models()["z5"]
     receipt = circuits.run_ideal_preflight(
         model=model,
-        protocol="record_gated",
+        protocol=protocol,
         shots=1,
         seed=509,
     )

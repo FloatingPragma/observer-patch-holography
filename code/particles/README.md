@@ -87,6 +87,12 @@ part of this canonical tree.
   neutrino/derive_neutrino_bridge_rigidity_theorem.py ->
   neutrino/derive_neutrino_absolute_attachment_theorem.py ->
   neutrino/export_forward_neutrino_closure_bundle.py`
+  The weighted-cycle output is a target-informed template candidate, not a
+  prediction. NuFIT 6.1 rejects its correlated theta23-delta point at the
+  declared 3σ gate. `neutrino/score_neutrino_nufit61.py` records the official
+  profile result, and `neutrino/audit_neutrino_pmns_conventions.py` finds no
+  admissible convention rescue. The bridge and absolute attachment remain
+  compare-only.
 - hadrons:
   `qcd/derive_lambda_msbar_descendant.py ->
   hadron/derive_full_unquenched_correlator.py ->

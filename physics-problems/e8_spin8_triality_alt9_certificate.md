@@ -51,9 +51,9 @@ $A_8$ simple-root chain inside a fixed $E_8$ Gram basis and verify its Cartan
 matrix. Its Weyl group must act as $\mathrm{Sym}(9)$, with
 $\mathrm{Alt}(9)$ acting through the deleted permutation representation
 
-$$
+```math
 V=\left\{x\in\mathbb R^9:\sum_{i=1}^{9}x_i=0\right\}.
-$$
+```
 
 **Target 2** (nonsplit double cover). In this declared representation,
 $(12)(34)$ has a two-dimensional $-1$-eigenspace. The standard spin-lift
@@ -67,11 +67,11 @@ Clifford generators rather than treating the group name as an input label.
 representation $\Delta^+$, exhibit a rank-eight lattice basis $B_+$ and
 verify, for every declared generator $g$,
 
-$$
+```math
 [g]_{B_+}\in\mathrm{GL}(8,\mathbb Z),
 \qquad
 [g]_{B_+}^{\mathsf T}G_{E_8}[g]_{B_+}=G_{E_8}.
-$$
+```
 
 The Gram matrix must be positive definite, integral, even, and unimodular. Only
 after those checks may the lattice be identified with $E_8$ and the image
@@ -81,11 +81,11 @@ placed in $\mathrm{Aut}(E_8)=W(E_8)$.
 same declared quadratic space $E_8/2E_8\setminus\{0\}$ and verify the proposed
 orbit partitions
 
-$$
+```math
 \mathrm{Alt}(9)_{\rm vec}:\{9,36,84,126\},
 \qquad
 (2\!\cdot\!\mathrm{Alt}(9))_{\Delta^+}:\{120,135\}.
-$$
+```
 
 Both lists sum to $255$, as required. Since central $-I$ becomes the identity
 modulo two, the effective mod-2 action of the spin copy is again an

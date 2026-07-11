@@ -3,7 +3,7 @@
 ## Motivating Result
 
 This note entered the queue after a 2026 photoluminescence experiment in twisted
-MoTe$_2$ interpreted emergent peaks as trions bound to fractional charge inside
+$`\mathrm{MoTe}_2`$ interpreted emergent peaks as trions bound to fractional charge inside
 a fractional Chern-insulator state
 ([Nature 651, 48–53, 2026](https://www.nature.com/articles/s41586-026-10101-w)).
 A second optical report presented evidence for a fragile $\nu=-1/3$ fractional
@@ -72,8 +72,8 @@ The epistemic ledger is:
 
 ## Fractional Material Presentation
 
-**Definition 1** (Fractional material presentation). *At regulator $r$, a fractional material presentation for a sample or simulation target $x$ is
-$$
+**Definition 1** (Fractional material presentation). At regulator $r$, a fractional material presentation for a sample or simulation target $x$ is
+```math
 \mathcal F_{x,r}
 =
 \left(
@@ -84,40 +84,40 @@ Q_{x,r},
 \mathcal U_{x,r},
 \mathrm{Chk}_{x,r}
 \right).
-$$
-$\Sigma^{\mathrm{mat}}_{x,r}$ is the finite presentation space: lattice,
+```
+$`\Sigma^{\mathrm{mat}}_{x,r}`$ is the finite presentation space: lattice,
 geometry, active bands, filling, interactions, disorder or strain fields,
 electromagnetic ports, optical ports, edge/collar charts, and finite
-Hilbert-space cutoffs. $\Gamma_{x,r}$ quotients gauge representatives, basis
+Hilbert-space cutoffs. $`\Gamma_{x,r}`$ quotients gauge representatives, basis
 choices, mesh labels, orbital relabelings, edge charts, repair schedules,
 hidden carrier coordinates, and inert ancillas only when they preserve every
 declared public correlation and response. Physically distinct orbitals,
 boundaries, or schedules are not quotient artifacts. The physical quotient is
-$$
+```math
 Q_{x,r}=\Sigma^{\mathrm{mat}}_{x,r}/\Gamma_{x,r}.
-$$
-$\mathcal R_{x,r}$ is the public record algebra, $\mathcal U_{x,r}$ is the allowed repair/update family, and $\mathrm{Chk}_{x,r}$ is the refinement and receipt data.*
+```
+$\mathcal R_{x,r}$ is the public record algebra, $\mathcal U_{x,r}$ is the allowed repair/update family, and $\mathrm{Chk}_{x,r}$ is the refinement and receipt data.
 
-**Theorem 2** (Material quotient normal form). *Suppose the accepted repair
+**Theorem 2** (Material quotient normal form). Suppose the accepted repair
 relation on $Q_{x,r}$ is terminating, quotient-descended, locally confluent,
 and repair-complete on the declared branch. Then the material presentation has
 a schedule-independent normal form
-$$
+```math
 n_{x,r}:Q_{x,r}\to N_{x,r}.
-$$
+```
 Supply an inclusion $i_{x,r}:N_{x,r}\hookrightarrow Q_{x,r}$ with
-$n_{x,r}\circ i_{x,r}=\mathrm{id}_{N_{x,r}}$ before treating $n_{x,r}$ as an
+$`n_{x,r}\circ i_{x,r}=\mathrm{id}_{N_{x,r}}`$ before treating $n_{x,r}$ as an
 idempotent canonicalizer. To represent $N_{x,r}$ by a bulk topological ledger,
 a separately declared edge/collar realization, optical-module data, and public
 records, the branch must additionally supply a readout map $D_{x,r}$ that is
 constant along accepted repairs and complete in the sense that
-$$
+```math
 D_{x,r}(q)=D_{x,r}(q')
 \quad\Longleftrightarrow\quad
 n_{x,r}(q)=n_{x,r}(q').
-$$
+```
 Under this additional premise, $N_{x,r}$ is identified with
-$\operatorname{im}D_{x,r}$.*
+$\operatorname{im}D_{x,r}$.
 
 *Proof.* The finite consensus theorem applies to the physical quotient, not to
 hidden representatives. The four stated repair hypotheses give a unique chosen
@@ -131,27 +131,27 @@ physical topological phase remain input receipts. $\square$
 ## Source Law And Non-Selection
 
 The canonicalizer does not choose a material phase. A material branch must declare a source law
-$$
+```math
 \mu_{x,r,T}(q)
 =
 Z^{-1}_{x,r,T}m_{x,r}(q)\exp[-S_{x,r,T}(q)]
-$$
+```
 where $S$ is dimensionless. On a finite classical quotient,
 $Z=\sum_qm(q)e^{-S(q)}$ must be finite and nonzero; on a continuous
 quotient the base measure and integrability must be declared. Alternatively,
 use a positive trace-one quantum Gibbs state or a ground-projector source built
 from a frozen Hamiltonian with its temperature and boundary conditions stated.
 The required tags are
-$$
+```math
 \mathrm{SOURCE\_LAW\_REQUIRED},
 \qquad
 \mathrm{NORMAL\_FORM\_IS\_NOT\_SELECTOR}.
-$$
+```
 
-**Theorem 3** (Normal-form non-selection). *Let $n_{x,r}:Q_{x,r}\to N_{x,r}$ be a material normal-form map, and let $\mathcal X$ be a finite set of candidate topological sectors inside $N_{x,r}$. The map $n_{x,r}$ does not select a unique material sector unless the branch supplies a quotient-intrinsic source law, Hamiltonian, transfer operator, or vacuum certificate.*
+**Theorem 3** (Normal-form non-selection). Let $n_{x,r}:Q_{x,r}\to N_{x,r}$ be a material normal-form map, and let $\mathcal X$ be a finite set of candidate topological sectors inside $N_{x,r}$. The map $n_{x,r}$ does not select a unique material sector unless the branch supplies a quotient-intrinsic source law, Hamiltonian, transfer operator, or vacuum certificate.
 
 *Proof.* With the inclusion $i:N\hookrightarrow Q$ declared above, the typed
-self-map on laws is $\mathcal C=(i)_\#(n)_\#$. It satisfies
+self-map on laws is $`\mathcal C=(i)_\#(n)_\#`$. It satisfies
 $\mathcal C^2=\mathcal C$. Every law concentrated on an embedded candidate
 sector is fixed by the canonicalizer. Therefore canonicalization can classify
 candidate sectors, but it cannot choose their material weights. Selection
@@ -160,7 +160,7 @@ requires the source object. $\square$
 ## Minimal Hamiltonian And Promotion Certificate
 
 A practical fractional-Chern sandbox may use a projected interacting Chern-band Hamiltonian
-$$
+```math
 H^{\mathrm{FCI}}_{x,r}
 =
 P_C\left[
@@ -170,17 +170,17 @@ P_C\left[
 +
 H_{\mathrm{dis/strain/gate}}
 \right]P_C ,
-$$
+```
 with optical extension
-$$
+```math
 H^{\mathrm{opt}}_{x,r}
 =H^{\mathrm{FCI}}_{x,r}+H_{\mathrm{hole}}+H_{\mathrm{light}}+H_{\mathrm{bind}}.
-$$
+```
 The interaction term must declare normal ordering, neutralizing background,
 finite geometry, and the treatment of the $\bm q=0$ mode. This is a schema,
 not a material proof. The branch must freeze the source before comparison and
 emit a promotion certificate
-$$
+```math
 \mathrm{PhaseCert}_{x,r}
 =
 \left(
@@ -188,7 +188,7 @@ C,\nu,\Delta,G,\sigma_{xy},\mathrm{Pump},
 \mathrm{Edge},\mathrm{Ent},\mathrm{Anyon},\mathrm{Modular},
 \mathrm{Refine}
 \right).
-$$
+```
 
 Here $C$ is the active-band Chern number, $\nu$ the filling, $\Delta$
 the many-body gap, and $G$ the ground-sector degeneracy/manifold receipt;
@@ -197,7 +197,7 @@ edge spectrum, entanglement diagnostics, anyon ledger, modular data when
 defined, and regulator refinement.
 
 The receipt names are:
-$$
+```math
 \begin{gathered}
 \mathrm{SOURCE\_HAMILTONIAN\_FROZEN},\quad
 \mathrm{ACTIVE\_BAND\_PROJECTOR},\quad
@@ -212,23 +212,23 @@ $$
 \mathrm{REFINEMENT\_STABILITY},\quad
 \mathrm{NO\_TARGET\_LEAK}.
 \end{gathered}
-$$
+```
 
-**Proposition 4** (Selection versus identification). *Let $H_{x,r}$ be frozen
+**Proposition 4** (Selection versus identification). Let $H_{x,r}$ be frozen
 before comparison, and let $\mathcal X_{x,r}$ be the candidate sector set. A
 source-side calculation selects a unique candidate only if a declared
 energy/free-energy or projector criterion has a unique, refinement-stable
 winner before target optical data are loaded. Separately, let
-$$
+```math
 \pi_{x,r}:\mathcal X_{x,r}\to \mathcal L_{x,r}
-$$
+```
 map each candidate to its predicted public topological ledger. If
 $\pi_{x,r}$ is injective and the measured certificate agrees with exactly one
 frozen prediction within declared uncertainties, the evidence identifies that
 candidate. Injectivity does not make the Hamiltonian select it and must not be
 manufactured after inspecting the target. If the source-side winner is absent
 or the evidence map is non-injective, the correct output is
-$\mathrm{SECTOR\_AMBIGUOUS}$.*
+$\mathrm{SECTOR\_AMBIGUOUS}$.
 
 ## Topological Ledger And Fractional Readout
 
@@ -239,26 +239,26 @@ condition $K_{II}=t_I\pmod 2$. The physical ledger is the stable equivalence
 class $[K,t]$ under integral changes of basis and addition or removal of
 explicitly trivial local sectors, not one chosen matrix presentation. Anyons
 are classes
-$$
+```math
 [\ell]\in \mathbb Z^N/K\mathbb Z^N .
-$$
+```
 For a representative $\ell$,
-$$
+```math
 \nu=t^T K^{-1}t,\qquad
 Q_\ell/e=t^TK^{-1}\ell,
-$$
-$$
+```
+```math
 \theta_\ell=\pi\ell^TK^{-1}\ell,\qquad
 \theta_{\ell,\ell'}=2\pi\ell^TK^{-1}\ell' .
-$$
+```
 Charge is defined modulo the charge of local particles, topological spin
 modulo $2\pi$, and mutual braiding modulo $2\pi$. These formulas do not apply
 unchanged to a non-Abelian phase.
 
 On the non-Abelian branch, the ledger carries
-$$
+```math
 \mathcal C_r=(\mathrm{Irr},N,F,R,d,\theta;S,T),
-$$
+```
 together with the local electron object, electromagnetic charge grading, and
 the consistency relations appropriate to a unitary braided fusion category or
 modular extension. The modular matrices $S,T$ are included only when the
@@ -266,12 +266,12 @@ category or its declared extension supplies them; a fermionic super-modular
 category is not silently treated as modular.
 
 **Proposition 5** (Fractional charge and statistics are quotient-sector
-readouts). *For a certified fractional Hall or fractional Chern branch,
+readouts). For a certified fractional Hall or fractional Chern branch,
 fractional charge, exchange phase, mutual braiding, fusion, and the universal
 bulk anomaly data are functions of the quotient-sector ledger. A detailed edge
 spectrum additionally depends on the boundary realization. None of these data
 is a property of a bare local representative in
-$\Sigma^{\mathrm{mat}}_{x,r}$.*
+$`\Sigma^{\mathrm{mat}}_{x,r}`$.
 
 *Proof.* Gauge, basis, mesh, orbital, and hidden carrier relabelings can change
 local representatives without changing the public sector. The fractional
@@ -282,25 +282,25 @@ $Q_{x,r}$ and its normal form. $\square$
 
 ## Optical Module And Line Fan
 
-**Definition 6** (Optical module). *An optical fractional-exciton ledger is a
+**Definition 6** (Optical module). An optical fractional-exciton ledger is a
 module category
-$$
+```math
 \mathcal M_{\mathrm{opt}}^{x,r}
-$$
+```
 over the topological category $\mathcal C_r$. Each candidate sector $m$ has a
 predicted topological shadow $\tau_{\mathrm{pred}}(m)\in\mathrm{Irr}(\mathcal C_r)$,
 modeled total electromagnetic charge
 $Q_{\mathrm{tot}}(m)$, oscillator data, polarization data, and a binding-energy
 term. The module action and optical operator must be derived from the frozen
 source or supplied as assumptions; the observed line must not be used to
-define them.*
+define them.
 
 A neutral composite may carry a nontrivial *relative* constituent or fusion
 channel,
-$$
+```math
 Q_{\mathrm{tot}}(m)=0,
 \qquad \tau_{\mathrm{pred}}^{\mathrm{rel}}(m)\ne 1 .
-$$
+```
 This is not permission for a strictly local photon operator to create isolated
 net topological charge. In a closed sample a local operator preserves the
 global superselection sector: relative to a vacuum initial sector, the complete
@@ -309,64 +309,64 @@ channel therefore requires a compensating anyon, a pre-existing sector, or an
 explicitly modeled boundary or nonlocal process. The receipt must state which
 charge-balancing mechanism is present.
 
-**Definition 7** (Optical line fan). *Let $\mathcal Y_{\mathrm{opt}}$ be the
+**Definition 7** (Optical line fan). Let $\mathcal Y_{\mathrm{opt}}$ be the
 uncertainty-aware space of measured optical records. A minimal record is
-$$
+```math
 y=(\Delta E,I,\partial_g\Delta E,\mathrm{pol},\eta,\ldots)
 \in\mathcal Y_{\mathrm{opt}} .
-$$
+```
 The ellipsis may contain independently calibrated time, momentum, temperature,
 or magnetic-field dependence. The topological shadow and total charge are
 candidate-ledger annotations, not automatically measured coordinates. The
 predicted line fan is therefore
-$$
+```math
 \widehat{\mathcal L}_{\mathrm{opt}}^{x,r}
 =\{(R_m,\tau_{\mathrm{pred}}(m),Q_{\mathrm{tot}}(m)):m\in\mathcal X_{x,r}\},
-$$
+```
 where $R_m\subseteq\mathcal Y_{\mathrm{opt}}$ is a frozen acceptance region
 constructed from the candidate's predictive law and declared calibration
-uncertainties.*
+uncertainties.
 
-**Proposition 8** (Line-fan decomposition). *Let $O$ be a declared absorption
+**Proposition 8** (Line-fan decomposition). Let $O$ be a declared absorption
 operator certified to descend to the quotient. At zero temperature, with $E$
 denoting photon energy, its spectral function is
-$$
+```math
 A_O(E,g)
 =-\frac{1}{\pi}\operatorname{Im}
 \left\langle 0\left|O^\dagger
 \frac{1}{E+E_0(g)-H(g)+i\eta}O\right|0\right\rangle
 =\sum_m |\langle m|O|0\rangle|^2
 \delta_\eta\!\left(E-[E_m(g)-E_0(g)]\right).
-$$
+```
 Here $\delta_\eta$ is normalized in energy, so it has units of inverse energy
 and $A_O$ has squared-matrix-element units per energy. If angular frequency is used instead, every
 energy argument is replaced consistently by $\hbar\omega$. Photoluminescence
 is not obtained merely by relabeling this absorption function: initial-state
 occupations, relaxation, and radiative rates must also be supplied. A public
 line fan is a quotient readout only after those operator and population
-assumptions are certified.*
+assumptions are certified.
 
-**Proposition 9** (Fractional optical slope boundary). *Write the transition
+**Proposition 9** (Fractional optical slope boundary). Write the transition
 energy for a calibrated electrostatic potential $\phi(g)$ as
-$$
+```math
 \Delta E_m(g)
 =-Q_{\mathrm{tot}}(m)\phi(g)
 +E_{\mathrm{bind},m}(g)+E_{\mathrm{other},m}(g).
-$$
+```
 Let $s_m=\partial_g\Delta E_m$, $\alpha_\phi=\partial_g\phi\ne0$, and suppose
 the combined nuisance slope is independently bounded by
-$$
+```math
 \left|\partial_gE_{\mathrm{bind},m}
 +\partial_gE_{\mathrm{other},m}\right|\le b_m .
-$$
+```
 Then
-$$
+```math
 \left|Q_{\mathrm{tot}}(m)+\frac{s_m}{\alpha_\phi}\right|
 \le \frac{b_m}{|\alpha_\phi|}.
-$$
+```
 The units of $g$, $\phi$, $s_m$, and the lever arm $\alpha_\phi$ must be
 reported. A neutral composite can have a vanishing leading charge slope while
-its internal relative fusion channel is nontrivial.*
+its internal relative fusion channel is nontrivial.
 
 *Proof.* Differentiating the displayed energy gives
 $s_m=-Q_{\mathrm{tot}}\alpha_\phi+\delta_m$, with
@@ -374,11 +374,11 @@ $|\delta_m|\le b_m$. Rearrangement gives the interval above. Thus an
 uncalibrated lever arm or an unbounded nuisance derivative prevents a charge
 inference. $\square$
 
-**Proposition 10** (Optical identifiability). *Let
-$$
+**Proposition 10** (Optical identifiability). Let
+```math
 \mathrm{ID}_{x,r}:\mathcal X_{x,r}\longrightarrow
 \mathcal P(\mathcal Y_{\mathrm{opt}})
-$$
+```
 send each frozen candidate to its declared acceptance region $R_m$ in
 measured-observable space. Distinct point predictions are necessary in the
 noiseless idealization, but set-map injectivity is not sufficient for a
@@ -390,14 +390,14 @@ exciton/polaron alternatives must be included, and the map must be frozen
 before the target line is inspected. Including
 $\tau_{\mathrm{pred}}$ itself as an input coordinate would make the argument
 circular. Otherwise the correct output is
-$\mathrm{OPTICAL\_SECTOR\_AMBIGUOUS}$.*
+$\mathrm{OPTICAL\_SECTOR\_AMBIGUOUS}$.
 
 ## Simulator Quotient Correctness
 
 The simulator is evidence only if it implements the declared quotient. It must not define missing objects after the target comparison has been inspected.
 
-**Theorem 11** (Simulator quotient correctness). *Let a simulator store representatives $s\in\Sigma^{\mathrm{mat}}_{x,r}$, a quotient map $q:\Sigma^{\mathrm{mat}}_{x,r}\to Q_{x,r}$, a canonicalizer $c$, observables $O_a$, transition kernels $K$, source law $\mu$, and refinement maps $c_{sr}$. The simulation is quotient-correct for the fractional branch only if it emits:
-$$
+**Theorem 11** (Simulator quotient correctness). Let a simulator store representatives $`s\in\Sigma^{\mathrm{mat}}_{x,r}`$, a quotient map $`q:\Sigma^{\mathrm{mat}}_{x,r}\to Q_{x,r}`$, a canonicalizer $c$, observables $O_a$, transition kernels $K$, source law $\mu$, and refinement maps $c_{sr}$. The simulation is quotient-correct for the fractional branch only if it emits:
+```math
 \begin{gathered}
 \mathrm{CANONICALIZER\_IDEMPOTENCE},\quad
 \mathrm{REPRESENTATIVE\_INVARIANCE},\quad
@@ -407,8 +407,8 @@ $$
 \mathrm{NO\_ORBIT\_SIZE\_BIAS},\quad
 \mathrm{NO\_TARGET\_LEAK}.
 \end{gathered}
-$$
-If any required receipt fails, the material conclusion is not promoted.*
+```
+If any required receipt fails, the material conclusion is not promoted.
 
 *Proof.* Given the declared quotient map and normal-form image,
 idempotence verifies that repeated canonicalization leaves the chosen form

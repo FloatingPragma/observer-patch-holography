@@ -22,7 +22,7 @@
   "comparison_rows": [
     {
       "delta_display": "0.54590463 deg (+1.621e-02)",
-      "note": "Direct PMNS angle from the current weighted-cycle branch; no absolute mass anchor is used.",
+      "note": "Frozen coordinate of the target-informed weighted-cycle template candidate; no prediction promotion is allowed.",
       "observable": "theta12",
       "observable_id": "theta12_deg",
       "prediction_display": "34.225905 deg",
@@ -31,12 +31,12 @@
       "reference_label": "PDG 2025 NO reference",
       "reference_source_url": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-neutrino-mixing.pdf",
       "reference_value": 33.68,
-      "status": "weighted_cycle_dimensionless",
+      "status": "rejected_target_informed_candidate",
       "unit": "deg"
     },
     {
       "delta_display": "6.422828 deg (+1.483e-01)",
-      "note": "Direct PMNS angle from the current weighted-cycle branch; this lands inside the PDG 3sigma NO window near its upper edge.",
+      "note": "A marginal PDG interval contains this coordinate, but the official NuFIT 6.1 theta23-delta correlation rejects the pair.",
       "observable": "theta23",
       "observable_id": "theta23_deg",
       "prediction_display": "49.722828 deg",
@@ -45,12 +45,12 @@
       "reference_label": "PDG 2025 NO reference",
       "reference_source_url": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-neutrino-mixing.pdf",
       "reference_value": 43.3,
-      "status": "weighted_cycle_dimensionless",
+      "status": "rejected_target_informed_candidate",
       "unit": "deg"
     },
     {
       "delta_display": "0.12635553 deg (+1.476e-02)",
-      "note": "Direct PMNS angle from the current weighted-cycle branch; no absolute mass anchor is used.",
+      "note": "Frozen coordinate of the target-informed weighted-cycle template candidate; no prediction promotion is allowed.",
       "observable": "theta13",
       "observable_id": "theta13_deg",
       "prediction_display": "8.686356 deg",
@@ -59,12 +59,12 @@
       "reference_label": "PDG 2025 NO reference",
       "reference_source_url": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-neutrino-mixing.pdf",
       "reference_value": 8.56,
-      "status": "weighted_cycle_dimensionless",
+      "status": "rejected_target_informed_candidate",
       "unit": "deg"
     },
     {
       "delta_display": "93.580612 deg (+4.414e-01)",
-      "note": "Direct PMNS phase from the current weighted-cycle branch; inside the PDG 3sigma NO window but displaced from the NO best fit.",
+      "note": "A marginal PDG interval contains this phase, but its correlation with theta23 rejects the candidate.",
       "observable": "delta_CP",
       "observable_id": "delta_cp_deg",
       "prediction_display": "305.580612 deg",
@@ -73,12 +73,12 @@
       "reference_label": "PDG 2025 NO reference",
       "reference_source_url": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-neutrino-mixing.pdf",
       "reference_value": 212.0,
-      "status": "weighted_cycle_dimensionless",
+      "status": "rejected_target_informed_candidate",
       "unit": "deg"
     },
     {
       "delta_display": "-7.9310137719e-07 (-2.582e-05)",
-      "note": "Dimensionless hierarchy ratio from the current weighted-cycle branch; this is the cleanest split comparison because it does not depend on the missing absolute normalization scalar.",
+      "note": "Frozen scale-free ratio of the target-informed candidate. Its numerical closeness followed target-ranked selector development and is not blind evidence.",
       "observable": "Delta m21^2 / Delta m32^2",
       "observable_id": "delta_m21_sq_over_delta_m32_sq",
       "prediction_display": "0.03072111",
@@ -87,7 +87,35 @@
       "reference_label": "PDG 2025 NO reference",
       "reference_source_url": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-neutrino-mixing.pdf",
       "reference_value": 0.030721903199343724,
-      "status": "weighted_cycle_dimensionless",
+      "status": "rejected_target_informed_candidate",
+      "unit": ""
+    },
+    {
+      "delta_display": "8.290391 (+7.008e-01)",
+      "note": "Official correlated-profile score for the frozen candidate. Overlapping profile projections are not summed.",
+      "observable": "NuFIT 6.1 TByes-NO T23/DCP Delta chi2",
+      "observable_id": "nufit61_tbyes_no_t23_dcp_delta_chi2",
+      "prediction_display": "20.119549",
+      "prediction_value": 20.119548723965472,
+      "reference_display": "3sigma/2d threshold 11.829158",
+      "reference_label": "NuFIT 6.1 official profile table",
+      "reference_source_url": "https://www.nu-fit.org/?q=node/309",
+      "reference_value": 11.829158081900795,
+      "status": "candidate_rejection",
+      "unit": ""
+    },
+    {
+      "delta_display": "6.606117 (+5.585e-01)",
+      "note": "Official correlated-profile score for the frozen candidate. Overlapping profile projections are not summed.",
+      "observable": "NuFIT 6.1 TBoff-NO T23/DCP Delta chi2",
+      "observable_id": "nufit61_tboff_no_t23_dcp_delta_chi2",
+      "prediction_display": "18.435275",
+      "prediction_value": 18.435275228909504,
+      "reference_display": "3sigma/2d threshold 11.829158",
+      "reference_label": "NuFIT 6.1 official profile table",
+      "reference_source_url": "https://www.nu-fit.org/?q=node/309",
+      "reference_value": 11.829158081900795,
+      "status": "candidate_rejection",
       "unit": ""
     },
     {
@@ -119,7 +147,7 @@
       "unit": "eV^2"
     }
   ],
-  "generated_utc": "2026-06-29T10:23:09Z",
+  "generated_utc": "2026-07-11T04:17:06Z",
   "inputs": {
     "P": 1.630968209403959,
     "hadron_profile": "suppressed",
@@ -129,21 +157,21 @@
   },
   "majorana_rows": [
     {
-      "note": "Theorem-grade physical Majorana phase on the repaired shared-basis weighted-cycle surface. The readout uses the canonical Takagi congruence of the emitted symmetric cycle matrix together with the readout-only electron-row gauge `U_e1 in R_{>0}`, so it is insensitive to computational column rephasings of the intermediate unitary.",
+      "note": "Canonical Takagi readout of the rejected target-informed weighted-cycle candidate. The value has comparison-only status.",
       "observable": "alpha21^(Maj)",
       "observable_id": "alpha21_majorana",
       "prediction_display": "153.618518 deg",
       "prediction_value": 153.61851777943562,
-      "status": "theorem_grade",
+      "status": "rejected_target_informed_candidate",
       "unit": "deg"
     },
     {
-      "note": "Same theorem surface as `alpha21^(Maj)`: emitted by the same canonical Takagi readout after the readout-only electron-row gauge on the repaired shared-basis weighted-cycle matrix.",
+      "note": "Same rejected target-informed candidate and comparison-only status as `alpha21^(Maj)`.",
       "observable": "alpha31^(Maj)",
       "observable_id": "alpha31_majorana",
       "prediction_display": "257.003241 deg",
       "prediction_value": 257.00324082207993,
-      "status": "theorem_grade",
+      "status": "rejected_target_informed_candidate",
       "unit": "deg"
     }
   ],
@@ -401,12 +429,12 @@
     {
       "delta_display": "n/a",
       "group": "Leptons",
-      "note": "Derived from `derive_neutrino_weighted_cycle_repair.py -> derive_neutrino_bridge_rigidity_theorem.py -> derive_neutrino_absolute_attachment_theorem.py -> export_forward_neutrino_closure_bundle.py`. The isotropic intrinsic branch is excluded by the exact atmospheric cap, and the weighted-cycle / Majorana-holonomy branch fixes the full scale-free PMNS/hierarchy shape with `theta12 = 34.2259 deg`, `theta23 = 49.7228 deg`, `theta13 = 8.68636 deg`, `delta = 305.581 deg`, `J = -0.02753`, and `Delta m21^2 / Delta m32^2 = 0.03072111`. The weighted-cycle bridge rigidity theorem emits the physical reduced bridge invariant `C_nu = sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5 = 0.9994295999075177`, and the emitted proxy is `P_nu = 6.699825740519345`. The absolute attachment theorem then emits `B_nu = P_nu * C_nu = 6.696004159297337`, `lambda_nu = (m_star_eV / q_mean^p_nu) * P_nu * C_nu = 1.7237014208357415`, and therefore one absolute family `m_i = lambda_nu * mhat_i`, `Delta m^2_ij = lambda_nu^2 * Delta_hat_ij`. The proof-facing neutrino lane uses the emitted theorem pair. The compare-only adapter, bridge corridor, and reduced-correction candidate audit remain on disk as diagnostic surfaces beneath the theorem lane. Individual flavor neutrino masses are not directly measured as standalone masses; PDG quotes oscillation data, effective masses, and cosmological bounds instead.",
+      "note": "Derived from `derive_neutrino_weighted_cycle_repair.py -> score_neutrino_nufit61.py -> export_forward_neutrino_closure_bundle.py`. The isotropic intrinsic branch is excluded by the exact atmospheric cap. The weighted-cycle / Majorana-holonomy point is a target-informed template candidate with `theta12 = 34.2259 deg`, `theta23 = 49.7228 deg`, `theta13 = 8.68636 deg`, `delta = 305.581 deg`, `J = -0.02753`, and `Delta m21^2 / Delta m32^2 = 0.03072111`. NuFIT 6.1 gives correlated `T23/DCP` profile values `Delta chi2 = 20.11955` with the tabulated atmospheric likelihood and `18.43528` without it, above the two-parameter 3-sigma threshold `11.82916`. The candidate is rejected by the declared gate. The family kernel is a hand-written template, the exponent law followed target-ranked model selection, and the basis/orientation choices are not source-derived. The bridge invariant, absolute attachment, and Majorana values remain compare-only. No neutrino row is eligible for prediction promotion. Individual flavor neutrino masses are not directly measured as standalone masses; PDG quotes oscillation data, effective masses, and cosmological bounds instead.",
       "particle": "nu_e",
       "particle_id": "electron_neutrino",
       "prediction_display_gev": "n/a",
       "prediction_key": "m_nu_e",
-      "prediction_surface": "local_neutrino_weighted_cycle_absolute_attachment",
+      "prediction_surface": "rejected_target_informed_neutrino_candidate",
       "prediction_value_gev": null,
       "reference_display": "not directly measured",
       "reference_kind": "not_directly_measured",
@@ -418,12 +446,12 @@
     {
       "delta_display": "n/a",
       "group": "Leptons",
-      "note": "Derived from `derive_neutrino_weighted_cycle_repair.py -> derive_neutrino_bridge_rigidity_theorem.py -> derive_neutrino_absolute_attachment_theorem.py -> export_forward_neutrino_closure_bundle.py`. The isotropic intrinsic branch is excluded by the exact atmospheric cap, and the weighted-cycle / Majorana-holonomy branch fixes the full scale-free PMNS/hierarchy shape with `theta12 = 34.2259 deg`, `theta23 = 49.7228 deg`, `theta13 = 8.68636 deg`, `delta = 305.581 deg`, `J = -0.02753`, and `Delta m21^2 / Delta m32^2 = 0.03072111`. The weighted-cycle bridge rigidity theorem emits the physical reduced bridge invariant `C_nu = sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5 = 0.9994295999075177`, and the emitted proxy is `P_nu = 6.699825740519345`. The absolute attachment theorem then emits `B_nu = P_nu * C_nu = 6.696004159297337`, `lambda_nu = (m_star_eV / q_mean^p_nu) * P_nu * C_nu = 1.7237014208357415`, and therefore one absolute family `m_i = lambda_nu * mhat_i`, `Delta m^2_ij = lambda_nu^2 * Delta_hat_ij`. The proof-facing neutrino lane uses the emitted theorem pair. The compare-only adapter, bridge corridor, and reduced-correction candidate audit remain on disk as diagnostic surfaces beneath the theorem lane. Individual flavor neutrino masses are not directly measured as standalone masses; PDG quotes oscillation data, effective masses, and cosmological bounds instead.",
+      "note": "Derived from `derive_neutrino_weighted_cycle_repair.py -> score_neutrino_nufit61.py -> export_forward_neutrino_closure_bundle.py`. The isotropic intrinsic branch is excluded by the exact atmospheric cap. The weighted-cycle / Majorana-holonomy point is a target-informed template candidate with `theta12 = 34.2259 deg`, `theta23 = 49.7228 deg`, `theta13 = 8.68636 deg`, `delta = 305.581 deg`, `J = -0.02753`, and `Delta m21^2 / Delta m32^2 = 0.03072111`. NuFIT 6.1 gives correlated `T23/DCP` profile values `Delta chi2 = 20.11955` with the tabulated atmospheric likelihood and `18.43528` without it, above the two-parameter 3-sigma threshold `11.82916`. The candidate is rejected by the declared gate. The family kernel is a hand-written template, the exponent law followed target-ranked model selection, and the basis/orientation choices are not source-derived. The bridge invariant, absolute attachment, and Majorana values remain compare-only. No neutrino row is eligible for prediction promotion. Individual flavor neutrino masses are not directly measured as standalone masses; PDG quotes oscillation data, effective masses, and cosmological bounds instead.",
       "particle": "nu_mu",
       "particle_id": "muon_neutrino",
       "prediction_display_gev": "n/a",
       "prediction_key": "m_nu_mu",
-      "prediction_surface": "local_neutrino_weighted_cycle_absolute_attachment",
+      "prediction_surface": "rejected_target_informed_neutrino_candidate",
       "prediction_value_gev": null,
       "reference_display": "not directly measured",
       "reference_kind": "not_directly_measured",
@@ -435,12 +463,12 @@
     {
       "delta_display": "n/a",
       "group": "Leptons",
-      "note": "Derived from `derive_neutrino_weighted_cycle_repair.py -> derive_neutrino_bridge_rigidity_theorem.py -> derive_neutrino_absolute_attachment_theorem.py -> export_forward_neutrino_closure_bundle.py`. The isotropic intrinsic branch is excluded by the exact atmospheric cap, and the weighted-cycle / Majorana-holonomy branch fixes the full scale-free PMNS/hierarchy shape with `theta12 = 34.2259 deg`, `theta23 = 49.7228 deg`, `theta13 = 8.68636 deg`, `delta = 305.581 deg`, `J = -0.02753`, and `Delta m21^2 / Delta m32^2 = 0.03072111`. The weighted-cycle bridge rigidity theorem emits the physical reduced bridge invariant `C_nu = sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5 = 0.9994295999075177`, and the emitted proxy is `P_nu = 6.699825740519345`. The absolute attachment theorem then emits `B_nu = P_nu * C_nu = 6.696004159297337`, `lambda_nu = (m_star_eV / q_mean^p_nu) * P_nu * C_nu = 1.7237014208357415`, and therefore one absolute family `m_i = lambda_nu * mhat_i`, `Delta m^2_ij = lambda_nu^2 * Delta_hat_ij`. The proof-facing neutrino lane uses the emitted theorem pair. The compare-only adapter, bridge corridor, and reduced-correction candidate audit remain on disk as diagnostic surfaces beneath the theorem lane. Individual flavor neutrino masses are not directly measured as standalone masses; PDG quotes oscillation data, effective masses, and cosmological bounds instead.",
+      "note": "Derived from `derive_neutrino_weighted_cycle_repair.py -> score_neutrino_nufit61.py -> export_forward_neutrino_closure_bundle.py`. The isotropic intrinsic branch is excluded by the exact atmospheric cap. The weighted-cycle / Majorana-holonomy point is a target-informed template candidate with `theta12 = 34.2259 deg`, `theta23 = 49.7228 deg`, `theta13 = 8.68636 deg`, `delta = 305.581 deg`, `J = -0.02753`, and `Delta m21^2 / Delta m32^2 = 0.03072111`. NuFIT 6.1 gives correlated `T23/DCP` profile values `Delta chi2 = 20.11955` with the tabulated atmospheric likelihood and `18.43528` without it, above the two-parameter 3-sigma threshold `11.82916`. The candidate is rejected by the declared gate. The family kernel is a hand-written template, the exponent law followed target-ranked model selection, and the basis/orientation choices are not source-derived. The bridge invariant, absolute attachment, and Majorana values remain compare-only. No neutrino row is eligible for prediction promotion. Individual flavor neutrino masses are not directly measured as standalone masses; PDG quotes oscillation data, effective masses, and cosmological bounds instead.",
       "particle": "nu_tau",
       "particle_id": "tau_neutrino",
       "prediction_display_gev": "n/a",
       "prediction_key": "m_nu_tau",
-      "prediction_surface": "local_neutrino_weighted_cycle_absolute_attachment",
+      "prediction_surface": "rejected_target_informed_neutrino_candidate",
       "prediction_value_gev": null,
       "reference_display": "not directly measured",
       "reference_kind": "not_directly_measured",
@@ -558,8 +586,8 @@
       "d10_mass_pair": false,
       "d11_forward_seed": true,
       "hadrons_enabled": false,
-      "neutrino_local_candidate": true,
-      "neutrino_repaired_branch": true,
+      "neutrino_local_candidate": false,
+      "neutrino_repaired_branch": false,
       "quark_forward_candidate": false
     },
     "public_surface_kind": "particles_native_candidate_or_gap_surface",

@@ -86,7 +86,7 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
     assert charged_boundary["current_closed_chain"]["P_to_A_ch"] is False
     assert withheld["top_quark"]["reason"] == "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction"
     assert withheld["electron_neutrino"]["reason"] == (
-        "compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table"
+        "target_informed_candidate_rejected_by_correlated_profile"
     )
     assert payload["direct_top_auxiliary_comparison"]["value_policy"] == (
         "compare_only_codomain_values_withheld_from_final_prediction_output"

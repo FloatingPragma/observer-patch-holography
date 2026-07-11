@@ -1,0 +1,284 @@
+{
+  "acyclic": true,
+  "artifact": "oph_neutrino_precision_candidate_source_dag",
+  "edges": [
+    [
+      "family_transport_kernel",
+      "overlap_edge_line_lift"
+    ],
+    [
+      "family_transport_kernel",
+      "overlap_edge_transport_cocycle"
+    ],
+    [
+      "overlap_edge_line_lift",
+      "overlap_edge_transport_cocycle"
+    ],
+    [
+      "family_transport_kernel",
+      "same_label_readback"
+    ],
+    [
+      "overlap_edge_line_lift",
+      "same_label_readback"
+    ],
+    [
+      "same_label_readback",
+      "same_label_scalar_certificate"
+    ],
+    [
+      "same_label_scalar_certificate",
+      "intrinsic_phase_bundle"
+    ],
+    [
+      "overlap_edge_transport_cocycle",
+      "transport_load_selector"
+    ],
+    [
+      "same_label_scalar_certificate",
+      "weighted_cycle_candidate"
+    ],
+    [
+      "intrinsic_phase_bundle",
+      "weighted_cycle_candidate"
+    ],
+    [
+      "transport_load_selector",
+      "weighted_cycle_candidate"
+    ],
+    [
+      "overlap_edge_transport_cocycle",
+      "weighted_cycle_candidate"
+    ],
+    [
+      "weighted_cycle_candidate",
+      "correlated_profile_score"
+    ],
+    [
+      "weighted_cycle_candidate",
+      "pmns_convention_audit"
+    ],
+    [
+      "correlated_profile_score",
+      "pmns_convention_audit"
+    ],
+    [
+      "weighted_cycle_candidate",
+      "lane_closure_contract"
+    ]
+  ],
+  "frozen_human_choices": {
+    "cycle_basis_order": [
+      "f3",
+      "f1",
+      "f2"
+    ],
+    "holonomy_orientation": "021",
+    "pmns_row_order": [
+      "e",
+      "mu",
+      "tau"
+    ],
+    "transport_load_selector": "balanced_equals_least_distortion_midpoint",
+    "weight_exponent_formula": "p = 1 + gamma + eps / D_nu"
+  },
+  "lock_id": "OPH-NU-CAND-001",
+  "lock_time_utc": "2026-07-11T04:20:00Z",
+  "nodes": [
+    {
+      "artifact": "oph_family_transport_kernel",
+      "bytes": 4843,
+      "id": "family_transport_kernel",
+      "kind": "artifact",
+      "path": "particles/runs/flavor/family_transport_kernel.json",
+      "prediction_promotion_allowed": null,
+      "proof_status": "conjugacy_riesz_candidate",
+      "public_surface_candidate_allowed": null,
+      "sha256": "712f4ac9ac065bb5349eda86f168c5aca5f011771cefc5e50ededea56c17152a",
+      "status": "template"
+    },
+    {
+      "artifact": "oph_overlap_edge_line_lift",
+      "bytes": 45573,
+      "id": "overlap_edge_line_lift",
+      "kind": "artifact",
+      "path": "particles/runs/flavor/overlap_edge_line_lift.json",
+      "prediction_promotion_allowed": null,
+      "proof_status": "candidate_only",
+      "public_surface_candidate_allowed": null,
+      "sha256": "6891c956cd358b67a57a99b6088ef388a4d91b90fe2c998f986f0e7e27cda909",
+      "status": null
+    },
+    {
+      "artifact": "oph_overlap_edge_transport_cocycle",
+      "bytes": 10720,
+      "id": "overlap_edge_transport_cocycle",
+      "kind": "artifact",
+      "path": "particles/runs/flavor/overlap_edge_transport_cocycle.json",
+      "prediction_promotion_allowed": null,
+      "proof_status": "common_refinement_projector_overlap_candidate",
+      "public_surface_candidate_allowed": null,
+      "sha256": "d46019c00937b15dc79db874eaf19a0d421f1068e78d305f7bb8a615a9d3b5a0",
+      "status": null
+    },
+    {
+      "artifact": "oph_realized_same_label_gap_defect_readback",
+      "bytes": 5926,
+      "id": "same_label_readback",
+      "kind": "artifact",
+      "path": "particles/runs/neutrino/realized_same_label_gap_defect_readback.json",
+      "prediction_promotion_allowed": null,
+      "proof_status": "derived_from_live_flavor_overlap_and_gap_certificates",
+      "public_surface_candidate_allowed": null,
+      "sha256": "c9085d63e081eec1420df6c4de58dd257d4e55b4a312d88b70a5a6f55ff54403",
+      "status": null
+    },
+    {
+      "artifact": "oph_neutrino_same_label_scalar_certificate",
+      "bytes": 5902,
+      "id": "same_label_scalar_certificate",
+      "kind": "artifact",
+      "path": "particles/runs/neutrino/same_label_scalar_certificate.json",
+      "prediction_promotion_allowed": null,
+      "proof_status": "fixed_cutoff_scalar_sufficient_downstream_certificate",
+      "public_surface_candidate_allowed": null,
+      "sha256": "519cdef1c4b57b0748f4ede451e56445b5d237075e7d019f985541b156155ecb",
+      "status": null
+    },
+    {
+      "artifact": "oph_intrinsic_neutrino_mass_eigenstate_bundle",
+      "bytes": 4154,
+      "id": "intrinsic_phase_bundle",
+      "kind": "artifact",
+      "path": "particles/runs/neutrino/intrinsic_neutrino_mass_eigenstate_bundle_from_scalar_certificate.json",
+      "prediction_promotion_allowed": null,
+      "proof_status": null,
+      "public_surface_candidate_allowed": null,
+      "sha256": "130ab22c10301247985aab8f818e280c9cca73a5dd96c0c2d26581339041e7d7",
+      "status": null
+    },
+    {
+      "artifact": "oph_neutrino_transport_load_segment_selector",
+      "bytes": 2003,
+      "id": "transport_load_selector",
+      "kind": "artifact",
+      "path": "particles/runs/neutrino/neutrino_transport_load_segment_selector.json",
+      "prediction_promotion_allowed": null,
+      "proof_status": null,
+      "public_surface_candidate_allowed": null,
+      "sha256": "d7018c7ce13b9f2854de2f4089d3d4d8bd1be6ab8112f36252a7a2ab73976919",
+      "status": "standard_math_fixed_balanced_segment_selector_closed"
+    },
+    {
+      "artifact": "oph_neutrino_weighted_cycle_repair",
+      "bytes": 9180,
+      "id": "weighted_cycle_candidate",
+      "kind": "artifact",
+      "path": "particles/runs/neutrino/neutrino_weighted_cycle_repair.json",
+      "prediction_promotion_allowed": false,
+      "proof_status": null,
+      "public_surface_candidate_allowed": false,
+      "sha256": "b67e5e3467b1691e0b616ca875c970a16c2916a1f2269a8c89a506e8dfeed6a6",
+      "status": null
+    },
+    {
+      "artifact": "oph_neutrino_nufit61_retrospective_profile_score",
+      "bytes": 8849,
+      "id": "correlated_profile_score",
+      "kind": "artifact",
+      "path": "particles/runs/neutrino/nufit61_weighted_cycle_retrospective_score.json",
+      "prediction_promotion_allowed": null,
+      "proof_status": null,
+      "public_surface_candidate_allowed": null,
+      "sha256": "d483a4ce61e6736bef09169f6e575977351111a5a18520c6e6245c9c6cfd6c3c",
+      "status": null
+    },
+    {
+      "artifact": "oph_neutrino_nufit61_pmns_convention_audit",
+      "bytes": 178687,
+      "id": "pmns_convention_audit",
+      "kind": "artifact",
+      "path": "particles/runs/neutrino/nufit61_pmns_convention_audit.json",
+      "prediction_promotion_allowed": null,
+      "proof_status": null,
+      "public_surface_candidate_allowed": null,
+      "sha256": "467844a13574b3ea1cae8611b2412c86cbdb36c9b77d3c705e5f156e6ef27642",
+      "status": null
+    },
+    {
+      "artifact": "oph_neutrino_lane_closure_contract",
+      "bytes": 3653,
+      "id": "lane_closure_contract",
+      "kind": "artifact",
+      "path": "particles/runs/neutrino/neutrino_lane_closure_contract.json",
+      "prediction_promotion_allowed": null,
+      "proof_status": "target_informed_weighted_cycle_candidate_with_compare_only_absolute_attachment",
+      "public_surface_candidate_allowed": null,
+      "sha256": "2e379e1d9ee94b134da690041e219b5fe5cc0398d850b33f845bd351f87fc845",
+      "status": null
+    },
+    {
+      "bytes": 12555,
+      "id": "family_kernel_builder",
+      "kind": "code",
+      "path": "particles/flavor/derive_family_transport_kernel.py",
+      "sha256": "4698cf7b1468e4ae697df69f856af8db3cfb93bcd3223042e31a6fffcc6fbe8f"
+    },
+    {
+      "bytes": 10481,
+      "id": "cocycle_builder",
+      "kind": "code",
+      "path": "particles/flavor/derive_overlap_edge_transport_cocycle.py",
+      "sha256": "7037b6fc7d608e7f344975ad9bd5be5cdd5401307a072232eb2b9a390cdba393"
+    },
+    {
+      "bytes": 16101,
+      "id": "weighted_cycle_builder",
+      "kind": "code",
+      "path": "particles/neutrino/derive_neutrino_weighted_cycle_repair.py",
+      "sha256": "279504b622f3a099870e3e78f3edc48f5e309d3dd99c05800f5bb14079084c44"
+    },
+    {
+      "bytes": 17531,
+      "id": "profile_scorer",
+      "kind": "code",
+      "path": "particles/neutrino/score_neutrino_nufit61.py",
+      "sha256": "339ab9726164ba2304bb9116b8e47d0c76cad0133621f805578d514f3694a9d2"
+    },
+    {
+      "bytes": 8458,
+      "id": "convention_auditor",
+      "kind": "code",
+      "path": "particles/neutrino/audit_neutrino_pmns_conventions.py",
+      "sha256": "3eac5381efcebfb50fa09e4bbff1ee39343fefa29a5eb115740d11ebfb61af9f"
+    },
+    {
+      "bytes": 16055,
+      "id": "lock_builder",
+      "kind": "code",
+      "path": "particles/neutrino/build_neutrino_precision_candidate_lock.py",
+      "sha256": "fa743c0c5f50195dee05da3b88041d8102245f2328d13aa147c8aeb3b2d95bc7"
+    }
+  ],
+  "source_closure_gate": {
+    "failures": [
+      "family transport kernel is a hand-written template",
+      "line-lift status is 'candidate_only'",
+      "cocycle status is 'common_refinement_projector_overlap_candidate'",
+      "selector-law development used oscillation targets"
+    ],
+    "passes": false
+  },
+  "target_audit": {
+    "forbidden_after_lock": [
+      "DUNE oscillation likelihood or event spectra released after the lock",
+      "Hyper-K oscillation likelihood or event spectra released after the lock",
+      "JUNO oscillation likelihood or event spectra released after the lock",
+      "post-lock NuFIT or other global-fit updates",
+      "any post-lock selector, orientation, row, column, or uncertainty change"
+    ],
+    "historical_target_exposure": true,
+    "no_data_after_lock_time_used": true
+  },
+  "version": "1.0.0"
+}

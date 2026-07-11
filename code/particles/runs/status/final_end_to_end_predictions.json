@@ -135,7 +135,7 @@
       "status": "source_side_prediction_missing_only_small_qcd_hadronic_endpoint_correction"
     }
   },
-  "generated_utc": "2026-06-29T10:27:30Z",
+  "generated_utc": "2026-07-11T04:19:04Z",
   "hadron_policy": {
     "empirical_hadron_closure_allowed_for_display": true,
     "empirical_payload_schema": "particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json",
@@ -845,29 +845,29 @@
       }
     },
     {
-      "exact_kind": "scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate",
+      "exact_kind": "rejected_target_informed_weighted_cycle_candidate",
       "label": "Electron Neutrino",
       "particle_id": "electron_neutrino",
       "promotable": false,
-      "reason": "compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table",
+      "reason": "target_informed_candidate_rejected_by_correlated_profile",
       "scope": "weighted_cycle_bridge_rigid_absolute_family",
       "source_artifact": "code/particles/runs/neutrino/neutrino_absolute_attachment_theorem.json"
     },
     {
-      "exact_kind": "scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate",
+      "exact_kind": "rejected_target_informed_weighted_cycle_candidate",
       "label": "Muon Neutrino",
       "particle_id": "muon_neutrino",
       "promotable": false,
-      "reason": "compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table",
+      "reason": "target_informed_candidate_rejected_by_correlated_profile",
       "scope": "weighted_cycle_bridge_rigid_absolute_family",
       "source_artifact": "code/particles/runs/neutrino/neutrino_absolute_attachment_theorem.json"
     },
     {
-      "exact_kind": "scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate",
+      "exact_kind": "rejected_target_informed_weighted_cycle_candidate",
       "label": "Tau Neutrino",
       "particle_id": "tau_neutrino",
       "promotable": false,
-      "reason": "compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table",
+      "reason": "target_informed_candidate_rejected_by_correlated_profile",
       "scope": "weighted_cycle_bridge_rigid_absolute_family",
       "source_artifact": "code/particles/runs/neutrino/neutrino_absolute_attachment_theorem.json"
     }

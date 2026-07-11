@@ -32,6 +32,8 @@ def test_neutrino_oscillation_comparison_rows_are_emitted_on_repaired_branch() -
         "delta_m21_sq_over_delta_m32_sq",
         "delta_m21_sq_eV2",
         "delta_m32_sq_eV2",
+        "nufit61_tbyes_no_t23_dcp_delta_chi2",
+        "nufit61_tboff_no_t23_dcp_delta_chi2",
     } <= observable_ids
 
 
@@ -39,7 +41,8 @@ def test_neutrino_oscillation_comparison_rows_use_compare_only_absolute_splittin
     module = _load_module()
     rows = module.build_neutrino_oscillation_comparison_rows(module.build_surface_state(with_hadrons=False))
     by_id = {row["observable_id"]: row for row in rows}
-    assert by_id["theta12_deg"]["status"] == "weighted_cycle_dimensionless"
+    assert by_id["theta12_deg"]["status"] == "rejected_target_informed_candidate"
+    assert by_id["nufit61_tbyes_no_t23_dcp_delta_chi2"]["status"] == "candidate_rejection"
     assert by_id["delta_m21_sq_eV2"]["status"] == "compare_only"
     assert by_id["delta_m32_sq_eV2"]["status"] == "compare_only"
     assert "two-parameter positive-segment neutrino adapter" in by_id["delta_m32_sq_eV2"]["note"]
@@ -81,4 +84,5 @@ def test_render_markdown_includes_neutrino_oscillation_section() -> None:
         companion_status_rows=[],
     )
     assert "## Neutrino Oscillation Comparison" in markdown
-    assert "| theta12 | weighted_cycle_dimensionless |" in markdown
+    assert "| theta12 | rejected_target_informed_candidate |" in markdown
+    assert "| NuFIT 6.1 TByes-NO T23/DCP Delta chi2 | candidate_rejection |" in markdown

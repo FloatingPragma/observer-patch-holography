@@ -1,0 +1,47 @@
+{
+  "absolute_scale": {
+    "absolute_mass_prediction_allowed": false,
+    "status": "one_positive_profiled_nuisance"
+  },
+  "artifact": "oph_neutrino_precision_candidate_predictions",
+  "claim_class": "retrospective_target_informed_template_candidate",
+  "derived_crosschecks": {
+    "J": -0.02753115613565372,
+    "ratio_delta_m21_sq_over_delta_m31_sq": 0.029805453480085023,
+    "ratio_delta_m21_sq_over_delta_mee_sq": 0.0300891702460122
+  },
+  "experiment_views": {
+    "DUNE": [
+      "ordering",
+      "sin2_theta23",
+      "delta_cp",
+      "sin2_theta13"
+    ],
+    "Hyper-K": [
+      "ordering",
+      "sin2_theta23",
+      "delta_cp",
+      "sin2_theta13"
+    ],
+    "JUNO": [
+      "ordering",
+      "sin2_theta12",
+      "sin2_theta13",
+      "ratio_delta_m21_sq_over_delta_mee_sq"
+    ]
+  },
+  "independent_coordinates": {
+    "delta_cp_deg_wrapped": -54.419387685502045,
+    "delta_cp_rad": 5.333387815148319,
+    "ratio_delta_m21_sq_over_delta_m32_sq": 0.030721110097966534,
+    "sin2_theta12": 0.31635817043298914,
+    "sin2_theta13": 0.022808675997350793,
+    "sin2_theta23": 0.5820560367018955
+  },
+  "lock_id": "OPH-NU-CAND-001",
+  "numerical_policy": "exact float64 point; no experimental error is re-used as theory uncertainty",
+  "ordering": "normal",
+  "prediction_promotion_allowed": false,
+  "theory_epistemic_distribution": null,
+  "version": "1.0.0"
+}

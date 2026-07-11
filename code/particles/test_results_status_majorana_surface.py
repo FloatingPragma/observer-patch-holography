@@ -26,7 +26,7 @@ def test_majorana_phase_surface_rows_emit_on_live_theorem() -> None:
     rows = module.build_majorana_phase_surface_rows(module.build_surface_state(with_hadrons=False))
     by_id = {row["observable_id"]: row for row in rows}
     assert {"alpha21_majorana", "alpha31_majorana"} <= set(by_id)
-    assert by_id["alpha21_majorana"]["status"] == "theorem_grade"
+    assert by_id["alpha21_majorana"]["status"] == "rejected_target_informed_candidate"
     assert by_id["alpha21_majorana"]["prediction_display"] == "153.618518 deg"
     assert by_id["alpha31_majorana"]["prediction_display"] == "257.003241 deg"
 
@@ -167,5 +167,5 @@ def test_render_markdown_includes_majorana_phase_section() -> None:
         companion_status_rows=[],
     )
     assert "## Majorana Phase Surface" in markdown
-    assert "| alpha21^(Maj) | theorem_grade | 153.618518 deg |" in markdown
-    assert "| alpha31^(Maj) | theorem_grade | 257.003241 deg |" in markdown
+    assert "| alpha21^(Maj) | rejected_target_informed_candidate | 153.618518 deg |" in markdown
+    assert "| alpha31^(Maj) | rejected_target_informed_candidate | 257.003241 deg |" in markdown
