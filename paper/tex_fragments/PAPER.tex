@@ -4913,7 +4913,7 @@ This locality confirms that the coupling is dominated by physics near the cut, n
 
 This ratio distinguishes the Laplacian law from naive alternatives: a linear model (\ensuremath{\lambda}\_q \ensuremath{\propto} q) would predict ratio 2, while a quadratic model (\ensuremath{\lambda}\_q \ensuremath{\propto} q\textsuperscript{2}) would predict ratio 4.
 
-Simulations on a 2\ensuremath{\times}2 torus in the dual/flux basis (125 states in the zero-winding sector) give:
+Direct diagonalization of the displayed Hamiltonian on the full 2\ensuremath{\times}2-torus link basis (5\textsuperscript{8} states, K = 1, \ensuremath{\Gamma} = 5), measuring the restricted-star edge charge at a boundary vertex of the half-lattice region, gives:
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}>{\RaggedLeft\arraybackslash}p{0.320\textwidth}>{\RaggedLeft\arraybackslash}p{0.320\textwidth}>{\RaggedLeft\arraybackslash}p{0.320\textwidth}@{}}
@@ -4923,13 +4923,14 @@ h & Measured ratio ln(p\textsubscript{2}/p\textsubscript{0})/ln(p\textsubscript{
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-0.5 & 2.25 & 14\% \\
-1.0 & 2.51 & 4\% \\
-2.0 & 2.619 & \textless{} 0.1\% \\
+0.50 & 2.876 & 9.9\% \\
+0.20 & 2.750 & 5.1\% \\
+0.10 & 2.671 & 2.0\% \\
+0.05 & 2.643 & 1.0\% \\
 \end{longtable}
 }
 
-The measured ratio converges to the golden ratio squared as h increases; finite-size corrections are largest at small h. This is the same limiting direction in which the S\textsubscript{3} diagnostics below converge. The test is genuinely overconstrained: Z\textsubscript{5} has two distinct nonzero eigenvalues, t is fitted on the q = 1 sector alone, the q = 2 weight is a held-out prediction, and the deviation column reports the held-out residual. Convergence of that residual confirms that the vacuum entanglement spectrum encodes the precise geometric structure of the gauge group Laplacian.
+In the weak-field limit h \ensuremath{\to} 0 the measured ratio converges to the golden ratio squared, and the stated limiting direction agrees with the tabulated sequence: the deviation decreases monotonically as h decreases. (An earlier version of this table came from a dual/flux-basis run whose tabulated parameter ran opposite to the h of the displayed Hamiltonian, so prose and table disagreed about the limit; the direct link-basis rerun above, reproducible with \texttt{code/edge\_sectors/heat\_kernel\_holdout\_validation.py}, removes that inconsistency. At large h the ratio instead drifts toward the perturbative order-counting value 2, which is why the weak-field direction is the declared convergence regime for this model.) The test is genuinely overconstrained: Z\textsubscript{5} has two distinct nonzero eigenvalues, t is fitted on the q = 1 sector alone, the q = 2 weight is a held-out prediction, and the deviation column reports the held-out residual. Convergence of that residual confirms that the vacuum entanglement spectrum encodes the precise geometric structure of the gauge group Laplacian.
 
 \textbf{Significance.} This validates the mathematical law (sector probabilities weighted by Laplacian eigenvalues) in explicit 2D gauge-invariant models with non-flat sector distributions. Because the nontrivial Z\textsubscript{3} eigenvalues are degenerate, it is the Z\textsubscript{5} test (and the S\textsubscript{3} test below) that is structurally identical to SU(2)/SU(3): two or more distinct nonzero eigenvalues overconstrain the slope, and held-out agreement confirms the mechanism works before jumping to nonabelian groups.
 
@@ -5080,14 +5081,14 @@ The normalization factor behaves like a quasi-constant and extrapolates to a sim
 \item
   \textbf{Z\textsubscript{2}, Z\textsubscript{3}}: implementation and convention checks. Z\textsubscript{2} has one nontrivial eigenvalue (one parameter, one datum); in Z\textsubscript{3} the equalities p\textsubscript{1} = p\textsubscript{2} and t\_\{q=1\} = t\_\{q=2\} are forced by charge conjugation plus the degenerate eigenvalue \ensuremath{\lambda}\textsubscript{1} = \ensuremath{\lambda}\textsubscript{2}, so the \textasciitilde10\textsuperscript{-}\textsuperscript{1}\textsuperscript{4} agreement is expected from symmetry alone
 \item
-  \textbf{Z\textsubscript{5}}: overconstrained golden-ratio test (\ensuremath{\lambda}\textsubscript{2}/\ensuremath{\lambda}\textsubscript{1} = \ensuremath{\phi}\textsuperscript{2}, two distinct nonzero eigenvalues), held-out residual \textless{} 0.1\%
+  \textbf{Z\textsubscript{5}}: overconstrained golden-ratio test (\ensuremath{\lambda}\textsubscript{2}/\ensuremath{\lambda}\textsubscript{1} = \ensuremath{\phi}\textsuperscript{2}, two distinct nonzero eigenvalues), held-out residual 1.0\% at h = 0.05, decreasing monotonically as h \ensuremath{\to} 0
 \item
   \textbf{S\textsubscript{3}}: overconstrained nonabelian Casimir log-ratio test (\ensuremath{\lambda}\_sign/\ensuremath{\lambda}\_std = 2), held-out residual 0.01\%
 \item
   \textbf{SU(3)}: 14-irrep simultaneous extraction, internal scatter 1-3\%
 \end{itemize}
 
-The Z\textsubscript{3} equality is forced by symmetry and is retained only as a regression check of the implementation; it is not an independent confirmation of the heat-kernel law. The substantive validation rests on the Z\textsubscript{5}, S\textsubscript{3}, and SU(3) tests, each of which fits t using fewer spectral sectors than it predicts, involves two or more distinct nonzero eigenvalues, and reports held-out residuals that converge as h increases. This provides internal validation of the mechanism "MaxEnt + Laplacian =\textgreater{} heat-kernel sector weights" before applying it to physical gauge groups. A self-contained held-out refit script for the finite-group models is provided at \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/code/edge_sectors/heat_kernel_holdout_validation.py}{\texttt{code/edge\_sectors/heat\_kernel\_holdout\_validation.py}}; it fits t on a declared subset of sectors and prints held-out residuals for the remaining sectors.
+The Z\textsubscript{3} equality is forced by symmetry and is retained only as a regression check of the implementation; it is not an independent confirmation of the heat-kernel law. The substantive validation rests on the Z\textsubscript{5}, S\textsubscript{3}, and SU(3) tests, each of which fits t using fewer spectral sectors than it predicts, involves two or more distinct nonzero eigenvalues, and reports held-out residuals that converge in the declared regime of the corresponding model (h \ensuremath{\to} 0 for the Z\textsubscript{5} torus model; h large for the single-plaquette S\textsubscript{3} model). This provides internal validation of the mechanism "MaxEnt + Laplacian =\textgreater{} heat-kernel sector weights" before applying it to physical gauge groups. A self-contained held-out refit script for the finite-group models is provided at \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/code/edge_sectors/heat_kernel_holdout_validation.py}{\texttt{code/edge\_sectors/heat\_kernel\_holdout\_validation.py}}; it fits t on a declared subset of sectors and prints held-out residuals for the remaining sectors.
 
 \subsubsection{Frozen IBM Quantum Cloud engineering archive}\label{614a-ibm-quantum-cloud-hardware-benchmarks}
 
