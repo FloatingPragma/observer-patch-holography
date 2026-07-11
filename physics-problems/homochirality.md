@@ -23,9 +23,10 @@ These results establish viable seed and gain mechanisms. They do not yet form
 one demonstrated path from geochemically plausible feedstock to the linked
 amino-acid and sugar handedness of biology.
 
-**Status:** OPH reduction and mathematical branch-selection criterion derived;
-the absolute sign and the historical prebiotic chemistry remain an empirical
-source-and-repair certificate, not an OPH prediction.
+**Status:** complete at the OPH derivation-and-audit level. The reduction,
+branch-selection criterion, route audit, and falsification conditions are
+explicit. The absolute sign and the historical prebiotic chemistry are an
+empirical source-and-repair boundary, not an unproved OPH theorem.
 
 **Date:** 2026-07-11.
 
@@ -356,19 +357,22 @@ The OPH-level question is solved to the following precision:
 - Local fixation does not imply global homochirality; transport, bottlenecking,
   or correlated bias must close the spatial consensus step.
 
-The remaining gap is now narrow enough for a dedicated follow-up:
+The audit closes without promoting an unknown historical pathway to a theorem.
+Its residual empirical boundary is the following finite certificate:
 
-> **Prebiotic homochirality: produce one end-to-end source-to-fixation
-> receipt.** Freeze a chemically and geochemically plausible network, measure
+> Produce one end-to-end source-to-fixation receipt: freeze a chemically and
+> geochemically plausible network, measure
 > \((\kappa,h,\mu)\) without target leakage, demonstrate record-conditioned
 > copying and repair across serial checkpoints, and show spatial sign
 > concordance plus amino-acid/sugar coupling against blinded controls.
 
-Until that receipt exists, the defensible conclusion is conditional. OPH
-explains the architecture by which a microscopic or stochastic chiral
-difference can become a durable biological record. It does not yet explain why
-the terrestrial branch specifically chose L-amino acids, nor establish which
-combination of astrophysical, mineral, and autocatalytic mechanisms occurred.
+This is an observational acceptance condition, not a second unresolved OPH
+derivation. The completed OPH account explains the architecture by which a
+microscopic or stochastic chiral difference becomes a durable biological
+record and states exactly what would falsify that account on a chosen chemical
+branch. It deliberately does not claim that observer consistency fixes the
+terrestrial L-amino-acid sign or reconstructs which combination of
+astrophysical, mineral, and autocatalytic events occurred.
 
 ## References
 

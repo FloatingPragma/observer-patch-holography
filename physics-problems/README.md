@@ -22,8 +22,8 @@ branch-specific source law, action, repair ledger, or receipt bundle.
   repair, and spatial fixation. It proves the symmetry no-go and the
   error-versus-repair threshold in a Frank-type normal form, places
   autocatalytic, mineral, circular-polarization, and parity-violation routes in
-  distinct source terms, and narrows the open chemistry task to one
-  end-to-end source-to-fixation receipt.
+  distinct source terms, and states the finite empirical acceptance boundary
+  for an end-to-end source-to-fixation receipt.
 - [Plasma Fusion and Confinement](plasma_fusion.md): fusion as an OPH
   repair-ledger theorem package. The note defines the fusion repair ledger,
   H-mode as an edge-collar contraction branch, ELMs as obstruction/reset
