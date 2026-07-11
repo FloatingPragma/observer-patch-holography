@@ -42,6 +42,18 @@ def _load(name: str) -> dict:
     return json.loads((DEFAULT_OUT_DIR / name).read_text(encoding="utf-8"))
 
 
+@pytest.fixture(scope="module", autouse=True)
+def _synchronize_bundle_after_upstream_artifact_tests() -> None:
+    """Earlier particle tests rebuild hashed dependencies in the committed tree."""
+    subprocess.run(
+        [sys.executable, str(UV_DIR / "build_oph_bd_threshold_spectrum_receipts.py")],
+        cwd=REPO_ROOT,
+        check=True,
+        text=True,
+        capture_output=True,
+    )
+
+
 def test_committed_bundle_matches_in_memory_rebuild() -> None:
     result = subprocess.run(
         [

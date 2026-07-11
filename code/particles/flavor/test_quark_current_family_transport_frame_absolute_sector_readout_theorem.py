@@ -26,5 +26,5 @@ def test_current_family_transport_frame_absolute_sector_readout_theorem_closes()
     assert payload["corresponds_to_global_contract"]["id"] == "quark_absolute_sector_readout_theorem"
     assert payload["theorem_scope"] == "current_family_common_refinement_transport_frame_only"
     scales = payload["emitted_absolute_sector_scales"]
-    assert abs(float(scales["g_u"]) - 0.7796501962057188) < 1.0e-12
-    assert abs(float(scales["g_d"]) - 0.12249897208633505) < 1.0e-12
+    assert abs(float(scales["g_u"]) - 0.7792490879740623) < 1.0e-12
+    assert abs(float(scales["g_d"]) - 0.12226559489803177) < 1.0e-12

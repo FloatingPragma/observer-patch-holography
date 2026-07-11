@@ -1,9 +1,9 @@
 # Exact Fits Only
 
-Generated: `2026-07-11T06:39:18Z`
+Generated: `2026-07-11T06:58:14Z`
 
 This surface lists exact target matches on declared OPH carriers. It separates theorem-grade selected-class outputs from compare-only and carrier-restricted exact surfaces.
-For quarks, the selected-class theorem and its supporting exact carriers coincide with the official PDG 2025 API running-quark target surface.
+For quarks, the exact carrier-restricted witnesses coincide with the official PDG 2025 API running-quark target surface on their declared carriers.
 
 ## Higgs/Top Reference Exact Adapter
 
@@ -16,8 +16,8 @@ For quarks, the selected-class theorem and its supporting exact carriers coincid
 
 | Observable | Value | Reference |
 | --- | ---: | ---: |
-| `m_H` | `125.1309438281615` | `125.1309438281615` |
-| `m_t` | `172.054218792374` | `172.054218792374` |
+| `m_H` | `125.13` | `125.13` |
+| `m_t` | `172.1` | `172.1` |
 
 ## Charged Current-Family Exact Witness
 
@@ -25,14 +25,14 @@ For quarks, the selected-class theorem and its supporting exact carriers coincid
 - Scope: `current_family_only`
 - Promotable: `false`
 - Source artifact: `code/particles/runs/leptons/lepton_current_family_exact_readout.json`
-- Max absolute residual: `2.220446049250313e-16`
+- Max absolute residual: `6.661338147750939e-16`
 - Note: Exact on the ordered charged eigenvalue triple, with a closed ordered-three-point readout theorem inside `current_family_only`, and with the scoped affine coordinate `A_ch_current_family` closed on that same exact family. The charged theorem lane does not emit a theorem-grade absolute anchor; [#201](https://github.com/FloatingPragma/observer-patch-holography/issues/201) is closed as a corpus-limited no-go by `code/particles/runs/leptons/charged_end_to_end_impossibility_theorem.json`.
 
 | Observable | Value | Reference |
 | --- | ---: | ---: |
 | `m_e` | `0.0005109989506900001` | `0.0005109989506900001` |
-| `m_mu` | `0.10565837550000003` | `0.10565837550000001` |
-| `m_tau` | `1.7769324651340899` | `1.77693246513409` |
+| `m_mu` | `0.10565837550000001` | `0.10565837550000001` |
+| `m_tau` | `1.7769299999999995` | `1.7769300000000001` |
 
 ## Quark Current-Family Exact Witness
 
@@ -40,35 +40,17 @@ For quarks, the selected-class theorem and its supporting exact carriers coincid
 - Scope: `current_family_only`
 - Promotable: `false`
 - Source artifact: `code/particles/runs/flavor/quark_current_family_exact_readout.json`
-- Max absolute residual: `2.5579538487363607e-13`
+- Max absolute residual: `2.8421709430404007e-13`
 - Note: Exact on the official PDG 2025 API running-quark target surface on the ordered three-point quark family witness, with the internal same-family quadratic readout closed on the fixed carrier and the selected-sheet exact closure packaged on `sigma_ref`. The top coordinate uses PDG summary `Q007TP4`. The auxiliary direct-top entry `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go. The declared scope is `current_family_only`. A separate restricted theorem chain emits a sector-attached `Sigma_ud^phys` element on the explicit `current_family_common_refinement_transport_frame_only` carrier, and the merged transport-frame theorem reconstructs the same running sextet exactly on `current_family_common_refinement_transport_frame_only`. The declared transport-frame chain also closes explicit exact forward Yukawas `Y_u` and `Y_d` with certification status `forward_matrix_certified`, and the full declared-carrier chain is recorded in `oph_quark_current_family_end_to_end_exact_pdg_derivation_chain`. A separate target-free mass bridge closes `Delta_ud_overlap = (1/6) * log(c_d / c_u)`, equivalently `quark_d12_t1_value_law`, on the emitted D12 ray. A separate selected-class support wrapper exists on the public physical quark frame class chosen by `P`: `oph_quark_public_physical_sigma_datum_descent` proves representative independence on the selected bridge fiber, but the exact physical sigma datum remains target-derived until a source sigma selector closes. `oph_quark_public_exact_yukawa_end_to_end_theorem` therefore records the same exact sextet together with explicit exact forward Yukawas `Y_u` and `Y_d` as an audit/support witness.
 
 | Observable | Value | Reference |
 | --- | ---: | ---: |
-| `m_u` | `0.0021600000000000026` | `0.00216` |
+| `m_u` | `0.002160000000000001` | `0.00216` |
 | `m_c` | `1.2729000000000004` | `1.2729` |
-| `m_t` | `172.05421879237375` | `172.054218792374` |
+| `m_t` | `172.0999999999997` | `172.1` |
 | `m_d` | `0.004699999999999999` | `0.0047` |
 | `m_s` | `0.0929` | `0.09290000000000001` |
 | `m_b` | `4.186` | `4.186` |
-
-## Quark Selected-Class Exact Theorem
-
-- Fit kind: `selected_class_target_anchored_exact_witness`
-- Scope: `selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived`
-- Promotable: `false`
-- Source artifact: `code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json`
-- Max absolute residual: `0.2981365364571502`
-- Note: Selected-class exact witness on the public physical quark frame class chosen by `P`; strict promotion is blocked because the sigma datum is target-derived. `oph_quark_public_physical_sigma_datum_descent` proves representative independence on the selected bridge fiber, but the attached physical sigma datum remains target-derived until a no-target source sigma selector closes. `oph_quark_public_exact_yukawa_end_to_end_theorem` therefore records the exact PDG 2025 running-quark sextet and explicit exact forward Yukawas `Y_u` and `Y_d` as an audit/support witness. The top coordinate uses PDG summary `Q007TP4`. The auxiliary direct-top entry `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. This is selected-class closure only. It does not claim a global classification of all quark frame classes.
-
-| Observable | Value | Reference |
-| --- | ---: | ---: |
-| `m_u` | `0.0021600000000000005` | `0.00216` |
-| `m_c` | `1.2729999999999992` | `1.2729` |
-| `m_t` | `172.35235532883115` | `172.054218792374` |
-| `m_d` | `0.004699999999999999` | `0.0047` |
-| `m_s` | `0.09349999999999999` | `0.09290000000000001` |
-| `m_b` | `4.182999999999994` | `4.186` |
 
 ## Neutrino Two-Parameter Exact Adapter
 

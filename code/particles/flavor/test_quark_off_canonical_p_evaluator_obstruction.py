@@ -37,8 +37,8 @@ def test_quark_off_canonical_p_evaluator_obstruction_records_hard_blockers() -> 
     assert abs(edge["residuals"]["c_d_used_minus_fit"]) > 0.1
     assert abs(edge["residuals"]["sigma_d_candidate_minus_active"]) > 0.05
     canonical_point = payload["formal_countermodel_witness"]["canonical_point"]
-    assert canonical_point["sigma_u_star"] == 5.573928426395543
-    assert canonical_point["sigma_d_star"] == 3.296264198808688
+    assert canonical_point["sigma_u_star"] == 5.579692209267639
+    assert canonical_point["sigma_d_star"] == 3.300314452061615
     assert edge["active_closed_sigmas"]["sigma_u_total_log_per_side"] != canonical_point["sigma_u_star"]
     assert edge["active_closed_sigmas"]["sigma_d_total_log_per_side"] != canonical_point["sigma_d_star"]
 

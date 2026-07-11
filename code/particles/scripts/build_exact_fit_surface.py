@@ -430,12 +430,25 @@ def main() -> int:
     args = parser.parse_args()
 
     generated_utc = _timestamp()
-    entries = build_entries()
+    candidates = build_entries()
+    entries = [entry for entry in candidates if float(entry.get("max_abs_residual", 0.0)) <= 1.0e-10]
+    rejected_nonexact_entries = [
+        {
+            "id": entry["id"],
+            "label": entry["label"],
+            "max_abs_residual": entry.get("max_abs_residual"),
+            "source_artifact": entry["source_artifact"],
+            "reason": "independent_reference_refresh_invalidated_exact_match",
+        }
+        for entry in candidates
+        if entry not in entries
+    ]
     payload = {
         "artifact": "oph_exact_fits_only_surface",
         "generated_utc": generated_utc,
         "status": "exact_target_anchored_or_single_observable_diagnostic_surface",
         "entries": entries,
+        "rejected_nonexact_entries": rejected_nonexact_entries,
     }
 
     markdown_out = pathlib.Path(args.markdown_out)

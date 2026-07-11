@@ -13,15 +13,15 @@
       "note": "Exact only as a compare-only inverse slice on the D11 Jacobian. The live D11 theorem lane uses a conditional split candidate on the declared D10/D11 surface. That surface emits `m_H = 125.1995304097179 GeV` and a companion top coordinate `m_t = 172.3523553288312 GeV`, but strict promotion is blocked until the D10 target-free repair closes. The target-anchored selected-class running-top witness uses the PDG 2025 cross-section entry `Q007TP4`, but it is audit-only under the strict public-output policy. The auxiliary direct-top average `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`.",
       "promotable": false,
       "references": {
-        "m_H": 125.1309438281615,
-        "m_t": 172.054218792374
+        "m_H": 125.13,
+        "m_t": 172.1
       },
       "scope": "compare_only_inverse_slice",
       "source_artifact": "code/particles/runs/calibration/d11_reference_exact_adapter.json",
       "units": "GeV",
       "values": {
-        "m_H": 125.1309438281615,
-        "m_t": 172.054218792374
+        "m_H": 125.13,
+        "m_t": 172.1
       }
     },
     {
@@ -33,13 +33,13 @@
         "m_mu",
         "m_tau"
       ],
-      "max_abs_residual": 2.220446049250313e-16,
+      "max_abs_residual": 6.661338147750939e-16,
       "note": "Exact on the ordered charged eigenvalue triple, with a closed ordered-three-point readout theorem inside `current_family_only`, and with the scoped affine coordinate `A_ch_current_family` closed on that same exact family. The charged theorem lane does not emit a theorem-grade absolute anchor; [#201](https://github.com/FloatingPragma/observer-patch-holography/issues/201) is closed as a corpus-limited no-go by `code/particles/runs/leptons/charged_end_to_end_impossibility_theorem.json`.",
       "promotable": false,
       "references": {
         "m_e": 0.0005109989506900001,
         "m_mu": 0.10565837550000001,
-        "m_tau": 1.77693246513409
+        "m_tau": 1.7769300000000001
       },
       "scope": "current_family_only",
       "source_artifact": "code/particles/runs/leptons/lepton_current_family_exact_readout.json",
@@ -47,8 +47,8 @@
       "units": "GeV",
       "values": {
         "m_e": 0.0005109989506900001,
-        "m_mu": 0.10565837550000003,
-        "m_tau": 1.7769324651340899
+        "m_mu": 0.10565837550000001,
+        "m_tau": 1.7769299999999995
       }
     },
     {
@@ -63,7 +63,7 @@
         "m_s",
         "m_b"
       ],
-      "max_abs_residual": 2.5579538487363607e-13,
+      "max_abs_residual": 2.8421709430404007e-13,
       "note": "Exact on the official PDG 2025 API running-quark target surface on the ordered three-point quark family witness, with the internal same-family quadratic readout closed on the fixed carrier and the selected-sheet exact closure packaged on `sigma_ref`. The top coordinate uses PDG summary `Q007TP4`. The auxiliary direct-top entry `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go. The declared scope is `current_family_only`. A separate restricted theorem chain emits a sector-attached `Sigma_ud^phys` element on the explicit `current_family_common_refinement_transport_frame_only` carrier, and the merged transport-frame theorem reconstructs the same running sextet exactly on `current_family_common_refinement_transport_frame_only`. The declared transport-frame chain also closes explicit exact forward Yukawas `Y_u` and `Y_d` with certification status `forward_matrix_certified`, and the full declared-carrier chain is recorded in `oph_quark_current_family_end_to_end_exact_pdg_derivation_chain`. A separate target-free mass bridge closes `Delta_ud_overlap = (1/6) * log(c_d / c_u)`, equivalently `quark_d12_t1_value_law`, on the emitted D12 ray. A separate selected-class support wrapper exists on the public physical quark frame class chosen by `P`: `oph_quark_public_physical_sigma_datum_descent` proves representative independence on the selected bridge fiber, but the exact physical sigma datum remains target-derived until a source sigma selector closes. `oph_quark_public_exact_yukawa_end_to_end_theorem` therefore records the same exact sextet together with explicit exact forward Yukawas `Y_u` and `Y_d` as an audit/support witness.",
       "promotable": false,
       "references": {
@@ -71,7 +71,7 @@
         "m_c": 1.2729,
         "m_d": 0.0047,
         "m_s": 0.09290000000000001,
-        "m_t": 172.054218792374,
+        "m_t": 172.1,
         "m_u": 0.00216
       },
       "scope": "current_family_only",
@@ -89,49 +89,8 @@
         "m_c": 1.2729000000000004,
         "m_d": 0.004699999999999999,
         "m_s": 0.0929,
-        "m_t": 172.05421879237375,
-        "m_u": 0.0021600000000000026
-      }
-    },
-    {
-      "fit_kind": "selected_class_target_anchored_exact_witness",
-      "id": "quark_selected_class_exact_theorem",
-      "label": "Quark Selected-Class Exact Theorem",
-      "matched_observables": [
-        "m_u",
-        "m_c",
-        "m_t",
-        "m_d",
-        "m_s",
-        "m_b"
-      ],
-      "max_abs_residual": 0.2981365364571502,
-      "note": "Selected-class exact witness on the public physical quark frame class chosen by `P`; strict promotion is blocked because the sigma datum is target-derived. `oph_quark_public_physical_sigma_datum_descent` proves representative independence on the selected bridge fiber, but the attached physical sigma datum remains target-derived until a no-target source sigma selector closes. `oph_quark_public_exact_yukawa_end_to_end_theorem` therefore records the exact PDG 2025 running-quark sextet and explicit exact forward Yukawas `Y_u` and `Y_d` as an audit/support witness. The top coordinate uses PDG summary `Q007TP4`. The auxiliary direct-top entry `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. This is selected-class closure only. It does not claim a global classification of all quark frame classes.",
-      "promotable": false,
-      "references": {
-        "m_b": 4.186,
-        "m_c": 1.2729,
-        "m_d": 0.0047,
-        "m_s": 0.09290000000000001,
-        "m_t": 172.054218792374,
-        "m_u": 0.00216
-      },
-      "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
-      "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
-      "supporting_end_to_end_chain_artifact": "code/particles/runs/flavor/quark_current_family_end_to_end_exact_pdg_derivation_chain.json",
-      "supporting_public_sigma_descent_artifact": "code/particles/runs/flavor/quark_public_physical_sigma_datum_descent.json",
-      "supporting_scope_closure_artifact": "code/particles/runs/flavor/quark_current_family_selected_sheet_closure.json",
-      "supporting_transport_frame_artifact": "code/particles/runs/flavor/quark_current_family_transport_frame_sector_attached_lift.json",
-      "supporting_transport_frame_completion_artifact": "code/particles/runs/flavor/quark_current_family_transport_frame_exact_pdg_completion.json",
-      "supporting_transport_frame_forward_yukawas_artifact": "code/particles/runs/flavor/quark_current_family_transport_frame_exact_forward_yukawas.json",
-      "units": "GeV",
-      "values": {
-        "m_b": 4.182999999999994,
-        "m_c": 1.2729999999999992,
-        "m_d": 0.004699999999999999,
-        "m_s": 0.09349999999999999,
-        "m_t": 172.35235532883115,
-        "m_u": 0.0021600000000000005
+        "m_t": 172.0999999999997,
+        "m_u": 0.002160000000000001
       }
     },
     {
@@ -216,6 +175,15 @@
       }
     }
   ],
-  "generated_utc": "2026-07-11T06:39:18Z",
+  "generated_utc": "2026-07-11T06:58:14Z",
+  "rejected_nonexact_entries": [
+    {
+      "id": "quark_selected_class_exact_theorem",
+      "label": "Quark Selected-Class Exact Theorem",
+      "max_abs_residual": 0.2523553288311575,
+      "reason": "independent_reference_refresh_invalidated_exact_match",
+      "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json"
+    }
+  ],
   "status": "exact_target_anchored_or_single_observable_diagnostic_surface"
 }

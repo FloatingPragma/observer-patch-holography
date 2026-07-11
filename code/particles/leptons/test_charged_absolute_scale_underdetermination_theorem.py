@@ -33,5 +33,5 @@ def test_charged_absolute_scale_is_explicitly_underdetermined() -> None:
     assert payload["hard_reject"]["g_e"] == 0.6822819838027987
 
     compare = payload["compare_only_continuation_target"]
-    assert math.isclose(compare["g_e_star"], 0.04577885783568762, rel_tol=0.0, abs_tol=1.0e-15)
-    assert math.isclose(compare["delta_e_abs_star"], 3.003986333402356, rel_tol=0.0, abs_tol=1.0e-12)
+    assert math.isclose(compare["g_e_star"], 0.04577883668665009, rel_tol=0.0, abs_tol=1.0e-15)
+    assert math.isclose(compare["delta_e_abs_star"], 3.0039867953851016, rel_tol=0.0, abs_tol=1.0e-12)

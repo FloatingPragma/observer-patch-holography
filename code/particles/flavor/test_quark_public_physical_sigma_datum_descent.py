@@ -48,6 +48,6 @@ def test_quark_public_physical_sigma_datum_descent_closes_selected_public_class(
     assert payload["declared_bridge_fiber_invariance_theorem"]["id"] == "declared_selected_public_bridge_fiber_sigma_constancy"
     assert "For any r,r' in R_decl(f_P)" in payload["declared_bridge_fiber_invariance_theorem"]["statement"]
     sigma = payload["descended_physical_sigma_datum"]
-    assert abs(float(sigma["sigma_u"]) - 5.573928426395543) < 1.0e-12
-    assert abs(float(sigma["sigma_d"]) - 3.296264198808688) < 1.0e-12
+    assert abs(float(sigma["sigma_u"]) - 5.579692209267639) < 1.0e-12
+    assert abs(float(sigma["sigma_d"]) - 3.300314452061615) < 1.0e-12
     assert payload["selected_public_physical_frame_class"]["selected_by"] == "P"

@@ -21,7 +21,7 @@ def test_d10_common_transport_gap_report_default_p() -> None:
     assert payload["artifact"] == "oph_d10_ew_common_transport_gap_report"
     assert payload["status"] == "compare_only_diagnostic"
     assert payload["verdict"]["classification"] == "fails_required_benchmark_transport"
-    assert payload["observable_gap_to_benchmark"]["max_mass_gap_mev"] < 1.0e-3
+    assert payload["observable_gap_to_benchmark"]["max_mass_gap_mev"] > 10.0
 
 
 def test_d10_common_transport_gap_report_alex_p() -> None:

@@ -36,10 +36,10 @@ def test_quark_sigma_source_gate_records_target_free_missing_theorem() -> None:
     assert "PDG" in payload["forbidden_ancestors"]
 
     target = payload["target_values_for_future_source_theorem"]
-    assert abs(target["sigma_u"] - 5.573928426395543) < 1.0e-12
-    assert abs(target["sigma_d"] - 3.296264198808688) < 1.0e-12
-    assert abs(target["sigma_seed_ud"] - 4.4350963126021155) < 1.0e-12
-    assert abs(target["eta_ud"] - 1.1388321137934274) < 1.0e-12
+    assert abs(target["sigma_u"] - 5.579692209267639) < 1.0e-12
+    assert abs(target["sigma_d"] - 3.300314452061615) < 1.0e-12
+    assert abs(target["sigma_seed_ud"] - 4.440003330664627) < 1.0e-12
+    assert abs(target["eta_ud"] - 1.139688878603012) < 1.0e-12
 
     candidate = payload["strongest_current_source_candidate"]
     assert abs(candidate["sigma_u_edge"] - 5.578418804072826) < 1.0e-12

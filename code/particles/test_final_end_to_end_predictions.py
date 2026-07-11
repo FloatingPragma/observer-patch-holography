@@ -77,7 +77,7 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
     withheld = {row["particle_id"]: row for row in payload["withheld_non_prediction_rows"]}
     assert withheld["electron"]["reason"] == "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction"
     assert withheld["electron"]["public_theorem_value"] is None
-    assert withheld["electron"]["formula_if_anchor_exists"] == "m_e(P)=exp(A_ch(P)-4.495209645475038)"
+    assert withheld["electron"]["formula_if_anchor_exists"] == "m_e(P)=exp(A_ch(P)-4.495210107907882)"
     assert "charged_determinant_trace_lift_attachment" in withheld["electron"]["missing_for_promotion"]
     charged_boundary = payload["charged_lepton_anchor_boundary"]
     assert charged_boundary["status"] == "missing_theorem"

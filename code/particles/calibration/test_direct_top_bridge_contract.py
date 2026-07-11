@@ -33,13 +33,13 @@ def test_direct_top_bridge_contract_closes_auxiliary_row_as_current_corpus_no_go
     assert payload["current_theorem_coordinate"]["value_gev"] == pytest.approx(172.35235532883115)
     assert payload["auxiliary_direct_top_coordinate"]["value_gev"] == pytest.approx(172.6)
     assert payload["comparison_only_readout"]["direct_minus_current_coordinate_gev"] == pytest.approx(
-        0.20673301656675,
+        0.24764467116884248,
         abs=1.0e-12,
     )
     assert payload["comparison_only_readout"]["within_combined_one_sigma"] is True
     assert payload["closure_gate"]["closable_now"] is True
     assert payload["formal_nonidentifiability_witness"]["lambda_matching_auxiliary_central_value_gev"] == pytest.approx(
-        0.20673301656675,
+        0.24764467116884248,
         abs=1.0e-12,
     )
     object_ids = {item["id"] for item in payload["constructive_objects"]}

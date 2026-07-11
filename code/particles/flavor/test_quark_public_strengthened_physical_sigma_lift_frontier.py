@@ -44,8 +44,8 @@ def test_public_strengthened_physical_sigma_lift_frontier_records_final_routes()
     assert final["id"] == "selected_bridge_fiber_sigma_descent_not_source_selection"
     assert final["induces_global_contract"]["id"] == "strengthened_quark_physical_sigma_ud_lift"
     sigma = final["must_emit"]["physical_sigma_datum"]
-    assert abs(float(sigma["sigma_u"]) - 5.573928426395543) < 1.0e-12
-    assert abs(float(sigma["sigma_d"]) - 3.296264198808688) < 1.0e-12
+    assert abs(float(sigma["sigma_u"]) - 5.579692209267639) < 1.0e-12
+    assert abs(float(sigma["sigma_d"]) - 3.300314452061615) < 1.0e-12
     exact_yukawas = payload["algebraic_consequence_after_closure"]["forced_exact_yukawas"]
     assert exact_yukawas["artifact"] == "oph_quark_current_family_transport_frame_exact_forward_yukawas"
     assert exact_yukawas["forward_certified"] is True

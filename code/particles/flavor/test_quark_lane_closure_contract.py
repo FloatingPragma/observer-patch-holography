@@ -106,8 +106,8 @@ def test_quark_lane_closure_contract_records_closed_exact_pdg_target_and_open_pu
     assert payload["exact_sidecar_mass_surface"]["scope"] == "current_family_only"
     assert payload["exact_sidecar_mass_surface"]["current_family_affine_anchor_theorem"] == "oph_quark_current_family_affine_anchor_theorem"
     assert payload["exact_sidecar_mass_surface"]["current_family_exact_pdg_theorem"] == "oph_quark_current_family_exact_pdg_theorem"
-    assert payload["exact_sidecar_mass_surface"]["exact_outputs_gev"]["u"] == 0.0021599999999999996
-    assert payload["exact_sidecar_mass_surface"]["exact_outputs_gev"]["d"] == 0.004700000000000002
+    assert abs(payload["exact_sidecar_mass_surface"]["exact_outputs_gev"]["u"] - 0.00216) < 1.0e-15
+    assert abs(payload["exact_sidecar_mass_surface"]["exact_outputs_gev"]["d"] - 0.0047) < 1.0e-15
     target_surface = payload["current_family_physical_target_surface"]
     assert target_surface["affine_anchor_theorem"]["artifact"] == "oph_quark_current_family_affine_anchor_theorem"
     assert target_surface["exact_sigma_target"]["artifact"] == "oph_quark_current_family_exact_sigma_target"
