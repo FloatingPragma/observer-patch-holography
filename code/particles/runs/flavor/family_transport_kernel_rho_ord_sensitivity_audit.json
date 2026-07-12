@@ -1,0 +1,200 @@
+{
+  "analytic_elasticity": {
+    "compression_factor_abs": 0.13714337574819607,
+    "compression_statement": "the ratio law suppresses relative raw gap-ratio changes by about 7.3x at the operating point",
+    "raw_gap_ratio_r": 0.3178821878249244,
+    "statement": "rho_ord = 3/(2 + r) with r = g21/g32; d ln rho / d ln r = -r/(2+r)"
+  },
+  "artifact": "oph_family_transport_kernel_rho_ord_sensitivity_audit",
+  "baseline": {
+    "eigenvalues": [
+      -0.5186397082680319,
+      -0.21627404800912356,
+      0.7349137562771554
+    ],
+    "g21": 0.3023656602589083,
+    "g32": 0.9511878042862789,
+    "min_gap": 0.3023656602589083,
+    "raw_gap_ratio_r": 0.3178821878249244,
+    "rho_ord": 1.2942849363777058,
+    "span": 1.2535534645451873,
+    "x2": -0.5175863354681689
+  },
+  "compare_only_data_context": {
+    "down_sector_gap_ratio": 0.7836079197880329,
+    "implied_rho_band": [
+      1.2761484088503106,
+      1.3000272063381912
+    ],
+    "kernel_rho_inside_band": true,
+    "note": "context band only; these ratios are consumed by no derivation step in this artifact",
+    "up_sector_gap_ratio": 1.3000272063381912
+  },
+  "entry_direction_derivatives": [
+    {
+      "d_rho_per_unit_op_norm_step": -0.9081984554630542,
+      "direction": "real_23"
+    },
+    {
+      "d_rho_per_unit_op_norm_step": 0.6751572135595965,
+      "direction": "imag_12"
+    },
+    {
+      "d_rho_per_unit_op_norm_step": 0.3556440329541633,
+      "direction": "imag_13"
+    },
+    {
+      "d_rho_per_unit_op_norm_step": 0.3452143289989283,
+      "direction": "diag_33"
+    },
+    {
+      "d_rho_per_unit_op_norm_step": 0.29497078287866446,
+      "direction": "real_12"
+    },
+    {
+      "d_rho_per_unit_op_norm_step": -0.2765021493475632,
+      "direction": "diag_22"
+    },
+    {
+      "d_rho_per_unit_op_norm_step": 0.24199205661445097,
+      "direction": "real_13"
+    },
+    {
+      "d_rho_per_unit_op_norm_step": -0.06871217904709123,
+      "direction": "diag_11"
+    },
+    {
+      "d_rho_per_unit_op_norm_step": 0.05078255678724003,
+      "direction": "imag_23"
+    }
+  ],
+  "generated_utc": "2026-07-12T04:55:49Z",
+  "generator_cross_check": {
+    "generator_rho_ord": 1.2942849363777056,
+    "matches_kernel_level_to_1e12": true
+  },
+  "github_issues": [
+    377
+  ],
+  "guards": {
+    "measured_values_in_any_derivation_step": false,
+    "measured_values_in_compare_only_context_band": true,
+    "public_promotion_allowed": false
+  },
+  "kernel_identity_check": {
+    "descendant_rule": "hermitian_descendant = T T_dagger of the one-decimal toy transport matrices",
+    "max_abs_descendant_deviation": 0.0,
+    "on_disk_kernel_equals_builtin_toy_template_output": true,
+    "statement": "the two refinement levels of the same toy give rho_ord 1.2801 and 1.2943, so the constant moves at the percent level within one template",
+    "template_level_points": [
+      {
+        "level": 0,
+        "raw_gap_ratio_r": 0.34348265537395467,
+        "rho_ord": 1.2801460224681216,
+        "x2": -0.48866826973907274
+      },
+      {
+        "level": 1,
+        "raw_gap_ratio_r": 0.3178821878249244,
+        "rho_ord": 1.2942849363777058,
+        "x2": -0.5175863354681689
+      }
+    ]
+  },
+  "kernel_provenance": {
+    "kernel_artifact": "oph_family_transport_kernel",
+    "kernel_note": "Replace this template with an OPH-derived transport kernel across refinements. The intended theorem burden is conjugacy-Riesz persistence of the three-projector split.",
+    "kernel_status": "template",
+    "level_used": 1
+  },
+  "perturbation_sweep": {
+    "draw_model": "GUE-type Hermitian perturbation normalized to unit operator norm, scaled by eps times the centered kernel operator norm",
+    "rows": [
+      {
+        "abs_rel_drho_max": 0.003434280739193163,
+        "abs_rel_drho_median": 0.0007295501251999292,
+        "abs_rel_drho_p95": 0.002236803120561196,
+        "abs_rel_dx2_median": 0.003762156667568073,
+        "degenerate_excluded": 0,
+        "draws": 400,
+        "elasticity_median": 0.14591002503998585,
+        "eps_relative_op_norm": 0.005,
+        "fraction_within_data_band": 1.0,
+        "fraction_within_up_sector_deviation_0p44pct": 1.0,
+        "kept": 400
+      },
+      {
+        "abs_rel_drho_max": 0.006227968222065172,
+        "abs_rel_drho_median": 0.0016286939221243912,
+        "abs_rel_drho_p95": 0.004580074348924384,
+        "abs_rel_dx2_median": 0.008398924447140799,
+        "degenerate_excluded": 0,
+        "draws": 400,
+        "elasticity_median": 0.16286939221243912,
+        "eps_relative_op_norm": 0.01,
+        "fraction_within_data_band": 0.96,
+        "fraction_within_up_sector_deviation_0p44pct": 0.9325,
+        "kept": 400
+      },
+      {
+        "abs_rel_drho_max": 0.013773587006940424,
+        "abs_rel_drho_median": 0.0032669182191407686,
+        "abs_rel_drho_p95": 0.008724124923170384,
+        "abs_rel_dx2_median": 0.016876301199036492,
+        "degenerate_excluded": 0,
+        "draws": 400,
+        "elasticity_median": 0.16334591095703843,
+        "eps_relative_op_norm": 0.02,
+        "fraction_within_data_band": 0.81,
+        "fraction_within_up_sector_deviation_0p44pct": 0.645,
+        "kept": 400
+      },
+      {
+        "abs_rel_drho_max": 0.03405144941552796,
+        "abs_rel_drho_median": 0.00795779589251483,
+        "abs_rel_drho_p95": 0.02166740823912946,
+        "abs_rel_dx2_median": 0.04103587655383978,
+        "degenerate_excluded": 0,
+        "draws": 400,
+        "elasticity_median": 0.1591559178502966,
+        "eps_relative_op_norm": 0.05,
+        "fraction_within_data_band": 0.565,
+        "fraction_within_up_sector_deviation_0p44pct": 0.305,
+        "kept": 400
+      },
+      {
+        "abs_rel_drho_max": 0.06585448544946382,
+        "abs_rel_drho_median": 0.01643356779200955,
+        "abs_rel_drho_p95": 0.04541023810571494,
+        "abs_rel_dx2_median": 0.08477569338094187,
+        "degenerate_excluded": 0,
+        "draws": 400,
+        "elasticity_median": 0.1643356779200955,
+        "eps_relative_op_norm": 0.1,
+        "fraction_within_data_band": 0.2975,
+        "fraction_within_up_sector_deviation_0p44pct": 0.1125,
+        "kept": 400
+      },
+      {
+        "abs_rel_drho_max": 0.1199909827132154,
+        "abs_rel_drho_median": 0.031238150416153188,
+        "abs_rel_drho_p95": 0.08508238358628346,
+        "abs_rel_dx2_median": 0.15967659216312002,
+        "degenerate_excluded": 0,
+        "draws": 400,
+        "elasticity_median": 0.15619075208076594,
+        "eps_relative_op_norm": 0.2,
+        "fraction_within_data_band": 0.1575,
+        "fraction_within_up_sector_deviation_0p44pct": 0.065,
+        "kept": 400
+      }
+    ],
+    "seed": 20260712
+  },
+  "row_class": "template_provenance_audit",
+  "verdict": {
+    "classification": "compressed_but_template_dependent",
+    "reading": "rho_ord carries a real structural softening from the ratio law (about 6x suppression of template noise), and beyond that it tracks the toy kernel entries; under ten percent entry perturbations about a third of kernels keep rho_ord inside the 1.9 percent wide data band, so the band agreement is generic for the toy class rather than fine-tuned, and it is a template-class property rather than an OPH theorem; promotion of the shape law requires the OPH-derived kernel of the issue-377 closure program",
+    "typical_elasticity_median": 0.16286939221243912
+  }
+}

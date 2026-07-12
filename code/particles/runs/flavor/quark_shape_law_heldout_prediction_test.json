@@ -1,0 +1,301 @@
+{
+  "artifact": "oph_quark_shape_law_heldout_prediction_test",
+  "frozen_structure": {
+    "A_ud": 0.2467442927388686,
+    "B_ud": 0.8125616987157023,
+    "g_ch": 0.9231656602589082,
+    "provenance": {
+      "g_ch": "charged shared absolute scale writeback (current-family scope)",
+      "mean_law": "quark sector mean split (A_ud, B_ud closed in rho_ord and x2)",
+      "rho_ord_x2": "centered compressed branch generator (candidate, template kernel ancestry; see family_transport_kernel_rho_ord_sensitivity_audit)"
+    },
+    "rho_ord": 1.2942849363777058,
+    "v_d": [
+      -0.4786218840482289,
+      -0.042756231903542136,
+      0.5213781159517711
+    ],
+    "v_u": [
+      -0.5213781159517711,
+      0.042756231903542136,
+      0.4786218840482289
+    ],
+    "x2": -0.5175863354681689
+  },
+  "generated_utc": "2026-07-12T04:57:38Z",
+  "github_issues": [
+    377,
+    379,
+    380
+  ],
+  "guards": {
+    "measured_values_in_solve_paths": "only the predeclared calibration inputs listed per version",
+    "nonidentifiability_theorem_unaffected": true,
+    "public_promotion_allowed": false,
+    "source_only_prediction": false
+  },
+  "notes": [
+    "This artifact is the intermediate scientific test between the closed nonidentifiability theorem and a future source-only derivation: it measures how much of the quark spectrum the frozen candidate structure carries once the two free moduli are supplied by predeclared calibration or by the edge ansatz.",
+    "No version emits a source-only quark mass and none is a public prediction row; the display class is a conditional candidate audit.",
+    "The template dependence of rho_ord is quantified in the companion sensitivity audit; the issue-377 closure program (OPH-derived kernel with a normalized spectral scale) is the declared route to removing every conditional layer at once."
+  ],
+  "reciprocity_zero_parameter_check": {
+    "data_gap_ratio_down": 0.7836079197880329,
+    "data_gap_ratio_up": 1.3000272063381912,
+    "data_product": 1.0187116148265178,
+    "law": "the ray pair forces gap_ratio_up * gap_ratio_down = 1 exactly, with no free parameter and no template dependence",
+    "law_product": 1.0,
+    "relative_deviation": 0.01871161482651784
+  },
+  "reference_policy": {
+    "scheme_note": "mixed conventions as recorded there (light quarks MS-bar 2 GeV class, charm and bottom at their own scale, top from cross sections); the common-scheme rerun is the declared follow-up",
+    "source": "particle_reference_values.json (PDG 2026 API rows)"
+  },
+  "row_class": "template_and_ansatz_conditional_heldout_test",
+  "version_a_endpoints_in_interior_out": {
+    "calibrated": {
+      "g_d": 0.12130801132660639,
+      "g_u": 0.7760656302888469,
+      "sigma_d": 3.395969197144966,
+      "sigma_u": 5.642861380251778
+    },
+    "comparison": {
+      "bottom_quark": {
+        "abs_dlog": 2.2204460492503128e-16,
+        "delta_over_reference_sigma": 1.4802973661668753e-13,
+        "dlog_over_sector_log_span": 3.269237617227314e-17,
+        "predicted_gev": 4.186000000000001,
+        "reference_gev": 4.186,
+        "reference_sigma_gev": 0.006,
+        "relative_error": 2.220446049250313e-16,
+        "role": "calibration_input"
+      },
+      "charm_quark": {
+        "abs_dlog": 0.012280969607776178,
+        "delta_over_reference_sigma": -3.452632703371064,
+        "dlog_over_sector_log_span": 0.001088186363283322,
+        "predicted_gev": 1.2573631528348301,
+        "reference_gev": 1.2729,
+        "reference_sigma_gev": 0.0045,
+        "relative_error": -0.012205866262212095,
+        "role": "held_out"
+      },
+      "down_quark": {
+        "abs_dlog": 0.0,
+        "delta_over_reference_sigma": 0.0,
+        "dlog_over_sector_log_span": 0.0,
+        "predicted_gev": 0.0047,
+        "reference_gev": 0.0047,
+        "reference_sigma_gev": 7.000000000000001e-05,
+        "relative_error": 0.0,
+        "role": "calibration_input"
+      },
+      "strange_quark": {
+        "abs_dlog": 0.02358847955006191,
+        "delta_over_reference_sigma": -3.0938946230789552,
+        "dlog_over_sector_log_span": 0.0034730114115718485,
+        "predicted_gev": 0.09073427376384474,
+        "reference_gev": 0.09290000000000001,
+        "reference_sigma_gev": 0.0007,
+        "relative_error": -0.02331244602965843,
+        "role": "held_out"
+      },
+      "top_quark": {
+        "abs_dlog": 1.1102230246251565e-16,
+        "delta_over_reference_sigma": -4.7369515717340014e-14,
+        "dlog_over_sector_log_span": 9.837411818324868e-18,
+        "predicted_gev": 172.09999999999997,
+        "reference_gev": 172.1,
+        "reference_sigma_gev": 0.6,
+        "relative_error": -1.1102230246251565e-16,
+        "role": "calibration_input"
+      },
+      "up_quark": {
+        "abs_dlog": 0.0,
+        "delta_over_reference_sigma": 0.0,
+        "dlog_over_sector_log_span": 0.0,
+        "predicted_gev": 0.00216,
+        "reference_gev": 0.00216,
+        "reference_sigma_gev": 7.000000000000001e-05,
+        "relative_error": 0.0,
+        "role": "calibration_input"
+      }
+    },
+    "held_out": [
+      "charm_quark",
+      "strange_quark"
+    ],
+    "inputs_declared": [
+      "up_quark",
+      "top_quark",
+      "down_quark",
+      "bottom_quark"
+    ],
+    "uses_mean_law": false
+  },
+  "version_b_two_in_four_out": {
+    "calibrated": {
+      "g_d": 0.12007289139362506,
+      "g_u": 0.7560236483904219,
+      "sigma_d": 3.4057834493786934,
+      "sigma_u": 5.670194475502388
+    },
+    "comparison": {
+      "bottom_quark": {
+        "abs_dlog": 0.0,
+        "delta_over_reference_sigma": 0.0,
+        "dlog_over_sector_log_span": 0.0,
+        "predicted_gev": 4.186,
+        "reference_gev": 4.186,
+        "reference_sigma_gev": 0.006,
+        "relative_error": 0.0,
+        "role": "calibration_input"
+      },
+      "charm_quark": {
+        "abs_dlog": 0.03610808438085548,
+        "delta_over_reference_sigma": -10.031573122620992,
+        "dlog_over_sector_log_span": 0.003199448112195552,
+        "predicted_gev": 1.2277579209482055,
+        "reference_gev": 1.2729,
+        "reference_sigma_gev": 0.0045,
+        "relative_error": -0.035463963431372814,
+        "role": "held_out"
+      },
+      "down_quark": {
+        "abs_dlog": 0.01962850446745468,
+        "delta_over_reference_sigma": -1.3050637458231353,
+        "dlog_over_sector_log_span": 0.0028899709225803064,
+        "predicted_gev": 0.004608645537792381,
+        "reference_gev": 0.0047,
+        "reference_sigma_gev": 7.000000000000001e-05,
+        "relative_error": -0.019437119618642473,
+        "role": "held_out"
+      },
+      "strange_quark": {
+        "abs_dlog": 0.034661593117184475,
+        "delta_over_reference_sigma": -4.521278557320077,
+        "dlog_over_sector_log_span": 0.005103343273302495,
+        "predicted_gev": 0.08973510500987596,
+        "reference_gev": 0.09290000000000001,
+        "reference_sigma_gev": 0.0007,
+        "relative_error": -0.034067760927061874,
+        "role": "held_out"
+      },
+      "top_quark": {
+        "abs_dlog": 1.1102230246251565e-16,
+        "delta_over_reference_sigma": -4.7369515717340014e-14,
+        "dlog_over_sector_log_span": 9.837411818324868e-18,
+        "predicted_gev": 172.09999999999997,
+        "reference_gev": 172.1,
+        "reference_sigma_gev": 0.6,
+        "relative_error": -1.1102230246251565e-16,
+        "role": "calibration_input"
+      },
+      "up_quark": {
+        "abs_dlog": 0.05466619050121922,
+        "delta_over_reference_sigma": -1.6415646245988547,
+        "dlog_over_sector_log_span": 0.0048438360272798405,
+        "predicted_gev": 0.00204509047627808,
+        "reference_gev": 0.00216,
+        "reference_sigma_gev": 7.000000000000001e-05,
+        "relative_error": -0.0531988535749629,
+        "role": "held_out"
+      }
+    },
+    "held_out": [
+      "up_quark",
+      "charm_quark",
+      "down_quark",
+      "strange_quark"
+    ],
+    "inputs_declared": [
+      "top_quark",
+      "bottom_quark"
+    ],
+    "mean_law_conditionality": "g_ch from the current-family shared-scale writeback; A_ud, B_ud from rho_ord and x2",
+    "uses_mean_law": true
+  },
+  "version_c_zero_quark_inputs": {
+    "comparison": {
+      "bottom_quark": {
+        "abs_dlog": 0.06885940708328471,
+        "delta_over_reference_sigma": 49.733575348810476,
+        "dlog_over_sector_log_span": 0.010138402777795463,
+        "predicted_gev": 4.484401452092863,
+        "reference_gev": 4.186,
+        "reference_sigma_gev": 0.006,
+        "relative_error": 0.07128558339533275,
+        "role": "held_out"
+      },
+      "charm_quark": {
+        "abs_dlog": 0.07801087991542797,
+        "delta_over_reference_sigma": -21.2279091680906,
+        "dlog_over_sector_log_span": 0.006912351257505746,
+        "predicted_gev": 1.1773744087435922,
+        "reference_gev": 1.2729,
+        "reference_sigma_gev": 0.0045,
+        "relative_error": -0.07504563693645039,
+        "role": "held_out"
+      },
+      "down_quark": {
+        "abs_dlog": 0.018679973428908314,
+        "delta_over_reference_sigma": 1.2660145327588654,
+        "dlog_over_sector_log_span": 0.002750315498240208,
+        "predicted_gev": 0.004788621017293121,
+        "reference_gev": 0.0047,
+        "reference_sigma_gev": 7.000000000000001e-05,
+        "relative_error": 0.018855535594280992,
+        "role": "held_out"
+      },
+      "strange_quark": {
+        "abs_dlog": 0.016962985452862425,
+        "delta_over_reference_sigma": 2.270432715041507,
+        "dlog_over_sector_log_span": 0.002497517566873607,
+        "predicted_gev": 0.09448930290052907,
+        "reference_gev": 0.09290000000000001,
+        "reference_sigma_gev": 0.0007,
+        "relative_error": 0.01710767384853673,
+        "role": "held_out"
+      },
+      "top_quark": {
+        "abs_dlog": 0.12190652129189729,
+        "delta_over_reference_sigma": -32.919541877317286,
+        "dlog_over_sector_log_span": 0.010801835547345835,
+        "predicted_gev": 152.34827487360963,
+        "reference_gev": 172.1,
+        "reference_sigma_gev": 0.6,
+        "relative_error": -0.11476888510395333,
+        "role": "held_out"
+      },
+      "up_quark": {
+        "abs_dlog": 0.006978631066007501,
+        "delta_over_reference_sigma": 0.21609375805460596,
+        "dlog_over_sector_log_span": 0.0006183592503645837,
+        "predicted_gev": 0.0021751265630638224,
+        "reference_gev": 0.00216,
+        "reference_sigma_gev": 7.000000000000001e-05,
+        "relative_error": 0.007003038455473343,
+        "role": "held_out"
+      }
+    },
+    "held_out": [
+      "up_quark",
+      "charm_quark",
+      "top_quark",
+      "down_quark",
+      "strange_quark",
+      "bottom_quark"
+    ],
+    "inputs_declared": [],
+    "max_abs_relative_error": 0.11476888510395333,
+    "max_dlog_over_sector_span": 0.010801835547345835,
+    "spread_source": {
+      "artifact": "oph_quark_edge_statistics_spread_candidate",
+      "bridge_status": "candidate_only",
+      "note": "edge-coefficient combination is a declared ansatz on the cocycle suppression data; see the nonidentifiability theorem for why no source rule fixes these coefficients on the current corpus",
+      "sigma_d": 3.4210589139721543,
+      "sigma_u": 5.578418804072826
+    },
+    "uses_mean_law": true
+  }
+}
