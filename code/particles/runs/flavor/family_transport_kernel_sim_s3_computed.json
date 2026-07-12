@@ -1,0 +1,155 @@
+{
+  "ancestry": {
+    "artifacts": [
+      "modular_response_kernel_cache(oph_universe_4k_viewer_smoke_20260706_v2)",
+      "modular_response_kernel_cache(oph_universe_64k_final_audited_20260711)"
+    ],
+    "attestations": {
+      "fitted_spreads_consumed": false,
+      "numerical_flavor_template_consumed": false,
+      "quark_reference_values_consumed": false
+    }
+  },
+  "artifact": "oph_family_transport_kernel",
+  "carrier_identification": {
+    "claim": "the three S3 conjugacy-class response channels are the same-label generation carrier",
+    "status": "candidate_claim_not_theorem",
+    "uniqueness_note": "the unique exactly-three-channel field family in the modular response cache"
+  },
+  "generated_utc": "2026-07-12T06:11:13Z",
+  "metadata": {
+    "note": "First computed kernel of the issue-377 K1 program: second-moment compression of the realized S3 sector-response channels at two patch counts. The carrier identification and the K2 scale clause stay open; shape invariants are the milestone."
+  },
+  "proof_status": "computed_candidate_carrier_identification_open",
+  "refinement_intertwiners": [
+    {
+      "from_level": 0,
+      "intertwiner": {
+        "imag": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "real": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      "justification": "canonical class frame: identity, transposition, threecycle are absolute labels across runs",
+      "to_level": 1
+    }
+  ],
+  "refinements": [
+    {
+      "block_count": 72,
+      "hermitian_descendant": {
+        "imag": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "real": [
+          [
+            618.0907718494873,
+            -370.2744820254139,
+            -208.17153352083906
+          ],
+          [
+            -370.2744820254139,
+            20226.510569445814,
+            -19917.955891937316
+          ],
+          [
+            -208.17153352083906,
+            -19917.955891937316,
+            20318.116701410305
+          ]
+        ]
+      },
+      "level": 0,
+      "observers": 128,
+      "run_id": "oph_universe_4k_viewer_smoke_20260706_v2"
+    },
+    {
+      "block_count": 96,
+      "hermitian_descendant": {
+        "imag": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "real": [
+          [
+            3706.8505669811875,
+            -2638.2275154429976,
+            -674.8740898743927
+          ],
+          [
+            -2638.2275154429976,
+            238894.31849632424,
+            -237033.39185617253
+          ],
+          [
+            -674.8740898743927,
+            -237033.39185617253,
+            238681.03678715898
+          ]
+        ]
+      },
+      "level": 1,
+      "observers": 1024,
+      "run_id": "oph_universe_64k_final_audited_20260711"
+    }
+  ],
+  "status": "computed_sim_s3_candidate",
+  "transport_kind": "s3_sector_response_second_moment_compression"
+}

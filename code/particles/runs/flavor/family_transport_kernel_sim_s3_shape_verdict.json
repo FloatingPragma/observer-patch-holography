@@ -1,0 +1,279 @@
+{
+  "artifact": "oph_family_transport_kernel_sim_s3_shape_verdict",
+  "band_check": {
+    "computed_rho_ord_level1": 1.4919564345762268,
+    "declared_convention_band": [
+      1.2761484088503106,
+      1.3000272063381912
+    ],
+    "inside_band": false,
+    "physical_minus_template": 0.1976714981985208,
+    "template_rho_ord": 1.294284936377706
+  },
+  "controls_level1": {
+    "no_modular_flow_control": {
+      "democratic_direction_overlap_by_eigenvector": [
+        0.3333333333333334,
+        0.6666604249459324,
+        6.241720734671102e-06
+      ],
+      "eigenvalues_centered": [
+        -38192.81728361813,
+        -38075.5307680162,
+        76268.34805163433
+      ],
+      "g21": 117.28651560193248,
+      "g32": 114343.87881965053,
+      "raw_gap_ratio_r": 0.0010257349742955916,
+      "rho_ord": 1.4992310931166195,
+      "span_cache_units": 114461.16533525246,
+      "x2": -0.9979506321596777
+    },
+    "s2_boundary_control": {
+      "democratic_direction_overlap_by_eigenvector": [
+        4.273237321116831e-06,
+        3.417789552634791e-05,
+        0.9999615488671528
+      ],
+      "eigenvalues_centered": [
+        -642497.0896944632,
+        -542730.1638250286,
+        1185227.2535194913
+      ],
+      "g21": 99766.9258694346,
+      "g32": 1727957.4173445199,
+      "raw_gap_ratio_r": 0.05773691230351835,
+      "rho_ord": 1.4579123220575716,
+      "span_cache_units": 1827724.3432139545,
+      "x2": -0.8908293515487136
+    },
+    "shuffled_control": {
+      "democratic_direction_overlap_by_eigenvector": [
+        0.01874084725515958,
+        0.010515870459836494,
+        0.9707432822850042
+      ],
+      "eigenvalues_centered": [
+        -4440.912582262544,
+        -2215.096255775988,
+        6656.008838038502
+      ],
+      "g21": 2225.8163264865557,
+      "g32": 8871.10509381449,
+      "raw_gap_ratio_r": 0.25090631921817036,
+      "rho_ord": 1.332796471530641,
+      "span_cache_units": 11096.921420301045,
+      "x2": -0.5988407519197928
+    },
+    "shuffled_observer_labels_control": {
+      "democratic_direction_overlap_by_eigenvector": [
+        0.9992603737163354,
+        0.0007373676216612149,
+        2.2586620042649903e-06
+      ],
+      "eigenvalues_centered": [
+        -160235.8112257564,
+        -155161.9659158537,
+        315397.77714161004
+      ],
+      "g21": 5073.845309902681,
+      "g32": 470559.7430574638,
+      "raw_gap_ratio_r": 0.010782574125307344,
+      "rho_ord": 1.4919564345762264,
+      "span_cache_units": 475633.58836736646,
+      "x2": -0.9786648990567764
+    },
+    "shuffled_response_control": {
+      "democratic_direction_overlap_by_eigenvector": [
+        0.01874084725515958,
+        0.010515870459836494,
+        0.9707432822850042
+      ],
+      "eigenvalues_centered": [
+        -4440.912582262544,
+        -2215.096255775988,
+        6656.008838038502
+      ],
+      "g21": 2225.8163264865557,
+      "g32": 8871.10509381449,
+      "raw_gap_ratio_r": 0.25090631921817036,
+      "rho_ord": 1.332796471530641,
+      "span_cache_units": 11096.921420301045,
+      "x2": -0.5988407519197928
+    },
+    "wrong_scale_control_0": {
+      "democratic_direction_overlap_by_eigenvector": [
+        0.9996829103576301,
+        0.0003169253515685891,
+        1.6429080182626793e-07
+      ],
+      "eigenvalues_centered": [
+        -80314.77033251897,
+        -79118.24357904137,
+        159433.0139115603
+      ],
+      "g21": 1196.5267534775921,
+      "g32": 238551.25749060168,
+      "raw_gap_ratio_r": 0.005015805684967862,
+      "rho_ord": 1.4962475564999942,
+      "span_cache_units": 239747.78424407926,
+      "x2": -0.9900184541246109
+    },
+    "wrong_scale_control_1": {
+      "democratic_direction_overlap_by_eigenvector": [
+        0.9997636440260304,
+        0.00023634646786028425,
+        9.506110043324785e-09
+      ],
+      "eigenvalues_centered": [
+        -189153.5636023638,
+        -184407.9929232047,
+        373561.5565255685
+      ],
+      "g21": 4745.570679159107,
+      "g32": 557969.5494487731,
+      "raw_gap_ratio_r": 0.008505071081114248,
+      "rho_ord": 1.4936482079107698,
+      "span_cache_units": 562715.1201279323,
+      "x2": -0.9831333102331418
+    },
+    "wrong_scale_control_2": {
+      "democratic_direction_overlap_by_eigenvector": [
+        0.9998268878477362,
+        0.0001722037418813796,
+        9.084103828734682e-07
+      ],
+      "eigenvalues_centered": [
+        -132987.60284050865,
+        -129556.99776554576,
+        262544.6006060544
+      ],
+      "g21": 3430.605074962892,
+      "g32": 392101.59837160015,
+      "raw_gap_ratio_r": 0.008749275925449454,
+      "rho_ord": 1.49346662420967,
+      "span_cache_units": 395532.2034465631,
+      "x2": -0.9826532199144873
+    }
+  },
+  "generated_utc": "2026-07-12T06:11:13Z",
+  "generator_proof_status": "candidate_only",
+  "github_issues": [
+    377,
+    379,
+    380
+  ],
+  "guards": {
+    "fitted_spreads_consumed": false,
+    "numerical_flavor_template_consumed": false,
+    "post_hoc_construction_changes": "none; the construction was predeclared in the module docstring before computation",
+    "public_promotion_allowed": false,
+    "quark_reference_values_consumed": false
+  },
+  "harness_gates": {
+    "acceptance_passed": false,
+    "first_failed_gate": "G3_shape_band_scheme_rider",
+    "gates": {
+      "G0_schema": {
+        "ancestry_present": true,
+        "kernel_refinements_present": true,
+        "passed": true
+      },
+      "G1_ancestry": {
+        "forbidden_ancestor_hits": [],
+        "forbidden_list_source": "derive_quark_sigma_source_nonidentifiability_obstruction",
+        "passed": true,
+        "target_attestations": {
+          "fitted_spreads_consumed": false,
+          "quark_reference_values_consumed": false
+        },
+        "template_ancestry_declared": false
+      },
+      "G2_spectrum": {
+        "eigenvalues": [
+          -160235.81122575613,
+          -155161.96591585365,
+          315397.77714160975
+        ],
+        "passed": true,
+        "rho_ord": 1.4919564345762268,
+        "simple_spectrum": true,
+        "x2": -0.9786648990567773
+      },
+      "G3_shape_band_scheme_rider": {
+        "alternative_bands": {
+          "common_scale_any_mu": [
+            1.124320256710102,
+            1.328677369322281
+          ],
+          "own_scale_heavy_msbar_top": [
+            1.2761484088503106,
+            1.3154144454846937
+          ]
+        },
+        "band": [
+          1.2761484088503106,
+          1.3000272063381912
+        ],
+        "declared_convention": "quoted_mixed",
+        "passed": false,
+        "rho_ord": 1.4919564345762268,
+        "scheme_rider": "the band is convention dependent; see the common-scheme scan artifact"
+      },
+      "G4_normalization_clause_present": {
+        "clause_kind": null,
+        "passed": false,
+        "reading_if_failed": "no normalization clause means the kernel fixes only scale-invariant shape data, which is the operator-side restatement of the nonidentifiability theorem",
+        "sigma_d_per_side": null,
+        "sigma_u_per_side": null
+      }
+    },
+    "remaining_formal_burden": "rerun derive_quark_sigma_source_nonidentifiability_obstruction with the accepted kernel as ancestor; the spread fiber must collapse from (R_>0)^2 to a unique tuple before any promotion",
+    "status": "blocked_fail_closed"
+  },
+  "levels": {
+    "level0": {
+      "democratic_direction_overlap_by_eigenvector": [
+        0.9997921325174927,
+        0.0002012098592329767,
+        6.657623274989971e-06
+      ],
+      "eigenvalues_centered": [
+        -13664.708112618975,
+        -12805.037395158466,
+        26469.745507777432
+      ],
+      "g21": 859.670717460509,
+      "g32": 39274.7829029359,
+      "raw_gap_ratio_r": 0.021888617935460215,
+      "rho_ord": 1.4837612583542232,
+      "run_id": "oph_universe_4k_viewer_smoke_20260706_v2",
+      "span_cache_units": 40134.45362039641,
+      "x2": -0.9571604624001347
+    },
+    "level1": {
+      "democratic_direction_overlap_by_eigenvector": [
+        0.9992603737163376,
+        0.0007373676216586297,
+        2.2586620042631552e-06
+      ],
+      "eigenvalues_centered": [
+        -160235.81122575616,
+        -155161.96591585365,
+        315397.77714160975
+      ],
+      "g21": 5073.845309902506,
+      "g32": 470559.74305746343,
+      "raw_gap_ratio_r": 0.010782574125306981,
+      "rho_ord": 1.4919564345762268,
+      "run_id": "oph_universe_64k_final_audited_20260711",
+      "span_cache_units": 475633.5883673659,
+      "x2": -0.9786648990567772
+    }
+  },
+  "reading_rules": [
+    "inside_band alone is weak evidence: by the sensitivity audit about a third of generic template-class kernels land inside; the physical-vs-null contrast and level stability carry the weight",
+    "G4 blocking is the expected fail-closed outcome: no K2 normalization clause exists, so spans stay unemitted"
+  ],
+  "row_class": "computed_candidate_shape_milestone"
+}

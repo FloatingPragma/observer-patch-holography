@@ -1,0 +1,364 @@
+{
+  "actual_generator_transfer_candidate": {
+    "actual_generator_centering_rule": "K_actual_centered = K_actual - tr(K_actual)/3 * I",
+    "actual_generator_promotion_margin_if_bound_closed": "reuse_proxy_simple_spectrum_and_riesz_margin",
+    "actual_proxy_centered_residual_kind": "compression_descendant_commutator",
+    "bridge_strategy": "control the compression-descendant commutator after the central split",
+    "candidate_id": "centered_branch_generator_commutator_transfer",
+    "central_split_rule": "K_actual = K_centered + c*I with the central term removed before comparison",
+    "current_strength_statement": "neither exact vanishing nor uniform quadratic smallness is proved on the live corpus",
+    "descended_commutator_control_mode": "exact_zero_or_uniform_quadratic",
+    "desired_outcome": "commutator vanishes exactly or is uniformly quadratic-small on realized refinement arrows",
+    "exact_vanishing_proved": false,
+    "first_order_residual_after_central_split": "vanishes_if_commutator_zero",
+    "quadratic_factorization_claim": "all surviving centered P->P corrections factor through P->Q->P",
+    "quadratic_residual_bound_candidate": "||[C_actual_centered,C_proxy_centered]|| <= O(defect^2)",
+    "smaller_exact_missing_clause": "compression_descendant_commutator_vanishes_or_is_uniformly_quadratic_small_after_central_split",
+    "status": "candidate_only",
+    "transfer_if_closed_effect": "proxy_defect_vs_gap_estimate_lifts_to_actual_generator",
+    "uniform_quadratic_smallness_proved": false
+  },
+  "artifact": "oph_intrinsic_generation_bundle_branch_generator",
+  "boundary_action_kind": "compact_unitary_groupoid_or_central_extension",
+  "branch_generator_kind": "compressed_hermitian_descendant_proxy",
+  "canonicality_certificate": {
+    "canonicality_mode": "up_to_refinement_conjugacy_and_objectwise_u1_projectivization",
+    "carrier_kind": "persistent_charged_generation_multiplicity_bundle",
+    "exact_markov_required": false,
+    "line_lift_is_readout_of": "oph_intrinsic_generation_bundle_branch_generator",
+    "realized_generation_count": 3,
+    "same_label_only": true
+  },
+  "carrier_dimension": 3,
+  "carrier_kind": "persistent_charged_generation_multiplicity_bundle",
+  "centered_compressed_branch_generator": {
+    "imag": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "real": [
+      [
+        -156720.55138317362,
+        -2638.2275154429976,
+        -674.8740898743927
+      ],
+      [
+        -2638.2275154429976,
+        78466.91654616944,
+        -237033.39185617253
+      ],
+      [
+        -674.8740898743927,
+        -237033.39185617253,
+        78253.63483700418
+      ]
+    ]
+  },
+  "centering_rule": "K_gen - tr(K_gen)/3 * I",
+  "charged_block_projector_kind": "same_label_sector_block",
+  "charged_sector_response_operator_candidate": {
+    "artifact_kind": "latent_charged_declaration_of_centered_generation_bundle_branch_generator",
+    "declaration_missing_theorem": "oph_generation_bundle_branch_generator_splitting",
+    "declaration_status": "candidate_only",
+    "formula": "sum_{f in {f1,f2,f3}} (lambda_f - mean_lambda) * Pi_f^(e)",
+    "matrix": {
+      "imag": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "real": [
+        [
+          -156720.55138317362,
+          -2638.2275154429976,
+          -674.8740898743927
+        ],
+        [
+          -2638.2275154429976,
+          78466.91654616944,
+          -237033.39185617253
+        ],
+        [
+          -674.8740898743927,
+          -237033.39185617253,
+          78253.63483700418
+        ]
+      ]
+    },
+    "name": "C_hat_e^{cand}",
+    "notes": [
+      "This is the latent charged operator candidate beneath the charged-sector response functor.",
+      "It is defined from the centered generation-bundle branch generator only.",
+      "Target charged masses and diagnostic D12 continuation values are not part of the defining data.",
+      "Theorem-grade declaration is blocked until the branch-generator splitting theorem closes."
+    ],
+    "ordered_spectrum": [
+      315397.77714160964,
+      -155161.96591585362,
+      -160235.81122575607
+    ],
+    "sigma_formula": "lambda_max(C_hat_e^{cand}) - lambda_min(C_hat_e^{cand})",
+    "smallest_missing_clause": "compression_descendant_commutator_vanishes_or_is_uniformly_quadratic_small_after_central_split"
+  },
+  "compressed_branch_generator": {
+    "imag": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "real": [
+      [
+        3706.8505669811875,
+        -2638.2275154429976,
+        -674.8740898743927
+      ],
+      [
+        -2638.2275154429976,
+        238894.31849632424,
+        -237033.39185617253
+      ],
+      [
+        -674.8740898743927,
+        -237033.39185617253,
+        238681.03678715898
+      ]
+    ]
+  },
+  "current_proxy_kind": "compressed_hermitian_descendant_proxy",
+  "family_projectors_by_label": [
+    {
+      "label": "f1",
+      "projector": {
+        "imag": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "real": [
+          [
+            8.653910793597322e-06,
+            -0.0020806226015782224,
+            0.0020796262869148315
+          ],
+          [
+            -0.0020806226015782224,
+            0.5002351553474499,
+            -0.4999956156923302
+          ],
+          [
+            0.0020796262869148315,
+            -0.4999956156923302,
+            0.49975619074175653
+          ]
+        ]
+      }
+    },
+    {
+      "label": "f2",
+      "projector": {
+        "imag": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "real": [
+          [
+            0.6920084349212801,
+            -0.3249238833116508,
+            -0.3279591910173537
+          ],
+          [
+            -0.3249238833116508,
+            0.1525639350889315,
+            0.15398912576149168
+          ],
+          [
+            -0.3279591910173537,
+            0.15398912576149168,
+            0.15542762998978815
+          ]
+        ]
+      }
+    },
+    {
+      "label": "f3",
+      "projector": {
+        "imag": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "real": [
+          [
+            0.3079829111679263,
+            0.32700450591322905,
+            0.32587956473043894
+          ],
+          [
+            0.32700450591322905,
+            0.34720090956361827,
+            0.3460064899308382
+          ],
+          [
+            0.32587956473043894,
+            0.3460064899308382,
+            0.344816179268455
+          ]
+        ]
+      }
+    }
+  ],
+  "generated_utc": "2026-07-12T06:11:13Z",
+  "generation_bundle_projector_kind": "realized_ng_equals_3_bundle",
+  "latest_refinement_level": 1,
+  "metadata": {
+    "note": "This artifact promotes the flavor origin from a vague missing transport functor to a concrete centered compressed branch-generator candidate on the realized three-generation charged bundle. The standard Kato/Riesz persistence shell is now explicit on the current proxy; the remaining OPH-only burden is proving that the actual compressed branch generator satisfies the same defect-vs-gap estimate, with the current constructive bridge being a central split plus compression-descendant commutator control where the first surviving residual vanishes when the descended commutator vanishes and otherwise is treated as uniformly quadratic through P->Q->P factorization. On the live corpus, neither exact vanishing nor uniform quadratic smallness of the descended commutator is proved yet. On the charged side, this same centered operator is only the latent candidate C_hat_e^{cand}; theorem-grade declaration remains blocked by the upstream promotion theorem.",
+    "transport_artifact": "oph_family_transport_kernel"
+  },
+  "noncentrality_certificate": {
+    "eigenvalues": [
+      315397.77714160964,
+      -155161.96591585362,
+      -160235.81122575607
+    ],
+    "is_scalar_multiple_identity": false,
+    "selfadjoint": true,
+    "spectral_span": 475633.5883673657,
+    "trace_free": true,
+    "trace_square": 149226508691.9172
+  },
+  "operator_theorem_candidate": "oph_generation_bundle_branch_generator_splitting",
+  "persistent_gap_certificate": {
+    "base_min_gap": 5073.845309902448,
+    "conjugacy_defect_sup": 0.0,
+    "conservative_gap_lower_bound": 5073.845309902448,
+    "defect_gap_ratio": 0.0,
+    "projector_order_preserved": false,
+    "riesz_bound_passes": true
+  },
+  "projective_readout_certificate": {
+    "family_labels": [
+      "f1",
+      "f2",
+      "f3"
+    ],
+    "same_label_overlap_amplitudes": [
+      0.9999981481586989,
+      0.9982908908051502,
+      0.998290398484708
+    ]
+  },
+  "promotion_gate": {
+    "current_strength_statement": "neither exact vanishing nor uniform quadratic smallness is proved on the live corpus",
+    "exact_missing_ingredient": "OPH proof that the actual compressed branch generator satisfies the same defect-vs-gap estimate as the current proxy",
+    "exact_transfer_bridge": "central split plus compression-descendant commutator control",
+    "exact_vanishing_proved": false,
+    "proof_status": "candidate_only",
+    "smaller_exact_missing_clause": "compression_descendant_commutator_vanishes_or_is_uniformly_quadratic_small_after_central_split",
+    "uniform_quadratic_smallness_proved": false
+  },
+  "proof_status": "candidate_only",
+  "readout_status": "line_lift_is_downstream_serialization",
+  "realized_generation_count": 3,
+  "remaining_missing_theorem": "oph_generation_bundle_branch_generator_splitting",
+  "schur_diagonal_pairing_certificate": {
+    "exact_markov_required": false,
+    "same_label_only": true
+  },
+  "selfadjoint": true,
+  "simple_spectrum_certificate": {
+    "eigenvalues": [
+      315397.77714160964,
+      -155161.96591585362,
+      -160235.81122575607
+    ],
+    "min_gap": 5073.845309902448,
+    "projector_order_preserved": false,
+    "simple_spectrum": true,
+    "spectral_gaps": [
+      470559.74305746326,
+      5073.845309902448
+    ],
+    "uniform_gap_candidate": false
+  },
+  "source_chain": [
+    "ax:maxent",
+    "internal_refinement_directed_system",
+    "prop:regulatedrealization",
+    "thm:markovcollar",
+    "thm:master_ng_equals_3"
+  ]
+}
