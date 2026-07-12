@@ -2668,6 +2668,39 @@ a unique quark mass spectrum.  This conclusion uses no additional axiom and can 
 by deriving, from the existing axioms, a source functional that is nonconstant on this explicit
 counterfamily.
 
+\paragraph{The kernel interface: the exact content of the missing derivation.}
+Two companion theorems make that boundary executable. First, the admissibility battery recorded
+for the family-transport lane (positive-semidefinite hermitian descendants, open three-cluster
+gaps at every level, a simple centered spectrum, the conjugacy-Riesz margin, persistent projector
+labeling, and overlap-edge amplitudes above the floor) places no constraint on the spectrum of
+the centered compressed branch generator: for every pair \((r,s)\in(\mathbb R_{>0})^2\) there is a
+certificate-passing two-level kernel whose generator has raw gap ratio exactly \(r\) and spectral
+span exactly \(s\). The construction places the target spectrum by unitary conjugation,
+\(T=Q\,\operatorname{diag}(\sqrt{\mu})\,Q^{\dagger}\), so the descendant spectrum is exact, and
+shrinks the refinement drift geometrically until the Riesz margin passes. The persistence
+certificates are therefore a filter, not a generator: a kernel derivation that merely passes them
+cannot emit the ordered ratio constant, the mean-law coordinate, or the spans. Second, at fixed
+shared scale \(g_{\mathrm{ch}}\) the whole quark sector factors through exactly the invariant
+triple
+\[
+(r,\sigma_u,\sigma_d)\in(\mathbb R_{>0})^3,
+\qquad
+\rho_{\mathrm{ord}}=\frac{3}{2+r},
+\qquad
+x_2=\frac{r-1}{r+1},
+\]
+with the rays, the affine mean coefficients \(A_{ud},B_{ud}\), the sector means, and the six
+masses closed-form in the triple, and with the explicit left inverse
+\(\sigma_u=\tfrac12\ln(m_t/m_u)\), \(\sigma_d=\tfrac12\ln(m_b/m_d)\), and \(r=3/\rho-2\) at
+\(\rho=\ln(m_c/m_u)/\ln(m_t/m_c)\); the forward map is injective and the executed round trip
+closes at machine precision. By the freedom theorem and the non-definability theorem above, no
+component of the triple is determined by the current corpus. The open kernel program is therefore
+exactly the source derivation of one point of \((\mathbb R_{>0})^3\) with clean ancestry, and the
+executable acceptance harness scores any candidate point against fail-closed gates
+(\texttt{family\_transport\_kernel\_admissibility\_freedom\_theorem.json},
+\texttt{quark\_kernel\_three\_scalar\_interface\_theorem.json},
+\texttt{quark\_kernel\_normalization\_acceptance\_current.json}).
+
 The edge data do not remove the ambiguity. Even after granting source values
 \(S_{13},S_{23},\delta_{21}>0\), every positive pair can be written as
 \[

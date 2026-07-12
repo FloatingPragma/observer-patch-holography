@@ -1,0 +1,416 @@
+{
+  "artifact": "oph_family_transport_kernel_admissibility_freedom_theorem",
+  "claim_tier": "certificate_battery_nonselection_obstruction",
+  "construction": {
+    "frames": "Q_level = exp(i eps_level H) with a fully off-diagonal Hermitian mixer H; the frame difference makes every cross-label overlap nonzero while keeping same-label overlaps dominant",
+    "riesz_termination": "frame drift and eigenvalue drift shrink geometrically until the defect supremum is below half the minimal gap; termination is guaranteed because the defect is linear in the shrink factor at fixed gap",
+    "spectrum_placement": "trace-free target spectrum with gaps (s r/(1+r), s/(1+r)), shifted positive; T = Q diag(sqrt(mu)) Q_dagger so the descendant spectrum is exact under unitary conjugation"
+  },
+  "corollary_for_issue_377": "Deriving a kernel that passes the persistence certificates cannot close K1: the certificates are a filter with zero selective power over the emitted invariants. The remaining burden of the kernel program is a source selection principle for the transport operator itself, equivalently a derivation of the invariant triple named by the three-scalar interface theorem.",
+  "generated_utc": "2026-07-12T05:48:05Z",
+  "github_issues": [
+    377,
+    379,
+    380
+  ],
+  "guards": {
+    "fitted_spreads_consumed": false,
+    "numerical_flavor_template_consumed": false,
+    "public_promotion_allowed": false,
+    "quark_reference_values_consumed": false
+  },
+  "identity_x2_of_r": {
+    "max_deviation_on_witnesses": 0.0,
+    "statement": "x2 = (r - 1)/(r + 1) holds identically, so the mean-law coordinate carries no information beyond the gap ratio"
+  },
+  "on_disk_kernel_context": {
+    "artifact": "oph_family_transport_kernel",
+    "note": "the on-disk template is one point of this free family; see the rho_ord sensitivity audit for its local elasticity",
+    "status": "template"
+  },
+  "proof_kind": "explicit_construction_with_executed_certificates",
+  "proof_status": "closed_constructive_freedom_theorem",
+  "relation_to_nonidentifiability": "This is the operator-side transport of the axiom-level nonidentifiability theorem: the free (R_>0)^2 spread fiber reappears as the free (r, s) invariant space of certificate-passing kernels.",
+  "row_class": "theorem_grade_obstruction",
+  "theorem_statement": "For every (r, s) in (R_>0)^2 there is a two-level transport kernel passing the full recorded admissibility battery (PSD hermitian descendants, open three-cluster gaps, simple centered spectrum, conjugacy-Riesz margin, persistent projector labeling, overlap-edge amplitudes above the floor) whose centered compressed branch generator has raw gap ratio exactly r and spectral span exactly s. The battery therefore places no constraint on (rho_ord, x2, span): certificate-passing kernels surject onto the full invariant space.",
+  "witness_grid": {
+    "all_certificates_pass": true,
+    "includes_on_disk_operating_point": true,
+    "max_target_error": 5.142553050063725e-13,
+    "r_span_orders_of_magnitude": 2.0,
+    "r_values": [
+      0.05,
+      0.317889,
+      1.0,
+      5.0
+    ],
+    "s_span_orders_of_magnitude": 2.0,
+    "s_values": [
+      0.1,
+      1.253553,
+      10.0
+    ]
+  },
+  "witnesses": [
+    {
+      "all_certificates_pass": true,
+      "certificates": {
+        "edge_amplitudes_above_floor": true,
+        "projector_labeling_persistent": true,
+        "psd_descendants": true,
+        "riesz_margin_defect_below_half_gap": true,
+        "simple_centered_spectrum": true,
+        "three_cluster_gap_open_all_levels": true
+      },
+      "emitted": {
+        "r": 0.04999999999998306,
+        "rho_ord": 1.4634146341463534,
+        "s": 0.0999999999999997,
+        "x2": -0.9047619047619356
+      },
+      "exactness": {
+        "r_abs_error": 1.6944778913341452e-14,
+        "s_abs_error": 3.0531133177191805e-16
+      },
+      "riesz": {
+        "defect_sup": 0.0014542313104491096,
+        "half_gap": 0.002380952380952381,
+        "shrink_attempts": 2
+      },
+      "target": {
+        "r": 0.05,
+        "s": 0.1
+      }
+    },
+    {
+      "all_certificates_pass": true,
+      "certificates": {
+        "edge_amplitudes_above_floor": true,
+        "projector_labeling_persistent": true,
+        "psd_descendants": true,
+        "riesz_margin_defect_below_half_gap": true,
+        "simple_centered_spectrum": true,
+        "three_cluster_gap_open_all_levels": true
+      },
+      "emitted": {
+        "r": 0.049999999999998254,
+        "rho_ord": 1.4634146341463428,
+        "s": 1.2535529999999997,
+        "x2": -0.9047619047619079
+      },
+      "exactness": {
+        "r_abs_error": 1.7486012637846216e-15,
+        "s_abs_error": 2.220446049250313e-16
+      },
+      "riesz": {
+        "defect_sup": 0.01595313054140504,
+        "half_gap": 0.029846499999999998,
+        "shrink_attempts": 1
+      },
+      "target": {
+        "r": 0.05,
+        "s": 1.253553
+      }
+    },
+    {
+      "all_certificates_pass": true,
+      "certificates": {
+        "edge_amplitudes_above_floor": true,
+        "projector_labeling_persistent": true,
+        "psd_descendants": true,
+        "riesz_margin_defect_below_half_gap": true,
+        "simple_centered_spectrum": true,
+        "three_cluster_gap_open_all_levels": true
+      },
+      "emitted": {
+        "r": 0.0499999999999996,
+        "rho_ord": 1.4634146341463419,
+        "s": 9.999999999999995,
+        "x2": -0.9047619047619054
+      },
+      "exactness": {
+        "r_abs_error": 4.0245584642661925e-16,
+        "s_abs_error": 5.329070518200751e-15
+      },
+      "riesz": {
+        "defect_sup": 0.06804834221957605,
+        "half_gap": 0.23809523809523814,
+        "shrink_attempts": 1
+      },
+      "target": {
+        "r": 0.05,
+        "s": 10.0
+      }
+    },
+    {
+      "all_certificates_pass": true,
+      "certificates": {
+        "edge_amplitudes_above_floor": true,
+        "projector_labeling_persistent": true,
+        "psd_descendants": true,
+        "riesz_margin_defect_below_half_gap": true,
+        "simple_centered_spectrum": true,
+        "three_cluster_gap_open_all_levels": true
+      },
+      "emitted": {
+        "r": 0.3178889999999764,
+        "rho_ord": 1.2942811325305184,
+        "s": 0.09999999999999984,
+        "x2": -0.5175784910565578
+      },
+      "exactness": {
+        "r_abs_error": 2.3592239273284576e-14,
+        "s_abs_error": 1.6653345369377348e-16
+      },
+      "riesz": {
+        "defect_sup": 0.0028821913834775658,
+        "half_gap": 0.012060537723586735,
+        "shrink_attempts": 1
+      },
+      "target": {
+        "r": 0.317889,
+        "s": 0.1
+      }
+    },
+    {
+      "all_certificates_pass": true,
+      "certificates": {
+        "edge_amplitudes_above_floor": true,
+        "projector_labeling_persistent": true,
+        "psd_descendants": true,
+        "riesz_margin_defect_below_half_gap": true,
+        "simple_centered_spectrum": true,
+        "three_cluster_gap_open_all_levels": true
+      },
+      "emitted": {
+        "r": 0.31788899999999665,
+        "rho_ord": 1.2942811325305068,
+        "s": 1.253552999999999,
+        "x2": -0.5175784910565344
+      },
+      "exactness": {
+        "r_abs_error": 3.3306690738754696e-15,
+        "s_abs_error": 8.881784197001252e-16
+      },
+      "riesz": {
+        "defect_sup": 0.015671162823733317,
+        "half_gap": 0.1511852324501532,
+        "shrink_attempts": 1
+      },
+      "target": {
+        "r": 0.317889,
+        "s": 1.253553
+      }
+    },
+    {
+      "all_certificates_pass": true,
+      "certificates": {
+        "edge_amplitudes_above_floor": true,
+        "projector_labeling_persistent": true,
+        "psd_descendants": true,
+        "riesz_margin_defect_below_half_gap": true,
+        "simple_centered_spectrum": true,
+        "three_cluster_gap_open_all_levels": true
+      },
+      "emitted": {
+        "r": 0.3178889999999986,
+        "rho_ord": 1.294281132530506,
+        "s": 10.000000000000002,
+        "x2": -0.5175784910565322
+      },
+      "exactness": {
+        "r_abs_error": 1.3877787807814457e-15,
+        "s_abs_error": 1.7763568394002505e-15
+      },
+      "riesz": {
+        "defect_sup": 0.06675126073738716,
+        "half_gap": 1.2060537723586735,
+        "shrink_attempts": 1
+      },
+      "target": {
+        "r": 0.317889,
+        "s": 10.0
+      }
+    },
+    {
+      "all_certificates_pass": true,
+      "certificates": {
+        "edge_amplitudes_above_floor": true,
+        "projector_labeling_persistent": true,
+        "psd_descendants": true,
+        "riesz_margin_defect_below_half_gap": true,
+        "simple_centered_spectrum": true,
+        "three_cluster_gap_open_all_levels": true
+      },
+      "emitted": {
+        "r": 0.9999999999999499,
+        "rho_ord": 1.0000000000000167,
+        "s": 0.09999999999999978,
+        "x2": -2.5035529205297908e-14
+      },
+      "exactness": {
+        "r_abs_error": 5.007105841059456e-14,
+        "s_abs_error": 2.220446049250313e-16
+      },
+      "riesz": {
+        "defect_sup": 0.0028702036791648927,
+        "half_gap": 0.025,
+        "shrink_attempts": 1
+      },
+      "target": {
+        "r": 1.0,
+        "s": 0.1
+      }
+    },
+    {
+      "all_certificates_pass": true,
+      "certificates": {
+        "edge_amplitudes_above_floor": true,
+        "projector_labeling_persistent": true,
+        "psd_descendants": true,
+        "riesz_margin_defect_below_half_gap": true,
+        "simple_centered_spectrum": true,
+        "three_cluster_gap_open_all_levels": true
+      },
+      "emitted": {
+        "r": 0.9999999999999934,
+        "rho_ord": 1.0000000000000022,
+        "s": 1.2535530000000001,
+        "x2": -3.275157922644223e-15
+      },
+      "exactness": {
+        "r_abs_error": 6.5503158452884236e-15,
+        "s_abs_error": 2.220446049250313e-16
+      },
+      "riesz": {
+        "defect_sup": 0.015583357484742493,
+        "half_gap": 0.31338825,
+        "shrink_attempts": 1
+      },
+      "target": {
+        "r": 1.0,
+        "s": 1.253553
+      }
+    },
+    {
+      "all_certificates_pass": true,
+      "certificates": {
+        "edge_amplitudes_above_floor": true,
+        "projector_labeling_persistent": true,
+        "psd_descendants": true,
+        "riesz_margin_defect_below_half_gap": true,
+        "simple_centered_spectrum": true,
+        "three_cluster_gap_open_all_levels": true
+      },
+      "emitted": {
+        "r": 0.9999999999999964,
+        "rho_ord": 1.000000000000001,
+        "s": 10.0,
+        "x2": -1.7763568394002536e-15
+      },
+      "exactness": {
+        "r_abs_error": 3.552713678800501e-15,
+        "s_abs_error": 0.0
+      },
+      "riesz": {
+        "defect_sup": 0.06670479601210688,
+        "half_gap": 2.5,
+        "shrink_attempts": 1
+      },
+      "target": {
+        "r": 1.0,
+        "s": 10.0
+      }
+    },
+    {
+      "all_certificates_pass": true,
+      "certificates": {
+        "edge_amplitudes_above_floor": true,
+        "projector_labeling_persistent": true,
+        "psd_descendants": true,
+        "riesz_margin_defect_below_half_gap": true,
+        "simple_centered_spectrum": true,
+        "three_cluster_gap_open_all_levels": true
+      },
+      "emitted": {
+        "r": 4.999999999999486,
+        "rho_ord": 0.42857142857146,
+        "s": 0.0999999999999998,
+        "x2": 0.6666666666666381
+      },
+      "exactness": {
+        "r_abs_error": 5.142553050063725e-13,
+        "s_abs_error": 2.0816681711721685e-16
+      },
+      "riesz": {
+        "defect_sup": 0.002890212221801307,
+        "half_gap": 0.008333333333333335,
+        "shrink_attempts": 1
+      },
+      "target": {
+        "r": 5.0,
+        "s": 0.1
+      }
+    },
+    {
+      "all_certificates_pass": true,
+      "certificates": {
+        "edge_amplitudes_above_floor": true,
+        "projector_labeling_persistent": true,
+        "psd_descendants": true,
+        "riesz_margin_defect_below_half_gap": true,
+        "simple_centered_spectrum": true,
+        "three_cluster_gap_open_all_levels": true
+      },
+      "emitted": {
+        "r": 4.999999999999894,
+        "rho_ord": 0.428571428571435,
+        "s": 1.2535529999999995,
+        "x2": 0.6666666666666607
+      },
+      "exactness": {
+        "r_abs_error": 1.056932319443149e-13,
+        "s_abs_error": 4.440892098500626e-16
+      },
+      "riesz": {
+        "defect_sup": 0.015814107054144037,
+        "half_gap": 0.10446275,
+        "shrink_attempts": 1
+      },
+      "target": {
+        "r": 5.0,
+        "s": 1.253553
+      }
+    },
+    {
+      "all_certificates_pass": true,
+      "certificates": {
+        "edge_amplitudes_above_floor": true,
+        "projector_labeling_persistent": true,
+        "psd_descendants": true,
+        "riesz_margin_defect_below_half_gap": true,
+        "simple_centered_spectrum": true,
+        "three_cluster_gap_open_all_levels": true
+      },
+      "emitted": {
+        "r": 4.999999999999966,
+        "rho_ord": 0.42857142857143055,
+        "s": 10.000000000000002,
+        "x2": 0.6666666666666647
+      },
+      "exactness": {
+        "r_abs_error": 3.375077994860476e-14,
+        "s_abs_error": 1.7763568394002505e-15
+      },
+      "riesz": {
+        "defect_sup": 0.06786710009751074,
+        "half_gap": 0.8333333333333335,
+        "shrink_attempts": 1
+      },
+      "target": {
+        "r": 5.0,
+        "s": 10.0
+      }
+    }
+  ]
+}
