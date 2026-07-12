@@ -33,13 +33,17 @@ Primary derivation surfaces:
   instrumentation (`python3 code/geometry/realized_event_receipts.py`):
   E1/E2/E4 plus an intrinsic Lorentzian (1,2) ancestry cone on records
   from the actual repair dynamics, with the realized (1+2) screen-sheet
-  dimension measured honestly and the bulk-depth channel reported as the
-  remaining structural negative. Current verdict: topology, mesh,
-  boundary-collar modular, one-particle null-net, and screen-event
-  families realized; bulk-depth channel, Cyc limit, Lie-closure rate,
-  second-quantized MI, cap-interior, and physical families pending;
-  realized geometric branch not certified nonempty. Run with
-  `python3 -m pytest code/geometry/`.
+  dimension measured honestly, and the bulk-depth channel
+  (`python3 code/geometry/bulk_depth_receipts.py`): multi-scale records
+  with the produced depth dictionary witness E3 rank four, bulk PCA four,
+  and a seed-stable Lorentzian (1,3) ancestry cone on the
+  corpus-consistent inverse-system dynamics (narrow-margin caveats
+  explicit; the strong-coupling variant measures (2,2) and is kept as a
+  countermodel). Current verdict: all structural receipt families
+  realized at finite/one-particle level; margin convergence, Cyc limit,
+  Lie-closure rate, second-quantized MI, cap-interior, and physical
+  families pending; realized geometric branch not certified nonempty.
+  Run with `python3 -m pytest code/geometry/`.
 
 Supplemental and benchmark surfaces:
 

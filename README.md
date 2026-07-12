@@ -412,15 +412,23 @@ realized-event instrumentation runs the event pipeline on records from the
 actual repair dynamics: screen population, certified separation, the
 Moebius chart cocycle, and an intrinsic ancestry cone of Lorentzian
 signature (1,2) with the modular clock timelike to 0.9995 --- while the
-realized event set measures as the (1+2) screen sheet it actually is, so
-the bulk-depth record channel (E3 rank four, hence 3+1) carries the honest
-negative and is the single remaining structural family. The Cyc limit
-clause, Lie-closure rate, second-quantized modular intersections,
-cap-interior data, and the physical-identification receipts also remain
-pending. The realized geometric branch is therefore still not certified
-nonempty: derivation complete on the receipt branch; topology, mesh,
-boundary-collar modular, one-particle null-net, and screen-event families
-realized; bulk-depth channel, limit clauses, and physical receipts open.
+realized event set measures as the (1+2) screen sheet when only screen
+records exist. The bulk-depth instrumentation then builds the depth
+channel with the produced dictionary rho = -log tan(alpha/2) (coarse cells
+are deep records: the scale/radius duality realized by the tower itself):
+on the corpus-consistent inverse-system dynamics, the realized multi-scale
+records witness E3 rank four, bulk PCA dimension four, and a seed-stable
+intrinsic ancestry cone of Lorentzian signature (1,3) with the modular
+clock timelike to 0.999 --- while the strong-coupling variant measures
+(2,2) and is kept as a countermodel showing the receipt detects
+pathological depth dynamics. Carried caveats: the timelike cone margin is
+narrow and its convergence with commit density is not yet certified. The
+Cyc limit clause, Lie-closure rate, second-quantized modular
+intersections, cap-interior data, and the physical-identification receipts
+also remain pending. The realized geometric branch is therefore still not
+certified nonempty: derivation complete on the receipt branch; all
+structural receipt families realized at finite/one-particle level; margin
+convergence, limit clauses, and physical receipts open.
 
 Screen-spectrum and CMB continuations are provisional without the screen
 branch's geometric scale, source dynamics, clock, refinement behavior, and

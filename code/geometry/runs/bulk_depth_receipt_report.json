@@ -1,0 +1,159 @@
+{
+  "artifact": "oph_bulk_depth_receipts",
+  "object_id": "BulkDepthReceipts_Issue503",
+  "issue": 503,
+  "scope": "multi-scale records on the realized tower with the produced depth dictionary rho = -log tan(alpha/2); corpus-consistent inverse-system coupling (one-step interface patches between consecutive stages, per D1 refinement projections); clock calibrated to the measured metric hop length; verdicts reported as measured. CAVEATS carried explicitly: the timelike cone margin is narrow (normalized eigenvalue -0.009 to -0.028 across seeds) and wide sampling windows blur it to marginal; the strong-coupling variant is retained as a countermodel measuring (2,2), i.e. the receipt detects pathological depth dynamics rather than rubber-stamping 3+1.",
+  "n_cells": 420,
+  "speed_check": {
+    "metric_step_per_stage": {
+      "0": 1.7078957827931311,
+      "1": 1.9155987751027759,
+      "2": 1.978185316347107
+    },
+    "max_over_min": 1.1582587979179493,
+    "scale_invariant_within_factor_2": true
+  },
+  "e3_frame": {
+    "frame_rank": 4,
+    "observability_sigma_min": 2.449489742783178,
+    "response_matrix_shape": [
+      240,
+      12
+    ]
+  },
+  "pca": {
+    "chart_pca_dimension": 4,
+    "singular_value_ratios": [
+      1.0,
+      0.06917574973187614,
+      0.06722268679745168,
+      0.062927915657443
+    ]
+  },
+  "cone_4d_seed_sweep": [
+    {
+      "step_time": 2.454102638181003,
+      "labelled_pairs": 3263,
+      "causal_fraction": 0.17775053631627336,
+      "signature": [
+        1,
+        3
+      ],
+      "eigenvalues_normalized": [
+        -0.020865232486834737,
+        0.27903503796024365,
+        0.2814244929401217,
+        1.0
+      ],
+      "timelike_eigenvector_clock_alignment": 0.9993330190311261,
+      "classification_rate": 0.85105730922464
+    },
+    {
+      "step_time": 2.5713043492141403,
+      "labelled_pairs": 3205,
+      "causal_fraction": 0.18408736349453977,
+      "signature": [
+        1,
+        3
+      ],
+      "eigenvalues_normalized": [
+        -0.023792008033559686,
+        0.24453792361024085,
+        0.25162206079990607,
+        1.0
+      ],
+      "timelike_eigenvector_clock_alignment": 0.9997248976568436,
+      "classification_rate": 0.8599063962558502
+    },
+    {
+      "step_time": 2.5851202385651706,
+      "labelled_pairs": 3217,
+      "causal_fraction": 0.19459123406900838,
+      "signature": [
+        1,
+        3
+      ],
+      "eigenvalues_normalized": [
+        -0.027987845197299892,
+        0.25852162272236556,
+        0.2623177292514749,
+        1.0
+      ],
+      "timelike_eigenvector_clock_alignment": 0.9998027091496542,
+      "classification_rate": 0.851103512589369
+    },
+    {
+      "step_time": 2.5733336785730367,
+      "labelled_pairs": 3264,
+      "causal_fraction": 0.17003676470588236,
+      "signature": [
+        1,
+        3
+      ],
+      "eigenvalues_normalized": [
+        -0.009183329276665151,
+        0.3569538593197448,
+        0.3719124067551945,
+        1.0
+      ],
+      "timelike_eigenvector_clock_alignment": 0.9996528032828759,
+      "classification_rate": 0.8403799019607843
+    },
+    {
+      "step_time": 2.571304349214132,
+      "labelled_pairs": 3238,
+      "causal_fraction": 0.18622606547251389,
+      "signature": [
+        1,
+        3
+      ],
+      "eigenvalues_normalized": [
+        -0.022934014754353575,
+        0.33023854546979464,
+        0.3431527535270415,
+        1.0
+      ],
+      "timelike_eigenvector_clock_alignment": 0.9996584708452623,
+      "classification_rate": 0.8502161828289068
+    }
+  ],
+  "timelike_eigenvalues_across_seeds": [
+    -0.020865232486834737,
+    -0.023792008033559686,
+    -0.027987845197299892,
+    -0.009183329276665151,
+    -0.022934014754353575
+  ],
+  "countermodel_global_coupling": {
+    "step_time": 2.612980516988589,
+    "labelled_pairs": 3263,
+    "causal_fraction": 0.35304934109714986,
+    "signature": [
+      2,
+      2
+    ],
+    "eigenvalues_normalized": [
+      -1.0,
+      -0.14165408841582208,
+      0.2815771127718176,
+      0.2913337754879913
+    ],
+    "timelike_eigenvector_clock_alignment": 0.012061102446832717,
+    "classification_rate": 0.788231688630095
+  },
+  "receipts_witnessed": {
+    "depth_channel_populated": true,
+    "scale_invariant_speed": true,
+    "e3_rank_four": true,
+    "bulk_pca_dimension_four": true,
+    "cone_signature_1_3_all_seeds": true,
+    "clock_timelike_all_seeds": true,
+    "classification_above_0p8_all_seeds": true,
+    "countermodel_global_coupling_not_1_3": true
+  },
+  "caveats": [
+    "narrow timelike margin: normalized eigenvalue in [-0.028, -0.009] across seeds; sign stable, magnitude small",
+    "window sensitivity: dtick <= 4 tangent windows give (1,3); wide windows (dtick >= 6) blur the smallest eigenvalue through zero (chart curvature plus cone underfill)",
+    "one commit density evaluated; convergence of the margin with density/stages not yet certified"
+  ]
+}

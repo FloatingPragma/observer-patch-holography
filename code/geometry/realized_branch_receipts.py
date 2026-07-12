@@ -46,6 +46,7 @@ CYCLIC_ARTIFACT = HERE / "runs" / "cyclic_cap_net_run_domain.json"
 MODULAR_ARTIFACT = HERE / "runs" / "modular_clock_instrumentation_report.json"
 NULLNET_ARTIFACT = HERE / "runs" / "null_net_receipt_report.json"
 EVENT_ARTIFACT = HERE / "runs" / "realized_event_receipt_report.json"
+BULK_ARTIFACT = HERE / "runs" / "bulk_depth_receipt_report.json"
 REPORT_PATH = HERE / "runs" / "realized_branch_receipt_report.json"
 
 
@@ -138,6 +139,20 @@ def build_report() -> dict:
             "receipts_witnessed": ev["receipts_witnessed"],
             "receipts_pending": ev["receipts_pending"],
         }
+    bulk = None
+    if BULK_ARTIFACT.exists():
+        with open(BULK_ARTIFACT) as f:
+            bd = json.load(f)
+        bulk = {
+            "source": "code/geometry/runs/bulk_depth_receipt_report.json",
+            "scope": bd["scope"],
+            "receipts_witnessed": bd["receipts_witnessed"],
+            "caveats": bd["caveats"],
+            "timelike_eigenvalues_across_seeds":
+                bd["timelike_eigenvalues_across_seeds"],
+            "countermodel_signature":
+                bd["countermodel_global_coupling"]["signature"],
+        }
 
     evaluations = {
         "verified_tree_packet_net_domain": {
@@ -159,6 +174,8 @@ def build_report() -> dict:
         evaluations["null_net_receipts"] = nullnet
     if events is not None:
         evaluations["realized_event_receipts"] = events
+    if bulk is not None:
+        evaluations["bulk_depth_receipts"] = bulk
 
     # full nonemptiness needs ALL finite receipt families on one realized
     # tower; the cyclic run witnesses the D1 + incidence + mesh + naturality
@@ -180,18 +197,26 @@ def build_report() -> dict:
         )
     )
     bulk_depth_ok = bool(
-        events is not None
-        and events["receipts_witnessed"].get("e3_rank_four_bulk_depth")
+        bulk is not None
+        and all(bulk["receipts_witnessed"].values())
     )
     if topology and modular_ok and nullnet_ok:
         event_clause = (
             "the realized-event instrumentation witnesses screen "
             "population, certified separation, the Moebius chart cocycle, "
             "and an intrinsic Lorentzian (1,2) ancestry cone on the "
-            "realized (1+2) screen-event sheet, measured as such --- the "
-            "bulk-depth channel (E3 rank four, hence 3+1) is the honest "
-            "negative; " if events_screen_ok else
+            "screen sheet; " if events_screen_ok else
             "realized-event evaluation incomplete; "
+        )
+        bulk_clause = (
+            "the bulk-depth channel witnesses E3 rank four, bulk PCA "
+            "dimension four, and a seed-stable intrinsic ancestry cone of "
+            "Lorentzian signature (1,3) with the modular clock timelike, "
+            "on the corpus-consistent inverse-system dynamics, with the "
+            "narrow-margin/window caveats explicit and the "
+            "strong-coupling (2,2) countermodel preserved; "
+            if bulk_depth_ok else
+            "the bulk-depth channel is not witnessed; "
         )
         status = (
             "OPEN: the cyclic cap-net repair run realizes the D1 repair "
@@ -202,11 +227,12 @@ def build_report() -> dict:
             "instrumentation witnesses NTI, weak additivity, separating "
             "faithfulness, mixed-GNS Cauchy, one-particle HSM compression, "
             "and percent-level modular Lie closure (rate clause open); "
-            + event_clause +
-            "remaining pending: bulk-depth record channel, Cyc limit "
-            "clause, Lie-closure rate, second-quantized MI, cap-interior "
-            "data, and the UC/VR/scale physical-identification receipts; "
-            "#503 stays open on the full nonemptiness clause."
+            + event_clause + bulk_clause +
+            "remaining pending: cone-margin convergence with commit "
+            "density, Cyc limit clause, Lie-closure rate, second-quantized "
+            "MI, cap-interior data, and the UC/VR/scale "
+            "physical-identification receipts; #503 stays open on the "
+            "full nonemptiness clause."
         )
     elif topology and modular_ok:
         status = (

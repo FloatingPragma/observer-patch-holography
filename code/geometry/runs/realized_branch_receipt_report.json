@@ -96,6 +96,36 @@
         "E3 rank-four frames: bulk-depth record channel (H^3 radial coordinate) on the realized tower",
         "bulk E1 population (records off the screen sheet)"
       ]
+    },
+    "bulk_depth_receipts": {
+      "source": "code/geometry/runs/bulk_depth_receipt_report.json",
+      "scope": "multi-scale records on the realized tower with the produced depth dictionary rho = -log tan(alpha/2); corpus-consistent inverse-system coupling (one-step interface patches between consecutive stages, per D1 refinement projections); clock calibrated to the measured metric hop length; verdicts reported as measured. CAVEATS carried explicitly: the timelike cone margin is narrow (normalized eigenvalue -0.009 to -0.028 across seeds) and wide sampling windows blur it to marginal; the strong-coupling variant is retained as a countermodel measuring (2,2), i.e. the receipt detects pathological depth dynamics rather than rubber-stamping 3+1.",
+      "receipts_witnessed": {
+        "depth_channel_populated": true,
+        "scale_invariant_speed": true,
+        "e3_rank_four": true,
+        "bulk_pca_dimension_four": true,
+        "cone_signature_1_3_all_seeds": true,
+        "clock_timelike_all_seeds": true,
+        "classification_above_0p8_all_seeds": true,
+        "countermodel_global_coupling_not_1_3": true
+      },
+      "caveats": [
+        "narrow timelike margin: normalized eigenvalue in [-0.028, -0.009] across seeds; sign stable, magnitude small",
+        "window sensitivity: dtick <= 4 tangent windows give (1,3); wide windows (dtick >= 6) blur the smallest eigenvalue through zero (chart curvature plus cone underfill)",
+        "one commit density evaluated; convergence of the margin with density/stages not yet certified"
+      ],
+      "timelike_eigenvalues_across_seeds": [
+        -0.020865232486834737,
+        -0.023792008033559686,
+        -0.027987845197299892,
+        -0.009183329276665151,
+        -0.022934014754353575
+      ],
+      "countermodel_signature": [
+        2,
+        2
+      ]
     }
   },
   "realized_geometric_branch_certified_nonempty": false,
@@ -103,6 +133,6 @@
   "boundary_collar_modular_families_witnessed": true,
   "null_net_families_witnessed_one_particle": true,
   "screen_event_families_witnessed": true,
-  "bulk_depth_channel_witnessed": false,
-  "status": "OPEN: the cyclic cap-net repair run realizes the D1 repair clauses with the spherical-incidence, mesh, and naturality receipts (explicit branch selection); the free-fermion boundary-collar instrumentation witnesses the modular cross-ratio and geometric 2pi-KMS receipts; the null-net instrumentation witnesses NTI, weak additivity, separating faithfulness, mixed-GNS Cauchy, one-particle HSM compression, and percent-level modular Lie closure (rate clause open); the realized-event instrumentation witnesses screen population, certified separation, the Moebius chart cocycle, and an intrinsic Lorentzian (1,2) ancestry cone on the realized (1+2) screen-event sheet, measured as such --- the bulk-depth channel (E3 rank four, hence 3+1) is the honest negative; remaining pending: bulk-depth record channel, Cyc limit clause, Lie-closure rate, second-quantized MI, cap-interior data, and the UC/VR/scale physical-identification receipts; #503 stays open on the full nonemptiness clause."
+  "bulk_depth_channel_witnessed": true,
+  "status": "OPEN: the cyclic cap-net repair run realizes the D1 repair clauses with the spherical-incidence, mesh, and naturality receipts (explicit branch selection); the free-fermion boundary-collar instrumentation witnesses the modular cross-ratio and geometric 2pi-KMS receipts; the null-net instrumentation witnesses NTI, weak additivity, separating faithfulness, mixed-GNS Cauchy, one-particle HSM compression, and percent-level modular Lie closure (rate clause open); the realized-event instrumentation witnesses screen population, certified separation, the Moebius chart cocycle, and an intrinsic Lorentzian (1,2) ancestry cone on the screen sheet; the bulk-depth channel witnesses E3 rank four, bulk PCA dimension four, and a seed-stable intrinsic ancestry cone of Lorentzian signature (1,3) with the modular clock timelike, on the corpus-consistent inverse-system dynamics, with the narrow-margin/window caveats explicit and the strong-coupling (2,2) countermodel preserved; remaining pending: cone-margin convergence with commit density, Cyc limit clause, Lie-closure rate, second-quantized MI, cap-interior data, and the UC/VR/scale physical-identification receipts; #503 stays open on the full nonemptiness clause."
 }

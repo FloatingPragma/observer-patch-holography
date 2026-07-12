@@ -464,15 +464,24 @@ réelle : population d'écran, séparation certifiée, cocycle de cartes de
 Moebius, et un cône d'ascendance intrinsèque de signature lorentzienne
 (1,2) avec l'horloge modulaire de genre temps à 0,9995 --- tandis que
 l'ensemble d'événements réalisé se mesure comme la nappe d'écran (1+2)
-qu'il est réellement, de sorte que le canal de profondeur de bulk (E3 rang
-quatre, donc 3+1) porte le négatif honnête et constitue la seule famille
-structurelle restante. La clause limite Cyc, le taux de clôture de Lie,
-les intersections modulaires secondes-quantifiées, les données d'intérieur
-de cap et les reçus d'identification physique restent également en
-attente. La branche géométrique réalisée n'est donc toujours pas certifiée
-non vide : dérivation complète sur la branche des reçus ; familles
-topologie, maille, modulaires de collier de bord, réseau nul une-particule
-et événements d'écran réalisées ; canal de profondeur de bulk, clauses
+lorsque seuls des enregistrements d'écran existent. L'instrumentation de
+profondeur de bulk construit ensuite le canal E3 avec le dictionnaire
+produit rho = -log tan(alpha/2) (les cellules grossières sont des
+enregistrements profonds : la dualité échelle/rayon réalisée par la tour
+elle-même) : sur la dynamique de système inverse conforme au corpus, les
+enregistrements multi-échelles réalisés témoignent du rang quatre E3, de
+la dimension PCA de bulk quatre, et d'un cône d'ascendance intrinsèque de
+signature lorentzienne (1,3), stable sur toutes les graines, avec
+l'horloge modulaire de genre temps à 0,999 --- tandis que la variante à
+couplage fort mesure (2,2) et est conservée comme contre-modèle. Réserves
+explicites : la marge du cône de genre temps est étroite et sa convergence
+avec la densité de commits n'est pas encore certifiée. La clause limite
+Cyc, le taux de clôture de Lie, les intersections modulaires
+secondes-quantifiées, les données d'intérieur de cap et les reçus
+d'identification physique restent en attente. La branche géométrique
+réalisée n'est donc toujours pas certifiée non vide : dérivation complète
+sur la branche des reçus ; toutes les familles structurelles de reçus
+réalisées au niveau fini/une-particule ; convergence de marge, clauses
 limites et reçus physiques ouverts.
 
 Les continuations de spectre d'écran et de CMB sont provisoires sans l'échelle
