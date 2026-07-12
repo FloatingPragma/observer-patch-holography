@@ -120,7 +120,7 @@
     },
     "v_over_E_cell_source": "2.5797040595276223506583341903922018695490035369903290256096683452314630559578761079150341073645683725521032233E-17"
   },
-  "generated_utc": "2026-07-12T01:28:17Z",
+  "generated_utc": "2026-07-12T02:10:37Z",
   "p_trunk": {
     "P": "1.63097210492078846050203640439",
     "alpha_inv": "136.994020662724205139718642793",
@@ -329,6 +329,20 @@
         "code/P_derivation/empirical_thomson_endpoint.py"
       ],
       "title": "Empirical e+e- -> hadrons payload and Thomson endpoint evaluation"
+    },
+    {
+      "current_boundary": "The unconditional theorem leaves the free family tau2 = -c eta^2, delta_n = d (1 - beta) eta^2. The selection-theorem artifact (runs/calibration/d10_repair_tuple_selection_theorem.json) proves (c, d) = (sqrt(3)/2, 3/2) uniquely under the named color-balanced descent axioms and records the discrimination table: the spread between the two on-disk candidates is below current experimental resolution in every observable, so the selection is a theorem task. Conditional H/top/W/Z rows with the selection-and-P envelope live in runs/calibration/conditional_ew_predictions_current.json.",
+      "github_issue": 521,
+      "id": "d10.repair-tuple-selection",
+      "lane": "D10/D11 electroweak masses",
+      "next_action": "Derive the descent axioms A2 and A3 from the realized carrier package (the color-singlet projection weight and the coherent neutral color sum), which closes the selection unconditionally and unblocks the D10 promotion review.",
+      "status": "conditional_selection_theorem_axioms_named",
+      "target_surfaces": [
+        "code/particles/runs/calibration/d10_repair_tuple_selection_theorem.json",
+        "code/particles/runs/calibration/conditional_ew_predictions_current.json",
+        "code/particles/calibration"
+      ],
+      "title": "Repair-tuple selection beneath the free quadratic family"
     },
     {
       "current_boundary": "The empirical Thomson endpoint artifact certifies that the payload interval for Delta_alpha_had^(5)(M_Z) excludes the value required to reach the measured endpoint with the frozen source anchor a0(P*) = 128.30797. The discrepancy is carried entirely by the anchor: the certified same-scheme anchor gap is [0.649, 0.855] inverse-alpha units (code/P_derivation/runtime/empirical_thomson_endpoint_current.json).",

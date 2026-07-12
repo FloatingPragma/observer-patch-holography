@@ -355,6 +355,33 @@ def build_gap_rows() -> list[dict[str, Any]]:
         },
         _empirical_ee_gate(),
         {
+            "id": "d10.repair-tuple-selection",
+            "lane": "D10/D11 electroweak masses",
+            "status": "conditional_selection_theorem_axioms_named",
+            "github_issue": 521,
+            "title": "Repair-tuple selection beneath the free quadratic family",
+            "current_boundary": (
+                "The unconditional theorem leaves the free family tau2 = -c eta^2, "
+                "delta_n = d (1 - beta) eta^2. The selection-theorem artifact "
+                "(runs/calibration/d10_repair_tuple_selection_theorem.json) proves (c, d) = "
+                "(sqrt(3)/2, 3/2) uniquely under the named color-balanced descent axioms and "
+                "records the discrimination table: the spread between the two on-disk candidates "
+                "is below current experimental resolution in every observable, so the selection "
+                "is a theorem task. Conditional H/top/W/Z rows with the selection-and-P envelope "
+                "live in runs/calibration/conditional_ew_predictions_current.json."
+            ),
+            "next_action": (
+                "Derive the descent axioms A2 and A3 from the realized carrier package (the "
+                "color-singlet projection weight and the coherent neutral color sum), which "
+                "closes the selection unconditionally and unblocks the D10 promotion review."
+            ),
+            "target_surfaces": [
+                "code/particles/runs/calibration/d10_repair_tuple_selection_theorem.json",
+                "code/particles/runs/calibration/conditional_ew_predictions_current.json",
+                "code/particles/calibration",
+            ],
+        },
+        {
             "id": "d10.same-scheme-anchor-bridge",
             "lane": "P closure / D10 electromagnetic endpoint",
             "status": "open_certified_anchor_gap",

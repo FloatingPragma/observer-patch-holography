@@ -1,6 +1,6 @@
 # Particle Derivation Gap Ledger
 
-Generated: `2026-07-12T01:28:17Z`
+Generated: `2026-07-12T02:10:37Z`
 
 Systematic claim-safe queue after the five-equation P-trunk simplification.
 
@@ -82,6 +82,7 @@ Claim gates are grouped into coupled closure packets rather than a one-blocker-a
 | `calibration.direct-top-bridge` | D11/top codomain | `closed_corpus_limited_codomain_no_go` | Keep Q007TP compare-only while the theorem row remains anchored on Q007TP4. Reopen only for a concrete source-side extraction-response kernel. |
 | `hadron.production-backend-systematics` | Hadrons | `source_backend_absent_empirical_policy_emitted` | Keep source-only hadron rows suppressed. Use empirical hadron closure rows only through the documented e+e- spectral payload. Promote source-only hadron rows only after a working OPH hadron backend emits production hadron output, Ward-projected spectral data, and systematics. |
 | `hadron.empirical-ee-spectral-closure` | Hadrons | `payload_populated_endpoint_evaluated_gap_anchor_localized` | Emit the source-side electroweak scheme bridge for a0(P) that produces the certified anchor-gap interval; refine the payload with experiment-level tables when a finer compilation is ingested. |
+| `d10.repair-tuple-selection` | D10/D11 electroweak masses | `conditional_selection_theorem_axioms_named` | Derive the descent axioms A2 and A3 from the realized carrier package (the color-singlet projection weight and the coherent neutral color sum), which closes the selection unconditionally and unblocks the D10 promotion review. |
 | `d10.same-scheme-anchor-bridge` | P closure / D10 electromagnetic endpoint | `open_certified_anchor_gap` | Emit a source-side scheme-bridge theorem mapping the OPH anchor to the on-shell running convention at m_Z, a0_OS(P) = a0_OPH(P) + delta_scheme(P), with an interval certificate for delta_scheme(P) landing in the certified gap, or prove the anchor is scheme-exact and relocate the discrepancy to a named transport packet. |
 
 ## Claim Policy

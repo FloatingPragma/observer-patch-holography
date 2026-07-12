@@ -1,0 +1,92 @@
+{
+ "artifact": "oph_d10_repair_tuple_selection_theorem",
+ "generated_utc": "2026-07-12T02:07:58Z",
+ "object_id": "D10RepairTupleSelectionTheorem",
+ "status": "conditional_selection_theorem_axioms_named",
+ "promotion_allowed": false,
+ "free_family": {
+  "tau2_exact": "-c * eta_source^2",
+  "delta_n_exact": "d * (1 - beta_EW) * eta_source^2",
+  "statement": "the current corpus underdetermines (c, d); this is the unconditional boundary beneath every candidate"
+ },
+ "selection_axioms": {
+  "A1_quadratic_leading_order": "the first nonzero beyond-carrier repair is quadratic in eta_source (unconditional on this surface)",
+  "A2_charged_contraction": "the charged leg contracts through the color-singlet projection of the realized triplet carrier, weight sqrt(N_c)/2, so c = sqrt(N_c)/2",
+  "A3_neutral_color_sum": "the neutral leg sums the N_c colors coherently against the (1 - beta_EW) hypercharge complement, so d = N_c/2"
+ },
+ "conditional_theorem": {
+  "statement": "Under A1-A3 on the realized N_c = 3 branch, the repair pair is uniquely (c, d) = (sqrt(3)/2, 3/2); the running-tree law is the lambda-generated companion selection and differs from it at relative order one in (c, d) while moving every forward observable by less than current experimental resolution.",
+  "proof": "A1 fixes the monomial degree; A2 fixes c by evaluating the singlet projection norm on the triplet, |P_singlet T|/|T| = 1/sqrt(N_c) against the half-weight charged normalization, giving c = sqrt(N_c)/2; A3 fixes d as the coherent color multiplicity N_c against the half-weight neutral normalization, d = N_c/2. Uniqueness is immediate since (c, d) are determined scalars.",
+  "remaining_content": "the source derivation of A2 and A3 from the realized carrier package is the open step of the Higgs-pipeline issue; until then the selection is conditional and promotion stays blocked"
+ },
+ "basis": {
+  "alpha2_mz": 0.03377843630219015,
+  "alphaY_mz": 0.010131601067241624,
+  "alpha_sum_mz": 0.043910037369431776,
+  "alpha_u_seed": 0.04112498041477454,
+  "beta_EW": 0.5385291530498766,
+  "eta_source": 0.022147000871961295,
+  "lambda_EW": 0.00022769874427635073,
+  "v_report_gev": 246.76711732749683
+ },
+ "candidates": {
+  "running_tree_value_law": {
+   "id": "running_tree_value_law",
+   "tau2_exact": -0.0002311623001746158,
+   "delta_n_exact": 0.0002346358802434819,
+   "c_effective": 0.47128884634983076,
+   "d_effective": 1.036621731704479,
+   "MW_pole_gev": 80.37700001539531,
+   "MZ_pole_gev": 91.18797807794321,
+   "sin2w_eff": 0.22305833336075578,
+   "alpha_em_eff_inv": 132.7524088191668,
+   "pi_y": 0.012281958891788198,
+   "pi_lambda": 0.0126677219895597,
+   "mt_pole_gev": 172.3523553288312,
+   "mH_gev": 125.1995304097179
+  },
+  "color_balanced_quadratic_descent": {
+   "id": "color_balanced_quadratic_descent",
+   "tau2_exact": -0.00042477649513449626,
+   "delta_n_exact": 0.0003395200096630408,
+   "c_effective": 0.8660254037844386,
+   "d_effective": 1.5,
+   "MW_pole_gev": 80.36921677537332,
+   "MZ_pole_gev": 91.1880067442454,
+   "sin2w_eff": 0.223209283468742,
+   "alpha_em_eff_inv": 132.68832841396318,
+   "pi_y": 0.01210339464761652,
+   "pi_lambda": 0.012812326856229267,
+   "mt_pole_gev": 172.32195328581707,
+   "mH_gev": 125.18328541107648
+  }
+ },
+ "selection_spread": {
+  "MW_pole_gev": 0.007783240021993265,
+  "MZ_pole_gev": 2.866630218534283e-05,
+  "sin2w_eff": 0.0001509501079862141,
+  "mt_pole_gev": 0.03040204301413496,
+  "mH_gev": 0.016244998641411712
+ },
+ "discrimination": {
+  "statement": "the candidate spread is below current experimental resolution in every observable (m_W spread ~8 MeV vs sigma 13 MeV; m_Z spread ~0.03 MeV; m_H spread ~16 MeV vs sigma 110 MeV; m_t spread ~30 MeV vs sigma 600 MeV), so the selection cannot be decided empirically today and must be decided by the source descent theorem",
+  "compare_only_references": {
+   "MW_pole_gev": [
+    80.3692,
+    0.0133
+   ],
+   "MZ_pole_gev": [
+    91.1876,
+    0.0021
+   ],
+   "mH_gev": [
+    125.13,
+    0.11
+   ],
+   "mt_pole_gev": [
+    172.1,
+    0.6
+   ]
+  }
+ }
+}

@@ -1,0 +1,151 @@
+{
+ "artifact": "oph_conditional_ew_predictions",
+ "generated_utc": "2026-07-12T02:09:43Z",
+ "row_class": "conditional_on_P_and_repair_selection",
+ "guards": {
+  "public_promotion_allowed": false,
+  "conditional_display_allowed": true,
+  "promotion_blockers": [
+   "current_corpus_underdetermination_of_forward_d10_repair_law",
+   "d10.same-scheme-anchor-bridge (issue #545)",
+   "source derivation of the selection axioms (issue #521)"
+  ]
+ },
+ "inputs": {
+  "basis_source": "d10_ew_target_free_repair_value_law.json",
+  "surface_source": "d11_declared_calibration_surface.json",
+  "P_calibration": 1.630968209403959,
+  "P_empirical_interval": [
+   1.631031463127,
+   1.631051577591
+  ],
+  "d_alpha_U_d_P": -10.9905,
+  "sensitivity_scope": "eta-channel partial only; running couplings, v, and Jacobian cores held at repo P; the full-surface dP row is the open instruction"
+ },
+ "rows_at_calibration_P": {
+  "running_tree_value_law": {
+   "MW_pole_gev": 80.37700001539531,
+   "MZ_pole_gev": 91.18797807794321,
+   "sin2w_eff": 0.22305833336075578,
+   "mH_gev": 125.1995304097179,
+   "mt_pole_gev": 172.3523553288312
+  },
+  "color_balanced_quadratic_descent": {
+   "MW_pole_gev": 80.36921677537332,
+   "MZ_pole_gev": 91.1880067442454,
+   "sin2w_eff": 0.223209283468742,
+   "mH_gev": 125.18328541107648,
+   "mt_pole_gev": 172.32195328581707
+  }
+ },
+ "rows_at_empirical_P": {
+  "empirical_closure_P_lo": {
+   "running_tree_value_law": {
+    "MW_pole_gev": 80.37731385697425,
+    "MZ_pole_gev": 91.19576124826166,
+    "sin2w_eff": 0.2231848787356232,
+    "mH_gev": 125.22391418262882,
+    "mt_pole_gev": 172.31761861989347
+   },
+   "color_balanced_quadratic_descent": {
+    "MW_pole_gev": 80.36978923477795,
+    "MZ_pole_gev": 91.19579287355583,
+    "sin2w_eff": 0.22333085562894564,
+    "mH_gev": 125.2082090517281,
+    "mt_pole_gev": 172.2882266281256
+   }
+  },
+  "empirical_closure_P_hi": {
+   "running_tree_value_law": {
+    "MW_pole_gev": 80.37741251025889,
+    "MZ_pole_gev": 91.1982367952068,
+    "sin2w_eff": 0.22322514417082656,
+    "mH_gev": 125.23166574233353,
+    "mt_pole_gev": 172.3065679915908
+   },
+   "color_balanced_quadratic_descent": {
+    "MW_pole_gev": 80.369969228837,
+    "MZ_pole_gev": 91.19826930764052,
+    "sin2w_eff": 0.22336955639168446,
+    "mH_gev": 125.21613041001062,
+    "mt_pole_gev": 172.27749368420027
+   }
+  }
+ },
+ "conditional_envelope": {
+  "mH_gev": [
+   125.18328541107648,
+   125.23166574233353
+  ],
+  "mt_pole_gev": [
+   172.27749368420027,
+   172.3523553288312
+  ],
+  "MW_pole_gev": [
+   80.36921677537332,
+   80.37741251025889
+  ],
+  "MZ_pole_gev": [
+   91.18797807794321,
+   91.19826930764052
+  ]
+ },
+ "comparison_compare_only": {
+  "mH_gev": {
+   "conditional_central": 125.20747557670501,
+   "conditional_envelope": [
+    125.18328541107648,
+    125.23166574233353
+   ],
+   "measured": 125.13,
+   "measured_sigma": 0.11,
+   "measured_source": "PDG 2025",
+   "delta": 0.07747557670501237,
+   "delta_over_sigma": 0.7043234245910216,
+   "envelope_overlaps_one_sigma_band": true,
+   "envelope_inside_one_sigma_band": true
+  },
+  "mt_pole_gev": {
+   "conditional_central": 172.31492450651575,
+   "conditional_envelope": [
+    172.27749368420027,
+    172.3523553288312
+   ],
+   "measured": 172.1,
+   "measured_sigma": 0.6,
+   "measured_source": "PDG 2025 direct-average context row",
+   "delta": 0.21492450651575723,
+   "delta_over_sigma": 0.3582075108595954,
+   "envelope_overlaps_one_sigma_band": true,
+   "envelope_inside_one_sigma_band": true
+  },
+  "MW_pole_gev": {
+   "conditional_central": 80.3733146428161,
+   "conditional_envelope": [
+    80.36921677537332,
+    80.37741251025889
+   ],
+   "measured": 80.3692,
+   "measured_sigma": 0.0133,
+   "measured_source": "PDG 2025 world average",
+   "delta": 0.004114642816091418,
+   "delta_over_sigma": 0.30937164030762543,
+   "envelope_overlaps_one_sigma_band": true,
+   "envelope_inside_one_sigma_band": true
+  },
+  "MZ_pole_gev": {
+   "conditional_central": 91.19312369279186,
+   "conditional_envelope": [
+    91.18797807794321,
+    91.19826930764052
+   ],
+   "measured": 91.1876,
+   "measured_sigma": 0.0021,
+   "measured_source": "PDG 2025",
+   "delta": 0.005523692791854273,
+   "delta_over_sigma": 2.6303299008829875,
+   "envelope_overlaps_one_sigma_band": true,
+   "envelope_inside_one_sigma_band": false
+  }
+ }
+}
