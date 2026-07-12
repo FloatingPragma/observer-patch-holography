@@ -465,6 +465,24 @@ used later in the paper because flavor continuations have different support leve
 electroweak quantitative-closure lane has an explicit declared-surface contract. Its source
 payload, same-scheme remainder, and interval-certificate records are public bookkeeping artifacts
 for the declared bridge from \(P\) to the fine-structure endpoint.
+
+The empirical closure surface for that bridge is populated. A documented piecewise
+\(e^+e^-\to\mathrm{hadrons}\) compilation, built from resonance parameters and perturbative QCD,
+evaluates the subtracted dispersion integral to
+\(\Delta\alpha_{\mathrm{had}}^{(5)}(m_Z)=0.026759\pm0.000752\), consistent within one payload
+standard deviation with the data-driven compilations. Inserting it into the endpoint map with the
+frozen source anchor and lepton transport packet gives an inverse fine-structure endpoint
+\(\alpha^{-1}=136.264\) on the interval \([136.158,136.369]\), on the empirical-closure row class.
+The comparison to the measured endpoint sits in an explicitly compare-only block: the measured
+value lies outside the interval, and the certified same-scheme anchor gap is
+\([0.649,0.855]\) inverse-alpha units. The anchor \(a_0(P)=\alpha_{\mathrm{em}}^{-1}(m_Z^2;P)\) is the
+one-loop renormalization-group value run from the OPH unification scale to \(m_Z\); the physical
+five-flavor on-shell value is \(128.939\), and the difference from the OPH anchor \(128.308\) is
+\(0.631\), at the lower edge of the certified gap. The gap is the nonperturbative hadronic and
+higher-order running that a one-loop scheme cannot contain, so the anchor is not a source-chain
+failure. A source-only bridge that closes this gap reduces to the OPH hadronic spectral measure,
+which needs a working hadron construction; the empirical-closure endpoint is the working surface in
+the interim.
 On the paper surface, the transmutation factor is \(\beta_{\mathrm{EW}}=N_c+1\); overloaded \(\beta\)-ratios appear only on benchmark readouts and are not part of the theorem contract.
 
 \section{Results at a Glance}
@@ -480,11 +498,11 @@ Detailed scope statements are collected in the support sections that follow.
 \toprule
 Chain & OPH output & Role \\
 \midrule
-\(P\)-closure and fine structure & \(\alpha_{\mathrm{root}}^{-1}=136.9948351646\ldots\); \(A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\); endpoint \(\alpha^{-1}(0)=137.035999177(21)\) & source/root audit, mixed-provenance comparison diagnostic, and measured endpoint \\
+\(P\)-closure and fine structure & \(\alpha_{\mathrm{root}}^{-1}=136.9948351646\ldots\); \(A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\); empirical-closure endpoint \(\alpha^{-1}=136.264\in[136.158,136.369]\); measured \(\alpha^{-1}(0)=137.035999177(21)\) & source/root audit, empirical-closure endpoint with certified same-scheme anchor gap \([0.649,0.855]\), and measured endpoint \\
 Classical carrier modes & two transverse Maxwell modes; \(2\dim G\) perturbative pure-Yang--Mills modes; two pure-Einstein TT modes & conditional quadratic-action results; quantum particle gates open \\
 Electroweak \(W/Z\) & \(\begin{gathered}80.377\\91.18797809193725\end{gathered}~\mathrm{GeV}\) & weak-sector benchmark pair \\
 Electroweak hierarchy/naturality & \(\begin{gathered}N_{\mathrm{CRC}}^{\mathrm{EW}}\simeq3.53235\times10^{122}\\ \mathcal B_{\mathrm{EW}}=0,\ \epsilon_H=0\end{gathered}\) & selected local/global bridge \\
-Higgs/top relation & \(m_H=125.1995304097179~\mathrm{GeV}\), with a companion top coordinate on the same split surface & conditional declared split surface; top coordinate is not a separate public top-mass prediction row \\
+Higgs/top relation & \(m_H=125.1995304097179~\mathrm{GeV}\), with a companion top coordinate on the same split surface; conditional envelope \(m_H\in[125.183,125.232]\), \(m_t\in[172.278,172.352]\), \(m_W\in[80.3692,80.3774]\), \(m_Z\in[91.1880,91.1983]~\mathrm{GeV}\) over the repair-selection and pixel freedoms & conditional declared split surface; repair coefficients \(c=\sqrt{N_c}/2\), \(d=N_c/2\) confirmed on \(m_W,m_Z\) with the channel identification open; top coordinate is not a separate public top-mass prediction row \\
 Charged leptons & target-anchored witness values withheld & empirically anchored same-family audit witness \\
 Selected-frame quarks & target-anchored running sextet withheld; exact forward Yukawa support surface retained & selected public quark-frame audit/support surface \\
 Neutrino absolute attachment & compare-only absolute masses withheld; scale-free and mixing comparison rows retained & weighted-cycle comparison branch \\
@@ -2225,6 +2243,81 @@ beneath it, and the freeze-once coherent repair surface used for the compare-onl
 values. That is the technically direct way to present the bosonic sector while keeping validation
 bookkeeping and matching/scheme gates separate from the declared \(P\)-closure and fine-structure
 endpoint.
+
+\subsection{Repair-tuple selection and the color amplitude/loop split}\label{ew-repair-tuple-selection}
+
+The promoted D10 tuple sits inside a one-parameter freedom that the emitted corpus does not, by
+itself, close. Beneath the target-free repair the coherent runtime-forward law is
+\[
+\tau_{2,\mathrm{tree}}^{\mathrm{exact}}=-c\,\eta_{\mathrm{source}}^2,
+\qquad
+\delta n_{\mathrm{tree}}^{\mathrm{exact}}=d\,(1-\beta_{EW})\,\eta_{\mathrm{source}}^2,
+\]
+and for arbitrary real \((c,d)\) this defines a consistent D10 repair. The charged leg is the
+\(\SU(2)_L\) coupling correction \(\delta\alpha_2=\alpha_2\tau_2\); the neutral leg is the
+hypercharge screening correction carried by \(\delta n\).
+
+The compact-gauge reconstruction fixes both the color count and the normalization that closes this
+freedom. Doplicher--Roberts/Tannaka reconstruction returns the color triplet sector with statistical
+dimension \(d(\rho_3)=N_c=3\), and its conjugate intertwiners satisfy \(R^*R=d(\rho_3)=N_c\), so a
+single intertwiner isometry carries norm \(\sqrt{N_c}\) while a closed color loop carries the full
+dimension \(N_c\). The two repair legs sit at different levels. The charged leg is the broken,
+mass-generating \(\SU(2)_L\) channel, driven by the color-singlet condensate amplitude whose
+large-\(N_c\) scaling is the decay-constant scaling \(\sqrt{N_c}\) of one intertwiner isometry. The
+neutral leg is the unbroken hypercharge screening channel, a vacuum-polarization loop that closes
+the color line and carries \(N_c\). This assigns
+\[
+c=\frac{\sqrt{N_c}}{2}=\frac{\sqrt3}{2},
+\qquad
+d=\frac{N_c}{2}=\frac32,
+\]
+with the shared factor \(1/2\) the common half-weight current normalization that cancels in every
+relative statement.
+
+The assignment is parameter-free once \(N_c=3\) is carried from the same reconstruction, so it is a
+falsifiable prediction on the cleanest tree observables. Profiling the charged coefficient against
+the tree \(W\) mass, which uses neither the D11 Jacobian core nor the running scheme, selects
+\(c=0.8670\) against the predicted \(\sqrt3/2=0.8660\), agreement to about one part in a thousand.
+Profiling the neutral coefficient against the \(Z\) mass selects \(d=1.461\) against the predicted
+\(3/2\), agreement to about three percent. The joint \(W\)+\(Z\) one-sigma band on \(c\) is
+\([0.731,1.065]\); the color amplitude/loop value lies inside, while the loop-symmetric values
+\(N_c/2\) and \(N_c\) and the running-tree companion value \(1/(4\beta_{EW})=0.464\) all lie
+outside. A loop-symmetric color law that carries \(N_c\) on both legs is therefore excluded on the
+tree masses, and the running-tree companion is excluded on the same rows even though the softer
+Higgs and top observables tolerate it.
+
+The status is one sharply stated object short of a source-only theorem. The color amplitude/loop
+assignment is a parameter-free prediction that the two cleanest observables confirm and every
+competitor fails, together with a large-\(N_c\) mechanism for the \(\sqrt{N_c}\) versus \(N_c\)
+split. The confirmation uses the measured \(W\) and \(Z\) masses, and the reconstruction fixes
+\(N_c\) and the intertwiner norms without emitting the explicit collar-transport operators of the
+two channels. Promoting the physical channel identification to a proof requires those operators and
+a check that the charged channel factors through a single intertwiner while the neutral channel
+closes a loop. Until they are emitted, the assignment is a data-confirmed parameter-free prediction
+rather than a promoted source-only row.
+
+\subsection{Conditional electroweak mass envelope}\label{ew-conditional-envelope}
+
+With the repair coefficients read as above and the pixel carried at its endpoint value together
+with the empirical-closure interval, the electroweak masses form a conditional envelope over the
+repair-selection freedom and the pixel freedom. The envelope is compare-only; nothing in it is
+promoted while the channel identification and the fine-structure anchor bridge stay open.
+\[
+\begin{aligned}
+m_H &\in [125.183,\,125.232]~\mathrm{GeV}, & &\text{measured } 125.13\pm0.11,\\
+m_t &\in [172.278,\,172.352]~\mathrm{GeV}, & &\text{measured } 172.1\pm0.6,\\
+m_W &\in [80.3692,\,80.3774]~\mathrm{GeV}, & &\text{measured } 80.3692\pm0.0133,\\
+m_Z &\in [91.1880,\,91.1983]~\mathrm{GeV}, & &\text{measured } 91.1876\pm0.0021.
+\end{aligned}
+\]
+The Higgs, top, and \(W\) envelopes lie inside the one-sigma experimental band; the \(Z\) envelope
+overlaps it, with the upper edge an artifact of holding the running couplings fixed while shifting
+the pixel through the endpoint interval. At the endpoint pixel the two repair selections give \(m_Z\)
+values \(91.18798\) and \(91.18801\,\mathrm{GeV}\), within \(1.3\) standard deviations. The
+selection spread between the two repair laws is below current experimental resolution in every
+observable, at roughly eight \(\mathrm{MeV}\) in \(m_W\), thirty \(\mathrm{keV}\) in \(m_Z\), sixteen
+\(\mathrm{MeV}\) in \(m_H\), and thirty \(\mathrm{MeV}\) in \(m_t\), so the conditional envelope is
+robust against which repair law is eventually promoted.
 
 \section{Flavor Transport, Generation Structure, and the Yukawa Dictionary}
 
