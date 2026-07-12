@@ -120,7 +120,7 @@
     },
     "v_over_E_cell_source": "2.5797040595276223506583341903922018695490035369903290256096683452314630559578761079150341073645683725521032233E-17"
   },
-  "generated_utc": "2026-07-12T02:10:37Z",
+  "generated_utc": "2026-07-12T02:19:29Z",
   "p_trunk": {
     "P": "1.63097210492078846050203640439",
     "alpha_inv": "136.994020662724205139718642793",
@@ -229,17 +229,41 @@
       "title": "Replace particle P consumers with the certified P root"
     },
     {
-      "current_boundary": "No public charged-lepton values are emitted on the theorem lane. The available corpus does not prove the determinant-normalization / sector-isolated trace-lift identity beneath A_ch(P), and the impossibility packet rules out end-to-end charged closure from the present centered-data surface.",
-      "github_issue": 201,
+      "attachment_identity_residual": {
+        "blocking_reasons": [
+          "no numeric sector-isolated M_ch",
+          "q_psi is source-open, arrow-indexed, and lacks a certified e/mu/tau map",
+          "no theorem-grade numeric or interval D10 landing to s_det(P)",
+          "no charged determinant factorization/leakage certificate",
+          "no D10-fixed reference stage and basepoint normalization"
+        ],
+        "certified_zero": false,
+        "computable": false,
+        "formula": "s_det(P) - sum_e M_e^ch log q_e(P)",
+        "interval": [
+          null,
+          null
+        ],
+        "interval_kind": "full_affine_orbit_unbounded",
+        "name": "N_det(P)",
+        "value": null
+      },
+      "closed_issue_refs": [
+        201
+      ],
+      "current_boundary": "The #546 trace-lift audit remains fail-closed. Its current-corpus no-go shows that even a granted additive D10 sector split retains the redistribution symmetry s_det^ch -> s_det^ch + 3 kappa, s_det^rest -> s_det^rest - 3 kappa. The corpus also lacks a numeric source-emitted M_ch, source-closed stage-indexed q, a charged central projector/leakage certificate, a numeric D10 s_det landing, and a normalized reference-stage determinant-line attachment.",
+      "github_issue": 546,
       "id": "charged.determinant-normalization-transport",
       "lane": "Charged leptons",
-      "next_action": "Keep charged masses suppressed on the public theorem lane. Reopen only for a theorem-grade uncentered trace lift proving 3 mu(r) = sum_e M_e^ch log q_e(r), equivalently zero normalization defect N_det(P), on the physical charged branch; the construction is specified in issue #546.",
+      "next_action": "Keep charged masses suppressed. Reopen only for the theorem-grade sector-isolated normalized charged determinant-line attachment named by #546; the gate flips only when N_det has the certified singleton interval [0,0].",
       "status": "closed_current_corpus_charged_end_to_end_no_go",
       "target_surfaces": [
-        "code/particles/leptons",
-        "code/particles/runs/leptons"
+        "code/particles/leptons/derive_charged_trace_lift.py",
+        "code/particles/runs/leptons/charged_trace_lift_theorem.json"
       ],
-      "title": "Keep the P-to-charged affine anchor bridge scoped as a no-go"
+      "title": "Certify or refute the sector-isolated charged trace lift",
+      "trace_lift_artifact": "particles/runs/leptons/charged_trace_lift_theorem.json",
+      "trace_lift_claim_label": "no_go_confirmed_new_source_needed"
     },
     {
       "current_boundary": "The selected-class exact Yukawa theorem is promoted. The stronger class-uniform/global classification lane is closed as a corpus-limited no-go because no source-emitted ambient public-frame classifier or quotient-intrinsic sigma law exists.",
@@ -345,16 +369,16 @@
       "title": "Repair-tuple selection beneath the free quadratic family"
     },
     {
-      "current_boundary": "The empirical Thomson endpoint artifact certifies that the payload interval for Delta_alpha_had^(5)(M_Z) excludes the value required to reach the measured endpoint with the frozen source anchor a0(P*) = 128.30797. The discrepancy is carried entirely by the anchor: the certified same-scheme anchor gap is [0.649, 0.855] inverse-alpha units (code/P_derivation/runtime/empirical_thomson_endpoint_current.json).",
+      "current_boundary": "The anchor scheme-bridge analysis (runtime/anchor_scheme_bridge_current.json) identifies the certified anchor gap as the hadronic and higher-order running deficit of the OPH one-loop unification anchor: the standard reference value alpha^-1(m_Z) = 128.939 (5-flavor on-shell) minus the OPH one-loop anchor 128.308 is 0.631, at the lower edge of the certified interval [0.649, 0.855]. The anchor-exactness no-go (route B) is false: the anchor is a one-loop value with an understood deficit, not a source-chain failure. A same-scheme bridge (route A) that fills the deficit needs the measured hadronic running (empirical class, already carried by the payload) or the OPH source hadronic spectral measure.",
       "github_issue": 545,
       "id": "d10.same-scheme-anchor-bridge",
       "lane": "P closure / D10 electromagnetic endpoint",
-      "next_action": "Emit a source-side scheme-bridge theorem mapping the OPH anchor to the on-shell running convention at m_Z, a0_OS(P) = a0_OPH(P) + delta_scheme(P), with an interval certificate for delta_scheme(P) landing in the certified gap, or prove the anchor is scheme-exact and relocate the discrepancy to a named transport packet.",
-      "status": "open_certified_anchor_gap",
+      "next_action": "A source-only anchor bridge reduces to the OPH hadronic spectral measure, blocked on the hadron backend (#425). No source-only scheme-bridge theorem exists on the current corpus; #545 stays open as that reduction. The empirical-class bridge is the built payload/endpoint pair.",
+      "status": "structure_resolved_reduces_to_source_hadron_backend",
       "target_surfaces": [
+        "code/P_derivation/runtime/anchor_scheme_bridge_current.json",
         "code/P_derivation/runtime/empirical_thomson_endpoint_current.json",
-        "code/P_derivation/EMPIRICAL_HADRON_SCHEME_BRIDGE.md",
-        "code/P_derivation/rg_matching_threshold_contract.py"
+        "code/P_derivation/EMPIRICAL_HADRON_SCHEME_BRIDGE.md"
       ],
       "title": "Source-side electroweak scheme bridge for the anchor a0(P)"
     }

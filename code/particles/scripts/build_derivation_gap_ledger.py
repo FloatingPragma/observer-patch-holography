@@ -26,6 +26,9 @@ HIERARCHY_DAG = HIERARCHY_ROOT / "certificates" / "DAG_U.json"
 HIERARCHY_RESONANCE = HIERARCHY_ROOT / "certificates" / "R_local_global_hierarchy_resonance_closeout_335.json"
 HIERARCHY_EW_CAPACITY = HIERARCHY_ROOT / "certificates" / "R_EW_global_capacity_certificate.json"
 HIERARCHY_NATURALITY = HIERARCHY_ROOT / "issue_332_rg_naturality_certificate.json"
+CHARGED_TRACE_LIFT_THEOREM = (
+    PARTICLES_ROOT / "runs" / "leptons" / "charged_trace_lift_theorem.json"
+)
 DEFAULT_JSON_OUT = PARTICLES_ROOT / "runs" / "status" / "particle_derivation_gap_ledger.json"
 DEFAULT_MD_OUT = PARTICLES_ROOT / "DERIVATION_GAP_LEDGER.md"
 
@@ -127,6 +130,96 @@ def _load_hierarchy_summary() -> dict[str, Any]:
 
 def _display_status(status: str) -> str:
     return status.replace("current_corpus", "corpus_limited")
+
+
+def _is_singleton_zero_interval(value: Any) -> bool:
+    if isinstance(value, dict):
+        value = value.get("interval", [value.get("lower"), value.get("upper")])
+    if not isinstance(value, (list, tuple)) or len(value) != 2:
+        return False
+    try:
+        return float(value[0]) == 0.0 and float(value[1]) == 0.0
+    except (TypeError, ValueError):
+        return False
+
+
+def _charged_trace_lift_gate() -> dict[str, Any]:
+    """Classify #546 without trusting its top-level claim label alone."""
+
+    payload: dict[str, Any] = {}
+    if CHARGED_TRACE_LIFT_THEOREM.exists():
+        try:
+            payload = json.loads(CHARGED_TRACE_LIFT_THEOREM.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            payload = {}
+
+    factorization = payload.get("factorization_lemma") or {}
+    leakage = factorization.get("leakage_bound") or {}
+    constant = payload.get("uncentered_lift_constant") or {}
+    residual = payload.get("attachment_identity_residual") or {}
+    source_checks = (payload.get("source_certificate") or {}).get("checks") or {}
+    all_source_checks_pass = bool(source_checks) and all(value is True for value in source_checks.values())
+    certified = all(
+        (
+            payload.get("claim_label") == "trace_lift_certified",
+            payload.get("source_only") is True,
+            factorization.get("status") == "certified",
+            leakage.get("certified_zero") is True,
+            _is_singleton_zero_interval(leakage),
+            bool(constant.get("source_object_name")),
+            constant.get("value") is not None,
+            residual.get("computable") is True,
+            residual.get("certified_zero") is True,
+            _is_singleton_zero_interval(residual.get("interval")),
+            all_source_checks_pass,
+        )
+    )
+
+    if certified:
+        status = "trace_lift_certified_conditional_on_P"
+        boundary = (
+            "The #546 artifact certifies zero charged-sector leakage, fixes the uncentered lift "
+            "constant from a named source object, and proves the singleton residual interval "
+            "N_det(P)=[0,0]. Charged mass rows may enter the conditional-on-P surface; public "
+            "promotion remains separately gated by the #545 anchor-bridge verdict."
+        )
+        next_action = (
+            "Propagate the certified conditional-on-P mass intervals and require the #545 "
+            "anchor-bridge verdict before public promotion."
+        )
+    else:
+        status = "closed_current_corpus_charged_end_to_end_no_go"
+        boundary = (
+            "The #546 trace-lift audit remains fail-closed. Its current-corpus no-go shows that "
+            "even a granted additive D10 sector split retains the redistribution symmetry "
+            "s_det^ch -> s_det^ch + 3 kappa, s_det^rest -> s_det^rest - 3 kappa. The corpus "
+            "also lacks a numeric source-emitted M_ch, source-closed stage-indexed q, a charged "
+            "central projector/leakage certificate, a numeric D10 s_det landing, and a normalized "
+            "reference-stage determinant-line attachment."
+        )
+        next_action = (
+            "Keep charged masses suppressed. Reopen only for the theorem-grade sector-isolated "
+            "normalized charged determinant-line attachment named by #546; the gate flips only "
+            "when N_det has the certified singleton interval [0,0]."
+        )
+
+    return {
+        "id": "charged.determinant-normalization-transport",
+        "lane": "Charged leptons",
+        "status": status,
+        "github_issue": 546,
+        "closed_issue_refs": [201],
+        "title": "Certify or refute the sector-isolated charged trace lift",
+        "current_boundary": boundary,
+        "next_action": next_action,
+        "trace_lift_claim_label": payload.get("claim_label", "artifact_missing_or_invalid"),
+        "trace_lift_artifact": str(CHARGED_TRACE_LIFT_THEOREM.relative_to(ROOT)),
+        "attachment_identity_residual": residual,
+        "target_surfaces": [
+            "code/particles/leptons/derive_charged_trace_lift.py",
+            "code/particles/runs/leptons/charged_trace_lift_theorem.json",
+        ],
+    }
 
 
 def build_gap_rows() -> list[dict[str, Any]]:
@@ -235,26 +328,7 @@ def build_gap_rows() -> list[dict[str, Any]]:
             ),
             "target_surfaces": ["code/particles/scripts", "code/particles/runs/status", "WebProjects OPH summaries"],
         },
-        {
-            "id": "charged.determinant-normalization-transport",
-            "lane": "Charged leptons",
-            "status": "closed_current_corpus_charged_end_to_end_no_go",
-            "github_issue": 201,
-            "title": "Keep the P-to-charged affine anchor bridge scoped as a no-go",
-            "current_boundary": (
-                "No public charged-lepton values are emitted on the theorem lane. The available corpus "
-                "does not prove the determinant-normalization / sector-isolated trace-lift identity "
-                "beneath A_ch(P), and the impossibility packet rules out end-to-end charged closure "
-                "from the present centered-data surface."
-            ),
-            "next_action": (
-                "Keep charged masses suppressed on the public theorem lane. Reopen only for a "
-                "theorem-grade uncentered trace lift proving 3 mu(r) = sum_e M_e^ch log q_e(r), "
-                "equivalently zero normalization defect N_det(P), on the physical charged branch; "
-                "the construction is specified in issue #546."
-            ),
-            "target_surfaces": ["code/particles/leptons", "code/particles/runs/leptons"],
-        },
+        _charged_trace_lift_gate(),
         {
             "id": "quark.selected-class-vs-global-classification",
             "lane": "Quarks",
@@ -384,26 +458,30 @@ def build_gap_rows() -> list[dict[str, Any]]:
         {
             "id": "d10.same-scheme-anchor-bridge",
             "lane": "P closure / D10 electromagnetic endpoint",
-            "status": "open_certified_anchor_gap",
+            "status": "structure_resolved_reduces_to_source_hadron_backend",
             "github_issue": 545,
             "title": "Source-side electroweak scheme bridge for the anchor a0(P)",
             "current_boundary": (
-                "The empirical Thomson endpoint artifact certifies that the payload interval for "
-                "Delta_alpha_had^(5)(M_Z) excludes the value required to reach the measured endpoint "
-                "with the frozen source anchor a0(P*) = 128.30797. The discrepancy is carried entirely "
-                "by the anchor: the certified same-scheme anchor gap is [0.649, 0.855] inverse-alpha "
-                "units (code/P_derivation/runtime/empirical_thomson_endpoint_current.json)."
+                "The anchor scheme-bridge analysis (runtime/anchor_scheme_bridge_current.json) "
+                "identifies the certified anchor gap as the hadronic and higher-order running "
+                "deficit of the OPH one-loop unification anchor: the standard reference value "
+                "alpha^-1(m_Z) = 128.939 (5-flavor on-shell) minus the OPH one-loop anchor 128.308 "
+                "is 0.631, at the lower edge of the certified interval [0.649, 0.855]. The "
+                "anchor-exactness no-go (route B) is false: the anchor is a one-loop value with an "
+                "understood deficit, not a source-chain failure. A same-scheme bridge (route A) that "
+                "fills the deficit needs the measured hadronic running (empirical class, already "
+                "carried by the payload) or the OPH source hadronic spectral measure."
             ),
             "next_action": (
-                "Emit a source-side scheme-bridge theorem mapping the OPH anchor to the on-shell "
-                "running convention at m_Z, a0_OS(P) = a0_OPH(P) + delta_scheme(P), with an interval "
-                "certificate for delta_scheme(P) landing in the certified gap, or prove the anchor is "
-                "scheme-exact and relocate the discrepancy to a named transport packet."
+                "A source-only anchor bridge reduces to the OPH hadronic spectral measure, blocked on "
+                "the hadron backend (#425). No source-only scheme-bridge theorem exists on the current "
+                "corpus; #545 stays open as that reduction. The empirical-class bridge is the built "
+                "payload/endpoint pair."
             ),
             "target_surfaces": [
+                "code/P_derivation/runtime/anchor_scheme_bridge_current.json",
                 "code/P_derivation/runtime/empirical_thomson_endpoint_current.json",
                 "code/P_derivation/EMPIRICAL_HADRON_SCHEME_BRIDGE.md",
-                "code/P_derivation/rg_matching_threshold_contract.py",
             ],
         },
     ]

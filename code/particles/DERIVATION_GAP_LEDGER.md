@@ -1,6 +1,6 @@
 # Particle Derivation Gap Ledger
 
-Generated: `2026-07-12T02:10:37Z`
+Generated: `2026-07-12T02:19:29Z`
 
 Systematic claim-safe queue after the five-equation P-trunk simplification.
 
@@ -75,7 +75,7 @@ Claim gates are grouped into coupled closure packets rather than a one-blocker-a
 | `d10.source-residual-map-and-interval-certificate` | D10 electromagnetic endpoint | `closed_blocker_isolated_source_residual_no_go` | Populate the Ward-projected source spectral measure payload, including rho_had(s;P) or an equivalent spectral primitive, matching remainder, certified quadrature bounds, and the interval certificate for the final map. |
 | `d10.rg-matching-threshold-scheme` | D10 running and matching | `closed_declared_convention_contract` | Keep the declared-convention status visible in prediction surfaces and require a separate theorem before treating those conventions as OPH-derived. |
 | `pclosure.certified-codepath-adoption` | P closure | `closed_guarded_codepath_adoption` | Switch live particle builders only after the source spectral measure payload emits R_Q(P), the interval certificate proves the full map, and the compressed trunk is promoted beyond guarded candidate metadata. |
-| `charged.determinant-normalization-transport` | Charged leptons | `closed_corpus_limited_charged_end_to_end_no_go` | Keep charged masses suppressed on the public theorem lane. Reopen only for a theorem-grade uncentered trace lift proving 3 mu(r) = sum_e M_e^ch log q_e(r), equivalently zero normalization defect N_det(P), on the physical charged branch; the construction is specified in issue #546. |
+| `charged.determinant-normalization-transport` | Charged leptons | `closed_corpus_limited_charged_end_to_end_no_go` | Keep charged masses suppressed. Reopen only for the theorem-grade sector-isolated normalized charged determinant-line attachment named by #546; the gate flips only when N_det has the certified singleton interval [0,0]. |
 | `quark.selected-class-vs-global-classification` | Quarks | `selected_class_closed_global_classification_no_go` | Keep every public exact-quark claim explicitly selected-class. Reopen only for a new source-emitted global public-frame classifier artifact. |
 | `neutrino.pmns-status-and-absolute-rows` | Neutrinos | `rejected_candidate_source_basis_and_kernel_open` | Derive a source-closed neutrino operator, stable physical charged-lepton left basis, and mass-eigenstate label/order rule without oscillation-target feedback; freeze that construction before evaluating a later likelihood. Keep all present weighted-cycle, bridge, and exact-adapter numbers rejected or compare-only. |
 | `qcd.strong-cp-angle` | Strong CP | `open_theta_qcd_bar_theta_vanishing_gap` | Keep strong CP explicit as an open branch. Reopen only for a theorem-grade descent from exact quark/Yukawa phase data to the determinant-line phase contribution, together with a theorem fixing the topological-angle contribution and proving the physical strong-CP phase vanishes on the realized branch. |
@@ -83,7 +83,7 @@ Claim gates are grouped into coupled closure packets rather than a one-blocker-a
 | `hadron.production-backend-systematics` | Hadrons | `source_backend_absent_empirical_policy_emitted` | Keep source-only hadron rows suppressed. Use empirical hadron closure rows only through the documented e+e- spectral payload. Promote source-only hadron rows only after a working OPH hadron backend emits production hadron output, Ward-projected spectral data, and systematics. |
 | `hadron.empirical-ee-spectral-closure` | Hadrons | `payload_populated_endpoint_evaluated_gap_anchor_localized` | Emit the source-side electroweak scheme bridge for a0(P) that produces the certified anchor-gap interval; refine the payload with experiment-level tables when a finer compilation is ingested. |
 | `d10.repair-tuple-selection` | D10/D11 electroweak masses | `conditional_selection_theorem_axioms_named` | Derive the descent axioms A2 and A3 from the realized carrier package (the color-singlet projection weight and the coherent neutral color sum), which closes the selection unconditionally and unblocks the D10 promotion review. |
-| `d10.same-scheme-anchor-bridge` | P closure / D10 electromagnetic endpoint | `open_certified_anchor_gap` | Emit a source-side scheme-bridge theorem mapping the OPH anchor to the on-shell running convention at m_Z, a0_OS(P) = a0_OPH(P) + delta_scheme(P), with an interval certificate for delta_scheme(P) landing in the certified gap, or prove the anchor is scheme-exact and relocate the discrepancy to a named transport packet. |
+| `d10.same-scheme-anchor-bridge` | P closure / D10 electromagnetic endpoint | `structure_resolved_reduces_to_source_hadron_backend` | A source-only anchor bridge reduces to the OPH hadronic spectral measure, blocked on the hadron backend (#425). No source-only scheme-bridge theorem exists on the current corpus; #545 stays open as that reduction. The empirical-class bridge is the built payload/endpoint pair. |
 
 ## Claim Policy
 

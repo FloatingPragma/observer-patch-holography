@@ -1,0 +1,51 @@
+{
+ "artifact": "oph_anchor_scheme_bridge",
+ "generated_utc": "2026-07-12T02:18:50Z",
+ "object_id": "AnchorSchemeBridge",
+ "row_class": "compare_only_scheme_analysis",
+ "guards": {
+  "measured_values_in_any_oph_solve_path": false,
+  "source_only_scheme_bridge_emitted": false,
+  "public_promotion_allowed": false
+ },
+ "certified_gap_from_endpoint": {
+  "same_scheme_anchor_gap_interval": [
+   0.648554111145163,
+   0.8547920665925625
+  ],
+  "source": "code/P_derivation/runtime/empirical_thomson_endpoint_current.json"
+ },
+ "anchor_provenance": {
+  "a0_oph": 128.30796547328626,
+  "definition": "alpha_em^-1(m_Z^2; P) from the OPH one-loop RG run from the OPH unification scale (paper_math.build_d10_from_p)",
+  "scheme": "one_loop_unification_run",
+  "contains_nonperturbative_hadronic_running": false
+ },
+ "reference_decomposition_compare_only": {
+  "alpha_inv_0": 137.035999177,
+  "Delta_lep": 0.031497686,
+  "Delta_had5": 0.02766,
+  "Delta_top": -7e-05,
+  "alpha_inv_mz_phys_on_shell": 128.93885908693318,
+  "gap_phys_minus_oph": 0.6308936136469185,
+  "inv_alpha_unit_terms": {
+   "hadronic_5f": 3.7904157372358203,
+   "leptonic": 4.316316872773404,
+   "top": 0.00959251994239
+  },
+  "citations": [
+   "PDG 2024 Review, Electroweak model and constraints",
+   "leptonic 3-loop: Steinhauser, Phys. Lett. B 429 (1998) 158",
+   "hadronic 5-flavor data-driven: KNT19 arXiv:1911.00367"
+  ]
+ },
+ "verdict": {
+  "route_A_scheme_bridge": "available_empirical_class_only",
+  "route_A_detail": "filling delta_scheme requires the measured hadronic running (empirical class, already carried by the payload) or the OPH source hadronic spectral measure",
+  "route_B_anchor_exact_no_go": "false",
+  "route_B_detail": "the OPH anchor is a one-loop unification value with a physical, understood hadronic and higher-order running deficit; it is not scheme-exact, and the gap is not a source-chain failure",
+  "source_only_reduction": "a source-only anchor bridge reduces to the OPH hadronic spectral measure, which is blocked on the hadron backend (#425)",
+  "gap_consistency": "the standard reference deficit 0.631 sits at the lower edge of the certified interval, confirming the gap is the hadronic-plus-higher-order running deficit rather than an anchor error",
+  "issue_545_status": "structure_resolved_reduces_to_425_source_bridge_open"
+ }
+}
