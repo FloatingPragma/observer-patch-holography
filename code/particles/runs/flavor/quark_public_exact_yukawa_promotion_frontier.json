@@ -147,7 +147,7 @@
   },
   "closed_public_endpoint": {
     "artifact": "oph_quark_public_exact_yukawa_end_to_end_theorem",
-    "proof_status": "blocked_target_derived_sigma_source_missing",
+    "proof_status": "blocked_inconsistent_exact_mass_yukawa_surfaces",
     "public_exact_outputs": {
       "exact_running_values_gev": {
         "b": 4.182999999999994,
@@ -281,7 +281,9 @@
           1.2729000000026323,
           172.09999999999968
         ]
-      }
+      },
+      "pair_status": "mismatched_mass_sextet_and_forward_yukawa_singular_values",
+      "single_exact_pair_claim_allowed": false
     }
   },
   "conditional_public_closure_if_final_theorem_proved": {
@@ -479,14 +481,15 @@
     },
     "statement": "Let f_P be the physical quark frame class selected by P, represented on the realized quark lane by the explicit same-label common-refinement transport-frame class [F0^dagger F1]. For any two declared current-family/common-refinement transport-frame realizations r,r' in the selected same-label bridge fiber R_decl(f_P), the emitted Sigma_ud^phys element and attached exact physical sigma datum (sigma_seed_ud, eta_ud, sigma_u, sigma_d) agree. Equivalently, the exact sigma readout is constant on R_decl(f_P) and descends uniquely to a representative-independent datum on the selected physical quark frame class. This descent proves constancy on the selected bridge fiber only; it does not select the sigma value from P. If the attached sigma value is inherited from the current-family exact target surface, the descended public value remains target-derived."
   },
-  "generated_utc": "2026-07-11T18:03:27Z",
+  "generated_utc": "2026-07-12T02:31:12Z",
   "non_circularity_status": {
+    "exact_mass_yukawa_pair_consistent": false,
     "missing_source_object": "quark_sigma_source_datum_no_target_leak_required",
     "promotion_allowed": false,
     "public_sigma_promotion_allowed": false,
     "public_sigma_proof_status": "blocked_target_derived_sigma_datum_descent",
     "source_sigma_selector_closed": false,
-    "strict_audit_label": "selected_class_conditional_on_source_sigma",
+    "strict_audit_label": "inconsistent_exact_support_surfaces",
     "target_derived_sigma_datum_used": true
   },
   "notes": [
@@ -494,9 +497,9 @@
     "The alternate upstream route remains a route toward the missing sigma selector.",
     "The local declared-carrier exact Yukawa theorem is retained as the representative closed local endpoint beneath the public theorem."
   ],
-  "proof_status": "blocked_target_derived_sigma_source_missing",
+  "proof_status": "blocked_inconsistent_exact_mass_yukawa_surfaces",
   "public_promotion_allowed": false,
   "resolved_by_theorem_artifact": "oph_quark_public_exact_yukawa_end_to_end_theorem",
   "scope": "selected_public_physical_quark_frame_class_only",
-  "target_name": "selected_class_conditional_forward_quark_yukawas"
+  "target_name": "inconsistent_selected_class_mass_yukawa_support_surfaces"
 }

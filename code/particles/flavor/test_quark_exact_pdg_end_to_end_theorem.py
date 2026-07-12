@@ -18,7 +18,9 @@ def test_quark_exact_pdg_end_to_end_theorem_closes() -> None:
     payload = build_artifact(chain)
 
     assert payload["proof_status"] == "closed_current_family_exact_pdg_end_to_end_theorem"
-    assert payload["target_name"] == "exact_running_quark_sextet_on_declared_current_family_transport_frame"
+    assert payload["target_name"] == (
+        "exact_mixed_convention_quark_target_packet_on_declared_current_family_transport_frame"
+    )
     assert payload["supporting_chain_artifact"] == "oph_quark_current_family_end_to_end_exact_pdg_derivation_chain"
     assert payload["minimal_exact_blocker_set"] == []
     assert payload["strengthening_above_target"]["status"] == "separate_question"

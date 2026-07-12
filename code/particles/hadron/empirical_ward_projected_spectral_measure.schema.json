@@ -1,0 +1,265 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://oph.local/schemas/hadron/empirical_ward_projected_spectral_measure.schema.json",
+  "title": "OPH empirical Ward-projected hadronic spectral measure export",
+  "description": "Declared-empirical companion of ward_projected_spectral_measure.schema.json. Carries the e+e- -> hadrons R(s) compilation as an explicit spectral measure (atoms plus continuum density plus perturbative tail) on the oph_plus_empirical_hadron_closure surface. It is never a source-only OPH artifact and never satisfies the production constructive_next_artifact.",
+  "type": "object",
+  "required": [
+    "artifact",
+    "format_version",
+    "profile_id",
+    "row_class",
+    "projection",
+    "provenance",
+    "spectral_atoms",
+    "continuum_density",
+    "pqcd_tail",
+    "rho_had_or_measure",
+    "transport_moments",
+    "consistency",
+    "systematics",
+    "guards"
+  ],
+  "properties": {
+    "artifact": {
+      "const": "oph_empirical_ward_projected_hadronic_spectral_measure"
+    },
+    "format_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "profile_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "row_class": {
+      "const": "oph_plus_empirical_hadron_closure"
+    },
+    "projection": {
+      "type": "object",
+      "required": ["lane", "ward_projected", "external_kinematics", "zero_momentum_endpoint_compatible"],
+      "properties": {
+        "lane": {"const": "U(1)_Q"},
+        "ward_projected": {"const": true},
+        "external_kinematics": {"type": "string", "minLength": 1},
+        "zero_momentum_endpoint_compatible": {"const": true}
+      },
+      "additionalProperties": true
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["source_compilation", "data_release", "upstream_payload"],
+      "properties": {
+        "source_compilation": {
+          "type": "object",
+          "required": ["id", "name", "url", "citation"],
+          "properties": {
+            "id": {"type": "string", "minLength": 1},
+            "name": {"type": "string", "minLength": 1},
+            "url": {"type": "string", "minLength": 1},
+            "citation": {"type": "string", "minLength": 1}
+          },
+          "additionalProperties": true
+        },
+        "data_release": {
+          "type": "object",
+          "required": ["release_id", "retrieved_utc"],
+          "properties": {
+            "release_id": {"type": "string", "minLength": 1},
+            "retrieved_utc": {"type": "string", "minLength": 1}
+          },
+          "additionalProperties": true
+        },
+        "upstream_payload": {
+          "type": "object",
+          "required": ["path", "artifact"],
+          "properties": {
+            "path": {"type": "string", "minLength": 1},
+            "artifact": {"const": "oph_empirical_ee_hadronic_spectral_measure"}
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "spectral_atoms": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["atom_id", "name", "s", "weight", "weight_uncertainty", "weight_rule"],
+        "properties": {
+          "atom_id": {"type": "string", "minLength": 1},
+          "name": {"type": "string", "minLength": 1},
+          "s": {"type": "number", "exclusiveMinimum": 0},
+          "weight": {"type": "number", "exclusiveMinimum": 0},
+          "weight_uncertainty": {"type": "number", "minimum": 0},
+          "weight_rule": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": true
+      }
+    },
+    "continuum_density": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["segment_id", "sqrt_s_lo", "sqrt_s_hi", "grid_sqrt_s", "R_values", "normalization_budget"],
+        "properties": {
+          "segment_id": {"type": "string", "minLength": 1},
+          "sqrt_s_lo": {"type": "number", "exclusiveMinimum": 0},
+          "sqrt_s_hi": {"type": "number", "exclusiveMinimum": 0},
+          "grid_sqrt_s": {
+            "type": "array",
+            "minItems": 2,
+            "items": {"type": "number"}
+          },
+          "R_values": {
+            "type": "array",
+            "minItems": 2,
+            "items": {"type": "number", "minimum": 0}
+          },
+          "normalization_budget": {"type": "number", "exclusiveMinimum": 0}
+        },
+        "additionalProperties": true
+      }
+    },
+    "pqcd_tail": {
+      "type": "object",
+      "required": [
+        "sqrt_s_start",
+        "model",
+        "alpha_s_loop_order",
+        "lambda_qcd5_gev",
+        "numeric_end_sqrt_s",
+        "asymptotic_remainder_rule",
+        "normalization_budget"
+      ],
+      "properties": {
+        "sqrt_s_start": {"type": "number", "exclusiveMinimum": 0},
+        "model": {"type": "string", "minLength": 1},
+        "alpha_s_loop_order": {"type": "integer", "minimum": 1},
+        "lambda_qcd5_gev": {"type": "number", "exclusiveMinimum": 0},
+        "numeric_end_sqrt_s": {"type": "number", "exclusiveMinimum": 0},
+        "asymptotic_remainder_rule": {"type": "string", "minLength": 1},
+        "normalization_budget": {"type": "number", "exclusiveMinimum": 0}
+      },
+      "additionalProperties": true
+    },
+    "rho_had_or_measure": {
+      "type": "object",
+      "required": ["representation", "support_variable", "pushforward_rule", "positivity_status"],
+      "properties": {
+        "representation": {"enum": ["rho_had", "primitive_spectral_measure"]},
+        "support_variable": {"const": "s"},
+        "pushforward_rule": {"type": "string", "minLength": 1},
+        "positivity_status": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    },
+    "transport_moments": {
+      "type": "object",
+      "required": ["timelike_on_shell_mz", "spacelike_mz", "inverse_alpha_packet_spacelike"],
+      "properties": {
+        "timelike_on_shell_mz": {
+          "type": "object",
+          "required": ["kernel", "value", "uncertainty"],
+          "properties": {
+            "kernel": {"type": "string", "minLength": 1},
+            "value": {"type": "number"},
+            "uncertainty": {"type": "number", "minimum": 0}
+          },
+          "additionalProperties": true
+        },
+        "spacelike_mz": {
+          "type": "object",
+          "required": ["kernel", "value", "uncertainty"],
+          "properties": {
+            "kernel": {"type": "string", "minLength": 1},
+            "value": {"type": "number"},
+            "uncertainty": {"type": "number", "minimum": 0}
+          },
+          "additionalProperties": true
+        },
+        "inverse_alpha_packet_spacelike": {
+          "type": "object",
+          "required": ["definition", "value", "uncertainty"],
+          "properties": {
+            "definition": {"type": "string", "minLength": 1},
+            "value": {"type": "number"},
+            "uncertainty": {"type": "number", "minimum": 0}
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "consistency": {
+      "type": "object",
+      "required": [
+        "upstream_integral_value",
+        "requadrature_value",
+        "abs_difference",
+        "tolerance",
+        "within_tolerance",
+        "requadrature_rule"
+      ],
+      "properties": {
+        "upstream_integral_value": {"type": "number"},
+        "requadrature_value": {"type": "number"},
+        "abs_difference": {"type": "number", "minimum": 0},
+        "tolerance": {"type": "number", "exclusiveMinimum": 0},
+        "within_tolerance": {"const": true},
+        "requadrature_rule": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    },
+    "systematics": {
+      "type": "object",
+      "required": [
+        "statistical_budget",
+        "normalization_budget",
+        "current_matching_budget",
+        "quadrature_budget",
+        "endpoint_remainder_budget",
+        "coarseness_budget"
+      ],
+      "properties": {
+        "statistical_budget": {"type": "object"},
+        "normalization_budget": {"type": "object"},
+        "current_matching_budget": {"type": "object"},
+        "quadrature_budget": {"type": "object"},
+        "endpoint_remainder_budget": {"type": "object"},
+        "coarseness_budget": {"type": "object"}
+      },
+      "additionalProperties": true
+    },
+    "guards": {
+      "type": "object",
+      "required": [
+        "source_only",
+        "empirical_hadron_closure",
+        "external_cross_section_data_used",
+        "promotable_as_oph_source_theorem",
+        "usable_for_public_final_values",
+        "surrogate_hadron_artifact",
+        "stable_channel_only",
+        "compare_only_external_endpoint",
+        "satisfies_production_constructive_next_artifact"
+      ],
+      "properties": {
+        "source_only": {"const": false},
+        "empirical_hadron_closure": {"const": true},
+        "external_cross_section_data_used": {"const": true},
+        "promotable_as_oph_source_theorem": {"const": false},
+        "usable_for_public_final_values": {"const": true},
+        "surrogate_hadron_artifact": {"const": false},
+        "stable_channel_only": {"const": false},
+        "compare_only_external_endpoint": {"const": false},
+        "satisfies_production_constructive_next_artifact": {"const": false}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

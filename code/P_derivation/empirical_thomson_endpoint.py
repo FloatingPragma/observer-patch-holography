@@ -18,11 +18,21 @@ The CODATA comparison, the required hadronic shift, and the same-scheme
 anchor gap are computed afterwards in an explicitly compare-only block, per
 the forbidden-solver-inputs list of the Thomson endpoint contract.
 
+The hadronic input is additionally required to exist as the declared
+spectral-measure export (empirical_ward_projected_spectral_measure.json,
+the declared-empirical companion of the Ward-projected export contract).
+The endpoint refuses to evaluate if the export is absent, fails its own
+requadrature consistency gate, or disagrees with the payload integral.
+The solve path still reads the payload integral; the export supplies the
+explicit spectral object and the spacelike OPH transport packet.
+
 Row class: oph_plus_empirical_hadron_closure. The output is usable for
 public final values on the empirical closure surface and is not promotable
 as an OPH source theorem. The headline outputs are the certified endpoint
 interval and the certified same-scheme anchor-gap interval; the anchor gap
-is the number the source-side electroweak scheme bridge has to produce.
+is the number the source-side electroweak scheme bridge has to produce
+(structure resolved in runtime/anchor_scheme_bridge_current.json: the gap
+is the hadronic plus higher-order running deficit of the one-loop anchor).
 
 Run:
     python3 code/P_derivation/empirical_thomson_endpoint.py
@@ -39,6 +49,8 @@ from decimal import Decimal, getcontext
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
 PAYLOAD_PATH = ROOT / "particles" / "runs" / "hadron" / "empirical_ee_hadronic_spectral_measure.json"
+MEASURE_PATH = ROOT / "particles" / "runs" / "hadron" / "empirical_ward_projected_spectral_measure.json"
+ANCHOR_BRIDGE_PATH = HERE / "runtime" / "anchor_scheme_bridge_current.json"
 OUT_PATH = HERE / "runtime" / "empirical_thomson_endpoint_current.json"
 
 getcontext().prec = 90
@@ -80,11 +92,60 @@ def pixel_from_endpoint(a_th: Decimal) -> Decimal:
     return PHI + SQRT_PI / a_th
 
 
+def load_spectral_measure_export(payload: dict) -> dict:
+    """Load and gate the declared-empirical Ward-projected spectral-measure
+    export. The endpoint arithmetic requires the explicit spectral object,
+    not only the integrated payload value."""
+    if not MEASURE_PATH.exists():
+        raise FileNotFoundError(
+            f"missing spectral-measure export {MEASURE_PATH}; run "
+            "particles/hadron/derive_empirical_ward_projected_spectral_measure.py")
+    with open(MEASURE_PATH, encoding="utf-8") as f:
+        measure = json.load(f)
+    assert measure["artifact"] == "oph_empirical_ward_projected_hadronic_spectral_measure"
+    assert measure["row_class"] == "oph_plus_empirical_hadron_closure"
+    guards = measure["guards"]
+    assert guards["promotable_as_oph_source_theorem"] is False
+    assert guards["surrogate_hadron_artifact"] is False
+    assert guards["satisfies_production_constructive_next_artifact"] is False
+    consistency = measure["consistency"]
+    assert consistency["within_tolerance"] is True, "spectral-measure requadrature gate failed"
+    same_release = (measure["provenance"]["data_release"]["release_id"]
+                    == payload["data_release"]["release_id"])
+    assert same_release, "spectral-measure export and payload releases differ"
+    payload_value = Decimal(str(payload["integral"]["value"]))
+    export_value = Decimal(str(measure["transport_moments"]["timelike_on_shell_mz"]["value"]))
+    tolerance = Decimal(str(consistency["tolerance"]))
+    assert abs(export_value - payload_value) <= tolerance, (
+        "spectral-measure export disagrees with the payload integral")
+    return measure
+
+
+def _anchor_bridge_block() -> dict:
+    """Compare-only pointer to the anchor scheme-bridge analysis (#545). The
+    empirical spectral measure supplies the route-A hadronic running; the
+    source-only branch stays reduced to the hadron backend."""
+    block = {
+        "reference_artifact": "P_derivation/runtime/anchor_scheme_bridge_current.json",
+        "route": "route_A_empirical_class_supplied_by_this_lane",
+        "source_only_branch": "reduces to the OPH hadronic spectral measure, "
+                              "blocked on the hadron backend (#425); #545 open "
+                              "as that reduction",
+    }
+    if ANCHOR_BRIDGE_PATH.exists():
+        with open(ANCHOR_BRIDGE_PATH, encoding="utf-8") as f:
+            bridge = json.load(f)
+        block["reference_status"] = bridge.get("verdict", {}).get("issue_545_status")
+        block["gap_consistency"] = bridge.get("verdict", {}).get("gap_consistency")
+    return block
+
+
 def evaluate() -> dict:
     with open(PAYLOAD_PATH, encoding="utf-8") as f:
         payload = json.load(f)
     assert payload["artifact"] == "oph_empirical_ee_hadronic_spectral_measure"
     assert payload["guards"]["promotable_as_oph_source_theorem"] is False
+    measure = load_spectral_measure_export(payload)
 
     delta_had = Decimal(str(payload["integral"]["value"]))
     delta_had_unc = Decimal(str(payload["integral"]["uncertainty"]))
@@ -139,6 +200,40 @@ def evaluate() -> dict:
             "insertion_convention": "A_Th = A_L / (1 - delta), the "
                 "self-consistent form; the solved additive insertion "
                 "A_Th = A_L + delta A_Th coincides with it",
+            "hadronic_spectral_measure_export": {
+                "path": str(MEASURE_PATH.relative_to(ROOT.parent)),
+                "artifact": measure["artifact"],
+                "profile_id": measure["profile_id"],
+                "representation": measure["rho_had_or_measure"]["representation"],
+                "positivity_status": measure["rho_had_or_measure"]["positivity_status"],
+                "requadrature_abs_difference": str(
+                    measure["consistency"]["abs_difference"]),
+                "requadrature_tolerance": str(measure["consistency"]["tolerance"]),
+            },
+        },
+        "transport_split": {
+            "definition": "Delta_Th split required by the Ward-projected endpoint "
+                          "lane: lepton vacuum-polarization transport, hadronic "
+                          "spectral object, matching/scheme remainder, and "
+                          "certified bounds, on the empirical closure surface",
+            "a0_anchor_inv_alpha": str(SOURCE_ANCHOR_INV_ALPHA_MZ),
+            "lepton_transport_delta_inv_alpha": str(LEPTON_TRANSPORT_DELTA_INV_ALPHA),
+            "hadronic_spectral_object": {
+                "artifact": measure["artifact"],
+                "path": str(MEASURE_PATH.relative_to(ROOT.parent)),
+                "delta_alpha_had_5_MZ_timelike": str(
+                    measure["transport_moments"]["timelike_on_shell_mz"]["value"]),
+                "delta_alpha_had_5_MZ_spacelike": str(
+                    measure["transport_moments"]["spacelike_mz"]["value"]),
+                "inverse_alpha_packet_spacelike": str(
+                    measure["transport_moments"]["inverse_alpha_packet_spacelike"]["value"]),
+                "status": "declared_empirical_not_source_emitted",
+            },
+            "matching_scheme_remainder": "carried by the same-scheme anchor gap in "
+                                         "the compare_only block; structure resolved "
+                                         "in runtime/anchor_scheme_bridge_current.json",
+            "certified_bounds": "payload uncertainty propagated through the "
+                                "self-consistent insertion; see endpoint interval",
         },
         "endpoint": {
             "alpha_inv_central": str(a_th_central),
@@ -165,6 +260,7 @@ def evaluate() -> dict:
                                   "electroweak scheme bridge must emit at the "
                                   "anchor a0(P) for the empirical-closure "
                                   "endpoint to meet the measured value",
+            "anchor_bridge": _anchor_bridge_block(),
         },
         "verdict": {
             "status": "empirical_closure_endpoint_certified_gap_localized_at_anchor",

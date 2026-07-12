@@ -74,6 +74,21 @@ def build_artifact() -> dict[str, Any]:
             "free_quark_screened_ansatz",
             "compare_only_external_Thomson_endpoint",
         ],
+        "empirical_companion": {
+            "artifact": "oph_empirical_ward_projected_hadronic_spectral_measure",
+            "schema": "particles/hadron/empirical_ward_projected_spectral_measure.schema.json",
+            "emitted_payload": "particles/runs/hadron/empirical_ward_projected_spectral_measure.json",
+            "builder": "particles/hadron/derive_empirical_ward_projected_spectral_measure.py",
+            "row_class": "oph_plus_empirical_hadron_closure",
+            "satisfies_constructive_next_artifact": False,
+            "role": (
+                "Declared-empirical hadronic spectral input for the empirical closure surface. "
+                "It carries the e+e- R(s) compilation as an explicit positive spectral measure "
+                "with both endpoint kernels and a requadrature consistency gate, so the empirical "
+                "Thomson endpoint consumes a spectral object rather than a bare integral. The "
+                "source-only production export above remains the open target."
+            ),
+        },
     }
 
 

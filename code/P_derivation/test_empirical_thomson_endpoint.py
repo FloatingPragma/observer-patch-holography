@@ -75,3 +75,33 @@ def test_endpoint_reports_anchor_gap_consistently() -> None:
     codata = float(cmp_blk["codata_alpha_inv"])
     lo, hi = (float(x) for x in report["endpoint"]["alpha_inv_interval"])
     assert inside == (lo <= codata <= hi)
+
+
+def test_endpoint_requires_spectral_measure_export() -> None:
+    report = evaluate()
+    export = report["inputs"]["hadronic_spectral_measure_export"]
+    assert export["artifact"] == "oph_empirical_ward_projected_hadronic_spectral_measure"
+    assert float(export["requadrature_abs_difference"]) <= float(
+        export["requadrature_tolerance"])
+    assert export["positivity_status"] == (
+        "verified_nonnegative_on_exported_grids_and_atoms")
+
+
+def test_transport_split_carries_hadronic_spectral_object() -> None:
+    report = evaluate()
+    split = report["transport_split"]
+    assert split["a0_anchor_inv_alpha"] == report["inputs"]["source_anchor_inv_alpha_MZ"]
+    hadronic = split["hadronic_spectral_object"]
+    assert hadronic["status"] == "declared_empirical_not_source_emitted"
+    # the spectral object's timelike moment is the solve-path hadronic input
+    assert abs(float(hadronic["delta_alpha_had_5_MZ_timelike"])
+               - float(report["inputs"]["delta_alpha_had_5_MZ"])) < 2.0e-05
+    packet = float(hadronic["inverse_alpha_packet_spacelike"])
+    assert 2.5 < packet < 4.5
+
+
+def test_anchor_bridge_block_references_scheme_analysis() -> None:
+    report = evaluate()
+    bridge = report["compare_only"]["anchor_bridge"]
+    assert bridge["route"] == "route_A_empirical_class_supplied_by_this_lane"
+    assert "#425" in bridge["source_only_branch"]

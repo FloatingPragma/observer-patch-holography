@@ -1,0 +1,228 @@
+{
+  "artifact": "oph_charged_trace_lift_theorem",
+  "attachment_identity_residual": {
+    "blocking_reasons": [
+      "no numeric sector-isolated M_ch",
+      "q_psi is source-open, arrow-indexed, and lacks a certified e/mu/tau map",
+      "no theorem-grade numeric or interval D10 landing to s_det(P)",
+      "no charged determinant factorization/leakage certificate",
+      "no D10-fixed reference stage and basepoint normalization"
+    ],
+    "certified_zero": false,
+    "computable": false,
+    "formula": "s_det(P) - sum_e M_e^ch log q_e(P)",
+    "interval": [
+      null,
+      null
+    ],
+    "interval_kind": "full_affine_orbit_unbounded",
+    "name": "N_det(P)",
+    "value": null
+  },
+  "claim_boundary": "No absolute charged-lepton mass is emitted. The current exact e/mu/tau triple remains a target-anchored ratio checksum. Issue #546 closes on the strengthened no-go branch until the named source-object class is supplied.",
+  "claim_label": "no_go_confirmed_new_source_needed",
+  "conditional_mass_rows": [],
+  "declared_source_audit": {
+    "charged_sector_isolation": {
+      "charged_central_projector_present": false,
+      "determinant_compatibility_present": false,
+      "electron_budget_witness": {
+        "sector_local_closed": false,
+        "status": "unavailable",
+        "value": null
+      }
+    },
+    "d10_determinant_landing": {
+      "forbidden_claims": [
+        "theorem_grade_physical_Y_e(P)",
+        "charged_determinant_line_section(P)",
+        "A_ch(P)",
+        "g_e(P)",
+        "m_e(P)",
+        "m_mu(P)",
+        "m_tau(P)"
+      ],
+      "numeric_or_interval_s_det_present": false,
+      "proof_status": "closed_bridge_reduction_to_determinant_line_or_physical_Y_e",
+      "status": "conditional_reduction_only"
+    },
+    "multiplicity_vector": {
+      "evidence": "chi_det,e^exc(q) = prod_e q_e^(M_e^ch)",
+      "numeric_M_ch_present": false,
+      "status": "formal_symbol_only"
+    },
+    "reference_stage": {
+      "basepoint_determinant_trivialization_present": false,
+      "d10_repair_square_present": false,
+      "r_0_named": false,
+      "stage_indexed_readback_present": false
+    },
+    "same_label_readback": {
+      "artifact": "oph_realized_same_label_gap_defect_readback",
+      "artifact_ref": "code/particles/runs/neutrino/realized_same_label_gap_defect_readback.json",
+      "labels": [
+        "psi12",
+        "psi23",
+        "psi31"
+      ],
+      "missing_source_objects": [
+        "source_emitted_family_transport_kernel",
+        "theorem_grade_overlap_edge_line_lift"
+      ],
+      "physical_label_assignment_certified": false,
+      "proof_status": "conditional_numeric_readback_from_template_flavor_artifacts",
+      "source_only_physical_input_eligible": false,
+      "stage_indexed_q_e_of_r": false
+    }
+  },
+  "exact_ratio_regression": {
+    "centered_log_shape": [
+      -4.495209645475038,
+      0.8363891135806538,
+      3.658820531894384
+    ],
+    "max_relative_residual_abs": 9.992007221626409e-16,
+    "ratios": {
+      "mu_over_e": {
+        "from_centered_family_functional": 206.76828270846718,
+        "relative_residual_abs": 0.0,
+        "witness": 206.76828270846718
+      },
+      "tau_over_e": {
+        "from_centered_family_functional": 3477.3652619063414,
+        "relative_residual_abs": 9.992007221626409e-16,
+        "witness": 3477.365261906345
+      },
+      "tau_over_mu": {
+        "from_centered_family_functional": 16.817691844978242,
+        "relative_residual_abs": 2.220446049250313e-16,
+        "witness": 16.817691844978246
+      }
+    },
+    "role": "target-anchored checksum only; never an ancestor of the trace-lift claim",
+    "status": "passed",
+    "theorem_scope": "current_family_only",
+    "witness_masses_gev": [
+      0.0005109989506900001,
+      0.10565837550000001,
+      1.7769299999999995
+    ]
+  },
+  "factorization_lemma": {
+    "candidate_mechanism": "collar central-interface block structure",
+    "leakage_bound": {
+      "certified_zero": false,
+      "interval": [
+        null,
+        null
+      ],
+      "kind": "unbounded_or_unevaluated"
+    },
+    "status": "not_certified_no_charged_central_projector",
+    "why_insufficient": "The central-interface clause supplies collar-center blocks, but the declared sources contain no charged L-H-E central idempotent, no D10-to-charged determinant morphism, and no off-block leakage norm."
+  },
+  "generated_utc": "2026-07-12T02:21:15Z",
+  "issue": 546,
+  "missing_source_object_class": {
+    "must_carry": [
+      "source-emitted charged central projector/idempotent",
+      "zero-leakage D10 determinant factorization over charged and rest sectors",
+      "numeric sector-isolated multiplicity vector M_ch on psi12/psi23/psi31",
+      "source-closed, stage-indexed same-label q_psi(r) with a physical label map",
+      "D10-fixed reference stage r_0",
+      "normalized charged determinant-line basepoint/trivialization at r_0",
+      "certified P interval and mass-space affine-anchor interval",
+      "named electroweak-scale conversion into GeV",
+      "no-target-leak ancestry receipt"
+    ],
+    "name": "theorem_grade_sector_isolated_normalized_charged_determinant_line_attachment",
+    "normalization_equation": "s_det^ch(P,r_0) = sum_psi M_ch[psi] log q_psi(P,r_0)",
+    "refinement_equation": "3 mu(r) = sum_psi M_ch[psi] log q_psi(r)"
+  },
+  "promotion": {
+    "conditional_on_P_allowed": false,
+    "public_promotion_allowed": false,
+    "reason": "attachment residual is not certified zero"
+  },
+  "proof_status": "no_go_confirmed_new_source_needed",
+  "source_certificate": {
+    "artifact_ref": null,
+    "checks": {
+      "P_interval": false,
+      "artifact_type": false,
+      "certificate_present": false,
+      "charged_central_projector": false,
+      "determinant_scalar_interval": false,
+      "factorization_certified": false,
+      "lift_constant_interval": false,
+      "lift_constant_numeric": false,
+      "lift_constant_source_named": false,
+      "mass_space_affine_anchor_interval": false,
+      "mass_space_anchor_source_named": false,
+      "no_target_leak_ancestry": false,
+      "no_target_leak_flag": false,
+      "numeric_sector_isolated_M_ch": false,
+      "physical_label_map": false,
+      "reference_stage_named": false,
+      "residual_certified": false,
+      "residual_singleton_zero": false,
+      "source_closed_stage_indexed_q": false,
+      "source_only": false,
+      "theorem_grade": false,
+      "zero_leakage": false
+    },
+    "contract": {
+      "artifact": "oph_charged_trace_lift_source_certificate",
+      "required_flags": [
+        "theorem_grade",
+        "source_only",
+        "no_target_leak"
+      ],
+      "required_objects": [
+        "source-emitted charged central projector/idempotent",
+        "zero-leakage D10 determinant factorization over charged and rest sectors",
+        "numeric sector-isolated multiplicity vector M_ch on psi12/psi23/psi31",
+        "source-closed, stage-indexed same-label q_psi(r) with a physical label map",
+        "D10-fixed reference stage r_0",
+        "normalized charged determinant-line basepoint/trivialization at r_0",
+        "certified P interval and mass-space affine-anchor interval",
+        "named electroweak-scale conversion into GeV",
+        "no-target-leak ancestry receipt"
+      ],
+      "required_zero_intervals": [
+        "factorization_lemma.leakage_bound.interval",
+        "attachment_identity_residual.interval"
+      ]
+    }
+  },
+  "source_only": false,
+  "strengthened_no_go": {
+    "applies": true,
+    "changed_object": "N_det -> N_det + 3 kappa",
+    "independent_current_blockers": [
+      "numeric M_ch is not source-emitted",
+      "q_psi is not source-closed or stage-indexed",
+      "D10 -> s_det(P) is conditional rather than emitted",
+      "charged central projector and leakage bound are absent",
+      "reference-stage determinant-line trivialization is absent"
+    ],
+    "preserved_declared_objects": [
+      "total D10 determinant scalar, even if granted",
+      "zero-leakage additive sector factorization, even if granted",
+      "centered charged family functional and all charged ratios",
+      "same-label q_psi arrow readback and every formal S_M",
+      "physical identity-mode equalizer on each fixed fiber"
+    ],
+    "prior_no_go_artifact": "oph_charged_determinant_trace_normalization_no_go",
+    "prior_no_go_artifact_ref": "code/particles/runs/leptons/charged_determinant_trace_normalization_no_go.json",
+    "theorem": "Even granting an exact total D10 determinant and a zero-leakage additive split s_det = s_det^ch + s_det^rest, the declared source objects do not select the charged affine origin. For every kappa, s_det^ch -> s_det^ch + 3 kappa, s_det^rest -> s_det^rest - 3 kappa, and mu -> mu + kappa preserve the total D10 scalar, central factorization, centered family functional, and q readback, while N_det -> N_det + 3 kappa. A q value at an unnamed/current arrow does not break this symmetry; a normalized physical basepoint attachment is required."
+  },
+  "uncentered_lift_constant": {
+    "interval": null,
+    "reference_stage": null,
+    "required_source_object_class": "normalized_charged_determinant_line_basepoint_trivialization",
+    "source_object_name": null,
+    "status": "absent_from_declared_source_objects",
+    "value": null
+  }
+}

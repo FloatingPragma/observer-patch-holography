@@ -118,6 +118,17 @@ The post-promotion lift slot is packaged in carrier form:
   separately, and it leaves one additive determinant normalization defect
   `N_det(P) = s_det(P) - sum_e M_e^ch log q_e(P)` unresolved.
 
+- `oph_charged_trace_lift_theorem`
+  This is the fail-closed issue-546 gate. It audits the proposed central-sector
+  factorization, the uncentered lift constant, and the interval for `N_det`.
+  On the current corpus it emits `no_go_confirmed_new_source_needed`: `M_ch`
+  is only formal, the numerical `q_psi` arrow readback is source-open and not
+  stage-indexed, the D10 determinant landing is conditional, and no charged
+  central projector or reference-stage determinant-line trivialization exists.
+  The ledger may flip only for a source-only certificate with zero leakage and
+  a singleton residual interval `[0, 0]`; an interval merely containing zero
+  remains non-promoting.
+
 - `oph_charged_physical_class_affine_scalar_reduction`
   This is the strongest supported selected-surface charged theorem packaged on the
   current local surface. It does not claim a quark-style public selected-class

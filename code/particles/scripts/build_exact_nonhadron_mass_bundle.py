@@ -37,6 +37,9 @@ QUARK_TRANSPORT_FORWARD_YUKAWAS_JSON = ROOT / "particles" / "runs" / "flavor" / 
 QUARK_END_TO_END_CHAIN_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_current_family_end_to_end_exact_pdg_derivation_chain.json"
 QUARK_PUBLIC_YUKAWA_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_public_exact_yukawa_end_to_end_theorem.json"
 QUARK_SIGMA_REQUIRED_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_sigma_source_datum_no_target_leak_required.json"
+QUARK_SCHEME_OBSTRUCTION_JSON = (
+    ROOT / "particles" / "runs" / "flavor" / "quark_running_mass_scheme_convention_obstruction.json"
+)
 NEUTRINO_JSON = ROOT / "particles" / "runs" / "neutrino" / "neutrino_absolute_attachment_theorem.json"
 NEUTRINO_BRIDGE_RIGIDITY_JSON = ROOT / "particles" / "runs" / "neutrino" / "neutrino_bridge_rigidity_theorem.json"
 CARRIER_ACCEPTANCE_JSON = ROOT / "particles" / "runs" / "status" / "carrier_mode_acceptance.json"
@@ -210,6 +213,7 @@ def build_all_entries() -> list[dict[str, Any]]:
     quark_end_to_end_chain = _load_optional_json(QUARK_END_TO_END_CHAIN_JSON)
     quark_public_exact_yukawa = _load_optional_json(QUARK_PUBLIC_YUKAWA_JSON)
     quark_sigma_required = _load_optional_json(QUARK_SIGMA_REQUIRED_JSON)
+    quark_scheme_obstruction = _load_optional_json(QUARK_SCHEME_OBSTRUCTION_JSON)
     neutrino = _load_json(NEUTRINO_JSON)
     neutrino_bridge_rigidity = _load_json(NEUTRINO_BRIDGE_RIGIDITY_JSON)
     quark_exact_values = (
@@ -229,14 +233,14 @@ def build_all_entries() -> list[dict[str, Any]]:
         "selected_class_theorem_grade_exact_forward_quark_closure"
         if quark_exact_promotable
         else (
-            "selected_class_target_anchored_exact_witness"
+            "selected_class_target_anchored_mixed_convention_mass_texture_audit"
             if quark_public_exact_yukawa
             else "exact_target_anchored_current_family_witness"
         )
     )
     quark_exact_scope = (
         (
-            "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived"
+            "selected_public_frame_target_anchored_mixed_convention_audit_only"
             if quark_public_exact_yukawa and not quark_exact_promotable
             else quark_public_exact_yukawa["theorem_scope"]
         )
@@ -245,7 +249,9 @@ def build_all_entries() -> list[dict[str, Any]]:
     )
     quark_exact_source = _repo_ref(QUARK_PUBLIC_YUKAWA_JSON) if quark_public_exact_yukawa else _repo_ref(QUARK_JSON)
     quark_missing_for_promotion = list(
-        (quark_sigma_required or {}).get(
+        (quark_public_exact_yukawa or {}).get(
+            "minimal_exact_blocker_set",
+            (quark_sigma_required or {}).get(
             "missing_for_promotion",
             [
                 "QUARK_SIGMA_SOURCE_QUOTIENT",
@@ -254,6 +260,7 @@ def build_all_entries() -> list[dict[str, Any]]:
                 "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
                 "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE",
             ],
+            ),
         )
     )
     quark_common_metadata = {
@@ -277,49 +284,58 @@ def build_all_entries() -> list[dict[str, Any]]:
         "selected_class": (quark_sigma_required or {}).get("selected_class", "f_P"),
         "missing_for_promotion": quark_missing_for_promotion,
         "promotion_gate_artifact": _repo_ref(QUARK_SIGMA_REQUIRED_JSON),
-        "exact_sigma_target": (quark_sigma_required or {}).get("target_values_for_future_source_theorem"),
-        "strongest_source_candidate": (quark_sigma_required or {}).get("strongest_current_source_candidate"),
+        "source_spread_closure_kind": (quark_sigma_required or {}).get("closure_kind"),
+        "compatible_spread_fiber": (quark_sigma_required or {}).get("compatible_spread_fiber"),
+        "compatible_spread_fiber_dimension": (quark_sigma_required or {}).get(
+            "compatible_spread_fiber_dimension"
+        ),
+        "scheme_obstruction_artifact": _repo_ref(QUARK_SCHEME_OBSTRUCTION_JSON),
+        "comparison_coordinate_partition": (quark_scheme_obstruction or {}).get("row_partition"),
+        "physical_yukawa_matrices_certified": (
+            (quark_scheme_obstruction or {}).get("stored_matrix_dimensional_audit") or {}
+        ).get("certified_physical_yukawa_matrices", False),
     }
     quark_public_note_prefix = (
         "Theorem-grade exact quark output on the selected public physical quark frame class chosen by `P`, "
         if quark_exact_promotable
-        else "Selected-class exact quark witness on the public physical quark frame class chosen by `P`, "
+        else "Selected-class target-anchored quark mass-texture audit on the public frame class chosen by `P`, "
     )
     quark_public_nonpromotion_note = (
         ""
         if quark_exact_promotable
-        else "Under the strict non-circularity audit it is not promotable because the public sigma descent proves representative independence only; the source-only sigma selector is still missing. "
+        else "It is not promotable: selected-fiber descent does not select the two positive spread moduli, and the mixed-scheme GeV matrices lack a common-scale dimensionless Yukawa normalization. "
     )
     quark_exact_note = (
         (
             quark_public_note_prefix
             +
-            f"emitted by `{quark_public_exact_yukawa['artifact']}`. The exact sextet matches the official PDG 2025 "
-            "API running-quark target surface, and the theorem emits explicit exact forward Yukawas `Y_u` and `Y_d`. "
+            f"emitted by `{quark_public_exact_yukawa['artifact']}`. The audit packet matches its chosen reference rows; "
+            "it mixes light MSbar, heavy self-scale MSbar, and a separate top pole coordinate. The stored `Y_u` and "
+            "`Y_d` are dimensionful mass textures, not certified physical Yukawa matrices. "
             + quark_public_nonpromotion_note
         )
         if quark_public_exact_yukawa
         else (
-            "Exact current-family quark witness on `current_family_only`. The exact sextet matches the official "
-            "PDG 2025 API running-quark target surface on that declared carrier. "
+            "Exact target-anchored current-family comparison witness on `current_family_only`. The six rows do not "
+            "form one common-scale running-mass sextet. "
         )
     ) + (
         "The top coordinate uses PDG "
         f"summary `{references['top_quark']['source']['summary_id']}`. The auxiliary direct-top "
         f"entry `{references['top_quark_direct_aux']['source']['summary_id']}` is compare-only; "
         "[#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by "
-        "`code/particles/runs/calibration/direct_top_bridge_contract.json`. The same exact sextet is also "
+        "`code/particles/runs/calibration/direct_top_bridge_contract.json`. The same target packet is also "
         "realized on `current_family_only`. A separate restricted theorem "
         "surface emits a sector-attached `Sigma_ud^phys` element on "
         f"`{(quark_transport_lift or {}).get('theorem_scope', 'current_family_common_refinement_transport_frame_only')}`, "
-        "the merged transport-frame completion closes the same "
-        f"running sextet on `{(quark_transport_completion or {}).get('theorem_scope', 'current_family_common_refinement_transport_frame_only')}`, and the declared transport-frame "
-        "chain emits explicit exact forward Yukawas `Y_u` and `Y_d` with certification status "
+        "the merged transport-frame completion closes the same mixed-convention packet on "
+        f"`{(quark_transport_completion or {}).get('theorem_scope', 'current_family_common_refinement_transport_frame_only')}`, and the declared transport-frame "
+        "chain emits dimensionful mass textures `Y_u` and `Y_d` with local matrix status "
         f"`{(quark_transport_forward_yukawas or {}).get('certification_status', 'forward_matrix_certified')}`. The full declared-carrier chain is "
         f"recorded in `{(quark_end_to_end_chain or {}).get('artifact', 'oph_quark_current_family_end_to_end_exact_pdg_derivation_chain')}`. The target-free mass bridge closes separately "
         "on the emitted D12 ray, but it does not emit the physical sigma/spread datum. "
         + (
-            "This theorem is selected-class closure only. It does not claim a global classification of all quark frame classes."
+            "This selected-class audit does not claim source spread selection, physical Yukawa certification, or a global classification of quark frame classes."
             if quark_public_exact_yukawa
             else "This entry is carrier-restricted and does not replace the selected-class public theorem."
         )

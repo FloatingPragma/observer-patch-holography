@@ -37,6 +37,7 @@ DETERMINANT_CHARACTER_FRONTIER_JSON = RUNS_DIR / "charged_determinant_character_
 DETERMINANT_TRACE_LIFT_ATTACHMENT_REQUIRED_JSON = (
     RUNS_DIR / "charged_determinant_trace_lift_attachment_required.json"
 )
+CHARGED_TRACE_LIFT_THEOREM_JSON = RUNS_DIR / "charged_trace_lift_theorem.json"
 
 
 def load_json(path: Path) -> dict[str, Any]:

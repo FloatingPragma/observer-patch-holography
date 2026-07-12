@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import json
 import pathlib
 import sys
 
@@ -10,7 +11,10 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from build_derivation_gap_ledger import build_ledger  # noqa: E402
+import build_derivation_gap_ledger as gap_ledger  # noqa: E402
+
+
+build_ledger = gap_ledger.build_ledger
 
 
 def test_gap_ledger_keeps_compressed_trunk_claim_safe() -> None:
@@ -40,10 +44,18 @@ def test_gap_ledger_keeps_compressed_trunk_claim_safe() -> None:
     assert row_statuses["hadron.production-backend-systematics"] == (
         "source_backend_absent_empirical_policy_emitted"
     )
-    assert row_statuses["hadron.empirical-ee-spectral-closure"] == "policy_scaffold_emitted_dataset_absent"
+    assert row_statuses["hadron.empirical-ee-spectral-closure"] == (
+        "payload_populated_endpoint_evaluated_gap_anchor_localized"
+    )
     assert row_statuses["charged.determinant-normalization-transport"] == (
         "closed_current_corpus_charged_end_to_end_no_go"
     )
+    charged_row = next(
+        row for row in ledger["rows"] if row["id"] == "charged.determinant-normalization-transport"
+    )
+    assert charged_row["github_issue"] == 546
+    assert charged_row["closed_issue_refs"] == [201]
+    assert charged_row["trace_lift_claim_label"] == "no_go_confirmed_new_source_needed"
     assert row_statuses["qcd.strong-cp-angle"] == "open_theta_qcd_bar_theta_vanishing_gap"
     assert row_statuses["calibration.direct-top-bridge"] == "closed_current_corpus_codomain_no_go"
     assert row_statuses["d10.ward-projected-thomson-endpoint"] == "closed_blocker_isolated_endpoint_package"
@@ -54,7 +66,13 @@ def test_gap_ledger_keeps_compressed_trunk_claim_safe() -> None:
     assert row_statuses["pclosure.compressed-trunk-artifact"] == "closed_canonical_guarded_candidate_artifact"
     assert row_statuses["pclosure.certified-codepath-adoption"] == "closed_guarded_codepath_adoption"
     assert row_statuses["quark.selected-class-vs-global-classification"] == (
-        "selected_class_closed_global_classification_no_go"
+        "selected_class_descent_closed_global_classification_no_go"
+    )
+    assert row_statuses["quark.source-spread-identifiability"] == (
+        "closed_current_corpus_two_modulus_nonidentifiability_obstruction"
+    )
+    assert row_statuses["quark.running-scheme-and-yukawa-normalization"] == (
+        "closed_structural_scheme_nonidentifiability_obstruction"
     )
     bundle_ids = {bundle["id"] for bundle in ledger["bundles"]}
     assert "electroweak-root-closure-bundle" in bundle_ids
@@ -74,3 +92,81 @@ def test_gap_ledger_keeps_compressed_trunk_claim_safe() -> None:
     assert bundle_statuses["particle-root-integration-gate"] == "keep_candidate_with_constructive_next_artifacts"
     assert ledger["promotion_policy"]["empirical_hadron_closure_class_declared"] is True
     assert ledger["promotion_policy"]["empirical_hadron_closure_source_only"] is False
+
+
+def _certified_trace_lift_payload() -> dict:
+    checks = {
+        "certificate_present": True,
+        "artifact_type": True,
+        "theorem_grade": True,
+        "source_only": True,
+        "no_target_leak_flag": True,
+        "no_target_leak_ancestry": True,
+        "numeric_sector_isolated_M_ch": True,
+        "source_closed_stage_indexed_q": True,
+        "physical_label_map": True,
+        "charged_central_projector": True,
+        "factorization_certified": True,
+        "zero_leakage": True,
+        "reference_stage_named": True,
+        "lift_constant_source_named": True,
+        "lift_constant_numeric": True,
+        "lift_constant_interval": True,
+        "determinant_scalar_interval": True,
+        "P_interval": True,
+        "mass_space_affine_anchor_interval": True,
+        "mass_space_anchor_source_named": True,
+        "residual_certified": True,
+        "residual_singleton_zero": True,
+    }
+    return {
+        "artifact": "oph_charged_trace_lift_theorem",
+        "claim_label": "trace_lift_certified",
+        "source_only": True,
+        "factorization_lemma": {
+            "status": "certified",
+            "leakage_bound": {"interval": ["0", "0"], "certified_zero": True},
+        },
+        "uncentered_lift_constant": {
+            "source_object_name": "oph_charged_determinant_reference_receipt",
+            "value": "-3",
+        },
+        "attachment_identity_residual": {
+            "computable": True,
+            "certified_zero": True,
+            "interval": ["0", "0"],
+        },
+        "source_certificate": {"checks": checks},
+    }
+
+
+def test_charged_gate_flips_only_for_a_certified_singleton_zero(
+    tmp_path: pathlib.Path, monkeypatch
+) -> None:
+    artifact = tmp_path / "charged_trace_lift_theorem.json"
+    monkeypatch.setattr(gap_ledger, "CHARGED_TRACE_LIFT_THEOREM", artifact)
+
+    certified = _certified_trace_lift_payload()
+    artifact.write_text(json.dumps(certified), encoding="utf-8")
+    assert gap_ledger._charged_trace_lift_gate()["status"] == (
+        "trace_lift_certified_conditional_on_P"
+    )
+
+    certified["attachment_identity_residual"]["interval"] = ["-1e-12", "1e-12"]
+    artifact.write_text(json.dumps(certified), encoding="utf-8")
+    assert gap_ledger._charged_trace_lift_gate()["status"] == (
+        "closed_current_corpus_charged_end_to_end_no_go"
+    )
+
+    certified["attachment_identity_residual"]["interval"] = ["0", "1e-99999"]
+    artifact.write_text(json.dumps(certified), encoding="utf-8")
+    assert gap_ledger._charged_trace_lift_gate()["status"] == (
+        "closed_current_corpus_charged_end_to_end_no_go"
+    )
+
+    certified["attachment_identity_residual"]["interval"] = ["0", "0"]
+    certified["uncentered_lift_constant"].pop("source_object_name")
+    artifact.write_text(json.dumps(certified), encoding="utf-8")
+    assert gap_ledger._charged_trace_lift_gate()["status"] == (
+        "closed_current_corpus_charged_end_to_end_no_go"
+    )

@@ -83,6 +83,21 @@ FINAL_PIPELINE_STEPS: tuple[PipelineStep, ...] = (
         "Refresh the direct-top codomain conversion contract.",
     ),
     PipelineStep(
+        "quark_sigma_source_nonidentifiability_obstruction",
+        "particles/flavor/derive_quark_sigma_source_nonidentifiability_obstruction.py",
+        "Refresh the target-free two-modulus quark-spread obstruction.",
+    ),
+    PipelineStep(
+        "quark_sigma_source_boundary",
+        "particles/flavor/derive_quark_sigma_source_datum_no_target_leak_required.py",
+        "Project the quark-spread obstruction onto the stable promotion-gate artifact.",
+    ),
+    PipelineStep(
+        "quark_running_mass_scheme_convention_obstruction",
+        "particles/flavor/derive_quark_running_mass_scheme_convention_obstruction.py",
+        "Refresh the light/heavy running-coordinate and physical-Yukawa scheme obstruction.",
+    ),
+    PipelineStep(
         "quark_off_canonical_p_evaluator_obstruction",
         "particles/flavor/derive_quark_off_canonical_p_evaluator_obstruction.py",
         "Refresh the off-canonical quark P-evaluator no-go certificate.",
@@ -93,9 +108,54 @@ FINAL_PIPELINE_STEPS: tuple[PipelineStep, ...] = (
         "Refresh the global public quark-frame descent no-go certificate.",
     ),
     PipelineStep(
+        "quark_current_family_target_audit_chain",
+        "particles/flavor/derive_quark_current_family_end_to_end_exact_pdg_derivation_chain.py",
+        "Refresh the target-anchored mixed-convention quark audit chain.",
+    ),
+    PipelineStep(
+        "quark_exact_target_audit_wrapper",
+        "particles/flavor/derive_quark_exact_pdg_end_to_end_theorem.py",
+        "Refresh the target-anchored mixed-convention quark audit wrapper.",
+    ),
+    PipelineStep(
+        "quark_public_sigma_descent",
+        "particles/flavor/derive_quark_public_physical_sigma_datum_descent.py",
+        "Refresh the selected-fiber descent without treating descent as source selection.",
+    ),
+    PipelineStep(
+        "quark_public_mass_texture_yukawa_boundary",
+        "particles/flavor/derive_quark_public_exact_yukawa_end_to_end_theorem.py",
+        "Refresh the fail-closed mass-texture and physical-Yukawa wrapper.",
+    ),
+    PipelineStep(
+        "quark_public_exact_yukawa_promotion_frontier",
+        "particles/flavor/derive_quark_public_exact_yukawa_promotion_frontier.py",
+        "Refresh the public quark promotion frontier.",
+    ),
+    PipelineStep(
+        "quark_selected_class_public_exact_evaluator",
+        "particles/flavor/derive_quark_selected_class_public_exact_evaluator.py",
+        "Refresh the selected-class audit evaluator.",
+    ),
+    PipelineStep(
+        "quark_public_strengthened_sigma_frontier",
+        "particles/flavor/derive_quark_public_strengthened_physical_sigma_lift_frontier.py",
+        "Refresh the selected-class sigma frontier.",
+    ),
+    PipelineStep(
+        "quark_lane_closure_contract",
+        "particles/flavor/derive_quark_lane_closure_contract.py",
+        "Refresh the quark lane closure and obstruction contract.",
+    ),
+    PipelineStep(
         "charged_end_to_end_nonclosure",
         "particles/leptons/derive_charged_end_to_end_impossibility_theorem.py",
         "Refresh the charged-lepton end-to-end nonclosure theorem packet.",
+    ),
+    PipelineStep(
+        "charged_trace_lift_theorem",
+        "particles/leptons/derive_charged_trace_lift.py",
+        "Audit the sector-isolated charged trace lift and its zero-residual gate.",
     ),
     PipelineStep(
         "derivation_gap_ledger",

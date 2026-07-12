@@ -33,3 +33,25 @@ def test_contract_emits_constructive_spectral_measure_target() -> None:
     assert "finite_volume_levels" in required
     assert "ward_projected_residues" in required
     assert "systematics" in required
+
+
+def test_contract_names_empirical_companion_without_promoting_it() -> None:
+    subprocess.run([sys.executable, str(SCRIPT)], check=True, cwd=ROOT)
+    payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
+
+    companion = payload["empirical_companion"]
+    assert companion["artifact"] == "oph_empirical_ward_projected_hadronic_spectral_measure"
+    assert companion["row_class"] == "oph_plus_empirical_hadron_closure"
+    assert companion["satisfies_constructive_next_artifact"] is False
+    # the companion never replaces the production target
+    assert payload["constructive_next_artifact"] == (
+        "oph_qcd_ward_projected_hadronic_spectral_measure")
+    assert payload["promotion_allowed"] is False
+
+    companion_schema = json.loads(
+        (ROOT / companion["schema"]).read_text(encoding="utf-8"))
+    assert companion_schema["properties"]["artifact"]["const"] == companion["artifact"]
+    guard_props = companion_schema["properties"]["guards"]["properties"]
+    assert guard_props["promotable_as_oph_source_theorem"]["const"] is False
+    assert guard_props["surrogate_hadron_artifact"]["const"] is False
+    assert guard_props["satisfies_production_constructive_next_artifact"]["const"] is False

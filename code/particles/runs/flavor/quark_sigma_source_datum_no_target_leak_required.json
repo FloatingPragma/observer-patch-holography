@@ -1,6 +1,10 @@
 {
+  "affine_downstream_injective": true,
   "artifact": "oph_quark_sigma_source_datum_no_target_leak_required",
-  "claim_tier": "selected_class_conditional_on_source_sigma",
+  "claim_tier": "selected_class_conditional_support_source_sigma_nonidentifiable",
+  "closure_kind": "theorem_grade_sharper_obstruction",
+  "compatible_spread_fiber": "(R_{>0})^2",
+  "compatible_spread_fiber_dimension": 2,
   "conditional_downstream_if_closed": {
     "eta_ud": "(sigma_u - sigma_d)/2",
     "g_d": "g_ch*exp(-(A_ud*sigma_seed_ud + B_ud*eta_ud))",
@@ -8,30 +12,88 @@
     "sigma_seed_ud": "(sigma_u + sigma_d)/2",
     "then": "ordered_three_point_readout_and_exact_forward_Yu_Yd"
   },
-  "current_exact_path_is_target_derived": [
-    "quark_current_family_exact_readout",
-    "quark_current_family_exact_sigma_target",
-    "quark_current_family_transport_frame_strengthened_physical_sigma_lift_theorem",
-    "quark_public_physical_sigma_datum_descent",
-    "quark_public_exact_yukawa_end_to_end_theorem"
-  ],
+  "dependency_audit": {
+    "allowed_ancestors": [
+      "oph_family_transport_kernel",
+      "oph_intrinsic_generation_bundle_branch_generator",
+      "oph_generation_bundle_branch_generator_splitting_obstruction_certificate",
+      "oph_overlap_edge_transport_cocycle"
+    ],
+    "allowed_forbidden_disjoint": true,
+    "allowed_forbidden_intersection": [],
+    "direct_input_paths": [
+      "particles/runs/flavor/family_transport_kernel.json",
+      "particles/runs/flavor/generation_bundle_branch_generator.json",
+      "particles/runs/flavor/generation_bundle_branch_generator_splitting_obstruction.json",
+      "particles/runs/flavor/overlap_edge_transport_cocycle.json"
+    ],
+    "emits_target_sigma_values": false,
+    "forbidden_ancestors": [
+      "particle_reference_values",
+      "quark_current_family_exact_readout",
+      "quark_current_family_exact_sigma_target",
+      "quark_current_family_exact_pdg_theorem",
+      "quark_current_family_end_to_end_exact_pdg_derivation_chain",
+      "quark_current_family_transport_frame_strengthened_physical_sigma_lift_theorem",
+      "quark_selected_class_public_exact_evaluator",
+      "quark_public_physical_sigma_datum_descent",
+      "quark_public_exact_yukawa_end_to_end_theorem",
+      "quark_exact_pdg_end_to_end_theorem",
+      "quark_p_driven_shared_evaluator_contract",
+      "family_excitation_evaluator",
+      "quark_edge_statistics_spread_candidate",
+      "quark_spread_map",
+      "quark_sector_mean_split",
+      "target_centered_log_u",
+      "target_centered_log_d",
+      "reference_targets_u",
+      "reference_targets_d",
+      "exact_fit_residuals",
+      "fitted_sigma_values",
+      "PDG_API_quark_rows",
+      "CODATA",
+      "compare_only"
+    ],
+    "loads_contaminated_edge_comparison_artifact": false,
+    "loads_contaminated_family_excitation_artifact": false,
+    "loads_fitted_sigma_values": false,
+    "loads_running_quark_reference_rows": false,
+    "loads_selected_or_current_family_exact_witness": false,
+    "loads_spread_or_sector_mean_artifact": false,
+    "no_target_leak": true
+  },
   "downstream_algebra_closed": true,
   "forbidden_ancestors": [
     "particle_reference_values",
     "quark_current_family_exact_readout",
     "quark_current_family_exact_sigma_target",
     "quark_current_family_exact_pdg_theorem",
+    "quark_current_family_end_to_end_exact_pdg_derivation_chain",
     "quark_current_family_transport_frame_strengthened_physical_sigma_lift_theorem",
+    "quark_selected_class_public_exact_evaluator",
+    "quark_public_physical_sigma_datum_descent",
+    "quark_public_exact_yukawa_end_to_end_theorem",
+    "quark_exact_pdg_end_to_end_theorem",
+    "quark_p_driven_shared_evaluator_contract",
+    "family_excitation_evaluator",
+    "quark_edge_statistics_spread_candidate",
+    "quark_spread_map",
+    "quark_sector_mean_split",
     "target_centered_log_u",
     "target_centered_log_d",
     "reference_targets_u",
     "reference_targets_d",
     "exact_fit_residuals",
-    "PDG",
+    "fitted_sigma_values",
+    "PDG_API_quark_rows",
     "CODATA",
     "compare_only"
   ],
-  "generated_utc": "2026-07-11T18:03:27Z",
+  "generated_utc": "2026-07-12T02:31:12Z",
+  "independent_unselected_coordinates": [
+    "sigma_u",
+    "sigma_d"
+  ],
   "missing_for_promotion": [
     "QUARK_SIGMA_SOURCE_QUOTIENT",
     "QUARK_SIGMA_SOURCE_SELECTOR",
@@ -40,17 +102,25 @@
     "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE"
   ],
   "notes": [
-    "The edge-statistics candidate is retained as the strongest current source-side theorem target.",
-    "The required corrections may not be defined as residuals against running-quark target values.",
-    "This artifact blocks promotion; it does not emit a replacement sigma datum."
+    "The obstruction consumes no running-quark target, exact-witness, spread-map, or fitted-correction artifact.",
+    "The upstream edge packet leaves two coefficients free even when granted as exact.",
+    "Issue closure in obstruction mode does not promote numeric quark or physical Yukawa rows."
   ],
+  "obstruction_artifact": "oph_quark_sigma_source_nonidentifiability_obstruction",
+  "obstruction_theorem_statement": "After all target-derived and compare-only ancestors are removed, the strongest current quark source packet fixes the trace-zero ordered profile rays v_u and v_d but not their independent positive moduli. The compatible spread fiber is exactly (R_{>0})^2, with E_u=sigma_u*v_u and E_d=sigma_d*v_d. Independent positive rescaling fixes every source datum and every emitted shape identity while changing (sigma_seed_ud,eta_ud,sigma_u,sigma_d), the affine sector means, and the ordered log shapes. Therefore the present source theory does not identify a unique quark spread package or running quark mass sextet.",
   "promotion_allowed": false,
-  "proof_status": "missing_theorem",
+  "proof_status": "closed_exact_current_corpus_obstruction",
   "public_promotion_allowed": false,
+  "reopen_requirements": {
+    "acceptable_form": "A theorem-grade source map into (R_{>0})^2, or two independent source-emitted sector normalizations, together with sector attachment and refinement compatibility.",
+    "must_break_free_action": true,
+    "must_replace_template_ancestry": true,
+    "required_independent_scalar_count": 2
+  },
   "required_identity": "P -> f_P -> Sigma_ud_phys -> (sigma_u,sigma_d,sigma_seed_ud,eta_ud)",
   "required_theorem_package": {
     "Q\u03a3-0": "sigma descent is representative independence, not source selection",
-    "Q\u03a3-1": "selected-frame quark masses remain underdetermined without a source sigma selector",
+    "Q\u03a3-1": "the target-free compatible spread fiber is (R_{>0})^2",
     "Q\u03a3-2": "conditional quark masses follow once a no-target source sigma datum is supplied",
     "Q\u03a3-A": "QUARK_SIGMA_SOURCE_QUOTIENT",
     "Q\u03a3-B": "QUARK_SIGMA_SOURCE_SELECTOR",
@@ -58,29 +128,41 @@
     "Q\u03a3-D": "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
     "Q\u03a3-E": "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE"
   },
+  "resolved_github_issues": [
+    377,
+    379,
+    380
+  ],
   "selected_class": "f_P",
   "source_only_sigma_emitted": false,
-  "status": "missing_theorem",
-  "strongest_current_source_candidate": {
-    "S13": 5.407843949508826,
-    "S23": 3.346451912983049,
-    "delta21": 0.3023656602589083,
-    "formula_sigma_d_edge": "S_23 + delta21/(2*(1+rho_ord-x2^2))",
-    "formula_sigma_u_edge": "S_13 + rho_ord*delta21/(1+rho_ord)",
-    "mean_denominator": 2.026389321714338,
-    "required_R_d": -0.1247947151634663,
-    "required_R_eta": 0.060152168743091705,
-    "required_R_seed": -0.06464254642037481,
-    "required_R_u": -0.004490377677282886,
-    "rho_ord": 1.2942849363777058,
-    "sigma_d_edge": 3.4210589139721543,
-    "sigma_u_edge": 5.578418804072826,
-    "x2": -0.5175863354681689
-  },
-  "target_values_for_future_source_theorem": {
-    "eta_ud": 1.139688878603012,
-    "sigma_d": 3.300314452061615,
-    "sigma_seed_ud": 4.440003330664627,
-    "sigma_u": 5.579692209267639
+  "status": "closed_current_corpus_nonidentifiability_obstruction",
+  "template_ancestry": {
+    "conditional_grant_used_for_nonidentifiability_proof": true,
+    "family_transport_kernel": {
+      "artifact": "oph_family_transport_kernel",
+      "is_template": true,
+      "metadata_note": "Replace this template with an OPH-derived transport kernel across refinements. The intended theorem burden is conjugacy-Riesz persistence of the three-projector split.",
+      "proof_status": "conjugacy_riesz_candidate",
+      "status": "template"
+    },
+    "generation_bundle_branch_generator": {
+      "artifact": "oph_intrinsic_generation_bundle_branch_generator",
+      "current_proxy_kind": "compressed_hermitian_descendant_proxy",
+      "is_candidate": true,
+      "proof_status": "candidate_only"
+    },
+    "generation_bundle_splitting_obstruction": {
+      "artifact": "oph_generation_bundle_branch_generator_splitting_obstruction_certificate",
+      "first_failed_implication": "explicit_centered_proxy_shell_and_current_projector_data does_not_imply compression_descendant_commutator_vanishes_or_is_uniformly_quadratic_small_after_central_split",
+      "proof_status": "closed_exact_current_corpus_obstruction_certificate",
+      "target_clause": "compression_descendant_commutator_vanishes_or_is_uniformly_quadratic_small_after_central_split",
+      "verdict": "not_forced_by_current_corpus"
+    },
+    "overlap_edge_transport_cocycle": {
+      "artifact": "oph_overlap_edge_transport_cocycle",
+      "is_candidate": true,
+      "proof_status": "common_refinement_projector_overlap_candidate"
+    },
+    "positive_source_emission_blocked_upstream": true
   }
 }

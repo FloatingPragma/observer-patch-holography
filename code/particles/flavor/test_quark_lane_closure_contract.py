@@ -145,8 +145,8 @@ def test_quark_lane_closure_contract_records_closed_exact_pdg_target_and_open_pu
     assert public_frontier["alternate_upstream_route"]["status"] == "upstream_alternative_route_currently_deprioritized"
     public_yukawa_frontier = payload["public_exact_yukawa_promotion_frontier"]
     assert public_yukawa_frontier["artifact"] == "oph_quark_public_exact_yukawa_promotion_frontier"
-    assert public_yukawa_frontier["target_name"] == "selected_class_conditional_forward_quark_yukawas"
-    assert public_yukawa_frontier["proof_status"] == "blocked_target_derived_sigma_source_missing"
+    assert public_yukawa_frontier["target_name"] == "inconsistent_selected_class_mass_yukawa_support_surfaces"
+    assert public_yukawa_frontier["proof_status"] == "blocked_inconsistent_exact_mass_yukawa_surfaces"
     assert public_yukawa_frontier["public_promotion_allowed"] is False
     assert public_yukawa_frontier["resolved_by_theorem_artifact"] == "oph_quark_public_exact_yukawa_end_to_end_theorem"
     assert public_yukawa_frontier["final_public_theorem_candidate"]["id"] == "selected_bridge_fiber_sigma_descent_not_source_selection"

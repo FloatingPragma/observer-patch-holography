@@ -3,13 +3,22 @@
   "close_reason": "The current compute environment has no working OPH hadron backend. Local surrogate code and Chrome workers cannot execute or promote production hadron predictions.",
   "constructive_next_artifact": "oph_qcd_ward_projected_hadronic_spectral_measure",
   "current_local_scope": "closed_out_of_scope_computationally_blocked",
+  "empirical_companion": {
+    "artifact": "oph_empirical_ward_projected_hadronic_spectral_measure",
+    "builder": "particles/hadron/derive_empirical_ward_projected_spectral_measure.py",
+    "emitted_payload": "particles/runs/hadron/empirical_ward_projected_spectral_measure.json",
+    "role": "Declared-empirical hadronic spectral input for the empirical closure surface. It carries the e+e- R(s) compilation as an explicit positive spectral measure with both endpoint kernels and a requadrature consistency gate, so the empirical Thomson endpoint consumes a spectral object rather than a bare integral. The source-only production export above remains the open target.",
+    "row_class": "oph_plus_empirical_hadron_closure",
+    "satisfies_constructive_next_artifact": false,
+    "schema": "particles/hadron/empirical_ward_projected_spectral_measure.schema.json"
+  },
   "forbidden_promotions": [
     "stable_channel_only_backend_export",
     "surrogate_hadron_artifact",
     "free_quark_screened_ansatz",
     "compare_only_external_Thomson_endpoint"
   ],
-  "generated_utc": "2026-07-11T18:03:29Z",
+  "generated_utc": "2026-07-12T02:35:04Z",
   "github_issues_closed_out_of_scope": [
     153,
     157

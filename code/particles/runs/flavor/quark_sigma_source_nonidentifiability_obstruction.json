@@ -1,0 +1,346 @@
+{
+  "affine_downstream_injectivity": {
+    "A_ud": 0.24674429273886858,
+    "B_ud": 0.8125616987157026,
+    "conclusion": "The free spread pair is not gauge: distinct positive moduli change the affine sector means, and the endpoint spans change the ordered log shapes.",
+    "determinant": -0.2004949616562997,
+    "determinant_formula": "-A_ud * B_ud",
+    "determinant_residual": -5.551115123125783e-17,
+    "injective": true,
+    "linear_map_from_sigma_u_sigma_d_to_log_sector_means": [
+      [
+        0.282908702988417,
+        -0.5296529957272856
+      ],
+      [
+        -0.5296529957272856,
+        0.282908702988417
+      ]
+    ],
+    "mean_denominator": 2.0263893217143383,
+    "model_A_log_shifts": {
+      "log_g_d_over_g_ch": -0.24674429273886858,
+      "log_g_u_over_g_ch": -0.24674429273886858
+    },
+    "model_B_log_shifts": {
+      "log_g_d_over_g_ch": -0.2105798824893202,
+      "log_g_u_over_g_ch": -1.0231415812050229
+    },
+    "models_have_distinct_sector_means": true,
+    "rank": 2,
+    "skew_denominator": 0.6153378885446814
+  },
+  "artifact": "oph_quark_sigma_source_nonidentifiability_obstruction",
+  "claim_tier": "source_only_nonidentifiability_obstruction",
+  "dependency_audit": {
+    "allowed_ancestors": [
+      "oph_family_transport_kernel",
+      "oph_intrinsic_generation_bundle_branch_generator",
+      "oph_generation_bundle_branch_generator_splitting_obstruction_certificate",
+      "oph_overlap_edge_transport_cocycle"
+    ],
+    "allowed_forbidden_disjoint": true,
+    "allowed_forbidden_intersection": [],
+    "direct_input_paths": [
+      "particles/runs/flavor/family_transport_kernel.json",
+      "particles/runs/flavor/generation_bundle_branch_generator.json",
+      "particles/runs/flavor/generation_bundle_branch_generator_splitting_obstruction.json",
+      "particles/runs/flavor/overlap_edge_transport_cocycle.json"
+    ],
+    "emits_target_sigma_values": false,
+    "forbidden_ancestors": [
+      "particle_reference_values",
+      "quark_current_family_exact_readout",
+      "quark_current_family_exact_sigma_target",
+      "quark_current_family_exact_pdg_theorem",
+      "quark_current_family_end_to_end_exact_pdg_derivation_chain",
+      "quark_current_family_transport_frame_strengthened_physical_sigma_lift_theorem",
+      "quark_selected_class_public_exact_evaluator",
+      "quark_public_physical_sigma_datum_descent",
+      "quark_public_exact_yukawa_end_to_end_theorem",
+      "quark_exact_pdg_end_to_end_theorem",
+      "quark_p_driven_shared_evaluator_contract",
+      "family_excitation_evaluator",
+      "quark_edge_statistics_spread_candidate",
+      "quark_spread_map",
+      "quark_sector_mean_split",
+      "target_centered_log_u",
+      "target_centered_log_d",
+      "reference_targets_u",
+      "reference_targets_d",
+      "exact_fit_residuals",
+      "fitted_sigma_values",
+      "PDG_API_quark_rows",
+      "CODATA",
+      "compare_only"
+    ],
+    "loads_contaminated_edge_comparison_artifact": false,
+    "loads_contaminated_family_excitation_artifact": false,
+    "loads_fitted_sigma_values": false,
+    "loads_running_quark_reference_rows": false,
+    "loads_selected_or_current_family_exact_witness": false,
+    "loads_spread_or_sector_mean_artifact": false,
+    "no_target_leak": true
+  },
+  "edge_statistics_do_not_select_moduli": {
+    "coefficient_domain": {
+      "c_d": "c_d > -11.067566039468785",
+      "c_u": "c_u > -17.88511282953965"
+    },
+    "coefficient_to_spread_map": {
+      "inverse_c_d": "(sigma_d - S_23) / delta21",
+      "inverse_c_u": "(sigma_u - S_13) / delta21",
+      "sigma_d": "S_23 + c_d * delta21",
+      "sigma_u": "S_13 + c_u * delta21"
+    },
+    "free_coefficients": [
+      "c_u",
+      "c_d"
+    ],
+    "source_edge_data": {
+      "S_13": 5.407843949508826,
+      "S_23": 3.346451912983049,
+      "delta21": 0.3023656602589082
+    },
+    "statement": "Even after granting the current edge packet, every positive spread pair can be written as sigma_u=S_13+c_u*delta21 and sigma_d=S_23+c_d*delta21. The current corpus emits no equation selecting c_u or c_d.",
+    "two_points_share_source_edge_data_and_differ_in_spreads": true,
+    "unselected_existing_formula_point": {
+      "c_d": 0.24674429273886858,
+      "c_u": 0.5641343478553132,
+      "sigma_d": 3.4210589139721543,
+      "sigma_u": 5.578418804072826,
+      "status": "candidate_formula_reconstructed_from_target_free_fields_not_promoted"
+    },
+    "zero_coefficient_counterpoint": {
+      "c_d": 0.0,
+      "c_u": 0.0,
+      "sigma_d": 3.346451912983049,
+      "sigma_u": 5.407843949508826,
+      "status": "formal_countermodel_not_a_prediction"
+    }
+  },
+  "exact_ray_classification": {
+    "classification_proof": [
+      "Trace zero reconstructs a three-point log profile from its two adjacent gaps.",
+      "The ordered ratio law fixes the ratio of those two gaps separately in each sector.",
+      "Their positive sum, the endpoint span sigma_q, remains free in each sector.",
+      "Therefore the up and down solution sets are independent positive rays and their product is (R_{>0})^2."
+    ],
+    "down_type_ray": {
+      "endpoint_span": 1.0,
+      "expected_gap21_over_gap32": 0.7726273959416414,
+      "gap21_over_gap32": 0.7726273959416414,
+      "gap21_per_unit_spread": 0.43586565214468675,
+      "gap32_per_unit_spread": 0.5641343478553132,
+      "max_abs_identity_residual": 6.938893903907228e-18,
+      "profile": [
+        -0.4786218840482289,
+        -0.042756231903542156,
+        0.5213781159517711
+      ],
+      "trace": 6.938893903907228e-18
+    },
+    "fiber": "(R_{>0})^2",
+    "fiber_dimension": 2,
+    "independent_coordinates": [
+      "sigma_u",
+      "sigma_d"
+    ],
+    "redundant_four_tuple_map": {
+      "eta_ud": "(sigma_u - sigma_d) / 2",
+      "rank": 2,
+      "sigma_seed_ud": "(sigma_u + sigma_d) / 2"
+    },
+    "up_type_ray": {
+      "endpoint_span": 1.0,
+      "expected_gap21_over_gap32": 1.294284936377706,
+      "gap21_over_gap32": 1.294284936377706,
+      "gap21_per_unit_spread": 0.5641343478553132,
+      "gap32_per_unit_spread": 0.43586565214468675,
+      "max_abs_identity_residual": 6.938893903907228e-18,
+      "profile": [
+        -0.5213781159517711,
+        0.042756231903542156,
+        0.4786218840482289
+      ],
+      "trace": -6.938893903907228e-18
+    }
+  },
+  "free_action_certificate": {
+    "action": "(lambda_u,lambda_d).(sigma_u,sigma_d)=(lambda_u*sigma_u,lambda_d*sigma_d)",
+    "action_free": true,
+    "action_transitive_on_positive_spread_fiber": true,
+    "countermodels_have_distinct_requested_tuples": true,
+    "countermodels_share_source_projection": true,
+    "formal_countermodels": [
+      {
+        "E_d_log": [
+          -0.4786218840482289,
+          -0.042756231903542156,
+          0.5213781159517711
+        ],
+        "E_u_log": [
+          -0.5213781159517711,
+          0.042756231903542156,
+          0.4786218840482289
+        ],
+        "name": "unit_modulus_pair",
+        "role": "formal_nonidentifiability_witness_not_a_prediction",
+        "sigma_tuple": {
+          "eta_ud": 0.0,
+          "sigma_d": 1.0,
+          "sigma_seed_ud": 1.0,
+          "sigma_u": 1.0
+        },
+        "source_projection_token": "same_target_free_source_packet",
+        "structural_identity_residuals": {
+          "down_gap_ratio_minus_reciprocal_rho": 0.0,
+          "endpoint_span_d_minus_sigma_d": 0.0,
+          "endpoint_span_u_minus_sigma_u": 0.0,
+          "trace_E_d": 6.938893903907228e-18,
+          "trace_E_u": -6.938893903907228e-18,
+          "up_gap_ratio_minus_rho": 0.0
+        }
+      },
+      {
+        "E_d_log": [
+          -1.4358656521446869,
+          -0.12826869571062646,
+          1.5641343478553131
+        ],
+        "E_u_log": [
+          -1.0427562319035422,
+          0.08551246380708431,
+          0.9572437680964578
+        ],
+        "name": "independently_rescaled_pair",
+        "role": "formal_nonidentifiability_witness_not_a_prediction",
+        "sigma_tuple": {
+          "eta_ud": -0.5,
+          "sigma_d": 3.0,
+          "sigma_seed_ud": 2.5,
+          "sigma_u": 2.0
+        },
+        "source_projection_token": "same_target_free_source_packet",
+        "structural_identity_residuals": {
+          "down_gap_ratio_minus_reciprocal_rho": 1.1102230246251565e-16,
+          "endpoint_span_d_minus_sigma_d": 0.0,
+          "endpoint_span_u_minus_sigma_u": 0.0,
+          "trace_E_d": -1.942890293094024e-16,
+          "trace_E_u": -1.3877787807814457e-17,
+          "up_gap_ratio_minus_rho": 0.0
+        }
+      }
+    ],
+    "group": "(R_{>0})^2",
+    "max_abs_structural_identity_residual": 1.942890293094024e-16,
+    "requested_tuple_not_invariant": true,
+    "source_projection_fixed": true
+  },
+  "generated_utc": "2026-07-12T02:29:36Z",
+  "github_issues": [
+    377,
+    379,
+    380
+  ],
+  "issue_377_acceptance_met_as_obstruction": true,
+  "issue_379_acceptance_met_as_obstruction": true,
+  "issue_380_acceptance_met_as_obstruction": true,
+  "issue_composition": {
+    "issue_377_all_quark": {
+      "closure": "closed_as_current_corpus_nonidentifiability_obstruction",
+      "composition": "issue_379_up_type x issue_380_down_type",
+      "remaining_fiber": "(R_{>0})^2"
+    },
+    "issue_379_up_type": {
+      "closure": "closed_as_current_corpus_nonidentifiability_obstruction",
+      "direct_top_codomain_kept_separate": true,
+      "free_coordinate": "sigma_u",
+      "remaining_fiber": "R_{>0}"
+    },
+    "issue_380_down_type": {
+      "closure": "closed_as_current_corpus_nonidentifiability_obstruction",
+      "elementary_running_quark_vs_hadron_qcd_distinction_preserved": true,
+      "free_coordinate": "sigma_d",
+      "remaining_fiber": "R_{>0}"
+    }
+  },
+  "minimal_future_extension": {
+    "acceptable_form": "A theorem-grade source map into (R_{>0})^2, or two independent source-emitted sector normalizations, together with sector attachment and refinement compatibility.",
+    "must_break_free_action": true,
+    "must_replace_template_ancestry": true,
+    "required_independent_scalar_count": 2
+  },
+  "notes": [
+    "The unit and independently rescaled pairs are formal model witnesses only; neither is a physical sigma proposal.",
+    "This certificate does not prove that no future OPH extension can emit the spread pair.",
+    "It proves that the present target-free corpus, even after granting its strongest candidate source packet, does not identify it."
+  ],
+  "numeric_quark_rows_allowed": false,
+  "ordered_source_geometry": {
+    "delta21": 0.3023656602589082,
+    "delta32": 0.9511878042862789,
+    "ordered_eigenvalues": [
+      -0.5186397082680317,
+      -0.21627404800912356,
+      0.7349137562771554
+    ],
+    "rho_ord": 1.294284936377706,
+    "spectral_span": 1.2535534645451871,
+    "v_d": [
+      -0.4786218840482289,
+      -0.042756231903542156,
+      0.5213781159517711
+    ],
+    "v_u": [
+      -0.5213781159517711,
+      0.042756231903542156,
+      0.4786218840482289
+    ],
+    "x2": -0.517586335468169
+  },
+  "proof_status": "closed_exact_current_corpus_obstruction",
+  "public_prediction_policy": {
+    "forward_yukawa_numeric_promotion": "withheld",
+    "reason": "source spread fiber has two unselected positive moduli",
+    "running_quark_numeric_rows": "withheld"
+  },
+  "public_promotion_allowed": false,
+  "scope": {
+    "conclusion_kind": "nonidentifiability_not_absolute_impossibility_in_future_extensions",
+    "premise": "Target-free current-corpus quark source signature, granting the current template-derived ordered branch-generator and edge packets for the sake of a stronger obstruction.",
+    "stronger_than_upstream_status_boundary": true
+  },
+  "source_only_sigma_emitted": false,
+  "template_ancestry": {
+    "conditional_grant_used_for_nonidentifiability_proof": true,
+    "family_transport_kernel": {
+      "artifact": "oph_family_transport_kernel",
+      "is_template": true,
+      "metadata_note": "Replace this template with an OPH-derived transport kernel across refinements. The intended theorem burden is conjugacy-Riesz persistence of the three-projector split.",
+      "proof_status": "conjugacy_riesz_candidate",
+      "status": "template"
+    },
+    "generation_bundle_branch_generator": {
+      "artifact": "oph_intrinsic_generation_bundle_branch_generator",
+      "current_proxy_kind": "compressed_hermitian_descendant_proxy",
+      "is_candidate": true,
+      "proof_status": "candidate_only"
+    },
+    "generation_bundle_splitting_obstruction": {
+      "artifact": "oph_generation_bundle_branch_generator_splitting_obstruction_certificate",
+      "first_failed_implication": "explicit_centered_proxy_shell_and_current_projector_data does_not_imply compression_descendant_commutator_vanishes_or_is_uniformly_quadratic_small_after_central_split",
+      "proof_status": "closed_exact_current_corpus_obstruction_certificate",
+      "target_clause": "compression_descendant_commutator_vanishes_or_is_uniformly_quadratic_small_after_central_split",
+      "verdict": "not_forced_by_current_corpus"
+    },
+    "overlap_edge_transport_cocycle": {
+      "artifact": "oph_overlap_edge_transport_cocycle",
+      "is_candidate": true,
+      "proof_status": "common_refinement_projector_overlap_candidate"
+    },
+    "positive_source_emission_blocked_upstream": true
+  },
+  "theorem_grade_obstruction": true,
+  "theorem_statement": "After all target-derived and compare-only ancestors are removed, the strongest current quark source packet fixes the trace-zero ordered profile rays v_u and v_d but not their independent positive moduli. The compatible spread fiber is exactly (R_{>0})^2, with E_u=sigma_u*v_u and E_d=sigma_d*v_d. Independent positive rescaling fixes every source datum and every emitted shape identity while changing (sigma_seed_ud,eta_ud,sigma_u,sigma_d), the affine sector means, and the ordered log shapes. Therefore the present source theory does not identify a unique quark spread package or running quark mass sextet."
+}

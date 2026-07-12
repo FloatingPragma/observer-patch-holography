@@ -30,20 +30,28 @@ def build_artifact(chain: dict) -> dict:
         "target_name": chain["target_name"],
         "theorem_scope": chain["theorem_scope"],
         "public_promotion_allowed": False,
+        "target_anchored": chain.get("target_anchored", True),
+        "single_running_quark_sextet_claim_allowed": chain.get(
+            "single_running_quark_sextet_claim_allowed", False
+        ),
+        "physical_dimensionless_yukawa_claim_allowed": chain.get(
+            "physical_dimensionless_yukawa_claim_allowed", False
+        ),
+        "comparison_coordinate_partition": chain.get("comparison_coordinate_partition"),
         "supporting_chain_artifact": chain["artifact"],
         "theorem_statement": (
-            "On the explicit current-family/common-refinement transport-frame chain internalized on the code surface, "
-            "the OPH bridge theorem, strengthened transport-frame physical sigma lift, affine absolute readout "
-            "collapse, ordered three-point readout, and exact forward-Yukawa emission jointly derive the exact "
-            "current-family PDG running quark masses and explicit Yukawa matrices."
+            "On the explicit current-family/common-refinement transport-frame audit chain, the target-attached sigma "
+            "readout reconstructs the chosen mixed-convention quark comparison packet and its dimensionful mass "
+            "textures. This wrapper does not turn that target packet into a source-only prediction, a common-scale "
+            "running sextet, or physical dimensionless Yukawa matrices."
         ),
         "minimal_exact_blocker_set": chain["minimal_exact_blocker_set"],
         "exact_running_values_gev": chain["exact_running_values_gev"],
         "lemma_chain": chain["lemma_chain"],
         "strengthening_above_target": chain["strengthening_above_target"],
         "notes": [
-            "This is the single theorem wrapper above the explicit exact-PDG derivation chain artifact.",
-            "It records the completed exact chain on the declared surface in one place.",
+            "This is the single audit wrapper above the explicit target-anchored derivation chain artifact.",
+            "The top coordinate remains separate from the five running-mass comparison coordinates.",
         ],
     }
 

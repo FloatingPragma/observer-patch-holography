@@ -30,6 +30,18 @@ def test_final_particle_pipeline_orders_contracts_before_predictions() -> None:
     assert ids.index("pixel_screen_resonance_summary") < ids.index("pipeline_closure_status_bootstrap")
     assert ids.index("pipeline_closure_status_finalize") < ids.index("final_end_to_end_predictions")
     assert ids.index("final_end_to_end_predictions") < ids.index("derivation_chain_closure_matrix")
+    assert ids.index("charged_end_to_end_nonclosure") < ids.index("charged_trace_lift_theorem")
+    assert ids.index("charged_trace_lift_theorem") < ids.index("derivation_gap_ledger")
+    assert ids.index("quark_sigma_source_nonidentifiability_obstruction") < ids.index(
+        "quark_sigma_source_boundary"
+    )
+    assert ids.index("quark_running_mass_scheme_convention_obstruction") < ids.index(
+        "quark_public_mass_texture_yukawa_boundary"
+    )
+    assert ids.index("quark_exact_target_audit_wrapper") < ids.index(
+        "quark_public_mass_texture_yukawa_boundary"
+    )
+    assert ids.index("quark_lane_closure_contract") < ids.index("derivation_gap_ledger")
     assert ids[-1] == "mass_derivation_svg"
     scripts = {step.script for step in steps}
     assert "P_derivation/screening_invariant_no_go.py" in scripts
@@ -37,7 +49,10 @@ def test_final_particle_pipeline_orders_contracts_before_predictions() -> None:
     assert "P_derivation/measured_endpoint_calibration.py" in scripts
     assert "particles/hadron/derive_ward_projected_spectral_measure_contract.py" in scripts
     assert "particles/flavor/derive_quark_class_uniform_public_frame_descent_obstruction.py" in scripts
+    assert "particles/flavor/derive_quark_sigma_source_nonidentifiability_obstruction.py" in scripts
+    assert "particles/flavor/derive_quark_running_mass_scheme_convention_obstruction.py" in scripts
     assert "particles/leptons/derive_charged_end_to_end_impossibility_theorem.py" in scripts
+    assert "particles/leptons/derive_charged_trace_lift.py" in scripts
     assert "particles/hierarchy/verify_pixel_screen_resonance_summary.py" in scripts
     assert "particles/scripts/build_derivation_chain_closure_matrix.py" in scripts
     pixel_screen = steps[ids.index("pixel_screen_resonance_summary")]

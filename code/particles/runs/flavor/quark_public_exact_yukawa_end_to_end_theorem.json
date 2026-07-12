@@ -1,42 +1,96 @@
 {
   "artifact": "oph_quark_public_exact_yukawa_end_to_end_theorem",
-  "claim_tier": "selected_class_conditional_on_source_sigma",
+  "claim_tier": "inconsistent_exact_support_surfaces",
   "descended_physical_sigma_datum": {
     "eta_ud": 1.139688878603012,
     "sigma_d": 3.300314452061615,
     "sigma_seed_ud": 4.440003330664627,
     "sigma_u": 5.579692209267639
   },
-  "display_allowed_as_selected_class_exact_witness": true,
+  "display_allowed_as_selected_class_exact_witness": false,
   "downstream_algebra_closed": true,
-  "generated_utc": "2026-07-11T18:03:27Z",
+  "generated_utc": "2026-07-12T02:31:12Z",
   "lemma_chain": [
     "oph_quark_public_physical_sigma_datum_descent",
     "oph_quark_absolute_readout_algebraic_collapse",
     "oph_quark_exact_pdg_end_to_end_theorem",
     "oph_quark_exact_yukawa_end_to_end_theorem"
   ],
+  "mass_yukawa_consistency": {
+    "absolute_tolerance_gev": 1e-08,
+    "comparisons": {
+      "b": {
+        "absolute_residual_gev": 0.003000000000007219,
+        "consistent_within_tolerance": false,
+        "declared_mass_gev": 4.182999999999994,
+        "forward_yukawa_singular_value": 4.186000000000001,
+        "relative_residual": 0.0007166746297198324
+      },
+      "c": {
+        "absolute_residual_gev": 9.999999736698406e-05,
+        "consistent_within_tolerance": false,
+        "declared_mass_gev": 1.2729999999999992,
+        "forward_yukawa_singular_value": 1.2729000000026323,
+        "relative_residual": 7.85545933754785e-05
+      },
+      "d": {
+        "absolute_residual_gev": 3.5360776806658833e-13,
+        "consistent_within_tolerance": true,
+        "declared_mass_gev": 0.004699999999999999,
+        "forward_yukawa_singular_value": 0.0046999999996463915,
+        "relative_residual": 7.523569533331667e-11
+      },
+      "s": {
+        "absolute_residual_gev": 0.0006000000000149913,
+        "consistent_within_tolerance": false,
+        "declared_mass_gev": 0.09349999999999999,
+        "forward_yukawa_singular_value": 0.092899999999985,
+        "relative_residual": 0.006417112299625577
+      },
+      "t": {
+        "absolute_residual_gev": 0.25235532883147016,
+        "consistent_within_tolerance": false,
+        "declared_mass_gev": 172.35235532883115,
+        "forward_yukawa_singular_value": 172.09999999999968,
+        "relative_residual": 0.0014641826527406678
+      },
+      "u": {
+        "absolute_residual_gev": 2.720956658770757e-10,
+        "consistent_within_tolerance": true,
+        "declared_mass_gev": 0.0021600000000000005,
+        "forward_yukawa_singular_value": 0.0021600002720956663,
+        "relative_residual": 1.2597019981533808e-07
+      }
+    },
+    "consistent": false,
+    "malformed_inputs": [],
+    "relative_tolerance": 1e-06,
+    "single_exact_sextet_matrix_pair_claim_allowed": false,
+    "status": "mismatched_mass_sextet_and_forward_yukawa_singular_values"
+  },
   "minimal_exact_blocker_set": [
     "QUARK_SIGMA_SOURCE_QUOTIENT",
     "QUARK_SIGMA_SOURCE_SELECTOR",
     "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
     "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
-    "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE"
+    "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE",
+    "QUARK_EXACT_MASS_YUKAWA_SURFACE_CONSISTENCY"
   ],
   "non_circularity_status": {
+    "exact_mass_yukawa_pair_consistent": false,
     "missing_source_object": "quark_sigma_source_datum_no_target_leak_required",
     "promotion_allowed": false,
     "public_sigma_promotion_allowed": false,
     "public_sigma_proof_status": "blocked_target_derived_sigma_datum_descent",
     "source_sigma_selector_closed": false,
-    "strict_audit_label": "selected_class_conditional_on_source_sigma",
+    "strict_audit_label": "inconsistent_exact_support_surfaces",
     "target_derived_sigma_datum_used": true
   },
   "notes": [
-    "This artifact displays the selected-class exact witness but is not promotable under the strict non-circularity audit because the public sigma datum descends from an exact target surface.",
-    "The exact matrices Y_u and Y_d are the same numerical matrices already emitted on the closed local chain."
+    "The mass and matrix artifacts are retained for separate audit only; they may not be described as one exact sextet/Yukawa witness while their spectra disagree.",
+    "The matrices Y_u and Y_d are the numerical matrices emitted on the local chain; the consistency block records whether their singular values match the separately declared sextet."
   ],
-  "proof_status": "blocked_target_derived_sigma_source_missing",
+  "proof_status": "blocked_inconsistent_exact_mass_yukawa_surfaces",
   "public_exact_outputs": {
     "exact_running_values_gev": {
       "b": 4.182999999999994,
@@ -170,7 +224,9 @@
         1.2729000000026323,
         172.09999999999968
       ]
-    }
+    },
+    "pair_status": "mismatched_mass_sextet_and_forward_yukawa_singular_values",
+    "single_exact_pair_claim_allowed": false
   },
   "public_promotion_allowed": false,
   "selected_public_physical_frame_class": {
@@ -236,7 +292,7 @@
     "local_exact_yukawa_wrapper": "oph_quark_exact_yukawa_end_to_end_theorem",
     "public_sigma_datum_descent": "oph_quark_public_physical_sigma_datum_descent"
   },
-  "target_name": "selected_class_conditional_forward_quark_yukawas",
+  "target_name": "inconsistent_selected_class_mass_yukawa_support_surfaces",
   "theorem_scope": "selected_public_physical_quark_frame_class_only",
-  "theorem_statement": "Conditional on a no-target source theorem emitting the physical sigma datum on the public quark frame class selected by P, the selected bridge-fiber descent makes that datum representative-independent, the affine mean law emits the absolute sector scales algebraically, the ordered three-point readout yields the running quark sextet, and the exact forward construction emits explicit Yukawa matrices Y_u and Y_d on that selected class. The current artifact displays the selected-class exact witness but does not promote it because the sigma datum is inherited from the current-family exact target surface."
+  "theorem_statement": "The stored declared mass sextet and forward Yukawa matrices do not form one exact output pair: the singular values of Y_u and Y_d disagree with one or more declared running masses. They remain separate audit surfaces until rebuilt from one common input surface and certified by the mass-Yukawa consistency check. Independently, public source-only promotion still requires a no-target source sigma theorem."
 }

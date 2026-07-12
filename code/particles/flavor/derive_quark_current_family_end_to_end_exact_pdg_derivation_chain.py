@@ -21,6 +21,9 @@ PDG_COMPLETION_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_current_fa
 EXACT_FORWARD_YUKAWAS_JSON = (
     ROOT / "particles" / "runs" / "flavor" / "quark_current_family_transport_frame_exact_forward_yukawas.json"
 )
+SCHEME_OBSTRUCTION_JSON = (
+    ROOT / "particles" / "runs" / "flavor" / "quark_running_mass_scheme_convention_obstruction.json"
+)
 DEFAULT_OUT = ROOT / "particles" / "runs" / "flavor" / "quark_current_family_end_to_end_exact_pdg_derivation_chain.json"
 
 
@@ -38,21 +41,33 @@ def build_artifact(
     absolute_theorem: dict,
     pdg_completion: dict,
     exact_forward_yukawas: dict,
+    scheme_obstruction: dict | None = None,
 ) -> dict:
     masses = pdg_completion["exact_running_values_gev"]
+    scheme_obstruction = scheme_obstruction or {}
+    matrix_audit = dict(scheme_obstruction.get("stored_matrix_dimensional_audit") or {})
     return {
         "artifact": "oph_quark_current_family_end_to_end_exact_pdg_derivation_chain",
         "generated_utc": _timestamp(),
         "proof_status": "closed_current_family_end_to_end_exact_pdg_chain",
-        "target_name": "exact_running_quark_sextet_on_declared_current_family_transport_frame",
+        "target_name": "exact_mixed_convention_quark_target_packet_on_declared_current_family_transport_frame",
         "theorem_scope": "current_family_common_refinement_transport_frame_only",
         "public_promotion_allowed": False,
+        "target_anchored": True,
+        "single_running_quark_sextet_claim_allowed": False,
+        "physical_dimensionless_yukawa_claim_allowed": False,
+        "comparison_coordinate_partition": (
+            scheme_obstruction.get("row_partition") or {
+                "light_running_coordinates": ["u", "d", "s"],
+                "heavy_running_coordinates": ["c", "b"],
+                "separate_extraction_coordinates": ["t"],
+            }
+        ),
         "theorem_statement": (
-            "On the declared current-family/common-refinement transport-frame surface, the OPH bridge theorem emits "
-            "the D12 mass scalar package, the strengthened transport-frame physical sigma lift emits a sector-attached "
-            "Sigma_ud^phys class together with the theorem-grade physical sigma datum, the affine mean law forces the "
-            "absolute sector scales, and the ordered three-point readout reconstructs the exact current-family PDG "
-            "running quark sextet."
+            "On the declared current-family/common-refinement transport-frame audit surface, the target-attached sigma "
+            "datum and ordered three-point readout reconstruct the chosen six-row comparison packet. That packet mixes "
+            "light MSbar coordinates at 2 GeV, charm and bottom MSbar self-scale coordinates, and a separate top pole "
+            "extraction coordinate. It is therefore neither one running sextet nor a source-only prediction."
         ),
         "minimal_exact_blocker_set": [],
         "lemma_chain": [
@@ -92,7 +107,7 @@ def build_artifact(
             {
                 "step": 5,
                 "artifact": exact_forward_yukawas["artifact"],
-                "lemma": "exact_forward_yukawa_emission",
+                "lemma": "dimensionful_mass_texture_emission",
                 "result": {
                     "scope": exact_forward_yukawas["scope"],
                     "forward_certified": exact_forward_yukawas["forward_certified"],
@@ -108,6 +123,10 @@ def build_artifact(
             "certification_status": exact_forward_yukawas["certification_status"],
             "singular_values_u": exact_forward_yukawas["singular_values_u"],
             "singular_values_d": exact_forward_yukawas["singular_values_d"],
+            "matrix_kind": matrix_audit.get(
+                "current_classification", "mixed_scheme_GeV_mass_texture_matrices"
+            ),
+            "certified_physical_yukawa_matrices": False,
         },
         "strengthening_above_target": {
             "status": "separate_question",
@@ -119,9 +138,9 @@ def build_artifact(
             ),
         },
         "notes": [
-            "This is the full exact derivation chain on the declared current-family/common-refinement surface.",
-            "The transport-frame lift and exact sigma target are explicit theorem artifacts on that surface rather than placeholder gaps.",
-            "Public target-free promotion of this chain is a separate question and is not claimed here.",
+            "This is an exact target-anchored audit chain on the declared current-family/common-refinement surface.",
+            "The dimensionful matrices are mass textures until a common-scale dimensionless normalization is supplied.",
+            "Source-only promotion also fails the independent two-modulus spread non-identifiability theorem.",
         ],
     }
 
@@ -133,6 +152,7 @@ def main() -> int:
     parser.add_argument("--absolute-theorem", default=str(ABSOLUTE_THEOREM_JSON))
     parser.add_argument("--pdg-completion", default=str(PDG_COMPLETION_JSON))
     parser.add_argument("--exact-forward-yukawas", default=str(EXACT_FORWARD_YUKAWAS_JSON))
+    parser.add_argument("--scheme-obstruction", default=str(SCHEME_OBSTRUCTION_JSON))
     parser.add_argument("--output", default=str(DEFAULT_OUT))
     args = parser.parse_args()
 
@@ -142,6 +162,7 @@ def main() -> int:
         _load_json(Path(args.absolute_theorem)),
         _load_json(Path(args.pdg_completion)),
         _load_json(Path(args.exact_forward_yukawas)),
+        _load_json(Path(args.scheme_obstruction)),
     )
     out_path = Path(args.output)
     out_path.parent.mkdir(parents=True, exist_ok=True)

@@ -1,6 +1,6 @@
 {
  "artifact": "oph_empirical_thomson_endpoint",
- "generated_utc": "2026-07-12T01:13:30Z",
+ "generated_utc": "2026-07-12T02:35:03Z",
  "row_class": "oph_plus_empirical_hadron_closure",
  "guards": {
   "source_only": false,
@@ -17,7 +17,31 @@
   "delta_alpha_had_5_MZ_uncertainty": "0.0007524955365232754",
   "source_anchor_inv_alpha_MZ": "128.30796547328624820996110874175671618724547618036535646005342169635117784168285644",
   "lepton_transport_delta_inv_alpha": "4.3093978664522040271317438975344894018487156605576773194711528089665680313257906466129",
-  "insertion_convention": "A_Th = A_L / (1 - delta), the self-consistent form; the solved additive insertion A_Th = A_L + delta A_Th coincides with it"
+  "insertion_convention": "A_Th = A_L / (1 - delta), the self-consistent form; the solved additive insertion A_Th = A_L + delta A_Th coincides with it",
+  "hadronic_spectral_measure_export": {
+   "path": "code/particles/runs/hadron/empirical_ward_projected_spectral_measure.json",
+   "artifact": "oph_empirical_ward_projected_hadronic_spectral_measure",
+   "profile_id": "empirical_pdg2025_piecewise_v1_ward_projected_export",
+   "representation": "primitive_spectral_measure",
+   "positivity_status": "verified_nonnegative_on_exported_grids_and_atoms",
+   "requadrature_abs_difference": "1.5244220332930047e-07",
+   "requadrature_tolerance": "2e-05"
+  }
+ },
+ "transport_split": {
+  "definition": "Delta_Th split required by the Ward-projected endpoint lane: lepton vacuum-polarization transport, hadronic spectral object, matching/scheme remainder, and certified bounds, on the empirical closure surface",
+  "a0_anchor_inv_alpha": "128.30796547328624820996110874175671618724547618036535646005342169635117784168285644",
+  "lepton_transport_delta_inv_alpha": "4.3093978664522040271317438975344894018487156605576773194711528089665680313257906466129",
+  "hadronic_spectral_object": {
+   "artifact": "oph_empirical_ward_projected_hadronic_spectral_measure",
+   "path": "code/particles/runs/hadron/empirical_ward_projected_spectral_measure.json",
+   "delta_alpha_had_5_MZ_timelike": "0.026759272457494498",
+   "delta_alpha_had_5_MZ_spacelike": "0.02671430560519571",
+   "inverse_alpha_packet_spacelike": "3.660821560927726",
+   "status": "declared_empirical_not_source_emitted"
+  },
+  "matching_scheme_remainder": "carried by the same-scheme anchor gap in the compare_only block; structure resolved in runtime/anchor_scheme_bridge_current.json",
+  "certified_bounds": "payload uncertainty propagated through the self-consistent insertion; see endpoint interval"
  },
  "endpoint": {
   "alpha_inv_central": "136.263658943120107131971401086095348479648594755631906853516110472506072511033977289786109",
@@ -49,7 +73,14 @@
    "0.6485541111451630222160359249087944109058081590769662204754254946822541269913529133871",
    "0.8547920665925625045275246165087944109058081590769662204754254946822541269913529133871"
   ],
-  "anchor_gap_reading": "the certified shift the source-side electroweak scheme bridge must emit at the anchor a0(P) for the empirical-closure endpoint to meet the measured value"
+  "anchor_gap_reading": "the certified shift the source-side electroweak scheme bridge must emit at the anchor a0(P) for the empirical-closure endpoint to meet the measured value",
+  "anchor_bridge": {
+   "reference_artifact": "P_derivation/runtime/anchor_scheme_bridge_current.json",
+   "route": "route_A_empirical_class_supplied_by_this_lane",
+   "source_only_branch": "reduces to the OPH hadronic spectral measure, blocked on the hadron backend (#425); #545 open as that reduction",
+   "reference_status": "structure_resolved_reduces_to_425_source_bridge_open",
+   "gap_consistency": "the standard reference deficit 0.631 sits at the lower edge of the certified interval, confirming the gap is the hadronic-plus-higher-order running deficit rather than an anchor error"
+  }
  },
  "verdict": {
   "status": "empirical_closure_endpoint_certified_gap_localized_at_anchor",

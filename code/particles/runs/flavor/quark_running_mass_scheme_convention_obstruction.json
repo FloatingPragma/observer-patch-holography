@@ -1,0 +1,202 @@
+{
+  "artifact": "oph_quark_running_mass_scheme_convention_obstruction",
+  "closure_effect": {
+    "exact_forward_physical_yukawa_claim_unblocked": false,
+    "issues_381_and_382_closable_as_obstruction": true,
+    "numeric_quark_prediction_rows_unblocked": false,
+    "public_numeric_quark_rows_allowed": false,
+    "source_only_running_mass_coordinate_emitted": false,
+    "why": "The sharper obstruction satisfies each issue's alternative closure criterion but does not choose a scheme representative. Numeric rows require a positive source RG trajectory or invariant plus a visibly declared conversion chart and certified transport. The stored GeV mass textures additionally require a common-scale dimensionless Yukawa conversion."
+  },
+  "closure_kind": "theorem_grade_sharper_obstruction",
+  "declared_comparison_conventions": {
+    "heavy_running_quarks": {
+      "particles": [
+        "c",
+        "b"
+      ],
+      "provenance": "declared_external_comparison_convention",
+      "renormalization_scheme": "MSbar",
+      "scale": "mu = m_q(mu) (self-scale convention)",
+      "source_selected": false
+    },
+    "light_quarks": {
+      "particles": [
+        "u",
+        "d",
+        "s"
+      ],
+      "provenance": "declared_external_comparison_convention",
+      "renormalization_scheme": "MSbar",
+      "scale": "mu = 2 GeV",
+      "source_selected": false
+    },
+    "mass_reference_values_consumed": false,
+    "status": "external_scheme_metadata_not_OPH_source_output",
+    "top": {
+      "included_in_running_mass_sextet": false,
+      "note": "The current top coordinate is an extraction-codomain question and must not be folded into the u,d,s,c,b running-coordinate package.",
+      "particle": "t",
+      "related_issue": 383,
+      "renormalization_scheme": null,
+      "required_theorem": "source_side_top_extraction_response_and_scheme_conversion",
+      "row_kind": "separate_extraction_codomain",
+      "scale": null
+    }
+  },
+  "forbidden_promotions": [
+    "call_a_declared_MSbar_coordinate_source_selected",
+    "treat_a_finite_order_matching_scale_as_an_OPH_observable",
+    "publish_target_anchored_quark_values_as_source_only_predictions",
+    "fold_the_top_extraction_coordinate_into_a_running_mass_sextet",
+    "treat_obstruction_mode_issue_closure_as_numeric_row_promotion",
+    "call_a_mixed_scheme_GeV_mass_texture_a_physical_Yukawa_matrix"
+  ],
+  "formal_quotient_obstruction": {
+    "factorization_result": "A map from the quotient X(P)/G_fin to a particular running coordinate does not exist without choosing a section of the finite-renormalization orbit.",
+    "missing_section": "oph_quark_operational_renormalization_scheme_and_scale_selector",
+    "reparametrization_group": "G_fin: finite counterterms, RG-scale changes, and threshold conventions",
+    "requested_coordinate": "m_q^S(mu)",
+    "source_invariance": "X(P) and fully transformed physical amplitudes are constant on G_fin orbits",
+    "source_object": "X(P): source-emitted physical quark data or physical amplitudes",
+    "target_action": "nontrivial"
+  },
+  "generated_utc": "2026-07-12T02:31:14Z",
+  "github_issues": [
+    381,
+    382
+  ],
+  "heavy_threshold_obstruction": {
+    "all_orders_statement": "A compatible change of matching scale and decoupling coefficients leaves physical observables invariant.",
+    "finite_order_statement": "At finite order the residual matching-scale dependence is a truncation uncertainty, not an OPH prediction of a preferred threshold coordinate.",
+    "free_matching_scale": "mu_h -> kappa_h*mu_h",
+    "matching_relations": [
+      "a_(n_f-1)(mu_h) = zeta_g^2(mu_h)*a_(n_f)(mu_h)",
+      "m_q^(n_f-1)(mu_h) = zeta_m(mu_h)*m_q^(n_f)(mu_h)"
+    ],
+    "missing_source_objects": [
+      "oph_quark_threshold_decoupling_trajectory",
+      "oph_quark_matching_interval_composition_certificate",
+      "oph_quark_operational_renormalization_scheme_and_scale_selector"
+    ]
+  },
+  "issue_acceptance": {
+    "381": {
+      "acceptance_met_as_sharper_obstruction": true,
+      "hidden_target_ancestry_excluded": true,
+      "kept_separate_from_hadron_mass_and_hadronic_backend": true,
+      "positive_source_only_scheme_map_emitted": false,
+      "target_comparison_convention_and_scale_explicit": true,
+      "theorem_grade_light_quark_readout_scheme_artifact_or_sharper_obstruction": true
+    },
+    "382": {
+      "acceptance_met_as_sharper_obstruction": true,
+      "direct_top_extraction_codomain_kept_separate": true,
+      "hidden_target_and_fitted_threshold_ancestry_excluded": true,
+      "positive_source_only_scheme_transport_emitted": false,
+      "theorem_grade_heavy_quark_scheme_transport_artifact_or_sharper_obstruction": true,
+      "threshold_matching_and_scheme_nonidentifiability_formalized": true
+    }
+  },
+  "notes": [
+    "This is a structural convention obstruction, not a numerical fit and not a target comparison.",
+    "A source theory should emit an RG-covariant trajectory, an invariant, or an operational observable.",
+    "MSbar and the quoted scales remain external coordinate metadata unless an additional section theorem is emitted."
+  ],
+  "proof_status": "closed_structural_finite_renormalization_nonidentifiability_obstruction",
+  "reference_data_policy": {
+    "PDG_or_API_quark_rows_consumed": false,
+    "current_family_exact_targets_consumed": false,
+    "fitted_parameters_consumed": false,
+    "forbidden_ancestors": [
+      "PDG/API quark mass rows",
+      "current-family exact targets",
+      "selected-class exact target witnesses",
+      "fitted sigma values",
+      "fitted threshold placements"
+    ],
+    "input_artifacts": [],
+    "no_target_leak_by_construction": true,
+    "reference_or_target_mass_values_consumed": false,
+    "selected_class_exact_target_witnesses_consumed": false
+  },
+  "rg_covariant_source_output": {
+    "allowed_invariant_alternative": "renormalization_group_invariant_mass_or_physical_amplitude",
+    "invariant_formula": "log(M_q) = log(m_q^S(mu)) + integral^a_S(mu) gamma_m^S(x)/beta^S(x) dx, with a declared integration normalization",
+    "preferred_positive_theorem_target": "Emit the RG-covariant quark trajectory (or its finite-renormalization equivalence class) and only then apply an external declared comparison chart.",
+    "required_payload": [
+      "source boundary condition or invariant",
+      "beta-function provenance",
+      "mass anomalous-dimension provenance",
+      "RG-covariant trajectory with an interval certificate",
+      "declared conversion chart used only after source emission"
+    ],
+    "sign_convention": [
+      "d log(m_q)/d log(mu) = -gamma_m(a)",
+      "d a/d log(mu) = beta(a)"
+    ]
+  },
+  "row_partition": {
+    "heavy_running_coordinates": [
+      "c",
+      "b"
+    ],
+    "light_running_coordinates": [
+      "u",
+      "d",
+      "s"
+    ],
+    "separate_extraction_coordinates": [
+      "t"
+    ],
+    "single_running_quark_sextet_claim_allowed": false
+  },
+  "same_source_counterfamily": {
+    "compensating_operator_change": "C_q_epsilon(mu) = C_q(mu)/(1 + epsilon*a(mu)), so C_q_epsilon*m_q_epsilon = C_q*m_q",
+    "coupling_coordinate_change": "a_prime = a + r_1*a^2 + O(a^3)",
+    "explicit_free_family": "m_q_epsilon(mu) = m_q(mu)*(1 + epsilon*a(mu))",
+    "free_parameters": [
+      "epsilon",
+      "r_1",
+      "s_1",
+      "kappa"
+    ],
+    "mass_coordinate_change": "m_q_prime(mu) = m_q(mu)*(1 + s_1*a(mu) + O(a(mu)^2))",
+    "nonidentifiability_result": "Distinct running-mass coordinates represent the same source and the same physical amplitudes. No target-free rule in the current corpus fixes the free orbit parameters.",
+    "scale_counterfamily": "mu_prime = kappa*mu with kappa > 0, followed along the same RG trajectory"
+  },
+  "scope": "elementary_running_quark_mass_readout_scheme_and_threshold_transport",
+  "stored_matrix_dimensional_audit": {
+    "audited_objects": [
+      "oph_quark_current_family_transport_frame_exact_forward_yukawas.Y_u",
+      "oph_quark_current_family_transport_frame_exact_forward_yukawas.Y_d"
+    ],
+    "certified_physical_yukawa_matrices": false,
+    "common_renormalization_scale": null,
+    "comparison_packet_is_mixed": true,
+    "current_classification": "mixed_scheme_GeV_mass_texture_matrices",
+    "dimensionless_normalization_supplied": false,
+    "exact_forward_yukawa_claim_allowed": false,
+    "mixed_coordinate_packet": {
+      "c_b": "MSbar at mu = m_q(mu)",
+      "t": "separate cross-section pole/extraction coordinate",
+      "u_d_s": "MSbar at mu = 2 GeV"
+    },
+    "physical_dimensionless_relation": "y_q(mu_common) = sqrt(2)*m_q^MSbar(mu_common)/v(mu_common)",
+    "promotion_requirements": [
+      "transport every running quark coordinate to one declared common scale",
+      "supply the common scheme and threshold-decoupling map",
+      "convert the separate top extraction coordinate to the common running scheme",
+      "emit the running electroweak vev v(mu_common) in the same scheme",
+      "divide the common-scale mass texture by v(mu_common)/sqrt(2)",
+      "certify dimensionless singular values and no-target provenance"
+    ],
+    "running_higgs_vev_supplied": false,
+    "stored_entry_dimension": "GeV",
+    "stored_singular_value_kind": "quark_mass_coordinates",
+    "threshold_map_supplied": false,
+    "top_pole_to_MSbar_conversion_supplied": false,
+    "verdict": "Matrices whose singular values are GeV-valued entries from mixed comparison charts are mass-texture matrices, not certified physical Yukawa matrices. Unitary flavor rotations do not repair the missing common-scale dimensionless normalization."
+  },
+  "theorem_statement": "Let X(P) denote source-emitted physical quark data and let G_fin be the group of finite renormalizations, RG-scale changes, and compatible threshold reparametrizations. Physical amplitudes and an RG-covariant trajectory factor through the quotient by G_fin, whereas a running coordinate m_q^S(mu) transforms nontrivially under G_fin. Therefore no G_fin-invariant source functional X(P) -> m_q^S(mu) can select a unique MSbar coordinate unless the source corpus supplies an additional scheme/readout section. The present corpus supplies no such section; its MSbar scale choices are declared comparison metadata."
+}

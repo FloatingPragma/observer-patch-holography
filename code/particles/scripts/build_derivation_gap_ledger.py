@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 from datetime import datetime, timezone
+from decimal import Decimal, InvalidOperation
 import json
 from pathlib import Path
 from typing import Any
@@ -28,6 +29,12 @@ HIERARCHY_EW_CAPACITY = HIERARCHY_ROOT / "certificates" / "R_EW_global_capacity_
 HIERARCHY_NATURALITY = HIERARCHY_ROOT / "issue_332_rg_naturality_certificate.json"
 CHARGED_TRACE_LIFT_THEOREM = (
     PARTICLES_ROOT / "runs" / "leptons" / "charged_trace_lift_theorem.json"
+)
+QUARK_SIGMA_OBSTRUCTION = (
+    PARTICLES_ROOT / "runs" / "flavor" / "quark_sigma_source_nonidentifiability_obstruction.json"
+)
+QUARK_SCHEME_OBSTRUCTION = (
+    PARTICLES_ROOT / "runs" / "flavor" / "quark_running_mass_scheme_convention_obstruction.json"
 )
 DEFAULT_JSON_OUT = PARTICLES_ROOT / "runs" / "status" / "particle_derivation_gap_ledger.json"
 DEFAULT_MD_OUT = PARTICLES_ROOT / "DERIVATION_GAP_LEDGER.md"
@@ -138,9 +145,18 @@ def _is_singleton_zero_interval(value: Any) -> bool:
     if not isinstance(value, (list, tuple)) or len(value) != 2:
         return False
     try:
-        return float(value[0]) == 0.0 and float(value[1]) == 0.0
-    except (TypeError, ValueError):
+        lower = Decimal(str(value[0]))
+        upper = Decimal(str(value[1]))
+        return lower.is_finite() and upper.is_finite() and lower == 0 and upper == 0
+    except (InvalidOperation, TypeError, ValueError):
         return False
+
+
+def _artifact_path(path: Path) -> str:
+    try:
+        return str(path.relative_to(ROOT))
+    except ValueError:
+        return str(path)
 
 
 def _charged_trace_lift_gate() -> dict[str, Any]:
@@ -213,12 +229,106 @@ def _charged_trace_lift_gate() -> dict[str, Any]:
         "current_boundary": boundary,
         "next_action": next_action,
         "trace_lift_claim_label": payload.get("claim_label", "artifact_missing_or_invalid"),
-        "trace_lift_artifact": str(CHARGED_TRACE_LIFT_THEOREM.relative_to(ROOT)),
+        "trace_lift_artifact": _artifact_path(CHARGED_TRACE_LIFT_THEOREM),
         "attachment_identity_residual": residual,
         "target_surfaces": [
             "code/particles/leptons/derive_charged_trace_lift.py",
             "code/particles/runs/leptons/charged_trace_lift_theorem.json",
         ],
+    }
+
+
+def _load_artifact(path: Path) -> dict[str, Any]:
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+
+
+def _quark_sigma_obstruction_gate() -> dict[str, Any]:
+    payload = _load_artifact(QUARK_SIGMA_OBSTRUCTION)
+    certified = all(
+        (
+            payload.get("proof_status") == "closed_exact_current_corpus_obstruction",
+            payload.get("theorem_grade_obstruction") is True,
+            payload.get("issue_377_acceptance_met_as_obstruction") is True,
+            payload.get("issue_379_acceptance_met_as_obstruction") is True,
+            payload.get("issue_380_acceptance_met_as_obstruction") is True,
+            (payload.get("dependency_audit") or {}).get("no_target_leak") is True,
+            (payload.get("exact_ray_classification") or {}).get("fiber") == "(R_{>0})^2",
+        )
+    )
+    return {
+        "id": "quark.source-spread-identifiability",
+        "lane": "Quarks",
+        "status": (
+            "closed_current_corpus_two_modulus_nonidentifiability_obstruction"
+            if certified
+            else "open_source_spread_obstruction_artifact_invalid"
+        ),
+        "github_issue": 377,
+        "related_github_issues": [379, 380],
+        "title": "Classify the source-only up/down quark spread fiber",
+        "current_boundary": (
+            "The target-free source equations fix the two ordered profile rays but leave their up/down positive "
+            "spans independent. The compatible fiber is (R_{>0})^2, and its free rescaling action changes the "
+            "affine sector means and mass textures. The edge path begins at a hand-written transport template and "
+            "does not select either modulus."
+            if certified
+            else "The target-free spread-obstruction artifact is absent or fails its no-target certificate."
+        ),
+        "next_action": (
+            "Keep all numeric quark rows suppressed. Reopen only for two independent source normalizations, or an "
+            "equivalent source map into (R_{>0})^2, with sector attachment and refinement compatibility."
+        ),
+        "obstruction_artifact": _artifact_path(QUARK_SIGMA_OBSTRUCTION),
+        "target_surfaces": ["code/particles/flavor", "particle paper quark section"],
+    }
+
+
+def _quark_scheme_obstruction_gate() -> dict[str, Any]:
+    payload = _load_artifact(QUARK_SCHEME_OBSTRUCTION)
+    acceptance = payload.get("issue_acceptance") or {}
+    certified = all(
+        (
+            payload.get("proof_status")
+            == "closed_structural_finite_renormalization_nonidentifiability_obstruction",
+            (acceptance.get("381") or {}).get("acceptance_met_as_sharper_obstruction") is True,
+            (acceptance.get("382") or {}).get("acceptance_met_as_sharper_obstruction") is True,
+            (payload.get("reference_data_policy") or {}).get("no_target_leak_by_construction") is True,
+            (payload.get("stored_matrix_dimensional_audit") or {}).get(
+                "certified_physical_yukawa_matrices"
+            )
+            is False,
+        )
+    )
+    return {
+        "id": "quark.running-scheme-and-yukawa-normalization",
+        "lane": "Quarks",
+        "status": (
+            "closed_structural_scheme_nonidentifiability_obstruction"
+            if certified
+            else "open_scheme_obstruction_artifact_invalid"
+        ),
+        "github_issue": 381,
+        "related_github_issues": [382],
+        "title": "Separate source physics from running-mass and Yukawa coordinate conventions",
+        "current_boundary": (
+            "Finite renormalizations and scale changes preserve physical amplitudes while changing running-mass "
+            "coordinates, so a source theory cannot select an external subtraction convention without a section. "
+            "The stored six-row packet mixes light MSbar coordinates at 2 GeV, charm and bottom self-scale "
+            "coordinates, and a separate top pole extraction coordinate. Its GeV-valued matrices are mass textures, "
+            "not dimensionless physical Yukawa matrices."
+            if certified
+            else "The scheme-obstruction artifact is absent or fails its value-free acceptance checks."
+        ),
+        "next_action": (
+            "Emit an RG-covariant mass trajectory or invariant. Apply a declared comparison chart afterward, and "
+            "require one common scale, threshold transport, top conversion, running v(mu), and y=sqrt(2)m/v before "
+            "using the phrase physical Yukawa matrix."
+        ),
+        "obstruction_artifact": _artifact_path(QUARK_SCHEME_OBSTRUCTION),
+        "target_surfaces": ["code/particles/flavor", "particle paper quark section"],
     }
 
 
@@ -329,20 +439,25 @@ def build_gap_rows() -> list[dict[str, Any]]:
             "target_surfaces": ["code/particles/scripts", "code/particles/runs/status", "WebProjects OPH summaries"],
         },
         _charged_trace_lift_gate(),
+        _quark_sigma_obstruction_gate(),
+        _quark_scheme_obstruction_gate(),
         {
             "id": "quark.selected-class-vs-global-classification",
             "lane": "Quarks",
-            "status": "selected_class_closed_global_classification_no_go",
+            "status": "selected_class_descent_closed_global_classification_no_go",
             "github_issue": 199,
-            "title": "Keep exact quark rows scoped to the selected public frame class",
+            "related_github_issues": [378],
+            "title": "Keep selected-fiber descent distinct from global frame classification",
             "current_boundary": (
-                "The selected-class exact Yukawa theorem is promoted. The stronger class-uniform/global "
-                "classification lane is closed as a corpus-limited no-go because no source-emitted "
-                "ambient public-frame classifier or quotient-intrinsic sigma law exists."
+                "Representative independence is proved on the selected bridge fiber. It neither selects the two "
+                "spread moduli nor certifies physical Yukawa matrices. The stronger class-uniform/global "
+                "classification lane is a corpus-limited no-go because no source-emitted ambient public-frame "
+                "classifier or quotient-intrinsic spread law exists."
             ),
             "next_action": (
-                "Keep every public exact-quark claim explicitly selected-class. Reopen only for a new "
-                "source-emitted global public-frame classifier artifact."
+                "Keep selected-fiber descent scoped to representative independence. Global classification may reopen "
+                "only for a source-emitted ambient public-frame classifier; numeric mass promotion is governed by the "
+                "separate spread and scheme obstructions."
             ),
             "target_surfaces": ["code/particles/flavor", "particle paper quark section"],
         },
@@ -375,8 +490,9 @@ def build_gap_rows() -> list[dict[str, Any]]:
             "github_issue": 155,
             "title": "Keep the strong-CP branch explicit until the physical invariant is emitted",
             "current_boundary": (
-                "The selected-class quark support wrapper conditionally carries the running-quark sextet "
-                "and exact forward Yukawas on the public class f_P, but its sigma datum is still target-derived. "
+                "The selected-class quark audit wrapper carries target-anchored mass textures on the public class "
+                "f_P. The two spread moduli are non-identifiable from the source corpus, and the dimensionful "
+                "mixed-scheme matrices are not certified physical Yukawas. "
                 "The available corpus does not derive theta_QCD, does not emit the physical anomaly-invariant "
                 "bar(theta), and does not prove that the physical strong-CP phase vanishes."
             ),
@@ -572,6 +688,8 @@ def build_bundles() -> list[dict[str, Any]]:
             "status": "closed_current_corpus_source_boundaries_emitted",
             "gap_ids": [
                 "charged.determinant-normalization-transport",
+                "quark.source-spread-identifiability",
+                "quark.running-scheme-and-yukawa-normalization",
                 "quark.selected-class-vs-global-classification",
                 "neutrino.pmns-status-and-absolute-rows",
             ],
@@ -583,8 +701,10 @@ def build_bundles() -> list[dict[str, Any]]:
             "result": (
                 "No promotion. Charged leptons are closed as a corpus-limited no-go by the end-to-end "
                 "impossibility theorem: the same-family witness and conditional algebraic readout remain, "
-                "but no theorem-grade A_ch(P) is emitted. Quarks remain selected-class on f_P with global "
-                "classification closed as a corpus-limited no-go. The weighted-cycle neutrino point is a "
+                "but no theorem-grade A_ch(P) is emitted. The quark source fiber retains two free positive spread "
+                "moduli, its running-coordinate chart is conventional, and its GeV matrices are mass textures. "
+                "Selected-fiber descent and the global-classification no-go do not change those facts. The "
+                "weighted-cycle neutrino point is a "
                 "rejected target-informed candidate; no physical PMNS, ordering, Majorana, or absolute-mass "
                 "row is emitted."
             ),
@@ -600,8 +720,9 @@ def build_bundles() -> list[dict[str, Any]]:
                 "including theta_QCD, bar(theta), and a vanishing theorem on the realized branch?"
             ),
             "result": (
-                "No promotion. The selected-class quark support wrapper conditionally carries the running sextet "
-                "and forward Yukawas on the public class f_P, but the source sigma selector is still missing. "
+                "No promotion. The selected-class quark wrapper carries only target-anchored mixed-scheme mass "
+                "textures. The source spread pair is non-identifiable and the physical dimensionless Yukawa "
+                "normalization is absent. "
                 "The available corpus does not emit the determinant-line phase contribution, the bare theta_QCD "
                 "term, or a theorem forcing the physical strong-CP phase to vanish."
             ),
@@ -650,6 +771,8 @@ def build_bundles() -> list[dict[str, Any]]:
                 "d10.rg-matching-threshold-scheme",
                 "pclosure.certified-codepath-adoption",
                 "charged.determinant-normalization-transport",
+                "quark.source-spread-identifiability",
+                "quark.running-scheme-and-yukawa-normalization",
                 "quark.selected-class-vs-global-classification",
                 "neutrino.pmns-status-and-absolute-rows",
                 "calibration.direct-top-bridge",

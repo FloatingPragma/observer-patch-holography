@@ -24,6 +24,12 @@ CHARGED_TRACE_LIFT_REQUIRED = (
     PARTICLES_ROOT / "runs" / "leptons" / "charged_determinant_trace_lift_attachment_required.json"
 )
 QUARK_SIGMA_REQUIRED = PARTICLES_ROOT / "runs" / "flavor" / "quark_sigma_source_datum_no_target_leak_required.json"
+QUARK_SIGMA_OBSTRUCTION = (
+    PARTICLES_ROOT / "runs" / "flavor" / "quark_sigma_source_nonidentifiability_obstruction.json"
+)
+QUARK_SCHEME_OBSTRUCTION = (
+    PARTICLES_ROOT / "runs" / "flavor" / "quark_running_mass_scheme_convention_obstruction.json"
+)
 EMPIRICAL_EE_REGISTRY = PARTICLES_ROOT / "hadron" / "empirical_ee_hadrons_sources.yaml"
 EMPIRICAL_EE_SCHEMA = PARTICLES_ROOT / "hadron" / "empirical_ee_hadronic_spectral_measure.schema.json"
 HIERARCHY_ROOT = PARTICLES_ROOT / "hierarchy"
@@ -270,6 +276,8 @@ def build_payload() -> dict[str, Any]:
     direct_top = _load_json(DIRECT_TOP)
     charged_trace_required = _load_optional_json(CHARGED_TRACE_LIFT_REQUIRED) or {}
     quark_sigma_required = _load_optional_json(QUARK_SIGMA_REQUIRED) or {}
+    quark_sigma_obstruction = _load_optional_json(QUARK_SIGMA_OBSTRUCTION) or {}
+    quark_scheme_obstruction = _load_optional_json(QUARK_SCHEME_OBSTRUCTION) or {}
     by_id = {entry["particle_id"]: _prediction_entry(entry) for entry in exact["entries"]}
     predictions = [by_id[particle_id] for particle_id in PARTICLE_ORDER if particle_id in by_id]
     particle_five_gates = [
@@ -299,6 +307,12 @@ def build_payload() -> dict[str, Any]:
             ),
             "quark_sigma_source_datum_no_target_leak_required": (
                 "code/particles/runs/flavor/quark_sigma_source_datum_no_target_leak_required.json"
+            ),
+            "quark_sigma_source_nonidentifiability_obstruction": (
+                "code/particles/runs/flavor/quark_sigma_source_nonidentifiability_obstruction.json"
+            ),
+            "quark_running_mass_scheme_convention_obstruction": (
+                "code/particles/runs/flavor/quark_running_mass_scheme_convention_obstruction.json"
             ),
             "hadron_policy": "HADRON.md",
             "empirical_ee_hadrons_source_registry": (
@@ -354,14 +368,38 @@ def build_payload() -> dict[str, Any]:
             "required_identity": quark_sigma_required.get("required_identity"),
             "source_only_sigma_emitted": quark_sigma_required.get("source_only_sigma_emitted"),
             "downstream_algebra_closed": quark_sigma_required.get("downstream_algebra_closed"),
+            "closure_kind": quark_sigma_required.get("closure_kind"),
+            "obstruction_artifact": quark_sigma_required.get("obstruction_artifact"),
+            "compatible_spread_fiber": quark_sigma_required.get("compatible_spread_fiber"),
+            "compatible_spread_fiber_dimension": quark_sigma_required.get(
+                "compatible_spread_fiber_dimension"
+            ),
+            "independent_unselected_coordinates": quark_sigma_required.get(
+                "independent_unselected_coordinates", []
+            ),
             "missing_for_promotion": quark_sigma_required.get("missing_for_promotion", []),
             "forbidden_ancestors": quark_sigma_required.get("forbidden_ancestors", []),
-            "target_values_for_future_source_theorem": quark_sigma_required.get(
-                "target_values_for_future_source_theorem", {}
+            "reopen_requirements": quark_sigma_required.get("reopen_requirements", {}),
+            "dependency_audit": quark_sigma_required.get("dependency_audit", {}),
+            "issue_acceptance": {
+                "377": quark_sigma_obstruction.get("issue_377_acceptance_met_as_obstruction"),
+                "379": quark_sigma_obstruction.get("issue_379_acceptance_met_as_obstruction"),
+                "380": quark_sigma_obstruction.get("issue_380_acceptance_met_as_obstruction"),
+            },
+        },
+        "quark_scheme_and_yukawa_boundary": {
+            "artifact": quark_scheme_obstruction.get("artifact"),
+            "proof_status": quark_scheme_obstruction.get("proof_status"),
+            "closure_kind": quark_scheme_obstruction.get("closure_kind"),
+            "row_partition": quark_scheme_obstruction.get("row_partition", {}),
+            "declared_comparison_conventions": quark_scheme_obstruction.get(
+                "declared_comparison_conventions", {}
             ),
-            "strongest_current_source_candidate": quark_sigma_required.get(
-                "strongest_current_source_candidate", {}
+            "stored_matrix_dimensional_audit": quark_scheme_obstruction.get(
+                "stored_matrix_dimensional_audit", {}
             ),
+            "issue_acceptance": quark_scheme_obstruction.get("issue_acceptance", {}),
+            "closure_effect": quark_scheme_obstruction.get("closure_effect", {}),
         },
         "fine_structure": _fine_structure_surface(measured_endpoint),
         "hierarchy_and_naturality": _hierarchy_surface(),
@@ -505,7 +543,6 @@ def render_markdown(payload: dict[str, Any]) -> str:
         )
     quark_boundary = payload.get("quark_sigma_source_boundary") or {}
     if quark_boundary.get("artifact"):
-        candidate = quark_boundary.get("strongest_current_source_candidate") or {}
         lines.extend(
             [
                 "",
@@ -517,11 +554,31 @@ def render_markdown(payload: dict[str, Any]) -> str:
                 f"- Required identity: `{quark_boundary['required_identity']}`",
                 f"- Source-only sigma emitted: `{quark_boundary['source_only_sigma_emitted']}`",
                 f"- Closed downstream algebra: `{quark_boundary['downstream_algebra_closed']}`",
+                f"- Closure kind: `{quark_boundary.get('closure_kind')}`",
+                f"- Obstruction: `{quark_boundary.get('obstruction_artifact')}`",
+                f"- Compatible spread fiber: `{quark_boundary.get('compatible_spread_fiber')}` "
+                f"(dimension `{quark_boundary.get('compatible_spread_fiber_dimension')}`)",
+                f"- Independent unselected coordinates: "
+                f"`{quark_boundary.get('independent_unselected_coordinates', [])}`",
                 f"- Missing gates: `{quark_boundary.get('missing_for_promotion', [])}`",
-                f"- Edge candidate: `sigma_u_edge={candidate.get('sigma_u_edge')}`, "
-                f"`sigma_d_edge={candidate.get('sigma_d_edge')}`",
-                f"- Required source correction target: `R_u={candidate.get('required_R_u')}`, "
-                f"`R_d={candidate.get('required_R_d')}`",
+            ]
+        )
+    scheme_boundary = payload.get("quark_scheme_and_yukawa_boundary") or {}
+    if scheme_boundary.get("artifact"):
+        matrix_audit = scheme_boundary.get("stored_matrix_dimensional_audit") or {}
+        lines.extend(
+            [
+                "",
+                "## Quark Scheme and Yukawa Boundary",
+                "",
+                f"- Artifact: `{scheme_boundary['artifact']}`",
+                f"- Status: `{scheme_boundary.get('proof_status')}`",
+                f"- Row partition: `{scheme_boundary.get('row_partition', {})}`",
+                f"- Matrix classification: `{matrix_audit.get('current_classification')}`",
+                f"- Certified physical Yukawa matrices: "
+                f"`{matrix_audit.get('certified_physical_yukawa_matrices')}`",
+                f"- Public numeric rows allowed: "
+                f"`{(scheme_boundary.get('closure_effect') or {}).get('public_numeric_quark_rows_allowed')}`",
             ]
         )
     direct = payload["direct_top_auxiliary_comparison"]

@@ -38,7 +38,8 @@ def test_quark_public_exact_yukawa_promotion_frontier_records_single_remaining_p
     )
 
     assert payload["artifact"] == "oph_quark_public_exact_yukawa_promotion_frontier"
-    assert payload["proof_status"] == "blocked_target_derived_sigma_source_missing"
+    assert payload["proof_status"] == "blocked_inconsistent_exact_mass_yukawa_surfaces"
+    assert payload["target_name"] == "inconsistent_selected_class_mass_yukawa_support_surfaces"
     assert payload["public_promotion_allowed"] is False
     assert payload["non_circularity_status"]["missing_source_object"] == (
         "quark_sigma_source_datum_no_target_leak_required"

@@ -100,9 +100,13 @@ def validate() -> dict[str, Any]:
     if yukawa_nc.get("target_derived_sigma_datum_used") is True:
         _require(quark_yukawa.get("public_promotion_allowed") is False, failures, "target-derived quark Yukawa theorem promotes")
         _require(
-            quark_yukawa.get("proof_status") == "blocked_target_derived_sigma_source_missing",
+            quark_yukawa.get("proof_status")
+            in {
+                "blocked_target_derived_sigma_source_missing",
+                "blocked_inconsistent_exact_mass_yukawa_surfaces",
+            },
             failures,
-            "target-derived quark Yukawa proof status is not blocked",
+            "target-derived quark Yukawa proof status is not fail-closed",
         )
 
     bridge = payloads["neutrino_bridge"]
