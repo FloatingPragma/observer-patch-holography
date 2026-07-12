@@ -9,7 +9,7 @@
   },
   "closure_gate": {
     "closable_now": true,
-    "reason": "The current exact top coordinate and the auxiliary direct-top average are compatible as a comparison, but no source-side extraction-response map has been emitted; therefore the direct-top theorem bridge is closed as a no-go on the current corpus.",
+    "reason": "The current target-audit top coordinate and the auxiliary direct-top average are compatible as a comparison, but no source-side extraction-response map has been emitted; therefore the direct-top theorem bridge is closed as a no-go on the current corpus.",
     "reopen_only_when": [
       "codomain metadata is explicit in the public status surfaces",
       "a response kernel maps the current top coordinate into the direct-top codomain without using the direct-top central value as an input",
@@ -19,15 +19,15 @@
   "closure_verdict": {
     "auxiliary_row_policy": "compare_only_not_promotable",
     "blocked_surface": "Q007TP_auxiliary_direct_top_coordinate",
-    "closed_theorem_grade_surface": "Q007TP4_cross_section_top_coordinate",
+    "closed_target_audit_surface": "Q007TP4_cross_section_top_coordinate",
     "closure_kind": "hard_no_go_current_corpus",
     "issue_207_acceptance_met_as_obstruction": true,
     "why_no_forward_bridge": "The current OPH/D10/D11/quark corpus emits a top coordinate in the PDG cross-section codomain Q007TP4. It does not emit an extraction-response kernel, mass-scheme conversion, or uncertainty-propagation certificate from Q007TP4 into the auxiliary direct-measurement codomain Q007TP. Any such conversion would choose external experimental/MC response data."
   },
   "comparison_only_readout": {
     "combined_reference_sigma_gev": 0.6579513659838393,
-    "direct_minus_current_coordinate_gev": 0.24764467116884248,
-    "pull_in_combined_sigma": 0.3763875021348085,
+    "direct_minus_current_coordinate_gev": 0.5000000000003411,
+    "pull_in_combined_sigma": 0.7599345876464403,
     "within_combined_one_sigma": true
   },
   "constructive_objects": [
@@ -69,14 +69,14 @@
       "target_status": "uncertainty_budget_on_converted_coordinate"
     }
   ],
-  "current_theorem_coordinate": {
+  "current_target_audit_coordinate": {
     "codomain": "PDG cross-section top mass entry",
     "pdg_description": "t-Quark Pole Mass from Cross-Section Measurements",
     "pdg_summary_id": "Q007TP4",
     "pdg_symmetric_error_gev": 0.6,
     "pdg_value_gev": 172.1,
     "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
-    "value_gev": 172.35235532883115
+    "value_gev": 172.09999999999965
   },
   "forbidden_solver_inputs": [
     "Q007TP_direct_top_central_value_as_calibration_input",
@@ -85,14 +85,14 @@
   ],
   "formal_nonidentifiability_witness": {
     "free_response_family": "m_direct(lambda) = m_Q007TP4 + lambda",
-    "lambda_matching_auxiliary_central_value_gev": 0.24764467116884248,
+    "lambda_matching_auxiliary_central_value_gev": 0.5000000000003411,
     "source_constraints_on_lambda": "none emitted by the current corpus",
-    "why_not_a_theorem": "Choosing lambda from the auxiliary Q007TP central value would use the direct-top row as an input. Choosing lambda=0 would relabel Q007TP4 as Q007TP. Both choices satisfy the current OPH top theorem data equally well because the extraction-response codomain is absent."
+    "why_not_a_theorem": "Choosing lambda from the auxiliary Q007TP central value would use the direct-top row as an input. Choosing lambda=0 would relabel Q007TP4 as Q007TP. Both choices satisfy the current target-audit top data equally well because the extraction-response codomain is absent."
   },
-  "generated_utc": "2026-07-12T02:31:00Z",
+  "generated_utc": "2026-07-12T03:22:46Z",
   "github_issue": 207,
   "local_next_steps": [
-    "Keep Q007TP as compare-only and keep Q007TP4 as the theorem row source.",
+    "Keep both Q007TP and Q007TP4 as compare-only target coordinates.",
     "Do not launch more workers for this lane unless a source-side or QFT extraction-response map is introduced.",
     "Open a new issue only for a concrete response-kernel artifact, not for further border sharpening."
   ],

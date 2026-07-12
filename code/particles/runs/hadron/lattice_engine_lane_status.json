@@ -1,0 +1,45 @@
+{
+  "artifact": "oph_lattice_engine_lane_status",
+  "distinction_from_surrogate": "run_local_diagnostic_backend.py synthesizes correlators from target masses and is execution-bridge scaffolding only. The lattice engine computes correlators from gauge dynamics with no target anchoring; its masses are whatever the bare parameters produce.",
+  "engine": {
+    "capabilities": [
+      "quenched SU(3) heatbath/overrelaxation ensemble generation",
+      "clover-Wilson valence Dirac operator with CG propagators",
+      "pi_iso and N_iso direct/exchange contractions",
+      "two-flavor Wilson pseudofermion HMC (leapfrog, Metropolis)"
+    ],
+    "package": "particles/hadron/lattice_backend/",
+    "runner": "particles/hadron/run_lattice_diagnostic_backend.py",
+    "tests": "particles/hadron/test_lattice_backend.py",
+    "verification_anchors": [
+      "gamma algebra and gamma5-hermiticity exact to double precision",
+      "plaquette and correlator gauge invariance under random rotations",
+      "free-field pion and nucleon effective masses at 2x and 3x the Wilson quark pole mass",
+      "gauge and pseudofermion forces match finite differences",
+      "leapfrog dH scales as dt^2 and integration is exactly reversible",
+      "quenched plaquette at beta=5.7 matches the literature value 0.549"
+    ]
+  },
+  "executed_output": {
+    "export_present": false
+  },
+  "generated_utc": "2026-07-12T03:01:40Z",
+  "github_issue": 425,
+  "guards": {
+    "diagnostic_output_promotable": false,
+    "issue_425_closed_by_this_artifact": false
+  },
+  "issue_425_remaining": {
+    "closure_requires": [
+      "seeded N_f = 2+1 ensembles at the frozen receipt schedule (N_therm = 2048, N_sep = 512) on production volumes",
+      "strange RHMC branch with persisted rational coefficients",
+      "clover force in the dynamical update",
+      "even-odd preconditioned solvers at production tolerances",
+      "continuum, finite-volume, chiral, and statistical budgets",
+      "publication-complete manifest provenance"
+    ],
+    "compute_class": "HPC allocation or an established production engine driven through run_external_production_backend.py; out of local scope",
+    "promotion_gate": "unchanged: hadron rows stay suppressed until production output and systematics exist"
+  },
+  "status": "real_engine_executed_diagnostic_scale_production_closure_open"
+}

@@ -46,9 +46,10 @@ def test_public_strengthened_physical_sigma_lift_frontier_records_final_routes()
     sigma = final["must_emit"]["physical_sigma_datum"]
     assert abs(float(sigma["sigma_u"]) - 5.579692209267639) < 1.0e-12
     assert abs(float(sigma["sigma_d"]) - 3.300314452061615) < 1.0e-12
-    exact_yukawas = payload["algebraic_consequence_after_closure"]["forced_exact_yukawas"]
-    assert exact_yukawas["artifact"] == "oph_quark_current_family_transport_frame_exact_forward_yukawas"
-    assert exact_yukawas["forward_certified"] is True
+    mass_textures = payload["algebraic_consequence_after_closure"]["target_audit_mass_textures"]
+    assert mass_textures["artifact"] == "oph_quark_current_family_transport_frame_exact_forward_yukawas"
+    assert mass_textures["forward_certified"] is True
+    assert mass_textures["physical_yukawa_certified"] is False
     assert payload["alternate_upstream_route"]["id"] == "oph_generation_bundle_branch_generator_splitting"
     assert payload["alternate_upstream_route"]["status"] == "upstream_alternative_route_currently_deprioritized"
     assert payload["alternate_upstream_route"]["smaller_exact_missing_clause"] == (

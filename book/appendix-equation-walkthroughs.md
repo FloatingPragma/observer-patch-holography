@@ -319,8 +319,8 @@ $\theta_{\mathrm{QCD}}$ or $\bar\theta$. If the physical value were generic,
 QCD would violate CP much more strongly than observed in the neutron electric
 dipole moment. The empirical smallness is the strong-CP problem.
 
-The book is careful about this because it is easy to overclaim. The selected
-class quark theorem does not derive $\theta_{\mathrm{QCD}}$, does not emit a
+The book is careful about this because it is easy to overclaim. The quark
+source-spread obstruction and target-audit mass textures do not derive $\theta_{\mathrm{QCD}}$, do not emit a
 physical $\bar\theta$, and does not prove that the physical strong-CP phase
 vanishes. This boundary is visible in summaries, tables, and public copy.
 

@@ -19,7 +19,7 @@ def _load(name: str) -> dict:
     return json.loads((RUNS / name).read_text(encoding="utf-8"))
 
 
-def test_quark_public_exact_yukawa_promotion_frontier_records_single_remaining_public_burden() -> None:
+def test_quark_public_exact_yukawa_promotion_frontier_records_both_public_burdens() -> None:
     public_sigma_theorem = build_public_sigma_descent(
         _load("quark_current_family_transport_frame_sector_attached_lift.json"),
         _load("quark_current_family_transport_frame_strengthened_physical_sigma_lift_theorem.json"),
@@ -38,8 +38,10 @@ def test_quark_public_exact_yukawa_promotion_frontier_records_single_remaining_p
     )
 
     assert payload["artifact"] == "oph_quark_public_exact_yukawa_promotion_frontier"
-    assert payload["proof_status"] == "blocked_inconsistent_exact_mass_yukawa_surfaces"
-    assert payload["target_name"] == "inconsistent_selected_class_mass_yukawa_support_surfaces"
+    assert payload["proof_status"] == (
+        "blocked_mixed_scheme_dimensionful_mass_textures_not_physical_yukawas"
+    )
+    assert payload["target_name"] == "selected_class_mixed_scheme_mass_texture_audit"
     assert payload["public_promotion_allowed"] is False
     assert payload["non_circularity_status"]["missing_source_object"] == (
         "quark_sigma_source_datum_no_target_leak_required"
@@ -48,6 +50,13 @@ def test_quark_public_exact_yukawa_promotion_frontier_records_single_remaining_p
     assert payload["final_public_theorem_candidate"]["id"] == "selected_bridge_fiber_sigma_descent_not_source_selection"
     assert payload["alternate_upstream_route"]["id"] == "oph_generation_bundle_branch_generator_splitting"
     assert payload["closed_local_endpoint"]["artifact"] == "oph_quark_exact_yukawa_end_to_end_theorem"
+    assert payload["closed_local_endpoint"]["certified_physical_yukawa_matrices"] is False
+    assert "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM" in payload[
+        "minimal_exact_blocker_set"
+    ]
+    assert "QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE" in payload[
+        "minimal_exact_blocker_set"
+    ]
     induced = payload["closed_public_endpoint"]["public_exact_outputs"]["forward_yukawa_artifact"]
     assert induced["artifact"] == "oph_quark_current_family_transport_frame_exact_forward_yukawas"
     assert induced["forward_certified"] is True

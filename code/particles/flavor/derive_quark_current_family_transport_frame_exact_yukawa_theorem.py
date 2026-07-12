@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Emit the exact forward-Yukawa theorem on the declared current-family transport-frame carrier."""
+"""Wrap the legacy-named current-family quark mass-texture audit artifact."""
 
 from __future__ import annotations
 
@@ -27,8 +27,8 @@ def build_artifact(forward: dict, chain: dict) -> dict:
     return {
         "artifact": "oph_quark_current_family_transport_frame_exact_yukawa_theorem",
         "generated_utc": _timestamp(),
-        "proof_status": "closed_current_family_transport_frame_exact_yukawa_theorem",
-        "target_name": "exact_forward_quark_yukawas_on_declared_current_family_transport_frame",
+        "proof_status": "closed_target_anchored_mixed_convention_mass_texture_audit",
+        "target_name": "mixed_convention_quark_mass_textures_on_declared_current_family_transport_frame",
         "theorem_scope": "current_family_common_refinement_transport_frame_only",
         "public_promotion_allowed": False,
         "supporting_artifacts": {
@@ -36,10 +36,10 @@ def build_artifact(forward: dict, chain: dict) -> dict:
             "end_to_end_exact_chain": chain["artifact"],
         },
         "theorem_statement": (
-            "On the declared current-family/common-refinement transport-frame carrier, the OPH bridge theorem, "
-            "the strengthened transport-frame physical sigma lift, the algebraic absolute readout, and the exact "
-            "running-value completion jointly emit explicit forward Yukawa matrices Y_u and Y_d with certified "
-            "singular values equal to the exact running quark sextet on that carrier."
+            "On the declared current-family/common-refinement transport-frame audit carrier, the target-attached "
+            "spread lift and algebraic readout construct GeV-valued matrices whose singular values reproduce the "
+            "chosen mixed-convention target coordinates. This certifies a mass-texture calculation, not one "
+            "common-scale running sextet or physical dimensionless Yukawa matrices."
         ),
         "forward_yukawa_artifact": {
             "artifact": forward["artifact"],
@@ -52,27 +52,30 @@ def build_artifact(forward: dict, chain: dict) -> dict:
             "jarlskog": forward["jarlskog"],
             "singular_values_u": forward["singular_values_u"],
             "singular_values_d": forward["singular_values_d"],
+            "matrix_classification": forward.get("matrix_classification"),
+            "stored_entry_dimension": forward.get("stored_entry_dimension"),
+            "physical_yukawa_certified": False,
         },
         "source_chain_artifact": chain["artifact"],
-        "minimal_exact_blocker_set": [],
+        "minimal_exact_blocker_set": ["QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE"],
         "strengthening_above_target": {
             "status": "separate_question",
-            "name": "target_free_public_physical_sheet_yukawa_promotion",
+            "name": "source_only_common_scale_dimensionless_yukawa_construction",
             "note": (
-                "This theorem closes the exact forward Yukawa package only on the declared "
-                "current-family/common-refinement transport-frame carrier. Promoting it to a target-free "
-                "public physical-sheet theorem remains a separate strengthening question."
+                "A physical Yukawa theorem would require source-emitted running trajectories, one common scale, "
+                "threshold and top conversion, the running Higgs expectation value in the same scheme, and "
+                "dimensionless normalization."
             ),
         },
         "notes": [
-            "This is the theorem wrapper for the exact transport-frame forward Yukawa artifact.",
-            "It does not claim target-free public physical-sheet promotion.",
+            "This is a compatibility wrapper for the legacy-named transport-frame matrix artifact.",
+            "It certifies only target-audit mass-texture algebra.",
         ],
     }
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Build the exact current-family transport-frame Yukawa theorem artifact.")
+    parser = argparse.ArgumentParser(description="Build the current-family transport-frame mass-texture audit artifact.")
     parser.add_argument("--forward", default=str(FORWARD_JSON))
     parser.add_argument("--chain", default=str(CHAIN_JSON))
     parser.add_argument("--output", default=str(DEFAULT_OUT))

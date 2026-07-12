@@ -71,6 +71,13 @@ def test_gap_ledger_keeps_compressed_trunk_claim_safe() -> None:
     assert row_statuses["quark.source-spread-identifiability"] == (
         "closed_current_corpus_two_modulus_nonidentifiability_obstruction"
     )
+    quark_spread_row = next(
+        row for row in ledger["rows"] if row["id"] == "quark.source-spread-identifiability"
+    )
+    assert quark_spread_row["axiom_level_obstruction_certified"] is True
+    assert quark_spread_row["axiom_level_obstruction_artifact"].endswith(
+        "quark_axiom_level_yukawa_moduli_nonidentifiability.json"
+    )
     assert row_statuses["quark.running-scheme-and-yukawa-normalization"] == (
         "closed_structural_scheme_nonidentifiability_obstruction"
     )

@@ -89,6 +89,13 @@ CURRENT_FAMILY_END_TO_END_CHAIN_JSON = (
 SIGMA_SOURCE_OBSTRUCTION_JSON = (
     ROOT / "particles" / "runs" / "flavor" / "quark_sigma_source_nonidentifiability_obstruction.json"
 )
+AXIOM_LEVEL_YUKAWA_OBSTRUCTION_JSON = (
+    ROOT
+    / "particles"
+    / "runs"
+    / "flavor"
+    / "quark_axiom_level_yukawa_moduli_nonidentifiability.json"
+)
 SCHEME_OBSTRUCTION_JSON = (
     ROOT / "particles" / "runs" / "flavor" / "quark_running_mass_scheme_convention_obstruction.json"
 )
@@ -134,6 +141,7 @@ def build_payload(
     current_family_transport_d12_value: dict[str, Any],
     current_family_end_to_end_chain: dict[str, Any],
     sigma_source_obstruction: dict[str, Any],
+    axiom_level_yukawa_obstruction: dict[str, Any],
     scheme_obstruction: dict[str, Any],
 ) -> dict[str, Any]:
     selected_sigma = selected_sheet["selected_sheet"]["sigma_id"]
@@ -150,8 +158,7 @@ def build_payload(
     public_yukawa_promotable = (
         not source_spread_obstruction_closed
         and not scheme_obstruction_closed
-        and
-        public_exact_yukawa_theorem.get("public_promotion_allowed") is True
+        and public_exact_yukawa_theorem.get("public_promotion_allowed") is True
         and public_exact_yukawa_theorem.get("proof_status")
         == "closed_source_only_public_exact_yukawa_end_to_end_theorem"
         and (public_exact_yukawa_theorem.get("non_circularity_status") or {}).get("promotion_allowed") is True
@@ -164,75 +171,103 @@ def build_payload(
         "b": float(exact_readout["predicted_singular_values_d"][2]),
         "t": float(exact_readout["predicted_singular_values_u"][2]),
     }
-    rho_ord = float(sector_mean_split["rho_ord"])
-    x2 = float(t1_value_law["sample_same_family_point"]["x2"])
-    main_builder_sigma_branch = dict((overlap_law.get("sigma_branch_contracts") or {}).get("main_builder_sigma_pair") or {})
     return {
         "artifact": "oph_quark_lane_closure_contract",
         "base_theorem_emitted_package_artifact": "oph_quark_maximal_theorem_emitted_package",
         "generated_utc": _timestamp(),
-        "scope": "quark_lane_theorem_boundary_plus_exact_sidecars",
+        "scope": "quark_lane_source_obstructions_plus_target_anchored_audit_sidecars",
         "proof_status": (
             "target_free_public_exact_yukawa_derivation_closed"
             if public_yukawa_promotable
-            else "selected_class_exact_witness_blocked_by_target_derived_sigma_datum"
+            else "closed_sharper_obstructions_numeric_quark_predictions_withheld"
         ),
         "public_promotion_allowed": public_yukawa_promotable,
-        "non_circularity_status": public_exact_yukawa_theorem.get("non_circularity_status"),
+        "numeric_quark_prediction_rows_allowed": public_yukawa_promotable,
+        "non_circularity_status": {
+            **dict(public_exact_yukawa_theorem.get("non_circularity_status") or {}),
+            "source_spread_fiber": sigma_source_obstruction["exact_ray_classification"]["fiber"],
+            "source_spread_fiber_dimension": sigma_source_obstruction["exact_ray_classification"][
+                "fiber_dimension"
+            ],
+            "source_spread_obstruction_closed": source_spread_obstruction_closed,
+            "scheme_coordinate_obstruction_closed": scheme_obstruction_closed,
+            "physical_yukawa_normalization_closed": physical_yukawa_audit.get(
+                "certified_physical_yukawa_matrices"
+            )
+            is True,
+        },
         "mass_comparison_surface": {
-            "kind": "running_mass_comparison_surface",
-            "note": "Quark references are running masses, not asymptotic free-particle pole masses.",
+            "kind": "mixed_declared_coordinate_target_audit",
+            "row_partition": scheme_obstruction["row_partition"],
+            "single_running_quark_sextet_claim_allowed": False,
+            "note": (
+                "The light rows, heavy self-scale rows, and separate top extraction coordinate do not form one "
+                "source-emitted running-mass sextet."
+            ),
         },
         "exact_pdg_derivation_target": {
-            "target_name": "exact_running_quark_sextet_on_declared_current_family_transport_frame",
-            "status": "closed",
+            "target_name": current_family_end_to_end_chain["target_name"],
+            "status": "closed_target_anchored_algebraic_audit_only",
             "artifact": current_family_end_to_end_chain["artifact"],
             "wrapper_theorem": "oph_quark_exact_pdg_end_to_end_theorem",
             "theorem_scope": current_family_end_to_end_chain["theorem_scope"],
             "minimal_exact_blocker_set": [],
+            "target_anchored": True,
+            "source_only_prediction": False,
+            "single_running_quark_sextet_claim_allowed": False,
+            "comparison_coordinate_partition": current_family_end_to_end_chain.get(
+                "comparison_coordinate_partition", scheme_obstruction["row_partition"]
+            ),
             "exact_running_values_gev": current_family_end_to_end_chain["exact_running_values_gev"],
             "lemma_chain": current_family_end_to_end_chain["lemma_chain"],
-            "why_closed": (
-                "On the declared current-family/common-refinement transport-frame carrier, the target-free D12 bridge, "
-                "restricted strengthened physical sigma lift, restricted absolute sector readout, and ordered three-point "
-                "readout already compose to the exact PDG-matched running quark sextet."
+            "audit_scope_statement": (
+                "The declared current-family carrier reconstructs its chosen target packet exactly after the "
+                "target-attached sigma datum is supplied. This certifies the conditional algebra, not source emission."
             ),
             "not_the_same_as": "target_free_public_physical_sheet_promotion",
             "strengthening_above_target": (
-                "A stronger target-free public physical-sheet theorem remains a separate promotion question and is not "
-                "part of the exact derivation target recorded here."
+                "A source map must first break the independent positive spread action and emit an RG-covariant "
+                "trajectory or invariant before any declared comparison chart is applied."
             ),
         },
         "exact_yukawa_derivation_target": {
-            "target_name": current_family_transport_yukawa_theorem["target_name"],
-            "status": "closed",
+            "target_name": "mixed_scheme_dimensionful_quark_mass_texture_audit",
+            "status": "closed_algebraic_mass_texture_audit_not_physical_yukawa",
             "artifact": current_family_transport_yukawa_theorem["artifact"],
             "wrapper_theorem": exact_yukawa_end_to_end_theorem["artifact"],
             "theorem_scope": current_family_transport_yukawa_theorem["theorem_scope"],
             "minimal_exact_blocker_set": current_family_transport_yukawa_theorem["minimal_exact_blocker_set"],
             "forward_certified": current_family_transport_yukawa_theorem["forward_yukawa_artifact"]["forward_certified"],
             "certification_status": current_family_transport_yukawa_theorem["forward_yukawa_artifact"]["certification_status"],
-            "why_closed": (
-                "On the declared current-family/common-refinement transport-frame carrier, the closed exact chain now "
-                "emits explicit forward Yukawa matrices Y_u and Y_d with certified singular values matching the exact "
-                "running quark sextet."
+            "matrix_kind": physical_yukawa_audit["current_classification"],
+            "stored_entry_dimension": physical_yukawa_audit["stored_entry_dimension"],
+            "certified_physical_yukawa_matrices": False,
+            "audit_scope_statement": (
+                "The stored matrices reproduce the target packet as GeV-valued singular spectra. They are mass "
+                "textures, not common-scale dimensionless physical Yukawa matrices."
             ),
             "not_the_same_as": "target_free_public_physical_sheet_yukawa_promotion",
         },
         "public_exact_yukawa_derivation_target": {
             "target_name": public_exact_yukawa_theorem["target_name"],
-            "status": "closed" if public_yukawa_promotable else "blocked_target_derived_sigma_source_missing",
+            "status": "closed" if public_yukawa_promotable else public_exact_yukawa_theorem["proof_status"],
             "artifact": public_exact_yukawa_theorem["artifact"],
             "theorem_scope": public_exact_yukawa_theorem["theorem_scope"],
             "minimal_exact_blocker_set": public_exact_yukawa_theorem["minimal_exact_blocker_set"],
             "exact_running_values_gev": public_exact_yukawa_theorem["public_exact_outputs"]["exact_running_values_gev"],
             "forward_yukawa_artifact": public_exact_yukawa_theorem["public_exact_outputs"]["forward_yukawa_artifact"],
-            "why_closed": (
-                "The source-only sigma selector and public sigma-datum descent theorem identify the selected public "
-                "quark frame class with a no-target physical sigma datum, so the algebraic absolute readout and exact "
-                "forward construction lift to the selected public class."
+            "numeric_values_role": "target_anchored_audit_only",
+            "physical_yukawa_claim_allowed": False,
+            "status_statement": (
+                "A future source theorem breaks the two-modulus action and emits a representative-independent spread "
+                "pair on the selected class. After common-scale RG transport and Higgs normalization, the physical "
+                "dimensionless Yukawa construction then closes."
                 if public_yukawa_promotable
-                else "The selected-class exact witness is displayed, but strict public promotion is blocked because descent proves representative independence only; the sigma datum still comes from an exact target surface."
+                else (
+                    "The source spread fiber retains two independent positive moduli. In addition, the selected-class "
+                    "numerical matrices are mixed-scheme GeV mass textures and lack a common-scale dimensionless "
+                    "Yukawa conversion."
+                )
             ),
         },
         "selected_local_sheet_status": {
@@ -242,10 +277,57 @@ def build_payload(
             "wrong_branch_for_physical_ckm_shell": True,
             "why_not_enough": physical_branch["insufficiency_theorem"]["statement"],
         },
+        "source_spread_nonidentifiability_obstruction": {
+            "artifact": sigma_source_obstruction["artifact"],
+            "proof_status": sigma_source_obstruction["proof_status"],
+            "claim_tier": sigma_source_obstruction["claim_tier"],
+            "theorem_grade_obstruction": sigma_source_obstruction["theorem_grade_obstruction"],
+            "theorem_statement": sigma_source_obstruction["theorem_statement"],
+            "compatible_source_spread_fiber": sigma_source_obstruction["exact_ray_classification"]["fiber"],
+            "fiber_dimension": sigma_source_obstruction["exact_ray_classification"]["fiber_dimension"],
+            "independent_coordinates": sigma_source_obstruction["exact_ray_classification"][
+                "independent_coordinates"
+            ],
+            "free_action": sigma_source_obstruction["free_action_certificate"]["action"],
+            "source_only_sigma_emitted": sigma_source_obstruction["source_only_sigma_emitted"],
+            "numeric_quark_rows_allowed": sigma_source_obstruction["numeric_quark_rows_allowed"],
+            "github_issues": sigma_source_obstruction["github_issues"],
+            "dependency_audit": sigma_source_obstruction["dependency_audit"],
+            "minimal_future_extension": sigma_source_obstruction["minimal_future_extension"],
+        },
+        "axiom_level_yukawa_moduli_nonidentifiability": {
+            "artifact": axiom_level_yukawa_obstruction["artifact"],
+            "proof_status": axiom_level_yukawa_obstruction["proof_status"],
+            "theorem_statement": axiom_level_yukawa_obstruction["theorem_statement"],
+            "additional_axioms_used": axiom_level_yukawa_obstruction["additional_axioms_used"],
+            "counterfamily": axiom_level_yukawa_obstruction["counterfamily"],
+            "MAR_audit": axiom_level_yukawa_obstruction["axiom_invariance_audit"]["Axiom_5_MAR"],
+            "reference_data_policy": axiom_level_yukawa_obstruction["reference_data_policy"],
+            "public_numeric_quark_rows_allowed": axiom_level_yukawa_obstruction[
+                "public_numeric_quark_rows_allowed"
+            ],
+        },
+        "running_scheme_and_physical_yukawa_obstruction": {
+            "artifact": scheme_obstruction["artifact"],
+            "proof_status": scheme_obstruction["proof_status"],
+            "closure_kind": scheme_obstruction["closure_kind"],
+            "theorem_statement": scheme_obstruction["theorem_statement"],
+            "github_issues": scheme_obstruction["github_issues"],
+            "reference_data_policy": scheme_obstruction["reference_data_policy"],
+            "row_partition": scheme_obstruction["row_partition"],
+            "formal_quotient_obstruction": scheme_obstruction["formal_quotient_obstruction"],
+            "rg_covariant_source_output": scheme_obstruction["rg_covariant_source_output"],
+            "stored_matrix_dimensional_audit": physical_yukawa_audit,
+            "public_numeric_quark_rows_allowed": scheme_obstruction["closure_effect"][
+                "public_numeric_quark_rows_allowed"
+            ],
+        },
         "exact_sidecar_mass_surface": {
             "artifact": exact_readout["artifact"],
             "scope": exact_readout["theorem_scope"],
             "selected_sheet": selected_sigma,
+            "role": "target_anchored_current_family_audit",
+            "source_only_prediction": False,
             "current_family_affine_anchor_theorem": current_family_affine["artifact"],
             "current_family_exact_pdg_theorem": current_family_exact_pdg["artifact"],
             "exact_outputs_gev": exact_masses,
@@ -356,44 +438,60 @@ def build_payload(
                 "theorem_scope": current_family_transport_yukawa_theorem["theorem_scope"],
             },
             "note": (
-                "These exact current-family target surfaces are now explicit on disk. They sharpen the remaining "
-                "public frontier quantitatively, but they do not by themselves promote the target-free physical-sheet lane."
+                "These values and matrices are retained as explicit target-anchored audit surfaces. They neither "
+                "select a point of the source spread fiber nor define a single common-scale physical Yukawa packet."
             ),
         },
         "public_final_theorem_frontier": {
             "artifact": public_strengthened_frontier["artifact"],
-            "proof_status": public_strengthened_frontier["proof_status"],
-            "public_promotion_allowed": public_strengthened_frontier.get("public_promotion_allowed"),
+            "proof_status": sigma_source_obstruction["proof_status"],
+            "closure_kind": "sharper_current_corpus_nonidentifiability_obstruction",
+            "public_promotion_allowed": False,
             "non_circularity_status": public_strengthened_frontier.get("non_circularity_status"),
-            "resolved_by_theorem_artifact": public_strengthened_frontier["resolved_by_theorem_artifact"],
-            "final_public_theorem_candidate": public_strengthened_frontier["final_public_theorem_candidate"],
+            "resolved_by_theorem_artifact": sigma_source_obstruction["artifact"],
+            "legacy_selected_class_descent_artifact": public_strengthened_frontier[
+                "resolved_by_theorem_artifact"
+            ],
+            "compatible_source_spread_fiber": sigma_source_obstruction["exact_ray_classification"]["fiber"],
+            "fiber_dimension": sigma_source_obstruction["exact_ray_classification"]["fiber_dimension"],
             "alternate_upstream_route": public_strengthened_frontier["alternate_upstream_route"],
-            "algebraic_consequence_after_closure": public_strengthened_frontier["algebraic_consequence_after_closure"],
+            "reopen_requirement": sigma_source_obstruction["minimal_future_extension"],
+            "status_statement": (
+                "Selected-class descent removes representative dependence but does not break the independent "
+                "positive rescaling action on the up- and down-sector spreads."
+            ),
         },
         "public_exact_yukawa_promotion_frontier": {
             "artifact": public_exact_yukawa_promotion_frontier["artifact"],
             "proof_status": public_exact_yukawa_promotion_frontier["proof_status"],
             "target_name": public_exact_yukawa_promotion_frontier["target_name"],
-            "public_promotion_allowed": public_exact_yukawa_promotion_frontier.get("public_promotion_allowed"),
+            "public_promotion_allowed": False,
             "non_circularity_status": public_exact_yukawa_promotion_frontier.get("non_circularity_status"),
             "resolved_by_theorem_artifact": public_exact_yukawa_promotion_frontier["resolved_by_theorem_artifact"],
-            "final_public_theorem_candidate": public_exact_yukawa_promotion_frontier["final_public_theorem_candidate"],
-            "alternate_upstream_route": public_exact_yukawa_promotion_frontier["alternate_upstream_route"],
             "closed_public_endpoint": public_exact_yukawa_promotion_frontier["closed_public_endpoint"],
+            "source_spread_obstruction_artifact": sigma_source_obstruction["artifact"],
+            "scheme_obstruction_artifact": scheme_obstruction["artifact"],
+            "matrix_kind": physical_yukawa_audit["current_classification"],
+            "certified_physical_yukawa_matrices": False,
         },
         "candidate_one_theorem_physical_compression": {
-            "status": "closed" if public_yukawa_promotable else "blocked_target_derived_sigma_source_missing",
-            "artifact": public_sigma_theorem["artifact"],
+            "status": (
+                "closed" if public_yukawa_promotable else "closed_two_modulus_nonidentifiability_obstruction"
+            ),
+            "artifact": sigma_source_obstruction["artifact"],
+            "legacy_selected_class_descent_artifact": public_sigma_theorem["artifact"],
             "supporting_algebraic_collapse_artifact": absolute_collapse["artifact"],
             "conditional_statement": absolute_collapse["theorem_statement"],
-            "local_strengthened_theorem_statement": current_family_strengthened_physical_sigma_theorem["theorem_statement"],
-            "public_strengthened_theorem_statement": public_sigma_theorem["theorem_statement"],
-            "remaining_nonalgebraic_theorem": None
-            if public_yukawa_promotable
-            else "QUARK_SIGMA_SOURCE_SELECTOR",
-            "remaining_exact_gap": None
-            if public_yukawa_promotable
-            else "target_derived_sigma_datum_used_for_selected_class_exact_witness",
+            "current_corpus_source_spread_fiber": sigma_source_obstruction["exact_ray_classification"]["fiber"],
+            "remaining_source_dimension": sigma_source_obstruction["exact_ray_classification"]["fiber_dimension"],
+            "remaining_nonalgebraic_theorem": (
+                None if public_yukawa_promotable else "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM"
+            ),
+            "remaining_exact_gap": (
+                None
+                if public_yukawa_promotable
+                else "two_independent_positive_spread_moduli_plus_scheme_and_dimensionless_yukawa_chart"
+            ),
         },
         "continuation_only_mass_sidecar": {
             "artifact": backread["artifact"],
@@ -404,8 +502,8 @@ def build_payload(
         },
         "public_current_family_yukawa_frontier": {
             "definition": (
-                "Theorem-grade current-family quark Yukawas on the emitted D12 mass ray, using the already-closed "
-                "mean-surface sigma branch rather than the optional edge-statistics bridge."
+                "Target-free source identities close the ordered D12 profile rays only. Absolute up/down spreads "
+                "remain a two-modulus fiber, and the target-side GeV matrices remain mixed-scheme mass textures."
             ),
             "sharper_target_1_primitive": {
                 "artifact": selector_value_law["artifact"],
@@ -414,35 +512,50 @@ def build_payload(
                 "equivalent_ray_coordinate_presentation": selector_value_law["equivalent_ray_coordinate_presentation"]["theorem_id"],
             },
             "theorem_grade_sigma_branch": {
-                "artifact": spread_map["artifact"],
-                "proof_status": spread_map["proof_status"],
-                "spread_emitter_status": spread_map["spread_emitter_status"],
-                "sigma_source_kind": spread_map["sigma_source_kind"],
-                "sigma_u_total_log_per_side": float(spread_map["sigma_u_total_log_per_side"]),
-                "sigma_d_total_log_per_side": float(spread_map["sigma_d_total_log_per_side"]),
+                "artifact": sigma_source_obstruction["artifact"],
+                "proof_status": sigma_source_obstruction["proof_status"],
+                "spread_emitter_status": "source_only_spread_pair_nonidentifiable",
+                "sigma_source_kind": "independent_positive_moduli_not_selected_by_current_source_corpus",
+                "compatible_fiber": sigma_source_obstruction["exact_ray_classification"]["fiber"],
+                "fiber_dimension": sigma_source_obstruction["exact_ray_classification"]["fiber_dimension"],
+                "source_only_sigma_emitted": False,
+                "target_anchored_audit_provider": spread_map["artifact"],
             },
             "transport_reduction": {
                 "artifact": overlap_law["artifact"],
                 "proof_status": overlap_law["proof_status"],
                 "status": overlap_law["status"],
-                "main_builder_sigma_branch": {
-                    "provider_artifact": main_builder_sigma_branch.get("provider_artifact"),
-                    "provider_status": main_builder_sigma_branch.get("provider_status"),
-                    "sigma_source_kind": main_builder_sigma_branch.get("sigma_source_kind"),
-                },
-                "remaining_scalar_on_fixed_sigma_branch": overlap_law["reduced_exact_gap"]["remaining_scalar_on_any_fixed_sigma_branch"],
+                "conditional_remaining_scalar_after_external_sigma_fixing": overlap_law["reduced_exact_gap"][
+                    "remaining_scalar_on_any_fixed_sigma_branch"
+                ],
+                "why_not_a_source_closure": (
+                    "Fixing a sigma branch is an extra premise. The target-free corpus does not select the two "
+                    "positive sector spans to which the conditional reduction is applied."
+                ),
             },
-            "minimal_exact_blocker_set": [],
-            "target_1_status": "closed",
-            "why_closed": (
-                "light_quark_overlap_defect_value_law is now internalized on the code surface, so the emitted D12 ray "
-                "fixes t1 and the closed sigma/transport laws force the full target-1 source and transport package."
+            "minimal_exact_blocker_set": [
+                "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM",
+                "QUARK_RG_COVARIANT_TRAJECTORY_OR_INVARIANT",
+                "QUARK_OPERATIONAL_SCHEME_AND_SCALE_SECTION",
+                "QUARK_THRESHOLD_AND_TOP_CONVERSION",
+                "QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE",
+            ],
+            "target_1_status": "closed_profile_ray_only_absolute_spreads_nonidentifiable",
+            "why_not_closed": (
+                "The internalized overlap-defect law fixes a ray coordinate, not its two absolute sector spans. "
+                "Independent positive rescaling preserves all current source identities and changes the mass readout."
             ),
-            "why_edge_statistics_bridge_is_not_required": (
-                "The edge-statistics/mean-surface compatibility theorem would strengthen the bridge from overlap-edge "
-                "data to the sigma pair, but it is not needed to provide a theorem-grade sigma branch for current-family "
-                "public Yukawas because oph_family_excitation_spread_map already closes that branch."
+            "why_edge_statistics_candidate_does_not_close_source": (
+                "Even after granting the edge packet, sigma_u=S_13+c_u*delta21 and "
+                "sigma_d=S_23+c_d*delta21 retain independent free coefficients c_u and c_d."
             ),
+            "scheme_and_dimensional_yukawa_boundary": {
+                "artifact": scheme_obstruction["artifact"],
+                "row_partition": scheme_obstruction["row_partition"],
+                "matrix_kind": physical_yukawa_audit["current_classification"],
+                "physical_dimensionless_relation": physical_yukawa_audit["physical_dimensionless_relation"],
+                "promotion_requirements": physical_yukawa_audit["promotion_requirements"],
+            },
             "target_1_internalized_theorem_text": selector_value_law["theorem_statement"],
             "closure_after_t1": {
                 "forced_source_payload_after_t1": t1_value_law["forced_source_payload_after_t1"],
@@ -462,22 +575,39 @@ def build_payload(
                 "formula": "t1 = (5/6) * log(c_d / c_u)",
             },
         ],
-        "exact_missing_theorems": [],
+        "exact_missing_theorems": [
+            {
+                "id": "quark_source_spread_pair_action_breaking_theorem",
+                "current_obstruction": sigma_source_obstruction["artifact"],
+                "required_independent_scalar_count": sigma_source_obstruction["minimal_future_extension"][
+                    "required_independent_scalar_count"
+                ],
+            },
+            {
+                "id": "quark_rg_covariant_scheme_readout_or_invariant",
+                "current_obstruction": scheme_obstruction["artifact"],
+                "missing_section": scheme_obstruction["formal_quotient_obstruction"]["missing_section"],
+            },
+            {
+                "id": "quark_common_scale_dimensionless_yukawa_certificate",
+                "current_matrix_kind": physical_yukawa_audit["current_classification"],
+                "promotion_requirements": physical_yukawa_audit["promotion_requirements"],
+            },
+        ],
         "closure_chain": [
             "(axioms + light-data transport) => light_quark_overlap_defect_value_law => Delta_ud_overlap => quark_d12_t1_value_law => t1 => (eta_Q_centered, kappa_Q, tau_u, tau_d)",
-            "(selected public quark frame class chosen by P) => selected_bridge_fiber_sigma_descent_not_source_selection => representative-independent target-derived sigma witness",
-            "(missing source Sigma_ud^phys datum) => quark_absolute_readout_algebraic_collapse => (g_u, g_d) => (m_u, m_d, m_s, m_c, m_b, m_t)",
-            "(public selected class + exact forward construction + source sigma selector) => oph_quark_public_exact_yukawa_end_to_end_theorem => exact forward Y_u, Y_d",
+            "(target-free source identities) => (v_u,v_d) with E_u=sigma_u*v_u and E_d=sigma_d*v_d => compatible fiber (R_{>0})^2",
+            "(selected public quark frame class chosen by P) => representative-independent descent, but no selection of (sigma_u,sigma_d)",
+            "(externally supplied target sigma pair) => conditional affine/readout algebra => mixed-convention six-row target packet",
+            "(common-scale running coordinates + threshold/top conversion + v(mu)) => dimensionless physical Yukawa matrices; these inputs are not emitted by the current source corpus",
         ],
         "notes": [
-            "The mass bridge is now internalized on the local code surface: light_quark_overlap_defect_value_law and quark_d12_t1_value_law are no longer part of the remaining exact frontier.",
-            "The exact-PDG derivation target is closed on the declared current-family/common-refinement transport-frame carrier and is recorded explicitly above.",
-            "The exact forward-Yukawa derivation target is also closed on that declared carrier and is recorded explicitly above.",
-            "The direct public sigma-datum descent theorem proves selected bridge-fiber representative independence only.",
-            "That public descent does not close the physical sigma source-selector frontier and does not lift the exact Yukawa package to a target-free public theorem on the selected class.",
-            "The exact current-family witness and the D12 internal backread sidecar still exhibit the mass data on sidecar surfaces, but they do not repair the physical CKM branch by themselves.",
-            "The selected local same-label left-handed sheet closes negatively to sigma_ref; the remaining physical quark burden is not another local selector search.",
-            "The historical public physical-sheet contract named Theta_ud^phys and Theta_ud^abs separately; after source sigma selection the absolute readout is algebraic, but the source sigma selector itself remains the blocker.",
+            "The overlap-defect and D12 value laws close shape information, not the two absolute spread moduli.",
+            "The theorem-grade current-corpus obstruction closes issues 377, 379, and 380 only in the accepted sharper-obstruction mode; it does not emit numerical quark rows.",
+            "The target-anchored current-family algebra remains available for audit and regression testing.",
+            "The declared six-row target packet mixes light MSbar coordinates at 2 GeV, charm and bottom self-scale coordinates, and a separate top extraction coordinate.",
+            "The stored GeV-valued matrices are mass textures. Physical Yukawa promotion needs a common scale, scheme and threshold transport, top conversion, a running Higgs expectation value, and dimensionless normalization.",
+            "The scheme obstruction closes issues 381 and 382 only in the accepted sharper-obstruction mode and likewise does not authorize numerical prediction rows.",
         ],
     }
 
@@ -517,6 +647,9 @@ def main() -> int:
         _load_json(CURRENT_FAMILY_TRANSPORT_LIGHT_RATIO_JSON),
         _load_json(CURRENT_FAMILY_TRANSPORT_D12_VALUE_JSON),
         _load_json(CURRENT_FAMILY_END_TO_END_CHAIN_JSON),
+        _load_json(SIGMA_SOURCE_OBSTRUCTION_JSON),
+        _load_json(AXIOM_LEVEL_YUKAWA_OBSTRUCTION_JSON),
+        _load_json(SCHEME_OBSTRUCTION_JSON),
     )
 
     out_path = Path(args.output)

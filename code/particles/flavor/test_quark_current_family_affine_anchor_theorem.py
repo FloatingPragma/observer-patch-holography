@@ -25,6 +25,9 @@ def test_quark_current_family_affine_anchor_theorem() -> None:
     assert payload["proof_status"] == "closed_current_family_affine_anchor"
     assert payload["theorem_scope"] == "current_family_only"
     assert payload["public_promotion_allowed"] is False
+    assert payload["target_anchored"] is True
+    assert payload["source_only_prediction"] is False
+    assert payload["single_running_quark_sextet_claim_allowed"] is False
 
     anchor = float(payload["current_family_affine_anchor"]["value"])
     split = float(payload["current_family_sector_split"]["value"])

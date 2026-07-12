@@ -1009,7 +1009,7 @@ galaxy diversity, and precision expansion history all matter.
 
 The matter support boundaries require care. Quark masses, hadron inputs,
 neutrino assumptions, and electroweak scheme choices must stay explicit. The
-selected quark theorem does not emit the physical strong-CP invariant or
+quark source-spread obstruction and target-audit mass textures do not emit the physical strong-CP invariant or
 prove its vanishing. The book should not imply otherwise.
 
 The observer and restoration discussions rest on the fixed-cutoff

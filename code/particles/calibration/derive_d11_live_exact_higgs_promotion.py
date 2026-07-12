@@ -141,7 +141,7 @@ def build_artifact(
                 if companion_top is not None
                 else None
             ),
-            "exact_public_top_surface": "selected_public_quark_exact_yukawa_theorem",
+            "quark_top_target_audit_surface": "selected_public_quark_mass_texture_audit",
         },
         "strictly_not_claimed": [
             "full_higgs_top_inverse_slice_promotion",
@@ -159,7 +159,7 @@ def build_artifact(
         "notes": [
             "This is a Higgs-only calibration theorem on the declared D10/D11 running, matching, and threshold surface.",
             "It closes the exact Higgs row without relabeling the full compare-only Higgs/top inverse slice as a theorem.",
-            "The D11 common forward seed remains on disk as the companion top-side calibration row, while the repo-wide exact public top row is carried by the selected-class quark theorem.",
+            "The D11 common forward seed remains on disk as the companion top-side calibration row. The quark lane carries only a separate target-audit top coordinate, not an exact public top row.",
         ],
     }
 

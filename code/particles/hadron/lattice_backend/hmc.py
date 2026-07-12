@@ -160,6 +160,27 @@ class TwoFlavorHMC:
         x_sol, _, _ = self._pf_solution(u, phi)
         return float(np.real(np.vdot(phi, x_sol)))
 
+    def integrate(
+        self,
+        u: np.ndarray,
+        pi: np.ndarray,
+        phi: np.ndarray,
+    ) -> tuple[np.ndarray, np.ndarray, int]:
+        """Leapfrog integration of one trajectory; returns (U', pi', cg_count).
+        Time-reversible: integrating (U', -pi') returns to (U, -pi)."""
+        u_new = u.copy()
+        total_cg = 0
+        f, it = self._force(u_new, phi)
+        total_cg += it
+        pi = pi - 0.5 * self.dt * (f / 2.0)
+        for step in range(self.n_steps):
+            u_new = exp_i_herm(self.dt * pi) @ u_new
+            f, it = self._force(u_new, phi)
+            total_cg += it
+            weight = 0.5 if step == self.n_steps - 1 else 1.0
+            pi = pi - weight * self.dt * (f / 2.0)
+        return u_new, pi, total_cg
+
     def trajectory(
         self,
         rng: np.random.Generator,
@@ -176,17 +197,7 @@ class TwoFlavorHMC:
         s_pf0 = float(np.real(np.vdot(eta, eta)))
         h0 = kinetic_energy(pi) + s_g0 + s_pf0
 
-        u_new = u.copy()
-        total_cg = 0
-        f, it = self._force(u_new, phi)
-        total_cg += it
-        pi = pi - 0.5 * self.dt * (f / 2.0)
-        for step in range(self.n_steps):
-            u_new = exp_i_herm(self.dt * pi) @ u_new
-            f, it = self._force(u_new, phi)
-            total_cg += it
-            weight = 0.5 if step == self.n_steps - 1 else 1.0
-            pi = pi - weight * self.dt * (f / 2.0)
+        u_new, pi, total_cg = self.integrate(u, pi, phi)
 
         s_g1 = wilson_gauge_action(u_new, self.beta)
         s_pf1 = self.action_pf(u_new, phi)

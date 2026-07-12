@@ -1139,8 +1139,8 @@ corresponding quantum spectral receipt is supplied.
 **The particle structure.** Section 14.14 gives the concrete structure. The
 framework fixes the carrier roles and states the conditional classical-mode
 receipts. It then organizes the fine-structure
-fixed point, the weak-boson benchmark pair, a Higgs/top relation, a conditional
-six-quark running-mass support surface with Yukawas, and a target-informed
+fixed point, the weak-boson benchmark pair, a Higgs/top relation, a theorem-grade
+two-modulus quark source-spread obstruction with target-audit mass textures, and a target-informed
 weighted-cycle neutrino candidate rejected by the correlated NuFIT 6.1 profile.
 The charged-lepton basis is open and has nearly degenerate singular values, so
 the physical PMNS matrix is unformed. Neutrino mass ordering, Majorana phases,
@@ -1243,8 +1243,12 @@ ultraviolet consistency.
 The result is concrete. The book points to a specific gauge
 structure, charge pattern, color count, and generation count. It also reaches
 conditional action-level carrier modes, the $W$ and $Z$ benchmark pair, a
-Higgs/top quantitative relation, and a conditional running-quark support
-sector on a chosen physical basis. The weighted-cycle neutrino point belongs to the comparison ledger:
+Higgs/top quantitative relation, and a quark source-spread non-identifiability
+theorem on a chosen physical basis. MAR gives every positive rescaling of the
+two quark profiles the same structural score, so it does not select their
+Yukawa eigenvalues. Numeric quark rows remain withheld, and the
+mixed-convention GeV matrices are target-audit mass textures rather than
+physical Yukawas. The weighted-cycle neutrino point belongs to the comparison ledger:
 NuFIT 6.1 rejects it. The charged basis is open and has nearly degenerate
 singular values, leaving physical mixing, mass ordering, and absolute masses
 unresolved. Strongly coupled bound states add the QCD problem on top of that

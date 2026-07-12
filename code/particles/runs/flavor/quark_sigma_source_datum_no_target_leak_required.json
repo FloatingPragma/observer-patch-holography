@@ -10,7 +10,7 @@
     "g_d": "g_ch*exp(-(A_ud*sigma_seed_ud + B_ud*eta_ud))",
     "g_u": "g_ch*exp(-(A_ud*sigma_seed_ud - B_ud*eta_ud))",
     "sigma_seed_ud": "(sigma_u + sigma_d)/2",
-    "then": "ordered_three_point_readout_and_exact_forward_Yu_Yd"
+    "then": "ordered_three_point_mass_coordinate_readout_then_declared_RG_chart_and_dimensionless_Yukawa_normalization"
   },
   "dependency_audit": {
     "allowed_ancestors": [
@@ -89,17 +89,15 @@
     "CODATA",
     "compare_only"
   ],
-  "generated_utc": "2026-07-12T02:48:37Z",
+  "generated_utc": "2026-07-12T03:21:51Z",
   "independent_unselected_coordinates": [
     "sigma_u",
     "sigma_d"
   ],
   "missing_for_promotion": [
-    "QUARK_SIGMA_SOURCE_QUOTIENT",
-    "QUARK_SIGMA_SOURCE_SELECTOR",
-    "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
-    "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
-    "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE"
+    "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM",
+    "QUARK_SOURCE_SPREAD_SECTOR_ATTACHMENT_AND_REFINEMENT",
+    "NO_TARGET_LEAK_DAG_QUARK_SOURCE_SPREAD"
   ],
   "notes": [
     "The obstruction consumes no running-quark target, exact-witness, spread-map, or fitted-correction artifact.",
@@ -122,11 +120,9 @@
     "Q\u03a3-0": "sigma descent is representative independence, not source selection",
     "Q\u03a3-1": "the target-free compatible spread fiber is (R_{>0})^2",
     "Q\u03a3-2": "conditional quark masses follow once a no-target source sigma datum is supplied",
-    "Q\u03a3-A": "QUARK_SIGMA_SOURCE_QUOTIENT",
-    "Q\u03a3-B": "QUARK_SIGMA_SOURCE_SELECTOR",
-    "Q\u03a3-C": "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
-    "Q\u03a3-D": "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
-    "Q\u03a3-E": "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE"
+    "Q\u03a3-A": "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM",
+    "Q\u03a3-B": "QUARK_SOURCE_SPREAD_SECTOR_ATTACHMENT_AND_REFINEMENT",
+    "Q\u03a3-C": "NO_TARGET_LEAK_DAG_QUARK_SOURCE_SPREAD"
   },
   "resolved_github_issues": [
     377,

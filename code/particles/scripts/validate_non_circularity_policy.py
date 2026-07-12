@@ -73,16 +73,17 @@ def validate() -> dict[str, Any]:
             "target-derived quark sigma is marked source-only",
         )
         _require(
-            "QUARK_SIGMA_SOURCE_SELECTOR" in quark_sigma.get("missing_for_promotion", []),
+            "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM"
+            in quark_sigma.get("missing_for_promotion", []),
             failures,
-            "quark sigma source-selector gate is not recorded",
+            "quark source-spread action-breaking gate is not recorded",
         )
 
     quark_sigma_required = payloads["quark_sigma_required"]
     _require(
-        quark_sigma_required.get("status") == "missing_theorem",
+        quark_sigma_required.get("status") == "closed_current_corpus_nonidentifiability_obstruction",
         failures,
-        "quark sigma required artifact is not marked missing",
+        "quark sigma required artifact does not record the closed current-corpus obstruction",
     )
     _require(
         quark_sigma_required.get("source_only_sigma_emitted") is False,
@@ -90,9 +91,10 @@ def validate() -> dict[str, Any]:
         "quark sigma required artifact emits source sigma",
     )
     _require(
-        "QUARK_SIGMA_SOURCE_SELECTOR" in quark_sigma_required.get("missing_for_promotion", []),
+        "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM"
+        in quark_sigma_required.get("missing_for_promotion", []),
         failures,
-        "quark sigma required artifact lacks selector gate",
+        "quark sigma required artifact lacks the action-breaking gate",
     )
 
     quark_yukawa = payloads["quark_yukawa"]
@@ -104,6 +106,7 @@ def validate() -> dict[str, Any]:
             in {
                 "blocked_target_derived_sigma_source_missing",
                 "blocked_inconsistent_exact_mass_yukawa_surfaces",
+                "blocked_mixed_scheme_dimensionful_mass_textures_not_physical_yukawas",
             },
             failures,
             "target-derived quark Yukawa proof status is not fail-closed",
@@ -159,9 +162,10 @@ def validate() -> dict[str, Any]:
     for particle_id in ("up_quark", "down_quark", "strange_quark", "charm_quark", "bottom_quark", "top_quark"):
         _require(particle_id not in entries, failures, f"{particle_id} target-anchored quark witness is a public entry")
         _require(
-            withheld_entries.get(particle_id, {}).get("exact_kind") == "selected_class_target_anchored_exact_witness",
+            withheld_entries.get(particle_id, {}).get("exact_kind")
+            == "selected_class_target_anchored_mixed_convention_mass_texture_audit",
             failures,
-            f"{particle_id} target-anchored quark witness is not withheld",
+            f"{particle_id} target-anchored mixed-convention audit is not withheld",
         )
         _require(
             withheld_entries.get(particle_id, {}).get("promotable") is False,
@@ -170,7 +174,7 @@ def validate() -> dict[str, Any]:
         )
         _require(
             withheld_entries.get(particle_id, {}).get("claim_tier")
-            == "selected_class_conditional_on_source_sigma",
+            == "mixed_scheme_dimensionful_mass_texture_audit",
             failures,
             f"{particle_id} quark witness has wrong claim tier",
         )
@@ -180,10 +184,10 @@ def validate() -> dict[str, Any]:
             f"{particle_id} quark witness is marked source-only sigma",
         )
         _require(
-            "QUARK_SIGMA_SOURCE_SELECTOR"
+            "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM"
             in withheld_entries.get(particle_id, {}).get("missing_for_promotion", []),
             failures,
-            f"{particle_id} missing quark sigma selector gate is not recorded",
+            f"{particle_id} missing quark source-spread action-breaking gate is not recorded",
         )
     for particle_id in ("electron", "muon", "tau"):
         _require(particle_id not in entries, failures, f"{particle_id} target-anchored charged witness is a public entry")

@@ -192,7 +192,7 @@ def build_entries() -> list[dict[str, Any]]:
                 "The declared transport-frame chain also carries GeV-valued matrices labelled `Y_u` and "
                 f"`Y_d` with certification status `{(quark_transport_forward_yukawas or {}).get('certification_status', 'forward_matrix_certified')}`, "
                 "but those matrices are dimensionful mass textures, not physical Yukawas. "
-                f"and the full declared-carrier chain is recorded in `{(quark_end_to_end_chain or {}).get('artifact', 'oph_quark_current_family_end_to_end_exact_pdg_derivation_chain')}`. "
+                f"The full declared-carrier chain is recorded in `{(quark_end_to_end_chain or {}).get('artifact', 'oph_quark_current_family_end_to_end_exact_pdg_derivation_chain')}`. "
                 "A separate target-free mass bridge closes `Delta_ud_overlap = (1/6) * log(c_d / c_u)`, "
                 "equivalently `quark_d12_t1_value_law`, on the emitted D12 ray. "
                 + (
@@ -383,18 +383,20 @@ def build_entries() -> list[dict[str, Any]]:
 
 
 def build_markdown(generated_utc: str, entries: list[dict[str, Any]]) -> str:
-    has_quark_selected_class_theorem = any(entry["id"] == "quark_selected_class_exact_theorem" for entry in entries)
+    has_quark_selected_class_target_audit = any(
+        entry["id"] == "quark_selected_class_target_audit" for entry in entries
+    )
     lines = [
         "# Exact Fits Only",
         "",
         f"Generated: `{generated_utc}`",
         "",
-        "This surface lists exact target matches on declared OPH carriers. "
-        "It separates theorem-grade selected-class outputs from compare-only and carrier-restricted exact surfaces.",
+        "This surface lists exact target matches on declared audit carriers. "
+        "An exact target match is not, by itself, a source-only prediction.",
         (
-            "For quarks, the selected-class theorem and its supporting exact carriers coincide with the official PDG 2025 API running-quark target surface."
-            if has_quark_selected_class_theorem
-            else "For quarks, the exact carrier-restricted witnesses coincide with the official PDG 2025 API running-quark target surface on their declared carriers."
+            "For quarks, the selected-class target audit matches its chosen mixed-convention packet. Its GeV-valued matrices are mass textures, not physical dimensionless Yukawas."
+            if has_quark_selected_class_target_audit
+            else "For quarks, the carrier-restricted target audit matches its chosen mixed-convention packet. It is not one common-scale running sextet."
         ),
         "",
     ]

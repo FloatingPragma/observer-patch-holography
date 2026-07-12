@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Emit exact forward Yukawas on the declared current-family transport-frame carrier."""
+"""Emit target-anchored quark mass textures on the declared transport frame.
+
+The legacy artifact name is retained for compatibility. Its entries have units
+of GeV and are assembled from a mixed-convention target packet, so they are not
+physical dimensionless Yukawa matrices.
+"""
 
 from __future__ import annotations
 
@@ -67,17 +72,22 @@ def build_artifact(strengthened_theorem: dict[str, Any], completion: dict[str, A
     forward["artifact"] = "oph_quark_current_family_transport_frame_exact_forward_yukawas"
     forward["generated_utc"] = _timestamp()
     forward["scope"] = "current_family_common_refinement_transport_frame_only"
-    forward["proof_status"] = "closed_current_family_transport_frame_exact_forward_yukawas"
+    forward["proof_status"] = "closed_target_anchored_mixed_convention_mass_texture_audit"
     forward["public_promotion_allowed"] = False
+    forward["matrix_classification"] = "mixed_scheme_GeV_mass_texture_matrices"
+    forward["stored_entry_dimension"] = "GeV"
+    forward["physical_yukawa_certified"] = False
+    forward["single_common_scale_running_sextet"] = False
+    forward["promotion_blockers"] = ["QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE"]
     forward["supporting_artifacts"] = {
         "strengthened_physical_sigma_lift_theorem": strengthened_theorem["artifact"],
         "exact_pdg_completion": completion["artifact"],
     }
     forward["metadata"] = {
         "note": (
-            "Exact forward Yukawas on the declared current-family/common-refinement transport-frame carrier, "
-            "using the emitted left-handed physical datum and the exact running mass sextet. "
-            "This is a local exact carrier theorem, not a target-free public physical-sheet promotion."
+            "Target-anchored mass textures on the declared current-family/common-refinement transport-frame "
+            "carrier. Their singular values reproduce the chosen mixed-convention mass coordinates. They are "
+            "not one common-scale running sextet and not physical dimensionless Yukawa matrices."
         ),
         "right_basis_gauge": "identity",
     }
@@ -85,7 +95,7 @@ def build_artifact(strengthened_theorem: dict[str, Any], completion: dict[str, A
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Build the exact forward Yukawas on the declared transport-frame carrier.")
+    parser = argparse.ArgumentParser(description="Build the target-audit quark mass textures on the declared transport-frame carrier.")
     parser.add_argument("--strengthened-theorem", default=str(STRENGTHENED_THEOREM_JSON))
     parser.add_argument("--completion", default=str(COMPLETION_JSON))
     parser.add_argument("--output", default=str(DEFAULT_OUT))

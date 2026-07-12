@@ -1,6 +1,6 @@
 # Final End-to-End Particle Predictions
 
-Generated: `2026-07-11T17:56:21Z`
+Generated: `2026-07-12T03:22:11Z`
 
 Scope: `nonhadron_particle_pipeline_with_empirical_hadron_closure_policy`
 Claim label: `final_nonhadron_predictions_with_classical_carriers_and_empirical_hadrons_separated`
@@ -31,7 +31,7 @@ Claim label: `final_nonhadron_predictions_with_classical_carriers_and_empirical_
 
 | Topic | Claim label | Boundary | Gate |
 | --- | --- | --- | --- |
-| Strong CP | `open_theta_qcd_bar_theta_vanishing_gap` | The selected-class quark support wrapper conditionally carries the running-quark sextet and exact forward Yukawas on the public class f_P, but its sigma datum is still target-derived. The available corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes. | Keep strong CP explicit as an open branch. Reopen only for a theorem-grade descent from exact quark/Yukawa phase data to the determinant-line phase contribution, together with a theorem fixing the topological-angle contribution and proving the physical strong-CP phase vanishes on the realized branch. |
+| Strong CP | `open_theta_qcd_bar_theta_vanishing_gap` | The selected-class quark audit wrapper carries target-anchored mass textures on the public class f_P. The two spread moduli are non-identifiable from the source corpus, and the dimensionful mixed-scheme matrices are not certified physical Yukawas. The available corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes. | Keep strong CP explicit as an open branch. First emit a source-only quark mass matrix at one declared scale with physical determinant-line phase data. Then fix the topological-angle contribution and prove that the anomaly-invariant strong-CP phase vanishes. |
 
 ## Predictions
 
@@ -58,12 +58,12 @@ These rows are retained in audit surfaces but are not numeric predictions.
 | `electron` | `exact_target_anchored_current_family_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | charged_branch_generator_splitting_promotion, sector_isolated_charged_determinant_exponent_vector_M_ch, source_side_same_label_q_psi_readout_certificate, charged_determinant_trace_lift_attachment, NO_TARGET_LEAK_DAG_CHARGED_A_CH |
 | `muon` | `exact_target_anchored_current_family_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | charged_branch_generator_splitting_promotion, sector_isolated_charged_determinant_exponent_vector_M_ch, source_side_same_label_q_psi_readout_certificate, charged_determinant_trace_lift_attachment, NO_TARGET_LEAK_DAG_CHARGED_A_CH |
 | `tau` | `exact_target_anchored_current_family_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | charged_branch_generator_splitting_promotion, sector_isolated_charged_determinant_exponent_vector_M_ch, source_side_same_label_q_psi_readout_certificate, charged_determinant_trace_lift_attachment, NO_TARGET_LEAK_DAG_CHARGED_A_CH |
-| `up_quark` | `selected_class_conditional_on_source_sigma` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | QUARK_SIGMA_SOURCE_QUOTIENT, QUARK_SIGMA_SOURCE_SELECTOR, QUARK_EDGE_STATISTICS_CORRECTION_THEOREM, QUARK_SIGMA_REFINEMENT_COMPATIBILITY, NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE |
-| `charm_quark` | `selected_class_conditional_on_source_sigma` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | QUARK_SIGMA_SOURCE_QUOTIENT, QUARK_SIGMA_SOURCE_SELECTOR, QUARK_EDGE_STATISTICS_CORRECTION_THEOREM, QUARK_SIGMA_REFINEMENT_COMPATIBILITY, NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE |
-| `top_quark` | `selected_class_conditional_on_source_sigma` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | QUARK_SIGMA_SOURCE_QUOTIENT, QUARK_SIGMA_SOURCE_SELECTOR, QUARK_EDGE_STATISTICS_CORRECTION_THEOREM, QUARK_SIGMA_REFINEMENT_COMPATIBILITY, NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE |
-| `down_quark` | `selected_class_conditional_on_source_sigma` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | QUARK_SIGMA_SOURCE_QUOTIENT, QUARK_SIGMA_SOURCE_SELECTOR, QUARK_EDGE_STATISTICS_CORRECTION_THEOREM, QUARK_SIGMA_REFINEMENT_COMPATIBILITY, NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE |
-| `strange_quark` | `selected_class_conditional_on_source_sigma` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | QUARK_SIGMA_SOURCE_QUOTIENT, QUARK_SIGMA_SOURCE_SELECTOR, QUARK_EDGE_STATISTICS_CORRECTION_THEOREM, QUARK_SIGMA_REFINEMENT_COMPATIBILITY, NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE |
-| `bottom_quark` | `selected_class_conditional_on_source_sigma` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | QUARK_SIGMA_SOURCE_QUOTIENT, QUARK_SIGMA_SOURCE_SELECTOR, QUARK_EDGE_STATISTICS_CORRECTION_THEOREM, QUARK_SIGMA_REFINEMENT_COMPATIBILITY, NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE |
+| `up_quark` | `mixed_scheme_dimensionful_mass_texture_audit` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM, QUARK_SOURCE_SPREAD_SECTOR_ATTACHMENT_AND_REFINEMENT, NO_TARGET_LEAK_DAG_QUARK_SOURCE_SPREAD, QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE |
+| `charm_quark` | `mixed_scheme_dimensionful_mass_texture_audit` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM, QUARK_SOURCE_SPREAD_SECTOR_ATTACHMENT_AND_REFINEMENT, NO_TARGET_LEAK_DAG_QUARK_SOURCE_SPREAD, QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE |
+| `top_quark` | `mixed_scheme_dimensionful_mass_texture_audit` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM, QUARK_SOURCE_SPREAD_SECTOR_ATTACHMENT_AND_REFINEMENT, NO_TARGET_LEAK_DAG_QUARK_SOURCE_SPREAD, QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE |
+| `down_quark` | `mixed_scheme_dimensionful_mass_texture_audit` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM, QUARK_SOURCE_SPREAD_SECTOR_ATTACHMENT_AND_REFINEMENT, NO_TARGET_LEAK_DAG_QUARK_SOURCE_SPREAD, QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE |
+| `strange_quark` | `mixed_scheme_dimensionful_mass_texture_audit` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM, QUARK_SOURCE_SPREAD_SECTOR_ATTACHMENT_AND_REFINEMENT, NO_TARGET_LEAK_DAG_QUARK_SOURCE_SPREAD, QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE |
+| `bottom_quark` | `mixed_scheme_dimensionful_mass_texture_audit` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction | QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM, QUARK_SOURCE_SPREAD_SECTOR_ATTACHMENT_AND_REFINEMENT, NO_TARGET_LEAK_DAG_QUARK_SOURCE_SPREAD, QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE |
 | `electron_neutrino` | `rejected_target_informed_weighted_cycle_candidate` | target_informed_candidate_rejected_by_correlated_profile | n/a |
 | `muon_neutrino` | `rejected_target_informed_weighted_cycle_candidate` | target_informed_candidate_rejected_by_correlated_profile | n/a |
 | `tau_neutrino` | `rejected_target_informed_weighted_cycle_candidate` | target_informed_candidate_rejected_by_correlated_profile | n/a |
@@ -80,14 +80,25 @@ These rows are retained in audit surfaces but are not numeric predictions.
 ## Quark Sigma Source Boundary
 
 - Artifact: `oph_quark_sigma_source_datum_no_target_leak_required`
-- Status: `missing_theorem`
-- Claim tier: `selected_class_conditional_on_source_sigma`
+- Status: `closed_current_corpus_nonidentifiability_obstruction`
+- Claim tier: `selected_class_conditional_support_source_sigma_nonidentifiable`
 - Required identity: `P -> f_P -> Sigma_ud_phys -> (sigma_u,sigma_d,sigma_seed_ud,eta_ud)`
 - Source-only sigma emitted: `False`
 - Closed downstream algebra: `True`
-- Missing gates: `['QUARK_SIGMA_SOURCE_QUOTIENT', 'QUARK_SIGMA_SOURCE_SELECTOR', 'QUARK_EDGE_STATISTICS_CORRECTION_THEOREM', 'QUARK_SIGMA_REFINEMENT_COMPATIBILITY', 'NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE']`
-- Edge candidate: `sigma_u_edge=5.578418804072826`, `sigma_d_edge=3.4210589139721543`
-- Required source correction target: `R_u=-0.004490377677282886`, `R_d=-0.1247947151634663`
+- Closure kind: `theorem_grade_sharper_obstruction`
+- Obstruction: `oph_quark_sigma_source_nonidentifiability_obstruction`
+- Compatible spread fiber: `(R_{>0})^2` (dimension `2`)
+- Independent unselected coordinates: `['sigma_u', 'sigma_d']`
+- Missing gates: `['QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM', 'QUARK_SOURCE_SPREAD_SECTOR_ATTACHMENT_AND_REFINEMENT', 'NO_TARGET_LEAK_DAG_QUARK_SOURCE_SPREAD']`
+
+## Quark Scheme and Yukawa Boundary
+
+- Artifact: `oph_quark_running_mass_scheme_convention_obstruction`
+- Status: `closed_structural_finite_renormalization_nonidentifiability_obstruction`
+- Row partition: `{'heavy_running_coordinates': ['c', 'b'], 'light_running_coordinates': ['u', 'd', 's'], 'separate_extraction_coordinates': ['t'], 'single_running_quark_sextet_claim_allowed': False}`
+- Matrix classification: `mixed_scheme_GeV_mass_texture_matrices`
+- Certified physical Yukawa matrices: `False`
+- Public numeric rows allowed: `False`
 
 ## Fine Structure
 

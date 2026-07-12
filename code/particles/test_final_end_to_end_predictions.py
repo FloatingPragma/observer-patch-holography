@@ -90,6 +90,15 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
     assert charged_boundary["required_identity"] == "3*A_ch(P)=sum_psi M_ch[psi]*log(q_psi(P))"
     assert charged_boundary["current_closed_chain"]["A_ch_to_charged_masses"] is True
     assert charged_boundary["current_closed_chain"]["P_to_A_ch"] is False
+    axiom_boundary = payload["quark_axiom_level_nondefinability"]
+    assert axiom_boundary["artifact"] == "oph_quark_axiom_level_yukawa_moduli_nonidentifiability"
+    assert axiom_boundary["proof_status"] == "closed_axiom_level_nondefinability_theorem"
+    assert axiom_boundary["additional_axioms_used"] is False
+    assert axiom_boundary["counterfamily"]["parameter_space"] == (
+        "(lambda_u,lambda_d) in (R_{>0})^2"
+    )
+    assert axiom_boundary["MAR_audit"]["counterfamily_members_have_equal_MAR_score"] is True
+    assert axiom_boundary["public_numeric_quark_rows_allowed"] is False
     assert withheld["top_quark"]["reason"] == "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction"
     assert withheld["electron_neutrino"]["reason"] == (
         "target_informed_candidate_rejected_by_correlated_profile"

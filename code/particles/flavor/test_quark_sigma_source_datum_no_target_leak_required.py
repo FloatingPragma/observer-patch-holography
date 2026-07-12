@@ -47,8 +47,8 @@ def test_quark_sigma_source_gate_projects_the_target_free_obstruction() -> None:
     assert payload["compatible_spread_fiber_dimension"] == 2
     assert payload["independent_unselected_coordinates"] == ["sigma_u", "sigma_d"]
     assert payload["affine_downstream_injective"] is True
-    assert "QUARK_SIGMA_SOURCE_SELECTOR" in payload["missing_for_promotion"]
-    assert "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE" in payload["missing_for_promotion"]
+    assert "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM" in payload["missing_for_promotion"]
+    assert "NO_TARGET_LEAK_DAG_QUARK_SOURCE_SPREAD" in payload["missing_for_promotion"]
     assert payload["dependency_audit"]["no_target_leak"] is True
     assert payload["dependency_audit"]["loads_running_quark_reference_rows"] is False
 
@@ -57,4 +57,3 @@ def test_quark_sigma_source_gate_projects_the_target_free_obstruction() -> None:
     assert "strongest_current_source_candidate" not in keys
     assert "required_R_u" not in keys
     assert "required_R_d" not in keys
-

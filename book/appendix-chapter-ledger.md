@@ -841,8 +841,8 @@ fine-structure constant $\alpha$ measures electromagnetic coupling, and
 $\alpha^{-1}$ is its inverse. The process $e^+e^-\to\mathrm{hadrons}$ is an
 electron-positron annihilation channel whose data constrain hadronic
 spectral payloads. Strong CP is encoded in a QCD angle often written
-$\theta$ or $\bar\theta$, and the book is careful that the selected quark
-theorem does not derive its vanishing.
+$\theta$ or $\bar\theta$, and the book is careful that the quark source-spread
+obstruction and target-audit mass textures do not derive its vanishing.
 
 The synthesis chapter is also where support language matters most. A
 reconstruction can be impressive without being uniform in theorem support.
@@ -1010,7 +1010,7 @@ RT formula. Again, context decides. $\gamma_A$ is a geometric surface;
 $\gamma=1/\sqrt{1-v^2/c^2}$ is a boost factor.
 
 **$\theta_{\mathrm{QCD}}$ and $\bar\theta$** are strong-CP angle parameters.
-The book is careful that the selected quark theorem does not derive the
+The book is careful that the quark target-audit surface does not derive the
 vanishing of the physical strong-CP phase.
 
 ## Three Worked Reading Examples

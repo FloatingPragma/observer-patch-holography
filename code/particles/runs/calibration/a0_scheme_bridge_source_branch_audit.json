@@ -1,0 +1,108 @@
+{
+  "anchor_shift_interval_over_yukawa_conventions": [
+    1.6204741444484796,
+    2.144041230372295
+  ],
+  "artifact": "oph_a0_scheme_bridge_source_branch_audit",
+  "balance_requirement": {
+    "delta_b_em_mssm_minus_sm": 8.333333333333334,
+    "equivalent_single_effective_threshold_gev": 458.00572623093626,
+    "reading": "for the two-loop MSSM continuation plus the declared scheme spread to land at the certified gap center, the threshold map must remove about this much inverse-alpha, equivalent under naive delta-b accounting to a single effective superpartner threshold at the quoted scale; recorded as the quantitative content the scheme-lock object must supply, not as a physics claim",
+    "required_threshold_shift_inv_alpha": -2.1405845985415244,
+    "scheme_conversion_msbar_to_on_shell_declared_reference": 1.01
+  },
+  "generated_utc": "2026-07-12T03:23:45Z",
+  "guards": {
+    "certified_gap_used_only_as_membership_test": true,
+    "measured_alpha_in_two_loop_computation": false,
+    "new_axiom_introduced": false,
+    "public_promotion_allowed": false,
+    "source_only_bridge_emitted": false
+  },
+  "inputs": {
+    "alpha2_mz_one_loop": 0.03377843630219015,
+    "alphaY_mz_one_loop": 0.010131601067241624,
+    "alpha_u": 0.04112498041477454,
+    "boundary_ref": "code/particles/runs/calibration/d10_ew_forward_transmutation_certificate.json",
+    "certified_gap_interval": [
+      0.648554111145163,
+      0.8547920665925625
+    ],
+    "efolds_unification_to_mz": 33.22903383168771,
+    "gap_ref": "code/P_derivation/runtime/empirical_thomson_endpoint_current.json",
+    "rg_contract_ref": "code/P_derivation/runtime/rg_matching_threshold_contract_current.json"
+  },
+  "issue": 545,
+  "membership_test": {
+    "any_convention_lands_inside": false,
+    "certified_gap_interval": [
+      0.648554111145163,
+      0.8547920665925625
+    ],
+    "overshoot_factor_range": [
+      1.8957524382603803,
+      3.3058787131678575
+    ]
+  },
+  "one_loop_reproduction": {
+    "a0_certificate": 128.30576920234813,
+    "a0_integrated": 128.3057692023613,
+    "independent_alpha2_check_residual": -5.183409257369931e-12,
+    "residual": 1.3159251466277055e-11
+  },
+  "row_class": "source_branch_audit_fail_closed",
+  "two_loop_scan": [
+    {
+      "alpha3_mz": 0.1111647109897105,
+      "anchor_shift_inv_alpha": 2.144041230372295,
+      "inside_certified_gap": false,
+      "yt_at_mz": 0.0,
+      "yt_at_unification": 0.0
+    },
+    {
+      "alpha3_mz": 0.11158517870807431,
+      "anchor_shift_inv_alpha": 2.0198502757159815,
+      "inside_certified_gap": false,
+      "yt_at_mz": 0.7695658403410027,
+      "yt_at_unification": 0.3
+    },
+    {
+      "alpha3_mz": 0.11198525248099844,
+      "anchor_shift_inv_alpha": 1.9025714244481833,
+      "inside_certified_gap": false,
+      "yt_at_mz": 0.9441643630502874,
+      "yt_at_unification": 0.5
+    },
+    {
+      "alpha3_mz": 0.11232780361836052,
+      "anchor_shift_inv_alpha": 1.8028365171019232,
+      "inside_certified_gap": false,
+      "yt_at_mz": 1.0179908919819074,
+      "yt_at_unification": 0.7
+    },
+    {
+      "alpha3_mz": 0.112737663164298,
+      "anchor_shift_inv_alpha": 1.6843215260841191,
+      "inside_certified_gap": false,
+      "yt_at_mz": 1.0654615652524344,
+      "yt_at_unification": 1.0
+    },
+    {
+      "alpha3_mz": 0.11295973856866742,
+      "anchor_shift_inv_alpha": 1.6204741444484796,
+      "inside_certified_gap": false,
+      "yt_at_mz": 1.080946646660418,
+      "yt_at_unification": 1.2
+    }
+  ],
+  "verdict": {
+    "forbidden_shortcut_avoided": "using_threshold_choices_as_hidden_fit_parameters",
+    "refined_missing_objects": [
+      "scheme_lock",
+      "threshold_map"
+    ],
+    "route_a_status": "unchanged_empirical_class_carrying_lane",
+    "statement": "The two-loop MSSM continuation of the declared one-loop convention shifts the anchor by two to three times the certified gap for every top-Yukawa convention, and restoring the balance requires threshold and scheme choices that the RG matching contract classifies as hidden fit parameters when undeclared. Issue #545 therefore stays open on the source branch; the empirical class (Route A) remains the carrying lane, and the refined missing object is the declared scheme-lock plus threshold-map pair of the RG contract.",
+    "status": "source_branch_not_closable_under_declared_conventions"
+  }
+}

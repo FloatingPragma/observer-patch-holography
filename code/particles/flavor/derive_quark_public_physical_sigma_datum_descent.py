@@ -24,11 +24,9 @@ SOURCE_SIGMA_REQUIRED_JSON = (
 DEFAULT_OUT = ROOT / "particles" / "runs" / "flavor" / "quark_public_physical_sigma_datum_descent.json"
 
 MISSING_FOR_PROMOTION = [
-    "QUARK_SIGMA_SOURCE_QUOTIENT",
-    "QUARK_SIGMA_SOURCE_SELECTOR",
-    "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
-    "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
-    "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE",
+    "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM",
+    "QUARK_SOURCE_SPREAD_SECTOR_ATTACHMENT_AND_REFINEMENT",
+    "NO_TARGET_LEAK_DAG_QUARK_SOURCE_SPREAD",
 ]
 
 
@@ -236,16 +234,17 @@ def build_artifact(
             },
         ],
         "why_sufficient": (
-            "Once a source-only sigma selector is supplied and this descent holds, the physical sigma datum is "
-            "intrinsic public data on the selected physical quark frame class. The affine mean law then emits the "
-            "absolute sector scales algebraically, and the already-closed exact forward construction lifts from the "
-            "local transport-frame representative to the public selected class. In the current artifact the descent "
-            "is only an audit/support witness because the descended sigma datum is target-derived."
+            "If a new source observable breaks the independent positive-rescaling action and emits both spread "
+            "moduli, this descent makes that supplied datum intrinsic on the selected physical quark frame class. "
+            "The affine mean law would then emit sector scales algebraically. Scheme-labelled masses would still "
+            "require an RG trajectory and declared comparison chart, and physical Yukawa matrices would require "
+            "common-scale dimensionless normalization. In the current artifact the descended datum is target-derived."
         ),
         "notes": [
             "This theorem closes representative independence on the selected bridge fiber, not source selection of the sigma datum.",
             "It is a descent theorem on the selected public frame class only; it does not claim a global classification of all quark frame classes.",
-            "The selected exact sigma datum is the same target-derived one already emitted on the closed local transport-frame chain.",
+            "The selected exact sigma datum is the same target-derived one already emitted on the local transport-frame audit chain.",
+            "The current source-only obstruction leaves an exact (R_{>0})^2 spread fiber; descent does not break that action.",
         ],
     }
 

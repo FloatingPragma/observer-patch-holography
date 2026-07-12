@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Emit the exact current-family quark affine-anchor theorem artifact."""
+"""Emit the current-family target-audit affine-coordinate identity."""
 
 from __future__ import annotations
 
@@ -41,13 +41,16 @@ def build_artifact(exact_readout: dict) -> dict:
         "proof_status": "closed_current_family_affine_anchor",
         "theorem_scope": "current_family_only",
         "public_promotion_allowed": False,
+        "target_anchored": True,
+        "source_only_prediction": False,
+        "single_running_quark_sextet_claim_allowed": False,
         "supporting_exact_readout_artifact": exact_readout["artifact"],
         "theorem_statement": (
-            "On the fixed exact current-family quark witness, the unique common affine coordinate is "
+            "On the fixed target-anchored current-family quark witness, the common affine coordinate is "
             "A_q^(cf) = (1/2) * (log g_u + log g_d) = log(sqrt(g_u g_d)). Equivalently "
             "delta_q^(cf) = (1/2) * (log g_u - log g_d), so g_u = exp(A_q^(cf) + delta_q^(cf)) and "
             "g_d = exp(A_q^(cf) - delta_q^(cf)). Together with the exact centered ordered shapes "
-            "E_u^log and E_d^log, this reconstructs the exact current-family quark sextet."
+            "E_u^log and E_d^log, this reconstructs the chosen mixed-convention target coordinates."
         ),
         "current_family_affine_anchor": {
             "name": "A_q_current_family",

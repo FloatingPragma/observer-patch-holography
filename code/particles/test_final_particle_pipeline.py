@@ -35,11 +35,38 @@ def test_final_particle_pipeline_orders_contracts_before_predictions() -> None:
     assert ids.index("quark_sigma_source_nonidentifiability_obstruction") < ids.index(
         "quark_sigma_source_boundary"
     )
+    assert ids.index("quark_axiom_level_yukawa_moduli_nonidentifiability") < ids.index(
+        "quark_sigma_source_boundary"
+    )
     assert ids.index("quark_running_mass_scheme_convention_obstruction") < ids.index(
         "quark_public_mass_texture_yukawa_boundary"
     )
+    assert ids.index("quark_current_family_exact_readout_target_audit") < ids.index(
+        "quark_current_family_affine_anchor_target_audit"
+    )
+    assert ids.index("quark_current_family_affine_anchor_target_audit") < ids.index(
+        "quark_current_family_exact_pdg_target_audit"
+    )
+    assert ids.index("quark_current_family_exact_pdg_target_audit") < ids.index(
+        "quark_current_family_target_audit_completion"
+    )
     assert ids.index("quark_exact_target_audit_wrapper") < ids.index(
         "quark_public_mass_texture_yukawa_boundary"
+    )
+    assert ids.index("quark_current_family_target_audit_completion") < ids.index(
+        "quark_current_family_mass_textures"
+    )
+    assert ids.index("quark_current_family_mass_textures") < ids.index(
+        "quark_current_family_target_audit_chain"
+    )
+    assert ids.index("quark_public_mass_texture_yukawa_boundary") < ids.index(
+        "quark_public_strengthened_sigma_frontier"
+    )
+    assert ids.index("quark_public_strengthened_sigma_frontier") < ids.index(
+        "quark_public_exact_yukawa_promotion_frontier"
+    )
+    assert ids.index("quark_public_mass_texture_yukawa_boundary") < ids.index(
+        "direct_top_bridge_contract"
     )
     assert ids.index("quark_lane_closure_contract") < ids.index("derivation_gap_ledger")
     assert ids[-1] == "mass_derivation_svg"
@@ -50,7 +77,15 @@ def test_final_particle_pipeline_orders_contracts_before_predictions() -> None:
     assert "particles/hadron/derive_ward_projected_spectral_measure_contract.py" in scripts
     assert "particles/flavor/derive_quark_class_uniform_public_frame_descent_obstruction.py" in scripts
     assert "particles/flavor/derive_quark_sigma_source_nonidentifiability_obstruction.py" in scripts
+    assert "particles/flavor/derive_quark_axiom_level_yukawa_moduli_nonidentifiability.py" in scripts
     assert "particles/flavor/derive_quark_running_mass_scheme_convention_obstruction.py" in scripts
+    assert "particles/flavor/derive_quark_current_family_exact_readout.py" in scripts
+    assert "particles/flavor/derive_quark_current_family_affine_anchor_theorem.py" in scripts
+    assert "particles/flavor/derive_quark_current_family_exact_pdg_theorem.py" in scripts
+    assert "particles/flavor/derive_quark_current_family_transport_frame_exact_pdg_completion.py" in scripts
+    assert "particles/flavor/derive_quark_current_family_transport_frame_exact_forward_yukawas.py" in scripts
+    assert "particles/flavor/derive_quark_current_family_transport_frame_exact_yukawa_theorem.py" in scripts
+    assert "particles/flavor/derive_quark_exact_yukawa_end_to_end_theorem.py" in scripts
     assert "particles/leptons/derive_charged_end_to_end_impossibility_theorem.py" in scripts
     assert "particles/leptons/derive_charged_trace_lift.py" in scripts
     assert "particles/hierarchy/verify_pixel_screen_resonance_summary.py" in scripts

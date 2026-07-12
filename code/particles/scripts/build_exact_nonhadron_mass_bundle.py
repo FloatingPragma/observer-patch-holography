@@ -254,11 +254,9 @@ def build_all_entries() -> list[dict[str, Any]]:
             (quark_sigma_required or {}).get(
                 "missing_for_promotion",
                 [
-                    "QUARK_SIGMA_SOURCE_QUOTIENT",
-                    "QUARK_SIGMA_SOURCE_SELECTOR",
-                    "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
-                    "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
-                    "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE",
+                    "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM",
+                    "QUARK_SOURCE_SPREAD_SECTOR_ATTACHMENT_AND_REFINEMENT",
+                    "NO_TARGET_LEAK_DAG_QUARK_SOURCE_SPREAD",
                 ],
             ),
         )

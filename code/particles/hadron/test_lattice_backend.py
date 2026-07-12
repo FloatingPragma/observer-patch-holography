@@ -198,14 +198,34 @@ def test_pseudofermion_force_matches_finite_difference() -> None:
     assert abs(fd - analytic) < 1e-4 * max(1.0, abs(analytic))
 
 
-def test_hmc_reversibility_and_energy() -> None:
+def test_hmc_delta_h_scales_as_dt_squared() -> None:
+    """Leapfrog is second order: halving dt divides dH by about four."""
     shape = (4, 2, 2, 2)
     u = _random_gauge_field(shape, eps=0.2, seed=31)
-    hmc = TwoFlavorHMC(beta=5.5, kappa=0.10, n_steps=12, cg_tol=1e-12)
-    rng = np.random.default_rng(32)
-    u1, res = hmc.trajectory(rng, u)
-    # a fine-step trajectory conserves H at the integrator's order
-    assert abs(res.delta_h) < 0.05, res.delta_h
+    dh = []
+    for n_steps in (8, 16, 32):
+        hmc = TwoFlavorHMC(beta=5.5, kappa=0.10, n_steps=n_steps, cg_tol=1e-12)
+        rng = np.random.default_rng(32)
+        _, res = hmc.trajectory(rng, u)
+        dh.append(abs(res.delta_h))
+    assert 3.0 < dh[0] / dh[1] < 5.0, dh
+    assert 3.0 < dh[1] / dh[2] < 5.0, dh
+
+
+def test_hmc_integration_is_reversible() -> None:
+    """Integrate, flip momenta, integrate back: recover the start field."""
+    shape = (4, 2, 2, 2)
+    u = _random_gauge_field(shape, eps=0.2, seed=33)
+    hmc = TwoFlavorHMC(beta=5.5, kappa=0.10, n_steps=10, cg_tol=1e-12)
+    rng = np.random.default_rng(34)
+    pi = sample_momenta(rng, shape)
+    eta = (rng.normal(size=(*shape, 4, 3)) + 1j * rng.normal(size=(*shape, 4, 3)))
+    from lattice_backend.dirac import WilsonClover as _WC
+    phi = _WC(u, 0.10, c_sw=0.0).apply_dag(eta)
+    u1, pi1, _ = hmc.integrate(u, pi, phi)
+    u2, pi2, _ = hmc.integrate(u1, -pi1, phi)
+    assert np.max(np.abs(u2 - u)) < 1e-8
+    assert np.max(np.abs(-pi2 - pi)) < 1e-8
 
 
 def test_quenched_sweep_moves_plaquette_toward_equilibrium() -> None:

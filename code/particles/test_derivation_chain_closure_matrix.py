@@ -70,13 +70,27 @@ def test_derivation_chain_closure_matrix_keeps_stage_gates_explicit() -> None:
         "closed_promotable_EWTargetFreeRepairValueLaw_D10"
     ]
     assert rows["higgs_top_declared_surface"]["closed_issue_refs"] == [207]
-    assert rows["selected_class_quarks"]["status"] == "selected_class_target_anchored_exact_witness_not_strict_source"
+    assert rows["selected_class_quarks"]["status"] == (
+        "closed_sharper_quark_source_obstructions_numeric_rows_withheld"
+    )
     assert rows["selected_class_quarks"]["promotable"] is False
     assert rows["selected_class_quarks"]["open_gates"] == [
-        "QUARK_SIGMA_SOURCE_SELECTOR",
-        "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE",
+        "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM",
+        "QUARK_RG_COVARIANT_TRAJECTORY_OR_INVARIANT",
+        "QUARK_OPERATIONAL_SCHEME_AND_SCALE_SECTION",
+        "QUARK_THRESHOLD_AND_TOP_CONVERSION",
+        "QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE",
     ]
-    assert rows["selected_class_quarks"]["closed_issue_refs"] == [199, 207, 212]
+    assert rows["selected_class_quarks"]["closed_issue_refs"] == [
+        199,
+        207,
+        212,
+        377,
+        379,
+        380,
+        381,
+        382,
+    ]
     assert rows["neutrino_absolute_attachment"]["status"] == (
         "rejected_target_informed_weighted_cycle_candidate"
     )

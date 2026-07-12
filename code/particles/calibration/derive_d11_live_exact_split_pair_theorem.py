@@ -199,7 +199,7 @@ def build_artifact(d10_source: dict, d10_repair: dict, d11_surface: dict, no_go:
             "This theorem closes the live D11 Higgs/top lane as a source-only split calibration theorem on the declared D10/D11 surface.",
             "It does not relabel the old one-scalar fixed ray as exact. The fixed ray remains a lower-rank companion branch beneath this split theorem.",
             "The older target-anchored Higgs-only and top-side exactifier artifacts remain on disk as supporting witness surfaces rather than as the defining live pair theorem.",
-            "The repo-wide exact public top row remains independently carried by the selected-class quark theorem.",
+            "The quark lane carries only a separate target-audit top coordinate; no repo-wide exact public top row is claimed.",
         ],
         "strictly_not_claimed": [
             "promotion_of_the_old_fixed_ray_as_exact_pair",

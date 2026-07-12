@@ -78,6 +78,7 @@ STATUS_BAR = {
     "declared_surface_theorem": "#8b5cf6",
     "target_anchored_witness_no_go_boundary": "#f59e0b",
     "selected_class_theorem": "#14b8a6",
+    "source_spread_nonidentifiability_obstruction": "#f59e0b",
     "continuation": "#f59e0b",
     "simulation_dependent": "#ef4444",
 }
@@ -90,7 +91,8 @@ STATUS_TEXT = {
     "secondary_quantitative": "secondary",
     "declared_surface_theorem": "declared-surface theorem",
     "target_anchored_witness_no_go_boundary": "witness boundary",
-    "selected_class_theorem": "selected-class theorem",
+    "selected_class_theorem": "legacy selected-class audit",
+    "source_spread_nonidentifiability_obstruction": "source non-identifiability",
     "continuation": "continuation",
     "simulation_dependent": "out of scope",
 }
@@ -102,7 +104,7 @@ PARTICLE_INFO: Dict[str, Dict[str, str]] = {
     "w_boson": {"symbol": "W", "plain": "Charged weak-force boson used in beta-decay-type processes."},
     "z_boson": {"symbol": "Z", "plain": "Neutral weak-force boson from the same electroweak sector as the W."},
     "higgs": {"symbol": "H", "plain": "Higgs boson tied to the Standard Model mass-giving field."},
-    "top_quark": {"symbol": "t", "plain": "Heaviest known quark. The selected-class quark theorem surface is tracked here, with target-anchored numeric witness values withheld from public prediction output."},
+    "top_quark": {"symbol": "t", "plain": "Heaviest known quark. The quark lane retains only a separate target-audit extraction coordinate; its numeric row is withheld from public prediction output."},
     "electron": {"symbol": "e", "plain": "Light charged matter particle found in atoms."},
     "muon": {"symbol": "mu", "plain": "Heavier unstable cousin of the electron."},
     "tau": {"symbol": "tau", "plain": "Heaviest charged lepton; a short-lived electron cousin."},
@@ -135,7 +137,8 @@ STATUS_EXPLAINER = {
     "secondary_quantitative": "quantitative secondary branch with a separate proof package",
     "declared_surface_theorem": "theorem surface on declared running and matching conventions",
     "target_anchored_witness_no_go_boundary": "target-anchored witness with a corpus-limited no-go boundary",
-    "selected_class_theorem": "selected-class quark theorem surface with target-anchored numeric witness withheld",
+    "selected_class_theorem": "legacy selected-class target audit with numeric witness withheld",
+    "source_spread_nonidentifiability_obstruction": "theorem-grade two-modulus source-spread obstruction with numeric rows withheld",
     "continuation": "declared continuation or witness surface outside theorem-grade public output",
     "simulation_dependent": "source-backend-absent surface with empirical closure policy",
 }
@@ -148,7 +151,8 @@ STATUS_NEXT_STEP = {
     "secondary_quantitative": "This row belongs to a quantitative secondary branch with its own proof surface.",
     "declared_surface_theorem": "This row belongs to a theorem surface on declared running and matching conventions.",
     "target_anchored_witness_no_go_boundary": "This row belongs to a target-anchored witness with a corpus-limited no-go boundary.",
-    "selected_class_theorem": "This row belongs to a selected-class quark theorem surface; target-anchored numeric witness values are withheld from public prediction outputs.",
+    "selected_class_theorem": "This legacy status denotes a selected-class target audit; numeric witness values are withheld from public prediction outputs.",
+    "source_spread_nonidentifiability_obstruction": "The source equations leave a free (R_{>0})^2 spread fiber. Target-audit coordinates are withheld, and physical Yukawas require a common-scale dimensionless construction.",
     "continuation": "This row belongs to a declared continuation or witness surface outside theorem-grade public output.",
     "simulation_dependent": "This source-only row requires a backend bundle and publication-grade systematics. Empirical closure values use a separate e+e- payload class.",
 }
@@ -233,7 +237,7 @@ LANES: List[Dict[str, Any]] = [
         "key": "leptons",
         "title": "Charged Leptons",
         "summary": "The charged-lepton lane contains an exact same-family readout, a source-side determinant character, a conditional determinant-line lift on theorem-grade physical charged data, and an algebraic charged-mass readout once the absolute anchor is supplied.",
-        "takeaway": "The theorem surface contains the exact same-family witness, the source-side determinant character, the conditional determinant-line lift, and the downstream algebraic mass readout. The available corpus does not emit the sector-isolated trace-lift attachment, so the absolute-mass row has a corpus-limited no-go boundary.",
+        "takeaway": "The theorem surface contains the exact same-family witness, the source-side determinant character, the conditional determinant-line lift, and the downstream algebraic mass readout. The available corpus does not emit the sector-isolated trace-lift attachment, so the source-only absolute-mass row has a corpus-limited no-go boundary. The electromagnetic transport breaks the family scale freedom and bounds the absolute masses on the empirical-closure surface, with central values 0.5089 MeV, 105.22 MeV, 1.7695 GeV inside 0.4 percent of measurement.",
         "logic": (
             "The lane starts from the ordered charged package, proves that the realized support is a one-dimensional "
             "linear subray, exposes the canonical quadratic support-extension direction, maps that into the charged "
@@ -246,31 +250,28 @@ LANES: List[Dict[str, Any]] = [
             "The populated source-side determinant character exists for each fixed formal source exponent vector. "
             "The required closure object is the sector-isolated trace-lift attachment on the charged determinant channel."
         ),
-        "frontier_text": "Frontier statement: the same-family witness, the source-side determinant character, the conditional determinant-line lift, and the algebraic mass readout are part of the charged theorem surface. The absolute-mass lane has a corpus-limited no-go boundary. Promotion requires a sector-isolated trace-lift attachment.",
+        "frontier_text": "Frontier statement: the same-family witness, the source-side determinant character, the conditional determinant-line lift, and the algebraic mass readout are part of the charged theorem surface. The source-only absolute-mass lane has a corpus-limited no-go boundary, and the empirical-closure interval lane bounds the absolute masses within 0.4 percent of measurement. Source-only promotion requires a sector-isolated trace-lift attachment.",
         "prediction_surface": "Charged theorem surface with a target-anchored same-family witness withheld from public prediction output, a conditional determinant-line lift on theorem-grade physical charged data, and an algebraic charged-mass readout from theorem-grade absolute charged data.",
         "particles": ["electron", "muon", "tau"],
     },
     {
         "key": "quarks",
         "title": "Quarks",
-        "summary": "The quark lane contains an exact running-mass sextet witness, a restricted transport-frame chain, explicit forward Yukawas, and a separate target-free mass bridge on the emitted ray. The numeric sextet witness is withheld from public prediction output because its physical sigma datum is target-derived.",
-        "takeaway": "The selected public physical quark frame class chosen by P carries an exact sextet witness, but the physical sigma datum is target-derived. The numeric values remain audit witnesses, not strict source-only predictions or a global classification of quark frame classes.",
+        "summary": "The quark lane proves a two-modulus source-spread non-identifiability theorem. Restricted target-audit chains reproduce mixed-convention mass coordinates and GeV-valued mass textures, while numeric public rows remain withheld.",
+        "takeaway": "The source laws fix two ordered profile rays but leave their positive endpoint spans independent. Selected-fiber descent does not choose those moduli, and the stored matrices are not physical dimensionless Yukawas.",
         "logic": (
             "The local quark path takes the shared flavor data, emits the quark sector mean split, assembles the "
-            "quark descent, builds the forward Yukawa matrices, and fixes the ordered source-readback shell. The even "
+            "quark descent, builds target-audit mass textures, and fixes the ordered source-readback shell. The even "
             "ordered-family surface is fixed by the mean split and diagonal gap machinery. The theorem-emitted package "
             "contains the quark mass ray, the restricted-scope affine mean package, and a separate target-free theorem "
-            "for the light-quark overlap defect. The exact witness reconstructs the six running quark values exactly "
-            "against the official PDG 2025 running-mass target surface, with the top coordinate taken from the PDG "
-            "cross-section entry. A restricted theorem surface reconstructs the same sextet and emits explicit exact "
-            "forward Yukawas. A separate direct public descent theorem closes on the selected public physical quark "
-            "frame class chosen by P, but the exact physical sigma datum remains target-derived on the current public surface. The affine mean law then emits the quark means "
-            "algebraically, and the exact forward construction emits the same sextet together with explicit exact "
-            "forward Yukawas. The theorem does not claim "
-            "a global classification of all quark frame classes."
+            "for the light-quark overlap defect. After target ancestry is removed, compatible up/down profiles form "
+            "a free (R_{>0})^2 fiber whose two moduli change the affine mass readout. Restricted audit surfaces "
+            "reproduce their chosen target coordinates, but those coordinates mix light MSbar at 2 GeV, heavy "
+            "MSbar at self-scale, and a separate top pole extraction. Their GeV-valued matrices are mass textures. "
+            "A physical Yukawa result would require common-scale RG transport and dimensionless Higgs normalization."
         ),
-        "frontier_text": "Selected-class boundary: the public physical quark frame class chosen by P carries an exact sextet witness, but the physical sigma datum is target-derived. The numeric witness is withheld from public prediction output. Global classification and alternative transfer routes remain outside this selected-class surface.",
-        "prediction_surface": "Public quark surface: selected-class theorem/frontier with target-anchored numeric witness withheld, explicit forward Yukawas on that selected class, supporting exact witness surfaces, and the separate target-free mass bridge on the emitted ray.",
+        "frontier_text": "Source-spread boundary: the current corpus leaves two independent positive moduli. Numeric mass rows and physical Yukawas remain blocked; selected-fiber descent and global frame classification are separate questions.",
+        "prediction_surface": "Public quark surface: no numeric prediction rows. The theorem-grade output is the (R_{>0})^2 non-identifiability obstruction; mixed-convention target audits are shown only as withheld diagnostics.",
         "particles": ["up_quark", "down_quark", "strange_quark", "charm_quark", "bottom_quark", "top_quark"],
     },
     {
@@ -645,7 +646,7 @@ def public_exact_surface(row: Dict[str, Any], exact_entry: Dict[str, Any]) -> st
     if particle_id in {"electron", "muon", "tau"}:
         return "target-anchored same-family witness withheld from public prediction output"
     if particle_id.endswith("_quark"):
-        return "selected-class target-anchored exact quark witness withheld from public prediction output"
+        return "mixed-convention target-audit coordinate withheld from public prediction output"
     if particle_id.endswith("_neutrino"):
         return "scale-free weighted-cycle branch with compare-only absolute attachment"
     return STATUS_EXPLAINER.get(row["status"], "tracked particle row")
@@ -660,7 +661,7 @@ def public_exact_caveat(row: Dict[str, Any], exact_entry: Dict[str, Any]) -> str
     if particle_id in {"electron", "muon", "tau"}:
         return "Exact same-family witness. The charged-lepton absolute-mass lane has a corpus-limited no-go boundary because the determinant-line attachment is absent."
     if particle_id.endswith("_quark"):
-        return "Exact selected-class running quark witness. The physical sigma datum is target-derived, so its numeric values are withheld from public prediction output."
+        return "Target-audit coordinate only. The source spread fiber is (R_{>0})^2, and the mixed chart plus physical-Yukawa normalization gates remain open."
     if particle_id.endswith("_neutrino"):
         return "Scale-free weighted-cycle branch with a compare-only absolute attachment candidate; the absolute mass normalization is not promoted."
     return STATUS_NEXT_STEP.get(row["status"], "")
@@ -1171,6 +1172,7 @@ def build_svg(results: Dict[str, Any], exact_by_id: Dict[str, Dict[str, Any]]) -
         + counts["calibration"]
         + counts["secondary_quantitative"]
         + counts["selected_class_theorem"]
+        + counts["source_spread_nonidentifiability_obstruction"]
     )
     total_rows = len(results["rows"])
 
@@ -1330,7 +1332,7 @@ def build_svg(results: Dict[str, Any], exact_by_id: Dict[str, Dict[str, Any]]) -
                 "classical carrier = zero hard quadratic parameter on a declared branch; quantum-particle gate open",
                 "electroweak frontier = no public W/Z row until target-free D10 repair promotes",
                 "secondary = quantitative branch built on a declared electroweak layer",
-                "selected-class = quark theorem/frontier with target-anchored numeric witness withheld",
+                "quark obstruction = two source-spread moduli remain; target-audit numbers withheld",
                 "continuation = declared continuation or witness surface",
                 "simulation = execution-bound lane with backend and systematics prerequisites",
             ],

@@ -24,7 +24,10 @@ def _load(path: Path) -> dict:
 def test_transport_frame_exact_pdg_completion_closes_declared_surface() -> None:
     payload = build_artifact(_load(STRENGTHENED_THEOREM_JSON), _load(ABS_COLLAPSE_JSON), _load(PDG_JSON))
 
-    assert payload["proof_status"] == "closed_current_family_transport_frame_exact_pdg_completion"
+    assert payload["proof_status"] == "closed_target_anchored_mixed_convention_coordinate_audit"
+    assert payload["target_anchored"] is True
+    assert payload["source_only_prediction"] is False
+    assert payload["single_running_quark_sextet_claim_allowed"] is False
     assert payload["theorem_scope"] == "current_family_common_refinement_transport_frame_only"
     assert payload["strengthened_physical_sigma_lift"]["artifact"] == "oph_quark_current_family_transport_frame_strengthened_physical_sigma_lift_theorem"
     masses = payload["exact_running_values_gev"]

@@ -7,6 +7,9 @@ The strict source-only quark-spread audit is closed as a non-identifiability
 theorem on the current corpus. The source shape laws leave two independent
 positive endpoint spans, giving an exact `(R_{>0})^2` fiber. See
 [`derive_quark_sigma_source_nonidentifiability_obstruction.py`](derive_quark_sigma_source_nonidentifiability_obstruction.py).
+The Axioms-1--5/MAR counterfamily is emitted separately by
+[`derive_quark_axiom_level_yukawa_moduli_nonidentifiability.py`](derive_quark_axiom_level_yukawa_moduli_nonidentifiability.py);
+it uses no additional axiom and no numerical flavor input.
 The target packet also mixes renormalization conventions, and its GeV-valued
 matrices are mass textures rather than physical dimensionless Yukawa matrices.
 See

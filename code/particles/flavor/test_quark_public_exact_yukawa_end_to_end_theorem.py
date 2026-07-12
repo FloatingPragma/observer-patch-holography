@@ -44,15 +44,17 @@ def test_quark_public_exact_yukawa_end_to_end_theorem_fails_closed_on_surface_mi
     assert payload["mass_texture_algebra_closed"] is False
     assert payload["physical_yukawa_construction_closed"] is False
     assert payload["display_allowed_as_selected_class_exact_witness"] is False
-    assert "QUARK_SIGMA_SOURCE_SELECTOR" in payload["minimal_exact_blocker_set"]
-    assert "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE" in payload["minimal_exact_blocker_set"]
+    assert "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM" in payload["minimal_exact_blocker_set"]
+    assert "NO_TARGET_LEAK_DAG_QUARK_SOURCE_SPREAD" in payload["minimal_exact_blocker_set"]
     assert "QUARK_EXACT_MASS_YUKAWA_SURFACE_CONSISTENCY" in payload["minimal_exact_blocker_set"]
     assert "QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE" in payload["minimal_exact_blocker_set"]
     assert payload["non_circularity_status"]["target_derived_sigma_datum_used"] is True
     consistency = payload["mass_yukawa_consistency"]
-    assert consistency["status"] == "mismatched_mass_sextet_and_forward_yukawa_singular_values"
+    assert consistency["status"] == (
+        "mismatched_declared_mass_coordinates_and_matrix_singular_values"
+    )
     assert consistency["consistent"] is False
-    assert consistency["single_exact_sextet_matrix_pair_claim_allowed"] is False
+    assert consistency["single_declared_mass_texture_pair_numerically_consistent"] is False
     assert consistency["comparisons"]["u"]["consistent_within_tolerance"] is True
     assert consistency["comparisons"]["s"]["consistent_within_tolerance"] is False
     assert consistency["comparisons"]["t"]["consistent_within_tolerance"] is False
@@ -90,6 +92,9 @@ def test_quark_public_exact_yukawa_consistency_accepts_one_common_sextet() -> No
     )
 
     assert payload["mass_yukawa_consistency"]["consistent"] is True
+    assert payload["mass_yukawa_consistency"][
+        "single_declared_mass_texture_pair_numerically_consistent"
+    ] is True
     assert payload["public_exact_outputs"]["single_exact_mass_texture_pair_claim_allowed"] is True
     assert payload["public_exact_outputs"]["single_exact_physical_yukawa_pair_claim_allowed"] is False
     assert payload["proof_status"] == (

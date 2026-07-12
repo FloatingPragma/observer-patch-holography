@@ -37,6 +37,16 @@ def main() -> int:
     if payload.get("law_id") != "oph_qcd_lambda_msbar3_from_d10_alpha3":
         print("unexpected Lambda_MSbar law id", file=sys.stderr)
         return 1
+    if payload.get("predictive_promotion_allowed") is not False:
+        print("uncertified quark thresholds must fail closed", file=sys.stderr)
+        return 1
+    audit = payload.get("input_promotion_audit", {})
+    if audit.get("quark_thresholds_source_certified") is not False:
+        print("current quark thresholds must remain uncertified", file=sys.stderr)
+        return 1
+    if audit.get("promotion_inherited_fail_closed") is not True:
+        print("Lambda descendant must inherit upstream non-promotion", file=sys.stderr)
+        return 1
     return 0
 
 

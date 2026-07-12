@@ -103,7 +103,7 @@
       }
     ]
   },
-  "generated_utc": "2026-07-12T02:31:12Z",
+  "generated_utc": "2026-07-12T03:23:12Z",
   "input_artifacts": {
     "edge_statistics_candidate": "oph_quark_edge_statistics_spread_candidate",
     "odd_response": "oph_quark_odd_response_law",
@@ -285,16 +285,14 @@
   "scope": "arbitrary_P_off_canonical_quark_evaluator",
   "selected_public_exact_surface": {
     "closed": false,
-    "conditional_downstream_closed": true,
+    "conditional_downstream_closed": false,
     "minimal_exact_blocker_set": [
-      "QUARK_SIGMA_SOURCE_QUOTIENT",
-      "QUARK_SIGMA_SOURCE_SELECTOR",
-      "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
-      "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
-      "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE",
-      "QUARK_EXACT_MASS_YUKAWA_SURFACE_CONSISTENCY"
+      "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM",
+      "QUARK_SOURCE_SPREAD_SECTOR_ATTACHMENT_AND_REFINEMENT",
+      "NO_TARGET_LEAK_DAG_QUARK_SOURCE_SPREAD",
+      "QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE"
     ],
-    "proof_status": "blocked_inconsistent_exact_mass_yukawa_surfaces",
+    "proof_status": "blocked_mixed_scheme_dimensionful_mass_textures_not_physical_yukawas",
     "selected_by": "P",
     "source_only_sigma_emitted": false,
     "theorem_scope": "selected_public_physical_quark_frame_class_only"

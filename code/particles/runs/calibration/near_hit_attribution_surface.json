@@ -1,0 +1,230 @@
+{
+  "artifact": "oph_near_hit_attribution_surface",
+  "generated_utc": "2026-07-12T03:12:17Z",
+  "guards": {
+    "changes_any_solve_path": false,
+    "compare_only": true,
+    "new_axiom_introduced": false,
+    "public_promotion_allowed": false
+  },
+  "row_class": "compare_only_attribution_surface",
+  "rows": [
+    {
+      "artifact_ref": "code/particles/runs/calibration/conditional_ew_predictions_current.json",
+      "delta": 0.005523692791854273,
+      "delta_over_sigma": 2.6303299008829875,
+      "inside_one_sigma": false,
+      "measured": 91.1876,
+      "measured_sigma": 0.0021,
+      "measured_source": "PDG 2025",
+      "missing_correction_hypothesis": {
+        "falsification_test": "executed 2026-07-12, see falsification_test_executed: the coupling-injection branch is falsified; the P-channel branch is confirmed to -0.05 MeV",
+        "falsification_test_executed": {
+          "executed_utc": "2026-07-12",
+          "naive_coupling_injection": {
+            "delta_mz_mev_over_gap_interval": [
+              -66.3603801969117,
+              -87.29158666619696
+            ],
+            "proportional_scheme_delta_mz_mev": "approximately -230 to -302, and moves MW by a comparable amount",
+            "reading": "the one-loop couplings at calibration P already give MZ to +0.4 MeV; injecting on-shell hadronic running into them is scheme-inconsistent and overshoots the excess by an order of magnitude",
+            "scheme": "anchor gap added to alphaY^-1 (hypercharge line)",
+            "verdict": "falsified"
+          },
+          "p_channel": {
+            "dmz_dp_gev_per_unit_p": 123.04683336044852,
+            "dp_d_alpha_inv_thomson": -9.545855226710942e-05,
+            "mz_residual_after_correction_mev": -0.05112907463454917,
+            "p_calibration": 1.630968209403959,
+            "p_corrected_endpoint_to_measured": 1.6309677938786404,
+            "p_empirical_central": 1.6310415203592243,
+            "p_residual_after_correction": -4.1552531859778696e-07,
+            "reading": "moving the Thomson endpoint to the measured alpha_inv(0) shifts the empirical pixel onto the calibration pixel to within 4.2e-07, i.e. -0.05 MeV in MZ; the entire MZ excess is the frozen-anchor deficit propagating through the endpoint P interval",
+            "verdict": "confirmed"
+          }
+        },
+        "mechanism": "the empirical-closure P interval inherits the frozen-anchor deficit through the Thomson endpoint fixed point, and MZ_pole tracks P with dMZ/dP of about 123 GeV per unit P; the anchor deficit enters through the pixel channel, not through the couplings, whose direct correction is falsified below",
+        "reduces_to": "source_emitted_ward_projected_hadronic_spectral_measure (#425); same-scheme a0 bridge (#545) via the endpoint P channel"
+      },
+      "oph_envelope": [
+        91.18797807794321,
+        91.19826930764052
+      ],
+      "oph_value": 91.19312369279186,
+      "quantity": "MZ_pole_gev",
+      "row_class": "conditional_on_P_and_repair_selection"
+    },
+    {
+      "artifact_ref": "code/particles/runs/calibration/conditional_ew_predictions_current.json",
+      "delta": 0.004114642816091418,
+      "delta_over_sigma": 0.30937164030762543,
+      "inside_one_sigma": true,
+      "measured": 80.3692,
+      "measured_sigma": 0.0133,
+      "measured_source": "PDG 2025 world average",
+      "missing_correction_hypothesis": {
+        "falsification_test": "derive the selection axioms from source (#521); the surviving candidate fixes which MW value is the prediction",
+        "mechanism": "at calibration P the color-balanced candidate reproduces MW to +0.0 MeV and the running-tree candidate sits +7.8 MeV; the MW residual is repair-selection freedom, not a hadronic deficit",
+        "reduces_to": "selection-axiom source derivation (#521)"
+      },
+      "oph_envelope": [
+        80.36921677537332,
+        80.37741251025889
+      ],
+      "oph_value": 80.3733146428161,
+      "quantity": "MW_pole_gev",
+      "row_class": "conditional_on_P_and_repair_selection"
+    },
+    {
+      "artifact_ref": "code/particles/runs/calibration/conditional_ew_predictions_current.json",
+      "delta": 0.07747557670501237,
+      "delta_over_sigma": 0.7043234245910216,
+      "inside_one_sigma": true,
+      "measured": 125.13,
+      "measured_sigma": 0.11,
+      "measured_source": "PDG 2025",
+      "missing_correction_hypothesis": {
+        "falsification_test": "derive the selection axioms from source (#521); the envelope width should shrink below the measured sigma",
+        "mechanism": "repair-tuple selection underdetermination (issue #521) plus the shared anchor deficit entering through the quartic-coupling transport",
+        "reduces_to": "selection-axiom source derivation (#521)"
+      },
+      "oph_envelope": [
+        125.18328541107648,
+        125.23166574233353
+      ],
+      "oph_value": 125.20747557670501,
+      "quantity": "mH_gev",
+      "row_class": "conditional_on_P_and_repair_selection"
+    },
+    {
+      "artifact_ref": "code/particles/runs/calibration/conditional_ew_predictions_current.json",
+      "delta": 0.21492450651575723,
+      "delta_over_sigma": 0.3582075108595954,
+      "inside_one_sigma": true,
+      "measured": 172.1,
+      "measured_sigma": 0.6,
+      "measured_source": "PDG 2025 direct-average context row",
+      "missing_correction_hypothesis": {
+        "falsification_test": "source derivation of the selection axioms (#521); residual should track the mH row, not the alpha rows",
+        "mechanism": "same repair-tuple underdetermination; the top row inherits the envelope of the d11 calibration surface, not a new physics deficit",
+        "reduces_to": "selection-axiom source derivation (#521)"
+      },
+      "oph_envelope": [
+        172.27749368420027,
+        172.3523553288312
+      ],
+      "oph_value": 172.31492450651575,
+      "quantity": "mt_pole_gev",
+      "row_class": "conditional_on_P_and_repair_selection"
+    },
+    {
+      "artifact_ref": "code/P_derivation/runtime/anchor_scheme_bridge_current.json",
+      "delta": -0.6308936136469185,
+      "measured": 128.93885908693318,
+      "measured_source": "PDG 2024 on-shell decomposition",
+      "missing_correction_hypothesis": {
+        "falsification_test": "emit the source hadronic spectral measure and the a0 scheme bridge; the corrected anchor must land inside the certified gap",
+        "mechanism": "the anchor is a one-loop unification-run value with no nonperturbative hadronic running; the certified same-scheme gap interval brackets the standard reference deficit 0.631 at its lower edge, confirming a running deficit rather than an anchor error",
+        "reduces_to": "source_emitted_ward_projected_hadronic_spectral_measure (#425); same-scheme a0 bridge (#545)"
+      },
+      "oph_value": 128.30796547328626,
+      "quantity": "alpha_em_inv_MZ_anchor",
+      "row_class": "compare_only_scheme_analysis"
+    },
+    {
+      "artifact_ref": "code/P_derivation/runtime/empirical_thomson_endpoint_current.json",
+      "delta": -0.7723402338798929,
+      "measured": 137.035999177,
+      "measured_source": "CODATA 2022 via NIST, compare-only",
+      "missing_correction_hypothesis": {
+        "falsification_test": "source-side electroweak scheme bridge for a0; endpoint interval must then contain the CODATA value",
+        "mechanism": "the empirical payload interval excludes the value required to reach the measured endpoint with the frozen anchor; the whole discrepancy is carried by the same-scheme anchor gap",
+        "reduces_to": "source_emitted_ward_projected_hadronic_spectral_measure (#425); same-scheme a0 bridge (#545)"
+      },
+      "oph_envelope": [
+        136.15838328342667,
+        136.36909752396568
+      ],
+      "oph_value": 136.2636589431201,
+      "quantity": "alpha_inv_thomson_endpoint",
+      "row_class": "oph_plus_empirical_hadron_closure"
+    },
+    {
+      "artifact_ref": "code/particles/runs/calibration/d10_ew_target_free_repair_value_law.json",
+      "delta": 0.11796769814804975,
+      "measured": 132.63444112101874,
+      "measured_source": "frozen-surface reference inside the value-law artifact",
+      "missing_correction_hypothesis": {
+        "falsification_test": "apply the emitted scheme bridge to the W/Z lane coupling; the value-law gap should co-move with the anchor gap",
+        "mechanism": "the on-shell effective coupling law shares the anchor's missing hadronic/scheme running; the +0.118 inverse-alpha gap is the on-shell face of the same deficit",
+        "reduces_to": "source_emitted_ward_projected_hadronic_spectral_measure (#425); same-scheme a0 bridge (#545)"
+      },
+      "oph_value": 132.7524088191668,
+      "quantity": "alpha_em_eff_inv_on_shell_wz_lane",
+      "row_class": "target_free_repair_value_law"
+    },
+    {
+      "artifact_ref": "code/particles/runs/leptons/charged_kappa_interval_from_alpha_transport.json",
+      "delta": -2.1414635464738754e-06,
+      "measured": 0.0005109989506900001,
+      "measured_source": "PDG witness triple, compare-only",
+      "missing_correction_hypothesis": {
+        "falsification_test": "replace the empirical payload with the source hadronic spectral measure; the kappa interval must tighten around the witness triple",
+        "mechanism": "kappa-interval width and central offset are carried by the ee-payload hadronic undershoot against KNT19 and the anchor scheme remainder; at the physical on-shell anchor the miss equals the payload undershoot exactly",
+        "reduces_to": "source_emitted_ward_projected_hadronic_spectral_measure (#425); same-scheme a0 bridge (#545)"
+      },
+      "oph_envelope": [
+        0.00036172673339749013,
+        0.0007158330261907456
+      ],
+      "oph_value": 0.0005088574871435262,
+      "quantity": "m_electron_gev",
+      "relative_delta": -0.00419073961616212,
+      "row_class": "oph_plus_empirical_hadron_closure"
+    },
+    {
+      "artifact_ref": "code/particles/runs/leptons/charged_kappa_interval_from_alpha_transport.json",
+      "delta": -0.0004427867399871832,
+      "measured": 0.10565837550000001,
+      "measured_source": "PDG witness triple, compare-only",
+      "missing_correction_hypothesis": {
+        "falsification_test": "replace the empirical payload with the source hadronic spectral measure; the kappa interval must tighten around the witness triple",
+        "mechanism": "kappa-interval width and central offset are carried by the ee-payload hadronic undershoot against KNT19 and the anchor scheme remainder; at the physical on-shell anchor the miss equals the payload undershoot exactly",
+        "reduces_to": "source_emitted_ward_projected_hadronic_spectral_measure (#425); same-scheme a0 bridge (#545)"
+      },
+      "oph_envelope": [
+        0.07479361547434257,
+        0.1480115655314657
+      ],
+      "oph_value": 0.10521558876001283,
+      "quantity": "m_muon_gev",
+      "relative_delta": -0.00419073961616212,
+      "row_class": "oph_plus_empirical_hadron_closure"
+    },
+    {
+      "artifact_ref": "code/particles/runs/leptons/charged_kappa_interval_from_alpha_transport.json",
+      "delta": -0.007446650946148825,
+      "measured": 1.7769299999999995,
+      "measured_source": "PDG witness triple, compare-only",
+      "missing_correction_hypothesis": {
+        "falsification_test": "replace the empirical payload with the source hadronic spectral measure; the kappa interval must tighten around the witness triple",
+        "mechanism": "kappa-interval width and central offset are carried by the ee-payload hadronic undershoot against KNT19 and the anchor scheme remainder; at the physical on-shell anchor the miss equals the payload undershoot exactly",
+        "reduces_to": "source_emitted_ward_projected_hadronic_spectral_measure (#425); same-scheme a0 bridge (#545)"
+      },
+      "oph_envelope": [
+        1.2578559770192885,
+        2.489212898600991
+      ],
+      "oph_value": 1.7694833490538506,
+      "quantity": "m_tau_gev",
+      "relative_delta": -0.004190739616163119,
+      "row_class": "oph_plus_empirical_hadron_closure"
+    }
+  ],
+  "synthesis": {
+    "coherence_check": "the standard reference deficit 0.631 sits at the lower edge of the certified anchor-gap interval, and the lepton-lane residual at the physical anchor equals the ee-payload undershoot; both signs and magnitudes are mutually consistent",
+    "dominant_reduction": "source_emitted_ward_projected_hadronic_spectral_measure (#425); same-scheme a0 bridge (#545)",
+    "secondary_reduction": "selection-axiom source derivation (#521)",
+    "statement": "One missing object dominates the residual pattern: the nonperturbative hadronic vacuum-polarization transport. It appears as the anchor deficit at MZ, the Thomson endpoint gap, the on-shell value-law gap, the MZ_pole excess (through the endpoint P channel, confirmed by the executed falsification test to -0.05 MeV), and the charged-lepton kappa interval width. The MW/mH/mt rows reduce to the selection-axiom derivation (#521). No row requires a new axiom; every row names an already-declared open object."
+  }
+}

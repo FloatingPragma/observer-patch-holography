@@ -136,7 +136,7 @@ D11_NOTE = (
     "corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. "
     "The old one-scalar seed `sigma_D11_HT = alpha_u * cos(2*theta_W0) / sqrt(pi)` remains on disk as the fixed-ray companion branch beneath this split theorem. "
     "The compare-only exact Higgs/top inverse slice remains a validation surface and does not define the predictive lane. "
-    "The repo-wide selected-class top witness is audit-only until the target-derived sigma datum is replaced by a no-target source theorem."
+    "The repo-wide selected-class top witness is audit-only. The quark source equations leave two independent positive spread moduli, and the target packet mixes running-mass and pole-extraction conventions."
 )
 _NEUTRINO_EXACT_BRIDGE_COORDINATE = (
     json.loads(NEUTRINO_EXACT_ADAPTER_BRIDGE_COORDINATE.read_text(encoding="utf-8"))

@@ -67,6 +67,49 @@ def build_artifact() -> dict[str, Any]:
             ),
             "missing_section": "oph_quark_operational_renormalization_scheme_and_scale_selector",
         },
+        "physical_rg_dynamics_nondefinability": {
+            "statement": (
+                "The current OPH source signature contains no normalized fermionic/Yukawa effective action, "
+                "six-flavor matrix RG vector field, running Higgs expectation value, or completed heavy-threshold "
+                "trajectory. Two completions can therefore agree on every emitted source object while carrying "
+                "different renormalized Yukawa boundary data and different RGI quark masses. The physical RG "
+                "trajectory itself, not merely its coordinate chart, is non-definable on the current corpus."
+            ),
+            "same_source_completion_A": "generic admissible normalized Yukawa boundary Y_u,Y_d at mu_source",
+            "same_source_completion_B": (
+                "independently rescaled generic admissible Yukawa boundary "
+                "Y_u'=lambda_u*Y_u, Y_d'=lambda_d*Y_d"
+            ),
+            "source_objects_held_fixed": [
+                "Axioms 1--5",
+                "P",
+                "structural Standard-Model sector package",
+                "gauge and anomaly data",
+                "generation count and CP capability",
+                "current target-free D12 homogeneous identities",
+            ],
+            "physical_outputs_changed": [
+                "RGI quark mass vector",
+                "Y_u(mu) and Y_d(mu) trajectories",
+                "threshold crossing locations induced by the mass spectrum",
+            ],
+            "source_RGI_mass_vector_emitted": False,
+            "source_six_flavor_Yukawa_trajectory_emitted": False,
+            "source_running_v_trajectory_emitted": False,
+            "source_threshold_composition_emitted": False,
+            "additional_axiom_used": False,
+        },
+        "external_chart_boundary": {
+            "choosing_MSbar_is_a_physical_axiom": False,
+            "choosing_a_reporting_scale_is_a_physical_axiom": False,
+            "allowed_role": (
+                "After OPH emits an RG-covariant physical trajectory or invariant, MSbar and a reporting scale "
+                "may be declared as an external comparison chart."
+            ),
+            "current_blocker": (
+                "The physical trajectory/invariant is absent; merely naming a chart cannot supply its boundary data."
+            ),
+        },
         "same_source_counterfamily": {
             "coupling_coordinate_change": "a_prime = a + r_1*a^2 + O(a^3)",
             "mass_coordinate_change": "m_q_prime(mu) = m_q(mu)*(1 + s_1*a(mu) + O(a(mu)^2))",
@@ -97,6 +140,7 @@ def build_artifact() -> dict[str, Any]:
                 "with a declared integration normalization"
             ),
             "required_payload": [
+                "normalized source fermionic/Yukawa effective action",
                 "source boundary condition or invariant",
                 "beta-function provenance",
                 "mass anomalous-dimension provenance",

@@ -27,6 +27,12 @@ QUARK_SIGMA_REQUIRED = PARTICLES_ROOT / "runs" / "flavor" / "quark_sigma_source_
 QUARK_SIGMA_OBSTRUCTION = (
     PARTICLES_ROOT / "runs" / "flavor" / "quark_sigma_source_nonidentifiability_obstruction.json"
 )
+QUARK_AXIOM_LEVEL_OBSTRUCTION = (
+    PARTICLES_ROOT
+    / "runs"
+    / "flavor"
+    / "quark_axiom_level_yukawa_moduli_nonidentifiability.json"
+)
 QUARK_SCHEME_OBSTRUCTION = (
     PARTICLES_ROOT / "runs" / "flavor" / "quark_running_mass_scheme_convention_obstruction.json"
 )
@@ -277,6 +283,7 @@ def build_payload() -> dict[str, Any]:
     charged_trace_required = _load_optional_json(CHARGED_TRACE_LIFT_REQUIRED) or {}
     quark_sigma_required = _load_optional_json(QUARK_SIGMA_REQUIRED) or {}
     quark_sigma_obstruction = _load_optional_json(QUARK_SIGMA_OBSTRUCTION) or {}
+    quark_axiom_level_obstruction = _load_optional_json(QUARK_AXIOM_LEVEL_OBSTRUCTION) or {}
     quark_scheme_obstruction = _load_optional_json(QUARK_SCHEME_OBSTRUCTION) or {}
     by_id = {entry["particle_id"]: _prediction_entry(entry) for entry in exact["entries"]}
     predictions = [by_id[particle_id] for particle_id in PARTICLE_ORDER if particle_id in by_id]
@@ -310,6 +317,9 @@ def build_payload() -> dict[str, Any]:
             ),
             "quark_sigma_source_nonidentifiability_obstruction": (
                 "code/particles/runs/flavor/quark_sigma_source_nonidentifiability_obstruction.json"
+            ),
+            "quark_axiom_level_yukawa_moduli_nonidentifiability": (
+                "code/particles/runs/flavor/quark_axiom_level_yukawa_moduli_nonidentifiability.json"
             ),
             "quark_running_mass_scheme_convention_obstruction": (
                 "code/particles/runs/flavor/quark_running_mass_scheme_convention_obstruction.json"
@@ -400,6 +410,28 @@ def build_payload() -> dict[str, Any]:
             ),
             "issue_acceptance": quark_scheme_obstruction.get("issue_acceptance", {}),
             "closure_effect": quark_scheme_obstruction.get("closure_effect", {}),
+            "physical_rg_dynamics_nondefinability": quark_scheme_obstruction.get(
+                "physical_rg_dynamics_nondefinability", {}
+            ),
+            "external_chart_boundary": quark_scheme_obstruction.get(
+                "external_chart_boundary", {}
+            ),
+        },
+        "quark_axiom_level_nondefinability": {
+            "artifact": quark_axiom_level_obstruction.get("artifact"),
+            "proof_status": quark_axiom_level_obstruction.get("proof_status"),
+            "additional_axioms_used": quark_axiom_level_obstruction.get(
+                "additional_axioms_used"
+            ),
+            "counterfamily": quark_axiom_level_obstruction.get("counterfamily", {}),
+            "MAR_audit": (
+                quark_axiom_level_obstruction.get("axiom_invariance_audit", {}).get(
+                    "Axiom_5_MAR", {}
+                )
+            ),
+            "public_numeric_quark_rows_allowed": quark_axiom_level_obstruction.get(
+                "public_numeric_quark_rows_allowed"
+            ),
         },
         "fine_structure": _fine_structure_surface(measured_endpoint),
         "hierarchy_and_naturality": _hierarchy_surface(),
@@ -421,7 +453,7 @@ def build_payload() -> dict[str, Any]:
             "github_issues": [153, 157],
         },
         "direct_top_auxiliary_comparison": {
-            "current_top_codomain": direct_top["current_theorem_coordinate"]["pdg_summary_id"],
+            "current_top_codomain": direct_top["current_target_audit_coordinate"]["pdg_summary_id"],
             "auxiliary_direct_top_codomain": direct_top["auxiliary_direct_top_coordinate"]["pdg_summary_id"],
             "value_policy": "compare_only_codomain_values_withheld_from_final_prediction_output",
             "audit_artifact": "code/particles/runs/calibration/direct_top_bridge_contract.json",
@@ -561,6 +593,26 @@ def render_markdown(payload: dict[str, Any]) -> str:
                 f"- Independent unselected coordinates: "
                 f"`{quark_boundary.get('independent_unselected_coordinates', [])}`",
                 f"- Missing gates: `{quark_boundary.get('missing_for_promotion', [])}`",
+            ]
+        )
+    axiom_boundary = payload.get("quark_axiom_level_nondefinability") or {}
+    if axiom_boundary.get("artifact"):
+        mar_audit = axiom_boundary.get("MAR_audit") or {}
+        counterfamily = axiom_boundary.get("counterfamily") or {}
+        lines.extend(
+            [
+                "",
+                "## Quark Axiom-Level Non-Definability",
+                "",
+                f"- Artifact: `{axiom_boundary['artifact']}`",
+                f"- Status: `{axiom_boundary.get('proof_status')}`",
+                f"- Additional axioms used: `{axiom_boundary.get('additional_axioms_used')}`",
+                f"- Counterfamily: `{counterfamily.get('parameter_space')}`",
+                f"- MAR complexity vector: `{mar_audit.get('complexity_vector')}`",
+                f"- Equal MAR score across counterfamily: "
+                f"`{mar_audit.get('counterfamily_members_have_equal_MAR_score')}`",
+                f"- Public numeric quark rows allowed: "
+                f"`{axiom_boundary.get('public_numeric_quark_rows_allowed')}`",
             ]
         )
     scheme_boundary = payload.get("quark_scheme_and_yukawa_boundary") or {}

@@ -39,7 +39,7 @@ def build_artifact(strengthened_theorem: dict, collapse: dict, pdg: dict) -> dic
     return {
         "artifact": "oph_quark_current_family_transport_frame_exact_pdg_completion",
         "generated_utc": _timestamp(),
-        "proof_status": "closed_current_family_transport_frame_exact_pdg_completion",
+        "proof_status": "closed_target_anchored_mixed_convention_coordinate_audit",
         "theorem_scope": "current_family_common_refinement_transport_frame_only",
         "public_promotion_allowed": False,
         "supporting_artifacts": {
@@ -48,12 +48,13 @@ def build_artifact(strengthened_theorem: dict, collapse: dict, pdg: dict) -> dic
             "exact_pdg_reconstruction": pdg["artifact"],
         },
         "theorem_statement": (
-            "On the declared current-family common-refinement transport-frame surface, the strengthened physical sigma "
-            "lift emits a sector-attached Sigma_ud^phys element together with the theorem-grade physical sigma datum. "
-            "The affine mean law then fixes "
-            "(g_u,g_d) algebraically, and the ordered three-point readout reconstructs the exact current-family "
-            "running quark sextet."
+            "On the declared current-family common-refinement target-audit surface, the target-attached sigma lift "
+            "and affine mean law reconstruct the chosen quark coordinates algebraically. The light, heavy, and top "
+            "rows use different comparison conventions, so this is not one source-emitted running sextet."
         ),
+        "target_anchored": True,
+        "source_only_prediction": False,
+        "single_running_quark_sextet_claim_allowed": False,
         "strengthened_physical_sigma_lift": {
             "artifact": strengthened_theorem["artifact"],
             "sigma_id": strengthened_theorem["restricted_sigma_ud_phys_element"]["sigma_id"],

@@ -5,9 +5,9 @@
     "value": 0.012281919498860506
   },
   "companion_surfaces": {
-    "exact_public_top_surface": "selected_public_quark_exact_yukawa_theorem",
-    "selected_class_quark_top_alignment_residual_gev": -0.2523553288311575,
-    "selected_class_quark_top_gev": 172.35235532883115
+    "quark_target_audit_top_alignment_residual_gev": 3.410605131648481e-13,
+    "quark_target_audit_top_gev": 172.09999999999965,
+    "quark_top_target_audit_surface": "selected_public_quark_mass_texture_audit"
   },
   "d10_repair_inputs": {
     "beta_EW": 0.5385291530498766,
@@ -36,7 +36,7 @@
     "pi_T_exact": 0.01079976775961743,
     "pi_T_exact_formula": "(mt_exact_target_gev - mt_pole_core_gev) / (d_mt_pole_d_y_t * y_t_core_mt)"
   },
-  "generated_utc": "2026-07-12T02:31:00Z",
+  "generated_utc": "2026-07-12T03:02:01Z",
   "mass_readout": {
     "delta_y_t_mt": 0.009940801211007214,
     "delta_y_t_mt_formula": "sigma_D11_T_exact * y_t_core_mt",
@@ -47,7 +47,7 @@
   "notes": [
     "This is a top-side calibration theorem on the declared D10/D11 running, matching, and threshold surface.",
     "It closes the exact D11 top-side row without relabeling the old one-scalar fixed ray as an exact pair theorem.",
-    "The selected-class quark theorem continues to carry the repo-wide exact public top row; this theorem matches that exact top codomain on the declared D11 surface."
+    "The quark lane carries a separate mixed-convention target-audit top coordinate. It is not a repo-wide exact public top row."
   ],
   "proof": [
     "The D11 top-side readout depends only on y_t_core_mt, d_mt_pole_d_y_t, and one scalar delta_y_t_mt.",

@@ -18,7 +18,7 @@
     "free_quark_screened_ansatz",
     "compare_only_external_Thomson_endpoint"
   ],
-  "generated_utc": "2026-07-12T02:35:04Z",
+  "generated_utc": "2026-07-12T03:02:18Z",
   "github_issues_closed_out_of_scope": [
     153,
     157
@@ -28,6 +28,14 @@
     "expected_backend_class": "OPH hardware backend such as GLORB/Echosahedron",
     "local_surrogate_promotable": false,
     "requires_working_oph_hadron_backend": true
+  },
+  "local_real_engine": {
+    "execution_class": "real_lattice_diagnostic_toy_scale",
+    "package": "particles/hadron/lattice_backend/",
+    "role": "Physics-true lattice engine executed locally at toy scale: real gauge ensembles, real Dirac solves, real contractions, no target anchoring. Production closure still requires the seeded 2+1 family at HPC scale with full systematics; this engine documents and de-risks that path.",
+    "runner": "particles/hadron/run_lattice_diagnostic_backend.py",
+    "satisfies_constructive_next_artifact": false,
+    "status_artifact": "particles/runs/hadron/lattice_engine_lane_status.json"
   },
   "minimum_payload": {
     "projection": {

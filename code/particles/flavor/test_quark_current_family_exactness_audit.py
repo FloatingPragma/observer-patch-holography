@@ -48,8 +48,10 @@ def test_quark_exactness_audit_identifies_current_family_residual_after_spread_c
     assert payload["centered_ray_fit"]["residual_norm_d"] < 0.2
     fit = payload["mean_split_audit"]["exact_two_scalar_mean_fit"]
     assert fit["g_u_exact_fit"] > fit["g_d_exact_fit"] > 0.0
-    assert payload["spread_emitter_audit"]["sigma_source_kind"] == "theorem_grade_mean_surface_readback"
-    assert payload["spread_emitter_audit"]["spread_emitter_status"] == "closed"
+    assert payload["spread_emitter_audit"]["sigma_source_kind"] == "hard_coded_diagnostic_witness"
+    assert payload["spread_emitter_audit"]["spread_emitter_status"] == (
+        "diagnostic_witness_not_source_emission"
+    )
     quad = payload["quadratic_residual_audit"]
     assert quad["residual_norm_u_after_best_quadratic_fit"] < payload["centered_ray_fit"]["residual_norm_u"]
     assert quad["residual_norm_d_after_best_quadratic_fit"] < payload["centered_ray_fit"]["residual_norm_d"]

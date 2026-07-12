@@ -14,7 +14,7 @@
     "mH_gev": "mH_core_gev + d_mH_d_lambda * delta_lambda_mt",
     "mt_pole_gev": "mt_pole_core_gev + d_mt_pole_d_y_t * delta_y_t_mt"
   },
-  "generated_utc": "2026-07-12T02:31:00Z",
+  "generated_utc": "2026-07-12T03:02:01Z",
   "inverse_slice_coordinates": {
     "delta_lambda_mt": -0.003109645833333345,
     "delta_y_t_mt": 0.009940801211007214
@@ -29,7 +29,7 @@
   "notes": [
     "This is a compare-only inverse slice on the linear D11 Jacobian, not a live predictive D11 theorem.",
     "It exists only to surface an exact Higgs/top reference hit on the current emitted D11 core.",
-    "The live public Higgs row is carried by D11LiveForwardExactHiggsPromotion, while the old one-scalar seed stays on disk as the companion fixed-ray D11 branch and the repo-wide exact public top row is carried by the selected-class quark theorem rather than by this inverse adapter."
+    "The live public Higgs row is carried by D11LiveForwardExactHiggsPromotion, while the old one-scalar seed stays on disk as the companion fixed-ray D11 branch. The quark lane carries a separate target-audit top coordinate, not a repo-wide exact public top row."
   ],
   "predicted_outputs": {
     "mH_gev": 125.13,

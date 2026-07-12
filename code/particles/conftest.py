@@ -32,6 +32,11 @@ def _legacy_d10_enabled() -> bool:
     return os.environ.get("OPH_RUN_LEGACY_D10") == "1"
 
 
+def pytest_configure(config: pytest.Config) -> None:
+    config.addinivalue_line(
+        "markers", "slow: long-running physics validation (deselect with -m 'not slow')")
+
+
 def pytest_collection_modifyitems(config: pytest.Config, items: list[pytest.Item]) -> None:
     if _legacy_d10_enabled():
         return

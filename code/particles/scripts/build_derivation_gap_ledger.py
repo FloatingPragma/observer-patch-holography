@@ -33,6 +33,12 @@ CHARGED_TRACE_LIFT_THEOREM = (
 QUARK_SIGMA_OBSTRUCTION = (
     PARTICLES_ROOT / "runs" / "flavor" / "quark_sigma_source_nonidentifiability_obstruction.json"
 )
+QUARK_AXIOM_LEVEL_YUKAWA_OBSTRUCTION = (
+    PARTICLES_ROOT
+    / "runs"
+    / "flavor"
+    / "quark_axiom_level_yukawa_moduli_nonidentifiability.json"
+)
 QUARK_SCHEME_OBSTRUCTION = (
     PARTICLES_ROOT / "runs" / "flavor" / "quark_running_mass_scheme_convention_obstruction.json"
 )
@@ -248,6 +254,19 @@ def _load_artifact(path: Path) -> dict[str, Any]:
 
 def _quark_sigma_obstruction_gate() -> dict[str, Any]:
     payload = _load_artifact(QUARK_SIGMA_OBSTRUCTION)
+    axiom_payload = _load_artifact(QUARK_AXIOM_LEVEL_YUKAWA_OBSTRUCTION)
+    axiom_certified = all(
+        (
+            axiom_payload.get("proof_status") == "closed_axiom_level_nondefinability_theorem",
+            axiom_payload.get("additional_axioms_used") is False,
+            (axiom_payload.get("reference_data_policy") or {}).get(
+                "no_target_leak_by_construction"
+            )
+            is True,
+            (axiom_payload.get("counterfamily") or {}).get("parameter_space")
+            == "(lambda_u,lambda_d) in (R_{>0})^2",
+        )
+    )
     certified = all(
         (
             payload.get("proof_status") == "closed_exact_current_corpus_obstruction",
@@ -257,6 +276,7 @@ def _quark_sigma_obstruction_gate() -> dict[str, Any]:
             payload.get("issue_380_acceptance_met_as_obstruction") is True,
             (payload.get("dependency_audit") or {}).get("no_target_leak") is True,
             (payload.get("exact_ray_classification") or {}).get("fiber") == "(R_{>0})^2",
+            axiom_certified,
         )
     )
     return {
@@ -274,15 +294,18 @@ def _quark_sigma_obstruction_gate() -> dict[str, Any]:
             "The target-free source equations fix the two ordered profile rays but leave their up/down positive "
             "spans independent. The compatible fiber is (R_{>0})^2, and its free rescaling action changes the "
             "affine sector means and mass textures. The edge path begins at a hand-written transport template and "
-            "does not select either modulus."
+            "does not select either modulus. The stronger Axioms-1--5 theorem constructs physically inequivalent "
+            "Yukawa packages with the same MAR score, so current MAR does not break this action."
             if certified
             else "The target-free spread-obstruction artifact is absent or fails its no-target certificate."
         ),
         "next_action": (
-            "Keep all numeric quark rows suppressed. Reopen only for two independent source normalizations, or an "
-            "equivalent source map into (R_{>0})^2, with sector attachment and refinement compatibility."
+            "Keep all numeric quark rows suppressed. With additional axioms excluded, reopen only if a theorem from "
+            "the existing MaxEnt/refinement data refutes the equal-MAR-score counterfamily and emits both spreads."
         ),
         "obstruction_artifact": _artifact_path(QUARK_SIGMA_OBSTRUCTION),
+        "axiom_level_obstruction_artifact": _artifact_path(QUARK_AXIOM_LEVEL_YUKAWA_OBSTRUCTION),
+        "axiom_level_obstruction_certified": axiom_certified,
         "target_surfaces": ["code/particles/flavor", "particle paper quark section"],
     }
 
@@ -316,7 +339,8 @@ def _quark_scheme_obstruction_gate() -> dict[str, Any]:
         "title": "Separate source physics from running-mass and Yukawa coordinate conventions",
         "current_boundary": (
             "Finite renormalizations and scale changes preserve physical amplitudes while changing running-mass "
-            "coordinates, so a source theory cannot select an external subtraction convention without a section. "
+            "coordinates. Declaring an external comparison chart is allowed, but the current source signature also "
+            "fails to emit the underlying RGI mass vector or six-flavor Yukawa trajectory. "
             "The stored six-row packet mixes light MSbar coordinates at 2 GeV, charm and bottom self-scale "
             "coordinates, and a separate top pole extraction coordinate. Its GeV-valued matrices are mass textures, "
             "not dimensionless physical Yukawa matrices."
@@ -498,10 +522,9 @@ def build_gap_rows() -> list[dict[str, Any]]:
                 "bar(theta), and does not prove that the physical strong-CP phase vanishes."
             ),
             "next_action": (
-                "Keep strong CP explicit as an open branch. Reopen only for a theorem-grade descent "
-                "from exact quark/Yukawa phase data to the determinant-line phase contribution, "
-                "together with a theorem fixing the topological-angle contribution and proving the "
-                "physical strong-CP phase vanishes on the realized branch."
+                "Keep strong CP explicit as an open branch. First emit a source-only quark mass matrix at one "
+                "declared scale with physical determinant-line phase data. Then fix the topological-angle "
+                "contribution and prove that the anomaly-invariant strong-CP phase vanishes."
             ),
             "target_surfaces": ["paper particle discussion", "README.md", "code/particles status surfaces"],
         },
@@ -510,14 +533,14 @@ def build_gap_rows() -> list[dict[str, Any]]:
             "lane": "D11/top codomain",
             "status": "closed_current_corpus_codomain_no_go",
             "github_issue": 207,
-            "title": "Bridge the exact top coordinate to the auxiliary direct-top PDG row",
+            "title": "Bridge the cross-section target-audit coordinate to the auxiliary direct-top PDG row",
             "current_boundary": (
-                "The exact top coordinate uses the PDG cross-section codomain Q007TP4. The auxiliary "
+                "The target-audit top coordinate uses the PDG cross-section codomain Q007TP4. The auxiliary "
                 "direct-top entry Q007TP is a separate extraction codomain and remains compare-only; "
                 "the available corpus emits no extraction-response map or uncertainty-propagation certificate."
             ),
             "next_action": (
-                "Keep Q007TP compare-only while the theorem row remains anchored on Q007TP4. Reopen only "
+                "Keep both top coordinates compare-only. Reopen only "
                 "for a concrete source-side extraction-response kernel."
             ),
             "target_surfaces": ["code/particles/calibration", "code/particles/runs/status"],
@@ -696,7 +719,7 @@ def build_bundles() -> list[dict[str, Any]]:
             ],
             "promotion_question": (
                 "Is there one OPH excitation dictionary and sector-isolated trace-lift theorem that "
-                "explains the charged affine anchor and quark selected-class boundary while also deriving "
+                "explains the charged affine anchor and breaks the quark two-modulus spread action while also deriving "
                 "a source-closed neutrino operator, charged basis, and mass-label rule without target fitting?"
             ),
             "result": (
@@ -717,7 +740,7 @@ def build_bundles() -> list[dict[str, Any]]:
                 "qcd.strong-cp-angle",
             ],
             "promotion_question": (
-                "Can the exact quark/Yukawa branch be extended to the physical strong-CP invariant, "
+                "Can a source-only common-scale quark mass matrix be extended to the physical strong-CP invariant, "
                 "including theta_QCD, bar(theta), and a vanishing theorem on the realized branch?"
             ),
             "result": (
@@ -754,11 +777,11 @@ def build_bundles() -> list[dict[str, Any]]:
                 "calibration.direct-top-bridge",
             ],
             "promotion_question": (
-                "Can the exact top coordinate be mapped into the auxiliary direct-top extraction codomain "
+                "Can the cross-section target-audit top coordinate be mapped into the auxiliary direct-top extraction codomain "
                 "without using Q007TP as a calibration input?"
             ),
             "result": (
-                "No-go result. The exact top theorem row remains on Q007TP4. The auxiliary direct-top row "
+                "No-go result. Q007TP4 remains a target-audit coordinate. The auxiliary direct-top row "
                 "Q007TP is compare-only because the available corpus emits no source-side extraction-response "
                 "kernel into that codomain."
             ),

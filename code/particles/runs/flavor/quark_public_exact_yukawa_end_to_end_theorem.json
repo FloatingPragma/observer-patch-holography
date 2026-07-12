@@ -10,7 +10,7 @@
   "display_allowed_as_selected_class_exact_witness": false,
   "display_allowed_as_selected_class_mass_texture_audit": true,
   "downstream_algebra_closed": false,
-  "generated_utc": "2026-07-12T02:48:38Z",
+  "generated_utc": "2026-07-12T03:23:11Z",
   "lemma_chain": [
     "oph_quark_public_physical_sigma_datum_descent",
     "oph_quark_absolute_readout_algebraic_collapse",
@@ -67,15 +67,13 @@
     "consistent": true,
     "malformed_inputs": [],
     "relative_tolerance": 1e-06,
-    "single_exact_sextet_matrix_pair_claim_allowed": true,
-    "status": "consistent_single_exact_sextet_matrix_pair"
+    "single_declared_mass_texture_pair_numerically_consistent": true,
+    "status": "consistent_declared_mass_texture_singular_spectrum"
   },
   "minimal_exact_blocker_set": [
-    "QUARK_SIGMA_SOURCE_QUOTIENT",
-    "QUARK_SIGMA_SOURCE_SELECTOR",
-    "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
-    "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
-    "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE",
+    "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM",
+    "QUARK_SOURCE_SPREAD_SECTOR_ATTACHMENT_AND_REFINEMENT",
+    "NO_TARGET_LEAK_DAG_QUARK_SOURCE_SPREAD",
     "QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE"
   ],
   "non_circularity_status": {
@@ -91,7 +89,7 @@
   },
   "notes": [
     "The numerical matrices are retained as mixed-scheme mass-texture audit witnesses; they are not certified physical Yukawa matrices.",
-    "The matrices Y_u and Y_d are the numerical matrices emitted on the local chain; the consistency block records whether their singular values match the separately declared sextet."
+    "The legacy-labelled matrices Y_u and Y_d are numerical mass textures on the current chain; the consistency block records whether their singular values match the separately declared coordinates."
   ],
   "physical_yukawa_construction_closed": false,
   "proof_status": "blocked_mixed_scheme_dimensionful_mass_textures_not_physical_yukawas",
@@ -217,6 +215,8 @@
       "certification_status": "forward_matrix_certified",
       "forward_certified": true,
       "jarlskog": -3.735348679490123e-06,
+      "matrix_classification": "mixed_scheme_GeV_mass_texture_matrices",
+      "physical_yukawa_certified": false,
       "scope": "current_family_common_refinement_transport_frame_only",
       "singular_values_d": [
         0.0046999999996463915,
@@ -227,9 +227,10 @@
         0.0021600002720956663,
         1.2729000000026323,
         172.09999999999968
-      ]
+      ],
+      "stored_entry_dimension": "GeV"
     },
-    "pair_status": "consistent_single_exact_sextet_matrix_pair",
+    "pair_status": "consistent_declared_mass_texture_singular_spectrum",
     "single_exact_mass_texture_pair_claim_allowed": true,
     "single_exact_physical_yukawa_pair_claim_allowed": false
   },

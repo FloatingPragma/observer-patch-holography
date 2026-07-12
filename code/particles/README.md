@@ -249,6 +249,14 @@ independence only after a spread datum is attached; it does not select the
 datum. The edge-statistics candidate also leaves two unfixed correction
 coefficients and begins from a hand-written family-kernel template.
 
+The stronger no-extra-axiom result is emitted in
+[`quark_axiom_level_yukawa_moduli_nonidentifiability.json`](runs/flavor/quark_axiom_level_yukawa_moduli_nonidentifiability.json).
+MAR orders the structural tuple `(chi_cpl, N_nonab, N_c, N_g)` and contains no
+Yukawa eigenvalue coordinate. Independent positive rescalings of the two
+centered quark profiles therefore remain physically distinct equal-score MAR
+minima. The positive family has no smallest member, so MAR cannot be read as a
+hidden numerical Yukawa selector under its stated definition.
+
 The same-family and common-refinement artifacts reproduce their chosen target
 coordinates after target inversion. They are audit surfaces, not source-only
 predictions. Their packet combines light-quark `MSbar` coordinates at 2 GeV,

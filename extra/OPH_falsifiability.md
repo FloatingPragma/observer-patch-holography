@@ -123,8 +123,8 @@ of silently moving the goalposts.
 | Newton constant display | \(G_{\mathrm{OPH}}=6.674299995910528\ldots\times10^{-11}\,\mathrm{m^3\,kg^{-1}\,s^{-2}}\) | SI display with QCD/clock caveat |
 | Fine structure | undressed source/root inverse coupling \(\alpha_{\mathrm{root}}^{-1}=136.994835\ldots\); combining it with \(\alpha_U(P_C)\) at the CODATA-derived comparison pixel gives the mixed-provenance diagnostic \(137.0359595008\ldots\); public Thomson endpoint \(137.035999177(21)\) | source-only endpoint requires the OPH-QCD spectral backend and no-target-leak certificate |
 | Higgs | `125.1995304097179 GeV` | closed on the declared Higgs/top surface |
-| Top coordinate | `172.35235532883115 GeV` | selected public quark-frame and cross-section codomain |
-| Quarks | exact running sextet on the selected public frame | selected-frame theorem |
+| Top coordinate | `172.35235532883115 GeV` | companion coordinate on the declared electroweak surface; not a separate public quark-mass row |
+| Quarks | no source-only numeric row | theorem-grade two-modulus spread obstruction; mixed-convention target audits are not one running sextet or physical Yukawas |
 | Neutrino weighted-cycle point | atmospheric angle `49.7228` degrees and CP phase `305.581` degrees | rejected target-informed template comparison; NuFIT 6.1 gives Δχ² values `20.12` and `18.44`, above the two-parameter 3σ value `11.83` |
 | Physical PMNS matrix | no emitted value | the shared-basis identity cancels the charged-lepton matrix by construction; the physical charged-lepton basis remains open |
 | Absolute neutrino masses and sum | no emitted prediction | the displayed `0.01745`, `0.01948`, and `0.05308` electron-volt values are compare-only coordinates on the rejected candidate |
@@ -722,7 +722,7 @@ Difficulty:
 | Low-energy supersymmetry | A low-energy superpartner spectrum is discovered. | OPH's declared Standard Model branch does not contain that superpartner spectrum. Finding it means the branch is missing real particles. |
 | Higgs naturality defect | The selected source-to-Higgs normal form has a nonzero RG/coarse-graining defect instead of \(\epsilon_H=0\). | OPH says the hierarchy problem collapses because the weak scale is emitted by the repair lock. A nonzero defect restores the fine-tuning problem. |
 | Higgs and top numbers | Scheme-controlled measurements exclude the declared Higgs and top rows. | These rows are sharp number outputs. If precision data exclude them in the declared scheme, OPH missed a key mass relation. |
-| Quark running masses | Scheme-controlled data exclude the declared quark running sextet. | OPH claims a selected quark frame. If the full sextet is excluded, the quark reconstruction fails. |
+| Quark source-spread theorem | A target-free OPH observable breaks the claimed free \((\mathbb R_{>0})^2\) action using only the stated source corpus. | That result would falsify the present non-identifiability theorem and reopen numeric quark reconstruction. |
 | Fine structure | A scheme-clean evaluation excludes the OPH fine-structure fixed-point value. | OPH ties the electromagnetic coupling to \(P\). If the coupling misses, the fixed-point number row fails. |
 
 ### Neutrinos

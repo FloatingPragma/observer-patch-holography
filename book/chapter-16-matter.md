@@ -147,6 +147,39 @@ $m_H$ is the Higgs-boson mass and $m_t$ is the top-quark mass on this
 calculation surface. They are paired because the Higgs and top sectors are
 strongly linked in the electroweak bookkeeping.
 
+The three charged leptons carry a cleaner version of the same story. The theory
+gets the pattern of their masses exactly. The ratio of the muon to the electron
+and the ratio of the tau to the electron come out of the family structure with
+no fitting, matching the measured ratios to machine precision. What the family
+structure alone leaves open is the overall size of the three masses. The
+symmetry that fixes the pattern is blind to a single common stretch factor, so
+on the family data by itself the electron could sit anywhere and the muon and
+tau would follow it in lockstep.
+
+The electromagnetic force closes that gap. The strength of electromagnetism
+changes with distance, and how fast it changes depends on the masses of the
+charged particles that the photon can briefly split into, the electron, muon,
+and tau among them. The theory reads that strength at two separate distances,
+one near the weak scale and one in the long-distance laboratory limit. Requiring
+the two readings to agree is one equation for the one missing stretch factor,
+and it has a single answer. Fixing it lands the three masses at
+
+$$
+(m_e,m_\mu,m_\tau)=(0.5089\,\mathrm{MeV},\ 105.22\,\mathrm{MeV},\ 1.7695\,\mathrm{GeV}),
+$$
+
+each within about four parts in a thousand of the measured electron, muon, and
+tau, and each inside a stated uncertainty band that contains the measured value.
+The width of those bands traces back to the same low-energy hadronic input that
+limits the fine-structure endpoint. This reading uses the measured long-distance
+electromagnetic strength as one of its two inputs. The version that would remove
+even that input and set the mass scale from the theory alone needs the
+electromagnetic anchor calculation to close from first principles. That
+calculation, run to the next order in the declared conventions, overshoots the
+required correction by a factor of two to three, so the fully self-contained
+mass scale is work in progress. The near-perfect ratios and the tightly bounded
+absolute masses hold regardless.
+
 The selected quark sector has a closed downstream algebraic readout only after
 two positive spread moduli are supplied. The present source equations fix the
 ordered up- and down-sector profile shapes but leave those endpoint spans
@@ -155,6 +188,15 @@ $(\mathbb R_{>0})^2$. Selected-frame descent proves that an attached datum is
 representative-independent; it does not choose either modulus. The result is a
 theorem-grade non-identifiability obstruction, so the public table contains no
 numeric quark mass rows.
+
+MAR does not choose a point in this fiber. Its complexity vector counts the
+coupled carrier, nonabelian factors, colors, and generations; it contains no
+Yukawa eigenvalue. Independent positive rescalings of the two quark profiles
+leave that score, the gauge representations, and CKM phase capability
+unchanged while changing the masses. Every rescaled package is a distinct MAR
+minimum because physical equivalence preserves Yukawa invariants. The positive
+family has no smallest member: its infimum is the massless boundary. The five
+OPH axioms therefore do not define a numerical quark spectrum through MAR.
 
 The exact same-family artifacts remain useful as target audits, but they do not
 form one running-mass sextet. The light comparison coordinates use
@@ -186,8 +228,9 @@ candidate.
 The particle picture is larger than a handful of isolated numbers. At book
 level, the map contains receipt-gated classical carrier modes with no promoted
 photon/gluon/graviton mass rows, the weak-sector
-comparison pair, the Higgs/top quantitative relation, the quark source-spread
-obstruction with target-only mass-texture audits, and the rejected
+comparison pair, the Higgs/top quantitative relation, the exact charged-lepton
+ratios with electromagnetically anchored absolute mass bands, the quark
+source-spread obstruction with target-only mass-texture audits, and the rejected
 weighted-cycle neutrino comparison candidate.
 
 The selected quark branch also shows where the particle story changes gear. It

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate a social-card SVG for the exact quark-to-PDG comparison surface."""
+"""Generate a social-card SVG for the quark target-ancestry audit."""
 
 from __future__ import annotations
 
@@ -16,7 +16,6 @@ ROOT = Path(__file__).resolve().parents[2]
 REPO_ROOT = ROOT.parent
 PUBLIC_THEOREM_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_public_exact_yukawa_end_to_end_theorem.json"
 REFERENCE_JSON = ROOT / "particles" / "data" / "particle_reference_values.json"
-EW_KERNEL_JSON = ROOT / "particles" / "runs" / "calibration" / "d10_ew_transport_kernel.json"
 DEFAULT_OUTPUT = REPO_ROOT / "assets" / "quark_pdg_2025_exact_social.svg"
 
 WIDTH = 1600
@@ -42,6 +41,14 @@ ROW_COLORS = {
     "b": "#f97316",
     "t": "#fb7185",
 }
+COMPARISON_CHARTS = {
+    "u": "MSbar at 2 GeV",
+    "d": "MSbar at 2 GeV",
+    "s": "MSbar at 2 GeV",
+    "c": "MSbar at self-scale",
+    "b": "MSbar at self-scale",
+    "t": "separate pole extraction",
+}
 
 
 def _load_json(path: Path) -> dict:
@@ -50,10 +57,6 @@ def _load_json(path: Path) -> dict:
 
 def _fmt_decimal(value: Decimal) -> str:
     return format(value, "f")
-
-
-def _fmt_yukawa(value: Decimal) -> str:
-    return format(value, ".30f")
 
 
 def _fmt_int(value: int | float) -> str:
@@ -99,12 +102,8 @@ def _line(x1: float, y1: float, x2: float, y2: float, *, stroke: str, width: flo
 def build_svg() -> str:
     public_theorem = _load_json(PUBLIC_THEOREM_JSON)
     reference_bundle = _load_json(REFERENCE_JSON)
-    ew_kernel = _load_json(EW_KERNEL_JSON)
-
     exact_masses = public_theorem["public_exact_outputs"]["exact_running_values_gev"]
     references = reference_bundle["entries"]
-    v_exact = ew_kernel["coherent_quintet_when_running_family"]["v"]
-    sqrt2 = Decimal(2).sqrt()
 
     rows: list[dict[str, str]] = []
     max_abs_diff = Decimal("0")
@@ -114,30 +113,28 @@ def build_svg() -> str:
         delta = oph_mass - pdg_mass
         if abs(delta) > max_abs_diff:
             max_abs_diff = abs(delta)
-        scalar_yukawa = sqrt2 * oph_mass / v_exact
         rows.append(
             {
                 "symbol": symbol,
                 "oph_mass": _fmt_decimal(oph_mass),
                 "pdg_mass": _fmt_decimal(pdg_mass),
                 "delta_mass": _fmt_decimal(delta),
-                "scalar_yukawa": _fmt_yukawa(scalar_yukawa),
+                "comparison_chart": COMPARISON_CHARTS[symbol],
             }
         )
 
-    title = "Observer Patch Holography vs PDG Quark Mass Matches"
-    subtitle = "fixed points: P = 1.630968, N_CRC^EW = 3.5323546e122 | selected-class target-anchored quark witness | PDG cross-section top row"
-    badge = f"max |Δm| = {_fmt_decimal(max_abs_diff)} GeV"
-    footer = f"y_q = sqrt(2) m_q / v | v = {_fmt_decimal(Decimal(v_exact))} GeV | scalar y_q shown to 30 decimals"
+    title = "Quark Target-Ancestry Audit: Not a Prediction"
+    subtitle = "source-only spread fiber = (R>0)^2 | two moduli remain free | numeric public rows withheld"
+    badge = "THEOREM-GRADE OBSTRUCTION"
+    footer = "Stored rows copy a mixed-convention target packet. GeV matrices are mass textures, not physical Yukawas."
 
     svg: list[str] = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{HEIGHT}" viewBox="0 0 {WIDTH} {HEIGHT}" role="img" aria-labelledby="title desc">',
         f"<title id=\"title\">{escape(title)}</title>",
         (
-            "<desc id=\"desc\">A social-card comparison table for the OPH selected-class target-anchored quark witness, "
-            "showing exact stored OPH running quark masses against the pinned PDG 2025 API reference values, "
-            "plus the scalar Yukawa couplings implied by the same exact mass surface and exact electroweak v, "
-            "with OPH fixed-point context P = 1.630968 and N_CRC^EW = 3.5323546e122.</desc>"
+            "<desc id=\"desc\">A target-ancestry audit showing that stored quark coordinates reproduce their "
+            "input target packet. The source equations leave two independent spread moduli, the packet mixes "
+            "comparison charts, and no physical dimensionless Yukawa matrix is certified.</desc>"
         ),
         "<defs>",
         '  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#07111c"/><stop offset="100%" stop-color="#0d1526"/></linearGradient>',
@@ -154,10 +151,10 @@ def build_svg() -> str:
         _rect(56, 182, 898, 52, fill="#0f1b2f", rx=18, stroke="#274565", stroke_width=1.0),
         _rect(1016, 182, 528, 52, fill="#0f1b2f", rx=18, stroke="#274565", stroke_width=1.0),
         _text(84, 216, "q", size=18, fill="#f8fbff", weight=700, family=FONT_MONO),
-        _text(150, 216, "OPH m_q [GeV]", size=18, fill="#f8fbff", weight=700, family=FONT_MONO),
-        _text(420, 216, "PDG 2025 [GeV]", size=18, fill="#f8fbff", weight=700, family=FONT_MONO),
-        _text(690, 216, "delta m [GeV]", size=18, fill="#f8fbff", weight=700, family=FONT_MONO),
-        _text(1048, 216, "exact scalar y_q", size=18, fill="#f8fbff", weight=700, family=FONT_MONO),
+        _text(150, 216, "stored target audit [GeV]", size=18, fill="#f8fbff", weight=700, family=FONT_MONO),
+        _text(420, 216, "input target [GeV]", size=18, fill="#f8fbff", weight=700, family=FONT_MONO),
+        _text(690, 216, "copy residual [GeV]", size=18, fill="#f8fbff", weight=700, family=FONT_MONO),
+        _text(1048, 216, "comparison chart", size=18, fill="#f8fbff", weight=700, family=FONT_MONO),
     ]
 
     start_y = 252
@@ -174,7 +171,7 @@ def build_svg() -> str:
         svg.append(_text(690, y + 37, row["delta_mass"], size=18, fill="#d1fae5", family=FONT_MONO))
         svg.append(_rect(1032, y + 10, 46, 36, fill=ROW_COLORS[row["symbol"]], rx=18, opacity=0.96))
         svg.append(_text(1055, y + 35, row["symbol"], size=24, fill="#08111b", weight=800, anchor="middle", family=FONT_MONO))
-        svg.append(_text(1106, y + 37, row["scalar_yukawa"], size=19, fill="#fde68a", family=FONT_MONO))
+        svg.append(_text(1106, y + 37, row["comparison_chart"], size=17, fill="#fde68a", family=FONT_MONO))
 
     table_bottom = start_y + len(rows) * row_h
     svg.extend(
@@ -189,7 +186,7 @@ def build_svg() -> str:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Generate the exact quark PDG 2025 social-card SVG.")
+    parser = argparse.ArgumentParser(description="Generate the quark target-ancestry audit social-card SVG.")
     parser.add_argument("--output", default=str(DEFAULT_OUTPUT))
     args = parser.parse_args()
 

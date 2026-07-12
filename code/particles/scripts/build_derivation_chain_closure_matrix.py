@@ -174,25 +174,29 @@ def build_payload() -> dict[str, Any]:
         },
         {
             "chain": "selected_class_quarks",
-            "status": (
-                "closed_selected_public_class_global_classification_no_go"
-                if predictions.get("top_quark", {}).get("promotable")
-                else "selected_class_target_anchored_exact_witness_not_strict_source"
-            ),
+            "status": "closed_sharper_quark_source_obstructions_numeric_rows_withheld",
             "claim_level": (
                 withheld_by_id.get("top_quark", {}).get("claim_tier")
                 or predictions.get("top_quark", {}).get("exact_kind")
-                or "selected_class_conditional_on_source_sigma"
+                or "source_spread_nonidentifiability_obstruction"
             ),
             "outputs": {},
             "withheld_non_prediction_rows": [withheld_by_id[pid] for pid in quark_withheld],
             "promotable": bool(predictions.get("top_quark", {}).get("promotable", False)),
-            "open_gates": []
-            if predictions.get("top_quark", {}).get("promotable")
-            else ["QUARK_SIGMA_SOURCE_SELECTOR", "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE"],
-            "closed_issue_refs": [199, 207, 212],
-            "next_artifact": "code/particles/runs/flavor/quark_class_uniform_public_frame_descent_obstruction.json",
+            "open_gates": [
+                "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM",
+                "QUARK_RG_COVARIANT_TRAJECTORY_OR_INVARIANT",
+                "QUARK_OPERATIONAL_SCHEME_AND_SCALE_SECTION",
+                "QUARK_THRESHOLD_AND_TOP_CONVERSION",
+                "QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE",
+            ],
+            "closed_issue_refs": [199, 207, 212, 377, 379, 380, 381, 382],
+            "next_artifact": "code/particles/runs/flavor/quark_sigma_source_nonidentifiability_obstruction.json",
             "global_classification_obstruction": quark_global.get("proof_status"),
+            "source_spread_obstruction": final_predictions["quark_sigma_source_boundary"]["obstruction_artifact"],
+            "scheme_and_yukawa_obstruction": final_predictions[
+                "quark_scheme_and_yukawa_boundary"
+            ]["artifact"],
         },
         {
             "chain": "neutrino_absolute_attachment",
@@ -305,7 +309,27 @@ def build_payload() -> dict[str, Any]:
         },
         "particle_five_gates": {
             str(issue): gates[issue]
-            for issue in (32, 153, 199, 201, 207, 223, 224, 225, 234, 235, 332, 335, 337)
+            for issue in (
+                32,
+                153,
+                199,
+                201,
+                207,
+                223,
+                224,
+                225,
+                234,
+                235,
+                332,
+                335,
+                337,
+                377,
+                378,
+                379,
+                380,
+                381,
+                382,
+            )
             if issue in gates
         },
         "provenance_status": provenance["status"],

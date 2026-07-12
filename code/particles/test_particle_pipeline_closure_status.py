@@ -88,6 +88,22 @@ def test_particle_pipeline_closure_status_scope_locks_hadrons_and_workers() -> N
     assert gates[201]["closable_now"] is True
     assert gates[199]["state"] == "closed_current_corpus_global_classification_no_go"
     assert gates[199]["closable_now"] is True
+    assert gates[377]["state"] == "closed_current_corpus_two_modulus_nonidentifiability_obstruction"
+    assert gates[377]["closure_kind"] == "accepted_sharper_obstruction"
+    assert gates[377]["numeric_quark_rows_emitted"] is False
+    assert gates[377]["additional_axioms_used"] is False
+    assert gates[377]["axiom_level_obstruction_artifact"].endswith(
+        "quark_axiom_level_yukawa_moduli_nonidentifiability.json"
+    )
+    assert gates[379]["closable_now"] is True
+    assert gates[380]["closable_now"] is True
+    assert gates[381]["state"] == (
+        "closed_structural_finite_renormalization_nonidentifiability_obstruction"
+    )
+    assert gates[382]["state"] == (
+        "closed_structural_finite_renormalization_nonidentifiability_obstruction"
+    )
+    assert gates[378]["state"] == "closed_current_corpus_global_classification_no_go"
     assert gates[234]["state"] == "closed_provenance_ledger_and_declared_sensitivity_taxonomy"
     assert gates[155]["state"] == "open_theta_qcd_bar_theta_vanishing_gap"
     assert gates[155]["closable_now"] is False

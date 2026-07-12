@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Emit the resolved public sigma-lift frontier above the local exact-PDG quark chain."""
+"""Emit the public sigma-lift frontier and its source non-identifiability boundary."""
 
 from __future__ import annotations
 
@@ -111,16 +111,17 @@ def build_artifact(
         "algebraic_consequence_after_closure": {
             "supporting_algebraic_collapse_artifact": absolute_collapse["artifact"],
             "statement": (
-                "Once a no-target source theorem emits the physical sigma datum and the selected bridge-fiber descent "
-                "makes it representative-independent, the affine mean law algebraically emits (g_u, g_d), the ordered "
-                "three-point readout yields the running quark sextet, and the already-closed exact forward construction "
-                "emits explicit quark Yukawa matrices Y_u and Y_d."
+                "If a new no-target source theorem emits both positive spread moduli, selected-fiber descent makes "
+                "them representative-independent and the affine mean law emits the conditional mass coordinates. "
+                "The present target packet remains mixed-convention, and physical Yukawa matrices additionally "
+                "require common-scale RG transport and dimensionless Higgs normalization."
             ),
-            "forced_running_values_gev": masses,
-            "forced_exact_yukawas": {
+            "target_audit_mass_coordinates_gev": masses,
+            "target_audit_mass_textures": {
                 "artifact": exact_forward["artifact"],
                 "forward_certified": exact_forward["forward_certified"],
                 "certification_status": exact_forward["certification_status"],
+                "physical_yukawa_certified": False,
                 "singular_values_u": exact_forward["singular_values_u"],
                 "singular_values_d": exact_forward["singular_values_d"],
                 "V_CKM": exact_forward["V_CKM"],
@@ -130,14 +131,15 @@ def build_artifact(
         "algebraic_consequence_if_closed": {
             "supporting_algebraic_collapse_artifact": absolute_collapse["artifact"],
             "statement": (
-                "This consequence is realized only after a source-only sigma selector supplies the physical sigma "
-                "datum. The current selected-class descent is representative independence, not source selection."
+                "This consequence is unrealized on the current corpus. Its source equations leave an exact "
+                "(R_{>0})^2 spread fiber, and selected-class descent is representative independence rather than source selection."
             ),
-            "forced_running_values_gev": masses,
-            "forced_exact_yukawas": {
+            "target_audit_mass_coordinates_gev": masses,
+            "target_audit_mass_textures": {
                 "artifact": exact_forward["artifact"],
                 "forward_certified": exact_forward["forward_certified"],
                 "certification_status": exact_forward["certification_status"],
+                "physical_yukawa_certified": False,
                 "singular_values_u": exact_forward["singular_values_u"],
                 "singular_values_d": exact_forward["singular_values_d"],
                 "V_CKM": exact_forward["V_CKM"],
@@ -181,10 +183,10 @@ def build_artifact(
             (
                 "This artifact records a source-only public sigma theorem as closed on the selected physical quark frame class."
                 if public_promotion_allowed
-                else "This artifact records the selected-class exact witness but leaves public promotion blocked because the target-derived sigma datum has no source selector."
+                else "This artifact records selected-class target-audit data and a theorem-grade two-modulus source-spread obstruction; it does not promote numeric quark rows."
             ),
-            "The upstream generator route remains a historical route toward a source sigma selector.",
-            "The exact masses and Yukawas forced after a source sigma closure are preserved here for contract-level readout.",
+            "The upstream generator route remains candidate-only and begins from a hand-written family-kernel template.",
+            "Mixed-convention target mass coordinates and dimensionful mass textures are retained only for contract-level audit.",
         ],
     }
 

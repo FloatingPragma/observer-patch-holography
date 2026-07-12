@@ -147,18 +147,34 @@ def build_artifact(d10: dict[str, object], forward: dict[str, object], loops: in
     lambda4 = lambda_msbar_from_alpha(m_b, alpha5_at_mb, n_f=4, loops=loops)
     alpha4_at_mc = alpha_from_lambda_msbar(m_c, lambda4, n_f=4, loops=loops)
     lambda3 = lambda_msbar_from_alpha(m_c, alpha4_at_mc, n_f=3, loops=loops)
+    forward_promotable = (
+        forward.get("forward_certified") is True
+        and forward.get("predictive_promotion_allowed") is True
+    )
 
     return {
         "artifact": "oph_qcd_lambda_msbar3",
         "generated_utc": _timestamp(),
-        "proof_status": "secondary_quantitative_descendant",
-        "predictive_promotion_allowed": True,
+        "proof_status": (
+            "secondary_quantitative_descendant"
+            if forward_promotable
+            else "unpromotable_descendant_of_uncertified_quark_thresholds"
+        ),
+        "predictive_promotion_allowed": forward_promotable,
         "source_artifacts": {
             "d10_observable_family": d10.get("artifact"),
             "forward_yukawas": forward.get("artifact"),
         },
         "law_id": "oph_qcd_lambda_msbar3_from_d10_alpha3",
         "borrowed_qft_piece": "perturbative_qcd_running_and_threshold_matching",
+        "input_promotion_audit": {
+            "forward_yukawas_forward_certified": forward.get("forward_certified") is True,
+            "forward_yukawas_predictive_promotion_allowed": (
+                forward.get("predictive_promotion_allowed") is True
+            ),
+            "quark_thresholds_source_certified": forward_promotable,
+            "promotion_inherited_fail_closed": True,
+        },
         "loops": loops,
         "source_inputs": {
             "mu_source_gev": mz_run,
@@ -196,7 +212,11 @@ def build_artifact(d10: dict[str, object], forward: dict[str, object], loops: in
             "Lambda_MSbar_gev": lambda3,
         },
         "notes": [
-            "This artifact is a secondary QCD descendant from the live OPH D10 alpha3 closure plus the current reference-free quark thresholds.",
+            (
+                "This artifact is a secondary QCD descendant from the live D10 alpha3 coordinate and the current "
+                "quark-threshold artifact. Those thresholds are not source-certified on the live corpus, so this "
+                "descendant is not a source-only prediction."
+            ),
             "It uses perturbative MS-bar running and simple threshold continuity at m_b and m_c.",
             "No hadron masses or PDG hadron inputs are used anywhere in this descendant.",
         ],

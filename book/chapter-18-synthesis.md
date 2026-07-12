@@ -155,7 +155,9 @@ color, and metric carrier roles acquire classical transverse or TT modes only
 after their explicit action and phase receipts; their quantum particle poles
 remain a stronger gate. The broader particle table then carries the
 weak-sector comparison pair, the low-energy electromagnetic endpoint, the
-Higgs/top relation, the conditional running-quark support sector, and a
+Higgs/top relation, the two-modulus quark source-spread obstruction (including
+the equal-MAR-score rescaling counterfamily) with target-audit mass textures,
+and a
 target-informed weighted-cycle neutrino candidate rejected by the correlated
 NuFIT 6.1 profile. The charged basis is open and has nearly degenerate singular
 values, leaving its physical PMNS matrix, mass ordering, and absolute masses
@@ -519,13 +521,13 @@ views mutually legible without erasing their differences.
 
 The gauge quotient, charge lattice, counting chain, Yang-Mills repair gap,
 receipt-gated classical carrier modes, Lorentz geometry, the branch-qualified Einstein relation, and the
-electroweak, Higgs-top, and conditional quark surfaces form one organized
+electroweak and Higgs-top surfaces, together with the quark non-identifiability boundary, form one organized
 reconstruction. The weighted-cycle neutrino candidate sits in its failure
 ledger: NuFIT 6.1 rejects the frozen point, while the open charged basis prevents
 a physical PMNS matrix or mass spectrum.
 
 The local-ruler story is therefore a cluster of related claims rather than one
-flat table. The weak pair, charged leptons, conditional running quarks, direct-top
+flat table. The weak pair, charged leptons, withheld quark rows and their target audits, direct-top
 comparison, hadrons, and Strong CP each touch a different layer of the particle
 problem.
 

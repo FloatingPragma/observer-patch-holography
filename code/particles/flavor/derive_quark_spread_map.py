@@ -49,8 +49,8 @@ def _build_candidate_sigmas(
         return (
             sigma_u,
             sigma_d,
-            "closed",
-            "theorem_grade_mean_surface_readback",
+            "diagnostic_witness_not_source_emission",
+            "hard_coded_diagnostic_witness",
             {
                 "sigma_seed_ud_readback": "-(1 + rho_ord - x2^2) * (ell_u + ell_d)",
                 "eta_ud_readback": "(1 - x2^2 - x2^2 / (1 + rho_ord)) * (ell_u - ell_d)",
@@ -83,8 +83,8 @@ def _build_candidate_sigmas(
         return (
             sigma_u,
             sigma_d,
-            "closed",
-            "theorem_grade_mean_surface_readback",
+            "conditional_mean_surface_inversion_not_source_emission",
+            "conditional_or_target_attached_mean_surface_readback",
             {
                 "sigma_seed_ud_readback": "-(1 + rho_ord - x2^2) * (ell_u + ell_d)",
                 "eta_ud_readback": "(1 - x2^2 - x2^2 / (1 + rho_ord)) * (ell_u - ell_d)",
@@ -279,9 +279,13 @@ def main() -> int:
     artifact = {
         "artifact": "oph_family_excitation_spread_map",
         "generated_utc": _timestamp(),
-        "proof_status": payload.get("proof_status"),
+        "proof_status": "candidate_only_spread_values",
+        "upstream_profile_shape_proof_status": payload.get("proof_status"),
         "spread_emitter_status": spread_status,
-        "predictive_promotion_allowed": spread_status == "closed",
+        "predictive_promotion_allowed": False,
+        "source_only_sigma_emitted": False,
+        "no_target_leak_certified": False,
+        "claim_tier": "diagnostic_or_target_attached_spread_candidate",
         "sigma_source_kind": sigma_source_kind,
         "input_kind": payload.get("input_kind"),
         "parameterization_kind": payload.get("parameterization_kind"),
@@ -360,7 +364,7 @@ def main() -> int:
         },
         "gap_to_E_formula": payload["gap_pair_reduction"]["eigenvalue_recovery"],
         "coefficient_recovery": payload["gap_pair_reduction"]["coefficient_recovery"],
-        "smallest_constructive_missing_object": None if spread_status == "closed" else "oph_family_excitation_spread_map",
+        "smallest_constructive_missing_object": "source_only_quark_spread_pair_emitter",
         "metadata": {
             "odd_response_artifact": None if odd_response is None else odd_response.get("artifact"),
             "sector_mean_split_artifact": None if sector_mean_split is None else sector_mean_split.get("artifact"),
@@ -374,10 +378,10 @@ def main() -> int:
                 None if edge_stats_candidate is None else edge_stats_candidate.get("candidate_sigmas")
             ),
             "note": (
-                "The spread map now prefers the inverse affine readback from the closed current-family mean surface. "
-                "When that mean surface is present, the spread-emitter lane is theorem-fed rather than diagnostic-seeded. "
-                "The remaining exactness audit is isolated to the unique trace-zero quadratic residual basis Q_ord on the same ordered three-point surface; "
-                "otherwise it falls back to the older reference-free candidate route."
+                "This legacy spread map carries diagnostic or target-attached numerical values only. Algebraically "
+                "inverting a mean surface reproduces an attached spread but does not emit it from OPH source data. "
+                "The hard-coded diagnostic witness, conditional inversion, and edge-statistics formula remain "
+                "non-promotable until a no-target theorem breaks the independent up/down rescaling action."
                 if args.mode == "legacy_current_surface"
                 else
                 "This is the off-canonical P-driven candidate spread lane. It takes the constructive edge-statistics "

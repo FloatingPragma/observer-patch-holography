@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Emit the resolved public exact-Yukawa frontier above the closed local exact chain."""
+"""Emit the fail-closed public quark mass/Yukawa promotion frontier."""
 
 from __future__ import annotations
 
@@ -67,6 +67,8 @@ def build_artifact(
             "proof_status": exact_yukawa_theorem["proof_status"],
             "theorem_scope": exact_yukawa_theorem["theorem_scope"],
             "forward_yukawa_artifact": local_forward,
+            "classification": "target_anchored_dimensionful_mass_texture_audit",
+            "certified_physical_yukawa_matrices": False,
         },
         "closed_public_endpoint": {
             "artifact": public_exact_yukawa_theorem["artifact"],
@@ -77,18 +79,21 @@ def build_artifact(
             "statement": (
                 "The final public theorem candidate is now closed, so this conditional closure is realized."
                 if promotion_allowed
-                else "The final public theorem candidate is not strict-source promotable until a source-only quark sigma selector with no target leak is supplied."
+                else "Public promotion is blocked until a new source map breaks the two-modulus spread action and a common-scale dimensionless Yukawa construction is certified."
             ),
             "induced_exact_outputs": public_exact_yukawa_theorem["public_exact_outputs"]["forward_yukawa_artifact"],
         },
+        "minimal_exact_blocker_set": list(
+            public_exact_yukawa_theorem.get("minimal_exact_blocker_set", [])
+        ),
         "notes": [
             (
                 "This frontier is now resolved: a source-only public sigma-datum theorem is closed, and the public exact Yukawa theorem is emitted explicitly."
                 if promotion_allowed
-                else "This frontier is blocked under strict non-circularity by the missing source-only quark sigma selector."
+                else "This frontier is closed negatively on the current corpus: the source spread has two free positive moduli, and the stored GeV matrices lack common-scale dimensionless normalization."
             ),
-            "The alternate upstream route remains a route toward the missing sigma selector.",
-            "The local declared-carrier exact Yukawa theorem is retained as the representative closed local endpoint beneath the public theorem.",
+            "The alternate upstream route begins from a candidate generator over a hand-written family-kernel template and does not break the two-modulus action.",
+            "The local declared-carrier matrix artifact is retained as a target-audit mass texture, not a physical Yukawa endpoint.",
         ],
     }
 

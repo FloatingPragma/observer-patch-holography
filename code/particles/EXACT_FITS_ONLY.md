@@ -1,9 +1,9 @@
 # Exact Fits Only
 
-Generated: `2026-07-11T06:58:14Z`
+Generated: `2026-07-12T03:22:10Z`
 
-This surface lists exact target matches on declared OPH carriers. It separates theorem-grade selected-class outputs from compare-only and carrier-restricted exact surfaces.
-For quarks, the exact carrier-restricted witnesses coincide with the official PDG 2025 API running-quark target surface on their declared carriers.
+This surface lists exact target matches on declared audit carriers. An exact target match is not, by itself, a source-only prediction.
+For quarks, the selected-class target audit matches its chosen mixed-convention packet. Its GeV-valued matrices are mass textures, not physical dimensionless Yukawas.
 
 ## Higgs/Top Reference Exact Adapter
 
@@ -34,14 +34,14 @@ For quarks, the exact carrier-restricted witnesses coincide with the official PD
 | `m_mu` | `0.10565837550000001` | `0.10565837550000001` |
 | `m_tau` | `1.7769299999999995` | `1.7769300000000001` |
 
-## Quark Current-Family Exact Witness
+## Quark Current-Family Mixed-Convention Target Audit
 
-- Fit kind: `exact_target_anchored_current_family_witness`
+- Fit kind: `exact_target_anchored_mixed_convention_mass_texture_audit`
 - Scope: `current_family_only`
 - Promotable: `false`
 - Source artifact: `code/particles/runs/flavor/quark_current_family_exact_readout.json`
 - Max absolute residual: `2.8421709430404007e-13`
-- Note: Exact on the official PDG 2025 API running-quark target surface on the ordered three-point quark family witness, with the internal same-family quadratic readout closed on the fixed carrier and the selected-sheet exact closure packaged on `sigma_ref`. The top coordinate uses PDG summary `Q007TP4`. The auxiliary direct-top entry `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go. The declared scope is `current_family_only`. A separate restricted theorem chain emits a sector-attached `Sigma_ud^phys` element on the explicit `current_family_common_refinement_transport_frame_only` carrier, and the merged transport-frame theorem reconstructs the same running sextet exactly on `current_family_common_refinement_transport_frame_only`. The declared transport-frame chain also closes explicit exact forward Yukawas `Y_u` and `Y_d` with certification status `forward_matrix_certified`, and the full declared-carrier chain is recorded in `oph_quark_current_family_end_to_end_exact_pdg_derivation_chain`. A separate target-free mass bridge closes `Delta_ud_overlap = (1/6) * log(c_d / c_u)`, equivalently `quark_d12_t1_value_law`, on the emitted D12 ray. A separate selected-class support wrapper exists on the public physical quark frame class chosen by `P`: `oph_quark_public_physical_sigma_datum_descent` proves representative independence on the selected bridge fiber, but the exact physical sigma datum remains target-derived until a source sigma selector closes. `oph_quark_public_exact_yukawa_end_to_end_theorem` therefore records the same exact sextet together with explicit exact forward Yukawas `Y_u` and `Y_d` as an audit/support witness.
+- Note: Exact only as a target audit on the ordered three-point family carrier. The light coordinates use MSbar at 2 GeV, charm and bottom use MSbar at self-scale, and the top coordinate is a separate pole extraction, so these rows are not one running-mass sextet. The selected-sheet closure is packaged on `sigma_ref`. The top coordinate uses PDG summary `Q007TP4`. The auxiliary direct-top entry `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go. The declared scope is `current_family_only`. A separate restricted target-audit chain carries a sector-attached `Sigma_ud^phys` element on the explicit `current_family_common_refinement_transport_frame_only` carrier, and the merged transport-frame theorem reconstructs the same chosen target coordinates on `current_family_common_refinement_transport_frame_only`. The declared transport-frame chain also carries GeV-valued matrices labelled `Y_u` and `Y_d` with certification status `forward_matrix_certified`, but those matrices are dimensionful mass textures, not physical Yukawas. The full declared-carrier chain is recorded in `oph_quark_current_family_end_to_end_exact_pdg_derivation_chain`. A separate target-free mass bridge closes `Delta_ud_overlap = (1/6) * log(c_d / c_u)`, equivalently `quark_d12_t1_value_law`, on the emitted D12 ray. A separate selected-class support wrapper exists on the public physical quark frame class chosen by `P`: `oph_quark_public_physical_sigma_datum_descent` proves representative independence on the selected bridge fiber, but it does not break the free two-modulus source-spread action. `oph_quark_public_exact_yukawa_end_to_end_theorem` therefore remains a target-audit mass-texture wrapper, not a source-only mass or physical-Yukawa theorem.
 
 | Observable | Value | Reference |
 | --- | ---: | ---: |
@@ -50,6 +50,24 @@ For quarks, the exact carrier-restricted witnesses coincide with the official PD
 | `m_t` | `172.0999999999997` | `172.1` |
 | `m_d` | `0.004699999999999999` | `0.0047` |
 | `m_s` | `0.0929` | `0.09290000000000001` |
+| `m_b` | `4.186` | `4.186` |
+
+## Quark Selected-Class Target Audit
+
+- Fit kind: `selected_class_target_anchored_mixed_convention_mass_texture_audit`
+- Scope: `selected_public_physical_quark_frame_class_target_audit_only`
+- Promotable: `false`
+- Source artifact: `code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json`
+- Max absolute residual: `3.410605131648481e-13`
+- Note: Selected-class target audit on the public physical quark frame class chosen by `P`. `oph_quark_public_physical_sigma_datum_descent` proves representative independence on the selected bridge fiber, but the source corpus leaves two independent positive spread moduli. `oph_quark_public_exact_yukawa_end_to_end_theorem` therefore records mixed-convention mass coordinates and GeV-valued mass textures only; it does not certify a source-only sextet or physical Yukawas. The top coordinate uses PDG summary `Q007TP4`. The auxiliary direct-top entry `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. This is selected-class closure only. It does not claim a global classification of all quark frame classes.
+
+| Observable | Value | Reference |
+| --- | ---: | ---: |
+| `m_u` | `0.0021600000000000005` | `0.00216` |
+| `m_c` | `1.2729000000000006` | `1.2729` |
+| `m_t` | `172.09999999999965` | `172.1` |
+| `m_d` | `0.004699999999999999` | `0.0047` |
+| `m_s` | `0.09289999999999997` | `0.09290000000000001` |
 | `m_b` | `4.186` | `4.186` |
 
 ## Neutrino Two-Parameter Exact Adapter

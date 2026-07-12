@@ -55,3 +55,12 @@ def test_contract_names_empirical_companion_without_promoting_it() -> None:
     assert guard_props["promotable_as_oph_source_theorem"]["const"] is False
     assert guard_props["surrogate_hadron_artifact"]["const"] is False
     assert guard_props["satisfies_production_constructive_next_artifact"]["const"] is False
+
+
+def test_contract_names_local_real_engine_without_promoting_it() -> None:
+    payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
+    engine = payload["local_real_engine"]
+    assert engine["execution_class"] == "real_lattice_diagnostic_toy_scale"
+    assert engine["satisfies_constructive_next_artifact"] is False
+    assert (ROOT / engine["runner"]).exists()
+    assert (ROOT / engine["package"]).is_dir()

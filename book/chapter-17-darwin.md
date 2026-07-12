@@ -189,8 +189,9 @@ The "particle zoo" is a census of vibrational survivors.
 
 Within OPH, that census is uneven. Some entries are structurally cleaner:
 photon, gluons, graviton, and the weak-boson benchmark pair. The Higgs and top
-are tied together on one electroweak relation, and quarks close on a selected
-running-mass frame. The weighted-cycle neutrino entry is a target-informed
+are tied together on one electroweak relation. The quark source equations fix
+two profile shapes but leave their positive spreads independent, so numeric
+quark rows do not close. The weighted-cycle neutrino entry is a target-informed
 comparison candidate rejected by the correlated NuFIT 6.1 profile. Its charged
 basis is open and has nearly degenerate singular values, leaving the physical
 PMNS matrix, mass ordering, and absolute scale unresolved. Charged leptons use

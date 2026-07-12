@@ -24,7 +24,7 @@
         "neutrino.pmns-status-and-absolute-rows"
       ],
       "id": "spectrum-source-bundle",
-      "promotion_question": "Is there one OPH excitation dictionary and sector-isolated trace-lift theorem that explains the charged affine anchor and quark selected-class boundary while also deriving a source-closed neutrino operator, charged basis, and mass-label rule without target fitting?",
+      "promotion_question": "Is there one OPH excitation dictionary and sector-isolated trace-lift theorem that explains the charged affine anchor and breaks the quark two-modulus spread action while also deriving a source-closed neutrino operator, charged basis, and mass-label rule without target fitting?",
       "result": "No promotion. Charged leptons are closed as a corpus-limited no-go by the end-to-end impossibility theorem: the same-family witness and conditional algebraic readout remain, but no theorem-grade A_ch(P) is emitted. The quark source fiber retains two free positive spread moduli, its running-coordinate chart is conventional, and its GeV matrices are mass textures. Selected-fiber descent and the global-classification no-go do not change those facts. The weighted-cycle neutrino point is a rejected target-informed candidate; no physical PMNS, ordering, Majorana, or absolute-mass row is emitted.",
       "status": "closed_current_corpus_source_boundaries_emitted"
     },
@@ -33,7 +33,7 @@
         "qcd.strong-cp-angle"
       ],
       "id": "strong-cp-closure-bundle",
-      "promotion_question": "Can the exact quark/Yukawa branch be extended to the physical strong-CP invariant, including theta_QCD, bar(theta), and a vanishing theorem on the realized branch?",
+      "promotion_question": "Can a source-only common-scale quark mass matrix be extended to the physical strong-CP invariant, including theta_QCD, bar(theta), and a vanishing theorem on the realized branch?",
       "result": "No promotion. The selected-class quark wrapper carries only target-anchored mixed-scheme mass textures. The source spread pair is non-identifiable and the physical dimensionless Yukawa normalization is absent. The available corpus does not emit the determinant-line phase contribution, the bare theta_QCD term, or a theorem forcing the physical strong-CP phase to vanish.",
       "status": "open_physical_invariant_gap"
     },
@@ -53,8 +53,8 @@
         "calibration.direct-top-bridge"
       ],
       "id": "top-codomain-bridge-bundle",
-      "promotion_question": "Can the exact top coordinate be mapped into the auxiliary direct-top extraction codomain without using Q007TP as a calibration input?",
-      "result": "No-go result. The exact top theorem row remains on Q007TP4. The auxiliary direct-top row Q007TP is compare-only because the available corpus emits no source-side extraction-response kernel into that codomain.",
+      "promotion_question": "Can the cross-section target-audit top coordinate be mapped into the auxiliary direct-top extraction codomain without using Q007TP as a calibration input?",
+      "result": "No-go result. Q007TP4 remains a target-audit coordinate. The auxiliary direct-top row Q007TP is compare-only because the available corpus emits no source-side extraction-response kernel into that codomain.",
       "status": "closed_current_corpus_codomain_no_go"
     },
     {
@@ -124,7 +124,7 @@
     },
     "v_over_E_cell_source": "2.5797040595276223506583341903922018695490035369903290256096683452314630559578761079150341073645683725521032233E-17"
   },
-  "generated_utc": "2026-07-12T02:42:13Z",
+  "generated_utc": "2026-07-12T03:22:10Z",
   "p_trunk": {
     "P": "1.63097210492078846050203640439",
     "alpha_inv": "136.994020662724205139718642793",
@@ -343,7 +343,7 @@
       "github_issue": 155,
       "id": "qcd.strong-cp-angle",
       "lane": "Strong CP",
-      "next_action": "Keep strong CP explicit as an open branch. Reopen only for a theorem-grade descent from exact quark/Yukawa phase data to the determinant-line phase contribution, together with a theorem fixing the topological-angle contribution and proving the physical strong-CP phase vanishes on the realized branch.",
+      "next_action": "Keep strong CP explicit as an open branch. First emit a source-only quark mass matrix at one declared scale with physical determinant-line phase data. Then fix the topological-angle contribution and prove that the anomaly-invariant strong-CP phase vanishes.",
       "status": "open_theta_qcd_bar_theta_vanishing_gap",
       "target_surfaces": [
         "paper particle discussion",
@@ -353,17 +353,17 @@
       "title": "Keep the strong-CP branch explicit until the physical invariant is emitted"
     },
     {
-      "current_boundary": "The exact top coordinate uses the PDG cross-section codomain Q007TP4. The auxiliary direct-top entry Q007TP is a separate extraction codomain and remains compare-only; the available corpus emits no extraction-response map or uncertainty-propagation certificate.",
+      "current_boundary": "The target-audit top coordinate uses the PDG cross-section codomain Q007TP4. The auxiliary direct-top entry Q007TP is a separate extraction codomain and remains compare-only; the available corpus emits no extraction-response map or uncertainty-propagation certificate.",
       "github_issue": 207,
       "id": "calibration.direct-top-bridge",
       "lane": "D11/top codomain",
-      "next_action": "Keep Q007TP compare-only while the theorem row remains anchored on Q007TP4. Reopen only for a concrete source-side extraction-response kernel.",
+      "next_action": "Keep both top coordinates compare-only. Reopen only for a concrete source-side extraction-response kernel.",
       "status": "closed_current_corpus_codomain_no_go",
       "target_surfaces": [
         "code/particles/calibration",
         "code/particles/runs/status"
       ],
-      "title": "Bridge the exact top coordinate to the auxiliary direct-top PDG row"
+      "title": "Bridge the cross-section target-audit coordinate to the auxiliary direct-top PDG row"
     },
     {
       "current_boundary": "Source-only hadron prediction requires a working production hadron backend. Issues #153 and #157 are source-backend boundaries because there is no production hadron backend in the local environment. A credible backend is gated on OPH hardware such as GLORB/Echosahedron, outside local Python and Chrome workers. The empirical closure surface uses a separate e+e- payload class.",

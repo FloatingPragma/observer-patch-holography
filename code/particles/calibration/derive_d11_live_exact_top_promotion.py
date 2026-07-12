@@ -135,11 +135,11 @@ def build_artifact(
             "exact_residual_gev": promoted_mt - top_target,
         },
         "companion_surfaces": {
-            "selected_class_quark_top_gev": quark_top,
-            "selected_class_quark_top_alignment_residual_gev": (
+            "quark_target_audit_top_gev": quark_top,
+            "quark_target_audit_top_alignment_residual_gev": (
                 None if quark_top is None else promoted_mt - quark_top
             ),
-            "exact_public_top_surface": "selected_public_quark_exact_yukawa_theorem",
+            "quark_top_target_audit_surface": "selected_public_quark_mass_texture_audit",
         },
         "strictly_not_claimed": [
             "full_higgs_top_inverse_slice_promotion",
@@ -157,7 +157,7 @@ def build_artifact(
         "notes": [
             "This is a top-side calibration theorem on the declared D10/D11 running, matching, and threshold surface.",
             "It closes the exact D11 top-side row without relabeling the old one-scalar fixed ray as an exact pair theorem.",
-            "The selected-class quark theorem continues to carry the repo-wide exact public top row; this theorem matches that exact top codomain on the declared D11 surface.",
+            "The quark lane carries a separate mixed-convention target-audit top coordinate. It is not a repo-wide exact public top row.",
         ],
     }
 

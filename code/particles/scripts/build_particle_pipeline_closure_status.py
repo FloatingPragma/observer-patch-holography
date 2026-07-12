@@ -32,6 +32,18 @@ DIRECT_TOP_CONTRACT = PARTICLES_ROOT / "runs" / "calibration" / "direct_top_brid
 GAP_LEDGER = PARTICLES_ROOT / "runs" / "status" / "particle_derivation_gap_ledger.json"
 BLIND_PROVENANCE = PARTICLES_ROOT / "runs" / "status" / "blind_prediction_provenance.json"
 QUARK_CONTRACT = PARTICLES_ROOT / "runs" / "flavor" / "quark_lane_closure_contract.json"
+QUARK_SIGMA_OBSTRUCTION = (
+    PARTICLES_ROOT / "runs" / "flavor" / "quark_sigma_source_nonidentifiability_obstruction.json"
+)
+QUARK_AXIOM_LEVEL_OBSTRUCTION = (
+    PARTICLES_ROOT
+    / "runs"
+    / "flavor"
+    / "quark_axiom_level_yukawa_moduli_nonidentifiability.json"
+)
+QUARK_SCHEME_OBSTRUCTION = (
+    PARTICLES_ROOT / "runs" / "flavor" / "quark_running_mass_scheme_convention_obstruction.json"
+)
 QUARK_GLOBAL_OBSTRUCTION = PARTICLES_ROOT / "runs" / "flavor" / "quark_class_uniform_public_frame_descent_obstruction.json"
 CHARGED_NONCLOSURE = PARTICLES_ROOT / "runs" / "leptons" / "charged_end_to_end_impossibility_theorem.json"
 NEUTRINO_CONTRACT = PARTICLES_ROOT / "runs" / "neutrino" / "neutrino_lane_closure_contract.json"
@@ -163,6 +175,9 @@ def build_status() -> dict[str, Any]:
     gap_ledger = _load_json(GAP_LEDGER)
     blind_provenance = _load_json(BLIND_PROVENANCE)
     quark = _load_json(QUARK_CONTRACT)
+    quark_sigma = _load_json(QUARK_SIGMA_OBSTRUCTION)
+    quark_axiom_level = _load_json(QUARK_AXIOM_LEVEL_OBSTRUCTION)
+    quark_scheme = _load_json(QUARK_SCHEME_OBSTRUCTION)
     quark_global = _load_json(QUARK_GLOBAL_OBSTRUCTION)
     charged_nonclosure = _load_json(CHARGED_NONCLOSURE)
     neutrino = _load_json(NEUTRINO_CONTRACT)
@@ -218,6 +233,15 @@ def build_status() -> dict[str, Any]:
             "blind_prediction_provenance": _artifact_status(BLIND_PROVENANCE, blind_provenance),
             "carrier_mode_acceptance": _artifact_status(CARRIER_ACCEPTANCE, carrier_acceptance),
             "quark_lane_closure_contract": _artifact_status(QUARK_CONTRACT, quark),
+            "quark_sigma_source_nonidentifiability_obstruction": _artifact_status(
+                QUARK_SIGMA_OBSTRUCTION, quark_sigma
+            ),
+            "quark_axiom_level_yukawa_moduli_nonidentifiability": _artifact_status(
+                QUARK_AXIOM_LEVEL_OBSTRUCTION, quark_axiom_level
+            ),
+            "quark_running_mass_scheme_convention_obstruction": _artifact_status(
+                QUARK_SCHEME_OBSTRUCTION, quark_scheme
+            ),
             "quark_global_classification_obstruction": _artifact_status(QUARK_GLOBAL_OBSTRUCTION, quark_global),
             "charged_end_to_end_impossibility_theorem": _artifact_status(CHARGED_NONCLOSURE, charged_nonclosure),
             "neutrino_lane_closure_contract": _artifact_status(NEUTRINO_CONTRACT, neutrino),
@@ -429,12 +453,70 @@ def build_status() -> dict[str, Any]:
                 "chrome_workers": "not_needed",
             },
             {
+                "issue": 377,
+                "title": "Source-only quark spread package",
+                "state": "closed_current_corpus_two_modulus_nonidentifiability_obstruction",
+                "closable_now": True,
+                "closure_kind": "accepted_sharper_obstruction",
+                "local_next_artifact": _rel(QUARK_SIGMA_OBSTRUCTION),
+                "axiom_level_obstruction_artifact": _rel(QUARK_AXIOM_LEVEL_OBSTRUCTION),
+                "additional_axioms_used": quark_axiom_level.get("additional_axioms_used"),
+                "source_only_sigma_emitted": False,
+                "numeric_quark_rows_emitted": False,
+                "chrome_workers": "not_needed_until_new_action_breaking_source_observable_exists",
+            },
+            {
+                "issue": 379,
+                "title": "Source-only up-type spread and branch generator",
+                "state": "closed_current_corpus_two_modulus_nonidentifiability_obstruction",
+                "closable_now": True,
+                "closure_kind": "accepted_sharper_obstruction",
+                "local_next_artifact": _rel(QUARK_SIGMA_OBSTRUCTION),
+                "chrome_workers": "not_needed_until_source_generator_replaces_template",
+            },
+            {
+                "issue": 380,
+                "title": "Source-only down-type spread and branch generator",
+                "state": "closed_current_corpus_two_modulus_nonidentifiability_obstruction",
+                "closable_now": True,
+                "closure_kind": "accepted_sharper_obstruction",
+                "local_next_artifact": _rel(QUARK_SIGMA_OBSTRUCTION),
+                "chrome_workers": "not_needed_until_new_coefficient_fixing_identity_exists",
+            },
+            {
+                "issue": 381,
+                "title": "Light-quark low-energy scheme and readout map",
+                "state": "closed_structural_finite_renormalization_nonidentifiability_obstruction",
+                "closable_now": True,
+                "closure_kind": "accepted_sharper_obstruction",
+                "local_next_artifact": _rel(QUARK_SCHEME_OBSTRUCTION),
+                "chrome_workers": "not_needed_until_operational_scheme_selector_exists",
+            },
+            {
+                "issue": 382,
+                "title": "Heavy-quark matching and threshold transport",
+                "state": "closed_structural_finite_renormalization_nonidentifiability_obstruction",
+                "closable_now": True,
+                "closure_kind": "accepted_sharper_obstruction",
+                "local_next_artifact": _rel(QUARK_SCHEME_OBSTRUCTION),
+                "chrome_workers": "not_needed_until_rg_threshold_packet_exists",
+            },
+            {
+                "issue": 378,
+                "title": "Global public quark-frame classification",
+                "state": "closed_current_corpus_global_classification_no_go",
+                "closable_now": True,
+                "local_next_artifact": _rel(QUARK_GLOBAL_OBSTRUCTION),
+                "selected_fiber_descent_preserved": True,
+                "chrome_workers": "not_needed_until_new_global_public_frame_classifier_source_exists",
+            },
+            {
                 "issue": 199,
                 "title": "Class-uniform public quark-frame descent",
                 "state": "closed_current_corpus_global_classification_no_go",
                 "closable_now": True,
                 "local_next_artifact": _rel(QUARK_GLOBAL_OBSTRUCTION),
-                "selected_class_theorem_preserved": True,
+                "selected_fiber_descent_preserved": True,
                 "chrome_workers": "not_needed_until_new_global_public_frame_classifier_source_exists",
             },
             {

@@ -28,6 +28,9 @@ def test_quark_current_family_exact_readout_hits_reference_targets() -> None:
 
     assert payload["artifact"] == "oph_quark_current_family_exact_readout"
     assert payload["proof_status"] == "current_family_exact_witness"
+    assert payload["target_anchored"] is True
+    assert payload["source_only_prediction"] is False
+    assert payload["single_running_quark_sextet_claim_allowed"] is False
     assert payload["readout_chain_status"] == "closed_within_current_family_scope"
     assert payload["supporting_readout_theorem"] == "oph_quark_current_family_quadratic_readout_theorem"
     assert payload["smallest_constructive_missing_object"] is None

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Emit the exact current-family quark quadratic readout witness."""
+"""Emit the target-anchored current-family quark quadratic readout audit."""
 
 from __future__ import annotations
 
@@ -65,6 +65,9 @@ def build_artifact(mean_split: dict, readout_theorem: dict, references: dict) ->
         "generated_utc": _timestamp(),
         "proof_status": "current_family_exact_witness",
         "theorem_scope": "current_family_only",
+        "target_anchored": True,
+        "source_only_prediction": False,
+        "single_running_quark_sextet_claim_allowed": False,
         "readout_chain_status": "closed_within_current_family_scope",
         "supporting_readout_theorem": readout_theorem["artifact"],
         "ordered_coordinate_x": x.tolist(),
@@ -99,7 +102,7 @@ def build_artifact(mean_split: dict, readout_theorem: dict, references: dict) ->
         "exact_fit_residuals_d": [predicted_d[idx] - target_d[idx] for idx in range(3)],
         "smallest_constructive_missing_object": None,
         "notes": [
-            "This current-family exact witness uses the fixed ordered three-point quark carrier and the closed quadratic readout theorem on that carrier.",
+            "This current-family target audit uses the fixed ordered three-point quark carrier and its quadratic coordinate identity.",
             "It does not reopen a richer ray family or add a third scalar beyond the compact sector-mean split.",
             "The exact witness uses the geometric means implied by the current-family reference targets; the mean-split candidate scales are retained separately for audit and residual reporting only.",
         ],
@@ -107,7 +110,7 @@ def build_artifact(mean_split: dict, readout_theorem: dict, references: dict) ->
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Build the exact current-family quark quadratic readout witness.")
+    parser = argparse.ArgumentParser(description="Build the current-family quark target-audit readout.")
     parser.add_argument("--mean-split", default=str(MEAN_SPLIT_JSON))
     parser.add_argument("--readout-theorem", default=str(READOUT_THEOREM_JSON))
     parser.add_argument("--output", default=str(DEFAULT_OUT))

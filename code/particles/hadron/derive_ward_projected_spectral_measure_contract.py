@@ -74,6 +74,19 @@ def build_artifact() -> dict[str, Any]:
             "free_quark_screened_ansatz",
             "compare_only_external_Thomson_endpoint",
         ],
+        "local_real_engine": {
+            "package": "particles/hadron/lattice_backend/",
+            "runner": "particles/hadron/run_lattice_diagnostic_backend.py",
+            "status_artifact": "particles/runs/hadron/lattice_engine_lane_status.json",
+            "execution_class": "real_lattice_diagnostic_toy_scale",
+            "satisfies_constructive_next_artifact": False,
+            "role": (
+                "Physics-true lattice engine executed locally at toy scale: real gauge "
+                "ensembles, real Dirac solves, real contractions, no target anchoring. "
+                "Production closure still requires the seeded 2+1 family at HPC scale "
+                "with full systematics; this engine documents and de-risks that path."
+            ),
+        },
         "empirical_companion": {
             "artifact": "oph_empirical_ward_projected_hadronic_spectral_measure",
             "schema": "particles/hadron/empirical_ward_projected_spectral_measure.schema.json",

@@ -78,14 +78,14 @@ FINAL_PIPELINE_STEPS: tuple[PipelineStep, ...] = (
         "Refresh the OPH plus empirical hadron closure endpoint artifact.",
     ),
     PipelineStep(
-        "direct_top_bridge_contract",
-        "particles/calibration/derive_direct_top_bridge_contract.py",
-        "Refresh the direct-top codomain conversion contract.",
-    ),
-    PipelineStep(
         "quark_sigma_source_nonidentifiability_obstruction",
         "particles/flavor/derive_quark_sigma_source_nonidentifiability_obstruction.py",
         "Refresh the target-free two-modulus quark-spread obstruction.",
+    ),
+    PipelineStep(
+        "quark_axiom_level_yukawa_moduli_nonidentifiability",
+        "particles/flavor/derive_quark_axiom_level_yukawa_moduli_nonidentifiability.py",
+        "Refresh the no-extra-axiom MAR/Yukawa counterfamily theorem.",
     ),
     PipelineStep(
         "quark_sigma_source_boundary",
@@ -98,6 +98,21 @@ FINAL_PIPELINE_STEPS: tuple[PipelineStep, ...] = (
         "Refresh the light/heavy running-coordinate and physical-Yukawa scheme obstruction.",
     ),
     PipelineStep(
+        "quark_current_family_exact_readout_target_audit",
+        "particles/flavor/derive_quark_current_family_exact_readout.py",
+        "Refresh the target-anchored current-family coordinate readout.",
+    ),
+    PipelineStep(
+        "quark_current_family_affine_anchor_target_audit",
+        "particles/flavor/derive_quark_current_family_affine_anchor_theorem.py",
+        "Refresh the target-audit affine coordinate identity.",
+    ),
+    PipelineStep(
+        "quark_current_family_exact_pdg_target_audit",
+        "particles/flavor/derive_quark_current_family_exact_pdg_theorem.py",
+        "Refresh the mixed-convention current-family target audit.",
+    ),
+    PipelineStep(
         "quark_off_canonical_p_evaluator_obstruction",
         "particles/flavor/derive_quark_off_canonical_p_evaluator_obstruction.py",
         "Refresh the off-canonical quark P-evaluator no-go certificate.",
@@ -108,14 +123,34 @@ FINAL_PIPELINE_STEPS: tuple[PipelineStep, ...] = (
         "Refresh the global public quark-frame descent no-go certificate.",
     ),
     PipelineStep(
+        "quark_current_family_target_audit_completion",
+        "particles/flavor/derive_quark_current_family_transport_frame_exact_pdg_completion.py",
+        "Refresh the target-attached mixed-convention coordinate completion.",
+    ),
+    PipelineStep(
+        "quark_current_family_mass_textures",
+        "particles/flavor/derive_quark_current_family_transport_frame_exact_forward_yukawas.py",
+        "Refresh the legacy-named GeV mass-texture audit matrices.",
+    ),
+    PipelineStep(
         "quark_current_family_target_audit_chain",
         "particles/flavor/derive_quark_current_family_end_to_end_exact_pdg_derivation_chain.py",
         "Refresh the target-anchored mixed-convention quark audit chain.",
     ),
     PipelineStep(
+        "quark_current_family_mass_texture_wrapper",
+        "particles/flavor/derive_quark_current_family_transport_frame_exact_yukawa_theorem.py",
+        "Refresh the current-family mass-texture compatibility wrapper.",
+    ),
+    PipelineStep(
         "quark_exact_target_audit_wrapper",
         "particles/flavor/derive_quark_exact_pdg_end_to_end_theorem.py",
         "Refresh the target-anchored mixed-convention quark audit wrapper.",
+    ),
+    PipelineStep(
+        "quark_mass_texture_end_to_end_wrapper",
+        "particles/flavor/derive_quark_exact_yukawa_end_to_end_theorem.py",
+        "Refresh the legacy-named end-to-end mass-texture target audit.",
     ),
     PipelineStep(
         "quark_public_sigma_descent",
@@ -128,6 +163,11 @@ FINAL_PIPELINE_STEPS: tuple[PipelineStep, ...] = (
         "Refresh the fail-closed mass-texture and physical-Yukawa wrapper.",
     ),
     PipelineStep(
+        "quark_public_strengthened_sigma_frontier",
+        "particles/flavor/derive_quark_public_strengthened_physical_sigma_lift_frontier.py",
+        "Refresh the selected-class sigma frontier.",
+    ),
+    PipelineStep(
         "quark_public_exact_yukawa_promotion_frontier",
         "particles/flavor/derive_quark_public_exact_yukawa_promotion_frontier.py",
         "Refresh the public quark promotion frontier.",
@@ -138,9 +178,9 @@ FINAL_PIPELINE_STEPS: tuple[PipelineStep, ...] = (
         "Refresh the selected-class audit evaluator.",
     ),
     PipelineStep(
-        "quark_public_strengthened_sigma_frontier",
-        "particles/flavor/derive_quark_public_strengthened_physical_sigma_lift_frontier.py",
-        "Refresh the selected-class sigma frontier.",
+        "direct_top_bridge_contract",
+        "particles/calibration/derive_direct_top_bridge_contract.py",
+        "Refresh the compare-only direct-top codomain obstruction after the quark audit wrappers.",
     ),
     PipelineStep(
         "quark_lane_closure_contract",

@@ -146,17 +146,15 @@
   },
   "display_allowed_as_selected_class_witness": true,
   "downstream_algebra_closed": true,
-  "generated_utc": "2026-07-12T02:31:12Z",
+  "generated_utc": "2026-07-12T03:21:54Z",
   "induces_global_contract": {
     "id": "strengthened_quark_physical_sigma_ud_lift",
     "role": "public_same_label_left_handed_sigma_datum_on_selected_physical_frame_class"
   },
   "missing_for_promotion": [
-    "QUARK_SIGMA_SOURCE_QUOTIENT",
-    "QUARK_SIGMA_SOURCE_SELECTOR",
-    "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
-    "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
-    "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE"
+    "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM",
+    "QUARK_SOURCE_SPREAD_SECTOR_ATTACHMENT_AND_REFINEMENT",
+    "NO_TARGET_LEAK_DAG_QUARK_SOURCE_SPREAD"
   ],
   "non_circularity_status": {
     "missing_source_object": "quark_sigma_source_datum_no_target_leak_required",
@@ -168,7 +166,8 @@
   "notes": [
     "This theorem closes representative independence on the selected bridge fiber, not source selection of the sigma datum.",
     "It is a descent theorem on the selected public frame class only; it does not claim a global classification of all quark frame classes.",
-    "The selected exact sigma datum is the same target-derived one already emitted on the closed local transport-frame chain."
+    "The selected exact sigma datum is the same target-derived one already emitted on the local transport-frame audit chain.",
+    "The current source-only obstruction leaves an exact (R_{>0})^2 spread fiber; descent does not break that action."
   ],
   "phase_quotient_argument": {
     "carrier_compatibility": "This is exactly the defining equivalence relation of Sigma_ud^phys.",
@@ -332,5 +331,5 @@
   "theorem_id": "selected_bridge_fiber_sigma_descent_not_source_selection",
   "theorem_scope": "selected_public_physical_quark_frame_class_only",
   "theorem_statement": "Let f_P be the physical quark frame class selected by P, represented on the realized quark lane by the explicit same-label common-refinement transport-frame class [F0^dagger F1]. For any two declared current-family/common-refinement transport-frame realizations r,r' in the selected same-label bridge fiber R_decl(f_P), the emitted Sigma_ud^phys element and attached exact physical sigma datum (sigma_seed_ud, eta_ud, sigma_u, sigma_d) agree. Equivalently, the exact sigma readout is constant on R_decl(f_P) and descends uniquely to a representative-independent datum on the selected physical quark frame class. This descent proves constancy on the selected bridge fiber only; it does not select the sigma value from P. If the attached sigma value is inherited from the current-family exact target surface, the descended public value remains target-derived.",
-  "why_sufficient": "Once a source-only sigma selector is supplied and this descent holds, the physical sigma datum is intrinsic public data on the selected physical quark frame class. The affine mean law then emits the absolute sector scales algebraically, and the already-closed exact forward construction lifts from the local transport-frame representative to the public selected class. In the current artifact the descent is only an audit/support witness because the descended sigma datum is target-derived."
+  "why_sufficient": "If a new source observable breaks the independent positive-rescaling action and emits both spread moduli, this descent makes that supplied datum intrinsic on the selected physical quark frame class. The affine mean law would then emit sector scales algebraically. Scheme-labelled masses would still require an RG trajectory and declared comparison chart, and physical Yukawa matrices would require common-scale dimensionless normalization. In the current artifact the descended datum is target-derived."
 }

@@ -22,32 +22,25 @@
     },
     "source_artifact": "oph_quark_target_free_bridge_theorem"
   },
-  "claim_tier": "selected_class_conditional_on_source_sigma",
+  "claim_tier": "selected_class_target_audit_mass_texture_only",
   "closure": {
     "global_frame_classification_claimed": false,
     "minimal_exact_blocker_set": [
-      "QUARK_SIGMA_SOURCE_QUOTIENT",
-      "QUARK_SIGMA_SOURCE_SELECTOR",
-      "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
-      "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
-      "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE",
-      "QUARK_EXACT_MASS_YUKAWA_SURFACE_CONSISTENCY"
+      "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM",
+      "QUARK_SOURCE_SPREAD_SECTOR_ATTACHMENT_AND_REFINEMENT",
+      "NO_TARGET_LEAK_DAG_QUARK_SOURCE_SPREAD",
+      "QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE"
     ],
     "off_canonical_P_family_claimed": false,
-    "selected_class_exact": true
+    "physical_yukawa_claim_allowed": false,
+    "selected_class_exact": false,
+    "selected_class_target_audit": true
   },
-  "downstream_algebra_closed": true,
-  "generated_utc": "2026-07-12T02:31:14Z",
-  "masses": {
-    "b": 4.182999999999994,
-    "c": 1.2729999999999992,
-    "d": 0.004699999999999999,
-    "s": 0.09349999999999999,
-    "t": 172.35235532883115,
-    "u": 0.0021600000000000005
-  },
+  "downstream_algebra_closed": false,
+  "generated_utc": "2026-07-12T03:23:14Z",
+  "mass_texture_algebra_closed": true,
   "notes": [
-    "Use this artifact for selected-class conditional exact masses and Yukawas, not public source-only predictions.",
+    "Use this artifact only for selected-class target-audit mass coordinates and textures, not public source-only predictions.",
     "Use quark_p_driven_shared_evaluator_contract only for the candidate off-canonical slider surface."
   ],
   "off_canonical_boundary": {
@@ -58,7 +51,8 @@
     ],
     "reason": "The selected-class theorem does not classify all public quark frame classes and does not emit a continuous arbitrary-P sigma(P) or mass(P) family."
   },
-  "proof_status": "selected_class_conditional_exact_evaluator_blocked_by_source_sigma_selector",
+  "physical_yukawa_construction_closed": false,
+  "proof_status": "blocked_source_spread_nonidentifiability_and_physical_yukawa_normalization",
   "provenance": {
     "absolute_readout_algebraic_collapse": "oph_quark_absolute_readout_algebraic_collapse",
     "public_exact_yukawa_end_to_end_theorem": "oph_quark_public_exact_yukawa_end_to_end_theorem",
@@ -134,9 +128,15 @@
     "sigma_u": 5.579692209267639
   },
   "source_only_sigma_emitted": false,
-  "theorem_scope": "selected_public_physical_quark_frame_class_only",
-  "theorem_statement": "Conditional on a no-target source theorem emitting the physical sigma datum, the selected public quark frame class f_P carries a representative-independent sigma datum. The affine absolute readout then emits the sector scales, and the exact forward construction emits the running quark sextet and explicit Y_u, Y_d on that selected class. The current sigma datum is target-derived and is therefore audit/support only.",
-  "yukawas": {
+  "target_audit_mass_coordinates_gev": {
+    "b": 4.186,
+    "c": 1.2729000000000006,
+    "d": 0.004699999999999999,
+    "s": 0.09289999999999997,
+    "t": 172.09999999999965,
+    "u": 0.0021600000000000005
+  },
+  "target_audit_mass_textures": {
     "V_CKM": {
       "imag": [
         [
@@ -249,6 +249,8 @@
     "certification_status": "forward_matrix_certified",
     "forward_certified": true,
     "jarlskog": -3.735348679490123e-06,
+    "matrix_classification": "mixed_scheme_GeV_mass_texture_matrices",
+    "physical_yukawa_certified": false,
     "promotion_blockers": [],
     "scope": "current_family_common_refinement_transport_frame_only",
     "singular_values_d": [
@@ -260,6 +262,9 @@
       0.0021600002720956663,
       1.2729000000026323,
       172.09999999999968
-    ]
-  }
+    ],
+    "stored_entry_dimension": "GeV"
+  },
+  "theorem_scope": "selected_public_physical_quark_frame_class_only",
+  "theorem_statement": "The selected class f_P makes any attached spread datum representative-independent, but the current source equations leave two independent positive spread moduli. The stored target coordinates mix light, heavy, and top conventions, while the GeV-valued matrices are mass textures. Numeric masses and physical dimensionless Yukawa matrices are therefore not source-only outputs."
 }

@@ -195,16 +195,20 @@
   "even_excitation_source_artifact": null,
   "even_excitation_source_status": null,
   "forward_certified": true,
-  "generated_utc": "2026-07-12T02:31:12Z",
+  "generated_utc": "2026-07-12T03:21:53Z",
   "jarlskog": -3.735348679490123e-06,
+  "matrix_classification": "mixed_scheme_GeV_mass_texture_matrices",
   "metadata": {
-    "note": "Exact forward Yukawas on the declared current-family/common-refinement transport-frame carrier, using the emitted left-handed physical datum and the exact running mass sextet. This is a local exact carrier theorem, not a target-free public physical-sheet promotion.",
+    "note": "Target-anchored mass textures on the declared current-family/common-refinement transport-frame carrier. Their singular values reproduce the chosen mixed-convention mass coordinates. They are not one common-scale running sextet and not physical dimensionless Yukawa matrices.",
     "right_basis_gauge": "identity"
   },
   "noncentrality_witness": null,
+  "physical_yukawa_certified": false,
   "predictive_promotion_allowed": true,
-  "promotion_blockers": [],
-  "proof_status": "closed_current_family_transport_frame_exact_forward_yukawas",
+  "promotion_blockers": [
+    "QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE"
+  ],
+  "proof_status": "closed_target_anchored_mixed_convention_mass_texture_audit",
   "public_promotion_allowed": false,
   "public_surface_candidate_allowed": false,
   "public_surface_candidate_scope": [
@@ -220,6 +224,7 @@
   "sector_mean_split_artifact": null,
   "sector_mean_split_status": null,
   "shared_scalarization_law_status": null,
+  "single_common_scale_running_sextet": false,
   "singular_values_d": [
     0.0046999999996463915,
     0.092899999999985,
@@ -234,6 +239,7 @@
   "spread_sigma_d_total_log_per_side": null,
   "spread_sigma_source_kind": null,
   "spread_sigma_u_total_log_per_side": null,
+  "stored_entry_dimension": "GeV",
   "supporting_artifacts": {
     "exact_pdg_completion": "oph_quark_current_family_transport_frame_exact_pdg_completion",
     "strengthened_physical_sigma_lift_theorem": "oph_quark_current_family_transport_frame_strengthened_physical_sigma_lift_theorem"

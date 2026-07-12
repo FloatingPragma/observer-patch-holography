@@ -26,8 +26,10 @@ def test_quark_sector_mean_split_candidate_is_compact_and_sector_distinct() -> N
     forward = json.loads(FORWARD_OUTPUT.read_text(encoding="utf-8"))
     spread = json.loads((ROOT / "particles" / "runs" / "flavor" / "quark_spread_map.json").read_text(encoding="utf-8"))
 
-    assert spread["sigma_source_kind"] == "theorem_grade_mean_surface_readback"
-    assert spread["spread_emitter_status"] == "closed"
+    assert spread["sigma_source_kind"] == "hard_coded_diagnostic_witness"
+    assert spread["spread_emitter_status"] == "diagnostic_witness_not_source_emission"
+    assert spread["predictive_promotion_allowed"] is False
+    assert spread["source_only_sigma_emitted"] is False
     assert spread["metadata"]["constructive_edge_statistics_bridge_artifact"] == "oph_quark_edge_statistics_spread_candidate"
     assert spread["metadata"]["constructive_edge_statistics_bridge_status"] == "candidate_only"
     assert mean_split["candidate_kind"] == "two_scalar_affine_mean_split"
@@ -35,7 +37,7 @@ def test_quark_sector_mean_split_candidate_is_compact_and_sector_distinct() -> N
     assert mean_split["active_candidate"] == "ordered_affine_mean_readout_candidate"
     assert mean_split["proof_status"] == "closed_current_family_predictive_law"
     assert mean_split["mean_law_kind"] == "theorem_grade_two_scalar_affine_readout_closed"
-    assert mean_split["smallest_constructive_missing_object"] is None
+    assert mean_split["smallest_constructive_missing_object"] == "oph_family_excitation_spread_map"
     assert mean_split["mean_denominator"] > 0.0
     assert mean_split["skew_denominator"] > 0.0
     assert mean_split["A_ud_candidate"] > 0.0

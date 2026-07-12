@@ -13,13 +13,15 @@
     "g_d_forced": 0.12226559489803177,
     "g_u_forced": 0.7792490879740623
   },
-  "generated_utc": "2026-07-12T02:31:12Z",
+  "generated_utc": "2026-07-12T03:21:53Z",
   "notes": [
     "This is a merged exact completion theorem only on the explicit current-family/common-refinement surface.",
     "It does not by itself promote the public target-free physical-sheet quark lane."
   ],
-  "proof_status": "closed_current_family_transport_frame_exact_pdg_completion",
+  "proof_status": "closed_target_anchored_mixed_convention_coordinate_audit",
   "public_promotion_allowed": false,
+  "single_running_quark_sextet_claim_allowed": false,
+  "source_only_prediction": false,
   "strengthened_physical_sigma_lift": {
     "artifact": "oph_quark_current_family_transport_frame_strengthened_physical_sigma_lift_theorem",
     "canonical_token": "CR::same_label_left::transport_frame::current_family_exact",
@@ -43,6 +45,7 @@
     "exact_pdg_reconstruction": "oph_quark_current_family_exact_pdg_theorem",
     "strengthened_physical_sigma_lift_theorem": "oph_quark_current_family_transport_frame_strengthened_physical_sigma_lift_theorem"
   },
+  "target_anchored": true,
   "theorem_scope": "current_family_common_refinement_transport_frame_only",
-  "theorem_statement": "On the declared current-family common-refinement transport-frame surface, the strengthened physical sigma lift emits a sector-attached Sigma_ud^phys element together with the theorem-grade physical sigma datum. The affine mean law then fixes (g_u,g_d) algebraically, and the ordered three-point readout reconstructs the exact current-family running quark sextet."
+  "theorem_statement": "On the declared current-family common-refinement target-audit surface, the target-attached sigma lift and affine mean law reconstruct the chosen quark coordinates algebraically. The light, heavy, and top rows use different comparison conventions, so this is not one source-emitted running sextet."
 }

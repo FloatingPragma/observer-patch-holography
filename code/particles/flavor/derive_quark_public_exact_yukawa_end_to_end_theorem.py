@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Emit the public exact end-to-end Yukawa theorem above the descended sigma datum."""
+"""Emit the fail-closed public quark mass-texture/Yukawa boundary wrapper."""
 
 from __future__ import annotations
 
@@ -21,11 +21,9 @@ SCHEME_OBSTRUCTION_JSON = (
 DEFAULT_OUT = ROOT / "particles" / "runs" / "flavor" / "quark_public_exact_yukawa_end_to_end_theorem.json"
 
 MISSING_FOR_PROMOTION = [
-    "QUARK_SIGMA_SOURCE_QUOTIENT",
-    "QUARK_SIGMA_SOURCE_SELECTOR",
-    "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
-    "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
-    "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE",
+    "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM",
+    "QUARK_SOURCE_SPREAD_SECTOR_ATTACHMENT_AND_REFINEMENT",
+    "NO_TARGET_LEAK_DAG_QUARK_SOURCE_SPREAD",
 ]
 
 MASS_YUKAWA_CONSISTENCY_BLOCKER = "QUARK_EXACT_MASS_YUKAWA_SURFACE_CONSISTENCY"
@@ -54,7 +52,7 @@ def _mass_yukawa_consistency(
     exact_masses: dict[str, Any],
     forward_yukawas: dict[str, Any],
 ) -> dict[str, Any]:
-    """Check that the declared sextet is the singular-value spectrum of Y_u/Y_d."""
+    """Check numerical consistency of the declared coordinates and mass textures."""
 
     comparisons: dict[str, dict[str, Any]] = {}
     malformed_inputs: list[str] = []
@@ -99,13 +97,14 @@ def _mass_yukawa_consistency(
     if malformed_inputs:
         status = "invalid_mass_or_yukawa_spectrum_surface"
     elif all_consistent:
-        status = "consistent_single_exact_sextet_matrix_pair"
+        status = "consistent_declared_mass_texture_singular_spectrum"
     else:
-        status = "mismatched_mass_sextet_and_forward_yukawa_singular_values"
+        status = "mismatched_declared_mass_coordinates_and_matrix_singular_values"
     return {
         "status": status,
         "consistent": all_consistent and not malformed_inputs,
-        "single_exact_sextet_matrix_pair_claim_allowed": all_consistent and not malformed_inputs,
+        "single_declared_mass_texture_pair_numerically_consistent": all_consistent
+        and not malformed_inputs,
         "relative_tolerance": MASS_YUKAWA_REL_TOL,
         "absolute_tolerance_gev": MASS_YUKAWA_ABS_TOL_GEV,
         "comparisons": comparisons,
@@ -226,7 +225,7 @@ def build_artifact(
             "local_exact_yukawa_wrapper": exact_yukawa_theorem["artifact"],
         },
         "theorem_statement": (
-            "The stored declared mass sextet and forward Yukawa matrices do not form one exact output pair: the "
+            "The stored declared mass coordinates and matrix singular values do not form one numerical output pair: "
             "singular values of Y_u and Y_d disagree with one or more declared running masses. They remain separate "
             "audit surfaces until rebuilt from one common input surface and certified by the mass-Yukawa consistency "
             "check. Independently, public source-only promotion still requires a no-target source sigma theorem."
@@ -283,10 +282,10 @@ def build_artifact(
         ),
         "notes": [
             (
-                "This is the theorem wrapper that upgrades the closed declared-carrier exact Yukawa chain to the selected public class."
+                "This is the theorem wrapper that upgrades a certified common-scale dimensionless Yukawa chain to the selected public class."
                 if promotion_allowed
                 else (
-                    "The mass and matrix artifacts are retained for separate audit only; they may not be described as one exact sextet/Yukawa witness while their spectra disagree."
+                    "The mass and matrix artifacts are retained for separate audit only; they may not be described as one mass-texture pair while their spectra disagree."
                     if not exact_pair_consistent
                     else (
                         "The numerical matrices are retained as mixed-scheme mass-texture audit witnesses; they are not certified physical Yukawa matrices."
@@ -295,13 +294,13 @@ def build_artifact(
                     )
                 )
             ),
-            "The matrices Y_u and Y_d are the numerical matrices emitted on the local chain; the consistency block records whether their singular values match the separately declared sextet.",
+            "The legacy-labelled matrices Y_u and Y_d are numerical mass textures on the current chain; the consistency block records whether their singular values match the separately declared coordinates.",
         ],
     }
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Build the public exact Yukawa end-to-end theorem artifact.")
+    parser = argparse.ArgumentParser(description="Build the public quark mass-texture/Yukawa boundary artifact.")
     parser.add_argument("--public-sigma-theorem", default=str(PUBLIC_SIGMA_JSON))
     parser.add_argument("--exact-pdg-theorem", default=str(EXACT_PDG_JSON))
     parser.add_argument("--exact-yukawa-theorem", default=str(EXACT_YUKAWA_JSON))

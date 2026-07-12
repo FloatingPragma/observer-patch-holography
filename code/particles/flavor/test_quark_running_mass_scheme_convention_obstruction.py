@@ -40,6 +40,17 @@ def test_quark_running_mass_scheme_convention_obstruction_closes_381_382_only_as
     assert "epsilon" in payload["same_source_counterfamily"]["free_parameters"]
     assert "kappa" in payload["same_source_counterfamily"]["free_parameters"]
 
+    dynamics = payload["physical_rg_dynamics_nondefinability"]
+    assert dynamics["source_RGI_mass_vector_emitted"] is False
+    assert dynamics["source_six_flavor_Yukawa_trajectory_emitted"] is False
+    assert dynamics["source_running_v_trajectory_emitted"] is False
+    assert dynamics["additional_axiom_used"] is False
+    assert "RGI quark mass vector" in dynamics["physical_outputs_changed"]
+
+    chart = payload["external_chart_boundary"]
+    assert chart["choosing_MSbar_is_a_physical_axiom"] is False
+    assert chart["choosing_a_reporting_scale_is_a_physical_axiom"] is False
+
     conventions = payload["declared_comparison_conventions"]
     assert conventions["status"] == "external_scheme_metadata_not_OPH_source_output"
     assert conventions["mass_reference_values_consumed"] is False

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Emit the selected-class conditional exact quark evaluator.
+"""Emit the selected-class conditional quark target-audit evaluator.
 
 Chain role: package the evaluator that is algebraically closed on the public
 quark frame class selected by P once a physical sigma datum is supplied.
@@ -7,7 +7,10 @@ quark frame class selected by P once a physical sigma datum is supplied.
 This is intentionally not the arbitrary-P off-canonical moving evaluator. It
 records the conditional composition
 
-    P selects f_P + source sigma datum -> absolute readout -> exact masses/Yukawas.
+    P selects f_P + supplied spread datum -> absolute readout -> mass coordinates.
+
+The current corpus does not supply that spread datum. Its stored matrices are
+mixed-convention GeV mass textures, not physical dimensionless Yukawas.
 """
 
 from __future__ import annotations
@@ -46,12 +49,16 @@ def build_artifact(
     return {
         "artifact": "oph_quark_selected_class_public_exact_evaluator",
         "generated_utc": _timestamp(),
-        "proof_status": "selected_class_conditional_exact_evaluator_blocked_by_source_sigma_selector",
+        "proof_status": "blocked_source_spread_nonidentifiability_and_physical_yukawa_normalization",
         "theorem_scope": "selected_public_physical_quark_frame_class_only",
-        "claim_tier": "selected_class_conditional_on_source_sigma",
+        "claim_tier": "selected_class_target_audit_mass_texture_only",
         "public_promotion_allowed": False,
         "source_only_sigma_emitted": bool(public_sigma.get("source_only_sigma_emitted")),
-        "downstream_algebra_closed": True,
+        "downstream_algebra_closed": bool(public_yukawa.get("downstream_algebra_closed")),
+        "mass_texture_algebra_closed": bool(public_yukawa.get("mass_texture_algebra_closed")),
+        "physical_yukawa_construction_closed": bool(
+            public_yukawa.get("physical_yukawa_construction_closed")
+        ),
         "arbitrary_P_off_canonical_motion_closed": False,
         "selector": {
             "input": "P",
@@ -76,27 +83,29 @@ def build_artifact(
             "readout_contract": absolute_readout.get("readout_contract"),
             "emitted_values": absolute_readout.get("emitted_values"),
         },
-        "masses": public_yukawa["public_exact_outputs"]["exact_running_values_gev"],
-        "yukawas": yukawas,
+        "target_audit_mass_coordinates_gev": public_yukawa["public_exact_outputs"]["exact_running_values_gev"],
+        "target_audit_mass_textures": yukawas,
         "closure": {
             "minimal_exact_blocker_set": list(
                 public_yukawa.get(
                     "minimal_exact_blocker_set",
                     [
-                        "QUARK_SIGMA_SOURCE_SELECTOR",
-                        "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE",
+                        "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM",
+                        "NO_TARGET_LEAK_DAG_QUARK_SOURCE_SPREAD",
                     ],
                 )
             ),
-            "selected_class_exact": True,
+            "selected_class_exact": False,
+            "selected_class_target_audit": True,
+            "physical_yukawa_claim_allowed": False,
             "global_frame_classification_claimed": False,
             "off_canonical_P_family_claimed": False,
         },
         "theorem_statement": (
-            "Conditional on a no-target source theorem emitting the physical sigma datum, the selected public quark "
-            "frame class f_P carries a representative-independent sigma datum. The affine absolute readout then emits "
-            "the sector scales, and the exact forward construction emits the running quark sextet and explicit Y_u, "
-            "Y_d on that selected class. The current sigma datum is target-derived and is therefore audit/support only."
+            "The selected class f_P makes any attached spread datum representative-independent, but the current "
+            "source equations leave two independent positive spread moduli. The stored target coordinates mix light, "
+            "heavy, and top conventions, while the GeV-valued matrices are mass textures. Numeric masses and physical "
+            "dimensionless Yukawa matrices are therefore not source-only outputs."
         ),
         "off_canonical_boundary": {
             "not_closed_here": [
@@ -110,7 +119,7 @@ def build_artifact(
             ),
         },
         "notes": [
-            "Use this artifact for selected-class conditional exact masses and Yukawas, not public source-only predictions.",
+            "Use this artifact only for selected-class target-audit mass coordinates and textures, not public source-only predictions.",
             "Use quark_p_driven_shared_evaluator_contract only for the candidate off-canonical slider surface.",
         ],
     }

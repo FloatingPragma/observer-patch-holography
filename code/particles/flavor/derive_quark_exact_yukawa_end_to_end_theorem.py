@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Emit the single end-to-end exact Yukawa theorem on the declared transport-frame chain."""
+"""Wrap the legacy-named end-to-end quark mass-texture target audit."""
 
 from __future__ import annotations
 
@@ -28,29 +28,28 @@ def build_artifact(yukawa_theorem: dict) -> dict:
     return {
         "artifact": "oph_quark_exact_yukawa_end_to_end_theorem",
         "generated_utc": _timestamp(),
-        "proof_status": "closed_current_family_exact_yukawa_end_to_end_theorem",
+        "proof_status": "closed_target_anchored_mixed_convention_mass_texture_audit",
         "target_name": yukawa_theorem["target_name"],
         "theorem_scope": yukawa_theorem["theorem_scope"],
         "public_promotion_allowed": False,
         "supporting_theorem_artifact": yukawa_theorem["artifact"],
         "theorem_statement": (
-            "On the explicit current-family/common-refinement transport-frame chain internalized on the code surface, "
-            "the OPH bridge theorem, strengthened transport-frame physical sigma lift, algebraic absolute readout, "
-            "exact running-value completion, and exact forward-Yukawa emission jointly derive explicit quark Yukawa "
-            "matrices Y_u and Y_d."
+            "On the explicit current-family/common-refinement target-audit chain, the target-attached spread lift "
+            "and algebraic readout construct GeV-valued mass textures whose singular values reproduce the selected "
+            "mixed-convention coordinates. This is not a source-only mass or physical-Yukawa theorem."
         ),
         "forward_yukawa_artifact": yukawa_theorem["forward_yukawa_artifact"],
         "minimal_exact_blocker_set": yukawa_theorem["minimal_exact_blocker_set"],
         "strengthening_above_target": yukawa_theorem["strengthening_above_target"],
         "notes": [
-            "This is the single theorem wrapper above the exact forward Yukawa package on the declared carrier.",
-            "It does not claim target-free public physical-sheet promotion.",
+            "This compatibility wrapper preserves the legacy artifact name while classifying the output as a target-audit mass texture.",
+            "Physical dimensionless Yukawas require the common-scale normalization blocker recorded here.",
         ],
     }
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Build the end-to-end exact Yukawa theorem artifact.")
+    parser = argparse.ArgumentParser(description="Build the end-to-end quark mass-texture target-audit artifact.")
     parser.add_argument("--yukawa-theorem", default=str(YUKAWA_THEOREM_JSON))
     parser.add_argument("--output", default=str(DEFAULT_OUT))
     args = parser.parse_args()

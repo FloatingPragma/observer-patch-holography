@@ -1,6 +1,6 @@
 # Blind Prediction Provenance
 
-Generated: `2026-07-11T17:56:21Z`
+Generated: `2026-07-12T03:22:11Z`
 
 This ledger records target-use and convention-sensitivity status for the public quantitative particle rows.
 
@@ -25,12 +25,12 @@ These rows have audit artifacts but no public prediction value in the output tab
 | `electron` | `exact_target_anchored_current_family_witness` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
 | `muon` | `exact_target_anchored_current_family_witness` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
 | `tau` | `exact_target_anchored_current_family_witness` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
-| `up_quark` | `selected_class_target_anchored_exact_witness` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
-| `charm_quark` | `selected_class_target_anchored_exact_witness` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
-| `top_quark` | `selected_class_target_anchored_exact_witness` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
-| `down_quark` | `selected_class_target_anchored_exact_witness` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
-| `strange_quark` | `selected_class_target_anchored_exact_witness` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
-| `bottom_quark` | `selected_class_target_anchored_exact_witness` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `up_quark` | `selected_class_target_anchored_mixed_convention_mass_texture_audit` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `charm_quark` | `selected_class_target_anchored_mixed_convention_mass_texture_audit` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `top_quark` | `selected_class_target_anchored_mixed_convention_mass_texture_audit` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `down_quark` | `selected_class_target_anchored_mixed_convention_mass_texture_audit` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `strange_quark` | `selected_class_target_anchored_mixed_convention_mass_texture_audit` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `bottom_quark` | `selected_class_target_anchored_mixed_convention_mass_texture_audit` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
 | `electron_neutrino` | `rejected_target_informed_weighted_cycle_candidate` | `withheld_not_blind_rejected_candidate` | target_ranked_selector_development_and_correlated_profile_rejection | target_informed_candidate_rejected_by_correlated_profile |
 | `muon_neutrino` | `rejected_target_informed_weighted_cycle_candidate` | `withheld_not_blind_rejected_candidate` | target_ranked_selector_development_and_correlated_profile_rejection | target_informed_candidate_rejected_by_correlated_profile |
 | `tau_neutrino` | `rejected_target_informed_weighted_cycle_candidate` | `withheld_not_blind_rejected_candidate` | target_ranked_selector_development_and_correlated_profile_rejection | target_informed_candidate_rejected_by_correlated_profile |

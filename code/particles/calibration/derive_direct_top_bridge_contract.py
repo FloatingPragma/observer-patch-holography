@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Emit the direct-top codomain closure certificate.
+"""Emit the direct-top target-codomain obstruction certificate.
 
-Chain role: keep the exact top coordinate on its current theorem surface while
-closing the auxiliary direct-top comparison as a current-corpus no-go.
+Chain role: keep the target-audit top extraction coordinate explicit while
+closing transport to the auxiliary direct-top comparison as a current-corpus no-go.
 
-The current exact top coordinate is carried by the selected/current quark
-closure and uses the PDG cross-section top entry.  The direct-top PDG entry is a
+The current target-audit top coordinate uses the PDG cross-section top entry.
+The direct-top PDG entry is a
 different extraction codomain, so closing the bridge requires an extraction
 response map and uncertainty propagation rather than replacing the theorem row
 with the auxiliary central value.  Since the current source corpus emits no such
-response map, the auxiliary row is compare-only.
+response map, both coordinates remain comparison data.
 """
 
 from __future__ import annotations
@@ -81,7 +81,7 @@ def build_payload(
         "closure_verdict": {
             "issue_207_acceptance_met_as_obstruction": True,
             "closure_kind": "hard_no_go_current_corpus",
-            "closed_theorem_grade_surface": "Q007TP4_cross_section_top_coordinate",
+            "closed_target_audit_surface": "Q007TP4_cross_section_top_coordinate",
             "blocked_surface": "Q007TP_auxiliary_direct_top_coordinate",
             "auxiliary_row_policy": "compare_only_not_promotable",
             "why_no_forward_bridge": (
@@ -91,7 +91,7 @@ def build_payload(
                 "codomain Q007TP. Any such conversion would choose external experimental/MC response data."
             ),
         },
-        "current_theorem_coordinate": {
+        "current_target_audit_coordinate": {
             "value_gev": top_coordinate,
             "source_artifact": source_artifact,
             "codomain": "PDG cross-section top mass entry",
@@ -159,13 +159,13 @@ def build_payload(
             "why_not_a_theorem": (
                 "Choosing lambda from the auxiliary Q007TP central value would use the direct-top row as an "
                 "input. Choosing lambda=0 would relabel Q007TP4 as Q007TP. Both choices satisfy the current "
-                "OPH top theorem data equally well because the extraction-response codomain is absent."
+                "target-audit top data equally well because the extraction-response codomain is absent."
             ),
         },
         "closure_gate": {
             "closable_now": True,
             "reason": (
-                "The current exact top coordinate and the auxiliary direct-top average are compatible "
+                "The current target-audit top coordinate and the auxiliary direct-top average are compatible "
                 "as a comparison, but no source-side extraction-response map has been emitted; therefore "
                 "the direct-top theorem bridge is closed as a no-go on the current corpus."
             ),
@@ -176,7 +176,7 @@ def build_payload(
             ],
         },
         "local_next_steps": [
-            "Keep Q007TP as compare-only and keep Q007TP4 as the theorem row source.",
+            "Keep both Q007TP and Q007TP4 as compare-only target coordinates.",
             "Do not launch more workers for this lane unless a source-side or QFT extraction-response map is introduced.",
             "Open a new issue only for a concrete response-kernel artifact, not for further border sharpening.",
         ],

@@ -24,16 +24,20 @@
     "t": -5.684341886080802e-14,
     "u": -4.336808689942018e-19
   },
-  "generated_utc": "2026-07-12T02:31:11Z",
+  "generated_utc": "2026-07-12T03:23:06Z",
   "next_target_free_bridge": {
-    "note": "This theorem is exact only on the target-anchored current-family witness. The target-free selected-public-class closure is carried by the public physical-sigma and exact-Yukawa theorem artifacts, so this current-family witness is not the promotion surface.",
-    "remaining_public_frontier": []
+    "note": "This theorem is exact only on the target-anchored current-family witness. Promotion to a target-free theorem-grade OPH derivation requires the listed public frontier.",
+    "remaining_public_frontier": [
+      "quark_source_spread_pair_action_breaking_theorem",
+      "quark_rg_covariant_scheme_readout_or_invariant",
+      "quark_common_scale_dimensionless_yukawa_certificate"
+    ]
   },
   "notes": [
-    "This closes the exact current-family PDG-matched running-value reconstruction on the current-family witness.",
-    "It does not by itself prove the stronger target-free physical-sheet quark lane."
+    "This closes only the algebraic reconstruction of a target-anchored mixed-convention packet.",
+    "It does not emit source-only masses or physical dimensionless Yukawa matrices."
   ],
-  "proof_status": "closed_current_family_exact_pdg_reconstruction",
+  "proof_status": "closed_target_anchored_mixed_convention_coordinate_reconstruction",
   "public_promotion_allowed": false,
   "reconstructed_current_family_running_values_gev": {
     "b": 4.186,
@@ -51,11 +55,15 @@
     "t": 172.0999999999997,
     "u": 0.002160000000000001
   },
+  "single_running_quark_sextet_claim_allowed": false,
+  "source_only_prediction": false,
   "supporting_artifacts": {
     "affine_anchor_theorem": "oph_quark_current_family_affine_anchor_theorem",
     "exact_readout": "oph_quark_current_family_exact_readout",
-    "lane_closure_contract": "oph_quark_lane_closure_contract"
+    "scheme_and_yukawa_obstruction": "oph_quark_running_mass_scheme_convention_obstruction",
+    "source_spread_obstruction": "oph_quark_sigma_source_nonidentifiability_obstruction"
   },
+  "target_anchored": true,
   "theorem_scope": "current_family_only",
-  "theorem_statement": "On the fixed exact current-family quark witness, the exact six running values are reconstructed by the ordered centered shapes and the affine sector data: m_u,m_c,m_t = exp(A_q^(cf) + delta_q^(cf) + E_u^log), m_d,m_s,m_b = exp(A_q^(cf) - delta_q^(cf) + E_d^log). Hence the current-family quark sextet is exact on this witness."
+  "theorem_statement": "On the fixed target-anchored current-family quark witness, the six chosen comparison coordinates are reconstructed by the ordered centered shapes and the affine sector data: m_u,m_c,m_t = exp(A_q^(cf) + delta_q^(cf) + E_u^log), m_d,m_s,m_b = exp(A_q^(cf) - delta_q^(cf) + E_d^log). The light, heavy, and top rows use different conventions, so this identity is a target audit rather than one source-emitted running-mass sextet."
 }

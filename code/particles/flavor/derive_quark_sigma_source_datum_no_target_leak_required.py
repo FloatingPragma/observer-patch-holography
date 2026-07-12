@@ -23,11 +23,9 @@ SIGMA_OBSTRUCTION_JSON = (
 DEFAULT_OUT = ROOT / "particles" / "runs" / "flavor" / "quark_sigma_source_datum_no_target_leak_required.json"
 
 MISSING_FOR_PROMOTION = [
-    "QUARK_SIGMA_SOURCE_QUOTIENT",
-    "QUARK_SIGMA_SOURCE_SELECTOR",
-    "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
-    "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
-    "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE",
+    "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM",
+    "QUARK_SOURCE_SPREAD_SECTOR_ATTACHMENT_AND_REFINEMENT",
+    "NO_TARGET_LEAK_DAG_QUARK_SOURCE_SPREAD",
 ]
 
 def _timestamp() -> str:
@@ -68,7 +66,7 @@ def build_artifact(obstruction: dict[str, Any]) -> dict[str, Any]:
             "eta_ud": "(sigma_u - sigma_d)/2",
             "g_u": "g_ch*exp(-(A_ud*sigma_seed_ud - B_ud*eta_ud))",
             "g_d": "g_ch*exp(-(A_ud*sigma_seed_ud + B_ud*eta_ud))",
-            "then": "ordered_three_point_readout_and_exact_forward_Yu_Yd",
+            "then": "ordered_three_point_mass_coordinate_readout_then_declared_RG_chart_and_dimensionless_Yukawa_normalization",
         },
         "missing_for_promotion": MISSING_FOR_PROMOTION,
         "reopen_requirements": future_extension,
@@ -78,11 +76,9 @@ def build_artifact(obstruction: dict[str, Any]) -> dict[str, Any]:
             "QΣ-0": "sigma descent is representative independence, not source selection",
             "QΣ-1": "the target-free compatible spread fiber is (R_{>0})^2",
             "QΣ-2": "conditional quark masses follow once a no-target source sigma datum is supplied",
-            "QΣ-A": "QUARK_SIGMA_SOURCE_QUOTIENT",
-            "QΣ-B": "QUARK_SIGMA_SOURCE_SELECTOR",
-            "QΣ-C": "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
-            "QΣ-D": "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
-            "QΣ-E": "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE",
+            "QΣ-A": "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM",
+            "QΣ-B": "QUARK_SOURCE_SPREAD_SECTOR_ATTACHMENT_AND_REFINEMENT",
+            "QΣ-C": "NO_TARGET_LEAK_DAG_QUARK_SOURCE_SPREAD",
         },
         "notes": [
             "The obstruction consumes no running-quark target, exact-witness, spread-map, or fitted-correction artifact.",
@@ -93,7 +89,7 @@ def build_artifact(obstruction: dict[str, Any]) -> dict[str, Any]:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Build the missing quark sigma source theorem gate artifact.")
+    parser = argparse.ArgumentParser(description="Build the quark source-spread obstruction gate artifact.")
     parser.add_argument("--obstruction", default=str(SIGMA_OBSTRUCTION_JSON))
     parser.add_argument("--output", default=str(DEFAULT_OUT))
     args = parser.parse_args()

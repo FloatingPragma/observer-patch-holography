@@ -1,6 +1,6 @@
 # Particle Derivation Chain Closure Matrix
 
-Generated: `2026-07-11T17:56:21Z`
+Generated: `2026-07-12T03:22:11Z`
 
 Status: `executable_nonhadron_chain_matrix_emitted`
 All derivation chains claimed closed: `False`
@@ -16,6 +16,6 @@ Reason: Hadron issues #153/#157 have a source-backend boundary and an empirical 
 | `hierarchy_naturality_bridge` | `closed_selected_branch_local_global_hierarchy_naturality` | `True` | none | `N_CRC_EW=3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122`, `bridge_residual=0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`, `epsilon_H=0` | none |
 | `higgs_top_declared_surface` | `conditional_declared_surface_higgs_top_candidate` | `False` | #closed_promotable_EWTargetFreeRepairValueLaw_D10 | `higgs=125.1995304097179` | code/particles/runs/calibration/direct_top_bridge_contract.json |
 | `charged_leptons` | `closed_corpus_limited_charged_end_to_end_no_go` | `False` | none | n/a | code/particles/runs/leptons/charged_end_to_end_impossibility_theorem.json |
-| `selected_class_quarks` | `selected_class_target_anchored_exact_witness_not_strict_source` | `False` | #QUARK_SIGMA_SOURCE_SELECTOR, #NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE | n/a | code/particles/runs/flavor/quark_class_uniform_public_frame_descent_obstruction.json |
+| `selected_class_quarks` | `closed_sharper_quark_source_obstructions_numeric_rows_withheld` | `False` | #QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM, #QUARK_RG_COVARIANT_TRAJECTORY_OR_INVARIANT, #QUARK_OPERATIONAL_SCHEME_AND_SCALE_SECTION, #QUARK_THRESHOLD_AND_TOP_CONVERSION, #QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE | n/a | code/particles/runs/flavor/quark_sigma_source_nonidentifiability_obstruction.json |
 | `neutrino_absolute_attachment` | `rejected_target_informed_weighted_cycle_candidate` | `False` | #source_emitted_family_transport_kernel, #source_derived_weight_exponent_and_cycle_matrix_law, #source_derived_basis_permutation_and_holonomy_orientation, #pre_reference_hash_lock | n/a | none |
 | `hadrons` | `source_backend_absent_empirical_closure_policy_emitted` | `False` | none | n/a | HADRON.md + code/particles/hadron/empirical_ee_hadrons_sources.yaml + code/particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json |

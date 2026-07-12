@@ -1,6 +1,16 @@
 {
   "algebraic_consequence_after_closure": {
-    "forced_exact_yukawas": {
+    "statement": "If a new no-target source theorem emits both positive spread moduli, selected-fiber descent makes them representative-independent and the affine mean law emits the conditional mass coordinates. The present target packet remains mixed-convention, and physical Yukawa matrices additionally require common-scale RG transport and dimensionless Higgs normalization.",
+    "supporting_algebraic_collapse_artifact": "oph_quark_absolute_readout_algebraic_collapse",
+    "target_audit_mass_coordinates_gev": {
+      "b": 4.186,
+      "c": 1.2729000000000006,
+      "d": 0.004699999999999999,
+      "s": 0.09289999999999997,
+      "t": 172.09999999999965,
+      "u": 0.0021600000000000005
+    },
+    "target_audit_mass_textures": {
       "V_CKM": {
         "imag": [
           [
@@ -41,6 +51,7 @@
       "certification_status": "forward_matrix_certified",
       "forward_certified": true,
       "jarlskog": -3.735348679490123e-06,
+      "physical_yukawa_certified": false,
       "singular_values_d": [
         0.0046999999996463915,
         0.092899999999985,
@@ -51,20 +62,20 @@
         1.2729000000026323,
         172.09999999999968
       ]
-    },
-    "forced_running_values_gev": {
-      "b": 4.182999999999994,
-      "c": 1.2729999999999992,
-      "d": 0.004699999999999999,
-      "s": 0.09349999999999999,
-      "t": 172.35235532883115,
-      "u": 0.0021600000000000005
-    },
-    "statement": "Once a no-target source theorem emits the physical sigma datum and the selected bridge-fiber descent makes it representative-independent, the affine mean law algebraically emits (g_u, g_d), the ordered three-point readout yields the running quark sextet, and the already-closed exact forward construction emits explicit quark Yukawa matrices Y_u and Y_d.",
-    "supporting_algebraic_collapse_artifact": "oph_quark_absolute_readout_algebraic_collapse"
+    }
   },
   "algebraic_consequence_if_closed": {
-    "forced_exact_yukawas": {
+    "statement": "This consequence is unrealized on the current corpus. Its source equations leave an exact (R_{>0})^2 spread fiber, and selected-class descent is representative independence rather than source selection.",
+    "supporting_algebraic_collapse_artifact": "oph_quark_absolute_readout_algebraic_collapse",
+    "target_audit_mass_coordinates_gev": {
+      "b": 4.186,
+      "c": 1.2729000000000006,
+      "d": 0.004699999999999999,
+      "s": 0.09289999999999997,
+      "t": 172.09999999999965,
+      "u": 0.0021600000000000005
+    },
+    "target_audit_mass_textures": {
       "V_CKM": {
         "imag": [
           [
@@ -105,6 +116,7 @@
       "certification_status": "forward_matrix_certified",
       "forward_certified": true,
       "jarlskog": -3.735348679490123e-06,
+      "physical_yukawa_certified": false,
       "singular_values_d": [
         0.0046999999996463915,
         0.092899999999985,
@@ -115,17 +127,7 @@
         1.2729000000026323,
         172.09999999999968
       ]
-    },
-    "forced_running_values_gev": {
-      "b": 4.182999999999994,
-      "c": 1.2729999999999992,
-      "d": 0.004699999999999999,
-      "s": 0.09349999999999999,
-      "t": 172.35235532883115,
-      "u": 0.0021600000000000005
-    },
-    "statement": "This consequence is realized only after a source-only sigma selector supplies the physical sigma datum. The current selected-class descent is representative independence, not source selection.",
-    "supporting_algebraic_collapse_artifact": "oph_quark_absolute_readout_algebraic_collapse"
+    }
   },
   "alternate_upstream_route": {
     "current_attached_data_obstruction": {
@@ -223,10 +225,10 @@
       "symbol": "[F0^dagger F1]"
     },
     "statement": "Let f_P be the physical quark frame class selected by P, represented on the realized quark lane by the explicit same-label common-refinement transport-frame class [F0^dagger F1]. For any two declared current-family/common-refinement transport-frame realizations r,r' in the selected same-label bridge fiber R_decl(f_P), the emitted Sigma_ud^phys element and attached exact physical sigma datum (sigma_seed_ud, eta_ud, sigma_u, sigma_d) agree. Equivalently, the exact sigma readout is constant on R_decl(f_P) and descends uniquely to a representative-independent datum on the selected physical quark frame class. This descent proves constancy on the selected bridge fiber only; it does not select the sigma value from P. If the attached sigma value is inherited from the current-family exact target surface, the descended public value remains target-derived.",
-    "why_sufficient": "Once a source-only sigma selector is supplied and this descent holds, the physical sigma datum is intrinsic public data on the selected physical quark frame class. The affine mean law then emits the absolute sector scales algebraically, and the already-closed exact forward construction lifts from the local transport-frame representative to the public selected class. In the current artifact the descent is only an audit/support witness because the descended sigma datum is target-derived."
+    "why_sufficient": "If a new source observable breaks the independent positive-rescaling action and emits both spread moduli, this descent makes that supplied datum intrinsic on the selected physical quark frame class. The affine mean law would then emit sector scales algebraically. Scheme-labelled masses would still require an RG trajectory and declared comparison chart, and physical Yukawa matrices would require common-scale dimensionless normalization. In the current artifact the descended datum is target-derived."
   },
   "frontier_role": "blocked_direct_public_descent_candidate_plus_historical_upstream_alternative",
-  "generated_utc": "2026-07-12T02:31:12Z",
+  "generated_utc": "2026-07-12T03:21:54Z",
   "non_circularity_status": {
     "missing_source_object": "quark_sigma_source_datum_no_target_leak_required",
     "promotion_allowed": false,
@@ -235,9 +237,9 @@
     "target_derived_sigma_datum_used": true
   },
   "notes": [
-    "This artifact records the selected-class exact witness but leaves public promotion blocked because the target-derived sigma datum has no source selector.",
-    "The upstream generator route remains a historical route toward a source sigma selector.",
-    "The exact masses and Yukawas forced after a source sigma closure are preserved here for contract-level readout."
+    "This artifact records selected-class target-audit data and a theorem-grade two-modulus source-spread obstruction; it does not promote numeric quark rows.",
+    "The upstream generator route remains candidate-only and begins from a hand-written family-kernel template.",
+    "Mixed-convention target mass coordinates and dimensionful mass textures are retained only for contract-level audit."
   ],
   "proof_status": "blocked_target_derived_sigma_datum_descent",
   "public_promotion_allowed": false,

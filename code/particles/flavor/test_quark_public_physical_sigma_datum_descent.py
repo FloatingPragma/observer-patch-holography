@@ -38,7 +38,7 @@ def test_quark_public_physical_sigma_datum_descent_closes_selected_public_class(
     assert payload["non_circularity_status"]["missing_source_object"] == (
         "quark_sigma_source_datum_no_target_leak_required"
     )
-    assert "QUARK_SIGMA_SOURCE_SELECTOR" in payload["missing_for_promotion"]
+    assert "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM" in payload["missing_for_promotion"]
     assert payload["induces_global_contract"]["id"] == "strengthened_quark_physical_sigma_ud_lift"
     assert payload["realized_transport_frame_section_uniqueness"]["common_refinement_level"] == 1
     assert payload["realized_transport_frame_section_uniqueness"]["refinement_functoriality_closed"] is True

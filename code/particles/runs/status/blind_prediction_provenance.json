@@ -61,7 +61,7 @@
   },
   "finalization_gates": {
     "empirical_hadron_closure_policy_documented": true,
-    "empirical_hadron_spectral_dataset_integrated": false,
+    "empirical_hadron_spectral_dataset_integrated": true,
     "hierarchy_local_global_resonance_closed": true,
     "higgs_naturality_defect_closed": true,
     "nonhadron_prediction_surface_buildable": true,
@@ -73,7 +73,7 @@
     "source_spectral_stage_gate": "populated source spectral measure payload plus interval certificate",
     "symmetry_only_particle_promotion_blocked": true
   },
-  "generated_utc": "2026-07-11T17:56:21Z",
+  "generated_utc": "2026-07-12T03:22:11Z",
   "github_issue": 234,
   "pipeline_inputs": {
     "P": 1.630968209403959,
@@ -176,61 +176,61 @@
     },
     {
       "blind_status": "withheld_not_blind",
-      "exact_kind": "selected_class_target_anchored_exact_witness",
+      "exact_kind": "selected_class_target_anchored_mixed_convention_mass_texture_audit",
       "particle_id": "up_quark",
       "promotable": false,
       "reason": "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction",
-      "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
+      "scope": "selected_public_frame_target_anchored_mixed_convention_audit_only",
       "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
       "target_use": "target_values_or_target_derived_datum_used"
     },
     {
       "blind_status": "withheld_not_blind",
-      "exact_kind": "selected_class_target_anchored_exact_witness",
+      "exact_kind": "selected_class_target_anchored_mixed_convention_mass_texture_audit",
       "particle_id": "charm_quark",
       "promotable": false,
       "reason": "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction",
-      "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
+      "scope": "selected_public_frame_target_anchored_mixed_convention_audit_only",
       "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
       "target_use": "target_values_or_target_derived_datum_used"
     },
     {
       "blind_status": "withheld_not_blind",
-      "exact_kind": "selected_class_target_anchored_exact_witness",
+      "exact_kind": "selected_class_target_anchored_mixed_convention_mass_texture_audit",
       "particle_id": "top_quark",
       "promotable": false,
       "reason": "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction",
-      "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
+      "scope": "selected_public_frame_target_anchored_mixed_convention_audit_only",
       "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
       "target_use": "target_values_or_target_derived_datum_used"
     },
     {
       "blind_status": "withheld_not_blind",
-      "exact_kind": "selected_class_target_anchored_exact_witness",
+      "exact_kind": "selected_class_target_anchored_mixed_convention_mass_texture_audit",
       "particle_id": "down_quark",
       "promotable": false,
       "reason": "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction",
-      "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
+      "scope": "selected_public_frame_target_anchored_mixed_convention_audit_only",
       "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
       "target_use": "target_values_or_target_derived_datum_used"
     },
     {
       "blind_status": "withheld_not_blind",
-      "exact_kind": "selected_class_target_anchored_exact_witness",
+      "exact_kind": "selected_class_target_anchored_mixed_convention_mass_texture_audit",
       "particle_id": "strange_quark",
       "promotable": false,
       "reason": "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction",
-      "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
+      "scope": "selected_public_frame_target_anchored_mixed_convention_audit_only",
       "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
       "target_use": "target_values_or_target_derived_datum_used"
     },
     {
       "blind_status": "withheld_not_blind",
-      "exact_kind": "selected_class_target_anchored_exact_witness",
+      "exact_kind": "selected_class_target_anchored_mixed_convention_mass_texture_audit",
       "particle_id": "bottom_quark",
       "promotable": false,
       "reason": "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction",
-      "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
+      "scope": "selected_public_frame_target_anchored_mixed_convention_audit_only",
       "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
       "target_use": "target_values_or_target_derived_datum_used"
     },
