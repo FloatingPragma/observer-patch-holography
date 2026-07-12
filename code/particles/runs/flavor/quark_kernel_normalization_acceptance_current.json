@@ -1,0 +1,77 @@
+{
+  "acceptance_passed": false,
+  "artifact": "oph_quark_kernel_normalization_acceptance",
+  "candidate_baseline_note": "the template kernel carries no normalization clause, so the expected outcome is a block at G4",
+  "candidate_id": "current_template_kernel_baseline",
+  "first_failed_gate": "G4_normalization_clause_present",
+  "gates": {
+    "G0_schema": {
+      "ancestry_present": true,
+      "kernel_refinements_present": true,
+      "passed": true
+    },
+    "G1_ancestry": {
+      "forbidden_ancestor_hits": [],
+      "forbidden_list_source": "derive_quark_sigma_source_nonidentifiability_obstruction",
+      "passed": true,
+      "target_attestations": {
+        "fitted_spreads_consumed": false,
+        "quark_reference_values_consumed": false
+      },
+      "template_ancestry_declared": true
+    },
+    "G2_spectrum": {
+      "eigenvalues": [
+        -0.5186397082680319,
+        -0.21627404800912356,
+        0.7349137562771554
+      ],
+      "passed": true,
+      "rho_ord": 1.2942849363777058,
+      "simple_spectrum": true,
+      "x2": -0.5175863354681689
+    },
+    "G3_shape_band_scheme_rider": {
+      "alternative_bands": {
+        "common_scale_any_mu": [
+          1.124320256710102,
+          1.328677369322281
+        ],
+        "own_scale_heavy_msbar_top": [
+          1.2761484088503106,
+          1.3154144454846937
+        ]
+      },
+      "band": [
+        1.2761484088503106,
+        1.3000272063381912
+      ],
+      "declared_convention": "quoted_mixed",
+      "passed": true,
+      "rho_ord": 1.2942849363777058,
+      "scheme_rider": "the band is convention dependent; see the common-scheme scan artifact"
+    },
+    "G4_normalization_clause_present": {
+      "clause_kind": null,
+      "passed": false,
+      "reading_if_failed": "no normalization clause means the kernel fixes only scale-invariant shape data, which is the operator-side restatement of the nonidentifiability theorem",
+      "sigma_d_per_side": null,
+      "sigma_u_per_side": null
+    }
+  },
+  "generated_utc": "2026-07-12T05:29:16Z",
+  "github_issues": [
+    377,
+    379,
+    380
+  ],
+  "guards": {
+    "acceptance_is_not_promotion": true,
+    "measured_values_role": "compare-only acceptance checks (G5, G6); never solve inputs",
+    "public_promotion_allowed": false
+  },
+  "remaining_formal_burden": "rerun derive_quark_sigma_source_nonidentifiability_obstruction with the accepted kernel as ancestor; the spread fiber must collapse from (R_>0)^2 to a unique tuple before any promotion",
+  "row_class": "acceptance_harness_record",
+  "span_agreement_tolerance": 0.02,
+  "status": "blocked_fail_closed"
+}
