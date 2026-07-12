@@ -147,21 +147,21 @@ $m_H$ is the Higgs-boson mass and $m_t$ is the top-quark mass on this
 calculation surface. They are paired because the Higgs and top sectors are
 strongly linked in the electroweak bookkeeping.
 
-The selected quark sector gives a conditional running-mass support
-surface. Given a source-only physical sigma datum, the downstream algebra emits
+The selected quark sector has a closed downstream algebraic readout only after
+two positive spread moduli are supplied. The present source equations fix the
+ordered up- and down-sector profile shapes but leave those endpoint spans
+independent. Their compatible fiber is
+$(\mathbb R_{>0})^2$. Selected-frame descent proves that an attached datum is
+representative-independent; it does not choose either modulus. The result is a
+theorem-grade non-identifiability obstruction, so the public table contains no
+numeric quark mass rows.
 
-$$
-\begin{aligned}
-(m_u,m_d,m_s) &= (0.00216,\ 0.00470,\ 0.0935)\,\mathrm{GeV},\\
-(m_c,m_b,m_t) &= (1.273,\ 4.183,\ 172.3523553288311)\,\mathrm{GeV},
-\end{aligned}
-$$
-
-as the running quark sextet and the corresponding Yukawa pattern. In the current
-pipeline these numbers are target-anchored audit witnesses, not public
-source-only quark mass predictions, because the physical sigma/spread datum is
-not yet emitted by a no-target source theorem. The top value belongs to that
-selected audit surface; a direct top-mass display is a separate comparison.
+The exact same-family artifacts remain useful as target audits, but they do not
+form one running-mass sextet. The light comparison coordinates use
+$\overline{\mathrm{MS}}$ at $2\,\mathrm{GeV}$, the charm and bottom coordinates
+use $\overline{\mathrm{MS}}$ at their self-scales, and the top coordinate is a
+separate pole-mass extraction. The stored matrices have GeV-valued singular
+values. They are mass textures, not physical dimensionless Yukawa matrices.
 
 Running means the quoted mass depends on the energy scale at which the quark is
 probed. This is normal in quantum field theory. It is why a quark mass in a
@@ -169,10 +169,10 @@ short-distance table is not the same kind of number as a proton mass measured in
 the lab.
 
 The subscripts name quark flavors: up, down, strange, charm, bottom, and top.
-The first line gives the lighter triplet and the second gives the heavier
-triplet. The aligned equation layout keeps the two families readable, but the
-important physical point is that these are quark-level running masses before
-strong binding turns quarks into hadrons.
+To construct physical Yukawa matrices one would first need a source-emitted
+renormalization-group trajectory, transport all masses to one common scale with
+threshold matching, emit the running Higgs expectation value in the same
+scheme, and then form $y_q(\mu)=\sqrt{2}m_q(\mu)/v(\mu)$.
 
 The weighted-cycle neutrino calculation supplies a frozen comparison point.
 The correlated NuFIT 6.1 profile rejects that point. The charged-lepton basis
@@ -186,16 +186,16 @@ candidate.
 The particle picture is larger than a handful of isolated numbers. At book
 level, the map contains receipt-gated classical carrier modes with no promoted
 photon/gluon/graviton mass rows, the weak-sector
-comparison pair, the Higgs/top quantitative relation, the selected conditional
-quark support surface with Yukawas, and the rejected weighted-cycle neutrino
-comparison candidate.
+comparison pair, the Higgs/top quantitative relation, the quark source-spread
+obstruction with target-only mass-texture audits, and the rejected
+weighted-cycle neutrino comparison candidate.
 
 The selected quark branch also shows where the particle story changes gear. It
-closes the downstream algebra from a physical sigma datum to running quark
-masses and their Yukawa pattern, while the source sigma selector, the strong-CP
-phase, and the physical hadron masses remain separate downstream or upstream
-burdens. Protons, neutrons, and mesons are QCD composites, so their masses
-require the nonperturbative bound-state physics of confinement.
+proves that the current source package leaves two independent spread moduli,
+while the strong-CP phase, a common-scale Yukawa construction, and physical
+hadron masses remain separate burdens. Protons, neutrons, and mesons are QCD
+composites, so their masses require the nonperturbative bound-state physics of
+confinement.
 
 Majorana phases are extra neutrino mixing phases that matter if neutrinos are
 their own antiparticles in the relevant sense. The candidate's phase values are

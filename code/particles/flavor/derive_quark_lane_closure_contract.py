@@ -1,17 +1,20 @@
 #!/usr/bin/env python3
-"""Emit the current quark closure contract and sigma-source promotion boundary.
+"""Emit the current quark closure contract and source-only obstruction boundary.
 
 Chain role: collect the current theorem boundary and the strongest exact sidecar
 surfaces for the quark lane into one machine-readable contract.
 
-Mathematics: the local code surface now internalizes the one-scalar D12 mass
-theorem `quark_d12_t1_value_law`, the closed local exact current-family
-transport-frame chain, and the selected bridge-fiber sigma descent theorem.
+Mathematics: the target-free source identities fix the up- and down-sector
+profile rays but leave their positive endpoint spans independent.  The exact
+compatible source-spread fiber is therefore ``(R_{>0})^2``.  The selected
+bridge-fiber descent proves representative independence only and cannot select
+a point of that fiber.
 
-That descent theorem proves representative independence on the public quark
-frame class selected by P. It does not select the sigma datum from P, so the
-algebraic absolute readout and exact forward-Yukawa construction remain
-conditional on a source-only sigma selector.
+The numerical current-family sidecars remain useful target-anchored algebraic
+audits.  Their six rows mix several comparison conventions, however, and their
+GeV-valued matrices are mass textures rather than common-scale dimensionless
+physical Yukawa matrices.  This contract keeps both obstructions explicit and
+withholds source-only numerical promotion.
 """
 
 from __future__ import annotations
@@ -83,6 +86,12 @@ CURRENT_FAMILY_TRANSPORT_D12_VALUE_JSON = (
 CURRENT_FAMILY_END_TO_END_CHAIN_JSON = (
     ROOT / "particles" / "runs" / "flavor" / "quark_current_family_end_to_end_exact_pdg_derivation_chain.json"
 )
+SIGMA_SOURCE_OBSTRUCTION_JSON = (
+    ROOT / "particles" / "runs" / "flavor" / "quark_sigma_source_nonidentifiability_obstruction.json"
+)
+SCHEME_OBSTRUCTION_JSON = (
+    ROOT / "particles" / "runs" / "flavor" / "quark_running_mass_scheme_convention_obstruction.json"
+)
 DEFAULT_OUT = ROOT / "particles" / "runs" / "flavor" / "quark_lane_closure_contract.json"
 
 
@@ -124,9 +133,24 @@ def build_payload(
     current_family_transport_light_ratio: dict[str, Any],
     current_family_transport_d12_value: dict[str, Any],
     current_family_end_to_end_chain: dict[str, Any],
+    sigma_source_obstruction: dict[str, Any],
+    scheme_obstruction: dict[str, Any],
 ) -> dict[str, Any]:
     selected_sigma = selected_sheet["selected_sheet"]["sigma_id"]
+    source_spread_obstruction_closed = (
+        sigma_source_obstruction.get("theorem_grade_obstruction") is True
+        and sigma_source_obstruction.get("proof_status") == "closed_exact_current_corpus_obstruction"
+        and sigma_source_obstruction.get("source_only_sigma_emitted") is False
+    )
+    scheme_obstruction_closed = (
+        scheme_obstruction.get("proof_status")
+        == "closed_structural_finite_renormalization_nonidentifiability_obstruction"
+    )
+    physical_yukawa_audit = dict(scheme_obstruction.get("stored_matrix_dimensional_audit") or {})
     public_yukawa_promotable = (
+        not source_spread_obstruction_closed
+        and not scheme_obstruction_closed
+        and
         public_exact_yukawa_theorem.get("public_promotion_allowed") is True
         and public_exact_yukawa_theorem.get("proof_status")
         == "closed_source_only_public_exact_yukawa_end_to_end_theorem"

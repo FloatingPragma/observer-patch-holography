@@ -3,6 +3,15 @@
 This directory is the `/particles` sandbox for turning the current flavor
 continuation into a forward matrix-based branch.
 
+The strict source-only quark-spread audit is closed as a non-identifiability
+theorem on the current corpus. The source shape laws leave two independent
+positive endpoint spans, giving an exact `(R_{>0})^2` fiber. See
+[`derive_quark_sigma_source_nonidentifiability_obstruction.py`](derive_quark_sigma_source_nonidentifiability_obstruction.py).
+The target packet also mixes renormalization conventions, and its GeV-valued
+matrices are mass textures rather than physical dimensionless Yukawa matrices.
+See
+[`derive_quark_running_mass_scheme_convention_obstruction.py`](derive_quark_running_mass_scheme_convention_obstruction.py).
+
 The intended chain is:
 
 1. derive a refinement-stable flavor observable from overlap / defect data
@@ -43,6 +52,9 @@ Current scripts:
 - [`derive_charged_dirac_odd_deformation_form.py`](derive_charged_dirac_odd_deformation_form.py)
 - [`derive_quark_odd_response_law.py`](derive_quark_odd_response_law.py)
 - [`derive_quark_edge_statistics_spread_candidate.py`](derive_quark_edge_statistics_spread_candidate.py)
+- [`derive_quark_sigma_source_nonidentifiability_obstruction.py`](derive_quark_sigma_source_nonidentifiability_obstruction.py)
+- [`derive_quark_sigma_source_datum_no_target_leak_required.py`](derive_quark_sigma_source_datum_no_target_leak_required.py)
+- [`derive_quark_running_mass_scheme_convention_obstruction.py`](derive_quark_running_mass_scheme_convention_obstruction.py)
 - [`derive_quark_d12_internal_backread_source_payload.py`](derive_quark_d12_internal_backread_source_payload.py)
 - [`derive_quark_d12_internal_backread_yukawa_dictionary.py`](derive_quark_d12_internal_backread_yukawa_dictionary.py)
 - [`derive_quark_d12_internal_backread_descent.py`](derive_quark_d12_internal_backread_descent.py)

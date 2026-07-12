@@ -207,7 +207,7 @@ Full SI gravity remains gated by the no-G clock stack.
   [quark_lane_closure_contract.json](runs/flavor/quark_lane_closure_contract.json)
 - algebraic-collapse artifact:
   [quark_absolute_readout_algebraic_collapse.json](runs/flavor/quark_absolute_readout_algebraic_collapse.json)
-- exact `current_family_only` PDG witness:
+- target-anchored `current_family_only` mixed-convention audit witness:
   [quark_current_family_exact_pdg_theorem.json](runs/flavor/quark_current_family_exact_pdg_theorem.json)
 - restricted current-family common-refinement transport-frame sector-attached lift:
   [quark_current_family_transport_frame_sector_attached_lift.json](runs/flavor/quark_current_family_transport_frame_sector_attached_lift.json)
@@ -217,51 +217,50 @@ Full SI gravity remains gated by the no-G clock stack.
   [quark_current_family_transport_frame_strengthened_physical_sigma_lift_theorem.json](runs/flavor/quark_current_family_transport_frame_strengthened_physical_sigma_lift_theorem.json)
 - restricted current-family common-refinement transport-frame absolute sector readout theorem:
   [quark_current_family_transport_frame_absolute_sector_readout_theorem.json](runs/flavor/quark_current_family_transport_frame_absolute_sector_readout_theorem.json)
-- restricted current-family common-refinement transport-frame exact PDG completion:
+- restricted current-family common-refinement transport-frame target-audit completion:
   [quark_current_family_transport_frame_exact_pdg_completion.json](runs/flavor/quark_current_family_transport_frame_exact_pdg_completion.json)
-- restricted current-family common-refinement transport-frame exact forward Yukawas:
+- restricted current-family common-refinement transport-frame dimensionful mass textures:
   [quark_current_family_transport_frame_exact_forward_yukawas.json](runs/flavor/quark_current_family_transport_frame_exact_forward_yukawas.json)
-- restricted current-family common-refinement end-to-end exact PDG derivation chain:
+- restricted current-family common-refinement end-to-end target-audit chain:
   [quark_current_family_end_to_end_exact_pdg_derivation_chain.json](runs/flavor/quark_current_family_end_to_end_exact_pdg_derivation_chain.json)
-- missing source-only sigma selector gate:
+- theorem-grade source-spread non-identifiability obstruction:
+  [quark_sigma_source_nonidentifiability_obstruction.json](runs/flavor/quark_sigma_source_nonidentifiability_obstruction.json)
+- source-only spread gate projected from that obstruction:
   [quark_sigma_source_datum_no_target_leak_required.json](runs/flavor/quark_sigma_source_datum_no_target_leak_required.json)
+- running-mass scheme and physical-Yukawa normalization obstruction:
+  [quark_running_mass_scheme_convention_obstruction.json](runs/flavor/quark_running_mass_scheme_convention_obstruction.json)
 - selected-class physical sigma-datum descent witness:
   [quark_public_physical_sigma_datum_descent.json](runs/flavor/quark_public_physical_sigma_datum_descent.json)
-- selected-class conditional end-to-end Yukawa witness:
+- selected-class target-audit mass-texture wrapper:
   [quark_public_exact_yukawa_end_to_end_theorem.json](runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json)
 - public exact Yukawa promotion frontier:
   [quark_public_exact_yukawa_promotion_frontier.json](runs/flavor/quark_public_exact_yukawa_promotion_frontier.json)
 - selected-class public closure summary:
   [quark_public_strengthened_physical_sigma_lift_frontier.json](runs/flavor/quark_public_strengthened_physical_sigma_lift_frontier.json)
 
-These artifacts fix the quark claim boundary on the local code surface. The
-maximal theorem-emitted package consists of the D12 mass ray, the negative
-selector `sigma_ref`, and the restricted-scope affine mean package with
-`g_ch = 0.9231656602589082` on `shared_budget_only` and
-`(g_u, g_d) = (0.7797392875757557, 0.12172551081512113)` on
-`current_family_only`. A separate target-free mass bridge internalizes
-`Delta_ud^overlap = (1/6) * log(c_d / c_u)`, equivalently
-`quark_d12_t1_value_law`, on the emitted D12 ray. The exact six-mass witness
-closes on `current_family_only` and matches the official PDG 2025 API running
-quark reference sextet exactly on that declared target surface; its top coordinate is
-the PDG 2025 cross-section mass entry. The auxiliary direct-top entry is
-compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207)
-is closed as a corpus-limited codomain no-go. A separate restricted theorem chain on the explicit
-  `current_family_common_refinement_transport_frame_only` carrier emits a
-sector-attached `Sigma_ud^phys` element, the exact physical sigma datum, the
-restricted absolute sector readout, the same sextet, and explicit exact
-forward Yukawas `Y_u` and `Y_d`. The declared end-to-end exact chain closes on
-that carrier. A separate direct public descent witness proves representative
-independence on the selected public physical quark frame class chosen by `P`,
-but the physical sigma datum is target-derived on the current public surface.
-Promotion requires `QUARK_SIGMA_SOURCE_SELECTOR` and
-`NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE`. Once a source-only sigma datum is
-supplied, the affine mean law emits `(g_u, g_d)` algebraically, and the exact
-forward construction emits the same sextet together with explicit exact forward
-Yukawas `Y_u` and `Y_d`. Until then this is selected-class conditional support
-only, not a public source-only quark mass prediction. It does not claim a global
-classification of all quark frame classes. The upstream generation-bundle
-transfer route is an alternative source-sigma route, not a closed theorem.
+These artifacts fix the quark claim boundary on the local code surface. After
+all target rows, exact target witnesses, fitted spreads, and residuals against
+them are removed, the source equations determine two ordered profile rays but
+leave their endpoint spans independent. The compatible spread fiber is exactly
+`(R_{>0})^2`. Its free rescaling action preserves the source identities and
+changes the affine mass readout, so it is a physical non-identifiability rather
+than a gauge redundancy. The selected-class descent proves representative
+independence only after a spread datum is attached; it does not select the
+datum. The edge-statistics candidate also leaves two unfixed correction
+coefficients and begins from a hand-written family-kernel template.
+
+The same-family and common-refinement artifacts reproduce their chosen target
+coordinates after target inversion. They are audit surfaces, not source-only
+predictions. Their packet combines light-quark `MSbar` coordinates at 2 GeV,
+charm and bottom `MSbar` coordinates at self-scale, and a separate top pole
+extraction. The stored GeV-valued matrices therefore certify mass textures,
+not physical dimensionless Yukawa matrices. A physical Yukawa construction
+would require source-emitted RG trajectories, common-scale transport with
+threshold matching, a top conversion, the running Higgs expectation value in
+the same scheme, and `y_q(mu) = sqrt(2) m_q(mu) / v(mu)`. Numeric public quark
+rows remain withheld. Reopening the source theorem requires a new OPH source
+observable that breaks the independent positive-rescaling action without a
+dependency path to target data.
 
 ## Typical Rebuild
 

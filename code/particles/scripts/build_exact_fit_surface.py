@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Build an exact-fits-only surface from particle artifacts.
 
-This surface lists exact target matches on their declared OPH carriers. It
-includes theorem-grade selected-class quark closure together with exact
-carrier-restricted and compare-only supporting surfaces.
+This surface lists exact target matches on their declared audit carriers. It
+does not promote a target match to a source-only prediction. In particular,
+the quark entries are mixed-convention target audits whose GeV-valued matrices
+are mass textures rather than physical dimensionless Yukawa matrices.
 """
 
 from __future__ import annotations
@@ -141,8 +142,8 @@ def build_entries() -> list[dict[str, Any]]:
         },
         {
             "id": "quark_current_family_exact_witness",
-            "label": "Quark Current-Family Exact Witness",
-            "fit_kind": "exact_target_anchored_current_family_witness",
+            "label": "Quark Current-Family Mixed-Convention Target Audit",
+            "fit_kind": "exact_target_anchored_mixed_convention_mass_texture_audit",
             "scope": quark.get("theorem_scope", "current_family_only"),
             "promotable": False,
             "matched_observables": ["m_u", "m_c", "m_t", "m_d", "m_s", "m_b"],
@@ -176,28 +177,30 @@ def build_entries() -> list[dict[str, Any]]:
             "supporting_public_sigma_descent_artifact": _repo_ref(QUARK_PUBLIC_SIGMA_DESCENT_JSON),
             "supporting_public_exact_yukawa_artifact": _repo_ref(QUARK_PUBLIC_EXACT_YUKAWA_JSON),
             "note": (
-                "Exact on the official PDG 2025 API running-quark target surface on the ordered three-point "
-                "quark family witness, with the internal same-family quadratic readout closed on the fixed "
-                "carrier and the selected-sheet exact closure packaged on `sigma_ref`. The top coordinate "
+                "Exact only as a target audit on the ordered three-point family carrier. The light coordinates "
+                "use MSbar at 2 GeV, charm and bottom use MSbar at self-scale, and the top coordinate is a "
+                "separate pole extraction, so these rows are not one running-mass sextet. The selected-sheet "
+                "closure is packaged on `sigma_ref`. The top coordinate "
                 f"uses PDG summary `{references['top_quark']['source']['summary_id']}`. "
                 "The auxiliary direct-top entry "
                 f"`{references['top_quark_direct_aux']['source']['summary_id']}` is compare-only; "
                 "[#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go. "
-                "The declared scope is `current_family_only`. A separate restricted theorem chain emits a "
+                "The declared scope is `current_family_only`. A separate restricted target-audit chain carries a "
                 "sector-attached `Sigma_ud^phys` element on the explicit "
                 f"`{(quark_transport_lift or {}).get('theorem_scope', 'current_family_common_refinement_transport_frame_only')}` carrier, and the merged transport-frame theorem "
-                f"reconstructs the same running sextet exactly on `{(quark_transport_completion or {}).get('theorem_scope', 'current_family_common_refinement_transport_frame_only')}`. "
-                "The declared transport-frame chain also closes explicit exact forward Yukawas `Y_u` and "
+                f"reconstructs the same chosen target coordinates on `{(quark_transport_completion or {}).get('theorem_scope', 'current_family_common_refinement_transport_frame_only')}`. "
+                "The declared transport-frame chain also carries GeV-valued matrices labelled `Y_u` and "
                 f"`Y_d` with certification status `{(quark_transport_forward_yukawas or {}).get('certification_status', 'forward_matrix_certified')}`, "
+                "but those matrices are dimensionful mass textures, not physical Yukawas. "
                 f"and the full declared-carrier chain is recorded in `{(quark_end_to_end_chain or {}).get('artifact', 'oph_quark_current_family_end_to_end_exact_pdg_derivation_chain')}`. "
                 "A separate target-free mass bridge closes `Delta_ud_overlap = (1/6) * log(c_d / c_u)`, "
                 "equivalently `quark_d12_t1_value_law`, on the emitted D12 ray. "
                 + (
                     "A separate selected-class support wrapper exists on the public physical quark frame class chosen by `P`: "
                     f"`{quark_public_sigma_descent['artifact']}` proves representative independence on the selected bridge "
-                    "fiber, but the exact physical sigma datum remains target-derived until a source sigma selector closes. "
-                    f"`{quark_public_exact_yukawa['artifact']}` therefore records the same exact sextet together with explicit "
-                    "exact forward Yukawas `Y_u` and `Y_d` as an audit/support witness."
+                    "fiber, but it does not break the free two-modulus source-spread action. "
+                    f"`{quark_public_exact_yukawa['artifact']}` therefore remains a target-audit mass-texture wrapper, "
+                    "not a source-only mass or physical-Yukawa theorem."
                     if quark_public_sigma_descent and quark_public_exact_yukawa
                     else "This entry is the strongest exact carrier-restricted quark surface present in the local artifact set."
                 )
@@ -253,17 +256,17 @@ def build_entries() -> list[dict[str, Any]]:
         entries.insert(
             3,
             {
-                "id": "quark_selected_class_exact_theorem",
-                "label": "Quark Selected-Class Exact Theorem",
+                "id": "quark_selected_class_target_audit",
+                "label": "Quark Selected-Class Target Audit",
                 "fit_kind": (
                     "selected_class_theorem_grade_exact_forward_quark_closure"
                     if quark_public_promotable
-                    else "selected_class_target_anchored_exact_witness"
+                    else "selected_class_target_anchored_mixed_convention_mass_texture_audit"
                 ),
                 "scope": (
                     quark_public_exact_yukawa["theorem_scope"]
                     if quark_public_promotable
-                    else "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived"
+                    else "selected_public_physical_quark_frame_class_target_audit_only"
                 ),
                 "promotable": quark_public_promotable,
                 "matched_observables": ["m_u", "m_c", "m_t", "m_d", "m_s", "m_b"],
@@ -321,14 +324,13 @@ def build_entries() -> list[dict[str, Any]]:
                     (
                         "Exact theorem on the selected public physical quark frame class chosen by `P`. "
                         if quark_public_promotable
-                        else "Selected-class exact witness on the public physical quark frame class chosen by `P`; strict promotion is blocked because the sigma datum is target-derived. "
+                        else "Selected-class target audit on the public physical quark frame class chosen by `P`. "
                     )
                     +
                     f"`{quark_public_sigma_descent['artifact']}` proves representative independence on the selected "
-                    "bridge fiber, but the attached physical sigma datum remains target-derived until a no-target "
-                    "source sigma selector closes. "
-                    f"`{quark_public_exact_yukawa['artifact']}` therefore records the exact PDG 2025 running-quark "
-                    "sextet and explicit exact forward Yukawas `Y_u` and `Y_d` as an audit/support witness. "
+                    "bridge fiber, but the source corpus leaves two independent positive spread moduli. "
+                    f"`{quark_public_exact_yukawa['artifact']}` therefore records mixed-convention mass coordinates "
+                    "and GeV-valued mass textures only; it does not certify a source-only sextet or physical Yukawas. "
                     "The top coordinate uses PDG summary "
                     f"`{references['top_quark']['source']['summary_id']}`. The auxiliary direct-top entry "
                     f"`{references['top_quark_direct_aux']['source']['summary_id']}` is compare-only; "

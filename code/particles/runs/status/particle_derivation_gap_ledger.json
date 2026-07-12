@@ -18,12 +18,14 @@
     {
       "gap_ids": [
         "charged.determinant-normalization-transport",
+        "quark.source-spread-identifiability",
+        "quark.running-scheme-and-yukawa-normalization",
         "quark.selected-class-vs-global-classification",
         "neutrino.pmns-status-and-absolute-rows"
       ],
       "id": "spectrum-source-bundle",
       "promotion_question": "Is there one OPH excitation dictionary and sector-isolated trace-lift theorem that explains the charged affine anchor and quark selected-class boundary while also deriving a source-closed neutrino operator, charged basis, and mass-label rule without target fitting?",
-      "result": "No promotion. Charged leptons are closed as a corpus-limited no-go by the end-to-end impossibility theorem: the same-family witness and conditional algebraic readout remain, but no theorem-grade A_ch(P) is emitted. Quarks remain selected-class on f_P with global classification closed as a corpus-limited no-go. The weighted-cycle neutrino point is a rejected target-informed candidate; no physical PMNS, ordering, Majorana, or absolute-mass row is emitted.",
+      "result": "No promotion. Charged leptons are closed as a corpus-limited no-go by the end-to-end impossibility theorem: the same-family witness and conditional algebraic readout remain, but no theorem-grade A_ch(P) is emitted. The quark source fiber retains two free positive spread moduli, its running-coordinate chart is conventional, and its GeV matrices are mass textures. Selected-fiber descent and the global-classification no-go do not change those facts. The weighted-cycle neutrino point is a rejected target-informed candidate; no physical PMNS, ordering, Majorana, or absolute-mass row is emitted.",
       "status": "closed_current_corpus_source_boundaries_emitted"
     },
     {
@@ -32,7 +34,7 @@
       ],
       "id": "strong-cp-closure-bundle",
       "promotion_question": "Can the exact quark/Yukawa branch be extended to the physical strong-CP invariant, including theta_QCD, bar(theta), and a vanishing theorem on the realized branch?",
-      "result": "No promotion. The selected-class quark support wrapper conditionally carries the running sextet and forward Yukawas on the public class f_P, but the source sigma selector is still missing. The available corpus does not emit the determinant-line phase contribution, the bare theta_QCD term, or a theorem forcing the physical strong-CP phase to vanish.",
+      "result": "No promotion. The selected-class quark wrapper carries only target-anchored mixed-scheme mass textures. The source spread pair is non-identifiable and the physical dimensionless Yukawa normalization is absent. The available corpus does not emit the determinant-line phase contribution, the bare theta_QCD term, or a theorem forcing the physical strong-CP phase to vanish.",
       "status": "open_physical_invariant_gap"
     },
     {
@@ -62,6 +64,8 @@
         "d10.rg-matching-threshold-scheme",
         "pclosure.certified-codepath-adoption",
         "charged.determinant-normalization-transport",
+        "quark.source-spread-identifiability",
+        "quark.running-scheme-and-yukawa-normalization",
         "quark.selected-class-vs-global-classification",
         "neutrino.pmns-status-and-absolute-rows",
         "calibration.direct-top-bridge",
@@ -120,7 +124,7 @@
     },
     "v_over_E_cell_source": "2.5797040595276223506583341903922018695490035369903290256096683452314630559578761079150341073645683725521032233E-17"
   },
-  "generated_utc": "2026-07-12T02:19:29Z",
+  "generated_utc": "2026-07-12T02:42:13Z",
   "p_trunk": {
     "P": "1.63097210492078846050203640439",
     "alpha_inv": "136.994020662724205139718642793",
@@ -233,8 +237,8 @@
         "blocking_reasons": [
           "no numeric sector-isolated M_ch",
           "q_psi is source-open, arrow-indexed, and lacks a certified e/mu/tau map",
-          "no theorem-grade numeric or interval D10 landing to s_det(P)",
-          "no charged determinant factorization/leakage certificate",
+          "no theorem-grade numeric or interval D10 matter landing to s_det(P)",
+          "the D9 zero-leakage channel lemma does not attach the D10 package or normalize its line",
           "no D10-fixed reference stage and basepoint normalization"
         ],
         "certified_zero": false,
@@ -251,11 +255,11 @@
       "closed_issue_refs": [
         201
       ],
-      "current_boundary": "The #546 trace-lift audit remains fail-closed. Its current-corpus no-go shows that even a granted additive D10 sector split retains the redistribution symmetry s_det^ch -> s_det^ch + 3 kappa, s_det^rest -> s_det^rest - 3 kappa. The corpus also lacks a numeric source-emitted M_ch, source-closed stage-indexed q, a charged central projector/leakage certificate, a numeric D10 s_det landing, and a normalized reference-stage determinant-line attachment.",
+      "current_boundary": "The #546 audit proves exact representation-level isolation of a supplied D9 charged Yukawa channel, with zero quark leakage, but no D10 determinant attachment. Its existing-axiom countermodel Y_e -> exp(kappa)Y_e preserves every declared source antecedent and all ratios while shifting log|det Y_e| by 3 kappa. The corpus also lacks a numeric source-emitted M_ch, source-closed stage-indexed q, a numeric D10 matter s_det landing, and a finite normalized reference-stage attachment.",
       "github_issue": 546,
       "id": "charged.determinant-normalization-transport",
       "lane": "Charged leptons",
-      "next_action": "Keep charged masses suppressed. Reopen only for the theorem-grade sector-isolated normalized charged determinant-line attachment named by #546; the gate flips only when N_det has the certified singleton interval [0,0].",
+      "next_action": "Keep charged masses suppressed. Under the no-new-axiom rule, reopen only if an already-declared determinant-sensitive source observable is exhibited that breaks the kappa countermodel; the gate still flips only when N_det has the certified singleton interval [0,0].",
       "status": "closed_current_corpus_charged_end_to_end_no_go",
       "target_surfaces": [
         "code/particles/leptons/derive_charged_trace_lift.py",
@@ -266,17 +270,55 @@
       "trace_lift_claim_label": "no_go_confirmed_new_source_needed"
     },
     {
-      "current_boundary": "The selected-class exact Yukawa theorem is promoted. The stronger class-uniform/global classification lane is closed as a corpus-limited no-go because no source-emitted ambient public-frame classifier or quotient-intrinsic sigma law exists.",
-      "github_issue": 199,
-      "id": "quark.selected-class-vs-global-classification",
+      "current_boundary": "The target-free source equations fix the two ordered profile rays but leave their up/down positive spans independent. The compatible fiber is (R_{>0})^2, and its free rescaling action changes the affine sector means and mass textures. The edge path begins at a hand-written transport template and does not select either modulus.",
+      "github_issue": 377,
+      "id": "quark.source-spread-identifiability",
       "lane": "Quarks",
-      "next_action": "Keep every public exact-quark claim explicitly selected-class. Reopen only for a new source-emitted global public-frame classifier artifact.",
-      "status": "selected_class_closed_global_classification_no_go",
+      "next_action": "Keep all numeric quark rows suppressed. Reopen only for two independent source normalizations, or an equivalent source map into (R_{>0})^2, with sector attachment and refinement compatibility.",
+      "obstruction_artifact": "particles/runs/flavor/quark_sigma_source_nonidentifiability_obstruction.json",
+      "related_github_issues": [
+        379,
+        380
+      ],
+      "status": "closed_current_corpus_two_modulus_nonidentifiability_obstruction",
       "target_surfaces": [
         "code/particles/flavor",
         "particle paper quark section"
       ],
-      "title": "Keep exact quark rows scoped to the selected public frame class"
+      "title": "Classify the source-only up/down quark spread fiber"
+    },
+    {
+      "current_boundary": "Finite renormalizations and scale changes preserve physical amplitudes while changing running-mass coordinates, so a source theory cannot select an external subtraction convention without a section. The stored six-row packet mixes light MSbar coordinates at 2 GeV, charm and bottom self-scale coordinates, and a separate top pole extraction coordinate. Its GeV-valued matrices are mass textures, not dimensionless physical Yukawa matrices.",
+      "github_issue": 381,
+      "id": "quark.running-scheme-and-yukawa-normalization",
+      "lane": "Quarks",
+      "next_action": "Emit an RG-covariant mass trajectory or invariant. Apply a declared comparison chart afterward, and require one common scale, threshold transport, top conversion, running v(mu), and y=sqrt(2)m/v before using the phrase physical Yukawa matrix.",
+      "obstruction_artifact": "particles/runs/flavor/quark_running_mass_scheme_convention_obstruction.json",
+      "related_github_issues": [
+        382
+      ],
+      "status": "closed_structural_scheme_nonidentifiability_obstruction",
+      "target_surfaces": [
+        "code/particles/flavor",
+        "particle paper quark section"
+      ],
+      "title": "Separate source physics from running-mass and Yukawa coordinate conventions"
+    },
+    {
+      "current_boundary": "Representative independence is proved on the selected bridge fiber. It neither selects the two spread moduli nor certifies physical Yukawa matrices. The stronger class-uniform/global classification lane is a corpus-limited no-go because no source-emitted ambient public-frame classifier or quotient-intrinsic spread law exists.",
+      "github_issue": 199,
+      "id": "quark.selected-class-vs-global-classification",
+      "lane": "Quarks",
+      "next_action": "Keep selected-fiber descent scoped to representative independence. Global classification may reopen only for a source-emitted ambient public-frame classifier; numeric mass promotion is governed by the separate spread and scheme obstructions.",
+      "related_github_issues": [
+        378
+      ],
+      "status": "selected_class_descent_closed_global_classification_no_go",
+      "target_surfaces": [
+        "code/particles/flavor",
+        "particle paper quark section"
+      ],
+      "title": "Keep selected-fiber descent distinct from global frame classification"
     },
     {
       "current_boundary": "The weighted-cycle point is a target-informed candidate, not a physical PMNS derivation. Its shared-basis construction cancels the inserted charged basis algebraically; the stored charged artifact is open and nearly degenerate; the same-label scalar inputs inherit an underived family kernel and candidate line lift; and the point fails the official NuFIT 6.1 correlated theta23/delta_CP profile. Absolute-splitting rows are fitted diagnostics.",
@@ -297,7 +339,7 @@
       "title": "Rebuild the neutrino lane from source-closed operator and basis data"
     },
     {
-      "current_boundary": "The selected-class quark support wrapper conditionally carries the running-quark sextet and exact forward Yukawas on the public class f_P, but its sigma datum is still target-derived. The available corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes.",
+      "current_boundary": "The selected-class quark audit wrapper carries target-anchored mass textures on the public class f_P. The two spread moduli are non-identifiable from the source corpus, and the dimensionful mixed-scheme matrices are not certified physical Yukawas. The available corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes.",
       "github_issue": 155,
       "id": "qcd.strong-cp-angle",
       "lane": "Strong CP",

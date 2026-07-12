@@ -24,9 +24,12 @@ def test_quark_public_exact_yukawa_end_to_end_theorem_fails_closed_on_surface_mi
         _load("quark_current_family_transport_frame_strengthened_physical_sigma_lift_theorem.json"),
         _load("overlap_edge_line_lift.json"),
     )
+    exact_pdg = _load("quark_exact_pdg_end_to_end_theorem.json")
+    exact_pdg["exact_running_values_gev"]["s"] *= 1.01
+    exact_pdg["exact_running_values_gev"]["t"] *= 1.01
     payload = build_artifact(
         public_sigma_theorem,
-        _load("quark_exact_pdg_end_to_end_theorem.json"),
+        exact_pdg,
         _load("quark_exact_yukawa_end_to_end_theorem.json"),
         _load("quark_running_mass_scheme_convention_obstruction.json"),
     )

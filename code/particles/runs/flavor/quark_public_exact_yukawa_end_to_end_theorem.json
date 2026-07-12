@@ -1,6 +1,6 @@
 {
   "artifact": "oph_quark_public_exact_yukawa_end_to_end_theorem",
-  "claim_tier": "inconsistent_exact_support_surfaces",
+  "claim_tier": "mixed_scheme_dimensionful_mass_texture_audit",
   "descended_physical_sigma_datum": {
     "eta_ud": 1.139688878603012,
     "sigma_d": 3.300314452061615,
@@ -8,30 +8,32 @@
     "sigma_u": 5.579692209267639
   },
   "display_allowed_as_selected_class_exact_witness": false,
-  "downstream_algebra_closed": true,
-  "generated_utc": "2026-07-12T02:31:12Z",
+  "display_allowed_as_selected_class_mass_texture_audit": true,
+  "downstream_algebra_closed": false,
+  "generated_utc": "2026-07-12T02:48:38Z",
   "lemma_chain": [
     "oph_quark_public_physical_sigma_datum_descent",
     "oph_quark_absolute_readout_algebraic_collapse",
     "oph_quark_exact_pdg_end_to_end_theorem",
     "oph_quark_exact_yukawa_end_to_end_theorem"
   ],
+  "mass_texture_algebra_closed": true,
   "mass_yukawa_consistency": {
     "absolute_tolerance_gev": 1e-08,
     "comparisons": {
       "b": {
-        "absolute_residual_gev": 0.003000000000007219,
-        "consistent_within_tolerance": false,
-        "declared_mass_gev": 4.182999999999994,
+        "absolute_residual_gev": 8.881784197001252e-16,
+        "consistent_within_tolerance": true,
+        "declared_mass_gev": 4.186,
         "forward_yukawa_singular_value": 4.186000000000001,
-        "relative_residual": 0.0007166746297198324
+        "relative_residual": 2.1217831335406715e-16
       },
       "c": {
-        "absolute_residual_gev": 9.999999736698406e-05,
-        "consistent_within_tolerance": false,
-        "declared_mass_gev": 1.2729999999999992,
+        "absolute_residual_gev": 2.631672657571471e-12,
+        "consistent_within_tolerance": true,
+        "declared_mass_gev": 1.2729000000000006,
         "forward_yukawa_singular_value": 1.2729000000026323,
-        "relative_residual": 7.85545933754785e-05
+        "relative_residual": 2.067462218215122e-12
       },
       "d": {
         "absolute_residual_gev": 3.5360776806658833e-13,
@@ -41,18 +43,18 @@
         "relative_residual": 7.523569533331667e-11
       },
       "s": {
-        "absolute_residual_gev": 0.0006000000000149913,
-        "consistent_within_tolerance": false,
-        "declared_mass_gev": 0.09349999999999999,
+        "absolute_residual_gev": 1.49741330446318e-14,
+        "consistent_within_tolerance": true,
+        "declared_mass_gev": 0.09289999999999997,
         "forward_yukawa_singular_value": 0.092899999999985,
-        "relative_residual": 0.006417112299625577
+        "relative_residual": 1.611855010186416e-13
       },
       "t": {
-        "absolute_residual_gev": 0.25235532883147016,
-        "consistent_within_tolerance": false,
-        "declared_mass_gev": 172.35235532883115,
+        "absolute_residual_gev": 2.842170943040401e-14,
+        "consistent_within_tolerance": true,
+        "declared_mass_gev": 172.09999999999965,
         "forward_yukawa_singular_value": 172.09999999999968,
-        "relative_residual": 0.0014641826527406678
+        "relative_residual": 1.6514648129229552e-16
       },
       "u": {
         "absolute_residual_gev": 2.720956658770757e-10,
@@ -62,11 +64,11 @@
         "relative_residual": 1.2597019981533808e-07
       }
     },
-    "consistent": false,
+    "consistent": true,
     "malformed_inputs": [],
     "relative_tolerance": 1e-06,
-    "single_exact_sextet_matrix_pair_claim_allowed": false,
-    "status": "mismatched_mass_sextet_and_forward_yukawa_singular_values"
+    "single_exact_sextet_matrix_pair_claim_allowed": true,
+    "status": "consistent_single_exact_sextet_matrix_pair"
   },
   "minimal_exact_blocker_set": [
     "QUARK_SIGMA_SOURCE_QUOTIENT",
@@ -74,30 +76,32 @@
     "QUARK_EDGE_STATISTICS_CORRECTION_THEOREM",
     "QUARK_SIGMA_REFINEMENT_COMPATIBILITY",
     "NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE",
-    "QUARK_EXACT_MASS_YUKAWA_SURFACE_CONSISTENCY"
+    "QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE"
   ],
   "non_circularity_status": {
-    "exact_mass_yukawa_pair_consistent": false,
+    "exact_mass_yukawa_pair_consistent": true,
     "missing_source_object": "quark_sigma_source_datum_no_target_leak_required",
+    "physical_yukawa_normalization_closed": false,
     "promotion_allowed": false,
     "public_sigma_promotion_allowed": false,
     "public_sigma_proof_status": "blocked_target_derived_sigma_datum_descent",
     "source_sigma_selector_closed": false,
-    "strict_audit_label": "inconsistent_exact_support_surfaces",
+    "strict_audit_label": "mixed_scheme_dimensionful_mass_texture_audit",
     "target_derived_sigma_datum_used": true
   },
   "notes": [
-    "The mass and matrix artifacts are retained for separate audit only; they may not be described as one exact sextet/Yukawa witness while their spectra disagree.",
+    "The numerical matrices are retained as mixed-scheme mass-texture audit witnesses; they are not certified physical Yukawa matrices.",
     "The matrices Y_u and Y_d are the numerical matrices emitted on the local chain; the consistency block records whether their singular values match the separately declared sextet."
   ],
-  "proof_status": "blocked_inconsistent_exact_mass_yukawa_surfaces",
+  "physical_yukawa_construction_closed": false,
+  "proof_status": "blocked_mixed_scheme_dimensionful_mass_textures_not_physical_yukawas",
   "public_exact_outputs": {
     "exact_running_values_gev": {
-      "b": 4.182999999999994,
-      "c": 1.2729999999999992,
+      "b": 4.186,
+      "c": 1.2729000000000006,
       "d": 0.004699999999999999,
-      "s": 0.09349999999999999,
-      "t": 172.35235532883115,
+      "s": 0.09289999999999997,
+      "t": 172.09999999999965,
       "u": 0.0021600000000000005
     },
     "forward_yukawa_artifact": {
@@ -225,10 +229,27 @@
         172.09999999999968
       ]
     },
-    "pair_status": "mismatched_mass_sextet_and_forward_yukawa_singular_values",
-    "single_exact_pair_claim_allowed": false
+    "pair_status": "consistent_single_exact_sextet_matrix_pair",
+    "single_exact_mass_texture_pair_claim_allowed": true,
+    "single_exact_physical_yukawa_pair_claim_allowed": false
   },
   "public_promotion_allowed": false,
+  "scheme_and_dimensional_normalization": {
+    "artifact": "oph_quark_running_mass_scheme_convention_obstruction",
+    "common_renormalization_scale": null,
+    "dimensionless_normalization_supplied": false,
+    "matrix_classification": "mixed_scheme_GeV_mass_texture_matrices",
+    "physical_yukawa_normalization_closed": false,
+    "promotion_requirements": [
+      "transport every running quark coordinate to one declared common scale",
+      "supply the common scheme and threshold-decoupling map",
+      "convert the separate top extraction coordinate to the common running scheme",
+      "emit the running electroweak vev v(mu_common) in the same scheme",
+      "divide the common-scale mass texture by v(mu_common)/sqrt(2)",
+      "certify dimensionless singular values and no-target provenance"
+    ],
+    "proof_status": "closed_structural_finite_renormalization_nonidentifiability_obstruction"
+  },
   "selected_public_physical_frame_class": {
     "representative": {
       "imag": [
@@ -292,7 +313,7 @@
     "local_exact_yukawa_wrapper": "oph_quark_exact_yukawa_end_to_end_theorem",
     "public_sigma_datum_descent": "oph_quark_public_physical_sigma_datum_descent"
   },
-  "target_name": "inconsistent_selected_class_mass_yukawa_support_surfaces",
+  "target_name": "selected_class_mixed_scheme_mass_texture_audit",
   "theorem_scope": "selected_public_physical_quark_frame_class_only",
-  "theorem_statement": "The stored declared mass sextet and forward Yukawa matrices do not form one exact output pair: the singular values of Y_u and Y_d disagree with one or more declared running masses. They remain separate audit surfaces until rebuilt from one common input surface and certified by the mass-Yukawa consistency check. Independently, public source-only promotion still requires a no-target source sigma theorem."
+  "theorem_statement": "The stored matrices reproduce the declared mixed-convention mass coordinates as dimensionful mass textures. They are not physical Yukawa matrices: the artifact supplies neither one common renormalization scale nor threshold transport, top conversion, a running Higgs expectation value, or the dimensionless normalization y_q=sqrt(2)m_q/v. Public physical-Yukawa promotion is blocked independently of the source-spread obstruction."
 }

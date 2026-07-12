@@ -123,8 +123,12 @@ The post-promotion lift slot is packaged in carrier form:
   factorization, the uncentered lift constant, and the interval for `N_det`.
   On the current corpus it emits `no_go_confirmed_new_source_needed`: `M_ch`
   is only formal, the numerical `q_psi` arrow readback is source-open and not
-  stage-indexed, the D10 determinant landing is conditional, and no charged
-  central projector or reference-stage determinant-line trivialization exists.
+  stage-indexed, and the D10 matter-determinant landing is conditional. A D9
+  representation-role projector does isolate a supplied charged Yukawa channel
+  with exact zero quark leakage, but it neither attaches D10 nor normalizes the
+  determinant line. The exact countermodel `Y_e -> exp(kappa) Y_e` preserves all
+  declared antecedents and ratios while shifting `log|det Y_e|` by `3 kappa`;
+  the proposed reference-stage `q` also fails to provide a finite trivialization.
   The ledger may flip only for a source-only certificate with zero leakage and
   a singleton residual interval `[0, 0]`; an interval merely containing zero
   remains non-promoting.

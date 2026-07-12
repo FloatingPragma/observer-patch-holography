@@ -206,17 +206,18 @@ def _charged_trace_lift_gate() -> dict[str, Any]:
     else:
         status = "closed_current_corpus_charged_end_to_end_no_go"
         boundary = (
-            "The #546 trace-lift audit remains fail-closed. Its current-corpus no-go shows that "
-            "even a granted additive D10 sector split retains the redistribution symmetry "
-            "s_det^ch -> s_det^ch + 3 kappa, s_det^rest -> s_det^rest - 3 kappa. The corpus "
-            "also lacks a numeric source-emitted M_ch, source-closed stage-indexed q, a charged "
-            "central projector/leakage certificate, a numeric D10 s_det landing, and a normalized "
-            "reference-stage determinant-line attachment."
+            "The #546 audit proves exact representation-level isolation of a supplied D9 charged "
+            "Yukawa channel, with zero quark leakage, but no D10 determinant attachment. Its "
+            "existing-axiom countermodel Y_e -> exp(kappa)Y_e preserves every declared source "
+            "antecedent and all ratios while shifting log|det Y_e| by 3 kappa. The corpus also "
+            "lacks a numeric source-emitted M_ch, source-closed stage-indexed q, a numeric D10 "
+            "matter s_det landing, and a finite normalized reference-stage attachment."
         )
         next_action = (
-            "Keep charged masses suppressed. Reopen only for the theorem-grade sector-isolated "
-            "normalized charged determinant-line attachment named by #546; the gate flips only "
-            "when N_det has the certified singleton interval [0,0]."
+            "Keep charged masses suppressed. Under the no-new-axiom rule, reopen only if an "
+            "already-declared determinant-sensitive source observable is exhibited that breaks "
+            "the kappa countermodel; the gate still flips only when N_det has the certified "
+            "singleton interval [0,0]."
         )
 
     return {

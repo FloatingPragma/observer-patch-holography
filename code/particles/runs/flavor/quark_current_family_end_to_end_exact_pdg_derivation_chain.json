@@ -1,9 +1,26 @@
 {
   "artifact": "oph_quark_current_family_end_to_end_exact_pdg_derivation_chain",
+  "comparison_coordinate_partition": {
+    "heavy_running_coordinates": [
+      "c",
+      "b"
+    ],
+    "light_running_coordinates": [
+      "u",
+      "d",
+      "s"
+    ],
+    "separate_extraction_coordinates": [
+      "t"
+    ],
+    "single_running_quark_sextet_claim_allowed": false
+  },
   "exact_forward_yukawas_artifact": {
     "artifact": "oph_quark_current_family_transport_frame_exact_forward_yukawas",
     "certification_status": "forward_matrix_certified",
+    "certified_physical_yukawa_matrices": false,
     "forward_certified": true,
+    "matrix_kind": "mixed_scheme_GeV_mass_texture_matrices",
     "scope": "current_family_common_refinement_transport_frame_only",
     "singular_values_d": [
       0.0046999999996463915,
@@ -24,7 +41,7 @@
     "t": 172.09999999999965,
     "u": 0.0021600000000000005
   },
-  "generated_utc": "2026-07-12T02:31:12Z",
+  "generated_utc": "2026-07-12T02:48:37Z",
   "lemma_chain": [
     {
       "artifact": "oph_quark_target_free_bridge_theorem",
@@ -71,7 +88,7 @@
     },
     {
       "artifact": "oph_quark_current_family_transport_frame_exact_forward_yukawas",
-      "lemma": "exact_forward_yukawa_emission",
+      "lemma": "dimensionful_mass_texture_emission",
       "result": {
         "certification_status": "forward_matrix_certified",
         "forward_certified": true,
@@ -82,18 +99,21 @@
   ],
   "minimal_exact_blocker_set": [],
   "notes": [
-    "This is the full exact derivation chain on the declared current-family/common-refinement surface.",
-    "The transport-frame lift and exact sigma target are explicit theorem artifacts on that surface rather than placeholder gaps.",
-    "Public target-free promotion of this chain is a separate question and is not claimed here."
+    "This is an exact target-anchored audit chain on the declared current-family/common-refinement surface.",
+    "The dimensionful matrices are mass textures until a common-scale dimensionless normalization is supplied.",
+    "Source-only promotion also fails the independent two-modulus spread non-identifiability theorem."
   ],
+  "physical_dimensionless_yukawa_claim_allowed": false,
   "proof_status": "closed_current_family_end_to_end_exact_pdg_chain",
   "public_promotion_allowed": false,
+  "single_running_quark_sextet_claim_allowed": false,
   "strengthening_above_target": {
     "name": "target_free_public_physical_sheet_promotion",
     "note": "The exact derivation target recorded here is closed on the declared current-family/common-refinement transport-frame carrier. Promoting that chain to a stronger target-free public physical-sheet theorem is a separate strengthening and is not part of this target.",
     "status": "separate_question"
   },
-  "target_name": "exact_running_quark_sextet_on_declared_current_family_transport_frame",
+  "target_anchored": true,
+  "target_name": "exact_mixed_convention_quark_target_packet_on_declared_current_family_transport_frame",
   "theorem_scope": "current_family_common_refinement_transport_frame_only",
-  "theorem_statement": "On the declared current-family/common-refinement transport-frame surface, the OPH bridge theorem emits the D12 mass scalar package, the strengthened transport-frame physical sigma lift emits a sector-attached Sigma_ud^phys class together with the theorem-grade physical sigma datum, the affine mean law forces the absolute sector scales, and the ordered three-point readout reconstructs the exact current-family PDG running quark sextet."
+  "theorem_statement": "On the declared current-family/common-refinement transport-frame audit surface, the target-attached sigma datum and ordered three-point readout reconstruct the chosen six-row comparison packet. That packet mixes light MSbar coordinates at 2 GeV, charm and bottom MSbar self-scale coordinates, and a separate top pole extraction coordinate. It is therefore neither one running sextet nor a source-only prediction."
 }
