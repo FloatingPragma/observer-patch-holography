@@ -26,10 +26,14 @@ Primary derivation surfaces:
   (`python3 code/geometry/modular_clock_instrumentation.py`, needs mpmath):
   120-digit arc entanglement Hamiltonians on the boundary collars whose
   resummed velocity profiles witness the 2-pi-KMS and modular cross-ratio
-  receipts. Current verdict: topology/mesh and boundary-collar modular
-  families realized; cap-interior, null-net, event, and physical families
-  pending; realized geometric branch not certified nonempty. Run with
-  `python3 -m pytest code/geometry/`.
+  receipts, and the null-net instrumentation
+  (`python3 code/geometry/null_net_receipts.py`): NTI, weak additivity,
+  separating moduli, mixed-GNS Cauchy, one-particle HSM compression, and
+  percent-level modular Lie closure (rate open). Current verdict: topology,
+  mesh, boundary-collar modular, and one-particle null-net families
+  realized; Cyc limit, second-quantized MI, cap-interior, event, and
+  physical families pending; realized geometric branch not certified
+  nonempty. Run with `python3 -m pytest code/geometry/`.
 
 Supplemental and benchmark surfaces:
 

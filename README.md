@@ -402,12 +402,18 @@ modular cross-ratio and geometric 2-pi-KMS receipts on realized Gaussian
 MaxEnt states over the cap-boundary collars (interior modular-velocity
 profile matching the 2-pi conformal prediction to 1.1e-4 with the
 wrong-normalization control separated; modular-transport cross-ratios
-Cauchy-converging to the Moebius values to 2.3e-3), while the cap-interior,
-null-net, event, and physical-identification receipt families remain
-pending. The realized geometric branch is therefore still not certified
-nonempty: derivation complete on the receipt branch; topology, mesh, and
-boundary-collar modular families realized; cap-interior and downstream
-instrumentation open.
+Cauchy-converging to the Moebius values to 2.3e-3), and the null-net instrumentation witnesses the standardness families on
+the same states: nontrivial relative commutants, weak additivity, strictly
+positive separating moduli, mixed-GNS Cauchy behaviour, the one-particle
+half-sided-inclusion compression condition (chiral leakage asymmetry with a
+built-in null control), and percent-level modular Lie closure against the
+conformal structure-constant prediction (convergence rate still open). The
+Cyc limit clause, second-quantized modular intersections, cap-interior
+data, event receipts on realized records, and the physical-identification
+receipts remain pending. The realized geometric branch is therefore still
+not certified nonempty: derivation complete on the receipt branch;
+topology, mesh, boundary-collar modular, and one-particle null-net
+families realized; event/physical instrumentation and limit clauses open.
 
 Screen-spectrum and CMB continuations are provisional without the screen
 branch's geometric scale, source dynamics, clock, refinement behavior, and

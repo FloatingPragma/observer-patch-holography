@@ -44,6 +44,7 @@ ROOT = HERE.parents[1]
 TREE_ARTIFACT = ROOT / "code" / "consensus" / "runs" / "verified_tree_packet_net_domain.json"
 CYCLIC_ARTIFACT = HERE / "runs" / "cyclic_cap_net_run_domain.json"
 MODULAR_ARTIFACT = HERE / "runs" / "modular_clock_instrumentation_report.json"
+NULLNET_ARTIFACT = HERE / "runs" / "null_net_receipt_report.json"
 REPORT_PATH = HERE / "runs" / "realized_branch_receipt_report.json"
 
 
@@ -116,6 +117,16 @@ def build_report() -> dict:
 
     cyclic = cyclic_run_summary()
     modular = modular_instrumentation_summary()
+    nullnet = None
+    if NULLNET_ARTIFACT.exists():
+        with open(NULLNET_ARTIFACT) as f:
+            nn = json.load(f)
+        nullnet = {
+            "source": "code/geometry/runs/null_net_receipt_report.json",
+            "scope": nn["scope"],
+            "receipts_witnessed": nn["receipts_witnessed"],
+            "receipts_pending": nn["receipts_pending"],
+        }
 
     evaluations = {
         "verified_tree_packet_net_domain": {
@@ -133,6 +144,8 @@ def build_report() -> dict:
         evaluations["cyclic_cap_net_repair_run"] = cyclic
     if modular is not None:
         evaluations["modular_clock_instrumentation"] = modular
+    if nullnet is not None:
+        evaluations["null_net_receipts"] = nullnet
 
     # full nonemptiness needs ALL finite receipt families on one realized
     # tower; the cyclic run witnesses the D1 + incidence + mesh + naturality
@@ -145,17 +158,27 @@ def build_report() -> dict:
                     and all(cyclic["receipts_witnessed"].values()))
     modular_ok = bool(modular is not None
                       and all(modular["receipts_witnessed"].values()))
-    if topology and modular_ok:
+    nullnet_ok = bool(nullnet is not None
+                      and all(nullnet["receipts_witnessed"].values()))
+    if topology and modular_ok and nullnet_ok:
         status = (
             "OPEN: the cyclic cap-net repair run realizes the D1 repair "
             "clauses with the spherical-incidence, mesh, and naturality "
-            "receipts (explicit branch selection), and the free-fermion "
+            "receipts (explicit branch selection); the free-fermion "
             "boundary-collar instrumentation witnesses the modular "
-            "cross-ratio and geometric 2pi-KMS receipts on the declared "
-            "Gaussian MaxEnt states; cap-interior modular data, the "
-            "null-net families, the event families, and the physical-"
-            "identification receipts remain pending, so #503 stays open on "
-            "the full nonemptiness clause."
+            "cross-ratio and geometric 2pi-KMS receipts; and the null-net "
+            "instrumentation witnesses NTI, weak additivity, separating "
+            "faithfulness, mixed-GNS Cauchy, one-particle HSM compression, "
+            "and percent-level modular Lie closure (rate clause open). "
+            "Remaining pending: Cyc limit clause, Lie-closure rate, "
+            "second-quantized MI, E1-E4 event receipts on realized records, "
+            "and the UC/VR/scale physical-identification receipts; #503 "
+            "stays open on the full nonemptiness clause."
+        )
+    elif topology and modular_ok:
+        status = (
+            "OPEN: topology/mesh and boundary-collar modular families "
+            "realized; null-net receipt evaluation incomplete."
         )
     elif topology:
         status = (
@@ -175,6 +198,7 @@ def build_report() -> dict:
         "realized_geometric_branch_certified_nonempty": False,
         "topology_mesh_families_realized_with_branch_selection": topology,
         "boundary_collar_modular_families_witnessed": modular_ok,
+        "null_net_families_witnessed_one_particle": nullnet_ok,
         "status": status,
     }
 

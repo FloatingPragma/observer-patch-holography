@@ -357,7 +357,7 @@
     },
     {
       "claim_id": "OPH-GR-E2E-BRANCH-ENTRY",
-      "statement": "The full chain from repaired finite quotient normal forms to the semiclassical Einstein equation is composed into one typed theorem with partitioned inputs (foundational axioms; decidable finite receipts; scaling receipts; physical-identification receipts), composable error envelopes, and a no-hidden-geometry proposition showing the receipt list is minimal (deleting any family readmits its countermodel). Nonemptiness of the realized branch is machine-checkable; the current evaluation: the rooted-tree export fails spherical incidence; a genuine cyclic cap-net repair run (runtime-verified D1 clauses on a three-stage refinement tower) passes the spherical-incidence/mesh/naturality receipts on its own repaired output under explicit branch selection; the free-fermion modular-clock instrumentation witnesses the modular cross-ratio and geometric 2pi-KMS receipts on realized Gaussian MaxEnt boundary-collar states (profile residual 1.1e-4, wrong normalization separated, cross-ratios Cauchy to Moebius at 2.3e-3); the cap-interior, null-net, event, and physical-identification receipt families remain pending, so the realized geometric branch is still not certified nonempty and issue #503 remains open on exactly this clause.",
+      "statement": "The full chain from repaired finite quotient normal forms to the semiclassical Einstein equation is composed into one typed theorem with partitioned inputs (foundational axioms; decidable finite receipts; scaling receipts; physical-identification receipts), composable error envelopes, and a no-hidden-geometry proposition showing the receipt list is minimal (deleting any family readmits its countermodel). Nonemptiness of the realized branch is machine-checkable; the current evaluation: the rooted-tree export fails spherical incidence; a genuine cyclic cap-net repair run (runtime-verified D1 clauses on a three-stage refinement tower) passes the spherical-incidence/mesh/naturality receipts on its own repaired output under explicit branch selection; the free-fermion modular-clock instrumentation witnesses the modular cross-ratio and geometric 2pi-KMS receipts on realized Gaussian MaxEnt boundary-collar states (profile residual 1.1e-4, wrong normalization separated, cross-ratios Cauchy to Moebius at 2.3e-3); the null-net instrumentation witnesses NTI, weak additivity, separating faithfulness, mixed-GNS Cauchy, one-particle HSM compression (chiral leakage asymmetry >= 9.6 with a null control), and percent-level modular Lie closure against the conformal structure constants (rate clause open); the Cyc limit, second-quantized MI, cap-interior, event, and physical-identification families remain pending, so the realized geometric branch is still not certified nonempty and issue #503 remains open on exactly this clause.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "composed_conditional_theorem_with_open_nonemptiness",
       "assumptions": [
@@ -376,7 +376,9 @@
         "code/geometry/cyclic_cap_net_run.py",
         "code/geometry/runs/cyclic_cap_net_run_domain.json",
         "code/geometry/modular_clock_instrumentation.py",
-        "code/geometry/runs/modular_clock_instrumentation_report.json"
+        "code/geometry/runs/modular_clock_instrumentation_report.json",
+        "code/geometry/null_net_receipts.py",
+        "code/geometry/runs/null_net_receipt_report.json"
       ],
       "falsifier": "An arrow of the composition fails on its stated inputs, a hidden geometric input is found in the input form, or the nonemptiness evaluation is misreported.",
       "scope_if_false": "The composed theorem reopens at the failing arrow; individual packets keep their own statuses.",

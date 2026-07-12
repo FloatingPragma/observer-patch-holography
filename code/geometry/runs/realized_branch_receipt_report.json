@@ -61,10 +61,30 @@
       ],
       "kms_final_median_residual": 0.00011239035725785218,
       "crossratio_final_relative_error": 0.0022954122547074185
+    },
+    "null_net_receipts": {
+      "source": "code/geometry/runs/null_net_receipt_report.json",
+      "scope": "one-particle-level finite receipts on the declared Gaussian collar family; the Cyc limit clause and all second-quantized scaling-limit clauses remain the paper's theorems/receipts, and the E1-E4 event and UC/VR/scale physical families are outside this module",
+      "receipts_witnessed": {
+        "nti": true,
+        "weak_additivity": true,
+        "separating_faithfulness": true,
+        "mixed_gns_cauchy": true,
+        "hsm_compression_one_particle": true,
+        "modular_lie_closure_percent_level": true
+      },
+      "receipts_pending": [
+        "Cyc limit clause (cyclicity modulus along refinement)",
+        "Lie-closure convergence rate (percent-level match witnessed; the decay of the smooth subleading systematic is uncertified)",
+        "second-quantized MI relations (one-particle Lie closure is the finite surrogate)",
+        "E1-E4 event receipts on realized records",
+        "UC/VR/scale physical-identification receipts"
+      ]
     }
   },
   "realized_geometric_branch_certified_nonempty": false,
   "topology_mesh_families_realized_with_branch_selection": true,
   "boundary_collar_modular_families_witnessed": true,
-  "status": "OPEN: the cyclic cap-net repair run realizes the D1 repair clauses with the spherical-incidence, mesh, and naturality receipts (explicit branch selection), and the free-fermion boundary-collar instrumentation witnesses the modular cross-ratio and geometric 2pi-KMS receipts on the declared Gaussian MaxEnt states; cap-interior modular data, the null-net families, the event families, and the physical-identification receipts remain pending, so #503 stays open on the full nonemptiness clause."
+  "null_net_families_witnessed_one_particle": true,
+  "status": "OPEN: the cyclic cap-net repair run realizes the D1 repair clauses with the spherical-incidence, mesh, and naturality receipts (explicit branch selection); the free-fermion boundary-collar instrumentation witnesses the modular cross-ratio and geometric 2pi-KMS receipts; and the null-net instrumentation witnesses NTI, weak additivity, separating faithfulness, mixed-GNS Cauchy, one-particle HSM compression, and percent-level modular Lie closure (rate clause open). Remaining pending: Cyc limit clause, Lie-closure rate, second-quantized MI, E1-E4 event receipts on realized records, and the UC/VR/scale physical-identification receipts; #503 stays open on the full nonemptiness clause."
 }

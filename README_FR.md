@@ -452,12 +452,20 @@ des états MaxEnt gaussiens réalisés sur les colliers de bord des caps
 (profil de vitesse modulaire intérieur conforme à la prédiction conforme
 2-pi à 1,1e-4 près avec le contrôle de mauvaise normalisation séparé ;
 birapports de transport modulaire convergeant au sens de Cauchy vers les
-valeurs de Moebius à 2,3e-3 près), tandis que les familles de reçus
-d'intérieur de cap, de réseau nul, d'événements et d'identification
-physique restent en attente. La branche géométrique réalisée n'est donc
-toujours pas certifiée non vide : dérivation complète sur la branche des
-reçus ; familles topologie, maille et modulaires de collier de bord
-réalisées ; instrumentation d'intérieur de cap et en aval ouverte.
+valeurs de Moebius à 2,3e-3 près), et l'instrumentation de réseau nul témoigne des familles de standardité
+sur les mêmes états : commutants relatifs non triviaux, additivité faible,
+modules séparants strictement positifs, comportement de Cauchy mixte-GNS,
+condition de compression d'inclusion demi-latérale au niveau
+une-particule (asymétrie de fuite chirale avec contrôle nul intégré) et
+clôture de Lie modulaire au niveau du pour-cent contre la prédiction des
+constantes de structure conformes (taux de convergence encore ouvert). La
+clause limite Cyc, les intersections modulaires secondes-quantifiées, les
+données d'intérieur de cap, les reçus d'événements sur enregistrements
+réalisés et les reçus d'identification physique restent en attente. La
+branche géométrique réalisée n'est donc toujours pas certifiée non vide :
+dérivation complète sur la branche des reçus ; familles topologie, maille,
+modulaires de collier de bord et de réseau nul une-particule réalisées ;
+instrumentation événements/physique et clauses limites ouvertes.
 
 Les continuations de spectre d'écran et de CMB sont provisoires sans l'échelle
 géométrique de la branche écran, sa dynamique source, son horloge, son
