@@ -194,8 +194,9 @@ two profile shapes but leave their positive spreads independent, so numeric
 quark rows do not close. The weighted-cycle neutrino entry is a target-informed
 comparison candidate rejected by the correlated NuFIT 6.1 profile. Its charged
 basis is open and has nearly degenerate singular values, leaving the physical
-PMNS matrix, mass ordering, and absolute scale unresolved. Charged leptons use
-more empirical anchoring. Composite particles like hadrons demand the hard
+PMNS matrix, mass ordering, and absolute scale unresolved. Charged leptons carry
+an accurate frozen Stage-5 postdiction whose balance, phase, determinant, and
+mass-scheme bridges remain unproved. Composite particles like hadrons demand the hard
 strong-interaction calculation, and empirical hadron checks use the standard
 \(e^+e^-\to\mathrm{hadrons}\) data. Stitching a detector track across a chart
 boundary is another layer again: it can identify one nonbranching

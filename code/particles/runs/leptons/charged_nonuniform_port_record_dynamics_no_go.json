@@ -1,0 +1,64 @@
+{
+  "artifact": "oph_charged_nonuniform_port_record_dynamics_no_go",
+  "claim_boundary": "A nonuniform twelve-port record is not derivable from the current homogeneous OPH screen dynamics. It requires a new observer-conditioned non-equilibrium or spontaneous-symmetry-breaking branch with its own refinement theorem.",
+  "declared_branch": {
+    "convex_cost": "C(q)=sum_i q_i^2",
+    "homogeneous_MaxEnt_constraints": true,
+    "no_marked_point": true,
+    "port_count": 12,
+    "total_curvature_charge": 12.0,
+    "uniform_minimizer_cost": 12.0,
+    "unique_minimizer": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "nonuniform_record_derived": false,
+  "public_charged_mass_promotion_allowed": false,
+  "smallest_consistent_extension": {
+    "branch_status": "not contained in the homogeneous finite-parameter MaxEnt/refinement branch; the main paper classifies local multipliers as a non-equilibrium enlarged family",
+    "id": "observer_conditioned_non_equilibrium_port_record_branch",
+    "not_allowed": "choosing c_i or lambda_i from electron, muon, or tau masses",
+    "required_objects": [
+      "a port-local gauge-invariant observable O_i in the existing screen algebra",
+      "source-emitted nonuniform constraint values c_i=<O_i> or local multipliers lambda_i",
+      "an observer readback record that selects the A5 orbit without port IDs",
+      "a refinement transport theorem preserving the selected non-singlet moment and a simple quadrupole spectrum",
+      "a physical argument attaching the resulting spectral lines to the charged sector",
+      "a hash-bound no-target-leak packet frozen before charged-mass comparison"
+    ]
+  },
+  "status": "CLOSED_NO_GO_CURRENT_OPH_SCREEN_DYNAMICS_FORCE_UNIFORM_RECORD",
+  "theorem": {
+    "checks": {
+      "first_moment_norm": 0.0,
+      "quadrupole_norm": 0.0,
+      "uniform_minimum_matches_certificate": true
+    },
+    "id": "homogeneous_MaxEnt_icosahedral_dynamics_forbid_deterministic_non_singlet_port_record",
+    "proof": [
+      "Cauchy-Schwarz gives sum_i q_i^2 >= (sum_i q_i)^2/12 = 12, with equality iff every q_i=1.",
+      "The screen certificate attains equality with twelve unit defects.",
+      "The constraint set and entropy are invariant under the transitive A5 port action.",
+      "Strict concavity makes the MaxEnt state unique, so applying any A5 permutation returns the same state.",
+      "Every one-port expectation is therefore equal; centering annihilates the record.",
+      "Individual fluctuations do not select an ID-independent refinement-stable orientation unless an additional record/conditioning rule is emitted."
+    ],
+    "statement": "On the declared twelve-port screen branch, fixed total charge 12 and strictly convex defect cost force q_i=1 at every port. The homogeneous no-marked-point MaxEnt constraints are A5-invariant; uniqueness from strict entropy concavity therefore makes the expected port record A5-invariant and uniform. Its centered first and quadrupole moments vanish. Consequently the current OPH dynamics cannot derive a deterministic refinement-stable non-singlet port record."
+  },
+  "why_fluctuations_do_not_close_the_gap": {
+    "ensemble_non_singlet_expectation": 0,
+    "refinement_problem": "no emitted persistence or spontaneous-symmetry-breaking selection theorem",
+    "sample_orientation": "random_A5_orbit_without_canonical_family_attachment"
+  }
+}

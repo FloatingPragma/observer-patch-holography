@@ -1,0 +1,44 @@
+{
+  "artifact": "oph_charged_z3_phase_holonomy_no_go",
+  "claim_boundary": "The arithmetic identity (N_c+1)/(2 N_c N_g)=2/9 is not a phase-transport theorem.",
+  "countermodels": {
+    "identity_transport": {
+      "Q": 0.666666666666667,
+      "delta_radians": 0.0,
+      "ordered_roots": [
+        0.29289321881345176,
+        0.29289321881345265,
+        2.414213562373095
+      ],
+      "positive_roots": true,
+      "trace": 2.999999999999999,
+      "trace_square": 5.999999999999999
+    },
+    "stage5": {
+      "Q": 0.6666666666666669,
+      "delta_radians": 0.2222222222222222,
+      "ordered_roots": [
+        0.040349908219207364,
+        0.5802119201475366,
+        2.3794381716332555
+      ],
+      "positive_roots": true,
+      "trace": 2.9999999999999996,
+      "trace_square": 6.0
+    }
+  },
+  "missing_source_objects": [
+    "a physical C3 generation bundle",
+    "a source-emitted oriented U(1) flavor connection and declared loop",
+    "a gauge-invariant law fixing the total loop holonomy",
+    "an equal-link gauge convention and orientation rule",
+    "an attachment of the resulting roots to physical charged-family lines"
+  ],
+  "public_phase_promotion_allowed": false,
+  "status": "CLOSED_NO_GO_CURRENT_OPH_DATA_LEAVE_PHASE_CONTINUOUS",
+  "theorem": {
+    "family_gauge_boundary": "Hypercharge acts on three generation copies as exp(i Y theta) I_3 and supplies a common phase, not the cyclic family shift.",
+    "physical_loop_invariant": "arg(C_12 C_23 C_31)=3 delta mod 2 pi",
+    "statement": "The balanced Hermitian Z3 circulant has trace 3, squared trace 6, and Q=2/3 for every phase delta. Hence balance, Z3 symmetry, and the current invariant counts do not select delta=2/9."
+  }
+}

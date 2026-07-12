@@ -11,6 +11,32 @@ The live chain is:
 5. build the log-spectrum readout
 6. attach the scale/norm lane and emit the forward charged candidate
 
+## Frozen Stage-5 Postdiction Audit
+
+The historical Stage-5 formula has been preserved as a reproducible
+postdiction, separate from the theorem-grade completion lane:
+
+- `derive_charged_stage5_frozen_candidate.py` freezes the legacy
+  `P = 1.63094` branch and emits
+  `(m_e,m_mu,m_tau) = (0.510882243295, 105.635282871,
+  1776.579124017) MeV`, with maximum comparison error `0.02284%`.
+- `audit_charged_stage5_frozen_candidate.py` records that the same formula on
+  the current public-pixel probe has maximum error `0.08347%`, and that no
+  charged RG/threshold map to the compared pole-mass scheme is supplied.
+- `derive_charged_z3_maxent_balance_audit.py` proves the conditional block
+  identity and records the counterresult: natural trace MaxEnt weights the
+  real singlet and charged doublet as `1:2`. Koide balance needs a separately
+  derived one-bit compensation and an ensemble-to-Yukawa bridge.
+- `derive_charged_z3_phase_holonomy_no_go.py` certifies that the arithmetic
+  identity `2/9` is not a family-holonomy theorem. Hypercharge acts as a common
+  generation phase and does not generate the cyclic family shift.
+
+The frozen formula does not read charged reference masses at runtime, but its
+balanced carrier, phase, exponent prescription, `2^(1/6)` normalization,
+determinant attachment, family assignment, and mass-scheme bridge are not
+derived from current OPH axioms. It is therefore an accurate historical
+postdiction, not a promoted prediction.
+
 ## How To Read The Active Charged-Lepton Files
 
 The live charged scripts use the same compact derivation header:

@@ -228,10 +228,10 @@ Symbol & Definition & Informal meaning \\
 \(v(P)\) & \(E_{\mathrm{cell}}(P)\exp[-2\pi/(\beta_{\mathrm{EW}}\alpha_U(P))]\) & The electroweak transmutation scale. \\
 \(\beta_{\mathrm{EW}}\) & \(\Nc+1=4\) for \(\Nc=3\) & The coefficient that controls the exponential drop to the electroweak scale. \\
 \(\AZ(P)\) & \(\alpha_{\mathrm{em}}^{-1}(m_Z^2;P)\) & The electroweak-scale electromagnetic anchor. \\
-\(\Dlep(P)\) & Lepton transport contribution to inverse alpha & The exact one-loop \(e,\mu,\tau\) contribution. \\
+\(\Dlep(P)\) & Lepton transport contribution to inverse alpha & The exact one-loop kernel evaluated on the frozen phenomenological \(e,\mu,\tau\) spectrum. \\
 \(\Dhad(P)\) & Hadronic transport contribution & The low-energy QCD spectral contribution needed for the pure source calculation. \\
 \(\DEW(P)\) & Electroweak/scheme endpoint remainder & Same-scheme finite remainder needed to connect the source anchor to the endpoint. \\
-\(\Dcalc(P)\) & Calculated charged-fermion transport contribution & The exact lepton term plus the screened quark continuation used by the source calculation. \\
+\(\Dcalc(P)\) & Calculated charged-fermion transport contribution & The exact kernel on the supplied lepton continuation plus the screened quark continuation; not a pure source prediction. \\
 \(\Dcalib^{\mathrm{fp}}\) & Root-to-CODATA bookkeeping difference & The inverse-alpha amount between the naked root value and the CODATA/NIST central endpoint; it includes the comparison-pixel \(\alpha_U(\Ppub)\) contribution and is not the post-\(\alpha_U\) hadronic gap. \\
 \(\Dhadreq^{\mathrm{fp}}\) & Required hadronic endpoint correction after \(A_{\alpha_U}^{\mathrm{fp}}\) & The inverse-alpha amount by which the current OPH output misses the CODATA/NIST central endpoint. \\
 \(\Rq(P)\) & \(\ATh(P)-[\AZ(P)+\Dcalc(P)]\) & The remaining same-scheme hadronic endpoint contribution. \\
@@ -530,9 +530,12 @@ Informally: the source map has reached the electromagnetic coupling at the elect
 
 Why this step is needed: \(\AZ(P)\) is the clean place where the source map meets standard electroweak physics. From here the problem becomes a transport problem for the electromagnetic current.
 
-\section{Step 13: Charged Spectrum Used by the Transport}
+\section{Step 13: Frozen Charged-Spectrum Continuation Used by the Transport}
 
-The exact one-loop transport uses \(\Nc=3\), \(\Ng=3\), and
+The one-loop kernel below is exact for supplied fermion masses, but the charged
+spectrum supplied to it in this section is a phenomenological continuation,
+not an OPH-derived mass theorem.  It uses \(\Nc=3\), \(\Ng=3\), and the
+additional assumptions
 \begin{equation}
 \epsilon=\frac16,
 \qquad
@@ -540,6 +543,20 @@ The exact one-loop transport uses \(\Nc=3\), \(\Ng=3\), and
 =\frac{2}{9}.
 \label{eq:epsdelta}
 \end{equation}
+The current OPH corpus does not derive the balanced-circulant condition
+\(|b|/a=1/\sqrt2\), a phase-transport law fixing \(\delta=2/9\), or the
+attachment of the ordered roots to physical charged-family lines.  For a
+general Hermitian circulant the square-root-mass invariant is
+\[
+Q=\frac{1+2|b/a|^2}{3},
+\]
+so \(|b|/a=1/\sqrt2\) is exactly equivalent to imposing the empirical Koide
+value \(Q=2/3\); it is not a consequence of circulant symmetry alone.  Nor
+does the declared MaxEnt law automatically supply it: the natural trace base
+weights the real singlet and charged doublet as \(1{:}2\).  Equal block power
+requires a separately derived action gap \(S_c-S_0=\ln2\) and a bridge from
+ensemble probabilities to deterministic Yukawa powers.  No current \(12/24\)
+receipt supplies that attachment.
 Define three Koide roots
 \begin{equation}
 r_k=1+\sqrt2\cos\!\left(\delta+\frac{2\pi k}{3}\right),
@@ -576,6 +593,13 @@ For charged leptons the exponent vector is
 \bm n_e=(7,4,3).
 \label{eq:lepexp}
 \end{equation}
+This vector and the normalization below belong to the same frozen Stage-5
+continuation.  In particular, the present corpus does not derive
+\(\bm n_e=(7,4,3)\) or the resulting determinant identity
+\(\det M_e=v(P)^3/(2\,6^{14})\) from the OPH axioms.  The historical scan fixes
+only exponent differences: every common shift \((7+k,4+k,3+k)\) has the same
+ratio residual while changing the determinant.  The extra factor \(2^{1/6}\)
+below is asserted rather than derived.
 Define
 \begin{equation}
 \log g_c
@@ -601,9 +625,40 @@ m_\tau=s_e r_3^2.
 \label{eq:lepmasses}
 \end{equation}
 
-Informally: this section specifies the charged masses used by the source transport. The lepton part is a clean one-loop calculation. The quark part is a perturbative continuation. The confined hadronic QCD spectral measure is a separate low-energy object.
+On the frozen legacy D10 running-tree branch \(P=1.63094\),
+\(v=246.76711732749683\,\mathrm{GeV}\), this construction evaluates to
+\begin{equation}
+\begin{aligned}
+m_e^{\mathrm{S5}}&=0.510882243295\,\mathrm{MeV},\\
+m_\mu^{\mathrm{S5}}&=105.635282871\,\mathrm{MeV},\\
+m_\tau^{\mathrm{S5}}&=1776.579124017\,\mathrm{MeV}.
+\end{aligned}
+\label{eq:lepmassesstagefive}
+\end{equation}
+Against the comparison packet the residuals are approximately \(-228\),
+\(-219\), and \(-197\) ppm, respectively, with maximum absolute mass error
+\(0.02284\%\).  On the current public-pixel probe
+\(P=1.6309681897\), \(v=246.6174823334856\,\mathrm{GeV}\), the same formula gives
+\((0.510572453797,105.571227599,1775.501839453)\,\mathrm{MeV}\) and maximum
+error \(0.08347\%\).  These numbers therefore document an accurate, but
+branch-sensitive, complete postdiction.  They are not a prospective OPH
+prediction: reference masses are absent at runtime, but the frozen formula
+family has historical post-hoc ancestry.  Moreover, no charged RG/threshold
+theorem maps this historical mass coordinate to the pole masses used for the
+ppm comparison. Its executable receipt is
+\texttt{code/particles/runs/leptons/charged\_stage5\_frozen\_candidate.json}.
 
-Why this step is needed: vacuum polarization depends on charged particles. The transport step cannot be evaluated until the charged spectrum and its charges are specified.
+Informally: this section specifies a frozen continuation spectrum used by the
+transport diagnostic.  The lepton vacuum-polarization kernel is an exact
+one-loop calculation conditional on those masses; that exactness does not
+promote the masses themselves.  The quark part is also a perturbative
+continuation. The confined hadronic QCD spectral measure is a separate
+low-energy object.
+
+Why this step is needed: vacuum polarization depends on charged particles. The
+transport diagnostic cannot be evaluated until a charged spectrum and its
+charges are supplied.  A pure OPH source theorem would first have to replace
+the continuation spectrum by independently derived charged masses.
 
 \section{Step 14: Exact One-Loop Fermion Transport}
 
@@ -675,7 +730,10 @@ Thus
 \label{eq:Dcalc}
 \end{equation}
 
-Informally: charged leptons are treated by an exact one-loop kernel. Quarks are treated by a perturbative expression with a simple screening factor. The expected gap is the confined hadronic spectral transport plus the matching terms needed to use the same electromagnetic-current convention all the way to the endpoint.
+Informally: the supplied charged-lepton continuation is propagated through an
+exact one-loop kernel. Quarks are treated by a perturbative expression with a
+simple screening factor. The expected gap is the confined hadronic spectral
+transport plus the matching terms needed to use the same electromagnetic-current convention all the way to the endpoint.
 
 Why this step is needed: the Thomson endpoint is not the same as the \(Z\)-scale anchor. Charged particles screen the electromagnetic current between those scales, and the kernel is the mathematical form of that screening.
 
@@ -1271,9 +1329,9 @@ Gauge running & Eq.~\eqref{eq:running} & Defined and calculated. \\
 \(Z\)-scale self-consistency & Eq.~\eqref{eq:mZfixed} & Defined and calculated. \\
 Heat-kernel closure & Eq.~\eqref{eq:pixelclosure} & Defined and calculated. \\
 Electroweak anchor & \(\AZ=\alpha_{\mathrm{em}}^{-1}(m_Z^2;P)\) & Defined and calculated. \\
-Charged spectrum & Eqs.~\eqref{eq:quarkmasses} and \eqref{eq:lepmasses} & Calculated continuation. \\
+Charged spectrum & Eqs.~\eqref{eq:quarkmasses} and \eqref{eq:lepmasses} & Frozen phenomenological continuation; not an OPH-derived mass prediction. \\
 Fermion kernel & Eqs.~\eqref{eq:kernelint} and \eqref{eq:kernelclosed} & Exact one-loop kernel. \\
-Calculated endpoint & \(A_{\mathrm{calc}}=\AZ+\Dcalc\) & Raw no-hadron source value. \\
+Calculated endpoint & \(A_{\mathrm{calc}}=\AZ+\Dcalc\) & Raw no-hadron diagnostic conditional on the supplied charged-spectrum continuation. \\
 Bare-\(\alpha_U\) source prediction & \(A_{\alpha_U}^{\mathrm{fp}}\), Eq.~\eqref{eq:barealphaUaddition} & Source-side no-hadron prediction. \\
 Required hadronic correction & \(\Dhadreq^{\mathrm{fp}}\), Eq.~\eqref{eq:Dempfp} & CODATA/NIST comparison residual attributed to the missing same-scheme hadronic endpoint transport. \\
 Hadronic/scheme residual & \(\Rq=\ATh-A_{\mathrm{calc}}\) & Isolated endpoint contribution. \\

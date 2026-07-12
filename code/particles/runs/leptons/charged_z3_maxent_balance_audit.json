@@ -1,0 +1,44 @@
+{
+  "algebraic_theorem": {
+    "balance_equivalence": "Q=2/3 iff E_c=E_0 iff |b|/a=1/sqrt(2)",
+    "carrier": "Phi=a I+b P+conj(b) P^2, P^3=I",
+    "charged_power": "E_c=6 |b|^2",
+    "koide_identity": "Q=(1+E_c/E_0)/3=(1+2|b/a|^2)/3",
+    "singlet_power": "E_0=3 a^2"
+  },
+  "artifact": "oph_charged_z3_maxent_balance_audit",
+  "conditional_maxent_theorem": {
+    "conclusion": "Koide follows exactly iff the two effective block weights are equal",
+    "law": "E_c/E_0=(m_c/m_0)*exp(-(S_c-S_0))",
+    "premises": [
+      "the MaxEnt variables are the two normalized block powers p_j=E_j/(E_0+E_c)",
+      "the relative-MaxEnt base weights m_j and block actions S_j are source-emitted",
+      "the ensemble probabilities descend to deterministic charged-Yukawa block powers"
+    ]
+  },
+  "current_oph_boundary": {
+    "claim": "Current OPH MaxEnt symmetry inheritance preserves Z3 invariance but does not select the balanced singlet/charged power ratio.",
+    "maxent_probability_to_yukawa_power_bridge_derived": false,
+    "one_bit_degeneracy_compensation_derived": false,
+    "twelve_twenty_four_attachment": "The oriented 24-slot register supplies a bookkeeping doubling, but no current theorem attaches it as an ln(2) action penalty on the charged Z3 block."
+  },
+  "natural_trace_countermodel": {
+    "base_weight_ratio_m_c_over_m_0": 2,
+    "conclusion": "Trace/Haar/Lebesgue MaxEnt counts the charged doublet twice and does not emit Koide balance.",
+    "emitted_Q": 1.0,
+    "emitted_power_ratio": 2.0,
+    "equal_action_gap": 0,
+    "real_irrep_dimensions": {
+      "charged": 2,
+      "singlet": 1
+    }
+  },
+  "public_koide_promotion_allowed": false,
+  "smallest_balance_input": {
+    "effective_power_ratio": 1.0,
+    "emitted_Q": 0.6666666666666666,
+    "equivalent_option": "declare equal base weights on the two coarse blocks",
+    "required_action_gap_S_c_minus_S_0": "ln(2)"
+  },
+  "status": "CLOSED_CONDITIONAL_THEOREM_CURRENT_OPH_INPUT_OPEN"
+}

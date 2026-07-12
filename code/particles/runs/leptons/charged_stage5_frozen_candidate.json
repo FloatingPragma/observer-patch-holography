@@ -1,0 +1,73 @@
+{
+  "artifact": "oph_charged_stage5_frozen_candidate",
+  "branch_and_scheme_boundary": {
+    "current_public_pixel_used": false,
+    "frozen_branch": "legacy D10 running-tree branch at P=1.63094",
+    "mass_scheme": "unspecified historical Stage-5 mass coordinate",
+    "pole_mass_comparison_allowed_here": false,
+    "reason": "The formula predates the current public pixel branch and supplies no charged-lepton RG or threshold theorem mapping its mass coordinate to pole masses. Branch and pole-mass comparisons belong only in the downstream audit."
+  },
+  "candidate_mass_rows": {
+    "electron": {
+      "status": "frozen_retrodictive_candidate",
+      "value_gev": "0.00051088224329496822328438947184253500629257817003895358215660225469913940099997018759763875055"
+    },
+    "muon": {
+      "status": "frozen_retrodictive_candidate",
+      "value_gev": "0.10563528287095738961682618047219502115286634421956282763334568682785509313648541360511263565"
+    },
+    "tau": {
+      "status": "frozen_retrodictive_candidate",
+      "value_gev": "1.7765791240173149080830426018524720318424448365391947111478288567335886478644423290641639403"
+    }
+  },
+  "falsification_contract": "The formula is now frozen. Future changes to improve agreement require a new version and must not overwrite this candidate.",
+  "frozen_construction": {
+    "balanced_carrier": "C_delta = I + (exp(i delta) R + exp(-i delta) R^2)/sqrt(2)",
+    "delta_e": "0.22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222",
+    "delta_formula": "(N_c+1)/(2*N_c*N_g)",
+    "determinant_law": "det(M_e) = v(P)^3 / (2 * 6^14)",
+    "epsilon_Z6": "0.16666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667",
+    "geometric_mean_mass_gev": "0.04576900320622172487032958124",
+    "integer_exponents_n_e": [
+      7,
+      4,
+      3
+    ],
+    "mass_direction": "m_i proportional to r_i^2",
+    "ordered_roots": [
+      "0.04034990821920737326872477925205065262660436763371644020940476888382027958827748704808033387",
+      "0.58021192014753721473991637719648207227436597660919149385096517778690092648877324483171464857",
+      "2.3794381716332554119913588435514672750990296557570920659396300533292787939229492681202050174"
+    ]
+  },
+  "inputs": {
+    "N_c": 3,
+    "N_g": 3,
+    "beta_EW": 4,
+    "frozen_pixel_P": "1.63094",
+    "v_from_source_transmutation_gev": "246.76711732749683",
+    "v_source_artifact": "code/particles/runs/calibration/d10_ew_forward_transmutation_certificate.json",
+    "v_source_family": "d10_running_tree"
+  },
+  "public_prediction_promotion_allowed": false,
+  "reference_data_consumed_by_builder": false,
+  "status": "FROZEN_ACCURATE_NUMERICAL_CANDIDATE_NOT_THEOREM_GRADE",
+  "theorem_grade_audit": {
+    "closed_inputs": [
+      "N_c=3",
+      "N_g=3",
+      "beta_EW=N_c+1",
+      "D10 source-side v(P)"
+    ],
+    "reason_not_promoted": "The builder is reference-free, but its frozen formula family was developed with the charged spectrum already known. Reference-free evaluation is not the same as a prospective blind prediction.",
+    "unproved_or_historically_post_hoc_inputs": [
+      "balanced circulant charged-family carrier",
+      "phase transport law delta=(N_c+1)/(2*N_c*N_g)",
+      "integer exponent prescription n_e=(7,4,3)",
+      "historical normalization factor 2^(1/6)",
+      "normalized determinant attachment det(M_e)=v(P)^3/(2*6^14)",
+      "ordered-root attachment to electron, muon, tau"
+    ]
+  }
+}

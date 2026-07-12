@@ -362,8 +362,8 @@ breaking in compact form.
 After symmetry breaking, weak gauge bosons gain mass, and fermions gain
 masses through Yukawa couplings. The details are part of the Standard Model
 support boundary. OPH's particle chapter is careful that not every mass value
-has the same support level. Higgs and top relations, charged-lepton empirical
-anchors, quark running-mass values, and neutrino assumptions must be separated
+has the same support level. Higgs and top relations, the frozen charged-lepton
+continuation and its target-containing transport diagnostics, quark running-mass values, and neutrino assumptions must be separated
 by status.
 
 The equation is a good example of how a simple-looking formula can carry a
@@ -485,7 +485,7 @@ The book makes claims at different levels. Some are standard physics. Some are
 structural OPH claims. Some are conditional routes that depend on extra
 assumptions or unfinished derivations. The common drift points are particle
 tables, dark-sector claims, the strong-CP boundary, neutrino assumptions,
-charged-lepton anchors, hadron payload language, and metaphysical summaries
+charged-lepton continuation claims, hadron payload language, and metaphysical summaries
 that can sound more settled than their support allows.
 
 The appendices are meant to slow the reader down at exactly those points. If an

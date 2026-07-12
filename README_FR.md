@@ -322,6 +322,7 @@ papiers.
 | Quark top | $m_t$ | enveloppe conditionnelle [172.28, 172.35] GeV sur la même surface électrofaible | 172.1 ± 0.6 GeV | coordonnée compagnon, pas une ligne de masse du top distincte |
 | Boson W | $m_W$ | enveloppe conditionnelle [80.369, 80.377] GeV | 80.3692 ± 0.0133 GeV | conditionnel ; le coefficient de réparation du canal brisé $\sqrt{N_c}/2$ place la masse du W à environ un pour mille |
 | Boson Z | $m_Z$ | enveloppe conditionnelle [91.188, 91.198] GeV | 91.1876 ± 0.0021 GeV | conditionnel ; le coefficient du canal d'écrantage $N_c/2$ fixe le Z à quelques pour cent |
+| Leptons chargés | $m_e,m_\mu,m_\tau$ | rétrodiction Stage-5 figée sur la branche historique : 0.510882243295 MeV, 105.635282871 MeV, 1776.579124017 MeV | 0.51099895069 MeV, 105.6583755 MeV, 1776.93 MeV | erreur maximale 0.02284 % pour l'ancien $P=1.63094$, et 0.08347 % sur le test au pixel public actuel. Le porteur équilibré, la phase $2/9$, la normalisation du déterminant, l'attachement aux familles et le pont vers les masses pôles ne sont pas dérivés par OPH ; ce n'est pas une prédiction promue |
 | Porteur électromagnétique | $\mu_{\gamma,\mathrm{hard}}^2$ | nul dans l'action quadratique de Maxwell déclarée ; deux modes transverses classiques ; aucun pôle quantique du photon promu | borne sur la masse du photon <1e-18 eV | porte d'action classique seulement |
 | Porteur de couleur | $\mu_{\mathrm{YM,hard}}^2$ | nul dans l'action quadratique perturbative de Yang--Mills pur ; aucune particule libre revendiquée en QCD confinée | pas de ligne de masse de gluon libre isolé | porte de déconfinement/pôle quantique ouverte |
 | Porteur gravitationnel TT | $\mu_{\mathrm{FP,hard}}^2$ | nul dans l'action quadratique d'Einstein pur ; deux modes TT classiques ; aucun pôle quantique du graviton construit | borne de dispersion souvent donnée comme <1e-32 GeV | porte d'action classique seulement |
@@ -402,9 +403,11 @@ déclarée ; ses prémisses portent leurs obligations de preuve.
 Le décompte compact comprend des résultats mathématiques sur la forme normale
 des patches d'observateurs finis, la surface d'événements quantiques, la branche
 structurelle du Modèle Standard, l'intervalle du couplage unifié et la
-normalisation géométrique de la gravité. La forme des familles chargées à phase
-fixée et la hiérarchie faible sans QCD sont des accords rétrodictifs calculés
-côté source. L'artefact vérifié par machine couvre une partie finie du consensus
+normalisation géométrique de la gravité. Le résultat de famille chargée à
+circulante équilibrée est une rétrodiction de continuation figée ; son équilibre
+MaxEnt, sa phase et sa normalisation absolue ne sont pas dérivés côté source. La
+hiérarchie faible sans QCD est un accord rétrodictif côté source distinct.
+L'artefact vérifié par machine couvre une partie finie du consensus
 et des réparations ; le théorème de consensus propre à l'OPH est une obligation
 de formalisation ouverte. La structure fine à basse énergie et la valeur SI
 de la constante de Newton sont des lignes de comparaison. Les résultats sur les

@@ -1,0 +1,119 @@
+{
+  "artifact": "oph_charged_stage5_frozen_candidate_audit",
+  "candidate_artifact": "oph_charged_stage5_frozen_candidate",
+  "candidate_mutation_allowed": false,
+  "interpretation": "The frozen formula is numerically accurate, but this comparison cannot convert a historically post-hoc continuation into a prospective prediction.",
+  "koide_invariant": {
+    "candidate": "0.6666666666666666666666666671",
+    "interpretation": "Q=2/3 is exact on the imposed balanced carrier; it is not independently derived.",
+    "reference": "0.6666644634026366982015326792",
+    "reference_relative_to_two_thirds_ppm": "-3.304896044952697700981200000"
+  },
+  "mass_rows": {
+    "electron": {
+      "candidate_gev": "0.00051088224329496822328438947184253500629257817003895358215660225469913940099997018759763875055",
+      "reference_gev": "0.0005109989506900001",
+      "relative_error": "-0.0002283906745293451725218076",
+      "relative_error_ppm": "-228.3906745293451725218076000"
+    },
+    "muon": {
+      "candidate_gev": "0.10563528287095738961682618047219502115286634421956282763334568682785509313648541360511263565",
+      "reference_gev": "0.10565837550000001",
+      "relative_error": "-0.0002185593800145108324917008",
+      "relative_error_ppm": "-218.5593800145108324917008000"
+    },
+    "tau": {
+      "candidate_gev": "1.7765791240173149080830426018524720318424448365391947111478288567335886478644423290641639403",
+      "reference_gev": "1.7769300000000001",
+      "relative_error": "-0.0001974619049063226447925397",
+      "relative_error_ppm": "-197.4619049063226447925397000"
+    }
+  },
+  "mass_scheme_audit": {
+    "candidate_scheme_declared": false,
+    "charged_rg_threshold_map_present": false,
+    "conclusion": "The numerical comparison is descriptive only until OPH specifies the candidate's renormalization coordinate and derives its QED/electroweak conversion to pole masses.",
+    "direct_pole_mass_comparison_theorem_validated": false
+  },
+  "max_absolute_relative_error": "0.0002283906745293451725218076",
+  "max_absolute_relative_error_percent": "0.0228390674529345172521807600",
+  "pixel_branch_sensitivity": {
+    "current_public_pixel_probe": {
+      "P": "1.6309681897",
+      "mass_rows": {
+        "electron": {
+          "candidate_gev": "0.0005105724537969030040058828372",
+          "reference_gev": "0.0005109989506900001",
+          "relative_error": "-0.0008346335986036737015159583",
+          "relative_error_ppm": "-834.6335986036737015159583000"
+        },
+        "muon": {
+          "candidate_gev": "0.1055712275985574109870137213",
+          "reference_gev": "0.10565837550000001",
+          "relative_error": "-0.0008248082656031277401023078",
+          "relative_error_ppm": "-824.8082656031277401023078000"
+        },
+        "tau": {
+          "candidate_gev": "1.775501839452572840460763438",
+          "reference_gev": "1.7769300000000001",
+          "relative_error": "-0.0008037235836117683076228122",
+          "relative_error_ppm": "-803.7235836117683076228122000"
+        }
+      },
+      "max_absolute_relative_error_percent": "0.0834633598603673701515958300",
+      "source_artifact": "code/particles/runs/calibration/d10_ew_common_transport_gap_report.json",
+      "v_gev": "246.6174823334856"
+    },
+    "frozen_legacy_branch": {
+      "P": "1.63094",
+      "max_absolute_relative_error_percent": "0.0228390674529345172521807600",
+      "v_gev": "246.76711732749683"
+    },
+    "interpretation": "The 0.02284 percent headline belongs to the frozen legacy P=1.63094 branch. On the current public-pixel probe the same formula remains sub-permille but is less accurate."
+  },
+  "public_prediction_promotion_allowed": false,
+  "ratios": {
+    "muon_over_electron": {
+      "candidate": "206.7703159727293886125503393",
+      "reference": "206.7682827084671587961763710",
+      "relative_error_ppm": "9.833540403760166383783000000"
+    },
+    "tau_over_electron": {
+      "candidate": "3477.472837104598532313001226",
+      "reference": "3477.365261906345837986741815",
+      "relative_error_ppm": "30.93583507926340927769300000"
+    },
+    "tau_over_muon": {
+      "candidate": "16.81804673337751705653391133",
+      "reference": "16.81769184497825193065817627",
+      "relative_error_ppm": "21.10208716727647981173000000"
+    }
+  },
+  "reference_packet": {
+    "electron": {
+      "edition": "2026",
+      "info_url": "https://pdg.lbl.gov/api",
+      "label": "PDG 2026 API",
+      "request_timestamp": "2026-07-10 23:42:19 PST",
+      "summary_id": "S003M",
+      "url": "https://pdgapi.lbl.gov/summaries/S003M"
+    },
+    "muon": {
+      "edition": "2026",
+      "info_url": "https://pdg.lbl.gov/api",
+      "label": "PDG 2026 API",
+      "request_timestamp": "2026-07-10 23:42:22 PST",
+      "summary_id": "S004M",
+      "url": "https://pdgapi.lbl.gov/summaries/S004M"
+    },
+    "tau": {
+      "edition": "2026",
+      "info_url": "https://pdg.lbl.gov/api",
+      "label": "PDG 2026 API",
+      "request_timestamp": "2026-07-10 23:42:25 PST",
+      "summary_id": "S035M",
+      "url": "https://pdgapi.lbl.gov/summaries/S035M"
+    }
+  },
+  "status": "COMPARE_ONLY_RETRODICTIVE_ACCURACY_AUDIT"
+}

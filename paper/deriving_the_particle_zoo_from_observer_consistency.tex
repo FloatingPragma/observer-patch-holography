@@ -2863,8 +2863,8 @@ N_{\det}(P)=s_{\det}(P)-\sum_e M_e^{\mathrm{ch}}\log q_e(P),
 on the charged determinant channel.
 
 Physically, the electron is the light charged lepton that makes atoms and chemistry possible, the
-muon is its heavier unstable cousin, and the tau lepton is the heaviest charged lepton. The role
-of the charged-lepton chapter is to explain how those three rows emerge from the shared flavor
+muon is its heavier unstable cousin, and the tau lepton is the heaviest charged lepton. A promoted
+charged-lepton derivation would have to explain how those three rows emerge from the shared flavor
 dictionary without Koide-assisted fitting. The theorem-grade lane has to derive promotion of the
 latent charged sector-response candidate \(\widehat C_e^{\mathrm{cand}}\) to theorem-grade
 \(\widehat C_e\) by closing the branch-generator splitting theorem. On theorem-grade physical
@@ -3047,8 +3047,29 @@ assumptions:
 \begin{enumerate}[leftmargin=2em]
 \item a uniform \(\mathbb Z_6\) center-label ensemble, so \(\varepsilon = 1/6\);
 \item the balanced Hermitian circulant branch, so \(|b|/a = 1/\sqrt2\);
-\item the OPH phase choice \(\delta = 2/9\).
+\item the phenomenological charged-family phase choice \(\delta = 2/9\).
 \end{enumerate}
+These are continuation inputs, not consequences of the OPH axioms.  Indeed, for the general
+Hermitian circulant \(C=aI+b e^{i\delta}R+\overline b e^{-i\delta}R^2\), the square-root-mass
+Koide invariant is
+\[
+Q=\frac{1+2|b/a|^2}{3},
+\]
+so \(|b|/a=1/\sqrt2\) is exactly equivalent to imposing \(Q=2/3\).  Circulant symmetry does
+not derive that balance.  More sharply, writing the singlet and charged Hilbert--Schmidt powers as
+\(E_0=3a^2\) and \(E_c=6|b|^2\), the OPH relative-MaxEnt law gives
+\[
+\frac{E_c}{E_0}=\frac{m_c}{m_0}e^{-(S_c-S_0)}.
+\]
+The natural trace base has \(m_c/m_0=2\), so Koide balance needs both a source law
+\(S_c-S_0=\ln2\) and a bridge identifying MaxEnt block probabilities with deterministic Yukawa
+powers.  The current \(12/24\) register supplies no such charged-block attachment.
+Likewise, the count identity
+\((N_c+1)/(2N_cN_g)=2/9\) is not by itself a phase-transport or holonomy theorem.  The current
+corpus supplies neither a charged-family connection that fixes this phase nor a source theorem
+that attaches the ordered roots below to the physical charged-family lines.  Hypercharge acts on
+the three generation copies as a common scalar phase, not as the cyclic family shift \(R\), so the
+D9 \(\U(1)_Y\) connection does not fill that gap.
 With the scale-free normalization \(a=1\), the ordered roots
 \[
 r_k = a + 2|b|\cos\!\left(\delta + \frac{2\pi k}{3}\right)
@@ -3114,6 +3135,51 @@ candidate \(\widehat C_e^{\mathrm{cand}}\) to theorem-grade \(\widehat C_e\), an
 affine-covariant absolute anchor \(A_{\mathrm{ch}}\) that would turn that centered readback into
 public charged masses on the theorem lane.
 
+\paragraph{Frozen complete Stage-5 postdiction.}
+The historical Stage-5 continuation also supplies a complete, reference-free-at-runtime numerical
+postdiction on its frozen legacy branch when its additional exponent and determinant prescriptions
+are retained.  Besides the
+three continuation assumptions above, set
+\[
+\bm n_e=(7,4,3),
+\qquad
+\det M_e=\frac{v(P)^3}{2\,6^{14}},
+\]
+and normalize the squared-root direction by its geometric mean:
+\[
+m_i=\frac{v(P)}{(2\,6^{14})^{1/3}}
+\frac{r_i^2}{(r_e^2r_\mu^2r_\tau^2)^{1/3}}.
+\]
+At the legacy D10 running-tree value \(P=1.63094\),
+\(v=246.76711732749683\,\mathrm{GeV}\), the frozen formula emits
+\[
+\begin{aligned}
+m_e^{\mathrm{S5}}&=0.510882243295\,\mathrm{MeV},\\
+m_\mu^{\mathrm{S5}}&=105.635282871\,\mathrm{MeV},\\
+m_\tau^{\mathrm{S5}}&=1776.579124017\,\mathrm{MeV}.
+\end{aligned}
+\]
+Against the PDG-2026 comparison packet these differ by approximately \(-228\), \(-219\), and
+\(-197\) ppm, respectively; the maximum absolute mass error is \(0.02284\%\).  Re-evaluating the
+same formula on the current public-pixel probe
+\(P=1.6309681897\), \(v=246.6174823334856\,\mathrm{GeV}\), gives
+\[
+(m_e,m_\mu,m_\tau)
+=
+(0.510572453797,\ 105.571227599,\ 1775.501839453)\,\mathrm{MeV},
+\]
+with maximum absolute error \(0.08347\%\).  Thus the sharper \(0.02284\%\) number is explicitly
+legacy-branch-specific.  The builder does
+not read charged reference masses, but this remains a postdiction rather than a theorem-grade
+prediction because the balanced carrier and \(2/9\) phase were prior empirical art, the electron
+exponent was selected inside a historical residual scan that fixes only exponent differences,
+the factor \(2^{1/6}\) is asserted rather than derived, and the corpus does not derive the
+determinant attachment or the sorted-root-to-family map.  Nor is a renormalization coordinate and
+QED/electroweak map from this historical mass coordinate to pole masses supplied, so the ppm
+comparison is descriptive rather than scheme-certified.  The frozen executable receipt is
+\texttt{code/particles/runs/leptons/charged\_stage5\_frozen\_candidate.json}; any future change
+made to improve agreement must create a new candidate rather than overwrite this one.
+
 \subsection{Absolute charged-lepton mass intervals from electromagnetic transport}\label{charged-kappa-interval}
 
 The missing absolute anchor is one real scale. Fixing \(A_{\mathrm{ch}}\) is equivalent to fixing
@@ -3144,7 +3210,8 @@ decomposition
 a_0+g=A^{-1}(0)\left(1-P_{\mathrm{lep}}(\kappa)-\Delta_{\mathrm{had}}-\Delta_{\mathrm{top}}\right)
 \]
 with the frozen anchor \(a_0=128.308\), the certified anchor-gap interval \(g\in[0.649,\,0.855]\),
-the empirical hadronic payload \(\Delta_{\mathrm{had}}=0.02676\pm0.00075\), the exact mass ratios,
+the empirical hadronic payload \(\Delta_{\mathrm{had}}=0.02676\pm0.00075\), the frozen
+continuation mass ratios,
 and the measured \(A^{-1}(0)\) supplied as a compare-only exclusion inside the interval solve path
 gives
 \[

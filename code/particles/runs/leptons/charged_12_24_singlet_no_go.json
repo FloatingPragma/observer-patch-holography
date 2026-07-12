@@ -1,0 +1,55 @@
+{
+  "artifact": "oph_charged_12_24_singlet_no_go",
+  "claim_boundary": "The 12/24 resonance can participate in a future charged theorem only after a derived non-singlet family attachment is supplied. The existing invariant hierarchy theorem alone predicts degeneracy, not the charged-lepton hierarchy.",
+  "comparison_with_live_gap": {
+    "conclusion": "the invariant 12/24 certificate cannot populate the two open scalar slots",
+    "eta_live": null,
+    "live_values_still_open": true,
+    "sigma_live": null
+  },
+  "hierarchy_inputs": {
+    "load_rule": "invariant_scalar_X_maps_to_X_over_12_per_port",
+    "register_role": "common_hierarchy_exponent_normalization",
+    "repair_register_slots": 24,
+    "screen_action": "transitive_A5_over_C5_orbit",
+    "screen_ports": 12
+  },
+  "minimal_new_theorem": {
+    "id": "charged_family_non_singlet_port_attachment",
+    "representation_options_not_yet_selected": [
+      "A5 irrep 3",
+      "A5 irrep 3-prime",
+      "other derived three-family carrier"
+    ],
+    "required_objects": [
+      "a refinement-stable non-singlet moment of the twelve-port or oriented-repair record",
+      "an ID-independent equivariant attachment from that moment to three physical charged-family lines",
+      "two independent centered readouts spanning the charged-family sum-zero plane",
+      "a no-target-leak receipt proving the attachment was fixed before charged-mass comparison"
+    ],
+    "warning": "choosing an irrep or attachment because it reproduces lepton masses would be target fitting"
+  },
+  "public_charged_mass_promotion_allowed": false,
+  "status": "CLOSED_NO_GO_INVARIANT_12_24_LOAD_INSUFFICIENT",
+  "theorem": {
+    "centered_equal_family_image": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "forced_shape_on_invariant_branch": {
+      "eta_source_support_extension_log_per_side": 0.0,
+      "mass_ratio_class": "1:1:1",
+      "sigma_source_support_extension_total_log_per_side": 0.0
+    },
+    "id": "invariant_12_24_singlet_cannot_emit_charged_family_shape",
+    "proof": [
+      "Transitivity makes the invariant subspace of the twelve-port permutation representation one-dimensional, spanned by the all-ones vector.",
+      "The declared screen sieve retains exactly this invariant component through X -> X/12.",
+      "The oriented 24-slot count changes the common exponent normalization but supplies no family-labelled non-singlet record.",
+      "Equivariance and absence of a marked family force the three-family image to be proportional to (1,1,1).",
+      "Centering removes that image, so both independent coordinates of the three-family sum-zero plane vanish."
+    ],
+    "statement": "Let the twelve screen ports carry the transitive A5/C5 action used by the hierarchy sieve, and let the 24-slot write/check register act only through its invariant common repair count. Any family-blind equivariant readout of that invariant load into a transitive three-family carrier has image proportional to (1,1,1). Its centered projection is zero. Hence the invariant 12/24 hierarchy lock can fix a common electroweak scale but cannot emit either independent charged-family shape scalar."
+  }
+}

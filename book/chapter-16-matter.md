@@ -147,38 +147,50 @@ $m_H$ is the Higgs-boson mass and $m_t$ is the top-quark mass on this
 calculation surface. They are paired because the Higgs and top sectors are
 strongly linked in the electroweak bookkeeping.
 
-The three charged leptons carry a cleaner version of the same story. The theory
-gets the pattern of their masses exactly. The ratio of the muon to the electron
-and the ratio of the tau to the electron come out of the family structure with
-no fitting, matching the measured ratios to machine precision. What the family
-structure alone leaves open is the overall size of the three masses. The
-symmetry that fixes the pattern is blind to a single common stretch factor, so
-on the family data by itself the electron could sit anywhere and the muon and
-tau would follow it in lockstep.
+The three charged leptons carry a striking but weaker result. A historical OPH
+continuation writes their square-root masses as one singlet plus a cyclic
+three-family mode. It then chooses a balanced singlet/charged amplitude and the
+phase $2/9$. Those choices give the mass ratios to between about 10 and 31 parts
+per million. That numerical match is real, but it is a postdiction: the balanced
+carrier is another way of imposing the Koide relation, and the $2/9$ phase was
+already known as an empirical charged-lepton parametrization.
 
-The electromagnetic force closes that gap. The strength of electromagnetism
-changes with distance, and how fast it changes depends on the masses of the
-charged particles that the photon can briefly split into, the electron, muon,
-and tau among them. The theory reads that strength at two separate distances,
-one near the weak scale and one in the long-distance laboratory limit. Requiring
-the two readings to agree is one equation for the one missing stretch factor,
-and it has a single answer. Fixing it lands the three masses at
+The MaxEnt slogan in older drafts skipped a necessary step. A natural trace
+counts the one-dimensional singlet once and the two-dimensional charged block
+twice. Equal block power, and hence Koide, needs an additional one-bit
+compensation together with a rule that turns ensemble weights into one physical
+Yukawa matrix. The current OPH dynamics derives neither rule. It also does not
+derive a charged-family connection whose loop holonomy fixes $2/9$.
+
+The same frozen Stage-5 continuation adds an exponent prescription and a
+determinant normalization. On its historical $P=1.63094$ branch it gives
 
 $$
-(m_e,m_\mu,m_\tau)=(0.5089\,\mathrm{MeV},\ 105.22\,\mathrm{MeV},\ 1.7695\,\mathrm{GeV}),
+(m_e,m_\mu,m_\tau)=
+(0.510882243295\,\mathrm{MeV},\ 105.635282871\,\mathrm{MeV},\
+1776.579124017\,\mathrm{MeV}).
 $$
 
-each within about four parts in a thousand of the measured electron, muon, and
-tau, and each inside a stated uncertainty band that contains the measured value.
-The width of those bands traces back to the same low-energy hadronic input that
-limits the fine-structure endpoint. This reading uses the measured long-distance
-electromagnetic strength as one of its two inputs. The version that would remove
-even that input and set the mass scale from the theory alone needs the
-electromagnetic anchor calculation to close from first principles. That
-calculation, run to the next order in the declared conventions, overshoots the
-required correction by a factor of two to three, so the fully self-contained
-mass scale is work in progress. The near-perfect ratios and the tightly bounded
-absolute masses hold regardless.
+The largest difference from the PDG-2026 pole masses is $0.02284\%$. On the
+current public-pixel probe, the same formula gives
+
+$$
+(0.510572453797\,\mathrm{MeV},\ 105.571227599\,\mathrm{MeV},\
+1775.501839453\,\mathrm{MeV}),
+$$
+
+with a largest difference of $0.08347\%$. This branch sensitivity matters. The
+historical exponent scan fixes only exponent differences, the extra
+$2^{1/6}$ normalization has no source proof, and no charged-lepton running and
+threshold theorem maps the formula's mass coordinate to the pole masses used in
+the comparison.
+
+An electromagnetic transport equation can identify one common mass scale once
+all its inputs are supplied. The stored interval inversion, however, consumes
+the measured electromagnetic endpoint, target lepton ratios, hadronic data, and
+a calibrated higher-order remainder. It is a useful identifiability diagnostic,
+not a first-principles charged-mass derivation. The honest result is therefore an
+unusually accurate frozen postdiction with an explicit theorem boundary.
 
 The selected quark sector has a closed downstream algebraic readout only after
 two positive spread moduli are supplied. The present source equations fix the
@@ -228,8 +240,9 @@ candidate.
 The particle picture is larger than a handful of isolated numbers. At book
 level, the map contains receipt-gated classical carrier modes with no promoted
 photon/gluon/graviton mass rows, the weak-sector
-comparison pair, the Higgs/top quantitative relation, the exact charged-lepton
-ratios with electromagnetically anchored absolute mass bands, the quark
+comparison pair, the Higgs/top quantitative relation, the frozen charged-lepton
+Stage-5 postdiction with its open carrier, phase, normalization, and scheme
+bridges, the quark
 source-spread obstruction with target-only mass-texture audits, and the rejected
 weighted-cycle neutrino comparison candidate.
 

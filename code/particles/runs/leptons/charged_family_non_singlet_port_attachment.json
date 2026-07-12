@@ -1,0 +1,41 @@
+{
+  "artifact": "oph_charged_family_non_singlet_port_attachment",
+  "blockers": [
+    "source_emitted_frozen_12_port_non_singlet_record"
+  ],
+  "conditional_theorem": {
+    "id": "charged_family_non_singlet_port_attachment",
+    "id_independence": "Simultaneous permutation of port weights and coordinates leaves m and Q unchanged; eigenline signs are physically irrelevant projective choices.",
+    "moments": {
+      "first": "m = sum_i (w_i - mean(w)) p_i",
+      "quadrupole": "Q = sum_i (w_i - mean(w)) (p_i p_i^T - I/3)"
+    },
+    "shape_map": {
+      "eta": "(1+x2)*(lambda_3-lambda_1) - 2*(lambda_2-lambda_1)",
+      "jacobian_determinant_from_adjacent_gaps": -2.0,
+      "sigma": "lambda_3 - lambda_1"
+    },
+    "statement": "Given a refinement-stable source-only scalar record w_i on the twelve icosahedral ports, form the centered first moment m and traceless second moment Q. These tensors are invariant under port relabeling and covariant under the icosahedral action. If Q has simple spectrum, its three spectral projectors define three ID-independent unoriented family lines. Ordering the eigenvalues defines two independent adjacent gaps spanning the centered three-family plane. Their invertible change of coordinates emits the live charged support-extension scalars sigma and eta."
+  },
+  "live_hierarchy_boundary": "The current screen certificate contains twelve equal unit curvature defects and only the invariant X/12 load. It emits no nonuniform refinement-stable w_i record.",
+  "live_input_status": "absent",
+  "next_exact_missing_object": "refinement_stable_source_only_nonuniform_12_port_record",
+  "no_target_leak_contract": {
+    "forbidden_ancestry": [
+      "m_e",
+      "m_mu",
+      "m_tau",
+      "PDG",
+      "CODATA",
+      "charged target ratios"
+    ],
+    "required_flags": [
+      "source_only=true",
+      "frozen_before_charged_mass_comparison=true"
+    ],
+    "required_packet_artifact": "oph_charged_12_port_non_singlet_record"
+  },
+  "public_promotion_allowed": false,
+  "readout": null,
+  "status": "CLOSED_CONDITIONAL_THEOREM_LIVE_INPUT_OPEN"
+}
