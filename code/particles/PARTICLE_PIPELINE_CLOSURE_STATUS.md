@@ -1,6 +1,6 @@
 # Particle Pipeline Closure Status
 
-Generated: `2026-07-11T17:56:21Z`
+Generated: `2026-07-12T01:15:06Z`
 
 Single closure gate for source-only rows and empirical hadron closure rows.
 
@@ -77,7 +77,7 @@ Single closure gate for source-only rows and empirical hadron closure rows.
 - `nonhadron_prediction_surface_buildable`: `True`
 - `source_only_hadrons_suppressed_by_default`: `True`
 - `empirical_hadron_closure_policy_documented`: `True`
-- `empirical_hadron_spectral_dataset_integrated`: `False`
+- `empirical_hadron_spectral_dataset_integrated`: `True`
 - `p_trunk_candidate_only`: `True`
 - `obstruction_only_worker_result_allowed`: `True`
 - `paper_material_sync_complete_without_live_publish`: `True`

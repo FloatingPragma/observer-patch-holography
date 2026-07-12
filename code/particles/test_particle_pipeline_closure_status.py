@@ -22,7 +22,14 @@ def test_particle_pipeline_closure_status_scope_locks_hadrons_and_workers() -> N
     assert "GLORB/Echosahedron" in status["scope"]["hadron_scope_reason"]
     assert status["finalization_gates"]["obstruction_only_worker_result_allowed"] is True
     assert status["finalization_gates"]["empirical_hadron_closure_policy_documented"] is True
-    assert status["finalization_gates"]["empirical_hadron_spectral_dataset_integrated"] is False
+    # the flag tracks the on-disk payload plus endpoint artifact
+    from build_particle_pipeline_closure_status import PARTICLES_ROOT, ROOT  # type: ignore
+    expected = (
+        PARTICLES_ROOT / "runs" / "hadron" / "empirical_ee_hadronic_spectral_measure.json"
+    ).exists() and (
+        ROOT / "P_derivation" / "runtime" / "empirical_thomson_endpoint_current.json"
+    ).exists()
+    assert status["finalization_gates"]["empirical_hadron_spectral_dataset_integrated"] is expected
     assert status["finalization_gates"]["hierarchy_local_global_resonance_closed"] is True
     assert status["finalization_gates"]["higgs_naturality_defect_closed"] is True
     assert status["finalization_gates"]["pixel_screen_resonance_summary_closed"] is True

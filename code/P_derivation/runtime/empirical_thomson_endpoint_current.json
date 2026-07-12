@@ -1,0 +1,59 @@
+{
+ "artifact": "oph_empirical_thomson_endpoint",
+ "generated_utc": "2026-07-12T01:13:30Z",
+ "row_class": "oph_plus_empirical_hadron_closure",
+ "guards": {
+  "source_only": false,
+  "empirical_hadron_closure": true,
+  "external_cross_section_data_used": true,
+  "promotable_as_oph_source_theorem": false,
+  "usable_for_public_final_values": true,
+  "measured_alpha_in_solve_path": false
+ },
+ "inputs": {
+  "payload": "code/particles/runs/hadron/empirical_ee_hadronic_spectral_measure.json",
+  "payload_release": "pdg2025_piecewise_v1",
+  "delta_alpha_had_5_MZ": "0.02675912001529117",
+  "delta_alpha_had_5_MZ_uncertainty": "0.0007524955365232754",
+  "source_anchor_inv_alpha_MZ": "128.30796547328624820996110874175671618724547618036535646005342169635117784168285644",
+  "lepton_transport_delta_inv_alpha": "4.3093978664522040271317438975344894018487156605576773194711528089665680313257906466129",
+  "insertion_convention": "A_Th = A_L / (1 - delta), the self-consistent form; the solved additive insertion A_Th = A_L + delta A_Th coincides with it"
+ },
+ "endpoint": {
+  "alpha_inv_central": "136.263658943120107131971401086095348479648594755631906853516110472506072511033977289786109",
+  "alpha_inv_interval": [
+   "136.158383283426677774283834791457237995645674434267854092691530893671769043142585412054930",
+   "136.369097523965687422558256727148412650888794205355550412077755834348781626236527534321471"
+  ],
+  "alpha_central": "0.00733871384165183218147895771596567888903931999302270597672632463379804648214866576578667221",
+  "P_central": "1.63104152035922425151757375169465841474901208208760285382569782650161722114084514895091277",
+  "P_interval": [
+   "1.63103146312706466572202113120989596443465045348159259330850988607079126440442595355279968",
+   "1.63105157759138383731312637217942086506337371069361311434288576693244317787726434434902585"
+  ],
+  "interval_semantics": "payload uncertainty propagated through the self-consistent insertion convention",
+  "first_order_truncation_diagnostic_inv_alpha": "0.097571661662118235072203923192765689758810239766803268869017268613135650141507498583910"
+ },
+ "compare_only": {
+  "codata_alpha_inv": "137.035999177",
+  "codata_source": "CODATA 2022 via NIST; compare-only, outside the solve path",
+  "gap_central_inv_alpha": "-0.772340233879892868028598913904651520351405244368093146483889527493927488966022710213891",
+  "gap_interval_inv_alpha": [
+   "-0.877615893573322225716165208542762004354325565732145907308469106328230956857414587945070",
+   "-0.666901653034312577441743272851587349111205794644449587922244165651218373763472465678529"
+  ],
+  "codata_inside_endpoint_interval": false,
+  "required_delta_alpha_had_for_codata": "0.032244343557887288822268499236957947422007347612226081506593089221871380926117950141438549",
+  "measured_delta_alpha_had_payload": "0.02675912001529117",
+  "same_scheme_anchor_gap_interval_inv_alpha": [
+   "0.6485541111451630222160359249087944109058081590769662204754254946822541269913529133871",
+   "0.8547920665925625045275246165087944109058081590769662204754254946822541269913529133871"
+  ],
+  "anchor_gap_reading": "the certified shift the source-side electroweak scheme bridge must emit at the anchor a0(P) for the empirical-closure endpoint to meet the measured value"
+ },
+ "verdict": {
+  "status": "empirical_closure_endpoint_certified_gap_localized_at_anchor",
+  "statement": "The empirical payload interval for the hadronic transport excludes the value required to reach the measured endpoint with the frozen source anchor; the discrepancy is carried entirely by the same-scheme anchor gap. The constructive next artifact is the source-side electroweak scheme bridge for a0(P).",
+  "constructive_next_artifact": "source_side_electroweak_scheme_bridge_for_a0"
+ }
+}

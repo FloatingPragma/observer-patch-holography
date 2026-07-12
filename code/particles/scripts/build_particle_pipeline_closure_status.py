@@ -454,7 +454,13 @@ def build_status() -> dict[str, Any]:
                 (results_status or {}).get("inputs", {}).get("hadron_profile", "suppressed") == "suppressed"
             ),
             "empirical_hadron_closure_policy_documented": True,
-            "empirical_hadron_spectral_dataset_integrated": False,
+            "empirical_hadron_spectral_dataset_integrated": (
+                PARTICLES_ROOT / "runs" / "hadron"
+                / "empirical_ee_hadronic_spectral_measure.json"
+            ).exists() and (
+                ROOT / "P_derivation" / "runtime"
+                / "empirical_thomson_endpoint_current.json"
+            ).exists(),
             "p_trunk_candidate_only": not bool(
                 (p_trunk or {}).get("consumer_policy", {}).get("may_feed_live_particle_predictions", False)
             ),

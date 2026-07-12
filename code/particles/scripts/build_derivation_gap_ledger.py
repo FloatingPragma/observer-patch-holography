@@ -352,28 +352,60 @@ def build_gap_rows() -> list[dict[str, Any]]:
             ),
             "target_surfaces": ["code/particles/hadron", "code/particles/qcd"],
         },
-        {
+        _empirical_ee_gate(),
+    ]
+
+
+def _empirical_ee_gate() -> dict[str, Any]:
+    payload = ROOT / "particles" / "runs" / "hadron" / "empirical_ee_hadronic_spectral_measure.json"
+    endpoint = ROOT / "P_derivation" / "runtime" / "empirical_thomson_endpoint_current.json"
+    populated = payload.exists() and endpoint.exists()
+    if populated:
+        return {
             "id": "hadron.empirical-ee-spectral-closure",
             "lane": "Hadrons",
-            "status": "policy_scaffold_emitted_dataset_absent",
+            "status": "payload_populated_endpoint_evaluated_gap_anchor_localized",
             "github_issue": None,
-            "title": "Populate the empirical e+e- -> hadrons payload for closure rows",
+            "title": "Empirical e+e- -> hadrons payload and Thomson endpoint evaluation",
             "current_boundary": (
-                "The empirical output class is declared in HADRON.md. The source registry and schema "
-                "exist, while the integrated e+e- spectral dataset and dispersion artifact are absent."
+                "The empirical dispersion payload and the empirical Thomson endpoint artifact are on "
+                "disk. The payload interval for the hadronic transport excludes the value required to "
+                "reach the measured endpoint with the frozen source anchor; the certified discrepancy "
+                "is the same-scheme anchor gap recorded in the endpoint artifact. Row class stays "
+                "oph_plus_empirical_hadron_closure; nothing here is a source-only theorem."
             ),
             "next_action": (
-                "Populate oph_empirical_ee_hadronic_spectral_measure from PDG, HEPData, alphaQED, "
-                "or an equivalent documented compilation, then feed the empirical Thomson endpoint builder."
+                "Emit the source-side electroweak scheme bridge for a0(P) that produces the certified "
+                "anchor-gap interval; refine the payload with experiment-level tables when a finer "
+                "compilation is ingested."
             ),
             "target_surfaces": [
-                "HADRON.md",
-                "code/particles/hadron/empirical_ee_hadrons_sources.yaml",
-                "code/particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json",
-                "code/P_derivation",
+                "code/particles/runs/hadron/empirical_ee_hadronic_spectral_measure.json",
+                "code/P_derivation/runtime/empirical_thomson_endpoint_current.json",
+                "code/P_derivation/empirical_thomson_endpoint.py",
             ],
-        },
-    ]
+        }
+    return {
+        "id": "hadron.empirical-ee-spectral-closure",
+        "lane": "Hadrons",
+        "status": "policy_scaffold_emitted_dataset_absent",
+        "github_issue": None,
+        "title": "Populate the empirical e+e- -> hadrons payload for closure rows",
+        "current_boundary": (
+            "The empirical output class is declared in HADRON.md. The source registry and schema "
+            "exist, while the integrated e+e- spectral dataset and dispersion artifact are absent."
+        ),
+        "next_action": (
+            "Populate oph_empirical_ee_hadronic_spectral_measure from PDG, HEPData, alphaQED, "
+            "or an equivalent documented compilation, then feed the empirical Thomson endpoint builder."
+        ),
+        "target_surfaces": [
+            "HADRON.md",
+            "code/particles/hadron/empirical_ee_hadrons_sources.yaml",
+            "code/particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json",
+            "code/P_derivation",
+        ],
+    }
 
 
 def build_bundles() -> list[dict[str, Any]]:
