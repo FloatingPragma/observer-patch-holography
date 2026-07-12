@@ -268,7 +268,7 @@
         "convex_cone_quadric_signature_classification",
         "Rademacher_Caratheodory_regularity"
       ],
-      "oph_specific_delta": "The step from Lorentz-group/observer-frame kinematics to an actual 3+1 Lorentzian event spacetime is a quotient-intrinsic construction with named receipts, a strict event-base/frame-fiber separation, honest unconditional regularity, and countermodels; without the receipts the corpus claim is exactly Lorentz kinematics.",
+      "oph_specific_delta": "The step from Lorentz-group/observer-frame kinematics to an actual 3+1 Lorentzian event spacetime is a quotient-intrinsic construction with named receipts, a strict event-base/frame-fiber separation, plain unconditional regularity, and countermodels; without the receipts the corpus claim is exactly Lorentz kinematics.",
       "novelty_type": "conditional_event_manifold_construction",
       "evidence": [
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
@@ -307,7 +307,7 @@
     },
     {
       "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE",
-      "statement": "Exact finite first law delta S = 2pi delta<B> + delta<Z>; edge identification delta<Z> = delta S_edge on z_alpha = log d_alpha; corrected split delta S = 2pi delta<B> + delta S_edge with no dropped term; the naive step delta S_bulk = 2pi delta<B> holds exactly on the fixed-edge-sector class and otherwise carries the central flux sum z_alpha dp_alpha; the changing stress channel is supplied by the exact MaxEnt multiplier identity dS/dt = lambda = 2pi, giving the Clausius balance delta S_edge = lambda dt - 2pi delta<B> on the coupled class; the Axiom-4 leading term and edge normalization remain named branch axioms.",
+      "statement": "Exact finite first law delta S = 2pi delta<B> + delta<Z>; edge identification delta<Z> = delta S_edge on z_alpha = log d_alpha; corrected split delta S = 2pi delta<B> + delta S_edge with no dropped term; the naive step delta S_bulk = 2pi delta<B> holds exactly on the fixed-edge-sector class and otherwise carries the central flux sum z_alpha dp_alpha; the changing stress channel is supplied by the exact MaxEnt multiplier identity dS/dt = lambda = 2pi, giving the Clausius balance delta S_edge = lambda dt - 2pi delta<B> on the coupled class; the Axiom-4 leading term and edge normalization are named branch axioms.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "exact_finite_theorem_plus_conditional_bridge",
       "assumptions": [
@@ -357,7 +357,7 @@
     },
     {
       "claim_id": "OPH-GR-E2E-BRANCH-ENTRY",
-      "statement": "The full chain from repaired finite quotient normal forms to the semiclassical Einstein equation is composed into one typed theorem with partitioned inputs (foundational axioms; decidable finite receipts; scaling receipts; physical-identification receipts), composable error envelopes, and a no-hidden-geometry proposition showing the receipt list is minimal (deleting any family readmits its countermodel). Nonemptiness of the realized branch is machine-checkable; the current evaluation: the rooted-tree export fails spherical incidence; a genuine cyclic cap-net repair run (runtime-verified D1 clauses on a three-stage refinement tower) passes the spherical-incidence/mesh/naturality receipts on its own repaired output under explicit branch selection; the free-fermion modular-clock instrumentation witnesses the modular cross-ratio and geometric 2pi-KMS receipts on realized Gaussian MaxEnt boundary-collar states (profile residual 1.1e-4, wrong normalization separated, cross-ratios Cauchy to Moebius at 2.3e-3); the null-net instrumentation witnesses NTI, weak additivity, separating faithfulness, mixed-GNS Cauchy, one-particle HSM compression (chiral leakage asymmetry >= 9.6 with a null control), and percent-level modular Lie closure against the conformal structure constants (rate clause open); the realized-event instrumentation witnesses screen population, certified separation, the Moebius chart cocycle, and an intrinsic Lorentzian (1,2) ancestry cone on records from the actual repair dynamics, with the realized (1+2) screen-sheet dimension measured honestly; the bulk-depth instrumentation then witnesses E3 rank four, bulk PCA dimension four, and a seed-stable intrinsic ancestry cone of Lorentzian signature (1,3) with the modular clock timelike on the corpus-consistent inverse-system dynamics (narrow-margin/window caveats explicit; the strong-coupling variant measures (2,2) and is retained as a countermodel); margin convergence, the Cyc limit, Lie-closure rate, second-quantized MI, cap-interior, and physical-identification families remain pending, so the realized geometric branch is still not certified nonempty and issue #503 remains open on exactly this clause.",
+      "statement": "The full chain from repaired finite quotient normal forms to the semiclassical Einstein equation is composed into one typed theorem with partitioned inputs (foundational axioms; decidable finite receipts; scaling receipts; physical-identification receipts), composable error envelopes, and a no-hidden-geometry proposition showing the receipt list is minimal (deleting any family readmits its countermodel). Nonemptiness of the realized branch is machine-checkable; the current evaluation: the rooted-tree export fails spherical incidence; a genuine cyclic cap-net repair run (runtime-verified D1 clauses on a three-stage refinement tower) passes the spherical-incidence/mesh/naturality receipts on its own repaired output under explicit branch selection; the free-fermion modular-clock instrumentation witnesses the modular cross-ratio and geometric 2pi-KMS receipts on realized Gaussian MaxEnt boundary-collar states (profile residual 1.1e-4, wrong normalization separated, cross-ratios Cauchy to Moebius at 2.3e-3); the null-net instrumentation witnesses NTI, weak additivity, separating faithfulness, mixed-GNS Cauchy, one-particle HSM compression (chiral leakage asymmetry >= 9.6 with a null control), and percent-level modular Lie closure against the conformal structure constants (rate clause open); the realized-event instrumentation witnesses screen population, certified separation, the Moebius chart cocycle, and an intrinsic Lorentzian (1,2) ancestry cone on records from the actual repair dynamics, with the realized (1+2) screen-sheet dimension measured as such; the bulk-depth instrumentation then witnesses E3 rank four, bulk PCA dimension four, and a seed-stable intrinsic ancestry cone of Lorentzian signature (1,3) with the modular clock timelike on the corpus-consistent inverse-system dynamics (narrow-margin/window caveats explicit; the strong-coupling variant measures (2,2) and is retained as a countermodel); margin convergence, the Cyc limit, Lie-closure rate, second-quantized MI, cap-interior, and physical-identification families are pending, so the realized geometric branch is not certified nonempty and issue #503 is open on exactly this clause.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "composed_conditional_theorem_with_open_nonemptiness",
       "assumptions": [
@@ -367,7 +367,7 @@
       "imported_results": [
         "composition_of_the_packet_theorems"
       ],
-      "oph_specific_delta": "The Einstein branch-entry umbrella is reduced to a single machine-checkable nonemptiness clause with a standing negative evaluation on current realized artifacts, honestly separating derivation completeness from realization.",
+      "oph_specific_delta": "The Einstein branch-entry umbrella is reduced to a single machine-checkable nonemptiness clause with a recorded negative evaluation on current realized artifacts, separating derivation completeness from realization.",
       "novelty_type": "composed_branch_entry_theorem",
       "evidence": [
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
@@ -487,7 +487,7 @@
         "code/particles/hierarchy/manifest.json"
       ],
       "falsifier": "The capacity bridge residual cannot be certified, the 24-slot register proof fails, or the hidden target enters upstream.",
-      "scope_if_false": "The hierarchy solution falls; the recovered gauge quotient and cosmological capacity branch remain separate unless they import the failed bridge.",
+      "scope_if_false": "The hierarchy solution falls; the recovered gauge quotient and cosmological capacity branch are separate unless they import the failed bridge.",
       "status": "proved_on_branch"
     },
     {
@@ -611,7 +611,7 @@
         "code/particles/runs/uv/oph_bd_threshold_spectrum/threshold_spectrum_certificate.json"
       ],
       "falsifier": "The candidate cannot realize the critical edge, OPH target vector, safety layer, thresholds, decoupling, or moduli locking on the same branch.",
-      "scope_if_false": "Failure blocks OPH-correct promotion of the named BD candidate; the OPH recovered core and other string candidates remain separate.",
+      "scope_if_false": "Failure blocks OPH-correct promotion of the named BD candidate; the OPH recovered core and other string candidates are separate.",
       "status": "work_in_progress"
     },
     {
@@ -700,7 +700,7 @@
         "extra/thinking_as_patch_net_fixed_point_search.tex"
       ],
       "falsifier": "Biological cognition cannot be mapped to bounded interfaces, self-read, records, and repair toward stable normal forms under the stated model.",
-      "scope_if_false": "The cognitive continuation falls; physical OPH branches remain independent.",
+      "scope_if_false": "The cognitive continuation falls; physical OPH branches are independent.",
       "status": "interpretive_model"
     },
     {
@@ -722,7 +722,7 @@
         "paper/paradise_as_fixed_point_consensus.tex"
       ],
       "falsifier": "The OPH record-continuation framework cannot support identity preservation or destination assignment even as an interpretation.",
-      "scope_if_false": "The meaning-layer essay falls; physics theorem surfaces remain unaffected.",
+      "scope_if_false": "The meaning-layer essay falls; physics theorem surfaces are unaffected.",
       "status": "speculative_interpretation"
     }
   ]

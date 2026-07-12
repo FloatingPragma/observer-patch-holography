@@ -8,45 +8,25 @@ Primary derivation surfaces:
 - `particles/`: particle-spectrum builders, status surfaces, gap campaigns, and
   the electroweak hierarchy certificate bundle under `particles/hierarchy/`.
 - `consensus/`: packet-net, consensus-protocol, and fixed-cutoff Z2/S3 reference-architecture benchmark artifacts.
-- `geometry/`: machine receipts for the Einstein branch-entry packets (GitHub
-  #523/#524/#525): the quotient-intrinsic incidence/cap readout with its
-  topology countermodels, the null-net standardness and Markov modular-locality
-  witnesses (including the Gibbs nonlocality counterexample), and the synthetic
-  end-to-end event-manifold reconstruction with its dimension/Hausdorff
-  countermodels, plus the Einstein-closure receipts (#526-#528, #503): null
-  tomography of the stress tensor, the exact first-law split with edge term,
-  the MaxEnt multiplier identity, baseline countermodels, and the
-  realized-branch receipt evaluation
-  (`python3 code/geometry/realized_branch_receipts.py` writes
-  `code/geometry/runs/realized_branch_receipt_report.json`), and the realized
-  cyclic cap-net repair run (`python3 code/geometry/cyclic_cap_net_run.py`):
-  a genuine transactional repair tower whose repaired output passes the
-  spherical-incidence/mesh/naturality receipts under explicit branch
-  selection, and the free-fermion modular-clock instrumentation
-  (`python3 code/geometry/modular_clock_instrumentation.py`, needs mpmath):
-  120-digit arc entanglement Hamiltonians on the boundary collars whose
-  resummed velocity profiles witness the 2-pi-KMS and modular cross-ratio
-  receipts, and the null-net instrumentation
-  (`python3 code/geometry/null_net_receipts.py`): NTI, weak additivity,
-  separating moduli, mixed-GNS Cauchy, one-particle HSM compression, and
-  percent-level modular Lie closure (rate open), and the realized-event
-  instrumentation (`python3 code/geometry/realized_event_receipts.py`):
-  E1/E2/E4 plus an intrinsic Lorentzian (1,2) ancestry cone on records
-  from the actual repair dynamics, with the realized (1+2) screen-sheet
-  dimension measured honestly, and the bulk-depth channel
-  (`python3 code/geometry/bulk_depth_receipts.py`): multi-scale records
-  with the produced depth dictionary witness E3 rank four, bulk PCA four,
-  and a seed-stable Lorentzian (1,3) ancestry cone on the
-  corpus-consistent inverse-system dynamics (narrow-margin caveats
-  explicit; the strong-coupling variant measures (2,2) and is kept as a
-  countermodel). Current verdict: all structural receipt families
-  realized at finite/one-particle level; margin convergence, Cyc limit,
-  Lie-closure rate, second-quantized MI, cap-interior, and physical
-  families pending; realized geometric branch not certified nonempty.
-  Run with `python3 -m pytest code/geometry/`.
-
-Supplemental and benchmark surfaces:
-
+- `geometry/`: machine receipts for the Einstein branch-entry packets
+  (GitHub #503, #523-#528). The suite covers the quotient-intrinsic
+  incidence/cap readout with its topology countermodels, the null-net
+  standardness and Markov modular-locality witnesses (including the Gibbs
+  nonlocality counterexample), the synthetic event reconstruction with its
+  dimension and Hausdorff countermodels, the realized cyclic cap-net repair
+  run, the free-fermion modular-clock instrumentation (120-digit arc
+  entanglement Hamiltonians, resummed velocity profiles), the null-net
+  receipt instrumentation (half-sided compression, modular Lie closure),
+  the realized-event receipts, and the bulk-depth channel with its
+  Lorentzian (1,3) cone verdict and (2,2) strong-coupling countermodel.
+  Machine state: sphere/mesh/naturality receipts pass on a genuine repair
+  run under explicit branch selection; boundary-collar modular receipts
+  pass; null-net receipts pass at one-particle level; realized records
+  produce (1,2) and (1,3) causal cones; cone-margin convergence, limit
+  clauses, cap-interior data, and the physical-identification receipts are
+  work in progress, and the realized geometric branch is not certified
+  nonempty. Reports live in `code/geometry/runs/`. Run with
+  `python3 -m pytest code/geometry/` (needs numpy, scipy, mpmath).
 - `dark_matter/`: pre-likelihood dark-sector simulation and likelihood scaffolds
   for the dark-matter supplement.
 - `ibm_quantum_cloud/`: completed IBM hardware benchmark scripts and redacted

@@ -9,7 +9,7 @@ consumed by Remark `rem:realized-branch-status`:
 * the verified rooted-tree packet-net domain (issue #238 export) is the only
   repair domain with a full correctness export to date; its overlap structure
   is a tree, so the support-visible incidence complex has no 2-simplices,
-  Euler characteristic 1, and fails the spherical incidence receipt --- the
+  Euler characteristic 1, and fails the spherical incidence receipt, the
   realized geometric branch is NOT certified nonempty by it;
 * a designed cellulated-sphere mesh (icosahedron) passes the receipt but is
   declared geometry, not a consensus product, and is labeled as such.
@@ -182,8 +182,8 @@ def build_report() -> dict:
     # families with explicit branch selection, and the boundary-collar
     # instrumentation witnesses the cross-ratio and 2pi-KMS families on the
     # declared Gaussian MaxEnt states; the cap-interior, null-net, event,
-    # and physical-identification families remain pending, so the gate
-    # stays open.
+    # and physical-identification families are pending, so the gate
+    # is open.
     topology = bool(cyclic is not None
                     and all(cyclic["receipts_witnessed"].values()))
     modular_ok = bool(modular is not None
@@ -228,10 +228,10 @@ def build_report() -> dict:
             "faithfulness, mixed-GNS Cauchy, one-particle HSM compression, "
             "and percent-level modular Lie closure (rate clause open); "
             + event_clause + bulk_clause +
-            "remaining pending: cone-margin convergence with commit "
+            "pending: cone-margin convergence with commit "
             "density, Cyc limit clause, Lie-closure rate, second-quantized "
             "MI, cap-interior data, and the UC/VR/scale "
-            "physical-identification receipts; #503 stays open on the "
+            "physical-identification receipts; #503 is open on the "
             "full nonemptiness clause."
         )
     elif topology and modular_ok:

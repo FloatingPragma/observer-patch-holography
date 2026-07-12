@@ -70,7 +70,7 @@ def test_realized_sheet_dimension_is_three_not_four():
     assert pca["chart_pca_dimension"] == 3
 
 
-def test_instrumented_events_report_honest_bulk_negative():
+def test_instrumented_events_report_bulk_negative():
     report = instrument_realized_events()
     w = report["receipts_witnessed"]
     assert w["e1_screen_population"]
@@ -78,7 +78,7 @@ def test_instrumented_events_report_honest_bulk_negative():
     assert w["e4_moebius_cocycle"]
     assert w["intrinsic_cone_lorentzian_1p2"]
     assert w["realized_sheet_dimension_measured"]
-    # the honest negative: no bulk-depth channel exists on the realized
+    # negative verdict: no bulk-depth channel exists on the realized
     # tower, so the rank-four clause must NOT be reported witnessed
     assert w["e3_rank_four_bulk_depth"] is False
     assert any("bulk-depth" in p or "bulk" in p

@@ -64,13 +64,13 @@ screen, Lorentz kinematics appears, and the observer-facing spatial chart has
 three dimensions. The compact-paper geometry statements keep the branch
 conditional: caps organize the chart, records populate it only under a separate
 localization certificate, and ambiguous finite evidence must remain ambiguous.
-Two further packets sharpen the chain: the geometry producer derives the sphere
-and its cap structure from repaired normal forms under decidable receipts (and
-proves consensus alone cannot select them), and the event-manifold packet
-assembles localized records into an actual $3{+}1$-dimensional event spacetime
-of signature $(-+++)$ --- but only on its named population, separation, frame,
-and overlap receipts, with $H^3$ kept strictly as the space of rest frames over
-events rather than space itself.
+Two further packets sharpen the chain. The geometry producer derives the
+sphere and its cap structure from repaired normal forms under decidable
+receipts, and proves consensus alone cannot select them. The event-manifold
+packet assembles localized records into an actual $3{+}1$-dimensional event
+spacetime of signature $(-+++)$ on its named population, separation, frame,
+and overlap receipts, with $H^3$ kept strictly as the space of rest frames
+over events rather than space itself.
 When the recovered-core branch
 supplies geometry readout, the null bridge, the bounded-interval kernel,
 small-ball area variation, remainder control, and tensor upgrade, the Einstein

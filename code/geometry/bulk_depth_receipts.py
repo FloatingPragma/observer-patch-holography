@@ -16,14 +16,14 @@ test:
 2. Produced depth coordinate: a record at a stage-r cell is localized at
    the bulk point of its circumscribed cap C(c, alpha_r),
        X = (cosh rho, sinh rho * c),  rho = -log tan(alpha_r / 2),
-   the Moebius boost rapidity of the cap --- the same tan(alpha/2)
+   the Moebius boost rapidity of the cap, the same tan(alpha/2)
    stereographic dictionary whose cross-ratio structure the modular
    instrumentation witnessed at 2.3e-3. Coarse cells are DEEP records,
    fine cells are near-boundary records: the holographic scale-radius
    duality realized by the refinement tower itself.
 3. Scale-invariance check: the hyperbolic metric makes the lattice
    propagation speed uniform across stages (angular step * sinh(rho) is
-   stage-independent up to mesh irregularity) --- measured, not assumed.
+   stage-independent up to mesh irregularity), measured, not assumed.
 4. Receipts:
    * E3 rank four: the icosahedral cap-response frame eta(X, n_j) plus the
      clock line has rank four on the realized record set with positive
@@ -33,7 +33,7 @@ test:
    * THE test: the intrinsic ancestry order, in local H^3 tangent frames
      (d rho, sinh(rho) d theta_1, sinh(rho) d theta_2) with the calibrated
      modular clock, is separated by a quadratic cone of signature (1,3)
-     with the clock timelike --- measured (1,3) at every seed in the
+     with the clock timelike, measured (1,3) at every seed in the
      tangent-regime window, with the narrow-margin and window-sensitivity
      caveats carried explicitly, and the (2,2) strong-coupling
      countermodel preserved.
@@ -72,12 +72,12 @@ def build_cells(stages: int = 3, coupling: str = "inverse_system"):
     coupling = "inverse_system" (the corpus-consistent dynamics): patches
     are per-stage, and consecutive stages interact only through one-step
     interface patches (each parent cell shares one interface patch with
-    its four children) --- the D1 refinement-projection structure, giving
+    its four children), the D1 refinement-projection structure, giving
     finite depth propagation speed (one stage per tick).
 
     coupling = "global_namespace" (retained countermodel): one shared
     patch namespace across all stages, so a coarse commit writes cells at
-    every scale in one tick --- infinite depth speed, which degenerates
+    every scale in one tick, infinite depth speed, which degenerates
     the causal structure (measured signature (2,2): depth becomes a
     second causal direction). The receipt must and does detect this."""
     tower = tower_meshes(stages)
@@ -369,7 +369,7 @@ def instrument_bulk_depth(stages: int = 3, n_ticks: int = 60,
             "wide windows (dtick >= 6) blur the smallest eigenvalue "
             "through zero (chart curvature plus cone underfill)",
             "one commit density evaluated; convergence of the margin "
-            "with density/stages not yet certified",
+            "with density/stages uncertified",
         ],
     }
 

@@ -7,7 +7,7 @@ receipt families of the compact paper's standardness packet
 (`subsec:null-net-standardness`):
 
 * NTI (nontrivial relative commutants): for nested arcs B in A, the modes of
-  A minus B generate a relative commutant of dimension 4^(|A|-|B|) > 1 ---
+  A minus B generate a relative commutant of dimension 4^(|A|-|B|) > 1,
   a combinatorial mode-count witness at every stage;
 * weak additivity: ring translates of one arc cover every site, so the
   translated arc algebras generate the full ring algebra;
@@ -21,13 +21,13 @@ receipt families of the compact paper's standardness packet
 * HSM compression (the half-sided-inclusion receipt, one-particle level):
   for nested arcs B in A sharing one cut, the composed modular flow
   U(t) = exp(i h_A t) exp(-i h_B t) keeps one-particle modes localized in B
-  inside B for one sign of t and leaks them for the other --- Wiesbrock's
+  inside B for one sign of t and leaks them for the other, Wiesbrock's
   compression condition witnessed as a leakage asymmetry that persists
   across refinement with a consistent direction;
 * modular Lie-closure (the modular-intersection surrogate): the commutator
   i[h_A, h_B] of two arc modular generators lies, up to a residual
   decreasing under refinement, in the linear span of arc modular generators
-  plus arc number operators and the identity --- the finite-stage shadow of
+  plus arc number operators and the identity, the finite-stage shadow of
   the statement that vacuum interval modular generators close on the global
   conformal algebra, which is the structure the modular-intersection
   receipts consume.
@@ -197,7 +197,7 @@ def lie_closure_receipt(n_ring: int, rmax: int = 8) -> dict:
     chiral weights (r/2)(-1)^((r-2)/2) (the momentum analogue of the
     odd-range energy resummation). The receipt compares the resummed
     envelope against g* after one scalar normalization on the overlap
-    interior. Status honesty: the shape matches at the percent level at
+    interior. Status: the shape matches at the percent level at
     every evaluated stage, with a smooth subleading systematic whose decay
     rate is NOT yet certified; the receipt therefore reports a
     percent-level flag and leaves the convergence-rate clause open.
@@ -303,7 +303,7 @@ def instrument_null_net(rings: tuple[int, ...] = (16, 32, 64)) -> dict:
         "scope": (
             "one-particle-level finite receipts on the declared Gaussian "
             "collar family; the Cyc limit clause and all second-quantized "
-            "scaling-limit clauses remain the paper's theorems/receipts, "
+            "scaling-limit clauses are the paper's theorems/receipts, "
             "and the E1-E4 event and UC/VR/scale physical families are "
             "outside this module"
         ),

@@ -365,70 +365,57 @@ own calculation and checks satisfy that protocol.
 The conditional geometry statements require finite cap data with evidence for
 order, orientation, modular behavior, and thermal normalization. Under those
 conditions the data converge to the expected geometric cap flow. The compact
-paper's geometry-producer packet now derives that evidence package from the
-repaired quotient normal forms themselves, on a branch defined by four
-decidable receipts (spherical incidence, cap mesh, modular cross-ratios, and
-the independently normalized 2-pi thermal comparison), and proves with explicit
-countermodels that bare finite consensus underdetermines topology, dimension,
-framing, and normalization --- so the receipts are the irreducible remaining
-Einstein branch-entry content. On the controlled branch the observer-facing
-spatial chart is exactly three-dimensional. The chart theorem still does not
-by itself populate the chart with objects, derive a physical curvature radius,
-or close the Einstein branch. The null-net packet proves the standardness and
-positive-translation structure the null bridge consumes (with an explicit
-counterexample showing finite-range Gibbs locality does not imply modular
-locality), and the event-manifold packet conditionally assembles localized
-records into a 3+1-dimensional Lorentzian event spacetime of signature (-+++),
-with H^3 strictly the fiber of rest frames over events, valid exactly on its
-named population, separation, frame, and overlap receipts. Record tokens
-require calibrated cap responses and a complete error budget for localization;
-without them the result is ambiguous, and without the event receipts the
-corpus claim is Lorentz-frame kinematics only. The closure packets complete
-the derivation chain: a local conserved stress tensor is constructed from the
-modular charges by null tomography, the generalized-entropy first law is
-repaired to the exact split (total entropy variation = Clausius flux + edge/area
-response, with the earlier bulk-only step valid only at fixed edge sectors),
-one uniform scaling family replaces per-radius choices, and a vacuum-reference
-receipt yields the absolute semiclassical Einstein equation with the
-structural coupling. The whole chain is composed into one branch-entry
-theorem whose single remaining gate is machine-checkable. Current verdict: a
-genuine cyclic cap-net repair run (real conflicts, transactional repair,
-runtime-verified confluence and schedule independence on a three-stage
-refinement tower) now passes the spherical-incidence, mesh, and
-refinement-naturality receipts on its own repaired output --- with the
-overlap net chosen spherical, i.e. explicit branch selection, never claimed
-derived --- and the free-fermion modular-clock instrumentation now witnesses the
-modular cross-ratio and geometric 2-pi-KMS receipts on realized Gaussian
-MaxEnt states over the cap-boundary collars (interior modular-velocity
-profile matching the 2-pi conformal prediction to 1.1e-4 with the
-wrong-normalization control separated; modular-transport cross-ratios
-Cauchy-converging to the Moebius values to 2.3e-3), and the null-net instrumentation witnesses the standardness families on
-the same states: nontrivial relative commutants, weak additivity, strictly
-positive separating moduli, mixed-GNS Cauchy behaviour, the one-particle
-half-sided-inclusion compression condition (chiral leakage asymmetry with a
-built-in null control), and percent-level modular Lie closure against the
-conformal structure-constant prediction (convergence rate still open). The
-realized-event instrumentation runs the event pipeline on records from the
-actual repair dynamics: screen population, certified separation, the
-Moebius chart cocycle, and an intrinsic ancestry cone of Lorentzian
-signature (1,2) with the modular clock timelike to 0.9995 --- while the
-realized event set measures as the (1+2) screen sheet when only screen
-records exist. The bulk-depth instrumentation then builds the depth
-channel with the produced dictionary rho = -log tan(alpha/2) (coarse cells
-are deep records: the scale/radius duality realized by the tower itself):
-on the corpus-consistent inverse-system dynamics, the realized multi-scale
-records witness E3 rank four, bulk PCA dimension four, and a seed-stable
-intrinsic ancestry cone of Lorentzian signature (1,3) with the modular
-clock timelike to 0.999 --- while the strong-coupling variant measures
-(2,2) and is kept as a countermodel showing the receipt detects
-pathological depth dynamics. Carried caveats: the timelike cone margin is
-narrow and its convergence with commit density is not yet certified. The
-Cyc limit clause, Lie-closure rate, second-quantized modular
-intersections, cap-interior data, and the physical-identification receipts
-also remain pending. The realized geometric branch is therefore still not
-certified nonempty: derivation complete on the receipt branch; all
-structural receipt families realized at finite/one-particle level; margin
-convergence, limit clauses, and physical receipts open.
+paper settles the production question in both directions. A producer theorem
+computes an incidence complex directly from the repaired normal forms and,
+when that complex passes four decidable receipts (a closed orientable surface
+with the right Euler count, a nondegenerate cap mesh, Cauchy modular
+cross-ratios, and an independently normalized thermal comparison), it builds
+the round sphere, its conformal structure, and the whole certificate.
+Explicit countermodels (a torus, a three-sphere skeleton, a wedge of two
+spheres, a wrong-temperature clock) prove that bare consensus never selects
+the topology, the dimension, or the normalization on its own. The receipts
+are the physical input, and the geometry is derived exactly on the receipt
+branch.
+
+The same style of bookkeeping runs through the rest of the gravity chain.
+The null-net packet proves the standardness and positive-translation
+structure the null bridge consumes, with a worked counterexample showing
+that finite-range Gibbs locality does not imply modular locality. The
+event-manifold packet defines events as coincidence classes of localized
+records. On its named receipts (dense population, certified separation,
+rank-four response frames, consistent chart overlaps) the event set is a
+genuine four-dimensional Lorentzian manifold of signature (-+++), with the
+hyperbolic frame space kept strictly as the space of rest frames over each
+event, never as space itself. The stress tensor is built from modular
+charges by null tomography, the entropy first law carries its edge term
+exactly, one uniform scaling family controls the small-diamond limit, a
+vacuum-reference receipt fixes the absolute baseline, and the whole chain
+composes into a single branch-entry theorem with the Einstein equation as
+its output.
+
+The simulator side carries a receipt evaluator for all of this, and the
+current machine state reads as follows. A genuine cyclic repair run (real
+conflicts, transactional repair, confluence and schedule independence
+verified at runtime on a three-stage tower) passes the sphere, mesh, and
+naturality receipts on its own repaired output; the overlap net of that run
+is chosen spherical, which is explicit branch selection, never a derived
+result. Free-fermion collar states pass the modular cross-ratio and thermal
+normalization receipts, with the interior modular profile matching the
+conformal prediction to about one part in ten thousand at the finest stage.
+The null-net receipts pass at one-particle level, including the half-sided
+compression condition and a percent-level match of the modular commutator
+against the conformal structure constants. Records taken from the actual
+repair dynamics reproduce a Lorentzian causal cone: signature (1,2) on the
+screen sheet, and signature (1,3) at every tested seed once records carry
+the produced depth coordinate on the corpus-consistent multi-scale
+dynamics. A strong-coupling variant of that dynamics measures (2,2) and is
+kept as a countermodel, which is what a sharp instrument looks like. The
+cone margin is small, its convergence with commit density is work in
+progress, and the limit clauses, cap-interior data, and physical
+identification receipts (universal coupling, vacuum reference, absolute
+scale) are open. The realized geometric branch is not certified nonempty,
+and the record localization and event receipts must pass on physical data
+before any of this counts as more than structure.
 
 Screen-spectrum and CMB continuations are provisional without the screen
 branch's geometric scale, source dynamics, clock, refinement behavior, and

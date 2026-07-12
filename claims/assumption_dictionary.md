@@ -3,7 +3,7 @@
 This dictionary gives stable names to the assumptions used in the claim registry. The paper text remains the legal source for each theorem; the registry points readers to the owner paper and makes cross-paper status language auditable.
 
 | Assumption | Meaning | Primary owner |
-| --- | --- | --- |
+|, |, |, |
 | `finite_or_regulated_accessible_algebras` | Each observer-facing system has a finite or regulated algebra of accessible observables. | Observers synthesis, screen microphysics |
 | `declared_record_surface` | Record events use a declared algebraic readout surface with trace/Born probabilities where the branch requires it. | Screen microphysics |
 | `visible_overlap_maps` | Neighboring patches compare only the interface data exposed by visible restriction maps. | Consensus paper |
@@ -32,7 +32,7 @@ This dictionary gives stable names to the assumptions used in the claim registry
 | `edge_normalization_log_d` | The central operator weights are \(z_\alpha=\log d_\alpha\), matching the edge-sector dimension dictionary; mismatched weights break the edge identification by a computable defect. | Compact SM/GR paper |
 | `uniform_collar_decay_constants` | Collar CMI/recovery decay holds with region-uniform constants on the declared scaling family (one family, no per-radius diagonal choice). | Compact SM/GR paper |
 | `vacuum_reference_receipt` | A realized maximally symmetric MaxEnt reference state fixes the first-variation integration tensor to zero (the absolute-baseline step); irreducible: identical first-variation data admit different baselines. | Compact SM/GR paper |
-| `realized_branch_nonemptiness` | Some realized repair tower carries the finite receipts on its own output; machine-checkable, currently negative on exported consensus artifacts. | Compact SM/GR paper, simulator receipts |
+| `realized_branch_nonemptiness` | Some realized repair tower carries the finite receipts on its own output; machine-checkable, with a recorded negative evaluation on the exported consensus artifacts. | Compact SM/GR paper, simulator receipts |
 | `null_stress_bridge` | The null modular branch identifies the half-line generator with the local null-stress charge on its stated family. | Compact SM/GR paper |
 | `fixed_cap_MaxEnt_variation_family` | The entropy-stationarity variation is taken inside the realized cap-label-preserving MaxEnt family. | Compact SM/GR paper |
 | `maxent_refinement_closure_clause` | Coarse-graining keeps the realized state in the homogeneous global-sum MaxEnt family: the closure defect of the I-projection residual-bound lemma vanishes along the realized branch. | Compact SM/GR paper, observers synthesis |

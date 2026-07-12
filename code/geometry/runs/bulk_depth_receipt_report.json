@@ -154,6 +154,6 @@
   "caveats": [
     "narrow timelike margin: normalized eigenvalue in [-0.028, -0.009] across seeds; sign stable, magnitude small",
     "window sensitivity: dtick <= 4 tangent windows give (1,3); wide windows (dtick >= 6) blur the smallest eigenvalue through zero (chart curvature plus cone underfill)",
-    "one commit density evaluated; convergence of the margin with density/stages not yet certified"
+    "one commit density evaluated; convergence of the margin with density/stages uncertified"
   ]
 }

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Realized cyclic cap-net repair run for the #503 nonemptiness gate.
 
-This module executes a genuine finite transactional OPH repair run --- real
+This module executes a genuine finite transactional OPH repair run, real
 seeded conflicts, transactional majority repair, runtime-verified termination,
 confluence, and schedule independence (the node-D1 clauses checked at run
-time, as in the #238 rooted-tree export) --- on a refinement tower of cyclic
+time, as in the #238 rooted-tree export), on a refinement tower of cyclic
 cap nets, and exports the repaired record layer as a consensus artifact for
 the realized-branch receipt evaluation.
 
@@ -12,7 +12,7 @@ Provenance is stated exactly: the overlap net of each stage is CHOSEN to be a
 sphere triangulation (icosahedron plus edge subdivisions). Per the
 dimension-selection boundary of the compact paper
 (Corollary `cor:dimension-selection-status`), this is explicit branch
-selection --- allowed as a named branch input, never claimed as a consensus
+selection, allowed as a named branch input, never claimed as a consensus
 output. What the run genuinely witnesses is the joint realizability of the
 node-D1 repair clauses with the spherical-incidence, mesh, and
 refinement-naturality receipts on one tower: the repair layer does not know
@@ -21,7 +21,7 @@ normal-form records alone.
 
 NOT witnessed here: the modular cross-ratio receipt and the geometric
 2pi-KMS receipt, which require modular-clock instrumentation of the MaxEnt
-states on this tower and remain pending; and the E/MI/scale/UC/VR families.
+states on this tower and are pending; and the E/MI/scale/UC/VR families.
 
 Run:
     python3 code/geometry/cyclic_cap_net_run.py

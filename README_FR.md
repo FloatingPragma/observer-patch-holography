@@ -408,81 +408,64 @@ lorsque son calcul et ses contrôles satisfont ce protocole.
 Les énoncés géométriques conditionnels exigent des données finies de caps avec
 des preuves d'ordre, d'orientation, de comportement modulaire et de
 normalisation thermique. Sous ces conditions, les données convergent vers le
-flot géométrique de cap attendu. Le paquet producteur de géométrie du papier
-compact dérive désormais ce paquet de preuves depuis les formes normales de
-quotient réparées elles-mêmes, sur une branche définie par quatre reçus
-décidables (incidence sphérique, maille de caps, birapports modulaires et
-comparaison thermique 2-pi normalisée indépendamment), et prouve par des
-contre-modèles explicites que le consensus fini nu sous-détermine la topologie,
-la dimension, le cadrage et la normalisation --- les reçus sont donc le contenu
-irréductible restant de l'entrée de la branche d'Einstein. Sur la
-branche contrôlée, la carte spatiale orientée observateur est exactement
-tridimensionnelle. Le théorème de carte ne peuple toujours pas, à lui seul, la
-carte avec des objets, ne dérive pas un rayon de courbure physique et ne ferme
-pas la branche d'Einstein. Le paquet de réseau nul prouve la standardité et la
-structure de translations positives que le pont nul consomme (avec un
-contre-exemple explicite montrant que la localité de Gibbs à portée finie
-n'implique pas la localité modulaire), et le paquet de variété d'événements
-assemble conditionnellement les enregistrements localisés en un espace-temps
-d'événements lorentzien de dimension 3+1 et de signature (-+++), avec H^3
-strictement fibre des repères de repos au-dessus des événements, valable
-exactement sur ses reçus nommés de population, de séparation, de repère et de
-recouvrement. La localisation des jetons d'enregistrement exige des
-réponses de caps calibrées et un budget d'erreur complet ; sans ces éléments,
-le résultat est ambigu, et sans les reçus d'événements la revendication du
-corpus reste une cinématique de repères de Lorentz seulement. Les paquets de
-clôture achèvent la chaîne de dérivation : un tenseur d'énergie-impulsion
-local et conservé est construit à partir des charges modulaires par
-tomographie nulle, la première loi d'entropie généralisée est réparée en la
-scission exacte (variation d'entropie totale = flux de Clausius + réponse de
-bord/aire), une seule famille d'échelle uniforme remplace les choix par
-rayon, et un reçu de référence de vide donne l'équation d'Einstein
-semi-classique absolue avec le couplage structurel. La chaîne complète est
-composée en un théorème d'entrée de branche dont la seule porte restante est
-vérifiable par machine. Verdict actuel : une exécution de réparation
-cyclique authentique sur un réseau de caps (conflits réels, réparation
-transactionnelle, confluence et indépendance d'ordonnancement vérifiées à
-l'exécution sur une tour de raffinement à trois étages) passe désormais les
-reçus d'incidence sphérique, de maille et de naturalité de raffinement sur
-sa propre sortie réparée --- le réseau de recouvrement étant choisi
-sphérique, c'est-à-dire une sélection de branche explicite, jamais présentée
-comme dérivée --- et l'instrumentation d'horloge modulaire par fermions libres témoigne
-désormais des reçus de birapport modulaire et de KMS géométrique 2-pi sur
-des états MaxEnt gaussiens réalisés sur les colliers de bord des caps
-(profil de vitesse modulaire intérieur conforme à la prédiction conforme
-2-pi à 1,1e-4 près avec le contrôle de mauvaise normalisation séparé ;
-birapports de transport modulaire convergeant au sens de Cauchy vers les
-valeurs de Moebius à 2,3e-3 près), et l'instrumentation de réseau nul témoigne des familles de standardité
-sur les mêmes états : commutants relatifs non triviaux, additivité faible,
-modules séparants strictement positifs, comportement de Cauchy mixte-GNS,
-condition de compression d'inclusion demi-latérale au niveau
-une-particule (asymétrie de fuite chirale avec contrôle nul intégré) et
-clôture de Lie modulaire au niveau du pour-cent contre la prédiction des
-constantes de structure conformes (taux de convergence encore ouvert). L'instrumentation d'événements réalisés exécute le pipeline
-d'événements sur des enregistrements issus de la dynamique de réparation
-réelle : population d'écran, séparation certifiée, cocycle de cartes de
-Moebius, et un cône d'ascendance intrinsèque de signature lorentzienne
-(1,2) avec l'horloge modulaire de genre temps à 0,9995 --- tandis que
-l'ensemble d'événements réalisé se mesure comme la nappe d'écran (1+2)
-lorsque seuls des enregistrements d'écran existent. L'instrumentation de
-profondeur de bulk construit ensuite le canal E3 avec le dictionnaire
-produit rho = -log tan(alpha/2) (les cellules grossières sont des
-enregistrements profonds : la dualité échelle/rayon réalisée par la tour
-elle-même) : sur la dynamique de système inverse conforme au corpus, les
-enregistrements multi-échelles réalisés témoignent du rang quatre E3, de
-la dimension PCA de bulk quatre, et d'un cône d'ascendance intrinsèque de
-signature lorentzienne (1,3), stable sur toutes les graines, avec
-l'horloge modulaire de genre temps à 0,999 --- tandis que la variante à
-couplage fort mesure (2,2) et est conservée comme contre-modèle. Réserves
-explicites : la marge du cône de genre temps est étroite et sa convergence
-avec la densité de commits n'est pas encore certifiée. La clause limite
-Cyc, le taux de clôture de Lie, les intersections modulaires
-secondes-quantifiées, les données d'intérieur de cap et les reçus
-d'identification physique restent en attente. La branche géométrique
-réalisée n'est donc toujours pas certifiée non vide : dérivation complète
-sur la branche des reçus ; toutes les familles structurelles de reçus
-réalisées au niveau fini/une-particule ; convergence de marge, clauses
-limites et reçus physiques ouverts.
+flot géométrique de cap attendu. Le papier compact règle la question de la
+production dans les deux sens. Un théorème producteur calcule un complexe
+d'incidence directement à partir des formes normales réparées et, lorsque ce
+complexe passe quatre reçus décidables (une surface fermée orientable avec le
+bon compte d'Euler, une maille de caps non dégénérée, des birapports
+modulaires de Cauchy et une comparaison thermique normalisée indépendamment),
+il construit la sphère ronde, sa structure conforme et le certificat complet.
+Des contre-modèles explicites (un tore, un squelette de trois-sphère, un
+bouquet de deux sphères, une horloge à mauvaise température) prouvent que le
+consensus nu ne sélectionne jamais seul la topologie, la dimension ou la
+normalisation. Les reçus sont l'entrée physique, et la géométrie est dérivée
+exactement sur la branche des reçus.
+
+Le même style de comptabilité traverse le reste de la chaîne de gravité. Le
+paquet de réseau nul prouve la standardité et la structure de translations
+positives que le pont nul consomme, avec un contre-exemple montrant que la
+localité de Gibbs à portée finie n'implique pas la localité modulaire. Le
+paquet de variété d'événements définit les événements comme classes de
+coïncidence d'enregistrements localisés. Sur ses reçus nommés (population
+dense, séparation certifiée, repères de réponse de rang quatre,
+recouvrements de cartes cohérents), l'ensemble d'événements est une vraie
+variété lorentzienne de dimension quatre et de signature (-+++), l'espace
+hyperbolique des repères restant strictement l'espace des repères de repos
+au-dessus de chaque événement, jamais l'espace lui-même. Le tenseur
+d'énergie-impulsion est construit à partir des charges modulaires par
+tomographie nulle, la première loi d'entropie porte exactement son terme de
+bord, une seule famille d'échelle uniforme contrôle la limite des petits
+diamants, un reçu de référence de vide fixe la ligne de base absolue, et la
+chaîne entière se compose en un unique théorème d'entrée de branche avec
+l'équation d'Einstein comme sortie.
+
+Le côté simulateur porte un évaluateur de reçus pour tout cela, et l'état
+machine se lit ainsi. Une exécution de réparation cyclique authentique
+(conflits réels, réparation transactionnelle, confluence et indépendance
+d'ordonnancement vérifiées à l'exécution sur une tour à trois étages) passe
+les reçus de sphère, de maille et de naturalité sur sa propre sortie
+réparée ; le réseau de recouvrement de cette exécution est choisi sphérique,
+ce qui est une sélection de branche explicite, jamais un résultat dérivé.
+Des états de collier à fermions libres passent les reçus de birapport
+modulaire et de normalisation thermique, le profil modulaire intérieur
+correspondant à la prédiction conforme à environ un pour dix mille au stade
+le plus fin. Les reçus de réseau nul passent au niveau une-particule, y
+compris la condition de compression demi-latérale et un accord au niveau du
+pour-cent du commutateur modulaire avec les constantes de structure
+conformes. Des enregistrements issus de la dynamique de réparation réelle
+reproduisent un cône causal lorentzien : signature (1,2) sur la nappe
+d'écran, et signature (1,3) à chaque graine testée dès que les
+enregistrements portent la coordonnée de profondeur produite sur la
+dynamique multi-échelles conforme au corpus. Une variante à couplage fort
+de cette dynamique mesure (2,2) et est conservée comme contre-modèle, ce
+qui est la marque d'un instrument précis. La marge du cône est petite, sa
+convergence avec la densité de commits est un travail en cours, et les
+clauses limites, les données d'intérieur de cap et les reçus
+d'identification physique (couplage universel, référence de vide, échelle
+absolue) sont ouverts. La branche géométrique réalisée n'est pas certifiée
+non vide, et les reçus de localisation d'enregistrements et d'événements
+doivent passer sur des données physiques avant que tout ceci compte comme
+davantage que de la structure.
 
 Les continuations de spectre d'écran et de CMB sont provisoires sans l'échelle
 géométrique de la branche écran, sa dynamique source, son horloge, son

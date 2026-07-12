@@ -14,7 +14,7 @@ Construction (all modular data computed, none declared):
    hopping (anti-periodic twist, Fermi velocity 1) on the stage-r
    cap-boundary collar rings N_r = 16, 32, 64. Correlations are closed-form
    plane-wave sums, evaluated in extended precision (mpmath, 120 digits),
-   because the arc correlation spectrum reaches 1e-30 of the endpoints ---
+   because the arc correlation spectrum reaches 1e-30 of the endpoints,
    far beyond float64.
 2. Entanglement Hamiltonian of the half-ring arc: h = log((1-C_I)/C_I) by
    extended-precision eigendecomposition.
@@ -39,7 +39,7 @@ Construction (all modular data computed, none declared):
 Scope, stated exactly: this is BOUNDARY-COLLAR instrumentation on the
 declared Gaussian MaxEnt family (an Axiom-level input). Cap-interior
 modular data, the null-net families (Cyc/NTI/weak additivity/MI), the event
-families E1-E4, and the physical-identification receipts remain pending.
+families E1-E4, and the physical-identification receipts are pending.
 
 Run:
     python3 code/geometry/modular_clock_instrumentation.py
@@ -218,7 +218,7 @@ def instrument_tower(rings: tuple[int, ...] = (16, 32, 64)) -> dict:
             "by odd-range chiral resummation (nearest-neighbour truncation "
             "alone is off by ~9 percent and does not converge); receipts "
             "evaluated are the boundary-circle profile-KMS and cross-ratio "
-            "clauses; cap-interior modular data remain pending"
+            "clauses; cap-interior modular data are pending"
         ),
         "rings": list(rings),
         "resummation_rmax": RMAX,

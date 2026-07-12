@@ -88,6 +88,6 @@ def test_instrumented_null_net_verdicts():
     assert w["separating_faithfulness"] and w["mixed_gns_cauchy"]
     assert w["hsm_compression_one_particle"]
     assert w["modular_lie_closure_percent_level"]
-    # honesty flags: the rate clause must remain open in the report
+    # the rate clause must be recorded as open in the report
     assert any("convergence rate" in p or "rate" in p
                for p in report["receipts_pending"])

@@ -341,19 +341,18 @@ geometric statement appears only after the finite regulator is compared with
 the continuum using controlled state errors and a declared cutoff schedule.
 
 This closes one conditional implication: certified finite cap data lead to the
-support-visible geometric cap flow. The compact paper now also settles the
-production question in both directions. On one side, a producer theorem
-computes an incidence complex directly from the repaired normal forms and, when
-that complex passes four decidable receipts (a closed orientable surface with
-Euler characteristic 2, a nondegenerate cap mesh, Cauchy modular cross-ratios,
-and an independently normalized $2\pi$ thermal comparison), it produces the
-round sphere, its conformal structure, and the whole certificate. On the other
-side, explicit countermodels (a torus, a three-sphere skeleton, a wedge of two
-spheres, a wrong-temperature clock) prove that bare consensus alone never
-selects the topology, the dimension, or the normalization. So the honest
-statement is: the geometry is derived exactly on the receipt branch, and the
-receipts are the irreducible physical input. The observer-facing spatial
-chart and the record-localization step remain downstream gates with their own
+support-visible geometric cap flow. The compact paper settles the production
+question in both directions. A producer theorem computes an incidence complex
+directly from the repaired normal forms. When that complex passes four
+decidable receipts (a closed orientable surface with the right Euler count, a
+nondegenerate cap mesh, Cauchy modular cross-ratios, and an independently
+normalized thermal comparison), it produces the round sphere, its conformal
+structure, and the whole certificate. Explicit countermodels (a torus, a
+three-sphere skeleton, a wedge of two spheres, a wrong-temperature clock)
+prove that bare consensus never selects the topology, the dimension, or the
+normalization on its own. The geometry is derived exactly on the receipt
+branch, and the receipts are the physical input. The observer-facing spatial
+chart and the record-localization step are downstream gates with their own
 conditions.
 
 That is the bridge. The clock defined by the state becomes the same clock
@@ -482,22 +481,25 @@ transport, missingness, invariance, refinement, and held-out controls. A
 positive metric by itself is not Lorentzian spacetime. The relativity claim
 needs causal order, time separation, and the modular/geometric branch that
 identifies the shared light-cone structure. The compact paper's event-manifold
-packet makes this step explicit and conditional: events are defined as
-coincidence classes of localized records, and only under four named receipts
-(dense record population, certified separation, rank-four response frames, and
-Poincaré-consistent chart overlaps) does the event set become a genuine
-four-dimensional Lorentzian manifold with signature $(-+++)$, a repair-oriented
-arrow of time, and $H^3$ strictly as the fiber of possible rest frames over
-each event --- never as space itself. Countermodels show that without those
-receipts the event set can be one-dimensional, five-dimensional, or not even
-Hausdorff, while all the Lorentz kinematics stays intact. The closure packets
-then finish the chain: the stress tensor is built from the modular charges
-themselves (nine null directions determine it, up to the trace term a vacuum
-reference fixes), the entropy first law is corrected to carry the edge term
-exactly, and the whole route composes into one branch-entry theorem. Its one
-remaining gate is empirical and machine-checkable: no realized consensus run
-has yet produced a spherical record layer, so the realized branch is not yet
-certified nonempty.
+packet makes this step explicit and conditional. Events are defined as
+coincidence classes of localized records. Under four named receipts (dense
+record population, certified separation, rank-four response frames, and
+consistent chart overlaps) the event set is a genuine four-dimensional
+Lorentzian manifold with signature $(-+++)$, a repair-oriented arrow of time,
+and $H^3$ strictly the fiber of possible rest frames over each event, never
+space itself. Countermodels show that without those receipts the event set
+can be one-dimensional, five-dimensional, or not even Hausdorff, while all
+the Lorentz kinematics stays intact. The closure packets finish the chain.
+The stress tensor is built from the modular charges themselves (nine null
+directions determine it, up to a trace term that a vacuum reference fixes),
+the entropy first law carries its edge term exactly, and the whole route
+composes into one branch-entry theorem. The gate on that theorem is
+empirical and machine-checkable: a realized consensus run has to carry the
+receipts on its own output. The simulator receipt suite tracks exactly this,
+with a genuine repair run passing the sphere and mesh receipts under
+explicit branch selection, collar states passing the modular clock receipts,
+and multi-scale records reproducing a Lorentzian causal cone; the remaining
+checks are work in progress.
 
 ## 15.9 Recovering General Relativity
 
