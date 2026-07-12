@@ -33,10 +33,11 @@
     "sin2w_eff_reference": 0.22333729871365937
   },
   "family_source_id": "d10_running_tree",
-  "generated_utc": "2026-07-12T08:18:25Z",
+  "generated_utc": "2026-07-12T09:53:44Z",
   "notes": [
-    "This artifact records the current source-only D10 mass-side candidate beneath the Ward-projected electromagnetic transport family.",
+    "This artifact records the current runtime target-free-input D10 mass-side candidate beneath the Ward-projected electromagnetic transport family.",
     "The unconditional source-only underdetermination theorem remains the support boundary on the present corpus, so this candidate is not promoted to theorem status.",
+    "The exact conditional QT1-QT5 quotient-path theorem reproduces this formula, but the current corpus does not yet emit QT1-QT5 or bind them to one strict source pixel branch.",
     "The freeze-once coherent repair law serves as compare-only validation on the same W/Z mass lane.",
     "At the repo default P this candidate nearly coincides numerically with the frozen benchmark surface, but that numerical coincidence is not by itself a proof of target-free closure."
   ],
@@ -81,6 +82,6 @@
       "tauY_fiber": "-(tau2_tree_exact + 2 * eta_source) / (1 + 4 * tau2_tree_exact^2)"
     },
     "name": "EWTargetFreeRepairValueLaw_D10",
-    "statement": "Let the D10 source-only basis be (alpha2_mz, alphaY_mz, eta_source, v_report). Then the beyond-current-carrier electroweak repair is uniquely emitted by the source-only repair chart (tau2_tree_exact, delta_n_tree_exact) and the repaired coupling pair (alpha2_prime, alphaY_prime), with no frozen target input, no inverse slice, and no mixed readout."
+    "statement": "Given the current selected D10 candidate rule and the basis (alpha2_mz, alphaY_mz, eta_source, v_report), the formulas below deterministically evaluate (tau2_tree_exact, delta_n_tree_exact), the repaired coupling pair (alpha2_prime, alphaY_prime), and one coherent quintet without a frozen target argument in the forward calculation. The present corpus does not derive or uniquely select the candidate rule from the finite quotient transport, so this statement is not a promoted source theorem."
   }
 }

@@ -36,16 +36,14 @@ m_W (no Jacobian core, no running-scheme dependence) and the neutral
 observable m_Z. If the color structure is right, m_W selects c = sqrt(N_c)/2
 and m_Z selects d = N_c/2 with no free parameter.
 
-Status. This module establishes: (1) the parameter-free color prediction
-matches m_W to about 0.1 percent and m_Z to about 3 percent; (2) every
-competitor (running-tree c = 1/(4 beta), loop-symmetric c = N_c/2 and N_c)
-is excluded at more than one sigma on the clean observables. It supplies the
-DR/large-N_c mechanism for the sqrt(N_c) vs N_c split. It does NOT emit the
-explicit collar-transport operators that would prove the charged channel
-factors through a single intertwiner rather than a loop; that channel-
-identification is the one remaining rigorous step, and the data confirmation
-uses measured masses, so this is a data-confirmed parameter-free prediction
-with a mechanism, not yet a source-only theorem. Promotion stays blocked.
+Status. This module records a retrospective comparison of the color-balanced
+quadratic candidate with the stored W/Z rows and with other constant-c
+quadratic proxies.  The proxy c=1/(4 beta) is only the leading constant term of
+the complete archived value law; the complete law has eta-dependent return and
+central-subtraction terms and is not excluded by this proxy comparison.  The
+module supplies a conditional DR/large-N_c mechanism for the sqrt(N_c) versus
+raw N_c split, but it does not emit the explicit collar-transport operators or
+prove channel identification.  Promotion stays blocked.
 
 Run:
     python3 code/particles/calibration/derive_color_amplitude_loop_split.py
@@ -141,7 +139,7 @@ def build() -> dict:
         "color_amplitude_loop  c=sqrt(Nc)/2": c_pred,
         "loop_symmetric        c=Nc/2": N_C / 2.0,
         "loop_symmetric        c=Nc": float(N_C),
-        "running_tree          c=1/(4 beta)": 1.0 / (4.0 * beta),
+        "leading_constant_proxy c=1/(4 beta)": 1.0 / (4.0 * beta),
     }
     competitor_rows = {
         name: {"c": c, "inside_MWMZ_1sigma": band_lo <= c <= band_hi}
@@ -162,11 +160,12 @@ def build() -> dict:
         "artifact": "oph_color_amplitude_loop_split",
         "generated_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "object_id": "ColorAmplitudeLoopSplit_A2A3",
-        "row_class": "data_confirmed_parameter_free_prediction",
+        "row_class": "retrospective_data_comparison_conditional_mechanism_candidate",
         "guards": {
             "measured_values_in_any_oph_solve_path": False,
             "source_only_theorem_emitted": False,
             "public_promotion_allowed": False,
+            "complete_archived_value_law_tested_as_constant_c_competitor": False,
         },
         "N_c": N_C,
         "dr_mechanism": {
@@ -196,9 +195,9 @@ def build() -> dict:
         "comparison_compare_only": comparison,
         "verdict": {
             "loop_symmetric_law": "excluded (outside MW+MZ 1-sigma)",
-            "running_tree_law": "excluded (outside MW+MZ 1-sigma)",
-            "color_amplitude_loop_law": "data optimum, parameter-free, matches "
-                                        "m_W to ~0.1 percent and m_Z to ~3 percent",
+            "leading_constant_proxy": "outside the displayed MW+MZ 1-sigma band, but this does not test or exclude the complete archived value law",
+            "complete_archived_value_law": "not a constant-c competitor and not excluded by this comparison",
+            "color_amplitude_loop_law": "retrospective conditional candidate close to the stored comparison rows",
             "remaining_rigorous_step": "prove from the explicit collar-transport "
                                        "operators that the charged repair channel "
                                        "factors through a single intertwiner "
@@ -207,7 +206,7 @@ def build() -> dict:
                                        "reconstruction fixes N_c and the DR "
                                        "intertwiner norms but does not emit those "
                                        "channel operators",
-            "status": "A2A3_data_confirmed_parameter_free_with_mechanism_"
+            "status": "A2A3_retrospective_conditional_mechanism_"
                       "channel_identification_open",
         },
     }

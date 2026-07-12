@@ -1,0 +1,180 @@
+{
+  "all_six_receipts_closed": false,
+  "artifact": "oph_quark_flavor_source_closure_contract_v1",
+  "claim_class": "exact_algebra_plus_conditional_physical_completion_contract",
+  "conditional_RG_uniqueness": {
+    "current_packet_supplied": false,
+    "statement": "A frozen locally-Lipschitz beta system that exists without blowup across the declared intervals, with single-valued threshold matching, has a unique transported image. This proves uniqueness after an RG packet is supplied, not derivation of that packet.",
+    "theorem_status": "standard_ODE_theorem_given_hypotheses"
+  },
+  "conditional_mass_evaluator_unique_if_all_receipts_close": true,
+  "conditional_refinement_descent": {
+    "conclusion": "ordered spectral gaps, trace/gap functionals, normalized edge magnitudes, and phase-invariant projector witnesses descend and are perturbatively stable",
+    "current_hypotheses_discharged": false,
+    "hypotheses": [
+      "a source-labeled simple-spectrum family generator K_r",
+      "a source charged seed Y_ch,r in the same labeled basis",
+      "exact refinement intertwiners K_s U_sr = U_sr K_r",
+      "monomial source-label transport with U_sr e_i,r equal to a phase times e_P(i),s",
+      "a uniform positive spectral-gap lower bound",
+      "positive g_ch, common dimensional typing of g_ch and Y_ch entries, and a uniform nonzero lower bound on every selected charged-seed edge"
+    ],
+    "theorem_status": "exact_given_hypotheses"
+  },
+  "current_numeric_formula_role": "post-hoc target-informed repository-template and RSCC formula-discovery diagnostics",
+  "current_repository_emits_physical_quark_sextet": false,
+  "dependency_files": {
+    "particles/hierarchy/certificates/R_P_source_audit_pixel_certificate.json": {
+      "sha256": "11aeb17fd03b032af987100f8b865786f77b17c6d81aa4a649984e5059f42010"
+    },
+    "particles/runs/flavor/family_transport_kernel.json": {
+      "sha256": "712f4ac9ac065bb5349eda86f168c5aca5f011771cefc5e50ededea56c17152a"
+    },
+    "particles/runs/flavor/quark_axiom_level_yukawa_moduli_nonidentifiability.json": {
+      "sha256": "39c54115c9aa1bf14a806ff7900874c9575c42c3dfd25cb30801799c4a1a653f"
+    },
+    "particles/runs/flavor/quark_odd_response_law.json": {
+      "sha256": "b9f15ab24a7231f3b500b270b6c8923e3deba843d28f603e2032f992363b1a55"
+    },
+    "particles/runs/flavor/quark_rscc_completion_candidate.json": {
+      "sha256": "8711a0bc5fd3419b1eb0bd110514f02b7c57c95332965fdf84fd6b371b2d92b1"
+    },
+    "particles/runs/flavor/quark_rscc_completion_candidate_audit.json": {
+      "sha256": "d27516f3948875f87df4dadc4b94c4918ea5d084cac21315bae843faefbefd46"
+    },
+    "particles/runs/flavor/quark_rscc_module_arithmetic.json": {
+      "sha256": "945da0cef4b21f39e1327d26a167af4b3f174a4c26cb0b0b2abcd81c0c36322b"
+    },
+    "particles/runs/flavor/quark_running_mass_scheme_convention_obstruction.json": {
+      "sha256": "f1e1190fd30e2d9e912c959ed177136e60a3b9dbaf663885d6d0657c354ed096"
+    },
+    "particles/runs/flavor/quark_sector_mean_split.json": {
+      "sha256": "83436ecd636b9d745ee58b5c7f05a6b355224965a3013310d57f021ac55bae93"
+    }
+  },
+  "exact_algebra": {
+    "centered_basis": {
+      "L": [
+        "-(x + 3)/3",
+        "2*x/3",
+        "-(x - 3)/3"
+      ],
+      "Q": [
+        "-(x - 1)*(x + 1)/3",
+        "2*(x - 1)*(x + 1)/3",
+        "-(x - 1)*(x + 1)/3"
+      ],
+      "basis_domain": "x != +/-1",
+      "gram_determinant": "4*(x - 1)**2*(x + 1)**2/3"
+    },
+    "checks": {
+      "LQ_gram_determinant": true,
+      "down_linear_coordinate": true,
+      "down_ray_quadratic_coordinate": true,
+      "rho_x_relation": true,
+      "up_linear_coordinate": true,
+      "up_ray_quadratic_coordinate": true
+    },
+    "normalized_trace_theorem": {
+      "conditional_denominator_tuple": [
+        5,
+        2,
+        5,
+        10,
+        4
+      ],
+      "dimensions": {
+        "down_even_electroweak_module": 4,
+        "down_odd_module": 5,
+        "family_matrix_slots": 25,
+        "family_module": 5,
+        "up_even_oriented_module": 10,
+        "up_odd_module": 2
+      },
+      "rank_one_or_slot_coefficients": {
+        "down_even_rank_one": "1/4",
+        "down_odd_rank_one": "1/5",
+        "isotropic_heat_slot": "1/25",
+        "up_even_rank_one": "1/10",
+        "up_odd_rank_one": "1/2"
+      },
+      "scope_boundary": "The coefficients follow only after the physical heat, odd, and even channel modules, orientations, and signs are supplied. Representation theory does not select those modules.",
+      "statement": "A complex-linear U(d)-conjugation-invariant functional with ell(I)=1 is Tr/d. A U(d)xU(d)-isotropic Hilbert-Schmidt width with total width t is (t/d^2)I."
+    },
+    "proof_status": "exact_symbolic_verification_passed",
+    "ray_decomposition": {
+      "down_linear_coordinate": "amplitude",
+      "down_quadratic_coordinate": "-amplitude*(rho*x + rho + x - 1)/((rho + 1)*(x - 1)*(x + 1))",
+      "up_linear_coordinate": "amplitude",
+      "up_quadratic_coordinate": "-amplitude*(rho*x - rho + x + 1)/((rho + 1)*(x - 1)*(x + 1))"
+    },
+    "rho_x_relation": "rho=3*(1-x)/(3-x)"
+  },
+  "flavor_source_closure_receipts": {
+    "F1_pixel_gauge_source_root": {
+      "closed": false,
+      "current_status": "source_audit_branch_witness_not_full_endpoint_proof",
+      "required": "unique no-target interval or Krawczyk source-root certificate",
+      "rscc_candidate_status": "source_audit_branch_witness_not_full_endpoint_proof",
+      "rscc_stage5_quark_ancestor": true
+    },
+    "F2_refinement_natural_flavor_carrier": {
+      "closed": false,
+      "current_kernel_proof_status": "conjugacy_riesz_candidate",
+      "current_kernel_status": "template",
+      "odd_response_missing_object": "oph_charged_dirac_odd_deformation_form",
+      "odd_response_status": "candidate_only",
+      "required": "source-emitted labeled simple-spectrum family generator, charged seed, and common-refinement intertwiners",
+      "rscc_contribution": "proposes F=1+2*V_std but supplies no physical regular-heat-to-F attachment, labeled generator, or refinement transport"
+    },
+    "F3_physical_channel_identification_functor": {
+      "closed": false,
+      "required": "identify the physical S3 heat carrier, tau_f, rho/x dictionary, and edge response equations, then derive the 5,2,5,10,4 response modules, signs, orientation, and exclusion of competing source-natural assignments",
+      "rscc_arithmetic_status": "exact_arithmetic_passed_physical_module_selection_not_proved",
+      "rscc_physical_functor_closed": false
+    },
+    "F4_affine_sector_mean_law_on_source_carrier": {
+      "closed": false,
+      "current_algebra_status": "closed_current_family_predictive_law",
+      "domain_requirement": "1-x^2-x^2/(1+rho) != 0, in addition to x != +/-1 and rho > 0",
+      "reason_open": "the current-family algebra is closed only after candidate/target-derived spread inputs; it is not derived on a source-emitted carrier",
+      "rscc_status": "explicit formulas proposed, but inherited rays, even responses, and A/B affine law remain postulated"
+    },
+    "F5_dimensionful_or_dimensionless_physical_readout": {
+      "closed": false,
+      "required": "a declared source-scale mass normalization or common-scale dimensionless Yukawa normalization including m_q(mu)=y_q(mu)*v(mu)/sqrt(2) and the running Higgs expectation value in the same scheme",
+      "rscc_status": "g_ch/v and m/E_star are dimensionally improved candidate ratios; the optional D10 GeV display mixes nonmatching P/alpha and scale branches"
+    },
+    "F6_source_only_RG_threshold_scheme_packet": {
+      "closed": false,
+      "required": "locally-Lipschitz beta system with existence/non-blowup over every required interval, frozen thresholds and matching maps, top conversion, common scheme, and no-target provenance",
+      "rscc_packet_supplied": false,
+      "single_running_sextet_claim_allowed": false
+    }
+  },
+  "necessity_theorem": {
+    "artifact": "oph_quark_axiom_level_yukawa_moduli_nonidentifiability",
+    "conclusion": "Any successful flavor source functional must be nonconstant on the independent positive up/down centered-spread rescaling orbit.",
+    "counterfamily_parameter_space": "(lambda_u,lambda_d) in (R_{>0})^2",
+    "proof_status": "closed_axiom_level_nondefinability_theorem"
+  },
+  "promotion_allowed": false,
+  "rscc_formula_level_candidate": {
+    "all_F1_to_F6_receipts_remain_open": true,
+    "artifact": "oph_quark_rscc_completion_candidate_v1",
+    "audit_artifact": "oph_quark_rscc_completion_candidate_audit_v1",
+    "claim_class": "post_hoc_target_informed_rscc_module_incidence_and_cumulant_ansatz_not_physical_quark_postdiction",
+    "exact_arithmetic_status": "exact_arithmetic_passed_physical_module_selection_not_proved",
+    "maximum_mixed_chart_relative_residual_percent": 0.29435865035596365,
+    "negative_control_beats_full_rscc": true,
+    "old_candidate_flavor_decimals_consumed_directly": false,
+    "promotion_allowed": false,
+    "status_statement": "RSCC turns parts of the unspecified source packet into an explicit, falsifiable formula-level proposal. Its module/effect/sign ledger, Gaussian truncation, inherited affine readout, source root, scale, and RG packet are not derived, so it discharges no physical receipt."
+  },
+  "submitted_proof_bundle_receipt": {
+    "expected_sha256": "86e476d4b9c7910aefa0d259395e63e40b0b71c1534cf192b4f578cb21320759",
+    "matches": null,
+    "path_checked": null
+  },
+  "sufficient_new_content_not_proved_minimal": "a unique, target-free Flavor Source Closure functor from observer-like self-reading OPH overlap/record receipts to the carrier, response modules, physical scale, and RG packet, nonconstant on the rescaling orbit"
+}

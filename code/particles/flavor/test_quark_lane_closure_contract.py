@@ -8,6 +8,8 @@ import pathlib
 import subprocess
 import sys
 
+import pytest
+
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 SIGMA_OBSTRUCTION_SCRIPT = (
@@ -25,11 +27,47 @@ PUBLIC_EXACT_YUKAWA_THEOREM_SCRIPT = (
 PUBLIC_EXACT_YUKAWA_PROMOTION_FRONTIER_SCRIPT = (
     ROOT / "particles" / "flavor" / "derive_quark_public_exact_yukawa_promotion_frontier.py"
 )
+S3_D12_TEMPLATE_SCRIPT = (
+    ROOT / "particles" / "flavor" / "quark_s3_d12_template_postdiction.py"
+)
+S3_D12_TEMPLATE_AUDIT_SCRIPT = (
+    ROOT / "particles" / "flavor" / "audit_quark_s3_d12_template_postdiction.py"
+)
+FLAVOR_SOURCE_CLOSURE_SCRIPT = (
+    ROOT / "particles" / "flavor" / "verify_quark_flavor_source_closure.py"
+)
+RSCC_CANDIDATE_SCRIPT = (
+    ROOT / "particles" / "flavor" / "quark_rscc_completion_candidate.py"
+)
+RSCC_AUDIT_SCRIPT = (
+    ROOT / "particles" / "flavor" / "audit_quark_rscc_completion_candidate.py"
+)
+RSCC_ARITHMETIC_SCRIPT = (
+    ROOT / "particles" / "flavor" / "verify_quark_rscc_module_arithmetic.py"
+)
 SCRIPT = ROOT / "particles" / "flavor" / "derive_quark_lane_closure_contract.py"
 OUTPUT = ROOT / "particles" / "runs" / "flavor" / "quark_lane_closure_contract.json"
 
 
 def test_quark_lane_contract_records_two_independent_obstructions_and_audit_only_sidecars() -> None:
+    subprocess.run(
+        [sys.executable, str(S3_D12_TEMPLATE_SCRIPT), "--allow-template-ancestry"],
+        check=True,
+        cwd=ROOT,
+    )
+    subprocess.run([sys.executable, str(S3_D12_TEMPLATE_AUDIT_SCRIPT)], check=True, cwd=ROOT)
+    subprocess.run([sys.executable, str(RSCC_ARITHMETIC_SCRIPT)], check=True, cwd=ROOT)
+    subprocess.run(
+        [
+            sys.executable,
+            str(RSCC_CANDIDATE_SCRIPT),
+            "--allow-retrospective-rscc",
+        ],
+        check=True,
+        cwd=ROOT,
+    )
+    subprocess.run([sys.executable, str(RSCC_AUDIT_SCRIPT)], check=True, cwd=ROOT)
+    subprocess.run([sys.executable, str(FLAVOR_SOURCE_CLOSURE_SCRIPT)], check=True, cwd=ROOT)
     for script in (
         SIGMA_OBSTRUCTION_SCRIPT,
         AXIOM_LEVEL_OBSTRUCTION_SCRIPT,
@@ -46,6 +84,37 @@ def test_quark_lane_contract_records_two_independent_obstructions_and_audit_only
     assert payload["proof_status"] == "closed_sharper_obstructions_numeric_quark_predictions_withheld"
     assert payload["public_promotion_allowed"] is False
     assert payload["numeric_quark_prediction_rows_allowed"] is False
+
+    formula_audit = payload["retrospective_s3_d12_formula_audit"]
+    assert formula_audit["claim_class"] == (
+        "post_hoc_target_informed_repository_template_ansatz_not_physical_postdiction"
+    )
+    assert formula_audit["promotion_allowed"] is False
+    assert formula_audit["emitted_coordinate_unit"] == "dimensionless"
+    assert formula_audit["maximum_mixed_chart_relative_residual_percent"] == pytest.approx(
+        0.29457592878043837
+    )
+    assert formula_audit["statistical_interpretation_allowed"] is False
+    assert formula_audit["source_only_ancestry_passes"] is False
+    assert formula_audit["exact_algebra_status"] == "exact_symbolic_verification_passed"
+    assert formula_audit["all_physical_receipts_closed"] is False
+    assert formula_audit["current_repository_emits_physical_quark_sextet"] is False
+
+    rscc = payload["retrospective_rscc_completion_audit"]
+    assert rscc["claim_class"] == (
+        "post_hoc_target_informed_rscc_module_incidence_and_cumulant_ansatz_"
+        "not_physical_quark_postdiction"
+    )
+    assert rscc["promotion_allowed"] is False
+    assert rscc["old_candidate_flavor_decimals_consumed_directly"] is False
+    assert rscc["source_only_ancestry_passes"] is False
+    assert rscc["maximum_mixed_chart_relative_residual_percent"] == pytest.approx(
+        0.29435865035596365
+    )
+    assert rscc["negative_control_beats_full_rscc"] is True
+    assert rscc["all_F1_to_F6_receipts_remain_open"] is True
+    assert rscc["current_repository_emits_physical_quark_sextet"] is False
+    assert rscc["numeric_quark_prediction_rows_allowed"] is False
 
     source_obstruction = payload["source_spread_nonidentifiability_obstruction"]
     assert source_obstruction["artifact"] == "oph_quark_sigma_source_nonidentifiability_obstruction"

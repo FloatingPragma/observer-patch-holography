@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[2]
 CANDIDATE = ROOT / "particles" / "runs" / "leptons" / "charged_stage5_frozen_candidate.json"
 REFERENCE_JSON = ROOT / "particles" / "data" / "particle_reference_values.json"
 DEFAULT_OUT = ROOT / "particles" / "runs" / "leptons" / "charged_stage5_frozen_candidate_audit.json"
-CURRENT_PIXEL_BRANCH = (
+TRUNCATED_D10_PROBE = (
     ROOT / "particles" / "runs" / "calibration" / "d10_ew_common_transport_gap_report.json"
 )
 ORDER = ("electron", "muon", "tau")
@@ -44,7 +44,7 @@ def _comparison_rows(
 
 
 def build_audit(
-    candidate: dict[str, Any], references: dict[str, Any], current_pixel_branch: dict[str, Any]
+    candidate: dict[str, Any], references: dict[str, Any], truncated_d10_probe: dict[str, Any]
 ) -> dict[str, Any]:
     candidate_values = {
         name: Decimal(candidate["candidate_mass_rows"][name]["value_gev"])
@@ -52,7 +52,7 @@ def build_audit(
     }
     rows, errors = _comparison_rows(candidate_values, references)
     frozen_v = Decimal(candidate["inputs"]["v_from_source_transmutation_gev"])
-    current_v = Decimal(str(current_pixel_branch["running_family"]["v_report_gev"]))
+    current_v = Decimal(str(truncated_d10_probe["running_family"]["v_report_gev"]))
     current_values = {
         name: value * current_v / frozen_v for name, value in candidate_values.items()
     }
@@ -114,8 +114,8 @@ def build_audit(
                 "v_gev": str(frozen_v),
                 "max_absolute_relative_error_percent": str(max(errors) * Decimal(100)),
             },
-            "current_public_pixel_probe": {
-                "P": str(current_pixel_branch["p"]),
+            "truncated_d10_comparison_probe": {
+                "P": str(truncated_d10_probe["p"]),
                 "v_gev": str(current_v),
                 "mass_rows": current_rows,
                 "max_absolute_relative_error_percent": str(
@@ -127,7 +127,8 @@ def build_audit(
             },
             "interpretation": (
                 "The 0.02284 percent headline belongs to the frozen legacy P=1.63094 branch. "
-                "On the current public-pixel probe the same formula remains sub-permille but is less accurate."
+                "On the truncated D10 comparison probe the same formula remains sub-permille but is less accurate. "
+                "This P value is not the canonical public endpoint pixel."
             ),
         },
         "mass_scheme_audit": {
@@ -150,13 +151,13 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--candidate", type=Path, default=CANDIDATE)
     parser.add_argument("--references", type=Path, default=REFERENCE_JSON)
-    parser.add_argument("--current-pixel-branch", type=Path, default=CURRENT_PIXEL_BRANCH)
+    parser.add_argument("--truncated-d10-probe", type=Path, default=TRUNCATED_D10_PROBE)
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
     args = parser.parse_args()
     artifact = build_audit(
         json.loads(args.candidate.read_text(encoding="utf-8")),
         json.loads(args.references.read_text(encoding="utf-8")),
-        json.loads(args.current_pixel_branch.read_text(encoding="utf-8")),
+        json.loads(args.truncated_d10_probe.read_text(encoding="utf-8")),
     )
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(artifact, indent=2, sort_keys=True) + "\n", encoding="utf-8")

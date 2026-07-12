@@ -1,0 +1,206 @@
+{
+  "archive": {
+    "crc_check_pass": true,
+    "crc_first_bad_member": null,
+    "exact_manifest_member_set": true,
+    "independent_rebuild_max_abs_mass_difference_gev": 4.440892098500626e-16,
+    "manifest_checks": [
+      {
+        "bytes_match": true,
+        "file": "REPORT.md",
+        "sha256_match": true
+      },
+      {
+        "bytes_match": true,
+        "file": "audit.json",
+        "sha256_match": true
+      },
+      {
+        "bytes_match": true,
+        "file": "audit_candidate.py",
+        "sha256_match": true
+      },
+      {
+        "bytes_match": true,
+        "file": "build_candidate.py",
+        "sha256_match": true
+      },
+      {
+        "bytes_match": true,
+        "file": "candidate.json",
+        "sha256_match": true
+      },
+      {
+        "bytes_match": true,
+        "file": "compare_only_reference.json",
+        "sha256_match": true
+      }
+    ],
+    "manifest_checks_pass": true,
+    "no_duplicate_member_names": true,
+    "path": "correspondence/oph_charged_icosahedral_completion_v1.zip",
+    "safe_member_paths": true,
+    "sha256": "4dff09dbc66368a99dbddac4e238e3dcd42906dada7d2f084ff059dda32b04ef",
+    "submitted_audit_status": "COMPARE_ONLY",
+    "submitted_candidate_status": "FROZEN_RETROSPECTIVE_SOURCE_SEPARATED_CANDIDATE_NOT_YET_THEOREM"
+  },
+  "artifact": "oph_charged_icosahedral_completion_v1_adversarial_review",
+  "branch_provenance": {
+    "alpha_U_at_submitted_P_from_D10_recompute": 0.04112433664560475,
+    "branch_rows": {
+      "coherent_canonical_public": {
+        "inputs": {
+          "P": 1.6309682094039593,
+          "alpha_U": 0.041124336195630495,
+          "v_gev": 246.61737777348532
+        },
+        "masses_mev": [
+          0.5109987340503732,
+          105.65833072145979,
+          1776.9292468501483
+        ],
+        "max_absolute_residual_ppm": 0.4239531735672486,
+        "relative_residual_ppm": [
+          -0.4239531735672486,
+          -0.42380492804028336,
+          -0.4238489146324298
+        ]
+      },
+      "coherent_source_audit": {
+        "inputs": {
+          "P": 1.630972095694329,
+          "alpha_U": 0.041124247445574885,
+          "v_gev": 246.59675584714992
+        },
+        "masses_mev": [
+          0.5109559757415664,
+          105.6494987826477,
+          1776.7807007555489
+        ],
+        "max_absolute_residual_ppm": 84.09987608726243,
+        "relative_residual_ppm": [
+          -84.09987608726243,
+          -84.01338095831434,
+          -84.02089246684064
+        ]
+      },
+      "coherent_truncated_P": {
+        "inputs": {
+          "P": 1.6309681897,
+          "alpha_U": 0.04112433664560475,
+          "v_gev": 246.6174823334856
+        },
+        "masses_mev": [
+          0.5109989508491489,
+          105.65837550231856,
+          1776.930000028105
+        ],
+        "max_absolute_residual_ppm": 0.00031144642420599666,
+        "relative_residual_ppm": [
+          0.00031144642420599666,
+          2.1943780126321144e-05,
+          1.5816459253414905e-05
+        ]
+      },
+      "submitted_hybrid_truncated": {
+        "inputs": {
+          "P": 1.6309681897,
+          "alpha_U": 0.041124336195630495,
+          "v_gev": 246.6174823334856
+        },
+        "masses_mev": [
+          0.5109989508433963,
+          105.65837550148083,
+          1776.930000014351
+        ],
+        "max_absolute_residual_ppm": 0.0003001889847809025,
+        "relative_residual_ppm": [
+          0.0003001889847809025,
+          1.4015233418263051e-05,
+          8.076206370333239e-06
+        ]
+      }
+    },
+    "canonical_public_P": 1.6309682094039593,
+    "canonical_public_P_status": "conditional_public_endpoint_certificate",
+    "d10_probe_artifact_status": "compare_only_diagnostic",
+    "public_P_uses_measured_Thomson_endpoint": true,
+    "public_alpha_U_matches_Krawczyk_center": true,
+    "source_alpha_U_matches_source_certificate": true,
+    "source_audit_P": 1.630972095694329,
+    "source_audit_P_status": "source_audit_branch_witness_not_full_endpoint_proof",
+    "submitted_P": 1.6309681897,
+    "submitted_P_matches_compare_only_D10_probe": true,
+    "submitted_alpha_U": 0.041124336195630495,
+    "submitted_v_matches_D10_recompute": true
+  },
+  "branch_tuple_coherent": false,
+  "charged_reference_data_consumed": true,
+  "compare_only": true,
+  "global_source_only": false,
+  "historical_charged_target_informed": true,
+  "integration_decision": "Preserve as the leading frozen icosahedral face-incidence completion conjecture and retrospective numerical candidate. Do not replace public theorem mass rows or the current non-identifiability result until the open source theorems close.",
+  "mass_scheme_certified": false,
+  "proved_and_open": {
+    "open": [
+      "quotient-visible attachment to the physical charged generation space",
+      "ln(2) MaxEnt action gap and ensemble-to-Yukawa bridge",
+      "charged connection and phase-transport law",
+      "normalized Z6 charged determinant character",
+      "derivation of all three equalizers from a declared repair operator with uniqueness, stability, and refinement",
+      "one coherent source branch and a running-to-pole mass-scheme map"
+    ],
+    "proved": [
+      "archive safety, hashes, and numerical reproducibility",
+      "icosahedral face incidence and local C3 circulant algebra",
+      "algebraic mass readout conditional on all proposed laws"
+    ]
+  },
+  "public_prediction_promotion_allowed": false,
+  "runtime_builder_reference_separated": true,
+  "status": "FROZEN_RETROSPECTIVE_TARGET_INFORMED_FACE_CANDIDATE_NOT_COMPLETION",
+  "tau_precision_audit": {
+    "candidate_mev": 1776.9300000143514,
+    "comparison_field_used_mev": 1776.93,
+    "packet_api_value_mev": 1776.93246513409,
+    "residual_ppm_against_packet_api_value": -1.3872894929489732,
+    "residual_ppm_against_used_rounded_field": 8.076428414938164e-06
+  },
+  "three_coordinate_inverse_audit": {
+    "conclusion": "The three post-hoc equalizers match the three independently target-inferred spectral coordinates to roughly one part per million or better. Runtime separation does not remove this historical discrete formula selection.",
+    "coordinate_count": 3,
+    "proposed_equalizers": {
+      "chi": 3.304911632914349e-06,
+      "kappa": 0.0008213925903688806,
+      "zeta": 2.539671105858425e-06
+    },
+    "proposed_minus_target": {
+      "chi": 4.6654751099731975e-12,
+      "kappa": 1.0742686135187945e-10,
+      "zeta": -1.264546774517e-12
+    },
+    "relative_differences": {
+      "chi": 1.4116812230291487e-06,
+      "kappa": 1.307862727006892e-07,
+      "zeta": -4.979172861796499e-07
+    },
+    "target_inferred": {
+      "chi": 3.304906967439239e-06,
+      "delta": 0.22222476189459262,
+      "kappa": 0.0008213924829420193,
+      "square_root_mass_invariant": 0.6666644634026366,
+      "zeta": 2.5396723704051993e-06
+    }
+  },
+  "upstream_receipts": {
+    "code/particles/calibration/legacy_d10/particle_masses_paper_d10_d11.py": "78e7f0bfdd85e8bc8bf6d412d92b891b5781e0cb31ba1ab97c3211dc0ef1d50b",
+    "code/particles/hierarchy/certificates/R_P_public_pixel_certificate.json": "1d37c44e5d1f1777667eae443ef7af6c5c054fcc3683bb1edb6919b2e2ccee07",
+    "code/particles/hierarchy/certificates/R_P_source_audit_pixel_certificate.json": "11aeb17fd03b032af987100f8b865786f77b17c6d81aa4a649984e5059f42010",
+    "code/particles/hierarchy/certificates/R_U_krawczyk_certificate.json": "e7c7faea25ab5baca2257ee8beea0d50b1670c37d24c6eea35e8f12b36b5b436",
+    "code/particles/runs/calibration/d10_ew_common_transport_gap_report.json": "2c081021a484fbd7bd77e9407161f5db7e54cb46ac875aabcbc0bacab678423d"
+  },
+  "valid_geometric_result": {
+    "receipt": "charged_icosahedral_face_carrier_frontier.json",
+    "statement": "The OPH icosahedron supplies the A5/C3 face orbit and local three-corner C3 fibers. It does not canonically supply one global physical generation space or the spectral value laws."
+  }
+}

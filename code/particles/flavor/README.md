@@ -15,6 +15,32 @@ matrices are mass textures rather than physical dimensionless Yukawa matrices.
 See
 [`derive_quark_running_mass_scheme_convention_obstruction.py`](derive_quark_running_mass_scheme_convention_obstruction.py).
 
+## Retrospective S3/D12 Formula Audit
+
+The frozen two-mode formula is retained as a target-informed diagnostic, not
+as a physical quark-mass postdiction. It reproduces the supplied mixed-chart
+central values to a maximum relative residual of 0.2946%, but five inputs
+descend from the handwritten family-kernel template, the selected pixel branch
+has Stage-5 quark ancestry, the emitted coordinates are dimensionless, and no
+common-scale RG packet is present. The canonical implementation therefore
+requires explicit template acknowledgement and disables promotion.
+
+The exact retained results are the S3 transposition-Cayley heat spectrum, the
+centered L/Q basis and closed ray coordinates, and normalized-trace arithmetic
+conditional on postulated physical response modules. The strengthened Flavor
+Source Closure artifact is a sufficient proof-obligation contract with every
+physical receipt still open.
+
+A later Representation-Slot Cumulant Closure (RSCC) candidate removes the
+five legacy flavor decimals from the leaf evaluator and replaces them with a
+declared finite-module/rank/sign ledger. The ledger arithmetic is exact once
+declared, but its carrier incidence, effect projectors, signs, full-unitary
+isotropy, Gaussian two-cumulant law, and inherited affine readout were selected
+retrospectively and are not OPH theorems. Its pixel witness retains Stage-5
+quark ancestry, and its optional D10 GeV display mixes nonmatching source
+branches. RSCC therefore remains a fail-closed formula-level candidate beneath
+the same F1--F6 contract; all six receipts remain open.
+
 The intended chain is:
 
 1. derive a refinement-stable flavor observable from overlap / defect data
@@ -58,6 +84,15 @@ Current scripts:
 - [`derive_quark_sigma_source_nonidentifiability_obstruction.py`](derive_quark_sigma_source_nonidentifiability_obstruction.py)
 - [`derive_quark_sigma_source_datum_no_target_leak_required.py`](derive_quark_sigma_source_datum_no_target_leak_required.py)
 - [`derive_quark_running_mass_scheme_convention_obstruction.py`](derive_quark_running_mass_scheme_convention_obstruction.py)
+- [`verify_s3_transposition_heat_shape.py`](verify_s3_transposition_heat_shape.py)
+- [`quark_s3_d12_template_postdiction.py`](quark_s3_d12_template_postdiction.py)
+- [`audit_quark_s3_d12_template_postdiction.py`](audit_quark_s3_d12_template_postdiction.py)
+- [`verify_quark_flavor_source_closure.py`](verify_quark_flavor_source_closure.py)
+- [`test_quark_s3_d12_template_postdiction.py`](test_quark_s3_d12_template_postdiction.py)
+- [`verify_quark_rscc_module_arithmetic.py`](verify_quark_rscc_module_arithmetic.py)
+- [`quark_rscc_completion_candidate.py`](quark_rscc_completion_candidate.py)
+- [`audit_quark_rscc_completion_candidate.py`](audit_quark_rscc_completion_candidate.py)
+- [`test_quark_rscc_completion_candidate.py`](test_quark_rscc_completion_candidate.py)
 - [`derive_quark_d12_internal_backread_source_payload.py`](derive_quark_d12_internal_backread_source_payload.py)
 - [`derive_quark_d12_internal_backread_yukawa_dictionary.py`](derive_quark_d12_internal_backread_yukawa_dictionary.py)
 - [`derive_quark_d12_internal_backread_descent.py`](derive_quark_d12_internal_backread_descent.py)

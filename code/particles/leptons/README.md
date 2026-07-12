@@ -21,7 +21,7 @@ postdiction, separate from the theorem-grade completion lane:
   `(m_e,m_mu,m_tau) = (0.510882243295, 105.635282871,
   1776.579124017) MeV`, with maximum comparison error `0.02284%`.
 - `audit_charged_stage5_frozen_candidate.py` records that the same formula on
-  the current public-pixel probe has maximum error `0.08347%`, and that no
+  the truncated D10 comparison probe has maximum error `0.08347%`, and that no
   charged RG/threshold map to the compared pole-mass scheme is supplied.
 - `derive_charged_z3_maxent_balance_audit.py` proves the conditional block
   identity and records the counterresult: natural trace MaxEnt weights the
@@ -60,6 +60,83 @@ postdiction, not a promoted prediction.
 
 These are negative/frontier theorems for the current source signature, not a
 claim that every future OPH extension must fail.
+
+## Icosahedral Face-Incidence Completion Conjecture
+
+The reviewed Pro archive is preserved unchanged at workspace
+`correspondence/oph_charged_icosahedral_completion_v1.zip` (SHA-256
+`4dff09dbc66368a99dbddac4e238e3dcd42906dada7d2f084ff059dda32b04ef`).
+
+- `derive_charged_icosahedral_face_carrier_frontier.py` proves the valid new
+  source-side geometry: the twenty outward-oriented faces form `A5/C3`, and
+  each local three-corner fiber carries the regular `C3` action. The sixty
+  face-corner flags form the regular `A5` torsor, so a physical global
+  generation attachment is still additional data.
+- `audit_charged_icosahedral_completion_v1.py` is compare-only. It verifies the
+  archive and independently rebuilds the result, inverts the charged triple
+  into `(kappa,chi,zeta)`, and evaluates coherent public and source-audit
+  branches.
+- Against the frozen rounded comparison fields, the submitted hybrid branch
+  gives a maximum residual `0.000300 ppm`; the tau residual against the
+  packet's higher-precision API central value is `-1.387289 ppm`. The
+  coherent canonical public branch gives `0.424 ppm`, and the source-audit
+  branch gives `84.10 ppm`.
+
+The candidate is integrated as
+`FROZEN_RETROSPECTIVE_TARGET_INFORMED_FACE_CANDIDATE_NOT_COMPLETION`.
+Its three equalizers, MaxEnt compensation, phase law, determinant character,
+physical attachment, coherent source tuple, and pole-scheme map remain proof
+obligations. It does not replace the public theorem boundary.
+
+The follow-up archive
+`correspondence/oph_charged_face_incidence_theorem.zip` (SHA-256
+`cc550b311c5f2bc416d78f65b4ec9e1bf32f10f9b73fc4135fd05de626b48d4f`)
+is integrated as a conditional proof supplement:
+
+- `derive_charged_face_incidence_conditional_theorem.py` proves that the
+  explicitly declared affine repair map is a strict contraction with one
+  globally attracting fixed point. It consumes no charged references at
+  runtime but records the map's historically target-informed ancestry.
+- The same receipt exposes the bare-to-endpoint amplitude staging gap and
+  three source-multiplier witnesses that retain the displayed Jacobian and
+  contraction while changing the masses.
+- `audit_charged_face_incidence_theorem_bundle.py` is compare-only and
+  verifies archive safety, internal hashes, byte reproduction, and exact
+  numerical agreement with the canonical conditional receipt.
+
+This closes declared-map fixed-point uniqueness and iteration stability. It
+does not derive or rigidify the map from OPH, prove refinement naturality,
+repair the hybrid branch tuple, or close the physical attachment and pole
+scheme.
+
+The subsequent archive
+`correspondence/oph_charged_source_law_rigidity_v1.zip` (SHA-256
+`792dad5c1524984c52d7582e751e1123099978164def80fad34310a34e314dff`)
+is integrated as a second conditional supplement:
+
+- `derive_charged_source_law_rigidity_conditional.py` proves the exact
+  implication `CFQ1-CFQ8 => one scalar affine response law` inside a declared
+  finite packet. Rank-one normalized traces reproduce the eight reciprocal
+  path weights and the prior affine kernel.
+- The same receipt reconstructs all eight finite graph models without an
+  external graph library, but labels them mathematical models rather than
+  physical response evidence. Every physical CFQ gate and evidence hash is
+  unset.
+- `audit_charged_source_law_rigidity_v1.py` is compare-only. It never extracts
+  or executes archive code; it verifies safe members, CRC, internal hashes,
+  the frozen receipt, graph/path/register agreement, and exact agreement with
+  the prior fixed point and conditional mass readout.
+
+This is packet-weight rigidity, not an OPH derivation of the packet. CFQ2-CFQ7
+stipulate the register dimensions, tracial rank-one weights, clock, eight
+paths, coupling monomials, signs, multiplicity one, and path exhaustion that
+carry the coefficients. Existing OPH constrained MaxEnt does not automatically
+give the uniform trace. Moreover, rank-one projections in a full matrix
+algebra are noncentral, while completed OPH records are normally central, so a
+process/readout record-algebra bridge is still required. The one-bit balance,
+`2/9` phase, and `6^-14` determinant baselines remain separate conditional
+attachments. The old multiplier witnesses therefore remain valid against the
+weaker current OPH premises, and public mass promotion remains forbidden.
 
 ## How To Read The Active Charged-Lepton Files
 

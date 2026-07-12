@@ -1,0 +1,63 @@
+{
+  "archive": {
+    "archive_hash_matches": true,
+    "crc_check_pass": true,
+    "crc_first_bad_member": null,
+    "declared_hash_checks": {
+      "PROOF.md": true,
+      "README.md": true,
+      "conditional_theorem_receipt.json": true,
+      "verify_conditional_theorem.py": true
+    },
+    "declared_hash_checks_pass": true,
+    "exact_member_set": true,
+    "expected_sha256": "cc550b311c5f2bc416d78f65b4ec9e1bf32f10f9b73fc4135fd05de626b48d4f",
+    "narrative_attachment_sha256": "69a2c494fdc06034d76915fa9b045e604a47aa2be77247f24a3cb2505e990bde",
+    "no_duplicate_member_names": true,
+    "path": "correspondence/oph_charged_face_incidence_theorem.zip",
+    "safe_non_symlink_members": true,
+    "sha256": "cc550b311c5f2bc416d78f65b4ec9e1bf32f10f9b73fc4135fd05de626b48d4f",
+    "submitted_receipt_hash_matches": true,
+    "submitted_receipt_sha256": "28e51c272ef322b0d4c2712e2ac651d5847a941f239fc3dd43544bd31d6c2316"
+  },
+  "artifact": "oph_charged_face_incidence_conditional_theorem_bundle_review",
+  "canonical_conditional_receipt": {
+    "checks_pass": true,
+    "path": "code/particles/runs/leptons/charged_face_incidence_conditional_theorem.json",
+    "sha256": "5169478e6b3a2420d5b4c5a6efd0d7f616427768d2d7b61d1c89fc56d9d6d79a",
+    "status": "CONDITIONAL_FIXED_POINT_AND_READOUT_CLOSED_SOURCE_LAW_RIGIDITY_OPEN"
+  },
+  "compare_only": true,
+  "global_source_only": false,
+  "historical_charged_target_informed": true,
+  "independent_numerical_agreement": {
+    "contraction_absolute_difference": "0.0",
+    "countermodel_mass_max_absolute_differences_mev": [
+      "0.0",
+      "0.0",
+      "0.0"
+    ],
+    "fixed_point_max_absolute_difference": "0.0",
+    "mass_max_absolute_difference_mev": "0.0"
+  },
+  "integration_decision": "Retain as a reproducible conditional proof supplement. Mark fixed-point uniqueness and iterative stability closed after the map is declared; do not promote the map, mass values, or source entailment.",
+  "proved_conditionally": [
+    "strict contraction and one globally iteration-stable fixed point for the declared affine map",
+    "determinant-normalized circulant readout under the declared physical hypotheses",
+    "three explicit source-normalization witnesses with the same Jacobian and contraction but different masses"
+  ],
+  "public_prediction_promotion_allowed": false,
+  "qualification": [
+    "the submitted tuple remains branch-incoherent",
+    "the repair sources and feedback are historically target-informed and not OPH-derived",
+    "bare exact block balance and the nonzero endpoint amplitude correction require a staged physical bridge",
+    "the countermodels prove scoped candidate-property non-rigidity, not non-entailment from every OPH axiom",
+    "the submitted receipt combines source calculation and charged inverse comparison in one artifact",
+    "physical family, phase, determinant, refinement, coherent-branch, and pole-scheme attachments remain open"
+  ],
+  "runtime_archive_contains_charged_references": true,
+  "runtime_dependency": {
+    "mpmath": "1.3.0"
+  },
+  "status": "FROZEN_CONDITIONAL_SUPPLEMENT_VERIFIED_SOURCE_ENTAILMENT_OPEN"
+}

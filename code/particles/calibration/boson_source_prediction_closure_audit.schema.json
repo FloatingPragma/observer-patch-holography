@@ -1,0 +1,413 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://floatingpragma.io/schemas/boson_source_prediction_closure_audit.schema.json",
+  "title": "OPH W/Z/H source-prediction closure audit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact",
+    "schema_version",
+    "generated_utc",
+    "claim",
+    "source_branches",
+    "branch_consistency",
+    "mass_surfaces",
+    "repair_coefficient_normalization",
+    "d10_quotient_transport_review",
+    "absolute_scale_contract",
+    "rg_matching_contract",
+    "physical_pole_contract",
+    "source_dependency_dag",
+    "theorem_gates",
+    "promotion_decision",
+    "comparison_adapters",
+    "input_manifest",
+    "reviewed_correspondence_manifest"
+  ],
+  "properties": {
+    "artifact": {
+      "const": "oph_boson_source_prediction_closure_audit"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "generated_utc": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observables",
+        "required_mass_convention",
+        "overall_status",
+        "prediction_promotion_allowed"
+      ],
+      "properties": {
+        "observables": {
+          "const": ["W", "Z", "H"]
+        },
+        "required_mass_convention": {
+          "const": "complex_propagator_pole"
+        },
+        "overall_status": {
+          "const": "source_incomplete_no_end_to_end_wzh_pole_prediction"
+        },
+        "prediction_promotion_allowed": {
+          "const": false
+        }
+      }
+    },
+    "source_branches": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "legacy_d10_P_1p63094",
+        "public_endpoint_P_C",
+        "source_audit_P_cand",
+        "compressed_p_trunk_candidate"
+      ],
+      "properties": {
+        "legacy_d10_P_1p63094": {"$ref": "#/$defs/branch"},
+        "public_endpoint_P_C": {"$ref": "#/$defs/branch"},
+        "source_audit_P_cand": {"$ref": "#/$defs/branch"},
+        "compressed_p_trunk_candidate": {"$ref": "#/$defs/branch"}
+      }
+    },
+    "branch_consistency": {
+      "type": "object",
+      "required": [
+        "required_rule",
+        "single_end_to_end_branch_selected",
+        "mixed_branch_consumption_allowed",
+        "branch_count",
+        "all_branch_ids_distinct"
+      ],
+      "properties": {
+        "single_end_to_end_branch_selected": {"const": false},
+        "mixed_branch_consumption_allowed": {"const": false},
+        "branch_count": {"const": 4},
+        "all_branch_ids_distinct": {"const": true}
+      }
+    },
+    "mass_surfaces": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {"$ref": "#/$defs/mass_surface"}
+    },
+    "repair_coefficient_normalization": {
+      "type": "object",
+      "required": ["N_c", "charged_channel", "neutral_channel", "conditionality"],
+      "properties": {
+        "N_c": {"type": "integer", "minimum": 1},
+        "neutral_channel": {
+          "type": "object",
+          "required": [
+            "raw_hypercharge_trace_weight",
+            "normalized_chart_coefficient_d",
+            "normalization_identity_residual",
+            "uplift_identity_residual"
+          ]
+        },
+        "conditionality": {
+          "type": "object",
+          "required": [
+            "applies_to_surface",
+            "does_not_derive_surface",
+            "transport_channel_identification_closed",
+            "promotion_allowed"
+          ],
+          "properties": {
+            "transport_channel_identification_closed": {"const": false},
+            "promotion_allowed": {"const": false}
+          }
+        }
+      }
+    },
+    "d10_quotient_transport_review": {
+      "type": "object",
+      "required": [
+        "status",
+        "certificate_status",
+        "certificate_verified",
+        "conditional_theorem_algebra_verified",
+        "unconditional_d10_source_theorem_closed",
+        "source_entailment_status",
+        "certificate_contract",
+        "premises",
+        "numerical_specialization",
+        "value_law_consistency_checks",
+        "relation_to_color_balanced_candidate",
+        "same_branch_source_packet_closed",
+        "physical_pole_attachment_closed",
+        "promotion_allowed",
+        "reviewed_material"
+      ],
+      "properties": {
+        "status": {
+          "const": "exact_conditional_implication_QT1_QT5_source_entailment_open"
+        },
+        "certificate_status": {
+          "const": "certificate_assumed_not_enumerated"
+        },
+        "certificate_verified": {"const": false},
+        "conditional_theorem_algebra_verified": {"const": true},
+        "unconditional_d10_source_theorem_closed": {"const": false},
+        "certificate_contract": {
+          "type": "object",
+          "required": [
+            "schema_path",
+            "expected_input_path",
+            "schema_present",
+            "certificate_input_present",
+            "certificate_input_status",
+            "schema_conformance_is_sufficient_for_source_evidence",
+            "synthetic_path_fixture_eligible_as_source_evidence",
+            "simulation_or_exact_enumeration_required",
+            "promotion_allowed"
+          ],
+          "properties": {
+            "schema_present": {"const": true},
+            "certificate_input_present": {"const": false},
+            "certificate_input_status": {"const": "missing_no_path_enumeration_supplied"},
+            "schema_conformance_is_sufficient_for_source_evidence": {"const": false},
+            "synthetic_path_fixture_eligible_as_source_evidence": {"const": false},
+            "simulation_or_exact_enumeration_required": {"const": true},
+            "promotion_allowed": {"const": false}
+          }
+        },
+        "premises": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "name",
+              "source_emitted_by_current_repo",
+              "certificate_evidence_status",
+              "missing"
+            ],
+            "properties": {
+              "id": {"enum": ["QT1", "QT2", "QT3", "QT4", "QT5"]},
+              "source_emitted_by_current_repo": {"const": false},
+              "certificate_evidence_status": {"const": "assumed_not_enumerated"}
+            }
+          }
+        },
+        "relation_to_color_balanced_candidate": {
+          "type": "object",
+          "required": ["same_law", "statement"],
+          "properties": {
+            "same_law": {"const": false}
+          }
+        },
+        "same_branch_source_packet_closed": {"const": false},
+        "physical_pole_attachment_closed": {"const": false},
+        "promotion_allowed": {"const": false}
+      }
+    },
+    "absolute_scale_contract": {
+      "type": "object",
+      "required": ["status", "source_closed", "legacy_dimensionful_constant", "promotion_allowed"],
+      "properties": {
+        "source_closed": {"const": false},
+        "promotion_allowed": {"const": false}
+      }
+    },
+    "rg_matching_contract": {
+      "type": "object",
+      "required": [
+        "status",
+        "declared_convention_contract_present",
+        "concrete_transport_receipt_present",
+        "interval_composition_certificate_present",
+        "promotion_allowed"
+      ],
+      "properties": {
+        "concrete_transport_receipt_present": {"const": false},
+        "interval_composition_certificate_present": {"const": false},
+        "promotion_allowed": {"const": false}
+      }
+    },
+    "physical_pole_contract": {
+      "type": "object",
+      "required": [
+        "status",
+        "required_mass_convention",
+        "analytic_continuation_and_riemann_sheet_fixed",
+        "self_energy_functions_present",
+        "contour_uniqueness_or_fixed_order_pole_certificate_present",
+        "widths_present",
+        "truncation_refinement_uncertainty_bounds_present",
+        "promotion_allowed"
+      ],
+      "properties": {
+        "required_mass_convention": {"const": "s_B=(M_B-i*Gamma_B/2)^2"},
+        "analytic_continuation_and_riemann_sheet_fixed": {"const": false},
+        "self_energy_functions_present": {"const": false},
+        "contour_uniqueness_or_fixed_order_pole_certificate_present": {"const": false},
+        "widths_present": {"const": false},
+        "truncation_refinement_uncertainty_bounds_present": {"const": false},
+        "promotion_allowed": {"const": false}
+      }
+    },
+    "source_dependency_dag": {
+      "type": "object",
+      "required": [
+        "status",
+        "nodes",
+        "edges",
+        "protected_outputs",
+        "forbidden_target_sources",
+        "single_end_to_end_source_branch_selected",
+        "full_file_level_runtime_ancestry_certified",
+        "human_formula_selection_ancestry_certified",
+        "prospective_pre_reference_manifest_present",
+        "promotion_allowed"
+      ],
+      "properties": {
+        "nodes": {"type": "array", "minItems": 1},
+        "edges": {"type": "array", "minItems": 1},
+        "single_end_to_end_source_branch_selected": {"const": false},
+        "full_file_level_runtime_ancestry_certified": {"const": false},
+        "human_formula_selection_ancestry_certified": {"const": false},
+        "prospective_pre_reference_manifest_present": {"const": false},
+        "promotion_allowed": {"const": false}
+      }
+    },
+    "theorem_gates": {
+      "type": "array",
+      "minItems": 12,
+      "maxItems": 12,
+      "items": {"$ref": "#/$defs/theorem_gate"}
+    },
+    "promotion_decision": {
+      "type": "object",
+      "required": [
+        "overall_status",
+        "prediction_promotion_allowed",
+        "all_required_gates_passed",
+        "failed_gate_ids",
+        "shared_blockers",
+        "strongest_clean_numeric_statement",
+        "wz_status",
+        "higgs_status"
+      ],
+      "properties": {
+        "overall_status": {
+          "const": "source_incomplete_no_end_to_end_wzh_pole_prediction"
+        },
+        "prediction_promotion_allowed": {"const": false},
+        "all_required_gates_passed": {"const": false},
+        "failed_gate_ids": {"type": "array", "minItems": 1},
+        "shared_blockers": {"type": "array", "minItems": 1}
+      }
+    },
+    "comparison_adapters": {
+      "type": "object"
+    },
+    "input_manifest": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/repo_manifest_entry"}
+    },
+    "reviewed_correspondence_manifest": {
+      "const": []
+    }
+  },
+  "$defs": {
+    "branch": {
+      "type": "object",
+      "required": [
+        "branch_id",
+        "P",
+        "alpha_U",
+        "v_over_E_star",
+        "source_class",
+        "source_artifact",
+        "eligible_for_source_only_mass_prediction",
+        "reason"
+      ],
+      "properties": {
+        "branch_id": {"type": "string", "minLength": 1},
+        "P": {"type": "string", "minLength": 1},
+        "alpha_U": {"type": ["string", "null"]},
+        "v_over_E_star": {"type": ["string", "null"]},
+        "source_artifact": {"type": "string", "pattern": "^code/"},
+        "eligible_for_source_only_mass_prediction": {"const": false}
+      }
+    },
+    "mass_surface": {
+      "type": "object",
+      "required": [
+        "surface_id",
+        "branch_id",
+        "classification",
+        "values",
+        "legacy_value_keys",
+        "physical_mass_semantics",
+        "source_unique",
+        "physical_pole_certified",
+        "promotion_allowed",
+        "source_artifact"
+      ],
+      "properties": {
+        "surface_id": {"type": "string", "minLength": 1},
+        "branch_id": {"type": "string", "minLength": 1},
+        "values": {"type": "object", "minProperties": 2},
+        "physical_pole_certified": {"const": false},
+        "promotion_allowed": {"const": false},
+        "source_artifact": {"type": "string", "pattern": "^code/"}
+      }
+    },
+    "theorem_gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "theorem_id",
+        "title",
+        "theorem_status",
+        "closure_requirement_status",
+        "gate_role",
+        "gate_passed_for_full_source_prediction",
+        "evidence",
+        "open_requirements"
+      ],
+      "properties": {
+        "theorem_id": {"type": "string", "pattern": "^T(0[1-9]|1[0-2])_"},
+        "title": {"type": "string", "minLength": 1},
+        "theorem_status": {"type": "string", "minLength": 1},
+        "closure_requirement_status": {"type": "string", "minLength": 1},
+        "gate_role": {"enum": ["required", "alternative_model"]},
+        "gate_passed_for_full_source_prediction": {"type": "boolean"},
+        "evidence": {"type": "array", "items": {"type": "string"}},
+        "open_requirements": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "repo_manifest_entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "bytes"],
+      "properties": {
+        "path": {"type": "string", "pattern": "^code/"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "bytes": {"type": "integer", "minimum": 1}
+      }
+    },
+    "workspace_manifest_entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "path_scope", "sha256", "bytes"],
+      "properties": {
+        "path": {"type": "string", "pattern": "^correspondence/"},
+        "path_scope": {"const": "workspace_review_material_not_repository_source"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "bytes": {"type": "integer", "minimum": 1}
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "artifact": "oph_quark_rscc_module_arithmetic_v1",
+  "claim_class": "exact_arithmetic_of_postulated_rscc_ledger",
+  "exact_checks": {
+    "F0_dimension": 4,
+    "F0_equals_beta_EW": true,
+    "F_contains_sign_sector_or_laplacian_6_mode": false,
+    "F_decomposition_dimension": 5,
+    "F_transposition_Cayley_Laplacian_spectrum": {
+      "0": 1,
+      "3": 4
+    },
+    "S3_invariance_selects_unique_scalar_response_on_F": false,
+    "declared_composite_dimensions": {
+      "C_tensor_F": 15,
+      "F": 5,
+      "F0": 4,
+      "M_a_down_linear": 32,
+      "M_a_down_quadratic": 840,
+      "M_a_up": 22,
+      "M_g_color": 432,
+      "M_g_common": 1008,
+      "M_g_relabel": 1584,
+      "M_mu_down": 432,
+      "M_mu_up": 29
+    },
+    "dimension_End_S3_of_F": 5,
+    "dimension_arithmetic_passes": true,
+    "gaussian_identity_passes": true,
+    "gaussian_log_mgf_given_assumed_variance": "rank*width**2/dimension",
+    "gaussian_second_cumulant_is_positive": true,
+    "negative_w2_terms_require_external_signed_response_law": true,
+    "normalized_weights": {
+      "a_down_linear": "1/32",
+      "a_down_quadratic": "1/420",
+      "a_up": "1/22",
+      "centered_fraction": "4/5",
+      "common_exposure": "4/15",
+      "family_scalar": "1/5",
+      "mu_down": "-1/432",
+      "mu_up": "1/29"
+    },
+    "physical_regular_to_F_heat_attachment_supplied": false,
+    "regular_S3_Laplacian_spectrum": {
+      "0": 1,
+      "3": 4,
+      "6": 1
+    }
+  },
+  "existing_count_only_register_boundary": {
+    "artifact": "oph_charged_12_24_singlet_no_go",
+    "claim_boundary": "The 12/24 resonance can participate in a future charged theorem only after a derived non-singlet family attachment is supplied. The existing invariant hierarchy theorem alone predicts degeneracy, not the charged-lepton hierarchy.",
+    "rscc_requires_new_family_non_singlet_attachment": true
+  },
+  "non_theorems": {
+    "F_is_unique_minimal_physical_carrier": false,
+    "MAR_implies_gaussian_two_cumulant_truncation": false,
+    "S3_equivariance_implies_full_unitary_isotropy": false,
+    "composite_module_incidence_is_source_derived": false,
+    "effect_projectors_exist_and_are_canonical": false,
+    "effect_ranks_and_signs_are_source_derived": false,
+    "residual_minimization_is_an_OPH_dynamical_law": false
+  },
+  "proof_status": "exact_arithmetic_passed_physical_module_selection_not_proved",
+  "status_statement": "Direct-sum/tensor-product dimensions and rank/dimension fractions are correct once the RSCC ledger is declared. The verifier constructs no physical incidence functor, effect projector, sign law, refinement law, or Gaussian source distribution.",
+  "submitted_bundle_sha256": "9e87957c7cbd8031fef0819f2bbb42dac82862776b33b747ca7dac3c61530792"
+}

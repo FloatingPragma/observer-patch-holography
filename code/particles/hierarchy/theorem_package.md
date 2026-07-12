@@ -30,18 +30,23 @@ On the source-audit branch:
 v(P_{cand})/E_\star = 2.0198114150099223\times10^{-17}.
 ```
 
-## Theorem B: Higgs D10/D11 declared surface
+## Conditional Theorem B: Higgs D10/D11 declared surface
 
 Assume the D10/D11 input interval box `I_HT`, interval extension `F_HT#`, D11 Jacobian interval map, and `DAG_HT`.
 
-Then:
+Then the declared Jacobian surface evaluates to:
 
 ```math
 m_H=125.1995304097179\,\mathrm{GeV},\qquad
 m_t^{D11}=172.3523553288312\,\mathrm{GeV}.
 ```
 
-This bundle records the formula/output surface but does not include the raw interval input box.
+This bundle records the formula/output surface but does not include the raw
+interval input box. It also does not close the strict source pixel, independent
+physical `E_star`, QT1--QT5 quotient transport, concrete RG/scheme packet,
+D11 rigidity, top-threshold dependence, or the Higgs complex-pole and
+uncertainty receipts. The displayed GeV coordinate is therefore conditional,
+not a promoted physical pole mass.
 
 ## Corollary: OPH Higgs naturalness
 

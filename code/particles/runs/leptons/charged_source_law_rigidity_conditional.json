@@ -1,0 +1,336 @@
+{
+  "artifact": "oph_charged_source_law_rigidity_conditional",
+  "branch_tuple_coherent": false,
+  "checks": {
+    "all_declared_graph_models_are_connected": true,
+    "all_declared_graph_models_match_dimensions": true,
+    "all_path_multiplicities_are_one": true,
+    "all_physical_cfq_gates_remain_unpassed": true,
+    "all_physical_evidence_hashes_remain_absent": true,
+    "declared_affine_map_coefficients_reproduced_to_emitted_precision": true,
+    "declared_register_dimensions_match_structural_arithmetic": true,
+    "eight_exact_path_weights_match": true,
+    "euler_vertex_and_face_degrees_are_2_5_3": true,
+    "historical_target_ancestry_retained": true,
+    "hybrid_branch_warning_retained": true,
+    "icosahedral_counts_are_12_30_20": true,
+    "public_promotion_remains_forbidden": true,
+    "unit_multiplier_is_only_multiplier_admissible_inside_fixed_cfq_packet": true
+  },
+  "checks_pass": true,
+  "conditional_cfq_packet": {
+    "evidence_hashes": {
+      "central_block_projectors": null,
+      "clock_calibration": null,
+      "coarse_graining_intertwiners": null,
+      "dependency_dag": null,
+      "normalized_trace_matrices": null,
+      "path_canonicalizer": null,
+      "path_lists": null,
+      "physical_quotient_schema": null,
+      "rank_one_projector_checks": null,
+      "record_algebra_bridge": null,
+      "sign_matrix": null
+    },
+    "paths": [
+      {
+        "block": "kappa",
+        "exact_trace_coefficient": "1/50",
+        "monomial": "alpha_U",
+        "multiplicity": 1,
+        "name": "kappa_write",
+        "registers": [
+          "kappa_0"
+        ],
+        "sign": 1
+      },
+      {
+        "block": "kappa",
+        "exact_trace_coefficient": "-1/31",
+        "monomial": "alpha_U*kappa",
+        "multiplicity": 1,
+        "name": "kappa_return_1",
+        "registers": [
+          "kappa_1"
+        ],
+        "sign": -1
+      },
+      {
+        "block": "kappa",
+        "exact_trace_coefficient": "-1/310",
+        "monomial": "alpha_U^2*kappa",
+        "multiplicity": 1,
+        "name": "kappa_return_2",
+        "registers": [
+          "kappa_1",
+          "kappa_2"
+        ],
+        "sign": -1
+      },
+      {
+        "block": "chi",
+        "exact_trace_coefficient": "1/512",
+        "monomial": "alpha_U^2",
+        "multiplicity": 1,
+        "name": "chi_write",
+        "registers": [
+          "chi_0"
+        ],
+        "sign": 1
+      },
+      {
+        "block": "chi",
+        "exact_trace_coefficient": "1/77",
+        "monomial": "alpha_U*chi",
+        "multiplicity": 1,
+        "name": "chi_return_1",
+        "registers": [
+          "chi_1"
+        ],
+        "sign": 1
+      },
+      {
+        "block": "zeta",
+        "exact_trace_coefficient": "1/21",
+        "monomial": "alpha_P^2",
+        "multiplicity": 1,
+        "name": "zeta_write",
+        "registers": [
+          "zeta_0"
+        ],
+        "sign": 1
+      },
+      {
+        "block": "zeta",
+        "exact_trace_coefficient": "1/27",
+        "monomial": "alpha_U*zeta",
+        "multiplicity": 1,
+        "name": "zeta_return_1",
+        "registers": [
+          "zeta_1"
+        ],
+        "sign": 1
+      },
+      {
+        "block": "zeta",
+        "exact_trace_coefficient": "1/135",
+        "monomial": "alpha_U^2*zeta",
+        "multiplicity": 1,
+        "name": "zeta_return_2",
+        "registers": [
+          "zeta_1",
+          "zeta_2"
+        ],
+        "sign": 1
+      }
+    ],
+    "physical_gates": {
+      "CFQ1_three_block_response_exhaustion": false,
+      "CFQ2_quotient_homogeneity_and_invariant_state": false,
+      "CFQ3_unit_primitive_checkpoint_clock": false,
+      "CFQ4_complete_rank_one_path_table": false,
+      "CFQ5_exact_sign_character": false,
+      "CFQ6_primitive_depth_two_locality": false,
+      "CFQ7_path_exhaustion_and_multiplicity_one": false,
+      "CFQ8_refinement_implementation_and_ancestry_naturality": false
+    },
+    "registers": {
+      "chi_0": {
+        "dimension": 512,
+        "event_rank": 1,
+        "normalized_trace_weight": "1/512"
+      },
+      "chi_1": {
+        "dimension": 77,
+        "event_rank": 1,
+        "normalized_trace_weight": "1/77"
+      },
+      "kappa_0": {
+        "dimension": 50,
+        "event_rank": 1,
+        "normalized_trace_weight": "1/50"
+      },
+      "kappa_1": {
+        "dimension": 31,
+        "event_rank": 1,
+        "normalized_trace_weight": "1/31"
+      },
+      "kappa_2": {
+        "dimension": 10,
+        "event_rank": 1,
+        "normalized_trace_weight": "1/10"
+      },
+      "zeta_0": {
+        "dimension": 21,
+        "event_rank": 1,
+        "normalized_trace_weight": "1/21"
+      },
+      "zeta_1": {
+        "dimension": 27,
+        "event_rank": 1,
+        "normalized_trace_weight": "1/27"
+      },
+      "zeta_2": {
+        "dimension": 5,
+        "event_rank": 1,
+        "normalized_trace_weight": "1/5"
+      }
+    }
+  },
+  "declared_finite_graph_models": {
+    "geometry": {
+      "collar_vertex_count": 5,
+      "face_choice_is_physical": false,
+      "icosahedral_face_count": 20,
+      "nonface_edge_count": 27,
+      "selected_anchor_for_audit_only": 0,
+      "selected_face_for_audit_only": [
+        0,
+        1,
+        2
+      ],
+      "transverse_vertex_count": 9
+    },
+    "graphs": {
+      "chi_0": {
+        "connected": true,
+        "dimension_matches": true,
+        "edges": 2304,
+        "expected_nodes": 512,
+        "nodes": 512
+      },
+      "chi_1": {
+        "connected": true,
+        "dimension_matches": true,
+        "edges": 340,
+        "expected_nodes": 77,
+        "nodes": 77
+      },
+      "kappa_0": {
+        "connected": true,
+        "dimension_matches": true,
+        "edges": 60,
+        "expected_nodes": 50,
+        "nodes": 50
+      },
+      "kappa_1": {
+        "connected": true,
+        "dimension_matches": true,
+        "edges": 30,
+        "expected_nodes": 31,
+        "nodes": 31
+      },
+      "kappa_2": {
+        "connected": true,
+        "dimension_matches": true,
+        "edges": 9,
+        "expected_nodes": 10,
+        "nodes": 10
+      },
+      "zeta_0": {
+        "connected": true,
+        "dimension_matches": true,
+        "edges": 20,
+        "expected_nodes": 21,
+        "nodes": 21
+      },
+      "zeta_1": {
+        "connected": true,
+        "dimension_matches": true,
+        "edges": 99,
+        "expected_nodes": 27,
+        "nodes": 27
+      },
+      "zeta_2": {
+        "connected": true,
+        "dimension_matches": true,
+        "edges": 5,
+        "expected_nodes": 5,
+        "nodes": 5
+      }
+    },
+    "physical_evidence": false,
+    "qualification": "The models verify finite counts and connectivity only. They do not emit physical response modules, matrix units, recovery maps, clocks, path exhaustion, refinement intertwiners, or ancestry evidence."
+  },
+  "declared_map_agreement": {
+    "coefficient_residuals_against_prior_receipt": {
+      "q_chi": "-3.5064935064935064935055329044876477965706951606467276092181472667094735548808694e-84",
+      "q_kappa": "1.9354838709677419354841008782427046202069099424826541913277078232458048886093066e-83",
+      "q_zeta": "1.1111111111111111111106746622843632975592667673356296616956349395301143558454574e-83",
+      "s_chi": "-2.7250942976052164607424343783982776628778219099588362245920320587817016503971534e-107",
+      "s_kappa": "0.0",
+      "s_zeta": "1.0908866570274898513180344736548952585941210122481809177426816215108851124125958e-86"
+    },
+    "coefficient_values": {
+      "q_chi": "0.00053408228825494149350649350649350649350649350649350649350649350649350649350649351",
+      "q_kappa": "0.0013320470096252780466281417115288549193548387096774193548387096774193548387096774",
+      "q_zeta": "0.0015356510518939534774423994857329261111111111111111111111111111111111111111111111",
+      "s_chi": "0.000003303146538146961825632676902236376953125",
+      "s_kappa": "0.0008224867239126099",
+      "s_zeta": "0.000002535771057253248704561314757407654534494236188625240720272049169054501778880077"
+    },
+    "downstream_mass_values_recomputed_here": false,
+    "formula": "T(k,c,z)=(s_k-q_k*k, s_c+q_c*c, s_z+q_z*z)",
+    "inputs_are_historical_hybrid_tuple": true
+  },
+  "global_source_only": false,
+  "historical_charged_target_informed": true,
+  "mass_scheme_certified": false,
+  "open": [
+    "derive CFQ1-CFQ8 from OPH dynamics with frozen no-target ancestry",
+    "bridge central completed OPH records to the CFQ rank-one event projectors",
+    "derive the register dimensions and eight-path catalogue rather than stipulating them",
+    "prove physical path exhaustion, signs, multiplicity one, clock, and refinement naturality",
+    "attach the A5/C3 face-corner bundle equivariantly to physical charged-family lines",
+    "derive the bare-to-endpoint block-balance response bridge and charged phase connection",
+    "attach the primitive determinant character to the physical charged determinant line",
+    "freeze one coherent source branch before comparison",
+    "derive a declared running coordinate and controlled QED/electroweak pole-scheme map"
+  ],
+  "provenance": {
+    "declared_map_receipt": "particles/runs/leptons/charged_face_incidence_conditional_theorem.json",
+    "declared_map_receipt_sha256": "5169478e6b3a2420d5b4c5a6efd0d7f616427768d2d7b61d1c89fc56d9d6d79a",
+    "geometric_face_receipt": "particles/runs/leptons/charged_icosahedral_face_carrier_frontier.json",
+    "geometric_face_receipt_sha256": "7ca8619bc16834a7eb941f25878a34175dcba107e5f71cada36da2f8b232108b",
+    "submitted_narrative_attachment_sha256": "879f5afbdb704d8894fe826544e26dff90651040df45954485be422ea2c0779e",
+    "submitted_receipt_sha256": "d0acb1242714a38ea7ccc3b9f335bc9accf8e8bbdd9d6959d7e7e5dcf93be4d3",
+    "submitted_rigidity_archive_sha256": "792dad5c1524984c52d7582e751e1123099978164def80fad34310a34e314dff"
+  },
+  "public_prediction_promotion_allowed": false,
+  "record_and_maxent_boundary": {
+    "central_record_bridge_open": true,
+    "continuous_exact_record_counterexample": "For an exact rank-one P in d dimensions, rho_t=tP+(1-t)(I-P)/(d-1) is a valid state with Tr(rho_t P)=t. Exact projectivity alone therefore does not select the weight 1/d.",
+    "maxent_boundary": "Current OPH uses constrained Gibbs MaxEnt. The maximally mixed state I/d follows here only from CFQ2's additional quotient-homogeneous, unconstrained finite-register premise.",
+    "projector_scaling_boundary": "The elementary cP idempotence lemma forbids rescaling one fixed exact projector. It does not by itself exclude a different state, event rank, path multiplicity, clock, action, or source construction.",
+    "statement": "A rank-one projector in B(C^d) is noncentral for d>1, whereas OPH completed records are normally central. A process/readout time-slice or diagonal record-algebra theorem must connect the CFQ event projectors to the OPH record notion."
+  },
+  "runtime_charged_reference_consumed": false,
+  "runtime_dependency": {
+    "external_graph_library": null,
+    "mpmath": "1.3.0"
+  },
+  "schema_version": 1,
+  "separate_conditional_corollaries": {
+    "base_phase_2_over_9": "Requires an additional eighteen-slot rank-four response register, action-angle normalization, and physical charged connection.",
+    "closed_by_core_cfq_theorem": false,
+    "determinant_factor_6_to_minus_14": "Requires fourteen independent physical rank-one Z6 records and their attachment to the charged determinant line.",
+    "one_bit_balance": "Requires an additional physical two-state orientation register plus a probability-to-Hilbert-Schmidt-power response isometry."
+  },
+  "status": "CONDITIONAL_CFQ_PACKET_WEIGHT_RIGIDITY_CLOSED_PHYSICAL_CFQ_REALIZATION_SOURCE_SELECTION_AND_ATTACHMENTS_OPEN",
+  "structural_data": {
+    "E": 30,
+    "F": 20,
+    "N_c": 3,
+    "N_g": 3,
+    "V": 12,
+    "euler_characteristic": 2,
+    "face_size": 3,
+    "vertex_valence": 5
+  },
+  "theorem_scope": {
+    "definitional_content": "CFQ2-CFQ7 stipulate the coefficient-bearing dimensions, event ranks, clock, paths, monomials, signs, primitive depth, exhaustion, and multiplicities.",
+    "former_multiplier_witness_status": "The source-multiplier witnesses remain countermodels to the weaker current OPH premises. They are excluded only after CFQ fixes rank, trace, clock, path catalogue, signs, exhaustion, and multiplicity one.",
+    "proved_implication": "If CFQ1-CFQ8 physically hold exactly, normalized rank-one trace weights and the frozen path catalogue uniquely reproduce the declared three-coordinate scalar affine map.",
+    "rigidity_scope": "Uniqueness holds inside the stipulated CFQ admissible class. It is not a proof that current OPH axioms select that class or the physical repair operator."
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "artifact": "oph_d10_ew_quotient_transport_receipt",
+  "certificate_contract": {
+    "certificate_input_present": false,
+    "certificate_input_status": "missing_no_path_enumeration_supplied",
+    "expected_input_path": "code/particles/runs/calibration/d10_ew_quotient_path_certificate.json",
+    "promotion_allowed": false,
+    "realized_carrier_enumeration_verifier_present": false,
+    "required_sections": [
+      "realized_carrier_and_quotient_canonicalizer_hashes",
+      "explicit_charged_and_neutral_path_lists",
+      "exact_rational_color_measure_and_incidence_counts",
+      "Z6_projector_and_normalized_trace",
+      "fibre_Gram_and_residual_pairing",
+      "complete_deformation_enumeration_and_positive_MAR_gap",
+      "same_branch_target_free_source_DAG",
+      "exact_verifier_receipt_bound_to_the_certificate_hash"
+    ],
+    "schema_conformance_is_sufficient_for_source_evidence": false,
+    "schema_path": "code/particles/calibration/d10_ew_quotient_path_certificate.schema.json",
+    "schema_present": true,
+    "simulation_or_exact_enumeration_required": true,
+    "synthetic_path_fixture_eligible_as_source_evidence": false
+  },
+  "certificate_status": "certificate_assumed_not_enumerated",
+  "certificate_verified": false,
+  "conditional_theorem_algebra_verified": true,
+  "domain_checks": {
+    "alpha2_positive": true,
+    "alphaY_positive": true,
+    "eta_positive": true,
+    "repaired_couplings_positive": true,
+    "rho_in_open_unit_interval": true,
+    "v_positive": true
+  },
+  "generated_utc": "2026-07-12T09:32:04Z",
+  "notes": [
+    "The correspondence verifier validates the conditional algebra and local chart; it proves none of QT1--QT5.",
+    "QT3 is the coefficient-emission premise, whereas QT5 separately excludes additional admissible deformations.",
+    "The numerical specialization uses the archived legacy D10 tuple, not a demonstrated same-branch evaluation at P_cand."
+  ],
+  "numerical_specialization": {
+    "W_GeV": 80.37700001539531,
+    "Z_GeV": 91.18797807794321,
+    "alpha2_hat": 0.03377062800115824,
+    "alphaY_hat": 0.009695476921798464,
+    "alpha_U": 0.04112498041477454,
+    "delta_n": 0.0002346358802434819,
+    "lambda_EW": 0.00022769874427635073,
+    "rho": 0.5385291530498766,
+    "source_tuple_scope": "archived_legacy_D10_calibration_tuple_not_strict_P_cand_branch",
+    "tau2": -0.0002311623001746158,
+    "tauY": -0.04406283002558085
+  },
+  "physical_mass_semantics": "canonically_normalized_D10_mass_chart_not_complex_pole",
+  "physical_pole_attachment": {
+    "analytic_continuation_and_riemann_sheet_fixed": false,
+    "closed": false,
+    "required_convention": "s_B=(M_B-i*Gamma_B/2)^2",
+    "self_energy_and_pole_enclosure_present": false
+  },
+  "physical_pole_attachment_closed": false,
+  "premises": [
+    {
+      "certificate_evidence_status": "assumed_not_enumerated",
+      "id": "QT1",
+      "missing": "finite quotient canonicalizer and proof that no third or cross channel survives",
+      "name": "two_channel_quotient_exhaustion",
+      "source_emitted_by_current_repo": false
+    },
+    {
+      "certificate_evidence_status": "assumed_not_enumerated",
+      "id": "QT2",
+      "missing": "finite path measure and equiprobable four-slot proof",
+      "name": "primitive_mixed_cumulant_normalization",
+      "source_emitted_by_current_repo": false
+    },
+    {
+      "certificate_evidence_status": "assumed_not_enumerated",
+      "id": "QT3",
+      "missing": "explicit charged/neutral path lists, exact 1/3 color measure, and central projector trace 1/6; without QT3 the displayed value-law coefficients remain free",
+      "name": "oriented_root_path_incidence_and_Z6_subtraction",
+      "source_emitted_by_current_repo": false
+    },
+    {
+      "certificate_evidence_status": "assumed_not_enumerated",
+      "id": "QT4",
+      "missing": "finite-carrier Gram and residual-pairing certificate",
+      "name": "sign_and_least_norm_fibre_closure",
+      "source_emitted_by_current_repo": false
+    },
+    {
+      "certificate_evidence_status": "assumed_not_enumerated",
+      "id": "QT5",
+      "missing": "deformation enumeration or positive target-free MAR gap; without QT5 additional output-changing paths or deformations remain unexcluded even if QT3 is assumed",
+      "name": "path_completeness_and_rigidity",
+      "source_emitted_by_current_repo": false
+    }
+  ],
+  "promotion_allowed": false,
+  "relation_to_color_balanced_candidate": {
+    "models_are_alternatives_not_cumulative_gates": true,
+    "same_law": false,
+    "statement": "The sqrt(N_c)/2 and raw N_c color-balanced rule is a distinct leading-quadratic alternative. The complete archived law is not the simple c=1/(4*rho) competitor, and the present data comparison does not exclude the complete archived law."
+  },
+  "same_branch_source_packet_closed": false,
+  "source_artifacts": {
+    "canonical_evaluator": "code/particles/calibration/derive_d10_ew_target_free_repair_value_law.py::evaluate_candidate_from_source_basis",
+    "canonical_value_law": "code/particles/runs/calibration/d10_ew_target_free_repair_value_law.json",
+    "source_pair": "code/particles/runs/calibration/d10_ew_source_transport_pair.json"
+  },
+  "source_entailment_status": "QT1_QT5_are_assumptions_not_current_source_emissions",
+  "status": "exact_conditional_implication_QT1_QT5_source_entailment_open",
+  "unconditional_d10_source_theorem_closed": false,
+  "value_law_consistency_checks": {
+    "alphaY_recomposition_residual": 0.0,
+    "canonical_artifact_max_abs_residual": 0.0,
+    "mass_chart_jacobian_det": 1851.4964096640545,
+    "mass_chart_nondegenerate": true,
+    "parallel_fibre_identity_residual": 4.531626267810507e-20
+  }
+}

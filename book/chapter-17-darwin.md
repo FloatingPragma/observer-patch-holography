@@ -32,11 +32,12 @@ scale where the effective theory is expected to stop being valid.
 "Naturalness" asks why low-energy quantities are not dragged up toward that
 high-energy scale by quantum corrections.
 
-OPH answers the local electroweak part of this puzzle through the pixel
-transmutation branch. The weak scale is emitted as
+OPH answers the dimensionless local part of this puzzle through the pixel
+transmutation branch. The hierarchy is emitted as
 $v/E_\star=P_\star^{-1/2}\exp[-2\pi/(4\alpha_U(P_\star))]$, where the
-unified-coupling record has a unique source zero in the stated interval. That
-is the scoped hierarchy solution. The stronger Higgs naturality reading also needs the RG
+unified-coupling record has a unique source zero in the stated interval. The
+ratio does not determine a mass in GeV without an independently physical
+$E_\star$. The stronger Higgs naturality reading also needs the RG
 coarse-graining defect bound for the Higgs normal form, and the SI gravity
 number needs the full no-G clock bridge.
 
@@ -188,10 +189,16 @@ The electron is a vibration pattern that persists. The muon is a pattern that pe
 The "particle zoo" is a census of vibrational survivors.
 
 Within OPH, that census is uneven. Some entries are structurally cleaner:
-photon, gluons, graviton, and the weak-boson benchmark pair. The Higgs and top
-are tied together on one electroweak relation. The quark source equations fix
+photon, gluons, and graviton carrier roles. The weak sector separates an exact
+selected-carrier chart, a value law conditional on five quotient-transport
+premises, and a frozen comparison adapter. The finite certificate for those
+premises and the physical pole receipt are absent. The Higgs and top are tied
+together by a conditional downstream electroweak relation. The quark source equations fix
 two profile shapes but leave their positive spreads independent, so numeric
-quark rows do not close. The weighted-cycle neutrino entry is a target-informed
+quark rows do not close. A later target-informed RSCC module-ledger candidate
+removes five direct template decimals but does not derive its carrier,
+cumulant law, affine readout, scale, or RG packet; it therefore leaves the same
+non-identifiability boundary intact. The weighted-cycle neutrino entry is a target-informed
 comparison candidate rejected by the correlated NuFIT 6.1 profile. Its charged
 basis is open and has nearly degenerate singular values, leaving the physical
 PMNS matrix, mass ordering, and absolute scale unresolved. Charged leptons carry

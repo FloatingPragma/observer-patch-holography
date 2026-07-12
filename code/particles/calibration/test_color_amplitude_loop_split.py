@@ -18,6 +18,7 @@ def test_guards_no_source_theorem_claimed() -> None:
     assert report["guards"]["measured_values_in_any_oph_solve_path"] is False
     assert report["guards"]["source_only_theorem_emitted"] is False
     assert report["guards"]["public_promotion_allowed"] is False
+    assert report["guards"]["complete_archived_value_law_tested_as_constant_c_competitor"] is False
 
 
 def test_mW_selects_sqrt_Nc_over_2() -> None:
@@ -39,7 +40,8 @@ def test_competitors_excluded_prediction_inside() -> None:
     assert comps["color_amplitude_loop  c=sqrt(Nc)/2"]["inside_MWMZ_1sigma"] is True
     assert comps["loop_symmetric        c=Nc/2"]["inside_MWMZ_1sigma"] is False
     assert comps["loop_symmetric        c=Nc"]["inside_MWMZ_1sigma"] is False
-    assert comps["running_tree          c=1/(4 beta)"]["inside_MWMZ_1sigma"] is False
+    assert comps["leading_constant_proxy c=1/(4 beta)"]["inside_MWMZ_1sigma"] is False
+    assert "not excluded" in report["verdict"]["complete_archived_value_law"]
 
 
 def test_channel_identification_remains_open() -> None:

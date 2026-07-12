@@ -98,6 +98,43 @@ FINAL_PIPELINE_STEPS: tuple[PipelineStep, ...] = (
         "Refresh the light/heavy running-coordinate and physical-Yukawa scheme obstruction.",
     ),
     PipelineStep(
+        "quark_s3_transposition_heat_shape_theorem",
+        "particles/flavor/verify_s3_transposition_heat_shape.py",
+        "Refresh the exact S3 transposition-Cayley spectrum and heat-gap theorem.",
+    ),
+    PipelineStep(
+        "quark_s3_d12_template_postdiction",
+        "particles/flavor/quark_s3_d12_template_postdiction.py",
+        "Refresh the explicitly quarantined, dimensionless S3/D12 template diagnostic.",
+        args=("--allow-template-ancestry",),
+    ),
+    PipelineStep(
+        "quark_s3_d12_template_postdiction_audit",
+        "particles/flavor/audit_quark_s3_d12_template_postdiction.py",
+        "Refresh the target-separated ancestry, unit, and formula-grammar audit.",
+    ),
+    PipelineStep(
+        "quark_rscc_module_arithmetic",
+        "particles/flavor/verify_quark_rscc_module_arithmetic.py",
+        "Refresh exact arithmetic and non-theorem boundaries for the RSCC ledger.",
+    ),
+    PipelineStep(
+        "quark_rscc_completion_candidate",
+        "particles/flavor/quark_rscc_completion_candidate.py",
+        "Refresh the dimensionless, retrospectively selected RSCC candidate.",
+        args=("--allow-retrospective-rscc",),
+    ),
+    PipelineStep(
+        "quark_rscc_completion_candidate_audit",
+        "particles/flavor/audit_quark_rscc_completion_candidate.py",
+        "Refresh the RSCC ancestry, module-selection, ablation, and mixed-chart audit.",
+    ),
+    PipelineStep(
+        "quark_flavor_source_closure_contract",
+        "particles/flavor/verify_quark_flavor_source_closure.py",
+        "Refresh the exact ray lemmas and sufficient physical source-closure obligations.",
+    ),
+    PipelineStep(
         "quark_current_family_exact_readout_target_audit",
         "particles/flavor/derive_quark_current_family_exact_readout.py",
         "Refresh the target-anchored current-family coordinate readout.",

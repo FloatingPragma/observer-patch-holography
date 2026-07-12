@@ -1,0 +1,145 @@
+{
+  "artifact": "oph_quark_rscc_completion_candidate_v1",
+  "basis": {
+    "L=ctr(-1,x,1)": [
+      "-0.82751548769742178209325567896879073739896430033358",
+      "-0.34496902460515643581348864206241852520207139933283",
+      "1.1724845123025782179067443210312092626010356996664"
+    ],
+    "Q=ctr(1,x^2,1)": [
+      "0.24408061238055856351382586514743278569406718186681",
+      "-0.48816122476111712702765173029486557138813436373362",
+      "0.24408061238055856351382586514743278569406718186681"
+    ]
+  },
+  "blocking_conditions": [
+    "derive a source-clean P/alpha root with no Stage-5 quark ancestry",
+    "derive and uniquely select the RSCC carrier/module/effect ledger",
+    "derive isotropic two-cumulant truncation and all signs under refinement",
+    "supply a family non-singlet attachment beyond the invariant 24-slot count",
+    "close a coherent absolute scale on the same source branch",
+    "supply one common-scale Yukawa and RG/threshold/scheme packet",
+    "freeze prospectively before an independent comparison"
+  ],
+  "centered_log_coordinates": {
+    "down": [
+      "-3.2579614779009705629709969303554996426354306165382",
+      "-0.27451090478726022033859070248455030416024023349323",
+      "3.5324723826882307833095876328400499467956708500314"
+    ],
+    "up": [
+      "-5.8883186851812641055304655452789763041419495889354",
+      "0.49061803558750641190123423891427528108751102436685",
+      "5.3977006495937576936292313063647010230544385645685"
+    ]
+  },
+  "claim_class": "post_hoc_target_informed_rscc_module_incidence_and_cumulant_ansatz_not_physical_quark_postdiction",
+  "conditional_D10_gev_display": null,
+  "correction_mode": "full_rscc",
+  "declared_module_dimensions": {
+    "C": 3,
+    "C_tensor_F": 15,
+    "F": 5,
+    "F0": 4,
+    "J_orientation": 2,
+    "M_a_down_linear=O+J*F0": 32,
+    "M_a_down_quadratic=O*(C+F0)*F": 840,
+    "M_a_up=J*(F+R)": 22,
+    "M_g_color=O*R*C": 432,
+    "M_g_common=O*R*(C+F0)": 1008,
+    "M_g_relabel=O*R*(F+R)": 1584,
+    "M_mu_down=O*R*C": 432,
+    "M_mu_up=End(F)+F0": 29,
+    "O_oriented_repair": 24,
+    "R_regular_S3": 6
+  },
+  "derived_coordinates": {
+    "A_ud": "0.24673539761083803090743580156164067140280693918649",
+    "B_ud": "0.81230548588559969072068644133272025356401208579923",
+    "a_d": "3.3952169302946006731402922815977747947155507332848",
+    "a_u": "5.6430096673875108995798484258218386635981940767519",
+    "b_d": "-1.8369623036286841818044368652777725686545258764256",
+    "b_d_ray": "-1.8046633952138274737960131646973292506525105108328",
+    "b_u": "-4.9927799521076953897232873562790273357006123387712",
+    "b_u_ray": "-4.9760591878509015371426385623701276018708179175318",
+    "g_ch_over_E_star": "7.5561925212704133028625890056383359089762106336914e-20",
+    "g_ch_over_v": "0.0037410386262389249546382290100025176076787202095373",
+    "mean_d": "3.2963577226058092174401060959600245915670572994798",
+    "mean_u": "5.5739221937268877086543719139408499264033921072235",
+    "q_d": "-0.032298908414856708008423700580443318002015365592881",
+    "q_u": "-0.016720764256793852580648793908899733829794421239492",
+    "r": "0.31799752108100657956317619180879739562615811123984",
+    "rho": "1.2942205385107310565475077262090075885627081731780",
+    "tau_f": "0.38190389719169688813818077093862505627381020752570",
+    "v_over_E_star": "2.0198114150099208176829892279589147777827383996590e-17",
+    "w": "0.12919563365942683203369480232177327200806146237152",
+    "x": "-0.51745353690773465372023296309362778780310709899925"
+  },
+  "dimensionless_output_coordinates_over_E_star": {
+    "b": "3.4311985789109620425173071305748620994965854420844e-19",
+    "c": "1.0419911054963274516132711647029223158604320989248e-19",
+    "d": "3.8583169244260653403513000307244485257602995907455e-22",
+    "s": "7.6224400773695750147871419763789842636051722736443e-21",
+    "t": "1.4092333531091165477008785995687149777988718137988e-17",
+    "u": "1.7681821156784641128879628537948709001633162957722e-22"
+  },
+  "exact_arithmetic_status": "exact_given_postulated_module_incidence_effect_ranks_signs_and_cumulant_law",
+  "physical_hypotheses_not_derived": [
+    "F=G+V_std is the unique minimal physical family-response carrier",
+    "the eight composite module incidences are source-selected",
+    "the declared projectors, ranks, orientations, and signs are physical",
+    "full unitary isotropy and Gaussian two-cumulant truncation follow from MAR",
+    "the count-only 24-slot register acquires a family non-singlet attachment",
+    "the heat time, even responses, and affine mean law are source laws",
+    "the residual functional is physically minimized"
+  ],
+  "promotion_allowed": false,
+  "provenance": {
+    "d10_active_readout_selector_status": "candidate_only",
+    "d10_current_emission_status": "zero_benchmark_only__frozen_nonzero_calibration_candidate_available",
+    "d10_mixed_sources_detected": true,
+    "d10_source_P": "1.63094",
+    "d10_source_alpha_U": "0.04112498041477454",
+    "dependency_files": {
+      "P_derivation/paper_math.py": {
+        "sha256": "bda031185dca55e54f4c6c0c020e9fac2e2ba5db5193998135f294898af620b8"
+      },
+      "particles/hierarchy/certificates/R_P_source_audit_pixel_certificate.json": {
+        "sha256": "11aeb17fd03b032af987100f8b865786f77b17c6d81aa4a649984e5059f42010"
+      },
+      "particles/hierarchy/certificates/R_m_rep_24_certificate.json": {
+        "sha256": "32d39eba6223eaed55ce124a934a04bd4e9027b24bec559ab2400e21643edfe4"
+      },
+      "particles/runs/calibration/d10_ew_transport_kernel.json": {
+        "sha256": "83f7c2acbd6d7a2f06fbbbe6c11766b3eeffea38343ebf5255cb0f8c9f5b5974"
+      },
+      "particles/runs/leptons/charged_12_24_singlet_no_go.json": {
+        "sha256": "55cfb2e01195c8aa26490386917e3e3d956827b214a83fcf3e28a83c1f9a56f4"
+      }
+    },
+    "existing_singlet_no_go_artifact": "oph_charged_12_24_singlet_no_go",
+    "formula_and_module_ledger_discovery_target_informed": true,
+    "old_candidate_flavor_decimals_consumed": false,
+    "pixel_branch_eligible_for_live_particle_prediction": false,
+    "pixel_branch_status": "source_audit_branch_witness_not_full_endpoint_proof",
+    "pixel_source_uses_internal_stage5_quark_model": true,
+    "public_prediction_allowed": false,
+    "quark_reference_values_consumed_at_runtime": false,
+    "repair_register_is_count_only_for_family_shape": true,
+    "repair_register_status": "closed_representation_to_spectrum_round_count",
+    "rscc_P_matches_d10_P": false,
+    "rscc_alpha_U_matches_d10_alpha_U": false
+  },
+  "repository_inputs": {
+    "N_c": 3,
+    "N_g": 3,
+    "P": "1.63097209569432901817967892561191884270169",
+    "alpha_U": "0.04112424744557487",
+    "beta_EW": 4,
+    "conditional_D10_v_gev": 246.76711732749683,
+    "d_std_S3": 2,
+    "order_S3": 6,
+    "orientation_dimension": 2,
+    "oriented_repair_slots": 24
+  }
+}

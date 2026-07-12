@@ -362,8 +362,11 @@ breaking in compact form.
 After symmetry breaking, weak gauge bosons gain mass, and fermions gain
 masses through Yukawa couplings. The details are part of the Standard Model
 support boundary. OPH's particle chapter is careful that not every mass value
-has the same support level. Higgs and top relations, the frozen charged-lepton
-continuation and its target-containing transport diagnostics, quark running-mass values, and neutrino assumptions must be separated
+has the same support level. Higgs and top relations, the exact icosahedral
+face-corner carrier, its target-informed charged-lepton completion conjecture
+and conditional declared-map fixed-point theorem, its target-containing
+transport diagnostics, quark running-mass values, and
+neutrino assumptions must be separated
 by status.
 
 The equation is a good example of how a simple-looking formula can carry a

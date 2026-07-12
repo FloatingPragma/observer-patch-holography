@@ -1,0 +1,80 @@
+{
+  "adjacency_eigenvalues_with_multiplicity": {
+    "-3": 1,
+    "0": 4,
+    "3": 1
+  },
+  "adjacency_matrix": [
+    [
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      0,
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      0,
+      0,
+      1,
+      1,
+      0
+    ],
+    [
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      1,
+      0,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      0,
+      1,
+      1,
+      0
+    ]
+  ],
+  "adjacent_gap_ratio": "exp(-3*tau)",
+  "artifact": "oph_s3_transposition_cayley_heat_shape_theorem_v2",
+  "checks": {
+    "adjacency_spectrum": true,
+    "gap_ratio_identity": true,
+    "laplacian_spectrum": true,
+    "three_regular": true
+  },
+  "claim_class": "exact_finite_group_linear_algebra_theorem",
+  "distinct_heat_eigenvalues_sorted": [
+    "exp(-6*tau)",
+    "exp(-3*tau)",
+    "1"
+  ],
+  "group_order": 6,
+  "laplacian_eigenvalues_with_multiplicity": {
+    "0": 1,
+    "3": 4,
+    "6": 1
+  },
+  "proof_status": "exact_symbolic_verification_passed",
+  "scope_boundary": "The graph spectrum proves r=exp(-3*tau) after tau is supplied. It does not derive the proposed OPH identification tau_f=P/4-pi*alpha_U/5.",
+  "transposition_count": 3
+}

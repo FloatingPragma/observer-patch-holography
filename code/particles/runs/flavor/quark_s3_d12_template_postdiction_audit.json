@@ -1,0 +1,267 @@
+{
+  "ancestry_audit": {
+    "family_kernel_is_handwritten_template": true,
+    "family_kernel_metadata_requests_replacement": true,
+    "five_template_descendants_consumed": [
+      "S_13",
+      "S_23",
+      "delta_21",
+      "DeltaS_13",
+      "g_ch_template"
+    ],
+    "g_ch_identity_residual": 0.0,
+    "g_ch_is_dimensionless": true,
+    "g_ch_reconstructed_as_template_mean_plus_min_gap": 0.9231656602589082,
+    "g_ch_stored": 0.9231656602589082,
+    "p_source_uses_stage5_quark_model": true,
+    "source_only_ancestry_passes": false,
+    "stored_scale_status": "historical_compare_only_shell_not_a_theorem_route"
+  },
+  "artifact": "oph_quark_s3_d12_template_postdiction_audit_v2",
+  "claim_class": "post_hoc_target_informed_repository_template_ansatz_not_physical_postdiction",
+  "descriptive_mixed_chart_comparison": {
+    "max_abs_relative_error_percent": 0.29457592878043837,
+    "raw_diagonal_residual_sum": 1.1653240915049556,
+    "reasons": [
+      "formula and selectors were discovered from the comparison spectrum",
+      "rows do not share one renormalization scale or mass convention",
+      "the dimensionless template scale has no derived GeV bridge",
+      "no source-theory uncertainty or covariance matrix is supplied",
+      "the postdeclared denominator grammar omits continuous and structural choices"
+    ],
+    "rms_nominal_z": 0.4407047559506167,
+    "rows": {
+      "b": {
+        "dimensionless_coordinate": 4.192020570504227,
+        "nominal_z_after_unproved_1GeV_unit_insertion": 1.0034284173712216,
+        "reference_chart": "MSbar at self-scale",
+        "reference_gev": 4.186,
+        "reference_sigma_gev": 0.006,
+        "relative_error_percent_after_unproved_1GeV_unit_insertion": 0.14382633789362664
+      },
+      "c": {
+        "dimensionless_coordinate": 1.2730350538241826,
+        "nominal_z_after_unproved_1GeV_unit_insertion": 0.03001196092948059,
+        "reference_chart": "MSbar at self-scale",
+        "reference_gev": 1.2729,
+        "reference_sigma_gev": 0.0045,
+        "relative_error_percent_after_unproved_1GeV_unit_insertion": 0.010609931980720688
+      },
+      "d": {
+        "dimensionless_coordinate": 0.004713845068652681,
+        "nominal_z_after_unproved_1GeV_unit_insertion": 0.19778669503829915,
+        "reference_chart": "MSbar at 2 GeV",
+        "reference_gev": 0.0047,
+        "reference_sigma_gev": 7e-05,
+        "relative_error_percent_after_unproved_1GeV_unit_insertion": 0.29457592878043837
+      },
+      "s": {
+        "dimensionless_coordinate": 0.09312611565085319,
+        "nominal_z_after_unproved_1GeV_unit_insertion": 0.3230223583616996,
+        "reference_chart": "MSbar at 2 GeV",
+        "reference_gev": 0.0929,
+        "reference_sigma_gev": 0.0007,
+        "relative_error_percent_after_unproved_1GeV_unit_insertion": 0.24339682546090646
+      },
+      "t": {
+        "dimensionless_coordinate": 172.1711958402559,
+        "nominal_z_after_unproved_1GeV_unit_insertion": 0.11865973375985088,
+        "reference_chart": "separate top extraction",
+        "reference_gev": 172.1,
+        "reference_sigma_gev": 0.6,
+        "relative_error_percent_after_unproved_1GeV_unit_insertion": 0.041368878707670476
+      },
+      "u": {
+        "dimensionless_coordinate": 0.00216023873762791,
+        "nominal_z_after_unproved_1GeV_unit_insertion": 0.003410537541568123,
+        "reference_chart": "MSbar at 2 GeV",
+        "reference_gev": 0.00216,
+        "reference_sigma_gev": 7e-05,
+        "relative_error_percent_after_unproved_1GeV_unit_insertion": 0.011052667958777462
+      }
+    },
+    "statistical_interpretation_allowed": false
+  },
+  "local_grammar_audit_correction": {
+    "chosen_is_unique_best_raw_residual_sum": true,
+    "global_look_elsewhere_correction": false,
+    "models_below_0p3_percent_maximum_error": 9,
+    "models_below_1_percent_maximum_error": 252,
+    "models_tied_for_best_maximum_error": 8,
+    "postdeclared_models": 219615
+  },
+  "prediction": {
+    "artifact": "oph_quark_s3_d12_template_postdiction_v2",
+    "basis": {
+      "L=ctr(-1,x,1)": [
+        "-0.8275154876974217820932556789687907373990",
+        "-0.3449690246051564358134886420624185252021",
+        "1.172484512302578217906744321031209262601"
+      ],
+      "Q=ctr(1,x^2,1)": [
+        "0.2440806123805585635138258651474327856941",
+        "-0.4881612247611171270276517302948655713881",
+        "0.2440806123805585635138258651474327856941"
+      ]
+    },
+    "blocking_conditions": [
+      "replace the handwritten family kernel with an OPH-emitted observer-like self-reading carrier receipt",
+      "derive invariant, normalization-covariant edge and odd/even response scalars",
+      "remove the Stage-5 quark-model ancestor from the pixel source branch",
+      "emit a dimensionful normalization or same-scale dimensionless Yukawa normalization",
+      "supply one common renormalization scheme and the full RG/threshold map",
+      "freeze every formula and selector prospectively before comparison"
+    ],
+    "centered_log_coordinates": {
+      "down": [
+        "-3.257961638110872456935372593211657491021",
+        "-0.2745109190962729470042918061897455826254",
+        "3.532472557207145403939664399401403073647"
+      ],
+      "up": [
+        "-5.888322078491026142820391052421549670887",
+        "0.4906183138089970512362818477797018610890",
+        "5.397703764682029091584109204641847809798"
+      ]
+    },
+    "claim_class": "post_hoc_target_informed_repository_template_ansatz_not_physical_postdiction",
+    "derived_scalars": {
+      "A_ud": "0.2467353976108380309074358015616406714028",
+      "B_ud": "0.8123054858855996907206864413327202535640",
+      "a_d": "3.395217097659008930437518496306530282334",
+      "a_u": "5.643012921586527617202250128531698740342",
+      "b_d": "-1.836962392588072475547322605499526882066",
+      "b_d_ray": "-1.804663484173215767538898904919083564064",
+      "b_u": "-4.992782821691104012492820915549556219942",
+      "b_u_ray": "-4.976062057434310159912172121640656486112",
+      "edge_d": "3.421056224390894296844257456770884936736",
+      "edge_u": "5.578415104756814201185402727370812104338",
+      "g_ch": "0.9231656602589082000000000000000000000000",
+      "g_d": "0.1225434395708537717300289238094390437150",
+      "g_u": "0.7794128039749331596019547030545707045233",
+      "mean_d": "3.296357378426965200814872589825317489690",
+      "mean_u": "5.573918317061316465181092791994606279376",
+      "q_d": "-0.03229890841485670800842370058044331800202",
+      "q_u": "-0.01672076425679385258064879390889973382979",
+      "r": "0.3179975210810065795631761918087973956262",
+      "rho": "1.294220538510731056547507726209007588563",
+      "tau_f": "0.3819038971916968881381807709386250562738",
+      "x": "-0.5174535369077346537202329630936277878031"
+    },
+    "dimensionless_output_coordinates": {
+      "b": "4.192020570504227186551360534774133891127",
+      "c": "1.273035053824182550789320245186899120782",
+      "d": "0.004713845068652680905536263729042727807366",
+      "s": "0.09312611565085317966068850446814347380619",
+      "t": "172.1711958402559166754224075861130098959",
+      "u": "0.002160238737627909827447317224084095288229"
+    },
+    "exact_mathematics": {
+      "LQ_Gram_determinant": "4*(1-x^2)^2/3",
+      "LQ_scope": "universal basis of the centered three-vector plane for x != +/-1",
+      "S3_transposition_Cayley_Laplacian_spectrum": {
+        "0": 1,
+        "3": 4,
+        "6": 1
+      },
+      "heat_gap_ratio_given_tau": "r=exp(-3*tau)"
+    },
+    "promotion_allowed": false,
+    "provenance": {
+      "charged_scale_source_status": "historical_compare_only_shell_not_a_theorem_route",
+      "common_scale_scheme_declared": false,
+      "dependency_files": {
+        "P_derivation/paper_math.py": {
+          "sha256": "bda031185dca55e54f4c6c0c020e9fac2e2ba5db5193998135f294898af620b8"
+        },
+        "particles/hierarchy/certificates/R_P_source_audit_pixel_certificate.json": {
+          "sha256": "11aeb17fd03b032af987100f8b865786f77b17c6d81aa4a649984e5059f42010"
+        },
+        "particles/runs/flavor/charged_budget_transport.json": {
+          "sha256": "a154c7ccb4b489be6b9f649c1edfd7dfb7ce92dd79e8febd7a96028f8933a5a7"
+        },
+        "particles/runs/flavor/family_transport_kernel.json": {
+          "sha256": "712f4ac9ac065bb5349eda86f168c5aca5f011771cefc5e50ededea56c17152a"
+        },
+        "particles/runs/flavor/overlap_edge_transport_cocycle.json": {
+          "sha256": "d46019c00937b15dc79db874eaf19a0d421f1068e78d305f7bb8a615a9d3b5a0"
+        },
+        "particles/runs/flavor/quark_odd_response_law.json": {
+          "sha256": "b9f15ab24a7231f3b500b270b6c8923e3deba843d28f603e2032f992363b1a55"
+        }
+      },
+      "dimensionful_scale_emitted": false,
+      "evaluation_imports_quark_reference_values": false,
+      "family_transport_kernel_note": "Replace this template with an OPH-derived transport kernel across refinements. The intended theorem burden is conjugacy-Riesz persistence of the three-projector split.",
+      "family_transport_kernel_proof_status": "conjugacy_riesz_candidate",
+      "family_transport_kernel_status": "template",
+      "formula_discovery_target_informed": true,
+      "full_rg_threshold_map_present": false,
+      "numerical_flavor_template_consumed": true,
+      "p_source_uses_stage5_quark_model": true,
+      "pixel_source_status": "source_audit_branch_witness_not_full_endpoint_proof",
+      "public_prediction_allowed": false
+    },
+    "repository_inputs": {
+      "DeltaS_13": 0.034806034601383956,
+      "N_c": 3,
+      "P": "1.63097209569432901817967892561191884270169",
+      "S_13": 5.407843949508826,
+      "S_23": 3.346451912983049,
+      "alpha_U": "0.04112424744557487",
+      "d_std_S3": 2,
+      "delta_21": 0.30236566025890826,
+      "g_ch_template": 0.9231656602589082
+    },
+    "scale_mode": "repository_template_gch",
+    "unit_status": {
+      "bundle_comparison_interpretation": "silently treats one coordinate unit as 1 GeV",
+      "dimensionful_bridge": "missing",
+      "emitted_coordinates": "dimensionless",
+      "physical_mass_or_yukawa_claim_allowed": false
+    },
+    "unproved_formula_choices": {
+      "affine_mean_law": "repository candidate A_ud/B_ud law",
+      "edge_laws": [
+        "edge_u=S_13+rho*delta_21/(1+rho)",
+        "edge_d=S_23+delta_21/(2*(1+rho-x^2))"
+      ],
+      "heat_time": "tau_f=P/4-pi*alpha_U/5",
+      "mean_allocation": "DeltaS_13 and its complement",
+      "odd_even_denominator_tuple": [
+        5,
+        2,
+        5,
+        10,
+        4
+      ],
+      "scale_formula": "dimensionless family-template mean plus minimum gap"
+    }
+  },
+  "promotion_allowed": false,
+  "runtime_separation_audit": {
+    "exact_target_literal_hits": [],
+    "predictor_sha256": "62a7d46d5d3de506546a7cd3e235863fa825155d572fda93e41c74a6827969c3",
+    "reference_path_literal_hits": [],
+    "runtime_comparison_separation_passes": true,
+    "scope": "This checks direct evaluator separation only. It does not establish clean ancestry, blind discovery, or source-only status."
+  },
+  "shape_diagnostic": {
+    "common_scale_validation_performed": false,
+    "mixed_chart_down_adjacent_log_gap_ratio": 0.7836783998630671,
+    "mixed_chart_up_adjacent_log_gap_ratio": 1.2999448361277528,
+    "note": "Adding the universal Q mode abandons the old reciprocal-ray constraint; without RG transport this produces no common-scale shape prediction."
+  },
+  "submitted_bundle_receipt": {
+    "expected_sha256": "bd283ee0d7cccd9a9592e69f74598a3ea1590274d7c5e6144f25f7920880e6e4",
+    "matches": null,
+    "path_checked": null
+  },
+  "typing_and_invariance_failures": [
+    "S_ij log-overlap suppressions are added to a linearly scaling TT-dagger eigenvalue gap",
+    "DeltaS_13 is a selected basis-dependent matrix entry, not a conjugation-invariant scalar",
+    "the dimensionless g_ch template statistic is used as though it carried GeV units",
+    "no theorem maps S3 heat isotypic values of multiplicities 1,4,1 to three generations"
+  ],
+  "verdict": "The arithmetic is reproducible as a retrospectively designed diagnostic, but the bundle is not an OPH quark-mass closure, postdiction, or physical Yukawa evaluation."
+}

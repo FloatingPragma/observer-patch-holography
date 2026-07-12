@@ -154,11 +154,19 @@ consistency, and minimality on the same low-energy branch. The electromagnetic,
 color, and metric carrier roles acquire classical transverse or TT modes only
 after their explicit action and phase receipts; their quantum particle poles
 remain a stronger gate. The broader particle table then carries the
-weak-sector comparison pair, the low-energy electromagnetic endpoint, the
-Higgs/top relation, the two-modulus quark source-spread obstruction (including
+exact weak-sector selected-carrier chart, the value law conditional on five
+quotient-transport premises, the frozen comparison adapter, the low-energy
+electromagnetic endpoint, the conditional Higgs/top relation, the two-modulus
+quark source-spread obstruction (including
 the equal-MAR-score rescaling counterfamily) with target-audit mass textures,
-and a
-target-informed weighted-cycle neutrino candidate rejected by the correlated
+exact finite $S_3$/centered-plane lemmas, and a quarantined target-informed
+two-mode template diagnostic that has no physical scale or common RG packet,
+plus a later RSCC candidate that replaces five direct decimals by an unproved
+module/rank/sign/cumulant ledger and leaves all six closure receipts open,
+the exact icosahedral face-corner carrier with its target-informed
+charged-lepton completion conjecture and conditional fixed-point theorem for
+one declared repair map, and a target-informed weighted-cycle
+neutrino candidate rejected by the correlated
 NuFIT 6.1 profile. The charged basis is open and has nearly degenerate singular
 values, leaving its physical PMNS matrix, mass ordering, and absolute masses
 unresolved. Charged leptons, direct-top comparison, hadrons, and strong CP sit
@@ -257,8 +265,8 @@ $$
 P=\frac{a_{\mathrm{cell}}}{\ell_\star^2}
 $$
 
-acts as the ruler from which the electroweak scale and the low-energy
-electromagnetic coupling are displayed.
+acts as the ruler from which the dimensionless electroweak hierarchy and the
+low-energy electromagnetic coupling are displayed.
 
 $a_{\mathrm{cell}}$ is the effective area assigned to one screen cell.
 $\ell_\star^2$ is supplied by the selected scale bridge, usually written
@@ -285,17 +293,18 @@ readout is produced from the trial pixel value. The fixed point is the value of
 $P$ for which the geometric pixel and the electromagnetic readout name the same
 local scale.
 
-The value is forced in OPH because the same cell cannot choose one value for
-its geometry and another value for electromagnetic observation. The
-fine-structure constant is the electromagnetic width that makes both readings
-describe the same local pixel.
+The empirical-endpoint branch and the source-audit branch make different uses
+of the inner electromagnetic reading. The former includes the measured
+long-distance endpoint; the latter excludes it upstream. Their nearby pixel
+values cannot be merged into one source claim.
 
 The electroweak hierarchy uses the same local branch. Once the source branch
-fixes the unified coupling, the weak scale follows from the local hierarchy
-relation. The selected source-to-Higgs coarse-graining square has zero defect,
-so the Higgs naturality reading is carried by the same source-to-Higgs branch.
-There is no independent bare scalar input in this construction. The full SI
-gravity readout depends on the complete no-G clock bridge.
+fixes the unified coupling, the local hierarchy relation fixes \(v/E_\star\).
+It supplies no mass in GeV until an independently physical \(E_\star\) is
+established. The selected source-to-Higgs coarse-graining square has zero
+defect, so the Higgs naturality reading is carried by the same source-to-Higgs
+branch. There is no independent bare scalar input in this construction. The
+full SI gravity readout depends on the complete no-G clock bridge.
 
 The global screen-capacity branch also carries the global repair-register
 story. OPH treats reality as a continual repair of disagreements between local
@@ -540,16 +549,34 @@ information theorist sees a code. A good theory earns its keep by making those
 views mutually legible without erasing their differences.
 
 The gauge quotient, charge lattice, counting chain, Yang-Mills repair gap,
-receipt-gated classical carrier modes, Lorentz geometry, the branch-qualified Einstein relation, and the
-electroweak and Higgs-top surfaces, together with the quark non-identifiability boundary, form one organized
-reconstruction. The weighted-cycle neutrino candidate sits in its failure
+receipt-gated classical carrier modes, Lorentz geometry, the branch-qualified
+Einstein relation, the electroweak selected-carrier chart, the conditional
+quotient-transport and Higgs-top surfaces, and the quark non-identifiability
+boundary form one organized reconstruction. The weighted-cycle neutrino candidate sits in its failure
 ledger: NuFIT 6.1 rejects the frozen point, while the open charged basis prevents
 a physical PMNS matrix or mass spectrum.
 
 The local-ruler story is therefore a cluster of related claims rather than one
-flat table. The weak pair, charged leptons, withheld quark rows and their target audits, direct-top
+flat table. For charged leptons the local three-corner cyclic carrier is exact,
+and the declared repair map has one conditionally proved attracting fixed
+point, while source-law rigidity, attachment, and mass-value laws remain
+conjectural. The weak sector likewise separates an exact carrier chart, a
+conditional law, and a comparison adapter. Its color-balanced model, with
+proposed weights $\sqrt{N_c}/2$ and $N_c$, is a distinct alternative to the
+complete quotient-transport law. The finite
+transport certificate and the physical pole receipt are absent. The
+withheld quark rows and their target audits, direct-top
 comparison, hadrons, and Strong CP each touch a different layer of the particle
 problem.
+
+The RSCC audit makes that quark boundary especially concrete. Its declared
+finite-module arithmetic is reproducible, but the family attachment, full
+isotropy, Gaussian truncation, response signs, inherited affine laws, coherent
+absolute scale, and common-scheme running are not consequences of the current
+axioms. Its Stage-5-dependent pixel witness and mixed-branch D10 display also
+prevent source-only ancestry. A simpler ablation fits the same retrospective
+table better, so RSCC is a useful falsifiable candidate specification rather
+than a selected physical closure.
 
 The next chapter turns to the deepest metaphysical question. If observers,
 meaning, and world belong to one structure, what exactly should be said about

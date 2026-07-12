@@ -1,0 +1,219 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://floatingpragma.io/schemas/d10_ew_quotient_path_certificate.schema.json",
+  "title": "D10 finite quotient-path source certificate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact",
+    "schema_version",
+    "evidence_kind",
+    "source_branch_id",
+    "source_manifest",
+    "realized_carrier",
+    "quotient_canonicalizer",
+    "response_module",
+    "primitive_normalization",
+    "path_enumeration",
+    "central_Z6_projector",
+    "fibre_closure",
+    "rigidity",
+    "source_dependency_dag",
+    "exact_verifier_receipt"
+  ],
+  "properties": {
+    "artifact": {"const": "oph_d10_ew_quotient_path_certificate"},
+    "schema_version": {"const": "1.0.0"},
+    "evidence_kind": {"const": "realized_carrier_enumeration_not_synthetic_fixture"},
+    "source_branch_id": {"type": "string", "minLength": 1},
+    "source_manifest": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/hash_entry"}
+    },
+    "realized_carrier": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["builder_path", "builder_sha256", "carrier_artifact_path", "carrier_sha256"],
+      "properties": {
+        "builder_path": {"type": "string", "pattern": "^code/"},
+        "builder_sha256": {"$ref": "#/$defs/sha256"},
+        "carrier_artifact_path": {"type": "string", "pattern": "^code/"},
+        "carrier_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "quotient_canonicalizer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "implementation_path",
+        "implementation_sha256",
+        "removed_coordinates",
+        "representative_invariance_receipt"
+      ],
+      "properties": {
+        "implementation_path": {"type": "string", "pattern": "^code/"},
+        "implementation_sha256": {"$ref": "#/$defs/sha256"},
+        "removed_coordinates": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "representative_invariance_receipt": {"$ref": "#/$defs/hash_entry"}
+      }
+    },
+    "response_module": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["basis", "dimension", "exhaustion_verified", "cross_channel_terms"],
+      "properties": {
+        "basis": {"const": ["q_2", "q_n"]},
+        "dimension": {"const": 2},
+        "exhaustion_verified": {"const": true},
+        "cross_channel_terms": {"const": []}
+      }
+    },
+    "primitive_normalization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bidegree", "transmutation_slots", "slot_measure", "activity_formula"],
+      "properties": {
+        "bidegree": {"const": [1, 1]},
+        "transmutation_slots": {"const": 4},
+        "slot_measure": {"const": {"numerator": 1, "denominator": 4}},
+        "activity_formula": {"const": "lambda_EW=eta*alpha_U/4"}
+      }
+    },
+    "path_enumeration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["paths", "color_orbit_measure", "incidence_counts", "enumeration_complete"],
+      "properties": {
+        "paths": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/path_record"}
+        },
+        "color_orbit_measure": {"const": {"numerator": 1, "denominator": 3}},
+        "incidence_counts": {
+          "const": {
+            "charged": {"primitive": 1, "one_return_oriented": 2, "two_return_backtracks": 1},
+            "neutral": {"primitive": 1, "one_return_oriented": 4, "two_return_backtracks": 2}
+          }
+        },
+        "enumeration_complete": {"const": true}
+      }
+    },
+    "central_Z6_projector": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["implementation_path", "implementation_sha256", "order", "normalized_trace", "source_amplitude"],
+      "properties": {
+        "implementation_path": {"type": "string", "pattern": "^code/"},
+        "implementation_sha256": {"$ref": "#/$defs/sha256"},
+        "order": {"const": 6},
+        "normalized_trace": {"const": {"numerator": 1, "denominator": 6}},
+        "source_amplitude": {"const": "rho"}
+      }
+    },
+    "fibre_closure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["gram_formula", "residual_formula", "strict_convexity_verified", "exact_receipt"],
+      "properties": {
+        "gram_formula": {"const": "1+4*tau2^2"},
+        "residual_formula": {"const": "tau2+2*eta"},
+        "strict_convexity_verified": {"const": true},
+        "exact_receipt": {"$ref": "#/$defs/hash_entry"}
+      }
+    },
+    "rigidity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "deformation_enumeration",
+        "enumeration_complete",
+        "quotient_trivial_deformations",
+        "output_changing_survivors",
+        "positive_MAR_gap"
+      ],
+      "properties": {
+        "deformation_enumeration": {"type": "array", "minItems": 1, "items": {"type": "object"}},
+        "enumeration_complete": {"const": true},
+        "quotient_trivial_deformations": {"type": "array", "items": {"type": "string"}},
+        "output_changing_survivors": {"const": []},
+        "positive_MAR_gap": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["numerator", "denominator", "ordering_receipt"],
+          "properties": {
+            "numerator": {"type": "integer", "minimum": 1},
+            "denominator": {"type": "integer", "minimum": 1},
+            "ordering_receipt": {"$ref": "#/$defs/hash_entry"}
+          }
+        }
+      }
+    },
+    "source_dependency_dag": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["nodes", "edges", "forbidden_sources", "protected_outputs", "forbidden_paths"],
+      "properties": {
+        "nodes": {"type": "array", "minItems": 1, "items": {"type": "object"}},
+        "edges": {"type": "array", "minItems": 1, "items": {"type": "object"}},
+        "forbidden_sources": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "protected_outputs": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "forbidden_paths": {"const": []}
+      }
+    },
+    "exact_verifier_receipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["verifier_path", "verifier_sha256", "certificate_sha256", "all_checks_pass"],
+      "properties": {
+        "verifier_path": {"type": "string", "pattern": "^code/"},
+        "verifier_sha256": {"$ref": "#/$defs/sha256"},
+        "certificate_sha256": {"$ref": "#/$defs/sha256"},
+        "all_checks_pass": {"const": true}
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "hash_entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "pattern": "^code/"},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "path_record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path_id",
+        "channel",
+        "grade",
+        "orientation",
+        "color_orbit",
+        "canonical_representative",
+        "exact_weight"
+      ],
+      "properties": {
+        "path_id": {"type": "string", "minLength": 1},
+        "channel": {"enum": ["charged", "neutral"]},
+        "grade": {"enum": ["primitive", "one_return", "two_return_backtrack"]},
+        "orientation": {"type": "string", "minLength": 1},
+        "color_orbit": {"type": "string", "minLength": 1},
+        "canonical_representative": {"type": "string", "minLength": 1},
+        "exact_weight": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["numerator", "denominator"],
+          "properties": {
+            "numerator": {"type": "integer"},
+            "denominator": {"type": "integer", "minimum": 1}
+          }
+        }
+      }
+    }
+  }
+}

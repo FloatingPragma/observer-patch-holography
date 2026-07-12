@@ -38,7 +38,13 @@
   "max_absolute_relative_error": "0.0002283906745293451725218076",
   "max_absolute_relative_error_percent": "0.0228390674529345172521807600",
   "pixel_branch_sensitivity": {
-    "current_public_pixel_probe": {
+    "frozen_legacy_branch": {
+      "P": "1.63094",
+      "max_absolute_relative_error_percent": "0.0228390674529345172521807600",
+      "v_gev": "246.76711732749683"
+    },
+    "interpretation": "The 0.02284 percent headline belongs to the frozen legacy P=1.63094 branch. On the truncated D10 comparison probe the same formula remains sub-permille but is less accurate. This P value is not the canonical public endpoint pixel.",
+    "truncated_d10_comparison_probe": {
       "P": "1.6309681897",
       "mass_rows": {
         "electron": {
@@ -63,13 +69,7 @@
       "max_absolute_relative_error_percent": "0.0834633598603673701515958300",
       "source_artifact": "code/particles/runs/calibration/d10_ew_common_transport_gap_report.json",
       "v_gev": "246.6174823334856"
-    },
-    "frozen_legacy_branch": {
-      "P": "1.63094",
-      "max_absolute_relative_error_percent": "0.0228390674529345172521807600",
-      "v_gev": "246.76711732749683"
-    },
-    "interpretation": "The 0.02284 percent headline belongs to the frozen legacy P=1.63094 branch. On the current public-pixel probe the same formula remains sub-permille but is less accurate."
+    }
   },
   "public_prediction_promotion_allowed": false,
   "ratios": {

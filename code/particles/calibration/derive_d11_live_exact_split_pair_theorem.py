@@ -1,20 +1,25 @@
 #!/usr/bin/env python3
-"""Emit the live source-only exact D11 Higgs/top split theorem.
+"""Emit the conditional D11 Higgs/top split on its declared surface.
 
 Chain role: replace the old target-anchored split-pair assembler with one
-forward theorem on the emitted D10 repair chart and the declared D11 Jacobian.
+forward algebraic map on the unpromoted D10 repair candidate and the declared
+D11 core/Jacobian surface.
 
 Mathematics: the one-scalar fixed ray is obstructed by nonzero `w_HT`, so the
-live D11 lane must be split. The repaired theorem emits the source-only pair
-`(pi_y, pi_lambda)` from the D10 tuple
+live D11 lane must be split. The conditional map evaluates the pair
+`(pi_y, pi_lambda)` from the D10 candidate tuple
 `(eta_source, beta_EW, lambda_EW, tau2_tree_exact, delta_n_tree_exact)` via
 one integrated shared scalar `rho_HT = log(1 + tau2_tree_exact)` and two
-source-only residual selectors.
+declared residual selectors.  Their source uniqueness and deformation
+rigidity are not proved here.
 
-OPH-derived inputs: the D10 source transport pair, the target-free D10 repair
-law, the declared D11 calibration surface, and the fixed-ray no-go theorem.
+Inputs: the D10 source transport pair, the target-free-input D10 repair
+candidate, the declared D11 calibration surface, and the fixed-ray no-go
+theorem.  The D10 selector, D11 core/Jacobian provenance, absolute scale, and
+physical-pole attachment remain upstream gates.
 
-Output: a machine-readable exact split-pair theorem artifact.
+Output: a machine-readable conditional split-pair artifact that is exact only
+as an implication on the declared numerical surface.
 """
 
 from __future__ import annotations
@@ -52,9 +57,10 @@ def build_artifact(d10_source: dict, d10_repair: dict, d11_surface: dict, no_go:
     b_h = (4.0 / 3.0) - beta_ew / 54.0
     rho_ht = math.log1p(tau2_tree_exact)
 
-    # These are the smallest source-only residual selectors found on the live
-    # D10 chart that make the forward D11 pair land exactly on the emitted
-    # Higgs/top codomain on the current float surface.
+    # These are the current declared residual-selector formulas on the live
+    # D10 chart.  They reproduce the stored Higgs/top codomain on the current
+    # float surface, but this module does not prove their source uniqueness,
+    # prospective selection, or rigidity under admissible deformations.
     top_residual = (
         -tau2_tree_exact * (eta_source**2)
         + (1.0 + beta_ew / 28.0) * (eta_source**6)
@@ -190,13 +196,16 @@ def build_artifact(d10_source: dict, d10_repair: dict, d11_surface: dict, no_go:
         },
         "proof": [
             "The fixed-ray no-go theorem proves that the exact Higgs/top pair cannot lie on the old one-scalar branch because w_HT is nonzero there.",
-            "The target-free D10 repair theorem already emits the source tuple (eta_source, beta_EW, lambda_EW, tau2_tree_exact, delta_n_tree_exact) with no target readback.",
-            "The repaired D11 lane uses that tuple to emit one integrated shared scalar rho_HT = log(1 + tau2_tree_exact) together with two source-only residual selectors, top_residual and higgs_residual.",
-            "Those source-only formulas determine the split coordinates pi_y and pi_lambda directly from live D10 objects, with no inverse adapter and no reference-mass input.",
-            "The declared D11 Jacobian then reads out delta_y_t_mt, delta_lambda_mt, mt_pole_gev, and mH_gev by direct algebra from that forward-emitted split pair.",
+            "The unpromoted D10 repair candidate supplies the tuple (eta_source, beta_EW, lambda_EW, tau2_tree_exact, delta_n_tree_exact) used by this local implication.",
+            "The declared D11 map evaluates rho_HT = log(1 + tau2_tree_exact) and the stored top_residual and higgs_residual formulas from that tuple.",
+            "Those formulas determine pi_y and pi_lambda without an inverse adapter or direct reference-mass argument at runtime; this does not establish that their historical or physical selector is source-derived.",
+            "The declared D11 core and Jacobian then read out delta_y_t_mt, delta_lambda_mt, mt_pole_gev, and mH_gev by direct algebra on the stored surface.",
+            "Therefore the artifact closes the algebraic implication on the declared surface only. Full source prediction remains blocked by the D10 selector, D11 provenance/rigidity, scale, RG, and physical-pole gates.",
         ],
         "notes": [
-            "This theorem closes the live D11 Higgs/top lane as a source-only split calibration theorem on the declared D10/D11 surface.",
+            "This artifact records a conditional local D11 Higgs/top split that is algebraically exact on the declared D10/D11 surface; it is not a full source-only mass prediction.",
+            "The D10 quotient-path theorem is presently conditional on QT1-QT5, and the D11 core/Jacobian and residual-selector rigidity are not source-emitted by this artifact.",
+            "The stored Higgs and top coordinates are declared-surface readouts, not certified complex propagator poles with uncertainty enclosures.",
             "It does not relabel the old one-scalar fixed ray as exact. The fixed ray remains a lower-rank companion branch beneath this split theorem.",
             "The older target-anchored Higgs-only and top-side exactifier artifacts remain on disk as supporting witness surfaces rather than as the defining live pair theorem.",
             "The quark lane carries only a separate target-audit top coordinate; no repo-wide exact public top row is claimed.",
@@ -205,12 +214,14 @@ def build_artifact(d10_source: dict, d10_repair: dict, d11_surface: dict, no_go:
             "promotion_of_the_old_fixed_ray_as_exact_pair",
             "recovered_core_upgrade_of_the_d11_lane",
             "global_uniqueness_of_the_residual_selector_beyond_the_current_emitted_surface",
+            "full_source_only_W_Z_H_complex_pole_prediction",
+            "source_derivation_of_the_declared_D11_core_and_Jacobian",
         ],
     }
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Build the exact split D11 Higgs/top theorem artifact.")
+    parser = argparse.ArgumentParser(description="Build the conditional declared-surface D11 split artifact.")
     parser.add_argument("--d10-source", default=str(D10_SOURCE_JSON))
     parser.add_argument("--d10-repair", default=str(D10_REPAIR_JSON))
     parser.add_argument("--d11-surface", default=str(D11_SURFACE_JSON))

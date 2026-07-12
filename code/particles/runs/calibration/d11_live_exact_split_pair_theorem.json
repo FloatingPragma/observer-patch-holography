@@ -20,7 +20,7 @@
     "pi_y": 0.012281958891788196,
     "w_HT_exact": -0.00038576309777150347
   },
-  "generated_utc": "2026-07-12T03:02:01Z",
+  "generated_utc": "2026-07-12T09:53:44Z",
   "non_circularity_status": {
     "missing_source_object": "closed_promotable_EWTargetFreeRepairValueLaw_D10",
     "promotion_allowed": false,
@@ -28,7 +28,9 @@
     "target_derived_or_candidate_upstream_used": true
   },
   "notes": [
-    "This theorem closes the live D11 Higgs/top lane as a source-only split calibration theorem on the declared D10/D11 surface.",
+    "This artifact records a conditional local D11 Higgs/top split that is algebraically exact on the declared D10/D11 surface; it is not a full source-only mass prediction.",
+    "The D10 quotient-path theorem is presently conditional on QT1-QT5, and the D11 core/Jacobian and residual-selector rigidity are not source-emitted by this artifact.",
+    "The stored Higgs and top coordinates are declared-surface readouts, not certified complex propagator poles with uncertainty enclosures.",
     "It does not relabel the old one-scalar fixed ray as exact. The fixed ray remains a lower-rank companion branch beneath this split theorem.",
     "The older target-anchored Higgs-only and top-side exactifier artifacts remain on disk as supporting witness surfaces rather than as the defining live pair theorem.",
     "The quark lane carries only a separate target-audit top coordinate; no repo-wide exact public top row is claimed."
@@ -36,10 +38,11 @@
   "prediction_promotion_allowed": false,
   "proof": [
     "The fixed-ray no-go theorem proves that the exact Higgs/top pair cannot lie on the old one-scalar branch because w_HT is nonzero there.",
-    "The target-free D10 repair theorem already emits the source tuple (eta_source, beta_EW, lambda_EW, tau2_tree_exact, delta_n_tree_exact) with no target readback.",
-    "The repaired D11 lane uses that tuple to emit one integrated shared scalar rho_HT = log(1 + tau2_tree_exact) together with two source-only residual selectors, top_residual and higgs_residual.",
-    "Those source-only formulas determine the split coordinates pi_y and pi_lambda directly from live D10 objects, with no inverse adapter and no reference-mass input.",
-    "The declared D11 Jacobian then reads out delta_y_t_mt, delta_lambda_mt, mt_pole_gev, and mH_gev by direct algebra from that forward-emitted split pair."
+    "The unpromoted D10 repair candidate supplies the tuple (eta_source, beta_EW, lambda_EW, tau2_tree_exact, delta_n_tree_exact) used by this local implication.",
+    "The declared D11 map evaluates rho_HT = log(1 + tau2_tree_exact) and the stored top_residual and higgs_residual formulas from that tuple.",
+    "Those formulas determine pi_y and pi_lambda without an inverse adapter or direct reference-mass argument at runtime; this does not establish that their historical or physical selector is source-derived.",
+    "The declared D11 core and Jacobian then read out delta_y_t_mt, delta_lambda_mt, mt_pole_gev, and mH_gev by direct algebra on the stored surface.",
+    "Therefore the artifact closes the algebraic implication on the declared surface only. Full source prediction remains blocked by the D10 selector, D11 provenance/rigidity, scale, RG, and physical-pole gates."
   ],
   "proof_status": "conditional_on_unpromoted_d10_repair_candidate",
   "public_surface_candidate_allowed": false,
@@ -88,7 +91,9 @@
   "strictly_not_claimed": [
     "promotion_of_the_old_fixed_ray_as_exact_pair",
     "recovered_core_upgrade_of_the_d11_lane",
-    "global_uniqueness_of_the_residual_selector_beyond_the_current_emitted_surface"
+    "global_uniqueness_of_the_residual_selector_beyond_the_current_emitted_surface",
+    "full_source_only_W_Z_H_complex_pole_prediction",
+    "source_derivation_of_the_declared_D11_core_and_Jacobian"
   ],
   "theorem_id": "D11SourceSplitForwardExactness",
   "theorem_scope": "declared_d10_d11_running_matching_threshold_surface_only",

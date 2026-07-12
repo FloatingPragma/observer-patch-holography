@@ -86,18 +86,38 @@ also blocks gauge-mediated proton decay, because the realized gauge
 group is a product group and does not contain the extra leptoquark gauge
 bosons required by simple-group unification.
 
-The electroweak transport family carries a weak-boson comparison pair:
+The electroweak transport family carries three weak-boson objects. The selected
+two-scalar carrier has the exact chart
 
 $$
-M_W = 80.37700001539531\,\mathrm{GeV}, \qquad
-M_Z = 91.18797807794321\,\mathrm{GeV}.
+(M_W,M_Z)_{\mathrm{carrier}}
+=
+(80.3862916924,\ 91.1829044467)\,\mathrm{GeV}.
 $$
 
-$M_W$ and $M_Z$ are the masses of the charged weak boson and the neutral weak
-boson. A GeV is a billion electronvolts, a standard particle-physics energy
-unit used as a mass unit through $E=mc^2$. These displayed values are
-benchmarks for the weak-sector transport family. They are checks against known
-weak-boson masses, not a separate derivation lane for new particles.
+An archived value law evaluates to
+
+$$
+(M_W,M_Z)_{\mathrm{law}}
+=
+(80.3770000154,\ 91.1879780779)\,\mathrm{GeV},
+$$
+
+as an exact consequence of five quotient-transport premises. Those premises
+specify the surviving channels, their primitive normalization, their finite
+path counts, their signs, and the rigidity of the path list. The finite carrier
+does not supply their certificate. A frozen inverse adapter gives
+$(80.377,91.1879780919)$ GeV for comparison with the measured masses.
+
+$M_W$ and $M_Z$ label the charged and neutral weak-boson mass coordinates. A
+GeV is a billion electronvolts, used as a mass unit through $E=mc^2$. The
+carrier chart, conditional value law, and adapter have different logical jobs,
+and none is a physical complex-pole theorem. A color-balanced quadratic model
+with proposed weights $\sqrt{N_c}/2$ and $N_c$ is a separate alternative. Its
+arithmetic does not complete the quotient-transport law. Full $W/Z$ promotion
+also requires a strict source root, an independently physical $E_\star$, a
+frozen running/matching/scheme packet, branch rigidity, prospective provenance,
+and complex-pole and uncertainty receipts.
 
 The same family follows the unbroken electromagnetic channel to the
 long-distance Thomson limit. The undressed source/root inverse coupling gives
@@ -118,12 +138,14 @@ hadronic spectral contribution in the same electromagnetic scheme.
 The calculation starts with the golden-ratio screen balance, uses the boundary
 $\sqrt{\pi}$ normalization for the electromagnetic detuning, runs the source
 map through unification and electroweak mixing, and reads the endpoint through
-the Ward-projected electromagnetic channel.
-The value is forced because the pixel has one geometry and one electromagnetic
-readout, and those two descriptions meet at a single fixed point.
+the Ward-projected electromagnetic channel. The comparison pixel $P_C$ belongs
+to the empirical-endpoint branch. A nearby source-audit pixel excludes that
+endpoint upstream. The two branches must remain separate.
 
 The same weak-sector calculation has a global-capacity reading. The particle
-branch reads the weak scale as a local projection of the global screen rhythm.
+branch fixes the dimensionless ratio $v/E_\star$ as a local projection of the
+global screen rhythm. It does not fix $v$ in GeV without an independently
+physical $E_\star$.
 The exact bridge capacity is about $3.53235\times10^{122}$ on the public
 endpoint branch. The rounded $3.31\times10^{122}$ number is the de Sitter
 capacity-scale display. The \(12\) in the exponent is the screen-sieve theorem:
@@ -131,11 +153,11 @@ a triangulated spherical screen carries twelve unit fivefold defects,
 edge-center collars make them central ports, and $A_5$ symmetry places them on
 the icosahedral vertex orbit.
 
-The weak-boson comparison pair and the familiar low-energy electromagnetic
-strength come from one continuous construction. The source side, the endpoint
-residual, and the empirical hadronic contribution are tracked separately
-because the long-distance electromagnetic endpoint uses
-\(e^+e^-\to\mathrm{hadrons}\) data.
+The electroweak chart and the familiar low-energy electromagnetic strength
+belong to one declared construction. The source side, the endpoint residual,
+and the empirical hadronic contribution are tracked separately because the
+long-distance electromagnetic endpoint uses \(e^+e^-\to\mathrm{hadrons}\)
+data.
 
 The same electroweak core carries the Higgs/top quantitative relation
 
@@ -143,9 +165,12 @@ $$
 (m_H,m_t)=(125.1995304097179,\ 172.3523553288312)\,\mathrm{GeV}.
 $$
 
-$m_H$ is the Higgs-boson mass and $m_t$ is the top-quark mass on this
-calculation surface. They are paired because the Higgs and top sectors are
-strongly linked in the electroweak bookkeeping.
+$m_H$ is the Higgs coordinate and $m_t$ its companion top coordinate on the
+declared running, matching, and threshold surface. The split relation is an
+exact conditional implication on that surface. A physical Higgs pole
+prediction inherits the strict source-root, physical-scale,
+quotient-transport, scheme, rigidity, provenance, uncertainty, and complex-pole
+gates. The top coordinate is not a separate public top-mass prediction.
 
 The three charged leptons carry a striking but weaker result. A historical OPH
 continuation writes their square-root masses as one singlet plus a cyclic
@@ -185,6 +210,37 @@ $2^{1/6}$ normalization has no source proof, and no charged-lepton running and
 threshold theorem maps the formula's mass coordinate to the pole masses used in
 the comparison.
 
+The icosahedral screen suggests a cleaner carrier. Its twenty outward-facing
+triangles form a single orbit, and the rotations that preserve one triangle
+cycle its three corners. The geometry therefore supplies a local three-place
+cyclic fiber without asking a uniform port load to split itself. This much is
+exact. The sixty possible face-corner flags, taken together, form the regular
+icosahedral rotation orbit rather than one physical three-family space, so a
+map to the charged generations remains necessary.
+
+A retrospective calculation on this face carrier matches the frozen rounded
+comparison fields to 0.000300 parts per million on one hybrid branch. Against
+the comparison packet's higher-precision tau central value, its tau residual is
+-1.387289 parts per million. Its three
+repair formulas were designed after the masses were known and reproduce the
+three coordinates obtained by inverting those masses inside the same ansatz.
+The submitted branch also combines values from two nearby pixel conventions.
+On a coherent public branch the largest residual is 0.424 parts per million;
+on the source-audit branch it is 84.10 parts per million. The face geometry is
+a theorem, the repair formulas are a concrete conjecture, and the masses remain
+a postdiction until the physical attachment, determinant law, repair dynamics,
+and running-to-pole conversion are derived.
+
+A follow-up proof closes a narrower mathematical question. Once the proposed
+three-coordinate affine repair map is declared, its contraction constant is
+about 0.001536, so it has one globally attracting fixed point. That establishes
+existence, uniqueness, and iteration stability for this map. Multiplying any
+one of its three source terms by the integer two preserves the displayed
+symmetry and contraction while changing the masses. The remaining challenge is
+therefore a source-law rigidity theorem that selects this map, together with a
+bare-to-endpoint balance bridge, physical family attachment, coherent branch,
+refinement law, determinant attachment, and pole scheme.
+
 An electromagnetic transport equation can identify one common mass scale once
 all its inputs are supplied. The stored interval inversion, however, consumes
 the measured electromagnetic endpoint, target lepton ratios, hadronic data, and
@@ -217,6 +273,54 @@ use $\overline{\mathrm{MS}}$ at their self-scales, and the top coordinate is a
 separate pole-mass extraction. The stored matrices have GeV-valued singular
 values. They are mass textures, not physical dimensionless Yukawa matrices.
 
+A later two-mode formula audit gives six numbers that lie within 0.2946 percent
+of that mixed comparison table. The agreement is worth recording, but it does
+not close the physics. Five inputs come from a handwritten family-kernel
+template, the chosen pixel branch contains an older quark-spectrum
+continuation, and a dimensionless template statistic is treated as though it
+were a GeV scale. No renormalization-group map carries one common source
+spectrum into the six quoted conventions.
+
+Some mathematics behind the formula is exact. The transposition graph of
+$S_3$ has Laplacian eigenvalues $0,3,6$; two explicit vectors $L$ and $Q$
+span every centered three-family log spectrum; and the old ray coordinates
+have closed formulas. A normalized trace gives a factor $1/d$ on a
+rank-one response only after the physical response module and normalization
+law have been chosen. The proposed module dimensions reproduce the simple
+denominators, but OPH has not derived those module assignments, the physical
+family carrier, the mass unit, or the common-scale running packet. The
+submitted Flavor Source Closure is therefore a useful sufficient research
+contract, not a completed or proved-minimal theorem. Public quark rows remain
+withheld.
+
+A later proposal called Representation-Slot Cumulant Closure, or RSCC, makes a
+candidate packet explicit. It sets
+$F=\mathbf1\oplus2V_{\rm std}$, forms composite modules with dimensions
+$29,432,22,32,840,1008,432,1584$, and uses rank-over-dimension fractions and a
+Gaussian two-cumulant rule. This removes the five old template decimals from
+the leaf evaluator. The exact content is limited: those dimensions and
+fractions follow once the modules, projectors, ranks, signs, continuous
+Gaussian support, isotropy, and orientation correlation are assumed.
+
+The physical selection is still missing. $S_3$ symmetry leaves a
+five-dimensional commutant on $\mathbf1\oplus2V_{\rm std}$, so it does not
+force one isotropic response. The proposed family module has no sign-sector
+heat mode at eigenvalue six, while the regular representation used for the
+three-value heat spectrum does. The invariant 24-slot register supplies a
+common count, not a centered family record. RSCC also inherits the old ray,
+even-response, affine-mean, and exponentiation laws instead of deriving them.
+
+With the current conditional D10 scale display, RSCC differs from the same
+mixed comparison table by at most 0.29436 percent. That is a retrospective
+diagnostic, not new evidence: the module dimensions closely approximate
+denominators inferred from the already visible effective coordinates, the
+pixel witness still has Stage-5 quark ancestry, and the D10 scale comes from a
+different candidate branch. Removing all RSCC quadratic corrections and its
+scale correction improves the same table to 0.21423 percent, so even the
+retrospective fit does not select the detailed ledger. RSCC is a concrete and
+falsifiable research candidate beneath Flavor Source Closure; it closes none
+of the six physical receipts and does not restore public numerical quark rows.
+
 Running means the quoted mass depends on the energy scale at which the quark is
 probed. This is normal in quantum field theory. It is why a quark mass in a
 short-distance table is not the same kind of number as a proton mass measured in
@@ -239,11 +343,11 @@ candidate.
 
 The particle picture is larger than a handful of isolated numbers. At book
 level, the map contains receipt-gated classical carrier modes with no promoted
-photon/gluon/graviton mass rows, the weak-sector
-comparison pair, the Higgs/top quantitative relation, the frozen charged-lepton
-Stage-5 postdiction with its open carrier, phase, normalization, and scheme
-bridges, the quark
-source-spread obstruction with target-only mass-texture audits, and the rejected
+photon/gluon/graviton mass rows, the exact electroweak carrier chart, the
+conditional quotient-transport law, the frozen adapter, the conditional
+Higgs/top relation, the frozen charged-lepton Stage-5 postdiction with its open
+carrier, phase, normalization, and scheme bridges, the quark source-spread
+obstruction with target-only mass-texture audits, and the rejected
 weighted-cycle neutrino comparison candidate.
 
 The selected quark branch also shows where the particle story changes gear. It

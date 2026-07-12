@@ -1,48 +1,19 @@
 #!/usr/bin/env python3
-"""Three-scalar interface theorem for the quark kernel program (#377).
+"""Three-scalar ray-subfamily interface for the quark kernel program.
 
-Theorem (three-scalar interface). Fix the shared absolute scale g_ch. The
-entire quark sector of the candidate chain factors through exactly the
-invariant triple
+Fix the shared scale g_ch and impose the legacy reciprocal profile rays.
+That restricted candidate chain factors through the triple
 
     (r, sigma_u, sigma_d) in (R_>0)^3,
 
-where r is the raw gap ratio of the centered compressed branch generator
-and sigma_u, sigma_d are the per-side sector spans. Explicitly:
-
-  (i)   rho_ord = 3/(2 + r) and x2 = (r - 1)/(r + 1), so the ordered ratio
-        constant and the mean-law coordinate carry no information beyond r;
-  (ii)  the rays v_u, v_d, the mean-law coefficients A_ud, B_ud, the
-        sector means g_u, g_d, and the six masses are closed-form
-        functions of the triple and g_ch;
-  (iii) the map (r, sigma_u, sigma_d) -> (m_u, ..., m_b) is injective,
-        with the explicit left inverse
-
-            sigma_u = ln(m_t/m_u)/2,      sigma_d = ln(m_b/m_d)/2,
-            r solves  ln(m_c/m_u)/ln(m_t/m_c) = rho/(1 - rho + rho^2/...)
-
-        realized below as: rho = up-sector gap ratio over its own
-        complement, r = 3/rho - 2, so the triple is recoverable from the
-        sextet in closed form;
-  (iv)  no proper sub-tuple suffices: by the kernel admissibility freedom
-        theorem the certificate battery leaves the triple free, and the
-        axiom-level nonidentifiability theorem shows the axioms emit no
-        component of it.
-
-Consequently the K1-K3 program of issue #377 is exactly the derivation of
-one point of (R_>0)^3 with clean ancestry; everything downstream is
-already a closed computation, and the acceptance harness scores any
-candidate point mechanically.
-
-Proof. (i) is algebra from the gap decomposition (g21, g32) =
-(s r/(1+r), s/(1+r)). (ii) collects the declared maps of the mean-split
-and edge artifacts; each equation is recomputed here against the on-disk
-values to tolerance 1e-9 or better. (iii) the left inverse is exhibited
-and the round trip triple -> sextet -> triple is executed at the
-operating point and at off-band points to 1e-12. (iv) cites the two
-obstruction artifacts. Every reference mass appears only inside the
-round-trip verification of the left inverse and is labeled compare-only;
-the theorem itself emits no numerical triple.
+and the forward/left-inverse round trip below is exact inside that subfamily.
+This is not the interface of general ordered three-point spectra. At fixed x,
+the centered vectors L=ctr(-1,x,1) and Q=ctr(1,x^2,1) span the centered
+plane; allowing both coordinates in each sector removes the ray restriction.
+A physical common-scale pair then has six eigenvalue coordinates: two
+centered coordinates and one mean per sector. The legacy triple remains
+useful as a regression theorem and acceptance-harness input, but it cannot be
+promoted as a general quark-spectrum reduction.
 
 Run:
     python3 code/particles/flavor/derive_quark_kernel_three_scalar_interface_theorem.py
@@ -192,28 +163,28 @@ def build() -> dict:
         "artifact": "oph_quark_kernel_three_scalar_interface_theorem",
         "generated_utc": _timestamp(),
         "github_issues": [377, 379, 380],
-        "proof_status": "closed_interface_theorem",
-        "claim_tier": "exact_reduction_of_kernel_program_to_three_scalars",
-        "row_class": "theorem_grade_reduction",
+        "proof_status": "closed_ray_subfamily_interface_theorem",
+        "claim_tier": "exact_reduction_of_legacy_reciprocal_ray_subfamily_to_three_scalars",
+        "row_class": "restricted_subfamily_theorem",
         "guards": {
             "emits_numerical_triple": False,
             "reference_masses_role": "compare-only round-trip verification "
                                      "of the left inverse; no solve path",
             "public_promotion_allowed": False,
+            "general_quark_interface_claim_allowed": False,
         },
         "theorem_statement": (
-            "At fixed shared scale g_ch the quark sector of the candidate "
-            "chain factors through exactly the invariant triple "
+            "At fixed shared scale g_ch and after imposing the legacy "
+            "reciprocal profile rays, that restricted candidate chain "
+            "factors through exactly the triple "
             "(r, sigma_u, sigma_d) in (R_>0)^3 of the centered compressed "
             "branch generator: rho_ord = 3/(2+r) and x2 = (r-1)/(r+1) "
             "carry no information beyond r; rays, mean-law coefficients, "
-            "sector means, and the six masses are closed-form in the "
+            "sector means, and the six coordinates are closed-form in the "
             "triple; the forward map is injective with an explicit "
-            "closed-form left inverse; and by the freedom and "
-            "nonidentifiability theorems no proper sub-tuple is "
-            "determined by the current corpus. The kernel program is "
-            "therefore exactly the source derivation of one point of "
-            "(R_>0)^3 with clean ancestry."
+            "closed-form left inverse. This statement is not the general "
+            "quark interface: a general common-scale pair has two centered "
+            "coordinates and one mean per sector."
         ),
         "interface": {
             "coordinates": ["r (raw gap ratio)", "sigma_u (per-side span)",
@@ -239,6 +210,17 @@ def build() -> dict:
         "determination_checks_max_abs": checks,
         "round_trips": round_trips,
         "max_roundtrip_relative_error": max_rt,
+        "general_interface_boundary": {
+            "centered_basis": ["L=ctr(-1,x,1)", "Q=ctr(1,x^2,1)"],
+            "gram_determinant": "4*(1-x^2)^2/3",
+            "basis_domain": "x != +/-1",
+            "common_scale_eigenvalue_coordinates": 6,
+            "coordinate_count": (
+                "two centered coordinates plus one mean in each sector; "
+                "when both centered coordinates are free, x/r is a basis "
+                "choice and not a seventh spectral invariant"
+            ),
+        },
         "nonredundancy": {
             "freedom_theorem": "family_transport_kernel_admissibility_"
                                "freedom_theorem (certificates leave the "
@@ -246,15 +228,15 @@ def build() -> dict:
             "axiom_level_no_go": "quark_axiom_level_yukawa_moduli_"
                                  "nonidentifiability (the axioms emit no "
                                  "component of the triple)",
-            "conclusion": "the interface is exactly three-dimensional: "
-                          "sufficient by the determination maps, "
-                          "recoverable by the left inverse, and free on "
-                          "the current corpus in every component",
+            "conclusion": "the imposed reciprocal-ray subfamily is exactly "
+                          "three-dimensional and recoverable by the left "
+                          "inverse; this is not a nonredundancy statement "
+                          "for the general six-coordinate eigenvalue interface",
         },
         "acceptance_binding": (
-            "a candidate derivation closes the program by emitting one "
-            "clean-ancestry point of the interface; the acceptance "
-            "harness gates G2-G6 score exactly that point"
+            "the legacy acceptance harness gates G2-G6 score one point of "
+            "this restricted ray subfamily only; passing them cannot close "
+            "the general quark-mass or physical-Yukawa program"
         ),
     }
 

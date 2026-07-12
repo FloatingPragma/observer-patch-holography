@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
-"""Record the current source-only D10 electroweak repair candidate.
+"""Record the current runtime target-free-input D10 repair candidate.
 
-Chain role: emit the current target-free D10 electroweak repair candidate from
-the source-only D10 basis without overstating its closure status.
+Chain role: evaluate the current D10 electroweak repair formula from the
+source-side D10 basis while keeping its source-selection theorem open.
 
-Mathematics: define the source-only emitter scalar
-`lambda_EW = eta_source^2 / (4 * beta_EW)`, then emit the unique repair chart
-`(tau2_tree_exact, delta_n_tree_exact)`, the repaired coupling pair, and one
-coherent electroweak quintet from the D10 source basis alone.
+Mathematics: define the candidate emitter scalar
+`lambda_EW = eta_source^2 / (4 * beta_EW)`, then deterministically evaluate
+the selected repair chart `(tau2_tree_exact, delta_n_tree_exact)`, the repaired
+coupling pair, and one coherent electroweak quintet.  The current corpus does
+not yet derive or uniquely select this chart from the finite quotient carrier.
 
-OPH-derived inputs: the emitted D10 source pair and compact current-carrier
-slice, with the frozen-target repair surface retained only for compare-only
-validation.
+Inputs: the emitted D10 source pair and compact current-carrier slice, with the
+frozen-target repair surface retained only for compare-only validation.  A
+runtime formula with no target argument is not by itself a prospective
+source-entailment proof.
 
 Output: a machine-readable candidate artifact for
 `EWTargetFreeRepairValueLaw_D10`.
@@ -40,17 +42,27 @@ def _load_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def build_artifact(source_pair: dict, references: dict) -> dict:
-    pair = dict(source_pair.get("source_pair") or {})
-    compact_slice = dict(source_pair.get("compact_hypercharge_only_mass_slice") or {})
-    compact_quintet = dict(compact_slice.get("coherent_output_quintet") or {})
-    alpha_2 = float(pair["alpha2_mz"])
-    alpha_y = float(pair["alphaY_mz"])
-    alpha_sum = alpha_2 + alpha_y
-    eta_source = float(compact_slice["eta_EW"])
-    v_value = float(compact_quintet["v_report"])
+def evaluate_candidate_from_source_basis(
+    *,
+    alpha_2: float,
+    alpha_y: float,
+    eta_source: float,
+    v_value: float,
+) -> dict:
+    """Evaluate the selected candidate law without loading reference data.
 
+    This is the canonical numerical evaluator shared by the candidate artifact
+    and the conditional quotient-transport receipt.  Purity of this function
+    establishes only that its runtime evaluation has no target argument; it
+    does not prove that the formula itself is selected by the OPH source laws.
+    """
+
+    if not (alpha_2 > 0.0 and alpha_y > 0.0 and eta_source > 0.0 and v_value > 0.0):
+        raise ValueError("alpha_2, alpha_y, eta_source, and v_value must be positive")
+    alpha_sum = alpha_2 + alpha_y
     beta_ew = (alpha_2 - alpha_y) / alpha_sum
+    if not 0.0 < beta_ew < 1.0:
+        raise ValueError("candidate domain requires 0 < beta_EW < 1")
     alpha_u_seed = eta_source / beta_ew
     lambda_ew = eta_source * alpha_u_seed / 4.0
 
@@ -64,22 +76,85 @@ def build_artifact(source_pair: dict, references: dict) -> dict:
         + (4.0 / 3.0) * eta_source
         + (2.0 - beta_ew / 6.0) * eta_source * eta_source
     )
-    tauY_fiber = -(tau2_exact + 2.0 * eta_source) / (1.0 + 4.0 * tau2_exact * tau2_exact)
+    tau_y_fiber = -(tau2_exact + 2.0 * eta_source) / (
+        1.0 + 4.0 * tau2_exact * tau2_exact
+    )
 
     delta_alpha2 = alpha_2 * tau2_exact
-    delta_alphaY_parallel = alpha_y * (
+    delta_alpha_y_parallel = alpha_y * (
         8.0 * eta_source * tau2_exact * tau2_exact - tau2_exact
     ) / (1.0 + 4.0 * tau2_exact * tau2_exact)
-    delta_alphaY_perp = alpha_sum * delta_n_exact
+    delta_alpha_y_perp = alpha_sum * delta_n_exact
 
     alpha2_star = alpha_2
-    alphaY_star = alpha_y * (1.0 - 2.0 * eta_source)
+    alpha_y_star = alpha_y * (1.0 - 2.0 * eta_source)
     alpha2_prime = alpha2_star + delta_alpha2
-    alphaY_prime = alphaY_star + delta_alphaY_parallel + delta_alphaY_perp
-    alpha_sum_prime = alpha2_prime + alphaY_prime
+    alpha_y_prime = alpha_y_star + delta_alpha_y_parallel + delta_alpha_y_perp
+    if not (alpha2_prime > 0.0 and alpha_y_prime > 0.0):
+        raise ValueError("candidate repaired couplings must remain positive")
+    alpha_sum_prime = alpha2_prime + alpha_y_prime
 
-    mw_emit = v_value * math.sqrt(math.pi * alpha2_prime)
-    mz_emit = v_value * math.sqrt(math.pi * alpha_sum_prime)
+    return {
+        "basis": {
+            "alpha2_mz": alpha_2,
+            "alphaY_mz": alpha_y,
+            "alpha_sum_mz": alpha_sum,
+            "beta_EW": beta_ew,
+            "eta_source": eta_source,
+            "alpha_u_seed": alpha_u_seed,
+            "lambda_EW": lambda_ew,
+            "v_report_gev": v_value,
+        },
+        "repair_chart": {
+            "tau2_tree_exact": tau2_exact,
+            "delta_n_tree_exact": delta_n_exact,
+            "tauY_fiber": tau_y_fiber,
+        },
+        "repaired_couplings": {
+            "alpha2_star": alpha2_star,
+            "alphaY_star": alpha_y_star,
+            "delta_alpha2": delta_alpha2,
+            "delta_alphaY_parallel": delta_alpha_y_parallel,
+            "delta_alphaY_perp": delta_alpha_y_perp,
+            "alpha2_prime": alpha2_prime,
+            "alphaY_prime": alpha_y_prime,
+        },
+        "coherent_emitted_quintet": {
+            "MW_pole": v_value * math.sqrt(math.pi * alpha2_prime),
+            "MZ_pole": v_value * math.sqrt(math.pi * alpha_sum_prime),
+            "alpha2_prime": alpha2_prime,
+            "alphaY_prime": alpha_y_prime,
+            "alpha_em_eff_inv": alpha_sum_prime / (alpha_y_prime * alpha2_prime),
+            "sin2w_eff": alpha_y_prime / alpha_sum_prime,
+            "v_report": v_value,
+        },
+    }
+
+
+def build_artifact(source_pair: dict, references: dict) -> dict:
+    pair = dict(source_pair.get("source_pair") or {})
+    compact_slice = dict(source_pair.get("compact_hypercharge_only_mass_slice") or {})
+    compact_quintet = dict(compact_slice.get("coherent_output_quintet") or {})
+    alpha_2 = float(pair["alpha2_mz"])
+    alpha_y = float(pair["alphaY_mz"])
+    eta_source = float(compact_slice["eta_EW"])
+    v_value = float(compact_quintet["v_report"])
+    evaluated = evaluate_candidate_from_source_basis(
+        alpha_2=alpha_2,
+        alpha_y=alpha_y,
+        eta_source=eta_source,
+        v_value=v_value,
+    )
+    basis = evaluated["basis"]
+    repair_chart = evaluated["repair_chart"]
+    repaired_couplings = evaluated["repaired_couplings"]
+    emitted_quintet = evaluated["coherent_emitted_quintet"]
+    alpha_sum = float(basis["alpha_sum_mz"])
+    alpha2_prime = float(repaired_couplings["alpha2_prime"])
+    alphaY_prime = float(repaired_couplings["alphaY_prime"])
+    alpha_sum_prime = alpha2_prime + alphaY_prime
+    mw_emit = float(emitted_quintet["MW_pole"])
+    mz_emit = float(emitted_quintet["MZ_pole"])
 
     mw_frozen = float(references["w_boson"]["value_gev"])
     mz_frozen = float(references["z_boson"]["value_gev"])
@@ -99,25 +174,18 @@ def build_artifact(source_pair: dict, references: dict) -> dict:
             "current_corpus_underdetermination_of_forward_d10_repair_law",
         ],
         "family_source_id": "d10_running_tree",
-        "basis": {
-            "alpha2_mz": alpha_2,
-            "alphaY_mz": alpha_y,
-            "alpha_sum_mz": alpha_sum,
-            "beta_EW": beta_ew,
-            "eta_source": eta_source,
-            "alpha_u_seed": alpha_u_seed,
-            "lambda_EW": lambda_ew,
-            "v_report_gev": v_value,
-        },
+        "basis": basis,
         "theorem": {
             "name": "EWTargetFreeRepairValueLaw_D10",
             "statement": (
-                "Let the D10 source-only basis be "
-                "(alpha2_mz, alphaY_mz, eta_source, v_report). Then the beyond-current-carrier "
-                "electroweak repair is uniquely emitted by the source-only repair chart "
-                "(tau2_tree_exact, delta_n_tree_exact) and the repaired coupling pair "
-                "(alpha2_prime, alphaY_prime), with no frozen target input, no inverse slice, "
-                "and no mixed readout."
+                "Given the current selected D10 candidate rule and the basis "
+                "(alpha2_mz, alphaY_mz, eta_source, v_report), the formulas below "
+                "deterministically evaluate (tau2_tree_exact, delta_n_tree_exact), the "
+                "repaired coupling pair (alpha2_prime, alphaY_prime), and one coherent "
+                "quintet without a frozen target argument in the forward calculation. "
+                "The present corpus does not derive or uniquely select the candidate rule "
+                "from the finite quotient transport, so this statement is not a promoted "
+                "source theorem."
             ),
             "formulas": {
                 "alpha_u_seed": "eta_source / beta_EW",
@@ -137,29 +205,9 @@ def build_artifact(source_pair: dict, references: dict) -> dict:
                 "sin2w_eff": "alphaY_prime / (alpha2_prime + alphaY_prime)",
             },
         },
-        "repair_chart": {
-            "tau2_tree_exact": tau2_exact,
-            "delta_n_tree_exact": delta_n_exact,
-            "tauY_fiber": tauY_fiber,
-        },
-        "repaired_couplings": {
-            "alpha2_star": alpha2_star,
-            "alphaY_star": alphaY_star,
-            "delta_alpha2": delta_alpha2,
-            "delta_alphaY_parallel": delta_alphaY_parallel,
-            "delta_alphaY_perp": delta_alphaY_perp,
-            "alpha2_prime": alpha2_prime,
-            "alphaY_prime": alphaY_prime,
-        },
-        "coherent_emitted_quintet": {
-            "MW_pole": mw_emit,
-            "MZ_pole": mz_emit,
-            "alpha2_prime": alpha2_prime,
-            "alphaY_prime": alphaY_prime,
-            "alpha_em_eff_inv": alpha_sum_prime / (alphaY_prime * alpha2_prime),
-            "sin2w_eff": alphaY_prime / alpha_sum_prime,
-            "v_report": v_value,
-        },
+        "repair_chart": repair_chart,
+        "repaired_couplings": repaired_couplings,
+        "coherent_emitted_quintet": emitted_quintet,
         "compare_only_validation_against_frozen_surface": {
             "reference_surface_kind": "freeze_once_authoritative_target_coherent_repair_surface",
             "MW_reference_gev": mw_frozen,
@@ -175,8 +223,9 @@ def build_artifact(source_pair: dict, references: dict) -> dict:
             "delta_sin2w_eff": (alphaY_prime / alpha_sum_prime) - (alphaY_frozen / alpha_sum_frozen),
         },
         "notes": [
-            "This artifact records the current source-only D10 mass-side candidate beneath the Ward-projected electromagnetic transport family.",
+            "This artifact records the current runtime target-free-input D10 mass-side candidate beneath the Ward-projected electromagnetic transport family.",
             "The unconditional source-only underdetermination theorem remains the support boundary on the present corpus, so this candidate is not promoted to theorem status.",
+            "The exact conditional QT1-QT5 quotient-path theorem reproduces this formula, but the current corpus does not yet emit QT1-QT5 or bind them to one strict source pixel branch.",
             "The freeze-once coherent repair law serves as compare-only validation on the same W/Z mass lane.",
             "At the repo default P this candidate nearly coincides numerically with the frozen benchmark surface, but that numerical coincidence is not by itself a proof of target-free closure.",
         ],
@@ -184,7 +233,7 @@ def build_artifact(source_pair: dict, references: dict) -> dict:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Build the D10 target-free repair theorem artifact.")
+    parser = argparse.ArgumentParser(description="Build the D10 target-free-input repair candidate artifact.")
     parser.add_argument("--source-pair", default=str(SOURCE_PAIR_JSON))
     parser.add_argument("--references", default=str(REFERENCE_JSON))
     parser.add_argument("--output", default=str(DEFAULT_OUT))

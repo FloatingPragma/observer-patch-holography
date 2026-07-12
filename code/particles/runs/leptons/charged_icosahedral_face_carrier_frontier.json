@@ -1,0 +1,283 @@
+{
+  "artifact": "oph_charged_icosahedral_face_carrier_frontier",
+  "charged_reference_data_consumed": false,
+  "checks_pass": true,
+  "circulant_commutant_theorem": {
+    "checks": {
+      "countermodels_are_positive_simple": true,
+      "countermodels_commute_with_C3": true,
+      "numeric_spectrum_matches_analytic_cosine_law": true,
+      "orientation_reversal_preserves_unordered_spectrum": true
+    },
+    "conclusion": "The face carrier supplies the correct dimension and cyclic covariance, but C3 symmetry alone selects neither |b|/a nor delta. Distinct positive simple spectra obey exactly the same face symmetry.",
+    "failed_selector_countermodels": [
+      {
+        "a": 1.0,
+        "commutator_with_C3_shift_norm": 0.0,
+        "modulus_b": 0.2,
+        "phase_b": 0.1,
+        "positive_simple": true,
+        "spectrum": [
+          0.7664158569592949,
+          0.8355824769294945,
+          1.3980016661112102
+        ]
+      },
+      {
+        "a": 1.0,
+        "commutator_with_C3_shift_norm": 0.0,
+        "modulus_b": 0.27,
+        "phase_b": 0.23,
+        "positive_simple": true,
+        "spectrum": [
+          0.6304955368369463,
+          0.8437246098601511,
+          1.5257798533029026
+        ]
+      }
+    ],
+    "real_parameter_count": 3,
+    "shape_parameter_count_after_common_scale": 2,
+    "statement": "Every Hermitian operator on one face fiber that commutes with the regular C3 shift has the form C=aI+bR+conjugate(b)R^2. Its three eigenvalues are a+2|b|cos(delta+2*pi*k/3)."
+  },
+  "claim_boundary": "The icosahedron is integral to OPH microphysics and the face-corner C3 carrier is a genuine new local geometric lemma. The numerical completion remains a conditional, retrospectively discovered conjecture until the listed source maps are proved.",
+  "conditional_physical_completion_theorem": {
+    "if_supplied": [
+      "an OPH quotient-visible attachment Xi from the face-corner bundle to the physical charged-generation multiplicity space",
+      "a source law fixing the Hermitian-circulant amplitude and phase",
+      "a normalized charged determinant-line character",
+      "a declared running coordinate and RG/threshold/pole conversion"
+    ],
+    "then": "the simple fiber spectrum gives an ID-independent unordered charged triple; a further attachment relative to neutrino or other family observables fixes the physical family lines"
+  },
+  "face_orbit_theorem": {
+    "A5_order": 60,
+    "checks": {
+      "A5_face_stabilizer_order": 3,
+      "R_cubed_is_identity": true,
+      "R_is_not_identity": true,
+      "face_stabilizer_matches_C3": true
+    },
+    "face_count": 20,
+    "face_orbit": "A5/C3",
+    "face_stabilizer_order": 3,
+    "fiber": "the three corners of one outward-oriented triangular face",
+    "global_flag_boundary": "The 20*3=60 face-corner flags form a free transitive A5 set, hence their linearization is the 60-dimensional regular A5 representation. They do not canonically collapse to one global three-dimensional family space. Selecting or trivializing a face fiber requires an additional quotient-visible section, connection, or physical intertwiner.",
+    "orientation_boundary": "Reversing the fiber orientation exchanges R and R^2. A Hermitian circulant is complex-conjugated and retains the same unordered real spectrum.",
+    "statement": "The declared icosahedral screen canonically carries a twenty-face A5/C3 orbit. The C3 stabilizer cyclically permutes the three corners of a face, giving an A5-associated bundle of local rank-three geometric fibers. Changing the face acts by A5 transport; no hidden face or port ID is required for the isomorphism class. For a fiber operator transported A5-equivariantly from one face, every face representative has the same conjugacy-invariant unordered spectrum."
+  },
+  "incidence": {
+    "edge_face_counts": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "edge_length": 1.0514622242382672,
+    "edges": 30,
+    "euler_characteristic": 2,
+    "face_corner_flag_count": 60,
+    "face_sizes": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "face_vertex_indices": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        7
+      ],
+      [
+        0,
+        2,
+        6
+      ],
+      [
+        0,
+        5,
+        6
+      ],
+      [
+        0,
+        5,
+        7
+      ],
+      [
+        1,
+        2,
+        8
+      ],
+      [
+        1,
+        3,
+        7
+      ],
+      [
+        1,
+        3,
+        8
+      ],
+      [
+        2,
+        4,
+        6
+      ],
+      [
+        2,
+        4,
+        8
+      ],
+      [
+        3,
+        7,
+        11
+      ],
+      [
+        3,
+        8,
+        9
+      ],
+      [
+        3,
+        9,
+        11
+      ],
+      [
+        4,
+        6,
+        10
+      ],
+      [
+        4,
+        8,
+        9
+      ],
+      [
+        4,
+        9,
+        10
+      ],
+      [
+        5,
+        6,
+        10
+      ],
+      [
+        5,
+        7,
+        11
+      ],
+      [
+        5,
+        10,
+        11
+      ],
+      [
+        9,
+        10,
+        11
+      ]
+    ],
+    "faces": 20,
+    "vertex_degrees": [
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
+    "vertices": 12
+  },
+  "incidence_checks": {
+    "V_E_F_are_12_30_20": true,
+    "every_edge_belongs_to_two_faces": true,
+    "every_face_has_three_corners": true,
+    "every_vertex_is_five_valent": true,
+    "sphere_euler_characteristic_is_2": true
+  },
+  "pro_completion_v1_boundary": {
+    "not_derived_by_face_incidence": [
+      "delta=beta_EW/(2*N_c*N_g) or its endpoint correction",
+      "the one-bit amplitude balance or its leakage correction",
+      "det(Y_e)=sqrt(2)/6^14 or det(M_e)=v^3/(2*6^14)",
+      "the kappa, chi_rho, and zeta_delta finite-incidence equalizers",
+      "identification with the on-shell pole-mass coordinate"
+    ],
+    "validated_here": [
+      "icosahedral V=12, E=30, F=20 incidence",
+      "face stabilizer C3 and the three-corner cyclic carrier",
+      "Hermitian-circulant spectral algebra",
+      "face-ID independence of the unordered spectrum"
+    ]
+  },
+  "public_charged_mass_promotion_allowed": false,
+  "relation_to_twelve_port_W5_theorem": "The face-corner bundle is a valid alternative incidence carrier. It does not contradict the W5 no-go, which applies to linear moments of scalar weights on the twelve vertices. Incidence geometry can supply a geometric C3 fiber without a nonuniform port scalar, but still requires a physical charged attachment and dynamical spectral value law.",
+  "screen_premise_checks": {
+    "orbit_size_is_12": true,
+    "rotation_group_is_A5": true,
+    "rotation_group_order_is_60": true,
+    "screen_certificate_check_passes": true,
+    "screen_status_closed": true,
+    "vertex_stabilizer_order_is_5": true
+  },
+  "screen_source": "R_screen_sieve_icosahedral_certificate.json",
+  "screen_source_sha256": "285b30486e4d8548bed60ee0d7220796fee5c80276aa36a0820a709df680433c",
+  "source_only": true,
+  "status": "CLOSED_GEOMETRIC_C3_FACE_CARRIER_PHYSICAL_ATTACHMENT_AND_VALUE_LAWS_OPEN"
+}

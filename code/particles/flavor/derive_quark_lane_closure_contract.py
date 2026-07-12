@@ -99,6 +99,28 @@ AXIOM_LEVEL_YUKAWA_OBSTRUCTION_JSON = (
 SCHEME_OBSTRUCTION_JSON = (
     ROOT / "particles" / "runs" / "flavor" / "quark_running_mass_scheme_convention_obstruction.json"
 )
+S3_D12_TEMPLATE_POSTDICTION_JSON = (
+    ROOT / "particles" / "runs" / "flavor" / "quark_s3_d12_template_postdiction.json"
+)
+S3_D12_TEMPLATE_AUDIT_JSON = (
+    ROOT / "particles" / "runs" / "flavor" / "quark_s3_d12_template_postdiction_audit.json"
+)
+FLAVOR_SOURCE_CLOSURE_JSON = (
+    ROOT / "particles" / "runs" / "flavor" / "quark_flavor_source_closure_contract.json"
+)
+RSCC_CANDIDATE_JSON = (
+    ROOT / "particles" / "runs" / "flavor" / "quark_rscc_completion_candidate.json"
+)
+RSCC_AUDIT_JSON = (
+    ROOT
+    / "particles"
+    / "runs"
+    / "flavor"
+    / "quark_rscc_completion_candidate_audit.json"
+)
+RSCC_ARITHMETIC_JSON = (
+    ROOT / "particles" / "runs" / "flavor" / "quark_rscc_module_arithmetic.json"
+)
 DEFAULT_OUT = ROOT / "particles" / "runs" / "flavor" / "quark_lane_closure_contract.json"
 
 
@@ -143,6 +165,12 @@ def build_payload(
     sigma_source_obstruction: dict[str, Any],
     axiom_level_yukawa_obstruction: dict[str, Any],
     scheme_obstruction: dict[str, Any],
+    s3_d12_template_postdiction: dict[str, Any],
+    s3_d12_template_audit: dict[str, Any],
+    flavor_source_closure: dict[str, Any],
+    rscc_candidate: dict[str, Any],
+    rscc_audit: dict[str, Any],
+    rscc_arithmetic: dict[str, Any],
 ) -> dict[str, Any]:
     selected_sigma = selected_sheet["selected_sheet"]["sigma_id"]
     source_spread_obstruction_closed = (
@@ -203,6 +231,67 @@ def build_payload(
             "note": (
                 "The light rows, heavy self-scale rows, and separate top extraction coordinate do not form one "
                 "source-emitted running-mass sextet."
+            ),
+        },
+        "retrospective_s3_d12_formula_audit": {
+            "artifact": s3_d12_template_postdiction["artifact"],
+            "audit_artifact": s3_d12_template_audit["artifact"],
+            "claim_class": s3_d12_template_postdiction["claim_class"],
+            "promotion_allowed": False,
+            "emitted_coordinate_unit": s3_d12_template_postdiction["unit_status"][
+                "emitted_coordinates"
+            ],
+            "maximum_mixed_chart_relative_residual_percent": s3_d12_template_audit[
+                "descriptive_mixed_chart_comparison"
+            ]["max_abs_relative_error_percent"],
+            "statistical_interpretation_allowed": s3_d12_template_audit[
+                "descriptive_mixed_chart_comparison"
+            ]["statistical_interpretation_allowed"],
+            "source_only_ancestry_passes": s3_d12_template_audit["ancestry_audit"][
+                "source_only_ancestry_passes"
+            ],
+            "flavor_source_closure_artifact": flavor_source_closure["artifact"],
+            "exact_algebra_status": flavor_source_closure["exact_algebra"]["proof_status"],
+            "all_physical_receipts_closed": flavor_source_closure["all_six_receipts_closed"],
+            "current_repository_emits_physical_quark_sextet": flavor_source_closure[
+                "current_repository_emits_physical_quark_sextet"
+            ],
+            "status_statement": (
+                "Exact finite algebra and a sufficient proof-obligation contract are recorded. "
+                "The numerical evaluator is a target-informed handwritten-template diagnostic "
+                "with no dimensionful source scale or common-scale RG packet, not a physical "
+                "quark-mass postdiction."
+            ),
+        },
+        "retrospective_rscc_completion_audit": {
+            "artifact": rscc_candidate["artifact"],
+            "audit_artifact": rscc_audit["artifact"],
+            "arithmetic_artifact": rscc_arithmetic["artifact"],
+            "claim_class": rscc_candidate["claim_class"],
+            "promotion_allowed": False,
+            "old_candidate_flavor_decimals_consumed_directly": rscc_candidate[
+                "provenance"
+            ]["old_candidate_flavor_decimals_consumed"],
+            "source_only_ancestry_passes": rscc_audit["ancestry_and_branch_audit"][
+                "source_only_ancestry_passes"
+            ],
+            "maximum_mixed_chart_relative_residual_percent": rscc_audit[
+                "descriptive_mixed_chart_comparison"
+            ]["max_abs_relative_error_percent"],
+            "negative_control_beats_full_rscc": rscc_audit["negative_control"][
+                "beats_full_rscc_maximum_error"
+            ],
+            "all_F1_to_F6_receipts_remain_open": flavor_source_closure[
+                "rscc_formula_level_candidate"
+            ]["all_F1_to_F6_receipts_remain_open"],
+            "current_repository_emits_physical_quark_sextet": False,
+            "numeric_quark_prediction_rows_allowed": False,
+            "status_statement": (
+                "RSCC removes five legacy decimals from the leaf evaluator but "
+                "re-encodes their effective role in a retrospectively selected "
+                "module/rank/sign ledger. Exact dimension arithmetic is retained; "
+                "physical carrier selection, cumulant dynamics, coherent scale, and "
+                "common-scheme RG remain open."
             ),
         },
         "exact_pdg_derivation_target": {
@@ -650,6 +739,12 @@ def main() -> int:
         _load_json(SIGMA_SOURCE_OBSTRUCTION_JSON),
         _load_json(AXIOM_LEVEL_YUKAWA_OBSTRUCTION_JSON),
         _load_json(SCHEME_OBSTRUCTION_JSON),
+        _load_json(S3_D12_TEMPLATE_POSTDICTION_JSON),
+        _load_json(S3_D12_TEMPLATE_AUDIT_JSON),
+        _load_json(FLAVOR_SOURCE_CLOSURE_JSON),
+        _load_json(RSCC_CANDIDATE_JSON),
+        _load_json(RSCC_AUDIT_JSON),
+        _load_json(RSCC_ARITHMETIC_JSON),
     )
 
     out_path = Path(args.output)

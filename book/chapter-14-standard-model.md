@@ -235,10 +235,14 @@ laboratory is the long-distance Thomson endpoint, $137.035999177(21)$. A
 source-only endpoint requires the missing same-scheme hadronic spectral backend.
 
 That low-energy number sits inside the same particle sector as the weak bosons.
-Once the electroweak transport family is read from the selected local fixed
-point, electromagnetism is the unbroken channel left after the weak and
-hypercharge sectors mix. The fine-structure constant therefore belongs to the
-same transport family that yields the $W$ and $Z$ benchmarks.
+Once the electroweak transport family is read from a named local branch,
+electromagnetism is the unbroken channel left after the weak and hypercharge
+sectors mix. The same family contains an exact selected-carrier chart, a value
+law conditional on five quotient-transport premises, and a frozen $W/Z$
+comparison adapter. The finite certificate for those premises is absent, and
+none of the three objects is a physical pole theorem. A color-balanced
+amplitude/loop model with proposed weights $\sqrt{N_c}/2$ and $N_c$ is a
+distinct alternative to the complete transport law.
 
 The strong force coupling runs the opposite way. At low energies, it's strong (hence the name). At high energies, it weakens. This is "asymptotic freedom," discovered by Gross, Wilczek, and Politzer in 1973.
 
@@ -891,7 +895,8 @@ Model quotient, the hypercharge lattice, and the color-generation count. The
 same structure identifies electromagnetic, color, and metric carrier roles.
 Explicit action and phase receipts give their classical transverse or TT
 modes; quantum particle poles require a stronger receipt. From there the
-pixel fixed point organizes the electroweak sector, the Higgs/top relation, the
+named pixel branches organize the electroweak carrier chart, the conditional
+quotient-transport law, the frozen comparison adapter, the Higgs/top relation, the
 conditional running-quark support surface, the charged-lepton story, and a
 target-informed weighted-cycle neutrino comparison candidate rejected by the
 correlated NuFIT 6.1 profile. Its source kernel and charged basis are open, so
@@ -919,22 +924,23 @@ they decide which charged excitations can exist and how they transform.
 Then comes the fixed-point closure. The same screen cell is read twice. From the
 outside it is a small displacement from golden-ratio balance. From the inside it
 is the electromagnetic observation step available to observers in the encoded
-world. On the endpoint branch, matching those two descriptions displays
-$\alpha^{-1}(0)=137.035999177(21)$ and
-$P\simeq1.6309682094$.
+world. On the empirical-endpoint branch, matching those two descriptions
+displays $\alpha^{-1}(0)=137.035999177(21)$ and
+$P_C\simeq1.6309682094$. A nearby source-audit branch excludes the measured
+endpoint from its upstream data.
 
 The route is a chain of translations. Golden-ratio entropy balance fixes the
 screen side. The boundary width sets the electromagnetic detuning. The source
 map then carries that value through unification, running gauge couplings, the
-electroweak anchor, and the electromagnetic channel used at low energy.
-The value is forced because the same local pixel has to satisfy the outside
-geometry equation and the inside electromagnetic endpoint equation at the same
-time.
+electroweak anchor, and the electromagnetic channel used at low energy. The
+empirical-endpoint and source-audit pixels answer different closure questions
+and cannot be substituted for one another.
 
 The fine-structure constant belongs here beside the weak sector. It is the
 local electromagnetic width of the observer-supporting pixel. From there the
-same construction continues into the weak sector, the Higgs/top relation, the
-conditional running-quark support sector. The weighted-cycle neutrino entry is
+same construction continues into the weak-sector chart, its conditional
+transport law, the downstream Higgs/top surface, and the conditional
+running-quark support sector. The weighted-cycle neutrino entry is
 a target-informed comparison candidate rejected by the correlated NuFIT 6.1
 profile, with no physical prediction status. Hadrons come later, because protons
 and mesons are bound states of quarks and gluons. Their masses live in the
@@ -1019,8 +1025,9 @@ confinement.
 
 That difference matters. Some results in the framework are structural and
 sharp. Others depend on solving the strong-coupling machinery in detail. The
-electroweak sector sits close enough to the local fixed-point readout that masses and
-couplings can be pinned down cleanly. Hadrons sit deeper in the strong-coupling problem.
+electroweak sector supplies a clean dimensionless hierarchy and exact algebraic
+charts, but its GeV pole masses retain source, scale, transport, scheme, and
+spectral gates. Hadrons sit deeper in the strong-coupling problem.
 
 A promising route into that jungle uses edge entanglement. It does not
 weight charge sectors arbitrarily. It assigns each one a local geometric cost
@@ -1139,7 +1146,8 @@ corresponding quantum spectral receipt is supplied.
 **The particle structure.** Section 14.14 gives the concrete structure. The
 framework fixes the carrier roles and states the conditional classical-mode
 receipts. It then organizes the fine-structure
-fixed point, the weak-boson benchmark pair, a Higgs/top relation, a theorem-grade
+fixed point, the exact weak-boson carrier chart, a conditional value law, a
+frozen comparison adapter, a conditional Higgs/top relation, a theorem-grade
 two-modulus quark source-spread obstruction with target-audit mass textures, and a target-informed
 weighted-cycle neutrino candidate rejected by the correlated NuFIT 6.1 profile.
 The charged-lepton basis is open and has nearly degenerate singular values, so
@@ -1149,23 +1157,24 @@ hadrons, and strong CP sit around that same map with different levels of support
 
 The reason these numbers belong in one chapter is that the framework organizes
 them with one local fixed-point structure. The same pixel ratio feeds the
-electroweak scale, the low-energy electromagnetic endpoint, and the effective
-gravitational coupling. The point does not require every intermediate symbol.
+dimensionless electroweak hierarchy, the low-energy electromagnetic endpoint,
+and the effective gravitational coupling. The point does not require every intermediate symbol.
 OPH ties
 electroweak relations, the Higgs/top quantitative relation,
 electromagnetism at low energy, and Newton's constant into one common
 structure.
 
-The hierarchy relation is part of that same local story. The weak scale is emitted
-by the pixel transmutation law:
+The hierarchy relation is part of that same local story. The pixel
+transmutation law emits the dimensionless ratio
 
 $$
 v/E_\star=P_\star^{-1/2}\exp[-2\pi/(4\alpha_U(P_\star))].
 $$
 
 Here $v$ is the weak scale, $E_\star$ is the branch energy scale used for the
-display, and $\alpha_U(P_\star)$ is the unified coupling read from the pixel
-branch. The source branch gives a unique value for that coupling. The selected
+display, and $\alpha_U(P_\star)$ is the unified coupling read from the named
+pixel branch. The theorem does not assign an independently physical value to
+$E_\star$, so the ratio alone gives no mass in GeV. The selected
 source-to-Higgs coarse-graining square has
 zero defect, so the usual bare-Higgs-plus-cutoff split is a regulator
 coordinate description on that branch. The SI gravity decimal is a separate
@@ -1187,6 +1196,14 @@ Reversible repair reads each channel in two orientations, write and verify.
 Twelve one-way channels therefore become a 24-slot oriented repair register.
 The SU(5) adjoint lands on the same single-orientation number for a different
 support; its X/Y mixed gauge channels are absent from the OPH product branch.
+
+This 24-slot result is a common hierarchy register, not a family-shape
+generator. On the homogeneous no-marked-point branch its invariant readout is
+one-dimensional; any equivariant map to three families is proportional to the
+all-ones vector and vanishes after centering. The later RSCC quark candidate
+uses the number 24 inside several proposed composite response modules, but
+that use requires a new non-singlet family attachment. The count alone does
+not derive the RSCC module ledger, effect ranks, signs, or cumulant law.
 
 The exact bridge capacity is about $3.53235\times10^{122}$ on the public
 endpoint branch. The rounded $3.31\times10^{122}$ value is the de Sitter
@@ -1242,13 +1259,20 @@ ultraviolet consistency.
 
 The result is concrete. The book points to a specific gauge
 structure, charge pattern, color count, and generation count. It also reaches
-conditional action-level carrier modes, the $W$ and $Z$ benchmark pair, a
-Higgs/top quantitative relation, and a quark source-spread non-identifiability
+conditional action-level carrier modes, an exact $W/Z$ selected-carrier chart,
+a value law conditional on five quotient-transport premises, a frozen
+comparison adapter, a conditional Higgs/top relation, and a quark
+source-spread non-identifiability
 theorem on a chosen physical basis. MAR gives every positive rescaling of the
 two quark profiles the same structural score, so it does not select their
 Yukawa eigenvalues. Numeric quark rows remain withheld, and the
 mixed-convention GeV matrices are target-audit mass textures rather than
-physical Yukawas. The weighted-cycle neutrino point belongs to the comparison ledger:
+physical Yukawas. A later target-informed RSCC candidate removes five legacy
+decimals from the direct evaluator and replaces them with a declared finite
+module/rank/sign ledger. Its arithmetic is exact once declared, but the ledger,
+Gaussian truncation, inherited affine map, coherent scale, and common-scheme
+RG packet are not derived; every physical flavor-closure receipt remains open.
+The weighted-cycle neutrino point belongs to the comparison ledger:
 NuFIT 6.1 rejects it. The charged basis is open and has nearly degenerate
 singular values, leaving physical mixing, mass ordering, and absolute masses
 unresolved. Strongly coupled bound states add the QCD problem on top of that

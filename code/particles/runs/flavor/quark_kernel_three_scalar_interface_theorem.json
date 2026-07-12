@@ -1,7 +1,7 @@
 {
-  "acceptance_binding": "a candidate derivation closes the program by emitting one clean-ancestry point of the interface; the acceptance harness gates G2-G6 score exactly that point",
+  "acceptance_binding": "the legacy acceptance harness gates G2-G6 score one point of this restricted ray subfamily only; passing them cannot close the general quark-mass or physical-Yukawa program",
   "artifact": "oph_quark_kernel_three_scalar_interface_theorem",
-  "claim_tier": "exact_reduction_of_kernel_program_to_three_scalars",
+  "claim_tier": "exact_reduction_of_legacy_reciprocal_ray_subfamily_to_three_scalars",
   "determination_checks_max_abs": {
     "A_ud_vs_mean_split": 0.0,
     "B_ud_vs_mean_split": 3.3306690738754696e-16,
@@ -12,7 +12,17 @@
     "v_u_vs_edge_artifact": 0.0,
     "x2_of_r_vs_mean_split": 1.1102230246251565e-16
   },
-  "generated_utc": "2026-07-12T05:50:01Z",
+  "general_interface_boundary": {
+    "basis_domain": "x != +/-1",
+    "centered_basis": [
+      "L=ctr(-1,x,1)",
+      "Q=ctr(1,x^2,1)"
+    ],
+    "common_scale_eigenvalue_coordinates": 6,
+    "coordinate_count": "two centered coordinates plus one mean in each sector; when both centered coordinates are free, x/r is a basis choice and not a seventh spectral invariant",
+    "gram_determinant": "4*(1-x^2)^2/3"
+  },
+  "generated_utc": "2026-07-12T09:23:00Z",
   "github_issues": [
     377,
     379,
@@ -20,6 +30,7 @@
   ],
   "guards": {
     "emits_numerical_triple": false,
+    "general_quark_interface_claim_allowed": false,
     "public_promotion_allowed": false,
     "reference_masses_role": "compare-only round-trip verification of the left inverse; no solve path"
   },
@@ -48,10 +59,10 @@
   "max_roundtrip_relative_error": 5.2735593669694936e-15,
   "nonredundancy": {
     "axiom_level_no_go": "quark_axiom_level_yukawa_moduli_nonidentifiability (the axioms emit no component of the triple)",
-    "conclusion": "the interface is exactly three-dimensional: sufficient by the determination maps, recoverable by the left inverse, and free on the current corpus in every component",
+    "conclusion": "the imposed reciprocal-ray subfamily is exactly three-dimensional and recoverable by the left inverse; this is not a nonredundancy statement for the general six-coordinate eigenvalue interface",
     "freedom_theorem": "family_transport_kernel_admissibility_freedom_theorem (certificates leave the triple free)"
   },
-  "proof_status": "closed_interface_theorem",
+  "proof_status": "closed_ray_subfamily_interface_theorem",
   "round_trips": [
     {
       "max_relative_roundtrip_error": 6.985122584072683e-16,
@@ -78,6 +89,6 @@
       }
     }
   ],
-  "row_class": "theorem_grade_reduction",
-  "theorem_statement": "At fixed shared scale g_ch the quark sector of the candidate chain factors through exactly the invariant triple (r, sigma_u, sigma_d) in (R_>0)^3 of the centered compressed branch generator: rho_ord = 3/(2+r) and x2 = (r-1)/(r+1) carry no information beyond r; rays, mean-law coefficients, sector means, and the six masses are closed-form in the triple; the forward map is injective with an explicit closed-form left inverse; and by the freedom and nonidentifiability theorems no proper sub-tuple is determined by the current corpus. The kernel program is therefore exactly the source derivation of one point of (R_>0)^3 with clean ancestry."
+  "row_class": "restricted_subfamily_theorem",
+  "theorem_statement": "At fixed shared scale g_ch and after imposing the legacy reciprocal profile rays, that restricted candidate chain factors through exactly the triple (r, sigma_u, sigma_d) in (R_>0)^3 of the centered compressed branch generator: rho_ord = 3/(2+r) and x2 = (r-1)/(r+1) carry no information beyond r; rays, mean-law coefficients, sector means, and the six coordinates are closed-form in the triple; the forward map is injective with an explicit closed-form left inverse. This statement is not the general quark interface: a general common-scale pair has two centered coordinates and one mean per sector."
 }

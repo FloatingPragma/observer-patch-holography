@@ -12,14 +12,14 @@ def test_frozen_candidate_is_accurate_but_not_promoted():
     artifact = lane.build_audit(
         json.loads(lane.CANDIDATE.read_text(encoding="utf-8")),
         json.loads(lane.REFERENCE_JSON.read_text(encoding="utf-8")),
-        json.loads(lane.CURRENT_PIXEL_BRANCH.read_text(encoding="utf-8")),
+        json.loads(lane.TRUNCATED_D10_PROBE.read_text(encoding="utf-8")),
     )
     assert Decimal(artifact["max_absolute_relative_error_percent"]) < Decimal("0.03")
     assert artifact["candidate_mutation_allowed"] is False
     assert artifact["public_prediction_promotion_allowed"] is False
     assert artifact["status"] == "COMPARE_ONLY_RETRODICTIVE_ACCURACY_AUDIT"
     assert Decimal(
-        artifact["pixel_branch_sensitivity"]["current_public_pixel_probe"][
+        artifact["pixel_branch_sensitivity"]["truncated_d10_comparison_probe"][
             "max_absolute_relative_error_percent"
         ]
     ) < Decimal("0.1")

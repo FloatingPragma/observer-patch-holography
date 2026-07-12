@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1500" height="210" viewBox="0 0 1500 210" role="img" aria-labelledby="title desc">
-  <title id="title">OPH compact evidence flow</title>
-  <desc id="desc">Compact OPH evidence flow from the anti-fitting rule through observer patches, Standard Model structure, a frozen charged-family continuation, the hierarchy witness, and claim rows.</desc>
+  <title id="title">OPH compact derivation flow</title>
+  <desc id="desc">Compact OPH derivation flow from observer patches through quantum readout, Lorentz and Einstein geometry, Standard Model structure, scale closure, and geometric gravity.</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
       <path d="M1,1 L9,5 L1,9 Z" fill="#0b6b78"/>
@@ -24,10 +24,10 @@
   <g transform="translate(34,32)">
     <rect x="0" y="0" width="206" height="146" rx="12" class="box"/>
     <text x="18" y="31" class="num" font-size="20">1</text>
-    <text x="48" y="31" class="head" font-size="20">anti-fitting</text>
-    <text x="22" y="68" class="math" font-size="24">basin ≠ answer</text>
-    <text x="22" y="104" class="body" font-size="16">measured values</text>
-    <text x="22" y="126" class="body" font-size="16">cannot set rows</text>
+    <text x="48" y="31" class="head" font-size="20">patches</text>
+    <text x="22" y="68" class="math" font-size="25">T(U) = U</text>
+    <text x="22" y="104" class="body" font-size="16">records read back</text>
+    <text x="22" y="126" class="body" font-size="16">and repair</text>
   </g>
 
   <path d="M248,105 L286,105" class="arrow"/>
@@ -35,10 +35,10 @@
   <g transform="translate(294,32)">
     <rect x="0" y="0" width="206" height="146" rx="12" class="box"/>
     <text x="18" y="31" class="num" font-size="20">2</text>
-    <text x="48" y="31" class="head" font-size="20">patches</text>
-    <text x="22" y="68" class="math" font-size="25">T(U) = U</text>
-    <text x="22" y="104" class="body" font-size="16">records repair</text>
-    <text x="22" y="126" class="body" font-size="16">into a world</text>
+    <text x="48" y="31" class="head" font-size="20">quantum</text>
+    <text x="22" y="68" class="math" font-size="21">P(E) = Tr(ρP<tspan baseline-shift="-30%" font-size="12">E</tspan>)</text>
+    <text x="22" y="104" class="body" font-size="16">Born weights</text>
+    <text x="22" y="126" class="body" font-size="16">Lüders update</text>
   </g>
 
   <path d="M508,105 L546,105" class="arrow"/>
@@ -46,10 +46,10 @@
   <g transform="translate(554,32)">
     <rect x="0" y="0" width="206" height="146" rx="12" class="box"/>
     <text x="18" y="31" class="num" font-size="20">3</text>
-    <text x="48" y="31" class="head" font-size="20">SM branch</text>
-    <text x="22" y="64" class="math" font-size="19">SU3 SU2 U1 / Z6</text>
-    <text x="22" y="104" class="body" font-size="16">Nc = 3, Ng = 3</text>
-    <text x="22" y="126" class="body" font-size="16">massless carriers</text>
+    <text x="48" y="31" class="head" font-size="20">Lorentz / GR</text>
+    <text x="22" y="68" class="math" font-size="21">SO⁺(3,1)</text>
+    <text x="22" y="104" class="body" font-size="16">3+1 events</text>
+    <text x="22" y="126" class="body" font-size="16">Einstein chain</text>
   </g>
 
   <path d="M768,105 L806,105" class="arrow"/>
@@ -57,10 +57,10 @@
   <g transform="translate(814,32)">
     <rect x="0" y="0" width="206" height="146" rx="12" class="box"/>
     <text x="18" y="31" class="num" font-size="20">4</text>
-    <text x="48" y="31" class="head" font-size="20">continuation</text>
-    <text x="22" y="68" class="math" font-size="24">δ<tspan baseline-shift="-30%" font-size="13">e</tspan> = 2/9</text>
-    <text x="22" y="104" class="body" font-size="16">frozen ratio check</text>
-    <text x="22" y="126" class="body" font-size="16">phase not derived</text>
+    <text x="48" y="31" class="head" font-size="20">SM branch</text>
+    <text x="22" y="64" class="math" font-size="19">SU3 SU2 U1 / Z6</text>
+    <text x="22" y="104" class="body" font-size="16">Nc = 3, Ng = 3</text>
+    <text x="22" y="126" class="body" font-size="16">βEW = 4</text>
   </g>
 
   <path d="M1028,105 L1066,105" class="arrow"/>
@@ -68,11 +68,10 @@
   <g transform="translate(1074,32)">
     <rect x="0" y="0" width="206" height="146" rx="12" class="box"/>
     <text x="18" y="31" class="num" font-size="20">5</text>
-    <text x="48" y="31" class="head" font-size="20">hierarchy</text>
-    <text x="22" y="62" class="math" font-size="20">v/E<tspan baseline-shift="-30%" font-size="12">★</tspan> = P<tspan baseline-shift="super" font-size="13">-1/2</tspan></text>
-    <text x="22" y="86" class="math" font-size="18">(N<tspan baseline-shift="-30%" font-size="11">EW</tspan>/π)<tspan baseline-shift="super" font-size="12">-P/12</tspan></text>
-    <text x="22" y="112" class="body" font-size="16">QCD-free witness</text>
-    <text x="22" y="134" class="body" font-size="16">zero tuning</text>
+    <text x="48" y="31" class="head" font-size="20">scale closure</text>
+    <text x="22" y="68" class="math" font-size="23">P = Γ(P)</text>
+    <text x="22" y="104" class="body" font-size="16">source root</text>
+    <text x="22" y="126" class="body" font-size="16">weak hierarchy</text>
   </g>
 
   <path d="M1288,105 L1326,105" class="arrow"/>
@@ -80,9 +79,9 @@
   <g transform="translate(1334,32)">
     <rect x="0" y="0" width="132" height="146" rx="12" class="box"/>
     <text x="16" y="31" class="num" font-size="20">6</text>
-    <text x="44" y="31" class="head" font-size="20">claim</text>
-    <text x="20" y="68" class="math" font-size="25">tests</text>
-    <text x="20" y="104" class="body" font-size="16">refs, rows</text>
-    <text x="20" y="126" class="body" font-size="16">and failures</text>
+    <text x="44" y="31" class="head" font-size="20">gravity</text>
+    <text x="17" y="68" class="math" font-size="20">G = ℓ<tspan baseline-shift="-30%" font-size="12">★</tspan>²</text>
+    <text x="18" y="104" class="body" font-size="15">area /</text>
+    <text x="18" y="126" class="body" font-size="15">entropy</text>
   </g>
 </svg>

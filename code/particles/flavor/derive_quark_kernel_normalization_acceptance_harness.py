@@ -29,9 +29,10 @@ Candidate payload schema (JSON):
 Gates:
 
   G0 schema: required fields present.
-  G1 ancestry: every attestation false and no forbidden ancestor (the
-     forbidden list is imported from the nonidentifiability obstruction
-     module so the two artifacts cannot drift apart).
+  G1 ancestry: every attestation false, including template-consumption,
+     and no forbidden ancestor (the forbidden list is imported from the
+     nonidentifiability obstruction module so the two artifacts cannot
+     drift apart).
   G2 spectrum: the latest-level centered hermitian descendant has a simple
      spectrum; rho_ord and x2 are recomputed from it.
   G3 shape band with scheme rider: rho_ord must land in the quoted
@@ -39,8 +40,7 @@ Gates:
      recorded because the band is convention dependent.
   G4 normalization clause: the payload must emit positive per-side spans.
      Absence of this clause is the operator-side restatement of the
-     nonidentifiability theorem, and it is what blocks the current
-     template kernel.
+     nonidentifiability theorem once ancestry has passed.
   G5 span agreement: emitted spans must match the version-B calibrated
      spans of the held-out artifact within the declared tolerance
      (compare-only acceptance check, not a solve input).
@@ -56,7 +56,7 @@ must collapse), which is recorded as the remaining burden rather than
 executed here.
 
 Run without arguments to evaluate the fail-closed baseline (the current
-template kernel, which must block at G4):
+template kernel, which must block at G1):
 
     python3 code/particles/flavor/derive_quark_kernel_normalization_acceptance_harness.py
 writes code/particles/runs/flavor/quark_kernel_normalization_acceptance_current.json.
@@ -125,8 +125,10 @@ def baseline_template_candidate() -> dict:
                 "numerical_flavor_template_consumed": True,
             },
         },
-        "baseline_note": "the template kernel carries no normalization "
-                         "clause, so the expected outcome is a block at G4",
+        "baseline_note": (
+            "the handwritten numerical flavor template is declared in ancestry, "
+            "so the expected outcome is an immediate block at G1"
+        ),
     }
 
 
@@ -155,10 +157,7 @@ def evaluate(candidate: dict) -> dict:
     # G1 ancestry
     ancestry = candidate["ancestry"]
     attestations = dict(ancestry.get("attestations", {}))
-    target_attestations = {
-        k: v for k, v in attestations.items()
-        if k != "numerical_flavor_template_consumed"
-    }
+    target_attestations = dict(attestations)
     clean_attestations = not any(bool(v) for v in target_attestations.values())
     names = [str(a) for a in ancestry.get("artifacts", [])]
     forbidden_hits = sorted(
@@ -172,6 +171,17 @@ def evaluate(candidate: dict) -> dict:
         "forbidden_list_source":
             "derive_quark_sigma_source_nonidentifiability_obstruction",
     })
+    if first_failed:
+        return {
+            "gates": gates,
+            "first_failed_gate": first_failed,
+            "acceptance_passed": False,
+            "status": "blocked_fail_closed",
+            "remaining_formal_burden": (
+                "replace the handwritten numerical flavor template with a source-emitted "
+                "kernel before any spectrum or normalization gate is evaluated"
+            ),
+        }
 
     # G2 spectrum
     latest = candidate["kernel"]["refinements"][-1]
@@ -298,6 +308,9 @@ def build(candidate: dict) -> dict:
         "guards": {
             "public_promotion_allowed": False,
             "acceptance_is_not_promotion": True,
+            "legacy_reciprocal_ray_subfamily_only": True,
+            "template_ancestry_is_fatal": True,
+            "physical_yukawa_closure_possible_from_this_harness": False,
             "measured_values_role": "compare-only acceptance checks "
                                     "(G5, G6); never solve inputs",
         },

@@ -131,12 +131,36 @@ part of this canonical tree.
 - rendered public surface:
   `scripts/build_results_status_table.py`
 
+The W/Z lane has three distinct numeric surfaces:
+
+- the selected-carrier chart emits
+  `80.38629169244275 GeV` and `91.18290444674243 GeV`;
+- the archived D10 value-law candidate emits
+  `80.37700001539531 GeV` and `91.18797807794321 GeV`;
+- the frozen `80.377 GeV`, `91.18797809193725 GeV` pair is a
+  comparison-only adapter.
+
+The archived value law is an exact implication of the QT1--QT5 quotient-path
+certificate. The repository does not emit that certificate. A proof-producing
+enumeration must construct the quotient canonicalizer and finite path lists,
+verify the incidence counts, exact color weighting convention, a
+representation-derived `Z_6` invariant-rank fraction (not merely group order),
+the fibre Gram form and residual pairing, and prove a
+positive MAR gap over an explicit deformation class. The executable QT receipt
+checks only the downstream algebra and chart Jacobian; it fails closed on every
+source-entailment field.
+
 The live Higgs lane is a conditional split candidate on the declared
 electroweak running, matching, and threshold surface. It emits
 `m_H = 125.1995304097179 GeV` and a companion top coordinate
 `m_t = 172.3523553288312 GeV`.
-The row is not promoted as a strict source-only particle prediction until the
-D10 target-free repair closes.
+The row is not a strict source-only particle prediction. Its inherited gates
+include the final source root, an independently physical `E_star`, QT1--QT5,
+the concrete RG/matching/scheme receipt, the DS1--DS5 D11 split-character and
+rigidity certificate, and top-threshold
+control, a complex-pole/uncertainty certificate, and a prospective source DAG.
+The full proof-producing implementation contract is documented in
+[`calibration/WZH_SOURCE_CLOSURE_CAMPAIGN.md`](calibration/WZH_SOURCE_CLOSURE_CAMPAIGN.md).
 The exact public running-top row uses the PDG 2025 cross-section entry
 `Q007TP4`.
 The auxiliary direct-top average `Q007TP` is compare-only; #207 is closed as a
@@ -154,6 +178,9 @@ capacity value
 `N_CRC^EW = 3.5323546226929906511187512962330547600462e122`,
 with zero bridge residual, the 12-port screen sieve, the 24-slot oriented
 repair register, and `epsilon_H = 0` on the selected source-to-Higgs branch.
+These are dimensionless hierarchy/naturality statements. They do not turn
+`v/E_star` into a GeV mass until the physical meaning and normalization of
+`E_star` are independently source-closed.
 The pixel-screen receipt records the same selected `(P_*,N_CRC^EW)` pair as an
 equal-area screen chart:
 `K_cell = 4*N_CRC^EW/P_*`,

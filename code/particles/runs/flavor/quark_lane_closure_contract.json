@@ -398,7 +398,7 @@
     "theorem_scope": "current_family_common_refinement_transport_frame_only",
     "wrapper_theorem": "oph_quark_exact_yukawa_end_to_end_theorem"
   },
-  "generated_utc": "2026-07-12T03:50:56Z",
+  "generated_utc": "2026-07-12T09:56:46Z",
   "internalized_theorems": [
     {
       "formula": "Theta_ud^Delta(public light-quark D12 data) = (1/6) * log(c_d / c_u)",
@@ -910,6 +910,36 @@
     "status_statement": "Selected-class descent removes representative dependence but does not break the independent positive rescaling action on the up- and down-sector spreads."
   },
   "public_promotion_allowed": false,
+  "retrospective_rscc_completion_audit": {
+    "all_F1_to_F6_receipts_remain_open": true,
+    "arithmetic_artifact": "oph_quark_rscc_module_arithmetic_v1",
+    "artifact": "oph_quark_rscc_completion_candidate_v1",
+    "audit_artifact": "oph_quark_rscc_completion_candidate_audit_v1",
+    "claim_class": "post_hoc_target_informed_rscc_module_incidence_and_cumulant_ansatz_not_physical_quark_postdiction",
+    "current_repository_emits_physical_quark_sextet": false,
+    "maximum_mixed_chart_relative_residual_percent": 0.29435865035596365,
+    "negative_control_beats_full_rscc": true,
+    "numeric_quark_prediction_rows_allowed": false,
+    "old_candidate_flavor_decimals_consumed_directly": false,
+    "promotion_allowed": false,
+    "source_only_ancestry_passes": false,
+    "status_statement": "RSCC removes five legacy decimals from the leaf evaluator but re-encodes their effective role in a retrospectively selected module/rank/sign ledger. Exact dimension arithmetic is retained; physical carrier selection, cumulant dynamics, coherent scale, and common-scheme RG remain open."
+  },
+  "retrospective_s3_d12_formula_audit": {
+    "all_physical_receipts_closed": false,
+    "artifact": "oph_quark_s3_d12_template_postdiction_v2",
+    "audit_artifact": "oph_quark_s3_d12_template_postdiction_audit_v2",
+    "claim_class": "post_hoc_target_informed_repository_template_ansatz_not_physical_postdiction",
+    "current_repository_emits_physical_quark_sextet": false,
+    "emitted_coordinate_unit": "dimensionless",
+    "exact_algebra_status": "exact_symbolic_verification_passed",
+    "flavor_source_closure_artifact": "oph_quark_flavor_source_closure_contract_v1",
+    "maximum_mixed_chart_relative_residual_percent": 0.29457592878043837,
+    "promotion_allowed": false,
+    "source_only_ancestry_passes": false,
+    "statistical_interpretation_allowed": false,
+    "status_statement": "Exact finite algebra and a sufficient proof-obligation contract are recorded. The numerical evaluator is a target-informed handwritten-template diagnostic with no dimensionful source scale or common-scale RG packet, not a physical quark-mass postdiction."
+  },
   "running_scheme_and_physical_yukawa_obstruction": {
     "artifact": "oph_quark_running_mass_scheme_convention_obstruction",
     "closure_kind": "theorem_grade_sharper_obstruction",

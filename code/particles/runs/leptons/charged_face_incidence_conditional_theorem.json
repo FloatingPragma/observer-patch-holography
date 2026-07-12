@@ -1,0 +1,169 @@
+{
+  "artifact": "oph_charged_face_incidence_conditional_theorem",
+  "bare_to_endpoint_stage_boundary": {
+    "bare_balanced_amplitude_ratio": "0.70710678118654752440084436210484903928483593768847403658833986899536623923105352",
+    "conclusion": "Exact bare balance and the nonzero endpoint amplitude defect cannot be simultaneous statements about one un-staged operator. A physical repair bridge between the two stages remains required.",
+    "endpoint_amplitude_ratio": "0.70710444426498233011880607251430172652346355513366965399240505023776405972582392",
+    "endpoint_over_bare": "0.99999669509382830008531118597830998336284699508564916232232519290840582938818708"
+  },
+  "branch_tuple_coherent": false,
+  "checks": {
+    "bare_and_endpoint_amplitude_ratios_are_distinct": true,
+    "determinant_identity": true,
+    "explicit_source_multiplier_witnesses_change_masses": true,
+    "fixed_point_residual_below_1e_90": true,
+    "orientation_reversal_preserves_spectrum": true,
+    "positive_simple_roots": true,
+    "strict_contraction": true,
+    "structural_incidence_is_12_30_20": true
+  },
+  "checks_pass": true,
+  "conditional_hypotheses": [
+    "an equivariant physical generation attachment to the A5/C3 face-corner bundle",
+    "a source-derived bare block balance and an explicit bare-to-endpoint amplitude-repair bridge",
+    "a charged connection deriving the 2/9 base phase and the endpoint phase correction",
+    "a normalized primitive charged Z6 determinant character attached to the physical determinant line",
+    "the displayed affine finite-incidence repair kernel is selected by an OPH source action and is refinement-natural",
+    "one coherent receipt-bound P-v-alpha_U source branch is frozen before charged comparison",
+    "the terminal charged response is attached to a declared running coordinate and controlled pole-scheme map"
+  ],
+  "conditional_spectrum": {
+    "delta": "0.22222476189332808064709701636126583857439193856993018566437751416733545955522264",
+    "delta0": "0.22222222222222222222222222222222222222222222222222222222222222222222222222222222",
+    "determinant_relative_residual": "-3.5718355977571093194243235884541904982872187338212458162972682600863519872085569e-101",
+    "masses_mev": [
+      "0.51099895084339371430770222614051915330255549559304718935084019076384371877204627",
+      "105.65837550148127774256703801104560873583402128576367130488696924093262814539591",
+      "1776.9300000143514977303020955253920562688686233480736132741592285144971535948892"
+    ],
+    "rho": "1.4142088885299646602376121450286034530469271102673393079848101004755281194516478",
+    "roots": [
+      "2.3794328211289349521836834265698503815065224825426619722273752332244756281007072",
+      "0.040350441615430000889468564050151162958154186905344437837182810200147464983261401",
+      "0.58021673725563504692684800937999845553532333055199358993544195657537690691603138"
+    ]
+  },
+  "declared_hybrid_inputs": {
+    "P": "1.6309681897",
+    "alpha_U": "0.041124336195630495",
+    "v_gev": "246.6174823334856",
+    "warning": "P and v belong to the truncated D10 comparison probe, while alpha_U belongs to the distinct canonical public pixel."
+  },
+  "global_source_only": false,
+  "historical_charged_target_informed": true,
+  "mass_scheme_certified": false,
+  "open": [
+    "OPH derivation and rigidity of the repair sources and feedback kernel",
+    "bare-to-endpoint block-balance repair",
+    "physical generation attachment and charged phase connection",
+    "normalized determinant-line character",
+    "refinement naturality and coherent no-target-leak source branch",
+    "running, threshold, and pole-scheme attachment"
+  ],
+  "proved": [
+    "strict contraction, unique fixed point, and global iteration convergence for the declared affine map",
+    "determinant-normalized circulant spectrum and mass readout conditional on all listed physical hypotheses",
+    "non-rigidity of unit source normalization under the enumerated candidate properties"
+  ],
+  "provenance": {
+    "candidate_v1_archive_sha256": "4dff09dbc66368a99dbddac4e238e3dcd42906dada7d2f084ff059dda32b04ef",
+    "conditional_theorem_archive_sha256": "cc550b311c5f2bc416d78f65b4ec9e1bf32f10f9b73fc4135fd05de626b48d4f",
+    "geometric_face_receipt": "charged_icosahedral_face_carrier_frontier.json",
+    "geometric_face_receipt_sha256": "7ca8619bc16834a7eb941f25878a34175dcba107e5f71cada36da2f8b232108b"
+  },
+  "public_prediction_promotion_allowed": false,
+  "repair_map": {
+    "contraction_constant": "0.0015356510518939534774423994857329261111111111111111111111111111111111111111111111",
+    "feedback": {
+      "q_chi": "0.00053408228825494149350649350649350649350649350649350649350649350649350649350649351",
+      "q_kappa": "0.0013320470096252780466281417115288549193548387096774193548387096774193548387096774",
+      "q_zeta": "0.0015356510518939534774423994857329261111111111111111111111111111111111111111111111"
+    },
+    "fixed_point_residual": [
+      "-6.9762414018693541395006320086995908169672240894946207349556020704811562250167126e-105",
+      "0.0",
+      "0.0"
+    ],
+    "formula": "T(k,c,z)=(s_k-q_k*k, s_c+q_c*c, s_z+q_z*z)",
+    "jacobian_diagonal": [
+      "-0.0013320470096252780466281417115288549193548387096774193548387096774193548387096774",
+      "0.00053408228825494149350649350649350649350649350649350649350649350649350649350649351",
+      "0.0015356510518939534774423994857329261111111111111111111111111111111111111111111111"
+    ],
+    "sources": {
+      "s_chi": "0.000003303146538146961825632676902236376953125",
+      "s_kappa": "0.0008224867239126099",
+      "s_zeta": "0.000002535771057253248704561314757407654534494236188625240720272049169054501778880077"
+    },
+    "stability_scope": "Banach stability applies to iteration of this declared three-variable map, not to regulator refinement, radiative stability, or source-law selection.",
+    "unique_iteratively_stable_fixed_point": [
+      "0.00082139259036888067154037604759001311888326410294873053619173814367245009379753033",
+      "0.0000033049116329143490964137224440952851995028071551316330560996843302963140859079224",
+      "0.0000025396711058584248747941390436163521697163477079634421552919451132373330004134667"
+    ]
+  },
+  "runtime_charged_reference_consumed": false,
+  "runtime_dependency": {
+    "mpmath": "1.3.0"
+  },
+  "scoped_source_normalization_non_rigidity": {
+    "statement": "The three explicit integer source-multiplier witnesses retain the displayed diagonal Jacobian and contraction while changing the masses. Thus those enumerated admissibility properties do not select unit source normalization. This is not a non-entailment theorem for every OPH axiom.",
+    "witnesses": [
+      {
+        "fixed_point": [
+          "0.0016427851807377613430807520951800262377665282058974610723834762873449001875950607",
+          "0.0000033049116329143490964137224440952851995028071551316330560996843302963140859079224",
+          "0.0000025396711058584248747941390436163521697163477079634421552919451132373330004134667"
+        ],
+        "masses_mev": [
+          "0.51141885402437495618599920581998266347422676818077410780782358928769717670487184",
+          "105.74519816109174625858747568752011612776125610124987330484245857584399410786649",
+          "1778.3901567488331191868338378352532916423482391419244129253294901254087603039529"
+        ],
+        "same_jacobian_and_contraction": true,
+        "source_multipliers": [
+          2,
+          1,
+          1
+        ]
+      },
+      {
+        "fixed_point": [
+          "0.00082139259036888067154037604759001311888326410294873053619173814367245009379753033",
+          "0.0000066098232658286981928274448881905703990056143102632661121993686605926281718158447",
+          "0.0000025396711058584248747941390436163521697163477079634421552919451132373330004134667"
+        ],
+        "masses_mev": [
+          "0.51105234248115087627277839471877544753619316558012858640165762213270445752691133",
+          "105.6533111371710285584237809134922978040358307085120021924017898242731168188473",
+          "1776.8295232872117295984342820995146177516390359548588046747565132326272896756672"
+        ],
+        "same_jacobian_and_contraction": true,
+        "source_multipliers": [
+          1,
+          2,
+          1
+        ]
+      },
+      {
+        "fixed_point": [
+          "0.00082139259036888067154037604759001311888326410294873053619173814367245009379753033",
+          "0.0000033049116329143490964137224440952851995028071551316330560996843302963140859079224",
+          "0.0000050793422117168497495882780872327043394326954159268843105838902264746660008269334"
+        ],
+        "masses_mev": [
+          "0.51095250496486147594688135603349462525672461761545007109238655559377262807781317",
+          "105.66383734012222489778671262147340765320747586968762463599773439664059525259307",
+          "1776.9996648597772383259137957287292946021541064553428212216208700987807046784394"
+        ],
+        "same_jacobian_and_contraction": true,
+        "source_multipliers": [
+          1,
+          1,
+          2
+        ]
+      }
+    ]
+  },
+  "status": "CONDITIONAL_FIXED_POINT_AND_READOUT_CLOSED_SOURCE_LAW_RIGIDITY_OPEN"
+}

@@ -1926,7 +1926,53 @@ Any invariant scalar assigned to a transitive twelve-port orbit is split
 equally across the ports, so the local port read is \(X/12\).
 \end{proof}
 
-The theorem fixes the canonical twelve-port branch. Its role is to give the
+\begin{theorem}[Icosahedral face-corner bundle]
+\label{thm:icosahedral-face-corner-bundle}
+On the icosahedral screen-sieve branch, the twenty outward-oriented triangular
+faces form the homogeneous orbit
+\[
+\mathsf F_{20}\simeq A_5/C_3.
+\]
+The stabilizer of a face acts regularly on its three corners.  Hence the face
+orbit carries an \(A_5\)-associated bundle of local three-dimensional
+permutation fibers with cyclic shift \(R^3=1\).  A fiberwise Hermitian operator
+\(C\) that is transported \(A_5\)-equivariantly across the face orbit and
+commutes fiberwise with this shift has the circulant form
+\[
+C=a1+bR+\overline bR^2,
+\]
+and its unordered real spectrum is independent of the chosen face
+representative.  Reversing the face orientation exchanges \(R\) and \(R^2\)
+and preserves that unordered spectrum.
+\end{theorem}
+
+\begin{proof}
+The icosahedron has \((V,E,F)=(12,30,20)\).  The orientation-preserving
+icosahedral group \(A_5\) is transitive on the outward-oriented faces.  By
+orbit--stabilizer the face stabilizer has order \(60/20=3\), hence is
+\(C_3\), and its nontrivial rotations cyclically permute the three corners.
+The commutant of the regular cyclic shift on one fiber is the circulant
+algebra; Hermiticity gives the displayed coefficients.  The stated
+\(A_5\)-equivariance transports that operator to every other face by
+conjugation and therefore preserves the spectrum.  Without this equivariance,
+independent coefficients could be chosen on different faces.  Orientation
+reversal complex-conjugates the transported presentation and again preserves
+the unordered real eigenvalues.
+\end{proof}
+
+\begin{remark}[Face-carrier boundary]
+The theorem supplies local geometric \(C_3\) fibers, not one canonical global
+three-dimensional matter-family space.  The sixty face-corner flags form a
+free transitive \(A_5\)-set, whose linearization is the regular
+sixty-dimensional \(A_5\) representation.  A physical family claim therefore
+requires a quotient-visible section, connection, or intertwiner from this
+bundle to the relevant matter multiplicity space.  Cyclic covariance alone
+also leaves \(a\), \(|b|\), and \(\arg b\) free.  In particular this theorem
+does not emit a charged-family phase, determinant normalization, or mass
+coordinate.
+\end{remark}
+
+The screen-sieve theorem fixes the canonical twelve-port branch. Its role is to give the
 reference patch enough boundary structure to support nontrivial overlap
 comparison, symmetry tests, verifier-shadow behavior, and cross-patch routing
 while remaining small enough for explicit evidence records.

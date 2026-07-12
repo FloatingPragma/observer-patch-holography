@@ -1,0 +1,863 @@
+{
+  "absolute_scale_contract": {
+    "legacy_P_default": 1.63094,
+    "legacy_dimensionful_constant": {
+      "name": "E_PLANCK_GEV",
+      "source_class": "externally_normalized_legacy_constant",
+      "source_path": "code/particles/calibration/legacy_d10/particle_masses_paper_d10_d11.py",
+      "value": 1.22089e+19
+    },
+    "missing_clock_components": [
+      "R_alpha",
+      "R_e_abs",
+      "R_QCD_nuc_133Cs",
+      "R_atom_133Cs"
+    ],
+    "no_g_clock_status": "skeleton_passes_forbidden_gravity_path_check_but_missing_component_certificates",
+    "promotion_allowed": false,
+    "source_closed": false,
+    "status": "open_independent_dimensionful_scale_theorem"
+  },
+  "artifact": "oph_boson_source_prediction_closure_audit",
+  "branch_consistency": {
+    "all_branch_ids_distinct": true,
+    "branch_count": 4,
+    "mixed_branch_consumption_allowed": false,
+    "required_rule": "one branch_id must be used from P through the physical pole leaves",
+    "single_end_to_end_branch_selected": false
+  },
+  "claim": {
+    "observables": [
+      "W",
+      "Z",
+      "H"
+    ],
+    "overall_status": "source_incomplete_no_end_to_end_wzh_pole_prediction",
+    "prediction_promotion_allowed": false,
+    "required_mass_convention": "complex_propagator_pole"
+  },
+  "comparison_adapters": {
+    "d11_declared_surface_promotion_allowed": false,
+    "d11_reference_adapter_promotable": false,
+    "d11_reference_adapter_status": "compare_only_exact_reference_adapter",
+    "ht_boundary_status": "declared_surface_output_recorded_interval_inputs_missing",
+    "selection_status": "conditional_selection_theorem_axioms_named",
+    "wz_boundary_status": "compare_only_boundary"
+  },
+  "d10_quotient_transport_review": {
+    "artifact": "oph_d10_ew_quotient_transport_receipt",
+    "certificate_contract": {
+      "certificate_input_present": false,
+      "certificate_input_status": "missing_no_path_enumeration_supplied",
+      "expected_input_path": "code/particles/runs/calibration/d10_ew_quotient_path_certificate.json",
+      "promotion_allowed": false,
+      "realized_carrier_enumeration_verifier_present": false,
+      "required_sections": [
+        "realized_carrier_and_quotient_canonicalizer_hashes",
+        "explicit_charged_and_neutral_path_lists",
+        "exact_rational_color_measure_and_incidence_counts",
+        "Z6_projector_and_normalized_trace",
+        "fibre_Gram_and_residual_pairing",
+        "complete_deformation_enumeration_and_positive_MAR_gap",
+        "same_branch_target_free_source_DAG",
+        "exact_verifier_receipt_bound_to_the_certificate_hash"
+      ],
+      "schema_conformance_is_sufficient_for_source_evidence": false,
+      "schema_path": "code/particles/calibration/d10_ew_quotient_path_certificate.schema.json",
+      "schema_present": true,
+      "simulation_or_exact_enumeration_required": true,
+      "synthetic_path_fixture_eligible_as_source_evidence": false
+    },
+    "certificate_status": "certificate_assumed_not_enumerated",
+    "certificate_verified": false,
+    "conditional_theorem_algebra_verified": true,
+    "domain_checks": {
+      "alpha2_positive": true,
+      "alphaY_positive": true,
+      "eta_positive": true,
+      "repaired_couplings_positive": true,
+      "rho_in_open_unit_interval": true,
+      "v_positive": true
+    },
+    "generated_utc": "2026-07-12T09:32:04Z",
+    "notes": [
+      "The correspondence verifier validates the conditional algebra and local chart; it proves none of QT1--QT5.",
+      "QT3 is the coefficient-emission premise, whereas QT5 separately excludes additional admissible deformations.",
+      "The numerical specialization uses the archived legacy D10 tuple, not a demonstrated same-branch evaluation at P_cand."
+    ],
+    "numerical_specialization": {
+      "W_GeV": 80.37700001539531,
+      "Z_GeV": 91.18797807794321,
+      "alpha2_hat": 0.03377062800115824,
+      "alphaY_hat": 0.009695476921798464,
+      "alpha_U": 0.04112498041477454,
+      "delta_n": 0.0002346358802434819,
+      "lambda_EW": 0.00022769874427635073,
+      "rho": 0.5385291530498766,
+      "source_tuple_scope": "archived_legacy_D10_calibration_tuple_not_strict_P_cand_branch",
+      "tau2": -0.0002311623001746158,
+      "tauY": -0.04406283002558085
+    },
+    "physical_mass_semantics": "canonically_normalized_D10_mass_chart_not_complex_pole",
+    "physical_pole_attachment": {
+      "analytic_continuation_and_riemann_sheet_fixed": false,
+      "closed": false,
+      "required_convention": "s_B=(M_B-i*Gamma_B/2)^2",
+      "self_energy_and_pole_enclosure_present": false
+    },
+    "physical_pole_attachment_closed": false,
+    "premises": [
+      {
+        "certificate_evidence_status": "assumed_not_enumerated",
+        "id": "QT1",
+        "missing": "finite quotient canonicalizer and proof that no third or cross channel survives",
+        "name": "two_channel_quotient_exhaustion",
+        "source_emitted_by_current_repo": false
+      },
+      {
+        "certificate_evidence_status": "assumed_not_enumerated",
+        "id": "QT2",
+        "missing": "finite path measure and equiprobable four-slot proof",
+        "name": "primitive_mixed_cumulant_normalization",
+        "source_emitted_by_current_repo": false
+      },
+      {
+        "certificate_evidence_status": "assumed_not_enumerated",
+        "id": "QT3",
+        "missing": "explicit charged/neutral path lists, exact 1/3 color measure, and central projector trace 1/6; without QT3 the displayed value-law coefficients remain free",
+        "name": "oriented_root_path_incidence_and_Z6_subtraction",
+        "source_emitted_by_current_repo": false
+      },
+      {
+        "certificate_evidence_status": "assumed_not_enumerated",
+        "id": "QT4",
+        "missing": "finite-carrier Gram and residual-pairing certificate",
+        "name": "sign_and_least_norm_fibre_closure",
+        "source_emitted_by_current_repo": false
+      },
+      {
+        "certificate_evidence_status": "assumed_not_enumerated",
+        "id": "QT5",
+        "missing": "deformation enumeration or positive target-free MAR gap; without QT5 additional output-changing paths or deformations remain unexcluded even if QT3 is assumed",
+        "name": "path_completeness_and_rigidity",
+        "source_emitted_by_current_repo": false
+      }
+    ],
+    "promotion_allowed": false,
+    "relation_to_color_balanced_candidate": {
+      "models_are_alternatives_not_cumulative_gates": true,
+      "same_law": false,
+      "statement": "The sqrt(N_c)/2 and raw N_c color-balanced rule is a distinct leading-quadratic alternative. The complete archived law is not the simple c=1/(4*rho) competitor, and the present data comparison does not exclude the complete archived law."
+    },
+    "reviewed_material": [],
+    "same_branch_source_packet_closed": false,
+    "source_artifacts": {
+      "canonical_evaluator": "code/particles/calibration/derive_d10_ew_target_free_repair_value_law.py::evaluate_candidate_from_source_basis",
+      "canonical_value_law": "code/particles/runs/calibration/d10_ew_target_free_repair_value_law.json",
+      "source_pair": "code/particles/runs/calibration/d10_ew_source_transport_pair.json"
+    },
+    "source_entailment_status": "QT1_QT5_are_assumptions_not_current_source_emissions",
+    "status": "exact_conditional_implication_QT1_QT5_source_entailment_open",
+    "unconditional_d10_source_theorem_closed": false,
+    "value_law_consistency_checks": {
+      "alphaY_recomposition_residual": 0.0,
+      "canonical_artifact_max_abs_residual": 0.0,
+      "mass_chart_jacobian_det": 1851.4964096640545,
+      "mass_chart_nondegenerate": true,
+      "parallel_fibre_identity_residual": 4.531626267810507e-20
+    }
+  },
+  "generated_utc": "2026-07-12T09:53:20Z",
+  "input_manifest": [
+    {
+      "bytes": 5021,
+      "path": "code/P_derivation/runtime/measured_endpoint_calibration_current.json",
+      "sha256": "caa241c5a851a8a4760361989cc8e58221ad0e8b898bb1feffa409e05017615f"
+    },
+    {
+      "bytes": 6758,
+      "path": "code/P_derivation/runtime/p_closure_trunk_current.json",
+      "sha256": "52b5dae26d7774428f231e8b5ba487363b0847680eb73471d158800efa3dee90"
+    },
+    {
+      "bytes": 3132,
+      "path": "code/P_derivation/runtime/rg_matching_threshold_contract_current.json",
+      "sha256": "f79d0d0f0df3dad369f7d8ee448a2bcd6c0cf9fb2ef210c4cb3f2bc01981e68b"
+    },
+    {
+      "bytes": 13732,
+      "path": "code/particles/calibration/boson_source_prediction_closure_audit.schema.json",
+      "sha256": "4d8ca8698f2fb05aaacc84d81fa1414c36fe218a4372d7f80a235d45f408d38c"
+    },
+    {
+      "bytes": 8043,
+      "path": "code/particles/calibration/d10_ew_quotient_path_certificate.schema.json",
+      "sha256": "7d9757901d91ef1dfd7f7e54442e4ca64f136ccb7a56172e39b84c0d75a3185a"
+    },
+    {
+      "bytes": 33894,
+      "path": "code/particles/calibration/derive_boson_source_prediction_closure_audit.py",
+      "sha256": "361c2f89f6f3e8526fb11635d28452caf1f4ef460f9fcba21648016f69658756"
+    },
+    {
+      "bytes": 10118,
+      "path": "code/particles/calibration/derive_color_amplitude_loop_split.py",
+      "sha256": "40cf5084a50c13046a62ae03c597764b624b572fb85cb05afd936f335f17e704"
+    },
+    {
+      "bytes": 11670,
+      "path": "code/particles/calibration/derive_d10_ew_quotient_transport_receipt.py",
+      "sha256": "a2d96013d038a93f1260f41f880f2a2bee5536f669415bed044436856f55a527"
+    },
+    {
+      "bytes": 11694,
+      "path": "code/particles/calibration/derive_d10_ew_target_free_repair_value_law.py",
+      "sha256": "0d0befa440a53739c87a8f1b024e3fb1671709889929f3fece136a6bff972b45"
+    },
+    {
+      "bytes": 12531,
+      "path": "code/particles/calibration/derive_d11_live_exact_split_pair_theorem.py",
+      "sha256": "8cdb12e542fc6ac7edaffde578a37773848189074820e183b9da732992329a60"
+    },
+    {
+      "bytes": 21707,
+      "path": "code/particles/calibration/legacy_d10/particle_masses_paper_d10_d11.py",
+      "sha256": "78e7f0bfdd85e8bc8bf6d412d92b891b5781e0cb31ba1ab97c3211dc0ef1d50b"
+    },
+    {
+      "bytes": 3775,
+      "path": "code/particles/hierarchy/certificates/DAG_U.json",
+      "sha256": "dd3c0a1dbe97d7dc4db7e963a06e403576a99020773526afcb7850689c90e129"
+    },
+    {
+      "bytes": 1065,
+      "path": "code/particles/hierarchy/certificates/R_HT_declared_surface_certificate.json",
+      "sha256": "3eb749b766308013d1f839c8838c32e1b59cb8ed2e4e079f4b7ba8b7397c4575"
+    },
+    {
+      "bytes": 1080,
+      "path": "code/particles/hierarchy/certificates/R_P_public_pixel_certificate.json",
+      "sha256": "1d37c44e5d1f1777667eae443ef7af6c5c054fcc3683bb1edb6919b2e2ccee07"
+    },
+    {
+      "bytes": 558,
+      "path": "code/particles/hierarchy/certificates/R_P_source_audit_pixel_certificate.json",
+      "sha256": "11aeb17fd03b032af987100f8b865786f77b17c6d81aa4a649984e5059f42010"
+    },
+    {
+      "bytes": 468,
+      "path": "code/particles/hierarchy/certificates/R_WZ_boundary_certificate.json",
+      "sha256": "733f3d1471f625f4f1ca45b6619068bb97ca2b71e2a32deee143efb6af759a96"
+    },
+    {
+      "bytes": 1063,
+      "path": "code/particles/hierarchy/certificates/R_gamma_noG_DAG_certificate.json",
+      "sha256": "aa77973aa8e5fc0c58db7035ee165ce04eae0b1d4ce6d5d469929ec33ea1fed2"
+    },
+    {
+      "bytes": 2358,
+      "path": "code/particles/hierarchy/computations/hierarchy_numeric_witness.json",
+      "sha256": "42be5381c4fcfbb121d8deb0771c51e5ecadf5414b81e13b3ab92bd64d8efa63"
+    },
+    {
+      "bytes": 3247,
+      "path": "code/particles/runs/calibration/color_amplitude_loop_split.json",
+      "sha256": "be7872116036b0d75367115191f0ccf374ffb21b1d2f42ec1b3ff8cf9f5d611a"
+    },
+    {
+      "bytes": 2883,
+      "path": "code/particles/runs/calibration/d10_ew_minimal_conditional_theorem.json",
+      "sha256": "9d6c474de02674966b368743792b7f68c2616475fe0ad765e0d0826aaf0e88a2"
+    },
+    {
+      "bytes": 3693,
+      "path": "code/particles/runs/calibration/d10_ew_observable_family.json",
+      "sha256": "1232c506da197c73b683a479fb9d312fb3655c03d0945051ce31567b309c4616"
+    },
+    {
+      "bytes": 5681,
+      "path": "code/particles/runs/calibration/d10_ew_quotient_transport_receipt.json",
+      "sha256": "4433648b059799b7e2503a40b95b04eb4445541d626ad7d93f02c5084d2efdc2"
+    },
+    {
+      "bytes": 9245,
+      "path": "code/particles/runs/calibration/d10_ew_source_transport_pair.json",
+      "sha256": "dbe49a7a53dfaa9488acc406a3b86cf9a5dad3cc22a2af11f2e619124c14092a"
+    },
+    {
+      "bytes": 4715,
+      "path": "code/particles/runs/calibration/d10_ew_target_free_repair_value_law.json",
+      "sha256": "6ec1c075fc38f7bbe799408270650ae120aa1efd4d281284ac904d4dbab03bb1"
+    },
+    {
+      "bytes": 6490,
+      "path": "code/particles/runs/calibration/d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json",
+      "sha256": "416aa8d00909411521f80bca1b5259752fc7bdd008fbc4e953f77a3009caf43f"
+    },
+    {
+      "bytes": 4052,
+      "path": "code/particles/runs/calibration/d10_repair_tuple_selection_theorem.json",
+      "sha256": "0377609ef228190c4e555a721570bd942549963c852ff13d1c1ee73a6dfdd0d8"
+    },
+    {
+      "bytes": 1763,
+      "path": "code/particles/runs/calibration/d11_declared_calibration_surface.json",
+      "sha256": "2aa48ba9e74474f2f96922850af7f553e3a0e8311ea0aefdd022ad78e2560008"
+    },
+    {
+      "bytes": 6586,
+      "path": "code/particles/runs/calibration/d11_live_exact_split_pair_theorem.json",
+      "sha256": "4f1339ef8716dc3f8b623a1ca0fe294a185dd57e9574ab84b00b2d8d2fcf3637"
+    },
+    {
+      "bytes": 2177,
+      "path": "code/particles/runs/calibration/d11_reference_exact_adapter.json",
+      "sha256": "906056a47fd3ed3290c64cc04d43acb9191c987e579d35d0a22950c597495d41"
+    }
+  ],
+  "mass_surfaces": [
+    {
+      "branch_id": "legacy_d10_P_1p63094",
+      "classification": "selected_carrier_tree_or_running_mass_coordinate",
+      "legacy_value_keys": [
+        "MW_pole",
+        "MZ_pole"
+      ],
+      "physical_mass_semantics": "tree_level_algebraic_coordinate_not_certified_complex_pole",
+      "physical_pole_certified": false,
+      "promotion_allowed": false,
+      "source_artifact": "code/particles/runs/calibration/d10_ew_source_transport_pair.json",
+      "source_unique": false,
+      "surface_id": "d10_selected_current_carrier",
+      "values": {
+        "W_GeV": 80.38629169244275,
+        "Z_GeV": 91.18290444674243
+      }
+    },
+    {
+      "boundary_adapter_alias_values": {
+        "W_GeV": "80.377",
+        "Z_GeV": "91.18797809193725"
+      },
+      "branch_id": "legacy_d10_P_1p63094",
+      "classification": "candidate_only_retrospective_selection_not_source_unique",
+      "legacy_value_keys": [
+        "MW_pole",
+        "MZ_pole"
+      ],
+      "physical_mass_semantics": "tree_level_algebraic_coordinate_not_certified_complex_pole",
+      "physical_pole_certified": false,
+      "promotion_allowed": false,
+      "source_artifact": "code/particles/runs/calibration/d10_ew_target_free_repair_value_law.json",
+      "source_unique": false,
+      "surface_id": "d10_running_tree_repair_candidate",
+      "values": {
+        "W_GeV": 80.37700001539531,
+        "Z_GeV": 91.18797807794321
+      }
+    },
+    {
+      "branch_id": "legacy_d10_P_1p63094",
+      "classification": "inverse_target_adapter_compare_only",
+      "legacy_value_keys": [
+        "MW_pole",
+        "MZ_pole"
+      ],
+      "physical_mass_semantics": "reference_frozen_algebraic_coordinate_not_prediction",
+      "physical_pole_certified": false,
+      "promotion_allowed": false,
+      "source_artifact": "code/particles/runs/calibration/d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json",
+      "source_unique": false,
+      "surface_id": "d10_freeze_once_reference_adapter",
+      "values": {
+        "W_GeV": 80.3625,
+        "Z_GeV": 91.1879
+      }
+    },
+    {
+      "branch_id": "legacy_d10_P_1p63094",
+      "classification": "conditional_declared_surface_coordinate",
+      "legacy_value_keys": [
+        "mH_gev",
+        "mt_pole_gev"
+      ],
+      "physical_mass_semantics": "declared_surface_linearized_readout_not_certified_complex_pole",
+      "physical_pole_certified": false,
+      "promotion_allowed": false,
+      "source_artifact": "code/particles/runs/calibration/d11_live_exact_split_pair_theorem.json",
+      "source_unique": false,
+      "surface_id": "d11_declared_surface_conditional_split",
+      "values": {
+        "H_GeV": 125.1995304097179,
+        "top_companion_GeV": 172.3523553288312
+      }
+    }
+  ],
+  "physical_pole_contract": {
+    "BRST_complete_mixing_blocks_present": false,
+    "Ward_Slavnov_Taylor_and_Nielsen_receipts_present": false,
+    "analytic_continuation_and_riemann_sheet_fixed": false,
+    "analytic_field_redefinition_invariance_checked": false,
+    "contour_uniqueness_or_fixed_order_pole_certificate_present": false,
+    "legacy_fields_named_pole_are_physical_pole_certificates": false,
+    "physical_residue_certificate_present": false,
+    "promotion_allowed": false,
+    "required_mass_convention": "s_B=(M_B-i*Gamma_B/2)^2",
+    "required_objects": [
+      "BRST_complete_physical_inverse_two_point_blocks_Gamma_W_Gamma_Z_Gamma_H",
+      "Ward_Slavnov_Taylor_projectors_and_Nielsen_identities",
+      "complex_determinant_zero_on_declared_Riemann_sheets",
+      "uniqueness_and_stability_certificate",
+      "nonzero_physical_residues_widths_and_uncertainty_budget",
+      "analytic_continuation_and_physical_riemann_sheet_selection"
+    ],
+    "self_energy_functions_present": false,
+    "status": "open_no_wzh_complex_pole_certificate",
+    "truncation_refinement_uncertainty_bounds_present": false,
+    "widths_present": false
+  },
+  "promotion_decision": {
+    "all_required_gates_passed": false,
+    "alternative_model_policy": "Close one source-emitted D10 repair model: either the complete QT1--QT5 quotient-path law or a separately derived color-balanced alternative. The two are alternatives, not cumulative premises.",
+    "failed_gate_ids": [
+      "T02_absolute_scale_no_go",
+      "T05_d10_source_uniqueness",
+      "T07_rg_threshold_matching_uniqueness",
+      "T08_conditional_d11_higgs_closure",
+      "T09_branch_rigidity_mar",
+      "T10_complex_pole_promotion",
+      "T11_deterministic_source_separation",
+      "T12_full_wzh_source_prediction"
+    ],
+    "higgs_status": "conditional_declared_surface_candidate",
+    "overall_status": "source_incomplete_no_end_to_end_wzh_pole_prediction",
+    "prediction_promotion_allowed": false,
+    "shared_blockers": [
+      "no_single_promotable_P_branch_feeds_the_current_D10_D11_mass_chain",
+      "independent_dimensionful_scale_or_clock_theorem_open",
+      "D10_source_model_selection_open_QT_path_law_or_alternative",
+      "concrete_RG_threshold_matching_scheme_receipt_open",
+      "D11_DS1_DS5_split_character_core_Jacobian_provenance_and_rigidity_open",
+      "complex_pole_and_uncertainty_certificate_open",
+      "full_target_free_dependency_DAG_and_prospective_manifest_open"
+    ],
+    "strongest_clean_numeric_statement": "dimensionless_electroweak_hierarchy_v_over_E_star_on_declared_branch",
+    "wz_status": "source_incomplete"
+  },
+  "repair_coefficient_normalization": {
+    "N_c": 3,
+    "charged_channel": {
+      "formula": "c=sqrt(N_c)/2",
+      "generator_half_weight": 0.5,
+      "normalized_chart_coefficient_c": 0.8660254037844386,
+      "raw_amplitude_multiplicity": 1.7320508075688772
+    },
+    "conditionality": {
+      "applies_to_surface": "historical_color_balanced_quadratic_descent_only",
+      "arithmetic_normalization_closed": true,
+      "does_not_derive_surface": "d10_running_tree_repair_candidate",
+      "promotion_allowed": false,
+      "source_only_theorem_emitted": false,
+      "transport_channel_identification_closed": false
+    },
+    "neutral_channel": {
+      "chart_formula": "delta_n=d*(1-beta_EW)*eta_source^2",
+      "delta_n_value": 0.0003395200096630408,
+      "normalization_identity": "(alpha2_mz+alphaY_mz)*(1-beta_EW)=2*alphaY_mz",
+      "normalization_identity_lhs": 0.020263202134483252,
+      "normalization_identity_residual": 3.469446951953614e-18,
+      "normalization_identity_rhs": 0.02026320213448325,
+      "normalized_chart_coefficient_d": 1.5,
+      "physical_uplift_formula": "delta_alphaY_perp=N_c*alphaY_mz*eta_source^2",
+      "raw_hypercharge_trace_weight": 3.0,
+      "uplift_from_chart": 1.490833631197396e-05,
+      "uplift_from_raw_trace": 1.4908336311973958e-05,
+      "uplift_identity_residual": 1.6940658945086007e-21
+    }
+  },
+  "reviewed_correspondence_manifest": [],
+  "rg_matching_contract": {
+    "concrete_transport_receipt_present": false,
+    "declared_convention_contract_present": true,
+    "interval_composition_certificate_present": false,
+    "loop_order_thresholds_matching_and_scheme_fully_frozen": false,
+    "promotion_allowed": false,
+    "required_objects": [
+      "scheme_lock",
+      "threshold_map",
+      "beta_provenance_table",
+      "matching_interval_composition_certificate"
+    ],
+    "source_artifact": "code/P_derivation/runtime/rg_matching_threshold_contract_current.json",
+    "status": "closed_declared_convention_contract_not_rg_matching_theorem"
+  },
+  "schema_version": "1.0.0",
+  "source_branches": {
+    "compressed_p_trunk_candidate": {
+      "P": "1.63097210492078846050203640439",
+      "alpha_U": null,
+      "branch_id": "compressed_p_trunk_candidate",
+      "eligible_for_source_only_mass_prediction": false,
+      "reason": "The compressed candidate trunk explicitly forbids live-prediction consumption.",
+      "source_artifact": "code/P_derivation/runtime/p_closure_trunk_current.json",
+      "source_class": "compressed_candidate_trunk_not_final_particle_root",
+      "v_over_E_star": null
+    },
+    "legacy_d10_P_1p63094": {
+      "P": "1.63094",
+      "alpha_U": "0.04112498041477454",
+      "branch_id": "legacy_d10_P_1p63094",
+      "eligible_for_source_only_mass_prediction": false,
+      "reason": "The legacy branch uses rounded P and the externally normalized E_PLANCK_GEV constant.",
+      "source_artifact": "code/particles/runs/calibration/d10_ew_observable_family.json",
+      "source_class": "legacy_rounded_calibration_carrier_with_external_dimensionful_scale",
+      "v_over_E_star": null
+    },
+    "public_endpoint_P_C": {
+      "P": "1.630968209403959324879279847782648941",
+      "P_full_precision_endpoint_record": "1.6309682094039593248792798477826489413359828516279250606661507533907793398933432",
+      "alpha_U": "0.041124336195630495",
+      "branch_id": "public_endpoint_P_C",
+      "eligible_for_source_only_mass_prediction": false,
+      "reason": "conditional_public_endpoint_certificate",
+      "source_artifact": "code/particles/hierarchy/certificates/R_P_public_pixel_certificate.json",
+      "source_class": "public_endpoint_conditioned_branch",
+      "v_over_E_star": "2.0199803239725553e-17"
+    },
+    "source_audit_P_cand": {
+      "P": "1.63097209569432901817967892561191884270169",
+      "alpha_U": "0.04112424744557487",
+      "branch_id": "source_audit_P_cand",
+      "eligible_for_source_only_mass_prediction": false,
+      "reason": "source_audit_branch_witness_not_full_endpoint_proof",
+      "source_artifact": "code/particles/hierarchy/certificates/R_P_source_audit_pixel_certificate.json",
+      "source_class": "source_audit_witness_not_full_endpoint_proof",
+      "v_over_E_star": "2.0198114150099223e-17"
+    }
+  },
+  "source_dependency_dag": {
+    "declared_hierarchy_dag_pass": true,
+    "declared_hierarchy_dag_status": "passes_declared_forbidden_ancestor_check",
+    "edges": [
+      {
+        "from": "measured_thomson_endpoint",
+        "to": "public_endpoint_P_C"
+      },
+      {
+        "from": "legacy_d10_P_1p63094",
+        "to": "d10_observable_family"
+      },
+      {
+        "from": "legacy_E_PLANCK_GEV",
+        "to": "d10_observable_family"
+      },
+      {
+        "from": "d10_observable_family",
+        "to": "d10_source_transport_pair"
+      },
+      {
+        "from": "d10_source_transport_pair",
+        "to": "d10_selected_current_carrier"
+      },
+      {
+        "from": "d10_source_transport_pair",
+        "to": "d10_running_tree_repair_candidate"
+      },
+      {
+        "from": "measured_WZ_targets",
+        "to": "d10_freeze_once_reference_adapter"
+      },
+      {
+        "from": "d10_running_tree_repair_candidate",
+        "to": "d11_declared_surface_conditional_split"
+      },
+      {
+        "from": "d11_declared_surface",
+        "to": "d11_declared_surface_conditional_split"
+      },
+      {
+        "from": "measured_HT_targets",
+        "to": "d11_reference_adapter"
+      }
+    ],
+    "forbidden_target_sources": [
+      "measured_thomson_endpoint",
+      "measured_WZ_targets",
+      "measured_HT_targets"
+    ],
+    "full_file_level_runtime_ancestry_certified": false,
+    "human_formula_selection_ancestry_certified": false,
+    "mixed_branch_consumption_allowed": false,
+    "nodes": [
+      {
+        "class": "external_measurement",
+        "id": "measured_thomson_endpoint"
+      },
+      {
+        "class": "endpoint_conditioned_branch",
+        "id": "public_endpoint_P_C"
+      },
+      {
+        "class": "source_audit_branch",
+        "id": "source_audit_P_cand"
+      },
+      {
+        "class": "candidate_branch",
+        "id": "compressed_p_trunk_candidate"
+      },
+      {
+        "class": "legacy_calibration_branch",
+        "id": "legacy_d10_P_1p63094"
+      },
+      {
+        "class": "external_dimensionful_constant",
+        "id": "legacy_E_PLANCK_GEV"
+      },
+      {
+        "class": "declared_running_surface",
+        "id": "d10_observable_family"
+      },
+      {
+        "class": "carrier_builder",
+        "id": "d10_source_transport_pair"
+      },
+      {
+        "class": "conditional_mass_surface",
+        "id": "d10_selected_current_carrier"
+      },
+      {
+        "class": "candidate_mass_surface",
+        "id": "d10_running_tree_repair_candidate"
+      },
+      {
+        "class": "external_measurement",
+        "id": "measured_WZ_targets"
+      },
+      {
+        "class": "inverse_adapter",
+        "id": "d10_freeze_once_reference_adapter"
+      },
+      {
+        "class": "declared_constants_and_jacobian",
+        "id": "d11_declared_surface"
+      },
+      {
+        "class": "conditional_mass_surface",
+        "id": "d11_declared_surface_conditional_split"
+      },
+      {
+        "class": "external_measurement",
+        "id": "measured_HT_targets"
+      },
+      {
+        "class": "inverse_adapter",
+        "id": "d11_reference_adapter"
+      }
+    ],
+    "promotion_allowed": false,
+    "prospective_pre_reference_manifest_present": false,
+    "protected_outputs": [
+      "d10_selected_current_carrier",
+      "d10_running_tree_repair_candidate",
+      "d11_declared_surface_conditional_split"
+    ],
+    "single_end_to_end_source_branch_selected": false,
+    "status": "declared_artifact_graph_acyclic_full_runtime_and_human_ancestry_open"
+  },
+  "theorem_gates": [
+    {
+      "closure_requirement_status": "satisfied_as_claim_boundary",
+      "evidence": [
+        "continuous (g2,gY,mu2,lambdaH) counterfamily encoded by this audit"
+      ],
+      "gate_passed_for_full_source_prediction": true,
+      "gate_role": "required",
+      "open_requirements": [],
+      "theorem_id": "T01_structural_electroweak_underdetermination",
+      "theorem_status": "closed_generic_no_go",
+      "title": "Structural electroweak underdetermination"
+    },
+    {
+      "closure_requirement_status": "open_independent_scale_or_clock",
+      "evidence": [
+        "code/particles/calibration/legacy_d10/particle_masses_paper_d10_d11.py",
+        "code/particles/hierarchy/certificates/R_gamma_noG_DAG_certificate.json"
+      ],
+      "gate_passed_for_full_source_prediction": false,
+      "gate_role": "required",
+      "open_requirements": [
+        "source-normalized E_star or independent clock/length/energy theorem"
+      ],
+      "theorem_id": "T02_absolute_scale_no_go",
+      "theorem_status": "closed_generic_no_go",
+      "title": "Independent absolute-scale theorem"
+    },
+    {
+      "closure_requirement_status": "satisfied_for_tree_or_running_coordinates_only",
+      "evidence": [
+        "code/particles/runs/calibration/d10_ew_source_transport_pair.json"
+      ],
+      "gate_passed_for_full_source_prediction": true,
+      "gate_role": "required",
+      "open_requirements": [
+        "physical-pole promotion remains T10"
+      ],
+      "theorem_id": "T03_electroweak_running_mass_readout",
+      "theorem_status": "closed_algebraic_chart",
+      "title": "Electroweak running-mass chart"
+    },
+    {
+      "closure_requirement_status": "satisfied_fail_closed",
+      "evidence": [
+        "code/particles/runs/calibration/d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json",
+        "code/particles/runs/calibration/d11_reference_exact_adapter.json"
+      ],
+      "gate_passed_for_full_source_prediction": true,
+      "gate_role": "required",
+      "open_requirements": [],
+      "theorem_id": "T04_inverse_adapters_are_not_predictions",
+      "theorem_status": "closed_classification_theorem",
+      "title": "Inverse adapters are comparison surfaces"
+    },
+    {
+      "closure_requirement_status": "open_QT1_QT5_source_entailment_and_same_branch_packet",
+      "evidence": [
+        "code/particles/runs/calibration/d10_ew_quotient_transport_receipt.json",
+        "code/particles/runs/calibration/d10_ew_minimal_conditional_theorem.json",
+        "code/particles/runs/calibration/d10_repair_tuple_selection_theorem.json"
+      ],
+      "gate_passed_for_full_source_prediction": false,
+      "gate_role": "required",
+      "open_requirements": [
+        "emit QT3 to fix the displayed quotient-path coefficients",
+        "emit QT5 to exclude additional output-changing deformations",
+        "emit the remaining QT1, QT2, and QT4 finite-carrier premises",
+        "bind the theorem to one strict P source branch"
+      ],
+      "theorem_id": "T05_d10_source_uniqueness",
+      "theorem_status": "exact_conditional_QT1_QT5_implication_plus_closed_underdetermination_boundary",
+      "title": "D10 source-uniqueness criterion"
+    },
+    {
+      "closure_requirement_status": "open_and_distinct_from_complete_QT_value_law",
+      "evidence": [
+        "code/particles/runs/calibration/color_amplitude_loop_split.json",
+        "code/particles/runs/calibration/d10_repair_tuple_selection_theorem.json"
+      ],
+      "gate_passed_for_full_source_prediction": false,
+      "gate_role": "alternative_model",
+      "open_requirements": [
+        "prove amplitude/trace channel factorization and scalar-channel exhaustion"
+      ],
+      "theorem_id": "T06_conditional_color_weights",
+      "theorem_status": "conditional_arithmetic_closed_channel_identification_open",
+      "title": "Conditional color-amplitude and color-trace weights"
+    },
+    {
+      "closure_requirement_status": "declared_contract_only_concrete_receipt_open",
+      "evidence": [
+        "code/P_derivation/runtime/rg_matching_threshold_contract_current.json"
+      ],
+      "gate_passed_for_full_source_prediction": false,
+      "gate_role": "required",
+      "open_requirements": [
+        "scheme_lock",
+        "threshold_map",
+        "beta_provenance_table",
+        "matching_interval_composition_certificate"
+      ],
+      "theorem_id": "T07_rg_threshold_matching_uniqueness",
+      "theorem_status": "closed_generic_ode_theorem",
+      "title": "Frozen RG, threshold, matching, and scheme transport"
+    },
+    {
+      "closure_requirement_status": "conditional_declared_surface_upstream_open",
+      "evidence": [
+        "code/particles/runs/calibration/d11_declared_calibration_surface.json",
+        "code/particles/runs/calibration/d11_live_exact_split_pair_theorem.json",
+        "code/particles/hierarchy/certificates/R_HT_declared_surface_certificate.json"
+      ],
+      "gate_passed_for_full_source_prediction": false,
+      "gate_role": "required",
+      "open_requirements": [
+        "promotable D10 source repair",
+        "DS1--DS5 finite D11 split-character and rigidity certificate",
+        "source provenance for D11 core/Jacobian",
+        "BRST-complete pole map"
+      ],
+      "theorem_id": "T08_conditional_d11_higgs_closure",
+      "theorem_status": "conditional_on_unpromoted_d10_repair_candidate",
+      "title": "Conditional D11 Higgs/top split"
+    },
+    {
+      "closure_requirement_status": "open_admissible_class_enumeration_and_unique_argmin",
+      "evidence": [
+        "code/particles/runs/calibration/d10_ew_quotient_transport_receipt.json",
+        "code/particles/runs/calibration/d10_repair_tuple_selection_theorem.json"
+      ],
+      "gate_passed_for_full_source_prediction": false,
+      "gate_role": "required",
+      "open_requirements": [
+        "enumerate admissible D10/D11 deformations",
+        "prove unique target-free selector"
+      ],
+      "theorem_id": "T09_branch_rigidity_mar",
+      "theorem_status": "generic_criterion_recorded",
+      "title": "Branch rigidity or target-independent MAR selection"
+    },
+    {
+      "closure_requirement_status": "open_no_self_energy_or_pole_certificate",
+      "evidence": [],
+      "gate_passed_for_full_source_prediction": false,
+      "gate_role": "required",
+      "open_requirements": [
+        "BRST_complete_physical_inverse_two_point_blocks_Gamma_W_Gamma_Z_Gamma_H",
+        "Ward_Slavnov_Taylor_projectors_and_Nielsen_identities",
+        "complex_determinant_zero_on_declared_Riemann_sheets",
+        "uniqueness_and_stability_certificate",
+        "nonzero_physical_residues_widths_and_uncertainty_budget",
+        "analytic_continuation_and_physical_riemann_sheet_selection"
+      ],
+      "theorem_id": "T10_complex_pole_promotion",
+      "theorem_status": "generic_rouche_criterion_recorded",
+      "title": "Physical complex-pole promotion and stability"
+    },
+    {
+      "closure_requirement_status": "open_full_chain_and_human_selection_ancestry",
+      "evidence": [
+        "code/particles/hierarchy/certificates/DAG_U.json"
+      ],
+      "gate_passed_for_full_source_prediction": false,
+      "gate_role": "required",
+      "open_requirements": [
+        "full file-level DAG",
+        "branch-coherent root",
+        "pre-reference manifest/signature"
+      ],
+      "theorem_id": "T11_deterministic_source_separation",
+      "theorem_status": "declared_partial_dag_only",
+      "title": "Deterministic source DAG and prospective provenance"
+    },
+    {
+      "closure_requirement_status": "open",
+      "evidence": [
+        "code/particles/hierarchy/certificates/R_WZ_boundary_certificate.json",
+        "code/particles/hierarchy/certificates/R_HT_declared_surface_certificate.json"
+      ],
+      "gate_passed_for_full_source_prediction": false,
+      "gate_role": "required",
+      "open_requirements": [
+        "T02",
+        "T05 via one selected D10 model (QT path law or color-balanced alternative)",
+        "T07",
+        "T08",
+        "T09",
+        "T10",
+        "T11"
+      ],
+      "theorem_id": "T12_full_wzh_source_prediction",
+      "theorem_status": "not_closed",
+      "title": "Capstone W/Z/H source prediction"
+    }
+  ]
+}

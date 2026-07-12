@@ -40,12 +40,14 @@ For the live branch, the main path is:
 - `derive_d10_ew_exact_mass_pair_chart_current_carrier.py`
 - `derive_d10_ew_repair_branch_beyond_current_carrier.py`
 - `derive_d10_ew_source_transport_readout.py`
+- `derive_d10_ew_quotient_transport_receipt.py`
 - `derive_d11_declared_calibration_surface.py`
 - `derive_d11_forward_seed.py`
 - `derive_d11_forward_seed_promotion_certificate.py`
 - `derive_d11_fixed_ray_no_go_theorem.py`
 - `derive_d11_live_exact_higgs_promotion.py`
 - `derive_d11_live_exact_split_pair_theorem.py`
+- `derive_boson_source_prediction_closure_audit.py`
 
 The live D10 split is explicit:
 
@@ -59,13 +61,35 @@ The live D10 split is explicit:
   `D10GravitySharedEdgeEntropyBridge`
 
 So the current carrier is not treated as the whole D10 story. It closes its own
-exact chart, the W/Z mass lane is carried by the closed target-free source-only
-mass theorem above that carrier, and the electromagnetic row is read on the
+algebraic chart. The stronger W/Z value law above that carrier is a
+runtime target-free-input candidate, not a closed source theorem: the exact
+conditional quotient-transport implication still assumes the finite QT1--QT5
+path certificate, and the present corpus does not emit that certificate or
+bind it to one strict pixel branch. The electromagnetic row is read on the
 Ward-projected `U(1)_Q` transport family anchored at
 `alpha_em^-1(m_Z^2)=128.30576920234813`. The Thomson endpoint stored in this
 lane is a reference comparison field, not a source-emitted prediction. The
 older repair-branch artifacts stay on disk as scaffolding and validation layers
 rather than as the public electromagnetic theorem.
+
+The fail-closed composition receipt
+[`boson_source_prediction_closure_audit.json`](../runs/calibration/boson_source_prediction_closure_audit.json)
+keeps the rounded legacy carrier, public-endpoint pixel, source-audit pixel,
+and compressed candidate trunk separate. It also distinguishes the current
+carrier, the selected repair candidate, the freeze-once inverse adapter, and
+the conditional D11 surface. No W, Z, or Higgs complex-pole prediction is
+promoted while the scale, QT1--QT5, RG, rigidity, source-DAG, pole, and
+uncertainty gates remain open.
+The dedicated conditional receipt
+[`d10_ew_quotient_transport_receipt.json`](../runs/calibration/d10_ew_quotient_transport_receipt.json)
+reuses the canonical target-free-input value-law evaluator, verifies its fibre
+identities and nondegenerate local chart, and records every QT1--QT5 premise as
+`assumed_not_enumerated`. In particular, missing QT3 leaves the displayed path
+coefficients free, while missing QT5 leaves additional deformations unexcluded.
+The implementation contract for freezing the actual D10/D11 self-reading
+carriers, generating exact certificates, and keeping the separate clock, RG,
+BRST-pole, uncertainty, and provenance gates fail-closed is
+[`WZH_SOURCE_CLOSURE_CAMPAIGN.md`](WZH_SOURCE_CLOSURE_CAMPAIGN.md).
 
 The local gravity bridge is carried on the stated local extension surface. On
 the lifted product presentation of the realized quotient branch, the
@@ -104,36 +128,42 @@ python3 particles/calibration/derive_d10_ew_observable_family.py
 python3 particles/calibration/test_d10_observable_family_artifact.py
 python3 particles/calibration/derive_d10_ew_transport_kernel.py
 python3 particles/calibration/test_d10_ew_transport_kernel_artifact.py
+python3 particles/calibration/derive_d10_ew_quotient_transport_receipt.py
+python3 particles/calibration/derive_boson_source_prediction_closure_audit.py
 ```
 
 That guard checks the solver mechanics and the presence of the current D10
 calibration observables. It is a mechanics guard, not a claim that exact
 single-`P` closure has been achieved.
 
-The D11 lane is split into one lower-rank companion branch and one live
-source-only pair theorem.
+The D11 lane is split into one lower-rank companion branch and one conditional
+pair map on the declared D10/D11 surface.
 
 - The shared forward seed `sigma_D11_HT = alpha_u * cos(2*theta_W0) / sqrt(pi)`
   stays on disk as the diagonal fixed-ray companion branch on the declared
   D10/D11 surface. Its fixed-ray certificate proves `pi_y = pi_lambda`,
   `eta_HT = 0`, and `w_HT = 0` on that one-scalar branch only.
-- The live pair theorem is `D11SourceSplitForwardExactness`, emitted by
+- The live pair artifact is `D11SourceSplitForwardExactness`, emitted by
   `derive_d11_live_exact_split_pair_theorem.py`. It uses only the forward D10
   tuple `(eta_source, beta_EW, lambda_EW, tau2_tree_exact, delta_n_tree_exact)`
-  plus the declared D11 Jacobian surface.
-- The shared split scalar is `rho_HT = log(1 + tau2_tree_exact)`. The source-only
-  residual selectors are
+  plus the declared D11 core/Jacobian surface at runtime. The absence of a
+  direct target argument does not derive the D10 selector, D11 core/Jacobian,
+  or residual-selector rigidity from OPH source records.
+- The shared split scalar is `rho_HT = log(1 + tau2_tree_exact)`. The currently
+  declared residual-selector formulas are
   `R_T = -tau2_tree_exact * eta_source^2 + (1 + beta_EW/28) * eta_source^6 + eta_source^8/14 + eta_source^9/27`
   and
   `R_H = eta_source^5 - (3/25) * eta_source^6 + lambda_EW * eta_source^6 / 18 + eta_source^8 / (2 * beta_EW)`.
-- The predictive split coordinates are
+- The conditional split coordinates are
   `pi_y = (eta_source + (3/2 + beta_EW/4) * rho_HT + R_T) / sqrt(pi)` and
   `pi_lambda = (eta_source - (4/3 - beta_EW/54) * rho_HT + R_H) / sqrt(pi)`.
   On the declared D11 surface these emit
   `m_t = 172.3523553288312 GeV` and `m_H = 125.1995304097179 GeV`.
   The Higgs row is a conditional declared-surface candidate, not a promoted
-  strict source-only particle prediction until the D10 target-free repair
-  closes.
+  strict source-only particle prediction. Promotion additionally requires the
+  D10 QT1--QT5 source certificate on one strict pixel branch, a source-derived
+  D11 surface and rigidity theorem, the absolute scale/RG receipts, and the
+  Higgs complex-pole and uncertainty certificates.
   The exact public running-top row uses the PDG 2025 cross-section entry
   `Q007TP4`.
   The auxiliary direct-top average `Q007TP` is compare-only; #207 is closed as

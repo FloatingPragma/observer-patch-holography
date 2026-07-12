@@ -1,12 +1,13 @@
 {
  "artifact": "oph_color_amplitude_loop_split",
- "generated_utc": "2026-07-12T02:32:08Z",
+ "generated_utc": "2026-07-12T09:32:04Z",
  "object_id": "ColorAmplitudeLoopSplit_A2A3",
- "row_class": "data_confirmed_parameter_free_prediction",
+ "row_class": "retrospective_data_comparison_conditional_mechanism_candidate",
  "guards": {
   "measured_values_in_any_oph_solve_path": false,
   "source_only_theorem_emitted": false,
-  "public_promotion_allowed": false
+  "public_promotion_allowed": false,
+  "complete_archived_value_law_tested_as_constant_c_competitor": false
  },
  "N_c": 3,
  "dr_mechanism": {
@@ -45,7 +46,7 @@
     "c": 3.0,
     "inside_MWMZ_1sigma": false
    },
-   "running_tree          c=1/(4 beta)": {
+   "leading_constant_proxy c=1/(4 beta)": {
     "c": 0.464227421271743,
     "inside_MWMZ_1sigma": false
    }
@@ -79,9 +80,10 @@
  },
  "verdict": {
   "loop_symmetric_law": "excluded (outside MW+MZ 1-sigma)",
-  "running_tree_law": "excluded (outside MW+MZ 1-sigma)",
-  "color_amplitude_loop_law": "data optimum, parameter-free, matches m_W to ~0.1 percent and m_Z to ~3 percent",
+  "leading_constant_proxy": "outside the displayed MW+MZ 1-sigma band, but this does not test or exclude the complete archived value law",
+  "complete_archived_value_law": "not a constant-c competitor and not excluded by this comparison",
+  "color_amplitude_loop_law": "retrospective conditional candidate close to the stored comparison rows",
   "remaining_rigorous_step": "prove from the explicit collar-transport operators that the charged repair channel factors through a single intertwiner (amplitude, sqrt(N_c)) and the neutral through a closed loop (N_c); the current reconstruction fixes N_c and the DR intertwiner norms but does not emit those channel operators",
-  "status": "A2A3_data_confirmed_parameter_free_with_mechanism_channel_identification_open"
+  "status": "A2A3_retrospective_conditional_mechanism_channel_identification_open"
  }
 }

@@ -41,6 +41,27 @@ def test_final_particle_pipeline_orders_contracts_before_predictions() -> None:
     assert ids.index("quark_running_mass_scheme_convention_obstruction") < ids.index(
         "quark_public_mass_texture_yukawa_boundary"
     )
+    assert ids.index("quark_s3_transposition_heat_shape_theorem") < ids.index(
+        "quark_s3_d12_template_postdiction"
+    )
+    assert ids.index("quark_s3_d12_template_postdiction") < ids.index(
+        "quark_s3_d12_template_postdiction_audit"
+    )
+    assert ids.index("quark_s3_d12_template_postdiction_audit") < ids.index(
+        "quark_lane_closure_contract"
+    )
+    assert ids.index("quark_rscc_module_arithmetic") < ids.index(
+        "quark_rscc_completion_candidate"
+    )
+    assert ids.index("quark_rscc_completion_candidate") < ids.index(
+        "quark_rscc_completion_candidate_audit"
+    )
+    assert ids.index("quark_rscc_completion_candidate_audit") < ids.index(
+        "quark_flavor_source_closure_contract"
+    )
+    assert ids.index("quark_flavor_source_closure_contract") < ids.index(
+        "quark_lane_closure_contract"
+    )
     assert ids.index("quark_current_family_exact_readout_target_audit") < ids.index(
         "quark_current_family_affine_anchor_target_audit"
     )
@@ -79,6 +100,13 @@ def test_final_particle_pipeline_orders_contracts_before_predictions() -> None:
     assert "particles/flavor/derive_quark_sigma_source_nonidentifiability_obstruction.py" in scripts
     assert "particles/flavor/derive_quark_axiom_level_yukawa_moduli_nonidentifiability.py" in scripts
     assert "particles/flavor/derive_quark_running_mass_scheme_convention_obstruction.py" in scripts
+    assert "particles/flavor/verify_s3_transposition_heat_shape.py" in scripts
+    assert "particles/flavor/quark_s3_d12_template_postdiction.py" in scripts
+    assert "particles/flavor/audit_quark_s3_d12_template_postdiction.py" in scripts
+    assert "particles/flavor/verify_quark_flavor_source_closure.py" in scripts
+    assert "particles/flavor/verify_quark_rscc_module_arithmetic.py" in scripts
+    assert "particles/flavor/quark_rscc_completion_candidate.py" in scripts
+    assert "particles/flavor/audit_quark_rscc_completion_candidate.py" in scripts
     assert "particles/flavor/derive_quark_current_family_exact_readout.py" in scripts
     assert "particles/flavor/derive_quark_current_family_affine_anchor_theorem.py" in scripts
     assert "particles/flavor/derive_quark_current_family_exact_pdg_theorem.py" in scripts

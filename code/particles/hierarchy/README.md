@@ -117,8 +117,16 @@ External/source gates outside this bundle:
 2. Formal outward-rounded interval log from a certified interval stack.
 3. Raw D10/D11 interval box for Higgs/top internals.
 4. Full `R_gamma` stack for SI gravity/clock hierarchy.
-5. Theorem-grade `W/Z` promotion.
-6. Coupled-map extension of the joint `(P,N_CRC)` theorem, if OPH source work
+5. An independently source-closed physical `E_star`; this bundle fixes
+   `v/E_star`, not a weak scale in GeV.
+6. The D10 QT1--QT5 quotient-path certificate: finite quotient
+   canonicalization, explicit path enumeration, exact rational measures and
+   central trace, fibre Gram/residual derivation, and a positive MAR gap.
+7. A concrete frozen RG/matching/threshold/scheme receipt with truncation
+   intervals.
+8. W/Z/H complex-pole, residue, analytic-sheet, and uncertainty certificates.
+9. A hash-bound prospective source DAG and branch-rigidity receipt.
+10. Coupled-map extension of the joint `(P,N_CRC)` theorem, if OPH source work
    introduces cross-feedback between the local pixel and global capacity maps.
 
 ## Run validators

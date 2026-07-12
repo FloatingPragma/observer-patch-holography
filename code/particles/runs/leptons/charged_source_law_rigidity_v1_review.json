@@ -1,0 +1,118 @@
+{
+  "archive": {
+    "checks": {
+      "all_declared_internal_hashes_match": true,
+      "archive_hash_matches": true,
+      "crc_check_pass": true,
+      "declared_hash_manifest_exact": true,
+      "exact_member_set": true,
+      "no_duplicate_member_names": true,
+      "safe_non_symlink_unencrypted_members": true,
+      "submitted_receipt_hash_matches": true
+    },
+    "checks_pass": true,
+    "crc_first_bad_member": null,
+    "execution_boundary": "Archive code was not extracted or executed by this canonical auditor. An independent one-time audit rebuilt the frozen receipt byte-for-byte with mpmath 1.3.0 and networkx 3.6.1.",
+    "expected_sha256": "792dad5c1524984c52d7582e751e1123099978164def80fad34310a34e314dff",
+    "internal_hash_checks": {
+      "DEPENDENCY_AUDIT.md": true,
+      "README.md": true,
+      "SOURCE_LAW_RIGIDITY_THEOREM.md": true,
+      "cfq_carrier_certificate_template.json": true,
+      "source_law_rigidity_insertion.tex": true,
+      "source_law_rigidity_receipt.json": true,
+      "verify_source_law_rigidity.py": true
+    },
+    "narrative_attachment_sha256": "879f5afbdb704d8894fe826544e26dff90651040df45954485be422ea2c0779e",
+    "path": "correspondence/oph_charged_source_law_rigidity_v1.zip",
+    "sha256": "792dad5c1524984c52d7582e751e1123099978164def80fad34310a34e314dff",
+    "submitted_receipt_sha256": "d0acb1242714a38ea7ccc3b9f335bc9accf8e8bbdd9d6959d7e7e5dcf93be4d3"
+  },
+  "artifact": "oph_charged_source_law_rigidity_v1_review",
+  "branch_tuple_coherent": false,
+  "canonical_conditional_receipt": {
+    "checks_pass": true,
+    "path": "code/particles/runs/leptons/charged_source_law_rigidity_conditional.json",
+    "sha256": "0da2fb74d88097963d3b65cf8d4c76eb7973a354913bbf9775f79385e27c7f24",
+    "status": "CONDITIONAL_CFQ_PACKET_WEIGHT_RIGIDITY_CLOSED_PHYSICAL_CFQ_REALIZATION_SOURCE_SELECTION_AND_ATTACHMENTS_OPEN"
+  },
+  "checks_pass": true,
+  "compare_only": true,
+  "forbidden_as_candidate_ancestor": true,
+  "global_source_only": false,
+  "historical_charged_target_informed": true,
+  "independent_agreement": {
+    "checks": {
+      "all_graph_counts_agree": true,
+      "all_paths_agree": true,
+      "all_registers_agree": true,
+      "all_scalar_coefficients_agree_to_emitted_precision": true,
+      "canonical_promotion_boundary_retained": true,
+      "conditional_mass_readout_agrees_exactly_to_emitted_precision": true,
+      "fixed_point_agrees_exactly_to_emitted_precision": true,
+      "submitted_receipt_has_all_eight_physical_gates_false": true,
+      "submitted_template_has_all_eight_physical_gates_false": true
+    },
+    "checks_pass": true,
+    "coefficient_differences": {
+      "q_chi": "0.0",
+      "q_kappa": "0.0",
+      "q_zeta": "0.0",
+      "s_chi": "0.0",
+      "s_kappa": "0.0",
+      "s_zeta": "0.0"
+    },
+    "conditional_mass_max_absolute_difference_mev": "0.0",
+    "fixed_point_max_absolute_difference": "0.0",
+    "graph_counts": {
+      "chi_0": true,
+      "chi_1": true,
+      "kappa_0": true,
+      "kappa_1": true,
+      "kappa_2": true,
+      "zeta_0": true,
+      "zeta_1": true,
+      "zeta_2": true
+    },
+    "paths": {
+      "chi_return_1": true,
+      "chi_write": true,
+      "kappa_return_1": true,
+      "kappa_return_2": true,
+      "kappa_write": true,
+      "zeta_return_1": true,
+      "zeta_return_2": true,
+      "zeta_write": true
+    },
+    "registers": {
+      "chi_0": true,
+      "chi_1": true,
+      "kappa_0": true,
+      "kappa_1": true,
+      "kappa_2": true,
+      "zeta_0": true,
+      "zeta_1": true,
+      "zeta_2": true
+    }
+  },
+  "integration_decision": "Retain as a reproducible conditional finite-certificate theorem and a concrete promotion contract. Do not mark OPH source-law rigidity, charged mass prediction, or any physical CFQ gate closed.",
+  "mass_scheme_certified": false,
+  "not_established": [
+    "current OPH axioms imply CFQ1-CFQ8",
+    "the declared connected graphs are physical charged response modules",
+    "OPH central completed records descend to the noncentral rank-one CFQ projectors",
+    "the eight paths, signs, clock, multiplicities, and exhaustion follow from dynamics",
+    "the scalar law uniquely fixes one microscopic repair instrument",
+    "the one-bit, 2/9 phase, or 6^-14 determinant baselines are physically attached",
+    "the hybrid numerical branch is coherent or the endpoint eigenvalues are pole masses",
+    "historical no-target ancestry"
+  ],
+  "public_prediction_promotion_allowed": false,
+  "runtime_archive_contains_downstream_charged_mass_values": true,
+  "runtime_dependency": {
+    "mpmath": "1.3.0"
+  },
+  "schema_version": 1,
+  "status": "FROZEN_CONDITIONAL_CFQ_SUPPLEMENT_VERIFIED_PHYSICAL_SOURCE_LAW_AND_PROMOTION_OPEN",
+  "valid_conditional_result": "CFQ1-CFQ8 imply one quotient-visible scalar affine response law inside the declared packet."
+}
