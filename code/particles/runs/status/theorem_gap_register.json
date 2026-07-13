@@ -37,6 +37,20 @@
       "statement": "AR2 is discharged exactly under the canonical record model (chart inverse-affinity plus Gaussian MaxEnt readback), and the AR1 placement mechanism follows from port-additivity plus repair minimization; AR1 parentage and AR3 reduce to the finite carrier facts CF1 and CF2"
     },
     {
+      "artifact": "runs/flavor/up_type_register_exponent_scan.json",
+      "class": "closed",
+      "family": "quarks",
+      "id": "UP_TYPE_INTEGER_POWER_LAW_REMOVED",
+      "statement": "the frozen four-base integer exponent scan is negative in every base with both channels reported; the law family is removed from the candidate space prospectively"
+    },
+    {
+      "artifact": "runs/flavor/down_type_register_clebsch_lane.json",
+      "class": "closed",
+      "family": "quarks",
+      "id": "DOWN_TYPE_CLEBSCH_CONDITIONAL_SECTOR",
+      "statement": "conditional on the MCPR leptons and the register Clebsch pattern (1, 1/3, 3), the down-type sector is emitted: ratios and the Gatto-Sartori-Tonin angle land at the ten-percent scale, the absolute normalization carries the named third-generation tension"
+    },
+    {
       "artifact": "runs/calibration/d11_carrier_census.json",
       "class": "closed",
       "family": "Higgs/top",
@@ -68,11 +82,11 @@
   "counts": {
     "awaiting_discriminating_test": 1,
     "closable_by_standard_computation": 1,
-    "closed": 9,
+    "closed": 11,
     "computationally_blocked": 2,
     "research_open": 8
   },
-  "generated_utc": "2026-07-13T05:48:31Z",
+  "generated_utc": "2026-07-13T06:08:23Z",
   "open_register": [
     {
       "class": "research_open",
@@ -121,7 +135,7 @@
       "class": "research_open",
       "family": "quarks",
       "id": "QF1_QF9_FLAVOR_CARRIER",
-      "statement": "the physical flavor carrier certificate and per-sector spread-fiber elimination; light-quark Yukawa selectors"
+      "statement": "the physical flavor carrier certificate and per-sector spread-fiber elimination; after the Clebsch lane the open quark objects are the Clebsch selection theorem, the third-generation register factor, and the charm/up selectors (the integer power-law family is removed by a negative frozen scan)"
     },
     {
       "class": "research_open",

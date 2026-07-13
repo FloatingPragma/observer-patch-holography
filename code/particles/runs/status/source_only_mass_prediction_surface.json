@@ -246,11 +246,10 @@
         {
           "blocking_objects": [
             "PHYSICAL_QF1_TO_QF9_FLAVOR_CARRIER_CERTIFICATE",
-            "spread-fiber elimination (per-sector determinant characters)",
-            "COMMON_SCALE_PHYSICAL_YUKAWA_PACKET",
-            "FROZEN_RG_THRESHOLD_MATCHING_UNCERTAINTY_PACKET"
+            "CLEBSCH_REGISTER_SELECTION_THEOREM",
+            "charm/up selectors (integer power-law family removed)"
           ],
-          "explanation": "The current axioms leave a continuous spread fiber per sector: no Yukawa selector is emitted, so no forward masses exist. This is a proven non-entailment, never an arithmetic error. The top row lives in the Higgs family through the criticality law.",
+          "explanation": "The current axioms leave a continuous spread fiber per sector: no Yukawa selector is emitted on the strict lane. The top row lives in the Higgs family through the criticality law; the down-type sector carries a conditional Clebsch lane below.",
           "lane": "public theorem lane",
           "statuses": {
             "b": "source_spread_nonidentifiability_obstruction",
@@ -297,6 +296,37 @@
             "gamma": "conditional_carrier_mode"
           },
           "tier": "structural (receipt pending)"
+        }
+      ]
+    },
+    {
+      "family": "quarks, conditional lanes",
+      "rows": [
+        {
+          "artifact": "runs/flavor/down_type_register_clebsch_lane.json",
+          "blocking_objects": [
+            "CLEBSCH_REGISTER_SELECTION_THEOREM",
+            "THIRD_GENERATION_REGISTER_FACTOR",
+            "FROZEN_RG_THRESHOLD_MATCHING_PACKET"
+          ],
+          "cabibbo_gst": 0.20863119761956145,
+          "cabibbo_relative_compare_only": -0.07275023280194914,
+          "explanation": "Ratios and the Gatto-Sartori-Tonin Cabibbo angle land at the ten-percent scale; the absolute normalization carries the named third-generation tension.",
+          "lane": "down-type sector from MCPR leptons via register Clebsch (1, 1/3, 3)",
+          "mb_mb_GeV": 6.027990896361404,
+          "md_2GeV_GeV": 0.006115214828574979,
+          "ms_2GeV_GeV": 0.14049252448516936,
+          "tier": "T2, conditional on the Clebsch selection theorem"
+        },
+        {
+          "artifact": "runs/flavor/up_type_register_exponent_scan.json",
+          "blocking_objects": [
+            "charm/up Yukawa selectors"
+          ],
+          "explanation": "No frozen source-constant base gives integer exponents for charm and up; the verdict removes the family prospectively and charm/up stay research-open.",
+          "lane": "up-type integer exponent scan (frozen, negative)",
+          "tier": "compare-only scan; law family removed",
+          "verdict": "SCAN_NEGATIVE_FAMILY_REMOVED"
         }
       ]
     },
@@ -387,7 +417,7 @@
       ]
     }
   ],
-  "generated_utc": "2026-07-13T04:57:34Z",
+  "generated_utc": "2026-07-13T06:08:51Z",
   "global_blocking_objects": {
     "X1_strict_no_target_P_alpha_root": "source-audit branch witness; full endpoint proof requires the hadronic spectral transport, the scheme bridge, and the interval fixed-point proof",
     "X2_operational_clock_chain": [
@@ -409,6 +439,10 @@
     "X5_interacting_pole_packet": "BRST-complete two-point kernels, sheets, residues, widths"
   },
   "inputs": {
+    "clebsch": {
+      "exists": true,
+      "path": "runs/flavor/down_type_register_clebsch_lane.json"
+    },
     "clock_audit": {
       "exists": true,
       "path": "runs/clock/clock_source_energy_closure_audit.json"
@@ -452,6 +486,10 @@
     "selection_audit": {
       "exists": true,
       "path": "runs/calibration/d11_boundary_scale_selection_audit.json"
+    },
+    "up_scan": {
+      "exists": true,
+      "path": "runs/flavor/up_type_register_exponent_scan.json"
     },
     "ward": {
       "exists": true,

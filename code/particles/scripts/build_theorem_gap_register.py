@@ -101,6 +101,30 @@ def closed_entries() -> list[dict[str, Any]]:
             ),
         },
         {
+            "id": "UP_TYPE_INTEGER_POWER_LAW_REMOVED",
+            "family": "quarks",
+            "class": "closed",
+            "statement": (
+                "the frozen four-base integer exponent scan is negative in "
+                "every base with both channels reported; the law family is "
+                "removed from the candidate space prospectively"
+            ),
+            "artifact": "runs/flavor/up_type_register_exponent_scan.json",
+        },
+        {
+            "id": "DOWN_TYPE_CLEBSCH_CONDITIONAL_SECTOR",
+            "family": "quarks",
+            "class": "closed",
+            "statement": (
+                "conditional on the MCPR leptons and the register Clebsch "
+                "pattern (1, 1/3, 3), the down-type sector is emitted: "
+                "ratios and the Gatto-Sartori-Tonin angle land at the "
+                "ten-percent scale, the absolute normalization carries the "
+                "named third-generation tension"
+            ),
+            "artifact": "runs/flavor/down_type_register_clebsch_lane.json",
+        },
+        {
             "id": "CF1_CF2_MODEL_LEVEL_CENSUS",
             "family": "Higgs/top",
             "class": "closed",
@@ -231,7 +255,11 @@ def open_entries() -> list[dict[str, Any]]:
             "class": "research_open",
             "statement": (
                 "the physical flavor carrier certificate and per-sector "
-                "spread-fiber elimination; light-quark Yukawa selectors"
+                "spread-fiber elimination; after the Clebsch lane the open "
+                "quark objects are the Clebsch selection theorem, the "
+                "third-generation register factor, and the charm/up "
+                "selectors (the integer power-law family is removed by a "
+                "negative frozen scan)"
             ),
         },
         {

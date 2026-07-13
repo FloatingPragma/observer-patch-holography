@@ -50,6 +50,8 @@ INPUTS = {
     "selection_audit": RUNS / "calibration" / "d11_boundary_scale_selection_audit.json",
     "lambda_qcd": RUNS / "qcd" / "lambda_qcd_source_transmutation.json",
     "nucleon": RUNS / "hadron" / "nucleon_mass_external_qcd_ratio.json",
+    "clebsch": RUNS / "flavor" / "down_type_register_clebsch_lane.json",
+    "up_scan": RUNS / "flavor" / "up_type_register_exponent_scan.json",
 }
 
 DEFAULT_JSON_OUT = RUNS / "status" / "source_only_mass_prediction_surface.json"
@@ -353,18 +355,16 @@ def _static_families(status_rows: list[dict]) -> list[dict[str, Any]]:
                     "tier": "T0 boundary (no forward sextet)",
                     "explanation": (
                         "The current axioms leave a continuous spread fiber "
-                        "per sector: no Yukawa selector is emitted, so no "
-                        "forward masses exist. This is a proven "
-                        "non-entailment, never an arithmetic error. The "
-                        "top row lives in the Higgs family through the "
-                        "criticality law."
+                        "per sector: no Yukawa selector is emitted on the "
+                        "strict lane. The top row lives in the Higgs family "
+                        "through the criticality law; the down-type sector "
+                        "carries a conditional Clebsch lane below."
                     ),
                     "statuses": statuses("Quarks", ["u", "d", "s", "c", "b"]),
                     "blocking_objects": [
                         "PHYSICAL_QF1_TO_QF9_FLAVOR_CARRIER_CERTIFICATE",
-                        "spread-fiber elimination (per-sector determinant characters)",
-                        "COMMON_SCALE_PHYSICAL_YUKAWA_PACKET",
-                        "FROZEN_RG_THRESHOLD_MATCHING_UNCERTAINTY_PACKET",
+                        "CLEBSCH_REGISTER_SELECTION_THEOREM",
+                        "charm/up selectors (integer power-law family removed)",
                     ],
                 }
             ],
@@ -411,6 +411,44 @@ def _static_families(status_rows: list[dict]) -> list[dict[str, Any]]:
             ],
         },
     ]
+
+
+def _down_type_rows(clebsch: dict, up_scan: dict) -> dict[str, Any]:
+    predictions = clebsch["predictions"]
+    compare = clebsch["compare_only"]
+    return {
+        "family": "quarks, conditional lanes",
+        "rows": [
+            {
+                "lane": "down-type sector from MCPR leptons via register Clebsch (1, 1/3, 3)",
+                "tier": "T2, conditional on the Clebsch selection theorem",
+                "explanation": (
+                    "Ratios and the Gatto-Sartori-Tonin Cabibbo angle land "
+                    "at the ten-percent scale; the absolute normalization "
+                    "carries the named third-generation tension."
+                ),
+                "mb_mb_GeV": predictions["mb_mb_gev"],
+                "ms_2GeV_GeV": predictions["ms_2gev_gev"],
+                "md_2GeV_GeV": predictions["md_2gev_gev"],
+                "cabibbo_gst": predictions["cabibbo_gst_sqrt_md_over_ms"],
+                "cabibbo_relative_compare_only": compare["cabibbo_relative"],
+                "artifact": "runs/flavor/down_type_register_clebsch_lane.json",
+                "blocking_objects": clebsch["normalization_tension"]["open_objects"],
+            },
+            {
+                "lane": "up-type integer exponent scan (frozen, negative)",
+                "tier": "compare-only scan; law family removed",
+                "explanation": (
+                    "No frozen source-constant base gives integer exponents "
+                    "for charm and up; the verdict removes the family "
+                    "prospectively and charm/up stay research-open."
+                ),
+                "verdict": up_scan["status"],
+                "artifact": "runs/flavor/up_type_register_exponent_scan.json",
+                "blocking_objects": ["charm/up Yukawa selectors"],
+            },
+        ],
+    }
 
 
 def _hadron_rows(lambda_qcd: dict, nucleon: dict) -> dict[str, Any]:
@@ -523,6 +561,7 @@ def build() -> dict[str, Any]:
             data["selection_audit"],
         ),
         *_static_families(status_rows),
+        _down_type_rows(data["clebsch"], data["up_scan"]),
         _hadron_rows(data["lambda_qcd"], data["nucleon"]),
         _scale_row(data["clock_audit"], data["feshbach"]),
     ]

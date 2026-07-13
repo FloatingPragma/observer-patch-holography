@@ -119,9 +119,9 @@ Discrete two-law ambiguity width: 9.3 MeV on MW, 5.1 MeV on MZ.
 
 - Lane: public theorem lane
   - Tier: T0 boundary (no forward sextet)
-  - explanation: The current axioms leave a continuous spread fiber per sector: no Yukawa selector is emitted, so no forward masses exist. This is a proven non-entailment, never an arithmetic error. The top row lives in the Higgs family through the criticality law.
+  - explanation: The current axioms leave a continuous spread fiber per sector: no Yukawa selector is emitted on the strict lane. The top row lives in the Higgs family through the criticality law; the down-type sector carries a conditional Clebsch lane below.
   - statuses: `{"u": "source_spread_nonidentifiability_obstruction", "d": "source_spread_nonidentifiability_obstruction", "s": "source_spread_nonidentifiability_obstruction", "c": "source_spread_nonidentifiability_obstruction", "b": "source_spread_nonidentifiability_obstruction"}`
-  - Blocking objects: PHYSICAL_QF1_TO_QF9_FLAVOR_CARRIER_CERTIFICATE, spread-fiber elimination (per-sector determinant characters), COMMON_SCALE_PHYSICAL_YUKAWA_PACKET, FROZEN_RG_THRESHOLD_MATCHING_UNCERTAINTY_PACKET
+  - Blocking objects: PHYSICAL_QF1_TO_QF9_FLAVOR_CARRIER_CERTIFICATE, CLEBSCH_REGISTER_SELECTION_THEOREM, charm/up selectors (integer power-law family removed)
 
 ## neutrinos
 
@@ -138,6 +138,26 @@ Discrete two-law ambiguity width: 9.3 MeV on MW, 5.1 MeV on MZ.
   - explanation: Exact masslessness follows from unbroken gauge invariance in the recovered core; the receipt is bookkeeping, never a numerical program.
   - statuses: `{"gamma": "conditional_carrier_mode", "g (8 color states)": "conditional_carrier_mode"}`
   - Blocking objects: exact masslessness theorem receipts on the carrier lane
+
+## quarks, conditional lanes
+
+- Lane: down-type sector from MCPR leptons via register Clebsch (1, 1/3, 3)
+  - Tier: T2, conditional on the Clebsch selection theorem
+  - explanation: Ratios and the Gatto-Sartori-Tonin Cabibbo angle land at the ten-percent scale; the absolute normalization carries the named third-generation tension.
+  - mb_mb_GeV: 6.027990896361404
+  - ms_2GeV_GeV: 0.14049252448516936
+  - md_2GeV_GeV: 0.006115214828574979
+  - cabibbo_gst: 0.20863119761956145
+  - cabibbo_relative_compare_only: -0.07275023280194914
+  - Artifact: `runs/flavor/down_type_register_clebsch_lane.json`
+  - Blocking objects: CLEBSCH_REGISTER_SELECTION_THEOREM, THIRD_GENERATION_REGISTER_FACTOR, FROZEN_RG_THRESHOLD_MATCHING_PACKET
+
+- Lane: up-type integer exponent scan (frozen, negative)
+  - Tier: compare-only scan; law family removed
+  - explanation: No frozen source-constant base gives integer exponents for charm and up; the verdict removes the family prospectively and charm/up stay research-open.
+  - verdict: SCAN_NEGATIVE_FAMILY_REMOVED
+  - Artifact: `runs/flavor/up_type_register_exponent_scan.json`
+  - Blocking objects: charm/up Yukawa selectors
 
 ## hadrons
 

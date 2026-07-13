@@ -154,6 +154,8 @@ source-only prediction.
 | `m_H` at measured `m_t` (relation test) | `125.72 GeV` | `125.13 +- 0.11 GeV` | fit-free curve of the criticality family; tests the m_t to m_H relation independently of the boundary-scale selection |
 | `M_W`, `M_Z` (strict source-audit branch) | `80.3301, 91.1191 GeV` | `80.3692, 91.1880 GeV` | zero-selector law on the target-free branch; discrete two-law ambiguity 9.3 and 5.1 MeV; pole packet open |
 | `m_e, m_mu, m_tau` (MCPR conditional) | `0.510956, 105.649, 1776.78 MeV` | `0.51100, 105.658, 1776.93 MeV` | declared MCPR response architecture (84 ppm coherent offset); source-only completion is the A5/W5 orbit program |
+| `m_b, m_s, m_d` (Clebsch lane) | `6.03 GeV, 140 MeV, 6.1 MeV` | `4.18 GeV, 93.5 MeV, 4.7 MeV` | conditional on MCPR leptons and the register Clebsch pattern (1, 1/3, 3); ratios and the Cabibbo angle land at the ten-percent scale, normalization carries the named third-generation tension |
+| `theta_C` (Gatto-Sartori-Tonin) | `0.2086` | `0.2250` | same Clebsch lane; `sqrt(m_d/m_s)` |
 | `Lambda_QCD^(3)` | `0.3348 GeV [0.319, 0.350]` | `0.338 +- 0.012 GeV (published)` | dimensional transmutation of the source strong coupling; declared threshold inputs bracket-swept |
 | `m_N` (nucleon) | `0.929 GeV [0.823, 1.043]` | `0.9383 GeV` | source `Lambda_QCD` times a published lattice-theory ratio (`oph_plus_external_qcd_theory`) |
 | `alpha^-1` (no-hadron near endpoint) | `137.0359595008...` | `137.035999177` | deterministic pixel-root evaluation; source spectral endpoint and same-scheme hadronic remainder are work in progress |

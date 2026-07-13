@@ -130,6 +130,8 @@ entries:
       charm_target_witness_GeV: 1.2729000000000006
       bottom_target_witness_GeV: 4.186
       top_pole_target_witness_GeV: 172.09999999999965
+    caveats:
+      - "The top mass lives in the D11 criticality family (adopted branch 172.629 GeV, conditional). The down-type sector carries a conditional Clebsch lane from the MCPR leptons: ratios and the Gatto-Sartori-Tonin angle at the ten-percent scale, absolute normalization with the named third-generation tension (runs/flavor/down_type_register_clebsch_lane.json). The up-type integer power-law family is removed by a negative frozen scan (runs/flavor/up_type_register_exponent_scan.json); charm and up selectors are open."
     blocked_by:
       - "source map into the free (R_{>0})^2 spread fiber"
       - "RG-covariant mass trajectory and common-scale dimensionless Yukawa conversion"

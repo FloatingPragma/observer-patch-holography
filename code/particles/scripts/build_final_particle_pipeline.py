@@ -325,6 +325,16 @@ FINAL_PIPELINE_STEPS: tuple[PipelineStep, ...] = (
         "Refresh the model-level D11 carrier census and Higgs derivation trace.",
     ),
     PipelineStep(
+        "down_type_register_clebsch_lane",
+        "particles/flavor/derive_down_type_register_clebsch_lane.py",
+        "Refresh the conditional down-type sector from the register Clebsch pattern.",
+    ),
+    PipelineStep(
+        "up_type_register_exponent_scan",
+        "particles/flavor/derive_up_type_register_exponent_scan.py",
+        "Refresh the frozen up-type exponent scan and its verdict.",
+    ),
+    PipelineStep(
         "lambda_qcd_source_transmutation",
         "particles/qcd/derive_lambda_qcd_source_transmutation.py",
         "Refresh the Lambda_QCD dimensional-transmutation lane.",

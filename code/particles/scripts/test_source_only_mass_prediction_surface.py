@@ -15,6 +15,7 @@ def test_surface_covers_every_family():
         "quarks (u, d, s, c, b)",
         "neutrinos",
         "massless carriers (photon, gluon)",
+        "quarks, conditional lanes",
         "hadrons",
         "operational scale E_star",
     ]

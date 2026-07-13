@@ -1,0 +1,88 @@
+{
+  "artifact": "oph_up_type_register_exponent_scan",
+  "certification_rule": {
+    "both_channels_required": true,
+    "look_elsewhere": "four frozen bases and two channels; chance probability of a joint sub-0.05 hit in at least one base is at the percent scale and is accounted before any certification",
+    "residual_threshold": 0.05
+  },
+  "checks": {
+    "all_bases_evaluated": true,
+    "compare_only_inputs_declared": true,
+    "residuals_reported_for_every_base": true,
+    "verdict_consistent": true
+  },
+  "checks_pass": true,
+  "claim_boundary": "The scan locates exponents with measured light masses and is compare-only. A negative verdict removes the integer power-law family from the candidate space prospectively; charm and up stay research-open.",
+  "cross_register_observations": {
+    "charm_over_muon_at_mu_U": 3.311516138245914,
+    "classification": "post_exposure_observation_not_certified",
+    "nearest_simple_factors": {
+      "charm_over_muon": 3.0,
+      "up_over_electron": 1.0
+    },
+    "trials_ledger": "observed after the integer scan failed, among roughly two dozen effective comparisons; a two-percent hit at that trial count carries no evidential weight by itself",
+    "up_over_electron_at_mu_U": 1.2699136870028975
+  },
+  "frozen_bases": {
+    "alpha_U_times_P": 0.06707250004016141,
+    "exp_minus_pi_over_two": 0.20787957635076193,
+    "exp_minus_three_halves": 0.22313016014842982,
+    "sqrt_alpha_U": 0.20279114242386148
+  },
+  "measured_compare_only_inputs": {
+    "mc_mc_gev": 1.27,
+    "mu_2gev_gev": 0.00216
+  },
+  "promotion_allowed": false,
+  "register_scale_yukawas": {
+    "systematic_note": "light up-type running approximated by the top gauge trajectory; the omitted top self-term shifts exponents by under 0.1, inside the certification residual",
+    "y_c_located": 0.0018796039427300848,
+    "y_t": 0.4054593870481957,
+    "y_u_located": 3.486018344658167e-06
+  },
+  "row_class": "compare_only_candidate_scan_never_a_prediction_ancestor",
+  "scan_rows": {
+    "alpha_U_times_P": {
+      "certified": false,
+      "epsilon": 0.06707250004016141,
+      "integer_residuals": [
+        0.011103956627222411,
+        0.31683831824131037
+      ],
+      "n_charm": 1.9888960433727776,
+      "n_up": 4.31683831824131
+    },
+    "exp_minus_pi_over_two": {
+      "certified": false,
+      "epsilon": 0.20787957635076193,
+      "integer_residuals": [
+        0.4211689547125559,
+        0.42554307254592594
+      ],
+      "n_charm": 3.421168954712556,
+      "n_up": 7.425543072545926
+    },
+    "exp_minus_three_halves": {
+      "certified": false,
+      "epsilon": 0.22313016014842982,
+      "integer_residuals": [
+        0.4173602483951875,
+        0.22398947812504577
+      ],
+      "n_charm": 3.5826397516048125,
+      "n_up": 7.776010521874954
+    },
+    "sqrt_alpha_U": {
+      "certified": false,
+      "epsilon": 0.20279114242386148,
+      "integer_residuals": [
+        0.36803172364624537,
+        0.3102103300646748
+      ],
+      "n_charm": 3.3680317236462454,
+      "n_up": 7.310210330064675
+    }
+  },
+  "schema_version": 1,
+  "status": "SCAN_NEGATIVE_FAMILY_REMOVED"
+}
