@@ -1,0 +1,78 @@
+{
+  "artifact": "oph_lambda_qcd_source_transmutation",
+  "central": {
+    "alpha_s_mb_5f": 0.22619773334833324,
+    "alpha_s_mc_3f": 0.38978914219001515,
+    "lambda3_gev": 0.33481516768895897,
+    "lambda3_probe_gev": 0.3348151676887865,
+    "lambda4_gev": 0.2948834062703937,
+    "lambda5_gev": 0.2135192157084192
+  },
+  "checks": {
+    "extraction_scale_stability": true,
+    "lambda3_positive": true,
+    "machinery_certified": true,
+    "threshold_brackets_swept": true
+  },
+  "checks_pass": true,
+  "claim_boundary": "Lambda is the perturbative transmutation scale of the source coupling. Hadron masses additionally require the nonperturbative ratio m_h/Lambda, which this lane does not supply.",
+  "declared_external_inputs": {
+    "ancestry_note": "threshold locations are declared external quark scheme masses; sensitivity is logarithmic and covered by the bracket sweep",
+    "brackets": {
+      "mb": [
+        3.5,
+        5.0
+      ],
+      "mc": [
+        1.0,
+        1.6
+      ]
+    },
+    "mb_mb_gev": 4.18,
+    "mc_mc_gev": 1.27
+  },
+  "display_note": "GeV values use the unclosed clock candidate; the clock audit classifies that decimal as a calibration checksum.",
+  "lambda3_interval_gev": [
+    0.31949328977395597,
+    0.34974968299682957
+  ],
+  "lambda5_interval_gev": [
+    0.2135192157084192,
+    0.2135192157084192
+  ],
+  "loop_order": "four_loop_beta_with_three_loop_decoupling",
+  "machinery_validation": {
+    "checks": {
+      "lambda3_extraction_stable": true,
+      "lambda3_near_338_mev": true,
+      "lambda5_near_210_mev": true
+    },
+    "published_compare": {
+      "lambda3_gev": 0.338,
+      "lambda5_gev": 0.21
+    },
+    "role": "code_certification_only_never_a_source_row",
+    "world_chain": {
+      "alpha_s_mb_5f": 0.2242363603436645,
+      "alpha_s_mc_3f": 0.38336926440576874,
+      "lambda3_gev": 0.32732445896081835,
+      "lambda3_probe_gev": 0.3273244589608917,
+      "lambda4_gev": 0.28739103244688696,
+      "lambda5_gev": 0.20746408749395537
+    },
+    "world_input_alpha_s_mz": 0.1179
+  },
+  "over_E_star": {
+    "lambda3": 2.742385737648118e-20,
+    "lambda5": 1.7488814975567495e-20
+  },
+  "promotion_allowed": false,
+  "row_class": "conditional_on_P_and_declared_threshold_inputs",
+  "schema_version": 1,
+  "source_input": {
+    "alpha_3_mz_run": 0.11833586196478191,
+    "mz_run_gev_display": 91.58833750192969,
+    "provenance": "strict source-audit branch slope stack; shared basis with wzh_residual_elimination_boundary.json"
+  },
+  "status": "perturbative_transmutation_from_source_coupling"
+}

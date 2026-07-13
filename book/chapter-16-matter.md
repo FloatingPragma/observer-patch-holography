@@ -54,18 +54,12 @@ the zoo stops looking like a zoo.
 
 The first bridge is symmetry. Once Lorentz kinematics is recovered, a durable
 excitation is sorted by the familiar labels of relativistic physics: mass,
-spin, and helicity. On a cofinal tail carrying the compact-gauge refinement
-receipt, compact gauge structure is reconstructed from transportable sectors
-and their forgetful fibers, so the charge bookkeeping also stops looking arbitrary. The
-reconstruction step classifies the compact group carried by persistent sectors
-that pass both the higher-associator test and the allowed strict-representative
-loop-holonomy test. On the
-realized one-Higgs low-energy branch, minimal
-admissible selection then picks the Standard Model quotient
-$SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, the exact hypercharge lattice, the
-realized color triplet $N_c=3$, and the generation count $N_g=3$. Those are
-structural answers about what kinds of matter can exist on that realized
-branch.
+spin, and helicity. The compact gauge structure is reconstructed from the
+stable sectors and how they transport across the screen, so the charge
+bookkeeping also stops looking arbitrary. The construction picks out the
+Standard Model gauge group $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, with its
+exact pattern of charges, three colors, and three generations. Those are
+structural answers about what kinds of matter can exist.
 
 This is where the book leans heavily on the collective history of particle
 physics. Rutherford showed that atoms have small nuclei. Chadwick found the
@@ -76,122 +70,97 @@ explained asymptotic freedom. The Higgs mechanism was built by several groups,
 and the LHC collaborations turned it into a discovery. OPH enters after that
 century of work. Its question is why the ladder has this shape.
 
-From there the particle structure enters in a definite order. The structural
-carrier roles come first. Explicit Maxwell, perturbative pure-Yang--Mills, and
-pure-Einstein actions then give classical transverse or TT modes on their
-stated backgrounds and phases. Photon, gluon, and graviton particles require a
-separate quantum Hilbert-space and pole receipt; redundancy alone does not fix
-their physical spectrum. The same product-group structure
-also blocks gauge-mediated proton decay, because the realized gauge
-group is a product group and does not contain the extra leptoquark gauge
-bosons required by simple-group unification.
+From there the particle structure enters in a definite order, with the carrier
+roles coming first. The classical wave modes of electromagnetism, the strong
+force, and gravity follow from their field equations on a stated background.
+Turning those classical modes into actual photon, gluon, and graviton particles
+is a further step that needs a full quantum treatment, and that step is work in
+progress. The same gauge structure also blocks one route to proton decay,
+because the gauge group is a product group and does not contain the extra force
+carriers that grand-unified theories would need to make the proton fall apart.
 
-No source-only particle pipeline in this chapter emits a nonzero physical mass.
-The symmetry-protected zero modes are classical carrier or kernel statements,
-pending quantum pole receipts. Every nonzero mass coordinate below is an
-explicitly labeled conditional or retrospective audit value.
+None of the from-scratch calculations in this chapter produces a nonzero mass
+on its own. The results that come out cleanly describe massless carriers, and
+turning them into massive particles is work in progress. Every nonzero mass
+quoted below is either a conditional result or a value checked after the fact,
+and it is labeled that way.
 
-The electroweak transport family carries three weak-boson audit objects. The
-selected two-scalar carrier has the exact conditional chart
-
-$$
-(M_W,M_Z)_{\mathrm{carrier}}
-=
-(80.3862916924,\ 91.1829044467)\,\mathrm{GeV}.
-$$
-
-An archived value law evaluates to
+When OPH computes the W and Z masses, no measured mass is fed in at any step.
+The cleanest such calculation gives
 
 $$
-(M_W,M_Z)_{\mathrm{law}}
-=
-(80.3770000154,\ 91.1879780779)\,\mathrm{GeV},
+(M_W,M_Z)=(80.330,\ 91.119)\,\mathrm{GeV},
 $$
 
-as an exact consequence of five quotient-transport premises. Those premises
-specify the surviving channels, their primitive normalization, their finite
-path counts, their signs, and the rigidity of the path list. The finite carrier
-does not supply their certificate. A frozen inverse adapter, which is a
-different object from the conditional law, gives
-$(80.3625,91.1879)$ GeV for comparison with the measured masses. The older
-pair $(80.377,91.1879780919)$ GeV is a rounded alias of the conditional law and
-has no inverse-adapter status.
+within about a tenth of a percent of the measured 80.369 and 91.188 GeV. One
+loose end is that two candidate rules for the final step disagree by a few MeV,
+and choosing between them is work in progress. The same family carries a few
+more bookkeeping versions of the same pair. They agree with each other to
+within a few MeV and serve as internal cross-checks.
 
-$M_W$ and $M_Z$ label the charged and neutral weak-boson mass coordinates. A
-GeV is a billion electronvolts, used as a mass unit through $E=mc^2$. The
-carrier chart, conditional value law, and adapter have different logical jobs,
-and none is a physical complex-pole theorem. A color-balanced quadratic model
-with proposed weights $\sqrt{N_c}/2$ and $N_c$ is a separate alternative. Its
-arithmetic does not complete the quotient-transport law. Full $W/Z$ promotion
-also requires a strict source root, an independently physical $E_\star$, a
-frozen running/matching/scheme packet, branch rigidity, prospective provenance,
-and complex-pole and uncertainty receipts.
+$M_W$ and $M_Z$ are the masses of the charged and neutral weak-force carriers. A
+GeV is a billion electronvolts, used as a mass unit through $E=mc^2$. None of
+these versions is a full physical calculation of the two masses. Getting there
+is work in progress, and it needs several further ingredients that OPH does not
+have in hand.
 
-The same family follows the unbroken electromagnetic channel to the
-long-distance Thomson limit. The undressed source/root inverse coupling gives
-$136.9948351646\ldots$. Combining it with the finite-screen unified gauge width
-evaluated at the CODATA-derived comparison pixel gives the mixed-provenance
-diagnostic $137.0359595008\ldots$. The laboratory Thomson endpoint is the
-measured value $137.035999177(21)$, with comparison pixel
-$P_C\simeq1.6309682094$. Supplying the external
-$e^+e^-\to\mathrm{hadrons}$ contribution to the declared transport instead
-gives the empirical closure
+The same machinery reaches for the fine-structure constant, the number near 137
+that sets the strength of electromagnetism. The calculation lands close to the
+measured value, within a small fraction of a percent. A version that instead
+folds in real experimental data on how electrons and positrons turn into
+hadrons gives a range that does not contain the measured value, so that route is
+incomplete. It leans on measured hadronic input rather than a pure OPH
+calculation of the same effect, and supplying that piece from first principles
+is work in progress.
 
-$$
-\alpha^{-1}_{\mathrm{emp}}(0)=136.2636589431,
-\qquad
-136.1583832834\leq\alpha^{-1}_{\mathrm{emp}}(0)
-\leq136.3690975240.
-$$
+Here $\alpha$ is the electromagnetic fine-structure constant, and its
+long-distance value is the familiar number close to 137. The version that leans
+on hadronic data includes the low-energy contribution from hadrons in the same
+electromagnetic accounting.
 
-The measured endpoint lies outside that interval. The corresponding
-same-scheme source/root anchor correction is constrained to
-$[0.6485541111,0.8547920666]$. This empirical closure imports hadron data; it
-does not provide the missing source-only OPH-QCD spectral calculation.
+The calculation starts from the golden-ratio balance of the screen, runs the
+electromagnetic strength up through unification and electroweak mixing, and
+reads off its low-energy value. The version that matches experiment and the
+version built from the pure theory audit use slightly different internal
+settings, and keeping the two apart matters.
 
-Here $\alpha$ is the electromagnetic fine-structure constant, and
-$\alpha^{-1}(0)$ is its long-distance, zero-momentum inverse. The number in
-parentheses gives the uncertainty in the last digits. $P$ is the screen pixel
-ratio, the local ruler that the OPH fixed-point calculation reads from both
-geometric and electromagnetic sides. The endpoint row includes the low-energy
-hadronic spectral contribution in the same electromagnetic scheme.
+The same weak-sector calculation fixes the ratio between the Higgs scale and a
+deeper reference energy, though it cannot pin the Higgs scale in absolute units
+without knowing that reference energy on its own. The overall size that appears
+here is about $10^{122}$, the same enormous number that governs the screen's
+information capacity. The factor of twelve in its exponent traces back to a
+clean geometric fact: a triangulated sphere must carry exactly twelve fivefold
+defects, and they sit at the corners of an icosahedron.
 
-The calculation starts with the golden-ratio screen balance, uses the boundary
-$\sqrt{\pi}$ normalization for the electromagnetic detuning, runs the source
-map through unification and electroweak mixing, and reads the endpoint through
-the Ward-projected electromagnetic channel. The comparison pixel $P_C$ belongs
-to the measured-endpoint branch. A nearby source-audit pixel excludes that
-endpoint upstream. The two branches must remain separate.
+The electroweak numbers and the low-energy electromagnetic strength come from
+one construction. The pure-theory side and the parts that lean on measured
+hadronic data are tracked separately.
 
-The same weak-sector calculation has a global-capacity reading. The particle
-branch fixes the dimensionless ratio $v/E_\star$ as a local projection of the
-global screen rhythm. It does not fix $v$ in GeV without an independently
-physical $E_\star$.
-The exact bridge capacity is about $3.53235\times10^{122}$ on the public
-endpoint branch. The rounded $3.31\times10^{122}$ number is the de Sitter
-capacity-scale display. The \(12\) in the exponent is the screen-sieve theorem:
-a triangulated spherical screen carries twelve unit fivefold defects,
-edge-center collars make them central ports, and $A_5$ symmetry places them on
-the icosahedral vertex orbit.
-
-The electroweak chart and the familiar low-energy electromagnetic strength
-belong to one declared construction. The source side, the endpoint residual,
-and the empirical hadronic contribution are tracked separately because the
-long-distance electromagnetic endpoint uses \(e^+e^-\to\mathrm{hadrons}\)
-data.
-
-The same electroweak core carries the conditional Higgs/top audit relation
+The Higgs and top masses come out together, and OPH ties them to the forces it
+has in hand rather than to any measured mass. The idea is a criticality
+condition: at one very high energy the Higgs self-interaction and its rate of
+change with energy both switch off at the same moment. Demanding that fixes the
+Higgs and the top jointly, with no free dial to turn, only a choice of which
+high energy to impose the condition at. The natural choice, written down and
+frozen in advance, gives
 
 $$
-(m_H,m_t)=(125.1995304097179,\ 172.3523553288312)\,\mathrm{GeV}.
+(m_H,m_t)=(125.77,\ 172.63)\,\mathrm{GeV},
 $$
 
-$m_H$ is the Higgs coordinate and $m_t$ its companion top coordinate on the
-declared running, matching, and threshold surface. The split relation is an
-exact conditional implication on that surface. A physical Higgs pole
-prediction inherits the strict source-root, physical-scale,
-quotient-transport, scheme, rigidity, provenance, uncertainty, and complex-pole
-gates. The top coordinate is not a separate public top-mass prediction.
+within half a percent of the measured Higgs and two hundredths of a percent of
+the measured top. Run the same relation the other way, feeding in the measured
+top and asking what Higgs it implies, and the curve returns 125.72 GeV, an
+independent check of the same law. A sharper-looking pair of values also
+exists, but it is obtained by working backward from the measured masses, so it
+is a consistency check on the machinery rather than a prediction, and it is kept
+to one side.
+
+The one open piece is a theorem that singles out that special energy from first
+principles instead of by the frozen choice. There is a candidate for it, and a
+future higher-order calculation will test it. This piece is work in progress.
+Until it is settled, the top figure travels along as a companion to the Higgs
+rather than as an independent top-mass prediction.
 
 The three charged leptons carry a striking but weaker result. A historical OPH
 continuation writes their square-root masses as one singlet plus a cyclic
@@ -205,218 +174,142 @@ The MaxEnt slogan in older drafts skipped a necessary step. A natural trace
 counts the one-dimensional singlet once and the two-dimensional charged block
 twice. Equal block power, and hence Koide, needs an additional one-bit
 compensation together with a rule that turns ensemble weights into one physical
-Yukawa matrix. OPH dynamics derives neither rule. It also does not
-derive a charged-family connection whose loop holonomy fixes $2/9$.
+Yukawa matrix. OPH dynamics does not derive either rule, and it does not derive
+the geometric ingredient that would fix the $2/9$ phase.
 
-The same frozen historical continuation adds an exponent prescription and a
-determinant normalization. On its historical $P=1.63094$ branch it gives
-
-$$
-(m_e,m_\mu,m_\tau)=
-(0.510882243295\,\mathrm{MeV},\ 105.635282871\,\mathrm{MeV},\
-1776.579124017\,\mathrm{MeV}).
-$$
-
-The largest difference from the PDG-2026 pole masses is $0.02284\%$. On the
-public-pixel probe, the same formula gives
-
-$$
-(0.510572453797\,\mathrm{MeV},\ 105.571227599\,\mathrm{MeV},\
-1775.501839453\,\mathrm{MeV}),
-$$
-
-with a largest difference of $0.08347\%$. This branch sensitivity matters. The
-historical exponent scan fixes only exponent differences, the extra
-$2^{1/6}$ normalization has no source proof, and no charged-lepton running and
-threshold theorem maps the formula's mass coordinate to the pole masses used in
-the comparison.
+The same historical continuation adds a couple of extra prescriptions and
+reproduces the electron, muon, and tau masses to within a few hundredths of a
+percent. The exact accuracy shifts depending on which internal setting is used,
+from about two hundredths of a percent in one case to about eight hundredths in
+another, and that sensitivity to the setting matters. The formula also carries
+an extra normalization factor with no first-principles proof, and no derivation
+converts its raw output into the specific kind of mass the experiments report.
+That conversion is work in progress.
 
 The icosahedral screen suggests a cleaner carrier. Its twenty outward-facing
 triangles form a single orbit, and the rotations that preserve one triangle
 cycle its three corners. The geometry therefore supplies a local three-place
-cyclic fiber without asking a uniform port load to split itself. This much is
-exact. The sixty possible face-corner flags, taken together, form the regular
-icosahedral rotation orbit rather than one physical three-family space, so a
-map to the charged generations remains necessary.
+cyclic structure without forcing a uniform load to split itself. This much is
+exact. The sixty possible face-corner arrangements together form the full
+icosahedral rotation orbit rather than one physical three-family space, so a map
+down to the three charged generations is required.
 
-A retrospective calculation on this face carrier matches the frozen rounded
-comparison fields to 0.000300 parts per million on one hybrid branch. Against
-the comparison packet's higher-precision tau central value, its tau residual is
--1.387289 parts per million. Its three
-repair formulas were designed after the masses were known and reproduce the
-three coordinates obtained by inverting those masses inside the same ansatz.
-The submitted branch also combines values from two nearby pixel conventions.
-On a coherent public branch the largest residual is 0.424 parts per million;
-on the source-audit branch it is 84.10 parts per million. The face geometry is
-a theorem, the repair formulas are a concrete conjecture, and the masses remain
-a postdiction until the physical attachment, determinant law, repair dynamics,
-and running-to-pole conversion are derived.
+A calculation built on this face carrier matches the known lepton masses
+extraordinarily well on one version, at the level of a fraction of a part per
+million, though the accuracy falls to tens of parts per million on other
+versions. The repair formulas behind it were designed after the masses were
+known and reproduce those masses by construction. The face geometry is a proven
+fact, the repair formulas are a concrete conjecture, and the masses are a
+check-after-the-fact until the physical attachment and the conversion to
+laboratory masses are derived. That work is in progress.
 
-A follow-up proof closes a narrower mathematical question. Once the proposed
-three-coordinate affine repair map is declared, its contraction constant is
-about 0.001536, so it has one globally attracting fixed point. That establishes
-existence, uniqueness, and iteration stability for this map. Multiplying any
-one of its three source terms by the integer two preserves the displayed
-symmetry and contraction while changing the masses. The remaining challenge is
-therefore a source-derived physical packet that selects this map, together with a
-bare-to-endpoint balance bridge, physical family attachment, coherent branch,
-refinement law, determinant attachment, and pole scheme.
+A follow-up proof settles a narrower mathematical question. Once the proposed
+repair rule is written down, it has exactly one stable solution that any
+starting guess converges to. That much is solid. The catch is that a simple
+tweak to the rule, doubling one of its terms, keeps all the nice mathematical
+properties while changing the predicted masses, so the mathematics alone does
+not single out the physical rule. Finding a first-principles reason to select
+one specific rule is work in progress.
 
-A later conditional theorem makes the coefficient question finite: eight
-specified tracial registers and an exhaustive signed path packet force the
-displayed scalar weights. An engineered digital carrier proves that this
-specified class is nonempty. The bounded software patch holds local graph and
-register state, exposes path and record interfaces, reads a noncentral event,
-and stores the accepted or rejected outcome in a central two-state record. At a
-fixed cutoff it has the observer-like anatomy OPH asks for: a boundary, local
-state, readback, a declared repair move, durable records, and an inspectable
-evidence bundle.
+To show that the class of allowed solutions is not empty, a small computer model
+was built. It has the anatomy OPH asks of an observer: a boundary, its own local
+state, a way to read evidence, a repair move, and durable records. The model
+demonstrates internal consistency, but it derives no physics. Every physical
+ingredient is put in by hand, and the model was built after the lepton masses
+were known. The physical selection rule, the attachment to real families, and
+the conversion to laboratory masses are open work.
 
-That construction models the proposal. It supplies no physical derivation. The
-software hard-codes the register dimensions, paths, signs, clock, automaton, and
-response. It supplies no global mutually exclusive trace-preserving response.
-It exhausts only that authored automaton, and its dependency record
-omits the fact that the packet was designed after the charged masses were
-known. The submitted verifier also fails to reject adversarially corrupted
-response and ancestry fields. Its negative-control harness treats any nonzero
-verifier exit as success, so an unrelated crash can false-pass the check. The
-digital model therefore closes formal consistency and the abstract
-record-algebra issue, while OPH dynamical
-selection, cofinal physical refinement, charged-family and determinant
-attachment, pole identification, and traceable source-only ancestry remain open.
+A later result shows that if two physical ingredients were supplied, a proper
+attachment of the Higgs coupling to the families and a proper handling of how
+masses show up as particle poles, then the masses would follow uniquely. Those
+two ingredients are exactly the physics that is missing. The version worked out
+so far uses a stand-in that carries no real interactions, so it captures the
+logic without supplying the physics.
 
-A later package closes the conditional transport language. If the physical
-chiral carrier supplies a natural face-to-family map and the identity
+A related electromagnetic calculation can pin one common mass scale, but only
+after it is fed the measured electromagnetic strength, the target lepton ratios,
+and hadronic data. It is a useful consistency check rather than a
+first-principles prediction. What it produces is an unusually accurate
+after-the-fact match, with its limits clearly marked.
 
-$$
-\frac{v^2}{2}\widehat Y_e\widehat Y_e^\dagger
-=J_LM_F^2J_L^\dagger,
-$$
+The quark calculation started from a restricted result. Under one simplifying
+assumption about the family structure, the equations fix two of the shape
+parameters but leave two others completely free. Nothing in the construction
+picks a value for those two, which sets a floor on how much physical input is
+missing. The full quark problem has even more freedom than this simplified
+version.
 
-then the unique positive square root gives the physical left mass response.
-If an exact renormalized charged kernel also comes with a CFQ-to-Dyson map whose
-singularity readout is already $J_LM_FJ_L^\dagger$, regular field changes and
-the stated Nielsen identity preserve the singularity set. These implications
-are correct, but their premises carry the missing physics. The first identity
-is the physical Yukawa attachment, and the Dyson readout is the pole
-attachment. The package's explicit kernel has zero self-energy and is only a
-free existence witness. It neither constructs the interacting Standard Model
-kernel nor repairs the target-informed hybrid source branch.
+A sharper test rejects that simplifying assumption outright. The assumption
+requires a certain product of two quantities to equal one, and the data put it
+near 0.84 instead. The best fit of this kind misses the measured charm and
+strange quarks by more than twenty percent, and that gap holds up whether the
+comparison is made at low energy or run all the way up toward grand-unified
+scales. The mismatch does not go away.
 
-An electromagnetic transport equation can identify one common mass scale once
-all its inputs are supplied. The stored interval inversion, however, consumes
-the measured electromagnetic endpoint, target lepton ratios, hadronic data, and
-a calibrated higher-order remainder. It is a useful identifiability diagnostic,
-with no first-principles charged-mass status. The result is an unusually accurate
-frozen postdiction with an explicit theorem boundary.
+The full quark problem needs six independent numbers to specify it. The earlier
+shortcut that used only three is exact only inside the narrow simplifying
+assumptions, and it breaks down outside them. A source of information that
+cannot tell the three generations apart cannot fix the gap either, because such
+a source can only produce quarks that all look identical. What is needed is
+something in the underlying theory that distinguishes the generations.
+Supplying it is work in progress.
 
-The quark calculation first established a restricted non-identifiability
-result. After one assumes a reciprocal pair of three-family rays, the source
-equations fix two profile shapes but leave two positive spreads independent.
-Their compatible fiber is $(\mathbb R_{>0})^2$, and the structural economy
-score contains no Yukawa eigenvalue with which to choose a point. This remains
-a valid lower bound on missing source information. The full physical quark
-interface has more freedom.
+Some older attempts survive as records of proposals that did not work. They
+matched the masses to a few tenths of a percent, but the comparison mixed
+incompatible conventions, so those matches do not count as physical
+predictions. The arithmetic behind them depends on an author's chosen catalogue
+of ingredients, and the maximum-entropy argument they lean on does not pin down
+the distribution it needs.
 
-The common-scale Yukawa audit rejects the reciprocal-ray ansatz itself. At
-$M_Z$, the two dimensionless shape coordinates are
+The OPH computer simulations hide no missing ingredient either. Their update
+rules contain no quark, Higgs, or Yukawa couplings at all, so they carry no
+information about these masses by construction. A large run confirmed this: it
+produced numbers, but none of them could be tied to a physical mass. The wider
+survey of these runs came up empty in the same way. There is nothing there to
+calibrate against, and the raw quark numbers are held back for that reason.
 
-$$
-\rho_u=1.1108888543,
-\qquad
-\rho_d=0.7519410008,
-\qquad
-\rho_u\rho_d=0.8353228768,
-$$
-
-where the reciprocal law requires a product of one. Even after granting the
-four endpoint Yukawas, the best reciprocal shape misses the held-out charm and
-strange coordinates by at least $21.556\%$. Repeating the test from $M_Z$
-through $10^{16}\,\mathrm{GeV}$ leaves the product between $0.835323$ and
-$0.845227$ and the minimax error between $19.93\%$ and $21.56\%$. The mismatch
-persists across the tested renormalization scales.
-
-The exact generic coordinate interface has six independent scalars,
-
-$$
-(\mu_u,\sigma_u,\rho_u,\mu_d,\sigma_d,\rho_d).
-$$
-
-The earlier three-scalar inverse is exact only inside the imposed reciprocal
-ray, affine-mean, fixed-shared-scale subfamily. A generation-blind collection
-of flavor-singlet source scalars cannot repair this loss: simultaneous
-$S_3$-invariant matrices span only $\{I,J\}$, which gives degenerate spectra
-and aligned up/down frames. A physical source needs a flavor-orbit selector,
-such as a selected non-singlet boundary datum or a source-derived spontaneous
-selector.
-
-The historic target audits remain useful as records of failed proposals. Their
-$0.2946\%$ two-mode residual and $0.29436\%$ finite-module residual were both
-computed against a mixed-convention mass chart, so neither is a physical
-postdiction. Removing the proposed quadratic and scale corrections improves
-the same retrospective chart to $0.214229\%$. The rational finite-module
-arithmetic is conditional on an authored register and path catalogue, and
-finite-support maximum entropy with fixed mean and covariance does not imply a
-Gaussian or determine higher cumulants.
-
-The finite observer simulator supplies no hidden selector. Its update rules
-contain no quark, Higgs, or Yukawa coupling, which makes the Fisher information
-for these coordinates zero. A 64,000-observer run returned shape estimates
-between $1.484301$ and $1.498275$ but no calibration observable. The broader
-chance-count survey retained only thirteen finite estimators; six population
-cells were undefined or rank deficient, two permutation tests had no null
-distribution, and a uniform $\rho$ null was unsupported. The result is a calibration null.
-Public numerical quark rows remain withheld.
-
-A separate targeted POFT assay fixed the readout before comparison as the
-average three-label permutation matrix on the saved S3 edges. One fresh 4k run
-and three independent 4k/64k carriers all produced an almost rank-one Haar
-operator: nontrivial normalized singular values stayed below $0.0056$, whereas
-POFT T0 and T1 require values near $0.55$ and $0.26$--$0.27$. The state schema
-also exports no complex oriented family amplitude or explicit coarse/fine
-intertwiner. The current direct carrier therefore does not emit POFT. A future
-independently derived complex lift remains possible, but defining it from the
-desired matrices would be circular.
+A separate test looked for a specific mathematical structure the theory would
+like the families to have. Across several independent runs the simulations
+produced an essentially trivial answer, far below the sizeable values that
+structure would require. The current construction does not produce it. A future
+version might, but building it by hand to match the desired answer would be
+circular reasoning.
 
 Running means the quoted mass depends on the energy scale at which the quark is
 probed. This is normal in quantum field theory. It is why a quark mass in a
 short-distance table is not the same kind of number as a proton mass measured in
 the lab.
 
-The subscripts name quark flavors: up, down, strange, charm, bottom, and top.
-To construct physical Yukawa matrices one would first need a source-emitted
-renormalization-group trajectory, transport all masses to one common scale with
-threshold matching, emit the running Higgs expectation value in the same
-scheme, and then form $y_q(\mu)=\sqrt{2}m_q(\mu)/v(\mu)$.
+The subscripts name the quark flavors: up, down, strange, charm, bottom, and
+top. To build the actual quark couplings, OPH would need to emit its own running
+of the couplings with energy, bring all the masses to a single common energy
+with the proper matching at each quark threshold, emit the running Higgs value
+in the same scheme, and only then combine them. Those steps are work in
+progress.
 
-The weighted-cycle neutrino calculation supplies a frozen comparison point.
-The correlated NuFIT 6.1 profile rejects that point. The charged-lepton basis
-is open, and its singular values are nearly degenerate, so the source-level
-physical PMNS matrix is unformed. The neutrino singular values lack a
-source-derived assignment to the physical mass labels, and no source-derived
-normalization fixes absolute masses in electron-volts. The quoted mass and
-Majorana values belong only to diagnostic attachments of the rejected
-candidate.
+The neutrino calculation offers a candidate comparison point, and the global
+fit to neutrino oscillation data rejects it. The mixing pattern it would need is
+not fixed by the theory, and the pieces that would set the neutrino masses in
+absolute units are absent. Any mass or mixing-phase numbers attached to this
+candidate are diagnostic only, since the candidate itself is rejected.
 
-The particle picture is larger than a handful of isolated numbers. At book
-level, the map contains receipt-gated classical carrier modes with no promoted
-photon, gluon, or graviton mass rows; the exact electroweak carrier chart; the
-conditional quotient-transport law; the separate inverse adapter; the
-conditional Higgs/top relation; the frozen charged-lepton postdiction, its
-engineered digital record model, and its conditional nature/pole transport
-interface; the common-scale rejection of the reciprocal
-quark ray; and the weighted-cycle neutrino comparison point rejected by NuFIT
-6.1. The charged-lepton interface assumes rather than derives the physical
-Yukawa and singularity readouts. It has no physical source selection, and the generic
-six-scalar quark interface has no source-derived flavor-orbit selector.
+The particle picture is larger than a handful of isolated numbers. It holds
+together as a map with several parts at different stages: massless force
+carriers that are on firm ground but not promoted to full particles, an exact
+electroweak chart, a conditional law for the weak masses, the conditional Higgs
+and top relation, the after-the-fact charged-lepton match with its computer
+model, the rejection of the simplified quark shape, and the rejected neutrino
+candidate. The charged-lepton and quark constructions assume the very physics
+they would need to derive, so both are incomplete. Filling that in is work in
+progress.
 
-The selected quark branch also shows where the particle story changes gear. Its
-restricted source package leaves two independent spread moduli, while the
-physical common-scale test rejects the reciprocal-ray shape assumed by that
-package. The strong-CP phase, a source-selected six-scalar Yukawa construction,
-and physical hadron masses remain separate burdens. Protons, neutrons, and mesons are QCD
-composites, so their masses require the nonperturbative bound-state physics of
-confinement.
+The quark story is where the particle picture changes gear. The simplified
+construction leaves two parameters free, and the sharper test rejects the shape
+that construction assumed. Several separate problems are open here: the
+strong-CP puzzle, a full six-parameter quark construction chosen by the theory,
+and the masses of actual hadrons. Protons, neutrons, and mesons are bound states
+of quarks and gluons, so their masses come from the hard, nonperturbative
+physics of confinement rather than from quark masses alone.
 
 Majorana phases are extra neutrino mixing phases that matter if neutrinos are
 their own antiparticles in the relevant sense. The candidate's phase values are
@@ -443,7 +336,7 @@ with the narrower bookkeeping question of whether two localized detector
 records are the same continuing token across a chart boundary. For that, the
 stitch first needs a certified localization region for each record token and
 clock slice. A guessed point is insufficient. Distinct records need enough
-separation before they can be treated as different sources. After that, the stitch still
+separation before they can be treated as different sources. After that, the stitch also
 needs a declared spatial chart, a common clock, a real transverse interface,
 compatible charge transport, and enough evidence to rule out rival tracks.
 Without those gaps, OPH records ambiguity instead of forcing a history.

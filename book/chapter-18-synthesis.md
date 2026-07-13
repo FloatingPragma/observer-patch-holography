@@ -57,25 +57,22 @@ selection principle. Minimality gives the economy.
 
 ## 18.4 How Spacetime Appears
 
-Once cap modular flow becomes geometric on the controlled scaling branch,
-time stops looking imported from outside. It becomes the internal flow attached
-to a restricted state. When those local flows fit together across the smooth
-screen, Lorentz kinematics appears, and the observer-facing spatial chart has
-three dimensions. The compact-paper geometry statements keep the branch
-conditional: caps organize the chart, records populate it only under a separate
-localization certificate, and ambiguous finite evidence must remain ambiguous.
-Two further packets sharpen the chain. The geometry producer derives the
-sphere and its cap structure from repaired normal forms under decidable
-receipts, and proves consensus alone cannot select them. The event-manifold
-packet assembles localized records into an actual $3{+}1$-dimensional event
-spacetime of signature $(-+++)$ on its named population, separation, frame,
-and overlap receipts, with $H^3$ kept strictly as the space of rest frames
-over events rather than space itself.
-When the recovered-core branch
-supplies geometry readout, the null bridge, the bounded-interval kernel,
-small-ball area variation, remainder control, and tensor upgrade, the Einstein
-relation appears as the public large-scale grammar of the fixed-cap
-generalized-entropy equilibrium.
+Once the internal flow of a restricted region becomes geometric under the right
+scaling conditions, time stops looking imported from outside. It becomes the
+internal flow attached to a restricted state. When those local flows fit
+together across the smooth screen, Lorentz kinematics appears, and the
+observer-facing spatial chart has three dimensions. This part of the picture is
+conditional. The screen regions organize the chart, but records populate it only
+when a separate condition is met, and where the finite evidence is ambiguous it
+has to stay ambiguous. Two further pieces of the argument tighten the chain. One
+derives the sphere and its region structure from the underlying data and shows
+that agreement between observers cannot by itself pick them out. The other
+assembles localized records into an actual $3{+}1$-dimensional spacetime with
+one time direction and three space directions, keeping hyperbolic three-space
+strictly as the space of rest frames rather than space itself. When the
+underlying construction supplies the geometry readout together with its
+supporting technical steps, the Einstein relation appears as the public
+large-scale grammar of the horizon-plus-bulk entropy equilibrium.
 
 Read that sentence as a compressed recap. Modular flow is the clock a restricted
 state carries. Lorentz kinematics is the rulebook for relating moving
@@ -87,7 +84,7 @@ information matters. \(SO^+(3,1)\) is the connected Lorentz group, the
 transformations preserving the light-cone structure. \(SO(3)\) is the ordinary
 rotation group that changes spatial orientation while leaving the local rest
 frame's direction of time fixed. Dividing by \(SO(3)\) keeps the boost or
-velocity information and discards the redundant orientation label. What remains
+velocity information and discards the redundant orientation label. What is left
 is hyperbolic three-space, the geometry of possible rest frames.
 
 In plain language, spacetime is the compressed way finite observers keep track
@@ -102,25 +99,23 @@ The container picture is the successful large-scale description that results.
 Calling it an illusion works only as metaphor. What persists is the compatible
 appearance, stable enough to carry clocks, rulers, fields, and observers.
 
-The fixed-cutoff microphysics layer plays a narrower role in that story. It
-treats the sphere as an observer-facing chart and gives patches a concrete
-carrier: ports, overlaps, edge sectors, records, repairs, Bell tests, and
-checkpoint restoration. A distributed implementation counts as one carrier
-only when its parts behave as a single repair system. This is the setting in
-which the broader OPH bookkeeping can be simulated and checked.
+The detailed microphysics layer plays a narrower role in that story. It treats
+the sphere as an observer-facing chart and gives the patches a concrete
+implementation: connection points, overlaps, stored records, and the machinery
+that checks and repairs them. A distributed implementation counts as one such
+carrier only when its parts behave as a single repair system. This is the
+setting in which the broader OPH bookkeeping can be simulated and checked.
 
 ## 18.5 How the Particle World Appears
 
-The particle world follows the same logic from another angle. Once fixed-cutoff
-charge sectors can fuse, split, and carry duals, a cofinal refinement tail must
-also carry the compact-gauge refinement receipt: coherent surjective group
-pullbacks, explicit block-multiplicity embeddings, and compatible forgetful
-fibers. The gauge group is then reconstructed from that receipt-certified
-persistent charge bookkeeping itself. This reconstruction classifies the
-compact group carried by the transportable sector package; it does not make the
-Standard Model choice by itself. Minimal admissible selection picks the
-one-Higgs matter branch. On that
-realized branch, the group is
+The particle world follows the same logic from another angle. Once the charge
+sectors on a screen can combine, break apart, and carry their opposites, the way
+those charges persist through finer and finer descriptions has to satisfy a set
+of consistency conditions. The gauge group is reconstructed from that persistent
+charge bookkeeping itself. This reconstruction classifies the compact group
+carried by the charges that can be transported across patches; it does not make
+the Standard Model choice by itself. Choosing the smallest matter content that
+works picks the version with a single Higgs. On that branch, the group is
 
 $$
 SU(3)\times SU(2)\times U(1)/\mathbb Z_6.
@@ -132,7 +127,7 @@ ways. $SU(3)$ carries color, $SU(2)$ carries weak doublet structure, and
 $U(1)$ carries hypercharge. The $\mathbb Z_6$ quotient is the discrete
 identification that makes the Standard Model charge lattice fit together.
 
-The same compact-gauge lane also carries the four-dimensional Yang-Mills form
+The same construction also carries the four-dimensional Yang-Mills form
 and the mass-gap story for compact simple gauge groups. The Euclidean action
 comes from the way compact gauge data curves around loops in the
 four-dimensional scaling limit. The gap mechanism comes from repair: leaving
@@ -148,45 +143,45 @@ first genuine excitation above the vacuum costs a positive amount of energy.
 The continuum work is what lets a finite screen construction be read as that
 smooth field theory.
 
-The color triplet follows from the minimal coupled carrier, and the
-three-generation count follows from CKM phase counting, weak-sector
-consistency, and minimality on the same low-energy branch. The electromagnetic,
-color, and metric carrier roles acquire classical transverse or TT modes only
-after their explicit action and phase receipts; their quantum particle poles
-remain a stronger gate. The broader particle status map then carries the
-exact weak-sector selected-carrier chart, the value law conditional on five
-quotient-transport premises, and the separate frozen inverse adapter. The
-adapter's conditional audit coordinate is $(80.3625,91.1879)$ GeV; the nearby
-$(80.3770000154,91.1879780779)$ GeV pair belongs to the conditional law. The
-low-energy electromagnetic ledger distinguishes a source/root witness, a
-mixed-provenance diagnostic, an empirical hadron closure, and the measured
-Thomson endpoint. The empirical row gives $136.2636589431$ on
-$[136.1583832834,136.3690975240]$ and imports external hadron data, so a
-source-only OPH-QCD backend remains absent. The Higgs/top relation is
-conditional on its declared electroweak surface.
+The color triplet follows from the smallest coupled carrier, and the count of
+three generations follows from counting the quark-mixing phases together with
+weak-sector consistency and minimality on the same low-energy branch. The
+electromagnetic, color, and gravitational carrier roles pick up their classical
+wave modes once their action and phase conditions are met, but showing that
+these carriers behave as genuine quantum particles takes a stronger argument,
+and that part is work in progress. For the weak bosons the framework gives the W
+and Z masses close to $80.3$ and $91.1$ GeV, within about a tenth of a percent
+of measurement and with no measured mass fed in, apart from a small unresolved
+choice between two candidate rules. The low-energy electromagnetic strength can
+be read in several ways: from the first-principles side alone, from a mixed
+calculation, and from a version that closes the gap using measured hadron data.
+That last version imports external data, so a version computed purely from OPH
+first principles is open work. The Higgs and top masses come out together from a
+criticality condition on the forces, close to $125.8$ and $172.6$ GeV; feeding
+the measured top mass into the same relation returns about $125.7$ GeV for the
+Higgs.
 
-This status map emits no nonzero source-only physical particle mass. The
-symmetry-protected zero modes are classical carrier or kernel results pending
-quantum pole receipts. Every nonzero mass coordinate belongs to a conditional
-or retrospective audit.
+None of these numbers is a particle mass derived purely from first principles
+with nothing measured fed in. The massless modes protected by symmetry are
+classical results that await a proper quantum treatment. Every nonzero mass
+above is either conditional on unproven assumptions or a check made after the
+fact against known values.
 
-The exact icosahedral face-corner carrier supports a conditional charged-lepton
-repair law and an engineered finite digital model with central accepted or
-rejected records. Its registers, paths, clock, and response are hard-coded, and
-physical source selection is absent. A conditional nature/pole interface gives
-the correct positive-square-root and singularity-zero transport after the
-physical Yukawa response and CFQ-to-Dyson readout are supplied. Those two
-premises are the missing attachments, and its zero-self-energy kernel is only a
-free witness. The reciprocal quark ray is rejected by
-common-scale dimensionless Yukawas, with a minimum held-out error between
-$19.93\%$ and $21.56\%$ across the tested scales. Its generic physical interface
-needs six independent scalars and a source-derived flavor-orbit selector. The
-64,000-observer simulator supplies a calibration null. A target-informed
-weighted-cycle neutrino candidate is rejected by the correlated NuFIT 6.1
-profile; the open charged basis leaves its physical PMNS matrix, mass ordering,
-and absolute masses unresolved. Direct-top comparison, hadrons, and strong CP
-sit around that particle map as neighboring pieces of physics with different
-support levels.
+For the charged leptons there is a construction built on icosahedral symmetry
+that gives a conditional mass law, worked out as a small finite digital model
+that either accepts or rejects each record. That model is hard-coded, and it
+does not select the physics from first principles. It gives the correct
+transport only once two physical inputs are supplied, and those two inputs are
+the missing pieces. The analogous law proposed for the quarks fails when tested
+against the measured quark couplings at a common scale, missing by about twenty
+percent. A full quark description needs six independent numbers and a rule that
+picks out the right flavor pattern, and that rule is missing. The observer
+simulation carries no quark information and serves only as a calibration check.
+A proposed neutrino pattern is ruled out by the measured oscillation data, and
+the neutrino mixing matrix, the ordering of the masses, and the absolute masses
+are open work. Direct top comparison, hadrons, and the strong-CP question sit
+around that particle map as neighboring pieces of physics supported to different
+degrees.
 
 The particle words here refer to roles explained in Chapters 12-16: color is the
 three-way strong-force bookkeeping, CKM phases describe quark mixing under the
@@ -207,7 +202,7 @@ the branch data, not adjustable knobs.
 This is where reverse engineering enters legitimately. The observed universe
 can give a rough value or a branch interval because, in the OPH reading, those
 coordinates belong to a completed mathematical structure. The job of
-the theory is then to show that the declared readback map has a unique fixed
+the theory is then to show that the readback map has a unique fixed
 point in that basin. Observation supplies the starting neighborhood; the
 fixed-point theorem supplies the value.
 
@@ -307,18 +302,20 @@ readout is produced from the trial pixel value. The fixed point is the value of
 $P$ for which the geometric pixel and the electromagnetic readout name the same
 local scale.
 
-The measured-endpoint branch and the source-audit branch make different uses
-of the inner electromagnetic reading. The former includes the measured
-long-distance endpoint; the latter excludes it upstream. Their nearby pixel
-values cannot be merged into one source claim.
+There are two ways to use the inner electromagnetic reading. One includes the
+measured long-distance value; the other leaves it out from the start. The two
+give nearby pixel values, but they cannot be merged into a single
+first-principles claim.
 
-The electroweak hierarchy uses the same local branch. Once the source branch
-fixes the unified coupling, the local hierarchy relation fixes \(v/E_\star\).
-It supplies no mass in GeV until an independently physical \(E_\star\) is
-established. The selected source-to-Higgs coarse-graining square has zero
-defect, so the Higgs naturality reading is carried by the same source-to-Higgs
-branch. There is no independent bare scalar input in this construction. The
-full SI gravity readout depends on the complete no-G clock bridge.
+The electroweak hierarchy uses the same local ruler. Once the first-principles
+side fixes the unified coupling, the hierarchy relation fixes the ratio
+\(v/E_\star\) between the electroweak scale and the reference scale. It supplies
+no mass in GeV until an independent physical value of \(E_\star\) is
+established. The step that connects the first-principles side to the Higgs closes
+without any leftover discrepancy, so the reading of Higgs naturality is carried
+along the same line, with no separate bare scalar mass put in by hand. The full
+gravity readout in ordinary units depends on the complete clock bridge that
+avoids inserting Newton's constant.
 
 The global screen-capacity branch also carries the global repair-register
 story. OPH treats reality as a continual repair of disagreements between local
@@ -357,7 +354,7 @@ display.
 
 The readback side has a matching finite statement. At a finite cutoff, the
 closed observer record selects one public capacity atom, so the delivery
-resolution is a single value. No menu of incompatible scales remains. In the
+resolution is a single value. There is no menu of incompatible scales. In the
 refinement limit, that single atom becomes the horizon-to-cell factor used by
 the repair tick.
 
@@ -369,7 +366,7 @@ to the observers living on that screen.
 
 Perfect equilibrium would be too quiet. A world with records needs a small
 departure from silence: enough asymmetry for light, detectors, and durable
-differences, yet small enough for the screen geometry to remain coherent. The
+differences, but small enough for the screen geometry to hold together. The
 fine-structure constant measures that minimal electromagnetic disturbance.
 
 The Newton normalization uses the same local cell without using it to solve for
@@ -378,24 +375,22 @@ then fixes the cell/edge identity, while that ratio cancels out of Newton's
 constant. In the book-level picture, fine structure reads the pixel's
 electromagnetic detuning; Newton's constant reads the emitted scale bridge.
 
-The long-distance fine-structure readout gives
-$P\simeq1.6309682094$ and an inverse fine-structure constant of
-$137.035999177(21)$. The notation $(21)$ means uncertainty in the last quoted
-digits. The number is the zero-momentum electromagnetic strength familiar from
-precision physics.
+The long-distance fine-structure readout gives a pixel ratio of about $1.63$ and
+an inverse fine-structure constant of $137.035999177(21)$. The notation $(21)$
+means uncertainty in the last quoted digits. That number is the zero-momentum
+electromagnetic strength familiar from precision physics.
 
-The source calculation tells a narrower story. The undressed source/root pixel
-lands at $136.9948351646\ldots$. Combining it with the finite-screen unified
-gauge width evaluated at the CODATA-derived comparison pixel gives the
-mixed-provenance diagnostic $137.0359595008\ldots$.
+The first-principles calculation tells a narrower story. The bare source value
+lands near $137.0$. Combining it with the screen's unified gauge width,
+evaluated at a comparison pixel taken from measured constants, gives a mixed
+reading close to $137.036$.
 
-The empirical hadron calculation is a separate coordinate. Supplying the
-external $e^+e^-\to\mathrm{hadrons}$ contribution gives
-$136.2636589431$ on $[136.1583832834,136.3690975240]$. The measured Thomson
-value lies outside that interval, which constrains the required same-scheme
-source/root anchor correction to $[0.6485541111,0.8547920666]$. The calculation
-tests an empirical closure interface and leaves the source-only spectral
-calculation open.
+The version that uses external hadron data is a separate coordinate. Supplying
+the measured electron-positron annihilation contribution gives a value near
+$136.3$, which sits a little below the measured Thomson value. That gap sets how
+large a correction the first-principles anchor would need to supply. The
+calculation tests whether the framework closes against measured hadron data and
+leaves the purely first-principles version open.
 
 The phrase $e^+e^-\to\mathrm{hadrons}$ names electron-positron annihilation
 into strongly interacting composite particles. Those data account for the
@@ -445,25 +440,17 @@ supplied. A reconstruction threshold is not a Page time until physical entropy
 and clock data are supplied. Renaming preserves the same bookkeeping; a physical
 claim needs a new bridge.
 
-Collar CMI obeys the same discipline. Exact recovery follows on the declared
-central-interface branch, where the edge split and Markov split agree. The
-quantitative branch assumes a faithful finite-range Gibbs state with uniform
-interaction bounds and uniform strong conditional or matrix mixing. It then
-gives
-
-$$
-I(A_\delta:D_\delta|B_\delta)
-\le c|\partial C|_{\mathrm{UV}}e^{-\delta/\xi_\ell}.
-$$
-
-The double scaling forces CMI to zero when
-$\delta/\xi_\ell-\log|\partial C|_{\mathrm{UV}}\to+\infty$. A diverging
-$\delta/\ell_{\mathrm{UV}}$ without the boundary term is insufficient, and
-ordinary two-point clustering does not supply the matrix-mixing premise.
-Finite CMI, matrix-defect, boundary-count, and rate-margin receipts test finite
-stages of this statement. Uniformity across the declared family carries the
-limit. The scalar CMI certifies recovery quality only; stress-energy and any
-dark source require their own rank-two reconstruction and coupling receipts.
+The recovery of hidden correlations across a buffer region obeys the same
+discipline. Under stated technical assumptions about the state, the leftover
+correlation between two separated regions, given the buffer between them, falls
+off as the buffer grows. When the buffer width beats the size of its boundary,
+that leftover correlation is driven to zero. Weaker assumptions are not enough,
+and ordinary short-range correlation does not by itself supply the stronger
+mixing condition the argument needs. A set of finite checks tests stages of this
+statement, and consistency across the whole family of cases carries the limit.
+This certifies only how well information can be recovered. Extracting
+stress-energy or any dark-sector source takes its own separate reconstruction
+and coupling work.
 
 The cosmology story is narrower where the sky becomes finely detailed. The
 de Sitter capacity closure belongs to the global gravity story. Screen patterns
@@ -478,7 +465,7 @@ The large-scale universe is accelerating. In OPH that matters
 immediately, because de Sitter space gives every observer a natural horizon and
 therefore a natural screen.
 
-Different observers carry different horizons, yet those horizons overlap
+Different observers carry different horizons, but those horizons overlap
 enormously. The consistency conditions are severe. The total state space is
 finite. On that same implemented branch, the cosmological constant stops
 looking like an awkward vacuum-energy leftover and instead looks like a global
@@ -504,7 +491,7 @@ splitting of the world into one autonomous inside and one autonomous outside.
 Interior data is encoded in the screen. There is no second hidden vault.
 
 Fine-tuning also changes tone. Once laws are read as the patterns that survive
-across many overlapping perspectives, a law is the shape that remains stable
+across many overlapping perspectives, a law is the shape that holds stable
 under the harsh test of public consistency.
 
 ## 18.9 The Strange Loop
@@ -567,83 +554,80 @@ mathematician sees an obstruction. A cosmologist sees a horizon. A quantum
 information theorist sees a code. A good theory earns its keep by making those
 views mutually legible without erasing their differences.
 
-The gauge quotient, charge lattice, counting chain, Yang-Mills repair gap,
-receipt-gated classical carrier modes, Lorentz geometry, the branch-qualified
-Einstein relation, the electroweak selected-carrier chart, the conditional
-quotient-transport and Higgs-top surfaces, and the quark common-scale
-falsification form one organized reconstruction. The restricted quark
-non-identifiability theorem survives as a lower bound on missing source data,
-while its reciprocal-ray ansatz does not survive the physical Yukawa test. The
-weighted-cycle neutrino candidate sits in the failure ledger: NuFIT 6.1 rejects
-the frozen point, while the open charged basis prevents a physical PMNS matrix
-or mass spectrum.
+The gauge quotient, the charge lattice, the generation-counting chain, the
+Yang-Mills mass gap, the classical carrier modes, the Lorentz geometry, the
+conditional Einstein relation, the electroweak chart, the conditional quark and
+Higgs-top surfaces, and the quark falsification form one organized
+reconstruction. A theorem shows the quarks cannot be pinned down without more
+first-principles input. That is a genuine mathematical limit on what the
+available data can fix. The particular reciprocal law proposed for the quarks
+does not survive testing against the measured quark couplings. The neutrino
+candidate sits in the failure column: it is ruled out by the measured
+oscillation data, and without a settled description of the charged leptons there
+is no physical neutrino mixing matrix or mass spectrum.
 
-The local-ruler story is therefore a cluster of related claims rather than one
-flat table. For charged leptons the local three-corner cyclic carrier is exact,
-and the declared repair map has one conditionally proved attracting fixed
-point. A conditional finite-path theorem fixes the scalar weights inside a
-stipulated packet, and an engineered finite digital model proves that packet is
-internally consistent. The bounded patch has local state and interfaces,
-readback, an accepted or rejected central record, a repair move, and a public
-evidence bundle. Its registers, path automaton, grading, clock, and response are
-hard-coded, so OPH dynamical selection, no-target ancestry, physical attachment,
-and mass-value laws remain conjectural. A conditional downstream theorem
-transports the face operator to a physical mass and singularity operator only
-after assuming the physical Yukawa identity and the exact Dyson readout. It
-organizes the remaining certificate stack without closing it. The weak sector likewise separates an exact carrier chart, a
-conditional law, and an inverse adapter. Its color-balanced model, with
-proposed weights $\sqrt{N_c}/2$ and $N_c$, is a distinct alternative to the
-complete quotient-transport law. The finite
-transport certificate and the physical pole receipt are absent. The
-adapter gives the conditional audit coordinate $(80.3625,91.1879)$ GeV,
-distinct from the conditional law at
-$(80.3770000154,91.1879780779)$ GeV. The withheld quark rows, direct-top
-comparison, hadrons, and Strong CP each touch a different layer of the particle
-problem.
+The local-ruler story is a cluster of related claims. For the charged leptons
+the three-corner cyclic construction is exact, and its repair map has one
+attracting fixed point that is proved under stated conditions. A finite-path
+theorem fixes the underlying weights inside a stipulated setup, and a small
+finite digital model proves that setup is internally consistent. That model has
+its own local state, readback, a record it accepts or rejects, a repair move,
+and a public evidence bundle, and all of it is hard-coded. So the questions of
+how the dynamics selects these values, where they come from without a target,
+how they attach to physics, and what fixes the mass values are conjectural. A
+further theorem carries the construction to a physical mass and singularity
+operator only after assuming the physical Yukawa identity and the exact readout,
+which organizes the outstanding work without closing it. The weak sector gives
+the W and Z masses near $80.3$ and $91.1$ GeV, with several matching bookkeeping
+charts behind it and a small unresolved choice between two candidate rules for
+the final step. The finite certificate and the quantum-particle argument that a
+full particle theorem would need are absent. The Higgs and top come out together
+from a criticality condition on the forces, near $125.8$ and $172.6$ GeV. The
+withheld quark rows, direct top comparison, hadrons, and the strong-CP question
+each touch a different layer of the particle problem.
 
-The generic implication theorems sharpen this boundary. No further
-stochastic or universe simulation is logically required: exact finite path
-enumeration, interval clock certification, deterministic RG integration, and
-analytic complex-pole enclosures suffice once their source inputs exist. But
-the present structural axioms admit continuous target-free changes of the weak
-transport repair, the Higgs/top split, the absolute scale, and the inverse
-two-point kernels.
-They therefore do not select a nonzero pole mass. The remaining source objects
-are the factorized clock packet, a non-vacuous independently weighted
-quotient-transport carrier, the Higgs/top split-character carrier, and the
-BRST-complete weak-neutral-Higgs pole kernels. A runtime dependency graph also cannot establish historical
-blindness; that requires disclosure and a prospective frozen claim.
+The general theorems sharpen this boundary. No further random or universe-scale
+simulation is logically required: exact finite enumeration, certified interval
+arithmetic, deterministic renormalization-group integration, and analytic pole
+enclosures suffice once their source inputs exist. But the current assumptions
+can be deformed continuously without touching any measured target, which changes
+the weak transport, the Higgs-top split, the absolute scale, and the underlying
+kernels. So those assumptions do not by themselves pick out a nonzero particle
+mass. Several source ingredients are missing, including a proper clock
+construction, an independently weighted transport carrier, a carrier that
+separates the Higgs and top, and the kernels for the weak and Higgs poles. A
+record of what the code depends on also cannot prove the calculation never saw
+the answer; that takes a disclosed, prospective, frozen prediction.
 
-The quark audit makes that boundary concrete. At $M_Z$ the common-scheme shape
-coordinates are $\rho_u=1.1108888543$ and $\rho_d=0.7519410008$, whose product
-is $0.8353228768$, short of the reciprocal law's required value one. Even after
-granting four endpoint Yukawas, the best reciprocal shape misses the held-out charm and
-strange values by $21.556\%$. The failure remains between $19.93\%$ and
-$21.56\%$ across scales from $M_Z$ to $10^{16}\,\mathrm{GeV}$.
+The quark audit makes that boundary concrete. The reciprocal law requires two
+shape numbers whose product is one, but at the Z-boson scale their product is
+about $0.84$. Even after granting several endpoint values, the best reciprocal
+shape misses the held-out charm and strange values by about twenty-one percent,
+and that miss holds at roughly twenty percent across every scale tested, from
+the Z-boson mass up to the grand-unification range.
 
-Six independent scalars
-$(\mu_u,\sigma_u,\rho_u,\mu_d,\sigma_d,\rho_d)$ form the generic exact
-interface. Generation-blind flavor singlets can emit only simultaneous
-$S_3$-invariant matrices in $\{I,J\}$, with degenerate spectra and aligned
-frames, so a source-derived flavor-orbit selector is missing. The finite-module
-arithmetic remains an exact conditional exercise after its registers and paths
-are declared. Its $0.29436\%$ residual, like the older $0.2946\%$ result, was
-computed against a mixed-convention chart; a lower-order ablation fits that
-same chart at $0.214229\%$. Finite-support maximum entropy does not imply a
-Gaussian or determine higher cumulants.
+A full quark description needs six independent numbers. A rule that cannot tell
+the generations apart can only produce patterns that treat all three generations
+alike, with matching masses and aligned frames, so the rule that would break
+that symmetry from first principles is missing. The finite-model arithmetic is
+an exact conditional exercise once its setup is declared. Its residual of about
+a third of a percent was computed against a mixed-convention chart and should
+not be read as a physical fit; a simpler variant fits the same chart a little
+better. Maximum entropy on a finite set does not force a Gaussian or fix the
+higher-order structure.
 
-The observer simulator adds no numerical quark evidence. Its dynamics contains
-no quark, Higgs, or Yukawa coupling and therefore has zero Fisher information
-for the six Yukawa coordinates. The 64,000-observer run is a calibration null,
-and the survey's chance count lacks a valid null distribution for several
-population cells. All physical flavor-closure receipts remain open.
+The observer simulation adds no quark evidence. Its dynamics contains no quark,
+Higgs, or Yukawa coupling, so it carries no information about the six quark
+numbers at all. The large simulation run is a calibration check, and its chance
+count lacks a valid baseline for several of its categories. All the physical
+flavor questions are open work.
 
-The targeted POFT check reaches the same boundary more directly. Across one
-fresh and three archived 4k/64k carriers, the natural S3 permutation transport
-is Haar-rank-one rather than POFT T0 or T1, with every singular-shape distance
-above $0.5407$. Complex orientation and coarse/fine intertwiner data are not
-exported. More scale would sharpen this direct null; the next advance must be
-an independently derived carrier lift or selection theorem, followed by
+A targeted check reaches the same boundary more directly. Across one fresh and
+three archived simulation carriers, the natural permutation transport does not
+have the structure the quark law would require, staying well clear of it. The
+finer orientation data that could decide the question is not exported. More
+scale would sharpen this negative result. The next advance has to be an
+independently derived carrier construction or a selection theorem, followed by
 another small replication.
 
 The next chapter turns to the deepest metaphysical question. If observers,

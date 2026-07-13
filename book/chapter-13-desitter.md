@@ -415,28 +415,21 @@ the local Einstein relation. In the ideal case, the geometric readout,
 null-stress bridge, small-ball area identity, and tensor upgrade close cleanly
 enough that local gravity takes the familiar form.
 
-The recovery analysis has two branches. A central-interface state supplies an
-exact edge-aligned Markov split. A faithful finite-range Gibbs state supplies a
-quantitative route only when it also obeys uniform strong conditional or matrix
-mixing. On that route the collar estimate is
+The recovery analysis has two versions. In the clean case, the boundary lines up
+with the way the state divides and the leakage across it is exactly zero. In the
+broader case, the leakage falls off exponentially with the thickness of the
+boundary layer, provided the boundary loses its correlations fast enough as you
+move inward. Ordinary fast decay of two-point correlations does not by itself
+establish that. A thicker layer suppresses the leak, and a larger boundary
+raises the prefactor.
 
-$$
-I(A_\delta:D_\delta|B_\delta)
-\le c|\partial C|_{\mathrm{UV}}e^{-\delta/\xi_\ell},
-$$
-
-and its vanishing requires
-$\delta/\xi_\ell-\log|\partial C|_{\mathrm{UV}}\to+\infty$. Ordinary
-two-point clustering leaves this theorem unproved. Greater collar thickness
-suppresses the estimate, while a larger UV boundary increases its prefactor.
-
-A nonzero collar CMI can therefore serve as a finite diagnostic of imperfect
-recovery. The scalar CMI has no tensor indices and cannot be inserted into
-Einstein’s equation as stress-energy. A gravitational anomaly requires the
-separate reconstruction of a conserved rank-two source from directional
-modular charges, followed by the declared normalization and coupling tests.
-Finite simulator measurements of CMI and the matrix defect are proxies for
-that recovery analysis, without constituting a dark-source receipt.
+A nonzero leakage can therefore serve as a finite diagnostic of imperfect
+recovery. That leakage is a single number with no direction, so it cannot be
+inserted into Einstein's equation as a source of gravity. A gravitational source of this kind has to
+be a proper conserved tensor, reconstructed with directions built in and passing
+the usual normalization and coupling tests. The finite quantities a simulation
+can measure are stand-ins for that reconstruction, and they do not amount to a
+full dark source on their own.
 
 ### The Acceleration Scale
 
@@ -488,34 +481,31 @@ reading, the normalization is tied to the de Sitter horizon through the
 acceleration scale above.
 
 This is the proposed OPH dark-sector route in the language of this chapter. At
-the settled-galaxy level, the candidate source is an independently reconstructed
-infrared anomaly tensor, dark to light but visible to geometry after the
-coupling receipt passes. The route does not require a new particle species for
-galaxy rotation curves to feel extra pull. The cosmological constant and the
-galaxy-scale anomaly sit inside one de Sitter picture: the horizon fixes the
-capacity, while the source packet determines whether a residual modular term
-appears where accelerations become cosmologically small.
+the level of a settled galaxy, the candidate source is an extra gravitational
+term reconstructed from the framework itself, dark to light and visible to
+gravity. The route does not require a new particle species for galaxy rotation
+curves to feel extra pull. The cosmological constant and the galaxy-scale
+anomaly sit inside one de Sitter picture. The horizon fixes the capacity, and
+the reconstructed source decides whether a leftover term appears where
+accelerations become cosmologically small.
 
-The whole sky matters. Clusters, lensing, the Bullet Cluster, the CMB,
-and structure growth are the places where any dark-sector account has to
-survive contact with the data. OPH enters that problem by changing the
-question: the dark sector becomes a question about what a finite self-reading
-horizon leaves behind in gravity once visible matter has done its part. The
-homogeneous dark abundance is source-only only when the anomaly load is selected
-as a finite quotient expectation on the release hypersurface. The full claim
-requires the source, abundance-selector, Boltzmann, simulator, and likelihood
-receipts that live outside this chapter.
+The whole sky matters. Clusters, gravitational lensing, the Bullet Cluster, the
+microwave background, and the growth of structure are where any dark-sector
+account has to survive contact with the data. OPH enters that problem by
+changing the question. The dark sector becomes a question about what a finite
+self-reading horizon leaves behind in gravity once visible matter has done its
+part. Turning that into a full account, with a predicted abundance and a direct
+comparison to all of this data, is work in progress.
 
 ---
 
 The arena is a finite static patch bounded by a holographic horizon. What populates this arena? What are the particles and forces we observe, and why do they have the peculiar properties they do?
 
 The next chapter treats the Standard Model of particle physics as an effective
-structure. The path has three steps: overlap gluing classifies which fixed-stage
-sectors can be transported as ordinary compact-gauge data; on a cofinal tail
-carrying the explicit compact-gauge refinement receipt, reconstruction reads a
-compact group from the tensor-generated sectors and their compatible fibers;
-and the one-Higgs matter package with minimal admissible selection picks the
-realized Standard Model branch.
+structure. The path has three steps. Gluing observer patches together sorts out
+which charge sectors can be carried around cleanly. Refining that picture lets a
+reconstruction read a compact symmetry group from the surviving sectors.
+Choosing the smallest single-Higgs matter content that works lands on the
+realized Standard Model.
 
 This is **Chapter 14: The Standard Model from Consistency**.

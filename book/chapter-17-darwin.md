@@ -32,14 +32,13 @@ scale where the effective theory is expected to stop being valid.
 "Naturalness" asks why low-energy quantities are not dragged up toward that
 high-energy scale by quantum corrections.
 
-OPH answers the dimensionless local part of this puzzle through the pixel
-transmutation branch. The hierarchy is emitted as
-$v/E_\star=P_\star^{-1/2}\exp[-2\pi/(4\alpha_U(P_\star))]$, where the
-unified-coupling record has a unique source zero in the stated interval. The
-ratio does not determine a mass in GeV without an independently physical
-$E_\star$. The stronger Higgs naturality reading also needs the RG
-coarse-graining defect bound for the Higgs normal form, and the SI gravity
-number needs the full no-G clock bridge.
+OPH addresses the dimensionless part of this puzzle. It produces the large gap
+between the Higgs scale and the deep short-distance scale from the way the
+forces run with energy, rather than treating that gap as an accident that has
+to be tuned away. What it produces is a ratio, so it does not fix an actual
+mass in GeV without a separate physical input for the reference energy. Turning
+this into a stronger statement about the Higgs mass, or into the matching
+gravity number in ordinary units, is work in progress.
 
 **The strong force**: Small percent-level shifts in nuclear parameters are often argued to strongly disrupt stellar nucleosynthesis and the chemistry needed for long-lived structure.
 
@@ -188,43 +187,37 @@ The electron is a vibration pattern that persists. The muon is a pattern that pe
 
 The "particle zoo" is a census of vibrational survivors.
 
-Within OPH, that census is uneven. Some entries are structurally cleaner:
-photon, gluons, and graviton carrier roles. The weak sector separates an exact
-selected-carrier chart, a value law conditional on five quotient-transport
-premises, and a frozen inverse adapter. The adapter gives
-$(80.3625,91.1879)$ GeV as a conditional audit coordinate; the nearby
-$(80.3770000154,91.1879780779)$ GeV pair belongs to the conditional law. The
-finite certificate for those premises and the physical pole receipt are
-absent. The Higgs and top are tied together by a conditional downstream
-electroweak relation.
+Within OPH, that census is uneven. The photon, gluons, and graviton carrier
+roles come out cleanly. The weak sector predicts the W and Z masses to within
+about a tenth of a percent of the measured values, with no measured mass fed
+in, apart from a small unresolved choice between two candidate rules. The Higgs
+and top masses come out together from a condition that puts the forces at a
+critical balance, landing close to their measured values. Turning these into
+full particle-physics proofs is work in progress.
 
-No nonzero source-only physical particle mass is emitted here. The protected
-zero modes are classical carrier or kernel statements pending quantum pole
-receipts. All displayed nonzero masses serve conditional or retrospective
-audits.
+None of these nonzero masses comes purely from first principles. The clean
+results concern massless carriers, and the nonzero numbers quoted here are
+consistency checks against what is already measured. Deriving a particle mass
+from the ground up is work in progress.
 
-The charged-lepton lane has an exact face-corner carrier and an engineered
-finite digital model. Its bounded patch reads local events into central
-accepted or rejected records, yet its registers, paths, clock, and response are
-authored inputs. Physical source selection and family attachment have no
-certificate. The quark reciprocal-ray proposal fares worse under its physical
-test: common-scale Yukawas miss its shape law by at least $19.93\%$ across the
-tested scales. The generic interface has six independent scalars, and the
-64,000-observer simulator returns a calibration null because its dynamics
-contains no Yukawa coupling.
+For the charged leptons, the electron, muon, and tau, there is a clean
+mathematical structure and a small working digital model, but the model's
+ingredients are put in by hand, and nothing proves that it picks out the real
+masses or explains why there are three families. The proposal for quarks does
+worse on its own test, missing the target pattern by at least about twenty
+percent. A large simulation of many observers gives no signal here, because it
+does not contain the interaction that sets these masses. This is all work in
+progress.
 
-The weighted-cycle neutrino entry is a target-informed comparison candidate
-rejected by the correlated NuFIT 6.1 profile. Its charged basis is open and has
-nearly degenerate singular values, leaving the physical PMNS matrix, mass
-ordering, and absolute scale unresolved. Composite particles such as hadrons
-demand the hard strong-interaction calculation. Feeding empirical
-$e^+e^-\to\mathrm{hadrons}$ data into the electromagnetic transport gives
-$136.2636589431$ on $[136.1583832834,136.3690975240]$, while the measured
-Thomson inverse coupling is $137.035999177(21)$. The imported-data calculation
-therefore leaves source-only OPH-QCD closure open. Stitching a detector track across a chart
-boundary is another layer again: it can identify one nonbranching
-observer-visible path only when the atlas, clock, interface, transport, and
-separation checks leave no rival track.
+The neutrino proposal is a candidate checked against measured oscillation data,
+and it fails that check. The neutrino mixing pattern, the ordering of the
+masses, and their absolute scale are unresolved. Composite particles such as
+protons and neutrons demand the hard strong-force calculation. Using measured
+collision data as input, the method lands near 136.3 for a quantity whose
+measured value is about 137.04, so a fully first-principles version of the
+strong-force closure is open. Reconstructing a single particle track across a
+boundary between two coordinate patches is a further layer, and it works only
+when every consistency check leaves no rival track.
 
 ### Topological Protection
 

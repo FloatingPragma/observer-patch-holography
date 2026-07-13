@@ -155,80 +155,40 @@ to reconstruct relationships between inside and outside. The controlled
 recovery statement is not the same as an exact Markov factorization; exact
 splice formulas require zero CMI or a controlled collar limit.
 
-For a cap $C$, write $A_\delta$ for the part safely inside the cap,
-$B_\delta$ for a collar of thickness $\delta$, and $D_\delta$ for the region
-safely outside. There are two sufficient routes. The declared
-central-interface branch gives an edge-aligned Markov state with
-$I(A_\delta:D_\delta|B_\delta)=0$. This exact route is the basis for
-literal splice identities.
+For a boundary layer of thickness $\delta$ around a cap, write $A$ for the
+region safely inside, $B$ for the layer, and $D$ for the region safely outside.
+There are two ways to control the leakage. In the clean case, the energy at the
+boundary depends only on a shared conserved label, the natural cut lines up with
+how the state divides, and the leakage is exactly zero. That exact case is what
+the literal splice identities use.
 
-The quantitative theorem concerns a faithful Gibbs state on a UV cell graph.
-Its assumptions include local dimension at most $q$, interaction degree at
-most $\Delta_0$, interaction diameter at most $r_0$ graph layers, and the
-uniform norm bound
-
-$$
-\sup_x\sum_{X\ni x}\|\beta\Phi(X)\|\le J_0.
-$$
-
-It also assumes uniform strong conditional mixing. The conditional matrix
-defect
+The broader case starts from a well-behaved thermal state and adds one strong
+condition: the correlations at the boundary have to die away fast as you move
+inward, uniformly as the description is refined. Ordinary fast decay of
+two-point correlations does not by itself guarantee this. When it holds, the
+leakage falls off exponentially with the thickness of the layer,
 
 $$
-\mathbf J_\rho
-=\log\rho_{A_\delta B_\delta D_\delta}+\log\rho_{B_\delta}
--\log\rho_{A_\delta B_\delta}-\log\rho_{B_\delta D_\delta}
+I(A:D\,|\,B)\ \le\ c\,|\partial C|\,e^{-\delta/\xi},
 $$
 
-must decompose into terms anchored near the UV boundary, with
+with $\delta$ the layer thickness, $\xi$ a fixed decay length, and $|\partial C|$
+the number of cells along the boundary. A thicker layer suppresses the leak. A
+larger boundary raises the prefactor, because the estimate adds one decaying
+contribution per boundary cell.
 
-$$
-\mathbf J_\rho=\sum_{z\in\partial^{\mathrm{UV}}_{r_0}C}E_z,
-\qquad
-\|E_z\|_\infty\le
-\kappa\exp\!\left[-\frac{m-r_0}{\zeta}\right],
-\qquad m=\frac{\delta}{\ell_{\mathrm{UV}}}.
-$$
+Making the leakage vanish in the limit takes more than a thick layer measured in
+cells. The layer has to thicken faster than the boundary grows, and a boundary
+that grows too fast can defeat the bound. A finite calculation records a
+checklist of concrete quantities, the interaction bounds, the boundary size, the
+measured leakage, and the decay margin among them, as stand-ins for the limit.
+Those finite quantities are proxies, and the limiting statement needs one
+consistent family with uniform constants.
 
-The constants $q$, $\Delta_0$, $r_0$, $J_0$, $\kappa$, and $\zeta$ are
-uniform in the cut, boundary condition, and refinement stage. Under these
-assumptions,
-
-$$
-I(A_\delta:D_\delta|B_\delta)
-\le c|\partial C|_{\mathrm{UV}}e^{-\delta/\xi_\ell},
-\qquad
-\xi_\ell=\zeta\ell_{\mathrm{UV}},
-\qquad
-c=\kappa e^{r_0/\zeta}.
-$$
-
-The boundary count appears because the proof sums one decaying matrix-defect
-bound for each boundary anchor. Increasing the collar thickness suppresses the
-exponential. Refining a fixed macroscopic boundary creates more UV anchors and
-grows the prefactor. Ordinary two-point exponential clustering does not imply
-the conditional matrix estimate for a general noncommuting Gibbs state.
-
-The declared double scaling is
-
-$$
-\ell_{\mathrm{UV}}\to0,\qquad \delta\to0,\qquad
-\frac{\delta}{\ell_{\mathrm{UV}}}\to\infty,\qquad
-\frac{\delta}{\xi_\ell}-\log|\partial C|_{\mathrm{UV}}\to+\infty.
-$$
-
-The last condition is the sharp sufficient rate for the displayed envelope to
-vanish. Collar thickness in UV cells can diverge while an even faster-growing
-boundary defeats the estimate. Finite receipts therefore record the
-interaction bounds, sector treatment, graph separation, boundary count,
-regional CMI in nats, matrix-defect norm, predeclared mixing constants,
-held-out cuts, recovery error, and rate margin. Such receipts are finite
-proxies; the theorem’s limit clause requires one family with uniform constants.
-
-CMI has no tensor indices. The displayed estimate controls recovery and gluing,
-without constructing stress-energy or a dark-sector source. Those claims need
-directional modular charges, rank-two tensor reconstruction, conservation, and
-physical coupling receipts.
+A single leakage number carries no direction. It controls how well one region
+can be recovered from another, and it does not by itself build an energy source
+or a dark-sector source. Those need a directional tensor that passes the usual
+reconstruction, conservation, and coupling tests.
 
 OPH uses this formula to explain why a finite, noisy, horizon-limited world
 can have stable history. Information need not be copied into one place.
@@ -340,15 +300,11 @@ $$Q=T_3+\frac{Y}{2}$$
 connects electric charge $Q$, weak isospin component $T_3$, and hypercharge
 $Y$. This is one of the basic bookkeeping equations of electroweak theory.
 
-OPH separates classification from selection here. Persistent charge sectors
-must pass both the higher-associator test and the allowed strict-representative
-loop-holonomy test. On a
-cofinal tail carrying the explicit compact-gauge refinement receipt, those
-strictly transportable sectors have coherent surjective pullbacks and
-compatible forgetful fibers, and reconstruct a compact group through the
-Tannaka-Krein idea that a group can be read from its representations. The
-economy principle then narrows the admissible one-Higgs low-energy realization
-to the Standard Model branch.
+OPH separates classification from selection here. The charge sectors that pass a
+consistency test around every loop, and that keep passing it as the description
+is refined, reconstruct a compact symmetry group through the Tannaka-Krein idea
+that a group can be read off from its representations. An economy principle then
+narrows the smallest single-Higgs option to the Standard Model.
 
 ## The Higgs Potential
 
@@ -359,30 +315,21 @@ quadratic term and positive quartic term make the symmetric point unstable
 and create a nonzero vacuum expectation value. That is electroweak symmetry
 breaking in compact form.
 
-After symmetry breaking, weak gauge bosons gain mass, and fermions gain
-masses through Yukawa couplings. The details are part of the Standard Model
-support boundary. OPH's particle chapter is careful that not every mass value
-has the same support level. Higgs and top relations, the exact icosahedral
-face-corner carrier, its target-informed charged-lepton completion conjecture
-and conditional declared-map fixed-point theorem, and the engineered finite
-digital record model all have distinct receipts. The digital model proves its
-authored schema nonempty and converts a local noncentral event into a central
-accepted or rejected record. It hard-codes the registers, paths, clock, and
-response, so it supplies no physical source selection.
+After symmetry breaking, the weak gauge bosons gain mass and the fermions gain
+mass through their Yukawa couplings. OPH's matter chapter is careful that its
+mass claims do not all stand on the same footing. The relation between the Higgs
+and top masses and the clean geometric skeleton for the charged leptons rest on
+firmer ground than the mass values that would flesh them out.
 
-The reciprocal-ray quark proposal fails against common-scale dimensionless
-Yukawas. Its generic exact interface needs six scalars and a source-derived
-flavor-orbit selector; the 64,000-observer run supplies a calibration null. The
-weighted-cycle neutrino comparison point fails the correlated NuFIT 6.1
-profile. Empirical hadron transport gives
-$\alpha^{-1}(0)=136.2636589431$ on
-$[136.1583832834,136.3690975240]$, an imported-data closure that leaves the
-source-only strong-interaction backend open.
+A proposed shortcut for the quark masses fails its own consistency test. A
+candidate neutrino comparison point conflicts with the best global fit of
+neutrino data. A version of the electromagnetic calculation that borrows the
+measured strong-force contribution lands near the right value while leaving the
+from-scratch strong-force piece open.
 
-No nonzero source-only physical particle mass is emitted. Protected zeros are
-classical carrier or kernel statements pending quantum pole receipts. Any
-nonzero mass coordinate in the book belongs to explicitly conditional or
-retrospective audit prose.
+No particle mass comes purely from first principles in the book. The clean
+results are statements about massless carrier modes, and every actual mass value
+quoted is either conditional or a retrospective comparison.
 
 The equation is a good example of how a simple-looking formula can carry a
 large experimental and theoretical world. It is a mechanism for why the low-energy world has massive weak bosons and massive
@@ -412,10 +359,10 @@ $\theta_{\mathrm{QCD}}$ or $\bar\theta$. If the physical value were generic,
 QCD would violate CP much more strongly than observed in the neutron electric
 dipole moment. The empirical smallness is the strong-CP problem.
 
-The book is careful about this because it is easy to overclaim. The quark
-source-spread obstruction and target-audit mass textures do not derive $\theta_{\mathrm{QCD}}$, do not emit a
-physical $\bar\theta$, and does not prove that the physical strong-CP phase
-vanishes. This boundary is visible in summaries, tables, and public copy.
+The book is careful here because it is easy to overclaim. OPH does not derive
+the strong-CP angle, does not produce a physical value for it, and does not
+prove that the strong-CP phase vanishes. That boundary is stated plainly in the
+summaries and tables.
 
 This warning belongs in an equation appendix because not every important
 symbol is part of a successful derivation. Some symbols mark the edge of the

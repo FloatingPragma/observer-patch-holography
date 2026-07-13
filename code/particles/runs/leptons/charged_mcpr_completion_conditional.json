@@ -1,0 +1,158 @@
+{
+  "artifact": "oph_charged_mcpr_completion_conditional",
+  "audit_boundary": {
+    "amplitude_boundary": "The public-block amplitude 1/sqrt(2) corresponds to the tracial weight t=1/2 on C (+) M_2(C). Traciality and C3 invariance admit the full one-parameter family; the Hilbert-space normalized trace has t=1/3 and gives amplitude 1/2. A physical state-selection and response-isometry theorem is open.",
+    "architecture_provenance": "The eight register dimensions, path table, signs, source monomials, amplitude prescription, phase offset, determinant exponent, and physical readout are declared model inputs. Arithmetic consistency checks establish contraction, fixed-point identities, positivity, simplicity, and determinant arithmetic after those choices are supplied; they do not establish that the source selects the architecture.",
+    "completion_route": {
+      "A5_FAM": {
+        "statement": "physical chiral family fibers carrying 3 or 3' of A5, with the multiplicity-one attachment Sym^2_0(3) ~= W5 and a source-fixed sign",
+        "status": "open"
+      },
+      "DET_CAN": {
+        "statement": "a normed, sector-isolated determinant-line descent with the kinetic determinant factor included",
+        "status": "open"
+      },
+      "PROV": {
+        "statement": "canonical taint classes, transitive hashes, and a prospective freeze before held-out evaluation",
+        "status": "open"
+      },
+      "QFT_POLE": {
+        "statement": "a BRST-complete interacting charged kernel with renormalization fixed without charged targets and singularity invariants equal to the source invariants",
+        "status": "open"
+      },
+      "SCALE": {
+        "statement": "a source-derived operational clock ratio for MeV output",
+        "status": "open"
+      },
+      "W5_ORB": {
+        "statement": "an OPH-derived A5-invariant effective action on W5 whose unique minimizing orbit is simple-spectrum with Delta_Q > 0; first decisive quantity is the W5 Hessian scalar h_5 at the homogeneous state",
+        "status": "open"
+      }
+    },
+    "determinant_boundary": "A product of fourteen normalized rank-one traces is neither a Z6 group character nor a Yukawa determinant. The canonical determinant norm carries the kinetic factor det M_L = (v/sqrt2)^3 |det Y_e| / sqrt(det Z_L det Z_E). The 6^-14 weight is a candidate positive path weight.",
+    "maxent_shape_silence": "A unique G-invariant MaxEnt state has zero expectation on every nontrivial irreducible module, and the current homogeneous twelve-port branch has the unique uniform minimizer. Charged family shape therefore requires a symmetry-breaking selected orbit, an extremal conditioned branch, or a source non-singlet.",
+    "phase_boundary": "The identity (N_c+1)/(2 N_c N_g) = 2/9 does not select the oriented phase. A holonomy reading requires link variables, a loop, and a nonlocal readout map; a common one-link phase on a triangular C3 cycle exponentiates to three times itself.",
+    "verdict": "SOURCE_ONLY_PHYSICAL_PREDICTION_OPEN"
+  },
+  "charged_reference_data_consumed": false,
+  "checks": {
+    "determinant_identity_in_v_units": true,
+    "fixed_point_residual_below_1e_100": true,
+    "icosahedral_incidence_unique": true,
+    "orientation_reversal_isospectral": true,
+    "positive_simple_regular_C3_roots": true,
+    "register_dimensions_are_50_31_10_512_77_21_27_5": true,
+    "source_certificate_v_over_Estar_consistency": true,
+    "sqrt_mass_invariant_identity": true,
+    "strict_contraction": true
+  },
+  "checks_pass": true,
+  "claim_class": {
+    "conditional_on_declared_architecture_unique": true,
+    "current_OPH5_alone_unique": false,
+    "historically_blind_prospective_prediction": false,
+    "new_continuous_or_fitted_parameters": 0,
+    "runtime_charged_reference_consumed": false
+  },
+  "conditional_prediction": {
+    "masses_over_E_star": [
+      "4.18511066305360899033265486697796483889032850221501699814003e-23",
+      "8.65348219599200944059089424453399690379782667649961701550029e-21",
+      "0.000000000000000000145531595864945269052065442781293778785664923243516022968036"
+    ],
+    "masses_over_v": [
+      "0.00000207203040439943882308289538669791771729531110132477568630062",
+      "0.000428430205497650663639041580029088296064444500952984677406073",
+      "0.00720520711901365571746243137840480819748456547851210638588883"
+    ],
+    "ratios": {
+      "m_mu_over_m_e": "206.768300594424760670043823850348852971584715754452765549816",
+      "m_tau_over_m_e": "3477.36553658440473352249890568969480291329678818453349997977",
+      "m_tau_over_m_mu": "16.8176917186413602019580872603411888326667064002055059599091"
+    },
+    "v_over_E_star": "0.0000000000000000201981141500992081768298922795891477778273839965895540816823"
+  },
+  "determinant_character": {
+    "audit_classification": "candidate positive path weight",
+    "det_M_over_v_cubed": "0.00000000000639620943190636600193103425793475940620742367547901458880341",
+    "formula_det_M_over_v_cubed": "exp(3*kappa)/(2*6^14)",
+    "primitive_Z6_event_count": 14
+  },
+  "incidence": {
+    "E": 30,
+    "F": 20,
+    "V": 12,
+    "euler": 2,
+    "face_size": 3,
+    "unique": true,
+    "valence": 5
+  },
+  "no_target_dependency_statement": "No electron, muon, tau, square-root-mass-invariant, pole-mass, or charged-Yukawa numerical reference is read by this module.",
+  "optional_scale_display": {
+    "E_star_GeV": "1.220890e19",
+    "display_scale_status": "downstream unit display only; the decimal is classified by the clock lane as a calibration checksum and enters no solve path",
+    "masses_MeV": [
+      "0.510955975741552068020723500054472749215281316506929210285918",
+      "105.649498782646844059230168742091114798777286110716174180541",
+      "1776.78070075553029532976178437253761581630448138776277281446"
+    ]
+  },
+  "public_charged_mass_promotion_allowed": false,
+  "regular_C3_shape": {
+    "delta": "0.222224763427459774111116096975977796354479491563143826072017",
+    "delta_0": "0.222222222222222222222222222222222222222222222222222222222222",
+    "rho": "1.41420888855014315167971931638325669977548034607183713692677",
+    "root_squares_sorted": [
+      "0.00162815800884850851825370040220154574311453021361576483803424",
+      "0.336651464588808498597626371274866122066188615575275270901706",
+      "5.66170054808368981367147971905653123153977240082924684092255"
+    ],
+    "roots_unsorted": [
+      "2.37943282067044074251736784269229582758066242263645836422342",
+      "0.0403504400081152586959131421925008980057437766760312750460654",
+      "0.580216739321443998786719015115203274413593800687510360730512"
+    ],
+    "sqrt_mass_invariant": "0.666664463409038535643039976748177655483230616290904208518033"
+  },
+  "response_map": {
+    "alpha_P": "0.00729954516887664794921875000000000000000198065002627180062088",
+    "contraction_constant": "0.00153564771078399423126135366500382888888888888888888888888889",
+    "feedback": [
+      "0.00133204412317326958458155724121134483870967741935483870967742",
+      "0.000534081135656816493506493506493506493506493506493506493506494",
+      "0.00153564771078399423126135366500382888888888888888888888888889"
+    ],
+    "fixed_point": {
+      "chi": "0.00000330489736451906066186051846770670045987204940264372664541277",
+      "kappa": "0.00082139082009675903978353195301194440003097760882409170194485",
+      "zeta": "0.00000254120523755188889387475375557413225726934092160384979503803"
+    },
+    "sources": [
+      "0.0008224849489114974",
+      "0.0000033031322811813891021147358896814453125",
+      "0.00000253730284154621003944200873818425905136972701196004835505337"
+    ]
+  },
+  "response_register_dimensions": {
+    "chi_0_subsets_of_transverse_vertices": 512,
+    "chi_1_collar_labels_times_nonanchor_vertices": 77,
+    "kappa_0_edges_plus_faces": 50,
+    "kappa_1_edges_plus_identity": 31,
+    "kappa_2_transverse_vertices_plus_identity": 10,
+    "zeta_0_faces_plus_identity": 21,
+    "zeta_1_edges_outside_marked_face": 27,
+    "zeta_2_anchor_star": 5
+  },
+  "row_class": "conditional_on_declared_mcpr_response_architecture",
+  "schema_version": 1,
+  "source_input": {
+    "P": "1.63097209569432901817967892561191884270169",
+    "alpha_U": "0.04112424744557487",
+    "artifact": "R_P_source_audit_pixel_certificate",
+    "certificate_status": "source_audit_branch_witness_not_full_endpoint_proof",
+    "path": "hierarchy/certificates/R_P_source_audit_pixel_certificate.json",
+    "sha256": "11aeb17fd03b032af987100f8b865786f77b17c6d81aa4a649984e5059f42010"
+  },
+  "source_only": false,
+  "status": "CONDITIONAL_COMPLETED_MODEL_CANDIDATE_NOT_SOURCE_ONLY"
+}

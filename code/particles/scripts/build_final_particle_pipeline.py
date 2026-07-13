@@ -265,6 +265,86 @@ FINAL_PIPELINE_STEPS: tuple[PipelineStep, ...] = (
         "Refresh the exact-fit-only surface.",
     ),
     PipelineStep(
+        "charged_mcpr_completion_conditional",
+        "particles/leptons/derive_charged_mcpr_completion_conditional.py",
+        "Refresh the conditional MCPR charged-response completion candidate.",
+    ),
+    PipelineStep(
+        "charged_ward_determinant_line",
+        "particles/leptons/derive_charged_ward_determinant_line.py",
+        "Refresh the Ward determinant-line inversion theorem receipt.",
+    ),
+    PipelineStep(
+        "wzh_residual_elimination_boundary",
+        "particles/calibration/derive_wzh_residual_elimination_boundary.py",
+        "Refresh the D10 selector rigidity and discrete repair-law boundary.",
+    ),
+    PipelineStep(
+        "qme_source_action_rigidity_mechanism",
+        "particles/calibration/derive_qme_source_action_rigidity_mechanism.py",
+        "Refresh the source-action rigidity selection mechanism receipt.",
+    ),
+    PipelineStep(
+        "cs133_feshbach_scalarization",
+        "particles/clock/derive_cs133_feshbach_scalarization.py",
+        "Refresh the cesium Feshbach scalarization theorem receipt.",
+    ),
+    PipelineStep(
+        "clock_source_energy_closure_audit",
+        "particles/clock/derive_clock_source_energy_closure_audit.py",
+        "Refresh the fail-closed clock-to-source-energy closure audit.",
+    ),
+    PipelineStep(
+        "d11_criticality_boundary_scan",
+        "particles/calibration/derive_d11_criticality_boundary_scan.py",
+        "Refresh the double-criticality boundary-scale family scan.",
+    ),
+    PipelineStep(
+        "d11_criticality_comparison",
+        "particles/calibration/derive_d11_criticality_comparison.py",
+        "Refresh the compare-only criticality distance surface.",
+    ),
+    PipelineStep(
+        "d11_boundary_scale_selection_audit",
+        "particles/calibration/derive_d11_boundary_scale_selection_audit.py",
+        "Refresh the boundary-scale selection audit and frozen candidate registry.",
+    ),
+    PipelineStep(
+        "d11_boundary_scale_midpoint_selection_theorem",
+        "particles/calibration/derive_d11_boundary_scale_midpoint_selection_theorem.py",
+        "Refresh the conditional midpoint selection theorem receipt.",
+    ),
+    PipelineStep(
+        "d11_anchor_reconciliation_reduction_theorems",
+        "particles/calibration/derive_d11_anchor_reconciliation_reduction_theorems.py",
+        "Refresh the premise-reduction theorems for the midpoint selection.",
+    ),
+    PipelineStep(
+        "d11_carrier_census",
+        "particles/calibration/derive_d11_carrier_census.py",
+        "Refresh the model-level D11 carrier census and Higgs derivation trace.",
+    ),
+    PipelineStep(
+        "lambda_qcd_source_transmutation",
+        "particles/qcd/derive_lambda_qcd_source_transmutation.py",
+        "Refresh the Lambda_QCD dimensional-transmutation lane.",
+    ),
+    PipelineStep(
+        "nucleon_mass_external_qcd_ratio",
+        "particles/hadron/derive_nucleon_mass_external_qcd_ratio.py",
+        "Refresh the conditional nucleon-mass lane.",
+    ),
+    PipelineStep(
+        "theorem_gap_register",
+        "particles/scripts/build_theorem_gap_register.py",
+        "Refresh the theorem/proof gap register.",
+    ),
+    PipelineStep(
+        "source_only_mass_prediction_surface",
+        "particles/scripts/build_source_only_mass_prediction_surface.py",
+        "Refresh the per-family source-only mass prediction surface.",
+    ),
+    PipelineStep(
         "pixel_screen_resonance_summary",
         "particles/hierarchy/verify_pixel_screen_resonance_summary.py",
         "Refresh the pixel-screen resonance summary receipt.",

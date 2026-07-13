@@ -1,0 +1,593 @@
+{
+  "archived_endpoint_validation": {
+    "archived_pinned_endpoints": {
+      "alpha_s_mt": 0.11067971218235456,
+      "lambda_mt": 0.1089320070972017,
+      "mh_tree": 115.10128055804651,
+      "mt_ms": 154.779273546571,
+      "mt_pole": 164.13059302729587,
+      "y_t_mt": 0.8876472196531545,
+      "y_t_u": 0.38989194927267146
+    },
+    "max_residual": 9.200666895026188e-10,
+    "passes_1e_6": true,
+    "reproduction_relative_residuals": {
+      "alpha_s_mt": 3.508182633282786e-11,
+      "lambda_mt": 9.200666895026188e-10,
+      "mh_tree": 4.6003356679591434e-10,
+      "mt_ms": 2.845090829595165e-10,
+      "mt_pole": 2.8195912271655743e-10,
+      "y_t_mt": 2.745161875594704e-10,
+      "y_t_u": 0.0
+    }
+  },
+  "artifact": "oph_d11_criticality_boundary_scan",
+  "boundary_law": {
+    "condition": "lambda(mu_b) = 0 and beta_lambda(mu_b) = 0",
+    "free_continuous_parameters": 0,
+    "free_discrete_choice": "the boundary scale mu_b among named source scales",
+    "yukawa_consequence": "y_t(mu_b) = ((2 g2^4 + (g2^2+gY^2)^2)/16)^(1/4)"
+  },
+  "branch": {
+    "P": "1.63097209569432901817967892561191884270169",
+    "alpha_U": "0.04112424744557487",
+    "id": "source_audit_P_cand"
+  },
+  "checks": {
+    "archived_endpoint_reproduction": true,
+    "curve_mh_monotone_in_boundary_scale": true,
+    "double_criticality_boundary_lambda_zero": true,
+    "two_loop_engine_benchmark_validation": true,
+    "v_transmutation_matches_certificate": true
+  },
+  "checks_pass": true,
+  "claim_boundary": "Every row is conditional on the witness-level P root, the declared one-loop chart couplings, the double-criticality boundary law, and the open boundary-scale selection theorem. The rows are running/tree coordinates, never physical poles.",
+  "display_note": "GeV values use the unclosed clock candidate; the clock audit classifies that decimal as a calibration checksum. Dimensionless ratios follow by dividing by E_star.",
+  "matching_bands": {
+    "mh_tree_to_pole_relative_band": 0.015,
+    "mt_electroweak_matching_relative_band": 0.005,
+    "statement": "Tree-to-pole Higgs matching and electroweak top matching are carried as declared uncertainty bands, never as applied corrections."
+  },
+  "one_loop_curve": [
+    {
+      "alpha_s_mt": 0.11076738044733907,
+      "boundary_scale_gev": 1e+16,
+      "lambda_mt": 0.10506524036290091,
+      "mh_tree_gev": 113.0399434974856,
+      "mt_msbar_gev": 153.7889796804124,
+      "mt_pole_gev": 163.08985991992193,
+      "y_t_mt": 0.8819679605488253,
+      "y_t_u": 0.39056112989965885
+    },
+    {
+      "alpha_s_mt": 0.11073815659146345,
+      "boundary_scale_gev": 1.3481792534376748e+16,
+      "lambda_mt": 0.1063407029130403,
+      "mh_tree_gev": 113.72401027039564,
+      "mt_msbar_gev": 154.1182100121193,
+      "mt_pole_gev": 163.435863770623,
+      "y_t_mt": 0.8838560711589674,
+      "y_t_u": 0.39033409826077153
+    },
+    {
+      "alpha_s_mt": 0.11070923512115305,
+      "boundary_scale_gev": 1.8175872993997664e+16,
+      "lambda_mt": 0.10761623397521511,
+      "mh_tree_gev": 114.40402322679651,
+      "mt_msbar_gev": 154.44489930465778,
+      "mt_pole_gev": 163.77919255971716,
+      "y_t_mt": 0.8857296091050647,
+      "y_t_u": 0.3901132490932228
+    },
+    {
+      "alpha_s_mt": 0.11068060946091658,
+      "boundary_scale_gev": 2.4504334883625964e+16,
+      "lambda_mt": 0.1088918111527762,
+      "mh_tree_gev": 115.08004239451995,
+      "mt_msbar_gev": 154.76909775777403,
+      "mt_pole_gev": 164.11989916063484,
+      "y_t_mt": 0.8875888622787985,
+      "y_t_u": 0.38989861179865487
+    },
+    {
+      "alpha_s_mt": 0.11065227313277784,
+      "boundary_scale_gev": 3.3036235909393628e+16,
+      "lambda_mt": 0.11016741610806481,
+      "mh_tree_gev": 115.75212811390267,
+      "mt_msbar_gev": 155.0908553612169,
+      "mt_pole_gev": 164.45803622195655,
+      "y_t_mt": 0.8894341173675558,
+      "y_t_u": 0.3896902170381779
+    },
+    {
+      "alpha_s_mt": 0.11062421976069553,
+      "boundary_scale_gev": 4.453876786471721e+16,
+      "lambda_mt": 0.11144303428017933,
+      "mh_tree_gev": 116.42034090183645,
+      "mt_msbar_gev": 155.41022181941656,
+      "mt_pole_gev": 164.79365608835826,
+      "y_t_mt": 0.8912656594223668,
+      "y_t_u": 0.3894880967530282
+    },
+    {
+      "alpha_s_mt": 0.11059644339400859,
+      "boundary_scale_gev": 6.0046242808888344e+16,
+      "lambda_mt": 0.11271864594805685,
+      "mh_tree_gev": 117.08473682533237,
+      "mt_msbar_gev": 155.7272428300363,
+      "mt_pole_gev": 165.12680688994482,
+      "y_t_mt": 0.8930837505158393,
+      "y_t_u": 0.3892922841859993
+    },
+    {
+      "alpha_s_mt": 0.11056893808699424,
+      "boundary_scale_gev": 8.095309880182445e+16,
+      "lambda_mt": 0.11399423732176223,
+      "mh_tree_gev": 117.74537337423816,
+      "mt_msbar_gev": 156.0419648295159,
+      "mt_pole_gev": 165.4575375294938,
+      "y_t_mt": 0.8948886569573842,
+      "y_t_u": 0.38910281390367063
+    },
+    {
+      "alpha_s_mt": 0.11054169767067465,
+      "boundary_scale_gev": 1.091392883061109e+17,
+      "lambda_mt": 0.11526980669219689,
+      "mh_tree_gev": 118.40231259812273,
+      "mt_msbar_gev": 156.35443760410146,
+      "mt_pole_gev": 165.7859004262704,
+      "y_t_mt": 0.8966806642673045,
+      "y_t_u": 0.38891972181945633
+    },
+    {
+      "alpha_s_mt": 0.11051471678165839,
+      "boundary_scale_gev": 1.4713932422925174e+17,
+      "lambda_mt": 0.11654533618809373,
+      "mh_tree_gev": 119.05560657352208,
+      "mt_msbar_gev": 156.6647024668379,
+      "mt_pole_gev": 166.11193909187202,
+      "y_t_mt": 0.8984600093726962,
+      "y_t_u": 0.3887430452175007
+    },
+    {
+      "alpha_s_mt": 0.11048798967589697,
+      "boundary_scale_gev": 1.983701842907166e+17,
+      "lambda_mt": 0.1178208239490543,
+      "mh_tree_gev": 119.70531403740726,
+      "mt_msbar_gev": 156.97280582603364,
+      "mt_pole_gev": 166.43570238886704,
+      "y_t_mt": 0.9002269584216781,
+      "y_t_u": 0.3885728227774447
+    },
+    {
+      "alpha_s_mt": 0.11046151092569113,
+      "boundary_scale_gev": 2.674385669613523e+17,
+      "lambda_mt": 0.11909626493726393,
+      "mh_tree_gev": 120.35149052878357,
+      "mt_msbar_gev": 157.27879116661637,
+      "mt_pole_gev": 166.75723610447838,
+      "y_t_mt": 0.9019817607969199,
+      "y_t_u": 0.3884090946000926
+    },
+    {
+      "alpha_s_mt": 0.11043527523143723,
+      "boundary_scale_gev": 3.605551275463975e+17,
+      "lambda_mt": 0.12037165590200669,
+      "mh_tree_gev": 120.99419098598969,
+      "mt_msbar_gev": 157.58270118107018,
+      "mt_pole_gev": 167.07658519001276,
+      "y_t_mt": 0.9037246613365738,
+      "y_t_u": 0.38825190223400546
+    },
+    {
+      "alpha_s_mt": 0.11040927738438813,
+      "boundary_scale_gev": 4.860929426786318e+17,
+      "lambda_mt": 0.12164699626000608,
+      "mh_tree_gev": 121.63347021859991,
+      "mt_msbar_gev": 157.88457817697565,
+      "mt_pole_gev": 167.39379418920697,
+      "y_t_mt": 0.9054559026713174,
+      "y_t_u": 0.38810128870305216
+    },
+    {
+      "alpha_s_mt": 0.11038351220967973,
+      "boundary_scale_gev": 6.553404205618003e+17,
+      "lambda_mt": 0.12292228955701728,
+      "mh_tree_gev": 122.26938365318233,
+      "mt_msbar_gev": 158.18446472109355,
+      "mt_pole_gev": 167.7089079150945,
+      "y_t_mt": 0.9071757289182873,
+      "y_t_u": 0.3879572985349487
+    },
+    {
+      "alpha_s_mt": 0.11035797496866129,
+      "boundary_scale_gev": 8.835163589405398e+17,
+      "lambda_mt": 0.12419753202032129,
+      "mh_tree_gev": 122.90198166850867,
+      "mt_msbar_gev": 158.482398928298,
+      "mt_pole_gev": 168.02196649985478,
+      "y_t_mt": 0.9088843586633326,
+      "y_t_u": 0.38781997779081795
+    },
+    {
+      "alpha_s_mt": 0.11033266041697397,
+      "boundary_scale_gev": 1.1911384251964298e+18,
+      "lambda_mt": 0.12547273889473104,
+      "mh_tree_gev": 123.5313227033711,
+      "mt_msbar_gev": 158.77842542292123,
+      "mt_pole_gev": 168.3330169127271,
+      "y_t_mt": 0.910582047823546,
+      "y_t_u": 0.3876893740958035
+    },
+    {
+      "alpha_s_mt": 0.11030756408743919,
+      "boundary_scale_gev": 1.6058681128222636e+18,
+      "lambda_mt": 0.12674790818473244,
+      "mh_tree_gev": 124.15745530828454,
+      "mt_msbar_gev": 159.0725803468447,
+      "mt_pole_gev": 168.6420972071618,
+      "y_t_mt": 0.9122690036698728,
+      "y_t_u": 0.3875655366707734
+    },
+    {
+      "alpha_s_mt": 0.11028268134085169,
+      "boundary_scale_gev": 2.164998073464087e+18,
+      "lambda_mt": 0.12802304722484717,
+      "mh_tree_gev": 124.78043135613595,
+      "mt_msbar_gev": 159.36490241226247,
+      "mt_pole_gev": 168.9492481347623,
+      "y_t_mt": 0.913945448213747,
+      "y_t_u": 0.3874485163651497
+    },
+    {
+      "alpha_s_mt": 0.11025800744932879,
+      "boundary_scale_gev": 2.918805486376817e+18,
+      "lambda_mt": 0.1292981703121584,
+      "mh_tree_gev": 125.40030482434622,
+      "mt_msbar_gev": 159.65543193659175,
+      "mt_pole_gev": 169.25451213114798,
+      "y_t_mt": 0.9156116126724368,
+      "y_t_u": 0.38733836569090246
+    },
+    {
+      "alpha_s_mt": 0.11023353796295872,
+      "boundary_scale_gev": 3.9350730015532867e+18,
+      "lambda_mt": 0.13057328813684074,
+      "mh_tree_gev": 126.0171266559189,
+      "mt_msbar_gev": 159.94420651668142,
+      "mt_pole_gev": 169.55792877080447,
+      "y_t_mt": 0.9172677126610109,
+      "y_t_u": 0.38723513885774874
+    },
+    {
+      "alpha_s_mt": 0.11020926864320793,
+      "boundary_scale_gev": 5.30518378145686e+18,
+      "lambda_mt": 0.13184840947846435,
+      "mh_tree_gev": 126.63094566068385,
+      "mt_msbar_gev": 160.23126177485236,
+      "mt_pole_gev": 169.85953555114372,
+      "y_t_mt": 0.9189139524707202,
+      "y_t_u": 0.3871388918095984
+    },
+    {
+      "alpha_s_mt": 0.11018519520224625,
+      "boundary_scale_gev": 7.152338709834229e+18,
+      "lambda_mt": 0.13312354857113978,
+      "mh_tree_gev": 127.24181209848508,
+      "mt_msbar_gev": 160.5166344193782,
+      "mt_pole_gev": 170.15937110823106,
+      "y_t_mt": 0.9205505426206886,
+      "y_t_u": 0.3870496822622887
+    },
+    {
+      "alpha_s_mt": 0.1101613134446001,
+      "boundary_scale_gev": 9.642634662157693e+18,
+      "lambda_mt": 0.13439872094127847,
+      "mh_tree_gev": 127.84977567636392,
+      "mt_msbar_gev": 160.8003605612685,
+      "mt_pole_gev": 170.45747344826856,
+      "y_t_mt": 0.9221776902047764,
+      "y_t_u": 0.3869675697426571
+    },
+    {
+      "alpha_s_mt": 0.11013761926463306,
+      "boundary_scale_gev": 1.3e+19,
+      "lambda_mt": 0.13567394336265481,
+      "mh_tree_gev": 128.45488555176004,
+      "mt_msbar_gev": 161.08247572739572,
+      "mt_pole_gev": 170.75387996146011,
+      "y_t_mt": 0.9237955989668626,
+      "y_t_u": 0.386892615628995
+    }
+  ],
+  "one_loop_named_boundaries": {
+    "E_cell_pixel_energy": {
+      "alpha_s_mt": 0.11016199969660778,
+      "boundary_scale_gev": 9.559899287322919e+18,
+      "lambda_mt": 0.1343619379060249,
+      "mh_tree_gev": 127.83227913851435,
+      "mt_msbar_gev": 160.79219886297477,
+      "mt_pole_gev": 170.4488982480913,
+      "y_t_mt": 0.922130883493299,
+      "y_t_u": 0.3869698382071976
+    },
+    "E_star": {
+      "alpha_s_mt": 0.11014258333901926,
+      "boundary_scale_gev": 1.2208901289579268e+19,
+      "lambda_mt": 0.13540594576892737,
+      "mh_tree_gev": 128.3279539668733,
+      "mt_msbar_gev": 161.02331987662944,
+      "mt_pole_gev": 170.69172766866546,
+      "y_t_mt": 0.9234563447162034,
+      "y_t_u": 0.3869077702011022
+    },
+    "log_midpoint_half_turn": {
+      "alpha_s_mt": 0.11040924289618775,
+      "boundary_scale_gev": 4.862867915188205e+17,
+      "lambda_mt": 0.12164869682954611,
+      "mh_tree_gev": 121.6343204058547,
+      "mt_msbar_gev": 157.88497911904238,
+      "mt_pole_gev": 167.39421549217778,
+      "y_t_mt": 0.905458202043213,
+      "y_t_u": 0.3881010921138871
+    },
+    "mu_U_gauge_unification": {
+      "alpha_s_mt": 0.11067971215284937,
+      "boundary_scale_gev": 2.4736122891927384e+16,
+      "lambda_mt": 0.10893200788264651,
+      "mh_tree_gev": 115.10128097301045,
+      "mt_msbar_gev": 154.77927388119505,
+      "mt_pole_gev": 164.13059337895652,
+      "y_t_mt": 0.8876472215633289,
+      "y_t_u": 0.38989194927267146
+    }
+  },
+  "promotion_allowed": false,
+  "relation_statement": "The double-criticality law makes (m_t, m_H) a one-discrete-parameter family over the boundary scale. The m_t to m_H relation along the curve is therefore a fit-free consequence of the boundary law; the boundary-scale selection theorem picks the point on the curve.",
+  "row_class": "conditional_on_P_and_criticality_boundary_scale_selection",
+  "schema_version": 1,
+  "single_anchor_coherence": {
+    "archived_branch": "mu_U_gauge_unification",
+    "observation": "The electroweak transmutation anchors v at E_cell = E_star/sqrt(P). The archived criticality boundary sits at mu_U, a second high scale. Placing the criticality boundary at the same E_cell anchor is the unique single-anchor law of this family.",
+    "selection_theorem_status": "CRITICALITY_BOUNDARY_SCALE_SELECTION_THEOREM absent",
+    "single_anchor_branch": "E_cell_pixel_energy"
+  },
+  "source_scales_gev": {
+    "E_cell_pixel_energy": 9.559899287322919e+18,
+    "E_star": 1.2208901289579268e+19,
+    "log_midpoint_half_turn": 4.862867915188205e+17,
+    "mu_U_gauge_unification": 2.4736122891927384e+16,
+    "mz_run_gev": 91.58833750192969,
+    "v_transmutation_gev": 246.59678189421567
+  },
+  "status": "boundary_scale_family_conditional_prediction",
+  "two_loop_curve": [
+    {
+      "alpha_s_mt": 0.11033311976988608,
+      "boundary_scale_gev": 1e+16,
+      "lambda_mt": 0.11321706708163591,
+      "mh_tree_gev": 117.3433148869145,
+      "mt_msbar_gev": 158.7730476501291,
+      "mt_pole_gev": 168.32736623963902,
+      "y_t_mt": 0.9105512067016809,
+      "y_t_u": 0.39070559708248553
+    },
+    {
+      "alpha_s_mt": 0.11027708914541011,
+      "boundary_scale_gev": 1.8175872993997664e+16,
+      "lambda_mt": 0.11582165834370238,
+      "mh_tree_gev": 118.68539841304715,
+      "mt_msbar_gev": 159.43069150045267,
+      "mt_pole_gev": 169.0183740787624,
+      "y_t_mt": 0.9143227435622407,
+      "y_t_u": 0.3902237793059016
+    },
+    {
+      "alpha_s_mt": 0.1102222522941875,
+      "boundary_scale_gev": 3.3036235909393628e+16,
+      "lambda_mt": 0.11842155360905005,
+      "mh_tree_gev": 120.01009506459047,
+      "mt_msbar_gev": 160.07761261088714,
+      "mt_pole_gev": 169.69809795741705,
+      "y_t_mt": 0.9180327863348449,
+      "y_t_u": 0.389766096420894
+    },
+    {
+      "alpha_s_mt": 0.11016855691263286,
+      "boundary_scale_gev": 6.0046242808888344e+16,
+      "lambda_mt": 0.12101669540252893,
+      "mh_tree_gev": 121.31794558666854,
+      "mt_msbar_gev": 160.7142389190879,
+      "mt_pole_gev": 170.36698842888475,
+      "y_t_mt": 0.9216837892090689,
+      "y_t_u": 0.38933278558043694
+    },
+    {
+      "alpha_s_mt": 0.11011595260164886,
+      "boundary_scale_gev": 1.091392883061109e+17,
+      "lambda_mt": 0.12360708150571212,
+      "mh_tree_gev": 122.60948796293157,
+      "mt_msbar_gev": 161.34098997579247,
+      "mt_pole_gev": 171.0254871684626,
+      "y_t_mt": 0.9252781582759878,
+      "y_t_u": 0.3889241026547262
+    },
+    {
+      "alpha_s_mt": 0.11006439276755706,
+      "boundary_scale_gev": 1.983701842907166e+17,
+      "lambda_mt": 0.1261927035034742,
+      "mh_tree_gev": 123.88522811639857,
+      "mt_msbar_gev": 161.95825322714964,
+      "mt_pole_gev": 171.67400205903766,
+      "y_t_mt": 0.9288181155095068,
+      "y_t_u": 0.38854032295627905
+    },
+    {
+      "alpha_s_mt": 0.11001383171733338,
+      "boundary_scale_gev": 3.605551275463975e+17,
+      "lambda_mt": 0.12877362366012385,
+      "mh_tree_gev": 125.14567956869814,
+      "mt_msbar_gev": 162.56641762890484,
+      "mt_pole_gev": 172.3129425123389,
+      "y_t_mt": 0.9323058915409339,
+      "y_t_u": 0.38818174200772315
+    },
+    {
+      "alpha_s_mt": 0.10996422685885593,
+      "boundary_scale_gev": 6.553404205618003e+17,
+      "lambda_mt": 0.1313499053961479,
+      "mh_tree_gev": 126.39133023869122,
+      "mt_msbar_gev": 163.16584644812593,
+      "mt_pole_gev": 172.9426908973479,
+      "y_t_mt": 0.9357435696788531,
+      "y_t_u": 0.3878486763558765
+    },
+    {
+      "alpha_s_mt": 0.10991553623230793,
+      "boundary_scale_gev": 1.1911384251964298e+18,
+      "lambda_mt": 0.1339216798672305,
+      "mh_tree_gev": 127.62267600619873,
+      "mt_msbar_gev": 163.75690616491912,
+      "mt_pole_gev": 173.56363290800812,
+      "y_t_mt": 0.9391332516585563,
+      "y_t_u": 0.3875414644359165
+    },
+    {
+      "alpha_s_mt": 0.10986772132200476,
+      "boundary_scale_gev": 2.164998073464087e+18,
+      "lambda_mt": 0.1364890577503269,
+      "mh_tree_gev": 128.8401792519259,
+      "mt_msbar_gev": 164.3399316855801,
+      "mt_pole_gev": 174.17612102040508,
+      "y_t_mt": 0.9424768581418256,
+      "y_t_u": 0.3872604674896686
+    },
+    {
+      "alpha_s_mt": 0.10982074449179205,
+      "boundary_scale_gev": 3.9350730015532867e+18,
+      "lambda_mt": 0.13905219989219303,
+      "mh_tree_gev": 130.0443039803561,
+      "mt_msbar_gev": 164.91525665927875,
+      "mt_pole_gev": 174.78050634583244,
+      "y_t_mt": 0.9457763025809724,
+      "y_t_u": 0.3870060705423004
+    },
+    {
+      "alpha_s_mt": 0.10977456981504145,
+      "boundary_scale_gev": 7.152338709834229e+18,
+      "lambda_mt": 0.14161128825737024,
+      "mh_tree_gev": 131.23550276392976,
+      "mt_msbar_gev": 165.48320280290235,
+      "mt_pole_gev": 175.37712741852653,
+      "y_t_mt": 0.9490334299975854,
+      "y_t_u": 0.38677868344200717
+    },
+    {
+      "alpha_s_mt": 0.10972916297941053,
+      "boundary_scale_gev": 1.3e+19,
+      "lambda_mt": 0.14416652429908156,
+      "mh_tree_gev": 132.41421696440645,
+      "mt_msbar_gev": 166.04408043435382,
+      "mt_pole_gev": 175.9663107586965,
+      "y_t_mt": 0.9522500200409532,
+      "y_t_u": 0.3865787419676021
+    }
+  ],
+  "two_loop_named_boundaries": {
+    "E_cell_pixel_energy": {
+      "alpha_s_mt": 0.10975242778865257,
+      "boundary_scale_gev": 9.559899287322919e+18,
+      "lambda_mt": 0.14285251148748268,
+      "mh_tree_gev": 131.80938770636138,
+      "mt_msbar_gev": 165.75641210981198,
+      "mt_pole_gev": 175.66412625804122,
+      "y_t_mt": 0.9506002643426896,
+      "y_t_u": 0.3866781403972279
+    },
+    "E_star": {
+      "alpha_s_mt": 0.10973389941795951,
+      "boundary_scale_gev": 1.2208901289579268e+19,
+      "lambda_mt": 0.1438981930475347,
+      "mh_tree_gev": 132.29093098946436,
+      "mt_msbar_gev": 165.9854642443215,
+      "mt_pole_gev": 175.90473696839024,
+      "y_t_mt": 0.9519138607030424,
+      "y_t_u": 0.3865984471060382
+    },
+    "available": true,
+    "engine_validation": {
+      "all_ok": true,
+      "benchmark_at_mpl": {
+        "g1": 0.6154,
+        "g2": 0.5055,
+        "g3": 0.4873,
+        "lam": -0.0113,
+        "yt": 0.3825
+      },
+      "endpoint_at_mpl": {
+        "g1": 0.6153313059734515,
+        "g2": 0.5053928010747575,
+        "g3": 0.48730609893083987,
+        "lam": -0.01507871131435416,
+        "yt": 0.38313803700139476
+      },
+      "endpoint_ok": {
+        "g1": true,
+        "g2": true,
+        "g3": true,
+        "lam": true,
+        "yt": true
+      },
+      "inputs_at_mt": {
+        "g1": 0.4625633109820392,
+        "g2": 0.64779,
+        "g3": 1.1666,
+        "lam": 0.12604,
+        "yt": 0.9369
+      },
+      "lambda_zero_crossing_gev": 4764674457.899662,
+      "lambda_zero_crossing_ok": true,
+      "oneloop_reference_ok": true,
+      "residuals": {
+        "g1": -6.869402654841039e-05,
+        "g2": -0.00010719892524246877,
+        "g3": 6.098930839859573e-06,
+        "lam": -0.0037787113143541613,
+        "yt": 0.0006380370013947534
+      },
+      "sources": {
+        "benchmark": "Buttazzo et al. 1307.3536 couplings at Mt and M_Pl (Mh=125.15, Mt=173.34, alpha_s=0.1184)",
+        "gauge_2loop": "Buttazzo et al. 1307.3536 app. B; matches Machacek-Vaughn coefficients",
+        "lam_2loop": "Buttazzo et al. 1307.3536 app. B; cross-checked vs Luo-Xiao hep-ph/0207271 (lam_LX = 2*lam)",
+        "yt_2loop": "Buttazzo et al. 1307.3536 app. B; cross-checked vs Luo-Xiao hep-ph/0207271 (lam_LX = 2*lam)"
+      },
+      "tolerances": {
+        "g1": 0.005,
+        "g2": 0.005,
+        "g3": 0.005,
+        "lam": 0.004,
+        "yt": 0.01
+      }
+    },
+    "log_midpoint_half_turn": {
+      "alpha_s_mt": 0.1099888794908093,
+      "boundary_scale_gev": 4.862867915188205e+17,
+      "lambda_mt": 0.1300640512365229,
+      "mh_tree_gev": 125.77115268001006,
+      "mt_msbar_gev": 162.86759885052612,
+      "mt_pole_gev": 172.62935949498873,
+      "y_t_mt": 0.9340331426638739,
+      "y_t_u": 0.3880117768871971
+    },
+    "mu_U_gauge_unification": {
+      "alpha_s_mt": 0.11024866122261387,
+      "boundary_scale_gev": 2.4736122891927384e+16,
+      "lambda_mt": 0.1171631549572537,
+      "mh_tree_gev": 119.37075245526148,
+      "mt_msbar_gev": 159.7656539258071,
+      "mt_pole_gev": 169.37032322941494,
+      "y_t_mt": 0.9162437272884723,
+      "y_t_u": 0.3899846980314514
+    }
+  }
+}

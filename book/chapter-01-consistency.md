@@ -350,8 +350,8 @@ If you look at a star and I look at the same star, we have to agree on what we c
 
 **Axiom 3: Local MaxEnt and Refinement Stability**
 At the regulator scale, the realized state is selected by maximizing entropy
-subject to a short, fixed list of constraints on screen-wide totals — one
-dial per constraint in the list, not one per screen cell. The axiom then adds
+subject to a short, fixed list of constraints on screen-wide totals, one
+dial per constraint in the list rather than one per screen cell. The axiom then adds
 a genuine physical assumption, the refinement-closure clause: as the screen is
 refined, the same short list keeps describing the realized state, so the
 theory stays on one stable track without changing its rules at every cutoff.

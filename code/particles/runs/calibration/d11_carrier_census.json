@@ -1,0 +1,128 @@
+{
+  "artifact": "oph_d11_carrier_census",
+  "carrier_model_faithfulness": {
+    "census_protocol_frozen": "the registry and both census clauses above are the fixed target for the carrier export; the export may not be constructed from the desired masses",
+    "statement": "the equation registry mirrors the archived model; the census result transfers to the physical carrier exactly when the pre-repair observer-patch carrier, frozen without the desired coefficients, exports this registry as its readout graph",
+    "status": "open"
+  },
+  "cf1_dependency_census": {
+    "anchor_rooted_ports": [
+      "unification_register",
+      "transmutation_register"
+    ],
+    "anchors_in_registry": [
+      "transmutation_register",
+      "unification_register"
+    ],
+    "boundary_parent_ports": [
+      "unification_register",
+      "transmutation_register"
+    ],
+    "level": "model_equation_registry",
+    "non_anchor_ports": [],
+    "one_port_per_anchor": true,
+    "port_count_is_two": true,
+    "verified": true
+  },
+  "cf2_anchor_class_census": {
+    "affine_forms_ln_units": {
+      "transmutation_register": {
+        "lnP_coefficient": "-1/2",
+        "pi_coefficient": "0"
+      },
+      "unification_register": {
+        "lnP_coefficient": "1/6",
+        "pi_coefficient": "-2"
+      }
+    },
+    "anchor_depths": {
+      "transmutation_register": 2,
+      "unification_register": 2
+    },
+    "equal_depth": true,
+    "level": "corpus_formula_registry",
+    "midpoint_exponents": {
+      "lnP": "-1/6",
+      "matches_E_star_exp_minus_pi_P_minus_sixth": true,
+      "pi": "-1"
+    },
+    "same_functional_class": true,
+    "same_parent_set": true,
+    "verified": true
+  },
+  "checks": {
+    "cf1_model_level_verified": true,
+    "cf2_formula_level_verified": true,
+    "derivation_trace_complete": true,
+    "faithfulness_gate_fail_closed": true,
+    "midpoint_exponents_exact": true
+  },
+  "checks_pass": true,
+  "claim_boundary": "CF1 and CF2 are verified at the model and formula level. The Higgs value is conditional on the record model and the carrier faithfulness gate; it is a derivation trace, never a promoted source-only prediction.",
+  "equation_registry_frozen": {
+    "alpha_U_record": {
+      "content": "alpha_U from the pixel-residual solve",
+      "parents": [
+        "pixel_record"
+      ],
+      "supplied_by": "legacy_d10/particle_masses_paper_d10_d11.py::solve_alpha_u_from_p"
+    },
+    "d11_boundary_record": {
+      "content": "lambda = 0 and beta_lambda = 0 with y_t from the gauge quartic X(g) (reads the gauge chart of the unification register); mass readout m = y v/sqrt(2) (reads the transmutation register)",
+      "parents": [
+        "unification_register",
+        "transmutation_register"
+      ],
+      "supplied_by": "calibration/derive_d11_criticality_boundary_scan.py::critical_surface_yukawa,beta_lambda_1loop,run_boundary"
+    },
+    "pixel_record": {
+      "content": "P and E_star",
+      "parents": [],
+      "supplied_by": "hierarchy/certificates/R_P_source_audit_pixel_certificate.json"
+    },
+    "transmutation_register": {
+      "anchor": true,
+      "content": "E_cell = E_star P^(-1/2) and v = E_cell exp(-2 pi/(4 alpha_U))",
+      "parents": [
+        "pixel_record",
+        "alpha_U_record"
+      ],
+      "supplied_by": "legacy_d10/particle_masses_paper_d10_d11.py::v_from_transmutation"
+    },
+    "unification_register": {
+      "anchor": true,
+      "content": "mu_U = E_star exp(-2 pi) P^(1/6) and the gauge chart rooted there",
+      "parents": [
+        "pixel_record",
+        "alpha_U_record"
+      ],
+      "supplied_by": "legacy_d10/particle_masses_paper_d10_d11.py::unification_scale_gev"
+    }
+  },
+  "higgs_derivation": {
+    "bands_GeV": {
+      "loop_truncation_half_shift": 2.0684161370776835,
+      "tree_to_pole_matching": 1.886567290200151
+    },
+    "chain": [
+      "pixel record (P, E_star)",
+      "anchors mu_U and E_cell (depth-one closed forms)",
+      "log-midpoint boundary E_star exp(-pi) P^(-1/6) = 4.862868e+17 GeV",
+      "double criticality: y_t(mu_b) = 0.388012, lambda(mu_b) = 0",
+      "two-loop running to the top scale",
+      "lambda(m_t) = 0.130064",
+      "m_H tree = sqrt(2 lambda) v = 125.7712 GeV",
+      "m_t pole = 172.6294 GeV"
+    ],
+    "conditions": [
+      "RM canonical record model",
+      "CARRIER_MODEL_FAITHFULNESS"
+    ],
+    "m_H_GeV": 125.77115268001006,
+    "m_t_GeV": 172.62935949498873
+  },
+  "promotion_allowed": false,
+  "row_class": "model_level_census_with_open_faithfulness_gate",
+  "schema_version": 1,
+  "status": "CENSUS_VERIFIED_AT_MODEL_LEVEL_FAITHFULNESS_OPEN"
+}

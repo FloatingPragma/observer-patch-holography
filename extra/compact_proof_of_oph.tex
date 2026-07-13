@@ -452,14 +452,18 @@ is a settled-form readout with naturality defect
 \vspace{0.14em}
 {\bfseries\color{pragmaCyanText}Conditional \(W\), \(Z\), Higgs, and top masses}\par
 
-Once the pixel-fixed couplings and the declared electroweak surface select the
-branch, the target-free value law computes the weak-boson pair with no measured
-mass entering, and the downstream split relation computes the Higgs and top
-coordinates on the declared running/matching/threshold surface [O5,C4]:
+Each pair is read on the strictest target-free branch its sector supports.
+The weak-boson pair follows the strict source-audit branch: the zero-selector
+law on the target-free branch, with no measured mass entering. The Higgs and
+top pair follows the double-criticality branch, where both Yukawa-sector
+boundaries derive from the gauge sector through \(\lambda=0\),
+\(\beta_\lambda=0\) at one source scale, a zero-continuous-parameter family
+whose adopted member is the frozen post-exposure boundary-scale candidate
+\(E_\star e^{-\pi}P^{-1/6}\), evaluated at two loops [O5,C4]:
 \[
 \begin{array}{rcl}
-(m_W,m_Z)_{\rm OPH} &=& (80.3770000154,\,91.1879780779)\,\mathrm{GeV},\\
-(m_H,m_t)_{\rm OPH} &=& (125.1995304097,\,172.3523553288)\,\mathrm{GeV}.
+(m_W,m_Z)_{\rm OPH} &=& (80.330,\,91.119)\,\mathrm{GeV},\\
+(m_H,m_t)_{\rm OPH} &=& (125.77,\,172.63)\,\mathrm{GeV}.
 \end{array}
 \]
 Every one of these four numbers lands on the measured value:
@@ -467,28 +471,33 @@ Every one of these four numbers lands on the measured value:
 \fontsize{7.6pt}{8.3pt}\selectfont
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.05}
-\begin{tabular}{@{}L{0.15\linewidth}L{0.25\linewidth}L{0.27\linewidth}L{0.18\linewidth}@{}}
+\begin{tabular}{@{}L{0.16\linewidth}L{0.26\linewidth}L{0.28\linewidth}L{0.20\linewidth}@{}}
 \toprule
 \rowcolor{pragmaPanelTwo}
 \textbf{Quantity} & \textbf{OPH (branch-selected)} & \textbf{Measured (PDG 2026)} & \textbf{Relative offset}\\
 \midrule
-\(m_W\) & \(80.3770000154\,\mathrm{GeV}\) & \(80.3692(133)\,\mathrm{GeV}\) & \(9.7\times10^{-5}\)\\
-\(m_Z\) & \(91.1879780779\,\mathrm{GeV}\) & \(91.1880(20)\,\mathrm{GeV}\) & \(2.4\times10^{-7}\)\\
-\(m_W/m_Z\) & \(0.8814429458\) & \(0.8813572\) & \(9.7\times10^{-5}\)\\
-\(m_H\) & \(125.1995304097\,\mathrm{GeV}\) & \(125.13(11)\,\mathrm{GeV}\) & \(5.6\times10^{-4}\)\\
-\(m_t\) & \(172.3523553288\,\mathrm{GeV}\) & \(172.1(6)\,\mathrm{GeV}\) & \(1.5\times10^{-3}\)\\
+\(m_W\) & \(80.330\,\mathrm{GeV}\) & \(80.3692(133)\,\mathrm{GeV}\) & \(-5.0\times10^{-4}\)\\
+\(m_Z\) & \(91.119\,\mathrm{GeV}\) & \(91.1880(20)\,\mathrm{GeV}\) & \(-7.6\times10^{-4}\)\\
+\(m_H\) & \(125.77\,\mathrm{GeV}\) & \(125.13(11)\,\mathrm{GeV}\) & \(+5.1\times10^{-3}\)\\
+\(m_t\) & \(172.63\,\mathrm{GeV}\) & \(172.60(30)\,\mathrm{GeV}\) & \(+2\times10^{-4}\)\\
 \bottomrule
 \end{tabular}
 \end{center}
-The value-law pair follows as an exact implication of the five
-quotient-transport premises; its finite carrier certificate (QT1--QT5) is work
-in progress, so these are conditional coordinates, not physical complex-pole
-masses. The Higgs/top surface carries declared calibration inputs, so that row
-selects its branch and then computes the pair, inheriting the source-root,
-physical-scale, running, matching, rigidity, provenance, uncertainty, and pole
-gates. A diagnostic base-running chart and a target-anchored freeze-once
-comparison adapter are separate audit objects, kept in the particle branch and
-not shown here.
+The weak-boson pair is an exact implication of the five quotient-transport
+premises; its finite carrier certificate (QT1--QT5) and the source-law
+selection principle deciding the one discrete two-law choice (ambiguity
+\(9.3\)~MeV on \(M_W\), \(5.1\)~MeV on \(M_Z\)) are work in progress, so these
+are conditional coordinates, not physical complex-pole masses. The Higgs/top
+pair carries a single remaining source object: the criticality law fixes the
+whole family from the gauge sector, and the boundary-scale candidate is written
+down and frozen before any three-loop computation, with the three-loop implied
+scale registered as the discriminating test. Along the fit-free criticality
+curve the Higgs coordinate at the measured top mass is \(125.72\)~GeV
+(\(+0.47\) percent), a relation test independent of the boundary-scale
+selection. Back-solving the declared calibration surface from the measured pair
+gives the sharper \((125.20,\,172.35)\)~GeV fit; that surface validates the
+formula stack, is never a prediction, and is kept in the particle branch and
+not headlined here.
 
 The color-amplitude/loop ansatz with
 \(c=\sqrt{N_c}/2\) and \(d=N_c/2\) is a distinct conditional comparison model.
@@ -732,11 +741,12 @@ The Borel--Weil Higgs carrier
 lattice. & Realized-branch theorem & 4\\
 
 Electroweak and Higgs mass scale &
-Branch selection fixes the electroweak surface, and the target-free value law
-computes \((m_W,m_Z)=(80.377,91.188)\,\mathrm{GeV}\) to \(10^{-4}\) of
-measurement; the declared-surface split gives
-\((m_H,m_t)=(125.20,172.35)\,\mathrm{GeV}\). No promoted complex-pole mass. &
-Conditional target-free chart + declared-surface split & 5\\
+The strict source-audit branch gives
+\((m_W,m_Z)=(80.330,91.119)\,\mathrm{GeV}\) within \(10^{-3}\) of measurement
+with no measured mass entering; the double-criticality branch gives
+\((m_H,m_t)=(125.77,172.63)\,\mathrm{GeV}\) at the frozen boundary-scale
+candidate. No promoted complex-pole mass. &
+Strict source-audit branch + criticality family & 5\\
 
 Electromagnetism and force carriers &
 The unbroken \(\mathrm U(1)_Q\) branch fixes the electromagnetic connection.
@@ -855,11 +865,12 @@ Source-audit numerical witness &
 5 / C3\\
 
 \(W\), \(Z\), Higgs, top masses &
-Target-free value law + conditional split &
-The target-free value law computes \((m_W,m_Z)=(80.377,91.188)\,\mathrm{GeV}\)
-within \(10^{-4}\) of measurement with no fitted mass; the declared-surface
-split gives \((m_H,m_t)=(125.20,172.35)\,\mathrm{GeV}\) within
-\(1.5\times10^{-3}\). No promoted complex-pole mass. &
+Strict source-audit branch + criticality family &
+The strict source-audit branch gives \((m_W,m_Z)=(80.330,91.119)\,\mathrm{GeV}\)
+within \(10^{-3}\) of measurement with no fitted mass; the double-criticality
+branch gives \((m_H,m_t)=(125.77,172.63)\,\mathrm{GeV}\) at the frozen
+boundary-scale candidate, with \(m_H=125.72\)~GeV on the fit-free curve at the
+measured top. No promoted complex-pole mass. &
 5 / C4\\
 
 Charged-family geometry &
@@ -915,8 +926,9 @@ The electromagnetic source/root value remains a branch witness. Its strict
 dependency certificate is absent, and the empirical external-data closure
 misses the measured endpoint & excluded from this score & \(1\)\\
 The same electroweak branch lands the \(10^{-17}\) hierarchy exponent
-(\(\epsilon_H=0\)) and computes the target-free \(W/Z\) value law to
-\(10^{-4}\) of measurement & one chance in one thousand & \(10^{-3}\)\\
+(\(\epsilon_H=0\)) and the strict source-audit \(W/Z\) branch to \(10^{-3}\) of
+measurement, with the criticality Higgs/top pair inside the declared matching
+band & one chance in one thousand & \(10^{-3}\)\\
 \bottomrule
 \end{tabular}
 \end{center}

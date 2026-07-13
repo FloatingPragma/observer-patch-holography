@@ -284,14 +284,13 @@ The theorem turns a small information leak into a concrete reconstruction
 bound.
 
 This is the mathematical heart of the recovery rule: **redundancy implies reconstruction**.
-Small CMI gives a recovered comparison state with controlled error. Exact HJPW
-factorization, exact splice identities, and exact modular additivity require
-either \(I(A:C|B)=0\) literally or a controlled collar family whose
-distance to the exact Markov set tends to zero — and, wherever the factorization
-is taken over the preselected edge factors rather than the state's own HJPW
-split, the additional Markov-split alignment hypothesis stated in the compact
-paper. Zero CMI alone does not align the split: a Bell pair laid across the cut
-is exactly Markov yet factorizes the opposite way.
+A small information leak gives a reconstruction with a controlled error. The
+exact identities, the ones that let you split and recombine regions without any
+slack, ask for more. They need the leak to be exactly zero, or a family of
+boundary layers whose leak shrinks to zero in a controlled way, and they need
+the boundary you cut along to line up with the way the state itself divides.
+Zero leak alone does not guarantee that alignment. A single entangled pair laid
+across the cut has zero leak and divides the opposite way.
 
 ## 7.8 Example Calculations
 
@@ -355,98 +354,37 @@ modular-additivity calculations. The latter is justified only on a fixed
 collar, or after pullback to one, with a collar-local modulus that tends to
 zero.
 
-### Two Collar Routes
+### Two Routes to Zero Leakage
 
-Fix a cap $C$ on a UV cell graph with cell scale $\ell_{\mathrm{UV}}$. A
-collar $B_\delta$ of physical thickness $\delta$ separates the inner region
-$A_\delta$ from the exterior $D_\delta$. OPH uses two sufficient routes for
-this tripartition. On the declared **central-interface branch**, the interface
-energy depends only on the conserved central sector label. The edge split is
-then aligned with the state’s Markov split, and
-$I(A_\delta:D_\delta|B_\delta)=0$ exactly. Literal splice and modular
-identities use this route.
+There are two ways to pin down when the leakage across a boundary is small
+enough for the exact identities to hold.
 
-The quantitative route starts with a faithful finite-range Gibbs state. Let
-the local Hilbert-space dimension be at most $q$, the interaction degree at
-most $\Delta_0$, and the interaction diameter at most $r_0$ graph layers.
-Assume, uniformly in the cut and refinement stage,
+The first route is clean. When the energy stored at the boundary depends only on
+a conserved label shared by both sides, the natural way to cut the system lines
+up perfectly with the way the state itself divides. The leakage across the
+boundary is then exactly zero, and the exact splitting-and-recombining
+identities apply with no slack.
 
-$$
-\sup_x\sum_{X\ni x}\|\beta\Phi(X)\|\le J_0.
-$$
+The second route is quantitative and applies more broadly. It starts from a
+well-behaved thermal state and asks that the boundary lose its correlations
+quickly as you move inward. The load-bearing requirement is a strong mixing
+condition at the boundary, which has to be put in by hand and checked. Ordinary
+fast decay of two-point correlations is not enough to guarantee it. Under that
+condition, the leakage falls off exponentially with the thickness of the
+boundary layer,
 
-Finite range alone does not give the desired collar estimate. The load-bearing
-premise is **uniform strong conditional mixing**, also called matrix mixing.
-For
+$$I(A:D\,|\,B)\ \le\ c\,|\partial C|\,e^{-\delta/\xi},$$
 
-$$
-\mathbf J_\rho
-=\log\rho_{A_\delta B_\delta D_\delta}+\log\rho_{B_\delta}
--\log\rho_{A_\delta B_\delta}-\log\rho_{B_\delta D_\delta},
-$$
+where $\delta$ is the thickness of the boundary layer, $\xi$ is a fixed decay
+length, and $|\partial C|$ counts the cells along the boundary. A thicker layer
+drives the leakage down. A larger boundary raises the prefactor in front, so the
+thickness has to grow fast enough to win the race as the boundary grows.
 
-assume a sum over UV boundary anchors,
-
-$$
-\mathbf J_\rho=\sum_{z\in\partial^{\mathrm{UV}}_{r_0}C}E_z,
-\qquad
-\|E_z\|_\infty\le
-\kappa\exp\!\left[-\frac{m-r_0}{\zeta}\right],
-\qquad m=\frac{\delta}{\ell_{\mathrm{UV}}},
-$$
-
-where $\kappa$ and $\zeta$ are independent of the boundary condition, cut,
-and stage. Ordinary two-point exponential clustering does not imply this
-conditional premise for a general noncommuting Gibbs state. Neither local
-Gibbs form, a Lieb-Robinson bound, nor a Hamiltonian spectral gap supplies it
-by itself.
-
-Under these assumptions, the collar CMI obeys
-
-$$
-I(A_\delta:D_\delta|B_\delta)
-\le \kappa|\partial C|_{\mathrm{UV}}
-\exp\!\left[-\frac{m-r_0}{\zeta}\right]
-\le c|\partial C|_{\mathrm{UV}}e^{-\delta/\xi_\ell},
-$$
-
-with $\xi_\ell=\zeta\ell_{\mathrm{UV}}$ and
-$c=\kappa e^{r_0/\zeta}$. The proof is short once the matrix-mixing
-premise is available: CMI is the expectation of $\mathbf J_\rho$, and
-trace-norm duality bounds that expectation by the sum of the boundary-anchor
-norms. Greater collar thickness suppresses the exponential term. A larger UV
-boundary creates more anchors and therefore enlarges the prefactor.
-
-The controlled double scaling is sharper than a thick collar measured in cell
-units:
-
-$$
-\ell_{\mathrm{UV}}\to0,\qquad
-\delta\to0,\qquad
-\frac{\delta}{\ell_{\mathrm{UV}}}\to\infty,\qquad
-\frac{\delta}{\xi_\ell}-\log|\partial C|_{\mathrm{UV}}\to+\infty.
-$$
-
-The ratio $\delta/\ell_{\mathrm{UV}}\to\infty$ alone leaves the growing
-boundary prefactor uncontrolled. For a power-law boundary count
-$|\partial C|_{\mathrm{UV}}\le a(\ell_0/\ell_{\mathrm{UV}})^p$, one sufficient
-schedule is
-
-$$
-\delta\ge\zeta(p+\eta)\ell_{\mathrm{UV}}
-\log(\ell_0/\ell_{\mathrm{UV}}),\qquad \eta>0,
-$$
-
-which gives $I(A_\delta:D_\delta|B_\delta)\le
-ca(\ell_{\mathrm{UV}}/\ell_0)^\eta\to0$.
-
-Finite runs can record the interaction range and norm bound, treatment of
-sector terms, boundary-cell count, graph separation, regional CMI, matrix
-defect norm, predeclared mixing constants, held-out cuts, recovery error, and
-the rate margin
-$\delta/(\zeta\ell_{\mathrm{UV}})-\log|\partial C|_{\mathrm{UV}}$. These are
-finite proxies. A cofinal-limit claim additionally needs the uniform premise
-and the declared scaling family.
+A finite calculation can record concrete stand-ins for all of this, the
+interaction range, the boundary size, the measured leakage, and the decay margin
+among them. Those finite numbers are proxies. The clean limiting statement needs
+the mixing condition to hold uniformly, with one consistent scaling family,
+something a finite run cannot supply on its own.
 
 ### Screening Through the Separator
 

@@ -319,41 +319,32 @@ relativity. A clock becomes a geometric device inside the math. Its flow becomes
 same kind of geometric motion that later shows up as boosts and time
 translations.
 
-In the controlled scaling construction, the modular flow of the extracted cap
-pair matches a conformal motion of the sphere:
+When the geometry is under enough control, the cap's internal clock matches a
+smooth motion of the sphere. The clock is the rate at which the cap's allowed
+questions flow. The motion is a geometric dilation of the sphere. Matching the
+two also means fixing which side of the cap you mean, which orientation, and
+which scale you are comparing against, and OPH pins those down instead of
+assuming them.
 
-$$\sigma_t^{\omega_C} = \alpha_{\lambda_C(2\pi t)}$$
+This is a conditional statement. The cap has to be extracted cleanly, its flow
+carried through the construction without distortion, the round caps rigid, and
+the scale fixed. Under those conditions the internal clock and the geometric
+dilation are the same operation. Finite cells on their own do not make Lorentz
+invariance, and shuffling the labels on a finite mesh is no substitute for a
+continuous boost. The geometric statement appears only after the finite
+approximation is compared with the smooth limit under controlled errors.
 
-The left side is the algebraic clock: how the cap's allowed questions flow
-under the state \(\omega_C\). The right side is a geometric motion of the
-sphere. The cap data also have to fix which side of the cap is meant, which
-orientation is being used, and which geometric normalization is being compared
-with the modular clock. The theorem is careful about those receipts instead of
-quietly assuming them.
-
-This is a conditional statement. The cap pair has to be extracted cleanly, the
-modular flow has to be transported through the regularized construction, the
-round caps have to be rigid, and the thermal normalization has to be fixed.
-Under those conditions, the algebraic flow and the geometric cap dilation are
-the same operation. Finite cells by themselves do not make Lorentz invariance,
-and a permutation of cap labels on a finite mesh is not a continuous boost. The
-geometric statement appears only after the finite regulator is compared with
-the continuum using controlled state errors and a declared cutoff schedule.
-
-This closes one conditional implication: certified finite cap data lead to the
-support-visible geometric cap flow. The compact paper settles the production
-question in both directions. A producer theorem computes an incidence complex
-directly from the repaired normal forms. When that complex passes four
-decidable receipts (a closed orientable surface with the right Euler count, a
-nondegenerate cap mesh, Cauchy modular cross-ratios, and an independently
-normalized thermal comparison), it produces the round sphere, its conformal
-structure, and the whole certificate. Explicit countermodels (a torus, a
-three-sphere skeleton, a wedge of two spheres, a wrong-temperature clock)
-prove that bare consensus never selects the topology, the dimension, or the
-normalization on its own. The geometry is derived exactly on the receipt
-branch, and the receipts are the physical input. The observer-facing spatial
-chart and the record-localization step are downstream gates with their own
-conditions.
+OPH settles the harder question in both directions. It builds a candidate
+geometry straight from the repaired local data, and when that candidate passes a
+short list of concrete checks, the checks being the right kind of closed
+surface, a well-behaved mesh, matching cross-ratios, and an independently fixed
+temperature scale, it produces the round sphere and its full conformal
+structure. Deliberate counterexamples, a torus, a three-sphere skeleton, two
+spheres glued at a point, a clock at the wrong temperature, show that mere
+agreement between observers never by itself pins down the shape, the number of
+dimensions, or the scale. The geometry comes out cleanly when those checks pass,
+and the checks are the physical input. The observer-facing map of space and the
+step that localizes records sit downstream with their own conditions.
 
 That is the bridge. The clock defined by the state becomes the same clock
 spacetime symmetry was looking for.
@@ -475,31 +466,21 @@ Different observers have different modular flows. On the geometric branch, the
 inter-observer relations are carried by conformal transformations of $S^2$.
 The Lorentz group is the corresponding symmetry of the shared causal structure.
 
-The neutral-bulk evidence gate is weaker and separate. It can establish a common
-quotient-visible pseudometric or metric on observer features after chart
-transport, missingness, invariance, refinement, and held-out controls. A
-positive metric by itself is not Lorentzian spacetime. The relativity claim
-needs causal order, time separation, and the modular/geometric branch that
-identifies the shared light-cone structure. The compact paper's event-manifold
-packet makes this step explicit and conditional. Events are defined as
-coincidence classes of localized records. Under four named receipts (dense
-record population, certified separation, rank-four response frames, and
-consistent chart overlaps) the event set is a genuine four-dimensional
-Lorentzian manifold with signature $(-+++)$, a repair-oriented arrow of time,
-and $H^3$ strictly the fiber of possible rest frames over each event, never
-space itself. Countermodels show that without those receipts the event set
-can be one-dimensional, five-dimensional, or not even Hausdorff, while all
-the Lorentz kinematics stays intact. The closure packets finish the chain.
-The stress tensor is built from the modular charges themselves (nine null
-directions determine it, up to a trace term that a vacuum reference fixes),
-the entropy first law carries its edge term exactly, and the whole route
-composes into one branch-entry theorem. The gate on that theorem is
-empirical and machine-checkable: a realized consensus run has to carry the
-receipts on its own output. The simulator receipt suite tracks exactly this,
-with a genuine repair run passing the sphere and mesh receipts under
-explicit branch selection, collar states passing the modular clock receipts,
-and multi-scale records reproducing a Lorentzian causal cone; the remaining
-checks are work in progress.
+A weaker and separate line of evidence can pull a distance measure out of the
+observer data after careful controls. A distance measure by itself is not
+spacetime. The relativity claim also needs causal order, a notion of time
+separation, and the light-cone structure that all observers share. OPH makes
+that step explicit and conditional. It defines events as bundles of records that
+coincide, and under a short list of conditions, a dense enough population of
+records, clean separation between them, full-rank local frames, and consistent
+overlaps between charts, the set of events is a genuine four-dimensional
+spacetime with one time direction and three of space, an arrow of time set by
+the repair process, and a separate internal space of possible rest frames
+sitting over each event. Drop those conditions and simple counterexamples show
+the reconstruction can collapse to the wrong dimension or fall apart entirely,
+even while the local Lorentz kinematics looks fine. A running simulation checks
+these conditions on its own output. Some of the checks pass in a genuine repair
+run, and the rest is work in progress.
 
 ## 15.9 Recovering General Relativity
 
@@ -507,39 +488,24 @@ Special relativity emerges from the conformal structure of the screen. What abou
 
 ### How Patch Consistency Enters
 
-Patch consistency does two jobs here. First, it forbids any preferred
-observer or preferred frame. Second, once each observer gets the same local
-rest-frame relation, patch consistency forces those local relations to fit
-together into a tensor law. MaxEnt supplies the equilibrium state, modular
-flow supplies the local clock, and the null-modular bridge plus the
-bounded-interval kernel let generalized-entropy stationarity feed the Einstein
-branch.
+Patch consistency does two jobs here. First, it forbids any preferred observer
+or preferred frame. Second, once every observer shares the same local rest-frame
+relation, patch consistency forces those local relations to knit together into a
+single tensor law. The equilibrium state, the local modular clock, and the
+entropy balance across small regions together feed the Einstein equations.
 
-The finite consensus theorem has a narrower job. It supplies quotient normal
-forms for visible records. The Einstein branch starts after those normal forms
-are read as cap, diamond, stress, tetrad, and scale data on the five-axiom
-recovered-core geometric branch. The compact paper states the bridge
-explicitly: bare consensus alone does not supply geometry, modular flow, stress
-readout, bounded-interval control, small-ball area response, or timelike
-coverage. The recovered-core support-visible branch supplies those inputs.
+There is a division of labor. The consensus machinery supplies clean,
+agreed-upon records. The gravitational argument starts after those records are
+read as geometric data, the caps, the small causal diamonds, the local energy
+and frame information, and the scale. Agreement between observers alone does not
+hand you geometry, a clock, an energy readout, or the controls the derivation
+needs. The reconstructed geometric picture supplies those inputs.
 
-Collar recovery enters that branch by either of two declared routes. The exact
-central-interface route gives an edge-aligned Markov state and exact splice
-identities. The quantitative route assumes a faithful finite-range Gibbs state
-with uniform interaction range and norm bounds, together with uniform strong
-conditional or matrix mixing. On the latter route,
-
-$$
-I(A_\delta:D_\delta|B_\delta)
-\le c|\partial C|_{\mathrm{UV}}e^{-\delta/\xi_\ell}.
-$$
-
-The sufficient refinement rate is
-$\delta/\xi_\ell-\log|\partial C|_{\mathrm{UV}}\to+\infty$, in addition to a
-collar that shrinks macroscopically while spanning more UV cells. Ordinary
-two-point exponential clustering does not establish this conditional estimate.
-Finite CMI and matrix-defect measurements are receipts for particular stages;
-the limit statement depends on one uniform scaling family.
+Recovering how two regions join across their shared boundary takes one more
+technical input. The boundary has to lose its correlations fast enough as you
+move into the bulk, faster than ordinary clustering guarantees, and OPH states
+the precise rate this requires. Meeting that rate is what lets the finite
+picture pass smoothly to the continuum limit.
 
 ### Jacobson's Insight (1995, 2016)
 
@@ -786,7 +752,7 @@ from tuning a QFT vacuum-energy sum.
 Fundamental data live on the screen, while the bulk, including black hole
 interiors, is emergent.
 
-That changes the bookkeeping. The boundary-sector structure blocks a naive factorization into independent inside and outside Hilbert spaces. The recovery measure from Chapter 7, small CMI, supports an interior-encoding statement: in the controlled regime, the interior partner is approximately recoverable from outside-plus-radiation data, not present as a separate fundamental tensor factor.
+That changes the bookkeeping. The structure at the boundary blocks any clean split of the world into an independent inside and an independent outside. The recovery bound from Chapter 7 supports a stronger reading: in the controlled regime, the interior can be reconstructed from the outside together with the escaping radiation, so it is encoded on the outside rather than sitting there as a separate piece of the fundamental description.
 
 This is the sense in which OPH softens the information paradox. The fundamental store of information is the screen, not an autonomous bulk interior.
 
@@ -811,32 +777,31 @@ galaxy clusters and the Bullet Cluster.
 OPH proposes imperfect information recovery as a possible origin of extra
 gravitational pull, with no new particle species in the source model.
 
-In the exact central-interface limit, information on one side of a boundary is
-recoverable from the boundary itself. On the conditional Gibbs route, Chapter 7
-bounds the recovery defect by a boundary prefactor times an exponential in
-collar thickness. Both statements control reconstruction quality.
+In the clean limit, information on one side of a boundary can be fully recovered
+from the boundary itself. In the more realistic case, Chapter 7 bounds how much
+information leaks, with the leak shrinking as the boundary region thickens.
+Either way, the framework controls how faithfully one region can be
+reconstructed from another.
 
-The scalar CMI $I(A_\delta:D_\delta|B_\delta)$ has no tensor indices and cannot
-serve as a stress tensor or a dark source. An extra gravitational term requires
-directional modular charges that pass the separate tensor-reconstruction,
-conservation, normalization, and universal-coupling tests. The recovery defect
-can act as a finite diagnostic for that source packet. It does not replace the
-packet.
+A single leakage number carries no direction, so it cannot act as a
+gravitational source on its own. Gravity is sourced by a tensor, an object with
+directions built in, and that tensor has to pass the usual conservation and
+coupling tests before it counts. The leakage can flag where such a source would
+sit. It does not stand in for the source.
 
-On the proposed dark-sector branch, visible matter supplies the baryonic pull
-and the independently reconstructed anomaly tensor supplies the additional
-gravitational contribution. Its lack of an ordinary electromagnetic handle is
-what would make the contribution dark to telescopes.
+If that tensor source can be built, visible matter supplies the ordinary
+gravitational pull and the recovered piece supplies the extra pull. The extra
+piece has no electromagnetic handle, which is what would make it dark to
+telescopes.
 
 ### Why It's Dark
 
-The proposed sector is dark at the level of its couplings. Its source would
-come from the reconstructed modular-charge tensor, it would gravitate through
-the declared coupling receipt, and it would have no electromagnetic coupling.
-Rotation curves, lensing, clusters, and cosmology would then become different
-views of the same source rather than separate excuses for invisible material.
-That is the organizing claim; paper-grade promotion requires separate source,
-abundance-selector, simulator, Boltzmann, and likelihood receipts.
+The proposed sector is dark at the level of its couplings. It would gravitate
+and carry no electromagnetic charge, so galaxy rotation curves, gravitational
+lensing, and cluster dynamics would become different views of one source instead
+of separate puzzles each needing its own invisible matter. That is the
+organizing claim. Turning it into a full, testable theory, with a predicted
+abundance and a direct comparison to the data, is work in progress.
 
 ### The MOND Scale
 

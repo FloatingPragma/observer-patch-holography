@@ -1,0 +1,238 @@
+{
+  "adopted_working_conditional_branch": {
+    "classification": "prospective_post_exposure_candidate",
+    "name": "log_midpoint_half_turn",
+    "policy": "conditional values with named open theorems are preferred over absent values; the branch carries its post-exposure classification explicitly"
+  },
+  "artifact": "oph_d11_boundary_scale_selection_audit",
+  "candidate_registry_frozen": {
+    "E_cell_pixel_energy": {
+      "classification": "prospective_principled_candidate",
+      "closed_form": "E_star * P^(-1/2)",
+      "motivation": "single-anchor coherence: the same anchor that carries the electroweak transmutation",
+      "one_loop": {
+        "mh_tree_gev": 127.83227913851435,
+        "mt_pole_gev": 170.4488982480913
+      },
+      "scale_gev": 9.559899287322919e+18,
+      "two_loop": {
+        "mh_tree_gev": 131.80938770636138,
+        "mt_pole_gev": 175.66412625804122
+      }
+    },
+    "E_star": {
+      "classification": "prospective_principled_candidate",
+      "closed_form": "E_star",
+      "motivation": "the ultraviolet edge of the source theory",
+      "one_loop": {
+        "mh_tree_gev": 128.3279539668733,
+        "mt_pole_gev": 170.69172766866546
+      },
+      "scale_gev": 1.2208901289579268e+19,
+      "two_loop": {
+        "mh_tree_gev": 132.29093098946436,
+        "mt_pole_gev": 175.90473696839024
+      }
+    },
+    "log_midpoint_half_turn": {
+      "classification": "prospective_post_exposure_candidate",
+      "closed_form": "sqrt(mu_U * E_cell) = E_star * exp(-pi) * P^(-1/6)",
+      "motivation": "log-midpoint of the model's two pre-existing anchors; the unique scale treating the transmutation anchor and the unification anchor symmetrically",
+      "one_loop": {
+        "mh_tree_gev": 121.6343204058547,
+        "mt_pole_gev": 167.39421549217778
+      },
+      "scale_gev": 4.862867915188205e+17,
+      "two_loop": {
+        "mh_tree_gev": 125.77115268001006,
+        "mt_pole_gev": 172.62935949498873
+      }
+    },
+    "mu_U_gauge_unification": {
+      "classification": "archived_declared_choice",
+      "closed_form": "E_star * exp(-2 pi) * P^(1/6)",
+      "motivation": "the archived branch: criticality at the gauge-unification scale of the pixel-residual solve",
+      "one_loop": {
+        "mh_tree_gev": 115.10128097301045,
+        "mt_pole_gev": 164.13059337895652
+      },
+      "scale_gev": 2.4736122891927384e+16,
+      "two_loop": {
+        "mh_tree_gev": 119.37075245526148,
+        "mt_pole_gev": 169.37032322941494
+      }
+    }
+  },
+  "checks": {
+    "flow_internal_no_go_certified": true,
+    "registry_covers_named_scales": true,
+    "scan_checks_pass": true
+  },
+  "checks_pass": true,
+  "claim_boundary": "The selection question is open. The no-go closes the flow-internal route; the candidate registry and the discriminating test define the prospective closure protocol.",
+  "flow_internal_selection_no_go": {
+    "margin_over_zero": 4.390518831836785e-05,
+    "minimum_flow_derivative": 4.390518831836785e-05,
+    "no_root_certified": true,
+    "sampled_rows": [
+      {
+        "flow_dbeta_lambda_dt": 4.835667751607355e-05,
+        "gauge_term": -6.974053828562456e-06,
+        "mu_gev": 1e+16,
+        "yukawa_term": 5.5330731344636e-05
+      },
+      {
+        "flow_dbeta_lambda_dt": 4.8043743045211915e-05,
+        "gauge_term": -6.766646137510561e-06,
+        "mu_gev": 1.3658054501418312e+16,
+        "yukawa_term": 5.481038918272248e-05
+      },
+      {
+        "flow_dbeta_lambda_dt": 4.774270797570389e-05,
+        "gauge_term": -6.55935373571361e-06,
+        "mu_gev": 1.86542452763713e+16,
+        "yukawa_term": 5.43020617114175e-05
+      },
+      {
+        "flow_dbeta_lambda_dt": 4.7453376300360746e-05,
+        "gauge_term": -6.352107644716939e-06,
+        "mu_gev": 2.547806986675064e+16,
+        "yukawa_term": 5.380548394507769e-05
+      },
+      {
+        "flow_dbeta_lambda_dt": 4.717556218152445e-05,
+        "gauge_term": -6.144838177516307e-06,
+        "mu_gev": 3.479808668310238e+16,
+        "yukawa_term": 5.3320400359040765e-05
+      },
+      {
+        "flow_dbeta_lambda_dt": 4.690908968448367e-05,
+        "gauge_term": -5.937474872646308e-06,
+        "mu_gev": 4.75274164462891e+16,
+        "yukawa_term": 5.2846564557129976e-05
+      },
+      {
+        "flow_dbeta_lambda_dt": 4.6653792512020455e-05,
+        "gauge_term": -5.7299464434284504e-06,
+        "mu_gev": 6.491320441350216e+16,
+        "yukawa_term": 5.2383738955448904e-05
+      },
+      {
+        "flow_dbeta_lambda_dt": 4.6409513766973344e-05,
+        "gauge_term": -5.5221807146960285e-06,
+        "mu_gev": 8.865880837413202e+16,
+        "yukawa_term": 5.193169448166937e-05
+      },
+      {
+        "flow_dbeta_lambda_dt": 4.61761057572303e-05,
+        "gauge_term": -5.314104531836133e-06,
+        "mu_gev": 1.2109068368046973e+17,
+        "yukawa_term": 5.149021028906643e-05
+      },
+      {
+        "flow_dbeta_lambda_dt": 4.595342976006249e-05,
+        "gauge_term": -5.105643724538275e-06,
+        "mu_gev": 1.653863157321874e+17,
+        "yukawa_term": 5.105907348460076e-05
+      },
+      {
+        "flow_dbeta_lambda_dt": 4.574135585521431e-05,
+        "gauge_term": -4.8967230151772825e-06,
+        "mu_gev": 2.258855314058992e+17,
+        "yukawa_term": 5.063807887039159e-05
+      },
+      {
+        "flow_dbeta_lambda_dt": 4.553976274835818e-05,
+        "gauge_term": -4.687265949606127e-06,
+        "mu_gev": 3.085156899023609e+17,
+        "yukawa_term": 5.0227028697964305e-05
+      },
+      {
+        "flow_dbeta_lambda_dt": 4.534853760872611e-05,
+        "gauge_term": -4.477194825971412e-06,
+        "mu_gev": 4.213724107229116e+17,
+        "yukawa_term": 4.982573243469752e-05
+      },
+      {
+        "flow_dbeta_lambda_dt": 4.5167575926966954e-05,
+        "gauge_term": -4.266430614960349e-06,
+        "mu_gev": 5.755127351047548e+17,
+        "yukawa_term": 4.94340065419273e-05
+      },
+      {
+        "flow_dbeta_lambda_dt": 4.4996781388768753e-05,
+        "gauge_term": -4.054892875433924e-06,
+        "mu_gev": 7.860384302321061e+17,
+        "yukawa_term": 4.9051674264202674e-05
+      },
+      {
+        "flow_dbeta_lambda_dt": 4.4836065754544566e-05,
+        "gauge_term": -3.842499674673879e-06,
+        "mu_gev": 1.0735755720319488e+18,
+        "yukawa_term": 4.8678565429218445e-05
+      },
+      {
+        "flow_dbeta_lambda_dt": 4.468534875857889e-05,
+        "gauge_term": -3.62916749940206e-06,
+        "mu_gev": 1.4662953674203697e+18,
+        "yukawa_term": 4.831451625798095e-05
+      },
+      {
+        "flow_dbeta_lambda_dt": 4.454455802128826e-05,
+        "gauge_term": -3.4148111635042042e-06,
+        "mu_gev": 2.0026742043404598e+18,
+        "yukawa_term": 4.7959369184792464e-05
+      },
+      {
+        "flow_dbeta_lambda_dt": 4.441362896695649e-05,
+        "gauge_term": -3.1993437197084002e-06,
+        "mu_gev": 2.735263343146655e+18,
+        "yukawa_term": 4.761297268666489e-05
+      },
+      {
+        "flow_dbeta_lambda_dt": 4.4292504758447864e-05,
+        "gauge_term": -2.9826763633541764e-06,
+        "mu_gev": 3.735837581642867e+18,
+        "yukawa_term": 4.7275181121802036e-05
+      },
+      {
+        "flow_dbeta_lambda_dt": 4.4181136267674576e-05,
+        "gauge_term": -2.7647183091378273e-06,
+        "mu_gev": 5.102427329852548e+18,
+        "yukawa_term": 4.694585457681241e-05
+      },
+      {
+        "flow_dbeta_lambda_dt": 4.4079482001091854e-05,
+        "gauge_term": -2.5453767212461316e-06,
+        "mu_gev": 6.96892305606524e+18,
+        "yukawa_term": 4.662485872233799e-05
+      },
+      {
+        "flow_dbeta_lambda_dt": 4.398750810054723e-05,
+        "gauge_term": -2.324556576260246e-06,
+        "mu_gev": 9.51819309159297e+18,
+        "yukawa_term": 4.6312064676807475e-05
+      },
+      {
+        "flow_dbeta_lambda_dt": 4.390518831836785e-05,
+        "gauge_term": -2.1021605596745132e-06,
+        "mu_gev": 1.3e+19,
+        "yukawa_term": 4.600734887804236e-05
+      }
+    ],
+    "statement": "d beta_lambda / d ln mu > 0 along the entire criticality family: triple criticality has no root, every family point is a lambda minimum, and the flow cannot select the boundary scale"
+  },
+  "promotion_allowed": false,
+  "registered_discriminating_test": {
+    "object": "FROZEN_THREE_LOOP_RG_MATCHING_PACKET",
+    "protocol": "the registry above is frozen before any three-loop computation exists; the three-loop implied scale either converges onto one frozen candidate or eliminates the family"
+  },
+  "row_class": "selection_audit_never_a_prediction_ancestor",
+  "schema_version": 1,
+  "status": "SELECTION_OPEN_CANDIDATES_FROZEN_PROSPECTIVELY",
+  "truncation_instability": {
+    "one_loop_implied_scale": "outside the window: the measured top exceeds the one-loop curve maximum",
+    "statement": "the loop-order shift of the implied scale exceeds the candidate spacing, so numerical agreement at the current order cannot select a candidate",
+    "two_loop_implied_scale_gev": 4.750331123992614e+17
+  }
+}

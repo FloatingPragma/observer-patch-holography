@@ -1,0 +1,176 @@
+{
+  "artifact": "oph_qme_source_action_rigidity_mechanism",
+  "axiom_role": {
+    "d10_role": "mechanism receipt for the D10 discrete law decision",
+    "into": "a quantitative selection principle with a strictly positive Pinsker selector gap",
+    "sharpens": "Local MaxEnt axiom"
+  },
+  "branch": {
+    "P_cand": "1.63097209569432901817967892561191884270169",
+    "P_cand_source": "particles/hierarchy/certificates/R_P_source_audit_pixel_certificate.json",
+    "expected_p": "0.007299545168876648",
+    "p": "0.0072995451688766479492187500000000000000019806500263",
+    "p_agreement_residual": "5.0781249999999999999998019349973728199379140476062e-20",
+    "p_agrees_to_1e-15": true,
+    "p_definition": "(P - phi)/sqrt(pi)",
+    "phi": "1.6180339887498948482045868343656381177203091798058"
+  },
+  "checks_pass": true,
+  "mechanism_checks": {
+    "Gamma_hessian": "138.0021901402738914652794583203428165606188731227",
+    "Gamma_hessian_formula": "1/(p(1-p))",
+    "gibbs_reconstruction_matches": true,
+    "gibbs_reconstruction_residuals": {
+      "r0": "7.7787690973264271339300800672251553007378152109015e-62",
+      "r1": "3.8893845486632135669650400336125776503689076054507e-62"
+    },
+    "l1_distance_delta": "0.0036497725844383239746093750000000000000009903250131",
+    "laws_normalized": true,
+    "moment_constraints_hold": true,
+    "moment_residuals": {
+      "r0_E_X": "0.0",
+      "r1_E_X": "0.0",
+      "r1_E_Y": "0.0"
+    },
+    "mu0_star": [
+      "0.99270045483112335205078124999999999999999801934997",
+      "0.0072995451688766479492187500000000000000019806500263"
+    ],
+    "mu0_sum_residual": "0.0",
+    "mu1_star": [
+      "0.49635022741556167602539062499999999999999900967499",
+      "0.49635022741556167602539062499999999999999900967499",
+      "0.0036497725844383239746093750000000000000009903250131",
+      "0.0036497725844383239746093750000000000000009903250131"
+    ],
+    "mu1_sum_residual": "7.7787690973264271339300800672251553007378152109015e-62",
+    "p": "0.0072995451688766479492187500000000000000019806500263",
+    "perturbation_displacement": "0.00091244314610958099365234375000000000000024758125328",
+    "perturbation_feasible_full_support": true,
+    "perturbed_feasible_law_nu1": [
+      "0.49726267056167125701904296874999999999999925725624",
+      "0.49543778426945209503173828124999999999999876209373",
+      "0.0027373294383287429809570312500000000000007427437599",
+      "0.0045622157305479049682617187500000000000012379062664"
+    ],
+    "pinsker_bound_formula": "Delta(delta) >= delta^2/2",
+    "pinsker_lower_bound": "0.0000066604199590588013535352729377336800098455334063951",
+    "projective_compatibility_exact": true,
+    "projective_residual": "0.0",
+    "pythagorean_identity_holds": true,
+    "pythagorean_residual": "6.5557399716725650552555264629055752192741548115312e-62",
+    "selector_gap": "0.00023222576399269134160501785784370063102084250878447",
+    "selector_gap_exceeds_pinsker_bound": true,
+    "theta_star": "4.9126169211914450001647945063027785482403089206071",
+    "theta_star_formula": "theta_star = log((1-p)/p)"
+  },
+  "physical_standard_model_moment_packet": {
+    "gate": "fail_closed",
+    "open_proofs": [
+      "operator completeness modulo BRST",
+      "c_r = c_r(P_star, N_star) source emission",
+      "reflection positivity and continuum nontriviality",
+      "source-complete matter spectral cuts",
+      "physical 1PI two-point blocks with analytic continuation",
+      "source clock closure"
+    ],
+    "promotion_rule": "promotion_allowed is false because the physical moment vector and its completeness proofs are open.",
+    "status": "ABSENT"
+  },
+  "precision": {
+    "mpmath_dps": 60
+  },
+  "promotion_allowed": false,
+  "source_packet": {
+    "regulator_r0": {
+      "Gamma_hessian": "138.0021901402738914652794583203428165606188731227",
+      "Q": [
+        "0",
+        "1"
+      ],
+      "features": {
+        "X": [
+          0,
+          1
+        ]
+      },
+      "moments": {
+        "E[X]": "0.0072995451688766479492187500000000000000019806500263"
+      },
+      "mu_star": [
+        "0.99270045483112335205078124999999999999999801934997",
+        "0.0072995451688766479492187500000000000000019806500263"
+      ],
+      "reference_measure": [
+        "0.5",
+        "0.5"
+      ],
+      "theta": [
+        "4.9126169211914450001647945063027785482403089206071"
+      ]
+    },
+    "regulator_r1": {
+      "Q": [
+        "00",
+        "01",
+        "10",
+        "11"
+      ],
+      "coarse_map_to_r0": {
+        "00": "0",
+        "01": "0",
+        "10": "1",
+        "11": "1"
+      },
+      "features": {
+        "X": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "Y": [
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      "moments": {
+        "E[X]": "0.0072995451688766479492187500000000000000019806500263",
+        "E[Y]": "0.5"
+      },
+      "mu_star": [
+        "0.49635022741556167602539062499999999999999900967499",
+        "0.49635022741556167602539062499999999999999900967499",
+        "0.0036497725844383239746093750000000000000009903250131",
+        "0.0036497725844383239746093750000000000000009903250131"
+      ],
+      "reference_measure": [
+        "0.25",
+        "0.25",
+        "0.25",
+        "0.25"
+      ],
+      "theta": [
+        "4.9126169211914450001647945063027785482403089206071",
+        "0.0"
+      ]
+    }
+  },
+  "status": "SELECTION_MECHANISM_CLOSED_PHYSICAL_MOMENT_VECTOR_OPEN",
+  "theorem_registry": {
+    "BRST_CLASS_UNIQUENESS": {
+      "statement": "On a gauge-fixed lift with nilpotent BRST differential and BRST-invariant measure, expectations of BRST-closed observables are independent of the gauge-fixing fermion, so the source action is unique as the BRST equivalence class [S_star + s Psi]."
+    },
+    "PINSKER_SELECTOR_GAP": {
+      "statement": "Every feasible law nu obeys D(nu||m) - D(mu_star||m) = D(nu||mu_star) >= ||nu - mu_star||_1^2 / 2, so the selector gap outside an L1 ball of radius delta is at least delta^2/2.  Uniqueness is quantitative."
+    },
+    "REFINEMENT_PUSHFORWARD_THEOREM": {
+      "statement": "For a surjective coarse map with compatible features, compatible reference pushforward, and entropy-maximal fiber conditionals, the fine MaxEnt law pushes forward exactly to the coarse MaxEnt law."
+    },
+    "SOURCE_ACTION_RIGIDITY_THEOREM": {
+      "statement": "On a finite quotient with full-support reference measure and interior feasible moments, the relative-entropy minimizer is a unique full-support Gibbs law, and the source action theta_star . F is unique modulo additive constants, exact feature redundancies, and BRST-exact terms."
+    }
+  }
+}

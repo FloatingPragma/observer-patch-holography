@@ -1008,9 +1008,9 @@ Lensing, clusters, cosmic microwave background peaks, large-scale structure,
 galaxy diversity, and precision expansion history all matter.
 
 The matter support boundaries require care. Quark masses, hadron inputs,
-neutrino assumptions, and electroweak scheme choices must stay explicit. The
-quark source-spread obstruction and target-audit mass textures do not emit the physical strong-CP invariant or
-prove its vanishing. The book should not imply otherwise.
+neutrino assumptions, and electroweak scheme choices must stay explicit. OPH
+does not produce the physical strong-CP invariant or prove its vanishing. The
+book should not imply otherwise.
 
 The observer and restoration discussions rest on the fixed-cutoff
 checkpoint/restoration result. Stronger continuation interfaces are separate questions. What

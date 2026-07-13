@@ -1,0 +1,476 @@
+{
+  "artifact": "oph_source_only_mass_prediction_surface",
+  "display_note": "GeV/MeV displays use the unclosed clock candidate; the clock audit classifies that decimal as a calibration checksum.",
+  "families": [
+    {
+      "family": "charged leptons",
+      "rows": [
+        {
+          "artifact": "runs/leptons/charged_mcpr_completion_conditional.json",
+          "blocking_objects": [
+            "A5_FAM",
+            "DET_CAN",
+            "PROV",
+            "QFT_POLE",
+            "SCALE",
+            "W5_ORB"
+          ],
+          "explanation": "The eight-register architecture reproduces the charged triple at 84 ppm with zero runtime charged reference, and the architecture itself is a declared model input. The source-only completion is the A5/W5 orbit program; the homogeneous branch is proven shape-silent.",
+          "lane": "MCPR completed-response candidate",
+          "masses_MeV_display": [
+            "0.510955975741552068020723500054472749215281316506929210285918",
+            "105.649498782646844059230168742091114798777286110716174180541",
+            "1776.78070075553029532976178437253761581630448138776277281446"
+          ],
+          "masses_over_E_star": [
+            "4.18511066305360899033265486697796483889032850221501699814003e-23",
+            "8.65348219599200944059089424453399690379782667649961701550029e-21",
+            "0.000000000000000000145531595864945269052065442781293778785664923243516022968036"
+          ],
+          "ratios": {
+            "m_mu_over_m_e": "206.768300594424760670043823850348852971584715754452765549816",
+            "m_tau_over_m_e": "3477.36553658440473352249890568969480291329678818453349997977",
+            "m_tau_over_m_mu": "16.8176917186413602019580872603411888326667064002055059599091"
+          },
+          "row_class": "conditional_on_declared_mcpr_response_architecture",
+          "tier": "T2"
+        },
+        {
+          "artifact": "runs/leptons/charged_kappa_interval_from_alpha_transport.json",
+          "blocking_objects": [
+            "source hadronic spectral measure (issue 425)",
+            "anchor scheme bridge source branch (issue 545)"
+          ],
+          "explanation": "Certified intervals contain the physical triple; the width reduces to the open hadronic transport and the anchor bridge.",
+          "lane": "alpha-transport kappa interval (empirical closure)",
+          "mass_rows_GeV": [
+            {
+              "central": 0.0005088574871435262,
+              "interval": [
+                0.00036172673339749013,
+                0.0007158330261907456
+              ],
+              "particle": "electron"
+            },
+            {
+              "central": 0.10521558876001283,
+              "interval": [
+                0.07479361547434257,
+                0.1480115655314657
+              ],
+              "particle": "muon"
+            },
+            {
+              "central": 1.7694833490538506,
+              "interval": [
+                1.2578559770192885,
+                2.489212898600991
+              ],
+              "particle": "tau"
+            }
+          ],
+          "row_class": "target_shape_plus_empirical_transport",
+          "tier": "T1"
+        },
+        {
+          "artifact": "runs/leptons/charged_ward_determinant_line.json",
+          "blocking_objects": [
+            "R_CHARGED_CENTERED_SHAPE",
+            "R_WARD_SPACELIKE_ENDPOINT_PAIR",
+            "R_WARD_NONLEPTONIC_SUBTRACTION",
+            "R_WARD_HIGHER_ORDER_MONOTONICITY",
+            "R_ELECTRON_ATOMIC_MASS_TRANSPORT",
+            "R_CLEAN_P_ALPHA_ROOT",
+            "R_NO_TARGET_CHARGED_DAG"
+          ],
+          "lane": "Ward determinant-line inversion (affine-scale producer)",
+          "row_class": "fail_closed_source_packet_gate",
+          "tier": "theorem complete, physical parents open"
+        }
+      ]
+    },
+    {
+      "discrete_ambiguity_width_GeV": {
+        "MW": 0.00928485276493518,
+        "MZ": 0.0050698956707719844
+      },
+      "family": "electroweak bosons",
+      "rows": [
+        {
+          "MW_GeV_display": 80.3300637719082,
+          "MW_over_E_star": 6.579630866577059e-18,
+          "MZ_GeV_display": 91.11911863389018,
+          "MZ_over_E_star": 7.463334863036661e-18,
+          "artifact": "runs/calibration/wzh_residual_elimination_boundary.json",
+          "blocking_objects": [
+            "SOURCE_LAW_SELECTION_PRINCIPLE",
+            "BRST-complete pole kernels",
+            "operational clock"
+          ],
+          "explanation": "Tree/chart coordinates within 0.06 to 0.08 percent of measurement with no target input; the residual is the unmodeled pole packet plus the witness-level P root.",
+          "lane": "strict source-audit branch, zero-selector law",
+          "row_class": "conditional_on_P_and_discrete_repair_law_choice",
+          "tier": "T2 (T3 once the discrete law selection is a theorem)"
+        },
+        {
+          "MW_GeV_display": 80.32077891914327,
+          "MW_over_E_star": 6.578870367942111e-18,
+          "MZ_GeV_display": 91.12418852956095,
+          "MZ_over_E_star": 7.463750125274475e-18,
+          "artifact": "runs/calibration/wzh_residual_elimination_boundary.json",
+          "blocking_objects": [
+            "SOURCE_LAW_SELECTION_PRINCIPLE",
+            "C10 carrier prospective selection",
+            "BRST-complete pole kernels",
+            "operational clock"
+          ],
+          "lane": "strict source-audit branch, carrier value law",
+          "row_class": "conditional_on_P_and_discrete_repair_law_choice",
+          "tier": "T2 (T3 once the discrete law selection is a theorem)"
+        },
+        {
+          "MW_GeV": 80.37700001539531,
+          "MZ_GeV": 91.18797807794321,
+          "artifact": "runs/calibration/conditional_ew_predictions_current.json",
+          "blocking_objects": [
+            "same gates as the strict branch plus the declared surface"
+          ],
+          "explanation": "Target-free continuation on the calibration pixel; the pixel itself sits on the endpoint branch, so this row carries endpoint ancestry and validates the formula stack rather than adding an independent prediction.",
+          "lane": "declared benchmark surface (public endpoint branch continuation)",
+          "row_class": "conditional_on_P_and_repair_selection",
+          "tier": "T2; the public branch P consumes the measured Thomson endpoint"
+        }
+      ]
+    },
+    {
+      "family": "Higgs boson and top quark",
+      "rows": [
+        {
+          "artifact": "runs/calibration/d11_boundary_scale_selection_audit.json",
+          "blocking_objects": [
+            "CRITICALITY_BOUNDARY_SCALE_SELECTION_THEOREM (candidates frozen; three-loop packet discriminates)"
+          ],
+          "explanation": "Two-loop values of the adopted branch; the candidate was identified after the implied scale was computed and is frozen prospectively against the three-loop discriminating test. The flow-internal selection route is closed by a no-go.",
+          "lane": "adopted conditional branch: criticality at the log-midpoint anchor E_star exp(-pi) P^(-1/6)",
+          "mH_tree_GeV_display": 125.77115268001006,
+          "mt_pole_GeV_display": 172.62935949498873,
+          "tier": "T2, conditional on the frozen post-exposure boundary-scale candidate"
+        },
+        {
+          "artifact": "runs/calibration/d11_criticality_boundary_scan.json",
+          "blocking_objects": [
+            "CRITICALITY_BOUNDARY_SCALE_SELECTION_THEOREM",
+            "frozen three-loop RG and matching packet",
+            "BRST-complete pole kernels"
+          ],
+          "explanation": "Both Yukawa-sector boundaries derive from the gauge sector through the criticality law. The family over named source scales brackets the measured pair; the archived mu_U branch is the low edge and its deficit decomposes into the boundary-scale choice plus loop truncation, both named and quantified.",
+          "lane": "double-criticality boundary family (lambda = 0 and beta_lambda = 0 at one source scale; zero continuous parameters)",
+          "one_loop": {
+            "E_cell_pixel_energy": {
+              "mH_tree_GeV_display": 127.83227913851435,
+              "mt_pole_GeV_display": 170.4488982480913
+            },
+            "E_star": {
+              "mH_tree_GeV_display": 128.3279539668733,
+              "mt_pole_GeV_display": 170.69172766866546
+            },
+            "log_midpoint_half_turn": {
+              "mH_tree_GeV_display": 121.6343204058547,
+              "mt_pole_GeV_display": 167.39421549217778
+            },
+            "mu_U_gauge_unification": {
+              "mH_tree_GeV_display": 115.10128097301045,
+              "mt_pole_GeV_display": 164.13059337895652
+            }
+          },
+          "tier": "T2, conditional on the boundary-scale selection theorem",
+          "two_loop": {
+            "E_cell_pixel_energy": {
+              "mH_tree_GeV_display": 131.80938770636138,
+              "mt_pole_GeV_display": 175.66412625804122
+            },
+            "E_star": {
+              "mH_tree_GeV_display": 132.29093098946436,
+              "mt_pole_GeV_display": 175.90473696839024
+            },
+            "log_midpoint_half_turn": {
+              "mH_tree_GeV_display": 125.77115268001006,
+              "mt_pole_GeV_display": 172.62935949498873
+            },
+            "mu_U_gauge_unification": {
+              "mH_tree_GeV_display": 119.37075245526148,
+              "mt_pole_GeV_display": 169.37032322941494
+            }
+          }
+        },
+        {
+          "artifact": "runs/calibration/d11_criticality_comparison.json",
+          "blocking_objects": [
+            "CRITICALITY_BOUNDARY_SCALE_SELECTION_THEOREM"
+          ],
+          "explanation": "Along the fit-free criticality curve, the Higgs coordinate at the measured top mass tests the relation independently of the boundary-scale selection.",
+          "implied_boundary_scale_GeV": 4.750331123992614e+17,
+          "lane": "m_t to m_H criticality relation (fit-free curve, compare-only test)",
+          "mH_on_curve_at_measured_mt_GeV": 125.72052400335069,
+          "mh_relative_residual": 0.004711705651312181,
+          "tier": "relation verified within the declared matching band"
+        },
+        {
+          "artifact": "runs/calibration/wzh_residual_elimination_boundary.json",
+          "blocking_objects": [
+            "CRITICALITY_BOUNDARY_SCALE_SELECTION_THEOREM",
+            "frozen three-loop RG and matching packet"
+          ],
+          "explanation": "The 115.1 GeV Higgs coordinate is the archived branch of the same family: criticality imposed at the gauge unification scale with one-loop running. Its deficit against measurement is the boundary-scale choice plus truncation, quantified by the scan.",
+          "lane": "archived literal one-loop core at the mu_U boundary",
+          "mH_tree_GeV_display": 115.10128055804651,
+          "mt_QCD_converted_GeV_display": 164.13059302729587,
+          "tier": "T2 (target-free tree coordinates; low edge of the family)"
+        },
+        {
+          "artifact": "runs/calibration/conditional_ew_predictions_current.json",
+          "blocking_objects": [
+            "synchronization scale is target-ancestral"
+          ],
+          "explanation": "These values are back-solved from the measured Higgs and top through the synchronization-scale scan and the live-exact adapters. They validate the formula stack and carry zero predictive content.",
+          "lane": "declared calibration surface",
+          "mH_GeV": 125.1995304097179,
+          "mt_GeV": 172.3523553288312,
+          "tier": "target-anchored fit; not a prediction"
+        }
+      ]
+    },
+    {
+      "family": "quarks (u, d, s, c, b)",
+      "rows": [
+        {
+          "blocking_objects": [
+            "PHYSICAL_QF1_TO_QF9_FLAVOR_CARRIER_CERTIFICATE",
+            "spread-fiber elimination (per-sector determinant characters)",
+            "COMMON_SCALE_PHYSICAL_YUKAWA_PACKET",
+            "FROZEN_RG_THRESHOLD_MATCHING_UNCERTAINTY_PACKET"
+          ],
+          "explanation": "The current axioms leave a continuous spread fiber per sector: no Yukawa selector is emitted, so no forward masses exist. This is a proven non-entailment, never an arithmetic error. The top row lives in the Higgs family through the criticality law.",
+          "lane": "public theorem lane",
+          "statuses": {
+            "b": "source_spread_nonidentifiability_obstruction",
+            "c": "source_spread_nonidentifiability_obstruction",
+            "d": "source_spread_nonidentifiability_obstruction",
+            "s": "source_spread_nonidentifiability_obstruction",
+            "u": "source_spread_nonidentifiability_obstruction"
+          },
+          "tier": "T0 boundary (no forward sextet)"
+        }
+      ]
+    },
+    {
+      "family": "neutrinos",
+      "rows": [
+        {
+          "blocking_objects": [
+            "Majorana versus Dirac mechanism selection",
+            "absolute scale mechanism",
+            "neutral-lane family shape (W5 orbit program)"
+          ],
+          "explanation": "Mechanism selection (Majorana or Dirac) and the absolute-scale mechanism are open structural questions; no candidate survives the correlated oscillation test.",
+          "lane": "public theorem lane",
+          "statuses": {
+            "nu_e": "continuation",
+            "nu_mu": "continuation",
+            "nu_tau": "continuation"
+          },
+          "tier": "T0 (rejected target-informed candidate only)"
+        }
+      ]
+    },
+    {
+      "family": "massless carriers (photon, gluon)",
+      "rows": [
+        {
+          "blocking_objects": [
+            "exact masslessness theorem receipts on the carrier lane"
+          ],
+          "explanation": "Exact masslessness follows from unbroken gauge invariance in the recovered core; the receipt is bookkeeping, never a numerical program.",
+          "lane": "structural masslessness",
+          "statuses": {
+            "g (8 color states)": "conditional_carrier_mode",
+            "gamma": "conditional_carrier_mode"
+          },
+          "tier": "structural (receipt pending)"
+        }
+      ]
+    },
+    {
+      "family": "hadrons",
+      "rows": [
+        {
+          "artifact": "runs/qcd/lambda_qcd_source_transmutation.json",
+          "blocking_objects": [
+            "declared threshold inputs (bracket-swept)",
+            "strict no-target P root"
+          ],
+          "explanation": "The source strong coupling transmutes perturbatively into the QCD scale with no hadronic input. This is the perturbative half of every light-hadron mass.",
+          "lambda3_GeV_display": 0.33481516768895897,
+          "lambda3_interval_GeV": [
+            0.31949328977395597,
+            0.34974968299682957
+          ],
+          "lambda5_GeV_display": 0.2135192157084192,
+          "lane": "Lambda_QCD by dimensional transmutation of the source coupling",
+          "tier": "T2 (conditional on declared threshold inputs)"
+        },
+        {
+          "artifact": "runs/hadron/nucleon_mass_external_qcd_ratio.json",
+          "blocking_objects": [
+            "production hadron backend (source-only nonperturbative factor)"
+          ],
+          "compare_only_relative": -0.009760420415380278,
+          "explanation": "The nonperturbative factor m_N/Lambda is a published lattice-theory constant, declared as the external condition. A source-only nucleon mass requires the production hadron backend; this row is the realistic conditional route.",
+          "lane": "nucleon mass from source Lambda times external lattice ratio",
+          "m_nucleon_GeV_display": 0.9291120903368612,
+          "m_nucleon_interval_GeV": [
+            0.8231904357670862,
+            1.0425338550769496
+          ],
+          "tier": "conditional: oph_plus_external_qcd_theory"
+        },
+        {
+          "blocking_objects": [
+            "light-quark Yukawa selectors (quark family)",
+            "nonperturbative ratios per channel"
+          ],
+          "explanation": "Chiral-sector masses additionally require the light quark Yukawa selectors, which are open in the quark family; the same external-ratio route extends once those close.",
+          "lane": "other hadrons (pions, kaons, hyperons)",
+          "tier": "T0"
+        }
+      ]
+    },
+    {
+      "family": "operational scale E_star",
+      "rows": [
+        {
+          "artifact": "runs/clock/clock_source_energy_closure_audit.json",
+          "blocking_objects": [
+            "R_ALPHA_ATOMIC_SCHEME_PACKET",
+            "R_ELECTRON_ABSOLUTE_RATIO_PACKET",
+            "R_QCD_NUCLEAR_133CS_PACKET",
+            "R_ATOMIC_133CS_HAMILTONIAN_PACKET",
+            "R_ATOMIC_133CS_SPECTRAL_ENCLOSURE",
+            "R_CLOCK_REFINEMENT_LIMIT",
+            "R_NO_G_CLOCK_DAG",
+            "R_SOURCE_ENERGY_INTERVAL",
+            "PHYSICAL_QF1_TO_QF9_FLAVOR_CARRIER_CERTIFICATE",
+            "P_ALPHA_U_STRICT_NO_TARGET_ROOT",
+            "COMMON_SCALE_PHYSICAL_YUKAWA_PACKET",
+            "FROZEN_RG_THRESHOLD_MATCHING_UNCERTAINTY_PACKET"
+          ],
+          "candidate_E_star_GeV": "12208901289579269028.310865089457456909350205535893916629121119014500997018851430",
+          "epsilon_role": "calibration_checksum_reproducing_displayed_G",
+          "explanation": "Absolute GeV output is equivalent to a source-only operational clock ratio; four of the five clock component producers are absent, so every GeV column is a display through the checksum decimal.",
+          "lane": "clock-to-source-energy conversion",
+          "tier": "conversion theorem proved; epsilon_Cs is a checksum"
+        },
+        {
+          "artifact": "runs/clock/cs133_feshbach_scalarization.json",
+          "blocking_objects": [
+            "R_ALPHA_ATOMIC_SCHEME_PACKET",
+            "R_ELECTRON_ABSOLUTE_RATIO_PACKET",
+            "R_QCD_NUCLEAR_133CS_PACKET",
+            "R_ATOMIC_FESHBACH_SCALARS_133CS",
+            "R_CLOCK_REFINEMENT_LIMIT",
+            "R_NO_G_CLOCK_DAG",
+            "R_CLOCK_PROSPECTIVE_FREEZE"
+          ],
+          "lane": "cesium Feshbach scalarization",
+          "tier": "theorem checks pass on a synthetic fixture"
+        }
+      ]
+    }
+  ],
+  "generated_utc": "2026-07-13T04:57:34Z",
+  "global_blocking_objects": {
+    "X1_strict_no_target_P_alpha_root": "source-audit branch witness; full endpoint proof requires the hadronic spectral transport, the scheme bridge, and the interval fixed-point proof",
+    "X2_operational_clock_chain": [
+      "R_ALPHA_ATOMIC_SCHEME_PACKET",
+      "R_ELECTRON_ABSOLUTE_RATIO_PACKET",
+      "R_QCD_NUCLEAR_133CS_PACKET",
+      "R_ATOMIC_133CS_HAMILTONIAN_PACKET",
+      "R_ATOMIC_133CS_SPECTRAL_ENCLOSURE",
+      "R_CLOCK_REFINEMENT_LIMIT",
+      "R_NO_G_CLOCK_DAG",
+      "R_SOURCE_ENERGY_INTERVAL",
+      "PHYSICAL_QF1_TO_QF9_FLAVOR_CARRIER_CERTIFICATE",
+      "P_ALPHA_U_STRICT_NO_TARGET_ROOT",
+      "COMMON_SCALE_PHYSICAL_YUKAWA_PACKET",
+      "FROZEN_RG_THRESHOLD_MATCHING_UNCERTAINTY_PACKET"
+    ],
+    "X3_source_law_selection": "mechanism closed by the source-action rigidity theorem; the physical Standard-Model moment vector is open",
+    "X4_provenance_freeze": "canonical taint classes, transitive hashes, prospective freeze",
+    "X5_interacting_pole_packet": "BRST-complete two-point kernels, sheets, residues, widths"
+  },
+  "inputs": {
+    "clock_audit": {
+      "exists": true,
+      "path": "runs/clock/clock_source_energy_closure_audit.json"
+    },
+    "criticality": {
+      "exists": true,
+      "path": "runs/calibration/d11_criticality_boundary_scan.json"
+    },
+    "criticality_compare": {
+      "exists": true,
+      "path": "runs/calibration/d11_criticality_comparison.json"
+    },
+    "ew": {
+      "exists": true,
+      "path": "runs/calibration/conditional_ew_predictions_current.json"
+    },
+    "feshbach": {
+      "exists": true,
+      "path": "runs/clock/cs133_feshbach_scalarization.json"
+    },
+    "kappa": {
+      "exists": true,
+      "path": "runs/leptons/charged_kappa_interval_from_alpha_transport.json"
+    },
+    "lambda_qcd": {
+      "exists": true,
+      "path": "runs/qcd/lambda_qcd_source_transmutation.json"
+    },
+    "mcpr": {
+      "exists": true,
+      "path": "runs/leptons/charged_mcpr_completion_conditional.json"
+    },
+    "nucleon": {
+      "exists": true,
+      "path": "runs/hadron/nucleon_mass_external_qcd_ratio.json"
+    },
+    "qme": {
+      "exists": true,
+      "path": "runs/calibration/qme_source_action_rigidity_mechanism.json"
+    },
+    "selection_audit": {
+      "exists": true,
+      "path": "runs/calibration/d11_boundary_scale_selection_audit.json"
+    },
+    "ward": {
+      "exists": true,
+      "path": "runs/leptons/charged_ward_determinant_line.json"
+    },
+    "wzh": {
+      "exists": true,
+      "path": "runs/calibration/wzh_residual_elimination_boundary.json"
+    }
+  },
+  "promotion_allowed": false,
+  "schema_version": 1,
+  "selection_mechanism_receipt": "runs/calibration/qme_source_action_rigidity_mechanism.json",
+  "status": "per_family_claim_tier_surface_no_public_promotion",
+  "tier_ladder": {
+    "T0": "comparison-only; never an ancestor of a prediction",
+    "T1": "empirical closure; certified intervals",
+    "T2": "declared-model conditional",
+    "T3": "source-only dimensionless",
+    "T4": "source-only absolute (closed operational clock ratio)"
+  }
+}

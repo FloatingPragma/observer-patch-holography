@@ -22,6 +22,7 @@ REFERENCE_CONSUMER_ALLOWLIST = {
     "calibration/derive_d10_ew_target_free_repair_value_law.py",
     "calibration/derive_d10_ew_tau2_current_carrier_obstruction.py",
     "calibration/derive_d10_ew_w_anchor_neutral_shear_factorization.py",
+    "calibration/derive_d11_criticality_comparison.py",
     "calibration/derive_d11_live_exact_higgs_promotion.py",
     "calibration/derive_d11_live_exact_top_promotion.py",
     "calibration/derive_d11_reference_exact_adapter.py",

@@ -236,23 +236,20 @@ A conserved current on the screen creates a gauge boson in the bulk.
 ### Our Route: Gauge Group from Gluing
 
 In this book we take a different route. The gauge group is not assumed in
-advance. Instead, we look at what happens when you glue observer patches
-together: fixed-cutoff edge charges generate a tensor category. On a cofinal
-tail carrying the compact-gauge refinement receipt, their transport data persist
-through coherent surjective pullbacks and the compatible forgetful fibers
-descend with them. A reconstruction theorem then lets you work backward from
-that persistent sector package to the symmetry group behind it.
+advance. We look at what happens when observer patches are glued together. The
+edge charges seen at a fixed resolution combine according to a fusion table, and
+as the resolution is refined that fusion data carries through consistently. A
+reconstruction theorem then works backward from the surviving charge data to the
+symmetry group behind it.
 
-This is classification before selection. The combined zero-obstruction test
-requires central triangle-class or noncentral higher-associator strictifiability
-and at least one allowed strict representative with trivial represented loop
-holonomy; together with the refinement receipt, it says which sectors can be
-transported and which compact group their tensor data reconstructs. On
-the realized one-Higgs low-energy branch, minimal admissible selection picks
-the physical gauge group $SU(3) \times SU(2) \times U(1)/\mathbb{Z}_6$. On
-that same branch, the minimal coupled carrier fixes the realized color triplet,
-while CKM phase counting together with weak-sector ultraviolet consistency
-picks the minimal viable generation count.
+This is classification before selection. A consistency test decides which charge
+sectors can be transported cleanly around every loop. That test, together with
+the condition that the fusion data survive refinement, fixes which compact group
+the charges reconstruct. Picking the smallest matter content that carries a
+single Higgs and passes every test lands on the physical gauge group $SU(3)
+\times SU(2) \times U(1)/\mathbb{Z}_6$. On the same footing, the minimal charged
+carrier fixes three colors, and particle-antiparticle asymmetry together with
+high-energy consistency picks the smallest workable number of generations.
 
 The notation looks forbidding, but the roles are practical. $SU(3)$ is the
 color accounting system for quarks. $SU(2)$ is the weak doublet accounting
@@ -291,9 +288,9 @@ $$
 \Delta_{\mathrm{YM}}=\Delta_{\mathrm{rep}}.
 $$
 
-On that branch, the Yang-Mills gap is the repair gap. Without the continuum
-work, the finite repair result remains a regulator mechanism, not a
-Clay-admissible four-dimensional construction.
+The Yang-Mills gap is the repair gap. Without the continuum step, the finite
+repair result is a working mechanism rather than the full four-dimensional
+construction the Clay problem asks for.
 
 ## 12.8 Symmetry Breaking
 
@@ -417,10 +414,10 @@ structure, angular harmonics, and the conformal bridge to Lorentz symmetry.
 Spinors fit naturally on that sphere. Wigner shows that once relativity is in
 place, particles are classified by how they transform.
 
-On the controlled cap branch, this bridge is explicit in the technical papers:
-sky directions, cap boundaries, and cap sides transform together under Lorentz
-motion. The book-level point is that the same symmetry moves the screen view
-and the recovered spacetime view.
+In the detailed construction, this bridge is explicit. Sky directions, cap
+boundaries, and the two sides of a cap all transform together under a Lorentz
+motion. The book-level point is that the same symmetry moves the screen view and
+the recovered spacetime view.
 
 The world obeys the script. Conservation laws hold. CPT remains intact.
 Spin-statistics stays locked. Symmetry is not decorative embroidery on top of

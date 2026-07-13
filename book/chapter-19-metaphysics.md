@@ -89,32 +89,24 @@ One question keeps physicists and philosophers up at night: Why does the univers
 The standard framing assumes laws are eternal Platonic truths, mathematical
 structures that exist independently of physical reality and somehow "govern"
 it. But then their specific form becomes inexplicable. Why should the
-low-energy fine structure constant land near $1/137$, more precisely at
-$\alpha^{-1}(0)=137.035999177(21)$? Why three spatial
+low-energy fine structure constant land near $1/137$? Why three spatial
 dimensions, not four or seven?
 
-The fine-structure lane treats the public Thomson-limit value as the endpoint
-readout of one local screen cell after the hadronic endpoint transport is
-supplied. The same pixel has two descriptions. From outside the encoded world,
-it is a tiny screen area, sitting slightly above the golden-ratio balance point.
-From inside the encoded world, the same displacement is the smallest
-electromagnetic observation strength available to observers.
+In OPH the measured strength of electromagnetism is the reading of one tiny cell
+on the holographic screen. That cell has two descriptions. From outside the
+encoded world it is a small screen area, sitting slightly above a balance point
+set by the golden ratio. From inside the encoded world the same small
+displacement is the weakest electromagnetic interaction strength available to
+observers.
 
-The empirical endpoint branch gives a comparison pixel near $1.6309682094$ and
-the public inverse fine-structure value $137.035999177(21)$. The source/root
-audit lands at $136.9948351646\ldots$. Combining that root with the unified
-gauge width evaluated at the CODATA-derived comparison pixel gives the
-mixed-provenance diagnostic $137.0359595008\ldots$. A source-only endpoint
-requires the same-scheme hadronic spectral calculation.
+A calculation that starts purely from the model's own ingredients lands close to
+the measured value without reproducing it exactly. Closing the gap needs the
+contribution of the strongly interacting particles, which is supplied from
+laboratory data rather than derived from within the model. A fully
+first-principles version of this number is work in progress.
 
-The pixel ratio and global capacity closure fix dimensionless geometry. The SI
-size of the scale area comes from the selected scale bridge. For the displayed
-Thomson endpoint, the hadronic spectral contribution enters through the
-standard empirical \(e^+e^-\to\mathrm{hadrons}\) data.
-
-Here the philosophical point is that a famous "free
-constant" is tied to the same local screen scale that organizes the particle
-sector.
+The philosophical point survives regardless. A famous "free constant" is tied to
+the same local screen scale that organizes the whole particle sector.
 
 Some invoke the anthropic principle: the constants must be compatible with observers existing, or we wouldn't be here to ask. But this feels like giving up on explanation.
 
@@ -225,8 +217,8 @@ The weirdness of quantum mechanics, the relativity of simultaneity, the holograp
 The philosophical picture earns its weight only when it keeps making contact
 with physics. The deep contact points are clear: overlap consistency as a
 complete sheaf-style gluing condition, quantum structure as the algebraic
-language of consistency, spacetime dimensionality as an output of the support
-branch, dynamics as synchronization pressure, the pixel area as the local ruler
+language of consistency, spacetime dimensionality as a selected output,
+dynamics as synchronization pressure, the pixel area as the local ruler
 surface, and the cosmic record-capacity fixed point as the global self-reading
 closure. These are pressure points where metaphysics and
 physics meet.

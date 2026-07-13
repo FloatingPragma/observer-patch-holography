@@ -1,0 +1,44 @@
+{
+  "artifact": "oph_nucleon_mass_external_qcd_ratio",
+  "checks": {
+    "external_ratio_declared": true,
+    "interval_contains_central": true,
+    "lambda_lane_checks_pass": true
+  },
+  "checks_pass": true,
+  "claim_boundary": "This is a conditional hadron mass: source transmutation times a declared external lattice-theory ratio. A source-only hadron mass requires the production hadron backend.",
+  "compare_only": {
+    "central_relative_difference": -0.009760420415380278,
+    "interval_contains_measured": true,
+    "measured_m_proton_gev": 0.93827,
+    "role": "comparison only, outside the prediction ancestry"
+  },
+  "display_note": "GeV values use the unclosed clock candidate; the clock audit classifies that decimal as a calibration checksum.",
+  "external_theory_factor": {
+    "R_nucleon_over_lambda3": 2.775,
+    "ancestry_note": "lattice scale setting enters the published ratio; the constant is a theory computation, never a direct hadron measurement in this lane's ancestry",
+    "extraction_convention_band_relative": 0.035,
+    "source": "published lattice QCD determinations (FLAG-class averages of m_N and Lambda_MSbar^(3))",
+    "uncertainty": 0.105
+  },
+  "prediction": {
+    "m_nucleon_gev_display": 0.9291120903368612,
+    "m_nucleon_interval_gev_display": [
+      0.8231904357670862,
+      1.0425338550769496
+    ],
+    "m_nucleon_over_E_star": 7.610120421973527e-20
+  },
+  "promotion_allowed": false,
+  "row_class": "oph_plus_external_qcd_theory",
+  "schema_version": 1,
+  "source_factor": {
+    "artifact": "runs/qcd/lambda_qcd_source_transmutation.json",
+    "lambda3_gev": 0.33481516768895897,
+    "lambda3_interval_gev": [
+      0.31949328977395597,
+      0.34974968299682957
+    ]
+  },
+  "status": "conditional_hadron_mass_from_source_lambda_and_external_ratio"
+}

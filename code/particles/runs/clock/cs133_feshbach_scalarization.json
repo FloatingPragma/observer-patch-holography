@@ -1,0 +1,224 @@
+{
+  "artifact": "oph_cs133_feshbach_scalarization",
+  "checks": {
+    "E3_multiplicity_7_in_full_spectrum": true,
+    "E4_multiplicity_9_in_full_spectrum": true,
+    "F3_root_matches_exact_eigenvalue": true,
+    "F3_sign_bracket_isolates_one_root": true,
+    "F4_root_matches_exact_eigenvalue": true,
+    "F4_sign_bracket_isolates_one_root": true,
+    "H_commutes_with_channel_rotations": true,
+    "H_selfadjoint": true,
+    "P3_P4_orthogonal": true,
+    "P3_is_rank_7_projector": true,
+    "P4_is_rank_9_projector": true,
+    "channel_scalarization_residual_below_1e_12": true,
+    "cross_channel_blocks_vanish": true,
+    "derivatives_at_or_below_minus_one": true,
+    "epsilon_equals_four_a": true,
+    "gap_positive": true,
+    "normal_form_residual_below_1e_12": true
+  },
+  "checks_pass": true,
+  "gap_normal_form": {
+    "E0": 0.09800520678078328,
+    "K_eigenvalues": [
+      -2.25,
+      1.75
+    ],
+    "a_Cs": 0.019665844017481504,
+    "channel_identity_residual_F3": 0.0,
+    "channel_identity_residual_F4": 0.0,
+    "epsilon": 0.07866337606992602,
+    "epsilon_minus_four_a": 0.0,
+    "normal_form_residual": 0.0
+  },
+  "measured_clock_data_consumed": false,
+  "measured_particle_data_consumed": false,
+  "open_source_packets": [
+    "R_ALPHA_ATOMIC_SCHEME_PACKET",
+    "R_ELECTRON_ABSOLUTE_RATIO_PACKET",
+    "R_QCD_NUCLEAR_133CS_PACKET",
+    "R_ATOMIC_FESHBACH_SCALARS_133CS",
+    "R_CLOCK_REFINEMENT_LIMIT",
+    "R_NO_G_CLOCK_DAG",
+    "R_CLOCK_PROSPECTIVE_FREEZE"
+  ],
+  "physical_source_prediction_ready": false,
+  "projector_checks": {
+    "H_selfadjoint_defect": 0.0,
+    "P3": {
+      "hermitian_defect": 0.0,
+      "idempotence_defect": 0.0,
+      "pass": true,
+      "rank": 7
+    },
+    "P3_P4_orthogonality_defect": 0.0,
+    "P4": {
+      "hermitian_defect": 0.0,
+      "idempotence_defect": 0.0,
+      "pass": true,
+      "rank": 9
+    },
+    "rotation_commutant": {
+      "commutator_norm": 0.0,
+      "unitary_defect": 1.1200783386686412e-15
+    }
+  },
+  "public_clock_gap_promotion_allowed": false,
+  "reduction": {
+    "pipeline": "full cesium Hamiltonian -> two scalar interval evaluators f3, f4 -> root enclosures E3, E4 -> eps_Cs = E4 - E3",
+    "public_packet_form": "The public atomic packet may export two scalar interval evaluators with resolvent certificates and sign brackets in place of a 55-electron matrix."
+  },
+  "root_checks": {
+    "E3_multiplicity_in_full_spectrum": 7,
+    "E4_multiplicity_in_full_spectrum": 9,
+    "F3_bracket": [
+      -0.2,
+      0.2
+    ],
+    "F3_root": {
+      "f_hi": -6.053491041768666e-14,
+      "f_lo": 3.257810687884444e-14,
+      "hi": 0.053757057741495376,
+      "iterations": 42,
+      "lo": 0.05375705774140443,
+      "mid": 0.0537570577414499
+    },
+    "F4_bracket": [
+      -0.1,
+      0.3
+    ],
+    "F4_root": {
+      "f_hi": -1.379452108096757e-14,
+      "f_lo": 7.974176874370187e-14,
+      "hi": 0.13242043381142138,
+      "iterations": 42,
+      "lo": 0.13242043381133042,
+      "mid": 0.13242043381137591
+    },
+    "a_interval": [
+      0.019665844017458762,
+      0.019665844017504236
+    ],
+    "epsilon_interval": [
+      0.07866337606983505,
+      0.07866337607001694
+    ]
+  },
+  "scalarization_checks": {
+    "max_cross_channel_defect": 0.0,
+    "max_derivative_value": -1.015625,
+    "max_scalar_defect": 5.551115123125783e-17,
+    "resolvent_sample_grid": [
+      -0.4,
+      -0.2,
+      0.0,
+      0.2,
+      0.4
+    ],
+    "samples": [
+      {
+        "cross_channel_defect": 0.0,
+        "derivative_max_eigenvalue": -1.015625,
+        "derivative_scalar_defect_F3": 0.0,
+        "derivative_scalar_defect_F4": 0.0,
+        "df3": -1.015625,
+        "df4": -1.019024970273484,
+        "f3": 0.46249999999999997,
+        "f4": 0.5448275862068966,
+        "scalar_defect_F3": 5.551115123125783e-17,
+        "scalar_defect_F4": 0.0,
+        "z": -0.4
+      },
+      {
+        "cross_channel_defect": 0.0,
+        "derivative_max_eigenvalue": -1.0185950413223142,
+        "derivative_scalar_defect_F3": 0.0,
+        "derivative_scalar_defect_F4": 0.0,
+        "df3": -1.0185950413223142,
+        "df4": -1.0219478737997256,
+        "f3": 0.2590909090909092,
+        "f4": 0.3407407407407408,
+        "scalar_defect_F3": 5.551115123125783e-17,
+        "scalar_defect_F4": 0.0,
+        "z": -0.2
+      },
+      {
+        "cross_channel_defect": 0.0,
+        "derivative_max_eigenvalue": -1.0225,
+        "derivative_scalar_defect_F3": 0.0,
+        "derivative_scalar_defect_F4": 0.0,
+        "df3": -1.0225,
+        "df4": -1.0256,
+        "f3": 0.055,
+        "f4": 0.136,
+        "scalar_defect_F3": 6.938893903907228e-18,
+        "scalar_defect_F4": 0.0,
+        "z": 0.0
+      },
+      {
+        "cross_channel_defect": 0.0,
+        "derivative_max_eigenvalue": -1.0277777777777777,
+        "derivative_scalar_defect_F3": 0.0,
+        "derivative_scalar_defect_F4": 0.0,
+        "df3": -1.0277777777777777,
+        "df4": -1.0302457466918715,
+        "f3": -0.15,
+        "f4": -0.06956521739130436,
+        "scalar_defect_F3": 0.0,
+        "scalar_defect_F4": 0.0,
+        "z": 0.2
+      },
+      {
+        "cross_channel_defect": 0.0,
+        "derivative_max_eigenvalue": -1.03515625,
+        "derivative_scalar_defect_F3": 0.0,
+        "derivative_scalar_defect_F4": 0.0,
+        "df3": -1.03515625,
+        "df4": -1.036281179138322,
+        "f3": -0.3562500000000001,
+        "f4": -0.2761904761904762,
+        "scalar_defect_F3": 5.551115123125783e-17,
+        "scalar_defect_F4": 0.0,
+        "z": 0.4
+      }
+    ]
+  },
+  "status": "SYNTHETIC_FIXTURE_THEOREM_CHECKS_ONLY",
+  "synthetic_fixture": true,
+  "synthetic_model": {
+    "P_energies": {
+      "e3": 0.1,
+      "e4": 0.2
+    },
+    "P_manifold": "multiplicity-free V3 (+) V4 with ranks 7 and 9",
+    "Q_energies": {
+      "q3": 2.0,
+      "q4": 2.5
+    },
+    "basis_order": "P3(7), P4(9), Q3(7), Q4(9)",
+    "couplings": {
+      "g3": 0.3,
+      "g4": 0.4
+    },
+    "exact_a_Cs": 0.01966584401749294,
+    "exact_channel_eigenvalues": {
+      "E3": 0.053757057741436354,
+      "E4": 0.1324204338114081
+    },
+    "exact_epsilon": 0.07866337606997176,
+    "isolation": "The Q block energies 2.0 and 2.5 sit above the P block energies 0.1 and 0.2, so the dressed ground manifold is isolated below the Q branch.",
+    "rotational_invariance": "Every m-substate in one F channel carries the same 2x2 block, so H commutes with the diagonal rotation representation."
+  },
+  "theorem_registry": {
+    "CS133_CLOCK_SCALAR_NORMAL_FORM_THEOREM": "With K eigenvalues -9/4 and 7/4, E0 = (9*E4 + 7*E3)/16 and a_Cs = (E4 - E3)/4 give H_clock = E0 P + a_Cs K, so epsilon_Cs = E4 - E3 = 4*a_Cs.",
+    "CS133_FESHBACH_CHANNEL_SCALARIZATION_THEOREM": "Under rotational invariance with multiplicity-free P = P3 (+) P4, F_P(z) = f3(z) P3 + f4(z) P4 for unique real scalar functions given by normalized channel traces.",
+    "CS133_FESHBACH_SPECTRAL_EQUIVALENCE_THEOREM": "For z with Q(H-z)Q invertible, z is an eigenvalue of H exactly when 0 is an eigenvalue of F_P(z), with equal geometric multiplicity and an explicit eigenvector bijection.",
+    "CS133_FESHBACH_STRICT_MONOTONICITY_THEOREM": "On every real complementary-resolvent interval, dF_P/dz <= -P, so f3' <= -1 and f4' <= -1 and each channel scalar is strictly decreasing.",
+    "CS133_FULL_OPERATOR_TO_GAP_INTERVAL_THEOREM": "An operator-norm enclosure ||H - H_tilde|| <= delta with stable Feshbach channel labels encloses each root within delta and the gap within 2*delta.",
+    "CS133_SCALAR_SIGN_BRACKET_ROOT_THEOREM": "A sign bracket f_F(L) > 0 > f_F(U) on one complementary-resolvent interval proves existence and uniqueness of the channel root in [L, U].",
+    "CURRENT_OPH_CS133_GAP_NONENTAILMENT_THEOREM": "A source that leaves alpha_at, mu_e, the nuclear current/Compton packet, or the atomic remainder functional unfixed admits extensions with different Feshbach scalars and different roots, so no unique epsilon_Cs is entailed.",
+    "SOURCE_GEV_REQUIRES_OPERATIONAL_CLOCK_RATIO_THEOREM": "E/GeV factors as E/(h*nu_Cs) times the exact unit conversion h*nu_Cs/GeV, so a source-only numerical GeV prediction is equivalent to a source-only prediction of an operational clock ratio."
+  }
+}

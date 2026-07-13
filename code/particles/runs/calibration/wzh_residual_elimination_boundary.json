@@ -1,0 +1,187 @@
+{
+  "artifact": "oph_wzh_residual_elimination_boundary",
+  "branch": {
+    "P": "1.63097209569432901817967892561191884270169",
+    "alpha_U": "0.04112424744557487",
+    "id": "source_audit_P_cand",
+    "source_sha256": "11aeb17fd03b032af987100f8b865786f77b17c6d81aa4a649984e5059f42010"
+  },
+  "checks": {
+    "c10_carrier_reproduction": true,
+    "c11_carrier_reproduction": true,
+    "d11_exact_readout": true,
+    "j10_rigidity_identity": true,
+    "literal_ivp_algebraic_consistency": true,
+    "nonzero_law_has_positive_J10": true,
+    "two_law_evaluator_agreement": true
+  },
+  "checks_pass": true,
+  "claim_boundary": "Both branch points are tree/chart coordinates on the strict source-audit branch. They are conditional on the discrete repair law choice, the witness-level P root, the declared D11 surface, and the open clock, RG, carrier, and BRST pole packets.",
+  "d11_exact_readout": {
+    "checks_pass": true,
+    "exact_jacobians": {
+      "d_mH_d_lambda_exact": "480.90940959360542776007289070989064494529588683253936694616",
+      "d_mH_d_lambda_stored": "480.0",
+      "d_mH_d_lambda_stored_minus_exact": "-0.909409593605427760072890709890644945295886832539366946159515",
+      "d_mt_d_yt_exact": "184.973214877903744995664416552362945941361009799021548200101",
+      "d_mt_d_yt_stored": "184.97",
+      "d_mt_d_yt_stored_minus_exact": "-0.00321487790374499566441655236294594136100979902154820010140838"
+    },
+    "exact_readout": {
+      "m_H": "m_H0 sqrt(1 - r_lambda)",
+      "m_t": "m_t0 (1 + r_y)"
+    },
+    "jacobians_follow_from_core": true,
+    "linearization_error_identity": {
+      "identity": "1 - r/2 - sqrt(1-r) = r^2 / (2 (1 + sqrt(1-r))^2)",
+      "residual_at_r_0p01": "3.78695111160582973797667243262967803756774893652055430186445e-62"
+    }
+  },
+  "d11_synchronization_provenance": {
+    "declared_surface_target_ancestral": true,
+    "mechanism": "the archived generator selects the synchronization scale by minimizing an objective that contains the Higgs and top comparison values; the declared synchronized core is source-only exactly when a target-independent theorem reproduces the same threshold"
+  },
+  "j10_selector_rigidity": {
+    "equality_locus": "x = y = 0 only",
+    "factorization_residual_exactly_zero": 40,
+    "identity_holds": true,
+    "lower_bound_nonnegative": 40,
+    "sampled_rational_points": 40,
+    "selector_gap_bound": "x^2 + y^2 >= r^2 implies J10 >= min(3/4, kappa^2/4) r^2"
+  },
+  "literal_source_ivp": {
+    "algebraic_consistency": {
+      "mH_tree_equals_sqrt_2lambda_v_residual": 0.0,
+      "mt_ms_equals_yt_v_over_sqrt2_residual": 3.3306690738754696e-16
+    },
+    "checks_pass": true,
+    "display_GeV_using_unclosed_clock": {
+      "mH_tree": 115.10128055804651,
+      "mt_MSbar": 154.779273546571,
+      "mt_QCD_converted": 164.13059302729587
+    },
+    "pinned_endpoints": {
+      "alpha_s_mt": 0.11067971218235456,
+      "lambda_U": 0.0,
+      "lambda_mt": 0.1089320070972017,
+      "mH_tree_over_E": 9.427652646867541e-18,
+      "mt_ms_over_E": 1.2677575964897074e-17,
+      "mt_qcd_converted_over_E": 1.3443518719197706e-17,
+      "step_doubling_absolute_difference": {
+        "mH_tree_over_E": 6.965241199673102e-28,
+        "mt_ms_over_E": 5.591359814545023e-28
+      },
+      "y_t_U": 0.38989194927267146,
+      "y_t_mt": 0.8876472196531545
+    },
+    "provenance": {
+      "bundle_sha256": "6f4a5471eb4d8ad8a5ba373b8b9ea3fb4e15620be2c8c62fbb932ffd0c56e0c9",
+      "ivp_reproduced_in_repo": false,
+      "role": "hash_pinned_research_coordinate",
+      "synchronization_switch_present": false
+    }
+  },
+  "promotion_allowed": false,
+  "prospective_c10_carrier": {
+    "Z6_regular_projector_rank": 1,
+    "Z6_trace_weight": 0.16666666666666666,
+    "carrier_status": "prospective_post_exposure_candidate_not_current_source_evidence",
+    "checks_pass": true,
+    "color_action_transitive": true,
+    "four_slot_measure": "1/4 (unique for a transitive four-slot register)",
+    "invariant_color_measure": "1/3 (unique for a transitive C3 action)",
+    "lambda_EW_emission": "lambda_EW = eta^2 / (4 beta)",
+    "lambda_EW_emission_residual": 2.710505431213761e-20,
+    "response_polynomials": {
+      "C_2": "1 + (2/3) eta + (1 - beta/6) eta^2",
+      "C_n": "1 + (4/3) eta + (2 - beta/6) eta^2",
+      "delta_n_equals_lambda_Cn_residual": 0.0,
+      "tau2_equals_minus_lambda_C2_residual": 0.0
+    }
+  },
+  "prospective_c11_carrier": {
+    "carrier_status": "prospective_post_exposure_candidate_not_current_source_evidence",
+    "casimir_C_F": "4/3",
+    "casimir_residual": 2.220446049250313e-16,
+    "checks_pass": true,
+    "declared_D11_coefficients_emitted": {
+      "A_T": {
+        "formula": "N_c/2 + beta/4 = 3/2 + beta/4",
+        "value": 1.6346324100437208
+      },
+      "B_H": {
+        "formula": "C_F - beta/54 = 4/3 - beta/54",
+        "value": 1.3233605622189835
+      },
+      "log_character": "rho(uv) = rho(u) + rho(v) with rho'(1) = 1 forces rho = log; rho_HT = log(1 + tau2)"
+    },
+    "generator_normalization_residual": 1.1102230246251565e-16,
+    "kappa_lambda_equals_C_F_squared": "16/9",
+    "response_gram": "R_11 = G_11 = I_2 (two normalized response directions)",
+    "tensor_square_residual": 4.440892098500626e-16
+  },
+  "remaining_discrete_selection": {
+    "certified_ambiguity_width_GeV": {
+      "MW": 0.00928485276493518,
+      "MZ": 0.0050698956707719844
+    },
+    "mechanism_receipt": "runs/calibration/qme_source_action_rigidity_mechanism.json",
+    "options": [
+      "archived zero-selector law",
+      "prospective nonzero C10 carrier law"
+    ],
+    "selection_principle_status": "SOURCE_LAW_SELECTION_PRINCIPLE_ABSENT"
+  },
+  "row_class": "conditional_on_P_and_discrete_repair_law_choice",
+  "schema_version": 1,
+  "status": "expanded_partial_rigidity_closure_not_full_source_pole_prediction",
+  "strict_branch_two_law_boundary": {
+    "basis": {
+      "alpha2_mz": 0.033777814112390996,
+      "alphaY_mz": 0.010131400543429992,
+      "beta_EW": 0.5385296401748836,
+      "eta_source": 0.02214662617932832,
+      "kappa_selector": 4.333972827112755,
+      "lambda_EW": 0.00022769083377083613,
+      "v_over_E_star": 2.0198114150099223e-17
+    },
+    "canonical_evaluator_agreement": {
+      "MW_over_E_star_from_shared_evaluator": 6.578870367942111e-18,
+      "MZ_over_E_star_from_shared_evaluator": 7.463750125274475e-18,
+      "matches_nonzero_law": true
+    },
+    "incompatibility": {
+      "J10_at_nonzero": 3.120420453851235e-07,
+      "J10_at_zero": 0.0,
+      "statement": "The archived selector attains its global minimum at the zero deformation, and the nonzero repair tuple has J10 > 0. The nonzero law is a replacement law, never a refinement of the archived selector. Numerical W/Z agreement cannot choose between them."
+    },
+    "nonzero_carrier_law": {
+      "J10": 3.120420453851235e-07,
+      "MW_over_E_star": 6.578870367942111e-18,
+      "MZ_over_E_star": 7.463750125274475e-18,
+      "delta_n": 0.00023462760775447386,
+      "id": "running_tree_value_law",
+      "sin2w_eff": 0.22305822209853243,
+      "tau2": -0.00023115420901653248
+    },
+    "zero_selector_law": {
+      "J10": 0.0,
+      "MW_over_E_star": 6.579630866577059e-18,
+      "MZ_over_E_star": 7.463334863036661e-18,
+      "delta_n": 0.0,
+      "sin2w_eff": 0.2227921062603209,
+      "tau2": 0.0
+    }
+  },
+  "two_law_display": {
+    "display_scale_status": "GeV columns use the unclosed clock candidate; the clock lane classifies that decimal as a calibration checksum",
+    "nonzero_carrier_law": {
+      "MW_GeV": 80.32077891914327,
+      "MZ_GeV": 91.12418852956095
+    },
+    "zero_selector_law": {
+      "MW_GeV": 80.3300637719082,
+      "MZ_GeV": 91.11911863389018
+    }
+  }
+}

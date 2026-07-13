@@ -1,0 +1,99 @@
+{
+  "application_status": "OPEN_BECAUSE_EPSILON_CS_IS_NOT_SOURCE_EMITTED",
+  "artifact": "oph_clock_source_energy_closure_audit",
+  "checks": {
+    "component_ledger_covers_required_components": true,
+    "conversion_round_trip_residual_below_1e_60": true,
+    "epsilon_is_positive": true,
+    "promotion_blocked_when_any_component_absent": true
+  },
+  "checks_pass": true,
+  "clock_certificate_receipt": {
+    "G_algebraically_inferred_from_candidate_epsilon": "0.000000000066742999959105279999999999999999999999999999999986",
+    "candidate_E_star_GeV": "12208901289579269028.310865089457456909350205535893916629121119014500997018851430",
+    "candidate_E_star_J": "1956081637.2976372527959552534655057197222755432706681525921900840966604593307418",
+    "candidate_epsilon_Cs": "3.113930513416012823901050434132426029496608693041876E-33",
+    "component_status": {
+      "R_QCD_nuc_133Cs": "not supplied",
+      "R_U": "partially supplied by this bundle for electroweak hierarchy",
+      "R_alpha": "not supplied",
+      "R_atom_133Cs": "not supplied",
+      "R_e_abs": "not supplied"
+    },
+    "components_required": [
+      "R_U",
+      "R_alpha",
+      "R_e_abs",
+      "R_QCD_nuc_133Cs",
+      "R_atom_133Cs"
+    ],
+    "conversion_round_trip_residual": "6.4227508975657265290719336594325496035610336564262106391204914854647472007250365E-80",
+    "displayed_G_SI_for_checksum_diagnosis": "6.6743e-11",
+    "displayed_G_comparison_role": "taint_diagnosis_never_a_prediction",
+    "epsilon_role": "calibration_checksum_reproducing_displayed_G",
+    "formula_if_closed": "G_SI = c^5/(4*pi^2*hbar*nu_Cs^2) * epsilon_Cs^2",
+    "interpretation": "The stored epsilon_Cs algebraically reproduces the displayed G coordinate through the certificate identity G_SI = c^5/(4*pi^2*hbar*nu_Cs^2) * epsilon_Cs^2.  Independent R_alpha, R_e_abs, R_QCD_nuc_133Cs, and R_atom_133Cs producers are absent, so the stored decimal functions as a calibration checksum.",
+    "path": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/hierarchy/certificates/R_gamma_noG_DAG_certificate.json",
+    "relative_difference_from_displayed_G": "6.1271914343095816001e-10",
+    "reproduces_displayed_G_within_1e_6": true,
+    "status": "skeleton_passes_forbidden_gravity_path_check_but_missing_component_certificates"
+  },
+  "component_ledger": {
+    "R_QCD_nuc_133Cs": "absent",
+    "R_U": "supplied",
+    "R_alpha": "absent",
+    "R_atom_133Cs": "absent",
+    "R_e_abs": "absent"
+  },
+  "component_producer_files": {
+    "R_QCD_nuc_133Cs": [],
+    "R_U": [
+      "R_U_interval_certificate.json",
+      "R_U_krawczyk_certificate.json"
+    ],
+    "R_alpha": [],
+    "R_atom_133Cs": [],
+    "R_e_abs": []
+  },
+  "components_absent": [
+    "R_QCD_nuc_133Cs",
+    "R_alpha",
+    "R_atom_133Cs",
+    "R_e_abs"
+  ],
+  "exact_conversion_theorem": {
+    "alias": "CLOCK_YO_SOURCE_ENERGY_THEOREM",
+    "application_status": "OPEN_BECAUSE_EPSILON_CS_IS_NOT_SOURCE_EMITTED",
+    "conclusion": "E_star = h*nu_clk/epsilon_clk",
+    "hypothesis": "The source emits a positive dimensionless clock gap epsilon_clk = DeltaE_clk/E_star and the operational clock convention fixes nu_clk with DeltaE_clk = h*nu_clk.",
+    "interval_corollary": "For a certified positive interval 0 < eps_lo <= epsilon_clk <= eps_hi, E_star lies in [h*nu_clk/eps_hi, h*nu_clk/eps_lo].",
+    "mathematical_status": "PROVED_CONDITIONALLY_ON_A_SOURCE_EMITTED_POSITIVE_CLOCK_GAP",
+    "quark_corollary": "For a source-emitted ratio r_q = m_q/E_star, m_q_GeV = r_q*h*nu_clk/(epsilon_clk*J_GeV).",
+    "theorem": "CLOCK_TO_SOURCE_ENERGY_THEOREM"
+  },
+  "final_packet_ready": false,
+  "promotion_allowed": false,
+  "required_next_source_objects": [
+    "R_ALPHA_ATOMIC_SCHEME_PACKET",
+    "R_ELECTRON_ABSOLUTE_RATIO_PACKET",
+    "R_QCD_NUCLEAR_133CS_PACKET",
+    "R_ATOMIC_133CS_HAMILTONIAN_PACKET",
+    "R_ATOMIC_133CS_SPECTRAL_ENCLOSURE",
+    "R_CLOCK_REFINEMENT_LIMIT",
+    "R_NO_G_CLOCK_DAG",
+    "R_SOURCE_ENERGY_INTERVAL",
+    "PHYSICAL_QF1_TO_QF9_FLAVOR_CARRIER_CERTIFICATE",
+    "P_ALPHA_U_STRICT_NO_TARGET_ROOT",
+    "COMMON_SCALE_PHYSICAL_YUKAWA_PACKET",
+    "FROZEN_RG_THRESHOLD_MATCHING_UNCERTAINTY_PACKET"
+  ],
+  "si_constants": {
+    "GeV_J": "1.602176634E-10",
+    "c_m_s": "299792458",
+    "decimal_precision_digits": 80,
+    "h_J_s": "6.62607015E-34",
+    "mpmath_dps": 15,
+    "nu_Cs_Hz": "9192631770"
+  },
+  "verdict": "NOT_FINAL_SOURCE_ONLY_PACKET"
+}

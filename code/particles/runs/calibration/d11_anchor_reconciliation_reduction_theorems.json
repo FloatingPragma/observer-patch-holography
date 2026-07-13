@@ -1,0 +1,75 @@
+{
+  "artifact": "oph_d11_anchor_reconciliation_reduction_theorems",
+  "carrier_facts": {
+    "CF1_two_parent_ports": {
+      "needed": "D11 carrier certificate of the QT1-QT5 census class",
+      "statement": "the criticality boundary record carries exactly two parent ports, one to the gauge-unification register and one to the transmutation register",
+      "status": "open"
+    },
+    "CF2_same_register_class_equal_depth": {
+      "needed": "the same carrier certificate",
+      "statement": "the two anchor registers are the same register class at equal refinement depth, so equal slope and equal readback resolution",
+      "status": "open"
+    },
+    "RM_canonical_record_model": {
+      "statement": "records store chart coordinates with Gaussian readback of fixed resolution, the maximum-entropy law under mean and second-moment constraints",
+      "status": "canonical_model_of_the_corpus"
+    }
+  },
+  "checks": {
+    "barycenter_exact": true,
+    "carrier_facts_fail_closed": true,
+    "chart_affinity_exact": true,
+    "consequence_present": true,
+    "gaussian_quadratic_exact": true
+  },
+  "checks_pass": true,
+  "claim_boundary": "AR2 is discharged under the canonical record model, and the AR1 placement mechanism follows from port-additivity plus repair minimization. The selection theorem's remaining content is the pair of finite carrier facts CF1 and CF2; a carrier certificate of the census class closes both.",
+  "combined_statement": "RM and CF1 and CF2, with the repair and MaxEnt structure of the axioms, imply the boundary scale E_star exp(-pi) P^(-1/6)",
+  "equivalence_C_capacity": {
+    "statement": "w_i = s_i^2/(2 sigma_i^2); equal weights hold exactly when slope and resolution agree, which same-class registers at equal depth supply; different observable classes shift the minimizer by the capacity-asymmetry band of the selection theorem"
+  },
+  "premise_ledger": {
+    "AR1_reconciliation": {
+      "derivation": "Theorem A discharges the placement mechanism from port-additivity and repair minimization; the two-parent port structure is carrier fact CF1",
+      "status": "mechanism_discharged_parentage_open"
+    },
+    "AR2_quadratic_cost": {
+      "derivation": "Theorem B: chart inverse-affinity plus the Gaussian maximum-entropy record model give an exactly quadratic reconciliation cost in renormalization time",
+      "status": "discharged_under_RM"
+    },
+    "AR3_equal_capacity": {
+      "derivation": "Equivalence C: equal weights hold exactly when the anchors are same-class registers at equal refinement depth",
+      "status": "reduced_to_CF2"
+    }
+  },
+  "promotion_allowed": false,
+  "row_class": "reduction_theorem_with_open_carrier_facts",
+  "schema_version": 1,
+  "status": "PREMISES_REDUCED_TO_CARRIER_FACTS",
+  "theorem_A_barycenter_placement": {
+    "equal_weight_midpoint": 30,
+    "exact": true,
+    "sampled_rational_points": 30,
+    "statement": "repair minimization of port-additive quadratic mismatch places a two-parent record at the capacity-weighted mean; equal capacities give the log-midpoint",
+    "stationarity_exact": 30,
+    "strict_dominance": 30
+  },
+  "theorem_B_quadratic_cost": {
+    "chart_affinity": {
+      "exact": true,
+      "statement": "the one-loop chart solution is inverse-affine: 1/alpha(t) = 1/alpha_0 - (b/2 pi)(t - t_0) identically; the identity is algebraic (the chart is defined by its affine inverse), and the float round trip reproduces it to machine precision",
+      "worst_residual": 7.105427357601002e-15
+    },
+    "gaussian_kl_quadratic": {
+      "exact": true,
+      "exact_identities": 30,
+      "sampled_rational_points": 30,
+      "statement": "KL(N(m(t), sigma^2) || N(m(t_i), sigma^2)) = (s^2/(2 sigma^2)) (t - t_i)^2 for affine m(t) = a + s t"
+    }
+  },
+  "two_loop_consequence": {
+    "mh_tree_gev": 125.77115268001006,
+    "mt_pole_gev": 172.62935949498873
+  }
+}

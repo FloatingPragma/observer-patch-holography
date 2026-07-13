@@ -80,8 +80,15 @@ entries:
     numeric_outputs:
       Higgs_GeV: 125.1995304097179
       top_D10_D11_GeV: 172.35235532883115
+      crit_adopted_branch_mt_pole_GeV: 172.629
+      crit_adopted_branch_mH_tree_GeV: 125.771
+      crit_family_mt_bracket_GeV: [164.13, 175.91]
+      crit_family_mH_bracket_GeV: [115.10, 132.29]
     caveats:
       - "#207 assigns corpus-limited no-go status to the auxiliary direct-top Q007TP codomain; keep it separate from the Q007TP4 top theorem row."
+      - "Higgs_GeV and top_D10_D11_GeV are target-anchored fits through the synchronization-scale scan and the live-exact adapters; they validate the formula stack and are never predictions."
+      - "The double-criticality boundary family (lambda = 0 and beta_lambda = 0 at one source scale) makes (m_t, m_H) a zero-continuous-parameter family over the boundary scale; the crit_* rows are its two-loop values. The adopted conditional branch is the log-midpoint anchor E_star*exp(-pi)*P^(-1/6); the m_t to m_H relation along the fit-free curve gives m_H = 125.72 GeV at the measured top (+0.47 percent, inside the declared matching band)."
+      - "Boundary-scale selection is a theorem modulo two finite carrier facts. A variational principle (AR1 the criticality boundary is a record reconciling the model's two anchor records at mu_U and E_cell; AR2 reconciliation cost is quadratic in RG time; AR3 the two records have equal capacity) implies the unique minimizer E_star*exp(-pi)*P^(-1/6), (m_t, m_H) = (172.63, 125.77) at two loops, proved exactly. AR2 is discharged under the canonical Gaussian-MaxEnt record model via chart inverse-affinity (Theorem B); the AR1 placement mechanism follows from port-additivity plus repair minimization (Theorem A, capacity-weighted log-mean barycenter); AR3 reduces to the carrier facts. Remaining open: CF1 (the boundary record carries exactly two parent ports, gauge-unification and transmutation) and CF2 (those two anchor registers are the same class at equal refinement depth). Given RM and CF1 and CF2 the axioms force the boundary scale with no remaining choices. CF1/CF2 are the same D11 carrier census certificate (QT1--QT5 class) the W/Z lane needs; one certificate closes both plus the D10 two-law selection. AR3 is measurable: capacity asymmetry shifts m_H by ~2.1 GeV per e-fold, and the three-loop implied scale reads it off. The flow-internal selection route is closed by a no-go. Artifacts: runs/calibration/d11_boundary_scale_midpoint_selection_theorem.json, d11_anchor_reconciliation_reduction_theorems.json, d11_criticality_boundary_scan.json, d11_criticality_comparison.json."
     blocked_by: []
   - id: open.artifact.stage5_charged_surface
     output_keys: ["stage5_artifact_surface"]
@@ -104,6 +111,9 @@ entries:
       electron_witness_GeV: 0.0005109989499999994
       muon_witness_GeV: 0.10565837550000004
       tau_witness_GeV: 1.7769324651340912
+      mcpr_conditional_MeV: [0.510956, 105.649499, 1776.780701]
+    caveats:
+      - "The MCPR completed-response candidate emits the conditional triple at 84 ppm with zero runtime charged reference; the architecture is a declared model input and the source-only completion is the A5/W5 orbit program (runs/leptons/charged_mcpr_completion_conditional.json)."
     blocked_by: ["#201"]
   - id: continuation.flavor.quarks
     output_keys: ["m_u", "m_d", "m_s", "m_c", "m_b", "m_t"]

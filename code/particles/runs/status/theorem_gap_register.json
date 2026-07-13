@@ -1,0 +1,160 @@
+{
+  "artifact": "oph_theorem_gap_register",
+  "closed_this_program": [
+    {
+      "artifact": "runs/calibration/d11_criticality_boundary_scan.json",
+      "class": "closed",
+      "family": "Higgs/top",
+      "id": "HIGGS_DEFICIT_ATTRIBUTION",
+      "statement": "the archived (115.1, 164.1) deficit decomposes exactly into the boundary-scale choice plus loop truncation; both boundaries derive from the gauge sector through the double-criticality law"
+    },
+    {
+      "artifact": "runs/calibration/d11_boundary_scale_selection_audit.json",
+      "class": "closed",
+      "family": "Higgs/top",
+      "id": "FLOW_INTERNAL_SELECTION_NO_GO",
+      "statement": "triple criticality has no root: the flow derivative stays above 4.4e-5 across the window, so the boundary scale is a source-side object"
+    },
+    {
+      "artifact": "runs/calibration/d11_criticality_comparison.json",
+      "class": "closed",
+      "family": "Higgs/top",
+      "id": "MT_MH_RELATION",
+      "statement": "the fit-free criticality curve reproduces the Higgs coordinate at the measured top to 0.47 percent at two loops, inside the declared matching band"
+    },
+    {
+      "artifact": "runs/calibration/d11_boundary_scale_midpoint_selection_theorem.json",
+      "class": "closed",
+      "family": "Higgs/top",
+      "id": "ANCHOR_RECONCILIATION_MIDPOINT_IMPLICATION",
+      "statement": "AR1+AR2+AR3 imply the unique boundary scale E_star exp(-pi) P^(-1/6); the implication is proved exactly, the premises are open"
+    },
+    {
+      "artifact": "runs/calibration/d11_anchor_reconciliation_reduction_theorems.json",
+      "class": "closed",
+      "family": "Higgs/top",
+      "id": "AR_PREMISE_REDUCTION",
+      "statement": "AR2 is discharged exactly under the canonical record model (chart inverse-affinity plus Gaussian MaxEnt readback), and the AR1 placement mechanism follows from port-additivity plus repair minimization; AR1 parentage and AR3 reduce to the finite carrier facts CF1 and CF2"
+    },
+    {
+      "artifact": "runs/calibration/d11_carrier_census.json",
+      "class": "closed",
+      "family": "Higgs/top",
+      "id": "CF1_CF2_MODEL_LEVEL_CENSUS",
+      "statement": "the equation-dependency census verifies exactly two anchor-rooted parent ports on the D11 boundary record, and the anchor-class census certifies same functional class, same pixel parent set, and equal depth for the two anchors, with exact midpoint exponent algebra"
+    },
+    {
+      "artifact": "runs/leptons/charged_mcpr_completion_conditional.json",
+      "class": "closed",
+      "family": "charged leptons",
+      "id": "CHARGED_HOMOGENEOUS_SHAPE_SILENCE",
+      "statement": "a unique invariant MaxEnt state has zero non-singlet expectation and the homogeneous twelve-port branch has the uniform minimizer: family shape requires a selected W5 orbit"
+    },
+    {
+      "artifact": "runs/status/theorem_gap_register.json",
+      "class": "closed",
+      "family": "massless carriers",
+      "id": "PHOTON_EXACT_MASSLESSNESS_RECEIPT",
+      "statement": "unbroken electromagnetic gauge invariance of the recovered quotient forces a transverse self-energy with vanishing zero-momentum part; the photon mass is exactly zero, conditional on the recovered-core gauge structure"
+    },
+    {
+      "artifact": "runs/status/theorem_gap_register.json",
+      "class": "closed",
+      "family": "massless carriers",
+      "id": "GLUON_CARRIER_MASSLESSNESS_RECEIPT",
+      "statement": "unbroken color forces carrier-level gluon masslessness; confinement removes asymptotic gluon states, so the statement concerns the gauge field, never a physical pole"
+    }
+  ],
+  "counts": {
+    "awaiting_discriminating_test": 1,
+    "closable_by_standard_computation": 1,
+    "closed": 9,
+    "computationally_blocked": 2,
+    "research_open": 8
+  },
+  "generated_utc": "2026-07-13T05:48:31Z",
+  "open_register": [
+    {
+      "class": "research_open",
+      "family": "Higgs/top",
+      "id": "CARRIER_MODEL_FAITHFULNESS",
+      "statement": "export the pre-repair observer-patch carrier, frozen without the desired coefficients, and show that its readout graph is the frozen equation registry of the census; this transfers CF1 and CF2 from the model level to the carrier level and completes the Higgs selection theorem"
+    },
+    {
+      "class": "awaiting_discriminating_test",
+      "family": "Higgs/top",
+      "id": "CRITICALITY_BOUNDARY_SCALE_SELECTION",
+      "statement": "four frozen candidates; the three-loop implied scale discriminates",
+      "test": "FROZEN_THREE_LOOP_RG_MATCHING_PACKET"
+    },
+    {
+      "class": "closable_by_standard_computation",
+      "family": "Higgs/top",
+      "id": "FROZEN_THREE_LOOP_RG_MATCHING_PACKET",
+      "statement": "three-loop running plus full NNLO matching, frozen target-free; standard published mathematics, implementation-bound"
+    },
+    {
+      "class": "research_open",
+      "family": "W/Z",
+      "id": "D10_DISCRETE_LAW_SELECTION",
+      "statement": "select between the zero-selector law and the carrier value law; the QME mechanism applies once the electroweak moment vector is emitted"
+    },
+    {
+      "class": "research_open",
+      "family": "cross-cutting",
+      "id": "SM_MOMENT_VECTOR_EMISSION",
+      "statement": "the complete quotient-local operator basis and moment vector c_r(P, N) for the source-action rigidity mechanism"
+    },
+    {
+      "class": "research_open",
+      "family": "charged leptons",
+      "id": "W5_ORBIT_EFFECTIVE_ACTION",
+      "statement": "an A5-invariant effective action on W5 with a unique simple-spectrum minimizing orbit; requires a charged-sector interaction beyond the homogeneous branch"
+    },
+    {
+      "class": "research_open",
+      "family": "charged leptons",
+      "id": "A5_FAMILY_LIFT_AND_DET_CAN",
+      "statement": "the physical A5 family lift with the multiplicity-one attachment, and the normed determinant-line descent with kinetic factors"
+    },
+    {
+      "class": "research_open",
+      "family": "quarks",
+      "id": "QF1_QF9_FLAVOR_CARRIER",
+      "statement": "the physical flavor carrier certificate and per-sector spread-fiber elimination; light-quark Yukawa selectors"
+    },
+    {
+      "class": "research_open",
+      "family": "neutrinos",
+      "id": "NEUTRINO_MECHANISM_SELECTION",
+      "statement": "Majorana or Dirac from the quotient content, then the absolute-scale mechanism and the neutral-lane family shape"
+    },
+    {
+      "class": "computationally_blocked",
+      "family": "cross-cutting (P root)",
+      "id": "WARD_ENDPOINT_AND_HADRONIC_TRANSPORT",
+      "statement": "the source hadronic spectral transport (issue 425) and the scheme bridge (issue 545); the production route is the unquenched lattice backend with a vector correlator"
+    },
+    {
+      "class": "mixed",
+      "family": "scale",
+      "id": "OPERATIONAL_CLOCK_CHAIN",
+      "statement": "R_alpha follows the P root; R_e_abs follows the charged completion; the cesium nuclear packet is computationally blocked; the Feshbach scalar evaluators are closable_by_standard_computation with an interval backend"
+    },
+    {
+      "class": "research_open",
+      "family": "cross-cutting",
+      "id": "BRST_POLE_KERNEL_PACKET",
+      "statement": "BRST-complete two-point kernels with sheets, residues, and widths; every mass above is a tree/chart or threshold coordinate until this closes"
+    },
+    {
+      "class": "computationally_blocked",
+      "family": "hadrons",
+      "id": "NONPERTURBATIVE_HADRON_FACTOR",
+      "statement": "the source-only m_hadron/Lambda factor; the conditional route through the published lattice ratio carries the spectrum in the interim"
+    }
+  ],
+  "promotion_allowed": false,
+  "schema_version": 1,
+  "status": "register_current"
+}

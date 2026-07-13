@@ -654,12 +654,10 @@ $SU(3)$ is the color symmetry of the strong interaction. $SU(2)$ is weak
 isospin. $U(1)$ is hypercharge. Fermions come in representations of this
 group. A representation tells how a field transforms under the symmetry.
 
-In OPH, combined zero-obstruction transport includes central or higher-associator
-strictification and an allowed trivial-holonomy strict representative. On a cofinal tail carrying
-the compact-gauge refinement receipt, tensor reconstruction then classifies the
-compact gauge group carried by persistent sectors and their forgetful fiber. Minimal
-admissible selection is the later step that acts on realized one-Higgs matter
-packages.
+In OPH, the charge sectors that survive a consistency test around every loop, and
+that keep surviving as the description is refined, reconstruct the compact gauge
+group they carry. Choosing the smallest single-Higgs matter content that works is
+the later step.
 
 Hypercharge is written $Y$. Electric charge is related by
 
@@ -841,8 +839,8 @@ fine-structure constant $\alpha$ measures electromagnetic coupling, and
 $\alpha^{-1}$ is its inverse. The process $e^+e^-\to\mathrm{hadrons}$ is an
 electron-positron annihilation channel whose data constrain hadronic
 spectral payloads. Strong CP is encoded in a QCD angle often written
-$\theta$ or $\bar\theta$, and the book is careful that the quark source-spread
-obstruction and target-audit mass textures do not derive its vanishing.
+$\theta$ or $\bar\theta$, and the book is careful that OPH does not derive its
+vanishing.
 
 The synthesis chapter is also where support language matters most. A
 reconstruction can be impressive without being uniform in theorem support.
@@ -1010,8 +1008,8 @@ RT formula. Again, context decides. $\gamma_A$ is a geometric surface;
 $\gamma=1/\sqrt{1-v^2/c^2}$ is a boost factor.
 
 **$\theta_{\mathrm{QCD}}$ and $\bar\theta$** are strong-CP angle parameters.
-The book is careful that the quark target-audit surface does not derive the
-vanishing of the physical strong-CP phase.
+The book is careful that OPH does not derive the vanishing of the physical
+strong-CP phase.
 
 ## Three Worked Reading Examples
 

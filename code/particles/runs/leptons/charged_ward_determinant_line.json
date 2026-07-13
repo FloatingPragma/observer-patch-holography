@@ -1,0 +1,216 @@
+{
+  "artifact": "oph_charged_ward_determinant_line",
+  "charged_reference_data_consumed": false,
+  "checks_pass": true,
+  "interval_enclosure": {
+    "centered_log_intervals": [
+      [
+        "-2.00000001",
+        "-1.99999999"
+      ],
+      [
+        "0.24999999",
+        "0.25000001"
+      ],
+      [
+        "1.74999999",
+        "1.75000001"
+      ]
+    ],
+    "certified": true,
+    "det_line_interval": [
+      "0.000058294657486089272160242793307540751335496454369461",
+      "0.000058294669975648994837180670378891334496046790000181"
+    ],
+    "encloses_synthetic_mu": true,
+    "evidence": {
+      "W_minus_at_mu_lower": "4.4702435176366830021085736047182102767831682791489",
+      "W_minus_exceeds_R_upper": true,
+      "W_plus_at_mu_upper": "4.4702434976366830021085731608641624509225291570693",
+      "W_plus_below_R_lower": true
+    },
+    "interval_width": "0.000000071416255070034891930535149635363156850331733949133",
+    "mu_interval": [
+      "-3.2500000357081275850148660048755856906941929789375",
+      "-3.2499999642918725149799740743404360553310361286058"
+    ],
+    "packet_label": "synthetic",
+    "q_interval": [
+      "99.999999",
+      "100.000001"
+    ],
+    "response_interval": [
+      "4.4702434976366830021085733066936474419534257111011",
+      "4.4702435176366830021085733066936474419534257111011"
+    ],
+    "theorem": "W_-(mu_-) > R_+ and W_+(mu_+) < R_- imply that every admissible root lies in [mu_-, mu_+]",
+    "width_below_1e-5": true
+  },
+  "kernel_identity": {
+    "all_within_tolerance": true,
+    "closed_form": "I(z) = (1/6)[-5/3 + 4/z + (1-2/z) sqrt(1+4/z) log((sqrt(1+4/z)+1)/(sqrt(1+4/z)-1))]",
+    "integral_form": "I(z) = integral_0^1 x(1-x) log(1+z x(1-x)) dx",
+    "rows": [
+      {
+        "absolute_residual": "4.6902566152320946244035944908657725371890147808133e-70",
+        "closed_form": "0.00000000033333333297619047671957671867484367650867650543901",
+        "direct_quadrature": "0.00000000033333333297619047671957671867484367650867650543901",
+        "within_tolerance": true,
+        "z": "1e-8"
+      },
+      {
+        "absolute_residual": "1.5422082538046214638744300711721180149950705225379e-80",
+        "closed_form": "0.0032981392927157617333271470101798189301696914883444",
+        "direct_quadrature": "0.0032981392927157617333271470101798189301696914883444",
+        "within_tolerance": true,
+        "z": "0.1"
+      },
+      {
+        "absolute_residual": "4.6122116001633539106525011474306333158731081047862e-82",
+        "closed_form": "0.030214771418885523147694528096717701035079986771981",
+        "direct_quadrature": "0.030214771418885523147694528096717701035079986771981",
+        "within_tolerance": true,
+        "z": "1"
+      },
+      {
+        "absolute_residual": "5.2710989716152616121742870256350095038549806911843e-82",
+        "closed_form": "0.17980588680968953430526652775616649567138378316369",
+        "direct_quadrature": "0.17980588680968953430526652775616649567138378316369",
+        "within_tolerance": true,
+        "z": "10"
+      },
+      {
+        "absolute_residual": "3.6729017634215142913630431994624746222861505456172e-78",
+        "closed_form": "2.0248083152019524132140025614365382926862167076947",
+        "direct_quadrature": "2.0248083152019524132140025614365382926862167076947",
+        "within_tolerance": true,
+        "z": "1e6"
+      }
+    ],
+    "series_matches_closed_form": true,
+    "series_vs_closed_form_residual_at_z_0p1": "1.5417964491974640215609789549982402798775818521714e-80",
+    "tolerance": "1e-40"
+  },
+  "lane_role": {
+    "packet_note": "Every numeric packet in this artifact is synthetic and is labeled synthetic.  The physical source packet is absent.",
+    "synthetic_packet_label": "synthetic",
+    "x2_2_route": "X2.2 electron-absolute-ratio route B producer"
+  },
+  "monotonicity": {
+    "derivative_consistent_with_response": true,
+    "derivative_formula": "dW_Q/dmu = -(4/pi) sum_i integral_0^1 z_i [x(1-x)]^2 / (1+z_i x(1-x)) dx",
+    "derivative_strictly_negative": true,
+    "derivative_vs_central_difference_residual": "4.4369051616954359292534801344737495997695439873199e-36",
+    "derivatives": [
+      "-0.63661977236741415580494899796845221660448046952512",
+      "-0.63661311494367709205490628344456810040900262695633",
+      "-0.63235033257971319888324154767046327857353673693299",
+      "-0.52266777360741070735400747685682007750224080421799"
+    ],
+    "divergence_lower_bound": "12.092339429156590121344976363994029323709498316505",
+    "divergence_lower_bound_holds": true,
+    "high_energy_slope_matches_minus_2_over_pi": true,
+    "high_energy_slope_residual_at_mu_minus_12": "0.00000000000016718727058605552160523153335811343670223556738211",
+    "high_energy_slope_target": "-2/pi",
+    "response_at_mu_40": "2.1155033416894771460877449465599430907964645561221e-31",
+    "response_at_mu_minus_30": "21.499819089572166803194255437769750678112258380306",
+    "sample_mu": [
+      "-12",
+      "-3.25",
+      "0",
+      "2"
+    ],
+    "small_z_upper_bound": "2.1155033416894771460877449465621511695964664728355e-31",
+    "upper_limit_is_zero": true
+  },
+  "physical_source_packet": {
+    "gate": "fail_closed",
+    "open_parents": [
+      {
+        "id": "R_CHARGED_CENTERED_SHAPE",
+        "reason": "the current centered charged shape is target-anchored"
+      },
+      {
+        "id": "R_WARD_SPACELIKE_ENDPOINT_PAIR",
+        "reason": "the current source does not emit a complete target-free low/high Ward pair"
+      },
+      {
+        "id": "R_WARD_NONLEPTONIC_SUBTRACTION",
+        "reason": "source QCD/hadronic and source quark packets are incomplete"
+      },
+      {
+        "id": "R_WARD_HIGHER_ORDER_MONOTONICITY",
+        "reason": "a full lepton/mixed remainder and derivative certificate is absent"
+      },
+      {
+        "id": "R_ELECTRON_ATOMIC_MASS_TRANSPORT",
+        "reason": "a source-only match from the Ward threshold coordinate to the cesium electron parameter is absent"
+      },
+      {
+        "id": "R_CLEAN_P_ALPHA_ROOT",
+        "reason": "strict no-target interval root replay is absent from the supplied particle archive"
+      },
+      {
+        "id": "R_NO_TARGET_CHARGED_DAG",
+        "reason": "no complete transitive source DAG and prospective freeze is supplied"
+      }
+    ],
+    "promotion_rule": "public_charged_mass_promotion_allowed is false because every listed parent is open.",
+    "status": "ABSENT"
+  },
+  "precision": {
+    "mpmath_dps": 80
+  },
+  "public_charged_mass_promotion_allowed": false,
+  "status": "MATHEMATICAL_INVERSION_CLOSED_PHYSICAL_PARENTS_OPEN",
+  "synthetic_round_trip": {
+    "absolute_recovery_residual": "7.8079155384548999761778383794279800993904763414058e-52",
+    "centered_shape": [
+      "-2",
+      "0.25",
+      "1.75"
+    ],
+    "det_line_recovered": true,
+    "det_line_relative_residual": "2.5202873036692503705732372999076242724594352039751e-51",
+    "determinant_line": {
+      "det_line_D_M": "0.000058294663730868807758366522529470211943443065934168",
+      "formulae": {
+        "det_line": "D_M = det(M_e/E_star) = exp(3 mu_ch)",
+        "per_flavor": "m_i/E_star = exp(mu_ch + ell_i)"
+      },
+      "mu_ch": "-3.25",
+      "per_flavor_mass_over_Estar": [
+        "0.0052475183991813842764935293413791068063299112854852",
+        "0.049787068367863942979342415650061776631699592188423",
+        "0.22313016014842982893328047076401252134217162936108"
+      ]
+    },
+    "leptonic_remainder_R_ell": "4.4702435076366830021085733066936474419534257111011",
+    "mu_recovered": "-3.25",
+    "mu_true": "-3.25",
+    "packet_label": "synthetic",
+    "q_over_Estar": "100",
+    "recovered_within_1e-30": true,
+    "response_positive": true,
+    "seed": "-3.2500052290196780191973119161996659761164154659024",
+    "seed_absolute_error": "0.0000052290196780191973119161996659761164154659023781459",
+    "seed_formula": "mu_seed = log q - 5/6 - (pi/2) R_ell",
+    "seed_within_asymptotic_window": true
+  },
+  "theorem_registry": {
+    "AUDIT_CORRECTION_COMMON_SHIFT_NO_GO_SCOPE": {
+      "statement": "The common-shift no-go holds only on the reduct without mass-dependent electromagnetic transport; on that reduct every centered readout is invariant under M_e -> exp(kappa) M_e.  A Ward endpoint response and a determinant basepoint are the two admissible closures of the affine coordinate."
+    },
+    "CHARGED_WARD_DETERMINANT_LINE_TO_ELECTRON_SOURCE_RATIO_THEOREM": {
+      "closure_class": "mathematical_inversion",
+      "statement": "A source-complete Ward response packet with q > 0, a centered shape ell, and a positive leptonic remainder R_ell admits exactly one root mu_ch of W_Q(mu; ell) = R_ell.  The root fixes det(M_e/E_star) = exp(3 mu_ch) and m_i/E_star = exp(mu_ch + ell_i)."
+    },
+    "WARD_HIGHER_ORDER_STABILITY_CRITERION": {
+      "criterion": "s0 > s1",
+      "statement": "If -W_Q' >= s0 > 0 on an interval J and the higher-order remainder derivative obeys |R_ge2'| <= s1 < s0 on J, then the full response is strictly decreasing on J and monotone uniqueness of the root is preserved."
+    },
+    "WARD_STRICT_MONOTONICITY_ORBIT_BREAKING_THEOREM": {
+      "statement": "dW_Q/dmu is strictly negative, W_Q tends to 0 as mu tends to +infinity and diverges as mu tends to -infinity, so W_Q(.; ell) is a bijection from R onto (0, infinity).  The common-scale orbit M_e -> exp(kappa) M_e moves W_Q, so one Ward endpoint response breaks the orbit."
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "artifact": "oph_d11_criticality_comparison",
+  "checks": {
+    "distances_finite": true,
+    "scan_checks_pass": true
+  },
+  "checks_pass": true,
+  "mt_mh_relation_test": {
+    "one_loop": {
+      "curve_mt_range_gev": [
+        163.08985991992193,
+        170.75387996146011
+      ],
+      "status": "measured_top_outside_curve_range"
+    },
+    "two_loop": {
+      "implied_boundary_scale_gev": 4.750331123992614e+17,
+      "mh_on_curve_at_measured_mt_gev": 125.72052400335069,
+      "mh_relative": 0.004711705651312181,
+      "mh_sigma_experimental": 5.277233574942194,
+      "status": "interpolated"
+    }
+  },
+  "one_loop_curve_nearest_point": {
+    "boundary_scale_gev": 3.9350730015532867e+18,
+    "mh_relative": 0.007082043822624451,
+    "mh_sigma_experimental": 7.932074328445524,
+    "mh_tree_gev": 126.0171266559189,
+    "mh_within_matching_band": true,
+    "mt_pole_gev": 169.55792877080447,
+    "mt_relative": -0.01764523758344816,
+    "mt_sigma": -11.222960088123356
+  },
+  "one_loop_named_distances": {
+    "E_cell_pixel_energy": {
+      "mh_relative": 0.02158806788880696,
+      "mh_sigma_experimental": 24.179200720914025,
+      "mh_tree_gev": 127.83227913851435,
+      "mh_within_matching_band": false,
+      "mt_pole_gev": 170.4488982480913,
+      "mt_relative": -0.012483296083422024,
+      "mt_sigma": -7.939792992296655
+    },
+    "E_star": {
+      "mh_relative": 0.02554931690679285,
+      "mh_sigma_experimental": 28.615903236615555,
+      "mh_tree_gev": 128.3279539668733,
+      "mh_within_matching_band": false,
+      "mt_pole_gev": 170.69172766866546,
+      "mt_relative": -0.011076433900773286,
+      "mt_sigma": -7.0449816841073485
+    },
+    "log_midpoint_half_turn": {
+      "mh_relative": -0.027943714922414542,
+      "mh_sigma_experimental": -31.297691645085873,
+      "mh_tree_gev": 121.6343204058547,
+      "mh_within_matching_band": false,
+      "mt_pole_gev": 167.39421549217778,
+      "mt_relative": -0.03018097719274715,
+      "mt_sigma": -19.196108913404053
+    },
+    "mu_U_gauge_unification": {
+      "mh_relative": -0.0801533381616979,
+      "mh_sigma_experimental": -89.77383533557587,
+      "mh_tree_gev": 115.10128097301045,
+      "mh_within_matching_band": false,
+      "mt_pole_gev": 164.13059337895652,
+      "mt_relative": -0.04908917422542347,
+      "mt_sigma": -31.22235336789388
+    }
+  },
+  "promotion_allowed": false,
+  "reading": {
+    "archived_mu_U_boundary": {
+      "mh_relative": -0.0801533381616979,
+      "mt_relative": -0.04908917422542347
+    },
+    "single_anchor_E_cell_boundary": {
+      "mh_relative": 0.02158806788880696,
+      "mt_relative": -0.012483296083422024
+    },
+    "statement": "The boundary-scale family brackets the measured pair. The single-anchor E_cell branch reduces the archived deficits by an order of magnitude in the Higgs channel; the residual sits inside the declared loop-truncation and matching bands. The open object is the boundary-scale selection theorem, never a numerical fit."
+  },
+  "references": {
+    "mh_gev": 125.1309438281615,
+    "mh_sigma": 0.111721447765488,
+    "mt_gev": 172.6035595874743,
+    "mt_sigma": 0.2713750020275726,
+    "note": "consumed here only; the scan artifact reads no reference"
+  },
+  "row_class": "compare_only_never_a_prediction_ancestor",
+  "schema_version": 1,
+  "status": "compare_only_distance_surface",
+  "two_loop_named_distances": {
+    "E_cell_pixel_energy": {
+      "mh_relative": 0.05337164152914231,
+      "mh_sigma_experimental": 59.77763457038656,
+      "mh_tree_gev": 131.80938770636138,
+      "mh_within_matching_band": false,
+      "mt_pole_gev": 175.66412625804122,
+      "mt_relative": 0.017731770294203253,
+      "mt_sigma": 11.277997780561785
+    },
+    "E_star": {
+      "mh_relative": 0.05721995648922329,
+      "mh_sigma_experimental": 64.08784798718524,
+      "mh_tree_gev": 132.29093098946436,
+      "mh_within_matching_band": false,
+      "mt_pole_gev": 175.90473696839024,
+      "mt_relative": 0.0191257781056533,
+      "mt_sigma": 12.164633279599277
+    },
+    "log_midpoint_half_turn": {
+      "mh_relative": 0.005116311219770964,
+      "mh_sigma_experimental": 5.730402395003005,
+      "mh_tree_gev": 125.77115268001006,
+      "mh_within_matching_band": true,
+      "mt_pole_gev": 172.62935949498873,
+      "mt_relative": 0.00014947494464245814,
+      "mt_sigma": 0.09507105415628576
+    },
+    "mu_U_gauge_unification": {
+      "mh_relative": -0.046033308761822433,
+      "mh_sigma_experimental": -51.558509920056835,
+      "mh_tree_gev": 119.37075245526148,
+      "mh_within_matching_band": false,
+      "mt_pole_gev": 169.37032322941494,
+      "mt_relative": -0.01873215341437262,
+      "mt_sigma": -11.914274837042155
+    }
+  }
+}
