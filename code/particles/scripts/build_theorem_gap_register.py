@@ -101,6 +101,34 @@ def closed_entries() -> list[dict[str, Any]]:
             ),
         },
         {
+            "id": "ENTROPIC_CONDITIONED_BRANCH_NO_GO",
+            "family": "charged leptons",
+            "class": "closed",
+            "statement": (
+                "the parameter-free entropic conditioned branch selects the "
+                "C5-axis orbit with an exactly degenerate spectrum: two "
+                "equal charged masses; the second of the three candidate "
+                "mechanisms is closed, and the surviving route is a "
+                "source-emitted charged interaction off the entropic ray"
+            ),
+            "artifact": "runs/leptons/charged_entropic_branch_no_go.json",
+        },
+        {
+            "id": "W5_ORBIT_DECISION_GEOMETRY",
+            "family": "charged leptons",
+            "class": "closed",
+            "statement": (
+                "stratum classification certified (C5 and C3 axes exactly "
+                "degenerate, C2 simple: three distinct masses force the "
+                "orbit off the symmetry axes); the MCPR target shape lies "
+                "inside the simple-spectrum region, witnessed by a frozen "
+                "coefficient point with minimizing-orbit gap ratio within "
+                "0.006 of the target; the harness maps any coefficient "
+                "packet to the family shape with no further choices"
+            ),
+            "artifact": "runs/leptons/charged_w5_orbit_decision_geometry.json",
+        },
+        {
             "id": "UP_TYPE_INTEGER_POWER_LAW_REMOVED",
             "family": "quarks",
             "class": "closed",
@@ -234,9 +262,11 @@ def open_entries() -> list[dict[str, Any]]:
             "family": "charged leptons",
             "class": "research_open",
             "statement": (
-                "an A5-invariant effective action on W5 with a unique "
-                "simple-spectrum minimizing orbit; requires a charged-sector "
-                "interaction beyond the homogeneous branch"
+                "SOURCE_W5_COEFFICIENT_EMISSION: the charge-conditioned "
+                "repair branch must emit the invariant coefficient packet "
+                "(h5, a, b, c, e); the decision geometry and harness are "
+                "closed, so emission alone completes the charged family "
+                "shape"
             ),
         },
         {

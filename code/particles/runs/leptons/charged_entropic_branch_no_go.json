@@ -1,0 +1,22 @@
+{
+  "artifact": "oph_charged_entropic_branch_no_go",
+  "checks": {
+    "extremal_spectrum_degenerate": true,
+    "extremum_found": true,
+    "no_go_certified": true
+  },
+  "checks_pass": true,
+  "consequence": "two equal charged masses on the entropic branch; the observed family requires a source-emitted charged interaction off the entropic ray, on the frozen target locus",
+  "extremal_spectrum": [
+    -0.5163977794943561,
+    -0.5163977794942883,
+    1.0327955589886446
+  ],
+  "extremal_value_s3": 0.5163977794943226,
+  "minimum_gap": 6.772360450213455e-14,
+  "promotion_allowed": false,
+  "row_class": "parameter_free_no_go_certificate",
+  "schema_version": 1,
+  "selection_functional": "universal entropy cubic S3 on the W5 unit sphere; no chosen coefficient",
+  "status": "ENTROPIC_CONDITIONED_BRANCH_NO_GO"
+}

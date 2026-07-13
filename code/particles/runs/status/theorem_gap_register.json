@@ -37,6 +37,20 @@
       "statement": "AR2 is discharged exactly under the canonical record model (chart inverse-affinity plus Gaussian MaxEnt readback), and the AR1 placement mechanism follows from port-additivity plus repair minimization; AR1 parentage and AR3 reduce to the finite carrier facts CF1 and CF2"
     },
     {
+      "artifact": "runs/leptons/charged_entropic_branch_no_go.json",
+      "class": "closed",
+      "family": "charged leptons",
+      "id": "ENTROPIC_CONDITIONED_BRANCH_NO_GO",
+      "statement": "the parameter-free entropic conditioned branch selects the C5-axis orbit with an exactly degenerate spectrum: two equal charged masses; the second of the three candidate mechanisms is closed, and the surviving route is a source-emitted charged interaction off the entropic ray"
+    },
+    {
+      "artifact": "runs/leptons/charged_w5_orbit_decision_geometry.json",
+      "class": "closed",
+      "family": "charged leptons",
+      "id": "W5_ORBIT_DECISION_GEOMETRY",
+      "statement": "stratum classification certified (C5 and C3 axes exactly degenerate, C2 simple: three distinct masses force the orbit off the symmetry axes); the MCPR target shape lies inside the simple-spectrum region, witnessed by a frozen coefficient point with minimizing-orbit gap ratio within 0.006 of the target; the harness maps any coefficient packet to the family shape with no further choices"
+    },
+    {
       "artifact": "runs/flavor/up_type_register_exponent_scan.json",
       "class": "closed",
       "family": "quarks",
@@ -82,11 +96,11 @@
   "counts": {
     "awaiting_discriminating_test": 1,
     "closable_by_standard_computation": 1,
-    "closed": 11,
+    "closed": 13,
     "computationally_blocked": 2,
     "research_open": 8
   },
-  "generated_utc": "2026-07-13T06:08:23Z",
+  "generated_utc": "2026-07-13T07:12:30Z",
   "open_register": [
     {
       "class": "research_open",
@@ -123,7 +137,7 @@
       "class": "research_open",
       "family": "charged leptons",
       "id": "W5_ORBIT_EFFECTIVE_ACTION",
-      "statement": "an A5-invariant effective action on W5 with a unique simple-spectrum minimizing orbit; requires a charged-sector interaction beyond the homogeneous branch"
+      "statement": "SOURCE_W5_COEFFICIENT_EMISSION: the charge-conditioned repair branch must emit the invariant coefficient packet (h5, a, b, c, e); the decision geometry and harness are closed, so emission alone completes the charged family shape"
     },
     {
       "class": "research_open",

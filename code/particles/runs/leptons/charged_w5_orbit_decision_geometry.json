@@ -1,0 +1,78 @@
+{
+  "artifact": "oph_charged_w5_orbit_decision_geometry",
+  "checks": {
+    "c2_stratum_simple": true,
+    "c3_axis_exactly_degenerate": true,
+    "c5_axis_exactly_degenerate": true,
+    "coefficient_emission_gate_open": true,
+    "target_locus_nonempty": true,
+    "target_shape_finite": true
+  },
+  "checks_pass": true,
+  "claim_boundary": "The stratum theorem, the target shape, and the nonempty locus are closed mathematics. The located coefficient point is a demonstration witness. The charged-lepton shape becomes a source consequence exactly when the coefficient packet is emitted by the conditioned branch.",
+  "mcpr_target_shape": {
+    "centered_log_triple": [
+      -4.495209700639259,
+      0.8363891449188334,
+      3.6588205557204243
+    ],
+    "sorted_gap_ratio": 1.8890091802244646,
+    "source": "runs/leptons/charged_mcpr_completion_conditional.json"
+  },
+  "promotion_allowed": false,
+  "row_class": "orbit_geometry_harness_with_open_source_gate",
+  "schema_version": 1,
+  "source_coefficient_gate": {
+    "id": "SOURCE_W5_COEFFICIENT_EMISSION",
+    "route": "compute the W5-restricted Hessian of the charge-conditioned repair branch; a negative h5 selects the broken phase and the cubic/quartic coefficients follow from the same functional",
+    "statement": "the conditioned charged-sector repair functional must emit the invariant coefficient packet (h5, a, b, c, e); the harness then produces the family shape with no further choices",
+    "status": "open"
+  },
+  "status": "DECISION_GEOMETRY_CLOSED_COEFFICIENT_EMISSION_OPEN",
+  "stratum_classification_theorem": {
+    "c2_min_gap": 0.5527864044999903,
+    "c2_simple": true,
+    "c3_degenerate": true,
+    "c3_min_gap": 8.654188476953095e-14,
+    "c5_degenerate": true,
+    "c5_min_gap": 1.1102230246251565e-16,
+    "statement": "on the C5-axis and C3-axis strata the quadrupole spectrum is exactly doubly degenerate; the C2 stratum is simple; three distinct charged masses require the minimizing orbit off the high-symmetry axes"
+  },
+  "target_locus": {
+    "bracket_endpoints": [
+      {
+        "ratio": 2.111718897732393,
+        "t": 0.0
+      },
+      {
+        "ratio": 1.4523232826439114,
+        "t": 0.1
+      }
+    ],
+    "classification": "demonstration certificate: the simple-spectrum region contains the target shape; the located point is a harness witness, never a source claim",
+    "coefficient_segment": {
+      "fixed": "h = -1, c = 0.25, e = 0.25",
+      "from_a_b": [
+        0.05,
+        0.2
+      ],
+      "to_a_b": [
+        -0.6,
+        -0.2
+      ]
+    },
+    "locus_nonempty_certified": true,
+    "locus_point": {
+      "coefficients_h_a_b_c_e": [
+        -1.0,
+        0.025625,
+        0.185,
+        0.25,
+        0.25
+      ],
+      "ratio": 1.8830851320407365,
+      "t": 0.037500000000000006
+    },
+    "target_ratio": 1.8890091802244646
+  }
+}

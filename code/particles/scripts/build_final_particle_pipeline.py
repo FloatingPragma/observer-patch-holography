@@ -330,6 +330,16 @@ FINAL_PIPELINE_STEPS: tuple[PipelineStep, ...] = (
         "Refresh the conditional down-type sector from the register Clebsch pattern.",
     ),
     PipelineStep(
+        "charged_w5_orbit_decision_geometry",
+        "particles/leptons/derive_charged_w5_orbit_decision_geometry.py",
+        "Refresh the W5 orbit decision geometry and target-locus certificate.",
+    ),
+    PipelineStep(
+        "charged_entropic_branch_no_go",
+        "particles/leptons/derive_charged_entropic_branch_no_go.py",
+        "Refresh the entropic conditioned-branch no-go certificate.",
+    ),
+    PipelineStep(
         "up_type_register_exponent_scan",
         "particles/flavor/derive_up_type_register_exponent_scan.py",
         "Refresh the frozen up-type exponent scan and its verdict.",
