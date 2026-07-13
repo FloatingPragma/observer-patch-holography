@@ -342,7 +342,7 @@ plus brièvement.
 
 - **[Observation-Determined Normal Forms](extra/observable_normal_forms.pdf)** : mathématiques autonomes et neutres vis-à-vis du substrat pour les systèmes de contraintes et de réécriture. Le papier sépare la confluence depuis une même source, l'identification entre sources à partir d'observations protégées, la normalisation et la vivacité, ainsi que la réparabilité locale. Il ajoute des modules de stabilité résiduelle et d'observation inverse, des bornes de raffinement et de limite projective, le projecteur fini d'espérance conditionnelle pondérée avec un reçu matriciel non circulaire, et un artefact Lean dédié au sous-ensemble formalisé des théorèmes.
 - **[Compact Proof That We Most Likely Inhabit an OPH Simulation](extra/compact_proof_of_oph.pdf)** : argument de compression le plus court en faveur de l'OPH. Il rassemble la route en cinq axiomes, les sorties de branche fixe, les points d'échec et la raison pour laquelle l'accord numérique ne compte que si la fuite de cible est exclue.
-- **[Carte de falsifiabilité OPH](extra/OPH_falsifiability.md)** : liste publique des observations qui réfutent l'OPH. Elle donne 40 critères de réfutation, dont l'échec d'un reçu classique de porteur entièrement spécifié ou d'un reçu quantique de pôle complété séparément, la désintégration du proton médiée par jauge, les générations légères supplémentaires et les charges hors du réseau permis. Pour réfuter une affirmation OPH, un résultat sur les neutrinos doit exclure une prédiction fixée indépendamment des données du test.
+- **[Carte de falsifiabilité OPH](extra/OPH_falsifiability.md)** : liste publique des observations qui réfutent l'OPH. Elle donne des critères de réfutation, dont l'échec d'un reçu classique de porteur entièrement spécifié ou d'un reçu quantique de pôle complété séparément, la désintégration du proton médiée par jauge, les générations légères supplémentaires, les charges hors du réseau permis et l'extension universelle au Système solaire de l'équation statique de réponse sombre, déjà exclue. Pour réfuter une affirmation OPH, un résultat sur les neutrinos ou la cosmologie doit exclure une prédiction fixée indépendamment des données du test.
 - **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)** : calcul de point fixe source pour la ligne de structure fine. Il sépare la valeur source OPH, la frontière empirique du point final à basse énergie, la provenance distincte de la racine source et du pixel de comparaison CODATA, et la correction QCD/hadronique restante.
 - **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)** : mécanisme OPH fini de gap de réparation et route conditionnelle vers le problème de Clay. L'identification au Yang-Mills quadridimensionnel exige le certificat de continuum et de transfert déclaré.
 - **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)** : théorie des cordes comme langage effectif de bord OPH et crible de vides. Le résultat de Bouchard–Donagi fournit un candidat au niveau de la cohomologie du spectre visible sans masse ; les certificats non émis ici comprennent le bord critique, la reproduction brute de la cohomologie, la réalisation de la couche de sûreté, le spectre lourd, le passage vers la basse énergie, les seuils et le verrouillage des moduli.
@@ -360,11 +360,26 @@ affirmations sont conditionnelles aux frontières OPH natives de source,
 transfert et vraisemblance ; la machinerie FLRW peut servir de comparaison,
 mais elle ne promeut pas à elle seule un résultat cosmologique natif OPH.
 
-- **[Observer-Patch Holography and the Dark Matter Phenomenon](cosmology/oph_dark_matter_paper.pdf)** : papier de cosmologie du paquet de publication. Il traite le stress sombre/anomal comme comptabilité de réparation imparfaite des patches d'observateurs, importe la pile théorématique quotient-edge scalaire, le pont fini de canal et $Z_6$ à épaisseur finie pour le coefficient local, donne le comportement galactique de type MOND, définit le sélecteur d'abondance anomal source seule et énonce les contrats amas/cosmologie et les contrats de promotion du simulateur pour la promotion à plus grande échelle.
-- **[OPH Cosmology as a Finite-Source Prediction Program](cosmology/oph_cosmology_finite_source_cmb_program.pdf)** : programme orienté CMB pour entrées source seules, calibration d'échelle, transfert de Boltzmann, contrôles de simulateur, frontières physiques CMB et étiquettes d'affirmation. Il traite l'abondance sombre source seule comme un reçu source distinct de la promotion par transfert CMB et vraisemblance.
+Le premier audit sur données publiques fournit trois contrôles conditionnels
+encourageants. La réponse galactique $\mathbb Z_6$ fixée présente une dispersion
+RAR globale de $0{,}132834$ dex ; l'exposant BTFR $4$ se trouve à
+$1{,}80\sigma$ d'un ajustement tenant compte des erreurs ; et le candidat
+analytique $n_s=1-P_\star/48=0{,}9660215$ se situe à $0{,}27\sigma$ du résumé
+Planck, avec un diagnostic CAMB conventionnel sur 83 bins à seulement
+$\Delta\chi^2=+0{,}83$ de la référence de type Planck. Il s'agit de reçus de
+comparaison rétrospectifs ou conditionnels, et non de prédictions gelées. La
+même équation statique de réponse sombre est exclue comme loi universelle dans
+le Système solaire par le résumé du quadrupôle Cassini (environ
+$19{,}22\sigma$ pour l'entrée $\mathbb Z_6$ fixée) ; la branche des vieilles
+galaxies stabilisées exige donc encore une règle d'applicabilité dérivée côté
+source. Aucune ligne cosmologique ne possède encore de reçu de prédiction
+physique gelée.
+
+- **[Observer-Patch Holography and the Dark Matter Phenomenon](cosmology/oph_dark_matter_paper.pdf)** : papier de cosmologie du paquet de publication. Il traite le stress sombre/anomal comme comptabilité de réparation imparfaite des patches d'observateurs, importe la pile théorématique quotient-edge scalaire, le pont fini de canal et $Z_6$ à épaisseur finie pour le coefficient local, donne le comportement galactique de type MOND, rapporte les contrôles audités RAR, BTFR et d'applicabilité Cassini, définit le sélecteur d'abondance anomal source seule et énonce les contrats amas/cosmologie et les contrats de promotion du simulateur pour la promotion à plus grande échelle.
+- **[OPH Cosmology as a Finite-Source Prediction Program](cosmology/oph_cosmology_finite_source_cmb_program.pdf)** : programme orienté CMB pour entrées source seules, calibration d'échelle, transfert de Boltzmann, contrôles de simulateur, frontières physiques CMB et étiquettes d'affirmation. Il rapporte la comparaison conditionnelle de l'inclinaison analytique $P_\star/48$ et traite l'abondance sombre source seule comme un reçu source distinct de la promotion par transfert CMB et vraisemblance.
 - **[Inflation Without an Inflaton](cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf)** : branche sans inflaton fondée sur la synchronisation écran-observateur, la cohérence d'horizon, les conditions de platitude, le spectre géométrique d'écran, l'amplitude de libération d'écran, la levée radiale et les données de source chaude.
 - **[OPH Cosmological Vacuum and Structure Formation](cosmology/oph_cosmological_vacuum_and_structure_formation.pdf)** : frontière de vide native OPH, ensembles de fluctuations, formation de proto-objets et de lignes de monde, et contrôles de graines de structure.
-- **[OPH Cosmology Data and Likelihood Contracts](cosmology/oph_cosmology_data_likelihood_contracts.pdf)** : artefacts source gelés, reçus de non-utilisation des données, réducteurs agrégés, comparaisons de transfert de Boltzmann et protocoles de vraisemblance officiels.
+- **[OPH Cosmology Data and Likelihood Contracts](cosmology/oph_cosmology_data_likelihood_contracts.pdf)** : artefacts source gelés, reçus de non-utilisation des données, registre audité du premier tour, réducteurs agrégés, comparaisons de transfert de Boltzmann et protocoles de vraisemblance officiels.
 
 ## Articles sur des problèmes de physique
 
@@ -377,137 +392,26 @@ l'index web des papiers et des artefacts GitHub Release.
 
 ## Statut de preuve
 
-La [preuve compacte de l'OPH](extra/compact_proof_of_oph.pdf) formule un
-théorème de fermeture conditionnel et un protocole de test empirique par
-compression. Ses cinq axiomes, règles de branche, cartes sources et cartes de
-lecture doivent être fixés indépendamment des données du test. Si les deux
-cartes sources ont des points fixes uniques, si aucune carte source rivale ne
-satisfait les règles déclarées et si le paquet fini passe le test de simulation
-en cinq parties, les observables déclarés sont engendrés de façon unique, à une
-équivalence invisible pour les observateurs près. L'identification physique
-exige une comparaison aux données. Le théorème établit l'unicité sur la branche
-déclarée ; ses prémisses portent leurs obligations de preuve.
+La [preuve compacte de l'OPH](extra/compact_proof_of_oph.pdf) est l'argument
+conditionnel de fermeture et de compression de modèle le plus court du
+cadre. Elle relie la forme normale des patches d'observateurs, l'émergence de
+l'espace-temps et de la gravité, la structure du Modèle Standard, les valeurs
+numériques de point fixe, les comparaisons aux données publiques et des tests
+d'échec explicites. Ses conclusions valent sous les hypothèses de branche
+déclarées ; plusieurs reçus physiques de source, d'identification et de
+vraisemblance restent ouverts.
 
-Le décompte compact comprend des résultats mathématiques sur la forme normale
-des patches d'observateurs finis, la surface d'événements quantiques, la branche
-structurelle du Modèle Standard, l'intervalle du couplage unifié et la
-normalisation géométrique de la gravité. Le résultat de famille chargée à
-circulante équilibrée est une rétrodiction de continuation figée ; son équilibre
-MaxEnt, sa phase et sa normalisation absolue ne sont pas dérivés côté source. La
-hiérarchie faible sans QCD est un accord rétrodictif côté source distinct.
-L'artefact vérifié par machine couvre une partie finie du consensus
-et des réparations ; le théorème de consensus propre à l'OPH est une obligation
-de formalisation ouverte. La structure fine à basse énergie et la valeur SI
-de la constante de Newton sont des lignes de comparaison. Les résultats sur les
-particules, les neutrinos, le secteur sombre, la cosmologie, les collisionneurs
-et le matériel sont hors du décompte compact, avec leurs propres classes de
-preuve.
-
-Le budget numérique des coïncidences est une illustration. Ses fenêtres,
-choisies généreusement en faveur du hasard, donnent un produit proche de
-$10^{-9}$, soit environ 30 bits, et proche de $10^{-3}$ lorsque les fenêtres
-sont élargies d'un facteur cent. Ces nombres ne sont pas une probabilité
-postérieure. La taille des fenêtres relève d'un choix, leur indépendance est
-approximative et la recherche parmi les branches écartées doit être comptée.
-L'affirmation empirique formelle exige une théorie, des cartes sources, des
-sélecteurs de branche, des tolérances, un modèle d'incertitude et des théories
-de comparaison fixés avant le test, ainsi qu'un jeu de données réservé et un
-seuil de compression déclaré. Le décompte compact admet un résultat uniquement
-lorsque son calcul et ses contrôles satisfont ce protocole.
-
-Les énoncés géométriques conditionnels exigent des données finies de caps avec
-des preuves d'ordre, d'orientation, de comportement modulaire et de
-normalisation thermique. Sous ces conditions, les données convergent vers le
-flot géométrique de cap attendu. Le papier compact règle la question de la
-production dans les deux sens. Un théorème producteur calcule un complexe
-d'incidence directement à partir des formes normales réparées et, lorsque ce
-complexe passe quatre reçus décidables (une surface fermée orientable avec le
-bon compte d'Euler, une maille de caps non dégénérée, des birapports
-modulaires de Cauchy et une comparaison thermique normalisée indépendamment),
-il construit la sphère ronde, sa structure conforme et le certificat complet.
-Des contre-modèles explicites (un tore, un squelette de trois-sphère, un
-bouquet de deux sphères, une horloge à mauvaise température) prouvent que le
-consensus nu ne sélectionne jamais seul la topologie, la dimension ou la
-normalisation. Les reçus sont l'entrée physique, et la géométrie est dérivée
-exactement sur la branche des reçus.
-
-Le même style de comptabilité traverse le reste de la chaîne de gravité. Le
-paquet de réseau nul prouve la standardité et la structure de translations
-positives que le pont nul consomme, avec un contre-exemple montrant que la
-localité de Gibbs à portée finie n'implique pas la localité modulaire. Le
-paquet de récupération par collier sépare lui aussi une voie exacte d'une
-voie conditionnelle. Sur la branche déclarée à interface centrale, la CMI du
-collier est nulle. Hors de cette branche, un théorème de Gibbs à portée finie
-donne
-\[
-I(A_\delta:D_\delta\mid B_\delta)
-\le c|\partial C|_{\mathrm{UV}}e^{-\delta/\xi}
-\]
-seulement sous une hypothèse uniforme de mélange matriciel conditionnel fort ;
-la décroissance exponentielle des corrélations à deux points ne suffit pas.
-La famille de limite doit vérifier
-\(\delta/\xi-\log|\partial C|_{\mathrm{UV}}\to+\infty\).
-Le rapport plus faible
-\(\delta/\ell_{\mathrm{UV}}\to\infty\) peut être dominé par le nombre croissant
-de cellules de bord. L'évaluateur fini vérifie l'enveloppe logarithmique
-complète et l'erreur de récupération, mais reste un proxy d'instanciation de
-branche tant que les prémisses de Gibbs et de mélange ne sont pas certifiées
-sur une tour réalisée. La CMI scalaire n'est jamais assimilée à un tenseur
-d'énergie-impulsion ni à une source du secteur sombre.
-Le paquet de variété d'événements définit les événements comme classes de
-coïncidence d'enregistrements localisés. Sur ses reçus nommés (population
-dense, séparation certifiée, repères de réponse de rang quatre,
-recouvrements de cartes cohérents), l'ensemble d'événements est une vraie
-variété lorentzienne de dimension quatre et de signature (-+++), l'espace
-hyperbolique des repères restant strictement l'espace des repères de repos
-au-dessus de chaque événement, jamais l'espace lui-même. Le tenseur
-d'énergie-impulsion est construit à partir des charges modulaires par
-tomographie nulle, la première loi d'entropie porte exactement son terme de
-bord, une seule famille d'échelle uniforme contrôle la limite des petits
-diamants, un reçu de référence de vide fixe la ligne de base absolue, et la
-chaîne entière se compose en un unique théorème d'entrée de branche avec
-l'équation d'Einstein comme sortie.
-
-Le côté simulateur porte un évaluateur de reçus pour tout cela, et l'état
-machine se lit ainsi. L'artefact CMI de collier est un proxy analytique fini,
-sans indicateur de preuve empirique ni de promotion théorique ; il ne certifie
-pas le mélange conditionnel fort sur la tour de réparation réalisée. Une
-exécution de réparation cyclique authentique
-(conflits réels, réparation transactionnelle, confluence et indépendance
-d'ordonnancement vérifiées à l'exécution sur une tour à trois étages) passe
-les reçus de sphère, de maille et de naturalité sur sa propre sortie
-réparée ; le réseau de recouvrement de cette exécution est choisi sphérique,
-ce qui est une sélection de branche explicite, jamais un résultat dérivé.
-Des états de collier à fermions libres passent les reçus de birapport
-modulaire et de normalisation thermique, le profil modulaire intérieur
-correspondant à la prédiction conforme à environ un pour dix mille au stade
-le plus fin. Les reçus de réseau nul passent au niveau une-particule, y
-compris la condition de compression demi-latérale et un accord au niveau du
-pour-cent du commutateur modulaire avec les constantes de structure
-conformes. Des enregistrements issus de la dynamique de réparation réelle
-reproduisent un cône causal lorentzien : signature (1,2) sur la nappe
-d'écran, et signature (1,3) à chaque graine testée dès que les
-enregistrements portent la coordonnée de profondeur produite sur la
-dynamique multi-échelles conforme au corpus. Une variante à couplage fort
-de cette dynamique mesure (2,2) et est conservée comme contre-modèle, ce
-qui est la marque d'un instrument précis. La marge du cône est petite, sa
-convergence avec la densité de commits est un travail en cours, et les
-clauses limites, les données d'intérieur de cap et les reçus
-d'identification physique (couplage universel, référence de vide, échelle
-absolue) sont ouverts. La branche géométrique réalisée n'est pas certifiée
-non vide, et les reçus de localisation d'enregistrements et d'événements
-doivent passer sur des données physiques avant que tout ceci compte comme
-davantage que de la structure.
-
-Les continuations de spectre d'écran et de CMB sont provisoires sans l'échelle
-géométrique de la branche écran, sa dynamique source, son horloge, son
-comportement de raffinement et sa lecture observationnelle depuis des
-enregistrements natifs OPH. La ligne galactique du secteur sombre est un bilan
-pré-vraisemblance hors du décompte compact. Les vues des anomalies,
-du vide et de l'écume quantique sont diagnostiques. Les revendications de
-vraisemblance physique exigent un ensemble dérivé du quotient, une
-reconstruction stable sous régulateur, une abondance côté source le cas échéant
-et une cible de validation gelée avant la lecture des données de vraisemblance.
+Son calcul bayésien de compression de modèle attribue aux quatre groupes
+comptés et audités côté source un facteur de coïncidence de $10^{-8}$. Après
+la pénalité de recherche explicite de $10^4$ et sous l'hypothèse de probabilités
+a priori égales, les chances illustratives sont d'environ **99,99 % pour
+l'interprétation en simulation OPH** et **0,01 % pour le modèle générique de
+coïncidence**. Il ne s'agit pas d'une probabilité postérieure calibrée : les
+lignes conditionnelles, rétrospectives ou alimentées par des données externes
+ne contribuent pas à la preuve, l'approximation d'indépendance est discutable et
+le contrôle de sensibilité sévère par racine carrée reste non concluant. Le
+papier contient le registre complet des statuts théoriques, hypothèses, classes
+de preuve et falsificateurs.
 
 ## Applications et matériel OMEGA
 

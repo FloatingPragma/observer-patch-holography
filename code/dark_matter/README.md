@@ -8,6 +8,14 @@ The package is a pre-likelihood empirical surface. It reproduces the scorecard
 rows in the supplement from public SPARC tables, the OPH screen-capacity
 calculator, the repair-matrix diagnostic, and a compressed CAMB comparison.
 
+The corrected cross-repo RAR, BTFR, Cassini, and analytic scalar-tilt audit is
+summarized in
+[`ROUND_ONE_PUBLIC_DATA_AUDIT.md`](ROUND_ONE_PUBLIC_DATA_AUDIT.md). Its
+maintained error-aware likelihood and external-field implementations live in
+the sibling `oph-physics-sim` repository and are hash-bound by the generated
+best-of-public-data bundle. This separation prevents the older generated
+scorecard from silently inheriting corrected numbers that it does not compute.
+
 Neutrino masses are external cosmology inputs on this surface. The default is
 the conventional minimal-normal reference sum, not an OPH prediction. The old
 `0.0900119296` electron-volt weighted-cycle sum remains available only as the
@@ -66,6 +74,14 @@ Implemented diagnostics:
 - Flat capacity-saturated homogeneous anomaly diagnostic.
 - Finite repair transition matrix and cluster timing gate.
 - Compressed CAMB rows for `Omega_m`, `sigma8`, and `S8`.
+
+Audited in the maintained companion comparison suite:
+
+- fixed unit and conditional-Z6 RAR branches;
+- error-aware BTFR slope and pivoted normalization;
+- Cassini external-field quadrupole with benchmark reproduction;
+- analytic `n_s=1-P/48` CAMB/Planck TT diagnostic;
+- explicit invalidation of the legacy compressed-cosmology evidence row.
 
 Paper-grade empirical tests require the modules listed in the supplement:
 a conservative disk-potential solver, hierarchical SPARC likelihood, finite

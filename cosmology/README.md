@@ -2,14 +2,34 @@
 
 This directory holds OPH cosmology papers inside the public core repository.
 
+## Round-One Public-Data Audit
+
+The first audited comparison pass is encouraging but conditional:
+
+- the fixed $\mathbb Z_6$ galaxy response gives `0.1328335 dex` aggregate RAR
+  scatter, and the BTFR exponent `4` is `1.79854 sigma` from the error-aware
+  fit;
+- the analytic candidate `n_s = 1 - P_star/48 = 0.9660214956` is `0.267 sigma`
+  from the Planck summary, while the 83-bin CAMB diagnostic differs from its
+  Planck-like baseline by only `Delta chi2 = +0.8302`;
+- the universal static Solar-System extrapolation fails the Cassini quadrupole
+  summary at about `19.2232 sigma` on the fixed $\mathbb Z_6$ input. This kills
+  that universal extension and leaves the old-settled-galaxy branch conditional
+  on a source-derived applicability or screening rule.
+
+These are retrospective or conditional comparison receipts, not frozen
+predictions. The current ledger contains zero frozen physical cosmology
+prediction receipts. Reproducibility details and commands are in
+[`../code/dark_matter/ROUND_ONE_PUBLIC_DATA_AUDIT.md`](../code/dark_matter/ROUND_ONE_PUBLIC_DATA_AUDIT.md).
+
 ## Release Bundle
 
 - `oph_dark_matter_paper.tex`
   - release-bundle paper for the dark/anomaly stress branch, the galaxy limit,
     quotient-edge scalar/\(Z_6\) finite-thickness coefficient gates, cluster
     and cosmology contracts, the source-only anomaly abundance selector, the
-    simulator promotion ladder, and the dark-sector source interface used by
-    later CMB/LSS work
+    simulator promotion ladder, the audited RAR/BTFR/Cassini comparison ledger,
+    and the dark-sector source interface used by later CMB/LSS work
 
 ## Companion Papers
 
@@ -17,7 +37,8 @@ These files are public technical companions outside the release bundle.
 
 - `oph_cosmology_finite_source_cmb_program.tex`
   - finite-source cosmology, physical CMB boundaries, scale bridge, simulator
-    evidence, and claim boundaries
+    evidence, the conditional analytic \(P_\star/48\) tilt comparison, and claim
+    boundaries
 - `oph_inflation_without_inflaton_observer_screen_synchronization.tex`
   - inflation-free branch: flatness, horizon coherence, geometric screen
     spectrum, screen release amplitude, radial lift, and hot source data
@@ -26,7 +47,8 @@ These files are public technical companions outside the release bundle.
     formation, and structure-seed checks
 - `oph_cosmology_data_likelihood_contracts.tex`
   - frozen source artifacts, no-data-use checks, pooled reducers, Boltzmann
-    transfer, and official likelihood comparisons
+    transfer, the round-one audited comparison ledger, and official likelihood
+    comparisons
 - simulator reference: https://github.com/muellerberndt/oph-physics-sim
 - visualization companion: https://simulation.floatingpragma.io
 

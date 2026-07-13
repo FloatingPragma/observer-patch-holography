@@ -132,7 +132,10 @@ of silently moving the goalposts.
 | IBM five-state cyclic test | ratio near the golden-ratio square, about `2.618033988749895` | reduced-sector hardware signature |
 | IBM six-state nonabelian test | ratio near `2` after clean layout accounting | reduced-sector hardware signature |
 | Bench `P` body | icosahedral coupling plateaus with golden-ratio ratios | engineering evidence claim |
-| Dark-sector cosmology | the checked-in `Omega_A = 0.264114401`, CAMB `Omega_m = 0.315905206`, `sigma8 = 0.807787204`, and `S8 = 0.828924037` rows are legacy pre-likelihood diagnostics; `rho_A/rho_b = 5.363470441` is the parent-grid input | the checked-in run used the rejected weighted-cycle neutrino mass sum and is invalidated as a current OPH number row; regenerate with an explicitly declared external neutrino scenario before scientific use |
+| Fixed $\mathbb Z_6$ galaxy response | aggregate RAR scatter `0.1328335 dex`; BTFR exponent `4` is `1.79854 sigma` from the error-aware fit | encouraging retrospective fixed-formula checks; the coefficient branch remains conditional and the SPARC-derived samples are not held out |
+| Analytic scalar tilt | `n_s = 1 - P_star/48 = 0.9660214956`, `0.267 sigma` from the Planck summary; the 83-bin CAMB diagnostic is `Delta chi2 = +0.8302` above its Planck-like baseline | encouraging conditional arithmetic and transfer check, not an official likelihood or frozen physical prediction |
+| Universal static dark-response extension | fixed $\mathbb Z_6$ Solar-System application gives `Q2 = 3.62018e-26 s^-2`, about `19.2232 sigma` from the Cassini summary | excluded as a universal law; the scoped old-settled-galaxy branch requires a source-derived applicability or screening rule |
+| Frozen cosmology prediction ledger | zero frozen physical-prediction receipts | the checked-in legacy abundance tuple and the simulation-clock tilt are diagnostics, not current OPH prediction rows |
 | \(\chi_\nu\) lift response | \(\chi_\nu^{\mathrm{can}}=\exp(-P_\star/24)=0.9343006394893864\ldots\); for \(N_{\mathrm{coh}}=10^{22}\), \(9.34\times10^{-23}\le\chi_\nu^{\mathrm{eng}}\le10^{-22}\) | scoped continuation branch |
 | Hadrons | no first-principles masses from the stated theorem | gated on a strong-binding construction |
 | Hardware proof-of-work | candidate enrichment or verified shares | engineering evidence claim |
@@ -311,34 +314,39 @@ Falsification:
 Meaning: the substrate reaches the declared contrast, the control channels stay
 null, and the predicted force fraction is absent.
 
-### 2. Dark-Sector Cosmology
+### 2. Audited Cosmology And Dark-Sector Comparisons
 
-OPH fixes:
+The round-one audit currently contains conditional and retrospective receipts,
+not a frozen physical cosmology prediction:
 
 ```text
-Omega_A = 0.264114401
-Omega_m^CAMB = 0.315905206
-sigma8 = 0.807787204
-S8 = 0.828924037
-rho_A / rho_b = 5.363470441
+fixed Z6 RAR scatter       = 0.1328335 dex
+error-aware BTFR slope     = 3.8456543 +/- 0.0858172
+distance of OPH slope 4    = 1.79854 sigma
+analytic scalar tilt       = 0.9660214956
+distance from Planck       = 0.267 sigma
+83-bin CAMB Delta chi2     = +0.8302
+Cassini universal residual = 19.2232 sigma
 ```
 
-Test:
+The RAR, BTFR, and analytic-tilt rows are encouraging comparisons. The CAMB
+number uses a conventional binned diagnostic rather than an official Planck
+likelihood, and the galaxy samples are retrospective. They must not be counted
+as preregistered predictions.
 
-1. Run the public scorecard:
+The Cassini result is already a hard negative result for one extension. The
+fixed $\mathbb Z_6$ equation, applied without a source-derived applicability or
+screening reduction to the Milky-Way--Sun system, gives
+`Q2 = 3.6201778e-26 s^-2`, about `19.2232 sigma` from the published summary.
+That universal static extension is excluded. The explicitly scoped
+old-settled-galaxy branch remains conditional; it must derive its scope from
+the local state, boundaries, readback records, feedback, and repair dynamics
+of the observer-like system rather than append an empirical exception.
 
-   ```text
-   python3 code/dark_matter/scripts/dark_empirical_scorecard.py --quiet
-   ```
-
-2. Replace the compact CAMB/SPARC scaffolds by the full covariance likelihoods
-   named in the dark-sector paper.
-3. Compare CMB, BAO, SPARC, cluster, and weak-lensing data without refitting
-   the OPH branch numbers.
-
-Falsification:
-
-The fixed branch fails the joint likelihood under the declared kernel.
+The next genuine falsification test is prospective: freeze the source map,
+applicability rule, nuisance policy, covariance treatment, and likelihood
+before opening held-out galaxy or cosmology data. Rejection of that frozen
+branch kills the corresponding OPH cosmology claim.
 
 ### 3. Rejected Neutrino Comparison
 
@@ -743,6 +751,7 @@ Difficulty:
 | Cluster lensing | Merger lensing, gas maps, and age covariance reject the OPH offset branch. | Galaxy clusters test whether the dark response tracks the right material. The wrong offset pattern breaks the branch. |
 | Microwave background and growth | A full cosmology implementation fails microwave-background, acoustic-scale, growth, and clustering tests. | OPH has to fit the early universe and structure growth, beyond galaxy curves. A full cosmology miss destroys the dark-sector branch. |
 | Dark-sector quantitative branch | After replacing the rejected weighted-cycle neutrino default with a declared external neutrino scenario and closing the parent receipts, a frozen joint CMB, BAO, SPARC, cluster, and weak-lensing run rejects the branch. | The checked-in fixed decimals are legacy pre-likelihood diagnostics and are not current kill values. A later source-eligible, preregistered joint branch would be falsifiable. |
+| Universal static dark response | The fixed galaxy equation is applied unchanged to the Milky-Way--Sun system. | This extension is already excluded by the Cassini quadrupole summary at about `19.2232 sigma` on the fixed $\mathbb Z_6$ input. The result kills universality and creates an applicability-theorem obligation for the scoped galaxy branch. |
 | \(\chi_\nu\) lift response | A substrate reaches the declared vertical coherence contrast, control channels stay null, and the predicted force fraction is absent. | This is the scoped "hoverboard doesn't work" falsifier for the \(\chi_\nu\) continuation. It kills the lift-response continuation, not the recovered SM/GR core by itself. |
 | Dark particle abundance | A stable particle is found that explains the dark abundance in conflict with the OPH dark branch. | OPH's dark branch is not the usual cold-particle story. A confirmed incompatible particle explanation removes that branch. |
 | Black-hole entropy | Black-hole entropy data contradict the OPH screen-counting rule. | OPH treats screens and records as physical bookkeeping. Wrong black-hole entropy breaks that bookkeeping. |

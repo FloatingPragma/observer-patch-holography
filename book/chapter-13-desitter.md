@@ -480,6 +480,23 @@ galaxy's flat rotation speed tracks its visible baryonic mass. In the OPH
 reading, the normalization is tied to the de Sitter horizon through the
 acceleration scale above.
 
+The first public-data audit gives this proposal a real, but limited, empirical
+foothold. On the fixed $\mathbb Z_6$ coefficient branch, the radial-acceleration
+relation has an aggregate scatter of $0.132834$ dex. An error-aware fit to the
+baryonic Tully-Fisher data gives an exponent $3.8457\pm0.0858$, putting the OPH
+exponent $4$ about $1.80$ standard deviations away. These are retrospective
+checks on public galaxy data, not predictions frozen before the data were
+opened.
+
+The same audit also marks the present boundary of the proposal. Applying the
+static galaxy equation universally to the Milky-Way--Sun system predicts a
+Cassini quadrupole about $19.22$ standard deviations from the published
+summary on the fixed $\mathbb Z_6$ input. That universal Solar-System extension
+is excluded. The surviving claim is narrower: an old-settled-galaxy branch may
+still work, but only after OPH derives an applicability or screening rule from
+the observer-like system itself--its local state, boundary, readback records,
+and repair dynamics--rather than adding an exception after seeing Cassini.
+
 This is the proposed OPH dark-sector route in the language of this chapter. At
 the level of a settled galaxy, the candidate source is an extra gravitational
 term reconstructed from the framework itself, dark to light and visible to

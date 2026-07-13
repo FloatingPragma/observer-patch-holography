@@ -1275,7 +1275,7 @@ Gauge group & model input & construction of the refinement-limit bosonic edge-se
 Hypercharge lattice & matter-assignment input & solved from anomaly cancellation and Yukawa invariance on the realized one-generation chiral matter plus one-Higgs package \\
 Color and generation count & empirical input & color triplet fixed by the D8 minimal coupled carrier; generation count fixed by CKM phase counting, weak-sector asymptotic freedom, and MAR; Witten parity retained as a consistency check \\
 Flavor hierarchy unit & model-dependent small parameter & phenomenological ansatz \(\varepsilon=1/6\) motivated by a uniform \(\mathbb Z_6\) center-label ensemble \\
-Charged-lepton continuation & Koide-style phenomenological fit & For the positive Hermitian \(C_3\) carrier, \(Q=[1+2(\rho/a)^2]/3\). On \(\mathcal V_K=\mathbf1\oplus\chi\oplus\bar\chi\) with a two-state orientation record, the connected \(M_6(\mathbb C)\) event \(E_+=P_0\otimes I_2+P_c\otimes q_+\) has two rank-two blocks. Born--L\"uders conditioning gives \(p_0=p_c=1/2\). The tracial-GNS map \(e_0,e_+,e_-\mapsto I,R,R^2\) then gives \(|b|/a=1/\sqrt2\) and \(Q=2/3\) throughout the positive chamber. The physical theorem assumes that Minimal Admissible Realization selects this response packet and that trace-preserving recoverable maps with a left inverse attach its records to a chiral regular-\(C_3\) carrier with GNS vector \(C=(Y_e^\dagger Y_e)^{1/4}\). Construction of this carrier and attachment is work in progress. The \(2/9\) phase and numerical mass ratios are compare-only \\
+Charged-lepton continuation & empirical Koide relation & The charged-lepton masses empirically satisfy \(Q=2/3\). For the positive Hermitian \(C_3\) carrier, \(Q=[1+2(\rho/a)^2]/3\). The minimal orientation record gives \(S_c-S_0=\ln2\); the connected \(M_6(\mathbb C)\) event has equal rank-two blocks, so Born--L\"uders conditioning and the tracial-GNS map give \(|b|/a=1/\sqrt2\) and \(Q=2/3\). Given MAR selection of an accepted three-family chiral sector with a regular \(C_3\) action, positive kinetic metrics, a committed neutral Higgs direction, and faithful trace-preserving u.c.p. checkpoint maps with a completely positive inverse, reversible-checkpoint rigidity forces \(\Phi=\operatorname{Ad}_{J_L\oplus J_E}\). For \(M_F=X_F^2\), \(\widehat Y_e=(\sqrt2/v)J_LM_FJ_E^\dagger\) and \(\mathcal M_L=J_LM_FJ_L^\dagger\), preserving all square-root-response powers. Sector selection and all-orders threshold or resonance continuation are work in progress. The \(2/9\) phase and numerical mass ratios are compare-only \\
 Cosmological constant & local vacuum-energy puzzle & dimensionless global screen-capacity relation fixed by \(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\), with \(\Lambda_{\mathrm{CRC}}\ell_\star^2=3\pi/N_{\mathrm{CRC}}\) and the SI display supplied by the selected scale certificate \\
 \bottomrule
 \end{tabular}
@@ -11353,6 +11353,40 @@ The dark-cosmology abundance selector in
 \texttt{cosmology/oph\_dark\_matter\_paper.tex} is an application of the
 quotient-ensemble surface: it is the finite expectation of a quotient-visible
 load observable under a declared source release law.
+
+\begin{remark}[Round-one public-data comparison ledger]\label{rem:round-one-cosmology-ledger}
+The first frozen comparison audit separates encouraging conditional checks from
+excluded extrapolations and invalidated diagnostics.  None of the following
+rows promotes a D12 continuation into the recovered core.
+\begin{center}
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.22\textwidth}>{\raggedright\arraybackslash}p{0.29\textwidth}>{\raggedright\arraybackslash}p{0.39\textwidth}@{}}
+\toprule
+Surface & Numerical comparison & Claim boundary \\
+\midrule
+Analytic screen tilt &
+\(n_s=1-P_\star/48=0.9660214956\), or \(+0.267\sigma\) relative to the Planck-2018 summary \(0.9649\pm0.0042\); a conventional CAMB transfer with one profiled amplitude gives \(\chi^2/N_{\rm bin}=0.954498\), versus \(0.944496\) for the Planck-like baseline over 83 PR3 TT bins &
+Positive conditional arithmetic/transfer check.  The \(P_\star/48\) reserve-to-RG identity, scalar release amplitude, radial lift, conventional background inputs, and official likelihood remain open or imported.\\
+Settled-galaxy RAR &
+The fixed conditional \(\mathbb Z_6\) branch gives aggregate RMS \(0.132834\) dex on 2,693 public RAR rows, versus \(0.132947\) dex at the same-data effective-scale optimum &
+Positive retrospective fixed-formula check, not a blind prediction: \(a_{0,\rm OPH}\) is a benchmark and the exact collar coefficient is conditional; shared galaxy nuisances are not profiled in this aggregate statistic.\\
+BTFR &
+An error-aware orthogonal fit gives slope \(3.84565\pm0.08582\); the asymptotic OPH slope \(4\) is \(1.80\sigma\) high and lies in the published systematic range \(3.5\)--\(4.0\) &
+Positive slope check.  At \(100\,\mathrm{km\,s^{-1}}\) the fixed \(\mathbb Z_6\) normalization is \(0.13476\) dex high, a \(6.47\sigma\) statistical-only pull before global mass-to-light, distance, inclination, and sample systematics.  The BTFR table overlaps SPARC.\\
+Cassini external field &
+Universal application of the same static equation gives \(Q_2=3.62018\times10^{-26}\,\mathrm{s^{-2}}\) on the conditional \(\mathbb Z_6\) branch, a \(19.22\sigma\) fixed-input residual against the published Cassini summary &
+Strong exclusion of the natural universal/full-source static extension.  The current paper scopes the law to old settled galaxies and has no Solar-System applicability theorem; a source-derived applicability, screening, coarse-graining, or transport gate is therefore required.\\
+Simulation-clock TT and compressed cosmology &
+The uncertified clock tilt gives total diagonal \(\Delta\chi^2=+39.26\) versus the baseline; the archived compressed row used a rejected neutrino input and no attached covariance &
+Negative for that finite-clock diagnostic only; the compressed row is invalidated and supplies no evidence.\\
+\bottomrule
+\end{tabular}
+\end{center}
+The comparison code, public table hashes, run receipts, and no-data-use labels
+are maintained in the OPH-FPE comparison bundle.  In particular, the good
+analytic \(P_\star/48\) row must not be substituted for the distinct
+simulation-clock row after inspecting the latter's residuals.
+\end{remark}
 
 The gamma-ray morphology continuation obeys the same boundary. An OPH gamma
 component is not an arbitrary residual in a photon map. It is admissible only as

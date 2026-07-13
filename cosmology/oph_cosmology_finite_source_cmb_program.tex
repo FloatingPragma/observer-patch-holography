@@ -78,6 +78,10 @@ ordinary Boltzmann transfer.
 Simulator runs give useful CMB-shaped diagnostics. A physical CMB prediction
 needs source data fixed before comparison, a physical scale bridge, a covariant
 dark-stress parent, Boltzmann transfer, and a frozen likelihood comparison.
+The conditional analytic candidate \(n_s=1-P_\star/48=0.9660215\) is close to
+the Planck scalar-tilt summary and passes a binned CAMB transfer diagnostic;
+the distinct current finite-clock tilt does not.  Neither is promoted past its
+source and likelihood gates here.
 \end{abstract}
 
 \section*{What This Paper Contributes}
@@ -1047,6 +1051,35 @@ correlation \(0.9951542364\), normalized RMSE \(0.0984455548\), amplitude-fit
 \(\chi^2/{\rm bin}=41.6684770597\), zero mean peak-location error, and mean peak-height fractional
 error about \(0.0704905\). Those numbers justify fixing the theorem gates. They do not replace the
 gates.
+\end{remark}
+
+\begin{remark}[Audited analytic \(P_\star/48\) comparison]
+The paper-side arithmetic candidate is
+\[
+n_s=1-\frac{P_\star}{48}=0.9660214956.
+\]
+It differs from the Planck-2018 scalar-tilt summary
+\(0.9649\pm0.0042\) by \(+0.267\sigma\) \cite{planck2018}.  Holding the
+conventional Planck-like background and transfer parameters fixed, propagating
+this tilt through CAMB, and profiling one amplitude on the same 83 PR3 TT bins
+gives
+\[
+\frac{\chi^2_{P/48}}{N_{\rm bin}}=0.954498,\qquad
+\frac{\chi^2_{\rm baseline}}{N_{\rm bin}}=0.944496,\qquad
+\Delta\chi^2_{\rm diag}=+0.8302.
+\]
+This is a positive conditional arithmetic/transfer check, not an official
+Planck likelihood and not a physical-prediction receipt.  The
+reserve-to-RG identity, source release amplitude, radial lift, and conventional
+background inputs retain their existing status.
+
+This analytic row is distinct from the current finite-repair-clock diagnostic,
+which emits the uncertified value \(n_s=0.97893075698\) and gives a total
+diagonal \(\Delta\chi^2\simeq+39.26\) against the same baseline.  The latter is
+a negative result for that clock/selector diagnostic only.  It must not be
+silently replaced by the favorable analytic branch after inspecting the data.
+The reproducible conditional calculation is implemented by
+\pathref{oph-physics-sim/tools/analytic_p48_planck_check.py}.
 \end{remark}
 
 \section{Vacuum and Quantum-Fluctuation Boundary}

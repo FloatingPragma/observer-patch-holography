@@ -304,7 +304,7 @@ lower-level notes are linked with shorter summaries.
 
 - **[Observation-Determined Normal Forms](extra/observable_normal_forms.pdf)**: standalone, substrate-neutral mathematics for constraint and rewrite systems. It separates same-source confluence, cross-source identification from protected observations, normalization and liveness, and local repairability. It adds residual and inverse-observation stability moduli, refinement and inverse-limit bounds, the finite weighted conditional-expectation projector with a noncircular matrix receipt, and a dedicated Lean artifact for the formalized theorem subset.
 - **[Compact Proof That We Most Likely Inhabit an OPH Simulation](extra/compact_proof_of_oph.pdf)**: shortest compression-style argument for OPH. It collects the five-axiom route, the fixed-branch outputs, the failure points, and the reason numerical agreement only matters when target leakage is excluded.
-- **[OPH Falsifiability Map](extra/OPH_falsifiability.md)**: public kill-list for OPH. It names 40 hard failure modes, including failure of a fully specified classical carrier receipt or of a separately completed quantum pole receipt, gauge-mediated proton decay, extra light matter generations, and charge-lattice outliers. A neutrino result can falsify an OPH claim only when it excludes a prediction fixed independently of the test data.
+- **[OPH Falsifiability Map](extra/OPH_falsifiability.md)**: public kill-list for OPH. It names hard failure modes, including failure of a fully specified classical carrier receipt or of a separately completed quantum pole receipt, gauge-mediated proton decay, extra light matter generations, charge-lattice outliers, and the already-excluded universal Solar-System extension of the static dark-response equation. A neutrino or cosmology result can falsify an OPH claim only when it excludes a prediction fixed independently of the test data.
 - **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)**: source fixed-point calculation for the fine-structure row. It separates the OPH source value, the low-energy empirical endpoint boundary, the provenance distinction between the source root and the CODATA comparison pixel, and the remaining QCD/hadronic correction.
 - **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)**: finite OPH repair-gap mechanism and conditional Clay-facing route. The four-dimensional Yang-Mills identification requires the stated continuum and transfer certificate.
 - **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)**: string theory as an effective OPH edge language and vacuum-selection sieve. The Bouchard–Donagi result supplies a visible massless-cohomology candidate; certificates not emitted here include the critical edge, raw cohomology reproduction, safety-layer realization, heavy spectrum, low-energy decoupling, thresholds, and moduli locking.
@@ -322,11 +322,23 @@ are conditional on OPH-native source, transfer, and likelihood boundaries; FLRW
 machinery can serve as comparison plumbing but does not by itself promote an
 OPH-native cosmology result.
 
-- **[Observer-Patch Holography and the Dark Matter Phenomenon](cosmology/oph_dark_matter_paper.pdf)**: release-bundle cosmology paper. It treats dark/anomaly stress as imperfect observer-patch repair bookkeeping, imports the quotient-edge scalar, finite channel bridge, and $Z_6$ finite-thickness theorem stack for the local coefficient, gives the galaxy-limit/MOND-like behavior, defines the source-only anomaly abundance selector, and states the cluster, cosmology, and simulator promotion contracts for larger-scale promotion.
-- **[OPH Cosmology as a Finite-Source Prediction Program](cosmology/oph_cosmology_finite_source_cmb_program.pdf)**: CMB-facing program for source-only inputs, scale calibration, Boltzmann transfer, simulator checks, physical CMB boundaries, and claim labels. It treats source-only dark abundance as a separate source receipt from CMB transfer and likelihood promotion.
+The round-one public-data audit gives three encouraging conditional checks. The
+fixed $\mathbb Z_6$ galaxy response has an aggregate RAR scatter of $0.132834$
+dex; the BTFR exponent $4$ is $1.80\sigma$ from an error-aware fit; and the
+analytic candidate $n_s=1-P_\star/48=0.9660215$ is $0.27\sigma$ from the Planck
+summary, with a conventional 83-bin CAMB diagnostic only $\Delta\chi^2=+0.83$
+above its Planck-like baseline. These are retrospective or conditional
+comparison receipts, not frozen predictions. The same static dark-response
+equation is excluded as a universal Solar-System law by the Cassini quadrupole
+summary (about $19.22\sigma$ on the fixed $\mathbb Z_6$ input), so the
+old-settled-galaxy branch still needs a source-derived applicability rule. No
+cosmology row yet has a frozen physical-prediction receipt.
+
+- **[Observer-Patch Holography and the Dark Matter Phenomenon](cosmology/oph_dark_matter_paper.pdf)**: release-bundle cosmology paper. It treats dark/anomaly stress as imperfect observer-patch repair bookkeeping, imports the quotient-edge scalar, finite channel bridge, and $Z_6$ finite-thickness theorem stack for the local coefficient, gives the galaxy-limit/MOND-like behavior, reports the audited RAR, BTFR, and Cassini applicability checks, defines the source-only anomaly abundance selector, and states the cluster, cosmology, and simulator promotion contracts for larger-scale promotion.
+- **[OPH Cosmology as a Finite-Source Prediction Program](cosmology/oph_cosmology_finite_source_cmb_program.pdf)**: CMB-facing program for source-only inputs, scale calibration, Boltzmann transfer, simulator checks, physical CMB boundaries, and claim labels. It reports the conditional analytic $P_\star/48$ tilt comparison and treats source-only dark abundance as a separate source receipt from CMB transfer and likelihood promotion.
 - **[Inflation Without an Inflaton](cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf)**: inflation-free branch using observer-screen synchronization, horizon coherence, flatness conditions, geometric screen spectrum, screen release amplitude, radial lift, and hot source data.
 - **[OPH Cosmological Vacuum and Structure Formation](cosmology/oph_cosmological_vacuum_and_structure_formation.pdf)**: OPH-native vacuum boundary, fluctuation ensembles, proto-object/worldline formation, and structure-seed checks.
-- **[OPH Cosmology Data and Likelihood Contracts](cosmology/oph_cosmology_data_likelihood_contracts.pdf)**: frozen source artifacts, no-data-use receipts, pooled reducers, Boltzmann-transfer comparisons, and official likelihood protocols.
+- **[OPH Cosmology Data and Likelihood Contracts](cosmology/oph_cosmology_data_likelihood_contracts.pdf)**: frozen source artifacts, no-data-use receipts, the round-one audited comparison ledger, pooled reducers, Boltzmann-transfer comparisons, and official likelihood protocols.
 
 ## Physics Problems Articles
 
@@ -338,124 +350,22 @@ pipeline.
 
 ## Proof Status
 
-The [compact OPH proof](extra/compact_proof_of_oph.pdf) states a conditional
-closure theorem and a protocol for an empirical compression test. Its five
-axioms, branch rules, source maps, and readout maps must be fixed independently
-of the test data. If the two source maps have unique fixed points, no rival
-source map survives the declared rules, and the finite packet passes the
-five-part simulation test, the declared observables are uniquely generated up
-to observer-invisible equivalence. Physical identification requires comparison
-with data. The theorem establishes uniqueness on the declared branch; its
-premises carry their stated proof obligations.
+The [compact proof of OPH](extra/compact_proof_of_oph.pdf) is the shortest
+conditional closure and model-compression argument for the framework. It joins
+the observer-patch normal form, emergent spacetime and gravity, Standard Model
+structure, fixed-point number rows, public-data comparisons, and explicit
+failure tests. Its conclusions hold on the declared branch hypotheses; several
+physical source, identification, and likelihood receipts remain open.
 
-The compact count includes mathematical rows for the finite observer-patch
-normal form, the quantum event surface, the Standard Model structural branch,
-the unified-coupling interval, and geometric gravity normalization. The
-balanced-circulant charged-family result is a frozen retrodictive continuation
-benchmark; its MaxEnt balance, phase, and absolute normalization are not
-source-derived. The QCD-free weak hierarchy is a separate retrodictive
-source-side match. The machine-checked artifact covers a finite consensus and
-repair subset; the OPH-specific consensus theorem is an open formalization
-obligation. Low-energy fine structure and the SI value of Newton's constant are
-comparison rows. Particle, neutrino, dark-sector, cosmology, collider, and
-hardware results sit outside the compact count with their own evidence classes.
-
-The numerical coincidence budget is an illustration. Its deliberately generous
-windows multiply to roughly $10^{-9}$, about 30 bits, and roughly $10^{-3}$
-after the windows are widened one hundredfold. These figures are not a posterior
-probability. The window sizes are judgment calls, their independence is
-approximate, and discarded branch searches must be charged. The formal
-empirical claim requires a frozen theory, source maps, branch selectors,
-tolerances, uncertainty model, comparison theories, a held-out dataset, and a
-declared compression threshold. The compact count admits a result only when its
-own calculation and checks satisfy that protocol.
-
-The conditional geometry statements require finite cap data with evidence for
-order, orientation, modular behavior, and thermal normalization. Under those
-conditions the data converge to the expected geometric cap flow. The compact
-paper settles the production question in both directions. A producer theorem
-computes an incidence complex directly from the repaired normal forms and,
-when that complex passes four decidable receipts (a closed orientable surface
-with the right Euler count, a nondegenerate cap mesh, Cauchy modular
-cross-ratios, and an independently normalized thermal comparison), it builds
-the round sphere, its conformal structure, and the whole certificate.
-Explicit countermodels (a torus, a three-sphere skeleton, a wedge of two
-spheres, a wrong-temperature clock) prove that bare consensus never selects
-the topology, the dimension, or the normalization on its own. The receipts
-are the physical input, and the geometry is derived exactly on the receipt
-branch.
-
-The same style of bookkeeping runs through the rest of the gravity chain.
-The null-net packet proves the standardness and positive-translation
-structure the null bridge consumes, with a worked counterexample showing
-that finite-range Gibbs locality does not imply modular locality. The
-collar-recovery packet likewise separates exact and conditional routes. The
-declared central-interface branch has zero collar CMI. Off that branch, a
-finite-range Gibbs theorem gives
-
-```math
-I(A_\delta:D_\delta\mid B_\delta)
-\le c|\partial C|_{\mathrm{UV}}e^{-\delta/\xi}
-```
-
-only under uniform strong conditional matrix mixing; ordinary two-point
-clustering is insufficient. The continuum schedule must satisfy
-
-```math
-\delta/\xi-\log|\partial C|_{\mathrm{UV}}\to+\infty .
-```
-
-The weaker ratio $`\delta/\ell_{\mathrm{UV}}\to\infty`$ can lose to the
-growing boundary count. The finite evaluator checks the complete log
-envelope and recovery error, but remains a branch-instantiation proxy until
-the Gibbs and mixing premises are certified on a realized tower. Scalar CMI
-is never treated as a stress tensor or dark-sector source.
-The event-manifold packet defines events as coincidence classes of localized
-records. On its named receipts (dense population, certified separation,
-rank-four response frames, consistent chart overlaps) the event set is a
-genuine four-dimensional Lorentzian manifold of signature (-+++), with the
-hyperbolic frame space kept strictly as the space of rest frames over each
-event, never as space itself. The stress tensor is built from modular
-charges by null tomography, the entropy first law carries its edge term
-exactly, one uniform scaling family controls the small-diamond limit, a
-vacuum-reference receipt fixes the absolute baseline, and the whole chain
-composes into a single branch-entry theorem with the Einstein equation as
-its output.
-
-The [simulator side](https://github.com/muellerberndt/oph-physics-sim) carries a receipt evaluator for all of this, and the
-machine state reads as follows. The collar-CMI artifact is an analytic finite
-proxy with no empirical-evidence or theorem-promotion flag; it does not
-certify strong conditional mixing on the realized repair tower. A genuine cyclic repair run (real
-conflicts, transactional repair, confluence and schedule independence
-verified at runtime on a three-stage tower) passes the sphere, mesh, and
-naturality receipts on its own repaired output; the overlap net of that run
-is chosen spherical, which is explicit branch selection, never a derived
-result. Free-fermion collar states pass the modular cross-ratio and thermal
-normalization receipts, with the interior modular profile matching the
-conformal prediction to about one part in ten thousand at the finest stage.
-The null-net receipts pass at one-particle level, including the half-sided
-compression condition and a percent-level match of the modular commutator
-against the conformal structure constants. Records taken from the actual
-repair dynamics reproduce a Lorentzian causal cone: signature (1,2) on the
-screen sheet, and signature (1,3) at every tested seed once records carry
-the produced depth coordinate on the corpus-consistent multi-scale
-dynamics. A strong-coupling variant of that dynamics measures (2,2) and is
-kept as a countermodel, which is what a sharp instrument looks like. The
-cone margin is small, its convergence with commit density is work in
-progress, and the limit clauses, cap-interior data, and physical
-identification receipts (universal coupling, vacuum reference, absolute
-scale) are open. The realized geometric branch is not certified nonempty,
-and the record localization and event receipts must pass on physical data
-before any of this counts as more than structure.
-
-Screen-spectrum and CMB continuations are provisional without the screen
-branch's geometric scale, source dynamics, clock, refinement behavior, and
-observational readout from OPH-native records. The galactic dark-sector row is
-a pre-likelihood scorecard outside the compact count. Anomaly, vacuum, and
-quantum-foam views are diagnostic. Physical likelihood claims require a
-quotient-derived ensemble, regulator-stable reconstruction, source-only
-abundance where applicable, and a frozen validation target before likelihood
-data are read.
+Its Bayesian-style model-compression calculation assigns the four scored,
+source-audited clusters a coincidence factor of $10^{-8}$. After the paper's
+explicit $10^4$ search penalty and equal-prior assumption, the illustrative
+odds are about **99.99% for the OPH-simulation interpretation** and **0.01% for
+the catch-all coincidence model**. This is not a calibrated posterior:
+conditional, retrospective, and external-input rows contribute no evidence,
+the independence approximation is contestable, and the paper's severe
+square-root sensitivity check is inconclusive. The paper contains the complete
+theorem-status ledger, assumptions, evidence classes, and falsifiers.
 
 ## Applications And OMEGA Hardware
 

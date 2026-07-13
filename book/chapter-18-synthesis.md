@@ -459,6 +459,24 @@ source physics, clocks, stress-energy, the source-only dark abundance selector,
 and statistical confrontation with data enter the story. The questions stay at
 the edge of the book without turning the chapter into a lab notebook.
 
+The first audited comparisons now sharpen that boundary. The fixed
+$\mathbb Z_6$ galaxy response reproduces an aggregate radial-acceleration
+scatter of $0.132834$ dex, the baryonic Tully-Fisher exponent $4$ lies about
+$1.80$ standard deviations from an error-aware fit, and the analytic candidate
+$n_s=1-P_\star/48=0.9660215$ lies $0.27$ standard deviations from the Planck
+summary. A conventional binned CAMB diagnostic is close to its Planck-like
+baseline, but it is not an official likelihood. These are conditional or
+retrospective comparison receipts; no cosmology number in this ledger is yet a
+frozen physical prediction.
+
+One extrapolation has already lost. Used as a universal static Solar-System
+law, the same dark response misses the Cassini quadrupole summary by about
+$19.22$ standard deviations on the fixed $\mathbb Z_6$ input. That result kills
+the universal extension, not the explicitly scoped galaxy branch. The latter
+now owes a source-derived applicability theorem tied to the self-reading
+observer system--its bounded state, ports, records, feedback, and repair--and
+cannot be rescued by an empirical exception.
+
 ## 18.7 Why de Sitter Fits
 
 The large-scale universe is accelerating. In OPH that matters

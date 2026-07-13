@@ -171,7 +171,7 @@ The companion papers carry the full theorems and executable receipts.}
 \end{center}
 \vspace{-0.42em}
 
-\infobox{Sixteen quantitative comparisons}{
+\infobox{Eighteen quantitative comparisons}{
 Source endpoints and declared conditional comparisons, side by side with
 measurement. Evidence classes are tagged per row and stated in full in
 Sections 3 and 5.\par
@@ -195,9 +195,11 @@ Sections 3 and 5.\par
 \(\Lambda_{\rm QCD}^{(3)}\) & \(334.8\) MeV & \(338(12)\) MeV & \(-0.9\%\)\,(e)\\
 \(m_N\) & \(929\) MeV & \(938.9\) MeV & \(-1.0\%\)\,(e)\\
 \(G_{\rm SI}\) & \(6.6742999959\times10^{-11}\) & \(6.67430(15)\times10^{-11}\) & \(2.7\times10^{-5}\sigma\)\,(e)\\
-EW-refined capacity & \(3.532\times10^{122}\) & \(3.31\times10^{122}\) & \(2.1\times10^{-4}\) depth\,(e)\\
+EW-refined capacity & \(3.532\times10^{122}\) & \(3.307\times10^{122}\) & \(+6.8\%\) capacity\,(e)[S12]\\
 GST Cabibbo angle & \(0.2086\) & \(0.2251\) & \(-7.3\%\)\,(e)\\
-SPARC galaxies & \(\chi^2/\mathrm{pt}=1.017\) & reference \(1.023\) & matched\,(e)\\
+Fixed \(\mathbb Z_6\) RAR & \(0.132834\) dex RMS & best-scale \(0.132947\) & \(-1.13\times10^{-4}\) dex\,(e)[S13]\\
+BTFR slope & \(4\) & \(3.8457(858)\) & \(+1.80\sigma\)\,(e)[S14]\\
+Scalar tilt \(n_s\) & \(0.9660215\) & \(0.9649(42)\) & \(+0.27\sigma\)\,(h)[S12]\\
 \(\Delta\alpha_{\rm had}^{(5)}(M_Z^2)\) & \(0.02676(75)\) & \(0.02761(11)\) & \(1.1\sigma\)\,(f)\\
 \(\alpha_{\rm root}^{-1}\) (undressed) & \(136.99484\) & \(137.03600\) & \(3.0\times10^{-4}\)\,(g)\\
 \bottomrule
@@ -207,7 +209,8 @@ SPARC galaxies & \(\chi^2/\mathrm{pt}=1.017\) & reference \(1.023\) & matched\,(
 branch, determined top; (c) compare-only balanced-carrier postdiction; (d) certified
 empirical-closure interval; (e) conditional or external-input branch;
 (f) declared-empirical compilation; (g) source-audit branch witness, strict
-certificate is work in progress.}
+certificate is work in progress; (h) conditional analytic screen branch, with
+source, radial-lift, and official-likelihood gates unproved.}
 
 \sect{1. The observer-patch fixed point}
 The mathematical object is a finite patch system. Patches expose ports, write
@@ -421,9 +424,12 @@ The selected endpoint fixes the horizon normalization through
 Thus the local loop records the candidate pair \((P_{\rm src},\alpha_{\rm root})\), while the
 global loop gives the paired symbolic capacity and horizon readout
 \((N_\star,\Lambda_\star)\) [O1,O4]. The electroweak-refined capacity bridge
-returns \(N_{\rm CRC}^{\rm EW}=3.5324\times10^{122}\), whose logarithmic
-depth sits \(2.1\times10^{-4}\) from the rounded \(3.31\times10^{122}\)
-de Sitter scale [C3].
+returns \(N_{\rm CRC}^{\rm EW}=3.5324\times10^{122}\).  A Planck-parameter
+de Sitter comparison is approximately \(3.307\times10^{122}\), a raw linear
+capacity gap of about \(6.8\%\) [C3].  The much smaller
+\(2.1\times10^{-4}\) logarithmic-depth separation is a useful coordinate
+diagnostic, not the observational fractional residual; a physical claim must
+propagate the cosmological posterior and the endpoint-selection provenance.
 
 \vspace{0.14em}
 {\bfseries\color{pragmaCyanText}The compact-gauge branch}\par
@@ -597,7 +603,10 @@ Fourier diagonalization gives
 The finite OPH response uses
 \(\mathcal V_K=\mathbf1\oplus\chi\oplus\bar\chi\), a two-state orientation
 record, and the connected algebra
-\(B(\mathcal V_K\otimes\mathbb C^2)\simeq M_6(\mathbb C)\). The event
+\(B(\mathcal V_K\otimes\mathbb C^2)\simeq M_6(\mathbb C)\). A one-state
+record cannot distinguish an orientation from its reverse, so the two-state
+record is minimal. Its MaxEnt weights give the singlet action \(S_0=0\) and
+the selected charged-orientation action \(S_c=\ln2\). The event
 \[
  E_+=P_0\otimes I_2+P_c\otimes q_+
 \]
@@ -608,13 +617,25 @@ amplitude has \(a=\sqrt{p_0}\) and \(\rho=\sqrt{p_c/2}\). Consequently
 \[
  \frac{\rho}{a}=\frac1{\sqrt2},\qquad Q=\frac23.
 \]
-This proves \(Q=2/3\) for the stated finite packet. An unconditional OPH
-derivation requires proofs that Minimal Admissible Realization selects this
-packet, that OPH supplies a chiral regular-\(C_3\) charged-lepton carrier, and
-that trace-preserving recoverable maps with a left inverse attach the two
-records to its GNS vector \(C=(Y_e^\dagger Y_e)^{1/4}\). Record intertwining
-then makes the attachment an \(L^2\) isometry by Kadison--Schwarz. The physical
-carrier, attachment, positivity, and mass-scheme descent are work in progress
+This proves \(Q=2/3\) for the finite source packet. Let
+\(M_F=X_F^2\) be its positive source mass response. At finite cutoff, suppose
+an accepted physical charged sector supplies three left and three right family
+modes, positive kinetic metrics, a committed neutral Higgs direction, and
+faithful trace-preserving u.c.p. checkpoint maps \(\Phi,\Psi\) with
+\(\Psi\Phi=\mathrm{id}\). If they preserve chirality, the regular \(C_3\)
+record, the public records, and refinement, reversible-checkpoint rigidity
+forces \(\Phi=\operatorname{Ad}_{J_L\oplus J_E}\). It follows that
+\[
+ \widehat Y_e=\frac{\sqrt2}{v}J_LM_FJ_E^\dagger,
+ \qquad
+ \mathcal M_L=J_LM_FJ_L^\dagger.
+\]
+The square-root response and its block powers are preserved, so the finite
+source balance gives physical source-scale \(Q=2/3\). An unconditional OPH
+derivation requires a MAR selection theorem for this accepted chiral sector,
+its regular \(C_3\) action, the checkpoint maps, positivity, and mass-scheme
+descent. Photon-dressed thresholds and resonance poles require a separate
+all-orders QFT continuation. These conditions are work in progress
 [O4,O5,C10]. The phase is independent of Koide. Setting \(\delta=2/9\) as a
 separate continuation input
 gives \(m_\mu/m_e=206.770315972729\ldots\) and
@@ -829,7 +850,12 @@ kernel of the local null readout. & Symbolic closure theorem & 1,4\\
 Dark-matter phenomenology &
 Repair-stress bookkeeping gives the galaxy continuation
 \(\nu_{\rm OPH}(x)=[1-e^{-\lambda_{\rm collar}\sqrt x}]^{-1}\) and the deep
-limit \(v^4=GM_ba_{\rm eff}\). & Conditional continuation & 7\\
+limit \(v^4=GM_ba_{\rm eff}\).  The fixed conditional \(\mathbb Z_6\) branch
+matches the aggregate RAR scatter at \(0.132834\) dex and its BTFR slope \(4\)
+is \(1.80\sigma\) from the error-aware public-table fit.  Universal
+Solar-System application is excluded by the Cassini quadrupole, so the
+settled-galaxy branch needs a source-derived applicability theorem. &
+Conditional continuation with audited public-data checks & 7\\
 
 Yang--Mills gap &
 On the controlled compact-gauge continuum branch, the transfer/repair theorem
@@ -891,6 +917,12 @@ lattice, or a stable fractional-charge color singlet.\\
 Extra light Higgs multiplets or a light superpartner spectrum & Either
 discovery; the MAR-selected package carries one doublet and no superpartner
 spectrum.\\
+Universal static dark-response extension & The displayed galaxy equation,
+applied without a source-derived applicability or screening reduction to the
+Milky-Way--Sun system, predicts a Cassini quadrupole about \(19.22\sigma\) from
+the published summary on the conditional \(\mathbb Z_6\) branch.  That
+universal extension is excluded; the explicitly scoped old-settled-galaxy
+branch is conditional.\\
 Three-loop matching packet & The frozen four-candidate boundary-scale registry
 either converges onto one candidate or the family is eliminated; the registry
 predates the computation.\\
@@ -1036,6 +1068,17 @@ charged leptons, \(\alpha(M_Z^2)\), and an update of the hadronic
 contributions.'' \href{https://arxiv.org/abs/1911.00367}{Phys. Rev. D 101, 014029}.}
 \refentry{[S11]}{Particle Data Group (2026). ``Quarks.''
 \href{https://pdg.lbl.gov/2026/tables/rpp2026-sum-quarks.pdf}{Review of Particle Physics summary table}.}
+\refentry{[S12]}{Planck Collaboration (2020). ``Planck 2018 results. VI.
+Cosmological parameters.'' \href{https://arxiv.org/abs/1807.06209}{Astron. Astrophys. 641, A6}.}
+\refentry{[S13]}{McGaugh, S. S., F. Lelli, and J. M. Schombert (2016).
+``The Radial Acceleration Relation in Rotationally Supported Galaxies.''
+\href{https://arxiv.org/abs/1609.05917}{Phys. Rev. Lett. 117, 201101}.}
+\refentry{[S14]}{Lelli, F., S. S. McGaugh, and J. M. Schombert (2019).
+``The Small Scatter of the Baryonic Tully--Fisher Relation.''
+\href{https://arxiv.org/abs/1901.05966}{Mon. Not. R. Astron. Soc. 484, 3267--3278}.}
+\refentry{[S15]}{Park, R. S., et al. (2026). ``Cassini spacecraft navigation
+data constrain modified gravity in the Solar System.''
+\href{https://arxiv.org/abs/2602.17884}{arXiv:2602.17884}.}
 
 \textbf{OPH papers}
 All OPH series papers below use release \texttt{\OPHPaperReleaseID}.

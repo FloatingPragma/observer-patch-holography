@@ -59,7 +59,13 @@ This paper develops that conditional idea as a dark-sector continuation. In
 old, settled, low-acceleration galaxies the declared response ansatz gives a
 MOND-like galaxy law and the baryonic Tully-Fisher scaling. In clusters and
 cosmology the candidate source has to move as transported stress, with its own
-relaxation, lensing, growth, and likelihood tests.
+relaxation, lensing, growth, and likelihood tests.  The first audited public
+comparisons find the fixed conditional \(\mathbb Z_6\) scale essentially on the
+aggregate RAR optimum and the slope-four BTFR limit compatible with the
+error-aware public fit, while the fixed BTFR normalization remains under
+systematic-sensitive pressure.  Universal Solar-System extrapolation of the
+same static equation is strongly excluded by Cassini, making a source-derived
+applicability theorem an explicit requirement of the settled-galaxy branch.
 \end{abstract}
 
 \section*{What This Paper Contributes}
@@ -2211,6 +2217,79 @@ The systematic scaffold mildly favors the unit branch.  The \(\Zsix\)/Poisson
 branch remains the better acceleration-scale and fixed-M/L RAR match.  The
 fixed-M/L improvement alone is weak evidence for the \(\Zsix\) bridge theorem.
 
+\subsection{Audited Fixed-Branch RAR And BTFR Results}
+
+The aggregate RAR calculation above is now also evaluated explicitly as a
+fixed-branch test.  Without refitting either OPH branch to the 2,693 public RAR
+rows from 153 galaxies, the conditional \(\Zsix\) scale gives
+\(0.1328335\) dex RMS, while the unit endpoint gives \(0.1342082\) dex.  The
+effective scale that minimizes the same table's diagonal chi-square proxy has
+RMS \(0.1329467\) dex.  The near equality is an encouraging retrospective
+check of the fixed formula and scale.  It is not a blind prediction:
+\(\aoph\) is a capacity/cosmology benchmark, exact
+\(\lambdac=e^{-P/24}\) is conditional, and the aggregate rows share distance,
+inclination, and stellar-population systematics.  A full nuisance-aware SPARC
+analysis independently reports
+\[
+a_0=(1.19\pm0.04_{\rm stat}\pm0.09_{\rm sys})\times10^{-10}
+\,\mathrm{m\,s^{-2}},
+\]
+placing the conditional \(\Zsix\) value near its central result
+\cite{desmond2023}.
+
+The BTFR audit corrects an earlier statistics error.  Unweighted ordinary
+least squares discarded the published errors in both \(M_b\) and \(V_f\), and
+the earlier \(0.9469\)-dex headline compared unequal-slope intercepts at
+\(V_f=1\,\mathrm{km\,s^{-1}}\), far outside the sample.  Orthogonal maximum
+likelihood with both-axis errors and intrinsic perpendicular scatter gives
+\[
+s_{\rm BTFR}=3.845654\pm0.085817,
+\]
+reproducing the published \(3.85\pm0.09\) result \cite{lelli2019}.  The OPH
+deep-limit slope \(4\) is \(1.80\sigma\) high and lies within the published
+systematic range \(3.5\)--\(4.0\).  At the declared
+\(100\,\mathrm{km\,s^{-1}}\) pivot, however, the fixed-slope fit gives
+\(\log_{10}(M_b/M_\odot)=9.670792\pm0.020827\), whereas the conditional
+\(\Zsix\) normalization predicts \(9.805555\).  The data-minus-model offset is
+therefore \(-0.134763\) dex, or \(-6.47\sigma\) using only the fit's statistical
+normalization error.  That pull does not yet marginalize a global stellar
+mass-to-light shift, distances, inclinations, sample selection, or whether
+every reported \(V_f\) has reached the asymptotic regime.  The 123-galaxy BTFR
+table is drawn from SPARC, so it is a separate observable on an overlapping
+sample rather than an independent galaxy population.
+
+These aggregate checks evaluate the algebraic RAR proxy.  They do not replace
+the conservative disk solve of the likelihood contract.  In non-spherical
+geometry \(\nabla\nu\times\mathbf g_b\) need not vanish, so a
+publication-grade OPH test must expose the curl-field residual pattern rather
+than assume the pointwise algebraic relation.
+
+\subsection{Cassini Applicability Stress}
+
+If the conservative settled-galaxy equation is extrapolated universally to a
+Solar source embedded in the measured Galactic external field, it predicts an
+external-field quadrupole.  The audited angular integral reproduces the
+published spherical benchmark and gives
+\[
+Q_2^{\Zsix}=3.62018\times10^{-26}\,\mathrm{s^{-2}},\qquad
+Q_2^{\lambda=1}=3.40219\times10^{-26}\,\mathrm{s^{-2}}.
+\]
+Against the Cassini summary
+\(Q_2=(1.6\pm1.8)\times10^{-27}\,\mathrm{s^{-2}}\), these are fixed-input
+residuals of \(19.22\sigma\) and \(18.01\sigma\), respectively
+\cite{park2026}.  Adding only the linearized Gaia uncertainty on the Galactic
+acceleration reduces the \(\Zsix\) pull to about \(10.71\sigma\), still
+strongly negative \cite{gaia2021}.  No sign, unit, angular-integration, or
+branch-mapping error has been found.
+
+This falsifies the natural universal/full-source extension of the displayed
+static equation.  It does not, by itself, falsify the recovered OPH core or
+the equation's declared old-settled-galaxy scope.  The branch now owes a
+quantitative source-derived applicability, coarse-graining, screening, or
+transport theorem that preserves the galaxy result while suppressing the
+Solar-System quadrupole.  A free switch introduced after reading Cassini would
+be a fitted continuation, not that theorem.
+
 \subsection{Empirical Implementation Scorecard}
 
 The executable empirical pass combines four diagnostic layers: public SPARC
@@ -3877,6 +3956,30 @@ S. S. McGaugh, F. Lelli, and J. M. Schombert,
 \emph{The Radial Acceleration Relation in Rotationally Supported Galaxies},
 Phys. Rev. Lett. 117, 201101, 2016, arXiv:1609.05917.
 \url{https://arxiv.org/abs/1609.05917}
+
+\bibitem{lelli2019}
+F. Lelli, S. S. McGaugh, and J. M. Schombert,
+\emph{The Small Scatter of the Baryonic Tully--Fisher Relation},
+Mon. Not. R. Astron. Soc. 484, 3267--3278, 2019, arXiv:1901.05966.
+\url{https://arxiv.org/abs/1901.05966}
+
+\bibitem{desmond2023}
+H. Desmond,
+\emph{The underlying radial acceleration relation},
+Mon. Not. R. Astron. Soc. 526, 3342--3356, 2023, arXiv:2303.11314.
+\url{https://arxiv.org/abs/2303.11314}
+
+\bibitem{park2026}
+R. S. Park et al.,
+\emph{Cassini spacecraft navigation data constrain modified gravity in the Solar System},
+2026, arXiv:2602.17884.
+\url{https://arxiv.org/abs/2602.17884}
+
+\bibitem{gaia2021}
+Gaia Collaboration,
+\emph{Gaia Early Data Release 3: Acceleration of the Solar System from Gaia astrometry},
+Astron. Astrophys. 649, A9, 2021, arXiv:2012.02036.
+\url{https://arxiv.org/abs/2012.02036}
 
 \bibitem{li2018}
 P. Li, F. Lelli, S. S. McGaugh, and J. M. Schombert,
