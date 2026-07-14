@@ -1,0 +1,1276 @@
+{
+  "artifact": "oph_capacity_readback_construction_comparison_2026-07-14",
+  "certified_fixed_point_range_nats": {
+    "hi": "1452.327150339163889",
+    "lo": "1.4685820938281311369"
+  },
+  "certified_rows": 102,
+  "landed_rows": 0,
+  "landing_criterion": "|log10(N_fp / N_ref)| < 1 for either reference",
+  "max_log10_shortfall_to_sl4_basin": "119.35776",
+  "protocol": "basin-then-contract stage 3; comparison executed after all branch fixed points were recorded",
+  "references_nats": {
+    "cl3_ew_bridge": "3.53e122",
+    "sl4_lambda_located": "3.31e122"
+  },
+  "rows": [
+    {
+      "branch": "capL.R1.Xp.K0.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R1.Xp.K0.S0",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R1.Xp.K0.Sp",
+      "fixed_point_nats": "39.80104743461687912734436",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.94788",
+      "log10_ratio_to_sl4_lambda_located": "-120.91993",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R1.Xp.K1.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R1.Xp.K1.S0",
+      "fixed_point_nats": "43.89628619810262392411665",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.90535",
+      "log10_ratio_to_sl4_lambda_located": "-120.8774",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R1.Xp.K1.Sp",
+      "fixed_point_nats": "74.869328647107890336104",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.67347",
+      "log10_ratio_to_sl4_lambda_located": "-120.64552",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R1.Xp.K2.Sm",
+      "fixed_point_nats": "49.60440435851317843234485",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.85225",
+      "log10_ratio_to_sl4_lambda_located": "-120.82431",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R1.Xp.K2.S0",
+      "fixed_point_nats": "83.5564405221801216891556",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.62579",
+      "log10_ratio_to_sl4_lambda_located": "-120.59785",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R1.Xp.K2.Sp",
+      "fixed_point_nats": "113.6610853399961404627742",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.49216",
+      "log10_ratio_to_sl4_lambda_located": "-120.46422",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R1.X0.K0.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R1.X0.K0.S0",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R1.X0.K0.Sp",
+      "fixed_point_nats": "24.56606737333260410898281",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.15744",
+      "log10_ratio_to_sl4_lambda_located": "-121.12949",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R1.X0.K1.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R1.X0.K1.S0",
+      "fixed_point_nats": "24.59892544200803282346106",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.15686",
+      "log10_ratio_to_sl4_lambda_located": "-121.12891",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R1.X0.K1.Sp",
+      "fixed_point_nats": "53.86799539540111748072234",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.81644",
+      "log10_ratio_to_sl4_lambda_located": "-120.7885",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R1.X0.K2.Sm",
+      "fixed_point_nats": "24.66300023285974303374908",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.15573",
+      "log10_ratio_to_sl4_lambda_located": "-121.12778",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R1.X0.K2.S0",
+      "fixed_point_nats": "59.87190639487128334448469",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.77055",
+      "log10_ratio_to_sl4_lambda_located": "-120.7426",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R1.X0.K2.Sp",
+      "fixed_point_nats": "89.22548568036290822458547",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.59729",
+      "log10_ratio_to_sl4_lambda_located": "-120.56934",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R1.Xm.K0.Sm",
+      "lands_in_either_basin": false,
+      "status": "fixed_point_unstable_rejected"
+    },
+    {
+      "branch": "capL.R1.Xm.K0.S0",
+      "fixed_point_nats": "2.18331450137949578545339",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-122.20866",
+      "log10_ratio_to_sl4_lambda_located": "-122.18071",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R1.Xm.K0.Sp",
+      "fixed_point_nats": "15.13312885958753437610504",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.36785",
+      "log10_ratio_to_sl4_lambda_located": "-121.3399",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R1.Xm.K1.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R1.Xm.K1.S0",
+      "fixed_point_nats": "12.25108819251395851575425",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.4596",
+      "log10_ratio_to_sl4_lambda_located": "-121.43165",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R1.Xm.K1.Sp",
+      "fixed_point_nats": "36.81715556584656262473706",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.98172",
+      "log10_ratio_to_sl4_lambda_located": "-120.95378",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R1.Xm.K2.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R1.Xm.K2.S0",
+      "fixed_point_nats": "39.72580256072223781266727",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.9487",
+      "log10_ratio_to_sl4_lambda_located": "-120.92076",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R1.Xm.K2.Sp",
+      "fixed_point_nats": "67.46995913723850871129916",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.71866",
+      "log10_ratio_to_sl4_lambda_located": "-120.69072",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R1.Xq.K0.Sm",
+      "lands_in_either_basin": false,
+      "status": "fixed_point_unstable_rejected"
+    },
+    {
+      "branch": "capL.R1.Xq.K0.S0",
+      "fixed_point_nats": "2.541885428059557865826256",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-122.14262",
+      "log10_ratio_to_sl4_lambda_located": "-122.11467",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R1.Xq.K0.Sp",
+      "fixed_point_nats": "10.30789949404936265250396",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.5346",
+      "log10_ratio_to_sl4_lambda_located": "-121.50666",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R1.Xq.K1.Sm",
+      "lands_in_either_basin": false,
+      "status": "fixed_point_unstable_rejected"
+    },
+    {
+      "branch": "capL.R1.Xq.K1.S0",
+      "fixed_point_nats": "7.240951655923127866699181",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.68798",
+      "log10_ratio_to_sl4_lambda_located": "-121.66003",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R1.Xq.K1.Sp",
+      "fixed_point_nats": "24.49477572608630387971385",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.1587",
+      "log10_ratio_to_sl4_lambda_located": "-121.13075",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R1.Xq.K2.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R1.Xq.K2.S0",
+      "fixed_point_nats": "24.50217638502791703150849",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.15857",
+      "log10_ratio_to_sl4_lambda_located": "-121.13062",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R1.Xq.K2.Sp",
+      "fixed_point_nats": "49.06824375836052114049131",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.85697",
+      "log10_ratio_to_sl4_lambda_located": "-120.82903",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R2.Xp.K0.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R2.Xp.K0.S0",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R2.Xp.K0.Sp",
+      "fixed_point_nats": "38.19401779271267582725358",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.96578",
+      "log10_ratio_to_sl4_lambda_located": "-120.93783",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R2.Xp.K1.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R2.Xp.K1.S0",
+      "fixed_point_nats": "41.82800574144661783844448",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.92631",
+      "log10_ratio_to_sl4_lambda_located": "-120.89836",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R2.Xp.K1.Sp",
+      "fixed_point_nats": "71.81250658051747296093422",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.69157",
+      "log10_ratio_to_sl4_lambda_located": "-120.66363",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R2.Xp.K2.Sm",
+      "fixed_point_nats": "46.93927233151296551003161",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.87624",
+      "log10_ratio_to_sl4_lambda_located": "-120.84829",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R2.Xp.K2.S0",
+      "fixed_point_nats": "79.90800555155003724570152",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.64518",
+      "log10_ratio_to_sl4_lambda_located": "-120.61724",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R2.Xp.K2.Sp",
+      "fixed_point_nats": "109.0308598993224869947123",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.51023",
+      "log10_ratio_to_sl4_lambda_located": "-120.48228",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R2.X0.K0.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R2.X0.K0.S0",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R2.X0.K0.Sp",
+      "fixed_point_nats": "23.72155718219853929432833",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.17263",
+      "log10_ratio_to_sl4_lambda_located": "-121.14468",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R2.X0.K1.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R2.X0.K1.S0",
+      "fixed_point_nats": "23.48473320135640213848373",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.17699",
+      "log10_ratio_to_sl4_lambda_located": "-121.14904",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R2.X0.K1.Sp",
+      "fixed_point_nats": "51.78802668688338373699047",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.83355",
+      "log10_ratio_to_sl4_lambda_located": "-120.8056",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R2.X0.K2.Sm",
+      "fixed_point_nats": "23.0125658663999795687297",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.18581",
+      "log10_ratio_to_sl4_lambda_located": "-121.15786",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R2.X0.K2.S0",
+      "fixed_point_nats": "57.30616115499113264138633",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.78957",
+      "log10_ratio_to_sl4_lambda_located": "-120.76163",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R2.X0.K2.Sp",
+      "fixed_point_nats": "85.68963433002979679324502",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.61485",
+      "log10_ratio_to_sl4_lambda_located": "-120.5869",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R2.Xm.K0.Sm",
+      "lands_in_either_basin": false,
+      "status": "fixed_point_unstable_rejected"
+    },
+    {
+      "branch": "capL.R2.Xm.K0.S0",
+      "fixed_point_nats": "2.162841863373410902374435",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-122.21275",
+      "log10_ratio_to_sl4_lambda_located": "-122.1848",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R2.Xm.K0.Sp",
+      "fixed_point_nats": "14.75823290091435776565418",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.37874",
+      "log10_ratio_to_sl4_lambda_located": "-121.35079",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R2.Xm.K1.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R2.Xm.K1.S0",
+      "fixed_point_nats": "11.82993129044132943943917",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.47479",
+      "log10_ratio_to_sl4_lambda_located": "-121.44685",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R2.Xm.K1.Sp",
+      "fixed_point_nats": "35.5514884726398687337675",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.99692",
+      "log10_ratio_to_sl4_lambda_located": "-120.96897",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R2.Xm.K2.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R2.Xm.K2.S0",
+      "fixed_point_nats": "38.12127871510936920895494",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.96661",
+      "log10_ratio_to_sl4_lambda_located": "-120.93866",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R2.Xm.K2.Sp",
+      "fixed_point_nats": "64.92804149896902407327642",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.73534",
+      "log10_ratio_to_sl4_lambda_located": "-120.7074",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R2.Xq.K0.Sm",
+      "lands_in_either_basin": false,
+      "status": "fixed_point_unstable_rejected"
+    },
+    {
+      "branch": "capL.R2.Xq.K0.S0",
+      "fixed_point_nats": "2.526205032755102520858121",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-122.14531",
+      "log10_ratio_to_sl4_lambda_located": "-122.11736",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R2.Xq.K0.Sp",
+      "fixed_point_nats": "10.14179199050544751772038",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.54166",
+      "log10_ratio_to_sl4_lambda_located": "-121.51371",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R2.Xq.K1.Sm",
+      "lands_in_either_basin": false,
+      "status": "fixed_point_unstable_rejected"
+    },
+    {
+      "branch": "capL.R2.Xq.K1.S0",
+      "fixed_point_nats": "7.103260870113696022203263",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.69632",
+      "log10_ratio_to_sl4_lambda_located": "-121.66837",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R2.Xq.K1.Sp",
+      "fixed_point_nats": "23.81562462566059089556549",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.17091",
+      "log10_ratio_to_sl4_lambda_located": "-121.14297",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R2.Xq.K2.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R2.Xq.K2.S0",
+      "fixed_point_nats": "23.65986258088265887887834",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.17376",
+      "log10_ratio_to_sl4_lambda_located": "-121.14582",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R2.Xq.K2.Sp",
+      "fixed_point_nats": "47.38141976308119817320668",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.87217",
+      "log10_ratio_to_sl4_lambda_located": "-120.84422",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R3.Xp.K0.Sm",
+      "lands_in_either_basin": false,
+      "status": "rejected_no_contraction"
+    },
+    {
+      "branch": "capL.R3.Xp.K0.S0",
+      "lands_in_either_basin": false,
+      "status": "rejected_no_contraction"
+    },
+    {
+      "branch": "capL.R3.Xp.K0.Sp",
+      "lands_in_either_basin": false,
+      "status": "rejected_no_contraction"
+    },
+    {
+      "branch": "capL.R3.Xp.K1.Sm",
+      "lands_in_either_basin": false,
+      "status": "rejected_no_contraction"
+    },
+    {
+      "branch": "capL.R3.Xp.K1.S0",
+      "lands_in_either_basin": false,
+      "status": "rejected_no_contraction"
+    },
+    {
+      "branch": "capL.R3.Xp.K1.Sp",
+      "lands_in_either_basin": false,
+      "status": "rejected_no_contraction"
+    },
+    {
+      "branch": "capL.R3.Xp.K2.Sm",
+      "lands_in_either_basin": false,
+      "status": "rejected_no_contraction"
+    },
+    {
+      "branch": "capL.R3.Xp.K2.S0",
+      "lands_in_either_basin": false,
+      "status": "rejected_no_contraction"
+    },
+    {
+      "branch": "capL.R3.Xp.K2.Sp",
+      "lands_in_either_basin": false,
+      "status": "rejected_no_contraction"
+    },
+    {
+      "branch": "capL.R3.X0.K0.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R3.X0.K0.S0",
+      "lands_in_either_basin": false,
+      "status": "rejected_trivial"
+    },
+    {
+      "branch": "capL.R3.X0.K0.Sp",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R3.X0.K1.Sm",
+      "lands_in_either_basin": false,
+      "status": "rejected_no_contraction"
+    },
+    {
+      "branch": "capL.R3.X0.K1.S0",
+      "lands_in_either_basin": false,
+      "status": "rejected_no_contraction"
+    },
+    {
+      "branch": "capL.R3.X0.K1.Sp",
+      "lands_in_either_basin": false,
+      "status": "rejected_no_contraction"
+    },
+    {
+      "branch": "capL.R3.X0.K2.Sm",
+      "lands_in_either_basin": false,
+      "status": "rejected_no_contraction"
+    },
+    {
+      "branch": "capL.R3.X0.K2.S0",
+      "lands_in_either_basin": false,
+      "status": "rejected_no_contraction"
+    },
+    {
+      "branch": "capL.R3.X0.K2.Sp",
+      "lands_in_either_basin": false,
+      "status": "rejected_no_contraction"
+    },
+    {
+      "branch": "capL.R3.Xm.K0.Sm",
+      "lands_in_either_basin": false,
+      "status": "fixed_point_unstable_rejected"
+    },
+    {
+      "branch": "capL.R3.Xm.K0.S0",
+      "fixed_point_nats": "3.141592653589793238462643",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-122.05062",
+      "log10_ratio_to_sl4_lambda_located": "-122.02268",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R3.Xm.K0.Sp",
+      "fixed_point_nats": "188.4955592153875943077586",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-120.27247",
+      "log10_ratio_to_sl4_lambda_located": "-120.24453",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R3.Xm.K1.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R3.Xm.K1.S0",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R3.Xm.K1.Sp",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R3.Xm.K2.Sm",
+      "lands_in_either_basin": false,
+      "status": "rejected_no_contraction"
+    },
+    {
+      "branch": "capL.R3.Xm.K2.S0",
+      "lands_in_either_basin": false,
+      "status": "rejected_no_contraction"
+    },
+    {
+      "branch": "capL.R3.Xm.K2.Sp",
+      "lands_in_either_basin": false,
+      "status": "rejected_no_contraction"
+    },
+    {
+      "branch": "capL.R3.Xq.K0.Sm",
+      "lands_in_either_basin": false,
+      "status": "fixed_point_unstable_rejected"
+    },
+    {
+      "branch": "capL.R3.Xq.K0.S0",
+      "fixed_point_nats": "3.141592653589793238462643",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-122.05062",
+      "log10_ratio_to_sl4_lambda_located": "-122.02268",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R3.Xq.K0.Sp",
+      "fixed_point_nats": "24.33467205584167138171776",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.16155",
+      "log10_ratio_to_sl4_lambda_located": "-121.1336",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R3.Xq.K1.Sm",
+      "lands_in_either_basin": false,
+      "status": "fixed_point_unstable_rejected"
+    },
+    {
+      "branch": "capL.R3.Xq.K1.S0",
+      "fixed_point_nats": "24.20545250565273148342474",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.16386",
+      "log10_ratio_to_sl4_lambda_located": "-121.13591",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R3.Xq.K1.Sp",
+      "fixed_point_nats": "1452.327150339163889005485",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-119.38571",
+      "log10_ratio_to_sl4_lambda_located": "-119.35776",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R3.Xq.K2.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R3.Xq.K2.S0",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R3.Xq.K2.Sp",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R4.Xp.K0.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R4.Xp.K0.S0",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R4.Xp.K0.Sp",
+      "fixed_point_nats": "10.62579921768441361049811",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.52141",
+      "log10_ratio_to_sl4_lambda_located": "-121.49347",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R4.Xp.K1.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R4.Xp.K1.S0",
+      "fixed_point_nats": "7.636571509290155880682491",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.66488",
+      "log10_ratio_to_sl4_lambda_located": "-121.63693",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R4.Xp.K1.Sp",
+      "fixed_point_nats": "19.59445137801704836618611",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.25564",
+      "log10_ratio_to_sl4_lambda_located": "-121.22769",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R4.Xp.K2.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R4.Xp.K2.S0",
+      "fixed_point_nats": "18.94976060360820922729422",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.27017",
+      "log10_ratio_to_sl4_lambda_located": "-121.24222",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R4.Xp.K2.Sp",
+      "fixed_point_nats": "29.86853556142942816417673",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.07256",
+      "log10_ratio_to_sl4_lambda_located": "-121.04461",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R4.X0.K0.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R4.X0.K0.S0",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R4.X0.K0.Sp",
+      "fixed_point_nats": "8.188689124444201369660938",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.63456",
+      "log10_ratio_to_sl4_lambda_located": "-121.60661",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R4.X0.K1.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R4.X0.K1.S0",
+      "fixed_point_nats": "5.021821874687361110967782",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.84691",
+      "log10_ratio_to_sl4_lambda_located": "-121.81897",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R4.X0.K1.Sp",
+      "fixed_point_nats": "15.45935392072932094763393",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.35858",
+      "log10_ratio_to_sl4_lambda_located": "-121.33064",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R4.X0.K2.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R4.X0.K2.S0",
+      "fixed_point_nats": "14.2020052676089034216049",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.39543",
+      "log10_ratio_to_sl4_lambda_located": "-121.36748",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R4.X0.K2.Sp",
+      "fixed_point_nats": "24.58584523012747665199422",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.15709",
+      "log10_ratio_to_sl4_lambda_located": "-121.12914",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R4.Xm.K0.Sm",
+      "lands_in_either_basin": false,
+      "status": "fixed_point_unstable_rejected"
+    },
+    {
+      "branch": "capL.R4.Xm.K0.S0",
+      "fixed_point_nats": "1.490814517896102421509743",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-122.37435",
+      "log10_ratio_to_sl4_lambda_located": "-122.3464",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R4.Xm.K0.Sp",
+      "fixed_point_nats": "6.67993298539848717433158",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.723",
+      "log10_ratio_to_sl4_lambda_located": "-121.69506",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R4.Xm.K1.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R4.Xm.K1.S0",
+      "fixed_point_nats": "4.083696064171319505251416",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.93672",
+      "log10_ratio_to_sl4_lambda_located": "-121.90877",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R4.Xm.K1.Sp",
+      "fixed_point_nats": "12.27238518861552087491235",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.45885",
+      "log10_ratio_to_sl4_lambda_located": "-121.4309",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R4.Xm.K2.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R4.Xm.K2.S0",
+      "fixed_point_nats": "10.59955671925449974497637",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.52249",
+      "log10_ratio_to_sl4_lambda_located": "-121.49454",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R4.Xm.K2.Sp",
+      "fixed_point_nats": "20.06452848968668239528625",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.24535",
+      "log10_ratio_to_sl4_lambda_located": "-121.2174",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R4.Xq.K0.Sm",
+      "lands_in_either_basin": false,
+      "status": "fixed_point_unstable_rejected"
+    },
+    {
+      "branch": "capL.R4.Xq.K0.S0",
+      "fixed_point_nats": "1.936138154657367308387486",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-122.26084",
+      "log10_ratio_to_sl4_lambda_located": "-122.23289",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R4.Xq.K0.Sp",
+      "fixed_point_nats": "5.762277490784398003597077",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.78718",
+      "log10_ratio_to_sl4_lambda_located": "-121.75923",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R4.Xq.K1.Sm",
+      "lands_in_either_basin": false,
+      "status": "fixed_point_unstable_rejected"
+    },
+    {
+      "branch": "capL.R4.Xq.K1.S0",
+      "fixed_point_nats": "3.736732632197082370028792",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.97528",
+      "log10_ratio_to_sl4_lambda_located": "-121.94734",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R4.Xq.K1.Sp",
+      "fixed_point_nats": "9.963906527621437889877563",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.54935",
+      "log10_ratio_to_sl4_lambda_located": "-121.5214",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R4.Xq.K2.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R4.Xq.K2.S0",
+      "fixed_point_nats": "8.167392128342639010502831",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.63569",
+      "log10_ratio_to_sl4_lambda_located": "-121.60774",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R4.Xq.K2.Sp",
+      "fixed_point_nats": "16.35608125278684038016377",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.3341",
+      "log10_ratio_to_sl4_lambda_located": "-121.30615",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R5.Xp.K0.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R5.Xp.K0.S0",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R5.Xp.K0.Sp",
+      "fixed_point_nats": "10.17721325062582293922922",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.54015",
+      "log10_ratio_to_sl4_lambda_located": "-121.5122",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R5.Xp.K1.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R5.Xp.K1.S0",
+      "fixed_point_nats": "7.083860290774176387137611",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.6975",
+      "log10_ratio_to_sl4_lambda_located": "-121.66956",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R5.Xp.K1.Sp",
+      "fixed_point_nats": "18.75087886729241650814608",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.27475",
+      "log10_ratio_to_sl4_lambda_located": "-121.24681",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R5.Xp.K2.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R5.Xp.K2.S0",
+      "fixed_point_nats": "18.00060673493428469728286",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.29249",
+      "log10_ratio_to_sl4_lambda_located": "-121.26454",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R5.Xp.K2.Sp",
+      "fixed_point_nats": "28.58783530795595107204818",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.09159",
+      "log10_ratio_to_sl4_lambda_located": "-121.06365",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R5.X0.K0.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R5.X0.K0.S0",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R5.X0.K0.Sp",
+      "fixed_point_nats": "7.907185727399513098109445",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.64975",
+      "log10_ratio_to_sl4_lambda_located": "-121.62181",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R5.X0.K1.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R5.X0.K1.S0",
+      "fixed_point_nats": "4.73602599770743319899347",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.87236",
+      "log10_ratio_to_sl4_lambda_located": "-121.84441",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R5.X0.K1.Sp",
+      "fixed_point_nats": "14.85027849490486959252191",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.37604",
+      "log10_ratio_to_sl4_lambda_located": "-121.34809",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R5.X0.K2.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R5.X0.K2.S0",
+      "fixed_point_nats": "13.52517423662655661785455",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.41663",
+      "log10_ratio_to_sl4_lambda_located": "-121.38869",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R5.X0.K2.Sp",
+      "fixed_point_nats": "23.57917625803079450848085",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.17525",
+      "log10_ratio_to_sl4_lambda_located": "-121.1473",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R5.Xm.K0.Sm",
+      "lands_in_either_basin": false,
+      "status": "fixed_point_unstable_rejected"
+    },
+    {
+      "branch": "capL.R5.Xm.K0.S0",
+      "fixed_point_nats": "1.468582093828131136933134",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-122.38088",
+      "log10_ratio_to_sl4_lambda_located": "-122.35293",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R5.Xm.K0.Sp",
+      "fixed_point_nats": "6.50233637457336580520504",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.73471",
+      "log10_ratio_to_sl4_lambda_located": "-121.70676",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R5.Xm.K1.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R5.Xm.K1.S0",
+      "fixed_point_nats": "3.94331043014710981314639",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.95191",
+      "log10_ratio_to_sl4_lambda_located": "-121.92397",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R5.Xm.K1.Sp",
+      "fixed_point_nats": "11.85049615754662291125583",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.47404",
+      "log10_ratio_to_sl4_lambda_located": "-121.44609",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R5.Xm.K2.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R5.Xm.K2.S0",
+      "fixed_point_nats": "10.1518245621644158888612",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.54123",
+      "log10_ratio_to_sl4_lambda_located": "-121.51328",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R5.Xm.K2.Sp",
+      "fixed_point_nats": "19.29971368163343108027864",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.26222",
+      "log10_ratio_to_sl4_lambda_located": "-121.23428",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R5.Xq.K0.Sm",
+      "lands_in_either_basin": false,
+      "status": "fixed_point_unstable_rejected"
+    },
+    {
+      "branch": "capL.R5.Xq.K0.S0",
+      "fixed_point_nats": "1.913999403361233145514891",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-122.26583",
+      "log10_ratio_to_sl4_lambda_located": "-122.23789",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R5.Xq.K0.Sp",
+      "fixed_point_nats": "5.644174692703652894507162",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.79617",
+      "log10_ratio_to_sl4_lambda_located": "-121.76823",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R5.Xq.K1.Sm",
+      "lands_in_either_basin": false,
+      "status": "fixed_point_unstable_rejected"
+    },
+    {
+      "branch": "capL.R5.Xq.K1.S0",
+      "fixed_point_nats": "3.652373421163022363392556",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.9852",
+      "log10_ratio_to_sl4_lambda_located": "-121.95725",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R5.Xq.K1.Sp",
+      "fixed_point_nats": "9.677668619547644903667872",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.562",
+      "log10_ratio_to_sl4_lambda_located": "-121.53406",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R5.Xq.K2.Sm",
+      "lands_in_either_basin": false,
+      "status": "no_fixed_point"
+    },
+    {
+      "branch": "capL.R5.Xq.K2.S0",
+      "fixed_point_nats": "7.88662086029421962629278",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.65088",
+      "log10_ratio_to_sl4_lambda_located": "-121.62294",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capL.R5.Xq.K2.Sp",
+      "fixed_point_nats": "15.79380658769373272440223",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-121.34929",
+      "log10_ratio_to_sl4_lambda_located": "-121.32134",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capP.s_poisson_port",
+      "fixed_point_nats": "3.141592653589793238462643",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-122.05062",
+      "log10_ratio_to_sl4_lambda_located": "-122.02268",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capP.s_presence_port",
+      "fixed_point_nats": "3.141592653589793238462643",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-122.05062",
+      "log10_ratio_to_sl4_lambda_located": "-122.02268",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capP.s_poisson_pair",
+      "fixed_point_nats": "3.141592653589793238462643",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-122.05062",
+      "log10_ratio_to_sl4_lambda_located": "-122.02268",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capP.s_presence_pair",
+      "fixed_point_nats": "3.141592653589793238462643",
+      "lands_in_either_basin": false,
+      "log10_ratio_to_cl3_ew_bridge": "-122.05062",
+      "log10_ratio_to_sl4_lambda_located": "-122.02268",
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capP.add_slot",
+      "lands_in_either_basin": false,
+      "status": "no_positive_fixed_point"
+    },
+    {
+      "branch": "capP.add_port",
+      "lands_in_either_basin": false,
+      "status": "no_positive_fixed_point"
+    },
+    {
+      "branch": "capK.s_poisson",
+      "lands_in_either_basin": false,
+      "status": "no_positive_fixed_point"
+    },
+    {
+      "branch": "capK.s_presence",
+      "lands_in_either_basin": false,
+      "status": "no_positive_fixed_point"
+    },
+    {
+      "branch": "capK.s_nat_share",
+      "lands_in_either_basin": false,
+      "status": "no_positive_fixed_point"
+    },
+    {
+      "branch": "capK.s_edge_share",
+      "lands_in_either_basin": false,
+      "status": "no_positive_fixed_point"
+    }
+  ],
+  "total_rows": 190,
+  "verdict": "no branch lands: every certified fixed point sits at O(1)-O(10^3) nats against reference capacities of O(10^122); CL-7 stays open"
+}

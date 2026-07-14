@@ -1,0 +1,106 @@
+{
+  "artifact": "oph_capacity_readback_candidate_capK_2026-07-14",
+  "blindness": {
+    "dependency_cone": [
+      "mpmath",
+      "toy_readback interval machinery",
+      "P_derivation certified enclosure"
+    ],
+    "inputs": [
+      "certified forward-closure P enclosure (source-side computed fixed point)",
+      "declared structure integers"
+    ],
+    "reads_alpha_U": false,
+    "reads_cl3_bridge_value": false,
+    "reads_measured_lambda": false,
+    "reads_sl4_estimate": false
+  },
+  "cl7_status": "open",
+  "derivation": "F_CONSTRUCTION_2026-07-14.md",
+  "family": "CAP-K cell-count readback: F(N) = (P/4) * K_readable(N) = s*N",
+  "inputs": {
+    "P_certified_enclosure": {
+      "hi": "1.6309720958588973769645139038446714349507911573627096569324070023",
+      "lo": "1.6309720958588973769645139031692398220074613523151957129273490076"
+    },
+    "P_source": "code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json",
+    "structure_integers": [
+      24,
+      6,
+      4
+    ]
+  },
+  "interval_backend": {
+    "library": "mpmath.iv",
+    "precision_decimal_digits": 40,
+    "rounding": "mpmath_interval_outward"
+  },
+  "moves_cl7": false,
+  "rows": [
+    {
+      "branch": "capK.s_poisson",
+      "count_density_p4": {
+        "verdict": "no readback fixed point on this row"
+      },
+      "existence_note": "linear map through the origin with certified s < 1; unique fixed point N = 0 outside (0, inf); F(a) < a for every a > 0, so the self-map bracketing pair of spec property P3 does not exist",
+      "map": "F(N) = s*N",
+      "reading": "readable cell fraction e^(-P/24)",
+      "s": {
+        "hi": "0.934300488192842969553919056515",
+        "lo": "0.934300488192842969553919056488"
+      },
+      "status": "no_positive_fixed_point"
+    },
+    {
+      "branch": "capK.s_presence",
+      "count_density_p4": {
+        "verdict": "no readback fixed point on this row"
+      },
+      "existence_note": "linear map through the origin with certified s < 1; unique fixed point N = 0 outside (0, inf); F(a) < a for every a > 0, so the self-map bracketing pair of spec property P3 does not exist",
+      "map": "F(N) = s*N",
+      "reading": "readable cell fraction 1 - P/24",
+      "s": {
+        "hi": "0.932042829339212609293145254035",
+        "lo": "0.932042829339212609293145254006"
+      },
+      "status": "no_positive_fixed_point"
+    },
+    {
+      "branch": "capK.s_nat_share",
+      "count_density_p4": {
+        "verdict": "no readback fixed point on this row"
+      },
+      "existence_note": "linear map through the origin with certified s < 1; unique fixed point N = 0 outside (0, inf); F(a) < a for every a > 0, so the self-map bracketing pair of spec property P3 does not exist",
+      "map": "F(N) = s*N",
+      "reading": "readable nat share (P/4 - P/24)/(P/4) = 5/6",
+      "s": {
+        "hi": "0.833333333333333333333333333333",
+        "lo": "0.833333333333333333333333333333"
+      },
+      "status": "no_positive_fixed_point"
+    },
+    {
+      "branch": "capK.s_edge_share",
+      "count_density_p4": {
+        "verdict": "no readback fixed point on this row"
+      },
+      "existence_note": "linear map through the origin with certified s < 1; unique fixed point N = 0 outside (0, inf); F(a) < a for every a > 0, so the self-map bracketing pair of spec property P3 does not exist",
+      "map": "F(N) = s*N",
+      "reading": "readable nat share per-edge reserve: 1/2",
+      "s": {
+        "hi": "0.5",
+        "lo": "0.5"
+      },
+      "status": "no_positive_fixed_point"
+    }
+  ],
+  "specification": "F_READBACK_SPEC.md",
+  "summary": {
+    "by_status": {
+      "no_positive_fixed_point": 4
+    },
+    "certified_fixed_point_max_nats": null,
+    "certified_fixed_point_min_nats": null,
+    "rows": 4
+  }
+}

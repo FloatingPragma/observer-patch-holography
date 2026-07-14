@@ -24,6 +24,33 @@ closure rows CL-3, CL-4, and CL-7 (generator G2 in
   closed-form sector count, the toy fixed point exists with a certified enclosure, the
   certificate schema keys are present, output is deterministic, and a deliberately
   non-contracting variant is rejected.
+- [`F_CONSTRUCTION_2026-07-14.md`](F_CONSTRUCTION_2026-07-14.md): construction run of
+  2026-07-14: candidate counts `|Omega^sc_N|` derived from the declared structure only
+  (equal-area cells `4N/P`, Z6 reserve `P/24` in poisson and presence readings, the
+  twelve-port load `log(N/pi)/12`, oriented 24-slot register, A5/C3 face-corner
+  factors), carried as a full branch lattice with menu sizes and certified per branch.
+- [`F_candidate_capL.py`](F_candidate_capL.py),
+  [`F_candidate_capP.py`](F_candidate_capP.py),
+  [`F_candidate_capK.py`](F_candidate_capK.py),
+  [`compare_references.py`](compare_references.py): the three executed candidate
+  families (log-count, port-inversion, cell-count readback) and the stage-3
+  comparison; certificates in `runtime/F_candidate_*_certificates.json` and
+  `runtime/F_construction_comparison_2026-07-14.json`.
+
+## Construction run 2026-07-14: outcome class (b), CL-7 stays open
+
+190 branch rows executed blind (P only as the certified forward enclosure; no
+measured Lambda, no SL-4 estimate, no CL-3 bridge value). 102 rows carry certified
+interval Banach fixed points, all in `[1.4686, 1452.33]` nats; zero rows are
+P4-coherent; no row lands within an order of magnitude of either reference capacity
+(shortfall at least `10^119.36`). The constructed candidates are excluded and the
+exclusion is structural: every count assembled from the declared 12/24-port,
+Z6-reserve, and P/4-budget combinatorics has `1 - rho` set by the reserve fraction
+(order `0.17..0.5`), so both displays of the target close at O(1)-O(10^3) nats. The
+named missing theorem is gap item G2-GAP-1 in
+[`F_CONSTRUCTION_2026-07-14.md`](F_CONSTRUCTION_2026-07-14.md): a source-side
+derivation tying the port load `log(N/pi)` to the D10 inner observation step, the
+same object as the CL-3 resolution path. The ledger is untouched.
 
 ## What this directory is not
 

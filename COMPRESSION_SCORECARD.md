@@ -76,8 +76,9 @@ interpolation lane), PDG masses used as anchors in flavor code, Planck cosmology
 parameters (dark-sector likelihood loop).
 
 Discrete structural selections (choices with menu sizes; from the trials inventory):
-e^(−2π) and P^(1/6) in M_U; E_P/√P for E_cell; β_EW = N_c+1; P/4 pixel budget; frozen
-MSSM one-loop coefficients (chosen over SM values that fail); ×2 write/check orientation
+e^(−2π) and P^(1/6) in M_U; E_P/√P for E_cell; β_EW = N_c+1 (β_EW in {3, 5} land three orders of magnitude off, same sweep); P/4 pixel budget; frozen
+MSSM one-loop coefficients (the SM triple is structurally excluded: no pixel-residual
+root exists at any scan point, 2026-07-14 preregistered sweep); ×2 write/check orientation
 (12→24); δ_e = 2/9; n_e = (7,4,3); 2^(1/6); reserve fraction e^(−P/24) (selected of 9
 candidates against SPARC); n_s formula (2 circulating candidates); birefringence
 expression (4th of 4 tried); quark denominator tuple (minimum of 219,615-member grammar,

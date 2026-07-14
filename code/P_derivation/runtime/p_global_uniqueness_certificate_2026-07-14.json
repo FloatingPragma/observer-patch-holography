@@ -1,0 +1,138 @@
+{
+  "artifact": "oph_p_global_uniqueness_certificate",
+  "claim_boundary": "At-most-one fixed point on the declared physical domain is certified by adaptive interval subdivision for the declared numerical map at the stated representation cutoffs (the edge-sum tail majorants extend every enclosure to the infinite-cutoff sums). Combined with the stage-2 contraction certificate (existence on a subinterval, same declared map and cutoffs), each readout map has exactly one fixed point on the domain. The declared one-loop RG/matching conventions, the tree-level m_Z closure, the Stage-5 continuation masses, and the exact one-loop kernel are certified as declared numerical structure, not as physical endpoint theorems. This is not an exact fine-structure derivation; the stage-3 landing verdict of closure row CL-1 is unchanged.",
+  "claim_status": "global_at_most_one_certificate_for_declared_closure_map",
+  "conclusion": {
+    "at_most_one_on_domain_all_modes": true,
+    "statement": "each declared readout map has at most one fixed point on alpha in [0.005, 0.01]; with stage-2 existence this is exactly one fixed point per map on the declared domain"
+  },
+  "consumer_policy": {
+    "default_thomson_endpoint_allowed": false,
+    "hidden_external_alpha_allowed": false,
+    "may_feed_compare_or_audit_surfaces": true,
+    "may_feed_live_particle_predictions": false
+  },
+  "date": "2026-07-14",
+  "domain": {
+    "alpha": {
+      "hi": "0.01",
+      "lo": "0.005"
+    },
+    "alpha_inv": {
+      "hi": "200",
+      "lo": "100"
+    },
+    "declaration": "declared solver scan window of paper_math.PaperMathContext.solve_closure (alpha_min = 0.005, alpha_max = 0.01, i.e. alpha_inv in [100, 200]); adopted as the declared physical domain of the closure map"
+  },
+  "exact_alpha_promoted": false,
+  "inner_root_scope": "g is the declared map: the inner alpha_U and m_Z roots are the ones the declared scan-and-bisect solver selects; each piece evaluation encloses those roots in verified sign-change brackets with sign-definite residual derivatives; global uniqueness of the inner roots over the solver scan windows is not claimed",
+  "modes": {
+    "thomson_structured_running": {
+      "backend": "mpmath.iv binary interval arithmetic with outward rounding on every elementary operation; private MPIntervalContext/MPContext instances; forward-mode interval AD with implicit nodes by the implicit function theorem, identical to the stage-2 contraction certificate chain",
+      "conclusion": {
+        "argument": "sup |g'| < 1 certified on every piece of a finite tiling of the domain, so |g'| < 1 holds on the convex domain; two distinct fixed points x < y would give |x - y| = |g(x) - g(y)| = |g'(xi)| |x - y| < |x - y| by the mean value theorem (g is C^1 on each piece: the implicit-function denominators are interval-verified sign-definite); at most one fixed point on the domain follows",
+        "at_most_one_on_domain": true,
+        "status": "certified"
+      },
+      "edge_sum_tail_bounds": {
+        "included": true,
+        "method": "geometric majorants on the SU(2)/SU(3) edge-sum truncation tails, added one-sidedly inside every interval evaluation, so each piece verdict covers both the declared finite-cutoff sums and their infinite-cutoff limits"
+      },
+      "exceptional_set": [],
+      "exceptional_set_total_width": "0.0",
+      "fixed_point_point_estimate_display_only": {
+        "alpha": "0.00729954526172440175717253605954",
+        "alpha_inv": "136.994835177412937295289429464"
+      },
+      "iv_dps": 40,
+      "map_definition": "alpha -> 1/(alpha_em^-1(m_Z^2;P) + Delta_Th(P)) with P = phi + alpha*sqrt(pi); Delta_Th is the internal Stage-5 structured Thomson continuation with the exact one-loop fermion kernel and quark screening factor 1 - N_c*alpha_3(m_Z;P)/pi",
+      "mode": "thomson_structured_running",
+      "outer_equation": "P = phi + alpha*sqrt(pi)",
+      "point_dps": 40,
+      "su2_cutoff": 120,
+      "su3_cutoff": 90,
+      "subdivision": {
+        "depth_cap": 8,
+        "eval_budget": 2000,
+        "initial_pieces": 256,
+        "map_evaluations": 256,
+        "max_depth_used": 0,
+        "min_piece_width": "1.9531250e-5",
+        "total_pieces": 256
+      },
+      "verdict_blocks": [
+        {
+          "alpha_hi": "0.010000000000000000000",
+          "alpha_lo": "0.0050000000000000000000",
+          "pieces": 256,
+          "verdict": "contraction"
+        }
+      ],
+      "verdict_counts": {
+        "contraction": 256
+      },
+      "worst_piece": {
+        "gprime_global_hull": {
+          "hi": "0.29185893273658130800",
+          "lo": "-0.30406875990345246003"
+        },
+        "max_sup_abs_gprime": "0.30406875990345246003"
+      }
+    },
+    "thomson_structured_running_plus_gauge_width": {
+      "backend": "mpmath.iv binary interval arithmetic with outward rounding on every elementary operation; private MPIntervalContext/MPContext instances; forward-mode interval AD with implicit nodes by the implicit function theorem, identical to the stage-2 contraction certificate chain",
+      "conclusion": {
+        "argument": "sup |g'| < 1 certified on every piece of a finite tiling of the domain, so |g'| < 1 holds on the convex domain; two distinct fixed points x < y would give |x - y| = |g(x) - g(y)| = |g'(xi)| |x - y| < |x - y| by the mean value theorem (g is C^1 on each piece: the implicit-function denominators are interval-verified sign-definite); at most one fixed point on the domain follows",
+        "at_most_one_on_domain": true,
+        "status": "certified"
+      },
+      "edge_sum_tail_bounds": {
+        "included": true,
+        "method": "geometric majorants on the SU(2)/SU(3) edge-sum truncation tails, added one-sidedly inside every interval evaluation, so each piece verdict covers both the declared finite-cutoff sums and their infinite-cutoff limits"
+      },
+      "exceptional_set": [],
+      "exceptional_set_total_width": "0.0",
+      "fixed_point_point_estimate_display_only": {
+        "alpha": "0.00729737061871815026696169933300",
+        "alpha_inv": "137.035660136946576568872730462"
+      },
+      "iv_dps": 40,
+      "map_definition": "alpha -> 1/(alpha_em^-1(m_Z^2;P) + Delta_Th(P) + alpha_U(P)) with P = phi + alpha*sqrt(pi); the closure-ledger CL-2 mixed map that adds the finite-screen unified gauge width alpha_U(P) to the inverse-alpha readout",
+      "mode": "thomson_structured_running_plus_gauge_width",
+      "outer_equation": "P = phi + alpha*sqrt(pi)",
+      "point_dps": 40,
+      "su2_cutoff": 120,
+      "su3_cutoff": 90,
+      "subdivision": {
+        "depth_cap": 8,
+        "eval_budget": 2000,
+        "initial_pieces": 256,
+        "map_evaluations": 256,
+        "max_depth_used": 0,
+        "min_piece_width": "1.9531250e-5",
+        "total_pieces": 256
+      },
+      "verdict_blocks": [
+        {
+          "alpha_hi": "0.010000000000000000000",
+          "alpha_lo": "0.0050000000000000000000",
+          "pieces": 256,
+          "verdict": "contraction"
+        }
+      ],
+      "verdict_counts": {
+        "contraction": 256
+      },
+      "worst_piece": {
+        "gprime_global_hull": {
+          "hi": "0.29167960295220701930",
+          "lo": "-0.30387675967514131795"
+        },
+        "max_sup_abs_gprime": "0.30387675967514131795"
+      }
+    }
+  },
+  "promotion_allowed": false,
+  "protocol_stage": "global uniqueness supplement to stage 2 of the basin-then-contract protocol for the P coordinate; see CLOSURE_LEDGER.md",
+  "stage2_certificate": "runtime/p_interval_contraction_certificate_2026-07-14.json (existence and local uniqueness on the contraction interval)"
+}

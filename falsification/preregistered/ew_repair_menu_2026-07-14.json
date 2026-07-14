@@ -1,0 +1,77 @@
+{
+  "artifact": "oph_ew_repair_preregistered_menu",
+  "date": "2026-07-14",
+  "ledger_row": "CL-5",
+  "generator": "G3",
+  "status": "preregistered_before_any_sweep_computation",
+  "baseline_reference": {
+    "chain": "R_P_source_audit_pixel_certificate -> build_paper_d10 -> source_transport_pair -> strict_branch_two_law_evaluation -> clock display",
+    "recorded_emission_zero_selector_law_GeV": {"MW": 80.3300637719082, "MZ": 91.11911863389018},
+    "recorded_emission_nonzero_carrier_law_GeV": {"MW": 80.32077891914327, "MZ": 91.12418852956095},
+    "recorded_artifact": "code/particles/runs/calibration/wzh_residual_elimination_boundary.json",
+    "measured_targets_GeV": {"MW": [80.3692, 0.0133], "MZ": [91.188, 0.002]},
+    "baseline_pulls_zero_selector": {"MW_sigma": -2.9, "MZ_sigma": -34.4}
+  },
+  "landing_criterion": "MW inside 80.3692 +- 0.0133 GeV AND MZ inside 91.1880 +- 0.0020 GeV simultaneously (one-sigma bands of the ledger targets)",
+  "interpretation_rule": "a landing entry is a candidate repair whose menu selection is counted; it does not close CL-5 by itself and becomes a preregistered revision awaiting independent confirmation as the next frozen test; if nothing lands the suspect list is exhausted at one loop and CL-5 resolution moves to structure this menu does not contain",
+  "no_continuous_tuning": "every axis below is discrete and closed; no continuous parameter is scanned",
+  "axes": {
+    "R1_gauge_one_loop_coefficients": {
+      "suspect": "frozen MSSM one-loop triple in the D10 gauge closure",
+      "code_site": "code/particles/calibration/legacy_d10/particle_masses_paper_d10_d11.py B_MSSM (line 32), consumed by run_alphas_from_unification",
+      "values": [
+        {"id": "mssm", "triple_alpha1_gut_norm": [6.6, 1.0, -3.0], "exact": "(33/5, 1, -3)", "role": "baseline"},
+        {"id": "sm", "triple_alpha1_gut_norm": [4.1, -3.1666666666666665, -7.0], "exact": "(41/10, -19/6, -7)", "role": "revision", "rationale": "the papers state the SM values fail; the declared SM triple already exists in the same module as B_SM_ALPHA_GUT (line 35); recording that failure quantitatively is part of the result, including the case where the alpha_U pixel solve loses its bracket entirely"}
+      ]
+    },
+    "R2_beta_EW_transmutation_exponent": {
+      "suspect": "beta_EW = N_c + 1 in v = E_cell exp(-2 pi / (beta_EW alpha_U))",
+      "code_site": "beta_ew(n_c) = n_c + 1 (line 93-94) and v_from_transmutation (line 97-99); n_c enters the chain only through this exponent",
+      "values": [
+        {"id": "beta3", "beta_EW": 3, "n_c": 2, "role": "revision"},
+        {"id": "beta4", "beta_EW": 4, "n_c": 3, "role": "baseline", "rationale": "declared law N_c + 1 = 4"},
+        {"id": "beta5", "beta_EW": 5, "n_c": 4, "role": "revision"}
+      ]
+    },
+    "R3_value_law_branch": {
+      "suspect": "the recorded two-way discrete value-law selection (ambiguity 9.3 MeV on MW, 5.1 MeV on MZ per COMPRESSION_SCORECARD); this axis is also the executable projection of the QT1-QT5 premise suspect, since the archived law is the exact implication of QT1-QT5 and the corpus exposes no other executable QT switch (the QT receipt fails closed on every source-entailment field)",
+      "code_site": "code/particles/calibration/derive_wzh_residual_elimination_boundary.py strict_branch_two_law_evaluation; both laws are emitted by the same evaluator on every basis",
+      "values": [
+        {"id": "zero_selector", "tau2": 0.0, "delta_n": 0.0, "role": "baseline", "rationale": "archived J10-rigid selector; source of the ledger (80.330, 91.119) row"},
+        {"id": "nonzero_carrier", "role": "revision", "rationale": "running-tree value law with (tau2_tree_exact, delta_n_tree_exact) from lambda_EW = eta^2/(4 beta); the second branch of the recorded two-way selection"}
+      ]
+    },
+    "R4_evaluation_pixel": {
+      "suspect": "SL-3 working pixel provenance; the source-audit certificate P_cand carries the superseded alpha tail (CL-6 note: converged alpha^-1 = 136.994835177413 supersedes 136.994835164622 beyond digit 9)",
+      "code_site": "code/particles/hierarchy/certificates/R_P_source_audit_pixel_certificate.json (P_cand) versus the CL-6 converged forward root and the public endpoint branch",
+      "values": [
+        {"id": "P_sl3", "P": "1.63097209569432901817967892561191884270169", "role": "baseline", "rationale": "SL-3 source-audit certificate pixel currently consumed by the lane"},
+        {"id": "P_fwd", "P": "1.630972095858897", "role": "revision", "rationale": "certified converged forward root (CL-6, precision-100 reruns)"},
+        {"id": "P_C", "P": "1.630968209403959324879279847782648941", "role": "revision", "rationale": "public endpoint branch pixel recorded by the hierarchy bundle; named a relevant evaluation point"},
+        {"id": "P_legacy", "P": "1.63094", "role": "revision", "rationale": "rounded legacy calibration carrier, declared module default P_DEFAULT; included because it is a declared discrete evaluation point the code exposes"}
+      ]
+    },
+    "R5_declared_threshold_scheme_switches": {
+      "inventory_statement": "complete inventory of declared switches in the D10 W/Z forward chain; nothing invented",
+      "found": [
+        {"id": "z_tree", "role": "baseline", "description": "tree Z readout MZ = v sqrt(pi (alpha2' + alphaY'))"},
+        {"id": "z_stage3", "role": "revision", "description": "Stage-3 delta_rho Z-only pole surrogate MZ -> MZ / sqrt(1 + 3/(32 pi^2)), declared in build_paper_d10 (m_z_pole_stage3) and carried by derive_d10_ew_observable_family.py as the stage3_pole_surrogate reporting branch; W unchanged"}
+      ],
+      "excluded": [
+        {"switch": "alpha_run_piecewise SM-below/MSSM-above synchronization scale", "reason": "exists in the legacy module for the D11 Yukawa lane only and requires a continuous mu_sync choice; excluded under the no-continuous-tuning rule"},
+        {"switch": "clock display scale epsilon_Cs", "reason": "fixed declared display adapter (R_gamma_noG_DAG_certificate); the ledger row numbers are already on this display and the CL-5 suspect list does not name the clock"}
+      ]
+    }
+  },
+  "menu_construction": "full factorial product of the five discrete axes: 2 (R1) x 3 (R2) x 4 (R4) x 2 (R3) x 2 (R5) = 96 entries; this contains the baseline, every single-axis revision, and every pairwise combination the code can evaluate; entries whose chain fails to solve (bracket loss) are recorded as failures with the exception text",
+  "menu_size_total": 96,
+  "exhaustiveness_statement": "the menu is exhaustive relative to the CL-5 suspect list (frozen MSSM one-loop coefficients, premises QT1-QT5 via their sole executable projection the two-law branch, beta_EW = N_c + 1) plus the pixel-provenance and declared-switch surfaces the lane code exposes; no other discrete revision is reachable with the repository's own executable objects at one loop",
+  "fixed_adapters": {
+    "E_Planck_GeV": 1.22089e19,
+    "clock_epsilon_Cs": "3.113930513416012823901050434132426029496608693041876e-33",
+    "e_star_display_formula": "h * 9192631770 / epsilon_Cs / 1.602176634e-10 GeV",
+    "v_over_E_star_formula": "exp(-2 pi / (beta_EW alpha_U)) / sqrt(P), with alpha_U from the pixel-residual solve of the entry's own chain; consistency against the certificate value 2.0198114150099223e-17 is checked and reported at the baseline before any revision entry is read"
+  },
+  "sweep_driver": "code/particles/calibration/ew_repair_sweep.py (to be added; reuses build_paper_d10, the source-pair eta formula, and strict_branch_two_law_evaluation; no forked physics)",
+  "results_artifact": "falsification/preregistered/ew_repair_results_2026-07-14.json"
+}

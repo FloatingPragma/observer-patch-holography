@@ -220,9 +220,10 @@ What is not certified:
   map; the stage-3 landing verdict is unchanged: the source fixed point
   remains outside the SL-3 basin (closure row CL-1), pending the hadronic
   transport term.
-- Global root uniqueness over the solver's full scan windows is not claimed;
-  the inner-root certificates hold on the verified brackets, which contain
-  the roots the declared scan-and-bisect procedure selects.
+- Global uniqueness of the inner roots (`alpha_U`, `m_Z`) over the solver's
+  full scan windows is not claimed; the inner-root certificates hold on the
+  verified brackets, which contain the roots the declared scan-and-bisect
+  procedure selects.
 
 Run and test:
 
@@ -230,6 +231,36 @@ Run and test:
 python3 interval_contraction_certificate.py --mp-dps 60 --iv-dps 60 \
     --su2-cutoff 120 --su3-cutoff 90 --half-width 0.000004 --refine-passes 10
 python3 -m pytest test_interval_contraction_certificate.py -q
+```
+
+### Global uniqueness on the declared domain
+
+`global_uniqueness_certificate.py` emits
+`runtime/p_global_uniqueness_certificate_2026-07-14.json`, the global
+at-most-one supplement to the stage-2 certificate. The declared physical
+domain is the solver scan window of `paper_math.solve_closure`:
+`alpha in [0.005, 0.01]` (`alpha_inv in [100, 200]`), containing both
+certified fixed points. The domain is covered by an adaptive interval
+subdivision (256 pieces per readout map, adaptive bisection with a depth cap
+and a deterministic work budget; the production sweep needed no bisection);
+on every piece the stage-2 forward-mode interval AD chain certifies
+`sup |g'| < 1` (worst piece `L <= 0.3041` source mode, `L <= 0.3039`
+gauge-width mode; cutoffs `su2_cutoff=120`, `su3_cutoff=90` with the edge-sum
+tail majorants folded in, so the verdicts also cover the infinite-cutoff
+sums; dps 40; exceptional set empty). `|g'| < 1` on the convex domain gives
+at most one fixed point per declared map by the mean value theorem; combined
+with the stage-2 existence certificate (same maps, same cutoffs), each map
+has exactly one fixed point on the declared domain. Fallback verdict tiers
+(sign-definite residual derivative, root-free residual enclosure, monotone-run
+synthesis with certified endpoint residual signs) are implemented and tested;
+the production sweep did not need them. The claim boundary of the stage-2
+certificate carries over unchanged; the inner-root scan-window caveat above
+is unaffected.
+
+```bash
+python3 global_uniqueness_certificate.py --mp-dps 40 --iv-dps 40 \
+    --su2-cutoff 120 --su3-cutoff 90 --initial-pieces 256
+python3 -m pytest test_global_uniqueness_certificate.py -q
 ```
 
 The printed-pair identity of closure row CL-6 is enforced by

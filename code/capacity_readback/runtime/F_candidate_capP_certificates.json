@@ -1,0 +1,296 @@
+{
+  "artifact": "oph_capacity_readback_candidate_capP_2026-07-14",
+  "blindness": {
+    "dependency_cone": [
+      "mpmath",
+      "toy_readback interval machinery",
+      "P_derivation certified enclosure"
+    ],
+    "inputs": [
+      "certified forward-closure P enclosure (source-side computed fixed point)",
+      "declared structure integers 12/24/6 and pi"
+    ],
+    "reads_alpha_U": false,
+    "reads_cl3_bridge_value": false,
+    "reads_measured_lambda": false,
+    "reads_sl4_estimate": false
+  },
+  "cl7_status": "open",
+  "derivation": "F_CONSTRUCTION_2026-07-14.md",
+  "family": "CAP-P port-inversion readback: F(N) = pi * exp(12 * x_read(N))",
+  "inputs": {
+    "P_certified_enclosure": {
+      "hi": "1.6309720958588973769645139038446714349507911573627096569324070023",
+      "lo": "1.6309720958588973769645139031692398220074613523151957129273490076"
+    },
+    "P_source": "code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json",
+    "structure_integers": [
+      12,
+      24,
+      6
+    ]
+  },
+  "interval_backend": {
+    "library": "mpmath.iv",
+    "precision_decimal_digits": 40,
+    "promotion_backend_required": "arb_or_mpfi_directed_outward",
+    "rounding": "mpmath_interval_outward"
+  },
+  "moves_cl7": false,
+  "rows": [
+    {
+      "branch": "capP.s_poisson_port",
+      "contraction_certificate": {
+        "banach_pass": true,
+        "derivative_enclosure": {
+          "hi": "0.941393109871266251296413543858",
+          "lo": "0.925977165142312385387208116018"
+        },
+        "image": {
+          "hi": "3.57268680023978758909930945617",
+          "lo": "2.81957231234277458806217862108"
+        },
+        "image_form": "centered mean-value: F(m) + F'(I)*(I - m)",
+        "interval": {
+          "hi": "3.6",
+          "lo": "2.8"
+        },
+        "lipschitz_bound_L": "0.941393109871266251296413543858",
+        "lipschitz_pass": true,
+        "monotone_nonnegative_pass": true,
+        "self_map_pass": true
+      },
+      "count_density_p4": {
+        "interior_stationary_point": "inherited from the paired count branch",
+        "n_star_range_over_admissible_count_branches": {
+          "hi": "18",
+          "lo": "1.93"
+        },
+        "verdict": "registered_discrepancy (N_CRC = pi differs from every interior N_star of the lattice)"
+      },
+      "fixed_point": {
+        "box_self_map_pass": true,
+        "candidate_box": {
+          "hi": "3.14159265358979323846264349735",
+          "lo": "3.14159265358979323846264329735"
+        },
+        "enclosure": {
+          "hi": "3.14159265358979323846264348985",
+          "lo": "3.14159265358979323846264330299"
+        },
+        "iterations": 834,
+        "located": true,
+        "width": "1.868601e-25"
+      },
+      "fixed_point_exact": "N = pi (the unique solution of (N/pi)^s = N/pi with s != 1)",
+      "fixed_point_nats": "3.141592653589793238462643",
+      "map": "F(N) = pi * (N/pi)^s",
+      "reading": "s = e^(-P/24), poisson survival per port",
+      "s": {
+        "hi": "0.934300488192842969553919056515",
+        "lo": "0.934300488192842969553919056488"
+      },
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capP.s_presence_port",
+      "contraction_certificate": {
+        "banach_pass": true,
+        "derivative_enclosure": {
+          "hi": "0.939362402232726476431861519913",
+          "lo": "0.923455610720425964490783764403"
+        },
+        "image": {
+          "hi": "3.57174159879434858350608645236",
+          "lo": "2.82025167700816740236059723642"
+        },
+        "image_form": "centered mean-value: F(m) + F'(I)*(I - m)",
+        "interval": {
+          "hi": "3.6",
+          "lo": "2.8"
+        },
+        "lipschitz_bound_L": "0.939362402232726476431861519913",
+        "lipschitz_pass": true,
+        "monotone_nonnegative_pass": true,
+        "self_map_pass": true
+      },
+      "count_density_p4": {
+        "interior_stationary_point": "inherited from the paired count branch",
+        "n_star_range_over_admissible_count_branches": {
+          "hi": "18",
+          "lo": "1.93"
+        },
+        "verdict": "registered_discrepancy (N_CRC = pi differs from every interior N_star of the lattice)"
+      },
+      "fixed_point": {
+        "box_self_map_pass": true,
+        "candidate_box": {
+          "hi": "3.1415926535897932384626434967",
+          "lo": "3.1415926535897932384626432967"
+        },
+        "enclosure": {
+          "hi": "3.14159265358979323846264348899",
+          "lo": "3.14159265358979323846264330258"
+        },
+        "iterations": 806,
+        "located": true,
+        "width": "1.8640857e-25"
+      },
+      "fixed_point_exact": "N = pi (the unique solution of (N/pi)^s = N/pi with s != 1)",
+      "fixed_point_nats": "3.141592653589793238462643",
+      "map": "F(N) = pi * (N/pi)^s",
+      "reading": "s = 1 - P/24, presence survival per port",
+      "s": {
+        "hi": "0.932042829339212609293145254035",
+        "lo": "0.932042829339212609293145254006"
+      },
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capP.s_poisson_pair",
+      "contraction_certificate": {
+        "banach_pass": true,
+        "derivative_enclosure": {
+          "hi": "0.885780763785874045906432862026",
+          "lo": "0.857937956110197832168784921152"
+        },
+        "image": {
+          "hi": "3.54682993458496656231765299469",
+          "lo": "2.83820532355626732559250670506"
+        },
+        "image_form": "centered mean-value: F(m) + F'(I)*(I - m)",
+        "interval": {
+          "hi": "3.6",
+          "lo": "2.8"
+        },
+        "lipschitz_bound_L": "0.885780763785874045906432862026",
+        "lipschitz_pass": true,
+        "monotone_nonnegative_pass": true,
+        "self_map_pass": true
+      },
+      "count_density_p4": {
+        "interior_stationary_point": "inherited from the paired count branch",
+        "n_star_range_over_admissible_count_branches": {
+          "hi": "18",
+          "lo": "1.93"
+        },
+        "verdict": "registered_discrepancy (N_CRC = pi differs from every interior N_star of the lattice)"
+      },
+      "fixed_point": {
+        "box_self_map_pass": true,
+        "candidate_box": {
+          "hi": "3.1415926535897932384626434895",
+          "lo": "3.1415926535897932384626432895"
+        },
+        "enclosure": {
+          "hi": "3.141592653589793238462643476",
+          "lo": "3.14159265358979323846264330142"
+        },
+        "iterations": 423,
+        "located": true,
+        "width": "1.7458348e-25"
+      },
+      "fixed_point_exact": "N = pi (the unique solution of (N/pi)^s = N/pi with s != 1)",
+      "fixed_point_nats": "3.141592653589793238462643",
+      "map": "F(N) = pi * (N/pi)^s",
+      "reading": "s = e^(-P/12), poisson survival per oriented slot pair",
+      "s": {
+        "hi": "0.872917402237384705160379844535",
+        "lo": "0.872917402237384705160379844486"
+      },
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capP.s_presence_pair",
+      "contraction_certificate": {
+        "banach_pass": true,
+        "derivative_enclosure": {
+          "hi": "0.881932762171182093802010842132",
+          "lo": "0.85330683814448437166712625938"
+        },
+        "image": {
+          "hi": "3.54504294739789018455324268488",
+          "lo": "2.83949673766094450951163401117"
+        },
+        "image_form": "centered mean-value: F(m) + F'(I)*(I - m)",
+        "interval": {
+          "hi": "3.6",
+          "lo": "2.8"
+        },
+        "lipschitz_bound_L": "0.881932762171182093802010842132",
+        "lipschitz_pass": true,
+        "monotone_nonnegative_pass": true,
+        "self_map_pass": true
+      },
+      "count_density_p4": {
+        "interior_stationary_point": "inherited from the paired count branch",
+        "n_star_range_over_admissible_count_branches": {
+          "hi": "18",
+          "lo": "1.93"
+        },
+        "verdict": "registered_discrepancy (N_CRC = pi differs from every interior N_star of the lattice)"
+      },
+      "fixed_point": {
+        "box_self_map_pass": true,
+        "candidate_box": {
+          "hi": "3.14159265358979323846264348905",
+          "lo": "3.14159265358979323846264328905"
+        },
+        "enclosure": {
+          "hi": "3.14159265358979323846264347516",
+          "lo": "3.14159265358979323846264330142"
+        },
+        "iterations": 409,
+        "located": true,
+        "width": "1.7374077e-25"
+      },
+      "fixed_point_exact": "N = pi (the unique solution of (N/pi)^s = N/pi with s != 1)",
+      "fixed_point_nats": "3.141592653589793238462643",
+      "map": "F(N) = pi * (N/pi)^s",
+      "reading": "s = (1 - P/24)^2, presence survival per oriented slot pair",
+      "s": {
+        "hi": "0.86870383572264460111117478006",
+        "lo": "0.868703835722644601111174780008"
+      },
+      "status": "fixed_point_certified"
+    },
+    {
+      "branch": "capP.add_slot",
+      "count_density_p4": {
+        "verdict": "no readback fixed point on this row"
+      },
+      "existence_note": "F' = s < 1 everywhere, so F is a contraction on (0, inf), and the unique fixed point is N = 0, outside the admissible interval; F(a) < a for every a > 0, so no certificate interval exists",
+      "map": "F(N) = s*N (linear through the origin)",
+      "reading": "x_read = X/12 - P/24: F(N) = N e^(-P/2)",
+      "s": {
+        "hi": "0.442424235709455068236649458311",
+        "lo": "0.442424235709455068236649458161"
+      },
+      "status": "no_positive_fixed_point"
+    },
+    {
+      "branch": "capP.add_port",
+      "count_density_p4": {
+        "verdict": "no readback fixed point on this row"
+      },
+      "existence_note": "F' = s < 1 everywhere, so F is a contraction on (0, inf), and the unique fixed point is N = 0, outside the admissible interval; F(a) < a for every a > 0, so no certificate interval exists",
+      "map": "F(N) = s*N (linear through the origin)",
+      "reading": "x_read = X/12 - P/12: F(N) = N e^(-P)",
+      "s": {
+        "hi": "0.195739204343095457166271364959",
+        "lo": "0.195739204343095457166271364827"
+      },
+      "status": "no_positive_fixed_point"
+    }
+  ],
+  "specification": "F_READBACK_SPEC.md",
+  "summary": {
+    "by_status": {
+      "fixed_point_certified": 4,
+      "no_positive_fixed_point": 2
+    },
+    "certified_fixed_point_max_nats": "3.1415926535897932385",
+    "certified_fixed_point_min_nats": "3.1415926535897932385",
+    "rows": 6
+  }
+}

@@ -61,9 +61,10 @@ architecture has a computable fixed point.
 ## What makes SLH the most falsifiable theory-of-everything candidate
 
 1. **No landscape.** String theory survives adverse data by relocating in a vacuum
-   landscape. SLH cannot relocate: SL-2/SL-3/SL-4 admit one P and one N (uniqueness certified on
-   the working intervals; the global at-most-one statement rides the open monotonicity
-   item, CONSISTENCY_STACK.md L1), and the closure equations must hold exactly. A single blind closure test landing outside its basin
+   landscape. SLH cannot relocate: SL-2/SL-3/SL-4 admit one P and one N. For P this is a theorem on
+   the declared physical domain: exactly one fixed point per readout map
+   (`code/P_derivation/runtime/p_global_uniqueness_certificate_2026-07-14.json`). The
+   closure equations must hold exactly. A single blind closure test landing outside its basin
    falsifies the formulation (ledger rule; frozen target
    `falsification/frozen_targets/hadronic_closure_target_2026-07-14.json`).
 2. **The inputs are the method.** Reverse engineering reads the loop from measurements:
@@ -82,7 +83,7 @@ architecture has a computable fixed point.
 | 1. Principles stated once | SL-0…SL-5 with claim rules | done: [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md) |
 | 2. Closure ledger at zero | CL-1…CL-7 closed by blind computations | open: decisive rows: CL-1/CL-2 (hadronic), CL-3 (one N), CL-5 (forward electroweak) |
 | 3. Positive compression | M − K > 0 in the scorecard | open: currently negative; the mission is moving rows |
-| 4. Uniqueness certificates | interval-grade contraction proofs behind "the only P, the only N" | P at stage 2 (certified 2026-07-14: existence and uniqueness on the interval, both maps); N at stage 1 (F specified, not constructed) |
+| 4. Uniqueness certificates | interval-grade contraction proofs behind "the only P, the only N" | P: exactly one fixed point per map on the declared domain (stage-2 plus global certificates, 2026-07-14); N at stage 1 (declared-structure F candidates constructed and excluded; the surviving reading is the port-load/D10 coupling, G2-GAP-1) |
 | 5. Independent reproduction | named external parties re-run the mechanical claims from a fresh clone | open |
 
 The mission statement, in one sentence: drive the ledger to zero, the scorecard positive,

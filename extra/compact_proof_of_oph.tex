@@ -222,18 +222,21 @@ After C1--C6 the surviving freedom is the two-real-parameter family
 \((P,N)\) together with the declared discrete selections the scorecard
 counts. C7 identifies the two parameters with measured readouts; C8--C9 are
 two equations on the family; C10 removes units. Three lemmas close the
-chain. \textbf{L1}: on an interval where interval arithmetic certifies
-\(\Gamma_P(I)\subseteq I\) and \(|\Gamma_P'|\le L<1\), the fixed point
-exists and is unique (certificate: [C1],
-\texttt{runtime/p\_interval\_contraction\_certificate\_2026-07-14.json});
+chain. \textbf{L1}: the pixel closure has exactly one fixed point per readout map
+on the declared physical domain \(\alpha^{-1}\in[100,200]\): existence and
+local uniqueness by interval Banach
+(\texttt{runtime/p\_interval\_contraction\_certificate\_2026-07-14.json}),
+global at-most-one by certified \(\sup|g'|<1\) on all 256 subdivision
+pieces with zero exceptional set
+(\texttt{runtime/p\_global\_uniqueness\_certificate\_2026-07-14.json})
+[C1];
 \textbf{L2}: the same schema applies to \(N\) once the readback map
 \(F\) is constructed (CL-7; required properties specified in
 \texttt{code/capacity\_readback/F\_READBACK\_SPEC.md} [C16]);
-\textbf{L3}: under L1+L2 the principle set admits at most one \((P,N)\)
-on the certified intervals (the global at-most-one statement rides the open
-monotonicity item, [C15]): there is no landscape to relocate into, and a
-blind closure landing outside its basin falsifies the formulation
-permanently. If the two equations close
+\textbf{L3}: under L1+L2 the principle set admits at most one \((P,N)\);
+for \(P\) this is now a theorem on the declared physical domain, and there
+is no landscape to relocate into: a blind closure landing outside its basin
+falsifies the formulation permanently. If the two equations close
 and the fixed points are unique, the principle set admits exactly one universe.
 Whether that universe is ours is the closure ledger reading zero: a
 theorem-shaped claim whose proof obligation is an experiment: armed,
@@ -243,8 +246,10 @@ blind, and externally timestamped.}
 \textbf{One.} The theory carries zero dials and, at the theory layer, zero
 quantitative inputs: both constants are defined by closure equations, and
 nothing in the architecture can be adjusted to fit data.
-\textbf{Two.} The pixel closure has a proven unique fixed point on its
-interval (interval arithmetic, outward rounding, \(L\le0.0724\)) [C1].
+\textbf{Two.} The pixel closure has exactly one fixed point per readout
+map on the declared physical domain (interval arithmetic, outward rounding,
+local \(L\le0.0724\), global \(\sup|g'|<1\) on every subdivision piece)
+[C1].
 \textbf{Three.} With nothing to tune, the forced chain currently reproduces
 the fine structure constant to \(3\times10^{-4}\), the W and Z masses to
 \(4.9\times10^{-4}\) and \(7.6\times10^{-4}\), the hierarchy relation to
@@ -252,8 +257,16 @@ the fine structure constant to \(3\times10^{-4}\), the W and Z masses to
 \(6.6\times10^{-2}\), and the strong scale to about \(10^{-2}\), with
 every discrete selection counted in the scorecard.
 \textbf{Four.} The distance to exact closure is finite and enumerated:
-three open generators and one selector. The ledger moved on the day the
-certificate landed: row CL-6 is closed.
+three open generators and one selector, and all four were driven forward on
+2026-07-14. G3: a preregistered 96-entry electroweak revision sweep
+exhausted the certified-pixel menu and showed the SM coefficient triple
+admits no fixed point at all, so that selection is consistency-forced. G2:
+every declared-structure readback candidate was certified and excluded, and
+the unique surviving reading reproduces the electroweak bridge expression,
+naming CL-7 as one coupling theorem. G1: the payload harness exists, and
+the first-principles internal-mass bracket contains the required screening.
+The selector: twelve preregistered candidates evaluated, all excluded. Row
+CL-6 is closed.
 \textbf{Five.} The decisive test is armed. The blind hadronic target is
 frozen at precision 160, externally timestamped, and carries a closed-form
 pass tolerance and a payload-work-start rule, so neither side of the
@@ -1112,10 +1125,9 @@ normal forms under the stated local-diamond and completeness hypotheses kill
 the consensus mechanism.\\
 Closure uniqueness & A second solution of the \(P\) or \(N\) closure, or a
 demonstrated target leak in a declared source map, kills the compression
-claim. Inside the certified contraction interval a second \(P\) fixed point
-is arithmetically excluded [C1]; the standing fork is a second solution
-elsewhere on the physical domain, pending the global monotonicity item
-named in \texttt{CONSISTENCY\_STACK.md}.\\
+claim. A second \(P\) fixed point anywhere on the declared physical domain is
+arithmetically excluded by the global uniqueness certificate [C1]; the
+standing fork moves to domains beyond the declared one.\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -1171,6 +1183,19 @@ window \(2.1\times10^{-8}\) wide in \(\Delta_{\rm source}\) units
 CODATA \(\alpha^{-1}\) uncertainty and printed in the governing v2 target
 file). One outcome collects evidence no referee can touch; the other ends
 the formulation. This is the strongest form the odds question admits.
+
+The 2026-07-14 computations sharpened the program from both sides. The
+payload harness for the hadronic transport is built to the declared
+contract, and its first-principles bracket, computed from the chain's
+internal masses with no measured hadronic input anywhere in the cone,
+contains the required screening value: first principles currently permit
+the loop to close. Closing the window itself needs the hadronic moment to
+\(4\times10^{-9}\) relative precision, beyond every current method; the
+blind-run protocol for the day a method reaches it is written into the
+payload directory. On the capacity side the construction run reduced CL-7
+to a single named theorem (the port-load/D10 coupling), whose truth forces
+\(N\) to the bridge value and makes the \(6.6\%\) gap to the \(\Lambda\)
+readout the live capacity-side test.
 
 The remaining program is finite and enumerated. The seven ledger rows
 reduce to four generating objects, the hadronic transport (CL-1/CL-2),

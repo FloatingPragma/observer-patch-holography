@@ -1,0 +1,1586 @@
+{
+  "artifact": "oph_ew_repair_preregistered_results",
+  "date": "2026-07-14",
+  "generated_utc": "2026-07-14T14:33:56Z",
+  "ledger_row": "CL-5",
+  "menu": "ew_repair_menu_2026-07-14.json",
+  "menu_size_total": 96,
+  "targets_GeV": {
+    "MW": [
+      80.3692,
+      0.0133
+    ],
+    "MZ": [
+      91.188,
+      0.002
+    ]
+  },
+  "display_adapter": {
+    "epsilon_Cs": "3.113930513416012823901050434132426029496608693041876e-33",
+    "E_star_display_GeV": 1.2208901289579266e+19
+  },
+  "baseline_consistency": {
+    "chain_key": "mssm|beta4|P_sl3",
+    "alpha_u_recomputed": 0.041124247445574885,
+    "alpha_u_certificate": 0.04112424744557487,
+    "alpha2_mz_recomputed_minus_recorded": 0.0,
+    "alphaY_mz_recomputed_minus_recorded": 0.0,
+    "eta_source_recomputed_minus_recorded": 0.0,
+    "v_over_E_star_transmutation": 2.0198114150099513e-17,
+    "v_over_E_star_certificate": 2.0198114150099223e-17,
+    "MW_zero_selector_recomputed_GeV": 80.33006377190935,
+    "MW_zero_selector_recorded_GeV": 80.3300637719082,
+    "MZ_zero_selector_recomputed_GeV": 91.1191186338915,
+    "MZ_zero_selector_recorded_GeV": 91.11911863389018,
+    "MW_nonzero_recomputed_GeV": 80.3207789191444,
+    "MW_nonzero_recorded_GeV": 80.32077891914327,
+    "MZ_nonzero_recomputed_GeV": 91.12418852956225,
+    "MZ_nonzero_recorded_GeV": 91.12418852956095
+  },
+  "failure_diagnoses": {
+    "mssm|beta3|P_sl3": {
+      "gauge_triple": [
+        6.6,
+        1.0,
+        -3.0
+      ],
+      "beta_EW_exponent": 3,
+      "mu_u_gev": 2.47361202791459e+16,
+      "positivity_ceilings_at_91GeV": {
+        "alpha3": {
+          "inverse_alpha_U_must_exceed": 15.868111823741753,
+          "alpha_U_ceiling": 0.06301947018698263
+        }
+      },
+      "alpha_U_scan_window": [
+        0.005,
+        0.15
+      ],
+      "alpha_U_scan_points": 146,
+      "alpha_U_scan_valid_points": 73,
+      "alpha_U_scan_overflow_points": 0,
+      "pixel_residual_range_on_valid_points": [
+        -0.3044684216169109,
+        0.11662748478305779
+      ],
+      "valid_alpha_U_interval": [
+        0.032,
+        0.10400000000000001
+      ],
+      "wide_window_root": {
+        "alpha_U_root_wide_window": 0.042476827924028,
+        "mz_fixed_point_gev": 0.0013272967739467946,
+        "zero_selector_MW_GeV": 0.0011816268201105143,
+        "zero_selector_MZ_GeV": 0.001320435872957244,
+        "nonzero_carrier_MW_GeV": 0.0011814682129977071,
+        "nonzero_carrier_MZ_GeV": 0.0013205131975773967
+      },
+      "verdict": "a wide-window root exists outside the lane's declared solver window; the implied masses are recorded above and are far from the targets; the entry remains failed per the preregistered rule",
+      "lane_solver_exception": "RuntimeError: Could not bracket alpha_U."
+    },
+    "mssm|beta3|P_fwd": {
+      "gauge_triple": [
+        6.6,
+        1.0,
+        -3.0
+      ],
+      "beta_EW_exponent": 3,
+      "mu_u_gev": 2.4736120279561884e+16,
+      "positivity_ceilings_at_91GeV": {
+        "alpha3": {
+          "inverse_alpha_U_must_exceed": 15.868111823749782,
+          "alpha_U_ceiling": 0.06301947018695074
+        }
+      },
+      "alpha_U_scan_window": [
+        0.005,
+        0.15
+      ],
+      "alpha_U_scan_points": 146,
+      "alpha_U_scan_valid_points": 73,
+      "alpha_U_scan_overflow_points": 0,
+      "pixel_residual_range_on_valid_points": [
+        -0.3044684216578426,
+        0.1166274847420245
+      ],
+      "valid_alpha_U_interval": [
+        0.032,
+        0.10400000000000001
+      ],
+      "wide_window_root": {
+        "alpha_U_root_wide_window": 0.04247682791967568,
+        "mz_fixed_point_gev": 0.0013272967671031427,
+        "zero_selector_MW_GeV": 0.0011816268140186987,
+        "zero_selector_MZ_GeV": 0.001320435866149682,
+        "nonzero_carrier_MW_GeV": 0.0011814682069067413,
+        "nonzero_carrier_MZ_GeV": 0.001320513190769419
+      },
+      "verdict": "a wide-window root exists outside the lane's declared solver window; the implied masses are recorded above and are far from the targets; the entry remains failed per the preregistered rule",
+      "lane_solver_exception": "RuntimeError: Could not bracket alpha_U."
+    },
+    "mssm|beta3|P_C": {
+      "gauge_triple": [
+        6.6,
+        1.0,
+        -3.0
+      ],
+      "beta_EW_exponent": 3,
+      "mu_u_gev": 2.4736110455572816e+16,
+      "positivity_ceilings_at_91GeV": {
+        "alpha3": {
+          "inverse_alpha_U_must_exceed": 15.868111634123837,
+          "alpha_U_ceiling": 0.0630194709400414
+        }
+      },
+      "alpha_U_scan_window": [
+        0.005,
+        0.15
+      ],
+      "alpha_U_scan_points": 146,
+      "alpha_U_scan_valid_points": 73,
+      "alpha_U_scan_overflow_points": 0,
+      "pixel_residual_range_on_valid_points": [
+        -0.30446745500993844,
+        0.11662845379137943
+      ],
+      "valid_alpha_U_interval": [
+        0.032,
+        0.10400000000000001
+      ],
+      "wide_window_root": {
+        "alpha_U_root_wide_window": 0.04247693070473536,
+        "mz_fixed_point_gev": 0.0013274583973776222,
+        "zero_selector_MW_GeV": 0.0011817706877527102,
+        "zero_selector_MZ_GeV": 0.0013205966440678594,
+        "nonzero_carrier_MW_GeV": 0.0011816120605676072,
+        "nonzero_carrier_MZ_GeV": 0.0013206739784915665
+      },
+      "verdict": "a wide-window root exists outside the lane's declared solver window; the implied masses are recorded above and are far from the targets; the entry remains failed per the preregistered rule",
+      "lane_solver_exception": "RuntimeError: Could not bracket alpha_U."
+    },
+    "mssm|beta3|P_legacy": {
+      "gauge_triple": [
+        6.6,
+        1.0,
+        -3.0
+      ],
+      "beta_EW_exponent": 3,
+      "mu_u_gev": 2.4736039148648396e+16,
+      "positivity_ceilings_at_91GeV": {
+        "alpha3": {
+          "inverse_alpha_U_must_exceed": 15.868110257731312,
+          "alpha_U_ceiling": 0.06301947640632109
+        }
+      },
+      "alpha_U_scan_window": [
+        0.005,
+        0.15
+      ],
+      "alpha_U_scan_points": 146,
+      "alpha_U_scan_valid_points": 73,
+      "alpha_U_scan_overflow_points": 0,
+      "pixel_residual_range_on_valid_points": [
+        -0.30446043870323364,
+        0.11663548752892033
+      ],
+      "valid_alpha_U_interval": [
+        0.032,
+        0.10400000000000001
+      ],
+      "wide_window_root": {
+        "alpha_U_root_wide_window": 0.042477676767812736,
+        "mz_fixed_point_gev": 0.0013286321540770156,
+        "zero_selector_MW_GeV": 0.001182815496645992,
+        "zero_selector_MZ_GeV": 0.0013217642109041173,
+        "nonzero_carrier_MW_GeV": 0.0011826567236870639,
+        "nonzero_carrier_MZ_GeV": 0.0013218416165256116
+      },
+      "verdict": "a wide-window root exists outside the lane's declared solver window; the implied masses are recorded above and are far from the targets; the entry remains failed per the preregistered rule",
+      "lane_solver_exception": "RuntimeError: Could not bracket alpha_U."
+    },
+    "mssm|beta5|P_sl3": {
+      "gauge_triple": [
+        6.6,
+        1.0,
+        -3.0
+      ],
+      "beta_EW_exponent": 5,
+      "mu_u_gev": 2.47361202791459e+16,
+      "positivity_ceilings_at_91GeV": {
+        "alpha3": {
+          "inverse_alpha_U_must_exceed": 15.868111823741753,
+          "alpha_U_ceiling": 0.06301947018698263
+        }
+      },
+      "alpha_U_scan_window": [
+        0.005,
+        0.15
+      ],
+      "alpha_U_scan_points": 146,
+      "alpha_U_scan_valid_points": 43,
+      "alpha_U_scan_overflow_points": 0,
+      "pixel_residual_range_on_valid_points": [
+        -0.16271425193290598,
+        0.7404267422420201
+      ],
+      "valid_alpha_U_interval": [
+        0.02,
+        0.062
+      ],
+      "wide_window_root": {
+        "alpha_U_root_wide_window": 0.044671941569721596,
+        "mz_fixed_point_gev": 2327958.8589938767,
+        "zero_selector_MW_GeV": 2014606.1187166292,
+        "zero_selector_MZ_GeV": 2314923.5486641005,
+        "nonzero_carrier_MW_GeV": 2014352.106287241,
+        "nonzero_carrier_MZ_GeV": 2315076.222174493
+      },
+      "verdict": "a wide-window root exists outside the lane's declared solver window; the implied masses are recorded above and are far from the targets; the entry remains failed per the preregistered rule",
+      "lane_solver_exception": "RuntimeError: Could not bracket alpha_U."
+    },
+    "mssm|beta5|P_fwd": {
+      "gauge_triple": [
+        6.6,
+        1.0,
+        -3.0
+      ],
+      "beta_EW_exponent": 5,
+      "mu_u_gev": 2.4736120279561884e+16,
+      "positivity_ceilings_at_91GeV": {
+        "alpha3": {
+          "inverse_alpha_U_must_exceed": 15.868111823749782,
+          "alpha_U_ceiling": 0.06301947018695074
+        }
+      },
+      "alpha_U_scan_window": [
+        0.005,
+        0.15
+      ],
+      "alpha_U_scan_points": 146,
+      "alpha_U_scan_valid_points": 43,
+      "alpha_U_scan_overflow_points": 0,
+      "pixel_residual_range_on_valid_points": [
+        -0.16271425197423778,
+        0.7404267421996404
+      ],
+      "valid_alpha_U_interval": [
+        0.02,
+        0.062
+      ],
+      "wide_window_root": {
+        "alpha_U_root_wide_window": 0.04467194156657611,
+        "mz_fixed_point_gev": 2327958.85417791,
+        "zero_selector_MW_GeV": 2014606.1145508213,
+        "zero_selector_MZ_GeV": 2314923.5438760207,
+        "nonzero_carrier_MW_GeV": 2014352.1021219927,
+        "nonzero_carrier_MZ_GeV": 2315076.2173860758
+      },
+      "verdict": "a wide-window root exists outside the lane's declared solver window; the implied masses are recorded above and are far from the targets; the entry remains failed per the preregistered rule",
+      "lane_solver_exception": "RuntimeError: Could not bracket alpha_U."
+    },
+    "mssm|beta5|P_C": {
+      "gauge_triple": [
+        6.6,
+        1.0,
+        -3.0
+      ],
+      "beta_EW_exponent": 5,
+      "mu_u_gev": 2.4736110455572816e+16,
+      "positivity_ceilings_at_91GeV": {
+        "alpha3": {
+          "inverse_alpha_U_must_exceed": 15.868111634123837,
+          "alpha_U_ceiling": 0.0630194709400414
+        }
+      },
+      "alpha_U_scan_window": [
+        0.005,
+        0.15
+      ],
+      "alpha_U_scan_points": 146,
+      "alpha_U_scan_valid_points": 43,
+      "alpha_U_scan_overflow_points": 0,
+      "pixel_residual_range_on_valid_points": [
+        -0.1627132758785904,
+        0.7404277430406176
+      ],
+      "valid_alpha_U_interval": [
+        0.02,
+        0.062
+      ],
+      "wide_window_root": {
+        "alpha_U_root_wide_window": 0.04467201585062382,
+        "mz_fixed_point_gev": 2328072.5911143767,
+        "zero_selector_MW_GeV": 2014704.4969263992,
+        "zero_selector_MZ_GeV": 2315036.62222381,
+        "nonzero_carrier_MW_GeV": 2014450.471276318,
+        "nonzero_carrier_MZ_GeV": 2315189.303712
+      },
+      "verdict": "a wide-window root exists outside the lane's declared solver window; the implied masses are recorded above and are far from the targets; the entry remains failed per the preregistered rule",
+      "lane_solver_exception": "RuntimeError: Could not bracket alpha_U."
+    },
+    "mssm|beta5|P_legacy": {
+      "gauge_triple": [
+        6.6,
+        1.0,
+        -3.0
+      ],
+      "beta_EW_exponent": 5,
+      "mu_u_gev": 2.4736039148648396e+16,
+      "positivity_ceilings_at_91GeV": {
+        "alpha3": {
+          "inverse_alpha_U_must_exceed": 15.868110257731312,
+          "alpha_U_ceiling": 0.06301947640632109
+        }
+      },
+      "alpha_U_scan_window": [
+        0.005,
+        0.15
+      ],
+      "alpha_U_scan_points": 146,
+      "alpha_U_scan_valid_points": 43,
+      "alpha_U_scan_overflow_points": 0,
+      "pixel_residual_range_on_valid_points": [
+        -0.1627061909957255,
+        0.7404350075364021
+      ],
+      "valid_alpha_U_interval": [
+        0.02,
+        0.062
+      ],
+      "wide_window_root": {
+        "alpha_U_root_wide_window": 0.04467255504098079,
+        "mz_fixed_point_gev": 2328898.305571489,
+        "zero_selector_MW_GeV": 2015418.7393195357,
+        "zero_selector_MZ_GeV": 2315857.555384124,
+        "nonzero_carrier_MW_GeV": 2015164.6176836828,
+        "nonzero_carrier_MZ_GeV": 2316010.2947933106
+      },
+      "verdict": "a wide-window root exists outside the lane's declared solver window; the implied masses are recorded above and are far from the targets; the entry remains failed per the preregistered rule",
+      "lane_solver_exception": "RuntimeError: Could not bracket alpha_U."
+    },
+    "sm|beta3|P_sl3": {
+      "gauge_triple": [
+        4.1,
+        -3.1666666666666665,
+        -7.0
+      ],
+      "beta_EW_exponent": 3,
+      "mu_u_gev": 2.47361202791459e+16,
+      "positivity_ceilings_at_91GeV": {
+        "alpha2": {
+          "inverse_alpha_U_must_exceed": 16.749673591727404,
+          "alpha_U_ceiling": 0.05970265596661513
+        },
+        "alpha3": {
+          "inverse_alpha_U_must_exceed": 37.02559425539743,
+          "alpha_U_ceiling": 0.027008344365849694
+        }
+      },
+      "alpha_U_scan_window": [
+        0.005,
+        0.15
+      ],
+      "alpha_U_scan_points": 146,
+      "alpha_U_scan_valid_points": 0,
+      "alpha_U_scan_overflow_points": 69,
+      "wide_window_root": null,
+      "verdict": "no pixel-residual root exists for this triple/beta pair even on the widened diagnostic windows; the failure is structural, not a solver-window artifact",
+      "lane_solver_exception": "OverflowError: math range error"
+    },
+    "sm|beta3|P_fwd": {
+      "gauge_triple": [
+        4.1,
+        -3.1666666666666665,
+        -7.0
+      ],
+      "beta_EW_exponent": 3,
+      "mu_u_gev": 2.4736120279561884e+16,
+      "positivity_ceilings_at_91GeV": {
+        "alpha2": {
+          "inverse_alpha_U_must_exceed": 16.74967359173588,
+          "alpha_U_ceiling": 0.05970265596658492
+        },
+        "alpha3": {
+          "inverse_alpha_U_must_exceed": 37.025594255416166,
+          "alpha_U_ceiling": 0.027008344365836028
+        }
+      },
+      "alpha_U_scan_window": [
+        0.005,
+        0.15
+      ],
+      "alpha_U_scan_points": 146,
+      "alpha_U_scan_valid_points": 0,
+      "alpha_U_scan_overflow_points": 69,
+      "wide_window_root": null,
+      "verdict": "no pixel-residual root exists for this triple/beta pair even on the widened diagnostic windows; the failure is structural, not a solver-window artifact",
+      "lane_solver_exception": "OverflowError: math range error"
+    },
+    "sm|beta3|P_C": {
+      "gauge_triple": [
+        4.1,
+        -3.1666666666666665,
+        -7.0
+      ],
+      "beta_EW_exponent": 3,
+      "mu_u_gev": 2.4736110455572816e+16,
+      "positivity_ceilings_at_91GeV": {
+        "alpha2": {
+          "inverse_alpha_U_must_exceed": 16.74967339157516,
+          "alpha_U_ceiling": 0.05970265668003922
+        },
+        "alpha3": {
+          "inverse_alpha_U_must_exceed": 37.02559381295563,
+          "alpha_U_ceiling": 0.027008344688589165
+        }
+      },
+      "alpha_U_scan_window": [
+        0.005,
+        0.15
+      ],
+      "alpha_U_scan_points": 146,
+      "alpha_U_scan_valid_points": 0,
+      "alpha_U_scan_overflow_points": 69,
+      "wide_window_root": null,
+      "verdict": "no pixel-residual root exists for this triple/beta pair even on the widened diagnostic windows; the failure is structural, not a solver-window artifact",
+      "lane_solver_exception": "OverflowError: math range error"
+    },
+    "sm|beta3|P_legacy": {
+      "gauge_triple": [
+        4.1,
+        -3.1666666666666665,
+        -7.0
+      ],
+      "beta_EW_exponent": 3,
+      "mu_u_gev": 2.4736039148648396e+16,
+      "positivity_ceilings_at_91GeV": {
+        "alpha2": {
+          "inverse_alpha_U_must_exceed": 16.749671938716382,
+          "alpha_U_ceiling": 0.059702661858619985
+        },
+        "alpha3": {
+          "inverse_alpha_U_must_exceed": 37.02559060137306,
+          "alpha_U_ceiling": 0.027008347031280466
+        }
+      },
+      "alpha_U_scan_window": [
+        0.005,
+        0.15
+      ],
+      "alpha_U_scan_points": 146,
+      "alpha_U_scan_valid_points": 0,
+      "alpha_U_scan_overflow_points": 69,
+      "wide_window_root": null,
+      "verdict": "no pixel-residual root exists for this triple/beta pair even on the widened diagnostic windows; the failure is structural, not a solver-window artifact",
+      "lane_solver_exception": "OverflowError: math range error"
+    },
+    "sm|beta4|P_sl3": {
+      "gauge_triple": [
+        4.1,
+        -3.1666666666666665,
+        -7.0
+      ],
+      "beta_EW_exponent": 4,
+      "mu_u_gev": 2.47361202791459e+16,
+      "positivity_ceilings_at_91GeV": {
+        "alpha2": {
+          "inverse_alpha_U_must_exceed": 16.749673591727404,
+          "alpha_U_ceiling": 0.05970265596661513
+        },
+        "alpha3": {
+          "inverse_alpha_U_must_exceed": 37.02559425539743,
+          "alpha_U_ceiling": 0.027008344365849694
+        }
+      },
+      "alpha_U_scan_window": [
+        0.005,
+        0.15
+      ],
+      "alpha_U_scan_points": 146,
+      "alpha_U_scan_valid_points": 0,
+      "alpha_U_scan_overflow_points": 53,
+      "wide_window_root": null,
+      "verdict": "no pixel-residual root exists for this triple/beta pair even on the widened diagnostic windows; the failure is structural, not a solver-window artifact",
+      "lane_solver_exception": "OverflowError: math range error"
+    },
+    "sm|beta4|P_fwd": {
+      "gauge_triple": [
+        4.1,
+        -3.1666666666666665,
+        -7.0
+      ],
+      "beta_EW_exponent": 4,
+      "mu_u_gev": 2.4736120279561884e+16,
+      "positivity_ceilings_at_91GeV": {
+        "alpha2": {
+          "inverse_alpha_U_must_exceed": 16.74967359173588,
+          "alpha_U_ceiling": 0.05970265596658492
+        },
+        "alpha3": {
+          "inverse_alpha_U_must_exceed": 37.025594255416166,
+          "alpha_U_ceiling": 0.027008344365836028
+        }
+      },
+      "alpha_U_scan_window": [
+        0.005,
+        0.15
+      ],
+      "alpha_U_scan_points": 146,
+      "alpha_U_scan_valid_points": 0,
+      "alpha_U_scan_overflow_points": 53,
+      "wide_window_root": null,
+      "verdict": "no pixel-residual root exists for this triple/beta pair even on the widened diagnostic windows; the failure is structural, not a solver-window artifact",
+      "lane_solver_exception": "OverflowError: math range error"
+    },
+    "sm|beta4|P_C": {
+      "gauge_triple": [
+        4.1,
+        -3.1666666666666665,
+        -7.0
+      ],
+      "beta_EW_exponent": 4,
+      "mu_u_gev": 2.4736110455572816e+16,
+      "positivity_ceilings_at_91GeV": {
+        "alpha2": {
+          "inverse_alpha_U_must_exceed": 16.74967339157516,
+          "alpha_U_ceiling": 0.05970265668003922
+        },
+        "alpha3": {
+          "inverse_alpha_U_must_exceed": 37.02559381295563,
+          "alpha_U_ceiling": 0.027008344688589165
+        }
+      },
+      "alpha_U_scan_window": [
+        0.005,
+        0.15
+      ],
+      "alpha_U_scan_points": 146,
+      "alpha_U_scan_valid_points": 0,
+      "alpha_U_scan_overflow_points": 53,
+      "wide_window_root": null,
+      "verdict": "no pixel-residual root exists for this triple/beta pair even on the widened diagnostic windows; the failure is structural, not a solver-window artifact",
+      "lane_solver_exception": "OverflowError: math range error"
+    },
+    "sm|beta4|P_legacy": {
+      "gauge_triple": [
+        4.1,
+        -3.1666666666666665,
+        -7.0
+      ],
+      "beta_EW_exponent": 4,
+      "mu_u_gev": 2.4736039148648396e+16,
+      "positivity_ceilings_at_91GeV": {
+        "alpha2": {
+          "inverse_alpha_U_must_exceed": 16.749671938716382,
+          "alpha_U_ceiling": 0.059702661858619985
+        },
+        "alpha3": {
+          "inverse_alpha_U_must_exceed": 37.02559060137306,
+          "alpha_U_ceiling": 0.027008347031280466
+        }
+      },
+      "alpha_U_scan_window": [
+        0.005,
+        0.15
+      ],
+      "alpha_U_scan_points": 146,
+      "alpha_U_scan_valid_points": 0,
+      "alpha_U_scan_overflow_points": 53,
+      "wide_window_root": null,
+      "verdict": "no pixel-residual root exists for this triple/beta pair even on the widened diagnostic windows; the failure is structural, not a solver-window artifact",
+      "lane_solver_exception": "OverflowError: math range error"
+    },
+    "sm|beta5|P_sl3": {
+      "gauge_triple": [
+        4.1,
+        -3.1666666666666665,
+        -7.0
+      ],
+      "beta_EW_exponent": 5,
+      "mu_u_gev": 2.47361202791459e+16,
+      "positivity_ceilings_at_91GeV": {
+        "alpha2": {
+          "inverse_alpha_U_must_exceed": 16.749673591727404,
+          "alpha_U_ceiling": 0.05970265596661513
+        },
+        "alpha3": {
+          "inverse_alpha_U_must_exceed": 37.02559425539743,
+          "alpha_U_ceiling": 0.027008344365849694
+        }
+      },
+      "alpha_U_scan_window": [
+        0.005,
+        0.15
+      ],
+      "alpha_U_scan_points": 146,
+      "alpha_U_scan_valid_points": 0,
+      "alpha_U_scan_overflow_points": 43,
+      "wide_window_root": null,
+      "verdict": "no pixel-residual root exists for this triple/beta pair even on the widened diagnostic windows; the failure is structural, not a solver-window artifact",
+      "lane_solver_exception": "OverflowError: math range error"
+    },
+    "sm|beta5|P_fwd": {
+      "gauge_triple": [
+        4.1,
+        -3.1666666666666665,
+        -7.0
+      ],
+      "beta_EW_exponent": 5,
+      "mu_u_gev": 2.4736120279561884e+16,
+      "positivity_ceilings_at_91GeV": {
+        "alpha2": {
+          "inverse_alpha_U_must_exceed": 16.74967359173588,
+          "alpha_U_ceiling": 0.05970265596658492
+        },
+        "alpha3": {
+          "inverse_alpha_U_must_exceed": 37.025594255416166,
+          "alpha_U_ceiling": 0.027008344365836028
+        }
+      },
+      "alpha_U_scan_window": [
+        0.005,
+        0.15
+      ],
+      "alpha_U_scan_points": 146,
+      "alpha_U_scan_valid_points": 0,
+      "alpha_U_scan_overflow_points": 43,
+      "wide_window_root": null,
+      "verdict": "no pixel-residual root exists for this triple/beta pair even on the widened diagnostic windows; the failure is structural, not a solver-window artifact",
+      "lane_solver_exception": "OverflowError: math range error"
+    },
+    "sm|beta5|P_C": {
+      "gauge_triple": [
+        4.1,
+        -3.1666666666666665,
+        -7.0
+      ],
+      "beta_EW_exponent": 5,
+      "mu_u_gev": 2.4736110455572816e+16,
+      "positivity_ceilings_at_91GeV": {
+        "alpha2": {
+          "inverse_alpha_U_must_exceed": 16.74967339157516,
+          "alpha_U_ceiling": 0.05970265668003922
+        },
+        "alpha3": {
+          "inverse_alpha_U_must_exceed": 37.02559381295563,
+          "alpha_U_ceiling": 0.027008344688589165
+        }
+      },
+      "alpha_U_scan_window": [
+        0.005,
+        0.15
+      ],
+      "alpha_U_scan_points": 146,
+      "alpha_U_scan_valid_points": 0,
+      "alpha_U_scan_overflow_points": 43,
+      "wide_window_root": null,
+      "verdict": "no pixel-residual root exists for this triple/beta pair even on the widened diagnostic windows; the failure is structural, not a solver-window artifact",
+      "lane_solver_exception": "OverflowError: math range error"
+    },
+    "sm|beta5|P_legacy": {
+      "gauge_triple": [
+        4.1,
+        -3.1666666666666665,
+        -7.0
+      ],
+      "beta_EW_exponent": 5,
+      "mu_u_gev": 2.4736039148648396e+16,
+      "positivity_ceilings_at_91GeV": {
+        "alpha2": {
+          "inverse_alpha_U_must_exceed": 16.749671938716382,
+          "alpha_U_ceiling": 0.059702661858619985
+        },
+        "alpha3": {
+          "inverse_alpha_U_must_exceed": 37.02559060137306,
+          "alpha_U_ceiling": 0.027008347031280466
+        }
+      },
+      "alpha_U_scan_window": [
+        0.005,
+        0.15
+      ],
+      "alpha_U_scan_points": 146,
+      "alpha_U_scan_valid_points": 0,
+      "alpha_U_scan_overflow_points": 43,
+      "wide_window_root": null,
+      "verdict": "no pixel-residual root exists for this triple/beta pair even on the widened diagnostic windows; the failure is structural, not a solver-window artifact",
+      "lane_solver_exception": "OverflowError: math range error"
+    }
+  },
+  "entries": [
+    {
+      "id": "B=mssm|beta=beta3|P=P_sl3|law=zero_selector|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta3|P_sl3",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta3|P=P_sl3|law=zero_selector|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta3|P_sl3",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta3|P=P_sl3|law=nonzero_carrier|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta3|P_sl3",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta3|P=P_sl3|law=nonzero_carrier|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta3|P_sl3",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta3|P=P_fwd|law=zero_selector|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta3|P_fwd",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta3|P=P_fwd|law=zero_selector|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta3|P_fwd",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta3|P=P_fwd|law=nonzero_carrier|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta3|P_fwd",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta3|P=P_fwd|law=nonzero_carrier|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta3|P_fwd",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta3|P=P_C|law=zero_selector|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta3|P_C",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta3|P=P_C|law=zero_selector|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta3|P_C",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta3|P=P_C|law=nonzero_carrier|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta3|P_C",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta3|P=P_C|law=nonzero_carrier|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta3|P_C",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta3|P=P_legacy|law=zero_selector|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta3|P_legacy",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta3|P=P_legacy|law=zero_selector|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta3|P_legacy",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta3|P=P_legacy|law=nonzero_carrier|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta3|P_legacy",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta3|P=P_legacy|law=nonzero_carrier|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta3|P_legacy",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta4|P=P_sl3|law=zero_selector|z=z_tree",
+      "baseline": true,
+      "status": "evaluated",
+      "alpha_u": 0.041124247445574885,
+      "v_over_E_star": 2.0198114150099513e-17,
+      "MW_GeV": 80.33006377190935,
+      "MZ_GeV": 91.1191186338915,
+      "MW_offset_GeV": -0.03913622809065487,
+      "MZ_offset_GeV": -0.06888136610849926,
+      "MW_pull_sigma": -2.9425735406507423,
+      "MZ_pull_sigma": -34.44068305424963,
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta4|P=P_sl3|law=zero_selector|z=z_stage3",
+      "baseline": false,
+      "status": "evaluated",
+      "alpha_u": 0.041124247445574885,
+      "v_over_E_star": 2.0198114150099513e-17,
+      "MW_GeV": 80.33006377190935,
+      "MZ_GeV": 90.68941358385857,
+      "MW_offset_GeV": -0.03913622809065487,
+      "MZ_offset_GeV": -0.4985864161414355,
+      "MW_pull_sigma": -2.9425735406507423,
+      "MZ_pull_sigma": -249.29320807071775,
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta4|P=P_sl3|law=nonzero_carrier|z=z_tree",
+      "baseline": false,
+      "status": "evaluated",
+      "alpha_u": 0.041124247445574885,
+      "v_over_E_star": 2.0198114150099513e-17,
+      "MW_GeV": 80.3207789191444,
+      "MZ_GeV": 91.12418852956225,
+      "MW_offset_GeV": -0.04842108085560426,
+      "MZ_offset_GeV": -0.0638114704377557,
+      "MW_pull_sigma": -3.640682771098065,
+      "MZ_pull_sigma": -31.90573521887785,
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta4|P=P_sl3|law=nonzero_carrier|z=z_stage3",
+      "baseline": false,
+      "status": "evaluated",
+      "alpha_u": 0.041124247445574885,
+      "v_over_E_star": 2.0198114150099513e-17,
+      "MW_GeV": 80.3207789191444,
+      "MZ_GeV": 90.69445957060871,
+      "MW_offset_GeV": -0.04842108085560426,
+      "MZ_offset_GeV": -0.49354042939128817,
+      "MW_pull_sigma": -3.640682771098065,
+      "MZ_pull_sigma": -246.77021469564409,
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta4|P=P_fwd|law=zero_selector|z=z_tree",
+      "baseline": false,
+      "status": "evaluated",
+      "alpha_u": 0.0411242474418167,
+      "v_over_E_star": 2.0198114078576573e-17,
+      "MW_GeV": 80.33006348366152,
+      "MZ_GeV": 91.11911830689877,
+      "MW_offset_GeV": -0.03913651633848758,
+      "MZ_offset_GeV": -0.0688816931012326,
+      "MW_pull_sigma": -2.942595213420119,
+      "MZ_pull_sigma": -34.4408465506163,
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta4|P=P_fwd|law=zero_selector|z=z_stage3",
+      "baseline": false,
+      "status": "evaluated",
+      "alpha_u": 0.0411242474418167,
+      "v_over_E_star": 2.0198114078576573e-17,
+      "MW_GeV": 80.33006348366152,
+      "MZ_GeV": 90.68941325840788,
+      "MW_offset_GeV": -0.03913651633848758,
+      "MZ_offset_GeV": -0.4985867415921206,
+      "MW_pull_sigma": -2.942595213420119,
+      "MZ_pull_sigma": -249.2933707960603,
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta4|P=P_fwd|law=nonzero_carrier|z=z_tree",
+      "baseline": false,
+      "status": "evaluated",
+      "alpha_u": 0.0411242474418167,
+      "v_over_E_star": 2.0198114078576573e-17,
+      "MW_GeV": 80.32077863093157,
+      "MZ_GeV": 91.1241882025504,
+      "MW_offset_GeV": -0.04842136906843564,
+      "MZ_offset_GeV": -0.06381179744960264,
+      "MW_pull_sigma": -3.6407044412357625,
+      "MZ_pull_sigma": -31.905898724801318,
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta4|P=P_fwd|law=nonzero_carrier|z=z_stage3",
+      "baseline": false,
+      "status": "evaluated",
+      "alpha_u": 0.0411242474418167,
+      "v_over_E_star": 2.0198114078576573e-17,
+      "MW_GeV": 80.32077863093157,
+      "MZ_GeV": 90.694459245139,
+      "MW_offset_GeV": -0.04842136906843564,
+      "MZ_offset_GeV": -0.4935407548610016,
+      "MW_pull_sigma": -3.6407044412357625,
+      "MZ_pull_sigma": -246.7703774305008,
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta4|P=P_C|law=zero_selector|z=z_tree",
+      "baseline": false,
+      "status": "evaluated",
+      "alpha_u": 0.041124336195630495,
+      "v_over_E_star": 2.0199803239725556e-17,
+      "MW_GeV": 80.33687105202372,
+      "MZ_GeV": 91.12684091619663,
+      "MW_offset_GeV": -0.03232894797628205,
+      "MZ_offset_GeV": -0.06115908380337487,
+      "MW_pull_sigma": -2.4307479681415076,
+      "MZ_pull_sigma": -30.579541901687435,
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta4|P=P_C|law=zero_selector|z=z_stage3",
+      "baseline": false,
+      "status": "evaluated",
+      "alpha_u": 0.041124336195630495,
+      "v_over_E_star": 2.0199803239725556e-17,
+      "MW_GeV": 80.33687105202372,
+      "MZ_GeV": 90.6970994489578,
+      "MW_offset_GeV": -0.03232894797628205,
+      "MZ_offset_GeV": -0.490900551042202,
+      "MW_pull_sigma": -2.4307479681415076,
+      "MZ_pull_sigma": -245.450275521101,
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta4|P=P_C|law=nonzero_carrier|z=z_tree",
+      "baseline": false,
+      "status": "evaluated",
+      "alpha_u": 0.041124336195630495,
+      "v_over_E_star": 2.0199803239725556e-17,
+      "MW_GeV": 80.32758537309027,
+      "MZ_GeV": 91.13191126410152,
+      "MW_offset_GeV": -0.04161462690973394,
+      "MZ_offset_GeV": -0.05608873589848429,
+      "MW_pull_sigma": -3.1289193165213494,
+      "MZ_pull_sigma": -28.044367949242144,
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta4|P=P_C|law=nonzero_carrier|z=z_stage3",
+      "baseline": false,
+      "status": "evaluated",
+      "alpha_u": 0.041124336195630495,
+      "v_over_E_star": 2.0199803239725556e-17,
+      "MW_GeV": 80.32758537309027,
+      "MZ_GeV": 90.70214588580941,
+      "MW_offset_GeV": -0.04161462690973394,
+      "MZ_offset_GeV": -0.48585411419058744,
+      "MW_pull_sigma": -3.1289193165213494,
+      "MZ_pull_sigma": -242.92705709529372,
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta4|P=P_legacy|law=zero_selector|z=z_tree",
+      "baseline": false,
+      "status": "evaluated",
+      "alpha_u": 0.04112498041477454,
+      "v_over_E_star": 2.0212068026398513e-17,
+      "MW_GeV": 80.38630018333832,
+      "MZ_GeV": 91.18291407804278,
+      "MW_offset_GeV": 0.017100183338314423,
+      "MZ_offset_GeV": -0.005085921957217465,
+      "MW_pull_sigma": 1.2857280705499567,
+      "MZ_pull_sigma": -2.5429609786087326,
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta4|P=P_legacy|law=zero_selector|z=z_stage3",
+      "baseline": false,
+      "status": "evaluated",
+      "alpha_u": 0.04112498041477454,
+      "v_over_E_star": 2.0212068026398513e-17,
+      "MW_GeV": 80.38630018333832,
+      "MZ_GeV": 90.75290817759632,
+      "MW_offset_GeV": 0.017100183338314423,
+      "MZ_offset_GeV": -0.4350918224036775,
+      "MW_pull_sigma": 1.2857280705499567,
+      "MZ_pull_sigma": -217.54591120183875,
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta4|P=P_legacy|law=nonzero_carrier|z=z_tree",
+      "baseline": false,
+      "status": "evaluated",
+      "alpha_u": 0.04112498041477454,
+      "v_over_E_star": 2.0212068026398513e-17,
+      "MW_GeV": 80.37700850530943,
+      "MZ_GeV": 91.18798770977946,
+      "MW_offset_GeV": 0.007808505309427005,
+      "MZ_offset_GeV": -1.2290220539057373e-05,
+      "MW_pull_sigma": 0.5871056623629327,
+      "MZ_pull_sigma": -0.006145110269528686,
+      "landing": true
+    },
+    {
+      "id": "B=mssm|beta=beta4|P=P_legacy|law=nonzero_carrier|z=z_stage3",
+      "baseline": false,
+      "status": "evaluated",
+      "alpha_u": 0.04112498041477454,
+      "v_over_E_star": 2.0212068026398513e-17,
+      "MW_GeV": 80.37700850530943,
+      "MZ_GeV": 90.75795788279363,
+      "MW_offset_GeV": 0.007808505309427005,
+      "MZ_offset_GeV": -0.4300421172063693,
+      "MW_pull_sigma": 0.5871056623629327,
+      "MZ_pull_sigma": -215.02105860318466,
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta5|P=P_sl3|law=zero_selector|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta5|P_sl3",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta5|P=P_sl3|law=zero_selector|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta5|P_sl3",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta5|P=P_sl3|law=nonzero_carrier|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta5|P_sl3",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta5|P=P_sl3|law=nonzero_carrier|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta5|P_sl3",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta5|P=P_fwd|law=zero_selector|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta5|P_fwd",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta5|P=P_fwd|law=zero_selector|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta5|P_fwd",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta5|P=P_fwd|law=nonzero_carrier|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta5|P_fwd",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta5|P=P_fwd|law=nonzero_carrier|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta5|P_fwd",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta5|P=P_C|law=zero_selector|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta5|P_C",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta5|P=P_C|law=zero_selector|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta5|P_C",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta5|P=P_C|law=nonzero_carrier|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta5|P_C",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta5|P=P_C|law=nonzero_carrier|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta5|P_C",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta5|P=P_legacy|law=zero_selector|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta5|P_legacy",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta5|P=P_legacy|law=zero_selector|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta5|P_legacy",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta5|P=P_legacy|law=nonzero_carrier|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta5|P_legacy",
+      "landing": false
+    },
+    {
+      "id": "B=mssm|beta=beta5|P=P_legacy|law=nonzero_carrier|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "RuntimeError: Could not bracket alpha_U.",
+      "diagnosis_key": "mssm|beta5|P_legacy",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta3|P=P_sl3|law=zero_selector|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta3|P_sl3",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta3|P=P_sl3|law=zero_selector|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta3|P_sl3",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta3|P=P_sl3|law=nonzero_carrier|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta3|P_sl3",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta3|P=P_sl3|law=nonzero_carrier|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta3|P_sl3",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta3|P=P_fwd|law=zero_selector|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta3|P_fwd",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta3|P=P_fwd|law=zero_selector|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta3|P_fwd",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta3|P=P_fwd|law=nonzero_carrier|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta3|P_fwd",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta3|P=P_fwd|law=nonzero_carrier|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta3|P_fwd",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta3|P=P_C|law=zero_selector|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta3|P_C",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta3|P=P_C|law=zero_selector|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta3|P_C",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta3|P=P_C|law=nonzero_carrier|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta3|P_C",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta3|P=P_C|law=nonzero_carrier|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta3|P_C",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta3|P=P_legacy|law=zero_selector|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta3|P_legacy",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta3|P=P_legacy|law=zero_selector|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta3|P_legacy",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta3|P=P_legacy|law=nonzero_carrier|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta3|P_legacy",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta3|P=P_legacy|law=nonzero_carrier|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta3|P_legacy",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta4|P=P_sl3|law=zero_selector|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta4|P_sl3",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta4|P=P_sl3|law=zero_selector|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta4|P_sl3",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta4|P=P_sl3|law=nonzero_carrier|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta4|P_sl3",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta4|P=P_sl3|law=nonzero_carrier|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta4|P_sl3",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta4|P=P_fwd|law=zero_selector|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta4|P_fwd",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta4|P=P_fwd|law=zero_selector|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta4|P_fwd",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta4|P=P_fwd|law=nonzero_carrier|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta4|P_fwd",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta4|P=P_fwd|law=nonzero_carrier|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta4|P_fwd",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta4|P=P_C|law=zero_selector|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta4|P_C",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta4|P=P_C|law=zero_selector|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta4|P_C",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta4|P=P_C|law=nonzero_carrier|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta4|P_C",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta4|P=P_C|law=nonzero_carrier|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta4|P_C",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta4|P=P_legacy|law=zero_selector|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta4|P_legacy",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta4|P=P_legacy|law=zero_selector|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta4|P_legacy",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta4|P=P_legacy|law=nonzero_carrier|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta4|P_legacy",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta4|P=P_legacy|law=nonzero_carrier|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta4|P_legacy",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta5|P=P_sl3|law=zero_selector|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta5|P_sl3",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta5|P=P_sl3|law=zero_selector|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta5|P_sl3",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta5|P=P_sl3|law=nonzero_carrier|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta5|P_sl3",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta5|P=P_sl3|law=nonzero_carrier|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta5|P_sl3",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta5|P=P_fwd|law=zero_selector|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta5|P_fwd",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta5|P=P_fwd|law=zero_selector|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta5|P_fwd",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta5|P=P_fwd|law=nonzero_carrier|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta5|P_fwd",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta5|P=P_fwd|law=nonzero_carrier|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta5|P_fwd",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta5|P=P_C|law=zero_selector|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta5|P_C",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta5|P=P_C|law=zero_selector|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta5|P_C",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta5|P=P_C|law=nonzero_carrier|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta5|P_C",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta5|P=P_C|law=nonzero_carrier|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta5|P_C",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta5|P=P_legacy|law=zero_selector|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta5|P_legacy",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta5|P=P_legacy|law=zero_selector|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta5|P_legacy",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta5|P=P_legacy|law=nonzero_carrier|z=z_tree",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta5|P_legacy",
+      "landing": false
+    },
+    {
+      "id": "B=sm|beta=beta5|P=P_legacy|law=nonzero_carrier|z=z_stage3",
+      "baseline": false,
+      "status": "chain_failed",
+      "error": "OverflowError: math range error",
+      "diagnosis_key": "sm|beta5|P_legacy",
+      "landing": false
+    }
+  ],
+  "summary": {
+    "entries_evaluated": 16,
+    "entries_chain_failed": 80,
+    "landings": [
+      "B=mssm|beta=beta4|P=P_legacy|law=nonzero_carrier|z=z_tree"
+    ],
+    "landing_count": 1,
+    "verdict": "at least one preregistered revision lands; its menu selection is counted and independent confirmation is the next frozen test"
+  },
+  "wall_time_seconds": 5.5254247188568115
+}

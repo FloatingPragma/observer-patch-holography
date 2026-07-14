@@ -111,10 +111,11 @@ experiment is armed.
 The selection chain needs "the fixed points are unique" stated as mathematics.
 Three lemmas carry it.
 
-**L1 (one P, local).** On any interval I where the interval-arithmetic
+**L1 (one P).** On any interval I where the interval-arithmetic
 evaluation of the closure map g(P) = φ + √π/A_T(P) certifies g(I) ⊆ I and a
 derivative bound |g′| ≤ L < 1, the Banach fixed-point theorem gives existence
-and uniqueness of P in I. Status: discharged on an explicit interval.
+and uniqueness of P in I. Status: discharged on an explicit interval, and
+globally as at-most-one on the declared physical domain.
 `code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json`
 proves g(I) ⊆ interior(I) and L ≤ 0.0724 for both readout maps (mpmath.iv
 outward rounding, derivative enclosure by forward-mode interval AD, SU(2)/SU(3)
@@ -123,9 +124,18 @@ infinite-cutoff sums). Certified unique fixed points: source map
 α⁻¹ = 136.994835177413… (enclosure width 7.2×10⁻²⁴); gauge-width map
 α⁻¹ = 137.035660136946577…. Stage 2 of the basin-then-contract protocol is
 reached for P; the stage-3 landing verdict is unchanged (outside the SL-3
-basin, CL-1/CL-2). The global at-most-one statement on the full physical
-domain additionally needs monotonicity of A_T in P, which is an open,
-well-posed analytic item.
+basin, CL-1/CL-2). The global at-most-one statement is discharged on the
+declared physical domain by
+`code/P_derivation/runtime/p_global_uniqueness_certificate_2026-07-14.json`:
+sup |g′| < 1 is certified on every piece of an interval subdivision of
+α ∈ [0.005, 0.01] (α⁻¹ ∈ [100, 200], the declared solver scan window of
+`paper_math.solve_closure`), 256 pieces per readout map at the declared
+cutoffs su2=120/su3=90 with the tail majorants folded in, worst piece
+L ≤ 0.3041, exceptional set empty. Each declared map therefore has at most
+one fixed point on the declared domain, and with the stage-2 existence
+certificate exactly one. Monotonicity of A_T in P is no longer required for
+the domain-global statement; it remains open only as an analytic refinement
+beyond the declared domain.
 
 **L2 (one N).** Once F is constructed (CL-7), the same schema applies: a
 certified contraction interval for F yields existence and uniqueness of N_CRC.
@@ -146,9 +156,9 @@ The ledger rows are not independent. They reduce to four generating objects:
 
 | Generator | Object to construct or compute | Ledger rows it closes or moves |
 |---|---|---|
-| G1 | Ward-projected hadronic transport, blind, vs the frozen target | CL-1, CL-2 |
-| G2 | The capacity readback map F and its contraction certificate | CL-3, CL-4, CL-7 |
-| G3 | Repaired forward electroweak chain from the strange-loop principles (preregistered revisions; suspects: frozen MSSM coefficients, QT1–QT5, β_EW) | CL-5 |
+| G1 | Ward-projected hadronic transport, blind, vs the frozen target. Status 2026-07-14: payload harness built; the first-principles internal-mass bracket S_eff in [0.558, 1.054] contains the required 0.8954; closing the window needs 4×10⁻⁹ relative precision on the hadronic moment, beyond every current method with or without measured data (code/particles/hadron/ward_projected_payload/PAYLOAD_STATUS.md) | CL-1, CL-2 |
+| G2 | The capacity readback map F and its contraction certificate. Status 2026-07-14: every declared-structure candidate certified and excluded (fixed points at 1 to 10³ nats); the unique 10¹²²-scale reading couples the port load to the D10 observation step and reproduces the EW bridge expression, so CL-7 is the coupling theorem G2-GAP-1 (code/capacity_readback/F_CONSTRUCTION_2026-07-14.md) | CL-3, CL-4, CL-7 |
+| G3 | Repaired forward electroweak chain from the strange-loop principles. Status 2026-07-14: preregistered 96-entry sweep executed; the certified-pixel menu is exhausted at one loop; the SM triple admits no fixed point (Landau ceiling disjoint from the fixed-point window) and β_EW in {3, 5} land three orders of magnitude off, so those selections are consistency-forced; the single landing at the rounded legacy carrier is a counted two-fold selection awaiting its own frozen test (falsification/preregistered/ew_repair_results_2026-07-14.json) | CL-5 |
 | G4 | Solver hygiene: matched printed pair at certified precision | CL-6, closed 2026-07-14 (converged precision-100 reruns; identity to 35+ digits; CI test) |
 
 Beyond the ledger, the mass sector waits on one further object: a

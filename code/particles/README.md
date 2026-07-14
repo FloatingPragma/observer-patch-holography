@@ -259,6 +259,32 @@ It is a summary receipt of the existing certificates, not an SI Lambda or
 primitive-carrier promotion.
 Full SI gravity remains gated by the no-G clock stack.
 
+## CL-5 Preregistered Electroweak Repair Sweep (2026-07-14)
+
+The forward W/Z repair program for closure ledger row CL-5 ran as a frozen
+discrete menu. The menu was written before any entry was computed
+(`../../falsification/preregistered/ew_repair_menu_2026-07-14.json`); the
+driver `calibration/ew_repair_sweep.py` reuses `build_paper_d10`, the
+source-pair `eta` reduction, and `strict_branch_two_law_evaluation` with no
+forked physics, and emits
+`../../falsification/preregistered/ew_repair_results_2026-07-14.json`.
+Axes: gauge one-loop triple {MSSM (33/5, 1, -3), SM (41/10, -19/6, -7)},
+`beta_EW` in {3, 4, 5}, evaluation pixel {SL-3 certificate, certified
+`P_fwd`, public endpoint `P_C`, rounded legacy carrier 1.63094}, the two-way
+value-law branch, and the Stage-3 `delta_rho` Z surrogate; 96 entries total,
+landing band `80.3692 +- 0.0133` and `91.1880 +- 0.0020` simultaneously.
+Outcome: one landing, the nonzero-carrier value law at the rounded legacy
+carrier `P = 1.63094` with pulls `(+0.59 sigma, -0.01 sigma)`; that entry
+carries two counted discrete selections and is a preregistered revision
+awaiting independent confirmation; it does not close CL-5. Every entry at the
+certified pixels misses (best `(-2.4 sigma, -28 sigma)` at `P_C`). The SM
+triple admits no pixel-residual root at all: the `alpha_3` one-loop Landau
+ceiling requires `alpha_U < 0.02701` while an electroweak-scale fixed point
+only exists above it, so the pixel sum overflows on every scanned `alpha_U`.
+`beta_EW = 3` and `beta_EW = 5` place the fixed point near `1.3e-3 GeV` and
+`2.3e6 GeV` respectively; both are recorded as structural failures with
+wide-window diagnostic roots in the results artifact.
+
 ## Main Outputs
 
 - claim table:

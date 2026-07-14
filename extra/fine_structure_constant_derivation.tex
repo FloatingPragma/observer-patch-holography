@@ -1364,9 +1364,12 @@ are \(\alpha^{-1}=136.994835177413\ldots\) for the source map (enclosure width
 gauge-width map. The certificate certifies the declared numerical map; it does
 not relate either fixed point to the measured constant, and the stage-3
 landing verdict of the basin-then-contract protocol is unchanged (outside the
-SL-3 basin, rows CL-1 and CL-2). The global at-most-one statement on the full
-physical domain additionally requires monotonicity of \(\ATh\) in \(P\), which
-remains an open analytic item.
+SL-3 basin, rows CL-1 and CL-2). The global at-most-one statement is
+discharged on the declared physical domain (\(\alpha^{-1}\in[100,200]\)):
+\(\sup|g'|<1\) on all 256 certified pieces, both readout maps, zero
+exceptional set
+(\texttt{runtime/p\_global\_uniqueness\_certificate\_2026-07-14.json}), so
+each map has exactly one fixed point on the domain.
 
 The release gate for promoting this row from empirical endpoint comparison to source-only theorem is
 explicit. The packet must contain

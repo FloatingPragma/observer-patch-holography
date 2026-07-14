@@ -1,0 +1,294 @@
+{
+  "artifact": "oph_flavor_orbit_selector_candidates_evaluated",
+  "blindness": {
+    "comparison_deferred_to": "COMPARISON.md",
+    "reads_measured_masses": false,
+    "reads_measured_ratios": false,
+    "reads_reference_artifacts": false
+  },
+  "candidates": [
+    {
+      "closed_form": {
+        "sigma_d": "P*V/6",
+        "sigma_u": "P*F/6"
+      },
+      "id": "C-01",
+      "implied": {
+        "ln_yb_over_yd": 6.523888383435588,
+        "ln_yb_over_ys": 3.6803495186702886,
+        "ln_yc_over_yu": 6.133915864450481,
+        "ln_ys_over_yd": 2.843538864765299,
+        "ln_yt_over_yc": 4.739231441275498,
+        "ln_yt_over_yu": 10.873147305725979,
+        "spread_ratio_sigma_u_over_sigma_d": 1.6666666666666665,
+        "spread_sum_sigma_u_plus_sigma_d": 8.698517844580783
+      },
+      "moduli": {
+        "sigma_d": 3.261944191717794,
+        "sigma_u": 5.4365736528629895
+      },
+      "name": "Z6-traced face/vertex budget"
+    },
+    {
+      "closed_form": {
+        "sigma_d": "P*F/6",
+        "sigma_u": "P*E/6"
+      },
+      "id": "C-02",
+      "implied": {
+        "ln_yb_over_yd": 10.873147305725979,
+        "ln_yb_over_ys": 6.133915864450481,
+        "ln_yc_over_yu": 9.200873796675722,
+        "ln_ys_over_yd": 4.739231441275498,
+        "ln_yt_over_yc": 7.108847161913247,
+        "ln_yt_over_yu": 16.30972095858897,
+        "spread_ratio_sigma_u_over_sigma_d": 1.5,
+        "spread_sum_sigma_u_plus_sigma_d": 13.591434132157474
+      },
+      "moduli": {
+        "sigma_d": 5.4365736528629895,
+        "sigma_u": 8.154860479294484
+      },
+      "name": "Z6-traced edge/face budget"
+    },
+    {
+      "closed_form": {
+        "sigma_d": "P*12/6",
+        "sigma_u": "P*N_wc/6"
+      },
+      "id": "C-03",
+      "implied": {
+        "ln_yb_over_yd": 6.523888383435588,
+        "ln_yb_over_ys": 3.6803495186702886,
+        "ln_yc_over_yu": 7.360699037340577,
+        "ln_ys_over_yd": 2.843538864765299,
+        "ln_yt_over_yc": 5.687077729530598,
+        "ln_yt_over_yu": 13.047776766871175,
+        "spread_ratio_sigma_u_over_sigma_d": 2.0,
+        "spread_sum_sigma_u_plus_sigma_d": 9.785832575153382
+      },
+      "moduli": {
+        "sigma_d": 3.261944191717794,
+        "sigma_u": 6.523888383435588
+      },
+      "name": "Z6-traced write-check/port budget"
+    },
+    {
+      "closed_form": {
+        "sigma_d": "(P/4)*V",
+        "sigma_u": "(P/4)*F"
+      },
+      "id": "C-04",
+      "implied": {
+        "ln_yb_over_yd": 9.785832575153382,
+        "ln_yb_over_ys": 5.520524278005434,
+        "ln_yc_over_yu": 9.200873796675722,
+        "ln_ys_over_yd": 4.265308297147949,
+        "ln_yt_over_yc": 7.108847161913247,
+        "ln_yt_over_yu": 16.30972095858897,
+        "spread_ratio_sigma_u_over_sigma_d": 1.6666666666666665,
+        "spread_sum_sigma_u_plus_sigma_d": 13.047776766871175
+      },
+      "moduli": {
+        "sigma_d": 4.892916287576691,
+        "sigma_u": 8.154860479294484
+      },
+      "name": "Pixel-budget orbit product"
+    },
+    {
+      "closed_form": {
+        "sigma_d": "(P/4)*24*(3/8)",
+        "sigma_u": "(P/4)*24*(5/8)"
+      },
+      "id": "C-05",
+      "implied": {
+        "ln_yb_over_yd": 7.339374431365036,
+        "ln_yb_over_ys": 4.140393208504075,
+        "ln_yc_over_yu": 6.900655347506791,
+        "ln_ys_over_yd": 3.1989812228609615,
+        "ln_yt_over_yc": 5.331635371434936,
+        "ln_yt_over_yu": 12.232290718941726,
+        "spread_ratio_sigma_u_over_sigma_d": 1.6666666666666665,
+        "spread_sum_sigma_u_plus_sigma_d": 9.785832575153382
+      },
+      "moduli": {
+        "sigma_d": 3.669687215682518,
+        "sigma_u": 6.116145359470863
+      },
+      "name": "Port-total pixel budget, F:V split"
+    },
+    {
+      "closed_form": {
+        "sigma_d": "(P*V/6)*e^(-P/24)",
+        "sigma_u": "(P*F/6)*e^(-P/24)"
+      },
+      "id": "C-06",
+      "implied": {
+        "ln_yb_over_yd": 6.095272101559487,
+        "ln_yb_over_ys": 3.4385523520139456,
+        "ln_yc_over_yu": 5.730920586689909,
+        "ln_ys_over_yd": 2.6567197495455415,
+        "ln_yt_over_yc": 4.427866249242569,
+        "ln_yt_over_yu": 10.158786835932478,
+        "spread_ratio_sigma_u_over_sigma_d": 1.6666666666666667,
+        "spread_sum_sigma_u_plus_sigma_d": 8.127029468745983
+      },
+      "moduli": {
+        "sigma_d": 3.0476360507797433,
+        "sigma_u": 5.079393417966239
+      },
+      "name": "Reserve-withheld traced budget"
+    },
+    {
+      "closed_form": {
+        "sigma_d": "(P*V/6)*e^(+P/24)",
+        "sigma_u": "(P*F/6)*e^(+P/24)"
+      },
+      "id": "C-07",
+      "implied": {
+        "ln_yb_over_yd": 6.982644733552824,
+        "ln_yb_over_ys": 3.93914973306816,
+        "ln_yc_over_yu": 6.5652495551136,
+        "ln_ys_over_yd": 3.0434950004846644,
+        "ln_yt_over_yc": 5.072491667474441,
+        "ln_yt_over_yu": 11.63774122258804,
+        "spread_ratio_sigma_u_over_sigma_d": 1.6666666666666667,
+        "spread_sum_sigma_u_plus_sigma_d": 9.310192978070432
+      },
+      "moduli": {
+        "sigma_d": 3.491322366776412,
+        "sigma_u": 5.81887061129402
+      },
+      "name": "Reserve-restored traced budget"
+    },
+    {
+      "closed_form": {
+        "sigma_d": "ln(20)",
+        "sigma_u": "ln(60)"
+      },
+      "id": "C-08",
+      "implied": {
+        "ln_yb_over_yd": 5.991464547107982,
+        "ln_yb_over_ys": 3.3799909449809906,
+        "ln_yc_over_yu": 4.6195207990082245,
+        "ln_ys_over_yd": 2.611473602126991,
+        "ln_yt_over_yc": 3.569168325435976,
+        "ln_yt_over_yu": 8.1886891244442,
+        "spread_ratio_sigma_u_over_sigma_d": 1.3667257913420845,
+        "spread_sum_sigma_u_plus_sigma_d": 7.090076835776092
+      },
+      "moduli": {
+        "sigma_d": 2.995732273553991,
+        "sigma_u": 4.0943445622221
+      },
+      "name": "Orbit log-cardinality"
+    },
+    {
+      "closed_form": {
+        "sigma_d": "P*ln(20)",
+        "sigma_u": "P*ln(60)"
+      },
+      "id": "C-09",
+      "implied": {
+        "ln_yb_over_yd": 9.771911489660981,
+        "ln_yb_over_ys": 5.51267091551974,
+        "ln_yc_over_yu": 7.5343095194222105,
+        "ln_ys_over_yd": 4.259240574141241,
+        "ln_yt_over_yc": 5.821213944209504,
+        "ln_yt_over_yu": 13.355523463631714,
+        "spread_ratio_sigma_u_over_sigma_d": 1.3667257913420847,
+        "spread_sum_sigma_u_plus_sigma_d": 11.563717476646348
+      },
+      "moduli": {
+        "sigma_d": 4.885955744830491,
+        "sigma_u": 6.677761731815857
+      },
+      "name": "P-scaled log-cardinality"
+    },
+    {
+      "closed_form": {
+        "sigma_d": "ln(1/alpha_U)",
+        "sigma_u": "(5/3)*ln(1/alpha_U)"
+      },
+      "id": "C-10",
+      "implied": {
+        "ln_yb_over_yd": 6.382314738702335,
+        "ln_yb_over_ys": 3.600482962925195,
+        "ln_yc_over_yu": 6.000804938208659,
+        "ln_ys_over_yd": 2.7818317757771394,
+        "ln_yt_over_yc": 4.636386292961899,
+        "ln_yt_over_yu": 10.637191231170558,
+        "spread_ratio_sigma_u_over_sigma_d": 1.6666666666666665,
+        "spread_sum_sigma_u_plus_sigma_d": 8.509752984936446
+      },
+      "moduli": {
+        "sigma_d": 3.1911573693511674,
+        "sigma_u": 5.318595615585279
+      },
+      "name": "Transmutation depth, F/V split"
+    },
+    {
+      "closed_form": {
+        "sigma_d": "sqrt(8/5)*(P*V/6)",
+        "sigma_u": "sqrt(8/5)*(P*F/6)"
+      },
+      "id": "C-11",
+      "implied": {
+        "ln_yb_over_yd": 8.252138596948145,
+        "ln_yb_over_ys": 4.655314825801001,
+        "ln_yc_over_yu": 7.758858043001669,
+        "ln_ys_over_yd": 3.5968237711471436,
+        "ln_yt_over_yc": 5.99470628524524,
+        "ln_yt_over_yu": 13.753564328246908,
+        "spread_ratio_sigma_u_over_sigma_d": 1.6666666666666667,
+        "spread_sum_sigma_u_plus_sigma_d": 11.002851462597526
+      },
+      "moduli": {
+        "sigma_d": 4.126069298474072,
+        "sigma_u": 6.876782164123454
+      },
+      "name": "Quadrupole-read traced budget"
+    },
+    {
+      "closed_form": {
+        "sigma_d": "(P*G/6)*(3/8)",
+        "sigma_u": "(P*G/6)*(5/8)"
+      },
+      "id": "C-12",
+      "implied": {
+        "ln_yb_over_yd": 12.232290718941726,
+        "ln_yb_over_ys": 6.900655347506791,
+        "ln_yc_over_yu": 11.501092245844653,
+        "ln_ys_over_yd": 5.331635371434936,
+        "ln_yt_over_yc": 8.88605895239156,
+        "ln_yt_over_yu": 20.38715119823621,
+        "spread_ratio_sigma_u_over_sigma_d": 1.6666666666666667,
+        "spread_sum_sigma_u_plus_sigma_d": 16.30972095858897
+      },
+      "moduli": {
+        "sigma_d": 6.116145359470863,
+        "sigma_u": 10.193575599118105
+      },
+      "name": "Flag-total traced budget, F:V split"
+    }
+  ],
+  "frozen_candidate_count": 12,
+  "inputs": {
+    "P_fwd": 1.630972095858897,
+    "alpha_U_P_fwd": 0.04112424744181668,
+    "declared_integers": {
+      "edges": 30,
+      "faces": 20,
+      "flags": 60,
+      "generations": 3,
+      "vertices": 12,
+      "write_check_ports": 24,
+      "z6_order": 6
+    },
+    "rho_ord_display_only": 1.2942849363777058
+  },
+  "menu": "CANDIDATES.md",
+  "sigma_convention": "sigma_q = (1/2) * ln(y_q3 / y_q1)",
+  "spec": "SELECTOR_SPEC.md",
+  "status": "evaluated_no_selection"
+}
