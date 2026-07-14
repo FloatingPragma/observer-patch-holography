@@ -31,6 +31,26 @@ externally timestamped. When the loop closes on the measured values, the
 universe on the output side is exactly the one we observe. If it closes
 anywhere else, the theory dies. Both outcomes are on the clock.
 
+**Where the proof stands:** Proven: the pixel closure has exactly one
+solution per readout map on the declared physical domain, by
+interval-arithmetic certificate; the SM coefficient triple and β_EW = 4 are
+consistency-forced, with every alternative structurally excluded by the
+preregistered 2026-07-14 sweep. Reduced to single named objects: the capacity
+closure is one coupling theorem (G2-GAP-1 in
+[CONSISTENCY_STACK.md](CONSISTENCY_STACK.md)) whose truth forces N to the
+electroweak bridge value; the forward electroweak tension equals a 3×10⁻⁵
+pixel shift with its one-loop revision menu exhausted. Consistent and
+waiting: the first-principles hadronic bracket, computed with no measured
+input anywhere in its cone, contains the required screening value; closing
+the blind window needs the hadronic moment to 4×10⁻⁹ relative precision,
+beyond every current method, and the protocol for that day is frozen and
+timestamped. The theory is one theorem and one measurement window away from
+exact closure, and it cannot be adjusted while it waits. A coincidence
+pricing under assumptions chosen to favor coincidence puts the no-dial
+forward record at one in thirty thousand, and at face value one in 140
+million; the full analysis with every assumption printed is in the
+[compact proof](extra/compact_proof_of_oph.pdf).
+
 **Principles and evidence:** OPH is stated under the strange-loop principles
 in [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md). The central
 thesis, its lineage in established physics and mathematics, and the

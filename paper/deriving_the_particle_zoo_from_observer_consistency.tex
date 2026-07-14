@@ -350,7 +350,12 @@ The repository file \texttt{CONSISTENCY\_STACK.md} places this reconstruction in
 chain C1--C10: the pixel equation is the C9 loop-closure row, and the stage-2 uniqueness statement
 for the closure map (a self-map and derivative bound certified by interval arithmetic on the
 declared interval) is carried by the interval contraction certificate at
-\texttt{code/P\_derivation/runtime/p\_interval\_contraction\_certificate\_2026-07-14.json}.
+\texttt{code/P\_derivation/runtime/p\_interval\_contraction\_certificate\_2026-07-14.json}. The
+domain-global statement is discharged as well: the certificate at
+\texttt{code/P\_derivation/runtime/p\_global\_uniqueness\_certificate\_2026-07-14.json} bounds
+\(\sup|g'|<1\) on every piece of a 256-piece subdivision of the declared physical domain
+(\(\alpha^{-1}\in[100,200]\), both readout maps, empty exceptional set), so each declared readout
+map has exactly one fixed point on the declared physical domain.
 
 \subsection{Why a single \(P\) matters}
 
@@ -6033,15 +6038,23 @@ neutrino comparison tension, source-only hadron backend rows, and empirical hadr
 The open quantitative program that this ledger names is finite and enumerated. The repository
 file \texttt{CONSISTENCY\_STACK.md} reduces the open rows of \texttt{CLOSURE\_LEDGER.md} to four
 generating objects and one selector: G1, the Ward-projected hadronic transport computed blind
-against the frozen target, closes or moves CL-1 and CL-2; G2, the capacity readback map \(F\)
-with its contraction certificate, carries CL-3, CL-4, and CL-7; G3, the repaired forward
-electroweak chain from the axioms under preregistered revisions, carries CL-5; G4, solver hygiene
-delivering a matched printed pair at certified precision, closes CL-6. The one object beyond the
-ledger is the source-derived flavor-orbit selector, and the two-modulus quark source-spread
-non-identifiability theorem proved in this paper names that gap precisely: it states which
-freedom the quark equations cannot fix from the declared source data, so the missing selector is
-a specified construction rather than an open-ended search. Every item on this list is a
-computation or a construction, not a reinterpretation.
+against the frozen target, closes or moves CL-1 and CL-2; its payload harness is built, the
+first-principles internal-mass bracket \(S_{\mathrm{eff}}\in[0.558,1.054]\) contains the required
+0.8954, and closing the blind window needs \(4\times10^{-9}\) relative precision on the hadronic
+moment, beyond every current method. G2, the capacity readback map \(F\)
+with its contraction certificate, carries CL-3, CL-4, and CL-7; every declared-structure
+candidate is certified and excluded, so the row is now the single coupling theorem G2-GAP-1.
+G3, the repaired forward electroweak chain from the axioms under preregistered revisions, carries
+CL-5; the preregistered 96-entry sweep of 2026-07-14 exhausted the certified-pixel menu at one
+loop, structurally excluded the SM triple and \(\beta_{\mathrm{EW}}\in\{3,5\}\), and left one
+counted landing at the rounded legacy carrier awaiting its own frozen test. G4, solver hygiene
+delivering a matched printed pair at certified precision, closed CL-6 on 2026-07-14. The one
+object beyond the ledger is the source-derived flavor-orbit selector; twelve preregistered
+candidates were evaluated and excluded, so the selector stays open, and the two-modulus quark
+source-spread non-identifiability theorem proved in this paper names that gap precisely: it
+states which freedom the quark equations cannot fix from the declared source data, so the missing
+selector is a specified construction rather than an open-ended search. Every item on this list
+is a computation or a construction, not a reinterpretation.
 
 \appendix
 \input{tex_fragments/PARTICLE_TECHNICAL_SUPPLEMENT_PORT.tex}

@@ -10,9 +10,10 @@ ledger and the compression scorecard, never through restatement.
 The two substrate constants are handled in three layers
 ([STRANGE_LOOP_PRINCIPLES.md](../STRANGE_LOOP_PRINCIPLES.md)). The theory layer
 takes zero quantitative inputs: P is defined as the solution of
-P = φ + √π/A_T(P), interval-certified to exist and be unique on its interval,
+P = φ + √π/A_T(P), interval-certified to exist and be unique, with exactly one
+fixed point per readout map on the declared physical domain,
 and N is defined as the solution of N = F(N), with F specified and its
-construction open (CL-7). Measured values sit at the test layer, as the
+construction reduced to the coupling theorem G2-GAP-1 (CL-7). Measured values sit at the test layer, as the
 comparisons the forced outputs face, and at the working layer, where open
 lanes borrow located values:
 
@@ -28,7 +29,18 @@ lanes borrow located values:
 Every working borrow is tied to a named generator in
 [CONSISTENCY_STACK.md](../CONSISTENCY_STACK.md) (G1 hadronic transport, G2
 capacity readback, G3 electroweak repair); a generator that lands retires its
-borrow.
+borrow. The generator program executed its first full round on 2026-07-14.
+G1: the payload harness is built, and the first-principles internal-mass
+bracket S_eff ∈ [0.558, 1.054] contains the required 0.8954; closing the blind
+window needs 4×10⁻⁹ relative precision on the hadronic moment, beyond every
+current method. G2: every declared-structure F candidate is certified and
+excluded, so the row is now the single coupling theorem G2-GAP-1. G3: the
+preregistered 96-entry sweep exhausted the certified-pixel menu at one loop,
+structurally excluded the SM triple and β_EW ∈ {3, 5}, and left one counted
+landing at the rounded legacy carrier awaiting its own frozen test. G4:
+closed, with the printed pair matched to 35 digits. The flavor selector:
+twelve preregistered candidates evaluated and excluded; the selector stays
+open.
 
 Neither α nor Λ nor G appears on any OPH output list. A measured value used to
 locate a basin is an input at every surface, permanently
@@ -102,7 +114,7 @@ branch for any row, and no row closes by relabeling.
 | CL-4 | Hierarchy bridge at the one N: \(\alpha_U\log(N/\pi) = 6\pi/P\) | exact | 11.5546 vs 11.5573 at the Λ-located N | 2.3×10⁻⁴ (log scale) | n/a |
 | CL-5 | Forward electroweak emission at the SL-3 pixel: \((M_W, M_Z)\) | exact | (80.330, 91.119) vs (80.3692(133), 91.1880(20)) | 4.9×10⁻⁴ / 7.6×10⁻⁴ | 2.9σ / ≈35σ |
 | CL-6 | Printed pair identity: \(\alpha_{\mathrm{root}} = (P_{\mathrm{fwd}} - \varphi)/\sqrt{\pi}\) | exact | closed 2026-07-14: holds to ≥ 35 digits after converged precision-100 reruns; the converged α⁻¹ = 136.994835177413 supersedes the earlier printed tail 136.994835164622 beyond digit 9 | 3.1×10⁻³⁶ (report), 1.2×10⁻³⁸ (trunk) | n/a |
-| CL-7 | Capacity readback map: \(F(N) = N\) | exact | F not yet constructed | n/a | n/a |
+| CL-7 | Capacity readback map: \(F(N) = N\) | exact | F not yet constructed; every declared-structure candidate certified and excluded, so the row is the coupling theorem G2-GAP-1 | n/a | n/a |
 
 CL-1 and CL-2 are the same open term seen from two points on the chain: the
 Ward-projected hadronic transport. CL-3 supersedes all "two capacities" and
@@ -156,9 +168,9 @@ assumptions:
 | Generation count | A valid OPH construction has two or four light matter generations. | OPH claims exactly three generations on the realized branch. |
 | Fermions and chirality | Chiral fermions have to be imported from the Standard Model by hand. | OPH says matter structure follows from observer consistency. If the key fermion structure has to be assumed, the reconstruction fails. |
 | P-lane protocol | The stated fixed-point equations admit no interval-grade contraction certificate on the declared interval, admit multiple solutions there, or the source map reads the low-energy target. | Any "one and only P" claim requires the stage-2 certificate. The lane now holds one: `code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json` proves existence and uniqueness of the closure fixed point on its stated interval (direct Banach, mpmath.iv outward rounding, L ≤ 0.0724, edge-sum tails bounded), for both readout maps at the declared cutoffs and conventions. The global at-most-one statement is discharged on the declared physical domain (alpha_inv in [100, 200]): sup|g'| < 1 on all 256 certified pieces, both maps, zero exceptional set (`runtime/p_global_uniqueness_certificate_2026-07-14.json`). A proof of non-uniqueness on the declared domain or a target leak kills the lane rather than merely stalling it. |
-| N-lane readback | The capacity readback map F is constructed and \(F(N)\neq N\) at the Λ-located N, or the same equations allow incompatible capacity branches. | The capacity closure is the second substrate constant. CL-7 is open; a constructed F that fails is a falsification, not an open item. |
+| N-lane readback | The capacity readback map F is constructed and \(F(N)\neq N\) at the Λ-located N, or the same equations allow incompatible capacity branches. | The capacity closure is the second substrate constant. CL-7 is open and reduced to the coupling theorem G2-GAP-1; a constructed F that fails is a falsification, not an open item. |
 | 24-tick repair lock | The observer-visible product-adjoint repair spectrum is not \(2(8+3+1)=24\), or the local repair contraction fails to line up with the global screen step. | The repair lock is the bridge between P and N. Its ×2 orientation is a recorded discrete selection; the spectrum content is not, and a different spectrum breaks the mechanism. |
-| Hierarchy witness | The declared first-principles hierarchy map imports \(G\), \(\Lambda\), \(W\), \(Z\), Higgs, low-energy Thomson, cesium-clock, or hadronic inputs, or it misses \(v/E_\star\) on its declared branch: 2.0199803239725553e-17 at the SL-3 working pixel, 2.0198114078576331e-17 at the certified P_fwd. | This row avoids QCD and clock assumptions, which is why it is the compact proof's answer to the QCD-circularity criticism. It is conditional on the frozen MSSM-like one-loop coefficients \((33/5, 1, -3)\), a recorded structural selection; every α_U descendant, including \(\epsilon_H = 0\), inherits that condition. |
+| Hierarchy witness | The declared first-principles hierarchy map imports \(G\), \(\Lambda\), \(W\), \(Z\), Higgs, low-energy Thomson, cesium-clock, or hadronic inputs, or it misses \(v/E_\star\) on its declared branch: 2.0199803239725553e-17 at the SL-3 working pixel, 2.0198114078576331e-17 at the certified P_fwd. | This row avoids QCD and clock assumptions, which is why it is the compact proof's answer to the QCD-circularity criticism. It is conditional on the frozen MSSM-like one-loop coefficients \((33/5, 1, -3)\), a recorded structural selection; every α_U descendant, including \(\epsilon_H = 0\), inherits that condition. The 2026-07-14 preregistered sweep structurally excluded the SM triple and isolated β_EW = 4 by three orders of magnitude, so the coefficient selection is consistency-forced. |
 | Dimensionless gravity theorem | The dimensionless gravity relation fails from the stated assumptions. | OPH claims the gravity coupling is a branch readout. The SI display \(G_{\mathrm{OPH}}\) is a bridge display consuming measured quantities and cannot carry this test; the dimensionless theorem can. |
 | Low-energy uniqueness | The OPH axioms plus MAR allow many inequivalent low-energy physics worlds with the same admissibility predicates. | If many incompatible worlds pass the same rules, the selection claim fails. |
 | Quark source-spread theorem | A target-free OPH observable breaks the claimed free \((\mathbb R_{>0})^2\) action using only the stated source corpus. | That result would falsify the present non-identifiability theorem and reopen numeric quark reconstruction. |
@@ -196,9 +208,15 @@ data exists or is looked at):
    beats CODATA's ±2.1×10⁻⁸ on α⁻¹, the sharpened digits are registered as a
    prediction for future metrology.
 2. **Forward W/Z.** After the forward electroweak chain is repaired with
-   preregistered revisions (declared suspects: the frozen MSSM one-loop
-   coefficients, QT1–QT5, β_EW), the re-emitted \((M_W, M_Z)\) pair is frozen
-   before comparison. The current forward pair is a live tension (CL-5), and
+   preregistered revisions, the re-emitted \((M_W, M_Z)\) pair is frozen
+   before comparison. The preregistered 96-entry sweep of 2026-07-14
+   (`falsification/preregistered/ew_repair_results_2026-07-14.json`) exhausted
+   the certified-pixel menu at one loop, structurally excluded the SM triple
+   (no fixed-point root; the Landau ceiling is disjoint from the fixed-point
+   window) and β_EW ∈ {3, 5} (three orders of magnitude off), and left a
+   single counted landing at the rounded legacy carrier; that landing awaits
+   its own frozen registration. The Z tension equals a 3×10⁻⁵ pixel shift.
+   The current forward pair is a live tension (CL-5), and
    the exact-match W/Z companion lane is calibration: it consumed its targets
    and can neither support nor falsify.
 3. **DESI stance rows.** The fixed-N reading commits to

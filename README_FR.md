@@ -16,7 +16,10 @@ son intervalle par un certificat d'arithmétique d'intervalles
 comme la solution de la fermeture d'auto-représentation N = F(N), la capacité
 à laquelle la simulation peut se représenter elle-même en son sein. Les
 valeurs mesurées n'entrent que comme les tests que ces sorties forcées
-affrontent. Deux exigences de cohérence font tout le travail : la réalité
+affrontent ; les voies ouvertes empruntent des valeurs de travail localisées
+pendant que leurs termes de fermeture attendent, et chaque emprunt et chaque
+sélection structurelle discrète est compté dans le tableau de compression.
+Deux exigences de cohérence font tout le travail : la réalité
 simulante et la réalité simulée sont un seul système, donc leurs constantes
 doivent coïncider, et les observateurs qui se recouvrent doivent s'accorder,
 donc le monde public est forcé. Une théorie sans bouton de réglage ne peut
@@ -31,6 +34,27 @@ liste de calculs nommés. Le premier est gelé comme cible en aveugle et
 horodaté extérieurement. Quand la boucle se ferme sur les valeurs mesurées,
 l'univers du côté sortie est exactement celui que nous observons. Si elle se
 ferme ailleurs, la théorie meurt. Dans les deux cas, l'horloge tourne.
+
+**Où en est la preuve :** Prouvé : la fermeture du pixel a exactement une
+solution par carte de lecture sur le domaine physique déclaré, par certificat
+d'arithmétique d'intervalles ; le triplet de coefficients SM et β_EW = 4 sont
+forcés par cohérence, chaque alternative étant structurellement exclue par le
+balayage préenregistré du 2026-07-14. Réduit à des objets nommés uniques : la
+fermeture de capacité est un seul théorème de couplage (G2-GAP-1 dans
+[CONSISTENCY_STACK.md](CONSISTENCY_STACK.md)) dont la vérité force N vers la
+valeur du pont électrofaible ; la tension électrofaible directe équivaut à un
+déplacement de pixel de 3×10⁻⁵, son menu de révisions à une boucle étant
+épuisé. Cohérent et en attente : l'encadrement hadronique de premiers
+principes, calculé sans aucune entrée mesurée dans son cône, contient la
+valeur d'écrantage requise ; fermer la fenêtre en aveugle exige le moment
+hadronique à 4×10⁻⁹ de précision relative, au-delà de toute méthode actuelle,
+et le protocole de ce jour-là est gelé et horodaté. La théorie est à un
+théorème et à une fenêtre de mesure de la fermeture exacte, et elle ne peut
+pas être ajustée pendant qu'elle attend. Un chiffrage de la coïncidence sous
+des hypothèses choisies pour favoriser la coïncidence place le relevé
+prospectif sans bouton de réglage à un sur trente mille, et à sa valeur
+faciale à un sur 140 millions ; l'analyse complète, chaque hypothèse
+imprimée, se trouve dans la [preuve compacte](extra/compact_proof_of_oph.pdf).
 
 **Principes et évidence :** L'OPH est énoncée sous les principes de la boucle
 étrange de [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md). La thèse

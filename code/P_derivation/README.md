@@ -143,7 +143,9 @@ source-payload rule. The short version is:
 - the solver output is
   `alpha^-1 = 136.994835177412937295289429464436...`
   (default exact one-loop readout, converged precision-100 rerun;
-  interval-certified unique fixed point on its interval), defining the
+  interval-certified unique fixed point, and by the domain-global certificate
+  below the only fixed point of the readout map on the declared physical
+  domain `alpha^-1` in `[100, 200]`), defining the
   forward-model closure point `P_fwd`
 - the difference between the solver output and the SL-3 input endpoint is the
   open hadronic term: the loop residual of closure rows CL-1/CL-2 in

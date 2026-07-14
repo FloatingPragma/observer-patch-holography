@@ -615,13 +615,21 @@ capacity readback stands as a live 6.8 percent tension, and the forward chain
 still lands outside its basin by the missing hadronic piece.
 
 What stands between here and a closed case is finite and named: three
-computations and one selector. The hadronic transport term. The capacity
-readback map with its contraction certificate. The repaired forward
-electroweak chain. And a rule that tells the quark generations apart. A fifth
-item, the matched printed pair, closed in July 2026 when converged reruns
-carried the identity past thirty-five digits. None of the open items is a
-matter of interpretation; each is a computation or a construction. The first
-is already frozen as a blind target, externally timestamped, and the
+computations and one selector. The hadronic transport term, where the first
+calculation built from pure theory already brackets the required value, and
+what remains is a precision wall: closing the window needs the hadronic piece
+to about four parts in a billion, finer than any method in existence can
+reach today. The capacity readback map, which has narrowed to a single
+theorem: every candidate built from the declared structure has been tried and
+ruled out, and one remaining coupling statement now decides the question. The
+repaired forward electroweak chain, whose entire menu of one-loop revisions
+has been run and used up, leaving one surviving candidate that waits for its
+own frozen test. And a rule that tells the quark generations apart, still
+missing after a first slate of twelve candidates was tried and excluded. A
+fifth item, the matched printed pair, closed in July 2026 when converged
+reruns carried the identity past thirty-five digits. None of the open items
+is a matter of interpretation; each is a computation or a construction. The
+first is already frozen as a blind target, externally timestamped, and the
 calculation has to land on it without reading it.
 
 ## 18.12 Final Synthesis
