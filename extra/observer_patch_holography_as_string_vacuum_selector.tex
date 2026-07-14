@@ -203,6 +203,15 @@ The compact rule is:
 In that reading, the string landscape is the space of effective edge-worldsheet completions. OPH
 acts as a selector by imposing the observer-visible normal form.
 
+The contrast with landscape reasoning is structural. Under the uniqueness
+lemmas of the consistency stack (\texttt{../CONSISTENCY\_STACK.md}, L1--L3),
+the SLH principle set admits at most one \((P,N)\): on the OPH side of the map
+there is no vacuum landscape to relocate into. The sieve reading of string
+theory is therefore an edge-language statement --- a statement about which
+worldsheet completions can present the one selected normal form --- not a
+competing selection mechanism, and it inherits no anthropic weighting from
+the space of candidates it filters.
+
 \begin{center}
 \small
 \begin{tabular}{p{0.25\linewidth}p{0.31\linewidth}p{0.34\linewidth}}
@@ -2497,9 +2506,9 @@ From frozen target-side coordinates, including candidate-only Higgs/top inputs, 
 \midrule
 Tree-level top coordinate & \(y_t^{\rm tree}=0.987745211164\) \\
 Tree-level Higgs quartic coordinate & \(\lambda_H^{\rm tree}=0.128706603202\) \\
-MSSM tree-level quartic ceiling & \(\lambda_{\rm MSSM,max}=0.068973725409\) \\
-Large-\(\tan\beta\) algebraic quartic gap & \(\Delta\lambda_{\rm proxy}=0.059732877792\) \\
-Tree-level Higgs mass proxy ceiling & \(m_{h,\rm tree}^{\rm max}=91.6524602856\,\mathrm{GeV}\) \\
+MSSM tree-level quartic ceiling & \(\lambda_{\rm MSSM,max}=0.068275831787\)\footnote{Erratum: an earlier version displayed \(\lambda_{\rm MSSM,max}=0.068973725409\) and \(m_{h,\rm tree}^{\rm max}=91.6524602856\,\mathrm{GeV}\), exceeding \(m_Z\); the large-\(\tan\beta\) ceiling is \(m_Z^2/(2v^2)\), giving \(m_{h,\rm tree}^{\rm max}=m_Z\), and the dependent gap and stop-proxy targets below are recomputed against the corrected value.} \\
+Large-\(\tan\beta\) algebraic quartic gap & \(\Delta\lambda_{\rm proxy}=0.060430771415\) \\
+Tree-level Higgs mass proxy ceiling & \(m_{h,\rm tree}^{\rm max}=m_Z=91.1876\,\mathrm{GeV}\) \\
 \bottomrule
 \end{longtable}
 
@@ -2511,11 +2520,11 @@ y_t^{\rm tree}=0.987745211164,
 \]
 with the MSSM tree-level quartic ceiling
 \[
-\lambda_{\rm MSSM,max}=0.068973725409,
+\lambda_{\rm MSSM,max}=\frac{m_Z^2}{2v^2}=0.068275831787,
 \]
 and the corresponding algebraic gap is
 \[
-\Delta\lambda_{\rm proxy}=0.059732877792.
+\Delta\lambda_{\rm proxy}=0.060430771415.
 \]
 The displayed \(y_t^{\rm tree}\) is likewise the algebraic pole-coordinate conversion
 \(\sqrt2m_t/v\), not a running Yukawa in a common scheme. The quartic subtraction mixes declared
@@ -2543,14 +2552,14 @@ and the tree-level electroweak ceiling above, the frozen proxy gives:
 \toprule
 \(\tan\beta\) & \(X_t/M_S\) & \(M_S\) proxy target \\
 \midrule
-2 & \(0\) & \(3046.266\,\mathrm{GeV}\)\\
-2 & \(\sqrt6\) & \(679.714\,\mathrm{GeV}\)\\
-5 & \(0\) & \(1191.830\,\mathrm{GeV}\)\\
-5 & \(\sqrt6\) & \(265.933\,\mathrm{GeV}\)\\
-10 & \(0\) & \(968.658\,\mathrm{GeV}\)\\
-10 & \(\sqrt6\) & \(216.137\,\mathrm{GeV}\)\\
-50 & \(0\) & \(901.608\,\mathrm{GeV}\)\\
-50 & \(\sqrt6\) & \(201.176\,\mathrm{GeV}\)\\
+2 & \(0\) & \(3067.501\,\mathrm{GeV}\)\\
+2 & \(\sqrt6\) & \(684.452\,\mathrm{GeV}\)\\
+5 & \(0\) & \(1211.588\,\mathrm{GeV}\)\\
+5 & \(\sqrt6\) & \(270.342\,\mathrm{GeV}\)\\
+10 & \(0\) & \(986.784\,\mathrm{GeV}\)\\
+10 & \(\sqrt6\) & \(220.181\,\mathrm{GeV}\)\\
+50 & \(0\) & \(919.146\,\mathrm{GeV}\)\\
+50 & \(\sqrt6\) & \(205.089\,\mathrm{GeV}\)\\
 \bottomrule
 \end{longtable}
 These rows invert a leading one-loop formula. They do not determine \(\tan\beta\), \(M_S\), or
@@ -2574,6 +2583,10 @@ M_U=1.20665\times10^{16}\,\mathrm{GeV},
 \[
 \alpha_3^{\rm pred}(m_Z)=0.111511310319.
 \]
+The symbols \(\alpha_U\) and \(M_U\) here name the one-loop running-unification proxy
+coordinates of this subsection; they are different objects from the finite-screen unified
+gauge width \(\alpha_U(P)\) of the fine-structure paper and the capacity-bridge \(\alpha_U\)
+of the compact paper, which carry the same symbols with different values.
 Against the PDG 2025 comparison value
 \(\alpha_s(m_Z)=0.1180\pm0.0009\) \cite{PDG2025QCD}, the residual inverse-coupling combination is
 \[

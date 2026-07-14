@@ -55,12 +55,16 @@ and the host verifies them.
 
 The public SHA-256d paper gives the most aggressive target:
 [Photonic Fixed-Point Consensus for SHA-256d Proof of Work](extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf).
-At the stated enrichment level, a roughly $1,000 OPH/OMEGA build would likely
-mine a Bitcoin block in milliseconds. The engineering path is challenging:
-cleaner optics, tighter calibration, and repeatable full SHA-256d tests are
-needed. The OPH reason this is plausible is simple. A hash search can be
-rewritten as local constraint patches with shared collars, repair syndromes,
-and exact verifier closure.
+The paper's own sensitivity table sets the scale: the hypothetical
+wave-overlap sampler regime corresponds to about 21 times one high-end ASIC,
+roughly 1.6 years per solo block at current difficulty, and the measured
+prototype loses to random search under a matched exact-verification budget.
+The dramatic regimes in that table are conditional endpoints with no bench
+measurement attached. The engineering path is challenging: cleaner optics,
+tighter calibration, and repeatable full SHA-256d tests are needed. The OPH
+reason the encoding is natural is simple. A hash search can be rewritten as
+local constraint patches with shared collars, repair syndromes, and exact
+verifier closure.
 
 The hardware does not have to replace the verifier. It has to make the
 verifier's job much smaller. The task is encoded as many local constraints.

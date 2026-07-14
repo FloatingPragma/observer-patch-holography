@@ -146,10 +146,12 @@ carrier implementation realizes the same visible map with a public evidence bund
 \end{definition}
 
 The \(E_8/\mathrm{Spin}(8)\) triality sidecar is an algebraic audit instrument in this sense. It
-certifies, by exact finite matrices, that the vector \(\mathrm{Alt}(9)\) and positive-half-spin
+would certify, by exact finite matrices, that the vector \(\mathrm{Alt}(9)\) and positive-half-spin
 \(2\!\cdot\!\mathrm{Alt}(9)\) presentations preserve \(E_8\)-lattice data, have different
 mod-2 orbit fingerprints on \(E_8/2E_8\), and are identified only by the Spin(8) triality outer
-automorphism. The result belongs to finite exceptional representation bookkeeping, not to hardware
+automorphism. The committed surface is currently a claim statement; the certification stands only
+once the audit bundle with raw matrices, scripts, exact checks, and hashes is committed. The
+result would belong to finite exceptional representation bookkeeping, not to hardware
 promotion.
 
 The tuple \(\mathsf O_i\) does not impose equal primitive observer size. Fixed-cutoff OPH requires
@@ -324,6 +326,17 @@ The finite carrier vocabulary is compatible with the layered functional carrier 
 paper: the carrier is a quotient-visible finite implementation surface, and hidden port labels or
 substrate coordinates are silent when visible interface data, record statistics, repair maps, and
 checkpoint continuation are preserved.
+
+In the terminology of the repository file \texttt{CONSISTENCY\_STACK.md}, this record/repair
+architecture is the carrier of two rows of the forcing chain. Row C1 (self-reading): a world that
+is the fixed point of its own description must contain observers, records of their readings, and
+a mechanism that keeps those records consistent under continued reading; the patch federation
+above, with its record algebras, readout maps, and repair interfaces, is that mechanism made
+explicit at fixed cutoff. Row C6 (record existence): a screen at exact self-similar balance
+carries no events, so records require detuning; the register constructions below give the
+fixed-cutoff surface on which that detuning has a declared carrier. Both mappings hold on the
+declared branches and gates of this paper, including the named MaxEnt-hypothesis caveat where it
+applies.
 
 \subsection{Edge-center scalar-slot register}
 \label{sec:edge-center-scalar-slot-register}
@@ -975,9 +988,14 @@ The oriented register is a bookkeeping refinement of the same quotient-edge cut
 surface. It does not create an independent scalar carrier.
 \end{definition}
 
+The shared-edge protected-reserve branch carries one named branch input: the shared cut entropy
+density \(\bar\ell_{\rm shared}=P/4\) is a declared assumption of the branch, not a derived
+quantity. Every value downstream of the \(P/24\) exponent inherits that input.
+
 \begin{theorem}[Protected reserve mean and reciprocal trace]
 \label{thm:z6-reserve-trace}
-On the shared-edge protected-reserve branch,
+On the shared-edge protected-reserve branch, with the declared branch input
+\(\bar\ell_{\rm shared}=P/4\),
 \[
 \boxed{
 \tau_{q,r,C}(Z_{6,r,C})=\frac{P}{24}.
@@ -1007,7 +1025,7 @@ e^{-P/24}=0.9343006394893864.
 \end{theorem}
 
 \begin{proof}
-The shared cut entropy density on this branch is
+The shared cut entropy density on this branch is the declared branch input
 \[
 \bar\ell_{\rm shared}=\frac{P}{4}.
 \]
@@ -1917,14 +1935,29 @@ concentrate the same charge into four \(q=3\) defects or six \(q=2\) defects.
 The edge-center collar package turns each unit fivefold defect into a central
 readout algebra \(Z(\mathcal A(B_i))\), so the defects are the ports. The
 no-marked-point MaxEnt rule makes the twelve ports indistinguishable. The
-maximal finite rotation symmetry of the sphere is the icosahedral group
-\(I\simeq A_5\), and orbit-stabilizer gives
+icosahedral group
+\(I\simeq A_5\) acts transitively on the twelve-point icosahedral vertex orbit
+with \(C_5\) vertex stabilizers, and orbit-stabilizer gives
 \[
 |I|/|C_5|=60/5=12.
 \]
+The cyclic and dihedral rotation families are unbounded in order, so the sphere
+has no maximal finite rotation group; the selection of the icosahedral vertex
+configuration among transitive twelve-point arrangements is made by the named
+MaxEnt-maximal-symmetry hypothesis, not by a maximality theorem.
 Any invariant scalar assigned to a transitive twelve-port orbit is split
 equally across the ports, so the local port read is \(X/12\).
 \end{proof}
+
+\begin{remark}[Named hypothesis: MaxEnt-maximal-symmetry rule]
+The step from twelve indistinguishable ports to the icosahedral vertex orbit
+uses the no-marked-point MaxEnt symmetry rule as a named hypothesis. The rule
+is invoked, not derived: other transitive twelve-point orbits on the sphere
+exist, and the rule selects the \(A_5\) vertex configuration among them. Every
+quantity downstream of the \(12\)- and \(24\)-fold normalizations inherits this
+hypothesis together with the declared branch input
+\(\bar\ell_{\rm shared}=P/4\) of Theorem~\ref{thm:z6-reserve-trace}.
+\end{remark}
 
 \begin{theorem}[Icosahedral face-corner bundle]
 \label{thm:icosahedral-face-corner-bundle}

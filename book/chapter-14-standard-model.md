@@ -226,9 +226,9 @@ Renormalization works for some theories (called "renormalizable") but not others
 
 A strange consequence of renormalization: coupling constants change with energy.
 
-The fine-structure constant measures the strength of electromagnetism, and it too drifts with energy. OPH tries to compute it from the screen structure instead of reading it off an experiment. That attempt is partly successful and openly incomplete. The cleanest first-principles reading lands close to the value nature uses, near $137$, and it does not reproduce the precise number a laboratory measures. Closing the last small gap calls for strong-force input that the framework has to derive from its own foundations, and supplying that input is work in progress. For the moment the theory reaches for the constant without capturing it.
+The fine-structure constant measures the strength of electromagnetism, and it too drifts with energy. OPH tries to compute it from the screen structure instead of reading it off an experiment. That attempt is partly successful and openly incomplete. The cleanest first-principles reading lands close to the value nature uses, near $137$, and it does not reproduce the precise number a laboratory measures. Closing the last small gap calls for strong-force input that the framework has to derive from its own foundations, and supplying that input is work in progress. For the moment the theory reaches for the constant without capturing it, and the test is arranged: the required hadronic correction is frozen as a registered target, and the strong-force calculation must land on it without reading it.
 
-That low-energy number lives in the same family as the W and Z bosons. Once the electroweak structure is fixed, electromagnetism is the unbroken piece left after the weak and hypercharge parts mix together. OPH computes the W and Z masses from that same structure without feeding in any measured mass, and its cleanest reading lands near $80.3$ and $91.1$ GeV, within about a tenth of a percent of the observed pair. One small ambiguity affects the final step: two candidate rules disagree at the level of a few MeV, and choosing between them is work in progress.
+That low-energy number lives in the same family as the W and Z bosons. Once the electroweak structure is fixed, electromagnetism is the unbroken piece left after the weak and hypercharge parts mix together. OPH computes the W and Z masses from that same structure without feeding in any measured mass, and its cleanest reading lands near $80.3$ and $91.1$ GeV, within about a tenth of a percent of the observed pair. Measured against the experimental uncertainties, the W value pulls at 2.9 standard deviations and the Z at roughly 33, and the gap is carried as an open closure row. One small ambiguity affects the final step: two candidate rules disagree at the level of a few MeV, and choosing between them is work in progress.
 
 The strong force coupling runs the opposite way. At low energies, it's strong (hence the name). At high energies, it weakens. This is "asymptotic freedom," discovered by Gross, Wilczek, and Politzer in 1973.
 
@@ -919,7 +919,9 @@ balance point, its point of perfect self-similar rest. A universe with observers
 in it cannot stay perfectly silent. It carries a small displacement from that
 balance, and the displacement is what lets records form and measurements leave
 lasting traces. OPH reads the measured electromagnetic strength as that small
-displacement.
+displacement. In the book's chain of consistency requirements this is the
+record-existence step: a screen at perfect balance carries no events, so
+demanding records removes the pixel freedom and leaves this one local number.
 
 ## 14.15 What the Electromagnetic Branch Supplies
 

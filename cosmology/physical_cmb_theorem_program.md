@@ -12,6 +12,16 @@ This contract keeps the physical-CMB promotion boundary machine-auditable. OPH-F
 
 The executable schema and fail-closed validator live in the sibling simulator repository at `oph-physics-sim/oph_fpe/cosmology/physical_cmb_contract.py`; its regression tests live at `oph-physics-sim/tests/test_physical_cmb_contract.py`. This document is the research-repository theorem contract, not a duplicate implementation.
 
+## Owning theorem fragments
+
+- `paper/tex_fragments/SCREEN_SPECTRUM_THEOREMS.tex` — screen scalar, precision operator, MaxEnt covariance, tilt receipts. Status: screen-level receipts open; the `P/48` tilt is an analytic candidate with the `kappa_rep` certificate pending.
+- `paper/tex_fragments/PRIMORDIAL_BRIDGE_THEOREMS.tex` — screen-to-primordial radial lift, amplitude conversion, null-space and forward-projection receipts. Status: open.
+- `paper/tex_fragments/PHYSICAL_SCALE_BRIDGE_THEOREMS.tex` — physical `k`, angular `ell`, scale factor, freezeout certificates. Status: open.
+- `paper/tex_fragments/FINITE_COVARIANT_PARENT_THEOREMS.tex` — covariant stress parent, stress/exchange closure, kernel receipts. Status: open.
+- `paper/tex_fragments/FINITE_QUOTIENT_ENSEMBLE_THEOREMS.tex` — quotient ensembles and claim tiers E0–E5. Status: shared surface, in use.
+- `cosmology/oph_boltzmann_transport_derivation.tex` — transport reduction with declared imports; transfer receipts `Boltz-R1/N1/X1/V1`. Status: R1/V1 open, N1/X1 declared imports.
+- `cosmology/oph_cosmology_data_likelihood_contracts.tex` — frozen source/solver/likelihood hashes and no-data-use receipts. Status: zero frozen physical-prediction receipts.
+
 ## Issue ownership
 
 - [#371](https://github.com/FloatingPragma/observer-patch-holography/issues/371): finite-source contract hardening.

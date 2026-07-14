@@ -78,19 +78,34 @@ core and records the same boundary caveat: at fixed \(q=2f+1\), the overlap
 step is exact-size \(n=3f+1\) logic unless (A6) is imposed separately.
 
 \begin{theorem}[QBFT Safety Bound
-  {\normalfont\small [Established under A1--A6]}]
+  {\normalfont\small [Same-view case established under A1--A6;
+  cross-view safety conditional on a (P4) locking rule]}]
 \label{thm:qbft-safety}
 Under assumptions (A1)--(A6), any consensus protocol satisfying
 (P1)--(P3) of Definition~\ref{def:qbft-style} and run over the
 \textrm{OPH} observer graph satisfies:
 \begin{enumerate}[(i)]
-  \item \textbf{Safety.} No two nonfaulty observers finalise conflicting
-        patch states.
+  \item \textbf{Same-view safety.} No two nonfaulty observers finalise
+        conflicting patch states in the same view.
   \item \textbf{Liveness.} After \textrm{GST}, every nonfaulty observer
         finalises within $O(f\cdot\Delta)$ wall-clock time.
   \item \textbf{Optimality.} The bound $f<n/3$ is tight.
 \end{enumerate}
 \end{theorem}
+
+\paragraph{Cross-view boundary.}
+Clause (i) is stated for same-view finalisation because the argument below
+covers exactly that case. Cross-view safety in the IBFT/QBFT protocol family
+uses an additional prepared-certificate locking property --- an explicit
+(P4) hypothesis under which a nonfaulty node votes in a later view only for
+a value carried by the highest prepared certificate it has received.
+(P1)--(P3) alone do not exclude finalisation of conflicting values across
+views; a cross-view extension of this theorem requires (P4) and its
+accompanying view-change justification argument.
+On its stated assumptions, this finalisation theorem is a finite carrier of stack row C1 of
+\texttt{CONSISTENCY\_STACK.md}: record permanence---no two nonfaulty observers finalising
+conflicting patch states---enters as a consistency requirement on the observer net, not as an
+added postulate.
 
 \begin{proof}[Proof sketch]
 \textit{Safety.}

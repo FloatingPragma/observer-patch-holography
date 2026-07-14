@@ -56,6 +56,13 @@ closure surface defined in `../../HADRON.md`.
 
 ## Terms
 
+Canonical naming, used on every surface in this directory: `P` is the SL-3
+estimate of the pixel constant, obtained from the measured fine-structure
+input endpoint (`../../STRANGE_LOOP_PRINCIPLES.md`); `P_fwd` is the forward-model closure
+point, the pixel value implied by the solver's own contracted output. The gap
+between them is the open hadronic loop residual measured by closure rows
+CL-1/CL-2 in `../../CLOSURE_LEDGER.md`.
+
 `P ratio (pixel size)` means the dimensionless screen-cell area
 
 `P = a_cell / l_P^2`
@@ -117,7 +124,8 @@ The important claim-boundary caveat is:
   interval-wide uniqueness.
 - `fixed_point_certificate.py` emits a local numerical contraction certificate
   for the implemented map. It is a stricter machine artifact than the witness;
-  formal interval arithmetic for the full map is a separate certificate.
+  the formal interval-arithmetic certificate for the full map is
+  `interval_contraction_certificate.py` (see "Interval certificates" below).
 - A separate pending hardware note reports an optical-cavity check of the same
   fixed-point geometry; this is treated as corroborating engineering evidence.
 
@@ -128,14 +136,23 @@ audit packet. `THOMSON_TRANSPORT_THEOREMS.md` records the theorem suite and its
 source-payload rule. The short version is:
 
 - the D10 source map and the outer fixed-point witness are implemented
-- the public fixed-point readout is
-  `alpha^-1(0) = 137.035999177(21)` and
-  `P=1.630968209403959324879279847782648941...`
-- the default exact one-loop readout gives
+- the SL-3 input endpoint is
+  `alpha^-1(0) = 137.035999177(21)` with
+  `P=1.630968209403959324879279847782648941...`; this is the measured input
+  that estimates `P`, never a solver product
+- the solver output is
   `alpha^-1 = 136.994835164621649457949994585787...`
+  (default exact one-loop readout), defining the forward-model closure point
+  `P_fwd`
+- the difference between the solver output and the SL-3 input endpoint is the
+  open hadronic term: the loop residual of closure rows CL-1/CL-2 in
+  `../../CLOSURE_LEDGER.md`, with the frozen target at
+  `../../../falsification/frozen_targets/hadronic_closure_target_2026-07-14.json`
+  (sha256 `7cedad0a7281c74ca0fb1105120c991aeab2f3c45bf86adbbfd560c6324fb985`),
+  which the payload computation must not read
 - the missing term is a source-only Thomson transport contribution of
   `0.0411640123783505420500054142128...` in inverse-alpha units
-- at the public endpoint pixel
+- at the SL-3 estimate pixel
   `P=1.630968209403959324879279847782648941...`, the endpoint package gives
   `a0(P)=128.307965473286248209961108741756716187...`,
   `Delta_required(P)=8.728033703713751790038891258243283813...`, and
@@ -156,6 +173,85 @@ python3 transport_theorem_manifest.py --report runtime/full_p_alpha_report_curre
 python3 measured_endpoint_calibration.py
 ```
 
+## Interval certificates
+
+`interval_contraction_certificate.py` emits
+`runtime/p_interval_contraction_certificate_2026-07-14.json`, the stage-2
+contraction certificate of the basin-then-contract protocol for the P
+coordinate (`../../CLOSURE_LEDGER.md`).
+
+What is certified:
+
+- Existence and uniqueness of the closure-map fixed point on a stated alpha
+  interval, by direct Banach with a mean-value (centered) form: the interval
+  evaluation proves `sup |g'| <= L < 1` on `I` and
+  `g(I) subset g(mid(I)) + g'(I)(I - mid(I)) subset interior(I)`.
+- Two readout maps carry certificates: the declared solver mode
+  `thomson_structured_running` (fixed point near `alpha^-1 = 136.9948`), and
+  the closure-ledger CL-2 mixed map `thomson_structured_running_plus_gauge_width`
+  that adds the unified gauge width `alpha_U(P)` to the inverse-alpha readout
+  (fixed point near `alpha^-1 = 137.03596`).
+- The full declared chain is evaluated in binary interval arithmetic
+  (`mpmath.iv`, outward rounding on every elementary operation; private
+  contexts, global mpmath precision untouched). The two implicit solves
+  (tree-level `m_Z`, D10 pixel closure for `alpha_U`) are enclosed by verified
+  sign-change brackets with sign-definite interval residual derivatives
+  (existence, in-bracket uniqueness, and C^1 dependence by the implicit
+  function theorem). The map derivative is enclosed by forward-mode dual
+  arithmetic over intervals with the implicit nodes handled by the same
+  theorem.
+- The SU(2)/SU(3) edge-sum truncation tails are bounded by explicit geometric
+  majorants and added one-sidedly to the interval enclosures, so the
+  certificate covers both the declared cutoffs (`su2_cutoff=120`,
+  `su3_cutoff=90`) and the infinite-cutoff edge sums.
+- The repository Decimal pad backend (`interval_backend.py`) is not used by
+  this artifact; the `backend` field records the mpmath.iv basis, so the
+  directed-rounding caveat of that module does not attach here.
+
+What is not certified:
+
+- The declared one-loop RG/matching conventions, the tree-level `m_Z`
+  closure, the Stage-5 continuation masses, and the exact one-loop kernel are
+  certified as declared numerical structure, not as physical endpoint
+  theorems.
+- No relation to the measured fine-structure constant is certified. The P
+  coordinate now carries a stage-2 contraction certificate for the declared
+  map; the stage-3 landing verdict is unchanged: the source fixed point
+  remains outside the SL-3 basin (closure row CL-1), pending the hadronic
+  transport term.
+- Global root uniqueness over the solver's full scan windows is not claimed;
+  the inner-root certificates hold on the verified brackets, which contain
+  the roots the declared scan-and-bisect procedure selects.
+
+Run and test:
+
+```bash
+python3 interval_contraction_certificate.py --mp-dps 60 --iv-dps 60 \
+    --su2-cutoff 120 --su3-cutoff 90 --half-width 0.000004 --refine-passes 10
+python3 -m pytest test_interval_contraction_certificate.py -q
+```
+
+The printed-pair identity of closure row CL-6 is enforced by
+`test_printed_pair_identity.py`: the runtime trunk and full-report artifacts
+are regenerated at solver precision 100 with enough outer iterations that
+`alpha_root = (P_fwd - phi)/sqrt(pi)` holds to at least 30 significant digits
+(stated test tolerance 1e-30 relative; measured 3.1e-36 report, 1.2e-38
+trunk). Regeneration commands:
+
+```bash
+python3 emit_p_closure_trunk.py --precision 100 --max-iterations 120
+python3 -c "import json; from paper_math import build_report; \
+    report = build_report(precision=100, mode='thomson_structured_running', \
+    su2_cutoff=40, su3_cutoff=30, scan_points=60, max_iterations=110); \
+    open('runtime/full_p_alpha_report_current.json','w').write( \
+    json.dumps(report, indent=2, sort_keys=True) + chr(10))"
+```
+
+The convergence depth of the internal bisections scales with `--precision`
+(`max(32, precision + 8)` steps), so the emitter default precision keeps its
+fast profile and the identity-grade artifacts are produced with the explicit
+flags above.
+
 ## Empirical endpoint insert
 
 `measured_endpoint_calibration.py` emits
@@ -164,20 +260,24 @@ empirical hadron closure surface for tables, plots, and public numeric surfaces
 that need a single fine-structure value. The source-only spectral payload stays
 separate in the audit ledgers.
 
-The endpoint surface is
+The SL-3 input endpoint surface is
 
 ```text
-alpha^-1(0) = 137.035999177(21)
+alpha^-1(0) = 137.035999177(21)   (SL-3 input; estimates P)
 alpha(0)   = 0.007297352564331425...
 P          = 1.63096820940395932487927984778...
 ```
 
 The JSON keeps audit guard fields for theorem tooling and carries row class
-`oph_plus_empirical_hadron_closure`. Consumer-facing prose should lead with the
-fixed-point readout and keep the source-audit label in ledger sections:
+`oph_plus_empirical_hadron_closure`. Consumer-facing prose leads with the
+source-only value and the closure status: the forward map contracts to
+`alpha^-1 = 136.9948...`, the residual to the SL-3 basin is the open hadronic
+term (rows CL-1/CL-2 in `../../CLOSURE_LEDGER.md`), and the measured endpoint
+`137.035999177(21)` is the SL-3 input. The empirical hadron-closure row is a
+labeled closure-status display:
 
 ```text
-fine-structure endpoint uses OPH plus empirical hadron closure; finite source audit recorded in code/P_derivation ledgers
+source-only forward value 136.9948...; the gap to the SL-3 input endpoint is the open hadronic closure term (CLOSURE_LEDGER.md CL-1/CL-2); the OPH plus empirical hadron closure row states closure status, never the OPH result
 ```
 
 The source computation is blocked because the required object is a
@@ -205,7 +305,8 @@ same-scheme Ward-projected endpoint map is supplied.
 ## Hierarchy certificate handoff
 
 The electroweak-hierarchy proof bundle in `../particles/hierarchy` uses the
-same two branch surfaces recorded here. On the public endpoint branch it reads
+same two branch surfaces recorded here. On the SL-3 estimate branch
+(canonical name `P`; bundle label `P_C`) it reads
 
 ```text
 P_C = 1.630968209403959324879279847782648941
@@ -213,7 +314,8 @@ alpha_U(P_C) = 0.041124336195630495
 v/E_star = 2.0199803239725553e-17
 ```
 
-On the source-audit branch it reads
+On the forward-model closure branch (canonical name `P_fwd`; bundle label
+`P_source_audit`) it reads
 
 ```text
 P_source_audit = 1.63097209569432901817967892561191884270169

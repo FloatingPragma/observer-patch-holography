@@ -37,6 +37,13 @@ The paper proves the finite mechanics used by the rest of the OPH stack:
 validated repair, exact descent, schedule-independent normal forms under the
 declared hypotheses, loop obstructions, stable records, refinement control, and
 a fair-block theorem for noisy consensus.
+
+The paper's own no-go theorem
+(Theorem~\ref{thm:bare-consensus-not-einstein-complete}) sets the scope of the
+title: the bare consensus reduct does not determine a Lorentzian metric or the
+Einstein equation, so ``implements physics'' names the substrate role of the
+fixed-point computation, and all geometric and dynamical content enters through
+the separately declared branch structure of the companion papers.
 \end{abstract}
 
 \section*{What This Paper Contributes}
@@ -983,6 +990,17 @@ conditions, conserved charges, root packets, holonomy sectors, or external recor
 legitimately determine different normal forms.
 \end{remark}
 
+In the terminology of the repository file \texttt{CONSISTENCY\_STACK.md}, the quotient
+normal-form theorems of this section---Theorem~\ref{thm:quotient-repair-normal-form},
+Theorem~\ref{thm:confluence}, and the boundary-conditioned uniqueness statement of
+Theorem~\ref{thm:boundary-conditioned-uniqueness} below---are the instantiation of stack row C2
+(overlap consensus): the public world is the quotient normal form that survives agreement on
+overlaps. The row is falsifiable at this theorem level, and two failure shapes would break it: an
+OPH-admissible overlap presentation on which no quotient normal form exists under the declared
+descent, local-diamond, and repair-completeness conditions, or two inequivalent quotient normal
+forms surviving from the same declared boundary data where the fiber-uniqueness hypothesis of
+Theorem~\ref{thm:boundary-conditioned-uniqueness} holds. Either exhibit defeats C2 on its
+declared branch; neither has been produced.
 
 \section{Why Local Agreement Is Not Enough: Cycle Holonomy and Frustration}
 
@@ -3051,7 +3069,7 @@ cylinder extraction alone does not make that identification or supply a Clay-adm
 \item The record-algebra theorem (Theorem~\ref{thm:crdt}) provides the formal basis for the fixed-cutoff observation layer, where records are carried by central or quantitatively stable approximately commuting projectors in overlap centers.
 \end{itemize}
 
-The companion manuscripts develop a derived gravity branch from entanglement equilibrium and modular geometry, the SM gauge-group and count closure from edge-sector reconstruction plus the realized MAR branch, a conditional support-visible compact-gauge Yang--Mills form and repair-gap theorem under the separately named continuum-identification, transfer, OS/noncollapse, and uniform-gap receipts, and a controlled large-\(N_{\mathrm{edge}}\) worldsheet effective-description branch above the heat-kernel edge-sector identity. The implemented cosmological capacity branch, with its zero-input self-closure target, and later phenomenological continuations are kept explicitly separate from that recovered-core claim set.
+The companion manuscripts develop a derived gravity branch from entanglement equilibrium and modular geometry, the SM gauge-group and count closure from edge-sector reconstruction plus the realized MAR branch, a conditional support-visible compact-gauge Yang--Mills form and repair-gap theorem under the separately named continuum-identification, transfer, OS/noncollapse, and uniform-gap receipts, and a controlled large-\(N_{\mathrm{edge}}\) worldsheet effective-description branch above the heat-kernel edge-sector identity. The implemented cosmological capacity branch, with its self-closure target (readback map not yet constructed; CL-7), and later phenomenological continuations are kept explicitly separate from that recovered-core claim set.
 
 This paper provides the finite patch-net foundation for the broader companion corpus.
 
@@ -3072,7 +3090,7 @@ It also proves the full repair-completeness, Petz-domain, and quotient-compatibi
 the rooted-tree packet-net domain of Theorem~\ref{thm:tree-packet-domain}, and gives a clean
 law-selection meta-model. The relativity chain and the realized Standard Model
 structural chain are the recovered core. The capacity relation is a separate implemented branch
-with a zero-input self-closure target. Downstream phenomenology requires additional assumptions
+with a self-closure target (readback map not yet constructed; CL-7). Downstream phenomenology requires additional assumptions
 beyond the consensus results proved here.
 
 \paragraph{Complexity boundary.}

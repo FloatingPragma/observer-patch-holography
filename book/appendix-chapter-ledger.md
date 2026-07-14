@@ -41,7 +41,10 @@ are rejected or adjusted until the overlap-visible records agree.
 The prologue also introduces the local pixel ratio $P$. In the detailed OPH
 program, $P$ is the small dimensionless ratio that sets the effective local
 grain of the screen description. It is the local fixed point at which the outside screen geometry and the inside
-electromagnetic readout are required to match. Later chapters ask how far
+electromagnetic readout are required to match. The numerical value of $P$ is an
+estimate: under the constant-identification axiom the measured fine-structure
+constant sets it, and the requirement that the two readings match exactly is
+the open closure test. Later chapters ask how far
 that same fixed point can travel through the weak sector, the electromagnetic
 coupling, the Higgs-top surface, quark structure, neutrinos, and the
 gravity-facing side of the framework.
@@ -830,7 +833,10 @@ consistency of observations across overlapping perspectives. The sentence is
 short because the earlier chapters did the work. It includes finite
 screens, algebras, overlaps, entropy, recovery, holography, entanglement,
 codes, modular time, symmetry, de Sitter capacity, particle structure,
-classical matter, and selection.
+classical matter, and selection. The selection chain the chapter tells as a
+story has its formal statement in
+[CONSISTENCY_STACK.md](../CONSISTENCY_STACK.md), which lists each requirement,
+the freedom it removes, its mathematical carrier, and its current status.
 
 The symbol guide is mostly referential. The Standard Model
 quotient by $\mathbb Z_6$ says that a shared discrete center is identified

@@ -206,12 +206,16 @@ This book reverse engineers reality from observer consistency.
 We start with a minimal assumption: observers exist, they have bounded
 access to information, and they must agree where their observations overlap.
 
-Only a small amount of outside numerical help is allowed. One measured
-quantity locates the overall screen size. The local grain of the picture is
-then solved on the OPH branch as part of the same local scale structure. From
-there the book asks how much gravity, compact-gauge structure, and the
-minimally admissible particle world can be reconstructed from observer
-consistency.
+Only a small amount of outside numerical help is allowed. Two measured
+constants estimate the two settings of the screen: the measured fine-structure
+constant estimates the local grain of the picture, and the measured
+cosmological constant, through a scale bridge, estimates the overall screen
+size. Both are inputs. The program's claim is compression: how much gravity,
+compact-gauge structure, and the minimally admissible particle world those two
+settings, together with the declared architecture, organize. The running test
+of that claim is the closure ledger, a public table of the equations the
+picture requires to hold exactly and how far each one currently is from
+holding.
 
 The machinery comes later. Under the hood the book uses the quantum language
 of observables, states, event probabilities, and entropy because a
@@ -221,7 +225,9 @@ their overlaps agree, then see how much physics is forced.
 
 A good reverse engineer first works out the architecture, then checks how many
 knobs are really left. The book shows that most of the architecture is forced
-early. The sharp test is whether one local grain of the screen keeps
+early. Each consistency requirement removes a freedom, and the way to keep
+score is to count what is left. After ten such requirements, the count reads
+two. The sharp test is whether one local grain of the screen keeps
 organizing more of the particle structure than common sense would expect.
 
 Perfect symmetry would make a dead machine. Arbitrary detuning would make a
@@ -246,9 +252,11 @@ the mass-gap discussion belongs with compact gauge repair, the cosmological
 capacity argument belongs with de Sitter structure, and the particle numbers
 belong with the Standard Model and matter chapters.
 
-The program recovers known physics, gravity and the minimally admissible
-Standard Model branch included, from this starting point. The answer is not
-inserted by hand.
+The program recovers the structure of known physics, gravity and the minimally
+admissible Standard Model branch included, conditional on this starting point.
+The two settings are estimated from measurement, and the evidence standard is
+the closure ledger and the compression scorecard rather than any single
+recovered number.
 
 The apparent mysteries of physics change shape once the conceptual starting
 point changes from "objective reality exists" to "consistency across observers

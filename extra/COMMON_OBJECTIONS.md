@@ -4,14 +4,50 @@ This note collects rebuttals to common objections to the OPH framework, with lon
 
 ## Contents
 
-- [Objection 2: Fixed cell size and Lorentz invariance](#objection-2-lorentz)
-- [Objection 3: Type I / Type III discontinuity](#objection-3-type-i-type-iii)
-- [Objection 4: Obstruction calculus selects the Standard Model](#objection-4-sm-selection)
+- [Objection 1: Is P circular?](#objection-1-p-circularity)
+- [Objection 2: Doesn't "exactly our universe" prove too much?](#objection-2-proves-too-much)
+- [Objection 3: Fixed cell size and Lorentz invariance](#objection-3-lorentz)
+- [Objection 4: Type I / Type III discontinuity](#objection-4-type-i-type-iii)
+- [Objection 5: Obstruction calculus selects the Standard Model](#objection-5-sm-selection)
 
 ---
 
-<a id="objection-2-lorentz"></a>
-## Objection 2: "A fixed cell size breaks Lorentz invariance, so OPH can only recover a Newtonian limit"
+<a id="objection-1-p-circularity"></a>
+## Objection 1: "P is defined from the measured fine-structure constant, so the construction is circular"
+
+### The criticism
+
+> OPH sets `P = phi + sqrt(pi) * alpha` using the measured CODATA value of `alpha`, and then presents downstream chains involving `alpha`-related quantities. Using measured `alpha` to fix `P` and then displaying `alpha` anywhere downstream is circular.
+
+### Short answer
+
+`P` is the SL-3 estimate from measured `alpha`, and no OPH surface lists `alpha` as an output. Under principle SL-3 (constant identification, [STRANGE_LOOP_PRINCIPLES.md](../STRANGE_LOOP_PRINCIPLES.md)), the fine-structure constant inside the world and the substrate pixel readout are one quantity, so the measured value is the instrument that estimates `P`: parameter estimation of the substrate, not curve fitting. The cost of the principle is strict and permanent: `alpha` (with `Lambda` and `G`) sits on the inputs list at every surface, and a quantity used to estimate a parameter is never booked as a prediction.
+
+The open test is the loop residual. SLH requires the closure equations to hold exactly. The current source-only forward chain closes at `alpha^-1 = 136.9948`, outside the SL-3 basin by `3.0e-4` in relative units (about `2e6` measurement sigma); the chain with the gauge-width term at the SL-3 pixel sits `2.9e-7` away (about `1.9e3` sigma). Both residuals are recorded as rows CL-1 and CL-2 of [CLOSURE_LEDGER.md](../CLOSURE_LEDGER.md), attributed to the missing same-scheme hadronic transport, and the blind completion of that transport against the frozen target is the decisive experiment of the program.
+
+The stage-2 certificate narrows what remains open. Under uniqueness lemma L1 of the consistency stack ([CONSISTENCY_STACK.md](../CONSISTENCY_STACK.md)), interval evaluation of the closure map `g(P) = phi + sqrt(pi)/A_T(P)` on a certified interval — `g(I) ⊆ I` together with a derivative bound below one — gives existence and uniqueness of the fixed point on that interval by the Banach theorem; the certificate is recorded at `code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json`. The fixed point is therefore interval-certified as existing and unique on its interval, and the open question is exclusively the landing — whether the blind source chain arrives inside the SL-3 basin (CL-1) — not the object's existence. The global at-most-one statement on the full physical domain remains an open analytic item (monotonicity of the transport map in `P`).
+
+So the answer to "is `P` circular?" is: the estimate is declared, not derived, and the content of the declaration is tested by whether the loop closes. A closed loop is evidence; the current open residuals are the measured status of the hypothesis.
+
+---
+
+<a id="objection-2-proves-too-much"></a>
+## Objection 2: "Doesn't 'exactly our universe' prove too much? Is that even falsifiable?"
+
+### The criticism
+
+> A theory that claims consistency alone generates exactly our universe explains everything and therefore nothing. Whatever is observed, the theory can answer that the one consistent world had to look that way. That is a metaphysical stance, not a falsifiable claim.
+
+### Short answer
+
+The claim runs the other way: uniqueness is what makes the hypothesis maximally exposed. Under the uniqueness lemmas of the consistency stack ([CONSISTENCY_STACK.md](../CONSISTENCY_STACK.md), L1–L3), the SLH principle set admits at most one `(P, N)`. There is no vacuum landscape to relocate into: the closure equations must hold exactly, at every precision, and a blind closure computation landing outside its basin falsifies the formulation permanently. SLH requires exact closure (rule 2 of [STRANGE_LOOP_PRINCIPLES.md](../STRANGE_LOOP_PRINCIPLES.md)), and executed tests stay on the falsification surface with their verdicts, revisable only by a new frozen registration (rule 7). A framework with a landscape survives adverse data by relocating; this formulation cannot relocate.
+
+The exposure is armed, not hypothetical. The first decisive computation has a frozen target — `falsification/frozen_targets/hadronic_closure_target_2026-07-14.json`, externally timestamped by OpenTimestamps proofs committed alongside it — with blindness enforced by the dependency-cone audit. "Exactly our universe" is therefore not an unfalsifiable flourish; it is the reason the program can afford to freeze targets before computing payloads, and its standing on any day is whatever the closure ledger says on that day.
+
+---
+
+<a id="objection-3-lorentz"></a>
+## Objection 3: "A fixed cell size breaks Lorentz invariance, so OPH can only recover a Newtonian limit"
 
 ### The criticism
 
@@ -29,21 +65,23 @@ This note collects rebuttals to common objections to the OPH framework, with lon
 
 ### Short answer
 
-This criticism would be decisive against a theory that treated the UV cells as little rigid rods inside a pre-given spacetime. OPH has a different setup.
+The rebuttal is conditional, and the condition is open. **If the controlled Bisognano-Wichmann (BW) certificate holds** — cap-pair extraction, regularized modular transport, support-readable modular covariance, round-cap rigidity, and KMS/BW normalization on the extracted prime geometric cap pair — **then** boosts act as automorphisms of the cap net, the entropy first law is covariant, and the derivation reaches the full tensor Einstein equation. Establishing that certificate in an explicit UV regulator with controlled errors is an open task of the program, not a finished theorem.
+
+With the conditional stated, the criticism itself would be decisive against a theory that treated the UV cells as little rigid rods inside a pre-given spacetime. OPH has a different setup.
 
 In OPH:
 
 - `a_cell` is a UV **area density** attached to cut elements of the screen net, not a preferred spatial ruler in emergent 3+1D spacetime.
 - The physical objects are patch algebras and their overlap maps, not coordinate cells in a background bulk.
-- Lorentz kinematics are derived on the controlled BW branch: cap-pair extraction, regularized modular transport, support-readable modular covariance, round-cap rigidity, and KMS/BW normalization give `sigma_t^(omega_C) = alpha_{lambda_C(2pi t)}` on the extracted prime geometric cap pair. Only in the special type-I representation may this be written as `K_C = 2pi B_C`.
+- Lorentz kinematics follow on the controlled BW branch under the certificate above: `sigma_t^(omega_C) = alpha_{lambda_C(2pi t)}` on the extracted prime geometric cap pair. Only in the special type-I representation may this be written as `K_C = 2pi B_C`.
 - The entanglement first law is applied to these algebraic caps, and it is covariant under the induced Lorentz action.
-- The gravity derivation is explicitly upgraded from a scalar rest-frame statement to the **full tensor Einstein equation** by overlap consistency across all local timelike directions, `G_ab + Lambda g_ab = 8pi G <T_ab>`, so the framework does **not** stop at a Newtonian approximation. This is the published chain in *Observers Are All You Need*, Part I §4.2-4.3 and Part I §5.1-5.7, with the short-form theorem statements also summarized in Part V §2.1-2.5.
+- If the certificate holds, the gravity derivation is upgraded from a scalar rest-frame statement to the **full tensor Einstein equation** by overlap consistency across all local timelike directions, `G_ab + Lambda g_ab = 8pi G <T_ab>`, so the framework does **not** stop at a Newtonian approximation on that branch. This is the published chain in *Observers Are All You Need*, Part I §4.2-4.3 and Part I §5.1-5.7, with the short-form theorem statements also summarized in Part V §2.1-2.5.
 
 ---
 
 ## 1. Why this criticism can sound plausible
 
-There is a legitimate general concern that. e.g. Sabine Hossenfelder likes to bring up regarding quantum lattice models.
+There is a legitimate general concern here, one that Sabine Hossenfelder, among others, raises about quantum lattice models.
 
 If one literally puts physics on a fixed microscopic lattice embedded in physical spacetime, then exact microscopic Lorentz invariance is generically broken. The lattice picks out a preferred frame. In that setting, "boosting the lattice" is a real question.
 
@@ -136,9 +174,9 @@ That is exactly the structure needed to keep overlap consistency intact.
 
 ---
 
-## 4. Why Lorentz invariance is derived in OPH
+## 4. Why Lorentz invariance follows if the BW certificate holds
 
-The criticism says OPH has not proved Lorentz invariance. But the published claim of the framework is precisely that Lorentz kinematics are forced by modular structure under a stated set of assumptions (*Observers Are All You Need*, Part I §4.2-4.3; Part V §2.1-2.2).
+The criticism says OPH has not proved Lorentz invariance. The published claim of the framework is conditional: Lorentz kinematics are forced by modular structure under a stated set of assumptions — the BW certificate — and exhibiting an explicit UV regulator that satisfies those assumptions with controlled errors remains open (*Observers Are All You Need*, Part I §4.2-4.3; Part V §2.1-2.2).
 
 ### 4.1 The theorem-level statement
 
@@ -226,17 +264,21 @@ For a cap `C` in the reference state,
 
 `K_C = -log rho_C^omega`,
 
-and the cap first law is
+and the cap first law pairs `K_C` with the bulk entropy:
 
-`delta S_C = delta <K_C>`.
+`delta S_bulk(C) = delta <K_C>`,
+
+with the generalized-entropy bookkeeping `delta S_gen(C) = delta S_bulk(C) + delta <L_C>`.
+
+(Correction: an earlier version of this note wrote `delta S_C = delta <K_C>` for the same `K_C`; the `delta S_gen`-consistent statement above matches ENTANGLEMENT_GEOMETRY_PROBLEM_OPH.md.)
 
 After the `BW_{S^2}` step this becomes
 
-`delta S_C = 2pi delta <B_C>`.
+`delta S_bulk(C) = 2pi delta <B_C>`.
 
 Apply a Lorentz transformation `Lambda`. Covariance gives `rho_C -> rho_(Lambda C) = U(Lambda) rho_C U(Lambda)^dagger` and `K_C -> K_(Lambda C) = U(Lambda) K_C U(Lambda)^dagger`.
 
-Therefore `delta S_(Lambda C) = delta <K_(Lambda C)> = delta Tr(U rho_C U^dagger U K_C U^dagger) = delta Tr(rho_C K_C) = delta S_C`.
+Therefore `delta S_bulk(Lambda C) = delta <K_(Lambda C)> = delta Tr(U rho_C U^dagger U K_C U^dagger) = delta Tr(rho_C K_C) = delta S_bulk(C)`.
 
 So the first law is **frame-covariant**, not frame-violating, once boosts are represented as automorphisms of the cap net (*Observers Are All You Need*, Part I §5.1 and Part I §4.2-4.3).
 
@@ -287,7 +329,7 @@ These are not the same objection.
 
 For the Lorentz issue, the relevant question is whether the observable patch net carries a preferred inertial frame. OPH's answer is no: boosts are induced automorphisms of the cap net once geometric modular flow is established.
 
-For the parameter/circularity issue, the relevant question is how `P` is used in the particle-physics chain. That is addressed separately in Objection 1 above.
+For the parameter/circularity issue, the relevant question is how `P` is used in the particle-physics chain. That is addressed separately in [Objection 1](#objection-1-p-circularity) above.
 
 So even if one wanted to debate the role of `P`, that would not show that Lorentz invariance fails.
 
@@ -341,7 +383,7 @@ The most precise version of the criticism is:
 
 > "Show in an explicit UV regulator that the refinement limit really flows to the geometric Bisognano-Wichmann modular regime on the sphere with controlled errors."
 
-That is a serious and legitimate demand.
+That is a serious and legitimate demand, and it is open: no such regulator computation exists yet in the corpus. Everything in this rebuttal is conditional on that certificate.
 
 But that is **not** the same as saying:
 
@@ -351,7 +393,7 @@ That second statement confuses the UV regulator with the emergent observable geo
 
 ---
 
-## Sources for Objection 2
+## Sources for Objection 3
 
 - [Observers Are All You Need PDF](../paper/observers_are_all_you_need.pdf)
   Key sections used above: Abstract; Part I §2.3, §4.2-4.3, §5.1-5.7, §6.17; Part III §1A.6 and "Calibration vs. Prediction: Epistemic Classification of Outputs"; Part V §2.1-2.5.
@@ -362,8 +404,8 @@ That second statement confuses the UV regulator with the emergent observable geo
 
 ---
 
-<a id="objection-3-type-i-type-iii"></a>
-## Objection 3: "OPH has a Type I / Type III discontinuity, so its modular-time story is internally inconsistent"
+<a id="objection-4-type-i-type-iii"></a>
+## Objection 4: "OPH has a Type I / Type III discontinuity, so its modular-time story is internally inconsistent"
 
 ### The criticism
 
@@ -373,13 +415,17 @@ In [Samir Dzolota's March 2026 Zenodo critique](https://zenodo.org/records/18902
 
 ### Short answer
 
-This criticism identifies a real **layer distinction**, but it overstates that
-distinction as a **logical contradiction**.
+The rebuttal is conditional, and the condition is open. **If the controlled BW
+scaling certificate holds on the companion branch**, the observer-facing cap
+net carries the modular-geometric / Lorentz / null-modular / Einstein chain;
+establishing that certificate is an open task, not a finished theorem.
 
-OPH does **not** claim that the final physical local algebra of a patch is a
-finite Type I factor. It claims that the **UV regulator** is finite and Type I,
-while the observer-facing cap net closes the modular-geometric / Lorentz /
-null-modular / Einstein chain on the companion scaling branch. The
+Within that conditional, this criticism identifies a real **layer
+distinction**, but it overstates that distinction as a **logical
+contradiction**. OPH does **not** claim that the final physical local algebra
+of a patch is a finite Type I factor. It claims that the **UV regulator** is
+finite and Type I, while the modular-geometric chain is stated on the
+companion scaling branch under the certificate above. The
 screen-microphysics paper then supplies one explicit fixed-cutoff reference
 architecture for records, repair, Bell, and checkpoint/restoration without
 claiming a unique microscopic UV completion.
@@ -388,8 +434,8 @@ So the right challenge is:
 
 > "Where is the missing core modular bridge?"
 
-The companion theorem stack carries the core bridge. The serious
-engineering question is:
+The companion theorem stack states the core bridge conditionally, as above.
+The serious engineering question is:
 
 > "Which fixed-cutoff realizations implement that interface cleanly, and how are nonunique microscopic representatives compared modulo physical equivalence?"
 
@@ -406,11 +452,12 @@ Bisognano-Wichmann / Unruh / Hawking / half-sided-modular package.
 
 That part is fair.
 
-But the OPH paper stack does not leave the core modular-geometric
-surface as an unproved gap. The recovered-core paper closes the controlled
-Bisognano-Wichmann scaling theorem and the downstream Lorentz / null-modular / Einstein branch
-on its stated observer-facing surface. The microphysics paper supplies an
-explicit fixed-cutoff reference architecture for that
+The OPH paper stack states the core modular-geometric surface as a
+conditional theorem: the recovered-core paper gives the controlled
+Bisognano-Wichmann scaling theorem and the downstream Lorentz / null-modular /
+Einstein branch under declared hypotheses, and exhibiting a regulator that
+satisfies those hypotheses with controlled errors is open. The microphysics
+paper supplies an explicit fixed-cutoff reference architecture aimed at that
 same scaling theorem.
 
 So the strongest fair version of the criticism is:
@@ -516,16 +563,17 @@ This is a useful objection when it is aimed at the right target.
 
 It is right to distinguish the finite Type I regulator layer from the
 observer-facing scaling-limit theorem surface. It is wrong to present that
-distinction as a fatal contradiction or as evidence that the core modular
-bridge is missing. In the OPH papers, the controlled Bisognano-Wichmann theorem
-and downstream Lorentz / null-modular / Einstein branch are closed on
-their declared surface, while the microphysics paper handles fixed-cutoff
-implementation and nonunique UV realization.
+distinction as a fatal contradiction. In the OPH papers, the controlled
+Bisognano-Wichmann theorem and downstream Lorentz / null-modular / Einstein
+branch are conditional statements under declared hypotheses — if the BW
+certificate holds, the chain follows, and establishing the certificate is
+open — while the microphysics paper handles fixed-cutoff implementation and
+nonunique UV realization.
 
 The UEET replacement argument, as stated in the critique, does not solve
 the modular-algebraic problem it raises; it answers a different question.
 
-## Sources for Objection 3
+## Sources for Objection 4
 
 - [Samir Dzolota, "Technical Critique and Resolution of the OPH Framework" (Zenodo)](https://zenodo.org/records/18902120)
 - [Observers Are All You Need PDF](../paper/observers_are_all_you_need.pdf)
@@ -535,8 +583,8 @@ the modular-algebraic problem it raises; it answers a different question.
 
 ---
 
-<a id="objection-4-sm-selection"></a>
-## Objection 4: "Zero obstruction does not select the Standard Model"
+<a id="objection-5-sm-selection"></a>
+## Objection 5: "Zero obstruction does not select the Standard Model"
 
 ### Short answer
 

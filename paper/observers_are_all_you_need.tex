@@ -173,9 +173,16 @@ and normal forms. A separate geometric-readout branch then adds modular screen
 geometry, the three-dimensional spatial chart, Lorentz kinematics, and the
 Einstein branch with its Newton limit.
 Receipt-conditional compact sector reconstruction yields the Standard Model charge structure, three
-colors, and three generations. The same stack carries the record interface,
+colors, and three generations. Every one of these reconstructions is conditional
+on the declared branch certificates, and realized-branch nonemptiness is open.
+The same stack carries the record interface,
 Maxwell and Yang--Mills branches, action-level classical carrier modes with a separate quantum-particle gate, cosmic
-capacity closure, and the hierarchy/naturality result. The review surface
+capacity closure, and the hierarchy/naturality result.
+The framework's starting point is the strange-loop principle set
+(SLH, \texttt{STRANGE\_LOOP\_PRINCIPLES.md}); under SL-3 and SL-4 the two quantitative coordinates
+\(P\) and \(N\) are estimates from measured \(\alpha\) and \(\Lambda\) and enter
+as inputs, and the status of the quantitative program is carried by the closure
+ledger (\texttt{CLOSURE\_LEDGER.md}). The review surface
 separates theorem claims, branch assumptions, quantitative fixed-point
 continuations, implementation evidence, and named falsifiers.
 \end{abstract}
@@ -636,16 +643,20 @@ for row \(i\) after earlier accepted rows, then
 \[
 P_{\rm acc}\le\prod_i p_i .
 \]
-Twelve one-percent source-certified rows give \(P_{\rm acc}\le10^{-24}\);
-twenty such rows give \(10^{-40}\). The estimate is an evidential shorthand.
+The count of rows that currently qualify is maintained in
+\texttt{COMPRESSION\_SCORECARD.md}: as of its 2026-07-14 update the landed
+basins are the structural gauge-boson zeros and the clause-conditional
+hypercharge lattice, and the settings outnumber the landed basins. Any
+compression claim cites that file and its current standing.
 The proof load remains the fixed-point maps, uniqueness certificates, source
 records, and falsifiers.
 
-The value of \(P\) comes from giving the same screen cell two readings, with no separate measured
-constant inserted. From outside, the cell sits a little above the exact self-similar
+The value of \(P\) comes from giving the same screen cell two readings. From outside, the cell
+sits a little above the exact self-similar
 entropy balance point \(\varphi=(1+\sqrt5)/2\). From inside, the same cell appears as the smallest
 electromagnetic observation step available in the encoded world. The local scale is the value of
-\(P\) where those two readings coincide.
+\(P\) where those two readings coincide; under SL-3 the measured fine-structure constant
+estimates it, and that measurement is an input.
 
 The named \(P\) branches organize the electroweak carrier chart, the low-energy electromagnetic
 endpoint, the conditional Higgs/top surface, the rejected reciprocal-ray quark candidate and its
@@ -674,6 +685,25 @@ starting point. Quantum mechanics and quantum field theory are treated as effect
 carried by the deeper observer-patch architecture, not as structures whose use here depends on
 first deriving every mathematical ingredient from operational records alone.
 
+\paragraph{The selection chain.}
+The argument, end to end, is the forcing chain C1--C10 recorded in the repository file
+\texttt{CONSISTENCY\_STACK.md}. Rows C1--C6 (self-reading, overlap consensus, modular
+self-consistency, transportable-charge consistency, entropic-gravitational consistency, record
+existence) remove, on their declared branches and receipts, every structural freedom except a
+two-real-parameter family \((P,N)\) together with the declared discrete selections counted in
+\texttt{COMPRESSION\_SCORECARD.md}. Row C7 identifies the two parameters with the SL-3/SL-4
+estimates from measured \(\alpha\) and \(\Lambda\), rows C8--C9 are then two equations on that
+two-parameter family, and C10 confines unit conventions to bookkeeping. The endpoint is
+conditional and sharp: if both closure equations hold and their fixed points are unique, the stack
+admits exactly one universe on the declared branches, and whether that universe is ours is the
+closure ledger reading zero. Uniqueness lemma L1 (one \(P\) on a certified interval) is carried by
+the interval contraction certificate at
+\texttt{code/P\_derivation/runtime/p\_interval\_contraction\_certificate\_2026-07-14.json};
+lemma L2 (one \(N_{\mathrm{CRC}}\)) is conditional on constructing the readback map \(F\)
+(row CL-7 of \texttt{CLOSURE\_LEDGER.md}); and the decisive C9 computation, the blind hadronic
+completion, is armed against the externally timestamped frozen target in
+\texttt{falsification/frozen\_targets/} (rows CL-1/CL-2).
+
 The synthesis surface gives the operational picture first, then places the technical proof machinery
 after the reader has the construction in hand.
 
@@ -693,7 +723,7 @@ and supplies Lorentz kinematics. Recoverable
 generalized entropy together with the null modular bridge, bounded-interval transport, fixed-volume
 small-ball area variation, admissible fixed-cap stationarity, and timelike tensor upgrade then
 	supplies the Einstein relation. Bare finite consensus supplies only the upstream quotient-normal-form input. The screen-capacity branch ties the dimensionless
-	cosmological-constant relation to the zero-input cosmic record-closure fixed point:
+	cosmological-constant relation to the intended cosmic record-closure fixed point (readback map \(F\) not yet constructed; closure ledger row CL-7):
 \[
 N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}),
 \qquad
@@ -714,14 +744,15 @@ gauge-mediated proton decay. On the ordinary electromagnetic branch, the unbroke
 assuming the low-energy Maxwell action and its nonzero kinetic term, variation gives
 \(dF_Q=0\) and \(d{*}F_Q=g_Q^2{*}J_Q\), i.e. Maxwell's equations after
 canonical electromagnetic normalization.
-\item \textbf{The local particle scale is computed by fixed-point closure.} The pixel ratio \(P\) is
-fixed by matching a screen cell's outer entropy detuning to its inner electromagnetic observation
-scale. The public readout is \(P\simeq1.6309682094\),
-\(\alpha^{-1}(0)=137.035999177(21)\), and
-\(\alpha(0)\simeq0.00729735256433\). The calculation
-uses the source anchor and Ward-projected electromagnetic transport to enforce
-the outer/inner pixel fixed point. A different
-fine-structure value would move the pixel away from that consistency point.
+\item \textbf{The local particle scale is identified via SL-3; loop closure is open.} The pixel
+ratio \(P\) is the SL-3 estimate from the measured fine-structure constant:
+\(P\simeq1.6309682094\) from
+\(\alpha^{-1}(0)=137.035999177(21)\),
+\(\alpha(0)\simeq0.00729735256433\). The forward model with
+the source anchor and Ward-projected electromagnetic transport measures the
+loop-closure residual: 300~ppm on the source chain and 0.29~ppm on the
+mixed-provenance branch (closure rows CL-1/CL-2 of
+\texttt{CLOSURE\_LEDGER.md}).
 The claim table
 records the source-side diagnostic trunk and endpoint residual.
 \item \textbf{The framework has a regulated implementation surface.} The microphysics paper turns
@@ -927,6 +958,19 @@ The \(\chi_\nu\) scalar-channel identity is theorem-grade for nondegenerate
 OPH-coherent material sources once Scalar Edge-Center Exhaustion is imported.
 Device-scale force, cosmological abundance, and finite covariant dark stress
 require their own receipt packages.
+
+\paragraph{The remaining program is finite.}
+The open rows of \texttt{CLOSURE\_LEDGER.md} are not independent;
+\texttt{CONSISTENCY\_STACK.md} reduces them to four generating objects and one selector. G1, the
+Ward-projected hadronic transport computed blind against the frozen target, closes or moves CL-1
+and CL-2. G2, the capacity readback map \(F\) with its contraction certificate, carries CL-3,
+CL-4, and CL-7. G3, the repaired forward electroweak chain from the axioms under preregistered
+revisions, carries CL-5. G4, solver hygiene delivering a matched printed pair at certified
+precision, closes CL-6. Beyond the ledger, the mass sector waits on one further object, a
+source-derived flavor-orbit selector, and the proven two-modulus non-identifiability of the
+light-quark equations names exactly what is missing. Every item on this list is a computation or
+a construction, not a reinterpretation; between the current standing and full closure the program
+is finite and enumerated.
 
 \subsection*{Companion Papers}
 

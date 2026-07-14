@@ -3,6 +3,17 @@
 This file is the operating plan for particle rows whose final numeric values
 depend on low-energy QCD.
 
+## Closure-Program Note (2026-07-14)
+
+The hadronic lane is generator G1 of the closure program
+([CONSISTENCY_STACK.md](CONSISTENCY_STACK.md), ledger dependency table): the
+blind Ward-projected transport computation against the frozen target is the
+object that closes or moves CL-1 and CL-2. The blind target is frozen and
+externally timestamped (OpenTimestamps,
+`../falsification/frozen_targets/hadronic_closure_target_2026-07-14.json`).
+The payload computation must not read the target file; the dependency-cone
+audit checks this. Pass/fail outcomes are declared in the target file.
+
 ## Decision
 
 The particle program uses two public numerical surfaces.

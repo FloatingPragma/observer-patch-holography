@@ -6,13 +6,33 @@
 
 **Liens rapides :** [site OPH](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Book: Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [Ω](https://omega.floatingpragma.io/) | [Blog](https://blog.floatingpragma.io/) | [Tech](https://omega.floatingpragma.io/) | [Simulation](https://simulation.floatingpragma.io)
 
-**Falsifiabilité :** [la carte de falsifiabilité OPH](extra/OPH_falsifiability.md)
-recense 40 résultats empiriques qui réfutent des affirmations OPH précises, dont
-l'échec du reçu entièrement spécifié pour les modes transverses-traceless de
-la branche d'Einstein pure (ou d'un reçu quantique de pôle complété
-séparément), une désintégration du proton médiée par jauge, une quatrième génération légère de matière et une charge hors du réseau permis. La dérivation
-de la matrice physique de mélange des neutrinos et de leurs masses absolues est
-un travail en cours.
+**Principes et évidence :** L'OPH est énoncée sous les principes de la boucle
+étrange de [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md) ; la thèse centrale, sa filiation
+dans la physique et les mathématiques établies et la mission en cinq piliers
+sont énoncées dans [STRANGE_LOOP.md](STRANGE_LOOP.md) ; la chaîne de forçage
+des principes vers un univers unique — quelle exigence de cohérence supprime
+quelle liberté, et les lemmes d'unicité qui ferment la chaîne — est énoncée
+dans [CONSISTENCY_STACK.md](CONSISTENCY_STACK.md). Les deux réglages de
+substrat sont des estimations : P estimé à partir de α mesuré (SL-3) et N
+estimé à partir de Λ mesuré avec le pont d'échelle (SL-4). Ni α, ni Λ, ni G ne
+figurent sur aucune liste de sorties OPH. Les surfaces d'évidence du programme
+sont le registre de fermeture ([CLOSURE_LEDGER.md](CLOSURE_LEDGER.md)) et le
+tableau de compression ([COMPRESSION_SCORECARD.md](COMPRESSION_SCORECARD.md)) ;
+chaque surface de ce dépôt énonce ses affirmations au niveau, ou en dessous, du
+statut que ces deux fichiers consignent.
+
+**Falsifiabilité :** [La carte de falsifiabilité OPH](extra/OPH_falsifiability.md)
+organise les conditions d'échec en une échelle de falsification groupée par
+domaine (théorie et calcul, physique des particules et de précision, neutrinos,
+cosmologie et gravité), avec un tableau de statut des prédictions risquées, des
+tests numériques nets et une courte liste prioritaire. Les entrées comprennent
+l'échec du reçu entièrement spécifié pour le porteur transverse-traceless de la
+branche d'Einstein pure (ou d'un reçu quantique de pôle complété séparément),
+une désintégration du proton médiée par jauge, une quatrième génération légère
+de matière et une charge hors du réseau permis. Les tests exécutés restent sur
+cette surface avec leurs verdicts (règle 7 de [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md)). La
+dérivation de la matrice physique de mélange des neutrinos et de leurs masses
+absolues est un travail en cours.
 
 Pour la réponse existentielle immédiate, allez directement au **Paper 6.
 [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**.
@@ -48,9 +68,9 @@ d'observateurs finis portent des enregistrements locaux, ne comparent que les
 données visibles dans leurs recouvrements, réparent les désaccords par des
 mouvements de récupération déclarés et convergent vers des points fixes stables
 qui survivent au raffinement. Le monde public est ce qui reste stable lorsque
-ces vues locales deviennent mutuellement cohérentes. Quand l'OPH utilise le
-langage de la simulation, il s'agit de ce réseau d'observateurs auto-cohérent
-plutôt que d'une machine cachée qui dessine un film. Le dossier en faveur de l'OPH est
+ces vues locales deviennent mutuellement cohérentes. Le langage de simulation
+de l'OPH nomme ce réseau d'observateurs auto-cohérent au niveau
+opératoire. Le dossier en faveur de l'OPH est
 mathématique et empirique : la même architecture de cohérence d'observateurs
 est proposée pour retrouver la physique établie. Son explication plus large de
 l'existence d'un monde auto-cohérent capable de produire des observateurs qui le
@@ -76,7 +96,7 @@ d'espace-temps ordinaire en 3+1 dimensions et l'équation de gravité de type
 Einstein ne sont reconstruites que sur la branche à cinq axiomes du coeur
 récupéré : le papier compact fournit lecture géométrique, flot modulaire
 contrôlé, pont de contrainte nulle, transport d'intervalle borné,
-stationnarité entropique à cap fixe, variation d'aire de petite boule, passage
+stationnarité entropique admissible à cap fixe, variation d'aire de petite boule, passage
 scalaire-tenseur et fermeture de capacité. Les cellules finies servent de régulateur : elles gardent la
 construction concrète avant la limite lisse à grande échelle.
 Les trois dimensions spatiales viennent de la même branche d'écran : une fois
@@ -117,40 +137,44 @@ les prolongements incohérents et conservent les motifs stables qui peuvent êtr
 synchronisés. Géométrie, particules, lois et enregistrements sont les points
 fixes à grande échelle de ce calcul en réseau d'observateurs.
 
-L'OPH est formulée comme une théorie sans entrée externe. Ici, « sans entrée »
-concerne la provenance numérique : aucune cible mesurée ni constante numérique
-ajustée ne peut entrer dans une carte source déclarée. Les axiomes
+L'OPH porte deux réglages estimés, un pont et une architecture déclarée
+([STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md)) : P estimé à partir de α mesuré sous SL-3, N estimé à
+partir de Λ mesuré sous SL-4, le pont SI au césium sous SL-5, et les sélections
+structurelles déclarées listées dans le tableau de compression. Le statut se
+mesure au tableau de compression
+([COMPRESSION_SCORECARD.md](COMPRESSION_SCORECARD.md)). La règle de provenance
+à l'intérieur de ce cadre : aucune cible mesurée ni constante numérique ajustée
+ne peut entrer dans une carte source déclarée. Les axiomes
 algébriques-quantiques et l'écran $S^2$ restent des prémisses explicites.
 Quantitativement, les lignes publiques sont organisées par trois quantités
-internes : un point fixe
-local de pixel $P_\star$, un point fixe global de capacité d'enregistrement
-$N_{\mathrm{CRC}}$ et un rapport de mise à l'échelle $\gamma_\star$. Une
-coordonnée n'est dite source que si sa carte déclarée l'émet sans cible
-ajustée ; sinon elle reste un diagnostic ou une coordonnée de comparaison. Les mesures peuvent indiquer
-sur quelle branche nous sommes, mais les valeurs source doivent venir des
-calculs de point fixe. Les lignes à fermeture empirique sont marquées
-ci-dessous. La discussion d'échelle détaillée est rassemblée une seule fois
-ci-dessous dans **Géométrie, Symétrie Et Échelle**.
+internes : un point fixe local de pixel $P_\star$, un point fixe global de
+capacité d'enregistrement $N_{\mathrm{CRC}}$ et un rapport de mise à l'échelle
+$\gamma_\star$. Une coordonnée source ne mérite ce nom que si sa carte déclarée
+l'émet sans cible ajustée ; sinon elle reste un diagnostic ou une coordonnée de
+comparaison. Les mesures peuvent indiquer sur quelle branche nous sommes, mais
+les valeurs source doivent venir des calculs de point fixe. Les lignes à
+fermeture empirique sont marquées ci-dessous. La discussion d'échelle détaillée
+est rassemblée une seule fois ci-dessous dans **Géométrie, Symétrie Et
+Échelle**.
 
-Dans toute l'OPH, la forme de preuve reste la même. Une affirmation doit
-s'appuyer sur des patches bornés de type observateur, avec état local,
-frontières explicites, relecture, enregistrements, mouvements de retour ou de
-réparation, et dossiers de preuve publics. Le test décisif est l'histoire
-invariante des patches d'observateurs, vérifiable sur les recouvrements, plutôt
-qu'une présentation favorite, un choix de coordonnées ou une trace
-d'implémentation.
+Dans tout le projet, la preuve OPH garde la même forme générale. Une
+affirmation s'ancre dans des patches bornés de type observateur, avec état
+local, frontières explicites, relecture, enregistrements, mouvements de retour
+ou de réparation et dossiers de preuve publics. L'histoire invariante des
+patches d'observateurs porte l'affirmation à travers les présentations, les
+choix de coordonnées et les traces d'implémentation.
 
 ## Le piège de l'espace-temps
 
-Le premier obstacle conceptuel est que l'OPH traite l'espace-temps comme une
-description issue des observateurs, plutôt que comme le contenant dans lequel la
-réalité se déroule. L'espace et le temps y sont les descriptions stables,
-orientées observateur, qui apparaissent lorsque de nombreuses perspectives
-finies peuvent devenir mutuellement cohérentes.
+Le premier obstacle conceptuel est que l'OPH ne traite pas l'espace-temps
+comme le contenant dans lequel la réalité se déroule. L'espace et le temps ne
+sont pas des choses en soi. Ce sont des descriptions stables, orientées
+observateur, qui apparaissent lorsque de nombreuses perspectives finies peuvent
+devenir mutuellement cohérentes.
 
-C'est particulièrement important pour le temps. Dans le langage ordinaire, le
-temps ressemble à un fleuve de fond qui continuerait à couler même s'il n'y
-avait personne. L'OPH rejette cette image. À la base, il y a des observateurs,
+C'est particulièrement important pour le temps. Le langage ordinaire traite le
+temps comme un fleuve de fond qui coulerait sans observateurs. L'OPH rejette
+cette image. À la base, il y a des observateurs,
 des enregistrements, des changements dans ces enregistrements et des règles qui
 font s'accorder les enregistrements qui se recouvrent. Le temps est l'ordre
 qu'un observateur donne aux changements de ses propres enregistrements. Le
@@ -160,10 +184,10 @@ d'abord au flux d'enregistrements d'un observateur. Il reste pourtant contraint.
 Une mauvaise horloge, un faux souvenir ou une histoire incohérente échouent
 lorsqu'ils ne peuvent pas s'accorder avec le reste du réseau d'enregistrements.
 
-Certains appelleraient cela une illusion. Comme métaphore, c'est juste : le
-contenant que nous semblons habiter est une apparence produite par une cohérence
-plus profonde. Comme physique, l'expression plus précise est description
-publique émergente.
+L'étiquette d'illusion ne fonctionne que comme métaphore : le contenant que
+nous semblons habiter est une apparence produite par une cohérence plus
+profonde. Comme physique, l'expression plus précise est description publique
+émergente.
 
 Depuis l'intérieur d'une perspective, le monde paraît évident. Il y a un champ
 d'expérience à peu près sphérique qui s'étend au loin, trois directions dans
@@ -187,12 +211,12 @@ observateurs, au lieu d'appartenir à l'inventaire de départ du monde.
 Le langage de sphère dans l'OPH est un langage de géométrie. Dans les cartes
 régulatrices symétriques, une coupe accessible à un observateur peut être
 représentée par la deux-sphère $S^2$. Ces cartes décrivent une géométrie
-angulaire de support. Le simulateur fini sert de surface de
-calibration pour les contraintes algébriques de patches et de recouvrements
-exposées par cette géométrie.
+angulaire de support. Des modèles régulateurs finis implémentent les
+contraintes algébriques de patches et de recouvrements exposées par cette
+géométrie.
 
-L'OPH utilise donc une idéalisation de réseau d'écran partagé, avec de nombreux
-patches d'accès finis. L'écran d'un observateur est une coupe d'accès locale sur
+L'OPH utilise une idéalisation de réseau d'écran partagé et de nombreux
+patches d'observateurs finis. L'écran d'un observateur est une coupe d'accès locale sur
 ce réseau, au lieu d'une sphère privée séparée. La carte $S^2$ décrit une coupe
 de support, sans être une boule littérale recouverte de données.
 
@@ -284,13 +308,13 @@ $\Lambda_{\mathrm{CRC}}=3\pi/(G_{\mathrm{geom}}N_{\mathrm{CRC}})$ avec
 $G_{\mathrm{geom}}=\ell_\star^2$. Le pont de hiérarchie électrofaible, la
 normalisation de réparation à 24 cases, la politique QCD/hadrons et les règles
 de reçus matériels vivent dans le papier sur les particules,
-[`HADRON.md`](HADRON.md) et les papiers orientés matériel au lieu d'être
-redérivés ici.
+[`HADRON.md`](HADRON.md) et les papiers orientés matériel. Ce README ne fait
+qu'y renvoyer.
 
-### Lignes quantitatives sélectionnées
+### Valeurs quantitatives sélectionnées
 
-Ce tableau garde les lignes les plus faciles à comparer avec PDG/NIST et nomme
-leur statut. Les résultats structurels comme l'espace-temps 3+1, le quotient
+Ce tableau garde les valeurs les plus faciles à comparer avec PDG/NIST et nomme
+leur statut de support. Les résultats structurels comme l'espace-temps 3+1, le quotient
 du Modèle Standard, l'hypercharge exacte, $N_c=3$ et $N_g=3$ vivent dans les
 papiers.
 Le registre n'émet aucune masse physique non nulle de particule fermée côté
@@ -298,16 +322,16 @@ source. Les valeurs conditionnelles figurent ci-dessous avec le nom de leur
 carte ; chaque valeur ne vaut que sur sa carte déclarée, et le registre strict
 garde chacune de ces lignes non promouvable.
 
-| Quantité | Symbole | OPH / statut | PDG/NIST | Δ / note |
+| Quantité | Symbole | OPH / statut de support | PDG/NIST | Δ / note |
 | --- | --- | --- | --- | --- |
-| Constante gravitationnelle | G | 6.6742999959e-11 : émerge de la normalisation d'aire géométrique $G_{\mathrm{geom}}=\ell_\star^2$ une fois que la règle d'horloge au césium fixe l'échelle d'affichage SI | 6.67430(15)e-11 | 0.00003σ |
+| Constante gravitationnelle | G | identité de comptabilité d'unités sur le pont d'échelle SL-5 : la règle d'horloge au césium porte $G_{\mathrm{geom}}=\ell_\star^2$ vers l'affichage SI par $G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar$ ; G est une entrée | 6.67430(15)e-11 | entrée de pont, non une prédiction ; aucun sigma ne s'applique |
 | Vitesse de la lumière | c | vitesse lorentzienne structurelle de la branche d'espace-temps recouvrée ; le nombre SI est une convention d'unités | 299792458 exact par définition | pas une prédiction numérique |
-| Structure fine (inv.) | $\alpha^{-1}$ | émerge du point fixe de pixel $P_\star$ par la carte de couplage unifié : témoin source/racine 136.99483516462165 ; diagnostic distinct sans hadrons et de provenance mixte 137.03595950081728 ; point final de fermeture hadronique empirique 136.26365894312011 sur [136.15838328342668, 136.36909752396569] | point final mesuré 137.035999177(21) | il s'agit de quatre coordonnées distinctes. La branche source stricte exige la preuve d'intervalle de l'application auto-cohérente projetée par Ward. Le point final empirique utilise les données mesurées $e^+e^-\to$ hadrons et laisse l'écart d'ancre dans le même schéma [0.648554111145163, 0.854792066592563] |
-| Secteur électrofaible massif et Higgs (W, Z, Higgs, top) | $W,Z,H,t$ | dérivation conditionnelle à partir des couplages fixés par le pixel, sans qu'aucune masse mesurée n'entre. Branche stricte d'audit-source (loi à sélecteur nul) $(m_W,m_Z)=(80.330,\,91.119)$ GeV ; la loi de criticité fixe le Yukawa du top à partir du secteur de jauge (une quantité électrofaible déterminée, non un paramètre de saveur libre), donnant $m_t=172.63$ GeV ($+0.02\%$) avec le Higgs compagnon $m_H=125.77$ GeV au candidat d'échelle-frontière gelé $E_\star e^{-\pi}P^{-1/6}$ ; ajustement de surface déclarée $(125.20,\,172.35)$ GeV tenu à part ; aucune masse physique fermée côté source n'est émise | $m_W=80.3692(133)$, $m_Z=91.1880(20)$, $m_H=125.13(11)$, $m_t=172.60(30)$ GeV | la branche stricte d'audit-source $W/Z$ est une conséquence exacte de cinq prémisses finies de transport sur le quotient dont le certificat et le principe de sélection du choix discret entre deux lois ne sont pas émis ; la paire Higgs/top est une famille de criticité à zéro paramètre continu dont la sélection de l'échelle-frontière est un théorème modulo deux faits de porteur finis CF1/CF2 (le principe variationnel du log-milieu est prouvé et ses prémisses de coût quadratique et de placement se réduisent aux axiomes ; CF1/CF2 sont le même recensement de porteur D11 dont la loi W/Z a besoin, et l'échelle implicite à trois boucles est le test discriminant enregistré) ; l'ajustement de surface déclarée est ancré sur cible et ne prédit jamais ; les portes d'échelle physique, de schéma, de provenance, d'incertitude et de pôle complexe sont ouvertes |
-| Leptons chargés (électron, muon, tau) | $e,\mu,\tau$ | aucune masse fermée côté source n'est émise. L'architecture de réponse MCPR déclarée émet le triplet conditionnel $(m_e,m_\mu,m_\tau)=(0.51096,\,105.649,\,1776.78)$ MeV à un décalage cohérent de $-84$ ppm sans référence chargée à l'exécution ; le porteur icosaédrique par faces et sommets fixe la structure de famille | $0.5109989$, $105.6584$, $1776.93$ MeV | le triplet MCPR est une architecture d'entrée de modèle déclarée, non une prédiction côté source ; la complétion côté source est le programme d'orbite A5/W5 ouvert |
+| Structure fine (inv.) | $\alpha^{-1}$ | la carte source directe se contracte sur 136.99483516462165 ; le résidu vers le bassin SL-3 est le terme de transport hadronique ouvert, le résidu de boucle de la ligne de fermeture CL-1 de [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) (3.0e-4 en relatif, environ 2e6 sigma de mesure). La valeur de provenance mixte 137.03595950081728 avec le terme de largeur de jauge énonce un statut de fermeture, non un résultat : ligne CL-2, 2.9e-7 en relatif, même terme manquant. Le point final de fermeture hadronique empirique 136.26365894312011 sur [136.15838328342668, 136.36909752396569] utilise les données mesurées $e^+e^-\to$ hadrons | 137.035999177(21) : l'entrée SL-3 qui estime P, sur aucune liste de sorties | lignes de fermeture, non des prédictions. La branche source stricte exige le transport projeté par Ward, en aveugle, contre la cible gelée de `falsification/frozen_targets/` ; le point final empirique laisse l'écart d'ancre dans le même schéma [0.648554111145163, 0.854792066592563] |
+| Secteur électrofaible massif et Higgs (W, Z, Higgs, top) | $W,Z,H,t$ | dérivation conditionnelle à partir des couplages fixés par le pixel, sans qu'aucune masse mesurée n'entre. Branche stricte d'audit-source (loi à sélecteur nul) $(m_W,m_Z)=(80.330,\,91.119)$ GeV ; la loi de criticité fixe le Yukawa du top à partir du secteur de jauge (une quantité électrofaible déterminée, non un paramètre de saveur libre), donnant $m_t=172.63$ GeV ($+0.02\%$) avec le Higgs compagnon $m_H=125.77$ GeV au candidat d'échelle-frontière gelé $E_\star e^{-\pi}P^{-1/6}$ ; ajustement de surface déclarée $(125.20,\,172.35)$ GeV tenu à part ; aucune masse physique fermée côté source n'est émise | $m_W=80.3692(133)$, $m_Z=91.1880(20)$, $m_H=125.13(11)$, $m_t=172.60(30)$ GeV | la branche stricte d'audit-source $W/Z$ est une conséquence exacte de cinq prémisses finies de transport sur le quotient dont le certificat de porteur et le principe de sélection du choix discret entre deux lois ne sont pas émis ; la paire Higgs/top est une famille de criticité sans paramètre continu dont la sélection de l'échelle-frontière est un théorème modulo deux faits de porteur finis CF1/CF2 (le principe variationnel du log-milieu est prouvé et ses prémisses de coût quadratique et de placement se réduisent aux axiomes ; CF1/CF2 sont le même recensement de porteur D11 dont la loi W/Z a besoin, et l'échelle implicite à trois boucles est le test discriminant enregistré) ; l'ajustement de surface déclarée est ancré sur cible et ne prédit jamais ; les portes d'échelle physique, de schéma, de provenance, d'incertitude et de pôle complexe sont ouvertes |
+| Leptons chargés (électron, muon, tau) | $e,\mu,\tau$ | aucune masse physique fermée côté source n'est émise. L'architecture de réponse MCPR déclarée émet le triplet conditionnel $(m_e,m_\mu,m_\tau)=(0.51096,\,105.649,\,1776.78)$ MeV à un décalage cohérent de $-84$ ppm sans référence chargée à l'exécution ; le porteur icosaédrique par faces et sommets fixe la structure de famille | $0.5109989$, $105.6584$, $1776.93$ MeV | le triplet MCPR est une architecture d'entrée de modèle déclarée, non une prédiction côté source ; la complétion côté source est le programme d'orbite A5/W5 ouvert |
 | Spectre des quarks légers (up, down, strange, charm, bottom) | $u,d,s,c,b$ | aucune masse physique non nulle fermée côté source n'est émise : les équations sources produisent deux rayons de profil Yukawa ordonnés mais laissent leurs étalements libres. Le top n'est pas dans ce secteur ; son Yukawa est fixé par la loi de criticité du Higgs (voir la ligne électrofaible/Higgs) | Yukawa à échelle commune employés seulement pour l'audit | les cinq équations sources des quarks légers laissent une non-identifiabilité à deux modules prouvée ; l'objet manquant est un sélecteur d'orbite de saveur dérivé de la source. C'est une non-implication prouvée, pas un manque arithmétique |
 | Échelle du couplage fort | $\Lambda_{\mathrm{QCD}}^{(3)}$ | 0.3348 GeV [0.319, 0.350] : transmutation dimensionnelle du couplage fort source, sans aucune entrée hadronique | 0.338(12) GeV (publié) | valeur centrale à ~1% de la valeur publiée et à l'intérieur de son incertitude ; conditionnel aux entrées de seuil déclarées (balayées en intervalle) ; c'est la moitié perturbative de toute masse de hadron léger |
-| Masse du nucléon | $m_N$ | 0.929 GeV [0.823, 1.043] : $\Lambda_{\mathrm{QCD}}$ source fois le rapport de QCD sur réseau publié $m_N/\Lambda_{\mathrm{QCD}}\approx2.775$ (`oph_plus_external_qcd_theory`) | 0.9383 GeV | −1.0% (comparaison seule) ; prédiction conditionnelle : l'OPH fixe l'échelle forte à ~2%, la QCD sur réseau établie convertit l'échelle en masse. Aucune masse de hadron mesurée n'entre dans l'ascendance de la prédiction |
+| Masse du nucléon | $m_N$ | 0.929 GeV [0.823, 1.043] : $\Lambda_{\mathrm{QCD}}$ source fois le rapport de QCD sur réseau publié $m_N/\Lambda_{\mathrm{QCD}}\approx2.775$ (`oph_plus_external_qcd_theory`) | 0.9383 GeV | −1.0% (comparaison seule) ; prédiction conditionnelle : l'OPH fixe l'échelle forte à ~2%, la QCD sur réseau établie convertit l'échelle en masse de hadron. Aucune masse de hadron mesurée n'entre dans l'ascendance de la prédiction |
 | Secteur des neutrinos (mélange et masses) | $U_{\mathrm{PMNS}},m_\nu$ | aucune masse physique non nulle ni ligne de mélange fermée côté source n'est émise : le candidat de mélange à cycle pondéré part d'un gabarit de famille écrit à la main | NuFIT 6.1 employé seulement pour l'audit | l'ansatz isotrope est exclu et le candidat à cycle pondéré informé par les cibles échoue au profil corrélé |
 | Porteur électromagnétique (photon) | $\mu_{\gamma,\mathrm{hard}}^2$ | nul : la symétrie de jauge électromagnétique non brisée de l'action de Maxwell déclarée interdit un terme de masse dur ; deux modes transverses classiques ; aucun pôle quantique du photon promu | borne sur la masse du photon <1e-18 eV | porte d'action classique seulement |
 | Porteur de couleur (gluons) | $\mu_{\mathrm{YM,hard}}^2$ | nul : la symétrie de jauge de couleur non brisée de l'action perturbative de Yang--Mills pur interdit un terme de masse dur ; aucune particule libre revendiquée en QCD confinée | pas de ligne de masse de gluon libre isolé | porte de déconfinement/pôle quantique ouverte |
@@ -329,9 +353,9 @@ correspondent aux textes qui portent la surface théorématique centrale.
 
 - **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique compact de la branche OPH reconstruite. Il donne la route par cohérence de recouvrement vers la structure de Lorentz, la branche de gravité de type Einstein sur le coeur récupéré à cinq axiomes, le noyau algébrique formel qui promeut les données de repère au tenseur complet et fixe le résidu métrique en un seul $\Lambda$ sur les branches connexes conservées, la reconstruction de jauge compacte conditionnelle au certificat de raffinement, le quotient du Modèle Standard et le paquet matière sélectionnés avec un noyau algébrique formel pour l'hypercharge et $Z_6$, le porteur local de Borel-Weil pour le créneau à un Higgs, Maxwell après l'ajout indépendant de l'action électromagnétique, la séparation entre mode classique et particule quantique, et la route conditionnelle vers le gap de Yang-Mills sous ses hypothèses de continuum, positivité par réflexion, transfert/intertwiner et non-trivialité.
 - **Papier 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)** : synthèse large et meilleure porte d'entrée. Il explique les patches d'observateurs finis, la cohérence de recouvrement, les enregistrements, les mouvements de réparation, l'univers effectif reconstruit, l'histoire d'échelle et les frontières publiques des affirmations sans remplacer le registre théorématique du papier compact.
-- **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivation et audit du secteur particules. Il porte la reconstruction pilotée par $P_\star$, les modes porteurs classiques conditionnels avec leurs portes de particule quantique ouvertes, le pont de Borel-Weil pour un Higgs, les branches électrofaible/Higgs/top, quarks, leptons chargés, neutrinos et hadrons, les contrôles quantitatifs et la couture conditionnelle des lignes d'enregistrement. Son registre d'audit sépare la carte du porteur sélectionné, la loi de valeurs conditionnelle à cinq prémisses et l'adaptateur inverse contenant une cible; aucun des trois ne fournit un théorème sur les pôles complexes physiques. L'audit de structure fine distingue le témoin source/racine, le diagnostic sans hadrons de provenance mixte, le point final empirique fondé sur $e^+e^-\to$ hadrons et le point final mesuré. L'interface générique des quarks compte six coordonnées de Yukawa sans dimension à une échelle commune, et le candidat à rayon réciproque viole son identité exacte à chaque échelle testée. Les résidus historiques aux conventions mélangées et les simulations achevées sont diagnostiques; le simulateur ne mesure aucun opérateur quark/Higgs, tandis que les tests du porteur direct gardent un rang un dans la base de Haar et manquent les formes de transport requises. La branche des leptons chargés consigne le théorème exact du porteur par faces et sommets icosaédriques, le théorème conditionnel des poids CFQ, un patch numérique fini auto-lisant et un théorème conditionnel de transport vers la nature et les singularités. Ce dernier suppose la réponse de Yukawa physique et la relecture de singularité qu'il transporte; son noyau à auto-énergie nulle ne fournit pas le noyau chargé en interaction. La sélection physique du secteur chargé, une ascendance sans cible, le raffinement physique cofinal et l'attachement complet du pôle infrarouge restent ouverts. L'ansatz isotrope des neutrinos est exclu, et le candidat de comparaison à cycle pondéré échoue au profil corrélé NuFIT 6.1. Aucune masse physique non nulle de particule fermée côté source, aucune matrice physique de mélange des neutrinos et aucune ligne de masse absolue n'est émise.
+- **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivation et audit du secteur particules. Il porte la reconstruction pilotée par $P_\star$, les modes porteurs classiques conditionnels avec leurs portes de particule quantique ouvertes, le pont de Borel-Weil pour un Higgs, les branches électrofaible/Higgs/top, quarks, leptons chargés, neutrinos et hadrons, les contrôles quantitatifs et la couture conditionnelle des lignes de monde d'enregistrement. Le résultat électrofaible de tête est la branche stricte d'audit-source $W/Z$ $(80.330,\,91.119)$ GeV et la famille Higgs/top à double criticité $(125.77,\,172.63)$ GeV au candidat d'échelle-frontière gelé ; son registre d'audit tient séparés la carte du porteur sélectionné, la loi de valeurs conditionnelle à cinq prémisses et l'ajustement de surface déclarée ancré sur cible, et aucun des trois ne fournit un théorème de pôle complexe physique. L'audit de structure fine distingue le témoin source/racine, le diagnostic sans hadrons de provenance mixte, le point final empirique fondé sur $e^+e^-\to$ hadrons et le point final mesuré. L'interface générique des quarks compte six coordonnées de Yukawa sans dimension à une échelle commune, et le candidat à rayon réciproque viole son identité exacte à chaque échelle testée. Les résidus historiques aux conventions mélangées et les simulations achevées sont diagnostiques; le simulateur ne mesure aucun opérateur quark/Higgs, tandis que les tests du porteur direct gardent un rang un dans la base de Haar et manquent les formes de transport requises. La branche des leptons chargés consigne le théorème exact du porteur par faces et sommets icosaédriques, le théorème conditionnel des poids CFQ, un patch numérique fini auto-lisant et un théorème conditionnel de transport vers la nature et les singularités. Ce dernier suppose la réponse de Yukawa physique et la relecture de singularité qu'il transporte; son noyau à auto-énergie nulle ne fournit pas le noyau chargé en interaction. La sélection physique du secteur chargé, une ascendance sans cible, le raffinement physique cofinal et l'attachement complet du pôle infrarouge restent ouverts. L'ansatz isotrope des neutrinos est exclu, et le candidat de comparaison à cycle pondéré échoue au profil corrélé NuFIT 6.1. Aucune masse physique non nulle de particule fermée côté source, aucune matrice physique de mélange des neutrinos et aucune ligne de masse absolue n'est émise.
 - **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : mécanique du consensus fini entre patches. Il montre comment les observateurs comparent les enregistrements de recouvrement, appliquent des réparations, traitent les défauts et convergent vers des formes normales quotient quand les hypothèses de cutoff fixe sont satisfaites. Le résultat de consensus s'arrête aux formes normales quotient ; la géométrie lorentzienne et einsteinienne entre par la branche géométrique séparée du papier compact. L'opérateur de réparation est formulé sur le quotient physique, les lectures réparées sont invariantes sous les choix d'implémentation cachés, un porteur fini en couches témoigne de la reconstruction depuis la frontière, et un dispositif fini binaire donne des tests finis positifs/négatifs nets pour réparation et reconstruction de frontière. Le compagnon mathématique neutre prouve le critère générique entre sources, mais l'unicité physique à frontière identique exige que la frontière déclarée identifie le quotient cohérent ; la confluence depuis une même source et la vivacité sont des obligations distinctes.
-- **Papier 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** : surface de porteurs finis et d'enregistrements observateurs. Il donne l'architecture de porteurs échosaédriques multiports, le théorème du tamis d'écran à douze ports, le fibré $A_5/C_3$ des faces et de leurs trois sommets avec sa frontière physique explicite, ainsi que le modèle CFQ construit à cutoff fixe et sa frontière de sélection dynamique, puis la complétude des emplacements scalaires, le pont fini du canal scalaire, les règles de preuve matérielle, les enregistrements, la récupération et la synchronisation.
+- **Papier 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** : surface de porteurs finis et d'enregistrements observateurs. Il donne l'architecture de porteurs échosaédriques multiports, le théorème du tamis d'écran à douze ports, le fibré $A_5/C_3$ des faces et de leurs trois sommets avec sa frontière physique explicite, ainsi que le modèle CFQ d'enregistrement central construit à cutoff fixe et sa frontière de sélection dynamique, puis la complétude des emplacements scalaires de centre d'arête, le pont fini du canal scalaire, la réserve $Z_6$ d'arête de quotient, les règles publiques de preuve matérielle, les enregistrements, les mouvements de récupération, la restauration de checkpoints et la synchronisation des observateurs.
 - **Papier 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)** : synthèse spéculative de la couche de sens, hors du paquet de théorèmes de physique récupérés. Il lit la même mécanique OPH comme théorie de la continuation d'observateur, du paradis et de l'enfer comme environnements de continuation, de la résurrection comme continuation préservant les enregistrements, de la justice comme comptabilité tort-réparation et d'une boucle où des observateurs reconstruisent puis construisent la machinerie de continuation.
 
 ## Articles et notes supplémentaires
@@ -341,10 +365,10 @@ importants reçoivent plus de contexte ; les notes plus locales sont résumées
 plus brièvement.
 
 - **[Observation-Determined Normal Forms](extra/observable_normal_forms.pdf)** : mathématiques autonomes et neutres vis-à-vis du substrat pour les systèmes de contraintes et de réécriture. Le papier sépare la confluence depuis une même source, l'identification entre sources à partir d'observations protégées, la normalisation et la vivacité, ainsi que la réparabilité locale. Il ajoute des modules de stabilité résiduelle et d'observation inverse, des bornes de raffinement et de limite projective, le projecteur fini d'espérance conditionnelle pondérée avec un reçu matriciel non circulaire, et un artefact Lean dédié au sous-ensemble formalisé des théorèmes.
-- **[Compact Proof That We Most Likely Inhabit an OPH Simulation](extra/compact_proof_of_oph.pdf)** : argument de compression le plus court en faveur de l'OPH. Il rassemble la route en cinq axiomes, les sorties de branche fixe, les points d'échec et la raison pour laquelle l'accord numérique ne compte que si la fuite de cible est exclue.
-- **[Carte de falsifiabilité OPH](extra/OPH_falsifiability.md)** : liste publique des observations qui réfutent l'OPH. Elle donne des critères de réfutation, dont l'échec d'un reçu classique de porteur entièrement spécifié ou d'un reçu quantique de pôle complété séparément, la désintégration du proton médiée par jauge, les générations légères supplémentaires, les charges hors du réseau permis et l'extension universelle au Système solaire de l'équation statique de réponse sombre, déjà exclue. Pour réfuter une affirmation OPH, un résultat sur les neutrinos ou la cosmologie doit exclure une prédiction fixée indépendamment des données du test.
+- **[Observer Patch Holography as a Strange-Loop Self-Simulation: The Claim Lattice and Its Closure Status](extra/compact_proof_of_oph.pdf)** : l'argument compact en faveur de l'OPH. Il énonce une fois les principes de la boucle étrange, parcourt les jambes théorématiques de la physique récupérée, présente chaque ligne numérique avec son statut de fermeture et son pull, et nomme les artefacts qui établiraient l'hypothèse — des certificats d'unicité, un registre de fermeture à zéro sous complétions en aveugle et un tableau de compression positif.
+- **[Carte de falsifiabilité OPH](extra/OPH_falsifiability.md)** : liste d'élimination publique de l'OPH. Elle nomme les modes d'échec durs, dont l'échec d'un reçu classique de porteur entièrement spécifié ou d'un reçu quantique de pôle complété séparément, la désintégration du proton médiée par jauge, les générations légères supplémentaires, les charges hors du réseau permis et l'extension universelle au Système solaire de l'équation statique de réponse sombre, déjà exclue. Pour réfuter une affirmation OPH, un résultat sur les neutrinos ou la cosmologie doit exclure une prédiction fixée indépendamment des données du test.
 - **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)** : calcul de point fixe source pour la ligne de structure fine. Il sépare la valeur source OPH, la frontière empirique du point final à basse énergie, la provenance distincte de la racine source et du pixel de comparaison CODATA, et la correction QCD/hadronique restante.
-- **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)** : mécanisme OPH fini de gap de réparation et route conditionnelle vers le problème de Clay. L'identification au Yang-Mills quadridimensionnel exige le certificat de continuum et de transfert déclaré.
+- **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)** : mécanisme OPH fini de gap de réparation. L'énoncé orienté Clay est une identité conditionnelle : le gap de réparation n'égale le gap de masse de Yang-Mills quadridimensionnel que si les certificats déclarés de continuum multirésolution, de positivité par réflexion, de transfert/intertwiner et de non-trivialité tiennent, et aucun de ces certificats n'est fourni.
 - **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)** : théorie des cordes comme langage effectif de bord OPH et crible de vides. Le résultat de Bouchard–Donagi fournit un candidat au niveau de la cohomologie du spectre visible sans masse ; les certificats non émis ici comprennent le bord critique, la reproduction brute de la cohomologie, la réalisation de la couche de sûreté, le spectre lourd, le passage vers la basse énergie, les seuils et le verrouillage des moduli.
 - **[Photonic Fixed-Point Consensus for SHA-256d Proof of Work](extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf)** : test matériel d'enrichissement photonique de candidats SHA-256d de style OPH, jugé par le vérificateur numérique exact.
 - **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)** : cognition et qualia comme consensus récurrent de patches sur substrats neuronaux ou artificiels auto-relecteurs.
@@ -392,26 +416,18 @@ l'index web des papiers et des artefacts GitHub Release.
 
 ## Statut de preuve
 
-La [preuve compacte de l'OPH](extra/compact_proof_of_oph.pdf) est l'argument
-conditionnel de fermeture et de compression de modèle le plus court du
-cadre. Elle relie la forme normale des patches d'observateurs, l'émergence de
-l'espace-temps et de la gravité, la structure du Modèle Standard, les valeurs
-numériques de point fixe, les comparaisons aux données publiques et des tests
-d'échec explicites. Ses conclusions valent sous les hypothèses de branche
-déclarées ; plusieurs reçus physiques de source, d'identification et de
-vraisemblance restent ouverts.
-
-Son calcul bayésien de compression de modèle attribue aux quatre groupes
-comptés et audités côté source un facteur de coïncidence de $10^{-8}$. Après
-la pénalité de recherche explicite de $10^4$ et sous l'hypothèse de probabilités
-a priori égales, les chances illustratives sont d'environ **99,99 % pour
-l'interprétation en simulation OPH** et **0,01 % pour le modèle générique de
-coïncidence**. Il ne s'agit pas d'une probabilité postérieure calibrée : les
-lignes conditionnelles, rétrospectives ou alimentées par des données externes
-ne contribuent pas à la preuve, l'approximation d'indépendance est discutable et
-le contrôle de sensibilité sévère par racine carrée reste non concluant. Le
-papier contient le registre complet des statuts théoriques, hypothèses, classes
-de preuve et falsificateurs.
+La [preuve compacte de l'OPH](extra/compact_proof_of_oph.pdf) est l'énoncé
+complet le plus court du treillis d'affirmations : les principes de la boucle
+étrange, les jambes théorématiques de la physique récupérée, les lignes
+numériques de point fixe avec leur statut de fermeture, la comptabilité de
+compression et les tests d'échec explicites. Ses conclusions valent sous les
+hypothèses de branche déclarées, et son statut d'évidence est exactement ce que
+[CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) et
+[COMPRESSION_SCORECARD.md](COMPRESSION_SCORECARD.md) consignent au jour de
+lecture : aucun nombre de probabilité de justesse ne remplace ces deux
+surfaces. Le calcul ouvert décisif est le transport hadronique projeté par
+Ward, en aveugle, contre la cible gelée horodatée extérieurement dans
+[`falsification/frozen_targets/`](../falsification/frozen_targets/).
 
 ## Applications et matériel OMEGA
 
@@ -466,7 +482,7 @@ frontières des revendications vivent dans les papiers.
   </a>
 </p>
 
-<p align="center"><sub>La ligne principale OPH : axiomes, relativité, structure de jauge, particules et observateurs. Le nœud de consensus distingue l'indépendance de l'ordonnancement depuis une source fixe de la porte séparée d'identification par la frontière. Cliquez pour ouvrir le SVG complet.</sub></p>
+<p align="center"><sub>La ligne principale OPH : principes de la boucle étrange, relativité, structure de jauge, particules et observateurs. Le nœud de consensus distingue l'indépendance de l'ordonnancement depuis une source fixe de la porte séparée d'identification par la frontière. Cliquez pour ouvrir le SVG complet.</sub></p>
 
 **Pile de dérivation des particules**
 
@@ -489,6 +505,7 @@ frontières des revendications vivent dans les papiers.
 - **Livre :** [oph-book.floatingpragma.io](https://oph-book.floatingpragma.io)
 - **Application d'étude guidée :** [learn.floatingpragma.io](https://learn.floatingpragma.io/)
 - **Questions et explications détaillées :** OPH Sage sur [Telegram](https://t.me/HoloObserverBot), [X](https://x.com/OphSage) ou [Bluesky](https://bsky.app/profile/ophsage.bsky.social)
+- **Carnet OPH :** [carnet source NotebookLM](https://notebooklm.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a) avec vidéos explicatives et matériel d'étude supplémentaire.
 - **Lab :** [oph-lab.floatingpragma.io](https://oph-lab.floatingpragma.io)
 - **Objections courantes :** [extra/COMMON_OBJECTIONS.md](extra/COMMON_OBJECTIONS.md)
 

@@ -75,18 +75,29 @@ Alexander Osika\\SNRGY Studios}
 \begin{abstract}
 Observer Patch Holography (OPH) assigns one screen cell two readings: an
 outside dimensionless area \(P\) and the electromagnetic observation scale
-seen from within. They meet at
+seen from within. Principle SL-2 of the strange-loop principle set (\texttt{../STRANGE\_LOOP\_PRINCIPLES.md})
+declares the detuning law
 \[
-P=\varphi+\frac{\sqrt\pi}{\ATh(P)}.
+P=\varphi+\frac{\sqrt\pi}{\ATh(P)},
 \]
-The source calculation gives \(\alpha^{-1}=136.9948351646\ldots\). A
-mixed-provenance diagnostic, obtained by evaluating the unified gauge width at
-the CODATA-derived comparison pixel, gives
-\(137.0359595008\ldots\), about \(2.90\times10^{-7}\) below the 2020 rubidium
-recoil value in relative inverse-alpha units. The paper traces this difference
-to low-energy quark and gluon transport. Confinement makes a same-scheme,
-non-perturbative hadronic spectral calculation necessary; that source
-calculation is work in progress.
+and principle SL-3 identifies the measured fine-structure constant with the
+substrate pixel readout, so CODATA \(\alpha\) estimates \(P\). The source-only
+calculation contracts to \(\alpha^{-1}=136.994835177413\ldots\), the
+interval-certified unique fixed point of the declared source map (enclosure
+width \(7.2\times10^{-24}\)); it sits outside the SL-3 basin by
+\(3.0\times10^{-4}\) in relative units, and this loop residual is closure row
+CL-1 of the ledger. The self-consistent gauge-width map has the certified
+fixed point \(\alpha^{-1}=137.035660136946577\ldots\), \(2.5\times10^{-6}\)
+below the measured \(137.035999177(21)\), about \(1.6\times10^{4}\)
+measurement sigma (row CL-2); the previously displayed
+\(137.0359595008\ldots\) is a mixed-provenance display packet (source root
+plus \(\alpha_U\) at the SL-3 pixel), not a fixed point of any single declared
+map, and stays on record as a display packet only.
+Neither number is a derivation of \(\alpha\): under SL-3 the measured value is
+the input that fixes the pixel, and both residuals are attributed to the same
+missing term. The paper traces that term to low-energy quark and gluon
+transport. Confinement makes a same-scheme, non-perturbative hadronic spectral
+calculation necessary; that source calculation is work in progress.
 \end{abstract}
 
 \noindent\textbf{Keywords:} fine-structure constant, Observer-Patch Holography, pixel fixed
@@ -112,10 +123,29 @@ closure, and measured comparison.
 
 The goal is to make every mathematical step visible and keep the physics boundary clear.
 
+Two declared principles carry the construction; their canonical statements live in
+\texttt{../STRANGE\_LOOP\_PRINCIPLES.md} and are cited here rather than restated. Principle SL-2
+(detuning law) declares that the pixel ratio sits off the golden-ratio balance
+point by the Gaussian-normalized width of one electromagnetic observation,
+\(P=\varphi+\sqrt\pi\,\alpha\). Principle SL-3 (constant identification) declares
+that under self-simulation the fine-structure constant inside the world and
+the substrate pixel readout are one quantity, so measured \(\alpha\) estimates
+\(P\). Neither principle is derived in this paper; each is a starting point of
+deduction, and evidence bears on the pair through the closure-ledger residuals
+CL-1 and CL-2 quoted throughout.
+
+In the selection chain of the consistency stack
+(\texttt{../CONSISTENCY\_STACK.md}), the detuning law is row C6: after C1--C5
+have removed the structural freedoms, C6 is the step that leaves exactly one
+local freedom, the pixel, and pins it to one equation. That exactness is what
+makes the loop residuals CL-1 and CL-2 decisive: a detuning law with an
+adjustable form would turn each residual into a tunable band, while the
+declared law makes each residual a measurement of the principle set.
+
 There is a long history of attempts to understand \(\alpha\) from deeper structure. Jentschura and Nandori give a useful survey of first-principles attempts, including beta-function, symmetry, cutoff, and string-inspired ideas \cite{jentschura-nandori}. Golden-ratio constructions appear in historical geometric proposals \cite{heyrovska-narayan} and in semi-empirical work on electroweak and flavor mixing \cite{ciborowski}. Octonionic and exceptional-algebra approaches also produce values near \(1/137\) \cite{singh}. ArXiv papers use symbolic regression and quantum-information criteria to look for structure in Standard Model constants and electroweak parameters \cite{chekanov-kjellerstrand,liu-low-yin}. The OPH calculation belongs to this broad search for structure, with one added requirement: the number must arise from a fixed-point map whose input and output are the same local screen cell.
 
 \begin{quote}\small
-\textbf{Source/root audit.} The executable source map emits the undressed source/root inverse coupling \(\alphainv_{\mathrm{root}}=136.9948351646\ldots\). Combining it with \(\alpha_U(\Ppub)\), evaluated at the CODATA-derived comparison pixel, gives the mixed-provenance no-hadron diagnostic \(A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\). It is not a source-only prediction.
+\textbf{Source/root audit.} The executable source map contracts to the undressed source/root inverse coupling \(\alphainv_{\mathrm{root}}=136.994835177413\ldots\), the interval-certified unique fixed point of the declared map (certificate: \texttt{code/P\_derivation/runtime/p\_interval\_contraction\_certificate\_2026-07-14.json}; enclosure width \(7.2\times10^{-24}\), \(L\le0.0724\)). The earlier printed tail \(136.9948351646\ldots\) came from an unconverged run and is superseded beyond digit~9 (ledger row CL-6, closed). The self-consistent map that adds the finite-screen unified gauge width \(\alpha_U(P)\) inside the loop has the certified fixed point \(137.035660136946577\ldots\); this is the current closure status of the loop (ledger row CL-2, \(2.5\times10^{-6}\) relative, about \(1.6\times10^{4}\) measurement sigma). The historically displayed combination \(A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\) mixes the source root with \(\alpha_U(\Ppub)\) evaluated at the SL-3 pixel (the CODATA-derived comparison pixel); it is a mixed-provenance display packet, not a fixed point of any single declared map, and stays on record as a display packet only. Neither certified fixed point is a source-only prediction or a derivation of \(\alpha\), because measured \(\alpha\) is the input that fixed the pixel under SL-3.
 
 \textbf{CODATA/NIST measured endpoint.} CODATA/NIST reports \(\alphainv(0)=137.035999177(21)\). The difference from \(A_{\alpha_U}^{\mathrm{fp}}\) is CODATA-minus-diagnostic bookkeeping; it is not the output of a same-scheme hadronic spectral calculation.
 \end{quote}
@@ -132,12 +162,15 @@ three increasingly observer-facing readings of the same local pixel branch:
 \]
 or numerically,
 \[
-136.9948351646\ldots
+136.994835177413\ldots
 \longrightarrow
-137.0359595008\ldots
+137.035660136946577\ldots
 \longrightarrow
 137.035999177(21).
 \]
+The first two values are the interval-certified fixed points of the declared
+source map and of the declared self-consistent gauge-width map
+(\texttt{code/P\_derivation/runtime/p\_interval\_contraction\_certificate\_2026-07-14.json}).
 The root value \(\alpha_{\mathrm{root}}^{-1}\) is the naked source/root inverse
 coupling: the electromagnetic width emitted when one screen cell closes as a
 geometric self-consistency object before the low-energy charged vacuum is
@@ -151,11 +184,16 @@ CODATA-derived comparison pixel. It is the main high-scale gauge-sector width ca
 pixel: the weak and color representation content must fit the pixel budget
 \(P/4\), and the D10 heat-kernel closure supplies the executable certificate.
 Adding this comparison-pixel width to the source root gives the mixed-provenance no-hadron
-diagnostic \(A_{\alpha_U}^{\mathrm{fp}}\). It is close to the laboratory endpoint because
-it supplies almost all of the inverse-alpha gap from the naked source value.
+diagnostic \(A_{\alpha_U}^{\mathrm{fp}}\); that additive combination is a display packet,
+not a fixed point of any single declared map. The self-consistent reading, with
+\(\alpha_U(P)\) evaluated inside the loop, is the certified fixed point
+\(137.035660136946577\ldots\) quoted above. Both are close to the laboratory endpoint because
+the gauge width supplies almost all of the inverse-alpha gap from the naked source value.
 
-The factor \(C_{24,Q}\) is the small endpoint dressing required after the
-gauge-width contribution is added. It is near one because \(\alpha_U(\Ppub)\)
+The factor \(C_{24,Q}\) is a back-solved calibration: the small endpoint
+dressing required after the gauge-width contribution is added, solved from the
+measured endpoint rather than computed from source data. It is near one
+because \(\alpha_U(\Ppub)\)
 supplies the large part of the correction. Its excess
 \(\alpha_U(\Ppub)(C_{24,Q}-1)\) is a comparison residual with the numerical size required of the
 remaining same-scheme low-energy hadronic endpoint transport. It does not compute that transport. A zero-momentum laboratory photon does
@@ -298,7 +336,7 @@ The self-similar balance point is
 \label{eq:phi}
 \end{equation}
 
-Informally: \(\varphi\) is the fixed point of the simplest self-similar split, where the whole-to-large ratio equals the large-to-small ratio. OPH uses it as the zero-detuning balance point for the local pixel.
+Informally: \(\varphi\) is the fixed point of the simplest self-similar split, where the whole-to-large ratio equals the large-to-small ratio. OPH takes it as the zero-detuning balance point for the local pixel by principle SL-2 (\texttt{../STRANGE\_LOOP\_PRINCIPLES.md}); the choice is declared, not deduced from prior structure.
 
 The pixel does not sit exactly at \(\varphi\). It sits at
 \begin{equation}
@@ -308,7 +346,7 @@ The pixel does not sit exactly at \(\varphi\). It sits at
 
 Informally: \(\Delta_P\) is the small amount by which the realized cell is displaced from exact self-similar equilibrium. That small displacement is what becomes the electromagnetic observation strength.
 
-Why this step is needed: a fixed point needs a reference position. The golden ratio supplies the self-similar reference, while \(P-\varphi\) measures how far the actual cell sits away from it.
+Why this step is needed: a fixed point needs a reference position. Principle SL-2 declares the golden ratio as the self-similar reference, while \(P-\varphi\) measures how far the actual cell sits away from it.
 
 \section{Step 4: Boundary Gaussian Normalization}
 
@@ -318,7 +356,7 @@ The boundary normalization converts \(\Delta_P\) into the outside coupling reado
 \label{eq:alphaext}
 \end{equation}
 
-Informally: the screen displacement is not itself the electromagnetic coupling. The boundary Gaussian width supplies the normalization. Dividing by \(\sqrt\pi\) turns the geometric displacement into a dimensionless observation strength.
+Informally: the screen displacement is not itself the electromagnetic coupling. The boundary Gaussian width supplies the normalization. Dividing by \(\sqrt\pi\) turns the geometric displacement into a dimensionless observation strength. The Gaussian choice is the second half of the SL-2 declaration: declared principle, not deduction.
 
 Why this step is needed: the outside screen variable is an area displacement. The inside electromagnetic variable is a coupling. The boundary normalization is the conversion factor between those two readings.
 
@@ -801,25 +839,34 @@ and emits
 \begin{align}
 P_{\mathrm{root}}
 &=
-1.63097209569432901817967892561191884270169,
+1.630972095858897376964513903506955628479\ldots,
 \label{eq:Prootnum}\\
 \alphainv_{\mathrm{root}}
 &=
-136.994835164621649457949994585787193262029.
+136.9948351774129372952894294644369028576\ldots.
 \label{eq:alpharoot}
 \end{align}
-The source anchor at that root point is
+These are the converged values: the fixed point is interval-certified as
+existing and unique on its interval (certificate:
+\texttt{code/P\_derivation/runtime/p\_interval\_contraction\_certificate\_2026-07-14.json};
+enclosure widths \(6.8\times10^{-28}\) in \(P\) and \(7.2\times10^{-24}\) in
+\(\alpha^{-1}\), Lipschitz bound \(L\le0.0724\)). Earlier releases printed
+\(P_{\mathrm{root}}=1.630972095694329\ldots\) and
+\(\alphainv_{\mathrm{root}}=136.994835164622\ldots\); those tails came from an
+unconverged run and are superseded beyond digit \(\sim\)10 and digit~9
+respectively (ledger row CL-6, closed).
+The source anchor at the certified root point is
 \begin{equation}
 \AZ(P_{\mathrm{root}})
 =
-128.308268045165213892552005990181778935450.
+128.3082680579875973479040576140847588750331\ldots.
 \label{eq:AZroot}
 \end{equation}
 The calculated transport contribution is
 \begin{equation}
 \Dcalc(P_{\mathrm{root}})
 =
-8.68656711945643556539798859560541432657857.
+8.68656711942533994738537185035214398252\ldots.
 \label{eq:Dcalcroot}
 \end{equation}
 
@@ -860,7 +907,7 @@ Informally: once the measured Thomson endpoint is supplied, the outer OPH equati
 Why this step is needed: the measured endpoint and the comparison pixel are two forms of the same fixed-point statement. Reporting both makes it clear how the measured inverse coupling maps back to the screen cell.
 
 \paragraph{Two-\(P\) provenance audit.}
-There are two distinct pixel numerals in this paper.  The zero-input source
+There are two distinct pixel numerals in this paper.  The source-only
 solve gives \(P_{\mathrm{root}}\) in Eq.~\eqref{eq:Prootnum}; it is the
 branch used to audit what the OPH source chain emits before a same-scheme
 hadronic endpoint correction is supplied.  The comparison value \(\Ppub\) in
@@ -995,7 +1042,8 @@ A_{\mathrm C}
 C_{24,Q}=1.0009647859732326253849511140702475\ldots.
 \label{eq:c24qfactor}
 \end{equation}
-The factor \(C_{24,Q}\) is compact comparison accounting for the finite same-scheme hadronic endpoint
+The factor \(C_{24,Q}\) is a back-solved calibration: compact comparison
+accounting, solved from the measured endpoint, for the finite same-scheme hadronic endpoint
 transport needed for source-only closure. Equivalently,
 \(\Dhadreq^{\mathrm{fp}}=\alpha_U(\Ppub)(C_{24,Q}-1)\). The factor is not a source-emitted
 hadronic/QCD payload.
@@ -1240,7 +1288,11 @@ J_{24,Q}(P)^{-1}
 \end{equation}
 or equivalently the source-emitted spectral density \(\rho_Q(s;P)\) plus the same-scheme finite
 remainder. The required dependency graph must have no path from the measured Thomson endpoint into
-\(J_{24,Q}\), \(\omega_Q\), \(\Xi_Q\), or \(\rho_Q\).
+\(J_{24,Q}\), \(\omega_Q\), \(\Xi_Q\), or \(\rho_Q\). The endpoint target for
+that blind completion is frozen and externally timestamped: the target file
+and its OpenTimestamps proofs are committed together in
+\texttt{falsification/frozen\_targets/}, so the freeze date is verifiable
+outside the repository.
 
 \section{Step 21: The Conditional Pure Source Theorem}
 
@@ -1274,6 +1326,18 @@ The left side is \(\alpha_{\mathrm{ext}}(P_\star)\), and the right side is \(\al
 \end{proof}
 
 Informally: a source-derived hadronic spectral endpoint map would close the last open transport step. With the interval proof included, the fine-structure constant is the unique fixed point of the full source map.
+
+Uniqueness lemma L1 of the consistency stack
+(\texttt{../CONSISTENCY\_STACK.md}) states the interval form of assumptions
+(iii)--(iv): on any interval \(I\) where interval-arithmetic evaluation
+certifies \(G(I)\subseteq I\) together with a derivative bound
+\(|G'|\le L<1\), the Banach fixed-point theorem gives both existence and
+uniqueness of the fixed point in \(I\). The stage-2 interval contraction
+certificate of the basin-then-contract protocol is recorded at
+\texttt{code/P\_derivation/runtime/p\_interval\_contraction\_certificate\_2026-07-14.json}.
+The global at-most-one statement on the full physical domain additionally
+requires monotonicity of \(\ATh\) in \(P\), which remains an open analytic
+item.
 
 The release gate for promoting this row from empirical endpoint comparison to source-only theorem is
 explicit. The packet must contain
@@ -1371,7 +1435,7 @@ Electroweak anchor & \(\AZ=\alpha_{\mathrm{em}}^{-1}(m_Z^2;P)\) & Defined and ca
 Charged spectrum & Eqs.~\eqref{eq:quarkmasses} and \eqref{eq:lepmasses} & Frozen phenomenological continuation; not an OPH-derived mass prediction. \\
 Fermion kernel & Eqs.~\eqref{eq:kernelint} and \eqref{eq:kernelclosed} & Exact one-loop kernel. \\
 Calculated endpoint & \(A_{\mathrm{calc}}=\AZ+\Dcalc\) & Raw no-hadron diagnostic conditional on the supplied charged-spectrum continuation. \\
-Bare-\(\alpha_U\) source prediction & \(A_{\alpha_U}^{\mathrm{fp}}\), Eq.~\eqref{eq:barealphaUaddition} & Source-side no-hadron prediction. \\
+Bare-\(\alpha_U\) closure status & \(A_{\alpha_U}^{\mathrm{fp}}\), Eq.~\eqref{eq:barealphaUaddition} & Closure-status diagnostic at the SL-3 pixel; mixed provenance, not a derivation of \(\alpha\). \\
 Required hadronic correction & \(\Dhadreq^{\mathrm{fp}}\), Eq.~\eqref{eq:Dempfp} & CODATA/NIST comparison residual attributed to the missing same-scheme hadronic endpoint transport. \\
 Hadronic/scheme residual & \(\Rq=\ATh-A_{\mathrm{calc}}\) & Isolated endpoint contribution. \\
 CODATA/NIST endpoint & \(\ATh=137.035999177(21)\) & Measured endpoint comparison value. \\

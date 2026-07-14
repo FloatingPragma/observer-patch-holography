@@ -814,9 +814,14 @@ F_r(N)=
 \right).
 \]
 The refinement-limit map \(F\) is the cofinal limit of this finite readback construction when that
-limit exists on the admissible capacity interval.
+limit exists on the admissible capacity interval. The map \(F\) is not yet constructed; its
+construction and execution is closure row CL-7 of \texttt{CLOSURE\_LEDGER.md}. The capacity value
+used below is the SL-4 estimate from measured \(\Lambda\) and the scale bridge, and it enters as
+an input.
 
-The uniqueness proof is the direct global analogue of the local \(P\)-fixed-point proof. Let
+The uniqueness argument is the direct global analogue of the local \(P\)-fixed-point argument. It
+is conditional on a constructed readback map with the stated contraction property; no such
+construction currently exists (CL-7). Let
 \(I\) be the admissible interval of active horizon capacities. If the OPH-derived readback map
 \(F:I\to I\) satisfies
 \[
@@ -832,7 +837,9 @@ points, then
 \le \kappa |N_1-N_2|.
 \]
 Since \(\kappa<1\), this implies \(N_1=N_2\). Banach iteration \(N_{k+1}=F(N_k)\) also converges
-to the same fixed point from any starting value in \(I\).
+to the same fixed point from any starting value in \(I\). All of this holds once \(F\) exists and
+satisfies the contraction bound; until then, uniqueness and stability of \(N_{\mathrm{CRC}}\) are
+open (CL-7).
 
 The physical meaning of the contraction condition is that changing supplied raw capacity changes
 observer-readable active capacity by less than one-for-one. Extra Hilbert-space room does not
@@ -910,8 +917,11 @@ N_{\mathrm{CRC}}=N_\star=N_{\mathrm{obs}},
 \qquad
 \Lambda_{\mathrm{CRC}}=\frac{3\pi}{G N_{\mathrm{CRC}}}.
 \]
-The last equality is the scale-certified display. The fixed-point certificate makes this value the unique stable capacity of the self-reading
-solution we inhabit, not a freely tunable creator-set parameter. Informally, \(N_{\mathrm{CRC}}\)
+The last equality is the scale-certified display. Under SL-4 this value is the estimate of
+\(N_{\mathrm{CRC}}\) from measured \(\Lambda\) and the scale bridge, and it enters as an input.
+A readback fixed-point certificate would make it the unique stable capacity of the self-reading
+solution we inhabit; that certificate awaits the construction and execution of \(F\) (closure row
+CL-7). Informally, \(N_{\mathrm{CRC}}\)
 is the single horizon capacity at which the outside total horizon capacity and the inside
 observer-accessible public record agree.
 
@@ -1014,7 +1024,11 @@ consistency condition. On the measured-endpoint comparison branch, the root is
 P_C\simeq1.6309682094,\qquad
 \alpha^{-1}(0)=137.035999177(21).
 \]
-This coordinate is fixed only on that comparison branch. Four distinct numbers describe the
+This coordinate is the SL-3 estimate of the pixel ratio: under SL-3 the measured endpoint
+estimates \(P\), and the measurement is an input at every surface. The source solve's root is the
+forward-model closure point, and the difference between the two is the loop residual, carried as
+rows CL-1 and CL-2 of \texttt{CLOSURE\_LEDGER.md}: \(3.0\times10^{-4}\) relative on the source
+chain and \(2.9\times10^{-7}\) on the mixed-provenance branch. Four distinct numbers describe the
 audit. The source/root witness is \(136.9948351646\ldots\); the mixed-provenance no-hadron
 diagnostic is \(137.0359595008\ldots\); the external-data empirical closure is
 \(136.2636589431\) on \([136.1583832834,136.3690975240]\); and the measured endpoint is
@@ -1347,6 +1361,10 @@ representative uniqueness, public validation artifacts for the D10 electroweak r
 full flavor/CKM closure, a source-derived flavor-orbit selector, charged-lepton source landing from
 the declared pixel branch, and source-only hadron masses
 without a production OPH backend.
+Per the repository file \texttt{CONSISTENCY\_STACK.md}, the quantitative side of these open items
+reduces to four generating objects (the Ward-projected hadronic transport, the capacity readback
+map \(F\), the repaired forward electroweak chain, and solver hygiene) plus one source-derived
+flavor-orbit selector, each a computation or a construction rather than a reinterpretation.
 Refs.~\cite{ophcompact,ophconsensus,ophmicrophysics,ophparticles} are the depth surfaces for
 sector-by-sector proofs, quantitative details, and continuation-level material. The local
 cross-lane numerical surface is explicit enough to summarize concisely: the fixed point \(P_\star\)

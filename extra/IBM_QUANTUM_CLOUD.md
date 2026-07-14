@@ -1,11 +1,13 @@
-# Frozen IBM Quantum Cloud Engineering Archive
+# IBM Quantum Cloud: Frozen Hardware-Fidelity Benchmark Archive
 
-> **Frozen on 11 July 2026.** These experiments are retained as engineering
-> consistency demonstrations and public receipts. They do not distinguish OPH
-> from standard quantum mechanics: QM predicts every prepared state, dynamic
-> circuit, measurement record, and feedback operation used here. No further
-> quantum-cloud campaign should be presented as OPH evidence until OPH supplies
-> a quantitative observable on which its prediction differs from QM.
+> **Frozen on 11 July 2026.** This program is a hardware-fidelity benchmark
+> suite. Prepared-state ratio tests cannot discriminate OPH from standard
+> quantum mechanics: QM predicts every prepared state, dynamic circuit,
+> measurement record, and feedback operation used here, so each run measures
+> how faithfully IBM devices execute the programmed circuits and nothing more.
+> The runs are retained as engineering receipts. No further quantum-cloud
+> campaign should be presented as OPH evidence until OPH supplies a
+> quantitative observable on which its prediction differs from QM.
 
 ## Informal story
 
@@ -310,12 +312,15 @@ Focused high-shot follow-up at `t = 0.90`:
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | `ibm_marrakesh` | `2.6180` | `2.5498` | `0.0682` | `2.6%` | `0.0238` | `0.31%` |
 
-The best `ibm_marrakesh` points land within `0.8%`, `1.2%`, and `1.5%` of the
-programmed target. The noisier points spread more widely, and the separate
-high-shot interval excludes the exact target. In every case, QM predicts the
-prepared circuit rather than a competing value.
+One verdict governs this lane: the high-precision run excludes the programmed
+target. The focused high-shot rerun measured `2.5498` with interval
+`[2.4919, 2.6023]`, and `phi^2 = 2.6180` lies outside that interval. The
+lower-shot sweeps scatter on both sides of the target and carry no verdict of
+their own. In every case, QM predicts the prepared circuit rather than a
+competing value, so the exclusion is a device-fidelity statement, not an
+OPH-versus-QM statement.
 
-### `S_3`: layout-sensitive post-hoc follow-up
+### `S_3`: preregistered test failed; layout-sensitive post-hoc follow-up
 
 Hardware diagnostic bundle:
 
@@ -349,9 +354,16 @@ Direct repeat of the selected mapping:
 - `Δt/t = 0.0323`
 - leakage `0.01%`
 
+The preregistered test is recorded as failed: the base-layout runs measured
+`1.8536` (raw) and `1.8724` (mitigated) against the frozen target `2.0000`.
+That verdict is permanent under the failure-permanence rule.
+
 The physical mapping clearly changes the extracted value. Because the reversed
 mapping was selected after the first result was seen, its near-target repeat is
-a useful device diagnostic, not a blinded confirmation of the ratio.
+a useful device diagnostic, not a blinded confirmation of the ratio. The
+reversed-layout observation is a new hypothesis, not a rescue of the failed
+test; it requires a fresh preregistered run across multiple layouts and
+backends, with confidence intervals, before it carries any weight.
 
 ### Frozen blinded generative repair: preregistered engineering pass
 

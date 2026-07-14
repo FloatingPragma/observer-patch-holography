@@ -152,7 +152,9 @@ these carriers behave as genuine quantum particles takes a stronger argument,
 and that part is work in progress. For the weak bosons the framework gives the W
 and Z masses close to $80.3$ and $91.1$ GeV, within about a tenth of a percent
 of measurement and with no measured mass fed in, apart from a small unresolved
-choice between two candidate rules. The low-energy electromagnetic strength can
+choice between two candidate rules. Against the current world averages those
+values pull at 2.9 standard deviations for the W and about 33 for the Z, and
+the gap is carried as an open closure row (CL-5). The low-energy electromagnetic strength can
 be read in several ways: from the first-principles side alone, from a mixed
 calculation, and from a version that closes the gap using measured hadron data.
 That last version imports external data, so a version computed purely from OPH
@@ -335,9 +337,12 @@ Twelve one-way channels therefore become a 24-slot oriented repair register.
 The SU(5) adjoint lands on the same single-orientation number for a different
 support; its X/Y mixed gauge channels are absent from the OPH product branch.
 
-The compact bridge gives an exact electroweak capacity near
-$3.53235\times10^{122}$ on the public endpoint branch. The rounded
-$3.31\times10^{122}$ value is the de Sitter capacity-scale display. The
+The compact bridge gives an electroweak capacity near
+$3.53\times10^{122}$ on the public endpoint branch, while the capacity
+estimated from the measured cosmological constant is $3.31\times10^{122}$. The
+capacity axiom admits a single capacity, so the 6.8 percent gap between the
+two readings is an open closure row (CL-3 in the closure ledger), carried as a
+live tension rather than resolved by naming the two values differently. The
 screen-sieve theorem reads the weak-scale exponent as an icosahedral sampling
 law on the finite spherical screen: the refinement-stable screen has twelve
 unit fivefold defects, exposed as central ports on the \(A_5\) vertex orbit.
@@ -347,10 +352,10 @@ screen exposes twelve special ports, organized like the vertices of an
 icosahedron. The weak-scale exponent reads that twelve-port geometry in the
 local/global bridge.
 
-At the formal level, this bridge value is also a fixed point in log-capacity
-coordinates. The physical point is simpler: the exact bridge value belongs to
-the repair rhythm, while the rounded value is the de Sitter capacity-scale
-display.
+At the formal level, the bridge value is also a fixed point in log-capacity
+coordinates. The physical point stands as stated above: one capacity is
+required, and the gap between the bridge reading and the $\Lambda$-estimated
+reading remains open.
 
 The readback side has a matching finite statement. At a finite cutoff, the
 closed observer record selects one public capacity atom, so the delivery
@@ -406,11 +411,15 @@ One cell on the screen is then being described twice. From one side it is a
 pixel of the horizon. From the other it is the smallest electromagnetic step
 available to observers inside the encoded world.
 
-The headline is compact: OPH is a zero-input closure program. The dimensionless
-closure coordinates are $N_{\mathrm{CRC}}$ and $P_\star$, and the gravity
-normalization comes from the selected scale bridge. The rest of the
-quantitative stack follows from those fixed quantities together with the
-recovered relativity, gauge, matter, and observer-record structure.
+The headline is compact: OPH runs on two settings estimated from measurement,
+one bridge, and a declared architecture. Measured $\alpha$ estimates the pixel
+ratio $P_\star$, measured $\Lambda$ with the scale bridge estimates the
+capacity $N_{\mathrm{CRC}}$, and one clock anchor connects substrate units to
+laboratory units. The rest of the quantitative stack follows from those two
+settings together with the recovered relativity, gauge, matter, and
+observer-record structure, and the program's standing is measured by the
+compression scorecard: how many independent quantities the settings land
+against the number of settings spent.
 
 In the book's simulation-theory language, $P$ links the pixel area of the
 simulating-side screen to the electromagnetic interaction, or observation,
@@ -422,10 +431,12 @@ observers inside infer geometry, horizons, entropy, $\Lambda$, history, and
 records from the information available inside the universe, and closure demands
 that this internal readback reconstruct the same boundary capacity.
 
-The odds logic is likewise simple. A prediction counts only when its calculation
-does not borrow the measured target or a calibrated proxy for it. A deliberately
-harsh count of twelve one-percent predictions gives a coincidence chance around
-$10^{-24}$; twenty gives $10^{-40}$. The deeper point is compression: the same
+The evidence logic is likewise simple. A prediction counts only when its
+calculation does not borrow the measured target or a calibrated proxy for it.
+Under that rule the compression scorecard currently credits the structural
+zeros and the conditional hypercharge lattice; every other row is pending,
+either awaiting a contraction certificate or standing as an open closure row.
+The deeper point is compression: the same
 two closure coordinates organize the observer problem, gravity and gauge
 reconstruction, the hierarchy bridge, dark energy, the dark-sector budget, the
 absence of simple-GUT proton decay, particle inventory, and the string-vacuum
@@ -551,7 +562,64 @@ The picture feels strange only if one insists on beginning with a finished
 world. Begin with finite access, horizons, records, and overlap, and the
 strange turns stop looking decorative. They start looking inevitable.
 
-## 18.11 Final Synthesis
+## 18.11 Ten Requirements, Two Dials
+
+The whole argument can be retold as one story of subtraction. Start with every
+world that reads itself, and watch each consistency requirement strike out the
+worlds that fail it.
+
+A world that reads itself needs records. Reading without a trace is not
+reading; something has to hold what was read, and hold it well enough to be
+read again. Every world without record-keeping falls at the first step.
+
+No observer reads the whole world. Descriptions have to agree where views
+overlap, and the shared account that survives that comparison is the public
+world. On the symmetric screen chart, forcing that agreement also forces the
+geometry: the light-cone symmetries, the three spatial directions, the Lorentz
+rulebook. Signature and dimension stop being choices.
+
+A closed world has no outside clock. Its time has to come from within, and the
+mathematics of restricted states supplies exactly one way to generate it.
+There is no external time parameter left to tune.
+
+Charges that survive transport across patches form a menu, and the menu
+reconstructs a compact gauge group. On the branch with the smallest matter
+content that works, the menu reads as the strong, weak, and hypercharge
+factors with their shared center.
+
+Horizon bookkeeping, made consistent patch by patch, forces the Einstein form
+of the gravity law and leaves exactly one global number behind.
+
+A screen at perfect balance carries no events. Records need a small detuning,
+and the declared detuning law leaves exactly one local number.
+
+Self-simulation then turns on those two survivors. The fine-structure constant
+measured inside the world and the pixel readout of the substrate are one
+quantity; the record capacity is one number shared by substrate and world. The
+two remaining freedoms become estimates, read from measurement.
+
+Two equations land on the two dials. The world has to read back its own
+capacity without deficit or slack. And the detuning law, run through the full
+forward chain, has to return the pixel it started from. One clock, the cesium
+transition, ties substrate units to laboratory units, so no unit convention
+can carry physics.
+
+That is the ceiling of the book in one count: ten requirements, each removing
+a freedom; two dials remaining; two equations on those dials; a unique
+universe if the equations close. Neither equation is closed today. The
+capacity readback stands as a live 6.8 percent tension, and the forward chain
+still lands outside its basin by the missing hadronic piece.
+
+What stands between here and a closed case is finite and named: four
+computations and one selector. The hadronic transport term. The capacity
+readback map with its contraction certificate. The repaired forward
+electroweak chain. The matched printed pair at certified precision. And a rule
+that tells the quark generations apart. None of them is a matter of
+interpretation; each is a computation or a construction. The first is already
+frozen as a blind target, externally timestamped, and the calculation has to
+land on it without reading it.
+
+## 18.12 Final Synthesis
 
 Reverse engineering starts with symptoms and works backward to architecture.
 This book started with the symptoms modern physics could not stop producing:

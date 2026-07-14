@@ -239,9 +239,12 @@ $$N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}),\qquad
 \Lambda_{\mathrm{CRC}}=\frac{3\pi}{G N_{\mathrm{CRC}}}.$$
 
 With that fixed point and scale bridge, the observed $\Lambda$ is the way
-the world announces its total screen capacity in SI units. The dimensionless
-capacity relation is the global size parameter carried by every consistent
-patch.
+the world announces its total screen capacity in SI units. The direction of
+inference runs from measurement to setting: the measured $\Lambda$, through
+the scale bridge, estimates the capacity $N_{\mathrm{CRC}}$, and that estimate
+enters the program as an input rather than one of its outputs. The
+dimensionless capacity relation is the global size parameter carried by every
+consistent patch.
 
 The global closure is sharp. Let $F(N)$ be the active horizon capacity read
 back by stable observers inside the OPH universe supplied with capacity $N$.
@@ -280,7 +283,10 @@ this fixed point is the de Sitter entropy capacity.
 
 The image is the important part. The small positive Lambda is read as the size
 label of a finite self-reading horizon. It is the number every observer patch
-inherits when the universe can reconstruct its own boundary from inside.
+inherits when the universe can reconstruct its own boundary from inside. In
+the book's chain of consistency requirements this is the capacity self-reading
+step: a world that reads itself has to read back its own size, without deficit
+or slack.
 
 This is the informal $N_{\mathrm{CRC}}$ story. From the outside the datum is
 total horizon capacity. From the inside the datum is total observer-accessible

@@ -92,7 +92,9 @@ $$
 (M_W,M_Z)=(80.330,\ 91.119)\,\mathrm{GeV},
 $$
 
-within about a tenth of a percent of the measured 80.369 and 91.188 GeV. One
+within about a tenth of a percent of the measured 80.369 and 91.188 GeV. In
+measurement units the differences are 2.9 standard deviations for the W and
+about 33 for the Z, and the gap is carried as an open closure row. One
 loose end is that two candidate rules for the final step disagree by a few MeV,
 and choosing between them is work in progress. The same family carries a few
 more bookkeeping versions of the same pair. They agree with each other to
@@ -111,7 +113,9 @@ folds in real experimental data on how electrons and positrons turn into
 hadrons gives a range that does not contain the measured value, so that route is
 incomplete. It leans on measured hadronic input rather than a pure OPH
 calculation of the same effect, and supplying that piece from first principles
-is work in progress.
+is work in progress, with the test arranged in advance: the required correction
+is frozen as a registered target the calculation must land on without reading
+it.
 
 Here $\alpha$ is the electromagnetic fine-structure constant, and its
 long-distance value is the familiar number close to 137. The version that leans
@@ -134,7 +138,10 @@ defects, and they sit at the corners of an icosahedron.
 
 The electroweak numbers and the low-energy electromagnetic strength come from
 one construction. The pure-theory side and the parts that lean on measured
-hadronic data are tracked separately.
+hadronic data are tracked separately. Both of the numbers behind this section
+sit at named steps in the book's chain of consistency requirements: the small
+detuning that lets records exist, and the capacity the world reads back for
+itself.
 
 The Higgs and top masses come out together, and OPH ties them to the forces it
 has in hand rather than to any measured mass. The idea is a criticality

@@ -346,7 +346,7 @@ results were axiom-free.
 - linear quotient/rank/singular-value results;
 - succinct NP/coNP/\(\Pi_2^P\) classifications.
 
-This is substantial, honest partial formalization, not complete mechanization of the paper.
+This is substantial partial formalization, not complete mechanization of the paper.
 
 ## Relationship to Jonathan Hill's existing Lean development
 

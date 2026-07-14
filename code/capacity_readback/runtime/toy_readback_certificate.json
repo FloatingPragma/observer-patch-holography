@@ -1,0 +1,135 @@
+{
+  "artifact": "oph_capacity_readback_toy_schema",
+  "blindness": {
+    "dependency_cone": [
+      "itertools",
+      "mpmath"
+    ],
+    "inputs": [
+      "toy alphabet {0,1,2}",
+      "toy constants kappa, mu",
+      "certificate interval endpoints"
+    ],
+    "note": "V-08 shape only; the toy has no physical comparison basin.",
+    "reads_measured_lambda": false,
+    "reads_sl4_estimate": false
+  },
+  "cl7_status": "open",
+  "contraction_certificate": {
+    "banach_pass": true,
+    "derivative_enclosure": {
+      "hi": "0.380769230769230769230769230769",
+      "lo": "0.193469387755102040816326530612"
+    },
+    "image": {
+      "hi": "46.66417673787296415647334492",
+      "lo": "43.9557635181018245253037375278"
+    },
+    "interval": {
+      "hi": "50.0",
+      "lo": "40.0"
+    },
+    "lipschitz_bound_L": "0.380769230769230769230769230769",
+    "lipschitz_pass": true,
+    "monotone_nonnegative_pass": true,
+    "self_map_pass": true
+  },
+  "count_density": {
+    "definition": "ell(n) = log|Omega_n| - n",
+    "note": "Toy count is polynomial; ell has no interior stationary point. Spec property P4 (coherence with the readback fixed point) binds the physical F only.",
+    "stationary_point_in_toy_range": null,
+    "values": {
+      "10": "-6.19333751023",
+      "3": "-1.90138771133",
+      "4": "-2.20824053077",
+      "5": "-2.69741490701",
+      "6": "-3.2919497989",
+      "7": "-3.95547756228",
+      "8": "-4.66779548982",
+      "9": "-5.41648106154"
+    }
+  },
+  "disclaimer": "Schema demonstration on a toy model. No physical content. Does not move CL-7. The physical readback map F is not constructed.",
+  "enumeration_check": {
+    "closed_form": "n*(n-1)/2",
+    "closed_form_matches": true,
+    "counts": {
+      "10": {
+        "closed_form": 45,
+        "enumerated": 45
+      },
+      "3": {
+        "closed_form": 3,
+        "enumerated": 3
+      },
+      "4": {
+        "closed_form": 6,
+        "enumerated": 6
+      },
+      "5": {
+        "closed_form": 10,
+        "enumerated": 10
+      },
+      "6": {
+        "closed_form": 15,
+        "enumerated": 15
+      },
+      "7": {
+        "closed_form": 21,
+        "enumerated": 21
+      },
+      "8": {
+        "closed_form": 28,
+        "enumerated": 28
+      },
+      "9": {
+        "closed_form": 36,
+        "enumerated": 36
+      }
+    },
+    "range": {
+      "n_max": 10,
+      "n_min": 3
+    },
+    "raw_state_space_size": "3^n"
+  },
+  "fixed_point": {
+    "box_self_map_pass": true,
+    "candidate_box": {
+      "hi": "45.5277154237411315214655403943",
+      "lo": "45.5277154237411315214655401943"
+    },
+    "enclosure": {
+      "hi": "45.5277154237411315214655403211",
+      "lo": "45.5277154237411315214655402678"
+    },
+    "iterations": 48,
+    "located": true,
+    "width": "5.3307079e-26"
+  },
+  "interval_backend": {
+    "library": "mpmath.iv",
+    "precision_decimal_digits": 40,
+    "promotion_backend_required": "arb_or_mpfi_directed_outward",
+    "rounding": "mpmath_interval_outward"
+  },
+  "moves_cl7": false,
+  "physical_content": false,
+  "promotion_allowed": false,
+  "specification": "F_READBACK_SPEC.md",
+  "status": "pass",
+  "toy_model": {
+    "alphabet": [
+      "0",
+      "1",
+      "2"
+    ],
+    "cap_read": "4 + 6*log|sector|",
+    "kappa": 6,
+    "mu": 4,
+    "nf": "sort string (adjacent-swap rewriting; terminating, confluent)",
+    "obs": "normal forms containing >= one '0' and >= one '1'",
+    "sector_count_closed_form": "n*(n-1)/2"
+  },
+  "variant": "toy"
+}

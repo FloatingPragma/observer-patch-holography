@@ -265,7 +265,7 @@ The measurement pack carries `cmb_promotion_ledger_report.json`,
 Sage and public reviewers ingest the claim tier rather than inferring it from
 images.
 
-For the current visual demonstration, the expected honest outcome is
+For the current visual demonstration, the expected outcome is
 `VISUAL_DIAGNOSTIC` or `SPECTRUM_DIAGNOSTIC`. Missing physical parents are an
 expected incomplete state, not a numerical falsification of OPH. A terminal
 prediction Boolean supplied by an output file is only a producer assertion; the

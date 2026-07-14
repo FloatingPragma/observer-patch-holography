@@ -98,9 +98,12 @@ N_{\mathrm{CRC}} \equiv \log \dim \mathcal H_{\mathrm{tot}},
 B_\star\equiv\frac{3\pi}{\ell_\star^2}.
 \]
 
-Here \(P=P_\star\) is the local UV-area ratio fixed on the outer/inner closure branch summarized in
-Section~\ref{sec:p-closure}, while \(N_{\mathrm{CRC}}\) is the unique stable fixed point of the
-OPH-derived cosmic record-closure readback map. On the observed branch this is the de Sitter
+Here \(P=P_\star\) is the local UV-area ratio; its current value is the SL-3 estimate from
+measured \(\alpha\), with the outer/inner closure construction summarized in
+Section~\ref{sec:p-closure}. \(N_{\mathrm{CRC}}\) is the intended fixed point of the
+cosmic record-closure readback map; that map is not yet constructed (closure row CL-7 of
+\texttt{CLOSURE\_LEDGER.md}), and the current value is the SL-4 estimate from measured
+\(\Lambda\) with the scale bridge. On the observed branch this is the de Sitter
 entropy capacity usually denoted \(N_{\mathrm{scr}}\simeq3.31\times10^{122}\). Capacity-level
 neutrino side estimates tied to that branch value are legacy bookkeeping terms separate from the
 rejected weighted-cycle comparison lane.
@@ -116,6 +119,11 @@ requires the relevant readback map to be a self-map on that basin and to carry a
 contraction, derivative-sign, strict-concavity, or equivalent uniqueness proof. The observed
 number supplies an initial guess or branch interval; the OPH fixed point supplies the reported
 value. The exact \(P_\star\) and \(N_{\mathrm{CRC}}\) values must be computed as closure endpoints.
+The repository file \texttt{CONSISTENCY\_STACK.md} records this convention as the forcing chain
+C1--C10: C1--C6 remove every structural freedom except the \((P,N)\) family plus the declared
+discrete selections, C7 identifies the two parameters with the SL-3/SL-4 estimates above, and
+C8--C9 are the two closure equations whose uniqueness lemmas (L1 on its certified contraction
+interval; L2 conditional on constructing \(F\)) would make the selection exact.
 
 The compact proof uses the same convention as a compression estimate. A quantitative row enters
 that estimate only when the declared source map has no dependency path from the measured target or
@@ -124,8 +132,9 @@ after previous accepted rows, then
 \[
 P_{\rm acc}\le\prod_i p_i .
 \]
-Twelve one-percent source-certified rows give \(P_{\rm acc}\le10^{-24}\), and twenty give
-\(10^{-40}\). The numerical bound is secondary to the theorem stack: the same two closure
+The rows that currently qualify, and the count of settings they stand against, are maintained in
+\texttt{COMPRESSION\_SCORECARD.md}; as of its 2026-07-14 update the settings outnumber the landed
+basins, and every compression claim cites that file. The scorecard standing is secondary to the theorem stack: the same two closure
 coordinates organize the observer readout, gravity/gauge reconstruction, hierarchy bridge, dark
 energy, dark-sector budget, product-group proton-decay exclusion, particle inventory, and
 string-vacuum selector.

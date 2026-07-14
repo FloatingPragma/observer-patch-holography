@@ -1,0 +1,411 @@
+{
+  "artifact": "oph_p_interval_contraction_certificate",
+  "claim_boundary": "Existence and uniqueness of the closure-map fixed point are certified by interval arithmetic on the stated alpha interval, for the declared numerical map at the stated representation cutoffs (with the edge-sum truncation tails bounded, the certificate also covers the infinite-cutoff edge sums). The declared one-loop RG/matching conventions, the tree-level m_Z closure, the Stage-5 continuation masses, and the exact one-loop kernel are certified as declared, not as physical endpoint theorems. This is not an exact fine-structure derivation; the stage-3 landing verdict of closure row CL-1 is unchanged.",
+  "claim_status": "interval_contraction_certificate_for_declared_closure_map",
+  "consumer_policy": {
+    "default_thomson_endpoint_allowed": false,
+    "hidden_external_alpha_allowed": false,
+    "may_feed_compare_or_audit_surfaces": true,
+    "may_feed_live_particle_predictions": false
+  },
+  "date": "2026-07-14",
+  "decimal_chain_crosscheck": {
+    "abs_difference": "5.1116e-43",
+    "agreement_digits": 40,
+    "alpha_probe": "0.0073",
+    "decimal_inner_alpha": "0.00729954192606248771311905618392064339349211646789222766697921695492864565633712198005659624668616538473498372139448047399216762561639",
+    "decimal_precision": 120,
+    "mode": "thomson_structured_running",
+    "mp_inner_alpha": "0.00729954192606248771311905618392064339349262763220687349138436"
+  },
+  "exact_alpha_promoted": false,
+  "modes": {
+    "thomson_structured_running": {
+      "backend": "mpmath.iv binary interval arithmetic with outward rounding on every elementary operation; private MPIntervalContext/MPContext instances; no Decimal-pad fallback used",
+      "banach": {
+        "argument": "direct Banach with a mean-value (centered) form: the interval evaluation proves sup |g'| <= L < 1 on I and g(I) subset g(mid(I)) + g'(I)*(I - mid(I)) subset interior(I); g is C^1 on I because the implicit-function denominators h_m and R_u are interval-verified sign-definite over the box evaluation",
+        "contraction": true,
+        "existence": true,
+        "g_maps_interval_into_interior": true,
+        "g_of_interval": {
+          "hi": "0.0072998348639650714834378137731182529360194358267616904217994903336",
+          "lo": "0.0072992556594837320309072583459529108501691976926979744938319205841"
+        },
+        "gprime_enclosure": {
+          "hi": "0.05657526893196350545472985461237175334265757277765269403017656886",
+          "lo": "-0.072400560167431566319428395667760731278445677447402047711983137271"
+        },
+        "lipschitz_bound": "0.072400560167431566319428395667760731278445677447402047711983137271",
+        "uniqueness_in_interval": true
+      },
+      "certified_enclosure": {
+        "P": {
+          "hi": "1.6309720958588973769645139038446714349507911573627096569324070023",
+          "lo": "1.6309720958588973769645139031692398220074613523151957129273490076",
+          "width": "6.7543161294332980504751394400505799468692952723709459439205036554e-28"
+        },
+        "alpha": {
+          "hi": "0.0072995452617244017571725362500713221038375956269392739110225091055",
+          "lo": "0.0072995452617244017571725358689998416823510378925203910040732460486",
+          "width": "3.8107148042148655773441888290694926305686580291035971235099814594e-28"
+        },
+        "alpha_inv": {
+          "hi": "136.99483517741293729528943304033257713287424970718681185082633309",
+          "lo": "136.99483517741293729528942588854122858224816259488415982669492046",
+          "width": "7.1517913485506260871123026520241314126362022560004430307593246781e-24"
+        }
+      },
+      "edge_sum_tail_bounds": {
+        "included": true,
+        "method": "geometric majorant on the terms beyond the cutoff (SU(2)) and on the max(p,q) shells beyond the cutoff square (SU(3)); the tail enclosures are added one-sidedly to the heat-kernel sums, so every interval encloses both the declared finite-cutoff sums and their infinite-cutoff limits",
+        "su2_ellbar_numerator_tail_upper_bound": "3.5097486738313251949669013487315586893686076589667711150931293256e-2152",
+        "su3_ellbar_numerator_tail_upper_bound": "5.7623688479096356774194669440883638535353375009983732288603806497e-5763"
+      },
+      "fixed_point_point_estimate_display_only": {
+        "P": "1.63097209585889737696451390350695562847912625483895268486516",
+        "alpha": "0.00729954526172440175717253605953558189309431675972983242103576",
+        "alpha_inv": "136.994835177412937295289429464436902857561206151035393184502"
+      },
+      "inner_root_certificates": {
+        "alpha_U_pixel_closure": {
+          "R_u_sign_definite": true,
+          "attempts": 1,
+          "bracket_abs_half_width": "1.0000000000000005684764741656527084373390682806466945465658e-46",
+          "endpoint_signs_verified": true,
+          "orientation": "decreasing",
+          "su2_tail_hi": "9.3835318517054323976322909510668428585446270727190241846606592233e-2153",
+          "su3_tail_hi": "1.6554574787767232701179307554528971846932312338491178668287766125e-5776"
+        },
+        "m_Z_tree_closure": {
+          "attempts": 1,
+          "bracket_rel_half_width": "1.5065178250786073506781074673878774988082772964340283189311e-42",
+          "endpoint_signs_verified": true,
+          "h_m_sign_definite": true,
+          "orientation": "decreasing"
+        },
+        "root_selection_scope": "the certified brackets contain the roots selected by the declared solver's scan-and-bisect procedure (the point solver mirrors the declared scan and its roots lie inside the verified brackets); uniqueness inside each bracket follows from the sign-definite residual derivative; global root uniqueness over the full scan windows is not claimed"
+      },
+      "interval_diagnostics": {
+        "a0_inv": {
+          "hi": "128.30826805798759734790405761408475887503316446311418560802650315",
+          "lo": "128.30826805798759734790405761408475887503315839328274023472080184"
+        },
+        "alpha_inv_map_value": {
+          "hi": "136.9948351774129372952894294644369028575613053249982658730871207",
+          "lo": "136.99483517741293729528942946443690285756110697707251912542747934"
+        },
+        "alpha_u": {
+          "hi": "0.041124247441816685140889933889659717292128290616193554171910678971",
+          "lo": "0.041124247441816685140889933889659717292128290416193554171910567414"
+        },
+        "delta_th": {
+          "hi": "8.6865671194253399473853718503521439825281408618840802650606038681",
+          "lo": "8.6865671194253399473853718503521439825279485837897788907066862109"
+        },
+        "m_z": {
+          "hi": "0.000000000000000007501767358163792722649573911028984045695332330567702279117341865",
+          "lo": "0.0000000000000000075017673581637927226495739110289840456953097274752129459032146516"
+        }
+      },
+      "iv_dps": 60,
+      "map_definition": "alpha -> 1/(alpha_em^-1(m_Z^2;P) + Delta_Th(P)) with P = phi + alpha*sqrt(pi); Delta_Th is the internal Stage-5 structured Thomson continuation with the exact one-loop fermion kernel and quark screening factor 1 - N_c*alpha_3(m_Z;P)/pi",
+      "mode": "thomson_structured_running",
+      "outer_equation": "P = phi + alpha*sqrt(pi)",
+      "padding_policy": "no manual per-operation pads; implicit roots are enclosed by verified sign-change brackets with epsilon-inflation (factor-8 growth on failure), and the residual derivative is proven sign-definite on each bracket",
+      "point_dps": 60,
+      "refinement_passes": [
+        {
+          "enclosure_width": "0.00000057920448133945253055542716534208585023813406371592796756974948782",
+          "g_interval": {
+            "hi": "0.0072998348639650714834378137731182529360194358267616904217994903336",
+            "lo": "0.0072992556594837320309072583459529108501691976926979744938319205841"
+          },
+          "half_width": "0.000004"
+        },
+        {
+          "enclosure_width": "0.0000000061683188799289321110532520970126480619755614527223732188046261228",
+          "g_interval": {
+            "hi": "0.0072995483458838417216385915861616303994183477475105588187325228402",
+            "lo": "0.0072995421775649617927064805329095333867702857719491060963593040355"
+          },
+          "half_width": "0.00000028960224066972626527771358267104292511906703185796398378487474391"
+        },
+        {
+          "enclosure_width": "0.000000000045459623407327681789509538529874451792012305120750537671938854958",
+          "g_interval": {
+            "hi": "0.0072995452844542134608363769542903511580315426557359850179231622136",
+            "lo": "0.0072995452389945900535086951647808126281570908637236798971726245417"
+          },
+          "half_width": "0.0000000030841594399644660555266260485063240309877807263611866094023130614"
+        },
+        {
+          "enclosure_width": "0.00000000000033347368670039298516649147213071465798534490830065174076891010365",
+          "g_interval": {
+            "hi": "0.0072995452618911386005227325521188276291596740887225049116982034474",
+            "lo": "0.0072995452615576649138223395669523361570289594307371600033975517067"
+          },
+          "half_width": "0.000000000022729811703663840894754769264937225896006152560375268835969427479"
+        },
+        {
+          "enclosure_width": "0.0000000000000024461459289505029315524757565509731598973377293412915539843325192",
+          "g_interval": {
+            "hi": "0.0072995452617256248301370113110013581309725922463097811264125482228",
+            "lo": "0.0072995452617231786842080608080698056552160412731498837886832069313"
+          },
+          "half_width": "0.00000000000016673684335019649258324573606535732899267245415032587038445505182"
+        },
+        {
+          "enclosure_width": "0.000000000000000017943329965028861186000581845206001932325731572861650200348686417",
+          "g_interval": {
+            "hi": "0.0072995452617244107288375185739661748933852393627307986204136640079",
+            "lo": "0.0072995452617243927855075535451049888928033941567288662946820911462"
+          },
+          "half_width": "0.0000000000000012230729644752514657762378782754865799486688646706457769921662596"
+        },
+        {
+          "enclosure_width": "0.00000000000000000013162055698607088391547444347444470908885644129133310548479097587",
+          "g_interval": {
+            "hi": "0.0072995452617244018229828145525710238508315384969521870019760982227",
+            "lo": "0.0072995452617244016913622575665001399353570950225074779131196569314"
+          },
+          "half_width": "0.0000000000000000089716649825144305930002909226030009661628657864308251001743432083"
+        },
+        {
+          "enclosure_width": "9.6548249710907769571290300373143518977373133591896370379213010198e-22",
+          "g_interval": {
+            "hi": "0.007299545261724401757655277308090120740950768261595550052434743245",
+            "lo": "0.0072995452617244017566897948109810430452378652578641148626610119091"
+          },
+          "half_width": "0.000000000000000000065810278493035441957737221737222354544428220645666552742395487936"
+        },
+        {
+          "enclosure_width": "7.0821494268751303002137318267861100956076053478792905588951840412e-24",
+          "g_interval": {
+            "hi": "0.0072995452617244017571760771342490194582444236256432255125956813797",
+            "lo": "0.0072995452617244017571689949848221443279442098938164394025000737744"
+          },
+          "half_width": "4.8274124855453884785645150186571759488686566795948185189606505099e-22"
+        },
+        {
+          "enclosure_width": "5.1950025665686522374350936663391273959835693098452505962394907657e-26",
+          "g_interval": {
+            "hi": "0.0072995452617244017571725620345484147363555039351981641531848574949",
+            "lo": "0.0072995452617244017571725100845227490498331295842615007619108976592"
+          },
+          "half_width": "3.5410747134375651501068659133930550478038026739396452794475920206e-24"
+        },
+        {
+          "enclosure_width": "3.8107148042148655773441888290694926305686580291035971235099814594e-28",
+          "g_interval": {
+            "hi": "0.0072995452617244017571725362500713221038375956269392739110225091055",
+            "lo": "0.0072995452617244017571725358689998416823510378925203910040732460486"
+          },
+          "half_width": "2.5975012832843261187175468331695636979917846549226252981197453829e-26"
+        }
+      ],
+      "space": "alpha (fine-structure coupling); P and alpha_inv enclosures are derived images",
+      "su2_cutoff": 120,
+      "su3_cutoff": 90,
+      "uniqueness_interval_alpha": {
+        "half_width": "0.000004",
+        "hi": "0.007303545261724401757172536059535581893094316759729832421035762391",
+        "lo": "0.007295545261724401757172536059535581893094316759729832421035762921"
+      }
+    },
+    "thomson_structured_running_plus_gauge_width": {
+      "backend": "mpmath.iv binary interval arithmetic with outward rounding on every elementary operation; private MPIntervalContext/MPContext instances; no Decimal-pad fallback used",
+      "banach": {
+        "argument": "direct Banach with a mean-value (centered) form: the interval evaluation proves sup |g'| <= L < 1 on I and g(I) subset g(mid(I)) + g'(I)*(I - mid(I)) subset interior(I); g is C^1 on I because the implicit-function denominators h_m and R_u are interval-verified sign-definite over the box evaluation",
+        "contraction": true,
+        "existence": true,
+        "g_maps_interval_into_interior": true,
+        "g_of_interval": {
+          "hi": "0.0072976600364777000208287169832373507997493227564675741612108405142",
+          "lo": "0.0072970812009586005130946816827639552699981271758426382585719037238"
+        },
+        "gprime_enclosure": {
+          "hi": "0.05654326151002232232323059522742338271041882226165472442910775175",
+          "lo": "-0.072354439887438466754412559174441218898127288825771525821534879697"
+        },
+        "lipschitz_bound": "0.072354439887438466754412559174441218898127288825771525821534879697",
+        "uniqueness_in_interval": true
+      },
+      "certified_enclosure": {
+        "P": {
+          "hi": "1.630968241404526601762525656380344566544938069056009415225029585",
+          "lo": "1.6309682414045266017625256557114084553967667651550739391043999947",
+          "width": "6.6893611114817130390093547612062959027520023564428479886397795361e-28"
+        },
+        "alpha": {
+          "hi": "0.0072973706187181502669616995217040460192449147703776812511316476656",
+          "lo": "0.0072973706187181502669616991442972600505025351619325311656193334711",
+          "width": "3.774067859687423796084451500855123141945164025387712265877961827e-28"
+        },
+        "alpha_inv": {
+          "hi": "137.03566013694657656887273400608895948505155380226679194696734026",
+          "lo": "137.03566013694657656887272691885291822794869072208468447786792121",
+          "width": "7.0872360412571028630801821074690994190426578055519774703247763269e-24"
+        }
+      },
+      "edge_sum_tail_bounds": {
+        "included": true,
+        "method": "geometric majorant on the terms beyond the cutoff (SU(2)) and on the max(p,q) shells beyond the cutoff square (SU(3)); the tail enclosures are added one-sidedly to the heat-kernel sums, so every interval encloses both the declared finite-cutoff sums and their infinite-cutoff limits",
+        "su2_ellbar_numerator_tail_upper_bound": "3.4714548801004767762255857214751273575778928819203275415113500822e-2152",
+        "su3_ellbar_numerator_tail_upper_bound": "5.6572277267921425578492390891761295341675864096830884249795305981e-5763"
+      },
+      "fixed_point_point_estimate_display_only": {
+        "P": "1.63096824140452660176252565604587651097085241710554167679810",
+        "alpha": "0.00729737061871815026696169933300065303487372496615510600153714",
+        "alpha_inv": "137.035660136946576568872730462470938856500122262175650461836"
+      },
+      "inner_root_certificates": {
+        "alpha_U_pixel_closure": {
+          "R_u_sign_definite": true,
+          "attempts": 1,
+          "bracket_abs_half_width": "1.0000000000000005684784638955329654818942256336326068032985e-46",
+          "endpoint_signs_verified": true,
+          "orientation": "decreasing",
+          "su2_tail_hi": "9.2811062229135586683301766206397087674729321514719072842070955153e-2153",
+          "su3_tail_hi": "1.6251485572509979323911490742434403412871362025818916824031044572e-5776"
+        },
+        "m_Z_tree_closure": {
+          "attempts": 1,
+          "bracket_rel_half_width": "1.50651142239083280828461637883439372891052358471833943796903e-42",
+          "endpoint_signs_verified": true,
+          "h_m_sign_definite": true,
+          "orientation": "decreasing"
+        },
+        "root_selection_scope": "the certified brackets contain the roots selected by the declared solver's scan-and-bisect procedure (the point solver mirrors the declared scan and its roots lie inside the verified brackets); uniqueness inside each bracket follows from the sign-definite residual derivative; global root uniqueness over the full scan windows is not claimed"
+      },
+      "interval_diagnostics": {
+        "a0_inv": {
+          "hi": "128.30796796472862936241508973521289882078832300782001275478771852",
+          "lo": "128.30796796472862936241508973521289882078831693801437383472472878"
+        },
+        "alpha_inv_map_value": {
+          "hi": "137.03566013694657656887273046247093885650022143582272953147337351",
+          "lo": "137.03566013694657656887273046247093885650002308852856362385870074"
+        },
+        "alpha_u": {
+          "hi": "0.041124335464841780023079207332454255107496579386738153026311684305",
+          "lo": "0.041124335464841780023079207332454255107496579186738153026311572747"
+        },
+        "delta_th": {
+          "hi": "8.6865678367531054264345615199255857806044018486159786236593188659",
+          "lo": "8.6865678367531054264345615199255857806042095713274516361076706493"
+        },
+        "m_z": {
+          "hi": "0.0000000000000000075023980030072542320049086035113246814742703147260879271268477993",
+          "lo": "0.0000000000000000075023980030072542320049086035113246814742477098295142219225888973"
+        }
+      },
+      "iv_dps": 60,
+      "map_definition": "alpha -> 1/(alpha_em^-1(m_Z^2;P) + Delta_Th(P) + alpha_U(P)) with P = phi + alpha*sqrt(pi); the closure-ledger CL-2 mixed map that adds the finite-screen unified gauge width alpha_U(P) to the inverse-alpha readout",
+      "mode": "thomson_structured_running_plus_gauge_width",
+      "outer_equation": "P = phi + alpha*sqrt(pi)",
+      "padding_policy": "no manual per-operation pads; implicit roots are enclosed by verified sign-change brackets with epsilon-inflation (factor-8 growth on failure), and the residual derivative is proven sign-definite on each bracket",
+      "point_dps": 60,
+      "refinement_passes": [
+        {
+          "enclosure_width": "0.00000057883551909950773403530047339552975119558062493590263893679039498",
+          "g_interval": {
+            "hi": "0.0072976600364777000208287169832373507997493227564675741612108405142",
+            "lo": "0.0072970812009586005130946816827639552699981271758426382585719037238"
+          },
+          "half_width": "0.000004"
+        },
+        {
+          "enclosure_width": "0.0000000061582081392532590663533536069117607301568632487257505445636353137",
+          "g_interval": {
+            "hi": "0.0072973736978222198935912325096774564907540900445867305712396547071",
+            "lo": "0.0072973675396140806403321661563238495789933598877234818454891101435"
+          },
+          "half_width": "0.00000028941775954975386701765023669776487559779031246795131946839519749"
+        },
+        {
+          "enclosure_width": "0.0000000000453444152959039440852353489455056668862971182803901686427878013",
+          "g_interval": {
+            "hi": "0.0072973706413903579149136713756183275076265584093036653485706575392",
+            "lo": "0.0072973705960459426190097272903829785621208915230065470681804888964"
+          },
+          "half_width": "0.0000000030791040696266295331766768034558803650784316243628752722818176568"
+        },
+        {
+          "enclosure_width": "0.00000000000033233239281065368502223440079963393242164659025175933945149413932",
+          "g_interval": {
+            "hi": "0.0072973706188843164633670261755117702352735419323659295035013696303",
+            "lo": "0.0072973706185519840705563724904895358344739079999442829132496102909"
+          },
+          "half_width": "0.00000000002267220764795197204261767447275283344314855914019508432139390065"
+        },
+        {
+          "enclosure_width": "0.0000000000000024356037285945162740809861738914130091770341504193881786699848415",
+          "g_interval": {
+            "hi": "0.0072973706187193680688259965911376935279606706726596947254507002624",
+            "lo": "0.0072973706187169324650974020748636125417867792596505176913002808742"
+          },
+          "half_width": "0.00000000000016616619640532684251111720039981696621082329512587966972574706966"
+        },
+        {
+          "enclosure_width": "0.000000000000000017850092732888451655812922946813842841289214102371467145336026606",
+          "g_interval": {
+            "hi": "0.0072973706187181591920080657772264809413351983730765268529825417541",
+            "lo": "0.0072973706187181413419153328887748251284122515592336855637684393826"
+          },
+          "half_width": "0.0000000000000012178018642972581370404930869457065045885170752096940893349924208"
+        },
+        {
+          "enclosure_width": "0.00000000000000000013082005346120155814740434735563374718548166571410482051219250182",
+          "g_interval": {
+            "hi": "0.0072973706187181503323717260636014321085758986439719798011163234254",
+            "lo": "0.0072973706187181502015516726023998739611715512883382326156346577113"
+          },
+          "half_width": "0.0000000000000000089250463664442258279064614734069214206446070511857335726680133032"
+        },
+        {
+          "enclosure_width": "9.5875616129591821511515095320098859773344697371807383843754373587e-22",
+          "g_interval": {
+            "hi": "0.0072973706187181502674410774136486121424313004427556005072422140552",
+            "lo": "0.0072973706187181502664823212523526939273161494895546119095087670815"
+          },
+          "half_width": "0.000000000000000000065410026730600779073702173677816873592740832857052410256096250908"
+        },
+        {
+          "enclosure_width": "7.0265479374338643954580344759737293377022915945664034636994597132e-24",
+          "g_interval": {
+            "hi": "0.0072973706187181502669652126069693699670714539833930930730443417141",
+            "lo": "0.0072973706187181502669581860590319361026759959489171193437066394225"
+          },
+          "half_width": "4.7937808064795910755757547660049429886672348685903691921877186793e-22"
+        },
+        {
+          "enclosure_width": "5.1496280191118762218065817343386640227090636458497869275803561437e-26",
+          "g_interval": {
+            "hi": "0.0072973706187181502669617250811407485942548339990637779016956041137",
+            "lo": "0.007297370618718150266961673584860557475492615933246434515055377023"
+          },
+          "half_width": "3.5132739687169321977290172379868646688511457972832017318497298566e-24"
+        },
+        {
+          "enclosure_width": "3.774067859687423796084451500855123141945164025387712265877961827e-28",
+          "g_interval": {
+            "hi": "0.0072973706187181502669616995217040460192449147703776812511316476656",
+            "lo": "0.0072973706187181502669616991442972600505025351619325311656193334711"
+          },
+          "half_width": "2.5748140095559381109032908671693320113545318229248934637901780719e-26"
+        }
+      ],
+      "space": "alpha (fine-structure coupling); P and alpha_inv enclosures are derived images",
+      "su2_cutoff": 120,
+      "su3_cutoff": 90,
+      "uniqueness_interval_alpha": {
+        "half_width": "0.000004",
+        "hi": "0.0073013706187181502669616993330006530348737249661551060015371388167",
+        "lo": "0.0072933706187181502669616993330006530348737249661551060015371393468"
+      }
+    }
+  },
+  "promotion_allowed": false,
+  "protocol_stage": "stage 2 (contraction certificate) of the basin-then-contract protocol for the P coordinate; see CLOSURE_LEDGER.md",
+  "scope": "certificate applies to the declared numerical closure map at the stated su2_cutoff/su3_cutoff (tail bounds extend it to the infinite edge sums) and to the stated readout mode; it does not certify any relation to the measured fine-structure constant"
+}

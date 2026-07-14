@@ -78,10 +78,14 @@ ordinary Boltzmann transfer.
 Simulator runs give useful CMB-shaped diagnostics. A physical CMB prediction
 needs source data fixed before comparison, a physical scale bridge, a covariant
 dark-stress parent, Boltzmann transfer, and a frozen likelihood comparison.
-The conditional analytic candidate \(n_s=1-P_\star/48=0.9660215\) is close to
-the Planck scalar-tilt summary and passes a binned CAMB transfer diagnostic;
-the distinct current finite-clock tilt does not.  Neither is promoted past its
-source and likelihood gates here.
+The conditional analytic candidate \(n_s=1-P_\star/48=0.9660215\) sits
+\(0.27\sigma\) from the Planck scalar-tilt summary and passes a binned CAMB
+transfer diagnostic; the distinct current finite-clock tilt does not.  The
+candidate is analytic, not lattice-derived, with the \(\kappa_{\mathrm{rep}}\)
+contraction certificate pending; two candidate tilt formulas are on record and
+the selection between them is uncounted, so the \(0.27\sigma\) comparison is a
+basin location, not a hit.  Neither tilt is promoted past its source and
+likelihood gates here.
 \end{abstract}
 
 \section*{What This Paper Contributes}
@@ -173,7 +177,9 @@ unique-extension condition. Do not read the old draft as selecting a unique micr
 representative.\\
 Screen spectrum and \(n_s=1-P/48\) &
 Screen-level theorem only after geometric \(q_r\), normalized \(K_r\), source release energy,
-refinement tilt, and angular-spectrum receipts pass. The special \(P/48\) tilt is theorem-grade
+refinement tilt, and angular-spectrum receipts pass. The special \(P/48\) tilt is an analytic
+candidate, not lattice-derived, with the \(\kappa_{\mathrm{rep}}\) certificate pending; it is
+theorem-grade
 only after the edge-center reserve, half-collar projection, and reserve-to-RG receipts pass.
 Physical \(A_s\), \(n_s\), running, isocurvature, phase coherence, and TT/TE/EE spectra require the
 separate source-stress, single-clock, radial-prior, null-space, forward-residual, transfer, and
@@ -287,7 +293,9 @@ Separates a failed purely local diffusion story from the allowed same-boundary o
 synchronization mechanisms.\\
 Geometric screen scalar, precision operator, MaxEnt screen covariance, Mellin lift,
 edge-center scalar opportunities, \(\Zsix\) reserve, and half-collar sampling &
-Owns the screen-level near-scale-invariant covariance. The red tilt \(P/48\) is theorem-grade only
+Owns the screen-level near-scale-invariant covariance. The red tilt \(P/48\) is an analytic
+candidate (\(\kappa_{\mathrm{rep}}\) certificate pending, not lattice-derived) and is theorem-grade
+only
 after the reserve-to-RG receipts pass; physical primordial promotion waits for the source-only radial
 bridge receipts.\\
 Finite release collar state, scalar release code, and scalar amplitude theorem &
@@ -321,9 +329,15 @@ gate. They are program tracks, not independent claims.
 \item \textbf{CMB as observer-consensus fossil.} The highest-value target is the CMB: largest
 observable scales should carry relics of finite observer synchronization rather than a fitted
 inflationary initial spectrum.
-\item \textbf{\(\Lambda\) from observer capacity.} The screen-capacity branch relates the de Sitter
-scale to finite horizon capacity. A full cosmology paper should derive the equation of state,
+\item \textbf{\(\Lambda\) and observer capacity.} The screen-capacity branch relates the de Sitter
+scale to finite horizon capacity.  Under principle SL-4 the capacity \(N\) is estimated from measured
+\(\Lambda\) with the scale bridge (\texttt{../STRANGE\_LOOP\_PRINCIPLES.md}); \(\Lambda\) is an input, not an OPH
+output. A full cosmology paper should derive the equation of state,
 possible time evolution, and any deviation from \(w=-1\).
+The missing object is the readback map \(F\) with a certified contraction
+interval --- generator G2 of \texttt{../CONSISTENCY\_STACK.md}, closing CL-7
+and moving CL-3/CL-4; its formal specification lives at
+\pathref{code/capacity_readback/F_READBACK_SPEC.md}.
 \item \textbf{Full cosmological dark sector.} The dark paper's galaxy layer is not enough. CMB,
 BAO, weak lensing, growth, and \(S_8\) need the transported repair-stress perturbation branch.
 \item \textbf{\(H_0\) and \(S_8\) predictions.} With the scale bridge and anomaly kernels fixed,
@@ -1058,8 +1072,15 @@ The paper-side arithmetic candidate is
 \[
 n_s=1-\frac{P_\star}{48}=0.9660214956.
 \]
+Canonical status: this is an analytic candidate, not lattice-derived, and its
+\(\kappa_{\mathrm{rep}}\) contraction certificate is pending.  Two candidate
+tilt formulas are on record, \(n_s=1-P_\star/48\) and
+\(n_s=1-\mathrm e\,\alpha\sqrt{\pi}\); the selection between them is not
+counted in any significance statement.
 It differs from the Planck-2018 scalar-tilt summary
-\(0.9649\pm0.0042\) by \(+0.267\sigma\) \cite{planck2018}.  Holding the
+\(0.9649\pm0.0042\) by \(+0.267\sigma\) \cite{planck2018}; per the claim
+rules in \texttt{../STRANGE\_LOOP\_PRINCIPLES.md}, this comparison locates a basin and is not a
+hit.  Holding the
 conventional Planck-like background and transfer parameters fixed, propagating
 this tilt through CAMB, and profiling one amplitude on the same 83 PR3 TT bins
 gives

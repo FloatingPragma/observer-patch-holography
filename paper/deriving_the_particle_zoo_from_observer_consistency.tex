@@ -51,8 +51,11 @@ Model structure of the companion compact paper into particle calculations:
 charge quantization, conditional gauge and gravitational carrier modes, the
 electroweak bridge, the hierarchy relation, and the Higgs/top quantitative
 branch. The source-audit weak-boson calculation gives
-\((m_W,m_Z)=(80.330,91.119)\)~GeV, while the stated criticality branch gives
-\((m_H,m_t)=(125.77,172.63)\)~GeV.
+\((m_W,m_Z)=(80.330,91.119)\)~GeV, at \(2.9\sigma\) and \(\approx33\sigma\)
+from the measured pair (closure row CL-5), while the stated criticality branch gives
+\((m_H,m_t)=(125.77,172.63)\)~GeV. Gauge structure is imported from the
+companion compact paper as an input, and no nonzero particle mass is currently
+emitted as a prediction; the per-sector ledger carries that status row by row.
 
 The same framework provides sharp failure tests. A reciprocal quark-shape
 candidate misses its held-out Yukawa coordinates by \(21.56\%\), and the
@@ -304,12 +307,14 @@ Before the claim-tier table, the reverse-engineering claim should be stated plai
 ordinary phenomenological use, the Standard Model does not derive the observed particle masses and
 mixings from one common microscopic constant. It is usually presented with \(19\) free parameters
 in the minimal massless-neutrino theory, and with at least \(26\) once neutrino masses and mixing
-are included, depending on neutrino-sector conventions. The OPH particle derivation compresses
-that situation into one universal pixel ratio \(P\) from the outer/inner closure relation
-described in the synthesis paper. The same \(P\) must drive all
+are included, depending on neutrino-sector conventions. The OPH particle program aims to organize
+that situation around one universal pixel ratio \(P\) from the outer/inner closure relation
+described in the synthesis paper. Whether any parameter compression is currently realized is
+recorded in \texttt{COMPRESSION\_SCORECARD.md}, whose count of settings against independent
+landed basins governs every compression claim. The same \(P\) must drive all
 downstream bosonic, quark, lepton, neutrino, and hadronic branches.
 
-One clarification matters. The broader zero-input formulation targets the global screen capacity by
+One clarification matters. The broader self-closure formulation targets the global screen capacity (readback map unconstructed; CL-7) by
 \[
 N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}),
 \]
@@ -333,6 +338,11 @@ from experiments. The proof obligation is stricter: the exact \(P_\star\) used b
 branch must be computed by the self-referential pixel equation, and the endpoint must be unique on
 the declared interval. A fitted particle mass can identify a neighborhood. It cannot replace the
 closure solve.
+The repository file \texttt{CONSISTENCY\_STACK.md} places this reconstruction inside the forcing
+chain C1--C10: the pixel equation is the C9 loop-closure row, and the stage-2 uniqueness statement
+for the closure map---a self-map and derivative bound certified by interval arithmetic on the
+declared interval---is carried by the interval contraction certificate at
+\texttt{code/P\_derivation/runtime/p\_interval\_contraction\_certificate\_2026-07-14.json}.
 
 \subsection{Why a single \(P\) matters}
 
@@ -512,7 +522,7 @@ Chain & OPH output & Role \\
 \midrule
 \(P\)-closure and fine structure & \(\alpha_{\mathrm{root}}^{-1}=136.9948351646\ldots\); \(A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\); empirical endpoint \(136.2636589431\in[136.1583832834,136.3690975240]\); measured \(137.035999177(21)\) & four distinct rows: source/root witness, mixed diagnostic, empirical hadron closure with anchor gap \([0.6485541111,0.8547920666]\), and measurement \\
 Classical carrier modes & two transverse Maxwell modes; \(2\dim G\) perturbative pure-Yang--Mills modes; two pure-Einstein TT modes & conditional quadratic-action results; quantum particle gates open \\
-Electroweak \(W/Z\) & strict source-audit branch (zero-selector law) \((m_W,m_Z)=(80.330,\,91.119)\)~GeV, within \(0.05\)--\(0.08\) percent of measurement with no target input; archived value law \((80.3770000154,\,91.1879780779)\)~GeV as an audit coordinate; no source-only physical mass emitted & the strict branch carries one discrete two-law choice (\(9.3\)~MeV on \(M_W\), \(5.1\)~MeV on \(M_Z\)); the value law is an exact implication of the QT1--QT5 quotient-transport premises, whose carrier certificate and source-law selection principle are unemitted; the base-running chart and the target-anchored freeze-once adapter are separate audit objects; no promoted pole pair \\
+Electroweak \(W/Z\) & strict source-audit branch (zero-selector law) \((m_W,m_Z)=(80.330,\,91.119)\)~GeV, within \(0.05\)--\(0.08\) percent of measurement (pulls \(2.9\sigma\) on \(m_W\), \(\approx33\sigma\) on \(m_Z\); closure row CL-5) with no target input; archived value law \((80.3770000154,\,91.1879780779)\)~GeV as an audit coordinate; no source-only physical mass emitted & the strict branch carries one discrete two-law choice (\(9.3\)~MeV on \(M_W\), \(5.1\)~MeV on \(M_Z\)); the value law is an exact implication of the QT1--QT5 quotient-transport premises, whose carrier certificate and source-law selection principle are unemitted; the base-running chart and the target-anchored freeze-once adapter are separate audit objects; no promoted pole pair \\
 Electroweak hierarchy/naturality & \(\begin{gathered}v/E_\star\ \text{on each named pixel branch}\\N_{\mathrm{CRC}}^{\mathrm{EW}}\simeq3.53235\times10^{122}\\ \mathcal B_{\mathrm{EW}}=0,\ \epsilon_H=0\end{gathered}\) & selected dimensionless local/global bridge; physical \(E_\star\) remains a separate gate \\
 Higgs/top relation & double-criticality branch \((m_H,m_t)=(125.77,\,172.63)\)~GeV at the frozen boundary-scale candidate \(E_\star e^{-\pi}P^{-1/6}\) (two loops), with \(m_H=125.72\)~GeV on the fit-free curve at the measured top; target-anchored declared-surface fit \((125.1995304097,\,172.3523553288)\)~GeV kept separate; no source-only physical mass emitted & the criticality family has zero continuous parameters over the boundary scale; the boundary-scale selection is a theorem modulo two finite carrier facts CF1/CF2 (the variational midpoint principle is proved and its quadratic-cost and placement premises reduce to the axioms; CF1/CF2 are the D11 carrier census the \(W/Z\) law also needs); the declared-surface fit is target-anchored and never predicts; the source-root, scale, rigidity, provenance, uncertainty, and complex-pole gates are open \\
 Charged leptons & target-anchored witness values withheld; finite eight-path digital carrier and empirical transport intervals retained as diagnostics & the model proves schema satisfiability and a central record dilation, not physical source selection; the intervals use target-anchored ratios, measured \(\alpha\), and empirical transport \\
@@ -533,9 +543,9 @@ H3 record localization and worldlines & certified cap-response localization ball
 Sector & Support status & Derivation stage & Public output(s) / exact sidecar(s) & Caveat / theorem boundary \\
 \midrule
 Carrier roles and modes & structural group/content theorem plus conditional action theorem & explicit transverse/TT quadratic kernels with no promoted particle mass & action, background, and phase are hypotheses; quantization, positive-residue pole, and asymptotic/deconfinement gates remain separate \\
-Electroweak bosons & strict source-audit branch plus exact chart, conditional quotient-transport theorem, and comparison adapter & source-audit zero-selector law; selected carrier \(\rightarrow\) two-coordinate mass chart; QT1--QT5 \(\Rightarrow\) unique value law & no nonzero mass in the prediction ledger; strict source-audit branch \((m_W,m_Z)=(80.330,\,91.119)\)~GeV within \(0.05\)--\(0.08\) percent of measurement; the target-free value-law coordinates \((80.3770000154,\,91.1879780779)\)~GeV, base-running, and freeze-once adapter charts stay in the audit discussion & QT1--QT5 are not derived from the finite carrier; the discrete two-law choice awaits a source-law selection principle; no complex-pole receipt is emitted \\
+Electroweak bosons & strict source-audit branch plus exact chart, conditional quotient-transport theorem, and comparison adapter & source-audit zero-selector law; selected carrier \(\rightarrow\) two-coordinate mass chart; QT1--QT5 \(\Rightarrow\) unique value law & no nonzero mass in the prediction ledger; strict source-audit branch \((m_W,m_Z)=(80.330,\,91.119)\)~GeV within \(0.05\)--\(0.08\) percent of measurement (pulls \(2.9\sigma\) and \(\approx33\sigma\); closure row CL-5); the archived value-law coordinates \((80.3770000154,\,91.1879780779)\)~GeV, base-running, and measured-pair reparametrization (calibration) charts stay in the audit discussion & QT1--QT5 are not derived from the finite carrier; the discrete two-law choice awaits a source-law selection principle; no complex-pole receipt is emitted \\
 Electroweak hierarchy/naturality & selected-branch dimensionless theorem & local \(P\to\alpha_U\to v/E_\star\) hierarchy lane\newline \(\rightarrow\) 12-port screen sieve\newline \(\rightarrow\) 24-slot oriented repair register\newline \(\rightarrow\) exact capacity bridge and RG/Higgs square & \(N_{\mathrm{CRC}}^{\mathrm{EW}}=3.5323546226929906511\ldots\times10^{122}\), \(\mathcal B_{\mathrm{EW}}=0\), \(\epsilon_H=0\) & Supports the dimensionless hierarchy and naturality identities on the named branch.\newline An independent physical \(E_\star\), the public Thomson endpoint, theorem-level \(W/Z\), and the other listed mass rows remain separate surfaces. \\
-Higgs/top stage & double-criticality family from the gauge sector + declared-surface fit sidecar & criticality law \(\lambda=0,\ \beta_\lambda=0\) at one source scale \(\rightarrow\) zero-parameter \((m_H,m_t)\) family \(\rightarrow\) frozen boundary-scale candidate & no nonzero mass in the prediction ledger; double-criticality branch \((m_H,m_t)=(125.77,\,172.63)\)~GeV at the frozen boundary-scale candidate, with \(m_H=125.72\)~GeV on the fit-free curve at the measured top; the target-anchored declared-surface fit \((125.1995304097,\,172.3523553288)\)~GeV stays in technical audit prose & Strict promotion inherits the two boundary-scale carrier facts CF1/CF2 (the midpoint selection theorem is proved and its premises reduce to the axioms modulo these) plus the source-root, physical-scale, QT1--QT5, RG/scheme, rigidity, provenance, and complex-pole gates.\newline The companion top coordinate is not a separate public top-mass prediction row. \\
+Higgs/top stage & double-criticality family from the gauge sector + declared-surface fit sidecar & criticality law \(\lambda=0,\ \beta_\lambda=0\) at one source scale \(\rightarrow\) fully constrained \((m_H,m_t)\) family \(\rightarrow\) frozen boundary-scale candidate & no nonzero mass in the prediction ledger; double-criticality branch \((m_H,m_t)=(125.77,\,172.63)\)~GeV at the frozen boundary-scale candidate, with \(m_H=125.72\)~GeV on the fit-free curve at the measured top; the target-anchored declared-surface fit \((125.1995304097,\,172.3523553288)\)~GeV stays in technical audit prose & Strict promotion inherits the two boundary-scale carrier facts CF1/CF2 (the midpoint selection theorem is proved and its premises reduce to the axioms modulo these) plus the source-root, physical-scale, QT1--QT5, RG/scheme, rigidity, provenance, and complex-pole gates.\newline The companion top coordinate is not a separate public top-mass prediction row. \\
 Quark family & common-scale rejection plus restricted source non-identifiability theorem & one-scheme dimensionless Yukawas \(\rightarrow\) reciprocal-ray test\newline \(\rightarrow\) six-scalar generic interface and flavor-selector boundary & no public numeric quark row; at \(M_Z\), \(\rho_u\rho_d=0.835323\) and the endpoint-granted held-out error is \(21.56\%\) & The reciprocal-ray candidate is physically rejected across the tested running scales.\newline The old \((\mathbb R_{>0})^2\) result remains a restricted lower-bound obstruction.\newline Mixed-convention template and RSCC residuals are retrospective diagnostics.\newline A flavor-orbit selector, quark--Higgs carrier, and common-scale source transport are absent \\
 Charged leptons & continuation + exact sidecar witness & shared excitation dictionary \(\rightarrow\) ordered charged carrier \(\rightarrow\) exact centered readback \(\rightarrow\) determinant-line lift on theorem-level physical charged data & exact centered readback; same-family target-anchored charged triple withheld from public prediction tables & public charged masses are not emitted from \(P\).\newline The theorem lane does not emit a theorem-level sector-isolated charged determinant exponent vector.\newline It does not attach a source-side determinant character to the physical charged determinant line.\newline The determinant-line lift and algebraic mass readout apply only on theorem-level physical charged data \\
 Neutrinos & target-informed continuation candidate + auxiliary checks & template family transport \(\rightarrow\) same-label scalar certificate \(\rightarrow\) weighted-cycle candidate \(\rightarrow\) compare-only bridge and absolute attachment \(\rightarrow\) shared-basis identity & frozen scale-free candidate and PMNS/Majorana comparison rows; absolute mass attachments withheld from public prediction tables & exact linear algebra conditional on the declared template and selectors.\newline The candidate fails the NuFIT 6.1 correlated \((\sin^2\theta_{23},\delta_{\mathrm{CP}})\) profile, and neither the scale-free point nor the bridge invariant has prediction or theorem status~\cite{nufit61} \\
@@ -1237,7 +1247,7 @@ conditional QT1--QT5 implication, and the target-frozen inverse repair surface.
 The older pair \((80.377,91.1879780919)\,\mathrm{GeV}\) is a rounded legacy
 alias of the candidate, not the inverse adapter. None is a physical pole theorem.
 
-\begin{theorem}[Freeze-once coherent electroweak repair law]
+\begin{theorem}[Measured-pair reparametrization (calibration): freeze-once coherent electroweak repair law]
 Let the emitted running/core electroweak basis be
 \[
 Q_{\mathrm{run}}(P)=
@@ -1386,9 +1396,14 @@ M_Z^\dagger=91.1879~\mathrm{GeV},
 \]
 These two carrier-side scalars are bookkeeping data on the frozen validation surface. They are not
 the public electromagnetic readout on the Ward-projected D10 lane.
-That freeze-once law provides an exact coherent inverse-calibration surface. On that
-target-frozen surface the reference \(W/Z\) pair is hit exactly, but only as compare-only
-validation. It is excluded from every prediction ledger.
+That freeze-once law provides an exact coherent inverse-calibration surface: it is a
+measured-pair reparametrization. On that
+target-frozen surface the reference \(W/Z\) pair is hit exactly because the basis is solved from
+that pair; the hit is the defining condition, and the lane is calibration.
+It is excluded from every prediction ledger.
+The displayed electroweak lane is the forward solve,
+\((m_W,m_Z)=(80.330,\,91.119)\)~GeV, with pulls \(2.9\sigma\) and \(\approx33\sigma\) against the
+measured pair; that residual is closure row CL-5 of \texttt{CLOSURE\_LEDGER.md}.
 The archived forward value law has a stronger conditional theorem: it follows
 uniquely from a finite quotient-path certificate.  The certificate is not
 emitted by the five axioms or by the existing carrier artifacts.
@@ -2324,7 +2339,8 @@ m_t^{D11} = 172.3523553288312~\mathrm{GeV}.
 \]
 This is a coordinate on the declared D10/D11 Jacobian surface, obtained by
 back-solving from the measured pair through the synchronization-scale scan, so
-it is a target-anchored fit and not a certified Higgs or top complex pole; the
+it is an exact interpolation of the PDG pair --- a target-anchored fit and not
+a certified Higgs or top complex pole; the
 target-free headline is the double-criticality family evaluated below. The same surface emits a companion top coordinate.
 The selected-class quark support witness carries a
 target-anchored running-top audit row using the PDG 2025 cross-section entry; it is not a separate
@@ -2336,7 +2352,9 @@ The one-scalar companion seed
 \]
 is on disk only as the fixed-ray companion branch with \(\pi_y=\pi_\lambda=\sigma_{D11,\mathrm{HT}}\).
 Separately, the same D11 Jacobian admits a compare-only inverse slice that hits the canonical
-Higgs/top reference pair exactly. That exact sidecar is useful for bookkeeping and does not define
+Higgs/top reference pair exactly: it is an exact interpolation of the PDG pair, and the landing
+is the defining condition of the slice rather than a derived result. That exact sidecar is
+useful for bookkeeping and does not define
 the forward branch used for the public rows.
 The Higgs boson belongs naturally in the boson discussion, while the top quark will be revisited
 in the quark-family chapter as the third-generation up-type quark. The top coordinate reported
@@ -2686,7 +2704,10 @@ M_Z/E_\star&=7.463750\times10^{-18},
 with unclosed-clock displays \((80.3301,\,91.1191)\) and
 \((80.3208,\,91.1242)\)~GeV and discrete ambiguity widths of \(9.3\)~MeV on
 \(M_W\) and \(5.1\)~MeV on \(M_Z\)
-(\texttt{wzh\_residual\_elimination\_boundary.json}).  Numerical \(W/Z\)
+(\texttt{wzh\_residual\_elimination\_boundary.json}). The zero-selector
+display sits at \(2.9\sigma\) on \(M_W\) and \(\approx33\sigma\) on \(M_Z\)
+from the measured pair; that residual is closure row CL-5 of
+\texttt{CLOSURE\_LEDGER.md}.  Numerical \(W/Z\)
 agreement cannot decide between the laws; the decision object is a source-law
 selection principle, and the quantitative mechanism of the source-action
 rigidity theorem applies once the electroweak feature basis and moment vector
@@ -3895,7 +3916,8 @@ assumptions:
 \begin{enumerate}[leftmargin=2em]
 \item a uniform \(\mathbb Z_6\) center-label ensemble, so \(\varepsilon = 1/6\);
 \item the balanced positive Hermitian circulant branch, so \(\rho/a = 1/\sqrt2\);
-\item the phenomenological charged-family phase choice \(\delta = 2/9\).
+\item the phenomenological charged-family phase choice \(\delta = 2/9\), the fitted phase of the
+Brannen parametrization of the Koide relation~\cite{koide1983,brannen2006}.
 \end{enumerate}
 These are continuation inputs, not consequences of the OPH axioms.  For the positive-semidefinite
 Hermitian square-root-mass carrier
@@ -4024,7 +4046,9 @@ The relation \(\operatorname{Hom}_{C_3}(\mathbf1,\chi\oplus\bar\chi)=0\) prevent
 source grammar from producing a labeled charged-family vector through symmetry. A charged source
 tensor, connection, or selected orbit must supply the phase and individual ratios.
 
-The count \((N_c+1)/(2N_cN_g)=2/9\) is arithmetic. A physical phase theorem requires a
+The count \((N_c+1)/(2N_cN_g)=2/9\) is arithmetic, and the value \(2/9\) itself is the
+Brannen--Koide fitted phase from prior empirical art~\cite{koide1983,brannen2006}; the integer
+factorization was found after that value was known. A physical phase theorem requires a
 regular-\(C_3\) family bundle, an oriented family connection
 whose declared loop has holonomy
 \(\exp[i\beta_{\rm EW}/(2N_cN_g)]\), and an attachment identifying that holonomy with the phase of
@@ -4074,7 +4098,10 @@ Against the charged references, this continuation-centered shape has residual no
 2.13\times10^{-5},
 \]
 so this compare-only branch is a near-exact centered-shape closure up to one common absolute
-scale. The theorem lane remains unpromoted because the public affine absolute anchor is external
+scale. The ppm-scale shape agreement carries a large pull in measurement units: the same
+\(\delta=2/9\) ansatz misses the measured \(m_\mu/m_e\) ratio by \(9.83\)~ppm, approximately
+\(440\sigma\) of the measurement precision, so the row is excluded as a prediction and stands as
+an approximate fit. The theorem lane remains unpromoted because the public affine absolute anchor is external
 to this near-exact centered charged-shape branch. The compare-only common scale
 required for exact absolute masses is
 \[
@@ -4134,7 +4161,8 @@ same formula on the public-pixel probe
 with maximum absolute error \(0.08347\%\).  Thus the sharper \(0.02284\%\) number is explicitly
 legacy-branch-specific.  The builder does
 not read charged reference masses, but this remains a postdiction rather than a theorem-grade
-prediction because the balanced carrier and \(2/9\) phase were prior empirical art, the electron
+prediction because the balanced carrier and \(2/9\) phase were prior empirical art (the Koide
+relation and the Brannen phase parametrization~\cite{koide1983,brannen2006}), the electron
 exponent was selected inside a historical residual scan that fixes only exponent differences,
 the factor \(2^{1/6}\) is asserted rather than derived, and the corpus does not derive the
 determinant attachment or the sorted-root-to-family map.  Nor is a renormalization coordinate and
@@ -5979,6 +6007,19 @@ ledger records scope boundaries for the weak validation pair, charged-lepton wit
 direct-top auxiliary codomain, strong-CP phase boundary,
 neutrino comparison tension, source-only hadron backend rows, and empirical hadron closure rows.
 
+The open quantitative program that this ledger names is finite and enumerated. The repository
+file \texttt{CONSISTENCY\_STACK.md} reduces the open rows of \texttt{CLOSURE\_LEDGER.md} to four
+generating objects and one selector: G1, the Ward-projected hadronic transport computed blind
+against the frozen target, closes or moves CL-1 and CL-2; G2, the capacity readback map \(F\)
+with its contraction certificate, carries CL-3, CL-4, and CL-7; G3, the repaired forward
+electroweak chain from the axioms under preregistered revisions, carries CL-5; G4, solver hygiene
+delivering a matched printed pair at certified precision, closes CL-6. The one object beyond the
+ledger is the source-derived flavor-orbit selector, and the two-modulus quark source-spread
+non-identifiability theorem proved in this paper names that gap precisely: it states which
+freedom the quark equations cannot fix from the declared source data, so the missing selector is
+a specified construction rather than an open-ended search. Every item on this list is a
+computation or a construction, not a reinterpretation.
+
 \appendix
 \input{tex_fragments/PARTICLE_TECHNICAL_SUPPLEMENT_PORT.tex}
 
@@ -6020,6 +6061,17 @@ National Institute of Standards and Technology,
 \emph{2022 CODATA Recommended Values of the Fundamental Constants of Physics and Chemistry},
 NIST SP 959, May 2024.
 \url{https://physics.nist.gov/cuu/pdf/wallet_2022.pdf}
+
+\bibitem{koide1983}
+Y. Koide,
+\emph{New view of quark and lepton mass hierarchy},
+Physical Review D \textbf{28}, 252 (1983).
+
+\bibitem{brannen2006}
+C. A. Brannen,
+\emph{The Lepton Masses},
+preprint, 2006.
+\url{http://brannenworks.com/MASSES2.pdf}
 
 \bibitem{antusch2025running}
 S. Antusch, K. Hinze, and S. Saad,
