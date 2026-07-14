@@ -50,8 +50,8 @@ alpha^-1  = 137.035999177(21)
 The source-only audit row emitted by the available transport package is
 
 ```text
-P_source_audit          = 1.63097209569432901817967892561191884270169
-alpha_source_audit^-1   = 136.994835164621649457949994585787193262029
+P_source_audit          = 1.63097209585889737696451390350695562985390
+alpha_source_audit^-1   = 136.994835177412937295289429464436887879658
 ```
 
 The OPH plus empirical hadron closure row uses a separate `e+e- -> hadrons`
@@ -72,6 +72,13 @@ On the source-audit branch it records
 alpha_U(P_source_audit) = 0.04112424744557487
 v(P_source_audit)/E_star = 2.0198114150099223e-17
 ```
+
+The bundle records an earlier unconverged forward run. Converged precision-100
+reruns supersede that source-audit branch beyond digit ~10 (CL-6, closed
+2026-07-14): the certified forward values are
+P_fwd = 1.630972095858897..., alpha_U(P_fwd) = 0.041124247441816685..., and
+v(P_fwd)/E_star = 2.0198114078576331e-17. The public endpoint branch is
+unchanged.
 
 The `R_U` certificate proves a unique local source zero in the supplied
 interval by Krawczyk inclusion and a derivative enclosure excluding zero. The
@@ -150,12 +157,12 @@ a0(P) = alpha_em^-1(m_Z^2; P)
 At the tracked runtime candidate, the report has
 
 ```text
-P                         = 1.63097209569432901817967892561191884270169...
-a0(P)                    = 128.308268045165213892552005990181778935450...
-alpha_U(P)               = 0.0411242474455748379114083945751190185546875...
-alpha_1(m_Z; P)          = 0.0168856675723846279186994816910360781893569...
-alpha_2(m_Z; P)          = 0.0337778141123933213698522438673291294896931...
-alpha_3(m_Z; P)          = 0.118335861964785055071384041352892260161698...
+P                         = 1.63097209585889737696451390350695562985390...
+a0(P)                    = 128.308268057987597347904057614084743934330...
+alpha_U(P)               = 0.0411242474418166851408899338896597194377077...
+alpha_1(m_Z; P)          = 0.0168856675706697268833336999187013644391886...
+alpha_2(m_Z; P)          = 0.0337778141092008025440755564310614913315613...
+alpha_3(m_Z; P)          = 0.118335861957773282714035166498191462179389...
 ```
 
 ## Thomson Transport
@@ -184,15 +191,15 @@ with a simple quark screening factor:
 That gives
 
 ```text
-Delta_impl(P) = 8.68656711945643556539798859560541432657857...
+Delta_impl(P) = 8.68656711942533994738537185035214394532834...
 alpha_impl^-1 = a0(P) + Delta_impl(P)
-              = 136.994835164621649457949994585787193262029...
+              = 136.994835177412937295289429464436887879658...
 ```
 
 The closure residual is small:
 
 ```text
-alpha_fixed_point_residual = 0.00000000009352931661586697525717849181907607
+alpha_fixed_point_residual = 0.0000000000000000000000000000000000000224381344364184150170238430414124287834
 ```
 
 The fixed-point algebra has converged.
@@ -203,20 +210,20 @@ At the public endpoint pixel, the same source anchor uses the transport term
 
 ```text
 Delta_required(P) = 137.035999177 - a0(P)
-                  = 8.727731131834786107447994009818221064550...
+                  = 8.72773111901240265209594238591525606567...
 ```
 
 The transport term is short by
 
 ```text
-Delta_missing(P) = 0.041164012378350542050005414212806737971...
+Delta_missing(P) = 0.0411639995870627047105705355631121203415...
 ```
 
 Equivalently,
 
 ```text
-alpha^-1 gap = 300.388036648990592569245139235606485151919638673... ppm
-P gap        = 0.000003886290369693300399077829269901365706324208971...
+alpha^-1 gap = 300.388217944789749256636936289181812863091... ppm
+P gap        = 0.00000388645493805208523405572430668851792...
 ```
 
 This is the scalar source-audit packet recorded by the finite-code ledger.
@@ -229,8 +236,9 @@ The source-audit residual leaves the outer equation intact:
 P = phi + alpha * sqrt(pi)
 ```
 
-It also does not indicate a failure of numerical convergence. The p80 report
-contains 80 bisection steps and a tiny fixed-point residual.
+It also does not indicate a failure of numerical convergence. The converged
+precision-100 report carries a fixed-point residual below 10^-37 (CL-6, closed
+2026-07-14).
 
 The finite-code payload to populate is the low-energy transport/readout term
 `Delta_Th(P)`.

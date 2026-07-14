@@ -7,15 +7,28 @@ SL-5, canonically recorded in [STRANGE_LOOP_PRINCIPLES.md](../STRANGE_LOOP_PRINC
 architecture postulates. Evidence bears on the principle set through the closure
 ledger and the compression scorecard, never through restatement.
 
-The two substrate constants are estimated inputs:
+The two substrate constants are handled in three layers
+([STRANGE_LOOP_PRINCIPLES.md](../STRANGE_LOOP_PRINCIPLES.md)). The theory layer
+takes zero quantitative inputs: P is defined as the solution of
+P = φ + √π/A_T(P), interval-certified to exist and be unique on its interval,
+and N is defined as the solution of N = F(N), with F specified and its
+construction open (CL-7). Measured values sit at the test layer, as the
+comparisons the forced outputs face, and at the working layer, where open
+lanes borrow located values:
 
-- **P = 1.630968209403959…** is the SL-3 estimate of the substrate pixel from
-  measured α: CODATA α⁻¹ = 137.035999177(21), basin half-width in P
-  ≈ 2.0×10⁻¹². P is identified from the measured fine-structure constant via
-  principle SL-3 (self-simulation constant identification); it is a substrate
-  parameter estimated from data, and it is an input to every downstream row.
-- **N = 3.31×10¹²²** is the SL-4 estimate of the record capacity from measured
-  Λ with the scale bridge. It is likewise an estimated input.
+- **P = 1.630968209403959…** is the working value of the substrate pixel,
+  located from measured α: CODATA α⁻¹ = 137.035999177(21), basin half-width
+  in P ≈ 2.0×10⁻¹². The working P is located from the measured fine-structure
+  constant via principle SL-3 (self-simulation constant identification), and
+  it is an input to every downstream row.
+- **N = 3.31×10¹²²** is the working value of the record capacity, located
+  under SL-4 from measured Λ with the scale bridge. It is likewise a counted
+  input.
+
+Every working borrow is tied to a named generator in
+[CONSISTENCY_STACK.md](../CONSISTENCY_STACK.md) (G1 hadronic transport, G2
+capacity readback, G3 electroweak repair); a generator that lands retires its
+borrow.
 
 Neither α nor Λ nor G appears on any OPH output list. A measured value used to
 locate a basin is an input at every surface, permanently
@@ -62,9 +75,9 @@ Useful background:
 | Gauge group | The symmetry bookkeeping behind forces: allowed relabeling inside the force description that leaves physics unchanged. |
 | Hypercharge | A Standard Model charge label used to build electric charge. |
 | Proton decay | A hypothetical proton breakup. OPH's product-group branch forbids the grand-unified gauge-boson route; so does the Standard Model. |
-| \(P\) | The substrate pixel ratio. SL-3 estimate from measured α: 1.630968209403959… An estimated input. The forward-model closure point \(P_{\mathrm{fwd}}\) = 1.630972095694… is a distinct numeral; their difference is the loop residual (CL-1/CL-2). |
-| \(N\) | The record capacity. SL-4 estimate from measured Λ: about \(3.31\times10^{122}\). An estimated input. |
-| \(N_{\mathrm{CRC}}^{\mathrm{EW}}\) | The electroweak-bridge capacity, \(3.5323546226929906511\ldots\times10^{122}\). SL-4 admits one N, so the 6.8% gap to the Λ estimate is an open contradiction (CL-3), not a second capacity. |
+| \(P\) | The substrate pixel ratio. Working value located under SL-3 from measured α: 1.630968209403959… A counted input. The forward-model closure point \(P_{\mathrm{fwd}}\) = 1.630972095858897… (interval-certified) is a distinct numeral; their difference is the loop residual (CL-1/CL-2). |
+| \(N\) | The record capacity. Working value located under SL-4 from measured Λ: about \(3.31\times10^{122}\). A counted input. |
+| \(N_{\mathrm{CRC}}^{\mathrm{EW}}\) | The electroweak-bridge capacity, \(3.5323546226929906511\ldots\times10^{122}\). SL-4 admits one N, so the 6.8% gap to the Λ-located value is an open contradiction (CL-3), not a second capacity. |
 | 24-tick repair lock | One global screen step equals 24 rounds of local repair, \(2(8+3+1)\). The ×2 write/check orientation (12→24) is a discrete structural selection with a recorded menu size, not a parameter-free deduction. |
 | \(G_{\mathrm{OPH}}\) | The SI bridge display for Newton's constant, \(6.674299995910528\ldots\times10^{-11}\,\mathrm{m^3\,kg^{-1}\,s^{-2}}\). It consumes measured bridge quantities and carries the QCD/cesium-clock caveat. The structural claim is the dimensionless gravity theorem. |
 | \(\chi_\nu\) | The coherent scalar susceptibility continuation. Currently a speculative continuation with no testable content; see the appendix. |
@@ -80,19 +93,22 @@ branch for any row, and no row closes by relabeling.
 
 | # | Closure | Required | Current status | Residual (relative) | Residual (measurement σ) |
 |---|---|---|---|---|---|
-| CL-1 | P-loop, source chain: \(P = \varphi + \sqrt{\pi}/A_T(P)\) with source-only transport | exact | forward map contracts to α⁻¹ = 136.9948, outside the SL-3 basin | 3.0×10⁻⁴ | ≈2×10⁶ |
-| CL-2 | P-loop with gauge-width term at the SL-3 pixel | exact | α⁻¹ = 137.0359595 vs 137.035999177(21) | 2.9×10⁻⁷ | ≈1.9×10³ |
+| CL-1 | P-loop, source chain: \(P = \varphi + \sqrt{\pi}/A_T(P)\) with source-only transport | exact | forward map contracts to α⁻¹ = 136.994835177413 (interval-certified unique fixed point, width 7.2×10⁻²⁴), outside the SL-3 basin | 3.0×10⁻⁴ | ≈2×10⁶ |
+| CL-2 | P-loop with gauge-width term, self-consistent map | exact | certified unique fixed point α⁻¹ = 137.035660136947 vs 137.035999177(21) | 2.5×10⁻⁶ | ≈1.6×10⁴ |
 | CL-3 | One capacity (SL-4): \(N_{\mathrm{EW}} = \pi\exp(6\pi/(P\alpha_U))\) vs N from Λ | exact | 3.53×10¹²² vs 3.31×10¹²² | 6.8×10⁻² | — (model-dominated, not Λ error) |
-| CL-4 | Hierarchy bridge at the one N: \(\alpha_U\log(N/\pi) = 6\pi/P\) | exact | 11.5546 vs 11.5573 at the Λ-estimated N | 2.3×10⁻⁴ (log scale) | — |
+| CL-4 | Hierarchy bridge at the one N: \(\alpha_U\log(N/\pi) = 6\pi/P\) | exact | 11.5546 vs 11.5573 at the Λ-located N | 2.3×10⁻⁴ (log scale) | n/a |
 | CL-5 | Forward electroweak emission at the SL-3 pixel: \((M_W, M_Z)\) | exact | (80.330, 91.119) vs (80.3692(133), 91.1876(21)) | 4.9×10⁻⁴ / 7.5×10⁻⁴ | 2.9σ / ≈33σ |
-| CL-6 | Printed pair identity: \(\alpha_{\mathrm{root}} = (P_{\mathrm{fwd}} - \varphi)/\sqrt{\pi}\) | exact | violated at digit 9 | 1.7×10⁻⁶ of α_root | — |
+| CL-6 | Printed pair identity: \(\alpha_{\mathrm{root}} = (P_{\mathrm{fwd}} - \varphi)/\sqrt{\pi}\) | exact | closed 2026-07-14: holds to ≥ 35 digits after converged precision-100 reruns; the converged α⁻¹ = 136.994835177413 supersedes the earlier printed tail 136.994835164622 beyond digit 9 | 3.1×10⁻³⁶ (report), 1.2×10⁻³⁸ (trunk) | n/a |
 | CL-7 | Capacity readback map: \(F(N) = N\) | exact | F not yet constructed | — | — |
 
 CL-1 and CL-2 are the same open term seen from two points on the chain: the
 Ward-projected hadronic transport. CL-3 supersedes all "two capacities" and
-"resonance at logarithmic depth" language: SL-4 admits one N. The 137.0359595
-display is the loop's closure status — forward chain plus SL-3 pixel — never a
-prediction or derivation of α, which is the input that fixed P.
+"resonance at logarithmic depth" language: SL-4 admits one N. The previously
+displayed 137.0359595 is a mixed-provenance display packet (the inner value
+evaluated at P_fwd plus α_U evaluated at the SL-3 pixel); it is not a fixed
+point of any single declared map and stays on record as a display packet only,
+never a prediction or derivation of α, which is the input that located P. The
+certified self-consistent gauge-width fixed point is α⁻¹ = 137.035660136947.
 
 ### The Decisive Test: Blind Hadronic Closure
 
@@ -137,9 +153,9 @@ assumptions:
 | Generation count | A valid OPH construction has two or four light matter generations. | OPH claims exactly three generations on the realized branch. |
 | Fermions and chirality | Chiral fermions have to be imported from the Standard Model by hand. | OPH says matter structure follows from observer consistency. If the key fermion structure has to be assumed, the reconstruction fails. |
 | P-lane protocol | The stated fixed-point equations admit no interval-grade contraction certificate on the declared interval, admit multiple solutions there, or the source map reads the low-energy target. | Any "one and only P" claim requires the stage-2 certificate. The lane now holds one: `code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json` proves existence and uniqueness of the closure fixed point on its stated interval (direct Banach, mpmath.iv outward rounding, L ≤ 0.0724, edge-sum tails bounded), for both readout maps at the declared cutoffs and conventions. The global at-most-one statement on the full physical domain remains open (monotonicity of A_T). A proof of non-uniqueness on the physical domain or a target leak kills the lane rather than merely stalling it. |
-| N-lane readback | The capacity readback map F is constructed and \(F(N)\neq N\) at the Λ-estimated N, or the same equations allow incompatible capacity branches. | The capacity closure is the second substrate constant. CL-7 is open; a constructed F that fails is a falsification, not an open item. |
+| N-lane readback | The capacity readback map F is constructed and \(F(N)\neq N\) at the Λ-located N, or the same equations allow incompatible capacity branches. | The capacity closure is the second substrate constant. CL-7 is open; a constructed F that fails is a falsification, not an open item. |
 | 24-tick repair lock | The observer-visible product-adjoint repair spectrum is not \(2(8+3+1)=24\), or the local repair contraction fails to line up with the global screen step. | The repair lock is the bridge between P and N. Its ×2 orientation is a recorded discrete selection; the spectrum content is not, and a different spectrum breaks the mechanism. |
-| Hierarchy witness | The declared first-principles hierarchy map imports \(G\), \(\Lambda\), \(W\), \(Z\), Higgs, low-energy Thomson, cesium-clock, or hadronic inputs, or it misses \(v/E_\star=2.0199803239725553\times10^{-17}\). | This row avoids QCD and clock assumptions, which is why it is the compact proof's answer to the QCD-circularity criticism. It is conditional on the frozen MSSM-like one-loop coefficients \((33/5, 1, -3)\), a recorded structural selection; every α_U descendant, including \(\epsilon_H = 0\), inherits that condition. |
+| Hierarchy witness | The declared first-principles hierarchy map imports \(G\), \(\Lambda\), \(W\), \(Z\), Higgs, low-energy Thomson, cesium-clock, or hadronic inputs, or it misses \(v/E_\star\) on its declared branch: 2.0199803239725553e-17 at the SL-3 working pixel, 2.0198114078576331e-17 at the certified P_fwd. | This row avoids QCD and clock assumptions, which is why it is the compact proof's answer to the QCD-circularity criticism. It is conditional on the frozen MSSM-like one-loop coefficients \((33/5, 1, -3)\), a recorded structural selection; every α_U descendant, including \(\epsilon_H = 0\), inherits that condition. |
 | Dimensionless gravity theorem | The dimensionless gravity relation fails from the stated assumptions. | OPH claims the gravity coupling is a branch readout. The SI display \(G_{\mathrm{OPH}}\) is a bridge display consuming measured quantities and cannot carry this test; the dimensionless theorem can. |
 | Low-energy uniqueness | The OPH axioms plus MAR allow many inequivalent low-energy physics worlds with the same admissibility predicates. | If many incompatible worlds pass the same rules, the selection claim fails. |
 | Quark source-spread theorem | A target-free OPH observable breaks the claimed free \((\mathbb R_{>0})^2\) action using only the stated source corpus. | That result would falsify the present non-identifiability theorem and reopen numeric quark reconstruction. |
@@ -155,7 +171,7 @@ extensions) part company:
 | Maxwell carrier | With the Maxwell kinetic term, ordinary Lorentz vacuum, and no Higgs, Stückelberg, or medium mass all fixed, the reduced quadratic theory lacks its two transverse \(k^2=0\) modes. | This falsifies the scoped classical Maxwell carrier theorem. A photon-particle mass test applies only after a physical-Hilbert-space and positive-residue pole receipt is also supplied. |
 | Color carrier | With the pure Yang–Mills kinetic term about the trivial flat connection and the perturbative/deconfined phase fixed, the reduced quadratic theory lacks its \(2\dim G\) transverse \(k^2=0\) modes. | This falsifies the scoped quadratic Yang–Mills theorem. Confinement can remove a free physical gluon pole and is not a counterexample to that theorem. |
 | Einstein tensor carrier | With the pure two-derivative Einstein–Hilbert action, flat vacuum, and no extra fields or higher-curvature terms fixed, the reduced quadratic theory lacks its two transverse-traceless null modes. | This falsifies the scoped Einstein linearization theorem. A graviton-particle mass test applies only after quantization and a positive-residue physical pole have been established. |
-| de Sitter capacity | Cosmological data break the claimed de Sitter capacity relation. | SL-4 reads N from Λ through this relation. If the capacity relation fails, the estimate and the screen bookkeeping fail with it. |
+| de Sitter capacity | Cosmological data break the claimed de Sitter capacity relation. | SL-4 reads N from Λ through this relation. If the capacity relation fails, the located working value and the screen bookkeeping fail with it. |
 | Black-hole entropy | Black-hole entropy data contradict the OPH screen-counting rule. | OPH treats screens and records as physical bookkeeping. Wrong black-hole entropy breaks that bookkeeping. |
 | Page curve | Quantum black-hole information data contradict the OPH record claim. | OPH says records and overlap consistency control what can be recovered. A wrong Page-curve pattern breaks that claim. |
 
@@ -209,13 +225,13 @@ measurement-attribution rule (section 6):
 
 | Tension | Values | Relative deviation | Pull (measurement σ) |
 | --- | --- | --- | --- |
-| One-N gap (CL-3) | \(N_{\mathrm{CRC}}^{\mathrm{EW}} = 3.53\times10^{122}\) vs Λ-estimate \(3.31\times10^{122}\) | 6.8×10⁻² | model-dominated; Λ error subdominant |
-| Hierarchy bridge (CL-4) | 11.5546 vs 11.5573 at the Λ-estimated N | 2.3×10⁻⁴ (log scale) | same object as CL-3 |
+| One-N gap (CL-3) | \(N_{\mathrm{CRC}}^{\mathrm{EW}} = 3.53\times10^{122}\) vs Λ-located \(3.31\times10^{122}\) | 6.8×10⁻² | model-dominated; Λ error subdominant |
+| Hierarchy bridge (CL-4) | 11.5546 vs 11.5573 at the Λ-located N | 2.3×10⁻⁴ (log scale) | same object as CL-3 |
 | Forward W (CL-5) | 80.330 vs 80.3692(133) GeV | 4.9×10⁻⁴ | 2.9σ |
 | Forward Z (CL-5) | 91.119 vs 91.1876(21) GeV | 7.5×10⁻⁴ | ≈33σ |
 | S8 growth row | out-of-loop row of the dark-sector likelihood surface | — | +2.4σ against the model |
-| Source-α gap (CL-1) | forward chain contracts to α⁻¹ = 136.9948 vs 137.035999177(21) | 3.0×10⁻⁴ | ≈2×10⁶σ |
-| Mixed-chain α gap (CL-2) | 137.0359595 vs 137.035999177(21) | 2.9×10⁻⁷ | ≈1.9×10³σ |
+| Source-α gap (CL-1) | forward chain contracts to α⁻¹ = 136.994835177413 (certified) vs 137.035999177(21) | 3.0×10⁻⁴ | ≈2×10⁶σ |
+| Gauge-width α gap (CL-2) | certified fixed point 137.035660136947 vs 137.035999177(21) | 2.5×10⁻⁶ | ≈1.6×10⁴σ |
 | Bench bound on \(\chi_\nu\) | coupons at rest bound gravitational ΔS ≲ 10⁻¹⁰ | record-level contrasts are 10⁻²–1; the 1:1 record↔gravity identity is ruled out by 8–10 orders | — (null bound) |
 
 Notes:
@@ -290,9 +306,9 @@ exact-match W/Z pair and the Higgs/top D11 lane consumed their measured targets
 
 Closure residuals are attributed to the model. The position "any deviation must
 come from additional influences on the measured value" is quantitatively
-excluded: independent α determinations with different physics — electron g−2
-with QED, and Rb/Cs photon-recoil interferometry — agree at the few-×10⁻¹⁰
-relative level, while the loop gaps are 2.9×10⁻⁷ (mixed chain) and 3×10⁻⁴
+excluded: independent α determinations with different physics (electron g−2
+with QED, and Rb/Cs photon-recoil interferometry) agree at the few-×10⁻¹⁰
+relative level, while the loop gaps are 2.5×10⁻⁶ (gauge-width chain) and 3×10⁻⁴
 (source chain): 10³–10⁶ times larger than the room available on the measurement
 side. The corpus's own hadron-scheme bridge places the missing piece in the
 model's hadronic transport. A measurement-side mechanism claim is admissible
@@ -359,8 +375,10 @@ certified topological-code branches may state them.
 
 ## Bottom Line
 
-OPH is a principle set (SL-0…SL-5) with two estimated substrate constants and a
-closure ledger that either goes to zero or falsifies the principles as formulated.
+OPH is a principle set (SL-0…SL-5) with zero dials, zero quantitative inputs at
+the theory layer, two working substrate values located from measurement and
+counted in the scorecard, and a closure ledger that either goes to zero or
+falsifies the principles as formulated.
 The decisive experiment is the blind hadronic closure against the frozen
 target; the live tensions are the one-N contradiction, the forward
 electroweak pulls, the S8 row, the α-loop gaps, and the bench bound; the

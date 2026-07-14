@@ -516,6 +516,12 @@ It is a branch witness, not a full endpoint proof: the printed
 satisfy the displayed fixed-point identity, and the full Ward-projected
 \(A_T(P)\) self-map requires an interval existence-and-uniqueness
 certificate.
+Converged precision-100 reruns supersede both printed tails: the certified root is
+\(\alpha_{\mathrm{root}}^{-1}=136.994835177413\ldots\) (interval-certified unique fixed
+point, enclosure width \(7.2\times10^{-24}\)), the certified forward pixel is
+\(P_{\mathrm{fwd}}=1.630972095858897\ldots\), and the identity
+\(\alpha_{\mathrm{root}}=(P_{\mathrm{fwd}}-\varphi)/\sqrt{\pi}\) holds to more than 35
+digits (CL-6, closed 2026-07-14).
 For comparison bookkeeping, adding the finite-screen unified gauge-width contribution evaluated at
 the CODATA-derived comparison pixel, \(\alpha_U(P_C)=0.041124336195630495\), to the source/root
 value gives the mixed-provenance no-hadron diagnostic
@@ -525,6 +531,12 @@ A_{\alpha_U}^{\mathrm{fp}}
 +0.041124336195630495
 =137.035959500817279952949994585787\ldots.
 \]
+The certified self-consistent gauge-width fixed point is
+\(\alpha^{-1}=137.035660136946577\ldots\); its residual against the measured
+\(137.035999177(21)\) is \(2.5\times10^{-6}\) relative (about \(1.6\times10^{4}\)
+measurement sigma; CL-2). The displayed \(137.0359595008\ldots\) mixes the inner value
+evaluated at \(P_{\mathrm{fwd}}\) with \(\alpha_U\) evaluated at the SL-3 pixel, is not a
+fixed point of any single declared map, and stays on record as a display packet only.
 A separately labeled OPH-plus-empirical closure imports the measured
 \(e^+e^-\!\to\mathrm{hadrons}\) cross-section payload.  In that execution,
 \[
@@ -635,7 +647,9 @@ a Krawczyk image strictly inside \(I_U\), and a derivative enclosure contained i
 requires the strict source-root certificate and a dependency graph with no
 directed path from measured \(W/Z\), measured \(\alpha_s(m_Z)\), measured
 \(\sin^2\theta_W\), measured \(v\), measured \(G\), Planck-area data, measured
-\(\Lambda\), or calibrated proxies. Thus the dimensionless hierarchy formula
+\(\Lambda\), or calibrated proxies. A converged precision-100
+rerun supersedes the printed \(P_{\rm cand}\) tail beyond digit 10; the certified forward
+pixel is \(P_{\mathrm{fwd}}=1.630972095858897\ldots\) (2026-07-14). Thus the dimensionless hierarchy formula
 is the strongest clean output presently isolated; it supplies only the first
 component of the clock hierarchy below. The cesium gap
 \(\varepsilon_{\mathrm{Cs}}=\hbar\omega_{\mathrm{Cs}}/E_\star\) must then factor through the
@@ -10518,6 +10532,9 @@ P_{\mathrm{cand}}&=\decnum{1.63097209569432901817967892561191884270169},\\
 \end{aligned}
 \]
 and is the branch to use when the public Thomson endpoint is excluded upstream.
+A converged precision-100 rerun supersedes this printed \(P_{\mathrm{cand}}\) beyond
+digit 10; the certified forward pixel is \(P_{\mathrm{fwd}}=1.630972095858897\ldots\)
+(2026-07-14).
 The Higgs naturalness row is read on the same D10/D11 normal-form surface. The displayed
 \(m_H=H_{\mathrm{OPH}}(P_\star)\) is a conditional D11 coordinate on its declared
 running, matching, and threshold surface, not yet an observer-visible complex pole. The split
@@ -11363,7 +11380,7 @@ Tier & Representative outputs & What would actually falsify the tier \\
 \endfoot
 Phase I recovered core (Theorem~\ref{thm:master}; D1--D5, D7--D9) & Confluence of overlap repair, Lorentz kinematics, the three-dimensional observer-facing spatial chart, the Jacobson-type Einstein branch in the stated scaling regime, receipt-conditional compact gauge reconstruction in the bosonic branch, the controlled four-dimensional Euclidean Yang--Mills form and compact-gauge repair-gap mechanism under the declared compact-gauge continuum/transfer assumptions, the realized Standard Model quotient chain on the explicit realized matter package, the exact hypercharge lattice on that realized matter package, the realized color triplet \(N_c=3\), the generation count \(N_g=3\), and the product-group consequence of no gauge-mediated proton decay; the Standard Model content is conditional on the MAR admissibility-clause inputs, and realized-branch nonemptiness is open & A mathematical failure in the derivation chain, loss of the Yang--Mills form or exact repair-gap branch conditions, or data that require a different realized gauge quotient, different realized hypercharges, a different color or generation count on the admissible branch, or gauge-mediated proton decay \\
 Phase II global self-closure target (D6) & \(\Lambda_{\mathrm{CRC}}\ell_\star^2=3\pi/N_{\mathrm{CRC}}\), \(S_{\mathrm{dS}}=N_{\mathrm{CRC}}\), and, after the selected OPH scale certificate, \(\Lambda_{\mathrm{CRC}}=\frac{3\pi}{G N_{\mathrm{CRC}}}\), \(r_{\mathrm{dS}}=\sqrt{3/\Lambda_{\mathrm{CRC}}}\), and \(t_\Lambda=r_{\mathrm{dS}}/c\) from the cosmic record-closure fixed point \(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\), with \(F(N)=\operatorname{Cap}_{\mathrm{read}}(\operatorname{Obs}(\operatorname{nf}(\mathfrak U_N)))\), represented in counts by \(N_\star=\operatorname{MAR}\arg\max_N(\log|\Omega^{\mathrm{sc}}_N|-N)\); any retained capacity-level neutrino side estimate on that branch value is legacy bookkeeping; the observed cosmic age is a downstream FLRW benchmark & Failure of the readback fixed-point certificate or of the specific global capacity relation would falsify the D6 closure without erasing the recovered core \\
-Phase II quantitative-closure branch (D10) & forward transmutation data \(\alpha_U(P)\), \(t_U(P)\), \(t_{\mathrm{tr}}(P)\), pixel-closure gauge-coupling consistency, \(\alpha_i(m_Z)\), the declared anchor \(a_0(P)=\alpha_{\mathrm{em}}^{-1}(m_Z^2;P)\), and the declared electroweak transport family \((W,Z,\alpha_{\mathrm{em}}^{-1}(q^2),\sin^2\theta_W(q^2),v)\). Four endpoint coordinates are kept separate: the source/root witness \(136.9948351646\ldots\), the mixed-provenance no-hadron diagnostic \(137.0359595008\ldots\), the OPH-plus-empirical hadron-closure result \(136.2636589431\) on \([136.1583832834,136.3690975240]\), and the measured Thomson endpoint \(137.035999177(21)\). The empirical row imports \(e^+e^-\to\mathrm{hadrons}\) data and does not promote a source-only endpoint. Its interval misses the measured endpoint and requires a same-scheme anchor correction of \([0.6485541111,0.8547920666]\). The 24-register count does not determine the nonconstant OPH-QCD hadronic backend; its two-current spectral measure is only the running-\(\alpha\)/HVP marginal, while HLbL and rare-decay rows require higher-point and transition spectral sectors & Failure of the full \(A_T(P)\) interval root or integrated quantitative closure once \(P\) and the printed running/matching/scheme conventions are imposed, or failure of the explicit OPH-QCD quotient ensemble, source QCD parameter map, Ward current ledger, two-current/higher-point/transition spectral exports, same-scheme remainder, no-target-leak dependency record, empirical source disclosure, and interval-certificate records \\
+Phase II quantitative-closure branch (D10) & forward transmutation data \(\alpha_U(P)\), \(t_U(P)\), \(t_{\mathrm{tr}}(P)\), pixel-closure gauge-coupling consistency, \(\alpha_i(m_Z)\), the declared anchor \(a_0(P)=\alpha_{\mathrm{em}}^{-1}(m_Z^2;P)\), and the declared electroweak transport family \((W,Z,\alpha_{\mathrm{em}}^{-1}(q^2),\sin^2\theta_W(q^2),v)\). Four endpoint coordinates are kept separate: the source/root witness \(136.9948351646\ldots\), the mixed-provenance no-hadron diagnostic \(137.0359595008\ldots\), the OPH-plus-empirical hadron-closure result \(136.2636589431\) on \([136.1583832834,136.3690975240]\), and the measured Thomson endpoint \(137.035999177(21)\). Converged precision-100 reruns supersede the printed witness tail beyond digit 9 (certified \(136.994835177413\ldots\); CL-6) and record the certified self-consistent gauge-width fixed point \(137.035660136946577\ldots\) (CL-2); the \(137.0359595008\ldots\) packet stays on record as a display packet only. The empirical row imports \(e^+e^-\to\mathrm{hadrons}\) data and does not promote a source-only endpoint. Its interval misses the measured endpoint and requires a same-scheme anchor correction of \([0.6485541111,0.8547920666]\). The 24-register count does not determine the nonconstant OPH-QCD hadronic backend; its two-current spectral measure is only the running-\(\alpha\)/HVP marginal, while HLbL and rare-decay rows require higher-point and transition spectral sectors & Failure of the full \(A_T(P)\) interval root or integrated quantitative closure once \(P\) and the printed running/matching/scheme conventions are imposed, or failure of the explicit OPH-QCD quotient ensemble, source QCD parameter map, Ward current ledger, two-current/higher-point/transition spectral exports, same-scheme remainder, no-target-leak dependency record, empirical source disclosure, and interval-certificate records \\
 Phase III phenomenological continuations (D12 and beyond) & Flavor ans\"atze, charged-lepton continuation ans\"atze beyond exact centered readback, \(H^3\) record-worldline stitching certificates, texture branches, the target-informed weighted-cycle / Majorana-holonomy neutrino candidate, further neutrino mass/mixing refinements, dark-sector response laws, early compact-object/JWST source-release audit lanes, conditional screen-spectrum and CMB/inflation-replacement kernels, \(H_0/S_8\) and growth continuations, heuristic baryogenesis continuations, proton-spin bookkeeping, proton-lifetime estimates beyond the gauge-channel exclusion, black-hole spectroscopy templates, physical black-hole evaporation/ringdown bridge programs, controlled large-\(N_{\mathrm{edge}}\) string/worldsheet effective descriptions, conjectural critical-superstring extensions, and other downstream phenomenology & The weighted-cycle candidate fails the NuFIT 6.1 normal-ordering \((\sin^2\theta_{23},\delta_{\mathrm{CP}})\) profile: \(\Delta\chi^2=20.12\) with the tabulated atmospheric likelihood and \(18.44\) without it, above the two-parameter \(3\sigma\) contour value \(11.83\)~\cite{nufit61}. A separate basis audit finds that the claimed shared-basis recovery defined \(U_{\nu,\mathrm{shared}}=U_eU_{\mathrm{wc}}\), making \(U_e^\dagger U_{\nu,\mathrm{shared}}=U_{\mathrm{wc}}\) an identity rather than an independent flavor derivation. The stored charged-lepton source is open and has a nearly degenerate singular spectrum, so it does not define a stable physical \(U_e\). The convention scan excludes only row, column, and orientation relabelings of the stored candidate; it does not derive or exhaust source-side physical basis placements. This rejects that candidate, without falsifying the recovered core. Other continuation failures retract only their corresponding branches \\
 \end{longtable}
 \endgroup

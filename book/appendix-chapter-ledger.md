@@ -41,10 +41,11 @@ are rejected or adjusted until the overlap-visible records agree.
 The prologue also introduces the local pixel ratio $P$. In the detailed OPH
 program, $P$ is the small dimensionless ratio that sets the effective local
 grain of the screen description. It is the local fixed point at which the outside screen geometry and the inside
-electromagnetic readout are required to match. The numerical value of $P$ is an
-estimate: under the constant-identification axiom the measured fine-structure
-constant sets it, and the requirement that the two readings match exactly is
-the open closure test. Later chapters ask how far
+electromagnetic readout are required to match. The theory defines $P$ by that
+matching equation and feeds it no measured number. The working value used by
+the chains is located from the measured fine-structure constant under the
+constant-identification axiom, and the requirement that the two readings match
+exactly is the open closure test. Later chapters ask how far
 that same fixed point can travel through the weak sector, the electromagnetic
 coupling, the Higgs-top surface, quark structure, neutrinos, and the
 gravity-facing side of the framework.

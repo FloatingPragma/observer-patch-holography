@@ -206,13 +206,16 @@ This book reverse engineers reality from observer consistency.
 We start with a minimal assumption: observers exist, they have bounded
 access to information, and they must agree where their observations overlap.
 
-Only a small amount of outside numerical help is allowed. Two measured
-constants estimate the two settings of the screen: the measured fine-structure
-constant estimates the local grain of the picture, and the measured
-cosmological constant, through a scale bridge, estimates the overall screen
-size. Both are inputs. The program's claim is compression: how much gravity,
+Only a small amount of outside numerical help is allowed, and none of it
+enters the theory's defining equations. Both settings of the screen are
+defined by closure equations. While those closures stay open, two measured
+constants locate their working values: the measured fine-structure constant
+locates the local grain of the picture, and the measured cosmological
+constant, through a scale bridge, locates the overall screen size. Both
+working values are inputs, and the scorecard counts them. The program's claim
+is compression: how much gravity,
 compact-gauge structure, and the minimally admissible particle world those two
-settings, together with the declared architecture, organize. The running test
+working values, together with the declared architecture, organize. The running test
 of that claim is the closure ledger, a public table of the equations the
 picture requires to hold exactly and how far each one currently is from
 holding.
@@ -254,9 +257,11 @@ belong with the Standard Model and matter chapters.
 
 The program recovers the structure of known physics, gravity and the minimally
 admissible Standard Model branch included, conditional on this starting point.
-The two settings are estimated from measurement, and the evidence standard is
-the closure ledger and the compression scorecard rather than any single
-recovered number.
+The theory carries zero dials and takes zero quantitative inputs at the theory
+layer; the two settings borrow working values located from measurement while
+their closure equations stay open, and the scorecard counts every borrow. The
+evidence standard is the closure ledger and the compression scorecard, never
+any single recovered number.
 
 The apparent mysteries of physics change shape once the conceptual starting
 point changes from "objective reality exists" to "consistency across observers

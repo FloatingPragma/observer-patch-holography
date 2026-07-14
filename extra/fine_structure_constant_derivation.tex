@@ -81,7 +81,9 @@ declares the detuning law
 P=\varphi+\frac{\sqrt\pi}{\ATh(P)},
 \]
 and principle SL-3 identifies the measured fine-structure constant with the
-substrate pixel readout, so CODATA \(\alpha\) estimates \(P\). The source-only
+substrate pixel readout, so the working value of \(P\) is located from CODATA
+\(\alpha\) pending exact closure; the theory layer takes no measured number.
+The source-only
 calculation contracts to \(\alpha^{-1}=136.994835177413\ldots\), the
 interval-certified unique fixed point of the declared source map (enclosure
 width \(7.2\times10^{-24}\)); it sits outside the SL-3 basin by
@@ -129,8 +131,9 @@ Two declared principles carry the construction; their canonical statements live 
 point by the Gaussian-normalized width of one electromagnetic observation,
 \(P=\varphi+\sqrt\pi\,\alpha\). Principle SL-3 (constant identification) declares
 that under self-simulation the fine-structure constant inside the world and
-the substrate pixel readout are one quantity, so measured \(\alpha\) estimates
-\(P\). Neither principle is derived in this paper; each is a starting point of
+the substrate pixel readout are one quantity; the working value of \(P\) is
+located from measured \(\alpha\) pending exact closure, and the theory layer
+takes no measured number. Neither principle is derived in this paper; each is a starting point of
 deduction, and evidence bears on the pair through the closure-ledger residuals
 CL-1 and CL-2 quoted throughout.
 
@@ -957,7 +960,7 @@ Why this step is needed: this accounting prevents the hadronic contribution from
 
 \section{Step 18: The OPH Output and the Required Hadronic Correction}
 
-The fixed-point calculation first emits
+The historical printed run of the fixed-point calculation emits
 \begin{equation}
 A_{\mathrm{calc}}(P_{\mathrm{root}})
 =
@@ -966,6 +969,12 @@ A_{\mathrm{calc}}(P_{\mathrm{root}})
 \decnum{136.994835164621649457949994585787193262029}.
 \label{eq:Acalcfp}
 \end{equation}
+A converged precision-100 rerun supersedes this printed tail beyond digit~9;
+the certified value is \(\alphainv_{\mathrm{root}}=136.994835177413\ldots\)
+(ledger row CL-6, closed 2026-07-14; CI test
+\texttt{code/P\_derivation/test\_printed\_pair\_identity.py}). The remaining
+arithmetic in this section keeps the printed tail so that the quoted display
+packet stays internally consistent as a historical record.
 At the CODATA-derived comparison pixel, the finite-screen unified gauge-width contribution is
 \[
 \alpha_U(\Ppub)=0.041124336195630495.
@@ -987,7 +996,11 @@ or
 \end{equation}
 This \(A_{\alpha_U}^{\mathrm{fp}}\) value is comparison bookkeeping, not a source-only prediction:
 \(\alpha_{\mathrm{root}}^{-1}\) is evaluated on the source root, while \(\alpha_U(\Ppub)\) inherits
-the measured endpoint through \(\Ppub\).
+the measured endpoint through \(\Ppub\). It is a mixed-provenance display packet (inner value
+evaluated at \(P_{\mathrm{fwd}}\) plus \(\alpha_U\) evaluated at the SL-3 pixel); it is not a fixed
+point of any single declared map, and it stays on record as a display packet only. The certified
+self-consistent gauge-width fixed point is \(\alpha^{-1}=137.035660136946577\ldots\) (ledger row
+CL-2).
 
 Compared with the CODATA/NIST central measured endpoint,
 \begin{equation}
@@ -1016,6 +1029,11 @@ Equivalently,
 This is the inverse-alpha gap between the mixed diagnostic and the CODATA/NIST central value. Its
 physical address is the low-energy QCD/hadronic vacuum-polarization and same-scheme transport of the
 Ward-projected electromagnetic current, but the subtraction does not calculate that transport.
+The \(2.9\times10^{-7}\) ratio describes the display packet only. The ledger residual CL-2 is
+measured against the certified self-consistent gauge-width fixed point
+\(\alpha^{-1}=137.035660136946577\ldots\) and is \(2.5\times10^{-6}\) relative, about
+\(1.6\times10^{4}\) measurement sigma; that residual supersedes the \(2.9\times10^{-7}\) figure as
+the closure status of the loop.
 
 For bookkeeping, the full root-to-CODATA difference is
 \begin{align}
@@ -1050,10 +1068,11 @@ hadronic/QCD payload.
 
 Here \(A_{\mathrm C}\) is the CODATA/NIST 2022 inverse fine-structure constant \cite{nist-value,nist-2022}. The source value \(A_{\mathrm{calc}}(P_{\mathrm{root}})=\alpha_{\mathrm{root}}^{-1}\) is a reproducible source-root output \cite{oph-code}; \(A_{\alpha_U}^{\mathrm{fp}}\) mixes that root with \(\alpha_U(\Ppub)\). Equation~\eqref{eq:Dempfp} is the measured-comparison residual in inverse-alpha units.
 
-Informally: the mixed comparison diagnostic is \(137.035959500817\ldots\), and the CODATA/NIST
-measured value is \(137.035999177(21)\). Their difference is the size required of the missing
-same-scheme endpoint contribution; the open source task is to compute that contribution from an
-OPH-QCD spectral backend.
+Informally: the mixed comparison diagnostic is \(137.035959500817\ldots\), a display packet; the
+certified self-consistent gauge-width fixed point is \(137.035660136946577\ldots\) (row CL-2,
+\(2.5\times10^{-6}\) relative); and the CODATA/NIST measured value is \(137.035999177(21)\). The
+remaining difference is the size required of the missing same-scheme endpoint contribution; the
+open source task is to compute that contribution from an OPH-QCD spectral backend.
 
 This marks the calculation boundary: additional digits require a source-derived hadronic spectral calculation.
 
@@ -1332,12 +1351,22 @@ Uniqueness lemma L1 of the consistency stack
 (iii)--(iv): on any interval \(I\) where interval-arithmetic evaluation
 certifies \(G(I)\subseteq I\) together with a derivative bound
 \(|G'|\le L<1\), the Banach fixed-point theorem gives both existence and
-uniqueness of the fixed point in \(I\). The stage-2 interval contraction
-certificate of the basin-then-contract protocol is recorded at
-\texttt{code/P\_derivation/runtime/p\_interval\_contraction\_certificate\_2026-07-14.json}.
-The global at-most-one statement on the full physical domain additionally
-requires monotonicity of \(\ATh\) in \(P\), which remains an open analytic
-item.
+uniqueness of the fixed point in \(I\). L1 is discharged on an explicit
+interval. The certificate
+\texttt{code/P\_derivation/runtime/p\_interval\_contraction\_certificate\_2026-07-14.json}
+proves \(G(I)\subseteq\operatorname{int}(I)\) and \(L\le0.0724\) for both
+readout modes by a direct Banach argument in mean-value (centered) form, with
+\texttt{mpmath.iv} outward rounding on every elementary operation and with the
+\(\SU(2)\)/\(\SU(3)\) edge-sum tails bounded by geometric majorants, so the
+enclosure covers the infinite-cutoff sums. The certified unique fixed points
+are \(\alpha^{-1}=136.994835177413\ldots\) for the source map (enclosure width
+\(7.2\times10^{-24}\)) and \(\alpha^{-1}=137.035660136946577\ldots\) for the
+gauge-width map. The certificate certifies the declared numerical map; it does
+not relate either fixed point to the measured constant, and the stage-3
+landing verdict of the basin-then-contract protocol is unchanged (outside the
+SL-3 basin, rows CL-1 and CL-2). The global at-most-one statement on the full
+physical domain additionally requires monotonicity of \(\ATh\) in \(P\), which
+remains an open analytic item.
 
 The release gate for promoting this row from empirical endpoint comparison to source-only theorem is
 explicit. The packet must contain
@@ -1435,13 +1464,13 @@ Electroweak anchor & \(\AZ=\alpha_{\mathrm{em}}^{-1}(m_Z^2;P)\) & Defined and ca
 Charged spectrum & Eqs.~\eqref{eq:quarkmasses} and \eqref{eq:lepmasses} & Frozen phenomenological continuation; not an OPH-derived mass prediction. \\
 Fermion kernel & Eqs.~\eqref{eq:kernelint} and \eqref{eq:kernelclosed} & Exact one-loop kernel. \\
 Calculated endpoint & \(A_{\mathrm{calc}}=\AZ+\Dcalc\) & Raw no-hadron diagnostic conditional on the supplied charged-spectrum continuation. \\
-Bare-\(\alpha_U\) closure status & \(A_{\alpha_U}^{\mathrm{fp}}\), Eq.~\eqref{eq:barealphaUaddition} & Closure-status diagnostic at the SL-3 pixel; mixed provenance, not a derivation of \(\alpha\). \\
+Bare-\(\alpha_U\) closure status & \(A_{\alpha_U}^{\mathrm{fp}}\), Eq.~\eqref{eq:barealphaUaddition} & Mixed-provenance display packet; the CL-2 closure status is the certified gauge-width fixed point \(137.035660136946577\ldots\); not a derivation of \(\alpha\). \\
 Required hadronic correction & \(\Dhadreq^{\mathrm{fp}}\), Eq.~\eqref{eq:Dempfp} & CODATA/NIST comparison residual attributed to the missing same-scheme hadronic endpoint transport. \\
 Hadronic/scheme residual & \(\Rq=\ATh-A_{\mathrm{calc}}\) & Isolated endpoint contribution. \\
 CODATA/NIST endpoint & \(\ATh=137.035999177(21)\) & Measured endpoint comparison value. \\
 Two-\(P\) provenance & \(P_{\mathrm{root}}\) versus \(\Ppub\) & Source-branch root and measured-endpoint comparison pixel are distinct; \(\Ppub\) inherits CODATA/NIST by definition. \\
 Raw PDG diagnostic & Eq.~\eqref{eq:pdgdiag} & Comparison diagnostic in a different endpoint convention. \\
-Interval theorem & Banach/contraction certificate for full \(G\) & Required for pure source theorem. \\
+Interval theorem & Banach/contraction certificate for full \(G\) & Discharged for the declared numerical map (2026-07-14 certificate, both readout modes); still required for the full source map with the hadronic term. \\
 \bottomrule
 \end{longtable}
 
@@ -1453,8 +1482,10 @@ The pure source calculation computes the root witness
 \[
 \alphainv_{\mathrm{root}}
 =
-\decnum{136.994835164621649457949994585787193262029}.
+\decnum{136.994835177412937295289429464436902857561206151035393184502},
 \]
+the interval-certified unique fixed point of the declared source map
+(enclosure width \(7.2\times10^{-24}\), certificate of 2026-07-14).
 The CODATA/NIST measured endpoint value is
 \[
 \alphainv(0)=137.035999177(21),
@@ -1468,6 +1499,12 @@ CODATA-derived comparison pixel gives the mixed-provenance no-hadron diagnostic
 \[
 A_{\alpha_U}^{\mathrm{fp}}=137.035959500817279952949994585787\ldots.
 \]
+That printed value combines the superseded unconverged root tail with \(\alpha_U(\Ppub)\); it is a
+display packet (inner value at \(P_{\mathrm{fwd}}\) plus \(\alpha_U\) at the SL-3 pixel), not a
+fixed point of any single declared map, and it stays on record as a display packet only. The
+certified self-consistent gauge-width fixed point is
+\(\alpha^{-1}=137.035660136946577\ldots\), \(2.5\times10^{-6}\) below the measured value, about
+\(1.6\times10^{4}\) measurement sigma (row CL-2).
 The remaining gap is CODATA-minus-diagnostic bookkeeping, not an emitted low-energy hadronic
 calculation. The pure source theorem requires the Ward-projected hadronic spectral measure, the
 same-scheme bridge, and the interval-certificate step.

@@ -123,6 +123,21 @@ These rows are retained in audit surfaces but are not numeric predictions.
 - Small missing payload: `oph_qcd_ward_projected_hadronic_spectral_measure`
 - Empirical payload policy: `schema_and_source_registry_present_without_integrated_dataset`
 
+Supersession note (2026-07-14): the rows above record the run artifact
+`runs/status/final_end_to_end_predictions.json`, which predates the converged
+precision-100 reruns. CL-6 is closed by those reruns: the certified source
+root is `alpha^-1 = 136.994835177413...` with
+`P_fwd = 1.630972095858897...`, superseding the recorded
+`136.994835164...` and `1.630972095694...` tails beyond digits 9 and ~10. The
+recorded `137.0359595008...` value is a mixed-provenance display packet (the
+inner value evaluated at `P_fwd` plus `alpha_U` evaluated at the SL-3 pixel);
+it is not a fixed point of any single declared map and stays on record as a
+display packet only. The certified self-consistent gauge-width fixed point is
+`alpha^-1 = 137.035660136946577...`, and the CL-2 residual against measured
+`137.035999177(21)` is `2.5e-6` relative (about `1.6e4` measurement sigma),
+superseding the recorded `2.895...e-7` shortfall, which described the display
+packet (`../../CLOSURE_LEDGER.md`, rows CL-2 and CL-6).
+
 ## Hierarchy And Naturality
 
 - Resonance label: `closed_full_local_global_hierarchy_resonance`

@@ -1,0 +1,26 @@
+{
+  "artifact": "frozen_target",
+  "id": "hadronic_closure_target_2026-07-14",
+  "frozen_utc": "2026-07-14",
+  "purpose": "Blind target for the Ward-projected hadronic transport computation (fix items A-05 / SLP-03). The payload computation MUST NOT read this file, CODATA alpha, the SL-3 pixel estimate, or any quantity downstream of them; blindness is enforced by the dependency-cone audit (V-08). Comparison happens once, publicly, after the payload is emitted.",
+  "closure_rows": ["CL-1", "CL-2"],
+  "evaluation_point": {
+    "description": "Public endpoint pixel (SL-3 estimate from CODATA alpha)",
+    "P": "1.630968209403959324879279847782648941",
+    "a0_P": "128.307965473286248209961108741756716187",
+    "Delta_required_P": "8.728033703713751790038891258243283813"
+  },
+  "required_values": {
+    "Delta_source_residual_inverse_alpha_units": "0.041465861005223389053448715357314044",
+    "S_required_ward_projected_quark_screening": "0.895400132647658797805800283181670641",
+    "c_Q_in_S_equals_1_minus_x_plus_cQ_x2": "0.658025759927155435638230170232360050",
+    "note_display_packet": "The ledger display packet 0.041164012378350542050005414212806737971 is the CODATA-minus-model difference on the default display chain; it is a distinct coordinate from Delta_source_residual at the endpoint package. Both are recorded here so neither can be retro-fitted."
+  },
+  "pass_criterion": "The blind payload's emitted Delta_source (or equivalently S at the declared x) lands inside the interval implied by CODATA alpha uncertainty (2.1e-8 on alpha_inv) propagated through the declared chain. Landing outside falsifies the SL-2/SL-3 closure as formulated.",
+  "declared_outcomes": {
+    "pass": "CL-1/CL-2 close; alpha row moves to the compression scorecard outputs column; stage-4 sharpened digits are registered in the prediction registry.",
+    "fail": "SL-2/SL-3 as formulated are recorded as falsified in the closure ledger; axiom revision, if any, is a new frozen registration."
+  },
+  "provenance": "Values transcribed from reverse-engineering-reality/code/P_derivation/README.md (Full derivation claim boundary; Hierarchy certificate handoff) as of 2026-07-14, prior to any payload construction.",
+  "external_timestamp": "PENDING - commit this file, then timestamp the commit hash externally (e.g., OpenTimestamps) before payload work begins"
+}

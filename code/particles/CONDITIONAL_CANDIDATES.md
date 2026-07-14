@@ -43,3 +43,12 @@ Higgs/top ratio shares the declared-surface split pair.
 | --- | ---: | --- | --- | --- |
 | `alpha_inv_no_hadron_near_endpoint` | `137.035959500817279952949994585787193262029` | `deterministic_pixel_root_plus_unified_width_term` | `source_spectral_endpoint, same_scheme_hadronic_remainder, full_interval_source_certificate` | `code/particles/runs/status/final_end_to_end_predictions.json` |
 | `v_over_E_star` | `2.0199803239725553e-17` | `closed_form_hierarchy_law_on_public_endpoint_packet` | `e_star_physical_normalization, clock_scale_certificate, frozen_running_threshold_convention` | `code/particles/hierarchy/computations/hierarchy_numeric_witness.json` |
+
+Supersession note (2026-07-14): the recorded
+`alpha_inv_no_hadron_near_endpoint` value is a mixed-provenance display packet
+(the inner value evaluated at `P_fwd` plus `alpha_U` evaluated at the SL-3
+pixel) from a run that predates the converged precision-100 reruns; it is not
+a fixed point of any single declared map and stays on record as a display
+packet only. The certified self-consistent gauge-width fixed point is
+`alpha^-1 = 137.035660136946577...`, and the certified source root is
+`alpha^-1 = 136.994835177413...` (CL-2/CL-6 in `../../CLOSURE_LEDGER.md`).

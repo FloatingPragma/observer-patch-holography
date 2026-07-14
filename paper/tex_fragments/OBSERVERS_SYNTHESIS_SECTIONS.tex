@@ -816,8 +816,9 @@ F_r(N)=
 The refinement-limit map \(F\) is the cofinal limit of this finite readback construction when that
 limit exists on the admissible capacity interval. The map \(F\) is not yet constructed; its
 construction and execution is closure row CL-7 of \texttt{CLOSURE\_LEDGER.md}. The capacity value
-used below is the SL-4 estimate from measured \(\Lambda\) and the scale bridge, and it enters as
-an input.
+used below is the working value located from measured \(\Lambda\) and the scale bridge under
+SL-4, pending exact closure, and it enters as
+an input at the working layer; the theory layer takes no measured number.
 
 The uniqueness argument is the direct global analogue of the local \(P\)-fixed-point argument. It
 is conditional on a constructed readback map with the stated contraction property; no such
@@ -917,8 +918,9 @@ N_{\mathrm{CRC}}=N_\star=N_{\mathrm{obs}},
 \qquad
 \Lambda_{\mathrm{CRC}}=\frac{3\pi}{G N_{\mathrm{CRC}}}.
 \]
-The last equality is the scale-certified display. Under SL-4 this value is the estimate of
-\(N_{\mathrm{CRC}}\) from measured \(\Lambda\) and the scale bridge, and it enters as an input.
+The last equality is the scale-certified display. Under SL-4 this value is the working value of
+\(N_{\mathrm{CRC}}\) located from measured \(\Lambda\) and the scale bridge, pending exact
+closure, and it enters as an input at the working layer.
 A readback fixed-point certificate would make it the unique stable capacity of the self-reading
 solution we inhabit; that certificate awaits the construction and execution of \(F\) (closure row
 CL-7). Informally, \(N_{\mathrm{CRC}}\)
@@ -1024,14 +1026,22 @@ consistency condition. On the measured-endpoint comparison branch, the root is
 P_C\simeq1.6309682094,\qquad
 \alpha^{-1}(0)=137.035999177(21).
 \]
-This coordinate is the SL-3 estimate of the pixel ratio: under SL-3 the measured endpoint
-estimates \(P\), and the measurement is an input at every surface. The source solve's root is the
+This coordinate is the working value of the pixel ratio: under SL-3 the measured endpoint
+locates \(P\) while exact closure is pending, and the measurement is an input at every surface
+where it appears; the theory layer takes no measured number. The source solve's root is the
 forward-model closure point, and the difference between the two is the loop residual, carried as
 rows CL-1 and CL-2 of \texttt{CLOSURE\_LEDGER.md}: \(3.0\times10^{-4}\) relative on the source
-chain and \(2.9\times10^{-7}\) on the mixed-provenance branch. Four distinct numbers describe the
-audit. The source/root witness is \(136.9948351646\ldots\); the mixed-provenance no-hadron
-diagnostic is \(137.0359595008\ldots\); the external-data empirical closure is
-\(136.2636589431\) on \([136.1583832834,136.3690975240]\); and the measured endpoint is
+chain (CL-1) and \(2.5\times10^{-6}\) relative (about \(1.6\times10^{4}\) measurement sigma)
+for the certified self-consistent gauge-width fixed point
+\(\alpha^{-1}=137.035660136946577\ldots\) (CL-2). The previously stated \(2.9\times10^{-7}\)
+described the mixed-provenance display packet and is superseded. Four distinct numbers describe the
+audit. The source/root witness is \(136.9948351646\ldots\); a converged precision-100 rerun
+supersedes this printed tail beyond digit 9, and the certified value is
+\(136.994835177413\ldots\) (CL-6, closed 2026-07-14). The mixed-provenance no-hadron
+diagnostic is \(137.0359595008\ldots\); it mixes the inner value at \(P_{\mathrm{fwd}}\) with
+\(\alpha_U\) at the SL-3 pixel and stays on record as a display packet only. The
+external-data empirical closure is
+\(136.2636589431\) on \([136.1583832834,136.3690975240]\), and the measured endpoint is
 \(137.035999177(21)\). The empirical interval requires a same-scheme correction in
 \([0.6485541111,0.8547920666]\) inverse-alpha units. A zero-momentum laboratory measurement sees
 the dressed \(\U(1)_Q\) current after charged-lepton vacuum polarization, confined-quark/hadron

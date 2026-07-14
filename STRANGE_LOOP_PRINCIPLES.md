@@ -25,26 +25,40 @@ principle set through the closure ledger, never through restatement.
 - **SL-2 (Detuning law).** The pixel ratio sits off the golden-ratio balance point by the
   Gaussian-normalized width of one electromagnetic observation: P = φ + √π·α. A screen at
   exact balance carries no events; the detuning is the condition for records.
-- **SL-3 (Constant identification).** Under self-simulation, the fine-structure constant
-  inside the simulated world and the substrate pixel readout are one quantity. Measured α
-  therefore estimates P. This is parameter estimation of the substrate.
-- **SL-4 (Capacity identification).** The total record capacity N is one number shared by
-  substrate and world. Measured Λ with the scale bridge estimates it.
+- **SL-3 (Constant identity).** Under self-simulation, the fine-structure constant inside
+  the simulated world and the substrate pixel readout are one quantity. The theory
+  computes P from its closure equation; the measured α is the test that computed value
+  faces.
+- **SL-4 (Capacity identity).** The total record capacity N is one number shared by
+  substrate and world. The theory computes N from the self-representation closure
+  N = F(N); the Λ readout is the test that computed value faces.
 - **SL-5 (SI bridge).** One clock anchor (the cesium transition) connects substrate units
   to laboratory units.
 
-## Estimated values
+## The three layers
 
-- P = 1.630968209403959… — the SL-3 estimate from CODATA α⁻¹ = 137.035999177(21).
-  Basin half-width in P: √π·σ_α/α² ≈ 2.0×10⁻¹².
-- N = 3.31×10¹²² — the SL-4 estimate from measured Λ and the scale bridge.
+- **Theory layer.** The pure self-simulation consistency theory. Zero quantitative
+  inputs: no measured number appears in any defining equation. P solves
+  P = φ + √π/A_T(P), interval-certified to exist and be unique on its interval. N solves
+  N = F(N) (F specified, construction open, CL-7). Discrete structural selections are
+  declared separately with their menu sizes; none is a continuous quantity.
+- **Test layer.** Measured values live here only, as the comparisons the forced outputs
+  face. A comparison never feeds back into a defining equation; the dependency-cone audit
+  and the frozen blind targets enforce this in public.
+- **Working layer.** Lanes whose closure terms are open borrow located values while they
+  wait: the working pixel P = 1.630968209403959… located from CODATA
+  α⁻¹ = 137.035999177(21) (basin half-width in P: √π·σ_α/α² ≈ 2.0×10⁻¹²), the working
+  capacity N = 3.31×10¹²² located from the Λ readout, and the calibration lanes the
+  scorecard lists. Every borrow is tied to a named generator in
+  [CONSISTENCY_STACK.md](CONSISTENCY_STACK.md); a generator that lands retires its borrow.
 
-Both are inputs. Neither α nor Λ nor G appears on any OPH output list.
+Working-layer borrows are inputs wherever they sit on a dependency path, and the
+scorecard counts them. The theory layer takes no measured number at all.
 
 ## Claim rules
 
 1. **Direction of inference.** A measured value used to locate a basin is an input at
-   every surface, permanently. Retrodictions are basin locations, not hits.
+   every surface, permanently. Retrodictions are basin locations; they are never hits.
 2. **Exact closure.** SLH requires the closure equations to hold exactly. Every closure
    residual is a measurement of the principle set and appears in
    [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) with its size in relative units and in

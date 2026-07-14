@@ -339,7 +339,7 @@ support; its X/Y mixed gauge channels are absent from the OPH product branch.
 
 The compact bridge gives an electroweak capacity near
 $3.53\times10^{122}$ on the public endpoint branch, while the capacity
-estimated from the measured cosmological constant is $3.31\times10^{122}$. The
+located from the measured cosmological constant is $3.31\times10^{122}$. The
 capacity axiom admits a single capacity, so the 6.8 percent gap between the
 two readings is an open closure row (CL-3 in the closure ledger), carried as a
 live tension rather than resolved by naming the two values differently. The
@@ -354,7 +354,7 @@ local/global bridge.
 
 At the formal level, the bridge value is also a fixed point in log-capacity
 coordinates. The physical point stands as stated above: one capacity is
-required, and the gap between the bridge reading and the $\Lambda$-estimated
+required, and the gap between the bridge reading and the $\Lambda$-located
 reading remains open.
 
 The readback side has a matching finite statement. At a finite cutoff, the
@@ -411,15 +411,18 @@ One cell on the screen is then being described twice. From one side it is a
 pixel of the horizon. From the other it is the smallest electromagnetic step
 available to observers inside the encoded world.
 
-The headline is compact: OPH runs on two settings estimated from measurement,
-one bridge, and a declared architecture. Measured $\alpha$ estimates the pixel
-ratio $P_\star$, measured $\Lambda$ with the scale bridge estimates the
-capacity $N_{\mathrm{CRC}}$, and one clock anchor connects substrate units to
+The headline is compact: zero dials, zero quantitative inputs at the theory
+layer, working borrows counted in the scorecard, one bridge, and a declared
+architecture. The theory defines the pixel ratio $P_\star$ and the capacity
+$N_{\mathrm{CRC}}$ by closure equations. While those closures stay open,
+measured $\alpha$ locates the working value of $P_\star$, measured $\Lambda$
+with the scale bridge locates the working value of $N_{\mathrm{CRC}}$, and
+one clock anchor connects substrate units to
 laboratory units. The rest of the quantitative stack follows from those two
-settings together with the recovered relativity, gauge, matter, and
+working values together with the recovered relativity, gauge, matter, and
 observer-record structure, and the program's standing is measured by the
-compression scorecard: how many independent quantities the settings land
-against the number of settings spent.
+compression scorecard: how many independent quantities the chains land
+against the borrows spent.
 
 In the book's simulation-theory language, $P$ links the pixel area of the
 simulating-side screen to the electromagnetic interaction, or observation,
@@ -595,29 +598,31 @@ and the declared detuning law leaves exactly one local number.
 
 Self-simulation then turns on those two survivors. The fine-structure constant
 measured inside the world and the pixel readout of the substrate are one
-quantity; the record capacity is one number shared by substrate and world. The
-two remaining freedoms become estimates, read from measurement.
+quantity; the record capacity is one number shared by substrate and world.
 
-Two equations land on the two dials. The world has to read back its own
-capacity without deficit or slack. And the detuning law, run through the full
-forward chain, has to return the pixel it started from. One clock, the cesium
-transition, ties substrate units to laboratory units, so no unit convention
-can carry physics.
+Two equations land on the two survivors, so neither is a dial anyone can
+turn. The world has to read back its own capacity without deficit or slack.
+And the detuning law, run through the full forward chain, has to return the
+pixel it started from. While those equations stay open, the working chains
+borrow values located from measurement, and the scorecard counts each borrow.
+One clock, the cesium transition, ties substrate units to laboratory units,
+so no unit convention can carry physics.
 
 That is the ceiling of the book in one count: ten requirements, each removing
-a freedom; two dials remaining; two equations on those dials; a unique
+a freedom; two constants remaining; two equations on those constants; a unique
 universe if the equations close. Neither equation is closed today. The
 capacity readback stands as a live 6.8 percent tension, and the forward chain
 still lands outside its basin by the missing hadronic piece.
 
-What stands between here and a closed case is finite and named: four
+What stands between here and a closed case is finite and named: three
 computations and one selector. The hadronic transport term. The capacity
 readback map with its contraction certificate. The repaired forward
-electroweak chain. The matched printed pair at certified precision. And a rule
-that tells the quark generations apart. None of them is a matter of
-interpretation; each is a computation or a construction. The first is already
-frozen as a blind target, externally timestamped, and the calculation has to
-land on it without reading it.
+electroweak chain. And a rule that tells the quark generations apart. A fifth
+item, the matched printed pair, closed in July 2026 when converged reruns
+carried the identity past thirty-five digits. None of the open items is a
+matter of interpretation; each is a computation or a construction. The first
+is already frozen as a blind target, externally timestamped, and the
+calculation has to land on it without reading it.
 
 ## 18.12 Final Synthesis
 

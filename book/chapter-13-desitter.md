@@ -240,9 +240,10 @@ $$N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}),\qquad
 
 With that fixed point and scale bridge, the observed $\Lambda$ is the way
 the world announces its total screen capacity in SI units. The direction of
-inference runs from measurement to setting: the measured $\Lambda$, through
-the scale bridge, estimates the capacity $N_{\mathrm{CRC}}$, and that estimate
-enters the program as an input rather than one of its outputs. The
+inference runs from measurement to working value: the measured $\Lambda$,
+through the scale bridge, locates the working capacity $N_{\mathrm{CRC}}$,
+and that located value enters the program as an input, never as one of its
+outputs. The
 dimensionless capacity relation is the global size parameter carried by every
 consistent patch.
 

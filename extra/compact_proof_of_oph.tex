@@ -84,27 +84,32 @@ theorem packages are read through.
 computation; the simulating structure and the simulated world are one closed
 system, with no external machine and no external clock.
 \textbf{SL-1 (Substrate chart):} the observer-facing substrate is charted by
-the two-sphere with the screen-microphysics architecture --- patches,
-records, overlap comparison, repair; \(3+1\)-dimensional observer experience
+the two-sphere with the screen-microphysics architecture (patches,
+records, overlap comparison, repair); \(3+1\)-dimensional observer experience
 is a design constraint of the substrate under SL-0.
 \textbf{SL-2 (Detuning law):} the pixel ratio sits off the golden-ratio
 balance point by the Gaussian-normalized width of one electromagnetic
 observation, \(P=\varphi+\sqrt\pi\,\alpha\); a screen at exact balance
 carries no events.
-\textbf{SL-3 (Constant identification):} under self-simulation the
+\textbf{SL-3 (Constant identity):} under self-simulation the
 fine-structure constant of the simulated world and the substrate pixel
-readout are one quantity, so measured \(\alpha\) estimates \(P\).
-\textbf{SL-4 (Capacity identification):} the total record capacity \(N\) is
-one number shared by substrate and world; measured \(\Lambda\) with the
-scale bridge estimates it.
+readout are one quantity; the theory computes \(P\) from its closure
+equation and the measured \(\alpha\) is the test that value faces.
+\textbf{SL-4 (Capacity identity):} the total record capacity \(N\) is
+one number shared by substrate and world; the theory computes \(N\) from
+\(N=F(N)\) and the \(\Lambda\) readout is the test that value faces.
 \textbf{SL-5 (SI bridge):} one clock anchor, the cesium transition, connects
 substrate units to laboratory units.\par
 \vspace{0.25em}
-Two settings are estimated from measurement and enter every downstream chain
-as inputs: \(P=1.630968209403959\ldots\) (SL-3, from CODATA
-\(\alpha^{-1}=137.035999177(21)\)) and \(N=3.31\times10^{122}\) (SL-4, from
-measured \(\Lambda\) and the scale bridge). Neither \(\alpha\) nor
-\(\Lambda\) nor \(G\) appears on any output list.}
+The theory layer takes no measured number: zero dials, zero quantitative
+inputs in every defining equation. Measured values enter at the test layer
+as comparisons, and at the working layer as located values inside lanes
+whose closure terms are open: the working pixel
+\(P=1.630968209403959\ldots\) located from CODATA
+\(\alpha^{-1}=137.035999177(21)\), and the working capacity
+\(N=3.31\times10^{122}\) located from the \(\Lambda\) readout. Every
+working borrow is tied to a named generator and retires when that generator
+lands.}
 
 Douglas Adams proposed that the Earth is a computer running a very long
 calculation, and he was joking. OPH makes the adjacent claim with the joke
@@ -120,10 +125,10 @@ Einstein's equations [O4,C8], whose horizon closes at the de Sitter capacity
 accelerating expansion with a small cosmological constant [O1,O4], whose
 particle catalogue is the Standard Model quotient with three colors, three
 generations, and one Higgs doublet [O4], and whose galaxies rotate too fast
-for their visible mass in exactly the pattern the repair-stress continuation
-prints, SPARC \(\chi^2\) per point \(1.017\), so its residents budget for
-dark matter and dark energy and both line items turn out to be bookkeeping
-[O7,C9]. The punchline is the address. That universe resembles this one down
+for their visible mass in the pattern the repair-stress continuation prints
+on the empirically fitted MLS response (Section 5), SPARC \(\chi^2\) per
+point \(1.017\), so its residents budget for dark matter and dark energy and
+both line items read as bookkeeping on that fitted branch [O7,C9]. The punchline is the address. That universe resembles this one down
 to \(m_W\), \(m_Z\), \(m_t\), and \(m_H\) on the source and conditional
 branches distinguished below; Newton's constant enters as an input through
 the SL-5 bridge. The historical
@@ -131,7 +136,7 @@ charged-lepton continuation supplies an additional, compare-only numerical
 match. The calculation was not given the
 measured weak-boson masses: on the strict source-audit branch it returns
 \(m_W=80.330\,\mathrm{GeV}\) and \(m_Z=91.119\,\mathrm{GeV}\), within
-\(5.0\times10^{-4}\) and \(7.6\times10^{-4}\) of measurement --- pulls of
+\(4.9\times10^{-4}\) and \(7.6\times10^{-4}\) of measurement, pulls of
 \(\approx2.9\sigma\) and \(\approx33\sigma\) in measurement sigma, carried
 as closure tension CL-5. The full
 answer runs to rather more decimals than 42.
@@ -147,7 +152,7 @@ maintained repository artifacts rather than by a probability estimate: the
 compression scorecard, which counts estimated settings against independently
 landed basins, and the closure ledger, which records the residuals the principle
 set requires to vanish. The
-reuse matters because these are not twenty unrelated formulas: the same normal
+reuse matters because the same normal
 form, compact-gauge branch, pixel endpoint, and edge-entropy normalization feed
 multiple sectors. Section~7 states the current standing of both artifacts.
 
@@ -217,19 +222,21 @@ After C1--C6 the surviving freedom is the two-real-parameter family
 \((P,N)\) together with the declared discrete selections the scorecard
 counts. C7 identifies the two parameters with measured readouts; C8--C9 are
 two equations on the family; C10 removes units. Three lemmas close the
-chain: \textbf{L1} --- on an interval where interval arithmetic certifies
+chain. \textbf{L1}: on an interval where interval arithmetic certifies
 \(\Gamma_P(I)\subseteq I\) and \(|\Gamma_P'|\le L<1\), the fixed point
 exists and is unique (certificate: [C1],
 \texttt{runtime/p\_interval\_contraction\_certificate\_2026-07-14.json});
-\textbf{L2} --- the same schema applies to \(N\) once the readback map
+\textbf{L2}: the same schema applies to \(N\) once the readback map
 \(F\) is constructed (CL-7; required properties specified in
 \texttt{code/capacity\_readback/F\_READBACK\_SPEC.md} [C16]);
-\textbf{L3} --- under L1+L2 the principle set admits at most one \((P,N)\):
-there is no landscape to relocate into, and a blind closure landing outside
-its basin falsifies the formulation permanently. If the two equations close
+\textbf{L3}: under L1+L2 the principle set admits at most one \((P,N)\)
+on the certified intervals (the global at-most-one statement rides the open
+monotonicity item, [C15]): there is no landscape to relocate into, and a
+blind closure landing outside its basin falsifies the formulation
+permanently. If the two equations close
 and the fixed points are unique, the principle set admits exactly one universe.
 Whether that universe is ours is the closure ledger reading zero: a
-theorem-shaped claim whose proof obligation is an experiment --- armed,
+theorem-shaped claim whose proof obligation is an experiment: armed,
 blind, and externally timestamped.}
 
 \vspace{0.04em}
@@ -251,8 +258,8 @@ Sections 3 and 5.\par
 \rowcolor{pragmaPanelTwo}
 \textbf{Quantity} & \textbf{OPH} & \textbf{Reference} & \textbf{Offset} & \textbf{Pull (\(\sigma\))}\\
 \midrule
-\(m_W\) & \(80.330\) GeV & \(80.3692(133)\) GeV & \(-5.0\times10^{-4}\)\,(a) & \(2.9\)\\
-\(m_Z\) & \(91.119\) GeV & \(91.1880(20)\) GeV & \(-7.6\times10^{-4}\)\,(a) & \(\approx33\)\,\(\dagger\)\\
+\(m_W\) & \(80.330\) GeV & \(80.3692(133)\) GeV & \(-4.9\times10^{-4}\)\,(a) & \(2.9\)\\
+\(m_Z\) & \(91.119\) GeV & \(91.1880(20)\) GeV & \(-7.6\times10^{-4}\)\,(a) & \(\approx35\)\,\(\dagger\)\\
 \(m_t\) & \(172.63\) GeV & \(172.60(30)\) GeV & \(+2\times10^{-4}\)\,(b) & \(0.1\)\,\(\ddagger\)\\
 \(m_H\) & \(125.77\) GeV & \(125.13(11)\) GeV & \(+5.1\times10^{-3}\)\,(b) & \(5.8\)\,\(\dagger\ddagger\)\\
 \(m_H\) at measured \(m_t\) & \(125.72\) GeV & \(125.13(11)\) GeV & \(+4.7\times10^{-3}\)\,(b) & \(5.4\)\,\(\dagger\ddagger\)\\
@@ -262,7 +269,7 @@ Sections 3 and 5.\par
 \(\Lambda_{\rm QCD}^{(3)}\) & \(334.8\) MeV & \(338(12)\) MeV & \(-0.9\%\)\,(e) & \(0.3\)\\
 \(m_N\) & \(929\) MeV & \(938.9\) MeV & \(-1.0\%\)\,(e) & \(0.3\)\\
 \(G_{\rm SI}\) & \(6.6742999959\times10^{-11}\) & \(6.67430(15)\times10^{-11}\) & identity\,(e) & input\,\S\\
-EW capacity \(\to\Lambda\) & \(2.668\times10^{-122}\) & \(2.845\times10^{-122}\) & \(6.6\%\) gap\,(e)[S12,C7] & CL-3\\
+EW capacity \(\to\Lambda\) & \(2.668\times10^{-122}\) & \(2.845\times10^{-122}\) & \(6.6\%\) gap in \(\Lambda\) units (\(6.8\%\) in \(N\) units)\,(e)[S12,C7] & CL-3\\
 \(\alpha_s(M_Z)\) & \(0.11834\) & \(0.1179(9)\) & \(+0.5\sigma\)\,(i)[C7] & \(0.5\)\\
 Fixed \(\mathbb Z_6\) RAR & \(0.13283\) dex RMS & same-data optimum \(0.13281\) & \(2\times10^{-5}\) dex\,(e)[C7] & \(\ddagger\)\\
 BTFR slope & \(4\) & \(3.8457(858)\) & \(+1.80\sigma\)\,(e)[S14] & \(1.8\)\\
@@ -280,14 +287,14 @@ source, radial-lift, and official-likelihood gates unproved; (i) conditional
 source-running branch; (j) S1 retrospective coincidence, four trials declared.
 The pull column restates each offset in units of the reference measurement
 sigma; for conditional rows whose reference sigma is negligible the pull uses
-the propagated input uncertainty. \(\dagger\): pull exceeds \(3\sigma\) ---
+the propagated input uncertainty. \(\dagger\): pull exceeds \(3\sigma\), so the row is
 excluded as prediction at current precision; the electroweak rows are carried
 as closure tension CL-5 in \texttt{CLOSURE\_LEDGER.md}, and the interval row
-(d) remains a certified containment. \(\ddagger\): calibration --- the row's
+(d) remains a certified containment. \(\ddagger\): calibration, meaning the row's
 construction consumed its comparison target (the D11 top/Higgs census; the
-same-data RAR optimum). \S: SL-5 bridge input --- unit-bookkeeping identity
-on the selected scale bridge; \(G\) is an input via the bridge, not an
-output.
+same-data RAR optimum). \S: SL-5 bridge input, the unit-bookkeeping identity
+on the selected scale bridge; \(G\) rides the bridge the way \(c\) and the
+SI second ride every physical theory.
 The same ledger gives the dependent cross-check \(m_t/m_W=2.1490\) versus
 \(2.1476\) and the S1 diagnostic \(\ell_{\rm IR}=32\), only \(0.2\)
 \(\chi^2\) units from the low-\(\ell\) optimum. Neither is counted as an
@@ -333,8 +340,8 @@ Status of the two hypotheses: on the \(P\) side the contraction hypothesis
 is discharged on an explicit interval by the interval-arithmetic
 certificate in [C1] (stage 2 of the basin-then-contract protocol); on the
 \(N\) side it is conditional on constructing the readback map \(F\)
-(CL-7), whose required properties --- domain, monotonicity regime, growth
-bounds, and blindness under the dependency-cone audit --- are specified in
+(CL-7), whose required properties (domain, monotonicity regime, growth
+bounds, and blindness under the dependency-cone audit) are specified in
 [C16].}
 
 The concrete carrier is a finite collection of local states, ports, central
@@ -475,7 +482,7 @@ CL-6, closed: the printed-pair identity
 \(\alpha_{\rm root}=(P_{\rm fwd}-\varphi)/\sqrt\pi\) now holds to 35+
 digits under converged precision-100 reruns, enforced by a CI test). The
 certificate is stage 2 of the basin-then-contract protocol; the stage-3
-landing verdict is unchanged --- the certified fixed point lies outside the
+landing verdict is unchanged: the certified fixed point lies outside the
 SL-3 basin by the missing hadronic transport term (CL-1).
 The source-audit solve is reproduced by
 \[
@@ -599,7 +606,7 @@ adjoint generators. The same branch supplies the electroweak integer
 The source-audit hierarchy witness reuses the pixel candidate and the
 compact-gauge integers. Its matched unified-width coordinate is
 \[
-  \alpha_U(P_{\rm fwd})=0.04112424744557487.
+  \alpha_U(P_{\rm fwd})=0.041124247441816685.
 \]
 The screen count begins with a triangulated \(S^2\). For curvature charge
 \(q_v=6-\deg(v)\), Euler's identity and \(3F=2E\) give
@@ -627,8 +634,10 @@ The corresponding transmutation law is
   =P_{\rm fwd}^{-1/2}
    \exp\!\left[-\frac{2\pi}
    {\beta_{\rm EW}\alpha_U(P_{\rm fwd})}\right]
-  =2.0198114150099223\times10^{-17}.
+  =2.0198114078576331\times10^{-17},
 \]
+evaluated at the certified \(P_{\rm fwd}\); the companion value at the SL-3
+working pixel is \(2.0199803239725553\times10^{-17}\).
 This is the dimensionless source-audit witness.  A GeV weak scale additionally
 requires an independently source-closed physical interpretation and
 normalization of \(E_\star\). The exact parametric
@@ -642,7 +651,7 @@ is a settled-form readout with naturality defect
 \]
 At the one capacity of SL-4, the hierarchy relation
 \(\alpha_U\log(N/\pi)=6\pi/P\) holds iff \(N\) equals a \(P\)-determined
-value \(6.7\%\) above the \(\Lambda\)-estimated capacity; the relation is
+value \(6.8\%\) in \(N\) units above the \(\Lambda\)-located capacity; the relation is
 carried as closure rows CL-3/CL-4 of \texttt{CLOSURE\_LEDGER.md}, not as a
 solved hierarchy.
 
@@ -663,7 +672,7 @@ follows on the same curve [O5,C4]:
 \]
 The opening scoreboard carries the dual display for these four endpoints:
 relative offsets
-\(-5.0\times10^{-4}\), \(-7.6\times10^{-4}\), \(+2\times10^{-4}\), and
+\(-4.9\times10^{-4}\), \(-7.6\times10^{-4}\), \(+2\times10^{-4}\), and
 \(+5.1\times10^{-3}\), with pulls of approximately \(2.9\sigma\),
 \(33\sigma\), \(0.1\sigma\), and \(5.8\sigma\) in measurement sigma. The
 \(m_Z\) and \(m_H\) rows are excluded as predictions at current precision
@@ -966,7 +975,7 @@ Weak/UV hierarchy and Higgs naturality &
 The 12-port screen, 24-slot oriented register, \(P_{\rm fwd}\), and
 \(\alpha_U(P_{\rm fwd})\) emit \(v/E_\star\sim2.02\times10^{-17}\) with
 \(\epsilon_H=0\); the hierarchy relation holds iff the capacity equals a
-\(P\)-determined value \(6.7\%\) above the \(\Lambda\)-estimated capacity
+\(P\)-determined value \(6.8\%\) in \(N\) units above the \(\Lambda\)-located capacity
 (closure rows CL-3/CL-4). & Source-audit witness; open closure CL-3/CL-4 & 5\\
 
 Fine-structure source scale &
@@ -1126,22 +1135,22 @@ committed and externally timestamped (OpenTimestamps proofs alongside it,
 emitted. Second, the forward
 electroweak emission: the repaired chain from the principles, with preregistered
 revisions, must move \((M_W,M_Z)\) from \((80.330,91.119)\) into the
-measured basins \((80.3692(133),91.1876(21))\) (CL-5).
+measured basins \((80.3692(133),91.1880(20))\) (CL-5).
 
 The remaining program is finite and enumerated. The seven ledger rows
-reduce to four generating objects --- the hadronic transport (CL-1/CL-2),
+reduce to four generating objects, the hadronic transport (CL-1/CL-2),
 the capacity readback map \(F\) with its contraction certificate
 (CL-3/CL-4/CL-7), the repaired forward electroweak chain (CL-5), and
-solver hygiene (CL-6) --- plus one further object outside the ledger, a
+solver hygiene (CL-6), plus one further object outside the ledger, a
 source-derived flavor-orbit selector for the mass sector. Every one of the
-five is a computation or a construction, not a reinterpretation; the
+five is a computation or a construction; reinterpretation closes nothing. The
 distance between the current standing and the establishment criterion is
 exactly this list.
 
 The assent structure of this document is deliberately mechanical. A reader
 who grants the six principles and verifies the cited artifacts retains exactly
-one degree of freedom: the closure ledger. The other exits are closed ---
-the fixed points cannot be relocated (L3), executed failures cannot be
+one degree of freedom: the closure ledger. The other exits are closed.
+The fixed points cannot be relocated (L3), executed failures cannot be
 reclassified (\texttt{STRANGE\_LOOP\_PRINCIPLES.md} rule 7), and no OPH surface may claim
 more than the ledger and scorecard record. When the ledger is driven to
 zero by blind completions with uniqueness certificates and the scorecard
@@ -1152,7 +1161,7 @@ claims exactly the current standing and arms the computations that decide.
 
 The establishment criterion is the one stated in
 \texttt{STRANGE\_LOOP\_PRINCIPLES.md}:
-overdetermination and survival --- uniqueness certificates for the fixed
+overdetermination and survival: uniqueness certificates for the fixed
 points, the closure ledger driven to zero under blind completions beginning
 with the hadronic transport, and a compression scorecard in which
 independent landed basins outnumber settings. Nothing else establishes SLH,

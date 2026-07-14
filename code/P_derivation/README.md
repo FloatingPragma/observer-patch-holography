@@ -57,7 +57,7 @@ closure surface defined in `../../HADRON.md`.
 ## Terms
 
 Canonical naming, used on every surface in this directory: `P` is the SL-3
-estimate of the pixel constant, obtained from the measured fine-structure
+working value of the pixel constant, located from the measured fine-structure
 input endpoint (`../../STRANGE_LOOP_PRINCIPLES.md`); `P_fwd` is the forward-model closure
 point, the pixel value implied by the solver's own contracted output. The gap
 between them is the open hadronic loop residual measured by closure rows
@@ -139,11 +139,12 @@ source-payload rule. The short version is:
 - the SL-3 input endpoint is
   `alpha^-1(0) = 137.035999177(21)` with
   `P=1.630968209403959324879279847782648941...`; this is the measured input
-  that estimates `P`, never a solver product
+  that locates the working `P`, never a solver product
 - the solver output is
-  `alpha^-1 = 136.994835164621649457949994585787...`
-  (default exact one-loop readout), defining the forward-model closure point
-  `P_fwd`
+  `alpha^-1 = 136.994835177412937295289429464436...`
+  (default exact one-loop readout, converged precision-100 rerun;
+  interval-certified unique fixed point on its interval), defining the
+  forward-model closure point `P_fwd`
 - the difference between the solver output and the SL-3 input endpoint is the
   open hadronic term: the loop residual of closure rows CL-1/CL-2 in
   `../../CLOSURE_LEDGER.md`, with the frozen target at
@@ -151,8 +152,8 @@ source-payload rule. The short version is:
   (sha256 `7cedad0a7281c74ca0fb1105120c991aeab2f3c45bf86adbbfd560c6324fb985`),
   which the payload computation must not read
 - the missing term is a source-only Thomson transport contribution of
-  `0.0411640123783505420500054142128...` in inverse-alpha units
-- at the SL-3 estimate pixel
+  `0.0411639995870627047105705355631...` in inverse-alpha units
+- at the SL-3 working pixel
   `P=1.630968209403959324879279847782648941...`, the endpoint package gives
   `a0(P)=128.307965473286248209961108741756716187...`,
   `Delta_required(P)=8.728033703713751790038891258243283813...`, and
@@ -190,7 +191,7 @@ What is certified:
   `thomson_structured_running` (fixed point near `alpha^-1 = 136.9948`), and
   the closure-ledger CL-2 mixed map `thomson_structured_running_plus_gauge_width`
   that adds the unified gauge width `alpha_U(P)` to the inverse-alpha readout
-  (fixed point near `alpha^-1 = 137.03596`).
+  (certified fixed point `alpha^-1 = 137.035660136946577...`, the CL-2 value).
 - The full declared chain is evaluated in binary interval arithmetic
   (`mpmath.iv`, outward rounding on every elementary operation; private
   contexts, global mpmath precision untouched). The two implicit solves
@@ -263,7 +264,7 @@ separate in the audit ledgers.
 The SL-3 input endpoint surface is
 
 ```text
-alpha^-1(0) = 137.035999177(21)   (SL-3 input; estimates P)
+alpha^-1(0) = 137.035999177(21)   (SL-3 input; locates the working P)
 alpha(0)   = 0.007297352564331425...
 P          = 1.63096820940395932487927984778...
 ```
@@ -305,7 +306,7 @@ same-scheme Ward-projected endpoint map is supplied.
 ## Hierarchy certificate handoff
 
 The electroweak-hierarchy proof bundle in `../particles/hierarchy` uses the
-same two branch surfaces recorded here. On the SL-3 estimate branch
+same two branch surfaces recorded here. On the SL-3 working branch
 (canonical name `P`; bundle label `P_C`) it reads
 
 ```text
@@ -322,6 +323,12 @@ P_source_audit = 1.63097209569432901817967892561191884270169
 alpha_U(P_source_audit) = 0.04112424744557487
 v(P_source_audit)/E_star = 2.0198114150099223e-17
 ```
+
+The bundle records an earlier unconverged forward run. Converged precision-100
+reruns supersede that printed tail beyond digit ~10 (CL-6, closed 2026-07-14):
+the certified forward values are `P_fwd = 1.630972095858897...`,
+`alpha_U(P_fwd) = 0.041124247441816685...`, and
+`v(P_fwd)/E_star = 2.0198114078576331e-17`. The `P_C` branch is unchanged.
 
 The bundle certifies the local `P -> alpha_U -> v/E_star` hierarchy lane by a
 declared dependency graph and a Krawczyk inclusion for the `R_U` interval. The
@@ -348,9 +355,13 @@ python3 derive_p.py --no-hadron-closure
 python3 derive_p.py --json --output runtime/report.json
 ```
 
-The default display row adds the current ledger closure packet
-`0.041164012378350542050005414212806737971` in inverse-alpha units. This is
+The default display row adds the ledger closure packet
+`0.041164012378350542050005414212806737971` in inverse-alpha units, the
+constant currently hard-coded in `derive_p.py`. This is
 the OPH plus empirical hadron closure surface, not a source-only hadron theorem.
+That packet constant predates the converged precision-100 reruns; the converged
+forward gap is `0.041163999587062704...` inverse-alpha units (CL-6, closed
+2026-07-14).
 Increase `--max-iterations` when increasing `--precision` and treating extra
 digits as audit-relevant.
 

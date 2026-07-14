@@ -1,0 +1,42 @@
+{
+  "artifact": "frozen_target",
+  "id": "hadronic_closure_target_2026-07-14_v2",
+  "frozen_utc": "2026-07-14",
+  "supersedes": "hadronic_closure_target_2026-07-14",
+  "supersession_reason": "CL-6 converged rerun: the interval contraction certificate reverse-engineering-reality/code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json superseded the unconverged pre-certificate solver tail beyond digit 9, a shift of about 1.3e-8 inverse-alpha units that is about 60 percent of the 2.1e-8 pass-interval width and therefore matters at the verdict boundary, so this version recomputes every target quantity from code on the converged chain.",
+  "v1_sha256": "7cedad0a7281c74ca0fb1105120c991aeab2f3c45bf86adbbfd560c6324fb985",
+  "purpose": "Blind target for the Ward-projected hadronic transport computation (fix items A-05 / SLP-03). The payload computation MUST NOT read this file, v1, CODATA alpha, the SL-3 pixel estimate, or any quantity downstream of them; blindness is enforced by the dependency-cone audit (V-08). Comparison happens once, publicly, after the payload is emitted.",
+  "closure_rows": [
+    "CL-1",
+    "CL-2"
+  ],
+  "payload_work_start_definition": "Payload work starts at the first commit that creates or touches reverse-engineering-reality/code/particles/hadron/ward_projected_payload/ (a directory that does not exist at v2 freeze time; all Ward-projected hadronic spectral payload code, data, and receipts for this target live there). v2 governs any payload whose work starts after v2's external timestamp; a payload whose work started earlier is governed by v1 plus addendum 01.",
+  "evaluation_point": {
+    "description": "Public endpoint pixel (SL-3 estimate from CODATA alpha)",
+    "P": "1.630968209403959324879279847782648941",
+    "a0_P": "128.307965473286248209961108733006439771",
+    "Delta_required_P": "8.728033703713751790038891266993560229"
+  },
+  "required_values": {
+    "Delta_source_residual_inverse_alpha_units": "0.041465861005223389053448723971273398",
+    "S_required_ward_projected_quark_screening": "0.895400132647658797805800284922791290",
+    "c_Q_in_S_equals_1_minus_x_plus_cQ_x2": "0.658025759927155435638230306866081301",
+    "note_display_packet": "The ledger display packet on the converged chain is 0.041163999587062704710570535563097142, the CODATA-minus-model difference 137.035999177 minus the certified converged root 136.994835177412937295289429464436902858 (fixed-point point estimate of runtime/p_interval_contraction_certificate_2026-07-14.json, mode thomson_structured_running; certified alpha_inv enclosure width 7.2e-24). It is a distinct coordinate from Delta_source_residual at the endpoint package. Both are recorded here so neither can be retro-fitted."
+  },
+  "pass_criterion": "The blind payload's emitted Delta_source (or equivalently S at the declared x) lands inside the interval implied by CODATA alpha uncertainty (2.1e-8 on alpha_inv) propagated through the declared chain. Landing outside falsifies the SL-2/SL-3 closure as formulated. The pass_tolerance object makes the interval explicit.",
+  "pass_tolerance": {
+    "definition": "Pass iff |Delta_source_payload - Delta_source_residual_inverse_alpha_units| <= tolerance_half_width_delta_source_units, equivalently |S_payload - S_required_ward_projected_quark_screening| <= tolerance_half_width_S_units.",
+    "closed_form": "sigma_Delta = u * |d Delta_source / d alpha_inv| with Delta_source(A) = A - a0(P(A)) - Delta_implemented(P(A)), P(A) = phi + sqrt(pi)/A, so d Delta_source / d alpha_inv = 1 + (sqrt(pi)/A^2) * d(a0 + Delta_implemented)/dP evaluated at A = 137.035999177, u = 2.1e-8.",
+    "u_codata_alpha_inv": "2.1e-8",
+    "d_delta_source_d_alpha_inv": "1.007330935611",
+    "tolerance_half_width_delta_source_units": "2.115394964782e-8",
+    "tolerance_half_width_S_units": "4.286673538686e-9",
+    "evaluation": "Central difference of the declared chain (paper_math.py, precision 60, su2_cutoff 120, su3_cutoff 90) at alpha_inv = 137.035999177 +/- 2.1e-8. The midpoint of the two endpoint evaluations agrees with Delta_source_residual_inverse_alpha_units through 18 significant digits (difference 2.2e-20, the O(u^2) curvature term). The endpoint bisection resolution bounds the quoted derivative at about 1e-13 relative, so 13 significant digits are quoted. The S tolerance is the Delta_source tolerance divided by Delta_quark_naive(P) = 4.934817045643980414036610777175 (exact one-loop kernel, unscreened quark packet at the evaluation point)."
+  },
+  "declared_outcomes": {
+    "pass": "CL-1/CL-2 close; alpha row moves to the compression scorecard outputs column; stage-4 sharpened digits are registered in the prediction registry.",
+    "fail": "SL-2/SL-3 as formulated are recorded as falsified in the closure ledger; principle revision, if any, is a new frozen registration."
+  },
+  "provenance": "Recomputed from code at precision 100, not transcription: the paper_math.py chain of reverse-engineering-reality/code/P_derivation/ evaluated at P = phi + sqrt(pi)/137.035999177 with PaperMathContext(precision=100, su2_cutoff=120, su3_cutoff=90), reproduced by 'python3 thomson_endpoint_package.py --report runtime/full_p_alpha_report_current.json --precision 100 --su2-cutoff 120 --su3-cutoff 90' (fields codata_mapped_endpoint_packet.d10_source_point.alpha_em_inv_mz and codata_mapped_endpoint_packet.exact_one_loop_package). The precision-100 bisections resolve the inner roots to about 31 significant digits, so the printed 36-decimal digits are fixed by convergence reruns of the identical chain at precision 140 and 160, which agree with the precision-100 run through significant digit 31 or deeper and with each other through all printed digits. v1 values differ starting at significant digits 25 to 29 (at most 1.4e-25 absolute, 8.8e-27 inverse-alpha units on a0_P), consistent with the v1 precision-80 transcription chain and far below the 2.1e-8 CODATA alpha_inv uncertainty floor of the pass criterion.",
+  "external_timestamp": "see adjacent .ots proofs, stamped on commit"
+}
