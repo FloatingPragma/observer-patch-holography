@@ -12,6 +12,7 @@
 \usepackage{xurl}
 \usepackage{microtype}
 \usepackage[numbers,sort&compress]{natbib}
+\input{../paper/release_info}
 
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,
   pdftitle={Machine-Checked Finite Quantum Event Algebras: Born Weights, Lueders Conditioning, Partition Pinching, and the Tsirelson Bound in Lean 4},
@@ -48,10 +49,11 @@ and the Tsirelson Bound in Lean~4}}
 \href{mailto:bernhard@floatingpragma.ai}{\texttt{bernhard@floatingpragma.ai}}}\\
 Pragma Research Inc., Washington, United States\\
 \href{mailto:bernhard@floatingpragma.ai}{\texttt{bernhard@floatingpragma.ai}}}
-\date{}
+\date{\OPHPaperReleaseDate}
 
 \begin{document}
 \maketitle
+\OPHPaperReleaseBanner
 
 \begin{abstract}
 We present a machine-checked development of the elementary theory of finite-dimensional quantum event algebras: events as Hermitian idempotents in the algebra of $n \times n$ complex matrices, states as positive-semidefinite matrices of unit trace, Born weights as the trace pairing, L\"uders conditioning with its repeatability and fixed-point structure, the trace-preserving pinching onto the block-diagonal commutant of a projective partition of unity, the positive expectation functional of a state, and the Tsirelson bound for the CHSH combination. The development comprises 64 lemmas and 8 definitions in Lean~4 over the Mathlib library, with no proof placeholders. An axiom audit embedded in the source and re-executed on every build records the axiom dependencies of each result; no theorem depends on axioms outside Lean and Mathlib's standard classical base \texttt{[propext, Classical.choice, Quot.sound]}, and the core CHSH ring identity is choice-free. Every lemma is tagged as \emph{algebra-only} (provable from the $*$-algebra axioms alone) or \emph{trace-dependent} (passing through the trace pairing), so the boundary between algebraic and probabilistic content is machine-visible. The Tsirelson bound is proved in operator-norm form in an abstract unital C*-setting that assumes neither completeness nor an order structure, then instantiated to finite matrix algebras; it complements the order-form inequality already present in Mathlib and reuses Mathlib's CHSH hypothesis interface for interoperability. We describe the formalization module by module, document the Mathlib gaps and workarounds encountered, and situate the development relative to the existing Lean and Isabelle/HOL formalizations of projective measurements and the CHSH inequality.
