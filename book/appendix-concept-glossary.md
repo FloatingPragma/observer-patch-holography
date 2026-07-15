@@ -315,9 +315,9 @@ that boundary or sector to have a unique consistent extension. In the current
 OPH construction, overlapping repairs are accepted only when they preserve the
 shared boundary data and descend to the same observer-facing result. A digital
 fingerprint can help show that two computed outputs match, but it cannot select
-between two physically distinct consistent endpoints. The standalone paper
-[*Observation-Determined Normal Forms*](../extra/observable_normal_forms.pdf)
-gives the exact cross-source criterion and its quantitative stability version.
+between two physically distinct consistent endpoints. The companion paper
+*Observation-Determined Normal Forms* gives the exact cross-source criterion and
+its quantitative stability version.
 
 **Observer patch.** An observer patch is the finite operational domain
 available to an observer. It has a local algebra, a state, records, and

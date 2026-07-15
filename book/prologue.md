@@ -296,8 +296,8 @@ Chapters 13-17 carry the main physics arc.
 Chapter 18 turns the self-reference of the universe into the forcing of its two
 constants.
 Chapters 19-20 gather the synthesis and metaphysics.
-The appendices provide the slower symbol guide, concept glossary, equation
-walkthroughs, and extended historical interludes.
+The appendices provide the slower symbol guide, concept glossary, and extended
+historical interludes.
 The epilogue turns the picture outward one final time.
 
 ## Begin

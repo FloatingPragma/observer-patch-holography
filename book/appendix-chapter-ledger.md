@@ -101,9 +101,8 @@ The theorem is relative to the fixed initial quotient state. A stronger
 consistent extension in that boundary or sector fiber. The generic equivalence
 between this boundary-identification property and cross-source endpoint
 agreement, together with its Lean bridge to the finite repair architecture, is
-proved in [*Observation-Determined Normal
-Forms*](../extra/observable_normal_forms.pdf). Injectivity of the declared
-physical boundary map on the full consistent quotient remains an
+proved in the companion paper *Observation-Determined Normal Forms*. Injectivity
+of the declared physical boundary map on the full consistent quotient remains an
 application-specific premise.
 
 The five axiom groups are not meant as arbitrary declarations. They bundle
@@ -844,11 +843,8 @@ balance and $\sqrt\pi$ the boundary width. The global one is $N = F(N)$: the
 record capacity $N$ has to equal the capacity the inside observers read back
 through the map $F$. The chapter's claim is that these two equations come
 straight from what self-reading requires, once geometry, signature, dimension,
-the gravity law, and the gauge menu are forced. The formal version
-of that subtraction is the selection chain in
-[CONSISTENCY_STACK.md](../docs/CONSISTENCY_STACK.md), and the strange-loop
-principles it rests on are stated once in
-[STRANGE_LOOP.md](../docs/STRANGE_LOOP.md).
+the gravity law, and the gauge menu are forced. Chapter 18 tells that
+subtraction as a story, and Chapter 19 folds the same chain into the synthesis.
 
 The chapter is careful about status. The uniqueness of $P$ on the declared
 domain is a certified result. The capacity fixed point is conditional on stated
@@ -873,9 +869,9 @@ short because the earlier chapters did the work. It includes finite
 screens, algebras, overlaps, entropy, recovery, holography, entanglement,
 codes, modular time, symmetry, de Sitter capacity, particle structure,
 classical matter, and selection. The selection chain the chapter tells as a
-story has its formal statement in
-[CONSISTENCY_STACK.md](../docs/CONSISTENCY_STACK.md), which lists each requirement,
-the freedom it removes, its mathematical carrier, and its current status. The full proof strategy, two parts, step by step, with every open gap listed, lives in [PROOF_SPINE.md](../docs/PROOF_SPINE.md).
+story lists each requirement, the freedom it removes, its mathematical carrier,
+and its current status. The full proof strategy runs in two parts, step by step,
+with every open gap named.
 
 The symbol guide is mostly referential. The Standard Model
 quotient by $\mathbb Z_6$ says that a shared discrete center is identified
