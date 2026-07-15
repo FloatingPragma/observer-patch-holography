@@ -73,10 +73,10 @@ views are made mutually consistent,
   T(\mathfrak U_{\rm OPH})=\mathfrak U_{\rm OPH}.
 \]
 
-\infobox{The strange-loop principles (repository file \texttt{STRANGE\_LOOP\_PRINCIPLES.md})}{
+\infobox{The strange-loop principles [C17]}{
 Every claim in this document is deduced from six declared strange-loop
-principles, condensed here from the canonical statement in
-\texttt{STRANGE\_LOOP\_PRINCIPLES.md}. The mathematical axiom sets inside the
+principles, condensed here from the canonical statement in the program's
+claim registry [C17]. The mathematical axiom sets inside the
 papers (the five-axiom recovered core, the patch-algebra axioms) are a
 different kind of object; the principles are the physical frame those
 theorem packages are read through.
@@ -223,8 +223,8 @@ S^2\text{ cap geometry}
 The companion papers carry the full theorems and executable receipts.}
 
 \infobox{The selection chain and the uniqueness endgame}{
-The claim lattice has one logical shape, stated in full in repository file
-\texttt{CONSISTENCY\_STACK.md} [C15]: ten consistency requirements
+The claim lattice has one logical shape, stated in full in the consistency
+stack [C15]: ten consistency requirements
 C1--C10 quotient the space of self-consistent worlds. Self-reading forces
 records and repair (C1); overlap consensus forces the public quotient, and
 on the \(S^2\) chart forces signature, dimension, and the Lorentz group
@@ -239,15 +239,14 @@ counts. C7 identifies the two parameters with measured readouts; C8--C9 are
 two equations on the family; C10 removes units. Three lemmas close the
 chain. \textbf{L1}: the pixel closure has exactly one fixed point per readout map
 on the declared physical domain \(\alpha^{-1}\in[100,200]\): existence and
-local uniqueness by interval Banach
-(\texttt{runtime/p\_interval\_contraction\_certificate\_2026-07-14.json}),
+local uniqueness by interval Banach (the stage-2 contraction
+certificate [C1]),
 global at-most-one by certified \(\sup|g'|<1\) on all 256 subdivision
-pieces with zero exceptional set
-(\texttt{runtime/p\_global\_uniqueness\_certificate\_2026-07-14.json})
+pieces with zero exceptional set (the global uniqueness certificate)
 [C1];
 \textbf{L2}: the same schema applies to \(N\) once the readback map
-\(F\) is constructed (CL-7; required properties specified in
-\texttt{code/capacity\_readback/F\_READBACK\_SPEC.md} [C16]);
+\(F\) is constructed (CL-7; required properties given by the readback
+specification [C16]);
 \textbf{L3}: under L1+L2 the principle set admits at most one \((P,N)\);
 for \(P\) this is now a theorem on the declared physical domain, and there
 is no landscape to relocate into: a blind closure landing outside its basin
@@ -286,7 +285,7 @@ record stands between exact and \(7\%\). Machine formalization covers
 the consensus core plus the coupling algebra (98 plus 13 sorry-free Lean
 theorems [C6]); extending it through the physics branches is Part B's open
 formalization program. The complete step-by-step spine with its gap
-register is repository file \texttt{docs/PROOF\_SPINE.md}.
+register is the program's proof spine [C17].
 \textbf{Completion criterion.} Part A closed by a landed identification
 plus Part B closed by discharged gates is the formal proof. This document
 carries the exact distance to each; the coincidence pricing below is
@@ -434,7 +433,7 @@ The pull column restates each offset in units of the reference measurement
 sigma; for conditional rows whose reference sigma is negligible the pull uses
 the propagated input uncertainty. \(\dagger\): pull exceeds \(3\sigma\), so the row is
 excluded as prediction at current precision; the electroweak rows are carried
-as closure tension CL-5 in \texttt{CLOSURE\_LEDGER.md}, and the interval row
+as closure tension CL-5 in the closure ledger [C17], and the interval row
 (d) remains a certified containment. \(\ddagger\): calibration, meaning the row's
 construction consumed its comparison target (the D11 top/Higgs census; the
 same-data RAR optimum). \S: SL-5 bridge input, the unit-bookkeeping identity
@@ -582,7 +581,7 @@ closure point,
 \]
 the current forward-model closure point. Their difference,
 \(P_{\rm fwd}-P\approx3.89\times10^{-6}\), is the loop residual, carried as
-closure rows CL-1/CL-2 of \texttt{CLOSURE\_LEDGER.md}.
+closure rows CL-1/CL-2 of the closure ledger [C17].
 A trial pixel \(P_k\) produces a field-width readback \(R_P(P_k)\), which the
 pixel chart turns into the next iterate:
 \[
@@ -612,8 +611,7 @@ identifies the geometric and internal readings; its current solution is
 \end{aligned}
 \]
 The root is no longer a witness: the interval contraction certificate
-[C1] (\texttt{runtime/p\_interval\_contraction\_certificate\_2026-07-14.json})
-proves by direct Banach in outward-rounded interval arithmetic that the
+[C1] proves by direct Banach in outward-rounded interval arithmetic that the
 declared map is a contraction (\(L\le0.0724\)) on an explicit alpha
 interval containing exactly one fixed point,
 \[
@@ -629,10 +627,9 @@ digits under converged precision-100 reruns, enforced by a CI test). The
 certificate is stage 2 of the basin-then-contract protocol; the stage-3
 landing verdict is unchanged: the certified fixed point lies outside the
 SL-3 basin by the missing hadronic transport term (CL-1).
-The source-audit solve is reproduced by
-\[
-\texttt{cd code/P\_derivation \&\& python3 derive\_p.py -{}-no-hadron-closure}.
-\]
+The source-audit solve is reproduced by the solver's no-hadron-closure
+mode in the code release [C1].
+
 The fine-structure audit has four distinct coordinates, each a
 closure-status reading and none a derivation of \(\alpha\). The certified
 source root is \(136.994835177413\ldots\) (CL-1); the certified
@@ -692,7 +689,7 @@ electroweak-refined capacity bridge
 returns \(N_{\rm CRC}^{\rm EW}=3.5324\times10^{122}\), while the SL-4
 estimate from measured \(\Lambda\) at Planck parameters is approximately
 \(3.313\times10^{122}\): an open \(6.6\%\) contradiction, carried as closure
-row CL-3 of \texttt{CLOSURE\_LEDGER.md} [C3]. The contradiction stands until
+row CL-3 of the closure ledger [C17][C3]. The contradiction stands until
 the EW-bridge/capacity connection is derived or the row is retired; no
 second capacity enters the claim lattice, and a physical claim must
 propagate the cosmological posterior and the endpoint-selection provenance.
@@ -797,7 +794,7 @@ is a settled-form readout with naturality defect
 At the one capacity of SL-4, the hierarchy relation
 \(\alpha_U\log(N/\pi)=6\pi/P\) holds iff \(N\) equals a \(P\)-determined
 value \(6.6\%\) in \(N\) units above the \(\Lambda\)-located capacity; the relation is
-carried as closure rows CL-3/CL-4 of \texttt{CLOSURE\_LEDGER.md}, not as a
+carried as closure rows CL-3/CL-4 of the closure ledger [C17], never as a
 solved hierarchy.
 
 \vspace{0.14em}
@@ -1245,9 +1242,9 @@ standing fork moves to domains beyond the declared one.\\
 The evidential standing of the claim lattice is carried by two maintained
 repository artifacts, cited here in place of any probability estimate.
 
-\infobox{Compression scorecard (repository file \texttt{COMPRESSION\_SCORECARD.md})}{
+\infobox{Compression scorecard [C17]}{
 The metric is \(M-K\): independent landed basins \(M\) against settings
-\(K\), counted under the claim rules of \texttt{STRANGE\_LOOP\_PRINCIPLES.md}. The input side
+\(K\), counted under the claim rules of the strange-loop principles [C17]. The input side
 carries the three continuous settings (\(P\) from measured \(\alpha\),
 \(N\) from measured \(\Lambda\), the cesium SI bridge \(\gamma_\star\)), the
 basin-locating measurements consumed by current chains, and the discrete
@@ -1260,7 +1257,7 @@ deeply negative. Rows counted as inputs include \(\alpha\), \(\Lambda\), and
 (consumed their targets), and the RAR function (fitted to the comparison
 data).}
 
-The closure ledger (repository file \texttt{CLOSURE\_LEDGER.md}) records the
+The closure ledger [C17] records the
 equations the principle set requires to hold exactly, with residuals in relative
 units and in measurement sigma: the open pixel-loop term (CL-1/CL-2), the
 one-capacity contradiction (CL-3/CL-4), the forward electroweak residuals
@@ -1270,8 +1267,8 @@ hypothesis. A row closes only by a blind computation landing inside the
 stated basin with a contraction certificate, never by relabeling.
 
 Two experiments are decisive. First, the blind Ward-projected hadronic
-transport against the frozen target in
-\texttt{falsification/frozen\_targets/}: the completed source chain must
+transport against the frozen target in the timestamped target archive
+[C18]: the completed source chain must
 supply \(\Delta_{\rm source}=0.0414658\ldots\) inverse-alpha units at the
 endpoint without reading the target (CL-1/CL-2). The governing target is the v2 file
 (precision-160 recomputation, closed-form pass tolerance, payload-work-start
@@ -1350,7 +1347,7 @@ The assent structure of this document is deliberately mechanical. A reader
 who grants the six principles and verifies the cited artifacts retains exactly
 one degree of freedom: the closure ledger. The other exits are closed.
 The fixed points cannot be relocated (L3), executed failures cannot be
-reclassified (\texttt{STRANGE\_LOOP\_PRINCIPLES.md} rule 7), and no OPH surface may claim
+reclassified (claim rule 7 [C17]), and no OPH surface may claim
 more than the ledger and scorecard record. When the ledger is driven to
 zero by blind completions with uniqueness certificates and the scorecard
 turns positive, declining the identification of the closure output with
@@ -1373,8 +1370,8 @@ moment, beyond every current method, and the blind protocol for that day is
 frozen and timestamped. The theory is one theorem and one measurement
 window away from exact closure, and it cannot be adjusted while it waits.}
 
-The establishment criterion is the one stated in
-\texttt{STRANGE\_LOOP\_PRINCIPLES.md}:
+The establishment criterion is the one stated in the strange-loop
+principles [C17]:
 overdetermination and survival: uniqueness certificates for the fixed
 points, the closure ledger driven to zero under blind completions beginning
 with the hadronic transport, and a compression scorecard in which
@@ -1446,7 +1443,9 @@ All OPH series papers below use release \texttt{\OPHPaperReleaseID}.
 \refentry{[C13]}{FloatingPragma (2026). \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/code/particles/THEOREM_GAP_REGISTER.md}{Theorem gap register}.}
 \refentry{[C14]}{FloatingPragma (2026). \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/docs/OPH_falsifiability.md}{Falsifiability map and kill conditions}.}
 \refentry{[C15]}{FloatingPragma (2026). \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/docs/CONSISTENCY_STACK.md}{The OPH consistency stack: selection chain, uniqueness lemmas, generator table}.}
-\refentry{[C16]}{FloatingPragma (2026). \href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/capacity_readback}{Capacity readback map \(F\): formal specification and certificate schema}.}
+\refentry{[C16]}{FloatingPragma (2026). \href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/capacity_readback}{Capacity readback map \(F\): formal specification, coupling theorem, and certificate schema}.}
+\refentry{[C17]}{FloatingPragma (2026). \href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/docs}{OPH claim registry: strange-loop principles, closure ledger, compression scorecard, consistency stack, proof spine}.}
+\refentry{[C18]}{FloatingPragma (2026). \href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/falsification/frozen_targets}{Frozen blind targets with external timestamp proofs}.}
 \end{multicols}
 }
 

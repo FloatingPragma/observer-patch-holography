@@ -318,11 +318,11 @@ in the minimal massless-neutrino theory, and with at least \(26\) once neutrino 
 are included, depending on neutrino-sector conventions. The OPH particle program aims to organize
 that situation around one universal pixel ratio \(P\) from the outer/inner closure relation
 described in the synthesis paper. Whether any parameter compression is currently realized is
-recorded in \texttt{COMPRESSION\_SCORECARD.md}, whose count of settings against independent
+recorded in the project compression scorecard, whose count of settings against independent
 landed basins governs every compression claim. The same \(P\) must drive all
 downstream bosonic, quark, lepton, neutrino, and hadronic branches.
 
-One clarification matters. The broader self-closure formulation targets the global screen capacity (readback map unconstructed; CL-7) by
+One clarification matters. The broader self-closure formulation targets the global screen capacity (readback map constructed conditionally by the coupling theorem G2-GAP-1, proven modulo the declared premises CP-1 to CP-3; CL-7) by
 \[
 N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}),
 \]
@@ -346,13 +346,11 @@ from experiments. The proof obligation is stricter: the exact \(P_\star\) used b
 branch must be computed by the self-referential pixel equation, and the endpoint must be unique on
 the declared interval. A fitted particle mass can identify a neighborhood. It cannot replace the
 closure solve.
-The repository file \texttt{CONSISTENCY\_STACK.md} places this reconstruction inside the forcing
+The project consistency stack places this reconstruction inside the forcing
 chain C1--C10: the pixel equation is the C9 loop-closure row, and the stage-2 uniqueness statement
 for the closure map (a self-map and derivative bound certified by interval arithmetic on the
-declared interval) is carried by the interval contraction certificate at
-\texttt{code/P\_derivation/runtime/p\_interval\_contraction\_certificate\_2026-07-14.json}. The
-domain-global statement is discharged as well: the certificate at
-\texttt{code/P\_derivation/runtime/p\_global\_uniqueness\_certificate\_2026-07-14.json} bounds
+declared interval) is carried by the interval contraction certificate of 2026-07-14. The
+domain-global statement is discharged as well: the domain-global certificate of the same date bounds
 \(\sup|g'|<1\) on every piece of a 256-piece subdivision of the declared physical domain
 (\(\alpha^{-1}\in[100,200]\), both readout maps, empty exceptional set), so each declared readout
 map has exactly one fixed point on the declared physical domain.
@@ -1427,7 +1425,7 @@ that pair; the hit is the defining condition, and the lane is calibration.
 It is excluded from every prediction ledger.
 The displayed electroweak lane is the forward solve,
 \((m_W,m_Z)=(80.330,\,91.119)\)~GeV, with pulls \(2.9\sigma\) and \(\approx35\sigma\) against the
-measured pair; that residual is closure row CL-5 of \texttt{CLOSURE\_LEDGER.md}.
+measured pair; that residual is closure ledger row CL-5.
 The archived forward value law has a stronger conditional theorem: it follows
 uniquely from a finite quotient-path certificate.  The certificate is not
 emitted by the five axioms or by the existing carrier artifacts.
@@ -1825,7 +1823,7 @@ and the OPH-plus-empirical hadron-closure value
 \qquad
 \alpha_{\mathrm{emp}}^{-1}(0)\in[136.1583832834267,136.3690975239657].
 \]
-The repository's \texttt{code/P\_derivation} witness path records the source-side audit trunk without
+The repository's source-derivation witness path records the source-side audit trunk without
 a built-in reference inverse-\(\alpha\) value. The measured endpoint
 \(137.035999177(21)\) is excluded as a source-only closure-solve input and remains a separate
 comparison coordinate.
@@ -2734,8 +2732,8 @@ with unclosed-clock displays \((80.3301,\,91.1191)\) and
 \(M_W\) and \(5.1\)~MeV on \(M_Z\)
 (\texttt{wzh\_residual\_elimination\_boundary.json}). The zero-selector
 display sits at \(2.9\sigma\) on \(M_W\) and \(\approx35\sigma\) on \(M_Z\)
-from the measured pair; that residual is closure row CL-5 of
-\texttt{CLOSURE\_LEDGER.md}.  Numerical \(W/Z\)
+from the measured pair; that residual is closure ledger row
+CL-5.  Numerical \(W/Z\)
 agreement cannot decide between the laws; the decision object is a source-law
 selection principle, and the quantitative mechanism of the source-action
 rigidity theorem applies once the electroweak feature basis and moment vector
@@ -4196,7 +4194,7 @@ the factor \(2^{1/6}\) is asserted rather than derived, and the corpus does not 
 determinant attachment or the sorted-root-to-family map.  Nor is a renormalization coordinate and
 QED/electroweak map from this historical mass coordinate to pole masses supplied, so the ppm
 comparison is descriptive rather than scheme-certified.  The frozen executable receipt is
-\texttt{code/particles/runs/leptons/charged\_stage5\_frozen\_candidate.json}; any change
+committed with the repository sources; any change
 made to improve agreement must create a new candidate rather than overwrite this one.
 
 \paragraph{Frozen retrospective icosahedral face-incidence candidate.}
@@ -6035,15 +6033,17 @@ ledger records scope boundaries for the weak validation pair, charged-lepton wit
 direct-top auxiliary codomain, strong-CP phase boundary,
 neutrino comparison tension, source-only hadron backend rows, and empirical hadron closure rows.
 
-The open quantitative program that this ledger names is finite and enumerated. The repository
-file \texttt{CONSISTENCY\_STACK.md} reduces the open rows of \texttt{CLOSURE\_LEDGER.md} to four
+The open quantitative program that this ledger names is finite and enumerated. The project
+consistency stack reduces the open rows of the closure ledger to four
 generating objects and one selector: G1, the Ward-projected hadronic transport computed blind
 against the frozen target, closes or moves CL-1 and CL-2; its payload harness is built, the
 first-principles internal-mass bracket \(S_{\mathrm{eff}}\in[0.558,1.054]\) contains the required
 0.8954, and closing the blind window needs \(4\times10^{-9}\) relative precision on the hadronic
 moment, beyond every current method. G2, the capacity readback map \(F\)
 with its contraction certificate, carries CL-3, CL-4, and CL-7; every declared-structure
-candidate is certified and excluded, so the row is now the single coupling theorem G2-GAP-1.
+candidate is certified and excluded, and the coupling theorem G2-GAP-1 now stands as a
+conditional theorem, proven modulo the three declared premises CP-1 to CP-3, with its fixed
+point certified by interval arithmetic at \(3.53\times10^{122}\).
 G3, the repaired forward electroweak chain from the axioms under preregistered revisions, carries
 CL-5; the preregistered 96-entry sweep of 2026-07-14 exhausted the certified-pixel menu at one
 loop, structurally excluded the SM triple and \(\beta_{\mathrm{EW}}\in\{3,5\}\), and left one

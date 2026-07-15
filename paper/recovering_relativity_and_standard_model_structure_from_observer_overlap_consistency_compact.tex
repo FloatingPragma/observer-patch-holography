@@ -847,9 +847,9 @@ after previous accepted rows, then
 P_{\rm acc}\le\prod_i p_i .
 \]
 The rows that currently qualify, and the settings they stand against, are
-maintained in \texttt{COMPRESSION\_SCORECARD.md}; as of its 2026-07-14 update
+maintained in the project compression scorecard; as of its 2026-07-14 update
 the settings outnumber the landed basins, and every compression claim cites
-that file. The scorecard standing is secondary to the theorem
+that scorecard. The scorecard standing is secondary to the theorem
 stack: the same two closure coordinates organize the observer readout,
 gravity/gauge reconstruction, hierarchy bridge, dark energy, dark-sector
 budget, product-group proton-decay exclusion, particle inventory, and
@@ -1154,7 +1154,7 @@ D(\sigma\|\omega_L(\lambda'))=-S(\sigma)+\sum_c\lambda'_c\langle S_c\rangle_\sig
 \(\log Z_L\) is smooth, and its Hessian is the Duhamel (Kubo--Mori) covariance matrix of the \(S_c\) in \(\omega_L(\lambda')\), which is positive definite exactly when the \(S_c\) and \(\mathbf 1\) are linearly independent; this gives strict convexity, hence uniqueness of any minimizer, and the vanishing-gradient condition is the displayed moment matching. Attainment for faithful \(\sigma\) is finite-dimensional exponential-family duality: the moment map \(\lambda'\mapsto(\langle S_c\rangle_{\omega_L(\lambda')})_c\) is a diffeomorphism onto the relative interior of the achievable moment set, which contains the moment vector of every faithful state \cite{wichmann63}. Part (ii) is the quantum Pinsker inequality \(D(\rho\|\tau)\ge\tfrac12\|\rho-\tau\|_1^2\) \cite{hiaiOhyaTsukada81} evaluated at \(\lambda^\ast\). Part (iii) follows because the attained infimum vanishes iff \(D(\sigma\|\omega_L(\lambda^\ast))=0\) iff \(\sigma=\omega_L(\lambda^\ast)\), by strict positivity of relative entropy off the diagonal.
 \end{proof}
 
-A finite two-lattice acceptance check implements this counting and projection package. It covers the constraint/multiplier count against the displayed \((N_{\mathrm{con}}+N_{\mathrm{glob}})\)-dimensional family, the moment-matching projection, the residual bound, a generic channel with strictly positive closure defect, and an exactly closed subfamily. The check is included with the repository sources (\texttt{code/maxent/}).
+A finite two-lattice acceptance check implements this counting and projection package. It covers the constraint/multiplier count against the displayed \((N_{\mathrm{con}}+N_{\mathrm{glob}})\)-dimensional family, the moment-matching projection, the residual bound, a generic channel with strictly positive closure defect, and an exactly closed subfamily. The check is included with the repository sources.
 
 \paragraph{Central-interface collar clause (declared branch input).}\label{par:cicclause}
 For every collar cut \(\Sigma\) used by the literal exact-Markov identities of this manuscript, the retained constraint family of Axiom~\ref{ax:maxent} is declared to be \emph{central-interface} in the sense of Theorem~\ref{thm:msaderivation}: every retained density whose support meets both half-collars of \(\Sigma\) acts through the boundary-charge (flux) functions in \(\pi_L\bigl(Z(C^*(\widehat K_\Sigma))\bigr)\), while all remaining terms are one-sided \(\widehat K_\Sigma\)-invariant operators. This is an explicit axiom-level input of the declared branch, on the same footing as the refinement-closure clause above. Overlap consistency does not derive it. Under this clause, Theorem~\ref{thm:msaderivation} derives the Markov-split alignment hypothesis (Definition~\ref{def:ecaligned}) and exact collar Markovianity for the MaxEnt reference states, so the MSA-conditioned identities of this manuscript hold on the declared branch without a separate state hypothesis. Lattice-gauge-type regulators satisfy the clause manifestly, their interface energy being a function of the conserved flux; the Bell-pair state of Remark~\ref{rem:hjpwalignment} violates it and marks the failure boundary. Deriving the clause from overlap-consistent repair is work in progress (Remark~\ref{rem:msascope}).
@@ -4709,8 +4709,7 @@ declared adjacency as joint-support nonvanishing, so the incidence complexes
 are as listed. For (4), rescale the declared cap modular clock by
 \(\beta/2\pi\): the repair layer is unchanged, while the independently
 normalized KMS comparison certifies \(\beta\). Each system is finite and
-explicit; machine receipts are provided in the repository
-(\texttt{code/geometry/}).
+explicit; machine receipts are provided with the released geometry code.
 \end{proof}
 
 \begin{corollary}[Status of the screen dimension claim]
@@ -5071,7 +5070,7 @@ n_C=n_{\lambda_C(t)C}=\Lambda_C(t)n_C.
 \]
 \end{proof}
 
-In the terminology of the repository file \texttt{CONSISTENCY\_STACK.md}, this Lorentz recovery
+In the terminology of the project consistency stack, this Lorentz recovery
 is the carrier of stack row C2 (overlap consensus): on the declared branch, agreement of
 overlapping patch descriptions forces the spacetime signature, the spatial dimension, and the
 local symmetry group, so none of the three remains a selectable freedom.
@@ -6719,8 +6718,7 @@ that, for \(I\) the first three sites, the interaction expansion of
 \(-\log\rho_I\) contains a nonzero term coupling the two endpoint sites of
 \(I\) whose norm exceeds every bound obtained from the naive locality
 inference; the witness values are machine-verified by exact diagonalization
-with certified tolerances in the repository receipts
-(\texttt{code/geometry/}). Hence exact or controlled Markovianity (or the
+with certified tolerances in the repository receipts. Hence exact or controlled Markovianity (or the
 central-interface clause that derives it) is a genuine additional hypothesis,
 and the boundary between Theorem~\ref{thm:markov-modular-locality} and its
 failure is exactly the failure of collar Markovianity, quantified by the
@@ -7242,8 +7240,7 @@ Each of the following explicit systems satisfies the full producer branch
 (Theorems~\ref{thm:certificate-production}, \ref{thm:bw}), hence carries the
 exact Lorentz/\(H^3\) kinematics of Corollaries~\ref{cor:lorentz} and
 \ref{cor:h3-spatial-chart} verbatim, and fails exactly one event receipt with
-the stated consequence; machine receipts are in the repository
-(\texttt{code/geometry/}).
+the stated consequence; machine receipts are in the repository.
 \begin{enumerate}[leftmargin=2em]
 \item (\emph{Population deficit; fails \(\mathsf{(E1)}\).}) Records confined
 to a single observer worldline stack: \(\mathcal E\) is a one-dimensional
@@ -8081,7 +8078,7 @@ any branch without the \(\mathsf{MI}\) linearity clause) admits no rank-two
 source, and the least-squares tomography residual is bounded below by the
 violation size times \(\sigma_9^{-1}\). Machine receipts construct such a
 family explicitly and verify both the irreducible residual and the exact
-reconstruction of consistent families (\texttt{code/geometry/}). Scalar
+reconstruction of consistent families. Scalar
 collar CMI data alone likewise admit no promotion to a rank-two source: a
 scalar function of cuts determines only the \(\ell=0\) moment of
 Theorem~\ref{thm:null-tomography} and leaves the nine-dimensional trace-free
@@ -8263,7 +8260,7 @@ misprices the edge response by a computable amount; on the declared
 normalization the naive step
 \(\delta S_{\mathrm{bulk}}=2\pi\delta\langle B\rangle\) fails off the
 fixed-weight class by exactly \(\sum_\alpha\log d_\alpha\,\delta p_\alpha\). Machine receipts exhibit both defects
-numerically with certified magnitudes (\texttt{code/geometry/}). Hence the
+numerically with certified magnitudes. Hence the
 Axiom-4 leading-term input and the declared edge normalization are genuine
 branch content, consistent with the audit boundary that generalized entropy
 is an independent axiom on this corpus.
@@ -8467,8 +8464,7 @@ curvatures satisfy all variational identities with different constants;
 (iv) without \(\mathsf{VR}\), de Sitter and flat reference branches satisfy
 the \emph{same} first-variation identities with different \(Y_{ab}=c\,g_{ab}\):
 \(\delta Y_{ab}=0\) never fixes \(c\). Machine receipts instantiate (iv) and
-the tomography/coefficient countermodels numerically
-(\texttt{code/geometry/}).
+the tomography/coefficient countermodels numerically.
 \end{proposition}
 
 \begin{proof}
@@ -8578,15 +8574,15 @@ each countermodel satisfies every input except the named receipt.
 
 \begin{remark}[Realized-branch nonemptiness: machine status]
 \label{rem:realized-branch-status}
-The nonemptiness clause is empirical and machine-checkable. The repository
-evaluation (\texttt{code/geometry/realized\_branch\_receipts.py}) records
+The nonemptiness clause is empirical and machine-checkable. The repository's
+realized-branch receipt evaluation records
 the following state.
 
 (i) \emph{Topology and mesh.} The verified rooted-tree packet-net domain
 fails \(\mathsf{SphInc}\) (\(\chi=1\), no \(2\)-simplices), as any tree
 must. A designed cellulated-sphere mesh passes \(\mathsf{SphInc}\) but is
 declared geometry, not a consensus product. The cyclic cap-net repair run
-(\texttt{code/geometry/cyclic\_cap\_net\_run.py}) is a genuine
+is a genuine
 transactional repair tower with seeded conflicts and runtime-verified
 termination, conflict-free normal forms, and schedule independence across
 randomized schedules on a three-stage refinement tower of \(20/80/320\)
@@ -8599,8 +8595,7 @@ output; the run certifies joint realizability of the node-D1 clauses with
 the \(\mathsf{SphInc}\)/mesh/naturality families on one repair tower.
 
 (ii) \emph{Boundary-collar modular data.} The free-fermion modular-clock
-instrumentation
-(\texttt{code/geometry/modular\_clock\_instrumentation.py}) computes arc
+instrumentation computes arc
 entanglement Hamiltonians \(h=\log((1-C_I)/C_I)\) at \(120\)-digit
 precision on Gaussian MaxEnt collar states (critical hopping,
 anti-periodic twist, half filling, unit Fermi velocity) for collar rings
@@ -8622,7 +8617,7 @@ boundary-collar cross-ratio and \(2\pi\)-KMS clauses are witnessed on this
 tower.
 
 (iii) \emph{Null-net standardness.} The null-net instrumentation
-(\texttt{code/geometry/null\_net\_receipts.py}) witnesses, on the same
+witnesses, on the same
 states: nontrivial relative commutants and weak additivity (combinatorial,
 every stage); strictly positive separating moduli (occupation spectra
 strictly inside \((0,1)\)); mixed-GNS Cauchy behaviour of fixed smeared
@@ -8639,7 +8634,7 @@ resummation of the lattice momentum density, with shape residuals
 clause.
 
 (iv) \emph{Events on the screen.} The realized-event instrumentation
-(\texttt{code/geometry/realized\_event\_receipts.py}) runs the event
+runs the event
 pipeline on records generated by the sequential transactional repair
 dynamics, with the clock in the certified \(2\pi\)-normalized modular unit
 calibrated to the lattice propagation speed and chart noise calibrated to
@@ -8655,7 +8650,7 @@ Proposition~\ref{prop:event-countermodels} operating as designed, since
 event dimension is a population output.
 
 (v) \emph{Bulk depth.} The bulk-depth instrumentation
-(\texttt{code/geometry/bulk\_depth\_receipts.py}) places records at the
+places records at the
 cells of all tower stages with the produced depth dictionary
 \(\rho=-\log\tan(\alpha/2)\), the M\"obius rapidity of the record's cap.
 Coarse cells are deep records and fine cells near-boundary records, the
@@ -9227,21 +9222,25 @@ Item \textup{(i)} is Proposition~\ref{prop:lambda}, whose local ambiguity statem
 Theorem~\ref{thm:lambda-stack} packages the local/global D5\(\to\)D6 handoff. The D6 hypotheses are exactly the local Einstein branch, the cosmic record-capacity fixed point \(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\), its observed-branch de Sitter entropy readout \(N_{\mathrm{CRC}}=S_{\mathrm{dS}}\), the standard de Sitter entropy relation, the selected scale certificate, and the standard static-patch radius/time formulas; none of these are hidden inside the local null-modular reconstruction. The local theorem stack does not derive the global capacity from bare null data, and the two dimensionless closures do not derive the SI scale by themselves; the OPH-derived readback closure fixes the capacity, and the selected scale certificate supplies the SI display. The vacuum-energy problem is reorganized by separating local null data from the global capacity fixed point.
 
 \begin{remark}[Uniqueness lemmas L2 and L3 for the capacity coordinate]\label{rem:l2-l3-capacity}
-The repository file \texttt{CONSISTENCY\_STACK.md} records the uniqueness schema attached to this
+The project consistency stack records the uniqueness schema attached to this
 D6 stack. Lemma L2: once the readback map \(F\) is constructed with a certified contraction
 interval---an interval-arithmetic evaluation certifying a self-map with a derivative bound below
 one---the Banach fixed-point theorem gives existence and uniqueness of \(N_{\mathrm{CRC}}\) on
 that interval. The construction is reduced to a single named object: every declared-structure
 candidate for \(F\) is certified and excluded (fixed points at 1 to \(10^{3}\) nats), the unique
 \(10^{122}\)-scale reading couples the port load to the D10 observation step and reproduces the
-electroweak bridge expression, and the remaining obligation is the coupling theorem G2-GAP-1
+electroweak bridge expression, and that reading is now written as the coupling theorem G2-GAP-1
 (closure row CL-7). Lemma L3, the no-landscape corollary: under L1 (the corresponding statement
 for the pixel coordinate \(P\), discharged globally on the declared physical domain by the
-certificates in \texttt{code/P\_derivation/runtime/}) together with L2, the SLH principle set
+2026-07-14 interval and domain-global certificates) together with L2, the SLH principle set
 admits at most one pair \((P,N)\), so there is no
 vacuum landscape to relocate into, and a blind closure computation landing outside its basin
-falsifies the formulation permanently. L2 remains conditional on G2-GAP-1; it is not discharged
-by the present theorem stack.
+falsifies the formulation permanently. G2-GAP-1 stands as a conditional theorem: the readback
+fixed point equals the electroweak bridge capacity, proven modulo the three declared premises
+CP-1 (the balance condition \(\Pi_{\mathrm{EW}}=\beta_{\mathrm{EW}}P\)), CP-2 (the port-load
+inversion form), and CP-3 (the averaging carrier, dispensable for the fixed-point location),
+with certified fixed-point enclosure \(3.5321315434\times10^{122}\) at relative width
+\(1.6\times10^{-25}\); L2 is conditional on exactly those premises and discharges when they do.
 \end{remark}
 
 \section{Gauge Reconstruction and Standard Model Structure}
@@ -9264,7 +9263,7 @@ is the category on which Doplicher--Roberts / Tannaka reconstruction is applied.
 receipt this colimit is a conditional object, not an output of the finite-state refinement maps.
 The theorem below is neutral about whether \(\mathsf{Sect}_\infty\) is trivial or nontrivial: if
 only the tensor unit persists, the reconstructed compact group is the trivial group.
-In the terminology of \texttt{CONSISTENCY\_STACK.md}, this reconstruction is the carrier of stack
+In the terminology of the project consistency stack, this reconstruction is the carrier of stack
 row C4 (transportable-charge consistency): under the declared compact-gauge refinement receipt
 and the stated clause inputs, coherent transport of internal labels across overlaps is the
 requirement that removes the gauge menu.
