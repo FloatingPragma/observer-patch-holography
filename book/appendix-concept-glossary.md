@@ -609,7 +609,19 @@ bulk operators in an entanglement wedge from the corresponding boundary
 region. It is one of the main bridges between holography and quantum error
 correction.
 
+**Wheeler-DeWitt equation.** The Wheeler-DeWitt equation, often summarized as
+$\hat H\Psi=0$, describes a quantum universe whose global state does not evolve
+against any external time. It is the sharpest statement of the problem of time.
+OPH answers it by reading time from the modular flow of restricted states inside
+the universe.
+
 **World.** In everyday speech the world is the totality of things. In OPH's
 technical posture, the public world is the stable structure produced by
 overlap-consistent observer patches. This does not make the world imaginary.
 It makes objectivity a repaired and maintained structure.
+
+**Yukawa coupling.** A Yukawa coupling ties a fermion to the Higgs field and
+sets that fermion's mass once the Higgs takes a vacuum value. The pattern of
+Yukawa couplings is where most of the Standard Model's free numbers hide. The
+book tracks which mass claims are forced and which still borrow measured Yukawa
+data.
