@@ -23,7 +23,7 @@ real-part statements; real-part corollaries are provided.
 
 Every lemma in this development is tagged in its doc comment as either
 **algebra-only** (a statement about the `*`-algebra of events, consuming no
-state or trace functional) or **consumes a tracial state** (a statement
+state or trace functional) or **trace-dependent** (a statement
 whose content passes through the trace pairing `(ρ, P) ↦ Tr(ρ P)`).
 
 This module is deliberately free of any interpretational vocabulary: it is
@@ -139,34 +139,34 @@ theorem IsEvent.one_sub_two_smul_involution {P : Matrix (Fin n) (Fin n) ℂ}
     simp only [mul_sub, sub_mul, add_mul, mul_add, mul_one, one_mul, hP.2]
     abel
 
-/-! ## Born weights (consume a tracial state) -/
+/-! ## Born weights (trace-dependent) -/
 
-/-- **Consumes a tracial state.** The Born weight is linear in the event
+/-- **Trace-dependent.** The Born weight is linear in the event
 argument: additivity under sums (no orthogonality needed for the bare trace
 identity). -/
 theorem bornWeight_add (ρ P Q : Matrix (Fin n) (Fin n) ℂ) :
     bornWeight ρ (P + Q) = bornWeight ρ P + bornWeight ρ Q := by
   simp only [bornWeight, mul_add, trace_add]
 
-/-- **Consumes a tracial state.** The Born weight is subtractive in the
+/-- **Trace-dependent.** The Born weight is subtractive in the
 event argument. -/
 theorem bornWeight_sub (ρ P Q : Matrix (Fin n) (Fin n) ℂ) :
     bornWeight ρ (P - Q) = bornWeight ρ P - bornWeight ρ Q := by
   simp only [bornWeight, mul_sub, trace_sub]
 
-/-- **Consumes a tracial state.** The Born weight commutes with finite sums
+/-- **Trace-dependent.** The Born weight commutes with finite sums
 of events. -/
 theorem bornWeight_sum {ι : Type*} (ρ : Matrix (Fin n) (Fin n) ℂ)
     (s : Finset ι) (P : ι → Matrix (Fin n) (Fin n) ℂ) :
     bornWeight ρ (∑ i ∈ s, P i) = ∑ i ∈ s, bornWeight ρ (P i) := by
   simp only [bornWeight, Finset.mul_sum, trace_sum]
 
-/-- **Consumes a tracial state.** Scaling the state scales the Born weight. -/
+/-- **Trace-dependent.** Scaling the state scales the Born weight. -/
 theorem bornWeight_smul (c : ℂ) (ρ P : Matrix (Fin n) (Fin n) ℂ) :
     bornWeight (c • ρ) P = c * bornWeight ρ P := by
   simp only [bornWeight, smul_mul_assoc, trace_smul, smul_eq_mul]
 
-/-- **Consumes a tracial state.** Sandwich identity: for an idempotent `P`,
+/-- **Trace-dependent.** Sandwich identity: for an idempotent `P`,
 `Tr(P ρ P) = Tr(ρ P)`; the compressed and the paired forms of the weight
 agree. -/
 theorem trace_sandwich {P : Matrix (Fin n) (Fin n) ℂ} (hP : P * P = P)
@@ -174,7 +174,7 @@ theorem trace_sandwich {P : Matrix (Fin n) (Fin n) ℂ} (hP : P * P = P)
     (P * ρ * P).trace = bornWeight ρ P := by
   rw [bornWeight, trace_mul_cycle, hP, trace_mul_comm]
 
-/-- **Consumes a tracial state.** Reality of the Born weight: for a
+/-- **Trace-dependent.** Reality of the Born weight: for a
 Hermitian state matrix and a Hermitian event matrix, the weight is fixed by
 complex conjugation. (Only hermiticity is used; neither positivity nor
 normalisation.) -/
@@ -184,14 +184,14 @@ theorem star_bornWeight {ρ P : Matrix (Fin n) (Fin n) ℂ}
   rw [bornWeight, ← trace_conjTranspose, conjTranspose_mul, hρ.eq, hP.eq,
     trace_mul_comm]
 
-/-- **Consumes a tracial state.** The Born weight equals its own real part;
+/-- **Trace-dependent.** The Born weight equals its own real part;
 the packaged form of reality. -/
 theorem bornWeight_eq_re {ρ P : Matrix (Fin n) (Fin n) ℂ}
     (hρ : ρ.IsHermitian) (hP : P.IsHermitian) :
     (((bornWeight ρ P).re : ℝ) : ℂ) = bornWeight ρ P :=
   Complex.conj_eq_iff_re.mp (star_bornWeight hρ hP)
 
-/-- **Consumes a tracial state.** Nonnegativity of the Born weight, in the
+/-- **Trace-dependent.** Nonnegativity of the Born weight, in the
 partial order of `ℂ`: for `ρ` positive semidefinite and `P` an event,
 `0 ≤ Tr(ρ P)`. The proof compresses the state: `Tr(ρ P) = Tr(P ρ P)` and
 `P ρ P = P ρ Pᴴ` is positive semidefinite. -/
@@ -202,18 +202,18 @@ theorem bornWeight_nonneg {ρ P : Matrix (Fin n) (Fin n) ℂ}
   rw [hP.1.eq] at hpsd
   exact hpsd.trace_nonneg
 
-/-- **Consumes a tracial state.** Real-part form of nonnegativity. -/
+/-- **Trace-dependent.** Real-part form of nonnegativity. -/
 theorem bornWeight_re_nonneg {ρ P : Matrix (Fin n) (Fin n) ℂ}
     (hρ : ρ.PosSemidef) (hP : IsEvent P) : 0 ≤ (bornWeight ρ P).re := by
   simpa using (Complex.le_def.mp (bornWeight_nonneg hρ hP)).1
 
-/-- **Consumes a tracial state.** Normalisation: the sure event has Born
+/-- **Trace-dependent.** Normalisation: the sure event has Born
 weight one under every state. -/
 theorem bornWeight_one {ρ : Matrix (Fin n) (Fin n) ℂ} (hρ : IsState ρ) :
     bornWeight ρ 1 = 1 := by
   rw [bornWeight, mul_one, hρ.2]
 
-/-- **Consumes a tracial state.** Additivity on orthogonal events, packaged
+/-- **Trace-dependent.** Additivity on orthogonal events, packaged
 with the closure lemma `IsEvent.add`: for orthogonal events the weight of
 the disjunction is the sum of the weights. -/
 theorem bornWeight_add_of_orthogonal {ρ P Q : Matrix (Fin n) (Fin n) ℂ}
@@ -221,7 +221,7 @@ theorem bornWeight_add_of_orthogonal {ρ P Q : Matrix (Fin n) (Fin n) ℂ}
     bornWeight ρ (P + Q) = bornWeight ρ P + bornWeight ρ Q :=
   bornWeight_add ρ P Q
 
-/-- **Consumes a tracial state.** Upper bound: the Born weight of any event
+/-- **Trace-dependent.** Upper bound: the Born weight of any event
 under a state is at most `1`, in the partial order of `ℂ` (via the
 complement event `1 - P`). -/
 theorem bornWeight_le_one {ρ P : Matrix (Fin n) (Fin n) ℂ}
@@ -230,12 +230,12 @@ theorem bornWeight_le_one {ρ P : Matrix (Fin n) (Fin n) ℂ}
   rw [bornWeight_sub, bornWeight_one hρ] at hcompl
   exact sub_nonneg.mp hcompl
 
-/-- **Consumes a tracial state.** Real-part form of the upper bound. -/
+/-- **Trace-dependent.** Real-part form of the upper bound. -/
 theorem bornWeight_re_le_one {ρ P : Matrix (Fin n) (Fin n) ℂ}
     (hρ : IsState ρ) (hP : IsEvent P) : (bornWeight ρ P).re ≤ 1 := by
   simpa using (Complex.le_def.mp (bornWeight_le_one hρ hP)).1
 
-/-- **Consumes a tracial state.** Monotonicity under subevents: if
+/-- **Trace-dependent.** Monotonicity under subevents: if
 `P * Q = P` (i.e. `P ≤ Q` in the projection order), then
 `Tr(ρ P) ≤ Tr(ρ Q)` in the partial order of `ℂ`. -/
 theorem bornWeight_mono {ρ P Q : Matrix (Fin n) (Fin n) ℂ}
@@ -246,7 +246,7 @@ theorem bornWeight_mono {ρ P Q : Matrix (Fin n) (Fin n) ℂ}
   rw [bornWeight_sub] at hdiff
   exact sub_nonneg.mp hdiff
 
-/-- **Consumes a tracial state.** A Born weight that is nonzero has strictly
+/-- **Trace-dependent.** A Born weight that is nonzero has strictly
 positive real part (given a positive-semidefinite state matrix and an
 event); conversely a weight with positive real part is nonzero. -/
 theorem bornWeight_ne_zero_iff_re_pos {ρ P : Matrix (Fin n) (Fin n) ℂ}

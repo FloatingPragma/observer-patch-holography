@@ -14,7 +14,7 @@ The linear functional `M ↦ Tr(ρ M)` attached to a state `ρ`:
 
 ## Tagging convention
 
-As in `EventAlgebra.Basic`. Every lemma here consumes a tracial state: the
+As in `EventAlgebra.Basic`. Every lemma here is trace-dependent: the
 functional *is* the trace pairing.
 -/
 
@@ -30,31 +30,31 @@ variable {n : ℕ}
 noncomputable def expectation (ρ M : Matrix (Fin n) (Fin n) ℂ) : ℂ :=
   (ρ * M).trace
 
-/-- **Consumes a tracial state.** The Born weight of an event is the
+/-- **Trace-dependent.** The Born weight of an event is the
 expectation functional evaluated at it. -/
 theorem bornWeight_eq_expectation (ρ P : Matrix (Fin n) (Fin n) ℂ) :
     bornWeight ρ P = expectation ρ P :=
   rfl
 
-/-- **Consumes a tracial state.** Additivity of the expectation
+/-- **Trace-dependent.** Additivity of the expectation
 functional. -/
 theorem expectation_add (ρ M N : Matrix (Fin n) (Fin n) ℂ) :
     expectation ρ (M + N) = expectation ρ M + expectation ρ N := by
   simp only [expectation, mul_add, trace_add]
 
-/-- **Consumes a tracial state.** Homogeneity of the expectation
+/-- **Trace-dependent.** Homogeneity of the expectation
 functional. -/
 theorem expectation_smul (ρ M : Matrix (Fin n) (Fin n) ℂ) (c : ℂ) :
     expectation ρ (c • M) = c * expectation ρ M := by
   simp only [expectation, mul_smul_comm, trace_smul, smul_eq_mul]
 
-/-- **Consumes a tracial state.** Normalisation: the expectation of the
+/-- **Trace-dependent.** Normalisation: the expectation of the
 identity observable is `1`. -/
 theorem expectation_one {ρ : Matrix (Fin n) (Fin n) ℂ} (hρ : IsState ρ) :
     expectation ρ 1 = 1 := by
   rw [expectation, mul_one, hρ.2]
 
-/-- **Consumes a tracial state.** Positivity of the expectation functional
+/-- **Trace-dependent.** Positivity of the expectation functional
 on all positive-semidefinite observables, in the partial order of `ℂ`: by
 the spectral theorem `M = V D V⋆` with `D` a nonnegative diagonal, and
 cycling the trace, `Tr(ρ M) = Tr((V⋆ ρ V) D)` is a sum of products of

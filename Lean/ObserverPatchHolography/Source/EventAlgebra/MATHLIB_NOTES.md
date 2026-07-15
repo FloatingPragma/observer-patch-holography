@@ -81,7 +81,7 @@ paper's formalisation-experience section.
    normalisation is one lemma application.
 10. **Trace faithfulness is in the box:**
     `Matrix.trace_mul_conjTranspose_self_eq_zero_iff` powers the
-    uniqueness of the center expectation, and
+    uniqueness of the pinching, and
     `PosSemidef.trace_eq_zero_iff` + `PosSemidef.dotProduct_mulVec_zero_iff`
     power the certainty-support lemma (`σP = σ` for states certain of `P`).
 11. **C*-norm machinery:** `CStarRing.norm_star_mul_self`,
@@ -120,10 +120,10 @@ L2-norm stack.
   `Matrix.Norms.L2Operator`) is a real usability tax that a bespoke stack
   does not pay.
 - **Organisational difference (the paper's claim):** the present bundle
-  separates algebra-only content from tracial-state content lemma-by-lemma
+  separates algebra-only content from trace-dependent content lemma-by-lemma
   (machine-visible doc tags), and routes classicality through an explicit
-  conditional-expectation projector onto a distinguished commutative
-  center (`CenterPartition` / `centerExpectation`), with
+  conditional-expectation projector onto a distinguished block-diagonal
+  commutant (`ProjectivePartition` / `pinchingExpectation`), with
   existence/uniqueness/contractivity and the Lüders-compatibility law
-  `𝔼 ∘ L_P = L_P ∘ 𝔼` for central `P`. That organisation, not the CHSH
+  `𝔼 ∘ L_P = L_P ∘ 𝔼` for commutant `P`. That organisation, not the CHSH
   arithmetic, is the delta over the matrix-first prior art.

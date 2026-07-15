@@ -21,7 +21,7 @@ The Lüders update rule for conditioning a state on an event:
 ## Tagging convention
 
 As in `EventAlgebra.Basic`: each lemma is tagged **algebra-only** (pure
-`*`-algebra content) or **consumes a tracial state** (content passing
+`*`-algebra content) or **trace-dependent** (content passing
 through the trace pairing). Everything about `luedersUpdate` consumes the
 trace through its normalising Born weight.
 -/
@@ -42,7 +42,7 @@ noncomputable def luedersUpdate (ρ P : Matrix (Fin n) (Fin n) ℂ) :
     Matrix (Fin n) (Fin n) ℂ :=
   (bornWeight ρ P)⁻¹ • (P * ρ * P)
 
-/-- **Consumes a tracial state.** The compressed matrix `P ρ P` is positive
+/-- **Trace-dependent.** The compressed matrix `P ρ P` is positive
 semidefinite, and so is its renormalisation by the (nonnegative real) Born
 weight; no nonvanishing guard is needed because the degenerate update is
 the zero matrix. -/
@@ -60,7 +60,7 @@ theorem luedersUpdate_posSemidef {ρ P : Matrix (Fin n) (Fin n) ℂ}
     have hinv : 0 ≤ (bornWeight ρ P)⁻¹ := (RCLike.inv_pos.mpr hpos).le
     exact hsand.smul hinv
 
-/-- **Consumes a tracial state.** The Lüders update has trace one whenever
+/-- **Trace-dependent.** The Lüders update has trace one whenever
 the Born weight does not vanish. -/
 theorem trace_luedersUpdate {ρ P : Matrix (Fin n) (Fin n) ℂ}
     (hP : IsEvent P) (hw : bornWeight ρ P ≠ 0) :
@@ -68,7 +68,7 @@ theorem trace_luedersUpdate {ρ P : Matrix (Fin n) (Fin n) ℂ}
   rw [luedersUpdate, trace_smul, trace_sandwich hP.2, smul_eq_mul,
     inv_mul_cancel₀ hw]
 
-/-- **Consumes a tracial state.** The Lüders update of a state by an event
+/-- **Trace-dependent.** The Lüders update of a state by an event
 of nonzero Born weight is a state. Via
 `bornWeight_ne_zero_iff_re_pos`, the guard is equivalent to the weight
 having strictly positive real part. -/
@@ -77,7 +77,7 @@ theorem luedersUpdate_isState {ρ P : Matrix (Fin n) (Fin n) ℂ}
     IsState (luedersUpdate ρ P) :=
   ⟨luedersUpdate_posSemidef hρ.1 hP, trace_luedersUpdate hP hw⟩
 
-/-- **Consumes a tracial state.** **Repeatability**: after conditioning on
+/-- **Trace-dependent.** **Repeatability**: after conditioning on
 `P`, the event `P` holds with Born weight one. -/
 theorem bornWeight_luedersUpdate_self {ρ P : Matrix (Fin n) (Fin n) ℂ}
     (hP : IsEvent P) (hw : bornWeight ρ P ≠ 0) :
@@ -88,7 +88,7 @@ theorem bornWeight_luedersUpdate_self {ρ P : Matrix (Fin n) (Fin n) ℂ}
     rw [bornWeight, habsorb, trace_sandwich hP.2]
   rw [luedersUpdate, bornWeight_smul, hkey, inv_mul_cancel₀ hw]
 
-/-- **Consumes a tracial state.** **Idempotence**: conditioning twice on the
+/-- **Trace-dependent.** **Idempotence**: conditioning twice on the
 same event gives the same state as conditioning once. -/
 theorem luedersUpdate_idem {ρ P : Matrix (Fin n) (Fin n) ℂ}
     (hP : IsEvent P) (hw : bornWeight ρ P ≠ 0) :
@@ -98,7 +98,7 @@ theorem luedersUpdate_idem {ρ P : Matrix (Fin n) (Fin n) ℂ}
   rw [luedersUpdate, bornWeight_luedersUpdate_self hP hw, inv_one, one_smul,
     luedersUpdate, mul_smul_comm, smul_mul_assoc, hcompress]
 
-/-- **Consumes a tracial state.** **Compatibility**: for commuting events,
+/-- **Trace-dependent.** **Compatibility**: for commuting events,
 sequential conditioning composes to conditioning on the product event
 `P * Q` (which is an event by `IsEvent.mul_of_commute`). Only the weight of
 the first conditioning needs a nonvanishing guard: if the joint weight
@@ -132,7 +132,7 @@ theorem luedersUpdate_luedersUpdate_of_commute
   rw [mul_inv, inv_inv, mul_comm (bornWeight ρ P), mul_assoc,
     mul_inv_cancel₀ hw, mul_one]
 
-/-- **Consumes a tracial state.** **Order exchange**: commuting events may
+/-- **Trace-dependent.** **Order exchange**: commuting events may
 be conditioned on in either order. -/
 theorem luedersUpdate_comm {ρ P Q : Matrix (Fin n) (Fin n) ℂ}
     (hP : IsEvent P) (hQ : IsEvent Q) (hc : P * Q = Q * P)
@@ -142,7 +142,7 @@ theorem luedersUpdate_comm {ρ P Q : Matrix (Fin n) (Fin n) ℂ}
   rw [luedersUpdate_luedersUpdate_of_commute hP hQ hc hwP,
     luedersUpdate_luedersUpdate_of_commute hQ hP hc.symm hwQ, hc]
 
-/-- **Consumes a tracial state.** The **classical restriction**: when the
+/-- **Trace-dependent.** The **classical restriction**: when the
 state commutes with the event, the Lüders update is the normalised
 restriction `(Tr(ρ P))⁻¹ • (ρ P)` — conditioning collapses to classical
 conditional probability. -/
@@ -178,7 +178,7 @@ def certainStates (P : Matrix (Fin n) (Fin n) ℂ) :
     Set (Matrix (Fin n) (Fin n) ℂ) :=
   {σ | IsState σ ∧ bornWeight σ P = 1}
 
-/-- **Consumes a tracial state.** One-step convergence: conditioning any
+/-- **Trace-dependent.** One-step convergence: conditioning any
 state of nonvanishing Born weight on `P` lands in the certainty set of `P`.
 This is `luedersUpdate_isState` and repeatability, packaged. -/
 theorem luedersUpdate_mem_certainStates {ρ P : Matrix (Fin n) (Fin n) ℂ}
@@ -186,7 +186,7 @@ theorem luedersUpdate_mem_certainStates {ρ P : Matrix (Fin n) (Fin n) ℂ}
     luedersUpdate ρ P ∈ certainStates P :=
   ⟨luedersUpdate_isState hρ hP hw, bornWeight_luedersUpdate_self hP hw⟩
 
-/-- **Consumes a tracial state.** A state that is certain of `P` is
+/-- **Trace-dependent.** A state that is certain of `P` is
 supported on `P`: the state matrix absorbs the event on either side.  The
 proof compresses the state by the complement `1 - P`, whose Born weight
 vanishes; positive semidefiniteness of the zero-trace compression
@@ -227,7 +227,7 @@ theorem mul_eq_self_of_bornWeight_one {σ P : Matrix (Fin n) (Fin n) ℂ}
   have h' := congrArg conjTranspose hright
   rwa [conjTranspose_mul, hσ.1.isHermitian.eq, hP.1.eq] at h'
 
-/-- **Consumes a tracial state.** On its certainty set, conditioning on `P`
+/-- **Trace-dependent.** On its certainty set, conditioning on `P`
 acts as the identity: every state certain of `P` is a fixed point of the
 Lüders update. -/
 theorem luedersUpdate_eq_self_of_mem_certainStates
@@ -237,7 +237,7 @@ theorem luedersUpdate_eq_self_of_mem_certainStates
   obtain ⟨hright, hleft⟩ := mul_eq_self_of_bornWeight_one hstate hP h1
   rw [luedersUpdate, h1, inv_one, one_smul, hleft, hright]
 
-/-- **Consumes a tracial state.** The fixed-point characterisation of
+/-- **Trace-dependent.** The fixed-point characterisation of
 measurement: among states assigning `P` nonzero weight, the fixed points of
 conditioning on `P` are exactly the states certain of `P`.  Together with
 `luedersUpdate_mem_certainStates`, conditioning is a one-step retraction of
