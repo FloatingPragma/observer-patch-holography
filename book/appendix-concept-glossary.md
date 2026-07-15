@@ -11,6 +11,13 @@ density. Noether's theorem uses the action because symmetries that leave it
 unchanged generate conserved currents. OPH uses the action language mainly
 where established field theory and relativity enter the reconstruction.
 
+**AdS/CFT correspondence.** AdS/CFT is a duality in which a gravitational theory
+in an anti-de Sitter bulk is encoded by a conformal field theory living on its
+boundary. It is the sharpest worked example of holography, with a dictionary
+that turns boundary correlators into bulk physics. OPH borrows the
+boundary-encoding lesson while working with observer-dependent finite screens
+instead of one global boundary at infinity.
+
 **Algebra.** An algebra is a collection of observables together with rules for
 adding and multiplying them. In quantum theory the multiplication can be
 non-commutative, meaning $AB$ need not equal $BA$. The book puts algebras on
@@ -35,11 +42,33 @@ preserves its rules. For an algebra of observables, it reshuffles the allowed
 questions while preserving addition, multiplication, and compatibility. Modular
 flow is a continuous family of automorphisms.
 
+**Bekenstein bound.** The Bekenstein bound limits the entropy in a region by its
+energy and size, often written $S\le 2\pi ER/\hbar c$. It is one of the results
+that made finite information capacity look fundamental. OPH reads it as early
+evidence that observers on bounded screens carry a finite record budget.
+
+**Bekenstein-Hawking entropy.** This is the entropy carried by a black-hole
+horizon, $S_{BH}=A/(4\ell_P^2)$ in natural units, proportional to horizon area
+instead of enclosed volume. It is the anchor for every area law in the book.
+OPH treats it as the prototype of screen capacity counted in Planck-area units.
+
 **Bell correlation.** A Bell correlation is a pattern of measurement results
 that violates classical local hidden-variable bounds while preserving
 no-signaling. The CHSH statistic $S$ has a classical limit $|S|\leq2$ and a
 quantum limit $2\sqrt2$. Bell correlations show that shared reality cannot
 be explained by local prewritten instruction sheets.
+
+**Bisognano-Wichmann theorem.** The Bisognano-Wichmann theorem identifies the
+modular flow of a quantum field restricted to a wedge with a Lorentz boost. It
+is the rigorous bridge from an algebra-state pair to geometric motion. OPH leans
+on it where modular flow has to become a physical boost on the controlled
+Lorentz branch.
+
+**Bootstrap.** The bootstrap idea fixes a theory by its own consistency, with no
+fundamental inputs supplied at the start. It failed for the hadrons of the 1960s
+and returned as the modern conformal bootstrap, where crossing symmetry and
+unitarity pin real numbers to many digits. OPH is the same wager carried up to
+the whole universe.
 
 **Boundary.** A boundary is the surface or interface where information capacity,
 comparison, and
@@ -191,6 +220,12 @@ information can survive boundary erasure. OPH uses recovery and coding as
 central stability mechanisms, but bare overlap consistency is only a finite
 constraint-code claim until stronger code certificates are present.
 
+**Fawzi-Renner theorem.** The Fawzi-Renner theorem shows that small conditional
+mutual information implies a recovery map that approximately reconstructs a state
+from partial data. It made approximate recoverability quantitative. OPH uses it
+to argue that locally damaged records can be repaired from surrounding
+correlations.
+
 **Fixed point.** A fixed point is a value or state left unchanged by a process
 or map. In OPH, fixed points appear in consensus repair, pixel-ratio
 selection, and self-consistency conditions. A fixed point is stable because
@@ -214,6 +249,29 @@ with quantum entropy outside or across a surface. It is central in black-hole
 thermodynamics, quantum extremal surfaces, and entanglement-equilibrium
 arguments. OPH uses it to connect cap entropy to emergent gravity.
 
+**Gleason's theorem.** Gleason's theorem shows that the only consistent
+probability rule on the projections of a quantum system of dimension three or
+more is the Born trace rule. It removes the freedom to invent a different
+probability assignment. OPH uses it to treat trace and Born readings as forced
+rather than postulated.
+
+**Gödel incompleteness.** Gödel's theorems show that any sufficiently rich
+consistent formal system contains true statements it cannot prove, built from a
+sentence that refers to itself. The lever is self-reference. OPH takes the
+constructive half of the lesson: self-reference is a real structural feature a
+system can carry, with consequences that can be computed.
+
+**Golden ratio.** The golden ratio $\varphi=(1+\sqrt5)/2$ is the self-similar
+balance point of the entropy bookkeeping on the screen. A screen exactly at that
+balance carries no events. The pixel ratio sits a small distance above it, and
+that detuning is where the fine-structure constant enters.
+
+**Hayden-Preskill protocol.** The Hayden-Preskill result studies how quickly
+information dropped into a scrambling system such as a black hole can be
+recovered from its output. It sharpened the sense in which horizons behave like
+fast, reversible information processors. OPH cites it as part of the recovery
+story for boundary-encoded data.
+
 **Higgs field.** The Higgs field gives mass to weak gauge bosons and fermions
 through electroweak symmetry breaking and Yukawa couplings. In the book it
 appears as part of the Standard Model support boundary, where different mass claims
@@ -235,12 +293,36 @@ separates outside observers from the interior. A de Sitter horizon limits
 what one observer can ever receive. Horizons carry entropy and temperature,
 which makes them natural screens in OPH.
 
+**It from bit.** John Wheeler's slogan for the participatory universe, in which
+observers and their observations are part of what gives the world definite
+content. It is the picture the strange-loop chapter turns into a computation.
+OPH is the attempt to make Wheeler's drawing close on itself with two forced
+numbers.
+
+**Jacobson equation of state.** Ted Jacobson derived the Einstein equation from
+the thermodynamics of local horizons, reading gravity as an equation of state
+rather than a postulated field law. It shows dynamics recovered as a consistency
+condition. The gravity branch of OPH installs this argument in the
+observer-patch setting.
+
 **KMS condition.** The KMS condition characterizes thermal equilibrium states
 with respect to a flow. In modular theory, it shows that the modular flow
 associated with an algebra-state pair has thermal character. In plain language,
 it is the equilibrium test that lets the same flow be read as both clock-like
 and temperature-like. The book uses it as part of the path from restricted
 states to internal time.
+
+**Knill-Laflamme condition.** The Knill-Laflamme condition states exactly when a
+set of errors is correctable by a quantum code: the environment may learn which
+error occurred, and never the protected logical state. It is the precise line
+between recoverable and lost information. OPH invokes it when a bare overlap
+network is asked to behave like a real error-correcting code.
+
+**Kochen-Specker theorem.** The Kochen-Specker theorem shows that quantum
+observables cannot all carry definite values at once independent of what is
+measured. It makes contextuality a theorem. OPH reads it as support for treating
+properties as relative to the measurement context rather than as a fixed
+inventory.
 
 **Landauer cost.** Landauer's principle says erasing one bit at temperature
 $T$ costs at least $k_BT\ln2$ of dissipated heat. It links information
@@ -294,6 +376,18 @@ density-matrix generator belongs to the algebra. Unlike ordinary energy, the
 modular generator or flow depends on the chosen region and state. That
 region-dependence is why it fits observer patches.
 
+**Modular theory (Tomita-Takesaki).** Tomita-Takesaki theory shows that an
+algebra-state pair generates its own flow, the modular flow, with a thermal KMS
+character. It is self-reading at the level of theorems: the restricted state
+carries its own clock. OPH's internal time, its Lorentz branch, and its
+thermality all ride this mathematics.
+
+**Monogamy of entanglement.** Monogamy is the rule that entanglement cannot be
+shared freely: if two systems are maximally entangled with each other, neither
+has entanglement left for a third. It is one reason entanglement networks can
+support locality. OPH uses it as a constraint on how screen correlations knit
+into geometry.
+
 **No-cloning.** The no-cloning theorem says an unknown quantum state cannot be
 copied perfectly. This forces quantum error correction to use entangled
 encoding, not simple duplication. It also helps explain why public
@@ -315,9 +409,8 @@ that boundary or sector to have a unique consistent extension. In the current
 OPH construction, overlapping repairs are accepted only when they preserve the
 shared boundary data and descend to the same observer-facing result. A digital
 fingerprint can help show that two computed outputs match, but it cannot select
-between two physically distinct consistent endpoints. The companion paper
-*Observation-Determined Normal Forms* gives the exact cross-source criterion and
-its quantitative stability version.
+between two physically distinct consistent endpoints. The OPH paper stack gives
+the exact cross-source criterion and its quantitative stability version.
 
 **Observer patch.** An observer patch is the finite operational domain
 available to an observer. It has a local algebra, a state, records, and
@@ -341,6 +434,12 @@ result.
 descriptions can be compared. It may be geometric, algebraic, or operational.
 The overlap condition requires matching state assignments on shared
 observables.
+
+**Page curve.** The Page curve is the shape black-hole radiation entropy takes
+over time if evaporation preserves information: it rises, then falls back toward
+zero. Reproducing it is a benchmark for information conservation. OPH treats
+reconstruction thresholds carefully so that a finite output is called a Page
+time only when physical entropy and clock data are supplied.
 
 **Particle.** A particle is a stable excitation pattern with definite
 transformation and interaction properties in an effective regime. OPH does
@@ -406,6 +505,12 @@ with scale. Couplings and masses can run. This is essential for particle
 physics because a number such as a quark mass or coupling constant is not
 complete without its scale and scheme.
 
+**Ryu-Takayanagi formula.** The Ryu-Takayanagi formula computes the entanglement
+entropy of a boundary region as the area of a minimal bulk surface,
+$S(A)=\mathrm{Area}(\gamma_A)/4G_N$. It ties quantum correlation to geometry.
+OPH reads it as the clearest sign that entanglement structure carries spatial
+information.
+
 **Screen.** The screen is the finite holographic surface carrying the primary
 data in OPH's boundary-first picture. The word is used at three related levels:
 the global screen net, an observer-facing access cut on that net, and the
@@ -444,10 +549,22 @@ structure.
 to one observer inside their cosmological horizon. It is finite and bounded,
 making it a natural operational arena for OPH.
 
+**Strange loop.** A strange loop is a structure that climbs through the levels
+of a hierarchy and returns to its own starting point, so that the describer and
+the described become one system. Hofstadter used it for the self, and Escher
+drew it as two hands drawing each other. OPH's central thesis is that the
+universe is such a loop, the fixed point of its own description, with the two
+closure numbers standing for the loop reading itself.
+
 **Stress-energy tensor.** The stress-energy tensor $T_{\mu\nu}$ contains
 energy density, momentum density, pressure, and stress. In Einstein's
 equation it sources curvature. In OPH it is part of the emergent smooth
 gravitational description.
+
+**Strong subadditivity.** Strong subadditivity is the deep inequality of quantum
+entropy that keeps conditional mutual information from ever going negative. Much
+of quantum information recovery rests on it. OPH uses the results it supports,
+from recovery maps to monogamy, as stability tools for records.
 
 **Tannaka-Krein reconstruction.** Tannaka-Krein reconstruction is a family of
 mathematical results showing that a group can be recovered from its
@@ -480,6 +597,12 @@ disturbance alone.
 **Unitarity.** Unitarity is the quantum rule that total time evolution
 preserves inner products and total probability. The black-hole information
 problem is sharp because naive evaporation seemed to threaten unitarity.
+
+**Unruh effect.** The Unruh effect predicts that an accelerating observer sees
+the vacuum as a warm thermal bath, with a temperature set by the acceleration.
+It shows that even the count of particles is observer-relative. OPH treats it as
+another sign that horizons and temperature belong to the observer rather than to
+an absolute background.
 
 **Wedge reconstruction.** Wedge reconstruction is the ability to reconstruct
 bulk operators in an entanglement wedge from the corresponding boundary

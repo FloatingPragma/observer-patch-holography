@@ -101,7 +101,7 @@ The theorem is relative to the fixed initial quotient state. A stronger
 consistent extension in that boundary or sector fiber. The generic equivalence
 between this boundary-identification property and cross-source endpoint
 agreement, together with its Lean bridge to the finite repair architecture, is
-proved in the companion paper *Observation-Determined Normal Forms*. Injectivity
+proved in the OPH paper stack. Injectivity
 of the declared physical boundary map on the full consistent quotient remains an
 application-specific premise.
 

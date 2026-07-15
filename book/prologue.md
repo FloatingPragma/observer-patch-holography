@@ -289,6 +289,14 @@ core axioms. Gravity, the symmetry structure behind the Standard Model, and
 several further programs emerge from the framework. The book explains the path
 from observer consistency to that reconstructed world.
 
+This book is self-contained. It states results in plain language and does not
+send the reader chasing external files. Where it says a result is proved
+separately, the proof lives in the public OPH repository at
+github.com/FloatingPragma/observer-patch-holography, together with the full
+paper stack, the machine-checked Lean libraries, and the code that runs the
+fixed-point calculations. One address holds all of it, for the reader who wants
+to go past the story into the formal record.
+
 ## How This Book Is Organized
 
 Chapters 1-12 cover the observer-first framework and structural tools.

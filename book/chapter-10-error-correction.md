@@ -230,10 +230,9 @@ problem converge to the same public description.
 The distinction matters whenever the starting interior is hidden. Confluence
 compares repair paths from one source. Agreement between different sources with
 the same boundary requires that the boundary identify the consistent quotient,
-and liveness requires a separate normalization or fairness argument. The
-companion paper *Observation-Determined Normal Forms* proves the exact generic
-criterion; applying it to a physical boundary map requires the corresponding
-injectivity certificate.
+and liveness requires a separate normalization or fairness argument. The OPH
+paper stack proves the exact generic criterion; applying it to a physical
+boundary map requires the corresponding injectivity certificate.
 
 That public description is the fixed point: a shared state produced by the
 allowed observer-network repairs, with no vote and no view from nowhere. The

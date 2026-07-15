@@ -176,9 +176,8 @@ simulation choosing the most convenient branch.
 That theorem compares repair schedules beginning at one fixed quotient state.
 Two different interiors exposing the same boundary reach the same public result
 only when the boundary identifies the consistent quotient, modulo the declared
-gauge or silent relation. The companion paper *Observation-Determined Normal
-Forms* proves this cross-source criterion and keeps endpoint existence and
-schedule liveness as separate conditions.
+gauge or silent relation. The OPH paper stack proves this cross-source criterion
+and keeps endpoint existence and schedule liveness as separate conditions.
 
 This is the **overlap test**: If two observers share a region of experience, their accounts must agree in that overlap.
 
