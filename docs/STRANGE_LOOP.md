@@ -32,8 +32,8 @@ recovered mathematical core.
 
 ## Lineage: the loop is the completion of established programs
 
-SLH does not arrive from outside physics. It is the closure of threads that established
-physics and mathematics have been pulling for a century.
+SLH is the closure of threads that established physics and mathematics have
+been pulling for a century; it does not arrive from outside physics.
 
 - **Wheeler's participatory universe and "it from bit."** Wheeler drew the U with the eye
   looking back at its own tail: the universe generating the observers whose observations

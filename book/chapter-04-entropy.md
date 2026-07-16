@@ -347,7 +347,7 @@ But most of that entropy is in black holes, inaccessible. The entropy we can act
 
 A law is a pattern that compresses observations. If a law needed more bits to specify than the observations it explains, it would be useless.
 
-The simplicity of physical laws is not a miracle. It's a necessity. Laws must be compressible because the universe has finite information.
+The simplicity of physical laws is a necessity, not a miracle. Laws must be compressible because the universe has finite information.
 
 ### Observers as Entropy Processors
 

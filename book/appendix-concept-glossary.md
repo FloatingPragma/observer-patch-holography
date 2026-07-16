@@ -618,8 +618,8 @@ twice gives the same filtered subspace. Projectors replace ordinary sets in
 quantum logic.
 
 Public fact
-:   A public fact is not a private impression. It is a record or
-regularity stable enough to be checked across observers. OPH identifies
+:   A public fact is a record or regularity stable enough to be
+checked across observers, not a private impression. OPH identifies
 objectivity with this overlap-stable public layer.
 
 Quantum Darwinism

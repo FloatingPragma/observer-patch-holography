@@ -10,8 +10,8 @@ introduced, and how OPH inherits a vast scientific commons.
 
 ## Interlude 1: Why Reverse Engineering Is the Right Metaphor
 
-Reverse engineering is not guessing. It is disciplined inference under
-limited access. A reverse engineer has a working object and incomplete
+Reverse engineering is disciplined inference under limited access, not
+guessing. A reverse engineer has a working object and incomplete
 documentation. The object may be a chip, a network protocol, a file format, a
 piece of malware, a biological pathway, or a physical system. The engineer
 does not get to inspect the original intention directly. Instead, they gather
@@ -173,7 +173,7 @@ disciplined enough to preserve causal structure.
 The founders broke the old answer-sheet view. Quantum information theory
 then turned the break into a resource. Entanglement became something to test,
 distill, teleport, protect, and use for computation. OPH takes that modern
-view seriously. Quantum weirdness is not a fog around reality. It is part of
+view seriously. Quantum weirdness is not a fog around reality but part of
 the machinery that lets finite observers share a reality without reducing it
 to prewritten classical facts.
 
@@ -189,7 +189,7 @@ not the main storage device.
 Black holes forced the reversal. If a black hole's entropy scaled with
 volume, merging or lowering entropy-bearing systems into black holes would
 threaten thermodynamics. The Bekenstein-Hawking formula made area the count.
-For a horizon, the surface is not a passive shell. It is the bookkeeping
+For a horizon, the surface is not a passive shell but the bookkeeping
 surface through which external observers describe what can be known.
 
 't Hooft and Susskind drew the general lesson: gravity appears to limit
@@ -218,7 +218,7 @@ from consistency across those overlapping screens.
 
 This is more modest in one way and more radical in another. It is more modest
 because it does not claim a known global de Sitter CFT. It is more radical
-because observer-dependence is not a problem to hide. It is the organizing
+because observer-dependence is not a problem to hide but the organizing
 principle. The boundary is where finite observers' records are compared.
 
 The reader should keep the hierarchy clear. Black-hole thermodynamics gives
@@ -315,10 +315,10 @@ the W and Z bosons, heavy quarks, the tau, neutrinos' properties, and the
 Higgs boson.
 
 OPH's Standard Model chapter tries to read this giant structure through
-observer consistency. The goal is not to make the Standard Model look easy.
-It is to show why its gauge and representation structure looks like the kind
+observer consistency. The goal is not to make the Standard Model look easy
+but to show why its gauge and representation structure looks like the kind
 of thing a patch-consistency architecture would select. Charges are not
-private decorations. They are transport labels that must remain meaningful
+private decorations but transport labels that must remain meaningful
 when records cross overlaps.
 
 ## Interlude 7: Cosmology, Capacity, and the Dark Sector
@@ -422,7 +422,7 @@ thousands of people whose names will never fit in one narrative.
 
 Any observer-first theory has to fight a misunderstanding: if observers are
 primary, does that mean anything goes? OPH's answer is no. Observer-first is
-not wish-first. It is constraint-first. A private experience becomes a public
+constraint-first, not wish-first. A private experience becomes a public
 fact only if it can be recorded, compared, and integrated with other records
 without contradiction.
 
@@ -439,7 +439,7 @@ This is close to the actual practice of science. A single lab result is not
 enough. Instruments are calibrated. Blind analyses are used. Independent
 teams reproduce or fail to reproduce results. Systematic errors are hunted.
 Theoretical interpretations are tested against other domains. Public fact is
-not raw sensation. It is sensation, instrument output, memory, communication,
+not raw sensation but sensation, instrument output, memory, communication,
 and mathematical structure stabilized across many perspectives.
 
 The philosophical payoff is that consciousness and objectivity do not have
@@ -451,7 +451,7 @@ feeds back into the inside process as learning, correction, and expectation.
 
 This is also where the epilogue's continuation question belongs. If an
 observer is a structured process with boundary interfaces and interior
-interface-relative state, then restoration is not a magical word. It is a question
+interface-relative state, then restoration is not a magical word but a question
 about which structures must be preserved for the next internal moment to be
 the continuation of the previous one. The answer is not known in any simple
 engineering sense. But OPH gives the right type of boundary: records,
@@ -734,8 +734,8 @@ welcome hard consistency checks.
 
 ## Interlude 17: How Particle Data Enters a Book Like This
 
-Particle data is not a table handed down from nature in final form. It is a
-careful product of experiments and conventions. This is easy to forget when a
+Particle data is a careful product of experiments and conventions, not a
+table handed down from nature in final form. This is easy to forget when a
 book writes a mass or coupling as a number.
 
 The electron mass is extremely precise because it can be tied to controlled
@@ -934,7 +934,7 @@ disturbances. A public fact is the signal that survives after these error
 sources are modeled, bounded, rejected, or carried as uncertainty.
 
 That is why the recovery chapters matter. Recovery is not a fantasy of
-perfect restoration. It is the mathematical study of which correlations
+perfect restoration but the mathematical study of which correlations
 contain enough information to rebuild a useful description. In classical
 error correction, redundant bits protect a message. In quantum error
 correction, information is stored in correlations that local damage cannot

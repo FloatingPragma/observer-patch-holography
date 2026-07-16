@@ -9,7 +9,7 @@
 OPH starts with a stubbornly practical object: a bounded patch with local
 state, ports or boundaries, readback, records, feedback, and repair moves. Call
 that patch an observer if you like, but do not picture a little person sitting
-inside it. It is closer to a debugging probe with memory, except the probe is
+inside it; it is closer to a debugging probe with memory, except the probe is
 part of the program being debugged.
 
 Those patches can see only local records. Where their boundaries overlap they

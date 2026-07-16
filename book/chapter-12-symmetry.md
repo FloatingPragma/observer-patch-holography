@@ -149,7 +149,7 @@ That's it. Those are the only quantum numbers that follow from spacetime symmetr
 **Particles are representations of symmetries.** Spacetime symmetry fixes the mass-and-spin labels, while the realized internal charges and matter content require additional structure.
 
 That changes what a particle is. A particle is not a tiny marble with a fixed
-identity tag. It is an allowed transformation pattern. Mass tells you how the
+identity tag but an allowed transformation pattern. Mass tells you how the
 excitation sits with time translations. Spin tells you how it sits with
 rotations.
 
@@ -421,7 +421,7 @@ the recovered spacetime view.
 
 The world obeys the script. Conservation laws hold. CPT remains intact.
 Spin-statistics stays locked. Symmetry is not decorative embroidery on top of
-physics. It is one of the mechanisms by which physics keeps itself coherent.
+physics but one of the mechanisms by which physics keeps itself coherent.
 
 ### Noether's Human Lesson
 

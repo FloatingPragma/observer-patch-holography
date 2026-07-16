@@ -1,0 +1,187 @@
+{
+  "inputs": {
+    "N_CRC": 3.532131543418936e+122,
+    "N_CRC_rel_width": 1.58e-25,
+    "G_rel_sigma": 2.2e-05,
+    "combos": {
+      "TTTEEE_lowE_lensing": {
+        "H0": [
+          67.36,
+          0.54
+        ],
+        "OmegaL": [
+          0.6847,
+          0.0073
+        ],
+        "Omh2": [
+          0.1424,
+          0.00087
+        ],
+        "note": "column consumed implicitly by the corpus (N_Lambda = 3.313e122 back-solves to these centrals)"
+      },
+      "TTTEEE_lowE_lensing_BAO": {
+        "H0": [
+          67.66,
+          0.42
+        ],
+        "OmegaL": [
+          0.6889,
+          0.0056
+        ],
+        "Omh2": [
+          0.141,
+          0.00087
+        ],
+        "note": "sensitivity case; not the combination the ledger consumed"
+      }
+    }
+  },
+  "combos": {
+    "TTTEEE_lowE_lensing": {
+      "note": "column consumed implicitly by the corpus (N_Lambda = 3.313e122 back-solves to these centrals)",
+      "N_Lambda": 3.312593218645471e+122,
+      "gap_ratio": 1.0662738556420865,
+      "gap_ln": 0.06417019297753805,
+      "rows": [
+        {
+          "route": "route1_OmegaL_H0",
+          "rho": 0.9,
+          "rel_sigma_OLh2": 0.026046638779541213,
+          "sigma_lnN": 0.02604664807056563,
+          "z": 2.4636641461000295
+        },
+        {
+          "route": "route1_OmegaL_H0",
+          "rho": 0.95,
+          "rel_sigma_OLh2": 0.026372739936740837,
+          "sigma_lnN": 0.02637274911288099,
+          "z": 2.433200752142901
+        },
+        {
+          "route": "route1_OmegaL_H0",
+          "rho": 0.99,
+          "rel_sigma_OLh2": 0.026630745911788073,
+          "sigma_lnN": 0.026630754999027294,
+          "z": 2.4096272516450212
+        },
+        {
+          "route": "route1_OmegaL_H0",
+          "rho": 1.0,
+          "rel_sigma_OLh2": 0.02669485777879384,
+          "sigma_lnN": 0.026694866844208645,
+          "z": 2.4038401596844654
+        },
+        {
+          "route": "route2_H0_Omh2",
+          "rho": -0.9,
+          "rel_sigma_OLh2": 0.02591018647237987,
+          "sigma_lnN": 0.025910195812334124,
+          "z": 2.476638673143137
+        },
+        {
+          "route": "route2_H0_Omh2",
+          "rho": -0.95,
+          "rel_sigma_OLh2": 0.026035885238578926,
+          "sigma_lnN": 0.02603589453344079,
+          "z": 2.4646817068304356
+        },
+        {
+          "route": "route2_H0_Omh2",
+          "rho": -0.99,
+          "rel_sigma_OLh2": 0.026136008988650435,
+          "sigma_lnN": 0.02613601824790487,
+          "z": 2.4552398291458224
+        },
+        {
+          "route": "route2_H0_Omh2",
+          "rho": -1.0,
+          "rel_sigma_OLh2": 0.026160980051966848,
+          "sigma_lnN": 0.026160989302383184,
+          "z": 2.4528962661091853
+        },
+        {
+          "route": "route3_Omh3_degeneracy",
+          "rho": null,
+          "rel_sigma_OLh2": 0.02703324300449903,
+          "sigma_lnN": 0.027033251956438683,
+          "z": 2.3737504123048807
+        }
+      ],
+      "z_min": 2.3737504123048807,
+      "z_max": 2.476638673143137
+    },
+    "TTTEEE_lowE_lensing_BAO": {
+      "note": "sensitivity case; not the combination the ledger consumed",
+      "N_Lambda": 3.2632655911878014e+122,
+      "gap_ratio": 1.0823916854813125,
+      "gap_ln": 0.07917311628665306,
+      "rows": [
+        {
+          "route": "route1_OmegaL_H0",
+          "rho": 0.9,
+          "rel_sigma_OLh2": 0.020046656936871035,
+          "sigma_lnN": 0.02004666900870565,
+          "z": 3.949439991864515
+        },
+        {
+          "route": "route1_OmegaL_H0",
+          "rho": 0.95,
+          "rel_sigma_OLh2": 0.020296810053160294,
+          "sigma_lnN": 0.020296821976212652,
+          "z": 3.9007641875876873
+        },
+        {
+          "route": "route1_OmegaL_H0",
+          "rho": 0.99,
+          "rel_sigma_OLh2": 0.02049473428775411,
+          "sigma_lnN": 0.020494746095661785,
+          "z": 3.8630932980141672
+        },
+        {
+          "route": "route1_OmegaL_H0",
+          "rho": 1.0,
+          "rel_sigma_OLh2": 0.020543917404515086,
+          "sigma_lnN": 0.020543929184154083,
+          "z": 3.853844879280482
+        },
+        {
+          "route": "route2_H0_Omh2",
+          "rho": -0.9,
+          "rel_sigma_OLh2": 0.02044761559606429,
+          "sigma_lnN": 0.020447627431181635,
+          "z": 3.871995249968117
+        },
+        {
+          "route": "route2_H0_Omh2",
+          "rho": -0.95,
+          "rel_sigma_OLh2": 0.02056774456924442,
+          "sigma_lnN": 0.02056775633523704,
+          "z": 3.849380311405785
+        },
+        {
+          "route": "route2_H0_Omh2",
+          "rho": -0.99,
+          "rel_sigma_OLh2": 0.020663344916704574,
+          "sigma_lnN": 0.020663356628261072,
+          "z": 3.8315709161389955
+        },
+        {
+          "route": "route2_H0_Omh2",
+          "rho": -1.0,
+          "rel_sigma_OLh2": 0.02068717597370301,
+          "sigma_lnN": 0.020687187671768123,
+          "z": 3.827157056959506
+        },
+        {
+          "route": "route3_Omh3_degeneracy",
+          "rho": null,
+          "rel_sigma_OLh2": 0.020703775887449736,
+          "sigma_lnN": 0.02070378757613556,
+          "z": 3.824088514988088
+        }
+      ],
+      "z_min": 3.824088514988088,
+      "z_max": 3.949439991864515
+    }
+  }
+}

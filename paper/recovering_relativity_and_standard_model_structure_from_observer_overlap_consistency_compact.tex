@@ -9098,10 +9098,12 @@ The value
 carrier would require additional hypotheses about homogeneous cellulation, isomorphic cell
 algebras, equivariant overlaps, refinement preservation, and selection of a one-cell or fixed-block
 carrier.
-The corresponding input-free selector target is
+The corresponding input-free target is the declared count-density selector
 \[
-N_\star=\operatorname{MAR}\arg\max_N\left[\log|\Omega^{\mathrm{sc}}_N|-N\right].
+N_\star=\arg\max_N\left[\log|\Omega^{\mathrm{sc}}_N|-N\right];
 \]
+this count representation consumes a smoothness/interior-maximum assumption on \(N\) that the
+lexicographic order of Axiom~\ref{ax:mar} on sector packages does not license.
 Equivalently, with \(\ell(N)=\log|\Omega^{\mathrm{sc}}_N|-N\), the proposed stationarity map
 \[
 T_\eta(N)=N+\eta\ell'(N)
@@ -9690,8 +9692,8 @@ category with faithful finite-dimensional bosonic fiber functor constructed abov
 \]
 Uniqueness follows because the reconstructed compact group is the tensor automorphism group of
 the fiber functor. If \(\mathsf{Sect}_\infty\) is trivial, then \(G\) is the trivial compact group;
-the realized nontrivial branch is supplied by Theorem~\ref{thm:mar-witness-landing}, not hidden as
-a hypothesis in this reconstruction theorem.
+the realized nontrivial branch enters through Theorem~\ref{thm:mar-witness-landing} under its
+named realized matter-package hypothesis.
 \end{proof}
 
 Theorem~\ref{thm:compactgauge} is a Tannakian-level statement: it produces the compact group
@@ -9739,7 +9741,8 @@ nonzero \(o^{(2)}_\Sigma\) blocks strictification, while a strictifiable associa
 orbit contains an allowed strict representative with trivial sector holonomy. The fourth arrow is Theorem~\ref{thm:compactgauge}.
 Proposition~\ref{prop:obstruction-neutrality} shows that these arrows are neutral about the Standard
 Model quotient. The final arrow is Axiom~\ref{ax:mar}
-applied to the nonempty witness class of Theorem~\ref{thm:mar-witness-landing}, with uniqueness
+applied to the witness class of Theorem~\ref{thm:mar-witness-landing}, nonempty under its realized
+matter-package hypothesis, with uniqueness
 summarized in Theorem~\ref{thm:realized-sm-branch}.
 \end{proof}
 
@@ -10004,7 +10007,7 @@ With \(N_c=3\), this gives
 \qquad\text{hence}\qquad
 N_g\le 5.
 \]
-These are not extra post-MAR selectors: they are the explicit numerical consequences of the CP-capability and weak-sector UV clauses present in Axiom~\ref{ax:mar} on the same realized branch. Once the first three MAR components are fixed by the D8 color/weak structure, the fourth component \(N_g\) is minimized on the allowed set \(\{3,4,5\}\), so \(N_g=3\).
+These are not extra post-MAR selectors: they are the explicit numerical consequences of the CP-capability and weak-sector UV clauses present in Axiom~\ref{ax:mar} on the same realized branch. Once the first three MAR components are fixed by the D8 color/weak structure, the fourth component \(N_g\) is minimized on the allowed set \(\{3,4,5\}\), so \(N_g=3\). With MAR lexicographic minimality selecting the window minimum, the upper bound \(N_g\le5\) from the \(\SU(2)\) clause is a consistency check and does no selection work.
 \end{proof}
 
 \begin{corollary}[MAR-minimal SM package is unique up to physical equivalence]\label{cor:mar-sm-unique}
@@ -10351,9 +10354,11 @@ classical massless transverse modes; a photon particle requires
 Corollary~\ref{cor:conditional-carrier-particles}.
 \end{remark}
 
-\begin{theorem}[Realized compact-gauge witness and physical UV landing]\label{thm:mar-witness-landing}
+\begin{theorem}[Compact-gauge witness landing under the realized matter-package hypothesis]\label{thm:mar-witness-landing}
 On the ordinary or central zero-obstruction bosonic branch, suppose a cofinal tail carries the
-compact-gauge refinement receipt of Definition~\ref{def:compact-gauge-refinement-receipt}. Then
+compact-gauge refinement receipt of Definition~\ref{def:compact-gauge-refinement-receipt}, and
+suppose, as a named input hypothesis (the realized matter-package hypothesis), that a realized
+one-Higgs chiral matter package with the witness labels below exists on the branch. Then
 the OPH compact reference architecture admits an OPH-realizable cofinal heat-kernel edge-sector witness
 \[
 \mathcal W_{\mathrm{SM}}
@@ -10371,7 +10376,7 @@ L_i=(1,2)_{-1/2},\qquad
 e_i^c=(1,1)_1,\qquad
 H=(1,2)_{1/2}.
 \]
-Every witness sector has positive realized support on the compact heat-kernel branch, and the witness is MAR-admissible. Hence the MAR-admissible class used above is nonempty. Every OPH-admissible microscopic UV completion of this realized branch has observer-visible low-energy package, modulo physical equivalence in Definition~\ref{def:mar-space},
+Every witness label has positive realized support on the compact heat-kernel branch at the bosonic sector level, and under the realized matter-package hypothesis the witness is MAR-admissible, so the MAR-admissible class used above is nonempty under that hypothesis. Realized-branch nonemptiness for the matter package itself is open, parallel to the geometric branch of Theorem~\ref{thm:einstein-branch-entry-composed} (Remark~\ref{rem:realized-branch-status}). Under the same hypothesis, every OPH-admissible microscopic UV completion of this realized branch has observer-visible low-energy package, modulo physical equivalence in Definition~\ref{def:mar-space},
 \[
 \mathfrak S_{\mathrm{SM}}
 =
@@ -10402,9 +10407,9 @@ The fixed-cutoff edge heat-kernel law on the microphysics surface gives sector w
 \[
 p_R(t)\propto d_R e^{-tC_2(R)}
 \]
-on the compact branch. For finite \(t\), \(d_R>0\) and \(e^{-tC_2(R)}>0\), so every witness projector has positive support. On the tail certified by the stated receipt, the refinement functors of Theorem~\ref{thm:refinement-functor-fiber-descent} carry those zero-obstruction labels forward, and Theorem~\ref{thm:sector-colimit} places the corresponding objects in \(\mathsf{Sect}_\infty\).
+on the compact branch. For finite \(t\), \(d_R>0\) and \(e^{-tC_2(R)}>0\), so every witness projector has positive support. This positivity is a statement about the bosonic internal-gauge sector labels only; positive heat-kernel weight on a boundary label does not supply a light chiral fermion multiplet carrying that label, and the existence of the displayed chiral matter plus one-Higgs package on the branch is the realized matter-package hypothesis. On the tail certified by the stated receipt, the refinement functors of Theorem~\ref{thm:refinement-functor-fiber-descent} carry those zero-obstruction labels forward, and Theorem~\ref{thm:sector-colimit} places the corresponding objects in \(\mathsf{Sect}_\infty\).
 
-The witness is loop-coherent by the zero-obstruction branch. Theorem~\ref{thm:hypercharge} supplies anomaly cancellation and one-Higgs Yukawa completeness on the displayed chiral package; Lemmas~\ref{lem:su2class}--\ref{lem:carrier} give the weak-type and color-type roles on the minimal coupled carrier; Corollary~\ref{cor:nc} gives \(N_c=3\); and Corollary~\ref{cor:ng} gives \(N_g=3\) from the CP-capability and weak-sector UV clauses in Axiom~\ref{ax:mar}. Thus \(\mathcal W_{\mathrm{SM}}\) is an occupied MAR-admissible package.
+The witness is loop-coherent by the zero-obstruction branch. Theorem~\ref{thm:hypercharge} supplies anomaly cancellation and one-Higgs Yukawa completeness on the displayed chiral package; Lemmas~\ref{lem:su2class}--\ref{lem:carrier} give the weak-type and color-type roles on the minimal coupled carrier; Corollary~\ref{cor:nc} gives \(N_c=3\); and Corollary~\ref{cor:ng} gives \(N_g=3\) from the CP-capability and weak-sector UV clauses in Axiom~\ref{ax:mar}. Thus, under the realized matter-package hypothesis, \(\mathcal W_{\mathrm{SM}}\) is an occupied MAR-admissible package.
 
 Proposition~\ref{prop:mar-well-founded} supplies minima for the resulting nonempty admissible class. Corollary~\ref{cor:mar-sm-unique} and Proposition~\ref{prop:z6} identify every MAR-minimal observer-visible package with the displayed Standard Model package. Finally, Remark~\ref{rem:mar-uniqueness} and Definition~\ref{def:mar-space} remove only microscopic regulator choices, implementation hiding, gauge-center conventions, generation relabeling, charge-conjugation convention, and inert ancillary stabilization. Thus any OPH-admissible UV completion of the realized branch lands on the same observer-visible low-energy package, not on a unique microscopic representative.
 \end{proof}
@@ -10504,6 +10509,11 @@ N_c=3,
 \qquad
 \beta_{\mathrm{EW}}=N_c+1=4.
 \]
+The value \(\beta_{\mathrm{EW}}=N_c+1=4\) equals the Witten-anomaly doublet count on the realized
+branch and enters the transmutation law as a declared coefficient; the \(\SU(2)\) one-loop
+coefficient of the realized one-Higgs branch is \(19/6\) and the declared unification packet's
+coefficient is \(1\), and neither equals \(4\). The coefficient is a counted structural selection
+on the scorecard, and a derivation from screen counting is work in progress.
 The logical direction is therefore
 \[
 P
@@ -11453,7 +11463,7 @@ Tier & Representative outputs & What would actually falsify the tier \\
 \bottomrule
 \endfoot
 Phase I recovered core (Theorem~\ref{thm:master}; D1--D5, D7--D9) & Confluence of overlap repair, Lorentz kinematics, the three-dimensional observer-facing spatial chart, the Jacobson-type Einstein branch in the stated scaling regime, receipt-conditional compact gauge reconstruction in the bosonic branch, the controlled four-dimensional Euclidean Yang--Mills form and compact-gauge repair-gap mechanism under the declared compact-gauge continuum/transfer assumptions, the realized Standard Model quotient chain on the explicit realized matter package, the exact hypercharge lattice on that realized matter package, the realized color triplet \(N_c=3\), the generation count \(N_g=3\), and the product-group consequence of no gauge-mediated proton decay; the Standard Model content is conditional on the MAR admissibility-clause inputs, and realized-branch nonemptiness is open & A mathematical failure in the derivation chain, loss of the Yang--Mills form or exact repair-gap branch conditions, or data that require a different realized gauge quotient, different realized hypercharges, a different color or generation count on the admissible branch, or gauge-mediated proton decay \\
-Phase II global self-closure target (D6) & Conditional consequences of a cosmic record-closure fixed point \(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\): \(\Lambda_{\mathrm{CRC}}\ell_\star^2=3\pi/N_{\mathrm{CRC}}\), \(S_{\mathrm{dS}}=N_{\mathrm{CRC}}\), and, after the selected OPH scale certificate, \(\Lambda_{\mathrm{CRC}}=\frac{3\pi}{G N_{\mathrm{CRC}}}\), \(r_{\mathrm{dS}}=\sqrt{3/\Lambda_{\mathrm{CRC}}}\), and \(t_\Lambda=r_{\mathrm{dS}}/c\). The formula \(F(N)=\operatorname{Cap}_{\mathrm{read}}(\operatorname{Obs}(\operatorname{nf}(\mathfrak U_N)))\) and count representation \(N_\star=\operatorname{MAR}\arg\max_N(\log|\Omega^{\mathrm{sc}}_N|-N)\) specify the target. The map, fixed-point certificate, CP-1--CP-3, and entropy identification are open; any retained capacity-level neutrino side estimate is legacy bookkeeping; the observed cosmic age is a downstream FLRW benchmark & A constructed readback map that lacks the required fixed point, or failure of the conditional capacity relation after its premises are discharged, would falsify D6 without erasing the recovered core \\
+Phase II global self-closure target (D6) & Conditional consequences of a cosmic record-closure fixed point \(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\): \(\Lambda_{\mathrm{CRC}}\ell_\star^2=3\pi/N_{\mathrm{CRC}}\), \(S_{\mathrm{dS}}=N_{\mathrm{CRC}}\), and, after the selected OPH scale certificate, \(\Lambda_{\mathrm{CRC}}=\frac{3\pi}{G N_{\mathrm{CRC}}}\), \(r_{\mathrm{dS}}=\sqrt{3/\Lambda_{\mathrm{CRC}}}\), and \(t_\Lambda=r_{\mathrm{dS}}/c\). The formula \(F(N)=\operatorname{Cap}_{\mathrm{read}}(\operatorname{Obs}(\operatorname{nf}(\mathfrak U_N)))\) and the declared count-density selector \(N_\star=\arg\max_N(\log|\Omega^{\mathrm{sc}}_N|-N)\), which consumes a smoothness/interior-maximum assumption on \(N\) that the Axiom~\ref{ax:mar} lexicographic order on sector packages does not license, specify the target. The map, fixed-point certificate, CP-1--CP-3, and entropy identification are open; any retained capacity-level neutrino side estimate is legacy bookkeeping; the observed cosmic age is a downstream FLRW benchmark & A constructed readback map that lacks the required fixed point, or failure of the conditional capacity relation after its premises are discharged, would falsify D6 without erasing the recovered core \\
 Phase II quantitative-closure branch (D10) & forward transmutation data \(\alpha_U(P)\), \(t_U(P)\), \(t_{\mathrm{tr}}(P)\), pixel-closure gauge-coupling consistency, \(\alpha_i(m_Z)\), the declared anchor \(a_0(P)=\alpha_{\mathrm{em}}^{-1}(m_Z^2;P)\), and the declared electroweak transport family \((W,Z,\alpha_{\mathrm{em}}^{-1}(q^2),\sin^2\theta_W(q^2),v)\). Four endpoint coordinates are kept separate: the source/root witness \(136.9948351646\ldots\), the mixed-provenance no-hadron diagnostic \(137.0359595008\ldots\), the OPH-plus-empirical hadron-closure result \(136.2636589431\) on \([136.1583832834,136.3690975240]\), and the measured Thomson endpoint \(137.035999177(21)\). Converged precision-100 reruns supersede the printed witness tail beyond digit 9 (certified \(136.994835177413\ldots\); CL-6) and record the certified gauge-width-map fixed point \(137.035660136946577\ldots\) (CL-2). Both certified roots belong to incomplete declared maps and have no physical Thomson-endpoint status. The exploratory V1 grid emitted \(S_{\mathrm{hadronic}}\in[0.5578,1.0543]\), which contains the compare-only value \(0.8954\) but spans \(1.17\times10^8\) historical v2 tolerance widths; v3 registers no active decision threshold. V1 was not target-blind: target constants were embedded in its source, the directing session had target access, and its emitter used \(P=1.6309720959\ldots\) while the target used \(P=1.6309682094\ldots\). It also mislabeled the residual coordinate \(0.0414658\ldots\) as the required total payload; the total endpoint target is \(8.7280337\ldots\). V1 is therefore exploratory and has no promotion weight. The \(137.0359595008\ldots\) packet stays on record as a display packet only. The empirical row imports \(e^+e^-\to\mathrm{hadrons}\) data and does not promote a source-only endpoint. Its interval misses the measured endpoint and requires a same-scheme anchor correction of \([0.6485541111,0.8547920666]\). The 24-register count does not determine the nonconstant OPH-QCD hadronic backend; its two-current spectral measure is only the running-\(\alpha\)/HVP marginal, while HLbL and rare-decay rows require higher-point and transition spectral sectors & Failure of the completed \(A_T(P)\) interval root or integrated quantitative closure once \(P\) and the printed running/matching/scheme conventions are imposed, or failure of the explicit OPH-QCD quotient ensemble, source QCD parameter map, Ward current ledger, two-current/higher-point/transition spectral exports, same-scheme remainder, no-target-leak dependency record, empirical source disclosure, and interval-certificate records \\
 Phase III phenomenological continuations (D12 and beyond) & Flavor ans\"atze, charged-lepton continuation ans\"atze beyond exact centered readback, \(H^3\) record-worldline stitching certificates, texture branches, the target-informed weighted-cycle / Majorana-holonomy neutrino candidate, further neutrino mass/mixing refinements, dark-sector response laws, early compact-object/JWST source-release audit lanes, conditional screen-spectrum and CMB/inflation-replacement kernels, \(H_0/S_8\) and growth continuations, heuristic baryogenesis continuations, proton-spin bookkeeping, proton-lifetime estimates beyond the gauge-channel exclusion, black-hole spectroscopy templates, physical black-hole evaporation/ringdown bridge programs, controlled large-\(N_{\mathrm{edge}}\) string/worldsheet effective descriptions, conjectural critical-superstring extensions, and other downstream phenomenology & The weighted-cycle candidate fails the NuFIT 6.1 normal-ordering \((\sin^2\theta_{23},\delta_{\mathrm{CP}})\) profile: \(\Delta\chi^2=20.12\) with the tabulated atmospheric likelihood and \(18.44\) without it, above the two-parameter \(3\sigma\) contour value \(11.83\)~\cite{nufit61}. A separate basis audit finds that the claimed shared-basis recovery defined \(U_{\nu,\mathrm{shared}}=U_eU_{\mathrm{wc}}\), making \(U_e^\dagger U_{\nu,\mathrm{shared}}=U_{\mathrm{wc}}\) an identity rather than an independent flavor derivation. The stored charged-lepton source is open and has a nearly degenerate singular spectrum, so it does not define a stable physical \(U_e\). The convention scan excludes only row, column, and orientation relabelings of the stored candidate; it does not derive or exhaust source-side physical basis placements. This rejects that candidate, without falsifying the recovered core. Other continuation failures retract only their corresponding branches \\
 \end{longtable}

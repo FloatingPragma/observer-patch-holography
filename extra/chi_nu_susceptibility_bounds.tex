@@ -74,7 +74,7 @@
 The OPH coherent-matter scalar branch contains a susceptibility coefficient. On
 the uniform product-thickening branch with slice-wise scalar-reserve
 unbiasedness, the canonical value is
-\(\chi_\nu=e^{-P/24}=0.9343006394893864\ldots\), with \(P\) the public endpoint
+\(\chi_\nu=1-P/24=0.9320429912748350\ldots\), with \(P\) the public endpoint
 scalar. In the engineering chart used here, the same invariant coefficient
 appears as a very small vertical response.
 
@@ -90,8 +90,8 @@ branch supplies a finite source-generator test for whether coherent matter can
 source that same channel in a controlled material system.
 
 The result is useful because it separates the invariant coefficient from the
-engineering chart. The canonical susceptibility is order one on the exact
-uniform branch, while the laboratory response can look tiny after stored
+engineering chart. The canonical susceptibility is order one on every reading
+of the collar branch, while the laboratory response can look tiny after stored
 coherent energy and effective capacity are folded into the scalar. The paper
 therefore gives a narrow construction window: what contrast a platform must
 produce, what a null result would mean, and which part is a continuation
@@ -158,23 +158,23 @@ canonical coefficient is order one.
 
 The canonical number is the OPH-invariant number. It uses the per-channel
 observer-facing scalar after the effective patch capacity has been divided out.
-On the exact uniform product-thickening branch,
+Under the presence reading of the reserve profile, the scalar-weighted reserve
+mean \(P/24\) fixes the coefficient exactly, by linearity:
 \[
-\chican=e^{-P/24}=0.9343006394893864\ldots .
+\chican=1-\frac{P}{24}=0.9320429912748350\ldots .
 \]
-With finite-thickness averaging and the protected reserve mean \(P/24\), the
-theorem-level band is
+Under the mean-count reading, the assumption-minimal Markov band is
 \[
 \boxed{
-0.9343006394893864
+0.9320429912748350
 \le
 \chican
 \le
 1.
 }
 \]
-The interval is narrow enough for engineering purposes. The exact branch is at
-the lower end of this interval.
+The interval is narrow enough for engineering purposes. The presence-reading
+value is the lower endpoint of this interval.
 
 The engineering chart number is
 \[
@@ -191,7 +191,7 @@ The coefficient in that chart is smaller by the same factor:
 This gives the engineering band
 \[
 \boxed{
-\frac{0.9343006394893864}{\Ncoh}
+\frac{0.9320429912748350}{\Ncoh}
 \le
 \chieng
 \le
@@ -204,11 +204,11 @@ The translation is simple:
 \begin{array}{c|c}
 \Ncoh & \chieng\ \mathrm{range}\\
 \hline
-10^{20} & 9.34\times10^{-21}\text{ to }1.00\times10^{-20}\\
-10^{21} & 9.34\times10^{-22}\text{ to }1.00\times10^{-21}\\
-10^{22} & 9.34\times10^{-23}\text{ to }1.00\times10^{-22}\\
-10^{23} & 9.34\times10^{-24}\text{ to }1.00\times10^{-23}\\
-10^{24} & 9.34\times10^{-25}\text{ to }1.00\times10^{-24}
+10^{20} & 9.32\times10^{-21}\text{ to }1.00\times10^{-20}\\
+10^{21} & 9.32\times10^{-22}\text{ to }1.00\times10^{-21}\\
+10^{22} & 9.32\times10^{-23}\text{ to }1.00\times10^{-22}\\
+10^{23} & 9.32\times10^{-24}\text{ to }1.00\times10^{-23}\\
+10^{24} & 9.32\times10^{-25}\text{ to }1.00\times10^{-24}
 \end{array}
 \]
 
@@ -223,15 +223,16 @@ canonical coefficient stays order one.
 
 The branch theorem gives the canonical coefficient:
 \[
-0.9343006394893864
+0.9320429912748350
 \le
 \chican
 \le
 1.
 \]
-On the exact uniform product-thickening branch it is the single number
+Under the presence reading, with the scalar-weighted reserve receipt, it is the
+single number
 \[
-\chican=0.9343006394893864\ldots .
+\chican=0.9320429912748350\ldots .
 \]
 The susceptibility bound belongs to the closed quotient-edge collar branch. It
 is an order-one coefficient. Zero is excluded for nondegenerate
@@ -257,7 +258,7 @@ contrast:
 \le
 \Delta S_{\mathrm{coh,req}}^{\mathrm{can}}
 \le
-9.15\times10^{-9}\,f\,\Sigma_2.
+9.18\times10^{-9}\,f\,\Sigma_2.
 }
 \]
 For devices, the number to build is the coherence contrast. A
@@ -277,10 +278,10 @@ Device-scale case &
 \(\Delta\nu_{\mathrm{req}}\) &
 \(\Delta S_{\mathrm{coh,req}}^{\mathrm{can}}\) \\
 \midrule
-light room platform & \(50\) & \(1\) & \(4.28\times10^{-9}\) & \(4.28\times10^{-9}\) to \(4.58\times10^{-9}\) \\
-room-scale platform & \(100\) & \(1\) & \(8.55\times10^{-9}\) & \(8.55\times10^{-9}\) to \(9.15\times10^{-9}\) \\
+light room platform & \(50\) & \(1\) & \(4.28\times10^{-9}\) & \(4.28\times10^{-9}\) to \(4.59\times10^{-9}\) \\
+room-scale platform & \(100\) & \(1\) & \(8.55\times10^{-9}\) & \(8.55\times10^{-9}\) to \(9.18\times10^{-9}\) \\
 heavy room platform & \(250\) & \(1\) & \(2.14\times10^{-8}\) & \(2.14\times10^{-8}\) to \(2.29\times10^{-8}\) \\
-ten percent assist & \(100\) & \(0.1\) & \(8.55\times10^{-10}\) & \(8.55\times10^{-10}\) to \(9.15\times10^{-10}\) \\
+ten percent assist & \(100\) & \(0.1\) & \(8.55\times10^{-10}\) & \(8.55\times10^{-10}\) to \(9.18\times10^{-10}\) \\
 \bottomrule
 \end{tabularx}
 \caption{Room-scale response requirements implied by the branch-theorem canonical band. The table is independent of the engineering chart normalization.}
@@ -293,7 +294,7 @@ board spread over \(0.5\,\mathrm{m^2}\) gives
 \[
 \Delta S_{\mathrm{coh,req}}^{\mathrm{can}}
 \simeq
-1.7\times10^{-8}\text{ to }2.7\times10^{-8}.
+1.7\times10^{-8}\text{ to }2.8\times10^{-8}.
 \]
 A compact footprint near \(600\,\mathrm{kg\,m^{-2}}\) asks for about
 \[
@@ -317,7 +318,7 @@ engineering scalar. The response depends on the product
 \]
 For \(\Ncoh=10^{22}\), the forced engineering band is
 \[
-9.34\times10^{-23}
+9.32\times10^{-23}
 \le
 \chieng
 \le
@@ -988,7 +989,7 @@ Definition~\ref{def:scalar-slot-footprint} and the coherent generator of
 Definition~\ref{def:coherent-source-generator}.  The collar panel defines the
 finite-slice survival coefficient
 \[
-\lambda_{\mathrm{collar}}=\sum_{e\in E}w_e\,e^{-\epsilon_e}.
+\lambda_{\mathrm{collar}}=\sum_{e\in E}w_e\,(1-\epsilon_e).
 \]
 Because both panels use the same index family \(E\), the statement that
 coherent matter perturbs the same counter priced by the collar is not an
@@ -1005,7 +1006,7 @@ the record-source increment and the collar survival factor compose as
 \lambda_{\mathrm{collar}}\,
 (\mathcal L^{\mathrm{coh}}_{U,r,C}\mathcal N_{\nu,r,C})(q)
 =
-e^{-P/24}\,S_U(q;t,h)\,A_{U,r,C}(q).
+\left(1-\frac{P}{24}\right)S_U(q;t,h)\,A_{U,r,C}(q).
 \]
 \end{corollary}
 
@@ -1015,9 +1016,9 @@ Theorem~\ref{thm:coherent-material-perturbs-canonical-count} gives
 (\mathcal L^{\mathrm{coh}}_{U,r,C}\mathcal N_{\nu,r,C})(q)
 =S_U(q;t,h)\,A_{U,r,C}(q).
 \]
-The finite collar gate gives \(\lambda_{\mathrm{collar}}=e^{-P/24}\) under
-slice-wise reserve unbiasedness.  Multiplying the two identities gives the
-displayed composite law.
+The finite collar gate gives \(\lambda_{\mathrm{collar}}=1-P/24\) under
+slice-wise reserve unbiasedness and the presence reading.  Multiplying the two
+identities gives the displayed composite law.
 \end{proof}
 
 \begin{remark}[What the channel bridge does not close]
@@ -1175,18 +1176,32 @@ changes quotient observables or is inert. This is imported from the
 microphysics theorems labeled \texttt{thm:scalar-channel-exhaustion} and
 \texttt{thm:no-separate-scalar-carrier}.
 
-\item Local Poisson reserve survival: on a co-registered scalar slot at
-transverse coordinate \(y\),
+\item Presence reading of local reserve survival: \(\Zsix\) is a sum of sector
+projections, so the conditional reserve profile \(\epsilon_{\Zsix}(y)\), a
+ratio of quotient traces of projections, is the conditional probability of the
+reserve-presence event on a co-registered scalar slot at transverse coordinate
+\(y\). A scalar opportunity survives exactly when the presence event does not
+occur, so
 \[
-\lambda_{\mathrm{slot}}(y)=\exp[-\epsilon_{\Zsix}(y)].
+\lambda_{\mathrm{slot}}(y)=1-\epsilon_{\Zsix}(y)
 \]
-This is a declared Poisson branch unless separately derived from a finite
-MaxEnt/occupancy theorem.
+for every occupancy law whose presence event has probability
+\(\epsilon_{\Zsix}(y)\). No occupancy variable with that presence probability
+attains the Poisson zero-count factor \(e^{-\epsilon}\):
+\(1-\epsilon<e^{-\epsilon}\) strictly for \(\epsilon>0\). A mean-count reading,
+in which \(\epsilon_{\Zsix}(y)\) is consumed as the expectation of an
+\(\mathbb N\)-valued occupancy, severs the link to the projection trace and
+consumes a scalar carrier beyond \(\Zsix\), which L4 excludes; its
+assumption-minimal consequence is the Markov band recorded after the exact-value
+corollary. This is imported from the microphysics lemma labeled
+\texttt{lem:presence-reading-reserve}.
 
 \item Finite-thickness averaging with scalar-weighted reserve mean:
 \[
 \lambdac=
-\int \dd y\,w(y)\exp[-\epsilon_{\Zsix}(y)],
+\int \dd y\,w(y)\,[1-\epsilon_{\Zsix}(y)]
+=
+1-\int \dd y\,w(y)\,\epsilon_{\Zsix}(y),
 \]
 with
 \[
@@ -1202,11 +1217,14 @@ imported from the microphysics definitions and theorems labeled
 product algebra, product trace, reserve pullback, scalar activation
 disintegration, and slice-wise scalar-reserve unbiasedness,
 \[
-\lambdac=e^{-P/24}.
+\lambdac=1-\frac{P}{24}.
 \]
 This is imported from the microphysics definition and theorem labeled
 \texttt{def:uniform-product-thickening-branch} and
-\texttt{thm:exact-uniform-product-thickening-coefficient}.
+\texttt{thm:exact-uniform-product-thickening-coefficient}. On the presence
+reading of L5, the scalar-weighted receipt of L6 already fixes this value by
+linearity; the uniform clause adds slice-wise constancy of the profile, which
+the exact value does not consume.
 \end{enumerate}
 \end{assumption}
 
@@ -1228,7 +1246,7 @@ The reciprocal reserve-depth trace is
 =14.715185655746689.
 }
 \end{equation}
-Only the normalized mean \(P/24\) enters the Poisson exponent.
+Only the normalized mean \(P/24\) enters the survival coefficient.
 
 \begin{theorem}[Forced canonical susceptibility on the co-registered branch]
 Assume L1 to L6 of Assumption~\ref{ass:dark-collar-lemmas}. Then the canonically
@@ -1247,7 +1265,7 @@ Corollary~\ref{cor:tier-b-response-from-generator}, \(\scohcan\) enters the
 same quotient-edge scalar opportunity count before the protected reserve acts.
 By L3, the \(\Zsix\) reserve acts on that same register. By L5, each local
 coherent scalar opportunity survives the reserve with factor
-\(\exp[-\epsilon_{\Zsix}(y)]\). By L6, finite-thickness averaging gives the
+\(1-\epsilon_{\Zsix}(y)\). By L6, finite-thickness averaging gives the
 surviving coherent scalar fraction
 \[
 S_{\mathrm{coh,after}}^{\mathrm{can}}
@@ -1267,7 +1285,7 @@ For any nonzero canonical coherent fraction, the coefficients are equal.
 Under L1 to L6,
 \begin{equation}
 \boxed{
-0.9343006394893864\ldots
+0.9320429912748350\ldots
 \le
 \chican
 \le
@@ -1278,78 +1296,89 @@ Under L1 to L6,
 \end{corollary}
 
 \begin{proof}
-The function \(e^{-x}\) is convex, so the Jensen inequality gives
+Under the presence reading of L5, linearity of the integral gives the exact
+value
 \[
-\chican=\int \dd y\,w(y)e^{-\epsilon_{\Zsix}(y)}
-\ge
-\exp\!\left[-\int \dd y\,w(y)\epsilon_{\Zsix}(y)\right]
-=e^{-P/24}.
+\chican=\int \dd y\,w(y)\,[1-\epsilon_{\Zsix}(y)]
+=
+1-\int \dd y\,w(y)\epsilon_{\Zsix}(y)
+=1-\frac{P}{24},
 \]
-Using Eq.~\eqref{eq:z6-reserve},
+which attains the lower endpoint. Using Eq.~\eqref{eq:z6-reserve},
 \[
-e^{-P/24}=0.9343006394893864\ldots .
+1-\frac{P}{24}=0.9320429912748350\ldots .
 \]
-Reserve survival factors are at most one, so \(\chican\le1\).
+Under the mean-count reading, with \(\epsilon_{\Zsix}(y)\) the expectation of
+an \(\mathbb N\)-valued occupancy and survival the zero-count event, Markov's
+inequality gives \(1-\epsilon\le\Pr[N=0]\le1\), hence the same band. Reserve
+survival factors are at most one, so \(\chican\le1\).
 \end{proof}
 
-\begin{corollary}[Exact canonical value on the uniform branch]
-Assume L7 in addition to L1 to L6. Then
+\begin{corollary}[Exact canonical value from the scalar-weighted receipt]
+Assume L1 to L6. Then
 \begin{equation}
 \boxed{
 \chican
 =
-e^{-P/24}
+1-\frac{P}{24}
 =
-0.9343006394893864\ldots .
+0.9320429912748350\ldots .
 }
 \label{eq:chi-can-exact}
 \end{equation}
 \end{corollary}
 
 \begin{proof}
-By L7, \(\lambdac=e^{-P/24}\). Use
+By L5 and L6, \(\lambdac=1-P/24\); the scalar-weighted receipt alone fixes the
+value, by linearity, and L7 adds slice-wise constancy of the profile, which the
+exact value does not consume. Use
 Eq.~\eqref{eq:chi-can-lambda}.
 \end{proof}
 
-\begin{remark}[Uniformity is stronger than product trace]
-The exact value \(e^{-P/24}\) does not follow from the unconditioned trace
-\(\tau_q(Z_6)=P/24\) alone. It requires the scalar-active edge-slot sampler to
-be reserve-unbiased. Equivalently, for every scalar-active transverse slice,
+\begin{remark}[Reading selection and the superseded Poisson value]
+The exact value \(1-P/24\) is licensed by the scalar-weighted receipt
 \[
-\frac{\tau(\Pi^{\rm scal}(y)Z_6)}
-{\tau(\Pi^{\rm scal}(y))}
-=
-\frac{P}{24}.
+\int \dd y\,w(y)\epsilon_{\Zsix}(y)=\frac{P}{24}
 \]
-If scalar activation is correlated with the protected reserve inside the
-edge-center algebra, then \(\epsilon_{\Zsix}(y)\) may vary and the exact
-coefficient is not licensed. The valid coefficient is then the profile integral
+under the presence reading of L5, which the receipt semantics supply:
+\(\epsilon_{\Zsix}(y)\) is a conditional trace of the projection \(\Zsix\),
+hence a presence probability. The Poisson value
+\(e^{-P/24}=0.9343006394893864\ldots\) is the superseded mean-count
+alternative; it is attained by no occupancy variable whose presence event has
+probability \(\epsilon_{\Zsix}(y)\), and the mean-count reading that produces
+it consumes a scalar carrier beyond \(\Zsix\), which L4 excludes. Under the
+mean-count reading the available theorem-grade statement is the Markov band
+\(1-P/24\le\lambdac\le1\) of Eq.~\eqref{eq:chi-can-band}. Which reading nature
+uses is a physical gate of this lane, of the same G9 class as the
+record-to-gravity calibration. Without the scalar-weighted receipt the valid
+coefficient is the profile integral
 \[
 \lambdac
 =
-\int \dd y\,w(y)e^{-\epsilon_{\Zsix}(y)}.
+1-\int \dd y\,w(y)\,\epsilon_{\Zsix}(y).
 \]
 \end{remark}
 
 \begin{remark}[Profile-envelope number]
 The dark-sector correction note also lists profile targets: best same-function
 RAR \(0.958802256\), binned RAR \(0.936737944\), and the OPH
-\(\Zsix\)/Poisson value \(0.934300639\). If an extra numerical selector keeps
+\(\Zsix\) presence value \(0.932042991\). If an extra numerical selector keeps
 the coherent continuation inside that same-function profile envelope, one may
 quote the practical profile range
 \[
-0.934300639\le\chican\le0.958802256.
+0.932042991\le\chican\le0.958802256.
 \]
 The range is selector-dependent. The theorem-level band used in the
 rest of this paper is Eq.~\eqref{eq:chi-can-band}, with the exact value
-Eq.~\eqref{eq:chi-can-exact} on L7.
+Eq.~\eqref{eq:chi-can-exact} under the presence reading and the scalar-weighted
+receipt.
 \end{remark}
 
 \begin{corollary}[Engineering chart band]
 On any engineering chart with representative normalization \(\Ncoh\),
 \begin{equation}
 \boxed{
-\frac{0.9343006394893864}{\Ncoh}
+\frac{0.9320429912748350}{\Ncoh}
 \le
 \chieng
 \le
@@ -1357,10 +1386,10 @@ On any engineering chart with representative normalization \(\Ncoh\),
 }
 \label{eq:chi-eng-band}
 \end{equation}
-On the exact uniform branch,
+Under the presence reading with the scalar-weighted receipt,
 \begin{equation}
 \boxed{
-\chieng=\frac{e^{-P/24}}{\Ncoh}.
+\chieng=\frac{1-P/24}{\Ncoh}.
 }
 \label{eq:chi-eng-exact}
 \end{equation}
@@ -1372,13 +1401,13 @@ On the exact uniform branch,
 \toprule
 \(\Ncoh\) &
 theorem-level \(\chieng\) band &
-exact-branch \(\chieng\) \\
+exact \(\chieng\) \\
 \midrule
-\(10^{20}\) & \(9.34\times10^{-21}\text{ to }1.00\times10^{-20}\) & \(9.34\times10^{-21}\) \\
-\(10^{21}\) & \(9.34\times10^{-22}\text{ to }1.00\times10^{-21}\) & \(9.34\times10^{-22}\) \\
-\(10^{22}\) & \(9.34\times10^{-23}\text{ to }1.00\times10^{-22}\) & \(9.34\times10^{-23}\) \\
-\(10^{23}\) & \(9.34\times10^{-24}\text{ to }1.00\times10^{-23}\) & \(9.34\times10^{-24}\) \\
-\(10^{24}\) & \(9.34\times10^{-25}\text{ to }1.00\times10^{-24}\) & \(9.34\times10^{-25}\) \\
+\(10^{20}\) & \(9.32\times10^{-21}\text{ to }1.00\times10^{-20}\) & \(9.32\times10^{-21}\) \\
+\(10^{21}\) & \(9.32\times10^{-22}\text{ to }1.00\times10^{-21}\) & \(9.32\times10^{-22}\) \\
+\(10^{22}\) & \(9.32\times10^{-23}\text{ to }1.00\times10^{-22}\) & \(9.32\times10^{-23}\) \\
+\(10^{23}\) & \(9.32\times10^{-24}\text{ to }1.00\times10^{-23}\) & \(9.32\times10^{-24}\) \\
+\(10^{24}\) & \(9.32\times10^{-25}\text{ to }1.00\times10^{-24}\) & \(9.32\times10^{-25}\) \\
 \bottomrule
 \end{tabular}
 \caption{Translation from the theorem-level canonical band to the engineering chart. Here \(\Ncoh=\eps_{\mathrm{sub}}u_{\mathrm{stored}}/u_0\).}
@@ -1870,9 +1899,9 @@ establish \texttt{EDGE\_SOURCE\_LIFT\_RECEIPT},
 The canonical band in Eq.~\eqref{eq:chi-can-band} is the quotient-edge
 continuation statement. It is dimensionless and independent of material energy
 density. It belongs to the branch where coherent scalar sourcing is
-co-registered with the dark-sector scalar repair channel. On the exact
-uniform product-thickening branch, the value is the single number
-\(0.9343006394893864\ldots\).
+co-registered with the dark-sector scalar repair channel. Under the presence
+reading, with the scalar-weighted receipt, the value is the single number
+\(0.9320429912748350\ldots\).
 
 The engineering band in Eq.~\eqref{eq:chi-eng-band} is the same statement in a
 stored-energy chart. It depends on the declared normalization
@@ -1900,10 +1929,10 @@ The coarse-grained partition weights \(w_U(x)\) should be induced by a declared
 observer-supporting subcover. Only the contrast entering the force law is used
 in the response bounds.
 
-The exact value \(e^{-P/24}\) uses the uniform product-thickening branch,
-including slice-wise scalar-reserve unbiasedness. The wider numerical interval
-in Eq.~\eqref{eq:chi-can-band} uses finite-thickness averaging and the
-scalar-weighted protected reserve mean. The profile-envelope range in the
+The exact value \(1-P/24\) is licensed by the scalar-weighted protected
+reserve mean under the presence reading, by linearity. The numerical interval
+in Eq.~\eqref{eq:chi-can-band} is the assumption-minimal Markov band of the
+mean-count reading. The profile-envelope range in the
 remark after the exact-value corollary needs an extra numerical selector.
 
 \section{Conclusion}
@@ -1927,15 +1956,16 @@ force the canonical coefficient to equal the collar survival coefficient:
 \]
 L1 to L6 give the theorem-grade band
 \[
-0.9343006394893864\ldots
+0.9320429912748350\ldots
 \le
 \chican
 \le
-1.
+1,
 \]
-L7 gives the exact value
+and under the presence reading the scalar-weighted receipt fixes the exact
+value
 \[
-\chican=e^{-P/24}=0.9343006394893864\ldots .
+\chican=1-\frac{P}{24}=0.9320429912748350\ldots .
 \]
 This excludes \(\chican=0\) for nondegenerate coherent-material sources on the
 closed quotient-edge collar branch.
@@ -1948,7 +1978,7 @@ In the engineering chart,
 \]
 This gives
 \[
-\frac{0.9343006394893864}{\Ncoh}
+\frac{0.9320429912748350}{\Ncoh}
 \le
 \chieng
 \le

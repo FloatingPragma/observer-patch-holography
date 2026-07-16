@@ -143,7 +143,7 @@ This distinction matters:
 
 OPH is explicitly of the second kind. The published derivation formulates the relevant step through collar refinement, quasi-locality, and geometric modular action in the continuum/refinement limit. The observable symmetry is a symmetry of the **patch algebra net**, not of an imagined external crystal (*Observers Are All You Need*, Part I §2.3, §4.2-4.3).
 
-A Lorentz boost is therefore not a mechanical squeezing of substrate pixels. It is a relation between observer descriptions of the same correlation pattern, implemented at the level of the patch net and modular generators (*Observers Are All You Need*, Part I §4.2-4.3; Part V §2.1-2.2).
+A Lorentz boost is therefore not a mechanical squeezing of substrate pixels but a relation between observer descriptions of the same correlation pattern, implemented at the level of the patch net and modular generators (*Observers Are All You Need*, Part I §4.2-4.3; Part V §2.1-2.2).
 
 ---
 
@@ -420,7 +420,7 @@ But that is **not** the same as saying:
 
 > "A boosted observer sees contracted pixels, so OPH violates Lorentz invariance and only gets Newtonian gravity."
 
-That second statement confuses the UV regulator with the emergent observable geometry. In OPH, Lorentz invariance is not the symmetry of a literal background lattice. It is the symmetry forced on observer comparisons by modular flow on the screen net. Once that step is granted, the entropy first law is covariant, the null modular bridge is Lorentzian, and the derivation reaches the full Einstein tensor equation.
+That second statement confuses the UV regulator with the emergent observable geometry. In OPH, Lorentz invariance is not the symmetry of a literal background lattice but the symmetry forced on observer comparisons by modular flow on the screen net. Once that step is granted, the entropy first law is covariant, the null modular bridge is Lorentzian, and the derivation reaches the full Einstein tensor equation.
 
 ---
 

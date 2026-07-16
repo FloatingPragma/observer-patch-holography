@@ -221,7 +221,7 @@ hint: quantum correlation can carry geometric information.
 
 $$S_A = \frac{\text{Area}(\gamma_A)}{4G_N}$$
 
-Space is not the container. It's the visualization-the 3D picture our recovery map constructs from 2D boundary data.
+Space is not the container but the visualization: the 3D picture our recovery map constructs from 2D boundary data.
 
 In this formula, $S_A$ is the entanglement entropy of boundary region $A$.
 $\gamma_A$ is the minimal bulk surface anchored to the boundary of $A$, and
@@ -334,8 +334,8 @@ structure doing the simulating and the world being simulated are one closed
 system, with no outside machine and no outside clock. Later chapters call this
 the strange loop, and the physics is built to sit inside it.
 
-The loop does not arrive from nowhere. It is the closure of threads physics has
-been pulling for a century. Wheeler drew the universe as a big U with an eye on
+The loop is the closure of threads physics has been pulling for a century; it
+does not arrive from nowhere. Wheeler drew the universe as a big U with an eye on
 the end of its tail, looking back at its own beginning, and summarized the
 lesson as "it from bit." The bootstrap idea, that consistency alone can fix a
 theory with no free inputs, failed for the hadrons of the 1960s and then

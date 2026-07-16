@@ -43,7 +43,7 @@ the screen.
 
 A useful analogy is a ripple in a pond. The water is the substrate, but the
 ripple is a pattern that moves and interacts. The ripple is not a separate
-thing. It is a stable excitation. Particles play the same role in the
+thing but a stable excitation. Particles play the same role in the
 emergent effective theory.
 
 ## 16.4 From Stable Patterns to Concrete Particle Status
@@ -505,7 +505,7 @@ decoherence leaves classical correlations behind.
 Classical physics is not the starting point. It appears when quantum
 information on the screen organizes into stable patterns, modular time becomes
 geometric, and overlap consistency enforces locality. Matter is not primitive
-stuff. It is a family of stable excitation patterns. The particle catalogue is
+stuff but a family of stable excitation patterns. The particle catalogue is
 not arbitrary. It comes with a constrained pattern of charges, carriers,
 couplings, and masses. Energy is the charge of time
 translations. Stationary action is the classical limit of quantum interference. The deterministic world
@@ -535,8 +535,8 @@ decay channels.
 Atoms add another layer. The electron's small mass, the electromagnetic
 coupling, quantum exclusion, and nuclear structure together make chemistry
 possible. Molecules add shape and bonding. Macroscopic objects add
-decoherence and redundant environmental records. A chair is not public
-because it is more fundamental than a quark. It is public because enormous
+decoherence and redundant environmental records. A chair is public not
+because it is more fundamental than a quark, but because enormous
 numbers of microscopic degrees of freedom have settled into patterns that
 scatter light, resist pressure, leave traces, and can be sampled by many
 observers without being destroyed.

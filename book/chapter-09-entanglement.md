@@ -49,7 +49,7 @@ $\propto$ means "is proportional to." The equation says that the dominant
 entropy comes from the cut surface, not from the volume of stuff enclosed by
 the cut.
 
-Space is not a passive container. It's woven from quantum correlations. The vacuum is entangled across every boundary you can draw. Cut the entanglement, and you cut the connectivity of space itself.
+Space is not a passive container but woven from quantum correlations. The vacuum is entangled across every boundary you can draw. Cut the entanglement, and you cut the connectivity of space itself.
 
 ## 9.3 The First-Principles Reframing: Space Emerges from Entanglement
 

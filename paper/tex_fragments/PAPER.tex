@@ -1150,12 +1150,12 @@ Then \(\sigma_t^{\omega,C}(\mathcal A(R))=\mathcal A(f_t^C(R))\), which is exact
 
 MaxEnt therefore selects the unique finite-stage invariant state compatible with those conserved charges. The support-visible BW scaling theorem is the continuum statement: if the limit algebra is non-type-I, the geometric modular action on that branch is outer rather than an inner density-matrix identity.
 
-\textbf{QNEC internalization.} QNEC has rigorous QFT proofs in broad settings~\cite{bousso16}. On the support-visible scaling branch with the extracted geometric cap pair in place, the Recoverable Generalized Entropy axiom can be supported internally by:
+\textbf{Focusing status.} QNEC has rigorous QFT proofs in broad settings~\cite{bousso16,balakrishnan19}, with hypotheses (null-surface locality and analyticity, modular-flow/causality/defect-OPE structure) that have not been verified on the reconstructed net, and QFC is strictly stronger than QNEC~\cite{bousso15qfc}. The Recoverable Generalized Entropy axiom therefore carries the focusing content of this branch itself (\S{}5.10):
 \begin{itemize}
 \item
-EC + MaxEnt derive \(S_{\mathrm{gen}}=S_{\mathrm{bulk}}+\langle L_C\rangle\) (Section 5.4).
+EC + MaxEnt derive \(S_{\mathrm{gen}}=S_{\mathrm{bulk}}+\langle L_C\rangle\) (Section 5.4), the object the axiom constrains.
 \item
-On the null-stress and Einstein theorem branch, focusing becomes a semiclassical consequence in the same scaling regime.
+The null-stress and Einstein theorem branch supplies the kinematic inputs a future internal QNEC/QFC proof must consume; the derivation itself is open.
 \end{itemize}
 
 \textbf{Summary.} The CMFP package therefore separates the dependency structure into two layers:
@@ -2897,69 +2897,17 @@ the Einstein-branch remainder is a carried \(O(\eta_\delta)\) term, not a silent
 
 This is the concrete bridge from ``axioms about screens'' to ``precision GR predictions plus a disciplined carried remainder''.
 
-\subsubsection{Focusing/QNEC internalization via relative entropy}\label{510-focusingqnec-internalization-via-relative-entropy}
+\subsubsection{Focusing/QNEC status on the null-modular branch}\label{510-focusingqnec-internalization-via-relative-entropy}
 
-Once the fixed-cutoff null modular structure of Section 5.2 is combined with the exact half-line generator/charge identification and the E0.5 bounded-interval kernel, focusing constraints follow from information-theoretic principles in the same scaling-limit branch rather than from a separate fixed-cutoff postulate.
+The focusing content of the recovered core enters through the Recoverable Generalized Entropy axiom and stays an axiom. This subsection records the status of the two focusing statements on the null-modular branch and the exact reason no internal derivation is claimed.
 
-\textbf{Derivation chain.} QNEC and focusing are supported within the same branch:
+\textbf{What the branch supplies.} The fixed-cutoff null bridge of \S{}5.2 supplies transferred cut-center data, exact-or-controlled strip additivity on the inherited strip model, the derived half-sided modular pair with its Borchers--Wiesbrock translation generator, and the half-line generator/charge identification \([K,P]=-i2\pi P\). These are kinematic inputs a QNEC statement consumes; they are not a proof of it.
 
-\begin{itemize}
-\tightlist
-\item
-  Fixed-cutoff null modular bridge (\S{}5.2) \ensuremath{\Longrightarrow} exact-or-controlled strip additivity and a weak tail generator
-\item
-  Derived half-sided modular pair + exact half-line generator/charge identification \ensuremath{\Longrightarrow} local null-stress charge on half-lines and {[}K, P{]} = i 2\ensuremath{\pi} P
-\item
-  Relative entropy monotonicity \ensuremath{\Longrightarrow} QNEC
-\item
-  Einstein (Thm 5.1) + Raychaudhuri \ensuremath{\Longrightarrow} QFC for S\_gen
-\end{itemize}
+\textbf{Why relative-entropy monotonicity does not yield QNEC.} Monotonicity under restriction orders the relative entropies \(S(\rho_{R(\lambda)}\|\omega_{R(\lambda)})\) along nested null cuts; it fixes the sign of the first \(\lambda\)-derivative and says nothing about the second. A monotone function of the cut need not be convex, so the step from monotonicity to \(d^2 S_{\mathrm{rel}}/d\lambda^2\ge0\) is unavailable. The entanglement first law \(\delta S=\delta\langle K\rangle\) is a first-order state variation at fixed algebra and reference state; the QNEC second null shape variation is a different object, and expanding the first law to second order in the cut does not produce it. The published QNEC proofs supply exactly the missing machinery: null-surface locality and analyticity hypotheses in the free and super-renormalizable settings~\cite{bousso16}, and modular-flow, causality, and defect-OPE inputs in the general QFT setting~\cite{balakrishnan19}. None of those hypotheses has been verified on the reconstructed patch net.
 
-\textbf{Relative entropy monotonicity argument.} The key input is the monotonicity of relative entropy under partial trace, which is pure information theory:
+\textbf{Why QFC is not derived from QNEC.} The Quantum Focusing Conjecture is strictly stronger than QNEC: the foundational QFC statement obtains QNEC as its locally parallel limit~\cite{bousso15qfc}, and no implication runs the other way. QNEC together with the Einstein branch (Theorem 5.1) and the Raychaudhuri identity controls the diagonal, stationary-cut part of the generalized-expansion variation and leaves the off-diagonal, shear, counterterm, and general nonstationary-cut content of QFC untouched. Focusing for \(S_{\mathrm{gen}}\) therefore stands where the Recoverable Generalized Entropy axiom declares it and carries no independent internal support from this branch.
 
-\[
-S(\rho_{AB} \| \sigma_{AB}) \ge S(\rho_A \| \sigma_A).
-\]
-
-For null deformations parameterized by \(\lambda\), consider nested null regions \(R(\lambda) \subset R(\lambda')\) obtained by varying the entangling cut along \(v\). The modular Hamiltonian \(K_\lambda\) generates the modular flow, and relative entropy satisfies convexity:
-
-\[
-\frac{d^2}{d\lambda^2} S(\rho_\lambda \| \sigma_\lambda) \ge 0.
-\]
-
-\begin{quote}
-\textbf{Proposition 5.10a (Internal QNEC).} Under the fixed-cutoff null bridge of \S{}5.2 together with the downstream density-upgrade and E0.5 bounded-interval conditions, the second null variation of von Neumann entropy satisfies
-
-\[
-\frac{d^2 S_{\mathrm{bulk}}}{d\lambda^2} \le 2\pi \langle T_{kk}(\lambda) \rangle,
-\]
-
-with the \(2\pi\) normalization fixed by Theorem 4.2.
-
-\textbf{Proof.} Use the derived half-sided modular-inclusion statement of Corollary 5.2e and its Borchers-Wiesbrock consequence from Lemma 5.2f. This gives the translation structure with \([K, P] = - i 2\pi P\).
-
-Consider the relative entropy \(S(\rho_\lambda \| \omega_\lambda)\) between the state \(\rho\) restricted to \(R(\lambda)\) and the reference state \(\omega\). Monotonicity under restriction to smaller regions (\(\lambda' > \lambda\)) gives:
-
-\[
-S(\rho_{R(\lambda)} \| \omega_{R(\lambda)}) \le S(\rho_{R(\lambda')} \| \omega_{R(\lambda')}).
-\]
-
-Using the first law \(\delta S = \delta \langle K \rangle\) and the geometric half-line modular form supplied by Section 5.2, expand to second order in the deformation. The convexity of relative entropy yields the QNEC inequality. The bound saturates for coherent states in the standard way. QED.
-\end{quote}
-
-\begin{quote}
-\textbf{Corollary 5.10b (QFC for generalized entropy).} With the central area operator \(L_C\) from EC/MaxEnt (Section 5.4), define
-
-\[
-S_{\mathrm{gen}} = \mathrm{Tr}(\rho L_C) + S_{\mathrm{bulk}}.
-\]
-
-Given the Einstein branch (Theorem 5.1) and the classical Raychaudhuri identity for null congruences, the Quantum Focusing Conjecture (QFC) follows within the same scaling regime: the generalized expansion \(\Theta_{\mathrm{gen}}\) is non-increasing along null generators.
-
-\textbf{Proof sketch.} The Raychaudhuri equation relates expansion evolution to \(R_{kk}\). Einstein\textquotesingle s equation gives \(R_{kk} = 8\pi G (T_{kk} - \frac{1}{2}g_{kk}T)\). For null \(k\), this simplifies to \(R_{kk} = 8\pi G T_{kk}\). The QNEC (Prop 5.10a) then bounds the bulk entropy production, ensuring \(d\Theta_{\mathrm{gen}}/d\lambda \le 0\). QED.
-\end{quote}
-
-\textbf{Significance.} This section shows how the Recoverable Generalized Entropy focusing package is internally supported inside the same null-modular branch once the stress-tensor identification and Einstein relation are in place. That package is part of the stated axiom set.
+\textbf{Claim boundary.} The null-modular branch narrows what a future internal QNEC proof must construct: the half-sided modular structure is in place, and the open items are the QFT-side hypotheses named above, verified on the reconstructed net, plus the off-diagonal QFC content. Until such a proof lands as a dated artifact, every downstream use of focusing on this branch cites the axiom.
 
 \textbf{Theorem 5.1 (OPH Einstein-branch closure in the scaling regime).} Under OPH5 on a recovered-core, support-visible scaling branch satisfying the E0 dependency discharge above, the fixed-cap generalized-entropy stationarity condition implies the rest-frame first-variation relation
 
@@ -2967,9 +2915,9 @@ Given the Einstein branch (Theorem 5.1) and the classical Raychaudhuri identity 
 \delta\!\left(G_{00}+\Lambda g_{00}\right)=8\pi G\,\delta\langle T_{00}\rangle.
 \]
 
-If this relation holds for all local directions and reference states in the locally Lorentzian scaling regime, the timelike scalar-to-tensor upgrade promotes it to the semiclassical Einstein equation modulo the expected \(\Lambda g_{ab}\) ambiguity. The D6 capacity branch closes that metric term globally.
+If this relation holds for all local directions and reference states in the locally Lorentzian scaling regime, the timelike scalar-to-tensor upgrade promotes it to the semiclassical Einstein equation modulo the expected \(\Lambda g_{ab}\) ambiguity. The D6 capacity branch closes that metric term globally only conditionally, on the constructed readback map \(F\) and premises CP-1 to CP-3, which are open.
 
-\textbf{Proof sketch.} The E0 discharge turns the OPH5 recovered-core branch into the exact hypothesis package required by the Jacobson-type bridge: quotient-safe geometry readout, \(2\pi\)-normalized BW cap flow, local null stress charge, bounded-interval ball kernel with \(o(\ell^4)\) remainder, fixed-cap generalized-entropy stationarity, the fixed-volume small-ball area identity, and all timelike directions. The cap first law identifies \(\delta S_C\) with \(\delta\langle K_C\rangle\), while the null bridge together with the E0.5 bounded-interval kernel relates the bulk modular variation to the required null stress-tensor charge on the diamond. Since the reference state is maximally symmetric, the fixed-volume small-ball area identity enters at first order in the perturbation, and the derived fixed-cap generalized-entropy stationarity theorem for admissible fixed-cap MaxEnt variations on the realized cap-label-preserving MaxEnt family yields the displayed rest-frame relation. Lemma E0.7 supplies all local timelike directions, the scalar-to-tensor theorem upgrades the relation to the tensor equation modulo \(\Lambda g_{ab}\), and D6 supplies the global capacity closure for that remaining metric term. QED.
+\textbf{Proof sketch.} The E0 discharge turns the OPH5 recovered-core branch into the exact hypothesis package required by the Jacobson-type bridge: quotient-safe geometry readout, \(2\pi\)-normalized BW cap flow, local null stress charge, bounded-interval ball kernel with \(o(\ell^4)\) remainder, fixed-cap generalized-entropy stationarity, the fixed-volume small-ball area identity, and all timelike directions. The cap first law identifies \(\delta S_C\) with \(\delta\langle K_C\rangle\), while the null bridge together with the E0.5 bounded-interval kernel relates the bulk modular variation to the required null stress-tensor charge on the diamond. Since the reference state is maximally symmetric, the fixed-volume small-ball area identity enters at first order in the perturbation, and the derived fixed-cap generalized-entropy stationarity theorem for admissible fixed-cap MaxEnt variations on the realized cap-label-preserving MaxEnt family yields the displayed rest-frame relation. Lemma E0.7 supplies all local timelike directions, the scalar-to-tensor theorem upgrades the relation to the tensor equation modulo \(\Lambda g_{ab}\), and the D6 capacity branch states the conditional closure of that remaining metric term, conditional on the readback map \(F\) and premises CP-1 to CP-3, which are open. QED.
 
 \subsubsection{Black-hole structural statements and continuation-level spectroscopy}\label{511-discrete-horizon-area-spectrum-and-hawking-emission-established}
 
@@ -3040,10 +2988,10 @@ Using the Hawking temperature \(T_H = \hbar c^3 / (8\pi G k_B M)\), whose \(2\pi
 \mathcal{O}(1-10)\). The natural linewidth \(\Gamma \sim \hbar \dot{N}\) divided by the level spacing gives:
 
 \[
-\frac{\Gamma}{\Delta E_k} \approx \frac{64\pi^2 p_0}{a \ln k} \approx 3-5\%
+\frac{\Gamma}{\Delta E_k} \approx \frac{64\pi^2 p_0}{a \ln k},
 \]
 
-Within this continuation branch, the emission lines are narrow (few-percent fractional width) and the estimated fraction is mass-independent.
+a function of \((a,k)\). At \(k=2\) the declared range \(a\in[1,10]\) spans \(1.8\%\) to \(18\%\); at \(k=3\), \(1.1\%\) to \(11\%\). A few-percent value therefore requires the particle content and greybody model that pin \(a\) inside a narrower interval (for instance \(a\approx4\)--\(6\) at \(k=2\)); no such model is selected here. The fraction is mass-independent at every \((a,k)\).
 
 \textbf{Connection to quasinormal modes (interpretive continuation).} The highly-damped Schwarzschild quasinormal modes have asymptotic real part (Motl, 2002):
 
@@ -3102,7 +3050,7 @@ LHAASO-WCDA & 1--15 TeV & 5\ensuremath{\times}10\textsuperscript{5}--7\ensuremat
 \end{longtable}
 }
 
-\textbf{Detector resolution vs. intrinsic linewidth.} The continuation-level linewidth estimate is 3--5\% (mass-independent). Published detector energy resolutions:
+\textbf{Detector resolution vs. intrinsic linewidth.} The continuation-level linewidth estimate is \(64\pi^2 p_0/(a\ln k)\), spanning \(1.8\%\)--\(18\%\) at \(k=2\) over the declared \(a\in[1,10]\) (mass-independent at every \((a,k)\)). Published detector energy resolutions:
 
 \begin{itemize}
 \tightlist
@@ -3228,8 +3176,11 @@ k & \(\Delta f_k := \frac{c^3 g(\chi)}{16\pi^2 GM} \ln k\) (Hz) & Relative weigh
 The full physical frequencies are \(f_{k,2} = 719 + \Delta f_k\) Hz (i.e., 760--827 Hz), outside LIGO\textquotesingle s most sensitive band for this remnant. However, the \textbf{stacking analysis} uses the rescaled coordinate \(x = GM(\omega -
 m\Omega_H)/(c^3 g(\chi))\), which maps the thermal spacing to universal constants \(x_k = \ln k / 8\pi\) regardless of the rotation offset.
 
-\textbf{Template-matching criterion.} After rescaling by \((M, \chi)\), spectral features in this continuation template must satisfy \(f_k/f_2 =
-\ln k / \ln 2\) exactly, independent of remnant parameters. Absence of coherent stacking at the predicted \(x_k\) values would challenge the discrete-horizon continuation template, not by itself the derived area-spectrum statement.
+\textbf{Template-matching criterion.} After rescaling by \((M, \chi)\), spectral features in this continuation template must satisfy the offset-subtracted ratio
+\[
+\frac{f_{k,m} - m\,\Omega_H/(2\pi)}{f_{2,m} - m\,\Omega_H/(2\pi)} = \frac{\ln k}{\ln 2}
+\]
+exactly, equivalently \(x_k/x_2 = \ln k/\ln 2\) in the universal coordinate defined above, independent of remnant parameters. The full frequencies \(f_{k,m}\) do not satisfy \(f_k/f_2 = \ln k/\ln 2\) at nonzero \(\Omega_H\): the additive rotation offset breaks the ratio, and only the thermal comb pieces carry it. Absence of coherent stacking at the predicted \(x_k\) values would challenge the discrete-horizon continuation template, not by itself the derived area-spectrum statement.
 
 \subsubsection{Classical mechanics from emergent GR}\label{512-classical-mechanics-from-emergent-gr}
 
@@ -3900,10 +3851,12 @@ screen-normalized self-closure density
 \Pi(N)=\frac{|\Omega^{\mathrm{sc}}_N|}{\dim\mathcal H_{\partial,N}}
 =|\Omega^{\mathrm{sc}}_N|e^{-N}.
 \]
-A separate count-density selector candidate is
+A separate candidate is the declared count-density selector
 \[
-N_\star=\operatorname{MAR}\arg\max_N\left[\log|\Omega^{\mathrm{sc}}_N|-N\right].
+N_\star=\arg\max_N\left[\log|\Omega^{\mathrm{sc}}_N|-N\right];
 \]
+this count representation consumes a smoothness/interior-maximum assumption on \(N\) that the
+Axiom 5 lexicographic order on sector packages does not license.
 For an independently constructed family \(\Omega^{\mathrm{sc}}_N\), define
 \(\ell(N)=\log|\Omega^{\mathrm{sc}}_N|-N\) and the mathematical map
 \[
@@ -4244,9 +4197,9 @@ G \cong G_1 \times G_2,
 
 QED.
 
-\textbf{Lemma 6.3 (SU(2) from a pseudoreal doublet).} Let \(H\) be a positive-dimensional compact connected Lie group with a faithful 2D pseudoreal unitary representation \(V\). Then the semisimple part of \(H\) contains an \(SU(2)\) factor acting as the fundamental doublet. Finite or disconnected counterexamples are not part of the theorem package, which only applies the lemma to the identity component on the relevant nonabelian image. QED.
+\textbf{Lemma 6.3 (SU(2) from a pseudoreal doublet).} Let \(H\) be a positive-dimensional compact connected Lie group with a faithful \emph{irreducible} 2D pseudoreal unitary representation \(V\). Then the connected derived subgroup of the image is \(SU(2)\) acting as the fundamental doublet. Irreducibility is load-bearing: \(U(1)\) acting by \(\mathrm{diag}(z,z^{-1})\) is faithful and pseudoreal but reducible, and contains no \(SU(2)\). Proof: a compact connected abelian group has only one-dimensional irreducibles, so the image is nonabelian; by Schur the center acts by scalars, so the derived subgroup acts irreducibly on \(\mathbb C^2\); the only connected compact groups acting irreducibly on \(\mathbb C^2\) have derived subgroup \(SU(2)\). Finite or disconnected counterexamples are not part of the theorem package, which only applies the lemma to the identity component on the relevant nonabelian image. QED.
 
-\textbf{Lemma 6.4 (SU(3) from an irreducible triplet).} Let \(H\) be a positive-dimensional compact connected Lie group with a faithful irreducible complex 3D unitary representation \(W\). Then the semisimple image contains an \(SU(3)\) factor acting as the fundamental triplet. Finite or disconnected counterexamples are not part of the theorem package, which only applies the lemma to the identity component on the relevant nonabelian image. QED.
+\textbf{Lemma 6.4 (SU(3) from an intrinsically complex triplet).} Let \(H\) be a positive-dimensional compact connected Lie group with a faithful irreducible 3D unitary representation \(W\) that is \emph{intrinsically complex on its nonabelian factor}: the connected derived subgroup of the image acts by an irreducible representation not equivalent to its conjugate. Abelian twisting does not qualify: a character twist can make the full representation inequivalent to its conjugate while the nonabelian factor stays real or pseudoreal, and such twists are excluded by the hypothesis. Then the connected derived subgroup of the image is conjugate to \(SU(3)\) acting as the fundamental triplet, up to finite central kernel. The hypothesis rejects the defining representation of \(SO(3)\) on \(\mathbb C^3\) (real on the nonabelian factor) and its twists \((z,R)\mapsto zR\) under \(U(1)\times SO(3)\) (nonabelian factor still real), and retains the fundamental of \(SU(3)\). Proof: by Schur the center acts by scalars, so the derived subgroup acts irreducibly; two nontrivial simple factors would force a tensor decomposition of dimension at least \(4\), so exactly one simple factor acts; among compact simple Lie algebras only \(\mathfrak{su}(2)\) and \(\mathfrak{su}(3)\) carry nontrivial irreducibles of dimension at most \(3\); the 3D representation of \(\mathfrak{su}(2)\) is real, so the intrinsically complex hypothesis leaves the fundamental of \(\mathfrak{su}(3)\). This restates Lemma \texttt{lem:su3class} of the compact paper. The intrinsically-complex-nonabelian hypothesis is load-bearing: without it, \(SO(3)\) on \(\mathbb C^3\) satisfies every remaining hypothesis and refutes the conclusion. Finite or disconnected counterexamples are not part of the theorem package, which only applies the lemma to the identity component on the relevant nonabelian image. QED.
 
 \textbf{Lemma 6.5 (Connected abelian factor criterion).} If the admissible sector package contains a connected abelian charge factor acting nontrivially on the coupled carrier, then the identity component of the abelianized reconstructed group contains a one-torus. Under the single connected abelian-factor admissibility condition, this factor is \(U(1)\). QED.
 
@@ -4275,7 +4228,7 @@ QED.
 \item
   The commutant of \(SU(3) \times SU(2)\) inside \(U(6)\) is exactly \(U(1)\), so any connected abelian factor acting nontrivially on the coupled carrier is necessarily a single \(U(1)\), and no additional continuous factors appear without increasing \(\chi_{\mathrm{cpl}}\).
 \item
-  Product structure is not separately assumed: it follows from the tensor product structure of the minimal coupled carrier.
+  The tensor-product carrier follows from the coupled-carrier admissibility clause, which itself demands a pseudoreal weak-type role and an intrinsically complex color-type role coexisting on one block. That clause is a declared MAR input with its menu counted in the scorecard, and no competition against non-product simple groups (for instance \(SU(6)\)) is run.
 \end{itemize}
 
 Combined with Proposition 6.6 (hypercharges quantized in sixths from the realized spectrum), this yields:
@@ -4286,7 +4239,7 @@ G_{\mathrm{phys}} = \frac{SU(3) \times SU(2) \times U(1)}{Z_6}.
 
 The full proof route is given in the remainder of Section 6.2.
 
-\textbf{Theorem 6.6aa (realized compact-gauge witness and physical UV landing).} On the ordinary or central zero-obstruction bosonic branch, suppose a cofinal tail carries the compact-gauge refinement receipt. Then the OPH compact reference architecture admits an OPH-realizable cofinal heat-kernel edge-sector witness
+\textbf{Theorem 6.6aa (compact-gauge witness landing under the realized matter-package hypothesis).} On the ordinary or central zero-obstruction bosonic branch, suppose a cofinal tail carries the compact-gauge refinement receipt, and suppose, as a named input hypothesis (the realized matter-package hypothesis), that a realized one-Higgs chiral matter package with the witness labels below exists on the branch. Then the OPH compact reference architecture admits an OPH-realizable cofinal heat-kernel edge-sector witness
 \[
 \mathcal W_{\mathrm{SM}}
 =
@@ -4301,7 +4254,7 @@ L_i=(1,2)_{-1/2},\quad
 e_i^c=(1,1)_1,\quad
 H=(1,2)_{1/2}.
 \]
-The fixed-cutoff edge heat-kernel law gives \(p_R(t)\propto d_R e^{-tC_2(R)}\), hence positive support for every finite-dimensional witness sector at finite \(t\). The pullback functors constructed from the receipt carry those zero-obstruction labels cofinally. The witness is anomaly-free and one-Higgs Yukawa-complete by the hypercharge theorem, contains the weak-type and color-type roles used by MAR, and satisfies the CP-capability and weak-sector UV clauses that force \(N_g=3\) once \(N_c=3\). Therefore the MAR-admissible class is nonempty, and every OPH-admissible microscopic UV completion of the realized branch projects, modulo physical equivalence, to
+The fixed-cutoff edge heat-kernel law gives \(p_R(t)\propto d_R e^{-tC_2(R)}\), hence positive support for every finite-dimensional witness sector at finite \(t\). This positivity concerns the bosonic internal-gauge sector labels only; positive heat-kernel weight on a boundary label does not supply a light chiral fermion multiplet carrying that label, and existence of the displayed matter plus one-Higgs package is the realized matter-package hypothesis. The pullback functors constructed from the receipt carry those zero-obstruction labels cofinally. The witness is anomaly-free and one-Higgs Yukawa-complete by the hypercharge theorem, contains the weak-type and color-type roles used by MAR, and satisfies the CP-capability and weak-sector UV clauses that force \(N_g=3\) once \(N_c=3\). Therefore, under the realized matter-package hypothesis, the MAR-admissible class is nonempty; realized-branch nonemptiness for the matter package itself is open, parallel to the treatment of the geometric branch in Theorem 4.3h. Under the same hypothesis, every OPH-admissible microscopic UV completion of the realized branch projects, modulo physical equivalence, to
 \[
 \frac{SU(3)\times SU(2)\times U(1)}{Z_6},
 \qquad
@@ -4507,7 +4460,7 @@ With N\_c = 3, we have N\_c + 1 = 4, so:
 
 Combining: 3 \ensuremath{\leq} N\_g \ensuremath{\leq} 5.
 
-\textbf{Step 3: MAR selection.} These are not extra post-MAR selectors: they are the numerical content of clauses (v) and (vi) of Axiom 5 on the realized one-Higgs branch. Given the allowed window \{3, 4, 5\}, MAR (fourth component of the complexity vector \(C(\mathfrak S)\)) selects the smallest viable choice:
+\textbf{Step 3: MAR selection.} These are not extra post-MAR selectors: they are the numerical content of clauses (v) and (vi) of Axiom 5 on the realized one-Higgs branch. With MAR lexicographic minimality selecting the window minimum, the upper bound \(N_g\le5\) from the SU(2) clause is a consistency check and does no selection work. Given the allowed window \{3, 4, 5\}, MAR (fourth component of the complexity vector \(C(\mathfrak S)\)) selects the smallest viable choice:
 
 \[
 N_g = 3.
@@ -4520,7 +4473,7 @@ QED.
 \begin{itemize}
 \tightlist
 \item
-  It predicts a \textbf{single integer}.
+  The clause set selects a \textbf{single integer} inside the admissible window \(\{3,4,5\}\); clause (v) (CKM CP capability) is a declared input that sets the lower edge, counted in the scorecard.
 \item
   It uses \textbf{two explicit MAR clauses} (intrinsic CKM CP capability and weak-sector UV completability) plus MAR\textquotesingle s lexicographic minimality, rather than a separate post hoc admissibility menu.
 \item
@@ -5080,12 +5033,13 @@ regulated microphysics package once the declared overlap-sector projectors, reve
 branch, and quasi-local local-Gibbs generator of Theorem 2.6 are in hand. On this synthesis
 surface, the point is to summarize that fixed-cutoff source package and to state the
 refinement/Peter--Weyl lift boundary explicitly rather than to relocate the leaf-level source
-surface.
+surface. The Laplacian spectrum selection and the one-sided sector rank do not follow from
+MaxEnt, gauge invariance, and locality alone; both are named hypotheses of the theorem.
 
 \textbf{Theorem 6.20 (Fixed-cutoff edge-sector law and refinement lift boundary).} Under the OPH
-axioms, the fixed-cutoff overlap-gauge realization of Sections 2.3 and 3.2, and the quasi-local
-local-Gibbs form supplied by Theorem 2.6, the regulated same-overlap edge-sector probability
-distribution satisfies:
+axioms, the fixed-cutoff overlap-gauge realization of Sections 2.3 and 3.2, the quasi-local
+local-Gibbs form supplied by Theorem 2.6, and hypotheses (EH-1) and (EH-2) below, the regulated
+same-overlap edge-sector probability distribution satisfies:
 
 \[
 p_R = \frac{d_R \, e^{-t \lambda_R}}{\sum_{R'} d_{R'} \, e^{-t \lambda_{R'}}}
@@ -5093,35 +5047,55 @@ p_R = \frac{d_R \, e^{-t \lambda_R}}{\sum_{R'} d_{R'} \, e^{-t \lambda_{R'}}}
 
 where \ensuremath{\lambda}\_R is the Laplacian eigenvalue on the R-isotypic component and t is determined by the collar Gibbs parameter.
 
+\textbf{Hypothesis (EH-1, edge Hamiltonian).} The MaxEnt edge generator is the factorwise group
+Laplacian, \(H_{\mathrm{edge}} = t\,\Delta_G\) (for a product group \(G=\prod_i G_i\), a positive
+combination \(\sum_i c_i \Delta_{G_i}\)); for finite groups, the Cayley-graph Laplacian with
+\(\lambda_R = |S| - (1/d_R)\sum_{s\in S}\chi_R(s)\). This is a declared microphysics input, not a
+MaxEnt consequence: gauge invariance and the Gibbs form force only \(H_{\mathrm{edge}} =
+\sum_R h_R P_R\), and any function of the sector label (for instance \(h_R = C_2(R)^2\), or a
+finite projector energy) is gauge invariant and realizable by a spatially local lattice
+Hamiltonian at fixed cutoff. Differential order on group space is not spatial finite-range
+locality, so no locality argument excludes those alternatives. Within second-order bi-invariant
+differential operators the Laplacian is unique up to the stated scale freedom, and the appendix
+supplies a model-specific mechanism that derives (EH-1) for one declared Markov chain: a proposal
+kernel with weighted symmetry and a Casimir acceptance rule has the stated law as its stationary
+distribution. That derivation covers that chain, not every OPH/MaxEnt edge branch; universality
+of (EH-1) across branches is open and tested numerically in Section 6.14.
+
+\textbf{Hypothesis (EH-2, one-sided edge algebra).} The probability space is the one-sided
+electric-center edge algebra \(\mathcal A_{\mathrm{edge}} = \bigoplus_R B(V_R)\), the Gauss-law
+constrained algebra visible from one side of the cut, on which the sector projector has rank
+\(d_R\). The convention is fixed here once: on the full two-sided space \(L^2(G) \cong
+\bigoplus_R V_R \otimes V_R^*\) the R-isotypic projector has rank \(d_R^2\), and a Gibbs trace
+taken there gives sector weights \(\propto d_R^2 e^{-t\lambda_R}\) (the closed-surface partition
+sum \(\sum_R d_R^2 e^{-tC_2(R)}\) is that two-sided object). The \(d_R\) law of the theorem is a
+statement about the one-sided algebra and is not obtained by tracing the two-sided Gibbs state,
+since the two-sided reduction keeps weight \(d_R^2 e^{-t\lambda_R}\). (EH-2) declares the one-sided
+state assignment directly, consistent with the Markov normal form in which the edge factor on
+one side contributes \(\log d_R\) to the entropy.
+
 \textbf{Proof.}
 
 \emph{Step 1 (Edge Hilbert space).} From the fixed-cutoff overlap-gauge realization, the edge
 degrees of freedom at a boundary circle \ensuremath{\Sigma} = \ensuremath{\partial}C live in a
 Hilbert space transforming under the gauge group G. Microscopically this is a finite-dimensional
 quantum-link edge space on the declared overlap interface; the effective
-representation-theoretic description used only for the refinement lift is modeled by \(L^2(G)\).
-By the Peter--Weyl theorem~\cite{peterWeyl27}:
+representation-theoretic description used only for the refinement lift is modeled by \(L^2(G)\)
+with its Peter--Weyl decomposition~\cite{peterWeyl27}, and the physical one-sided carrier is the
+(EH-2) algebra.
 
-\[
-L^2(G) \cong \bigoplus_R V_R \otimes V_R^*
-\]
+\emph{Step 2 (Gauge invariance).} The Gauss law constrains physical states. For an entanglement cut at \ensuremath{\Sigma}, the physical edge observables from one side decompose sectorwise as \(\mathcal A_{\mathrm{edge}} = \bigoplus_R B(V_R)\) by (EH-2).
 
-where V\_R is the carrier space of irrep R.
+\emph{Step 3 (Edge Hamiltonian).} By (EH-1) the MaxEnt generator restricted to edge modes is \(H_{\mathrm{edge}} = \sum_R \lambda_R P_R\) with \(P_R\) the (EH-2) sector projector of rank \(d_R\).
 
-\emph{Step 2 (Gauge invariance).} The Gauss law constrains physical states. For an entanglement cut at \ensuremath{\Sigma}, the physical edge Hilbert space decomposes as \ensuremath{\mathcal{H}}\_\{edge\}\^{}\{phys\} = \ensuremath{\oplus}\_R W\_R where W\_R contains states with flux in representation R.
-
-\emph{Step 3 (Natural Hamiltonian).} From the local-Gibbs form, the MaxEnt generator restricted to edge modes takes the form H\_\{edge\} = \ensuremath{\Sigma}\_R h\_R P\_R where P\_R is the projector onto the R-sector. The key claim is that h\_R = \ensuremath{\lambda}\_R.
-
-\emph{Justification:} For a compact simple factor, the group Laplacian \ensuremath{\Delta}\_G = -\ensuremath{\Sigma}\_a (T\^{}a)\textsuperscript{2} is the unique bi-invariant second-order differential operator up to scale. For a product group \(G=\prod_i G_i\), the most general bi-invariant second-order operator is a positive linear combination \(\sum_i c_i \Delta_{G_i}\), with one coefficient per factor. Any other gauge-invariant local choice would require higher derivatives, violating locality. For finite groups, the Cayley graph Laplacian plays the same role: \ensuremath{\lambda}\_R = \textbar S\textbar{} - (1/d\_R) \ensuremath{\Sigma}\_\{s\ensuremath{\in}S\} \ensuremath{\chi}\_R(s).
-
-\emph{Step 4 (MaxEnt selection).} MaxEnt selects the Gibbs state:
+\emph{Step 4 (MaxEnt selection).} MaxEnt with the (EH-1) generator selects the Gibbs state on the (EH-2) algebra:
 
 \[
 \rho_{\mathrm{edge}} = \frac{1}{Z} e^{-t H_{\mathrm{edge}}} = \frac{1}{Z}
 \sum_R e^{-t \lambda_R} P_R.
 \]
 
-\emph{Step 5 (Sector probabilities).} The probability of sector R is p\_R = Tr(\ensuremath{\rho}\_\{edge\} P\_R). The effective dimension for entanglement is d\_R (not d\_R\textsuperscript{2}) because we trace over one side of the cut. This gives:
+\emph{Step 5 (Sector probabilities).} The probability of sector R is \(p_R = \mathrm{Tr}(\rho_{\mathrm{edge}} P_R)\), and on the (EH-2) algebra \(\mathrm{Tr}\,P_R = d_R\), so
 
 \[
 p_R = \frac{d_R \, e^{-t \lambda_R}}{Z}.
@@ -5129,15 +5103,16 @@ p_R = \frac{d_R \, e^{-t \lambda_R}}{Z}.
 
 QED.
 
-\textbf{Why the entropy rank is \(d_R\) (instead of \(d_R^2\)).} The full edge space has dimension \(d_R^2\) in sector \(R\) (from \(V_R \otimes V_R^\ast\)). Entanglement entropy, however, measures correlations \emph{across} the cut. After tracing over one side, the reduced density matrix has effective rank \(d_R\). Mathematically: in the Markov normal form, the edge factor on one side contributes \(\log d_R\) to the entropy.
-
 \textbf{Scope.} The fixed-cutoff same-overlap derivation is the theorem-bearing part of the
-edge-law package. The quasi-local local-Gibbs generator used here is derived from Theorem 2.6:
+edge-law package, conditional on (EH-1) and (EH-2). The quasi-local local-Gibbs
+generator used here is derived from Theorem 2.6:
 if MaxEnt constraints are expectations of finitely many quasi-local operators, the entropy
 maximizer is automatically a Gibbs state with a quasi-local generator. The additional
 representation-theoretic step summarized here is the compact-group / Peter--Weyl refinement
-lift, together with its factorwise Laplacian identification. The fixed-cutoff same-overlap
-Casimir law is supplied on the microphysics surface; model-family uniqueness and large-edge
+lift. The Casimir-ratio predictions, coupling extraction, \(\alpha_U\) closure, and the
+2D-YM/worldsheet bridge downstream of this law are valid on models satisfying (EH-1)/(EH-2),
+not as consequences of the listed axioms alone; the numerical tests of Section 6.14 probe
+(EH-1) on explicit models. Model-family uniqueness and large-edge
 continuations have their own claim boundaries.
 
 \textbf{Normalization anchor: 2D Yang-Mills.} The parameter t can be exactly matched to a conventional coupling in 2D Yang-Mills, where the physical Hamiltonian is literally the group Laplacian:

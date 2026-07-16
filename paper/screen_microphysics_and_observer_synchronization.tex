@@ -15,6 +15,7 @@
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{claim}[theorem]{Claim}
 \newtheorem{target}[theorem]{Target}
@@ -59,13 +60,13 @@ calibration records, raw or reduced traces, and exact verifier receipts carry th
 
 D.\ Matscheko's OPHProofChain Lean audit machine-checks the finite
 scalar-response form, scalar-channel packaging, collar-gate skeleton,
-\(e^{-P/24}\) arithmetic, and twelve-port surface bookkeeping used by this
+\(1-P/24\) presence-coefficient arithmetic, and twelve-port surface bookkeeping used by this
 surface; the program's formalized layer separately carries 111 sorry-free
 Lean theorems covering the consensus core and the capacity-coupling algebra.  It also separates the theorem-side conservation ledger from the
 named chi-nu interaction-energy pricing convention.  That formal audit does not
-replace the Scalar Edge-Center Exhaustion, uniform product-thickening, local
-Poisson survival, record-to-gravity calibration, or hardware-evidence gates
-stated below.
+replace the Scalar Edge-Center Exhaustion, uniform product-thickening,
+presence-reading survival, record-to-gravity calibration, or hardware-evidence
+gates stated below.
 
 \tableofcontents
 \newpage
@@ -446,11 +447,11 @@ For a nonzero projection \(p\), define the reciprocal reserve-depth trace by
 \[
 \operatorname{Tr}^{\#}_{q,r,C}(p):=\tau_{q,r,C}(p)^{-1}.
 \]
-The Poisson reserve exponent always uses the normalized mean \(\tau_q\), not
+The reserve survival coefficient always uses the normalized mean \(\tau_q\), not
 the reciprocal trace. Thus
 \[
 \tau_q(Z_{6,r,C})=\frac{P}{24}
-\quad\text{is the exponent mean,}
+\quad\text{is the presence probability,}
 \]
 while
 \[
@@ -989,14 +990,18 @@ The oriented register is a bookkeeping refinement of the same quotient-edge cut
 surface. It does not create an independent scalar carrier.
 \end{definition}
 
-The shared-edge protected-reserve branch carries one named branch input: the shared cut entropy
-density \(\bar\ell_{\rm shared}=P/4\) is a declared assumption of the branch, not a derived
-quantity. Every value downstream of the \(P/24\) exponent inherits that input.
+The shared-edge protected-reserve branch carries two named branch inputs: the shared cut entropy
+density \(\bar\ell_{\rm shared}=P/4\) and the \(\mathbb Z_6\) class equidistribution stated in
+Theorem~\ref{thm:z6-reserve-trace} are declared assumptions of the branch, not derived
+quantities. Every value downstream of the \(P/24\) exponent inherits both inputs.
 
 \begin{theorem}[Protected reserve mean and reciprocal trace]
 \label{thm:z6-reserve-trace}
 On the shared-edge protected-reserve branch, with the declared branch input
-\(\bar\ell_{\rm shared}=P/4\),
+\(\bar\ell_{\rm shared}=P/4\) and the declared \(\mathbb Z_6\) class
+equidistribution hypothesis (the shared-edge reserve is distributed uniformly
+over the six protected center classes; a declared branch input alongside the
+shared-cut density),
 \[
 \boxed{
 \tau_{q,r,C}(Z_{6,r,C})=\frac{P}{24}.
@@ -1019,9 +1024,10 @@ one has
 \[
 \frac{24}{P}=14.715185655746689,
 \]
-and
+and, under the presence reading of
+Lemma~\ref{lem:presence-reading-reserve},
 \[
-e^{-P/24}=0.9343006394893864.
+1-\frac{P}{24}=0.9320429912748350.
 \]
 \end{theorem}
 
@@ -1031,7 +1037,8 @@ The shared cut entropy density on this branch is the declared branch input
 \bar\ell_{\rm shared}=\frac{P}{4}.
 \]
 The protected reserve is the realized \(\mathbb Z_6\) center quotient reserve.
-Splitting the shared-edge reserve over the six protected center classes gives
+By the declared \(\mathbb Z_6\) class-equidistribution hypothesis, splitting
+the shared-edge reserve uniformly over the six protected center classes gives
 \[
 \epsilon_{\mathbb Z_6}
 =
@@ -1041,13 +1048,6 @@ Splitting the shared-edge reserve over the six protected center classes gives
 =
 \frac{P}{24}.
 \]
-
-The oriented register gives the same denominator from the local screen side:
-the twelve-port screen-sieve branch supplies twelve central ports, and
-reversible write/check orientation doubles the repair register to twenty-four
-oriented slots. This \(24\)-slot register is the local oriented accounting
-surface for the same shared-edge reserve. It does not replace the normalized
-quotient expectation.
 
 Thus the normalized quotient reserve mean is
 \[
@@ -1062,6 +1062,15 @@ By definition of the reciprocal reserve-depth trace,
 \frac{24}{P}.
 \]
 \end{proof}
+
+\begin{remark}[Oriented-register denominator coincidence]
+The oriented \(24\)-slot register of
+Definition~\ref{def:oriented-24-slot-register} also displays the denominator
+\(24\) on the local screen side. By that definition the register creates no
+independent scalar carrier, so the coincidence of denominators carries no
+corroborating weight for the class-equidistribution hypothesis; the \(P/24\)
+value rests on the two declared branch inputs alone.
+\end{remark}
 
 \begin{definition}[Finite-thickness scalar opportunity profile]
 \label{def:finite-thickness-scalar-profile}
@@ -1276,31 +1285,42 @@ scalar-reserve unbiasedness. Co-registration or commutation alone is
 insufficient.
 \end{remark}
 
-\begin{assumption}[Local Poisson reserve survival]
-\label{ass:local-poisson-reserve-survival}
-At transverse coordinate \(y\), the protected reserve occupancy in a
-co-registered scalar slot is Poisson with mean
+\begin{lemma}[Presence reading of the reserve profile]
+\label{lem:presence-reading-reserve}
+\(Z_{6,r,C}\) is a sum of sector projections, so the conditional reserve
+profile \(\epsilon_{\mathbb Z_6}(y)\), a ratio of quotient traces of
+projections, is the conditional probability of the reserve-presence event in a
+co-registered scalar slot at transverse coordinate \(y\). A scalar opportunity
+survives exactly when the presence event does not occur. The local scalar
+survival factor is therefore
 \[
-\epsilon_{\mathbb Z_6}(y).
+\lambda_{\rm slot}(y)=1-\epsilon_{\mathbb Z_6}(y)
 \]
-That is,
-\[
-N_{\mathbb Z_6}(y)\sim{\rm Pois}(\epsilon_{\mathbb Z_6}(y)).
-\]
-\end{assumption}
+for every occupancy law whose presence event has probability
+\(\epsilon_{\mathbb Z_6}(y)\). No occupancy variable with that presence
+probability attains the Poisson zero-count factor \(e^{-\epsilon}\):
+\(1-\epsilon<e^{-\epsilon}\) strictly for \(\epsilon>0\), and every finite
+\(m\)-fold sub-slot refinement \((1-\epsilon/m)^m\) sits strictly below
+\(e^{-\epsilon}\), which is the supremum of that family, attained by no finite
+regulator. A mean-count reading, in which \(\epsilon(y)\) is consumed as the
+expectation of an \(\mathbb N\)-valued occupancy rather than as the presence
+probability, severs the link to the projection trace and consumes a scalar
+carrier beyond \(Z_{6,r,C}\), which the no-separate-carrier clause of
+Definition~\ref{def:oriented-24-slot-register} excludes; its assumption-minimal
+consequence is recorded in Remark~\ref{rem:mean-count-markov-band}.
+\end{lemma}
 
 \begin{theorem}[Finite-thickness collar survival]
 \label{thm:finite-thickness-collar-survival}
-Assume local Poisson reserve survival. Then the local scalar survival factor is
-\[
-\lambda_{\rm slot}(y)=e^{-\epsilon_{\mathbb Z_6}(y)}.
-\]
-The finite-thickness collar survival coefficient is
+Under the presence reading of Lemma~\ref{lem:presence-reading-reserve}, the
+finite-thickness collar survival coefficient is
 \[
 \boxed{
 \lambda_{\rm collar}
 =
-\int dy\,w(y)e^{-\epsilon_{\mathbb Z_6}(y)}.
+\int dy\,w(y)\bigl(1-\epsilon_{\mathbb Z_6}(y)\bigr)
+=
+1-\int dy\,w(y)\,\epsilon_{\mathbb Z_6}(y).
 }
 \]
 At finite regulator this is
@@ -1308,31 +1328,20 @@ At finite regulator this is
 \boxed{
 \lambda_{\rm collar,r}
 =
-\sum_{y\in Y_{r,C}}w_r(y)e^{-\epsilon_{\mathbb Z_6,r}(y)}.
+1-\sum_{y\in Y_{r,C}}w_r(y)\,\epsilon_{\mathbb Z_6,r}(y).
 }
 \]
 \end{theorem}
 
 \begin{proof}
-A Poisson variable of mean \(\epsilon\) has zero-count probability
-\[
-\Pr[N=0]=e^{-\epsilon}.
-\]
-A scalar opportunity survives exactly when its co-registered protected reserve
-count is zero. Therefore the local survival factor at \(y\) is
-\[
-e^{-\epsilon_{\mathbb Z_6}(y)}.
-\]
-Averaging over scalar opportunities with normalized profile \(w(y)\) gives
-\[
-\lambda_{\rm collar}
-=
-\int dy\,w(y)e^{-\epsilon_{\mathbb Z_6}(y)}.
-\]
-The finite-regulator formula is the corresponding finite sum.
+The local survival factor at \(y\) is \(1-\epsilon_{\mathbb Z_6}(y)\) by
+Lemma~\ref{lem:presence-reading-reserve}. Averaging over scalar opportunities
+with normalized profile \(w(y)\) and using linearity of the integral gives the
+displayed formula. The finite-regulator formula is the corresponding finite
+sum.
 \end{proof}
 
-\begin{corollary}[Finite-thickness Jensen band]
+\begin{corollary}[Exact finite-thickness coefficient from the scalar-weighted receipt]
 \label{cor:finite-thickness-jensen-band}
 If
 \[
@@ -1341,54 +1350,49 @@ If
 then
 \[
 \boxed{
-e^{-P/24}\le \lambda_{\rm collar}\le1.
+\lambda_{\rm collar}=1-\frac{P}{24}.
 }
 \]
 Numerically,
 \[
 \boxed{
-0.9343006394893864\ldots
-\le
 \lambda_{\rm collar}
-\le
-1.
+=
+0.9320429912748350\ldots .
 }
 \]
-More generally, without the scalar-weighted \(P/24\) receipt,
+The scalar-weighted mean receipt alone fixes the coefficient, by linearity; no
+uniformity clause on the profile is consumed. More generally, if the
+scalar-weighted mean is \(\bar\epsilon_{\mathbb Z_6}^{\rm scal}\),
 \[
 \boxed{
-e^{-\bar\epsilon_{\mathbb Z_6}^{\rm scal}}
-\le
 \lambda_{\rm collar}
-\le
-1.
+=
+1-\bar\epsilon_{\mathbb Z_6}^{\rm scal}.
 }
 \]
 \end{corollary}
 
 \begin{proof}
-The function \(x\mapsto e^{-x}\) is convex. Jensen's inequality gives
-\[
-\lambda_{\rm collar}
-=
-\int dy\,w(y)e^{-\epsilon_{\mathbb Z_6}(y)}
-\ge
-\exp\!\left[-\int dy\,w(y)\epsilon_{\mathbb Z_6}(y)\right].
-\]
-If the scalar-weighted mean is \(P/24\), this lower bound is \(e^{-P/24}\).
-If the scalar-weighted mean is
-\(\bar\epsilon_{\mathbb Z_6}^{\rm scal}\), the lower bound is
-\(e^{-\bar\epsilon_{\mathbb Z_6}^{\rm scal}}\).
-
-Since \(\epsilon_{\mathbb Z_6}(y)\ge0\),
-\[
-e^{-\epsilon_{\mathbb Z_6}(y)}\le1.
-\]
-Therefore
-\[
-\lambda_{\rm collar}\le \int dy\,w(y)=1.
-\]
+Substitute the receipt value into the survival formula of
+Theorem~\ref{thm:finite-thickness-collar-survival}.
 \end{proof}
+
+\begin{remark}[Mean-count reading and its Markov band]
+\label{rem:mean-count-markov-band}
+Under the mean-count reading, with \(\epsilon_{\mathbb Z_6}(y)\) the
+expectation of an \(\mathbb N\)-valued reserve occupancy and survival the
+zero-count event, Markov's inequality bounds the survival factor for any
+occupancy law: \(\Pr[N\ge1]\le\epsilon\) gives
+\(1-\epsilon\le\Pr[N=0]\le1\), hence with the scalar-weighted \(P/24\) receipt
+\[
+1-\frac{P}{24}\le\lambda_{\rm collar}\le1.
+\]
+The coefficient is order one and bounded away from zero on every reading; the
+exact value is reading-dependent, and the presence reading is the one the
+receipt semantics of this branch supply. Which reading nature uses is a
+physical gate of the susceptibility lane, recorded there.
+\end{remark}
 
 \begin{definition}[Uniform product-thickening branch]
 \label{def:uniform-product-thickening-branch}
@@ -1449,11 +1453,11 @@ force the scalar-active edge sampler to be reserve-unbiased.
 
 \begin{theorem}[Exact uniform product-thickening coefficient]
 \label{thm:exact-uniform-product-thickening-coefficient}
-On the uniform product-thickening branch, assuming local Poisson reserve
-survival,
+On the uniform product-thickening branch, under the presence reading of
+Lemma~\ref{lem:presence-reading-reserve},
 \[
 \boxed{
-\lambda_{\rm collar}=e^{-P/24}.
+\lambda_{\rm collar}=1-\frac{P}{24}.
 }
 \]
 Numerically,
@@ -1461,7 +1465,7 @@ Numerically,
 \boxed{
 \lambda_{\rm collar}
 =
-0.9343006394893864\ldots .
+0.9320429912748350\ldots .
 }
 \]
 \end{theorem}
@@ -1476,7 +1480,7 @@ finite-thickness survival formula gives
 \[
 \lambda_{\rm collar}
 =
-\int dy\,w(y)e^{-P/24}.
+\int dy\,w(y)\left(1-\frac{P}{24}\right).
 \]
 Since \(w\) is normalized,
 \[
@@ -1484,23 +1488,28 @@ Since \(w\) is normalized,
 \]
 Therefore
 \[
-\lambda_{\rm collar}=e^{-P/24}.
+\lambda_{\rm collar}=1-\frac{P}{24}.
 \]
+On this branch the coefficient coincides with the finite-thickness value of
+Corollary~\ref{cor:finite-thickness-jensen-band}, since the scalar-weighted
+receipt already fixes it by linearity; the uniform branch adds slice-wise
+constancy of the profile, which the exact value does not consume.
 \end{proof}
 
 \begin{remark}[Exact value gate]
 \label{rem:exact-value-gate}
-The exact value \(e^{-P/24}\) is licensed only when the uniform
-product-thickening branch passes, including slice-wise scalar-reserve
-unbiasedness. Without that receipt the theorem-grade coefficient is
+The exact value \(1-P/24\) is licensed by the scalar-weighted \(P/24\) receipt
+under the presence reading. Without that receipt the theorem-grade coefficient
+is
 \[
 \lambda_{\rm collar}
 =
-\int dy\,w(y)e^{-\epsilon_{\mathbb Z_6}(y)}.
+1-\int dy\,w(y)\,\epsilon_{\mathbb Z_6}(y),
 \]
-If the scalar-weighted mean is \(P/24\), the available theorem-grade band is
+and under the mean-count reading of Remark~\ref{rem:mean-count-markov-band}
+the available theorem-grade band is
 \[
-e^{-P/24}\le\lambda_{\rm collar}\le1.
+1-\frac{P}{24}\le\lambda_{\rm collar}\le1.
 \]
 \end{remark}
 
@@ -1529,9 +1538,9 @@ The local quotient-edge theorem stack emits the following receipt names:
 \texttt{FINITE\_THICKNESS\_RESERVE\_PROFILE},\quad
 \texttt{SCALAR\_WEIGHTED\_Z6\_MEAN},\\
 \texttt{FINITE\_THICKNESS\_MEAN\_RESERVE},\quad
-\texttt{LOCAL\_POISSON\_RESERVE\_SURVIVAL},\quad
+\texttt{Z6\_PRESENCE\_READING\_SURVIVAL},\quad
 \texttt{FINITE\_THICKNESS\_SURVIVAL},\\
-\texttt{FINITE\_THICKNESS\_JENSEN\_BAND},\quad
+\texttt{FINITE\_THICKNESS\_EXACT\_COEFFICIENT},\quad
 \texttt{PRODUCT\_THICKENING\_ALGEBRA},\quad
 \texttt{PRODUCT\_THICKENING\_TRACE},\\
 \texttt{Z6\_RESERVE\_PULLBACK},\quad
@@ -1550,39 +1559,39 @@ The exact coefficient gate is
 &\wedge \texttt{Z6\_RESERVE\_PULLBACK}
 \wedge \texttt{SCALAR\_ACTIVATION\_DISINTEGRATION}\\
 &\wedge \texttt{SLICEWISE\_SCALAR\_RESERVE\_UNBIASEDNESS}
-\wedge \texttt{LOCAL\_POISSON\_RESERVE\_SURVIVAL}\\
+\wedge \texttt{Z6\_PRESENCE\_READING\_SURVIVAL}\\
 &\wedge \texttt{Z6\_NORMALIZED\_TRACE\_P\_OVER\_24}.
 \end{aligned}
 \]
-The Jensen-band gate is
+The exact finite-thickness gate is
 \[
 \begin{aligned}
-\texttt{FINITE\_THICKNESS\_JENSEN\_BAND}
+\texttt{FINITE\_THICKNESS\_EXACT\_COEFFICIENT}
 ={}&
 \texttt{FINITE\_THICKNESS\_SCALAR\_PROFILE}
 \wedge \texttt{FINITE\_THICKNESS\_RESERVE\_PROFILE}\\
 &\wedge \texttt{SCALAR\_WEIGHTED\_Z6\_MEAN}
-\wedge \texttt{LOCAL\_POISSON\_RESERVE\_SURVIVAL}.
+\wedge \texttt{Z6\_PRESENCE\_READING\_SURVIVAL}.
 \end{aligned}
 \]
-Only after \texttt{UNIFORM\_PRODUCT\_THICKENING\_EXACT} passes may downstream
-text write \(\lambda_{\rm collar}=e^{-P/24}\). Otherwise it must write
+After \texttt{FINITE\_THICKNESS\_EXACT\_COEFFICIENT} passes, downstream text
+writes \(\lambda_{\rm collar}=1-P/24\). Otherwise it writes
 \[
 \lambda_{\rm collar}
 =
-\int dy\,w(y)e^{-\epsilon_{\mathbb Z_6}(y)}.
+1-\int dy\,w(y)\,\epsilon_{\mathbb Z_6}(y),
 \]
-If \texttt{SCALAR\_WEIGHTED\_Z6\_MEAN} also passes, it may add
+and under the mean-count reading it may add only the Markov band
 \[
-e^{-P/24}\le\lambda_{\rm collar}\le1.
+1-\frac{P}{24}\le\lambda_{\rm collar}\le1.
 \]
 
-Release review should apply the following checks.  No Poisson exponent may use
+Release review applies the following checks.  No survival coefficient may use
 \(24/P\); occurrences of \(\operatorname{Tr}_q(Z_6)\) with \(24/P\) must be
 renamed to \(\operatorname{Tr}^{\#}_q\) or explicitly declared reciprocal;
-every exact \(e^{-P/24}\) coefficient claim must cite
-\texttt{UNIFORM\_PRODUCT\_THICKENING\_EXACT} or
-Theorem~\ref{thm:exact-uniform-product-thickening-coefficient}; every Jensen
+every exact \(1-P/24\) coefficient claim must cite
+\texttt{FINITE\_THICKNESS\_EXACT\_COEFFICIENT} or
+Theorem~\ref{thm:exact-uniform-product-thickening-coefficient}; every Markov
 lower bound must cite \texttt{SCALAR\_WEIGHTED\_Z6\_MEAN}; and every statement
 that the \(Z_6\) reserve fixes scalar opportunities must cite
 \texttt{SCALAR\_CHANNEL\_EXHAUSTION} and
@@ -1753,14 +1762,17 @@ and choosing a geometric presentation. The microscopic carrier may be graph-like
 multi-patch, and locally polyhedral.
 
 The \(P,N\) closures supply the geometric side of that chart. If
-\(P_\star=a_{\mathrm{cell}}/\ell_\star^2\) and \(N_{\mathrm{CRC}}=A_{\mathrm{screen}}/(4\ell_\star^2)\),
+\(P_\star=a_{\mathrm{cell}}/\ell_\star^2\) and \(N_\Lambda=A_{\mathrm{screen}}/(4\ell_\star^2)\)
+with \(N_\Lambda=3.31\times10^{122}\) the \(\Lambda\)-located working capacity,
 then an equal-area cellulation has
 \[
 K_{\mathrm{cell}}
 =\frac{A_{\mathrm{screen}}}{a_{\mathrm{cell}}}
-=\frac{4N_{\mathrm{CRC}}}{P_\star}
+=\frac{4N_\Lambda}{P_\star}
 \simeq 8.12\times10^{122}.
 \]
+At the conditional bridge capacity the same count reads \(8.66\times10^{122}\); the working value
+is the measured-side input under the claim rules.
 This counts canonical geometric screen cells. It does not assign an independent Hilbert factor to
 each cell. In particular \(P_\star/4\simeq0.408\) nats is about \(0.588\) bits, so it is not by
 itself the logarithm of an integer-dimensional autonomous cell algebra. The area law lives on shared
@@ -1911,7 +1923,7 @@ decomposition exposes each irreducible positive defect as one central port, then
 the invariant screen contraction is sampled by exactly twelve indistinguishable
 ports. Under the no-marked-point MaxEnt symmetry rule those ports form the
 \(12\)-vertex icosahedral orbit. Therefore an invariant scalar screen load
-\(X\), in particular \(X=\log(N/\pi)\), is read locally as \(X/12\).
+\(X\) that is additive across ports is read locally as \(X/12\).
 \end{theorem}
 
 \begin{proof}
@@ -1946,9 +1958,16 @@ The cyclic and dihedral rotation families are unbounded in order, so the sphere
 has no maximal finite rotation group; the selection of the icosahedral vertex
 configuration among transitive twelve-point arrangements is made by the named
 MaxEnt-maximal-symmetry hypothesis, not by a maximality theorem.
-Any invariant scalar assigned to a transitive twelve-port orbit is split
-equally across the ports, so the local port read is \(X/12\).
+An invariant scalar load that is additive across a transitive twelve-port
+orbit is split equally across the ports, so the local port read is \(X/12\).
 \end{proof}
+
+\begin{remark}[External identification of the load]
+The identification \(X=\log(N/\pi)\) is imported from the D6 radius identity
+of the capacity lane; this paper does not construct that object. The theorem
+itself constrains only invariant screen loads that are additive across the
+twelve ports.
+\end{remark}
 
 \begin{remark}[Named hypothesis: MaxEnt-maximal-symmetry rule]
 The step from twelve indistinguishable ports to the icosahedral vertex orbit
@@ -1956,8 +1975,9 @@ uses the no-marked-point MaxEnt symmetry rule as a named hypothesis. The rule
 is invoked, not derived: other transitive twelve-point orbits on the sphere
 exist, and the rule selects the \(A_5\) vertex configuration among them. Every
 quantity downstream of the \(12\)- and \(24\)-fold normalizations inherits this
-hypothesis together with the declared branch input
-\(\bar\ell_{\rm shared}=P/4\) of Theorem~\ref{thm:z6-reserve-trace}.
+hypothesis together with the declared branch inputs
+\(\bar\ell_{\rm shared}=P/4\) and \(\mathbb Z_6\) class equidistribution of
+Theorem~\ref{thm:z6-reserve-trace}.
 \end{remark}
 
 \begin{theorem}[Icosahedral face-corner bundle]

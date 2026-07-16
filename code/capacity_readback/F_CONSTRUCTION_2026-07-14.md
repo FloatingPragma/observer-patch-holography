@@ -324,7 +324,7 @@ admissible interval. The whole family is excluded; the P3 bracketing pair
 
 Reference capacities, used here for the first time in this document and never inside
 any candidate cone: the Lambda-located SL-4 basin `3.31e122` and the CL-3
-electroweak-bridge value `3.53e122` (`log` values `282.06` and `282.13` nats of
+electroweak-bridge value `3.53e122` (`log` values `282.11` and `282.18` nats of
 `log N`; as capacities, `~3.3e122` nats).
 
 Comparison record: `runtime/F_construction_comparison_2026-07-14.json`
@@ -353,7 +353,8 @@ are recorded as excluded.** The exclusion is informative in three ways.
    Z6-reserve, and P/4-budget combinatorics has the form
    `log|Omega^sc_N| = rho*N + c*log N + d` with `rho` bounded away from 1 by the
    reserve fraction (`1 - rho in {1/6, 0.1726, 1/2, 0.5178}`) and `|c| <= 3`,
-   `|d| <= 7.3`. Both displays of the target then sit at
+   `|d| <= 8.18` (maximum over the declared lattice, attained on branch
+   Xq.K2.Sp at `2 ln pi + 2 ln(4/P) + ln 60`). Both displays of the target then sit at
    `N_star = c/(1-rho) <= 18` and `N_CRC <= 1452.33` nats. A reference-scale fixed
    point `~3.3e122` requires either `1 - rho ~ 1e-122` or a structure-supplied
    tail (an `N log N` term with a stationary point near `exp(282)`), and the

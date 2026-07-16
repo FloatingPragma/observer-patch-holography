@@ -198,7 +198,7 @@ full particle-physics proofs is work in progress.
 
 None of these nonzero masses comes purely from first principles. The clean
 results concern massless carriers, and the nonzero numbers quoted here are
-consistency checks against what is already measured. Deriving a particle mass
+consistency checks against measured values. Deriving a particle mass
 from the ground up is work in progress.
 
 For the charged leptons, the electron, muon, and tau, there is a clean

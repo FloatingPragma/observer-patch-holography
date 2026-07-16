@@ -500,8 +500,8 @@ Cassini quadrupole about $19.22$ standard deviations from the published
 summary on the fixed $\mathbb Z_6$ input. That universal Solar-System extension
 is excluded. The surviving claim is narrower: an old-settled-galaxy branch may
 still work, but only after OPH derives an applicability or screening rule from
-the observer-like system itself--its local state, boundary, readback records,
-and repair dynamics--rather than adding an exception after seeing Cassini.
+the observer-like system itself (its local state, boundary, readback records,
+and repair dynamics) rather than adding an exception after seeing Cassini.
 
 This is the proposed OPH dark-sector route in the language of this chapter. At
 the level of a settled galaxy, the candidate source is an extra gravitational

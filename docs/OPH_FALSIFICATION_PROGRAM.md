@@ -143,8 +143,8 @@ fixed-point maps with distinct point targets and independent verdicts: CL-2
 adds alpha_U(P). CL-3 supersedes all "two capacities" and
 "resonance at logarithmic depth" language: SL-4 admits one N. Its nominal
 6.6% mismatch remains conditional on F and CP-1 to CP-3, and a final verdict
-must propagate the joint Planck posterior. The previously
-displayed 137.0359595 is a mixed-provenance display packet (the inner value
+must propagate the joint Planck posterior. The on-record
+137.0359595 is a mixed-provenance display packet (the inner value
 evaluated at P_fwd plus α_U evaluated at the SL-3 pixel); it is not a fixed
 point of any single declared map and stays on record as a display packet only,
 never a prediction or derivation of α, which is the input that located P. The
@@ -170,7 +170,8 @@ decide a verdict:
   separates coordinate types and map targets. It is an inactive erratum
   scaffold authored after target access, has
   `promotion_or_falsification_allowed=false`, and cannot be activated by
-  adding a timestamp later. It cannot score V1 or any work already started. A
+  adding a timestamp later. It cannot score V1 or any work begun before its
+authorship. A
   future test requires a new immutable successor and detached activation
   manifest.
 - **Map-specific point diagnostics:** CL-1 requires total `Delta_source =
@@ -399,7 +400,7 @@ data exists or is looked at):
    applicability rule, nuisance policy, covariance treatment, and likelihood,
    evaluated against held-out CMB, BAO, SPARC, cluster, and weak-lensing data.
 6. **Ringdown template completion.** Do not register the α = 4 comb forecast.
-   The canonical source already supplies the integer-k Kerr family and a
+   The canonical source supplies the integer-k Kerr family and a
    stacking coordinate; α = 4 implies k = e and is not a member of that
    family. The missing work is a derived strain/asymptotic-readout likelihood,
    a pre-data prior or weighting across the allowed k lines, and frozen event
@@ -575,7 +576,7 @@ The decision rules of book chapter 14 (null without receipt → engineering
 failure; receipt without lift → bound for that build surface only) are
 superseded by one rule: **a null with receipts binds the continuation.** A
 declared number of independent builds reaching their receipts with null force
-retires the continuation. The bench bound of section 3 already binds: any
+retires the continuation. The bench bound of section 3 binds: any
 future force law must be consistent with gravitational ΔS ≲ 10⁻¹⁰ for coupons
 at rest, derived before new hardware is built.
 

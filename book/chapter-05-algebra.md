@@ -36,7 +36,7 @@ momentum operator. Writing $XP$ and $PX$ means composing the two operations in
 opposite orders. The bracket $[X,P]$ measures the failure of those two
 compositions to agree. The number $i$ is the imaginary unit, and $\hbar$ is
 Planck's constant divided by $2\pi$. Nature is not saying that our instruments are
-clumsy. It is saying that these two questions do not belong to one classical
+clumsy but that these two questions do not belong to one classical
 spreadsheet of pre-existing answers.
 
 ![When questions do not commute, asking A then B can be a different physical operation from asking B then A.](../assets/book_diagrams/question-algebra-order.svg){width=78%}

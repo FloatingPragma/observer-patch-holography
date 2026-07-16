@@ -76,8 +76,8 @@ perspectives. The chapter's most important question is therefore simple:
 what must be true if many bounded observers can nevertheless inhabit one
 shared public world?
 
-The chapter uses the word **observer** in an operational sense. An observer is
-not necessarily a human mind. It is any physical system capable of receiving
+The chapter uses the word **observer** in an operational sense. An observer,
+not necessarily a human mind, is any physical system capable of receiving
 signals, forming records, updating internal state, and participating in a
 network of comparisons. A detector, a laboratory, a biological nervous
 system, and a future engineered patch-federation can all instantiate parts of
@@ -117,9 +117,8 @@ program, where the admissible low-energy sectors are narrowed.
 
 The chapter's diagram, the consensus funnel, is a repair picture. Many local
 descriptions enter. Some mismatch. Some can be repaired.
-Some are rejected. The final public structure is not the arithmetic average
-of opinions. It is the stable normal form that survives all allowed overlap
-checks.
+Some are rejected. The final public structure is the stable normal form that
+survives all allowed overlap checks, not the arithmetic average of opinions.
 
 The human chain is long. Bell, Kochen, Specker, Gleason, von Neumann,
 Everett, Bohr, Wigner, Haag, Kastler, Haag again through algebraic QFT,
@@ -188,9 +187,9 @@ The symbol $S^2$ means the two-sphere, the ordinary surface of a ball
 abstracted as a mathematical object. It is two-dimensional because two
 coordinates, like latitude and longitude, label points on it. In OPH this
 sphere is a chart for observer-facing support data, not a literal ball that
-stores the universe on its surface. The standard round metric on $S^2$ is not
-the whole OPH theory. It is the symmetric starting geometry used to organize
-patches, caps, and overlaps.
+stores the universe on its surface. The standard round metric on $S^2$ is the
+symmetric starting geometry used to organize patches, caps, and overlaps, not
+the whole OPH theory.
 
 The chapter's screen diagram shows two observer patches and the
 lens-shaped overlap where their descriptions can be compared. That overlap is
@@ -786,8 +785,8 @@ clock stack.
 
 The matter-stability diagram shows the ladder: screen excitations,
 particles, atoms, chemistry, and classical objects. A macroscopic object is
-not fundamental because it is large. It is public because environmental
-records make it durably sampleable.
+public because environmental records make it durably sampleable, not
+fundamental because it is large.
 
 The builders include Dalton, Mendeleev, Thomson, Rutherford, Bohr, Moseley,
 Chadwick, de Broglie, Schrodinger, Heisenberg, Dirac, Pauli, Fermi, Yukawa,
@@ -824,10 +823,9 @@ checked and used by many observers.
 
 The human lineage includes Darwin, Wallace, Mendel, Fisher, Haldane, Wright,
 Mayr, Dobzhansky, Dawkins, Zurek, Wheeler, Smolin, Susskind, Weinberg,
-Tegmark, and many critics of anthropic reasoning as well. The chapter is not
-asking readers to accept every selection story. It is asking them to notice
-that modern physics repeatedly turns existence questions into constraint and
-filter questions.
+Tegmark, and many critics of anthropic reasoning as well. The chapter is asking
+readers to notice that modern physics repeatedly turns existence questions
+into constraint and filter questions, not to accept every selection story.
 
 ## Chapter 18: The Strange Loop
 

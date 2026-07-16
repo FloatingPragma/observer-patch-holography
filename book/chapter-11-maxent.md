@@ -67,7 +67,7 @@ flow as the time the observer actually experiences.
 
 Here $\rho$ is the observer's density matrix, the quantum bookkeeping object for
 what the observer can know. The modular Hamiltonian is not necessarily the
-ordinary energy of the whole universe. It is the operator that generates the
+ordinary energy of the whole universe but the operator that generates the
 natural evolution of the restricted state the observer actually has access to
 when such an operator representative exists.
 

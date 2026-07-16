@@ -84,7 +84,7 @@ CMI alone does not gravitate. On the continuation branch the source has no
 luminous charge, and the settled-galaxy response ansatz is RAR-shaped. In
 clusters and cosmology the candidate becomes a transported component with its
 own relaxation and likelihood contracts. The static branch carries no
-per-galaxy fit freedom: the acceleration scale and the \(\Zsix\)/Poisson
+per-galaxy fit freedom: the acceleration scale and the \(\Zsix\) presence
 coefficient are fixed before comparison, and the audited public comparisons
 score those fixed values against SPARC. The paper is a continuation surface;
 the source packet and joint fit are decisive gates.
@@ -122,7 +122,7 @@ acceleration law is exact only when symmetry removes the curl term.
 
 The first layer is the static galaxy law.  It contains the RAR shape, the
 BTFR limit, the effective dark density, the no-slip lensing rule, and the
-\(\Zsix\)/Poisson coefficient.
+\(\Zsix\) presence coefficient.
 
 The second layer is the dynamic dark component.  It treats the anomaly as a
 transported stress that relaxes toward the static equilibrium over
@@ -972,7 +972,7 @@ gives
 \end{equation}
 
 \paragraph{Trace convention.}
-The exponent mean is the normalized quotient expectation:
+The reserve mean is the normalized quotient expectation:
 \[
 \tau_q(Z_{6,r,C})=\epsilon_{\Zsix}=\frac{P}{24}.
 \]
@@ -980,11 +980,11 @@ The reciprocal reserve-depth trace is
 \[
 \operatorname{Tr}^{\#}_q(Z_{6,r,C})=\frac{24}{P}.
 \]
-The Poisson factor is
+The survival factor is the complement of the normalized mean,
 \[
-e^{-\tau_q(Z_{6,r,C})}=e^{-P/24},
+1-\tau_q(Z_{6,r,C})=1-\frac{P}{24},
 \]
-not \(e^{-\operatorname{Tr}^{\#}_q(Z_{6,r,C})}\).
+not a function of \(\operatorname{Tr}^{\#}_q(Z_{6,r,C})\).
 
 \paragraph{Conditional bridge 4, quotient-edge co-registration.}
 Galaxy scalar repair opportunities are quotient-edge cut-register events on
@@ -1043,7 +1043,8 @@ R_C^{\mathrm{src}}
 \longmapsto
 \nu_{\OPH}.
 \]
-The exact \(\Zsix\) coefficient additionally requires the imported gate
+The exact \(\Zsix\) coefficient additionally requires the scalar-weighted
+reserve receipt supplied by the imported gate
 \texttt{UNIFORM\_PRODUCT\_THICKENING\_EXACT}; co-registration alone is not the
 same as scalar-reserve unbiasedness.
 
@@ -1058,7 +1059,7 @@ family, and the composite law reads
 \lambda_{\mathrm{collar}}\,
 (\mathcal L^{\mathrm{coh}}\mathcal N_{\nu})(q)
 =
-e^{-P/24}\,S_{\mathrm{coh}}^{\mathrm{can}}(q)\,A(q)
+\left(1-\frac{P}{24}\right)S_{\mathrm{coh}}^{\mathrm{can}}(q)\,A(q)
 \]
 on the uniform product-thickening branch. This bridge removes the bookkeeping
 ambiguity in the phrase ``the same counter.'' It does not close the physical
@@ -1066,23 +1067,35 @@ residues: nature must instantiate the one-channel structure, and the numerical
 record-\(\Delta S\) to gravity-\(\Delta S\) calibration remains a separate G9
 obligation.
 
-\paragraph{Conditional bridge 5, local Poisson reserve survival.}
-If the reserve occupancy in a co-registered local scalar slot at transverse
-collar coordinate \(y\) is Poisson with mean \(\epsilon_{\Zsix}(y)\), then the
-local scalar survival factor is
+\paragraph{Conditional bridge 5, presence reading of local reserve survival.}
+\(Z_{6,r,C}\) is a sum of sector projections, so the conditional reserve
+profile \(\epsilon_{\Zsix}(y)\), a ratio of quotient traces of projections, is
+the conditional probability of the reserve-presence event in a co-registered
+local scalar slot at transverse collar coordinate \(y\).  A scalar opportunity
+survives exactly when the presence event does not occur, so the local scalar
+survival factor is
 \begin{equation}
   \lambda_{\mathrm{slot}}(y)
   =
   \Pr[N_{\Zsix}(y)=0]
   =
-  \exp[-\epsilon_{\Zsix}(y)].
+  1-\epsilon_{\Zsix}(y)
   \label{eq:z6localsurvival}
 \end{equation}
+for every occupancy law whose presence event has probability
+\(\epsilon_{\Zsix}(y)\).
 
 \paragraph{Proof.}
-A Poisson variable with mean \(\epsilon_{\Zsix}\) has zero-count probability
-\(\exp(-\epsilon_{\Zsix})\).  A scalar opportunity survives only when its
-co-registered reserve count is zero.  This proves the local survival factor.
+The presence event is the projection \(Z_{6,r,C}\), and its conditional
+probability on the scalar-active slot is \(\epsilon_{\Zsix}(y)\).  Survival is
+the complement event.  No occupancy variable with that presence probability
+attains the Poisson zero-count factor \(\exp(-\epsilon_{\Zsix})\):
+\(1-\epsilon<e^{-\epsilon}\) strictly for \(\epsilon>0\).  A mean-count
+reading, in which \(\epsilon_{\Zsix}(y)\) is consumed as the expectation of an
+\(\mathbb N\)-valued occupancy, severs the link to the projection trace and
+consumes a scalar carrier beyond \(Z_{6,r,C}\), which the imported
+no-separate-scalar-carrier theorem excludes; its assumption-minimal
+consequence is the Markov band recorded in the conditional argument below.
 \(\square\)
 
 \subsection{Finite Thickness}
@@ -1095,7 +1108,8 @@ activation weight:
 The finite-thickness branch gives
 \begin{equation}
   \lambdac
-   =\int \dd y\, w(y)\exp[-\epsilon_{\Zsix}(y)].
+   =\int \dd y\, w(y)\,[1-\epsilon_{\Zsix}(y)]
+   =1-\int \dd y\, w(y)\,\epsilon_{\Zsix}(y).
   \label{eq:thick}
 \end{equation}
 
@@ -1118,7 +1132,7 @@ The finite-thickness branch uses the scalar-weighted reserve profile
 \frac{\tau(\Pi^{\rm scal}Z_6p_y)}
 {\tau(\Pi^{\rm scal}p_y)}.
 \]
-Thus the mean condition entering Jensen is
+Thus the mean condition entering the survival average is
 \[
 \int \dd y\,w(y)\epsilon_{\Zsix}(y)=P/24.
 \]
@@ -1129,16 +1143,22 @@ If
 \begin{equation}
   \int \dd y\,w(y)\epsilon_{\Zsix}(y)=P/24,
 \end{equation}
-then Jensen's inequality gives
+then linearity of the integral gives the exact value
 \begin{equation}
-  \lambdac \ge \exp(-P/24).
+  \lambdac = 1-\frac{P}{24}.
 \end{equation}
-Equality holds when \(\epsilon_{\Zsix}(y)\) is constant on the weighted
-collar.
+The receipt alone fixes the coefficient; no constancy clause on
+\(\epsilon_{\Zsix}(y)\) is consumed.  Under the mean-count reading, with
+\(\epsilon_{\Zsix}(y)\) the expectation of an \(\mathbb N\)-valued occupancy
+and survival the zero-count event, Markov's inequality gives the
+assumption-minimal band
+\begin{equation}
+  1-\frac{P}{24}\le\lambdac\le1.
+\end{equation}
 
 \paragraph{Conditional bridge 6, exact finite-thickness coefficient.}
-The exact finite-thickness coefficient requires the uniform product-thickening
-branch of the screen-microphysics paper:
+The imported exact-coefficient theorem is stated on the uniform
+product-thickening branch of the screen-microphysics paper:
 \[
 \mathcal A^{\rm thick}_{r,C}
 \cong
@@ -1168,41 +1188,45 @@ for every scalar-active transverse slice \(y\). Product trace alone is not
 enough. The scalar-active sampler must be reserve-unbiased.
 
 \paragraph{Conditional argument.}
-With local Poisson reserve survival and the uniform product-thickening branch,
-the imported theorem labeled
+Under the presence reading of conditional bridge 5, on the uniform
+product-thickening branch, the imported theorem labeled
 \texttt{thm:exact-uniform-product-thickening-coefficient} gives
 \begin{equation}
   \lambdac
   =
-  \exp(-P/24)
+  1-\frac{P}{24}
   =
-  0.9343006394893864\ldots .
+  0.9320429912748350\ldots .
 \end{equation}
-Without the uniform branch, the theorem-grade coefficient is
+The scalar-weighted receipt already fixes this value by linearity; the uniform
+branch adds slice-wise constancy of the profile, which the exact value does
+not consume.  Without the scalar-weighted receipt, the theorem-grade
+coefficient is
 \[
 \lambdac
 =
-\int \dd y\,w(y)e^{-\epsilon_{\Zsix}(y)}.
+1-\int \dd y\,w(y)\,\epsilon_{\Zsix}(y).
 \]
-If the scalar-weighted protected reserve mean is \(P/24\), Jensen gives only
+Under the mean-count reading, with the scalar-weighted protected reserve mean
+\(P/24\), Markov gives only
 \[
-e^{-P/24}\le\lambdac\le1.
+1-\frac{P}{24}\le\lambdac\le1.
 \]
 
-On that exact branch,
+Under the presence reading with the receipt,
 \begin{equation}
-  \lambdac=\exp(-P/24)=0.934300639489386\ldots
+  \lambdac=1-\frac{P}{24}=0.932042991274835\ldots
   \label{eq:z6lambda}
 \end{equation}
 and by \eqref{eq:aeff}
 \begin{equation}
-  \aeff=1.179018696\times10^{-10}\,\mathrm{m\,s^{-2}}.
+  \aeff=1.184737388\times10^{-10}\,\mathrm{m\,s^{-2}}.
 \end{equation}
 
 \paragraph{Failure consequence.}
-Without finite-thickness uniformity, the coefficient is the integral
-\eqref{eq:thick}.  Exact \(\exp(-P/24)\) is not available as a theorem-grade
-number.
+Without the scalar-weighted mean receipt, the coefficient is the integral
+\eqref{eq:thick}.  The exact value \(1-P/24\) is not available as a
+theorem-grade number.
 
 \section{Lensing And Relativistic Stress}
 
@@ -2121,7 +2145,7 @@ The publication-grade SPARC test must solve the conservative disk equation
 on an axisymmetric baryonic disk model.  The hierarchy must marginalize or
 profile distance, inclination, disk and bulge mass-to-light ratios, gas scale,
 intrinsic scatter, velocity covariance, quality cuts, and grid convergence.
-The unit branch and the \(\Zsix\)/Poisson branch are fixed before this test;
+The unit branch and the \(\Zsix\) presence branch are fixed before this test;
 SPARC is used as a comparison, not as the selector for \(\lambdac\).  The
 equation is scoped to old settled galaxies: its universal extension is
 excluded by Cassini at \(19.22\sigma\), and the contract inherits that scope
@@ -2183,11 +2207,11 @@ The common empirical reference is
 \begin{equation}
   a_0^{\mathrm{emp}}=1.2\times10^{-10}\,\mathrm{m\,s^{-2}}.
 \end{equation}
-The \(\Zsix\)/Poisson branch gives
+The \(\Zsix\) presence branch gives
 \begin{equation}
-  \lambdac=0.934300639,
+  \lambdac=0.932042991,
   \qquad
-  \aeff=1.179018696\times10^{-10}\,\mathrm{m\,s^{-2}}.
+  \aeff=1.184737388\times10^{-10}\,\mathrm{m\,s^{-2}}.
 \end{equation}
 
 \begin{center}
@@ -2201,19 +2225,26 @@ Quantity & Value & Comparison \\
 \(\aoph\) &
 \(1.029186271\times10^{-10}\) &
 \(-14.234\%\) versus empirical reference \\
-\(\aeff\), \(\Zsix\)/Poisson &
-\(1.179018696\times10^{-10}\) &
-\(+5.314\%\) versus best same-function RAR \\
-\(\aeff\), \(\Zsix\)/Poisson &
-\(1.179018696\times10^{-10}\) &
-\(-1.748\%\) versus empirical reference \\
+\(\aeff\), \(\Zsix\) presence &
+\(1.184737388\times10^{-10}\) &
+\(+5.825\%\) versus best same-function RAR \\
+\(\aeff\), \(\Zsix\) presence &
+\(1.184737388\times10^{-10}\) &
+\(-1.272\%\) versus empirical reference \\
 \bottomrule
 \end{tabular}
 \end{center}
 These rows are consistency displays: \(\aoph\) carries measured \(H_0\) and
 \(\Lambda\), and an exact hit on the common empirical \(a_0\) would require
-about \(13\%\) more protected inactive reserve than the \(P/24\) behind
-\(\lambdac=e^{-P/24}\) (see the Correction Audit).
+about \(9\%\) more protected inactive reserve than the \(P/24\) behind
+\(\lambdac=1-P/24\) (see the Correction Audit).
+
+The stored SPARC diagnostics below are evaluated at the superseded
+mean-count/Poisson scale \(\aeff=1.179018696\times10^{-10}\,\mathrm{m\,s^{-2}}\)
+(\(\lambdac=e^{-P/24}\)); their rows keep that label.  Refreshed diagnostic
+rows at the presence scale \(1.184737388\times10^{-10}\,\mathrm{m\,s^{-2}}\)
+are work in progress.  The two scales differ by \(0.485\%\), inside the
+mostly-normalization sensitivity of these displays.
 
 \subsection{SPARC RAR}
 
@@ -2239,7 +2270,7 @@ Best same-function & \(1.119530397\times10^{-10}\) & \(0.132947\) & \(0.017428\)
 \end{center}
 All rows share the SPARC-fitted functional form and are non-held-out; the
 comparison mostly tests normalization.  An exact hit on the common empirical
-\(a_0\) would require about \(13\%\) more protected reserve than \(P/24\).
+\(a_0\) would require about \(9\%\) more protected reserve than \(P/24\).
 
 \subsection{Rotation Diagnostics}
 
@@ -2282,7 +2313,7 @@ branch remains the better acceleration-scale and fixed-M/L RAR match.  The
 fixed-M/L improvement alone is weak evidence for the \(\Zsix\) bridge theorem.
 This table shares the non-held-out SPARC provenance and the
 mostly-normalization sensitivity caveat of the RAR rows above, and the
-\(13\%\) reserve mismatch against the common empirical \(a_0\) applies to
+\(9\%\) reserve mismatch against the common empirical \(a_0\) applies to
 its acceleration scales unchanged.
 
 \subsection{Audited Fixed-Branch RAR And BTFR Results}
@@ -2295,7 +2326,7 @@ effective scale that minimizes the same table's diagonal chi-square proxy has
 RMS \(0.1329467\) dex.  The near equality is an encouraging retrospective
 check of the fixed formula and scale.  It is not a blind prediction:
 \(\aoph\) is a capacity/cosmology benchmark, exact
-\(\lambdac=e^{-P/24}\) is conditional, and the aggregate rows share distance,
+\(\lambdac=1-P/24\) is conditional, and the aggregate rows share distance,
 inclination, and stellar-population systematics.  A full nuisance-aware SPARC
 analysis independently reports
 \[
@@ -2318,8 +2349,8 @@ deep-limit slope \(4\) is \(1.80\sigma\) high and lies within the published
 systematic range \(3.5\)--\(4.0\).  At the declared
 \(100\,\mathrm{km\,s^{-1}}\) pivot, however, the fixed-slope fit gives
 \(\log_{10}(M_b/M_\odot)=9.670792\pm0.020827\), whereas the conditional
-\(\Zsix\) normalization predicts \(9.805555\).  The data-minus-model offset is
-therefore \(-0.134763\) dex, or \(-6.47\sigma\) using only the fit's statistical
+\(\Zsix\) presence normalization predicts \(9.803454\).  The data-minus-model offset is
+therefore \(-0.132662\) dex, or \(-6.37\sigma\) using only the fit's statistical
 normalization error.  That pull does not yet marginalize a global stellar
 mass-to-light shift, distances, inclinations, sample selection, or whether
 every reported \(V_f\) has reached the asymptotic regime.  The 123-galaxy BTFR
@@ -2342,6 +2373,9 @@ published spherical benchmark and gives
 Q_2^{\Zsix}=3.62018\times10^{-26}\,\mathrm{s^{-2}},\qquad
 Q_2^{\lambda=1}=3.40219\times10^{-26}\,\mathrm{s^{-2}}.
 \]
+The stored \(\Zsix\) integral uses the superseded Poisson scale; the presence
+scale lowers \(\lambdac\) by \(0.24\%\), which shifts the \(\Zsix\) pull by a
+few hundredths of a sigma and leaves the conclusion unchanged.
 Against the Cassini summary
 \(Q_2=(1.6\pm1.8)\times10^{-27}\,\mathrm{s^{-2}}\), these are fixed-input
 residuals of \(19.22\sigma\) and \(18.01\sigma\), respectively
@@ -2377,7 +2411,7 @@ Quantity & Stored legacy diagnostic & Measurement comparison \\
 \(\rho_A/\rho_b\) & \(5.363470441\) & flat-benchmark residual ratio \\
 \(\gamma_{\mathrm{repair\ step}}\) & \(0.050717471\) & finite repair matrix step-gap diagnostic \\
 \(\aoph\) & \(1.029186271\times10^{-10}\) & \(8.070\%\) low versus best RAR \\
-\(\aeff\), \(\Zsix\)/Poisson & \(1.179018696\times10^{-10}\) & \(1.748\%\) low versus common empirical \(a_0\) \\
+\(\aeff\), \(\Zsix\) presence & \(1.184737388\times10^{-10}\) & \(1.272\%\) low versus common empirical \(a_0\) \\
 SPARC systematic \(\chi^2/\mathrm{pt}\), unit & \(1.016589\) & best scaffold row \\
 SPARC systematic \(\chi^2/\mathrm{pt}\), \(\Zsix\) & \(1.021093\) & close scaffold row \\
 CAMB \(\Omega_m\) & \(0.315905206\) & \(+0.129\sigma\) versus Planck \\
@@ -2392,7 +2426,7 @@ consumed Planck-like measured inputs before CAMB ran.  The weak-lensing
 \(S_8\) row is the discriminating out-of-loop row and currently disfavors the
 benchmark at \(+2.433\sigma\).  The \(\aoph\) and \(\aeff\) rows carry
 measured \(H_0\) and \(\Lambda\) inside \(\aoph\), the non-held-out SPARC
-provenance of \(\nu_{\OPH}\), and the \(13\%\) reserve mismatch against the
+provenance of \(\nu_{\OPH}\), and the \(9\%\) reserve mismatch against the
 common empirical \(a_0\); the SPARC \(\chi^2\) rows mostly test
 normalization.
 
@@ -2510,13 +2544,13 @@ fixed, different targets imply different \(\lambdac\) values:
 \begin{center}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
-Target & Required \(\lambdac\) & Reserve \(-\ln\lambdac\) & Ratio to \(P/24\) \\
+Target & Required \(\lambdac\) & Reserve \(1-\lambdac\) & Ratio to \(P/24\) \\
 \midrule
-Best same-function RAR & \(0.958802256\) & \(0.042070424\) & \(0.619074\) \\
-Binned RAR & \(0.936737944\) & \(0.065351711\) & \(0.961663\) \\
-Common empirical \(a_0\) & \(0.926096769\) & \(0.076776547\) & \(1.129781\) \\
-Fixed-M/L rotation & \(0.926654674\) & \(0.076174302\) & \(1.120919\) \\
-OPH \(\Zsix\)/Poisson & \(0.934300639\) & \(0.067957009\) & \(1.000000\) \\
+Best same-function RAR & \(0.958802256\) & \(0.041197744\) & \(0.606232\) \\
+Binned RAR & \(0.936737944\) & \(0.063262056\) & \(0.930913\) \\
+Common empirical \(a_0\) & \(0.926096769\) & \(0.073903231\) & \(1.087500\) \\
+Fixed-M/L rotation & \(0.926654674\) & \(0.073345326\) & \(1.079290\) \\
+OPH \(\Zsix\) presence & \(0.932042991\) & \(0.067957009\) & \(1.000000\) \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -2528,11 +2562,13 @@ appears.  With fixed \(\aoph\), direct RAR objectives give exponents near
 objective-dependent, and flat deep-IR rotation requires \(0.5\).  Moving the
 exponent would buy little and would damage the BTFR theorem.
 
-Finite-thickness nonuniformity can raise \(\lambdac\) above \(\exp(-P/24)\),
-which moves the coefficient toward the binned RAR value.  It cannot lower
-\(\lambdac\) toward the common empirical or fixed-M/L values while the mean
-reserve remains \(P/24\) and Poisson counting is retained.  An exact hit to
-the common empirical acceleration would require about \(13\%\) more protected
+Under the presence reading with the scalar-weighted mean receipt, the
+coefficient is pinned at \(1-P/24\) by linearity; profile nonuniformity does
+not move it.  Under the mean-count reading, the Markov band
+\(1-P/24\le\lambdac\le1\) admits the binned RAR and best same-function values
+and excludes the common empirical and fixed-M/L values, which sit below the
+band.  An exact hit to
+the common empirical acceleration would require about \(9\%\) more protected
 inactive reserve than \(P/24\), or a different microscopic selector.  That
 extra reserve needs an OPH theorem before use.
 
@@ -2550,8 +2586,8 @@ and Poisson activation law under independent-increment repair counting;
 universal extension excluded by Cassini at \(19.22\sigma\). &
 Conditional static theorem, old-settled-galaxy scope only. \\
 Acceleration scale & Capacity scale gives \(\aoph\) from measured
-\(H_0\)/\(\Lambda\) (SL-4/SL-5 inputs); \(\Zsix\)/Poisson reserve gives
-\(\aeff\) close to the empirical scale, \(13\%\) short in reserve of an exact
+\(H_0\)/\(\Lambda\) (SL-4/SL-5 inputs); \(\Zsix\) presence reserve gives
+\(\aeff\) close to the empirical scale, \(9\%\) short in reserve of an exact
 hit. & Conditional coefficient theorem; in-loop consistency display. \\
 Galaxy lensing & No-slip branch gives \(\Phi=\Psi\) if the information-defect
 stress is dust on settled galaxies. & Conditional stress theorem. \\
@@ -2573,7 +2609,7 @@ the RAR/BTFR functional form from collar/cut repair statistics and yields an
 acceleration scale close to SPARC as an in-loop consistency display, since
 \(\aoph\) carries measured \(H_0\) and \(\Lambda\) as SL-4/SL-5 inputs.  The
 unit branch is low in normalization.
-The \(\Zsix\)/Poisson branch lands within \(1.748\%\) of the common empirical
+The \(\Zsix\) presence branch lands within \(1.272\%\) of the common empirical
 acceleration reference.  Profiled stellar, distance, inclination, and gas
 nuisances mildly favor the unit branch.  The Jacobi clock gives a no-fit
 cluster-offset scale under its tidal-mismatch premise.  Flat capacity state
@@ -2616,9 +2652,9 @@ record panel and the collar-slice reserve panel, so the source generator and
 collar survival factor are composed on the same indexed family. &
 Bookkeeping bridge; nature-instantiation and G9 numerical calibration remain
 open physical obligations. \\
-Finite thickness & Uniform product-thickening plus slice-wise
-scalar-reserve unbiasedness licenses the exact coefficient; otherwise the
-profile integral and, when scalar-weighted mean passes, Jensen band apply. &
+Finite thickness & The presence reading plus the scalar-weighted reserve mean
+licenses the exact coefficient by linearity; otherwise the
+profile integral and, under the mean-count reading, the Markov band apply. &
 Conditional imported theorem. \\
 No-slip stress & Positive kinetic collar measure; settled monokinetic branch
 has dust stress and vanishing information-sector anisotropic stress. &
@@ -2735,8 +2771,8 @@ co-registration theorem.
 \subsection{Uniform Finite-Thickness Reserve}
 
 \paragraph{Correct exact-value premise.}
-The exact finite-thickness coefficient requires the uniform product-thickening
-branch of the microphysics paper:
+The imported exact-coefficient theorem is stated on the uniform
+product-thickening branch of the microphysics paper:
 \[
 \mathcal A^{\rm thick}_{r,C}
 \cong
@@ -2766,23 +2802,27 @@ for every scalar-active transverse slice \(y\). Product trace alone is not
 enough. The scalar-active sampler must be reserve-unbiased.
 
 \paragraph{Imported theorem.}
-With local Poisson reserve survival and the uniform product-thickening branch,
-the microphysics theorem labeled
+Under the presence reading of the reserve profile, on the uniform
+product-thickening branch, the microphysics theorem labeled
 \texttt{thm:exact-uniform-product-thickening-coefficient} gives
 \[
-\lambdac=e^{-P/24}
+\lambdac=1-\frac{P}{24}
 =
-0.9343006394893864\ldots .
+0.9320429912748350\ldots .
 \]
-Without the uniform branch, the theorem-grade coefficient is
+The scalar-weighted receipt already fixes this value by linearity; the uniform
+branch adds slice-wise constancy of the profile, which the exact value does
+not consume.  Without the scalar-weighted receipt, the theorem-grade
+coefficient is
 \[
 \lambdac
 =
-\int \dd y\,w(y)e^{-\epsilon_{\Zsix}(y)}.
+1-\int \dd y\,w(y)\,\epsilon_{\Zsix}(y).
 \]
-If the scalar-weighted protected reserve mean is \(P/24\), Jensen gives only
+Under the mean-count reading, with the scalar-weighted protected reserve mean
+\(P/24\), Markov gives only
 \[
-e^{-P/24}\le\lambdac\le1.
+1-\frac{P}{24}\le\lambdac\le1.
 \]
 
 \subsection{No-Slip Settled Stress}

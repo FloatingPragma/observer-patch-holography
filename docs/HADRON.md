@@ -96,7 +96,7 @@ Delta_had(P)
   = mZ(P)^2/(3 pi) int ds rho_Q(s;P) / (s (s + mZ(P)^2)).
 ```
 
-The empirical spectral payload is not a source-only OPH theorem. It is the
+The empirical spectral payload is not a source-only OPH theorem but the
 best data-driven completion of the low-energy hadronic transport term.
 
 ## Current Fine-Structure Values

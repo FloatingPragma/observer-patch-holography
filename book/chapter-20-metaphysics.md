@@ -241,9 +241,9 @@ That lets classical philosophical language be translated into technical pressure
 The "view from nowhere" becomes the demand for a global description that no
 finite observer actually occupies. A "phenomenal point of view" becomes the
 inside of a bounded, record-making process. A "law of nature" becomes a
-stable regularity that survives comparison across patches. A "meaning" is no
-longer a label attached from outside the universe. It is a pattern stabilized
-inside the universe by observers who remember, interpret, and coordinate.
+stable regularity that survives comparison across patches. A "meaning" becomes a
+pattern stabilized inside the universe by observers who remember, interpret,
+and coordinate, not a label attached from outside the universe.
 
 This is why the chapter uses sheaves as a working analogy. A
 sheaf begins with local data. If the local descriptions agree on overlaps, a
@@ -258,7 +258,7 @@ The strange-loop language also needs discipline. Douglas Hofstadter used
 strange loops to describe systems that climb levels and return to themselves.
 Godel's theorem is one mathematical inspiration, Escher's drawings are a
 visual one, and self-reference in computation is another. OPH's loop is not a
-claim that the future causes the past in ordinary time. It is a structural
+claim that the future causes the past in ordinary time but a structural
 claim: a world can produce observers who model the world, and those models
 can become part of the same world they describe. From inside subjective time
 that feels like a history. From the full structural view it is a
