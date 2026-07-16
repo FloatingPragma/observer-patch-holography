@@ -15,7 +15,7 @@ Immutable records:
 
 ## Historical V1 Disposition
 
-Historical V1 cannot be promoted. Six independent defects force that
+Historical V1 cannot be promoted. Seven independent defects force that
 disposition:
 
 1. `run_bracket.py` contained target constants and a comparison tolerance.
@@ -31,6 +31,9 @@ disposition:
    `alpha_U(P)` and therefore requires a different source total.
 6. The purported hadronic target silently treated the open electroweak
    remainder as zero, conflating `S_QEW_effective` with `S_hadronic`.
+7. The present source-method choices were made after target access. Removing
+   target numerals from the emitter prevents direct leakage but cannot make
+   that method selection prospectively blind.
 
 Numerical containment does not cure source contamination, coordinate
 conflation, or an evaluation-point mismatch. The old artifact remains an
@@ -39,8 +42,8 @@ exploratory engineering record.
 ## Corrective Machine Contract
 
 `falsification/frozen_targets/hadronic_closure_target_2026-07-16_v3.json`
-is the corrective contract for future evaluation. It is not a retroactive
-target and is explicitly marked
+is an inactive erratum scaffold that specifies the corrected coordinate and
+map shape. It is not a retroactive or activatable target and is explicitly marked
 `corrective_contract_not_yet_externally_timestamped_not_scorable`.
 
 It corrects more than the total-versus-residual type error:
@@ -59,9 +62,14 @@ It corrects more than the total-versus-residual type error:
   bound.
 - A sampled grid's extrema are not an interval certificate.
 
-V3 permits no promotion or falsification until a successor is externally
-timestamped and activated before any eligible payload work begins. Historical
-V1 predates the correction and remains permanently non-promotable.
+V3 permits no promotion or falsification and must never be populated or
+activated in place. An eligible future run needs a new immutable successor
+whose complete method and dependency cone were frozen before genuinely
+withheld data existed, or a documented clean-room team with no target access.
+The successor must also preregister confidence, combined uncertainty, maximum
+eligible prediction width, and three-way `COMPATIBLE`/`FAIL`/`INCONCLUSIVE`
+rules. Historical V1 predates the correction and remains permanently
+non-promotable.
 
 ## Repaired Process Boundary
 
@@ -100,7 +108,12 @@ python3 score_bracket.py \
 ```
 
 The expected current result is `NOT_EVALUABLE`; there is no successful scalar
-score. Future eligibility requires a newly frozen target version, an external
-timestamp preceding payload work, a clean target-free dependency cone, the
-full receipt set named by v3, a certified P-domain source object, a closed
-`Delta_EW` gate, and separate completed-map interval solves.
+score. Future eligibility requires a newly frozen target version, blind or
+clean-room method-selection chronology, an independently verified external
+anchor preceding payload work, a clean target-free dependency cone, the full
+receipt set named by v3, a certified P-domain source object, a closed
+`Delta_EW` gate, a preregistered three-way decision policy, and separate
+completed-map interval solves. The current scorer intentionally lacks that
+solver; its receipt objects are schema-checked bindings, not proof that an
+external signature, timestamp, or interval certificate was independently
+verified.

@@ -65,9 +65,12 @@ Part A gaps:
   execution cannot discharge this gap: V1 embedded target constants, its directing
   session knew the target, its emitter and target used different P values, its pass
   coordinate confused the residual with the total payload, and its sampled min/max
-  envelope was not an interval certificate. Discharged by: activate a corrected,
-  externally timestamped target-blind contract; emit the source function over the same
-  P coordinate; certify quadrature and interval bounds; then score once.
+  envelope was not an interval certificate. Corrective v3 is an inactive
+  post-target-access erratum scaffold, not an activatable contract. Discharged
+  by: issue a detached successor whose complete method is frozen before
+  genuinely withheld data or built by an audited clean-room operator; emit the
+  source function over the same P coordinate; certify quadrature, theory error,
+  and interval bounds; freeze a three-way decision policy; then score once.
 - **GAP-A2 (CP-1).** The balance condition Π_EW = β_EW·P. Counting-theorem shape: one
   global repair tick per electroweak channel per pixel-area unit. Discharged by: a
   geometric counting theorem from declared screen structure. This is the highest-value

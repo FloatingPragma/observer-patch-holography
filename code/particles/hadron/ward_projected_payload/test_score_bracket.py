@@ -182,6 +182,83 @@ def test_target_coordinate_tamper_fails_before_activation(
     assert excinfo.value.code == "target_coordinate_mismatch"
 
 
+@pytest.mark.parametrize("mutation", ["A", "joint_totals", "joint_s", "formulas"])
+def test_corrective_target_rejects_algebra_preserving_looking_tamper(
+    target: dict, mutation: str
+) -> None:
+    invalid = copy.deepcopy(target)
+    if mutation == "A":
+        invalid["measurement_coordinate"]["A_target_inverse_alpha"] = "999"
+    elif mutation == "joint_totals":
+        with localcontext() as context:
+            context.prec = 100
+            for map_name in ("CL-1", "CL-2"):
+                point = invalid["map_targets"][map_name]["point_diagnostics_only"]
+                point["Delta_source_total_target"] = str(
+                    Decimal(point["Delta_source_total_target"]) + 1
+                )
+                point["Delta_source_residual_vs_implemented"] = str(
+                    Decimal(point["Delta_source_residual_vs_implemented"]) + 1
+                )
+    elif mutation == "joint_s":
+        with localcontext() as context:
+            context.prec = 100
+            for map_name in ("CL-1", "CL-2"):
+                point = invalid["map_targets"][map_name]["point_diagnostics_only"]
+                point["S_QEW_effective_target"] = str(
+                    Decimal(point["S_QEW_effective_target"]) + Decimal("0.1")
+                )
+    else:
+        invalid["map_targets"]["CL-1"]["map_formula"] = "garbage"
+        invalid["map_targets"]["CL-2"]["map_formula"] = "garbage alpha_U"
+
+    with pytest.raises(score_bracket.ScoringError) as excinfo:
+        score_bracket._validate_corrective_target(invalid)
+    assert excinfo.value.code == "target_coordinate_mismatch"
+
+
+def test_current_v3_cannot_be_activated_in_place(target: dict) -> None:
+    invalid = copy.deepcopy(target)
+    invalid["registration_status"] = "active"
+    invalid["frozen_utc"] = "2026-07-16T00:00:00Z"
+    invalid["promotion_or_falsification_allowed"] = True
+    with pytest.raises(score_bracket.ScoringError) as excinfo:
+        score_bracket._require_activated_target(invalid)
+    assert excinfo.value.code == "target_not_activated"
+
+
+def test_certified_interval_width_must_be_exact_decimal() -> None:
+    with pytest.raises(score_bracket.ScoringError) as excinfo:
+        score_bracket._validate_interval(
+            {
+                "lo": "1.0000000000000001",
+                "hi": "1.0000000000000002",
+                "width": "0",
+            },
+            "test.interval",
+        )
+    assert excinfo.value.code == "coordinate_schema_mismatch"
+
+
+def test_all_zero_receipt_digest_is_rejected() -> None:
+    with pytest.raises(score_bracket.ScoringError):
+        score_bracket._verified_receipt(
+            {"status": "PASS", "verified": True, "sha256": "0" * 64},
+            "test.receipt",
+        )
+
+
+def test_false_same_subtraction_attestation_is_rejected(
+    source_artifact: dict,
+) -> None:
+    invalid = copy.deepcopy(source_artifact)
+    invalid["scheme"]["same_subtraction_as_a0"] = False
+    _rehash(invalid)
+    with pytest.raises(score_bracket.ScoringError) as excinfo:
+        score_bracket._validate_artifact(invalid, _source_contract(invalid))
+    assert excinfo.value.code == "artifact_schema_mismatch"
+
+
 def test_scorer_rejects_p_domain_mismatch(source_artifact: dict) -> None:
     contract = _source_contract(source_artifact)
     contract["p_domain"]["hi"] = "1.7"

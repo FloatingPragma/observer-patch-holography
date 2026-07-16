@@ -200,10 +200,12 @@ the following comparison carries no blind weight. Canon scales seen in
    and `hadronic_closure_target_2026-07-16_v3.json`. The scorer fails closed on
    target activation, hash, schema, coordinate-kind, P-domain, provenance,
    certification, or `Delta_EW` gate failures.
-6. Expect `NOT_EVALUABLE`. V3 permits no real score until a successor is
-   externally activated before payload work and an eligible target-blind
-   P-domain object exists. CL-1 and CL-2 must then be solved and certified
-   independently; no scalar containment shortcut is valid.
+6. Expect `NOT_EVALUABLE`. V3 is permanently inactive. A detached successor
+   may permit a real score only after blind or audited clean-room method
+   selection, external anchoring before payload work, a preregistered
+   three-way decision policy, and an eligible target-blind P-domain object.
+   CL-1 and CL-2 must then be solved and certified independently; no scalar
+   containment shortcut is valid.
 
 ## 7. Files
 

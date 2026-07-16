@@ -1,5 +1,12 @@
 # Artifact Status Ledger
 
+Status correction (2026-07-16): "exact" and "closed" below describe internal
+identities on the selected bridge packet. They do not close the physical cosmic
+capacity. That promotion remains conditional on a constructed readback map F,
+CP-1 to CP-3, and joint-posterior propagation for the Lambda comparison. The
+displayed 6.6 percent central-value mismatch is therefore not a contradiction or
+a significance test.
+
 | Artifact | Status | Meaning |
 |---|---|---|
 | `R_P_public_pixel_certificate.json` | conditional public endpoint | Public endpoint branch recorded; source-only endpoint transport required for a no-measured-Thomson claim. |

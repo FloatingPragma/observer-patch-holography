@@ -94,10 +94,14 @@ Carrier: ../code/P_derivation; fine-structure paper. Status: open. The source
 chain contracts to the certified unique fixed point α⁻¹ = 136.994835177413…
 and the gauge-width chain to 137.035660136946577…. These are incomplete
 declared-map outputs because the Ward-projected hadronic transport is absent
-(CL-1/CL-2). The externally timestamped target in
-`../falsification/frozen_targets/` specifies the future target-blind test. The
-2026-07-16 V1 grid does not execute it: the source embeds canon target values,
-the directing session had target access, and the grid envelope is exploratory.
+(CL-1/CL-2). The externally timestamped historical v2 target in
+`../falsification/frozen_targets/` is algebraically invalid and specifies no
+verdict. Corrective v3 is a permanently inactive post-target-access erratum
+scaffold. A valid future test needs a detached successor whose complete method
+is frozen before withheld data or produced by an audited clean-room operator.
+The 2026-07-16 V1 grid cannot execute such a test: its source embeds canon
+target values, the directing session had target access, and the grid envelope
+is exploratory.
 
 **C10. Unit self-consistency (SL-5).** One clock anchor (cesium) connects
 substrate units to laboratory units; every SI display is bookkeeping downstream
@@ -165,7 +169,7 @@ The ledger rows are not independent. They reduce to four generating objects:
 
 | Generator | Object to construct or compute | Ledger rows it closes or moves |
 |---|---|---|
-| G1 | Complete the Ward-projected hadronic transport and run a target-blind payload against the frozen target. The 2026-07-16 V1 grid is exploratory only: its source embeds canon target values, its directing session had target access, and its sampled min/max envelope is not an interval certificate. It contains `S_required = 0.8954` but is 1.17×10⁸ times wider than the point-payload tolerance. The V1 report also conflates the closure-residual name `Delta_source_residual_inverse_alpha_units = 0.0414658…` with the payload's total `Delta_source`; the correct total endpoint target is `Delta_required_P = 8.7280337…`. No promotion follows (../code/particles/hadron/ward_projected_payload/PAYLOAD_STATUS.md) | CL-1, CL-2 |
+| G1 | Complete the Ward-projected hadronic transport and run a target-blind payload under a detached future successor whose full method-selection chronology is blind or clean-room audited. The 2026-07-16 V1 grid is exploratory only: its source embeds canon target values, its directing session had target access, and its sampled min/max envelope is not an interval certificate. Its `S_hadronic` range contains the zero-EW CL-1 point diagnostic 0.8954 but is 1.17×10⁸ times wider than v2's historical invalid tolerance; v3 registers no active threshold. The V1 report also conflates the closure-residual name `Delta_source_residual_inverse_alpha_units = 0.0414658…` with the payload's total `Delta_source`; the correct total endpoint target is `Delta_required_P = 8.7280337…`. No promotion follows (../code/particles/hadron/ward_projected_payload/PAYLOAD_STATUS.md) | CL-1, CL-2 |
 | G2 | The capacity readback map F and its contraction certificate. Status 2026-07-16: G2-GAP-1 is a conditional theorem (../code/capacity_readback/G2_GAP_1_COUPLING_THEOREM.md). Its fixed point equals the EW bridge capacity N = π·exp(6π/(P·α_U)) only modulo CP-1, CP-2, and CP-3. The certified conditional fixed point at P_fwd encloses 3.5321315434e122 with relative width 1.6e-25 (../code/capacity_readback/runtime/F_candidate_coupled_certificates.json). CL-7 remains open. After F and CP-1 to CP-3 close, CL-3 also requires propagation of the joint Planck posterior through the Λ readout (../code/capacity_readback/F_CONSTRUCTION_2026-07-14.md) | CL-3, CL-4, CL-7 |
 | G3 | Define the physical electroweak readout and complete its scheme map before comparing it with data. The emitted pair is a running/tree chart coordinate; the quoted references are stale PDG 2025 mass-dependent-width Breit-Wigner parameters, not pole masses, so CL-5 is not physically evaluable. The 96-entry one-loop sweep tests only the declared chart menu. The 2026-07-16 two-loop result applies SM two-loop increments to an MSSM one-loop baseline and excludes that hybrid prescription, not two-loop repair in general. The pole packet is a scale-dependent partial PRTS/Feynman-gauge prescription with open tadpole/FJ and vev schemes; its JKV cross-check audits a slope term rather than the complete finite packet. No raw W/Z pull from these packets is evidence | CL-5 |
 | G4 | Solver hygiene: matched printed pair at certified precision | CL-6, closed 2026-07-14 (converged precision-100 reruns; identity to 35+ digits; CI test) |

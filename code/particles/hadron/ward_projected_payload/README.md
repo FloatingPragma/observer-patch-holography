@@ -2,7 +2,7 @@
 
 The emitter is source-only and unscored. Target validation occurs in a
 separate process after the source artifact has been sealed. No real payload is
-currently scoreable: the corrective v3 target is not activated, the present
+currently scoreable: the corrective v3 target is permanently inactive, the present
 emission is a singleton sampled-grid diagnostic, and `Delta_EW` remains open.
 
 This directory implements the payload harness for the Ward-projected
@@ -21,8 +21,9 @@ massless MS-bar R-ratio corrections driven by the chain's own
 constituent-dressing branch, and the strict bracket over the declared
 IR-cutoff and truncation grid. The remainder is a nonperturbative
 Ward-projected spectral measure that no current method can supply at the
-required precision; `PAYLOAD_STATUS.md` Section 4 states that wall with
-numbers.
+historical v2 precision scale; `PAYLOAD_STATUS.md` Section 4 preserves that
+comparison as a diagnostic only. V3 registers no active precision or pass/fail
+threshold.
 
 ## Usage
 
@@ -59,11 +60,15 @@ python3 -m pytest test_payload_harness.py test_score_bracket.py -q
 - `score_bracket.py` is the only process that reads a target. It rejects an
   inactive target, unknown schemas, coordinate-kind errors, hash failures,
   P-domain mismatches, missing provenance, an open `Delta_EW` gate, and an
-  uncertified artifact. It implements no scalar containment shortcut.
+  uncertified artifact. It implements no scalar containment shortcut and no
+  completed-map solver. Its receipt checks are schema and binding guards, not
+  independent signature, timestamp, or interval-proof verification.
 - Corrective target
   `falsification/frozen_targets/hadronic_closure_target_2026-07-16_v3.json`
-  separates CL-1 and CL-2 and is deliberately marked not scorable pending a
-  new external timestamp and activation record.
+  separates CL-1 and CL-2 but is a permanently inactive, post-target-access
+  erratum scaffold. It cannot be made blind by timestamping it later. An
+  eligible experiment needs a detached successor whose complete method was
+  frozen before genuinely withheld data, or an audited clean-room producer.
 - `promotion_allowed = false` on every source-bracket artifact. The corpus no-go
   (Theorem 6, `THOMSON_TRANSPORT_THEOREMS.md`) applies: this bracket does
   not determine the spectral moment and cannot be promoted to an endpoint

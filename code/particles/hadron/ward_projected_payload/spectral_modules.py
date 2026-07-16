@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """First-principles spectral-measure modules for the payload harness.
 
-LABEL (mandatory): development bracket, non-blind environment; the protocol
-pass requires an isolated re-run.
+LABEL (mandatory): source-only development diagnostic. The current method was
+selected after target access, so isolation or a later timestamp cannot make it
+blind and no protocol pass is available. A future eligible experiment needs a
+detached, pre-data method freeze or an audited clean-room producer.
 
 All modules are computable on this machine from the Stage-5 internal chain
 plus standard perturbative QCD structure. None of them is the missing
@@ -44,7 +46,6 @@ from payload_harness import (
     QUARK_ORDER,
     EvaluationPoint,
     beta_of_y,
-    parton_moment,
 )
 
 ZETA3 = 1.2020569031595942

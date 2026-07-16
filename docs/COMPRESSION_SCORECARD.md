@@ -112,5 +112,7 @@ generators land. The table does not support a scoreboard aggregate or coincidenc
 There are zero discriminating frozen-prospective hits. The IBM S₃ check is
 non-discriminating because standard quantum mechanics predicts the same programmed
 observable, and the electroweak repair packets use known data and are not prospective.
-The G1 target is externally timestamped; its V1 source is non-blind and earns no
-promotion. Every future claim of compression cites this file.
+The historical G1 v2 target is externally timestamped but algebraically
+invalid; corrective v3 is a permanently inactive post-target-access erratum
+scaffold. Its V1 source is non-blind and earns no promotion. Every future claim
+of compression cites this file.

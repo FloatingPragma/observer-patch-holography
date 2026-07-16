@@ -19,11 +19,14 @@
     "external_timestamp_required": true,
     "first_eligible_payload_commit_definition_required": true,
     "canonical_artifact_digest_required": true,
-    "note": "Populate these fields and issue a new immutable version before any future blind payload starts. This corrective file cannot be used retroactively against V1."
+    "source_method_selection_status": "post_target_access_protocol_scaffold_not_eligible",
+    "required_target_access_policy": "Freeze the complete source algorithm before a genuinely withheld future data release, or use an audited clean-room operator/team with no target access.",
+    "note": "Do not populate this file in place. Issue a new immutable successor with a detached activation manifest and external anchor before eligible work. This corrective scaffold and its present source-method choices were authored after target access, cannot be made blind retroactively, and cannot govern V1."
   },
   "measurement_coordinate": {
     "A_target_inverse_alpha": "137.035999177",
     "u_A_inverse_alpha": "2.1e-8",
+    "u_A_semantics": "CODATA quoted standard uncertainty (1 sigma); not by itself a hard falsification bound",
     "P_of_A_formula": "P(A)=phi+sqrt(pi)/A",
     "P_target_point_diagnostic": "1.630968209403959324879279847782648941",
     "a0_at_P_target_point": "128.307965473286248209961108733006439771",
@@ -62,6 +65,7 @@
   "map_targets": {
     "CL-1": {
       "target_id": "CL1_full_thomson_source_map_v3",
+      "map_kind": "CL1_FULL_THOMSON",
       "closure_rows": [
         "CL-1"
       ],
@@ -73,10 +77,11 @@
         "S_hadronic_target": null,
         "S_hadronic_null_reason": "S_QEW_effective may be called hadronic only after a source theorem and scheme lock prove Delta_EW=0."
       },
-      "pass_rule": "Solve and interval-certify G1 with the emitted Delta_source_total(P). Pass CL-1 only if the resulting completed-map inverse-alpha interval overlaps the predeclared measurement interval after numerical and theory uncertainties are included."
+      "pass_rule": "No pass/fail rule is registered in this corrective scaffold. A future successor must solve and interval-certify G1, freeze confidence and width criteria, and use COMPATIBLE/FAIL/INCONCLUSIVE; overlap alone is insufficient."
     },
     "CL-2": {
       "target_id": "CL2_full_thomson_plus_gauge_width_map_v3",
+      "map_kind": "CL2_FULL_THOMSON_PLUS_ALPHA_U",
       "closure_rows": [
         "CL-2"
       ],
@@ -88,7 +93,7 @@
         "S_hadronic_target": null,
         "S_hadronic_null_reason": "S_QEW_effective may be called hadronic only after a source theorem and scheme lock prove Delta_EW=0."
       },
-      "pass_rule": "Solve and interval-certify G2 with the emitted Delta_source_total(P). Pass CL-2 only if the resulting completed-map inverse-alpha interval overlaps the predeclared measurement interval after numerical and theory uncertainties are included."
+      "pass_rule": "No pass/fail rule is registered in this corrective scaffold. A future successor must solve and interval-certify G2, freeze confidence and width criteria, and use COMPATIBLE/FAIL/INCONCLUSIVE; overlap alone is insufficient."
     }
   },
   "cross_map_invariants": {
@@ -107,9 +112,18 @@
     "missing_scheme_or_error_field_result": "NOT_EVALUABLE",
     "open_Delta_EW_gate_result": "NOT_EVALUABLE",
     "point_diagnostics_can_decide_verdict": false,
+    "decision_policy_status": "not_yet_registered",
+    "required_future_decision_fields": [
+      "measurement confidence level and multiplier",
+      "combined experimental, numerical, and theory uncertainty rule",
+      "maximum prediction width eligible for a compatibility or closure claim",
+      "three-way COMPATIBLE, FAIL, and INCONCLUSIVE outcomes",
+      "falsification scope and premise-gate audit"
+    ],
     "failure_scope": "A failed, otherwise complete map falsifies only its named registered formulation. Framework-level scope requires every premise and readout gate used by that formulation to be closed before execution."
   },
   "blindness_and_provenance_requirements": {
+    "current_scaffold_status": "not_epistemically_blind_because_method_selection_occurred_after_target_access",
     "forbidden_producer_inputs": [
       "this v3 target and successors",
       "CODATA alpha values",
@@ -127,18 +141,24 @@
       "canonical JSON digest",
       "valid external timestamp preceding the first eligible payload commit"
     ],
-    "working_tree_hashes_for_audit_only_rehash_at_activation": {
+    "working_tree_hashes_for_audit_only_not_an_activation_receipt": {
       "paper_math.py": "bda031185dca55e54f4c6c0c020e9fac2e2ba5db5193998135f294898af620b8",
       "interval_contraction_certificate.py": "036f428a80c3ecd13f541666a09e4af8eda87578aebd6fb67d2a79b1c79c90eb",
-      "payload_harness.py": "cda18d8932f9c6d8ab4abebf48cf53aad2e0ece1386b2522619ee88c0ccbce85",
-      "run_bracket.py": "d8ccb1e89e5fbb3280c57591586b33455c25ff7268d1b4f641f97c647a7189f6"
-    }
+      "payload_harness.py": "98a1aac205b405fbf17d200cd8820624a8edf9cdf3afbeca74afc61647c27386",
+      "run_bracket.py": "5bf84dfe6a62898e9692dd8dce8bef36d404bd323f1bed26ab2523d302ddb4d3",
+      "spectral_modules.py": "7bfe4de5eb0156495a2e724e0e568fe68a00280149a4d0c159bc725ec4dc3ba2",
+      "score_bracket.py": "7478aff8b0d3a060f70094dbb9eaabe3c3a61643a406afa7811686c022a8056f"
+    },
+    "audit_hash_scope_warning": "These local working-tree hashes aid this erratum audit only. They are not a complete transitive dependency DAG, signature, external timestamp, clean-room receipt, or activation manifest. A future successor must construct and independently verify those objects afresh."
   },
   "declared_outcomes": {
-    "CL-1_pass": "Only CL-1 closes for the registered CL-1 map and uncertainty contract.",
-    "CL-1_fail": "Only the complete registered CL-1 formulation is falsified.",
-    "CL-2_pass": "Only CL-2 closes for the registered CL-2 map and uncertainty contract.",
-    "CL-2_fail": "Only the complete registered CL-2 formulation is falsified.",
-    "both_maps": "No scalar shortcut exists. Each completed map receives its own independently certified verdict."
+    "status": "inactive_placeholders_for_a_future_successor",
+    "CL-1_COMPATIBLE": "Available only under a future frozen confidence and maximum-width contract; overlap alone is insufficient.",
+    "CL-1_FAIL": "Available only after every CL-1 premise, physical-map, provenance, and uncertainty gate closes.",
+    "CL-1_INCONCLUSIVE": "Required for open gates, excess prediction width, or any outcome outside the frozen compatible/fail predicates.",
+    "CL-2_COMPATIBLE": "Available only under a future frozen confidence and maximum-width contract; overlap alone is insufficient.",
+    "CL-2_FAIL": "Available only after every CL-2 premise, physical-map, provenance, and uncertainty gate closes.",
+    "CL-2_INCONCLUSIVE": "Required for open gates, excess prediction width, or any outcome outside the frozen compatible/fail predicates.",
+    "both_maps": "No scalar shortcut exists. Each completed map receives its own independent three-way adjudication."
   }
 }

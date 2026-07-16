@@ -5,7 +5,7 @@ their evaluation status. The proof spine that consumes these rows is [PROOF_SPIN
 
 | # | Closure | Required | Current status | Residual (relative) | Pull / evaluation status | Resolution path |
 |---|---|---|---|---|---|---|
-| CL-1 | P-loop, source chain: P = φ + √π/A_T(P) with source-only transport | exact after the declared map is completed | incomplete declared-map output: α⁻¹ = 136.994835177413 (interval-certified unique fixed point, width 7.2×10⁻²⁴); the Ward-projected transport and same-scheme remainder are absent | 3.0×10⁻⁴ diagnostic gap | not a physical pull; map incomplete | activate a corrected externally timestamped contract, emit a target-blind transport function over P, and certify the completed CL-1 map (SLP-03) |
+| CL-1 | P-loop, source chain: P = φ + √π/A_T(P) with source-only transport | exact after the declared map is completed | incomplete declared-map output: α⁻¹ = 136.994835177413 (interval-certified unique fixed point, width 7.2×10⁻²⁴); the Ward-projected transport and same-scheme remainder are absent | 3.0×10⁻⁴ diagnostic gap | not a physical pull; map incomplete | register a detached successor whose complete method is blind to withheld data or clean-room audited, emit a target-blind transport function over P, and certify the completed CL-1 map (SLP-03) |
 | CL-2 | P-loop with gauge-width term, self-consistent map | exact after the declared map is completed | incomplete declared-map output: certified unique fixed point α⁻¹ = 137.035660136946577 vs 137.035999177(21). The previously displayed 137.0359595 is a mixed-provenance packet, not a fixed point of one declared map | 2.5×10⁻⁶ diagnostic gap | not a physical pull; map incomplete | use the same target-blind transport function but solve and certify CL-2 independently; its point target differs from CL-1 by α_U(P) |
 | CL-3 | One capacity (SL-4): N_EW = π·exp(6π/(P·α_U)) vs N from Λ | exact only after F and premises CP-1 to CP-3 are discharged | conditional bridge value 3.53×10¹²² vs nominal Λ-readout value 3.31×10¹²²; F and CP-1 to CP-3 remain open | nominal 6.6×10⁻²; posterior propagation pending | not evaluated; the joint Planck posterior has not been propagated | construct F unconditionally, discharge CP-1 to CP-3, then propagate the Planck posterior through the Λ readout (SLP-04) |
 | CL-4 | Hierarchy bridge at the one N: α_U·log(N/π) = 6π/P | conditional on the same capacity premises | nominal 11.5546 vs 11.5573 at the Λ-located N | nominal 2.3×10⁻⁴ (log scale); posterior propagation pending | not evaluated | same object as CL-3 |
@@ -27,13 +27,16 @@ their evaluation status. The proof spine that consumes these rows is [PROOF_SPIN
 - The v3 corrective contract is
   `../falsification/frozen_targets/hadronic_closure_target_2026-07-16_v3.json`.
   It separates map and coordinate types and requires a target-blind function or
-  interval over P. It is deliberately not scorable until a successor is
-  externally timestamped before new payload work starts; it cannot score V1.
+  interval over P. It is a post-target-access erratum scaffold and can never be
+  activated in place. A detached successor must bind a complete method frozen
+  before withheld data or produced by an audited clean-room operator; v3
+  cannot score V1 or any future payload.
 - The 2026-07-16 V1 grid is exploratory, not blind and not promoted. Its source embeds
   canon target values in a compare-only block, its directing session had target access,
   and its min/max grid envelope is not a rigorous bracket. Its containment verdict used
   the correct total endpoint and S coordinates despite the residual/total naming bug.
-  Its quadrature and grid width do not approach the point-payload tolerance.
+  Its width is 1.17×10⁸ times v2's historical, invalid tolerance. V3
+  registers no active tolerance or pass/fail rule.
 - CL-3 supersedes all "two capacities" and "resonance at logarithmic depth" language:
   SL-4 admits one N. The displayed 6.6% is a conditional nominal mismatch, not an
   unconditional contradiction, until F and CP-1 to CP-3 close. A final comparison must

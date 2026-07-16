@@ -31,17 +31,21 @@ Every working borrow is tied to a named generator in
 capacity readback, G3 electroweak repair); a generator that lands retires its
 borrow. The generator program executed its first full round on 2026-07-14.
 G1: the historical v2 target is frozen, but its scalar pass rule is invalid;
-the 2026-07-16 v3 corrective contract is deliberately fail-closed until it is
-externally timestamped before a new payload starts. The V1 grid is exploratory and
-non-blind. The source embeds canon target values in a compare-only block, the
-directing session had target access, and the sampled grid extrema are not an
-interval bracket. Its S_eff range [0.558, 1.054] contains the correct
-CL-1 point diagnostic S = 0.8954, with no promotion. V2 compares the payload's
-total `Delta_source` with the 0.0414658… closure residual; the correct CL-1
-total point coordinate is 8.7280337…. CL-2 is a distinct map because it adds
-alpha_U(P), so its total point coordinate is 8.6869094… and its zero-EW S
-diagnostic is 0.8870666…. A single scalar cannot close both maps. The grid and
-quadrature settings do not approach the point-payload tolerance.
+the 2026-07-16 v3 corrective contract is an inactive, post-target-access
+erratum scaffold and can never be activated in place. A detached successor can
+govern a verdict only if the complete source method is frozen before genuinely
+withheld data exist, or is produced by an audited clean-room operator with no
+target access. The V1 grid is exploratory and non-blind. Its historical source
+embedded canon target values in a compare-only block, the directing session
+had target access, and sampled grid extrema are not an interval bracket. Its
+`S_hadronic` range [0.558, 1.054] contains the CL-1 zero-EW point diagnostic
+0.8954, with no promotion. V2 compares the payload's total `Delta_source` with
+the 0.0414658… closure residual; the correct CL-1 total point coordinate is
+8.7280337…. CL-2 is a distinct map because it adds alpha_U(P), so its total
+point coordinate is 8.6869094… and its zero-EW diagnostic is 0.8870666…. A
+single scalar cannot close both maps. The quoted width ratio is only a
+historical comparison with v2's invalid tolerance; v3 registers no active
+pass/fail tolerance.
 G2: the coupling theorem G2-GAP-1 remains conditional on F and CP-1 to CP-3;
 the nominal capacity comparison also lacks propagation of the joint Planck
 posterior. G3: the 96-entry sweep is a declared chart-coordinate diagnostic,
@@ -161,9 +165,12 @@ decide a verdict:
   error: v2 compares a total emitted `Delta_source` with a residual.
 - **Corrective v3 contract:**
   `../falsification/frozen_targets/hadronic_closure_target_2026-07-16_v3.json`
-  separates coordinate types and map targets. It is not yet externally
-  timestamped and therefore has `promotion_or_falsification_allowed=false`.
-  It cannot score V1 or any work already started.
+  separates coordinate types and map targets. It is an inactive erratum
+  scaffold authored after target access, has
+  `promotion_or_falsification_allowed=false`, and cannot be activated by
+  adding a timestamp later. It cannot score V1 or any work already started. A
+  future test requires a new immutable successor and detached activation
+  manifest.
 - **Map-specific point diagnostics:** CL-1 requires total `Delta_source =
   8.728033703713751790…`, with residual 0.041465861005223389… and zero-EW
   effective S = 0.895400132647658798…. CL-2 adds alpha_U(P) =
@@ -171,11 +178,14 @@ decide a verdict:
   8.686909367518121308…`, with residual 0.000341524809592907… and zero-EW
   effective S = 0.887066624877207327…. Those S values are diagnostics, not
   hadronic targets, while the electroweak/scheme remainder is open.
-- **Future pass/fail:** after a new version is externally registered, a clean
+- **Future pass/fail:** after a new version and its complete source method are
+  registered under a genuinely blind or audited clean-room chronology, the
   producer must emit a target-blind function or interval enclosure
-  `Delta_source(P)`, and each completed map must be solved and certified
-  separately. A failure binds only the complete named map whose gates were
-  closed before execution.
+  `Delta_source(P)`. The successor must freeze a confidence rule, combined
+  uncertainty rule, maximum eligible prediction width, and three-way
+  `COMPATIBLE`/`FAIL`/`INCONCLUSIVE` policy. Each completed map is then solved
+  and certified separately. A failure binds only the complete named map whose
+  gates were closed before execution.
 
 The corpus's own tautological-realization theorem is the reason blindness is
 non-negotiable: the payload class can represent any residual, so only a
@@ -185,16 +195,16 @@ Exploratory V1 emission, 2026-07-16: the 58-run grid was re-run in an
 isolated environment with harness files byte-identical to the repository;
 artifact sha256
 `3f1bbe42fc4f3358b632265dc87e1c51062b214f811dde3da09e2c10d1d178bc`). The
-emitted bracket S_eff ∈ [0.5578, 1.0543] contains S_required = 0.8954 with
-margins 0.34 and 0.16. Containment is a consistency statement with no
-promotion weight; the grid width is 1.17×10⁸ times the pass tolerance and
-is not an interval-certified bracket. This was not a blind run. The source
-itself embeds canon target values and evaluates containment before writing the
-artifact, the directing session had read the canon values, and the isolated
-tree contained target-bearing source files. Its singleton P also differs from
-the target P by far more than the frozen tolerance permits. The quadrature
-settings do not reach the point-payload tolerance. No landing, exclusion, or
-promotion follows.
+emitted bracket `S_hadronic` ∈ [0.5578, 1.0543] contains the CL-1 zero-EW
+point diagnostic 0.8954 with margins 0.34 and 0.16. Containment is a
+consistency statement with no promotion weight; the grid width is 1.17×10⁸
+times the historical v2 tolerance and is not an interval-certified bracket.
+This was not a blind run. The historical source itself embedded canon target
+values and evaluated containment before writing the artifact, the directing
+session had read the canon values, and the isolated tree contained
+target-bearing source files. Its singleton P also differs from the v2 target P
+by far more than v2's historical tolerance permits. V3 defines no active
+tolerance or verdict. No landing, exclusion, or promotion follows.
 
 ### Repair Gates Exposed By The 2026-07-16 Audit
 
@@ -202,17 +212,27 @@ CL-1/CL-2 requalification requires all of the following:
 
 1. Remove every target numeral and target-derived branch from the executable
    payload dependency cone, including the compare-only canon block.
-2. Freeze and externally timestamp the clean source, environment, quadrature
-   policy, and output schema before the executing operator can read the target.
-3. Give payload outputs unambiguous names such as `Delta_source_total` and
-   `S_eff`. Keep the target-only fields
-   `Delta_source_residual_inverse_alpha_units`, `Delta_required_P`, and
-   `S_required` outside the executable cone. After target opening, compare
-   total with total and S with S; never score the residual against a total.
-4. Replace sampled grid extrema with a rigorous interval enclosure whose
-   numerical and truncation bounds meet the frozen point-payload tolerance.
-5. Hash the emitted artifact, then open the frozen target and score it once.
-6. Emit a function or rigorous enclosure over the registered P basin and solve
+2. Do not activate v3 in place. Issue a detached immutable successor. Freeze
+   and externally anchor the complete source dependency DAG, environment,
+   quadrature policy, output schema, and method-selection record before a
+   genuinely withheld target exists, or use an audited clean-room operator
+   who has never had target access.
+3. Give payload outputs unambiguous names such as `Delta_source_total`,
+   `S_hadronic`, and conditional `S_QEW_effective`. Keep target-only point
+   diagnostics outside the executable cone. After target opening, compare
+   total with total and like S coordinates with like; never score a residual
+   against a total or identify `S_QEW_effective` with `S_hadronic` while
+   `Delta_EW` is open.
+4. Replace sampled grid extrema with a rigorous interval enclosure carrying
+   numerical, truncation, and theory-error bounds. The future successor must
+   preregister the confidence level, uncertainty combination, maximum eligible
+   prediction width, and three-way decision policy; v3 has no active
+   point-payload tolerance.
+5. Verify, rather than merely assert, the external timestamp/signature,
+   dependency hashes, source-tree binding, environment lock, and chronology.
+   Schema-valid self-attestation is not an independent receipt.
+6. Seal and hash the emitted artifact, then open the target and score it once.
+7. Emit a function or rigorous enclosure over the registered P basin and solve
    CL-1 and CL-2 independently. A singleton value at the old incomplete-map
    fixed point cannot close either completed map.
 
@@ -282,7 +302,7 @@ extensions) part company:
 
 | Test | Outcome that kills OPH | Why it kills OPH |
 | --- | --- | --- |
-| Blind hadronic closure | A target-blind transport function is emitted under an activated corrected contract, all readout/scheme gates close, and a completed map lands outside its registered interval. | The complete named CL-1 or CL-2 formulation is falsified independently. Historical v2 and V1 cannot execute this test. |
+| Blind hadronic closure | A target-blind transport function is emitted under a detached successor whose complete method and decision policy were registered under valid blind or audited clean-room chronology, all readout/scheme gates close, and a completed map meets the successor's frozen failure criterion. | The complete named CL-1 or CL-2 formulation is falsified independently. Historical v2, corrective v3, and V1 cannot execute this test. |
 | Maxwell carrier | With the Maxwell kinetic term, ordinary Lorentz vacuum, and no Higgs, Stückelberg, or medium mass all fixed, the reduced quadratic theory lacks its two transverse \(k^2=0\) modes. | This falsifies the scoped classical Maxwell carrier theorem. A photon-particle mass test applies only after a physical-Hilbert-space and positive-residue pole receipt is also supplied. |
 | Color carrier | With the pure Yang–Mills kinetic term about the trivial flat connection and the perturbative/deconfined phase fixed, the reduced quadratic theory lacks its \(2\dim G\) transverse \(k^2=0\) modes. | This falsifies the scoped quadratic Yang–Mills theorem. Confinement can remove a free physical gluon pole and is not a counterexample to that theorem. |
 | Einstein tensor carrier | With the pure two-derivative Einstein–Hilbert action, flat vacuum, and no extra fields or higher-curvature terms fixed, the reduced quadratic theory lacks its two transverse-traceless null modes. | This falsifies the scoped Einstein linearization theorem. A graviton-particle mass test applies only after quantization and a positive-residue physical pole have been established. |
@@ -435,7 +455,7 @@ scope is appended rather than counted as evidence
 | EW radiative pole packet (2026-07-16) | preregistered 8-cell partial PRTS/Feynman-gauge prescription, spec sha256 `094e986d…beb0`; tadpole/FJ and transmutation-vev schemes open | primary chart output (79.533, 89.712) GeV; all eight declared cells emitted; strong factor-two scale dependence remains | **INCOMPLETE DIAGNOSTIC, not a scheme-correct exclusion.** The packet is scale-dependent and omits declared convention branches. The JKV comparison checks a slope term, not the full finite self-energies. A split sign at one scale cannot prove that the open tadpole or vev schemes cannot reverse it. No raw pull, convention-independent verdict, or exhaustion claim follows. |
 | Readout-identification scope (2026-07-16) | corpus-wide scan of the emitted W/Z object and comparison reference | emission is a running/tree chart coordinate. The quoted 80.3692(133) and 91.1880(20) GeV references are stale PDG 2025 mass-dependent-width Breit-Wigner parameters, not pole masses. No derived map identifies them | **PHYSICAL COMPARISON NOT EVALUABLE.** Derive the observable readout, complete the scheme and scale prescription, select a current target in that convention, propagate uncertainties, and preregister the comparison. One-scale split arithmetic excludes no open convention class. |
 | S3 signed parity (sim-internal, 2026-07-16) | sign character over earned 64k/128k holonomy artifacts against a permutation null | odd fraction 0.4998/0.4998; reported pooled p = 0.59; `sgn(g^-1)=sgn(g)` identically and Haar S3 predicts odd fraction 1/2 | **DESCRIPTIVE ALGEBRAIC CHECK; NON-DISCRIMINATING.** Orientation invariance is an S3 identity and the class fractions are the generic null. The exact p-value is not bundle-reproducible because the analysis script and RNG seed are absent. No OPH evidence follows; only an S3-class chirality mechanism is narrowed. |
-| VN-03 covariant-kernel CMB rerun (sim-diagnostic, 2026-07-16) | 64k covariant overlap-kernel rerun, seed 20260751 | raw transition matrix has 8 strongly connected components, 2 absorbing states, λ₂ = 1 and zero gap, yet the old code marked it finite-ready and emitted n_s = 1; TT 3.50950 was then scored | **INVALID/UNTESTABLE due to a confirmed certificate-gating bug.** Reducible or periodic chains can no longer emit a finite repair-clock certificate. The same stored run's reversible-projection sensitivity gives χ²/bin 1.02356 versus ΛCDM 0.94450, but that post-hoc projection is not a physical rescue. The old baseline directory is absent, the alleged independent repeat reuses the same seed/matrix, and no controlled kernel-causality verdict follows. |
+| VN-03 covariant-kernel CMB rerun (sim-diagnostic, 2026-07-16) | 64k covariant overlap-kernel rerun, seed 20260751 | raw transition matrix has 8 strongly connected components, 2 absorbing states, λ₂ = 1 and zero gap, yet the old code marked it finite-ready and emitted n_s = 1; TT 3.50950 was then scored | **INVALID/UNTESTABLE due to a confirmed certificate-gating bug.** Reducible, periodic, gapless, or non-reversible primary chains can no longer emit a finite repair-clock certificate. The same stored run's reversible-projection sensitivity gives χ²/bin 1.02356 versus ΛCDM 0.94450, but that post-hoc projection is not a physical rescue and does not itself settle kernel causality. The old baseline directory is absent, the alleged independent repeat reuses the same seed/matrix, and no controlled kernel-causality verdict follows. This later rerun is distinct from V4 row 9's recorded 1.41749 diagnostic. |
 
 The remaining IBM circuit-family archive (recovery/CMI fingerprints, three-state
 sanity, decoy and relabeling controls, bundle readings 2.5974/2.7383/2.5786 for

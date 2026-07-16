@@ -127,5 +127,8 @@ def test_bracket_reproducibility(ep: ph.EvaluationPoint) -> None:
     assert first["certification"]["delta_EW_gate"] == (
         "open_declared_zero_branch_unproven"
     )
+    assert first["grid"]["runs"] == 4
+    assert first["grid"]["declared"].startswith("TEST-ONLY REDUCED GRID")
+    assert first["grid"]["eligible_for_scientific_interpretation"] is False
     assert "precision_wall" not in first
     assert "non_blind_development_comparison" not in first

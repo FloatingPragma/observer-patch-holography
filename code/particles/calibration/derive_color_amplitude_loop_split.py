@@ -243,8 +243,11 @@ def main() -> int:
           f"d = 3/2 = {report['prediction']['d']:.4f}")
     print(f"m_W selects c = {ds['MW_best_c']:.4f}  (prediction {report['prediction']['c']:.4f})")
     print(f"m_Z selects d = {ds['MZ_best_d']:.4f}  (prediction {report['prediction']['d']:.4f})")
-    print(f"MW+MZ 1-sigma band on c = [{ds['MWMZ_c_1sigma_band'][0]:.3f}, "
-          f"{ds['MWMZ_c_1sigma_band'][1]:.3f}]")
+    profile_band = ds["legacy_MWMZ_reference_error_profile_band"]
+    print(
+        "legacy MW+MZ reference-error profile on c = "
+        f"[{profile_band[0]:.3f}, {profile_band[1]:.3f}]"
+    )
     for name, row in ds["competitors"].items():
         print(
             f"  {name:36s} c={row['c']:.4f}  "

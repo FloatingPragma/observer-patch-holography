@@ -4,6 +4,12 @@ This directory carries the frozen electroweak-hierarchy proof bundle supplied
 for the OPH hierarchy audit. It is separate from the rounded `1.63094`
 calibration carrier used by the older D10 particle-code path.
 
+Status correction (2026-07-16): the bundle certifies internal algebra on a
+selected bridge branch. Its `N_CRC^EW` value is conditional on the physical
+readback map F and premises CP-1 to CP-3. It neither closes the physical cosmic
+capacity nor makes the 6.6 percent central-value comparison with the
+Lambda-located capacity a contradiction or significance test.
+
 The bundle’s public endpoint branch uses
 
 ```text
@@ -61,8 +67,8 @@ B_EW(P,N) = alpha_U(P)*log(N/pi) - 6*pi/P = 0
 The certificate records the exact bridge target `N_EW(P_star)` and keeps the
 rounded `3.31e122` capacity label as a diagnostic.
 
-The issue-#344 artifact supplies the exact EW-refined global-capacity
-certificate. In log-capacity coordinates,
+The issue-#344 artifact supplies the conditional EW-refined bridge-capacity
+identity. In log-capacity coordinates,
 
 ```text
 C_EW(P,x) = (1-lambda)*x + lambda*6*pi/(P*alpha_U(P))

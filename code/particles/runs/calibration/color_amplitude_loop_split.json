@@ -1,13 +1,14 @@
 {
  "artifact": "oph_color_amplitude_loop_split",
- "generated_utc": "2026-07-12T09:32:04Z",
+ "generated_utc": "2026-07-16T09:07:11Z",
  "object_id": "ColorAmplitudeLoopSplit_A2A3",
  "row_class": "retrospective_data_comparison_conditional_mechanism_candidate",
  "guards": {
   "measured_values_in_any_oph_solve_path": false,
   "source_only_theorem_emitted": false,
   "public_promotion_allowed": false,
-  "complete_archived_value_law_tested_as_constant_c_competitor": false
+  "complete_archived_value_law_tested_as_constant_c_competitor": false,
+  "wz_physical_comparison_status": "NOT_EVALUABLE"
  },
  "N_c": 3,
  "dr_mechanism": {
@@ -29,60 +30,68 @@
   "MZ_best_d": 1.461,
   "MZ_best_d_chi2": 5.165944297782834e-09,
   "MZ_prediction_d": 1.5,
-  "MWMZ_c_1sigma_band": [
+  "legacy_MWMZ_reference_error_profile_band": [
    0.7305,
    1.0645
   ],
   "competitors": {
    "color_amplitude_loop  c=sqrt(Nc)/2": {
     "c": 0.8660254037844386,
-    "inside_MWMZ_1sigma": true
+    "inside_legacy_reference_error_profile": true
    },
    "loop_symmetric        c=Nc/2": {
     "c": 1.5,
-    "inside_MWMZ_1sigma": false
+    "inside_legacy_reference_error_profile": false
    },
    "loop_symmetric        c=Nc": {
     "c": 3.0,
-    "inside_MWMZ_1sigma": false
+    "inside_legacy_reference_error_profile": false
    },
    "leading_constant_proxy c=1/(4 beta)": {
     "c": 0.464227421271743,
-    "inside_MWMZ_1sigma": false
+    "inside_legacy_reference_error_profile": false
    }
   }
  },
  "comparison_compare_only": {
-  "MW_pole_gev": {
+  "MW_chart_gev": {
    "predicted": 80.36921677537332,
-   "measured": 80.3692,
-   "sigma": 0.0133,
-   "delta_over_sigma": 0.001261306263977941
+   "reference": 80.3692,
+   "reference_experimental_sigma": 0.0133,
+   "physical_comparison_status": "NOT_EVALUABLE",
+   "physical_delta": null,
+   "physical_pull": null,
+   "legacy_experimental_error_only_standardized_difference": 0.001261306263977941
   },
-  "MZ_pole_gev": {
+  "MZ_chart_gev": {
    "predicted": 91.1880067442454,
-   "measured": 91.1876,
-   "sigma": 0.0021,
-   "delta_over_sigma": 0.19368773590280225
+   "reference": 91.1876,
+   "reference_experimental_sigma": 0.0021,
+   "physical_comparison_status": "NOT_EVALUABLE",
+   "physical_delta": null,
+   "physical_pull": null,
+   "legacy_experimental_error_only_standardized_difference": 0.19368773590280225
   },
   "mH_gev": {
    "predicted": 125.18328541107648,
-   "measured": 125.13,
-   "sigma": 0.11,
+   "reference": 125.13,
+   "reference_experimental_sigma": 0.11,
+   "physical_comparison_status": "COMPARE_ONLY",
    "delta_over_sigma": 0.48441282796806656
   },
   "mt_pole_gev": {
    "predicted": 172.32195328581707,
-   "measured": 172.1,
-   "sigma": 0.6,
+   "reference": 172.1,
+   "reference_experimental_sigma": 0.6,
+   "physical_comparison_status": "COMPARE_ONLY",
    "delta_over_sigma": 0.3699221430284657
   }
  },
  "verdict": {
-  "loop_symmetric_law": "excluded (outside MW+MZ 1-sigma)",
-  "leading_constant_proxy": "outside the displayed MW+MZ 1-sigma band, but this does not test or exclude the complete archived value law",
+  "loop_symmetric_law": "not physically evaluated; outside only the legacy reference-error profile",
+  "leading_constant_proxy": "outside the legacy reference-error profile; no physical exclusion follows",
   "complete_archived_value_law": "not a constant-c competitor and not excluded by this comparison",
-  "color_amplitude_loop_law": "retrospective conditional candidate close to the stored comparison rows",
+  "color_amplitude_loop_law": "retrospective chart candidate; W/Z physical comparison not evaluable",
   "remaining_rigorous_step": "prove from the explicit collar-transport operators that the charged repair channel factors through a single intertwiner (amplitude, sqrt(N_c)) and the neutral through a closed loop (N_c); the current reconstruction fixes N_c and the DR intertwiner norms but does not emit those channel operators",
   "status": "A2A3_retrospective_conditional_mechanism_channel_identification_open"
  }

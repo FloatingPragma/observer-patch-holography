@@ -6,6 +6,12 @@ Generated: `2026-06-13T00:00:00Z`
 
 This bundle packages the proof-obligation artifacts for the OPH electroweak hierarchy lane:
 
+Status correction (2026-07-16): all capacity "closure" language in this
+historical bundle is internal to the selected bridge packet. Physical cosmic
+capacity remains conditional on F and CP-1 to CP-3, and comparison with the
+Lambda-located value additionally requires the joint cosmological posterior.
+The 6.6 percent central-value mismatch is not an unconditional contradiction.
+
 ```math
 P_\star \to \alpha_U(P_\star) \to
 \frac{v}{E_\star} =
@@ -81,7 +87,7 @@ Closed inside this bundle:
    selects twelve unit fivefold defects; edge-center collars expose them as
    central ports; `A5/C5` gives the 12-vertex orbit. This supplies the
    geometric origin of the `P/12` exponent.
-10. The issue-#344 EW-refined exact-capacity certificate:
+10. The issue-#344 conditional EW-refined bridge-capacity certificate:
    `C_EW(P,x)=(1-lambda)*x+lambda*6*pi/(P*alpha_U(P))` is a contraction at
    `lambda=1/2`; its unique fixed point gives
    `N_CRC^EW=pi*exp[6*pi/(P_star*alpha_U(P_star))]` and

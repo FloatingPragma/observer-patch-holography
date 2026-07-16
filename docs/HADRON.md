@@ -6,13 +6,17 @@ depend on low-energy QCD.
 ## Closure-Program Note (2026-07-14)
 
 The hadronic lane is generator G1 of the closure program
-([CONSISTENCY_STACK.md](CONSISTENCY_STACK.md), ledger dependency table): the
-blind Ward-projected transport computation against the frozen target is the
-object that closes or moves CL-1 and CL-2. The blind target is frozen and
-externally timestamped (OpenTimestamps,
-`../falsification/frozen_targets/hadronic_closure_target_2026-07-14.json`).
-The payload computation must not read the target file; the dependency-cone
-audit checks this. Pass/fail outcomes are declared in the target file.
+([CONSISTENCY_STACK.md](CONSISTENCY_STACK.md), ledger dependency table): a
+genuinely blind Ward-projected transport computation under a valid future
+contract is the object that could close or move CL-1 and CL-2. The historical
+v1/v2 targets are externally timestamped, but v2's scalar scoring algebra is
+invalid. Corrective v3 separates map and coordinate types but is a permanently
+inactive, post-target-access erratum scaffold. A valid experiment needs a new
+detached successor whose complete source method was frozen before genuinely
+withheld data, or an audited clean-room producer with no target access. The
+payload computation must not read the target file; the complete transitive
+dependency cone and chronology require independent verification. No current
+target declares an active pass/fail outcome.
 
 ## Decision
 
@@ -235,13 +239,13 @@ claim an arbitrary-precision source-only derivation.
 Use this wording for the particles section:
 
 ```text
-The fine-structure constant is fixed by a screen-cell fixed point. OPH computes
-the outer pixel equation and the electroweak source anchor. The charged-lepton
-transport term is explicit. The confined-hadron term is the electromagnetic
-spectral function of QCD. Since the OPH hadron backend does not emit that
-spectral function directly, the public final value uses the standard
-data-driven dispersion method based on measured e+e- -> hadrons cross sections.
-That is the strongest available empirical closure: it measures the spectral
-function that the theorem requires. Source-only OPH and OPH plus empirical
-hadron closure are shown as separate output classes.
+OPH defines a screen-cell fixed-point map and computes certified roots of two
+declared incomplete maps. Neither root is yet a physical Thomson-limit
+fine-structure prediction. The charged-lepton transport term is explicit, but
+the confined-hadron term requires the electromagnetic spectral function of
+QCD. Since the OPH hadron backend does not emit that spectral function
+directly, the public empirical-closure row uses the standard data-driven
+dispersion method based on measured e+e- -> hadrons cross sections. That row is
+an external-data validation surface, not a source-only prediction. Source-only
+OPH and OPH plus empirical hadron closure are shown as separate output classes.
 ```

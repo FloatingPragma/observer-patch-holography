@@ -1,6 +1,6 @@
 {
  "artifact": "oph_conditional_ew_predictions",
- "generated_utc": "2026-07-12T02:09:43Z",
+ "generated_utc": "2026-07-16T09:07:10Z",
  "row_class": "conditional_on_P_and_repair_selection",
  "guards": {
   "public_promotion_allowed": false,
@@ -8,7 +8,8 @@
   "promotion_blockers": [
    "current_corpus_underdetermination_of_forward_d10_repair_law",
    "d10.same-scheme-anchor-bridge (issue #545)",
-   "source derivation of the selection axioms (issue #521)"
+   "source derivation of the selection axioms (issue #521)",
+   "complete W/Z common-observable scheme map and theory uncertainty"
   ]
  },
  "inputs": {
@@ -24,15 +25,15 @@
  },
  "rows_at_calibration_P": {
   "running_tree_value_law": {
-   "MW_pole_gev": 80.37700001539531,
-   "MZ_pole_gev": 91.18797807794321,
+   "MW_chart_gev": 80.37700001539531,
+   "MZ_chart_gev": 91.18797807794321,
    "sin2w_eff": 0.22305833336075578,
    "mH_gev": 125.1995304097179,
    "mt_pole_gev": 172.3523553288312
   },
   "color_balanced_quadratic_descent": {
-   "MW_pole_gev": 80.36921677537332,
-   "MZ_pole_gev": 91.1880067442454,
+   "MW_chart_gev": 80.36921677537332,
+   "MZ_chart_gev": 91.1880067442454,
    "sin2w_eff": 0.223209283468742,
    "mH_gev": 125.18328541107648,
    "mt_pole_gev": 172.32195328581707
@@ -41,15 +42,15 @@
  "rows_at_empirical_P": {
   "empirical_closure_P_lo": {
    "running_tree_value_law": {
-    "MW_pole_gev": 80.37731385697425,
-    "MZ_pole_gev": 91.19576124826166,
+    "MW_chart_gev": 80.37731385697425,
+    "MZ_chart_gev": 91.19576124826166,
     "sin2w_eff": 0.2231848787356232,
     "mH_gev": 125.22391418262882,
     "mt_pole_gev": 172.31761861989347
    },
    "color_balanced_quadratic_descent": {
-    "MW_pole_gev": 80.36978923477795,
-    "MZ_pole_gev": 91.19579287355583,
+    "MW_chart_gev": 80.36978923477795,
+    "MZ_chart_gev": 91.19579287355583,
     "sin2w_eff": 0.22333085562894564,
     "mH_gev": 125.2082090517281,
     "mt_pole_gev": 172.2882266281256
@@ -57,15 +58,15 @@
   },
   "empirical_closure_P_hi": {
    "running_tree_value_law": {
-    "MW_pole_gev": 80.37741251025889,
-    "MZ_pole_gev": 91.1982367952068,
+    "MW_chart_gev": 80.37741251025889,
+    "MZ_chart_gev": 91.1982367952068,
     "sin2w_eff": 0.22322514417082656,
     "mH_gev": 125.23166574233353,
     "mt_pole_gev": 172.3065679915908
    },
    "color_balanced_quadratic_descent": {
-    "MW_pole_gev": 80.369969228837,
-    "MZ_pole_gev": 91.19826930764052,
+    "MW_chart_gev": 80.369969228837,
+    "MZ_chart_gev": 91.19826930764052,
     "sin2w_eff": 0.22336955639168446,
     "mH_gev": 125.21613041001062,
     "mt_pole_gev": 172.27749368420027
@@ -81,11 +82,11 @@
    172.27749368420027,
    172.3523553288312
   ],
-  "MW_pole_gev": [
+  "MW_chart_gev": [
    80.36921677537332,
    80.37741251025889
   ],
-  "MZ_pole_gev": [
+  "MZ_chart_gev": [
    91.18797807794321,
    91.19826930764052
   ]
@@ -97,6 +98,7 @@
     125.18328541107648,
     125.23166574233353
    ],
+   "physical_comparison_status": "COMPARE_ONLY",
    "measured": 125.13,
    "measured_sigma": 0.11,
    "measured_source": "PDG 2025",
@@ -111,6 +113,7 @@
     172.27749368420027,
     172.3523553288312
    ],
+   "physical_comparison_status": "COMPARE_ONLY",
    "measured": 172.1,
    "measured_sigma": 0.6,
    "measured_source": "PDG 2025 direct-average context row",
@@ -119,33 +122,41 @@
    "envelope_overlaps_one_sigma_band": true,
    "envelope_inside_one_sigma_band": true
   },
-  "MW_pole_gev": {
+  "MW_chart_gev": {
    "conditional_central": 80.3733146428161,
    "conditional_envelope": [
     80.36921677537332,
     80.37741251025889
    ],
-   "measured": 80.3692,
-   "measured_sigma": 0.0133,
-   "measured_source": "PDG 2025 world average",
-   "delta": 0.004114642816091418,
-   "delta_over_sigma": 0.30937164030762543,
-   "envelope_overlaps_one_sigma_band": true,
-   "envelope_inside_one_sigma_band": true
+   "physical_comparison_status": "NOT_EVALUABLE",
+   "reason": "the emitted value is a running/tree chart coordinate; no complete renormalized-vev, tadpole, threshold, finite-order, uncertainty, and complex-pole map places it in the reference coordinate",
+   "legacy_reference_coordinate": 80.3692,
+   "legacy_reference_experimental_sigma": 0.0133,
+   "legacy_reference_source": "stale PDG 2025 mass-dependent-width Breit--Wigner coordinate",
+   "legacy_experimental_error_only_delta": 0.004114642816091418,
+   "legacy_experimental_error_only_standardized_difference": 0.30937164030762543,
+   "legacy_envelope_overlaps_reference_one_sigma_band": true,
+   "legacy_envelope_inside_reference_one_sigma_band": true,
+   "physical_delta": null,
+   "physical_pull": null
   },
-  "MZ_pole_gev": {
+  "MZ_chart_gev": {
    "conditional_central": 91.19312369279186,
    "conditional_envelope": [
     91.18797807794321,
     91.19826930764052
    ],
-   "measured": 91.1876,
-   "measured_sigma": 0.0021,
-   "measured_source": "PDG 2025",
-   "delta": 0.005523692791854273,
-   "delta_over_sigma": 2.6303299008829875,
-   "envelope_overlaps_one_sigma_band": true,
-   "envelope_inside_one_sigma_band": false
+   "physical_comparison_status": "NOT_EVALUABLE",
+   "reason": "the emitted value is a running/tree chart coordinate; no complete renormalized-vev, tadpole, threshold, finite-order, uncertainty, and complex-pole map places it in the reference coordinate",
+   "legacy_reference_coordinate": 91.1876,
+   "legacy_reference_experimental_sigma": 0.0021,
+   "legacy_reference_source": "stale PDG 2025 mass-dependent-width Breit--Wigner coordinate",
+   "legacy_experimental_error_only_delta": 0.005523692791854273,
+   "legacy_experimental_error_only_standardized_difference": 2.6303299008829875,
+   "legacy_envelope_overlaps_reference_one_sigma_band": true,
+   "legacy_envelope_inside_reference_one_sigma_band": false,
+   "physical_delta": null,
+   "physical_pull": null
   }
  }
 }

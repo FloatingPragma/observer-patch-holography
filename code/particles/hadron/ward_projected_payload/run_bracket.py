@@ -164,10 +164,15 @@ def build_bracket(
         "grid": {
             "fast_mode": fast,
             "declared": (
-                "parton_free; pqcd Lambda3{lane_lo,lane_central,lane_hi} x "
+                "TEST-ONLY REDUCED GRID: parton_free; pqcd "
+                "Lambda3{lane_central} x k{4} x below{free,zero} x "
+                "order{3}; constituent kappa=1 x Lambda3{lane_central}"
+                if fast
+                else "parton_free; pqcd Lambda3{lane_lo,lane_central,lane_hi} x "
                 "k{2,4,8} x below{free,zero} x order{1,2,3}; constituent "
                 "kappa=1 x Lambda3{lane_lo,lane_central,lane_hi}"
             ),
+            "eligible_for_scientific_interpretation": False,
             "runs": len(rows),
             "gauss_n": gauss_n,
             "splits_per_decade": splits_per_decade,

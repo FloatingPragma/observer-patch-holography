@@ -26,6 +26,12 @@ def test_v3_fails_closed_until_a_new_external_registration() -> None:
     assert target["frozen_utc"] is None
     assert target["promotion_or_falsification_allowed"] is False
     assert target["activation_requirements"]["external_timestamp_required"] is True
+    assert target["activation_requirements"]["source_method_selection_status"] == (
+        "post_target_access_protocol_scaffold_not_eligible"
+    )
+    assert "Do not populate this file in place" in target["activation_requirements"][
+        "note"
+    ]
 
 
 def test_v3_separates_total_and_residual_coordinates() -> None:
@@ -93,3 +99,8 @@ def test_primary_contract_requires_a_function_and_independent_map_solves() -> No
     assert scoring["missing_scheme_or_error_field_result"] == "NOT_EVALUABLE"
     assert scoring["open_Delta_EW_gate_result"] == "NOT_EVALUABLE"
     assert scoring["point_diagnostics_can_decide_verdict"] is False
+    assert scoring["decision_policy_status"] == "not_yet_registered"
+    assert len(scoring["required_future_decision_fields"]) == 5
+    assert target["declared_outcomes"]["status"] == (
+        "inactive_placeholders_for_a_future_successor"
+    )
