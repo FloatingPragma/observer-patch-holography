@@ -26,7 +26,7 @@ prediction receipts. Reproducibility details and commands are in
 
 - `oph_dark_matter_paper.tex`
   - release-bundle paper for the dark/anomaly stress branch, the galaxy limit,
-    quotient-edge scalar/\(Z_6\) finite-thickness coefficient gates, cluster
+    quotient-edge scalar/$Z_6$ finite-thickness coefficient gates, cluster
     and cosmology contracts, the source-only anomaly abundance selector, the
     simulator promotion ladder, the audited RAR/BTFR/Cassini comparison ledger,
     and the dark-sector source interface used by later CMB/LSS work
@@ -37,7 +37,7 @@ These files are public technical companions outside the release bundle.
 
 - `oph_cosmology_finite_source_cmb_program.tex`
   - finite-source cosmology, physical CMB boundaries, scale bridge, simulator
-    evidence, the conditional analytic \(P_\star/48\) tilt comparison, and claim
+    evidence, the conditional analytic $P_\star/48$ tilt comparison, and claim
     boundaries
 - `oph_inflation_without_inflaton_observer_screen_synchronization.tex`
   - inflation-free branch: flatness, horizon coherence, geometric screen
@@ -55,7 +55,7 @@ These files are public technical companions outside the release bundle.
 The CMB companion distinguishes diagnostic proxies, conditional physical
 artifacts using a frozen imported FLRW packet, and OPH-native physical artifacts
 derived from the quotient carrier.
-Flat-sector work is likewise split: spatial Levi--Civita holonomy identifies the \(\kappa=0\)
+Flat-sector work is likewise split: spatial Levi--Civita holonomy identifies the $\kappa=0$
 branch, while direct theorem, conditional CMH, or explicit-assumption labels select it.
 
 ## Paper Split

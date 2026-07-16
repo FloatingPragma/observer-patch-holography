@@ -998,7 +998,7 @@ gravity and appears in Einstein's equation and gravitational entropy.
 **$\Lambda$** is the cosmological constant. In the de Sitter chapters it sets
 the horizon radius and locates a working global screen capacity through the
 selected scale bridge. The cosmic record equation
-\(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\) is the open closure target for deriving
+$N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})$ is the open closure target for deriving
 that capacity rather than borrowing it from measurement.
 
 **$P$** is the OPH local pixel ratio. It is a dimensionless root of the declared

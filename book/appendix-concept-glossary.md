@@ -642,7 +642,7 @@ cells to keep the fundamental bookkeeping finite.
 Quotient
 :   A quotient identifies descriptions that act the same for the
 purpose at hand. In the Standard Model group
-\((SU(3)\times SU(2)\times U(1))/\mathbb Z_6\), a shared discrete center is
+$(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$, a shared discrete center is
 counted once across the gauge factors. Quotients remove duplicate labels from
 the physical bookkeeping.
 

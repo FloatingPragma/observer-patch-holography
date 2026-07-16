@@ -17,7 +17,7 @@ This audit covers only the mathematics of finite and compact constraint/rewrite 
 - local-repair and selection obstructions;
 - ranked functional systems, linear observability, and formal proof receipts.
 
-The physical \(\chi_\nu\) hypothesis is explicitly out of scope. This report does not assess any coherent-matter source claim, collar coefficient, force law, device, experimental protocol, G9/G10 calibration, or empirical prediction. References to the \(\chi_\nu\) corpus below are limited to its finite quotient, repair, boundary-fiber, normalizer, and proof-receipt interfaces.
+The physical $\chi_\nu$ hypothesis is explicitly out of scope. This report does not assess any coherent-matter source claim, collar coefficient, force law, device, experimental protocol, G9/G10 calibration, or empirical prediction. References to the $\chi_\nu$ corpus below are limited to its finite quotient, repair, boundary-fiber, normalizer, and proof-receipt interfaces.
 
 ## Audited current state
 
@@ -30,7 +30,7 @@ The physical \(\chi_\nu\) hypothesis is explicitly out of scope. This report doe
 | Independent Lean build in this audit | standalone build succeeded through target 8259; the merged parent build succeeded through target 8265; all new-paper and bridge theorem dependencies were subsets of `propext`, `Classical.choice`, and `Quot.sound` |
 | Intended `chi_nu_test` comparison repo | Clean `main...origin/main` at `0f9e43b36386ad15e94947751500bf32ee9ccc58`, proof-chain v10 |
 | Independent comparison build | `chi_nu_test/proof_chain/formal: lake build` succeeded through target 8287; linter warnings only |
-| Mathematical \(\chi_\nu\) note | `extra/chi_nu_susceptibility_bounds.tex` |
+| Mathematical $\chi_\nu$ note | `extra/chi_nu_susceptibility_bounds.tex` |
 
 The paper, dedicated artifact, merged Lean hierarchy, and consistency updates
 are tracked on the current `main` line. This audit records the released `r1526`
@@ -100,22 +100,22 @@ Completed in the `Proof-carrying interpretation` remark:
 
 The universal property remains correct in the paper's classical setting.
 
-### 3. Audited-terminal theorem \(T\supseteq C\)
+### 3. Audited-terminal theorem $T\supseteq C$
 
 Completed as `thm:audited-terminal`.
 
 The paper now defines:
 
-- \(T=\operatorname{NF}(\to)\), the computational terminal set;
-- \(C\subseteq T\), the semantically consistent terminals.
+- $T=\operatorname{NF}(\to)$, the computational terminal set;
+- $C\subseteq T$, the semantically consistent terminals.
 
-Under observation preservation, weak normalization of every state, and injectivity of \(B|_T\), it proves a unique reachable terminal \(t_x\), with
+Under observation preservation, weak normalization of every state, and injectivity of $B|_T$, it proves a unique reachable terminal $t_x$, with
 
-\[
+$$
 t_x\in C
 \quad\Longleftrightarrow\quad
 C_{B(x)}\ne\varnothing.
-\]
+$$
 
 The proof is correct. It also states the proper limitation: weak normalization gives a unique reachable terminal but does not assert that every execution is strongly normalizing.
 
@@ -129,15 +129,15 @@ Completed at the start of `sec:refinement`.
 
 The manuscript defines
 
-\[
+$$
 Q^{\mathrm{adm}}
 =
 \{q\in Q:\text{there exists a unique }c\in C\text{ with }B(c)=B(q)\}
-\]
+$$
 
 and states that all normalizers and coarse maps in the metric tower act on chosen admissible subspaces preserved by the restrictions. Obstructed and ambiguous fibers remain in the exact layer and are not assigned an undeclared finite metric normalizer.
 
-The inverse-limit theorem also says explicitly that its \(Q_\infty\) is the inverse limit of these admissible domains, not automatically the full ambient inverse limit.
+The inverse-limit theorem also says explicitly that its $Q_\infty$ is the inverse limit of these admissible domains, not automatically the full ambient inverse limit.
 
 This fixes the earlier scope discontinuity between the partial exact normalizer and the total metric tower.
 
@@ -147,15 +147,15 @@ Completed correctly.
 
 `prop:same-level-implementations` now proves, for two outputs at the same fine level and on the same input,
 
-\[
+$$
 d_n(\rho_{m,n}\widehat x_m,\rho_{m,n}\widehat y_m)
 \le
 K_{m,n}(e_m+e'_m),
-\]
+$$
 
 and explicitly notes that no refinement-defect term occurs. This is the sharp architecture identified in the audit: both outputs compare to the same exact fine normal form.
 
-`thm:anchored-cross-level` is now genuinely projective. It compares outputs at arbitrary levels \(m\) and \(\ell\) after restriction to a common level \(n\), through an anchor \(h\), and includes:
+`thm:anchored-cross-level` is now genuinely projective. It compares outputs at arbitrary levels $m$ and $\ell$ after restriction to a common level $n$, through an anchor $h$, and includes:
 
 - both solver receipt errors;
 - both pathwise exact-normalizer defect segments;
@@ -173,7 +173,7 @@ The proof's five triangle segments are correct, and minimizing over admissible a
 - summable pathwise normalizer defects;
 - vanishing solver receipt errors.
 
-Its Cauchy, implementation-independence, cofinal-subsequence, inverse-limit compatibility, and distance-to-\(N_nq_n\) conclusions follow correctly.
+Its Cauchy, implementation-independence, cofinal-subsequence, inverse-limit compatibility, and distance-to-$N_nq_n$ conclusions follow correctly.
 
 Lean status:
 
@@ -188,7 +188,7 @@ Completed:
 - the finite product calculus requires a nonempty finite index family;
 - the collar-section criterion requires a nonempty write space;
 - the finite no-repair certificate repeats the nonempty-write qualification;
-- the real-valued robust margin requires \(R\ne\varnothing\);
+- the real-valued robust margin requires $R\ne\varnothing$;
 - the text explains the vacuous empty-domain repair and the convention issue for ordinary real-valued distance to the empty relation;
 - ranked functional systems require nonempty boundary layer and nonempty finite site state spaces;
 - tower spaces and uniform families carry the needed nonemptiness/boundedness qualifications.
@@ -206,12 +206,12 @@ Completed as `prop:markov-receipt`.
 
 The proposition correctly iterates the affine drift inequality
 
-\[
+$$
 KV\le \kappa V+\xi,
 \qquad 0\le\kappa<1,
-\]
+$$
 
-and applies Markov's inequality to obtain a one-time endpoint probability bound. It correctly requires positive-support transitions to preserve \(B\) before declaring a \((\delta,0)\) receipt, and it separately states that a schedule kernel must be supported on rewrite steps or stutters.
+and applies Markov's inequality to obtain a one-time endpoint probability bound. It correctly requires positive-support transitions to preserve $B$ before declaring a $(\delta,0)$ receipt, and it separately states that a schedule kernel must be supported on rewrite steps or stutters.
 
 The caveat is correct and important: this is an endpoint bound, not a pathwise confinement theorem; excursions require another hypothesis.
 
@@ -221,7 +221,7 @@ Lean status: the finite Markov-operator drift iteration and one-time tail inequa
 
 Completed as `cor:functional-synchronous`.
 
-The induction is correct: after round \(k\), ranks through \(k\) agree with the generated extension, so depth \(m\) settles the system. The paper correctly limits this to the explicitly declared synchronous semantics and does not infer a compiler or hardware depth bound without a separate correspondence theorem.
+The induction is correct: after round $k$, ranks through $k$ agree with the generated extension, so depth $m$ settles the system. The paper correctly limits this to the explicitly declared synchronous semantics and does not infer a compiler or hardware depth bound without a separate correspondence theorem.
 
 Lean status: fully formalized as `RankedSynchronousSystem.synchronous_depth_settling`, with generated-extension uniqueness also formalized.
 
@@ -229,10 +229,10 @@ Lean status: fully formalized as `RankedSynchronousSystem.synchronous_depth_sett
 
 Completed:
 
-- \(\kappa_B=\|(B|_H)^\dagger\|\) is called the reciprocal of the smallest singular value only when \(H\ne\{0\}\);
-- the zero-space pseudoinverse convention \(\kappa_B=0\) is explicit;
-- the dynamic corollary explicitly assumes \(T(G)\subseteq G\) and \(S(G)=0\);
-- the time-tube singular-value statement is restricted to \(G^\perp\ne\{0\}\);
+- $\kappa_B=\|(B|_H)^\dagger\|$ is called the reciprocal of the smallest singular value only when $H\ne\{0\}$;
+- the zero-space pseudoinverse convention $\kappa_B=0$ is explicit;
+- the dynamic corollary explicitly assumes $T(G)\subseteq G$ and $S(G)=0$;
+- the time-tube singular-value statement is restricted to $G^\perp\ne\{0\}$;
 - the static finite-field Rule-90 result is no longer incorrectly described as an instance of the real/complex time-tube singular-value corollary.
 
 The linear stability proof remains correct.
@@ -260,11 +260,11 @@ Remaining:
 Completed:
 
 - `thm:cross-source-modulo` proves that, under observation preservation
-  and \(\operatorname{NF}=C\), identification of consistent states modulo an
+  and $\operatorname{NF}=C$, identification of consistent states modulo an
   arbitrary silent relation is equivalent to agreement of normal endpoints
   reached from all equally observed sources;
 - the silent-quotient corollary states the corresponding injectivity criterion
-  on \(C/{\sim}\);
+  on $C/{\sim}$;
 - the prose separates same-input confluence, cross-source endpoint
   identification, endpoint existence, and all-schedule liveness;
 - the aligned two-bit system jointly witnesses preserved observation,
@@ -272,10 +272,10 @@ Completed:
   uniqueness;
 - `thm:fiber-conditional-expectation` proves finite full-support
   observation-fiber averaging is idempotent, weighted self-adjoint,
-  \(L^2\)-contractive, and fixes exactly observation-measurable functions;
+  $L^2$-contractive, and fixes exactly observation-measurable functions;
 - Lean formalizes this finite algebraic characterization and the recognition
   theorem, but does not wrap the operator as Mathlib's measure-theoretic
-  `condexp` onto \(\sigma(B)\); the proof index therefore marks the manuscript
+  `condexp` onto $\sigma(B)$; the proof index therefore marks the manuscript
   theorem as partially formalized;
 - its R1--R3 matrix receipt must be checked against an independently extracted
   transition matrix, so it is not a projector-compared-to-itself certificate;
@@ -312,7 +312,7 @@ results were axiom-free.
 - robust margin and its empty-set audit counterexamples;
 - the finite weighted resampling kernel, its measurable fixed space,
   idempotence, weighted self-adjointness, Pythagorean energy identity, and
-  \(L^2\) contraction;
+  $L^2$ contraction;
 - the exact R1 fiber-support, R2 equal-row, and R3 weighted-detailed-balance
   matrix-recognition equivalence for conditional resampling;
 - synchronous dependency-depth settling and generated-extension uniqueness;
@@ -344,7 +344,7 @@ results were axiom-free.
 - the acyclic Boolean-circuit compiler wrapper;
 - asynchronous functional update count and path-gain estimate;
 - linear quotient/rank/singular-value results;
-- succinct NP/coNP/\(\Pi_2^P\) classifications.
+- succinct NP/coNP/$\Pi_2^P$ classifications.
 
 This is substantial partial formalization, not complete mechanization of the paper.
 
@@ -417,14 +417,14 @@ inverse-limit, linear, and complexity gaps.
 
 | Current paper surface | `chi_nu_test` mathematical anchor | Compatibility verdict |
 |---|---|---|
-| Quotient-first state space \(Q=\Sigma/\Gamma\) | `QuotientRepair.lean:80-125`, `QuotientRepairPresentation` | Direct match. Equality in the paper is equality on the quotient, not necessarily literal equality of presentations. |
+| Quotient-first state space $Q=\Sigma/\Gamma$ | `QuotientRepair.lean:80-125`, `QuotientRepairPresentation` | Direct match. Equality in the paper is equality on the quotient, not necessarily literal equality of presentations. |
 | Boundary-preserving total normalizer | T6: `globalRepair_mem_CQ` (`:281`), `globalRepair_boundary` (`:286`), `globalRepair_idem` (`:304`) | Direct specialization on the globally realizable Route-B presentation. |
-| Exact rewrite completeness \(\operatorname{NF}=C\) | T6: `normalForm_iff_CQ` (`:231`) | Direct specialization where `Hcomp` holds. |
+| Exact rewrite completeness $\operatorname{NF}=C$ | T6: `normalForm_iff_CQ` (`:231`) | Direct specialization where `Hcomp` holds. |
 | Schedule independence under confluence/descent | T6: `schedule_independence` (`:340`) | Compatible exact result. The paper's receipt bound is a different, conditional approximate endpoint theorem. |
 | Confluence versus boundary determination | `Core/Primitives.lean`: `confluence_of_commute` (`:1253`), `boundary_fiber_observer_unique` (`:1191`), `demoCarrier_not_confluent` (`:1371`) | Strong conceptual match. Path confluence and injectivity of the protected boundary on consistent quotient states are correctly separated. |
 | Gauge-singleton fibers | `CarrierBridge.rule90Cylinder_Hfib_tube_gauge` (`:216`), `hfib_strictly_weaker_than_informationSet` (`:382`) | Compatible after quotienting gauge. Raw-record information-set injectivity is stronger and must not be identified with quotient-fiber injectivity. |
 | Empty/reconstructing/ambiguous trichotomy | T31: `Rule90Readout.readout_trichotomy` (`:301`), `tubeData_bijective_iff` (`:321`) | Direct conceptual match. T31 is an exact finite-field/cardinality instance of the paper's fiber trichotomy. |
-| Unique terminal on unrealizable fibers | T27: `routeA_world_exists_unique` (`:1162`), `routeA_world_consistent_iff` (`:1175`), `routeA_observer_uniqueness` (`:1148`) | Now directly captured by `thm:audited-terminal` with \(T\supseteq C\). It is not an instance of the stronger \(\operatorname{NF}=C\) corollary. |
+| Unique terminal on unrealizable fibers | T27: `routeA_world_exists_unique` (`:1162`), `routeA_world_consistent_iff` (`:1175`), `routeA_observer_uniqueness` (`:1148`) | Now directly captured by `thm:audited-terminal` with $T\supseteq C$. It is not an instance of the stronger $\operatorname{NF}=C$ corollary. |
 | Existence of unrealizable Route-A fibers | T31 landing: `exists_unrealizable_tube_iff` (`RouteA.lean:1614`) | Compatible. The paper's obstruction output and admissible-domain restriction preserve rather than hide these fibers. |
 | Strong normalization of every decode schedule | T32: `decodeStep_wellFounded` (`:1781`), `routeA_universal_settlement` (`:1821`) | Compatible but logically independent. The paper's audited-terminal theorem assumes only weak normalization; T32 supplies a stronger carrier-specific fact. The approximate endpoint theorem does not reprove T32. |
 | Strong local-repair obstruction | `Core/Rule90.rule90_no_frustrationFree_repair` (`:212`); Route-A cylinder no-go | Same obstruction theme, but definitions differ. The paper's strong repair is a one-map section into a local relation; Route A is a multi-step transactional decoder. No equivalence should be claimed without a bridge. |
@@ -439,8 +439,8 @@ inverse-limit, linear, and complexity gaps.
 
 The paper contains two distinct exact interfaces:
 
-1. `cor:empty-singleton` assumes \(\operatorname{NF}=C\). It matches the T6 `QuotientRepair` presentation, where quiescence and consistency coincide.
-2. `thm:audited-terminal` assumes \(C\subseteq T=\operatorname{NF}\). It matches T27 Route A, where every fiber has one quiescent terminal but an unrealizable fiber's terminal is not consistent.
+1. `cor:empty-singleton` assumes $\operatorname{NF}=C$. It matches the T6 `QuotientRepair` presentation, where quiescence and consistency coincide.
+2. `thm:audited-terminal` assumes $C\subseteq T=\operatorname{NF}$. It matches T27 Route A, where every fiber has one quiescent terminal but an unrealizable fiber's terminal is not consistent.
 
 This distinction is essential. Applying the first theorem to raw Route-A decode normal forms would be false; applying the second is mathematically faithful.
 
@@ -452,25 +452,25 @@ T31 proves a sharp readout trichotomy:
 - at equality, it is bijective;
 - below it, it is injective but not surjective and unrealizable readings exist.
 
-The paper's \(Q^{\mathrm{adm}}\) metric domain correctly retains only reconstructing, realizable fibers for total finite-valued normalizers while leaving T31-style unrealizable fibers visible in the exact layer. This is compatible and avoids silently inventing a metric value for \(\bot\).
+The paper's $Q^{\mathrm{adm}}$ metric domain correctly retains only reconstructing, realizable fibers for total finite-valued normalizers while leaving T31-style unrealizable fibers visible in the exact layer. This is compatible and avoids silently inventing a metric value for $\bot$.
 
 ### `H_fib` is not raw information-set injectivity
 
 In `chi_nu_test`, `H_fib` may conclude `gaugeEquiv` on raw records, whereas an information set concludes literal raw-record equality. `CarrierBridge.hfib_strictly_weaker_than_informationSet` gives an explicit carrier where the former holds and the latter fails.
 
-The current paper is quotient-first, so its \(B|_C\) injectivity corresponds naturally to `H_fib` only after declared gauge redundancy is removed. Do not describe it as equivalent to raw information-set injectivity unless the presentation-to-quotient map is injective on the chosen representatives.
+The current paper is quotient-first, so its $B|_C$ injectivity corresponds naturally to `H_fib` only after declared gauge redundancy is removed. Do not describe it as equivalent to raw information-set injectivity unless the presentation-to-quotient map is injective on the chosen representatives.
 
-### Mathematical interface in the \(\chi_\nu\) note
+### Mathematical interface in the $\chi_\nu$ note
 
 Within the permitted mathematical scope, `extra/chi_nu_susceptibility_bounds.tex` uses:
 
-- a fixed-regulator quotient \(Q_r=\Sigma_r/\Gamma_r\);
-- a quotient normal-form map \(n_r\) inside the activation \(q\oplus e\);
+- a fixed-regulator quotient $Q_r=\Sigma_r/\Gamma_r$;
+- a quotient normal-form map $n_r$ inside the activation $q\oplus e$;
 - a receipt requiring invariance under relabeling and accepted repair-schedule changes.
 
 The current paper is compatible with those interfaces conditionally:
 
-- a total \(n_r\) must act on a declared realizable/reconstructing domain or be independently supplied as a total activation structure;
+- a total $n_r$ must act on a declared realizable/reconstructing domain or be independently supplied as a total activation structure;
 - any presentation-level activation must descend through the quotient;
 - schedule/relabeling invariance requires exact naturality or a quantitative defect receipt, not merely the name “normalizer.”
 
@@ -496,7 +496,7 @@ Useful but nonblocking additions would be:
 
 - a general finite-field fiber-cardinality theorem, making the T31-style empty/unique/ghost trichotomy a reusable paper result rather than only a Rule-90 example;
 - a short proposition relating raw information sets, quotient information sets, and gauge-singleton fibers;
-- a partial-normalizer naturality theorem that tracks obstruction values across refinement instead of restricting all metric results to \(Q^{\mathrm{adm}}\).
+- a partial-normalizer naturality theorem that tracks obstruction values across refinement instead of restricting all metric results to $Q^{\mathrm{adm}}$.
 
 ## Build and PDF verification
 

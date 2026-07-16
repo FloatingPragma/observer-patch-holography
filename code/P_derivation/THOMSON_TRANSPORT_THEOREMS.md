@@ -394,15 +394,15 @@ Delta_impl_exact(P_C) = 8.686567842708528400985442542885969768...
 Delta_source_residual(P_C) = 0.041465861005223389053448715357314044...
 ```
 
-Equivalently, if \(x=N_c\alpha_3(m_Z;P_C)/\pi\) and the implemented quark
-screen is \(1-x\), the endpoint package requires
+Equivalently, if $x=N_c\alpha_3(m_Z;P_C)/\pi$ and the implemented quark
+screen is $1-x$, the endpoint package requires
 
 ```text
 S_required(P_C) = 0.895400132647658797805800283181670641...
 c_Q(P_C) = 0.658025759927155435638230170232360050...
 ```
 
-where \(c_Q=(S_{\rm required}-(1-x))/x^2\). This is a compact scalar form of
+where $c_Q=(S_{\rm required}-(1-x))/x^2$. This is a compact scalar form of
 the missing Ward-projected QCD screening and endpoint-remainder map. It is not a
 source-only derivation of that map.
 

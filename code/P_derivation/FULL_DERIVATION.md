@@ -320,8 +320,8 @@ S_required(P_C) = 0.895400132647658797805800283181670641...
 c_Q(P_C) = 0.658025759927155435638230170232360050...
 ```
 
-The scalar \(c_Q\) is defined by \(S_{\rm required}=1-x+c_Qx^2\), with
-\(x=N_c\alpha_3(m_Z;P_C)/\pi\). It is the compact endpoint target for a
+The scalar $c_Q$ is defined by $S_{\rm required}=1-x+c_Qx^2$, with
+$x=N_c\alpha_3(m_Z;P_C)/\pi$. It is the compact endpoint target for a
 source-only Ward-projected QCD screening and endpoint-remainder map.
 
 ## Status

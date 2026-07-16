@@ -285,7 +285,7 @@ The OPH connection is direct.
 
 In previous chapters, we developed the idea that time emerges from modular
 flow. At finite cutoff, or in a special type-I representation, an observer has
-a patch \(P\) on the holographic screen and the reduced density matrix on that
+a patch $P$ on the holographic screen and the reduced density matrix on that
 patch defines a modular Hamiltonian:
 
 $$K_P = -\ln \rho_P$$
@@ -306,7 +306,7 @@ through the patch's internal clock.
 
 In the continuum limit this operator formula is not always the right target.
 Continuum algebras can be non-type-I, so there may be no density matrix inside
-the cap algebra and no inner operator \(K=-\log\rho\). The more general OPH
+the cap algebra and no inner operator $K=-\log\rho$. The more general OPH
 statement is about the modular automorphism group itself: the whole flow of the
 cap's observable algebra, read on the geometric cap pair.
 

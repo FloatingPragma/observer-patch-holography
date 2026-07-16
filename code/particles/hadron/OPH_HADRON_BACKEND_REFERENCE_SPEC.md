@@ -44,11 +44,11 @@ electromagnetic spectral-measure export, not another stable-mass export.
 
 Use the isotropic Wilson plaquette gauge action
 
-\[
+$$
 S_g(U;\beta)
 =
 \beta \sum_p \left(1 - \frac{1}{3}\Re\mathrm{Tr} U_p\right).
-\]
+$$
 
 Concrete conventions:
 
@@ -61,10 +61,10 @@ Concrete conventions:
 
 Use clover-improved Wilson fermions with a single explicit profile choice:
 
-\[
+$$
 D_f = D_W(am_f) + \frac{i}{4} c_{SW} \sigma_{\mu\nu} F_{\mu\nu},
 \qquad c_{SW} = 1.0.
-\]
+$$
 
 Concrete conventions:
 
@@ -87,27 +87,27 @@ Use the following exact determinant representation.
 For the degenerate light doublet, use standard HMC with one pseudofermion field
 for the positive Hermitian operator
 
-\[
+$$
 Q_l^\dagger Q_l,
 \qquad
 Q_l = \gamma_5 D_l.
-\]
+$$
 
 Pseudofermion action:
 
-\[
+$$
 S_{pf,l} = \phi_l^\dagger (Q_l^\dagger Q_l)^{-1} \phi_l.
-\]
+$$
 
 ### 4.2 Strange flavor
 
 For the strange flavor, use RHMC on
 
-\[
+$$
 (Q_s^\dagger Q_s)^{-1/2},
 \qquad
 Q_s = \gamma_5 D_s.
-\]
+$$
 
 with a minimax rational approximation of order `12` over the spectral interval
 
@@ -179,13 +179,13 @@ export.
 
 Export `pi_iso(t)` as the real zero-momentum projected connected correlator
 
-\[
+$$
 C_\pi(t; s)
 =
 \sum_{\mathbf x}
 \Re\mathrm{tr}_{c,\mathrm{spin}}
 \left[\gamma_5 S_l(x;s)\gamma_5 S_l(s;x)\right].
-\]
+$$
 
 This is exactly the array the repo expects as `pi_iso` for one cfg and one
 source.
@@ -194,19 +194,19 @@ source.
 
 Use the local proton interpolating field
 
-\[
+$$
 N_\alpha(x)
 =
 \epsilon^{abc}
 \big(u^{aT}(x) C\gamma_5 d^b(x)\big)
  u^c_\alpha(x),
-\]
+$$
 
 with positive-parity projector
 
-\[
+$$
 P_+ = \frac{1 + \gamma_4}{2}.
-\]
+$$
 
 Export the projected zero-momentum direct and exchange pieces separately:
 
@@ -215,9 +215,9 @@ Export the projected zero-momentum direct and exchange pieces separately:
 
 with the exact convention that the repo performs the subtraction
 
-\[
+$$
 N_{\mathrm{iso}}(t) = N_{\mathrm{iso,direct}}(t) - N_{\mathrm{iso,exchange}}(t).
-\]
+$$
 
 The backend must **not** fold the minus sign into the exported exchange array.
 The subtraction happens only once, in the repo pipeline.

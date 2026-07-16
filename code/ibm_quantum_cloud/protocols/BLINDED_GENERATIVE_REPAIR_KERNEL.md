@@ -14,9 +14,9 @@ normal-form settlement does not select a probability law and that a repair
 generator relaxes only after a reference law has been declared. The
 edge-sector handoff likewise assumes a generator with stationary law
 
-\[
+$$
 \pi_\beta(\alpha)\propto d_\alpha e^{-\beta C_2(\alpha)}.
-\]
+$$
 
 The experiment below therefore tests an engineered observer-like system with
 local state, a proposal boundary, readback, durable records, conditional
@@ -25,57 +25,57 @@ that nature must choose the programmed controller.
 
 ## Primary Kernel
 
-Let \(G\) be a finite group with a symmetric generator set
-\(S=S^{-1}\). The observer-visible mismatch state is
+Let $G$ be a finite group with a symmetric generator set
+$S=S^{-1}$. The observer-visible mismatch state is
 
-\[
+$$
 h=x_A^{-1}x_B\in G,
 \qquad
 \Phi(h)=\ell_S(h,e),
-\]
+$$
 
-where \(\ell_S\) is Cayley word distance and \(e\) is the consistent normal
+where $\ell_S$ is Cayley word distance and $e$ is the consistent normal
 form.
 
 The conventional heat step is
 
-\[
+$$
 H_G(h,h')=
 \frac{1}{|S|}
 \#\{s\in S:h'=hs\}.
-\]
+$$
 
 To avoid periodicity and nonunique parity-class stationary laws, the benchmark
 uses the preregistered lazy heat step
 
-\[
+$$
 L_G=\frac{I+H_G}{2}.
-\]
+$$
 
-For a proposed repair generator \(s\), the system writes the record
+For a proposed repair generator $s$, the system writes the record
 
-\[
+$$
 a(h,s)=\mathbf 1[\Phi(hs)<\Phi(h)].
-\]
+$$
 
 It commits the update only when that public record is one:
 
-\[
+$$
 R_s(h)=
 \begin{cases}
 hs,&a(h,s)=1,\\
 h,&a(h,s)=0.
 \end{cases}
-\]
+$$
 
-Averaging uniformly over repair proposals gives \(R_G\). The primary ongoing
+Averaging uniformly over repair proposals gives $R_G$. The primary ongoing
 process and the depth-matched open-loop null are
 
-\[
+$$
 K_{\rm repair}=L_G R_G,
 \qquad
 K_{\rm heat}=L_G^2.
-\]
+$$
 
 Both begin from ordinary computational-basis states. No heat-kernel or OPH
 target amplitudes are prepared. The held-out observable is the joint process
@@ -85,32 +85,32 @@ matrix.
 
 ## Exact Frozen Predictions
 
-For \(\mathbb Z_5\) with generators \(\{+1,-1\}\), the record-gated stationary
+For $\mathbb Z_5$ with generators $\{+1,-1\}$, the record-gated stationary
 law is
 
-\[
+$$
 \pi_{\mathbb Z_5}^{\rm repair}
 =\frac{1}{33}(21,5,1,1,5),
 \qquad
 \mathbb E[\Phi]=\frac{14}{33}.
-\]
+$$
 
 The open-loop lazy-heat null is uniform and has
-\(\mathbb E[\Phi]=6/5\). The stationary one-step KL separation is
+$\mathbb E[\Phi]=6/5$. The stationary one-step KL separation is
 `0.3076363756104924` nats per transition.
 
-For \(S_3\) with all three transpositions as generators, in the state order
-\(e,(01),(12),(02),(012),(021)\),
+For $S_3$ with all three transpositions as generators, in the state order
+$e,(01),(12),(02),(012),(021)$,
 
-\[
+$$
 \pi_{S_3}^{\rm repair}
 =\left(\frac12,\frac16,\frac16,\frac16,0,0\right),
 \qquad
 \mathbb E[\Phi]=\frac12.
-\]
+$$
 
 The open-loop lazy-heat null is uniform and has
-\(\mathbb E[\Phi]=7/6\). The stationary one-step KL separation is
+$\mathbb E[\Phi]=7/6$. The stationary one-step KL separation is
 `0.3748900964125387` nats per transition.
 
 These values are consequences of the frozen transition tables, not values
@@ -120,22 +120,22 @@ placed in an initial quantum state.
 
 The companion diagnostic makes the dimension convention explicit:
 
-\[
+$$
 \pi_{\kappa}(R)
 \propto d_R^{\kappa}e^{-\beta C_R}.
-\]
+$$
 
-With a reciprocal proposal \(Q\), the quotient-lumpable Metropolis--Hastings
+With a reciprocal proposal $Q$, the quotient-lumpable Metropolis--Hastings
 acceptance rule is
 
-\[
+$$
 A_\kappa(R,R')=
 \min\!\left[
 1,
 \frac{d_{R'}^\kappa e^{-\beta C_{R'}}Q(R',R)}
 {d_R^\kappa e^{-\beta C_R}Q(R,R')}
 \right].
-\]
+$$
 
 The frozen hypotheses are:
 
@@ -146,7 +146,7 @@ The frozen hypotheses are:
 
 This diagnostic is identifiable only when some proposal edge joins unequal
 dimensions. `S3`, `A4`, and the seeded random spectrum have positive KL
-separation. `Z3` and `Z5` have \(d_R=1\) in every sector and therefore give
+separation. `Z3` and `Z5` have $d_R=1$ in every sector and therefore give
 exactly zero separation. They are mandatory negative controls: no analysis may
 claim dimension-exponent evidence from an abelian run.
 

@@ -269,8 +269,8 @@ recovery possible.
 
 In quantum gravity, we only have approximate codes. The Knill-Laflamme
 condition is correspondingly approximate, with corrections often organized in
-powers of \(1/N\). That is enough to make classical spacetime look stable in
-the controlled large-\(N\) settings where the code picture applies.
+powers of $1/N$. That is enough to make classical spacetime look stable in
+the controlled large-$N$ settings where the code picture applies.
 
 OPH uses this theorem only when the code data are actually present. One needs a
 protected subspace, an error family, and a recovery operation. Bare overlap

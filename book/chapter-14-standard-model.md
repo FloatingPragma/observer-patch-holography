@@ -649,7 +649,7 @@ These are exact rationals, the Standard Model hypercharges, with the ratios
 fixed by anomaly freedom together with Yukawa invariance and the absolute
 values fixed by standard normalization. There is nothing to tune. The
 sixth-integer lattice is exactly the one compatible with the physical quotient
-\((SU(3)\times SU(2)\times U(1))/\mathbb Z_6\).
+$(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$.
 
 The $Y$ symbols are hypercharges. $Q$ labels the left-handed quark doublet,
 $L$ the left-handed lepton doublet, $H$ the Higgs doublet, and $u$, $d$, and

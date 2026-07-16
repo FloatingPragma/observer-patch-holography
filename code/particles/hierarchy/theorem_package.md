@@ -146,7 +146,7 @@ Define the electroweak projection exponent by
 \frac{24\pi}{\alpha_U(P)\log(N/\pi)}.
 ```
 
-Since \(0<|g_*'|<1\), this exponent is unique. The target projection
+Since $0<|g_*'|<1$, this exponent is unique. The target projection
 `Pi_EW(P_star,N_CRC)=4P_star` is equivalent to the bridge residual
 
 ```math

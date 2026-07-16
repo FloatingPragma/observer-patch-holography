@@ -45,7 +45,7 @@ The particle program uses two public numerical surfaces.
 2. Rows controlled by confined quarks and gluons use a clearly marked empirical
    hadron closure when a final display value is needed.
 
-The empirical closure uses measured \(e^+e^-\to\mathrm{hadrons}\) data through
+The empirical closure uses measured $e^+e^-\to\mathrm{hadrons}$ data through
 the standard dispersion relation. This is the strongest available route in the
 absence of a production OPH hadron backend, because the optical theorem turns
 the measured hadronic cross section into the same electromagnetic spectral
@@ -56,7 +56,7 @@ function that enters the Ward-projected Thomson transport.
 The hard barrier is nonperturbative QCD. Perturbative QCD is useful
 for high-energy tails, matching windows, and consistency checks. It cannot
 replace the low-energy resonance-region spectrum. That region contains the
-\(\rho\), \(\omega\), \(\phi\), charm threshold, and other hadronic structures
+$\rho$, $\omega$, $\phi$, charm threshold, and other hadronic structures
 that dominate the dispersion integral.
 
 ## Fine-Structure Constant
@@ -79,9 +79,9 @@ as a closed one-loop transport term. The missing source-only piece is the
 Ward-projected hadronic spectral measure plus a same-scheme endpoint
 remainder.
 
-For the empirical closure, the hadronic term is computed from \(R(s)\), the
-ratio of the bare cross section for \(e^+e^-\to\mathrm{hadrons}\) to the
-pointlike \(e^+e^-\to\mu^+\mu^-\) cross section. The dispersion form is
+For the empirical closure, the hadronic term is computed from $R(s)$, the
+ratio of the bare cross section for $e^+e^-\to\mathrm{hadrons}$ to the
+pointlike $e^+e^-\to\mu^+\mu^-$ cross section. The dispersion form is
 
 ```text
 Delta alpha_had(q^2)
@@ -118,7 +118,7 @@ Delta_required(P_C)   = 8.728033703713751790038891258243283813...
 Delta_source_residual = 0.041465861005223389053448715357314044...
 ```
 
-The empirical \(e^+e^-\to\mathrm{hadrons}\) closure should compute that
+The empirical $e^+e^-\to\mathrm{hadrons}$ closure should compute that
 transport gap as a dispersion integral, with the uncertainty and compilation
 choice shown in the final row.
 
@@ -126,16 +126,16 @@ choice shown in the final row.
 
 Primary ingest candidates:
 
-- PDG hadronic cross-section and \(R\)-ratio data files:
+- PDG hadronic cross-section and $R$-ratio data files:
   `https://pdg.lbl.gov/current/xsect/`
-- HEPData records for inclusive \(R(s)\) and exclusive hadronic channels:
+- HEPData records for inclusive $R(s)$ and exclusive hadronic channels:
   `https://www.hepdata.net/`
 - alphaQED by F. Jegerlehner, including hadronic running of
-  \(\alpha_{\mathrm{QED}}\):
+  $\alpha_{\mathrm{QED}}$:
   `https://www-com.physik.hu-berlin.de/~fjeger/software.html`
 - KNT19, `arXiv:1911.00367`, for a modern data-driven HVP compilation.
 - DHMZ and HVPTools analyses for an independent data-combination path.
-- Muon \(g-2\) Theory Initiative 2025 white paper, `arXiv:2505.21476`, for
+- Muon $g-2$ Theory Initiative 2025 white paper, `arXiv:2505.21476`, for
   current HVP context and lattice/data-driven tension policy.
 
 The production pipeline should not rely on a single black-box number. It should
@@ -200,7 +200,7 @@ PDG, NIST, or hadronic cross-section data.
 
 Use `oph_plus_empirical_hadron_closure` for rows where OPH fixes the source
 frame and the remaining QCD spectral term is supplied by measured
-\(e^+e^-\to\mathrm{hadrons}\) data.
+$e^+e^-\to\mathrm{hadrons}$ data.
 
 Use `compare_only` for rows that are useful diagnostics but do not define the
 public prediction.
@@ -221,7 +221,7 @@ The production pipeline, in its target form, comprises:
 - a schema for `oph_empirical_ee_hadronic_spectral_measure`;
 - an ingest script that reads PDG/HEPData tables without silently applying
   physics corrections;
-- a normalization script that converts cross sections or \(R(s)\) into the
+- a normalization script that converts cross sections or $R(s)$ into the
   Ward-projected spectral convention used by `code/P_derivation`;
 - a dispersion integrator with covariance propagation and compilation labels;
 - `P_derivation/empirical_thomson_endpoint.py`, combining the empirical
@@ -241,7 +241,7 @@ The public claim is:
 ```text
 OPH fixes the screen-cell fixed-point equation and the electroweak source
 frame. The low-energy hadronic spectral term is supplied by the best available
-empirical \(e^+e^-\to\mathrm{hadrons}\) data until a source-only OPH hadron
+empirical $e^+e^-\to\mathrm{hadrons}$ data until a source-only OPH hadron
 backend emits the same spectral measure directly.
 ```
 

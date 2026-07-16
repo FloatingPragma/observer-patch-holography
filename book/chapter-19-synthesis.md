@@ -79,11 +79,11 @@ state carries. Lorentz kinematics is the rulebook for relating moving
 observers. Generalized entropy is the horizon-plus-bulk entropy accounting that
 gravity has to respect.
 
-The quotient \(H^3=SO^+(3,1)/SO(3)\) has the same spirit as choosing what
-information matters. \(SO^+(3,1)\) is the connected Lorentz group, the
-transformations preserving the light-cone structure. \(SO(3)\) is the ordinary
+The quotient $H^3=SO^+(3,1)/SO(3)$ has the same spirit as choosing what
+information matters. $SO^+(3,1)$ is the connected Lorentz group, the
+transformations preserving the light-cone structure. $SO(3)$ is the ordinary
 rotation group that changes spatial orientation while leaving the local rest
-frame's direction of time fixed. Dividing by \(SO(3)\) keeps the boost or
+frame's direction of time fixed. Dividing by $SO(3)$ keeps the boost or
 velocity information and discards the redundant orientation label. What is left
 is hyperbolic three-space, the geometry of possible rest frames.
 
@@ -246,7 +246,7 @@ $\ell_\star^2=3\pi/B_\star$ before the Planck-area display is read in SI
 units.
 
 The first target is global. The cosmic record equation
-\(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\) asks for a capacity at which the outside
+$N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})$ asks for a capacity at which the outside
 horizon and the inside observer-accessible public record agree. The value about
 $3.31\times10^{122}$ natural entropy units, or about
 $4.77\times10^{122}$ bits, is located from the measured cosmological constant
@@ -311,8 +311,8 @@ first-principles claim.
 
 The electroweak hierarchy uses the same local ruler. Once the first-principles
 side fixes the unified coupling, the hierarchy relation fixes the ratio
-\(v/E_\star\) between the electroweak scale and the reference scale. It supplies
-no mass in GeV until an independent physical value of \(E_\star\) is
+$v/E_\star$ between the electroweak scale and the reference scale. It supplies
+no mass in GeV until an independent physical value of $E_\star$ is
 established. The step that connects the first-principles side to the Higgs closes
 without any leftover discrepancy, so the reading of Higgs naturality is carried
 along the same line, with no separate bare scalar mass put in by hand. The full
@@ -347,7 +347,7 @@ the electroweak bridge to the de Sitter capacity are open, and the cosmological
 posterior has not been propagated. The
 screen-sieve theorem reads the weak-scale exponent as an icosahedral sampling
 law on the finite spherical screen: the refinement-stable screen has twelve
-unit fivefold defects, exposed as central ports on the \(A_5\) vertex orbit.
+unit fivefold defects, exposed as central ports on the $A_5$ vertex orbit.
 
 A sieve is a finite sampling rule. Here it says that the stable spherical
 screen exposes twelve special ports, organized like the vertices of an

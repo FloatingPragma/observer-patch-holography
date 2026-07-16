@@ -109,7 +109,7 @@ What the repo-native paper now supplies:
 - a partial normalizer and universal property for injectivity of the observation
   map on the consistent set;
 - an exact theorem saying that, under observation preservation and
-  \(\operatorname{NF}=C\), the boundary identifies consistent states modulo an
+  $\operatorname{NF}=C$, the boundary identifies consistent states modulo an
   arbitrary silent relation if and only if normal endpoints reached from every
   pair of equally observed sources agree modulo that relation;
 - the corresponding injectivity criterion on the silent quotient;
@@ -160,7 +160,7 @@ The paper now proves the finite abstract projection core requested by #305. On
 a finite full-support weighted space, it defines resampling from the conditional
 weight inside each observation fiber and proves that the induced operator is
 the conditional expectation onto observation-measurable functions. It is
-idempotent, weighted self-adjoint, \(L^2\)-contractive, and its fixed space is
+idempotent, weighted self-adjoint, $L^2$-contractive, and its fixed space is
 exactly the observation-measurable subspace. These properties are Lean-backed,
 including an exact weighted Pythagorean identity.
 

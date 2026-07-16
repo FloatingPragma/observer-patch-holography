@@ -106,12 +106,12 @@ Useful background:
 | Gauge group | The symmetry bookkeeping behind forces: allowed relabeling inside the force description that leaves physics unchanged. |
 | Hypercharge | A Standard Model charge label used to build electric charge. |
 | Proton decay | A hypothetical proton breakup. OPH's product-group branch forbids the grand-unified gauge-boson route; so does the Standard Model. |
-| \(P\) | The substrate pixel ratio. Working value located under SL-3 from measured α: 1.630968209403959… A counted input. The forward-model closure point \(P_{\mathrm{fwd}}\) = 1.630972095858897… (interval-certified) is a distinct numeral; their difference is the loop residual (CL-1/CL-2). |
-| \(N\) | The record capacity. Working value located under SL-4 from measured Λ: about \(3.31\times10^{122}\). A counted input. |
-| \(N_{\mathrm{CRC}}^{\mathrm{EW}}\) | The conditional electroweak-bridge capacity, \(3.5323546226929906511\ldots\times10^{122}\). SL-4 admits one N. The nominal 6.6% difference from the Λ-located value is a conditional mismatch because F and CP-1 to CP-3 remain open; the final comparison must propagate the joint Planck posterior (CL-3). |
-| 24-tick repair lock | One global screen step equals 24 rounds of local repair, \(2(8+3+1)\). The ×2 write/check orientation (12→24) is a discrete structural selection with a recorded menu size, not a parameter-free deduction. |
-| \(G_{\mathrm{OPH}}\) | The SI bridge display for Newton's constant, \(6.674299995910528\ldots\times10^{-11}\,\mathrm{m^3\,kg^{-1}\,s^{-2}}\). It consumes measured bridge quantities and carries the QCD/cesium-clock caveat. The structural claim is the dimensionless gravity theorem. |
-| \(\chi_\nu\) | The coherent scalar susceptibility continuation. Currently a speculative continuation with no testable content; see the appendix. |
+| $P$ | The substrate pixel ratio. Working value located under SL-3 from measured α: 1.630968209403959… A counted input. The forward-model closure point $P_{\mathrm{fwd}}$ = 1.630972095858897… (interval-certified) is a distinct numeral; their difference is the loop residual (CL-1/CL-2). |
+| $N$ | The record capacity. Working value located under SL-4 from measured Λ: about $3.31\times10^{122}$. A counted input. |
+| $N_{\mathrm{CRC}}^{\mathrm{EW}}$ | The conditional electroweak-bridge capacity, $3.5323546226929906511\ldots\times10^{122}$. SL-4 admits one N. The nominal 6.6% difference from the Λ-located value is a conditional mismatch because F and CP-1 to CP-3 remain open; the final comparison must propagate the joint Planck posterior (CL-3). |
+| 24-tick repair lock | One global screen step equals 24 rounds of local repair, $2(8+3+1)$. The ×2 write/check orientation (12→24) is a discrete structural selection with a recorded menu size, not a parameter-free deduction. |
+| $G_{\mathrm{OPH}}$ | The SI bridge display for Newton's constant, $6.674299995910528\ldots\times10^{-11}\,\mathrm{m^3\,kg^{-1}\,s^{-2}}$. It consumes measured bridge quantities and carries the QCD/cesium-clock caveat. The structural claim is the dimensionless gravity theorem. |
+| $\chi_\nu$ | The coherent scalar susceptibility continuation. Currently a speculative continuation with no testable content; see the appendix. |
 | Golden ratio | The number about 1.618 that appears in five-fold symmetry. SL-2 places the pixel off this balance point by one Gaussian-normalized observation width. |
 
 ## 1. Closure Tests
@@ -124,13 +124,13 @@ row closes by relabeling.
 
 | # | Closure | Required | Current status | Residual (relative) | Pull / evaluation status |
 |---|---|---|---|---|---|
-| CL-1 | P-loop, source chain: \(P = \varphi + \sqrt{\pi}/A_T(P)\) with source-only transport | exact after map completion | incomplete declared-map output: α⁻¹ = 136.994835177413 (interval-certified unique fixed point, width 7.2×10⁻²⁴); Ward-projected transport absent | 3.0×10⁻⁴ diagnostic gap | not a physical pull; map incomplete |
+| CL-1 | P-loop, source chain: $P = \varphi + \sqrt{\pi}/A_T(P)$ with source-only transport | exact after map completion | incomplete declared-map output: α⁻¹ = 136.994835177413 (interval-certified unique fixed point, width 7.2×10⁻²⁴); Ward-projected transport absent | 3.0×10⁻⁴ diagnostic gap | not a physical pull; map incomplete |
 | CL-2 | P-loop with gauge-width term, self-consistent map | exact after map completion | incomplete declared-map output: certified unique fixed point α⁻¹ = 137.035660136947 vs 137.035999177(21) | 2.5×10⁻⁶ diagnostic gap | not a physical pull; map incomplete |
-| CL-3 | One capacity (SL-4): \(N_{\mathrm{EW}} = \pi\exp(6\pi/(P\alpha_U))\) vs N from Λ | exact only after F and CP-1 to CP-3 close | conditional bridge 3.53×10¹²² vs nominal Λ readout 3.31×10¹²² | nominal 6.6×10⁻²; posterior propagation pending | not evaluated; joint Planck posterior not propagated |
-| CL-4 | Hierarchy bridge at the one N: \(\alpha_U\log(N/\pi) = 6\pi/P\) | conditional on the same premises | nominal 11.5546 vs 11.5573 at the Λ-located N | nominal 2.3×10⁻⁴ (log scale); posterior propagation pending | not evaluated |
-| CL-5 | Forward electroweak emission at the SL-3 pixel: \((M_W, M_Z)\) | a common physical observable and convention | not evaluable. The emitted pair is a running/tree chart coordinate; the quoted references are stale PDG 2025 mass-dependent-width Breit-Wigner parameters, not pole masses | not evaluable | not evaluable |
-| CL-6 | Printed pair identity: \(\alpha_{\mathrm{root}} = (P_{\mathrm{fwd}} - \varphi)/\sqrt{\pi}\) | exact | closed: holds to ≥ 35 digits after converged precision-100 reruns; the converged α⁻¹ = 136.994835177413 supersedes the earlier printed tail 136.994835164622 beyond digit 9 | 3.1×10⁻³⁶ (report), 1.2×10⁻³⁸ (trunk) | n/a |
-| CL-7 | Capacity readback map: \(F(N) = N\) | exact | conditionally constructed: G2-GAP-1 proves the readback fixed point equals the bridge capacity modulo premises CP-1 to CP-3, certified conditional fixed point 3.5321315434×10¹²²; every declared-structure candidate certified and excluded; unconditional construction open | n/a | n/a |
+| CL-3 | One capacity (SL-4): $N_{\mathrm{EW}} = \pi\exp(6\pi/(P\alpha_U))$ vs N from Λ | exact only after F and CP-1 to CP-3 close | conditional bridge 3.53×10¹²² vs nominal Λ readout 3.31×10¹²² | nominal 6.6×10⁻²; posterior propagation pending | not evaluated; joint Planck posterior not propagated |
+| CL-4 | Hierarchy bridge at the one N: $\alpha_U\log(N/\pi) = 6\pi/P$ | conditional on the same premises | nominal 11.5546 vs 11.5573 at the Λ-located N | nominal 2.3×10⁻⁴ (log scale); posterior propagation pending | not evaluated |
+| CL-5 | Forward electroweak emission at the SL-3 pixel: $(M_W, M_Z)$ | a common physical observable and convention | not evaluable. The emitted pair is a running/tree chart coordinate; the quoted references are stale PDG 2025 mass-dependent-width Breit-Wigner parameters, not pole masses | not evaluable | not evaluable |
+| CL-6 | Printed pair identity: $\alpha_{\mathrm{root}} = (P_{\mathrm{fwd}} - \varphi)/\sqrt{\pi}$ | exact | closed: holds to ≥ 35 digits after converged precision-100 reruns; the converged α⁻¹ = 136.994835177413 supersedes the earlier printed tail 136.994835164622 beyond digit 9 | 3.1×10⁻³⁶ (report), 1.2×10⁻³⁸ (trunk) | n/a |
+| CL-7 | Capacity readback map: $F(N) = N$ | exact | conditionally constructed: G2-GAP-1 proves the readback fixed point equals the bridge capacity modulo premises CP-1 to CP-3, certified conditional fixed point 3.5321315434×10¹²²; every declared-structure candidate certified and excluded; unconditional construction open | n/a | n/a |
 
 The exactness column binds the completed chain, never the open one. CL-1 and
 CL-2 report certified outputs of incomplete declared maps, not physical pulls
@@ -322,12 +322,12 @@ assumptions:
 | Generation count | A valid OPH construction has two or four light matter generations. | OPH claims exactly three generations on the realized branch. |
 | Fermions and chirality | Chiral fermions have to be imported from the Standard Model by hand. | OPH says matter structure follows from observer consistency. If the key fermion structure has to be assumed, the reconstruction fails. |
 | P-lane protocol | A completed registered fixed-point equation admits no interval-grade contraction certificate on its declared interval, admits multiple solutions there, or its source reads the low-energy target. | The existing certificates prove existence and uniqueness only for the two incomplete declared maps at their stated cutoffs and conventions. The completed Ward-projected map needs its own interval and domain-global certificates. A proof of non-uniqueness for that completed map or a target leak kills the registered lane. |
-| N-lane readback | The capacity readback map F is constructed and \(F(N)\neq N\) at the Λ-located N, or the same equations allow incompatible capacity branches. | The capacity closure is the second substrate constant. CL-7 is open and reduced to the coupling theorem G2-GAP-1; a constructed F that fails is a falsification, not an open item. |
-| 24-tick repair lock | The observer-visible product-adjoint repair spectrum is not \(2(8+3+1)=24\), or the local repair contraction fails to line up with the global screen step. | The repair lock is the bridge between P and N. Its ×2 orientation is a recorded discrete selection; the spectrum content is not, and a different spectrum breaks the mechanism. |
-| Hierarchy witness | The declared first-principles hierarchy map imports \(G\), \(\Lambda\), \(W\), \(Z\), Higgs, low-energy Thomson, cesium-clock, or hadronic inputs, or it misses \(v/E_\star\) on its declared branch: 2.0199803239725553e-17 at the SL-3 working pixel, 2.0198114078576331e-17 at the certified P_fwd. | This row avoids QCD and clock assumptions. It is conditional on the frozen MSSM-like one-loop coefficients \((33/5, 1, -3)\), a recorded structural selection; every α_U descendant, including \(\epsilon_H = 0\), inherits that condition. The recorded scan rejects the SM triple and β_EW alternatives only inside its declared chart-coordinate menu. It does not establish a physical W/Z exclusion or make the coefficient choice uniquely forced. |
-| Dimensionless gravity theorem | The dimensionless gravity relation fails from the stated assumptions. | OPH claims the gravity coupling is a branch readout. The SI display \(G_{\mathrm{OPH}}\) is a bridge display consuming measured quantities and cannot carry this test; the dimensionless theorem can. |
+| N-lane readback | The capacity readback map F is constructed and $F(N)\neq N$ at the Λ-located N, or the same equations allow incompatible capacity branches. | The capacity closure is the second substrate constant. CL-7 is open and reduced to the coupling theorem G2-GAP-1; a constructed F that fails is a falsification, not an open item. |
+| 24-tick repair lock | The observer-visible product-adjoint repair spectrum is not $2(8+3+1)=24$, or the local repair contraction fails to line up with the global screen step. | The repair lock is the bridge between P and N. Its ×2 orientation is a recorded discrete selection; the spectrum content is not, and a different spectrum breaks the mechanism. |
+| Hierarchy witness | The declared first-principles hierarchy map imports $G$, $\Lambda$, $W$, $Z$, Higgs, low-energy Thomson, cesium-clock, or hadronic inputs, or it misses $v/E_\star$ on its declared branch: 2.0199803239725553e-17 at the SL-3 working pixel, 2.0198114078576331e-17 at the certified P_fwd. | This row avoids QCD and clock assumptions. It is conditional on the frozen MSSM-like one-loop coefficients $(33/5, 1, -3)$, a recorded structural selection; every α_U descendant, including $\epsilon_H = 0$, inherits that condition. The recorded scan rejects the SM triple and β_EW alternatives only inside its declared chart-coordinate menu. It does not establish a physical W/Z exclusion or make the coefficient choice uniquely forced. |
+| Dimensionless gravity theorem | The dimensionless gravity relation fails from the stated assumptions. | OPH claims the gravity coupling is a branch readout. The SI display $G_{\mathrm{OPH}}$ is a bridge display consuming measured quantities and cannot carry this test; the dimensionless theorem can. |
 | Low-energy uniqueness | The OPH axioms plus MAR allow many inequivalent low-energy physics worlds with the same admissibility predicates. | If many incompatible worlds pass the same rules, the selection claim fails. |
-| Quark source-spread theorem | A target-free OPH observable breaks the claimed free \((\mathbb R_{>0})^2\) action using only the stated source corpus. | That result would falsify the present non-identifiability theorem and reopen numeric quark reconstruction. |
+| Quark source-spread theorem | A target-free OPH observable breaks the claimed free $(\mathbb R_{>0})^2$ action using only the stated source corpus. | That result would falsify the present non-identifiability theorem and reopen numeric quark reconstruction. |
 
 ### Discriminating Physical Kill Conditions
 
@@ -337,8 +337,8 @@ extensions) part company:
 | Test | Outcome that kills OPH | Why it kills OPH |
 | --- | --- | --- |
 | Blind hadronic closure | A target-blind transport function is emitted under a detached successor whose complete method and decision policy were registered under valid blind or audited clean-room chronology, all readout/scheme gates close, and a completed map meets the successor's frozen failure criterion. | The complete named CL-1 or CL-2 formulation is falsified independently. Historical v2, corrective v3, and V1 cannot execute this test. |
-| Maxwell carrier | With the Maxwell kinetic term, ordinary Lorentz vacuum, and no Higgs, Stückelberg, or medium mass all fixed, the reduced quadratic theory lacks its two transverse \(k^2=0\) modes. | This falsifies the scoped classical Maxwell carrier theorem. A photon-particle mass test applies only after a physical-Hilbert-space and positive-residue pole receipt is also supplied. |
-| Color carrier | With the pure Yang–Mills kinetic term about the trivial flat connection and the perturbative/deconfined phase fixed, the reduced quadratic theory lacks its \(2\dim G\) transverse \(k^2=0\) modes. | This falsifies the scoped quadratic Yang–Mills theorem. Confinement can remove a free physical gluon pole and is not a counterexample to that theorem. |
+| Maxwell carrier | With the Maxwell kinetic term, ordinary Lorentz vacuum, and no Higgs, Stückelberg, or medium mass all fixed, the reduced quadratic theory lacks its two transverse $k^2=0$ modes. | This falsifies the scoped classical Maxwell carrier theorem. A photon-particle mass test applies only after a physical-Hilbert-space and positive-residue pole receipt is also supplied. |
+| Color carrier | With the pure Yang–Mills kinetic term about the trivial flat connection and the perturbative/deconfined phase fixed, the reduced quadratic theory lacks its $2\dim G$ transverse $k^2=0$ modes. | This falsifies the scoped quadratic Yang–Mills theorem. Confinement can remove a free physical gluon pole and is not a counterexample to that theorem. |
 | Einstein tensor carrier | With the pure two-derivative Einstein–Hilbert action, flat vacuum, and no extra fields or higher-curvature terms fixed, the reduced quadratic theory lacks its two transverse-traceless null modes. | This falsifies the scoped Einstein linearization theorem. A graviton-particle mass test applies only after quantization and a positive-residue physical pole have been established. |
 | de Sitter capacity | Cosmological data break the claimed de Sitter capacity relation. | SL-4 reads N from Λ through this relation. If the capacity relation fails, the located working value and the screen bookkeeping fail with it. |
 | Black-hole entropy | Black-hole entropy data contradict the OPH screen-counting rule. | OPH treats screens and records as physical bookkeeping. Wrong black-hole entropy breaks that bookkeeping. |
@@ -388,7 +388,7 @@ data exists or is looked at):
    produces a physical CL-5 pull. The exact-match companion lane remains
    calibration because it consumed its references.
 3. **DESI stance rows.** The fixed-N reading commits to
-   \((w_0, w_a) = (-1, 0)\); a stance on the S8/growth row (currently
+   $(w_0, w_a) = (-1, 0)$; a stance on the S8/growth row (currently
    disfavored, frozen anyway); any birefringence refinement carries its
    trials count (the existing 0.37501° expression was the 4th of 4 tried).
 4. **Prospective neutrino branch.** A source-derived family kernel, cycle law,
@@ -407,11 +407,11 @@ data exists or is looked at):
    is a misattributed ansatz, not an OPH branch failure.
 
 Retrospective comparisons that are not predictions and are not counted as
-evidence: fixed-\(\mathbb{Z}_6\) RAR scatter 0.1328335 dex and error-aware BTFR
+evidence: fixed-$\mathbb{Z}_6$ RAR scatter 0.1328335 dex and error-aware BTFR
 slope 3.8456543 ± 0.0858172 (slope 4 at 1.80σ), where the interpolation
 function is the McGaugh–Lelli–Schombert empirical RAR fit and the SPARC
 samples are not held out; analytic scalar tilt
-\(n_s = 1 - P/48 = 0.9660214956\) at 0.267σ from the Planck summary with an
+$n_s = 1 - P/48 = 0.9660214956$ at 0.267σ from the Planck summary with an
 83-bin CAMB diagnostic of Δχ² = +0.83, where two formula candidates circulate
 and the trials count is part of any future registration.
 
@@ -422,14 +422,14 @@ measurement-attribution rule (section 6):
 
 | Tension | Values | Relative deviation | Evaluation status |
 | --- | --- | --- | --- |
-| One-N mismatch (CL-3) | conditional \(N_{\mathrm{CRC}}^{\mathrm{EW}} = 3.53\times10^{122}\) vs nominal Λ-located \(3.31\times10^{122}\) | nominal 6.6×10⁻² | conditional: F and CP-1 to CP-3 open; joint Planck posterior not propagated |
+| One-N mismatch (CL-3) | conditional $N_{\mathrm{CRC}}^{\mathrm{EW}} = 3.53\times10^{122}$ vs nominal Λ-located $3.31\times10^{122}$ | nominal 6.6×10⁻² | conditional: F and CP-1 to CP-3 open; joint Planck posterior not propagated |
 | Hierarchy bridge (CL-4) | 11.5546 vs nominal 11.5573 at the Λ-located N | nominal 2.3×10⁻⁴ (log scale) | same conditional object as CL-3 |
 | Forward W chart comparison (CL-5) | 80.330 GeV vs stale PDG 2025 mass-dependent-width Breit-Wigner parameter 80.3692(133) GeV | not evaluable | no common physical observable or scheme map; not a pole target |
 | Forward Z chart comparison (CL-5) | 91.119 GeV vs stale PDG 2025 mass-dependent-width Breit-Wigner parameter 91.1880(20) GeV | not evaluable | no common physical observable or scheme map; not a pole target |
 | S8 growth row | out-of-loop row of the dark-sector likelihood surface | n/a | +2.4σ against the model |
 | Source-α gap (CL-1) | incomplete source map contracts to α⁻¹ = 136.994835177413 vs 137.035999177(21) | 3.0×10⁻⁴ diagnostic gap | not a physical pull; Ward-projected transport absent |
 | Gauge-width α gap (CL-2) | incomplete map contracts to 137.035660136947 vs 137.035999177(21) | 2.5×10⁻⁶ diagnostic gap | not a physical pull; Ward-projected transport absent |
-| Bench bound on \(\chi_\nu\) | coupons at rest bound gravitational ΔS ≲ 10⁻¹⁰ | record-level contrasts are 10⁻²–1; the 1:1 record↔gravity identity is ruled out by 8–10 orders | n/a (null bound) |
+| Bench bound on $\chi_\nu$ | coupons at rest bound gravitational ΔS ≲ 10⁻¹⁰ | record-level contrasts are 10⁻²–1; the 1:1 record↔gravity identity is ruled out by 8–10 orders | n/a (null bound) |
 
 Notes:
 
@@ -465,10 +465,10 @@ Notes:
   and carry no evidential weight.
 - The bench bound derives from the corpus's own collaborator analysis
   (`hoverboard-experimental-precursor/reply_to_bmu.md`): with
-  \(F \approx 5.14\times10^{8}\cdot\Delta S\) N, a healthy-device record
+  $F \approx 5.14\times10^{8}\cdot\Delta S$ N, a healthy-device record
   contrast of 10⁻²–1 would produce 10⁷–10⁸ N on an 80×60 mm coupon at rest.
   No such force exists, so the gravitational ΔS is bounded at ≲10⁻¹⁰. This is
-  the strongest existing \(\chi_\nu\) constraint and it binds every future
+  the strongest existing $\chi_\nu$ constraint and it binds every future
   version of the force law before new hardware is built.
 
 ## 4. Executed Tests, Permanent Record
@@ -481,13 +481,13 @@ scope is appended rather than counted as evidence
 
 | Test | Target and data | Result (relative deviation; pull) | Verdict |
 | --- | --- | --- | --- |
-| Neutrino weighted-cycle point | \(\sin^2\theta_{23} = 0.5820560367\), \(\delta_{CP} = -54.419^\circ\) (≡ 305.581°) vs NuFIT 6.1 correlated profiles | Δχ² = 20.12 (with tabulated atmospheric likelihood) and 18.44 (without); both exceed the two-parameter 3σ value 11.83 | **REJECTED.** The candidate was target-informed (exponent law ranked against the measured splitting ratio). The displayed mass tuple (0.01745, 0.01948, 0.05308 eV), sum 0.0900 eV, and Majorana readouts are coordinates on the rejected candidate. |
-| Universal static dark law | fixed-\(\mathbb{Z}_6\) equation applied unchanged to the Milky-Way–Sun system vs the Cassini quadrupole summary | predicted \(Q_2 = 3.6201778\times10^{-26}\,\mathrm{s^{-2}}\), ≈19× the summary 1σ uncertainty above it; pull 19.2232σ (unit endpoint \(3.4021876\times10^{-26}\): 18.0122σ) | **EXCLUDED** as a universal law. The scoped old-settled-galaxy branch survives only with a source-derived applicability or screening rule, which does not yet exist. |
-| IBM Z₅ high-precision run | five-state golden-ratio target \(\varphi^2 = 2.618033988749895\) | measured 2.5498, CI [2.4919, 2.6023]; relative deviation 2.6%; the target sits above the upper bound (≈2.4σ at the interval-implied width) | **The run excludes the target.** This is the one reconciled verdict; it replaces the pair of documents that called the same run confirmation and disproof. Standard QM predicts the ideal programmed target, so the run also carries no OPH-support weight; the exclusion stands as executed. |
+| Neutrino weighted-cycle point | $\sin^2\theta_{23} = 0.5820560367$, $\delta_{CP} = -54.419^\circ$ (≡ 305.581°) vs NuFIT 6.1 correlated profiles | Δχ² = 20.12 (with tabulated atmospheric likelihood) and 18.44 (without); both exceed the two-parameter 3σ value 11.83 | **REJECTED.** The candidate was target-informed (exponent law ranked against the measured splitting ratio). The displayed mass tuple (0.01745, 0.01948, 0.05308 eV), sum 0.0900 eV, and Majorana readouts are coordinates on the rejected candidate. |
+| Universal static dark law | fixed-$\mathbb{Z}_6$ equation applied unchanged to the Milky-Way–Sun system vs the Cassini quadrupole summary | predicted $Q_2 = 3.6201778\times10^{-26}\,\mathrm{s^{-2}}$, ≈19× the summary 1σ uncertainty above it; pull 19.2232σ (unit endpoint $3.4021876\times10^{-26}$: 18.0122σ) | **EXCLUDED** as a universal law. The scoped old-settled-galaxy branch survives only with a source-derived applicability or screening rule, which does not yet exist. |
+| IBM Z₅ high-precision run | five-state golden-ratio target $\varphi^2 = 2.618033988749895$ | measured 2.5498, CI [2.4919, 2.6023]; relative deviation 2.6%; the target sits above the upper bound (≈2.4σ at the interval-implied width) | **The run excludes the target.** This is the one reconciled verdict; it replaces the pair of documents that called the same run confirmation and disproof. Standard QM predicts the ideal programmed target, so the run also carries no OPH-support weight; the exclusion stands as executed. |
 | IBM S₃ six-state ratio test | programmed ratio 2; no repository artifact establishes a pre-run freeze | base-layout raw 1.853569, mitigated 1.872389; reverse-layout raw 2.034766, mitigated 2.029911 | **FAILED as a base-layout implementation benchmark; non-discriminating for OPH and not verifiably preregistered.** Code, results, and documentation first entered history together on 2026-03-18; preregistration wording was added on 2026-07-14. Standard quantum mechanics predicts the same state-preparation target. A sound engineering successor randomizes both layouts and treats layout/calibration as nuisance; an OPH test first needs a prediction different from QM. |
-| Bottom-quark normalization | \(m_b(m_b)\) forward emission vs PDG 4.186(6) GeV | emitted 6.03 GeV; relative deviation +44%; pull ≈3×10²σ | **MISS; the overshoot stands.** Carried openly as the one-loop b–τ register-selection and threshold-packet gap; that attribution is post-hoc, declared after the emission, with no premise gate declared before it. |
+| Bottom-quark normalization | $m_b(m_b)$ forward emission vs PDG 4.186(6) GeV | emitted 6.03 GeV; relative deviation +44%; pull ≈3×10²σ | **MISS; the overshoot stands.** Carried openly as the one-loop b–τ register-selection and threshold-packet gap; that attribution is post-hoc, declared after the emission, with no premise gate declared before it. |
 | Quark denominator-tuple lanes | six quark masses from the RSCC tuple grammar | tuple was the minimum of a 219,615-member post-hoc grammar; an ablation fit better | **SELF-REJECTED** by the quarks ledger (status: post-hoc, target-informed). The "all six within 11.5%" positives are void; no surface may cite them. |
-| Charged-lepton phase rigidity | \(m_\mu/m_e\) from the \(\delta_e = 2/9\) phase | +9.8336 ppm; pull +442σ | **EXCLUDED as a prediction.** The phase is the Brannen/Koide fitted value; "Koide follows exactly" is an identity of the ansatz. The lane displays (deviation, pull) pairs wherever it appears. |
+| Charged-lepton phase rigidity | $m_\mu/m_e$ from the $\delta_e = 2/9$ phase | +9.8336 ppm; pull +442σ | **EXCLUDED as a prediction.** The phase is the Brannen/Koide fitted value; "Koide follows exactly" is an identity of the ansatz. The lane displays (deviation, pull) pairs wherever it appears. |
 | Ringdown transition line (historical MM-01 ansatz) | α = 4 direct QNM-line identification applied to GW150914 f220 | nominal −5.9σ when only frequency error is propagated; about 1.9σ even under a simple independent mass/spin/frequency propagation | **VOID/MISATTRIBUTED, not an OPH branch failure.** The canonical integer-k Kerr template predates MM-01 and does not make this identification. The nominal pull also omits the full remnant covariance; full Bayesian analyses find GW150914 alone cannot constrain the area parameter. Preserve the calculation as an audit artifact only. |
 | Ringdown comb displacement construction audit (2026-07-16) | α = 4 Schwarzschild comb band compared with GR-deviation ringdown posteriors | the reported stacked ln BF = −0.01 is arithmetic for the assumed band | **VOID as an OPH forecast.** The canonical Bekenstein-Mukhanov template requires α = 4 ln k with integer k; α = 4 implies k = e. The calculation also substitutes Schwarzschild spacing and a uniform nearest-tooth offset for a derived Kerr transition spectrum. The data comparison neither supports nor excludes OPH and supplies no O4/O5 forecast. |
 | Two-loop EW transport packet (2026-07-16) | preregistered 16-cell known-data check, spec sha256 `5a91bbab…0bf7`: SM two-loop running increments applied to the declared MSSM one-loop baseline | primary chart pair (79.947, 90.747) GeV; shifts −0.383/−0.372 GeV; 16/16 cells evaluated | **ADVERSE for this hybrid prescription only.** It does not exclude a general two-loop family or CL-5. The comparison used known data and is not prospective. Raw W/Z pulls and menu landings are not physical evidence because emission and reference are not the same observable. |
@@ -549,25 +549,25 @@ Rows here have no current testable content. They are not on the falsification
 surface and no outcome concerning them bears on the core until the stated gaps
 close.
 
-### \(\chi_\nu\) Lift Response And The Hoverboard Lane
+### $\chi_\nu$ Lift Response And The Hoverboard Lane
 
-Recorded values: \(\chi_\nu^{\mathrm{can}} = \exp(-P/24) =
-0.9343006394893864\ldots\); engineering chart \(\chi_\nu^{\mathrm{eng}} =
-\chi_\nu^{\mathrm{can}}/N_{\mathrm{coh}}\), which for \(N_{\mathrm{coh}} =
-10^{22}\) gives \(9.34\times10^{-23}\) to \(1.00\times10^{-22}\);
+Recorded values: $\chi_\nu^{\mathrm{can}} = \exp(-P/24) =
+0.9343006394893864\ldots$; engineering chart $\chi_\nu^{\mathrm{eng}} =
+\chi_\nu^{\mathrm{can}}/N_{\mathrm{coh}}$, which for $N_{\mathrm{coh}} =
+10^{22}$ gives $9.34\times10^{-23}$ to $1.00\times10^{-22}$;
 hoverboard-class areal load Σ = 200–600 kg m⁻² with
-\(\Delta S_{\mathrm{coh}}^{\mathrm{can}} \simeq 2\times10^{-8}\) to
-\(6\times10^{-8}\) for full response; null bound
-\(|\chi_\nu^{\mathrm{eng}}| \le 4\pi G F_{\min}/(g^2 A_\perp|\Delta
-S_{\mathrm{coh}}^{\mathrm{eng}}|)\).
+$\Delta S_{\mathrm{coh}}^{\mathrm{can}} \simeq 2\times10^{-8}$ to
+$6\times10^{-8}$ for full response; null bound
+$|\chi_\nu^{\mathrm{eng}}| \le 4\pi G F_{\min}/(g^2 A_\perp|\Delta
+S_{\mathrm{coh}}^{\mathrm{eng}}|)$.
 
 **The lane has no testable content until two artifacts exist:** (1) an
 operational, instrument-independent recipe for producing and measuring the
-coherence contrast \(\Delta S_{\mathrm{coh}}\) on a real substrate; without
+coherence contrast $\Delta S_{\mathrm{coh}}$ on a real substrate; without
 it, every null is attributable to not reaching the contrast, and
-\(N_{\mathrm{coh}}\) free over 10²⁰–10²⁴ makes the engineering coefficient
+$N_{\mathrm{coh}}$ free over 10²⁰–10²⁴ makes the engineering coefficient
 anything; and (2) a reconciliation with equivalence-principle and fifth-force
-bounds, since the assignment \(c_U = 0\) to ordinary matter currently exempts the
+bounds, since the assignment $c_U = 0$ to ordinary matter currently exempts the
 lane from every torsion-balance, Eötvös, and MICROSCOPE constraint by
 construction, and that exemption requires a derivation, not a definition.
 
@@ -590,7 +590,7 @@ controls; no bundle currently changes any physics row.
 
 ### Hardware Proof-Of-Work
 
-The compute claim is a measured distributional lift \(B = p_Q/p_U\), not a
+The compute claim is a measured distributional lift $B = p_Q/p_U$, not a
 complexity-class theorem. The one existing scorebook is 512 synthetic
 candidates with control ≈ candidate; the enrichment premise has no supporting
 data. Engineering claim only.
