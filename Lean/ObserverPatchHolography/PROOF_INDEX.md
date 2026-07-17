@@ -26,6 +26,13 @@ Mapping between Lean 4 theorems in this project and statements in
   (first non-degenerate `Hfib` discharge on a linear information-set carrier +
   `H1`–`H3` local-repair no-go; a carrier-level witness only. It does **not** bear
   on the Prop 4.2 / Def 4.1 counts above, which remain 0%)
+- #304 application theorem (`BoundaryFiber.lean`): 8 / 8 audited declarations,
+  sorry-free → 100% (the declared boundary map `B_OPH` defined concretely as
+  the root-packet readback on the verified rooted-tree packet-net domain, its
+  injectivity modulo gauge proved class-wide, and the endpoint payoff composed
+  through the neutral equivalence; the class restriction is the remaining
+  named premise for nets outside the declared domain. It does **not** bear on
+  the Prop 4.2 / Def 4.1 counts)
 - Finite event algebras (`EventAlgebra` library, journal-neutral bundle):
   64 / 64 audited declarations, sorry-free → 100% (standard axioms only;
   `chsh_mul_self` needs only `propext` + `Quot.sound`). A self-contained
@@ -166,10 +173,36 @@ boundary identification on consistent states modulo E
 machine-checks that Jonathan's H1--H3 completeness theorem and boundary
 preservation instantiate that equivalence for `acceptedStepLR`.
 
-This completes the generic observer-confluence interface but does not close
-the live application obligation.  Closure still requires a declared physical
-boundary map `B` and a proof that any two concrete consistent records with the
-same `B` value are `gaugeEquiv`.
+This completes the generic observer-confluence interface.  The application
+obligation it leaves open (a declared physical boundary map `B` and a proof
+that any two concrete consistent records with the same `B` value are
+`gaugeEquiv`) is discharged on the declared domain by the `BoundaryFiber`
+module below.
+
+## #304: Declared boundary map and application theorem (`BoundaryFiber`)
+
+The concrete #304 gate on the verified rooted-tree packet-net domain
+(*Reality as a Consensus Protocol*, Definition `def:tree-packet-domain`):
+`TreePacketNet` realises the domain as an `OPHCarrier` family, `B_OPH` is the
+root-packet readback, and injectivity modulo gauge holds class-wide. Module:
+`Source/ObserverPatchHolography/BoundaryFiber.lean`. Sorry-free, standard
+axioms only. Companion note: `BOUNDARY_FIBER_APPLICATION.md`. Outside the
+declared class the identifiability premise is named and can fail
+(`demoCarrier_Hfib_fails`, `rule90_Hfib_bad_fails`). Not a Prop 4.2 /
+Def 4.1 item.
+
+| Lean name | Module | Status | Notes |
+|---|---|---|---|
+| `OPH.TreePacketNet` / `TreePacketNet.carrier` | `BoundaryFiber` | ✅ | The declared domain: finite rooted tree, per-patch state `A × K_i`, interfaces read the packet component only; hidden labels are the declared redundancy data. |
+| `OPH.TreePacketNet.BOPH` | `BoundaryFiber` | ✅ | The declared physical boundary/sector map: root-packet readback `x ↦ (x root).1` (the paper's "root-packet map" taxonomy entry). |
+| `OPH.TreePacketNet.packet_eq_root_of_edgeConsistent` | `BoundaryFiber` | ✅ | Unique continuation: consistency propagates the root packet through the bulk (strong induction on tree depth). |
+| `OPH.TreePacketNet.BOPH_injective_modulo_gauge` | `BoundaryFiber` | ✅ | **The #304 gate**: `u,v ∈ C_OPH` and `B_OPH(u)=B_OPH(v)` imply `u ~gauge v`, for every net in the class. |
+| `OPH.TreePacketNet.BOPH_boundaryIdentifiesModulo` | `BoundaryFiber` | ✅ | The gate restated as the neutral `BoundaryIdentifiesModulo` premise. |
+| `OPH.TreePacketNet.treeStep_observationPreserving` | `BoundaryFiber` | ✅ | The paper's tree repair preserves `B_OPH` (`ObservationPreserving` hypothesis). |
+| `OPH.TreePacketNet.treeStep_completeFor` | `BoundaryFiber` | ✅ | Tree-repair normal forms are exactly the consistent records (`CompleteFor` hypothesis). |
+| `OPH.TreePacketNet.BOPH_observerEndpointUnique` | `BoundaryFiber` | ✅ | Endpoint payoff: equal `B_OPH` readback forces gauge-equal normal forms under any maximal schedule; no confluence input. |
+| `OPH.fourVertexNet_gauge_nontrivial` | `BoundaryFiber` | ✅ | The paper's exported four-vertex `ℤ₃`/`ℤ₂` instance: distinct same-boundary consistent records that are `gaugeEquiv`, so the gauge quotient is proper. |
+| `OPH.fourVHiddenReadback_not_identifying` | `BoundaryFiber` | ✅ | Failure witness on the verified domain: a readback missing the protected packet does not identify. |
 
 ## Finite event algebras (`EventAlgebra` library)
 

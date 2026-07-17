@@ -134,13 +134,23 @@ Evidence status:
   instantiate the neutral equivalence for `acceptedStepLR`;
 - issue comments report a machine-checked boundary_fiber_observer_unique theorem
   and Rule 90 witnesses already merged into the repository;
-- no application bridge establishes injectivity of the declared physical
-  boundary map on the actual OPH consistent quotient.
+- the application bridge on the declared domain is machine-checked in
+  `Lean/ObserverPatchHolography/Source/ObserverPatchHolography/BoundaryFiber.lean`:
+  `TreePacketNet.BOPH_injective_modulo_gauge` defines the declared physical
+  boundary map as the root-packet readback on the verified rooted-tree
+  packet-net domain and proves that equal readback on two consistent records
+  implies gauge equivalence, class-wide, sorry-free; the endpoint payoff is
+  composed through the neutral equivalence
+  (`BOPH_observerEndpointUnique`). See
+  `Lean/ObserverPatchHolography/BOUNDARY_FIBER_APPLICATION.md`.
 
-Remaining work is the concrete statement that equal declared physical
-boundary/sector data on two consistent states imply gauge equivalence, plus any
-downstream compact-paper and public-surface updates. Record the neutral paper as
-the generic theorem layer, but keep #304 open for the model-specific bridge.
+The concrete gate statement is discharged on the declared rooted-tree
+packet-net domain. For patch nets outside that class, or boundary maps other
+than the declared protected readback, identifiability stays a named per-net
+premise with machine-checked failure witnesses. Record the neutral paper as
+the generic theorem layer; #304 closure is a propagation and issue-hygiene
+decision against that class boundary, not a missing proof on the declared
+domain.
 
 ### #312 Gauge Classification and Selection Separation — modify, do not close
 
@@ -261,8 +271,10 @@ The compact neutral additions authorized for this pass are now in the paper.
 The remaining work either needs an application bridge outside this paper or a
 materially stronger neutral theorem.
 
-1. For #304, define the concrete physical boundary map and prove its
-   injectivity modulo gauge on the intended consistent-state domain.
+1. For #304, the concrete physical boundary map (root-packet readback) and its
+   injectivity modulo gauge are Lean-proved on the declared rooted-tree
+   packet-net domain (`BoundaryFiber.lean`); the residual item is the named
+   identifiability premise for any patch net outside that class.
 2. If #326 is to be advanced further, add a separate pathwise
    theorem under explicit bounded-jump or bounded-excursion assumptions. Keep
    expected distance, one-time endpoint tails, interval maxima, and stationary
@@ -297,7 +309,7 @@ the removed application section or citations into the neutral paper.
 | [#296](https://github.com/FloatingPragma/observer-patch-holography/issues/296) | Clay YM: build the submission dependency map | U | The paper is not the requested Yang-Mills dependency map and carries none of its branch bookkeeping. |
 | [#297](https://github.com/FloatingPragma/observer-patch-holography/issues/297) | Publication: branch-scope Yang-Mills claim audit | U | No public Yang-Mills surfaces are audited or updated by this mathematics paper. |
 | [#298](https://github.com/FloatingPragma/observer-patch-holography/issues/298) | Three-body: tighten holonomy demo claim boundary | C | Generic normal-form/refinement language may support cautious wording; no three-body theorem or site edit is supplied. |
-| [#304](https://github.com/FloatingPragma/observer-patch-holography/issues/304) | Proof packet: Boundary-Fiber Identifiability | M | The exact generic equivalence and its `acceptedStepLR` bridge are Lean-backed; injectivity of the declared physical boundary on the actual consistent quotient remains open. |
+| [#304](https://github.com/FloatingPragma/observer-patch-holography/issues/304) | Proof packet: Boundary-Fiber Identifiability | M | The exact generic equivalence and its `acceptedStepLR` bridge are Lean-backed; injectivity of the declared physical boundary map (root-packet readback) modulo gauge is Lean-proved on the declared rooted-tree packet-net domain (`BoundaryFiber.lean`); outside that class it is a named per-net premise with failure witnesses. |
 | [#306](https://github.com/FloatingPragma/observer-patch-holography/issues/306) | Proof packet: Uniform Collar Projection Gap | C | A finite conditional projector and normalizer-defect telescoping do not prove a finite Poincare bound or continuum spectral-gap transfer. |
 | [#307](https://github.com/FloatingPragma/observer-patch-holography/issues/307) | Proof packet: Collar CMI Decay from Finite-Range Gibbs Mixing | U | No Gibbs mixing, conditional mutual information, recovery, or double-scaling estimate appears. |
 | [#311](https://github.com/FloatingPragma/observer-patch-holography/issues/311) | Proof packet: Particle-Like Defect Criterion | U | No localization, persistence, charge, fusion, scattering, or particle-promotion theorem is present. |

@@ -44,8 +44,25 @@ surface for the OPH consensus layer. Contents:
   `Proofs/ObservableNormalForms/`.  Its generic endpoint theorem is connected
   to the concrete local-repair interface by
   `Source/ObserverPatchHolography/Bridges/ObservableNormalForms.lean`.  This
-  bridge characterizes the remaining #304 premise; it does not prove the
-  declared physical boundary map injective.
+  bridge characterizes the #304 application premise for arbitrary carriers;
+  the premise itself is discharged on the declared domain by the
+  `BoundaryFiber` module below.
+- A sorry-free **#304 application theorem**
+  (`Source/ObserverPatchHolography/BoundaryFiber.lean`): the verified
+  rooted-tree packet-net domain (*Reality* Definition `def:tree-packet-domain`)
+  as an `OPHCarrier` family (`TreePacketNet`), the declared physical
+  boundary/sector map `B_OPH` as the concrete root-packet readback
+  (`TreePacketNet.BOPH`), and the gate theorem
+  `BOPH_injective_modulo_gauge`: consistent records with equal `B_OPH`
+  readback are `gaugeEquiv`, for every net in the class. The generic
+  hypotheses (`ObservationPreserving`, `CompleteFor`) are discharged for the
+  domain's own tree repair, giving the endpoint payoff
+  `BOPH_observerEndpointUnique` with no confluence input. Witnesses: the
+  paper's exported four-vertex `ℤ₃`/`ℤ₂` instance with a proper gauge
+  quotient, and a deficient-readback failure. Outside the declared class,
+  boundary identifiability stays a named per-net premise (countermodels:
+  `demoCarrier_Hfib_fails`, `rule90_Hfib_bad_fails`). See
+  `BOUNDARY_FIBER_APPLICATION.md` for the hypothesis-by-hypothesis bridge.
 - A sorry-free **finite event algebras** library (`Source/EventAlgebra/`,
   lake target `EventAlgebra`, 64 audited declarations, standard axioms
   only): events as Hermitian idempotents, states as positive trace-one

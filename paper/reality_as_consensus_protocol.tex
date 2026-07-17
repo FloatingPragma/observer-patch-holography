@@ -1274,8 +1274,13 @@ is controlled by the consistent boundary fibers.  Under boundary preservation an
 agreement, modulo any declared silent equivalence, is equivalent to injectivity of the induced
 boundary map on the consistent quotient.  Weak normalization and all-schedule liveness are
 separate obligations.  The layered and functional carriers below establish the injectivity premise
-only on their named finite domains; same-source confluence alone does not establish it for an
-arbitrary physical boundary map.
+on their declared domains.  On the verified rooted-tree packet-net domain of
+Definition~\ref{def:tree-packet-domain}, the declared boundary map is the root-packet readback,
+and its injectivity modulo hidden-label gauge on the consistent set is machine-checked class-wide
+in the released Lean development, together with the resulting cross-source endpoint form for the
+tree repair.  Same-source confluence alone does not establish the injectivity premise for an
+arbitrary physical boundary map, and outside the declared domains it remains a named per-net
+hypothesis with machine-checked failure witnesses.
 \end{remark}
 
 \subsection{A multi-edge finite carrier for boundary reconstruction}

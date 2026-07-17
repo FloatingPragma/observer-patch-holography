@@ -1,6 +1,7 @@
 import ObserverPatchHolography.AbstractRewriting
 import ObserverPatchHolography.Primitives
 import ObserverPatchHolography.Rule90
+import ObserverPatchHolography.BoundaryFiber
 import ObserverPatchHolography.BridgeEquivalence
 import ObserverPatchHolography.CapacityFixedPoint
 import ObserverPatchHolography.SeedPi

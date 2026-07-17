@@ -102,8 +102,9 @@ The theorem is relative to the fixed initial quotient state. A stronger
 consistent extension in that boundary or sector fiber. The generic equivalence
 between this boundary-identification property and cross-source endpoint
 agreement, together with its Lean bridge to the finite repair architecture, is
-proved in the OPH paper stack. Injectivity
-of the declared physical boundary map on the full consistent quotient remains an
+proved in the OPH paper stack. Injectivity of the declared physical boundary
+map is proved on the declared rooted-tree packet-net domain, where the boundary
+map is the root-packet readback; on any wider consistent quotient it is an
 application-specific premise.
 
 The five axiom groups are not meant as arbitrary declarations. They bundle
