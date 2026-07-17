@@ -342,7 +342,7 @@ lower-level notes are linked with shorter summaries.
 - **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)**: string theory as an effective OPH edge language and vacuum-selection sieve. The Bouchard-Donagi result supplies a visible massless-cohomology candidate; certificates not emitted here include the critical edge, raw cohomology reproduction, safety-layer realization, heavy spectrum, low-energy decoupling, thresholds, and moduli locking.
 - **[Photonic Fixed-Point Consensus for SHA-256d Proof of Work](extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf)**: hardware-facing test of OPH-style photonic candidate enrichment for SHA-256d, judged by the exact digital verifier.
 - **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)**: cognition and qualia as recurrent patch consensus across neural or artificial self-reading substrates.
-- **[Theoretical Bounds on χν in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)**: coherent-matter same-channel theorem, finite channel bridge, protected-reserve collar coefficient $\chi_\nu^{\mathrm{can}}=e^{-P_\chi/24}$, finite-thickness band, conservation-law energy cage, and engineering chart values with device force and cosmological dark stress kept as separate receipt gates.
+- **[Theoretical Bounds on χν in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)**: coherent-matter same-channel theorem, finite channel bridge, protected-reserve collar coefficient $\chi_\nu^{\mathrm{can}}=1-P_\chi/24$, finite-thickness band, conservation-law energy cage, and engineering chart values with device force and cosmological dark stress kept as separate receipt gates.
 - **[Entanglement Geometry Problem in OPH](docs/ENTANGLEMENT_GEOMETRY_PROBLEM_OPH.md)**: note on entanglement geometry as an observer-overlap and record-surface problem.
 - **[Common Objections](docs/COMMON_OBJECTIONS.md)**: short responses to frequent conceptual and technical objections.
 - **[Hacking the Simulation: Anti-Gravity Exploit](extra/hacking-the-simulation-anti-gravity-exploit.pdf)**: pop-science OPH-adjacent engineering book about the local chi-nu lift test. The [Markdown source chapters](extra/hacking-the-simulation-anti-gravity-exploit/) are included with the repo so OPH Sage can ingest the same text during re-ingestion.
@@ -406,6 +406,21 @@ transport closes. The strict W/Z lane emits the chart pair
 that would turn those chart coordinates into mass predictions is open, so no
 mass accuracy or pull is claimed. Full per-row status is in **Selected
 Quantitative Values** above and in the closure ledger.
+
+**Forward tests.** A separate class of values sits within about one sigma of
+measurement and is decided by named future data: the fixed-capacity theorem
+forces the dark-energy equation of state $(w_0,w_a)=(-1,0)$ exactly, scored by
+DESI DR3; the capacity band $\Lambda\ell_P^2\in[2.84618,2.84878]\times10^{-122}$
+sits $0.03\sigma$ from Planck and separates from the uncorrected bridge at
+$6.5\sigma$ once $\Lambda$ reaches percent precision; the analytic tilt
+$0.9660215$ sits $0.27\sigma$ from Planck with CMB-S4-class data arriving; the
+galaxy acceleration scale $1.1847\times10^{-10}\,\mathrm{m/s^2}$ sits 1.3%
+from the empirical fit with a 0.485% internal discriminator between its two
+readings; and the black-hole ringdown comb pins offset-subtracted transition
+ratios to $\ln k/\ln 2$ for every remnant. Each row carries a frozen decision
+policy and a kill condition stated with the value. The full table, with per-row
+status and registration standing, is
+[docs/FORWARD_TESTS.md](docs/FORWARD_TESTS.md).
 
 **Falsification program.** OPH runs a standing falsification program, recorded
 in [OPH_FALSIFICATION_PROGRAM.md](docs/OPH_FALSIFICATION_PROGRAM.md): 33 kill
