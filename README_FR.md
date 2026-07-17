@@ -337,7 +337,7 @@ coïncide avec l'image fidèle tenseur-spin
 $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ — et, contrairement au quotient de
 la route MAR, il ne descend pas du contenu de matière déjà sélectionné. Le
 crochet, ses lois de Jacobi, le témoin non central,
-$\operatorname{finrank}=9+3=12$ et l'équivalence $\mathbb Z_6$ sont **certifiés
+$\dim_{\mathbb R}=9+3=12$ et l'équivalence $\mathbb Z_6$ sont **certifiés
 en Lean sans `sorry`**, sur les seuls axiomes standards de Mathlib. Pourquoi
 cela mord : le Modèle Standard *prend* $8+3+1$ en entrée et n'en explique rien,
 la théorie des cordes déplace la question dans un paysage, la gravité

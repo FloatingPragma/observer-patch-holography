@@ -253,7 +253,7 @@ integral $\mathbb Z_6$ (Smith invariants $1,1,1,1,1,6$), matching the faithful
 tensor-spin image $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ — and unlike the
 MAR route's quotient, it does not descend from the already-selected matter
 content. The bracket, its Jacobi laws, the noncentral witness,
-$\operatorname{finrank}=9+3=12$, and the $\mathbb Z_6$ equivalence are
+$\dim_{\mathbb R}=9+3=12$, and the $\mathbb Z_6$ equivalence are
 **Lean-certified without `sorry`** on only Mathlib's standard axioms. Why it
 bites: the Standard Model *takes* $8+3+1$ as input, string theory relocates it
 into a landscape, loop quantum gravity puts it out of scope — no rival computes
