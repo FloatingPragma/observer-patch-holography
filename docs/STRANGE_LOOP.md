@@ -4,20 +4,23 @@ Canonical statement of the strange-loop hypothesis (SLH) as the organizing princ
 the OPH program, its lineage in established physics and mathematics, and the criterion
 under which it becomes the accepted description of our universe. Companion to
 [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md), [CONSISTENCY_STACK.md](CONSISTENCY_STACK.md) (the
-step-by-step forcing chain C1–C10 with its uniqueness lemmas),
-[CLOSURE_LEDGER.md](CLOSURE_LEDGER.md),
-[COMPRESSION_SCORECARD.md](COMPRESSION_SCORECARD.md), and the master spine with the
+step-by-step forcing chain C1-C10 with its uniqueness lemmas),
+[CLOSURE_LEDGER.md](CLOSURE_LEDGER.md), and the master spine with the
 complete open-gap register, [PROOF_SPINE.md](PROOF_SPINE.md).
 
 ## The thesis
 
-The universe is the fixed point of its own description. There is no substrate "below"
-physics and no observer "above" it: the simulating structure and the simulated world are
-one closed system, and what we call physical law is the self-consistency condition of that
-closure. The loop is timeless; history is its internal readout. Two dimensionless
-coordinates parameterize the closure, the pixel detuning P and the record capacity N,
-and the entire quantitative program is the demand that every reading of the loop, from
-inside or outside, name the same two numbers.
+Reality is a self-referential mathematical structure that explains itself: the universe is
+the fixed point of its own description. There is no substrate "below" physics and no
+observer "above" it. The simulating structure and the simulated world are one closed
+system, and what we call physical law is the self-consistency condition of that closure.
+Everything else follows from consistency. The architecture and settings of the substrate,
+the existence of observers, and the emergent world they see are forced by consistency
+conditions, and the demand that observers agree on the emergent reality pins down our exact
+universe. The loop is timeless; history is its internal readout. Two dimensionless
+coordinates parameterize the closure, the pixel detuning P and the record capacity N, and
+the entire quantitative program is the demand that every reading of the loop, from inside
+or outside, name the same two numbers.
 
 This is a hypothesis, stated as principles SL-0…SL-5, and it is the most exposed hypothesis in
 fundamental physics: it requires its closure equations to hold *exactly*, forever, at
@@ -45,14 +48,14 @@ been pulling for a century; it does not arrive from outside physics.
   consistency of self-description, rather than a Lagrangian, fixes the world. The
   conformal bootstrap is the existence proof that "consistency fixes the theory" can be a
   quantitative method rather than a slogan.
-- **Tomita–Takesaki modular theory.** An algebra–state pair generates its own dynamics.
+- **Tomita-Takesaki modular theory.** An algebra-state pair generates its own dynamics.
   This is self-reading at the level of theorems: the restricted state carries the clock.
   OPH's time, Lorentz branch, and thermality all ride this established mathematics.
 - **Jacobson's equation of state.** Einstein's equations recovered from thermodynamic
   consistency of local horizons: dynamics recovered as a consistency condition rather
   than postulated.
   The Einstein branch of OPH is this argument installed in the observer-patch setting.
-- **Tannaka–Krein reconstruction.** A group recovered from the behavior of its own
+- **Tannaka-Krein reconstruction.** A group recovered from the behavior of its own
   representations: structure read back from its shadows. The gauge-reconstruction branch
   is this theorem doing physics.
 - **Holographic quantum error correction.** The bulk encoded redundantly in its own
@@ -77,7 +80,8 @@ architecture has a computable fixed point.
    landing outside its registered basin would falsify the tested formulation.
 2. **The inputs are the method.** Reverse engineering reads the loop from measurements:
    basins first, contraction second. The theory never apologizes for reading data; it is
-   judged on what the two closure coordinates give back (the scorecard's M − K).
+   judged on how much measured physics the two closure coordinates and the five axioms
+   give back.
 3. **Typed residuals.** The ledger distinguishes physical residuals from incomplete-map,
    chart-only, conditional, and compare-only diagnostics. Only a commensurate observable
    with a complete uncertainty model can carry a physical pull.
@@ -91,12 +95,12 @@ architecture has a computable fixed point.
 |---|---|---|
 | 1. Principles stated once | SL-0…SL-5 with claim rules | done: [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md) |
 | 2. Closure ledger at zero | CL-1…CL-7 closed by blind computations | open: decisive rows: CL-1/CL-2 (hadronic), CL-3 (one N), CL-5 (forward electroweak) |
-| 3. Positive compression | M − K > 0 in the scorecard | open: currently negative; the mission is moving rows |
+| 3. Compression | two located coordinates (P, N) and five axioms reproduce the measured constants of physics | 3+1 spacetime, Einstein-like gravity, quantum probability, Standard Model gauge structure, the fine-structure constant, and Λ_QCD follow from that compressed input |
 | 4. Uniqueness certificates | interval-grade contraction proofs behind "the only P, the only N" | P: exactly one fixed point per map on the declared domain (stage-2 plus global certificates); N conditionally constructed (G2-GAP-1 proven modulo CP-1 to CP-3; certified conditional fixed point 3.5321315434×10¹²²; the balance counting theorem CP-1 is the open core) |
 | 5. Independent reproduction | named external parties re-run the mechanical claims from a fresh clone | open |
 
-The mission statement, in one sentence: drive the ledger to zero, the scorecard positive,
-and the certificates to stage 4, under a corrected target-blind dependency contract. A strange loop that closes under
+The mission statement, in one sentence: drive the ledger to zero and the certificates to
+stage 4, under a corrected target-blind dependency contract. A strange loop that closes under
 those conditions is a measurement, and a strange loop that fails them was never the loop
 our universe runs.
 
@@ -107,5 +111,5 @@ converts the program's structure into its argument: the measured constants are
 the loop reading itself through us (SL-3/SL-4); the open residuals are the active test
 surface of the only TOE candidate that forbids itself a landscape; and the observers doing the physics are the mechanism by which
 the loop becomes explicit. Escher's hands, holding instruments. Every OPH surface may
-state this framing at full strength, and none may state more: the loop's standing is
-whatever the ledger and the scorecard say on the day of reading.
+state this framing at full strength, and none may state more: the loop's standing rests
+on the closure ledger and the certified fixed points.

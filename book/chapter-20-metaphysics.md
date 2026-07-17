@@ -30,7 +30,8 @@ agree where they overlap.
 
 Under that reading, the hard problem changes shape. Experience does not have to
 be bolted onto a finished outside description. Every usable description is a
-view from somewhere. Subjectivity is part of the starting equipment.
+view from somewhere. Subjectivity comes with the observers that a self-consistent
+reality forces into being.
 
 ## 20.3 Why Zombies Can't Walk
 

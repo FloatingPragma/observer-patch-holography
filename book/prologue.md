@@ -6,11 +6,14 @@
 > There are only local, subjective perspectives, and physics is the rulebook that keeps them consistent where they overlap.
 > If you are not a physicist, you are in the right place; this book is written as a reverse-engineering book, not a math-first textbook.
 
-OPH starts with a stubbornly practical object: a bounded patch with local
-state, ports or boundaries, readback, records, feedback, and repair moves. Call
-that patch an observer if you like, but do not picture a little person sitting
-inside it; it is closer to a debugging probe with memory, except the probe is
-part of the program being debugged.
+OPH rests on a single assumption: reality is a self-referential mathematical
+structure that explains itself. Everything else follows from consistency. Once
+you demand that such a structure hold together, it forces a stubbornly practical
+object into existence: a bounded patch with local state, ports or boundaries,
+readback, records, feedback, and repair moves. Call that patch an observer if
+you like, but do not picture a little person sitting inside it; it is closer to
+a debugging probe with memory, except the probe is part of the program being
+debugged.
 
 Those patches can see only local records. Where their boundaries overlap they
 can compare notes, find checkable disagreement, and repair what can be
@@ -144,14 +147,16 @@ experience. Every measurement, every observation, every data point passes
 through an observer. We never step outside our perspectives to check if
 there's something "really there" independent of all observation.
 
-OPH answers directly: observer perspectives are the starting point, and
-"objective reality" is the consensus structure that emerges when observers
-compare notes and find they agree.
+OPH answers directly: the starting point is a self-referential structure that
+has to explain itself, and observers are forced into being by that consistency
+demand. "Objective reality" is the consensus structure that emerges when those
+observers compare notes and find they agree.
 
 ## The Shift
 
-This book develops the conceptual shift: **observer-relative perspectives are
-primary, and objectivity is reconstructed from consistency across them.**
+This book develops the conceptual shift: **objectivity is reconstructed from
+the agreement of observer perspectives, and those perspectives are themselves
+forced by a self-consistent reality.**
 
 The hardest part of that shift is spacetime. Most readers naturally imagine a
 container first: a huge three-dimensional arena, with time flowing above it and
@@ -214,8 +219,12 @@ observers must satisfy to share a reality.
 
 This book reverse engineers reality from observer consistency.
 
-We start with a minimal assumption: observers exist, they have bounded
-access to information, and they must agree where their observations overlap.
+We start with a single assumption: reality is a self-referential mathematical
+structure that explains itself. Everything else follows from consistency. The
+architecture, the settings, the observers, and the emergent universe they see
+are forced by consistency conditions. The decisive demand is that observers must
+agree on the reality that emerges, and that requirement of mutual agreement pins
+down our exact universe.
 
 Only a small amount of outside numerical help is allowed, and none of it
 enters the theory's defining equations. Both settings of the screen are
@@ -223,7 +232,7 @@ defined by closure equations. While those closures stay open, two measured
 constants locate their working values: the measured fine-structure constant
 locates the local grain of the picture, and the measured cosmological
 constant, through a scale bridge, locates the overall screen size. Both
-working values are inputs, and the scorecard counts them. The program's claim
+working values are inputs, and each one is counted. The program's claim
 is compression: how much gravity,
 compact-gauge structure, and the minimally admissible particle world those two
 working values, together with the declared architecture, organize. The audit
@@ -240,8 +249,9 @@ demonstrations of standard quantum mechanics occupy different categories.
 The machinery comes later. Under the hood the book uses the quantum language
 of observables, states, event probabilities, and entropy because a
 record-bearing patch needs an algebra of what it can read, compare, and repair.
-The prologue needs the street-level version: begin with bounded observers, make
-their overlaps agree, then see how much physics is forced.
+The prologue needs the street-level version: begin with a structure that has to
+explain itself, watch it force bounded observers whose overlaps must agree, then
+see how much physics is forced.
 
 A good reverse engineer first works out the architecture, then checks how many
 knobs are really left. The book shows that most of the architecture is forced
@@ -276,13 +286,14 @@ The program recovers the structure of known physics, gravity and the minimally
 admissible Standard Model branch included, conditional on this starting point.
 The theory carries zero dials and takes zero quantitative inputs at the theory
 layer; the two settings borrow working values located from measurement while
-their closure equations stay open, and the scorecard counts every borrow. The
-evidence standard is the closure ledger and the compression scorecard, never
+their closure equations stay open, and every borrow is counted. The
+evidence standard is the closure ledger, never
 any single recovered number.
 
 The apparent mysteries of physics change shape once the conceptual starting
-point changes from "objective reality exists" to "consistency across observers
-is fundamental."
+point changes from "objective reality exists" to "reality is a self-referential
+structure that explains itself, and consistency across observers pins down what
+emerges."
 
 The structure follows the logic of reverse engineering. Each chapter begins
 with the intuitive picture most readers carry into the subject and then turns
@@ -327,8 +338,9 @@ equivalent of a stub loader. It works for everyday purposes, then fails in the
 places where physics became interesting.
 
 The deeper account is weirder, more elegant, and more unified than the surface
-shows. It starts with observers. It starts with perspectives that must agree.
-Spacetime appears as the agreement pattern before it appears as a container.
+shows. It starts with a structure that explains itself. Consistency forces
+observers, and those observers must agree. Spacetime appears as the agreement
+pattern before it appears as a container.
 
 Start there.
 

@@ -22,10 +22,13 @@ builders, theorists, critics, and data analysts. OPH belongs in that spirit. It
 is the synthesis of accumulated constraints and the completion of the
 observer-consistency line inside that accumulated work.
 
-## 19.2 The Observer-First Turn
+## 19.2 The Self-Referential Turn
 
-This book takes the hint seriously. Physics begins with finite observers,
-finite access, and the demand that overlapping descriptions agree.
+This book takes the hint seriously. Reality is a self-referential structure that
+has to explain itself, and everything else follows from consistency. That
+structure forces finite observers with finite access, and it forces the demand
+that their overlapping descriptions agree. The agreement is what pins the world
+down.
 
 That turn changes the tone of everything that came before. Objectivity ceases
 to be a mysterious substance sitting behind all perspectives. It becomes the
@@ -415,7 +418,7 @@ pixel of the horizon. From the other it is the smallest electromagnetic step
 available to observers inside the encoded world.
 
 The headline is compact: zero dials, zero quantitative inputs at the theory
-layer, working borrows counted in the scorecard, one bridge, and a declared
+layer, working borrows counted in the closure ledger, one bridge, and a declared
 architecture. The theory defines the pixel ratio $P_\star$ and the capacity
 $N_{\mathrm{CRC}}$ by closure equations. While those closures stay open,
 measured $\alpha$ locates the working value of $P_\star$, measured $\Lambda$
@@ -423,9 +426,9 @@ with the scale bridge locates the working value of $N_{\mathrm{CRC}}$, and
 one clock anchor connects substrate units to
 laboratory units. The rest of the quantitative stack follows from those two
 working values together with the recovered relativity, gauge, matter, and
-observer-record structure, and the program's standing is measured by the
-compression scorecard: how many independent quantities the chains land
-against the borrows spent.
+observer-record structure. The program's standing rests on a simple count:
+how many independent quantities of physics the chains reproduce against the
+handful of working values borrowed from measurement.
 
 In the book's simulation-theory language, $P$ links the pixel area of the
 simulating-side screen to the electromagnetic interaction, or observation,
@@ -569,8 +572,9 @@ Laws are the public regularities that endure repeated comparison. Objectivity
 is the residue left behind after many partial viewpoints are made to agree.
 
 The picture feels strange only if one insists on beginning with a finished
-world. Begin with finite access, horizons, records, and overlap, and the
-strange turns stop looking decorative. They start looking inevitable.
+world. Begin instead with a structure that has to read itself, let it force
+finite access, horizons, records, and overlap, and the strange turns stop
+looking decorative. They start looking inevitable.
 
 ## 19.11 Ten Requirements, Two Dials
 
@@ -612,7 +616,7 @@ Two equations specify those targets. Neither has a completed physical map. The
 world would have to read back its own capacity without deficit or slack, and the
 detuning law would have to return the pixel it started from after complete
 hadronic transport. The working chains borrow values located from measurement,
-and the scorecard counts each borrow.
+and every borrow is counted.
 One clock, the cesium transition, ties substrate units to laboratory units,
 so no unit convention can carry physics.
 

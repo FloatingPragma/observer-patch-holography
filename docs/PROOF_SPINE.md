@@ -5,9 +5,7 @@ complete register of open gaps. This is the master document of the docs/ set; th
 companions carry the detail: [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md)
 (principles and claim rules), [STRANGE_LOOP.md](STRANGE_LOOP.md) (thesis and lineage),
 [CONSISTENCY_STACK.md](CONSISTENCY_STACK.md) (forcing chain C1 to C10, lemmas, generator
-table), [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) (the equations and their residuals),
-[COMPRESSION_SCORECARD.md](COMPRESSION_SCORECARD.md) (dials, forward record, strict
-accounting).
+table), [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) (the equations and their residuals).
 
 ## Where the spine is strong
 
@@ -71,7 +69,7 @@ that combination is claimed as proof anywhere in the corpus.
 | B3 | Gravity: Einstein equation from entropy stationarity, one global ambiguity +Λg | theorem on the declared five-axiom branch |
 | B4 | Gauge structure and matter: compact group by reconstruction; SM quotient SU(3)×SU(2)×U(1)/Z₆, hypercharge lattice, N_c = 3, N_g = 3, one Higgs | theorem conditional on the compact-gauge receipt and declared MAR clause inputs (GAP-B9) |
 | B5 | Electroweak chart and hierarchy: forward W/Z chart coordinates, v/E★ transmutation law | W/Z physical comparison not evaluable because the common-observable scheme map is incomplete; hierarchy relation is conditional on its declared branch (GAP-A6) |
-| B6 | Strong sector: Λ_QCD by transmutation, nucleon mass via external lattice ratio | record at about 1×10⁻²; conditional tags in the scorecard |
+| B6 | Strong sector: Λ_QCD by transmutation, nucleon mass via external lattice ratio | record at about 1×10⁻²; conditional tags in the closure ledger |
 | B7 | Cosmology: capacity Λ, dark sector as repair bookkeeping, screen tilt | record rows conditional; promotion gates open (GAP-B7) |
 | B8 | Mass sector completion: flavor spreads, charged leptons, neutrinos | open (GAP-B3, GAP-B5, GAP-B4) |
 | B9 | Machine formalization of the physics branches | program: consensus core plus coupling algebra done; branches open (GAP-B8) |
@@ -162,10 +160,10 @@ Part B gaps:
 
 Cross-cutting:
 
-- **GAP-X1.** Discrete structural selections without a consistency-forcing derivation (the scorecard
-  lists each with its menu size; the SM coefficient triple and β_EW = 4 are
+- **GAP-X1.** Discrete structural selections without a consistency-forcing derivation (each
+  is listed with its menu size; the SM coefficient triple and β_EW = 4 are
   graduated to forced; the remainder stand as counted selections).
-- **GAP-X2.** CI regeneration of the ledger and scorecard from the claim registry
+- **GAP-X2.** CI regeneration of the ledger from the claim registry
   (SLP-02, SLP-05), and builder-script patches so generated surfaces keep their
   supersession notes.
 
@@ -174,5 +172,5 @@ Cross-cutting:
 The spine may only strengthen by dated artifact: a step moves to PROVEN when its
 certificate or theorem lands, a gap leaves the register only with a verdict, and no
 wording change ever substitutes for either. The compact proof presents this spine at
-full strength; the ledger and scorecard price it; a corrected target-blind contract and
+full strength; the closure ledger prices it; a corrected target-blind contract and
 its certified execution decide the endpoint lane.

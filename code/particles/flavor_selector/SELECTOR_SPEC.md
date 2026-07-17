@@ -77,7 +77,7 @@ A candidate is admissible for evaluation only if all of S1-S5 hold.
 - **S4. Menu discipline.** The candidate list is written in `CANDIDATES.md`, with a
   structural rationale per candidate, before any candidate is evaluated. The list is
   frozen at its recorded count, at most 12. The 219,615-member quark denominator
-  grammar (COMPRESSION_SCORECARD.md, discrete structural selections; self-rejected) is
+  grammar (discrete structural selections in the closure ledger; self-rejected) is
   the controlling precedent: a selector that needs a large menu certifies nothing, and
   any landing from such a menu is worthless. Adding a candidate after evaluation
   reopens the count and demotes every prior standing to exploratory.

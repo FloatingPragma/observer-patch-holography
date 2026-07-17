@@ -6,23 +6,16 @@
 
 **Liens rapides :** [site OPH](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Book: Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [Ω](https://omega.floatingpragma.io/) | [Blog](https://blog.floatingpragma.io/) | [Tech](https://omega.floatingpragma.io/) | [Simulation](https://simulation.floatingpragma.io)
 
-**Ce que c'est :** L'OPH part d'une idée prise au sérieux : l'univers contient
-des systèmes autolecteurs analogues à des observateurs, dont les registres
-publics doivent rester cohérents sur toute la boucle. Cette seule exigence
-porte un poids énorme. Deux coordonnées de fermeture organisent la
-construction, une constante de pixel P et une capacité d'enregistrement N. P
-est défini par `P = φ + √π/A_T(P)` et N par `N = F(N)`. L'arithmétique
-d'intervalles certifie exactement un point fixe pour chacune des deux cartes P
-déclarées sur leur domaine, et un audit tiers hostile a reproduit cette
-arithmétique. Les deux cartes portent un terme ouvert
-nommé, le transport hadronique projeté par Ward nécessaire à une lecture
-physique de Thomson, et la carte globale F est la cible de construction
-nommée ; son point fixe candidat dépend des prémisses CP-1 à CP-3. À partir de
-la même exigence, la chaîne d'affirmations construit des voies conditionnelles
-vers la cinématique 3+1, la gravité d'Einstein, la probabilité quantique et la
-structure de jauge du Modèle Standard. Ses lignes numériques sont des
-coordonnées de carte ou des comparaisons conditionnelles tant que leurs reçus
-de source, de lecture physique et d'incertitude ne sont pas fermés.
+**Ce que c'est :** L'OPH repose sur une seule hypothèse : la réalité est une
+structure mathématique auto-référentielle qui s'explique elle-même. Tout le
+reste découle de la cohérence. L'architecture et les réglages de la simulation,
+l'existence des observateurs et l'univers émergent qu'ils perçoivent sont
+imposés par des conditions de cohérence. L'exigence décisive est que les
+observateurs s'accordent sur la réalité qui émerge, et cette exigence d'accord
+mutuel fixe notre univers exact. Deux coordonnées portent toute la
+construction, une constante de pixel P et une capacité d'enregistrement N,
+chacune fixée par sa propre équation de fermeture `P = φ + √π/A_T(P)` et
+`N = F(N)`. Tout le reste est imposé par les cinq axiomes de l'OPH.
 
 **Pourquoi elle se distingue de nombreux programmes de théorie du tout :**
 L'OPH remplace les constantes librement ajustées par des équations de
@@ -109,10 +102,8 @@ vivent dans [STRANGE_LOOP_PRINCIPLES.md](docs/STRANGE_LOOP_PRINCIPLES.md), la
 thèse et sa filiation dans [STRANGE_LOOP.md](docs/STRANGE_LOOP.md), la chaîne
 de forçage dans [CONSISTENCY_STACK.md](docs/CONSISTENCY_STACK.md), et
 l'évidence dans le registre de fermeture
-([CLOSURE_LEDGER.md](docs/CLOSURE_LEDGER.md)) et le tableau de compression
-([COMPRESSION_SCORECARD.md](docs/COMPRESSION_SCORECARD.md)), qui s'ouvre sur
-l'énoncé zéro bouton de réglage et le relevé prospectif. Les valeurs de
-travail des voies encore ouvertes sont localisées à partir de la mesure et
+([CLOSURE_LEDGER.md](docs/CLOSURE_LEDGER.md)). Les valeurs de
+travail des voies ouvertes sont localisées à partir de la mesure et
 comptées comme emprunts ; chaque surface de ce dépôt énonce ses affirmations
 au statut que ces fichiers consignent.
 
@@ -225,12 +216,12 @@ une équation définissante
 dont les termes de fermeture restent ouverts empruntent des valeurs de travail
 localisées en attendant : un P de travail localisé à partir de α mesuré sous
 SL-3, un N de travail localisé à partir de Λ mesuré sous SL-4, le pont SI au
-césium sous SL-5 et les sélections structurelles déclarées listées dans le
-tableau de compression. Chaque emprunt est compté, et le statut se mesure au
-tableau de compression
-([COMPRESSION_SCORECARD.md](docs/COMPRESSION_SCORECARD.md)). La règle de provenance
-à l'intérieur de ce cadre : aucune cible mesurée ni constante numérique ajustée
-ne peut entrer dans une carte source déclarée. Les axiomes
+césium sous SL-5 et les sélections structurelles déclarées. Chaque emprunt est
+compté, et le registre de fermeture
+([CLOSURE_LEDGER.md](docs/CLOSURE_LEDGER.md)) consigne le statut de chaque
+ligne. La règle de provenance à l'intérieur de ce cadre est qu'aucune cible
+mesurée ni constante numérique ajustée ne peut entrer dans une carte source
+déclarée. Les axiomes
 algébriques-quantiques et l'écran $S^2$ restent des prémisses explicites.
 Quantitativement, les lignes publiques sont organisées par trois quantités
 internes : un point fixe local de pixel $P_\star$, un point fixe global de
@@ -414,7 +405,7 @@ garde chacune de ces lignes non promouvable.
 | Vitesse de la lumière | c | vitesse lorentzienne structurelle de la branche d'espace-temps recouvrée ; le nombre SI est une convention d'unités | 299792458 exact par définition | pas une prédiction numérique |
 | Structure fine (inv.) | $\alpha^{-1}$ | la carte directe source seule se contracte sur 136.994835177413, point fixe unique certifié par intervalles de la carte déclarée (`code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json` ; la queue imprimée antérieure 136.994835164622 provenait d'un calcul non convergé et est remplacée au-delà du chiffre 9, ligne CL-6 du registre). Le résidu vers le bassin SL-3 est le terme de transport hadronique ouvert, ligne de fermeture CL-1 de [CLOSURE_LEDGER.md](docs/CLOSURE_LEDGER.md) (3.0e-4 en relatif, environ 2e6 sigma de mesure). La carte auto-cohérente à largeur de jauge a le point fixe certifié 137.035660136946577 : ligne CL-2, 2.5e-6 en relatif, même terme manquant ; la valeur historiquement affichée 137.03595950081728 est un paquet d'affichage de provenance mixte, qui n'est le point fixe d'aucune carte déclarée unique. Le point final de fermeture hadronique empirique 136.26365894312011 sur [136.15838328342668, 136.36909752396569] utilise les données mesurées $e^+e^-\to$ hadrons | 137.035999177(21) : la valeur-test SL-3 qui localise le P de travail, sur aucune liste de sorties | lignes de fermeture, non des prédictions. La branche source stricte exige un transport projeté par Ward sous un futur contrat correctif successeur dont la méthode complète est gelée avant des données retenues, ou une exécution propre auditée. La v2 historique est invalide et la v3 corrective est inactive ; le point final empirique laisse l'écart d'ancre dans le même schéma [0.648554111145163, 0.854792066592563] |
 | Capacité d'enregistrement | N | 3.53×10¹²² par le pont électrofaible au pixel certifié ; le théorème de couplage G2-GAP-1 force la relecture de capacité vers cette valeur modulo trois prémisses déclarées, point fixe conditionnel certifié à largeur relative 1.6×10⁻²⁵ | 3.31×10¹²² localisé à partir de Λ mesuré | écart de valeur centrale de 6.6 %, ligne de fermeture CL-3 ; ce n'est ni une contradiction ni un test de significativité avant validation des prémisses de couplage et propagation du posterior cosmologique conjoint dans la même carte |
-| Inclinaison scalaire | $n_s$ | 0.9660215 sur la branche d'écran analytique conditionnelle ($1-P_\star/48$) ; sélection de formule comptée dans le tableau de compression (2 candidats) | 0.9649(42) (Planck) | +0.27σ ; comparaison rétrospective, pas une prédiction gelée |
+| Inclinaison scalaire | $n_s$ | 0.9660215 sur la branche d'écran analytique conditionnelle ($1-P_\star/48$), à partir de deux formules candidates | 0.9649(42) (Planck) | ligne de comparaison à +0.27σ |
 | Secteur électrofaible massif et Higgs (W, Z, Higgs, top) | $W,Z,H,t$ | la carte stricte d'audit-source émet $(80.330,\,91.119)$ GeV. Elle ne spécifie ni le vev renormalisé, ni la prescription de tadpoles, ni l'appariement des seuils, ni la politique d'entrées courantes, ni la complétion finie à deux boucles, ni la conversion au pôle complexe ; ces coordonnées ne sont donc pas des prédictions physiques des masses W/Z. La famille de criticité Higgs/top donne $(125.77,\,172.63)$ GeV à un candidat d'échelle-frontière gelé, tandis que l'ajustement de surface $(125.20,\,172.35)$ GeV est ancré sur cible ; aucune masse physique fermée côté source n'est émise | les valeurs PDG ne sont que des données de comparaison ; l'ancienne paire $(80.3692,\,91.1880)$ relevait d'une convention de Breit--Wigner à largeur dépendante de la masse, et non d'une paire de pôles complexes mesurée | aucun résidu ni pull W/Z n'a de sens avant l'existence d'une carte complète avec schéma déclaré et incertitude théorique. Les paquets de pôle sont des diagnostics de prescription : leurs sorties à une boucle varient d'environ 1.85 GeV pour W et 1.72 GeV pour Z sur le balayage d'échelle déclaré, et le paquet annoncé à deux boucles est un hybride MSSM à une boucle plus SM à deux boucles, non un calcul OPH complet |
 | Leptons chargés (électron, muon, tau) | $e,\mu,\tau$ | aucune masse physique fermée côté source n'est émise. L'architecture de réponse MCPR déclarée émet le triplet conditionnel $(m_e,m_\mu,m_\tau)=(0.51096,\,105.649,\,1776.78)$ MeV à un décalage cohérent de $-84$ ppm sans référence chargée à l'exécution ; le porteur icosaédrique par faces et sommets fixe la structure de famille | $0.5109989$, $105.6584$, $1776.93$ MeV | le triplet MCPR est une architecture d'entrée de modèle déclarée, non une prédiction côté source ; la complétion côté source est le programme d'orbite A5/W5 ouvert |
 | Spectre des quarks légers (up, down, strange, charm, bottom) | $u,d,s,c,b$ | aucune masse physique non nulle fermée côté source n'est émise : les équations sources produisent deux rayons de profil Yukawa ordonnés mais laissent leurs étalements libres. Le top n'est pas dans ce secteur ; son Yukawa est fixé par la loi de criticité du Higgs (voir la ligne électrofaible/Higgs) | Yukawa à échelle commune employés seulement pour l'audit | les cinq équations sources des quarks légers laissent une non-identifiabilité à deux modules prouvée ; l'objet manquant est un sélecteur d'orbite de saveur dérivé de la source. C'est une non-implication prouvée, pas un manque arithmétique |
@@ -453,11 +444,11 @@ importants reçoivent plus de contexte ; les notes plus locales sont résumées
 plus brièvement.
 
 - **[Observation-Determined Normal Forms](extra/observable_normal_forms.pdf)** : mathématiques autonomes et neutres vis-à-vis du substrat pour les systèmes de contraintes et de réécriture. Le papier sépare la confluence depuis une même source, l'identification entre sources à partir d'observations protégées, la normalisation et la vivacité, ainsi que la réparabilité locale. Il ajoute des modules de stabilité résiduelle et d'observation inverse, des bornes de raffinement et de limite projective, le projecteur fini d'espérance conditionnelle pondérée avec un reçu matriciel non circulaire, et un artefact Lean dédié au sous-ensemble formalisé des théorèmes.
-- **[Observer Patch Holography as a Strange-Loop Self-Simulation: The Claim Lattice and Its Closure Status](extra/compact_proof_of_oph.pdf)** : l'argument compact en faveur de l'OPH. Il énonce une fois les principes de la boucle étrange, parcourt les jambes théorématiques de la physique récupérée et présente chaque ligne numérique avec son statut de fermeture. Il ne donne un pull que lorsque les coordonnées théorique et expérimentale sont commensurables et que le modèle d'incertitude nécessaire existe. Il nomme aussi les artefacts qui établiraient l'hypothèse : des certificats d'unicité, un registre de fermeture à zéro sous complétions en aveugle et un tableau de compression positif.
+- **[Observer Patch Holography as a Strange-Loop Self-Simulation: The Claim Lattice and Its Closure Status](extra/compact_proof_of_oph.pdf)** : l'argument compact en faveur de l'OPH. Il énonce une fois les principes de la boucle étrange, parcourt les jambes théorématiques de la physique récupérée et présente chaque ligne numérique avec son statut de fermeture. Il ne donne un pull que lorsque les coordonnées théorique et expérimentale sont commensurables et que le modèle d'incertitude nécessaire existe. Il nomme aussi les artefacts qui portent la théorie : des certificats d'unicité et un registre de fermeture à zéro sous complétions en aveugle.
 - **[Programme de falsification OPH](docs/OPH_FALSIFICATION_PROGRAM.md)** : liste d'élimination publique de l'OPH. Elle nomme les modes d'échec durs, dont l'échec d'un reçu classique de porteur entièrement spécifié ou d'un reçu quantique de pôle complété séparément, la désintégration du proton médiée par jauge, les générations légères supplémentaires, les charges hors du réseau permis et l'extension universelle au Système solaire de l'équation statique de réponse sombre, déjà exclue. Pour réfuter une affirmation OPH, un résultat sur les neutrinos ou la cosmologie doit exclure une prédiction fixée indépendamment des données du test.
 - **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)** : calcul de point fixe source pour la ligne de structure fine. Il sépare la valeur source OPH, la frontière empirique du point final à basse énergie, la provenance distincte de la racine source et du pixel de comparaison CODATA, et la correction QCD/hadronique restante.
 - **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)** : mécanisme OPH fini de gap de réparation. L'énoncé orienté Clay est une identité conditionnelle : le gap de réparation n'égale le gap de masse de Yang-Mills quadridimensionnel que si les certificats déclarés de continuum multirésolution, de positivité par réflexion, de transfert/intertwiner et de non-trivialité tiennent, et aucun de ces certificats n'est fourni.
-- **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)** : théorie des cordes comme langage effectif de bord OPH et crible de vides. Le résultat de Bouchard–Donagi fournit un candidat au niveau de la cohomologie du spectre visible sans masse ; les certificats non émis ici comprennent le bord critique, la reproduction brute de la cohomologie, la réalisation de la couche de sûreté, le spectre lourd, le passage vers la basse énergie, les seuils et le verrouillage des moduli.
+- **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)** : théorie des cordes comme langage effectif de bord OPH et crible de vides. Le résultat de Bouchard-Donagi fournit un candidat au niveau de la cohomologie du spectre visible sans masse ; les certificats non émis ici comprennent le bord critique, la reproduction brute de la cohomologie, la réalisation de la couche de sûreté, le spectre lourd, le passage vers la basse énergie, les seuils et le verrouillage des moduli.
 - **[Photonic Fixed-Point Consensus for SHA-256d Proof of Work](extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf)** : test matériel d'enrichissement photonique de candidats SHA-256d de style OPH, jugé par le vérificateur numérique exact.
 - **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)** : cognition et qualia comme consensus récurrent de patches sur substrats neuronaux ou artificiels auto-relecteurs.
 - **[Theoretical Bounds on χν in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)** : théorème de canal commun pour la matière cohérente, pont fini de canal, coefficient de collier à réserve protégée $\chi_\nu^{\mathrm{can}}=e^{-P_\chi/24}$, bande à épaisseur finie, cage énergétique de conservation et valeurs d'ingénierie, avec la force de dispositif et le stress sombre cosmologique gardés comme portes de reçus séparées.
@@ -507,14 +498,11 @@ l'index web des papiers et des artefacts GitHub Release.
 La [preuve compacte de l'OPH](extra/compact_proof_of_oph.pdf) est l'énoncé
 complet le plus court du treillis d'affirmations : les principes de la boucle
 étrange, les jambes théorématiques de la physique récupérée, les lignes
-numériques de point fixe avec leur statut de fermeture, la comptabilité de
-compression et les tests d'échec explicites. Ses conclusions valent sous les
-hypothèses de branche déclarées, et son statut d'évidence est exactement ce que
-[CLOSURE_LEDGER.md](docs/CLOSURE_LEDGER.md) et
-[COMPRESSION_SCORECARD.md](docs/COMPRESSION_SCORECARD.md) consignent au jour de
-lecture : aucun nombre de probabilité de justesse ne remplace ces deux
-surfaces. Le calcul ouvert décisif est le transport hadronique projeté par
-Ward sous un futur contrat correctif successeur. La méthode source complète
+numériques de point fixe avec leur statut de fermeture et les tests d'échec
+explicites. Ses conclusions valent sous les hypothèses de branche déclarées, et
+le registre de fermeture ([CLOSURE_LEDGER.md](docs/CLOSURE_LEDGER.md)) consigne
+le statut de chaque ligne numérique. Le calcul ouvert décisif est le transport
+hadronique projeté par Ward sous un contrat correctif successeur. La méthode source complète
 doit être gelée avant une nouvelle publication de données retenue, ou exécutée
 par une équipe propre auditée sans accès à la cible. La v2 historique est
 horodatée mais algébriquement invalide ; la v3 corrective est un échafaudage

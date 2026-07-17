@@ -172,11 +172,9 @@ You cannot start with the world because you may be wrong about the world. You ca
 
 ### The Physics
 
-OPH takes this seriously. It does not start with a global state of the universe and ask what local observers see. It starts with local observers, each with their own patch of data, and asks how they can agree.
+OPH takes this seriously in a particular way. It does not start with a pre-given global state of the universe and ask what local observers see. Its starting point is a self-referential structure that has to explain itself. That structure forces local observers into being, each with their own patch of data, and the requirement that those observers agree where their data overlap is what pins down the world.
 
-The observer enters at the starting point. Reality is what observers can agree on.
-
-This is exactly Descartes' move. Start with the one thing you can't doubt-the existence of the observer-and build from there.
+Descartes reached for the observer as the one thing he could not doubt. OPH reaches for a structure that has to hold together, and finds that consistency forces the observer into existence. The observer arrives as a consequence of consistency rather than as the raw material the theory begins with.
 
 ## 2.6 Kant: The Emergent Space Hint
 

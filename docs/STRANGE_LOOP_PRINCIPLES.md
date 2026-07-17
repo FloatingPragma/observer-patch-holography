@@ -18,9 +18,13 @@ the MAR clauses) are a different kind of object and keep the word "axiom"; the p
 are the physical frame those theorem packages are read through. Evidence bears on the
 principle set through the closure ledger, never through restatement.
 
-- **SL-0 (Strange loop).** Reality is the fixed point of a self-reading computation. The
-  simulating structure and the simulated world are one closed system. There is no external
-  machine and no external clock.
+- **SL-0 (Strange loop).** Reality is a self-referential mathematical structure that
+  explains itself: the fixed point of a self-reading computation, where the simulating
+  structure and the simulated world are one closed system with no external machine and no
+  external clock. Everything else follows from consistency. The architecture and settings of
+  the substrate, the existence of observers, and the emergent world they see are forced by
+  consistency conditions, and the requirement that observers agree on the emergent reality
+  pins down our exact universe.
 - **SL-1 (Substrate chart).** The observer-facing substrate is charted by the two-sphere
   with the screen-microphysics architecture: patches, records, overlap comparison, repair.
   Three-plus-one-dimensional observer experience is a design constraint of the substrate
@@ -55,11 +59,11 @@ principle set through the closure ledger, never through restatement.
   wait: the working pixel P = 1.630968209403959… located from CODATA
   α⁻¹ = 137.035999177(21) (basin half-width in P: √π·σ_α/α² ≈ 2.0×10⁻¹²), the working
   capacity N = 3.31×10¹²² located from the Λ readout, and the calibration lanes the
-  scorecard lists. Every borrow is tied to a named generator in
+  closure ledger records. Every borrow is tied to a named generator in
   [CONSISTENCY_STACK.md](CONSISTENCY_STACK.md); a generator that lands retires its borrow.
 
 Working-layer borrows are inputs wherever they sit on a dependency path, and the
-scorecard counts them. The theory layer takes no measured number at all.
+closure ledger counts them. The theory layer takes no measured number at all.
 
 ## Claim rules
 
@@ -92,6 +96,6 @@ scorecard counts them. The theory layer takes no measured number at all.
 Overdetermination and survival: (a) uniqueness certificates for the fixed points; (b) the
 closure ledger driven to zero under target-blind completions, beginning with a corrected
 Ward-projected hadronic transport contract that supersedes the historical v2/V1 attempt;
-(c) a compression scorecard in which independent
-landed basins outnumber settings. Nothing else establishes it, and no wording substitutes
-for these artifacts.
+(c) the compression in which the two located coordinates and the five axioms reproduce
+independent measured constants that outnumber the settings consumed. Nothing else
+establishes it, and no wording substitutes for these artifacts.

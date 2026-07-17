@@ -25,7 +25,7 @@ earned.
 OPH is stated under the strange-loop principles (SLH), SL-0 through
 SL-5, canonically recorded in [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md). The principles are declared
 architecture postulates. Evidence bears on the principle set through the closure
-ledger and the compression scorecard, never through restatement.
+ledger, never through restatement.
 
 The two substrate constants are handled in three layers
 ([STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md)). The theory layer
@@ -51,7 +51,7 @@ Every working borrow is tied to a named generator in
 capacity readback, G3 electroweak repair); a generator that lands retires its
 borrow. The generator standing: G1, the hadronic transport, is the decisive
 open computation; section 1 quantifies why it is hard for every method on
-Earth and records that all grid work so far is exploratory. G2, the capacity
+Earth and records that all grid work is exploratory. G2, the capacity
 readback, is reduced to one coupling theorem (G2-GAP-1) conditional on
 premises CP-1 to CP-3, with the joint Planck posterior propagation open. G3,
 the electroweak readout, awaits its physical readout contract; the executed
@@ -61,10 +61,11 @@ open after twelve preregistered candidates were excluded.
 
 Neither α nor Λ nor G appears on any OPH output list. A measured value used to
 locate a basin is an input at every surface, permanently
-([STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md), rule 1). The current evidential standing is the
-compression scorecard ([COMPRESSION_SCORECARD.md](COMPRESSION_SCORECARD.md)):
-M − K is deeply negative. The program's task is to move rows upward, and this
-document lists every way it can lose while trying.
+([STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md), rule 1). The evidential
+standing rests on the closure ledger ([CLOSURE_LEDGER.md](CLOSURE_LEDGER.md)) and
+the kill-condition program: two located coordinates and five axioms reproduce the
+measured constants of physics, and this document lists every way the theory can
+lose.
 
 The exposure documented here is structural. L1 certifies exactly one fixed
 point for each of the two incomplete declared P maps on the declared physical
@@ -111,7 +112,7 @@ Useful background:
 | $N_{\mathrm{CRC}}^{\mathrm{EW}}$ | The conditional electroweak-bridge capacity, $3.5323546226929906511\ldots\times10^{122}$. SL-4 admits one N. The nominal 6.6% difference from the Λ-located value is a conditional mismatch because F and CP-1 to CP-3 remain open; the final comparison must propagate the joint Planck posterior (CL-3). |
 | 24-tick repair lock | One global screen step equals 24 rounds of local repair, $2(8+3+1)$. The ×2 write/check orientation (12→24) is a discrete structural selection with a recorded menu size, not a parameter-free deduction. |
 | $G_{\mathrm{OPH}}$ | The SI bridge display for Newton's constant, $6.674299995910528\ldots\times10^{-11}\,\mathrm{m^3\,kg^{-1}\,s^{-2}}$. It consumes measured bridge quantities and carries the QCD/cesium-clock caveat. The structural claim is the dimensionless gravity theorem. |
-| $\chi_\nu$ | The coherent scalar susceptibility continuation. Currently a speculative continuation with no testable content; see the appendix. |
+| $\chi_\nu$ | The coherent scalar susceptibility continuation. A speculative continuation with no testable content; see the appendix. |
 | Golden ratio | The number about 1.618 that appears in five-fold symmetry. SL-2 places the pixel off this balance point by one Gaussian-normalized observation width. |
 
 ## 1. Closure Tests
@@ -223,7 +224,7 @@ computation exceeds present capability for everyone, with or without OPH.
 This is the same epistemic situation as any frontier observable whose theory
 prediction outruns measurement technology. The theory keeps its target frozen
 and externally timestamped so the test executes the day methods reach it, and
-every grid computed so far is exploratory, with no promotion and no
+every grid computed is exploratory, with no promotion and no
 exclusion in either direction.
 
 Exploratory V1 emission: the 58-run grid was re-run in an
@@ -319,7 +320,7 @@ assumptions:
 | Einstein branch | The entropy and modular assumptions hold, the controlled Markov-collar and controlled modular remainders vanish in the stated limits, and the Einstein-gravity limit fails. | OPH claims ordinary gravity appears as a controlled scaling branch of the overlap rules. If the stated assumptions do not give that branch, the gravity reconstruction fails. |
 | Gauge reconstruction | A cofinal tail satisfies the full compact-gauge refinement receipt, yet the zero-obstruction construction fails to produce a well-defined compact group from the stated tensor-generated transportable sector category and forgetful fiber. | This breaks the receipt-conditional classification/reconstruction stage before any Standard Model selection claim can be made. |
 | MAR selection | A valid MAR-admissible one-Higgs low-energy sector package, satisfying the same anomaly, refinement, CP, and weak-sector clauses, is selected instead of the Standard Model package. | The selection claim is MAR-local; a different MAR-minimal package would mean the theory did not derive the realized Standard Model branch. |
-| Charge lattice | The stated assumptions allow a different hypercharge lattice. | The hypercharge lattice (given the MAR clauses as inputs) is one of the two landed scorecard rows. If OPH allows another lattice, the observed charge pattern was not forced. |
+| Charge lattice | The stated assumptions allow a different hypercharge lattice. | The hypercharge lattice (given the MAR clauses as inputs) is one of the theory's landed outputs. If OPH allows another lattice, the observed charge pattern was not forced. |
 | Generation count | A valid OPH construction has two or four light matter generations. | OPH claims exactly three generations on the realized branch. |
 | Fermions and chirality | Chiral fermions have to be imported from the Standard Model by hand. | OPH says matter structure follows from observer consistency. If the key fermion structure has to be assumed, the reconstruction fails. |
 | P-lane protocol | A completed registered fixed-point equation admits no interval-grade contraction certificate on its declared interval, admits multiple solutions there, or its source reads the low-energy target. | The existing certificates prove existence and uniqueness only for the two incomplete declared maps at their stated cutoffs and conventions. The completed Ward-projected map needs its own interval and domain-global certificates. A proof of non-uniqueness for that completed map or a target leak kills the registered lane. |
@@ -339,8 +340,8 @@ extensions) part company:
 | --- | --- | --- |
 | Blind hadronic closure | A target-blind transport function is emitted under a detached successor whose complete method and decision policy were registered under valid blind or audited clean-room chronology, all readout/scheme gates close, and a completed map meets the successor's frozen failure criterion. | The complete named CL-1 or CL-2 formulation is falsified independently. Historical v2, corrective v3, and V1 cannot execute this test. |
 | Maxwell carrier | With the Maxwell kinetic term, ordinary Lorentz vacuum, and no Higgs, Stückelberg, or medium mass all fixed, the reduced quadratic theory lacks its two transverse $k^2=0$ modes. | This falsifies the scoped classical Maxwell carrier theorem. A photon-particle mass test applies only after a physical-Hilbert-space and positive-residue pole receipt is also supplied. |
-| Color carrier | With the pure Yang–Mills kinetic term about the trivial flat connection and the perturbative/deconfined phase fixed, the reduced quadratic theory lacks its $2\dim G$ transverse $k^2=0$ modes. | This falsifies the scoped quadratic Yang–Mills theorem. Confinement can remove a free physical gluon pole and is not a counterexample to that theorem. |
-| Einstein tensor carrier | With the pure two-derivative Einstein–Hilbert action, flat vacuum, and no extra fields or higher-curvature terms fixed, the reduced quadratic theory lacks its two transverse-traceless null modes. | This falsifies the scoped Einstein linearization theorem. A graviton-particle mass test applies only after quantization and a positive-residue physical pole have been established. |
+| Color carrier | With the pure Yang-Mills kinetic term about the trivial flat connection and the perturbative/deconfined phase fixed, the reduced quadratic theory lacks its $2\dim G$ transverse $k^2=0$ modes. | This falsifies the scoped quadratic Yang-Mills theorem. Confinement can remove a free physical gluon pole and is not a counterexample to that theorem. |
+| Einstein tensor carrier | With the pure two-derivative Einstein-Hilbert action, flat vacuum, and no extra fields or higher-curvature terms fixed, the reduced quadratic theory lacks its two transverse-traceless null modes. | This falsifies the scoped Einstein linearization theorem. A graviton-particle mass test applies only after quantization and a positive-residue physical pole have been established. |
 | de Sitter capacity | Cosmological data break the claimed de Sitter capacity relation. | SL-4 reads N from Λ through this relation. If the capacity relation fails, the located working value and the screen bookkeeping fail with it. |
 | Black-hole entropy | Black-hole entropy data contradict the OPH screen-counting rule. | OPH treats screens and records as physical bookkeeping. Wrong black-hole entropy breaks that bookkeeping. |
 | Page curve | Quantum black-hole information data contradict the OPH record claim. | OPH says records and overlap consistency control what can be recovered. A wrong Page-curve pattern breaks that claim. |
@@ -389,12 +390,12 @@ data exists or is looked at):
    produces a physical CL-5 pull. The exact-match companion lane remains
    calibration because it consumed its references.
 3. **DESI stance rows.** The fixed-N reading commits to
-   $(w_0, w_a) = (-1, 0)$; a stance on the S8/growth row (currently
+   $(w_0, w_a) = (-1, 0)$; a stance on the S8/growth row (
    disfavored, frozen anyway); any birefringence refinement carries its
    trials count (the existing 0.37501° expression was the 4th of 4 tried).
 4. **Prospective neutrino branch.** A source-derived family kernel, cycle law,
    orientation, and physical charged-lepton basis, hash-locked without
-   oscillation-target feedback, then evaluated once. OPH currently emits no
+   oscillation-target feedback, then evaluated once. OPH emits no
    neutrino prediction.
 5. **Dark-sector joint run.** A source-eligible parent with frozen source map,
    applicability rule, nuisance policy, covariance treatment, and likelihood,
@@ -410,7 +411,7 @@ data exists or is looked at):
 Retrospective comparisons that are not predictions and are not counted as
 evidence: fixed-$\mathbb{Z}_6$ RAR scatter 0.1328335 dex and error-aware BTFR
 slope 3.8456543 ± 0.0858172 (slope 4 at 1.80σ), where the interpolation
-function is the McGaugh–Lelli–Schombert empirical RAR fit and the SPARC
+function is the McGaugh-Lelli-Schombert empirical RAR fit and the SPARC
 samples are not held out; analytic scalar tilt
 $n_s = 1 - P/48 = 0.9660214956$ at 0.267σ from the Planck summary with an
 83-bin CAMB diagnostic of Δχ² = +0.83, where two formula candidates circulate
@@ -430,7 +431,7 @@ measurement-attribution rule (section 6):
 | S8 growth row | out-of-loop row of the dark-sector likelihood surface | n/a | +2.4σ against the model |
 | Source-α gap (CL-1) | incomplete source map contracts to α⁻¹ = 136.994835177413 vs 137.035999177(21) | 3.0×10⁻⁴ diagnostic gap | not a physical pull; Ward-projected transport absent |
 | Gauge-width α gap (CL-2) | incomplete map contracts to 137.035660136947 vs 137.035999177(21) | 2.5×10⁻⁶ diagnostic gap | not a physical pull; Ward-projected transport absent |
-| Bench bound on $\chi_\nu$ | coupons at rest bound gravitational ΔS ≲ 10⁻¹⁰ | record-level contrasts are 10⁻²–1; the 1:1 record↔gravity identity is ruled out by 8–10 orders | n/a (null bound) |
+| Bench bound on $\chi_\nu$ | coupons at rest bound gravitational ΔS ≲ 10⁻¹⁰ | record-level contrasts are 10⁻²-1; the 1:1 record↔gravity identity is ruled out by 8-10 orders | n/a (null bound) |
 
 Notes:
 
@@ -467,7 +468,7 @@ Notes:
 - The bench bound derives from the corpus's own collaborator analysis
   (`hoverboard-experimental-precursor/reply_to_bmu.md`): with
   $F \approx 5.14\times10^{8}\cdot\Delta S$ N, a healthy-device record
-  contrast of 10⁻²–1 would produce 10⁷–10⁸ N on an 80×60 mm coupon at rest.
+  contrast of 10⁻²-1 would produce 10⁷-10⁸ N on an 80×60 mm coupon at rest.
   No such force exists, so the gravitational ΔS is bounded at ≲10⁻¹⁰. This is
   the strongest existing $\chi_\nu$ constraint and it binds every future
   version of the force law before new hardware is built.
@@ -483,10 +484,10 @@ scope is appended rather than counted as evidence
 | Test | Target and data | Result (relative deviation; pull) | Verdict |
 | --- | --- | --- | --- |
 | Neutrino weighted-cycle point | $\sin^2\theta_{23} = 0.5820560367$, $\delta_{CP} = -54.419^\circ$ (≡ 305.581°) vs NuFIT 6.1 correlated profiles | Δχ² = 20.12 (with tabulated atmospheric likelihood) and 18.44 (without); both exceed the two-parameter 3σ value 11.83 | **REJECTED.** The candidate was target-informed (exponent law ranked against the measured splitting ratio). The displayed mass tuple (0.01745, 0.01948, 0.05308 eV), sum 0.0900 eV, and Majorana readouts are coordinates on the rejected candidate. |
-| Universal static dark law | fixed-$\mathbb{Z}_6$ equation applied unchanged to the Milky-Way–Sun system vs the Cassini quadrupole summary | predicted $Q_2 = 3.6201778\times10^{-26}\,\mathrm{s^{-2}}$, ≈19× the summary 1σ uncertainty above it; pull 19.2232σ (unit endpoint $3.4021876\times10^{-26}$: 18.0122σ) | **EXCLUDED** as a universal law. The scoped old-settled-galaxy branch survives only with a source-derived applicability or screening rule, which does not yet exist. |
+| Universal static dark law | fixed-$\mathbb{Z}_6$ equation applied unchanged to the Milky-Way-Sun system vs the Cassini quadrupole summary | predicted $Q_2 = 3.6201778\times10^{-26}\,\mathrm{s^{-2}}$, ≈19× the summary 1σ uncertainty above it; pull 19.2232σ (unit endpoint $3.4021876\times10^{-26}$: 18.0122σ) | **EXCLUDED** as a universal law. The scoped old-settled-galaxy branch survives only with a source-derived applicability or screening rule, which is work in progress. |
 | IBM Z₅ high-precision run | five-state golden-ratio target $\varphi^2 = 2.618033988749895$ | measured 2.5498, CI [2.4919, 2.6023]; relative deviation 2.6%; the target sits above the upper bound (≈2.4σ at the interval-implied width) | **The run excludes the target.** This is the one reconciled verdict; it replaces the pair of documents that called the same run confirmation and disproof. Standard QM predicts the ideal programmed target, so the run also carries no OPH-support weight; the exclusion stands as executed. |
 | IBM S₃ six-state ratio test | programmed ratio 2; no repository artifact establishes a pre-run freeze | base-layout raw 1.853569, mitigated 1.872389; reverse-layout raw 2.034766, mitigated 2.029911 | **FAILED as a base-layout implementation benchmark; non-discriminating for OPH and not verifiably preregistered.** Code, results, and documentation first entered history together on 2026-03-18; preregistration wording was added on 2026-07-14. Standard quantum mechanics predicts the same state-preparation target. A sound engineering successor randomizes both layouts and treats layout/calibration as nuisance; an OPH test first needs a prediction different from QM. |
-| Bottom-quark normalization | $m_b(m_b)$ forward emission vs PDG 4.186(6) GeV | emitted 6.03 GeV; relative deviation +44%; pull ≈3×10²σ | **MISS; the overshoot stands.** Carried openly as the one-loop b–τ register-selection and threshold-packet gap; that attribution is post-hoc, declared after the emission, with no premise gate declared before it. |
+| Bottom-quark normalization | $m_b(m_b)$ forward emission vs PDG 4.186(6) GeV | emitted 6.03 GeV; relative deviation +44%; pull ≈3×10²σ | **MISS; the overshoot stands.** Carried openly as the one-loop b-τ register-selection and threshold-packet gap; that attribution is post-hoc, declared after the emission, with no premise gate declared before it. |
 | Quark denominator-tuple lanes | six quark masses from the RSCC tuple grammar | tuple was the minimum of a 219,615-member post-hoc grammar; an ablation fit better | **SELF-REJECTED** by the quarks ledger (status: post-hoc, target-informed). The "all six within 11.5%" positives are void; no surface may cite them. |
 | Charged-lepton phase rigidity | $m_\mu/m_e$ from the $\delta_e = 2/9$ phase | +9.8336 ppm; pull +442σ | **EXCLUDED as a prediction.** The phase is the Brannen/Koide fitted value; "Koide follows exactly" is an identity of the ansatz. The lane displays (deviation, pull) pairs wherever it appears. |
 | Ringdown transition line (historical MM-01 ansatz) | α = 4 direct QNM-line identification applied to GW150914 f220 | nominal −5.9σ when only frequency error is propagated; about 1.9σ even under a simple independent mass/spin/frequency propagation | **VOID/MISATTRIBUTED, not an OPH branch failure.** The canonical integer-k Kerr template predates MM-01 and does not make this identification. The nominal pull also omits the full remnant covariance; full Bayesian analyses find GW150914 alone cannot constrain the area parameter. Preserve the calculation as an audit artifact only. |
@@ -556,7 +557,7 @@ Recorded values: $\chi_\nu^{\mathrm{can}} = \exp(-P/24) =
 0.9343006394893864\ldots$; engineering chart $\chi_\nu^{\mathrm{eng}} =
 \chi_\nu^{\mathrm{can}}/N_{\mathrm{coh}}$, which for $N_{\mathrm{coh}} =
 10^{22}$ gives $9.34\times10^{-23}$ to $1.00\times10^{-22}$;
-hoverboard-class areal load Σ = 200–600 kg m⁻² with
+hoverboard-class areal load Σ = 200-600 kg m⁻² with
 $\Delta S_{\mathrm{coh}}^{\mathrm{can}} \simeq 2\times10^{-8}$ to
 $6\times10^{-8}$ for full response; null bound
 $|\chi_\nu^{\mathrm{eng}}| \le 4\pi G F_{\min}/(g^2 A_\perp|\Delta
@@ -566,9 +567,9 @@ S_{\mathrm{coh}}^{\mathrm{eng}}|)$.
 operational, instrument-independent recipe for producing and measuring the
 coherence contrast $\Delta S_{\mathrm{coh}}$ on a real substrate; without
 it, every null is attributable to not reaching the contrast, and
-$N_{\mathrm{coh}}$ free over 10²⁰–10²⁴ makes the engineering coefficient
+$N_{\mathrm{coh}}$ free over 10²⁰-10²⁴ makes the engineering coefficient
 anything; and (2) a reconciliation with equivalence-principle and fifth-force
-bounds, since the assignment $c_U = 0$ to ordinary matter currently exempts the
+bounds, since the assignment $c_U = 0$ to ordinary matter exempts the
 lane from every torsion-balance, Eötvös, and MICROSCOPE constraint by
 construction, and that exemption requires a derivation, not a definition.
 
@@ -585,7 +586,7 @@ at rest, derived before new hardware is built.
 The twelve-port icosahedral coupling target (edge : diagonal : opposite =
 1 : 0.381966… : 0.145898…) is an analogue-engineering claim about a built
 body, not a substrate measurement. Evidence requires public bundles with
-controls; no bundle currently changes any physics row.
+controls; no bundle changes any physics row.
 
 ![OPH P hardware confirmation schematic](../extra/assets/oph_p_hardware_confirmation_animation.svg)
 
@@ -599,7 +600,7 @@ data. Engineering claim only.
 ### Coding-Theory Extensions
 
 A bare OPH overlap net is a finite constraint code. QECC distance, min-cut
-resilience, and Knill–Laflamme correction claims require an explicit code
+resilience, and Knill-Laflamme correction claims require an explicit code
 subspace, logical operators, error family, and recovery certificate; only
 certified topological-code branches may state them.
 
@@ -627,7 +628,7 @@ and the ways the theory can lose are unchanged and stated above.
 
 OPH is a principle set (SL-0…SL-5) with zero dials, zero quantitative inputs at
 the theory layer, two working substrate values located from measurement and
-counted in the scorecard, and a closure ledger that either goes to zero or
+counted as inputs, and a closure ledger that either goes to zero or
 falsifies the principles as formulated.
 The decisive P-lane experiment is a genuinely target-blind completion against
 the frozen target; V1 is not that experiment. The capacity comparison waits on

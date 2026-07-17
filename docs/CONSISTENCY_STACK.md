@@ -8,8 +8,7 @@ the argument: every paper cites the stack instead of re-deriving it, and every
 open item in it maps to a closure ledger row or a named gate in the gap register of
 [PROOF_SPINE.md](PROOF_SPINE.md). Companion to
 [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md), [STRANGE_LOOP.md](STRANGE_LOOP.md),
-[CLOSURE_LEDGER.md](CLOSURE_LEDGER.md), and
-[COMPRESSION_SCORECARD.md](COMPRESSION_SCORECARD.md).
+and [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md).
 
 The stack's strongest standing: lemma L1 is discharged, with interval and
 global-uniqueness certificates whose arithmetic a full adversarial
@@ -42,7 +41,7 @@ paper, Lorentz branch; consensus paper, quotient normal forms. Status: theorem
 on the declared branch; realized-branch nonemptiness open.
 
 **C3. Modular self-consistency.** A closed system with no external clock must
-generate its own dynamics from its state–algebra pair. Tomita–Takesaki modular
+generate its own dynamics from its state-algebra pair. Tomita-Takesaki modular
 theory supplies exactly this: the restricted state carries the flow, thermality
 is the KMS consistency condition, and time is internal readout. Removed
 freedom: no external time parameter exists to tune. Carrier: compact paper,
@@ -51,11 +50,11 @@ declared branch.
 
 **C4. Transportable-charge consistency.** Internal labels must transport
 coherently across overlaps. The category of transportable charges, under the
-compact-gauge receipt, reconstructs a compact gauge group (Tannaka–Krein). The
+compact-gauge receipt, reconstructs a compact gauge group (Tannaka-Krein). The
 explicit one-Higgs matter package and the Minimal Admissible Realization rule
 select SU(3)×SU(2)×U(1)/Z₆ with the hypercharge lattice, N_c = 3, N_g = 3.
 Removed freedom: the gauge menu. Carrier: compact paper, gauge reconstruction;
-MAR clauses declared as inputs in the scorecard. Status: theorem conditional on
+MAR clauses declared as counted inputs. Status: theorem conditional on
 the declared receipt and clause inputs.
 
 **C5. Entropic-gravitational consistency.** Local horizon thermodynamics of
@@ -123,9 +122,9 @@ of it. Removed freedom: unit conventions cannot carry physics. Carrier:
 STRANGE_LOOP_PRINCIPLES.md; scale-bridge sections. Status: declared bridge; G rides it as an
 input.
 
-**Endpoint.** C1–C6 remove every structural freedom except a two-real-parameter
-family (P, N) together with the declared discrete selections the scorecard
-counts. C7 identifies the two parameters with measured readouts. C8–C9 are two
+**Endpoint.** C1-C6 remove every structural freedom except a two-real-parameter
+family (P, N) together with the declared discrete selections counted alongside
+them. C7 identifies the two parameters with measured readouts. C8-C9 are two
 equations on the two-parameter family. If both equations hold and their fixed
 points are unique, the stack admits exactly one universe. Whether that universe
 is ours is decided by one reading: the closure ledger at zero. "Consistency alone generates exactly our universe" is a
@@ -205,7 +204,7 @@ them is a computation or a construction; reinterpretation closes nothing.
 - A C-row's "removed freedom" claim holds on its declared branch and carrier;
   branch nonemptiness and receipt gates stay visible at the carrier.
 - No C-row is evidence for any other. Evidence enters only through the closure
-  ledger and the compression scorecard.
+  ledger.
 - The stack may grow rows (a newly identified consistency requirement is a new
   C-row with a new carrier), and rows never silently strengthen: changes here
   are dated, like ledger verdicts.

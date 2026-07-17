@@ -426,9 +426,10 @@ constraint-first, not wish-first. A private experience becomes a public
 fact only if it can be recorded, compared, and integrated with other records
 without contradiction.
 
-Solipsism says only my mind is sure. OPH says finite observer patches are the
-operational starting point, but public reality is what survives overlap
-consistency among many patches. That is almost the opposite of solipsism. The
+Solipsism says only my mind is sure. OPH says finite observer patches are forced
+into being by a self-consistent reality, and public reality is what survives
+overlap consistency among many of them. That is almost the opposite of
+solipsism. The
 individual observer is not sovereign. The individual observer is constrained
 by every interface where records can be compared. A hallucination, a detector
 fault, and a genuine event can all be experiences inside some patch. They do

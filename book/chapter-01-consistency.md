@@ -32,7 +32,7 @@ There is a counter-tradition. Berkeley insisted that perception is primary. Kant
 > - Ernst Mach, *The Science of Mechanics* (1883): relational physics and critique of absolute space.
 > - Thomas Nagel, *The View from Nowhere* (1986): tension between objective and subjective standpoints.
 
-We take a narrower, operational step: **start from perspectives and demand consistency on overlaps.**
+We take a narrower, operational step: **treat reality as a structure that has to explain itself, and demand that the perspectives it forces stay consistent on their overlaps.**
 
 ### Why the Intuitive Picture Fails
 
@@ -162,7 +162,7 @@ Put these hints together, and a new picture emerges.
 
 There is no God's-eye view. There is no absolute description of reality that exists independently of observers. Instead, there are many observers, each with a limited perspective, and reality is what emerges when their perspectives must agree.
 
-This is the turnaround: **subjective perspectives are primary**. The “objective world” is the fixed point of consistency across many observer patches.
+This is the turnaround: **the “objective world” is the fixed point of consistency across many observer patches, and those patches are themselves forced by a structure that has to read itself consistently.**
 
 ![One fixed source can be repaired under many schedules, yet converge to one normal form when the overlap rules satisfy the transactional confluence conditions.](../assets/book_diagrams/consensus-funnel.svg){width=72%}
 
