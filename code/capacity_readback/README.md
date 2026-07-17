@@ -47,6 +47,20 @@ posterior for the comparison lives in
   families (log-count, port-inversion, cell-count readback) and the stage-3
   comparison; certificates in `runtime/F_candidate_*_certificates.json` and
   `runtime/F_construction_comparison_2026-07-14.json`.
+- [`CP2_INVERSION_FORM_REDUCTION_2026-07-17.md`](CP2_INVERSION_FORM_REDUCTION_2026-07-17.md):
+  the GAP-A3 reduction record: CP-2 decomposed into load mediation plus read
+  consistency, the surviving freedom classified exactly (the load gauge), and the
+  conditional theorem that P4 coherence plus the count-side premise CP-4 forces the
+  fixed-point location across the whole gauge freedom without pinning the gauge.
+- [`P4_COUPLED_COHERENCE_REDUCTION_2026-07-17.md`](P4_COUPLED_COHERENCE_REDUCTION_2026-07-17.md):
+  the GAP-A8 reduction record: the clause-4 reading dichotomy (aggregate reading closes
+  P4 degenerately by support collapse; per-configuration reading reduces it to CP-4 by
+  the coherence-transfer theorem), with positive and negative controls.
+- [`cp2_p4_premise_reduction.py`](cp2_p4_premise_reduction.py),
+  [`test_cp2_p4_premise_reduction.py`](test_cp2_p4_premise_reduction.py): the interval
+  machine checks for both reduction records (gauge-family axiom verdicts, support
+  collapse, CP-4 controls, recorded-lattice separation); artifact
+  `runtime/cp2_p4_premise_reduction_check.json`, deterministic across reruns.
 
 ## Construction run: outcome class (b), CL-7 stays open
 

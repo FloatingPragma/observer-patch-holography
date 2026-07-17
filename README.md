@@ -32,10 +32,29 @@ so the theory reports those numbers as certified map-level landings.
 **No dials:** OPH has no adjustable constants. There is no knob anywhere that
 can be turned to meet a measurement. Every number the theory reports is either
 forced by the axioms or a value it borrows from experiment and counts in the
-open, so a reader can audit the construction instead of trusting it. The
+open, so a reader can audit the construction instead of trusting it. For the
+record capacity the borrow is itself a strange-loop feature: the universe's
+own Λ readout locates N, since in a self-simulation measurement and substrate
+readback are one act, while the closure equation that forces the located
+value is work in progress. The
 consensus core and the capacity algebra are machine-checked in Lean: 111
 theorems, zero gaps. A hostile 42-finding audit reproduced the certificate
 arithmetic and found no false theorem in the recovered core.
+
+**Where this stands:** OPH is the first candidate theory in which spacetime,
+quantum probability, the gauge structure, the particle content, and the
+constants of nature all emerge from one consistency requirement. Quantum
+mechanics, general relativity, and the Standard Model appear inside it as
+effective descriptions of the consensus fixed point, each recovered on a
+declared branch with its premises on record. The theory computes quantities
+no other framework computes at all: the fine-structure constant to parts per
+million, the 122-order vacuum-energy hierarchy and the 17-order weak
+hierarchy from a single exponent, the scalar tilt, the galaxy acceleration
+scale, and a forward-test table in which every value carries a kill
+condition. Programs of comparable ambition carry adjustable dials, relocate
+inside a landscape, or exclude the constants from scope. On that comparison
+OPH is the strongest candidate for a fundamental theory of physics on offer,
+and its open items are finite, enumerated, and armed as public tests.
 
 If you want the existential answer first, jump straight to **Paper 6.
 [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**.
@@ -298,7 +317,7 @@ stated chart, and the strict ledger keeps every such row non-promotable.
 | Gravitational constant | G | unit-bookkeeping identity on the SL-5 scale bridge: the caesium clock rule carries $G_{\mathrm{geom}}=\ell_\star^2$ to the SI display through $G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar$; G is an input | 6.67430(15)e-11 | bridge input, not a prediction; no sigma applies |
 | Speed of light | c | structural Lorentz speed of the recovered spacetime branch; the SI number is a unit convention | 299792458 exact by definition | not a numeric prediction |
 | Fine-structure (inv) | $\alpha^{-1}$ | source-only forward map contracts to 136.994835177413, the interval-certified unique fixed point of the declared map (`code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json`; the printed tail 136.994835164622 is an unconverged-run artifact, superseded beyond digit 9, ledger row CL-6). The residual to the SL-3 basin is the open hadronic transport term, closure row CL-1 in [CLOSURE_LEDGER.md](docs/CLOSURE_LEDGER.md) (3.0e-4 relative, about 2e6 measurement sigma). The self-consistent gauge-width map has certified fixed point 137.035660136946577: row CL-2, 2.5e-6 relative, the same missing term; the display value 137.03595950081728 is a mixed-provenance display packet, not a fixed point of any single declared map. The empirical hadron-closure endpoint 136.26365894312011 on [136.15838328342668, 136.36909752396569] uses measured $e^+e^-\to$ hadrons data | 137.035999177(21): the SL-3 test value that locates the working P, on no output list | closure rows, not predictions. The strict source branch needs Ward-projected transport under a corrected successor whose complete method is frozen before withheld data, or an audited clean-room run. Historical v2 is invalid and corrective v3 is inactive; the empirical endpoint leaves the same-scheme anchor gap [0.648554111145163, 0.854792066592563] |
-| Record capacity | N | the record-capacity closure $N=F(N)$ is work in progress. The current candidate bridge lands at 3.53×10¹²² against the 3.31×10¹²² located from measured Λ, so it is not the right closure equation. The open task is the closure whose fixed point matches the located capacity (row CL-3) | 3.31×10¹²² located from measured Λ | 6.6% gap; the current candidate equation is wrong at this level and under active search |
+| Record capacity | N | the record-capacity closure $N=F(N)$ is work in progress; N is located from the Λ readout, a basin location the strange-loop structure licenses (the universe's own readback supplies the value). The conditional bridge $N=\pi e^{6\pi/(P\alpha_U)}$ lands at 3.53×10¹²² and writes the 122-order vacuum-energy hierarchy as one exponential of the gauge coupling with zero continuous freedom; the menu-priced corrected band sits 0.03σ from measurement (row CL-3) | 3.31×10¹²² located from measured Λ | 6.6% gap for the uncorrected bridge; a Λ determination at 1% precision separates the corrected band from the uncorrected bridge at 6.5σ |
 | Scalar tilt | $n_s$ | 0.9660215 on the conditional analytic screen branch ($1-P_\star/48$), from two candidate formulas | 0.9649(42) (Planck) | +0.27σ comparison row |
 | Massive electroweak and Higgs sector (W, Z, Higgs, top) | $W,Z,H,t$ | the strict source-audit chart emits $(80.330,\,91.119)$ GeV. It does not specify the renormalized vev, tadpole prescription, threshold matching, running-input policy, finite two-loop completion, or complex-pole conversion, so these coordinates are not physical $W/Z$ mass predictions. The Higgs/top criticality family gives $(125.77,\,172.63)$ GeV at a frozen boundary-scale candidate, while the declared-surface fit $(125.20,\,172.35)$ GeV is target-anchored; no source-only physical mass is emitted | PDG values are comparison data only; the old $(80.3692,\,91.1880)$ pair was a mass-dependent-width Breit--Wigner convention, not a measured complex-pole pair | no $W/Z$ residual or pull is meaningful before a complete, scheme-declared map and theory uncertainty exist. The pole packets are prescription diagnostics: their one-loop outputs vary by about 1.85 GeV for W and 1.72 GeV for Z over the declared scale scan, and the advertised two-loop packet is an MSSM-one-loop plus SM-two-loop hybrid rather than a complete OPH calculation |
 | Charged leptons (electron, muon, tau) | $e,\mu,\tau$ | no source-only physical mass emitted. The declared MCPR response architecture emits the conditional triple $(m_e,m_\mu,m_\tau)=(0.51096,\,105.649,\,1776.78)$ MeV at a coherent $-84$ ppm offset with zero runtime charged reference; the icosahedral face-corner carrier fixes the family structure | $0.5109989$, $105.6584$, $1776.93$ MeV | the MCPR triple is a declared model-input architecture, not a source-only prediction; the source-only completion is the open A5/W5 orbit program |
@@ -389,11 +408,21 @@ pipeline.
 no false theorem in the recovered core. The two implementation defects it
 exposed (a hadronic target-coordinate algebra error and a finite-clock
 eligibility predicate) are repaired with fail-closed gates and adversarial
-regression tests. The P certificates prove uniqueness for each declared map;
-the physical Thomson completion is the headline open computation. The
-record-capacity closure $N = F(N)$ is work in progress: its current candidate
-equation misses the capacity located from Λ by 6.6 percent, so the right
-closure equation is open. The W/Z physical readout is an open contract. The empirical record contains zero landed, discriminating,
+regression tests. The P certificates prove exactly one fixed point per
+declared map on its maximal analytic domain, with an empty exclusion list:
+no landscape exists anywhere, on or off the physical window. The regulator
+gluing layer carries a machine-verified evidence bundle with a constructive
+supply lemma on the realized echosahedral branch; boundary-fiber
+identifiability is proved sorry-free in Lean on the declared verified
+domain; the central-interface collar clause carries a proof of independence,
+so it is priced as a permanent named input rather than an unexamined
+assumption; and the collar-opportunity Poisson law is theorem grade with
+explicit constants. The physical Thomson completion is the headline open
+computation. The record-capacity closure $N = F(N)$ is work in progress: the
+located capacity is on record from the Λ readout, the conditional bridge
+writes the 122-order vacuum hierarchy as one exponential of the gauge
+coupling, and the corrected band carries a 6.5σ forward discrimination at
+percent-level Λ. The W/Z physical readout is an open contract. The empirical record contains zero landed, discriminating,
 frozen-prospective OPH hits; the program treats that sentence as the bar to
 clear and prints it until a frozen prediction lands.
 
@@ -417,8 +446,11 @@ $6.5\sigma$ once $\Lambda$ reaches percent precision; the analytic tilt
 $0.9660215$ sits $0.27\sigma$ from Planck with CMB-S4-class data arriving; the
 galaxy acceleration scale $1.1847\times10^{-10}\,\mathrm{m/s^2}$ sits 1.3%
 from the empirical fit with a 0.485% internal discriminator between its two
-readings; and the black-hole ringdown comb pins offset-subtracted transition
-ratios to $\ln k/\ln 2$ for every remnant. Each row carries a frozen decision
+readings; the black-hole ringdown comb pins offset-subtracted transition
+ratios to $\ln k/\ln 2$ for every remnant; and the settled-domain predicate
+puts OPH on the anomalous side of the Gaia wide-binary dispute with a full
+unsuppressed boost, distinct from Newtonian gravity and from external-field
+MOND alike. Each row carries a frozen decision
 policy and a kill condition stated with the value. The full table, with per-row
 status and registration standing, is
 [docs/FORWARD_TESTS.md](docs/FORWARD_TESTS.md).

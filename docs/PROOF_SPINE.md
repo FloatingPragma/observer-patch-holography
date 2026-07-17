@@ -103,8 +103,16 @@ Part A gaps:
   geometric counting theorem from declared screen structure. This is the highest-value
   open mathematics in the program.
 - **GAP-A3 (CP-2).** Uniqueness of the port-load inversion form of Cap_read among
-  readback families. Discharged by: a P4-coherence forcing argument extending the
-  recorded exclusion run.
+  readback families. Reduction record
+  (`code/capacity_readback/CP2_INVERSION_FORM_REDUCTION_2026-07-17.md`, machine checks
+  in `runtime/cp2_p4_premise_reduction_check.json`): CP-2 decomposes into load
+  mediation (LM) plus read consistency (RC); the surviving freedom without RC is
+  exactly a strictly increasing load gauge φ pinned at the seed, with certified live
+  witnesses; under P4 coherence plus premise CP-4 the fixed-point location is forced
+  to the bridge capacity across the whole gauge freedom, so a P4-coherence argument
+  alone pins one point of the gauge and cannot discharge the form. Discharged by:
+  a derivation of RC from declared structure, or a constructed coupled count proving
+  CP-4 (which closes the value content and leaves RC as calibration only).
 - **GAP-A4 (CP-3).** The averaging re-emission carrier. Dispensable for the fixed-point
   location; load-bearing only for the constructive contraction rate. Discharged by: a
   one-page lemma from the write/check orientation split, or any declared contraction
@@ -143,7 +151,16 @@ Part A gaps:
   fixed point is unchanged.
 - **GAP-A8.** P4 count-density coherence for the coupled readback (the argmax
   representation must agree with the fixed point). Recorded as an open obligation in
-  G2-GAP-1.
+  G2-GAP-1. Reduction record
+  (`code/capacity_readback/P4_COUPLED_COHERENCE_REDUCTION_2026-07-17.md`): under the
+  aggregate reading of membership clause 4 the support of the count collapses to the
+  fixed point and coherence holds degenerately, with the count representation demoted
+  to a display; under the per-configuration reading, coherence is equivalent to the
+  single count-side premise CP-4 (count density stationary exactly at load balance,
+  derivative-sign carrier), with certified negative controls showing both clauses of
+  CP-4 are load-bearing. Discharged by: adopting the aggregate reading as declared
+  clause-4 semantics (a recorded declaration, not a theorem), or constructing the
+  coupled count and proving CP-4.
 
 Part B gaps:
 

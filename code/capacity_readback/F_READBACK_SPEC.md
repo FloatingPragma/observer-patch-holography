@@ -132,6 +132,10 @@ A candidate construction is admissible for certification only if all of P1–P5 
 - **P4. Count-density coherence.** The obligation of Section 1.3: certified agreement
   of the readback fixed point with the `MAR argmax` of `ℓ(N)`, or a registered
   discrepancy row. The derivative-sign certificate for `H_N` is the accepted carrier.
+  For the coupled candidate, the reduction of this obligation to the single count-side
+  premise CP-4 (stationarity at load balance), and its degenerate closure under the
+  aggregate reading of membership clause 4, are recorded in
+  [P4_COUPLED_COHERENCE_REDUCTION_2026-07-17.md](P4_COUPLED_COHERENCE_REDUCTION_2026-07-17.md).
 - **P5. Non-triviality.** `F` is not the identity and not a constant pinned to any
   measured value. A map with `F' ≡ 1` on an interval certifies nothing (every point is
   fixed); a constant map wired to the SL-4 estimate is a blindness violation (Section

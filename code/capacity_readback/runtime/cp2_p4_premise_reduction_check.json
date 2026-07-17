@@ -1,0 +1,464 @@
+{
+  "artifact": "oph_cp2_p4_premise_reduction_check_2026-07-17",
+  "blindness": {
+    "cone_contains_cl3_bridge_expression": true,
+    "v08_note": "theorem-level checks; not a blind CL-7 candidate; same standing as F_candidate_coupled.py"
+  },
+  "cl7_status": "open",
+  "derivations": [
+    "CP2_INVERSION_FORM_REDUCTION_2026-07-17.md",
+    "P4_COUPLED_COHERENCE_REDUCTION_2026-07-17.md"
+  ],
+  "gap_status": {
+    "GAP-A3_cp2": "open; reduced to load mediation (LM) plus read consistency (RC); surviving freedom named: the load gauge phi, pinned at 0 by the seed and at x_EW by P4 plus CP-4",
+    "GAP-A8_p4": "open; per-configuration reading reduced to CP-4 (stationarity at balance with the derivative-sign carrier); aggregate reading closes it degenerately by support collapse"
+  },
+  "inputs": {
+    "P_certified_enclosure": {
+      "hi": "1.6309720958588973769645139038446714349507911573627096569324070023",
+      "lo": "1.6309720958588973769645139031692398220074613523151957129273490076"
+    },
+    "alpha_U_certified_enclosure": {
+      "hi": "0.041124247441816685140889933889659717292128290616193554171910678971",
+      "lo": "0.041124247441816685140889933889659717292128290416193554171910567414"
+    },
+    "lambda": "0.5",
+    "source": "code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json"
+  },
+  "interval_backend": {
+    "library": "mpmath.iv",
+    "precision_decimal_digits": 60,
+    "promotion_backend_required": "arb_or_mpfi_directed_outward",
+    "rounding": "mpmath_interval_outward"
+  },
+  "moves_cl7": false,
+  "part_A_cp2": {
+    "A1_read_consistency": {
+      "pass": true,
+      "probes": [
+        {
+          "abs_residual_hi": "1.5557538e-61",
+          "x": "0"
+        },
+        {
+          "abs_residual_hi": "3.1115076e-61",
+          "x": "0.5"
+        },
+        {
+          "abs_residual_hi": "4.6672615e-61",
+          "x": "1"
+        },
+        {
+          "abs_residual_hi": "6.2230153e-61",
+          "x": "5"
+        },
+        {
+          "abs_residual_hi": "4.9784122e-60",
+          "x": "50"
+        },
+        {
+          "abs_residual_hi": "7.9654596e-59",
+          "x": "281.0325529847959660155339612031229752127"
+        }
+      ],
+      "statement": "RC residual X(G(x)) - x for G(x) = pi*exp(x), certified below 1e-40 on the probe grid"
+    },
+    "A2_A3_gauge_class": {
+      "families": [
+        {
+          "classification": "the CP-2 form; RC holds (A1); coupled fixed point in the bridge box",
+          "coupled_banach_pass": true,
+          "coupled_fixed_point_load": {
+            "hi": "281.032552984895966015533961203",
+            "lo": "281.032552984695966015533961203"
+          },
+          "family": "inversion (phi = id)",
+          "gauge": "phi(x) = x",
+          "monotone": "phi' = 1 exactly",
+          "p4_cp4_coherent": true,
+          "rc_pass": true,
+          "rc_probe_x": "1",
+          "rc_residual_abs_lo": "0.0",
+          "seed_pass": true,
+          "seed_residual_abs_hi": "0.0",
+          "separation_from_balance_lo": "0.0"
+        },
+        {
+          "classification": "live member of the load-gauge freedom: satisfies P1-P3/P5 and the seed, violates RC; coupled fixed point off balance, so P4 plus CP-4 excludes it; fixed point pi exact (s*y = y forces y = 0)",
+          "coupled_banach_pass": true,
+          "coupled_fixed_point_load": {
+            "hi": "93.677517661698655338511320401",
+            "lo": "93.677517661498655338511320401"
+          },
+          "family": "power gauge, s = 1/2",
+          "gauge": "phi(x) = s*x",
+          "monotone": "phi' = s > 0",
+          "p4_cp4_coherent": false,
+          "rc_pass": false,
+          "rc_probe_x": "1",
+          "rc_residual_abs_lo": "0.5",
+          "seed_pass": true,
+          "seed_residual_abs_hi": "0.0",
+          "separation_from_balance_lo": "187.35504"
+        },
+        {
+          "classification": "live member of the load-gauge freedom: satisfies P1-P3/P5 and the seed, violates RC; coupled fixed point off balance, so P4 plus CP-4 excludes it; fixed point pi exact (s*y = y forces y = 0)",
+          "coupled_banach_pass": true,
+          "coupled_fixed_point_load": {
+            "hi": "246.381694410868255359350037608",
+            "lo": "246.381694410668255359350037608"
+          },
+          "family": "power gauge, s = exp(-P/24) (poisson reserve)",
+          "gauge": "phi(x) = s*x",
+          "monotone": "phi' = s > 0",
+          "p4_cp4_coherent": false,
+          "rc_pass": false,
+          "rc_probe_x": "1",
+          "rc_residual_abs_lo": "0.065699512",
+          "seed_pass": true,
+          "seed_residual_abs_hi": "0.0",
+          "separation_from_balance_lo": "34.650859"
+        },
+        {
+          "classification": "live member of the load-gauge freedom: satisfies P1-P3/P5 and the seed, violates RC; coupled fixed point off balance, so P4 plus CP-4 excludes it; fixed point pi exact (s*y = y forces y = 0)",
+          "coupled_banach_pass": true,
+          "coupled_fixed_point_load": {
+            "hi": "245.266741978434431977415218619",
+            "lo": "245.266741978234431977415218619"
+          },
+          "family": "power gauge, s = 1 - P/24 (presence reserve)",
+          "gauge": "phi(x) = s*x",
+          "monotone": "phi' = s > 0",
+          "p4_cp4_coherent": false,
+          "rc_pass": false,
+          "rc_probe_x": "1",
+          "rc_residual_abs_lo": "0.067957171",
+          "seed_pass": true,
+          "seed_residual_abs_hi": "0.0",
+          "separation_from_balance_lo": "35.765811"
+        },
+        {
+          "classification": "live member of the load-gauge freedom: satisfies P1-P3/P5 and the seed, violates RC; coupled fixed point off balance, so P4 plus CP-4 excludes it; fixed point pi exact (s*y = y forces y = 0)",
+          "coupled_banach_pass": true,
+          "coupled_fixed_point_load": {
+            "hi": "275.467551935692085500374872862",
+            "lo": "275.467551935492085500374872862"
+          },
+          "family": "power gauge, s = 0.99",
+          "gauge": "phi(x) = s*x",
+          "monotone": "phi' = s > 0",
+          "p4_cp4_coherent": false,
+          "rc_pass": false,
+          "rc_probe_x": "1",
+          "rc_residual_abs_lo": "0.01",
+          "seed_pass": true,
+          "seed_residual_abs_hi": "0.0",
+          "separation_from_balance_lo": "5.565001"
+        },
+        {
+          "classification": "live member of the load-gauge freedom (seed holds, monotone, contraction); violates RC; coupled fixed point sits near x_EW + 2*log(a), certified off balance; P4 plus CP-4 excludes it",
+          "coupled_banach_pass": true,
+          "coupled_fixed_point_load": {
+            "hi": "278.624607376244094030288468768",
+            "lo": "278.624607376044094030288468768"
+          },
+          "family": "affine capacity gauge, a = 0.3",
+          "gauge": "phi(x) = log(a*e^x + 1 - a), from F0(N) = a*N + pi*(1-a)",
+          "monotone": "phi' = a*e^x/(a*e^x + 1 - a) > 0",
+          "p4_cp4_coherent": false,
+          "rc_pass": false,
+          "rc_probe_x": "1",
+          "rc_residual_abs_lo": "0.58426478",
+          "seed_pass": true,
+          "seed_residual_abs_hi": "1.5557538e-61",
+          "separation_from_balance_lo": "2.4079456"
+        },
+        {
+          "classification": "live member of the load-gauge freedom (seed holds, monotone, contraction); violates RC; coupled fixed point sits near x_EW + 2*log(a), certified off balance; P4 plus CP-4 excludes it",
+          "coupled_banach_pass": true,
+          "coupled_fixed_point_load": {
+            "hi": "280.319203097018501257708683781",
+            "lo": "280.319203096818501257708683781"
+          },
+          "family": "affine capacity gauge, a = 0.7",
+          "gauge": "phi(x) = log(a*e^x + 1 - a), from F0(N) = a*N + pi*(1-a)",
+          "monotone": "phi' = a*e^x/(a*e^x + 1 - a) > 0",
+          "p4_cp4_coherent": false,
+          "rc_pass": false,
+          "rc_probe_x": "1",
+          "rc_residual_abs_lo": "0.21027196",
+          "seed_pass": true,
+          "seed_residual_abs_hi": "1.5557538e-61",
+          "separation_from_balance_lo": "0.71334989"
+        },
+        {
+          "classification": "violates the seed normalization phi(0) = 0 (named principle: the certified decoupled fixed point pi); decoupled map N*e^(1/10) has no fixed point; coupled fixed point also off balance",
+          "coupled_banach_pass": true,
+          "coupled_fixed_point_load": {
+            "hi": "281.232552984895966015533961203",
+            "lo": "281.232552984695966015533961203"
+          },
+          "family": "shift gauge",
+          "gauge": "phi(x) = x + 1/10",
+          "monotone": "phi' = 1",
+          "p4_cp4_coherent": false,
+          "rc_pass": false,
+          "rc_probe_x": "1",
+          "rc_residual_abs_lo": "0.1",
+          "seed_pass": false,
+          "seed_residual_abs_hi": "0.1",
+          "separation_from_balance_lo": "0.2"
+        },
+        {
+          "classification": "harmlessness witness: phi != id (RC violated at x_EW/2 by about 8.9 nats) yet phi(x_EW) = x_EW, and the coupled fixed point is certified inside the bridge box; the gauge freedom cannot move the fixed-point location once P4 plus CP-4 pin it at balance",
+          "coupled_banach_pass": true,
+          "coupled_fixed_point_load": {
+            "hi": "281.032552994795966015533961203",
+            "lo": "281.032552974795966015533961203"
+          },
+          "family": "balance-pinned sine gauge",
+          "gauge": "phi(x) = x + (1/10)*(x_EW/pi)*sin(pi*x/x_EW)",
+          "monotone": "phi' = 1 + (1/10)*cos(pi*x/x_EW) in [9/10, 11/10] > 0",
+          "p4_cp4_coherent": true,
+          "rc_pass": false,
+          "rc_probe_x": "x_EW/2",
+          "rc_residual_abs_lo": "8.945544",
+          "seed_pass": true,
+          "seed_residual_abs_hi": "0.0",
+          "separation_from_balance_lo": "0.0"
+        }
+      ],
+      "statement": "gauge parameterization: every load-mediated candidate is pi*exp(phi(X_read)); the class axioms pin phi only at 0 (seed) and, under P4 plus CP-4, at x_EW; RC (phi = id) is independent of the rest"
+    }
+  },
+  "part_B_p4": {
+    "B1_aggregate_support_collapse": {
+      "balance_residual_abs_hi": "1.1638352e-25",
+      "off_balance_probes": [
+        {
+          "abs_readback_residual_lo": "15.0",
+          "load_offset": "-30",
+          "nonzero_certified": true
+        },
+        {
+          "abs_readback_residual_lo": "5.0",
+          "load_offset": "-10",
+          "nonzero_certified": true
+        },
+        {
+          "abs_readback_residual_lo": "0.5",
+          "load_offset": "-1",
+          "nonzero_certified": true
+        },
+        {
+          "abs_readback_residual_lo": "0.05",
+          "load_offset": "-0.1",
+          "nonzero_certified": true
+        },
+        {
+          "abs_readback_residual_lo": "0.05",
+          "load_offset": "0.1",
+          "nonzero_certified": true
+        },
+        {
+          "abs_readback_residual_lo": "0.5",
+          "load_offset": "1",
+          "nonzero_certified": true
+        },
+        {
+          "abs_readback_residual_lo": "5.0",
+          "load_offset": "10",
+          "nonzero_certified": true
+        },
+        {
+          "abs_readback_residual_lo": "15.0",
+          "load_offset": "30",
+          "nonzero_certified": true
+        }
+      ],
+      "pass": true,
+      "statement": "aggregate reading of membership clause 4: the readback residual is certified nonzero at every off-balance probe and encloses zero at balance, so the clause-4-exact support is the fixed-point box and the MAR argmax over the support equals the fixed point (degenerate coherence, the count representation carries no independent information)"
+    },
+    "B2_positive_control_cp4": {
+      "agreement_abs_hi": "1.0e-10",
+      "argmax_load": {
+        "hi": "281.032552984795966015533961261",
+        "lo": "281.032552984795966015533961145"
+      },
+      "derivative_sign_probes": [
+        {
+          "H_sign_certified": true,
+          "load_offset": "-30"
+        },
+        {
+          "H_sign_certified": true,
+          "load_offset": "-5"
+        },
+        {
+          "H_sign_certified": true,
+          "load_offset": "-0.5"
+        },
+        {
+          "H_sign_certified": true,
+          "load_offset": "0.5"
+        },
+        {
+          "H_sign_certified": true,
+          "load_offset": "5"
+        },
+        {
+          "H_sign_certified": true,
+          "load_offset": "30"
+        }
+      ],
+      "fixed_point_load": {
+        "hi": "281.032552984895966015533961203",
+        "lo": "281.032552984695966015533961203"
+      },
+      "pass": true,
+      "statement": "CP-4 carrier l = -(X - x_EW)^2/2: derivative-sign certificate holds (H > 0 below balance, H < 0 above, unique zero at balance) and the argmax box agrees with the coupled fixed-point box"
+    },
+    "B3_negative_control_location": {
+      "pass": true,
+      "rows": [
+        {
+          "diverges": true,
+          "separation_from_fixed_point_lo": "5.0",
+          "stationary_point": "x_EW - 5"
+        },
+        {
+          "diverges": true,
+          "separation_from_fixed_point_lo": "42.154883",
+          "stationary_point": "0.85 * x_EW"
+        }
+      ],
+      "statement": "location clause of CP-4 dropped: the argmax moves with the stationary point while the readback fixed point stays at balance; the two representations diverge"
+    },
+    "B4_negative_control_sign_carrier": {
+      "H_at_balance_abs_hi": "8.3033792e-84",
+      "pass": true,
+      "statement": "sign-carrier clause of CP-4 dropped: a remote maximum 20 nats below balance tops the balance value by about 100 while the balance point stays stationary to below 1e-80; the MAR argmax leaves the fixed point",
+      "value_gap_lo": "100.0"
+    },
+    "B5_recorded_lattice_control": {
+      "min_log10_separation": "121.29276",
+      "pass": true,
+      "rows": [
+        {
+          "N_star_nats": {
+            "hi": "6.0",
+            "lo": "6.0"
+          },
+          "branch": "R1 poisson per-cell",
+          "c": 1,
+          "log10_separation_lo": "121.76989"
+        },
+        {
+          "N_star_nats": {
+            "hi": "12.0",
+            "lo": "12.0"
+          },
+          "branch": "R1 poisson per-cell",
+          "c": 2,
+          "log10_separation_lo": "121.46886"
+        },
+        {
+          "N_star_nats": {
+            "hi": "18.0",
+            "lo": "18.0"
+          },
+          "branch": "R1 poisson per-cell",
+          "c": 3,
+          "log10_separation_lo": "121.29276"
+        },
+        {
+          "N_star_nats": {
+            "hi": "5.79373739110131744013117531068",
+            "lo": "5.7937373911013174401311753058"
+          },
+          "branch": "R2 presence per-cell",
+          "c": 1,
+          "log10_separation_lo": "121.78508"
+        },
+        {
+          "N_star_nats": {
+            "hi": "11.5874747822026348802623506214",
+            "lo": "11.5874747822026348802623506116"
+          },
+          "branch": "R2 presence per-cell",
+          "c": 2,
+          "log10_separation_lo": "121.48405"
+        },
+        {
+          "N_star_nats": {
+            "hi": "17.381212173303952320393525932",
+            "lo": "17.3812121733039523203935259174"
+          },
+          "branch": "R2 presence per-cell",
+          "c": 3,
+          "log10_separation_lo": "121.30796"
+        },
+        {
+          "N_star_nats": {
+            "hi": "2.0",
+            "lo": "2.0"
+          },
+          "branch": "R4 poisson per-edge",
+          "c": 1,
+          "log10_separation_lo": "122.24701"
+        },
+        {
+          "N_star_nats": {
+            "hi": "4.0",
+            "lo": "4.0"
+          },
+          "branch": "R4 poisson per-edge",
+          "c": 2,
+          "log10_separation_lo": "121.94598"
+        },
+        {
+          "N_star_nats": {
+            "hi": "6.0",
+            "lo": "6.0"
+          },
+          "branch": "R4 poisson per-edge",
+          "c": 3,
+          "log10_separation_lo": "121.76989"
+        },
+        {
+          "N_star_nats": {
+            "hi": "1.93124579703377248004372510356",
+            "lo": "1.93124579703377248004372510193"
+          },
+          "branch": "R5 presence per-edge",
+          "c": 1,
+          "log10_separation_lo": "122.2622"
+        },
+        {
+          "N_star_nats": {
+            "hi": "3.86249159406754496008745020712",
+            "lo": "3.86249159406754496008745020386"
+          },
+          "branch": "R5 presence per-edge",
+          "c": 2,
+          "log10_separation_lo": "121.96117"
+        },
+        {
+          "N_star_nats": {
+            "hi": "5.79373739110131744013117531068",
+            "lo": "5.7937373911013174401311753058"
+          },
+          "branch": "R5 presence per-edge",
+          "c": 3,
+          "log10_separation_lo": "121.78508"
+        }
+      ],
+      "statement": "every interior stationary point of the recorded declared-structure counts sits at c/(1-rho) <= 18 nats, certified at least 121 decimal orders below the bridge capacity; restates p4_coherent_rows = 0 of the 2026-07-14 run"
+    }
+  },
+  "status": "reductions_certified_no_premise_discharged",
+  "x_ew_enclosure": {
+    "hi": "281.032552984795966015533961261",
+    "lo": "281.032552984795966015533961145"
+  }
+}

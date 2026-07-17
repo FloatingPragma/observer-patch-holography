@@ -219,7 +219,7 @@ New premises declared by this theorem:
 | id | assertion | what would discharge it |
 |---|---|---|
 | CP-1 | Balance condition `Pi_EW(P, N_CRC) = beta_EW*P`: readback self-consistency holds where the projected transmutation depth equals one global repair tick per electroweak channel per pixel-area unit (equivalently `Gamma_EW = t_tr`; equivalently `X/12 = pi/(2*P*alpha_U)`) | a geometric counting theorem for the product target `beta_EW*P` from declared screen structure, the strengthening theorem named in the tick-projection certificate scope note |
-| CP-2 | `Cap_read` on the coupled branch is the port-load inversion `F(N) = pi*exp(X_read(N))` (seed and units proven, family selection premised) | a uniqueness theorem for the inversion form among `Cap_read` families, for instance by extending the recorded exclusion run with a P4-coherence forcing argument |
+| CP-2 | `Cap_read` on the coupled branch is the port-load inversion `F(N) = pi*exp(X_read(N))` (seed and units proven, family selection premised) | a uniqueness theorem for the inversion form among `Cap_read` families. Reduction record: [CP2_INVERSION_FORM_REDUCTION_2026-07-17.md](CP2_INVERSION_FORM_REDUCTION_2026-07-17.md) decomposes CP-2 into load mediation plus read consistency, classifies the surviving freedom exactly (the load gauge `phi`, pinned at the seed and, under P4 plus CP-4, at `x_EW`), and proves a P4-coherence argument alone cannot pin more than the fixed-point location |
 | CP-3 | The re-emitted load is the `lambda`-average of the screen-side and D10-side loads, `lambda in (0,1)` (dispensable for the fixed-point location, load-bearing for the constructive contraction) | a derivation of the averaging carrier, for instance from the write/check orientation split; any declared contraction toward balance suffices |
 
 Inherited named hypotheses of cited theorems (declared in their sources, carried, no
@@ -250,7 +250,11 @@ Executed candidate: `F(N) = pi*exp((1-lambda)*log(N/pi) + lambda*x_EW(P))`,
 Properties: P1 pass on the certificate interval (physical-grammar totality travels with
 CP-2/CP-3); P2 pass (`F' > 0`); P3 pass (`L = 1/2`); P4 open obligation, recorded (the
 count representation of the coupled membership clause is unconstructed, no coherence
-claim is made); P5 pass for `lambda in (0,1)`.
+claim is made; the reduction of the obligation to premise CP-4 under the
+per-configuration reading of membership clause 4, and its degenerate closure under the
+aggregate reading, are recorded in
+[P4_COUPLED_COHERENCE_REDUCTION_2026-07-17.md](P4_COUPLED_COHERENCE_REDUCTION_2026-07-17.md));
+P5 pass for `lambda in (0,1)`.
 
 ## 7. Consequence for the ledger geometry
 

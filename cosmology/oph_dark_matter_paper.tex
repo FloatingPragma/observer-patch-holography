@@ -2550,7 +2550,84 @@ the equation's declared old-settled-galaxy scope.  The branch owes a
 quantitative source-derived applicability, coarse-graining, screening, or
 transport theorem that preserves the galaxy result while suppressing the
 Solar-System quadrupole.  A free switch introduced after reading Cassini would
-be a fitted continuation, not that theorem.
+be a fitted continuation, not that theorem.  The next subsection states the
+current conditional candidate and its selection price.
+
+\subsection{Settled-Domain Applicability Predicate}
+\label{sec:settled-domain-predicate}
+
+The derivation of \eqref{eq:ophrar} defines its activation variable on closed
+settled cuts.  Definition~\ref{def:collar-opportunity-model} counts repair
+opportunities per unit of the cut coordinate \(\sqrt{x}=r_M/r\), and the
+closure \eqref{eq:fluxrecovery} recovers the baryonic flux enclosed by the
+cut.  For a spherical cut of radius \(r_S\) the derived variable is the
+enclosed-flux ratio
+\begin{equation}
+  x_S=\frac{G M_{\mathrm{enc}}}{\aoph\, r_S^{2}},
+  \label{eq:enclosedflux}
+\end{equation}
+and a field sourced outside the cut contributes zero net flux through it,
+hence zero opportunity intensity.  The pointwise identification
+\(x=|\nabla\Phi_b|/\aoph\) of \eqref{eq:ophpotential} extends the law beyond
+this derivation, and the Cassini quadrupole excludes exactly that extension.
+The applicability predicate keeps the derived variable and adds the declared
+repair clock.  The settled response applies on a cut \(S\) when three clauses
+hold: (a) the activation variable is \(x_S\); (b)
+\(\Gamma_J^{\mathrm{int}}(S)>\Gamma_J^{\mathrm{ext}}(S)\), the Jacobi rate
+\eqref{eq:jacobiclock} of the enclosed source against the FLRW-subtracted
+environmental tidal rate, under the conditional premise
+\(\Gamma_{\mathrm{rec}}=\Gamma_J\); (c) the cut structure is older than
+\(\ln(1/\epsilon)/\Gamma_J^{\mathrm{int}}\).  For a point source and a point
+host, clause (b) is the tidal-stability criterion
+\(GM_{\mathrm{enc}}/r_S^3>GM_{\mathrm{host}}/d^3\).  Cuts failing (b) or (c)
+revert to the transported sector
+\eqref{eq:transport1}--\eqref{eq:transport3}; the crossover suppression
+profile is not derived here and stays with the transport solve.  No numerical
+freedom enters: the scales are \(\aoph\), \(\lambdac\), and \(\aeff\) as
+declared above, and the clock is the declared no-fit candidate.
+
+On this predicate the Solar System is exempt through clause (a).  The
+Galactic field is external to every heliocentric cut, so the anomaly of the
+Solar source is spherically symmetric and exerts zero interior force and zero
+interior tide.  At Saturn \(\lambdac\sqrt{x}=738\), so the interior
+activation deficit is below \(10^{-320}\).  The predicted anomalous
+quadrupole is bounded by the Galactic tide across the Solar System, below
+\(10^{-30}\,\mathrm{s^{-2}}\): a \(0.89\sigma\) consistency with the Cassini
+summary and a suppression of \(99.998\%\) against the universal
+extrapolation, clearing the \(85.6\%\) floor.  Settled galaxies are retained
+identically, because on spherical cuts the predicate response is
+\eqref{eq:ophrar}, the object the SPARC comparisons consume; the outer-disk
+internal clock (\(0.316\,\mathrm{Gyr}\)) beats the environmental clock by a
+factor of about \(26\).
+
+The predicate emits a wide-binary stance with its sign.  A wide binary is its
+own bounded source: the Milky Way field is inert by clause (a), and the pair
+is settled by clause (b) (internal clock \(130\,\mathrm{kyr}\) against
+\(35\,\mathrm{Myr}\)).  The emitted velocity-boost profile is
+\(\gamma(g_N)=\sqrt{\nu_{\OPH}(g_N/\aoph)}\) with no external-field
+suppression, giving \(\gamma=1.31\) at
+\(g_N=8.9\times10^{-11}\,\mathrm{m\,s^{-2}}\) and \(\gamma=1.99\) at
+\(10^{-11}\,\mathrm{m\,s^{-2}}\), rising as \((\aeff/g_N)^{1/4}\) where the
+external-field-effect MOND curve saturates near \(1.4\).  A confirmed
+Newtonian wide-binary verdict kills the predicate; a confirmed saturation at
+the external-field ceiling selects the pointwise family instead.  For
+satellites, clause (b) makes suppression track the tidal rate
+\(GM_{\mathrm{host}}/d^3\) rather than the field strength
+\(GM_{\mathrm{host}}/d^2\): Crater II is slaved (internal clock
+\(953\,\mathrm{Myr}\) against an environmental \(667\,\mathrm{Myr}\)), Fornax
+is settled (\(45\,\mathrm{Myr}\) against \(823\,\mathrm{Myr}\)).
+
+The selection price is on record.  Both continuations predate the Cassini
+audit inside this paper; the audit kills the pointwise form; keeping the cut
+form is a branch selection made after reading Cassini, and it carries
+predictive status only through the frozen wide-binary and satellite stances
+above, stated before Gaia DR4.  Claimed external-field signatures in outer
+rotation curves that track \(g_{\mathrm{ext}}\) are standing anti-evidence
+against clause (a) if they survive reanalysis.  The theorem-grade remainder
+is the derivation of the \(\Gamma_{\mathrm{rec}}=\Gamma_J\) premise and the
+crossover suppression profile.  Machine check:
+\texttt{code/dark\_matter/scripts/settled\_domain\_applicability.py}, with
+the gate test alongside.
 
 \subsection{Empirical Implementation Scorecard}
 
