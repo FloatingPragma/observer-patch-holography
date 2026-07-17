@@ -240,36 +240,33 @@ icosahedron. It supplies the icosahedral skeleton behind the echosahedral patch
 carrier language: a finite, highly symmetric way to organize ports, overlaps,
 and local comparison data without treating the carrier as a smooth ball.
 
-$A_5$ also carries the strongest structural result in the stack, and it is the
-closest thing OPH has to a smoking gun: **one finite observer screen emits the
-complete Standard-Model gauge Lie algebra, with no matter package, no anomaly
-clause, no measured number, and no dial.** A triangulated $S^2$ forces twelve
-defect units; the icosahedral placement is *forced, not invoked*, because the
-icosahedron is a sharp configuration (three inner products $\{-1,\pm1/\sqrt5\}$,
-a spherical 5-design) and by Cohn–Kumar universal optimality uniquely minimizes
-every strictly completely monotonic pair cost; its vertex module is
-multiplicity-free, $P_{12}\cong\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5$
-— exactly the Standard-Model gauge adjoint under opposite-triplet embeddings;
-and an **inner** $A_5$ action (natural here, since finite overlap charts are
-matrix algebras whose rechartings act by conjugation) forces
-$\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)$ **uniquely** —
-because inner automorphisms fix the center pointwise, so $\dim Z(\mathfrak g)\le1$,
-while a centerless twelve-dimensional compact algebra would be
-$\mathfrak{su}(2)^4$ whose $A_5$ fixed-space dimension is a multiple of three,
-leaving $12=1+11=1+8+3$ as the only survivor. **Why this bites:** the Standard
-Model *takes* $8+3+1$ as input and explains nothing about it; string theory
-relocates the question into a landscape; loop quantum gravity puts it out of
-scope. No rival computes the gauge algebra at all. OPH computes it from a screen
-built for an unrelated reason — observer agreement — and the same geometry
-independently makes $\mathbf3$ or $\mathbf3'$ the dimension-minimal extension of
-the oriented face-$C_3$ phase, giving $N_g=3$ with one CKM phase, plus a
-dial-free spectroscopy signature ($\ell=2$ is irreducible, so an $A_5$-locked
-quadrupole must be **isotropic**). The scope is stated once and honestly: this
-route emits the gauge Lie algebra, not the $\mathbb Z_6$ quotient, hypercharge
-lattice, or chiral content, which stay on the MAR route; it rests on two finite
-source receipts, `RP-A5` and `PORT-CURRENT-INNER`; and the spectroscopy is gated
-on a derived source-to-observable transfer. See
-[code/a5_closure](code/a5_closure/) for the certificates and full claim boundary.
+$A_5$ also carries one of the stack's most convincing results: **the screen
+builds the Standard-Model gauge algebra by itself — no matter package, no MAR,
+no measured number, no dial.** The twelve icosahedral ports carry the module
+$P_{12}\cong\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5$, exactly the
+Standard-Model gauge adjoint; the outward face orientation is canonical
+($\lVert\Omega_W\rVert^2=20-4\sqrt5>0$), and pulling the matrix commutator back
+through an explicit equivariant map gives
+$\mathfrak u(3)\oplus\mathfrak{so}(3)=\mathfrak u(1)\oplus\mathfrak{su}(3)\oplus\mathfrak{su}(2)$
+with a **demonstrably noncentral** five-band. The screen further carries its own
+integral $\mathbb Z_6$ (Smith invariants $1,1,1,1,1,6$), matching the faithful
+tensor-spin image $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ — and unlike the
+MAR route's quotient, it does not descend from the already-selected matter
+content. The bracket, its Jacobi laws, the noncentral witness,
+$\operatorname{finrank}=9+3=12$, and the $\mathbb Z_6$ equivalence are
+**Lean-certified without `sorry`** on only Mathlib's standard axioms. Why it
+bites: the Standard Model *takes* $8+3+1$ as input, string theory relocates it
+into a landscape, loop quantum gravity puts it out of scope — no rival computes
+the gauge algebra at all, and OPH gets it from a screen built for an unrelated
+reason. The same character table adds a dial-free signature: $\ell=2$ is
+irreducible, so an $A_5$-locked quadrupole must be **isotropic**, with the first
+nonconstant invariant only at $\ell=6$ ($B_6/B_0=11/25$). Scope, once: MAR still
+carries the hypercharge lattice, chiral content, and $N_g=3$; the global quotient
+needs the tensor-spin carrier; the open receipts are `RP-A5`, that realized
+repair composition *is* this commutator, and an integral descent to gauge line
+charges; $\mathbb Z_6$ is not unique to OPH. See
+[code/a5_closure](code/a5_closure/) and
+[Lean/ObserverPatchHolography/Screen](Lean/ObserverPatchHolography/Screen/).
 
 The same geometry gives a useful sphere ladder for readers. $S^0$ is the first
 seed or readout distinction. $S^1$ is recurrence, the loop in which a record

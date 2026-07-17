@@ -780,6 +780,29 @@ completely monotonic pair cost of squared chordal distance. The same geometry ma
 nontrivial oriented face-\(C_3\) phase, so a family fiber carried by that
 extension has \(N_g=3\) and exactly one CKM phase.
 
+The bracket is moreover \emph{constructed}, not merely classified. Pairing the
+ports antipodally with \(U=[u_1\cdots u_6]\) and
+\(\Phi(b)=\sum_ib_iu_iu_i^{\mathsf T}\), exact frame arithmetic gives
+\(UU^{\mathsf T}=2I_3\) and projector Gram \(\tfrac45I_6+\tfrac15J_6\), so
+\(\Phi:\mathbb R^6\xrightarrow{\sim}\operatorname{Sym}(3)\), while the odd space
+splits as \(\operatorname{im}U^{\mathsf T}\oplus\ker U\). The outward orientation
+of the twenty faces is canonical rather than a free sign, since
+\(\lVert\Omega_W\rVert^2=20-4\sqrt5>0\), and the equivariant isomorphism
+\(\Theta(b+d_G+d_W)=(\kappa_E(\tfrac12Ud_G)+i\Phi(b),\kappa_W(d_W))\) onto
+\(\mathfrak u(3)\oplus\mathfrak{so}(3)\) pulls back the block-local matrix
+commutator, making antisymmetry and Jacobi automatic and realizing
+\(\mathfrak u(1)\oplus\mathfrak{su}(3)\oplus\mathfrak{su}(2)\) with a
+demonstrably noncentral five-band, \([iS,iT]=-2(E_{12}-E_{21})\neq0\). The screen
+also carries an integral \(\mathbb Z_6\): the even axis-load lattice modulo its
+singlet and centered sublattices has Smith invariants \((1,1,1,1,1,6)\), and the
+faithful \(\mathbb C^3\otimes\mathbb C^2\) tensor-spin image is
+\((SU(3)\times SU(2)\times U(1))/\mathbb Z_6\), with signed antipodal reversal
+and charge conjugation both acting by inversion. Unlike the MAR route's quotient,
+the screen-side class does not descend from the selected matter content. The
+bracket laws, the noncentral witness, \(\operatorname{finrank}=9+3=12\), and the
+\(\mathbb Z_6\) equivalence are machine-checked in Lean without \texttt{sorry} on
+Mathlib's standard axioms.
+
 This route is logically independent of the MAR matter package: it emits the
 gauge Lie algebra from the screen alone, with no matter witness, no anomaly
 clause, and no measured number. It does not emit the \(\mathbb Z_6\) quotient,

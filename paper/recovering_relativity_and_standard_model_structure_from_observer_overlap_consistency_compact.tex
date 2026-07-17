@@ -12066,15 +12066,171 @@ conjugation. The obligation therefore reduces to one receipt,
 port fluctuations to current generators and prove that the geometric \(A_5\)
 action is conjugation on its image.
 
-\paragraph{Selection of the icosahedron.} The placement is a variational
-consequence rather than an invoked symmetry. If the twelve unit defects
+\subsubsection*{The bracket constructed from the oriented screen}
+
+The classification above is an existence-free argument: it says which compact
+algebras \emph{could} carry \(P_{12}\), not that OPH realizes one. The oriented
+screen supplies the realization outright, discharging the noncentrality receipt
+in explicit coordinates.
+
+Let \(X=\{\pm u_i\}_{i=1}^{6}\subset S^2\) be the outward-oriented icosahedron
+with one representative per antipodal axis, and \(U=[u_1\ \cdots\ u_6]\in
+\mathbb R^{3\times6}\). For a real port field write \(b\in\mathbb R^6\) for its
+antipodally even values and \(d\in\mathbb R^6\) for its odd values, and set
+\[
+  \Phi(b)=\sum_{i=1}^{6}b_i\,u_iu_i^{\mathsf T},
+  \qquad
+  G=\operatorname{im}U^{\mathsf T},
+  \qquad
+  W=\ker U .
+\]
+
+\begin{lemma}[Frame arithmetic]
+\(UU^{\mathsf T}=2I_3\), and
+\(\langle u_iu_i^{\mathsf T},u_ju_j^{\mathsf T}\rangle_F=1\) for \(i=j\) and
+\(1/5\) otherwise. Hence the projector Gram matrix is
+\(\tfrac45I_6+\tfrac15J_6\), with eigenvalue \(2\) once and \(4/5\) five times,
+so \(\Phi:\mathbb R^6\to\operatorname{Sym}(3)\) is an isomorphism carrying the
+constant even mode to the scalar matrices and the sum-zero five-band to
+\(\operatorname{Sym}_0(3)\). The odd space splits orthogonally as
+\(\mathbb R^6=G\oplus W\) with \(\dim G=\dim W=3\). Under the proper icosahedral
+group this reproduces \(P_{12}=\mathbf1\oplus\mathbf5\oplus\mathbf3\oplus\mathbf3'\).
+\end{lemma}
+
+An arbitrary Naimark complement would leave an undetermined orientation sign on
+\(W\). The existing outward orientation of the twenty faces removes it.
+
+\begin{lemma}[Canonical orientation]
+Let \(P_W=I_6-\tfrac12U^{\mathsf T}U\), \(q_{\pm u_i}=\pm P_We_i\), and
+\[
+  \Omega_W=\sum_{(abc)\ \mathrm{outward\ face}}q_a\wedge q_b\wedge q_c .
+\]
+Then \(\lVert\Omega_W\rVert^2=20-4\sqrt5>0\). Hence the screen orientation
+canonically orients \(W\).
+\end{lemma}
+
+\begin{theorem}[Constructive compact closure]
+Let \(\kappa_E,\kappa_W\) be the metric cross-product maps from the two oriented
+three-spaces to their skew matrices, and split \(d=d_G+d_W\). Then
+\[
+  \Theta(b+d_G+d_W)
+  =\Bigl(\kappa_E\!\bigl(\tfrac12Ud_G\bigr)+i\,\Phi(b),\ \kappa_W(d_W)\Bigr)
+\]
+is an \(A_5\)-equivariant real-linear isomorphism
+\(P_{12}\xrightarrow{\ \sim\ }\mathfrak u(3)\oplus\mathfrak{so}(3)\). Pulling
+back the block-local matrix commutator through \(\Theta\) makes antisymmetry and
+the Jacobi identity automatic, and gives the compact real Lie algebra
+\[
+  P_{12}\cong\mathfrak u(3)\oplus\mathfrak{so}(3)
+  =\mathfrak u(1)\oplus\mathfrak{su}(3)\oplus\mathfrak{su}(2),
+\]
+whose center is the constant even port line and whose derived algebra has
+dimension eleven.
+\end{theorem}
+
+\begin{proposition}[The five-band is noncentral]
+With \(S=\operatorname{diag}(1,-1,0)\) and \(T=E_{12}+E_{21}\),
+\[
+  [iS,iT]=-2\,(E_{12}-E_{21})\neq0 .
+\]
+\end{proposition}
+
+This discharges \textsc{w5-noncentral} on the oriented compact block-local
+branch, so by the corollary above the realized algebra is the Standard-Model one.
+No character table, particle count, hypercharge assignment, matter spectrum, or
+measured number was used.
+
+\paragraph{Scope of the construction.} The theorem is canonical relative to four
+named branch selectors, not consequences of the bare unoriented graph: the
+outward-oriented proper-icosahedral screen; compact/skew-adjoint realization;
+sector-local composition on the two orthogonal spectral blocks; and physical
+composition by the commutator. The boundary is mathematically necessary.
+Dropping compactness and mapping \(b\mapsto\Phi(b)\) gives the equally valid
+split real form \(\mathfrak{gl}(3,\mathbb R)\oplus\mathfrak{so}(3)\). Allowing all
+equivariant cross-sector products restores the fourteen-dimensional bracket
+menu. Full antipodal inversion is not a Lie automorphism, since the cross product
+is \(SO(3)\)- rather than \(O(3)\)-equivariant; signed inversion is the
+compatible automorphism, and the result belongs to the oriented \(A_5\) branch.
+The achievement is therefore existence and canonical reconstruction on the typed
+compact block-local branch, not a proof that bare graph symmetry forces it.
+
+\subsubsection*{An integral screen \texorpdfstring{$\mathbb Z_6$}{Z6}}
+
+The quotient recovered earlier descends from the already selected matter
+content. The screen carries one that does not.
+
+\begin{theorem}[Screen gluing class]
+Pair the twelve ports antipodally, so the even integral load lattice is
+\(\Lambda_+\cong\mathbb Z^6\), with
+\(\Lambda_1=\mathbb Z(1,1,1,1,1,1)\) and
+\(\Lambda_5=\{x\in\mathbb Z^6:\sum_ix_i=0\}\). The map
+\(q(x)=\sum_ix_i \bmod 6\) is surjective with \(\ker q=\Lambda_1\oplus\Lambda_5\),
+hence
+\[
+  \Lambda_+/(\Lambda_1\oplus\Lambda_5)\cong\mathbb Z/6\mathbb Z .
+\]
+The integer presentation matrix has determinant \(-6\) and Smith invariants
+\((1,1,1,1,1,6)\). Proper icosahedral permutations act trivially on the
+quotient; signed antipodal reversal sends \(q(x)\mapsto-q(x)\).
+\end{theorem}
+
+\begin{proof}
+If \(\sum_ix_i=6m\) then \(x=m\mathbf1+(x-m\mathbf1)\) with the second term
+centered, so \(\ker q\subseteq\Lambda_1\oplus\Lambda_5\); the reverse inclusion
+is immediate. Surjectivity is witnessed by \(e_1\). Apply the first isomorphism
+theorem.
+\end{proof}
+
+\begin{theorem}[Faithful tensor-spin image]
+On the common irreducible carrier \(\mathbb C^3\otimes\mathbb C^2\) define
+\(\Psi(A,B,z)=z\,(A\otimes B)\). Then
+\[
+  \ker\Psi=\bigl\{(\omega_3^kI_3,(-1)^\ell I_2,\zeta_6^r):
+  2k+3\ell+r\equiv0 \bmod 6\bigr\}
+\]
+has six elements, generated by \((\omega_3I_3,-I_2,e^{i\pi/3})\), so
+\[
+  \operatorname{im}\Psi\cong
+  \frac{SU(3)\times SU(2)\times U(1)}{\mathbb Z_6}.
+\]
+Complex conjugation inverts its central generator, agreeing with signed
+antipodal inversion of the screen quotient.
+\end{theorem}
+
+\paragraph{Scope of the gluing pair.} The two \(\mathbb Z_6\) results are
+independently exact and their inversion laws agree, which is a strong integral
+fingerprint. An abstract isomorphism is not a physical identification: the open
+receipt is a typed integral descent or cocharacter map from screen axis loads to
+physical gauge line charges. The gauge quotient additionally requires the
+faithful connected \emph{tensor} image; the Lie algebra alone does not force it,
+since the direct-sum carrier \(\mathbb C^3\oplus\mathbb C^2\) gives a different
+global group. Finally, \(\mathbb Z_6\) is not unique to OPH: conventional
+unification and F-theory constructions also reach it.
+
+\paragraph{Selection of the icosahedron, and its honest premises.} Euler's
+identity with triangular incidence gives the \emph{total} coordination charge
+\(\sum_v(6-\deg v)=12\). Resolving that total into twelve \emph{separate unit}
+defects is a further step requiring an integer/nonnegative domain, enough
+eligible exposed sites, and a strictly superadditive charge cost; ordinary
+convexity is insufficient, since a linear cost ties all partitions, and negative
+or neutral defects need explicit handling. Those premises are stated, not hidden.
+
+Given twelve equal-weight antipodal ports, two independent routes then fix the
+placement without invoking a symmetry. First, a variational route: if the defects
 interact through any cost \(E_f=\sum_{i\neq j}f(\|p_i-p_j\|^2)\) with \(f\)
-strictly completely monotonic, then the regular icosahedron is the unique
-minimizer up to \(O(3)\). It has exactly three distinct inner products
-\(\{-1,\pm1/\sqrt5\}\) and is a spherical \(5\)-design, hence sharp with
-\(m=3\) and strength \(2m-1=5\), so the Cohn--Kumar universal-optimality
-theorem applies. The remaining obligation is \textsc{RP-A5}: emit such a kernel
-from the collar mismatch/recovery cost without inserting the target geometry.
+strictly completely monotonic, the regular icosahedron is the unique minimizer up
+to \(O(3)\) — it has exactly three distinct inner products \(\{-1,\pm1/\sqrt5\}\)
+and is a spherical \(5\)-design, hence sharp with \(m=3\) and strength
+\(2m-1=5\), so the Cohn--Kumar universal-optimality theorem applies. Second, a
+tomography route, which is the cleaner receipt: if the same twelve ports are the
+directions of the rank-two/null-tomography readout and their response Gram is
+exactly rotation-isotropic for every angular response with \(\ell\le2\), then
+products of two such responses span angular degree at most four and antipodality
+kills the odd moments, so the port set is a spherical five-design; the
+Delsarte--Goethals--Seidel bound then gives at least twelve points, and equality
+on \(S^2\) is uniquely the regular icosahedron up to \(O(3)\). The remaining
+obligation is \textsc{RP-A5}: emit the monotone kernel, or the exact rank-two
+isotropy on the same exposed ports, without inserting the target geometry.
 
 \paragraph{Angular multiplet signature.} Restricting \(\mathcal H_\ell\) to
 \(A_5\) gives exactly

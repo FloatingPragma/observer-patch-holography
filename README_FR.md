@@ -322,6 +322,38 @@ porteurs de patches échosaédriques : une façon finie et très symétrique
 d'organiser ports, recouvrements et données locales de comparaison sans traiter
 le porteur comme une boule lisse.
 
+$A_5$ porte aussi l'un des résultats les plus convaincants de la pile :
+**l'écran construit à lui seul l'algèbre de jauge du Modèle Standard — sans
+paquet de matière, sans MAR, sans nombre mesuré, sans réglage.** Les douze ports
+icosaédriques portent le module
+$P_{12}\cong\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5$, exactement
+l'adjointe de jauge du Modèle Standard ; l'orientation des faces sortantes est
+canonique ($\lVert\Omega_W\rVert^2=20-4\sqrt5>0$), et le rappel du commutateur
+matriciel par une application équivariante explicite donne
+$\mathfrak u(3)\oplus\mathfrak{so}(3)=\mathfrak u(1)\oplus\mathfrak{su}(3)\oplus\mathfrak{su}(2)$
+avec une bande de rang cinq **manifestement non centrale**. L'écran porte en
+outre son propre $\mathbb Z_6$ entier (invariants de Smith $1,1,1,1,1,6$), qui
+coïncide avec l'image fidèle tenseur-spin
+$(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ — et, contrairement au quotient de
+la route MAR, il ne descend pas du contenu de matière déjà sélectionné. Le
+crochet, ses lois de Jacobi, le témoin non central,
+$\operatorname{finrank}=9+3=12$ et l'équivalence $\mathbb Z_6$ sont **certifiés
+en Lean sans `sorry`**, sur les seuls axiomes standards de Mathlib. Pourquoi
+cela mord : le Modèle Standard *prend* $8+3+1$ en entrée et n'en explique rien,
+la théorie des cordes déplace la question dans un paysage, la gravité
+quantique à boucles la met hors de portée — aucun rival ne calcule l'algèbre de
+jauge, et OPH l'obtient d'un écran construit pour une raison sans rapport. La
+même table de caractères ajoute une signature sans réglage : $\ell=2$ est
+irréductible, donc un quadrupôle verrouillé par $A_5$ doit être **isotrope**, le
+premier invariant non constant n'apparaissant qu'à $\ell=6$ ($B_6/B_0=11/25$).
+Portée, une fois : MAR porte encore le réseau d'hypercharge, le contenu chiral
+et $N_g=3$ ; le quotient global exige le porteur tenseur-spin ; les reçus
+ouverts sont `RP-A5`, le fait que la composition de réparation réalisée *soit*
+ce commutateur, et une descente entière vers les charges de ligne de jauge ;
+$\mathbb Z_6$ n'est pas propre à OPH. Voir
+[code/a5_closure](code/a5_closure/) et
+[Lean/ObserverPatchHolography/Screen](Lean/ObserverPatchHolography/Screen/).
+
 La même géométrie donne une échelle de sphères utile pour le lecteur. $S^0$
 est la première distinction de germe ou de lecture. $S^1$ est la récurrence,
 la boucle où un enregistrement peut revenir sur lui-même. $S^2$ est l'écran

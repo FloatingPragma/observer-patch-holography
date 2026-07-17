@@ -548,156 +548,78 @@ adjoint generators. The same branch supplies the electroweak integer
 \]
 
 \vspace{0.14em}
-{\bfseries\color{pragmaCyanText}The icosahedral closure theorem: the gauge algebra without the matter package}\par
+{\bfseries\color{pragmaCyanText}The screen builds the gauge algebra: no matter package, no MAR}\par
 
 The branch above reaches \(G_{\rm SM}\) through MAR acting on a declared matter
-package. A second, independent route reaches the same Lie algebra from the
-screen alone, using no matter witness, no anomaly clause, and no measured
-number. It upgrades the factor \(12\) from a counted coincidence to a
-classification theorem [C19].
+package. The screen reaches the same Lie algebra by itself, and the construction
+is explicit rather than classificatory [C19].
 
-The icosahedral placement is itself a variational consequence, not an invoked
-symmetry. Let the twelve unit defects interact through any pair cost
-\(E_f=\sum_{i\neq j}f(\|p_i-p_j\|^2)\) with \(f\) strictly completely
-monotonic. The regular icosahedron has exactly three distinct inner products
-\(\{-1,\pm1/\sqrt5\}\) and is a spherical \(5\)-design, hence a \emph{sharp}
-configuration with \(m=3\) and strength \(2m-1=5\); both facts are certified
-exactly [C19]. By the Cohn--Kumar universal-optimality theorem [S8], sharp
-configurations minimize every completely monotonic potential of squared
-distance, and strict monotonicity makes the icosahedral minimum unique up to
-\(O(3)\). The surviving obligation is one source receipt, \textsc{RP-A5}:
-emit such a kernel from the finite collar mismatch/recovery cost without
-inserting the target geometry.
-
-The screen sieve puts twelve central ports on the icosahedral vertex orbit
-\(A_5/C_5\). The real vertex module of the icosahedron is multiplicity-free,
+Twelve central ports sit on the icosahedral vertex orbit. Pair them antipodally,
+let \(U=[u_1\cdots u_6]\), and set \(\Phi(b)=\sum_ib_iu_iu_i^{\mathsf T}\),
+\(G=\operatorname{im}U^{\mathsf T}\), \(W=\ker U\). Exact frame arithmetic gives
+\(UU^{\mathsf T}=2I_3\) and projector Gram \(\tfrac45I_6+\tfrac15J_6\), so
+\(\Phi:\mathbb R^6\xrightarrow{\sim}\operatorname{Sym}(3)\) and
+\(P_{12}\cong_{A_5}\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5\) --
+precisely the Standard-Model gauge adjoint under opposite-triplet embeddings.
+The orientation is canonical, not a free sign: the twenty outward faces give
+\(\lVert\Omega_W\rVert^2=20-4\sqrt5>0\). Pulling the block-local matrix
+commutator back through the equivariant isomorphism
+\(\Theta(b+d_G+d_W)=(\kappa_E(\tfrac12Ud_G)+i\Phi(b),\ \kappa_W(d_W))\) makes
+antisymmetry and Jacobi automatic and yields
 \[
-  P_{12}\cong_{A_5}\mathbf 1\oplus\mathbf 3\oplus\mathbf 3'\oplus\mathbf 5,
-  \qquad
-  \chi_{P_{12}}=(12,0,0,2,2),
+  \boxed{\;P_{12}\cong\mathfrak u(3)\oplus\mathfrak{so}(3)
+  =\mathfrak u(1)\oplus\mathfrak{su}(3)\oplus\mathfrak{su}(2).\;}
 \]
-and the canonical adjacency spectrum
-\(\det(xI-A)=(x-5)(x+1)^5(x^2-5)^3\) supplies the same ranks \(1,3,3,5\). The
-Standard-Model gauge algebra carries that identical module under
-opposite-triplet icosahedral embeddings:
-\(\operatorname{ad}\mathfrak{su}(3)\cong\operatorname{End}_0(\mathbf 3')
-\cong\mathbf 3'\oplus\mathbf 5\), with \(\mathbf 3\) the \(\mathfrak{su}(2)\)
-adjoint and \(\mathbf 1\) the abelian factor.
+The center is the uniform even mode, the derived algebra has dimension eleven,
+and the five-band is \emph{demonstrably} noncentral --
+\([iS,iT]=-2(E_{12}-E_{21})\neq0\) for \(S=\operatorname{diag}(1,-1,0)\),
+\(T=E_{12}+E_{21}\). Independently, a group-level \(A_5\) action on a compact
+connected group with tangent module \(P_{12}\) admits only
+\(\mathfrak u(1)^{12}\), \(\mathfrak{su}(2)^2\oplus\mathfrak u(1)^6\), or the
+Standard-Model algebra, because the center torus's integral lattice forces a
+rational \(A_5\)-submodule and \(\mathbf3,\mathbf3'\) are Galois conjugate over
+\(\mathbb Q(\sqrt5)\). The first two put the five-band in the center; the
+construction rules them out. No character table, particle count, hypercharge, or
+measured number enters.
 
-Module equality alone would leave a fourteen-dimensional space of equivariant
-antisymmetric products, \(\dim\operatorname{Hom}_{A_5}(\Lambda^2P_{12},P_{12})=14\),
-and this was the standing objection to the identity. Compactness removes it.
-A compact Lie algebra is reductive, \(\mathfrak g=\mathfrak z\oplus[\mathfrak
-g,\mathfrak g]\), and both summands are characteristic, hence \(A_5\)-stable.
-The identity component of the center is a torus whose exponential kernel is an
-integral lattice preserved by every group automorphism, so the \(A_5\)-action
-on \(\mathfrak z\) is defined over \(\mathbb Q\); since \(\mathbf 3\) and
-\(\mathbf 3'\) are Galois conjugate over \(\mathbb Q(\sqrt5)\), a rational
-submodule contains them with equal multiplicity. Enumerating the rational
-centers against the compact semisimple dimensions leaves exactly three
-algebras,
-\[
-  \mathfrak g\cong
-  \mathfrak u(1)^{12},
-  \qquad
-  \mathfrak{su}(2)^{2}\oplus\mathfrak u(1)^{6},
-  \qquad
-  \mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1),
-\]
-the five other center choices dying on dimension (no compact semisimple algebra
-has dimension \(1\), \(5\), or \(7\)) or on module mismatch (an \(A_1^{4}\) or
-\(A_1^{2}\) adjoint cannot supply \(\mathbf 5\), and any homomorphism
-\(A_5\to S_4\) is trivial because \(A_5\) is simple of order \(60\)). In the
-first two survivors the canonical rank-five band \(W_5\) lies inside the
-center. Therefore a single noncentrality receipt closes the classification:
-\[
-  \boxed{\;[W_5,P_{12}]\neq0
-  \;\Longrightarrow\;
-  \mathfrak g\cong\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1).\;}
-\]
-Strengthening the hypothesis from a group-level action to an \emph{inner} one
-removes even that receipt. Inner automorphisms fix the center pointwise, so
-\(\mathfrak z\subseteq\mathfrak g^{A_5}\); since \(P_{12}\) contains exactly
-one trivial irreducible, \(\dim\mathfrak z\le1\). If \(\mathfrak z=0\) then
-\(\mathfrak g\) is compact semisimple of dimension twelve, hence
-\(\mathfrak{su}(2)^4\), and an inner action cannot permute simple ideals; each
-\(\mathfrak{su}(2)\) then contributes fixed-space dimension \(3\) (trivial
-\(A_5\)-image) or \(0\) (icosahedral image), so \(\dim\mathfrak g^{A_5}\) is a
-multiple of three and cannot equal one. Hence \(\dim\mathfrak z=1\), the
-semisimple part has dimension eleven, and \(11=8+3\) is its only partition
-into compact simple dimensions. Therefore
-\[
-  \boxed{\;\text{inner }A_5\text{ action}
-  \;\Longrightarrow\;
-  \mathfrak g\cong\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)
-  \ \text{uniquely.}\;}
-\]
-The inner hypothesis is structural rather than opportunistic: the finite OPH
-overlap charts are matrix algebras and overlap-preserving rechartings are
-implemented by unitaries, whose action on observables is conjugation. The
-obligation then reduces to a single receipt, \textsc{port-current-inner}:
-construct a nonzero refinement-compatible map from port fluctuations to
-current generators and prove the geometric \(A_5\) action is conjugation on
-its image.
+The screen also carries an integral \(\mathbb Z_6\) that owes nothing to the
+matter content: the even axis-load lattice modulo its singlet and centered
+sublattices has Smith invariants \((1,1,1,1,1,6)\), so
+\(\Lambda_+/(\Lambda_1\oplus\Lambda_5)\cong\mathbb Z_6\); and on the faithful
+\(\mathbb C^3\otimes\mathbb C^2\) tensor-spin carrier
+\(\Psi(A,B,z)=z(A\otimes B)\) has kernel of order six generated by
+\((\omega_3I_3,-I_2,e^{i\pi/3})\), giving
+\((SU(3)\times SU(2)\times U(1))/\mathbb Z_6\), with signed antipodal reversal
+and charge conjugation both acting by inversion. The MAR route's quotient
+descends from the already selected matter content; this one does not.
 
-The oriented face orbit \(A_5/C_3\) carries a second exact statement. For an
-irreducible \(V\) the multiplicity of a nontrivial face phase \(\omega\) is
-\(m_\omega(V)=(\dim V-\chi_V(3A))/3\), giving \((0,1,1,1,2)\) on
-\((\mathbf1,\mathbf3,\mathbf3',\mathbf4,\mathbf5)\). Since \(A_5\) has no
-two-dimensional irreducible and its one-dimensional irreducible carries
-\(m_\omega=0\), the dimension-minimal irreducible extension of a nontrivial
-face phase is \(\mathbf 3\) or \(\mathbf 3'\). If the quotient-visible family
-fiber is that extension, then \(N_g=3\) with exactly
-\((N_g-1)(N_g-2)/2=1\) rephasing-invariant CKM phase.
+The same character table fixes a dial-free signature: spherical multiplets
+restrict as \(\ell=2:\mathbf5\), \(\ell=3:\mathbf3'\oplus\mathbf4\),
+\(\ell=4:\mathbf4\oplus\mathbf5\), \(\ell=5:\mathbf3\oplus\mathbf3'\oplus\mathbf5\),
+\(\ell=6:\mathbf1\oplus\mathbf3\oplus\mathbf4\oplus\mathbf5\). Since \(\ell=2\)
+is irreducible, an \(A_5\)-locked quadrupole must be isotropic, and the first
+nonconstant invariant appears only at \(\ell=6\). As an equal-weight port mask
+the icosahedron has \(B_1=\dots=B_5=0\) and \(B_6/B_0=11/25\).
 
-\vspace{0.14em}
-{\bfseries\color{pragmaCyanText}A parameter-free spectroscopy signature}\par
+\infobox{Status: exact, machine-checked, and matter-free}{
+The bracket, its Jacobi and antisymmetry laws, the explicit noncentral
+five-band, \(\operatorname{finrank}_{\mathbb R}=9+3=12\), the
+\(\mathbb Z_6\) quotient equivalence, and the \(11/25\) arithmetic are certified
+in Lean without \texttt{sorry} on only Mathlib's standard axioms
+(\texttt{Lean/ObserverPatchHolography/Screen/}). \textbf{MAR is not used for the
+gauge Lie algebra.} It remains load-bearing for the hypercharge lattice, the
+chiral content, and \(N_g=3\); the \emph{global} quotient additionally needs the
+tensor-spin carrier. Named premises, not hidden: Euler gives the \emph{total}
+coordination charge \(12\), and resolving it into twelve unit defects needs an
+integer/nonnegative domain, exposed sites, and a strictly superadditive cost;
+the construction is canonical on the oriented compact block-local branch, not
+forced by the bare graph (dropping compactness admits
+\(\mathfrak{gl}(3,\mathbb R)\oplus\mathfrak{so}(3)\)). Open receipts:
+\textsc{RP-A5}, that realized repair composition \emph{is} this commutator, and
+an integral descent from screen loads to gauge line charges. \(\mathbb Z_6\) is
+not unique to OPH. The spectroscopy is gated on a derived source-to-observable
+transfer and is not a CMB prediction as it stands.}
 
-The same character table fixes how any spherical angular multiplet may split
-when only icosahedral symmetry survives. Restricting \(\mathcal H_\ell\) to
-\(A_5\) gives, exactly [C19],
-\[
-\begin{aligned}
-  \ell=2&:\ \mathbf5, &
-  \ell=3&:\ \mathbf3'\oplus\mathbf4, &
-  \ell=4&:\ \mathbf4\oplus\mathbf5,\\
-  \ell=5&:\ \mathbf3\oplus\mathbf3'\oplus\mathbf5, &
-  \ell=6&:\ \mathbf1\oplus\mathbf3\oplus\mathbf4\oplus\mathbf5. &&
-\end{aligned}
-\]
-By Schur's lemma an \(A_5\)-invariant self-adjoint perturbation is scalar on
-each block, so the \emph{degeneracy pattern} is forced even though the block
-eigenvalues stay dynamical. Two consequences are sign-committed and
-target-free: \(\ell=2\) is irreducible, so an \(A_5\)-locked quadrupole
-covariance must be \emph{isotropic} and no icosahedral branch can produce an
-anisotropic or aligned quadrupole; and the first nonconstant invariant appears
-only at \(\ell=6\), with the \(\ell=3\) block frame and the \(\ell=6\) invariant
-frame required to agree. This is a preregistrable multiplicity test rather than
-a free anomaly search, and unlike every decimal lane in this document it has no
-continuous dial: the allowed multiplicities are \(3+4\), \(4+5\), \(3+3'+5\),
-\(1+3+4+5\), or nothing. Venues, in order of control, are an icosahedral cavity,
-the CMB screen frame, and low-spin ringdown residuals. Amplitudes, frequencies,
-and the source-to-observable transfer are \emph{not} supplied by the
-representation theory and must be derived before any comparison; the signature
-is registered here as a theorem-gated prospective test, not as present evidence.
-
-\infobox{The strongest structural result in the stack}{
-One finite observer screen emits the complete Standard-Model gauge Lie algebra.
-The chain is exact and target-free: a triangulated \(S^2\) forces twelve defect
-units; universal optimality forces the icosahedron; its vertex module is
-\(\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5\); and an inner \(A_5\)
-action forces \(\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)\)
-uniquely. No matter package, no anomaly clause, no measured number, no dial. It
-is therefore independent of the MAR clause inputs that carry the branch above,
-and the objection that the matter witness is assumed does not reach it. The
-whole construction now rests on two source receipts, \textsc{RP-A5} and
-\textsc{port-current-inner}, both finite and machine-checkable. Scope: the
-\(\mathbb Z_6\) quotient, hypercharge lattice, chiral content, couplings, and
-poles stay on the MAR route [O4]; the gauge closure is explanatory and predicts
-no measurement, while the angular-multiplet sequence is its observational
-descendant. All arithmetic is independently reproduced [C19].}
-
-\vspace{0.14em}
 {\bfseries\color{pragmaCyanText}The QCD-free hierarchy witness}\par
 
 The source-audit hierarchy witness reuses the pixel candidate and the
