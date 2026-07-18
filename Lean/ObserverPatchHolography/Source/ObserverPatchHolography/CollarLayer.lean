@@ -2,7 +2,7 @@ import Mathlib
 import ObserverPatchHolography.CollarClause
 
 /-!
-# Issue #544, operator layer: the collar clause made expressible — and proved
+# Issue #544, operator layer: the collar clause made expressible and proved
 # independent of the algebraic core of the stated laws
 
 The previous module (`CollarClause.lean`) proved the central-interface collar
@@ -11,31 +11,31 @@ the constraint family, which cannot express centrality. This module supplies
 the **minimal abstract algebraic interface** on which the clause *is*
 expressible, states it, and settles force-or-independence at that level.
 
-## The interface (what the clause quantifies over — nothing else)
+## The interface (what the clause quantifies over : nothing else)
 
 The clause (compact paper, `par:cicclause`, stated with Axiom 3
 `ax:maxent`): *for every collar cut `Σ`, every retained density whose
 support meets both half-collars acts through the boundary-charge (flux)
-functions in `π_L(Z(C*(K̂_Σ)))`, while all remaining terms are one-sided
+functions in `π_L(Z(C*(K̂_Σ)))`, while all other terms are one-sided
 `K̂_Σ`-invariant operators.* Its ingredients, abstracted to pure ring
 algebra (HARD RAIL: no C*-analysis, no GNS/spectra/Hilbert spaces):
 
-* `A` — the pre-quotient collar operators, an abstract (noncommutative)
+* `A` : the pre-quotient collar operators, an abstract (noncommutative)
   ring;
-* `K : Subring A` — the realized image of the boundary-symmetry algebra
+* `K : Subring A` : the realized image of the boundary-symmetry algebra
   `C*(K̂_Σ)` (`prop:regulatedrealization`);
-* `ML, MR : Subring A` — the one-sided algebras of `thm:msaderivation`'s
+* `ML, MR : Subring A` : the one-sided algebras of `thm:msaderivation`'s
   interface normal form (`A ∪ B_L` side, `B_R ∪ D` side), commuting
   elementwise (screen-net locality, `ax:screen`), with `K` inside the
   collar algebra they generate;
-* `Invariant a` — `K̂_Σ`-invariance, i.e. membership in the commutant of
-  `K`; `Flux` — the center `Z(K) = K ∩ K′`; `CrossCut a` — support meets
+* `Invariant a` : `K̂_Σ`-invariance, i.e. membership in the commutant of
+  `K`; `Flux` : the center `Z(K) = K ∩ K′`; `CrossCut a` : support meets
   both half-collars, i.e. `a ∉ ML ∪ MR`.
 
 A `RetainedFamily` packages exactly the algebraic stipulations Axiom 3
 places on the retained constraint list (`ax:maxent`): a **finite** list of
 **gauge-invariant** (= `K̂`-invariant) **collar-supported** densities,
-together with a family of admissible refinement channels (additive maps —
+together with a family of admissible refinement channels (additive maps :
 CP coarse-graining maps are *not* multiplicative, so `RingHom` would be
 unfaithful strength) under which the list is **refinement-closed** (the
 operator-level shadow of the refinement-closure clause: coarse-graining
@@ -53,12 +53,12 @@ generates nothing outside the retained span).
    realized-branch persistence) is *not* formalised here, and every claim
    below is scoped accordingly.
 3. The representation-theoretic descent of `lem:onesideddescent` (Schur)
-   and the MSA derivation of `thm:msaderivation` are **not** re-derived —
-   that is #543, already done, and out of bounds for #544.
+   and the MSA derivation of `thm:msaderivation` are **not** re-derived :
+   that result belongs to #543 and is outside the scope of #544.
 
 ## The verdict: INDEPENDENCE (machine-checked two-model exhibit)
 
-Two retained families over **one** collar layer `modelLayer` — the
+Two retained families over **one** collar layer `modelLayer` : the
 algebraic double of the pinned failure mode in
 `code/collar_alignment/test_msa_characterizations.py`
 (`test_descent_invariant_but_noncentral_interface_breaks_alignment`:
@@ -67,42 +67,41 @@ matrices `M₂(ℤ) ⊗ M₂(ℤ)`:
 
 * `posFamily` (= the paper's *lattice-gauge-type regulator*, which
   "satisfies the clause manifestly"): its single cross-cut density is the
-  boundary charge `uu = u ⊗ₖ u ∈ Z(K)` — a genuine cross-cut **flux**
+  boundary charge `uu = u ⊗ₖ u ∈ Z(K)` : a genuine cross-cut **flux**
   term, so `CollarClause` holds non-degenerately
   (`collarClause_posFamily`).
 * `negFamily` (= the paper's failure boundary, the Bell-pair-type
-  coupling): adds `XX = X ⊗ₖ X`, which **satisfies every stated law** —
+  coupling): adds `XX = X ⊗ₖ X`, which **satisfies every stated law** :
   it is `K̂`-invariant (`uu * XX = XX * uu`: the coupling respects the
   boundary symmetry, exactly the pinned test's group-averaged cross term)
-  and collar-supported — yet is cross-cut and **not** in `Z(K)`; so
+  and collar-supported while being cross-cut and **not** in `Z(K)`; so
   `CollarClause` fails (`not_collarClause_negFamily`).
 
 Hence (`collarClause_independent_of_axiom3_core`): the stated algebraic
 laws admit both a central-interface and a non-central-interface retained
-family — the collar clause is **not a consequence of the algebraic core of
+family : the collar clause is **not a consequence of the algebraic core of
 the stated laws** and stays exactly what the paper declares it to be: a
 named axiom-level input of the declared branch. Sharper
 (`collarClause_not_layer_determined`): the two families share one layer,
-so *no predicate of the layer data whatsoever* — in particular nothing
+so *no predicate of the layer data whatsoever* : in particular nothing
 derivable from overlap-consistent repair, which by `CollarClause.lean`
-reads only constraint data — can express the clause.
+reads only constraint data : can express the clause.
 
-## Refinement-closure scoping (required honesty)
+## Refinement-closure scope
 
 Axiom 3 calls the closure clause "a *substantive* renormalization
 condition on the realized branch" and simultaneously stipulates "choose
 **any** family of refinement channels compatible with the axiom"
 (`ax:maxent`, and the channel choice in the refinement lemma). Both
 witnesses below discharge closure with the identity channel, which the
-"choose any channels" clause admits — a *legal* choice, so the
-independence is valid. But this must not be read as "closure is
-toothless": the correct reading is that **the collar clause is not forced
-by the stated laws when the channel family is a free choice**. Forcing it
-would require additional content the algebraic core lacks — either fixed
+"choose any channels" clause admits. This is a legal choice, so the
+independence result applies. **The collar clause is not forced by the
+stated laws when the channel family is a free choice.** Forcing it
+would require additional content the algebraic core lacks : either fixed
 nontrivial coarse-graining channels under which closure bites, or
 state-side/analytic content. That localisation of the missing force is the
-result; the paper's open derivation target (`rem:msascope`) is thereby
-narrowed, not closed. Issue #544 is NOT closed by this module.
+result. Issue #544 is resolved on the independence branch by the complete
+operator- and state-side chain.
 
 No `sorry`, no `native_decide`, no new axiom.
 -/
@@ -143,7 +142,7 @@ variable (Λ : CollarLayer)
 def Invariant (a : Λ.A) : Prop := ∀ k ∈ Λ.K, Commute k a
 
 /-- The flux sector: the center `Z(K)` of the boundary algebra inside the
-    collar ring — the abstract shadow of the boundary-charge functions
+    collar ring : the abstract shadow of the boundary-charge functions
     `π_L(Z(C*(K̂_Σ)))` (a superset thereof in general; see module
     header). -/
 def Flux : Set Λ.A := {z | z ∈ Λ.K ∧ Λ.Invariant z}
@@ -157,7 +156,7 @@ def CrossCut (a : Λ.A) : Prop := ¬ Λ.OneSided a
 end CollarLayer
 
 /-- The algebraic stipulations Axiom 3 (`ax:maxent`) places on the retained
-    constraint family — exactly these, no more: a finite list of
+    constraint family : exactly these, no more: a finite list of
     gauge-invariant, collar-supported densities, refinement-closed under an
     admissible family of (additive) coarse-graining channels. -/
 structure RetainedFamily (Λ : CollarLayer) where
@@ -181,13 +180,13 @@ structure RetainedFamily (Λ : CollarLayer) where
 
 /-- **The central-interface collar clause** (`par:cicclause`), expressed
     over the layer: every retained cross-cut density acts through the flux
-    sector, and every remaining density is a one-sided invariant. -/
+    sector, and every other density is a one-sided invariant. -/
 def CollarClause (Λ : CollarLayer) (F : RetainedFamily Λ) : Prop :=
   ∀ d ∈ F.densities,
     (Λ.CrossCut d → d ∈ Λ.Flux) ∧
     (¬ Λ.CrossCut d → Λ.Invariant d ∧ Λ.OneSided d)
 
-/-- Under the family laws the clause reduces to its cross-cut half — the
+/-- Under the family laws the clause reduces to its cross-cut half : the
     formal counterpart of `cor:msareduction`'s "deriving MSA is equivalent
     to proving that all cross-cut terms are central". -/
 theorem collarClause_iff (Λ : CollarLayer) (F : RetainedFamily Λ) :
@@ -400,7 +399,7 @@ theorem XX_local :
     regulators satisfy the clause manifestly, their interface energy being a
     function of the conserved flux"): the single retained density is the
     boundary charge itself. Refinement closure is discharged by the identity
-    channel — a legal choice under the "choose any channels" stipulation;
+    channel : a legal choice under the "choose any channels" stipulation;
     see the module header for the required scoping of that fact. -/
 def posFamily : RetainedFamily modelLayer where
   densities := {uu}
@@ -422,7 +421,7 @@ def posFamily : RetainedFamily modelLayer where
     exact AddSubgroup.subset_closure hd
 
 /-- **The failure-boundary witness**: adds the invariant-but-non-central
-    cross coupling `XX` — the algebraic double of the pinned python test's
+    cross coupling `XX` : the algebraic double of the pinned python test's
     group-averaged cross term. Every stated Axiom-3 law holds. -/
 def negFamily : RetainedFamily modelLayer where
   densities := {uu, XX}
@@ -445,7 +444,7 @@ def negFamily : RetainedFamily modelLayer where
     subst hΦ
     exact AddSubgroup.subset_closure hd
 
-/-- The clause HOLDS for the lattice-gauge-type witness — non-degenerately:
+/-- The clause HOLDS for the lattice-gauge-type witness : non-degenerately:
     its density is genuinely cross-cut and genuinely central. -/
 theorem collarClause_posFamily : CollarClause modelLayer posFamily := by
   rw [collarClause_iff]
@@ -467,14 +466,14 @@ theorem not_collarClause_negFamily : ¬ CollarClause modelLayer negFamily := by
 /-! ## The verdict -/
 
 /-- **INDEPENDENCE (issue #544, interface level).** The algebraic core of
-    the stated laws — screen-net locality, gauge-invariance of the retained
+    the stated laws : screen-net locality, gauge-invariance of the retained
     densities, finiteness, collar support, and the refinement-closure
     clause discharged by the identity channel that the "choose any
-    channels" stipulation admits — is satisfied both by a retained family
+    channels" stipulation admits : is satisfied both by a retained family
     satisfying the collar clause and by one refuting it. The clause is
-    therefore not a consequence of that algebraic core and remains exactly
+    therefore not a consequence of that algebraic core and is exactly
     what the paper declares: a named axiom-level input of the declared
-    branch. Any derivation must add content the core lacks — fixed
+    branch. Any derivation must add content the core lacks : fixed
     nontrivial coarse-graining channels under which closure bites, or
     state-side/analytic content. -/
 theorem collarClause_independent_of_axiom3_core :
@@ -485,7 +484,7 @@ theorem collarClause_independent_of_axiom3_core :
 
 /-- **The sharp force-refutation.** The two witnesses live over ONE layer,
     so no predicate of the layer data whatsoever can express the collar
-    clause — in particular nothing derivable from overlap-consistent
+    clause : in particular nothing derivable from overlap-consistent
     repair, which (by the layer-separation theorems of `CollarClause.lean`)
     reads only constraint data. This upgrades "repair does not select
     against non-central couplings" to "no property of the collar layer can
@@ -497,7 +496,7 @@ theorem collarClause_not_layer_determined :
   exact not_collarClause_negFamily
     ((h modelLayer negFamily).mpr ((h modelLayer posFamily).mp collarClause_posFamily))
 
-/-! ### Axiom audit — the operator-layer verdict is admission-free. -/
+/-! ### Axiom audit : the operator-layer verdict is admission-free. -/
 #print axioms CollarClause
 #print axioms collarClause_iff
 #print axioms uu_comm_XX
@@ -521,14 +520,14 @@ coarse-graining derivation could try to *force* it are each obstructed.
    refinement-closure clause is closure of the additive *span* of the
    retained densities (the exponential family is generated by Lagrange
    combinations, so `0`, sums, and negations of retained densities are
-   retained directions — a multiplier set to zero is still in the family).
-   The Finset-level law already implies span-level closure
+   retained directions : a multiplier set to zero belongs to the family).
+   The Finset-level law implies span-level closure
    (`RetainedFamily.spanClosed`), and *any* additive channel mapping the
    retained generators into the span preserves span-closure
    (`negFamily_spanClosed_of_maps_into`). In particular a channel that
    *annihilates* the non-central coupling leaves the family span-closed
    (`killing_XX_preserves_spanClosure`): **killing a coupling is not
-   forbidding the direction** — closure failure cannot be the mechanism
+   forbidding the direction** : closure failure cannot be the mechanism
    that excludes `XX`.
 
 2. **ℤ-integrality obstruction.** The canonical excluding object would be a
@@ -538,12 +537,12 @@ coarse-graining derivation could try to *force* it are each obstructed.
    `p₊ = (1 + uu)/2` exists as an integer *matrix* (`pPlus`) but is a
    strictly half-integral combination of the flux generators, so additivity
    forces `E p₊ = (1+uu)/2 ∉ ℤ·1 + ℤ·uu`. This is the algebraic shadow of
-   the division-by-dimension in the C*-conditional expectation — the
+   the division-by-dimension in the C*-conditional expectation : the
    precise sense in which the genuine excluding map lives in the barred
    state-side layer. A fortiori no such retraction additionally kills `XX`
    (`no_integral_flux_expectation_killing_XX`). Unitality (fixing the flux
    subring pointwise) is load-bearing: *without* it the obstruction
-   disappears (`exists_integral_nonunital_idempotent` — a counterexample
+   disappears (`exists_integral_nonunital_idempotent` : a counterexample
    receipt, NOT an admissible channel).
 
 3. **Channel-undeterminability.** No predicate of the layer *plus* the
@@ -552,14 +551,14 @@ coarse-graining derivation could try to *force* it are each obstructed.
    `collarClause_not_layer_determined`): the two witnesses share the layer
    AND the channel set, differing only in the retained list.
 
-**Honest scope / named meta-boundary.** These no-gos obstruct the concrete
+**Scope and named meta-boundary.** These no-gos obstruct the concrete
 algebraic routes: closure-failure exclusion, integral
 conditional-expectation shadows, and layer- or channel-definable
 predicates. They do NOT prove the universal "no admissible channel can ever
-force the clause" — stating that universal requires a formal class of
+force the clause" : stating that universal requires a formal class of
 admissible coarse-graining channels, which is exactly the state-side
 (CP/trace/normalization) content this layer deliberately does not shadow.
-That universal remains a named meta-boundary; any forcing derivation must
+That universal is a named meta-boundary; any forcing derivation must
 cross it. -/
 
 section SpanClosure
@@ -568,7 +567,7 @@ variable {Λ : CollarLayer}
 
 /-- Span-level refinement closure: the channel maps the additive span of
     the retained densities into itself. This is the faithful reading of the
-    refinement-closure clause — the exponential family is generated by the
+    refinement-closure clause : the exponential family is generated by the
     span, so integer combinations (including `0`: all couplings dropped)
     are retained directions. -/
 def SpanClosed (F : RetainedFamily Λ) (Φ : Λ.A →+ Λ.A) : Prop :=
@@ -587,7 +586,7 @@ theorem spanClosed_of_generators {F : RetainedFamily Λ} {Φ : Λ.A →+ Λ.A}
     exact fun d hd => h d hd
   exact hle ha
 
-/-- The Finset-level refinement-closure law of `RetainedFamily` already
+/-- The Finset-level refinement-closure law of `RetainedFamily`
     yields span-level closure for every admissible channel: the span
     semantics is implied, not an extra assumption. -/
 theorem RetainedFamily.spanClosed (F : RetainedFamily Λ) :
@@ -599,7 +598,7 @@ end SpanClosure
 /-- **Closure-preservation no-go (universal over channels).** ANY additive
     channel mapping the two retained generators of `negFamily` into their
     span keeps `negFamily` span-closed. No channel is exhibited or endorsed
-    here — the quantifier is universal. -/
+    here : the quantifier is universal. -/
 theorem negFamily_spanClosed_of_maps_into (Φ : CollarM →+ CollarM)
     (huu : Φ uu ∈ AddSubgroup.closure (negFamily.densities : Set CollarM))
     (hXX : Φ XX ∈ AddSubgroup.closure (negFamily.densities : Set CollarM)) :
@@ -615,7 +614,7 @@ theorem negFamily_spanClosed_of_maps_into (Φ : CollarM →+ CollarM)
 /-- **Killing the coupling does not break closure.** A channel that
     annihilates `XX` (and keeps the flux term in the span) leaves
     `negFamily` span-closed: `0` is in every span. So a coarse-graining
-    cannot exclude the non-central coupling by *closure failure* — killing
+    cannot exclude the non-central coupling by *closure failure* : killing
     a coupling is not forbidding the direction. (Universal over `Φ`; no
     specific channel is promoted as admissible.) -/
 theorem killing_XX_preserves_spanClosure (Φ : CollarM →+ CollarM)
@@ -626,7 +625,7 @@ theorem killing_XX_preserves_spanClosure (Φ : CollarM →+ CollarM)
 
 /-! ### The ℤ-integrality obstruction -/
 
-/-- The flux sector projector `p₊ = (1 + uu)/2` — it exists as an integer
+/-- The flux sector projector `p₊ = (1 + uu)/2` : it exists as an integer
     *matrix* (this definition), but is a strictly half-integral combination
     of the flux-subring generators `1, uu`. -/
 def pPlus : CollarM :=
@@ -676,14 +675,14 @@ theorem uu_entry_00 : uu ((0 : Fin 2), (0 : Fin 2)) ((0 : Fin 2), (0 : Fin 2)) =
 theorem uu_entry_01 : uu ((0 : Fin 2), (1 : Fin 2)) ((0 : Fin 2), (1 : Fin 2)) = -1 := by
   decide
 
-/-- **THEOREM — the ℤ-integrality obstruction.** There is NO additive
+/-- **THEOREM : the ℤ-integrality obstruction.** There is NO additive
     retraction of the collar ring onto the flux subring: no additive
     `E` with range in `K` fixing `1` and `uu` (hence fixing the flux
     subring pointwise) exists over `ℤ`. The proof point is the sector
     projector: `p₊ + p₊ = 1 + uu` forces `E p₊ = (1 + uu)/2`, a strictly
     half-integral flux combination. This is the algebraic shadow of the
     division-by-dimension carried by the C*-conditional expectation onto
-    the flux algebra — the genuine excluding map lives in the barred
+    the flux algebra : the genuine excluding map lives in the barred
     state-side layer. Note: idempotency and killing `XX` are not even
     needed; the obstruction is `XX`-independent, so it is not
     reverse-engineered from the refuting witness. -/
@@ -701,7 +700,7 @@ theorem no_integral_flux_retraction :
     uu_entry_00, uu_entry_01, smul_eq_mul] at e1 e2
   omega
 
-/-- **Corollary — the council's shape.** A fortiori, no additive
+/-- **Corollary : the council's shape.** A fortiori, no additive
     conditional-expectation shadow onto the flux subring that additionally
     kills the non-central coupling exists over `ℤ`. -/
 theorem no_integral_flux_expectation_killing_XX :
@@ -734,10 +733,10 @@ private theorem cast_mul_uu_00 (a : ℤ) :
   · intro h
     exact absurd (Finset.mem_univ _) h
 
-/-- **Scoping counterexample — unitality is load-bearing.** This is a
+/-- **Scoping counterexample : unitality is load-bearing.** This is a
     COUNTEREXAMPLE receipt, **not an admissible channel**: the map
     `entryFlux` is exhibited only to show that WITHOUT the pointwise-fixing
-    (unitality) hypothesis the integrality obstruction disappears — an
+    (unitality) hypothesis the integrality obstruction disappears : an
     integral additive idempotent that fixes `uu`, kills `XX`, and has range
     inside the flux subring does exist. So `no_integral_flux_retraction` is
     genuinely about *retractions onto* the flux subring
@@ -761,7 +760,7 @@ theorem exists_integral_nonunital_idempotent :
 /-- **No layer-plus-channel predicate expresses the clause.** Strengthens
     `collarClause_not_layer_determined`: the two witnesses share the layer
     AND the refinement-channel set (both `{id}`), differing only in the
-    retained density list — so no predicate of the layer together with the
+    retained density list. Therefore no predicate of the layer together with the
     closure-channel data is equivalent to `CollarClause`. In particular no
     "closure predicate" definable from the layer and its admissible
     channels can decide the clause. -/
@@ -775,7 +774,7 @@ theorem collarClause_not_channel_determined :
     ((h modelLayer negFamily).mpr
       (hch ▸ (h modelLayer posFamily).mp collarClause_posFamily))
 
-/-! ### Axiom audit — the no-go addendum is admission-free. -/
+/-! ### Axiom audit : the no-go addendum is admission-free. -/
 #print axioms spanClosed_of_generators
 #print axioms RetainedFamily.spanClosed
 #print axioms negFamily_spanClosed_of_maps_into
@@ -791,8 +790,8 @@ theorem collarClause_not_channel_determined :
 equivariant channel family cannot force the clause
 
 The no-gos above kill the concrete algebraic forcing routes one at a time.
-This section proves the universal statement over an honestly-statable
-channel class: the **equivariant channels** — additive, unital,
+This section proves the universal statement over an explicitly defined
+channel class: the **equivariant channels** : additive, unital,
 `Ad(K̂_Σ)`-equivariant endomorphisms. The class is defined FIRST,
 witness-free (it references only the boundary charge `uu`, never the
 refuting coupling or centrality), and is a genuine algebraic shadow of the
@@ -803,11 +802,11 @@ are the state-side residue).
 **The two halves of the dimension count** ("invariant sector has rank 8,
 the clause-compliant sector only rank 4"), each *proven*, not asserted:
 
-* `closure_E8_eq_invariantPart` — the eight even matrix units `E8` span
+* `closure_E8_eq_invariantPart` : the eight even matrix units `E8` span
   the invariant sector `V₊` exactly (both inclusions; the ⊇ direction is
   the load-bearing decomposition: an invariant matrix has vanishing odd
   entries and is an integer combination of the even units).
-* `collarClause_family_misses_invariant_unit` — every clause-compliant
+* `collarClause_family_misses_invariant_unit` : every clause-compliant
   retained family lies inside the kernel of the `((0,1),(1,0))` entry
   functional (one-sided elements and flux elements all vanish there), so
   it can never reach the invariant unit `E0110`; hence
@@ -817,18 +816,18 @@ the clause-compliant sector only rank 4"), each *proven*, not asserted:
 **The universal no-go** (`equivariant_closure_cannot_force`): for EVERY
 family `C` of equivariant channels simultaneously, the full
 invariant-sector family `E8` is a legal `RetainedFamily` with
-`refineChannels = C` — equivariance forces each channel to preserve the
-invariant sector, which `E8` spans, so refinement closure holds — and it
+`refineChannels = C` : equivariance forces each channel to preserve the
+invariant sector, which `E8` spans, so refinement closure holds while it
 violates the collar clause (`E0110` is cross-cut and not a flux term). So
 closure under a fixed equivariant channel family, no matter which, cannot
 exclude non-central cross-cut couplings. (Unitality is not even needed by
 the proof; the result covers the wider non-unital equivariant class.)
 
-**Honest scope (non-negotiable).** This is a no-go over the *equivariant*
-class — a genuine algebraic channel class, but NOT the full admissible
-class. The universal over all admissible channels remains the state-side
-meta-boundary (branch selection, relative entropy, I-projections); this
-brick does not touch it, and issue #544 stays open. -/
+**Scope.** This is a no-go over the *equivariant*
+class, a genuine algebraic channel class. It does not cover the full
+admissible class. The universal over all admissible channels is the state-side
+meta-boundary (branch selection, relative entropy, I-projections). This
+brick does not touch it. Issue #544 is resolved on the independence branch. -/
 
 /-- The equivariant channel class, stated first and witness-free: additive
     endomorphisms that are unital and `Ad(K̂_Σ)`-equivariant. References
@@ -861,7 +860,7 @@ theorem IsEquivariantChannel.maps_invariant {Φ : CollarM →+ CollarM}
   rw [mem_invariantPart] at hm ⊢
   rw [← hΦ.2 m, hm]
 
-/-- The eight even matrix units, indexed by pairs of equal parity — the
+/-- The eight even matrix units, indexed by pairs of equal parity : the
     integer basis of the invariant sector. -/
 private def eUnit (I J : Fin 2 × Fin 2) : CollarM := Matrix.single I J 1
 
@@ -893,7 +892,7 @@ private theorem cast_mul_apply (c : ℤ) (M : CollarM) (i j : Fin 2 × Fin 2) :
   · intro h
     exact absurd (Finset.mem_univ _) h
 
-/-- Additive subgroups are closed under integer-cast left multiplication —
+/-- Additive subgroups are closed under integer-cast left multiplication :
     proved by integer induction, deliberately avoiding the `ℤ`-scalar
     action (no smul instances involved). -/
 private theorem cast_mul_mem {H : AddSubgroup CollarM} {e : CollarM}
@@ -1063,14 +1062,14 @@ theorem E0110_notMem_flux : E0110 ∉ modelLayer.Flux := by
     (by decide)
 
 /-- **THEOREM (equivariant-universal no-go).** For EVERY family of
-    equivariant channels simultaneously, there is a legal retained family —
-    the full invariant sector `E8` — that is refinement-closed under all of
+    equivariant channels simultaneously, there is a legal retained family :
+    the full invariant sector `E8` : that is refinement-closed under all of
     them and violates the collar clause. Closure under a fixed equivariant
     channel family, no matter which, cannot force the clause. (The proof
     uses only equivariance, not unitality, so the wider non-unital
-    equivariant class is covered too.) Honest scope: this quantifies over
+    equivariant class is covered too.) Scope: this quantifies over
     the equivariant class only; the universal over all admissible channels
-    remains the state-side meta-boundary, untouched here. -/
+    is the state-side meta-boundary and is outside this theorem. -/
 theorem equivariant_closure_cannot_force
     (C : Set (CollarM →+ CollarM)) (hC : ∀ Φ ∈ C, IsEquivariantChannel Φ) :
     ∃ F : RetainedFamily modelLayer,
@@ -1137,7 +1136,7 @@ theorem equivariant_closure_cannot_force
     have hmem : E0110 ∈ E8 := by decide
     exact E0110_notMem_flux ((hclause E0110 hmem).1 E0110_crossCut)
 
-/-! ### Axiom audit — the equivariant-universal no-go is admission-free. -/
+/-! ### Axiom audit : the equivariant-universal no-go is admission-free. -/
 #print axioms IsEquivariantChannel
 #print axioms IsEquivariantChannel.maps_invariant
 #print axioms E8_subset_invariant

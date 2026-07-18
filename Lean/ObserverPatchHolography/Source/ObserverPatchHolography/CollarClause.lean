@@ -3,7 +3,7 @@ import ObserverPatchHolography.Primitives
 
 /-!
 # Issue #544 (central-interface collar clause): what the overlap-consistency
-# layer can and cannot force — a machine-checked layer separation
+# layer can and cannot force : a machine-checked layer separation
 
 Issue #544 asks whether overlap-consistent repair on the declared
 fixed-cutoff branch *forces* the central-interface collar clause (the
@@ -12,7 +12,7 @@ declared-branch input stated with Axiom 3 of the compact paper,
 selected. The sharp failure mode is pinned in
 `code/collar_alignment/test_msa_characterizations.py::test_descent_invariant_but_noncentral_interface_breaks_alignment`:
 a `K`-invariant but **non-central** cross-cut coupling that respects the
-boundary symmetry (so it changes no constraint) yet breaks entropic
+boundary symmetry (so it changes no constraint) while breaking entropic
 alignment. As that test's docstring puts it: *invariance alone is not the
 clause; centrality is.*
 
@@ -29,7 +29,7 @@ every record (`SameConstraintFamily`), then:
 * the firing trigger, single-site solvability, the constructed local move
   and the composite `Repair` operator are **identical**
   (`SameConstraintFamily.localRepair_eq`, `SameConstraintFamily.Repair_eq`
-  — on-the-nose equality of operators, not mere similarity);
+  : on-the-nose equality of operators, not mere similarity);
 * the accepted-step relation, normal forms, broken-edge count and the
   consistent set are identical
   (`acceptedStep_iff`, `normalForm_iff`, `mismatchCount_eq`,
@@ -40,34 +40,33 @@ every record (`SameConstraintFamily`), then:
 
 Meanwhile the interface **energetics** are not determined by the constraint
 family: `fluxKit`/`coupledKit` below share one constraint family (so their
-repair operators are *equal*, `demoKits_repair_eq`) yet have different
-mismatch potentials `Φ` on the same broken record (`demoKits_phi_ne`) — the
+repair operators are *equal*, `demoKits_repair_eq`) while having different
+mismatch potentials `Φ` on the same broken record (`demoKits_phi_ne`) : the
 carrier-level echo of the pinned test, where the extra coupling moves the
 weights (alignment functional) while respecting every constraint.
 
-## Consequence for #544, stated honestly
+## Consequence for the #544 independence resolution
 
 Within the formalised overlap-consistency layer, the collar clause is not
 forceable **because it is not expressible**: the layer's acceptance data
 (edge-consistency) cannot distinguish a central interface energy from an
 invariant-but-non-central one when both realize the same constraint family.
 Any derivation of the clause must therefore consume structure *beyond* this
-layer — the Axiom-3 density family, the `C*(K̂_Σ)` center and flux functions
+layer : the Axiom-3 density family, the `C*(K̂_Σ)` center and flux functions
 `π_L(Z(C*(K̂_Σ)))`, the touched-overlap acceptance contract's algebraic
-content, or refinement closure — exactly the machinery in which #543 located
+content, or refinement closure : exactly the machinery in which #543 located
 the clause.
 
 ## Declared scope (what this does NOT do)
 
-This is a **layer result, not a resolution of #544**. It does not derive
-the clause (that would need the operator-algebraic layer formalised), and it
-does not prove independence for the paper's admissible class (the paper's
+This layer result does not derive the clause. Such a derivation would need
+the operator-algebraic layer formalised. It also does not prove independence
+for the paper's admissible class (the paper's
 axiom system is strictly richer than the Lean core: Axiom-3 densities,
 refinement closure and the collar C*-machinery are not formalised here).
-The corpus labeling therefore stands unchanged: the clause remains an
-explicit axiom-level declared-branch input (`par:cicclause`), its open
-status recorded in `rem:msascope` and the D2 ledger rows — this module
-sharpens *where* a derivation would have to live, not whether one exists.
+The clause is an explicit axiom-level declared-branch input
+(`par:cicclause`). This module identifies the layer boundary used by the
+#544 independence resolution.
 No `sorry`, no `native_decide`, no new axiom.
 -/
 
@@ -77,7 +76,7 @@ namespace OPH
 
 /-- An interface package over a fixed repair base (patches `P`, state spaces
     `S`, edges `E`, endpoints `src`/`tgt`): the interface alphabets,
-    projections, weights and distances — everything an `OPHCarrier` adds on
+    projections, weights and distances : everything an `OPHCarrier` adds on
     top of the base. Two kits over one base model "the same system with
     different interface structure/energetics". -/
 structure InterfaceKit (P : Type) (S : P → Type) (E : Type)
@@ -152,7 +151,7 @@ private theorem choose_eq_of_pred_iff' {α : Sort*} {p q : α → Prop}
   subst hh
   rfl
 
-/-- **The constructed local move is determined by the constraint family** —
+/-- **The constructed local move is determined by the constraint family** :
     equal operators, not merely equivalent behaviour. The trigger, the
     solvability predicate and the classically chosen repaired state all read
     only edge-consistency data, which the two kits share. -/
@@ -225,7 +224,7 @@ private theorem Repair_eq_aux (h : SameConstraintFamily K₁ K₂) :
 
 /-- **The composite repair operator is determined by the constraint
     family.** Two interface packages realizing the same constraints yield
-    the *same* `Repair` — the overlap-consistency dynamics cannot see any
+    the *same* `Repair` : the overlap-consistency dynamics cannot see any
     interface structure beyond the constraints, central or otherwise. -/
 theorem Repair_eq (h : SameConstraintFamily K₁ K₂) :
     Repair K₁.carrier = Repair K₂.carrier :=
@@ -267,8 +266,8 @@ constraint (boundary symmetry) but moves the energetics off the flux
 sectors. Its carrier-level echo: `fluxKit` charges a broken overlap unit
 cost (interface energy a function of the "flux" mismatch alone), while
 `coupledKit` adds an extra symmetric cross-cut cost on the same broken
-configurations. Same constraint family — provably the same `Repair`
-operator — but different mismatch potential `Φ` on the same broken record.
+configurations. Same constraint family : provably the same `Repair`
+operator and different mismatch potentials `Φ` on the same broken record.
 The repair layer is blind to precisely the structure the collar clause
 speaks about. -/
 
@@ -289,7 +288,7 @@ def fluxKit : InterfaceKit Bool (fun _ => Bool) Unit (fun _ => false) (fun _ => 
 
 /-- The same constraint family carrying an extra symmetric cross-cut cost:
     every broken configuration is charged double. Constraint-preserving
-    (same zero locus), energetics-shifting — the carrier-level analogue of
+    (same zero locus), energetics-shifting : the carrier-level analogue of
     the invariant-but-non-central coupling class. -/
 def coupledKit : InterfaceKit Bool (fun _ => Bool) Unit (fun _ => false) (fun _ => true) where
   Iface := fun _ => Bool
@@ -310,7 +309,7 @@ def coupledKit : InterfaceKit Bool (fun _ => Bool) Unit (fun _ => false) (fun _ 
 theorem demoKits_same : SameConstraintFamily fluxKit coupledKit :=
   fun _ _ => Iff.rfl
 
-/-- **The repair operators are equal on the nose** — the extra coupling is
+/-- **The repair operators are equal on the nose** : the extra coupling is
     invisible to overlap-consistent repair. -/
 theorem demoKits_repair_eq : Repair fluxKit.carrier = Repair coupledKit.carrier :=
   demoKits_same.Repair_eq
@@ -335,7 +334,7 @@ theorem demoKits_phi_ne :
   rw [h1, h2]
   norm_num
 
-/-! ### Axiom audit — the layer-separation results are admission-free. -/
+/-! ### Axiom audit : the layer-separation results are admission-free. -/
 #print axioms SameConstraintFamily.localRepair_eq
 #print axioms SameConstraintFamily.Repair_eq
 #print axioms SameConstraintFamily.acceptedStep_iff

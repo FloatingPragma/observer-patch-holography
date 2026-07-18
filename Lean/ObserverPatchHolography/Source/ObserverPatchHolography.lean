@@ -17,7 +17,7 @@ import ObserverPatchHolography.IcosahedralAntibridge
 import EventAlgebra
 
 /-!
-# Observer-Patch Holography — Lean 4 umbrella root
+# Observer-Patch Holography : Lean 4 umbrella root
 
 Re-exports Jonathan Hill's concrete carrier/dynamics modules, the neutral
 observation-determined normal-forms proof package, and the explicit bridge
@@ -26,7 +26,7 @@ between them.
 **Status: preliminary skeleton rather than theorem-grade formalisation of
 Proposition 4.2** from *Paradise as Fixed-Point Consensus*. The `Primitives`
 module formalises the OPH primitives (Records, Repair, Patch, Obs, Φ, gauge
-equivalence, OPH-Confluence, OPH-Completeness) admission-free — the three
+equivalence, OPH-Confluence, OPH-Completeness) admission-free : the three
 former admissions (Lyapunov descent, termination, single-site solvability)
 are discharged; these structurally depend on the companion paper *Reality
 as a Consensus Protocol*.
@@ -35,9 +35,9 @@ The `CollarClause`/`CollarLayer` modules carry the issue #544 layer
 separation (the overlap-consistency layer factors through the realized
 constraint family; the collar clause is a declared input, not a theorem),
 and the `CollarStates`/`CollarStatesT1`/`CollarModularT2` modules carry the
-state-side no-gos: the current state-side axioms do not force the clause
-(T0), the flux conditional expectation exists and deselects — but does not
-exclude — the cross-cut coupling (T1), and the naive modular recast is
+state-side no-gos: the stated state-side axioms do not force the clause
+(T0), the flux conditional expectation exists and deselects the cross-cut
+coupling without excluding it (T1), and the naive modular recast is
 vacuous while the corrected recast buys only the diagonal clause (T2).
 
 The `BridgeEquivalence`, `CapacityFixedPoint`, and `SeedPi` modules carry
