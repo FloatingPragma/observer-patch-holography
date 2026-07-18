@@ -1,13 +1,12 @@
 # Reproducing the mandatory scientific suite
 
-This is the single clean-clone path for the mandatory OPH scientific receipt
-suite. It does not prove any physics claim. It makes the existing machine
-receipts runnable and auditable from a fresh checkout, so a green claim
-registry is not mistaken for a green scientific reproduction.
+This is the clean-clone path for the mandatory OPH scientific receipt suite.
+It makes the machine receipts runnable and auditable from a fresh checkout.
+The gate checks reproducibility infrastructure and carries no physics claim.
 
 ## Environment
 
-- CPython 3.11 or newer (verified on 3.12).
+- CPython 3.12 or newer (verified on 3.12 and 3.13).
 - A clean virtual environment.
 
 ## Mandatory suite
@@ -21,9 +20,9 @@ python -m pytest --collect-only code
 ```
 
 `requirements.txt` pins the core dependencies. Two of them, `mpmath` and
-`sympy`, are imported across `code/` but were previously undeclared, so a fresh
-clone failed at pytest collection before any test ran. With them declared, the
-mandatory command above collects 918 tests and exits 0.
+`sympy`, are imported across `code/` and require explicit declarations. With
+them declared, the mandatory command above collects the repository test set
+and exits 0.
 
 ## Optional lanes (opt-in extras)
 
@@ -40,9 +39,9 @@ mandatory collection unless explicitly enabled:
 
 ## Scope
 
-This PR makes the mandatory suite **collectable** from a clean clone. The
-acceptance bar for this path is a green claim registry plus a clean
-`--collect-only` (zero import errors, 918 tests).
+The mandatory suite is **collectable** from a clean clone. The acceptance bar
+for this path is a green claim registry plus a clean `--collect-only` run with
+zero import errors.
 
 Full test execution (`python -m pytest code`) is **not** expected to be green
 from a clean clone, so it is not the documented gate here. Individual scientific
