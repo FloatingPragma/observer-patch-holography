@@ -1,0 +1,167 @@
+{
+  "_comment": "Underfull-box warning budget for issue #542. Per-source-file counts from a clean tectonic build with microtype + emergencystretch. Overfull boxes are NOT budgeted here (the checker fails on any overfull).",
+  "allow": [
+    {
+      "id": "underfull::chi_nu_susceptibility_bounds::chi_nu_susceptibility_bounds.tex",
+      "log": "chi_nu_susceptibility_bounds.log",
+      "source_file": "chi_nu_susceptibility_bounds.tex",
+      "kind": "underfull_hbox",
+      "badness_max": 10000,
+      "max_count": 1,
+      "reason": "Irreducible microtype/hyphenation underfull budget for theorem-dense prose; layout-only, no claim change."
+    },
+    {
+      "id": "underfull::compact_proof_of_oph::compact_proof_of_oph.tex",
+      "log": "compact_proof_of_oph.log",
+      "source_file": "compact_proof_of_oph.tex",
+      "kind": "underfull_hbox",
+      "badness_max": 10000,
+      "max_count": 3,
+      "reason": "Irreducible microtype/hyphenation underfull budget for theorem-dense prose; layout-only, no claim change."
+    },
+    {
+      "id": "underfull::deriving_the_particle_zoo_from_observer_consistency::deriving_the_particle_zoo_from_observer_consistency.tex",
+      "log": "deriving_the_particle_zoo_from_observer_consistency.log",
+      "source_file": "deriving_the_particle_zoo_from_observer_consistency.tex",
+      "kind": "underfull_hbox",
+      "badness_max": 10000,
+      "max_count": 14,
+      "reason": "Irreducible microtype/hyphenation underfull budget for theorem-dense prose; layout-only, no claim change."
+    },
+    {
+      "id": "underfull::fine_structure_constant_derivation::fine_structure_constant_derivation.tex",
+      "log": "fine_structure_constant_derivation.log",
+      "source_file": "fine_structure_constant_derivation.tex",
+      "kind": "underfull_hbox",
+      "badness_max": 10000,
+      "max_count": 1,
+      "reason": "Irreducible microtype/hyphenation underfull budget for theorem-dense prose; layout-only, no claim change."
+    },
+    {
+      "id": "underfull::machine_checked_finite_event_algebras::machine_checked_finite_event_algebras.tex",
+      "log": "machine_checked_finite_event_algebras.log",
+      "source_file": "machine_checked_finite_event_algebras.tex",
+      "kind": "underfull_hbox",
+      "badness_max": 10000,
+      "max_count": 6,
+      "reason": "Irreducible microtype/hyphenation underfull budget for theorem-dense prose; layout-only, no claim change."
+    },
+    {
+      "id": "underfull::observable_normal_forms::observable_normal_forms.tex",
+      "log": "observable_normal_forms.log",
+      "source_file": "observable_normal_forms.tex",
+      "kind": "underfull_hbox",
+      "badness_max": 10000,
+      "max_count": 1,
+      "reason": "Irreducible microtype/hyphenation underfull budget for theorem-dense prose; layout-only, no claim change."
+    },
+    {
+      "id": "underfull::observer_patch_holography_as_string_vacuum_selector::observer_patch_holography_as_string_vacuum_selector.tex",
+      "log": "observer_patch_holography_as_string_vacuum_selector.log",
+      "source_file": "observer_patch_holography_as_string_vacuum_selector.tex",
+      "kind": "underfull_hbox",
+      "badness_max": 10000,
+      "max_count": 111,
+      "reason": "Irreducible microtype/hyphenation underfull budget for theorem-dense prose; layout-only, no claim change."
+    },
+    {
+      "id": "underfull::observers_are_all_you_need::FOUNDATIONAL_REFERENCES.tex",
+      "log": "observers_are_all_you_need.log",
+      "source_file": "tex_fragments/FOUNDATIONAL_REFERENCES.tex",
+      "kind": "underfull_hbox",
+      "badness_max": 10000,
+      "max_count": 1,
+      "reason": "Irreducible microtype/hyphenation underfull budget for theorem-dense prose; layout-only, no claim change."
+    },
+    {
+      "id": "underfull::observers_are_all_you_need::OBSERVERS_SYNTHESIS_SECTIONS.tex",
+      "log": "observers_are_all_you_need.log",
+      "source_file": "tex_fragments/OBSERVERS_SYNTHESIS_SECTIONS.tex",
+      "kind": "underfull_hbox",
+      "badness_max": 10000,
+      "max_count": 5,
+      "reason": "Irreducible microtype/hyphenation underfull budget for theorem-dense prose; layout-only, no claim change."
+    },
+    {
+      "id": "underfull::observers_are_all_you_need::PAPER.tex",
+      "log": "observers_are_all_you_need.log",
+      "source_file": "tex_fragments/PAPER.tex",
+      "kind": "underfull_hbox",
+      "badness_max": 10000,
+      "max_count": 3,
+      "reason": "Irreducible microtype/hyphenation underfull budget for theorem-dense prose; layout-only, no claim change."
+    },
+    {
+      "id": "underfull::reality_as_consensus_protocol::reality_as_consensus_protocol.tex",
+      "log": "reality_as_consensus_protocol.log",
+      "source_file": "reality_as_consensus_protocol.tex",
+      "kind": "underfull_hbox",
+      "badness_max": 10000,
+      "max_count": 3,
+      "reason": "Irreducible microtype/hyphenation underfull budget for theorem-dense prose; layout-only, no claim change."
+    },
+    {
+      "id": "underfull::reality_as_consensus_protocol::CONSENSUS_TECHNICAL_SUPPLEMENT_PORT.tex",
+      "log": "reality_as_consensus_protocol.log",
+      "source_file": "tex_fragments/CONSENSUS_TECHNICAL_SUPPLEMENT_PORT.tex",
+      "kind": "underfull_hbox",
+      "badness_max": 10000,
+      "max_count": 1,
+      "reason": "Irreducible microtype/hyphenation underfull budget for theorem-dense prose; layout-only, no claim change."
+    },
+    {
+      "id": "underfull::recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact::recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "log": "recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.log",
+      "source_file": "recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "kind": "underfull_hbox",
+      "badness_max": 10000,
+      "max_count": 7,
+      "reason": "Irreducible microtype/hyphenation underfull budget for theorem-dense prose; layout-only, no claim change."
+    },
+    {
+      "id": "underfull::recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact::COMPACT_TECHNICAL_SUPPLEMENT_PORT.tex",
+      "log": "recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.log",
+      "source_file": "tex_fragments/COMPACT_TECHNICAL_SUPPLEMENT_PORT.tex",
+      "kind": "underfull_hbox",
+      "badness_max": 10000,
+      "max_count": 2,
+      "reason": "Irreducible microtype/hyphenation underfull budget for theorem-dense prose; layout-only, no claim change."
+    },
+    {
+      "id": "underfull::recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact::FOUNDATIONAL_REFERENCES.tex",
+      "log": "recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.log",
+      "source_file": "tex_fragments/FOUNDATIONAL_REFERENCES.tex",
+      "kind": "underfull_hbox",
+      "badness_max": 10000,
+      "max_count": 1,
+      "reason": "Irreducible microtype/hyphenation underfull budget for theorem-dense prose; layout-only, no claim change."
+    },
+    {
+      "id": "underfull::screen_microphysics_and_observer_synchronization::screen_microphysics_and_observer_synchronization.tex",
+      "log": "screen_microphysics_and_observer_synchronization.log",
+      "source_file": "screen_microphysics_and_observer_synchronization.tex",
+      "kind": "underfull_hbox",
+      "badness_max": 10000,
+      "max_count": 1,
+      "reason": "Irreducible microtype/hyphenation underfull budget for theorem-dense prose; layout-only, no claim change."
+    },
+    {
+      "id": "underfull::thinking_as_patch_net_fixed_point_search::thinking_as_patch_net_fixed_point_search.tex",
+      "log": "thinking_as_patch_net_fixed_point_search.log",
+      "source_file": "thinking_as_patch_net_fixed_point_search.tex",
+      "kind": "underfull_hbox",
+      "badness_max": 10000,
+      "max_count": 2,
+      "reason": "Irreducible microtype/hyphenation underfull budget for theorem-dense prose; layout-only, no claim change."
+    },
+    {
+      "id": "underfull::yang_mills_gap_clay_problem::yang_mills_gap_clay_problem.tex",
+      "log": "yang_mills_gap_clay_problem.log",
+      "source_file": "yang_mills_gap_clay_problem.tex",
+      "kind": "underfull_hbox",
+      "badness_max": 10000,
+      "max_count": 1,
+      "reason": "Irreducible microtype/hyphenation underfull budget for theorem-dense prose; layout-only, no claim change."
+    }
+  ]
+}
