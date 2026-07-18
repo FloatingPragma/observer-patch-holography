@@ -8,43 +8,13 @@ drives repair. Stable outcomes become records. OMEGA is the lab version of
 that idea: physical chambers, labeled ports, control software, and exact
 checks.
 
-Four use cases follow. All four are low-cost implementation tracks under
+Two use cases follow. Both are low-cost implementation tracks under
 active development. The links point to public material in this repository or
 public OPH pages. The OMEGA hardware visualization is at
 [omega.floatingpragma.io](https://omega.floatingpragma.io/). The local compute loop diagram is
 [assets/omega/omega-compute-loop.svg](../assets/omega/omega-compute-loop.svg).
 
-## 1. Cheap Desktop Fusion Energy
-
-The first use case is a closed-loop acoustic fusion cell. Think of a small
-water-based cavity driven as an OPH patch. It tracks pressure modes, charge
-separation, phase structure, wall conditions, and output heat. Those readings
-become boundary records for a software control loop. The target is a cheap
-500 W-class home-scale energy cell that stays at room temperature outside the
-active reaction region.
-
-OPH changes the fusion problem from brute-force plasma confinement to tight
-boundary control in a small resonator. Geometry, drive phase, acoustic
-collapse, charge structure, and thermal readout become variables in one repair
-loop. The engineering challenge is clean repeatability: keep the useful
-high-gain state alive long enough to measure real output.
-
-The control loop is the important part. The cell is driven through a range of
-frequencies, phases, and pulse shapes. Sensors watch for boundary states where
-pressure, charge, heat flow, and wall response stop fighting each other. The
-software keeps the good states, rejects states that fail the energy balance,
-and searches nearby settings. In OPH language, the useful state is a local
-fixed point of the patch, and the measured heat is accepted only when the
-boundary records agree.
-
-References: the finite repair and consensus machinery is in
-[Reality as a Consensus Protocol](../paper/reality_as_consensus_protocol.pdf).
-The finite patch-carrier, record, and hardware-evidence framework is in
-[Federated Echosahedral Screen Microphysics](../paper/screen_microphysics_and_observer_synchronization.pdf).
-The broad observer-patch reconstruction is in
-[Observers Are All You Need](../paper/observers_are_all_you_need.pdf).
-
-## 2. Desktop Room-Temperature Quantum Supercomputers
+## 1. Desktop Room-Temperature Quantum Supercomputers
 
 The second use case is room-temperature OMEGA compute hardware. OMEGA uses
 cheap optical parts, shaped chambers, labeled ports, measured coupling, and
@@ -80,7 +50,7 @@ Finite hardware patch carriers and verifier-bundle rules are in
 The SHA-256d scorebook is
 [Photonic Fixed-Point Consensus for SHA-256d Proof of Work](../extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf).
 
-## 3. AGI From Cost-Effective OMEGA Components
+## 2. AGI From Cost-Effective OMEGA Components
 
 The third use case is an AGI stack built from software agents plus OMEGA patch
 modules. In OPH, cognition is patch-net fixed-point search. A thought is a
@@ -111,61 +81,9 @@ The finite consensus theorem package is in
 The observer checkpoint and central-record machinery is in
 [Federated Echosahedral Screen Microphysics](../paper/screen_microphysics_and_observer_synchronization.pdf).
 
-## 4. Hoverbikes And Hoverboards
-
-The fourth use case is local gravity and inertia manipulation for stable lift.
-The demo target is easy to picture: a hoverbike or hoverboard that lifts
-without a rotor column, jet plume, or road contact. The vehicle is treated as
-a controlled federation of field patches, sensors, actuators, and records. The
-lift state is a maintained normal form.
-
-OPH treats this as geometry control. Gravity is the large-scale readout of
-overlap geometry and repair. The dark-matter paper uses the same idea at
-galaxy and cosmology scale: finite collars can carry an information-defect
-stress correction. That correction is electromagnetically dark because it is a
-record-repair remainder. It gravitates because it enters the effective
-stress bookkeeping. In a settled galaxy it looks like a dark-matter or
-MOND-like correction. In a device, the same principle becomes a local
-engineering target.
-
-A scale reading is a public record of how the payload, Earth, local screen,
-and observer patch glue together. Changing weight means changing the local cut
-data that enters this gluing problem. The target is the effective inertial and
-gravitational readout, not the rest mass of the payload.
-
-The body biases screen microphysics by acting as a boundary-condition engine.
-It drives synchronized field patterns around the lifting frame and reads back
-timing, force, phase, temperature, and inertial data. Those readings are the
-patch boundary records. When the drive pattern is coherent, the device changes
-which local screen states are stable near the payload. In OPH terms, it nudges
-support-visible cuts, collars, modular-flow data, and local repair moves. A
-useful lift state is the setting where the field state, timing references, and
-mechanical readouts all agree on a lower effective weight.
-
-The same rule that makes the OPH papers strict also makes the engineering
-strict. A single sensor reading is cheap. A real effect has to survive load
-cells, accelerometers, timing references, thermal controls, field probes, and
-sham runs. Bad states look like vibration, electromagnetic pickup, heating, or
-ordinary actuator force. Useful states have to show up across independent
-records at the same time.
-
-The implementation surface is
-[Federated Echosahedral Screen Microphysics](../paper/screen_microphysics_and_observer_synchronization.pdf),
-where physical patch carriers, records, synchronization, and hardware evidence
-rules are part of the same stack.
-
-References: the OPH dark branch is described in
-[OPH Dark Matter Paper](../cosmology/oph_dark_matter_paper.pdf). The observer-overlap route to Lorentzian geometry and
-Einstein/Jacobson dynamics is in
-[Recovering Relativity and the Standard Model from Observer Overlap Consistency](../paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf).
-The federated carrier model is in
-[Federated Echosahedral Screen Microphysics](../paper/screen_microphysics_and_observer_synchronization.pdf).
-The global reconstruction context is in
-[Observers Are All You Need](../paper/observers_are_all_you_need.pdf).
-
 ## Common Pattern
 
-All four use cases run the same OPH loop:
+Both use cases run the same OPH loop:
 
 ```text
 bounded patch -> exposed boundary -> mismatch -> repair -> stable record
@@ -173,14 +91,12 @@ bounded patch -> exposed boundary -> mismatch -> repair -> stable record
 
 | Use case | OPH object | Machine role |
 | --- | --- | --- |
-| Fusion cell | Acoustic and thermal patch consensus | Hold a high-gain local energy fixed point |
 | Desktop supercomputer | Optical candidate enrichment | Bias hard search before exact verification |
 | AGI | Recurrent self-reading patch federation | Stabilize thought, memory, self-model, and action |
-| Hoverbike or hoverboard | Local geometry and field readout | Maintain a stable lift normal form |
 
 OMEGA is the public hardware body for the loop. The papers provide the theory,
 scorebooks, and evidence discipline. The applications use the same
-patch-consensus machinery on energy, compute, intelligence, and lift.
+patch-consensus machinery on compute and intelligence.
 
 ## License And Patent Policy
 
