@@ -13,6 +13,7 @@ import ObserverPatchHolography.CollarModularT2
 import ObserverPatchHolography.CollarStatesBridge
 import ObservableNormalForms
 import ObserverPatchHolography.Bridges.ObservableNormalForms
+import ObserverPatchHolography.IcosahedralAntibridge
 import EventAlgebra
 
 /-!
