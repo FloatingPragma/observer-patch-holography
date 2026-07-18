@@ -538,9 +538,9 @@ def build_artifact(
         "public_prediction_promotion_allowed": False,
         "runtime_dependency": {"mpmath": mp.__version__, "external_graph_library": None},
         "provenance": {
-            "geometric_face_receipt": str(FACE_RECEIPT.relative_to(CODE_ROOT)),
+            "geometric_face_receipt": FACE_RECEIPT.relative_to(CODE_ROOT).as_posix(),
             "geometric_face_receipt_sha256": face_receipt_sha256,
-            "declared_map_receipt": str(DECLARED_MAP_RECEIPT.relative_to(CODE_ROOT)),
+            "declared_map_receipt": DECLARED_MAP_RECEIPT.relative_to(CODE_ROOT).as_posix(),
             "declared_map_receipt_sha256": declared_map_receipt_sha256,
             "submitted_rigidity_archive_sha256": RIGIDITY_ARCHIVE_SHA256,
             "submitted_narrative_attachment_sha256": RIGIDITY_NARRATIVE_SHA256,

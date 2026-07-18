@@ -50,7 +50,7 @@ def _load_json(path: Path) -> dict[str, Any]:
 
 
 def _repo_ref(path: Path) -> str:
-    return str(path.relative_to(ROOT.parent))
+    return path.relative_to(ROOT.parent).as_posix()
 
 
 def build_payload(

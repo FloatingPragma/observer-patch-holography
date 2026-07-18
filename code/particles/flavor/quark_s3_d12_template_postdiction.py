@@ -96,7 +96,7 @@ def load_repository_inputs() -> tuple[dict[str, object], dict[str, Any]]:
     p_source = P_DERIVATION.read_text(encoding="utf-8")
     provenance = {
         "dependency_files": {
-            str(path.relative_to(CODE_ROOT)): {"sha256": _sha256(path)} for path in source_files
+            path.relative_to(CODE_ROOT).as_posix(): {"sha256": _sha256(path)} for path in source_files
         },
         "family_transport_kernel_status": kernel.get("status"),
         "family_transport_kernel_proof_status": kernel.get("proof_status"),

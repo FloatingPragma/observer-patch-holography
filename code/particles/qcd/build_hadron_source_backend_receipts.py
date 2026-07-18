@@ -95,10 +95,10 @@ def sha256_text(text: str) -> str:
 
 def read_optional_json(path: Path) -> dict[str, Any]:
     if not path.is_file():
-        return {"exists": False, "path": str(path.relative_to(ROOT))}
+        return {"exists": False, "path": path.relative_to(ROOT).as_posix()}
     payload = json.loads(path.read_text(encoding="utf-8"))
     payload.setdefault("exists", True)
-    payload.setdefault("path", str(path.relative_to(ROOT)))
+    payload.setdefault("path", path.relative_to(ROOT).as_posix())
     return payload
 
 
@@ -301,7 +301,7 @@ def build_payloads(*, claim: str, tier: str, lambda_payload: dict[str, Any]) -> 
         },
         "controls/frozen_code_hashes.json": {
             "artifact": "frozen_code_hashes",
-            "builder": str(Path(__file__).relative_to(ROOT)),
+            "builder": Path(__file__).relative_to(ROOT).as_posix(),
             "builder_sha256": sha256_text(Path(__file__).read_text(encoding="utf-8")),
         },
         "controls/replay_receipts.json": {

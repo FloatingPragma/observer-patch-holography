@@ -156,7 +156,7 @@ def build_report() -> dict:
 
     evaluations = {
         "verified_tree_packet_net_domain": {
-            "source": str(TREE_ARTIFACT.relative_to(ROOT)),
+            "source": TREE_ARTIFACT.relative_to(ROOT).as_posix(),
             "provenance": "consensus_product (issue #238 verified export)",
             **tree,
         },

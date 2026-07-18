@@ -53,14 +53,14 @@ def _now_utc() -> str:
 def _load_p_trunk_summary() -> dict[str, Any]:
     if not P_TRUNK.exists():
         return {
-            "artifact_path": str(P_TRUNK.relative_to(ROOT)),
+            "artifact_path": P_TRUNK.relative_to(ROOT).as_posix(),
             "exists": False,
             "claim_status": "not_emitted",
             "may_feed_live_particle_predictions": False,
         }
     payload = json.loads(P_TRUNK.read_text(encoding="utf-8"))
     return {
-        "artifact_path": str(P_TRUNK.relative_to(ROOT)),
+        "artifact_path": P_TRUNK.relative_to(ROOT).as_posix(),
         "exists": True,
         "claim_status": payload.get("claim_status"),
         "P": payload.get("fixed_point_candidate", {}).get("P"),
@@ -84,7 +84,7 @@ def _load_hierarchy_summary() -> dict[str, Any]:
     )
     if not all(path.exists() for path in required):
         return {
-            "artifact_path": str(HIERARCHY_ROOT.relative_to(ROOT)),
+            "artifact_path": HIERARCHY_ROOT.relative_to(ROOT).as_posix(),
             "exists": False,
             "claim_status": "not_emitted",
             "may_feed_local_hierarchy_claim": False,
@@ -100,7 +100,7 @@ def _load_hierarchy_summary() -> dict[str, Any]:
     source_audit = witness["source_audit_branch"]
     exact_capacity = ew_capacity["exact_capacity_fixed_point"]
     return {
-        "artifact_path": str(HIERARCHY_ROOT.relative_to(ROOT)),
+        "artifact_path": HIERARCHY_ROOT.relative_to(ROOT).as_posix(),
         "exists": True,
         "claim_status": "exact_conditional_local_global_hierarchy_and_closed_naturality_certificate",
         "may_feed_local_hierarchy_claim": False,
@@ -162,7 +162,7 @@ def _is_singleton_zero_interval(value: Any) -> bool:
 
 def _artifact_path(path: Path) -> str:
     try:
-        return str(path.relative_to(ROOT))
+        return path.relative_to(ROOT).as_posix()
     except ValueError:
         return str(path)
 

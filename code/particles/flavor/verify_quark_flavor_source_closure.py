@@ -408,7 +408,7 @@ def build_artifact(proof_bundle: Path | None = None) -> dict[str, Any]:
             "physical scale, and RG packet, nonconstant on the rescaling orbit"
         ),
         "dependency_files": {
-            str(path.relative_to(CODE_ROOT)): {"sha256": _sha256(path)}
+            path.relative_to(CODE_ROOT).as_posix(): {"sha256": _sha256(path)}
             for path in dependency_paths
         },
     }

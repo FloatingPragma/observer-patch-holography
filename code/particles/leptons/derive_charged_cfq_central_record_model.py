@@ -206,7 +206,7 @@ def build_artifact(schema: dict[str, Any], schema_sha256: str) -> dict[str, Any]
         "mass_scheme_certified": False,
         "public_prediction_promotion_allowed": False,
         "provenance": {
-            "conditional_cfq_schema": str(CONDITIONAL_CFQ.relative_to(CODE_ROOT)),
+            "conditional_cfq_schema": CONDITIONAL_CFQ.relative_to(CODE_ROOT).as_posix(),
             "conditional_cfq_schema_sha256": schema_sha256,
             "submitted_carrier_archive_sha256": SUBMITTED_CARRIER_ARCHIVE_SHA256,
         },

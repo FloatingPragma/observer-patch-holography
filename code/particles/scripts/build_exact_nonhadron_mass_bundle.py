@@ -63,7 +63,7 @@ def _load_optional_json(path: pathlib.Path) -> dict[str, Any] | None:
 
 
 def _repo_ref(path: pathlib.Path) -> str:
-    return str(path.relative_to(ROOT.parent))
+    return path.relative_to(ROOT.parent).as_posix()
 
 
 def _carrier_summary(entry: dict[str, Any]) -> dict[str, Any]:

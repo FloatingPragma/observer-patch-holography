@@ -134,7 +134,7 @@ def build_review(archive_path: Path, canonical_path: Path) -> dict[str, Any]:
         "runtime_dependency": {"mpmath": mp.__version__},
         "archive": {
             "path": (
-                str(archive_path.relative_to(WORKSPACE))
+                archive_path.relative_to(WORKSPACE).as_posix()
                 if archive_path.is_relative_to(WORKSPACE)
                 else archive_path.name
             ),
@@ -155,7 +155,7 @@ def build_review(archive_path: Path, canonical_path: Path) -> dict[str, Any]:
             ),
         },
         "canonical_conditional_receipt": {
-            "path": str(canonical_path.relative_to(REPO)),
+            "path": canonical_path.relative_to(REPO).as_posix(),
             "sha256": sha256(canonical_raw),
             "status": canonical["status"],
             "checks_pass": canonical["checks_pass"],

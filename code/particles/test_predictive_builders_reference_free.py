@@ -53,7 +53,7 @@ def _production_files() -> list[pathlib.Path]:
 
 
 def _relative(path: pathlib.Path) -> str:
-    return str(path.relative_to(ROOT / "particles"))
+    return path.relative_to(ROOT / "particles").as_posix()
 
 
 def _failures() -> list[str]:

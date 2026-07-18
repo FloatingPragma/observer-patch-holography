@@ -44,7 +44,7 @@ def _require(payload: dict[str, Any], key: str, context: str) -> Any:
 
 
 def _rel(path: pathlib.Path) -> str:
-    return str(path.relative_to(ROOT.parent))
+    return path.relative_to(ROOT.parent).as_posix()
 
 
 def build_gev_chart_candidates() -> list[dict[str, Any]]:

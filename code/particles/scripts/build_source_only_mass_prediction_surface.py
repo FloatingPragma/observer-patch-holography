@@ -571,7 +571,7 @@ def build() -> dict[str, Any]:
     ]
 
     input_receipts = {
-        key: {"path": str(path.relative_to(PARTICLES)), "exists": path.exists()}
+        key: {"path": path.relative_to(PARTICLES).as_posix(), "exists": path.exists()}
         for key, path in INPUTS.items()
     }
 

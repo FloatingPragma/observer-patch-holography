@@ -40,9 +40,9 @@ def _now_utc() -> str:
 
 def _load_optional(path: Path) -> dict[str, Any]:
     if not path.exists():
-        return {"artifact_path": str(path.relative_to(ROOT)), "exists": False}
+        return {"artifact_path": path.relative_to(ROOT).as_posix(), "exists": False}
     payload = json.loads(path.read_text(encoding="utf-8"))
-    payload.setdefault("artifact_path", str(path.relative_to(ROOT)))
+    payload.setdefault("artifact_path", path.relative_to(ROOT).as_posix())
     payload.setdefault("exists", True)
     return payload
 
@@ -209,7 +209,7 @@ def build_source_spectral_theorem(
             "fixed_point_map": "P=phi+sqrt(pi)/A_T(P)",
         },
         "accepted_source_payload_contract": {
-            "schema": str(DEFAULT_SCHEMA.relative_to(ROOT)),
+            "schema": DEFAULT_SCHEMA.relative_to(ROOT).as_posix(),
             "required_artifact": "oph_qcd_ward_projected_hadronic_spectral_measure",
             "required_transport_wrapper": "oph_source_ward_projected_thomson_transport",
             "required_fields": list(THEOREM_GRADE_REQUIRED_FIELDS),

@@ -191,7 +191,7 @@ def evaluate() -> dict:
             "measured_alpha_in_solve_path": False,
         },
         "inputs": {
-            "payload": str(PAYLOAD_PATH.relative_to(ROOT.parent)),
+            "payload": PAYLOAD_PATH.relative_to(ROOT.parent).as_posix(),
             "payload_release": payload["data_release"]["release_id"],
             "delta_alpha_had_5_MZ": str(delta_had),
             "delta_alpha_had_5_MZ_uncertainty": str(delta_had_unc),
@@ -201,7 +201,7 @@ def evaluate() -> dict:
                 "self-consistent form; the solved additive insertion "
                 "A_Th = A_L + delta A_Th coincides with it",
             "hadronic_spectral_measure_export": {
-                "path": str(MEASURE_PATH.relative_to(ROOT.parent)),
+                "path": MEASURE_PATH.relative_to(ROOT.parent).as_posix(),
                 "artifact": measure["artifact"],
                 "profile_id": measure["profile_id"],
                 "representation": measure["rho_had_or_measure"]["representation"],
@@ -220,7 +220,7 @@ def evaluate() -> dict:
             "lepton_transport_delta_inv_alpha": str(LEPTON_TRANSPORT_DELTA_INV_ALPHA),
             "hadronic_spectral_object": {
                 "artifact": measure["artifact"],
-                "path": str(MEASURE_PATH.relative_to(ROOT.parent)),
+                "path": MEASURE_PATH.relative_to(ROOT.parent).as_posix(),
                 "delta_alpha_had_5_MZ_timelike": str(
                     measure["transport_moments"]["timelike_on_shell_mz"]["value"]),
                 "delta_alpha_had_5_MZ_spacelike": str(

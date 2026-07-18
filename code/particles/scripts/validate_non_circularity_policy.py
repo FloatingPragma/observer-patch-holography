@@ -225,7 +225,7 @@ def validate() -> dict[str, Any]:
         "artifact": "oph_particle_non_circularity_policy_validation",
         "pass": not failures,
         "failures": failures,
-        "checked_artifacts": {name: str(path.relative_to(ROOT)) for name, path in ARTIFACTS.items()},
+        "checked_artifacts": {name: path.relative_to(ROOT).as_posix() for name, path in ARTIFACTS.items()},
     }
 
 
