@@ -17,12 +17,13 @@ python -m venv .venv
 . .venv/bin/activate            # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 python tools/check_claim_registry.py
-python -m pytest code
+python -m pytest --collect-only code
 ```
 
 `requirements.txt` pins the core dependencies. Two of them, `mpmath` and
 `sympy`, are imported across `code/` but were previously undeclared, so a fresh
-clone failed at pytest collection before any test ran.
+clone failed at pytest collection before any test ran. With them declared, the
+mandatory command above collects 918 tests and exits 0.
 
 ## Optional lanes (opt-in extras)
 
@@ -39,6 +40,20 @@ mandatory collection unless explicitly enabled:
 
 ## Scope
 
-The command above collects with zero import errors from a clean clone.
-Individual scientific test outcomes are separate from collection health and are
-tracked as their own issues.
+This PR makes the mandatory suite **collectable** from a clean clone. The
+acceptance bar for this path is a green claim registry plus a clean
+`--collect-only` (zero import errors, 918 tests).
+
+Full test execution (`python -m pytest code`) is **not** expected to be green
+from a clean clone, so it is not the documented gate here. Individual scientific
+test outcomes are tracked as their own issues, and some are not reproducible
+from the public checkout alone. In particular:
+
+- Two runtime-surface tests in
+  `code/particles/test_compute_current_output_table_runtime_surface.py` require
+  the untracked sibling tree `../arXiv/RC1/ancillary/code/particles`, which a
+  clean clone does not provide.
+- Some byte- and value-level receipt checks are sensitive to platform line
+  endings and to `numpy`/`scipy` versions.
+
+Run the full suite for scientific auditing, not as a clean-clone pass/fail gate.
