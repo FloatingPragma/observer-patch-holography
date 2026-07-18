@@ -86,7 +86,7 @@ def _load_optional_json(path: Path) -> dict[str, Any] | None:
 
 
 def _rel(path: Path) -> str:
-    return str(path.relative_to(ROOT))
+    return path.relative_to(ROOT).as_posix()
 
 
 def _display_status(status: str) -> str:
@@ -469,8 +469,8 @@ def build_payload() -> dict[str, Any]:
             "source_only_hadron_predictions_emitted": False,
             "empirical_hadron_closure_allowed_for_display": True,
             "policy_artifact": "docs/HADRON.md",
-            "source_registry": str(EMPIRICAL_EE_REGISTRY.relative_to(ROOT)),
-            "empirical_payload_schema": str(EMPIRICAL_EE_SCHEMA.relative_to(ROOT)),
+            "source_registry": EMPIRICAL_EE_REGISTRY.relative_to(ROOT).as_posix(),
+            "empirical_payload_schema": EMPIRICAL_EE_SCHEMA.relative_to(ROOT).as_posix(),
             "reason": (
                 "Source-only hadron outputs require a working OPH hadron backend. Empirical "
                 "hadron closure values stay in a separate output class; the e+e- spectral payload "

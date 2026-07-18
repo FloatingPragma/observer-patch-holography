@@ -24,7 +24,7 @@ def build_artifact() -> dict[str, Any]:
         "artifact": "oph_ward_projected_spectral_measure_contract",
         "generated_utc": _now_utc(),
         "status": "constructive_contract_emitted_not_production_data",
-        "schema": str(SCHEMA.relative_to(ROOT)),
+        "schema": SCHEMA.relative_to(ROOT).as_posix(),
         "promotion_allowed": False,
         "current_local_scope": "closed_out_of_scope_computationally_blocked",
         "github_issues_closed_out_of_scope": [153, 157],

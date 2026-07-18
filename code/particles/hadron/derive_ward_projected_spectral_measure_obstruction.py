@@ -39,9 +39,9 @@ def _now_utc() -> str:
 
 def _load_optional(path: Path) -> dict[str, Any]:
     if not path.exists():
-        return {"artifact_path": str(path.relative_to(ROOT)), "exists": False}
+        return {"artifact_path": path.relative_to(ROOT).as_posix(), "exists": False}
     payload = json.loads(path.read_text(encoding="utf-8"))
-    payload.setdefault("artifact_path", str(path.relative_to(ROOT)))
+    payload.setdefault("artifact_path", path.relative_to(ROOT).as_posix())
     payload.setdefault("exists", True)
     return payload
 
@@ -179,14 +179,14 @@ def build_obstruction(
         "source_only": True,
         "external_inputs_used": False,
         "inspected_artifacts": {
-            "schema": str(DEFAULT_SCHEMA.relative_to(ROOT)),
-            "contract": str(DEFAULT_CONTRACT.relative_to(ROOT)),
-            "full_unquenched": str(DEFAULT_FULL_UNQUENCHED.relative_to(ROOT)),
-            "rho_levels": str(DEFAULT_RHO_LEVELS.relative_to(ROOT)),
-            "rho_phase_shift": str(DEFAULT_RHO_PHASE_SHIFT.relative_to(ROOT)),
-            "stable_payload": str(DEFAULT_STABLE_PAYLOAD.relative_to(ROOT)),
-            "closure": str(DEFAULT_CLOSURE.relative_to(ROOT)),
-            "audit": str(DEFAULT_AUDIT.relative_to(ROOT)),
+            "schema": DEFAULT_SCHEMA.relative_to(ROOT).as_posix(),
+            "contract": DEFAULT_CONTRACT.relative_to(ROOT).as_posix(),
+            "full_unquenched": DEFAULT_FULL_UNQUENCHED.relative_to(ROOT).as_posix(),
+            "rho_levels": DEFAULT_RHO_LEVELS.relative_to(ROOT).as_posix(),
+            "rho_phase_shift": DEFAULT_RHO_PHASE_SHIFT.relative_to(ROOT).as_posix(),
+            "stable_payload": DEFAULT_STABLE_PAYLOAD.relative_to(ROOT).as_posix(),
+            "closure": DEFAULT_CLOSURE.relative_to(ROOT).as_posix(),
+            "audit": DEFAULT_AUDIT.relative_to(ROOT).as_posix(),
         },
         "schema_contract": {
             "required_artifact": (schema.get("properties") or {}).get("artifact", {}).get("const"),

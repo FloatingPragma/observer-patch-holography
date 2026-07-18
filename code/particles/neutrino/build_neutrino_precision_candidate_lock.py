@@ -75,7 +75,7 @@ def _sha256(path: pathlib.Path) -> str:
 
 
 def _relative(path: pathlib.Path) -> str:
-    return str(path.resolve().relative_to(ROOT.resolve()))
+    return path.resolve().relative_to(ROOT.resolve()).as_posix()
 
 
 def _artifact_node(node_id: str, path: pathlib.Path) -> dict[str, Any]:

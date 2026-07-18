@@ -115,7 +115,7 @@ def load_repository_inputs() -> tuple[dict[str, object], dict[str, Any]]:
     ]
     provenance = {
         "dependency_files": {
-            str(path.relative_to(CODE_ROOT)): {"sha256": _sha256(path)}
+            path.relative_to(CODE_ROOT).as_posix(): {"sha256": _sha256(path)}
             for path in dependency_paths
         },
         "pixel_branch_status": pixel.get("status"),

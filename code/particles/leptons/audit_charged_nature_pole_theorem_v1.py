@@ -336,13 +336,13 @@ def build_review(archive_path: Path, parent_review_path: Path = PARENT_REVIEW) -
         "public_prediction_promotion_allowed": False,
         "provenance": {
             "archive_path": (
-                str(archive_path.relative_to(WORKSPACE))
+                archive_path.relative_to(WORKSPACE).as_posix()
                 if archive_path.is_relative_to(WORKSPACE)
                 else archive_path.name
             ),
             "archive_sha256": sha256(archive_raw),
             "narrative_attachment_sha256": EXPECTED_NARRATIVE_SHA256,
-            "parent_candidate_review": str(parent_review_path.relative_to(REPO)),
+            "parent_candidate_review": parent_review_path.relative_to(REPO).as_posix(),
         },
         "archive": {
             "member_count": len(infos),

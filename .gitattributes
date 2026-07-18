@@ -1,0 +1,9 @@
+# Normalize committed text to LF in the working tree on every platform.
+# The scientific receipt suite verifies JSON artifacts by sha256/byte equality;
+# without this, a Windows checkout (core.autocrlf=true) gets CRLF and every
+# byte/hash check fails. Every committed text blob is already LF, so this only
+# stabilizes checkout and changes no committed content.
+* text=auto eol=lf
+
+# External data table committed with CRLF; keep its exact bytes (never rewrite).
+code/dark_matter/data/external/SPARC_MassModels_Lelli2016c.mrt -text

@@ -89,7 +89,7 @@ def build_manifest(report: dict[str, Any]) -> dict[str, Any]:
         "required_transport_delta_alpha_inv": audit["required_transport_delta_alpha_inv"],
         "missing_transport_delta_alpha_inv": audit["missing_transport_delta_alpha_inv"],
         "endpoint_package": {
-            "path": str(ENDPOINT_PACKAGE.relative_to(Path(__file__).resolve().parents[1])),
+            "path": ENDPOINT_PACKAGE.relative_to(Path(__file__).resolve().parents[1]).as_posix(),
             "exists": ENDPOINT_PACKAGE.exists(),
         },
         "theorems": THEOREM_STATUSES,

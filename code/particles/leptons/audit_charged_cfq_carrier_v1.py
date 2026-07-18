@@ -331,13 +331,13 @@ def build_review(archive_path: Path, canonical_cfq_path: Path) -> dict[str, Any]
         "public_prediction_promotion_allowed": False,
         "provenance": {
             "archive_path": (
-                str(archive_path.relative_to(WORKSPACE))
+                archive_path.relative_to(WORKSPACE).as_posix()
                 if archive_path.is_relative_to(WORKSPACE)
                 else archive_path.name
             ),
             "archive_sha256": sha256(archive_raw),
             "narrative_attachment_sha256": EXPECTED_NARRATIVE_SHA256,
-            "canonical_conditional_receipt": str(canonical_cfq_path.relative_to(REPO)),
+            "canonical_conditional_receipt": canonical_cfq_path.relative_to(REPO).as_posix(),
             "canonical_conditional_receipt_sha256": sha256(canonical_raw),
         },
         "archive": {

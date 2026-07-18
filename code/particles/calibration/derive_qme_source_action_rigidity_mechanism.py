@@ -307,7 +307,7 @@ def build_artifact(certificate: Mapping[str, Any]) -> dict[str, Any]:
         },
         "branch": {
             "P_cand": str(p_cand_raw),
-            "P_cand_source": str(PIXEL_CERTIFICATE.relative_to(ROOT)),
+            "P_cand_source": PIXEL_CERTIFICATE.relative_to(ROOT).as_posix(),
             "phi": _text(phi),
             "p_definition": "(P - phi)/sqrt(pi)",
             "p": _text(p),

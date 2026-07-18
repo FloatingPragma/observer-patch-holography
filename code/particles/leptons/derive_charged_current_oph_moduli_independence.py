@@ -132,7 +132,7 @@ def _receipt_bindings() -> list[dict[str, Any]]:
         payload = json.loads(raw)
         bindings.append(
             {
-                "path": str(path.relative_to(ROOT)),
+                "path": path.relative_to(ROOT).as_posix(),
                 "sha256": hashlib.sha256(raw).hexdigest(),
                 "artifact": payload.get("artifact", payload.get("certificate_id")),
                 "status": payload.get("status", payload.get("proof_status")),

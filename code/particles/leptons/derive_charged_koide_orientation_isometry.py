@@ -329,12 +329,12 @@ def build_artifact(
         "checks_pass": checks_pass,
         "source_receipts": {
             "orientation_pair": {
-                "path": str(ORIENTATION_CERTIFICATE.relative_to(ROOT)),
+                "path": ORIENTATION_CERTIFICATE.relative_to(ROOT).as_posix(),
                 "sha256": sha256(ORIENTATION_CERTIFICATE),
                 "status": orientation.get("status"),
             },
             "geometric_C3_carrier": {
-                "path": str(FACE_CARRIER.relative_to(ROOT)),
+                "path": FACE_CARRIER.relative_to(ROOT).as_posix(),
                 "sha256": sha256(FACE_CARRIER),
                 "status": face.get("status"),
             },

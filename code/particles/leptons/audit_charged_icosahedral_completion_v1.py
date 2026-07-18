@@ -274,7 +274,7 @@ def build_review(archive_path: Path) -> dict[str, Any]:
     tau_used_mev = 1000.0 * references[2]
     tau_candidate_mev = 1000.0 * candidate_masses[2]
     try:
-        archive_display_path = str(archive_path.relative_to(WORKSPACE))
+        archive_display_path = archive_path.relative_to(WORKSPACE).as_posix()
     except ValueError:
         archive_display_path = archive_path.name
 
@@ -314,11 +314,11 @@ def build_review(archive_path: Path) -> dict[str, Any]:
             ),
         },
         "upstream_receipts": {
-            str(PUBLIC_PIXEL.relative_to(REPO)): sha256(PUBLIC_PIXEL.read_bytes()),
-            str(SOURCE_PIXEL.relative_to(REPO)): sha256(SOURCE_PIXEL.read_bytes()),
-            str(D10_GAP.relative_to(REPO)): sha256(D10_GAP.read_bytes()),
-            str(KRAWCZYK.relative_to(REPO)): sha256(KRAWCZYK.read_bytes()),
-            str(LEGACY_D10_SOURCE.relative_to(REPO)): sha256(LEGACY_D10_SOURCE.read_bytes()),
+            PUBLIC_PIXEL.relative_to(REPO).as_posix(): sha256(PUBLIC_PIXEL.read_bytes()),
+            SOURCE_PIXEL.relative_to(REPO).as_posix(): sha256(SOURCE_PIXEL.read_bytes()),
+            D10_GAP.relative_to(REPO).as_posix(): sha256(D10_GAP.read_bytes()),
+            KRAWCZYK.relative_to(REPO).as_posix(): sha256(KRAWCZYK.read_bytes()),
+            LEGACY_D10_SOURCE.relative_to(REPO).as_posix(): sha256(LEGACY_D10_SOURCE.read_bytes()),
         },
         "three_coordinate_inverse_audit": {
             "coordinate_count": 3,

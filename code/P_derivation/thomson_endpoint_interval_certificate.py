@@ -160,7 +160,7 @@ def build_interval_certificate(
             },
             "R_Q_certificate": {
                 "status": "missing_source_artifact",
-                "contract_artifact": str(DEFAULT_R_Q_OUT.relative_to(DEFAULT_OUT.parent.parent)),
+                "contract_artifact": DEFAULT_R_Q_OUT.relative_to(DEFAULT_OUT.parent.parent).as_posix(),
                 "R_Q_image_required": r_required.to_json(),
                 "R_Q_prime_abs_target": +l_r_target,
                 "source_only": True,
