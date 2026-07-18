@@ -14,6 +14,7 @@ import ObserverPatchHolography.CollarStatesBridge
 import ObservableNormalForms
 import ObserverPatchHolography.Bridges.ObservableNormalForms
 import ObserverPatchHolography.IcosahedralAntibridge
+import ObserverPatchHolography.IcosahedralOrbitStabilizer
 import EventAlgebra
 
 /-!
