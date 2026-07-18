@@ -19,7 +19,9 @@ The [radial-lift theorem note](RADIAL_LIFT_SOLUTION.md) gives the one-shell
 non-identifiability proof, the physical source-dilation theorem, radial
 cross-covariance tomography, the exact amplitude conversion, and finite-window
 bound. The [simulator contract](SIMULATOR_RADIAL_CONTRACT_330.md) specifies the
-fail-closed evidence split used by finite runs.
+fail-closed evidence split used by finite runs. The
+[coverage audit](RADIAL_LIFT_COVERAGE.md) maps each radial result to its formal
+paper theorem and supporting artifact.
 
 The [physical CMB theorem program](physical_cmb_theorem_program.md) collects the remaining source, lift, stress, abundance, transfer, and likelihood obligations in one place.
 

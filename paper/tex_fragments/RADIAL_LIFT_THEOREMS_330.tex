@@ -43,6 +43,20 @@ inversion gives $\xi_{h_g}=g$ and is injective, so the kernel contains an
 infinite-dimensional copy of $C_c^\infty((2R,\infty))$.  The positive pair differs
 by the same null element.  \hfill$\square$
 
+\textbf{Corollary (exact low-mode-removed kernel).}
+\label{cor:oph330-low-mode-shell-kernel}
+For a continuous signed correlation perturbation \(\xi_h\), invisibility to
+every shell multipole \(\ell\ge0\) is equivalent to
+\(\xi_h(s)=0\) on \(0\le s\le2R\). Invisibility to every retained OPH
+multipole \(\ell\ge2\) is equivalent to
+\[
+\xi_h(s)=a+b\left(1-\frac{s^2}{2R^2}\right),
+\qquad 0\le s\le2R,
+\]
+for constants \(a,b\). Legendre completeness gives the first statement.
+Removing \(\ell=0,1\) leaves the span of \(P_0\) and \(P_1\) invisible, which
+gives the second.
+
 
 \textbf{Producer theorem (source-refinement orbit to physical dilation).}
 \label{thm:oph330-source-orbit-transfer}
@@ -135,6 +149,22 @@ apply the Weber--Schafheitlin square integral.  The convergence strip follows
 from $j_\ell(x)\sim x^\ell/(2\ell+1)!!$ at zero and $j_\ell(x)=O(x^{-1})$ at
 infinity.  \hfill$\square$
 
+\textbf{Corollary (source-family injectivity and multipole consistency).}
+\label{cor:oph330-source-family-injectivity}
+Fix \(\theta,Z_q,k_\star\), and a source window for which the forward
+coefficient is positive and finite. The forward map is injective in
+\(A_\zeta\) on the family
+\(\Delta_\zeta^2=A_\zeta(k/k_\star)^{-\theta}\). For each retained multipole,
+\[
+A_\zeta^{(\ell,W)}
+=\frac{C_{\ell,W}^q}
+{4\pi Z_q^2k_\star^\theta
+\int d\ln k\,k^{-\theta}|\Psi_{\ell,W}(k)|^2}.
+\]
+Every \(A_\zeta^{(\ell,W)}\) must agree. A disagreement falsifies the declared
+window/dilation packet and cannot be repaired with an \(\ell\)-dependent
+amplitude.
+
 \textbf{Theorem (finite-window bound).}
 \label{thm:oph330-finite-window-bound}
 For $0<\theta<2\ell$, define
@@ -164,6 +194,23 @@ $\|\partial_rj_\ell(kr)\|_\theta=r^{\theta/2-1}\sqrt{J_\ell}$.
 The fundamental theorem of calculus, Minkowski, and
 $|\|f\|^2-\|g\|^2|\le\|f-g\|(\|f\|+\|g\|)$ give the bound.  \hfill$\square$
 
+\textbf{Theorem (finite singular-value and prior continuation).}
+\label{thm:oph330-finite-prior-continuation}
+For a declared finite radial basis, write \(C=Ap\). If
+\(A\in\mathbb R^{N_\ell\times N_k}\) has rank \(r\), then
+\(\dim\ker A=N_k-r\), and every exact solution is
+\(p=p_{\rm part}+V_0a\) for a right-null basis \(V_0\). Given a prior center
+\(p_0\) and \(Q\succ0\), the unique minimizer of
+\(\frac12(p-p_0)^{\mathsf T}Q(p-p_0)\) subject to \(Ap=C\) is
+\[
+\boxed{
+p_*=p_0+Q^{-1}A^{\mathsf T}
+(AQ^{-1}A^{\mathsf T})^+(C-Ap_0).}
+\]
+The run publishes the singular values, rank threshold, right-null basis,
+resolution operator, unresolved projector, positivity active set, and prior
+sensitivity. The output type is \textsc{ConditionalRadialContinuation}.
+
 \textbf{Theorem (unrestricted tomographic uniqueness).}
 \label{thm:oph330-radial-tomography}
 For
@@ -185,6 +232,14 @@ Apply spherical-Hankel inversion in the first radial variable.  Unitary
 conjugation exposes the multiplication operator; equal multiplication operators
 have equal multipliers almost everywhere.  \hfill$\square$
 
+\textbf{Theorem (branch-typed radial boundary).}
+\label{thm:oph330-branch-typed-radial-boundary}
+The ordinary spherical-Bessel and gamma-function formulas apply to
+\textsc{FlatExact} and \textsc{FlatAssumed} branches. Open and closed spatial
+branches use their declared hyperspherical eigenfunctions and spectral
+measures. An unresolved curvature branch blocks physical radial promotion, and
+the flat thin-shell amplitude formula cannot certify a curved branch.
+
 \textbf{Promotion rule.}
 A source-derived primordial packet requires all source-stress, single-clock,
 freezeout, growing-mode, phase, physical-scale, source-amplitude, null-space,
@@ -193,3 +248,8 @@ positivity, and non-fitting forward-residual receipts, plus exactly one of
 \path{SCR330_RADIAL_TOMOGRAPHY_RECEIPT}.  A prior-selected finite inverse
 is typed as \textsc{ConditionalRadialContinuation}. In every E4 packet,
 \path{physical_tt_te_ee_claim=false}; observable spectra remain E5.
+
+\textbf{Corollary (transfer firewall).}
+Radial promotion changes no temperature, polarization, lensing, recombination,
+foreground, nuisance, covariance, or likelihood status. Those outputs require
+the independent transfer and likelihood system.

@@ -359,20 +359,23 @@ tilt is
 
 $$n_s=1-\frac{P_*}{48}=0.9660214956\ldots$$
 
-One shell cannot determine an unrestricted three-dimensional spectrum, even if
-every angular multipole is known without noise. It determines the spatial
-correlation over chord lengths up to twice the shell radius and leaves an
-infinite family of positive spectra unresolved. OPH has two mathematical ways
-through this obstruction. A scale-natural source embedding can carry the screen
-scaling law into physical wavelength scaling, which restricts the curvature
-power to a one-parameter power law and fixes the amplitude conversion. A
-complete family of radial cross-covariances can instead recover the spectrum by
-spherical Hankel tomography. A finite source carrying the reserve density,
-release law, stress, clock, freezeout surface, physical scale, and one of these
-radial certificates is work in progress. Temperature and polarization spectra
-also require ordinary Boltzmann transfer and a complete likelihood. The decimal
-above is a conditional source value. It has no status as a fitted CMB result or
-physical prediction.
+A single spherical snapshot loses depth information. Even a perfect sky map can
+compare points only across distances up to the sphere's diameter. Many different
+three-dimensional patterns can therefore cast the same pattern onto one screen.
+
+OPH has two ways to recover the missing depth. The first follows the screen as
+it is refined and checks that this change really corresponds to zooming through
+physical wavelengths. When that check passes, the scaling law fixes the shape
+of the three-dimensional spectrum and the screen fixes its amplitude. The
+second combines correlations from many radii, much like medical tomography
+combines many views to reconstruct an interior.
+
+The mathematics of these two routes is complete. A finite source carrying the
+reserve density, release law, stress, clock, freezeout surface, physical scale,
+and one of the radial certificates is work in progress. Temperature and
+polarization spectra also require ordinary Boltzmann transfer and a complete
+likelihood. The decimal above is a conditional source value. It has no status
+as a fitted CMB result or physical prediction.
 
 ## 13.7 Scrambling and Chaos
 
