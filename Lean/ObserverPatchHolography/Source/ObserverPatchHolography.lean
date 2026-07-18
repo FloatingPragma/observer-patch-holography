@@ -10,6 +10,7 @@ import ObserverPatchHolography.CollarLayer
 import ObserverPatchHolography.CollarStates
 import ObserverPatchHolography.CollarStatesT1
 import ObserverPatchHolography.CollarModularT2
+import ObserverPatchHolography.CollarStatesBridge
 import ObservableNormalForms
 import ObserverPatchHolography.Bridges.ObservableNormalForms
 import EventAlgebra
