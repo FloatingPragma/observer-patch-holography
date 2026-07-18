@@ -1,0 +1,17 @@
+# Core dependencies for the mandatory scientific receipt suite (pytest.ini: testpaths = code).
+# Pinned and verified from a clean clone on CPython 3.12.
+#
+# mpmath and sympy are imported across code/ but were previously undeclared, so a
+# fresh clone could not collect the suite (see the clean-clone reproduction report).
+#
+# Optional lanes keep their own extras and stay opt-in:
+#   code/ibm_quantum_cloud/requirements-ibm.txt   IBM / Qiskit hardware lane (OPH_RUN_IBM=1)
+#   code/dark_matter/requirements-boltzmann.txt    CAMB / Boltzmann cosmology lane
+#   code/particles/requirements-quantum.txt        qiskit ancillary experiments
+numpy==2.5.1
+scipy==1.18.0
+mpmath==1.3.0
+sympy==1.14.0
+PyYAML==6.0.3
+jsonschema==4.26.0
+pytest==9.1.1
